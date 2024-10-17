@@ -1081,7 +1081,7 @@ define i32 @Kit_SopAnyLiteral(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 .critedge.us:                                     ; preds = %7, %10
   %.0.lcssa.us = phi i32 [ %spec.select.us, %10 ], [ %.020.us, %7 ]
-  %13 = icmp ugt i32 %.0.lcssa.us, 1
+  %13 = icmp samesign ugt i32 %.0.lcssa.us, 1
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.critedge.us
@@ -1135,7 +1135,7 @@ define i32 @Kit_SopWorstLiteral(ptr nocapture noundef readonly %0, i32 noundef %
 
 .critedge.us:                                     ; preds = %7, %10
   %.023.lcssa.us = phi i32 [ %spec.select.us, %10 ], [ %.02334.us, %7 ]
-  %13 = icmp ugt i32 %.023.lcssa.us, 1
+  %13 = icmp samesign ugt i32 %.023.lcssa.us, 1
   %14 = icmp sgt i32 %.02439.us, %.023.lcssa.us
   %or.cond.us = select i1 %13, i1 %14, i1 false
   %.127.us = select i1 %or.cond.us, i32 %.02937.us, i32 %.02638.us
@@ -1201,7 +1201,7 @@ define i32 @Kit_SopBestLiteral(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .critedge:                                        ; preds = %11, %14, %.preheader
   %.025.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %14 ], [ %.02539, %11 ]
-  %17 = icmp ugt i32 %.025.lcssa, 1
+  %17 = icmp samesign ugt i32 %.025.lcssa, 1
   %18 = icmp slt i32 %.02644, %.025.lcssa
   %or.cond = select i1 %17, i1 %18, i1 false
   %spec.select35 = select i1 %or.cond, i32 %.03142, i32 %.02843
@@ -1267,7 +1267,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr nocapture noundef %0, i32 noundef 
 
 .critedge.us.i:                                   ; preds = %10, %7
   %.023.lcssa.us.i = phi i32 [ %spec.select.us.i, %10 ], [ %.02334.us.i, %7 ]
-  %13 = icmp ugt i32 %.023.lcssa.us.i, 1
+  %13 = icmp samesign ugt i32 %.023.lcssa.us.i, 1
   %14 = icmp sgt i32 %.02439.us.i, %.023.lcssa.us.i
   %or.cond.us.i = select i1 %13, i1 %14, i1 false
   %.127.us.i = select i1 %or.cond.us.i, i32 %.02937.us.i, i32 %.02638.us.i
@@ -1421,7 +1421,7 @@ define range(i32 0, 2) i32 @Kit_SopDivisor(ptr nocapture noundef %0, ptr nocaptu
 
 .critedge.us.i:                                   ; preds = %12, %9
   %.0.lcssa.us.i = phi i32 [ %spec.select.us.i, %12 ], [ %.020.us.i, %9 ]
-  %15 = icmp ugt i32 %.0.lcssa.us.i, 1
+  %15 = icmp samesign ugt i32 %.0.lcssa.us.i, 1
   br i1 %15, label %Kit_SopAnyLiteral.exit, label %16
 
 16:                                               ; preds = %.critedge.us.i
@@ -1541,7 +1541,7 @@ define void @Kit_SopBestLiteralCover(ptr nocapture noundef %0, ptr nocapture nou
 
 .critedge.i:                                      ; preds = %16, %13, %.preheader.i
   %.025.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.02539.i, %13 ], [ %spec.select.i, %16 ]
-  %19 = icmp ugt i32 %.025.lcssa.i, 1
+  %19 = icmp samesign ugt i32 %.025.lcssa.i, 1
   %20 = icmp slt i32 %.02644.i, %.025.lcssa.i
   %or.cond.i = select i1 %19, i1 %20, i1 false
   %spec.select35.i = select i1 %or.cond.i, i32 %.03142.i, i32 %.02843.i

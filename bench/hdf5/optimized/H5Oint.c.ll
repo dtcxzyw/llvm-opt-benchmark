@@ -346,7 +346,7 @@ define ptr @H5O_create_ohdr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %48 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 255
-  %51 = icmp ugt i32 %.011.i, %50
+  %51 = icmp samesign ugt i32 %.011.i, %50
   br i1 %51, label %58, label %52
 
 52:                                               ; preds = %42

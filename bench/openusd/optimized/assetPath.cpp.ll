@@ -208,7 +208,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 .lr.ph:                                           ; preds = %.preheader, %19
   %.018 = phi i32 [ %20, %19 ], [ 1, %.preheader ]
   %.01117 = phi i32 [ %18, %19 ], [ %6, %.preheader ]
-  %8 = icmp ult i32 %.01117, 32
+  %8 = icmp samesign ult i32 %.01117, 32
   %9 = icmp eq i32 %.01117, 127
   %or.cond3.i = or i1 %8, %9
   %10 = and i32 %.01117, 2147483616

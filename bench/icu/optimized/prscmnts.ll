@@ -715,7 +715,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
 
 for.end:                                          ; preds = %invoke.cont30
   %cmp36 = icmp eq i32 %option, 0
-  %cmp37 = icmp ugt i32 %spec.select, 1
+  %cmp37 = icmp samesign ugt i32 %spec.select, 1
   %or.cond = select i1 %cmp36, i1 %cmp37, i1 false
   br i1 %or.cond, label %if.then38, label %cleanup
 

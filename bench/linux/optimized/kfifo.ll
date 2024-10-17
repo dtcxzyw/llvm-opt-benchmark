@@ -136,7 +136,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__kfifo_init(ptr nocapture nound
   %6 = udiv i64 %5, %3
   %7 = icmp ule i64 %3, %5
   %8 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %6), !range !7
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   %10 = select i1 %7, i1 %9, i1 false
   br i1 %10, label %15, label %11
 
@@ -1241,7 +1241,7 @@ define internal fastcc i32 @setup_sgl_buf(ptr noundef %0, ptr noundef %1, i32 no
   %23 = zext i32 %3 to i64
   %24 = and i64 %11, 4095
   %25 = sub nuw nsw i64 4096, %24
-  %26 = icmp ugt i64 %25, %23
+  %26 = icmp samesign ugt i64 %25, %23
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %75
@@ -1326,7 +1326,7 @@ define internal fastcc i32 @setup_sgl_buf(ptr noundef %0, ptr noundef %1, i32 no
   %87 = add nuw nsw i64 %86, 4096
   %88 = zext nneg i32 %83 to i64
   %89 = sub nuw nsw i64 %87, %88
-  %90 = icmp ugt i64 %89, %85
+  %90 = icmp samesign ugt i64 %89, %85
   br i1 %90, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %75

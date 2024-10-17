@@ -365,7 +365,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %167 = sub nuw nsw i32 32, %spec.select
   %168 = lshr i32 %.9953, %167
   %169 = zext i8 %.31035 to i32
-  %.not1316 = icmp ugt i32 %spec.select, %169
+  %.not1316 = icmp samesign ugt i32 %spec.select, %169
   br i1 %.not1316, label %183, label %170
 
 170:                                              ; preds = %163

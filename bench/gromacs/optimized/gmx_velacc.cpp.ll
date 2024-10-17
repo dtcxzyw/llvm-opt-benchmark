@@ -803,7 +803,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit89:        ; preds = %189, %192
           to label %321 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 321:                                              ; preds = %317
-  %322 = icmp ugt i64 %indvars.iv205, 2
+  %322 = icmp samesign ugt i64 %indvars.iv205, 2
   br i1 %322, label %323, label %419
 
 323:                                              ; preds = %321
@@ -1034,7 +1034,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i97:      ; preds = %386, %383
   %403 = fpext float %402 to double
   %404 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.43, double noundef %394, double noundef %403) #16
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 2
-  %405 = icmp ult i64 %indvars.iv.next53.i, %wide.trip.count.i91
+  %405 = icmp samesign ult i64 %indvars.iv.next53.i, %wide.trip.count.i91
   br i1 %405, label %389, label %412, !llvm.loop !18
 
 406:                                              ; preds = %.noexc.i, %.noexc103

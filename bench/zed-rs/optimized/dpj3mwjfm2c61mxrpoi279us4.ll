@@ -1844,7 +1844,7 @@ default.unreachable:                              ; preds = %172
   %28 = load ptr, ptr %27, align 8, !alias.scope !335, !noalias !338, !nonnull !9, !noundef !9
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h1265328e84bb43dcE.llvm.11830909381988143716"(ptr noundef nonnull align 8 %29, ptr noundef nonnull align 8 %24, i64 noundef 0, ptr noundef nonnull %20), !range !341, !noalias !338
-  %switch.i20 = icmp ult i8 %30, 2
+  %switch.i20 = icmp samesign ult i8 %30, 2
   br i1 %switch.i20, label %"_ZN14event_listener26InnerListener$LT$T$C$B$GT$13poll_internal17h9fe9c007c903afa4E.exit", label %31
 
 31:                                               ; preds = %26
@@ -4829,7 +4829,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
   br i1 %42, label %.thread.i, label %43
 
 43:                                               ; preds = %39
-  %switch.i.i.i = icmp ult i8 %41, 3
+  %switch.i.i.i = icmp samesign ult i8 %41, 3
   %44 = getelementptr inbounds i8, ptr %6, i64 16
   %45 = load i8, ptr %44, align 8, !range !1175, !alias.scope !1171, !noalias !1168, !noundef !9
   %46 = icmp eq i8 %45, 6
@@ -4838,14 +4838,14 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core.
 .thread.i:                                        ; preds = %39
   %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i8, ptr %47, align 8, !range !1175, !alias.scope !1171, !noalias !1168, !noundef !9
-  %switch.i.i3453.i = icmp ult i8 %48, 3
+  %switch.i.i3453.i = icmp samesign ult i8 %48, 3
   br i1 %switch.i.i3453.i, label %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h069becf18dcbb187E.exit.i"
 
 ._crit_edge.i:                                    ; preds = %43
   br i1 %switch.i.i.i, label %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h069becf18dcbb187E.exit.i"
 
 49:                                               ; preds = %43
-  %switch.i.i34.i = icmp ult i8 %45, 3
+  %switch.i.i34.i = icmp samesign ult i8 %45, 3
   %50 = xor i1 %switch.i.i.i, %switch.i.i34.i
   br i1 %50, label %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h069becf18dcbb187E.exit.i"
 

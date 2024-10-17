@@ -415,13 +415,13 @@ define { i64, i64 } @"_ZN80_$LT$rayon..range..Iter$LT$char$GT$$u20$as$u20$rayon.
   %2 = load i32, ptr %0, align 4, !range !45, !alias.scope !46, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !45, !alias.scope !46, !noundef !4
-  %5 = icmp ult i32 %2, %4
+  %5 = icmp samesign ult i32 %2, %4
   br i1 %5, label %6, label %"_ZN87_$LT$rayon..range..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h8b13b2fb3e12cd6eE.exit"
 
 6:                                                ; preds = %1
   %7 = sub nuw nsw i32 %4, %2
-  %8 = icmp ult i32 %2, 55296
-  %9 = icmp ugt i32 %4, 57343
+  %8 = icmp samesign ult i32 %2, 55296
+  %9 = icmp samesign ugt i32 %4, 57343
   %or.cond.i = and i1 %8, %9
   %10 = add nsw i32 %7, -2048
   %spec.select.i = select i1 %or.cond.i, i32 %10, i32 %7
@@ -439,13 +439,13 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN87_$LT$rayon..range..Iter$LT$ch
   %2 = load i32, ptr %0, align 4, !range !45, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !45, !noundef !4
-  %5 = icmp ult i32 %2, %4
+  %5 = icmp samesign ult i32 %2, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
   %7 = sub nuw nsw i32 %4, %2
-  %8 = icmp ult i32 %2, 55296
-  %9 = icmp ugt i32 %4, 57343
+  %8 = icmp samesign ult i32 %2, 55296
+  %9 = icmp samesign ugt i32 %4, 57343
   %or.cond = and i1 %8, %9
   %10 = add nsw i32 %7, -2048
   %spec.select = select i1 %or.cond, i32 %10, i32 %7

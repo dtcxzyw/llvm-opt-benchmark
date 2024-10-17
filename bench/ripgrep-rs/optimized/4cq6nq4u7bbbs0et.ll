@@ -124,7 +124,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %43 = icmp ult i64 %42, 6
   call void @llvm.assume(i1 %43)
-  %switch.selectcmp28 = icmp ugt i64 %42, 3
+  %switch.selectcmp28 = icmp samesign ugt i64 %42, 3
   br i1 %.not, label %62, label %46
 
 44:                                               ; preds = %63, %47

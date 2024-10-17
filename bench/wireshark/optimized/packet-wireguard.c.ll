@@ -2206,7 +2206,7 @@ wg_keylog_reset.exit:                             ; preds = %9, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr @num_wg_key_records, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %23, %wg_keylog_reset.exit, %0

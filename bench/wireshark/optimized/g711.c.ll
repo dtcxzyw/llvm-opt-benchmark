@@ -30,7 +30,7 @@ define zeroext i8 @linear2alaw(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %search.exit.thread, label %4, !llvm.loop !4
 
 search.exit:                                      ; preds = %4
-  %10 = icmp ugt i32 %.02.i, 7
+  %10 = icmp samesign ugt i32 %.02.i, 7
   br i1 %10, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %7, %search.exit
@@ -40,7 +40,7 @@ search.exit.thread:                               ; preds = %7, %search.exit
 12:                                               ; preds = %search.exit
   %.tr = trunc nuw i32 %.02.i to i8
   %13 = shl nuw nsw i8 %.tr, 4
-  %14 = icmp ult i32 %.02.i, 2
+  %14 = icmp samesign ult i32 %.02.i, 2
   %15 = trunc i32 %.017 to i8
   %16 = lshr i8 %15, 4
   %17 = add nuw nsw i32 %.02.i, 3
@@ -115,7 +115,7 @@ define zeroext i8 @linear2ulaw(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %search.exit.thread, label %3, !llvm.loop !4
 
 search.exit:                                      ; preds = %3
-  %9 = icmp ugt i32 %.02.i, 7
+  %9 = icmp samesign ugt i32 %.02.i, 7
   br i1 %9, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %6, %search.exit

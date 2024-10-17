@@ -87,9 +87,9 @@ define hidden void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls
   br label %.body.thread
 
 42:                                               ; preds = %3
-  %43 = icmp ult i64 %39, 5
+  %43 = icmp samesign ult i64 %39, 5
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %39, 2
+  %44 = icmp samesign ult i64 %39, 2
   br i1 %44, label %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread160
 
 45:                                               ; preds = %42
@@ -142,7 +142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %66 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %67 = icmp ult i64 %66, 6
   tail call void @llvm.assume(i1 %67)
-  %switch.selectcmp74 = icmp ugt i64 %66, 3
+  %switch.selectcmp74 = icmp samesign ugt i64 %66, 3
   br i1 %switch.selectcmp74, label %68, label %108
 
 68:                                               ; preds = %65
@@ -334,7 +334,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %132 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !30
   %133 = icmp ult i64 %132, 6
   call void @llvm.assume(i1 %133)
-  %134 = icmp ult i64 %132, 4
+  %134 = icmp samesign ult i64 %132, 4
   br i1 %134, label %"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer28_$u7b$$u7b$closure$u7d$$u7d$17he20adf6c7502c007E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %131

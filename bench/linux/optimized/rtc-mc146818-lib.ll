@@ -220,7 +220,7 @@ define dso_local noundef range(i32 -110, 1) i32 @mc146818_get_time(ptr noundef %
   %32 = load i8, ptr %5, align 1
   %33 = call i32 @_bcd2bin(i8 noundef zeroext %32) #8
   %34 = and i32 %33, 255
-  %35 = icmp ugt i32 %34, 19
+  %35 = icmp samesign ugt i32 %34, 19
   br i1 %35, label %36, label %thread-pre-split
 
 36:                                               ; preds = %8
@@ -350,7 +350,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture 
 26:                                               ; preds = %.thread, %24
   %27 = phi i32 [ %.zext, %.thread ], [ 0, %24 ]
   %28 = phi i32 [ %.zext4, %.thread ], [ %3, %24 ]
-  %29 = icmp ugt i32 %28, 99
+  %29 = icmp samesign ugt i32 %28, 99
   %30 = add nsw i32 %28, -100
   %31 = select i1 %29, i32 %30, i32 %28
   %32 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #6

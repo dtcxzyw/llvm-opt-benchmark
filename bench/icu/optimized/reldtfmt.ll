@@ -630,7 +630,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %len10.i = getelementptr inbounds %"struct.icu_75::URelativeString", ptr %call57, i64 %indvars.iv.i, i32 1
   store i32 -1, ptr %len10.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i21 = icmp ult i64 %indvars.iv.next.i, %11
+  %cmp.i21 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %cmp.i21, label %for.body.i, label %invoke.cont60, !llvm.loop !5
 
 invoke.cont60:                                    ; preds = %for.body.i, %invoke.cont56

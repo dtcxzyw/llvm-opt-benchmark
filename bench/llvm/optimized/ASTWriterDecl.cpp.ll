@@ -9898,7 +9898,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit12:    ; preds = %_ZN5clang15ASTRecor
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %3, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %48, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %48, %_ZN5clang15ASTRecordWriter9push_backEm.exit12
@@ -12388,7 +12388,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit18:    ; preds = %_ZN5clang15ASTRecor
   %50 = load i32, ptr %4, align 8
   %51 = lshr i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %47, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %47, %44
@@ -29523,7 +29523,7 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit55:    ; preds = %64, %74
   %84 = lshr i64 %83, 32
   %85 = trunc nuw i64 %84 to i32
   %86 = and i32 %85, 2147483647
-  %87 = icmp ult i32 %86, 65
+  %87 = icmp samesign ult i32 %86, 65
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %82
@@ -30483,7 +30483,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %33, %46
   %61 = or i32 %53, %60
   store i32 %61, ptr %11, align 4
   %62 = add nuw nsw i32 %storemerge6.i, 3
-  %63 = icmp ult i32 %storemerge6.i, 29
+  %63 = icmp samesign ult i32 %storemerge6.i, 29
   br i1 %63, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit16, label %64
 
 64:                                               ; preds = %56

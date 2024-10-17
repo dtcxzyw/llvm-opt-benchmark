@@ -6726,7 +6726,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
   %24 = add i64 %23, %9
   %25 = add nuw nsw i64 %14, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %7, !prof !178, !llvm.loop !179
 
 .thread:                                          ; preds = %7, %17, %13
@@ -6759,7 +6759,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
   %46 = add i64 %45, %31
   %47 = add nuw nsw i64 %36, 1
   %48 = and i64 %47, 127
-  %49 = icmp ugt i64 %48, 63
+  %49 = icmp samesign ugt i64 %48, 63
   br i1 %49, label %.thread7, label %29, !prof !178, !llvm.loop !180
 
 .thread7:                                         ; preds = %29, %39, %35
@@ -6792,7 +6792,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
   %68 = add i64 %67, %53
   %69 = add nuw nsw i64 %58, 1
   %70 = and i64 %69, 127
-  %71 = icmp ugt i64 %70, 63
+  %71 = icmp samesign ugt i64 %70, 63
   br i1 %71, label %.thread9, label %51, !prof !178, !llvm.loop !181
 
 .thread9:                                         ; preds = %51, %61, %57

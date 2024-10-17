@@ -637,7 +637,7 @@ define dso_local noundef zeroext i1 @intel_bios_is_valid_vbt(ptr noundef readonl
   %15 = getelementptr inbounds i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 1
   %17 = zext i32 %16 to i64
-  %18 = icmp uge i64 %17, %12
+  %18 = icmp samesign uge i64 %17, %12
   %19 = sub nsw i64 %12, %17
   %20 = icmp ult i64 %19, 22
   %21 = select i1 %18, i1 true, i1 %20
@@ -780,7 +780,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 71:                                               ; preds = %64
   %72 = add nuw nsw i32 %65, 4
-  %73 = icmp ult i32 %65, 2097148
+  %73 = icmp samesign ult i32 %65, 2097148
   br i1 %73, label %64, label %.thread99, !llvm.loop !14
 
 74:                                               ; preds = %64
@@ -824,7 +824,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %102, label %103, label %92, !llvm.loop !15
 
 103:                                              ; preds = %92
-  %104 = icmp ult i32 %79, 48
+  %104 = icmp samesign ult i32 %79, 48
   br i1 %104, label %.thread98, label %105
 
 105:                                              ; preds = %103
@@ -836,7 +836,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %107 = getelementptr inbounds i8, ptr %84, i64 24
   %108 = load i16, ptr %107, align 8
   %109 = zext i16 %108 to i32
-  %110 = icmp ult i32 %79, %109
+  %110 = icmp samesign ult i32 %79, %109
   br i1 %110, label %.thread98, label %111
 
 111:                                              ; preds = %106
@@ -844,7 +844,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %113 = getelementptr inbounds i8, ptr %84, i64 28
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
-  %116 = icmp uge i64 %115, %112
+  %116 = icmp samesign uge i64 %115, %112
   %117 = sub nsw i64 %112, %115
   %118 = icmp ult i64 %117, 22
   %119 = select i1 %116, i1 true, i1 %118
@@ -1730,7 +1730,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %659 = zext i16 %658 to i32
   %660 = shl nuw nsw i32 %558, 4
   %661 = add nuw nsw i32 %660, %659
-  %662 = icmp ugt i32 %661, %541
+  %662 = icmp samesign ugt i32 %661, %541
   br i1 %662, label %.thread112, label %663
 
 663:                                              ; preds = %657
@@ -2006,7 +2006,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %828 = phi i32 [ %822, %820 ], [ %826, %823 ]
   %829 = and i32 %828, 65535
   %830 = zext nneg i32 %829 to i64
-  %831 = icmp ult i32 %829, 5
+  %831 = icmp samesign ult i32 %829, 5
   br i1 %831, label %832, label %837
 
 832:                                              ; preds = %827
@@ -2310,7 +2310,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 993:                                              ; preds = %989, %986
   %994 = phi i32 [ %988, %986 ], [ %992, %989 ]
   %995 = and i32 %994, 65534
-  %996 = icmp ult i32 %995, 210
+  %996 = icmp samesign ult i32 %995, 210
   br i1 %996, label %997, label %.thread119
 
 997:                                              ; preds = %993
@@ -2422,7 +2422,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 1054:                                             ; preds = %.preheader298, %1089
   %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader298 ]
-  %1056 = icmp ugt i32 %1055, 5
+  %1056 = icmp samesign ugt i32 %1055, 5
   br i1 %1056, label %1089, label %1057
 
 1057:                                             ; preds = %1054
@@ -2814,7 +2814,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1263 = getelementptr i8, ptr %1201, i64 -43
   %1264 = load i24, ptr %1263, align 1
   %1265 = and i24 %1264, 1966080
-  %1266 = icmp ugt i24 %1265, 589824
+  %1266 = icmp samesign ugt i24 %1265, 589824
   br i1 %1266, label %1267, label %.thread124
 
 1267:                                             ; preds = %1262
@@ -3094,7 +3094,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1413 = load i16, ptr %1412, align 1
   %1414 = trunc i16 %1413 to i8
   %1415 = and i8 %1414, 15
-  %1416 = icmp ugt i8 %1415, 2
+  %1416 = icmp samesign ugt i8 %1415, 2
   br i1 %1416, label %1417, label %1419
 
 1417:                                             ; preds = %1411
@@ -4144,7 +4144,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 524:                                              ; preds = %520, %518
   %525 = phi i32 [ %519, %518 ], [ %523, %520 ]
   %526 = zext i32 %525 to i64
-  %527 = icmp ugt i64 %511, %526
+  %527 = icmp samesign ugt i64 %511, %526
   br i1 %527, label %536, label %528
 
 528:                                              ; preds = %524
@@ -5371,7 +5371,7 @@ default.unreachable222:                           ; preds = %1147, %1016, %802
 
 1216:                                             ; preds = %1241
   %1217 = add nuw nsw i32 %1221, 1
-  %1218 = icmp ult i32 %1221, 5
+  %1218 = icmp samesign ult i32 %1221, 5
   %1219 = icmp ult i32 %1238, %1212
   %1220 = and i1 %1218, %1219
   br i1 %1220, label %.preheader112, label %.loopexit, !llvm.loop !64
@@ -6448,7 +6448,7 @@ define dso_local range(i32 0, 256) i32 @intel_bios_dp_boost_level(ptr noundef re
   %15 = load i16, ptr %14, align 1
   %16 = trunc i16 %15 to i8
   %17 = and i8 %16, 15
-  %18 = icmp ugt i8 %17, 2
+  %18 = icmp samesign ugt i8 %17, 2
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %13
@@ -7193,7 +7193,7 @@ define internal fastcc void @fill_detail_timing_data(ptr noundef readonly %0, pt
   %112 = or disjoint i16 %108, %111
   %113 = getelementptr inbounds i8, ptr %1, i64 60
   store i16 %112, ptr %113, align 4
-  %114 = icmp ugt i16 %31, %41
+  %114 = icmp samesign ugt i16 %31, %41
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %3

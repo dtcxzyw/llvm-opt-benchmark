@@ -1883,7 +1883,7 @@ define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly 
   %69 = add nuw nsw i64 %62, 1
   %70 = tail call i32 @g_strv_length(ptr noundef %38) #16
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %61, label %.loopexit6
 
 .loopexit6:                                       ; preds = %73, %61, %53, %49
@@ -1904,7 +1904,7 @@ define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly 
   %81 = add nuw nsw i64 %74, 1
   %82 = tail call i32 @g_strv_length(ptr noundef %38) #16
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %73, label %.loopexit6
 
 85:                                               ; preds = %.loopexit6, %33, %28
@@ -1987,7 +1987,7 @@ define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly 
   %133 = add nuw nsw i64 %97, 1
   %134 = tail call i32 @g_strv_length(ptr noundef %8) #16
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %133, %135
+  %136 = icmp samesign ult i64 %133, %135
   br i1 %136, label %.preheader, label %.loopexit5
 
 137:                                              ; preds = %.loopexit5, %3
@@ -8765,7 +8765,7 @@ define internal fastcc void @_manage_editor_group_update_arrows(ptr noundef %0) 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %23, align 8, !tbaa !15
   %35 = tail call ptr @g_list_nth_data(ptr noundef nonnull %23, i32 noundef 2) #16
-  %36 = icmp ugt i32 %15, 1
+  %36 = icmp samesign ugt i32 %15, 1
   %37 = zext i1 %36 to i32
   tail call void @gtk_widget_set_sensitive(ptr noundef %34, i32 noundef %37) #16
   %38 = icmp slt i32 %15, %6

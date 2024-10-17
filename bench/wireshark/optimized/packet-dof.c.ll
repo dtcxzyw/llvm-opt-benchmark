@@ -1565,7 +1565,7 @@ define internal void @dof_cleanup_routine() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i16, ptr @global_security.3, align 8
   %10 = zext i16 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next.i, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %11, label %.lr.ph.i, label %dof_cleanup.exit, !llvm.loop !4
 
 dof_cleanup.exit:                                 ; preds = %.lr.ph.i, %0
@@ -1607,7 +1607,7 @@ define internal void @dof_shutdown_routine() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i16, ptr @global_security.5, align 8
   %12 = zext i16 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -1634,7 +1634,7 @@ define internal void @dof_shutdown_routine() #0 {
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %25 = load i16, ptr @global_security.3, align 8
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next28, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next28, %26
   br i1 %27, label %.lr.ph22, label %._crit_edge23, !llvm.loop !7
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %._crit_edge
@@ -2607,7 +2607,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr @num_secmode_list, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %init_addr_port_tables.exit
@@ -2625,7 +2625,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %36 = load i16, ptr @global_security.1, align 8
   %37 = zext i16 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next123, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next123, %37
   br i1 %38, label %.lr.ph101, label %._crit_edge102, !llvm.loop !9
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge
@@ -2653,7 +2653,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %49 = load i32, ptr @num_seckey_list, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next126, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next126, %50
   br i1 %51, label %.lr.ph105, label %._crit_edge106, !llvm.loop !10
 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %._crit_edge102
@@ -2677,7 +2677,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %61 = load i16, ptr @global_security.5, align 8
   %62 = zext i16 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next129, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next129, %62
   br i1 %63, label %.lr.ph109, label %._crit_edge110, !llvm.loop !11
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %._crit_edge106
@@ -2790,7 +2790,7 @@ switch.early.test97:                              ; preds = %84
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %103 = load i32, ptr @num_identsecret_list, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next132, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next132, %104
   br i1 %105, label %.lr.ph113, label %._crit_edge114, !llvm.loop !12
 
 ._crit_edge114:                                   ; preds = %99, %._crit_edge110
@@ -3672,7 +3672,7 @@ count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, 
   %41 = getelementptr i8, ptr %.019.us, i64 2
   %42 = load i8, ptr %2, align 1
   %43 = zext i8 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %.lr.ph.split.us.preheader, label %.outer._crit_edge, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %count_hex_bytes.exit
@@ -4102,7 +4102,7 @@ switch.early.test167.i:                           ; preds = %27
   %81 = icmp ugt i32 %.0112.lcssa191.i, 16383
   %82 = zext i1 %81 to i8
   %83 = add nuw nsw i8 %80, %82
-  %84 = icmp ugt i8 %83, 2
+  %84 = icmp samesign ugt i8 %83, 2
   %..i.i = select i1 %84, i8 4, i8 %83
   %85 = getelementptr inbounds i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8
@@ -4224,7 +4224,7 @@ default.unreachable:                              ; preds = %158, %96
   %143 = icmp ugt i32 %.0.lcssa196.i, 16383
   %144 = zext i1 %143 to i8
   %145 = add nuw nsw i8 %142, %144
-  %146 = icmp ugt i8 %145, 2
+  %146 = icmp samesign ugt i8 %145, 2
   %..i158.i = select i1 %146, i8 4, i8 %145
   %147 = getelementptr inbounds i8, ptr %0, i64 8
   %148 = load ptr, ptr %147, align 8
@@ -5775,7 +5775,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %29
   %.022.lcssa.i = phi i32 [ %30, %29 ], [ %34, %.lr.ph.i ]
   %35 = load i32, ptr @hf_oid_class, align 4
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef %.02136.i, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.682, i32 noundef %.022.lcssa.i) #20
-  %37 = icmp ugt i32 %.02136.i, 1
+  %37 = icmp samesign ugt i32 %.02136.i, 1
   %38 = icmp ult i32 %.022.lcssa.i, 128
   %or.cond.i = and i1 %37, %38
   br i1 %or.cond.i, label %39, label %41
@@ -5785,7 +5785,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %29
   br label %41
 
 41:                                               ; preds = %39, %read_c4.exit
-  %42 = icmp ugt i32 %.02136.i, 2
+  %42 = icmp samesign ugt i32 %.02136.i, 2
   %43 = icmp ult i32 %.022.lcssa.i, 16384
   %or.cond3.i = and i1 %42, %43
   br i1 %or.cond3.i, label %44, label %validate_c4.exit
@@ -8349,7 +8349,7 @@ read_c3.exit:                                     ; preds = %.lr.ph.i, %47
   %54 = load i32, ptr @hf_2009_9_dnp_1_srcport, align 4
   %55 = sub i32 %.023.lcssa.i, %38
   %56 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %38, i32 noundef %55, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.691, i32 noundef %.022.lcssa.i) #20
-  %57 = icmp ugt i32 %.02136.i, 1
+  %57 = icmp samesign ugt i32 %.02136.i, 1
   %58 = icmp ult i32 %.022.lcssa.i, 128
   %or.cond.i = and i1 %57, %58
   br i1 %or.cond.i, label %59, label %61
@@ -8438,7 +8438,7 @@ read_c3.exit142:                                  ; preds = %.lr.ph.i136, %85
   %92 = load i32, ptr @hf_2009_9_dnp_1_dstport, align 4
   %93 = sub i32 %.023.lcssa.i132, %.1
   %94 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %.1, i32 noundef %93, i32 noundef %.022.lcssa.i131, ptr noundef nonnull @.str.692, i32 noundef %.022.lcssa.i131) #20
-  %95 = icmp ugt i32 %.02136.i130, 1
+  %95 = icmp samesign ugt i32 %.02136.i130, 1
   %96 = icmp ult i32 %.022.lcssa.i131, 128
   %or.cond.i143 = and i1 %95, %96
   br i1 %or.cond.i143, label %97, label %99
@@ -9178,7 +9178,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %272
   %.022.lcssa.i = phi i32 [ %273, %272 ], [ %277, %.lr.ph.i ]
   %279 = load i32, ptr @hf_2009_12_dpp_2_1_opcnt, align 4
   %280 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %265, i32 noundef %279, ptr noundef %0, i32 noundef %.2598, i32 noundef %.02136.i, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.702, i32 noundef %.022.lcssa.i) #20
-  %281 = icmp ugt i32 %.02136.i, 1
+  %281 = icmp samesign ugt i32 %.02136.i, 1
   %282 = icmp ult i32 %.022.lcssa.i, 128
   %or.cond.i = and i1 %281, %282
   br i1 %or.cond.i, label %283, label %285
@@ -9188,7 +9188,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %272
   br label %285
 
 285:                                              ; preds = %283, %read_c4.exit
-  %286 = icmp ugt i32 %.02136.i, 2
+  %286 = icmp samesign ugt i32 %.02136.i, 2
   %287 = icmp ult i32 %.022.lcssa.i, 16384
   %or.cond3.i = and i1 %286, %287
   br i1 %or.cond3.i, label %288, label %validate_c4.exit
@@ -9461,7 +9461,7 @@ validate_c4.exit:                                 ; preds = %285, %288
   %.5 = phi i32 [ %421, %412 ], [ 2, %.thread585 ], [ %290, %.loopexit ]
   %425 = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %.str.714.sink, ptr %425, align 8
-  %.not469 = icmp ult i32 %.0409575582590600, 128
+  %.not469 = icmp samesign ult i32 %.0409575582590600, 128
   br i1 %.not469, label %567, label %426
 
 426:                                              ; preds = %424
@@ -9527,7 +9527,7 @@ read_c4.exit519:                                  ; preds = %.lr.ph.i513, %454
   %461 = load i32, ptr @hf_2009_12_dpp_2_3_sec_ssid, align 4
   %462 = sub i32 %.023.lcssa.i509, %445
   %463 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %428, i32 noundef %461, ptr noundef %0, i32 noundef %445, i32 noundef %462, i32 noundef %.022.lcssa.i508, ptr noundef nonnull @.str.716, i32 noundef %.022.lcssa.i508, i32 noundef %.022.lcssa.i508) #20
-  %464 = icmp ugt i32 %.02136.i507, 1
+  %464 = icmp samesign ugt i32 %.02136.i507, 1
   %465 = icmp ult i32 %.022.lcssa.i508, 128
   %or.cond.i520 = and i1 %464, %465
   br i1 %or.cond.i520, label %466, label %468
@@ -9537,7 +9537,7 @@ read_c4.exit519:                                  ; preds = %.lr.ph.i513, %454
   br label %468
 
 468:                                              ; preds = %466, %read_c4.exit519
-  %469 = icmp ugt i32 %.02136.i507, 2
+  %469 = icmp samesign ugt i32 %.02136.i507, 2
   %470 = icmp ult i32 %.022.lcssa.i508, 16384
   %or.cond3.i521 = and i1 %469, %470
   br i1 %or.cond3.i521, label %471, label %validate_c4.exit522
@@ -9631,7 +9631,7 @@ read_c4.exit536:                                  ; preds = %.lr.ph.i530, %496
   %503 = load i32, ptr @hf_2009_12_dpp_2_3_sec_rdid, align 4
   %504 = sub i32 %.023.lcssa.i526, %.7
   %505 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %428, i32 noundef %503, ptr noundef %0, i32 noundef %.7, i32 noundef %504, i32 noundef %.022.lcssa.i525, ptr noundef nonnull @.str.717, i32 noundef %.022.lcssa.i525, i32 noundef %.022.lcssa.i525) #20
-  %506 = icmp ugt i32 %.02136.i524, 1
+  %506 = icmp samesign ugt i32 %.02136.i524, 1
   %507 = icmp ult i32 %.022.lcssa.i525, 128
   %or.cond.i537 = and i1 %506, %507
   br i1 %or.cond.i537, label %508, label %510
@@ -9641,7 +9641,7 @@ read_c4.exit536:                                  ; preds = %.lr.ph.i530, %496
   br label %510
 
 510:                                              ; preds = %508, %read_c4.exit536
-  %511 = icmp ugt i32 %.02136.i524, 2
+  %511 = icmp samesign ugt i32 %.02136.i524, 2
   %512 = icmp ult i32 %.022.lcssa.i525, 16384
   %or.cond3.i538 = and i1 %511, %512
   br i1 %or.cond3.i538, label %513, label %validate_c4.exit539
@@ -10087,7 +10087,7 @@ read_c4.exit.i:                                   ; preds = %.lr.ph.i76.i, %726
   %.022.lcssa.i.i = phi i32 [ %727, %726 ], [ %731, %.lr.ph.i76.i ]
   %733 = load i32, ptr @hf_2009_12_dpp_2_1_opcnt, align 4
   %734 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.069.i, i32 noundef %733, ptr noundef %577, i32 noundef %718, i32 noundef %.02136.i.i, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.702, i32 noundef %.022.lcssa.i.i) #20
-  %735 = icmp ugt i32 %.02136.i.i, 1
+  %735 = icmp samesign ugt i32 %.02136.i.i, 1
   %736 = icmp ult i32 %.022.lcssa.i.i, 128
   %or.cond.i77.i = and i1 %735, %736
   br i1 %or.cond.i77.i, label %737, label %739
@@ -10097,7 +10097,7 @@ read_c4.exit.i:                                   ; preds = %.lr.ph.i76.i, %726
   br label %739
 
 739:                                              ; preds = %737, %read_c4.exit.i
-  %740 = icmp ugt i32 %.02136.i.i, 2
+  %740 = icmp samesign ugt i32 %.02136.i.i, 2
   %741 = icmp ult i32 %.022.lcssa.i.i, 16384
   %or.cond3.i.i = and i1 %740, %741
   br i1 %or.cond3.i.i, label %742, label %validate_c4.exit.i
@@ -10336,7 +10336,7 @@ switch.lookup:                                    ; preds = %read_c4.exit
   %38 = load i32, ptr @hf_security_10_permission_group_identifier, align 4
   %39 = sub i32 %.023.lcssa.i, %.032
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.032, i32 noundef %39, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.722, i32 noundef %.022.lcssa.i, ptr noundef nonnull %.023) #20
-  %41 = icmp ugt i32 %.02136.i, 1
+  %41 = icmp samesign ugt i32 %.02136.i, 1
   %42 = icmp ult i32 %.022.lcssa.i, 128
   %or.cond.i24 = and i1 %41, %42
   br i1 %or.cond.i24, label %43, label %45
@@ -10346,7 +10346,7 @@ switch.lookup:                                    ; preds = %read_c4.exit
   br label %45
 
 45:                                               ; preds = %43, %37
-  %46 = icmp ugt i32 %.02136.i, 2
+  %46 = icmp samesign ugt i32 %.02136.i, 2
   %47 = icmp ult i32 %.022.lcssa.i, 16384
   %or.cond3.i = and i1 %46, %47
   br i1 %or.cond3.i, label %48, label %validate_c4.exit
@@ -14096,7 +14096,7 @@ proto_item_set_generated.exit:                    ; preds = %45, %61, %64
   %.2320 = phi ptr [ %.1319396, %206 ], [ %.1319396, %213 ], [ %.1319396, %217 ], [ %.1319396, %221 ], [ %250, %248 ]
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %257 = zext i16 %255 to i64
-  %258 = icmp ult i64 %indvars.iv.next414, %257
+  %258 = icmp samesign ult i64 %indvars.iv.next414, %257
   br i1 %258, label %206, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %254
@@ -14384,7 +14384,7 @@ proto_item_set_generated.exit384:                 ; preds = %277, %274, %271, %.
   %409 = icmp eq ptr %.3, null
   %410 = load i16, ptr @global_security.1, align 8
   %411 = zext i16 %410 to i64
-  %412 = icmp ult i64 %indvars.iv.next417, %411
+  %412 = icmp samesign ult i64 %indvars.iv.next417, %411
   %or.cond = select i1 %409, i1 %412, i1 false
   br i1 %or.cond, label %.lr.ph407, label %.critedge, !llvm.loop !69
 
@@ -14634,7 +14634,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %17
   %23 = load i32, ptr @hf_tep_2_2_1_state_identifier, align 4
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef %.02136.i, i32 noundef %.022.lcssa.i) #20
   %25 = load i32, ptr %3, align 4
-  %26 = icmp ugt i32 %.02136.i, 1
+  %26 = icmp samesign ugt i32 %.02136.i, 1
   %27 = icmp ult i32 %25, 128
   %or.cond.i = and i1 %26, %27
   br i1 %or.cond.i, label %28, label %30
@@ -14644,7 +14644,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %17
   br label %30
 
 30:                                               ; preds = %28, %read_c4.exit
-  %31 = icmp ugt i32 %.02136.i, 2
+  %31 = icmp samesign ugt i32 %.02136.i, 2
   %32 = icmp ult i32 %25, 16384
   %or.cond3.i = and i1 %31, %32
   br i1 %or.cond3.i, label %33, label %validate_c4.exit
@@ -14918,7 +14918,7 @@ switch.lookup:                                    ; preds = %read_c4.exit.i
   %53 = load i32, ptr @hf_security_12_permission_group_identifier, align 4
   %54 = sub i32 %.023.lcssa.i.i, %.0275.i
   %55 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %53, ptr noundef %26, i32 noundef %.0275.i, i32 noundef %54, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.722, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull %.026.i) #20
-  %56 = icmp ugt i32 %.02136.i.i, 1
+  %56 = icmp samesign ugt i32 %.02136.i.i, 1
   %57 = icmp ult i32 %.022.lcssa.i.i, 128
   %or.cond.i.i = and i1 %56, %57
   br i1 %or.cond.i.i, label %58, label %60
@@ -14928,7 +14928,7 @@ switch.lookup:                                    ; preds = %read_c4.exit.i
   br label %60
 
 60:                                               ; preds = %58, %52
-  %61 = icmp ugt i32 %.02136.i.i, 2
+  %61 = icmp samesign ugt i32 %.02136.i.i, 2
   %62 = icmp ult i32 %.022.lcssa.i.i, 16384
   %or.cond3.i.i = and i1 %61, %62
   br i1 %or.cond3.i.i, label %63, label %validate_c4.exit.i
@@ -15216,7 +15216,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.2 = phi ptr [ %.1554, %106 ], [ %.1554, %112 ], [ %124, %122 ], [ %.1554, %118 ], [ %.1554, %114 ]
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %139 = zext i16 %137 to i64
-  %140 = icmp ult i64 %indvars.iv.next566, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next566, %139
   br i1 %140, label %106, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %136, %96, %91
@@ -15458,7 +15458,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.2486 = phi ptr [ %.1485550, %264 ], [ %.1485550, %270 ], [ %282, %280 ], [ %.1485550, %276 ], [ %.1485550, %272 ]
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %297 = zext i16 %295 to i64
-  %298 = icmp ult i64 %indvars.iv.next563, %297
+  %298 = icmp samesign ult i64 %indvars.iv.next563, %297
   br i1 %298, label %264, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %294
@@ -15613,7 +15613,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.2491 = phi ptr [ %.1490547, %352 ], [ %.1490547, %358 ], [ %370, %368 ], [ %.1490547, %364 ], [ %.1490547, %360 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %385 = zext i16 %383 to i64
-  %386 = icmp ult i64 %indvars.iv.next, %385
+  %386 = icmp samesign ult i64 %indvars.iv.next, %385
   br i1 %386, label %352, label %.loopexit546, !llvm.loop !74
 
 .loopexit546:                                     ; preds = %382, %342, %334

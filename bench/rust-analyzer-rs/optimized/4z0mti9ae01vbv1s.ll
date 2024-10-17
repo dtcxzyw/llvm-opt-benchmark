@@ -3251,9 +3251,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h2906badfe1326c7dE.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -6509,9 +6509,9 @@ default.unreachable:                              ; preds = %1225, %46
   br label %.thread91
 
 92:                                               ; preds = %81
-  %93 = icmp ult i64 %84, 5
+  %93 = icmp samesign ult i64 %84, 5
   call void @llvm.assume(i1 %93)
-  %94 = icmp ult i64 %84, 3
+  %94 = icmp samesign ult i64 %84, 3
   br i1 %94, label %95, label %.thread2516.i
 
 95:                                               ; preds = %92
@@ -10300,9 +10300,9 @@ default.unreachable1463:                          ; preds = %_ZN14ide_completion
   unreachable
 
 100:                                              ; preds = %5
-  %101 = icmp ult i64 %97, 5
+  %101 = icmp samesign ult i64 %97, 5
   tail call void @llvm.assume(i1 %101)
-  %102 = icmp ult i64 %97, 3
+  %102 = icmp samesign ult i64 %97, 3
   br i1 %102, label %103, label %.thread
 
 103:                                              ; preds = %100
@@ -10583,7 +10583,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 "_ZN4core3ptr58drop_in_place$LT$ide_completion..context..QualifierCtx$GT$17h791448fb048b9306E.exit": ; preds = %198, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h95061b02fe5e741cE.llvm.13297079808459514206.exit.i", %203
   %210 = load i64, ptr %86, align 8, !range !317, !noundef !8
-  %211 = icmp ult i64 %210, 6
+  %211 = icmp samesign ult i64 %210, 6
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$ide_completion..context..QualifierCtx$GT$17h791448fb048b9306E.exit"
@@ -16314,7 +16314,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i: ; preds = %2100, %20
   store ptr %.sroa.5146.0.copyload, ptr %75, align 8
   %2235 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %.sroa.6147.0.copyload, ptr %2235, align 8
-  %2236 = icmp ult i64 %2232, 6
+  %2236 = icmp samesign ult i64 %2232, 6
   %2237 = getelementptr inbounds i8, ptr %76, i64 40
   %2238 = load i64, ptr %2237, align 8, !range !317
   %2239 = icmp eq i64 %2238, 3
@@ -23932,7 +23932,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb8ff4ecf7faf6731E.exit: ; preds = %61
   br i1 %148, label %394, label %149
 
 149:                                              ; preds = %146
-  %150 = icmp ult i8 %147, 11
+  %150 = icmp samesign ult i8 %147, 11
   br i1 %150, label %151, label %401
 
 151:                                              ; preds = %149

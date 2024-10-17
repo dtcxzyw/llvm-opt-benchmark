@@ -1018,7 +1018,7 @@ for.inc.i81:                                      ; preds = %if.end22.i, %land.l
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i77, 1
   %100 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %101 = zext i32 %100 to i64
-  %cmp.i83 = icmp ult i64 %indvars.iv.next.i82, %101
+  %cmp.i83 = icmp samesign ult i64 %indvars.iv.next.i82, %101
   br i1 %cmp.i83, label %for.body.i76, label %if.end227, !llvm.loop !9
 
 if.else224:                                       ; preds = %if.end219
@@ -1349,7 +1349,7 @@ for.inc.us.i:                                     ; preds = %_.exit.us.i, %if.en
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %147 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %148 = zext i32 %147 to i64
-  %cmp.us.i = icmp ult i64 %indvars.iv.next17.i, %148
+  %cmp.us.i = icmp samesign ult i64 %indvars.iv.next17.i, %148
   br i1 %cmp.us.i, label %for.body.us.i, label %chmod_pathspec.exit, !llvm.loop !12
 
 for.body.i121:                                    ; preds = %for.body.lr.ph.i118, %for.inc.i135
@@ -1415,7 +1415,7 @@ for.inc.i135:                                     ; preds = %_.exit.i133, %if.en
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i122, 1
   %157 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %158 = zext i32 %157 to i64
-  %cmp.i137 = icmp ult i64 %indvars.iv.next.i136, %158
+  %cmp.i137 = icmp samesign ult i64 %indvars.iv.next.i136, %158
   br i1 %cmp.i137, label %for.body.i121, label %chmod_pathspec.exit, !llvm.loop !12
 
 chmod_pathspec.exit:                              ; preds = %for.inc.i135, %for.inc.us.i, %if.then237

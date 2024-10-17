@@ -135,7 +135,7 @@ _ZN13ZValueStorageI15ZPerNUMAStorageE5allocEm.exit.i: ; preds = %tailrecurse.i.i
   store i64 0, ptr %23, align 8
   %24 = tail call noundef i32 @_ZN5ZNUMA5countEv() #9
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next.i, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %26, label %.lr.ph.i, label %_ZN6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEC2Ev.exit, !llvm.loop !6
 
 _ZN6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEC2Ev.exit: ; preds = %.lr.ph.i, %_ZN13ZValueStorageI15ZPerNUMAStorageE5allocEm.exit.i

@@ -650,7 +650,7 @@ while.body.i106:                                  ; preds = %while.body.i106, %w
 while.end.i:                                      ; preds = %while.body.i106, %if.else
   %op.addr.0.lcssa.i = phi ptr [ %op.addr.3, %if.else ], [ %add.ptr.i.i107, %while.body.i106 ]
   %len.addr.0.lcssa.i = phi i64 [ %add80171, %if.else ], [ %sub.i108, %while.body.i106 ]
-  %cmp1.i96 = icmp ugt i64 %len.addr.0.lcssa.i, 64
+  %cmp1.i96 = icmp samesign ugt i64 %len.addr.0.lcssa.i, 64
   br i1 %cmp1.i96, label %if.end.thread.i, label %if.end.i97
 
 if.end.thread.i:                                  ; preds = %while.end.i
@@ -663,7 +663,7 @@ if.end.thread.i:                                  ; preds = %while.end.i
   br label %if.then5.i
 
 if.end.i97:                                       ; preds = %while.end.i
-  %cmp4.i = icmp ult i64 %len.addr.0.lcssa.i, 12
+  %cmp4.i = icmp samesign ult i64 %len.addr.0.lcssa.i, 12
   br i1 %cmp4.i, label %if.end.if.then5_crit_edge.i, label %if.else.i98
 
 if.end.if.then5_crit_edge.i:                      ; preds = %if.end.i97
@@ -997,7 +997,7 @@ entry:
 
 while.body.i:                                     ; preds = %if.end11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 24
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %cmp.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %if.end.i, !llvm.loop !18
 
 if.end.i:                                         ; preds = %while.body.i, %entry
@@ -1333,7 +1333,7 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %entry, %cond.true.i
 
 while.body.i.i:                                   ; preds = %if.end11.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 24
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %cmp.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end.i.i, !llvm.loop !18
 
 if.end.i.i:                                       ; preds = %while.body.i.i, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit
@@ -1447,7 +1447,7 @@ entry:
 
 while.body.i.i:                                   ; preds = %if.end11.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 24
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %cmp.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end.i.i, !llvm.loop !18
 
 if.end.i.i:                                       ; preds = %while.body.i.i, %entry
@@ -1662,7 +1662,7 @@ entry:
 
 while.body.i:                                     ; preds = %if.end11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 24
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %cmp.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %if.end.i, !llvm.loop !18
 
 if.end.i:                                         ; preds = %while.body.i, %entry
@@ -1993,7 +1993,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
 
 while.body.i.i:                                   ; preds = %if.end11.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 24
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %cmp.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end.i.i, !llvm.loop !18
 
 if.end.i.i:                                       ; preds = %while.body.i.i, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
@@ -2147,7 +2147,7 @@ entry:
 
 while.body.i:                                     ; preds = %if.end11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 24
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %cmp.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %if.end.i, !llvm.loop !18
 
 if.end.i:                                         ; preds = %while.body.i, %entry
@@ -2545,7 +2545,7 @@ if.then28:                                        ; preds = %if.end23
   %6 = load i64, ptr %output_limit_.i, align 8
   %7 = load i64, ptr %total_written_.i, align 8
   %sub.i = sub i64 %6, %7
-  %cmp.i = icmp ult i32 %conv25, 64
+  %cmp.i = icmp samesign ult i32 %conv25, 64
   %cmp2.i = icmp ugt i64 %sub.ptr.sub34, 20
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp4.i = icmp ugt i64 %sub.i, 15
@@ -2575,7 +2575,7 @@ if.then36:                                        ; preds = %land.lhs.true5.i
   br label %if.end23.backedge
 
 if.end39:                                         ; preds = %if.then28
-  %cmp40 = icmp ugt i32 %conv25, 236
+  %cmp40 = icmp samesign ugt i32 %conv25, 236
   br i1 %cmp40, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.end39
@@ -3995,7 +3995,7 @@ if.then28:                                        ; preds = %if.end23
   %sub.ptr.lhs.cast.i132 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i133 = ptrtoint ptr %op.2 to i64
   %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %cmp.i135 = icmp ult i32 %conv25, 64
+  %cmp.i135 = icmp samesign ult i32 %conv25, 64
   %cmp2.i136 = icmp ugt i64 %sub.ptr.sub34, 20
   %or.cond.i = and i1 %cmp.i135, %cmp2.i136
   %cmp4.i = icmp ugt i64 %sub.ptr.sub.i134, 15
@@ -4017,7 +4017,7 @@ for.cond.backedge:                                ; preds = %if.then36, %if.end1
   br label %for.cond, !llvm.loop !46
 
 if.end39:                                         ; preds = %if.then28
-  %cmp40 = icmp ugt i32 %conv25, 236
+  %cmp40 = icmp samesign ugt i32 %conv25, 236
   br i1 %cmp40, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.end39
@@ -4183,8 +4183,8 @@ if.else103:                                       ; preds = %if.end23
 if.end.i:                                         ; preds = %if.else103
   %36 = load ptr, ptr %op_limit_min_slop_.i119, align 8
   %cmp2.i = icmp uge ptr %op.2, %36
-  %cmp3.i = icmp ult i64 %conv121, %conv118
-  %37 = or i1 %cmp3.i, %cmp2.i
+  %cmp3.i = icmp samesign ult i64 %conv121, %conv118
+  %37 = select i1 %cmp2.i, i1 true, i1 %cmp3.i
   br i1 %37, label %if.then4.i, label %if.end11.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -4374,7 +4374,7 @@ if.then28:                                        ; preds = %if.end23
   %sub.ptr.rhs.cast.i91 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i92 = sub i64 %sub.ptr.lhs.cast.i90, %sub.ptr.rhs.cast.i91
   %conv.i = trunc i64 %sub.ptr.sub.i92 to i32
-  %cmp.i = icmp ult i32 %conv25, 64
+  %cmp.i = icmp samesign ult i32 %conv25, 64
   %cmp2.i = icmp ugt i64 %sub.ptr.sub34, 20
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp4.i = icmp sgt i32 %conv.i, 15
@@ -4396,7 +4396,7 @@ for.cond.backedge:                                ; preds = %if.then36, %if.end1
   br label %for.cond, !llvm.loop !48
 
 if.end39:                                         ; preds = %if.then28
-  %cmp40 = icmp ugt i32 %conv25, 236
+  %cmp40 = icmp samesign ugt i32 %conv25, 236
   br i1 %cmp40, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.end39

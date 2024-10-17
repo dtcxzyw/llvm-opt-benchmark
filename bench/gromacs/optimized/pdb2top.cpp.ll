@@ -1201,7 +1201,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit242.i:     ; preds = %247, %_ZNSt6vectorI
   %indvars.iv406.i = phi i64 [ %indvars.iv.next407.i, %.loopexit349.i ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit242.i ]
   %indvars.iv399.i = phi i64 [ %indvars.iv.next400.i, %.loopexit349.i ], [ 1, %_ZNSt10filesystem7__cxx114pathD2Ev.exit242.i ]
   %indvars.iv.next407.i = add nuw nsw i64 %indvars.iv406.i, 1
-  %248 = icmp ult i64 %indvars.iv.next407.i, %wide.trip.count.i
+  %248 = icmp samesign ult i64 %indvars.iv.next407.i, %wide.trip.count.i
   br i1 %248, label %.lr.ph378.i, label %.loopexit349.i
 
 .lr.ph378.i:                                      ; preds = %.lr.ph380.i, %300
@@ -11496,7 +11496,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
 
 ._crit_edge.split.us.us.i:                        ; preds = %.thread.us.us.i, %.thread.us.us.us.i, %.lr.ph.split.us.i
   %.151.lcssa.us.i = phi i32 [ %.05081.us.i, %.lr.ph.split.us.i ], [ %.25214.us.us.us.i, %.thread.us.us.us.i ], [ %.25214.us.us.i, %.thread.us.us.i ]
-  %635 = icmp ult i64 %indvars.iv120.i, %630
+  %635 = icmp samesign ult i64 %indvars.iv120.i, %630
   br i1 %635, label %.preheader11.us.i, label %.loopexit.us.i
 
 636:                                              ; preds = %.preheader11.us.i, %636
@@ -11590,7 +11590,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
   %.3.us.us56.us.us.i = select i1 %667, i32 %670, i32 %.25215.us.us53.us.us.i
   %narrow149.i = select i1 %667, i1 true, i1 %671
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %672 = icmp ult i64 %indvars.iv114.i, 4
+  %672 = icmp samesign ult i64 %indvars.iv114.i, 4
   %673 = select i1 %672, i1 %narrow149.i, i1 false
   br i1 %673, label %.preheader.split.us.split.split.us74.us.us.i, label %.split.us.split.us76.us.us.i, !llvm.loop !147
 
@@ -11633,7 +11633,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
   %.3.us.us29.us.us.us.i = select i1 %685, i32 %688, i32 %.25215.us.us25.us.us.us.i
   %narrow148.i = select i1 %685, i1 true, i1 %689
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
-  %690 = icmp ult i64 %indvars.iv111.i, 4
+  %690 = icmp samesign ult i64 %indvars.iv111.i, 4
   %691 = select i1 %690, i1 %narrow148.i, i1 false
   br i1 %691, label %.preheader.split.us.split.split.us.us.us.us.i, label %.split.us.split.us76.us.us.i, !llvm.loop !147
 
@@ -11693,7 +11693,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
   %.3.us.us.us67.us.i = select i1 %712, i32 %715, i32 %.25215.us.us.us65.us.i
   %narrow147.i = select i1 %712, i1 true, i1 %716
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
-  %717 = icmp ult i64 %indvars.iv108.i, 4
+  %717 = icmp samesign ult i64 %indvars.iv108.i, 4
   %718 = select i1 %717, i1 %narrow147.i, i1 false
   br i1 %718, label %.preheader.split.us.split.us.split.us77.us.i, label %.split.us.split.us.us.us.i, !llvm.loop !147
 
@@ -11731,7 +11731,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
   %.3.us.us.us.us.us.i = select i1 %728, i32 %731, i32 %.25215.us.us.us.us.us.i
   %narrow.i = select i1 %728, i1 true, i1 %732
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
-  %733 = icmp ult i64 %indvars.iv105.i, 4
+  %733 = icmp samesign ult i64 %indvars.iv105.i, 4
   %734 = select i1 %733, i1 %narrow.i, i1 false
   br i1 %734, label %.preheader.split.us.split.us.split.us.us.us.i, label %.split.us.split.us.us.us.i, !llvm.loop !147
 
@@ -11785,7 +11785,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
 753:                                              ; preds = %744
   %754 = icmp eq i32 %.25215.ph.i, %752
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i156, 1
-  %755 = icmp ult i64 %indvars.iv.i156, 4
+  %755 = icmp samesign ult i64 %indvars.iv.i156, 4
   %756 = select i1 %755, i1 %754, i1 false
   br i1 %756, label %739, label %.split.i, !llvm.loop !147
 
@@ -11810,7 +11810,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i153: ; preds = %614
 
 ._crit_edge.split.i:                              ; preds = %.thread.i, %.lr.ph.split.i
   %.151.lcssa.i = phi i32 [ %.05081.i, %.lr.ph.split.i ], [ %.25215.ph.i, %.thread.i ]
-  %766 = icmp ult i64 %indvars.iv102.i, %630
+  %766 = icmp samesign ult i64 %indvars.iv102.i, %630
   br i1 %766, label %.preheader11.i, label %.loopexit.i158
 
 .preheader11.i:                                   ; preds = %._crit_edge.split.i

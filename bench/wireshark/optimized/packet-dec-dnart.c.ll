@@ -836,7 +836,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %288 = lshr i32 %.157.i, 16
   %289 = and i32 %.157.i, 65535
   %290 = add nuw nsw i32 %289, %288
-  %.not.i207 = icmp ult i32 %290, 65536
+  %.not.i207 = icmp samesign ult i32 %290, 65536
   br i1 %.not.i207, label %do_routing_msg.exit, label %.lr.ph.i, !llvm.loop !6
 
 do_routing_msg.exit:                              ; preds = %.lr.ph.i, %.preheader.i

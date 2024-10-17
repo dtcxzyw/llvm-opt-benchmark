@@ -10848,7 +10848,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5130
 
 5118:                                             ; preds = %5106
-  %5119 = icmp ugt i64 %5113, %5110
+  %5119 = icmp samesign ugt i64 %5113, %5110
   br i1 %5119, label %5120, label %5121
 
 5120:                                             ; preds = %5118
@@ -10976,7 +10976,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5198
 
 5186:                                             ; preds = %5174
-  %5187 = icmp ugt i64 %5181, %5178
+  %5187 = icmp samesign ugt i64 %5181, %5178
   br i1 %5187, label %5188, label %5189
 
 5188:                                             ; preds = %5186
@@ -11112,7 +11112,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5270
 
 5258:                                             ; preds = %5246
-  %5259 = icmp ugt i64 %5253, %5250
+  %5259 = icmp samesign ugt i64 %5253, %5250
   br i1 %5259, label %5260, label %5261
 
 5260:                                             ; preds = %5258
@@ -11254,7 +11254,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5344
 
 5332:                                             ; preds = %5320
-  %5333 = icmp ugt i64 %5327, %5324
+  %5333 = icmp samesign ugt i64 %5327, %5324
   br i1 %5333, label %5334, label %5335
 
 5334:                                             ; preds = %5332
@@ -11396,7 +11396,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5418
 
 5406:                                             ; preds = %5394
-  %5407 = icmp ugt i64 %5401, %5398
+  %5407 = icmp samesign ugt i64 %5401, %5398
   br i1 %5407, label %5408, label %5409
 
 5408:                                             ; preds = %5406
@@ -11495,7 +11495,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5473
 
 5461:                                             ; preds = %5449
-  %5462 = icmp ugt i64 %5456, %5453
+  %5462 = icmp samesign ugt i64 %5456, %5453
   br i1 %5462, label %5463, label %5464
 
 5463:                                             ; preds = %5461
@@ -11584,7 +11584,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5523
 
 5511:                                             ; preds = %5499
-  %5512 = icmp ugt i64 %5506, %5503
+  %5512 = icmp samesign ugt i64 %5506, %5503
   br i1 %5512, label %5513, label %5514
 
 5513:                                             ; preds = %5511
@@ -11673,7 +11673,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5573
 
 5561:                                             ; preds = %5549
-  %5562 = icmp ugt i64 %5556, %5553
+  %5562 = icmp samesign ugt i64 %5556, %5553
   br i1 %5562, label %5563, label %5564
 
 5563:                                             ; preds = %5561
@@ -11762,7 +11762,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5623
 
 5611:                                             ; preds = %5599
-  %5612 = icmp ugt i64 %5606, %5603
+  %5612 = icmp samesign ugt i64 %5606, %5603
   br i1 %5612, label %5613, label %5614
 
 5613:                                             ; preds = %5611
@@ -11851,7 +11851,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %5673
 
 5661:                                             ; preds = %5649
-  %5662 = icmp ugt i64 %5656, %5653
+  %5662 = icmp samesign ugt i64 %5656, %5653
   br i1 %5662, label %5663, label %5664
 
 5663:                                             ; preds = %5661
@@ -12938,7 +12938,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9856, label %6172, label %.loopexit12263
 
 6172:                                             ; preds = %6167
-  %6173 = icmp ugt i8 %.04843, %.04844
+  %6173 = icmp samesign ugt i8 %.04843, %.04844
   %6174 = zext i1 %6173 to i8
   %6175 = zext i32 %6171 to i64
   %6176 = getelementptr inbounds i8, ptr %.04528, i64 %6175
@@ -13418,7 +13418,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9799, label %6398, label %.loopexit12263
 
 6398:                                             ; preds = %6393
-  %6399 = icmp uge i8 %.04857, %.04858
+  %6399 = icmp samesign uge i8 %.04857, %.04858
   %6400 = zext i1 %6399 to i8
   %6401 = zext i32 %6397 to i64
   %6402 = getelementptr inbounds i8, ptr %.04528, i64 %6401
@@ -13898,7 +13898,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9742, label %6624, label %.loopexit12263
 
 6624:                                             ; preds = %6619
-  %6625 = icmp ult i8 %.04871, %.04872
+  %6625 = icmp samesign ult i8 %.04871, %.04872
   %6626 = zext i1 %6625 to i8
   %6627 = zext i32 %6623 to i64
   %6628 = getelementptr inbounds i8, ptr %.04528, i64 %6627
@@ -14378,7 +14378,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9685, label %6850, label %.loopexit12263
 
 6850:                                             ; preds = %6845
-  %6851 = icmp ule i8 %.04885, %.04886
+  %6851 = icmp samesign ule i8 %.04885, %.04886
   %6852 = zext i1 %6851 to i8
   %6853 = zext i32 %6849 to i64
   %6854 = getelementptr inbounds i8, ptr %.04528, i64 %6853
@@ -14858,7 +14858,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9628, label %7076, label %.loopexit12263
 
 7076:                                             ; preds = %7071
-  %7077 = icmp ugt i8 %.04855, %.04854
+  %7077 = icmp samesign ugt i8 %.04855, %.04854
   %7078 = zext i1 %7077 to i8
   %7079 = zext i32 %7075 to i64
   %7080 = getelementptr inbounds i8, ptr %.04528, i64 %7079
@@ -15338,7 +15338,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9571, label %7302, label %.loopexit12263
 
 7302:                                             ; preds = %7297
-  %7303 = icmp uge i8 %.04820, %.04819
+  %7303 = icmp samesign uge i8 %.04820, %.04819
   %7304 = zext i1 %7303 to i8
   %7305 = zext i32 %7301 to i64
   %7306 = getelementptr inbounds i8, ptr %.04528, i64 %7305
@@ -15818,7 +15818,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9514, label %7528, label %.loopexit12263
 
 7528:                                             ; preds = %7523
-  %7529 = icmp ule i8 %.04763, %.04762
+  %7529 = icmp samesign ule i8 %.04763, %.04762
   %7530 = zext i1 %7529 to i8
   %7531 = zext i32 %7527 to i64
   %7532 = getelementptr inbounds i8, ptr %.04528, i64 %7531
@@ -16298,7 +16298,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br i1 %.not9457, label %7754, label %.loopexit12263
 
 7754:                                             ; preds = %7749
-  %7755 = icmp ult i8 %.04721, %.04720
+  %7755 = icmp samesign ult i8 %.04721, %.04720
   %7756 = zext i1 %7755 to i8
   %7757 = zext i32 %7753 to i64
   %7758 = getelementptr inbounds i8, ptr %.04528, i64 %7757
@@ -18945,7 +18945,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   %9032 = add nuw nsw i64 %.212281, 1
   %9033 = load i8, ptr %8898, align 8
   %9034 = zext i8 %9033 to i64
-  %9035 = icmp ult i64 %9032, %9034
+  %9035 = icmp samesign ult i64 %9032, %9034
   br i1 %9035, label %8959, label %._crit_edge12283
 
 ._crit_edge12283:                                 ; preds = %9031, %.preheader

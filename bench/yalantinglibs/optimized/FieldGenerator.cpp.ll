@@ -1346,7 +1346,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -1402,7 +1402,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %ret.0.i = phi i64 [ 0, %entry ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.0.i, 1
   %shr.i = lshr i64 %t.addr.0.i, 7
-  %cmp.not.i = icmp ult i64 %t.addr.0.i, 128
+  %cmp.not.i = icmp samesign ult i64 %t.addr.0.i, 128
   br i1 %cmp.not.i, label %_ZN9struct_pb8compiler21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8compiler21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -1532,7 +1532,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2713,7 +2713,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

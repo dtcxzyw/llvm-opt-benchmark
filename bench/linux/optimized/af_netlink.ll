@@ -2896,7 +2896,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__netlink_change_ngroups(ptr noc
   %14 = add i32 %8, 63
   %15 = lshr i32 %14, 3
   %16 = and i32 %15, 536870904
-  %17 = icmp ult i32 %13, %16
+  %17 = icmp samesign ult i32 %13, %16
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %2
@@ -2958,7 +2958,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlink_change_ngroups(ptr nocap
   %14 = add i32 %8, 63
   %15 = lshr i32 %14, 3
   %16 = and i32 %15, 536870904
-  %17 = icmp ult i32 %13, %16
+  %17 = icmp samesign ult i32 %13, %16
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %2
@@ -3144,7 +3144,7 @@ define internal fastcc void @netlink_update_socket_mc(ptr noundef %0, i32 nounde
   %75 = add i32 %74, 63
   %76 = lshr i32 %75, 6
   %77 = zext nneg i32 %76 to i64
-  %78 = icmp ult i64 %65, %77
+  %78 = icmp samesign ult i64 %65, %77
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %.preheader
@@ -3174,7 +3174,7 @@ define internal fastcc void @netlink_update_socket_mc(ptr noundef %0, i32 nounde
   %97 = add i32 %96, 63
   %98 = lshr i32 %97, 6
   %99 = zext nneg i32 %98 to i64
-  %100 = icmp ult i64 %95, %99
+  %100 = icmp samesign ult i64 %95, %99
   br i1 %100, label %64, label %.loopexit7, !llvm.loop !86
 
 .loopexit7:                                       ; preds = %.loopexit, %56, %47
@@ -5123,7 +5123,7 @@ define internal noundef i32 @netlink_release(ptr nocapture noundef %0) #1 align 
   %217 = add i32 %216, 63
   %218 = lshr i32 %217, 6
   %219 = zext nneg i32 %218 to i64
-  %220 = icmp ult i64 %207, %219
+  %220 = icmp samesign ult i64 %207, %219
   br i1 %220, label %221, label %227
 
 221:                                              ; preds = %.preheader
@@ -5153,7 +5153,7 @@ define internal noundef i32 @netlink_release(ptr nocapture noundef %0) #1 align 
   %239 = add i32 %238, 63
   %240 = lshr i32 %239, 6
   %241 = zext nneg i32 %240 to i64
-  %242 = icmp ult i64 %237, %241
+  %242 = icmp samesign ult i64 %237, %241
   br i1 %242, label %206, label %.loopexit24, !llvm.loop !86
 
 .loopexit24:                                      ; preds = %.loopexit23, %198, %190, %178
@@ -5545,7 +5545,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
 
 104:                                              ; preds = %96, %.preheader15
   %105 = add nuw nsw i64 %91, 1
-  %106 = icmp ugt i64 %91, 30
+  %106 = icmp samesign ugt i64 %91, 30
   %107 = icmp eq i64 %105, 32
   br i1 %107, label %.loopexit20, label %.preheader15, !llvm.loop !140
 
@@ -5717,7 +5717,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %213 = add i32 %212, 63
   %214 = lshr i32 %213, 6
   %215 = zext nneg i32 %214 to i64
-  %216 = icmp ult i64 %203, %215
+  %216 = icmp samesign ult i64 %203, %215
   br i1 %216, label %217, label %223
 
 217:                                              ; preds = %.preheader
@@ -5747,7 +5747,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %235 = add i32 %234, 63
   %236 = lshr i32 %235, 6
   %237 = zext nneg i32 %236 to i64
-  %238 = icmp ult i64 %233, %237
+  %238 = icmp samesign ult i64 %233, %237
   br i1 %238, label %202, label %.loopexit14, !llvm.loop !86
 
 .loopexit14:                                      ; preds = %.loopexit, %194, %180

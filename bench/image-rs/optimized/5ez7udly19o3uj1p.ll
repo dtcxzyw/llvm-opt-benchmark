@@ -3509,12 +3509,12 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit147: ; preds = %_ZN5all
   br label %98
 
 108:                                              ; preds = %99
-  %109 = icmp ugt i8 %102, 1
-  %or.cond3 = and i1 %109, %72
+  %109 = icmp samesign ugt i8 %102, 1
+  %or.cond3 = select i1 %72, i1 %109, i1 false
   br i1 %or.cond3, label %112, label %110
 
 110:                                              ; preds = %108
-  %111 = icmp ugt i8 %102, 3
+  %111 = icmp samesign ugt i8 %102, 3
   br i1 %111, label %236, label %114
 
 112:                                              ; preds = %108
@@ -4288,12 +4288,12 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit149: ; preds = %_ZN5all
   br label %99
 
 109:                                              ; preds = %100
-  %110 = icmp ugt i8 %103, 1
-  %or.cond3 = and i1 %110, %74
+  %110 = icmp samesign ugt i8 %103, 1
+  %or.cond3 = select i1 %74, i1 %110, i1 false
   br i1 %or.cond3, label %113, label %111
 
 111:                                              ; preds = %109
-  %112 = icmp ugt i8 %103, 3
+  %112 = icmp samesign ugt i8 %103, 3
   br i1 %112, label %235, label %115
 
 113:                                              ; preds = %109
@@ -5021,12 +5021,12 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit147: ; preds = %_ZN5all
   br label %94
 
 105:                                              ; preds = %95
-  %106 = icmp ugt i8 %99, 1
-  %or.cond3 = and i1 %106, %61
+  %106 = icmp samesign ugt i8 %99, 1
+  %or.cond3 = select i1 %61, i1 %106, i1 false
   br i1 %or.cond3, label %109, label %107
 
 107:                                              ; preds = %105
-  %108 = icmp ugt i8 %99, 3
+  %108 = icmp samesign ugt i8 %99, 3
   br i1 %108, label %240, label %111
 
 109:                                              ; preds = %105
@@ -5656,7 +5656,7 @@ define hidden void @_ZN12jpeg_decoder6parser9parse_dqt17h305f7785ab79669aE(ptr n
   br label %43
 
 54:                                               ; preds = %44
-  %55 = icmp ugt i8 %49, 3
+  %55 = icmp samesign ugt i8 %49, 3
   br i1 %55, label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit82, label %58
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %44
@@ -6055,7 +6055,7 @@ _ZN12jpeg_decoder6parser11read_length17hf7bb5901776955f9E.exit: ; preds = %26
   br label %50
 
 60:                                               ; preds = %51
-  %61 = icmp ugt i8 %55, 3
+  %61 = icmp samesign ugt i8 %55, 3
   br i1 %61, label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit82, label %64
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %51
@@ -6419,7 +6419,7 @@ _ZN12jpeg_decoder6parser11read_length17h90f349e538137747E.exit: ; preds = %28
   br label %51
 
 61:                                               ; preds = %52
-  %62 = icmp ugt i8 %56, 3
+  %62 = icmp samesign ugt i8 %56, 3
   br i1 %62, label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit85, label %65
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %52
@@ -10110,8 +10110,8 @@ switch.lookup:                                    ; preds = %214, %195, %255
 
 250:                                              ; preds = %247
   %251 = icmp ugt i8 %175, -33
-  %252 = icmp ugt i8 %178, 13
-  %or.cond12 = or i1 %251, %252
+  %252 = icmp samesign ugt i8 %178, 13
+  %or.cond12 = select i1 %251, i1 true, i1 %252
   br i1 %or.cond12, label %265, label %255
 
 253:                                              ; preds = %247
@@ -10428,10 +10428,10 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   br label %429
 
 364:                                              ; preds = %356
-  %365 = icmp ugt i8 %359, 3
-  %366 = icmp ugt i8 %359, 1
-  %or.cond16 = and i1 %366, %134
-  %or.cond199 = or i1 %365, %or.cond16
+  %365 = icmp samesign ugt i8 %359, 3
+  %366 = icmp samesign ugt i8 %359, 1
+  %or.cond16 = select i1 %134, i1 %366, i1 false
+  %or.cond199 = select i1 %365, i1 true, i1 %or.cond16
   br i1 %or.cond199, label %400, label %367
 
 367:                                              ; preds = %364
@@ -11314,8 +11314,8 @@ switch.lookup:                                    ; preds = %204, %185, %245
 
 240:                                              ; preds = %237
   %241 = icmp ugt i8 %166, -33
-  %242 = icmp ugt i8 %168, 13
-  %or.cond12 = or i1 %241, %242
+  %242 = icmp samesign ugt i8 %168, 13
+  %or.cond12 = select i1 %241, i1 true, i1 %242
   br i1 %or.cond12, label %255, label %245
 
 243:                                              ; preds = %237
@@ -11625,10 +11625,10 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   br label %418
 
 353:                                              ; preds = %345
-  %354 = icmp ugt i8 %348, 3
-  %355 = icmp ugt i8 %348, 1
-  %or.cond16 = and i1 %355, %135
-  %or.cond199 = or i1 %354, %or.cond16
+  %354 = icmp samesign ugt i8 %348, 3
+  %355 = icmp samesign ugt i8 %348, 1
+  %or.cond16 = select i1 %135, i1 %355, i1 false
+  %or.cond199 = select i1 %354, i1 true, i1 %or.cond16
   br i1 %or.cond199, label %389, label %356
 
 356:                                              ; preds = %353
@@ -12512,8 +12512,8 @@ switch.lookup:                                    ; preds = %219, %200, %260
 
 255:                                              ; preds = %252
   %256 = icmp ugt i8 %180, -33
-  %257 = icmp ugt i8 %183, 13
-  %or.cond12 = or i1 %256, %257
+  %257 = icmp samesign ugt i8 %183, 13
+  %or.cond12 = select i1 %256, i1 true, i1 %257
   br i1 %or.cond12, label %270, label %260
 
 258:                                              ; preds = %252
@@ -12851,10 +12851,10 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   br label %440
 
 375:                                              ; preds = %366
-  %376 = icmp ugt i8 %370, 3
-  %377 = icmp ugt i8 %370, 1
-  %or.cond16 = and i1 %377, %131
-  %or.cond199 = or i1 %376, %or.cond16
+  %376 = icmp samesign ugt i8 %370, 3
+  %377 = icmp samesign ugt i8 %370, 1
+  %or.cond16 = select i1 %131, i1 %377, i1 false
+  %or.cond199 = select i1 %376, i1 true, i1 %or.cond16
   br i1 %or.cond199, label %411, label %378
 
 378:                                              ; preds = %375
@@ -14853,7 +14853,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   ret { i8, i8 } %20
 
 21:                                               ; preds = %14
-  %22 = icmp ult i8 %16, 8
+  %22 = icmp samesign ult i8 %16, 8
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %25, %21, %14
@@ -14958,7 +14958,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   ret { i8, i8 } %20
 
 21:                                               ; preds = %14
-  %22 = icmp ult i8 %16, 8
+  %22 = icmp samesign ult i8 %16, 8
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %25, %21, %14
@@ -28271,7 +28271,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %109 = zext i16 %84 to i64
   %110 = add nuw nsw i64 %108, %109
   %111 = zext i16 %103 to i64
-  %.not = icmp ugt i64 %110, %111
+  %.not = icmp samesign ugt i64 %110, %111
   br i1 %.not, label %160, label %112
 
 112:                                              ; preds = %107
@@ -29277,7 +29277,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %110 = zext i16 %85 to i64
   %111 = add nuw nsw i64 %109, %110
   %112 = zext i16 %104 to i64
-  %.not = icmp ugt i64 %111, %112
+  %.not = icmp samesign ugt i64 %111, %112
   br i1 %.not, label %150, label %113
 
 113:                                              ; preds = %108
@@ -32215,7 +32215,7 @@ default.unreachable:                              ; preds = %_ZN5image6codecs3pn
   %47 = getelementptr inbounds i8, ptr %45, i64 1
   %.val3.i.i = load i8, ptr %45, align 1, !noalias !3896, !noundef !19
   %48 = zext i8 %.val3.i.i to i32
-  %49 = icmp ult i32 %.019, %48
+  %49 = icmp samesign ult i32 %.019, %48
   br i1 %49, label %_ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread, label %44
 
 50:                                               ; preds = %36
@@ -32231,7 +32231,7 @@ default.unreachable:                              ; preds = %_ZN5image6codecs3pn
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 2
   %.val3.i6.i = load i16, ptr %54, align 2, !noalias !3900, !noundef !19
-  %57 = icmp ugt i16 %.val3.i6.i, %52
+  %57 = icmp samesign ugt i16 %.val3.i6.i, %52
   br i1 %57, label %_ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread, label %53
 
 _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread: ; preds = %46, %55, %31
@@ -32481,7 +32481,7 @@ define void @"_ZN105_$LT$image..codecs..pnm..encoder..FlatSamples$u20$as$u20$cor
 define void @_ZN5image6codecs3pnm7encoder13TupleEncoding11write_image17h30467fc5ce9782f8E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [2 x i8], align 2
   %6 = load i64, ptr %1, align 8, !range !3918, !noundef !19
-  %.not = icmp ult i64 %6, 2
+  %.not = icmp samesign ult i64 %6, 2
   %7 = add nsw i64 %6, -1
   %8 = select i1 %.not, i64 0, i64 %7
   switch i64 %8, label %9 [

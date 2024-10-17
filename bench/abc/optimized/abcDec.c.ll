@@ -148,7 +148,7 @@ define void @Abc_TruthWriteHex(ptr nocapture noundef %0, ptr nocapture noundef r
   %13 = lshr i64 %9, %12
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 15
-  %16 = icmp ult i32 %15, 10
+  %16 = icmp samesign ult i32 %15, 10
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
@@ -684,7 +684,7 @@ define void @Abc_TtStoreWrite(ptr noundef %0, ptr nocapture noundef readonly %1,
   %30 = lshr i64 %26, %29
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 15
-  %33 = icmp ult i32 %32, 10
+  %33 = icmp samesign ult i32 %32, 10
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph.i.us
@@ -1504,7 +1504,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ]
   %.022.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %198, %Abc_TtHasVar.exit.thread.i ]
-  %168 = icmp ult i64 %indvars.iv.i, 6
+  %168 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %168, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i

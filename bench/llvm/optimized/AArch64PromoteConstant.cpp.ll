@@ -3171,7 +3171,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %9, %12
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %9 ], [ %14, %12 ]
   %18 = getelementptr inbounds %"class.llvm::Use", ptr %17, i64 %.pre-phi2.i.i
   %19 = ptrtoint ptr %18 to i64
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm4User8operandsEv.exit

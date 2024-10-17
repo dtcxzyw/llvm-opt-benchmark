@@ -14,7 +14,7 @@ define hidden range(i32 1, 10) i32 @GifBitSize(i32 noundef %0) local_unnamed_add
 
 2:                                                ; preds = %2, %1
   %.0 = phi i32 [ 1, %1 ], [ %5, %2 ]
-  %3 = icmp ult i32 %.0, 9
+  %3 = icmp samesign ult i32 %.0, 9
   %4 = shl nuw nsw i32 1, %.0
   %.not = icmp slt i32 %4, %0
   %or.cond = select i1 %3, i1 %.not, i1 false
@@ -31,7 +31,7 @@ define hidden noalias noundef ptr @GifMakeMapObject(i32 noundef %0, ptr noundef 
 
 3:                                                ; preds = %3, %2
   %.0.i = phi i32 [ 1, %2 ], [ %6, %3 ]
-  %4 = icmp ult i32 %.0.i, 9
+  %4 = icmp samesign ult i32 %.0.i, 9
   %5 = shl nuw nsw i32 1, %.0.i
   %.not.i = icmp slt i32 %5, %0
   %or.cond.i = select i1 %4, i1 %.not.i, i1 false
@@ -65,7 +65,7 @@ GifBitSize.exit:                                  ; preds = %3
 
 17:                                               ; preds = %17, %16
   %.0.i21 = phi i32 [ 1, %16 ], [ %20, %17 ]
-  %18 = icmp ult i32 %.0.i21, 9
+  %18 = icmp samesign ult i32 %.0.i21, 9
   %19 = shl nuw nsw i32 1, %.0.i21
   %.not.i22 = icmp ult i32 %19, %0
   %or.cond.i23 = select i1 %18, i1 %.not.i22, i1 false
@@ -128,7 +128,7 @@ define hidden noalias noundef ptr @GifUnionColorMap(ptr nocapture noundef readon
 
 7:                                                ; preds = %7, %3
   %.0.i.i = phi i32 [ 1, %3 ], [ %10, %7 ]
-  %8 = icmp ult i32 %.0.i.i, 9
+  %8 = icmp samesign ult i32 %.0.i.i, 9
   %9 = shl nuw nsw i32 1, %.0.i.i
   %.not.i.i = icmp slt i32 %9, %6
   %or.cond.i.i = select i1 %8, i1 %.not.i.i, i1 false
@@ -162,7 +162,7 @@ GifBitSize.exit.i:                                ; preds = %7
 
 21:                                               ; preds = %21, %20
   %.0.i21.i = phi i32 [ 1, %20 ], [ %24, %21 ]
-  %22 = icmp ult i32 %.0.i21.i, 9
+  %22 = icmp samesign ult i32 %.0.i21.i, 9
   %23 = shl nuw nsw i32 1, %.0.i21.i
   %.not.i22.i = icmp ult i32 %23, %6
   %or.cond.i23.i = select i1 %22, i1 %.not.i22.i, i1 false
@@ -202,7 +202,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   %37 = getelementptr inbounds %struct.GifColorType, ptr %.pre, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) %37, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = icmp ult i64 %indvars.iv.next, %29
+  %38 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %38, label %35, label %.preheader91, !llvm.loop !8
 
 .lr.ph98:                                         ; preds = %.preheader91, %47
@@ -307,7 +307,7 @@ GifFreeMapObject.exit:                            ; preds = %._crit_edge108
 
 .preheader:                                       ; preds = %._crit_edge108, %.preheader
   %.0.i85 = phi i32 [ %81, %.preheader ], [ 1, %._crit_edge108 ]
-  %79 = icmp ult i32 %.0.i85, 9
+  %79 = icmp samesign ult i32 %.0.i85, 9
   %80 = shl nuw nsw i32 1, %.0.i85
   %.not.i86 = icmp slt i32 %80, %.177.lcssa
   %or.cond.i = select i1 %79, i1 %.not.i86, i1 false
@@ -616,7 +616,7 @@ define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) lo
 
 29:                                               ; preds = %29, %25
   %.0.i.i = phi i32 [ 1, %25 ], [ %32, %29 ]
-  %30 = icmp ult i32 %.0.i.i, 9
+  %30 = icmp samesign ult i32 %.0.i.i, 9
   %31 = shl nuw nsw i32 1, %.0.i.i
   %.not.i.i = icmp slt i32 %31, %26
   %or.cond.i.i = select i1 %30, i1 %.not.i.i, i1 false
@@ -650,7 +650,7 @@ GifBitSize.exit.i:                                ; preds = %29
 
 43:                                               ; preds = %43, %42
   %.0.i21.i = phi i32 [ 1, %42 ], [ %46, %43 ]
-  %44 = icmp ult i32 %.0.i21.i, 9
+  %44 = icmp samesign ult i32 %.0.i21.i, 9
   %45 = shl nuw nsw i32 1, %.0.i21.i
   %.not.i22.i = icmp ult i32 %45, %26
   %or.cond.i23.i = select i1 %44, i1 %.not.i22.i, i1 false

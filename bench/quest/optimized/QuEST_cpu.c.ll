@@ -11833,7 +11833,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %183 = fsub double %180, %182
   %184 = call double @llvm.fmuladd.f64(double %183, double %183, double %.0149214)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 2
-  %185 = icmp ult i64 %indvars.iv.next290, %112
+  %185 = icmp samesign ult i64 %indvars.iv.next290, %112
   br i1 %185, label %173, label %.loopexit178
 
 186:                                              ; preds = %.lr.ph212, %186
@@ -11854,7 +11854,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %197 = fsub double %195, %196
   %198 = fmul double %188, %197
   %199 = call double @llvm.fmuladd.f64(double %198, double %197, double %.2151210)
-  %200 = icmp ult i64 %indvars.iv.next287, %110
+  %200 = icmp samesign ult i64 %indvars.iv.next287, %110
   br i1 %200, label %186, label %.loopexit178
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
@@ -11870,7 +11870,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %208 = uitofp nneg i64 %207 to double
   %209 = fadd double %.3152206, %208
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 2
-  %210 = icmp ult i64 %indvars.iv.next284, %108
+  %210 = icmp samesign ult i64 %indvars.iv.next284, %108
   br i1 %210, label %.lr.ph208, label %.loopexit178
 
 .loopexit178:                                     ; preds = %.lr.ph208, %186, %173, %.preheader181

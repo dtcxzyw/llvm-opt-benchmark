@@ -262,7 +262,7 @@ proto_item_set_hidden.exit:                       ; preds = %45, %42, %20
   %64 = and i8 %63, 124
   %narrow.i = add nuw i8 %64, 4
   %65 = zext i8 %narrow.i to i32
-  %66 = icmp ult i32 %.03439.i, %65
+  %66 = icmp samesign ult i32 %.03439.i, %65
   %67 = load ptr, ptr %56, align 8
   br i1 %66, label %68, label %79
 

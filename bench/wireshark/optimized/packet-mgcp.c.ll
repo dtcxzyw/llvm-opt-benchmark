@@ -1267,7 +1267,7 @@ is_mgcp_rspcode.exit.i.i:                         ; preds = %201, %194
 
 255:                                              ; preds = %253
   %256 = icmp slt i32 %.1.i.i, %146
-  %257 = icmp ult i32 %.0236.i.i, 3
+  %257 = icmp samesign ult i32 %.0236.i.i, 3
   %or.cond3.i.i = select i1 %256, i1 %257, i1 false
   br i1 %or.cond3.i.i, label %153, label %.critedge.i.i, !llvm.loop !4
 

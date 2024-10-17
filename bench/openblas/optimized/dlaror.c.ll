@@ -256,7 +256,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %149 = getelementptr double, ptr %144, i64 %147
   call void @dscal_(ptr noundef nonnull %3, ptr noundef nonnull %148, ptr noundef %149, ptr noundef nonnull %5) #5
   %150 = add nuw nsw i64 %147, 1
-  %151 = icmp ult i64 %147, %145
+  %151 = icmp samesign ult i64 %147, %145
   br i1 %151, label %146, label %.loopexit6, !llvm.loop !13
 
 .loopexit6:                                       ; preds = %146, %137, %.loopexit8
@@ -283,7 +283,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %166 = getelementptr double, ptr %160, i64 %165
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %164, ptr noundef %166, ptr noundef nonnull @c__1) #5
   %167 = add nuw nsw i64 %163, 1
-  %168 = icmp ult i64 %163, %161
+  %168 = icmp samesign ult i64 %163, %161
   br i1 %168, label %162, label %.loopexit, !llvm.loop !14
 
 169:                                              ; preds = %108, %50

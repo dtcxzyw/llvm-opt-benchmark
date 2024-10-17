@@ -4190,15 +4190,15 @@ default.unreachable9:                             ; preds = %3
   %125 = load i32, ptr %124, align 4, !range !13, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26), !noalias !721
   store i32 0, ptr %26, align 4, !noalias !721
-  %126 = icmp ult i32 %125, 128
+  %126 = icmp samesign ult i32 %125, 128
   br i1 %126, label %132, label %127
 
 127:                                              ; preds = %123
-  %128 = icmp ult i32 %125, 2048
+  %128 = icmp samesign ult i32 %125, 2048
   br i1 %128, label %134, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ult i32 %125, 65536
+  %130 = icmp samesign ult i32 %125, 65536
   %131 = getelementptr inbounds i8, ptr %26, i64 1
   br i1 %130, label %142, label %154
 

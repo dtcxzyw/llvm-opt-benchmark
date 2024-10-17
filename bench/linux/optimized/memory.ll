@@ -1929,7 +1929,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %317 = or disjoint i64 %314, %316
   %318 = lshr i64 %311, 59
   %319 = trunc nuw nsw i64 %318 to i32
-  %320 = icmp ult i32 %319, 28
+  %320 = icmp samesign ult i32 %319, 28
   br i1 %320, label %321, label %343, !prof !13
 
 321:                                              ; preds = %309
@@ -3355,7 +3355,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
   %452 = or disjoint i64 %449, %451
   %453 = lshr i64 %166, 59
   %454 = trunc nuw nsw i64 %453 to i32
-  %455 = icmp ult i32 %454, 28
+  %455 = icmp samesign ult i32 %454, 28
   br i1 %455, label %456, label %466
 
 456:                                              ; preds = %446
@@ -5072,7 +5072,7 @@ define dso_local noundef range(i32 1, 257) i32 @vmf_insert_pfn_prot(ptr noundef 
 
 22:                                               ; preds = %21, %19, %19
   %23 = phi i64 [ 524288, %21 ], [ 33554432, %19 ], [ 33554432, %19 ]
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
@@ -5085,7 +5085,7 @@ define dso_local noundef range(i32 1, 257) i32 @vmf_insert_pfn_prot(ptr noundef 
 
 28:                                               ; preds = %27, %25, %25
   %29 = phi i64 [ 2048, %27 ], [ 131072, %25 ], [ 131072, %25 ]
-  %30 = icmp ult i64 %26, %29
+  %30 = icmp samesign ult i64 %26, %29
   br i1 %30, label %31, label %41, !prof !13
 
 31:                                               ; preds = %28
@@ -6039,7 +6039,7 @@ define dso_local range(i32 -22, 1) i32 @vm_iomap_memory(ptr noundef %0, i64 noun
   %20 = load i64, ptr %0, align 8
   %21 = sub i64 %19, %20
   %22 = lshr i64 %21, 12
-  %23 = icmp ugt i64 %22, %17
+  %23 = icmp samesign ugt i64 %22, %17
   br i1 %23, label %39, label %24
 
 24:                                               ; preds = %16
@@ -6795,7 +6795,7 @@ define dso_local i32 @do_swap_page(ptr noundef %0) local_unnamed_addr #2 align 1
   %14 = or disjoint i64 %11, %13
   %15 = lshr i64 %8, 59
   %16 = trunc nuw nsw i64 %15 to i32
-  %17 = icmp ult i32 %16, 28
+  %17 = icmp samesign ult i32 %16, 28
   br i1 %17, label %37, label %18, !prof !13
 
 18:                                               ; preds = %1
@@ -10256,7 +10256,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %378, label %.preheader60, label %379, !llvm.loop !199
 
 379:                                              ; preds = %374
-  %380 = icmp ult i64 %372, %301
+  %380 = icmp samesign ult i64 %372, %301
   br i1 %380, label %409, label %.thread29
 
 .thread29:                                        ; preds = %.preheader60, %361, %357, %379, %365

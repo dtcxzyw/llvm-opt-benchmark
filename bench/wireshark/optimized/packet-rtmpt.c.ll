@@ -1635,15 +1635,15 @@ switch.lookup:                                    ; preds = %141
   %.not579633646680695754836.ph = phi i1 [ %.not579633.ph, %277 ], [ true, %141 ], [ true, %.thread618 ]
   %.0528757832.ph = phi i32 [ %.0528757.ph, %277 ], [ 0, %141 ], [ 0, %.thread618 ]
   %.0530.ph = phi i32 [ %.1527, %277 ], [ 1536, %141 ], [ %spec.select979, %.thread618 ]
-  %281 = icmp ult i8 %.0539654676703745844.ph, 3
+  %281 = icmp samesign ult i8 %.0539654676703745844.ph, 3
   br label %297
 
 282:                                              ; preds = %256, %273, %278
   %.0530 = phi i32 [ %280, %278 ], [ %272, %256 ], [ %276, %273 ]
   %283 = icmp eq ptr %.51028, null
   %or.cond.not585 = select i1 %.ph817, i1 true, i1 %283
-  %284 = icmp ult i8 %.0539654676703745.ph, 3
-  %or.cond4 = or i1 %284, %or.cond.not585
+  %284 = icmp samesign ult i8 %.0539654676703745.ph, 3
+  %or.cond4 = select i1 %or.cond.not585, i1 true, i1 %284
   br i1 %or.cond4, label %296, label %285
 
 285:                                              ; preds = %282
@@ -3845,7 +3845,7 @@ amf_get_u29.exit419:                              ; preds = %85, %89, %96, %103
   %114 = call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %113, ptr noundef %0, i32 noundef %39, i32 noundef %.sink.i417, i32 noundef %112) #8
   %115 = call ptr @wmem_packet_scope() #8
   %116 = call ptr @tvb_get_string_enc(ptr noundef %115, ptr noundef %0, i32 noundef %110, i32 noundef %112, i32 noundef 2) #8
-  %.not413 = icmp ult i32 %.0.i418, 2
+  %.not413 = icmp samesign ult i32 %.0.i418, 2
   br i1 %.not413, label %120, label %117
 
 117:                                              ; preds = %111
@@ -4043,7 +4043,7 @@ amf_get_u29.exit437:                              ; preds = %207, %211, %218, %2
   br i1 %.not410, label %248, label %232
 
 232:                                              ; preds = %amf_get_u29.exit437
-  %233 = icmp ult i32 %.0.i436, 2
+  %233 = icmp samesign ult i32 %.0.i436, 2
   %234 = add i32 %.sink.i435, %.1
   br i1 %233, label %235, label %238
 
@@ -4334,7 +4334,7 @@ amf_get_u29.exit455:                              ; preds = %.preheader, %378, %
   br i1 %.not407, label %419, label %399
 
 399:                                              ; preds = %amf_get_u29.exit455
-  %400 = icmp ult i32 %.0.i454, 2
+  %400 = icmp samesign ult i32 %.0.i454, 2
   %401 = add i32 %.sink.i453, %.9
   br i1 %400, label %402, label %405
 

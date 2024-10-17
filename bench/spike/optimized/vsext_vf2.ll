@@ -232,7 +232,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsext_vf2P
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -729,7 +729,7 @@ define noundef i64 @_Z20fast_rv64i_vsext_vf2P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -1192,7 +1192,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsext_vf
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -1657,7 +1657,7 @@ define noundef i64 @_Z22logged_rv64i_vsext_vf2P11processor_t6insn_tm(ptr noundef
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -2120,7 +2120,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsext_vf2P
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -2585,7 +2585,7 @@ define noundef i64 @_Z20fast_rv64e_vsext_vf2P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -3048,7 +3048,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsext_vf
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 
@@ -3513,7 +3513,7 @@ define noundef i64 @_Z22logged_rv64e_vsext_vf2P11processor_t6insn_tm(ptr noundef
   unreachable
 
 88:                                               ; preds = %70
-  %89 = icmp ult i64 %5, %7
+  %89 = icmp samesign ult i64 %5, %7
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %77)
   br i1 %89, label %90, label %._crit_edge.i
 

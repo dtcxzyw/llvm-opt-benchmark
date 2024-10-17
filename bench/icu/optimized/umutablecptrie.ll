@@ -1349,14 +1349,14 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %block.addr.05.i.ptr = getelementptr inbounds i8, ptr %add.ptr23, i64 %block.addr.05.i.idx
   %block.addr.05.i.add = add nuw nsw i64 %block.addr.05.i.idx, 4
   store i32 %value, ptr %block.addr.05.i.ptr, align 4
-  %cmp.i36 = icmp ult i64 %block.addr.05.i.idx, 60
+  %cmp.i36 = icmp samesign ult i64 %block.addr.05.i.idx, 60
   br i1 %cmp.i36, label %while.body.i, label %if.end27, !llvm.loop !10
 
 if.else:                                          ; preds = %if.end15
   %and25 = and i32 %add, 15
   %idx.ext.i = zext nneg i32 %and25 to i64
   %add.ptr.i37 = getelementptr inbounds i32, ptr %add.ptr23, i64 %idx.ext.i
-  %cmp4.i38 = icmp ult i32 %and, %and25
+  %cmp4.i38 = icmp samesign ult i32 %and, %and25
   br i1 %cmp4.i38, label %while.body.preheader.i, label %if.end56
 
 while.body.preheader.i:                           ; preds = %if.else
@@ -1412,7 +1412,7 @@ while.body.i49:                                   ; preds = %while.body.i49, %if
   %block.addr.05.i50.ptr = getelementptr inbounds i8, ptr %add.ptr42, i64 %block.addr.05.i50.idx
   %block.addr.05.i50.add = add nuw nsw i64 %block.addr.05.i50.idx, 4
   store i32 %value, ptr %block.addr.05.i50.ptr, align 4
-  %cmp.i52 = icmp ult i64 %block.addr.05.i50.idx, 60
+  %cmp.i52 = icmp samesign ult i64 %block.addr.05.i50.idx, 60
   br i1 %cmp.i52, label %while.body.i49, label %if.end43, !llvm.loop !10
 
 if.end43:                                         ; preds = %while.body.i49, %if.then33
@@ -1726,14 +1726,14 @@ if.then.i118.i:                                   ; preds = %_ZNK6icu_7512_GLOBA
 
 if.end.i.i:                                       ; preds = %if.then.i118.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i
   %39 = phi i32 [ %38, %if.then.i118.i ], [ %retval.0.i.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i ]
-  %cmp4.i117.i = icmp ult i32 %and.i115.i, %cond.i
+  %cmp4.i117.i = icmp samesign ult i32 %and.i115.i, %cond.i
   br i1 %cmp4.i117.i, label %if.then5.i.i, label %if.end11.i.i
 
 if.then5.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
   %40 = phi i32 [ %39, %if.end.i.i ], [ %retval.0.i.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ %retval.0.i.i.i, %while.cond.backedge.i.i.i ]
   %and195200.i.i = phi i32 [ %and.i115.i, %if.end.i.i ], [ 0, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ 0, %while.cond.backedge.i.i.i ]
   %shr.i104.i = lshr exact i32 %and195200.i.i, 4
-  %cmp6246.i.i = icmp ult i32 %shr.i104.i, %shr.i
+  %cmp6246.i.i = icmp samesign ult i32 %shr.i104.i, %shr.i
   br i1 %cmp6246.i.i, label %for.body.lr.ph.i107.i, label %if.end11.i.i
 
 for.body.lr.ph.i107.i:                            ; preds = %if.then5.i.i
@@ -1766,7 +1766,7 @@ if.end11.i.i:                                     ; preds = %for.body.i110.i, %i
 
 if.end.i39.i.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit60.i.i, %if.end11.i.i
   %indvars.iv297.i.i = phi i64 [ 0, %if.end11.i.i ], [ %indvars.iv.next298.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit60.i.i ]
-  %cmp2.not.i41.i.i = icmp ult i64 %indvars.iv297.i.i, %46
+  %cmp2.not.i41.i.i = icmp samesign ult i64 %indvars.iv297.i.i, %46
   br i1 %cmp2.not.i41.i.i, label %if.end4.i46.i.i, label %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit60.i.i
 
 if.end4.i46.i.i:                                  ; preds = %if.end.i39.i.i
@@ -2164,7 +2164,7 @@ for.body.i83.i.i:                                 ; preds = %for.body.i83.i.i, %
 
 for.end.i88.i.i:                                  ; preds = %for.body.i83.i.i
   %sub.i.i.i.i = add nsw i32 %retval.0.i63207.i.i, -64
-  %cmp.i.i89.i.i = icmp ult i32 %retval.0.i63207.i.i, 4159
+  %cmp.i.i89.i.i = icmp samesign ult i32 %retval.0.i63207.i.i, 4159
   br i1 %cmp.i.i89.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end.i88.i.i
@@ -2234,13 +2234,13 @@ if.end.i91.i.i:                                   ; preds = %call.i.i.noexc.i.i
 
 for.body6.lr.ph.i.i.i:                            ; preds = %if.end.i91.i.i
   %sub.i79.i.i.i = add nsw i32 %retval.0.i63207.i.i, -16
-  %cmp.i80.i.i.i = icmp ult i32 %retval.0.i63207.i.i, 4111
+  %cmp.i80.i.i.i = icmp samesign ult i32 %retval.0.i63207.i.i, 4111
   %mask5.i83.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 20
   %cmp7.i85.i.i.i = icmp ult i32 %sub.i79.i.i.i, 131071
   %shift9.i86.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 16
   %87 = zext nneg i32 %shr.i to i64
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %call26.i.i, i64 -4
-  %brmerge.i.i.i = icmp ult i32 %retval.0.i63207.i.i, 32783
+  %brmerge.i.i.i = icmp samesign ult i32 %retval.0.i63207.i.i, 32783
   %.mux.i.i.i = select i1 %cmp.i80.i.i.i, i32 12, i32 15
   %.mux303.i.i.i = select i1 %cmp.i80.i.i.i, i32 4095, i32 32767
   %.mux304.i.i.i = select i1 %cmp.i80.i.i.i, i32 6007, i32 50021
@@ -2434,7 +2434,7 @@ for.body.i.i109.i.i:                              ; preds = %for.body.i.i109.i.i
   %100 = load i32, ptr %arrayidx.i119.i.i.i, align 4
   %cmp1.i.i111.i.i = icmp eq i32 %100, %n.0218.i.i.i
   %indvars.iv.next.i.i112.i.i = add nuw nsw i64 %indvars.iv.i.i110.i.i, 4
-  %cmp.i120.i.i.i = icmp uge i64 %indvars.iv.next.i.i112.i.i, %87
+  %cmp.i120.i.i.i = icmp samesign uge i64 %indvars.iv.next.i.i112.i.i, %87
   %or.cond.not.i.i.i.i = select i1 %cmp1.i.i111.i.i, i1 true, i1 %cmp.i120.i.i.i
   br i1 %or.cond.not.i.i.i.i, label %_ZN6icu_7512_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, label %for.body.i.i109.i.i, !llvm.loop !28
 
@@ -2778,7 +2778,7 @@ invoke.cont35.i.i:                                ; preds = %if.end34.i.i
   store i32 %retval.0.i63207.i.i, ptr %dataCapacity.i.i, align 8
   %dataLength.i106.i = getelementptr inbounds i8, ptr %trie, i64 28
   store i32 %retval.0.i94.ph.i.i, ptr %dataLength.i106.i, align 4
-  %cmp38.i.i = icmp ugt i32 %retval.0.i94.ph.i.i, 262159
+  %cmp38.i.i = icmp samesign ugt i32 %retval.0.i94.ph.i.i, 262159
   br i1 %cmp38.i.i, label %if.then39.i.i, label %if.end40.i.i
 
 if.then39.i.i:                                    ; preds = %invoke.cont35.i.i
@@ -2970,7 +2970,7 @@ if.end86.i.i.i:                                   ; preds = %if.else80.i.i.i, %i
   %hasLongI3Blocks.2.i.i.i = phi i1 [ %hasLongI3Blocks.1.i.i.i, %if.then52.i.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.then48.i177.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.then67.i.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.else74.i.i.i ], [ true, %if.else80.i.i.i ]
   %index3Capacity.2.i.i.i = phi i32 [ %index3Capacity.1.i.i.i, %if.then52.i.i.i ], [ %index3Capacity.0329.i.i.i, %if.then48.i177.i.i ], [ %index3Capacity.0329.i.i.i, %if.then67.i.i.i ], [ %add78.i176.i.i, %if.else74.i.i.i ], [ %add84.i.i.i, %if.else80.i.i.i ]
   %i3FirstNull.3.i.i.i = phi i32 [ 0, %if.then52.i.i.i ], [ %i3FirstNull.2330.i.i.i, %if.then48.i177.i.i ], [ %i3FirstNull.2330.i.i.i, %if.then67.i.i.i ], [ %i3FirstNull.2330.i.i.i, %if.else74.i.i.i ], [ %i3FirstNull.2330.i.i.i, %if.else80.i.i.i ]
-  %cmp34.i.i.i = icmp ult i64 %indvars.iv.next305.i.i, %158
+  %cmp34.i.i.i = icmp samesign ult i64 %indvars.iv.next305.i.i, %158
   %indvars.iv.next303.i.i = add nuw nsw i64 %indvars.iv302.i.i, 32
   br i1 %cmp34.i.i.i, label %do.body.preheader.i.i.i, label %for.end87.i.i.i, !llvm.loop !43
 
@@ -3025,7 +3025,7 @@ if.end15.i193.i.i.i:                              ; preds = %if.else6.i189.i.i.i
   %newLength.0.i194.i.i.i = phi i32 [ 6007, %do.body102.i.i.i ], [ 50021, %if.else.i186.i.i.i ], [ %.449.i.i.i, %if.else6.i189.i.i.i ]
   store i32 %.sink446.i.i.i, ptr %shift.i.i140.i.i, align 8
   store i32 %.sink.i148.i.i, ptr %mask.i.i141.i.i, align 4
-  %cmp16.i196.i.i.i = icmp ugt i32 %newLength.0.i194.i.i.i, %136
+  %cmp16.i196.i.i.i = icmp samesign ugt i32 %newLength.0.i194.i.i.i, %136
   br i1 %cmp16.i196.i.i.i, label %if.then17.i206.i.i.i, label %if.end15.if.end24_crit_edge.i198.i.i.i
 
 if.end15.if.end24_crit_edge.i198.i.i.i:           ; preds = %if.end15.i193.i.i.i
@@ -3384,7 +3384,7 @@ do.body195.i.i.i:                                 ; preds = %do.body195.i.i.i, %
   %235 = load ptr, ptr %index16.i.i.i, align 8
   %arrayidx295.i.i.i = getelementptr inbounds i16, ptr %235, i64 %indvars.iv387.i.i.i
   store i16 %conv291.i.i.i, ptr %arrayidx295.i.i.i, align 2
-  %cmp297.i.i.i = icmp ult i64 %indvars.iv.next385.i.i.i, %194
+  %cmp297.i.i.i = icmp samesign ult i64 %indvars.iv.next385.i.i.i, %194
   br i1 %cmp297.i.i.i, label %do.body195.i.i.i, label %do.end298.i.i.i, !llvm.loop !47
 
 do.end298.i.i.i:                                  ; preds = %do.body195.i.i.i
@@ -4316,7 +4316,7 @@ while.body.i:                                     ; preds = %while.body.i, %do.b
   %block.addr.0.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %block.addr.0.idx3.i
   %block.addr.0.add.i = add nuw nsw i64 %block.addr.0.idx3.i, 4
   store i32 %13, ptr %block.addr.0.ptr.i, align 4
-  %cmp.i20 = icmp ult i64 %block.addr.0.idx3.i, 60
+  %cmp.i20 = icmp samesign ult i64 %block.addr.0.idx3.i, 60
   br i1 %cmp.i20, label %while.body.i, label %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit, !llvm.loop !59
 
 _ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit:    ; preds = %while.body.i
@@ -4390,7 +4390,7 @@ while.body.i42:                                   ; preds = %while.body.i42, %if
   %block.addr.0.ptr.i44 = getelementptr inbounds i8, ptr %add.ptr30, i64 %block.addr.0.idx3.i43
   %block.addr.0.add.i45 = add nuw nsw i64 %block.addr.0.idx3.i43, 4
   store i32 %22, ptr %block.addr.0.ptr.i44, align 4
-  %cmp.i46 = icmp ult i64 %block.addr.0.idx3.i43, 60
+  %cmp.i46 = icmp samesign ult i64 %block.addr.0.idx3.i43, 60
   br i1 %cmp.i46, label %while.body.i42, label %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit47, !llvm.loop !59
 
 _ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit47:  ; preds = %while.body.i42

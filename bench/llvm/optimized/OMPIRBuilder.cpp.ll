@@ -24502,7 +24502,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -31841,7 +31841,7 @@ _ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit132: ; 
   %.190 = phi ptr [ %.089168, %83 ], [ %.2, %410 ]
   %.1 = phi i64 [ %.0169, %83 ], [ %412, %410 ]
   %414 = lshr i32 %.095166, 1
-  %.not = icmp ult i32 %.095166, 2
+  %.not = icmp samesign ult i32 %.095166, 2
   br i1 %.not, label %415, label %83, !llvm.loop !320
 
 415:                                              ; preds = %413
@@ -35573,7 +35573,7 @@ _ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit317: ; 
 1522:                                             ; preds = %.lr.ph, %1519
   %.1 = phi i32 [ %.0131841, %.lr.ph ], [ %1521, %1519 ]
   %1523 = lshr i32 %.0132840, 1
-  %1524 = icmp ugt i32 %.0132840, 1
+  %1524 = icmp samesign ugt i32 %.0132840, 1
   %1525 = icmp ne i32 %.1, 0
   %1526 = select i1 %1524, i1 %1525, i1 false
   br i1 %1526, label %.lr.ph, label %._crit_edge, !llvm.loop !364
@@ -56579,7 +56579,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -59777,7 +59777,7 @@ _ZNK4llvm14SmallBitVector4testEj.exit:            ; preds = %468, %482
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %536 = load i32, ptr %45, align 4
   %537 = zext i32 %536 to i64
-  %538 = icmp ult i64 %indvars.iv.next378, %537
+  %538 = icmp samesign ult i64 %indvars.iv.next378, %537
   br i1 %538, label %430, label %._crit_edge363, !llvm.loop !1020
 
 ._crit_edge363:                                   ; preds = %521

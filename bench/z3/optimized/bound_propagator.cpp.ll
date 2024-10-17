@@ -5508,7 +5508,7 @@ _ZNK6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE4sizeEv.exit.thread: ; pr
   %arrayidx.i43 = getelementptr inbounds i8, ptr %19, i64 -4
   %20 = load i32, ptr %arrayidx.i43, align 4
   %21 = zext i32 %20 to i64
-  %cmp24122 = icmp ult i64 %indvars.iv135, %21
+  %cmp24122 = icmp samesign ult i64 %indvars.iv135, %21
   br i1 %cmp24122, label %while.body, label %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit
 
 while.body:                                       ; preds = %_ZNK6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE4sizeEv.exit.thread
@@ -5887,7 +5887,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %eq, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %entry

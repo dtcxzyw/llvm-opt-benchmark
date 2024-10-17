@@ -317,7 +317,7 @@ arc4_addrandom.exit.i35.i:                        ; preds = %for.body.i.i19.i
   store i8 %add.i.i23.i, ptr @rs, align 1
   store i8 %add.i.i23.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %add.i36.i = add nuw nsw i32 %div3815.i.i, %bytes.018.i.i
-  %cmp.i37.i = icmp ult i32 %add.i36.i, 32
+  %cmp.i37.i = icmp samesign ult i32 %add.i36.i, 32
   br i1 %cmp.i37.i, label %for.body.i9.i, label %18, !llvm.loop !11
 
 18:                                               ; preds = %arc4_addrandom.exit.i35.i
@@ -586,7 +586,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 arc4_addrandom.exit.i:                            ; preds = %for.body.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 256
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %cond2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %cond2
   br i1 %cmp.i, label %for.body.i, label %for.cond.do.body5_crit_edge.i, !llvm.loop !14
 
 for.cond.do.body5_crit_edge.i:                    ; preds = %arc4_addrandom.exit.i

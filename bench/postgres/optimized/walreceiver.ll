@@ -706,7 +706,7 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %269
   ]
 
 281:                                              ; preds = %WalRcvComputeNextWakeup.exit115
-  %282 = icmp ult i32 %.081189, 25
+  %282 = icmp samesign ult i32 %.081189, 25
   br i1 %282, label %283, label %287
 
 283:                                              ; preds = %281

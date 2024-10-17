@@ -1631,7 +1631,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
-  %15 = icmp ult i64 %.0.us, 15
+  %15 = icmp samesign ult i64 %.0.us, 15
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.split.us
 
@@ -1696,7 +1696,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
   %36 = icmp eq i32 %.0.i.i.i.i, -1
   %37 = xor i1 %36, %.0.i.i4.i.i
-  %38 = icmp ult i64 %.0, 15
+  %38 = icmp samesign ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us
 

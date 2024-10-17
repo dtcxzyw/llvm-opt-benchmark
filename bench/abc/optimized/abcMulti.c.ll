@@ -1320,7 +1320,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %32 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %31)
   tail call void @Abc_ObjAddFanin(ptr noundef %24, ptr noundef %32) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = icmp ult i64 %indvars.iv.next, %29
+  %33 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1344,7 +1344,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %44 = or i32 %43, 64
   store i32 %44, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = icmp ult i64 %indvars.iv.next.i, %36
+  %45 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread

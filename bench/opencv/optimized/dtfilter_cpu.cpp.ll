@@ -1118,7 +1118,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   %18 = load i32, ptr %7, align 8
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 511
-  %21 = icmp ult i32 %20, 4
+  %21 = icmp samesign ult i32 %20, 4
   br i1 %21, label %32, label %24
 
 22:                                               ; preds = %63, %61, %59, %57, %55, %53, %51, %49, %36
@@ -5080,7 +5080,7 @@ define hidden void @_ZN2cv8ximgproc11DTFilterCPU6filterERKNS_11_InputArrayERKNS_
   %25 = load i32, ptr %5, align 8
   %26 = lshr i32 %25, 3
   %27 = and i32 %26, 511
-  %28 = icmp ult i32 %27, 4
+  %28 = icmp samesign ult i32 %27, 4
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %24

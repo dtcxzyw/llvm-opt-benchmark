@@ -518,7 +518,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
 
 .preheader:                                       ; preds = %.lr.ph
   %21 = add nsw i32 %8, -1
-  %22 = icmp ult i32 %19, %21
+  %22 = icmp samesign ult i32 %19, %21
   br i1 %22, label %.lr.ph37.preheader, label %._crit_edge
 
 .lr.ph37.preheader:                               ; preds = %15, %.preheader
@@ -694,7 +694,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_2, %sub_1, %sub_0, %3, %11
   %.026 = phi ptr [ @.str.7, %11 ], [ @.str.9, %3 ], [ @.str.7, %sub_0 ], [ @.str.7, %sub_1 ], [ %20, %sub_2 ]
   %.024 = phi ptr [ @.str.7, %11 ], [ @.str.8, %3 ], [ @.str.7, %sub_0 ], [ @.str.7, %sub_1 ], [ @.str.7, %sub_2 ]
-  %.not32 = icmp ult i32 %0, 16
+  %.not32 = icmp samesign ult i32 %0, 16
   %spec.select33 = select i1 %.not32, ptr @.str.7, ptr @.str.12
   %switch.selectcmp = icmp eq i32 %7, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.18, ptr @.str.19

@@ -1274,8 +1274,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i8 32, ptr %45, align 1
   %46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %47 = icmp ult i64 %44, %46
-  %48 = icmp ult i64 %.157, 29
-  %49 = and i1 %48, %47
+  %48 = icmp samesign ult i64 %.157, 29
+  %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %40

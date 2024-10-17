@@ -4418,7 +4418,7 @@ define hidden noundef range(i8 2, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_
   br label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h27b6b259f5a25325E.llvm.1965446746118303901.exit.thread"
 
 "_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h27b6b259f5a25325E.llvm.1965446746118303901.exit.thread": ; preds = %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h27b6b259f5a25325E.llvm.1965446746118303901.exit", %6, %2
-  %11 = phi i8 [ %spec.select.i.i, %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h27b6b259f5a25325E.llvm.1965446746118303901.exit" ], [ 2, %2 ], [ 2, %6 ]
+  %11 = phi i8 [ 2, %2 ], [ 2, %6 ], [ %spec.select.i.i, %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h27b6b259f5a25325E.llvm.1965446746118303901.exit" ]
   ret i8 %11
 }
 
@@ -6877,7 +6877,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17ha
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1338)
   %23 = load i64, ptr %22, align 8, !range !1114, !alias.scope !1338, !noundef !4
-  %switch.i = icmp ult i64 %23, 10
+  %switch.i = icmp samesign ult i64 %23, 10
   br i1 %switch.i, label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..ContentType$GT$$GT$17hf2b5ac880cdb8a6dE.exit", label %24
 
 24:                                               ; preds = %21
@@ -7103,7 +7103,7 @@ common.resume:                                    ; preds = %28, %8
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustls..error..CertificateError$GT$17h9ff61a014692ba62E.llvm.1965446746118303901"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !1114, !noundef !4
-  %switch = icmp ult i64 %3, 10
+  %switch = icmp samesign ult i64 %3, 10
   br i1 %switch, label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h6975041040c2861eE.llvm.1965446746118303901.exit", label %4
 
 4:                                                ; preds = %1

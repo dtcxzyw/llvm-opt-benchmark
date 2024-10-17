@@ -426,7 +426,7 @@ clean_telnet_iac.exit:                            ; preds = %.outer.i, %31, %.th
 
 53:                                               ; preds = %49
   %54 = icmp ne i16 %48, 0
-  %55 = icmp ugt i32 %51, 8
+  %55 = icmp samesign ugt i32 %51, 8
   %or.cond5.i.i = select i1 %54, i1 %55, i1 false
   %spec.select.i.i = select i1 %or.cond5.i.i, i32 2, i32 -1
   br label %classify_message_type.exit.i

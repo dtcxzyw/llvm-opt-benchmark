@@ -1340,7 +1340,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp ult i64 %indvars.iv.next, %23
+  %32 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %32, label %25, label %.critedge.preheader, !llvm.loop !22
 
 .critedge2.preheader:                             ; preds = %.critedge
@@ -1745,7 +1745,7 @@ define noalias noundef ptr @Mop_ManFindDist1Pairs(ptr nocapture noundef readonly
   %46 = icmp ne i64 %45, 0
   %or.cond.i = and i1 %46, %.not21.i
   %47 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %45)
-  %.not22.i = icmp ult i64 %47, 2
+  %.not22.i = icmp samesign ult i64 %47, 2
   %or.cond23.i = select i1 %or.cond.i, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.thread, label %Mop_ManCheckDist1.exit.thread
 
@@ -2592,7 +2592,7 @@ define i32 @Mop_ManMergeDist1Pairs2(ptr nocapture noundef readonly %0, ptr nocap
   %44 = icmp ne i64 %43, 0
   %or.cond.i = and i1 %44, %.not21.i
   %45 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %43)
-  %.not22.i = icmp ult i64 %45, 2
+  %.not22.i = icmp samesign ult i64 %45, 2
   %or.cond23.i = select i1 %or.cond.i, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.thread, label %Mop_ManCheckDist1.exit.thread
 
@@ -4091,7 +4091,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %.085 = phi i32 [ 0, %.lr.ph86 ], [ %.1.lcssa, %.critedge.loopexit ]
   %57 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val46, i64 %indvars.iv101
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %58 = icmp ult i64 %indvars.iv.next102, %51
+  %58 = icmp samesign ult i64 %indvars.iv.next102, %51
   br i1 %58, label %.lr.ph82, label %.critedge.loopexit
 
 .lr.ph82:                                         ; preds = %56, %.lr.ph82

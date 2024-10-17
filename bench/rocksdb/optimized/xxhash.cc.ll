@@ -98,7 +98,7 @@ if.end3.i.i:                                      ; preds = %if.end26.i, %if.end
   %and52.i = phi i64 [ %and48.i, %if.end26.thread.i ], [ %len, %if.end26.i ]
   %add2751.i = phi i32 [ %add2747.i, %if.end26.thread.i ], [ %add27.i, %if.end26.i ]
   %input.addr.150.i = phi ptr [ %add.ptr20.i, %if.end26.thread.i ], [ %input, %if.end26.i ]
-  %cmp413.i.i = icmp ugt i64 %and52.i, 3
+  %cmp413.i.i = icmp samesign ugt i64 %and52.i, 3
   br i1 %cmp413.i.i, label %do.body.i.i, label %while.cond6.preheader.i.i
 
 while.cond6.preheader.i.i:                        ; preds = %do.body.i.i, %if.end3.i.i
@@ -405,7 +405,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %11 = load i32, ptr %memsize, align 4
   %12 = and i32 %11, 15
   %and.i = zext nneg i32 %12 to i64
-  %cmp413.i = icmp ugt i32 %12, 3
+  %cmp413.i = icmp samesign ugt i32 %12, 3
   br i1 %cmp413.i, label %do.body.i, label %while.cond6.preheader.i
 
 while.cond6.preheader.i:                          ; preds = %do.body.i, %if.end
@@ -576,7 +576,7 @@ if.end3.i.i:                                      ; preds = %if.end30.i, %if.end
   %input.addr.176.i = phi ptr [ %add.ptr20.i, %if.end30.thread.i ], [ %input, %if.end30.i ]
   %add3177.i = add i64 %add.i65.pn.i, %len
   %and.i.i = and i64 %len, 31
-  %cmp422.i.i = icmp ugt i64 %and.i.i, 7
+  %cmp422.i.i = icmp samesign ugt i64 %and.i.i, 7
   br i1 %cmp422.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end3.i.i, %while.body.i.i
@@ -600,7 +600,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
   %len.addr.0.lcssa.i.i = phi i64 [ %and.i.i, %if.end3.i.i ], [ %sub.i.i, %while.body.i.i ]
   %ptr.addr.0.lcssa.i.i = phi ptr [ %input.addr.176.i, %if.end3.i.i ], [ %add.ptr.i.i, %while.body.i.i ]
   %hash.addr.0.lcssa.i.i = phi i64 [ %add3177.i, %if.end3.i.i ], [ %add.i70.i, %while.body.i.i ]
-  %cmp6.i.i = icmp ugt i64 %len.addr.0.lcssa.i.i, 3
+  %cmp6.i.i = icmp samesign ugt i64 %len.addr.0.lcssa.i.i, 3
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end15.i.i
 
 if.then7.i.i:                                     ; preds = %while.end.i.i
@@ -910,7 +910,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %add24 = add i64 %h64.0, %0
   %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %and.i = and i64 %0, 31
-  %cmp422.i = icmp ugt i64 %and.i, 7
+  %cmp422.i = icmp samesign ugt i64 %and.i, 7
   br i1 %cmp422.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
@@ -934,7 +934,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %len.addr.0.lcssa.i = phi i64 [ %and.i, %if.end ], [ %sub.i, %while.body.i ]
   %ptr.addr.0.lcssa.i = phi ptr [ %mem64, %if.end ], [ %add.ptr.i, %while.body.i ]
   %hash.addr.0.lcssa.i = phi i64 [ %add24, %if.end ], [ %add.i37, %while.body.i ]
-  %cmp6.i = icmp ugt i64 %len.addr.0.lcssa.i, 3
+  %cmp6.i = icmp samesign ugt i64 %len.addr.0.lcssa.i, 3
   br i1 %cmp6.i, label %if.then7.i, label %if.end15.i
 
 if.then7.i:                                       ; preds = %while.end.i
@@ -1019,7 +1019,7 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %entry
-  %cmp1.i = icmp ugt i64 %len, 8
+  %cmp1.i = icmp samesign ugt i64 %len, 8
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then2
@@ -1063,7 +1063,7 @@ if.then2.i:                                       ; preds = %if.then2
   br label %return
 
 if.end3.i:                                        ; preds = %if.then2
-  %cmp4.i = icmp ugt i64 %len, 3
+  %cmp4.i = icmp samesign ugt i64 %len, 3
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -1205,7 +1205,7 @@ if.then5:                                         ; preds = %if.end3
   %shr.i.i.i61.i = lshr i128 %mul.i.i.i60.i, 64
   %xor1.i.i62.i = xor i128 %shr.i.i.i61.i, %mul.i.i.i60.i
   %xor.i.i63.i = trunc i128 %xor1.i.i62.i to i64
-  %cmp10.i = icmp ugt i64 %len, 32
+  %cmp10.i = icmp samesign ugt i64 %len, 32
   br i1 %cmp10.i, label %if.then11.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit
 
 if.then11.i:                                      ; preds = %if.then5
@@ -1247,7 +1247,7 @@ if.then11.i:                                      ; preds = %if.then5
   %xor1.i.i82.i = xor i128 %shr.i.i.i81.i, %mul.i.i.i80.i
   %xor.i.i83.i = trunc i128 %xor1.i.i82.i to i64
   %add20.i = add i64 %xor.i.i83.i, %xor.i.i63.i
-  %cmp21.i = icmp ugt i64 %len, 64
+  %cmp21.i = icmp samesign ugt i64 %len, 64
   br i1 %cmp21.i, label %if.then22.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit
 
 if.then22.i:                                      ; preds = %if.then11.i
@@ -1289,7 +1289,7 @@ if.then22.i:                                      ; preds = %if.then11.i
   %xor1.i.i102.i = xor i128 %shr.i.i.i101.i, %mul.i.i.i100.i
   %xor.i.i103.i = trunc i128 %xor1.i.i102.i to i64
   %add31.i = add i64 %add20.i, %xor.i.i103.i
-  %cmp32.i = icmp ugt i64 %len, 96
+  %cmp32.i = icmp samesign ugt i64 %len, 96
   br i1 %cmp32.i, label %if.then33.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit
 
 if.then33.i:                                      ; preds = %if.then22.i
@@ -1531,7 +1531,7 @@ for.end.i.i:                                      ; preds = %_ZL22XXH3_accumulat
   %sub12.i.i = and i64 %sub1.i.i, 1023
   %div1327.i.i = lshr i64 %sub12.i.i, 6
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i
-  %cmp5.not.i29.i.i = icmp ult i64 %sub12.i.i, 64
+  %cmp5.not.i29.i.i = icmp samesign ult i64 %sub12.i.i, 64
   br i1 %cmp5.not.i29.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %for.body.i34.i.i
 
 for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.body.i34.i.i
@@ -1690,7 +1690,7 @@ for.end.i.i:                                      ; preds = %_ZL22XXH3_accumulat
   %mul11.i.i = mul i64 %div2.i.i, %mul.i.i
   %div1327.i.i = lshr i64 %sub12.i.i.recomposed, 6
   %div1428.i.i = lshr i64 %secretLen, 3
-  %cmp15.i.i = icmp ule i64 %div1327.i.i, %div1428.i.i
+  %cmp15.i.i = icmp samesign ule i64 %div1327.i.i, %div1428.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i
   %cmp5.not.i29.i.i = icmp ult i64 %sub12.i.i.recomposed, 64
@@ -1855,7 +1855,7 @@ for.end.i.i.i:                                    ; preds = %_ZL22XXH3_accumulat
   %sub12.i.i.i = and i64 %sub1.i.i.i, 1023
   %div1327.i.i.i = lshr i64 %sub12.i.i.i, 6
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i.i
-  %cmp5.not.i29.i.i.i = icmp ult i64 %sub12.i.i.i, 64
+  %cmp5.not.i29.i.i.i = icmp samesign ult i64 %sub12.i.i.i, 64
   br i1 %cmp5.not.i29.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i, label %for.body.i34.i.i.i
 
 for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for.body.i34.i.i.i
@@ -2015,7 +2015,7 @@ for.end.i.i36.i:                                  ; preds = %_ZL22XXH3_accumulat
   %sub12.i.i40.i = and i64 %sub1.i.i8.i, 1023
   %div1327.i.i41.i = lshr i64 %sub12.i.i40.i, 6
   %add.ptr19.i.i43.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i39.i
-  %cmp5.not.i29.i.i44.i = icmp ult i64 %sub12.i.i40.i, 64
+  %cmp5.not.i29.i.i44.i = icmp samesign ult i64 %sub12.i.i40.i, 64
   br i1 %cmp5.not.i29.i.i44.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i, label %for.body.i34.i.i45.i
 
 for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %for.body.i34.i.i45.i
@@ -2180,7 +2180,7 @@ for.end.i.i.i:                                    ; preds = %_ZL22XXH3_accumulat
   %mul11.i.i.i = mul i64 %div2.i.i.i, %mul.i.i.i
   %div1327.i.i.i = lshr i64 %sub12.i.i.i.recomposed, 6
   %div1428.i.i.i = lshr i64 %secretSize, 3
-  %cmp15.i.i.i = icmp ule i64 %div1327.i.i.i, %div1428.i.i.i
+  %cmp15.i.i.i = icmp samesign ule i64 %div1327.i.i.i, %div1428.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i.i
   %cmp5.not.i29.i.i.i = icmp ult i64 %sub12.i.i.i.recomposed, 64
@@ -3369,7 +3369,7 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %entry
-  %cmp1.i = icmp ugt i64 %len, 8
+  %cmp1.i = icmp samesign ugt i64 %len, 8
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then2
@@ -3428,7 +3428,7 @@ if.then2.i:                                       ; preds = %if.then2
   br label %_ZL19XXH3_len_0to16_128bPKhmS0_m.exit
 
 if.end3.i:                                        ; preds = %if.then2
-  %cmp4.i = icmp ugt i64 %len, 3
+  %cmp4.i = icmp samesign ugt i64 %len, 3
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -3583,15 +3583,15 @@ if.end3:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.end3
   %mul.i = mul i64 %len, -7046029288634856825
-  %cmp5.i = icmp ugt i64 %len, 32
+  %cmp5.i = icmp samesign ugt i64 %len, 32
   br i1 %cmp5.i, label %if.then6.i, label %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit
 
 if.then6.i:                                       ; preds = %if.then5
-  %cmp7.i = icmp ugt i64 %len, 64
+  %cmp7.i = icmp samesign ugt i64 %len, 64
   br i1 %cmp7.i, label %if.then8.i24, label %if.end22.i
 
 if.then8.i24:                                     ; preds = %if.then6.i
-  %cmp9.i = icmp ugt i64 %len, 96
+  %cmp9.i = icmp samesign ugt i64 %len, 96
   br i1 %cmp9.i, label %if.then10.i, label %if.end14.i
 
 if.then10.i:                                      ; preds = %if.then8.i24
@@ -3858,7 +3858,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %add12.i.i69 = add i64 %add.ptr6.val38.i, %add.ptr6.val.i
   %xor14.i.i70 = xor i64 %add8.i.i68, %add12.i.i69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
-  %cmp5.i71 = icmp ult i64 %indvars.iv.i, 128
+  %cmp5.i71 = icmp samesign ult i64 %indvars.iv.i, 128
   br i1 %cmp5.i71, label %for.body.i, label %for.end.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i
@@ -3872,7 +3872,7 @@ for.end.i:                                        ; preds = %for.body.i
   %mul.i47.i = mul i64 %xor.i.i46.i, 1609587791953885689
   %shr.i4.i48.i = lshr i64 %mul.i47.i, 32
   %xor.i5.i49.i = xor i64 %shr.i4.i48.i, %mul.i47.i
-  %cmp20.not129.i = icmp ult i64 %len, 160
+  %cmp20.not129.i = icmp samesign ult i64 %len, 160
   br i1 %cmp20.not129.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %for.body21.lr.ph.i
 
 for.body21.lr.ph.i:                               ; preds = %for.end.i
@@ -3928,7 +3928,7 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %add12.i79.i = add i64 %add.ptr26.val40.i, %add.ptr26.val.i
   %xor14.i80.i = xor i64 %add8.i78.i, %add12.i79.i
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 32
-  %cmp20.not.i = icmp ult i64 %len, %indvars.iv.next137.i
+  %cmp20.not.i = icmp samesign ult i64 %len, %indvars.iv.next137.i
   br i1 %cmp20.not.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %for.body21.i, !llvm.loop !25
 
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %for.body21.i, %for.end.i
@@ -4757,7 +4757,7 @@ for.end.i:                                        ; preds = %_ZL22XXH3_accumulat
   %mul11.i = mul i64 %div2.i, %mul.i
   %div1327.i = lshr i64 %sub12.i.recomposed, 6
   %div1428.i = lshr i64 %secretSize, 3
-  %cmp15.i = icmp ule i64 %div1327.i, %div1428.i
+  %cmp15.i = icmp samesign ule i64 %div1327.i, %div1428.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %add.ptr19.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i
   %cmp5.not.i29.i = icmp ult i64 %sub12.i.recomposed, 64

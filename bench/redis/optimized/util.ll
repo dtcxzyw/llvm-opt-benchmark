@@ -549,7 +549,7 @@ if.end51:                                         ; preds = %while.body, %while.
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv53 = and i64 %sub.ptr.sub, 4294967295
-  %cmp54 = icmp ugt i64 %conv53, 127
+  %cmp54 = icmp samesign ugt i64 %conv53, 127
   br i1 %cmp54, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end51
@@ -1054,7 +1054,7 @@ while.body:                                       ; preds = %if.end, %while.body
 while.end:                                        ; preds = %while.body, %if.end
   %next.0.lcssa = phi i32 [ %sub, %if.end ], [ %sub15, %while.body ]
   %value.addr.0.lcssa = phi i64 [ %value, %if.end ], [ %div, %while.body ]
-  %cmp16 = icmp ult i64 %value.addr.0.lcssa, 10
+  %cmp16 = icmp samesign ult i64 %value.addr.0.lcssa, 10
   br i1 %cmp16, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %while.end
@@ -1945,7 +1945,7 @@ while.body:                                       ; preds = %if.end42, %while.bo
 while.end:                                        ; preds = %while.body, %if.end42
   %value.2.lcssa = phi i64 [ %value.1, %if.end42 ], [ %div, %while.body ]
   %next.0.lcssa = phi i32 [ %sub50, %if.end42 ], [ %spec.select, %while.body ]
-  %cmp71 = icmp ult i64 %value.2.lcssa, 10
+  %cmp71 = icmp samesign ult i64 %value.2.lcssa, 10
   br i1 %cmp71, label %if.then73, label %if.else79
 
 if.then73:                                        ; preds = %while.end

@@ -850,12 +850,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %notmask394 = shl nsw i64 -1, %sh_prom.i.i824
   %sub.i826 = xor i64 %notmask394, -1
   %cond.i741 = select i1 %cmp1.i738, i64 %sub.i826, i64 -1
-  %cmp2.i742.not = icmp ugt i64 %indvars.iv, %14
+  %cmp2.i742.not = icmp samesign ugt i64 %indvars.iv, %14
   br i1 %cmp2.i742.not, label %get_flat_masks.exit757, label %if.then3.i744
 
 if.then3.i744:                                    ; preds = %for.body.i
   %20 = sub nuw nsw i64 %14, %indvars.iv
-  %cmp5.i746 = icmp ult i64 %20, 64
+  %cmp5.i746 = icmp samesign ult i64 %20, 64
   %notmask395 = shl nsw i64 -1, %20
   %cond10.i749 = select i1 %cmp5.i746, i64 %notmask395, i64 0
   %and.i750 = and i64 %cond.i741, %cond10.i749
@@ -875,7 +875,7 @@ if.then21.i:                                      ; preds = %get_flat_masks.exit
 
 if.end23.i:                                       ; preds = %get_flat_masks.exit757
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp14.i = icmp ult i64 %indvars.iv.next, %16
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end23.i, %if.end5.i293
@@ -1002,7 +1002,7 @@ for.cond.i392:                                    ; preds = %if.end40.i, %if.els
   %shr.i947 = lshr i64 %sub1.i945, %sh_prom.i946
   %sub2.i948 = sub i64 %conv4.i.sub.i402, %mul.i395
   %shr4.i950 = lshr i64 %sub2.i948, %sh_prom.i946
-  %cmp.i951 = icmp ult i64 %shr.i947, 64
+  %cmp.i951 = icmp samesign ult i64 %shr.i947, 64
   %notmask = shl nsw i64 -1, %shr.i947
   %cond.i954 = select i1 %cmp.i951, i64 %notmask, i64 0
   %cmp5.i955 = icmp ult i64 %shr4.i950, 63
@@ -1620,12 +1620,12 @@ for.body.i351:                                    ; preds = %for.body.i351.prehe
   %notmask410 = shl nsw i64 -1, %sh_prom.i.i854
   %sub.i856 = xor i64 %notmask410, -1
   %cond.i648 = select i1 %cmp1.i645, i64 %sub.i856, i64 -1
-  %cmp2.i649.not = icmp ugt i64 %indvars.iv528, %130
+  %cmp2.i649.not = icmp samesign ugt i64 %indvars.iv528, %130
   br i1 %cmp2.i649.not, label %get_flat_masks.exit664, label %if.then3.i651
 
 if.then3.i651:                                    ; preds = %for.body.i351
   %136 = sub nuw nsw i64 %130, %indvars.iv528
-  %cmp5.i653 = icmp ult i64 %136, 64
+  %cmp5.i653 = icmp samesign ult i64 %136, 64
   %notmask411 = shl nsw i64 -1, %136
   %cond10.i656 = select i1 %cmp5.i653, i64 %notmask411, i64 0
   %and.i657 = and i64 %cond.i648, %cond10.i656
@@ -1645,7 +1645,7 @@ if.then21.i362:                                   ; preds = %get_flat_masks.exit
 
 if.end23.i358:                                    ; preds = %get_flat_masks.exit664
   %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 64
-  %cmp14.i334 = icmp ult i64 %indvars.iv.next529, %132
+  %cmp14.i334 = icmp samesign ult i64 %indvars.iv.next529, %132
   br i1 %cmp14.i334, label %for.body.i351, label %for.end.i335, !llvm.loop !10
 
 for.end.i335:                                     ; preds = %if.end23.i358, %if.end5.i322
@@ -1752,7 +1752,7 @@ for.cond.i443:                                    ; preds = %if.end40.i482, %if.
   %shr.i915 = lshr i64 %sub1.i, %sh_prom.i914
   %sub2.i = sub i64 %conv4.i452.sub.i454, %mul.i446
   %shr4.i = lshr i64 %sub2.i, %sh_prom.i914
-  %cmp.i916 = icmp ult i64 %shr.i915, 64
+  %cmp.i916 = icmp samesign ult i64 %shr.i915, 64
   %notmask404 = shl nsw i64 -1, %shr.i915
   %cond.i919 = select i1 %cmp.i916, i64 %notmask404, i64 0
   %cmp5.i920 = icmp ult i64 %shr4.i, 63
@@ -2863,7 +2863,7 @@ for.inc:                                          ; preds = %do.body.i, %if.else
   %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
   %202 = load i32, ptr %outfixEndQueue, align 8
   %203 = zext i32 %202 to i64
-  %cmp = icmp ult i64 %indvars.iv.next877, %203
+  %cmp = icmp samesign ult i64 %indvars.iv.next877, %203
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -2986,12 +2986,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %notmask856 = shl nsw i64 -1, %sh_prom.i.i245
   %sub.i247 = xor i64 %notmask856, -1
   %cond.i180 = select i1 %cmp1.i177, i64 %sub.i247, i64 -1
-  %cmp2.i181.not = icmp ugt i64 %indvars.iv, %11
+  %cmp2.i181.not = icmp samesign ugt i64 %indvars.iv, %11
   br i1 %cmp2.i181.not, label %get_flat_masks.exit196, label %if.then3.i183
 
 if.then3.i183:                                    ; preds = %for.body.i
   %17 = sub nuw nsw i64 %11, %indvars.iv
-  %cmp5.i185 = icmp ult i64 %17, 64
+  %cmp5.i185 = icmp samesign ult i64 %17, 64
   %notmask857 = shl nsw i64 -1, %17
   %cond10.i188 = select i1 %cmp5.i185, i64 %notmask857, i64 0
   %and.i189 = and i64 %cond.i180, %cond10.i188
@@ -3010,7 +3010,7 @@ if.then21.i:                                      ; preds = %get_flat_masks.exit
 
 if.end23.i:                                       ; preds = %get_flat_masks.exit196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp14.i = icmp ult i64 %indvars.iv.next, %13
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end23.i, %if.end5.i60
@@ -3133,7 +3133,7 @@ for.cond.i83:                                     ; preds = %if.end40.i, %if.els
   %shr.i281 = lshr i64 %sub1.i, %sh_prom.i280
   %sub2.i = sub i64 %conv4.i.sub.i90, %mul.i
   %shr4.i = lshr i64 %sub2.i, %sh_prom.i280
-  %cmp.i282 = icmp ult i64 %shr.i281, 64
+  %cmp.i282 = icmp samesign ult i64 %shr.i281, 64
   %notmask = shl nsw i64 -1, %shr.i281
   %cond.i285 = select i1 %cmp.i282, i64 %notmask, i64 0
   %cmp5.i286 = icmp ult i64 %shr4.i, 63
@@ -3440,11 +3440,11 @@ if.then38.i660:                                   ; preds = %mmbit_get_flat_bloc
 if.else.i659:                                     ; preds = %mmbit_get_flat_block.exit132.i
   %conv41.i = zext i32 %mul.i652 to i64
   %add42.i = add nuw nsw i64 %conv41.i, 64
-  %cmp44.i.not = icmp ult i64 %add42.i, %conv.i625
+  %cmp44.i.not = icmp samesign ult i64 %add42.i, %conv.i625
   br i1 %cmp44.i.not, label %for.cond.i630.preheader, label %mmbit_iterate.exit
 
 for.cond.i630.preheader:                          ; preds = %if.else.i659
-  %cmp52.i1023 = icmp ugt i32 %div.i627864, %51
+  %cmp52.i1023 = icmp samesign ugt i32 %div.i627864, %51
   br i1 %cmp52.i1023, label %for.body.i647, label %for.end.i631
 
 for.body.i647:                                    ; preds = %for.cond.i630.preheader, %if.end67.i
@@ -4571,7 +4571,7 @@ while.body.i1173:                                 ; preds = %while.body.i1173.pr
   %arrayidx37.i1181 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %indvars.iv1399
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i1176, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37.i1181, i64 24, i1 false)
   %indvars.iv.next1398 = add nuw nsw i64 %indvars.iv1397, 1
-  %cmp32.i1168 = icmp ult i64 %indvars.iv.next1400, %290
+  %cmp32.i1168 = icmp samesign ult i64 %indvars.iv.next1400, %290
   br i1 %cmp32.i1168, label %while.body.i1173, label %while.cond.i1165.while.end.i1169_crit_edge, !llvm.loop !20
 
 while.cond.i1165.while.end.i1169_crit_edge:       ; preds = %while.body.i1173
@@ -5317,7 +5317,7 @@ while.body.i873:                                  ; preds = %while.body.i873.pre
   %arrayidx37.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i511, i64 0, i64 %indvars.iv1350
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i875, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37.i, i64 24, i1 false)
   %indvars.iv.next1349 = add nuw nsw i64 %indvars.iv1348, 1
-  %cmp32.i870 = icmp ult i64 %indvars.iv.next1351, %450
+  %cmp32.i870 = icmp samesign ult i64 %indvars.iv.next1351, %450
   br i1 %cmp32.i870, label %while.body.i873, label %while.cond.i869.while.end.i871_crit_edge, !llvm.loop !20
 
 while.cond.i869.while.end.i871_crit_edge:         ; preds = %while.body.i873
@@ -5889,7 +5889,7 @@ while.body.i565:                                  ; preds = %while.body.i565.pre
   %arrayidx35.i573 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %indvars.iv731
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i568, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx35.i573, i64 24, i1 false)
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, 1
-  %cmp30.i560 = icmp ult i64 %indvars.iv.next732, %92
+  %cmp30.i560 = icmp samesign ult i64 %indvars.iv.next732, %92
   br i1 %cmp30.i560, label %while.body.i565, label %while.cond.i557.while.end.i561_crit_edge, !llvm.loop !23
 
 while.cond.i557.while.end.i561_crit_edge:         ; preds = %while.body.i565
@@ -6686,7 +6686,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %arrayidx35.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %indvars.iv696
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i286, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx35.i, i64 24, i1 false)
   %indvars.iv.next695 = add nuw nsw i64 %indvars.iv694, 1
-  %cmp30.i = icmp ult i64 %indvars.iv.next697, %225
+  %cmp30.i = icmp samesign ult i64 %indvars.iv.next697, %225
   br i1 %cmp30.i, label %while.body.i, label %while.cond.i.while.end.i_crit_edge, !llvm.loop !23
 
 while.cond.i.while.end.i_crit_edge:               ; preds = %while.body.i
@@ -6912,12 +6912,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %notmask819 = shl nsw i64 -1, %sh_prom.i.i207
   %sub.i209 = xor i64 %notmask819, -1
   %cond.i142 = select i1 %cmp1.i139, i64 %sub.i209, i64 -1
-  %cmp2.i143.not = icmp ugt i64 %indvars.iv, %11
+  %cmp2.i143.not = icmp samesign ugt i64 %indvars.iv, %11
   br i1 %cmp2.i143.not, label %get_flat_masks.exit158, label %if.then3.i145
 
 if.then3.i145:                                    ; preds = %for.body.i
   %17 = sub nuw nsw i64 %11, %indvars.iv
-  %cmp5.i147 = icmp ult i64 %17, 64
+  %cmp5.i147 = icmp samesign ult i64 %17, 64
   %notmask820 = shl nsw i64 -1, %17
   %cond10.i150 = select i1 %cmp5.i147, i64 %notmask820, i64 0
   %and.i151 = and i64 %cond.i142, %cond10.i150
@@ -6936,7 +6936,7 @@ if.then21.i:                                      ; preds = %get_flat_masks.exit
 
 if.end23.i:                                       ; preds = %get_flat_masks.exit158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp14.i = icmp ult i64 %indvars.iv.next, %13
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end23.i, %if.end5.i22
@@ -7059,7 +7059,7 @@ for.cond.i45:                                     ; preds = %if.end40.i, %if.els
   %shr.i243 = lshr i64 %sub1.i, %sh_prom.i242
   %sub2.i = sub i64 %conv4.i.sub.i52, %mul.i
   %shr4.i = lshr i64 %sub2.i, %sh_prom.i242
-  %cmp.i244 = icmp ult i64 %shr.i243, 64
+  %cmp.i244 = icmp samesign ult i64 %shr.i243, 64
   %notmask = shl nsw i64 -1, %shr.i243
   %cond.i247 = select i1 %cmp.i244, i64 %notmask, i64 0
   %cmp5.i248 = icmp ult i64 %shr4.i, 63
@@ -7366,11 +7366,11 @@ if.then38.i622:                                   ; preds = %mmbit_get_flat_bloc
 if.else.i621:                                     ; preds = %mmbit_get_flat_block.exit132.i
   %conv41.i = zext i32 %mul.i614 to i64
   %add42.i = add nuw nsw i64 %conv41.i, 64
-  %cmp44.i.not = icmp ult i64 %add42.i, %conv.i587
+  %cmp44.i.not = icmp samesign ult i64 %add42.i, %conv.i587
   br i1 %cmp44.i.not, label %for.cond.i592.preheader, label %mmbit_iterate.exit
 
 for.cond.i592.preheader:                          ; preds = %if.else.i621
-  %cmp52.i980 = icmp ugt i32 %div.i589827, %51
+  %cmp52.i980 = icmp samesign ugt i32 %div.i589827, %51
   br i1 %cmp52.i980, label %for.body.i609, label %for.end.i593
 
 for.body.i609:                                    ; preds = %for.cond.i592.preheader, %if.end67.i
@@ -8497,7 +8497,7 @@ while.body.i1135:                                 ; preds = %while.body.i1135.pr
   %arrayidx37.i1143 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %indvars.iv1356
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i1138, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37.i1143, i64 24, i1 false)
   %indvars.iv.next1355 = add nuw nsw i64 %indvars.iv1354, 1
-  %cmp32.i1130 = icmp ult i64 %indvars.iv.next1357, %290
+  %cmp32.i1130 = icmp samesign ult i64 %indvars.iv.next1357, %290
   br i1 %cmp32.i1130, label %while.body.i1135, label %while.cond.i1127.while.end.i1131_crit_edge, !llvm.loop !20
 
 while.cond.i1127.while.end.i1131_crit_edge:       ; preds = %while.body.i1135
@@ -9243,7 +9243,7 @@ while.body.i835:                                  ; preds = %while.body.i835.pre
   %arrayidx37.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i473, i64 0, i64 %indvars.iv1307
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i837, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37.i, i64 24, i1 false)
   %indvars.iv.next1306 = add nuw nsw i64 %indvars.iv1305, 1
-  %cmp32.i832 = icmp ult i64 %indvars.iv.next1308, %450
+  %cmp32.i832 = icmp samesign ult i64 %indvars.iv.next1308, %450
   br i1 %cmp32.i832, label %while.body.i835, label %while.cond.i831.while.end.i833_crit_edge, !llvm.loop !20
 
 while.cond.i831.while.end.i833_crit_edge:         ; preds = %while.body.i835

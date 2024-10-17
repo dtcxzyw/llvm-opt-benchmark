@@ -514,7 +514,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %32, %_ZN9QtPrivate8
   %spec.select = add nuw nsw i32 %.0, %37
   %38 = load ptr, ptr %5, align 8
   %39 = icmp eq ptr %38, @_ZN10QArrayData11shared_nullE
-  %40 = icmp ugt i32 %spec.select, 2
+  %40 = icmp samesign ugt i32 %spec.select, 2
   %.not14 = select i1 %39, i1 true, i1 %40
   br i1 %.not14, label %.preheader, label %22, !llvm.loop !10
 

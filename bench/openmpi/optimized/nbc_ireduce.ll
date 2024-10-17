@@ -992,7 +992,7 @@ ceil_of_log2.exit.i:                              ; preds = %113
   %.0296.in.us.i = phi i32 [ %.0296.us.i, %428 ], [ %283, %.thread13.i ]
   %.0296.us.i = lshr i32 %.0296.in.us.i, 1
   %indvars.iv.next87.i = add nsw i64 %indvars.iv86.i, -1
-  %.not64.us.i = icmp ult i32 %.0296.in.us.i, 2
+  %.not64.us.i = icmp samesign ult i32 %.0296.in.us.i, 2
   br i1 %.not64.us.i, label %.loopexit.i208, label %418
 
 418:                                              ; preds = %.thread13.split.us.i
@@ -1025,7 +1025,7 @@ ceil_of_log2.exit.i:                              ; preds = %113
   %.0296.in.i = phi i32 [ %.0296.i, %458 ], [ %283, %.thread13.i ]
   %.0296.i = lshr i32 %.0296.in.i, 1
   %indvars.iv.next84.i = add nsw i64 %indvars.iv83.i, -1
-  %.not64.i = icmp ult i32 %.0296.in.i, 2
+  %.not64.i = icmp samesign ult i32 %.0296.in.i, 2
   br i1 %.not64.i, label %.loopexit.i208, label %438
 
 438:                                              ; preds = %.thread13.split.i

@@ -633,7 +633,7 @@ if.end13:                                         ; preds = %if.end8, %if.end47
   %conv = zext i16 %7 to i32
   %sub14 = sub nuw i32 %field_num, %fstart.0.copyload40
   %div32 = lshr i32 %sub14, 4
-  %cmp15 = icmp ult i32 %div32, %conv
+  %cmp15 = icmp samesign ult i32 %div32, %conv
   br i1 %cmp15, label %if.then17, label %if.end47
 
 if.then17:                                        ; preds = %if.end13
@@ -908,7 +908,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %conv.i62 = zext i16 %14 to i32
   %sub14.i = sub nuw i32 %shr.i, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
-  %cmp15.i = icmp ult i32 %div32.i, %conv.i62
+  %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i62
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
 
 if.then17.i:                                      ; preds = %if.end13.i
@@ -1104,7 +1104,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %conv.i72 = zext i16 %15 to i32
   %sub14.i = sub nuw i32 %shr.i, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
-  %cmp15.i = icmp ult i32 %div32.i, %conv.i72
+  %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i72
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
 
 if.then17.i:                                      ; preds = %if.end13.i
@@ -11822,7 +11822,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %conv.i = zext i16 %6 to i32
   %sub14.i = sub nuw i32 %shr, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
-  %cmp15.i = icmp ult i32 %div32.i, %conv.i
+  %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
 
 if.then17.i:                                      ; preds = %if.end13.i
@@ -14744,7 +14744,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %conv.i = zext i16 %9 to i32
   %sub14.i = sub nuw i32 %1, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
-  %cmp15.i = icmp ult i32 %div32.i, %conv.i
+  %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
 
 if.then17.i:                                      ; preds = %if.end13.i
@@ -16400,7 +16400,7 @@ if.then14:                                        ; preds = %if.end
 if.end19:                                         ; preds = %if.end
   %and21 = and i16 %0, 1536
   %cmp24 = icmp eq i16 %and21, 512
-  %tobool.not = icmp ult i16 %and21, 1024
+  %tobool.not = icmp samesign ult i16 %and21, 1024
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %2 = load i8, ptr %ptr, align 1
   %conv.i151 = sext i8 %2 to i64
@@ -18396,7 +18396,7 @@ if.then14:                                        ; preds = %if.end
 if.end19:                                         ; preds = %if.end
   %and21 = and i16 %0, 1536
   %cmp24 = icmp eq i16 %and21, 512
-  %tobool.not = icmp ult i16 %and21, 1024
+  %tobool.not = icmp samesign ult i16 %and21, 1024
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %2 = load i8, ptr %ptr, align 1
   %conv.i151 = sext i8 %2 to i64
@@ -22635,7 +22635,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %13 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -22795,7 +22795,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -22937,7 +22937,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i22
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -27150,7 +27150,7 @@ if.then8.i:                                       ; preds = %if.then.i7
 
 if.else.i6:                                       ; preds = %if.else
   %div8.i = lshr i64 %sub1.i.i, 2
-  %cmp10.not.i = icmp uge i64 %div8.i, %conv
+  %cmp10.not.i = icmp samesign uge i64 %div8.i, %conv
   %cmp12.i = icmp ugt i32 %12, 2
   %or.cond.i = and i1 %cmp12.i, %cmp10.not.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end10
@@ -27360,7 +27360,7 @@ if.then8.i:                                       ; preds = %if.then.i7
 
 if.else.i6:                                       ; preds = %if.else
   %div8.i = lshr i64 %sub1.i.i, 2
-  %cmp10.not.i = icmp uge i64 %div8.i, %conv
+  %cmp10.not.i = icmp samesign uge i64 %div8.i, %conv
   %cmp12.i = icmp ugt i32 %10, 2
   %or.cond.i = and i1 %cmp12.i, %cmp10.not.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end10
@@ -27567,7 +27567,7 @@ if.then8.i:                                       ; preds = %if.then.i7
 
 if.else.i6:                                       ; preds = %if.else
   %div8.i = lshr i64 %sub1.i.i, 2
-  %cmp10.not.i = icmp uge i64 %div8.i, %conv
+  %cmp10.not.i = icmp samesign uge i64 %div8.i, %conv
   %cmp12.i = icmp ugt i32 %10, 2
   %or.cond.i = and i1 %cmp12.i, %cmp10.not.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end10
@@ -27724,7 +27724,7 @@ if.then8.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.else
   %div8.i = lshr i64 %sub1.i.i, 2
-  %cmp10.not.i = icmp uge i64 %div8.i, %conv
+  %cmp10.not.i = icmp samesign uge i64 %div8.i, %conv
   %cmp12.i = icmp ugt i32 %5, 2
   %or.cond.i = and i1 %cmp12.i, %cmp10.not.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end13
@@ -28331,7 +28331,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 80
   %37 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %37 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 88
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
@@ -28768,7 +28768,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 80
   %34 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %34 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 88
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
@@ -29199,7 +29199,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 80
   %34 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %34 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 88
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
@@ -29612,7 +29612,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 80
   %21 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %21 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 88
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
@@ -29827,7 +29827,7 @@ entry:
   %0 = load i16, ptr %type_card, align 2
   %1 = and i16 %0, 1536
   %cmp = icmp eq i16 %1, 512
-  %tobool.not = icmp ult i16 %1, 1024
+  %tobool.not = icmp samesign ult i16 %1, 1024
   %2 = ptrtoint ptr %table to i64
   %aux_offset.i.i.i = getelementptr inbounds i8, ptr %table, i64 24
   %3 = load i32, ptr %aux_offset.i.i.i, align 8
@@ -30229,7 +30229,7 @@ entry:
   %0 = load i16, ptr %type_card, align 2
   %1 = and i16 %0, 1536
   %cmp = icmp eq i16 %1, 512
-  %tobool.not = icmp ult i16 %1, 1024
+  %tobool.not = icmp samesign ult i16 %1, 1024
   %2 = ptrtoint ptr %table to i64
   %aux_offset.i.i.i = getelementptr inbounds i8, ptr %table, i64 24
   %3 = load i32, ptr %aux_offset.i.i.i, align 8
@@ -30634,7 +30634,7 @@ entry:
   %0 = load i16, ptr %type_card, align 2
   %1 = and i16 %0, 1536
   %cmp = icmp eq i16 %1, 512
-  %tobool.not = icmp ult i16 %1, 1024
+  %tobool.not = icmp samesign ult i16 %1, 1024
   %2 = ptrtoint ptr %table to i64
   %aux_offset.i.i.i = getelementptr inbounds i8, ptr %table, i64 24
   %3 = load i32, ptr %aux_offset.i.i.i, align 8
@@ -36870,7 +36870,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -37015,7 +37015,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i23
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %13 to i64
-  %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
+  %cmp3.not.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i

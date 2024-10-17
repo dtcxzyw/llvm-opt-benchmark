@@ -9015,7 +9015,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i64 %14, -1
   %20 = lshr i64 %19, 1
-  %21 = icmp ult i64 %16, %20
+  %21 = icmp samesign ult i64 %16, %20
   br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i.i.i"
@@ -11522,7 +11522,7 @@ define internal fastcc noundef zeroext i1 @_ZL18hasConcreteDefImplPN4llvm5ValueE
   br label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = icmp ugt i32 %2, 5
+  %9 = icmp samesign ugt i32 %2, 5
   %10 = icmp ult i8 %4, 29
   %or.cond24 = or i1 %9, %10
   br i1 %or.cond24, label %.loopexit, label %11

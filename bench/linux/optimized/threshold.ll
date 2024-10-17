@@ -302,7 +302,7 @@ define dso_local void @mce_track_storm(ptr noundef %0) local_unnamed_addr #3 ali
   %20 = sub i64 %19, %18
   %21 = udiv i64 %20, 1000
   %22 = and i64 %21, 4294967295
-  %23 = icmp ult i64 %22, 64
+  %23 = icmp samesign ult i64 %22, 64
   br i1 %23, label %.thread, label %27
 
 .thread:                                          ; preds = %12, %16

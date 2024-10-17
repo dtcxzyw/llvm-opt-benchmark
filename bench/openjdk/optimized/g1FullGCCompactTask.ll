@@ -833,7 +833,7 @@ define linkonce_odr hidden void @_ZN12G1HeapRegion23apply_to_marked_objectsIN19G
   %43 = sub i64 %11, %16
   %44 = lshr i64 %43, 3
   %45 = lshr i64 %44, %20
-  %46 = icmp ult i64 %42, %45
+  %46 = icmp samesign ult i64 %42, %45
   br i1 %46, label %47, label %.loopexit.i.i.i
 
 47:                                               ; preds = %32
@@ -858,7 +858,7 @@ define linkonce_odr hidden void @_ZN12G1HeapRegion23apply_to_marked_objectsIN19G
 59:                                               ; preds = %62, %56
   %.025.i.i.i = phi i64 [ %48, %56 ], [ %60, %62 ]
   %60 = add nuw nsw i64 %.025.i.i.i, 1
-  %61 = icmp ult i64 %60, %58
+  %61 = icmp samesign ult i64 %60, %58
   br i1 %61, label %62, label %.loopexit.i.i.i
 
 62:                                               ; preds = %59
@@ -7706,7 +7706,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7955,7 +7955,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

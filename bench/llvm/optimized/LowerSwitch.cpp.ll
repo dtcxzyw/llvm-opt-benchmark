@@ -3011,7 +3011,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %45
 
 _ZNK4llvm5APInt3ugtEm.exit:                       ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %51
   %54 = phi i1 [ true, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ], [ %53, %51 ]
-  %55 = icmp ult i64 %indvars.iv, %44
+  %55 = icmp samesign ult i64 %indvars.iv, %44
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %57, label %78
 

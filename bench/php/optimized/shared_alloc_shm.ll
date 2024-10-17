@@ -23,13 +23,13 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 7:                                                ; preds = %7, %4
   %.073 = phi i64 [ 33554432, %4 ], [ %11, %7 ]
   %8 = icmp ule i64 %6, %.073
-  %9 = icmp ugt i64 %.073, 2097152
-  %10 = and i1 %8, %9
+  %9 = icmp samesign ugt i64 %.073, 2097152
+  %10 = select i1 %8, i1 %9, i1 false
   %11 = lshr i64 %.073, 1
   br i1 %10, label %7, label %.preheader83
 
 .preheader83:                                     ; preds = %7
-  %12 = icmp ugt i64 %.073, 2097151
+  %12 = icmp samesign ugt i64 %.073, 2097151
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader83, %15
@@ -41,7 +41,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 
 15:                                               ; preds = %.lr.ph
   %16 = lshr i64 %.17486, 1
-  %17 = icmp ugt i64 %.17486, 4194303
+  %17 = icmp samesign ugt i64 %.17486, 4194303
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %.preheader83

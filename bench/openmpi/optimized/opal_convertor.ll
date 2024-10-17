@@ -418,7 +418,7 @@ define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %2, align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %30, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %41
@@ -538,7 +538,7 @@ define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %2, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %30, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %34

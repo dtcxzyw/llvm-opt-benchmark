@@ -130,7 +130,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %80 = icmp eq i64 %79, 0
   %81 = select i1 %80, i32 1, i32 %78
   %82 = mul nuw nsw i32 %81, %74
-  %83 = icmp ult i64 %75, 4
+  %83 = icmp samesign ult i64 %75, 4
   br i1 %83, label %.loopexit38, label %.preheader37, !llvm.loop !7
 
 .loopexit38:                                      ; preds = %.preheader37, %68, %60
@@ -162,7 +162,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %104 = icmp eq i64 %103, 0
   %105 = select i1 %104, i32 1, i32 %102
   %106 = mul nuw nsw i32 %105, %98
-  %107 = icmp ult i64 %99, 4
+  %107 = icmp samesign ult i64 %99, 4
   br i1 %107, label %.loopexit36, label %.preheader, !llvm.loop !7
 
 .loopexit36:                                      ; preds = %.preheader, %92, %.loopexit38

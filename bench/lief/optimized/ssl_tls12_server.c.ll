@@ -395,7 +395,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %106
 
 89:                                               ; preds = %.loopexit549.i
-  %90 = icmp ugt i64 %84, 16384
+  %90 = icmp samesign ugt i64 %84, 16384
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %89
@@ -763,7 +763,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i64
   %306 = or disjoint i64 %302, %305
-  %307 = icmp ult i64 %306, 2
+  %307 = icmp samesign ult i64 %306, 2
   br i1 %307, label %312, label %308
 
 308:                                              ; preds = %298
@@ -1069,7 +1069,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 449:                                              ; preds = %439, %436
   %450 = add nuw nsw i64 %.0421587.i, 2
   %451 = getelementptr inbounds i8, ptr %.0431586.i, i64 2
-  %452 = icmp ult i64 %450, %306
+  %452 = icmp samesign ult i64 %450, %306
   br i1 %452, label %436, label %.loopexit547.i, !llvm.loop !6
 
 .loopexit547.i:                                   ; preds = %449
@@ -1225,7 +1225,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 ._crit_edge599.i:                                 ; preds = %509, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0420603.i, %.preheader.i ], [ %.2.i, %509 ]
   %513 = add nuw nsw i64 %.0425602.i, 2
-  %514 = icmp ult i64 %513, %306
+  %514 = icmp samesign ult i64 %513, %306
   br i1 %514, label %.preheaderthread-pre-split.i, label %.loopexit541.i, !llvm.loop !8
 
 .preheader542.i:                                  ; preds = %.preheader545.i, %533
@@ -1263,7 +1263,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %.6.i = phi i32 [ %.5590.i, %516 ], [ 1, %527 ]
   %530 = add nuw nsw i64 %.1426589.i, 2
   %531 = getelementptr inbounds i8, ptr %.2433588.i, i64 2
-  %532 = icmp ult i64 %530, %306
+  %532 = icmp samesign ult i64 %530, %306
   br i1 %532, label %516, label %533, !llvm.loop !10
 
 533:                                              ; preds = %529
@@ -3594,7 +3594,7 @@ declare i32 @mbedtls_ssl_parse_sig_alg_ext(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #5 {
-  %4 = icmp ult i64 %2, 2
+  %4 = icmp samesign ult i64 %2, 2
   br i1 %4, label %.loopexit.sink.split.sink.split, label %5
 
 5:                                                ; preds = %3

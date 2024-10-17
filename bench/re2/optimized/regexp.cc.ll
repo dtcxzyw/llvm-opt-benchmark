@@ -896,7 +896,7 @@ land.end.i.i:                                     ; preds = %_ZN4absl7debian218c
   %shl.i.i.i = shl nuw i32 %19, 16
   %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shl.i.i.i, i1 true)
   %add.i.i = add nuw nsw i32 %22, %21
-  %cmp.i.i6 = icmp ult i32 %add.i.i, 16
+  %cmp.i.i6 = icmp samesign ult i32 %add.i.i, 16
   %spec.select9.i.i = select i1 %cmp.i.i6, i8 -128, i8 -2
   %23 = zext i1 %cmp.i.i6 to i64
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE5eraseENSG_8iteratorE.exit
@@ -1218,7 +1218,7 @@ for.inc:                                          ; preds = %_ZN3re26Regexp12Qui
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i16, ptr %nsub_, align 2
   %36 = zext i16 %35 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next, %36
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
@@ -1263,7 +1263,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %cmp3 = icmp sgt i32 %1, 7
   %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
-  %cmp6 = icmp ult i32 %2, 2
+  %cmp6 = icmp samesign ult i32 %2, 2
   %or.cond = select i1 %cmp3, i1 %cmp6, i1 false
   br i1 %or.cond, label %for.body.preheader, label %if.end17
 
@@ -1869,7 +1869,7 @@ if.then.i:                                        ; preds = %for.body
 if.else.i:                                        ; preds = %for.body
   %cmp3.i = icmp sgt i32 %6, 7
   %7 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %6)
-  %cmp6.i = icmp ult i32 %7, 2
+  %cmp6.i = icmp samesign ult i32 %7, 2
   %or.cond.i = select i1 %cmp3.i, i1 %cmp6.i, i1 false
   %.pre14 = load ptr, ptr %runes_8.i, align 8
   br i1 %or.cond.i, label %for.body.preheader.i, label %_ZN3re26Regexp15AddRuneToStringEi.exit
@@ -2205,7 +2205,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN3re2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i16, ptr %nsub_.i, align 2
   %14 = zext i16 %13 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %14
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp12, label %for.body, label %sw.epilog36, !llvm.loop !19
 
 sw.bb25:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond
@@ -3148,7 +3148,7 @@ if.end12:                                         ; preds = %while.end
 
 if.end23:                                         ; preds = %if.end12
   %inc24 = add nuw nsw i32 %6, 1
-  %cmp27 = icmp ult i32 %inc24, %conv2
+  %cmp27 = icmp samesign ult i32 %inc24, %conv2
   br i1 %cmp27, label %for.body, label %if.else
 
 for.body:                                         ; preds = %if.end23, %for.body
@@ -3163,7 +3163,7 @@ for.body:                                         ; preds = %if.end23, %for.body
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %12 = load i16, ptr %nsub_, align 2
   %13 = zext i16 %12 to i64
-  %cmp31 = icmp ult i64 %indvars.iv.next62, %13
+  %cmp31 = icmp samesign ult i64 %indvars.iv.next62, %13
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body
@@ -3368,7 +3368,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %.sroa.speculated155 = tail call i32 @llvm.smax.i32(i32 %lo, i32 65)
   %.sroa.speculated152 = tail call i32 @llvm.umin.i32(i32 %hi, i32 90)
-  %cmp7.not = icmp ugt i32 %.sroa.speculated155, %.sroa.speculated152
+  %cmp7.not = icmp samesign ugt i32 %.sroa.speculated155, %.sroa.speculated152
   br i1 %cmp7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.then4
@@ -3385,7 +3385,7 @@ if.then8:                                         ; preds = %if.then4
 if.end12:                                         ; preds = %if.then8, %if.then4
   %.sroa.speculated149 = tail call i32 @llvm.smax.i32(i32 %lo, i32 97)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %hi, i32 122)
-  %cmp17.not = icmp ugt i32 %.sroa.speculated149, %.sroa.speculated
+  %cmp17.not = icmp samesign ugt i32 %.sroa.speculated149, %.sroa.speculated
   br i1 %cmp17.not, label %if.end27, label %if.then18
 
 if.then18:                                        ; preds = %if.end12

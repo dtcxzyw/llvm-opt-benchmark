@@ -982,7 +982,7 @@ sub_0:
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr @heuristic_open_routine_idx, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %125, %111
@@ -1078,7 +1078,7 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
   %168 = getelementptr inbounds i8, ptr %166, i64 8
   %169 = load i32, ptr %168, align 8
   %170 = zext i32 %169 to i64
-  %171 = icmp ult i64 %indvars.iv.next198, %170
+  %171 = icmp samesign ult i64 %indvars.iv.next198, %170
   br i1 %171, label %.lr.ph180, label %._crit_edge181.loopexit, !llvm.loop !14
 
 ._crit_edge181.loopexit:                          ; preds = %heuristic_uses_extension.exit.thread
@@ -1151,7 +1151,7 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
   %199 = getelementptr inbounds i8, ptr %197, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next201, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next201, %201
   br i1 %202, label %.lr.ph184, label %._crit_edge185.loopexit, !llvm.loop !15
 
 ._crit_edge185.loopexit:                          ; preds = %196
@@ -1230,7 +1230,7 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
   %232 = getelementptr inbounds i8, ptr %230, i64 8
   %233 = load i32, ptr %232, align 8
   %234 = zext i32 %233 to i64
-  %235 = icmp ult i64 %indvars.iv.next204, %234
+  %235 = icmp samesign ult i64 %indvars.iv.next204, %234
   br i1 %235, label %.lr.ph188, label %._crit_edge189, !llvm.loop !16
 
 ._crit_edge189:                                   ; preds = %229, %._crit_edge185
@@ -1278,7 +1278,7 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
   %252 = getelementptr inbounds i8, ptr %251, i64 8
   %253 = load i32, ptr %252, align 8
   %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next207, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next207, %254
   br i1 %255, label %.lr.ph192, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %250, %236, %._crit_edge189, %101
@@ -2189,7 +2189,7 @@ wtap_dump_can_write_encap.exit50:                 ; preds = %146, %138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load i32, ptr %104, align 8
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next, %152
   br i1 %153, label %.lr.ph, label %wtap_dump_can_open.exit.thread, !llvm.loop !26
 
 wtap_dump_can_open.exit.thread:                   ; preds = %21, %38, %51, %68, %81, %98, %wtap_dump_can_write_encap.exit50, %133, %.lr.ph, %146, %138, %140, %144, %wtap_dump_can_write_encap.exit, %119, %115, %113, %121, %wtap_dump_required_file_encap_type.exit, %.thread59, %90, %86, %.thread55, %60, %56, %15, %30, %26, %3, %5, %wtap_file_type_subtype_supports_option.exit43, %wtap_file_type_subtype_supports_option.exit32, %wtap_file_type_subtype_supports_option.exit, %wtap_dump_can_open.exit
@@ -2924,7 +2924,7 @@ init_file_type_extensions.exit:                   ; preds = %0, %2
   %21 = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %18, %init_file_type_extensions.exit
@@ -3323,7 +3323,7 @@ wtap_dump_can_compress.exit.thread:               ; preds = %40, %wtap_dump_can_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load i32, ptr %74, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next, %93
   br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 95:                                               ; preds = %73, %53

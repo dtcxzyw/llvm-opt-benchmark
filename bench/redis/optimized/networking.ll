@@ -4774,11 +4774,11 @@ if.end:                                           ; preds = %if.end.loopexit, %w
   br i1 %cmp2.i.i, label %setDeferredArrayLen.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %cmp7.i.i = icmp ult i32 %add, 29
+  %cmp7.i.i = icmp samesign ult i32 %add, 29
   br i1 %cmp7.i.i, label %if.then13.i.i, label %if.end14.i.i
 
 if.then13.i.i:                                    ; preds = %if.end.i.i
-  %cmp4.i.i = icmp ult i32 %add, 7
+  %cmp4.i.i = icmp samesign ult i32 %add, 7
   %conv6.i.i = select i1 %cmp4.i.i, i64 4, i64 5
   %arrayidx.i.i = getelementptr inbounds [32 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 80856), i64 0, i64 %conv
   %11 = load ptr, ptr %arrayidx.i.i, align 8
@@ -7370,7 +7370,7 @@ land.lhs.true.lr.ph:                              ; preds = %land.lhs.true.lr.ph
   %call6482 = phi ptr [ %call6477, %land.lhs.true.lr.ph.lr.ph ], [ %call64, %if.end33 ]
   %offset.0.ph81 = phi i64 [ %cond23, %land.lhs.true.lr.ph.lr.ph ], [ 0, %if.end33 ]
   %iov_bytes_len.1.ph80 = phi i64 [ %iov_bytes_len.059, %land.lhs.true.lr.ph.lr.ph ], [ %add48, %if.end33 ]
-  %cmp24 = icmp ult i64 %indvars.iv, %9
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %9
   %cmp26 = icmp ult i64 %iov_bytes_len.1.ph80, 65536
   %or.cond = select i1 %cmp24, i1 %cmp26, i1 false
   br i1 %or.cond, label %land.lhs.true.lr.ph.split, label %while.end.loopexit92
@@ -13472,7 +13472,7 @@ entry:
   %0 = load i64, ptr @securityWarningCommand.logged_time, align 8
   %sub = sub nsw i64 %call, %0
   %1 = tail call i64 @llvm.abs.i64(i64 %sub, i1 true)
-  %cmp = icmp ugt i64 %1, 60
+  %cmp = icmp samesign ugt i64 %1, 60
   br i1 %cmp, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
@@ -14237,7 +14237,7 @@ for.inc:                                          ; preds = %if.then, %if.else
 for.end:                                          ; preds = %for.inc
   %and = and i32 %5, 3
   %and4 = and i32 %0, 3
-  %cmp5 = icmp ult i32 %and, %and4
+  %cmp5 = icmp samesign ult i32 %and, %and4
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %for.end
@@ -14421,7 +14421,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %2 = load atomic i64, ptr %arrayidx.i seq_cst, align 64
   %cmp5.not = icmp eq i64 %2, 0
   %inc = add nuw nsw i32 %j.018, 1
-  %cmp = icmp ult i32 %j.018, 999999
+  %cmp = icmp samesign ult i32 %j.018, 999999
   %or.cond = select i1 %cmp5.not, i1 %cmp, i1 false
   br i1 %or.cond, label %for.body.backedge, label %for.end
 
@@ -14789,7 +14789,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv
   store atomic i64 %conv13, ptr %arrayidx.i seq_cst, align 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp7 = icmp ult i64 %indvars.iv.next, %8
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !47
 
 for.end:                                          ; preds = %for.body, %while.end
@@ -15208,7 +15208,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i25 = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv
   store atomic i64 %conv30, ptr %arrayidx.i25 seq_cst, align 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp24 = icmp ult i64 %indvars.iv.next, %19
+  %cmp24 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body, %while.end

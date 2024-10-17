@@ -1790,7 +1790,7 @@ define hidden noundef i32 @_Z9luaH_getnP5Table(ptr nocapture noundef %0) local_u
   br i1 %41, label %42, label %52
 
 42:                                               ; preds = %36
-  %43 = icmp ugt i32 %12, 1
+  %43 = icmp samesign ugt i32 %12, 1
   br i1 %43, label %44, label %_ZL15updateaboundaryP5Tablei.exit.thread.thread
 
 44:                                               ; preds = %42

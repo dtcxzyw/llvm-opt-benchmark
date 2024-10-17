@@ -44,7 +44,7 @@ define i16 @softfloat_roundPackToBF16(i1 noundef zeroext %0, i64 noundef %1, i64
   %25 = phi i1 [ true, %16 ], [ %23, %20 ]
   %26 = trunc i64 %2 to i32
   %27 = sub nsw i64 0, %1
-  %28 = icmp ult i64 %27, 31
+  %28 = icmp samesign ult i64 %27, 31
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %24

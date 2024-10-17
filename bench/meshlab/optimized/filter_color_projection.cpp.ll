@@ -3904,11 +3904,11 @@ define void @_ZN12RenderHelper11renderSceneERKN3vcg4ShotIfNS0_8Matrix44IfEEEEP9M
   %37 = call float @llvm.fmuladd.f32(float %36, float %32, float %.sroa.0.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %38 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %39 = sitofp i32 %38 to float
   %40 = call float @llvm.fmuladd.f32(float %39, float %33, float %.sroa.2.0.copyload)
-  %41 = icmp ugt i32 %.02339.i, 3
+  %41 = icmp samesign ugt i32 %.02339.i, 3
   %42 = uitofp i1 %41 to float
   %43 = call float @llvm.fmuladd.f32(float %42, float %34, float %.sroa.3.0.copyload)
   %44 = fmul float %.sroa.4.0.copyload.i, %40
@@ -16395,7 +16395,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65:             ; preds = %40, %42, %44, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = tail call noundef i32 @_ZNK12MeshDocument12rasterNumberEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE6resizeEm.exit65
@@ -16710,7 +16710,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %194 = tail call noundef i32 @_ZNK12MeshDocument12rasterNumberEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
   %195 = zext i32 %194 to i64
-  %196 = icmp ult i64 %indvars.iv.next208, %195
+  %196 = icmp samesign ult i64 %indvars.iv.next208, %195
   br i1 %196, label %.lr.ph200, label %.loopexit, !llvm.loop !120
 
 .loopexit:                                        ; preds = %193, %.preheader, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %4

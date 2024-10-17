@@ -360,7 +360,7 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds 
   %72 = add nsw i32 %67, 1
   %73 = icmp sgt i32 %67, -1
   %74 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %72)
-  %75 = icmp ult i32 %74, 2
+  %75 = icmp samesign ult i32 %74, 2
   %or.cond.i.i.i.i.i = select i1 %73, i1 %75, i1 false
   %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
   %77 = sub nuw nsw i32 32, %76

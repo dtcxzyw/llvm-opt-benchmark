@@ -718,7 +718,7 @@ define ptr @Cec_SplitDeriveModel(ptr nocapture noundef readonly %0, ptr nocaptur
   %42 = getelementptr inbounds i32, ptr %9, i64 %41
   store i32 %39, ptr %42, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %43 = icmp ult i64 %indvars.iv.next51, %34
+  %43 = icmp samesign ult i64 %indvars.iv.next51, %34
   br i1 %43, label %35, label %.critedge2.thread, !llvm.loop !10
 
 .critedge2.thread:                                ; preds = %35

@@ -8882,11 +8882,11 @@ _ZStneIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
 _ZStneIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit.thread: ; preds = %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %3, %_ZStneIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit
   %131 = and i8 %56, 1
   %132 = and i8 %57, 1
-  %133 = icmp ult i8 %131, %132
+  %133 = icmp samesign ult i8 %131, %132
   br i1 %133, label %_ZStltIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit, label %134
 
 134:                                              ; preds = %_ZStneIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit.thread
-  %135 = icmp ult i8 %132, %131
+  %135 = icmp samesign ult i8 %132, %131
   br i1 %135, label %_ZStltIJRKbS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit, label %136
 
 136:                                              ; preds = %134
@@ -8918,11 +8918,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
-  %11 = icmp ult i8 %6, %10
+  %11 = icmp samesign ult i8 %6, %10
   br i1 %11, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i8 %10, %6
+  %13 = icmp samesign ult i8 %10, %6
   br i1 %13, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %14
 
 14:                                               ; preds = %12
@@ -8934,11 +8934,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
-  %23 = icmp ult i8 %18, %22
+  %23 = icmp samesign ult i8 %18, %22
   br i1 %23, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %24
 
 24:                                               ; preds = %14
-  %25 = icmp ult i8 %22, %18
+  %25 = icmp samesign ult i8 %22, %18
   br i1 %25, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %26
 
 26:                                               ; preds = %24
@@ -8950,11 +8950,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 1
-  %35 = icmp ult i8 %30, %34
+  %35 = icmp samesign ult i8 %30, %34
   br i1 %35, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %36
 
 36:                                               ; preds = %26
-  %37 = icmp ult i8 %34, %30
+  %37 = icmp samesign ult i8 %34, %30
   br i1 %37, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %38
 
 38:                                               ; preds = %36
@@ -8966,11 +8966,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %44 = load ptr, ptr %43, align 8
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 1
-  %47 = icmp ult i8 %42, %46
+  %47 = icmp samesign ult i8 %42, %46
   br i1 %47, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = icmp ult i8 %46, %42
+  %49 = icmp samesign ult i8 %46, %42
   br i1 %49, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %50
 
 50:                                               ; preds = %48
@@ -8982,11 +8982,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr %56, align 1
   %58 = and i8 %57, 1
-  %59 = icmp ult i8 %54, %58
+  %59 = icmp samesign ult i8 %54, %58
   br i1 %59, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %60
 
 60:                                               ; preds = %50
-  %61 = icmp ult i8 %58, %54
+  %61 = icmp samesign ult i8 %58, %54
   br i1 %61, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm2ELm13EE6__lessERKS3_S6_.exit, label %62
 
 62:                                               ; preds = %60
@@ -9008,11 +9008,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
-  %11 = icmp ult i8 %6, %10
+  %11 = icmp samesign ult i8 %6, %10
   br i1 %11, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i8 %10, %6
+  %13 = icmp samesign ult i8 %10, %6
   br i1 %13, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %14
 
 14:                                               ; preds = %12
@@ -9024,11 +9024,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
-  %23 = icmp ult i8 %18, %22
+  %23 = icmp samesign ult i8 %18, %22
   br i1 %23, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %24
 
 24:                                               ; preds = %14
-  %25 = icmp ult i8 %22, %18
+  %25 = icmp samesign ult i8 %22, %18
   br i1 %25, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %26
 
 26:                                               ; preds = %24
@@ -9040,11 +9040,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 1
-  %35 = icmp ult i8 %30, %34
+  %35 = icmp samesign ult i8 %30, %34
   br i1 %35, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %36
 
 36:                                               ; preds = %26
-  %37 = icmp ult i8 %34, %30
+  %37 = icmp samesign ult i8 %34, %30
   br i1 %37, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %38
 
 38:                                               ; preds = %36
@@ -9056,11 +9056,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %44 = load ptr, ptr %43, align 8
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 1
-  %47 = icmp ult i8 %42, %46
+  %47 = icmp samesign ult i8 %42, %46
   br i1 %47, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = icmp ult i8 %46, %42
+  %49 = icmp samesign ult i8 %46, %42
   br i1 %49, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %50
 
 50:                                               ; preds = %48
@@ -9072,11 +9072,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr %56, align 1
   %58 = and i8 %57, 1
-  %59 = icmp ult i8 %54, %58
+  %59 = icmp samesign ult i8 %54, %58
   br i1 %59, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %60
 
 60:                                               ; preds = %50
-  %61 = icmp ult i8 %58, %54
+  %61 = icmp samesign ult i8 %58, %54
   br i1 %61, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %62
 
 62:                                               ; preds = %60
@@ -9088,11 +9088,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 1
-  %71 = icmp ult i8 %66, %70
+  %71 = icmp samesign ult i8 %66, %70
   br i1 %71, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %72
 
 72:                                               ; preds = %62
-  %73 = icmp ult i8 %70, %66
+  %73 = icmp samesign ult i8 %70, %66
   br i1 %73, label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit, label %74
 
 74:                                               ; preds = %72
@@ -9102,7 +9102,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJ
   %78 = load ptr, ptr %1, align 8
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, 1
-  %81 = icmp ult i8 %77, %80
+  %81 = icmp samesign ult i8 %77, %80
   br label %_ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKbS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_EES3_Lm7ELm13EE6__lessERKS3_S6_.exit: ; preds = %74, %72, %62, %60, %50, %48, %38, %36, %26, %24, %14, %12, %2

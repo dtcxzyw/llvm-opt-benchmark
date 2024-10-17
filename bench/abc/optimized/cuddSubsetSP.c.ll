@@ -374,7 +374,7 @@ CreatePathTable.exit:                             ; preds = %._crit_edge121.i, %
   %107 = trunc nuw i64 %indvars.iv.i138 to i32
   %spec.select.i = select i1 %.not.i139, i32 %.02026.i, i32 %107
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138, 1
-  %108 = icmp ult i64 %indvars.iv.next.i140, %103
+  %108 = icmp samesign ult i64 %indvars.iv.next.i140, %103
   %109 = icmp sgt i32 %106, 0
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %.lr.ph.i137, label %._crit_edge.i136, !llvm.loop !9

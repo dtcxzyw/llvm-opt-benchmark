@@ -1899,7 +1899,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %719
   %736 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %735, ptr %736, align 1, !noalias !18
   %737 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !21
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread463

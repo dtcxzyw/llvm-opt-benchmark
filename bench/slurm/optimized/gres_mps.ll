@@ -380,7 +380,7 @@ define ptr @gres_p_prep_build_env(ptr nocapture noundef readonly %0) local_unnam
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %5, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread, %.lr.ph, %1

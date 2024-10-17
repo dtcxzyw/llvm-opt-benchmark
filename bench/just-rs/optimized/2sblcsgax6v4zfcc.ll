@@ -2658,7 +2658,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..c
   %22 = load i8, ptr %21, align 8, !range !433, !alias.scope !431, !noalias !432, !noundef !21
   %23 = getelementptr inbounds i8, ptr %12, i64 64
   %24 = load i8, ptr %23, align 8, !range !433, !alias.scope !432, !noalias !431, !noundef !21
-  %25 = icmp ult i8 %22, %24
+  %25 = icmp samesign ult i8 %22, %24
   br i1 %25, label %"_ZN51_$LT$just..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17h29bd595a6251945bE.exit.thread", label %26
 
 26:                                               ; preds = %20
@@ -4495,7 +4495,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h09f35c1d335626
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %9, ptr %3, align 1, !alias.scope !695
-  %10 = icmp ult i64 %indvars.iv, 10
+  %10 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %10, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit", label %11, !prof !702
 
 11:                                               ; preds = %.lr.ph
@@ -4507,7 +4507,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h09f35c1d335626
   %13 = load i8, ptr %12, align 1, !range !703, !alias.scope !695, !noundef !21
   %14 = zext nneg i8 %13 to i32
   tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %14)
-  %15 = icmp ult i64 %indvars.iv.next, %8
+  %15 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %15, label %.lr.ph, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit.thread"
 
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit.thread": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit", %2
@@ -4688,7 +4688,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h66fad53f04
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = trunc nuw i64 %indvars.iv.next.i to i8
   store i8 %9, ptr %3, align 1, !alias.scope !747, !noalias !752
-  %10 = icmp ult i64 %indvars.iv.i, 10
+  %10 = icmp samesign ult i64 %indvars.iv.i, 10
   br i1 %10, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit.i", label %11, !prof !702
 
 11:                                               ; preds = %.lr.ph.i
@@ -7358,7 +7358,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = trunc nuw i64 %indvars.iv.next.i.i to i8
   store i8 %15, ptr %.sroa.4.0..sroa_idx, align 1, !alias.scope !1133, !noalias !1134
-  %16 = icmp ult i64 %indvars.iv.i.i, 10
+  %16 = icmp samesign ult i64 %indvars.iv.i.i, 10
   br i1 %16, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit.i.i", label %17, !prof !702
 
 17:                                               ; preds = %.lr.ph.i.i
@@ -7884,7 +7884,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %11 = trunc nuw i64 %indvars.iv.next.i.i.i to i8
   store i8 %11, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !1207, !noalias !1216
-  %12 = icmp ult i64 %indvars.iv.i.i.i, 10
+  %12 = icmp samesign ult i64 %indvars.iv.i.i.i, 10
   br i1 %12, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a93fd9e7841ab39E.exit.i.i.i", label %13, !prof !702
 
 13:                                               ; preds = %.lr.ph.i.i.i
@@ -10492,7 +10492,7 @@ define hidden void @"_ZN4just6recipe15Recipe$LT$D$GT$3run17h3c3402600aa794e4E"(p
   %76 = load ptr, ptr %2, align 8, !nonnull !21, !align !42, !noundef !21
   %77 = getelementptr inbounds i8, ptr %76, i64 329
   %78 = load i8, ptr %77, align 1, !range !279, !noundef !21
-  %switch.i = icmp ugt i8 %78, 1
+  %switch.i = icmp samesign ugt i8 %78, 1
   br i1 %switch.i, label %81, label %109
 
 79:                                               ; preds = %.noexc61, %896, %833, %.noexc, %430, %81, %97, %84
@@ -10736,7 +10736,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %140 = load i8, ptr %139, align 1, !range !1019, !alias.scope !1640, !noalias !1646
   %141 = trunc nuw i8 %140 to i1
   %142 = load i8, ptr %77, align 1, !range !279, !alias.scope !1640, !noalias !1646
-  %switch.i.i = icmp ugt i8 %142, 1
+  %switch.i.i = icmp samesign ugt i8 %142, 1
   %143 = getelementptr inbounds i8, ptr %1, i64 269
   %144 = load i8, ptr %143, align 1, !range !1019, !alias.scope !1636, !noalias !1642
   %145 = trunc nuw i8 %144 to i1
@@ -16219,19 +16219,19 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   br label %532
 
 449:                                              ; preds = %492
-  %450 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %450 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %450, label %532, label %528
 
 451:                                              ; preds = %435
-  %452 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %452 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %452, label %455, label %453
 
 453:                                              ; preds = %451
-  %454 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %454 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %454, label %457, label %.thread505
 
 455:                                              ; preds = %451
-  %456 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %456 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %456 to i64
   br label %.thread505
 
@@ -16301,15 +16301,15 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; 
           to label %449 unwind label %.loopexit
 
 493:                                              ; preds = %487
-  %494 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %494 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %494, label %497, label %495
 
 495:                                              ; preds = %493
-  %496 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %496 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %496, label %499, label %.thread514
 
 497:                                              ; preds = %493
-  %498 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %498 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select518 = zext i1 %498 to i64
   br label %.thread514
 
@@ -16356,11 +16356,11 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i456:
   br label %492
 
 528:                                              ; preds = %449
-  %529 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %529 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %529, label %532, label %530
 
 530:                                              ; preds = %528
-  %531 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %531 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %531, i64 3, i64 4
   br label %532
 

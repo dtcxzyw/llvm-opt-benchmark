@@ -5243,7 +5243,7 @@ define internal fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind n
   %15 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %14, ptr %15, align 1, !noalias !71
   %16 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !74
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i

@@ -139,7 +139,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 60:                                               ; preds = %57
   %61 = and i32 %59, 1431655765
   %62 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %61)
-  %.not.i.i = icmp ult i32 %62, 2
+  %.not.i.i = icmp samesign ult i32 %62, 2
   br i1 %.not.i.i, label %63, label %Min_CubesDistTwo.exit.i
 
 63:                                               ; preds = %60, %57
@@ -178,7 +178,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   %.346.i.i = phi i32 [ %72, %70 ], [ %.24561.i.i, %75 ], [ %.24561.i.i, %65 ]
   %.3.i.i = phi i32 [ %.262.i.i, %70 ], [ %77, %75 ], [ %.262.i.i, %65 ]
   %79 = add nuw nsw i32 %.04760.i.i, 2
-  %80 = icmp ult i32 %.04760.i.i, 30
+  %80 = icmp samesign ult i32 %.04760.i.i, 30
   br i1 %80, label %65, label %.loopexit.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %78, %47
@@ -274,7 +274,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
 115:                                              ; preds = %112
   %116 = and i32 %114, 1431655765
   %117 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %116)
-  %.not.i198.i = icmp ult i32 %117, 2
+  %.not.i198.i = icmp samesign ult i32 %117, 2
   br i1 %.not.i198.i, label %118, label %Min_CubesDistTwo.exit199.i
 
 118:                                              ; preds = %115, %112
@@ -313,7 +313,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   %.346.i185.i = phi i32 [ %127, %125 ], [ %.24561.i181.i, %130 ], [ %.24561.i181.i, %120 ]
   %.3.i186.i = phi i32 [ %.262.i180.i, %125 ], [ %132, %130 ], [ %.262.i180.i, %120 ]
   %134 = add nuw nsw i32 %.04760.i182.i, 2
-  %135 = icmp ult i32 %.04760.i182.i, 30
+  %135 = icmp samesign ult i32 %.04760.i182.i, 30
   br i1 %135, label %120, label %.loopexit.i187.i, !llvm.loop !7
 
 .loopexit.i187.i:                                 ; preds = %133, %102
@@ -414,7 +414,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
 171:                                              ; preds = %168
   %172 = and i32 %170, 1431655765
   %173 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %172)
-  %.not.i226.i = icmp ult i32 %173, 2
+  %.not.i226.i = icmp samesign ult i32 %173, 2
   br i1 %.not.i226.i, label %174, label %Min_CubesDistTwo.exit227.i
 
 174:                                              ; preds = %171, %168
@@ -453,7 +453,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   %.346.i213.i = phi i32 [ %183, %181 ], [ %.24561.i209.i, %186 ], [ %.24561.i209.i, %176 ]
   %.3.i214.i = phi i32 [ %.262.i208.i, %181 ], [ %188, %186 ], [ %.262.i208.i, %176 ]
   %190 = add nuw nsw i32 %.04760.i210.i, 2
-  %191 = icmp ult i32 %.04760.i210.i, 30
+  %191 = icmp samesign ult i32 %.04760.i210.i, 30
   br i1 %191, label %176, label %.loopexit.i215.i, !llvm.loop !7
 
 .loopexit.i215.i:                                 ; preds = %189, %158
@@ -745,7 +745,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
 
 Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.exit.loopexit, %2
   %22 = and i32 %6, 1023
-  %23 = icmp ult i32 %7, %22
+  %23 = icmp samesign ult i32 %7, %22
   br i1 %23, label %24, label %.loopexit123
 
 24:                                               ; preds = %Min_CubesAreEqual.exit._crit_edge
@@ -1021,13 +1021,13 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %22 = or i32 %21, %17
   %23 = and i32 %22, 1431655765
   %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
-  %.not29.us.us = icmp ult i32 %24, 2
+  %.not29.us.us = icmp samesign ult i32 %24, 2
   br i1 %.not29.us.us, label %25, label %.loopexit
 
 25:                                               ; preds = %.lr.ph.split.us.split.us, %20
   %.1.us.us = phi i32 [ 1, %20 ], [ %.034.us.us, %.lr.ph.split.us.split.us ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %26 = icmp ult i64 %indvars.iv.next48, %12
+  %26 = icmp samesign ult i64 %indvars.iv.next48, %12
   br i1 %26, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %41
@@ -1050,7 +1050,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %36 = or i32 %35, %31
   %37 = and i32 %36, 1431655765
   %38 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %37)
-  %.not29 = icmp ult i32 %38, 2
+  %.not29 = icmp samesign ult i32 %38, 2
   br i1 %.not29, label %39, label %.loopexit
 
 39:                                               ; preds = %34
@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %44 = lshr i32 %43, 10
   %45 = and i32 %44, 4095
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %41, %25

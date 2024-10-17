@@ -430,7 +430,7 @@ define void @_ZN5Ipopt14DenseSymMatrix12FillIdentityEd(ptr noundef nonnull align
   %17 = getelementptr inbounds double, ptr %16, i64 %15
   store double %1, ptr %17, align 8
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %18 = icmp ult i64 %indvars.iv.next23, %10
+  %18 = icmp samesign ult i64 %indvars.iv.next23, %10
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -1246,7 +1246,7 @@ define void @_ZN5Ipopt14DenseSymMatrix18SpecialAddForLMSR1ERKNS_11DenseVectorERK
   %indvars.iv43 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next44, %.loopexit ]
   %indvars.iv36 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next37, %.loopexit ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %29 = icmp ult i64 %indvars.iv.next44, %26
+  %29 = icmp samesign ult i64 %indvars.iv.next44, %26
   br i1 %29, label %.lr.ph30, label %.loopexit
 
 .lr.ph30:                                         ; preds = %28
@@ -1306,7 +1306,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14DenseSymMatrix19HasValidNumbersImplEv(ptr
   %16 = load double, ptr %15, align 8
   %17 = fadd double %.01721, %16
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %18 = icmp ult i64 %indvars.iv.next29, %10
+  %18 = icmp samesign ult i64 %indvars.iv.next29, %10
   br i1 %18, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %11

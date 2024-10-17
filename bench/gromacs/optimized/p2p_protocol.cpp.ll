@@ -36,7 +36,7 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = icmp ult i64 %indvars.iv, %11
+  %13 = icmp samesign ult i64 %indvars.iv, %11
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds %struct.envelope, ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 184
@@ -96,7 +96,7 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = icmp ult i64 %indvars.iv, %11
+  %13 = icmp samesign ult i64 %indvars.iv, %11
   %.pre = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds %struct.envelope, ptr %.pre, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 184
@@ -211,7 +211,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapt
   br label %21
 
 21:                                               ; preds = %17, %15
-  %.not = icmp ult i64 %indvars.iv, %11
+  %.not = icmp samesign ult i64 %indvars.iv, %11
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds %struct.tmpi_req_, ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds i8, ptr %23, i64 72

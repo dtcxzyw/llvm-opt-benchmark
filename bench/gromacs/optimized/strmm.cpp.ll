@@ -262,7 +262,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 99:                                               ; preds = %95
   %100 = fmul float %16, %96
-  %.not459.not492.us.us = icmp ugt i64 %indvars.iv662, 1
+  %.not459.not492.us.us = icmp samesign ugt i64 %indvars.iv662, 1
   br i1 %.not459.not492.us.us, label %.lr.ph.us.us, label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %108, %99
@@ -319,7 +319,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 118:                                              ; preds = %114
   %119 = fmul float %16, %115
-  %.not459.not492 = icmp ugt i64 %indvars.iv677, 1
+  %.not459.not492 = icmp samesign ugt i64 %indvars.iv677, 1
   br i1 %.not459.not492, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %118
@@ -414,7 +414,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %146 = load float, ptr %145, align 4
   %147 = fmul float %141, %146
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
-  %.not452547.us.us.not = icmp ult i64 %indvars.iv747, %135
+  %.not452547.us.us.not = icmp samesign ult i64 %indvars.iv747, %135
   br i1 %.not452547.us.us.not, label %.lr.ph551.us.us, label %._crit_edge552.us.us
 
 148:                                              ; preds = %.lr.ph551.us.us, %148
@@ -601,7 +601,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %gep947 = getelementptr float, ptr %invariant.gep946, i64 %indvars.iv766
   %201 = load float, ptr %gep947, align 4
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
-  %.not452547.not = icmp ult i64 %indvars.iv766, %130
+  %.not452547.not = icmp samesign ult i64 %indvars.iv766, %130
   br i1 %.not452547.not, label %.lr.ph551, label %._crit_edge552
 
 .lr.ph551:                                        ; preds = %200
@@ -810,7 +810,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond798.not, label %._crit_edge583, label %260, !llvm.loop !23
 
 ._crit_edge583:                                   ; preds = %260
-  %.not445588.not = icmp ult i64 %indvars.iv811, %217
+  %.not445588.not = icmp samesign ult i64 %indvars.iv811, %217
   br i1 %.not445588.not, label %.lr.ph592.split.preheader, label %.loopexit475
 
 .lr.ph592.split.preheader:                        ; preds = %._crit_edge583
@@ -892,7 +892,7 @@ define void @strmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .preheader472:                                    ; preds = %.preheader472.lr.ph, %.loopexit471
   %indvars.iv831 = phi i64 [ 1, %.preheader472.lr.ph ], [ %indvars.iv.next832, %.loopexit471 ]
-  %.not440.not600 = icmp ult i64 %indvars.iv831, 2
+  %.not440.not600 = icmp samesign ult i64 %indvars.iv831, 2
   %brmerge1008 = or i1 %.not440.not600, %.not442596
   br i1 %brmerge1008, label %._crit_edge604, label %.lr.ph603.split.preheader
 

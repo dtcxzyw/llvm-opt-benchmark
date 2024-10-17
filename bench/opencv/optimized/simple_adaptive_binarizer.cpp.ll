@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 13:                                               ; preds = %.preheader117, %16
   %.0120 = phi i32 [ 4, %.preheader117 ], [ %17, %16 ]
   %14 = shl nuw nsw i32 1, %.0120
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp samesign ult i32 %14, %12
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %13
@@ -465,7 +465,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 20:                                               ; preds = %.critedge, %23
   %.053121 = phi i32 [ 4, %.critedge ], [ %24, %23 ]
   %21 = shl nuw nsw i32 1, %.053121
-  %22 = icmp ult i32 %21, %19
+  %22 = icmp samesign ult i32 %21, %19
   br i1 %22, label %23, label %.lr.ph
 
 23:                                               ; preds = %20

@@ -461,7 +461,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_
   %59 = phi i64 [ %27, %24 ], [ %54, %.loopexit.loopexit ]
   %60 = add nuw nsw i64 %26, 1
   %61 = zext i32 %57 to i64
-  %62 = icmp ult i64 %60, %61
+  %62 = icmp samesign ult i64 %60, %61
   br i1 %62, label %24, label %.loopexit4, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.loopexit4, %3

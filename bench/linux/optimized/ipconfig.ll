@@ -2080,7 +2080,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %87 = tail call i16 @llvm.bswap.i16(i16 %86)
   %88 = zext i16 %87 to i64
   %89 = add nuw nsw i64 %88, 20
-  %90 = icmp ugt i64 %89, %84
+  %90 = icmp samesign ugt i64 %89, %84
   %91 = icmp ult i16 %87, 244
   %92 = or i1 %91, %90
   br i1 %92, label %.sink.split, label %93

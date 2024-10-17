@@ -2779,7 +2779,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %56 = load i32, ptr %2, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next39, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next39, %57
   br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %85
@@ -2838,7 +2838,7 @@ _mpir_get_host_name.exit:                         ; preds = %73, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load i32, ptr %2, align 4
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %85, %55, %.thread, %22
@@ -3084,7 +3084,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
   br i1 %exitcond.not.i111, label %._crit_edge.i, label %81, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %81
-  %86 = icmp ugt i32 %85, 100000
+  %86 = icmp samesign ugt i32 %85, 100000
   br i1 %86, label %87, label %._crit_edge.thread.i
 
 87:                                               ; preds = %._crit_edge.i
@@ -3318,7 +3318,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %129, %138, %_is_ope
 185:                                              ; preds = %183
   %186 = lshr i32 %177, 8
   %187 = and i32 %186, 255
-  %188 = icmp ugt i32 %131, %187
+  %188 = icmp samesign ugt i32 %131, %187
   br i1 %188, label %189, label %223
 
 189:                                              ; preds = %185, %183
@@ -3381,7 +3381,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %129, %138, %_is_ope
   %219 = shl nuw nsw i32 %218, 24
   %sext88 = add nuw i32 %219, 16777216
   %220 = icmp slt i32 %sext88, 33554432
-  %221 = icmp ugt i32 %217, %218
+  %221 = icmp samesign ugt i32 %217, %218
   %or.cond102 = select i1 %220, i1 true, i1 %221
   br i1 %or.cond102, label %222, label %223
 

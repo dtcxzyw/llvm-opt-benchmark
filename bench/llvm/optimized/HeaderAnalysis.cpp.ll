@@ -309,7 +309,7 @@ _ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.i: ;
 
 .critedge2.i:                                     ; preds = %_ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.i, %_ZN5clang7tooling12_GLOBAL__N_119isErrorAboutIncludeEN4llvm9StringRefE.exit.thread.i, %_ZN5clang7tooling12_GLOBAL__N_14isIfEN4llvm9StringRefE.exit.i, %_ZN5clang7tooling12_GLOBAL__N_14isIfEN4llvm9StringRefE.exit.thread.i
   %97 = add nuw nsw i32 %.0833.i, 1
-  %98 = icmp ult i32 %.0833.i, 99
+  %98 = icmp samesign ult i32 %.0833.i, 99
   %99 = load i64, ptr %49, align 8
   %100 = icmp ne i64 %99, 0
   %or.cond.not.i = select i1 %98, i1 %100, i1 false
@@ -421,7 +421,7 @@ _ZN5clang7tooling12_GLOBAL__N_112isImportLineEN4llvm9StringRefE.exit: ; preds = 
 
 34:                                               ; preds = %_ZN5clang7tooling12_GLOBAL__N_112isImportLineEN4llvm9StringRefE.exit.thread, %_ZN5clang7tooling12_GLOBAL__N_112isImportLineEN4llvm9StringRefE.exit
   %35 = add nuw nsw i32 %.0411, 1
-  %36 = icmp ult i32 %.0411, 99
+  %36 = icmp samesign ult i32 %.0411, 99
   %37 = load i64, ptr %6, align 8
   %38 = icmp ne i64 %37, 0
   %or.cond.not = select i1 %36, i1 %38, i1 false

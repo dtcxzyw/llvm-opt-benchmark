@@ -851,7 +851,7 @@ cond.true.i:                                      ; preds = %for.body
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.true.i
   %cond.i = phi i32 [ %7, %cond.true.i ], [ 0, %for.body ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %cmp6199 = icmp ult i64 %indvars.iv.next217, %1
+  %cmp6199 = icmp samesign ult i64 %indvars.iv.next217, %1
   br i1 %cmp6199, label %for.body7.lr.ph, label %for.inc33
 
 for.body7.lr.ph:                                  ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit

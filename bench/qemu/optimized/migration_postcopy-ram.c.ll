@@ -1911,7 +1911,7 @@ trace_postcopy_ram_fault_thread_fds_extra.exit:   ; preds = %for.body, %land.lhs
   %len11 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i32, ptr %len11, align 8
   %conv12 = zext i32 %30 to i64
-  %cmp = icmp ult i64 %inc, %conv12
+  %cmp = icmp samesign ult i64 %inc, %conv12
   br i1 %cmp, label %for.body, label %while.body.preheader, !llvm.loop !13
 
 if.then:                                          ; preds = %while.body.backedge, %while.body.preheader
@@ -2528,7 +2528,7 @@ if.then156:                                       ; preds = %if.end153
 for.inc160:                                       ; preds = %for.body103, %if.then156, %if.end153, %if.then130, %if.then150, %if.then119
   %poll_result.2 = phi i32 [ %dec113, %if.then119 ], [ %dec113, %if.then130 ], [ %dec113, %if.then150 ], [ %dec113, %if.then156 ], [ %dec113, %if.end153 ], [ %poll_result.1176, %for.body103 ]
   %inc161 = add nuw nsw i64 %index.1177, 1
-  %cmp100 = icmp ult i64 %inc161, %conv
+  %cmp100 = icmp samesign ult i64 %inc161, %conv
   %tobool102 = icmp ne i32 %poll_result.2, 0
   %141 = select i1 %cmp100, i1 %tobool102, i1 false
   br i1 %141, label %for.body103, label %while.body.backedge, !llvm.loop !17

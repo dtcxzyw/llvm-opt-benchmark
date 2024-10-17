@@ -1567,7 +1567,7 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit43: ; preds = %if.el
 
 if.else.i46:                                      ; preds = %for.cond31.preheader, %for.inc39
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc39 ], [ 0, %for.cond31.preheader ]
-  %or.cond.i = icmp ugt i64 %indvars.iv, 15
+  %or.cond.i = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i, label %for.inc39, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %if.else.i46
@@ -1985,7 +1985,7 @@ if.end.i:                                         ; preds = %for.body
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.else.i:                                        ; preds = %for.body
-  %or.cond.i12 = icmp ugt i64 %indvars.iv, 15
+  %or.cond.i12 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i12, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
@@ -3755,7 +3755,7 @@ entry:
   %and = lshr i64 %0, 52
   %1 = trunc nuw nsw i64 %and to i32
   %conv = and i32 %1, 2047
-  %cmp = icmp ult i32 %conv, 1076
+  %cmp = icmp samesign ult i32 %conv, 1076
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -7328,7 +7328,7 @@ _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit73: ; preds = %_ZNK6
 
 if.then.i85:                                      ; preds = %for.cond30.preheader, %for.inc38
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %for.inc38 ], [ %4, %for.cond30.preheader ]
-  %or.cond6.i89 = icmp ult i64 %indvars.iv246, %4
+  %or.cond6.i89 = icmp samesign ult i64 %indvars.iv246, %4
   br i1 %or.cond6.i89, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit94, label %for.inc38
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit94: ; preds = %if.then.i85
@@ -7391,14 +7391,14 @@ if.else.i176.preheader:                           ; preds = %if.end50, %for.cond
 
 if.else.i134:                                     ; preds = %if.else.i134.preheader, %for.inc84
   %indvars.iv = phi i64 [ 0, %if.else.i134.preheader ], [ %indvars.iv.next, %for.inc84 ]
-  %or.cond.i135 = icmp ugt i64 %indvars.iv, 15
+  %or.cond.i135 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i135, label %for.inc84, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit152
 
 _ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit152: ; preds = %if.else.i134
   %14 = shl nuw nsw i64 %indvars.iv, 2
   %shr.i140 = lshr i64 %11, %14
   %conv.i141216 = and i64 %shr.i140, 14
-  %cmp76 = icmp ugt i64 %conv.i141216, 9
+  %cmp76 = icmp samesign ugt i64 %conv.i141216, 9
   br i1 %cmp76, label %return, label %for.inc84
 
 for.inc84:                                        ; preds = %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit152, %if.else.i134

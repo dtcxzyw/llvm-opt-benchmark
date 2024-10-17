@@ -759,7 +759,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 37:                                               ; preds = %32, %._crit_edge166.us
   %38 = call i32 @fputc(i32 noundef 10, ptr noundef %25)
   %39 = add nuw nsw i32 %.0109168.us, 1
-  %40 = icmp ult i32 %39, %.zext
+  %40 = icmp samesign ult i32 %39, %.zext
   br i1 %40, label %.lr.ph165.us, label %._crit_edge171, !llvm.loop !9
 
 41:                                               ; preds = %.lr.ph165.us, %41
@@ -785,7 +785,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 .lr.ph170.split:                                  ; preds = %.lr.ph170.split.preheader, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph170.split.preheader ], [ %indvars.iv.next, %57 ]
   %51 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.253) #9
-  %52 = icmp ult i64 %indvars.iv, 185
+  %52 = icmp samesign ult i64 %indvars.iv, 185
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %.lr.ph170.split
@@ -799,13 +799,13 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 57:                                               ; preds = %53, %.lr.ph170.split
   %58 = call i32 @fputc(i32 noundef 10, ptr noundef %25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = icmp ult i64 %indvars.iv.next, %28
+  %59 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %59, label %.lr.ph170.split, label %._crit_edge171, !llvm.loop !9
 
 60:                                               ; preds = %.preheader137, %.critedge2.thread
   %.099156 = phi i64 [ %6, %.preheader137 ], [ %.2101, %.critedge2.thread ]
   %.0105154 = phi i32 [ 1, %.preheader137 ], [ %121, %.critedge2.thread ]
-  %61 = icmp ugt i32 %.0105154, 1
+  %61 = icmp samesign ugt i32 %.0105154, 1
   br i1 %61, label %.preheader136, label %74
 
 .preheader136:                                    ; preds = %60

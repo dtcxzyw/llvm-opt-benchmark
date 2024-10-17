@@ -3517,7 +3517,7 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %24, %27
           to label %55 unwind label %38
 
 55:                                               ; preds = %48
-  %56 = icmp ult i32 %51, 4
+  %56 = icmp samesign ult i32 %51, 4
   %57 = icmp ne ptr %54, null
   %or.cond = and i1 %56, %57
   br i1 %or.cond, label %66, label %58
@@ -3569,11 +3569,11 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %24, %27
   store ptr %73, ptr %15, align 8
   %74 = getelementptr inbounds i8, ptr %15, i64 8
   store i64 264, ptr %74, align 8
-  %75 = icmp ult i32 %53, 4
+  %75 = icmp samesign ult i32 %53, 4
   br i1 %75, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
 
 _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %69
-  %76 = icmp ult i32 %53, 2
+  %76 = icmp samesign ult i32 %53, 2
   %77 = select i1 %76, i32 8388608, i32 32768
   %78 = zext nneg i32 %52 to i64
   store i64 %78, ptr %74, align 8
@@ -4488,7 +4488,7 @@ _ZNK2cv11_InputArray6getMatEi.exit239:            ; preds = %154, %157
   %244 = getelementptr inbounds i8, ptr %29, i64 16
   store ptr %244, ptr %29, align 8
   %245 = getelementptr inbounds i8, ptr %29, i64 8
-  %.not.i.i241 = icmp ugt i32 %91, 33
+  %.not.i.i241 = icmp samesign ugt i32 %91, 33
   store i64 %243, ptr %245, align 8
   br i1 %.not.i.i241, label %246, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -4505,7 +4505,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc242, %238
   %249 = phi ptr [ %248, %.noexc242 ], [ %244, %238 ]
   %250 = zext nneg i32 %92 to i64
   %251 = getelementptr inbounds double, ptr %249, i64 %250
-  %252 = icmp ult i32 %93, 4
+  %252 = icmp samesign ult i32 %93, 4
   br label %253
 
 253:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EEC2Em.exit, %253
@@ -4548,7 +4548,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc242, %238
   br label %.body
 
 261:                                              ; preds = %253
-  %262 = icmp ult i32 %93, 2
+  %262 = icmp samesign ult i32 %93, 2
   br i1 %252, label %263, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
 
 263:                                              ; preds = %261

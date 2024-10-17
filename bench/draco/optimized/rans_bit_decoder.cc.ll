@@ -173,7 +173,7 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %63
   %78 = or disjoint i32 %76, 4096
   %79 = add nuw nsw i32 %78, %.masked.i
   store i32 %79, ptr %77, align 4
-  %80 = icmp ult i32 %.masked.i, 1044480
+  %80 = icmp samesign ult i32 %.masked.i, 1044480
   br i1 %80, label %81, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 81:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
@@ -221,7 +221,7 @@ _ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit: ; preds = %1, %7, %11
   %23 = and i32 %20, 255
   %24 = zext i8 %21 to i32
   %25 = mul nuw i32 %22, %24
-  %26 = icmp ult i32 %23, %24
+  %26 = icmp samesign ult i32 %23, %24
   %27 = add nuw i32 %25, %24
   %28 = sub i32 %20, %27
   %29 = add nuw i32 %25, %23
@@ -275,7 +275,7 @@ _ZN5draco14RAnsBitDecoder13DecodeNextBitEv.exit:  ; preds = %11, %16
   %26 = lshr i32 %25, 8
   %27 = and i32 %25, 255
   %28 = mul nuw i32 %26, %10
-  %29 = icmp ult i32 %27, %10
+  %29 = icmp samesign ult i32 %27, %10
   %30 = add nuw i32 %28, %10
   %31 = sub i32 %25, %30
   %32 = add nuw i32 %28, %27
@@ -295,7 +295,7 @@ _ZN5draco14RAnsBitDecoder13DecodeNextBitEv.exit:  ; preds = %11, %16
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #5 {
-  %4 = icmp ugt i32 %0, 5
+  %4 = icmp samesign ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
 5:                                                ; preds = %3

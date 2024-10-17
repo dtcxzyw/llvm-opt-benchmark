@@ -4253,7 +4253,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !836, !noundef !4
@@ -28333,15 +28333,15 @@ define void @_ZN13terminal_view16terminal_element15TerminalElement10cell_style17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.13)
   %49 = getelementptr inbounds i8, ptr %1, i64 32
   %50 = load i32, ptr %49, align 8, !range !216, !noundef !4
-  %51 = icmp ult i32 %50, 128
+  %51 = icmp samesign ult i32 %50, 128
   br i1 %51, label %56, label %52
 
 52:                                               ; preds = %46
-  %53 = icmp ult i32 %50, 2048
+  %53 = icmp samesign ult i32 %50, 2048
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ult i32 %50, 65536
+  %55 = icmp samesign ult i32 %50, 65536
   %. = select i1 %55, i64 3, i64 4
   br label %56
 

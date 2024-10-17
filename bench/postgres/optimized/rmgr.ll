@@ -443,7 +443,7 @@ GetRmgr.exit:                                     ; preds = %10
   %13 = call ptr @cstring_to_text(ptr noundef nonnull %12) #7
   %14 = ptrtoint ptr %13 to i64
   store i64 %14, ptr %6, align 8
-  %15 = icmp ult i64 %indvars.iv, 22
+  %15 = icmp samesign ult i64 %indvars.iv, 22
   %16 = zext i1 %15 to i64
   store i64 %16, ptr %7, align 16
   %17 = load ptr, ptr %8, align 8

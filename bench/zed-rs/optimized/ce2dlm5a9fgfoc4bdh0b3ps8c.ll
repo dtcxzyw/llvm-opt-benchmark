@@ -720,7 +720,7 @@ default.unreachable.i:                            ; preds = %15
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !6
   %86 = icmp ult i64 %85, 6
   tail call void @llvm.assume(i1 %86)
-  %switch.i17.i.i.i = icmp ugt i64 %85, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %85, 3
   %87 = inttoptr i64 %.sroa.030.073.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %88, label %83
 
@@ -1175,7 +1175,7 @@ default.unreachable.i:                            ; preds = %17
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !32
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   br i1 %switch.i17.i.i.i, label %89, label %85
 
 89:                                               ; preds = %86
@@ -1638,7 +1638,7 @@ default.unreachable.i:                            ; preds = %17
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !65
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   br i1 %switch.i17.i.i.i, label %89, label %85
 
 89:                                               ; preds = %86
@@ -2094,7 +2094,7 @@ default.unreachable.i:                            ; preds = %17
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !98
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   br i1 %switch.i17.i.i.i, label %89, label %85
 
 89:                                               ; preds = %86
@@ -2547,7 +2547,7 @@ default.unreachable.i:                            ; preds = %15
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !130
   %86 = icmp ult i64 %85, 6
   tail call void @llvm.assume(i1 %86)
-  %switch.i17.i.i.i = icmp ugt i64 %85, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %85, 3
   %87 = inttoptr i64 %.sroa.030.073.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %88, label %83
 
@@ -2997,7 +2997,7 @@ default.unreachable.i:                            ; preds = %15
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !154
   %86 = icmp ult i64 %85, 6
   tail call void @llvm.assume(i1 %86)
-  %switch.i17.i.i.i = icmp ugt i64 %85, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %85, 3
   %87 = inttoptr i64 %.sroa.030.073.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %88, label %83
 
@@ -3453,7 +3453,7 @@ default.unreachable.i:                            ; preds = %15
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !178
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   %89 = inttoptr i64 %.sroa.030.076.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %90, label %85
 
@@ -22103,7 +22103,7 @@ _ZN4core3fmt5Write9write_fmt17h16c2b8842c134d1eE.exit: ; preds = %5
   %49 = lshr i32 %34, 3
   %50 = and i32 %49, 1023
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i32 %50, 733
+  %52 = icmp samesign ult i32 %50, 733
   br i1 %52, label %65, label %79
 
 _ZN6chrono6format10formatting14write_hundreds17h5fc7dcc226fba683E.exit175.thread: ; preds = %5
@@ -22134,12 +22134,12 @@ _ZN6chrono6format10formatting14write_hundreds17h5fc7dcc226fba683E.exit175.thread
   %69 = add nuw nsw i32 %50, %68
   %70 = lshr i32 %69, 6
   %71 = trunc nuw nsw i32 %70 to i8
-  %.cmp = icmp ugt i32 %69, 639
+  %.cmp = icmp samesign ugt i32 %69, 639
   %72 = zext i1 %.cmp to i8
   %73 = or disjoint i8 %72, 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h84b0a36313257071E.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %73)
   %.urem = add nsw i8 %71, -10
-  %.cmp202 = icmp ult i32 %69, 640
+  %.cmp202 = icmp samesign ult i32 %69, 640
   %74 = select i1 %.cmp202, i8 %71, i8 %.urem
   %75 = or disjoint i8 %74, 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h84b0a36313257071E.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %75)
@@ -29122,7 +29122,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %29, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %22, %.lr.ph.i.i.i.i ]
-  %20 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %20 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit, %.lr.ph.i.i.i.i
@@ -29166,7 +29166,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 45:                                               ; preds = %36, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %41, %36 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %36 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %46 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45
@@ -29344,7 +29344,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %23, %.lr.ph.i.i.i.i ]
-  %21 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %21 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %21, label %37, label %46
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit, %.lr.ph.i.i.i.i
@@ -29388,7 +29388,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 46:                                               ; preds = %37, %._crit_edge.i.i.i.i
   %.sroa.010.1.i.i.i.i = phi i64 [ %42, %37 ], [ %.sroa.010.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.04.0.i.i.i.i = phi i64 [ %.zext28.i.i.i.i, %37 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %47 = icmp ult i64 %.sroa.04.0.i.i.i.i, 10
+  %47 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i, 10
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %46
@@ -29496,7 +29496,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 10, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i32 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %23, %.lr.ph.i.i.i.i ]
   %20 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i to i64
-  %21 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %21 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %21, label %37, label %46
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit, %.lr.ph.i.i.i.i
@@ -29540,7 +29540,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 46:                                               ; preds = %37, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %42, %37 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %37 ], [ %20, %._crit_edge.i.i.i.i ]
-  %47 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %47 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %46
@@ -29669,7 +29669,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %33
   %.sroa.012.0.lcssa.i.i.i.i.i.i = phi i64 [ 20, %33 ], [ %45, %.lr.ph.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i = phi i64 [ %.val9, %33 ], [ %38, %.lr.ph.i.i.i.i.i.i ]
-  %36 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i, 99
+  %36 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i, 99
   br i1 %36, label %52, label %61
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %33, %.lr.ph.i.i.i.i.i.i
@@ -29713,7 +29713,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 61:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i = phi i64 [ %57, %52 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i, %52 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %62 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i, 10
+  %62 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i, 10
   br i1 %62, label %69, label %63
 
 63:                                               ; preds = %61
@@ -33740,7 +33740,7 @@ define noundef zeroext i1 @_ZN6client6Status12is_connected17he28df4b0de7b1249E(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN6client6Status13is_signed_out17hcf157eb4143a73beE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #24 {
   %2 = load i32, ptr %0, align 8, !range !7474, !noundef !5
-  %switch = icmp ult i32 %2, 2
+  %switch = icmp samesign ult i32 %2, 2
   ret i1 %switch
 }
 
@@ -34979,7 +34979,7 @@ define void @_ZN6client6Client10set_status17hbace58f5c6cfb606E(ptr noalias nocap
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %switch = icmp ult i64 %16, 3
+  %switch = icmp samesign ult i64 %16, 3
   br i1 %switch, label %32, label %18
 
 18:                                               ; preds = %3
@@ -40972,7 +40972,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %874, %.body.i.i.i
   %2073 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %2074 = icmp ult i64 %2073, 6
   call void @llvm.assume(i1 %2074)
-  %switch.i176 = icmp ugt i64 %2073, 2
+  %switch.i176 = icmp samesign ugt i64 %2073, 2
   br i1 %switch.i176, label %2075, label %2066
 
 2075:                                             ; preds = %2071
@@ -46462,7 +46462,7 @@ define void @_ZN6client6Client15request_dynamic17h21b74fa0fe9b1939E(ptr dead_on_
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %switch = icmp ult i64 %18, 4
+  %switch = icmp samesign ult i64 %18, 4
   br i1 %switch, label %33, label %20
 
 20:                                               ; preds = %5
@@ -46728,7 +46728,7 @@ common.ret:                                       ; preds = %34, %23
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %switch.i17 = icmp ugt i64 %38, 3
+  %switch.i17 = icmp samesign ugt i64 %38, 3
   br i1 %switch.i17, label %40, label %35
 
 40:                                               ; preds = %37
@@ -46953,7 +46953,7 @@ define void @_ZN6client6Client14handle_message17h3d7a8a7e1dc743c2E(ptr noalias n
   %84 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %85 = icmp ult i64 %84, 6
   tail call void @llvm.assume(i1 %85)
-  %switch = icmp ult i64 %84, 4
+  %switch = icmp samesign ult i64 %84, 4
   br i1 %switch, label %100, label %86
 
 86:                                               ; preds = %79
@@ -47115,7 +47115,7 @@ thread-pre-split.i:                               ; preds = %"_ZN80_$LT$gpui..ap
   %137 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %138 = icmp ult i64 %137, 6
   tail call void @llvm.assume(i1 %138)
-  %switch31 = icmp ult i64 %137, 3
+  %switch31 = icmp samesign ult i64 %137, 3
   br i1 %switch31, label %149, label %139
 
 139:                                              ; preds = %136
@@ -47246,7 +47246,7 @@ define noundef ptr @"_ZN65_$LT$client..Client$u20$as$u20$rpc..proto_client..Prot
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %switch = icmp ult i64 %13, 4
+  %switch = icmp samesign ult i64 %13, 4
   br i1 %switch, label %30, label %15
 
 15:                                               ; preds = %4
@@ -47372,7 +47372,7 @@ define noundef ptr @"_ZN65_$LT$client..Client$u20$as$u20$rpc..proto_client..Prot
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %switch = icmp ult i64 %13, 4
+  %switch = icmp samesign ult i64 %13, 4
   br i1 %switch, label %30, label %15
 
 15:                                               ; preds = %4

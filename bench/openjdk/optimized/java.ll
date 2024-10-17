@@ -1673,7 +1673,7 @@ define internal void @_ZL24collect_profiled_methodsP6Method(ptr noundef %0) #0 {
   %14 = add nsw i32 %9, 1
   %15 = icmp sgt i32 %9, -1
   %16 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %or.cond.i.i.i.i.i.i = select i1 %15, i1 %17, i1 false
   %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %19 = sub nuw nsw i32 32, %18
@@ -1721,7 +1721,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %1, %_ZN26GrowableAr
   %41 = add nsw i32 %36, 1
   %42 = icmp sgt i32 %36, -1
   %43 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
-  %44 = icmp ult i32 %43, 2
+  %44 = icmp samesign ult i32 %43, 2
   %or.cond.i.i.i.i.i = select i1 %42, i1 %44, i1 false
   %45 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %46 = sub nuw nsw i32 32, %45
@@ -2822,7 +2822,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

@@ -58,7 +58,7 @@ post.exit:                                        ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @nthreads, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %post.exit, %8
@@ -249,7 +249,7 @@ define internal void @init_once() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr @nthreads, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
   br i1 %31, label %.lr.ph.i, label %.preheader.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %28

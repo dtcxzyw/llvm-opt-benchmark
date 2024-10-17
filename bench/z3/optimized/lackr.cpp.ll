@@ -1616,7 +1616,7 @@ if.end.i.i15:                                     ; preds = %while.cond26
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %while.cond26, %if.end.i.i15
   %retval.0.i.i17 = phi i64 [ %30, %if.end.i.i15 ], [ 0, %while.cond26 ]
-  %cmp29 = icmp ult i64 %indvars.iv, %retval.0.i.i17
+  %cmp29 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i17
   br i1 %cmp29, label %invoke.cont34, label %cleanup.loopexit
 
 invoke.cont34:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -5934,7 +5934,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %indvars.iv = phi i64 [ 1, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.body ]
   %38 = load i32, ptr %m_num_args.i, align 8
   %39 = zext i32 %38 to i64
-  %cmp24 = icmp ult i64 %indvars.iv, %39
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %39
   br i1 %cmp24, label %for.body, label %if.then32
 
 for.body:                                         ; preds = %land.rhs

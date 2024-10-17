@@ -587,7 +587,7 @@ switch.early.test.i:                              ; preds = %15
 24:                                               ; preds = %17, %.preheader.i, %.preheader.i
   %.1.i = phi i32 [ %.04554.i, %.preheader.i ], [ %18, %17 ], [ %.04554.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = icmp ult i64 %indvars.iv.next.i, %9
+  %25 = icmp samesign ult i64 %indvars.iv.next.i, %9
   %26 = icmp ult i32 %.1.i, 32
   %27 = select i1 %25, i1 %26, i1 false
   br i1 %27, label %.preheader.i, label %28, !llvm.loop !4
@@ -669,7 +669,7 @@ hex_ascii_to_binary.exit16:                       ; preds = %hex_ascii_to_binary
   %58 = getelementptr i8, ptr %1, i64 %57
   store i8 %56, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %59 = icmp ult i64 %indvars.iv, 30
+  %59 = icmp samesign ult i64 %indvars.iv, 30
   br i1 %59, label %check_valid_key_string.exit.preheader, label %check_valid_key_string.exit.thread, !llvm.loop !6
 
 check_valid_key_string.exit.thread:               ; preds = %hex_ascii_to_binary.exit16, %.sink.split.i, %10

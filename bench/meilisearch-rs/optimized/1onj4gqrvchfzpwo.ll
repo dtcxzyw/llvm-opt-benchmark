@@ -1626,7 +1626,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19

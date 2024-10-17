@@ -3474,7 +3474,7 @@ _ZL12add_fbposresiiiRK14gmx_molblock_tN3gmx8ArrayRefIiEEPK9t_iparamsP22Interacti
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 166:                                              ; preds = %154
-  %167 = icmp ult i64 %161, 2
+  %167 = icmp samesign ult i64 %161, 2
   br i1 %167, label %168, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 168:                                              ; preds = %166
@@ -4170,7 +4170,7 @@ _ZNK11gmx_ga2la_t4findEi.exit137:                 ; preds = %187, %174
 
 _ZNK11gmx_ga2la_t4findEi.exit137.thread:          ; preds = %198
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %203 = icmp ult i64 %indvars.iv46, %170
+  %203 = icmp samesign ult i64 %indvars.iv46, %170
   br i1 %203, label %171, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %174, %_ZNK11gmx_ga2la_t4findEi.exit137, %_ZNK11gmx_ga2la_t4findEi.exit137.thread, %189
@@ -4252,7 +4252,7 @@ _ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit144: ; preds =
 
 252:                                              ; preds = %.lr.ph31, %213, %_ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit144
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %253 = icmp ult i64 %indvars.iv48, 2
+  %253 = icmp samesign ult i64 %indvars.iv48, 2
   %254 = select i1 %253, i1 %209, i1 false
   br i1 %254, label %.lr.ph31, label %.loopexit, !llvm.loop !34
 

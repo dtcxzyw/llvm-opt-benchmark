@@ -779,7 +779,7 @@ default.unreachable.i:                            ; preds = %17
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !6
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   br i1 %switch.i17.i.i.i, label %89, label %85
 
 89:                                               ; preds = %86
@@ -1240,7 +1240,7 @@ default.unreachable.i:                            ; preds = %16
   %88 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !42
   %89 = icmp ult i64 %88, 6
   tail call void @llvm.assume(i1 %89)
-  %switch.i17.i.i.i = icmp ugt i64 %88, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %88, 3
   %90 = inttoptr i64 %.sroa.030.075.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %91, label %86
 
@@ -1492,7 +1492,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -1648,7 +1648,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -16033,7 +16033,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   ]
 
 48:                                               ; preds = %42
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %49, label %50, label %_ZN4core3str7pattern8Searcher11next_reject17hdc336c1023cd42a2E.llvm.2716154621794143398.exit
 
 50:                                               ; preds = %48
@@ -16165,7 +16165,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hdc336c1023cd42a2E.llvm.271615462179
   ]
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %115 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %115, label %116, label %136
 
 116:                                              ; preds = %114
@@ -16336,7 +16336,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h23
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -16496,7 +16496,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hdc336c1023cd42a
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -28787,7 +28787,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -65326,7 +65326,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   ]
 
 273:                                              ; preds = %266
-  %274 = icmp ult i64 %264, 4
+  %274 = icmp samesign ult i64 %264, 4
   br i1 %274, label %275, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha352142086e6d2d1E.exit.i.i.i.i.i"
 
 275:                                              ; preds = %273
@@ -65355,7 +65355,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   br i1 %284, label %.split.i.i.i.i.i.i.i, label %.split2.i.i.i.i.i.i.i
 
 .split2.i.i.i.i.i.i.i:                            ; preds = %281
-  %285 = icmp ult i64 %264, 5
+  %285 = icmp samesign ult i64 %264, 5
   br i1 %285, label %286, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h4584db18ca79cd77E.exit.i.i.i.i.i.i.i"
 
 286:                                              ; preds = %.split2.i.i.i.i.i.i.i
@@ -65375,7 +65375,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h5662bfabf09aadbaE.exit.i.i.i.i.i"
 
 .split.i.i.i.i.i.i.i:                             ; preds = %281
-  %290 = icmp ult i64 %264, 4
+  %290 = icmp samesign ult i64 %264, 4
   br i1 %290, label %291, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h4584db18ca79cd77E.exit5.i.i.i.i.i.i.i"
 
 291:                                              ; preds = %.split.i.i.i.i.i.i.i
@@ -65423,7 +65423,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %301
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ 20, %301 ], [ %313, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ %302, %301 ], [ %306, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %304 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i, 99
+  %304 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i, 99
   br i1 %304, label %320, label %329
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %301, %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -65467,7 +65467,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 329:                                              ; preds = %320, %._crit_edge.i.i.i.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i.i.i.i = phi i64 [ %325, %320 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i.i.i, %320 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %330 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i, 10
+  %330 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i, 10
   br i1 %330, label %337, label %331
 
 331:                                              ; preds = %329
@@ -65527,7 +65527,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 ._crit_edge.i.i.i4.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i7.i.i.i.i.i.i, %351
   %.sroa.010.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ 20, %351 ], [ %364, %.lr.ph.i.i.i7.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i5.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %351 ], [ %357, %.lr.ph.i.i.i7.i.i.i.i.i.i ]
-  %355 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i5.i.i.i.i.i.i, 99
+  %355 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i5.i.i.i.i.i.i, 99
   br i1 %355, label %371, label %380
 
 .lr.ph.i.i.i7.i.i.i.i.i.i:                        ; preds = %351, %.lr.ph.i.i.i7.i.i.i.i.i.i
@@ -65571,7 +65571,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
 380:                                              ; preds = %371, %._crit_edge.i.i.i4.i.i.i.i.i.i
   %.sroa.010.1.i.i.i.i.i.i.i.i.i = phi i64 [ %376, %371 ], [ %.sroa.010.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i.i.i.i ]
   %.sroa.04.0.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext28.i.i.i.i.i.i.i.i.i, %371 ], [ %.sroa.0.1.lcssa.i.i.i5.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i.i.i.i ]
-  %381 = icmp ult i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i, 10
+  %381 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i.i.i.i.i.i, 10
   br i1 %381, label %388, label %382
 
 382:                                              ; preds = %380
@@ -65635,7 +65635,7 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   br i1 %or.cond1.i.i.i.i.i.i.i, label %409, label %417
 
 409:                                              ; preds = %406
-  %410 = icmp ult i64 %264, 4
+  %410 = icmp samesign ult i64 %264, 4
   br i1 %410, label %411, label %_ZN10serde_json3ser9Formatter10write_null17h2dd0fa0928f5d85eE.exit.i.i.i.i.i.i.i
 
 411:                                              ; preds = %409

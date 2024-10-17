@@ -88,7 +88,7 @@ land.lhs.true.i:                                  ; preds = %for.body
   %nb_snapshots.i = getelementptr inbounds i8, ptr %bs.val, i64 260
   %2 = load i32, ptr %nb_snapshots.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp1.i = icmp ult i64 %indvars.iv, %3
+  %cmp1.i = icmp samesign ult i64 %indvars.iv, %3
   br i1 %cmp1.i, label %qcow2_free_single_snapshot.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %for.body
@@ -115,7 +115,7 @@ qcow2_free_single_snapshot.exit:                  ; preds = %land.lhs.true.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %nb_snapshots, align 4
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %qcow2_free_single_snapshot.exit, %entry
@@ -1278,7 +1278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx39 = getelementptr i64, ptr %call27, i64 %indvars.iv
   store i64 %19, ptr %arrayidx39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp34 = icmp ult i64 %indvars.iv.next, %17
+  %cmp34 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader.for.end_crit_edge

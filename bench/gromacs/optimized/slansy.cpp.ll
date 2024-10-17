@@ -133,7 +133,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 48:                                               ; preds = %.lr.ph179, %._crit_edge
   %indvars.iv250 = phi i64 [ 1, %.lr.ph179 ], [ %indvars.iv.next251, %._crit_edge ]
-  %.not155.not170 = icmp ugt i64 %indvars.iv250, 1
+  %.not155.not170 = icmp samesign ugt i64 %indvars.iv250, 1
   br i1 %.not155.not170, label %.lr.ph172, label %._crit_edge
 
 .lr.ph172:                                        ; preds = %48
@@ -289,7 +289,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %gep = getelementptr float, ptr %invariant.gep, i64 %106
   call void @slassq_(ptr noundef nonnull %8, ptr noundef %gep, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not149.not = icmp ult i64 %indvars.iv, %103
+  %.not149.not = icmp samesign ult i64 %indvars.iv, %103
   br i1 %.not149.not, label %.lr.ph, label %.loopexit163, !llvm.loop !14
 
 107:                                              ; preds = %99

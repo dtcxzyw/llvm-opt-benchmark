@@ -129,7 +129,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   %58 = getelementptr inbounds i8, ptr %57, i64 5
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
-  %61 = icmp ult i64 %54, %60
+  %61 = icmp samesign ult i64 %54, %60
   br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %52, %21

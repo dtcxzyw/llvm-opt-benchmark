@@ -655,7 +655,7 @@ define internal fastcc void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20
   %22 = xor i64 %11, 63
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %22, i1 false), !noalias !16
   %23 = xor i64 %11, 56
-  %24 = icmp ult i64 %23, 8
+  %24 = icmp samesign ult i64 %23, 8
   br i1 %24, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
@@ -760,7 +760,7 @@ define internal fastcc void @"_ZN86_$LT$sha2..core_api..Sha512VarCore$u20$as$u20
   %23 = xor i64 %19, 127
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %23, i1 false), !noalias !45
   %24 = xor i64 %19, 112
-  %25 = icmp ult i64 %24, 16
+  %25 = icmp samesign ult i64 %24, 16
   br i1 %25, label %._crit_edge.thread, label %34
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
@@ -1332,7 +1332,7 @@ common.resume.i:                                  ; preds = %40, %22
   %34 = xor i64 %26, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i, i8 0, i64 %34, i1 false), !alias.scope !205, !noalias !206
   %35 = xor i64 %26, 56
-  %36 = icmp ult i64 %35, 8
+  %36 = icmp samesign ult i64 %35, 8
   br i1 %36, label %._crit_edge.thread.i.i.i, label %45
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hbd530c6b624d02ceE.exit.i"
@@ -2303,7 +2303,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Md5$u20$as$u20$uucore..features..
   %25 = xor i64 %18, 63
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %25, i1 false), !alias.scope !452, !noalias !465
   %26 = xor i64 %18, 56
-  %27 = icmp ult i64 %26, 8
+  %27 = icmp samesign ult i64 %26, 8
   br i1 %27, label %._crit_edge.thread.i, label %36
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
@@ -2612,7 +2612,7 @@ define void @"_ZN77_$LT$uucore..features..sum..Sha1$u20$as$u20$uucore..features.
   %27 = xor i64 %17, 63
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %27, i1 false), !alias.scope !550, !noalias !564
   %28 = xor i64 %17, 56
-  %29 = icmp ult i64 %28, 8
+  %29 = icmp samesign ult i64 %28, 8
   br i1 %29, label %._crit_edge.thread.i, label %38
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13

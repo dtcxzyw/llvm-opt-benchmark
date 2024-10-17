@@ -3944,7 +3944,7 @@ invoke.cont74:                                    ; preds = %_ZNKSt4lessIN7Imf_3
           to label %invoke.cont75 unwind label %lpad52.loopexit.split-lp.loopexit
 
 invoke.cont75:                                    ; preds = %invoke.cont74
-  %cmp76 = icmp ult i64 %indvars.iv270, %21
+  %cmp76 = icmp samesign ult i64 %indvars.iv270, %21
   br i1 %cmp76, label %if.then77, label %if.end85
 
 if.then77:                                        ; preds = %invoke.cont75
@@ -5008,14 +5008,14 @@ invoke.cont242:                                   ; preds = %invoke.cont240
 for.body254.lr.ph:                                ; preds = %for.inc264, %for.cond250.preheader.preheader
   %indvars.iv341 = phi i64 [ 0, %for.cond250.preheader.preheader ], [ %indvars.iv.next342, %for.inc264 ]
   %numAllTiles.2333 = phi i32 [ 0, %for.cond250.preheader.preheader ], [ %add260, %for.inc264 ]
-  %cmp2.not.i104 = icmp ult i64 %indvars.iv341, %61
+  %cmp2.not.i104 = icmp samesign ult i64 %indvars.iv341, %61
   br label %for.body254
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %invoke.cont257
   %indvars.iv = phi i64 [ 0, %for.body254.lr.ph ], [ %indvars.iv.next, %invoke.cont257 ]
   %numAllTiles.3330 = phi i32 [ %numAllTiles.2333, %for.body254.lr.ph ], [ %add260, %invoke.cont257 ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %_iex_throw_s.i)
-  %cmp2.not.i = icmp ult i64 %indvars.iv, %60
+  %cmp2.not.i = icmp samesign ult i64 %indvars.iv, %60
   br i1 %cmp2.not.i, label %invoke.cont255, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body254
@@ -5146,12 +5146,12 @@ invoke.cont257:                                   ; preds = %invoke.cont255
   %mul259 = mul nsw i32 %74, %68
   %add260 = add nsw i32 %mul259, %numAllTiles.3330
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp253 = icmp ult i64 %indvars.iv.next, %62
+  %cmp253 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %cmp253, label %for.body254, label %for.inc264, !llvm.loop !29
 
 for.inc264:                                       ; preds = %invoke.cont257
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %cmp248 = icmp ult i64 %indvars.iv.next342, %61
+  %cmp248 = icmp samesign ult i64 %indvars.iv.next342, %61
   br i1 %cmp248, label %for.body254.lr.ph, label %sw.epilog, !llvm.loop !30
 
 sw.default:                                       ; preds = %if.end234
@@ -5366,7 +5366,7 @@ invoke.cont348:                                   ; preds = %invoke.cont345
   br i1 %cmp272, label %if.then350, label %if.else
 
 if.then350:                                       ; preds = %invoke.cont348
-  %cmp351 = icmp ult i64 %indvars.iv344, %94
+  %cmp351 = icmp samesign ult i64 %indvars.iv344, %94
   br i1 %cmp351, label %if.then352, label %for.inc387
 
 if.then352:                                       ; preds = %if.then350

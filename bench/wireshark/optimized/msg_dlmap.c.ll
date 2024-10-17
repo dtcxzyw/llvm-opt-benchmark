@@ -1271,7 +1271,7 @@ define hidden range(i32 0, 2048) i32 @wimax_decode_dlmapc(ptr noundef %0, ptr no
   br label %72
 
 72:                                               ; preds = %64, %62
-  %73 = icmp ult i16 %10, 5
+  %73 = icmp samesign ult i16 %10, 5
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -5538,7 +5538,7 @@ define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef
   br label %80
 
 71:                                               ; preds = %35
-  %72 = icmp ugt i8 %.in67, 2
+  %72 = icmp samesign ugt i8 %.in67, 2
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %71

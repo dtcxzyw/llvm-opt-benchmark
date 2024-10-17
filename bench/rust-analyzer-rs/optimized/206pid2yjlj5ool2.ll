@@ -776,9 +776,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h95cdcf497f909f15
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -893,7 +893,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$hir..semantics..PathResolu
   %7 = add nsw i64 %6, -10
   %8 = select i1 %5, i64 %7, i64 0
   %9 = load i8, ptr %1, align 4, !range !91, !noundef !4
-  %10 = icmp ult i8 %9, 11
+  %10 = icmp samesign ult i8 %9, 11
   %11 = zext nneg i8 %9 to i64
   %12 = add nsw i64 %11, -10
   %13 = select i1 %10, i64 0, i64 %12
@@ -2354,7 +2354,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %180
 
 212:                                              ; preds = %.noexc98
   %213 = load i8, ptr %211, align 4, !range !91, !noalias !236, !noundef !4
-  %214 = icmp ult i8 %213, 11
+  %214 = icmp samesign ult i8 %213, 11
   br i1 %214, label %215, label %219
 
 215:                                              ; preds = %212

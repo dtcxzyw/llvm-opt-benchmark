@@ -9914,7 +9914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -11913,7 +11913,7 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__norm
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %10 = add nuw nsw i64 %storemerge26.i, 1
   %11 = lshr i64 %10, 1
-  %.not10.i = icmp ult i64 %storemerge26.i, 2
+  %.not10.i = icmp samesign ult i64 %storemerge26.i, 2
   br i1 %.not10.i, label %_ZSt20get_temporary_bufferIN16TraceDeclVisitor10TraceEntryEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !96
 
 12:                                               ; preds = %.lr.ph.i

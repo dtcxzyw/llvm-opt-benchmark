@@ -6203,7 +6203,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -6938,7 +6938,7 @@ _ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit: ; preds = %for.body, %if.
   %17 = phi i32 [ %1, %for.body ], [ %.pre, %if.end6.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %18
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit, %entry
@@ -7276,7 +7276,7 @@ _ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit.i: ; preds = %if.end6.i.i,
   %43 = phi i32 [ %27, %for.body.i ], [ %.pre.i, %if.end6.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = zext i32 %43 to i64
-  %cmp.i4 = icmp ult i64 %indvars.iv.next.i, %44
+  %cmp.i4 = icmp samesign ult i64 %indvars.iv.next.i, %44
   br i1 %cmp.i4, label %for.body.i, label %_ZN6hermes11Instruction15eraseFromParentEv.exit, !llvm.loop !25
 
 _ZN6hermes11Instruction15eraseFromParentEv.exit:  ; preds = %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit.i, %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit
@@ -12745,8 +12745,8 @@ while.body:                                       ; preds = %_ZN4llvh7hashing6de
   store ptr %4, ptr %buffer_ptr.0.ptr81, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.080, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
-  %cmp.i6.not = icmp ugt i64 %buffer_ptr.0.idx79, 48
-  %or.cond = or i1 %cmp.i.not, %cmp.i6.not
+  %cmp.i6.not = icmp samesign ugt i64 %buffer_ptr.0.idx79, 48
+  %or.cond = select i1 %cmp.i.not, i1 true, i1 %cmp.i6.not
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !83
 
 while.end:                                        ; preds = %while.body, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit
@@ -12859,8 +12859,8 @@ while.body25:                                     ; preds = %while.cond17.prehea
   store ptr %9, ptr %buffer_ptr.2.ptr85, align 8
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %first.sroa.0.284, i64 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i15, %last.coerce
-  %cmp.i11.not = icmp ugt i64 %buffer_ptr.2.idx83, 48
-  %or.cond77 = or i1 %cmp.i9.not, %cmp.i11.not
+  %cmp.i11.not = icmp samesign ugt i64 %buffer_ptr.2.idx83, 48
+  %or.cond77 = select i1 %cmp.i9.not, i1 true, i1 %cmp.i11.not
   br i1 %or.cond77, label %while.end27, label %while.body25, !llvm.loop !87
 
 while.end27:                                      ; preds = %while.body25

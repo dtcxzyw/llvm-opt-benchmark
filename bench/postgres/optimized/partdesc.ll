@@ -149,7 +149,7 @@ list_length.exit.i:                               ; preds = %29
   %66 = getelementptr inbounds i8, ptr %65, i64 18
   %67 = load i16, ptr %66, align 2
   %68 = and i16 %67, 2047
-  %69 = icmp ult i16 %68, 33
+  %69 = icmp samesign ult i16 %68, 33
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.thread126.i

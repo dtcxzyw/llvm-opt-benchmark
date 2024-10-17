@@ -3792,7 +3792,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit594:              ; preds = %_ZNSt6vectorIPKcSaI
   %1386 = phi ptr [ %1378, %.lr.ph1719 ], [ %1662, %_ZN4llvm14CGIOperandList11OperandInfoD2Ev.exit ]
   %1387 = load i32, ptr %1384, align 8
   %1388 = zext i32 %1387 to i64
-  %1389 = icmp ult i64 %indvars.iv1745, %1388
+  %1389 = icmp samesign ult i64 %indvars.iv1745, %1388
   %1390 = getelementptr inbounds %"struct.llvm::CGIOperandList::OperandInfo", ptr %1386, i64 %indvars.iv1745
   call void @_ZN4llvm14CGIOperandList11OperandInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(264) %19, ptr noundef nonnull align 8 dereferenceable(264) %1390)
   %1391 = load i32, ptr %116, align 4
@@ -4106,7 +4106,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit662:              ; preds = %1541, %1543
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1546 = load i32, ptr %116, align 4
   %1547 = zext i32 %1546 to i64
-  %1548 = icmp ult i64 %indvars.iv.next, %1547
+  %1548 = icmp samesign ult i64 %indvars.iv.next, %1547
   br i1 %1548, label %1393, label %_ZN4llvm11raw_ostreamlsEPKc.exit696, !llvm.loop !9
 
 1549:                                             ; preds = %1385
@@ -4361,7 +4361,7 @@ _ZN4llvm14CGIOperandList11OperandInfoD2Ev.exit:   ; preds = %_ZSt8_DestroyIPNSt7
   %1665 = sub i64 %1663, %1664
   %1666 = sdiv exact i64 %1665, 264
   %1667 = and i64 %1666, 4294967295
-  %1668 = icmp ult i64 %indvars.iv.next1746, %1667
+  %1668 = icmp samesign ult i64 %indvars.iv.next1746, %1667
   br i1 %1668, label %1385, label %._crit_edge1720, !llvm.loop !11
 
 ._crit_edge1720:                                  ; preds = %_ZN4llvm14CGIOperandList11OperandInfoD2Ev.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit594

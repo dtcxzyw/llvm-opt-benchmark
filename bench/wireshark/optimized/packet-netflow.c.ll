@@ -7396,7 +7396,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.4428) #11
-  %42 = icmp ugt i32 %30, 3
+  %42 = icmp samesign ugt i32 %30, 3
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %39
@@ -7430,7 +7430,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   %.08696.i = phi i32 [ %30, %.lr.ph.i ], [ %165, %164 ]
   %67 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.097.i) #11
   %68 = load ptr, ptr %40, align 8
-  %69 = icmp ult i32 %.08696.i, %30
+  %69 = icmp samesign ult i32 %.08696.i, %30
   %70 = select i1 %69, ptr @.str.4430, ptr @.str.4412
   %71 = zext i16 %67 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.4429, ptr noundef nonnull %70, i32 noundef %71) #11
@@ -7620,7 +7620,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   %174 = getelementptr inbounds i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %175, i32 noundef 25, ptr noundef nonnull @.str.4450) #11
-  %176 = icmp ugt i32 %173, 3
+  %176 = icmp samesign ugt i32 %173, 3
   br i1 %176, label %.lr.ph.i55, label %._crit_edge.i54
 
 .lr.ph.i55:                                       ; preds = %172
@@ -7657,7 +7657,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   %.0119146.i = phi i32 [ %173, %.lr.ph.i55 ], [ %331, %330 ]
   %204 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0116147.i) #11
   %205 = load ptr, ptr %174, align 8
-  %206 = icmp ult i32 %.0119146.i, %173
+  %206 = icmp samesign ult i32 %.0119146.i, %173
   %207 = select i1 %206, ptr @.str.4430, ptr @.str.4412
   %208 = zext i16 %204 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.4429, ptr noundef nonnull %207, i32 noundef %208) #11
@@ -8076,7 +8076,7 @@ switch.lookup:                                    ; preds = %422
   %.1.i.i.i = phi i32 [ %.02.i.i.i, %.lr.ph.i.i.i ], [ %429, %426 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %432 = zext i16 %431 to i64
-  %433 = icmp ult i64 %indvars.iv.next.i.i.i, %432
+  %433 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %432
   br i1 %433, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !10
 
 434:                                              ; preds = %413

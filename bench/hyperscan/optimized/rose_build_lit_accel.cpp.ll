@@ -954,7 +954,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont76, %if.
 
 cleanup:                                          ; preds = %land.lhs.true.i, %for.body.i329.us, %cleanup.sink.split
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
-  %cmp52 = icmp ult i64 %indvars.iv474, 15
+  %cmp52 = icmp samesign ult i64 %indvars.iv474, 15
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   br i1 %cmp52, label %for.body54, label %cleanup91, !llvm.loop !17
 

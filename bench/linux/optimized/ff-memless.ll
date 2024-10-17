@@ -460,7 +460,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   %.lhs.trunc = add i16 %112, 360
   %113 = urem i16 %.lhs.trunc, 360
   %.zext = zext nneg i16 %113 to i32
-  %114 = icmp ugt i16 %113, 180
+  %114 = icmp samesign ugt i16 %113, 180
   %115 = add nsw i32 %.zext, -180
   %116 = select i1 %114, i32 %115, i32 %.zext
   %117 = icmp ugt i32 %116, 90
@@ -485,7 +485,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   %.lhs.trunc14 = trunc nuw nsw i32 %134 to i16
   %135 = urem i16 %.lhs.trunc14, 360
   %.zext15 = zext nneg i16 %135 to i32
-  %136 = icmp ugt i16 %135, 180
+  %136 = icmp samesign ugt i16 %135, 180
   %137 = add nsw i32 %.zext15, -180
   %138 = select i1 %136, i32 %137, i32 %.zext15
   %139 = icmp ugt i32 %138, 90

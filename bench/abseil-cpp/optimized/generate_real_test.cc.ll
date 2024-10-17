@@ -6702,7 +6702,7 @@ for.body407.preheader:                            ; preds = %_ZN7testing15Assert
   br label %for.body407
 
 for.cond472.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit619
-  %cmp474690 = icmp ugt i64 %indvars.iv731, 23
+  %cmp474690 = icmp samesign ugt i64 %indvars.iv731, 23
   br i1 %cmp474690, label %for.body475, label %for.inc534
 
 for.body407:                                      ; preds = %for.body407.preheader, %_ZN7testing15AssertionResultD2Ev.exit619
@@ -15580,7 +15580,7 @@ for.body764.preheader:                            ; preds = %_ZN7testing15Assert
   br label %for.body764
 
 for.cond829.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit1108
-  %cmp8311177 = icmp ugt i64 %indvars.iv1218, 52
+  %cmp8311177 = icmp samesign ugt i64 %indvars.iv1218, 52
   br i1 %cmp8311177, label %for.body832, label %for.inc891
 
 for.body764:                                      ; preds = %for.body764.preheader, %_ZN7testing15AssertionResultD2Ev.exit1108

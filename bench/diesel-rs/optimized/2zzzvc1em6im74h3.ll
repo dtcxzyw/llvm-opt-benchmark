@@ -2279,7 +2279,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %119 = or disjoint i8 %118, 48
   %120 = zext nneg i8 %119 to i32
   %121 = and i32 %95, 8191
-  %122 = icmp ult i32 %121, 5864
+  %122 = icmp samesign ult i32 %121, 5864
   %123 = lshr i32 %121, 3
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds [733 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.32, i64 0, i64 %124
@@ -2372,7 +2372,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %192 = add nuw nsw i32 %190, %191
   %.lhs.trunc.i106 = trunc nuw nsw i32 %192 to i16
   %193 = urem i16 %.lhs.trunc.i106, 7
-  %194 = icmp ult i32 %189, 5864
+  %194 = icmp samesign ult i32 %189, 5864
   %195 = lshr i32 %189, 3
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds [733 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.32, i64 0, i64 %196
@@ -2536,7 +2536,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.lhs.trunc.i187 = trunc nuw nsw i32 %306 to i16
   %307 = urem i16 %.lhs.trunc.i187, 7
   %308 = and i32 %.val279.i, 8191
-  %309 = icmp ult i32 %308, 5864
+  %309 = icmp samesign ult i32 %308, 5864
   %310 = lshr i32 %308, 3
   %311 = zext nneg i32 %310 to i64
   %312 = getelementptr inbounds [733 x i8], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.32, i64 0, i64 %311
@@ -2680,27 +2680,27 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %407 = sext i32 %narrow261.i to i64
   %408 = mul nsw i64 %407, 86400
   %409 = add nsw i64 %324, %408
-  %410 = icmp ult i16 %193, 6
+  %410 = icmp samesign ult i16 %193, 6
   %narrow = add nuw nsw i16 %193, 1
   %narrow251 = select i1 %410, i16 %narrow, i16 0
   %411 = zext nneg i16 %narrow251 to i64
   %412 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 0, i64 %411
-  %413 = icmp ult i16 %307, 6
+  %413 = icmp samesign ult i16 %307, 6
   %narrow252 = add nuw nsw i16 %307, 1
   %narrow253 = select i1 %413, i16 %narrow252, i16 0
   %414 = zext nneg i16 %narrow253 to i64
   %415 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.82, i64 0, i64 %414
   %416 = getelementptr inbounds i8, ptr %415, i64 8
-  %417 = icmp ult i16 %307, 6
+  %417 = icmp samesign ult i16 %307, 6
   %narrow254 = add nuw nsw i16 %307, 1
   %narrow255 = select i1 %417, i16 %narrow254, i16 0
   %418 = zext nneg i16 %narrow255 to i64
   %419 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.dd40432c9c4c41a3fd2f427162d90805.53, i64 0, i64 %418
   %. = select i1 %90, i64 %409, i64 %398
-  %420 = icmp ult i16 %307, 6
+  %420 = icmp samesign ult i16 %307, 6
   %narrow256 = add nuw nsw i16 %307, 1
   %switch.offset241 = zext nneg i16 %narrow256 to i64
-  %421 = icmp ult i16 %307, 6
+  %421 = icmp samesign ult i16 %307, 6
   %narrow257 = add nuw nsw i16 %307, 1
   %switch.offset = zext nneg i16 %narrow257 to i64
   br label %425
@@ -4064,7 +4064,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i111: ; preds = 
   %809 = add i32 %808, %184
   %810 = lshr i32 %809, 4
   %811 = and i32 %810, 31
-  %812 = icmp ult i32 %811, 10
+  %812 = icmp samesign ult i32 %811, 10
   br i1 %812, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.thread.i108, label %_ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit.thread.i
 
 _ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit.thread.i: ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i111
@@ -4364,11 +4364,11 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.thread.i: ; pred
   %904 = shl nuw nsw i32 %903, 3
   %905 = add nuw nsw i32 %904, %121
   %906 = lshr i32 %905, 9
-  %.cmp.i = icmp ugt i32 %905, 5119
+  %.cmp.i = icmp samesign ugt i32 %905, 5119
   %907 = zext i1 %.cmp.i to i32
   %908 = or disjoint i32 %907, 48
   %.urem.i = add nuw nsw i32 %906, 246
-  %.cmp229.i = icmp ult i32 %905, 5120
+  %.cmp229.i = icmp samesign ult i32 %905, 5120
   %spec.select.i = select i1 %.cmp229.i, i32 %906, i32 %.urem.i
   %909 = and i32 %spec.select.i, 207
   %910 = or disjoint i32 %909, 48

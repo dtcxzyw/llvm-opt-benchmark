@@ -1249,7 +1249,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit91:         ; preds = %195, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 245:                                              ; preds = %233
-  %246 = icmp ult i64 %240, 3
+  %246 = icmp samesign ult i64 %240, 3
   br i1 %246, label %247, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 247:                                              ; preds = %245
@@ -1867,7 +1867,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.us:     ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.us
 
 267:                                              ; preds = %256
-  %268 = icmp ult i64 %263, 4
+  %268 = icmp samesign ult i64 %263, 4
   br i1 %268, label %.split.us.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.us
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.us: ; preds = %267
@@ -2353,7 +2353,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit93:              ; preds = %_ZNK11gmx_ga2la_t4f
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 198:                                              ; preds = %185
-  %199 = icmp ult i64 %193, 3
+  %199 = icmp samesign ult i64 %193, 3
   br i1 %199, label %200, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 200:                                              ; preds = %198

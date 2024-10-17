@@ -727,7 +727,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.0249 = phi i32 [ 0, %.preheader319 ], [ %272, %265 ]
   %.0247 = phi i32 [ 1, %.preheader319 ], [ %273, %265 ]
   %.0246 = phi ptr [ %.1266, %.preheader319 ], [ %266, %265 ]
-  %.not297 = icmp ult i32 %.0247, 256
+  %.not297 = icmp samesign ult i32 %.0247, 256
   br i1 %.not297, label %265, label %260
 
 260:                                              ; preds = %259
@@ -840,7 +840,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.0230 = phi i32 [ 0, %.preheader315 ], [ %spec.select314, %321 ]
   %.0229 = phi i32 [ 1, %.preheader315 ], [ %325, %321 ]
   %.0 = phi ptr [ %.1245, %.preheader315 ], [ %322, %321 ]
-  %.not294 = icmp ult i32 %.0229, 256
+  %.not294 = icmp samesign ult i32 %.0229, 256
   br i1 %.not294, label %321, label %316
 
 316:                                              ; preds = %315

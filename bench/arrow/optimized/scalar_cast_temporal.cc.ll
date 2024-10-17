@@ -50200,7 +50200,7 @@ if.end146:                                        ; preds = %if.then134
   br i1 %cmp151.not, label %do.end, label %if.then152
 
 if.then152:                                       ; preds = %if.end146
-  %cmp154 = icmp ugt i32 %add148, 429496729
+  %cmp154 = icmp samesign ugt i32 %add148, 429496729
   br i1 %cmp154, label %return, label %if.end159
 
 if.end159:                                        ; preds = %if.then152

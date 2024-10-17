@@ -136,12 +136,12 @@ AllocateAlphaPlane.exit._crit_edge:               ; preds = %AllocateAlphaPlane.
   %63 = zext nneg i8 %62 to i32
   %64 = getelementptr inbounds i8, ptr %36, i64 16
   store i32 %63, ptr %64, align 8
-  %65 = icmp ugt i8 %52, 1
+  %65 = icmp samesign ugt i8 %52, 1
   br i1 %65, label %ALPHInit.exit.thread, label %66
 
 66:                                               ; preds = %50
   %67 = load i8, ptr %38, align 1
-  %68 = icmp ugt i8 %62, 1
+  %68 = icmp samesign ugt i8 %62, 1
   %69 = icmp ugt i8 %67, 63
   %or.cond.i = select i1 %68, i1 true, i1 %69
   br i1 %or.cond.i, label %ALPHInit.exit.thread, label %70

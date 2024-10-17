@@ -479,7 +479,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %40, %42
   %99 = icmp ult i32 %.sroa.02.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %.sroa.3.0.extract.shift.i = lshr i64 %98, 32
   %.sroa.34.0.extract.shift.i = lshr i64 %97, 32
-  %100 = icmp ult i64 %.sroa.34.0.extract.shift.i, %.sroa.3.0.extract.shift.i
+  %100 = icmp samesign ult i64 %.sroa.34.0.extract.shift.i, %.sroa.3.0.extract.shift.i
   %.0.in.i = select i1 %.not.i56, i1 %100, i1 %99
   %101 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1556,7 +1556,7 @@ define ptr @mca_btl_tcp_proc_lookup(ptr nocapture noundef readonly %0) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 284), align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %36, %16, %.preheader..loopexit_crit_edge, %19

@@ -2385,7 +2385,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %45 = and i32 %6, 65535
   %.1125 = add i16 %.0118, 1
   %46 = zext i16 %.1125 to i32
-  %47 = icmp ugt i32 %45, %46
+  %47 = icmp samesign ugt i32 %45, %46
   br i1 %47, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %39, %.lr.ph
@@ -2395,7 +2395,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %49, ptr noundef %3, i32 noundef %48, i32 noundef 1, i32 noundef 0) #4
   %.1 = add nuw i16 %.1126, 1
   %51 = zext i16 %.1 to i32
-  %52 = icmp ugt i32 %45, %51
+  %52 = icmp samesign ugt i32 %45, %51
   br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 53:                                               ; preds = %10
@@ -2508,7 +2508,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #4
   %121 = and i32 %6, 65535
   %122 = zext i16 %116 to i32
-  %123 = icmp ugt i32 %121, %122
+  %123 = icmp samesign ugt i32 %121, %122
   br i1 %123, label %.lr.ph128, label %.loopexit
 
 .lr.ph128:                                        ; preds = %114, %.lr.ph128
@@ -2518,7 +2518,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %126 = add nuw i16 %.4127, 1
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %3, i32 noundef %124, i32 noundef 1, i32 noundef 0) #4
   %128 = zext i16 %126 to i32
-  %129 = icmp ugt i32 %121, %128
+  %129 = icmp samesign ugt i32 %121, %128
   br i1 %129, label %.lr.ph128, label %.loopexit, !llvm.loop !17
 
 130:                                              ; preds = %70, %70, %70
@@ -3328,7 +3328,7 @@ define internal fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 nou
   %9 = load i32, ptr @ett_cyclic_setup_attribs, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
   %11 = zext i16 %2 to i32
-  %12 = icmp ult i32 %7, %11
+  %12 = icmp samesign ult i32 %7, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %75
@@ -3537,7 +3537,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %38 = add i32 %.176139.us146, 2
   %39 = add i16 %.079137.us148, 1
   %40 = zext i16 %39 to i32
-  %.not94.us = icmp ugt i32 %.081, %40
+  %.not94.us = icmp samesign ugt i32 %.081, %40
   %41 = zext i16 %.082136.us149 to i64
   %42 = getelementptr i8, ptr %18, i64 %41
   %43 = zext i16 %37 to i32
@@ -3573,7 +3573,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %54 = add i32 %.176139, 4
   %55 = add i16 %.079137, 1
   %56 = zext i16 %55 to i32
-  %.not94 = icmp ugt i32 %.081, %56
+  %.not94 = icmp samesign ugt i32 %.081, %56
   %57 = zext i16 %.082136 to i64
   %58 = getelementptr i8, ptr %18, i64 %57
   br i1 %.not94, label %64, label %59

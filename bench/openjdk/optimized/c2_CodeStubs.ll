@@ -130,7 +130,7 @@ define hidden void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull alig
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24

@@ -183,7 +183,7 @@ allocate_vertex2.exit.i.i:                        ; preds = %64, %48
   %indvars.iv.i75.i.i = phi i64 [ %indvars.iv.next.i76.i.i, %.loopexit.i.i.i ], [ 1, %._crit_edge91.i.i ]
   %.01620.i.i.i = phi double [ %.1.lcssa.i.i.i, %.loopexit.i.i.i ], [ 0.000000e+00, %._crit_edge91.i.i ]
   %indvars.iv.next28.i.i.i = add nuw nsw i64 %indvars.iv27.i.i.i, 1
-  %70 = icmp ult i64 %indvars.iv.next28.i.i.i, %wide.trip.count.i.i.i
+  %70 = icmp samesign ult i64 %indvars.iv.next28.i.i.i, %wide.trip.count.i.i.i
   br i1 %70, label %.lr.ph.i77.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i77.i.i:                                   ; preds = %.lr.ph22.i.i.i

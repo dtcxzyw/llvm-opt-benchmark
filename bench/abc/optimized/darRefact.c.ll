@@ -139,7 +139,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_Ve
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %39 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv74.i
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp ult i64 %indvars.iv74.i, 5
+  %41 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %41, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 42:                                               ; preds = %.preheader26.us.us.i, %42
@@ -1123,7 +1123,7 @@ Vec_PtrCopy.exit151:                              ; preds = %Kit_TruthIsConst1.e
   %134 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val137, i64 %133, i32 3
   %135 = load i32, ptr %134, align 8
   %136 = and i32 %135, 16383
-  %137 = icmp ult i32 %128, %136
+  %137 = icmp samesign ult i32 %128, %136
   br i1 %137, label %.thread, label %165
 
 .thread:                                          ; preds = %120
@@ -1284,7 +1284,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %211 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val141, i64 %210, i32 3
   %212 = load i32, ptr %211, align 8
   %213 = and i32 %212, 16383
-  %214 = icmp ult i32 %205, %213
+  %214 = icmp samesign ult i32 %205, %213
   br i1 %214, label %.thread184, label %242
 
 .thread184:                                       ; preds = %197
@@ -1533,7 +1533,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   br i1 %narrow.i, label %221, label %72
 
 72:                                               ; preds = %67
-  %73 = icmp ugt i64 %indvars.iv, %60
+  %73 = icmp samesign ugt i64 %indvars.iv, %60
   br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %72

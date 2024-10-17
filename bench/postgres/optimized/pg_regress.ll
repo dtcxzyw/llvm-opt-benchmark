@@ -3208,7 +3208,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 define internal fastcc void @emit_tap_output_v(i32 noundef range(i32 0, 7) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq i32 %0, 1
-  %or.cond = icmp ult i32 %0, 2
+  %or.cond = icmp samesign ult i32 %0, 2
   %stderr.val = load ptr, ptr @stderr, align 8
   %stdout.val = load ptr, ptr @stdout, align 8
   %.0 = select i1 %or.cond, ptr %stderr.val, ptr %stdout.val

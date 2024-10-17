@@ -1531,13 +1531,13 @@ for.body51.us:                                    ; preds = %for.body.us, %for.i
   store ptr %call52.us, ptr %mIndices.us, align 8
   %add54.us = add nuw nsw i64 %indvars.iv112, %conv45.us
   %add55.us = add nuw nsw i64 %add54.us, 1
-  %cmp57.not.us = icmp ult i64 %add55.us, %conv7
+  %cmp57.not.us = icmp samesign ult i64 %add55.us, %conv7
   br i1 %cmp57.not.us, label %if.end.us, label %for.inc143.us
 
 if.end.us:                                        ; preds = %for.body51.us
   %add59.us = add nuw nsw i64 %indvars.iv112, %conv47.us
   %add60.us = add nuw nsw i64 %add59.us, 1
-  %cmp62.not.us = icmp ult i64 %add60.us, %conv7
+  %cmp62.not.us = icmp samesign ult i64 %add60.us, %conv7
   br i1 %cmp62.not.us, label %if.end64.us, label %for.inc143.us
 
 if.end64.us:                                      ; preds = %if.end.us

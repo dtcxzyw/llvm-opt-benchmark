@@ -2371,7 +2371,7 @@ define internal void @intel_pstate_update_limits(i32 noundef %0) #0 align 16 {
 40:                                               ; preds = %29, %26
   %41 = add nuw nsw i64 %23, 1
   %42 = and i64 %41, 127
-  %43 = icmp ugt i64 %42, 63
+  %43 = icmp samesign ugt i64 %42, 63
   br i1 %43, label %.thread, label %16, !prof !56, !llvm.loop !57
 
 44:                                               ; preds = %8
@@ -3639,7 +3639,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
 
 47:                                               ; preds = %38
   %48 = zext nneg i32 %39 to i64
-  %49 = icmp ugt i64 %41, %48
+  %49 = icmp samesign ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
@@ -5027,7 +5027,7 @@ define internal i32 @silvermont_get_scaling() #0 align 16 {
 
 7:                                                ; preds = %3, %0
   %8 = and i64 %2, 7
-  %9 = icmp ugt i64 %8, 4
+  %9 = icmp samesign ugt i64 %8, 4
   br i1 %9, label %10, label %11, !prof !10
 
 10:                                               ; preds = %7
@@ -5167,7 +5167,7 @@ define internal i32 @airmont_get_scaling() #0 align 16 {
 
 7:                                                ; preds = %3, %0
   %8 = and i64 %2, 15
-  %9 = icmp ugt i64 %8, 8
+  %9 = icmp samesign ugt i64 %8, 8
   br i1 %9, label %10, label %11, !prof !10
 
 10:                                               ; preds = %7
@@ -5268,7 +5268,7 @@ define internal fastcc noundef zeroext i1 @intel_pstate_no_acpi_pss() unnamed_ad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #26
   %33 = add nuw nsw i64 %10, 1
   %34 = and i64 %33, 127
-  %35 = icmp ugt i64 %34, 63
+  %35 = icmp samesign ugt i64 %34, 63
   br i1 %35, label %.thread, label %3, !prof !56, !llvm.loop !77
 
 .thread:                                          ; preds = %3, %32, %9, %31
@@ -5338,7 +5338,7 @@ define internal fastcc noundef zeroext i1 @intel_pstate_has_acpi_ppc() unnamed_a
   %22 = phi i64 [ %.pre, %19 ], [ %2, %11 ]
   %23 = add nuw nsw i64 %8, 1
   %24 = and i64 %23, 127
-  %25 = icmp ugt i64 %24, 63
+  %25 = icmp samesign ugt i64 %24, 63
   br i1 %25, label %.thread, label %1, !prof !56, !llvm.loop !78
 
 .thread:                                          ; preds = %19, %1, %.thread3, %7
@@ -5652,7 +5652,7 @@ define internal fastcc void @intel_pstate_driver_cleanup() unnamed_addr #0 align
   %32 = phi i64 [ %.pre, %25 ], [ %2, %11 ]
   %33 = add nuw nsw i64 %8, 1
   %34 = and i64 %33, 127
-  %35 = icmp ugt i64 %34, 63
+  %35 = icmp samesign ugt i64 %34, 63
   br i1 %35, label %.thread, label %1, !prof !56, !llvm.loop !79
 
 .thread:                                          ; preds = %1, %31, %7
@@ -5724,7 +5724,7 @@ define internal i64 @store_hwp_dynamic_boost(ptr nocapture readnone %0, ptr noca
   call void @cpufreq_update_policy(i32 noundef %22) #26
   %25 = add nuw nsw i64 %21, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %14, !prof !56, !llvm.loop !80
 
 .thread:                                          ; preds = %14, %24, %20
@@ -5872,7 +5872,7 @@ define internal noundef i64 @store_no_turbo(ptr nocapture readnone %0, ptr nocap
   call void @cpufreq_update_policy(i32 noundef %53) #26
   %56 = add nuw nsw i64 %52, 1
   %57 = and i64 %56, 127
-  %58 = icmp ugt i64 %57, 63
+  %58 = icmp samesign ugt i64 %57, 63
   br i1 %58, label %.thread, label %45, !prof !56, !llvm.loop !80
 
 .thread:                                          ; preds = %45, %55, %51
@@ -6024,7 +6024,7 @@ define internal noundef i64 @store_max_perf_pct(ptr nocapture readnone %0, ptr n
   call void @cpufreq_update_policy(i32 noundef %26) #26
   %29 = add nuw nsw i64 %25, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %.preheader, !prof !56, !llvm.loop !80
 
 32:                                               ; preds = %11
@@ -6148,7 +6148,7 @@ define internal fastcc void @update_qos_request(i32 noundef range(i32 1, 3) %0) 
 67:                                               ; preds = %65, %54, %22, %15
   %68 = add nuw nsw i64 %12, 1
   %69 = and i64 %68, 127
-  %70 = icmp ugt i64 %69, 63
+  %70 = icmp samesign ugt i64 %69, 63
   br i1 %70, label %.thread, label %5, !prof !56, !llvm.loop !81
 
 .thread:                                          ; preds = %5, %67, %11
@@ -6234,7 +6234,7 @@ define internal noundef i64 @store_min_perf_pct(ptr nocapture readnone %0, ptr n
   call void @cpufreq_update_policy(i32 noundef %38) #26
   %41 = add nuw nsw i64 %37, 1
   %42 = and i64 %41, 127
-  %43 = icmp ugt i64 %42, 63
+  %43 = icmp samesign ugt i64 %42, 63
   br i1 %43, label %.thread, label %.preheader, !prof !56, !llvm.loop !80
 
 44:                                               ; preds = %23

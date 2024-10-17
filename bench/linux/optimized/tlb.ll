@@ -1103,7 +1103,7 @@ define dso_local void @flush_tlb_mm_range(ptr noundef %0, i64 noundef %1, i64 no
 33:                                               ; preds = %42, %15
   %34 = phi i64 [ 0, %15 ], [ %48, %42 ]
   %35 = and i64 %34, 4294967295
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %37, !prof !8
 
 37:                                               ; preds = %33
@@ -1541,7 +1541,7 @@ define dso_local void @arch_tlbbatch_flush(ptr noundef %0) local_unnamed_addr #0
 12:                                               ; preds = %21, %1
   %13 = phi i64 [ 0, %1 ], [ %27, %21 ]
   %14 = and i64 %13, 4294967295
-  %15 = icmp ugt i64 %14, 63
+  %15 = icmp samesign ugt i64 %14, 63
   br i1 %15, label %.thread, label %16, !prof !8
 
 16:                                               ; preds = %12

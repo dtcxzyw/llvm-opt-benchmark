@@ -7504,7 +7504,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %div53 = fdiv x86_fp80 %mul50, %add51
   %12 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %div53)
   %cmp55 = fcmp ogt x86_fp80 %12, 0xK3FC08000000000000000
-  %cmp57 = icmp ult i64 %indvars.iv70, 999999
+  %cmp57 = icmp samesign ult i64 %indvars.iv70, 999999
   %13 = select i1 %cmp55, i1 %cmp57, i1 false
   br i1 %13, label %do.body, label %do.end, !llvm.loop !165
 

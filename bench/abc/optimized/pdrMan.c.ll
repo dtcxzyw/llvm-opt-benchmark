@@ -738,7 +738,7 @@ Vec_IntStart.exit:                                ; preds = %.critedge, %Vec_Int
   %34 = load i32, ptr %33, align 4
   %35 = tail call noundef i32 @llvm.smax.i32(i32 %.0112177, i32 %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = icmp ult i64 %indvars.iv.next, %16
+  %36 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %36, label %17, label %.critedge2.loopexit, !llvm.loop !12
 
 .critedge2.loopexit:                              ; preds = %18, %17
@@ -916,7 +916,7 @@ Vec_BitStart.exit164:                             ; preds = %42, %49
 
 136:                                              ; preds = %116, %132
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %137 = icmp ult i64 %indvars.iv.next194, %114
+  %137 = icmp samesign ult i64 %indvars.iv.next194, %114
   br i1 %137, label %115, label %.critedge6.thread, !llvm.loop !14
 
 .critedge6:                                       ; preds = %115, %.critedge4

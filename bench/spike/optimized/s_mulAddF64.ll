@@ -153,7 +153,7 @@ define i64 @softfloat_mulAddF64(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 82:                                               ; preds = %79
   %83 = sub nsw i64 0, %77
-  %84 = icmp ult i64 %83, 63
+  %84 = icmp samesign ult i64 %83, 63
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %82

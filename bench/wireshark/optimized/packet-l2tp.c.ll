@@ -2015,7 +2015,7 @@ define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1
   %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %31) #8
   %33 = zext i16 %32 to i32
   %34 = zext nneg i16 %27 to i32
-  %35 = icmp ult i16 %27, 6
+  %35 = icmp samesign ult i16 %27, 6
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %24

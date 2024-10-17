@@ -4810,7 +4810,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
-  %1 = icmp ult i8 %bf.clear.i, 2
+  %1 = icmp samesign ult i8 %bf.clear.i, 2
   %spec.select = select i1 %1, i8 2, i8 0
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
@@ -4878,7 +4878,7 @@ _ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.e
 cond.false.i:                                     ; preds = %_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf.exit44
   %cmp.i.i47 = icmp eq i8 %direction, 2
   %cond.i.i = select i1 %cmp.i.i47, i64 2, i64 0
-  %.not.inv = icmp ugt i8 %retval.0.i99, 1
+  %.not.inv = icmp samesign ugt i8 %retval.0.i99, 1
   %retval.0.i2.i = select i1 %.not.inv, i64 %cond.i.i, i64 1
   br label %_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
 
@@ -4895,7 +4895,7 @@ _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9
   br i1 %call.i.i50, label %switch.lookup110, label %cond.false.i51
 
 cond.false.i51:                                   ; preds = %_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  %.not = icmp ult i8 %retval.0.i99, 2
+  %.not = icmp samesign ult i8 %retval.0.i99, 2
   %cmp.i.i52 = icmp eq i8 %direction, 2
   %cond.i.i53 = select i1 %cmp.i.i52, i64 0, i64 2
   %retval.0.i2.i54 = select i1 %.not, i64 3, i64 %cond.i.i53
@@ -4916,7 +4916,7 @@ _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9Di
 cond.false.i63:                                   ; preds = %_ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
   %cmp.i.i64 = icmp eq i8 %direction, 2
   %cond.i.i65 = select i1 %cmp.i.i64, i64 2, i64 0
-  %.not107.inv = icmp ugt i8 %2, 1
+  %.not107.inv = icmp samesign ugt i8 %2, 1
   %retval.0.i2.i66 = select i1 %.not107.inv, i64 %cond.i.i65, i64 1
   br label %_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit73
 
@@ -4933,7 +4933,7 @@ _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9
   br i1 %call.i.i75, label %switch.lookup116, label %cond.false.i76
 
 cond.false.i76:                                   ; preds = %_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit73
-  %.not108 = icmp ult i8 %2, 2
+  %.not108 = icmp samesign ult i8 %2, 2
   %cmp.i.i77 = icmp eq i8 %direction, 2
   %cond.i.i78 = select i1 %cmp.i.i77, i64 0, i64 2
   %retval.0.i2.i79 = select i1 %.not108, i64 3, i64 %cond.i.i78

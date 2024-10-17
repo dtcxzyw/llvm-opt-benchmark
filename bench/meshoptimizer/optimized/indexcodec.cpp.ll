@@ -362,7 +362,7 @@ for.inc.i188:                                     ; preds = %for.body.i184
   br i1 %exitcond.not.i190, label %if.else165, label %for.body.i184, !llvm.loop !9
 
 _ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %for.body.i184
-  %35 = icmp ult i64 %indvars.iv.i185, 14
+  %35 = icmp samesign ult i64 %indvars.iv.i185, 14
   %or.cond8 = and i1 %cmp116, %35
   %or.cond8.not = xor i1 %or.cond8, true
   %brmerge = or i1 %or.cond4, %or.cond8.not
@@ -564,7 +564,7 @@ entry:
 
 while.cond:                                       ; preds = %while.cond, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ 1, %entry ]
-  %cmp = icmp ult i64 %indvars.iv, 32
+  %cmp = icmp samesign ult i64 %indvars.iv, 32
   %shl = shl nuw nsw i64 1, %indvars.iv
   %cmp1 = icmp ugt i64 %vertex_count, %shl
   %0 = select i1 %cmp, i1 %cmp1, i1 false
@@ -610,7 +610,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %and7 = and i32 %conv, 15
-  %cmp8 = icmp ugt i32 %and7, 1
+  %cmp8 = icmp samesign ugt i32 %and7, 1
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
@@ -658,7 +658,7 @@ if.then23:                                        ; preds = %if.end20
   %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   %5 = load i32, ptr %arrayidx35, align 4
   %and37 = and i32 %conv21, 15
-  %cmp38 = icmp ult i32 %and37, %cond
+  %cmp38 = icmp samesign ult i32 %and37, %cond
   br i1 %cmp38, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %if.then23
@@ -1175,7 +1175,7 @@ if.end7:                                          ; preds = %for.body
   %3 = load i32, ptr %arrayidx8, align 4
   %sub = sub i32 %3, %2
   %cond = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %cmp12 = icmp ugt i32 %cond, 29
+  %cmp12 = icmp samesign ugt i32 %cond, 29
   %conv13 = zext i1 %cmp12 to i32
   %xor = xor i32 %current.027, %conv13
   %idxprom14 = zext nneg i32 %xor to i64
@@ -1233,7 +1233,7 @@ entry:
 
 while.cond:                                       ; preds = %while.cond, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ 1, %entry ]
-  %cmp = icmp ult i64 %indvars.iv, 32
+  %cmp = icmp samesign ult i64 %indvars.iv, 32
   %shl = shl nuw nsw i64 1, %indvars.iv
   %cmp1 = icmp ugt i64 %vertex_count, %shl
   %0 = select i1 %cmp, i1 %cmp1, i1 false

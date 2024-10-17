@@ -49,8 +49,8 @@ if.end:                                           ; preds = %if.then, %entry
   %sub.i = add i32 %num_elements, -1
   %div.i101112 = lshr i32 %sub.i, 3
   %cmp.i7 = icmp eq i32 %num_elements, 0
-  %cmp.not14 = icmp ult i32 %div.i101112, %num_processed.0
-  %or.cond15 = or i1 %cmp.i7, %cmp.not14
+  %cmp.not14 = icmp samesign ult i32 %div.i101112, %num_processed.0
+  %or.cond15 = select i1 %cmp.i7, i1 true, i1 %cmp.not14
   br i1 %or.cond15, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
@@ -209,7 +209,7 @@ if.then.i172.us:                                  ; preds = %if.then127.us
 
 if.end.i173.us:                                   ; preds = %if.then.i172.us
   %16 = lshr i32 %call1.i190.us, 3
-  %cmp.not14.i178.us = icmp ult i32 %div.i101112.i176, %16
+  %cmp.not14.i178.us = icmp samesign ult i32 %div.i101112.i176, %16
   br i1 %cmp.not14.i178.us, label %if.end129.us, label %for.body.preheader.i180.us
 
 for.body.preheader.i180.us:                       ; preds = %if.then127.us, %if.end.i173.us
@@ -364,7 +364,7 @@ if.then.i:                                        ; preds = %if.then68
 
 if.end.i:                                         ; preds = %if.then.i
   %32 = lshr i32 %call1.i162, 3
-  %cmp.not14.i = icmp ult i32 %div.i101112.i, %32
+  %cmp.not14.i = icmp samesign ult i32 %div.i101112.i, %32
   br i1 %cmp.not14.i, label %for.inc, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then68, %if.end.i
@@ -449,7 +449,7 @@ if.then.i172:                                     ; preds = %if.then127
 
 if.end.i173:                                      ; preds = %if.then.i172
   %42 = lshr i32 %call1.i190, 3
-  %cmp.not14.i178 = icmp ult i32 %div.i101112.i176, %42
+  %cmp.not14.i178 = icmp samesign ult i32 %div.i101112.i176, %42
   br i1 %cmp.not14.i178, label %if.end129, label %for.body.preheader.i180
 
 for.body.preheader.i180:                          ; preds = %if.then127, %if.end.i173

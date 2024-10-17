@@ -249,7 +249,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %cmp8 = icmp ugt i32 %len, 16384
+  %cmp8 = icmp samesign ugt i32 %len, 16384
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7

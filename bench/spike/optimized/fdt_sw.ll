@@ -170,7 +170,7 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
   %97 = or disjoint i64 %93, %96
-  %98 = icmp ugt i64 %79, %97
+  %98 = icmp samesign ugt i64 %79, %97
   br i1 %98, label %131, label %99
 
 99:                                               ; preds = %22

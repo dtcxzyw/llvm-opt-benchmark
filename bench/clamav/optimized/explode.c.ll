@@ -607,7 +607,7 @@ lookup_tree.exit.thread:                          ; preds = %197
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = add nuw nsw i32 %277, 6
-  %.not414 = icmp ugt i32 %278, %274
+  %.not414 = icmp samesign ugt i32 %278, %274
   br i1 %.not414, label %286, label %279
 
 279:                                              ; preds = %271

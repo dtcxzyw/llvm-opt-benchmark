@@ -209,7 +209,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %offset.0 = phi i32 [ %unitOffset, %entry ], [ %inc, %while.cond ]
   %div = fdiv double %decimalValue.0, %conv1
   %cmp = fcmp oge double %div, 1.000000e+00
-  %cmp2 = icmp ult i32 %offset.0, %sub
+  %cmp2 = icmp samesign ult i32 %offset.0, %sub
   %0 = select i1 %cmp, i1 %cmp2, i1 false
   %inc = add nuw nsw i32 %offset.0, 1
   br i1 %0, label %while.cond, label %while.end, !llvm.loop !7

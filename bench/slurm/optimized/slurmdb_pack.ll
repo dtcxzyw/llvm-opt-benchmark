@@ -16217,7 +16217,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef w
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i16, ptr %5, align 2
   %25 = zext i16 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %27, label %.loopexit, !llvm.loop !117
 
 27:                                               ; preds = %.lr.ph, %23

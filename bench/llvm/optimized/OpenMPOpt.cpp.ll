@@ -16075,7 +16075,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -21956,7 +21956,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -76917,7 +76917,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -92361,7 +92361,7 @@ _ZN4llvm10Attributor31registerManifestAddedBasicBlockERNS_10BasicBlockE.exit.i: 
 
 _ZN4llvm10Attributor31registerManifestAddedBasicBlockERNS_10BasicBlockE.exit372.i: ; preds = %.lr.ph.i.i.i368.i, %677, %675
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %679 = icmp ult i64 %indvars.iv.next.i, %591
+  %679 = icmp samesign ult i64 %indvars.iv.next.i, %591
   br i1 %679, label %682, label %680
 
 680:                                              ; preds = %_ZN4llvm10Attributor31registerManifestAddedBasicBlockERNS_10BasicBlockE.exit372.i
@@ -104982,7 +104982,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -114770,7 +114770,7 @@ _ZNSt10shared_ptrIN4llvm11SmallVectorIPNS0_3UseELj16EEEEC2ERKS5_.exit.i: ; preds
   %88 = add nuw nsw i64 %.012.i, 1
   %89 = load i32, ptr %3, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %88, %90
+  %91 = icmp samesign ult i64 %88, %90
   br i1 %91, label %.lr.ph.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt10shared_ptrINS_11SmallVectorIPNS_3UseELj16EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E8copyFromISF_EEvRKNS0_IT_S3_S9_SB_SE_EE.exit, !llvm.loop !2001
 
 92:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt10shared_ptrINS_11SmallVectorIPNS_3UseELj16EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E10destroyAllEv.exit

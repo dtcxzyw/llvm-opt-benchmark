@@ -741,7 +741,7 @@ common.ret:                                       ; preds = %336, %"_ZN72_$LT$co
   %231 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %232 = icmp ult i64 %231, 6
   call void @llvm.assume(i1 %232)
-  %switch.selectcmp.i204 = icmp ugt i64 %231, 4
+  %switch.selectcmp.i204 = icmp samesign ugt i64 %231, 4
   br i1 %switch.selectcmp.i204, label %233, label %282
 
 233:                                              ; preds = %230
@@ -968,7 +968,7 @@ common.ret:                                       ; preds = %336, %"_ZN72_$LT$co
   %306 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !126
   %307 = icmp ult i64 %306, 6
   call void @llvm.assume(i1 %307)
-  %308 = icmp ult i64 %306, 5
+  %308 = icmp samesign ult i64 %306, 5
   br i1 %308, label %"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h70a1303ab4bc8312E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %305
@@ -2045,7 +2045,7 @@ common.ret:                                       ; preds = %335, %"_ZN72_$LT$co
   %230 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %231 = icmp ult i64 %230, 6
   call void @llvm.assume(i1 %231)
-  %switch.selectcmp.i204 = icmp ugt i64 %230, 4
+  %switch.selectcmp.i204 = icmp samesign ugt i64 %230, 4
   br i1 %switch.selectcmp.i204, label %232, label %281
 
 232:                                              ; preds = %229
@@ -2272,7 +2272,7 @@ common.ret:                                       ; preds = %335, %"_ZN72_$LT$co
   %305 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !306
   %306 = icmp ult i64 %305, 6
   call void @llvm.assume(i1 %306)
-  %307 = icmp ult i64 %305, 5
+  %307 = icmp samesign ult i64 %305, 5
   br i1 %307, label %"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4f7e5b454baa844E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %304
@@ -4168,7 +4168,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
 
 "_ZN4core3ptr286drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h79135f733c573ceeE.exit": ; preds = %428
   %433 = load i8, ptr %32, align 8, !range !133, !noundef !5
-  %.not683 = icmp ult i8 %433, 2
+  %.not683 = icmp samesign ult i8 %433, 2
   %434 = zext nneg i8 %433 to i64
   %435 = add nsw i64 %434, -1
   %436 = select i1 %.not683, i64 0, i64 %435
@@ -4585,7 +4585,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
 568:                                              ; preds = %675, %595, %589, %614, %681
   %569 = phi i8 [ %433, %681 ], [ %433, %675 ], [ %433, %595 ], [ %433, %589 ], [ %.pre694, %614 ]
   %.pn215.pn = phi { ptr, i32 } [ %682, %681 ], [ %.pn231.pn, %675 ], [ %596, %595 ], [ %590, %589 ], [ %.pn223.pn.pn.pn, %614 ]
-  %.not262 = icmp ugt i8 %569, 1
+  %.not262 = icmp samesign ugt i8 %569, 1
   br i1 %.not262, label %581, label %684
 
 570:                                              ; preds = %"_ZN4core3ptr286drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h79135f733c573ceeE.exit"
@@ -4669,7 +4669,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
   %600 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %601 = icmp ult i64 %600, 6
   call void @llvm.assume(i1 %601)
-  %switch.selectcmp.i437 = icmp ugt i64 %600, 3
+  %switch.selectcmp.i437 = icmp samesign ugt i64 %600, 3
   br i1 %switch.selectcmp.i437, label %602, label %672
 
 602:                                              ; preds = %599
@@ -6330,7 +6330,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
 
 "_ZN4core3ptr294drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h21317823d32deec1E.exit": ; preds = %428
   %433 = load i8, ptr %32, align 8, !range !133, !noundef !5
-  %.not683 = icmp ult i8 %433, 2
+  %.not683 = icmp samesign ult i8 %433, 2
   %434 = zext nneg i8 %433 to i64
   %435 = add nsw i64 %434, -1
   %436 = select i1 %.not683, i64 0, i64 %435
@@ -6747,7 +6747,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
 568:                                              ; preds = %675, %595, %589, %614, %681
   %569 = phi i8 [ %433, %681 ], [ %433, %675 ], [ %433, %595 ], [ %433, %589 ], [ %.pre694, %614 ]
   %.pn215.pn = phi { ptr, i32 } [ %682, %681 ], [ %.pn231.pn, %675 ], [ %596, %595 ], [ %590, %589 ], [ %.pn223.pn.pn.pn, %614 ]
-  %.not262 = icmp ugt i8 %569, 1
+  %.not262 = icmp samesign ugt i8 %569, 1
   br i1 %.not262, label %581, label %684
 
 570:                                              ; preds = %"_ZN4core3ptr294drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h21317823d32deec1E.exit"
@@ -6831,7 +6831,7 @@ common.ret:                                       ; preds = %690, %305, %.invoke
   %600 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %601 = icmp ult i64 %600, 6
   call void @llvm.assume(i1 %601)
-  %switch.selectcmp.i437 = icmp ugt i64 %600, 3
+  %switch.selectcmp.i437 = icmp samesign ugt i64 %600, 3
   br i1 %switch.selectcmp.i437, label %602, label %672
 
 602:                                              ; preds = %599
@@ -7446,7 +7446,7 @@ define internal fastcc void @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$L
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -7500,7 +7500,7 @@ define internal fastcc void @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$L
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -8156,7 +8156,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %215 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %216 = icmp ult i64 %215, 6
   call void @llvm.assume(i1 %216)
-  %switch.selectcmp.i203 = icmp ugt i64 %215, 4
+  %switch.selectcmp.i203 = icmp samesign ugt i64 %215, 4
   br i1 %switch.selectcmp.i203, label %217, label %266
 
 217:                                              ; preds = %214
@@ -8383,7 +8383,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %290 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1104
   %291 = icmp ult i64 %290, 6
   call void @llvm.assume(i1 %291)
-  %292 = icmp ult i64 %290, 5
+  %292 = icmp samesign ult i64 %290, 5
   br i1 %292, label %"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h92057b34c1d42acdE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %289
@@ -9409,7 +9409,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %215 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %216 = icmp ult i64 %215, 6
   call void @llvm.assume(i1 %216)
-  %switch.selectcmp.i203 = icmp ugt i64 %215, 4
+  %switch.selectcmp.i203 = icmp samesign ugt i64 %215, 4
   br i1 %switch.selectcmp.i203, label %217, label %266
 
 217:                                              ; preds = %214
@@ -9636,7 +9636,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %290 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1284
   %291 = icmp ult i64 %290, 6
   call void @llvm.assume(i1 %291)
-  %292 = icmp ult i64 %290, 5
+  %292 = icmp samesign ult i64 %290, 5
   br i1 %292, label %"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd40b6d6dc90aaf88E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %289
@@ -10662,7 +10662,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %215 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %216 = icmp ult i64 %215, 6
   call void @llvm.assume(i1 %216)
-  %switch.selectcmp.i203 = icmp ugt i64 %215, 4
+  %switch.selectcmp.i203 = icmp samesign ugt i64 %215, 4
   br i1 %switch.selectcmp.i203, label %217, label %266
 
 217:                                              ; preds = %214
@@ -10889,7 +10889,7 @@ common.ret:                                       ; preds = %322, %"_ZN72_$LT$co
   %290 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1464
   %291 = icmp ult i64 %290, 6
   call void @llvm.assume(i1 %291)
-  %292 = icmp ult i64 %290, 5
+  %292 = icmp samesign ult i64 %290, 5
   br i1 %292, label %"_ZN10ockam_node5relay15processor_relay21shutdown_and_stop_ack28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h68aa306ebd349d0bE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %289
@@ -13073,7 +13073,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   %495 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %496 = icmp ult i64 %495, 6
   call void @llvm.assume(i1 %496)
-  %switch.selectcmp.i369 = icmp ugt i64 %495, 3
+  %switch.selectcmp.i369 = icmp samesign ugt i64 %495, 3
   br i1 %switch.selectcmp.i369, label %497, label %468
 
 497:                                              ; preds = %494
@@ -14938,7 +14938,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   %495 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %496 = icmp ult i64 %495, 6
   call void @llvm.assume(i1 %496)
-  %switch.selectcmp.i369 = icmp ugt i64 %495, 3
+  %switch.selectcmp.i369 = icmp samesign ugt i64 %495, 3
   br i1 %switch.selectcmp.i369, label %497, label %468
 
 497:                                              ; preds = %494
@@ -16803,7 +16803,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   %495 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %496 = icmp ult i64 %495, 6
   call void @llvm.assume(i1 %496)
-  %switch.selectcmp.i369 = icmp ugt i64 %495, 3
+  %switch.selectcmp.i369 = icmp samesign ugt i64 %495, 3
   br i1 %switch.selectcmp.i369, label %497, label %468
 
 497:                                              ; preds = %494
@@ -17286,7 +17286,7 @@ define internal fastcc void @"_ZN10ockam_node5relay15processor_relay23ProcessorR
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -17556,7 +17556,7 @@ define internal fastcc void @"_ZN10ockam_node5relay15processor_relay23ProcessorR
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -17718,7 +17718,7 @@ define internal fastcc void @"_ZN10ockam_node5relay15processor_relay23ProcessorR
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -20156,7 +20156,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr21
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7d48a8e069d813b2E.llvm.7533556185910216491"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9102c3f6192a9be2E.llvm.7533556185910216491.exit" [
@@ -20218,7 +20218,7 @@ define hidden void @"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..task..core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr207drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5eba8b35b66db3e7E.llvm.7533556185910216491"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9102c3f6192a9be2E.llvm.7533556185910216491.exit" [
@@ -20280,7 +20280,7 @@ define hidden void @"_ZN4core3ptr207drop_in_place$LT$tokio..runtime..task..core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr210drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb6934927903ef666E.llvm.7533556185910216491"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9102c3f6192a9be2E.llvm.7533556185910216491.exit" [
@@ -20956,7 +20956,7 @@ define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$ockam_node..relay.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr273drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ab4e6aac35db24cE.llvm.7533556185910216491"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9102c3f6192a9be2E.llvm.7533556185910216491.exit" [
@@ -21604,7 +21604,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr21
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr333drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6312e613442ef4ecE.llvm.7533556185910216491"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9102c3f6192a9be2E.llvm.7533556185910216491.exit" [
@@ -23839,7 +23839,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3305, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -23912,7 +23912,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3314, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -23985,7 +23985,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3323, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24058,7 +24058,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3332, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24131,7 +24131,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3341, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24204,7 +24204,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3350, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24277,7 +24277,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3359, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24350,7 +24350,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3368, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24423,7 +24423,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3377, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24496,7 +24496,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3386, !noundef !5
-  %.not.i = icmp ult i64 %9, 2
+  %.not.i = icmp samesign ult i64 %9, 2
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %2
@@ -24564,7 +24564,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24621,7 +24621,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24678,7 +24678,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24735,7 +24735,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24792,7 +24792,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24849,7 +24849,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24906,7 +24906,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -24963,7 +24963,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -25020,7 +25020,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -25077,7 +25077,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !2766, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
@@ -25145,7 +25145,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3455, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25248,7 +25248,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3476, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25351,7 +25351,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3497, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25454,7 +25454,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3518, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25557,7 +25557,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3539, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25660,7 +25660,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3560, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25763,7 +25763,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3581, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25866,7 +25866,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3602, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -25969,7 +25969,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3623, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -26072,7 +26072,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2766, !noalias !3644, !noundef !5
-  %.not.i.i = icmp ult i64 %9, 2
+  %.not.i.i = icmp samesign ult i64 %9, 2
   %10 = add nsw i64 %9, -1
   %11 = select i1 %.not.i.i, i64 0, i64 %10
   switch i64 %11, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..task..core..TaskIdGuard$GT$17h631f271672517c1bE.exit" [
@@ -26161,7 +26161,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h15f78df70867df98E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1432) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7d48a8e069d813b2E.llvm.7533556185910216491.exit" [
@@ -26231,7 +26231,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h20c1f83a9dd5e5efE.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr210drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb6934927903ef666E.llvm.7533556185910216491.exit" [
@@ -26301,7 +26301,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h2552efd76d5b7903E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1432) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7d48a8e069d813b2E.llvm.7533556185910216491.exit" [
@@ -26371,7 +26371,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h2bab892881ad13c4E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr273drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ab4e6aac35db24cE.llvm.7533556185910216491.exit" [
@@ -26441,7 +26441,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h5d90c45c378cf386E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1592) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr207drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5eba8b35b66db3e7E.llvm.7533556185910216491.exit" [
@@ -26511,7 +26511,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h942f75e0dd10d47fE.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr273drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ab4e6aac35db24cE.llvm.7533556185910216491.exit" [
@@ -26581,7 +26581,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h98d8296ab6a63681E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr333drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6312e613442ef4ecE.llvm.7533556185910216491.exit" [
@@ -26651,7 +26651,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17h9eb29bc9a5c4ad25E.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr210drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb6934927903ef666E.llvm.7533556185910216491.exit" [
@@ -26721,7 +26721,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17hb1290a15313b54beE.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1592) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr207drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5eba8b35b66db3e7E.llvm.7533556185910216491.exit" [
@@ -26791,7 +26791,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_$u7b$$u7b$closure$u7d$$u7d$17hee769626d6547c0cE.llvm.7533556185910216491"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1352) %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !2766, !noundef !5
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not.i, i64 0, i64 %4
   switch i64 %5, label %"_ZN4core3ptr333drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6312e613442ef4ecE.llvm.7533556185910216491.exit" [

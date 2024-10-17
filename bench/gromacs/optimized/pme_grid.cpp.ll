@@ -613,7 +613,7 @@ define noundef i32 @_Z23copy_pmegrid_to_fftgridPK9gmx_pme_tP14PmeAndFftGrids(ptr
   %38 = getelementptr inbounds float, ptr %9, i64 %37
   store float %36, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = icmp ult i64 %indvars.iv.next, %28
+  %39 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %39, label %30, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %30
@@ -698,7 +698,7 @@ define noundef i32 @_Z23copy_fftgrid_to_pmegridPK9gmx_pme_tP14PmeAndFftGridsii(p
   %gep38 = getelementptr float, ptr %invariant.gep37, i64 %indvars.iv
   store float %45, ptr %gep38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = icmp ult i64 %indvars.iv.next, %34
+  %46 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph

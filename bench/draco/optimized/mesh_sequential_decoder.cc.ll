@@ -484,7 +484,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 
 30:                                               ; preds = %21
   %31 = sub nsw i32 2147483647, %.12952
-  %32 = icmp ugt i32 %24, %31
+  %32 = icmp samesign ugt i32 %24, %31
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %30, %28
@@ -1282,7 +1282,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #10 {
-  %4 = icmp ugt i32 %0, 5
+  %4 = icmp samesign ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
 5:                                                ; preds = %3

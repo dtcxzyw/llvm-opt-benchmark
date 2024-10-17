@@ -190,7 +190,7 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 2
   %108 = select i1 %107, i32 32, i32 128
-  %109 = icmp ugt i32 %108, %34
+  %109 = icmp samesign ugt i32 %108, %34
   br i1 %109, label %110, label %inet_spg_node_number.exit89
 
 110:                                              ; preds = %102
@@ -886,7 +886,7 @@ select.unfold268:                                 ; preds = %128, %124
   %145 = load i8, ptr %139, align 1
   %146 = icmp eq i8 %145, 2
   %147 = select i1 %146, i32 32, i32 128
-  %148 = icmp ugt i32 %147, %12
+  %148 = icmp samesign ugt i32 %147, %12
   br i1 %148, label %149, label %.thread280
 
 149:                                              ; preds = %144

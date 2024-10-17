@@ -1867,7 +1867,7 @@ while.body:                                       ; preds = %if.end, %if.end29
   store i32 %conv5.i.i, ptr %value_length.i, align 4
   %7 = or i32 %conv3.i.i, %conv.i.i
   %or6.i.i = or i32 %7, %conv5.i.i
-  %cmp.i.i = icmp ult i32 %or6.i.i, 128
+  %cmp.i.i = icmp samesign ult i32 %or6.i.i, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body
@@ -3156,7 +3156,7 @@ if.end.i:                                         ; preds = %while.body
   %conv3.i = zext i8 %5 to i32
   store i32 %conv3.i, ptr %non_shared, align 4
   %or.i = or i32 %conv3.i, %conv.i15
-  %cmp4.i = icmp ult i32 %or.i, 128
+  %cmp4.i = icmp samesign ult i32 %or.i, 128
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -3360,7 +3360,7 @@ while.body:                                       ; preds = %if.end, %if.end29
   store i32 %conv5.i.i, ptr %value_length.i, align 4
   %7 = or i32 %conv3.i.i, %conv.i.i
   %or6.i.i = or i32 %7, %conv5.i.i
-  %cmp.i.i = icmp ult i32 %or6.i.i, 128
+  %cmp.i.i = icmp samesign ult i32 %or6.i.i, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body
@@ -4850,7 +4850,7 @@ if.end.i:                                         ; preds = %cond.true
   %conv3.i = zext i8 %4 to i32
   store i32 %conv3.i, ptr %non_shared, align 4
   %or.i = or i32 %conv3.i, %conv.i4
-  %cmp4.i = icmp ult i32 %or.i, 128
+  %cmp4.i = icmp samesign ult i32 %or.i, 128
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -4903,7 +4903,7 @@ cond.false:                                       ; preds = %entry
   store i32 %conv5.i.i, ptr %value_length.i, align 4
   %9 = or i32 %conv3.i.i, %conv.i.i6
   %or6.i.i = or i32 %9, %conv5.i.i
-  %cmp.i.i7 = icmp ult i32 %or6.i.i, 128
+  %cmp.i.i7 = icmp samesign ult i32 %or6.i.i, 128
   br i1 %cmp.i.i7, label %if.then.i.i8, label %if.else.i.i
 
 if.then.i.i8:                                     ; preds = %cond.false
@@ -9158,7 +9158,7 @@ if.end:                                           ; preds = %entry
   store i32 %conv5.i, ptr %value_length, align 4
   %8 = or i32 %conv3.i, %conv.i10
   %or6.i = or i32 %8, %conv5.i
-  %cmp.i = icmp ult i32 %or6.i, 128
+  %cmp.i = icmp samesign ult i32 %or6.i, 128
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -9166,7 +9166,7 @@ if.then.i:                                        ; preds = %if.end
   br label %lor.lhs.false
 
 if.else.i:                                        ; preds = %if.end
-  %cmp.i.i = icmp ult i64 %idx.ext, %idx.ext4
+  %cmp.i.i = icmp samesign ult i64 %idx.ext, %idx.ext4
   %cmp1.i.i = icmp sgt i8 %5, -1
   %or.cond = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %or.cond, label %if.end.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
@@ -10302,7 +10302,7 @@ if.end.i.i:                                       ; preds = %if.end
   %conv3.i.i = zext i8 %6 to i32
   store i32 %conv3.i.i, ptr %non_shared, align 4
   %or.i.i = or i32 %conv3.i.i, %conv.i.i
-  %cmp4.i.i = icmp ult i32 %or.i.i, 128
+  %cmp4.i.i = icmp samesign ult i32 %or.i.i, 128
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
@@ -10310,7 +10310,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %lor.lhs.false
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %cmp.i.i.i = icmp ult i64 %idx.ext, %idx.ext4
+  %cmp.i.i.i = icmp samesign ult i64 %idx.ext, %idx.ext4
   %cmp1.i.i.i = icmp sgt i8 %5, -1
   %or.cond = and i1 %cmp.i.i.i, %cmp1.i.i.i
   br i1 %or.cond, label %if.end8.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
@@ -10581,7 +10581,7 @@ if.end:                                           ; preds = %entry
   store i32 %conv5.i, ptr %value_length, align 4
   %8 = or i32 %conv3.i, %conv.i10
   %or6.i = or i32 %8, %conv5.i
-  %cmp.i = icmp ult i32 %or6.i, 128
+  %cmp.i = icmp samesign ult i32 %or6.i, 128
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -10589,7 +10589,7 @@ if.then.i:                                        ; preds = %if.end
   br label %lor.lhs.false
 
 if.else.i:                                        ; preds = %if.end
-  %cmp.i.i = icmp ult i64 %idx.ext, %idx.ext4
+  %cmp.i.i = icmp samesign ult i64 %idx.ext, %idx.ext4
   %cmp1.i.i = icmp sgt i8 %5, -1
   %or.cond = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %or.cond, label %if.end.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
@@ -12149,7 +12149,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -12290,7 +12290,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

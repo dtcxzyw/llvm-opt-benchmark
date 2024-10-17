@@ -1400,7 +1400,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .critedge:                                        ; preds = %.lr.ph, %33, %30
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %49 = icmp ult i64 %indvars.iv.next95, %25
+  %49 = icmp samesign ult i64 %indvars.iv.next95, %25
   br i1 %49, label %30, label %.preheader79, !llvm.loop !21
 
 50:                                               ; preds = %.lr.ph86, %50
@@ -1413,7 +1413,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %54, align 4
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %57 = icmp ult i64 %indvars.iv.next98, %29
+  %57 = icmp samesign ult i64 %indvars.iv.next98, %29
   br i1 %57, label %50, label %.critedge2, !llvm.loop !22
 
 .critedge2:                                       ; preds = %50, %.preheader79
@@ -1442,7 +1442,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %69 = icmp ult i64 %indvars.iv.next101, %61
+  %69 = icmp samesign ult i64 %indvars.iv.next101, %61
   br i1 %69, label %62, label %.critedge4, !llvm.loop !23
 
 .critedge4:                                       ; preds = %62, %.preheader, %.critedge2
@@ -4729,7 +4729,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %88, %84
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %95, i64 %99
   store i32 %.02732.i.i, ptr %100, align 4
-  %101 = icmp ugt i32 %.02732.i.i, 3
+  %101 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %101, label %.lr.ph.i.i29, label %Vec_QueMoveUp.exit.thread13.i, !llvm.loop !49
 
 Vec_QueMoveUp.exit.thread13.i:                    ; preds = %94
@@ -4969,7 +4969,7 @@ Vec_QuePrio.exit30.i.i42:                         ; preds = %214, %210
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds i32, ptr %221, i64 %225
   store i32 %.02732.i.i37, ptr %226, align 4
-  %227 = icmp ugt i32 %.02732.i.i37, 3
+  %227 = icmp samesign ugt i32 %.02732.i.i37, 3
   br i1 %227, label %.lr.ph.i.i36, label %Vec_QuePush.exit, !llvm.loop !49
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i42, %218, %Vec_QuePrio.exit.i.i34
@@ -9402,7 +9402,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 47:                                               ; preds = %35, %35, %35, %42, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = icmp ult i64 %indvars.iv.next, %31
+  %48 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %48, label %35, label %.preheader, !llvm.loop !79
 
 49:                                               ; preds = %.lr.ph54, %89

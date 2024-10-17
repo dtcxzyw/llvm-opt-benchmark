@@ -268,7 +268,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %63
   br i1 %70, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread", label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %63, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.not.i31 = icmp ult i64 %68, 8
+  %.not.i31 = icmp samesign ult i64 %68, 8
   br i1 %.not.i31, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread46, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext19isHardenedV
   %.val.val = load ptr, ptr %11, align 8
   %12 = load i64, ptr %.val.val, align 8
   %13 = and i64 %12, 4294967295
-  %.not.i.i.i = icmp ult i64 %13, 2
+  %.not.i.i.i = icmp samesign ult i64 %13, 2
   br i1 %.not.i.i.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %9
@@ -353,7 +353,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i7.i:   ; preds = %19
   br i1 %spec.select.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
 
 "_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread": ; preds = %22, %16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit"
-  %.not.i.i.i10 = icmp ult i64 %13, 10
+  %.not.i.i.i10 = icmp samesign ult i64 %13, 10
   br i1 %.not.i.i.i10, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i11:  ; preds = %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"

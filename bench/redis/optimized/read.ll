@@ -1666,7 +1666,7 @@ if.else25.i.i:                                    ; preds = %if.end15.i.i, %if.e
 if.then32.i.i:                                    ; preds = %if.else25.i.i
   %127 = load i32, ptr %106, align 8
   %cmp33.i.i = icmp eq i32 %127, 14
-  %cmp35.i.i = icmp ult i64 %storemerge.sink.i99102.i.i, 4
+  %cmp35.i.i = icmp samesign ult i64 %storemerge.sink.i99102.i.i, 4
   %or.cond.i66.i = and i1 %cmp35.i.i, %cmp33.i.i
   br i1 %or.cond.i66.i, label %if.then42.i.i, label %lor.lhs.false.i.i
 

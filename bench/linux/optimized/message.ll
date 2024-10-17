@@ -1872,7 +1872,7 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr nocapture nound
   %36 = add nuw nsw i64 %14, 1
   %37 = load i8, ptr %6, align 4
   %38 = zext i8 %37 to i64
-  %39 = icmp ult i64 %36, %38
+  %39 = icmp samesign ult i64 %36, %38
   br i1 %39, label %.split.split.us, label %.loopexit, !llvm.loop !18
 
 .split.split:                                     ; preds = %.split, %53
@@ -1902,7 +1902,7 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr nocapture nound
   %54 = phi i8 [ %.pre, %51 ], [ %40, %.split.split ]
   %55 = add nuw nsw i64 %41, 1
   %56 = zext i8 %54 to i64
-  %57 = icmp ult i64 %55, %56
+  %57 = icmp samesign ult i64 %55, %56
   br i1 %57, label %.split.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %53, %35, %9, %3
@@ -1941,7 +1941,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = zext i8 %22 to i64
-  %24 = icmp ult i64 %19, %23
+  %24 = icmp samesign ult i64 %19, %23
   br i1 %24, label %.preheader5, label %.loopexit6, !llvm.loop !19
 
 .loopexit4:                                       ; preds = %60
@@ -1988,7 +1988,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %53 = add nuw nsw i64 %50, 1
   %54 = load i8, ptr %44, align 4
   %55 = zext i8 %54 to i64
-  %56 = icmp ult i64 %53, %55
+  %56 = icmp samesign ult i64 %53, %55
   br i1 %56, label %49, label %.loopexit2.loopexit, !llvm.loop !20
 
 .loopexit2.loopexit:                              ; preds = %49
@@ -2012,7 +2012,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %63 = getelementptr inbounds i8, ptr %61, i64 4
   %64 = load i8, ptr %63, align 4
   %65 = zext i8 %64 to i64
-  %66 = icmp ult i64 %62, %65
+  %66 = icmp samesign ult i64 %62, %65
   br i1 %66, label %.preheader3, label %.loopexit4, !llvm.loop !21
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
@@ -2032,7 +2032,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i8, ptr %78, align 4
   %80 = zext i8 %79 to i64
-  %81 = icmp ult i64 %76, %80
+  %81 = icmp samesign ult i64 %76, %80
   br i1 %81, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %6, %.loopexit6, %.loopexit4
@@ -2321,7 +2321,7 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr nocapture nounde
   %33 = add nuw nsw i64 %13, 1
   %34 = load i8, ptr %6, align 4
   %35 = zext i8 %34 to i64
-  %36 = icmp ult i64 %33, %35
+  %36 = icmp samesign ult i64 %33, %35
   br i1 %36, label %.split.us, label %.loopexit, !llvm.loop !25
 
 .split:                                           ; preds = %9, %55
@@ -2358,7 +2358,7 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr nocapture nounde
   %57 = add nuw nsw i64 %37, 1
   %58 = load i8, ptr %6, align 4
   %59 = zext i8 %58 to i64
-  %60 = icmp ult i64 %57, %59
+  %60 = icmp samesign ult i64 %57, %59
   br i1 %60, label %.split, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %55, %31, %3
@@ -2438,7 +2438,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %49 = phi i8 [ %.pre, %46 ], [ %33, %.split ]
   %50 = add nuw nsw i64 %34, 1
   %51 = zext i8 %49 to i64
-  %52 = icmp ult i64 %50, %51
+  %52 = icmp samesign ult i64 %50, %51
   br i1 %52, label %.split, label %.loopexit19, !llvm.loop !18
 
 .loopexit19:                                      ; preds = %48, %28, %22
@@ -2475,7 +2475,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   %73 = load i8, ptr %72, align 4
   %74 = zext i8 %73 to i64
-  %75 = icmp ult i64 %70, %74
+  %75 = icmp samesign ult i64 %70, %74
   br i1 %75, label %.preheader, label %.loopexit18, !llvm.loop !26
 
 .loopexit18:                                      ; preds = %.preheader, %57
@@ -2560,7 +2560,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %122 = add nuw nsw i64 %119, 1
   %123 = load i8, ptr %113, align 4
   %124 = zext i8 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %118, label %.loopexit17.loopexit, !llvm.loop !20
 
 .loopexit17.loopexit:                             ; preds = %118
@@ -2635,7 +2635,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %162 = add nuw nsw i64 %139, 1
   %163 = load i8, ptr %131, align 4
   %164 = zext i8 %163 to i64
-  %165 = icmp ult i64 %162, %164
+  %165 = icmp samesign ult i64 %162, %164
   br i1 %165, label %.split20, label %.loopexit16, !llvm.loop !18
 
 .loopexit16:                                      ; preds = %161, %134, %129
@@ -2694,7 +2694,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %202 = add nuw nsw i64 %175, 1
   %203 = load i8, ptr %167, align 4
   %204 = zext i8 %203 to i64
-  %205 = icmp ult i64 %202, %204
+  %205 = icmp samesign ult i64 %202, %204
   br i1 %205, label %174, label %.loopexit15, !llvm.loop !27
 
 .loopexit15:                                      ; preds = %201, %166, %.loopexit16
@@ -2745,7 +2745,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %235 = add nuw nsw i64 %215, 1
   %236 = load i8, ptr %207, align 4
   %237 = zext i8 %236 to i64
-  %238 = icmp ult i64 %235, %237
+  %238 = icmp samesign ult i64 %235, %237
   br i1 %238, label %214, label %.loopexit14, !llvm.loop !25
 
 .loopexit14:                                      ; preds = %233, %.loopexit15
@@ -2785,7 +2785,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %263 = add nuw nsw i64 %259, 1
   %264 = load i8, ptr %253, align 4
   %265 = zext i8 %264 to i64
-  %266 = icmp ult i64 %263, %265
+  %266 = icmp samesign ult i64 %263, %265
   br i1 %266, label %258, label %.loopexit.loopexit, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %258
@@ -2954,7 +2954,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
   %71 = add nuw nsw i64 %68, 1
   %72 = load i8, ptr %62, align 4
   %73 = zext i8 %72 to i64
-  %74 = icmp ult i64 %71, %73
+  %74 = icmp samesign ult i64 %71, %73
   br i1 %74, label %67, label %.loopexit7.loopexit, !llvm.loop !20
 
 .loopexit7.loopexit:                              ; preds = %67
@@ -3017,7 +3017,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
   %105 = add nuw nsw i64 %85, 1
   %106 = load i8, ptr %79, align 4
   %107 = zext i8 %106 to i64
-  %108 = icmp ult i64 %105, %107
+  %108 = icmp samesign ult i64 %105, %107
   br i1 %108, label %84, label %.loopexit6, !llvm.loop !25
 
 .loopexit6:                                       ; preds = %103, %78
@@ -3058,7 +3058,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
   %134 = add nuw nsw i64 %130, 1
   %135 = load i8, ptr %124, align 4
   %136 = zext i8 %135 to i64
-  %137 = icmp ult i64 %134, %136
+  %137 = icmp samesign ult i64 %134, %136
   br i1 %137, label %129, label %.loopexit.loopexit, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %129
@@ -3075,7 +3075,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
   %141 = add nuw nsw i64 %44, 1
   %142 = load i8, ptr %36, align 4
   %143 = zext i8 %142 to i64
-  %144 = icmp ult i64 %141, %143
+  %144 = icmp samesign ult i64 %141, %143
   br i1 %144, label %43, label %.loopexit8, !llvm.loop !29
 
 .loopexit8:                                       ; preds = %140, %34
@@ -3639,7 +3639,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %243 = add nuw nsw i64 %223, 1
   %244 = load i8, ptr %217, align 4
   %245 = zext i8 %244 to i64
-  %246 = icmp ult i64 %243, %245
+  %246 = icmp samesign ult i64 %243, %245
   br i1 %246, label %222, label %.loopexit40, !llvm.loop !25
 
 .loopexit40:                                      ; preds = %241, %213
@@ -3797,7 +3797,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %338 = add nuw nsw i64 %315, 1
   %339 = load i8, ptr %310, align 4
   %340 = zext i8 %339 to i64
-  %341 = icmp ult i64 %338, %340
+  %341 = icmp samesign ult i64 %338, %340
   br i1 %341, label %314, label %.loopexit38.split.loopexit, !llvm.loop !18
 
 .loopexit38.split.loopexit:                       ; preds = %337
@@ -3940,7 +3940,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %422 = add nuw nsw i64 %418, 1
   %423 = load i8, ptr %412, align 4
   %424 = zext i8 %423 to i64
-  %425 = icmp ult i64 %422, %424
+  %425 = icmp samesign ult i64 %422, %424
   br i1 %425, label %417, label %.loopexit36.loopexit, !llvm.loop !28
 
 .loopexit36.loopexit:                             ; preds = %417

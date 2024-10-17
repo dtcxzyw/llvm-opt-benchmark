@@ -265,7 +265,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
   %90 = getelementptr float, ptr %0, i64 %89
   %91 = load float, ptr %90, align 4
   %92 = fmul float %87, %91
-  %93 = icmp ugt i32 %spec.store.select.us.us.us.i, 100
+  %93 = icmp samesign ugt i32 %spec.store.select.us.us.us.i, 100
   br i1 %93, label %word_distance.exit.us.us.us.i, label %94
 
 94:                                               ; preds = %83
@@ -1441,7 +1441,7 @@ fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
   %320 = getelementptr inbounds i8, ptr %.187.i, i64 16
   %321 = load i16, ptr %320, align 8
   %322 = and i16 %321, 16383
-  %.not55.i = icmp ugt i16 %322, %240
+  %.not55.i = icmp samesign ugt i16 %322, %240
   br i1 %.not55.i, label %.loopexit.i109.thread, label %324
 
 .loopexit.i109.thread:                            ; preds = %318, %resetQueryRepresentation.exit62.i, %.loopexit.i109
@@ -2264,12 +2264,12 @@ define internal range(i32 -1, 2) i32 @compareDocR(ptr nocapture noundef readonly
   br label %31
 
 25:                                               ; preds = %12
-  %26 = icmp ugt i32 %13, %14
+  %26 = icmp samesign ugt i32 %13, %14
   %27 = select i1 %26, i32 1, i32 -1
   br label %31
 
 28:                                               ; preds = %2
-  %29 = icmp ugt i32 %6, %10
+  %29 = icmp samesign ugt i32 %6, %10
   %30 = select i1 %29, i32 1, i32 -1
   br label %31
 

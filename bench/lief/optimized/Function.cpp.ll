@@ -504,7 +504,7 @@ define void @_ZNK4LIEF8Function5flagsEv(ptr dead_on_unwind noalias nocapture wri
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %8 = icmp ugt i64 %.06.i.i.i.i, 2305843009213693950
+  %8 = icmp samesign ugt i64 %.06.i.i.i.i, 2305843009213693950
   br i1 %8, label %.noexc.i, label %_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i

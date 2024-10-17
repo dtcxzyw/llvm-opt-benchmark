@@ -4390,7 +4390,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %75 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %indvars.iv109
   store i32 %74, ptr %75, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %76 = icmp ult i64 %indvars.iv.next110, %55
+  %76 = icmp samesign ult i64 %indvars.iv.next110, %55
   br i1 %76, label %.split.us, label %.split98.us, !llvm.loop !29
 
 .split:                                           ; preds = %52, %.split
@@ -4400,7 +4400,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %79 = mul nuw i32 %53, %78
   store i32 %79, ptr %77, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %80 = icmp ult i64 %indvars.iv.next107, %55
+  %80 = icmp samesign ult i64 %indvars.iv.next107, %55
   br i1 %80, label %.split, label %.split98.us, !llvm.loop !29
 
 .split98.us:                                      ; preds = %.split, %.split.us
@@ -4429,7 +4429,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %90 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %89, ptr %90, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = icmp ult i64 %indvars.iv.next, %86
+  %91 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %91, label %87, label %92, !llvm.loop !30
 
 92:                                               ; preds = %87
@@ -4467,7 +4467,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 105:                                              ; preds = %102, %103
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %106 = icmp ult i64 %indvars.iv.next113, %94
+  %106 = icmp samesign ult i64 %indvars.iv.next113, %94
   br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph

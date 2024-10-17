@@ -2473,7 +2473,7 @@ if.end6:                                          ; preds = %lor.lhs.false
 if.end10:                                         ; preds = %if.end6, %while.body.backedge
   %tries.07 = phi i32 [ %inc, %while.body.backedge ], [ 0, %if.end6 ]
   %inc = add nuw nsw i32 %tries.07, 1
-  %cmp11 = icmp ult i32 %tries.07, 3
+  %cmp11 = icmp samesign ult i32 %tries.07, 3
   br i1 %cmp11, label %for.body.i, label %if.end13
 
 for.body.i:                                       ; preds = %if.end10, %for.body.i
@@ -2644,7 +2644,7 @@ for.end:                                          ; preds = %_ZNKSt14__basic_fut
 
 if.end16:                                         ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread, %for.end
   %inc = add nuw nsw i32 %tries.054, 1
-  %cmp17 = icmp ult i32 %tries.054, 3
+  %cmp17 = icmp samesign ult i32 %tries.054, 3
   br i1 %cmp17, label %for.body.i, label %if.end19
 
 for.body.i:                                       ; preds = %if.end16, %for.body.i

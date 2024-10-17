@@ -356,7 +356,7 @@ _add_job_state_by_job_id.exit:                    ; preds = %15, %22, %31, %_job
   store i32 %.022.i, ptr %5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not10 = icmp eq i32 %.022.i, 0
-  %147 = icmp ult i64 %indvars.iv.next, %11
+  %147 = icmp samesign ult i64 %indvars.iv.next, %11
   %148 = select i1 %.not10, i1 %147, i1 false
   br i1 %148, label %15, label %.loopexit, !llvm.loop !9
 

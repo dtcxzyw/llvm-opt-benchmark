@@ -1473,7 +1473,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp, label %land.rhs, label %if.end10, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs
-  %cmp7 = icmp ugt i32 %len.037, 4095
+  %cmp7 = icmp samesign ugt i32 %len.037, 4095
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %while.body, %if.then2, %while.end
@@ -3268,7 +3268,7 @@ if.then63.i:                                      ; preds = %if.else58.i
   br i1 %or.cond34.i, label %is_ntfs_dot_generic.exit, label %for.inc.i
 
 if.else76.i:                                      ; preds = %if.else58.i
-  %cmp77.i = icmp ult i64 %i.240.i, 6
+  %cmp77.i = icmp samesign ult i64 %i.240.i, 6
   %tobool83.not.i = icmp sgt i8 %5, -1
   %or.cond35.i = and i1 %cmp77.i, %tobool83.not.i
   br i1 %or.cond35.i, label %if.else85.i, label %is_ntfs_dot_generic.exit

@@ -19046,7 +19046,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4
   br label %43
 
 10:                                               ; preds = %4
-  %11 = icmp ult i64 %3, 8
+  %11 = icmp samesign ult i64 %3, 8
   br i1 %11, label %12, label %34
 
 12:                                               ; preds = %10

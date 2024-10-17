@@ -5829,7 +5829,7 @@ _ZN4llvm4sortIRSt6vectorINS_2gi10LLTCodeGenESaIS3_EEEEvOT_.exit: ; preds = %_ZNS
   br i1 %.not.i.i.i.i.i92, label %select.unfold.i.i.i.i.i, label %1784
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i91
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i91, !llvm.loop !343
 
 1784:                                             ; preds = %.lr.ph.i.i.i.i.i91
@@ -6086,7 +6086,7 @@ _ZNSt6vectorIPN4llvm2gi7MatcherESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZNSt
   br i1 %.not.i.i.i.i.i.i108, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i107
-  %.not10.i.i.i.i.i.i109 = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i109 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i109, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i107, !llvm.loop !349
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i, %1862
@@ -12824,7 +12824,7 @@ _ZNSt10unique_ptrIN4llvm2gi31MemoryVsLLTSizePredicateMatcherESt14default_deleteI
 
 711:                                              ; preds = %709
   %712 = call fastcc i64 @_ZN12_GLOBAL__N_117GlobalISelEmitter27getMemSizeBitsFromPredicateERKN4llvm15TreePredicateFnE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0536.0782), !noalias !522
-  %.not26.i = icmp ult i64 %712, 4294967296
+  %.not26.i = icmp samesign ult i64 %712, 4294967296
   br i1 %.not26.i, label %_ZN4llvm5ErrorD2Ev.exit142.i, label %713
 
 _ZN4llvm5ErrorD2Ev.exit142.i:                     ; preds = %711
@@ -13029,7 +13029,7 @@ _ZNSt10unique_ptrIN4llvm2gi31MemoryVsLLTSizePredicateMatcherESt14default_deleteI
 
 791:                                              ; preds = %789
   %792 = call fastcc i64 @_ZN12_GLOBAL__N_117GlobalISelEmitter27getMemSizeBitsFromPredicateERKN4llvm15TreePredicateFnE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0536.0782), !noalias !522
-  %.not25.i = icmp ult i64 %792, 4294967296
+  %.not25.i = icmp samesign ult i64 %792, 4294967296
   br i1 %.not25.i, label %_ZN4llvm5ErrorD2Ev.exit153.i, label %793
 
 _ZN4llvm5ErrorD2Ev.exit153.i:                     ; preds = %791
@@ -13403,7 +13403,7 @@ _ZNKSt14default_deleteIN4llvm2gi22OneUsePredicateMatcherEEclEPS2_.exit.i.i: ; pr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %922 = load i32, ptr %569, align 8
   %923 = zext i32 %922 to i64
-  %924 = icmp ult i64 %indvars.iv.next, %923
+  %924 = icmp samesign ult i64 %indvars.iv.next, %923
   br i1 %924, label %910, label %.loopexit755, !llvm.loop !589
 
 .loopexit755:                                     ; preds = %910, %898, %896
@@ -14136,7 +14136,7 @@ _ZN12_GLOBAL__N_115getSrcChildNameERKN4llvm15TreePatternNodeERPNS0_6RecordE.exit
   %1252 = sub i64 %1250, %1251
   %1253 = lshr exact i64 %1252, 3
   %1254 = and i64 %1253, 4294967295
-  %1255 = icmp ult i64 %indvars.iv.next824, %1254
+  %1255 = icmp samesign ult i64 %indvars.iv.next824, %1254
   br i1 %1255, label %.lr.ph788, label %._crit_edge789, !llvm.loop !647
 
 ._crit_edge789:                                   ; preds = %.lr.ph788, %1224
@@ -28029,7 +28029,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %517 = sub i64 %515, %516
   %518 = lshr exact i64 %517, 3
   %519 = and i64 %518, 4294967295
-  %520 = icmp ult i64 %indvars.iv.next, %519
+  %520 = icmp samesign ult i64 %indvars.iv.next, %519
   br i1 %520, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit232, !llvm.loop !1599
 
 _ZN4llvm5ErrorD2Ev.exit232:                       ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread352, %.preheader, %481

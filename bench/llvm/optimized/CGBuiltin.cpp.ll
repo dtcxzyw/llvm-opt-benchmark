@@ -27158,7 +27158,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit2380: ; preds = %6402, %6423
   %.not.i2384 = icmp uge i32 %.sroa.speculated.i, %.sroa.0375.0.extract.trunc
   %or.cond.i.not3837 = select i1 %6440, i1 %.not.i2384, i1 false
   %.sroa.34.0.extract.shift8.i = xor i64 %6435, %6430
-  %6441 = icmp ugt i64 %.sroa.34.0.extract.shift8.i, 4294967295
+  %6441 = icmp samesign ugt i64 %.sroa.34.0.extract.shift8.i, 4294967295
   %or.cond3824 = select i1 %or.cond.i.not3837, i1 %6441, i1 false
   br i1 %or.cond3824, label %6442, label %_ZL26isSpecialMixedSignMultiplyjN12_GLOBAL__N_118WidthAndSignednessES0_S0_.exit.thread
 
@@ -27171,11 +27171,11 @@ _ZL26isSpecialMixedSignMultiplyjN12_GLOBAL__N_118WidthAndSignednessES0_S0_.exit.
   %or.cond.i2386 = select i1 %6440, i1 %6443, i1 false
   %6444 = icmp eq i32 %.sroa.0413.0.extract.trunc, %.sroa.0375.0.extract.trunc
   %or.cond9.i = select i1 %or.cond.i2386, i1 %6444, i1 false
-  %.not.i2387 = icmp ult i64 %6430, 4294967296
+  %.not.i2387 = icmp samesign ult i64 %6430, 4294967296
   %or.cond10.i = select i1 %or.cond9.i, i1 %.not.i2387, i1 false
-  %.not8.i = icmp ult i64 %6435, 4294967296
+  %.not8.i = icmp samesign ult i64 %6435, 4294967296
   %or.cond11.i = select i1 %or.cond10.i, i1 %.not8.i, i1 false
-  %6445 = icmp ugt i64 %6439, 4294967295
+  %6445 = icmp samesign ugt i64 %6439, 4294967295
   %spec.select.i2388 = select i1 %or.cond11.i, i1 %6445, i1 false
   br i1 %spec.select.i2388, label %6446, label %6447
 
@@ -27211,7 +27211,7 @@ _ZL26isSpecialMixedSignMultiplyjN12_GLOBAL__N_118WidthAndSignednessES0_S0_.exit.
   %6456 = getelementptr inbounds nuw i8, ptr %6455, i64 296
   %6457 = load ptr, ptr %6456, align 8
   %6458 = call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(240) %6457, i64 %.sroa.0.0.copyload.i2381) #24
-  %.not3958 = icmp ult i64 %6450, 4294967296
+  %.not3958 = icmp samesign ult i64 %6450, 4294967296
   switch i32 %.0, label %6459 [
     i32 113, label %6460
     i32 1192, label %6462
@@ -35403,7 +35403,7 @@ define internal fastcc void @_ZL28EmitCheckedMixedSignMultiplyRN5clang7CodeGen15
   %.sroa.0150.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.0146.0.extract.trunc = trunc i64 %5 to i32
   %.sroa.082.0.extract.trunc = trunc i64 %8 to i32
-  %.not159 = icmp ult i64 %3, 4294967296
+  %.not159 = icmp samesign ult i64 %3, 4294967296
   %42 = select i1 %.not159, ptr %4, ptr %2
   %43 = select i1 %.not159, ptr %2, ptr %4
   %44 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %42, i1 noundef zeroext false) #24
@@ -35509,7 +35509,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   store i16 257, ptr %98, align 8
   %99 = call noundef ptr @_ZN4llvm13IRBuilderBase12CreateSelectEPNS_5ValueES2_S2_RKNS_5TwineEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %71, ptr noundef %73, ptr noundef %.0.i, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef null) #24
   %100 = call fastcc noundef ptr @_ZL21EmitOverflowIntrinsicRN5clang7CodeGen15CodeGenFunctionEjPN4llvm5ValueES5_RS5_(ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef 360, ptr noundef %99, ptr noundef %.086, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %.not = icmp ult i64 %8, 4294967296
+  %.not = icmp samesign ult i64 %8, 4294967296
   br i1 %.not, label %200, label %101
 
 101:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit
@@ -38226,7 +38226,7 @@ _ZN4llvm13IRBuilderBase17CreateZExtOrTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %1, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %96, label %55, label %._crit_edge, !llvm.loop !1033
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13IRBuilderBase17CreateZExtOrTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit, %3
@@ -46020,7 +46020,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit490
 
 1041:                                             ; preds = %1026
   %1042 = tail call fastcc i64 @_ZL24translateArmToMsvcIntrinj(i32 noundef %1)
-  %.not948 = icmp ult i64 %1042, 4294967296
+  %.not948 = icmp samesign ult i64 %1042, 4294967296
   br i1 %.not948, label %1045, label %1043
 
 1043:                                             ; preds = %1041
@@ -96329,7 +96329,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %1
   %22 = add i64 %21, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %22) #24
   %23 = add nuw nsw i32 %.010, 1
-  %24 = icmp ult i32 %23, %10
+  %24 = icmp samesign ult i32 %23, %10
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !1082
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %3
@@ -105932,7 +105932,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit145
 
 2392:                                             ; preds = %2331
   %2393 = tail call fastcc i64 @_ZL28translateAarch64ToMsvcIntrinj(i32 noundef %1)
-  %.not = icmp ult i64 %2393, 4294967296
+  %.not = icmp samesign ult i64 %2393, 4294967296
   br i1 %.not, label %.lr.ph.i.i.i.i, label %2394
 
 2394:                                             ; preds = %2392
@@ -115073,7 +115073,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -115181,7 +115181,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -119223,7 +119223,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit999
 
 .lr.ph2107:                                       ; preds = %.lr.ph2107.preheader, %1049
   %indvars.iv2218 = phi i64 [ 0, %.lr.ph2107.preheader ], [ %indvars.iv.next2219, %1049 ]
-  %.not891 = icmp ult i64 %indvars.iv2218, %1043
+  %.not891 = icmp samesign ult i64 %indvars.iv2218, %1043
   %1045 = trunc nuw i64 %indvars.iv2218 to i32
   br i1 %.not891, label %1049, label %1046
 
@@ -119260,8 +119260,8 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit999
 
 1060:                                             ; preds = %.lr.ph2112, %1060
   %indvars.iv2222 = phi i64 [ 0, %.lr.ph2112 ], [ %indvars.iv.next2223, %1060 ]
-  %.not890 = icmp uge i64 %indvars.iv2222, %1059
-  %1061 = icmp ult i64 %indvars.iv2222, %1058
+  %.not890 = icmp samesign uge i64 %indvars.iv2222, %1059
+  %1061 = icmp samesign ult i64 %indvars.iv2222, %1058
   %or.cond894 = and i1 %.not890, %1061
   %1062 = trunc nuw i64 %indvars.iv2222 to i32
   %1063 = select i1 %or.cond894, i32 %1057, i32 0
@@ -119686,7 +119686,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   %.17522068 = phi i32 [ %.07512073, %.preheader2005 ], [ %1278, %1276 ]
   %1277 = urem i32 %.17522068, %1270
   %1278 = udiv i32 %.17522068, %1270
-  %.not876 = icmp ult i64 %indvars.iv2182, %1275
+  %.not876 = icmp samesign ult i64 %indvars.iv2182, %1275
   %1279 = select i1 %.not876, i32 0, i32 %1265
   %spec.select = add i32 %1279, %.07532072
   %1280 = add i32 %spec.select, %1277
@@ -119794,7 +119794,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   %1337 = load ptr, ptr %1336, align 8
   %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 32
   %1339 = load i32, ptr %1338, align 8
-  %1340 = icmp ugt i32 %1334, 31
+  %1340 = icmp samesign ugt i32 %1334, 31
   br i1 %1340, label %1341, label %1344
 
 1341:                                             ; preds = %1324
@@ -119804,7 +119804,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   br label %.loopexit
 
 1344:                                             ; preds = %1324
-  %1345 = icmp ugt i32 %1334, 16
+  %1345 = icmp samesign ugt i32 %1334, 16
   br i1 %1345, label %1346, label %1352
 
 1346:                                             ; preds = %1344
@@ -120120,7 +120120,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   %1517 = getelementptr inbounds nuw i8, ptr %1516, i64 32
   %1518 = load i32, ptr %1517, align 8
   %1519 = shl i32 %1518, 3
-  %1520 = icmp ugt i32 %1513, 15
+  %1520 = icmp samesign ugt i32 %1513, 15
   br i1 %1520, label %1522, label %.preheader2009
 
 .preheader2009:                                   ; preds = %1503
@@ -120239,7 +120239,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
 
 1575:                                             ; preds = %.preheader2010, %1575
   %indvars.iv2135 = phi i64 [ 0, %.preheader2010 ], [ %indvars.iv.next2136, %1575 ]
-  %1576 = icmp ugt i64 %indvars.iv2135, %invariant.op
+  %1576 = icmp samesign ugt i64 %indvars.iv2135, %invariant.op
   %1577 = select i1 %1576, i32 %1569, i32 0
   %1578 = trunc nuw nsw i64 %indvars.iv2135 to i32
   %.0778.reass = add i32 %1578, %1574
@@ -120305,7 +120305,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   %1614 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   %1615 = load i32, ptr %1614, align 8
   %1616 = lshr i32 %1615, 8
-  %.not855 = icmp ult i32 %1610, %1616
+  %.not855 = icmp samesign ult i32 %1610, %1616
   br i1 %.not855, label %1619, label %1617
 
 1617:                                             ; preds = %1600
@@ -120367,7 +120367,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit101
   %1655 = getelementptr inbounds nuw i8, ptr %1654, i64 8
   %1656 = load i32, ptr %1655, align 8
   %1657 = lshr i32 %1656, 8
-  %.not853 = icmp ult i32 %1651, %1657
+  %.not853 = icmp samesign ult i32 %1651, %1657
   br i1 %.not853, label %1660, label %1658
 
 1658:                                             ; preds = %1641
@@ -132431,8 +132431,8 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %49, %38, %17
   %92 = load ptr, ptr %91, align 8
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
-  %95 = icmp ugt i32 %1, 1
-  %or.cond = and i1 %95, %94
+  %95 = icmp samesign ugt i32 %1, 1
+  %or.cond = select i1 %94, i1 %95, i1 false
   br i1 %or.cond, label %96, label %106
 
 96:                                               ; preds = %67
@@ -133121,7 +133121,7 @@ _ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcRS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_Mov
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %9, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %15, label %._crit_edge, !llvm.loop !1247
 
 ._crit_edge:                                      ; preds = %30, %3
@@ -140677,7 +140677,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit362: ; pred
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1001 = load i32, ptr %68, align 4
   %1002 = zext i32 %1001 to i64
-  %1003 = icmp ult i64 %indvars.iv.next, %1002
+  %1003 = icmp samesign ult i64 %indvars.iv.next, %1002
   br i1 %1003, label %966, label %._crit_edge.loopexit, !llvm.loop !1258
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit362
@@ -140796,7 +140796,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit368: ; pred
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
   %1058 = load i32, ptr %1010, align 4
   %1059 = zext i32 %1058 to i64
-  %1060 = icmp ult i64 %indvars.iv.next805, %1059
+  %1060 = icmp samesign ult i64 %indvars.iv.next805, %1059
   br i1 %1060, label %1023, label %._crit_edge782.loopexit, !llvm.loop !1259
 
 ._crit_edge782.loopexit:                          ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit368
@@ -140918,7 +140918,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit374: ; pred
   %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
   %1116 = load i32, ptr %1068, align 4
   %1117 = zext i32 %1116 to i64
-  %1118 = icmp ult i64 %indvars.iv.next808, %1117
+  %1118 = icmp samesign ult i64 %indvars.iv.next808, %1117
   br i1 %1118, label %1081, label %._crit_edge787, !llvm.loop !1260
 
 ._crit_edge787:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit374
@@ -271970,7 +271970,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZL37getIntrinsicForHexagon
   %.sroa.25.0.copyload19.i.i.i = load i32, ptr %.sroa.25.0..sroa_idx18.i.i.i, align 4
   %23 = add nsw i64 %19, -1
   %24 = lshr i64 %23, 1
-  %25 = icmp ult i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -272011,7 +272011,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZL37getIntrinsicForHexagon
 
 44:                                               ; preds = %39, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %41, %39 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %45 = icmp ugt i64 %.1.i.i.i.i, %21
+  %45 = icmp samesign ugt i64 %.1.i.i.i.i, %21
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZL37getIntrinsicForHexagonNonClangBuiltinjE4InfolS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL37getIntrinsicForHexagonNonClangBuiltinjE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %44
@@ -272090,7 +272090,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZL37getIntrinsicForHexagon
 
 70:                                               ; preds = %69, %._crit_edge.i26.i.i.i
   %.1.i28.i.i.i = phi i64 [ %54, %69 ], [ %.0.lcssa.i27.i.i.i, %._crit_edge.i26.i.i.i ]
-  %71 = icmp ugt i64 %.1.i28.i.i.i, %57
+  %71 = icmp samesign ugt i64 %.1.i28.i.i.i, %57
   br i1 %71, label %.lr.ph.i.i31.i.i.i, label %"_ZSt13__adjust_heapIPZL37getIntrinsicForHexagonNonClangBuiltinjE4InfolS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL37getIntrinsicForHexagonNonClangBuiltinjE3$_0EEEvT_T0_S8_T1_T2_.exit45.i.i.i"
 
 .lr.ph.i.i31.i.i.i:                               ; preds = %70

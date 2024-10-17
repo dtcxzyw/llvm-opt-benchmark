@@ -163,7 +163,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 26:                                               ; preds = %50
   %.028.add.i = add nuw nsw i64 %.028.idx34.i, 32
-  %27 = icmp ult i64 %.028.idx34.i, 544
+  %27 = icmp samesign ult i64 %.028.idx34.i, 544
   br i1 %27, label %.preheader, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader:                                       ; preds = %13, %26
@@ -226,7 +226,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
   %61 = getelementptr inbounds i8, ptr %.1.ptr37.i, i64 24
   store ptr null, ptr %61, align 8
   %.1.add.i = add nuw nsw i64 %.1.idx36.i, 32
-  %62 = icmp ult i64 %.1.idx36.i, 544
+  %62 = icmp samesign ult i64 %.1.idx36.i, 544
   br i1 %62, label %53, label %InitPrimTypes.exit.thread, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %26, %86

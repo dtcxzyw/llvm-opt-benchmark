@@ -215,7 +215,7 @@ for.body.i8:                                      ; preds = %for.body.i8, %for.b
   %sub.i14 = add i64 %mul.i13, -48
   %add2.i15 = add i64 %sub.i14, %conv.i12
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i9, 1
-  %cmp.i17 = icmp ult i64 %indvars.iv.next.i16, %4
+  %cmp.i17 = icmp samesign ult i64 %indvars.iv.next.i16, %4
   br i1 %cmp.i17, label %for.body.i8, label %_ZN14arrow_vendored17double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit18, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit18: ; preds = %for.body.i8
@@ -408,7 +408,7 @@ for.body.lr.ph.i8:                                ; preds = %while.body8
   br label %for.body.i11
 
 while.cond.preheader.i18:                         ; preds = %for.body.i11
-  %cmp15.not19.i = icmp ult i64 %add.i15, 268435456
+  %cmp15.not19.i = icmp samesign ult i64 %add.i15, 268435456
   br i1 %cmp15.not19.i, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %while.body.i20
 
 for.body.i11:                                     ; preds = %for.body.i11, %for.body.lr.ph.i8
@@ -447,7 +447,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i22: ; pred
   %inc25.i = add i16 %26, 1
   store i16 %inc25.i, ptr %this, align 4
   %shr26.i = lshr i64 %carry.120.i, 28
-  %cmp15.not.i = icmp ult i64 %carry.120.i, 268435456
+  %cmp15.not.i = icmp samesign ult i64 %carry.120.i, 268435456
   br i1 %cmp15.not.i, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %while.body.i20, !llvm.loop !15
 
 _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i22, %while.body8, %while.cond.preheader.i18
@@ -528,7 +528,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i47: ; pred
   %inc25.i51 = add i16 %33, 1
   store i16 %inc25.i51, ptr %this, align 4
   %shr26.i52 = lshr i64 %carry.120.i45, 28
-  %cmp15.not.i53 = icmp ult i64 %carry.120.i45, 268435456
+  %cmp15.not.i53 = icmp samesign ult i64 %carry.120.i45, 268435456
   br i1 %cmp15.not.i53, label %if.end14, label %while.body.i44, !llvm.loop !15
 
 if.end14:                                         ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i47, %while.cond.preheader.i40, %if.then12, %while.end10, %if.end4.i
@@ -1404,7 +1404,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = 
   %inc25 = add i16 %5, 1
   store i16 %inc25, ptr %this, align 4
   %shr26 = lshr i64 %carry.120, 28
-  %cmp15.not = icmp ult i64 %carry.120, 268435456
+  %cmp15.not = icmp samesign ult i64 %carry.120, 268435456
   br i1 %cmp15.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit, %while.cond.preheader, %entry, %if.end4, %if.then3
@@ -1834,7 +1834,7 @@ for.body.lr.ph.i33:                               ; preds = %if.end4.i
   br label %for.body.i35
 
 while.cond.preheader.i:                           ; preds = %for.body.i35
-  %cmp15.not19.i = icmp ult i64 %add.i, 268435456
+  %cmp15.not19.i = icmp samesign ult i64 %add.i, 268435456
   br i1 %cmp15.not19.i, label %if.end40, label %while.body.i
 
 for.body.i35:                                     ; preds = %for.body.i35, %for.body.lr.ph.i33
@@ -1908,7 +1908,7 @@ for.body.lr.ph.i44:                               ; preds = %if.end4.i42
   br label %for.body.i48
 
 while.cond.preheader.i59:                         ; preds = %for.body.i48
-  %cmp15.not19.i60 = icmp ult i64 %add.i54, 268435456
+  %cmp15.not19.i60 = icmp samesign ult i64 %add.i54, 268435456
   br i1 %cmp15.not19.i60, label %if.end48, label %while.body.i63
 
 for.body.i48:                                     ; preds = %for.body.i48, %for.body.lr.ph.i44
@@ -2514,7 +2514,7 @@ for.body39:                                       ; preds = %for.body34, %for.bo
   %j36.039 = phi i32 [ 0, %for.body34 ], [ %inc45, %for.body39 ]
   %current_bigit.038 = phi i32 [ %8, %for.body34 ], [ %shr, %for.body39 ]
   %and = and i32 %current_bigit.038, 15
-  %cmp.i = icmp ult i32 %and, 10
+  %cmp.i = icmp samesign ult i32 %and, 10
   %10 = trunc nuw nsw i32 %and to i8
   %conv.i22 = or disjoint i8 %10, 48
   %conv2.i23 = add nuw nsw i8 %10, 55
@@ -2552,7 +2552,7 @@ while.body:                                       ; preds = %while.body.preheade
   %indvars.iv62 = phi i64 [ %14, %while.body.preheader ], [ %indvars.iv.next63, %while.body ]
   %most_significant_bigit.049 = phi i32 [ %13, %while.body.preheader ], [ %shr60, %while.body ]
   %and55 = and i32 %most_significant_bigit.049, 15
-  %cmp.i27 = icmp ult i32 %and55, 10
+  %cmp.i27 = icmp samesign ult i32 %and55, 10
   %15 = trunc nuw nsw i32 %and55 to i8
   %conv.i28 = or disjoint i8 %15, 48
   %conv2.i29 = add nuw nsw i8 %15, 55

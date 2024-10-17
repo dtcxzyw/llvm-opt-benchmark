@@ -486,7 +486,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
 
 114:                                              ; preds = %111, %107, %100
   %115 = add nuw nsw i64 %101, 1
-  %116 = icmp ult i64 %115, %99
+  %116 = icmp samesign ult i64 %115, %99
   %117 = icmp eq i64 %115, %99
   br i1 %117, label %.loopexit19, label %100, !llvm.loop !9
 
@@ -1143,7 +1143,7 @@ define dso_local void @init_cpu_to_node() local_unnamed_addr #0 section ".init.t
   %58 = phi i64 [ %4, %24 ], [ %.pre, %56 ], [ %4, %28 ]
   %59 = add nuw nsw i64 %10, 1
   %60 = and i64 %59, 127
-  %61 = icmp ugt i64 %60, 63
+  %61 = icmp samesign ugt i64 %60, 63
   br i1 %61, label %.thread, label %.preheader, !prof !40, !llvm.loop !41
 
 .thread:                                          ; preds = %.preheader, %.thread6, %9

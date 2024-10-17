@@ -1282,7 +1282,7 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   %57 = lshr i64 %55, %56
   %58 = add i64 %57, %54
   %59 = and i64 %58, 4294967295
-  %60 = icmp ult i64 %.sroa.11.0, %59
+  %60 = icmp samesign ult i64 %.sroa.11.0, %59
   br i1 %60, label %.thread47, label %.preheader29.i
 
 .preheader29.i:                                   ; preds = %48
@@ -1323,7 +1323,7 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
 80:                                               ; preds = %66
   %81 = add i32 %.01937.us.i, 1
   %82 = zext i32 %81 to i64
-  %.not.us.i = icmp ult i64 %61, %82
+  %.not.us.i = icmp samesign ult i64 %61, %82
   br i1 %.not.us.i, label %.thread47, label %.preheader.us.i, !llvm.loop !76
 
 .critedge.i:                                      ; preds = %65, %.critedge.i

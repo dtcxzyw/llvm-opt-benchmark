@@ -1249,7 +1249,7 @@ _ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit:       ; preds = %_ZN7rocksdb7IterKey
   store ptr %14, ptr %key_.i.i, align 8
   store i64 %add.i, ptr %key_size_.i, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i)
-  %cmp6.i.i = icmp ugt i64 %and.i, 127
+  %cmp6.i.i = icmp samesign ugt i64 %and.i, 127
   br i1 %cmp6.i.i, label %while.body.i.i, label %if.else.i.i
 
 while.body.i.i:                                   ; preds = %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit, %while.body.i.i
@@ -1260,7 +1260,7 @@ while.body.i.i:                                   ; preds = %_ZN7rocksdb7IterKey
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.08.i.i, i64 1
   store i8 %conv.i.i, ptr %ptr.08.i.i, align 1
   %shr.i.i = lshr i64 %v.addr.07.i.i, 7
-  %cmp.i.i = icmp ugt i64 %v.addr.07.i.i, 16383
+  %cmp.i.i = icmp samesign ugt i64 %v.addr.07.i.i, 16383
   br i1 %cmp.i.i, label %while.body.i.i, label %if.else.i.i, !llvm.loop !35
 
 if.else.i.i:                                      ; preds = %while.body.i.i, %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit

@@ -290,7 +290,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   %14 = alloca i64, align 8
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %16 = and i32 %15, 65535
-  %17 = icmp ult i32 %16, 4
+  %17 = icmp samesign ult i32 %16, 4
   br i1 %17, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %4
@@ -326,7 +326,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #2
   %35 = zext i16 %34 to i32
   %36 = add nuw nsw i32 %35, 4
-  %.not420 = icmp ugt i32 %36, %16
+  %.not420 = icmp samesign ugt i32 %36, %16
   %37 = load i32, ptr @proto_ecpri, align 4
   br i1 %.not420, label %40, label %38
 
@@ -513,7 +513,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
 
 146:                                              ; preds = %144
   %147 = and i32 %74, 65532
-  %148 = icmp ugt i32 %147, 11
+  %148 = icmp samesign ugt i32 %147, 11
   br i1 %148, label %149, label %.loopexit
 
 149:                                              ; preds = %146
@@ -573,7 +573,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
 
 187:                                              ; preds = %185
   %188 = and i32 %74, 65532
-  %189 = icmp ugt i32 %188, 19
+  %189 = icmp samesign ugt i32 %188, 19
   br i1 %189, label %190, label %.loopexit
 
 190:                                              ; preds = %187
@@ -668,7 +668,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
 
 247:                                              ; preds = %245
   %248 = and i32 %74, 65535
-  %249 = icmp ugt i32 %248, 2
+  %249 = icmp samesign ugt i32 %248, 2
   br i1 %249, label %250, label %.loopexit
 
 250:                                              ; preds = %247

@@ -848,7 +848,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
 44:                                               ; preds = %41, %37
   %.012.i = phi i64 [ %42, %41 ], [ %39, %37 ]
   %.0.i12 = phi ptr [ %43, %41 ], [ %3, %37 ]
-  %45 = icmp ugt i64 %.012.i, 9
+  %45 = icmp samesign ugt i64 %.012.i, 9
   br i1 %45, label %.lr.ph.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i
 
 .lr.ph.i.i14:                                     ; preds = %44, %.lr.ph.i.i14
@@ -856,7 +856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
   %.1812.i.i = phi i64 [ %47, %.lr.ph.i.i14 ], [ %.012.i, %44 ]
   %46 = add i64 %.113.i.i, 1
   %47 = udiv i64 %.1812.i.i, 10
-  %48 = icmp ugt i64 %.1812.i.i, 99
+  %48 = icmp samesign ugt i64 %.1812.i.i, 99
   br i1 %48, label %.lr.ph.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; preds = %.lr.ph.i.i14, %44
@@ -914,7 +914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit: ; preds = %60
 70:                                               ; preds = %67, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit
   %.012.i16 = phi i64 [ %68, %67 ], [ %.0.i15, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit ]
   %.0.i17 = phi ptr [ %69, %67 ], [ %4, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit ]
-  %71 = icmp ugt i64 %.012.i16, 9
+  %71 = icmp samesign ugt i64 %.012.i16, 9
   br i1 %71, label %.lr.ph.i.i24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18
 
 .lr.ph.i.i24:                                     ; preds = %70, %.lr.ph.i.i24
@@ -922,7 +922,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit: ; preds = %60
   %.1812.i.i26 = phi i64 [ %73, %.lr.ph.i.i24 ], [ %.012.i16, %70 ]
   %72 = add i64 %.113.i.i25, 1
   %73 = udiv i64 %.1812.i.i26, 10
-  %74 = icmp ugt i64 %.1812.i.i26, 99
+  %74 = icmp samesign ugt i64 %.1812.i.i26, 99
   br i1 %74, label %.lr.ph.i.i24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18: ; preds = %.lr.ph.i.i24, %70
@@ -1215,7 +1215,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrlenEPKc.exit43.i: ; pre
   %.1812.i.i = phi i64 [ %32, %.lr.ph.i44.i ], [ %spec.select.i.i, %.lr.ph.i44.preheader.i ]
   %31 = add i64 %.113.i.i, 1
   %32 = udiv i64 %.1812.i.i, 10
-  %33 = icmp ugt i64 %.1812.i.i, 99
+  %33 = icmp samesign ugt i64 %.1812.i.i, 99
   br i1 %33, label %.lr.ph.i44.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; preds = %.lr.ph.i44.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrlenEPKc.exit43.i
@@ -1297,7 +1297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit64.i.preh
 56:                                               ; preds = %54, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit64.i.preheader
   %.012.i.i = phi i64 [ %55, %54 ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit64.i.preheader ]
   %.0.i69.i = phi ptr [ %indvars.iv119, %54 ], [ %indvars.iv114, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit64.i.preheader ]
-  %57 = icmp ugt i64 %.012.i.i, 9
+  %57 = icmp samesign ugt i64 %.012.i.i, 9
   br i1 %57, label %.lr.ph.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %56, %.lr.ph.i.i.i
@@ -1305,7 +1305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit64.i.preh
   %.1812.i.i.i = phi i64 [ %59, %.lr.ph.i.i.i ], [ %.012.i.i, %56 ]
   %58 = add i64 %.113.i.i.i, 1
   %59 = udiv i64 %.1812.i.i.i, 10
-  %60 = icmp ugt i64 %.1812.i.i.i, 99
+  %60 = icmp samesign ugt i64 %.1812.i.i.i, 99
   br i1 %60, label %.lr.ph.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i: ; preds = %.lr.ph.i.i.i, %56
@@ -1351,7 +1351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i: ; preds =
 
 77:                                               ; preds = %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %78 = icmp ugt i64 %indvars.iv.i, 8
+  %78 = icmp samesign ugt i64 %indvars.iv.i, 8
   br i1 %78, label %.lr.ph.i75.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit78.i
 
 .lr.ph.i75.i:                                     ; preds = %77, %.lr.ph.i75.i
@@ -1359,7 +1359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i: ; preds =
   %.1812.i77.i = phi i64 [ %80, %.lr.ph.i75.i ], [ %indvars.iv.next.i, %77 ]
   %79 = add i64 %.113.i76.i, 1
   %80 = udiv i64 %.1812.i77.i, 10
-  %81 = icmp ugt i64 %.1812.i77.i, 99
+  %81 = icmp samesign ugt i64 %.1812.i77.i, 99
   br i1 %81, label %.lr.ph.i75.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit78.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit78.i: ; preds = %.lr.ph.i75.i, %77
@@ -1387,7 +1387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit82.i: ; p
   %.1812.i.i93.i = phi i64 [ %87, %.lr.ph.i.i91.i ], [ %indvars.iv.next.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit82.i ]
   %86 = add i64 %.113.i.i92.i, 1
   %87 = udiv i64 %.1812.i.i93.i, 10
-  %88 = icmp ugt i64 %.1812.i.i93.i, 99
+  %88 = icmp samesign ugt i64 %.1812.i.i93.i, 99
   br i1 %88, label %.lr.ph.i.i91.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i85.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i85.i: ; preds = %.lr.ph.i.i91.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit82.i
@@ -1405,7 +1405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i85.i: ;
   %93 = getelementptr inbounds i8, ptr %.117.i88.i, i64 -1
   store i8 %92, ptr %93, align 1
   %94 = udiv i64 %.11316.i89.i, 10
-  %.not.i90.i = icmp ult i64 %.11316.i89.i, 10
+  %.not.i90.i = icmp samesign ult i64 %.11316.i89.i, 10
   br i1 %.not.i90.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit94.i, label %.preheader.i87.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit94.i: ; preds = %.preheader.i87.i
@@ -3495,7 +3495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114nonLockingForkEv.exit: ; pr
 27:                                               ; preds = %24, %19
   %.012.i = phi i64 [ %25, %24 ], [ %22, %19 ]
   %.0.i35 = phi ptr [ %26, %24 ], [ %8, %19 ]
-  %28 = icmp ugt i64 %.012.i, 9
+  %28 = icmp samesign ugt i64 %.012.i, 9
   br i1 %28, label %.lr.ph.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i
 
 .lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
@@ -3503,7 +3503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114nonLockingForkEv.exit: ; pr
   %.1812.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ %.012.i, %27 ]
   %29 = add i64 %.113.i.i, 1
   %30 = udiv i64 %.1812.i.i, 10
-  %31 = icmp ugt i64 %.1812.i.i, 99
+  %31 = icmp samesign ugt i64 %.1812.i.i, 99
   br i1 %31, label %.lr.ph.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; preds = %.lr.ph.i.i, %27
@@ -3630,7 +3630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit42: ; preds
 77:                                               ; preds = %74, %71
   %.012.i49 = phi i64 [ %75, %74 ], [ %72, %71 ]
   %.0.i50 = phi ptr [ %76, %74 ], [ %11, %71 ]
-  %78 = icmp ugt i64 %.012.i49, 9
+  %78 = icmp samesign ugt i64 %.012.i49, 9
   br i1 %78, label %.lr.ph.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i51
 
 .lr.ph.i.i57:                                     ; preds = %77, %.lr.ph.i.i57
@@ -3638,7 +3638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit42: ; preds
   %.1812.i.i59 = phi i64 [ %80, %.lr.ph.i.i57 ], [ %.012.i49, %77 ]
   %79 = add i64 %.113.i.i58, 1
   %80 = udiv i64 %.1812.i.i59, 10
-  %81 = icmp ugt i64 %.1812.i.i59, 99
+  %81 = icmp samesign ugt i64 %.1812.i.i59, 99
   br i1 %81, label %.lr.ph.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i51, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i51: ; preds = %.lr.ph.i.i57, %77
@@ -3724,7 +3724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit85: ; preds
 113:                                              ; preds = %109
   %114 = and i32 %112, 127
   %115 = zext nneg i32 %114 to i64
-  %116 = icmp ugt i32 %114, 9
+  %116 = icmp samesign ugt i32 %114, 9
   br i1 %116, label %.lr.ph.i.i94, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i88
 
 .lr.ph.i.i94:                                     ; preds = %113, %.lr.ph.i.i94
@@ -3732,7 +3732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit85: ; preds
   %.1812.i.i96 = phi i64 [ %118, %.lr.ph.i.i94 ], [ %115, %113 ]
   %117 = add i64 %.113.i.i95, 1
   %118 = udiv i64 %.1812.i.i96, 10
-  %119 = icmp ugt i64 %.1812.i.i96, 99
+  %119 = icmp samesign ugt i64 %.1812.i.i96, 99
   br i1 %119, label %.lr.ph.i.i94, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i88, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i88: ; preds = %.lr.ph.i.i94, %113
@@ -3756,7 +3756,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i88: ; p
   %127 = getelementptr inbounds i8, ptr %.117.i91, i64 -1
   store i8 %126, ptr %127, align 1
   %128 = udiv i64 %.11316.i92, 10
-  %.not.i93 = icmp ult i64 %.11316.i92, 10
+  %.not.i93 = icmp samesign ult i64 %.11316.i92, 10
   br i1 %.not.i93, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit97, label %.preheader.i90, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit97: ; preds = %.preheader.i90, %122
@@ -3797,7 +3797,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit110: ; pred
 142:                                              ; preds = %139, %136
   %.012.i117 = phi i64 [ %140, %139 ], [ %137, %136 ]
   %.0.i118 = phi ptr [ %141, %139 ], [ %13, %136 ]
-  %143 = icmp ugt i64 %.012.i117, 9
+  %143 = icmp samesign ugt i64 %.012.i117, 9
   br i1 %143, label %.lr.ph.i.i125, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i119
 
 .lr.ph.i.i125:                                    ; preds = %142, %.lr.ph.i.i125
@@ -3805,7 +3805,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit110: ; pred
   %.1812.i.i127 = phi i64 [ %145, %.lr.ph.i.i125 ], [ %.012.i117, %142 ]
   %144 = add i64 %.113.i.i126, 1
   %145 = udiv i64 %.1812.i.i127, 10
-  %146 = icmp ugt i64 %.1812.i.i127, 99
+  %146 = icmp samesign ugt i64 %.1812.i.i127, 99
   br i1 %146, label %.lr.ph.i.i125, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i119, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i119: ; preds = %.lr.ph.i.i125, %142
@@ -3911,7 +3911,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 7:                                                ; preds = %4, %2
   %.012 = phi i64 [ %5, %4 ], [ %1, %2 ]
   %.0 = phi ptr [ %6, %4 ], [ %0, %2 ]
-  %8 = icmp ugt i64 %.012, 9
+  %8 = icmp samesign ugt i64 %.012, 9
   br i1 %8, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
@@ -3919,7 +3919,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.1812.i = phi i64 [ %10, %.lr.ph.i ], [ %.012, %7 ]
   %9 = add i64 %.113.i, 1
   %10 = udiv i64 %.1812.i, 10
-  %11 = icmp ugt i64 %.1812.i, 99
+  %11 = icmp samesign ugt i64 %.1812.i, 99
   br i1 %11, label %.lr.ph.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit: ; preds = %.lr.ph.i, %7
@@ -5699,7 +5699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
 45:                                               ; preds = %42, %38
   %.012.i = phi i64 [ %43, %42 ], [ %40, %38 ]
   %.0.i12 = phi ptr [ %44, %42 ], [ %4, %38 ]
-  %46 = icmp ugt i64 %.012.i, 9
+  %46 = icmp samesign ugt i64 %.012.i, 9
   br i1 %46, label %.lr.ph.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i
 
 .lr.ph.i.i14:                                     ; preds = %45, %.lr.ph.i.i14
@@ -5707,7 +5707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
   %.1812.i.i = phi i64 [ %48, %.lr.ph.i.i14 ], [ %.012.i, %45 ]
   %47 = add i64 %.113.i.i, 1
   %48 = udiv i64 %.1812.i.i, 10
-  %49 = icmp ugt i64 %.1812.i.i, 99
+  %49 = icmp samesign ugt i64 %.1812.i.i, 99
   br i1 %49, label %.lr.ph.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; preds = %.lr.ph.i.i14, %45
@@ -5765,7 +5765,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit: ; preds = %61
 71:                                               ; preds = %68, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit
   %.012.i16 = phi i64 [ %69, %68 ], [ %.0.i15, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit ]
   %.0.i17 = phi ptr [ %70, %68 ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit ]
-  %72 = icmp ugt i64 %.012.i16, 9
+  %72 = icmp samesign ugt i64 %.012.i16, 9
   br i1 %72, label %.lr.ph.i.i24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18
 
 .lr.ph.i.i24:                                     ; preds = %71, %.lr.ph.i.i24
@@ -5773,7 +5773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetAppElapsedTimeEv.exit: ; preds = %61
   %.1812.i.i26 = phi i64 [ %74, %.lr.ph.i.i24 ], [ %.012.i16, %71 ]
   %73 = add i64 %.113.i.i25, 1
   %74 = udiv i64 %.1812.i.i26, 10
-  %75 = icmp ugt i64 %.1812.i.i26, 99
+  %75 = icmp samesign ugt i64 %.1812.i.i26, 99
   br i1 %75, label %.lr.ph.i.i24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i18: ; preds = %.lr.ph.i.i24, %71

@@ -5325,7 +5325,7 @@ _Z12for_each_astIN5model14occs_collectorEEvRT_P3astb.exit: ; preds = %_ZN8obj_ma
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %m_arity.i, align 8
   %32 = zext i32 %31 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next, %32
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp13, label %for.body14, label %for.inc16, !llvm.loop !29
 
 for.inc16:                                        ; preds = %_Z12for_each_astIN5model14occs_collectorEEvRT_P3astb.exit, %for.body

@@ -927,7 +927,7 @@ Vec_PtrRemove.exit:                               ; preds = %48, %45
   %84 = lshr i64 %.val, 32
   %85 = trunc nuw i64 %84 to i32
   %86 = and i32 %85, 16777215
-  %.not19 = icmp ugt i32 %79, %86
+  %.not19 = icmp samesign ugt i32 %79, %86
   br i1 %.not19, label %87, label %.loopexit
 
 87:                                               ; preds = %.lr.ph

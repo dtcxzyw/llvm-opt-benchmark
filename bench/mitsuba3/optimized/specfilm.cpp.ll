@@ -2955,7 +2955,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 77:                                               ; preds = %74
   %78 = add i32 %76, -1
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %.011, %79
+  %80 = icmp samesign ult i64 %.011, %79
   br i1 %80, label %81, label %100
 
 81:                                               ; preds = %77

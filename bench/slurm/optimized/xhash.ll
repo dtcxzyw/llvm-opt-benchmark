@@ -856,7 +856,7 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %304 = getelementptr inbounds i8, ptr %303, i64 8
   %305 = load i32, ptr %304, align 8
   %306 = zext i32 %305 to i64
-  %307 = icmp ult i64 %indvars.iv.next, %306
+  %307 = icmp samesign ult i64 %indvars.iv.next, %306
   br i1 %307, label %.lr.ph344, label %._crit_edge345, !llvm.loop !11
 
 ._crit_edge345:                                   ; preds = %._crit_edge341, %244

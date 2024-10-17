@@ -144,7 +144,7 @@ define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr n
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = add nuw nsw i32 %103, %99
-  %105 = icmp ult i32 %75, 255
+  %105 = icmp samesign ult i32 %75, 255
   br i1 %105, label %106, label %.thread
 
 106:                                              ; preds = %57
@@ -281,7 +281,7 @@ define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr n
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
   %211 = add nuw nsw i32 %210, %206
-  %212 = icmp ult i32 %182, 255
+  %212 = icmp samesign ult i32 %182, 255
   br i1 %212, label %213, label %.thread214
 
 213:                                              ; preds = %164

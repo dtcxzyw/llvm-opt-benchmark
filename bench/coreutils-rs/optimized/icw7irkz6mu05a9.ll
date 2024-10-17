@@ -1076,7 +1076,7 @@ define noundef range(i32 1, 3) i32 @"_ZN93_$LT$uucore..features..backup_control.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN93_$LT$uucore..features..backup_control..BackupError$u20$as$u20$uucore..mods..error..UError$GT$5usage17h7ebe81354fb2b980E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !50, !noundef !7
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   ret i1 %switch
 }
 

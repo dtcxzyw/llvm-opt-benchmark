@@ -899,7 +899,7 @@ if.else:                                          ; preds = %lor.lhs.false106
   %idxprom157 = sext i32 %inc149 to i64
   %arrayidx158 = getelementptr i8, ptr %ret.5, i64 %idxprom157
   store i8 %add154, ptr %arrayidx158, align 1
-  %cmp159 = icmp ugt i8 %12, 9
+  %cmp159 = icmp samesign ugt i8 %12, 9
   %cond161 = select i1 %cmp159, i8 55, i8 48
   %add162 = add nuw nsw i8 %cond161, %12
   br label %if.end167
@@ -1023,7 +1023,7 @@ if.else292:                                       ; preds = %lor.lhs.false223
   %idxprom309 = sext i32 %inc300 to i64
   %arrayidx310 = getelementptr i8, ptr %ret.10, i64 %idxprom309
   store i8 %add306, ptr %arrayidx310, align 1
-  %cmp311 = icmp ugt i8 %22, 9
+  %cmp311 = icmp samesign ugt i8 %22, 9
   %cond313 = select i1 %cmp311, i8 55, i8 48
   %add314 = add nuw nsw i8 %cond313, %22
   br label %if.end319
@@ -1240,7 +1240,7 @@ if.else487:                                       ; preds = %lor.lhs.false414
   %idxprom504 = sext i32 %inc495 to i64
   %arrayidx505 = getelementptr i8, ptr %ret.18, i64 %idxprom504
   store i8 %add501, ptr %arrayidx505, align 1
-  %cmp506 = icmp ugt i8 %39, 9
+  %cmp506 = icmp samesign ugt i8 %39, 9
   %cond508 = select i1 %cmp506, i8 55, i8 48
   %add509 = add nuw nsw i8 %cond508, %39
   br label %if.end514
@@ -1444,7 +1444,7 @@ if.else703:                                       ; preds = %lor.lhs.false630
   %idxprom720 = sext i32 %inc711 to i64
   %arrayidx721 = getelementptr i8, ptr %ret.24, i64 %idxprom720
   store i8 %add717, ptr %arrayidx721, align 1
-  %cmp722 = icmp ugt i8 %58, 9
+  %cmp722 = icmp samesign ugt i8 %58, 9
   %cond724 = select i1 %cmp722, i8 55, i8 48
   %add725 = add nuw nsw i8 %cond724, %58
   br label %if.end730
@@ -1629,7 +1629,7 @@ if.else900:                                       ; preds = %lor.lhs.false811
   %idxprom917 = sext i32 %inc908 to i64
   %arrayidx918 = getelementptr i8, ptr %ret.31, i64 %idxprom917
   store i8 %add914, ptr %arrayidx918, align 1
-  %cmp919 = icmp ugt i8 %74, 9
+  %cmp919 = icmp samesign ugt i8 %74, 9
   %cond921 = select i1 %cmp919, i8 55, i8 48
   %add922 = add nuw nsw i8 %cond921, %74
   br label %if.end927
@@ -1985,7 +1985,7 @@ if.then85:                                        ; preds = %land.lhs.true82
   store i8 %sub101.sink, ptr %arrayidx98, align 1
   %out.1 = add i32 %out.066, 2
   %and = and i8 %.fr60, 15
-  %cmp110 = icmp ult i8 %and, 10
+  %cmp110 = icmp samesign ult i8 %and, 10
   %sub122 = add nuw nsw i8 %and, 55
   %9 = or disjoint i8 %and, 48
   %sub122.sink = select i1 %cmp110, i8 %9, i8 %sub122

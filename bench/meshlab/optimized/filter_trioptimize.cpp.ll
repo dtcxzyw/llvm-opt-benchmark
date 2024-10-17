@@ -18770,7 +18770,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -35890,7 +35890,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !430
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -36527,7 +36527,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI6CEdgeOSaIS2_EEbE7Re
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !432
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -36912,7 +36912,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !433
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -37294,7 +37294,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !434
 
 ._crit_edge:                                      ; preds = %17, %2

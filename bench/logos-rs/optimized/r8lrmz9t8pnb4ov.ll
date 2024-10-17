@@ -6631,7 +6631,7 @@ define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test
 133:                                              ; preds = %133, %94
   %storemerge = phi i8 [ %95, %94 ], [ %136, %133 ]
   %134 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %storemerge)
-  %135 = icmp ult i8 %134, 2
+  %135 = icmp samesign ult i8 %134, 2
   %.not119 = icmp eq i8 %84, %storemerge
   %or.cond = select i1 %135, i1 true, i1 %.not119
   %136 = add i8 %storemerge, 1

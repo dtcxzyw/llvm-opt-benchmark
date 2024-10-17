@@ -242,7 +242,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %51 = sub nuw i64 %49, %50
   %52 = lshr exact i64 %51, 4
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 %52)
-  %53 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %35
+  %53 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %35
   br i1 %53, label %243, label %54
 
 54:                                               ; preds = %._crit_edge.i.i, %37
@@ -4940,7 +4940,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit: ; pr
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit ], [ %29, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit ], [ %22, %.lr.ph.i.i.i.i ]
-  %20 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %20 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit, %.lr.ph.i.i.i.i
@@ -4984,7 +4984,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17hac40b567d1fe1ea4E.exit: ; pr
 45:                                               ; preds = %36, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %41, %36 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %36 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %46 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45
@@ -6364,7 +6364,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr52drop
   %50 = getelementptr inbounds i8, ptr %21, i64 280
   %51 = load i64, ptr %50, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %switch = icmp ult i8 %42, 2
+  %switch = icmp samesign ult i8 %42, 2
   br i1 %switch, label %53, label %52
 
 52:                                               ; preds = %49

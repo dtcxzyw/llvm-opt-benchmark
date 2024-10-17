@@ -6687,7 +6687,7 @@ define linkonce_odr hidden noundef float @_ZN2cv5rapid9RapidImpl7computeERKNS_11
   %32 = load double, ptr %23, align 8
   %33 = fcmp uge double %31, %32
   %34 = add nuw nsw i32 %.01825, 1
-  %35 = icmp ult i32 %34, %.sroa.speculated
+  %35 = icmp samesign ult i32 %34, %.sroa.speculated
   %or.cond = select i1 %33, i1 %35, i1 false
   br i1 %or.cond, label %.backedge.backedge, label %39
 
@@ -6699,7 +6699,7 @@ define linkonce_odr hidden noundef float @_ZN2cv5rapid9RapidImpl7computeERKNS_11
 
 38:                                               ; preds = %27
   %.old = add nuw nsw i32 %.01825, 1
-  %.old26 = icmp ult i32 %.old, %.sroa.speculated
+  %.old26 = icmp samesign ult i32 %.old, %.sroa.speculated
   br i1 %.old26, label %.backedge.backedge, label %39
 
 .backedge.backedge:                               ; preds = %38, %30

@@ -226,7 +226,7 @@ define hidden void @_ZN27ShenandoahBarrierSetC2State14add_iu_barrierEP23Shenando
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %14 = sub nuw nsw i32 32, %13
@@ -343,7 +343,7 @@ define hidden void @_ZN27ShenandoahBarrierSetC2State26add_load_reference_barrier
   %10 = add nsw i32 %5, 1
   %11 = icmp sgt i32 %5, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14
@@ -4871,7 +4871,7 @@ define hidden void @_ZNK22ShenandoahBarrierSetC231register_potential_barrier_nod
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -4920,7 +4920,7 @@ _ZN27ShenandoahBarrierSetC2State14add_iu_barrierEP23ShenandoahIUBarrierNode.exit
   %56 = add nsw i32 %51, 1
   %57 = icmp sgt i32 %51, -1
   %58 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %56)
-  %59 = icmp ult i32 %58, 2
+  %59 = icmp samesign ult i32 %58, 2
   %or.cond.i.i.i.i.i5 = select i1 %57, i1 %59, i1 false
   %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
   %61 = sub nuw nsw i32 32, %60
@@ -5487,7 +5487,7 @@ _ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %4, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %66, label %8, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41, %3
@@ -6981,7 +6981,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15ConnectionGraph8add_edgeEP12
   %27 = add nsw i32 %14, 1
   %28 = icmp sgt i32 %14, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -7033,7 +7033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15ConnectionGraph8add_edgeEP12
   %55 = add nsw i32 %42, 1
   %56 = icmp sgt i32 %42, -1
   %57 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %55)
-  %58 = icmp ult i32 %57, 2
+  %58 = icmp samesign ult i32 %57, 2
   %or.cond.i.i.i.i.i.i13 = select i1 %56, i1 %58, i1 false
   %59 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %55, i1 true)
   %60 = sub nuw nsw i32 32, %59

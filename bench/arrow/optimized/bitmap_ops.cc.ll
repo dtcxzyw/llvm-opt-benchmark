@@ -120,7 +120,7 @@ for.body29:                                       ; preds = %for.cond27.preheade
 for.end35:                                        ; preds = %for.body29
   %add.ptr36 = getelementptr inbounds i8, ptr %u64_data.038, i64 32
   %add38 = add nuw nsw i64 %i23.039, 4
-  %cmp25 = icmp ult i64 %add38, %mul.i27
+  %cmp25 = icmp samesign ult i64 %add38, %mul.i27
   br i1 %cmp25, label %for.cond27.preheader, label %for.cond41.preheader, !llvm.loop !7
 
 for.cond49.preheader:                             ; preds = %for.body43
@@ -283,7 +283,7 @@ while.body:                                       ; preds = %while.body.preheade
   %conv10 = zext nneg i8 %conv9 to i32
   %sub11 = sub nsw i32 8, %conv10
   %shl = shl nuw nsw i32 255, %sub11
-  %cmp13 = icmp ult i64 %length.addr.051, 9
+  %cmp13 = icmp samesign ult i64 %length.addr.051, 9
   br i1 %cmp13, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
@@ -656,7 +656,7 @@ if.then.i18.i:                                    ; preds = %for.body.i75
   %inc7.i.i = add nsw i64 %writer.sroa.27.048.i, 1
   %arrayidx.i21.i = getelementptr inbounds i8, ptr %writer.sroa.4.1171, i64 %writer.sroa.27.048.i
   store i8 %writer.sroa.12.1.i, ptr %arrayidx.i21.i, align 1
-  %cmp9.i.i = icmp ult i64 %inc.i.i77, %wide.trip.count.i
+  %cmp9.i.i = icmp samesign ult i64 %inc.i.i77, %wide.trip.count.i
   br i1 %cmp9.i.i, label %if.then12.i.i, label %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
 
 if.then12.i.i:                                    ; preds = %if.then.i18.i
@@ -1039,7 +1039,7 @@ if.then.i18.i:                                    ; preds = %for.body.i78
   %inc7.i.i = add nsw i64 %writer.sroa.27.048.i, 1
   %arrayidx.i21.i = getelementptr inbounds i8, ptr %writer.sroa.4.1176, i64 %writer.sroa.27.048.i
   store i8 %writer.sroa.12.1.i, ptr %arrayidx.i21.i, align 1
-  %cmp9.i.i = icmp ult i64 %inc.i.i80, %wide.trip.count.i
+  %cmp9.i.i = icmp samesign ult i64 %inc.i.i80, %wide.trip.count.i
   br i1 %cmp9.i.i, label %if.then12.i.i, label %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
 
 if.then12.i.i:                                    ; preds = %if.then.i18.i
@@ -1162,7 +1162,7 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %conv10.i = zext nneg i8 %conv9.i to i32
   %sub11.i = sub nsw i32 8, %conv10.i
   %shl.i = shl nuw nsw i32 255, %sub11.i
-  %cmp13.i = icmp ult i64 %length.addr.051.i, 9
+  %cmp13.i = icmp samesign ult i64 %length.addr.051.i, 9
   br i1 %cmp13.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
@@ -1466,7 +1466,7 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %conv9.i = sub nuw nsw i8 8, %7
   %8 = trunc nuw nsw i64 %rem7.i to i32
   %shl.i = shl nuw nsw i32 255, %8
-  %cmp13.i = icmp ult i64 %length.addr.051.i, 9
+  %cmp13.i = icmp samesign ult i64 %length.addr.051.i, 9
   br i1 %cmp13.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i

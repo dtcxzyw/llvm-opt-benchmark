@@ -4353,7 +4353,7 @@ _ZN4llvm8ExpectedINS_5MachO10section_64EE9takeErrorEv.exit.i: ; preds = %1755, %
   br i1 %or.cond16.i, label %1783, label %1788
 
 1783:                                             ; preds = %1782
-  %1784 = icmp ugt i64 %765, %1778
+  %1784 = icmp samesign ugt i64 %765, %1778
   %1785 = icmp ne i64 %.sroa.4.0.i.i379, 0
   %or.cond19.i = select i1 %1784, i1 %1785, i1 false
   br i1 %or.cond19.i, label %1786, label %1788
@@ -5326,7 +5326,7 @@ _ZN4llvm8ExpectedINS_5MachO7sectionEE9takeErrorEv.exit.i: ; preds = %1905, %_ZN4
   br i1 %or.cond16.i415, label %1933, label %1938
 
 1933:                                             ; preds = %1932
-  %1934 = icmp ugt i64 %765, %1928
+  %1934 = icmp samesign ugt i64 %765, %1928
   %1935 = icmp ne i32 %.sroa.4.0.i.i410, 0
   %or.cond19.i438 = select i1 %1934, i1 %1935, i1 false
   br i1 %or.cond19.i438, label %1936, label %1938
@@ -5484,7 +5484,7 @@ _ZN4llvm8ExpectedINS_5MachO7sectionEE9takeErrorEv.exit.i: ; preds = %1905, %_ZN4
   %or.cond37.i439 = select i1 %1874, i1 %1955, i1 false
   %1956 = zext i32 %.sroa.2.0.i.i411 to i64
   %1957 = add nuw nsw i64 %1956, %1954
-  %1958 = icmp ugt i64 %1957, %1877
+  %1958 = icmp samesign ugt i64 %1957, %1877
   %or.cond63.i440 = select i1 %or.cond37.i439, i1 %1958, i1 false
   br i1 %or.cond63.i440, label %1962, label %_ZN4llvm5ErrorD2Ev.exit.i425
 
@@ -5492,7 +5492,7 @@ _ZN4llvm8ExpectedINS_5MachO7sectionEE9takeErrorEv.exit.i: ; preds = %1905, %_ZN4
   %or.cond37155.i421 = select i1 %1874, i1 %1949, i1 false
   %1959 = zext i32 %.sroa.2.0.i.i411 to i64
   %1960 = add nuw nsw i64 %1959, %1939
-  %1961 = icmp ugt i64 %1960, %1877
+  %1961 = icmp samesign ugt i64 %1960, %1877
   %or.cond63156.i422 = select i1 %or.cond37155.i421, i1 %1961, i1 false
   br i1 %or.cond63156.i422, label %1962, label %.thread157.i423
 
@@ -7375,7 +7375,7 @@ _ZN4llvm5ErrorD2Ev.exit562:                       ; preds = %2498, %2498, %2498,
   %.1198 = phi ptr [ %.0197800, %2498 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit557 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit556 ], [ %.0197800, %2492 ], [ %2485, %2484 ], [ %2469, %2468 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit542 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit538 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit534 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit530 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit526 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit525 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit521 ], [ %.0197800, %2356 ], [ %.0197800, %2340 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit507 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit492 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit481 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit474 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit473 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit472 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit471 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit470 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit469 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit468 ], [ %.0197800, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit467 ], [ %.0197800, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit464 ], [ %.0197800, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit461 ], [ %.0197800, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit458 ], [ %.0197800, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit453 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit448 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit386 ], [ %.0197800, %1701 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit359 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit358 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit357 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit356 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit355 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit354 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit353 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit352 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit351 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit350 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit349 ], [ %.0197800, %_ZN4llvm5ErrorD2Ev.exit335 ]
   %.1195 = phi ptr [ %.0194801, %2498 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit557 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit556 ], [ %.0194801, %2492 ], [ %.0194801, %2484 ], [ %.0194801, %2468 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit542 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit538 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit534 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit530 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit526 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit525 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit521 ], [ %2357, %2356 ], [ %.0194801, %2340 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit507 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit492 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit481 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit474 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit473 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit472 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit471 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit470 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit469 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit468 ], [ %.0194801, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit467 ], [ %.0194801, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit464 ], [ %.0194801, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit461 ], [ %.0194801, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit458 ], [ %.0194801, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit453 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit448 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit386 ], [ %.0194801, %1701 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit359 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit358 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit357 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit356 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit355 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit354 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit353 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit352 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit351 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit350 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit349 ], [ %.0194801, %_ZN4llvm5ErrorD2Ev.exit335 ]
   %.1193 = phi ptr [ %.0192802, %2498 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit557 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit556 ], [ %.0192802, %2492 ], [ %.0192802, %2484 ], [ %.0192802, %2468 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit542 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit538 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit534 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit530 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit526 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit525 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit521 ], [ %.0192802, %2356 ], [ %2341, %2340 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit507 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit492 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit481 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit474 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit473 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit472 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit471 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit470 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit469 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit468 ], [ %.0192802, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit467 ], [ %.0192802, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit464 ], [ %.0192802, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit461 ], [ %.0192802, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit458 ], [ %.0192802, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit453 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit448 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit386 ], [ %.0192802, %1701 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit359 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit358 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit357 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit356 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit355 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit354 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit353 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit352 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit351 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit350 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit349 ], [ %.0192802, %_ZN4llvm5ErrorD2Ev.exit335 ]
-  %2513 = icmp ult i64 %indvars.iv, %1426
+  %2513 = icmp samesign ult i64 %indvars.iv, %1426
   br i1 %2513, label %2514, label %_ZN4llvm8ExpectedINS_6object15MachOObjectFile15LoadCommandInfoEED2Ev.exit572.thread
 
 2514:                                             ; preds = %2512
@@ -7532,7 +7532,7 @@ _ZN4llvm5ErrorD2Ev.exit576:                       ; preds = %2564
   %2575 = zext i32 %2563 to i64
   %2576 = add nuw nsw i64 %2574, %2575
   %2577 = zext i32 %2568 to i64
-  %2578 = icmp ugt i64 %2576, %2577
+  %2578 = icmp samesign ugt i64 %2576, %2577
   br i1 %2578, label %_ZN4llvm5ErrorD2Ev.exit578, label %.thread
 
 _ZN4llvm5ErrorD2Ev.exit578:                       ; preds = %2573
@@ -7574,7 +7574,7 @@ _ZN4llvm5ErrorD2Ev.exit580:                       ; preds = %2584
   %2595 = zext i32 %2583 to i64
   %2596 = add nuw nsw i64 %2594, %2595
   %2597 = zext i32 %2588 to i64
-  %2598 = icmp ugt i64 %2596, %2597
+  %2598 = icmp samesign ugt i64 %2596, %2597
   br i1 %2598, label %_ZN4llvm5ErrorD2Ev.exit582, label %.thread625
 
 _ZN4llvm5ErrorD2Ev.exit582:                       ; preds = %2593
@@ -7616,7 +7616,7 @@ _ZN4llvm5ErrorD2Ev.exit584:                       ; preds = %2604
   %2615 = zext i32 %2603 to i64
   %2616 = add nuw nsw i64 %2614, %2615
   %2617 = zext i32 %2608 to i64
-  %2618 = icmp ugt i64 %2616, %2617
+  %2618 = icmp samesign ugt i64 %2616, %2617
   br i1 %2618, label %_ZN4llvm5ErrorD2Ev.exit586, label %.thread626
 
 _ZN4llvm5ErrorD2Ev.exit586:                       ; preds = %2613
@@ -21324,7 +21324,7 @@ define dso_local void @_ZN4llvm6object11ExportEntry8pushNodeEm(ptr noundef nonnu
 
 119:                                              ; preds = %114
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %116, 1
+  %.not.i.i = icmp samesign ugt i8 %116, 1
   %120 = icmp ne i8 %116, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %120
   br i1 %or.cond36.i.i, label %.loopexit.sink.split.i.i, label %121
@@ -21515,7 +21515,7 @@ _ZN4llvm5ErrorD2Ev.exit149:                       ; preds = %158
 
 199:                                              ; preds = %194
   %.not37.i.i157 = icmp eq i32 %.026.i.i152, 63
-  %.not.i.i158 = icmp ugt i8 %196, 1
+  %.not.i.i158 = icmp samesign ugt i8 %196, 1
   %200 = icmp ne i8 %196, 0
   %or.cond36.i.i159 = select i1 %.not37.i.i157, i1 %.not.i.i158, i1 %200
   br i1 %or.cond36.i.i159, label %.loopexit.sink.split.i.i160, label %201
@@ -22367,7 +22367,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.critedge
 
 117:                                              ; preds = %112
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %114, 1
+  %.not.i.i = icmp samesign ugt i8 %114, 1
   %118 = icmp ne i8 %114, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %118
   br i1 %or.cond36.i.i, label %_ZN4llvm6object11ExportEntry11readULEB128ERPKhPPKc.exit, label %119
@@ -22727,7 +22727,7 @@ define dso_local noundef i64 @_ZN4llvm6object11ExportEntry11readULEB128ERPKhPPKc
 
 21:                                               ; preds = %16
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %18, 1
+  %.not.i = icmp samesign ugt i8 %18, 1
   %22 = icmp ne i8 %18, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %22
   br i1 %or.cond36.i, label %23, label %24
@@ -24606,7 +24606,7 @@ switch.lookup:                                    ; preds = %71
   %104 = load i32, ptr %103, align 4
   %105 = zext i32 %104 to i64
   %106 = getelementptr inbounds i8, ptr %89, i64 %105
-  %107 = icmp ugt i64 %97, %101
+  %107 = icmp samesign ugt i64 %97, %101
   br i1 %107, label %_ZN4llvm5ErrorD2Ev.exit61, label %124
 
 _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %switch.lookup
@@ -25670,7 +25670,7 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit:          ; preds = %242, %_ZNSt6vectorI
   %269 = add nuw nsw i64 %.0136, 1
   %270 = load i16, ptr %.sroa.12.0..sroa_idx15.i, align 4
   %271 = zext i16 %270 to i64
-  %272 = icmp ult i64 %269, %271
+  %272 = icmp samesign ult i64 %269, %271
   br i1 %272, label %.lr.ph, label %._crit_edge, !llvm.loop !3445
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit, %235
@@ -26786,7 +26786,7 @@ define dso_local void @_ZN4llvm6object16MachORebaseEntry8moveNextEv(ptr noundef 
 
 167:                                              ; preds = %.lr.ph
   store i8 %165, ptr %152, align 8
-  %168 = icmp ugt i8 %165, 3
+  %168 = icmp samesign ugt i8 %165, 3
   br i1 %168, label %_ZN4llvm5ErrorD2Ev.exit, label %672
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %167
@@ -26858,7 +26858,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %167
 
 200:                                              ; preds = %195
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %197, 1
+  %.not.i.i = icmp samesign ugt i8 %197, 1
   %201 = icmp ne i8 %197, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %201
   br i1 %or.cond36.i.i, label %.loopexit.sink.split.i.i, label %202
@@ -27071,7 +27071,7 @@ _ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %265, %.loopexit
 
 291:                                              ; preds = %286
   %.not37.i.i81 = icmp eq i32 %.026.i.i76, 63
-  %.not.i.i82 = icmp ugt i8 %288, 1
+  %.not.i.i82 = icmp samesign ugt i8 %288, 1
   %292 = icmp ne i8 %288, 0
   %or.cond36.i.i83 = select i1 %.not37.i.i81, i1 %.not.i.i82, i1 %292
   br i1 %or.cond36.i.i83, label %.loopexit.sink.split.i.i84, label %293
@@ -28029,7 +28029,7 @@ define dso_local noundef i64 @_ZN4llvm6object16MachORebaseEntry11readULEB128EPPK
 
 21:                                               ; preds = %16
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %18, 1
+  %.not.i = icmp samesign ugt i8 %18, 1
   %22 = icmp ne i8 %18, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %22
   br i1 %or.cond36.i, label %23, label %24
@@ -29063,7 +29063,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %349
 
 376:                                              ; preds = %371
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %373, 1
+  %.not.i.i = icmp samesign ugt i8 %373, 1
   %377 = icmp ne i8 %373, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %377
   br i1 %or.cond36.i.i, label %.loopexit.sink.split.i.i, label %378
@@ -29267,7 +29267,7 @@ _ZN4llvm5ErrorD2Ev.exit114:                       ; preds = %445
   %463 = or i8 %290, -16
   %464 = sext i8 %463 to i32
   store i32 %464, ptr %276, align 4
-  %465 = icmp ult i8 %463, -2
+  %465 = icmp samesign ult i8 %463, -2
   br i1 %465, label %_ZN4llvm5ErrorD2Ev.exit117, label %485
 
 _ZN4llvm5ErrorD2Ev.exit117:                       ; preds = %462
@@ -29385,13 +29385,13 @@ _ZN4llvm5ErrorD2Ev.exit119:                       ; preds = %.critedge
   store ptr %512, ptr %265, align 8
   %513 = load i32, ptr %275, align 4
   %514 = icmp ne i32 %513, 2
-  %.not96 = icmp ult i8 %291, 8
-  %or.cond = or i1 %.not96, %514
+  %.not96 = icmp samesign ult i8 %291, 8
+  %or.cond = select i1 %514, i1 true, i1 %.not96
   br i1 %or.cond, label %1186, label %.loopexit326
 
 515:                                              ; preds = %.lr.ph993
   store i8 %291, ptr %272, align 8
-  %516 = icmp ugt i8 %291, 3
+  %516 = icmp samesign ugt i8 %291, 3
   br i1 %516, label %_ZN4llvm5ErrorD2Ev.exit122, label %1186
 
 _ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %515
@@ -29587,7 +29587,7 @@ _ZN4llvm5ErrorD2Ev.exit130:                       ; preds = %571, %561
 
 598:                                              ; preds = %593
   %.not37.i.i138 = icmp eq i32 %.026.i.i133, 63
-  %.not.i.i139 = icmp ugt i8 %595, 1
+  %.not.i.i139 = icmp samesign ugt i8 %595, 1
   %599 = icmp ne i8 %595, 0
   %or.cond36.i.i140 = select i1 %.not37.i.i138, i1 %.not.i.i139, i1 %599
   br i1 %or.cond36.i.i140, label %.loopexit.sink.split.i.i141, label %600
@@ -29804,7 +29804,7 @@ _ZN4llvm5ErrorD2Ev.exit162:                       ; preds = %663, %.loopexit
 
 689:                                              ; preds = %684
   %.not37.i.i170 = icmp eq i32 %.026.i.i165, 63
-  %.not.i.i171 = icmp ugt i8 %686, 1
+  %.not.i.i171 = icmp samesign ugt i8 %686, 1
   %690 = icmp ne i8 %686, 0
   %or.cond36.i.i172 = select i1 %.not37.i.i170, i1 %.not.i.i171, i1 %690
   br i1 %or.cond36.i.i172, label %.loopexit.sink.split.i.i173, label %691
@@ -31025,7 +31025,7 @@ define dso_local noundef i64 @_ZN4llvm6object14MachOBindEntry11readULEB128EPPKc(
 
 21:                                               ; preds = %16
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %18, 1
+  %.not.i = icmp samesign ugt i8 %18, 1
   %22 = icmp ne i8 %18, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %22
   br i1 %or.cond36.i, label %23, label %24
@@ -35215,7 +35215,7 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %99
   %114 = add nuw nsw i64 %42, 8
   %115 = add nuw nsw i64 %114, %112
   %116 = zext i32 %113 to i64
-  %117 = icmp ugt i64 %115, %116
+  %117 = icmp samesign ugt i64 %115, %116
   br i1 %117, label %_ZN4llvm5ErrorD2Ev.exit53, label %130
 
 _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %111

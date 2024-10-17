@@ -774,7 +774,7 @@ define void @zend_hash_packed_to_hash(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %36, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
@@ -7660,7 +7660,7 @@ define ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr nocapture no
 
 41:                                               ; preds = %17
   %42 = lshr i64 %1, 1
-  %43 = icmp ult i64 %42, %20
+  %43 = icmp samesign ult i64 %42, %20
   br i1 %43, label %44, label %85
 
 44:                                               ; preds = %41
@@ -8108,7 +8108,7 @@ define ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr nocaptur
 
 41:                                               ; preds = %17
   %42 = lshr i64 %1, 1
-  %43 = icmp ult i64 %42, %20
+  %43 = icmp samesign ult i64 %42, %20
   br i1 %43, label %44, label %85
 
 44:                                               ; preds = %41
@@ -8459,7 +8459,7 @@ define ptr @zend_hash_next_index_insert(ptr noundef %0, ptr nocapture noundef re
 
 42:                                               ; preds = %19
   %43 = lshr i64 %spec.store.select, 1
-  %44 = icmp ult i64 %43, %22
+  %44 = icmp samesign ult i64 %43, %22
   br i1 %44, label %45, label %86
 
 45:                                               ; preds = %42
@@ -8812,7 +8812,7 @@ define ptr @zend_hash_next_index_insert_new(ptr noundef %0, ptr nocapture nounde
 
 27:                                               ; preds = %9
   %28 = lshr i64 %spec.store.select, 1
-  %29 = icmp ult i64 %28, %12
+  %29 = icmp samesign ult i64 %28, %12
   br i1 %29, label %30, label %74
 
 30:                                               ; preds = %27
@@ -9179,7 +9179,7 @@ define ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr nocapture
 
 49:                                               ; preds = %25
   %50 = lshr i64 %1, 1
-  %51 = icmp ult i64 %50, %28
+  %51 = icmp samesign ult i64 %50, %28
   br i1 %51, label %52, label %93
 
 52:                                               ; preds = %49
@@ -9556,7 +9556,7 @@ define ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed
 
 38:                                               ; preds = %17
   %39 = lshr i64 %1, 1
-  %40 = icmp ult i64 %39, %20
+  %40 = icmp samesign ult i64 %39, %20
   br i1 %40, label %41, label %82
 
 41:                                               ; preds = %38
@@ -10906,7 +10906,7 @@ define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr nocapture
   %.0134.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
   %.0132.lcssa = phi i64 [ %2, %3 ], [ %45, %.lr.ph ]
   %.0130.lcssa = phi ptr [ %1, %3 ], [ %46, %.lr.ph ]
-  %48 = icmp ugt i64 %.0132.lcssa, 3
+  %48 = icmp samesign ugt i64 %.0132.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
@@ -11260,7 +11260,7 @@ define range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr nocapture nou
   %.0124.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
   %.0122.lcssa = phi i64 [ %2, %3 ], [ %45, %.lr.ph ]
   %.0121.lcssa = phi ptr [ %1, %3 ], [ %46, %.lr.ph ]
-  %48 = icmp ugt i64 %.0122.lcssa, 3
+  %48 = icmp samesign ugt i64 %.0122.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
@@ -13912,7 +13912,7 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %72 = phi i32 [ %.pre, %._crit_edge ], [ %24, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %23, label %.loopexit185
 
 75:                                               ; preds = %.lr.ph203, %166
@@ -14109,7 +14109,7 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %167 = phi i32 [ %.pre214, %._crit_edge213 ], [ %76, %75 ]
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next211, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next211, %168
   br i1 %169, label %75, label %.loopexit185
 
 .loopexit185:                                     ; preds = %69, %71, %164, %166, %.preheader188, %.preheader184
@@ -14262,7 +14262,7 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
   %73 = phi i32 [ %.pre, %._crit_edge ], [ %25, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %24, label %.loopexit187
 
 76:                                               ; preds = %.lr.ph205, %167
@@ -14459,7 +14459,7 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
   %168 = phi i32 [ %.pre216, %._crit_edge215 ], [ %77, %76 ]
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next213, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next213, %169
   br i1 %170, label %76, label %.loopexit187
 
 .loopexit187:                                     ; preds = %70, %72, %165, %167, %.preheader190, %.preheader186
@@ -14620,7 +14620,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   %78 = phi i32 [ %29, %28 ], [ %.pre, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %80, label %28, label %.loopexit190
 
 81:                                               ; preds = %.lr.ph207, %175
@@ -14823,7 +14823,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   %176 = phi i32 [ %82, %81 ], [ %.pre216, %174 ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next214, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next214, %177
   br i1 %178, label %81, label %.loopexit190
 
 .loopexit190:                                     ; preds = %77, %74, %175, %172, %.preheader193, %.preheader189
@@ -15210,7 +15210,7 @@ define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %19 = phi i32 [ %.pre65, %16 ], [ %10, %.lr.ph.split.us ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next57, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next57, %20
   br i1 %21, label %.lr.ph.split.us, label %.loopexit
 
 .preheader:                                       ; preds = %3
@@ -15260,7 +15260,7 @@ define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %42 = load i32, ptr %7, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next63, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next63, %43
   br i1 %44, label %.lr.ph49.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
@@ -15283,7 +15283,7 @@ define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %54 = phi i32 [ %.pre, %51 ], [ %45, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph.split, label %.loopexit
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49, %77
@@ -15332,7 +15332,7 @@ define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %78 = phi i32 [ %57, %.lr.ph49.split ], [ %.pre66, %76 ], [ %57, %62 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next60, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next60, %79
   br i1 %80, label %.lr.ph49.split, label %.loopexit
 
 .loopexit:                                        ; preds = %53, %18, %77, %41, %.preheader45, %.preheader
@@ -15533,7 +15533,7 @@ define void @zend_hash_merge(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %21 = phi i32 [ %.pre430, %18 ], [ %12, %.lr.ph398.split.us ]
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next423, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next423, %22
   br i1 %23, label %.lr.ph398.split.us, label %.loopexit384
 
 .preheader383:                                    ; preds = %10
@@ -15572,7 +15572,7 @@ define void @zend_hash_merge(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %42 = phi i32 [ %.pre429, %39 ], [ %33, %.lr.ph398.split ]
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next420, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next420, %43
   br i1 %44, label %.lr.ph398.split, label %.loopexit384
 
 45:                                               ; preds = %.lr.ph400, %195
@@ -15862,7 +15862,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %102, %86, %.loopexi
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %196 = load i32, ptr %8, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next426, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next426, %197
   br i1 %198, label %45, label %.loopexit384
 
 199:                                              ; preds = %4
@@ -15895,7 +15895,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %102, %86, %.loopexi
   %210 = phi i32 [ %.pre, %207 ], [ %201, %.lr.ph.split.us ]
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %211 = zext i32 %210 to i64
-  %212 = icmp ult i64 %indvars.iv.next414, %211
+  %212 = icmp samesign ult i64 %indvars.iv.next414, %211
   br i1 %212, label %.lr.ph.split.us, label %.loopexit384
 
 .preheader390:                                    ; preds = %199
@@ -15937,7 +15937,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %102, %86, %.loopexi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %232 = load i32, ptr %8, align 8
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next, %233
   br i1 %234, label %.lr.ph.split, label %.loopexit384
 
 235:                                              ; preds = %.lr.ph396, %.thread378
@@ -16231,7 +16231,7 @@ zend_hash_real_init_mixed.exit368:                ; preds = %292, %276, %.loopex
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %388 = load i32, ptr %8, align 8
   %389 = zext i32 %388 to i64
-  %390 = icmp ult i64 %indvars.iv.next417, %389
+  %390 = icmp samesign ult i64 %indvars.iv.next417, %389
   br i1 %390, label %235, label %.loopexit384
 
 .loopexit384:                                     ; preds = %231, %209, %.thread378, %41, %20, %195, %.preheader392, %.preheader390, %.preheader385, %.preheader383
@@ -16287,7 +16287,7 @@ define void @zend_hash_merge_ex(ptr noundef %0, ptr nocapture noundef readonly %
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %29 = load i32, ptr %10, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next26, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next26, %30
   br i1 %31, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
@@ -16321,7 +16321,7 @@ define void @zend_hash_merge_ex(ptr noundef %0, ptr nocapture noundef readonly %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %10, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %46, %28, %5
@@ -16537,7 +16537,7 @@ define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture 
   %.069.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
   %.067.lcssa = phi i64 [ %2, %3 ], [ %44, %.lr.ph ]
   %.066.lcssa = phi ptr [ %1, %3 ], [ %45, %.lr.ph ]
-  %47 = icmp ugt i64 %.067.lcssa, 3
+  %47 = icmp samesign ugt i64 %.067.lcssa, 3
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge
@@ -17558,7 +17558,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %25 = load i32, ptr %16, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next206, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next206, %26
   br i1 %27, label %21, label %.loopexit184.loopexit
 
 28:                                               ; preds = %.lr.ph, %43
@@ -17596,7 +17596,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   %.3 = phi i32 [ %.2187, %28 ], [ %42, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43, %.preheader185
@@ -18024,7 +18024,7 @@ zend_hash_index_find.exit.us:                     ; preds = %77, %73
   %.1.us = phi i32 [ %.0101164.us, %41 ], [ %78, %95 ], [ %78, %._crit_edge ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next216, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next216, %98
   br i1 %99, label %.lr.ph.split.us, label %zend_hash_find.exit
 
 .loopexit.us:                                     ; preds = %.preheader.us
@@ -18265,7 +18265,7 @@ zend_hash_index_find.exit:                        ; preds = %196, %201, %157, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %229 = load i32, ptr %20, align 8
   %230 = zext i32 %229 to i64
-  %231 = icmp ult i64 %indvars.iv.next, %230
+  %231 = icmp samesign ult i64 %indvars.iv.next, %230
   br i1 %231, label %.lr.ph.split, label %zend_hash_find.exit
 
 zend_hash_find.exit:                              ; preds = %224, %225, %226, %228, %167, %142, %137, %133, %.critedge.i, %160, %73, %95, %92, %93, %96, %.preheader142, %.split.us, %.split183.us, %.split188.us, %104
@@ -18358,7 +18358,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   %.153.us = phi ptr [ %.05278.us, %.lr.ph80.split.us ], [ %spec.select60.us, %30 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next104, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next104, %35
   br i1 %36, label %.lr.ph80.split.us, label %.loopexit
 
 37:                                               ; preds = %18
@@ -18389,7 +18389,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   %.153 = phi ptr [ %.05278, %.lr.ph80.split ], [ %spec.select, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %.lr.ph80.split, label %.loopexit
 
 53:                                               ; preds = %.lr.ph82, %72
@@ -18432,7 +18432,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   %.4.us = phi ptr [ %.35583.us, %.lr.ph85.split.us ], [ %spec.select62.us, %65 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next114, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next114, %70
   br i1 %71, label %.lr.ph85.split.us, label %.loopexit
 
 72:                                               ; preds = %53
@@ -18463,7 +18463,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   %.4 = phi ptr [ %.35583, %.lr.ph85.split ], [ %spec.select61, %81 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next109, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next109, %86
   br i1 %87, label %.lr.ph85.split, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %49, %33, %72, %84, %68, %.preheader67, %.preheader65, %.preheader63, %.preheader, %3

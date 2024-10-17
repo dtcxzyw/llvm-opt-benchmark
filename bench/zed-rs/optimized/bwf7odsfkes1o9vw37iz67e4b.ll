@@ -255,7 +255,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   ]
 
 60:                                               ; preds = %54
-  %61 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
+  %61 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
   br i1 %61, label %62, label %82
 
 62:                                               ; preds = %60

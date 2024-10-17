@@ -777,7 +777,7 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
 
 ._crit_edge377:                                   ; preds = %._crit_edge377.loopexit, %.preheader344
   %.4233.lcssa = phi i32 [ %.3232.lcssa, %.preheader344 ], [ %319, %._crit_edge377.loopexit ]
-  %320 = icmp ugt i32 %.4233.lcssa, 2
+  %320 = icmp samesign ugt i32 %.4233.lcssa, 2
   br i1 %320, label %.preheader343.preheader, label %375
 
 .preheader343.preheader:                          ; preds = %._crit_edge377
@@ -796,7 +796,7 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
   %325 = icmp slt i32 %324, %322
   %326 = zext i1 %325 to i32
   %327 = add nuw nsw i32 %.0244381, %326
-  %328 = icmp ult i32 %327, 2
+  %328 = icmp samesign ult i32 %327, 2
   %329 = add nsw i64 %indvars.iv437, -2
   %330 = zext nneg i32 %327 to i64
   %.not263 = icmp slt i64 %329, %330
@@ -831,7 +831,7 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
   br i1 %or.cond276, label %347, label %375
 
 347:                                              ; preds = %341
-  %348 = icmp ugt i32 %327, 1
+  %348 = icmp samesign ugt i32 %327, 1
   %349 = add nsw i32 %.4233.lcssa, -2
   %.not264 = icmp slt i32 %327, %349
   %or.cond277 = select i1 %348, i1 %.not264, i1 false
@@ -4110,7 +4110,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN2cv6Point_IiEEN9__gnu_cxx5
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i
@@ -5024,7 +5024,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN2cv6Point_IfEEN9__gnu_cxx5
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i

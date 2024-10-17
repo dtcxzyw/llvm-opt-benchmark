@@ -3466,7 +3466,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %145, %134
   %355 = sub i64 %353, %354
   %356 = lshr exact i64 %355, 5
   %357 = and i64 %356, 4294967295
-  %358 = icmp ult i64 %indvars.iv.next, %357
+  %358 = icmp samesign ult i64 %indvars.iv.next, %357
   br i1 %358, label %.lr.ph220, label %.preheader, !llvm.loop !54
 
 .lr.ph223:                                        ; preds = %.preheader, %374
@@ -3508,7 +3508,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %145, %134
   %385 = sub i64 %383, %384
   %386 = lshr exact i64 %385, 5
   %387 = and i64 %386, 4294967295
-  %388 = icmp ult i64 %indvars.iv.next231, %387
+  %388 = icmp samesign ult i64 %indvars.iv.next231, %387
   br i1 %388, label %.lr.ph223, label %._crit_edge224, !llvm.loop !55
 
 ._crit_edge224:                                   ; preds = %374
@@ -5856,7 +5856,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = lshr i32 %200, 8
-  %202 = icmp ugt i32 %198, %201
+  %202 = icmp samesign ugt i32 %198, %201
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %195

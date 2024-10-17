@@ -434,7 +434,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %17, %if.end.i ], [ 0, %for.cond ]
-  %cmp28 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp28 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   %18 = load i32, ptr %m_tail29, align 4
   br i1 %cmp28, label %while.cond.preheader, label %for.end
 
@@ -1392,7 +1392,7 @@ if.end.i20:                                       ; preds = %for.cond
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23:   ; preds = %for.cond, %if.end.i20
   %retval.0.i22 = phi i64 [ %16, %if.end.i20 ], [ 0, %for.cond ]
-  %cmp18 = icmp ult i64 %indvars.iv, %retval.0.i22
+  %cmp18 = icmp samesign ult i64 %indvars.iv, %retval.0.i22
   br i1 %cmp18, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23
@@ -1956,11 +1956,11 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %_ZNK3sat8parallel10enable_addERKNS_6clauseE.exit, label %entry.lor.rhs_crit_edge.i
 
 entry.lor.rhs_crit_edge.i:                        ; preds = %lor.lhs.false
-  %3 = icmp ult i32 %2, 49152
+  %3 = icmp samesign ult i32 %2, 49152
   br i1 %3, label %lor.lhs.false3, label %return
 
 _ZNK3sat8parallel10enable_addERKNS_6clauseE.exit: ; preds = %lor.lhs.false
-  %cmp3.i = icmp ult i32 %2, 147456
+  %cmp3.i = icmp samesign ult i32 %2, 147456
   br i1 %cmp3.i, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %entry.lor.rhs_crit_edge.i, %_ZNK3sat8parallel10enable_addERKNS_6clauseE.exit
@@ -2127,7 +2127,7 @@ entry:
   %bf.load.i = load i32, ptr %m_glue.i, align 4
   %1 = and i32 %bf.load.i, 4177920
   %. = select i1 %cmp, i32 147456, i32 49152
-  %cmp3 = icmp ult i32 %1, %.
+  %cmp3 = icmp samesign ult i32 %1, %.
   ret i1 %cmp3
 }
 
@@ -2344,7 +2344,7 @@ land.end10:                                       ; preds = %_ZN6vectorIN3sat7li
   %17 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i = trunc i8 %17 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %4
+  %cmp = icmp samesign uge i64 %indvars.iv.next, %4
   %.not = select i1 %tobool.i, i1 true, i1 %cmp
   br i1 %.not, label %for.end.loopexit.split.loop.exit, label %for.body, !llvm.loop !22
 

@@ -3194,7 +3194,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i64 %13, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ult i64 %15, %19
+  %20 = icmp samesign ult i64 %15, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -5658,7 +5658,7 @@ define void @_ZN5faiss16ZnSphereCodecAltC2Eii(ptr noundef nonnull align 8 derefe
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 112

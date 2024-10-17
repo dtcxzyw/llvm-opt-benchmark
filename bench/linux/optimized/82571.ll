@@ -1570,7 +1570,7 @@ define internal i32 @e1000_init_hw_82571(ptr noundef %0) #0 align 16 {
   %111 = add nuw nsw i64 %108, 1
   %112 = load i16, ptr %105, align 2
   %113 = zext i16 %112 to i64
-  %114 = icmp ult i64 %111, %113
+  %114 = icmp samesign ult i64 %111, %113
   br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %102

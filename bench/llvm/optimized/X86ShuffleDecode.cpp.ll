@@ -1950,7 +1950,7 @@ define dso_local void @_ZN4llvm16DecodeEXTRQIMaskEjjiiRNS_15SmallVectorImplIiEE(
   %14 = icmp eq i32 %7, 0
   %spec.store.select = select i1 %14, i32 64, i32 %7
   %15 = add nuw nsw i32 %spec.store.select, %8
-  %16 = icmp ugt i32 %15, 64
+  %16 = icmp samesign ugt i32 %15, 64
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %13
@@ -2105,7 +2105,7 @@ define dso_local void @_ZN4llvm18DecodeINSERTQIMaskEjjiiRNS_15SmallVectorImplIiE
   %14 = icmp eq i32 %7, 0
   %spec.store.select = select i1 %14, i32 64, i32 %7
   %15 = add nuw nsw i32 %spec.store.select, %8
-  %16 = icmp ugt i32 %15, 64
+  %16 = icmp samesign ugt i32 %15, 64
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %13

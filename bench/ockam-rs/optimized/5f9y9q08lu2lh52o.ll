@@ -2737,7 +2737,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..chan..Rx
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.noexc1
-  %switch.not4.i.i = icmp ult i8 %11, 2
+  %switch.not4.i.i = icmp samesign ult i8 %11, 2
   br i1 %switch.not4.i.i, label %.lr.ph.i.i, label %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h97ce31fc296f0fc1E.llvm.12663281897316000666.exit"
 
 .lr.ph.i.i:                                       ; preds = %.noexc2, %.noexc4
@@ -2749,7 +2749,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..chan..Rx
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %.noexc3
-  %switch.not.i.i = icmp ult i8 %12, 2
+  %switch.not.i.i = icmp samesign ult i8 %12, 2
   br i1 %switch.not.i.i, label %.lr.ph.i.i, label %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h97ce31fc296f0fc1E.llvm.12663281897316000666.exit"
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc3
@@ -3067,7 +3067,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$tokio..sync..mpsc..chan..Ch
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %3
-  %switch.not.i.i = icmp ult i8 %4, 2
+  %switch.not.i.i = icmp samesign ult i8 %4, 2
   br i1 %switch.not.i.i, label %3, label %5
 
 5:                                                ; preds = %.noexc
@@ -11072,7 +11072,7 @@ define hidden void @"_ZN4core3ptr252drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
@@ -11224,7 +11224,7 @@ define hidden void @"_ZN4core3ptr257drop_in_place$LT$std..collections..hash..map
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i.i = icmp ult i64 %2, 2
+  %.not.i.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit" [
@@ -11784,7 +11784,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$tokio..loom..std..parking_l
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
@@ -11932,7 +11932,7 @@ define hidden void @"_ZN4core3ptr268drop_in_place$LT$core..cell..UnsafeCell$LT$t
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i.i = icmp ult i64 %2, 2
+  %.not.i.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit" [
@@ -12651,7 +12651,7 @@ define hidden void @"_ZN4core3ptr283drop_in_place$LT$alloc..sync..Weak$LT$std..s
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i = icmp ult i64 %2, 2
+  %.not.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit" [
@@ -12792,7 +12792,7 @@ define hidden void @"_ZN4core3ptr292drop_in_place$LT$tokio..time..timeout..Timeo
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i = icmp ult i64 %2, 2
+  %.not.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit" [
@@ -13045,7 +13045,7 @@ define internal fastcc void @"_ZN4core3ptr296drop_in_place$LT$$LT$alloc..collect
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i = icmp ult i64 %2, 2
+  %.not.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit" [
@@ -13108,7 +13108,7 @@ define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_ce
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
@@ -13171,7 +13171,7 @@ define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i.i = icmp ult i64 %2, 2
+  %.not.i.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit" [
@@ -13302,7 +13302,7 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i = icmp ult i64 %2, 2
+  %.not.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit" [
@@ -13477,7 +13477,7 @@ define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
@@ -13586,7 +13586,7 @@ define hidden void @"_ZN4core3ptr315drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i.i = icmp ult i64 %2, 2
+  %.not.i.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit" [
@@ -13855,7 +13855,7 @@ define hidden void @"_ZN4core3ptr328drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
@@ -13928,7 +13928,7 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i = icmp ult i64 %2, 2
+  %.not.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit" [
@@ -14057,7 +14057,7 @@ define hidden void @"_ZN4core3ptr334drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
@@ -14196,7 +14196,7 @@ define hidden void @"_ZN4core3ptr339drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
@@ -14269,7 +14269,7 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i = icmp ult i64 %2, 2
+  %.not.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit" [
@@ -14452,7 +14452,7 @@ define hidden void @"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
@@ -14525,7 +14525,7 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i = icmp ult i64 %2, 2
+  %.not.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit" [
@@ -14646,7 +14646,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2b83af8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5016)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5019)
   %2 = load i8, ptr %0, align 8, !range !104, !alias.scope !5022, !noundef !4
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h36d3b92de89c8e1dE.llvm.12663281897316000666.exit", label %3
 
 3:                                                ; preds = %1
@@ -14737,7 +14737,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2b83af8
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1199, !noundef !4
-  %.not.i.i = icmp ult i64 %2, 2
+  %.not.i.i = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not.i.i, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit" [
@@ -14934,7 +14934,7 @@ define hidden void @"_ZN4core3ptr377drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
@@ -15085,7 +15085,7 @@ define hidden void @"_ZN4core3ptr383drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
@@ -15236,7 +15236,7 @@ define hidden void @"_ZN4core3ptr388drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
@@ -15393,7 +15393,7 @@ define hidden void @"_ZN4core3ptr394drop_in_place$LT$tokio..runtime..task..core.
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1199, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %10, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
   switch i64 %12, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
@@ -15585,7 +15585,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc3
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h74fbe2ecf22a7056E.llvm.12663281897316000666"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !1543, !noundef !4
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17hc4b80b50d294df21E.llvm.12663281897316000666.exit", label %3
 
 3:                                                ; preds = %1
@@ -15630,7 +15630,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8d
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hd8c13111aabb2497E.llvm.12663281897316000666"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5339)
   %2 = load i8, ptr %0, align 8, !range !1543, !alias.scope !5339, !noundef !4
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h74fbe2ecf22a7056E.llvm.12663281897316000666.exit", label %3
 
 3:                                                ; preds = %1
@@ -15658,7 +15658,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5355)
   %3 = load i8, ptr %2, align 8, !range !1543, !alias.scope !5358, !noundef !4
-  %switch.i.i = icmp ult i8 %3, 10
+  %switch.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hd8c13111aabb2497E.llvm.12663281897316000666.exit", label %4
 
 4:                                                ; preds = %1
@@ -15991,7 +15991,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h36d3b92de89c8e1dE.llvm.12663281897316000666"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5479)
   %2 = load i8, ptr %0, align 8, !range !104, !alias.scope !5479, !noundef !4
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h50454e05890358c0E.llvm.12663281897316000666.exit", label %3
 
 3:                                                ; preds = %1
@@ -16071,7 +16071,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..header..name..Custom$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h50454e05890358c0E.llvm.12663281897316000666"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !104, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %16, label %3
 
 3:                                                ; preds = %1
@@ -20826,7 +20826,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !7809
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %34 = icmp ugt i64 %.0.i7.i.i, %32
+  %34 = icmp samesign ugt i64 %.0.i7.i.i, %32
   br i1 %34, label %.noexc5.i.i, label %.critedge.i8.i.i
 
 .critedge.i8.i.i:                                 ; preds = %.noexc11.i.i
@@ -30058,13 +30058,13 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
   %9 = getelementptr inbounds i8, ptr %2, i64 416
   %10 = getelementptr inbounds i8, ptr %2, i64 128
   %11 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 %10), !range !63, !noalias !10826
-  %switch.not4.i = icmp ult i8 %11, 2
+  %switch.not4.i = icmp samesign ult i8 %11, 2
   br i1 %switch.not4.i, label %.lr.ph.i, label %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h49965f9fe72e81c2E.llvm.12663281897316000666.exit"
 
 .lr.ph.i:                                         ; preds = %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17h0fd38135896a5c20E.exit", %.lr.ph.i
   tail call void @"_ZN92_$LT$tokio..sync..mpsc..bounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$10add_permit17hbfcb0b3085cd0482E"(ptr noundef nonnull align 8 %7), !noalias !10826
   %12 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 %10), !range !63, !noalias !10826
-  %switch.not.i = icmp ult i8 %12, 2
+  %switch.not.i = icmp samesign ult i8 %12, 2
   br i1 %switch.not.i, label %.lr.ph.i, label %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h49965f9fe72e81c2E.llvm.12663281897316000666.exit"
 
 "_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h49965f9fe72e81c2E.llvm.12663281897316000666.exit": ; preds = %.lr.ph.i, %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17h0fd38135896a5c20E.exit"
@@ -30076,7 +30076,7 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 128
   %5 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %4), !range !63
-  %switch.not4 = icmp ult i8 %5, 2
+  %switch.not4 = icmp samesign ult i8 %5, 2
   br i1 %switch.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -30089,7 +30089,7 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
 7:                                                ; preds = %.lr.ph, %7
   tail call void @"_ZN92_$LT$tokio..sync..mpsc..bounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$10add_permit17hbfcb0b3085cd0482E"(ptr noundef nonnull align 8 %6)
   %8 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %4), !range !63
-  %switch.not = icmp ult i8 %8, 2
+  %switch.not = icmp samesign ult i8 %8, 2
   br i1 %switch.not, label %7, label %._crit_edge
 }
 
@@ -30411,7 +30411,7 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
 
 3:                                                ; preds = %3, %1
   %4 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 %0), !range !63
-  %switch.not.i = icmp ult i8 %4, 2
+  %switch.not.i = icmp samesign ult i8 %4, 2
   br i1 %switch.not.i, label %3, label %5
 
 5:                                                ; preds = %3
@@ -30452,7 +30452,7 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
 
 3:                                                ; preds = %3, %2
   %4 = tail call noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb6267667c2dc3d3cE"(ptr noalias noundef align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %0), !range !63
-  %switch.not = icmp ult i8 %4, 2
+  %switch.not = icmp samesign ult i8 %4, 2
   br i1 %switch.not, label %3, label %5
 
 5:                                                ; preds = %3

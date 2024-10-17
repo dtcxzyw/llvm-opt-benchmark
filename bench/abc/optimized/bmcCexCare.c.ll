@@ -2048,7 +2048,7 @@ Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %
   br i1 %85, label %.sink.split, label %317
 
 317:                                              ; preds = %316
-  %318 = icmp ult i64 %indvars.iv, 4
+  %318 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %318, label %switch.lookup, label %321
 
 switch.lookup:                                    ; preds = %317

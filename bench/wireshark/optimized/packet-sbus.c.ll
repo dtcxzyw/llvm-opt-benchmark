@@ -1220,7 +1220,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %331 = zext i8 %327 to i32
   %332 = call fastcc i32 @add_media_access_to_tree(i32 noundef %331, ptr noundef %0, ptr noundef %323, i32 noundef %330)
   %333 = add nuw nsw i32 %.210781178, 1
-  %334 = icmp ult i32 %.210781178, 63
+  %334 = icmp samesign ult i32 %.210781178, 63
   %.not1116 = icmp slt i32 %332, %317
   %or.cond1123 = select i1 %334, i1 %.not1116, i1 false
   br i1 %or.cond1123, label %.lr.ph1179, label %.loopexit1145, !llvm.loop !8

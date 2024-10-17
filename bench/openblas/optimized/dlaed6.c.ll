@@ -236,7 +236,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %191 = and i64 %190, 1
   %192 = icmp eq i64 %191, 0
   %193 = select i1 %192, double 1.000000e+00, double %188
-  %194 = icmp ult i32 %189, 2
+  %194 = icmp samesign ult i32 %189, 2
   br i1 %194, label %.loopexit16, label %.preheader
 
 .preheader:                                       ; preds = %185, %.preheader
@@ -249,7 +249,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %201 = icmp eq i64 %200, 0
   %202 = select i1 %201, double 1.000000e+00, double %199
   %203 = fmul double %195, %202
-  %204 = icmp ult i64 %196, 4
+  %204 = icmp samesign ult i64 %196, 4
   br i1 %204, label %.loopexit16, label %.preheader, !llvm.loop !9
 
 .loopexit16:                                      ; preds = %.preheader, %185, %173

@@ -12649,7 +12649,7 @@ lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread8.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
-  %cmp8.i.i.i.i.i.i = icmp ult i8 %frombool.i.i.i.i.i.i.i, %frombool.i.i2.i.i.i.i.i
+  %cmp8.i.i.i.i.i.i = icmp samesign ult i8 %frombool.i.i.i.i.i.i.i, %frombool.i.i2.i.i.i.i.i
   %cond.fr.i.i.i = freeze i1 %cmp8.i.i.i.i.i.i
   br i1 %cond.fr.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread8.i.i.i
 
@@ -13089,7 +13089,7 @@ lor.rhs.i.i.i.i.i.i71:                            ; preds = %while.body.i.i.i60
   br i1 %cmp4.i.i.i.i.i.i72, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread8.i.i.i76, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.i.i.i73
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.i.i.i73: ; preds = %lor.rhs.i.i.i.i.i.i71
-  %cmp8.i.i.i.i.i.i74 = icmp ult i8 %frombool.i.i.i.i.i.i.i66, %frombool.i.i2.i.i.i.i.i69
+  %cmp8.i.i.i.i.i.i74 = icmp samesign ult i8 %frombool.i.i.i.i.i.i.i66, %frombool.i.i2.i.i.i.i.i69
   %cond.fr.i.i.i75 = freeze i1 %cmp8.i.i.i.i.i.i74
   br i1 %cond.fr.i.i.i75, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread.i.i.i84, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP10llama_beamSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit.thread8.i.i.i76
 
@@ -22484,7 +22484,7 @@ for.inc:                                          ; preds = %if.end32.for.inc_cr
   %new_head.1 = phi i32 [ %new_head.045, %if.end32.for.inc_crit_edge ], [ %new_head.045, %_ZNK13llama_kv_cell10has_seq_idERKi.exit ], [ %new_head.045, %for.body ], [ %spec.select, %if.end45 ], [ %new_head.045, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i.i ], [ %new_head.045, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %18
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !182
 
 for.end:                                          ; preds = %for.inc
@@ -22615,7 +22615,7 @@ for.inc.i:                                        ; preds = %if.then.i.i.i, %if.
   %11 = phi i32 [ %.pre.i, %if.then.i.i.i ], [ %1, %if.end12.i.i.i.i ], [ %1, %for.body.i ], [ %1, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i.i.i ], [ %1, %_ZNK13llama_kv_cell10has_seq_idERKi.exit.i ], [ %1, %land.lhs.true.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = zext i32 %11 to i64
-  %cmp4.i = icmp ult i64 %indvars.iv.next.i, %12
+  %cmp4.i = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %cmp4.i, label %for.body.i, label %return, !llvm.loop !184
 
 return:                                           ; preds = %for.inc.i, %if.end, %entry
@@ -22800,7 +22800,7 @@ for.inc.i:                                        ; preds = %_ZNSt8_Rb_treeIiiSt
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %size.i, align 8
   %23 = zext i32 %22 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %23
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !185
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -22947,7 +22947,7 @@ for.inc.i:                                        ; preds = %_ZNSt3setIiSt4lessI
   %new_head.1.i = phi i32 [ %new_head.048.i, %if.then18.for.inc_crit_edge.i ], [ %new_head.048.i, %land.lhs.true.i ], [ %new_head.048.i, %_ZNK13llama_kv_cell10has_seq_idERKi.exit.i ], [ %spec.select.i, %_ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit.i ], [ %new_head.048.i, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i.i.i ], [ %new_head.048.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = zext i32 %20 to i64
-  %cmp5.i = icmp ult i64 %indvars.iv.next.i, %21
+  %cmp5.i = icmp samesign ult i64 %indvars.iv.next.i, %21
   br i1 %cmp5.i, label %for.body.i, label %_ZL24llama_kv_cache_seq_shiftR14llama_kv_cacheiiii.exit, !llvm.loop !186
 
 _ZL24llama_kv_cache_seq_shiftR14llama_kv_cacheiiii.exit: ; preds = %for.inc.i, %entry
@@ -23570,7 +23570,7 @@ for.inc199:                                       ; preds = %for.body191, %for.b
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %83 = load i32, ptr %kv_size, align 4
   %84 = zext i32 %83 to i64
-  %cmp175 = icmp ult i64 %indvars.iv.next188, %84
+  %cmp175 = icmp samesign ult i64 %indvars.iv.next188, %84
   br i1 %cmp175, label %for.body176, label %for.end201, !llvm.loop !190
 
 for.end201:                                       ; preds = %for.inc199, %if.end173
@@ -25423,7 +25423,7 @@ for.body173:                                      ; preds = %if.then168, %for.bo
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %89 = load i32, ptr %size.i, align 8
   %90 = zext i32 %89 to i64
-  %cmp172 = icmp ult i64 %indvars.iv.next476, %90
+  %cmp172 = icmp samesign ult i64 %indvars.iv.next476, %90
   br i1 %cmp172, label %for.body173, label %if.end179, !llvm.loop !205
 
 if.end179:                                        ; preds = %for.body173, %if.then168, %invoke.cont166
@@ -28261,7 +28261,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -36842,7 +36842,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit2063:                ; preds = %invoke.cont603, %if
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %168 = load i32, ptr %n_expert508, align 4
   %169 = zext i32 %168 to i64
-  %cmp525 = icmp ult i64 %indvars.iv.next88, %169
+  %cmp525 = icmp samesign ult i64 %indvars.iv.next88, %169
   br i1 %cmp525, label %for.body526, label %for.inc710, !llvm.loop !286
 
 lpad530:                                          ; preds = %for.body526
@@ -49585,7 +49585,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -49704,7 +49704,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i4, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -49832,7 +49832,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont7
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %invoke.cont7 ], [ %div.i10, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -76787,7 +76787,7 @@ if.end.split.i.i.i:                               ; preds = %while.body
   %__value.sroa.2.0.copyload12.i.i.i = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx11.i.i.i, align 4
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i14, -1
   %div.i.i.i.i1517 = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ult i64 %div17.i.i.i, %div.i.i.i.i1517
+  %cmp23.i.i.i.i = icmp samesign ult i64 %div17.i.i.i, %div.i.i.i.i1517
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.split.i.i.i, %while.body.i.i.i.i
@@ -76828,7 +76828,7 @@ if.end16.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub12.i.i.i.i, %if.then9.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload10.i.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i.i to i32
-  %cmp5.i.i.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i.i.i.i, %div17.i.i.i
+  %cmp5.i.i.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i.i.i.i, %div17.i.i.i
   br i1 %cmp5.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
 
 land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end16.i.i.i.i
@@ -76910,7 +76910,7 @@ if.end16.i25.i.i.i:                               ; preds = %if.then9.i50.i.i.i,
   %__holeIndex.addr.1.i26.i.i.i = phi i64 [ %sub12.i52.i.i.i, %if.then9.i50.i.i.i ], [ %__holeIndex.addr.0.lcssa.i22.i.i.i, %while.end.i21.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i.i = lshr i64 %__value.sroa.0.0.copyload14.i.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i.i to i32
-  %cmp5.i.i29.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i26.i.i.i, %dec.i.i.i
+  %cmp5.i.i29.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i26.i.i.i, %dec.i.i.i
   br i1 %cmp5.i.i29.i.i.i, label %land.rhs.lr.ph.i.i35.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i"
 
 land.rhs.lr.ph.i.i35.i.i.i:                       ; preds = %if.end16.i25.i.i.i
@@ -77389,7 +77389,7 @@ if.end16.i.i.i:                                   ; preds = %if.then9.i.i.i, %wh
   %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload10.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i.i.i to i32
-  %cmp5.i.i.i.i = icmp ugt i64 %__holeIndex.addr.1.i.i.i, %div17.i.i
+  %cmp5.i.i.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i.i.i, %div17.i.i
   br i1 %cmp5.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i"
 
 land.rhs.lr.ph.i.i.i.i:                           ; preds = %if.end16.i.i.i
@@ -77471,7 +77471,7 @@ if.end16.i25.i.i:                                 ; preds = %if.then9.i50.i.i, %
   %__holeIndex.addr.1.i26.i.i = phi i64 [ %sub12.i52.i.i, %if.then9.i50.i.i ], [ %__holeIndex.addr.0.lcssa.i22.i.i, %while.end.i21.i.i ]
   %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i = lshr i64 %__value.sroa.0.0.copyload14.i.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i27.i.i to i32
-  %cmp5.i.i29.i.i = icmp ugt i64 %__holeIndex.addr.1.i26.i.i, %dec.i.i
+  %cmp5.i.i29.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i26.i.i, %dec.i.i
   br i1 %cmp5.i.i29.i.i, label %land.rhs.lr.ph.i.i35.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i"
 
 land.rhs.lr.ph.i.i35.i.i:                         ; preds = %if.end16.i25.i.i

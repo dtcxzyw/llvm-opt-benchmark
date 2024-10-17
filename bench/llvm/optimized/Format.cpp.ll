@@ -7932,7 +7932,7 @@ _ZN5clang6formatL12affectsRangeEN4llvm8ArrayRefINS_7tooling5RangeEEEjj.exit: ; p
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %57
@@ -7966,7 +7966,7 @@ _ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not.i.i.i.i.i85, label %select.unfold.i.i.i.i.i87, label %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i.i.i86
 
 select.unfold.i.i.i.i.i87:                        ; preds = %.lr.ph.i.i.i.i.i81
-  %.not10.i.i.i.i.i88 = icmp ult i64 %storemerge26.i.i.in.in.i.i.i82, 3
+  %.not10.i.i.i.i.i88 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i82, 3
   br i1 %.not10.i.i.i.i.i88, label %.loopexit.i.i.i78, label %.lr.ph.i.i.i.i.i81, !llvm.loop !50
 
 .loopexit.i.i.i78:                                ; preds = %select.unfold.i.i.i.i.i87, %63
@@ -9208,11 +9208,11 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %276, %_Z
   %.sroa.2.0..sroa_idx.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %310, i64 8
   %.sroa.2.0.copyload.i11.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i.i.i.i.i.i.i, align 8
   %317 = load i32, ptr %316, align 4, !noalias !65
-  %318 = icmp ult i8 %305, %315
+  %318 = icmp samesign ult i8 %305, %315
   br i1 %318, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %319
 
 319:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %320 = icmp ult i8 %315, %305
+  %320 = icmp samesign ult i8 %315, %305
   br i1 %320, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", label %321
 
 321:                                              ; preds = %319
@@ -9280,11 +9280,11 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i20.i.i.i.i.i.i.i: ; preds = %_
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %341, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
   %348 = load i32, ptr %347, align 4, !noalias !71
-  %349 = icmp ult i8 %336, %346
+  %349 = icmp samesign ult i8 %336, %346
   br i1 %349, label %.lr.ph.i.i.i.i.i.i.i.i.backedge, label %350
 
 350:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %351 = icmp ult i8 %346, %336
+  %351 = icmp samesign ult i8 %346, %336
   br i1 %351, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", label %352
 
 352:                                              ; preds = %350
@@ -20170,11 +20170,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   %.sroa.2.0..sroa_idx.i69.i = getelementptr inbounds i8, ptr %47, i64 8
   %.sroa.2.0.copyload.i70.i = load i64, ptr %.sroa.2.0..sroa_idx.i69.i, align 8
   %54 = load i32, ptr %53, align 4, !noalias !364
-  %55 = icmp ult i8 %42, %52
+  %55 = icmp samesign ult i8 %42, %52
   br i1 %55, label %68, label %56
 
 56:                                               ; preds = %30
-  %57 = icmp ult i8 %52, %42
+  %57 = icmp samesign ult i8 %52, %42
   br i1 %57, label %_ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i78.i, label %58
 
 58:                                               ; preds = %56
@@ -20221,11 +20221,11 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i79.i: ; preds = %_ZN4llvm9Stri
   %.sroa.2.0..sroa_idx.i51.i = getelementptr inbounds i8, ptr %70, i64 8
   %.sroa.2.0.copyload.i52.i = load i64, ptr %.sroa.2.0..sroa_idx.i51.i, align 8
   %77 = load i32, ptr %76, align 4, !noalias !364
-  %78 = icmp ult i8 %52, %75
+  %78 = icmp samesign ult i8 %52, %75
   br i1 %78, label %91, label %79
 
 79:                                               ; preds = %68
-  %80 = icmp ult i8 %75, %52
+  %80 = icmp samesign ult i8 %75, %52
   br i1 %80, label %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit63.i", label %81
 
 81:                                               ; preds = %79
@@ -20265,11 +20265,11 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i61.i: ; preds = %_ZN4llvm9Stri
   br label %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_SP_SP_T0_.exit.i.preheader"
 
 "_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit63.i": ; preds = %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i61.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i62.i, %88, %83, %79
-  %93 = icmp ult i8 %42, %75
+  %93 = icmp samesign ult i8 %42, %75
   br i1 %93, label %106, label %94
 
 94:                                               ; preds = %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit63.i"
-  %95 = icmp ult i8 %75, %42
+  %95 = icmp samesign ult i8 %75, %42
   br i1 %95, label %_ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i42.i, label %96
 
 96:                                               ; preds = %94
@@ -20328,11 +20328,11 @@ _ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i78.i: ; preds = %_ZN4llvmltENS_9Str
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %110, i64 8
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8
   %117 = load i32, ptr %116, align 4, !noalias !364
-  %118 = icmp ult i8 %42, %115
+  %118 = icmp samesign ult i8 %42, %115
   br i1 %118, label %131, label %119
 
 119:                                              ; preds = %_ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i78.i
-  %120 = icmp ult i8 %115, %42
+  %120 = icmp samesign ult i8 %115, %42
   br i1 %120, label %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit27.i", label %121
 
 121:                                              ; preds = %119
@@ -20372,11 +20372,11 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i25.i: ; preds = %_ZN4llvm9Stri
   br label %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_SP_SP_T0_.exit.i.preheader"
 
 "_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit27.i": ; preds = %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i25.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i26.i, %128, %123, %119
-  %133 = icmp ult i8 %52, %115
+  %133 = icmp samesign ult i8 %52, %115
   br i1 %133, label %146, label %134
 
 134:                                              ; preds = %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit27.i"
-  %135 = icmp ult i8 %115, %52
+  %135 = icmp samesign ult i8 %115, %52
   br i1 %135, label %_ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i.i, label %136
 
 136:                                              ; preds = %134
@@ -20460,11 +20460,11 @@ _ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i.i:  ; preds = %_ZN4llvmltENS_9Stri
   %.sroa.211.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %162, i64 8
   %.sroa.211.0.copyload.i.i.i = load i64, ptr %.sroa.211.0..sroa_idx.i.i.i, align 8
   %169 = load i32, ptr %168, align 4, !noalias !365
-  %170 = icmp ult i8 %167, %157
+  %170 = icmp samesign ult i8 %167, %157
   br i1 %170, label %183, label %171
 
 171:                                              ; preds = %160
-  %172 = icmp ult i8 %157, %167
+  %172 = icmp samesign ult i8 %157, %167
   br i1 %172, label %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit.i.i.preheader", label %173
 
 "_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit.i.i.preheader": ; preds = %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i, %180, %175, %171
@@ -20520,11 +20520,11 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9Stri
   %.sroa.2.0..sroa_idx.i21.i.i = getelementptr inbounds i8, ptr %186, i64 8
   %.sroa.2.0.copyload.i22.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i21.i.i, align 8
   %193 = load i32, ptr %192, align 4, !noalias !369
-  %194 = icmp ult i8 %157, %191
+  %194 = icmp samesign ult i8 %157, %191
   br i1 %194, label %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit.i.i.backedge", label %195
 
 195:                                              ; preds = %"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj.exit.i.i"
-  %196 = icmp ult i8 %191, %157
+  %196 = icmp samesign ult i8 %191, %157
   br i1 %196, label %_ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i30.i.i, label %197
 
 197:                                              ; preds = %195
@@ -20673,11 +20673,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_c
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %53 = load i32, ptr %52, align 4, !noalias !379
-  %54 = icmp ult i8 %42, %51
+  %54 = icmp samesign ult i8 %42, %51
   br i1 %54, label %67, label %55
 
 55:                                               ; preds = %.lr.ph.i
-  %56 = icmp ult i8 %51, %42
+  %56 = icmp samesign ult i8 %51, %42
   br i1 %56, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_RT2_.exit", label %57
 
 57:                                               ; preds = %55
@@ -20757,11 +20757,11 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6formatL15sortJavaImportsE
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %28 = load i32, ptr %27, align 4, !noalias !386
-  %29 = icmp ult i8 %14, %26
+  %29 = icmp samesign ult i8 %14, %26
   br i1 %29, label %_ZStltIJijN4llvm9StringRefEEJijS1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit, label %30
 
 30:                                               ; preds = %3
-  %31 = icmp ult i8 %26, %14
+  %31 = icmp samesign ult i8 %26, %14
   br i1 %31, label %_ZStltIJijN4llvm9StringRefEEJijS1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit, label %32
 
 32:                                               ; preds = %30
@@ -20876,11 +20876,11 @@ define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_
   %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %27, i64 8
   %.sroa.2.0.copyload.i22 = load i64, ptr %.sroa.2.0..sroa_idx.i21, align 8
   %34 = load i32, ptr %33, align 4, !noalias !392
-  %35 = icmp ult i8 %22, %32
+  %35 = icmp samesign ult i8 %22, %32
   br i1 %35, label %.lr.ph.i.preheader, label %36
 
 36:                                               ; preds = %14
-  %37 = icmp ult i8 %32, %22
+  %37 = icmp samesign ult i8 %32, %22
   br i1 %37, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_.exit", label %38
 
 38:                                               ; preds = %36
@@ -20949,14 +20949,14 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i31: ; preds = %_ZN4llvm9String
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %59, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %66 = load i32, ptr %65, align 4, !noalias !398
-  %67 = icmp ult i8 %54, %64
+  %67 = icmp samesign ult i8 %54, %64
   br i1 %67, label %.lr.ph.i.backedge, label %68
 
 .lr.ph.i.backedge:                                ; preds = %.lr.ph.i, %70, %77, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i
   br label %.lr.ph.i, !llvm.loop !74
 
 68:                                               ; preds = %.lr.ph.i
-  %69 = icmp ult i8 %64, %54
+  %69 = icmp samesign ult i8 %64, %54
   br i1 %69, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_.exit", label %70
 
 70:                                               ; preds = %68

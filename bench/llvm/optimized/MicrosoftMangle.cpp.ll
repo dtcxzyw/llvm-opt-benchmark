@@ -720,7 +720,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %.preheader.i
   %53 = getelementptr inbounds i8, ptr %.117.us.i.i, i64 -1
   store i8 %52, ptr %53, align 1, !noalias !6
   %54 = lshr i64 %.019.us.i.i, 4
-  %.not15.us.i.i = icmp ult i64 %.019.us.i.i, 16
+  %.not15.us.i.i = icmp samesign ult i64 %.019.us.i.i, 16
   br i1 %.not15.us.i.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !9
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.us.i.i, %.thread.i
@@ -997,7 +997,7 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %37, %45
   %56 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %55, ptr %56, align 1, !noalias !11
   %57 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -1099,7 +1099,7 @@ _ZN12_GLOBAL__N_126MicrosoftMangleContextImpl23getLambdaIdForDebugInfoEPKN5clang
   %98 = getelementptr inbounds i8, ptr %.111.i23, i64 -1
   store i8 %97, ptr %98, align 1, !noalias !16
   %99 = udiv i64 %.0810.i24, 10
-  %.not.i25 = icmp ult i64 %.0810.i24, 10
+  %.not.i25 = icmp samesign ult i64 %.0810.i24, 10
   br i1 %.not.i25, label %_ZN4llvm6utostrB5cxx11Emb.exit28, label %.lr.ph.i22, !llvm.loop !14
 
 _ZN4llvm6utostrB5cxx11Emb.exit28:                 ; preds = %.lr.ph.i22, %.thread.i27
@@ -1967,7 +1967,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
   %65 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %64, ptr %65, align 1, !noalias !22
   %66 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -3985,7 +3985,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
   %65 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %64, ptr %65, align 1, !noalias !32
   %66 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -11274,7 +11274,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %116, %114, %97, %93
   %121 = add nuw nsw i64 %.0.i31, 1
   %122 = load i32, ptr %2, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %121, %123
+  %124 = icmp samesign ult i64 %121, %123
   br i1 %124, label %91, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleTemplateArgsEPKN5clang12TemplateDeclERKNS1_20TemplateArgumentListE.exit, !llvm.loop !53
 
 _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleTemplateArgsEPKN5clang12TemplateDeclERKNS1_20TemplateArgumentListE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -14129,7 +14129,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %98, %108
   %123 = lshr i64 %122, 32
   %124 = trunc nuw i64 %123 to i32
   %125 = and i32 %124, 2147483647
-  %126 = icmp ult i32 %125, 65
+  %126 = icmp samesign ult i32 %125, 65
   br i1 %126, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %118
@@ -17087,7 +17087,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %29
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %52 = load i64, ptr %51, align 8, !noalias !95
   store i32 %50, ptr %16, align 8, !alias.scope !95
-  %53 = icmp ult i32 %50, 65
+  %53 = icmp samesign ult i32 %50, 65
   br i1 %53, label %54, label %62
 
 54:                                               ; preds = %48
@@ -27984,7 +27984,7 @@ _ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit.i:       ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = and i8 %15, 1
-  %17 = icmp ult i8 %8, %16
+  %17 = icmp samesign ult i8 %8, %16
   br i1 %17, label %_ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit.thread.i, label %_ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit.thread.i.thread
 
 _ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit.i, %.backedge
@@ -28036,7 +28036,7 @@ _ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit5.i:      ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, 1
-  %36 = icmp ult i8 %32, %35
+  %36 = icmp samesign ult i8 %32, %35
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit5.i, %._crit_edge.i.thread
@@ -28062,7 +28062,7 @@ _ZNKSt4lessISt4pairIibEEclERKS1_S4_.exit5.i:      ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 36
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, 1
-  %53 = icmp ult i8 %49, %52
+  %53 = icmp samesign ult i8 %49, %52
   br label %_ZNSt8_Rb_treeISt4pairIibES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit
 
 _ZNSt8_Rb_treeISt4pairIibES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit: ; preds = %37, %39, %44, %46

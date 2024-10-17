@@ -15783,7 +15783,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiE6resize
   %48 = sub i64 %46, %47
   %49 = lshr exact i64 %48, 2
   %50 = and i64 %49, 4294967295
-  %51 = icmp ult i64 %indvars.iv.next, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiE6resizeEm.exit
@@ -15827,7 +15827,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %79 = sub i64 %77, %78
   %80 = lshr exact i64 %79, 2
   %81 = and i64 %80, 4294967295
-  %82 = icmp ult i64 %indvars.iv.next21, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next21, %81
   br i1 %82, label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %._crit_edge17, !llvm.loop !145
 
 ._crit_edge17:                                    ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %._crit_edge

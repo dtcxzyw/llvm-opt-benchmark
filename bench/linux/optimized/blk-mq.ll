@@ -8300,7 +8300,7 @@ define dso_local noundef zeroext i8 @blk_insert_cloned_request(ptr noundef %0) #
   %35 = getelementptr inbounds i8, ptr %0, i64 122
   store i16 %34, ptr %35, align 2
   %36 = and i32 %33, 65535
-  %37 = icmp ugt i32 %36, %23
+  %37 = icmp samesign ugt i32 %36, %23
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %32
@@ -9730,7 +9730,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   store ptr %7, ptr %32, align 16
   %33 = add nuw nsw i64 %21, 1
   %34 = and i64 %33, 127
-  %35 = icmp ult i64 %34, 64
+  %35 = icmp samesign ult i64 %34, 64
   br i1 %35, label %15, label %.thread, !prof !213, !llvm.loop !214
 
 .thread:                                          ; preds = %15, %24, %20
@@ -9879,7 +9879,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
 .loopexit11.split.us.us:                          ; preds = %138, %114
   %118 = add nuw nsw i64 %95, 1
   %119 = and i64 %118, 127
-  %120 = icmp ult i64 %119, 64
+  %120 = icmp samesign ult i64 %119, 64
   br i1 %120, label %.split.us, label %.thread9, !prof !213, !llvm.loop !216
 
 .preheader10.us:                                  ; preds = %114, %138
@@ -9909,7 +9909,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %139 = add nuw nsw i64 %121, 1
   %140 = load i32, ptr %87, align 8
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %139, %141
+  %142 = icmp samesign ult i64 %139, %141
   br i1 %142, label %.preheader10.us, label %.loopexit11.split.us.us, !llvm.loop !217
 
 .split:                                           ; preds = %69, %.loopexit11.split
@@ -9970,13 +9970,13 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %181 = add nuw nsw i64 %172, 1
   %182 = load i32, ptr %87, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %181, %183
+  %184 = icmp samesign ult i64 %181, %183
   br i1 %184, label %.preheader10, label %.loopexit11.split, !llvm.loop !217
 
 .loopexit11.split:                                ; preds = %.preheader10, %168
   %185 = add nuw nsw i64 %149, 1
   %186 = and i64 %185, 127
-  %187 = icmp ult i64 %186, 64
+  %187 = icmp samesign ult i64 %186, 64
   br i1 %187, label %.split, label %.thread9, !prof !213, !llvm.loop !216
 
 .thread9:                                         ; preds = %148, %.loopexit11.split, %.split, %.split.us, %94, %.loopexit11.split.us.us
@@ -10148,7 +10148,7 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
   %51 = add nuw nsw i64 %13, 1
   %52 = load i32, ptr %5, align 4
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %12, label %.loopexit9, !llvm.loop !222
 
 .loopexit9:                                       ; preds = %50, %.thread..loopexit9.loopexit_crit_edge, %2
@@ -10670,7 +10670,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   %132 = add nuw nsw i64 %48, 1
   %133 = load i32, ptr %9, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %132, %134
+  %135 = icmp samesign ult i64 %132, %134
   br i1 %135, label %47, label %42, !llvm.loop !231
 
 136:                                              ; preds = %136, %.thread13
@@ -11123,7 +11123,7 @@ define internal fastcc void @blk_mq_update_queue_map(ptr noundef %0) unnamed_add
   store i32 0, ptr %38, align 4
   %39 = add nuw nsw i64 %32, 1
   %40 = and i64 %39, 127
-  %41 = icmp ult i64 %40, 64
+  %41 = icmp samesign ult i64 %40, 64
   br i1 %41, label %25, label %.thread, !prof !213, !llvm.loop !240
 
 .thread:                                          ; preds = %25, %35, %31
@@ -11404,7 +11404,7 @@ define dso_local void @blk_mq_free_tag_set(ptr noundef %0) #0 align 16 {
   %26 = add nuw nsw i64 %9, 1
   %27 = load i32, ptr %2, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %8, label %.loopexit3, !llvm.loop !247
 
 .loopexit3:                                       ; preds = %23, %1
@@ -12059,7 +12059,7 @@ blk_freeze_queue.exit:                            ; preds = %31, %36, %37
   %187 = add nuw nsw i64 %170, 1
   %188 = load i32, ptr %6, align 4
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %187, %189
+  %190 = icmp samesign ult i64 %187, %189
   br i1 %190, label %.preheader37, label %.loopexit38, !llvm.loop !255
 
 .loopexit38:                                      ; preds = %184, %166
@@ -12628,7 +12628,7 @@ define internal noundef i32 @blk_mq_init() #12 section ".init.text" align 16 {
   store ptr null, ptr %16, align 8
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ult i64 %18, 64
+  %19 = icmp samesign ult i64 %18, 64
   br i1 %19, label %1, label %.preheader.preheader, !prof !213, !llvm.loop !262
 
 .preheader.preheader:                             ; preds = %1, %11, %7
@@ -12661,7 +12661,7 @@ define internal noundef i32 @blk_mq_init() #12 section ".init.text" align 16 {
   store ptr null, ptr %36, align 8
   %37 = add nuw nsw i64 %26, 1
   %38 = and i64 %37, 127
-  %39 = icmp ult i64 %38, 64
+  %39 = icmp samesign ult i64 %38, 64
   br i1 %39, label %.preheader, label %.thread, !prof !213, !llvm.loop !263
 
 .thread:                                          ; preds = %.preheader, %29, %25

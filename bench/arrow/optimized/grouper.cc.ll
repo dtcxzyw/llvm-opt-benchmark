@@ -5190,7 +5190,7 @@ for.body38:                                       ; preds = %for.cond36.preheade
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %32 = load i32, ptr %num_groups.addr, align 4
   %33 = zext i32 %32 to i64
-  %cmp37 = icmp ult i64 %indvars.iv.next206, %33
+  %cmp37 = icmp samesign ult i64 %indvars.iv.next206, %33
   br i1 %cmp37, label %for.body38, label %for.end46.loopexit, !llvm.loop !114
 
 for.end46.loopexit:                               ; preds = %for.body38

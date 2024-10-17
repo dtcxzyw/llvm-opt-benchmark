@@ -938,7 +938,7 @@ switch.lookup:                                    ; preds = %.sink.split, %57, %
   %88 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %87, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #6
   %89 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 28) #6
   %90 = and i8 %89, 63
-  %91 = icmp ult i8 %90, 32
+  %91 = icmp samesign ult i8 %90, 32
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %86
@@ -1516,7 +1516,7 @@ define internal i32 @dissect_1722_crf(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = add nuw nsw i32 %.047, 1
   %35 = load i32, ptr %5, align 4
   %36 = lshr i32 %35, 3
-  %37 = icmp ult i32 %34, %36
+  %37 = icmp samesign ult i32 %34, %36
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %29

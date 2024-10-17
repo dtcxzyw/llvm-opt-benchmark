@@ -401,7 +401,7 @@ VP8SetError.exit123:                              ; preds = %7
   %30 = lshr i32 %20, 5
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %30, ptr %31, align 4
-  %32 = icmp ugt i8 %25, 3
+  %32 = icmp samesign ugt i8 %25, 3
   br i1 %32, label %VP8SetError.exit124, label %33
 
 VP8SetError.exit124:                              ; preds = %13
@@ -998,7 +998,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %52 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv.i
   store i16 %50, ptr %52, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %53 = icmp ult i64 %indvars.iv.i, 240
+  %53 = icmp samesign ult i64 %indvars.iv.i, 240
   br i1 %53, label %51, label %.loopexit.i, !llvm.loop !11
 
 54:                                               ; preds = %.critedge

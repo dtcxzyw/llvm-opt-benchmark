@@ -27,7 +27,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %11 = lshr i16 %10, 2
   %12 = and i16 %11, 60
   %13 = zext nneg i16 %12 to i32
-  %14 = icmp ult i16 %12, 20
+  %14 = icmp samesign ult i16 %12, 20
   br i1 %14, label %380, label %15
 
 15:                                               ; preds = %2
@@ -627,7 +627,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %33 = lshr i16 %32, 2
   %34 = and i16 %33, 60
   %35 = zext nneg i16 %34 to i32
-  %36 = icmp ult i16 %34, 20
+  %36 = icmp samesign ult i16 %34, 20
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %30
@@ -742,7 +742,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %117 = xor i32 %116, %114
   %118 = or i32 %117, %112
   %119 = add nuw nsw i64 %111, 4
-  %120 = icmp ult i64 %119, %109
+  %120 = icmp samesign ult i64 %119, %109
   br i1 %120, label %110, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %110, %89

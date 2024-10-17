@@ -3417,7 +3417,7 @@ define dso_local void @_ZNK13ArrayVariable20build_init_recursiveEmRKSt6vectorINS
   %63 = phi ptr [ %.pre, %._crit_edge24 ], [ %54, %53 ]
   %64 = add nuw nsw i64 %.022, 1
   %65 = zext i32 %62 to i64
-  %66 = icmp ult i64 %64, %65
+  %66 = icmp samesign ult i64 %64, %65
   br i1 %66, label %15, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %61, %7

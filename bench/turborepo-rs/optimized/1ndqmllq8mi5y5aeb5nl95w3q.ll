@@ -84,7 +84,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   ]
 
 48:                                               ; preds = %42
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %49, label %50, label %_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher11next_rejectCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit
 
 50:                                               ; preds = %48
@@ -216,7 +216,7 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
   ]
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %115 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %115, label %116, label %136
 
 116:                                              ; preds = %114
@@ -389,7 +389,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9982233b8b9c1d9E.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -546,7 +546,7 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h84a02c9ad5f10fd6E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -708,7 +708,7 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -887,7 +887,7 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -1047,7 +1047,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53

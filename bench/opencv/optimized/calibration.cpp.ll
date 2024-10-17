@@ -7778,7 +7778,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit150.i:            ; preds = %1009
 1096:                                             ; preds = %1095
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %80) #20
-  %1097 = icmp ult i64 %indvars.iv.next200.i, %sext202.i
+  %1097 = icmp samesign ult i64 %indvars.iv.next200.i, %sext202.i
   br i1 %1097, label %1072, label %._crit_edge197.i, !llvm.loop !45
 
 .loopexit.i77:                                    ; preds = %1072

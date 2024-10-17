@@ -267,7 +267,7 @@ for.body11.us:                                    ; preds = %for.body5.us, %for.
 
 for.cond8.for.inc20_crit_edge.us:                 ; preds = %for.body11.us
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %cmp4.not.us.not = icmp ult i64 %indvars.iv234, %2
+  %cmp4.not.us.not = icmp samesign ult i64 %indvars.iv234, %2
   br i1 %cmp4.not.us.not, label %for.body5.us, label %for.cond23.preheader.loopexit142, !llvm.loop !12
 
 for.cond23.preheader.loopexit142:                 ; preds = %for.cond8.for.inc20_crit_edge.us
@@ -306,7 +306,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   %15 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv29, double %conv38, double %14)
   store double %15, ptr %arrayidx40, align 8
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %cmp32 = icmp ult i64 %indvars.iv.next238, %12
+  %cmp32 = icmp samesign ult i64 %indvars.iv.next238, %12
   br i1 %cmp32, label %for.body34, label %for.inc44, !llvm.loop !13
 
 for.inc44:                                        ; preds = %for.body34
@@ -541,7 +541,7 @@ for.cond:                                         ; preds = %for.end46, %entry
   %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv57, i32 1)
   %1 = load i32, ptr %max_order, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv61, %2
+  %cmp = icmp samesign ult i64 %indvars.iv61, %2
   br i1 %cmp, label %for.body, label %for.end56
 
 for.body:                                         ; preds = %for.cond
@@ -599,7 +599,7 @@ for.body13:                                       ; preds = %for.body13.preheade
   %14 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %div, double %9, double %13)
   store double %14, ptr %arrayidx19, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %cmp12 = icmp ult i64 %indvars.iv.next52, %8
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next52, %8
   br i1 %cmp12, label %for.body13, label %for.end28, !llvm.loop !28
 
 for.end28:                                        ; preds = %for.body13

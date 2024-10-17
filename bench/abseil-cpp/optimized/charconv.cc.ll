@@ -134,7 +134,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %shr.i.i.i.i.i = lshr i128 %coerce.sroa.0.0.insert.ext.i51.i.i.i, %sh_prom.i23.i.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %shr.i.i.i.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i.i to i128
-  %cmp.i.i.i.i.i = icmp ult i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then21.i.i.i, label %if.end27.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end5.i.i.i
@@ -301,7 +301,7 @@ if.end5.i.i87.i:                                  ; preds = %if.end.i.i85.i
   %shr.i.i.i.i95.i = lshr i128 %coerce.sroa.0.0.insert.ext.i51.i.i93.i, %sh_prom.i23.i.i88.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i96.i = trunc nuw i128 %shr.i.i.i.i95.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i97.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i94.i to i128
-  %cmp.i.i.i.i98.i = icmp ult i128 %shl.i43.i.i92.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i97.i
+  %cmp.i.i.i.i98.i = icmp samesign ult i128 %shl.i43.i.i92.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i97.i
   br i1 %cmp.i.i.i.i98.i, label %if.then21.i.i117.i, label %if.end27.i.i99.i
 
 if.then21.i.i117.i:                               ; preds = %if.end5.i.i87.i
@@ -688,7 +688,7 @@ if.end5.i.i203.i:                                 ; preds = %if.end.i53.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i = trunc i128 %shr.i.i.i55.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i211.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i210.i to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i54.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i211.i
-  %cmp.i.i.i.i212.i = icmp ult i128 %shl.i43.i.i208.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
+  %cmp.i.i.i.i212.i = icmp samesign ult i128 %shl.i43.i.i208.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %cmp.i.i.i.i212.i, label %if.then21.i.i225.i, label %if.end27.i.i213.i
 
 if.then21.i.i225.i:                               ; preds = %if.end5.i.i203.i
@@ -891,7 +891,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %shr.i.i.i.i.i = lshr i128 %coerce.sroa.0.0.insert.ext.i51.i.i.i, %sh_prom.i23.i.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %shr.i.i.i.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i.i to i128
-  %cmp.i.i.i.i.i = icmp ult i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i128 %shl.i43.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then21.i.i.i, label %if.end27.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end5.i.i.i
@@ -1058,7 +1058,7 @@ if.end5.i.i88.i:                                  ; preds = %if.end.i.i86.i
   %shr.i.i.i.i96.i = lshr i128 %coerce.sroa.0.0.insert.ext.i51.i.i94.i, %sh_prom.i23.i.i89.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i97.i = trunc nuw i128 %shr.i.i.i.i96.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i98.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i95.i to i128
-  %cmp.i.i.i.i99.i = icmp ult i128 %shl.i43.i.i93.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i98.i
+  %cmp.i.i.i.i99.i = icmp samesign ult i128 %shl.i43.i.i93.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i98.i
   br i1 %cmp.i.i.i.i99.i, label %if.then21.i.i118.i, label %if.end27.i.i100.i
 
 if.then21.i.i118.i:                               ; preds = %if.end5.i.i88.i
@@ -1448,7 +1448,7 @@ if.end5.i.i206.i:                                 ; preds = %if.end.i53.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i = trunc i128 %shr.i.i.i55.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i214.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i213.i to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i54.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i214.i
-  %cmp.i.i.i.i215.i = icmp ult i128 %shl.i43.i.i211.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
+  %cmp.i.i.i.i215.i = icmp samesign ult i128 %shl.i43.i.i211.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %cmp.i.i.i.i215.i, label %if.then21.i.i228.i, label %if.end27.i.i216.i
 
 if.then21.i.i228.i:                               ; preds = %if.end5.i.i206.i

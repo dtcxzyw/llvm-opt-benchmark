@@ -3974,7 +3974,7 @@ if.end.i:                                         ; preds = %.noexc26, %.noexc25
   %inc = add nuw nsw i64 %j.0321, 1
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 20), align 4
   %conv20 = zext i32 %38 to i64
-  %cmp21 = icmp ult i64 %inc, %conv20
+  %cmp21 = icmp samesign ult i64 %inc, %conv20
   br i1 %cmp21, label %for.body22, label %for.inc26.loopexit, !llvm.loop !21
 
 lpad:                                             ; preds = %_ZNSt10unique_ptrISt7promiseIvESt14default_deleteIS1_EED2Ev.exit19
@@ -4016,7 +4016,7 @@ for.inc26:                                        ; preds = %for.inc26.loopexit,
   %42 = phi i32 [ %38, %for.inc26.loopexit ], [ 0, %for.cond19.preheader ]
   %inc27 = add nuw nsw i64 %i.0324, 1
   %conv18 = zext i32 %41 to i64
-  %cmp = icmp ult i64 %inc27, %conv18
+  %cmp = icmp samesign ult i64 %inc27, %conv18
   br i1 %cmp, label %for.cond19.preheader, label %for.end28, !llvm.loop !23
 
 for.end28:                                        ; preds = %for.inc26, %invoke.cont9
@@ -4186,7 +4186,7 @@ if.end.i52:                                       ; preds = %if.else.i60, %_ZNSt
   %inc52 = add nuw nsw i64 %i43.0331, 1
   %68 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 16), align 8
   %conv45 = zext i32 %68 to i64
-  %cmp46 = icmp ult i64 %inc52, %conv45
+  %cmp46 = icmp samesign ult i64 %inc52, %conv45
   br i1 %cmp46, label %for.body47, label %for.end53, !llvm.loop !37
 
 for.end53:                                        ; preds = %if.end.i52, %for.cond44.preheader
@@ -7059,7 +7059,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %__beg.sroa.0.2.us = phi ptr [ %__beg.sroa.0.0.us, %while.cond.us ], [ %spec.select.us, %land.lhs.true2.i.i.i.i.us ]
   %__ret.0.i.i.i.i.us = phi i32 [ %__beg.sroa.11.0.us, %while.cond.us ], [ %call4.i.i.i.i.us, %land.lhs.true2.i.i.i.i.us ]
   %cmp.i.i.i.i.i.us = icmp eq i32 %__ret.0.i.i.i.i.us, -1
-  %cmp.us = icmp ult i64 %__len.0.us, 15
+  %cmp.us = icmp samesign ult i64 %__len.0.us, 15
   %or.cond.us = select i1 %cmp.i.i.i.i.i.us, i1 %cmp.us, i1 false
   br i1 %or.cond.us, label %while.body.us, label %while.cond5.preheader
 
@@ -7117,7 +7117,7 @@ _ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %__ret.0.i.i5.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %1, %land.lhs.true2.i.i7.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %__ret.0.i.i.i.i, -1
   %call2.not = xor i1 %cmp.i.i.i.i.i, %__ret.0.i.i5.i.i
-  %cmp = icmp ult i64 %__len.0, 15
+  %cmp = icmp samesign ult i64 %__len.0, 15
   %or.cond = select i1 %call2.not, i1 %cmp, i1 false
   br i1 %or.cond, label %while.body, label %while.cond5.preheader
 
@@ -14922,7 +14922,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then2:                                         ; preds = %for.body
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i64
-  %cmp7.not = icmp ugt i64 %div27, %conv
+  %cmp7.not = icmp samesign ugt i64 %div27, %conv
   br i1 %cmp7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
@@ -26498,7 +26498,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then2:                                         ; preds = %for.body
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i64
-  %cmp7.not = icmp ugt i64 %div27, %conv
+  %cmp7.not = icmp samesign ugt i64 %div27, %conv
   br i1 %cmp7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2

@@ -782,29 +782,29 @@ Amap_LibFindGate.exit68:                          ; preds = %77, %80, %Amap_LibF
   store ptr %84, ptr %85, align 8
   %.val70 = load i32, ptr %5, align 4
   %86 = icmp sgt i32 %.val70, 0
-  br i1 %86, label %.lr.ph73, label %.critedge
+  br i1 %86, label %.lr.ph72, label %.critedge
 
-.lr.ph73:                                         ; preds = %Amap_LibFindGate.exit68, %.critedge2
+.lr.ph72:                                         ; preds = %Amap_LibFindGate.exit68, %.critedge2
   %87 = phi ptr [ %148, %.critedge2 ], [ %4, %Amap_LibFindGate.exit68 ]
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.critedge2 ], [ 0, %Amap_LibFindGate.exit68 ]
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.critedge2 ], [ 0, %Amap_LibFindGate.exit68 ]
   %88 = getelementptr i8, ptr %87, i64 8
   %.val41 = load ptr, ptr %88, align 8
-  %89 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv76
+  %89 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv75
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.critedge2, label %94
 
-94:                                               ; preds = %.lr.ph73
+94:                                               ; preds = %.lr.ph72
   %95 = getelementptr inbounds i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %96, null
   br i1 %.not, label %.preheader, label %.critedge2
 
 .preheader:                                       ; preds = %94
-  %.not74 = icmp eq i64 %indvars.iv76, 0
-  br i1 %.not74, label %.critedge39, label %.lr.ph
+  %.not73 = icmp eq i64 %indvars.iv75, 0
+  br i1 %.not73, label %.critedge39, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %97 = getelementptr inbounds i8, ptr %90, i64 56
@@ -847,7 +847,7 @@ Amap_LibFindGate.exit68:                          ; preds = %77, %80, %Amap_LibF
 
 120:                                              ; preds = %113, %107, %98, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv76
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv75
   br i1 %exitcond.not, label %.critedge39, label %98, !llvm.loop !10
 
 .critedge39:                                      ; preds = %120, %.preheader
@@ -915,14 +915,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre = load ptr, ptr %3, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %113, %.lr.ph73, %94, %Vec_PtrPush.exit
-  %148 = phi ptr [ %87, %.lr.ph73 ], [ %87, %94 ], [ %.pre, %Vec_PtrPush.exit ], [ %87, %113 ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+.critedge2:                                       ; preds = %113, %.lr.ph72, %94, %Vec_PtrPush.exit
+  %148 = phi ptr [ %87, %.lr.ph72 ], [ %87, %94 ], [ %.pre, %Vec_PtrPush.exit ], [ %87, %113 ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %149 = getelementptr i8, ptr %148, i64 4
   %.val = load i32, ptr %149, align 4
   %150 = sext i32 %.val to i64
-  %151 = icmp slt i64 %indvars.iv.next77, %150
-  br i1 %151, label %.lr.ph73, label %.critedge, !llvm.loop !11
+  %151 = icmp slt i64 %indvars.iv.next76, %150
+  br i1 %151, label %.lr.ph72, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.critedge2, %Amap_LibFindGate.exit68
   ret ptr %82

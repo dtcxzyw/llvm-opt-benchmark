@@ -4124,7 +4124,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %16
-  %7 = icmp ult i64 %.03544, 9
+  %7 = icmp samesign ult i64 %.03544, 9
   br i1 %7, label %._crit_edge.thread, label %10, !prof !1128
 
 .lr.ph:                                           ; preds = %2, %16
@@ -5253,7 +5253,7 @@ define internal fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Ser
   br i1 %9, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %18
-  %10 = icmp ult i64 %.03544.i, 9
+  %10 = icmp samesign ult i64 %.03544.i, 9
   br i1 %10, label %._crit_edge.thread.i, label %13, !prof !1128
 
 .lr.ph.i:                                         ; preds = %8, %18
@@ -5335,7 +5335,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %6, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %15
-  %7 = icmp ult i64 %.03544.i, 9
+  %7 = icmp samesign ult i64 %.03544.i, 9
   br i1 %7, label %._crit_edge.thread.i, label %10, !prof !1128
 
 .lr.ph.i:                                         ; preds = %3, %15
@@ -5433,7 +5433,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %10, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %19
-  %11 = icmp ult i64 %.03544.i, 9
+  %11 = icmp samesign ult i64 %.03544.i, 9
   br i1 %11, label %._crit_edge.thread.i, label %14, !prof !1128
 
 .lr.ph.i:                                         ; preds = %6, %19
@@ -5478,7 +5478,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %22, ptr %21, align 1, !noalias !1607
   %23 = lshr i64 %.03245.i, 7
   %24 = add nuw nsw i64 %.03544.i, 1
-  %25 = icmp ugt i64 %.03245.i, 16383
+  %25 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %25, label %.lr.ph.i, label %._crit_edge.i
 
 26:                                               ; preds = %.lr.ph.i
@@ -5502,7 +5502,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -5547,7 +5547,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   store i8 %23, ptr %22, align 1, !noalias !1620
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -5582,7 +5582,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -5627,7 +5627,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   store i8 %23, ptr %22, align 1, !noalias !1638
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -5654,7 +5654,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -5699,7 +5699,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %23, ptr %22, align 1, !noalias !1651
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -5739,7 +5739,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %15, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %24
-  %16 = icmp ult i64 %.03544.i, 9
+  %16 = icmp samesign ult i64 %.03544.i, 9
   br i1 %16, label %._crit_edge.thread.i, label %19, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %24
@@ -5784,7 +5784,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %27, ptr %26, align 1, !noalias !1678
   %28 = lshr i64 %.03245.i, 7
   %29 = add nuw nsw i64 %.03544.i, 1
-  %30 = icmp ugt i64 %.03245.i, 16383
+  %30 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
 31:                                               ; preds = %.lr.ph.i
@@ -5876,7 +5876,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -5921,7 +5921,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %23, ptr %22, align 1, !noalias !1735
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -5945,7 +5945,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -5990,7 +5990,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %23, ptr %22, align 1, !noalias !1748
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -6022,7 +6022,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %11, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %20
-  %12 = icmp ult i64 %.03544.i, 9
+  %12 = icmp samesign ult i64 %.03544.i, 9
   br i1 %12, label %._crit_edge.thread.i, label %15, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %20
@@ -6067,7 +6067,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %23, ptr %22, align 1, !noalias !1761
   %24 = lshr i64 %.03245.i, 7
   %25 = add nuw nsw i64 %.03544.i, 1
-  %26 = icmp ugt i64 %.03245.i, 16383
+  %26 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph.i
@@ -6100,7 +6100,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %12, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.i:                                    ; preds = %21
-  %13 = icmp ult i64 %.03544.i, 9
+  %13 = icmp samesign ult i64 %.03544.i, 9
   br i1 %13, label %._crit_edge.thread.i, label %16, !prof !1128
 
 .lr.ph.i:                                         ; preds = %7, %21
@@ -6145,7 +6145,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   store i8 %24, ptr %23, align 1, !noalias !1774
   %25 = lshr i64 %.03245.i, 7
   %26 = add nuw nsw i64 %.03544.i, 1
-  %27 = icmp ugt i64 %.03245.i, 16383
+  %27 = icmp samesign ugt i64 %.03245.i, 16383
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
 28:                                               ; preds = %.lr.ph.i

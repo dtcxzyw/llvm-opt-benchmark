@@ -311,7 +311,7 @@ define hidden void @_ZN2cv5kinfu14HashTSDFVolumeC2EfNS_4MatxIfLi4ELi4EEEffifib(p
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   store float %.sroa.speculated, ptr %28, align 8
   %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
-  %.not = icmp ult i32 %29, 2
+  %.not = icmp samesign ult i32 %29, 2
   br i1 %.not, label %38, label %30
 
 30:                                               ; preds = %9
@@ -418,7 +418,7 @@ define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2EfRKNS_4MatxIfLi4ELi4EEEffi
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   store float %.sroa.speculated.i, ptr %28, align 8
   %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
-  %.not.i = icmp ult i32 %29, 2
+  %.not.i = icmp samesign ult i32 %29, 2
   br i1 %.not.i, label %38, label %30
 
 30:                                               ; preds = %9

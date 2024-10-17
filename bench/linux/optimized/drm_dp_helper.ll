@@ -794,7 +794,7 @@ define dso_local void @drm_dp_link_train_clock_recovery_delay(ptr nocapture noun
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 127
   %9 = zext nneg i8 %8 to i32
-  %10 = icmp ugt i8 %8, 4
+  %10 = icmp samesign ugt i8 %8, 4
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %5
@@ -865,7 +865,7 @@ define dso_local void @drm_dp_link_train_channel_eq_delay(ptr nocapture noundef 
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i32
-  %7 = icmp ugt i8 %5, 4
+  %7 = icmp samesign ugt i8 %5, 4
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
@@ -923,7 +923,7 @@ define dso_local void @drm_dp_lttpr_link_train_channel_eq_delay(ptr nocapture no
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 127
   %5 = zext nneg i8 %4 to i32
-  %6 = icmp ugt i8 %4, 4
+  %6 = icmp samesign ugt i8 %4, 4
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
@@ -3502,7 +3502,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_lttpr_phy_caps(ptr n
 
 22:                                               ; preds = %21, %19
   %23 = add nuw nsw i64 %12, %10
-  %24 = icmp ult i64 %23, 3
+  %24 = icmp samesign ult i64 %23, 3
   br i1 %24, label %11, label %25, !llvm.loop !43
 
 25:                                               ; preds = %22, %11
@@ -3712,7 +3712,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_set_phy_test_pattern(ptr 
   %20 = add nuw nsw i32 %24, 1
   %21 = load i8, ptr %10, align 4
   %22 = zext i8 %21 to i32
-  %23 = icmp ult i32 %20, %22
+  %23 = icmp samesign ult i32 %20, %22
   br i1 %23, label %.preheader, label %.loopexit3, !llvm.loop !46
 
 .preheader:                                       ; preds = %9, %19
@@ -4274,7 +4274,7 @@ define dso_local void @drm_dp_pcon_hdmi_frl_link_error_count(ptr noundef %0, ptr
   %30 = add nuw nsw i32 %10, 1
   %31 = load i8, ptr %4, align 2
   %32 = zext i8 %31 to i32
-  %33 = icmp ult i32 %30, %32
+  %33 = icmp samesign ult i32 %30, %32
   br i1 %33, label %9, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %27, %9, %2
@@ -5056,7 +5056,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_edp_backlight_init(ptr nound
   br i1 %124, label %127, label %125
 
 125:                                              ; preds = %121
-  %126 = icmp ult i8 %111, %109
+  %126 = icmp samesign ult i8 %111, %109
   br i1 %126, label %158, label %.preheader
 
 127:                                              ; preds = %121, %107

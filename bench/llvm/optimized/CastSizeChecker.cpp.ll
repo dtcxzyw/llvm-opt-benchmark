@@ -963,7 +963,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.i.i: ; preds =
   %143 = load i64, ptr %142, align 8, !noalias !15
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %141, ptr %144, align 8, !alias.scope !15
-  %145 = icmp ult i32 %141, 65
+  %145 = icmp samesign ult i32 %141, 65
   br i1 %145, label %146, label %154
 
 146:                                              ; preds = %139

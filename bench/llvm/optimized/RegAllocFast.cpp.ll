@@ -2897,7 +2897,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.ex
   %704 = getelementptr inbounds nuw i8, ptr %702, i64 22
   %705 = load i16, ptr %704, align 2
   %706 = zext i16 %705 to i32
-  %.not.i.i.i18.i.i = icmp ult i32 %703, %706
+  %.not.i.i.i18.i.i = icmp samesign ult i32 %703, %706
   br i1 %.not.i.i.i18.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i: ; preds = %701
@@ -3125,11 +3125,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
 
 819:                                              ; preds = %816, %813, %809
   %820 = phi i32 [ 1, %809 ], [ 0, %813 ], [ %818, %816 ]
-  %821 = icmp ugt i32 %810, %820
+  %821 = icmp samesign ugt i32 %810, %820
   br i1 %821, label %.lr.ph.i.i.i.i.i.i.i.i.i.backedge, label %822
 
 822:                                              ; preds = %819
-  %823 = icmp uge i32 %810, %820
+  %823 = icmp samesign uge i32 %810, %820
   %824 = icmp ult i32 %736, %.0.val.i.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i = and i1 %824, %823
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.backedge, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i.i"
@@ -8963,11 +8963,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i26.i.i
 
 113:                                              ; preds = %110, %107, %103
   %114 = phi i32 [ 1, %103 ], [ 0, %107 ], [ %112, %110 ]
-  %115 = icmp ugt i32 %104, %114
+  %115 = icmp samesign ugt i32 %104, %114
   br i1 %115, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread.i.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.i.i.i"
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.i.i.i": ; preds = %113
-  %116 = icmp uge i32 %104, %114
+  %116 = icmp samesign uge i32 %104, %114
   %117 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
   %spec.select.i32.i.i.i = and i1 %117, %116
   %cond.fr.i.i.i = freeze i1 %spec.select.i32.i.i.i
@@ -9132,11 +9132,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
 
 205:                                              ; preds = %202, %199, %195
   %206 = phi i32 [ 1, %195 ], [ 0, %199 ], [ %204, %202 ]
-  %207 = icmp ugt i32 %196, %206
+  %207 = icmp samesign ugt i32 %196, %206
   br i1 %207, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.i"
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.i": ; preds = %205
-  %208 = icmp uge i32 %196, %206
+  %208 = icmp samesign uge i32 %196, %206
   %209 = icmp ult i32 %.val.i.i.i.i.i, %30
   %spec.select.i14.i.i.i = and i1 %209, %208
   br i1 %spec.select.i14.i.i.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i.i", label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
@@ -9301,11 +9301,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i26: ; 
 
 306:                                              ; preds = %303, %300, %296
   %307 = phi i32 [ 1, %296 ], [ 0, %300 ], [ %305, %303 ]
-  %308 = icmp ugt i32 %297, %307
+  %308 = icmp samesign ugt i32 %297, %307
   br i1 %308, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35"
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35": ; preds = %306
-  %309 = icmp uge i32 %297, %307
+  %309 = icmp samesign uge i32 %297, %307
   %310 = icmp ult i32 %.val.i.i13, %.val29.i.i14
   %spec.select.i32 = and i1 %310, %309
   %cond.fr = freeze i1 %spec.select.i32
@@ -9480,11 +9480,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i: ; pr
 
 407:                                              ; preds = %404, %401, %397
   %408 = phi i32 [ 1, %397 ], [ 0, %401 ], [ %406, %404 ]
-  %409 = icmp ugt i32 %398, %408
+  %409 = icmp samesign ugt i32 %398, %408
   br i1 %409, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit"
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit": ; preds = %407
-  %410 = icmp uge i32 %398, %408
+  %410 = icmp samesign uge i32 %398, %408
   %411 = icmp ult i32 %.val.i.i.i, %217
   %spec.select.i = and i1 %411, %410
   br i1 %spec.select.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread", label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit"
@@ -9720,11 +9720,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i: 
 
 528:                                              ; preds = %525, %522, %518
   %529 = phi i32 [ 1, %518 ], [ 0, %522 ], [ %527, %525 ]
-  %530 = icmp ugt i32 %519, %529
+  %530 = icmp samesign ugt i32 %519, %529
   br i1 %530, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i", label %531
 
 531:                                              ; preds = %528
-  %532 = icmp uge i32 %519, %529
+  %532 = icmp samesign uge i32 %519, %529
   %533 = icmp ult i32 %.1.val.i.i, %.val15.i.i
   %spec.select.i.i.i = and i1 %533, %532
   br i1 %spec.select.i.i.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.preheader"
@@ -9860,11 +9860,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i27.i.i
 
 611:                                              ; preds = %608, %605, %601
   %612 = phi i32 [ 1, %601 ], [ 0, %605 ], [ %610, %608 ]
-  %613 = icmp ugt i32 %602, %612
+  %613 = icmp samesign ugt i32 %602, %612
   br i1 %613, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.backedge", label %614
 
 614:                                              ; preds = %611
-  %615 = icmp uge i32 %602, %612
+  %615 = icmp samesign uge i32 %602, %612
   %616 = icmp ult i32 %.val.i10.i, %.114.val.i.i
   %spec.select.i33.i.i = and i1 %616, %615
   br i1 %spec.select.i33.i.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.backedge", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit36.thread.i.i"
@@ -10028,11 +10028,11 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41: ; pred
 
 89:                                               ; preds = %83, %86, %79
   %90 = phi i32 [ 1, %79 ], [ 0, %83 ], [ %88, %86 ]
-  %91 = icmp ugt i32 %80, %90
+  %91 = icmp samesign ugt i32 %80, %90
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89
-  %93 = icmp uge i32 %80, %90
+  %93 = icmp samesign uge i32 %80, %90
   %94 = icmp ult i32 %1, %2
   %spec.select = and i1 %94, %93
   br label %95
@@ -10228,14 +10228,14 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i: ; pr
 
 99:                                               ; preds = %96, %93, %89
   %100 = phi i32 [ 1, %89 ], [ 0, %93 ], [ %98, %96 ]
-  %101 = icmp ugt i32 %90, %100
+  %101 = icmp samesign ugt i32 %90, %100
   br i1 %101, label %.lr.ph.i.backedge, label %102
 
 .lr.ph.i.backedge:                                ; preds = %99, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i, %102
   br label %.lr.ph.i, !llvm.loop !56
 
 102:                                              ; preds = %99
-  %103 = icmp uge i32 %90, %100
+  %103 = icmp samesign uge i32 %90, %100
   %104 = icmp ult i32 %16, %.0.val.i
   %spec.select.i = and i1 %104, %103
   br i1 %spec.select.i, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_.exit"
@@ -10310,7 +10310,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 22
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
-  %.not.i.i = icmp ult i32 %46, %49
+  %.not.i.i = icmp samesign ult i32 %46, %49
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %44
@@ -10588,7 +10588,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71: ; preds =
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 22
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i32
-  %.not.i.i73 = icmp ult i32 %192, %195
+  %.not.i.i73 = icmp samesign ult i32 %192, %195
   br i1 %.not.i.i73, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %190

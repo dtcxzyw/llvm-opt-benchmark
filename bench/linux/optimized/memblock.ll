@@ -245,7 +245,7 @@ define dso_local void @memblock_free_late(i64 noundef %0, i64 noundef %1) local_
   %15 = add i64 %12, %1
   %16 = lshr i64 %15, 12
   store i64 %16, ptr %4, align 8
-  %17 = icmp ult i64 %14, %16
+  %17 = icmp samesign ult i64 %14, %16
   br i1 %17, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %11, %.preheader
@@ -621,7 +621,7 @@ define dso_local void @__next_mem_pfn_range(ptr nocapture noundef %0, i32 nounde
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %17
   %23 = lshr i64 %22, 12
-  %24 = icmp ult i64 %19, %23
+  %24 = icmp samesign ult i64 %19, %23
   %25 = icmp eq i32 %16, %1
   %26 = select i1 %12, i1 true, i1 %25
   %27 = select i1 %24, i1 %26, i1 false
@@ -639,7 +639,7 @@ define dso_local void @__next_mem_pfn_range(ptr nocapture noundef %0, i32 nounde
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %33
   %39 = lshr i64 %38, 12
-  %40 = icmp ult i64 %35, %39
+  %40 = icmp samesign ult i64 %35, %39
   %41 = icmp eq i32 %32, %1
   %42 = select i1 %12, i1 true, i1 %41
   %43 = select i1 %40, i1 %42, i1 false
@@ -2950,7 +2950,7 @@ define internal fastcc i64 @free_low_memory_core_early() unnamed_addr #4 section
   %12 = lshr i64 %9, 12
   %13 = load i64, ptr @max_low_pfn, align 8
   %14 = call i64 @llvm.umin.i64(i64 %12, i64 %13)
-  %15 = icmp ult i64 %11, %14
+  %15 = icmp samesign ult i64 %11, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.preheader
@@ -3502,7 +3502,7 @@ declare dso_local i32 @early_pfn_to_nid(i64 noundef) local_unnamed_addr #6 secti
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @__free_pages_memory(i64 noundef range(i64 0, 4503599627370495) %0, i64 noundef range(i64 1, 4503599627370496) %1) unnamed_addr #4 section ".init.text" align 16 {
-  %3 = icmp ult i64 %0, %1
+  %3 = icmp samesign ult i64 %0, %1
   br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %17

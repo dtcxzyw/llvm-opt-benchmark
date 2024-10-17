@@ -35,7 +35,7 @@ define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, 
   %.not = icmp eq i32 %3, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 124
   %6 = load float, ptr %5, align 4
-  br i1 %.not, label %7, label %49
+  br i1 %.not, label %7, label %48
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 32
@@ -44,12 +44,12 @@ define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, 
   %11 = load float, ptr %10, align 8
   %12 = fsub float %11, %6
   %13 = fcmp olt float %9, %12
-  br i1 %13, label %120, label %14
+  br i1 %13, label %118, label %14
 
 14:                                               ; preds = %7
   %15 = fadd float %11, %6
   %16 = fcmp ogt float %9, %15
-  br i1 %16, label %120, label %17
+  br i1 %16, label %118, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %1, i64 36
@@ -58,12 +58,12 @@ define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, 
   %21 = load float, ptr %20, align 4
   %22 = fsub float %21, %6
   %23 = fcmp olt float %19, %22
-  br i1 %23, label %120, label %24
+  br i1 %23, label %118, label %24
 
 24:                                               ; preds = %17
   %25 = fadd float %6, %21
   %26 = fcmp ogt float %19, %25
-  br i1 %26, label %120, label %27
+  br i1 %26, label %118, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 16
@@ -78,124 +78,124 @@ define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, 
   %37 = load i32, ptr %36, align 4
   %38 = lshr i32 %37, 8
   %39 = and i32 %38, 15
-  %40 = icmp ugt i32 %33, %39
-  br i1 %40, label %120, label %41
+  %40 = icmp samesign ugt i32 %33, %39
+  br i1 %40, label %118, label %41
 
 41:                                               ; preds = %27
-  %42 = icmp ult i32 %33, %39
-  br i1 %42, label %120, label %43
+  %42 = icmp samesign ult i32 %33, %39
+  br i1 %42, label %118, label %43
 
 43:                                               ; preds = %41
   %44 = lshr i32 %31, 2
   %45 = and i32 %44, 7
   %46 = lshr i32 %37, 2
   %47 = and i32 %46, 7
-  %48 = icmp ugt i32 %45, %47
-  br label %120
+  %spec.select = icmp samesign ugt i32 %45, %47
+  br label %118
 
-49:                                               ; preds = %4
-  %50 = getelementptr inbounds i8, ptr %1, i64 36
-  %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %2, i64 36
-  %53 = load float, ptr %52, align 4
-  %54 = fsub float %53, %6
-  %55 = fcmp olt float %51, %54
-  br i1 %55, label %120, label %56
+48:                                               ; preds = %4
+  %49 = getelementptr inbounds i8, ptr %1, i64 36
+  %50 = load float, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %2, i64 36
+  %52 = load float, ptr %51, align 4
+  %53 = fsub float %52, %6
+  %54 = fcmp olt float %50, %53
+  br i1 %54, label %118, label %55
 
-56:                                               ; preds = %49
-  %57 = fadd float %53, %6
-  %58 = fcmp ogt float %51, %57
-  br i1 %58, label %120, label %59
+55:                                               ; preds = %48
+  %56 = fadd float %52, %6
+  %57 = fcmp ogt float %50, %56
+  br i1 %57, label %118, label %58
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 160
-  %61 = load i32, ptr %60, align 8
-  %.not69 = icmp eq i32 %61, 0
-  br i1 %.not69, label %87, label %62
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = load i32, ptr %59, align 8
+  %.not69 = icmp eq i32 %60, 0
+  br i1 %.not69, label %86, label %61
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %.not70 = icmp eq ptr %64, null
-  br i1 %.not70, label %87, label %65
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %.not70 = icmp eq ptr %63, null
+  br i1 %.not70, label %86, label %64
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 64
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @Mio_GateReadProfile(ptr noundef %67) #10
-  %69 = getelementptr inbounds i8, ptr %2, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 64
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call i32 @Mio_GateReadProfile(ptr noundef %72) #10
-  %74 = load ptr, ptr %63, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 @Mio_GateReadProfile2(ptr noundef %76) #10
-  %78 = load ptr, ptr %69, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call i32 @Mio_GateReadProfile2(ptr noundef %80) #10
-  %82 = icmp slt i32 %77, %68
-  %83 = icmp sgt i32 %81, %73
-  %or.cond = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond, label %120, label %84
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %63, i64 64
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 @Mio_GateReadProfile(ptr noundef %66) #10
+  %68 = getelementptr inbounds i8, ptr %2, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call i32 @Mio_GateReadProfile(ptr noundef %71) #10
+  %73 = load ptr, ptr %62, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 64
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call i32 @Mio_GateReadProfile2(ptr noundef %75) #10
+  %77 = load ptr, ptr %68, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 64
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 @Mio_GateReadProfile2(ptr noundef %79) #10
+  %81 = icmp slt i32 %76, %67
+  %82 = icmp sgt i32 %80, %72
+  %or.cond = select i1 %81, i1 %82, i1 false
+  br i1 %or.cond, label %118, label %83
 
-84:                                               ; preds = %65
-  %85 = icmp slt i32 %81, %73
-  %86 = icmp sgt i32 %77, %68
-  %or.cond71 = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond71, label %120, label %._crit_edge
+83:                                               ; preds = %64
+  %84 = icmp slt i32 %80, %72
+  %85 = icmp sgt i32 %76, %67
+  %or.cond71 = select i1 %84, i1 %85, i1 false
+  br i1 %or.cond71, label %118, label %._crit_edge
 
-._crit_edge:                                      ; preds = %84
+._crit_edge:                                      ; preds = %83
   %.pre = load float, ptr %5, align 4
-  br label %87
+  br label %86
 
-87:                                               ; preds = %._crit_edge, %62, %59
-  %88 = phi float [ %.pre, %._crit_edge ], [ %6, %62 ], [ %6, %59 ]
-  %89 = getelementptr inbounds i8, ptr %1, i64 32
-  %90 = load float, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %2, i64 32
-  %92 = load float, ptr %91, align 8
-  %93 = fsub float %92, %88
-  %94 = fcmp olt float %90, %93
-  br i1 %94, label %120, label %95
+86:                                               ; preds = %._crit_edge, %61, %58
+  %87 = phi float [ %.pre, %._crit_edge ], [ %6, %61 ], [ %6, %58 ]
+  %88 = getelementptr inbounds i8, ptr %1, i64 32
+  %89 = load float, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 32
+  %91 = load float, ptr %90, align 8
+  %92 = fsub float %91, %87
+  %93 = fcmp olt float %89, %92
+  br i1 %93, label %118, label %94
 
-95:                                               ; preds = %87
-  %96 = fadd float %92, %88
-  %97 = fcmp ogt float %90, %96
-  br i1 %97, label %120, label %98
+94:                                               ; preds = %86
+  %95 = fadd float %91, %87
+  %96 = fcmp ogt float %89, %95
+  br i1 %96, label %118, label %97
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %1, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = lshr i32 %102, 8
-  %104 = and i32 %103, 15
-  %105 = getelementptr inbounds i8, ptr %2, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
-  %108 = load i32, ptr %107, align 4
-  %109 = lshr i32 %108, 8
-  %110 = and i32 %109, 15
-  %111 = icmp ugt i32 %104, %110
-  br i1 %111, label %120, label %112
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %1, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %101 = load i32, ptr %100, align 4
+  %102 = lshr i32 %101, 8
+  %103 = and i32 %102, 15
+  %104 = getelementptr inbounds i8, ptr %2, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = lshr i32 %107, 8
+  %109 = and i32 %108, 15
+  %110 = icmp samesign ugt i32 %103, %109
+  br i1 %110, label %118, label %111
 
-112:                                              ; preds = %98
-  %113 = icmp ult i32 %104, %110
-  br i1 %113, label %120, label %114
+111:                                              ; preds = %97
+  %112 = icmp samesign ult i32 %103, %109
+  br i1 %112, label %118, label %113
 
-114:                                              ; preds = %112
-  %115 = lshr i32 %102, 2
-  %116 = and i32 %115, 7
-  %117 = lshr i32 %108, 2
-  %118 = and i32 %117, 7
-  %119 = icmp ugt i32 %116, %118
-  br label %120
+113:                                              ; preds = %111
+  %114 = lshr i32 %101, 2
+  %115 = and i32 %114, 7
+  %116 = lshr i32 %107, 2
+  %117 = and i32 %116, 7
+  %spec.select73 = icmp samesign ugt i32 %115, %117
+  br label %118
 
-120:                                              ; preds = %114, %43, %112, %98, %95, %87, %84, %65, %56, %49, %41, %27, %24, %17, %14, %7
-  %.0.shrunk = phi i1 [ false, %7 ], [ true, %14 ], [ false, %17 ], [ true, %24 ], [ false, %27 ], [ true, %41 ], [ false, %49 ], [ true, %56 ], [ false, %65 ], [ true, %84 ], [ false, %87 ], [ true, %95 ], [ false, %98 ], [ true, %112 ], [ %48, %43 ], [ %119, %114 ]
+118:                                              ; preds = %113, %43, %111, %97, %94, %86, %83, %64, %55, %48, %41, %27, %24, %17, %14, %7
+  %.0.shrunk = phi i1 [ false, %7 ], [ true, %14 ], [ false, %17 ], [ true, %24 ], [ false, %27 ], [ true, %41 ], [ false, %48 ], [ true, %55 ], [ false, %64 ], [ true, %83 ], [ false, %86 ], [ true, %94 ], [ false, %97 ], [ true, %111 ], [ %spec.select, %43 ], [ %spec.select73, %113 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -236,7 +236,7 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
 17:                                               ; preds = %.lr.ph128, %._crit_edge
   %.sroa.7.sroa.0.0 = phi i64 [ %9, %.lr.ph128 ], [ %.sroa.7.sroa.0.4, %._crit_edge ]
   %.075126 = phi ptr [ %.075119, %.lr.ph128 ], [ %.075, %._crit_edge ]
-  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %157, %._crit_edge ]
+  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %155, %._crit_edge ]
   %.076124 = phi float [ %4, %.lr.ph128 ], [ %.1.lcssa, %._crit_edge ]
   %.sroa.3.0123 = phi ptr [ %.sroa.3.0.copyload, %.lr.ph128 ], [ %.sroa.3.1.lcssa, %._crit_edge ]
   %.sroa.790.0122 = phi float [ %.sroa.790.0.copyload, %.lr.ph128 ], [ %.sroa.790.1.lcssa, %._crit_edge ]
@@ -328,7 +328,7 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   %59 = phi float [ %55, %52 ], [ %.pre, %40 ]
   %60 = load i32, ptr %14, align 4
   %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %61, label %94
+  br i1 %.not.i, label %61, label %93
 
 61:                                               ; preds = %58
   %62 = load float, ptr %.sroa.790.0..sroa_idx, align 8
@@ -362,11 +362,11 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   %82 = load i32, ptr %81, align 4
   %83 = lshr i32 %82, 8
   %84 = and i32 %83, 15
-  %85 = icmp ugt i32 %79, %84
+  %85 = icmp samesign ugt i32 %79, %84
   br i1 %85, label %Map_MatchCompare.exit.thread, label %86
 
 86:                                               ; preds = %75
-  %87 = icmp ult i32 %79, %84
+  %87 = icmp samesign ult i32 %79, %84
   br i1 %87, label %Map_MatchCompare.exit.thread107, label %88
 
 88:                                               ; preds = %86
@@ -374,118 +374,118 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   %90 = and i32 %89, 7
   %91 = lshr i32 %82, 2
   %92 = and i32 %91, 7
-  %93 = icmp ugt i32 %90, %92
-  br i1 %93, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+  %spec.select.i = icmp samesign ugt i32 %90, %92
+  br i1 %spec.select.i, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-94:                                               ; preds = %58
-  %95 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %96 = fsub float %95, %59
-  %97 = fcmp olt float %.sroa.10.1111, %96
-  br i1 %97, label %Map_MatchCompare.exit.thread, label %98
+93:                                               ; preds = %58
+  %94 = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %95 = fsub float %94, %59
+  %96 = fcmp olt float %.sroa.10.1111, %95
+  br i1 %96, label %Map_MatchCompare.exit.thread, label %97
 
-98:                                               ; preds = %94
-  %99 = fadd float %59, %95
-  %100 = fcmp ogt float %.sroa.10.1111, %99
-  br i1 %100, label %Map_MatchCompare.exit.thread107, label %101
+97:                                               ; preds = %93
+  %98 = fadd float %59, %94
+  %99 = fcmp ogt float %.sroa.10.1111, %98
+  br i1 %99, label %Map_MatchCompare.exit.thread107, label %100
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %16, align 8
-  %.not69.i = icmp eq i32 %102, 0
+100:                                              ; preds = %97
+  %101 = load i32, ptr %16, align 8
+  %.not69.i = icmp eq i32 %101, 0
   %.not70.i = icmp eq ptr %.sroa.3.1113, null
   %or.cond = select i1 %.not69.i, i1 true, i1 %.not70.i
-  br i1 %or.cond, label %122, label %103
+  br i1 %or.cond, label %121, label %102
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
-  %105 = load ptr, ptr %104, align 8
-  %106 = tail call i32 @Mio_GateReadProfile(ptr noundef %105) #10
-  %107 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 64
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 @Mio_GateReadProfile(ptr noundef %109) #10
-  %111 = load ptr, ptr %104, align 8
-  %112 = tail call i32 @Mio_GateReadProfile2(ptr noundef %111) #10
-  %113 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 64
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call i32 @Mio_GateReadProfile2(ptr noundef %115) #10
-  %117 = icmp slt i32 %112, %106
-  %118 = icmp sgt i32 %116, %110
-  %or.cond.i = select i1 %117, i1 %118, i1 false
-  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %119
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call i32 @Mio_GateReadProfile(ptr noundef %104) #10
+  %106 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 64
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call i32 @Mio_GateReadProfile(ptr noundef %108) #10
+  %110 = load ptr, ptr %103, align 8
+  %111 = tail call i32 @Mio_GateReadProfile2(ptr noundef %110) #10
+  %112 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 64
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call i32 @Mio_GateReadProfile2(ptr noundef %114) #10
+  %116 = icmp slt i32 %111, %105
+  %117 = icmp sgt i32 %115, %109
+  %or.cond.i = select i1 %116, i1 %117, i1 false
+  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %118
 
-119:                                              ; preds = %103
-  %120 = icmp slt i32 %116, %110
-  %121 = icmp sgt i32 %112, %106
-  %or.cond71.i = select i1 %120, i1 %121, i1 false
+118:                                              ; preds = %102
+  %119 = icmp slt i32 %115, %109
+  %120 = icmp sgt i32 %111, %105
+  %or.cond71.i = select i1 %119, i1 %120, i1 false
   br i1 %or.cond71.i, label %Map_MatchCompare.exit.thread107, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %119
+._crit_edge.i:                                    ; preds = %118
   %.pre.i = load float, ptr %15, align 4
-  br label %122
+  br label %121
 
-122:                                              ; preds = %._crit_edge.i, %101
-  %123 = phi float [ %.pre.i, %._crit_edge.i ], [ %59, %101 ]
-  %124 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %125 = fsub float %124, %123
-  %126 = fcmp olt float %.sroa.790.1112, %125
-  br i1 %126, label %Map_MatchCompare.exit.thread, label %127
+121:                                              ; preds = %._crit_edge.i, %100
+  %122 = phi float [ %.pre.i, %._crit_edge.i ], [ %59, %100 ]
+  %123 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %124 = fsub float %123, %122
+  %125 = fcmp olt float %.sroa.790.1112, %124
+  br i1 %125, label %Map_MatchCompare.exit.thread, label %126
 
-127:                                              ; preds = %122
-  %128 = fadd float %123, %124
-  %129 = fcmp ogt float %.sroa.790.1112, %128
-  br i1 %129, label %Map_MatchCompare.exit.thread107, label %130
+126:                                              ; preds = %121
+  %127 = fadd float %122, %123
+  %128 = fcmp ogt float %.sroa.790.1112, %127
+  br i1 %128, label %Map_MatchCompare.exit.thread107, label %129
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
-  %132 = load i32, ptr %131, align 4
-  %133 = lshr i32 %132, 8
-  %134 = and i32 %133, 15
-  %135 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 4
-  %137 = load i32, ptr %136, align 4
-  %138 = lshr i32 %137, 8
-  %139 = and i32 %138, 15
-  %140 = icmp ugt i32 %134, %139
-  br i1 %140, label %Map_MatchCompare.exit.thread, label %141
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
+  %131 = load i32, ptr %130, align 4
+  %132 = lshr i32 %131, 8
+  %133 = and i32 %132, 15
+  %134 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %136 = load i32, ptr %135, align 4
+  %137 = lshr i32 %136, 8
+  %138 = and i32 %137, 15
+  %139 = icmp samesign ugt i32 %133, %138
+  br i1 %139, label %Map_MatchCompare.exit.thread, label %140
 
-141:                                              ; preds = %130
-  %142 = icmp ult i32 %134, %139
-  br i1 %142, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
+140:                                              ; preds = %129
+  %141 = icmp samesign ult i32 %133, %138
+  br i1 %141, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
 
-Map_MatchCompare.exit:                            ; preds = %141
-  %143 = lshr i32 %132, 2
-  %144 = and i32 %143, 7
-  %145 = lshr i32 %137, 2
-  %146 = and i32 %145, 7
-  %147 = icmp ugt i32 %144, %146
-  br i1 %147, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+Map_MatchCompare.exit:                            ; preds = %140
+  %142 = lshr i32 %131, 2
+  %143 = and i32 %142, 7
+  %144 = lshr i32 %136, 2
+  %145 = and i32 %144, 7
+  %spec.select73.i = icmp samesign ugt i32 %143, %145
+  br i1 %spec.select73.i, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread107:                  ; preds = %88, %141, %127, %119, %98, %86, %72, %65, %Map_MatchCompare.exit
+Map_MatchCompare.exit.thread107:                  ; preds = %88, %140, %126, %118, %97, %86, %72, %65, %Map_MatchCompare.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %.sroa.3.0.copyload82 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %148 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
+  %146 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.790.0.copyload92 = load float, ptr %.sroa.790.0..sroa_idx, align 8
   %.sroa.10.0.copyload98 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %149 = load i32, ptr %14, align 4
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %Map_MatchCompare.exit.thread
+  %147 = load i32, ptr %14, align 4
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %Map_MatchCompare.exit.thread
 
-151:                                              ; preds = %Map_MatchCompare.exit.thread107
+149:                                              ; preds = %Map_MatchCompare.exit.thread107
   br label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread:                     ; preds = %88, %130, %122, %103, %94, %75, %68, %61, %Map_MatchCompare.exit, %151, %Map_MatchCompare.exit.thread107, %52, %48, %34
-  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.2, %48 ], [ %.sroa.7.sroa.0.2, %52 ], [ %.sroa.7.sroa.0.2, %61 ], [ %148, %151 ], [ %148, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.2, %68 ], [ %.sroa.7.sroa.0.2, %75 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.2, %94 ], [ %.sroa.7.sroa.0.2, %122 ], [ %.sroa.7.sroa.0.2, %130 ], [ %.sroa.7.sroa.0.2, %103 ], [ %.sroa.7.sroa.0.2, %34 ], [ %.sroa.7.sroa.0.2, %88 ]
-  %.sroa.10.2 = phi float [ %.sroa.10.1111, %48 ], [ %.sroa.10.1111, %52 ], [ %.sroa.10.1111, %61 ], [ %.sroa.10.0.copyload98, %151 ], [ %.sroa.10.0.copyload98, %Map_MatchCompare.exit.thread107 ], [ %.sroa.10.1111, %68 ], [ %.sroa.10.1111, %75 ], [ %.sroa.10.1111, %Map_MatchCompare.exit ], [ %.sroa.10.1111, %94 ], [ %.sroa.10.1111, %122 ], [ %.sroa.10.1111, %130 ], [ %.sroa.10.1111, %103 ], [ %.sroa.10.1111, %34 ], [ %.sroa.10.1111, %88 ]
-  %.sroa.790.2 = phi float [ %.sroa.790.1112, %48 ], [ %.sroa.790.1112, %52 ], [ %.sroa.790.1112, %61 ], [ %.sroa.790.0.copyload92, %151 ], [ %.sroa.790.0.copyload92, %Map_MatchCompare.exit.thread107 ], [ %.sroa.790.1112, %68 ], [ %.sroa.790.1112, %75 ], [ %.sroa.790.1112, %Map_MatchCompare.exit ], [ %.sroa.790.1112, %94 ], [ %.sroa.790.1112, %122 ], [ %.sroa.790.1112, %130 ], [ %.sroa.790.1112, %103 ], [ %.sroa.790.1112, %34 ], [ %.sroa.790.1112, %88 ]
-  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %48 ], [ %.sroa.3.1113, %52 ], [ %.sroa.3.1113, %61 ], [ %.sroa.3.0.copyload82, %151 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %68 ], [ %.sroa.3.1113, %75 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %94 ], [ %.sroa.3.1113, %122 ], [ %.sroa.3.1113, %130 ], [ %.sroa.3.1113, %103 ], [ %.sroa.3.1113, %34 ], [ %.sroa.3.1113, %88 ]
-  %.2 = phi float [ %.1114, %48 ], [ %.1114, %52 ], [ %.1114, %61 ], [ %.sroa.790.0.copyload92, %151 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %68 ], [ %.1114, %75 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %94 ], [ %.1114, %122 ], [ %.1114, %130 ], [ %.1114, %103 ], [ %.1114, %34 ], [ %.1114, %88 ]
+Map_MatchCompare.exit.thread:                     ; preds = %88, %129, %121, %102, %93, %75, %68, %61, %Map_MatchCompare.exit, %149, %Map_MatchCompare.exit.thread107, %52, %48, %34
+  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.2, %48 ], [ %.sroa.7.sroa.0.2, %52 ], [ %.sroa.7.sroa.0.2, %61 ], [ %146, %149 ], [ %146, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.2, %68 ], [ %.sroa.7.sroa.0.2, %75 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.2, %93 ], [ %.sroa.7.sroa.0.2, %121 ], [ %.sroa.7.sroa.0.2, %129 ], [ %.sroa.7.sroa.0.2, %102 ], [ %.sroa.7.sroa.0.2, %34 ], [ %.sroa.7.sroa.0.2, %88 ]
+  %.sroa.10.2 = phi float [ %.sroa.10.1111, %48 ], [ %.sroa.10.1111, %52 ], [ %.sroa.10.1111, %61 ], [ %.sroa.10.0.copyload98, %149 ], [ %.sroa.10.0.copyload98, %Map_MatchCompare.exit.thread107 ], [ %.sroa.10.1111, %68 ], [ %.sroa.10.1111, %75 ], [ %.sroa.10.1111, %Map_MatchCompare.exit ], [ %.sroa.10.1111, %93 ], [ %.sroa.10.1111, %121 ], [ %.sroa.10.1111, %129 ], [ %.sroa.10.1111, %102 ], [ %.sroa.10.1111, %34 ], [ %.sroa.10.1111, %88 ]
+  %.sroa.790.2 = phi float [ %.sroa.790.1112, %48 ], [ %.sroa.790.1112, %52 ], [ %.sroa.790.1112, %61 ], [ %.sroa.790.0.copyload92, %149 ], [ %.sroa.790.0.copyload92, %Map_MatchCompare.exit.thread107 ], [ %.sroa.790.1112, %68 ], [ %.sroa.790.1112, %75 ], [ %.sroa.790.1112, %Map_MatchCompare.exit ], [ %.sroa.790.1112, %93 ], [ %.sroa.790.1112, %121 ], [ %.sroa.790.1112, %129 ], [ %.sroa.790.1112, %102 ], [ %.sroa.790.1112, %34 ], [ %.sroa.790.1112, %88 ]
+  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %48 ], [ %.sroa.3.1113, %52 ], [ %.sroa.3.1113, %61 ], [ %.sroa.3.0.copyload82, %149 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %68 ], [ %.sroa.3.1113, %75 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %93 ], [ %.sroa.3.1113, %121 ], [ %.sroa.3.1113, %129 ], [ %.sroa.3.1113, %102 ], [ %.sroa.3.1113, %34 ], [ %.sroa.3.1113, %88 ]
+  %.2 = phi float [ %.1114, %48 ], [ %.1114, %52 ], [ %.1114, %61 ], [ %.sroa.790.0.copyload92, %149 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %68 ], [ %.1114, %75 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %93 ], [ %.1114, %121 ], [ %.1114, %129 ], [ %.1114, %102 ], [ %.1114, %34 ], [ %.1114, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = load i32, ptr %22, align 4
-  %153 = lshr i32 %152, 28
-  %154 = zext nneg i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next, %154
-  br i1 %155, label %25, label %._crit_edge, !llvm.loop !4
+  %150 = load i32, ptr %22, align 4
+  %151 = lshr i32 %150, 28
+  %152 = zext nneg i32 %151 to i64
+  %153 = icmp samesign ult i64 %indvars.iv.next, %152
+  br i1 %153, label %25, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %Map_MatchCompare.exit.thread, %21
   %.sroa.7.sroa.0.4 = phi i64 [ %.sroa.7.sroa.0.0, %21 ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
@@ -493,9 +493,9 @@ Map_MatchCompare.exit.thread:                     ; preds = %88, %130, %122, %10
   %.sroa.790.1.lcssa = phi float [ %.sroa.790.0122, %21 ], [ %.sroa.790.2, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0123, %21 ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
   %.1.lcssa = phi float [ %.076124, %21 ], [ %.2, %Map_MatchCompare.exit.thread ]
-  %156 = getelementptr inbounds i8, ptr %.075126, i64 248
-  %157 = add nuw nsw i32 %.0125, 1
-  %.075 = load ptr, ptr %156, align 8
+  %154 = getelementptr inbounds i8, ptr %.075126, i64 248
+  %155 = add nuw nsw i32 %.0125, 1
+  %.075 = load ptr, ptr %154, align 8
   %.not = icmp eq ptr %.075, null
   br i1 %.not, label %._crit_edge129, label %17, !llvm.loop !6
 
@@ -510,36 +510,36 @@ Map_MatchCompare.exit.thread:                     ; preds = %88, %130, %122, %10
   store float %.sroa.790.0.lcssa, ptr %.sroa.790.0..sroa_idx, align 8
   store float %.sroa.10.0.lcssa, ptr %.sroa.10.0..sroa_idx, align 4
   %.not80 = icmp eq ptr %.sroa.3.0.lcssa, null
-  br i1 %.not80, label %168, label %158
+  br i1 %.not80, label %166, label %156
 
-158:                                              ; preds = %._crit_edge129
-  %159 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
-  %160 = getelementptr inbounds i8, ptr %0, i64 116
-  %161 = load i32, ptr %160, align 4
-  switch i32 %161, label %166 [
-    i32 2, label %162
-    i32 3, label %162
-    i32 4, label %164
+156:                                              ; preds = %._crit_edge129
+  %157 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
+  %158 = getelementptr inbounds i8, ptr %0, i64 116
+  %159 = load i32, ptr %158, align 4
+  switch i32 %159, label %164 [
+    i32 2, label %160
+    i32 3, label %160
+    i32 4, label %162
   ]
 
-162:                                              ; preds = %158, %158
-  %163 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
+160:                                              ; preds = %156, %156
+  %161 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-164:                                              ; preds = %158
-  %165 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
+162:                                              ; preds = %156
+  %163 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-166:                                              ; preds = %158
-  %167 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+164:                                              ; preds = %156
+  %165 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %164, %166, %162
-  %.sink139 = phi float [ %163, %162 ], [ %167, %166 ], [ %165, %164 ]
+.sink.split:                                      ; preds = %162, %164, %160
+  %.sink139 = phi float [ %161, %160 ], [ %165, %164 ], [ %163, %162 ]
   store float %.sink139, ptr %.sroa.10.0..sroa_idx, align 4
-  br label %168
+  br label %166
 
-168:                                              ; preds = %.sink.split, %._crit_edge129
+166:                                              ; preds = %.sink.split, %._crit_edge129
   ret i32 1
 }
 

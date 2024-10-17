@@ -1066,7 +1066,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE9push_backES1_.exit: ; preds = %_
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 2
   %103 = load i16, ptr %102, align 2
   %104 = zext i16 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next, %104
   br i1 %105, label %25, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %99, %3

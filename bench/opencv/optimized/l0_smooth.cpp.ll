@@ -573,7 +573,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc171, %241
   %243 = load i32, ptr %14, align 8
   %244 = lshr i32 %243, 3
   %245 = and i32 %244, 511
-  %.not.not = icmp ult i32 %.038330, %245
+  %.not.not = icmp samesign ult i32 %.038330, %245
   br i1 %.not.not, label %235, label %262, !llvm.loop !13
 
 246:                                              ; preds = %206, %195
@@ -1007,7 +1007,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %450
   %456 = lshr i32 %455, 3
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %.not287.not = icmp ult i64 %indvars.iv, %458
+  %.not287.not = icmp samesign ult i64 %indvars.iv, %458
   br i1 %.not287.not, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 459:                                              ; preds = %434
@@ -1244,7 +1244,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit190:              ; preds = %522
   %530 = lshr i32 %529, 3
   %531 = and i32 %530, 511
   %532 = zext nneg i32 %531 to i64
-  %.not288.not = icmp ult i64 %indvars.iv347, %532
+  %.not288.not = icmp samesign ult i64 %indvars.iv347, %532
   br i1 %.not288.not, label %518, label %550, !llvm.loop !21
 
 533:                                              ; preds = %495
@@ -1419,7 +1419,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit199:              ; preds = %575
   %583 = lshr i32 %582, 3
   %584 = and i32 %583, 511
   %585 = zext nneg i32 %584 to i64
-  %.not289.not = icmp ult i64 %indvars.iv350, %585
+  %.not289.not = icmp samesign ult i64 %indvars.iv350, %585
   br i1 %.not289.not, label %569, label %610, !llvm.loop !22
 
 586:                                              ; preds = %550
@@ -3152,7 +3152,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115dftMultiChannelERKN2cv11_InputAr
   %58 = lshr i32 %57, 3
   %59 = and i32 %58, 511
   %60 = zext nneg i32 %59 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %60
+  %.not.not = icmp samesign ult i64 %indvars.iv, %60
   br i1 %.not.not, label %30, label %71, !llvm.loop !56
 
 61:                                               ; preds = %17

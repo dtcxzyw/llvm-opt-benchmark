@@ -869,7 +869,7 @@ if.then:                                          ; preds = %lj_buf_more.exit
 
 if.end:                                           ; preds = %if.then, %lj_buf_more.exit
   %w.0 = phi ptr [ %incdec.ptr, %if.then ], [ %retval.i.0, %lj_buf_more.exit ]
-  %cmp215 = icmp ugt i32 %and, 1
+  %cmp215 = icmp samesign ugt i32 %and, 1
   br i1 %cmp215, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end
@@ -1871,7 +1871,7 @@ if.then.i111:                                     ; preds = %lj_buf_more.exit.i1
 
 if.end.i:                                         ; preds = %if.then.i111, %lj_buf_more.exit.i108
   %w.0.i113 = phi ptr [ %incdec.ptr.i, %if.then.i111 ], [ %retval.i.0.i109, %lj_buf_more.exit.i108 ]
-  %cmp215.i = icmp ugt i32 %and.i100, 1
+  %cmp215.i = icmp samesign ugt i32 %and.i100, 1
   br i1 %cmp215.i, label %while.body.preheader.i118, label %while.end.i114
 
 while.body.preheader.i118:                        ; preds = %if.end.i

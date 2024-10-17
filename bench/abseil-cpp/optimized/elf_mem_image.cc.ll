@@ -146,7 +146,7 @@ for.inc:                                          ; preds = %_ZNK4absl18debuggin
   %dynamic_program_header.1 = phi ptr [ %dynamic_program_header.041, %_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit ], [ %add.ptr1.i.i, %sw.bb33 ], [ %dynamic_program_header.041, %sw.bb27 ], [ %dynamic_program_header.041, %if.then30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i16 %13 to i64
-  %cmp26 = icmp ult i64 %indvars.iv.next, %15
+  %cmp26 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp26, label %_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc

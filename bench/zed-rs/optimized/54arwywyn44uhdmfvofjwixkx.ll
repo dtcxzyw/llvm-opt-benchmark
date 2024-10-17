@@ -10511,7 +10511,7 @@ define hidden void @_ZN12tab_switcher11TabSwitcher4open17h62b2ca27c887c36bE(ptr 
 
 17:                                               ; preds = %14
   %18 = add nuw nsw i64 %15, 1
-  %19 = icmp ult i64 %15, 3
+  %19 = icmp samesign ult i64 %15, 3
   call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds ptr, ptr %.sroa.5.0..sroa_idx, i64 %15
   %21 = load ptr, ptr %20, align 8, !alias.scope !2568, !nonnull !4, !align !55, !noundef !4

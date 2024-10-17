@@ -652,7 +652,7 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph, label %.sink.split.sink.split, !llvm.loop !11
 
 .sink.split.sink.split:                           ; preds = %52, %32

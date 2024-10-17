@@ -2511,11 +2511,11 @@ define i32 @Abc_NodeCompareCubes2(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %17 = icmp ugt i32 %9, %14
+  %17 = icmp samesign ugt i32 %9, %14
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = icmp ult i32 %9, %14
+  %19 = icmp samesign ult i32 %9, %14
   br i1 %19, label %21, label %.thread
 
 .thread:                                          ; preds = %2, %18

@@ -998,7 +998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78: ; 
   %154 = load <2 x double>, ptr %153, align 1
   store <2 x double> %154, ptr %152, align 16
   %155 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %156 = icmp ult i64 %155, %151
+  %156 = icmp samesign ult i64 %155, %151
   br i1 %156, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !13
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread121, %.thread, %150

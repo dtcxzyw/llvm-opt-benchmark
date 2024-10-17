@@ -2112,7 +2112,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
 8:                                                ; preds = %7
   %9 = lshr i64 %1, 3
   %10 = tail call range(i64 1, 6) i64 @llvm.ctpop.i64(i64 %9)
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %8, %7, %3
@@ -3274,7 +3274,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

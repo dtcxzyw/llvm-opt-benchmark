@@ -4877,7 +4877,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %20
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %20
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -6130,7 +6130,7 @@ if.end.i.i.i.i47.i:                               ; preds = %land.rhs.i.i.i
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i83, %if.end.i.i.i.i47.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i83 ], [ 0, %if.end.i.i.i.i47.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i.i, %216
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %216
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i83
 
 for.body.i.i.i.i.i83:                             ; preds = %for.cond.i.i.i.i.i
@@ -6472,7 +6472,7 @@ if.end.i.i.i.i159.i:                              ; preds = %land.rhs.i.i157.i
 for.cond.i.i.i.i160.i:                            ; preds = %for.body.i.i.i.i164.i, %if.end.i.i.i.i159.i
   %indvars.iv.i.i161.i = phi i64 [ %indvars.iv.next.i.i162.i, %for.body.i.i.i.i164.i ], [ 0, %if.end.i.i.i.i159.i ]
   %indvars.iv.next.i.i162.i = add nuw nsw i64 %indvars.iv.i.i161.i, 64
-  %cmp19.not.i.i.i.i163.i = icmp ugt i64 %indvars.iv.next.i.i162.i, %247
+  %cmp19.not.i.i.i.i163.i = icmp samesign ugt i64 %indvars.iv.next.i.i162.i, %247
   br i1 %cmp19.not.i.i.i.i163.i, label %for.end.i.i.i.i167.i, label %for.body.i.i.i.i164.i
 
 for.body.i.i.i.i164.i:                            ; preds = %for.cond.i.i.i.i160.i
@@ -6559,7 +6559,7 @@ if.else.i312.i:                                   ; preds = %land.lhs.true.i305.
 
 call4.i.noexc327.i:                               ; preds = %if.else.i312.i
   %firstMatchingIndex.sroa.0.0.extract.trunc.i315.i = trunc i64 %call4.i328.i to i32
-  %tobool.i.i.not.i316.i = icmp ult i64 %call4.i328.i, 4294967296
+  %tobool.i.i.not.i316.i = icmp samesign ult i64 %call4.i328.i, 4294967296
   br i1 %tobool.i.i.not.i316.i, label %if.then.i325.invoke.i, label %_ZNRSt8optionalIiE5valueEv.exit.i317.i
 
 _ZNRSt8optionalIiE5valueEv.exit.i317.i:           ; preds = %call4.i.noexc327.i
@@ -6758,7 +6758,7 @@ if.else.i296.i:                                   ; preds = %land.lhs.true.i.i91
 
 call4.i.noexc.i:                                  ; preds = %if.else.i296.i
   %firstMatchingIndex.sroa.0.0.extract.trunc.i.i = trunc i64 %call4.i300.i to i32
-  %tobool.i.i.not.i.i = icmp ult i64 %call4.i300.i, 4294967296
+  %tobool.i.i.not.i.i = icmp samesign ult i64 %call4.i300.i, 4294967296
   br i1 %tobool.i.i.not.i.i, label %if.else9.i.invoke.i, label %_ZNRSt8optionalIiE5valueEv.exit.i.i
 
 _ZNRSt8optionalIiE5valueEv.exit.i.i:              ; preds = %call4.i.noexc.i
@@ -6831,7 +6831,7 @@ if.else.i.i.i.i.i116.i:                           ; preds = %land.lhs.true.i.i.i
 
 call4.i.i.i.i.i.noexc.i:                          ; preds = %if.else.i.i.i.i.i116.i
   %firstMatchingIndex.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc i64 %call4.i.i.i.i.i185.i to i32
-  %tobool.i.i.not.i.i.i.i.i.i96 = icmp ult i64 %call4.i.i.i.i.i185.i, 4294967296
+  %tobool.i.i.not.i.i.i.i.i.i96 = icmp samesign ult i64 %call4.i.i.i.i.i185.i, 4294967296
   br i1 %tobool.i.i.not.i.i.i.i.i.i96, label %if.then.i79.i.i.i.i.invoke.i, label %_ZNRSt8optionalIiE5valueEv.exit.i.i.i.i.i.i
 
 _ZNRSt8optionalIiE5valueEv.exit.i.i.i.i.i.i:      ; preds = %call4.i.i.i.i.i.noexc.i
@@ -9590,7 +9590,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %68
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %68
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -10367,7 +10367,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %8
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %8
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -10842,7 +10842,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %59
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %59
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -11604,7 +11604,7 @@ if.end.i.i.i:                                     ; preds = %entry
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %12
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %12
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -12653,7 +12653,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %6
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %6
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -13291,7 +13291,7 @@ if.else:                                          ; preds = %entry, %land.lhs.tr
   %18 = load ptr, ptr %17, align 8
   %call4 = tail call fastcc i64 @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase14findFirstMatchERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS0_10FlatVectorIS7_IvEEEERKNS4_18LocalDecodedVectorE(ptr noundef nonnull align 8 dereferenceable(104) %6, i32 noundef %row, i32 noundef %10, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18)
   %firstMatchingIndex.sroa.0.0.extract.trunc = trunc i64 %call4 to i32
-  %tobool.i.i.not = icmp ult i64 %call4, 4294967296
+  %tobool.i.i.not = icmp samesign ult i64 %call4, 4294967296
   br i1 %tobool.i.i.not, label %if.else9, label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %if.else
@@ -14456,7 +14456,7 @@ if.end.i.i.i.i50.i:                               ; preds = %land.rhs.i.i.i
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i50.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i50.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i.i, %116
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %116
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
@@ -14994,7 +14994,7 @@ if.end.i.i.i.i162.i:                              ; preds = %land.rhs.i.i160.i
 for.cond.i.i.i.i163.i:                            ; preds = %for.body.i.i.i.i167.i, %if.end.i.i.i.i162.i
   %indvars.iv.i.i164.i = phi i64 [ %indvars.iv.next.i.i165.i, %for.body.i.i.i.i167.i ], [ 0, %if.end.i.i.i.i162.i ]
   %indvars.iv.next.i.i165.i = add nuw nsw i64 %indvars.iv.i.i164.i, 64
-  %cmp19.not.i.i.i.i166.i = icmp ugt i64 %indvars.iv.next.i.i165.i, %183
+  %cmp19.not.i.i.i.i166.i = icmp samesign ugt i64 %indvars.iv.next.i.i165.i, %183
   br i1 %cmp19.not.i.i.i.i166.i, label %for.end.i.i.i.i170.i, label %for.body.i.i.i.i167.i
 
 for.body.i.i.i.i167.i:                            ; preds = %for.cond.i.i.i.i163.i
@@ -16123,7 +16123,7 @@ if.else:                                          ; preds = %entry, %land.lhs.tr
   %23 = getelementptr inbounds i8, ptr %this, i64 56
   %24 = load ptr, ptr %23, align 8
   %call4 = tail call fastcc i64 @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase14findFirstMatchERNS0_4exec7EvalCtxEiiiRKSt10shared_ptrINS0_10FlatVectorIS7_IvEEEERKNS4_18LocalDecodedVectorE(ptr noundef nonnull align 8 dereferenceable(104) %12, i32 noundef %row, i32 noundef %16, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %tobool.i.i.not = icmp ult i64 %call4, 4294967296
+  %tobool.i.i.not = icmp samesign ult i64 %call4, 4294967296
   br i1 %tobool.i.i.not, label %if.else9, label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %if.else

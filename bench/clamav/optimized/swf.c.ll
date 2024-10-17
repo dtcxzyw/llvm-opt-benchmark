@@ -857,7 +857,7 @@ fmap_readn.exit273.thread:                        ; preds = %287, %.lr.ph
   %301 = lshr i32 255, %300
   %302 = and i32 %301, %.1222.lcssa
   %303 = or i32 %299, %.1216.lcssa
-  %304 = icmp ugt i32 %282, %298
+  %304 = icmp samesign ugt i32 %282, %298
   br i1 %304, label %.lr.ph487, label %._crit_edge488
 
 .lr.ph487:                                        ; preds = %._crit_edge, %fmap_readn.exit278
@@ -1103,7 +1103,7 @@ fmap_readn.exit318:                               ; preds = %393
   %400 = shl nuw nsw i32 %397, 8
   %401 = or disjoint i32 %400, %399
   %402 = lshr i32 %401, 6
-  %403 = icmp ult i32 %401, 64
+  %403 = icmp samesign ult i32 %401, 64
   br i1 %403, label %.loopexit, label %404
 
 fmap_readn.exit313.thread:                        ; preds = %.lr.ph553

@@ -1706,15 +1706,15 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h59a
   br i1 %131, label %.loopexit.i, label %184
 
 184:                                              ; preds = %182
-  %185 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 128
+  %185 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 128
   br i1 %185, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i", label %186
 
 186:                                              ; preds = %184
-  %187 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 2048
+  %187 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 2048
   br i1 %187, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i", label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 65536
+  %189 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 65536
   %..i.i = select i1 %189, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i"
 
@@ -4628,7 +4628,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$task..Sh
   %396 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !967
   %397 = icmp ult i64 %396, 6
   call void @llvm.assume(i1 %397)
-  %switch23.i.i = icmp ult i64 %396, 4
+  %switch23.i.i = icmp samesign ult i64 %396, 4
   br i1 %switch23.i.i, label %"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$20set_scrolling_region17h4bf7bc6c5a5187e2E.exit.i", label %460
 
 398:                                              ; preds = %391
@@ -12671,17 +12671,17 @@ default.unreachable:                              ; preds = %.noexc21
   %88 = getelementptr inbounds i8, ptr %.sroa.037.099, i64 16
   %89 = load i32, ptr %88, align 8, !range !2460, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2535)
-  %90 = icmp ult i32 %89, 128
+  %90 = icmp samesign ult i32 %89, 128
   br i1 %90, label %138, label %91
 
 91:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !2535
-  %92 = icmp ult i32 %89, 2048
+  %92 = icmp samesign ult i32 %89, 2048
   br i1 %92, label %95, label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ult i32 %89, 65536
+  %94 = icmp samesign ult i32 %89, 65536
   br i1 %94, label %102, label %113
 
 95:                                               ; preds = %91

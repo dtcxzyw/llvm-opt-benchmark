@@ -1016,7 +1016,7 @@ Xz_ReadVarInt.exit92:                             ; preds = %107
 
 .preheader:                                       ; preds = %.preheader.preheader, %126
   %indvars.iv144 = phi i64 [ %124, %.preheader.preheader ], [ %indvars.iv.next145, %126 ]
-  %125 = icmp ult i64 %indvars.iv144, %6
+  %125 = icmp samesign ult i64 %indvars.iv144, %6
   br i1 %125, label %126, label %Xz_ReadVarInt.exit.thread
 
 126:                                              ; preds = %.preheader

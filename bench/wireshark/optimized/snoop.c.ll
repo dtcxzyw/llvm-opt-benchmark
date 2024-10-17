@@ -105,7 +105,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 24
-  %37 = icmp ult i64 %36, %31
+  %37 = icmp samesign ult i64 %36, %31
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %27
@@ -448,7 +448,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   %79 = zext i32 %.072 to i64
   %80 = zext i32 %.071 to i64
   %81 = add nuw nsw i64 %80, 24
-  %82 = icmp ugt i64 %81, %79
+  %82 = icmp samesign ugt i64 %81, %79
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %63

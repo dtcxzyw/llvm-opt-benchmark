@@ -1210,7 +1210,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDes
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -4506,7 +4506,7 @@ define hidden void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(
   %24 = add nsw i32 %19, 1
   %25 = icmp sgt i32 %19, -1
   %26 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
-  %27 = icmp ult i32 %26, 2
+  %27 = icmp samesign ult i32 %26, 2
   %or.cond.i.i.i.i = select i1 %25, i1 %27, i1 false
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %29 = sub nuw nsw i32 32, %28
@@ -4558,7 +4558,7 @@ _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %_ZN26GrowableArrayW
   %52 = add nsw i32 %47, 1
   %53 = icmp sgt i32 %47, -1
   %54 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
-  %55 = icmp ult i32 %54, 2
+  %55 = icmp samesign ult i32 %54, 2
   %or.cond.i.i.i.i2 = select i1 %53, i1 %55, i1 false
   %56 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %57 = sub nuw nsw i32 32, %56
@@ -4764,7 +4764,7 @@ _ZNK17GrowableArrayViewIP5KlassE8containsERKS1_.exit: ; preds = %54, %78, %76, %
   %93 = add nsw i32 %80, 1
   %94 = icmp sgt i32 %80, -1
   %95 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %93)
-  %96 = icmp ult i32 %95, 2
+  %96 = icmp samesign ult i32 %95, 2
   %or.cond.i.i.i.i.i = select i1 %94, i1 %96, i1 false
   %97 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
   %98 = sub nuw nsw i32 32, %97
@@ -5210,8 +5210,8 @@ define hidden void @_ZN10HeapShared25write_subgraph_info_tableEv() local_unnamed
   %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %16, %14 ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx20.i.i, 8
   %17 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %18 = icmp ult i64 %.0.idx20.i.i, 1088
-  %or.cond.i.i = and i1 %18, %17
+  %18 = icmp samesign ult i64 %.0.idx20.i.i, 1088
+  %or.cond.i.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137EP5Klass17KlassSubGraphInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateI30CopyKlassSubGraphInfoToArchiveEEvSA_.exit, !llvm.loop !37
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137EP5Klass17KlassSubGraphInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateI30CopyKlassSubGraphInfoToArchiveEEvSA_.exit: ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %0
@@ -5467,7 +5467,7 @@ define hidden void @_ZN10HeapShared31resolve_classes_for_subgraph_ofEP10JavaThre
   %40 = and i32 %39, 1073741823
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %26, i64 %41
-  %43 = icmp ult i32 %25, %40
+  %43 = icmp samesign ult i32 %25, %40
   br i1 %43, label %.lr.ph.i.i, label %_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit
 
 .lr.ph.i.i:                                       ; preds = %37
@@ -5580,7 +5580,7 @@ define hidden noundef ptr @_ZN10HeapShared39resolve_or_init_classes_for_subgraph
   %37 = and i32 %36, 1073741823
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds i32, ptr %23, i64 %38
-  %40 = icmp ult i32 %22, %37
+  %40 = icmp samesign ult i32 %22, %37
   br i1 %40, label %.lr.ph.i, label %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit
 
 .lr.ph.i:                                         ; preds = %34
@@ -5997,7 +5997,7 @@ define hidden void @_ZN10HeapShared23clear_archived_roots_ofEP5Klass(ptr noundef
   %31 = and i32 %30, 1073741823
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %17, i64 %32
-  %34 = icmp ult i32 %16, %31
+  %34 = icmp samesign ult i32 %16, %31
   br i1 %34, label %.lr.ph.i, label %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit
 
 .lr.ph.i:                                         ; preds = %28
@@ -14371,7 +14371,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop19PointsToOopsCheckerEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 54:                                               ; preds = %.preheader.i.i.i
@@ -14580,7 +14580,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc19PointsToOopsCheckerEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 54:                                               ; preds = %.preheader.i.i.i
@@ -15624,7 +15624,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop24WalkOopAndArchiveClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -15817,7 +15817,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc24WalkOopAndArchiveClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 53:                                               ; preds = %.preheader.i.i.i

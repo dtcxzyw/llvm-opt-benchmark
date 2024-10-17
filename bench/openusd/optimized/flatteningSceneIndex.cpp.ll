@@ -779,7 +779,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   %184 = add nuw nsw i64 %.02044, 1
   %185 = load i32, ptr %7, align 8
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %184, %186
+  %187 = icmp samesign ult i64 %184, %186
   br i1 %187, label %15, label %._crit_edge, !llvm.loop !22
 
 188:                                              ; preds = %112

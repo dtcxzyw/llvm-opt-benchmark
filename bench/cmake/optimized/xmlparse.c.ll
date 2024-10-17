@@ -14357,7 +14357,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i507, %392
   %543 = trunc nuw nsw i64 %indvars.iv713 to i32
   %544 = add i32 %.0381, %539
   %545 = sub i32 2147483647, %544
-  %.not474 = icmp ugt i32 %545, %543
+  %.not474 = icmp samesign ugt i32 %545, %543
   br i1 %.not474, label %546, label %poolCopyString.exit.thread
 
 546:                                              ; preds = %542
@@ -15357,7 +15357,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not125.us.us, label %42, label %36
 
 36:                                               ; preds = %.lr.ph.split.us.split.us
-  %37 = icmp ugt i64 %indvars.iv172, 36
+  %37 = icmp samesign ugt i64 %indvars.iv172, 36
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
@@ -15390,7 +15390,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not125.us, label %55, label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i64 %indvars.iv, 36
+  %50 = icmp samesign ugt i64 %indvars.iv, 36
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %49
@@ -15429,7 +15429,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not125.us146, label %69, label %63
 
 63:                                               ; preds = %.lr.ph.split.split.us
-  %64 = icmp ugt i64 %indvars.iv176, 36
+  %64 = icmp samesign ugt i64 %indvars.iv176, 36
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %63
@@ -15447,7 +15447,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not161, label %76, label %70
 
 70:                                               ; preds = %69
-  %71 = icmp ugt i64 %indvars.iv176, 29
+  %71 = icmp samesign ugt i64 %indvars.iv176, 29
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70
@@ -15481,7 +15481,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not125, label %89, label %83
 
 83:                                               ; preds = %81
-  %84 = icmp ugt i64 %indvars.iv174, 36
+  %84 = icmp samesign ugt i64 %indvars.iv174, 36
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %83
@@ -15499,7 +15499,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %.not160, label %96, label %90
 
 90:                                               ; preds = %89
-  %91 = icmp ugt i64 %indvars.iv174, 29
+  %91 = icmp samesign ugt i64 %indvars.iv174, 29
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %90
@@ -15576,7 +15576,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   br i1 %122, label %123, label %135
 
 123:                                              ; preds = %119
-  %124 = icmp ugt i32 %spec.select, 2147483623
+  %124 = icmp samesign ugt i32 %spec.select, 2147483623
   br i1 %124, label %.loopexit, label %125
 
 125:                                              ; preds = %123
@@ -15608,7 +15608,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr %140(i64 noundef 48) #23
   %.not118 = icmp eq ptr %141, null
-  %142 = icmp ugt i32 %spec.select, 2147483623
+  %142 = icmp samesign ugt i32 %spec.select, 2147483623
   %or.cond129 = select i1 %.not118, i1 true, i1 %142
   br i1 %or.cond129, label %.loopexit, label %143
 

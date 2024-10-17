@@ -1809,7 +1809,7 @@ ea05.exit:                                        ; preds = %552, %554, %559
   %640 = phi i32 [ 0, %.lr.ph.i.i ], [ %638, %633 ]
   %641 = add i32 %640, %.041.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %642 = icmp ult i64 %indvars.iv.next.i.i, %630
+  %642 = icmp samesign ult i64 %indvars.iv.next.i.i, %630
   br i1 %642, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %639
@@ -1952,7 +1952,7 @@ u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._cr
   %707 = phi i32 [ 0, %.lr.ph.i337.i ], [ %705, %700 ]
   %708 = add i32 %707, %.041.i339.i
   %indvars.iv.next.i341.i = add nuw nsw i64 %indvars.iv.i338.i, 2
-  %709 = icmp ult i64 %indvars.iv.next.i341.i, %697
+  %709 = icmp samesign ult i64 %indvars.iv.next.i341.i, %697
   br i1 %709, label %.lr.ph.i337.i, label %._crit_edge.i343.i
 
 ._crit_edge.i343.i:                               ; preds = %706
@@ -4129,7 +4129,7 @@ define internal fastcc void @u2a(ptr nocapture noundef %0, i32 noundef %1) unnam
   %31 = phi i32 [ 0, %.lr.ph ], [ %29, %24 ]
   %32 = add i32 %31, %.041
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %33 = icmp ult i64 %indvars.iv.next, %21
+  %33 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %30

@@ -5853,7 +5853,7 @@ define void @_ZN8uu_split8Settings4from17h1f908dd65db16b4eE(ptr noalias nocaptur
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   %267 = load i64, ptr %261, align 8, !range !1494, !noundef !4
-  %268 = icmp ult i64 %267, 6
+  %268 = icmp samesign ult i64 %267, 6
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %254

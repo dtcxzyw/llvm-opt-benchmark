@@ -2105,7 +2105,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocaptur
 
 84:                                               ; preds = %.lr.ph.i70
   %85 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %82)
-  %86 = icmp ugt i32 %85, 1
+  %86 = icmp samesign ugt i32 %85, 1
   %87 = icmp sgt i32 %.021.i, -1
   %or.cond.i = select i1 %86, i1 true, i1 %87
   br i1 %or.cond.i, label %Gia_StaAreDisjoint.exit, label %.preheader
@@ -2303,7 +2303,7 @@ Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
   %69 = or disjoint i32 %68, %40
   store i32 %69, ptr %.tr136, align 4
   %70 = and i32 %56, 63
-  %71 = icmp ult i32 %70, 31
+  %71 = icmp samesign ult i32 %70, 31
   br i1 %71, label %72, label %92
 
 72:                                               ; preds = %Gia_ManAreListCountListUsed.exit.thread, %Gia_ManAreListCountListUsed.exit
@@ -2449,7 +2449,7 @@ Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
   %142 = or disjoint i32 %141, %113
   store i32 %142, ptr %.tr136, align 4
   %143 = and i32 %129, 63
-  %144 = icmp ult i32 %143, 31
+  %144 = icmp samesign ult i32 %143, 31
   br i1 %144, label %145, label %165
 
 145:                                              ; preds = %Gia_ManAreListCountListUsed.exit86.thread, %Gia_ManAreListCountListUsed.exit86
@@ -2587,7 +2587,7 @@ Gia_ManAreListCountListUsed.exit122:              ; preds = %.lr.ph.i114
   %210 = or disjoint i32 %209, %182
   store i32 %210, ptr %.tr136, align 4
   %211 = and i32 %198, 63
-  %212 = icmp ult i32 %211, 31
+  %212 = icmp samesign ult i32 %211, 31
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %Gia_ManAreListCountListUsed.exit122.thread, %Gia_ManAreListCountListUsed.exit122
@@ -3368,7 +3368,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 106:                                              ; preds = %.lr.ph.i110
   %107 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %104)
-  %108 = icmp ugt i32 %107, 1
+  %108 = icmp samesign ugt i32 %107, 1
   %109 = icmp sgt i32 %.021.i, -1
   %or.cond.i = select i1 %108, i1 true, i1 %109
   br i1 %or.cond.i, label %Gia_StaAreDisjoint.exit, label %.preheader174
@@ -3584,7 +3584,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
 
 217:                                              ; preds = %.lr.ph.i143
   %218 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %215)
-  %219 = icmp ugt i32 %218, 1
+  %219 = icmp samesign ugt i32 %218, 1
   %220 = icmp sgt i32 %.021.i146, -1
   %or.cond.i147 = select i1 %219, i1 true, i1 %220
   br i1 %or.cond.i147, label %Gia_StaAreDisjoint.exit122, label %.preheader

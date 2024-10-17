@@ -1253,7 +1253,7 @@ define dso_local i32 @onig_scan_unsigned_number(ptr nocapture noundef %0, ptr no
   %34 = sub nsw i64 2147483647, %33
   %35 = udiv i64 %34, 10
   %36 = zext i32 %.03238 to i64
-  %37 = icmp ult i64 %35, %36
+  %37 = icmp samesign ult i64 %35, %36
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %31
@@ -3979,7 +3979,7 @@ define internal fastcc range(i32 -202, 3) i32 @fetch_range_quantifier(ptr nocapt
   %50 = sub nsw i64 2147483647, %49
   %51 = udiv i64 %50, 10
   %52 = zext i32 %.03238.i to i64
-  %53 = icmp ult i64 %51, %52
+  %53 = icmp samesign ult i64 %51, %52
   br i1 %53, label %onig_scan_unsigned_number.exit.thread, label %54
 
 54:                                               ; preds = %47
@@ -4105,7 +4105,7 @@ onig_scan_unsigned_number.exit:                   ; preds = %41, %54
   %121 = sub nsw i64 2147483647, %120
   %122 = udiv i64 %121, 10
   %123 = zext i32 %.03238.i116 to i64
-  %124 = icmp ult i64 %122, %123
+  %124 = icmp samesign ult i64 %122, %123
   br i1 %124, label %onig_scan_unsigned_number.exit.thread, label %125
 
 125:                                              ; preds = %118
@@ -4326,7 +4326,7 @@ define internal fastcc i32 @scan_unsigned_hexadecimal_number(ptr nocapture nound
   %46 = sub nsw i64 2147483647, %45
   %47 = lshr i64 %46, 4
   %48 = zext i32 %.05666 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %43
@@ -4431,7 +4431,7 @@ define internal fastcc i32 @scan_unsigned_octal_number(ptr nocapture noundef non
   %40 = sub nsw i64 2147483647, %39
   %41 = lshr i64 %40, 3
   %42 = zext i32 %.03543 to i64
-  %43 = icmp ult i64 %41, %42
+  %43 = icmp samesign ult i64 %41, %42
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %37
@@ -4810,7 +4810,7 @@ select.unfold.i:                                  ; preds = %76, %select.unfold.
   %173 = sub nsw i64 2147483647, %172
   %174 = udiv i64 %173, 10
   %175 = zext i32 %.03238.i.i to i64
-  %176 = icmp ult i64 %174, %175
+  %176 = icmp samesign ult i64 %174, %175
   br i1 %176, label %.thread95, label %177
 
 177:                                              ; preds = %170
@@ -5312,7 +5312,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
   %110 = sub nsw i64 2147483647, %109
   %111 = udiv i64 %110, 10
   %112 = zext i32 %.03238.i to i64
-  %113 = icmp ult i64 %111, %112
+  %113 = icmp samesign ult i64 %111, %112
   br i1 %113, label %onig_scan_unsigned_number.exit.thread, label %114
 
 onig_scan_unsigned_number.exit.thread:            ; preds = %107
@@ -9557,8 +9557,8 @@ CC_DUP_WARN.exit218:                              ; preds = %127, %124, %119, %1
   %138 = load ptr, ptr %134, align 8
   %139 = call i32 %138(i32 noundef %.2167255, i32 noundef %1, ptr noundef nonnull %11) #24
   %.not198 = icmp ne i32 %139, 0
-  %.not199 = icmp ult i32 %.2167255, %56
-  %or.cond = and i1 %.not199, %.not198
+  %.not199 = icmp samesign ult i32 %.2167255, %56
+  %or.cond = select i1 %.not198, i1 %.not199, i1 false
   br i1 %or.cond, label %166, label %140
 
 140:                                              ; preds = %.preheader250
@@ -9818,8 +9818,8 @@ CC_DUP_WARN.exit230:                              ; preds = %258, %255, %250, %2
   %281 = load ptr, ptr %225, align 8
   %282 = call i32 %281(i32 noundef %.5170253, i32 noundef 12, ptr noundef nonnull %11) #24
   %.not187 = icmp ne i32 %282, 0
-  %.not188 = icmp ult i32 %.5170253, %56
-  %or.cond211 = and i1 %.not188, %.not187
+  %.not188 = icmp samesign ult i32 %.5170253, %56
+  %or.cond211 = select i1 %.not187, i1 %.not188, i1 false
   br i1 %or.cond211, label %309, label %283
 
 283:                                              ; preds = %280
@@ -11261,7 +11261,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr nocapture noun
 
 35:                                               ; preds = %32
   %36 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %38 = icmp eq i32 %.138, -1
   %or.cond = select i1 %37, i1 %38, i1 false
   br i1 %or.cond, label %39, label %.loopexit
@@ -11808,7 +11808,7 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr nocapture noundef %0, ptr
 .preheader.i:                                     ; preds = %13, %.preheader.i
   %17 = phi i32 [ %18, %.preheader.i ], [ %15, %13 ]
   %18 = shl nuw nsw i32 %17, 1
-  %19 = icmp ult i32 %17, 2
+  %19 = icmp samesign ult i32 %17, 2
   br i1 %19, label %.preheader.i, label %20, !llvm.loop !45
 
 20:                                               ; preds = %.preheader.i
@@ -12199,7 +12199,7 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr nocapture noundef %0, ptr
 .preheader:                                       ; preds = %213, %.preheader
   %216 = phi i32 [ %217, %.preheader ], [ %214, %213 ]
   %217 = shl nuw nsw i32 %216, 1
-  %218 = icmp ult i32 %216, 2
+  %218 = icmp samesign ult i32 %216, 2
   br i1 %218, label %.preheader, label %219, !llvm.loop !52
 
 219:                                              ; preds = %.preheader

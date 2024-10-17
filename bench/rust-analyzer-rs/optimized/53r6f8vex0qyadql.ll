@@ -1538,7 +1538,7 @@ default.unreachable:                              ; preds = %25
   br i1 %60, label %._crit_edge, label %19
 
 61:                                               ; preds = %54
-  %62 = icmp ult i64 %55, 5
+  %62 = icmp samesign ult i64 %55, 5
   call void @llvm.assume(i1 %62)
   %63 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander7matcher12collect_vars10__CALLSITE17h2a8c48353faf6bbcE, i64 16) monotonic, align 8
   switch i8 %63, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [

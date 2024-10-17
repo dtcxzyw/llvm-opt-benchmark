@@ -832,7 +832,7 @@ if.then62.i:                                      ; preds = %lor.lhs.false59.i, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %readbytes.i.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %devnull.i.i)
   %add.i.i = add nuw nsw i64 %or35.i.i, %or24.i.i
-  %cmp.i63.i = icmp ugt i64 %add.i.i, %or6.i.i
+  %cmp.i63.i = icmp samesign ugt i64 %add.i.i, %or6.i.i
   br i1 %cmp.i63.i, label %dtls1_process_out_of_seq_message.exit.i, label %if.end.i64.i
 
 if.end.i64.i:                                     ; preds = %if.then62.i
@@ -855,7 +855,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i64.i
   %conv18.i.i = zext i16 %69 to i32
   %conv16.i76.i = zext i16 %or12.i.i to i32
   %add26.i.i = add nuw nsw i32 %conv18.i.i, 10
-  %cmp27.i.i = icmp ult i32 %add26.i.i, %conv16.i76.i
+  %cmp27.i.i = icmp samesign ult i32 %add26.i.i, %conv16.i76.i
   %or.cond.i77.i = or i1 %spec.select.i, %cmp27.i.i
   br i1 %or.cond.i77.i, label %if.then42.i.i, label %lor.lhs.false32.i.i
 
@@ -971,7 +971,7 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %if.end50.i.i, %whil
 if.end65.i:                                       ; preds = %lor.lhs.false59.i, %if.end38.i
   %chretran.1.i = phi i32 [ %chretran.0.i, %if.end38.i ], [ 1, %lor.lhs.false59.i ]
   %tobool66.not.i = icmp ne i64 %or35.i.i, 0
-  %cmp67.i = icmp ult i64 %or35.i.i, %or6.i.i
+  %cmp67.i = icmp samesign ult i64 %or35.i.i, %or6.i.i
   %or.cond57.i = select i1 %tobool66.not.i, i1 %cmp67.i, i1 false
   br i1 %or.cond57.i, label %if.then69.i, label %if.end71.i
 

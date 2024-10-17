@@ -929,7 +929,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %255, %_ZN4llvm10MIM
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %270 = load i24, ptr %269, align 8
   %271 = zext i24 %270 to i32
-  %272 = icmp ult i32 %268, %271
+  %272 = icmp samesign ult i32 %268, %271
   br i1 %272, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
@@ -948,7 +948,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %255, %_ZN4llvm10MIM
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %280 = load i24, ptr %269, align 8
   %281 = zext i24 %280 to i64
-  %282 = icmp ult i64 %indvars.iv.next.i, %281
+  %282 = icmp samesign ult i64 %indvars.iv.next.i, %281
   br i1 %282, label %.lr.ph.i37, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i37, %_ZN4llvm8DebugLocD2Ev.exit.i

@@ -21756,7 +21756,7 @@ default.unreachable:                              ; preds = %215, %169
   %179 = zext i16 %171 to i64
   %180 = mul nuw nsw i64 %178, %179
   %181 = mul nuw nsw i64 %180, %.0.i.i.i186.i.i.i
-  %182 = icmp ugt i64 %181, 536870912
+  %182 = icmp samesign ugt i64 %181, 536870912
   br i1 %182, label %183, label %.noexc193.i.i.i
 
 .noexc193.i.i.i:                                  ; preds = %177
@@ -21808,7 +21808,7 @@ default.unreachable:                              ; preds = %215, %169
   %195 = zext i16 %193 to i64
   %196 = shl nuw nsw i64 %194, 2
   %197 = mul nuw nsw i64 %196, %195
-  %198 = icmp ugt i64 %197, 536870912
+  %198 = icmp samesign ugt i64 %197, 536870912
   br i1 %198, label %200, label %.noexc215.i.i.i
 
 .noexc215.i.i.i:                                  ; preds = %189
@@ -29627,7 +29627,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc587eb19fce70daaE.exit: ; p
   unreachable
 
 428:                                              ; preds = %31
-  %429 = icmp ugt i64 %..i.i.i, 2
+  %429 = icmp samesign ugt i64 %..i.i.i, 2
   br i1 %429, label %431, label %439, !prof !85
 
 430:                                              ; preds = %31
@@ -33455,7 +33455,7 @@ define { i64, i32 } @"_ZN5image9animation101_$LT$impl$u20$core..convert..From$LT
   %17 = urem i32 %5, 1000
   %18 = mul nuw nsw i32 %17, 1000000
   %19 = add nuw nsw i32 %18, %16
-  %20 = icmp ugt i32 %19, 999999999
+  %20 = icmp samesign ugt i32 %19, 999999999
   %21 = add nsw i32 %19, -1000000000
   %.sroa.2.1.i = select i1 %20, i32 %21, i32 %19
   %22 = zext i1 %20 to i64

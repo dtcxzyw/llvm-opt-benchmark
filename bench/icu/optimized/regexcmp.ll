@@ -5493,7 +5493,7 @@ cond.true.i125:                                   ; preds = %sw.bb52
 _ZNK6icu_759UVector6410elementAtiEi.exit129:      ; preds = %sw.bb52, %cond.true.i125
   %cond.i124 = phi i32 [ %23, %cond.true.i125 ], [ 0, %sw.bb52 ]
   %sub.i130 = sub nsw i32 2147483647, %currentLen.1
-  %cmp.i131 = icmp ugt i32 %sub.i130, %cond.i124
+  %cmp.i131 = icmp samesign ugt i32 %sub.i130, %cond.i124
   %add.i132 = add nsw i32 %cond.i124, %currentLen.1
   %retval.0.i133 = select i1 %cmp.i131, i32 %add.i132, i32 2147483647
   br label %for.inc138
@@ -6387,7 +6387,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit246:      ; preds = %sw.bb269, %cond.tru
 
 sw.bb269.split:                                   ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit246
   %sub.i247 = sub nsw i32 2147483647, %currentLen.1
-  %cmp.i248 = icmp ugt i32 %sub.i247, %cond.i241
+  %cmp.i248 = icmp samesign ugt i32 %sub.i247, %cond.i241
   %add.i249 = add nsw i32 %cond.i241, %currentLen.1
   %retval.0.i250 = select i1 %cmp.i248, i32 %add.i249, i32 2147483647
   br label %for.inc396
@@ -6439,7 +6439,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit263:      ; preds = %sw.bb294, %cond.tru
 
 sw.bb294.split:                                   ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit263
   %sub.i264 = sub nsw i32 2147483647, %currentLen.1
-  %cmp.i265 = icmp ugt i32 %sub.i264, %cond.i258
+  %cmp.i265 = icmp samesign ugt i32 %sub.i264, %cond.i258
   %add.i266 = add nsw i32 %cond.i258, %currentLen.1
   %retval.0.i267 = select i1 %cmp.i265, i32 %add.i266, i32 2147483647
   br label %for.inc396
@@ -9701,7 +9701,7 @@ for.body118.lr.ph:                                ; preds = %for.cond116.prehead
 
 sw.bb18:                                          ; preds = %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16
   %notsub = or i32 %currentLen.2, -2147483648
-  %cmp.i77 = icmp ult i32 %notsub, -3
+  %cmp.i77 = icmp samesign ult i32 %notsub, -3
   %add.i = add nuw nsw i32 %currentLen.2, 2
   br i1 %cmp.i77, label %sw.epilog, label %for.end140
 
@@ -9711,7 +9711,7 @@ sw.bb21:                                          ; preds = %if.end16
   %add.i80 = add nsw i32 %currentLen.2, 1
   %retval.0.i81 = select i1 %cmp.i79.not, i32 2147483647, i32 %add.i80
   %and = and i32 %conv, 16777215
-  %cmp24 = icmp ugt i32 %and, 65536
+  %cmp24 = icmp samesign ugt i32 %and, 65536
   br i1 %cmp24, label %if.then25, label %sw.epilog
 
 if.then25:                                        ; preds = %sw.bb21
@@ -9804,7 +9804,7 @@ cond.true.i121:                                   ; preds = %sw.bb57
 _ZNK6icu_759UVector6410elementAtiEi.exit125:      ; preds = %sw.bb57, %cond.true.i121
   %cond.i120 = phi i32 [ %21, %cond.true.i121 ], [ 0, %sw.bb57 ]
   %sub.i126 = sub nsw i32 2147483647, %currentLen.2
-  %cmp.i127 = icmp ugt i32 %sub.i126, %cond.i120
+  %cmp.i127 = icmp samesign ugt i32 %sub.i126, %cond.i120
   %add.i128 = add nsw i32 %cond.i120, %currentLen.2
   br i1 %cmp.i127, label %sw.epilog, label %for.end140
 
@@ -9828,7 +9828,7 @@ cond.true.i135:                                   ; preds = %sw.bb67
 _ZNK6icu_759UVector6410elementAtiEi.exit139:      ; preds = %sw.bb67, %cond.true.i135
   %cond.i134 = phi i32 [ %25, %cond.true.i135 ], [ 0, %sw.bb67 ]
   %sub.i140 = sub nsw i32 2147483647, %currentLen.2
-  %cmp.i141 = icmp ugt i32 %sub.i140, %cond.i134
+  %cmp.i141 = icmp samesign ugt i32 %sub.i140, %cond.i134
   %add.i142 = add nsw i32 %cond.i134, %currentLen.2
   br i1 %cmp.i141, label %sw.epilog, label %for.end140
 

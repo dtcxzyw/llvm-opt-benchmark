@@ -3763,7 +3763,7 @@ define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr nocapture noundef
   %28 = load i32, ptr @xprt_max_resvport, align 4
   %29 = and i32 %28, 65535
   %30 = and i32 %27, 65535
-  %31 = icmp ult i32 %29, %30
+  %31 = icmp samesign ult i32 %29, %30
   br i1 %31, label %91, label %32
 
 32:                                               ; preds = %26
@@ -4874,7 +4874,7 @@ define internal fastcc void @xs_tcp_set_socket_timeouts(ptr noundef %0, ptr noca
 
 41:                                               ; preds = %41, %2
   %42 = phi i64 [ 0, %2 ], [ %47, %41 ]
-  %43 = icmp ule i64 %42, %40
+  %43 = icmp samesign ule i64 %42, %40
   %44 = shl nuw i64 1, %42
   %45 = icmp ugt i64 %36, %44
   %46 = select i1 %43, i1 %45, i1 false

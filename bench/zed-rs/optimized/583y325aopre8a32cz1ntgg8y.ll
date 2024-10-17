@@ -1308,7 +1308,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !240, !noundef !4

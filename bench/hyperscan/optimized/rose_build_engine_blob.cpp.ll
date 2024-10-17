@@ -1262,11 +1262,11 @@ _ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT
   br i1 %cmp.not6.i.i.i.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit, label %iter.check
 
 iter.check:                                       ; preds = %_ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit67
-  %min.iters.check = icmp ult i64 %sub.ptr.sub.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.sub.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check69 = icmp ult i64 %sub.ptr.sub.i, 32
+  %min.iters.check69 = icmp samesign ult i64 %sub.ptr.sub.i, 32
   br i1 %min.iters.check69, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check

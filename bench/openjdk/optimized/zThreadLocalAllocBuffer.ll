@@ -70,7 +70,7 @@ _ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit.thread: ; preds 
   tail call void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %24) #4
   %25 = load i32, ptr @ConcGCThreads, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next.i, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %27, label %.lr.ph.i, label %_ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit, !llvm.loop !6
 
 _ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit: ; preds = %.lr.ph.i
@@ -91,7 +91,7 @@ _ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit: ; preds = %.lr.
   tail call void @_ZN21ThreadLocalAllocStats5resetEv(ptr noundef nonnull align 8 dereferenceable(64) %34) #4
   %35 = load i32, ptr @ConcGCThreads, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i6, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i6, %36
   br i1 %37, label %.lr.ph.i4, label %_ZN23ZThreadLocalAllocBuffer16reset_statisticsEv.exit, !llvm.loop !8
 
 _ZN23ZThreadLocalAllocBuffer16reset_statisticsEv.exit: ; preds = %.lr.ph.i4, %_ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit.thread, %_ZN6ZValueI17ZPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit, %0
@@ -120,7 +120,7 @@ define hidden void @_ZN23ZThreadLocalAllocBuffer16reset_statisticsEv() local_unn
   tail call void @_ZN21ThreadLocalAllocStats5resetEv(ptr noundef nonnull align 8 dereferenceable(64) %9) #4
   %10 = load i32, ptr @ConcGCThreads, align 4
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %_ZN14ZValueIteratorI17ZPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit, !llvm.loop !8
 
 _ZN14ZValueIteratorI17ZPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit: ; preds = %.lr.ph, %3, %0
@@ -153,7 +153,7 @@ define hidden void @_ZN23ZThreadLocalAllocBuffer18publish_statisticsEv() local_u
   call void @_ZN21ThreadLocalAllocStats6updateERKS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %10) #4
   %11 = load i32, ptr @ConcGCThreads, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %_ZN14ZValueIteratorI17ZPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit, !llvm.loop !9
 
 _ZN14ZValueIteratorI17ZPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit: ; preds = %.lr.ph, %4

@@ -568,7 +568,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 ftp_pl_get_permission.exit:                       ; preds = %168, %171, %173, %175
   %.8.i = phi i32 [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %.7.i, %168 ]
-  %.not518 = icmp ult i32 %.8.i, 16777216
+  %.not518 = icmp samesign ult i32 %.8.i, 16777216
   br i1 %.not518, label %177, label %ftp_pl_get_permission.exit.thread
 
 ftp_pl_get_permission.exit.thread:                ; preds = %168, %ftp_pl_get_permission.exit

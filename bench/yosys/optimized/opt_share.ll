@@ -12889,7 +12889,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i984:           ; preds = %4874, %4867, %_ZN12
   br i1 %.not.i.i.i.i.i.i.i1003, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i.i.i.i, label %4893
 
 4893:                                             ; preds = %4887
-  %4894 = icmp ult i8 %4890, %4892
+  %4894 = icmp samesign ult i8 %4890, %4892
   br i1 %4894, label %4899, label %4900
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i.i.i.i: ; preds = %4887
@@ -12954,7 +12954,7 @@ _ZNKSt3mapIN12_GLOBAL__N_110ExtSigSpecESt3setIPN5Yosys5RTLIL4CellESt4lessIS6_ESa
   br i1 %.not.i.i.i65.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i, label %4919
 
 4919:                                             ; preds = %4913
-  %4920 = icmp ult i8 %4915, %4918
+  %4920 = icmp samesign ult i8 %4915, %4918
   br i1 %4920, label %.critedge.i.i1002, label %4925
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i: ; preds = %4913
@@ -24808,7 +24808,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3ma
   br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i.i, label %24
 
 24:                                               ; preds = %18
-  %25 = icmp ult i8 %21, %23
+  %25 = icmp samesign ult i8 %21, %23
   br i1 %25, label %30, label %31
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i.i: ; preds = %18
@@ -24861,7 +24861,7 @@ _ZNSt3mapIN12_GLOBAL__N_110ExtSigSpecESt3setIPN5Yosys5RTLIL4CellESt4lessIS6_ESaI
   br i1 %.not.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit, label %50
 
 50:                                               ; preds = %44
-  %51 = icmp ult i8 %46, %49
+  %51 = icmp samesign ult i8 %46, %49
   br i1 %51, label %.critedge, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_110ExtSigSpecESt4pairIKS1_St3setIPN5Yosys5RTLIL4CellESt4lessIS8_ESaIS8_EEESt10_Select1stISD_ES9_IS1_ESaISD_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESN_IJEEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit: ; preds = %44
@@ -25006,7 +25006,7 @@ common.resume.i:                                  ; preds = %260, %80
   br i1 %.not.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i, label %113
 
 113:                                              ; preds = %107
-  %114 = icmp ult i8 %110, %112
+  %114 = icmp samesign ult i8 %110, %112
   br i1 %114, label %119, label %121
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i: ; preds = %107
@@ -25069,7 +25069,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit.i.i: ; preds = %107
   br i1 %.not.i.i14.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit15.i.i, label %141
 
 141:                                              ; preds = %135
-  %142 = icmp ult i8 %137, %140
+  %142 = icmp samesign ult i8 %137, %140
   br i1 %142, label %147, label %181
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit15.i.i: ; preds = %135
@@ -25126,7 +25126,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit15.i.i: ; preds = %135
   br i1 %.not.i.i17.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit18.i.i, label %168
 
 168:                                              ; preds = %162
-  %169 = icmp ult i8 %165, %167
+  %169 = icmp samesign ult i8 %165, %167
   br i1 %169, label %174, label %177
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit18.i.i: ; preds = %162
@@ -25190,7 +25190,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit18.i.i: ; preds = %162
   br i1 %.not.i.i20.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit21.i.i, label %196
 
 196:                                              ; preds = %190
-  %197 = icmp ult i8 %193, %195
+  %197 = icmp samesign ult i8 %193, %195
   br i1 %197, label %202, label %.thread.i
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit21.i.i: ; preds = %190
@@ -25247,7 +25247,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit21.i.i: ; preds = %190
   br i1 %.not.i.i23.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit24.i.i, label %223
 
 223:                                              ; preds = %217
-  %224 = icmp ult i8 %219, %222
+  %224 = icmp samesign ult i8 %219, %222
   br i1 %224, label %229, label %232
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit24.i.i: ; preds = %217
@@ -25318,7 +25318,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit24.i.i: ; preds = %217
   br i1 %.not.i.i.i.i.i10, label %255, label %253
 
 253:                                              ; preds = %247
-  %254 = icmp ult i8 %249, %252
+  %254 = icmp samesign ult i8 %249, %252
   br label %262
 
 255:                                              ; preds = %247
@@ -34066,7 +34066,7 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN12_GLOBAL__N_110ExtSigSpecE
   br i1 %.not.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit, label %24
 
 24:                                               ; preds = %18
-  %25 = icmp ult i8 %20, %23
+  %25 = icmp samesign ult i8 %20, %23
   br i1 %25, label %31, label %30
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit: ; preds = %18
@@ -34133,7 +34133,7 @@ _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit: ; preds = %18
   br i1 %.not.i.i15, label %_ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit16, label %55
 
 55:                                               ; preds = %48
-  %56 = icmp ult i8 %51, %54
+  %56 = icmp samesign ult i8 %51, %54
   br i1 %56, label %63, label %62
 
 _ZNKSt4lessIN12_GLOBAL__N_110ExtSigSpecEEclERKS1_S4_.exit16: ; preds = %48

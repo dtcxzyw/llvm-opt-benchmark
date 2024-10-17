@@ -3124,7 +3124,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %nrune.055 = phi i32 [ 0, %for.body.lr.ph ], [ %nrune.1, %for.inc35 ]
   %rune.054 = phi ptr [ null, %for.body.lr.ph ], [ %rune.1, %for.inc35 ]
   %start.052 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc35 ]
-  %cmp1 = icmp ult i64 %indvars.iv65, %0
+  %cmp1 = icmp samesign ult i64 %indvars.iv65, %0
   br i1 %cmp1, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %for.body
@@ -3373,7 +3373,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv89 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next90, %for.inc81 ]
   %first.086 = phi ptr [ null, %for.body.lr.ph ], [ %first.1, %for.inc81 ]
   %start.084 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc81 ]
-  %cmp1 = icmp ult i64 %indvars.iv89, %0
+  %cmp1 = icmp samesign ult i64 %indvars.iv89, %0
   br i1 %cmp1, label %if.then, label %if.end58
 
 if.then:                                          ; preds = %for.body
@@ -3673,7 +3673,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv109 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next110, %for.inc106 ]
   %start.0106 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc106 ]
   %first.0105 = phi ptr [ null, %for.body.lr.ph ], [ %first.1, %for.inc106 ]
-  %cmp1 = icmp ult i64 %indvars.iv109, %0
+  %cmp1 = icmp samesign ult i64 %indvars.iv109, %0
   br i1 %cmp1, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %for.body

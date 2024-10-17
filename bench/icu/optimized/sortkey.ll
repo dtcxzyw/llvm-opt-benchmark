@@ -222,7 +222,7 @@ lpad:                                             ; preds = %if.then8.i, %land.l
 
 if.end:                                           ; preds = %entry
   %fCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp = icmp ugt i32 %and.i, 32
+  %cmp = icmp samesign ugt i32 %and.i, 32
   br i1 %cmp, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.end

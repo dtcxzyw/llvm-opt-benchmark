@@ -186,7 +186,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %126 = fcmp oge double %125, 0.000000e+00
   %127 = fneg double %125
   %128 = select i1 %126, double %125, double %127
-  %129 = icmp ugt i64 %122, 1
+  %129 = icmp samesign ugt i64 %122, 1
   br i1 %129, label %130, label %.loopexit29
 
 130:                                              ; preds = %.preheader
@@ -261,7 +261,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %190 = call double @llvm.fmuladd.f64(double %187, double %181, double %189)
   store double %190, ptr %188, align 8, !tbaa !7
   %191 = add nuw nsw i64 %173, 1
-  %192 = icmp ult i64 %173, %121
+  %192 = icmp samesign ult i64 %173, %121
   br i1 %192, label %193, label %.loopexit28
 
 193:                                              ; preds = %172
@@ -351,7 +351,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 248:                                              ; preds = %.critedge
   %249 = fmul double %246, 2.000000e+00
   %250 = fcmp ole double %249, %97
-  %251 = icmp ult i32 %96, 6
+  %251 = icmp samesign ult i32 %96, 6
   %252 = select i1 %250, i1 %251, i1 false
   br i1 %252, label %253, label %261
 
@@ -513,7 +513,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .thread27:                                        ; preds = %330, %350, %348
   %353 = add nuw nsw i64 %87, 1
-  %354 = icmp ult i64 %87, %85
+  %354 = icmp samesign ult i64 %87, %85
   br i1 %354, label %86, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.thread27, %63, %58, %69, %59, %51

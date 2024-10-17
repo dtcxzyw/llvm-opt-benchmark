@@ -1518,7 +1518,7 @@ if.end5.i:                                        ; preds = %if.else6.i.i, %land
   %bin.i.i = getelementptr inbounds i8, ptr %call1.i, i64 92
   store i32 %conv15.i.i, ptr %bin.i.i, align 4
   %tobool16.i.i = icmp ne i32 %fix_imports.0, 0
-  %cmp17.i.i = icmp ult i64 %proto.0.i.i, 3
+  %cmp17.i.i = icmp samesign ult i64 %proto.0.i.i, 3
   %11 = and i1 %tobool16.i.i, %cmp17.i.i
   %land.ext.i.i = zext i1 %11 to i32
   %fix_imports19.i.i = getelementptr inbounds i8, ptr %call1.i, i64 128
@@ -1727,7 +1727,7 @@ if.end5.i:                                        ; preds = %if.else6.i.i, %land
   %bin.i.i = getelementptr inbounds i8, ptr %call1.i, i64 92
   store i32 %conv15.i.i, ptr %bin.i.i, align 4
   %tobool16.i.i = icmp ne i32 %fix_imports.0, 0
-  %cmp17.i.i = icmp ult i64 %proto.0.i.i, 3
+  %cmp17.i.i = icmp samesign ult i64 %proto.0.i.i, 3
   %10 = and i1 %tobool16.i.i, %cmp17.i.i
   %land.ext.i.i = zext i1 %10 to i32
   %fix_imports19.i.i = getelementptr inbounds i8, ptr %call1.i, i64 128
@@ -1738,7 +1738,7 @@ if.end5.i:                                        ; preds = %if.else6.i.i, %land
   br i1 %cmp1.not.i.i, label %if.end9.i, label %land.lhs.true.i12.i
 
 land.lhs.true.i12.i:                              ; preds = %if.end5.i
-  %cmp2.i.i = icmp ult i64 %proto.0.i.i, 5
+  %cmp2.i.i = icmp samesign ult i64 %proto.0.i.i, 5
   br i1 %cmp2.i.i, label %_Pickler_SetBufferCallback.exit.thread.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i12.i
@@ -11327,7 +11327,7 @@ if.then21.i:                                      ; preds = %if.end17.i
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then21.i, %if.end17.i
-  %cmp30.i = icmp ult i64 %header_size, 8
+  %cmp30.i = icmp samesign ult i64 %header_size, 8
   br i1 %cmp30.i, label %for.body34.i, label %_Pickler_Write.exit.thread87
 
 for.body34.i:                                     ; preds = %if.end29.i, %for.body34.i
@@ -24387,7 +24387,7 @@ if.end4.i:                                        ; preds = %if.else6.i.i, %land
   %bin.i.i = getelementptr inbounds i8, ptr %self, i64 92
   store i32 %conv15.i.i, ptr %bin.i.i, align 4
   %tobool16.i.i = icmp ne i32 %fix_imports.0, 0
-  %cmp17.i.i = icmp ult i64 %proto.0.i.i, 3
+  %cmp17.i.i = icmp samesign ult i64 %proto.0.i.i, 3
   %9 = and i1 %tobool16.i.i, %cmp17.i.i
   %land.ext.i.i = zext i1 %9 to i32
   %fix_imports19.i.i = getelementptr inbounds i8, ptr %self, i64 128

@@ -4987,7 +4987,7 @@ _ZNK4pugi8xml_node4typeEv.exit8:                  ; preds = %_ZNK4pugi8xml_node4
   %conv.i6 = and i32 %5, 15
   %6 = add nsw i32 %conv.i6, -3
   %or.cond.i = icmp ult i32 %6, -2
-  %or.cond1.i = icmp ult i32 %cond.i, 2
+  %or.cond1.i = icmp samesign ult i32 %cond.i, 2
   %or.cond9.i = or i1 %or.cond1.i, %or.cond.i
   br i1 %or.cond9.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit
 
@@ -5275,7 +5275,7 @@ _ZNK4pugi8xml_node4typeEv.exit8:                  ; preds = %_ZNK4pugi8xml_node4
   %conv.i6 = and i32 %5, 15
   %6 = add nsw i32 %conv.i6, -3
   %or.cond.i = icmp ult i32 %6, -2
-  %or.cond1.i = icmp ult i32 %cond.i, 2
+  %or.cond1.i = icmp samesign ult i32 %cond.i, 2
   %or.cond9.i = or i1 %or.cond1.i, %or.cond.i
   br i1 %or.cond9.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit
 
@@ -5420,7 +5420,7 @@ _ZNK4pugi8xml_node4typeEv.exit11:                 ; preds = %_ZNK4pugi8xml_node4
   %conv.i9 = and i32 %5, 15
   %6 = add nsw i32 %conv.i9, -3
   %or.cond.i = icmp ult i32 %6, -2
-  %or.cond1.i = icmp ult i32 %cond.i, 2
+  %or.cond1.i = icmp samesign ult i32 %cond.i, 2
   %or.cond9.i = or i1 %or.cond1.i, %or.cond.i
   br i1 %or.cond9.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit
 
@@ -5579,7 +5579,7 @@ _ZNK4pugi8xml_node4typeEv.exit11:                 ; preds = %_ZNK4pugi8xml_node4
   %conv.i9 = and i32 %5, 15
   %6 = add nsw i32 %conv.i9, -3
   %or.cond.i = icmp ult i32 %6, -2
-  %or.cond1.i = icmp ult i32 %cond.i, 2
+  %or.cond1.i = icmp samesign ult i32 %cond.i, 2
   %or.cond9.i = or i1 %or.cond1.i, %or.cond.i
   br i1 %or.cond9.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit
 
@@ -5743,7 +5743,7 @@ _ZNK4pugi8xml_node4typeEv.exit5.i:                ; preds = %_ZNK4pugi8xml_node4
   %conv.i3.i = and i32 %3, 15
   %4 = add nsw i32 %cond.i.i, -3
   %or.cond.i.i = icmp ult i32 %4, -2
-  %or.cond1.i.i = icmp ult i32 %conv.i3.i, 2
+  %or.cond1.i.i = icmp samesign ult i32 %conv.i3.i, 2
   %or.cond9.i.i = or i1 %or.cond.i.i, %or.cond1.i.i
   br i1 %or.cond9.i.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit.i
 
@@ -5923,7 +5923,7 @@ _ZNK4pugi8xml_node4typeEv.exit5.i:                ; preds = %_ZNK4pugi8xml_node4
   %conv.i3.i = and i32 %3, 15
   %4 = add nsw i32 %cond.i.i, -3
   %or.cond.i.i = icmp ult i32 %4, -2
-  %or.cond1.i.i = icmp ult i32 %conv.i3.i, 2
+  %or.cond1.i.i = icmp samesign ult i32 %conv.i3.i, 2
   %or.cond9.i.i = or i1 %or.cond.i.i, %or.cond1.i.i
   br i1 %or.cond9.i.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit.i
 
@@ -6103,7 +6103,7 @@ _ZNK4pugi8xml_node4typeEv.exit5.i:                ; preds = %_ZNK4pugi8xml_node4
   %conv.i3.i = and i32 %3, 15
   %4 = add nsw i32 %cond.i.i, -3
   %or.cond.i.i = icmp ult i32 %4, -2
-  %or.cond1.i.i = icmp ult i32 %conv.i3.i, 2
+  %or.cond1.i.i = icmp samesign ult i32 %conv.i3.i, 2
   %or.cond9.i.i = or i1 %or.cond.i.i, %or.cond1.i.i
   br i1 %or.cond9.i.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit.i
 
@@ -6305,7 +6305,7 @@ _ZNK4pugi8xml_node4typeEv.exit5.i:                ; preds = %_ZNK4pugi8xml_node4
   %conv.i3.i = and i32 %3, 15
   %4 = add nsw i32 %cond.i.i, -3
   %or.cond.i.i = icmp ult i32 %4, -2
-  %or.cond1.i.i = icmp ult i32 %conv.i3.i, 2
+  %or.cond1.i.i = icmp samesign ult i32 %conv.i3.i, 2
   %or.cond9.i.i = or i1 %or.cond.i.i, %or.cond1.i.i
   br i1 %or.cond9.i.i, label %if.then, label %_ZN4pugi4impl12_GLOBAL__N_118allow_insert_childENS_13xml_node_typeES2_.exit.i
 
@@ -8077,8 +8077,8 @@ while.body.i.i96.i:                               ; preds = %cond.true19.i, %whi
   %size.addr.010.i.i.i = phi i64 [ %size.addr.1.i.i.i, %while.body.i.i96.i ], [ %div6.i95.i, %cond.true19.i ]
   %70 = load i32, ptr %data.addr.012.i.i.i, align 4
   %cmp.i.i97.i = icmp ult i32 %70, 65536
-  %cmp.i.i.i98.i = icmp ult i32 %70, 128
-  %cmp1.i.i.i99.i = icmp ult i32 %70, 2048
+  %cmp.i.i.i98.i = icmp samesign ult i32 %70, 128
+  %cmp1.i.i.i99.i = icmp samesign ult i32 %70, 2048
   %..i.i.i100.i = select i1 %cmp1.i.i.i99.i, i64 2, i64 3
   %.sink.i.i.i101.i = select i1 %cmp.i.i.i98.i, i64 1, i64 %..i.i.i100.i
   %.sink.i.pn.i.i.i = select i1 %cmp.i.i97.i, i64 %.sink.i.i.i101.i, i64 4
@@ -8207,8 +8207,8 @@ while.body.i.i138.i:                              ; preds = %cond.false22.i, %wh
   %90 = load i32, ptr %data.addr.012.i.i139.i, align 4
   %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %90)
   %cmp.i.i142.i = icmp ult i32 %or6.i.i.i.i, 65536
-  %cmp.i.i.i143.i = icmp ult i32 %or6.i.i.i.i, 128
-  %cmp1.i.i.i144.i = icmp ult i32 %or6.i.i.i.i, 2048
+  %cmp.i.i.i143.i = icmp samesign ult i32 %or6.i.i.i.i, 128
+  %cmp1.i.i.i144.i = icmp samesign ult i32 %or6.i.i.i.i, 2048
   %..i.i.i145.i = select i1 %cmp1.i.i.i144.i, i64 2, i64 3
   %.sink.i.i.i146.i = select i1 %cmp.i.i.i143.i, i64 1, i64 %..i.i.i145.i
   %.sink.i.pn.i.i147.i = select i1 %cmp.i.i142.i, i64 %.sink.i.i.i146.i, i64 4
@@ -11658,8 +11658,8 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i71: ; preds = %i
   store i64 %add5.i.i76, ptr %bufsize.i, align 8
   %27 = load i8, ptr %.str.29..i68, align 1
   %tobool16.i = icmp ne i8 %27, 0
-  %cmp17.i = icmp ult i64 %offset.0.i.i72, 2046
-  %28 = and i1 %cmp17.i, %tobool16.i
+  %cmp17.i = icmp samesign ult i64 %offset.0.i.i72, 2046
+  %28 = select i1 %tobool16.i, i1 %cmp17.i, i1 false
   br i1 %28, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i71, %while.body.i
@@ -11672,7 +11672,7 @@ while.body.i:                                     ; preds = %_ZN4pugi4impl12_GLO
   store i8 %29, ptr %arrayidx.i95, align 1
   %30 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.i = icmp ne i8 %30, 0
-  %cmp.i96 = icmp ult i64 %offset.018.i, 2047
+  %cmp.i96 = icmp samesign ult i64 %offset.018.i, 2047
   %31 = and i1 %cmp.i96, %tobool.i
   br i1 %31, label %while.body.i, label %while.end.i, !llvm.loop !104
 
@@ -17294,8 +17294,8 @@ while.body.i.i.i.i:                               ; preds = %_ZN4pugi4impl12_GLO
   %size.addr.010.i.i.i.i = phi i64 [ %size.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i, %_ZN4pugi4impl12_GLOBAL__N_114strlength_wideEPKw.exit.i ]
   %1 = load i32, ptr %data.addr.012.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %1, 65536
-  %cmp.i.i.i.i.i = icmp ult i32 %1, 128
-  %cmp1.i.i.i.i.i = icmp ult i32 %1, 2048
+  %cmp.i.i.i.i.i = icmp samesign ult i32 %1, 128
+  %cmp1.i.i.i.i.i = icmp samesign ult i32 %1, 2048
   %..i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i64 2, i64 3
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %..i.i.i.i.i
   %.sink.i.pn.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %.sink.i.i.i.i.i, i64 4
@@ -17704,7 +17704,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit: ; preds = %if.en
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
-  %cmp.i15 = icmp ugt i64 %offset.0.i9, 2045
+  %cmp.i15 = icmp samesign ugt i64 %offset.0.i9, 2045
   br i1 %cmp.i15, label %if.then.i18, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 if.then.i18:                                      ; preds = %if.then11
@@ -18065,8 +18065,8 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %size.addr.010.i.i.i = phi i64 [ %size.addr.1.i.i.i, %while.body.i.i.i ], [ %length, %entry ]
   %0 = load i32, ptr %data.addr.012.i.i.i, align 4
   %cmp.i.i.i = icmp ult i32 %0, 65536
-  %cmp.i.i.i.i = icmp ult i32 %0, 128
-  %cmp1.i.i.i.i = icmp ult i32 %0, 2048
+  %cmp.i.i.i.i = icmp samesign ult i32 %0, 128
+  %cmp1.i.i.i.i = icmp samesign ult i32 %0, 2048
   %..i.i.i.i = select i1 %cmp1.i.i.i.i, i64 2, i64 3
   %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %..i.i.i.i
   %.sink.i.pn.i.i.i = select i1 %cmp.i.i.i, i64 %.sink.i.i.i.i, i64 4
@@ -32352,7 +32352,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i: ; preds = %
   store i8 68, ptr %arrayidx13.i.i, align 1
   %add14.i.i = add nuw nsw i64 %offset.0.i.i, 5
   store i64 %add14.i.i, ptr %bufsize.i.i, align 8
-  %cmp.i15.i = icmp ugt i64 %offset.0.i.i, 2039
+  %cmp.i15.i = icmp samesign ugt i64 %offset.0.i.i, 2039
   br i1 %cmp.i15.i, label %if.then.i24.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i
 
 if.then.i24.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
@@ -32978,7 +32978,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit: ; preds = %sw
   store i8 67, ptr %arrayidx13.i, align 1
   %add14.i = add nuw nsw i64 %offset.0.i202, 5
   store i64 %add14.i, ptr %bufsize.i199, align 8
-  %cmp.i208 = icmp ugt i64 %offset.0.i202, 2039
+  %cmp.i208 = icmp samesign ugt i64 %offset.0.i202, 2039
   br i1 %cmp.i208, label %if.then.i218, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit
 
 if.then.i218:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit

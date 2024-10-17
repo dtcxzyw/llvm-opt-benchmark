@@ -18900,7 +18900,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %83, %81
   br label %_ZL11PrintMapperIN5clang11OMPToClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit
 
 _ZL11PrintMapperIN5clang11OMPToClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit: ; preds = %94, %92, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %96 = icmp ult i64 %indvars.iv45, %48
+  %96 = icmp samesign ult i64 %indvars.iv45, %48
   br i1 %96, label %97, label %_ZN4llvm11raw_ostreamlsEPKc.exit33
 
 97:                                               ; preds = %_ZL11PrintMapperIN5clang11OMPToClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit
@@ -19161,7 +19161,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %83, %81
   br label %_ZL11PrintMapperIN5clang13OMPFromClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit
 
 _ZL11PrintMapperIN5clang13OMPFromClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit: ; preds = %94, %92, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %96 = icmp ult i64 %indvars.iv45, %48
+  %96 = icmp samesign ult i64 %indvars.iv45, %48
   br i1 %96, label %97, label %_ZN4llvm11raw_ostreamlsEPKc.exit33
 
 97:                                               ; preds = %_ZL11PrintMapperIN5clang13OMPFromClauseEEvRN4llvm11raw_ostreamEPT_RKNS0_14PrintingPolicyE.exit
@@ -20762,7 +20762,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %49, %51
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %64, %62, %30
-  %67 = icmp ult i64 %indvars.iv, %29
+  %67 = icmp samesign ult i64 %indvars.iv, %29
   br i1 %67, label %68, label %_ZN4llvm11raw_ostreamlsEPKc.exit18
 
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit15

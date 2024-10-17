@@ -6203,7 +6203,7 @@ rb_obj_write.exit:                                ; preds = %85, %77, %.lr.ph, %
   %86 = load ptr, ptr %5, align 8
   %87 = load i32, ptr %86, align 8
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %89, label %.lr.ph, label %.loopexit137, !llvm.loop !37
 
 .loopexit137:                                     ; preds = %rb_obj_write.exit, %.preheader, %59, %49

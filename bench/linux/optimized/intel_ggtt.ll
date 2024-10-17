@@ -1076,7 +1076,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
-  %49 = icmp ugt i32 %48, 3141
+  %49 = icmp samesign ugt i32 %48, 3141
   br i1 %49, label %67, label %50
 
 50:                                               ; preds = %40
@@ -1204,7 +1204,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = or disjoint i32 %124, %127
-  %129 = icmp ugt i32 %128, 3141
+  %129 = icmp samesign ugt i32 %128, 3141
   %130 = select i1 %129, ptr @mtl_ggtt_pte_encode, ptr @gen8_ggtt_pte_encode
   %131 = getelementptr inbounds i8, ptr %18, i64 584
   store ptr %130, ptr %131, align 8

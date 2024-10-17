@@ -236,7 +236,7 @@ define dso_local i32 @acpi_tb_parse_root_table(i64 noundef %0) local_unnamed_add
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %24, i64 noundef 36) #6
   %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %22, 36
-  %31 = icmp ugt i64 %30, %29
+  %31 = icmp samesign ugt i64 %30, %29
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %26

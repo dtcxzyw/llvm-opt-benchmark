@@ -252,7 +252,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i16, ptr @cpu_freq_count, align 2
   %52 = zext i16 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %.loopexit50, !llvm.loop !6
 
 .loopexit50:                                      ; preds = %.lr.ph, %28, %24
@@ -531,7 +531,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 .preheader.i:                                     ; preds = %.lr.ph.i
   %191 = trunc nuw nsw i64 %indvars.iv.i to i32
   %192 = and i64 %indvars.iv.i, 4294967295
-  %.not36.i = icmp ult i64 %indvars.iv49.i, %192
+  %.not36.i = icmp samesign ult i64 %indvars.iv49.i, %192
   br i1 %.not36.i, label %.loopexit.i, label %.lr.ph38.preheader.i
 
 .lr.ph38.preheader.i:                             ; preds = %.preheader.i
@@ -632,14 +632,14 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %180, %204, %209
   %230 = getelementptr inbounds i8, ptr %229, i64 1
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
-  %233 = icmp ult i64 %indvars.iv.next66, %232
+  %233 = icmp samesign ult i64 %indvars.iv.next66, %232
   br i1 %233, label %.lr.ph55, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %228, %.preheader, %_cpu_freq_cpu_avail.exit.thread, %215, %_cpu_freq_cpu_avail.exit, %.lr.ph58, %68
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %234 = load i16, ptr @cpu_freq_count, align 2
   %235 = zext i16 %234 to i64
-  %236 = icmp ult i64 %indvars.iv.next69, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next69, %235
   br i1 %236, label %.lr.ph58, label %.loopexit49, !llvm.loop !13
 
 .loopexit49:                                      ; preds = %.loopexit, %59, %13, %16, %1, %22
@@ -1438,7 +1438,7 @@ switch.early.test:                                ; preds = %.thread, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load i16, ptr @cpu_freq_count, align 2
   %135 = zext i16 %134 to i64
-  %136 = icmp ult i64 %indvars.iv.next, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next, %135
   br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %133, %.preheader
@@ -2113,7 +2113,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = load i16, ptr @cpu_freq_count, align 2
   %148 = zext i16 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
   br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %146, %50, %1
@@ -3234,7 +3234,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %190 = load i16, ptr @cpu_freq_count, align 2
   %191 = zext i16 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next, %191
   br i1 %192, label %10, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %189, %1

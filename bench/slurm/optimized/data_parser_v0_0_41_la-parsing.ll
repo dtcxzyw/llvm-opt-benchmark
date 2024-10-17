@@ -697,7 +697,7 @@ _parser_linked_flag.exit:                         ; preds = %332, %333
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %334 = load i8, ptr %260, align 8
   %335 = zext i8 %334 to i64
-  %336 = icmp ult i64 %indvars.iv.next199, %335
+  %336 = icmp samesign ult i64 %indvars.iv.next199, %335
   br i1 %336, label %270, label %_parser_linked.exit, !llvm.loop !6
 
 337:                                              ; preds = %248
@@ -1471,7 +1471,7 @@ define internal noundef i32 @_foreach_parse_marray(ptr noundef %0, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i8, ptr %36, align 8
   %41 = zext i8 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %43, label %.loopexit, !llvm.loop !10
 
 43:                                               ; preds = %.lr.ph, %39
@@ -1935,7 +1935,7 @@ _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %156 = load i8, ptr %147, align 8
   %157 = zext i8 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next115, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next115, %157
   br i1 %158, label %150, label %_dump_linked.exit, !llvm.loop !13
 
 159:                                              ; preds = %83

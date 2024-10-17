@@ -1461,7 +1461,7 @@ if.end49:                                         ; preds = %for.body39
   %inc51 = add nuw nsw i32 %i.044, 1
   %.pr = load ptr, ptr %symref, align 8
   %tobool36 = icmp ne ptr %.pr, null
-  %cmp37 = icmp ult i32 %i.044, 4
+  %cmp37 = icmp samesign ult i32 %i.044, 4
   %6 = select i1 %tobool36, i1 %cmp37, i1 false
   br i1 %6, label %for.body39, label %for.end52, !llvm.loop !13
 
@@ -1754,7 +1754,7 @@ for.inc:                                          ; preds = %for.body, %process_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %pending, align 8
   %10 = zext i32 %9 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %10
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp9, label %for.body, label %while.cond49thread-pre-split, !llvm.loop !15
 
 while.cond49thread-pre-split:                     ; preds = %for.inc, %for.cond.preheader
@@ -4275,7 +4275,7 @@ if.then4.i11:                                     ; preds = %if.then5
 
 if.end9:                                          ; preds = %if.then4.i11, %if.then5, %if.end
   %dav_headers.1 = phi ptr [ %dav_headers.0, %if.end ], [ %call8, %if.then5 ], [ %call8, %if.then4.i11 ]
-  %tobool11.not = icmp ult i32 %options, 4
+  %tobool11.not = icmp samesign ult i32 %options, 4
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.end9

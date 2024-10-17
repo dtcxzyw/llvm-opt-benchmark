@@ -354,7 +354,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   br i1 %109, label %102, label %110, !llvm.loop !5
 
 110:                                              ; preds = %102
-  %111 = icmp ult i64 %.01621.i.i.i, 8
+  %111 = icmp samesign ult i64 %.01621.i.i.i, 8
   br i1 %111, label %format_number.exit.thread.i, label %112
 
 112:                                              ; preds = %110
@@ -587,7 +587,7 @@ format_number.exit107.i:                          ; preds = %176, %174
   br i1 %200, label %193, label %201, !llvm.loop !5
 
 201:                                              ; preds = %193
-  %202 = icmp ult i64 %.01621.i.i, 8
+  %202 = icmp samesign ult i64 %.01621.i.i, 8
   br i1 %202, label %format_header_v7tar.exit, label %.preheader19.preheader.i.i
 
 .preheader19.preheader.i.i:                       ; preds = %201

@@ -2255,7 +2255,7 @@ if.end79:                                         ; preds = %do.end49, %if.then6
   %add82 = add i64 %mul81, %delta.0
   %sub83 = sub nuw nsw i64 36, %t.1
   %mul84 = mul i64 %sub83, %w.0
-  %cmp86.not = icmp ugt i64 %t.1, %conv80
+  %cmp86.not = icmp samesign ugt i64 %t.1, %conv80
   br i1 %cmp86.not, label %do.end88, label %do.body33, !llvm.loop !18
 
 do.end88:                                         ; preds = %if.end79
@@ -5656,7 +5656,7 @@ utf8_decode.exit:                                 ; preds = %while.body.i
 
 do.body23:                                        ; preds = %utf8_decode.exit
   %cmp25 = icmp ne i64 %utf8.sroa.0.0, 1
-  %cmp28 = icmp ult i64 %utf8.sroa.0.0, 5
+  %cmp28 = icmp samesign ult i64 %utf8.sroa.0.0, 5
   %or.cond = and i1 %cmp25, %cmp28
   br i1 %or.cond, label %for.cond37.preheader, label %do.body31
 

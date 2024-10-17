@@ -963,7 +963,7 @@ entry:
   %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %sub = xor i64 %conv, 63
-  %cmp = icmp ult i64 %sub, 8
+  %cmp = icmp samesign ult i64 %sub, 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1254,7 +1254,7 @@ _ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %if.end21.i, %if.the
   %arrayidx.i6 = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %conv.i
   store i8 -128, ptr %arrayidx.i6, align 1
   %sub.i7 = xor i64 %conv.i, 63
-  %cmp.i8 = icmp ult i64 %sub.i7, 8
+  %cmp.i8 = icmp samesign ult i64 %sub.i7, 8
   br i1 %cmp.i8, label %if.then.i, label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit

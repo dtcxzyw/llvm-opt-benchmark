@@ -1424,7 +1424,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   br label %317
 
 291:                                              ; preds = %276
-  %292 = icmp ult i8 %278, 24
+  %292 = icmp samesign ult i8 %278, 24
   call void @llvm.assume(i1 %292)
   %293 = zext nneg i8 %278 to i64
   %294 = getelementptr inbounds i8, ptr %56, i64 9
@@ -1471,7 +1471,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   br label %493
 
 313:                                              ; preds = %298
-  %314 = icmp ult i8 %300, 24
+  %314 = icmp samesign ult i8 %300, 24
   call void @llvm.assume(i1 %314)
   %315 = zext nneg i8 %300 to i64
   %316 = getelementptr inbounds i8, ptr %56, i64 9
@@ -1512,7 +1512,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   br label %334
 
 330:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit"
-  %331 = icmp ult i8 %278, 24
+  %331 = icmp samesign ult i8 %278, 24
   call void @llvm.assume(i1 %331)
   %332 = zext nneg i8 %278 to i64
   %333 = getelementptr inbounds i8, ptr %56, i64 9
@@ -2041,7 +2041,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit199: ; preds = %"_ZN5al
   br label %577
 
 540:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit204.thread"
-  %541 = icmp ult i8 %300, 24
+  %541 = icmp samesign ult i8 %300, 24
   call void @llvm.assume(i1 %541)
   %542 = zext nneg i8 %300 to i64
   %543 = getelementptr inbounds i8, ptr %56, i64 9
@@ -2161,7 +2161,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit219: ; preds = %"_ZN5al
   br label %632
 
 595:                                              ; preds = %581
-  %596 = icmp ult i8 %582, 24
+  %596 = icmp samesign ult i8 %582, 24
   call void @llvm.assume(i1 %596)
   %597 = zext nneg i8 %582 to i64
   %598 = getelementptr inbounds i8, ptr %56, i64 9

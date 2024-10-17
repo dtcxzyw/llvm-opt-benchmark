@@ -3032,7 +3032,7 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
   br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !85
 
 .loopexit:                                        ; preds = %85, %74, %70
-  %88 = icmp ugt i32 %28, 64
+  %88 = icmp samesign ugt i32 %28, 64
   br i1 %88, label %89, label %90, !prof !6
 
 89:                                               ; preds = %.loopexit

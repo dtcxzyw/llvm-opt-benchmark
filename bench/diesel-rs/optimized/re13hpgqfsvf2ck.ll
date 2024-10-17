@@ -1823,7 +1823,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %200 = getelementptr inbounds ptr, ptr %198, i64 %179
   store ptr %160, ptr %200, align 8, !alias.scope !277, !noalias !280
   store i16 %177, ptr %169, align 2, !noalias !280
-  %201 = icmp ult i64 %179, %199
+  %201 = icmp samesign ult i64 %179, %199
   br i1 %201, label %.lr.ph.i.i.i.preheader, label %.thread92
 
 .lr.ph.i.i.i.preheader:                           ; preds = %197
@@ -1833,7 +1833,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %203, %.lr.ph.i.i.i ], [ %179, %.lr.ph.i.i.i.preheader ]
   %203 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
-  %204 = icmp ult i64 %.sroa.0.06.i.i.i, 12
+  %204 = icmp samesign ult i64 %.sroa.0.06.i.i.i, 12
   tail call void @llvm.assume(i1 %204)
   %205 = getelementptr inbounds ptr, ptr %202, i64 %.sroa.0.06.i.i.i
   %206 = load ptr, ptr %205, align 8, !noalias !280, !nonnull !21, !noundef !21
@@ -1992,10 +1992,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 264:                                              ; preds = %264, %262
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %262 ], [ %spec.select7.i.i.i.i, %264 ]
-  %265 = icmp ult i64 %.sroa.0.011.i.i.i.i, %254
+  %265 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, %254
   %266 = zext i1 %265 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %266
-  %267 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
+  %267 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %267)
   %268 = getelementptr inbounds ptr, ptr %255, i64 %.sroa.0.011.i.i.i.i
   %269 = load ptr, ptr %268, align 8, !alias.scope !304, !noalias !307, !nonnull !21, !noundef !21
@@ -2004,7 +2004,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %271 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %272 = getelementptr inbounds i8, ptr %269, i64 624
   store i16 %271, ptr %272, align 8, !noalias !307
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %254
+  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i, %254
   %or.cond.i.not.i.i.i = select i1 %265, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %264, label %276
 
@@ -2313,7 +2313,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN110_$LT$core..i
 
 24:                                               ; preds = %.loopexit.loopexit.i.i
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 632
-  %26 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %26 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds ptr, ptr %25, i64 %.sroa.4.0.i.ph.sink.i.ph
   %28 = load ptr, ptr %27, align 8, !nonnull !21, !noundef !21
@@ -3049,7 +3049,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   %or.cond.i = select i1 %20, i1 %23, i1 false
   %24 = getelementptr inbounds i8, ptr %1, i64 77
   %25 = load i8, ptr %24, align 1, !range !413
-  %switch.not.i = icmp ult i8 %25, 2
+  %switch.not.i = icmp samesign ult i8 %25, 2
   %or.cond = select i1 %or.cond.i, i1 %switch.not.i, i1 false
   br i1 %or.cond, label %35, label %_ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE.exit
 
@@ -3201,7 +3201,7 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   %or.cond = select i1 %10, i1 %13, i1 false
   %14 = getelementptr inbounds i8, ptr %2, i64 5
   %15 = load i8, ptr %14, align 1, !range !413
-  %switch.not.i = icmp ult i8 %15, 2
+  %switch.not.i = icmp samesign ult i8 %15, 2
   %or.cond8 = select i1 %or.cond, i1 %switch.not.i, i1 false
   br i1 %or.cond8, label %25, label %_ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE.exit
 
@@ -4390,13 +4390,13 @@ default.unreachable.i:                            ; preds = %.noexc
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %1, i64 125
   %16 = load i8, ptr %15, align 1, !range !413, !alias.scope !832, !noalias !831, !noundef !21
-  %or.cond.not.i = icmp ult i8 %16, 2
+  %or.cond.not.i = icmp samesign ult i8 %16, 2
   br i1 %.not, label %22, label %25
 
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds i8, ptr %1, i64 125
   %19 = load i8, ptr %18, align 1, !range !413, !alias.scope !833, !noalias !831, !noundef !21
-  %switch.not.i.i = icmp ult i8 %19, 2
+  %switch.not.i.i = icmp samesign ult i8 %19, 2
   br i1 %switch.not.i.i, label %20, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
 
 20:                                               ; preds = %17
@@ -4551,13 +4551,13 @@ default.unreachable.i:                            ; preds = %.noexc
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %2, i64 29
   %16 = load i8, ptr %15, align 1, !range !413, !alias.scope !880, !noundef !21
-  %or.cond.not.i = icmp ult i8 %16, 2
+  %or.cond.not.i = icmp samesign ult i8 %16, 2
   br i1 %.not6, label %22, label %25
 
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds i8, ptr %2, i64 29
   %19 = load i8, ptr %18, align 1, !range !413, !alias.scope !881, !noundef !21
-  %switch.not.i.i = icmp ult i8 %19, 2
+  %switch.not.i.i = icmp samesign ult i8 %19, 2
   br i1 %switch.not.i.i, label %20, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
 
 20:                                               ; preds = %17
@@ -5636,13 +5636,13 @@ default.unreachable.i.i:                          ; preds = %.noexc.i
 97:                                               ; preds = %.noexc.i
   %98 = getelementptr inbounds i8, ptr %1, i64 125
   %99 = load i8, ptr %98, align 1, !range !413, !alias.scope !1172, !noalias !1170, !noundef !21
-  %or.cond.not.i.i = icmp ult i8 %99, 2
+  %or.cond.not.i.i = icmp samesign ult i8 %99, 2
   br i1 %.not.i.i, label %108, label %105
 
 100:                                              ; preds = %.noexc.i
   %101 = getelementptr inbounds i8, ptr %1, i64 125
   %102 = load i8, ptr %101, align 1, !range !413, !alias.scope !1173, !noalias !1170, !noundef !21
-  %switch.not.i.i.i = icmp ult i8 %102, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %102, 2
   br i1 %switch.not.i.i.i, label %103, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i
 
 103:                                              ; preds = %100
@@ -5785,13 +5785,13 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
 133:                                              ; preds = %.noexc.i.i
   %134 = getelementptr inbounds i8, ptr %1, i64 125
   %135 = load i8, ptr %134, align 1, !range !413, !alias.scope !1226, !noalias !1224, !noundef !21
-  %or.cond.not.i.i.i = icmp ult i8 %135, 2
+  %or.cond.not.i.i.i = icmp samesign ult i8 %135, 2
   br i1 %.not.i23.i, label %141, label %144
 
 136:                                              ; preds = %.noexc.i.i
   %137 = getelementptr inbounds i8, ptr %1, i64 125
   %138 = load i8, ptr %137, align 1, !range !413, !alias.scope !1227, !noalias !1224, !noundef !21
-  %switch.not.i.i.i.i = icmp ult i8 %138, 2
+  %switch.not.i.i.i.i = icmp samesign ult i8 %138, 2
   br i1 %switch.not.i.i.i.i, label %139, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i
 
 139:                                              ; preds = %136
@@ -6432,13 +6432,13 @@ default.unreachable.i.i:                          ; preds = %.noexc.i
 99:                                               ; preds = %.noexc.i
   %100 = getelementptr inbounds i8, ptr %1, i64 125
   %101 = load i8, ptr %100, align 1, !range !413, !alias.scope !1398, !noalias !1396, !noundef !21
-  %or.cond.not.i.i = icmp ult i8 %101, 2
+  %or.cond.not.i.i = icmp samesign ult i8 %101, 2
   br i1 %.not.i.i, label %110, label %107
 
 102:                                              ; preds = %.noexc.i
   %103 = getelementptr inbounds i8, ptr %1, i64 125
   %104 = load i8, ptr %103, align 1, !range !413, !alias.scope !1399, !noalias !1396, !noundef !21
-  %switch.not.i.i.i = icmp ult i8 %104, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %104, 2
   br i1 %switch.not.i.i.i, label %105, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i
 
 105:                                              ; preds = %102
@@ -6591,13 +6591,13 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
 138:                                              ; preds = %.noexc.i.i
   %139 = getelementptr inbounds i8, ptr %1, i64 125
   %140 = load i8, ptr %139, align 1, !range !413, !alias.scope !1453, !noalias !1452, !noundef !21
-  %or.cond.not.i.i.i = icmp ult i8 %140, 2
+  %or.cond.not.i.i.i = icmp samesign ult i8 %140, 2
   br i1 %.not.i23.i, label %146, label %149
 
 141:                                              ; preds = %.noexc.i.i
   %142 = getelementptr inbounds i8, ptr %1, i64 125
   %143 = load i8, ptr %142, align 1, !range !413, !alias.scope !1454, !noalias !1452, !noundef !21
-  %switch.not.i.i.i.i = icmp ult i8 %143, 2
+  %switch.not.i.i.i.i = icmp samesign ult i8 %143, 2
   br i1 %switch.not.i.i.i.i, label %144, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i
 
 144:                                              ; preds = %141

@@ -267,7 +267,7 @@ for.inc11:                                        ; preds = %for.body6
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %6 = load i32, ptr %mNumFaces, align 8
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next18, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next18, %7
   br i1 %cmp, label %for.body, label %for.end13, !llvm.loop !6
 
 for.end13:                                        ; preds = %for.inc11, %arrayctor.cont.thread
@@ -996,7 +996,7 @@ for.inc195:                                       ; preds = %for.body, %if.end15
   %41 = phi i32 [ %29, %for.body ], [ %.pre145, %if.end150 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = zext i32 %41 to i64
-  %cmp85 = icmp ult i64 %indvars.iv.next, %42
+  %cmp85 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %cmp85, label %for.body, label %for.end197, !llvm.loop !10
 
 for.end197:                                       ; preds = %for.inc195
@@ -1058,7 +1058,7 @@ for.inc11.i:                                      ; preds = %for.body6.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %48 = load i32, ptr %mNumFaces.i, align 8
   %49 = zext i32 %48 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next18.i, %49
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next18.i, %49
   br i1 %cmp.i, label %for.body.i, label %_ZN6Assimp14addFacesToMeshEP6aiMesh.exit, !llvm.loop !6
 
 _ZN6Assimp14addFacesToMeshEP6aiMesh.exit:         ; preds = %for.inc11.i, %arrayctor.cont.thread.i
@@ -1103,7 +1103,7 @@ for.body221:                                      ; preds = %invoke.cont202, %fo
   %mNumMeshes219 = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load i32, ptr %mNumMeshes219, align 8
   %60 = zext i32 %59 to i64
-  %cmp220 = icmp ult i64 %indvars.iv.next141, %60
+  %cmp220 = icmp samesign ult i64 %indvars.iv.next141, %60
   br i1 %cmp220, label %for.body221, label %for.end227, !llvm.loop !11
 
 lpad201:                                          ; preds = %_ZN6Assimp14addFacesToMeshEP6aiMesh.exit
@@ -1181,7 +1181,7 @@ while.cond:                                       ; preds = %_ZNSt6vectorI10aiVe
   %sub.ptr.rhs.cast = ptrtoint ptr %sz.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv7 = and i64 %sub.ptr.sub, 4294967295
-  %cmp.i.i = icmp ult i64 %conv7, 84
+  %cmp.i.i = icmp samesign ult i64 %conv7, 84
   br i1 %cmp.i.i, label %while.cond.i.i.i.preheader, label %_ZN6Assimp12_GLOBAL__N_111IsBinarySTLEPKcm.exit.i
 
 _ZN6Assimp12_GLOBAL__N_111IsBinarySTLEPKcm.exit.i: ; preds = %while.cond
@@ -2251,7 +2251,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc229 = add nuw nsw i64 %i.0910, 1
   %49 = load i32, ptr %mNumVertices.i, align 4
   %conv212 = zext i32 %49 to i64
-  %cmp213 = icmp ult i64 %inc229, %conv212
+  %cmp213 = icmp samesign ult i64 %inc229, %conv212
   br i1 %cmp213, label %for.body, label %if.end231, !llvm.loop !34
 
 if.end231:                                        ; preds = %for.body, %arrayctor.cont.thread, %if.end197
@@ -2305,7 +2305,7 @@ for.body251:                                      ; preds = %for.body251.prehead
   %inc268 = add nuw nsw i64 %i246.0913, 1
   %62 = load i32, ptr %mNumVertices.i, align 4
   %conv249 = zext i32 %62 to i64
-  %cmp250 = icmp ult i64 %inc268, %conv249
+  %cmp250 = icmp samesign ult i64 %inc268, %conv249
   br i1 %cmp250, label %for.body251, label %if.end270, !llvm.loop !35
 
 if.end270:                                        ; preds = %for.body251, %arrayctor.cont245.thread, %if.end231
@@ -2375,7 +2375,7 @@ for.inc11.i:                                      ; preds = %for.body6.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %69 = load i32, ptr %mNumFaces.i, align 8
   %70 = zext i32 %69 to i64
-  %cmp.i415 = icmp ult i64 %indvars.iv.next18.i, %70
+  %cmp.i415 = icmp samesign ult i64 %indvars.iv.next18.i, %70
   br i1 %cmp.i415, label %for.body.i, label %if.end.i419, !llvm.loop !6
 
 if.end.i419:                                      ; preds = %for.inc11.i, %arrayctor.cont.thread.i

@@ -315,7 +315,7 @@ entry:
   %shr.i = lshr i64 %addr, 12
   %0 = trunc i64 %shr.i to i8
   %conv.i = and i8 %0, 7
-  %cmp.i = icmp ult i8 %conv.i, 5
+  %cmp.i = icmp samesign ult i8 %conv.i, 5
   br i1 %cmp.i, label %tpm_tis_locality_from_addr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -489,7 +489,7 @@ sw.bb69:                                          ; preds = %if.end, %if.end, %i
 if.then75:                                        ; preds = %sw.bb69
   %conv76 = zext i32 %size to i64
   %sub78 = sub nuw nsw i64 4, %and1
-  %cmp79 = icmp ult i64 %sub78, %conv76
+  %cmp79 = icmp samesign ult i64 %sub78, %conv76
   %conv84 = trunc nuw nsw i64 %sub78 to i32
   %spec.select = select i1 %cmp79, i32 %conv84, i32 %size
   %cmp86.not78 = icmp eq i32 %spec.select, 0
@@ -559,7 +559,7 @@ if.then.i:                                        ; preds = %sw.bb91
   %conv6.i = zext i8 %41 to i32
   %conv8.i = zext i16 %inc.i to i32
   %conv9.i = and i32 %conv2.i, 65535
-  %cmp10.not.i = icmp ugt i32 %conv9.i, %conv8.i
+  %cmp10.not.i = icmp samesign ugt i32 %conv9.i, %conv8.i
   br i1 %cmp10.not.i, label %if.end.i62, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then.i
@@ -729,7 +729,7 @@ entry:
   %shr.i = lshr i64 %addr, 12
   %1 = trunc i64 %shr.i to i8
   %conv.i = and i8 %1, 7
-  %cmp.i = icmp ult i8 %conv.i, 5
+  %cmp.i = icmp samesign ult i8 %conv.i, 5
   br i1 %cmp.i, label %tpm_tis_locality_from_addr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -962,7 +962,7 @@ for.cond100.preheader:                            ; preds = %while.body
 
 for.cond100:                                      ; preds = %for.cond100.preheader, %for.body104
   %indvars.iv261 = phi i64 [ %30, %for.cond100.preheader ], [ %indvars.iv.next262, %for.body104 ]
-  %cmp102 = icmp ult i64 %indvars.iv261, 4
+  %cmp102 = icmp samesign ult i64 %indvars.iv261, 4
   br i1 %cmp102, label %for.body104, label %for.cond119.preheader
 
 for.cond119.preheader:                            ; preds = %for.cond100
@@ -1319,7 +1319,7 @@ if.end381:                                        ; preds = %trace_tpm_tis_mmio_
   %80 = phi i32 [ %.pre, %trace_tpm_tis_mmio_write_data2send.exit.if.end381_crit_edge ], [ %or.i231, %if.then373 ]
   %conv384 = zext i32 %size to i64
   %sub = sub nuw nsw i64 4, %and1
-  %cmp386 = icmp ult i64 %sub, %conv384
+  %cmp386 = icmp samesign ult i64 %sub, %conv384
   %conv391 = trunc nuw nsw i64 %sub to i32
   %spec.select194 = select i1 %cmp386, i32 %conv391, i32 %size
   %sts397 = getelementptr inbounds i8, ptr %arrayidx346, i64 8
@@ -1389,7 +1389,7 @@ if.then432:                                       ; preds = %while.end420
   %89 = and i32 %buffer440.val, -65536
   %conv443 = tail call i32 @llvm.bswap.i32(i32 %89)
   %conv445 = zext i16 %87 to i32
-  %cmp446 = icmp ugt i32 %conv443, %conv445
+  %cmp446 = icmp samesign ugt i32 %conv443, %conv445
   %and.i239 = and i32 %.lcssa, 201326596
   %storemerge.v = select i1 %cmp446, i32 136, i32 128
   %storemerge = or disjoint i32 %and.i239, %storemerge.v
@@ -1725,7 +1725,7 @@ entry:
   %shr.i = lshr i64 %addr, 12
   %0 = trunc i64 %shr.i to i8
   %conv.i = and i8 %0, 7
-  %cmp.i = icmp ult i8 %conv.i, 5
+  %cmp.i = icmp samesign ult i8 %conv.i, 5
   br i1 %cmp.i, label %tpm_tis_locality_from_addr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry

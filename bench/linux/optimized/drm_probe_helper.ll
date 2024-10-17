@@ -844,7 +844,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @__drm_helper_update_and_va
   %25 = icmp eq i32 %24, 0
   %26 = and i32 %23, 32
   %27 = icmp eq i32 %26, 0
-  %28 = icmp ult i32 %23, 16384
+  %28 = icmp samesign ult i32 %23, 16384
   %29 = getelementptr inbounds i8, ptr %0, i64 1544
   %30 = getelementptr inbounds i8, ptr %0, i64 1704
   %31 = getelementptr inbounds i8, ptr %0, i64 200

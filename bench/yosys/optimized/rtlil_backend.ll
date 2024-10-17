@@ -4202,7 +4202,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit.thread163: ; preds = %_ZNK5
   %40 = load i32, ptr %19, align 4
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %19, align 4
-  %42 = icmp ugt i32 %spec.select48, 1
+  %42 = icmp samesign ugt i32 %spec.select48, 1
   %43 = select i1 %42, i1 true, i1 %spec.select47
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit52
 

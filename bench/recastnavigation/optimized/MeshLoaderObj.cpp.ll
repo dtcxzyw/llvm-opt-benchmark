@@ -487,7 +487,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   br i1 %exitcond.i, label %.lr.ph, label %.outer.i, !llvm.loop !9
 
 _ZL9parseFacePcPiii.exit:                         ; preds = %94
-  %108 = icmp ugt i64 %indvars.iv.i, 2
+  %108 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %108, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %104, %_ZL9parseFacePcPiii.exit

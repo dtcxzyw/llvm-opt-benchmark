@@ -312,7 +312,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %115 = sub i32 %101, %114
   %116 = zext i32 %115 to i64
   %117 = shl nuw nsw i64 %116, 2
-  %118 = icmp ult i64 %indvars.iv739, %113
+  %118 = icmp samesign ult i64 %indvars.iv739, %113
   br i1 %118, label %.lr.ph546, label %._crit_edge547
 
 .lr.ph546:                                        ; preds = %.preheader504

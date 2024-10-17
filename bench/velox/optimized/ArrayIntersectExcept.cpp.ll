@@ -8323,7 +8323,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -8981,7 +8981,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -9363,7 +9363,7 @@ if.end.i.i.i.i155:                                ; preds = %land.rhs.i.i153
 for.cond.i.i.i.i156:                              ; preds = %for.body.i.i.i.i160, %if.end.i.i.i.i155
   %indvars.iv.i.i157 = phi i64 [ %indvars.iv.next.i.i158, %for.body.i.i.i.i160 ], [ 0, %if.end.i.i.i.i155 ]
   %indvars.iv.next.i.i158 = add nuw nsw i64 %indvars.iv.i.i157, 64
-  %cmp19.not.i.i.i.i159 = icmp ugt i64 %indvars.iv.next.i.i158, %87
+  %cmp19.not.i.i.i.i159 = icmp samesign ugt i64 %indvars.iv.next.i.i158, %87
   br i1 %cmp19.not.i.i.i.i159, label %for.end.i.i.i.i163, label %for.body.i.i.i.i160
 
 for.body.i.i.i.i160:                              ; preds = %for.cond.i.i.i.i156
@@ -10905,7 +10905,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %12
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %12
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -11114,7 +11114,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %6
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %6
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -13678,7 +13678,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -14335,7 +14335,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -14718,7 +14718,7 @@ if.end.i.i.i.i154:                                ; preds = %land.rhs.i.i152
 for.cond.i.i.i.i155:                              ; preds = %for.body.i.i.i.i159, %if.end.i.i.i.i154
   %indvars.iv.i.i156 = phi i64 [ %indvars.iv.next.i.i157, %for.body.i.i.i.i159 ], [ 0, %if.end.i.i.i.i154 ]
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i156, 64
-  %cmp19.not.i.i.i.i158 = icmp ugt i64 %indvars.iv.next.i.i157, %87
+  %cmp19.not.i.i.i.i158 = icmp samesign ugt i64 %indvars.iv.next.i.i157, %87
   br i1 %cmp19.not.i.i.i.i158, label %for.end.i.i.i.i162, label %for.body.i.i.i.i159
 
 for.body.i.i.i.i159:                              ; preds = %for.cond.i.i.i.i155
@@ -16049,7 +16049,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i43 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 2
-  %cmp.i.i45 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i45 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i45)
   %5 = ptrtoint ptr %arrayidx.i.i.i.i.i43 to i64
   %or.i.i = or i64 %shr.i.i, %5
@@ -16984,7 +16984,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -17640,7 +17640,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -18022,7 +18022,7 @@ if.end.i.i.i.i155:                                ; preds = %land.rhs.i.i153
 for.cond.i.i.i.i156:                              ; preds = %for.body.i.i.i.i160, %if.end.i.i.i.i155
   %indvars.iv.i.i157 = phi i64 [ %indvars.iv.next.i.i158, %for.body.i.i.i.i160 ], [ 0, %if.end.i.i.i.i155 ]
   %indvars.iv.next.i.i158 = add nuw nsw i64 %indvars.iv.i.i157, 64
-  %cmp19.not.i.i.i.i159 = icmp ugt i64 %indvars.iv.next.i.i158, %87
+  %cmp19.not.i.i.i.i159 = icmp samesign ugt i64 %indvars.iv.next.i.i158, %87
   br i1 %cmp19.not.i.i.i.i159, label %for.end.i.i.i.i163, label %for.body.i.i.i.i160
 
 for.body.i.i.i.i160:                              ; preds = %for.cond.i.i.i.i156
@@ -20269,7 +20269,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -20925,7 +20925,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -21307,7 +21307,7 @@ if.end.i.i.i.i153:                                ; preds = %land.rhs.i.i151
 for.cond.i.i.i.i154:                              ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i153
   %indvars.iv.i.i155 = phi i64 [ %indvars.iv.next.i.i156, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i153 ]
   %indvars.iv.next.i.i156 = add nuw nsw i64 %indvars.iv.i.i155, 64
-  %cmp19.not.i.i.i.i157 = icmp ugt i64 %indvars.iv.next.i.i156, %87
+  %cmp19.not.i.i.i.i157 = icmp samesign ugt i64 %indvars.iv.next.i.i156, %87
   br i1 %cmp19.not.i.i.i.i157, label %for.end.i.i.i.i161, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i154
@@ -22633,7 +22633,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<2, 2>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 3
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
@@ -23561,7 +23561,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -24217,7 +24217,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -24599,7 +24599,7 @@ if.end.i.i.i.i153:                                ; preds = %land.rhs.i.i151
 for.cond.i.i.i.i154:                              ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i153
   %indvars.iv.i.i155 = phi i64 [ %indvars.iv.next.i.i156, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i153 ]
   %indvars.iv.next.i.i156 = add nuw nsw i64 %indvars.iv.i.i155, 64
-  %cmp19.not.i.i.i.i157 = icmp ugt i64 %indvars.iv.next.i.i156, %87
+  %cmp19.not.i.i.i.i157 = icmp samesign ugt i64 %indvars.iv.next.i.i156, %87
   br i1 %cmp19.not.i.i.i.i157, label %for.end.i.i.i.i161, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i154
@@ -25925,7 +25925,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
@@ -26853,7 +26853,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -27509,7 +27509,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -27891,7 +27891,7 @@ if.end.i.i.i.i155:                                ; preds = %land.rhs.i.i153
 for.cond.i.i.i.i156:                              ; preds = %for.body.i.i.i.i160, %if.end.i.i.i.i155
   %indvars.iv.i.i157 = phi i64 [ %indvars.iv.next.i.i158, %for.body.i.i.i.i160 ], [ 0, %if.end.i.i.i.i155 ]
   %indvars.iv.next.i.i158 = add nuw nsw i64 %indvars.iv.i.i157, 64
-  %cmp19.not.i.i.i.i159 = icmp ugt i64 %indvars.iv.next.i.i158, %87
+  %cmp19.not.i.i.i.i159 = icmp samesign ugt i64 %indvars.iv.next.i.i158, %87
   br i1 %cmp19.not.i.i.i.i159, label %for.end.i.i.i.i163, label %for.body.i.i.i.i160
 
 for.body.i.i.i.i160:                              ; preds = %for.cond.i.i.i.i156
@@ -29218,7 +29218,7 @@ invoke.cont25:                                    ; preds = %if.end
   %sub24 = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 16>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %6
@@ -30143,7 +30143,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -30798,7 +30798,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -31181,7 +31181,7 @@ if.end.i.i.i.i151:                                ; preds = %land.rhs.i.i149
 for.cond.i.i.i.i152:                              ; preds = %for.body.i.i.i.i156, %if.end.i.i.i.i151
   %indvars.iv.i.i153 = phi i64 [ %indvars.iv.next.i.i154, %for.body.i.i.i.i156 ], [ 0, %if.end.i.i.i.i151 ]
   %indvars.iv.next.i.i154 = add nuw nsw i64 %indvars.iv.i.i153, 64
-  %cmp19.not.i.i.i.i155 = icmp ugt i64 %indvars.iv.next.i.i154, %87
+  %cmp19.not.i.i.i.i155 = icmp samesign ugt i64 %indvars.iv.next.i.i154, %87
   br i1 %cmp19.not.i.i.i.i155, label %for.end.i.i.i.i159, label %for.body.i.i.i.i156
 
 for.body.i.i.i.i156:                              ; preds = %for.cond.i.i.i.i152
@@ -32334,7 +32334,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i43 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 2
-  %cmp.i.i45 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i45 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i45)
   %5 = ptrtoint ptr %arrayidx.i.i.i.i.i43 to i64
   %or.i.i = or i64 %shr.i.i, %5
@@ -33306,7 +33306,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -33960,7 +33960,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -34342,7 +34342,7 @@ if.end.i.i.i.i151:                                ; preds = %land.rhs.i.i149
 for.cond.i.i.i.i152:                              ; preds = %for.body.i.i.i.i156, %if.end.i.i.i.i151
   %indvars.iv.i.i153 = phi i64 [ %indvars.iv.next.i.i154, %for.body.i.i.i.i156 ], [ 0, %if.end.i.i.i.i151 ]
   %indvars.iv.next.i.i154 = add nuw nsw i64 %indvars.iv.i.i153, 64
-  %cmp19.not.i.i.i.i155 = icmp ugt i64 %indvars.iv.next.i.i154, %87
+  %cmp19.not.i.i.i.i155 = icmp samesign ugt i64 %indvars.iv.next.i.i154, %87
   br i1 %cmp19.not.i.i.i.i155, label %for.end.i.i.i.i159, label %for.body.i.i.i.i156
 
 for.body.i.i.i.i156:                              ; preds = %for.cond.i.i.i.i152
@@ -35490,7 +35490,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
@@ -36457,7 +36457,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -37111,7 +37111,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -37493,7 +37493,7 @@ if.end.i.i.i.i154:                                ; preds = %land.rhs.i.i152
 for.cond.i.i.i.i155:                              ; preds = %for.body.i.i.i.i159, %if.end.i.i.i.i154
   %indvars.iv.i.i156 = phi i64 [ %indvars.iv.next.i.i157, %for.body.i.i.i.i159 ], [ 0, %if.end.i.i.i.i154 ]
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i156, 64
-  %cmp19.not.i.i.i.i158 = icmp ugt i64 %indvars.iv.next.i.i157, %87
+  %cmp19.not.i.i.i.i158 = icmp samesign ugt i64 %indvars.iv.next.i.i157, %87
   br i1 %cmp19.not.i.i.i.i158, label %for.end.i.i.i.i162, label %for.body.i.i.i.i159
 
 for.body.i.i.i.i159:                              ; preds = %for.cond.i.i.i.i155
@@ -38749,7 +38749,7 @@ invoke.cont25:                                    ; preds = %if.end
   %sub24 = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %5 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %5
@@ -39835,7 +39835,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %20
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %20
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -40489,7 +40489,7 @@ if.end.i.i.i.i54:                                 ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i54
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %50
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %50
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -40871,7 +40871,7 @@ if.end.i.i.i.i154:                                ; preds = %land.rhs.i.i152
 for.cond.i.i.i.i155:                              ; preds = %for.body.i.i.i.i159, %if.end.i.i.i.i154
   %indvars.iv.i.i156 = phi i64 [ %indvars.iv.next.i.i157, %for.body.i.i.i.i159 ], [ 0, %if.end.i.i.i.i154 ]
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i156, 64
-  %cmp19.not.i.i.i.i158 = icmp ugt i64 %indvars.iv.next.i.i157, %87
+  %cmp19.not.i.i.i.i158 = icmp samesign ugt i64 %indvars.iv.next.i.i157, %87
   br i1 %cmp19.not.i.i.i.i158, label %for.end.i.i.i.i162, label %for.body.i.i.i.i159
 
 for.body.i.i.i.i159:                              ; preds = %for.cond.i.i.i.i155
@@ -42018,7 +42018,7 @@ invoke.cont25:                                    ; preds = %if.end
   %sub24 = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %5 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %5
@@ -43543,7 +43543,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -43943,7 +43943,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -45869,7 +45869,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %6
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %6
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -51471,7 +51471,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -51872,7 +51872,7 @@ if.end.i.i.i.i278:                                ; preds = %land.rhs.i.i276
 for.cond.i.i.i.i279:                              ; preds = %for.body.i.i.i.i283, %if.end.i.i.i.i278
   %indvars.iv.i.i280 = phi i64 [ %indvars.iv.next.i.i281, %for.body.i.i.i.i283 ], [ 0, %if.end.i.i.i.i278 ]
   %indvars.iv.next.i.i281 = add nuw nsw i64 %indvars.iv.i.i280, 64
-  %cmp19.not.i.i.i.i282 = icmp ugt i64 %indvars.iv.next.i.i281, %137
+  %cmp19.not.i.i.i.i282 = icmp samesign ugt i64 %indvars.iv.next.i.i281, %137
   br i1 %cmp19.not.i.i.i.i282, label %for.end.i.i.i.i286, label %for.body.i.i.i.i283
 
 for.body.i.i.i.i283:                              ; preds = %for.cond.i.i.i.i279
@@ -54811,7 +54811,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -55211,7 +55211,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -58141,7 +58141,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -58541,7 +58541,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -61473,7 +61473,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -61873,7 +61873,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -64807,7 +64807,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -65207,7 +65207,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -68139,7 +68139,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -68540,7 +68540,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -71334,7 +71334,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -71734,7 +71734,7 @@ if.end.i.i.i.i275:                                ; preds = %land.rhs.i.i273
 for.cond.i.i.i.i276:                              ; preds = %for.body.i.i.i.i280, %if.end.i.i.i.i275
   %indvars.iv.i.i277 = phi i64 [ %indvars.iv.next.i.i278, %for.body.i.i.i.i280 ], [ 0, %if.end.i.i.i.i275 ]
   %indvars.iv.next.i.i278 = add nuw nsw i64 %indvars.iv.i.i277, 64
-  %cmp19.not.i.i.i.i279 = icmp ugt i64 %indvars.iv.next.i.i278, %137
+  %cmp19.not.i.i.i.i279 = icmp samesign ugt i64 %indvars.iv.next.i.i278, %137
   br i1 %cmp19.not.i.i.i.i279, label %for.end.i.i.i.i283, label %for.body.i.i.i.i280
 
 for.body.i.i.i.i280:                              ; preds = %for.cond.i.i.i.i276
@@ -74525,7 +74525,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -74925,7 +74925,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -77935,7 +77935,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -78335,7 +78335,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -81096,7 +81096,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -81496,7 +81496,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -84207,7 +84207,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -84608,7 +84608,7 @@ if.end.i.i.i.i278:                                ; preds = %land.rhs.i.i276
 for.cond.i.i.i.i279:                              ; preds = %for.body.i.i.i.i283, %if.end.i.i.i.i278
   %indvars.iv.i.i280 = phi i64 [ %indvars.iv.next.i.i281, %for.body.i.i.i.i283 ], [ 0, %if.end.i.i.i.i278 ]
   %indvars.iv.next.i.i281 = add nuw nsw i64 %indvars.iv.i.i280, 64
-  %cmp19.not.i.i.i.i282 = icmp ugt i64 %indvars.iv.next.i.i281, %137
+  %cmp19.not.i.i.i.i282 = icmp samesign ugt i64 %indvars.iv.next.i.i281, %137
   br i1 %cmp19.not.i.i.i.i282, label %for.end.i.i.i.i286, label %for.body.i.i.i.i283
 
 for.body.i.i.i.i283:                              ; preds = %for.cond.i.i.i.i279
@@ -87306,7 +87306,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -87706,7 +87706,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -90404,7 +90404,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -90804,7 +90804,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -93502,7 +93502,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -93902,7 +93902,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -96600,7 +96600,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -97000,7 +97000,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -99701,7 +99701,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -100102,7 +100102,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -102655,7 +102655,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i158, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i158 ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i158
 
 for.body.i.i.i.i158:                              ; preds = %for.cond.i.i.i.i
@@ -103055,7 +103055,7 @@ if.end.i.i.i.i275:                                ; preds = %land.rhs.i.i273
 for.cond.i.i.i.i276:                              ; preds = %for.body.i.i.i.i280, %if.end.i.i.i.i275
   %indvars.iv.i.i277 = phi i64 [ %indvars.iv.next.i.i278, %for.body.i.i.i.i280 ], [ 0, %if.end.i.i.i.i275 ]
   %indvars.iv.next.i.i278 = add nuw nsw i64 %indvars.iv.i.i277, 64
-  %cmp19.not.i.i.i.i279 = icmp ugt i64 %indvars.iv.next.i.i278, %137
+  %cmp19.not.i.i.i.i279 = icmp samesign ugt i64 %indvars.iv.next.i.i278, %137
   br i1 %cmp19.not.i.i.i.i279, label %for.end.i.i.i.i283, label %for.body.i.i.i.i280
 
 for.body.i.i.i.i280:                              ; preds = %for.cond.i.i.i.i276
@@ -105610,7 +105610,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -106010,7 +106010,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277
@@ -108669,7 +108669,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %95
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %95
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -109069,7 +109069,7 @@ if.end.i.i.i.i276:                                ; preds = %land.rhs.i.i274
 for.cond.i.i.i.i277:                              ; preds = %for.body.i.i.i.i281, %if.end.i.i.i.i276
   %indvars.iv.i.i278 = phi i64 [ %indvars.iv.next.i.i279, %for.body.i.i.i.i281 ], [ 0, %if.end.i.i.i.i276 ]
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 64
-  %cmp19.not.i.i.i.i280 = icmp ugt i64 %indvars.iv.next.i.i279, %137
+  %cmp19.not.i.i.i.i280 = icmp samesign ugt i64 %indvars.iv.next.i.i279, %137
   br i1 %cmp19.not.i.i.i.i280, label %for.end.i.i.i.i284, label %for.body.i.i.i.i281
 
 for.body.i.i.i.i281:                              ; preds = %for.cond.i.i.i.i277

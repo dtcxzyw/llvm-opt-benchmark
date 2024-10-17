@@ -672,7 +672,7 @@ lor.lhs.false.i46.us:                             ; preds = %land.lhs.true.i45.u
   %shl.i.i.us = and i64 %4, 72057594037927935
   %shr.i31.i.us = lshr i64 %0, 8
   %add.i.us = add nuw nsw i64 %shr.i31.i.us, 200
-  %cmp.i55.us = icmp ugt i64 %shl.i.i.us, %add.i.us
+  %cmp.i55.us = icmp samesign ugt i64 %shl.i.i.us, %add.i.us
   br i1 %cmp.i55.us, label %if.then.i.us, label %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.thread.us
 
 _ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.thread.us: ; preds = %lor.lhs.false.i46.us, %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit.us
@@ -708,7 +708,7 @@ if.end.i.us:                                      ; preds = %_ZN5folly6detail17d
   %shl.i.i57.us = and i64 %4, 72057594037927935
   %shr.i31.i58.us = lshr i64 %0, 8
   %add.i59.us = add nuw nsw i64 %shr.i31.i58.us, 200
-  %cmp.i60.us = icmp ugt i64 %shl.i.i57.us, %add.i59.us
+  %cmp.i60.us = icmp samesign ugt i64 %shl.i.i57.us, %add.i59.us
   %10 = and i64 %0, -9
   %11 = icmp ne i64 %10, 0
   %spec.select.i61.us = and i1 %11, %cmp.i60.us
@@ -836,7 +836,7 @@ land.lhs.true.i45:                                ; preds = %_ZN5folly6detail17d
   %shl.i.i = and i64 %28, 72057594037927935
   %shr.i31.i = lshr i64 %17, 8
   %add.i = add nuw nsw i64 %shr.i31.i, 200
-  %cmp.i55 = icmp ugt i64 %shl.i.i, %add.i
+  %cmp.i55 = icmp samesign ugt i64 %shl.i.i, %add.i
   br i1 %cmp.i55, label %if.then.i, label %land.lhs.true.i.thread.thread55
 
 land.lhs.true.i.thread.thread55:                  ; preds = %land.lhs.true.i45

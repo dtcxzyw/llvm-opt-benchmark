@@ -662,7 +662,7 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 -128, ptr %add.ptr, align 1, !tbaa !9
   %sub = xor i32 %and, 63
-  %cmp = icmp ult i32 %sub, 8
+  %cmp = icmp samesign ult i32 %sub, 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -705,7 +705,7 @@ entry:
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 -128, ptr %add.ptr.i, align 1, !tbaa !9
   %sub.i = xor i32 %and.i, 63
-  %cmp.i = icmp ult i32 %sub.i, 8
+  %cmp.i = icmp samesign ult i32 %sub.i, 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -752,7 +752,7 @@ entry:
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
   store i8 -128, ptr %add.ptr.i.i, align 1, !tbaa !9
   %sub.i.i = xor i32 %and.i.i, 63
-  %cmp.i.i = icmp ult i32 %sub.i.i, 8
+  %cmp.i.i = icmp samesign ult i32 %sub.i.i, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry

@@ -1359,7 +1359,7 @@ if.end.i359:                                      ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit361:                ; preds = %_ZN4llvh11raw_ostream5writeEh.exit.i349, %if.end.i359
   %121 = and i8 %0, 15
-  %cmp.i362 = icmp ult i8 %121, 10
+  %cmp.i362 = icmp samesign ult i8 %121, 10
   %add.i363 = or disjoint i8 %121, 48
   %sub.i365 = add nuw nsw i8 %121, 55
   %cond2.i366 = select i1 %cmp.i362, i8 %add.i363, i8 %sub.i365

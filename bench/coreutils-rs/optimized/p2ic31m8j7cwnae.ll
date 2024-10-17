@@ -2882,7 +2882,7 @@ _ZN6uucore4mods5error12USimpleError3new17h1cb4df77505714a7E.exit260: ; preds = %
 
 199:                                              ; preds = %.lr.ph526
   %200 = add nuw nsw i64 %197, 1
-  %201 = icmp ult i64 %197, 22
+  %201 = icmp samesign ult i64 %197, 22
   call void @llvm.assume(i1 %201)
   %202 = getelementptr inbounds { [4 x i8] }, ptr %.sroa.063.sroa.3.0..sroa_idx, i64 %197
   %.sroa.03.0.copyload.i = load i8, ptr %202, align 4, !alias.scope !806

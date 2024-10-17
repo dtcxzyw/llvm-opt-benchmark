@@ -393,7 +393,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   store double %142, ptr %135, align 8
   store double 0.000000e+00, ptr %137, align 8
   %145 = add nuw nsw i64 %indvars.iv61.i, 2
-  %146 = icmp ult i64 %145, %95
+  %146 = icmp samesign ult i64 %145, %95
   %147 = fneg double %144
   br i1 %146, label %.lr.ph13.i, label %._crit_edge14.i
 

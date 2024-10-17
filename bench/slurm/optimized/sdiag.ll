@@ -157,7 +157,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv388.i = phi i64 [ %indvars.iv.next389.i, %103 ], [ 1, %.preheader267.i ]
   %indvars.iv.next394.i = add nuw nsw i64 %indvars.iv393.i, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next394.i, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next394.i, %38
   br i1 %39, label %.lr.ph307.i, label %._crit_edge308.i
 
 .lr.ph307.i:                                      ; preds = %.lr.ph311.i, %81
@@ -222,7 +222,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %84 = getelementptr inbounds i8, ptr %83, i64 220
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next391.i, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next391.i, %86
   br i1 %87, label %.lr.ph307.i, label %._crit_edge308.i, !llvm.loop !7
 
 ._crit_edge308.i:                                 ; preds = %81, %.lr.ph311.i
@@ -254,7 +254,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %105 = getelementptr inbounds i8, ptr %104, i64 220
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next394.i, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next394.i, %107
   %indvars.iv.next389.i = add nuw nsw i64 %indvars.iv388.i, 1
   br i1 %108, label %.lr.ph311.i, label %.preheader265.i, !llvm.loop !9
 
@@ -265,7 +265,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv396.i = phi i64 [ %indvars.iv.next397.i, %176 ], [ 1, %.preheader265.i ]
   %indvars.iv.next402.i = add nuw nsw i64 %indvars.iv401.i, 1
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next402.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next402.i, %111
   br i1 %112, label %.lr.ph314.i, label %._crit_edge315.i
 
 .lr.ph314.i:                                      ; preds = %.lr.ph318.i, %154
@@ -330,7 +330,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %157 = getelementptr inbounds i8, ptr %156, i64 248
   %158 = load i32, ptr %157, align 8
   %159 = zext i32 %158 to i64
-  %160 = icmp ult i64 %indvars.iv.next399.i, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next399.i, %159
   br i1 %160, label %.lr.ph314.i, label %._crit_edge315.i, !llvm.loop !10
 
 ._crit_edge315.i:                                 ; preds = %154, %.lr.ph318.i
@@ -362,7 +362,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %178 = getelementptr inbounds i8, ptr %177, i64 248
   %179 = load i32, ptr %178, align 8
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next402.i, %180
+  %181 = icmp samesign ult i64 %indvars.iv.next402.i, %180
   %indvars.iv.next397.i = add nuw nsw i64 %indvars.iv396.i, 1
   br i1 %181, label %.lr.ph318.i, label %_sort_rpc.exit, !llvm.loop !11
 
@@ -380,7 +380,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv372.i = phi i64 [ %indvars.iv.next373.i, %254 ], [ 1, %.preheader270.i ]
   %indvars.iv.next378.i = add nuw nsw i64 %indvars.iv377.i, 1
   %187 = zext i32 %186 to i64
-  %188 = icmp ult i64 %indvars.iv.next378.i, %187
+  %188 = icmp samesign ult i64 %indvars.iv.next378.i, %187
   br i1 %188, label %.lr.ph295.i, label %._crit_edge.i
 
 .lr.ph295.i:                                      ; preds = %.lr.ph297.i, %232
@@ -447,7 +447,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %235 = getelementptr inbounds i8, ptr %234, i64 220
   %236 = load i32, ptr %235, align 4
   %237 = zext i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next375.i, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next375.i, %237
   br i1 %238, label %.lr.ph295.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %232, %.lr.ph297.i
@@ -479,7 +479,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %256 = getelementptr inbounds i8, ptr %255, i64 220
   %257 = load i32, ptr %256, align 4
   %258 = zext i32 %257 to i64
-  %259 = icmp ult i64 %indvars.iv.next378.i, %258
+  %259 = icmp samesign ult i64 %indvars.iv.next378.i, %258
   %indvars.iv.next373.i = add nuw nsw i64 %indvars.iv372.i, 1
   br i1 %259, label %.lr.ph297.i, label %.preheader268.i, !llvm.loop !13
 
@@ -490,7 +490,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv380.i = phi i64 [ %indvars.iv.next381.i, %329 ], [ 1, %.preheader268.i ]
   %indvars.iv.next386.i = add nuw nsw i64 %indvars.iv385.i, 1
   %262 = zext i32 %261 to i64
-  %263 = icmp ult i64 %indvars.iv.next386.i, %262
+  %263 = icmp samesign ult i64 %indvars.iv.next386.i, %262
   br i1 %263, label %.lr.ph300.i, label %._crit_edge301.i
 
 .lr.ph300.i:                                      ; preds = %.lr.ph304.i, %307
@@ -557,7 +557,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %310 = getelementptr inbounds i8, ptr %309, i64 248
   %311 = load i32, ptr %310, align 8
   %312 = zext i32 %311 to i64
-  %313 = icmp ult i64 %indvars.iv.next383.i, %312
+  %313 = icmp samesign ult i64 %indvars.iv.next383.i, %312
   br i1 %313, label %.lr.ph300.i, label %._crit_edge301.i, !llvm.loop !14
 
 ._crit_edge301.i:                                 ; preds = %307, %.lr.ph304.i
@@ -589,7 +589,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %331 = getelementptr inbounds i8, ptr %330, i64 248
   %332 = load i32, ptr %331, align 8
   %333 = zext i32 %332 to i64
-  %334 = icmp ult i64 %indvars.iv.next386.i, %333
+  %334 = icmp samesign ult i64 %indvars.iv.next386.i, %333
   %indvars.iv.next381.i = add nuw nsw i64 %indvars.iv380.i, 1
   br i1 %334, label %.lr.ph304.i, label %_sort_rpc.exit, !llvm.loop !15
 
@@ -627,7 +627,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %352 = getelementptr inbounds i8, ptr %351, i64 220
   %353 = load i32, ptr %352, align 4
   %354 = zext i32 %353 to i64
-  %355 = icmp ult i64 %indvars.iv.next.i, %354
+  %355 = icmp samesign ult i64 %indvars.iv.next.i, %354
   br i1 %355, label %.lr.ph.i, label %.preheader276.i, !llvm.loop !16
 
 .loopexit275.loopexit.i:                          ; preds = %419
@@ -640,7 +640,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.pre-phi444.i = phi i64 [ %.pre443.i, %.loopexit275.loopexit.i ], [ %364, %.lr.ph287.i ]
   %356 = phi i32 [ %.pre439.i, %.loopexit275.loopexit.i ], [ %362, %.lr.ph287.i ]
   %357 = phi ptr [ %420, %.loopexit275.loopexit.i ], [ %363, %.lr.ph287.i ]
-  %358 = icmp ult i64 %indvars.iv.next359.i, %.pre-phi444.i
+  %358 = icmp samesign ult i64 %indvars.iv.next359.i, %.pre-phi444.i
   %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
   br i1 %358, label %.lr.ph287.i, label %.preheader274.i, !llvm.loop !17
 
@@ -658,7 +658,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv353.i = phi i64 [ %indvars.iv.next354.i, %.loopexit275.i ], [ 1, %.preheader276.i ]
   %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 1
   %364 = zext i32 %362 to i64
-  %365 = icmp ult i64 %indvars.iv.next359.i, %364
+  %365 = icmp samesign ult i64 %indvars.iv.next359.i, %364
   br i1 %365, label %.lr.ph285.i, label %.loopexit275.i
 
 .lr.ph285.i:                                      ; preds = %.lr.ph287.i
@@ -742,7 +742,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %423 = getelementptr inbounds i8, ptr %421, i64 220
   %424 = load i32, ptr %423, align 4
   %425 = zext i32 %424 to i64
-  %426 = icmp ult i64 %indvars.iv.next356.i, %425
+  %426 = icmp samesign ult i64 %indvars.iv.next356.i, %425
   br i1 %426, label %366, label %.loopexit275.loopexit.i, !llvm.loop !18
 
 .preheader272.i:                                  ; preds = %442
@@ -779,7 +779,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %444 = getelementptr inbounds i8, ptr %443, i64 248
   %445 = load i32, ptr %444, align 8
   %446 = zext i32 %445 to i64
-  %447 = icmp ult i64 %indvars.iv.next362.i, %446
+  %447 = icmp samesign ult i64 %indvars.iv.next362.i, %446
   br i1 %447, label %.lr.ph289.i, label %.preheader272.i, !llvm.loop !19
 
 .loopexit271.loopexit.i:                          ; preds = %508
@@ -792,7 +792,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.pre-phi.i = phi i64 [ %.pre442.i, %.loopexit271.loopexit.i ], [ %453, %.lr.ph293.i ]
   %448 = phi i32 [ %.pre441.i, %.loopexit271.loopexit.i ], [ %451, %.lr.ph293.i ]
   %449 = phi ptr [ %509, %.loopexit271.loopexit.i ], [ %452, %.lr.ph293.i ]
-  %450 = icmp ult i64 %indvars.iv.next370.i, %.pre-phi.i
+  %450 = icmp samesign ult i64 %indvars.iv.next370.i, %.pre-phi.i
   %indvars.iv.next365.i = add nuw nsw i64 %indvars.iv364.i, 1
   br i1 %450, label %.lr.ph293.i, label %_sort_rpc.exit, !llvm.loop !20
 
@@ -803,7 +803,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv364.i = phi i64 [ %indvars.iv.next365.i, %.loopexit271.i ], [ 1, %.preheader272.i ]
   %indvars.iv.next370.i = add nuw nsw i64 %indvars.iv369.i, 1
   %453 = zext i32 %451 to i64
-  %454 = icmp ult i64 %indvars.iv.next370.i, %453
+  %454 = icmp samesign ult i64 %indvars.iv.next370.i, %453
   br i1 %454, label %.lr.ph291.i, label %.loopexit271.i
 
 .lr.ph291.i:                                      ; preds = %.lr.ph293.i
@@ -887,7 +887,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %512 = getelementptr inbounds i8, ptr %510, i64 248
   %513 = load i32, ptr %512, align 8
   %514 = zext i32 %513 to i64
-  %515 = icmp ult i64 %indvars.iv.next367.i, %514
+  %515 = icmp samesign ult i64 %indvars.iv.next367.i, %514
   br i1 %515, label %455, label %.loopexit271.loopexit.i, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %588, %.preheader264.i
@@ -904,7 +904,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv404.i = phi i64 [ %indvars.iv.next405.i, %588 ], [ 1, %.preheader264.i ]
   %indvars.iv.next410.i = add nuw nsw i64 %indvars.iv409.i, 1
   %521 = zext i32 %520 to i64
-  %522 = icmp ult i64 %indvars.iv.next410.i, %521
+  %522 = icmp samesign ult i64 %indvars.iv.next410.i, %521
   br i1 %522, label %.lr.ph321.i, label %._crit_edge322.i
 
 .lr.ph321.i:                                      ; preds = %.lr.ph325.i, %566
@@ -971,7 +971,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %569 = getelementptr inbounds i8, ptr %568, i64 220
   %570 = load i32, ptr %569, align 4
   %571 = zext i32 %570 to i64
-  %572 = icmp ult i64 %indvars.iv.next407.i, %571
+  %572 = icmp samesign ult i64 %indvars.iv.next407.i, %571
   br i1 %572, label %.lr.ph321.i, label %._crit_edge322.i, !llvm.loop !22
 
 ._crit_edge322.i:                                 ; preds = %566, %.lr.ph325.i
@@ -1003,7 +1003,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %590 = getelementptr inbounds i8, ptr %589, i64 220
   %591 = load i32, ptr %590, align 4
   %592 = zext i32 %591 to i64
-  %593 = icmp ult i64 %indvars.iv.next410.i, %592
+  %593 = icmp samesign ult i64 %indvars.iv.next410.i, %592
   %indvars.iv.next405.i = add nuw nsw i64 %indvars.iv404.i, 1
   br i1 %593, label %.lr.ph325.i, label %.preheader.i, !llvm.loop !23
 
@@ -1014,7 +1014,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv412.i = phi i64 [ %indvars.iv.next413.i, %663 ], [ 1, %.preheader.i ]
   %indvars.iv.next418.i = add nuw nsw i64 %indvars.iv417.i, 1
   %596 = zext i32 %595 to i64
-  %597 = icmp ult i64 %indvars.iv.next418.i, %596
+  %597 = icmp samesign ult i64 %indvars.iv.next418.i, %596
   br i1 %597, label %.lr.ph328.i, label %._crit_edge329.i
 
 .lr.ph328.i:                                      ; preds = %.lr.ph332.i, %641
@@ -1081,7 +1081,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %644 = getelementptr inbounds i8, ptr %643, i64 248
   %645 = load i32, ptr %644, align 8
   %646 = zext i32 %645 to i64
-  %647 = icmp ult i64 %indvars.iv.next415.i, %646
+  %647 = icmp samesign ult i64 %indvars.iv.next415.i, %646
   br i1 %647, label %.lr.ph328.i, label %._crit_edge329.i, !llvm.loop !24
 
 ._crit_edge329.i:                                 ; preds = %641, %.lr.ph332.i
@@ -1113,7 +1113,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %665 = getelementptr inbounds i8, ptr %664, i64 248
   %666 = load i32, ptr %665, align 8
   %667 = zext i32 %666 to i64
-  %668 = icmp ult i64 %indvars.iv.next418.i, %667
+  %668 = icmp samesign ult i64 %indvars.iv.next418.i, %667
   %indvars.iv.next413.i = add nuw nsw i64 %indvars.iv412.i, 1
   br i1 %668, label %.lr.ph332.i, label %_sort_rpc.exit, !llvm.loop !25
 
@@ -1335,7 +1335,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %825 = getelementptr inbounds i8, ptr %824, i64 80
   %826 = load i32, ptr %825, align 8
   %827 = zext i32 %826 to i64
-  %828 = icmp ult i64 %indvars.iv.next.i32, %827
+  %828 = icmp samesign ult i64 %indvars.iv.next.i32, %827
   br i1 %828, label %.lr.ph.i30, label %._crit_edge.i33, !llvm.loop !26
 
 ._crit_edge.i33:                                  ; preds = %.lr.ph.i30, %808
@@ -1493,7 +1493,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %939 = getelementptr inbounds i8, ptr %938, i64 168
   %940 = load i32, ptr %939, align 8
   %941 = zext i32 %940 to i64
-  %942 = icmp ult i64 %indvars.iv.next95.i, %941
+  %942 = icmp samesign ult i64 %indvars.iv.next95.i, %941
   br i1 %942, label %.lr.ph65.i, label %._crit_edge66.i, !llvm.loop !27
 
 ._crit_edge66.i:                                  ; preds = %.lr.ph65.i, %926
@@ -1539,7 +1539,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %974 = getelementptr inbounds i8, ptr %973, i64 220
   %975 = load i32, ptr %974, align 4
   %976 = zext i32 %975 to i64
-  %977 = icmp ult i64 %indvars.iv.next98.i, %976
+  %977 = icmp samesign ult i64 %indvars.iv.next98.i, %976
   br i1 %977, label %.lr.ph70.i, label %._crit_edge71.i, !llvm.loop !28
 
 ._crit_edge71.i:                                  ; preds = %.lr.ph70.i, %._crit_edge66.i
@@ -1582,7 +1582,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %1005 = getelementptr inbounds i8, ptr %1004, i64 248
   %1006 = load i32, ptr %1005, align 8
   %1007 = zext i32 %1006 to i64
-  %1008 = icmp ult i64 %indvars.iv.next101.i, %1007
+  %1008 = icmp samesign ult i64 %indvars.iv.next101.i, %1007
   br i1 %1008, label %.lr.ph74.i, label %._crit_edge75.i, !llvm.loop !29
 
 ._crit_edge75.i:                                  ; preds = %.lr.ph74.i, %._crit_edge71.i
@@ -1629,7 +1629,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %1033 = getelementptr inbounds i8, ptr %1032, i64 280
   %1034 = load i32, ptr %1033, align 8
   %1035 = zext i32 %1034 to i64
-  %1036 = icmp ult i64 %indvars.iv.next104.i, %1035
+  %1036 = icmp samesign ult i64 %indvars.iv.next104.i, %1035
   br i1 %1036, label %.lr.ph78.i, label %._crit_edge79.i, !llvm.loop !30
 
 ._crit_edge79.i:                                  ; preds = %.lr.ph78.i, %1013
@@ -1668,7 +1668,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %1056 = getelementptr inbounds i8, ptr %1055, i64 304
   %1057 = load i32, ptr %1056, align 8
   %1058 = zext i32 %1057 to i64
-  %1059 = icmp ult i64 %indvars.iv.next107.i, %1058
+  %1059 = icmp samesign ult i64 %indvars.iv.next107.i, %1058
   br i1 %1059, label %.lr.ph83.i, label %_print_stats.exit, !llvm.loop !31
 
 _print_stats.exit:                                ; preds = %.lr.ph83.i, %694, %._crit_edge79.i, %1039

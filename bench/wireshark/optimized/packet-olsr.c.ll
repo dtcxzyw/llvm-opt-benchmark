@@ -424,7 +424,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %111 = load i32, ptr @hf_olsr_ansn, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %111, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0) #3
   %113 = add nuw nsw i32 %93, 8
-  %114 = icmp ult i32 %113, %83
+  %114 = icmp samesign ult i32 %113, %83
   br i1 %114, label %.lr.ph.i, label %dissect_olsr_tc.exit
 
 .lr.ph.i:                                         ; preds = %110, %123
@@ -454,7 +454,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %124 = load i32, ptr %hf_olsr_neighbor6_addr.sink.i, align 4
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %124, ptr noundef %0, i32 noundef %.03641.i, i32 noundef %.sink48.i, i32 noundef 0) #3
   %126 = add nuw nsw i32 %.sink48.i, %.03641.i
-  %127 = icmp ult i32 %126, %83
+  %127 = icmp samesign ult i32 %126, %83
   br i1 %127, label %.lr.ph.i, label %dissect_olsr_tc.exit, !llvm.loop !6
 
 128:                                              ; preds = %104
@@ -462,7 +462,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_olsr_tc.exit
 
 130:                                              ; preds = %104
-  %131 = icmp ult i32 %102, %83
+  %131 = icmp samesign ult i32 %102, %83
   br i1 %131, label %.lr.ph.i178, label %dissect_olsr_tc.exit
 
 .lr.ph.i178:                                      ; preds = %130, %140
@@ -492,11 +492,11 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %141 = load i32, ptr %hf_olsr_interface6_addr.sink.i, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %141, ptr noundef %0, i32 noundef %.02327.i, i32 noundef %.sink34.i, i32 noundef 0) #3
   %143 = add nuw nsw i32 %.sink34.i, %.02327.i
-  %144 = icmp ult i32 %143, %83
+  %144 = icmp samesign ult i32 %143, %83
   br i1 %144, label %.lr.ph.i178, label %dissect_olsr_tc.exit, !llvm.loop !7
 
 145:                                              ; preds = %104
-  %146 = icmp ult i32 %102, %83
+  %146 = icmp samesign ult i32 %102, %83
   br i1 %146, label %.lr.ph.i179, label %dissect_olsr_tc.exit
 
 .lr.ph.i179:                                      ; preds = %145, %156
@@ -532,7 +532,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %160 = load i32, ptr %hf_olsr_netmask6.sink.i, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef 0) #3
   %162 = add nuw nsw i32 %.sink.i, %.03135.i
-  %163 = icmp ult i32 %162, %83
+  %163 = icmp samesign ult i32 %162, %83
   br i1 %163, label %.lr.ph.i179, label %dissect_olsr_tc.exit, !llvm.loop !8
 
 164:                                              ; preds = %104
@@ -564,7 +564,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %178 = load i32, ptr @hf_olsr_ansn, align 4
   %179 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %178, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0) #3
   %.07887.i = add nuw nsw i32 %93, 8
-  %180 = icmp ult i32 %.07887.i, %83
+  %180 = icmp samesign ult i32 %.07887.i, %83
   br i1 %180, label %.lr.ph.i180, label %dissect_olsr_tc.exit
 
 .lr.ph.i180:                                      ; preds = %177, %192
@@ -748,7 +748,7 @@ define internal fastcc noundef range(i32 17, 65536) i32 @dissect_olsr_hello(ptr 
   %28 = load i32, ptr @hf_olsr_willingness, align 4
   %29 = add nuw nsw i32 %3, 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #3
-  %31 = icmp ult i32 %29, %4
+  %31 = icmp samesign ult i32 %29, %4
   br i1 %31, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11, %48
@@ -921,7 +921,7 @@ define internal fastcc noundef range(i32 17, 65536) i32 @dissect_olsrorg_nameser
   br i1 %.not, label %.preheader, label %21
 
 .preheader:                                       ; preds = %10
-  %19 = icmp ult i32 %18, %4
+  %19 = icmp samesign ult i32 %18, %4
   br i1 %19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader

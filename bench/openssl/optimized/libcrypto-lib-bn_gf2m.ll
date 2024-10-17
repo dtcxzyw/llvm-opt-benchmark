@@ -2376,7 +2376,7 @@ for.end80:                                        ; preds = %for.inc78, %for.con
   %inc81 = add nuw nsw i32 %count.0, 1
   %call82 = tail call i32 @BN_is_zero(ptr noundef nonnull %call2) #4
   %tobool83 = icmp ne i32 %call82, 0
-  %cmp84 = icmp ult i32 %count.0, 49
+  %cmp84 = icmp samesign ult i32 %count.0, 49
   %64 = select i1 %tobool83, i1 %cmp84, i1 false
   br i1 %64, label %do.body, label %do.end, !llvm.loop !27
 

@@ -46,7 +46,7 @@ define void @make_uns_ordered_dither_array(ptr nocapture noundef %0, i32 noundef
 
 18:                                               ; preds = %17
   %19 = shl nuw nsw i32 %.055, 1
-  %20 = icmp ult i32 %.055, 4
+  %20 = icmp samesign ult i32 %.055, 4
   br i1 %20, label %.preheader52, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %18, %28
@@ -130,7 +130,7 @@ define hidden void @make_sgn_ordered_dither_array(ptr nocapture noundef %0, i32 
 
 19:                                               ; preds = %18
   %20 = shl nuw nsw i32 %.059, 1
-  %21 = icmp ult i32 %.059, 4
+  %21 = icmp samesign ult i32 %.059, 4
   br i1 %21, label %.preheader54, label %.preheader52, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader52, %32

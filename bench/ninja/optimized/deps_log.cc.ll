@@ -1142,7 +1142,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %57 = load i32, ptr %10, align 4
   %58 = and i32 %57, 2147483647
   store i32 %58, ptr %10, align 4
-  %59 = icmp ugt i32 %58, 524287
+  %59 = icmp samesign ugt i32 %58, 524287
   br i1 %59, label %.critedge106, label %.lr.ph160
 
 .critedge102thread-pre-split:                     ; preds = %40
@@ -1184,7 +1184,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %71 = load i32, ptr %10, align 4
   %72 = and i32 %71, 2147483647
   store i32 %72, ptr %10, align 4
-  %73 = icmp ugt i32 %72, 524287
+  %73 = icmp samesign ugt i32 %72, 524287
   br i1 %73, label %.critedge106, label %.lr.ph160, !llvm.loop !13
 
 .lr.ph160:                                        ; preds = %.lr.ph132, %70
@@ -1216,7 +1216,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   store i32 %86, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %83, i64 16
   %89 = zext i32 %86 to i64
-  %90 = icmp ult i32 %74, 12
+  %90 = icmp samesign ult i32 %74, 12
   %91 = shl nuw nsw i64 %89, 3
   %92 = select i1 %90, i64 -1, i64 %91
   %93 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %92) #24
@@ -1224,7 +1224,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
 
 _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %84
   store ptr %93, ptr %88, align 8
-  %94 = icmp ugt i32 %74, 15
+  %94 = icmp samesign ugt i32 %74, 15
   br i1 %94, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN7DepsLog4DepsC2Eli.exit, %.lr.ph

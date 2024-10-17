@@ -498,7 +498,7 @@ define internal i32 @ehci_pci_setup(ptr noundef %0) #2 align 16 {
   store i32 %200, ptr %2, align 4
   %201 = icmp ne i32 %200, 0
   %202 = and i32 %196, 15
-  %203 = icmp ugt i32 %202, %200
+  %203 = icmp samesign ugt i32 %202, %200
   %204 = and i1 %201, %203
   %.pr3.pre4 = load i16, ptr %11, align 4
   %205 = icmp eq i16 %.pr3.pre4, 6048

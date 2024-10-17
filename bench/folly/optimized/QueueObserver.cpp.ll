@@ -385,7 +385,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont9, %whil
   br i1 %cmp.i.not.i.i.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorIiLb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !47
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorIiLb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit.i.i: ; preds = %while.body.i.i.i.i
-  %cmp.i.i.i35 = icmp ugt i64 %__n.09.i.i.i.i, 2305843009213693950
+  %cmp.i.i.i35 = icmp samesign ugt i64 %__n.09.i.i.i.i, 2305843009213693950
   br i1 %cmp.i.i.i35, label %if.then.i.i.i37, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i
 
 if.then.i.i.i37:                                  ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorIiLb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit.i.i

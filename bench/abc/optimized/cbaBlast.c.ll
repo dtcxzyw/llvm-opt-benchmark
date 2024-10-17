@@ -2442,7 +2442,7 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
 35:                                               ; preds = %.lr.ph77, %40
   %indvars.iv89 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next90, %40 ]
   %.07074 = phi i32 [ %34, %.lr.ph77 ], [ %55, %40 ]
-  %36 = icmp ult i64 %indvars.iv89, %23
+  %36 = icmp samesign ult i64 %indvars.iv89, %23
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
@@ -3563,8 +3563,8 @@ Vec_IntFill.exit78:                               ; preds = %42
 63:                                               ; preds = %.preheader, %98
   %indvars.iv100 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next101, %98 ]
   %.18692 = phi i32 [ %.08595, %.preheader ], [ %spec.select, %98 ]
-  %64 = icmp ugt i64 %indvars.iv100, 1
-  %65 = icmp ult i64 %indvars.iv100, %59
+  %64 = icmp samesign ugt i64 %indvars.iv100, 1
+  %65 = icmp samesign ult i64 %indvars.iv100, %59
   %or.cond = select i1 %64, i1 %65, i1 false
   %66 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv100
   %67 = load i32, ptr %66, align 4
@@ -3612,7 +3612,7 @@ Vec_IntFill.exit78:                               ; preds = %42
   %.287 = phi i32 [ %83, %68 ], [ %97, %84 ]
   %99 = add nuw i64 %indvars.iv100, 4294967295
   %100 = and i64 %99, 4294967295
-  %or.cond68.not = icmp uge i64 %100, %indvars.iv116
+  %or.cond68.not = icmp samesign uge i64 %100, %indvars.iv116
   %101 = zext i1 %or.cond68.not to i32
   %spec.select = xor i32 %.287, %101
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -7194,7 +7194,7 @@ Cba_FonSigned.exit1503.thread1720.us:             ; preds = %Vec_IntGrow.exit.i1
 
 1631:                                             ; preds = %Vec_IntPush.exit.i1512.us, %.lr.ph.i1506.us
   %indvars.iv.i1509.us = phi i64 [ 0, %.lr.ph.i1506.us ], [ %indvars.iv.next.i1513.us, %Vec_IntPush.exit.i1512.us ]
-  %1632 = icmp ult i64 %indvars.iv.i1509.us, %1630
+  %1632 = icmp samesign ult i64 %indvars.iv.i1509.us, %1630
   br i1 %1632, label %1633, label %1636
 
 1633:                                             ; preds = %1631
@@ -7762,7 +7762,7 @@ Cba_FonSigned.exit1370.thread1714:                ; preds = %Vec_IntGrow.exit.i1
 
 1880:                                             ; preds = %Vec_IntPush.exit.i1377, %.lr.ph.i1372
   %indvars.iv.i1374 = phi i64 [ 0, %.lr.ph.i1372 ], [ %indvars.iv.next.i1378, %Vec_IntPush.exit.i1377 ]
-  %1881 = icmp ult i64 %indvars.iv.i1374, %1879
+  %1881 = icmp samesign ult i64 %indvars.iv.i1374, %1879
   br i1 %1881, label %1882, label %1885
 
 1882:                                             ; preds = %1880
@@ -8433,7 +8433,7 @@ Cba_FonSigned.exit1429.thread1717:                ; preds = %Vec_IntGrow.exit.i1
 
 .lr.ph.i1432:                                     ; preds = %.thread1689, %Vec_IntPush.exit.i1438
   %indvars.iv.i1435 = phi i64 [ %indvars.iv.next.i1439, %Vec_IntPush.exit.i1438 ], [ 0, %.thread1689 ]
-  %2184 = icmp ult i64 %indvars.iv.i1435, %2070
+  %2184 = icmp samesign ult i64 %indvars.iv.i1435, %2070
   br i1 %2184, label %2185, label %2188
 
 2185:                                             ; preds = %.lr.ph.i1432

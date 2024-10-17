@@ -1107,7 +1107,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 22
   %132 = load i16, ptr %131, align 2
   %133 = zext i16 %132 to i32
-  %.not.i.i.i = icmp ult i32 %130, %133
+  %.not.i.i.i = icmp samesign ult i32 %130, %133
   br i1 %.not.i.i.i, label %134, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
 134:                                              ; preds = %121

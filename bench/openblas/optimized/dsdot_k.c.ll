@@ -56,7 +56,7 @@ define double @dsdot_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 no
   %47 = getelementptr inbounds i8, ptr %15, i64 128
   %48 = getelementptr inbounds i8, ptr %14, i64 128
   %49 = add nuw nsw i64 %17, 32
-  %50 = icmp ult i64 %49, %12
+  %50 = icmp samesign ult i64 %49, %12
   br i1 %50, label %.preheader4, label %.loopexit5, !llvm.loop !6
 
 .loopexit5:                                       ; preds = %.preheader4, %11
@@ -130,7 +130,7 @@ define double @dsdot_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 no
   %102 = add nsw i64 %85, %70
   %103 = add nsw i64 %84, %71
   %104 = add nuw nsw i64 %86, 2
-  %105 = icmp ult i64 %104, %67
+  %105 = icmp samesign ult i64 %104, %67
   br i1 %105, label %82, label %73, !llvm.loop !12
 
 .preheader6:                                      ; preds = %76, %.preheader6

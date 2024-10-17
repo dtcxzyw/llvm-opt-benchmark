@@ -6812,7 +6812,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %_ZNK5clang5Token17g
   %38 = lshr i32 %37, 9
   %39 = and i32 %38, 65535
   %40 = icmp eq i32 %39, 65534
-  %41 = icmp ult i32 %39, 37
+  %41 = icmp samesign ult i32 %39, 37
   %.not = or i1 %41, %40
   br i1 %.not, label %42, label %74
 
@@ -9475,7 +9475,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %171
   %179 = load i64, ptr %178, align 8
   %180 = lshr i64 %179, 32
   %181 = zext i16 %174 to i64
-  %182 = icmp ugt i64 %180, %181
+  %182 = icmp samesign ugt i64 %180, %181
   br i1 %182, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -11674,9 +11674,9 @@ _ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5Token
   br label %45
 
 45:                                               ; preds = %43, %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit
-  %46 = icmp ult i32 %3, 2
-  %47 = icmp ugt i32 %.0.i, 1
-  %or.cond = and i1 %46, %47
+  %46 = icmp samesign ult i32 %3, 2
+  %47 = icmp samesign ugt i32 %.0.i, 1
+  %or.cond = select i1 %46, i1 %47, i1 false
   br i1 %or.cond, label %48, label %50
 
 48:                                               ; preds = %45
@@ -11684,7 +11684,7 @@ _ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5Token
   br label %50
 
 50:                                               ; preds = %48, %45
-  %51 = icmp ugt i32 %.0.i, 2
+  %51 = icmp samesign ugt i32 %.0.i, 2
   br i1 %51, label %52, label %_ZN4llvm9BitVectorD2Ev.exit64.thread
 
 52:                                               ; preds = %50
@@ -21461,7 +21461,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %_ZNK5clang5Token17g
   %58 = lshr i32 %57, 9
   %59 = and i32 %58, 65535
   %60 = icmp eq i32 %59, 65534
-  %61 = icmp ult i32 %59, 37
+  %61 = icmp samesign ult i32 %59, 37
   %.not = or i1 %61, %60
   br i1 %.not, label %62, label %92
 

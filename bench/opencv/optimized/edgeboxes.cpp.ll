@@ -5602,7 +5602,7 @@ _ZNSt6vectorIN2cv8ximgproc3BoxESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   %.176 = phi float [ %218, %217 ], [ %.075200, %214 ], [ %.075200, %._crit_edge198 ]
   %.165 = phi i32 [ %223, %217 ], [ %.064203, %214 ], [ %.064203, %._crit_edge198 ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %224 = icmp ult i64 %indvars.iv.next219, %101
+  %224 = icmp samesign ult i64 %indvars.iv.next219, %101
   %225 = icmp slt i32 %.167186, %4
   %226 = select i1 %224, i1 %225, i1 false
   br i1 %226, label %102, label %._crit_edge205, !llvm.loop !134

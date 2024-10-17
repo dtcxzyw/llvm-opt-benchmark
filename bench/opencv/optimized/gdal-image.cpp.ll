@@ -261,7 +261,7 @@ define hidden void @_Z9add_colorRN2cv3VecIhLi3EEERKhS4_S4_(ptr nocapture noundef
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %8, %6
-  %10 = icmp ult i32 %9, 255
+  %10 = icmp samesign ult i32 %9, 255
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
@@ -276,7 +276,7 @@ define hidden void @_Z9add_colorRN2cv3VecIhLi3EEERKhS4_S4_(ptr nocapture noundef
   %17 = load i8, ptr %2, align 1
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, %16
-  %20 = icmp ult i32 %19, 255
+  %20 = icmp samesign ult i32 %19, 255
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %13
@@ -291,7 +291,7 @@ define hidden void @_Z9add_colorRN2cv3VecIhLi3EEERKhS4_S4_(ptr nocapture noundef
   %27 = load i8, ptr %3, align 1
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, %26
-  %30 = icmp ult i32 %29, 255
+  %30 = icmp samesign ult i32 %29, 255
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %23

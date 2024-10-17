@@ -1270,7 +1270,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %22 = zext i32 %21 to i64
-  %cmp5.i = icmp ult i64 %indvars.iv.next.i, %22
+  %cmp5.i = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %cmp5.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %if.then2.i, %for.cond.i
@@ -4490,7 +4490,7 @@ status_submodule_cb.exit:                         ; preds = %if.end.i, %if.then3
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cpr.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %3
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %3
   br i1 %cmp.i, label %for.body.i, label %cleanup, !llvm.loop !8
 
 cleanup:                                          ; preds = %status_submodule_cb.exit, %entry.cleanup_crit_edge, %if.end59

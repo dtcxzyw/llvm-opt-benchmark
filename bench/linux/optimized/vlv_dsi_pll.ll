@@ -115,14 +115,14 @@ define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocaptur
   %57 = select i1 %55, i32 %50, i32 %48
   %58 = tail call i32 @llvm.smin.i32(i32 %54, i32 %47)
   %59 = add nuw nsw i32 %50, 1
-  %60 = icmp ult i32 %50, 6
+  %60 = icmp samesign ult i32 %50, 6
   %61 = icmp ne i32 %58, 0
   %62 = select i1 %60, i1 %61, i1 false
   br i1 %62, label %46, label %63, !llvm.loop !5
 
 63:                                               ; preds = %46
   %64 = add nuw nsw i32 %44, 1
-  %65 = icmp ult i32 %44, %30
+  %65 = icmp samesign ult i32 %44, %30
   %66 = select i1 %65, i1 %61, i1 false
   br i1 %66, label %40, label %67, !llvm.loop !8
 
@@ -744,8 +744,8 @@ define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocaptur
   %25 = icmp eq i32 %24, 0
   %26 = select i1 %25, i32 111, i32 125
   %27 = and i32 %21, 255
-  %28 = icmp ult i32 %27, 34
-  %29 = icmp ugt i32 %27, %26
+  %28 = icmp samesign ult i32 %27, 34
+  %29 = icmp samesign ugt i32 %27, %26
   %30 = select i1 %28, i1 true, i1 %29
   %31 = icmp eq ptr %3, null
   br i1 %30, label %32, label %38
@@ -780,7 +780,7 @@ define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocaptur
   %46 = load i32, ptr %22, align 4
   %47 = and i32 %46, 67108864
   %48 = icmp ne i32 %47, 0
-  %49 = icmp ult i32 %27, 51
+  %49 = icmp samesign ult i32 %27, 51
   %50 = and i1 %49, %48
   br i1 %50, label %51, label %53
 
@@ -926,11 +926,11 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   %73 = mul nuw nsw i32 %72, 4800
   %74 = add nuw nsw i32 %73, 10000
   %75 = udiv i32 %74, 20000
-  %76 = icmp ult i32 %72, 44
+  %76 = icmp samesign ult i32 %72, 44
   br i1 %76, label %97, label %77
 
 77:                                               ; preds = %69
-  %78 = icmp ult i32 %72, 86
+  %78 = icmp samesign ult i32 %72, 86
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77
@@ -939,7 +939,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   br label %97
 
 82:                                               ; preds = %77
-  %83 = icmp ult i32 %72, 128
+  %83 = icmp samesign ult i32 %72, 128
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
@@ -948,7 +948,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   br label %97
 
 87:                                               ; preds = %82
-  %88 = icmp ult i32 %72, 169
+  %88 = icmp samesign ult i32 %72, 169
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %87
@@ -959,7 +959,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   br label %97
 
 92:                                               ; preds = %87
-  %93 = icmp ult i32 %72, 211
+  %93 = icmp samesign ult i32 %72, 211
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92

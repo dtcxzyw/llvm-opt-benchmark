@@ -287,7 +287,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %93, align 8
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next, %106
   br i1 %107, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %95
@@ -632,7 +632,7 @@ hwloc_utils_print_distance_matrix.exit:           ; preds = %141, %55, %._crit_e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = load i32, ptr %4, align 4
   %144 = zext i32 %143 to i64
-  %145 = icmp ult i64 %indvars.iv.next, %144
+  %145 = icmp samesign ult i64 %indvars.iv.next, %144
   br i1 %145, label %24, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %hwloc_utils_print_distance_matrix.exit, %18
@@ -709,7 +709,7 @@ define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %.lr.ph3
@@ -1881,7 +1881,7 @@ output_memattr_initiator.exit:                    ; preds = %106, %116, %hwloc_g
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %173 = load i32, ptr %12, align 4
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %indvars.iv.next, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next, %174
   br i1 %175, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %output_memattr_initiator.exit, %80, %71
@@ -1893,7 +1893,7 @@ output_memattr_initiator.exit:                    ; preds = %106, %116, %hwloc_g
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %177 = load i32, ptr %10, align 4
   %178 = zext i32 %177 to i64
-  %179 = icmp ult i64 %indvars.iv.next93, %178
+  %179 = icmp samesign ult i64 %indvars.iv.next93, %178
   br i1 %179, label %41, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %176, %37

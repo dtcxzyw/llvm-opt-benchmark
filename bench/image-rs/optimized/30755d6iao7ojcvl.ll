@@ -31656,7 +31656,7 @@ define { i32, i32 } @_ZN5image9animation5Delay24from_saturating_duration17h0f915
   %15 = trunc nuw nsw i128 %14 to i32
   %16 = trunc nuw i128 %.0.sroa.speculated.i to i32
   %17 = trunc nuw nsw i128 %14 to i64
-  %18 = icmp ugt i32 %15, 500000
+  %18 = icmp samesign ugt i32 %15, 500000
   %19 = zext i32 %.0 to i64
   %20 = select i1 %18, i64 1000000, i64 0
   %21 = icmp eq i64 %20, %17

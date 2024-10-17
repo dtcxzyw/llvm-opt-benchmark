@@ -619,7 +619,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %indvars.iv340 = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next341, %.loopexit250 ]
   %indvars.iv334 = phi i64 [ 1, %.lr.ph277 ], [ %indvars.iv.next335, %.loopexit250 ]
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %203 = icmp ult i64 %indvars.iv.next341, %201
+  %203 = icmp samesign ult i64 %indvars.iv.next341, %201
   br i1 %203, label %.lr.ph275, label %.loopexit250
 
 .lr.ph275:                                        ; preds = %202

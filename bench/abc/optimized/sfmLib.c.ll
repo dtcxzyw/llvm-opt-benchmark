@@ -2574,7 +2574,7 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   %401 = load i32, ptr %392, align 8
   %402 = lshr i32 %401, 28
   %403 = zext nneg i32 %402 to i64
-  %404 = icmp ult i64 %indvars.iv.next291, %403
+  %404 = icmp samesign ult i64 %indvars.iv.next291, %403
   br i1 %404, label %.lr.ph265, label %._crit_edge266.loopexit, !llvm.loop !34
 
 ._crit_edge266.loopexit:                          ; preds = %.lr.ph265
@@ -2622,7 +2622,7 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   %423 = load i32, ptr %407, align 8
   %424 = lshr i32 %423, 28
   %425 = zext nneg i32 %424 to i64
-  %426 = icmp ult i64 %indvars.iv.next294, %425
+  %426 = icmp samesign ult i64 %indvars.iv.next294, %425
   br i1 %426, label %.lr.ph271, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %272, %420, %406, %._crit_edge266, %Sfm_LibNewIsContained.exit
@@ -3583,7 +3583,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   %193 = add nuw nsw i32 %192, %190
   %.fr286 = freeze i32 %193
   %194 = add i32 %.fr286, -1
-  %195 = icmp ugt i32 %.fr286, 1
+  %195 = icmp samesign ugt i32 %.fr286, 1
   br i1 %195, label %.lr.ph264.preheader, label %._crit_edge265
 
 .lr.ph264.preheader:                              ; preds = %188
@@ -4198,7 +4198,7 @@ Abc_TtSwapAdjacent.exit191:                       ; preds = %._crit_edge.us.i183
   %484 = load i32, ptr %179, align 8
   %485 = lshr i32 %484, 28
   %486 = zext nneg i32 %485 to i64
-  %487 = icmp ult i64 %indvars.iv.next318, %486
+  %487 = icmp samesign ult i64 %indvars.iv.next318, %486
   br i1 %487, label %188, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %._crit_edge268, %178, %182
@@ -4328,7 +4328,7 @@ define void @Sfm_LibPrintGate(ptr nocapture noundef readonly %0, ptr nocapture n
   %18 = load i32, ptr %7, align 8
   %19 = lshr i32 %18, 28
   %20 = zext nneg i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %17, %4
@@ -4470,7 +4470,7 @@ define void @Sfm_LibPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not, label %.critedge, label %28
 
 28:                                               ; preds = %10
-  %29 = icmp ult i64 %indvars.iv, 2
+  %29 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %29, label %98, label %30
 
 30:                                               ; preds = %28
@@ -4530,7 +4530,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ]
   %.022.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %82, %Abc_TtHasVar.exit.thread.i ]
-  %52 = icmp ult i64 %indvars.iv.i, 6
+  %52 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %52, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i
@@ -5854,7 +5854,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   %94 = load i32, ptr %57, align 8
   %95 = lshr i32 %94, 28
   %96 = zext nneg i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %60, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit45, %Vec_IntPush.exit
@@ -6078,7 +6078,7 @@ Vec_IntPush.exit59:                               ; preds = %193, %Vec_IntGrow.e
   %199 = load i32, ptr %135, align 8
   %200 = lshr i32 %199, 28
   %201 = zext nneg i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next73, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next73, %201
   br i1 %202, label %139, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit59, %Vec_IntPush.exit52, %._crit_edge

@@ -28257,7 +28257,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   %122 = getelementptr inbounds i8, ptr %120, i64 4
   %123 = load i32, ptr %122, align 4, !noalias !4534, !noundef !4
   %124 = zext i16 %121 to i64
-  %125 = icmp ugt i64 %1, %124
+  %125 = icmp samesign ugt i64 %1, %124
   br i1 %125, label %130, label %127
 
 .lr.ph128.preheader:                              ; preds = %150, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h017fb2e02da15e9aE.exit"
@@ -28360,7 +28360,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   %164 = ptrtoint ptr %.sroa.022.0.ptr141 to i64
   %165 = sub nuw i64 %158, %164
   %166 = lshr exact i64 %165, 2
-  %.not.i.not.i.i = icmp ult i64 %.sroa.15.0138, %166
+  %.not.i.not.i.i = icmp samesign ult i64 %.sroa.15.0138, %166
   br i1 %.not.i.not.i.i, label %167, label %.thread
 
 167:                                              ; preds = %163
@@ -28616,7 +28616,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   br i1 %255, label %._crit_edge162, label %247
 
 256:                                              ; preds = %247
-  %257 = icmp ult i64 %.sroa.734.0159, %1
+  %257 = icmp samesign ult i64 %.sroa.734.0159, %1
   br i1 %257, label %258, label %264, !prof !581
 
 258:                                              ; preds = %256
@@ -28846,7 +28846,7 @@ define internal fastcc void @"_ZN5image6codecs4webp7encoder20WebPEncoder$LT$W$GT
   br i1 %18, label %.loopexit144, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h93e9bec95a65394cE.exit": ; preds = %.lr.ph.i
-  %19 = icmp ult i64 %.011.i, %2
+  %19 = icmp samesign ult i64 %.011.i, %2
   tail call void @llvm.assume(i1 %19)
   %20 = trunc i64 %.011.i to i8
   br label %.loopexit144
@@ -30438,7 +30438,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %450, label %468, label %.critedge.i513.i.split.loop.exit
 
 451:                                              ; preds = %.critedge.i513.i
-  %452 = icmp ult i64 %.015.i5121530.i, 5
+  %452 = icmp samesign ult i64 %.015.i5121530.i, 5
   br i1 %452, label %466, label %.noexc521.i
 
 .noexc521.i.loopexit:                             ; preds = %468
@@ -30569,7 +30569,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %500, label %518, label %.critedge.i499.i.split.loop.exit
 
 501:                                              ; preds = %.critedge.i499.i
-  %502 = icmp ult i64 %.015.i4981527.i, 5
+  %502 = icmp samesign ult i64 %.015.i4981527.i, 5
   br i1 %502, label %516, label %.noexc507.i
 
 .noexc507.i.loopexit:                             ; preds = %518
@@ -30706,7 +30706,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %555, label %573, label %.critedge.i485.i.split.loop.exit
 
 556:                                              ; preds = %.critedge.i485.i
-  %557 = icmp ult i64 %.015.i4841524.i, 5
+  %557 = icmp samesign ult i64 %.015.i4841524.i, 5
   br i1 %557, label %571, label %.noexc493.i
 
 .noexc493.i.loopexit:                             ; preds = %573
@@ -30841,7 +30841,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %615, label %633, label %.critedge.i.i.split.loop.exit
 
 616:                                              ; preds = %.critedge.i.i
-  %617 = icmp ult i64 %.015.i1521.i, 5
+  %617 = icmp samesign ult i64 %.015.i1521.i, 5
   br i1 %617, label %631, label %.noexc480.i
 
 .noexc480.i.loopexit:                             ; preds = %633
@@ -31213,7 +31213,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %754, label %839, label %.critedge.i577.i.split.loop.exit
 
 755:                                              ; preds = %.critedge.i577.i
-  %756 = icmp ult i64 %.036.i5761542.i, 5
+  %756 = icmp samesign ult i64 %.036.i5761542.i, 5
   br i1 %756, label %820, label %.noexc586.i
 
 .noexc586.i.loopexit:                             ; preds = %839
@@ -31551,7 +31551,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %922, label %1007, label %.critedge.i559.i.split.loop.exit
 
 923:                                              ; preds = %.critedge.i559.i
-  %924 = icmp ult i64 %.036.i5581539.i, 5
+  %924 = icmp samesign ult i64 %.036.i5581539.i, 5
   br i1 %924, label %988, label %.noexc568.i
 
 .noexc568.i.loopexit:                             ; preds = %1007
@@ -31871,7 +31871,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %1095, label %1180, label %.critedge.i541.i.split.loop.exit
 
 1096:                                             ; preds = %.critedge.i541.i
-  %1097 = icmp ult i64 %.036.i5401536.i, 5
+  %1097 = icmp samesign ult i64 %.036.i5401536.i, 5
   br i1 %1097, label %1161, label %.noexc550.i
 
 .noexc550.i.loopexit:                             ; preds = %1180
@@ -32204,7 +32204,7 @@ _ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE.exit.i.i.i: ; preds = %sw
   br i1 %1281, label %1366, label %.critedge.i525.i.split.loop.exit
 
 1282:                                             ; preds = %.critedge.i525.i
-  %1283 = icmp ult i64 %.036.i1533.i, 5
+  %1283 = icmp samesign ult i64 %.036.i1533.i, 5
   br i1 %1283, label %1347, label %.noexc533.i
 
 .noexc533.i.loopexit:                             ; preds = %1366
@@ -33608,7 +33608,7 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
   %45 = zext i1 %44 to i8
   %spec.select26 = add nuw i8 %.sroa.518.032, %45
   %46 = urem i64 %.133, %24
-  %47 = icmp ult i64 %46, %25
+  %47 = icmp samesign ult i64 %46, %25
   br i1 %47, label %49, label %66
 
 48:                                               ; preds = %.lr.ph36.split.split

@@ -4502,7 +4502,7 @@ define internal fastcc i32 @netlogon_dissect_netrserverauthenticate023_reply(ptr
 
 dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   %32 = add i32 %1, 8
-  %33 = icmp ugt i32 %6, 1
+  %33 = icmp samesign ugt i32 %6, 1
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %dissect_dcerpc_8bytes.exit

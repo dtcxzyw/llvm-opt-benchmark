@@ -1053,7 +1053,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph ]
   %.06481 = phi i32 [ %27, %26 ], [ %14, %.lr.ph ]
   %16 = or disjoint i64 %indvars.iv, %indvars.iv93
-  %17 = icmp ult i64 %16, %12
+  %17 = icmp samesign ult i64 %16, %12
   %18 = zext nneg i32 %.06481 to i64
   %19 = getelementptr inbounds i8, ptr %5, i64 %18
   br i1 %17, label %20, label %.thread
@@ -1088,7 +1088,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %indvars.iv89 = phi i64 [ 0, %28 ], [ %indvars.iv.next90, %47 ]
   %.16583 = phi i32 [ %31, %28 ], [ %.2, %47 ]
   %33 = or disjoint i64 %indvars.iv89, %indvars.iv93
-  %34 = icmp ult i64 %33, %12
+  %34 = icmp samesign ult i64 %33, %12
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32

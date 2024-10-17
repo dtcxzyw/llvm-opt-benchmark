@@ -47,7 +47,7 @@ for.cond29.preheader:                             ; preds = %for.cond26.preheade
   br label %for.body31
 
 for.cond58.preheader:                             ; preds = %for.body31
-  %5 = icmp ult i64 %indvars.iv139, 3
+  %5 = icmp samesign ult i64 %indvars.iv139, 3
   br i1 %5, label %for.body60, label %for.end91
 
 for.body31:                                       ; preds = %for.cond29.preheader, %for.body31

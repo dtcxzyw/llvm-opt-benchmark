@@ -254,7 +254,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   %55 = getelementptr inbounds i8, ptr %.04459, i64 80
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  %58 = icmp ult i32 %.04360, 65533
+  %58 = icmp samesign ult i32 %.04360, 65533
   %or.cond = select i1 %57, i1 %58, i1 false
   br i1 %or.cond, label %59, label %83
 
@@ -441,7 +441,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable11malloc_siteEj(i32 noundef %0) l
   %12 = add nuw nsw i64 %.010, 1
   %13 = getelementptr inbounds i8, ptr %.089, i64 80
   %14 = load volatile ptr, ptr %13, align 8
-  %15 = icmp ult i64 %12, %8
+  %15 = icmp samesign ult i64 %12, %8
   %16 = icmp ne ptr %14, null
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14

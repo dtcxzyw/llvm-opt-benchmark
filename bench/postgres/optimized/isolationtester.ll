@@ -1615,7 +1615,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr nocapture nound
   %17 = getelementptr %struct.IsoConnInfo, ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @PQsocket(ptr noundef %18) #17
-  %.not = icmp ult i32 %1, 2
+  %.not = icmp samesign ult i32 %1, 2
   br i1 %.not, label %.preheader5, label %.loopexit6
 
 .preheader5:                                      ; preds = %2

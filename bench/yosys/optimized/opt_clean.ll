@@ -30686,7 +30686,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i194.i: ; preds 
   %802 = load i32, ptr %700, align 4
   %803 = sext i32 %802 to i64
   %804 = icmp slt i64 %indvars.iv.next562.i, %803
-  %805 = icmp ult i64 %indvars.iv.next562.i, %705
+  %805 = icmp samesign ult i64 %indvars.iv.next562.i, %705
   %or.cond332.i = and i1 %805, %804
   br i1 %or.cond332.i, label %.lr.ph457.i, label %.critedge2.i, !llvm.loop !132
 
@@ -95560,7 +95560,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairINS2_5StateES3_ENS0_8hash_opsIS3
   %343 = load i32, ptr %4, align 8
   %344 = sext i32 %343 to i64
   %345 = icmp slt i64 %indvars.iv.next, %344
-  %346 = icmp ult i64 %indvars.iv.next, %123
+  %346 = icmp samesign ult i64 %indvars.iv.next, %123
   %or.cond116 = and i1 %346, %345
   br i1 %or.cond116, label %.lr.ph, label %.critedge, !llvm.loop !705
 

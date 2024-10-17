@@ -131,7 +131,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EED2Ev.exit: ; preds = %11, %17
   %19 = phi i32 [ %6, %5 ], [ %.pre, %_ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %5, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %18, %1
@@ -246,7 +246,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP7nmetho
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -380,7 +380,7 @@ define hidden void @_ZN21ClassUnloadingContext14purge_nmethodsEv(ptr nocapture n
   %.1.lcssa = phi i64 [ %.020, %6 ], [ %21, %._crit_edge.loopexit ]
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next28, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next28, %25
   br i1 %26, label %6, label %._crit_edge23, !llvm.loop !13
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %1
@@ -479,7 +479,7 @@ _ZN18GrowableArrayCHeapIP7nmethodL8MEMFLAGS5EEC2Ei.exit: ; preds = %_ZN18Growabl
 37:                                               ; preds = %32
   %38 = icmp sgt i32 %33, -1
   %39 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.pre72)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %or.cond.i.i.i.i = select i1 %38, i1 %40, i1 false
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre72, i1 true)
   %42 = sub nuw nsw i32 32, %41
@@ -578,7 +578,7 @@ _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9
   %77 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE9appendAllEPK17GrowableArrayViewIS1_E.exit.loopexit ], [ %25, %24 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next64, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next64, %78
   br i1 %79, label %24, label %.loopexit, !llvm.loop !17
 
 80:                                               ; preds = %1

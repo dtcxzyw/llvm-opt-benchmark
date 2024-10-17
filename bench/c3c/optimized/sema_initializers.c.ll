@@ -2790,7 +2790,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_struct_plain_initia
   %.0247357 = phi i8 [ 0, %.lr.ph362 ], [ %.1248, %246 ]
   %.0249356 = phi i32 [ %41, %.lr.ph362 ], [ %.2251, %246 ]
   %45 = zext i32 %.0244358 to i64
-  %.not266 = icmp ult i64 %indvars.iv, %45
+  %.not266 = icmp samesign ult i64 %indvars.iv, %45
   br i1 %.not266, label %52, label %46
 
 46:                                               ; preds = %44

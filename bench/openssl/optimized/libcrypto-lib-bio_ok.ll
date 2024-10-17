@@ -417,7 +417,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %19 = phi i8 [ %_ptr.promoted.i.i, %for.body.lr.ph.i.i ], [ %18, %for.body.i.i ]
   %i.011.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i, %for.body.i.i ]
   %add.i.i = add nuw nsw i64 %i.011.i.i, 4
-  %cmp.i.i = icmp ult i64 %add.i.i, %conv16.i
+  %cmp.i.i = icmp samesign ult i64 %add.i.i, %conv16.i
   br i1 %cmp.i.i, label %for.body.i.i, label %for.cond.for.end_crit_edge.i.i, !llvm.loop !4
 
 for.cond.for.end_crit_edge.i.i:                   ; preds = %for.body.i.i

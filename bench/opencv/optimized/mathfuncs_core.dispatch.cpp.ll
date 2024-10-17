@@ -351,7 +351,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %48, %40
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %15
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 128
-  %73 = icmp ult i64 %indvars.iv.next57, %14
+  %73 = icmp samesign ult i64 %indvars.iv.next57, %14
   br i1 %73, label %15, label %._crit_edge48, !llvm.loop !9
 
 ._crit_edge48:                                    ; preds = %._crit_edge44, %6
@@ -568,7 +568,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %43, %35
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %13
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 128
-  %63 = icmp ult i64 %indvars.iv.next45, %12
+  %63 = icmp samesign ult i64 %indvars.iv.next45, %12
   br i1 %63, label %13, label %._crit_edge39, !llvm.loop !13
 
 ._crit_edge39:                                    ; preds = %._crit_edge35, %5

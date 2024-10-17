@@ -1203,7 +1203,7 @@ _ZN4llvm5TwineC2EPKc.exit211.i:                   ; preds = %355, %350
 .lr.ph.i:                                         ; preds = %.preheader250.i, %365
   %.0141253.i = phi i32 [ %374, %365 ], [ 2, %.preheader250.i ]
   %.2242252.i = phi i32 [ %375, %365 ], [ %321, %.preheader250.i ]
-  %.not154.i = icmp ult i32 %.0141253.i, %.pre258.i
+  %.not154.i = icmp samesign ult i32 %.0141253.i, %.pre258.i
   br i1 %.not154.i, label %365, label %._crit_edge.i
 
 365:                                              ; preds = %.lr.ph.i
@@ -1222,7 +1222,7 @@ _ZN4llvm5TwineC2EPKc.exit211.i:                   ; preds = %355, %350
 
 ._crit_edge.i:                                    ; preds = %365, %.lr.ph.i, %.preheader250.i
   %.0141.lcssa.i = phi i32 [ 2, %.preheader250.i ], [ %374, %365 ], [ %.0141253.i, %.lr.ph.i ]
-  %.not155.i = icmp ult i32 %.0141.lcssa.i, %.pre258.i
+  %.not155.i = icmp samesign ult i32 %.0141.lcssa.i, %.pre258.i
   br i1 %.not155.i, label %376, label %.critedge171.i
 
 376:                                              ; preds = %._crit_edge.i

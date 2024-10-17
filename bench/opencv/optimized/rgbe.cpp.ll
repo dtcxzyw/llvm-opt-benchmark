@@ -972,8 +972,8 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %153 = add nsw i64 %indvars.iv.next.i, %143
   %154 = icmp slt i64 %153, %63
-  %155 = icmp ult i64 %indvars.iv.i, 126
-  %or.cond.i = and i1 %155, %154
+  %155 = icmp samesign ult i64 %indvars.iv.i, 126
+  %or.cond.i = select i1 %154, i1 %155, i1 false
   %156 = trunc nsw i64 %153 to i32
   br i1 %or.cond.i, label %146, label %.critedge.loopexit.i, !llvm.loop !17
 
@@ -984,7 +984,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %139
   %.1.lcssa.i = phi i32 [ 1, %139 ], [ %.1.lcssa.ph.i, %.critedge.loopexit.i ]
-  %157 = icmp ult i32 %.1.lcssa.i, 4
+  %157 = icmp samesign ult i32 %.1.lcssa.i, 4
   %158 = icmp slt i32 %140, %2
   %159 = and i1 %158, %157
   br i1 %159, label %139, label %160, !llvm.loop !18
@@ -1049,7 +1049,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
 
 ._crit_edge.i:                                    ; preds = %175, %173, %164
   %.2.lcssa.i = phi i32 [ %.05168.i, %173 ], [ %140, %164 ], [ %176, %175 ]
-  %190 = icmp ugt i32 %.1.lcssa.i, 3
+  %190 = icmp samesign ugt i32 %.1.lcssa.i, 3
   br i1 %190, label %191, label %202
 
 191:                                              ; preds = %._crit_edge.i

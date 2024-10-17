@@ -2633,7 +2633,7 @@ _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %.not36, label %31, label %15
 
 15:                                               ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit
-  %16 = icmp ugt i64 %.06.i.i, 144115188075855870
+  %16 = icmp samesign ugt i64 %.06.i.i, 144115188075855870
   br i1 %16, label %17, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_S_check_init_lenEmRKS8_.exit
 
 17:                                               ; preds = %15

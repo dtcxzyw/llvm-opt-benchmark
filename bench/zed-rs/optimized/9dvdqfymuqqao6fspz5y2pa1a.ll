@@ -7400,7 +7400,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -10784,7 +10784,7 @@ default.unreachable37:                            ; preds = %51, %46, %2
   %111 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !2180
   %112 = icmp ult i64 %111, 6
   call void @llvm.assume(i1 %112)
-  %switch.i130.i.i = icmp ugt i64 %111, 4
+  %switch.i130.i.i = icmp samesign ugt i64 %111, 4
   br i1 %switch.i130.i.i, label %113, label %54
 
 113:                                              ; preds = %97
@@ -13380,7 +13380,7 @@ default.unreachable17:                            ; preds = %"_ZN4core3ptr144dro
   br i1 %90, label %.thread.i.i.i.i.i, label %91
 
 91:                                               ; preds = %87
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %89, 3
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %89, 3
   %92 = getelementptr inbounds i8, ptr %6, i64 16
   %93 = load i8, ptr %92, align 8, !range !124, !alias.scope !2742, !noalias !2745, !noundef !9
   %94 = icmp eq i8 %93, 6
@@ -13389,14 +13389,14 @@ default.unreachable17:                            ; preds = %"_ZN4core3ptr144dro
 .thread.i.i.i.i.i:                                ; preds = %87
   %95 = getelementptr inbounds i8, ptr %6, i64 16
   %96 = load i8, ptr %95, align 8, !range !124, !alias.scope !2742, !noalias !2745, !noundef !9
-  %switch.i.i3454.i.i.i.i.i = icmp ult i8 %96, 3
+  %switch.i.i3454.i.i.i.i.i = icmp samesign ult i8 %96, 3
   br i1 %switch.i.i3454.i.i.i.i.i, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %91
   br i1 %switch.i.i.i.i.i.i.i, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
 
 97:                                               ; preds = %91
-  %switch.i.i34.i.i.i.i.i = icmp ult i8 %93, 3
+  %switch.i.i34.i.i.i.i.i = icmp samesign ult i8 %93, 3
   %98 = xor i1 %switch.i.i.i.i.i.i.i, %switch.i.i34.i.i.i.i.i
   br i1 %98, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
 
@@ -21258,7 +21258,7 @@ common.ret:                                       ; preds = %89, %24
   %35 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %36 = icmp ult i64 %35, 6
   call void @llvm.assume(i1 %36)
-  %switch.i24 = icmp ugt i64 %35, 4
+  %switch.i24 = icmp samesign ugt i64 %35, 4
   br i1 %switch.i24, label %37, label %26
 
 37:                                               ; preds = %34
@@ -22542,7 +22542,7 @@ default.unreachable323:                           ; preds = %528, %133, %2
   %99 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %100 = icmp ult i64 %99, 6
   tail call void @llvm.assume(i1 %100)
-  %switch.i96 = icmp ugt i64 %99, 3
+  %switch.i96 = icmp samesign ugt i64 %99, 3
   br i1 %switch.i96, label %101, label %117
 
 101:                                              ; preds = %89
@@ -25951,7 +25951,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit.i: ; preds = %1121
   %1260 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !4157
   %1261 = icmp ult i64 %1260, 6
   call void @llvm.assume(i1 %1261)
-  %switch.i285.i = icmp ugt i64 %1260, 4
+  %switch.i285.i = icmp samesign ugt i64 %1260, 4
   br i1 %switch.i285.i, label %1262, label %1272
 
 1262:                                             ; preds = %1259
@@ -26354,7 +26354,7 @@ default.unreachable1036:                          ; preds = %889, %2
   br i1 %139, label %272, label %145
 
 145:                                              ; preds = %142
-  %switch.i443 = icmp ugt i64 %143, 3
+  %switch.i443 = icmp samesign ugt i64 %143, 3
   br i1 %switch.i443, label %146, label %164
 
 146:                                              ; preds = %145
@@ -28205,7 +28205,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit492: ; preds = %555
   %795 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %796 = icmp ult i64 %795, 6
   call void @llvm.assume(i1 %796)
-  %switch.i538 = icmp ugt i64 %795, 3
+  %switch.i538 = icmp samesign ugt i64 %795, 3
   br i1 %switch.i538, label %797, label %791
 
 797:                                              ; preds = %794
@@ -29699,7 +29699,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit586: ; preds = %1160
   %1287 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %1288 = icmp ult i64 %1287, 6
   call void @llvm.assume(i1 %1288)
-  %switch.i605 = icmp ugt i64 %1287, 4
+  %switch.i605 = icmp samesign ugt i64 %1287, 4
   br i1 %switch.i605, label %1289, label %1261
 
 1289:                                             ; preds = %1286
@@ -31141,7 +31141,7 @@ _ZN8worktree17BackgroundScanner15is_path_private17h001d11c7a9f3aa8bE.exit.thread
   %1838 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %1839 = icmp ult i64 %1838, 6
   call void @llvm.assume(i1 %1839)
-  %switch.i694 = icmp ugt i64 %1838, 3
+  %switch.i694 = icmp samesign ugt i64 %1838, 3
   br i1 %switch.i694, label %1840, label %1835
 
 1840:                                             ; preds = %1837
@@ -31413,7 +31413,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit709: ; preds = %1912
   %1933 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %1934 = icmp ult i64 %1933, 6
   call void @llvm.assume(i1 %1934)
-  %switch.i714 = icmp ugt i64 %1933, 3
+  %switch.i714 = icmp samesign ugt i64 %1933, 3
   br i1 %switch.i714, label %1935, label %1925
 
 1935:                                             ; preds = %1932

@@ -840,7 +840,7 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
 182:                                              ; preds = %178
   %183 = zext i16 %177 to i32
   %184 = xor i32 %183, -1058816
-  %185 = icmp ult i32 %184, -1112064
+  %185 = icmp samesign ult i32 %184, -1112064
   br i1 %185, label %188, label %189
 
 186:                                              ; preds = %178

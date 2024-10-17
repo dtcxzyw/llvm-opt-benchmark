@@ -133,7 +133,7 @@ GetQCost.exit.us13:                               ; preds = %6, %5, %.preheader.
 
 .preheader.split.us16:                            ; preds = %.preheader, %.preheader.split.us16
   %.0810.us17 = phi i32 [ %16, %.preheader.split.us16 ], [ 0, %.preheader ]
-  %14 = icmp ult i32 %.0810.us17, 2
+  %14 = icmp samesign ult i32 %.0810.us17, 2
   %spec.select = select i1 %14, i32 5, i32 6
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %spec.select)
   %16 = add nuw nsw i32 %.0810.us17, 1
@@ -142,7 +142,7 @@ GetQCost.exit.us13:                               ; preds = %6, %5, %.preheader.
 
 .preheader.split.us21:                            ; preds = %.preheader, %GetQCost.exit.us23
   %.0810.us22 = phi i32 [ %27, %GetQCost.exit.us23 ], [ 0, %.preheader ]
-  %17 = icmp ult i32 %.0810.us22, 2
+  %17 = icmp samesign ult i32 %.0810.us22, 2
   br i1 %17, label %GetQCost.exit.us23, label %18
 
 18:                                               ; preds = %.preheader.split.us21
@@ -238,7 +238,7 @@ define i32 @ComputeQCost(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br label %GetQCost.exit
 
 12:                                               ; preds = %.critedge
-  %13 = icmp ult i32 %.0.lcssa, 2
+  %13 = icmp samesign ult i32 %.0.lcssa, 2
   br i1 %13, label %GetQCost.exit, label %14
 
 14:                                               ; preds = %12
@@ -246,7 +246,7 @@ define i32 @ComputeQCost(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br i1 %15, label %GetQCost.exit, label %20
 
 16:                                               ; preds = %.critedge
-  %17 = icmp ult i32 %.0.lcssa, 2
+  %17 = icmp samesign ult i32 %.0.lcssa, 2
   br i1 %17, label %GetQCost.exit, label %18
 
 18:                                               ; preds = %16
@@ -816,7 +816,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   br label %ComputeQCost.exit
 
 68:                                               ; preds = %.critedge.i
-  %69 = icmp ult i32 %.0.lcssa.i, 2
+  %69 = icmp samesign ult i32 %.0.lcssa.i, 2
   br i1 %69, label %ComputeQCost.exit, label %70
 
 70:                                               ; preds = %68
@@ -824,7 +824,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   br i1 %71, label %ComputeQCost.exit, label %76
 
 72:                                               ; preds = %.critedge.i
-  %73 = icmp ult i32 %.0.lcssa.i, 2
+  %73 = icmp samesign ult i32 %.0.lcssa.i, 2
   br i1 %73, label %ComputeQCost.exit, label %74
 
 74:                                               ; preds = %72
@@ -911,7 +911,7 @@ ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %
   br label %ComputeQCost.exit76
 
 105:                                              ; preds = %.critedge.i65
-  %106 = icmp ult i32 %.0.lcssa.i66, 2
+  %106 = icmp samesign ult i32 %.0.lcssa.i66, 2
   br i1 %106, label %ComputeQCost.exit76, label %107
 
 107:                                              ; preds = %105
@@ -919,7 +919,7 @@ ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %
   br i1 %108, label %ComputeQCost.exit76, label %113
 
 109:                                              ; preds = %.critedge.i65
-  %110 = icmp ult i32 %.0.lcssa.i66, 2
+  %110 = icmp samesign ult i32 %.0.lcssa.i66, 2
   br i1 %110, label %ComputeQCost.exit76, label %111
 
 111:                                              ; preds = %109

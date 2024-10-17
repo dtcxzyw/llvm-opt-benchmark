@@ -689,7 +689,7 @@ for.body54:                                       ; preds = %for.body54.lr.ph, %
   %13 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %13, i32 %shr.i.i.i.i
   %14 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i50 = icmp ult i64 %indvars.iv, %14
+  %cmp.i.i50 = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp.i.i50, label %invoke.cont55, label %if.else79
 
 invoke.cont55:                                    ; preds = %for.body54

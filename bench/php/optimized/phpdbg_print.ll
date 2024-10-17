@@ -749,7 +749,7 @@ define internal fastcc void @phpdbg_print_function_helper(ptr noundef %0) unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %4, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %7, label %.loopexit
 
 23:                                               ; preds = %1

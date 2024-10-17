@@ -5934,7 +5934,7 @@ define dso_local noundef i64 @_ZN5clang4Sema14ActOnMSAsmStmtENS_14SourceLocation
   %.sroa.0.0.copyload.i33 = load i64, ptr %31, align 8
   store i64 %.sroa.0.0.copyload.i33, ptr %14, align 8
   %44 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %45 = icmp ult i64 %.03236, %27
+  %45 = icmp samesign ult i64 %.03236, %27
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %15, align 1
   %47 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 1 dereferenceable(1) %15)
@@ -8339,7 +8339,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPSt4pairIN4llvm9StringRefEPN5clang
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES6_EC2ES7_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !69
 
 12:                                               ; preds = %.lr.ph.i.i

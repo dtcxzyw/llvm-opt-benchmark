@@ -861,7 +861,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread:      ; preds = %_ZNK6vectorIP4exprL
   %arrayidx.i13 = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i13, align 4
   %7 = zext i32 %6 to i64
-  %cmp553 = icmp ult i64 %indvars.iv, %7
+  %cmp553 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %cmp553, label %for.body, label %if.then.i38
 
 for.body:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread

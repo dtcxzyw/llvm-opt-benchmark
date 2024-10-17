@@ -666,7 +666,7 @@ define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef 
   %.03147.i.i = phi ptr [ %.1.i.i, %.loopexit.i.i ], [ %37, %31 ]
   %.03346.i.i = phi ptr [ %57, %.loopexit.i.i ], [ %41, %31 ]
   %.03545.i.i = phi i32 [ %43, %.loopexit.i.i ], [ %33, %31 ]
-  %46 = icmp ugt i32 %.03545.i.i, 1
+  %46 = icmp samesign ugt i32 %.03545.i.i, 1
   br i1 %46, label %.lr.ph.i.i, label %unpack_digitech_message.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph48.i.i

@@ -13,11 +13,11 @@ define i64 @f32_to_i32(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) loc
   %8 = shl nuw nsw i64 %7, 32
   %9 = or disjoint i64 %8, 36028797018963968
   %10 = select i1 %.not, i64 %8, i64 %9
-  %11 = icmp ult i64 %6, 170
+  %11 = icmp samesign ult i64 %6, 170
   br i1 %11, label %12, label %softfloat_shiftRightJam64.exit
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %6, 107
+  %13 = icmp samesign ugt i64 %6, 107
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %12

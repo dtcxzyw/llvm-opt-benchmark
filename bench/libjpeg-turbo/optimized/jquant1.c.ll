@@ -152,7 +152,7 @@ define void @jinit_1pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
 .split60.us.i.i:                                  ; preds = %.split60.us.loopexit.i.i, %.split.preheader.i.i
   %.us-phi.i.i = phi i32 [ %75, %.split60.us.loopexit.i.i ], [ %smax.i.i, %.split.preheader.i.i ]
   %.us-phi61.i.i = phi i32 [ %76, %.split60.us.loopexit.i.i ], [ %narrow.i.i, %.split.preheader.i.i ]
-  %77 = icmp ult i32 %.us-phi.i.i, 2
+  %77 = icmp samesign ult i32 %.us-phi.i.i, 2
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %.split60.us.i.i

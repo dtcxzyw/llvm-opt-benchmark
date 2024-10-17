@@ -189,7 +189,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
   %77 = add nuw nsw i64 %61, 1
   %78 = load i16, ptr %19, align 4
   %79 = zext i16 %78 to i64
-  %80 = icmp uge i64 %77, %79
+  %80 = icmp samesign uge i64 %77, %79
   %81 = getelementptr i8, ptr %60, i64 44
   %82 = icmp eq ptr %81, null
   %83 = or i1 %82, %80

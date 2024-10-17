@@ -1417,7 +1417,7 @@ define internal i32 @run_io_job(ptr noundef %0) #2 align 16 {
   %70 = udiv i32 %69, 100
   %71 = sub i32 %68, %70
   %72 = icmp sgt i32 %71, 0
-  %73 = icmp ult i32 %42, 10
+  %73 = icmp samesign ult i32 %42, 10
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %75, label %.loopexit, !prof !34
 

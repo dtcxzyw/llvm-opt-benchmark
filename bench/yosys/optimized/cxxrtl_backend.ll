@@ -53235,7 +53235,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -69997,7 +69997,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %332 = phi ptr [ %323, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %299, %.cont.i ]
   %333 = phi ptr [ %330, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %298, %.cont.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %334 = icmp ult i64 %indvars.iv.next.i, %295
+  %334 = icmp samesign ult i64 %indvars.iv.next.i, %295
   br i1 %334, label %296, label %_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE.exit, !llvm.loop !797
 
 .loopexit.i:                                      ; preds = %321
@@ -74962,7 +74962,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117escape_cxx_stringERKNSt7__cxx111
           to label %26 unwind label %.loopexit
 
 26:                                               ; preds = %20
-  %27 = icmp ult i8 %18, 10
+  %27 = icmp samesign ult i8 %18, 10
   %28 = or disjoint i8 %18, 48
   %29 = add nuw nsw i8 %18, 87
   %30 = select i1 %27, i8 %28, i8 %29
@@ -75809,7 +75809,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %2
           to label %45 unwind label %26
 
 45:                                               ; preds = %38
-  %46 = icmp ult i8 %36, 10
+  %46 = icmp samesign ult i8 %36, 10
   %47 = or disjoint i8 %36, 48
   %48 = add nuw nsw i8 %36, 87
   %49 = select i1 %46, i8 %47, i8 %48
@@ -87453,7 +87453,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -89566,7 +89566,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
   %indvars.iv.i = phi i64 [ %indvars.iv, %.lr.ph.i171 ], [ %indvars.iv.next.i, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
   %221 = phi ptr [ %217, %.lr.ph.i171 ], [ %250, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
   %222 = phi ptr [ %216, %.lr.ph.i171 ], [ %249, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
-  %223 = icmp ult i64 %indvars.iv.i, %sext.i
+  %223 = icmp samesign ult i64 %indvars.iv.i, %sext.i
   %224 = getelementptr inbounds i8, ptr %.sroa.3231.9, i64 %indvars.iv.i
   %.not.i.i172 = icmp eq ptr %220, %221
   br i1 %.not.i.i172, label %228, label %225
@@ -89652,7 +89652,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %249 = phi ptr [ %240, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %222, %.cont.i ]
   %250 = phi ptr [ %247, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %221, %.cont.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %251 = icmp ult i64 %indvars.iv.next.i, %218
+  %251 = icmp samesign ult i64 %indvars.iv.next.i, %218
   br i1 %251, label %219, label %.noexc144, !llvm.loop !797
 
 .loopexit.i:                                      ; preds = %238
@@ -89797,7 +89797,7 @@ _ZN12_GLOBAL__N_112CxxrtlWorker10dump_constERKN5Yosys5RTLIL5ConstE.exit32: ; pre
   %indvars.iv.i190 = phi i64 [ %indvars.iv379, %.lr.ph.i189 ], [ %indvars.iv.next.i195, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i194 ]
   %286 = phi ptr [ %282, %.lr.ph.i189 ], [ %315, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i194 ]
   %287 = phi ptr [ %281, %.lr.ph.i189 ], [ %314, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i194 ]
-  %288 = icmp ult i64 %indvars.iv.i190, %sext.i191
+  %288 = icmp samesign ult i64 %indvars.iv.i190, %sext.i191
   %289 = getelementptr inbounds i8, ptr %.sroa.3217.9, i64 %indvars.iv.i190
   %.not.i.i192 = icmp eq ptr %285, %286
   br i1 %.not.i.i192, label %293, label %290
@@ -89883,7 +89883,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i194: ; preds = %
   %314 = phi ptr [ %305, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i210 ], [ %287, %.cont.i193 ]
   %315 = phi ptr [ %312, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i210 ], [ %286, %.cont.i193 ]
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i190, 1
-  %316 = icmp ult i64 %indvars.iv.next.i195, %283
+  %316 = icmp samesign ult i64 %indvars.iv.next.i195, %283
   br i1 %316, label %284, label %.noexc161, !llvm.loop !797
 
 .loopexit.i204:                                   ; preds = %303

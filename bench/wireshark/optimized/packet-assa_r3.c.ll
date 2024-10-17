@@ -4065,7 +4065,7 @@ define internal void @dissect_r3_cmd_filters(ptr noundef %0, i32 noundef %1, i32
   %27 = add nuw nsw i32 %.023, 1
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef 0) #5
   %29 = zext i8 %28 to i32
-  %30 = icmp ult i32 %27, %29
+  %30 = icmp samesign ult i32 %27, %29
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %5
@@ -5934,7 +5934,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %25
-  %30 = icmp ult i8 %26, 16
+  %30 = icmp samesign ult i8 %26, 16
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29

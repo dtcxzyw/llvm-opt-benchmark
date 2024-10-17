@@ -1214,7 +1214,7 @@ _ZL18shouldPragmaUnrollPN4llvm4LoopERKN12_GLOBAL__N_110PragmaInfoEjjjNS_19Unroll
   %.sroa.0225.0.copyload = load i64, ptr %12, align 8
   %.sroa.2226.0.copyload = load i32, ptr %21, align 8
   %135 = tail call fastcc i64 @_ZL16shouldFullUnrollPN4llvm4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEjNS_19UnrollCostEstimatorERKNS2_20UnrollingPreferencesE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(1392) %5, ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef %8, i64 %.sroa.0225.0.copyload, i32 %.sroa.2226.0.copyload, ptr noundef nonnull align 4 dereferenceable(61) %13)
-  %.not263 = icmp ult i64 %135, 4294967296
+  %.not263 = icmp samesign ult i64 %135, 4294967296
   br i1 %.not263, label %.thread246, label %137
 
 .thread246:                                       ; preds = %133
@@ -1247,7 +1247,7 @@ _ZL18shouldPragmaUnrollPN4llvm4LoopERKN12_GLOBAL__N_110PragmaInfoEjjjNS_19Unroll
   %.sroa.0220.0.copyload = load i64, ptr %12, align 8
   %.sroa.2221.0.copyload = load i32, ptr %21, align 8
   %146 = tail call fastcc i64 @_ZL16shouldFullUnrollPN4llvm4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEjNS_19UnrollCostEstimatorERKNS2_20UnrollingPreferencesE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(1392) %5, ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef %9, i64 %.sroa.0220.0.copyload, i32 %.sroa.2221.0.copyload, ptr noundef nonnull align 4 dereferenceable(61) %13)
-  %.not262 = icmp ult i64 %146, 4294967296
+  %.not262 = icmp samesign ult i64 %146, 4294967296
   br i1 %.not262, label %148, label %147
 
 147:                                              ; preds = %145

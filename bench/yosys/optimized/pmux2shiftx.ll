@@ -3896,7 +3896,7 @@ _ZNK5Yosys5RTLIL10AttrObject17get_src_attributeB5cxx11Ev.exit: ; preds = %1515
 1520:                                             ; preds = %1520, %1519
   %.0361 = phi i32 [ %1518, %1519 ], [ %1522, %1520 ]
   %1521 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0361)
-  %.not = icmp ult i32 %1521, 2
+  %.not = icmp samesign ult i32 %1521, 2
   %1522 = add nsw i32 %.0361, 1
   br i1 %.not, label %1525, label %1520, !llvm.loop !39
 
@@ -6414,7 +6414,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   br label %.body869
 
 ._crit_edge5670.loopexit:                         ; preds = %.lr.ph5669
-  %2709 = icmp ugt i32 %spec.select, 1
+  %2709 = icmp samesign ugt i32 %spec.select, 1
   %2710 = select i1 %2709, i8 0, i8 %.03665674
   br label %._crit_edge5670
 
@@ -29310,7 +29310,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairINS2_5StateES3_ENS0_8hash_opsIS3
   %343 = load i32, ptr %4, align 8
   %344 = sext i32 %343 to i64
   %345 = icmp slt i64 %indvars.iv.next, %344
-  %346 = icmp ult i64 %indvars.iv.next, %123
+  %346 = icmp samesign ult i64 %indvars.iv.next, %123
   %or.cond116 = and i1 %346, %345
   br i1 %or.cond116, label %.lr.ph, label %.critedge, !llvm.loop !235
 

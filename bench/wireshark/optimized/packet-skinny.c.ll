@@ -7218,7 +7218,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 
 119:                                              ; preds = %116, %125
   %.0117121 = phi i32 [ 0, %116 ], [ %126, %125 ]
-  %120 = icmp ult i32 %.0117121, %114
+  %120 = icmp samesign ult i32 %.0117121, %114
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %119
@@ -7255,7 +7255,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 
 135:                                              ; preds = %132, %141
   %.0122 = phi i32 [ 0, %132 ], [ %142, %141 ]
-  %136 = icmp ult i32 %.0122, %130
+  %136 = icmp samesign ult i32 %.0122, %130
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -8253,7 +8253,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
 
 82:                                               ; preds = %79, %88
   %.0124131 = phi i32 [ 0, %79 ], [ %89, %88 ]
-  %83 = icmp ult i32 %.0124131, %77
+  %83 = icmp samesign ult i32 %.0124131, %77
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
@@ -8290,7 +8290,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
 
 98:                                               ; preds = %95, %104
   %.0132 = phi i32 [ 0, %95 ], [ %105, %104 ]
-  %99 = icmp ult i32 %.0132, %93
+  %99 = icmp samesign ult i32 %.0132, %93
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %98
@@ -9694,7 +9694,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 
 267:                                              ; preds = %264, %273
   %.0213222 = phi i32 [ 0, %264 ], [ %274, %273 ]
-  %268 = icmp ult i32 %.0213222, %262
+  %268 = icmp samesign ult i32 %.0213222, %262
   br i1 %268, label %269, label %272
 
 269:                                              ; preds = %267
@@ -9731,7 +9731,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 
 283:                                              ; preds = %280, %289
   %.0223 = phi i32 [ 0, %280 ], [ %290, %289 ]
-  %284 = icmp ult i32 %.0223, %278
+  %284 = icmp samesign ult i32 %.0223, %278
   br i1 %284, label %285, label %288
 
 285:                                              ; preds = %283
@@ -10202,7 +10202,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 
 258:                                              ; preds = %255, %264
   %.0196204 = phi i32 [ 0, %255 ], [ %265, %264 ]
-  %259 = icmp ult i32 %.0196204, %253
+  %259 = icmp samesign ult i32 %.0196204, %253
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %258
@@ -10239,7 +10239,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 
 274:                                              ; preds = %271, %280
   %.0205 = phi i32 [ 0, %271 ], [ %281, %280 ]
-  %275 = icmp ult i32 %.0205, %269
+  %275 = icmp samesign ult i32 %.0205, %269
   br i1 %275, label %276, label %279
 
 276:                                              ; preds = %274

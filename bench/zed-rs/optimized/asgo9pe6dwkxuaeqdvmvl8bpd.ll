@@ -9513,7 +9513,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17h65cbf8d5c032ce52E.l
   %14 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %10, i1 false)
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %13, i1 false)
   %narrow = add nuw nsw i16 %15, %14
-  %16 = icmp ugt i16 %narrow, 15
+  %16 = icmp samesign ugt i16 %narrow, 15
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
@@ -10001,7 +10001,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h92
   %59 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %55, i1 false)
   %60 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %58, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %60, %59
-  %61 = icmp ugt i16 %narrow.i.i.i, 15
+  %61 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %61, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h0d582a6dce2cc48bE.llvm.14262932559051198107.exit", label %62
 
 62:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf7adfea8560f49c4E.llvm.14262932559051198107.exit"
@@ -10111,7 +10111,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h9b
   %48 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %44, i1 false)
   %49 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %47, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %49, %48
-  %50 = icmp ugt i16 %narrow.i.i.i, 15
+  %50 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %50, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17hb5ee0d2a66a19624E.llvm.14262932559051198107.exit", label %51
 
 51:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h35e4daed5df9033eE.llvm.14262932559051198107.exit"
@@ -10161,7 +10161,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h0
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h65cbf8d5c032ce52E.llvm.14262932559051198107.exit, label %22
 
 22:                                               ; preds = %2
@@ -10207,7 +10207,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h4
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h65cbf8d5c032ce52E.llvm.14262932559051198107.exit, label %22
 
 22:                                               ; preds = %2
@@ -14270,7 +14270,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h0d582a6dc
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h0908cc4547b51c38E.llvm.14262932559051198107.exit", label %22
 
 22:                                               ; preds = %3
@@ -14320,7 +14320,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17hb5ee0d2a6
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h48043c2954830215E.llvm.14262932559051198107.exit", label %22
 
 22:                                               ; preds = %3

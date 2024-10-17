@@ -1662,7 +1662,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i: ; preds = %512, %.c
 
 519:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i, %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit.i, %.critedge.i125
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %520 = icmp ult i64 %indvars.iv.next.i, %486
+  %520 = icmp samesign ult i64 %indvars.iv.next.i, %486
   br i1 %520, label %488, label %.preheader.i, !llvm.loop !28
 
 .lr.ph28.i112:                                    ; preds = %.preheader.i, %.lr.ph28.i112
@@ -13161,7 +13161,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %50, %41, %.
 
 82:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %83 = icmp ult i64 %indvars.iv.next, %68
+  %83 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %83, label %69, label %.loopexit, !llvm.loop !276
 
 .loopexit:                                        ; preds = %82, %62, %74, %76

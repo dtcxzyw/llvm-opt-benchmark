@@ -521,7 +521,7 @@ GetHistoBits.exit.i:                              ; preds = %52
   %.2192 = phi i32 [ %.3193, %.loopexit122.i ], [ 0, %312 ]
   %315 = phi i32 [ %334, %.loopexit122.i ], [ 0, %312 ]
   %.0107125.i = phi i32 [ %335, %.loopexit122.i ], [ 0, %312 ]
-  %or.cond.i = icmp ult i32 %.0107125.i, 4
+  %or.cond.i = icmp samesign ult i32 %.0107125.i, 4
   %or.cond3.i = or i1 %45, %or.cond.i
   br i1 %or.cond3.i, label %316, label %.loopexit122.i
 
@@ -3607,7 +3607,7 @@ define internal fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef nonnul
 27:                                               ; preds = %16, %25
   %.1 = phi i32 [ %26, %25 ], [ %.03051, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = icmp ult i64 %indvars.iv.next, %15
+  %28 = icmp samesign ult i64 %indvars.iv.next, %15
   %29 = icmp slt i32 %.1, 3
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %16, label %._crit_edge, !llvm.loop !46

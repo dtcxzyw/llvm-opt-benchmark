@@ -647,7 +647,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u6417hc40
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %.028.lcssa.i = phi i64 [ 20, %3 ], [ %15, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %2, %3 ], [ %8, %.lr.ph.i ]
-  %6 = icmp ugt i64 %.1.lcssa.i, 99
+  %6 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %6, label %22, label %31
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -691,7 +691,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u6417hc40
 31:                                               ; preds = %22, %._crit_edge.i
   %.129.i = phi i64 [ %27, %22 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext35.i, %22 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %32 = icmp ult i64 %.027.i, 10
+  %32 = icmp samesign ult i64 %.027.i, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
@@ -1328,7 +1328,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i64 [ %0, %2 ], [ %6, %.lr.ph ]
-  %4 = icmp ugt i64 %.1.lcssa, 99
+  %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1372,7 +1372,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 29:                                               ; preds = %._crit_edge, %20
   %.129 = phi i64 [ %25, %20 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext35, %20 ], [ %.1.lcssa, %._crit_edge ]
-  %30 = icmp ult i64 %.027, 10
+  %30 = icmp samesign ult i64 %.027, 10
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -1500,7 +1500,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i.i.i.i.i
   %.028.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.val.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %46 = icmp ugt i64 %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %46 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %46, label %62, label %71
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1544,7 +1544,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.
 71:                                               ; preds = %62, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.129.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %67, %62 ], [ %.028.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.027.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext35.i.i.i.i.i.i.i.i.i.i.i.i.i, %62 ], [ %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %72 = icmp ult i64 %.027.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %72 = icmp samesign ult i64 %.027.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %71
@@ -1736,7 +1736,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i
   %.028.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.val6.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %38 = icmp ugt i64 %.1.lcssa.i.i.i.i.i.i.i.i.i.i, 99
+  %38 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %38, label %54, label %63
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -1780,7 +1780,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h88f4ed7a5e05e295E.exit.i.i.i.
 63:                                               ; preds = %54, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %.129.i.i.i.i.i.i.i.i.i.i = phi i64 [ %59, %54 ], [ %.028.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %.027.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext35.i.i.i.i.i.i.i.i.i.i, %54 ], [ %.1.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
-  %64 = icmp ult i64 %.027.i.i.i.i.i.i.i.i.i.i, 10
+  %64 = icmp samesign ult i64 %.027.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %63
@@ -2206,7 +2206,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$impl$u20$s
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %2
   %.028.lcssa.i.i.i = phi i64 [ 20, %2 ], [ %15, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i64 [ %4, %2 ], [ %8, %.lr.ph.i.i.i ]
-  %6 = icmp ugt i64 %.1.lcssa.i.i.i, 99
+  %6 = icmp samesign ugt i64 %.1.lcssa.i.i.i, 99
   br i1 %6, label %22, label %31
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -2250,7 +2250,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$impl$u20$s
 31:                                               ; preds = %22, %._crit_edge.i.i.i
   %.129.i.i.i = phi i64 [ %27, %22 ], [ %.028.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.027.i.i.i = phi i64 [ %.zext35.i.i.i, %22 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %32 = icmp ult i64 %.027.i.i.i, 10
+  %32 = icmp samesign ult i64 %.027.i.i.i, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
@@ -2366,7 +2366,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls81_$LT$impl$u20$s
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %19
   %.028.lcssa.i.i.i.i.i = phi i64 [ 20, %19 ], [ %32, %.lr.ph.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i = phi i64 [ %21, %19 ], [ %25, %.lr.ph.i.i.i.i.i ]
-  %23 = icmp ugt i64 %.1.lcssa.i.i.i.i.i, 99
+  %23 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i.i, 99
   br i1 %23, label %39, label %48
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -2410,7 +2410,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls81_$LT$impl$u20$s
 48:                                               ; preds = %39, %._crit_edge.i.i.i.i.i
   %.129.i.i.i.i.i = phi i64 [ %44, %39 ], [ %.028.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.027.i.i.i.i.i = phi i64 [ %.zext35.i.i.i.i.i, %39 ], [ %.1.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %49 = icmp ult i64 %.027.i.i.i.i.i, 10
+  %49 = icmp samesign ult i64 %.027.i.i.i.i.i, 10
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
@@ -2752,7 +2752,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %11
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %11 ], [ %29, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %18, %11 ], [ %22, %.lr.ph.i.i.i.i ]
-  %20 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %20 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i.i.i.i:                                   ; preds = %11, %.lr.ph.i.i.i.i
@@ -2796,7 +2796,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 45:                                               ; preds = %36, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %41, %36 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %36 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp ult i64 %.027.i.i.i.i, 10
+  %46 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45
@@ -2952,7 +2952,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
   %.028.lcssa.i.i = phi i64 [ 20, %2 ], [ %14, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i64 [ %1, %2 ], [ %7, %.lr.ph.i.i ]
-  %5 = icmp ugt i64 %.1.lcssa.i.i, 99
+  %5 = icmp samesign ugt i64 %.1.lcssa.i.i, 99
   br i1 %5, label %21, label %30
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -2996,7 +2996,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 30:                                               ; preds = %21, %._crit_edge.i.i
   %.129.i.i = phi i64 [ %26, %21 ], [ %.028.lcssa.i.i, %._crit_edge.i.i ]
   %.027.i.i = phi i64 [ %.zext35.i.i, %21 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
-  %31 = icmp ult i64 %.027.i.i, 10
+  %31 = icmp samesign ult i64 %.027.i.i, 10
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
@@ -3154,7 +3154,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %2
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %2 ], [ %15, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %4, %2 ], [ %8, %.lr.ph.i.i.i.i ]
-  %6 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %6 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %6, label %22, label %31
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
@@ -3198,7 +3198,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 31:                                               ; preds = %22, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %27, %22 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %22 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %32 = icmp ult i64 %.027.i.i.i.i, 10
+  %32 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31

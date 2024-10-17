@@ -1267,7 +1267,7 @@ entry:
   %cmp1.not = icmp eq i64 %unit, 0
   %conv = select i1 %cmp1.not, i64 1000, i64 1024
   %cond7 = tail call i64 @llvm.abs.i64(i64 %n, i1 true)
-  %cmp8 = icmp ult i64 %cond7, %conv
+  %cmp8 = icmp samesign ult i64 %cond7, %conv
   br i1 %cmp8, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %entry
@@ -1286,11 +1286,11 @@ if.then17:                                        ; preds = %if.then10
 
 if.else:                                          ; preds = %entry
   %mul27 = select i1 %cmp1.not, i64 1000000, i64 1048576
-  %cmp28.not = icmp ult i64 %cond7, %mul27
+  %cmp28.not = icmp samesign ult i64 %cond7, %mul27
   %spec.select = select i1 %cmp28.not, ptr @.str.47, ptr @.str.48
   %spec.select30 = select i1 %cmp28.not, i64 %conv, i64 %mul27
   %mul33 = mul nuw nsw i64 %spec.select30, %conv
-  %cmp34.not = icmp ult i64 %cond7, %mul33
+  %cmp34.not = icmp samesign ult i64 %cond7, %mul33
   %magnitude.1 = select i1 %cmp34.not, ptr %spec.select, ptr @.str.49
   %divider.1 = select i1 %cmp34.not, i64 %spec.select30, i64 %mul33
   %div.lhs.trunc = trunc nuw nsw i64 %divider.1 to i32

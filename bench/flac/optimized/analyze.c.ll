@@ -139,7 +139,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %20 = load i32, ptr %order, align 8
   %21 = zext i32 %20 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next236, %21
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next236, %21
   br i1 %cmp25, label %for.body27, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body27, %sw.bb13
@@ -200,7 +200,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %34 = load i32, ptr %order, align 8
   %sub = sub i32 %33, %34
   %35 = zext i32 %sub to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next239, %35
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next239, %35
   br i1 %cmp65, label %for.body67, label %for.inc172, !llvm.loop !8
 
 sw.bb76:                                          ; preds = %for.body
@@ -239,7 +239,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %order78, align 8
   %45 = zext i32 %44 to i64
-  %cmp91 = icmp ult i64 %indvars.iv.next, %45
+  %cmp91 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp91, label %for.body93, label %for.cond101.preheader, !llvm.loop !9
 
 for.body106:                                      ; preds = %for.body106.lr.ph, %for.body106
@@ -251,7 +251,7 @@ for.body106:                                      ; preds = %for.body106.lr.ph, 
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %48 = load i32, ptr %order78, align 8
   %49 = zext i32 %48 to i64
-  %cmp104 = icmp ult i64 %indvars.iv.next230, %49
+  %cmp104 = icmp samesign ult i64 %indvars.iv.next230, %49
   br i1 %cmp104, label %for.body106, label %for.end114, !llvm.loop !10
 
 for.end114:                                       ; preds = %for.body106, %sw.bb76, %for.cond101.preheader
@@ -312,7 +312,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   %62 = load i32, ptr %order78, align 8
   %sub157 = sub i32 %61, %62
   %63 = zext i32 %sub157 to i64
-  %cmp158 = icmp ult i64 %indvars.iv.next233, %63
+  %cmp158 = icmp samesign ult i64 %indvars.iv.next233, %63
   br i1 %cmp158, label %for.body160, label %for.inc172, !llvm.loop !12
 
 sw.bb170:                                         ; preds = %for.body
@@ -725,7 +725,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %nbuckets, align 4
   %11 = zext i32 %10 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %11
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %if.end

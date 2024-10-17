@@ -309,7 +309,7 @@ _set_pmi_time.exit:                               ; preds = %7, %16, %.sink.spli
   %62 = mul nsw i32 %61, 15
   %63 = icmp ugt i32 %.024, %62
   %64 = add nuw nsw i32 %.0.ph, 1
-  %65 = icmp ult i32 %.0.ph, 2
+  %65 = icmp samesign ult i32 %.0.ph, 2
   %or.cond = select i1 %63, i1 %65, i1 false
   br i1 %or.cond, label %.outer, label %.loopexit
 

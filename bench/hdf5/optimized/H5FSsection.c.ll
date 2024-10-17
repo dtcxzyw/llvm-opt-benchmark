@@ -2209,7 +2209,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %64, %58, %52, %46, 
   %90 = getelementptr inbounds i8, ptr %89, i64 260
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next119.i, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next119.i, %92
   br i1 %93, label %.split.us.i, label %.loopexit
 
 .split.i:                                         ; preds = %.loopexit.i, %77
@@ -2378,7 +2378,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %64, %58, %52, %46, 
   %192 = getelementptr inbounds i8, ptr %191, i64 260
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next.i, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next.i, %194
   br i1 %195, label %.split.i, label %.loopexit
 
 196:                                              ; preds = %156, %165, %173, %184, %105, %119, %127
@@ -2477,7 +2477,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   %35 = getelementptr inbounds i8, ptr %34, i64 260
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %38, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.preheader, %29

@@ -492,7 +492,7 @@ define internal noundef range(i32 -19, 1) i32 @drpc_show(ptr noundef %0, ptr noc
   %19 = load i8, ptr %15, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %18, %20
-  %22 = icmp ugt i32 %21, 3141
+  %22 = icmp samesign ugt i32 %21, 3141
   br i1 %22, label %23, label %97
 
 23:                                               ; preds = %13

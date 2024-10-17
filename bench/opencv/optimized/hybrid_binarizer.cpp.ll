@@ -596,7 +596,7 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
 .loopexit99.us:                                   ; preds = %83
   %86 = add nuw nsw i32 %.074117.us, 1
   %87 = add nsw i32 %.073118.us, %27
-  %88 = icmp ult i32 %.074117.us, 7
+  %88 = icmp samesign ult i32 %.074117.us, 7
   br i1 %88, label %.preheader100.us, label %.loopexit99.us.thread, !llvm.loop !6
 
 89:                                               ; preds = %.preheader.us, %89
@@ -611,7 +611,7 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   %95 = zext i8 %94 to i32
   %96 = add nsw i32 %92, %95
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 2
-  %97 = icmp ult i64 %indvars.iv127, 6
+  %97 = icmp samesign ult i64 %indvars.iv127, 6
   br i1 %97, label %89, label %.loopexit.us, !llvm.loop !7
 
 98:                                               ; preds = %.preheader100.us, %98
@@ -643,7 +643,7 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   br i1 %exitcond133.not, label %.loopexit99.us.thread, label %.preheader.us, !llvm.loop !9
 
 .preheader98.us:                                  ; preds = %83
-  %102 = icmp ult i32 %.074117.us, 7
+  %102 = icmp samesign ult i32 %.074117.us, 7
   br i1 %102, label %.preheader.us.preheader, label %.loopexit99.us.thread
 
 .preheader.us.preheader:                          ; preds = %.preheader98.us
@@ -1534,7 +1534,7 @@ define hidden void @_ZN5zxing15HybridBinarizer26calculateThresholdForBlockERNS_3
   %.067.us = phi i32 [ %88, %._crit_edge.us ], [ 0, %.lr.ph69 ]
   %24 = shl i32 %.067.us, %4
   %spec.select.us = tail call i32 @llvm.smin.i32(i32 %24, i32 %11)
-  %25 = icmp ult i32 %.067.us, 2
+  %25 = icmp samesign ult i32 %.067.us, 2
   %26 = tail call i32 @llvm.smin.i32(i32 %.067.us, i32 %22)
   %27 = select i1 %25, i32 2, i32 %26
   %28 = add nsw i32 %27, -2
@@ -1548,7 +1548,7 @@ define hidden void @_ZN5zxing15HybridBinarizer26calculateThresholdForBlockERNS_3
 
 32:                                               ; preds = %.lr.ph.us, %30
   %.04766.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %30 ]
-  %33 = icmp ult i32 %.04766.us, 2
+  %33 = icmp samesign ult i32 %.04766.us, 2
   %34 = tail call i32 @llvm.smin.i32(i32 %.04766.us, i32 %21)
   %35 = select i1 %33, i32 2, i32 %34
   %36 = load i32, ptr %23, align 4

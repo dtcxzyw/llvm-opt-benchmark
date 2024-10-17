@@ -121,7 +121,7 @@ Aig_ManObj.exit:                                  ; preds = %20, %24
   %43 = load i64, ptr %3, align 8
   %44 = trunc i64 %43 to i32
   %45 = lshr i32 %44, 6
-  %46 = icmp ult i32 %42, %45
+  %46 = icmp samesign ult i32 %42, %45
   br i1 %46, label %10, label %.critedge.loopexit, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %Aig_ManObj.exit
@@ -354,7 +354,7 @@ Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.exit.i, 
   %99 = add nuw nsw i32 %.01420.i, 1
   %100 = trunc i64 %91 to i32
   %101 = lshr i32 %100, 6
-  %102 = icmp ult i32 %99, %101
+  %102 = icmp samesign ult i32 %99, %101
   br i1 %102, label %30, label %.critedge.loopexit.i, !llvm.loop !4
 
 .critedge.loopexit.i:                             ; preds = %Vec_IntFillExtra.exit
@@ -840,7 +840,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %226 = add nuw nsw i32 %.080, 1
   %227 = trunc i64 %225 to i32
   %228 = lshr i32 %227, 6
-  %229 = icmp ult i32 %226, %228
+  %229 = icmp samesign ult i32 %226, %228
   br i1 %229, label %132, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %224, %Aig_ObjLevelNew.exit69
@@ -1123,7 +1123,7 @@ Aig_ManObj.exit.i:                                ; preds = %49, %45
   %67 = load i64, ptr %29, align 8
   %68 = trunc i64 %67 to i32
   %69 = lshr i32 %68, 6
-  %70 = icmp ult i32 %66, %69
+  %70 = icmp samesign ult i32 %66, %69
   br i1 %70, label %34, label %.critedge.loopexit.i, !llvm.loop !4
 
 .critedge.loopexit.i:                             ; preds = %Aig_ManObj.exit.i
@@ -1465,7 +1465,7 @@ Vec_IntFillExtra.exit137:                         ; preds = %Aig_ManObj.exit.i79
   %216 = add nuw nsw i32 %.01420.i71, 1
   %217 = trunc i64 %208 to i32
   %218 = lshr i32 %217, 6
-  %219 = icmp ult i32 %216, %218
+  %219 = icmp samesign ult i32 %216, %218
   br i1 %219, label %.lr.ph.i69, label %.critedge.loopexit.i81, !llvm.loop !4
 
 .critedge.loopexit.i81:                           ; preds = %Vec_IntFillExtra.exit137
@@ -2546,7 +2546,7 @@ Vec_IntFillExtra.exit:                            ; preds = %Aig_ManObj.exit.i, 
   %130 = add nuw nsw i32 %.01420.i, 1
   %131 = trunc i64 %122 to i32
   %132 = lshr i32 %131, 6
-  %133 = icmp ult i32 %130, %132
+  %133 = icmp samesign ult i32 %130, %132
   br i1 %133, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !4
 
 .critedge.loopexit.i:                             ; preds = %Vec_IntFillExtra.exit

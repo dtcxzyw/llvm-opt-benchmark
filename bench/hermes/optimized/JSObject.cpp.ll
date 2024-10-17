@@ -2903,8 +2903,8 @@ for.body.i.i221:                                  ; preds = %for.inc.i.i228, %fo
 if.then.i.i235:                                   ; preds = %for.body.i.i221
   %tobool.i.i.i.i.i = icmp ugt i32 %120, 268435455
   %and.i.i.i.i.i7.i = and i32 %120, 268435455
-  %cmp.i.i.i.i.i236 = icmp ugt i32 %and.i.i.i.i.i7.i, 12
-  %121 = and i1 %tobool.i.i.i.i.i, %cmp.i.i.i.i.i236
+  %cmp.i.i.i.i.i236 = icmp samesign ugt i32 %and.i.i.i.i.i7.i, 12
+  %121 = select i1 %tobool.i.i.i.i.i, i1 %cmp.i.i.i.i.i236, i1 false
   br i1 %121, label %if.end.i.i.i239, label %"_ZZN6hermes2vm8JSObject18getOwnPropertyKeysENS0_6HandleIS1_EERNS0_7RuntimeENS0_12OwnKeysFlagsEENK3$_1clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i"
 
 if.end.i.i.i239:                                  ; preds = %if.then.i.i235
@@ -3716,7 +3716,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit92: ; preds = %if.the
   %26 = trunc nuw nsw i64 %25 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i90, i40 %26, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc131 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
-  %arrayIndex86.i.sroa.5.0.extract.trunc133.not = icmp ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
+  %arrayIndex86.i.sroa.5.0.extract.trunc133.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
   br i1 %arrayIndex86.i.sroa.5.0.extract.trunc133.not, label %land.lhs.true95.i, label %if.then121.i
 
 land.lhs.true95.i:                                ; preds = %if.then85.i, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit92
@@ -4311,7 +4311,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit108: ; preds = %if.th
   %29 = trunc nuw nsw i64 %28 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i106, i40 %29, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc179 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
-  %arrayIndex86.i.sroa.5.0.extract.trunc181.not = icmp ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
+  %arrayIndex86.i.sroa.5.0.extract.trunc181.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
   br i1 %arrayIndex86.i.sroa.5.0.extract.trunc181.not, label %land.lhs.true95.i, label %if.then121.i
 
 land.lhs.true95.i:                                ; preds = %if.then85.i, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit108
@@ -8468,7 +8468,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375: ; preds = %_ZN6h
   %92 = trunc nuw nsw i64 %91 to i40
   %ref.tmp499.sroa.0.0.extract.trunc = select i1 %or.cond.i.i373, i40 %92, i40 0
   %arrayIndex496.sroa.0.0.extract.trunc470 = trunc i40 %ref.tmp499.sroa.0.0.extract.trunc to i32
-  %arrayIndex496.sroa.6.0.extract.trunc472.not = icmp ult i40 %ref.tmp499.sroa.0.0.extract.trunc, 4294967296
+  %arrayIndex496.sroa.6.0.extract.trunc472.not = icmp samesign ult i40 %ref.tmp499.sroa.0.0.extract.trunc, 4294967296
   br i1 %arrayIndex496.sroa.6.0.extract.trunc472.not, label %land.lhs.true506, label %if.then532
 
 land.lhs.true506:                                 ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375
@@ -9316,7 +9316,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc146 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
-  %arrayIndex.sroa.5.0.extract.trunc148.not = icmp ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
+  %arrayIndex.sroa.5.0.extract.trunc148.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
   br i1 %arrayIndex.sroa.5.0.extract.trunc148.not, label %land.lhs.true, label %if.end44.thread
 
 if.end44.thread:                                  ; preds = %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit
@@ -10547,7 +10547,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc274 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
-  %arrayIndex.sroa.10.0.extract.trunc276.not = icmp ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
+  %arrayIndex.sroa.10.0.extract.trunc276.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
   br i1 %arrayIndex.sroa.10.0.extract.trunc276.not, label %land.lhs.true, label %if.end71
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit
@@ -15269,7 +15269,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div11, %div.i5557
+  %cmp24.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

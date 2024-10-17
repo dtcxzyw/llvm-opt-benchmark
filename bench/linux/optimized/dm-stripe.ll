@@ -623,7 +623,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %66 = getelementptr inbounds i8, ptr %55, i64 8
   store i64 %36, ptr %66, align 8
   %67 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65), !range !13
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %59
@@ -660,7 +660,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %88 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %87, ptr %88, align 8
   %89 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %87), !range !13
-  %90 = icmp ult i32 %89, 2
+  %90 = icmp samesign ult i32 %89, 2
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %81
@@ -750,7 +750,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %129 = add nuw nsw i64 %102, 1
   %130 = load i32, ptr %6, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %129, %131
+  %132 = icmp samesign ult i64 %129, %131
   br i1 %132, label %101, label %.loopexit9, !llvm.loop !18
 
 .loopexit9:                                       ; preds = %128, %95
@@ -785,7 +785,7 @@ define internal void @stripe_dtr(ptr noundef %0) #0 align 16 {
   %12 = add nuw nsw i64 %9, 1
   %13 = load i32, ptr %3, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %8, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %8, %1
@@ -862,7 +862,7 @@ define internal noundef i32 @stripe_end_io(ptr nocapture noundef readonly %0, pt
   %49 = add nuw nsw i64 %35, 1
   %50 = load i32, ptr %6, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %34, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %48, %16, %9, %3
@@ -925,7 +925,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %37 = add i32 %36, %23
   %38 = add nuw nsw i64 %22, 1
   %39 = zext i32 %35 to i64
-  %40 = icmp ult i64 %38, %39
+  %40 = icmp samesign ult i64 %38, %39
   br i1 %40, label %20, label %.loopexit16, !llvm.loop !22
 
 .loopexit16:                                      ; preds = %34, %14
@@ -981,7 +981,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %75 = add i32 %74, %60
   %76 = add nuw nsw i64 %59, 1
   %77 = zext i32 %73 to i64
-  %78 = icmp ult i64 %76, %77
+  %78 = icmp samesign ult i64 %76, %77
   br i1 %78, label %57, label %.loopexit, !llvm.loop !23
 
 79:                                               ; preds = %5
@@ -1034,7 +1034,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %113 = add i32 %112, %97
   %114 = add nuw nsw i64 %96, 1
   %115 = zext i32 %111 to i64
-  %116 = icmp ult i64 %114, %115
+  %116 = icmp samesign ult i64 %114, %115
   br i1 %116, label %94, label %.loopexit, !llvm.loop !24
 
 117:                                              ; preds = %5
@@ -1148,7 +1148,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %195 = add nuw nsw i64 %153, 1
   %196 = load i32, ptr %7, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %195, %197
+  %198 = icmp samesign ult i64 %195, %197
   br i1 %198, label %152, label %.loopexit18, !llvm.loop !25
 
 .loopexit18:                                      ; preds = %192, %145
@@ -1191,7 +1191,7 @@ define internal i32 @stripe_iterate_devices(ptr noundef %0, ptr nocapture nounde
   %18 = add nuw nsw i64 %9, 1
   %19 = load i32, ptr %5, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   br i1 %21, label %8, label %22, !llvm.loop !26
 
 22:                                               ; preds = %17, %8

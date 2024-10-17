@@ -4087,8 +4087,8 @@ rtps_util_add_fragment_number_set.exit.thread.i:  ; preds = %338
   %370 = call i64 @wmem_strbuf_get_len(ptr noundef %326) #13
   %371 = icmp ult i64 %370, 239
   %372 = add nuw nsw i32 %.0901.i.i, 1
-  %373 = icmp ult i32 %.0901.i.i, 31
-  %or.cond.i.i = and i1 %373, %371
+  %373 = icmp samesign ult i32 %.0901.i.i, 31
+  %or.cond.i.i = select i1 %371, i1 %373, i1 false
   br i1 %or.cond.i.i, label %364, label %374, !llvm.loop !7
 
 374:                                              ; preds = %368, %364
@@ -5760,7 +5760,7 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %124
   %112 = phi i32 [ %125, %124 ], [ %111, %0 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %124 ], [ 0, %0 ]
-  %113 = icmp ult i64 %indvars.iv.i, 4
+  %113 = icmp samesign ult i64 %indvars.iv.i, 4
   br i1 %113, label %switch.lookup, label %124
 
 switch.lookup:                                    ; preds = %.lr.ph.i
@@ -5791,7 +5791,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %125 = phi i32 [ %.pre, %switch.lookup ], [ %112, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next.i, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next.i, %126
   br i1 %127, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %124, %0
@@ -5827,7 +5827,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 .lr.ph4.i:                                        ; preds = %._crit_edge.i, %151
   %139 = phi i32 [ %152, %151 ], [ %138, %._crit_edge.i ]
   %indvars.iv8.i = phi i64 [ %indvars.iv.next9.i, %151 ], [ 0, %._crit_edge.i ]
-  %140 = icmp ult i64 %indvars.iv8.i, 7
+  %140 = icmp samesign ult i64 %indvars.iv8.i, 7
   br i1 %140, label %switch.lookup13, label %151
 
 switch.lookup13:                                  ; preds = %.lr.ph4.i
@@ -5857,7 +5857,7 @@ switch.lookup13:                                  ; preds = %.lr.ph4.i
   %152 = phi i32 [ %.pre10, %switch.lookup13 ], [ %139, %.lr.ph4.i ]
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %153 = zext i32 %152 to i64
-  %154 = icmp ult i64 %indvars.iv.next9.i, %153
+  %154 = icmp samesign ult i64 %indvars.iv.next9.i, %153
   br i1 %154, label %.lr.ph4.i, label %initialize_instance_state_data_response_dissection_info.exit, !llvm.loop !19
 
 initialize_instance_state_data_response_dissection_info.exit: ; preds = %151, %._crit_edge.i
@@ -13583,7 +13583,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   br i1 %389, label %504, label %501
 
 501:                                              ; preds = %500
-  %502 = icmp uge i64 %indvars.iv, %494
+  %502 = icmp samesign uge i64 %indvars.iv, %494
   %503 = icmp ne i32 %.3456828, 0
   %or.cond14 = select i1 %502, i1 %503, i1 false
   br i1 %or.cond14, label %505, label %506
@@ -13615,7 +13615,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %.5 = phi i32 [ %.3829, %495 ], [ %.4, %506 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %516 = zext i32 %515 to i64
-  %517 = icmp ult i64 %indvars.iv.next, %516
+  %517 = icmp samesign ult i64 %indvars.iv.next, %516
   br i1 %517, label %495, label %.loopexit, !llvm.loop !51
 
 .loopexit.loopexit:                               ; preds = %rtps_util_dissect_parameter_header.exit611
@@ -13852,8 +13852,8 @@ proto_item_set_generated.exit105:                 ; preds = %proto_item_set_gene
   %76 = call i64 @wmem_strbuf_get_len(ptr noundef %10) #13
   %77 = icmp ult i64 %76, 239
   %78 = add nuw nsw i32 %.085111, 1
-  %79 = icmp ult i32 %.085111, 31
-  %or.cond117 = and i1 %77, %79
+  %79 = icmp samesign ult i32 %.085111, 31
+  %or.cond117 = select i1 %77, i1 %79, i1 false
   br i1 %or.cond117, label %64, label %._crit_edge119, !llvm.loop !52
 
 ._crit_edge119:                                   ; preds = %75

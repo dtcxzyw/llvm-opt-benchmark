@@ -310,7 +310,7 @@ define dso_local i32 @uv_loop_fork(ptr noundef %0) local_unnamed_addr #0 {
   %30 = phi i32 [ %13, %18 ], [ %13, %21 ], [ %.pre, %25 ], [ %13, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %12, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %29, %.preheader, %5, %3, %1

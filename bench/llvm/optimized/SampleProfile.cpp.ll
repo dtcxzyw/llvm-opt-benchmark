@@ -3892,7 +3892,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEn
   br i1 %.not.i.i.i.i.i73.i, label %_ZNK4llvm6Module4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i72.i, !llvm.loop !52
 
 _ZNK4llvm6Module4sizeEv.exit.i.i:                 ; preds = %.lr.ph.i.i.i.i.i72.i
-  %880 = icmp ugt i64 %.06.i.i.i.i.i.i, 1152921504606846974
+  %880 = icmp samesign ugt i64 %.06.i.i.i.i.i.i, 1152921504606846974
   br i1 %880, label %881, label %_ZNSt12_Vector_baseIPN4llvm8FunctionESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i
 
 881:                                              ; preds = %_ZNK4llvm6Module4sizeEv.exit.i.i
@@ -29560,7 +29560,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEmNS_12DenseMapInfoIS4_vEEN
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2717 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i137.i) #26
   %2718 = zext i32 %2717 to i64
-  %2719 = icmp ult i64 %indvars.iv.next.i, %2718
+  %2719 = icmp samesign ult i64 %indvars.iv.next.i, %2718
   br i1 %2719, label %.lr.ph659.i, label %.loopexit549.i, !llvm.loop !342
 
 .loopexit549.i:                                   ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit165.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i, %_ZN4llvm8DebugLocC2ERKS0_.exit.i
@@ -30244,7 +30244,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %_ZN4llvm
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %3068) #22
   %.not88.i = icmp ne i64 %2784, 0
   %3069 = zext i32 %.082661.i to i64
-  %3070 = icmp ugt i64 %spec.select530.i, %3069
+  %3070 = icmp samesign ugt i64 %spec.select530.i, %3069
   %or.cond.i78 = select i1 %.not88.i, i1 %3070, i1 false
   br i1 %or.cond.i78, label %3071, label %3074
 
@@ -30259,7 +30259,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %_ZN4llvm
   %indvars.iv.next775.i = add nuw nsw i64 %indvars.iv774.i, 1
   %3075 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i137.i) #26
   %3076 = zext i32 %3075 to i64
-  %3077 = icmp ult i64 %indvars.iv.next775.i, %3076
+  %3077 = icmp samesign ult i64 %indvars.iv.next775.i, %3076
   br i1 %3077, label %.lr.ph664.i, label %._crit_edge665.loopexit.i, !llvm.loop !344
 
 ._crit_edge665.loopexit.i:                        ; preds = %3074
@@ -30983,7 +30983,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_1
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit: ; preds = %.lr.ph, %12
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %12 ], [ %11, %.lr.ph ]
-  %.not56 = icmp ugt i64 %.047.idx61, 56
+  %.not56 = icmp samesign ugt i64 %.047.idx61, 56
   br i1 %.not56, label %.critedge, label %13
 
 13:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit
@@ -31089,7 +31089,7 @@ _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEE
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28: ; preds = %53, %57
   %.0.i.i.i.i27 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i26, %57 ], [ %56, %53 ]
-  %.not57 = icmp ugt i64 %.249.idx64, 56
+  %.not57 = icmp samesign ugt i64 %.249.idx64, 56
   br i1 %.not57, label %.critedge2, label %58
 
 58:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28
@@ -38597,7 +38597,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %.sroa.23.0.copyload17.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx16.i.i.i, align 8
   %25 = add nsw i64 %21, -1
   %26 = lshr i64 %25, 1
-  %27 = icmp ult i64 %23, %26
+  %27 = icmp samesign ult i64 %23, %26
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -39655,7 +39655,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm10sampleprof15FunctionSamples5me
   %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = add nuw nsw i32 %28, %30
-  %32 = icmp ugt i32 %31, 63
+  %32 = icmp samesign ugt i32 %31, 63
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %22
@@ -39704,7 +39704,7 @@ _ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit: ; preds = %.els
   %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 false)
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = add nuw nsw i32 %52, %30
-  %54 = icmp ugt i32 %53, 63
+  %54 = icmp samesign ugt i32 %53, 63
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit

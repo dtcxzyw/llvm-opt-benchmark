@@ -435,7 +435,7 @@ _nodeid_from_layout.exit:                         ; preds = %._crit_edge.i, %71,
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %170 = load i16, ptr %152, align 8
   %171 = zext i16 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next.i45, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next.i45, %171
   br i1 %172, label %.lr.ph.i43, label %._crit_edge.i46, !llvm.loop !10
 
 ._crit_edge.i46:                                  ; preds = %163, %139
@@ -849,7 +849,7 @@ define internal fastcc void @print_layout_info(ptr nocapture noundef nonnull rea
   %32 = getelementptr inbounds i16, ptr %31, i64 %indvars.iv29
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -858,7 +858,7 @@ define internal fastcc void @print_layout_info(ptr nocapture noundef nonnull rea
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %36 = load i32, ptr %4, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next30, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next30, %37
   br i1 %38, label %14, label %._crit_edge26, !llvm.loop !15
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %1
@@ -1004,7 +1004,7 @@ define dso_local void @_handle_response_msg(i32 noundef %0, ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %19, align 4
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %24, label %.loopexit, !llvm.loop !16
 
 62:                                               ; preds = %3
@@ -1249,7 +1249,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %22, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %28, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %28, %.preheader.i
@@ -1356,7 +1356,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %86 = load i32, ptr %.val14, align 8
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next.i18, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next.i18, %87
   br i1 %88, label %73, label %._crit_edge.i19, !llvm.loop !19
 
 ._crit_edge.i19:                                  ; preds = %80, %.preheader2.i
@@ -1402,7 +1402,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %110 = load i32, ptr %.val14, align 8
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next17.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next17.i, %111
   br i1 %112, label %105, label %._crit_edge8.i, !llvm.loop !20
 
 ._crit_edge8.i:                                   ; preds = %105, %.preheader.i20
@@ -1445,7 +1445,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %130 = load i32, ptr %.val14, align 8
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next14.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next14.i, %131
   br i1 %132, label %120, label %.loopexit.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %129, %.preheader1.i, %115, %._crit_edge8.i, %100

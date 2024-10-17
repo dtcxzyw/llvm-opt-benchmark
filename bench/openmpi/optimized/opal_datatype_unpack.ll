@@ -113,7 +113,7 @@ define range(i32 0, 2) i32 @opal_unpack_homogeneous_contig(ptr noundef %0, ptr n
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %64 = load i32, ptr %2, align 4
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next134, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next134, %65
   br i1 %66, label %46, label %.loopexit.loopexit, !llvm.loop !4
 
 67:                                               ; preds = %.lr.ph117, %108
@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @opal_unpack_homogeneous_contig(ptr noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %2, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %111, label %67, label %.loopexit.loopexit128, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %50, %46
@@ -794,7 +794,7 @@ unpack_partial_blocklen.exit.thread:              ; preds = %154, %unpack_partia
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %321 = load i32, ptr %2, align 4
   %322 = zext i32 %321 to i64
-  %323 = icmp ult i64 %indvars.iv.next, %322
+  %323 = icmp samesign ult i64 %indvars.iv.next, %322
   br i1 %323, label %39, label %._crit_edge179.loopexit, !llvm.loop !10
 
 ._crit_edge179.loopexit:                          ; preds = %316
@@ -7282,7 +7282,7 @@ unpack_predefined_heterogeneous.exit:             ; preds = %76, %.loopexit.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %245 = load i32, ptr %2, align 4
   %246 = zext i32 %245 to i64
-  %247 = icmp ult i64 %indvars.iv.next, %246
+  %247 = icmp samesign ult i64 %indvars.iv.next, %246
   br i1 %247, label %38, label %._crit_edge.loopexit, !llvm.loop !144
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit

@@ -203,7 +203,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr nocapture noundef 
   %37 = and i32 %.089116, 1
   %38 = add nuw nsw i32 %36, %37
   %39 = add nuw nsw i32 %.090115, 1
-  %40 = icmp ugt i32 %38, 1
+  %40 = icmp samesign ugt i32 %38, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31

@@ -551,10 +551,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %8, i64 -8
   %31 = load i8, ptr %30, align 4, !range !200, !alias.scope !197, !noalias !198, !noundef !10
-  %32 = icmp ult i8 %31, 3
+  %32 = icmp samesign ult i8 %31, 3
   %33 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
   %34 = load i8, ptr %33, align 4, !range !200, !alias.scope !195, !noalias !199, !noundef !10
-  %35 = icmp ult i8 %34, 3
+  %35 = icmp samesign ult i8 %34, 3
   %36 = icmp eq i8 %31, %34
   %not..i.i.i.i = xor i1 %32, true
   %37 = and i1 %36, %not..i.i.i.i
@@ -2268,7 +2268,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %46 = load i8, ptr %45, align 2, !range !68, !alias.scope !651, !noalias !648
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = load i8, ptr %47, align 4, !range !200, !alias.scope !651, !noalias !648
-  %49 = icmp ult i8 %48, 3
+  %49 = icmp samesign ult i8 %48, 3
   br label %50
 
 50:                                               ; preds = %88, %3
@@ -2328,7 +2328,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %64, i64 -8
   %80 = load i8, ptr %79, align 4, !range !200, !alias.scope !662, !noalias !667, !noundef !10
-  %81 = icmp ult i8 %80, 3
+  %81 = icmp samesign ult i8 %80, 3
   %82 = icmp eq i8 %80, %48
   %not..i.i.i.i = xor i1 %81, true
   %83 = and i1 %82, %not..i.i.i.i
@@ -11811,7 +11811,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf67f
   %15 = load i8, ptr %14, align 2, !range !68
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load i8, ptr %16, align 4, !range !200
-  %18 = icmp ult i8 %17, 3
+  %18 = icmp samesign ult i8 %17, 3
   br label %19
 
 19:                                               ; preds = %57, %3
@@ -11871,7 +11871,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf67f
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %33, i64 -8
   %49 = load i8, ptr %48, align 4, !range !200, !alias.scope !3104, !noalias !3109, !noundef !10
-  %50 = icmp ult i8 %49, 3
+  %50 = icmp samesign ult i8 %49, 3
   %51 = icmp eq i8 %49, %17
   %not..i.i.i = xor i1 %50, true
   %52 = and i1 %51, %not..i.i.i
@@ -12190,7 +12190,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %18 = add nsw i64 %17, -1
   %19 = select i1 %16, i64 %18, i64 0
   %20 = load i32, ptr %13, align 4, !range !3169, !alias.scope !3171, !noalias !3170, !noundef !10
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %22 = zext nneg i32 %20 to i64
   %23 = add nsw i64 %22, -1
   %24 = select i1 %21, i64 0, i64 %23
@@ -12314,10 +12314,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 89:                                               ; preds = %26
   %90 = getelementptr inbounds i8, ptr %8, i64 -32
   %91 = load i8, ptr %90, align 4, !range !200, !alias.scope !3170, !noalias !3171, !noundef !10
-  %92 = icmp ult i8 %91, 3
+  %92 = icmp samesign ult i8 %91, 3
   %93 = getelementptr inbounds i8, ptr %.val, i64 16
   %94 = load i8, ptr %93, align 4, !range !200, !alias.scope !3171, !noalias !3170, !noundef !10
-  %95 = icmp ult i8 %94, 3
+  %95 = icmp samesign ult i8 %94, 3
   %96 = icmp eq i8 %91, %94
   %not..i.i.i = xor i1 %92, true
   %97 = and i1 %96, %not..i.i.i
@@ -13287,10 +13287,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %8, i64 -8
   %31 = load i8, ptr %30, align 4, !range !200, !alias.scope !3392, !noalias !3390, !noundef !10
-  %32 = icmp ult i8 %31, 3
+  %32 = icmp samesign ult i8 %31, 3
   %33 = getelementptr inbounds i8, ptr %.val, i64 8
   %34 = load i8, ptr %33, align 4, !range !200, !alias.scope !3390, !noalias !3392, !noundef !10
-  %35 = icmp ult i8 %34, 3
+  %35 = icmp samesign ult i8 %34, 3
   %36 = icmp eq i8 %31, %34
   %not..i.i = xor i1 %32, true
   %37 = and i1 %36, %not..i.i

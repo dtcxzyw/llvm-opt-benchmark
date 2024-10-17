@@ -149,7 +149,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %122 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %119, <8 x double> %73, <8 x double> %121)
   store <8 x double> %122, ptr %120, align 1, !tbaa !7
   %123 = add nuw nsw i64 %107, 8
-  %124 = icmp ult i64 %123, %75
+  %124 = icmp samesign ult i64 %123, %75
   br i1 %124, label %.preheader28, label %102, !llvm.loop !8
 
 .preheader26:                                     ; preds = %104, %.preheader26
@@ -309,7 +309,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %240 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %237, <8 x double> %63, <8 x double> %239)
   store <8 x double> %240, ptr %238, align 1, !tbaa !7
   %241 = add nuw nsw i64 %225, 8
-  %242 = icmp ult i64 %241, %65
+  %242 = icmp samesign ult i64 %241, %65
   br i1 %242, label %.preheader31, label %220, !llvm.loop !8
 
 .preheader29:                                     ; preds = %222, %.preheader29
@@ -485,7 +485,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %277
   %371 = getelementptr inbounds i8, ptr %321, i64 96
   %372 = getelementptr inbounds i8, ptr %322, i64 32
   %373 = add nuw nsw i64 %320, 4
-  %374 = icmp ult i64 %373, %301
+  %374 = icmp samesign ult i64 %373, %301
   br i1 %374, label %316, label %305, !llvm.loop !19
 
 .preheader:                                       ; preds = %308, %.preheader
@@ -621,7 +621,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %277
   %483 = getelementptr inbounds i8, ptr %447, i64 64
   %484 = getelementptr inbounds i8, ptr %448, i64 32
   %485 = add nuw nsw i64 %446, 4
-  %486 = icmp ult i64 %485, %429
+  %486 = icmp samesign ult i64 %485, %429
   br i1 %486, label %443, label %433, !llvm.loop !22
 
 .preheader18:                                     ; preds = %436, %.preheader18
@@ -729,7 +729,7 @@ default.unreachable93:                            ; preds = %294
   %565 = call double @llvm.fmuladd.f64(double %562, double %564, double %559)
   %566 = fadd double %541, %565
   %567 = add nuw nsw i64 %542, 4
-  %568 = icmp ult i64 %567, %529
+  %568 = icmp samesign ult i64 %567, %529
   br i1 %568, label %540, label %533, !llvm.loop !25
 
 .preheader22:                                     ; preds = %536, %.preheader22

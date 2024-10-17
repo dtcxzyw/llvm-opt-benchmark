@@ -3371,7 +3371,7 @@ define internal noundef i32 @_ZL18dl_iterate_phdr_cbP12dl_phdr_infomPv(ptr nocap
   %50 = phi i16 [ %.pre44, %.loopexit.loopexit ], [ %17, %21 ], [ %17, %16 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %51 = zext i16 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next42, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next42, %51
   br i1 %52, label %16, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
@@ -3461,7 +3461,7 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   %50 = sub nuw i64 %39, %47
   %51 = getelementptr inbounds i8, ptr %40, i64 %47
   %52 = icmp eq i32 %26, 3
-  %53 = icmp ugt i64 %..i.i, 2
+  %53 = icmp samesign ugt i64 %..i.i, 2
   %or.cond.i = and i1 %52, %53
   br i1 %or.cond.i, label %54, label %65
 
@@ -3643,7 +3643,7 @@ _ZN16DSOMarkupPrinter16modeStrFromFlagsEj.exit:   ; preds = %128, %130
   %139 = phi i16 [ %111, %110 ], [ %.pre, %_ZN16DSOMarkupPrinter16modeStrFromFlagsEj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next, %140
   br i1 %141, label %110, label %._crit_edge36, !llvm.loop !72
 
 ._crit_edge36:                                    ; preds = %138, %_ZN4llvm11raw_ostreamlsEPKc.exit

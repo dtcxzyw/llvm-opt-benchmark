@@ -175,7 +175,7 @@ _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS
   %54 = add nsw i32 %49, 1
   %55 = icmp sgt i32 %49, -1
   %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i = select i1 %55, i1 %57, i1 false
   %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %59 = sub nuw nsw i32 32, %58
@@ -2616,7 +2616,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %55 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %.01927.i
   store ptr %.126.i, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %.126.i, i64 %52
-  %57 = icmp ult i64 %.01927.i, 127
+  %57 = icmp samesign ult i64 %.01927.i, 127
   %58 = icmp ult ptr %56, %47
   %59 = select i1 %57, i1 %58, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2773,7 +2773,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %27 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %.01927
   store ptr %.126, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %.126, i64 %24
-  %29 = icmp ult i64 %.01927, 127
+  %29 = icmp samesign ult i64 %.01927, 127
   %30 = icmp ult ptr %28, %19
   %31 = select i1 %29, i1 %30, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

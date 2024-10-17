@@ -521,7 +521,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   %91 = sub i64 %.sroa.018.0.i, %90
   %92 = zext i16 %88 to i64
   %93 = and i64 %91, %92
-  %94 = icmp ult i64 %93, %.sroa.012.0.i.ph
+  %94 = icmp samesign ult i64 %93, %.sroa.012.0.i.ph
   br i1 %94, label %.noexc50.i, label %95
 
 95:                                               ; preds = %84
@@ -736,7 +736,7 @@ split.i:                                          ; preds = %111, %"_ZN71_$LT$ht
   unreachable
 
 .noexc50.i:                                       ; preds = %84
-  %187 = icmp ugt i64 %.sroa.012.0.i.ph, 511
+  %187 = icmp samesign ugt i64 %.sroa.012.0.i.ph, 511
   %188 = load i64, ptr %2, align 8, !range !200, !alias.scope !121, !noalias !128
   %189 = icmp ne i64 %188, 2
   %.sroa.010.0.i = select i1 %187, i1 %189, i1 false

@@ -172,7 +172,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
   %67 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !19
   %68 = icmp ult i64 %67, 6
   call void @llvm.assume(i1 %68)
-  %switch.i35 = icmp ult i64 %67, 4
+  %switch.i35 = icmp samesign ult i64 %67, 4
   br i1 %switch.i35, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %69
 
 69:                                               ; preds = %66
@@ -361,7 +361,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   %155 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !37
   %156 = icmp ult i64 %155, 6
   tail call void @llvm.assume(i1 %156)
-  %switch.i36 = icmp ult i64 %155, 4
+  %switch.i36 = icmp samesign ult i64 %155, 4
   br i1 %switch.i36, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit, label %157
 
 157:                                              ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit34

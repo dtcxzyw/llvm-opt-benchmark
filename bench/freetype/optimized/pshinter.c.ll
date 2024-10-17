@@ -131,7 +131,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %31, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next.i, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %56
   br i1 %57, label %34, label %._crit_edge154.loopexit.i, !llvm.loop !6
 
 ._crit_edge154.loopexit.i:                        ; preds = %53
@@ -194,7 +194,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %93 = call i64 @llvm.abs.i64(i64 %87, i1 true)
   %94 = call i64 @llvm.abs.i64(i64 %92, i1 true)
   %95 = mul nuw nsw i64 %94, 12
-  %96 = icmp ult i64 %95, %93
+  %96 = icmp samesign ult i64 %95, %93
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %66
@@ -204,7 +204,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 100:                                              ; preds = %66
   %101 = mul nuw nsw i64 %93, 12
-  %102 = icmp ult i64 %101, %94
+  %102 = icmp samesign ult i64 %101, %94
   br i1 %102, label %103, label %psh_compute_dir.exit.i
 
 103:                                              ; preds = %100
@@ -229,7 +229,7 @@ psh_compute_dir.exit.i:                           ; preds = %103, %100, %97
   %116 = call i64 @llvm.abs.i64(i64 %111, i1 true)
   %117 = call i64 @llvm.abs.i64(i64 %115, i1 true)
   %118 = mul nuw nsw i64 %117, 12
-  %119 = icmp ult i64 %118, %116
+  %119 = icmp samesign ult i64 %118, %116
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %psh_compute_dir.exit.i
@@ -239,7 +239,7 @@ psh_compute_dir.exit.i:                           ; preds = %103, %100, %97
 
 123:                                              ; preds = %psh_compute_dir.exit.i
   %124 = mul nuw nsw i64 %116, 12
-  %125 = icmp ult i64 %124, %117
+  %125 = icmp samesign ult i64 %124, %117
   br i1 %125, label %126, label %psh_compute_dir.exit128.i
 
 126:                                              ; preds = %123
@@ -286,7 +286,7 @@ psh_compute_dir.exit128.i:                        ; preds = %126, %123, %120
   %139 = getelementptr inbounds i8, ptr %.0115156.i, i64 72
   %140 = load i32, ptr %6, align 8
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %indvars.iv.next184.i, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next184.i, %141
   br i1 %142, label %66, label %._crit_edge159.i, !llvm.loop !7
 
 ._crit_edge159.i:                                 ; preds = %138
@@ -470,7 +470,7 @@ psh_glyph_load_points.exit.i:                     ; preds = %.lr.ph.split.us.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %235 = load i32, ptr %31, align 4
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %indvars.iv.next.i.i, %236
+  %237 = icmp samesign ult i64 %indvars.iv.next.i.i, %236
   br i1 %237, label %.lr.ph.i129.i, label %psh_glyph_compute_inflections.exit.i, !llvm.loop !15
 
 psh_glyph_compute_inflections.exit.i:             ; preds = %.loopexit.i.i, %psh_glyph_load_points.exit.i
@@ -1006,7 +1006,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %437
   store ptr %482, ptr %488, align 8
   store ptr %477, ptr %481, align 8
   %.046.i.i = add i32 %.0468.i.i, -1
-  %489 = icmp ult i32 %.046.i.i, %478
+  %489 = icmp samesign ult i32 %.046.i.i, %478
   br i1 %489, label %.lr.ph10.i.i, label %._crit_edge11.i.i, !llvm.loop !26
 
 ._crit_edge11.i.i:                                ; preds = %486, %.lr.ph10.i.i
@@ -1168,7 +1168,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   store ptr %543, ptr %549, align 8
   store ptr %538, ptr %542, align 8
   %.046.i109.i = add i32 %.0468.i107.i, -1
-  %550 = icmp ult i32 %.046.i109.i, %539
+  %550 = icmp samesign ult i32 %.046.i109.i, %539
   br i1 %550, label %.lr.ph10.i106.i, label %._crit_edge11.i110.i, !llvm.loop !26
 
 ._crit_edge11.i110.i:                             ; preds = %547, %.lr.ph10.i106.i
@@ -1268,7 +1268,7 @@ psh_glyph_find_strong_points.exit:                ; preds = %561, %426, %.thread
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %583 = load i32, ptr %6, align 8
   %584 = zext i32 %583 to i64
-  %585 = icmp ult i64 %indvars.iv.next24.i, %584
+  %585 = icmp samesign ult i64 %indvars.iv.next24.i, %584
   br i1 %585, label %.lr.ph.split.us.i104, label %psh_glyph_save_points.exit, !llvm.loop !30
 
 .split75:                                         ; preds = %psh_glyph_find_strong_points.exit
@@ -1469,7 +1469,7 @@ psh_glyph_find_blue_points.exit:                  ; preds = %.loopexit.i107, %.s
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i115, 1
   %685 = load i32, ptr %6, align 8
   %686 = zext i32 %685 to i64
-  %687 = icmp ult i64 %indvars.iv.next.i117, %686
+  %687 = icmp samesign ult i64 %indvars.iv.next.i117, %686
   br i1 %687, label %.lr.ph.split.i114, label %psh_glyph_save_points.exit, !llvm.loop !30
 
 psh_glyph_save_points.exit:                       ; preds = %581, %683, %psh_glyph_find_blue_points.exit, %.split
@@ -1597,7 +1597,7 @@ define internal void @psh_globals_set_scale(ptr noundef %0, i64 noundef %1, i64 
   %39 = load i64, ptr %26, align 8
   %40 = sub nsw i64 %38, %39
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %40, i1 true)
-  %41 = icmp ult i64 %spec.select.i, 128
+  %41 = icmp samesign ult i64 %spec.select.i, 128
   %spec.select35.i = select i1 %41, i64 %39, i64 %38
   %42 = getelementptr inbounds i8, ptr %.03140.i, i64 8
   store i64 %spec.select35.i, ptr %42, align 8
@@ -1671,7 +1671,7 @@ psh_globals_scale_widths.exit:                    ; preds = %.lr.ph.i, %15, %11,
   %80 = load i64, ptr %67, align 8
   %81 = sub nsw i64 %79, %80
   %spec.select.i33 = tail call i64 @llvm.abs.i64(i64 %81, i1 true)
-  %82 = icmp ult i64 %spec.select.i33, 128
+  %82 = icmp samesign ult i64 %spec.select.i33, 128
   %spec.select35.i34 = select i1 %82, i64 %80, i64 %79
   %83 = getelementptr inbounds i8, ptr %.03140.i32, i64 8
   store i64 %spec.select35.i34, ptr %83, align 8
@@ -2822,7 +2822,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef nonnull %0
   %59 = getelementptr inbounds %struct.PSH_HintRec_, ptr %58, i64 %indvars.iv.i
   %60 = load i32, ptr %0, align 8
   %61 = zext i32 %60 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv.i, %61
+  %.not.i.i = icmp samesign ult i64 %indvars.iv.i, %61
   br i1 %.not.i.i, label %62, label %psh_hint_table_record.exit.i
 
 62:                                               ; preds = %57
@@ -2919,7 +2919,7 @@ psh_hint_table_record_mask.exit:                  ; preds = %psh_hint_table_reco
   %97 = getelementptr inbounds %struct.PSH_HintRec_, ptr %96, i64 %indvars.iv
   %98 = load i32, ptr %0, align 8
   %99 = zext i32 %98 to i64
-  %.not.i64 = icmp ult i64 %indvars.iv, %99
+  %.not.i64 = icmp samesign ult i64 %indvars.iv, %99
   br i1 %.not.i64, label %100, label %psh_hint_table_record.exit
 
 100:                                              ; preds = %.lr.ph15
@@ -3303,7 +3303,7 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %183 = sub nsw i64 %181, %179
   %spec.select = tail call i64 @llvm.abs.i64(i64 %182, i1 true)
   %.0 = tail call i64 @llvm.abs.i64(i64 %183, i1 true)
-  %.not130 = icmp ugt i64 %spec.select, %.0
+  %.not130 = icmp samesign ugt i64 %spec.select, %.0
   %spec.select132 = select i1 %.not130, i64 %181, i64 %177
   br label %psh_dimension_quantize_len.exit
 
@@ -3312,20 +3312,20 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   %.val = load i64, ptr %185, align 8
   %186 = sub nsw i64 %35, %.val
   %.0.i = tail call i64 @llvm.abs.i64(i64 %186, i1 true)
-  %187 = icmp ult i64 %.0.i, 40
+  %187 = icmp samesign ult i64 %.0.i, 40
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.val, i64 48)
   %.1.i = select i1 %187, i64 %spec.store.select.i, i64 %35
-  %188 = icmp ult i64 %.1.i, 192
+  %188 = icmp samesign ult i64 %.1.i, 192
   br i1 %188, label %189, label %200
 
 189:                                              ; preds = %184
   %190 = and i64 %.1.i, 63
   %191 = and i64 %.1.i, 192
-  %192 = icmp ult i64 %190, 10
+  %192 = icmp samesign ult i64 %190, 10
   br i1 %192, label %psh_dimension_quantize_len.exit, label %193
 
 193:                                              ; preds = %189
-  %194 = icmp ult i64 %190, 32
+  %194 = icmp samesign ult i64 %190, 32
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %193
@@ -3333,7 +3333,7 @@ psh_blues_snap_stem.exit:                         ; preds = %98, %96, %114, %109
   br label %psh_dimension_quantize_len.exit
 
 197:                                              ; preds = %193
-  %198 = icmp ult i64 %190, 54
+  %198 = icmp samesign ult i64 %190, 54
   %199 = or disjoint i64 %191, 54
   %spec.select.i = select i1 %198, i64 %199, i64 %.1.i
   br label %psh_dimension_quantize_len.exit
@@ -3355,7 +3355,7 @@ psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %1
   %210 = sub i64 %209, %207
   %211 = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
   %212 = tail call i64 @llvm.abs.i64(i64 %210, i1 true)
-  %.not.i133 = icmp ugt i64 %211, %212
+  %.not.i133 = icmp samesign ugt i64 %211, %212
   %..i = select i1 %.not.i133, i64 %210, i64 %206
   %213 = add nsw i64 %..i, %.1
   store i64 %213, ptr %163, align 8
@@ -3785,7 +3785,7 @@ define internal i32 @psh_globals_new(ptr noundef %0, ptr nocapture noundef reado
   %71 = sub i16 %68, %70
   %spec.select.i = call i16 @llvm.smax.i16(i16 %71, i16 %.012.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %72 = icmp ult i64 %indvars.iv.next.i, %65
+  %72 = icmp samesign ult i64 %indvars.iv.next.i, %65
   br i1 %72, label %.lr.ph.i, label %psh_calc_max_height.exit, !llvm.loop !70
 
 psh_calc_max_height.exit:                         ; preds = %.lr.ph.i, %._crit_edge117
@@ -3809,7 +3809,7 @@ psh_calc_max_height.exit:                         ; preds = %.lr.ph.i, %._crit_e
   %80 = sub i16 %77, %79
   %spec.select.i85 = call i16 @llvm.smax.i16(i16 %80, i16 %.012.i84)
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i83, 2
-  %81 = icmp ult i64 %indvars.iv.next.i86, %74
+  %81 = icmp samesign ult i64 %indvars.iv.next.i86, %74
   br i1 %81, label %.lr.ph.i82, label %psh_calc_max_height.exit88, !llvm.loop !70
 
 psh_calc_max_height.exit88:                       ; preds = %.lr.ph.i82, %psh_calc_max_height.exit
@@ -3833,7 +3833,7 @@ psh_calc_max_height.exit88:                       ; preds = %.lr.ph.i82, %psh_ca
   %89 = sub i16 %86, %88
   %spec.select.i94 = call i16 @llvm.smax.i16(i16 %89, i16 %.012.i93)
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i92, 2
-  %90 = icmp ult i64 %indvars.iv.next.i95, %83
+  %90 = icmp samesign ult i64 %indvars.iv.next.i95, %83
   br i1 %90, label %.lr.ph.i91, label %psh_calc_max_height.exit97, !llvm.loop !70
 
 psh_calc_max_height.exit97:                       ; preds = %.lr.ph.i91, %psh_calc_max_height.exit88
@@ -3857,7 +3857,7 @@ psh_calc_max_height.exit97:                       ; preds = %.lr.ph.i91, %psh_ca
   %98 = sub i16 %95, %97
   %spec.select.i103 = call i16 @llvm.smax.i16(i16 %98, i16 %.012.i102)
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i101, 2
-  %99 = icmp ult i64 %indvars.iv.next.i104, %92
+  %99 = icmp samesign ult i64 %indvars.iv.next.i104, %92
   br i1 %99, label %.lr.ph.i100, label %psh_calc_max_height.exit106, !llvm.loop !70
 
 psh_calc_max_height.exit106:                      ; preds = %.lr.ph.i100, %psh_calc_max_height.exit97
@@ -3926,7 +3926,7 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
   %.089 = getelementptr inbounds i8, ptr %0, i64 %.089.idx
   store i32 0, ptr %.089, align 8
   store i32 0, ptr %.092, align 8
-  %8 = icmp ugt i32 %1, 1
+  %8 = icmp samesign ugt i32 %1, 1
   br i1 %8, label %.lr.ph21.i.preheader, label %psh_blues_set_zones_0.exit
 
 .lr.ph21.i.preheader:                             ; preds = %7
@@ -4033,7 +4033,7 @@ psh_blues_set_zones_0.exit:                       ; preds = %38, %7
   %.062.lcssa.i = phi i32 [ 0, %7 ], [ %.163.i, %38 ]
   store i32 %.064.lcssa.i, ptr %.089, align 8
   store i32 %.062.lcssa.i, ptr %.092, align 8
-  %42 = icmp ugt i32 %3, 1
+  %42 = icmp samesign ugt i32 %3, 1
   br i1 %42, label %.lr.ph21.i111.preheader, label %psh_blues_set_zones_0.exit140
 
 .lr.ph21.i111.preheader:                          ; preds = %psh_blues_set_zones_0.exit
@@ -4566,7 +4566,7 @@ ps_mask_table_alloc.exit.i:                       ; preds = %81
   %109 = add i32 %34, 8
   %110 = lshr i32 %109, 3
   store i32 0, ptr %6, align 4
-  %111 = icmp ugt i32 %110, %108
+  %111 = icmp samesign ugt i32 %110, %108
   br i1 %111, label %112, label %123
 
 112:                                              ; preds = %104
@@ -4621,7 +4621,7 @@ ps_mask_set_bit.exit.i:                           ; preds = %112
   %141 = add i32 %36, 8
   %142 = lshr i32 %141, 3
   store i32 0, ptr %5, align 4
-  %143 = icmp ugt i32 %142, %140
+  %143 = icmp samesign ugt i32 %142, %140
   br i1 %143, label %144, label %154
 
 144:                                              ; preds = %136
@@ -4674,7 +4674,7 @@ ps_mask_set_bit.exit43.i:                         ; preds = %144
   %171 = add i32 %38, 8
   %172 = lshr i32 %171, 3
   store i32 0, ptr %4, align 4
-  %173 = icmp ugt i32 %172, %170
+  %173 = icmp samesign ugt i32 %172, %170
   br i1 %173, label %174, label %184
 
 174:                                              ; preds = %166
@@ -5005,7 +5005,7 @@ ps_mask_table_test_intersect.exit.i:              ; preds = %._crit_edge.i.i
   %48 = and i8 %47, %46
   %49 = zext i8 %48 to i32
   %50 = lshr i32 255, %.0.lcssa.i.i
-  %.not.not.i = icmp ult i32 %50, %49
+  %.not.not.i = icmp samesign ult i32 %50, %49
   br i1 %.not.not.i, label %ps_mask_table_test_intersect.exit.thread27.i, label %ps_mask_table_test_intersect.exit.thread.i
 
 ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_intersect.exit.i, %.lr.ph.i.i
@@ -5044,7 +5044,7 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
   %66 = add i32 %58, 7
   %67 = lshr i32 %66, 3
   store i32 0, ptr %4, align 4
-  %68 = icmp ugt i32 %67, %65
+  %68 = icmp samesign ugt i32 %67, %65
   br i1 %68, label %69, label %80
 
 69:                                               ; preds = %62
@@ -5318,7 +5318,7 @@ ps_mask_table_last.exit:                          ; preds = %49
   %78 = add i32 %.03164, 8
   %79 = lshr i32 %78, 3
   store i32 0, ptr %6, align 4
-  %80 = icmp ugt i32 %79, %77
+  %80 = icmp samesign ugt i32 %79, %77
   br i1 %80, label %81, label %92
 
 81:                                               ; preds = %73
@@ -5467,7 +5467,7 @@ define internal void @t2_hints_stems(ptr nocapture noundef %0, i32 noundef %1, i
   %29 = sub nsw i64 %26, %28
   store i64 %29, ptr %25, align 8
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 2
-  %30 = icmp ult i64 %indvars.iv.next38, %15
+  %30 = icmp samesign ult i64 %indvars.iv.next38, %15
   br i1 %30, label %23, label %31, !llvm.loop !86
 
 31:                                               ; preds = %23
@@ -5736,7 +5736,7 @@ ps_mask_table_last.exit.i:                        ; preds = %50
   %75 = add i32 %3, 7
   %76 = lshr i32 %75, 3
   store i32 0, ptr %7, align 4
-  %77 = icmp ugt i32 %76, %74
+  %77 = icmp samesign ugt i32 %76, %74
   br i1 %77, label %78, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %71

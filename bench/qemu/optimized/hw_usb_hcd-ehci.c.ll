@@ -604,7 +604,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i16, ptr %portnr, align 4
   %11 = zext i16 %10 to i64
-  %cmp21 = icmp ult i64 %indvars.iv.next, %11
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.end9
@@ -679,7 +679,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   %6 = load i32, ptr %maxframes, align 16
   %mul = shl i32 %6, 3
   %conv = zext i32 %mul to i64
-  %cmp4 = icmp ugt i64 %div, %conv
+  %cmp4 = icmp samesign ugt i64 %div, %conv
   br i1 %cmp4, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %if.then3
@@ -3150,7 +3150,7 @@ trace_usb_ehci_usbsts.exit138:                    ; preds = %if.then31, %land.lh
   br label %if.end32
 
 if.end32:                                         ; preds = %trace_usb_ehci_usbsts.exit138, %if.end28
-  %tobool34.not = icmp ult i32 %mask, 32768
+  %tobool34.not = icmp samesign ult i32 %mask, 32768
   br i1 %tobool34.not, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
@@ -4744,7 +4744,7 @@ if.end38.i.i:                                     ; preds = %if.then.i.i79
   %87 = load ptr, ptr %as.i.i, align 16
   call void @qemu_sglist_init(ptr noundef nonnull %isgl.i.i, ptr noundef %86, i32 noundef 2, ptr noundef %87) #17
   %add.i.i80 = add nuw nsw i32 %spec.select.i.i, %and26.i.i
-  %cmp43.i.i = icmp ugt i32 %add.i.i80, 4096
+  %cmp43.i.i = icmp samesign ugt i32 %add.i.i80, 4096
   br i1 %cmp43.i.i, label %if.then44.i.i, label %if.else.i.i81
 
 if.then44.i.i:                                    ; preds = %if.end38.i.i
@@ -6086,7 +6086,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %4 = and i32 %1, 2147418112
-  %cmp8 = icmp ugt i32 %4, 1342177280
+  %cmp8 = icmp samesign ugt i32 %4, 1342177280
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end4
@@ -6256,7 +6256,7 @@ while.body.i:                                     ; preds = %if.end.i39, %while.
   %bytes.023.i = phi i32 [ %sub23.i, %if.end.i39 ], [ %shr4.i, %while.body.preheader.i ]
   %offset.022.i = phi i32 [ %offset.1.i, %if.end.i39 ], [ %and6.i, %while.body.preheader.i ]
   %cpage.021.i = phi i32 [ %cpage.1.i, %if.end.i39 ], [ %shr.i38, %while.body.preheader.i ]
-  %cmp9.i = icmp ugt i32 %cpage.021.i, 4
+  %cmp9.i = icmp samesign ugt i32 %cpage.021.i, 4
   br i1 %cmp9.i, label %ehci_init_transfer.exit, label %if.end.i39
 
 if.end.i39:                                       ; preds = %while.body.i
@@ -6421,7 +6421,7 @@ sw.default.split:                                 ; preds = %entry
   %add14 = add i64 %addr, %conv13
   %conv115 = trunc i64 %add14 to i32
   %conv.i.i = and i64 %addr, 4294967295
-  %cmp.i.i = icmp ult i64 %conv.i.i, 65
+  %cmp.i.i = icmp samesign ult i64 %conv.i.i, 65
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i17
 
 land.lhs.true.i.i:                                ; preds = %sw.default.split
@@ -6491,7 +6491,7 @@ entry:
   %add = add i64 %addr, %conv
   %conv1 = trunc i64 %add to i32
   %conv.i.i = and i64 %addr, 4294967295
-  %cmp.i.i = icmp ult i64 %conv.i.i, 65
+  %cmp.i.i = icmp samesign ult i64 %conv.i.i, 65
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry

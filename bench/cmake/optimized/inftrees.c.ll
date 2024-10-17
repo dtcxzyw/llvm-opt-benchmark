@@ -224,11 +224,11 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %81, 1
-  %83 = icmp ult i32 %82, %.0233306
+  %83 = icmp samesign ult i32 %82, %.0233306
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %75
-  %.not215 = icmp ugt i32 %.0233306, %81
+  %.not215 = icmp samesign ugt i32 %.0233306, %81
   br i1 %.not215, label %93, label %85
 
 85:                                               ; preds = %84

@@ -16342,7 +16342,7 @@ _ZL22register_section_sizes14AbstractRegSetI8RegisterES_I11XMMRegisterEbRiS4_S4_
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %45 = icmp eq i64 %17, 0
   %46 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 true)
-  %or.cond.i.i.i21.i = icmp ugt i64 %46, 31
+  %or.cond.i.i.i21.i = icmp samesign ugt i64 %46, 31
   %.not2022.i = select i1 %45, i1 true, i1 %or.cond.i.i.i21.i
   br i1 %.not2022.i, label %_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi.exit, label %_ZN14RegSetIteratorI8RegisterEppEv.exit.lr.ph.i
 
@@ -16391,7 +16391,7 @@ _ZN14RegSetIteratorI8RegisterEppEv.exit.i:        ; preds = %_ZN14RegSetIterator
   %.sroa.014.1.i = and i64 %68, %.sroa.014.023.i
   %69 = icmp eq i64 %.sroa.014.1.i, 0
   %70 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.014.1.i, i1 true)
-  %or.cond.i.i.i.i = icmp ugt i64 %70, 31
+  %or.cond.i.i.i.i = icmp samesign ugt i64 %70, 31
   %.not20.i = select i1 %69, i1 true, i1 %or.cond.i.i.i.i
   br i1 %.not20.i, label %_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi.exit, label %_ZN14RegSetIteratorI8RegisterEppEv.exit.i, !llvm.loop !352
 
@@ -16445,7 +16445,7 @@ define hidden void @_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi(pt
   %.0 = phi i32 [ 0, %7 ], [ %2, %3 ]
   %16 = icmp eq i64 %1, 0
   %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %or.cond.i.i.i21 = icmp ugt i64 %17, 31
+  %or.cond.i.i.i21 = icmp samesign ugt i64 %17, 31
   %.not2022 = select i1 %16, i1 true, i1 %or.cond.i.i.i21
   br i1 %.not2022, label %._crit_edge, label %_ZN14RegSetIteratorI8RegisterEppEv.exit.lr.ph
 
@@ -16496,7 +16496,7 @@ _ZN14RegSetIteratorI8RegisterEppEv.exit:          ; preds = %_ZN14RegSetIterator
   %.sroa.014.1 = and i64 %41, %.sroa.014.023
   %42 = icmp eq i64 %.sroa.014.1, 0
   %43 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.014.1, i1 true)
-  %or.cond.i.i.i = icmp ugt i64 %43, 31
+  %or.cond.i.i.i = icmp samesign ugt i64 %43, 31
   %.not20 = select i1 %42, i1 true, i1 %or.cond.i.i.i
   br i1 %.not20, label %._crit_edge, label %_ZN14RegSetIteratorI8RegisterEppEv.exit, !llvm.loop !352
 
@@ -16514,7 +16514,7 @@ define hidden void @_ZN14MacroAssembler8push_setE14AbstractRegSetI11XMMRegisterE
   %9 = alloca %class.Address, align 8
   %10 = icmp eq i64 %1, 0
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %or.cond.i.i.i14 = icmp ugt i64 %11, 31
+  %or.cond.i.i.i14 = icmp samesign ugt i64 %11, 31
   %.not1316 = select i1 %10, i1 true, i1 %or.cond.i.i.i14
   br i1 %.not1316, label %._crit_edge, label %.lr.ph
 
@@ -16621,7 +16621,7 @@ _ZL17save_xmm_registerP14MacroAssembleri11XMMRegister.exit: ; preds = %37, %41
   %.sroa.08.1 = and i64 %57, %.sroa.08.017
   %58 = icmp eq i64 %.sroa.08.1, 0
   %59 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.08.1, i1 true)
-  %or.cond.i.i.i = icmp ugt i64 %59, 31
+  %or.cond.i.i.i = icmp samesign ugt i64 %59, 31
   %60 = select i1 %58, i1 true, i1 %or.cond.i.i.i
   br i1 %60, label %._crit_edge, label %33, !llvm.loop !353
 
@@ -16706,13 +16706,13 @@ _ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit.i: ; preds = %_ZN14AbstractRegSet
   %56 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.024.031.i, i1 true)
   %57 = trunc nuw nsw i64 %56 to i32
   %58 = xor i32 %57, 32
-  %or.cond.i.i.i.i = icmp ugt i32 %58, 31
+  %or.cond.i.i.i.i = icmp samesign ugt i32 %58, 31
   br i1 %or.cond.i.i.i.i, label %_ZN14MacroAssembler7pop_setE14AbstractRegSetI8RegisterEi.exit, label %_ZN14AbstractRegSetI8RegisterE4lastEv.exit.i.i
 
 _ZN14AbstractRegSetI8RegisterE4lastEv.exit.i.i:   ; preds = %_ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit.i
   %.1.i = sub nsw i32 %.pn.pn32.i, %31
   %59 = xor i32 %57, 63
-  %or.cond.i.i.i17.i = icmp ult i32 %59, 32
+  %or.cond.i.i.i17.i = icmp samesign ult i32 %59, 32
   %spec.select.i.i.i18.i = select i1 %or.cond.i.i.i17.i, i32 %59, i32 -1
   store i32 4, ptr %5, align 8
   store i32 -1, ptr %46, align 4
@@ -16805,12 +16805,12 @@ _ZN21ReverseRegSetIteratorI11XMMRegisterEdeEv.exit: ; preds = %_ZN21ReverseRegSe
   %45 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.012.020, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = xor i32 %46, 32
-  %or.cond.i.i.i = icmp ugt i32 %47, 31
+  %or.cond.i.i.i = icmp samesign ugt i32 %47, 31
   br i1 %or.cond.i.i.i, label %_ZN21ReverseRegSetIteratorI11XMMRegisterEdeEv.exit.thread, label %_ZN21ReverseRegSetIteratorI11XMMRegisterEdeEv.exit8
 
 _ZN21ReverseRegSetIteratorI11XMMRegisterEdeEv.exit8: ; preds = %_ZN21ReverseRegSetIteratorI11XMMRegisterEdeEv.exit
   %48 = xor i32 %46, 63
-  %or.cond.i.i.i5 = icmp ult i32 %48, 32
+  %or.cond.i.i.i5 = icmp samesign ult i32 %48, 32
   %spec.select.i.i.i6 = select i1 %or.cond.i.i.i5, i32 %48, i32 -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
@@ -16949,13 +16949,13 @@ _ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit:   ; preds = %_ZN21ReverseRegSetI
   %26 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.024.031, i1 true)
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = xor i32 %27, 32
-  %or.cond.i.i.i = icmp ugt i32 %28, 31
+  %or.cond.i.i.i = icmp samesign ugt i32 %28, 31
   br i1 %or.cond.i.i.i, label %_ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit.thread, label %_ZN14AbstractRegSetI8RegisterE4lastEv.exit.i
 
 _ZN14AbstractRegSetI8RegisterE4lastEv.exit.i:     ; preds = %_ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit
   %.1 = sub nsw i32 %.pn.pn32, %7
   %29 = xor i32 %27, 63
-  %or.cond.i.i.i17 = icmp ult i32 %29, 32
+  %or.cond.i.i.i17 = icmp samesign ult i32 %29, 32
   %spec.select.i.i.i18 = select i1 %or.cond.i.i.i17, i32 %29, i32 -1
   store i32 4, ptr %5, align 8
   store i32 -1, ptr %16, align 4
@@ -22608,7 +22608,7 @@ _ZN14MacroAssembler5alignEj.exit:                 ; preds = %132, %156
   store i32 0, ptr %165, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %26, i32 %4) #18
   %167 = add nuw nsw i32 %.0262291, 4
-  %168 = icmp ult i32 %.0262291, 28
+  %168 = icmp samesign ult i32 %.0262291, 28
   br i1 %168, label %166, label %169, !llvm.loop !402
 
 169:                                              ; preds = %166

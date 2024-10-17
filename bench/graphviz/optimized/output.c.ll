@@ -1406,7 +1406,7 @@ setYInvert.exit:                                  ; preds = %3, %12
   %98 = getelementptr inbounds i8, ptr %97, i64 234
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next, %100
   br i1 %101, label %.lr.ph, label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %.lr.ph, %80

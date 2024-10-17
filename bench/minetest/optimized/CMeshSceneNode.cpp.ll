@@ -1062,7 +1062,7 @@ if.end43:                                         ; preds = %if.then37, %cond.en
   %24 = load ptr, ptr %vtable14, align 8
   %call16 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #19
   %25 = zext i32 %call16 to i64
-  %cmp17 = icmp ult i64 %indvars.iv.next, %25
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp17, label %for.body, label %for.cond.cleanup, !llvm.loop !93
 
 if.then48:                                        ; preds = %for.cond.cleanup

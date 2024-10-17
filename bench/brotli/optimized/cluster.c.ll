@@ -61,7 +61,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
   %conv4.i = uitofp nneg i64 %add.i to double
-  %cmp.i91 = icmp ult i64 %add.i, 256
+  %cmp.i91 = icmp samesign ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
 if.then.i95:                                      ; preds = %FastLog2.exit105
@@ -304,7 +304,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
   %conv4.i.i = uitofp nneg i64 %add.i.i to double
-  %cmp.i91.i = icmp ult i64 %add.i.i, 256
+  %cmp.i91.i = icmp samesign ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
 if.then.i95.i:                                    ; preds = %FastLog2.exit105.i
@@ -666,7 +666,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
   %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
-  %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
+  %cmp.i91.i123 = icmp samesign ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
 if.then.i95.i192:                                 ; preds = %FastLog2.exit105.i119
@@ -1367,7 +1367,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
   %conv4.i = uitofp nneg i64 %add.i to double
-  %cmp.i91 = icmp ult i64 %add.i, 256
+  %cmp.i91 = icmp samesign ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
 if.then.i95:                                      ; preds = %FastLog2.exit105
@@ -1607,7 +1607,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
   %conv4.i.i = uitofp nneg i64 %add.i.i to double
-  %cmp.i91.i = icmp ult i64 %add.i.i, 256
+  %cmp.i91.i = icmp samesign ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
 if.then.i95.i:                                    ; preds = %FastLog2.exit105.i
@@ -1969,7 +1969,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
   %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
-  %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
+  %cmp.i91.i123 = icmp samesign ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
 if.then.i95.i192:                                 ; preds = %FastLog2.exit105.i119
@@ -2663,7 +2663,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
   %conv4.i = uitofp nneg i64 %add.i to double
-  %cmp.i91 = icmp ult i64 %add.i, 256
+  %cmp.i91 = icmp samesign ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
 if.then.i95:                                      ; preds = %FastLog2.exit105
@@ -2903,7 +2903,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
   %conv4.i.i = uitofp nneg i64 %add.i.i to double
-  %cmp.i91.i = icmp ult i64 %add.i.i, 256
+  %cmp.i91.i = icmp samesign ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
 if.then.i95.i:                                    ; preds = %FastLog2.exit105.i
@@ -3265,7 +3265,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
   %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
-  %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
+  %cmp.i91.i123 = icmp samesign ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
 if.then.i95.i192:                                 ; preds = %FastLog2.exit105.i119

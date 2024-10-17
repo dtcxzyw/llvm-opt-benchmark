@@ -792,7 +792,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
   %24 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %23, i64 0, i64 %19
   %25 = getelementptr inbounds i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4, !range !139, !noalias !140, !noundef !5
-  %.not.i.i = icmp ult i32 %26, 2
+  %.not.i.i = icmp samesign ult i32 %26, 2
   %27 = zext nneg i32 %26 to i64
   %28 = add nsw i64 %27, -1
   %29 = select i1 %.not.i.i, i64 0, i64 %28
@@ -821,7 +821,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %.pre-phi12.i = phi i64 [ %28, %21 ], [ %.pre11.i, %32 ]
   %.pre-phi.i = phi i64 [ %27, %21 ], [ %.pre10.i, %32 ]
   %34 = phi i32 [ %26, %21 ], [ %.pre.i, %32 ]
-  %.not.i5.i = icmp ugt i32 %34, 1
+  %.not.i5.i = icmp samesign ugt i32 %34, 1
   %35 = add nsw i64 %.pre-phi.i, -3
   %switch1.i.i = icmp ult i64 %35, -2
   %switch.not.i.i = select i1 %.not.i5.i, i1 %switch1.i.i, i1 false
@@ -841,7 +841,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   unreachable
 
 _ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
-  %.not.i7.i = icmp ult i32 %34, 2
+  %.not.i7.i = icmp samesign ult i32 %34, 2
   %40 = select i1 %.not.i7.i, i64 0, i64 %.pre-phi12.i
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -871,7 +871,7 @@ define void @_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf67
   %13 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %12, i64 0, i64 %8
   %14 = getelementptr inbounds i8, ptr %13, i64 36
   %15 = load i32, ptr %14, align 4, !range !139, !noundef !5
-  %.not.i = icmp ult i32 %15, 2
+  %.not.i = icmp samesign ult i32 %15, 2
   %16 = zext nneg i32 %15 to i64
   %17 = add nsw i64 %16, -1
   %18 = select i1 %.not.i, i64 0, i64 %17
@@ -900,14 +900,14 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %.pre-phi12 = phi i64 [ %17, %10 ], [ %.pre11, %21 ]
   %.pre-phi = phi i64 [ %16, %10 ], [ %.pre10, %21 ]
   %23 = phi i32 [ %15, %10 ], [ %.pre, %21 ]
-  %.not.i5 = icmp ugt i32 %23, 1
+  %.not.i5 = icmp samesign ugt i32 %23, 1
   %24 = add nsw i64 %.pre-phi, -3
   %switch1.i = icmp ult i64 %24, -2
   %switch.not.i = select i1 %.not.i5, i1 %switch1.i, i1 false
   %.0.in.idx = select i1 %switch.not.i, i64 0, i64 8
   %.0.in = getelementptr inbounds i8, ptr %13, i64 %.0.in.idx
   %.0 = load i64, ptr %.0.in, align 8, !noundef !5
-  %.not.i7 = icmp ult i32 %23, 2
+  %.not.i7 = icmp samesign ult i32 %23, 2
   %25 = select i1 %.not.i7, i64 0, i64 %.pre-phi12
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 0, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8

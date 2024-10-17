@@ -1277,7 +1277,7 @@ define internal i32 @dissect_cipmotion(ptr noundef %0, ptr noundef %1, ptr nound
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #4
   %38 = load i32, ptr @hf_cip_class1_seqnum, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #4
-  %40 = icmp ugt i32 %.084, 2
+  %40 = icmp samesign ugt i32 %.084, 2
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %33

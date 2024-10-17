@@ -799,7 +799,7 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i.i35: ; pre
 
 67:                                               ; preds = %63
   %68 = and i64 %65, 9223372032559808512
-  %69 = icmp ult i64 %68, 30064771072
+  %69 = icmp samesign ult i64 %68, 30064771072
   br i1 %69, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %67, %63, %51, %51
@@ -9278,7 +9278,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CaptureFinder5VisitEPKN5clang4St
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 16515072
-  %switch.i = icmp ult i32 %9, 8650752
+  %switch.i = icmp samesign ult i32 %9, 8650752
   br i1 %switch.i, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113CaptureFinderEvJEE5VisitEPKNS_4StmtE.exit, label %11
 
 10:                                               ; preds = %2

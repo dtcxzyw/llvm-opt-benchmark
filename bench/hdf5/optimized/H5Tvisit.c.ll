@@ -71,7 +71,7 @@ switch.edge:
   %24 = getelementptr inbounds i8, ptr %23, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %22

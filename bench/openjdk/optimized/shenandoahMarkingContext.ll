@@ -254,7 +254,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %42, %1

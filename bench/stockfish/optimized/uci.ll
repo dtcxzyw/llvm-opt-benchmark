@@ -1245,7 +1245,7 @@ define dso_local void @_ZN9Stockfish3UCI4loopEv(ptr noundef nonnull align 8 dere
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 64) ]
   store ptr %19, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
-  %20 = icmp ult i64 %.06.i.i.i.i.idx, 32
+  %20 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
   br i1 %20, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
@@ -2120,7 +2120,7 @@ define dso_local void @_ZN9Stockfish3UCI8positionERNS_8PositionERNSt7__cxx1119ba
   call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 64) ]
   store ptr %38, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
-  %39 = icmp ult i64 %.06.i.i.i.i.idx, 32
+  %39 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
   br i1 %39, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
@@ -2516,7 +2516,7 @@ define dso_local void @_ZN9Stockfish3UCI10trace_evalERNS_8PositionE(ptr noundef 
   call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 64) ]
   store ptr %11, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
-  %12 = icmp ult i64 %.06.i.i.i.i.idx, 32
+  %12 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
   br i1 %12, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
@@ -2726,7 +2726,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish5perftERKNSt7__cxx1112basic_str
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 64) ]
   store ptr %6, ptr %.06.i.i.i.i.ptr, align 8
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 8
-  %7 = icmp ult i64 %.06.i.i.i.i.idx, 32
+  %7 = icmp samesign ult i64 %.06.i.i.i.i.idx, 32
   br i1 %7, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
@@ -2749,7 +2749,7 @@ _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.l
   %16 = load ptr, ptr %.06.i.i.i.i.i.ptr, align 8
   call void @_ZdlPvSt11align_val_t(ptr noundef %16, i64 noundef 64) #24
   %.06.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.idx, 8
-  %17 = icmp ult i64 %.06.i.i.i.i.i.idx, 32
+  %17 = icmp samesign ult i64 %.06.i.i.i.i.i.idx, 32
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit, !llvm.loop !15
 
 _ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2802,7 +2802,7 @@ define dso_local void @_ZN9Stockfish3UCI5valueB5cxx11Ei(ptr dead_on_unwind noali
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #21
   %4 = call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %5 = icmp ult i32 %4, 31507
+  %5 = icmp samesign ult i32 %4, 31507
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
@@ -2814,7 +2814,7 @@ define dso_local void @_ZN9Stockfish3UCI5valueB5cxx11Ei(ptr dead_on_unwind noali
   br label %27
 
 12:                                               ; preds = %2
-  %13 = icmp ult i32 %4, 31754
+  %13 = icmp samesign ult i32 %4, 31754
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = icmp sgt i32 %1, 0
   br i1 %13, label %16, label %22
@@ -2916,7 +2916,7 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   br i1 %brmerge, label %29, label %23
 
 23:                                               ; preds = %16
-  %24 = icmp ugt i16 %19, %18
+  %24 = icmp samesign ugt i16 %19, %18
   %25 = select i1 %24, i32 6, i32 2
   %26 = and i16 %17, 56
   %27 = zext nneg i16 %26 to i32

@@ -405,7 +405,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %size1 = getelementptr inbounds i8, ptr %call.i, i64 152
   store i64 %cond, ptr %size1, align 8
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %cond)
-  %tobool4.not = icmp ult i64 %3, 2
+  %tobool4.not = icmp samesign ult i64 %3, 2
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end

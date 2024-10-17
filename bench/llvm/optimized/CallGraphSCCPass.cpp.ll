@@ -1008,7 +1008,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   %31 = and i64 %30, 4294967295
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %24, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit

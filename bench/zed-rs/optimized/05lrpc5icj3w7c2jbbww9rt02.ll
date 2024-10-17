@@ -5894,7 +5894,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0fe8781783e77a98E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd0c875821e97fe44E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0fe8781783e77a98E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -6091,7 +6091,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd081351cae75d43aE.exit48"
 
 76:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd081351cae75d43aE.exit"
-  %77 = icmp ult i64 %9, 29
+  %77 = icmp samesign ult i64 %9, 29
   br i1 %77, label %.lr.ph.i51, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %87, %76

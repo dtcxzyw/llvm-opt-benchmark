@@ -835,12 +835,12 @@ PaPulseAudio_UnLock.exit93:                       ; preds = %98, %101
 104:                                              ; preds = %PaPulseAudio_UnLock.exit93
   %105 = load ptr, ptr %40, align 8
   %106 = icmp eq ptr %105, null
-  %107 = icmp ugt i32 %.094, 4999
+  %107 = icmp samesign ugt i32 %.094, 4999
   %or.cond = select i1 %106, i1 true, i1 %107
   br i1 %or.cond, label %112, label %109
 
 108:                                              ; preds = %PaPulseAudio_UnLock.exit93
-  %.old1 = icmp ugt i32 %.094, 4999
+  %.old1 = icmp samesign ugt i32 %.094, 4999
   br i1 %.old1, label %112, label %109
 
 109:                                              ; preds = %104, %108

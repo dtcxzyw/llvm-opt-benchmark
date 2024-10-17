@@ -1656,7 +1656,7 @@ while.body.i:                                     ; preds = %if.then17, %while.b
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.014.i, i64 1
   store i8 %cond.i.i, ptr %s.014.i, align 1
   %11 = and i8 %9, 15
-  %cmp.i7.i = icmp ult i8 %11, 10
+  %cmp.i7.i = icmp samesign ult i8 %11, 10
   %add.i8.i = or disjoint i8 %11, 48
   %narrow.i9.i = add nuw nsw i8 %11, 87
   %cond.i10.i = select i1 %cmp.i7.i, i8 %add.i8.i, i8 %narrow.i9.i
@@ -1726,7 +1726,7 @@ while.body.i139:                                  ; preds = %if.then25, %while.b
   %incdec.ptr.i147 = getelementptr inbounds i8, ptr %s.014.i140, i64 1
   store i8 %cond.i.i146, ptr %s.014.i140, align 1
   %19 = and i8 %17, 15
-  %cmp.i7.i148 = icmp ult i8 %19, 10
+  %cmp.i7.i148 = icmp samesign ult i8 %19, 10
   %add.i8.i149 = or disjoint i8 %19, 48
   %narrow.i9.i150 = add nuw nsw i8 %19, 87
   %cond.i10.i151 = select i1 %cmp.i7.i148, i8 %add.i8.i149, i8 %narrow.i9.i150
@@ -2385,7 +2385,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.014.i, i64 1
   store i8 %cond.i.i, ptr %s.014.i, align 1
   %9 = and i8 %7, 15
-  %cmp.i7.i = icmp ult i8 %9, 10
+  %cmp.i7.i = icmp samesign ult i8 %9, 10
   %add.i8.i = or disjoint i8 %9, 48
   %narrow.i9.i = add nuw nsw i8 %9, 87
   %cond.i10.i = select i1 %cmp.i7.i, i8 %add.i8.i, i8 %narrow.i9.i
@@ -2535,7 +2535,7 @@ while.body.i138:                                  ; preds = %if.then44, %while.b
   %incdec.ptr.i146 = getelementptr inbounds i8, ptr %s.014.i139, i64 1
   store i8 %cond.i.i145, ptr %s.014.i139, align 1
   %29 = and i8 %27, 15
-  %cmp.i7.i147 = icmp ult i8 %29, 10
+  %cmp.i7.i147 = icmp samesign ult i8 %29, 10
   %add.i8.i148 = or disjoint i8 %29, 48
   %narrow.i9.i149 = add nuw nsw i8 %29, 87
   %cond.i10.i150 = select i1 %cmp.i7.i147, i8 %add.i8.i148, i8 %narrow.i9.i149
@@ -2596,8 +2596,8 @@ if.then81:                                        ; preds = %if.end76
   %stage3Top = getelementptr inbounds i8, ptr %mbcsData, i64 454468
   %32 = load i32, ptr %stage3Top, align 4
   %tobool83 = icmp ne i8 %.pre270274280, 0
-  %cmp85 = icmp ugt i32 %and75, 15
-  %or.cond2 = and i1 %tobool83, %cmp85
+  %cmp85 = icmp samesign ugt i32 %and75, 15
+  %or.cond2 = select i1 %tobool83, i1 %cmp85, i1 false
   br i1 %or.cond2, label %if.then86, label %if.end103
 
 if.then86:                                        ; preds = %if.then81
@@ -2672,7 +2672,7 @@ while.body.i158:                                  ; preds = %if.then107, %while.
   %incdec.ptr.i166 = getelementptr inbounds i8, ptr %s.014.i159, i64 1
   store i8 %cond.i.i165, ptr %s.014.i159, align 1
   %40 = and i8 %38, 15
-  %cmp.i7.i167 = icmp ult i8 %40, 10
+  %cmp.i7.i167 = icmp samesign ult i8 %40, 10
   %add.i8.i168 = or disjoint i8 %40, 48
   %narrow.i9.i169 = add nuw nsw i8 %40, 87
   %cond.i10.i170 = select i1 %cmp.i7.i167, i8 %add.i8.i168, i8 %narrow.i9.i169
@@ -2728,7 +2728,7 @@ land.lhs.true134:                                 ; preds = %if.end125
   br i1 %cmp137.not, label %if.end148, label %if.then138
 
 if.then138:                                       ; preds = %land.lhs.true134
-  %cmp139 = icmp ugt i32 %mul131, 65535
+  %cmp139 = icmp samesign ugt i32 %mul131, 65535
   br i1 %cmp139, label %if.then140, label %if.else142
 
 if.then140:                                       ; preds = %if.then138
@@ -2868,7 +2868,7 @@ while.body.i178:                                  ; preds = %if.then202, %while.
   %incdec.ptr.i186 = getelementptr inbounds i8, ptr %s.014.i179, i64 1
   store i8 %cond.i.i185, ptr %s.014.i179, align 1
   %60 = and i8 %58, 15
-  %cmp.i7.i187 = icmp ult i8 %60, 10
+  %cmp.i7.i187 = icmp samesign ult i8 %60, 10
   %add.i8.i188 = or disjoint i8 %60, 48
   %narrow.i9.i189 = add nuw nsw i8 %60, 87
   %cond.i10.i190 = select i1 %cmp.i7.i187, i8 %add.i8.i188, i8 %narrow.i9.i189
@@ -2908,7 +2908,7 @@ while.body.i198:                                  ; preds = %if.then208, %while.
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %s.014.i199, i64 1
   store i8 %cond.i.i205, ptr %s.014.i199, align 1
   %65 = and i8 %63, 15
-  %cmp.i7.i207 = icmp ult i8 %65, 10
+  %cmp.i7.i207 = icmp samesign ult i8 %65, 10
   %add.i8.i208 = or disjoint i8 %65, 48
   %narrow.i9.i209 = add nuw nsw i8 %65, 87
   %cond.i10.i210 = select i1 %cmp.i7.i207, i8 %add.i8.i208, i8 %narrow.i9.i209
@@ -2965,7 +2965,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %cond.i, ptr %s.014, align 1
   %2 = load i8, ptr %bytes.addr.012, align 1
   %3 = and i8 %2, 15
-  %cmp.i7 = icmp ult i8 %3, 10
+  %cmp.i7 = icmp samesign ult i8 %3, 10
   %add.i8 = or disjoint i8 %3, 48
   %narrow.i9 = add nuw nsw i8 %3, 87
   %cond.i10 = select i1 %cmp.i7, i8 %add.i8, i8 %narrow.i9

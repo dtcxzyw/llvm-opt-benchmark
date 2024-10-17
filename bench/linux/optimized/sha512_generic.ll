@@ -171,7 +171,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, p
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %31
-  %45 = icmp ult i64 %32, 16
+  %45 = icmp samesign ult i64 %32, 16
   br i1 %45, label %.preheader, label %.preheader2
 
 .preheader:                                       ; preds = %44, %.preheader
@@ -466,7 +466,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, p
   %326 = add i64 %315, %203
   %327 = add i64 %325, %315
   %328 = add nuw nsw i64 %32, 8
-  %329 = icmp ult i64 %32, 72
+  %329 = icmp samesign ult i64 %32, 72
   br i1 %329, label %31, label %330, !llvm.loop !11
 
 330:                                              ; preds = %.loopexit
@@ -576,7 +576,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   %56 = and i64 %52, 127
   %57 = getelementptr [128 x i8], ptr %51, i64 0, i64 %56
   store i8 -128, ptr %57, align 1
-  %58 = icmp ugt i32 %54, 111
+  %58 = icmp samesign ugt i32 %54, 111
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %50
@@ -647,7 +647,7 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef 
   %10 = and i64 %6, 127
   %11 = getelementptr [128 x i8], ptr %4, i64 0, i64 %10
   store i8 -128, ptr %11, align 1
-  %12 = icmp ugt i32 %8, 111
+  %12 = icmp samesign ugt i32 %8, 111
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2

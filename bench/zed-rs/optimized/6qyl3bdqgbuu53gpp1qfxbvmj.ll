@@ -16064,7 +16064,7 @@ _ZN5prost8encoding13decode_varint17haa96bba9e6c27a8eE.exit: ; preds = %156
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %174, ptr %26, align 8, !noalias !1643
-  %switch = icmp ult i64 %174, 6
+  %switch = icmp samesign ult i64 %174, 6
   br i1 %switch, label %177, label %180
 
 175:                                              ; preds = %169

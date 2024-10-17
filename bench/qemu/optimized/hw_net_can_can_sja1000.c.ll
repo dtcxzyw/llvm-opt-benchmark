@@ -838,7 +838,7 @@ for.body.lr.ph:                                   ; preds = %if.then16
   br label %for.body
 
 for.cond45.preheader:                             ; preds = %for.body
-  %cmp4745 = icmp ult i8 %4, 8
+  %cmp4745 = icmp samesign ult i8 %4, 8
   br i1 %cmp4745, label %if.end94.sink.split, label %if.end94
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -874,7 +874,7 @@ for.body72.lr.ph:                                 ; preds = %if.else
   br label %for.body72
 
 for.cond83.preheader:                             ; preds = %for.body72
-  %cmp8552 = icmp ult i8 %4, 8
+  %cmp8552 = icmp samesign ult i8 %4, 8
   br i1 %cmp8552, label %if.end94.sink.split, label %if.end94
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.body72
@@ -937,7 +937,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %for.body
-  %cmp3021 = icmp ult i8 %6, 8
+  %cmp3021 = icmp samesign ult i8 %6, 8
   br i1 %cmp3021, label %for.body32.lr.ph, label %for.end38
 
 for.body32.lr.ph:                                 ; preds = %entry, %for.cond28.preheader

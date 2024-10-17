@@ -280,7 +280,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %191 = call double @llvm.fmuladd.f64(double %188, double %172, double %190)
   store double %191, ptr %189, align 8, !tbaa !7
   %192 = add nuw nsw i64 %180, 1
-  %193 = icmp ult i64 %180, %166
+  %193 = icmp samesign ult i64 %180, %166
   br i1 %193, label %179, label %.loopexit48, !llvm.loop !14
 
 .loopexit48:                                      ; preds = %179, %165
@@ -301,7 +301,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %206 = sub i32 %205, %159
   %207 = call i32 @llvm.smax.i32(i32 %206, i32 1)
   %208 = zext nneg i32 %207 to i64
-  %209 = icmp ugt i64 %198, %208
+  %209 = icmp samesign ugt i64 %198, %208
   br i1 %209, label %210, label %.loopexit47
 
 210:                                              ; preds = %197
@@ -326,7 +326,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %227 = call double @llvm.fmuladd.f64(double %224, double %204, double %226)
   store double %227, ptr %225, align 8, !tbaa !7
   %228 = add nuw nsw i64 %216, 1
-  %229 = icmp ult i64 %228, %198
+  %229 = icmp samesign ult i64 %228, %198
   br i1 %229, label %215, label %.loopexit47, !llvm.loop !16
 
 .loopexit47:                                      ; preds = %215, %197
@@ -513,7 +513,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %360 = select i1 %358, double %357, double %359
   %361 = call double @llvm.fmuladd.f64(double %355, double %360, double %347)
   %362 = add nuw nsw i64 %346, 1
-  %363 = icmp ult i64 %346, %337
+  %363 = icmp samesign ult i64 %346, %337
   br i1 %363, label %345, label %.loopexit44, !llvm.loop !22
 
 .loopexit44:                                      ; preds = %345, %336
@@ -539,7 +539,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %380 = sub i32 %379, %330
   %381 = call i32 @llvm.smax.i32(i32 %380, i32 1)
   %382 = zext nneg i32 %381 to i64
-  %383 = icmp ugt i64 %372, %382
+  %383 = icmp samesign ugt i64 %372, %382
   br i1 %383, label %384, label %.loopexit43
 
 384:                                              ; preds = %371
@@ -567,7 +567,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %404 = select i1 %402, double %401, double %403
   %405 = call double @llvm.fmuladd.f64(double %399, double %404, double %391)
   %406 = add nuw nsw i64 %390, 1
-  %407 = icmp ult i64 %406, %372
+  %407 = icmp samesign ult i64 %406, %372
   br i1 %407, label %389, label %.loopexit43, !llvm.loop !24
 
 .loopexit43:                                      ; preds = %389, %371
@@ -877,7 +877,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread38:                                        ; preds = %593, %613, %611
   %616 = add nuw nsw i64 %117, 1
-  %617 = icmp ult i64 %117, %114
+  %617 = icmp samesign ult i64 %117, %114
   br i1 %617, label %115, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread38, %91, %86, %97, %87, %79

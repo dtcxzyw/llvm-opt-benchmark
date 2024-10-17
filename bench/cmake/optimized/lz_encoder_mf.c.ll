@@ -249,7 +249,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %103 = load i32, ptr %96, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next.i.i, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next.i.i, %104
   br i1 %105, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -262,7 +262,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %109 = load i32, ptr %98, align 8
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next36.i.i, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next36.i.i, %110
   br i1 %111, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -325,7 +325,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %indvars.iv.next.i.i96 = add nuw nsw i64 %indvars.iv.i.i94, 1
   %147 = load i32, ptr %140, align 4
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next.i.i96, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next.i.i96, %148
   br i1 %149, label %.lr.ph.i.i93, label %.preheader.i.i97, !llvm.loop !7
 
 .lr.ph32.i.i99:                                   ; preds = %.preheader.i.i97, %.lr.ph32.i.i99
@@ -338,7 +338,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %indvars.iv.next36.i.i102 = add nuw nsw i64 %indvars.iv35.i.i100, 1
   %153 = load i32, ptr %142, align 8
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next36.i.i102, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next36.i.i102, %154
   br i1 %155, label %.lr.ph32.i.i99, label %normalize.exit.i103, !llvm.loop !8
 
 normalize.exit.i103:                              ; preds = %.lr.ph32.i.i99, %.preheader.i.i97
@@ -602,7 +602,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %71 = load i32, ptr %11, align 4
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next.i.i, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next.i.i, %72
   br i1 %73, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -615,7 +615,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %77 = load i32, ptr %12, align 8
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next36.i.i, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next36.i.i, %78
   br i1 %79, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -860,7 +860,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %141 = load i32, ptr %134, align 4
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next.i.i, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next.i.i, %142
   br i1 %143, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -873,7 +873,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %147 = load i32, ptr %136, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next36.i.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next36.i.i, %148
   br i1 %149, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -938,7 +938,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %indvars.iv.next.i.i128 = add nuw nsw i64 %indvars.iv.i.i126, 1
   %186 = load i32, ptr %179, align 4
   %187 = zext i32 %186 to i64
-  %188 = icmp ult i64 %indvars.iv.next.i.i128, %187
+  %188 = icmp samesign ult i64 %indvars.iv.next.i.i128, %187
   br i1 %188, label %.lr.ph.i.i125, label %.preheader.i.i129, !llvm.loop !7
 
 .lr.ph32.i.i131:                                  ; preds = %.preheader.i.i129, %.lr.ph32.i.i131
@@ -951,7 +951,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %indvars.iv.next36.i.i134 = add nuw nsw i64 %indvars.iv35.i.i132, 1
   %192 = load i32, ptr %181, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next36.i.i134, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next36.i.i134, %193
   br i1 %194, label %.lr.ph32.i.i131, label %normalize.exit.i135, !llvm.loop !8
 
 normalize.exit.i135:                              ; preds = %.lr.ph32.i.i131, %.preheader.i.i129
@@ -1082,7 +1082,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %83 = load i32, ptr %11, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next.i.i, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next.i.i, %84
   br i1 %85, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -1095,7 +1095,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %89 = load i32, ptr %12, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next36.i.i, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next36.i.i, %90
   br i1 %91, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -1344,7 +1344,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i, %85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %125 = load i32, ptr %118, align 4
   %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next.i.i, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next.i.i, %126
   br i1 %127, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -1357,7 +1357,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i, %85
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %131 = load i32, ptr %120, align 8
   %132 = zext i32 %131 to i64
-  %133 = icmp ult i64 %indvars.iv.next36.i.i, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next36.i.i, %132
   br i1 %133, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -1586,7 +1586,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %110 = load i32, ptr %13, align 4
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next.i.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next.i.i, %111
   br i1 %112, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -1599,7 +1599,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %116 = load i32, ptr %14, align 8
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next36.i.i, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next36.i.i, %117
   br i1 %118, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -1910,7 +1910,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %161 = load i32, ptr %154, align 4
   %162 = zext i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next.i.i, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next.i.i, %162
   br i1 %163, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -1923,7 +1923,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %167 = load i32, ptr %156, align 8
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next36.i.i, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next36.i.i, %168
   br i1 %169, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -2120,7 +2120,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i97, %2
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i108, 1
   %268 = load i32, ptr %261, align 4
   %269 = zext i32 %268 to i64
-  %270 = icmp ult i64 %indvars.iv.next.i.i110, %269
+  %270 = icmp samesign ult i64 %indvars.iv.next.i.i110, %269
   br i1 %270, label %.lr.ph.i.i107, label %.preheader.i.i111, !llvm.loop !7
 
 .lr.ph32.i.i113:                                  ; preds = %.preheader.i.i111, %.lr.ph32.i.i113
@@ -2133,7 +2133,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i97, %2
   %indvars.iv.next36.i.i116 = add nuw nsw i64 %indvars.iv35.i.i114, 1
   %274 = load i32, ptr %263, align 8
   %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %indvars.iv.next36.i.i116, %275
+  %276 = icmp samesign ult i64 %indvars.iv.next36.i.i116, %275
   br i1 %276, label %.lr.ph32.i.i113, label %normalize.exit.i117, !llvm.loop !8
 
 normalize.exit.i117:                              ; preds = %.lr.ph32.i.i113, %.preheader.i.i111
@@ -2384,7 +2384,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %132 = load i32, ptr %14, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next.i.i, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next.i.i, %133
   br i1 %134, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -2397,7 +2397,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %138 = load i32, ptr %15, align 8
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next36.i.i, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next36.i.i, %139
   br i1 %140, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -2768,7 +2768,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %199 = load i32, ptr %192, align 4
   %200 = zext i32 %199 to i64
-  %201 = icmp ult i64 %indvars.iv.next.i.i, %200
+  %201 = icmp samesign ult i64 %indvars.iv.next.i.i, %200
   br i1 %201, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -2781,7 +2781,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %205 = load i32, ptr %194, align 8
   %206 = zext i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next36.i.i, %206
+  %207 = icmp samesign ult i64 %indvars.iv.next36.i.i, %206
   br i1 %207, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
@@ -2983,7 +2983,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i129, %
   %indvars.iv.next.i.i142 = add nuw nsw i64 %indvars.iv.i.i140, 1
   %307 = load i32, ptr %300, align 4
   %308 = zext i32 %307 to i64
-  %309 = icmp ult i64 %indvars.iv.next.i.i142, %308
+  %309 = icmp samesign ult i64 %indvars.iv.next.i.i142, %308
   br i1 %309, label %.lr.ph.i.i139, label %.preheader.i.i143, !llvm.loop !7
 
 .lr.ph32.i.i145:                                  ; preds = %.preheader.i.i143, %.lr.ph32.i.i145
@@ -2996,7 +2996,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i129, %
   %indvars.iv.next36.i.i148 = add nuw nsw i64 %indvars.iv35.i.i146, 1
   %313 = load i32, ptr %302, align 8
   %314 = zext i32 %313 to i64
-  %315 = icmp ult i64 %indvars.iv.next36.i.i148, %314
+  %315 = icmp samesign ult i64 %indvars.iv.next36.i.i148, %314
   br i1 %315, label %.lr.ph32.i.i145, label %normalize.exit.i149, !llvm.loop !8
 
 normalize.exit.i149:                              ; preds = %.lr.ph32.i.i145, %.preheader.i.i143
@@ -3260,7 +3260,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %144 = load i32, ptr %14, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next.i.i, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next.i.i, %145
   br i1 %146, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
@@ -3273,7 +3273,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %150 = load i32, ptr %15, align 8
   %151 = zext i32 %150 to i64
-  %152 = icmp ult i64 %indvars.iv.next36.i.i, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next36.i.i, %151
   br i1 %152, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i

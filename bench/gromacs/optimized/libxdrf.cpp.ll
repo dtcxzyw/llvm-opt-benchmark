@@ -375,7 +375,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %197 = add nuw nsw i32 %.08.i, 1
   %198 = shl i32 %.067.i, 1
   %199 = icmp sge i32 %185, %198
-  %200 = icmp ult i32 %.08.i, 31
+  %200 = icmp samesign ult i32 %.08.i, 31
   %201 = select i1 %199, i1 %200, i1 false
   br i1 %201, label %.lr.ph.i, label %_ZL9sizeofinti.exit, !llvm.loop !7
 
@@ -390,7 +390,7 @@ _ZL9sizeofinti.exit:                              ; preds = %.lr.ph.i, %195
   %203 = add nuw nsw i32 %.08.i466, 1
   %204 = shl i32 %.067.i467, 1
   %205 = icmp sge i32 %187, %204
-  %206 = icmp ult i32 %.08.i466, 31
+  %206 = icmp samesign ult i32 %.08.i466, 31
   %207 = select i1 %205, i1 %206, i1 false
   br i1 %207, label %.lr.ph.i465, label %_ZL9sizeofinti.exit468, !llvm.loop !7
 
@@ -405,7 +405,7 @@ _ZL9sizeofinti.exit468:                           ; preds = %.lr.ph.i465, %_ZL9s
   %209 = add nuw nsw i32 %.08.i471, 1
   %210 = shl i32 %.067.i472, 1
   %211 = icmp sge i32 %190, %210
-  %212 = icmp ult i32 %.08.i471, 31
+  %212 = icmp samesign ult i32 %.08.i471, 31
   %213 = select i1 %211, i1 %212, i1 false
   br i1 %213, label %.lr.ph.i470, label %_ZL9sizeofinti.exit473, !llvm.loop !7
 
@@ -847,7 +847,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
   %452 = sub nsw i32 %451, %.sroa.28.1610
   %453 = mul nsw i32 %452, %452
   %454 = add nuw nsw i32 %449, %453
-  %.not450 = icmp ult i32 %454, %437
+  %.not450 = icmp samesign ult i32 %454, %437
   %spec.select = sext i1 %.not450 to i32
   br label %455
 
@@ -901,7 +901,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
   %490 = sub nsw i32 %489, %472
   %491 = call i32 @llvm.abs.i32(i32 %490, i1 true)
   %492 = icmp ult i32 %491, %.0410623
-  %493 = icmp ult i64 %indvars.iv668, 21
+  %493 = icmp samesign ult i64 %indvars.iv668, 21
   %494 = select i1 %492, i1 %493, i1 false
   br i1 %494, label %439, label %._crit_edge614.loopexit, !llvm.loop !10
 
@@ -1046,7 +1046,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   %564 = getelementptr inbounds [30 x i32], ptr %14, i64 0, i64 %indvars.iv671
   call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %563, ptr noundef %12, ptr noundef %564)
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 3
-  %565 = icmp ult i64 %indvars.iv.next672, %562
+  %565 = icmp samesign ult i64 %indvars.iv.next672, %562
   br i1 %565, label %.lr.ph621, label %._crit_edge622, !llvm.loop !11
 
 ._crit_edge622:                                   ; preds = %.lr.ph621, %_ZL8sendbitsP10DataBufferii.exit505
@@ -1319,7 +1319,7 @@ thread-pre-split:                                 ; preds = %625, %629
   %709 = add nuw nsw i32 %.08.i516, 1
   %710 = shl i32 %.067.i517, 1
   %711 = icmp sge i32 %693, %710
-  %712 = icmp ult i32 %.08.i516, 31
+  %712 = icmp samesign ult i32 %.08.i516, 31
   %713 = select i1 %711, i1 %712, i1 false
   br i1 %713, label %.lr.ph.i515, label %_ZL9sizeofinti.exit518, !llvm.loop !7
 
@@ -1334,7 +1334,7 @@ _ZL9sizeofinti.exit518:                           ; preds = %.lr.ph.i515, %707
   %715 = add nuw nsw i32 %.08.i522, 1
   %716 = shl i32 %.067.i523, 1
   %717 = icmp sge i32 %697, %716
-  %718 = icmp ult i32 %.08.i522, 31
+  %718 = icmp samesign ult i32 %.08.i522, 31
   %719 = select i1 %717, i1 %718, i1 false
   br i1 %719, label %.lr.ph.i521, label %_ZL9sizeofinti.exit524, !llvm.loop !7
 
@@ -1349,7 +1349,7 @@ _ZL9sizeofinti.exit524:                           ; preds = %.lr.ph.i521, %_ZL9s
   %721 = add nuw nsw i32 %.08.i528, 1
   %722 = shl i32 %.067.i529, 1
   %723 = icmp sge i32 %702, %722
-  %724 = icmp ult i32 %.08.i528, 31
+  %724 = icmp samesign ult i32 %.08.i528, 31
   %725 = select i1 %723, i1 %724, i1 false
   br i1 %725, label %.lr.ph.i527, label %_ZL9sizeofinti.exit530, !llvm.loop !7
 
@@ -1794,7 +1794,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr nocapture noundef no
   %15 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %14
   store i32 %12, ptr %15, align 4
   %16 = lshr i32 %.137, 8
-  %.not30 = icmp ult i32 %.137, 256
+  %.not30 = icmp samesign ult i32 %.137, 256
   br i1 %.not30, label %._crit_edge, label %.lr.ph38, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph38, %.preheader31, %.preheader
@@ -2524,7 +2524,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
 29:                                               ; preds = %28
   %30 = sub nsw i64 %.033, %.035
   %31 = call i64 @llvm.abs.i64(i64 %30, i1 true)
-  %32 = icmp ugt i64 %31, 16
+  %32 = icmp samesign ugt i64 %31, 16
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
@@ -2539,7 +2539,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   br i1 %.not45, label %.preheader, label %.loopexit, !llvm.loop !32
 
 39:                                               ; preds = %28, %29
-  %40 = icmp ult i64 %.0, 17
+  %40 = icmp samesign ult i64 %.0, 17
   %spec.select = select i1 %40, i64 %.033, i64 %.0
   %41 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %spec.select, i32 noundef 0)
   %.not43 = icmp eq i32 %41, 0
@@ -2833,7 +2833,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 60:                                               ; preds = %55, %52, %49, %45
   %61 = sub nsw i64 %.193110, %.089111
   %62 = call i64 @llvm.abs.i64(i64 %61, i1 true)
-  %63 = icmp ugt i64 %62, 16
+  %63 = icmp samesign ugt i64 %62, 16
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %60
@@ -2872,7 +2872,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 78:                                               ; preds = %55
   %.pre = sub nsw i64 %.193110, %.089111
   %.pre125 = call i64 @llvm.abs.i64(i64 %.pre, i1 true)
-  %79 = icmp ult i64 %.pre125, 17
+  %79 = icmp samesign ult i64 %.pre125, 17
   br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %78

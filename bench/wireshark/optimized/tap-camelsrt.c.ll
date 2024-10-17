@@ -343,7 +343,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %.1120.in.us = fadd double %.0119146.us, %.0115148.us.pn
   %.1120.us = fmul double %.1120.in.us, 5.000000e-01
   %110 = fcmp ogt double %.1.us, 1.000000e-03
-  %111 = icmp ult i32 %.0125145.us, 9999
+  %111 = icmp samesign ult i32 %.0125145.us, 9999
   %112 = select i1 %110, i1 %111, i1 false
   br i1 %112, label %99, label %._crit_edge.us, !llvm.loop !10
 

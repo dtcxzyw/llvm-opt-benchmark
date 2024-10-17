@@ -1512,7 +1512,7 @@ define internal i32 @intel_tv_get_modes(ptr noundef %0) #0 align 16 {
   %36 = shl nuw nsw i32 %34, 1
   %37 = add nuw nsw i32 %36, 2
   %38 = select i1 %32, i32 %37, i32 %35
-  %39 = icmp ult i32 %38, %30
+  %39 = icmp samesign ult i32 %38, %30
   br i1 %39, label %159, label %.thread
 
 .thread:                                          ; preds = %15, %27, %25
@@ -1651,7 +1651,7 @@ define internal i32 @intel_tv_get_modes(ptr noundef %0) #0 align 16 {
   %150 = shl nuw nsw i32 %148, 1
   %151 = add nuw nsw i32 %150, 2
   %152 = select i1 %146, i32 %151, i32 %149
-  %153 = icmp ult i32 %152, 577
+  %153 = icmp samesign ult i32 %152, 577
   %154 = select i1 %153, i32 480, i32 %152
   %155 = icmp eq i32 %154, %115
   br i1 %155, label %156, label %157
@@ -1872,7 +1872,7 @@ define internal i32 @intel_tv_detect(ptr noundef %0, ptr noundef %1, i1 noundef 
   %117 = load i32, ptr %112, align 8
   %118 = sext i32 %117 to i64
   %119 = and i64 %118, 1152921504606846974
-  %120 = icmp ult i64 %119, 6
+  %120 = icmp samesign ult i64 %119, 6
   br i1 %120, label %.thread13, label %121
 
 121:                                              ; preds = %116

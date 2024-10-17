@@ -33830,7 +33830,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %128
   %153 = phi ptr [ %150, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %130, %128 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %154 = icmp ult i64 %indvars.iv, 34
+  %154 = icmp samesign ult i64 %indvars.iv, 34
   br i1 %154, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit, label %159, !llvm.loop !321
 
 .loopexit:                                        ; preds = %224
@@ -34053,7 +34053,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit117: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i114, %210
   %235 = phi ptr [ %232, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i114 ], [ %212, %210 ]
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %236 = icmp ult i64 %indvars.iv164, 68
+  %236 = icmp samesign ult i64 %indvars.iv164, 68
   br i1 %236, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit96, label %237, !llvm.loop !328
 
 237:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit117

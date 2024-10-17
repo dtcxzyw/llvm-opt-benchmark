@@ -6240,8 +6240,8 @@ if.then7.i:                                       ; preds = %if.end5.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %cmp10.i = icmp eq i32 %len.031.i, 1
-  %cmp11.i = icmp ugt i32 %len.031.i, 4
-  %or.cond.i = or i1 %cmp10.i, %cmp11.i
+  %cmp11.i = icmp samesign ugt i32 %len.031.i, 4
+  %or.cond.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i
@@ -11923,13 +11923,13 @@ _ZNK11flexbuffers16FixedTypedVectorixEm.exit.us:  ; preds = %if.end.i.us, %if.en
   %inc.us = add nuw nsw i64 %i.033.us, 1
   %9 = load i8, ptr %len_.i, align 8
   %conv.us = zext i8 %9 to i64
-  %cmp.us = icmp ult i64 %inc.us, %conv.us
+  %cmp.us = icmp samesign ult i64 %inc.us, %conv.us
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !137
 
 if.end15.loopexit.us:                             ; preds = %for.body.i.us
   %10 = load i8, ptr %len_.i, align 8
   %conv.i.us = zext i8 %10 to i64
-  %cmp.not.i.us = icmp ult i64 %i.033.us, %conv.i.us
+  %cmp.not.i.us = icmp samesign ult i64 %i.033.us, %conv.i.us
   br i1 %cmp.not.i.us, label %if.end.i.us, label %_ZNK11flexbuffers16FixedTypedVectorixEm.exit.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK11flexbuffers16FixedTypedVectorixEm.exit
@@ -11947,7 +11947,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %12 = phi i8 [ %.pre, %if.then ], [ %11, %for.body ]
   %conv.i = zext i8 %12 to i64
-  %cmp.not.i = icmp ult i64 %i.033, %conv.i
+  %cmp.not.i = icmp samesign ult i64 %i.033, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK11flexbuffers16FixedTypedVectorixEm.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -11972,7 +11972,7 @@ _ZNK11flexbuffers16FixedTypedVectorixEm.exit:     ; preds = %if.end, %if.end.i
   %inc = add nuw nsw i64 %i.033, 1
   %20 = load i8, ptr %len_.i, align 8
   %conv = zext i8 %20 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !137
 
 for.end:                                          ; preds = %_ZNK11flexbuffers16FixedTypedVectorixEm.exit, %_ZNK11flexbuffers16FixedTypedVectorixEm.exit.us, %entry

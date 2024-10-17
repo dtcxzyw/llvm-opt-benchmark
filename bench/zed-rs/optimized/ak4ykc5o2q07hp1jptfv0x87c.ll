@@ -33923,7 +33923,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.0.lcssa = phi i64 [ %4, %3 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h739e4735b296e935E.exit" ]
   %.sroa.11.0.lcssa = phi i64 [ %2, %3 ], [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h739e4735b296e935E.exit" ]
   %.sroa.0.0.lcssa = phi ptr [ %1, %3 ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h739e4735b296e935E.exit" ]
-  %6 = icmp ugt i64 %.sroa.11.0.lcssa, 3
+  %6 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 3
   br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h337265d136c5cb48E.exit", label %7
 
 7:                                                ; preds = %._crit_edge, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h337265d136c5cb48E.exit"
@@ -111834,8 +111834,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit: ; p
 61:                                               ; preds = %39
   %62 = add nsw i32 %26, -9
   %or.cond = icmp ult i32 %62, 5
-  %63 = icmp ugt i32 %26, 127
-  %or.cond14 = or i1 %63, %or.cond
+  %63 = icmp samesign ugt i32 %26, 127
+  %or.cond14 = select i1 %or.cond, i1 true, i1 %63
   br i1 %or.cond14, label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit, label %64
 
 64:                                               ; preds = %61
@@ -112044,7 +112044,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit54: ;
   br i1 %or.cond, label %161, label %70
 
 70:                                               ; preds = %68
-  %71 = icmp ugt i32 %58, 127
+  %71 = icmp samesign ugt i32 %58, 127
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -112156,7 +112156,7 @@ thread-pre-split56:                               ; preds = %.thread
   br i1 %or.cond1, label %"_ZN4core3ptr243drop_in_place$LT$core..iter..adapters..take..Take$LT$core..iter..adapters..flatten..FlatMap$LT$rope..Chunks$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$rope..Rope..reversed_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h32ef85160e01003dE.exit40", label %108
 
 108:                                              ; preds = %106
-  %109 = icmp ugt i32 %91, 127
+  %109 = icmp samesign ugt i32 %91, 127
   br i1 %109, label %110, label %.thread
 
 110:                                              ; preds = %108
@@ -112355,8 +112355,8 @@ thread-pre-split56:                               ; preds = %.thread
 180:                                              ; preds = %46
   %181 = add nsw i32 %35, -9
   %or.cond2 = icmp ult i32 %181, 5
-  %182 = icmp ugt i32 %35, 127
-  %or.cond59 = or i1 %182, %or.cond2
+  %182 = icmp samesign ugt i32 %35, 127
+  %or.cond59 = select i1 %or.cond2, i1 true, i1 %182
   br i1 %or.cond59, label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit54, label %183
 
 183:                                              ; preds = %180

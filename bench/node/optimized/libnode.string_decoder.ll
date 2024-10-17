@@ -114,16 +114,17 @@ entry:
 if.then:                                          ; preds = %entry, %entry, %entry, %entry
   %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i8, ptr %arrayidx.i48, align 1
-  %cmp11.not = icmp eq i8 %2, 0
+  %.fr = freeze i8 %2
+  %cmp11.not = icmp eq i8 %.fr, 0
   br i1 %cmp11.not, label %if.end85, label %do.body
 
 do.body:                                          ; preds = %if.then
-  %conv.i49 = zext i8 %2 to i32
+  %conv.i49 = zext i8 %.fr to i32
   %arrayidx.i52 = getelementptr inbounds i8, ptr %this, i64 5
   %3 = load i8, ptr %arrayidx.i52, align 1
   %conv.i53 = zext i8 %3 to i32
   %add = add nuw nsw i32 %conv.i53, %conv.i49
-  %cmp15 = icmp ugt i32 %add, 4
+  %cmp15 = icmp samesign ugt i32 %add, 4
   br i1 %cmp15, label %do.body19, label %do.end20
 
 do.body19:                                        ; preds = %do.body
@@ -135,7 +136,7 @@ do.end20:                                         ; preds = %do.body
   br i1 %cmp, label %for.cond.preheader, label %if.end40
 
 for.cond.preheader:                               ; preds = %do.end20
-  %conv = zext i8 %2 to i64
+  %conv = zext i8 %.fr to i64
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %0, i64 %conv)
   %or.cond127132.not = icmp eq i64 %0, 0
   br i1 %or.cond127132.not, label %if.end40, label %for.body
@@ -169,7 +170,7 @@ for.inc:                                          ; preds = %for.body
 
 if.end40:                                         ; preds = %for.inc, %for.cond.preheader, %if.then29, %do.end20
   %8 = phi i8 [ %conv37, %if.then29 ], [ %3, %do.end20 ], [ %3, %for.cond.preheader ], [ %3, %for.inc ]
-  %9 = phi i8 [ %.pre, %if.then29 ], [ %2, %do.end20 ], [ %2, %for.cond.preheader ], [ %2, %for.inc ]
+  %9 = phi i8 [ %.pre, %if.then29 ], [ %.fr, %do.end20 ], [ %.fr, %for.cond.preheader ], [ %.fr, %for.inc ]
   %nread.1 = phi i64 [ %sub, %if.then29 ], [ %0, %do.end20 ], [ 0, %for.cond.preheader ], [ %0, %for.inc ]
   %data.addr.1 = phi ptr [ %arrayidx.le, %if.then29 ], [ %data, %do.end20 ], [ %data, %for.cond.preheader ], [ %data, %for.inc ]
   %conv42 = zext i8 %9 to i64

@@ -656,7 +656,7 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %224 = load i32, ptr %216, align 8
   %225 = zext i32 %224 to i64
-  %226 = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %225
+  %226 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %225
   br i1 %226, label %219, label %._crit_edge.i.i.i.i.i, !llvm.loop !6
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %219, %215
@@ -708,7 +708,7 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
   %indvars.iv.next.i.i.i.i.i70 = add nuw nsw i64 %indvars.iv.i.i.i.i.i69, 1
   %245 = load i32, ptr %237, align 8
   %246 = zext i32 %245 to i64
-  %247 = icmp ult i64 %indvars.iv.next.i.i.i.i.i70, %246
+  %247 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i70, %246
   br i1 %247, label %240, label %._crit_edge.i.i.i.i.i71, !llvm.loop !8
 
 ._crit_edge.i.i.i.i.i71:                          ; preds = %240, %236

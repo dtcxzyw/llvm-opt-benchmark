@@ -1239,7 +1239,7 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
   ]
 
 42:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
-  %43 = icmp ugt i32 %41, 127
+  %43 = icmp samesign ugt i32 %41, 127
   br i1 %43, label %44, label %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$15run_term_search4trim28_$u7b$$u7b$closure$u7d$$u7d$17h7d72fd9ae0b00dcfE.exit.thread.i.i"
 
 44:                                               ; preds = %42
@@ -1518,7 +1518,7 @@ define hidden noundef i64 @"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %20 = load i64, ptr %19, align 8, !range !120, !alias.scope !134, !noundef !9
-  %switch.i.i = icmp ult i64 %20, 2
+  %switch.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$usize$GT$$GT$$GT$17haa9a1a987fde0e87E.exit", label %21
 
 21:                                               ; preds = %18
@@ -22535,7 +22535,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   br label %.preheader.split.us
 
 10:                                               ; preds = %7
-  %11 = icmp ult i32 %.0, 7
+  %11 = icmp samesign ult i32 %.0, 7
   br i1 %11, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %10
@@ -26695,7 +26695,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %17, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %17 ]
-  %21 = icmp ult i32 %.02.i, 7
+  %21 = icmp samesign ult i32 %.02.i, 7
   br i1 %21, label %.preheader.i.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
@@ -26703,7 +26703,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %22
-  %23 = icmp ult i32 %.02.i, 11
+  %23 = icmp samesign ult i32 %.02.i, 11
   %24 = zext i1 %23 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %24
   %25 = load atomic i8, ptr %18 acquire, align 1
@@ -26878,7 +26878,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %17, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %17 ]
-  %21 = icmp ult i32 %.02.i, 7
+  %21 = icmp samesign ult i32 %.02.i, 7
   br i1 %21, label %.preheader.i.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
@@ -26886,7 +26886,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %22
-  %23 = icmp ult i32 %.02.i, 11
+  %23 = icmp samesign ult i32 %.02.i, 11
   %24 = zext i1 %23 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %24
   %25 = load atomic i8, ptr %18 acquire, align 1
@@ -27042,7 +27042,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %16, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %16 ]
-  %20 = icmp ult i32 %.02.i, 7
+  %20 = icmp samesign ult i32 %.02.i, 7
   br i1 %20, label %.preheader.i.i, label %21
 
 21:                                               ; preds = %.lr.ph.i
@@ -27050,7 +27050,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %21
-  %22 = icmp ult i32 %.02.i, 11
+  %22 = icmp samesign ult i32 %.02.i, 11
   %23 = zext i1 %22 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %23
   %24 = load atomic i8, ptr %17 acquire, align 1
@@ -27210,7 +27210,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %16, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %16 ]
-  %20 = icmp ult i32 %.02.i, 7
+  %20 = icmp samesign ult i32 %.02.i, 7
   br i1 %20, label %.preheader.i.i, label %21
 
 21:                                               ; preds = %.lr.ph.i
@@ -27218,7 +27218,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %21
-  %22 = icmp ult i32 %.02.i, 11
+  %22 = icmp samesign ult i32 %.02.i, 11
   %23 = zext i1 %22 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %23
   %24 = load atomic i8, ptr %17 acquire, align 1
@@ -27378,7 +27378,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %16, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %16 ]
-  %20 = icmp ult i32 %.02.i, 7
+  %20 = icmp samesign ult i32 %.02.i, 7
   br i1 %20, label %.preheader.i.i, label %21
 
 21:                                               ; preds = %.lr.ph.i
@@ -27386,7 +27386,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %21
-  %22 = icmp ult i32 %.02.i, 11
+  %22 = icmp samesign ult i32 %.02.i, 11
   %23 = zext i1 %22 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %23
   %24 = load atomic i8, ptr %17 acquire, align 1
@@ -27547,7 +27547,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
 
 .lr.ph.i:                                         ; preds = %17, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %17 ]
-  %21 = icmp ult i32 %.02.i, 7
+  %21 = icmp samesign ult i32 %.02.i, 7
   br i1 %21, label %.preheader.i.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
@@ -27555,7 +27555,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4read1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %22
-  %23 = icmp ult i32 %.02.i, 11
+  %23 = icmp samesign ult i32 %.02.i, 11
   %24 = zext i1 %23 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %24
   %25 = load atomic i8, ptr %18 acquire, align 1
@@ -28385,7 +28385,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 69:                                               ; preds = %"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$5write17h40fb5f4f3d8a98e1E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4872)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4875)
-  %.not.i.i = icmp ult i64 %.pr, 2
+  %.not.i.i = icmp samesign ult i64 %.pr, 2
   br i1 %.not.i.i, label %70, label %.invoke
 
 70:                                               ; preds = %69
@@ -31029,7 +31029,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %81, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %81 ]
-  %84 = icmp ult i32 %.02.i, 7
+  %84 = icmp samesign ult i32 %.02.i, 7
   br i1 %84, label %.preheader.i.i, label %85
 
 85:                                               ; preds = %.lr.ph.i
@@ -31037,7 +31037,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %85
-  %86 = icmp ult i32 %.02.i, 11
+  %86 = icmp samesign ult i32 %.02.i, 11
   %87 = zext i1 %86 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %87
   %88 = load atomic i8, ptr %18 acquire, align 8
@@ -31711,7 +31711,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %79, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %79 ]
-  %82 = icmp ult i32 %.02.i, 7
+  %82 = icmp samesign ult i32 %.02.i, 7
   br i1 %82, label %.preheader.i.i, label %83
 
 83:                                               ; preds = %.lr.ph.i
@@ -31719,7 +31719,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %83
-  %84 = icmp ult i32 %.02.i, 11
+  %84 = icmp samesign ult i32 %.02.i, 11
   %85 = zext i1 %84 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %85
   %86 = load atomic i8, ptr %19 acquire, align 8
@@ -31961,7 +31961,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 165:                                              ; preds = %162
   call void @llvm.experimental.noalias.scope.decl(metadata !5573)
-  %.not.i.i.i.i = icmp ult i64 %163, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %163, 2
   %166 = add nsw i64 %163, -1
   %167 = select i1 %.not.i.i.i.i, i64 0, i64 %166
   switch i64 %167, label %168 [
@@ -32443,7 +32443,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %80, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %80 ]
-  %83 = icmp ult i32 %.02.i, 7
+  %83 = icmp samesign ult i32 %.02.i, 7
   br i1 %83, label %.preheader.i.i, label %84
 
 84:                                               ; preds = %.lr.ph.i
@@ -32451,7 +32451,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %84
-  %85 = icmp ult i32 %.02.i, 11
+  %85 = icmp samesign ult i32 %.02.i, 11
   %86 = zext i1 %85 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %86
   %87 = load atomic i8, ptr %20 acquire, align 8
@@ -33177,7 +33177,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %81, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %81 ]
-  %84 = icmp ult i32 %.02.i, 7
+  %84 = icmp samesign ult i32 %.02.i, 7
   br i1 %84, label %.preheader.i.i, label %85
 
 85:                                               ; preds = %.lr.ph.i
@@ -33185,7 +33185,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %85
-  %86 = icmp ult i32 %.02.i, 11
+  %86 = icmp samesign ult i32 %.02.i, 11
   %87 = zext i1 %86 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %87
   %88 = load atomic i8, ptr %18 acquire, align 8
@@ -33862,7 +33862,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %78, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %78 ]
-  %81 = icmp ult i32 %.02.i, 7
+  %81 = icmp samesign ult i32 %.02.i, 7
   br i1 %81, label %.preheader.i.i, label %82
 
 82:                                               ; preds = %.lr.ph.i
@@ -33870,7 +33870,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %82
-  %83 = icmp ult i32 %.02.i, 11
+  %83 = icmp samesign ult i32 %.02.i, 11
   %84 = zext i1 %83 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %84
   %85 = load atomic i8, ptr %18 acquire, align 8
@@ -34598,7 +34598,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
 
 .lr.ph.i:                                         ; preds = %82, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %82 ]
-  %85 = icmp ult i32 %.02.i, 7
+  %85 = icmp samesign ult i32 %.02.i, 7
   br i1 %85, label %.preheader.i.i, label %86
 
 86:                                               ; preds = %.lr.ph.i
@@ -34606,7 +34606,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2510282452699860474.exit.
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %86
-  %87 = icmp ult i32 %.02.i, 11
+  %87 = icmp samesign ult i32 %.02.i, 11
   %88 = zext i1 %87 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %88
   %89 = load atomic i8, ptr %18 acquire, align 8
@@ -42367,7 +42367,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$crossb
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8352)
-  %.not.i.i.i.i = icmp ult i64 %4, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
   br i1 %.not.i.i.i.i, label %8, label %.invoke
 
 .invoke:                                          ; preds = %6
@@ -42879,7 +42879,7 @@ define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..result..Resu
 9:                                                ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8593)
   %10 = load i64, ptr %8, align 8, !range !8596, !alias.scope !8597, !noundef !9
-  %.not.i.i = icmp ult i64 %10, 2
+  %.not.i.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i, i64 0, i64 %11
   switch i64 %12, label %13 [
@@ -42930,7 +42930,7 @@ define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..result..Resu
 30:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8619)
   %31 = load i64, ptr %8, align 8, !range !8596, !alias.scope !8622, !noundef !9
-  %.not.i1.i = icmp ult i64 %31, 2
+  %.not.i1.i = icmp samesign ult i64 %31, 2
   %32 = add nsw i64 %31, -1
   %33 = select i1 %.not.i1.i, i64 0, i64 %32
   switch i64 %33, label %34 [
@@ -43885,7 +43885,7 @@ define internal fastcc void @"_ZN4core3ptr153drop_in_place$LT$core..option..Opti
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8832)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8835)
-  %.not.i.i = icmp ult i64 %3, 2
+  %.not.i.i = icmp samesign ult i64 %3, 2
   br i1 %.not.i.i, label %6, label %.invoke.i
 
 6:                                                ; preds = %5
@@ -46083,7 +46083,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$vfs..loader..Message$GT$17h36c94a16b89a5177E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !8596, !noundef !9
-  %.not = icmp ult i64 %3, 2
+  %.not = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
   switch i64 %5, label %6 [
@@ -49179,7 +49179,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %13 = zext nneg i8 %7 to i64
   %14 = add nsw i64 %13, -5
   %15 = select i1 %12, i64 %14, i64 0
-  %16 = icmp ult i8 %8, 6
+  %16 = icmp samesign ult i8 %8, 6
   %17 = zext nneg i8 %8 to i64
   %18 = add nsw i64 %17, -5
   %19 = select i1 %16, i64 0, i64 %18
@@ -51519,7 +51519,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h77778b78c77903
   ]
 
 42:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
-  %43 = icmp ugt i32 %41, 127
+  %43 = icmp samesign ugt i32 %41, 127
   br i1 %43, label %44, label %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$15run_term_search4trim28_$u7b$$u7b$closure$u7d$$u7d$17h7d72fd9ae0b00dcfE.exit.thread.i"
 
 44:                                               ; preds = %42
@@ -51747,7 +51747,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6628dcda6b
   ]
 
 42:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i"
-  %43 = icmp ugt i32 %41, 127
+  %43 = icmp samesign ugt i32 %41, 127
   br i1 %43, label %44, label %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$15run_term_search4trim28_$u7b$$u7b$closure$u7d$$u7d$17h7d72fd9ae0b00dcfE.exit.thread.i.i.i"
 
 44:                                               ; preds = %42
@@ -59323,9 +59323,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17hdcef604afe02e13aE.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -61917,15 +61917,15 @@ _ZN4core3str11validations15next_code_point17hfb5ca4bc928db2a9E.exit.thread.i: ; 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7"
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %70 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %70, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit", label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %74, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit"
 
@@ -62390,7 +62390,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %19 = getelementptr inbounds i8, ptr %0, i64 120
   call void @llvm.experimental.noalias.scope.decl(metadata !12349)
   %20 = load i64, ptr %19, align 8, !range !120, !alias.scope !12349, !noundef !9
-  %switch.i = icmp ult i64 %20, 2
+  %switch.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i, label %"_ZN4core3ptr60drop_in_place$LT$rayon_core..job..JobResult$LT$usize$GT$$GT$17hf894d7e98d3a5243E.exit", label %21
 
 21:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h97d6127bf27c5e07E.exit"
@@ -62599,7 +62599,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %21 = getelementptr inbounds i8, ptr %0, i64 232
   call void @llvm.experimental.noalias.scope.decl(metadata !12374)
   %22 = load i64, ptr %21, align 8, !range !120, !alias.scope !12374, !noundef !9
-  %switch.i = icmp ult i64 %22, 2
+  %switch.i = icmp samesign ult i64 %22, 2
   br i1 %switch.i, label %"_ZN4core3ptr76drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf864f028f42efb25E.exit", label %23
 
 23:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h8c9b0fb1acfa38f8E.exit"
@@ -62809,7 +62809,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %22 = getelementptr inbounds i8, ptr %0, i64 240
   call void @llvm.experimental.noalias.scope.decl(metadata !12399)
   %23 = load i64, ptr %22, align 8, !range !120, !alias.scope !12399, !noundef !9
-  %switch.i = icmp ult i64 %23, 2
+  %switch.i = icmp samesign ult i64 %23, 2
   br i1 %switch.i, label %"_ZN4core3ptr76drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$usize$C$usize$RP$$GT$$GT$17hf864f028f42efb25E.exit", label %24
 
 24:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17ha1b5a8a75114ebfbE.exit"
@@ -63540,7 +63540,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   ]
 
 41:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i"
-  %42 = icmp ugt i32 %40, 127
+  %42 = icmp samesign ugt i32 %40, 127
   br i1 %42, label %43, label %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$15run_term_search4trim28_$u7b$$u7b$closure$u7d$$u7d$17h7d72fd9ae0b00dcfE.exit.thread.i.i.i.i"
 
 43:                                               ; preds = %41
@@ -75237,7 +75237,7 @@ define hidden void @"_ZN13rust_analyzer6config6Config29linked_or_discovered_proj
           to label %common.resume unwind label %62, !noalias !16064
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %31, 5
+  %35 = icmp samesign ult i64 %31, 5
   tail call void @llvm.assume(i1 %35)
   %36 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN13rust_analyzer6config6Config29linked_or_discovered_projects28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd7df1ebd1e5f26beE", i64 16) monotonic, align 8, !noalias !16064
   switch i8 %36, label %37 [
@@ -76130,9 +76130,9 @@ _ZN4core4iter6traits8iterator8Iterator4find17h65e27351fee64b0dE.exit.thread: ; p
   br i1 %26, label %.critedge35.i, label %27
 
 27:                                               ; preds = %23
-  %28 = icmp ult i64 %25, 5
+  %28 = icmp samesign ult i64 %25, 5
   call void @llvm.assume(i1 %28)
-  %29 = icmp ult i64 %25, 4
+  %29 = icmp samesign ult i64 %25, 4
   br i1 %29, label %30, label %.critedge35.i
 
 30:                                               ; preds = %27
@@ -76752,9 +76752,9 @@ _ZN4core4iter6traits8iterator8Iterator4find17h93833007b85721e6E.exit.thread: ; p
   br i1 %26, label %.critedge35.i, label %27
 
 27:                                               ; preds = %23
-  %28 = icmp ult i64 %25, 5
+  %28 = icmp samesign ult i64 %25, 5
   call void @llvm.assume(i1 %28)
-  %29 = icmp ult i64 %25, 4
+  %29 = icmp samesign ult i64 %25, 4
   br i1 %29, label %30, label %.critedge35.i
 
 30:                                               ; preds = %27
@@ -77187,9 +77187,9 @@ _ZN4core4iter6traits8iterator8Iterator4find17he2664fcbb4b128c3E.exit.thread: ; p
   br i1 %27, label %.critedge35.i, label %28
 
 28:                                               ; preds = %24
-  %29 = icmp ult i64 %26, 5
+  %29 = icmp samesign ult i64 %26, 5
   call void @llvm.assume(i1 %29)
-  %30 = icmp ult i64 %26, 4
+  %30 = icmp samesign ult i64 %26, 4
   br i1 %30, label %31, label %.critedge35.i
 
 31:                                               ; preds = %28
@@ -85119,9 +85119,9 @@ define hidden noundef range(i8 0, 6) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -85322,9 +85322,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -85525,9 +85525,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -85728,9 +85728,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -85932,9 +85932,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -86137,9 +86137,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -86342,9 +86342,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -86546,9 +86546,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -86749,9 +86749,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -86952,9 +86952,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -87156,9 +87156,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -87360,9 +87360,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -87565,9 +87565,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -87770,9 +87770,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -87975,9 +87975,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -88179,9 +88179,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -88383,9 +88383,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -88587,9 +88587,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -88790,9 +88790,9 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -88993,9 +88993,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -89196,9 +89196,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -89400,9 +89400,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -89605,9 +89605,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -89809,9 +89809,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -90013,9 +90013,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -90217,9 +90217,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -90420,9 +90420,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -90623,9 +90623,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -90826,9 +90826,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -91030,9 +91030,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -91235,9 +91235,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -91439,9 +91439,9 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -91643,9 +91643,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge34, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge34
 
 25:                                               ; preds = %22
@@ -91847,9 +91847,9 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -92051,9 +92051,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22
@@ -92255,9 +92255,9 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -92458,9 +92458,9 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config9get_field28_
   br i1 %20, label %.critedge35, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 4
+  %23 = icmp samesign ult i64 %19, 4
   br i1 %23, label %24, label %.critedge35
 
 24:                                               ; preds = %21
@@ -92662,9 +92662,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   br i1 %21, label %.critedge33, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, 5
+  %23 = icmp samesign ult i64 %20, 5
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %20, 4
+  %24 = icmp samesign ult i64 %20, 4
   br i1 %24, label %25, label %.critedge33
 
 25:                                               ; preds = %22

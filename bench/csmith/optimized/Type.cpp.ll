@@ -10342,7 +10342,7 @@ define dso_local void @_ZNK4Type16printf_directiveB5cxx11Ev(ptr dead_on_unwind n
           to label %7 unwind label %.loopexit.split-lp
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i64 %6, 7
+  %8 = icmp samesign ugt i64 %6, 7
   %9 = load i32, ptr %1, align 8
   %cond.i = icmp eq i32 %9, 0
   br i1 %8, label %10, label %19

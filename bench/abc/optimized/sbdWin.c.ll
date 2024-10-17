@@ -150,8 +150,8 @@ define noundef ptr @Sbd_ManSatSolver(ptr noundef %0, ptr nocapture noundef reado
   %103 = and i64 %.val232, 536870911
   %104 = icmp ne i64 %103, 536870911
   %narrow.i.not.i.not271 = and i1 %.not.i.i, %104
-  %.not258 = icmp ult i32 %68, %75
-  %or.cond = and i1 %narrow.i.not.i.not271, %.not258
+  %.not258 = icmp samesign ult i32 %68, %75
+  %or.cond = select i1 %narrow.i.not.i.not271, i1 %.not258, i1 false
   %105 = shl nsw i32 %90, 1
   br i1 %or.cond, label %106, label %Gia_ObjIsXor.exit.thread
 
@@ -288,8 +288,8 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %193 = and i64 %.val235, 536870911
   %194 = icmp ne i64 %193, 536870911
   %narrow.i.not.i251.not273 = and i1 %.not.i.i250, %194
-  %.not257 = icmp ult i32 %140, %147
-  %or.cond259 = and i1 %narrow.i.not.i251.not273, %.not257
+  %.not257 = icmp samesign ult i32 %140, %147
+  %or.cond259 = select i1 %narrow.i.not.i251.not273, i1 %.not257, i1 false
   %195 = shl nsw i32 %.0178, 1
   br i1 %or.cond259, label %196, label %Gia_ObjIsXor.exit252.thread
 

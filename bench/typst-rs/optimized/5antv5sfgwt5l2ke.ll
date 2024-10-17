@@ -4777,17 +4777,17 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
 
 177:                                              ; preds = %159
   tail call void @llvm.experimental.noalias.scope.decl(metadata !886)
-  %178 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %178 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %178, label %.critedge.i, label %179
 
 179:                                              ; preds = %177
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !886
-  %180 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %180 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %180, label %183, label %181
 
 181:                                              ; preds = %179
-  %182 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %182 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   br i1 %182, label %190, label %201
 
 183:                                              ; preds = %179

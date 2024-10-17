@@ -983,7 +983,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %46, %50
   %61 = lshr i32 %57, 6
   %62 = add i32 %58, -1
   %63 = lshr i32 %62, 6
-  %.not32.i.i.i.i = icmp ugt i32 %61, %63
+  %.not32.i.i.i.i = icmp samesign ugt i32 %61, %63
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %60
@@ -1391,7 +1391,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %17
   %53 = lshr i32 %50, 6
   %54 = add i32 %49, -1
   %55 = lshr i32 %54, 6
-  %.not32.i.i.i.i = icmp ugt i32 %53, %55
+  %.not32.i.i.i.i = icmp samesign ugt i32 %53, %55
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %52

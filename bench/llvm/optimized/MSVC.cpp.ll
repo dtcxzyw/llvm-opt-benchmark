@@ -5631,8 +5631,8 @@ thread-pre-split.thread:                          ; preds = %189, %193, %197, %t
   %236 = and i64 %235, 2147483648
   %.not88 = icmp ne i64 %236, 0
   %.sroa.0.0.extract.trunc89 = and i64 %235, 2147483646
-  %237 = icmp ugt i64 %.sroa.0.0.extract.trunc89, 17133
-  %238 = and i1 %.not88, %237
+  %237 = icmp samesign ugt i64 %.sroa.0.0.extract.trunc89, 17133
+  %238 = select i1 %.not88, i1 %237, i1 false
   br i1 %238, label %239, label %.critedge
 
 239:                                              ; preds = %233

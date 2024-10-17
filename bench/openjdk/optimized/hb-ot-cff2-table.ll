@@ -5741,7 +5741,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.prehea
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %23, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26 ]
   %16 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %14, i64 0, i64 %indvars.iv
   %17 = or disjoint i64 %indvars.iv, 1
-  %.not.i.i24 = icmp ult i64 %17, 11
+  %.not.i.i24 = icmp samesign ult i64 %17, 11
   br i1 %.not.i.i24, label %19, label %18
 
 18:                                               ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -5760,7 +5760,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %18, %
   %23 = fadd double %.sroa.0.065, %22
   %24 = fadd double %.sroa.4.066, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = icmp ult i64 %indvars.iv, 8
+  %25 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %25, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !27
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26
@@ -6690,7 +6690,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijP
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
   %.02940 = phi float [ 1.000000e+00, %.lr.ph.preheader ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
-  %33 = icmp ult i64 %indvars.iv, %32
+  %33 = icmp samesign ult i64 %indvars.iv, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.lr.ph
@@ -8240,7 +8240,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff2_path_procs_path_tN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %19 = load i32, ptr %8, align 4
   %20 = zext i32 %19 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv55, %20
+  %.not.i.i = icmp samesign ult i64 %indvars.iv55, %20
   br i1 %.not.i.i, label %22, label %21
 
 21:                                               ; preds = %18
@@ -8255,7 +8255,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff2_path_procs_path_tN
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
   %.0.i.i = phi ptr [ @_hb_CrapPool, %21 ], [ %23, %22 ]
   %24 = or disjoint i64 %indvars.iv55, 1
-  %.not.i.i29 = icmp ult i64 %24, %20
+  %.not.i.i29 = icmp samesign ult i64 %24, %20
   br i1 %.not.i.i29, label %26, label %25
 
 25:                                               ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -9990,7 +9990,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.prehea
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %23, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26 ]
   %16 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %14, i64 0, i64 %indvars.iv
   %17 = or disjoint i64 %indvars.iv, 1
-  %.not.i.i24 = icmp ult i64 %17, 11
+  %.not.i.i24 = icmp samesign ult i64 %17, 11
   br i1 %.not.i.i24, label %19, label %18
 
 18:                                               ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -10009,7 +10009,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %18, %
   %23 = fadd double %.sroa.0.065, %22
   %24 = fadd double %.sroa.4.066, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = icmp ult i64 %indvars.iv, 8
+  %25 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %25, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !43
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit26

@@ -595,7 +595,7 @@ define void @Rtm_ObjRetimeFwd(ptr nocapture noundef %0, ptr nocapture noundef %1
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %15 = load i32, ptr %gep, align 8
   %16 = and i32 %15, 4095
-  %17 = icmp ugt i32 %16, 10
+  %17 = icmp samesign ugt i32 %16, 10
   %18 = add i32 %15, 4095
   %19 = and i32 %18, 4095
   br i1 %17, label %20, label %37
@@ -685,7 +685,7 @@ Rtm_ObjRemFirst.exit:                             ; preds = %Rtm_ObjRemFirst2.ex
   %62 = lshr i32 %54, 7
   %63 = and i32 %62, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %14, label %.critedge.preheader, !llvm.loop !12
 
 66:                                               ; preds = %.lr.ph31, %Rtm_ObjAddLast.exit
@@ -836,7 +836,7 @@ Rtm_ObjTransferToBigger.exit.i:                   ; preds = %125, %._crit_edge.i
 150:                                              ; preds = %Rtm_ObjTransferToBigger.exit.i, %106, %Rtm_ObjTransferToBig.exit.i
   %151 = phi i32 [ %76, %106 ], [ %.pre16.i, %Rtm_ObjTransferToBigger.exit.i ], [ %105, %Rtm_ObjTransferToBig.exit.i ]
   %152 = and i32 %151, 4094
-  %153 = icmp ugt i32 %152, 9
+  %153 = icmp samesign ugt i32 %152, 9
   br i1 %153, label %154, label %171
 
 154:                                              ; preds = %150
@@ -922,7 +922,7 @@ define void @Rtm_ObjRetimeBwd(ptr nocapture noundef %0, ptr nocapture noundef %1
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 4095
-  %24 = icmp ugt i32 %23, 10
+  %24 = icmp samesign ugt i32 %23, 10
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %12
@@ -999,7 +999,7 @@ Rtm_ObjRemLast.exit:                              ; preds = %58, %61
   %72 = lshr i32 %71, 7
   %73 = and i32 %72, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %.critedge, label %.critedge2, !llvm.loop !15
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
@@ -1154,7 +1154,7 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
 85:                                               ; preds = %37, %Rtm_ObjTransferToBigger.exit, %Rtm_ObjTransferToBig.exit
   %86 = phi i32 [ %4, %37 ], [ %.pre18, %Rtm_ObjTransferToBigger.exit ], [ %36, %Rtm_ObjTransferToBig.exit ]
   %87 = and i32 %86, 4094
-  %88 = icmp ugt i32 %87, 9
+  %88 = icmp samesign ugt i32 %87, 9
   br i1 %88, label %89, label %110
 
 89:                                               ; preds = %85
@@ -1340,7 +1340,7 @@ define void @Rtm_ObjMarkAutoBwd_rec(ptr nocapture noundef %0) local_unnamed_addr
   %14 = lshr i32 %13, 7
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %9, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %9, %5, %1
@@ -2323,7 +2323,7 @@ define ptr @Rtm_ManToAig_rec(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %52
 
 25:                                               ; preds = %15
-  %26 = icmp ugt i32 %18, 10
+  %26 = icmp samesign ugt i32 %18, 10
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
@@ -2378,7 +2378,7 @@ Rtm_ObjGetFirst.exit:                             ; preds = %27, %32
   %61 = lshr i32 %60, 7
   %62 = and i32 %61, 255
   %63 = zext nneg i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %15, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %52, %6
@@ -2613,7 +2613,7 @@ define ptr @Rtm_ManToAig(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %.0100141 = phi i32 [ %143, %Rtm_ObjGetOne.exit ], [ 0, %.lr.ph143.preheader ]
   %106 = xor i32 %.0100141, -1
   %107 = add nsw i32 %104, %106
-  %108 = icmp ugt i32 %104, 10
+  %108 = icmp samesign ugt i32 %104, 10
   br i1 %108, label %109, label %120
 
 109:                                              ; preds = %.lr.ph143
@@ -2662,7 +2662,7 @@ Rtm_ObjGetOne.exit:                               ; preds = %109, %120
   %143 = add nuw nsw i32 %.0100141, 1
   %144 = load i32, ptr %gep147, align 8
   %145 = and i32 %144, 4095
-  %146 = icmp ult i32 %143, %145
+  %146 = icmp samesign ult i32 %143, %145
   br i1 %146, label %.lr.ph143, label %.loopexit.loopexit, !llvm.loop !40
 
 .loopexit.loopexit:                               ; preds = %Rtm_ObjGetOne.exit
@@ -2675,7 +2675,7 @@ Rtm_ObjGetOne.exit:                               ; preds = %109, %120
   %148 = lshr i32 %147, 7
   %149 = and i32 %148, 255
   %150 = zext nneg i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next173, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next173, %150
   br i1 %151, label %93, label %.critedge12.loopexit, !llvm.loop !41
 
 .critedge12.loopexit:                             ; preds = %.loopexit
@@ -3561,7 +3561,7 @@ Rtm_ObjCheckRetimeBwd.exit:                       ; preds = %338, %Rtm_ObjGetDeg
   %391 = lshr i32 %390, 7
   %392 = and i32 %391, 255
   %393 = zext nneg i32 %392 to i64
-  %394 = icmp ult i64 %indvars.iv.next309, %393
+  %394 = icmp samesign ult i64 %indvars.iv.next309, %393
   br i1 %394, label %319, label %.critedge10, !llvm.loop !48
 
 .critedge10:                                      ; preds = %Rtm_ObjCheckRetimeFwd.exit, %Rtm_ObjCheckRetimeBwd.exit, %243, %315

@@ -314,7 +314,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
   br i1 %104, label %.lr.ph360, label %._crit_edge361
 
 .lr.ph360:                                        ; preds = %.lr.ph370.split
-  %105 = icmp ult i64 %indvars.iv398, %98
+  %105 = icmp samesign ult i64 %indvars.iv398, %98
   %106 = mul nsw i64 %23, %indvars.iv398
   %107 = getelementptr inbounds i8, ptr %.0232, i64 %106
   %108 = sext i32 %.1219 to i64
@@ -459,7 +459,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
 ._crit_edge361:                                   ; preds = %170, %171, %.lr.ph370.split
   %.1214.lcssa = phi i32 [ %.0213368, %.lr.ph370.split ], [ %137, %171 ], [ %.1214358, %170 ]
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
-  %.not.not = icmp ult i64 %indvars.iv398, %98
+  %.not.not = icmp samesign ult i64 %indvars.iv398, %98
   br i1 %.not.not, label %.lr.ph370.split, label %._crit_edge371, !llvm.loop !8
 
 ._crit_edge371:                                   ; preds = %._crit_edge361, %.lr.ph370, %90
@@ -1848,7 +1848,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   %.0300.in = phi i32 [ %21, %.preheader ], [ %.0300, %228 ]
   %.0300 = lshr i32 %.0300.in, 1
   %indvars.iv.next506 = add nsw i64 %indvars.iv505, -1
-  %.not370 = icmp ult i32 %.0300.in, 2
+  %.not370 = icmp samesign ult i32 %.0300.in, 2
   br i1 %.not370, label %ompi_datatype_copy_content_same_ddt.exit.thread427, label %205
 
 205:                                              ; preds = %204

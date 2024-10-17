@@ -641,7 +641,7 @@ define dso_local noundef zeroext i1 @drm_edid_is_valid(ptr noundef %0) #3 align 
   %6 = add nuw nsw i64 %11, 1
   %7 = load i8, ptr %4, align 1
   %8 = zext i8 %7 to i64
-  %9 = icmp ult i64 %11, %8
+  %9 = icmp samesign ult i64 %11, %8
   br i1 %9, label %10, label %.loopexit, !llvm.loop !14
 
 10:                                               ; preds = %5, %3
@@ -709,7 +709,7 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly %0) #3 
   %36 = getelementptr i8, ptr %5, i64 133
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 120
-  %39 = icmp ugt i8 %32, 1
+  %39 = icmp samesign ugt i8 %32, 1
   %40 = and i1 %39, %38
   br i1 %40, label %41, label %.thread
 
@@ -778,7 +778,7 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly %0) #3 
   %77 = getelementptr i8, ptr %.pre22, i64 133
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 120
-  %80 = icmp ugt i8 %73, 1
+  %80 = icmp samesign ugt i8 %73, 1
   %81 = and i1 %80, %79
   br i1 %81, label %82, label %.thread8
 
@@ -2026,7 +2026,7 @@ select.unfold35:                                  ; preds = %197
   %243 = getelementptr i8, ptr %175, i64 133
   %244 = load i8, ptr %243, align 1
   %245 = icmp eq i8 %244, 120
-  %246 = icmp ugt i8 %239, 1
+  %246 = icmp samesign ugt i8 %239, 1
   %247 = and i1 %246, %245
   br i1 %247, label %248, label %.thread43
 
@@ -2065,7 +2065,7 @@ select.unfold45:                                  ; preds = %.split96.us
   %.ph50 = phi ptr [ %175, %select.unfold45 ], [ %260, %257 ], [ %175, %254 ], [ %175, %213 ]
   %264 = add nuw nsw i64 %174, 1
   %265 = zext nneg i32 %.ph48 to i64
-  %266 = icmp ult i64 %264, %265
+  %266 = icmp samesign ult i64 %264, %265
   br i1 %266, label %.preheader72, label %267, !llvm.loop !20
 
 267:                                              ; preds = %263
@@ -3468,7 +3468,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %40 = getelementptr i8, ptr %7, i64 133
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 120
-  %43 = icmp ugt i8 %36, 1
+  %43 = icmp samesign ugt i8 %36, 1
   %44 = and i1 %43, %42
   br i1 %44, label %45, label %.thread
 
@@ -3645,7 +3645,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   br i1 %142, label %.split18.us, label %.thread9.us23.us36, !llvm.loop !47
 
 .split.split.split.us.split.split.split:          ; preds = %.split.split.split.us.split.split
-  %143 = icmp ugt i8 %129, 1
+  %143 = icmp samesign ugt i8 %129, 1
   %144 = load i8, ptr %72, align 1
   %145 = icmp eq i8 %144, 120
   %146 = and i1 %143, %145
@@ -3773,7 +3773,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
 220:                                              ; preds = %214
   %221 = load i8, ptr %195, align 1
   %222 = icmp eq i8 %221, 120
-  %223 = icmp ugt i8 %217, 1
+  %223 = icmp samesign ugt i8 %217, 1
   %224 = and i1 %223, %222
   br i1 %224, label %225, label %.split18.us.thread
 
@@ -4140,7 +4140,7 @@ define internal fastcc i32 @get_monitor_name(ptr noundef readonly %0, ptr nounde
 67:                                               ; preds = %61
   %68 = load i8, ptr %42, align 1
   %69 = icmp eq i8 %68, 120
-  %70 = icmp ugt i8 %64, 1
+  %70 = icmp samesign ugt i8 %64, 1
   %71 = and i1 %70, %69
   br i1 %71, label %72, label %.thread
 
@@ -4394,7 +4394,7 @@ define dso_local range(i32 -12, 11) i32 @drm_edid_to_sad(ptr noundef %0, ptr noc
   br i1 %30, label %56, label %31
 
 31:                                               ; preds = %24
-  %32 = icmp ult i8 %25, 3
+  %32 = icmp samesign ult i8 %25, 3
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %31
@@ -4609,7 +4609,7 @@ define dso_local noundef zeroext i1 @drm_detect_hdmi_monitor(ptr noundef %0) #3 
   %19 = and i8 %18, -32
   %20 = icmp eq i8 %19, 96
   %21 = and i8 %18, 31
-  %22 = icmp ugt i8 %21, 2
+  %22 = icmp samesign ugt i8 %21, 2
   %23 = and i1 %20, %22
   br i1 %23, label %24, label %36
 
@@ -4623,7 +4623,7 @@ define dso_local noundef zeroext i1 @drm_detect_hdmi_monitor(ptr noundef %0) #3 
   %31 = zext i8 %30 to i32
   %32 = or disjoint i32 %29, %31
   %33 = icmp eq i32 %32, 3075
-  %34 = icmp ugt i8 %21, 4
+  %34 = icmp samesign ugt i8 %21, 4
   %35 = and i1 %34, %33
   br i1 %35, label %.loopexit, label %36
 
@@ -4787,7 +4787,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #3
 73:                                               ; preds = %67
   %74 = load i8, ptr %20, align 1
   %75 = icmp eq i8 %74, 120
-  %76 = icmp ugt i8 %70, 1
+  %76 = icmp samesign ugt i8 %70, 1
   %77 = and i1 %76, %75
   br i1 %77, label %78, label %.thread
 
@@ -4869,7 +4869,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #3
   %112 = load i8, ptr %96, align 1
   %113 = and i8 %112, 31
   %114 = zext nneg i8 %113 to i64
-  %115 = icmp ult i64 %111, %114
+  %115 = icmp samesign ult i64 %111, %114
   br i1 %115, label %.preheader, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %95, %.preheader, %101
@@ -5121,7 +5121,7 @@ get_monitor_range.exit66:                         ; preds = %76, %84, %88, %92, 
   %152 = getelementptr i8, ptr %121, i64 133
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %153, 120
-  %155 = icmp ugt i8 %148, 1
+  %155 = icmp samesign ugt i8 %148, 1
   %156 = and i1 %155, %154
   br i1 %156, label %157, label %.thread.i
 
@@ -5435,7 +5435,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %353 = getelementptr i8, ptr %322, i64 133
   %354 = load i8, ptr %353, align 1
   %355 = icmp eq i8 %354, 120
-  %356 = icmp ugt i8 %349, 1
+  %356 = icmp samesign ugt i8 %349, 1
   %357 = and i1 %356, %355
   br i1 %357, label %358, label %.thread
 
@@ -5586,7 +5586,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %452 = and i8 %451, -32
   %453 = icmp eq i8 %452, 96
   %454 = and i8 %451, 31
-  %455 = icmp ugt i8 %454, 2
+  %455 = icmp samesign ugt i8 %454, 2
   %456 = and i1 %453, %455
   br i1 %456, label %457, label %617
 
@@ -5600,7 +5600,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %464 = zext i8 %463 to i32
   %465 = or disjoint i32 %462, %464
   %466 = icmp eq i32 %465, 3075
-  %467 = icmp ugt i8 %454, 4
+  %467 = icmp samesign ugt i8 %454, 4
   %468 = and i1 %467, %466
   br i1 %468, label %469, label %613
 
@@ -5615,7 +5615,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %476 = zext i8 %475 to i16
   %477 = or disjoint i16 %473, %476
   store i16 %477, ptr %20, align 8
-  %478 = icmp ugt i8 %454, 5
+  %478 = icmp samesign ugt i8 %454, 5
   br i1 %478, label %479, label %.thread75
 
 479:                                              ; preds = %469
@@ -5632,7 +5632,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %486 = zext i8 %485 to i32
   %487 = mul nuw nsw i32 %486, 5000
   store i32 %487, ptr %11, align 8
-  %488 = icmp ugt i8 %454, 7
+  %488 = icmp samesign ugt i8 %454, 7
   br i1 %488, label %489, label %.thread75
 
 489:                                              ; preds = %483
@@ -5667,7 +5667,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   store i32 8, ptr %9, align 8
   %507 = load i8, ptr %449, align 1
   %508 = and i8 %507, 30
-  %509 = icmp ult i8 %508, 6
+  %509 = icmp samesign ult i8 %508, 6
   br i1 %509, label %.thread84, label %510
 
 510:                                              ; preds = %500
@@ -5847,7 +5847,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
 
 613:                                              ; preds = %457
   %614 = icmp eq i32 %465, 12869080
-  %615 = icmp ugt i8 %454, 6
+  %615 = icmp samesign ugt i8 %454, 6
   %616 = and i1 %615, %614
   br i1 %616, label %627, label %755
 
@@ -5861,7 +5861,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %622 = getelementptr inbounds i8, ptr %449, i64 1
   %623 = load i8, ptr %622, align 1
   %624 = icmp eq i8 %623, 121
-  %625 = icmp ugt i8 %454, 6
+  %625 = icmp samesign ugt i8 %454, 6
   %626 = and i1 %625, %624
   br i1 %626, label %627, label %.thread79
 
@@ -5968,7 +5968,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   store i8 %673, ptr %435, align 8
   %675 = load i8, ptr %449, align 1
   %676 = and i8 %675, 31
-  %677 = icmp ugt i8 %676, 10
+  %677 = icmp samesign ugt i8 %676, 10
   br i1 %677, label %678, label %744
 
 678:                                              ; preds = %672
@@ -6014,7 +6014,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   store i8 %704, ptr %438, align 1
   %705 = load i8, ptr %449, align 1
   %706 = and i8 %705, 28
-  %707 = icmp ugt i8 %706, 11
+  %707 = icmp samesign ugt i8 %706, 11
   br i1 %707, label %708, label %734
 
 708:                                              ; preds = %703
@@ -6098,7 +6098,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
 734:                                              ; preds = %731, %708, %703
   %735 = phi i8 [ %.pre108, %731 ], [ %705, %708 ], [ %705, %703 ]
   %736 = and i8 %735, 31
-  %737 = icmp ugt i8 %736, 12
+  %737 = icmp samesign ugt i8 %736, 12
   br i1 %737, label %738, label %744
 
 738:                                              ; preds = %734
@@ -6190,7 +6190,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   br i1 %789, label %.thread80, label %790
 
 790:                                              ; preds = %785
-  %791 = icmp ugt i8 %454, 9
+  %791 = icmp samesign ugt i8 %454, 9
   br i1 %791, label %792, label %793, !prof !8
 
 792:                                              ; preds = %790
@@ -6334,7 +6334,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %879 = load i8, ptr %878, align 1
   %880 = and i8 %879, 1
   store i8 %880, ptr %419, align 1
-  %881 = icmp ugt i8 %454, 3
+  %881 = icmp samesign ugt i8 %454, 3
   br i1 %881, label %882, label %.thread84
 
 882:                                              ; preds = %874
@@ -6350,7 +6350,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %888 = load i8, ptr %887, align 1
   %889 = zext i8 %888 to i16
   store i16 %889, ptr %421, align 4
-  %890 = icmp ugt i8 %454, 5
+  %890 = icmp samesign ugt i8 %454, 5
   br i1 %890, label %891, label %.thread84
 
 891:                                              ; preds = %886
@@ -6766,7 +6766,7 @@ default.unreachable118:                           ; preds = %1100
   %1117 = load i8, ptr %1101, align 1
   %1118 = and i8 %1117, 15
   store i8 %1118, ptr %16, align 1
-  %1119 = icmp ugt i8 %1118, 8
+  %1119 = icmp samesign ugt i8 %1118, 8
   br i1 %1119, label %1120, label %1131
 
 1120:                                             ; preds = %.critedge
@@ -6994,7 +6994,7 @@ thread-pre-split.thread:                          ; preds = %999, %.loopexit89, 
 1260:                                             ; preds = %1234
   %1261 = and i8 %1238, -32
   %1262 = icmp eq i8 %1261, 96
-  %1263 = icmp ugt i8 %1239, 2
+  %1263 = icmp samesign ugt i8 %1239, 2
   %1264 = and i1 %1262, %1263
   br i1 %1264, label %1265, label %1327
 
@@ -7007,12 +7007,12 @@ thread-pre-split.thread:                          ; preds = %999, %.loopexit89, 
   %1271 = zext i8 %1270 to i32
   %1272 = or disjoint i32 %1269, %1271
   %1273 = icmp eq i32 %1272, 3075
-  %1274 = icmp ugt i8 %1239, 4
+  %1274 = icmp samesign ugt i8 %1239, 4
   %1275 = and i1 %1274, %1273
   br i1 %1275, label %1276, label %1327
 
 1276:                                             ; preds = %1265
-  %1277 = icmp ugt i8 %1239, 5
+  %1277 = icmp samesign ugt i8 %1239, 5
   br i1 %1277, label %1278, label %.thread87
 
 1278:                                             ; preds = %1276
@@ -7028,7 +7028,7 @@ thread-pre-split.thread:                          ; preds = %999, %.loopexit89, 
   br label %1285
 
 1285:                                             ; preds = %1282, %1278
-  %1286 = icmp ugt i8 %1239, 9
+  %1286 = icmp samesign ugt i8 %1239, 9
   br i1 %1286, label %1287, label %.thread87
 
 1287:                                             ; preds = %1285
@@ -7050,7 +7050,7 @@ thread-pre-split.thread:                          ; preds = %999, %.loopexit89, 
   br label %1298
 
 1298:                                             ; preds = %1291, %1287
-  %1299 = icmp ugt i8 %1239, 11
+  %1299 = icmp samesign ugt i8 %1239, 11
   br i1 %1299, label %1300, label %.thread87
 
 1300:                                             ; preds = %1298
@@ -7353,7 +7353,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
   %121 = getelementptr i8, ptr %90, i64 133
   %122 = load i8, ptr %121, align 1
   %123 = icmp eq i8 %122, 120
-  %124 = icmp ugt i8 %117, 1
+  %124 = icmp samesign ugt i8 %117, 1
   %125 = and i1 %124, %123
   br i1 %125, label %126, label %.thread.i
 
@@ -7689,7 +7689,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %322 = and i8 %321, -32
   %323 = icmp eq i8 %322, 96
   %324 = and i8 %321, 31
-  %325 = icmp ugt i8 %324, 2
+  %325 = icmp samesign ugt i8 %324, 2
   %326 = and i1 %323, %325
   br i1 %326, label %327, label %715
 
@@ -7703,13 +7703,13 @@ drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %334 = zext i8 %333 to i32
   %335 = or disjoint i32 %332, %334
   %336 = icmp eq i32 %335, 3075
-  %337 = icmp ugt i8 %324, 4
+  %337 = icmp samesign ugt i8 %324, 4
   %338 = and i1 %337, %336
   br i1 %338, label %339, label %.thread103
 
 339:                                              ; preds = %327
   %340 = zext nneg i8 %324 to i32
-  %341 = icmp ult i8 %324, 8
+  %341 = icmp samesign ult i8 %324, 8
   br i1 %341, label %.thread102, label %342
 
 342:                                              ; preds = %339
@@ -7726,7 +7726,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %351 = select i1 %348, i8 4, i8 %350
   %352 = zext nneg i8 %351 to i32
   %353 = add nuw nsw i32 %352, 10
-  %354 = icmp ugt i32 %353, %340
+  %354 = icmp samesign ugt i32 %353, %340
   br i1 %354, label %.thread102, label %355
 
 355:                                              ; preds = %347
@@ -7865,7 +7865,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %441 = phi i64 [ 0, %435 ], [ %470, %467 ]
   %442 = phi i32 [ %429, %435 ], [ %469, %467 ]
   %443 = add nuw nsw i64 %441, %437
-  %444 = icmp ugt i64 %443, %438
+  %444 = icmp samesign ugt i64 %443, %438
   br i1 %444, label %.loopexit124, label %445
 
 445:                                              ; preds = %440
@@ -7924,7 +7924,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %481 = add nsw i32 %480, -1
   %482 = add nsw i32 %481, %479
   %483 = icmp sgt i32 %482, %340
-  %484 = icmp ugt i32 %478, %480
+  %484 = icmp samesign ugt i32 %478, %480
   %485 = or i1 %484, %483
   br i1 %485, label %.thread102, label %486
 
@@ -8972,7 +8972,7 @@ define dso_local i32 @drm_add_edid_modes(ptr noundef %0, ptr noundef %1) #3 alig
   %8 = add nuw nsw i64 %13, 1
   %9 = load i8, ptr %6, align 1
   %10 = zext i8 %9 to i64
-  %11 = icmp ult i64 %13, %10
+  %11 = icmp samesign ult i64 %13, %10
   br i1 %11, label %12, label %29, !llvm.loop !14
 
 12:                                               ; preds = %7, %5
@@ -9037,14 +9037,14 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
-  %16 = icmp ult i32 %5, %15
+  %16 = icmp samesign ult i32 %5, %15
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %.split.us
   %18 = getelementptr inbounds i8, ptr %12, i64 14
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
-  %21 = icmp ult i32 %6, %20
+  %21 = icmp samesign ult i32 %6, %20
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %17
@@ -9747,7 +9747,7 @@ define internal fastcc void @connector_bad_edid(ptr nocapture noundef %0, ptr no
   %4 = getelementptr inbounds i8, ptr %1, i64 126
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = icmp ugt i32 %2, %6
+  %7 = icmp samesign ugt i32 %2, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3
@@ -9917,7 +9917,7 @@ edid_block_check.exit:                            ; preds = %47, %46, %51
   %58 = add nuw nsw i64 %5, 1
   %59 = load i8, ptr %3, align 1
   %60 = zext i8 %59 to i64
-  %61 = icmp ult i64 %5, %60
+  %61 = icmp samesign ult i64 %5, %60
   br i1 %61, label %4, label %62, !llvm.loop !98
 
 62:                                               ; preds = %.thread
@@ -10045,7 +10045,7 @@ define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly %0
   %46 = getelementptr i8, ptr %15, i64 133
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 120
-  %49 = icmp ugt i8 %42, 1
+  %49 = icmp samesign ugt i8 %42, 1
   %50 = and i1 %49, %48
   br i1 %50, label %51, label %.thread
 
@@ -10263,7 +10263,7 @@ define internal fastcc noundef ptr @__cea_db_iter_next(ptr noundef %0) unnamed_a
   %77 = getelementptr i8, ptr %45, i64 133
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 120
-  %80 = icmp ugt i8 %73, 1
+  %80 = icmp samesign ugt i8 %73, 1
   %81 = and i1 %80, %79
   br i1 %81, label %82, label %.thread18
 
@@ -10350,7 +10350,7 @@ define internal fastcc noundef ptr @__cea_db_iter_next(ptr noundef %0) unnamed_a
   store i32 %storemerge, ptr %39, align 4
   store ptr %123, ptr %2, align 8
   %124 = zext nneg i32 %storemerge to i64
-  %.not = icmp ult i64 %122, %124
+  %.not = icmp samesign ult i64 %122, %124
   br i1 %.not, label %125, label %133
 
 125:                                              ; preds = %121
@@ -10360,7 +10360,7 @@ define internal fastcc noundef ptr @__cea_db_iter_next(ptr noundef %0) unnamed_a
   %129 = and i8 %128, 31
   %130 = zext nneg i8 %129 to i64
   %131 = add nuw nsw i64 %126, %130
-  %132 = icmp ugt i64 %131, %124
+  %132 = icmp samesign ugt i64 %131, %124
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %125, %121
@@ -10470,8 +10470,8 @@ define internal void @do_detailed_mode(ptr nocapture noundef readonly %0, ptr no
   %62 = and i32 %50, 48
   %63 = and i32 %59, 15
   %64 = or disjoint i32 %63, %62
-  %65 = icmp ult i32 %19, 64
-  %66 = icmp ult i32 %28, 64
+  %65 = icmp samesign ult i32 %19, 64
+  %66 = icmp samesign ult i32 %28, 64
   %67 = select i1 %65, i1 true, i1 %66
   br i1 %67, label %.thread, label %68
 
@@ -10610,7 +10610,7 @@ define internal void @do_detailed_mode(ptr nocapture noundef readonly %0, ptr no
   %155 = add nuw nsw i16 %154, %146
   %156 = getelementptr inbounds i8, ptr %123, i64 20
   store i16 %155, ptr %156, align 4
-  %157 = icmp ult i16 %144, %141
+  %157 = icmp samesign ult i16 %144, %141
   br i1 %157, label %158, label %171
 
 158:                                              ; preds = %133
@@ -11432,7 +11432,7 @@ get_timing_level.exit23:                          ; preds = %33, %34, %17, %22, 
 72:                                               ; preds = %66
   %73 = load i8, ptr %49, align 1
   %74 = icmp eq i8 %73, 120
-  %75 = icmp ugt i8 %69, 1
+  %75 = icmp samesign ugt i8 %69, 1
   %76 = and i1 %75, %74
   br i1 %76, label %77, label %.thread.i
 
@@ -11856,7 +11856,7 @@ is_rb.exit25:                                     ; preds = %275, %258, %263, %2
 316:                                              ; preds = %310
   %317 = load i8, ptr %293, align 1
   %318 = icmp eq i8 %317, 120
-  %319 = icmp ugt i8 %313, 1
+  %319 = icmp samesign ugt i8 %313, 1
   %320 = and i1 %319, %318
   br i1 %320, label %321, label %.thread.i16
 
@@ -12308,7 +12308,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 87:                                               ; preds = %81
   %88 = load i8, ptr %62, align 1
   %89 = icmp eq i8 %88, 120
-  %90 = icmp ugt i8 %84, 1
+  %90 = icmp samesign ugt i8 %84, 1
   %91 = and i1 %90, %89
   br i1 %91, label %92, label %.thread39
 
@@ -12533,7 +12533,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 233:                                              ; preds = %227
   %234 = load i8, ptr %62, align 1
   %235 = icmp eq i8 %234, 120
-  %236 = icmp ugt i8 %230, 1
+  %236 = icmp samesign ugt i8 %230, 1
   %237 = and i1 %236, %235
   br i1 %237, label %238, label %.thread45
 
@@ -12758,7 +12758,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 379:                                              ; preds = %373
   %380 = load i8, ptr %62, align 1
   %381 = icmp eq i8 %380, 120
-  %382 = icmp ugt i8 %376, 1
+  %382 = icmp samesign ugt i8 %376, 1
   %383 = and i1 %382, %381
   br i1 %383, label %384, label %.thread52
 
@@ -12983,7 +12983,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 525:                                              ; preds = %519
   %526 = load i8, ptr %62, align 1
   %527 = icmp eq i8 %526, 120
-  %528 = icmp ugt i8 %522, 1
+  %528 = icmp samesign ugt i8 %522, 1
   %529 = and i1 %528, %527
   br i1 %529, label %530, label %.thread61
 
@@ -13244,7 +13244,7 @@ define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readon
 67:                                               ; preds = %61
   %68 = load i8, ptr %42, align 1
   %69 = icmp eq i8 %68, 120
-  %70 = icmp ugt i8 %64, 1
+  %70 = icmp samesign ugt i8 %64, 1
   %71 = and i1 %70, %69
   br i1 %71, label %72, label %.thread
 
@@ -14366,7 +14366,7 @@ define internal fastcc noundef zeroext i1 @mode_in_range(ptr noundef %0, ptr nou
   %122 = shl nuw nsw i32 %121, 11
   %123 = shl nuw nsw i32 %114, 3
   %124 = or disjoint i32 %122, %123
-  %125 = icmp ult i32 %124, %117
+  %125 = icmp samesign ult i32 %124, %117
   br i1 %125, label %171, label %126
 
 126:                                              ; preds = %113, %109, %105, %.thread5

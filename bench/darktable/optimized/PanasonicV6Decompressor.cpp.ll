@@ -171,7 +171,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
   %58 = load i32, ptr %57, align 8, !tbaa !17
   %59 = getelementptr inbounds i8, ptr %2, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !21
-  %61 = icmp uge i32 %58, %60
+  %61 = icmp samesign uge i32 %58, %60
   tail call void @llvm.assume(i1 %61)
   %62 = icmp sgt i32 %58, -1
   tail call void @llvm.assume(i1 %62)
@@ -182,7 +182,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
   %66 = load i32, ptr %65, align 4, !tbaa !93
   %67 = udiv i32 %64, %66
   %68 = zext i32 %67 to i64
-  %69 = icmp ugt i64 %56, %68
+  %69 = icmp samesign ugt i64 %56, %68
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %51
@@ -209,7 +209,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
   %81 = zext i32 %79 to i64
   %82 = add nuw nsw i64 %81, %80
   %83 = zext nneg i32 %58 to i64
-  %84 = icmp ugt i64 %82, %83
+  %84 = icmp samesign ugt i64 %82, %83
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %78, %74
@@ -224,7 +224,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
 89:                                               ; preds = %78
   %90 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !94, !nonnull !101, !noundef !101
   %91 = add nuw nsw i32 %79, %60
-  %92 = icmp ule i32 %91, %58
+  %92 = icmp samesign ule i32 %91, %58
   tail call void @llvm.assume(i1 %92)
   %93 = icmp sgt i32 %79, -1
   tail call void @llvm.assume(i1 %93)
@@ -527,7 +527,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !17, !noalias !115
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
@@ -575,7 +575,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   tail call void @llvm.assume(i1 %49)
   %50 = icmp sgt i32 %45, -1
   tail call void @llvm.assume(i1 %50)
-  %51 = icmp uge i32 %45, %40
+  %51 = icmp samesign uge i32 %45, %40
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i32 %40, 0
   %53 = icmp ne i32 %42, 0
@@ -610,7 +610,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %76 = phi i32 [ 0, %33 ], [ %215, %214 ]
   call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %3) #16
   %77 = add nuw nsw i64 %74, 16
-  %78 = icmp ugt i64 %77, %15
+  %78 = icmp samesign ugt i64 %77, %15
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %73
@@ -786,7 +786,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %201 = phi i32 [ %199, %197 ], [ %193, %196 ], [ %190, %188 ]
   %202 = add nsw i32 %201, -15
   %203 = icmp ult i32 %202, 16384
-  %204 = icmp ult i64 %145, %72
+  %204 = icmp samesign ult i64 %145, %72
   tail call void @llvm.assume(i1 %204)
   %205 = getelementptr inbounds i16, ptr %71, i64 %145
   %206 = trunc i32 %202 to i16
@@ -841,7 +841,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !17, !noalias !129
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
@@ -889,7 +889,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   tail call void @llvm.assume(i1 %49)
   %50 = icmp sgt i32 %45, -1
   tail call void @llvm.assume(i1 %50)
-  %51 = icmp uge i32 %45, %40
+  %51 = icmp samesign uge i32 %45, %40
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i32 %40, 0
   %53 = icmp ne i32 %42, 0
@@ -925,7 +925,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %77 = phi i32 [ 0, %33 ], [ %206, %205 ]
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #16
   %78 = add nuw nsw i64 %75, 16
-  %79 = icmp ugt i64 %78, %15
+  %79 = icmp samesign ugt i64 %78, %15
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %74
@@ -1092,7 +1092,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
 192:                                              ; preds = %189, %188, %180
   %193 = phi i32 [ %191, %189 ], [ %185, %188 ], [ %182, %180 ]
   %194 = add nsw i32 %193, -15
-  %195 = icmp ult i64 %137, %73
+  %195 = icmp samesign ult i64 %137, %73
   tail call void @llvm.assume(i1 %195)
   %196 = getelementptr inbounds i16, ptr %72, i64 %137
   %197 = tail call i32 @llvm.umin.i32(i32 %194, i32 65536)

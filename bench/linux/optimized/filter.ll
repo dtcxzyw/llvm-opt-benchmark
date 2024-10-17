@@ -8726,7 +8726,7 @@ define dso_local void @bpf_clear_redirect_map(ptr noundef %0) local_unnamed_addr
   %24 = phi i64 [ %.pre, %21 ], [ %3, %12 ]
   %25 = add nuw nsw i64 %9, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %2, !prof !95, !llvm.loop !96
 
 .thread:                                          ; preds = %2, %23, %8
@@ -9480,7 +9480,7 @@ define dso_local i64 @bpf_skb_event_output(i64 noundef %0, i64 noundef %1, i64 n
   %15 = getelementptr inbounds i8, ptr %6, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %10, %17
+  %18 = icmp samesign ugt i64 %10, %17
   br i1 %18, label %21, label %19, !prof !14
 
 19:                                               ; preds = %14
@@ -10351,7 +10351,7 @@ define dso_local i64 @bpf_xdp_event_output(i64 noundef %0, i64 noundef %1, i64 n
 36:                                               ; preds = %26, %14
   %37 = phi i32 [ %21, %14 ], [ %35, %26 ]
   %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %10, %38
+  %39 = icmp samesign ugt i64 %10, %38
   br i1 %39, label %42, label %40, !prof !14
 
 40:                                               ; preds = %36
@@ -12382,7 +12382,7 @@ define dso_local range(i64 0, 2) i64 @bpf_skb_ecn_set_ce(i64 noundef %0, i64 %1,
   %200 = load i8, ptr %199, align 1
   %201 = add i8 %200, 1
   %202 = and i8 %201, 3
-  %203 = icmp ult i8 %202, 2
+  %203 = icmp samesign ult i8 %202, 2
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %198
@@ -13052,7 +13052,7 @@ define dso_local i64 @bpf_sock_ops_load_hdr_opt(i64 noundef %0, i64 noundef %1, 
   br i1 %142, label %143, label %125
 
 143:                                              ; preds = %141
-  %144 = icmp ugt i32 %103, %139
+  %144 = icmp samesign ugt i32 %103, %139
   br i1 %144, label %.thread14, label %145
 
 145:                                              ; preds = %143
@@ -13583,7 +13583,7 @@ define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 nounde
 
 13:                                               ; preds = %10
   %14 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   br label %26
 
 16:                                               ; preds = %9, %9
@@ -13596,7 +13596,7 @@ define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 nounde
 
 21:                                               ; preds = %16
   %22 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   br label %26
 
 24:                                               ; preds = %9
@@ -17087,7 +17087,7 @@ define internal noundef zeroext i1 @sock_addr_is_valid_access(i32 noundef %0, i3
 43:                                               ; preds = %38
   %44 = icmp ult i32 %1, 5
   %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   %47 = select i1 %44, i1 %46, i1 false
   br i1 %47, label %72, label %73
 
@@ -17919,7 +17919,7 @@ define internal zeroext i1 @sock_ops_is_valid_access(i32 noundef %0, i32 noundef
 
 28:                                               ; preds = %25
   %29 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   br label %38
 
 31:                                               ; preds = %16
@@ -23288,7 +23288,7 @@ define internal zeroext i1 @sk_reuseport_is_valid_access(i32 noundef %0, i32 nou
 
 28:                                               ; preds = %25
   %29 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   br label %31
 
 31:                                               ; preds = %28, %25, %23, %21, %19, %17, %15, %13, %12, %7, %5
@@ -23731,7 +23731,7 @@ define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 nounde
 
 18:                                               ; preds = %15
   %19 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   br label %29
 
 21:                                               ; preds = %12, %12
@@ -27815,7 +27815,7 @@ define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr no
   %146 = getelementptr inbounds i8, ptr %142, i64 216
   %147 = load i32, ptr %146, align 8
   store i32 %147, ptr %8, align 4
-  %148 = icmp ult i32 %2, 16
+  %148 = icmp samesign ult i32 %2, 16
   br i1 %148, label %151, label %149
 
 149:                                              ; preds = %141
@@ -28120,7 +28120,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %135 = getelementptr inbounds i8, ptr %131, i64 216
   %136 = load i32, ptr %135, align 8
   store i32 %136, ptr %18, align 4
-  %137 = icmp ult i32 %2, 16
+  %137 = icmp samesign ult i32 %2, 16
   br i1 %137, label %150, label %138
 
 138:                                              ; preds = %130
@@ -28721,7 +28721,7 @@ define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %
   store i32 4, ptr %32, align 8
   %33 = icmp ult i32 %1, 5
   %34 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %37, label %38
 

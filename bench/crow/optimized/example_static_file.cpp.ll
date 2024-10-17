@@ -16235,7 +16235,7 @@ define linkonce_odr dso_local void @_ZN4crow8response3endEv(ptr noundef nonnull 
 
 .loopexit:                                        ; preds = %48, %40
   %66 = phi i64 [ %18, %40 ], [ %53, %48 ]
-  %67 = icmp ugt i64 %66, 9
+  %67 = icmp samesign ugt i64 %66, 9
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %.loopexit
@@ -18824,7 +18824,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
 
 .loopexit:                                        ; preds = %84, %78
   %102 = phi i64 [ %53, %78 ], [ %89, %84 ]
-  %103 = icmp ugt i64 %102, 9
+  %103 = icmp samesign ugt i64 %102, 9
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %.loopexit
@@ -21272,7 +21272,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
   %184 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #36
   %185 = icmp sgt i64 %184, -1
   %186 = sub nuw nsw i64 9223372036854775807, %184
-  %187 = icmp ult i64 %186, %182
+  %187 = icmp samesign ult i64 %186, %182
   %or.cond = select i1 %185, i1 %187, i1 false
   %188 = add nsw i64 %184, %182
   %189 = select i1 %or.cond, i64 9223372036854775807, i64 %188
@@ -55083,7 +55083,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %69 = load i8, ptr %62, align 1, !tbaa !14
   %70 = load i32, ptr %0, align 8
   %71 = and i32 %70, 32640
-  %72 = icmp ult i32 %71, 5248
+  %72 = icmp samesign ult i32 %71, 5248
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %76, %61
@@ -56283,7 +56283,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %602, ptr %0, align 8
   %603 = lshr i32 %599, 22
   %604 = and i32 %603, 31
-  %605 = icmp ugt i32 %604, 10
+  %605 = icmp samesign ugt i32 %604, 10
   br i1 %605, label %611, label %606
 
 606:                                              ; preds = %598
@@ -56314,7 +56314,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %622, ptr %0, align 8
   %623 = lshr i32 %619, 22
   %624 = and i32 %623, 31
-  %625 = icmp ugt i32 %624, 16
+  %625 = icmp samesign ugt i32 %624, 16
   br i1 %625, label %631, label %626
 
 626:                                              ; preds = %618
@@ -56345,7 +56345,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %642, ptr %0, align 8
   %643 = lshr i32 %639, 22
   %644 = and i32 %643, 31
-  %645 = icmp ugt i32 %644, 14
+  %645 = icmp samesign ugt i32 %644, 14
   br i1 %645, label %651, label %646
 
 646:                                              ; preds = %638
@@ -56376,7 +56376,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %662, ptr %0, align 8
   %663 = lshr i32 %659, 22
   %664 = and i32 %663, 31
-  %665 = icmp ugt i32 %664, 17
+  %665 = icmp samesign ugt i32 %664, 17
   br i1 %665, label %671, label %666
 
 666:                                              ; preds = %658
@@ -56407,7 +56407,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %682, ptr %0, align 8
   %683 = lshr i32 %679, 22
   %684 = and i32 %683, 31
-  %685 = icmp ugt i32 %684, 7
+  %685 = icmp samesign ugt i32 %684, 7
   br i1 %685, label %691, label %686
 
 686:                                              ; preds = %678
@@ -56992,7 +56992,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %985, ptr %0, align 8
   %986 = lshr i32 %982, 22
   %987 = and i32 %986, 31
-  %988 = icmp ugt i32 %987, 7
+  %988 = icmp samesign ugt i32 %987, 7
   br i1 %988, label %1042, label %989
 
 989:                                              ; preds = %981
@@ -57024,7 +57024,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %1005, ptr %0, align 8
   %1006 = lshr i32 %1002, 22
   %1007 = and i32 %1006, 31
-  %1008 = icmp ugt i32 %1007, 10
+  %1008 = icmp samesign ugt i32 %1007, 10
   br i1 %1008, label %1042, label %1009
 
 1009:                                             ; preds = %1001
@@ -57047,7 +57047,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   store i32 %1021, ptr %0, align 8
   %1022 = lshr i32 %1018, 22
   %1023 = and i32 %1022, 31
-  %1024 = icmp ugt i32 %1023, 5
+  %1024 = icmp samesign ugt i32 %1023, 5
   br i1 %1024, label %1042, label %1025
 
 1025:                                             ; preds = %1017
@@ -69315,7 +69315,7 @@ _ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_c
 
 .loopexit253:                                     ; preds = %1030, %.loopexit254
   %1048 = phi i64 [ %1001, %.loopexit254 ], [ %1035, %1030 ]
-  %1049 = icmp ugt i64 %1048, 9
+  %1049 = icmp samesign ugt i64 %1048, 9
   br i1 %1049, label %1050, label %1058
 
 1050:                                             ; preds = %.loopexit253
@@ -75558,7 +75558,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail28reactive_socket_service_bas
   %52 = getelementptr inbounds i8, ptr %47, i64 16
   %53 = add nuw nsw i64 %46, 1
   %54 = icmp eq ptr %52, %44
-  %55 = icmp ugt i64 %46, 62
+  %55 = icmp samesign ugt i64 %46, 62
   %56 = select i1 %54, i1 true, i1 %55
   br i1 %56, label %.loopexit5, label %.preheader, !llvm.loop !1606
 

@@ -93,7 +93,7 @@ define dso_local void @_ZN4llvm5APInt12initSlowCaseEmb(ptr nocapture noundef non
   %21 = zext i32 %20 to i64
   %22 = add nuw nsw i64 %21, 63
   %23 = lshr i64 %22, 6
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %3
@@ -1533,7 +1533,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %8
   %31 = zext i32 %30 to i64
   %32 = add nuw nsw i64 %31, 63
   %33 = lshr i64 %32, 6
-  %34 = icmp ult i64 %indvars.iv.next.i, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %34, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
@@ -2273,7 +2273,7 @@ define dso_local void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr nocapture noundef 
   %28 = or i64 %27, %.019
   store i64 %28, ptr %26, align 8
   %.022 = add nuw nsw i32 %4, 1
-  %29 = icmp ult i32 %.022, %5
+  %29 = icmp samesign ult i32 %.022, %5
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %23
@@ -3015,7 +3015,7 @@ _ZN4llvm5APIntC2Ejmbb.exit42:                     ; preds = %87
   %gep = getelementptr inbounds i64, ptr %invariant.gep, i64 %indvars.iv
   %117 = load i64, ptr %gep, align 8
   %118 = add nuw nsw i64 %indvars.iv, %114
-  %119 = icmp ult i64 %118, %110
+  %119 = icmp samesign ult i64 %118, %110
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %116
@@ -3624,7 +3624,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
   br i1 %37, label %51, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %26
-  %38 = icmp ult i32 %35, %34
+  %38 = icmp samesign ult i32 %35, %34
   br i1 %38, label %.lr.ph.i.i, label %_ZNK4llvm5APInt3shlEj.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -3733,7 +3733,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %24
 
 .preheader.i.i.i.i:                               ; preds = %_ZNK4llvm5APInt3shlEj.exit
   %invariant.op.i.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i.i, 1
-  %.not3137.not.i.i.i.i = icmp ult i32 %91, %90
+  %.not3137.not.i.i.i.i = icmp samesign ult i32 %91, %90
   br i1 %.not3137.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt4lshrEj.exit.thread26
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i
@@ -3873,7 +3873,7 @@ define dso_local void @_ZNK4llvm5APInt9getHiBitsEj(ptr dead_on_unwind noalias no
 
 .preheader.i.i.i.i:                               ; preds = %25
   %invariant.op.i.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i.i, 1
-  %.not3137.not.i.i.i.i = icmp ult i32 %26, %24
+  %.not3137.not.i.i.i.i = icmp samesign ult i32 %26, %24
   br i1 %.not3137.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i
@@ -4174,7 +4174,7 @@ _ZNK4llvm5APIntlsEj.exit.thread.us:               ; preds = %.lr.ph, %_ZNK4llvm5
   br i1 %72, label %86, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %69
-  %73 = icmp ult i32 %70, %52
+  %73 = icmp samesign ult i32 %70, %52
   br i1 %73, label %.lr.ph.i.i8, label %.loopexit.i.i
 
 .lr.ph.i.i8:                                      ; preds = %.preheader.i.i
@@ -4676,7 +4676,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %16
 
 .preheader.i.i.i:                                 ; preds = %57
   %invariant.op.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i, 1
-  %.not3137.not.i.i.i = icmp ult i32 %59, %58
+  %.not3137.not.i.i.i = icmp samesign ult i32 %59, %58
   br i1 %.not3137.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
@@ -5438,7 +5438,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit36:            ; preds = %110, %98, %112
 
 .preheader.i.i.i:                                 ; preds = %128
   %invariant.op.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i, 1
-  %.not3137.not.i.i.i = icmp ult i32 %133, %132
+  %.not3137.not.i.i.i = icmp samesign ult i32 %133, %132
   br i1 %.not3137.not.i.i.i, label %.lr.ph.i.i.i38, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i38:                                   ; preds = %.preheader.i.i.i
@@ -5530,7 +5530,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit36:            ; preds = %110, %98, %112
 
 .preheader.i.i.i42:                               ; preds = %179
   %invariant.op.i.i.i43 = add nuw nsw i32 %.sroa.speculated.i.i.i41, 1
-  %.not3137.not.i.i.i44 = icmp ult i32 %184, %183
+  %.not3137.not.i.i.i44 = icmp samesign ult i32 %184, %183
   br i1 %.not3137.not.i.i.i44, label %.lr.ph.i.i.i46, label %.loopexit.i.i.i45
 
 .lr.ph.i.i.i46:                                   ; preds = %.preheader.i.i.i42
@@ -5789,7 +5789,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit66:            ; preds = %295, %297
 
 .preheader.i.i.i69:                               ; preds = %308
   %invariant.op.i.i.i70 = add nuw nsw i32 %.sroa.speculated.i.i.i68, 1
-  %.not3137.not.i.i.i71 = icmp ult i32 %310, %288
+  %.not3137.not.i.i.i71 = icmp samesign ult i32 %310, %288
   br i1 %.not3137.not.i.i.i71, label %.lr.ph.i.i.i73, label %.loopexit.i.i.i72
 
 .lr.ph.i.i.i73:                                   ; preds = %.preheader.i.i.i69
@@ -6007,7 +6007,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit104:           ; preds = %409, %411
 
 .preheader.i.i.i107:                              ; preds = %422
   %invariant.op.i.i.i108 = add nuw nsw i32 %.sroa.speculated.i.i.i106, 1
-  %.not3137.not.i.i.i109 = icmp ult i32 %424, %402
+  %.not3137.not.i.i.i109 = icmp samesign ult i32 %424, %402
   br i1 %.not3137.not.i.i.i109, label %.lr.ph.i.i.i111, label %.loopexit.i.i.i110
 
 .lr.ph.i.i.i111:                                  ; preds = %.preheader.i.i.i107
@@ -6086,7 +6086,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
   %.not = icmp slt i64 %6, 0
   %7 = lshr i64 %6, 52
   %8 = and i64 %7, 2047
-  %9 = icmp ult i64 %8, 1023
+  %9 = icmp samesign ult i64 %8, 1023
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %3
@@ -6125,7 +6125,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
 30:                                               ; preds = %3
   %31 = and i64 %6, 4503599627370495
   %32 = or disjoint i64 %31, 4503599627370496
-  %33 = icmp ult i64 %8, 1075
+  %33 = icmp samesign ult i64 %8, 1075
   br i1 %33, label %34, label %95
 
 34:                                               ; preds = %30
@@ -6301,7 +6301,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
   br i1 %141, label %155, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %138
-  %142 = icmp ult i32 %139, %137
+  %142 = icmp samesign ult i32 %139, %137
   br i1 %142, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -7614,7 +7614,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 
 .preheader.i.i.i:                                 ; preds = %46
   %invariant.op.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i, 1
-  %.not3137.not.i.i.i = icmp ult i32 %47, %45
+  %.not3137.not.i.i.i = icmp samesign ult i32 %47, %45
   br i1 %.not3137.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
@@ -7696,7 +7696,7 @@ define dso_local void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr nocapture noundef nonn
 
 .preheader.i:                                     ; preds = %10
   %invariant.op.i = add nuw nsw i32 %.sroa.speculated.i, 1
-  %.not3137.not.i = icmp ult i32 %11, %9
+  %.not3137.not.i = icmp samesign ult i32 %11, %9
   br i1 %.not3137.not.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -7946,7 +7946,7 @@ define dso_local void @_ZN4llvm5APInt11shlSlowCaseEj(ptr nocapture noundef nonnu
   br i1 %13, label %28, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10
-  %14 = icmp ult i32 %11, %9
+  %14 = icmp samesign ult i32 %11, %9
   br i1 %14, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -8466,7 +8466,7 @@ _ZNK4llvm5APInt4lshrEj.exit.thread:               ; preds = %24
 
 .preheader.i.i.i.i:                               ; preds = %40
   %invariant.op.i.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i.i, 1
-  %.not3137.not.i.i.i.i = icmp ult i32 %49, %48
+  %.not3137.not.i.i.i.i = icmp samesign ult i32 %49, %48
   br i1 %.not3137.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt4lshrEj.exit.thread23
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i
@@ -8535,7 +8535,7 @@ _ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %.lr.ph.i.i.i, %_ZNK
   br i1 %90, label %104, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZNK4llvm5APInt4lshrEj.exit
-  %91 = icmp ult i32 %88, %48
+  %91 = icmp samesign ult i32 %88, %48
   br i1 %91, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -9097,7 +9097,7 @@ _ZNK4llvm5APInt3shlEj.exit.thread:                ; preds = %_ZN4llvm5APIntC2Ejm
   br i1 %213, label %227, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %210
-  %214 = icmp ult i32 %211, %209
+  %214 = icmp samesign ult i32 %211, %209
   br i1 %214, label %.lr.ph.i.i173, label %.loopexit.i.i
 
 .lr.ph.i.i173:                                    ; preds = %.preheader.i.i
@@ -10179,7 +10179,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %88
   br label %128
 
 94:                                               ; preds = %88
-  %95 = icmp ult i64 %39, %72
+  %95 = icmp samesign ult i64 %39, %72
   br i1 %95, label %_ZN4llvm5APIntC2Ejmbb.exit35, label %.preheader
 
 .preheader:                                       ; preds = %94, %96
@@ -11003,7 +11003,7 @@ define dso_local void @_ZN4llvm5APInt6divideEPKmjS2_jPmS3_(ptr nocapture noundef
 177:                                              ; preds = %165, %146
   %178 = add i64 %162, -1
   %179 = add nuw nsw i64 %163, %161
-  %180 = icmp ult i64 %179, 4294967296
+  %180 = icmp samesign ult i64 %179, 4294967296
   br i1 %180, label %181, label %197
 
 181:                                              ; preds = %177
@@ -11066,7 +11066,7 @@ define dso_local void @_ZN4llvm5APInt6divideEPKmjS2_jPmS3_(ptr nocapture noundef
 ._crit_edge.i:                                    ; preds = %.lr.ph185.i
   %.pre.i = load i32, ptr %150, align 4
   %.pre229.i = zext i32 %.pre.i to i64
-  %217 = icmp ugt i64 %216, %.pre229.i
+  %217 = icmp samesign ugt i64 %216, %.pre229.i
   %218 = trunc i64 %215 to i32
   %219 = sub i32 %.pre.i, %218
   store i32 %219, ptr %150, align 4
@@ -12103,7 +12103,7 @@ _ZN4llvm5APIntC2Ejmbb.exit33:                     ; preds = %89
   br label %129
 
 105:                                              ; preds = %89
-  %106 = icmp ult i64 %39, %72
+  %106 = icmp samesign ult i64 %39, %72
   br i1 %106, label %_ZN4llvm5APIntC2ERKS0_.exit, label %.preheader
 
 .preheader:                                       ; preds = %105, %107
@@ -13058,7 +13058,7 @@ _ZN4llvm5APIntD2Ev.exit97:                        ; preds = %163, %160, %_ZN4llv
 
 164:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit97, %122
   %.pre = phi i32 [ %.pre.pre, %_ZN4llvm5APIntD2Ev.exit97 ], [ %6, %122 ]
-  %165 = icmp ult i64 %55, %86
+  %165 = icmp samesign ult i64 %55, %86
   br i1 %165, label %185, label %166
 
 166:                                              ; preds = %164
@@ -22649,7 +22649,7 @@ _ZN4llvm5APInt15setBitsSlowCaseEjj.exit.sink.split.i: ; preds = %86
   %122 = or i64 %121, %.019.i.i
   store i64 %122, ptr %120, align 8
   %.022.i.i = add nuw nsw i32 %98, 1
-  %123 = icmp ult i32 %.022.i.i, %99
+  %123 = icmp samesign ult i32 %.022.i.i, %99
   br i1 %123, label %.lr.ph.preheader.i.i, label %_ZN4llvm5APInt7setBitsEjj.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %117

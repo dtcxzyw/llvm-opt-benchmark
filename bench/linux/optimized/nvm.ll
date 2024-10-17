@@ -675,7 +675,7 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   %indvars = trunc i64 %101 to i32
   %102 = load i16, ptr %6, align 2
   %103 = zext i16 %102 to i32
-  %104 = icmp ult i32 %indvars, %103
+  %104 = icmp samesign ult i32 %indvars, %103
   br i1 %104, label %.preheader, label %105, !llvm.loop !17
 
 105:                                              ; preds = %92

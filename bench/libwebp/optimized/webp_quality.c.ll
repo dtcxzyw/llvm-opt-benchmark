@@ -106,7 +106,7 @@ sub_1:                                            ; preds = %sub_0
   %.2 = phi i32 [ %.1, %34 ], [ %.02235, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = icmp ne i32 %.2, 0
-  %38 = icmp ult i64 %indvars.iv.next, %6
+  %38 = icmp samesign ult i64 %indvars.iv.next, %6
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 

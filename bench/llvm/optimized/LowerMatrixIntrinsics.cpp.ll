@@ -7500,7 +7500,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i: ; p
   %indvars.iv.next.i520 = add nuw nsw i64 %indvars.iv.i512, 1
   %3251 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8TileSize, i64 128), align 8
   %3252 = zext i32 %3251 to i64
-  %3253 = icmp ult i64 %indvars.iv.next.i520, %3252
+  %3253 = icmp samesign ult i64 %indvars.iv.next.i520, %3252
   br i1 %3253, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i, label %._crit_edge.i.i521, !llvm.loop !131
 
 ._crit_edge.i.i521:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
@@ -7750,7 +7750,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit55.i.i: ; preds =
   %indvars.iv.next.i.i536 = add nuw nsw i64 %indvars.iv.i.i534, 1
   %3372 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %3373 = and i64 %3372, 4294967295
-  %3374 = icmp ult i64 %indvars.iv.next.i.i536, %3373
+  %3374 = icmp samesign ult i64 %indvars.iv.next.i.i536, %3373
   br i1 %3374, label %.lr.ph.i.i533, label %._crit_edge74.i.i, !llvm.loop !132
 
 ._crit_edge74.i.i:                                ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit55.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit46.i.i
@@ -9740,7 +9740,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit.
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %4168, i64 %.0.in.idx.i.i
   %.0.i.i294 = load i32, ptr %.0.in.i.i, align 4
   %4282 = zext i32 %.0.i.i294 to i64
-  %4283 = icmp ult i64 %indvars.iv.next.i, %4282
+  %4283 = icmp samesign ult i64 %indvars.iv.next.i, %4282
   br i1 %4283, label %.lr.ph.i293, label %._crit_edge.i295, !llvm.loop !154
 
 ._crit_edge.i295:                                 ; preds = %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit.i, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i290
@@ -10064,7 +10064,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit.
   %.0.in.i.i342 = getelementptr inbounds nuw i8, ptr %4365, i64 %.0.in.idx.i.i341
   %.0.i.i343 = load i32, ptr %.0.in.i.i342, align 4
   %4414 = zext i32 %.0.i.i343 to i64
-  %4415 = icmp ult i64 %indvars.iv.next.i340, %4414
+  %4415 = icmp samesign ult i64 %indvars.iv.next.i340, %4414
   br i1 %4415, label %.lr.ph.i336, label %._crit_edge.i344, !llvm.loop !155
 
 ._crit_edge.i344:                                 ; preds = %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit.i339, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i333
@@ -20075,7 +20075,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__g
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i64 %14, -1
   %20 = lshr i64 %19, 1
-  %21 = icmp ult i64 %16, %20
+  %21 = icmp samesign ult i64 %16, %20
   br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -27046,7 +27046,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

@@ -8167,7 +8167,7 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %3, %6
+  %10 = icmp samesign ult i32 %3, %6
   %spec.store.select = select i1 %10, i32 0, i32 %6
   %11 = tail call ptr @wmem_packet_scope() #3
   %12 = add nuw nsw i32 %4, 1

@@ -1081,7 +1081,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn18MaxUnpoolLayerImpl7forwardERKNS_11_
           to label %.noexc unwind label %.loopexit190
 
 .noexc:                                           ; preds = %255
-  %260 = icmp ult i64 %indvars.iv.i134, %254
+  %260 = icmp samesign ult i64 %indvars.iv.i134, %254
   br i1 %260, label %261, label %.noexc137
 
 261:                                              ; preds = %.noexc
@@ -1182,7 +1182,7 @@ _ZN2cvlsERSoRKNS_7MatSizeE.exit:                  ; preds = %.noexc137, %248
           to label %.noexc143 unwind label %.loopexit185
 
 .noexc143:                                        ; preds = %292
-  %297 = icmp ult i64 %indvars.iv.i140, %291
+  %297 = icmp samesign ult i64 %indvars.iv.i140, %291
   br i1 %297, label %298, label %.noexc144
 
 298:                                              ; preds = %.noexc143
@@ -1282,7 +1282,7 @@ _ZN2cvlsERSoRKNS_7MatSizeE.exit145:               ; preds = %.noexc144, %284
           to label %.noexc151 unwind label %.loopexit
 
 .noexc151:                                        ; preds = %328
-  %333 = icmp ult i64 %indvars.iv.i148, %327
+  %333 = icmp samesign ult i64 %indvars.iv.i148, %327
   br i1 %333, label %334, label %.noexc152
 
 334:                                              ; preds = %.noexc151

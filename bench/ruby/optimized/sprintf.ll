@@ -5200,7 +5200,7 @@ cvt.exit:                                         ; preds = %.lr.ph.i, %ruby_non
   %356 = getelementptr i8, ptr %.0.i758, i64 -1
   store i8 %355, ptr %356, align 1
   %357 = udiv i32 %.124.i, 10
-  %358 = icmp ugt i32 %.124.i, 99
+  %358 = icmp samesign ugt i32 %.124.i, 99
   %indvar.next.i = add i64 %indvar.i, 1
   %scevgep31.i = getelementptr i8, ptr %indvars.iv.i, i64 1
   br i1 %358, label %.preheader.i, label %359, !llvm.loop !98
@@ -5268,7 +5268,7 @@ exponent.exit:                                    ; preds = %359, %.lr.ph.prehea
   %386 = getelementptr i8, ptr %.0.i771, i64 -1
   store i8 %385, ptr %386, align 1
   %387 = udiv i32 %.124.i770, 10
-  %388 = icmp ugt i32 %.124.i770, 99
+  %388 = icmp samesign ugt i32 %.124.i770, 99
   %indvar.next.i772 = add i64 %indvar.i769, 1
   %scevgep31.i773 = getelementptr i8, ptr %indvars.iv.i768, i64 1
   br i1 %388, label %.preheader.i767, label %389, !llvm.loop !98
@@ -5903,7 +5903,7 @@ exponent.exit775:                                 ; preds = %389, %.lr.ph.prehea
   %698 = getelementptr i8, ptr %.129.i, i64 -1
   store i8 %697, ptr %698, align 1
   %699 = udiv i64 %.1.i, 10
-  %.not38.i = icmp ult i64 %.1.i, 10
+  %.not38.i = icmp samesign ult i64 %.1.i, 10
   br i1 %.not38.i, label %BSD__ultoa.exit, label %694, !llvm.loop !54
 
 .preheader.i777:                                  ; preds = %679, %.preheader.i777

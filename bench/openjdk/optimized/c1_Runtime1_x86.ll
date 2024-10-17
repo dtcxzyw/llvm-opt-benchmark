@@ -530,7 +530,7 @@ define hidden void @_ZN17C1_MacroAssembler30save_live_registers_no_oop_mapEb(ptr
 25:                                               ; preds = %10, %25
   %.013 = phi i32 [ 0, %10 ], [ %30, %25 ]
   %.01112 = phi i32 [ 0, %10 ], [ %31, %25 ]
-  %or.cond.i = icmp ult i32 %.01112, 32
+  %or.cond.i = icmp samesign ult i32 %.01112, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.01112, i32 -1
   %26 = add nsw i32 %.013, %13
   store i32 4, ptr %5, align 8
@@ -610,7 +610,7 @@ define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef n
 25:                                               ; preds = %8, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
   %.013 = phi i32 [ 0, %8 ], [ %37, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit ]
   %.01112 = phi i32 [ 0, %8 ], [ %38, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit ]
-  %or.cond.i = icmp ult i32 %.01112, 32
+  %or.cond.i = icmp samesign ult i32 %.01112, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.01112, i32 -1
   %26 = add nsw i32 %11, %.013
   store i32 4, ptr %7, align 8
@@ -1303,7 +1303,7 @@ define internal fastcc noundef ptr @_ZL16generate_oop_mapP13StubAssemblerib(ptr 
 .preheader:                                       ; preds = %.preheader.preheader, %24
   %indvars.iv79 = phi i64 [ 2, %.preheader.preheader ], [ %indvars.iv.next80, %24 ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %24 ]
-  %10 = icmp ult i64 %indvars.iv, %..i.i
+  %10 = icmp samesign ult i64 %indvars.iv, %..i.i
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %.preheader

@@ -605,15 +605,15 @@ _ZN4core3str11validations15next_code_point17h06894b136316ac8aE.exit.thread.i.i.i
   br i1 %185, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5e2843cce8f1d317E.exit.thread", label %186
 
 186:                                              ; preds = %184
-  %187 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %187 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %187, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %189 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %189, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %190
 
 190:                                              ; preds = %188
-  %191 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %191 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %191, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 
@@ -2645,15 +2645,15 @@ select.unfold:                                    ; preds = %219
   %330 = urem i64 %.1131439, %314
   %331 = getelementptr inbounds [0 x i32], ptr %329, i64 0, i64 %330
   %332 = load i32, ptr %331, align 4, !range !592, !noundef !4
-  %333 = icmp ult i32 %332, 128
+  %333 = icmp samesign ult i32 %332, 128
   br i1 %333, label %338, label %334
 
 334:                                              ; preds = %328
-  %335 = icmp ult i32 %332, 2048
+  %335 = icmp samesign ult i32 %332, 2048
   br i1 %335, label %340, label %336
 
 336:                                              ; preds = %334
-  %337 = icmp ult i32 %332, 65536
+  %337 = icmp samesign ult i32 %332, 65536
   br i1 %337, label %347, label %358
 
 338:                                              ; preds = %328
@@ -3140,15 +3140,15 @@ select.unfold340:                                 ; preds = %485
   %523 = urem i64 %.3, %518
   %524 = getelementptr inbounds [0 x i32], ptr %522, i64 0, i64 %523
   %525 = load i32, ptr %524, align 4, !range !592, !noundef !4
-  %526 = icmp ult i32 %525, 128
+  %526 = icmp samesign ult i32 %525, 128
   br i1 %526, label %531, label %527
 
 527:                                              ; preds = %521
-  %528 = icmp ult i32 %525, 2048
+  %528 = icmp samesign ult i32 %525, 2048
   br i1 %528, label %533, label %529
 
 529:                                              ; preds = %527
-  %530 = icmp ult i32 %525, 65536
+  %530 = icmp samesign ult i32 %525, 65536
   br i1 %530, label %540, label %551
 
 531:                                              ; preds = %521

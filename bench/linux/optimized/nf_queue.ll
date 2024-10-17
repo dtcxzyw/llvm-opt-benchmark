@@ -638,7 +638,7 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %76 = add nuw nsw i64 %68, 1
   %77 = load i16, ptr %16, align 8
   %78 = zext i16 %77 to i64
-  %79 = icmp ult i64 %76, %78
+  %79 = icmp samesign ult i64 %76, %78
   br i1 %79, label %67, label %.thread15, !llvm.loop !24
 
 80:                                               ; preds = %71

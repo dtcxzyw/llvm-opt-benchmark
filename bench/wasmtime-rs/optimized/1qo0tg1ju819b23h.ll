@@ -1308,7 +1308,7 @@ define hidden void @_ZN14cranelift_wasm15code_translator18translate_operator17h4
   %283 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %282, i64 0, i64 %267
   %284 = getelementptr inbounds i8, ptr %283, i64 36
   %285 = load i32, ptr %284, align 4, !range !75, !noalias !66, !noundef !4
-  %.not68.i = icmp ult i32 %285, 2
+  %.not68.i = icmp samesign ult i32 %285, 2
   br i1 %.not68.i, label %287, label %293
 
 286:                                              ; preds = %264
@@ -1400,7 +1400,7 @@ _ZN14cranelift_wasm15code_translator30translate_unreachable_operator17h8ffca4091
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx3.i, i64 16, i1 false), !noalias !66
   call void @_ZN14cranelift_wasm5state17ControlStackFrame37truncate_value_stack_to_original_size17he98e02ce209c63d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %4), !noalias !61
-  %.not13.i = icmp ult i32 %.sroa.4.0.copyload2.i, 2
+  %.not13.i = icmp samesign ult i32 %.sroa.4.0.copyload2.i, 2
   %312 = zext nneg i32 %.sroa.4.0.copyload2.i to i64
   %313 = add nsw i64 %312, -1
   %314 = select i1 %.not13.i, i64 0, i64 %313
@@ -6217,7 +6217,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   %2815 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %2814, i64 0, i64 %385
   %2816 = getelementptr inbounds i8, ptr %2815, i64 36
   %2817 = load i32, ptr %2816, align 4, !range !75, !noundef !4
-  %.not3285 = icmp ult i32 %2817, 2
+  %.not3285 = icmp samesign ult i32 %2817, 2
   br i1 %.not3285, label %2819, label %2829
 
 2818:                                             ; preds = %382

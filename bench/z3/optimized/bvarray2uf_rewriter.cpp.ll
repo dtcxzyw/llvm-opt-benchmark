@@ -1184,7 +1184,7 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i.i
 
 _ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %if.end.i.i.i.i, %cond.false.i.i, %for.cond.i
   %cond.i.i = phi i64 [ 0, %for.cond.i ], [ %8, %if.end.i.i.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.not.not = icmp uge i64 %indvars.iv.i, %cond.i.i
+  %cmp.not.i.not.not = icmp samesign uge i64 %indvars.iv.i, %cond.i.i
   br i1 %cmp.not.i.not.not, label %_ZN23bvarray2uf_rewriter_cfg11is_bv_arrayEP4sort.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK4decl18get_num_parametersEv.exit.i
@@ -1259,7 +1259,7 @@ if.end.i.i.i:                                     ; preds = %cond.false.i
 
 _ZNK4decl18get_num_parametersEv.exit:             ; preds = %for.cond, %cond.false.i, %if.end.i.i.i
   %cond.i = phi i64 [ 0, %for.cond ], [ %8, %if.end.i.i.i ], [ 0, %cond.false.i ]
-  %cmp.not.not = icmp uge i64 %indvars.iv, %cond.i
+  %cmp.not.not = icmp samesign uge i64 %indvars.iv, %cond.i
   br i1 %cmp.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK4decl18get_num_parametersEv.exit
@@ -1840,7 +1840,7 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i.i
 
 _ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %if.end.i.i.i.i, %cond.false.i.i, %for.cond.i
   %cond.i.i = phi i64 [ 0, %for.cond.i ], [ %12, %if.end.i.i.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i = icmp ult i64 %indvars.iv.i, %cond.i.i
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv.i, %cond.i.i
   br i1 %cmp.not.i, label %for.body.i, label %if.then
 
 for.body.i:                                       ; preds = %_ZNK4decl18get_num_parametersEv.exit.i
@@ -2256,7 +2256,7 @@ if.end.i.i.i.i237:                                ; preds = %cond.false.i.i234
 
 _ZNK4decl18get_num_parametersEv.exit.i239:        ; preds = %if.end.i.i.i.i237, %cond.false.i.i234, %for.cond.i231
   %cond.i.i240 = phi i64 [ 0, %for.cond.i231 ], [ %76, %if.end.i.i.i.i237 ], [ 0, %cond.false.i.i234 ]
-  %cmp.not.i241 = icmp ult i64 %indvars.iv.i232, %cond.i.i240
+  %cmp.not.i241 = icmp samesign ult i64 %indvars.iv.i232, %cond.i.i240
   br i1 %cmp.not.i241, label %for.body.i242, label %if.then79
 
 for.body.i242:                                    ; preds = %_ZNK4decl18get_num_parametersEv.exit.i239
@@ -2386,7 +2386,7 @@ if.end.i.i.i.i287:                                ; preds = %cond.false.i.i284
 
 _ZNK4decl18get_num_parametersEv.exit.i289:        ; preds = %if.end.i.i.i.i287, %cond.false.i.i284, %for.cond.i281
   %cond.i.i290 = phi i64 [ 0, %for.cond.i281 ], [ %97, %if.end.i.i.i.i287 ], [ 0, %cond.false.i.i284 ]
-  %cmp.not.i291 = icmp ult i64 %indvars.iv.i282, %cond.i.i290
+  %cmp.not.i291 = icmp samesign ult i64 %indvars.iv.i282, %cond.i.i290
   br i1 %cmp.not.i291, label %for.body.i292, label %if.then89
 
 for.body.i292:                                    ; preds = %_ZNK4decl18get_num_parametersEv.exit.i289
@@ -3129,7 +3129,7 @@ if.end.i.i.i.i592:                                ; preds = %cond.false.i.i589
 
 _ZNK4decl18get_num_parametersEv.exit.i594:        ; preds = %if.end.i.i.i.i592, %cond.false.i.i589, %for.cond.i586
   %cond.i.i595 = phi i64 [ 0, %for.cond.i586 ], [ %199, %if.end.i.i.i.i592 ], [ 0, %cond.false.i.i589 ]
-  %cmp.not.i596 = icmp ult i64 %indvars.iv.i587, %cond.i.i595
+  %cmp.not.i596 = icmp samesign ult i64 %indvars.iv.i587, %cond.i.i595
   br i1 %cmp.not.i596, label %for.body.i597, label %if.then243
 
 for.body.i597:                                    ; preds = %_ZNK4decl18get_num_parametersEv.exit.i594
@@ -3257,7 +3257,7 @@ if.end.i.i.i.i.i:                                 ; preds = %cond.false.i.i.i
 
 _ZNK4decl18get_num_parametersEv.exit.i.i:         ; preds = %if.end.i.i.i.i.i, %cond.false.i.i.i, %for.cond.i.i
   %cond.i.i.i = phi i64 [ 0, %for.cond.i.i ], [ %217, %if.end.i.i.i.i.i ], [ 0, %cond.false.i.i.i ]
-  %cmp.not.i.not.i = icmp ult i64 %indvars.iv.i.i, %cond.i.i.i
+  %cmp.not.i.not.i = icmp samesign ult i64 %indvars.iv.i.i, %cond.i.i.i
   br i1 %cmp.not.i.not.i, label %for.body.i.i, label %invoke.cont262
 
 for.body.i.i:                                     ; preds = %_ZNK4decl18get_num_parametersEv.exit.i.i
@@ -3373,7 +3373,7 @@ if.end.i.i.i.i.i655:                              ; preds = %cond.false.i.i.i652
 
 _ZNK4decl18get_num_parametersEv.exit.i.i657:      ; preds = %if.end.i.i.i.i.i655, %cond.false.i.i.i652, %for.cond.i.i649
   %cond.i.i.i658 = phi i64 [ 0, %for.cond.i.i649 ], [ %232, %if.end.i.i.i.i.i655 ], [ 0, %cond.false.i.i.i652 ]
-  %cmp.not.i.not.i659 = icmp ult i64 %indvars.iv.i.i650, %cond.i.i.i658
+  %cmp.not.i.not.i659 = icmp samesign ult i64 %indvars.iv.i.i650, %cond.i.i.i658
   br i1 %cmp.not.i.not.i659, label %for.body.i.i660, label %if.then278
 
 for.body.i.i660:                                  ; preds = %_ZNK4decl18get_num_parametersEv.exit.i.i657
@@ -3617,7 +3617,7 @@ if.end.i.i.i.i.i768:                              ; preds = %cond.false.i.i.i765
 
 _ZNK4decl18get_num_parametersEv.exit.i.i770:      ; preds = %if.end.i.i.i.i.i768, %cond.false.i.i.i765, %for.cond.i.i762
   %cond.i.i.i771 = phi i64 [ 0, %for.cond.i.i762 ], [ %268, %if.end.i.i.i.i.i768 ], [ 0, %cond.false.i.i.i765 ]
-  %cmp.not.i.not.i772 = icmp ult i64 %indvars.iv.i.i763, %cond.i.i.i771
+  %cmp.not.i.not.i772 = icmp samesign ult i64 %indvars.iv.i.i763, %cond.i.i.i771
   br i1 %cmp.not.i.not.i772, label %for.body.i.i773, label %if.else329
 
 for.body.i.i773:                                  ; preds = %_ZNK4decl18get_num_parametersEv.exit.i.i770
@@ -3808,7 +3808,7 @@ if.end.i.i.i.i847:                                ; preds = %cond.false.i.i844
 
 _ZNK4decl18get_num_parametersEv.exit.i849:        ; preds = %if.end.i.i.i.i847, %cond.false.i.i844, %for.cond.i841
   %cond.i.i850 = phi i64 [ 0, %for.cond.i841 ], [ %297, %if.end.i.i.i.i847 ], [ 0, %cond.false.i.i844 ]
-  %cmp.not.i851 = icmp ult i64 %indvars.iv.i842, %cond.i.i850
+  %cmp.not.i851 = icmp samesign ult i64 %indvars.iv.i842, %cond.i.i850
   br i1 %cmp.not.i851, label %for.body.i852, label %if.else366
 
 for.body.i852:                                    ; preds = %_ZNK4decl18get_num_parametersEv.exit.i849
@@ -5521,7 +5521,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %m_num_decls.i, align 4
   %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %invoke.cont4, label %for.end, !llvm.loop !15
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i
@@ -5551,7 +5551,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
   %16 = zext i32 %15 to i64
-  %cmp.i616 = icmp ult i64 %indvars.iv.i24, %16
+  %cmp.i616 = icmp samesign ult i64 %indvars.iv.i24, %16
   br i1 %cmp.i616, label %for.body.i, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread
@@ -5842,7 +5842,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit

@@ -644,7 +644,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
 dissect_shimctrl.exit:                            ; preds = %83, %86, %107, %114, %139, %160, %181, %223, %244, %306, %307
   %.0.i = phi i32 [ 5, %83 ], [ %309, %307 ], [ %.1.i, %306 ], [ 15, %244 ], [ 15, %223 ], [ 31, %181 ], [ 15, %160 ], [ 15, %139 ], [ 23, %114 ], [ 15, %107 ], [ 15, %86 ]
   %310 = add nuw nsw i32 %.0.i, 5
-  %311 = icmp ult i32 %310, %11
+  %311 = icmp samesign ult i32 %310, %11
   br i1 %311, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %dissect_shimctrl.exit
@@ -662,7 +662,7 @@ dissect_shimopts.exit.us:                         ; preds = %.lr.ph, %dissect_sh
   %318 = add nuw nsw i32 %314, 4
   %319 = add nuw nsw i32 %318, %317
   %320 = add nuw nsw i32 %319, %.094.us
-  %321 = icmp ult i32 %320, %11
+  %321 = icmp samesign ult i32 %320, %11
   br i1 %321, label %dissect_shimopts.exit.us, label %.loopexit, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_shimopts.exit
@@ -916,7 +916,7 @@ dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i.i, %.thre
 
 dissect_shimopts.exit:                            ; preds = %.lr.ph45.i.i, %proto_item_set_generated.exit.i, %355, %358, %384, %dissect_shim6_opt_loc_pref.exit.i, %439, %442, %445, %449, %452, %456, %465
   %468 = add nuw nsw i32 %330, %.094
-  %469 = icmp ult i32 %468, %11
+  %469 = icmp samesign ult i32 %468, %11
   br i1 %469, label %.lr.ph.split, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %dissect_shimopts.exit, %dissect_shimopts.exit.us, %dissect_shimctrl.exit, %54

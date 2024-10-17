@@ -13099,7 +13099,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17hce3dd86e5e6dfb8
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %.sroa.0.0.sroa.speculated.i)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %8 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 171
+  %8 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 171
   br i1 %8, label %20, label %.noexc
 
 .noexc:                                           ; preds = %3
@@ -26859,7 +26859,7 @@ default.unreachable304:                           ; preds = %4
   %.sroa.4.0.i.ph.i.i = phi i32 [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i" ], [ %109, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i" ]
   %122 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 1114112
   tail call void @llvm.assume(i1 %122)
-  %123 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 65535
+  %123 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 65535
   br i1 %123, label %125, label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i
 
 _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = %121, %99, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit12.i.i.i"
@@ -27036,7 +27036,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %212 = ptrtoint ptr %.sroa.0217.1 to i64
   %213 = sub i64 %.sroa.11.0282, %173
   %214 = add i64 %213, %212
-  %215 = icmp ult i32 %.sroa.4.0.i.ph.i179, 256
+  %215 = icmp samesign ult i32 %.sroa.4.0.i.ph.i179, 256
   %216 = trunc nuw i32 %.sroa.4.0.i.ph.i179 to i8
   br i1 %215, label %218, label %221
 
@@ -27259,7 +27259,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %.sroa.4.0.i.ph.i.i192 = phi i32 [ %324, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193" ], [ %313, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191" ]
   %326 = icmp ult i32 %.sroa.4.0.i.ph.i.i192, 1114112
   tail call void @llvm.assume(i1 %326)
-  %327 = icmp ugt i32 %.sroa.4.0.i.ph.i.i192, 65535
+  %327 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i192, 65535
   br i1 %327, label %329, label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i189
 
 _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i189: ; preds = %325, %303, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit12.i.i.i188"
@@ -51541,7 +51541,7 @@ default.unreachable:                              ; preds = %2
 
 31:                                               ; preds = %"_ZN9extension9wasm_host3wit12since_v0_1_0158_$LT$impl$u20$core..convert..From$LT$extension..wasm_host..wit..since_v0_1_0..zed..extension..http_client..HttpMethod$GT$$u20$for$u20$http..method..Method$GT$4from17h382abbf0043dde7fE.exit"
   %32 = load i8, ptr %11, align 8, !range !6807, !alias.scope !6808, !noalias !6800, !noundef !5
-  %switch.i.i.i.i = icmp ult i8 %32, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %32, 10
   br i1 %switch.i.i.i.i, label %.thread, label %33
 
 33:                                               ; preds = %31

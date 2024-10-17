@@ -27,7 +27,7 @@ entry:
   %options = getelementptr inbounds i8, ptr %cnv, i64 56
   %0 = load i32, ptr %options, align 8
   %and = and i32 %0, 15
-  %cmp = icmp ult i32 %and, 2
+  %cmp = icmp samesign ult i32 %and, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

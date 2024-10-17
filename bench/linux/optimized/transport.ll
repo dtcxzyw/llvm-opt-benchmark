@@ -1495,7 +1495,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocaptur
   br i1 %67, label %152, label %68
 
 68:                                               ; preds = %50
-  %69 = icmp ugt i32 %62, 2
+  %69 = icmp samesign ugt i32 %62, 2
   br i1 %69, label %152, label %70
 
 70:                                               ; preds = %68, %48

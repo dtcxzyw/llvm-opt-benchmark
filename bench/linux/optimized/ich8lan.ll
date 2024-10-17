@@ -579,7 +579,7 @@ define dso_local void @e1000_copy_rx_addrs_to_phy_ich8lan(ptr noundef %0) local_
 
 17:                                               ; preds = %17, %14
   %18 = phi i32 [ 0, %14 ], [ %74, %17 ]
-  %19 = icmp ult i32 %18, 16
+  %19 = icmp samesign ult i32 %18, 16
   %20 = shl nuw nsw i32 %18, 3
   %21 = or disjoint i32 %20, 21504
   %22 = add nuw nsw i32 %20, 21600
@@ -637,7 +637,7 @@ define dso_local void @e1000_copy_rx_addrs_to_phy_ich8lan(ptr noundef %0) local_
   %74 = add nuw nsw i32 %18, 1
   %75 = load i16, ptr %11, align 8
   %76 = zext i16 %75 to i32
-  %77 = icmp ult i32 %74, %76
+  %77 = icmp samesign ult i32 %74, %76
   br i1 %77, label %17, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %17, %10
@@ -710,7 +710,7 @@ define dso_local i32 @e1000_lv_jumbo_workaround_ich8lan(ptr noundef %0, i1 nound
   %indvars21 = trunc i64 %32 to i32
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, i8 0, i64 6, i1 false)
-  %33 = icmp ult i32 %indvars21, 16
+  %33 = icmp samesign ult i32 %indvars21, 16
   %34 = shl i32 %indvars21, 3
   %35 = add nuw nsw i32 %34, 21604
   %36 = or i32 %34, 21508
@@ -759,7 +759,7 @@ define dso_local i32 @e1000_lv_jumbo_workaround_ich8lan(ptr noundef %0, i1 nound
   %indvars = trunc i64 %66 to i32
   %67 = load i16, ptr %21, align 8
   %68 = zext i16 %67 to i32
-  %69 = icmp ult i32 %indvars, %68
+  %69 = icmp samesign ult i32 %indvars, %68
   br i1 %69, label %31, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %65, %20
@@ -1732,7 +1732,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 
 46:                                               ; preds = %.preheader
   %47 = add nuw nsw i32 %44, 1
-  %48 = icmp ugt i32 %44, 99
+  %48 = icmp samesign ugt i32 %44, 99
   %49 = and i8 %43, 1
   %50 = icmp eq i8 %49, 0
   %51 = select i1 %48, i1 %50, i1 false
@@ -2217,7 +2217,7 @@ define internal i32 @e1000_get_variants_ich8lan(ptr noundef %0) #0 align 16 {
   %99 = load i32, ptr %96, align 8
   %100 = tail call i32 @e1000e_get_phy_type_from_id(i32 noundef %99) #9
   %101 = icmp eq i32 %100, 0
-  %102 = icmp ult i16 %98, 100
+  %102 = icmp samesign ult i16 %98, 100
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %104, label %108
 
@@ -3728,7 +3728,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
 122:                                              ; preds = %115
   %123 = load i16, ptr %12, align 2
   %124 = and i16 %123, 4064
-  %125 = icmp ult i16 %124, 96
+  %125 = icmp samesign ult i16 %124, 96
   br i1 %125, label %127, label %.thread
 
 .thread:                                          ; preds = %122
@@ -3978,7 +3978,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %258 = add i16 %257, 1
   %259 = add nuw nsw i64 %256, 31
   %260 = lshr i64 %259, 5
-  %261 = icmp ugt i64 %256, 32736
+  %261 = icmp samesign ugt i64 %256, 32736
   br i1 %261, label %.preheader, label %262, !llvm.loop !30
 
 262:                                              ; preds = %.preheader
@@ -6385,7 +6385,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_read_flash_dword_ich8
   %69 = and i16 %68, 3
   %70 = icmp ne i16 %69, 0
   %71 = add nuw nsw i8 %16, 1
-  %72 = icmp ult i8 %16, 10
+  %72 = icmp samesign ult i8 %16, 10
   %73 = select i1 %70, i1 %72, i1 false
   br i1 %73, label %15, label %.loopexit3, !llvm.loop !39
 
@@ -6479,7 +6479,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_flash_cycle_init_ich8
   br i1 %48, label %.thread1, label %40, !llvm.loop !40
 
 49:                                               ; preds = %40
-  %50 = icmp ult i32 %46, 9999999
+  %50 = icmp samesign ult i32 %46, 9999999
   br i1 %50, label %.thread, label %.thread1
 
 .thread:                                          ; preds = %23, %49
@@ -6611,7 +6611,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_read_flash_data_ich8l
   %70 = and i16 %69, 3
   %71 = icmp ne i16 %70, 0
   %72 = add nuw nsw i8 %17, 1
-  %73 = icmp ult i8 %17, 10
+  %73 = icmp samesign ult i8 %17, 10
   %74 = select i1 %71, i1 %73, i1 false
   br i1 %74, label %16, label %.loopexit2, !llvm.loop !41
 
@@ -7425,7 +7425,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_write_flash_byte_ich8
   %90 = and i16 %89, 3
   %91 = icmp ne i16 %90, 0
   %92 = add nuw nsw i8 %16, 1
-  %93 = icmp ult i8 %16, 10
+  %93 = icmp samesign ult i8 %16, 10
   %94 = select i1 %91, i1 %93, i1 false
   br i1 %94, label %15, label %.loopexit2, !llvm.loop !49
 
@@ -7667,7 +7667,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
 
 .critedge:                                        ; preds = %69, %81
   %33 = add nuw nsw i64 %36, 2
-  %34 = icmp ult i64 %36, 2046
+  %34 = icmp samesign ult i64 %36, 2046
   br i1 %34, label %35, label %82, !llvm.loop !51
 
 35:                                               ; preds = %.critedge, %29
@@ -7976,7 +7976,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_write_flash_data32_ic
   %90 = and i16 %89, 3
   %91 = icmp ne i16 %90, 0
   %92 = add nuw nsw i8 %16, 1
-  %93 = icmp ult i8 %16, 10
+  %93 = icmp samesign ult i8 %16, 10
   %94 = select i1 %91, i1 %93, i1 false
   br i1 %94, label %15, label %.loopexit1, !llvm.loop !54
 

@@ -138,7 +138,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %queues, align 8
   %8 = zext i32 %7 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %8
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp12, label %for.body13, label %do.body29, !llvm.loop !7
 
 do.body29:                                        ; preds = %for.body13, %for.cond10.preheader

@@ -8624,7 +8624,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i: ; preds = %29
   br i1 %35, label %.sink.split.i, label %36
 
 36:                                               ; preds = %_ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i
-  %37 = icmp ugt i64 %indvars.iv.i, 35
+  %37 = icmp samesign ugt i64 %indvars.iv.i, 35
   br i1 %37, label %.sink.split.i, label %38
 
 38:                                               ; preds = %36
@@ -8833,7 +8833,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i30: ; preds = %130
   br i1 %136, label %.sink.split.i32, label %137
 
 137:                                              ; preds = %_ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i30
-  %138 = icmp ugt i64 %indvars.iv.i28, 35
+  %138 = icmp samesign ugt i64 %indvars.iv.i28, 35
   br i1 %138, label %.sink.split.i32, label %139
 
 139:                                              ; preds = %137
@@ -10092,7 +10092,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit: ; preds = %7
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %_ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit
-  %15 = icmp ugt i64 %indvars.iv, 35
+  %15 = icmp samesign ugt i64 %indvars.iv, 35
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %14

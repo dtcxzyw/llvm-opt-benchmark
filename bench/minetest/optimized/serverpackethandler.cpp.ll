@@ -6807,7 +6807,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   %inc = add nuw nsw i16 %i.048, 1
   %7 = load i8, ptr %count, align 1, !tbaa !13
   %8 = zext i8 %7 to i16
-  %cmp17 = icmp ult i16 %inc, %8
+  %cmp17 = icmp samesign ult i16 %inc, %8
   br i1 %cmp17, label %for.body, label %_ZN15ClientInterface8AutoLockD2Ev.exit, !llvm.loop !293
 
 lpad18:                                           ; preds = %invoke.cont20, %for.body
@@ -7517,7 +7517,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %inc = add nuw nsw i16 %i.023, 1
   %5 = load i8, ptr %count, align 1, !tbaa !13
   %6 = zext i8 %5 to i16
-  %cmp13 = icmp ult i16 %inc, %6
+  %cmp13 = icmp samesign ult i16 %inc, %6
   br i1 %cmp13, label %for.body, label %for.cond.cleanup, !llvm.loop !304
 
 return:                                           ; preds = %for.cond.cleanup, %entry
@@ -26166,7 +26166,7 @@ invoke.cont6:                                     ; preds = %_ZNSt6vectorIjSaIjE
   %inc = add nuw nsw i16 %i.0123, 1
   %6 = load i8, ptr %numtokens, align 1, !tbaa !13
   %7 = zext i8 %6 to i16
-  %cmp = icmp ult i16 %inc, %7
+  %cmp = icmp samesign ult i16 %inc, %7
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !446
 
 lpad3.loopexit:                                   ; preds = %cond.true.i.i.i, %for.body

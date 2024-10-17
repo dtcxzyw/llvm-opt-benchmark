@@ -2003,7 +2003,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %45, %207, %204, %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %208 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   %209 = and i64 %208, 4294967295
-  %210 = icmp ult i64 %indvars.iv.next, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next, %209
   br i1 %210, label %45, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN4llvm6APSIntD2Ev.exit, %5
@@ -4158,7 +4158,7 @@ define dso_local void @_ZN5clang22InitializationSequence14InitializeFromERNS_4Se
   %.not.i = icmp eq i8 %41, 13
   %42 = load i32, ptr %40, align 16
   %43 = and i32 %42, 266338304
-  %44 = icmp ugt i32 %43, 257425408
+  %44 = icmp samesign ugt i32 %43, 257425408
   %.0.i = select i1 %.not.i, i1 %44, i1 false
   br i1 %.0.i, label %45, label %53
 
@@ -5806,7 +5806,7 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit.thread289: ; preds = %
 _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit.thread: ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit, %165, %162, %152, %172
   %176 = load ptr, ptr %120, align 8
   %177 = and i64 %156, 511
-  %178 = icmp ugt i64 %177, 7
+  %178 = icmp samesign ugt i64 %177, 7
   br i1 %178, label %181, label %179
 
 179:                                              ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_.exit.thread
@@ -14315,7 +14315,7 @@ _ZNK5clang4Type10isSamplerTEv.exit.thread:        ; preds = %1837, %_ZNK5clang4T
 
 1903:                                             ; preds = %1901, %1898, %1890
   %1904 = and i64 %1893, 14
-  %1905 = icmp ugt i64 %1904, 8
+  %1905 = icmp samesign ugt i64 %1904, 8
   br i1 %1905, label %1906, label %1908
 
 1906:                                             ; preds = %1903
@@ -21417,7 +21417,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -31873,7 +31873,7 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %250, %251
   %273 = load i64, ptr %272, align 8, !noalias !199
   %274 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %271, ptr %274, align 8, !alias.scope !199
-  %275 = icmp ult i32 %271, 65
+  %275 = icmp samesign ult i32 %271, 65
   br i1 %275, label %276, label %284
 
 276:                                              ; preds = %269
@@ -33745,7 +33745,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEm
   %43 = load i64, ptr %42, align 8, !noalias !235
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %41, ptr %44, align 8, !alias.scope !235
-  %45 = icmp ult i32 %41, 65
+  %45 = icmp samesign ult i32 %41, 65
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %39
@@ -38436,7 +38436,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit587: ; preds = %1050, %1052
   %1089 = load i64, ptr %1088, align 8, !noalias !272
   %1090 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %1087, ptr %1090, align 8, !alias.scope !272
-  %1091 = icmp ult i32 %1087, 65
+  %1091 = icmp samesign ult i32 %1087, 65
   br i1 %1091, label %1092, label %1100
 
 1092:                                             ; preds = %1085
@@ -38787,7 +38787,7 @@ _ZN4llvm6APSIntD2Ev.exit619:                      ; preds = %1195, %1192, %.crit
   %1242 = load i64, ptr %1241, align 8, !noalias !293
   %1243 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 %1240, ptr %1243, align 8, !alias.scope !293
-  %1244 = icmp ult i32 %1240, 65
+  %1244 = icmp samesign ult i32 %1240, 65
   br i1 %1244, label %1245, label %1253
 
 1245:                                             ; preds = %1238
@@ -42027,7 +42027,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %300, %305
   %313 = and i64 %6, 4294966784
   %314 = or disjoint i64 %312, %313
   %315 = load ptr, ptr %44, align 8
-  %316 = icmp ugt i64 %314, 7
+  %316 = icmp samesign ugt i64 %314, 7
   br i1 %316, label %319, label %317
 
 317:                                              ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit
@@ -42188,7 +42188,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit258: 
 380:                                              ; preds = %378
   %381 = load ptr, ptr %44, align 8
   %382 = and i64 %6, 511
-  %383 = icmp ugt i64 %382, 7
+  %383 = icmp samesign ugt i64 %382, 7
   br i1 %383, label %386, label %384
 
 384:                                              ; preds = %380

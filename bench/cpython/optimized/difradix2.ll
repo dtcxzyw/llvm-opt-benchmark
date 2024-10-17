@@ -84,7 +84,7 @@ for.body30.lr.ph:                                 ; preds = %for.inc96, %for.bod
   br label %for.body30
 
 for.cond54.preheader:                             ; preds = %for.body30
-  %cmp55305 = icmp ugt i64 %m.0310, 3
+  %cmp55305 = icmp samesign ugt i64 %m.0310, 3
   br i1 %cmp55305, label %for.body56.us.preheader, label %for.end97
 
 for.body56.us.preheader:                          ; preds = %for.cond54.preheader

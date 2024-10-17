@@ -2661,7 +2661,7 @@ define void @_ZN6colvar12distance_inv10calc_valueEv(ptr nocapture noundef nonnul
   %.1.i = select i1 %.not19.i, double %.01621.i, double %58
   %59 = lshr i32 %.023.i, 1
   %60 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp ult i32 %.023.i, 2
+  %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %54
@@ -2794,7 +2794,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %36, %._crit_edge.i
   %.1.i20 = select i1 %.not19.i19, double %.01621.i18, double %133
   %134 = lshr i32 %.023.i16, 1
   %135 = fmul double %.01522.i17, %.01522.i17
-  %.not.i21 = icmp ult i32 %.023.i16, 2
+  %.not.i21 = icmp samesign ult i32 %.023.i16, 2
   br i1 %.not.i21, label %._crit_edge.i22, label %.lr.ph.i15, !llvm.loop !110
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i15, %129
@@ -2914,7 +2914,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %119, %._crit_edge.i
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %210
   %211 = lshr i32 %.023.i29, 1
   %212 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp ult i32 %.023.i29, 2
+  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !110
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %207

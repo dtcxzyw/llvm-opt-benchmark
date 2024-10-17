@@ -491,7 +491,7 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %27 = load i32, ptr %19, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next47, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next47, %28
   br i1 %29, label %.lr.ph42, label %.loopexit, !llvm.loop !10
 
 30:                                               ; preds = %13
@@ -531,7 +531,7 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %44, align 8
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %30, %._crit_edge
@@ -575,7 +575,7 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %23 = load i32, ptr %15, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next45, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next45, %24
   br i1 %25, label %.lr.ph40, label %.loopexit, !llvm.loop !12
 
 26:                                               ; preds = %9
@@ -619,7 +619,7 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %38, align 8
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %26, %._crit_edge
@@ -1544,11 +1544,11 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %55 = add i32 %54, %51
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds i16, ptr %5, i64 %56
-  %.not = icmp ult i32 %37, %38
+  %.not = icmp samesign ult i32 %37, %38
   br i1 %.not, label %165, label %58
 
 58:                                               ; preds = %3
-  %.not238 = icmp ult i32 %38, %39
+  %.not238 = icmp samesign ult i32 %38, %39
   br i1 %.not238, label %94, label %59
 
 59:                                               ; preds = %58
@@ -1600,7 +1600,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   br i1 %.not242, label %.loopexit, label %65, !llvm.loop !19
 
 94:                                               ; preds = %58
-  %.not239 = icmp ult i32 %39, %37
+  %.not239 = icmp samesign ult i32 %39, %37
   %.not240257 = icmp eq i32 %7, 0
   br i1 %.not239, label %130, label %95
 
@@ -1699,7 +1699,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   br i1 %.not240, label %.loopexit, label %136, !llvm.loop !21
 
 165:                                              ; preds = %3
-  %.not233 = icmp ult i32 %37, %39
+  %.not233 = icmp samesign ult i32 %37, %39
   br i1 %.not233, label %201, label %166
 
 166:                                              ; preds = %165
@@ -1751,7 +1751,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   br i1 %.not237, label %.loopexit, label %172, !llvm.loop !22
 
 201:                                              ; preds = %165
-  %.not234 = icmp ult i32 %38, %39
+  %.not234 = icmp samesign ult i32 %38, %39
   %.not235272 = icmp eq i32 %7, 0
   br i1 %.not234, label %237, label %202
 
@@ -1913,7 +1913,7 @@ define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -2003,23 +2003,23 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 .lr.ph:                                           ; preds = %3
   %78 = add nsw i32 %63, %57
   %79 = add nsw i32 %68, %78
-  %.not461 = icmp ult i32 %46, %47
-  %.not462 = icmp ult i32 %47, %48
+  %.not461 = icmp samesign ult i32 %46, %47
+  %.not462 = icmp samesign ult i32 %47, %48
   %or.cond = select i1 %.not461, i1 true, i1 %.not462
   %80 = add nsw i32 %60, %63
   %81 = add nsw i32 %80, %68
   %82 = add nsw i32 %66, %60
   %83 = add nsw i32 %82, %68
   %84 = add nsw i32 %71, %82
-  %.not463 = icmp ult i32 %46, %48
-  %.not464 = icmp ult i32 %48, %47
+  %.not463 = icmp samesign ult i32 %46, %48
+  %.not464 = icmp samesign ult i32 %48, %47
   %85 = add nsw i32 %71, %80
-  %.not465 = icmp ult i32 %48, %46
+  %.not465 = icmp samesign ult i32 %48, %46
   %brmerge = or i1 %.not461, %.not465
   %86 = add i32 %71, %60
   %87 = add i32 %86, %63
   %88 = add nsw i32 %71, %78
-  %.not466 = icmp ult i32 %47, %46
+  %.not466 = icmp samesign ult i32 %47, %46
   %brmerge470 = or i1 %.not466, %.not463
   %89 = add nsw i32 %66, %57
   %90 = add nsw i32 %89, %68
@@ -2280,24 +2280,24 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %285 = getelementptr inbounds i16, ptr %73, i64 %284
   %286 = add nsw i32 %63, %57
   %287 = add nsw i32 %68, %286
-  %.not = icmp ult i32 %46, %47
-  %.not454 = icmp ult i32 %47, %48
+  %.not = icmp samesign ult i32 %46, %47
+  %.not454 = icmp samesign ult i32 %47, %48
   %or.cond473 = select i1 %.not, i1 true, i1 %.not454
   %288 = add nsw i32 %60, %63
   %289 = add nsw i32 %288, %68
   %290 = add nsw i32 %66, %60
   %291 = add nsw i32 %290, %68
   %292 = add nsw i32 %71, %290
-  %.not455 = icmp ult i32 %46, %48
-  %.not456 = icmp ult i32 %48, %47
+  %.not455 = icmp samesign ult i32 %46, %48
+  %.not456 = icmp samesign ult i32 %48, %47
   %or.cond474 = select i1 %.not455, i1 true, i1 %.not456
   %293 = add nsw i32 %71, %288
-  %.not457 = icmp ult i32 %48, %46
+  %.not457 = icmp samesign ult i32 %48, %46
   %brmerge475 = or i1 %.not, %.not457
   %294 = add i32 %71, %60
   %295 = add i32 %294, %63
   %296 = add nsw i32 %71, %286
-  %.not458 = icmp ult i32 %47, %46
+  %.not458 = icmp samesign ult i32 %47, %46
   %brmerge476 = or i1 %.not458, %.not455
   %297 = add nsw i32 %66, %57
   %298 = add nsw i32 %297, %68
@@ -2501,7 +2501,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
   %455 = load i32, ptr %76, align 8
   %456 = zext i32 %455 to i64
-  %457 = icmp ult i64 %indvars.iv.next517, %456
+  %457 = icmp samesign ult i64 %indvars.iv.next517, %456
   br i1 %457, label %.lr.ph487, label %._crit_edge488, !llvm.loop !28
 
 ._crit_edge488:                                   ; preds = %.lr.ph487, %3
@@ -2701,7 +2701,7 @@ Eval4InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval4InputsFloat.exit37.thread
@@ -2770,7 +2770,7 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -2837,7 +2837,7 @@ define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -3047,7 +3047,7 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval5Inputs.exit32.thread
@@ -3247,7 +3247,7 @@ Eval6InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval6InputsFloat.exit37.thread
@@ -3316,7 +3316,7 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -3383,7 +3383,7 @@ define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -3593,7 +3593,7 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval7Inputs.exit32.thread
@@ -3793,7 +3793,7 @@ Eval8InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval8InputsFloat.exit37.thread
@@ -3862,7 +3862,7 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -3929,7 +3929,7 @@ define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -4139,7 +4139,7 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval9Inputs.exit32.thread
@@ -4339,7 +4339,7 @@ Eval10InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval10InputsFloat.exit37.thread
@@ -4408,7 +4408,7 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -4475,7 +4475,7 @@ define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -4685,7 +4685,7 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval11Inputs.exit32.thread
@@ -4885,7 +4885,7 @@ Eval12InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval12InputsFloat.exit37.thread
@@ -4954,7 +4954,7 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -5021,7 +5021,7 @@ define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -5232,7 +5232,7 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval13Inputs.exit32.thread
@@ -5432,7 +5432,7 @@ Eval14InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval14InputsFloat.exit37.thread
@@ -5501,7 +5501,7 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

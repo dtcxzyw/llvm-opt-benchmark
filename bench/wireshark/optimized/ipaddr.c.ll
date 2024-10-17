@@ -154,7 +154,7 @@ lookup_block.exit:                                ; preds = %12, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %6, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %25, %.preheader
@@ -298,7 +298,7 @@ lookup_block.exit:                                ; preds = %12, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %6, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %42, %.preheader
@@ -393,7 +393,7 @@ ip_is_link_local.exit:                            ; preds = %12, %17, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %5, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ip_is_link_local.exit, %.preheader.i
@@ -481,7 +481,7 @@ ip_is_multicast.exit:                             ; preds = %12, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %5, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ip_is_multicast.exit, %.preheader.i
@@ -551,7 +551,7 @@ ipv4_is_rfc1918.exit:                             ; preds = %.lr.ph.i, %12, %17,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %5, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ipv4_is_rfc1918.exit, %.preheader.i
@@ -607,7 +607,7 @@ ipv6_is_ula.exit:                                 ; preds = %.lr.ph.i, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %5, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next.i, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next.i, %19
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ipv6_is_ula.exit, %.preheader.i

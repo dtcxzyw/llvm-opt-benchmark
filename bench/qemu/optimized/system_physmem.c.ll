@@ -1227,7 +1227,7 @@ land.lhs.true:                                    ; preds = %qemu_get_ram_block.
   br i1 %cmp8.not, label %if.else, label %while.cond11.preheader
 
 while.cond11.preheader:                           ; preds = %land.lhs.true
-  %cmp1238 = icmp ult i64 %shr2, %shr
+  %cmp1238 = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1238, label %while.body13.lr.ph, label %while.end26
 
 while.body13.lr.ph:                               ; preds = %while.cond11.preheader
@@ -1251,7 +1251,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %call21 = tail call zeroext i1 @bitmap_test_and_clear_atomic(ptr noundef %15, i64 noundef %rem, i64 noundef %cond) #28
   %16 = or i1 %dirty.139, %call21
   %add25 = add nuw nsw i64 %cond, %page.140
-  %cmp12 = icmp ult i64 %add25, %shr
+  %cmp12 = icmp samesign ult i64 %add25, %shr
   br i1 %cmp12, label %while.body13, label %while.end26.loopexit, !llvm.loop !21
 
 while.end26.loopexit:                             ; preds = %while.body13
@@ -1574,7 +1574,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   %dirty = getelementptr inbounds i8, ptr %call7, i64 16
   %2 = load atomic i64, ptr %arrayidx monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
-  %cmp41 = icmp ult i64 %shr10, %shr11
+  %cmp41 = icmp samesign ult i64 %shr10, %shr11
   br i1 %cmp41, label %while.body14.lr.ph, label %for.inc
 
 while.body14.lr.ph:                               ; preds = %rcu_read_auto_lock.exit
@@ -1608,7 +1608,7 @@ if.end26:                                         ; preds = %while.body14
   %add31 = add nuw nsw i64 %cond, %page.143
   %shr32 = lshr exact i64 %cond, 6
   %add33 = add i64 %shr32, %dest.142
-  %cmp = icmp ult i64 %add31, %shr11
+  %cmp = icmp samesign ult i64 %add31, %shr11
   br i1 %cmp, label %while.body14, label %for.inc, !llvm.loop !27
 
 for.inc:                                          ; preds = %if.end26, %rcu_read_auto_lock.exit
@@ -1692,7 +1692,7 @@ if.end6:                                          ; preds = %if.end
   %sub12 = sub i64 %start, %0
   %shr13 = lshr i64 %sub12, 12
   %dirty = getelementptr inbounds i8, ptr %snap, i64 16
-  %cmp1412 = icmp ult i64 %shr13, %shr
+  %cmp1412 = icmp samesign ult i64 %shr13, %shr
   br i1 %cmp1412, label %while.body, label %return
 
 while.body:                                       ; preds = %if.end6, %while.body
@@ -2906,7 +2906,7 @@ while.end.us.us.us:                               ; preds = %rcu_read_auto_lock.
   br i1 %exitcond79.not, label %for.inc59.us.us.us, label %while.end.us.us.us, !llvm.loop !40
 
 for.end.us.us:                                    ; preds = %while.end.us.us
-  %cmp1035.us.us = icmp ult i64 %shr2, %shr
+  %cmp1035.us.us = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035.us.us, label %while.body11.lr.ph.us.us, label %for.inc59.us.us
 
 for.inc59.us.us:                                  ; preds = %while.body11.us.us.us57.us, %for.end.us.us
@@ -2967,11 +2967,11 @@ while.body11.us.us.us57.us:                       ; preds = %while.body11.lr.ph.
   %sub54.us.us.us.us = sub nsw i64 %cond.us.us.us61.us, %page.139.us.us.us.us
   tail call void @bitmap_set_atomic(ptr noundef %11, i64 noundef %offset.037.us.us.us.us, i64 noundef %sub54.us.us.us.us) #28
   %inc56.us.us.us62.us = add nuw nsw i64 %idx.038.us.us.us58.us, 1
-  %cmp10.us.us.us63.us = icmp ult i64 %add12.us.us.us60.us, %shr
+  %cmp10.us.us.us63.us = icmp samesign ult i64 %add12.us.us.us60.us, %shr
   br i1 %cmp10.us.us.us63.us, label %while.body11.us.us.us57.us, label %for.inc59.us.us, !llvm.loop !41
 
 for.end.us:                                       ; preds = %while.end.us
-  %cmp1035.us = icmp ult i64 %shr2, %shr
+  %cmp1035.us = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035.us, label %while.body11.lr.ph.us, label %for.inc59.us
 
 for.inc59.us:                                     ; preds = %if.end55.us.us, %for.end.us
@@ -3043,7 +3043,7 @@ if.then50.us.us:                                  ; preds = %while.body11.us.us4
 
 if.end55.us.us:                                   ; preds = %if.then50.us.us, %while.body11.us.us43
   %inc56.us.us52 = add nuw nsw i64 %idx.038.us.us45, 1
-  %cmp10.us.us53 = icmp ult i64 %add12.us.us48, %shr
+  %cmp10.us.us53 = icmp samesign ult i64 %add12.us.us48, %shr
   br i1 %cmp10.us.us53, label %while.body11.us.us43, label %for.inc59.us, !llvm.loop !41
 
 while.end:                                        ; preds = %rcu_read_auto_lock.exit, %while.end
@@ -3059,7 +3059,7 @@ while.end:                                        ; preds = %rcu_read_auto_lock.
   br i1 %exitcond.not, label %for.end, label %while.end, !llvm.loop !40
 
 for.end:                                          ; preds = %while.end
-  %cmp1035 = icmp ult i64 %shr2, %shr
+  %cmp1035 = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035, label %while.body11.lr.ph, label %for.inc59
 
 while.body11.lr.ph:                               ; preds = %for.end
@@ -3104,7 +3104,7 @@ if.then50:                                        ; preds = %if.end40
 
 if.end55:                                         ; preds = %if.then50, %if.end40
   %inc56 = add nuw nsw i64 %idx.038, 1
-  %cmp10 = icmp ult i64 %add12, %shr
+  %cmp10 = icmp samesign ult i64 %add12, %shr
   br i1 %cmp10, label %while.body11, label %for.inc59, !llvm.loop !41
 
 for.inc59:                                        ; preds = %if.end55, %for.end
@@ -3321,7 +3321,7 @@ if.then.i:                                        ; preds = %if.end7
 
 if.else.i:                                        ; preds = %if.end7
   %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %tobool1.not.i.i = icmp ult i64 %6, 2
+  %tobool1.not.i.i = icmp samesign ult i64 %6, 2
   br i1 %tobool1.not.i.i, label %if.else14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
@@ -3709,7 +3709,7 @@ if.end19:                                         ; preds = %if.end.i, %if.end, 
   %42 = load i64, ptr %max_length, align 8
   %add = add i64 %42, %41
   %shr = lshr i64 %add, 12
-  %cmp22 = icmp ugt i64 %shr, %last.0.lcssa.i
+  %cmp22 = icmp samesign ugt i64 %shr, %last.0.lcssa.i
   br i1 %cmp22, label %if.then23, label %while.end
 
 if.then23:                                        ; preds = %if.end19
@@ -3717,7 +3717,7 @@ if.then23:                                        ; preds = %if.end19
   %div15.i = lshr i64 %sub.i73, 21
   %sub2.i = add nuw nsw i64 %shr, 2097151
   %div316.i = lshr i64 %sub2.i, 21
-  %cmp.not.i74 = icmp ugt i64 %div316.i, %div15.i
+  %cmp.not.i74 = icmp samesign ugt i64 %div316.i, %div15.i
   br i1 %cmp.not.i74, label %for.cond.preheader.i, label %while.end
 
 for.cond.preheader.i:                             ; preds = %if.then23
@@ -10752,7 +10752,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   %arrayidx = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %idxprom
   %2 = load atomic i64, ptr %arrayidx monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !89
-  %cmp516.not = icmp ult i64 %shr2, %shr
+  %cmp516.not = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp516.not, label %while.body6.lr.ph, label %if.then.i.i
 
 while.body6.lr.ph:                                ; preds = %rcu_read_auto_lock.exit
@@ -10775,8 +10775,8 @@ while.body6:                                      ; preds = %while.body6, %while
   %call13 = tail call i64 @find_next_zero_bit(ptr noundef %4, i64 noundef %sub10, i64 noundef %offset.018) #28
   %cmp14.not = icmp uge i64 %call13, %sub10
   %inc = add nuw nsw i64 %idx.019, 1
-  %cmp5.not = icmp ult i64 %add7, %shr
-  %or.cond = and i1 %cmp14.not, %cmp5.not
+  %cmp5.not = icmp samesign ult i64 %add7, %shr
+  %or.cond = select i1 %cmp14.not, i1 %cmp5.not, i1 false
   br i1 %or.cond, label %while.body6, label %if.then.i.i, !llvm.loop !90
 
 if.then.i.i:                                      ; preds = %while.body6, %rcu_read_auto_lock.exit

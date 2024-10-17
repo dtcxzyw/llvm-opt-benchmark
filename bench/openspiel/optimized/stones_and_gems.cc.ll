@@ -13662,7 +13662,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %593 = sub i64 %591, %592
   %594 = ashr exact i64 %593, 5
   %595 = lshr i64 %594, 1
-  %596 = icmp ult i64 %588, %595
+  %596 = icmp samesign ult i64 %588, %595
   br i1 %596, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %.preheader

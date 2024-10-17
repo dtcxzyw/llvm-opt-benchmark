@@ -470,7 +470,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI9OopHand
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -648,8 +648,8 @@ define hidden void @_ZN18RegeneratedClasses26record_regenerated_objectsEv() loca
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %10, %.lr.ph.i.i ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx19.i.i, 8
   %11 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %12 = icmp ult i64 %.0.idx19.i.i, 127104
-  %or.cond.i.i = and i1 %12, %11
+  %12 = icmp samesign ult i64 %.0.idx19.i.i, 127104
+  %or.cond.i.i = select i1 %11, i1 %12, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11iterate_allIZN18RegeneratedClasses26record_regenerated_objectsEvE3$_0EEvS7_.exit", !llvm.loop !12
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11iterate_allIZN18RegeneratedClasses26record_regenerated_objectsEvE3$_0EEvS7_.exit": ; preds = %._crit_edge.i.i, %2, %0
@@ -753,7 +753,7 @@ _ZN9OopHandle7releaseEP10OopStorage.exit:         ; preds = %.lr.ph, %12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
-  %31 = icmp ult i64 %.0.idx11.i.i, 127104
+  %31 = icmp samesign ult i64 %.0.idx11.i.i, 127104
   br i1 %31, label %.preheader, label %_ZN17ResourceHashtableIPhS0_Lj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEED2Ev.exit, !llvm.loop !15
 
 _ZN17ResourceHashtableIPhS0_Lj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEED2Ev.exit: ; preds = %._crit_edge.i.i

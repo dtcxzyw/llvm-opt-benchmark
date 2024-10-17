@@ -2833,7 +2833,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %_ZNSt
 
 .split.us:                                        ; preds = %41, %55
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %56 = icmp ult i64 %indvars.iv.next80, %30
+  %56 = icmp samesign ult i64 %indvars.iv.next80, %30
   br i1 %56, label %.preheader61, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.split.us, %.preheader62

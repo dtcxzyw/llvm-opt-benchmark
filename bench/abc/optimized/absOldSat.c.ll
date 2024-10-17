@@ -3333,7 +3333,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %31 = getelementptr inbounds i32, ptr %.val154, i64 %30
   store i32 1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp ult i64 %indvars.iv.next, %26
+  %32 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %32, label %27, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %27, %Vec_IntStart.exit

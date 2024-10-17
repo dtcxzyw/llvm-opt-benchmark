@@ -2415,7 +2415,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %call.val1.i.i.i.i = load i32, ptr %11, align 4
   %12 = and i8 %call.val.i.i.i.i, 1
   %cmp.not.i.i.i.i.i.i = icmp eq i8 %12, %9
-  %cmp11.i.i.i.i.i.i = icmp ult i8 %12, %9
+  %cmp11.i.i.i.i.i.i = icmp samesign ult i8 %12, %9
   %cmp13.i.i.i.i.i.i = icmp ugt i32 %call.val1.i.i.i.i, %__value.sroa.4.0.copyload.i.i
   %retval.0.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp13.i.i.i.i.i.i, i1 %cmp11.i.i.i.i.i.i
   br i1 %retval.0.i.i.i.i.i.i, label %while.body.i.i.i, label %_ZNSt14priority_queueIN3ue212_GLOBAL__N_17DotInfoESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushEOS2_.exit

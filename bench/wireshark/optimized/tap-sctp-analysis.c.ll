@@ -919,7 +919,7 @@ copy_address.exit1274:                            ; preds = %copy_address.exit12
   %indvars.iv.next1376 = add nuw nsw i64 %indvars.iv1375, 1
   %323 = load i32, ptr %85, align 8
   %324 = zext i32 %323 to i64
-  %325 = icmp ult i64 %indvars.iv.next1376, %324
+  %325 = icmp samesign ult i64 %indvars.iv.next1376, %324
   br i1 %325, label %.lr.ph1358, label %._crit_edge1359, !llvm.loop !6
 
 ._crit_edge1359:                                  ; preds = %322, %295
@@ -1509,7 +1509,7 @@ copy_address.exit1274:                            ; preds = %copy_address.exit12
   %indvars.iv.next1374 = add nuw nsw i64 %indvars.iv1373, 1
   %653 = load i32, ptr %85, align 8
   %654 = zext i32 %653 to i64
-  %655 = icmp ult i64 %indvars.iv.next1374, %654
+  %655 = icmp samesign ult i64 %indvars.iv.next1374, %654
   br i1 %655, label %442, label %.loopexit1333.loopexit, !llvm.loop !7
 
 .loopexit1333.loopexit:                           ; preds = %652
@@ -1653,7 +1653,7 @@ copy_address.exit1276:                            ; preds = %copy_address.exit12
   %indvars.iv.next1379 = add nuw nsw i64 %indvars.iv1378, 1
   %729 = load i32, ptr %85, align 8
   %730 = zext i32 %729 to i64
-  %731 = icmp ult i64 %indvars.iv.next1379, %730
+  %731 = icmp samesign ult i64 %indvars.iv.next1379, %730
   br i1 %731, label %.lr.ph1361, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph1361, %.preheader, %717
@@ -2181,7 +2181,7 @@ copy_address.exit1282:                            ; preds = %898, %901
   %indvars.iv.next1368 = add nuw nsw i64 %indvars.iv1367, 1
   %1007 = load i32, ptr %990, align 8
   %1008 = zext i32 %1007 to i64
-  %1009 = icmp ult i64 %indvars.iv.next1368, %1008
+  %1009 = icmp samesign ult i64 %indvars.iv.next1368, %1008
   br i1 %1009, label %.lr.ph1344, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %1006, %968
@@ -3212,7 +3212,7 @@ copy_address.exit1282:                            ; preds = %898, %901
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1578 = load i32, ptr %1164, align 8
   %1579 = zext i32 %1578 to i64
-  %1580 = icmp ult i64 %indvars.iv.next, %1579
+  %1580 = icmp samesign ult i64 %indvars.iv.next, %1579
   br i1 %1580, label %1212, label %.loopexit1334, !llvm.loop !10
 
 .loopexit1334:                                    ; preds = %1577
@@ -3895,7 +3895,7 @@ define internal fastcc noundef ptr @add_chunk_count(ptr nocapture noundef nonnul
   br i1 %31, label %32, label %addresses_equal.exit
 
 32:                                               ; preds = %26, %24
-  %33 = icmp ult i32 %3, 17
+  %33 = icmp samesign ult i32 %3, 17
   %34 = and i32 %3, 127
   %35 = icmp eq i32 %34, 64
   %or.cond3 = or i1 %33, %35
@@ -3956,7 +3956,7 @@ addresses_equal.exit:                             ; preds = %26, %19, %14, %10
 copy_address.exit:                                ; preds = %._crit_edge, %57
   %63 = getelementptr inbounds i8, ptr %49, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %63, i8 0, i64 1024, i1 false)
-  %64 = icmp ult i32 %3, 17
+  %64 = icmp samesign ult i32 %3, 17
   %65 = and i32 %3, 127
   %66 = icmp eq i32 %65, 64
   %or.cond13 = or i1 %64, %66

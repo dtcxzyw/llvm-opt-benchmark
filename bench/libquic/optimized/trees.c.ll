@@ -2355,7 +2355,7 @@ do.cond:                                          ; preds = %do.cond.sink.split,
   %69 = phi i32 [ %storemerge161, %if.end269 ], [ %add55.sink, %do.cond.sink.split ]
   %70 = load i32, ptr %last_lit, align 4
   %71 = zext i32 %70 to i64
-  %cmp336 = icmp ult i64 %indvars.iv.next, %71
+  %cmp336 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %cmp336, label %do.body, label %if.end338, !llvm.loop !28
 
 if.end338:                                        ; preds = %do.cond, %entry.if.end338_crit_edge

@@ -4499,7 +4499,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %NumOccur8, align 8
   %29 = zext i32 %28 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %29
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %cmp9, label %for.body10, label %if.end41, !llvm.loop !21
 
 if.end41:                                         ; preds = %for.body10, %if.end34.us, %_ZN6Assimp3PLY3DOM8SkipLineERSt6vectorIcSaIcEE.exit, %if.else, %if.then
@@ -4856,7 +4856,7 @@ for.inc:                                          ; preds = %for.body.i, %_ZNSt6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %NumOccur, align 8
   %21 = zext i32 %20 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry

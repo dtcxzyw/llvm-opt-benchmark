@@ -9556,7 +9556,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$alloc..collections..btree..set..Int
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr74drop_in_place$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$GT$17hc01fd9b43e0b4c86E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !18, !noundef !3
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %15, label %3
 
 3:                                                ; preds = %1

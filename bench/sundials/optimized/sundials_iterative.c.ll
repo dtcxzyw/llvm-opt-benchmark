@@ -305,7 +305,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %indvars.iv174 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next175, %59 ]
   %indvars.iv170 = phi i32 [ -1, %.preheader.preheader ], [ %indvars.iv.next171, %59 ]
   %.0165 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %59 ]
-  %6 = icmp ugt i64 %indvars.iv174, 1
+  %6 = icmp samesign ugt i64 %indvars.iv174, 1
   br i1 %6, label %.lr.ph162, label %._crit_edge163
 
 .lr.ph162:                                        ; preds = %.preheader
@@ -576,7 +576,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture nou
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %30, %26
   store double %31, ptr %29, align 8
-  %32 = icmp ugt i64 %indvars.iv63, 1
+  %32 = icmp samesign ugt i64 %indvars.iv63, 1
   br i1 %32, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %28, %.lr.ph52
@@ -700,7 +700,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
 31:                                               ; preds = %9, %.loopexit
   %.07481 = phi i64 [ 0, %9 ], [ %32, %.loopexit ]
   %32 = add nuw nsw i64 %.07481, 1
-  %33 = icmp ult i64 %32, %29
+  %33 = icmp samesign ult i64 %32, %29
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %31
@@ -823,7 +823,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
 47:                                               ; preds = %41, %.loopexit
   %.1101 = phi i64 [ 0, %41 ], [ %48, %.loopexit ]
   %48 = add nuw nsw i64 %.1101, 1
-  %49 = icmp ult i64 %48, %23
+  %49 = icmp samesign ult i64 %48, %23
   br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %47

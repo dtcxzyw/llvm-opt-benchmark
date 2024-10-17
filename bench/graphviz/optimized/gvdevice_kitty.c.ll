@@ -52,7 +52,7 @@ define internal void @kitty_format(ptr nocapture noundef readonly %0) #0 {
   store i8 %15, ptr %11, align 1
   store i8 %12, ptr %14, align 1
   %16 = add nuw nsw i64 %.012.i, 4
-  %17 = icmp ult i64 %16, %10
+  %17 = icmp samesign ult i64 %16, %10
   br i1 %17, label %.lr.ph.i, label %fix_colors.exit.loopexit
 
 fix_colors.exit.loopexit:                         ; preds = %.lr.ph.i
@@ -267,7 +267,7 @@ define internal void @zkitty_format(ptr nocapture noundef readonly %0) #0 {
   store i8 %16, ptr %12, align 1
   store i8 %13, ptr %15, align 1
   %17 = add nuw nsw i64 %.012.i, 4
-  %18 = icmp ult i64 %17, %11
+  %18 = icmp samesign ult i64 %17, %11
   br i1 %18, label %.lr.ph.i, label %fix_colors.exit
 
 fix_colors.exit:                                  ; preds = %.lr.ph.i, %1

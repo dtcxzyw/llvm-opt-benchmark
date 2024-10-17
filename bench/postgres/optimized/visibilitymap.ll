@@ -695,7 +695,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %10
 16:                                               ; preds = %RelationGetSmgr.exit
   %17 = shl i32 %1, 1
   %18 = and i32 %17, 6
-  %19 = icmp ugt i32 %5, 3
+  %19 = icmp samesign ugt i32 %5, 3
   %20 = icmp ne i32 %18, 0
   %or.cond = or i1 %19, %20
   br i1 %or.cond, label %21, label %101
@@ -746,8 +746,8 @@ BufferGetPage.exit:                               ; preds = %26, %32
 48:                                               ; preds = %BufferGetPage.exit
   %49 = and i64 %44, 7
   %50 = icmp eq i64 %49, 0
-  %51 = icmp ugt i32 %5, 28571
-  %or.cond6 = and i1 %51, %50
+  %51 = icmp samesign ugt i32 %5, 28571
+  %or.cond6 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond6, label %52, label %65
 
 52:                                               ; preds = %48

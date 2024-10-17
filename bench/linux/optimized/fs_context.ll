@@ -694,7 +694,7 @@ define internal fastcc ptr @alloc_fs_context(ptr noundef %0, ptr noundef %1, i32
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @__mutex_init(ptr noundef %44, ptr noundef nonnull @.str.5, ptr noundef nonnull @alloc_fs_context.__key) #11
-  %45 = icmp ult i32 %4, 2
+  %45 = icmp samesign ult i32 %4, 2
   br i1 %45, label %54, label %46
 
 46:                                               ; preds = %40

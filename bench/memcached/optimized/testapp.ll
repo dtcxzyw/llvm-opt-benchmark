@@ -7897,7 +7897,7 @@ if.then10.i111:                                   ; preds = %if.then6.us.i108
   unreachable
 
 safe_send.exit114:                                ; preds = %do.cond.us.i105
-  %or.cond = icmp ult i8 %cmd, 16
+  %or.cond = icmp samesign ult i8 %cmd, 16
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %safe_send.exit114

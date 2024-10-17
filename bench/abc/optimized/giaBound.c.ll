@@ -2869,7 +2869,7 @@ Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i
 
 Gia_ObjFaninNum.exit:                             ; preds = %Gia_ObjIsMux.exit.i, %Gia_ObjIsMux.exit.thread.i, %26
   %.0.i = phi i32 [ 3, %Gia_ObjIsMux.exit.i ], [ 2, %Gia_ObjIsMux.exit.thread.i ], [ %..i, %26 ]
-  %27 = icmp ult i32 %.0, %.0.i
+  %27 = icmp samesign ult i32 %.0, %.0.i
   br i1 %27, label %28, label %.loopexit
 
 28:                                               ; preds = %Gia_ObjFaninNum.exit
@@ -4596,7 +4596,7 @@ Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i
 
 Gia_ObjFaninNum.exit:                             ; preds = %Gia_ObjIsMux.exit.i, %Gia_ObjIsMux.exit.thread.i, %714
   %.0.i = phi i32 [ 3, %Gia_ObjIsMux.exit.i ], [ 2, %Gia_ObjIsMux.exit.thread.i ], [ %..i, %714 ]
-  %715 = icmp ult i32 %.2225, %.0.i
+  %715 = icmp samesign ult i32 %.2225, %.0.i
   br i1 %715, label %716, label %.loopexit
 
 716:                                              ; preds = %Gia_ObjFaninNum.exit
@@ -6028,7 +6028,7 @@ Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i
 
 Gia_ObjFaninNum.exit:                             ; preds = %Gia_ObjIsMux.exit.i, %Gia_ObjIsMux.exit.thread.i, %20
   %.0.i = phi i32 [ 3, %Gia_ObjIsMux.exit.i ], [ 2, %Gia_ObjIsMux.exit.thread.i ], [ %..i, %20 ]
-  %21 = icmp ult i32 %.0, %.0.i
+  %21 = icmp samesign ult i32 %.0, %.0.i
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %Gia_ObjFaninNum.exit

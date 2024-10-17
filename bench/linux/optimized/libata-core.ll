@@ -5747,9 +5747,9 @@ define dso_local range(i32 -34, 1) i32 @ata_build_rw_tf(ptr noundef %0, i64 noun
   %274 = urem i32 %269, %272
   %275 = urem i32 %265, %268
   %276 = icmp ult i32 %273, 65536
-  %277 = icmp ult i32 %274, 16
+  %277 = icmp samesign ult i32 %274, 16
   %278 = and i1 %276, %277
-  %279 = icmp ult i32 %275, 255
+  %279 = icmp samesign ult i32 %275, 255
   %280 = and i1 %278, %279
   br i1 %280, label %281, label %.thread
 
@@ -6233,13 +6233,13 @@ define dso_local range(i32 0, 1048576) i32 @ata_id_xfermask(ptr nocapture nounde
   %41 = icmp eq i32 %38, 0
   %42 = or i32 %23, 32
   %43 = select i1 %41, i32 %23, i32 %42
-  %44 = icmp ugt i32 %38, 1
+  %44 = icmp samesign ugt i32 %38, 1
   %45 = or i32 %43, 64
   %46 = select i1 %44, i32 %45, i32 %43
   %47 = icmp eq i32 %40, 0
   %48 = or disjoint i32 %27, 8
   %49 = select i1 %47, i32 %27, i32 %48
-  %50 = icmp ugt i32 %40, 1
+  %50 = icmp samesign ugt i32 %40, 1
   %51 = or disjoint i32 %49, 16
   %52 = select i1 %50, i32 %51, i32 %49
   br label %53
@@ -8417,13 +8417,13 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
   %588 = icmp eq i32 %585, 0
   %589 = or i32 %570, 32
   %590 = select i1 %588, i32 %570, i32 %589
-  %591 = icmp ugt i32 %585, 1
+  %591 = icmp samesign ugt i32 %585, 1
   %592 = or i32 %590, 64
   %593 = select i1 %591, i32 %592, i32 %590
   %594 = icmp eq i32 %587, 0
   %595 = or disjoint i32 %574, 8
   %596 = select i1 %594, i32 %574, i32 %595
-  %597 = icmp ugt i32 %587, 1
+  %597 = icmp samesign ugt i32 %587, 1
   %598 = or disjoint i32 %596, 16
   %599 = select i1 %597, i32 %598, i32 %596
   br label %600
@@ -8727,8 +8727,8 @@ ata_id_n_sectors.exit25:                          ; preds = %727, %745, %766, %7
 
 804:                                              ; preds = %798
   %805 = call range(i32 1, 9) i32 @llvm.ctpop.i32(i32 %800), !range !78
-  %806 = icmp ult i32 %805, 2
-  %807 = icmp ule i32 %800, %799
+  %806 = icmp samesign ult i32 %805, 2
+  %807 = icmp samesign ule i32 %800, %799
   %808 = and i1 %807, %806
   br i1 %808, label %809, label %.thread36
 
@@ -8798,7 +8798,7 @@ ata_id_n_sectors.exit25:                          ; preds = %727, %745, %766, %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #31
   store i32 0, ptr %7, align 4, !annotation !43
   %839 = and i16 %575, 3
-  %840 = icmp ult i16 %839, 2
+  %840 = icmp samesign ult i16 %839, 2
   br i1 %840, label %850, label %.thread38
 
 .thread38:                                        ; preds = %838
@@ -11087,7 +11087,7 @@ define dso_local noundef range(i32 -2, 1) i32 @ata_down_xfermask_limit(ptr nocap
 
 62:                                               ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !43
-  %63 = icmp ult i32 %56, 128
+  %63 = icmp samesign ult i32 %56, 128
   %64 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %56, i32 -1) #32
   %65 = icmp ult i32 %64, 20
   br i1 %63, label %82, label %66
@@ -11340,13 +11340,13 @@ define dso_local noundef i32 @ata_do_set_mode(ptr noundef %0, ptr nocapture noun
   %120 = icmp eq i32 %117, 0
   %121 = or i32 %102, 32
   %122 = select i1 %120, i32 %102, i32 %121
-  %123 = icmp ugt i32 %117, 1
+  %123 = icmp samesign ugt i32 %117, 1
   %124 = or i32 %122, 64
   %125 = select i1 %123, i32 %124, i32 %122
   %126 = icmp eq i32 %119, 0
   %127 = or disjoint i32 %106, 8
   %128 = select i1 %126, i32 %106, i32 %127
-  %129 = icmp ugt i32 %119, 1
+  %129 = icmp samesign ugt i32 %119, 1
   %130 = or disjoint i32 %128, 16
   %131 = select i1 %129, i32 %130, i32 %128
   br label %132
@@ -12843,13 +12843,13 @@ ata_id_xfermask.exit:                             ; preds = %132, %137
   %972 = icmp eq i32 %969, 0
   %973 = or i32 %954, 32
   %974 = select i1 %972, i32 %954, i32 %973
-  %975 = icmp ugt i32 %969, 1
+  %975 = icmp samesign ugt i32 %969, 1
   %976 = or i32 %974, 64
   %977 = select i1 %975, i32 %976, i32 %974
   %978 = icmp eq i32 %971, 0
   %979 = or disjoint i32 %958, 8
   %980 = select i1 %978, i32 %958, i32 %979
-  %981 = icmp ugt i32 %971, 1
+  %981 = icmp samesign ugt i32 %971, 1
   %982 = or disjoint i32 %980, 16
   %983 = select i1 %981, i32 %982, i32 %980
   br label %984

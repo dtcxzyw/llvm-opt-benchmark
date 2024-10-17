@@ -488,7 +488,7 @@ for.body:                                         ; preds = %if.end41, %for.body
   %arrayidx48 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
   store i8 %5, ptr %arrayidx48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp45 = icmp ult i64 %indvars.iv.next, %idx.ext42
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next, %idx.ext42
   br i1 %cmp45, label %for.body, label %for.cond49.preheader, !llvm.loop !12
 
 while.cond.preheader:                             ; preds = %for.body52, %for.cond49.preheader
@@ -513,7 +513,7 @@ for.body52:                                       ; preds = %for.body52.preheade
   %arrayidx57 = getelementptr inbounds i8, ptr %add.ptr43, i64 %indvars.iv107
   store i8 %7, ptr %arrayidx57, align 1
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %cmp50 = icmp ult i64 %indvars.iv.next108, %3
+  %cmp50 = icmp samesign ult i64 %indvars.iv.next108, %3
   br i1 %cmp50, label %for.body52, label %while.cond.preheader, !llvm.loop !13
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end190

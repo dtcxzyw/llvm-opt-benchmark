@@ -1418,7 +1418,7 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit.i: ; preds = %338, %326
   %.fca.1.extract18.i = extractvalue { i64, i32 } %345, 1
   %346 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %254, ptr %346, align 8, !alias.scope !18
-  %347 = icmp ult i64 %253, 65
+  %347 = icmp samesign ult i64 %253, 65
   br i1 %347, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i.i
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.i:                   ; preds = %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit.i
@@ -7075,7 +7075,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i: ; preds = %2919
   br i1 %.not96.i, label %_ZN12_GLOBAL__N_113VectorCombine17foldExtractedCmpsERN4llvm11InstructionE.exit, label %_ZN4llvm15InstructionCostpLERKS0_.exit.i333
 
 _ZN4llvm15InstructionCostpLERKS0_.exit.i333:      ; preds = %2933
-  %2940 = icmp ult i16 %2870, 16
+  %2940 = icmp samesign ult i16 %2870, 16
   %2941 = select i1 %2940, i32 54, i32 53
   %2942 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %2943 = load ptr, ptr %2942, align 8
@@ -11519,7 +11519,7 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i231, %112
 
 ._crit_edge.us.i:                                 ; preds = %1158
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %1166 = icmp ult i64 %indvars.iv.next69.i, %1145
+  %1166 = icmp samesign ult i64 %indvars.iv.next69.i, %1145
   br i1 %1166, label %.lr.ph54.split.us.i, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i, !llvm.loop !139
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread.i:          ; preds = %._crit_edge.us.i, %1154, %.lr.ph54.split.us.i, %1164, %.preheader.us.i, %.lr.ph54.split.preheader.i.split, %.lr.ph54.split.preheader.i, %.preheader50.i, %1142, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i
@@ -18064,7 +18064,7 @@ define internal fastcc void @"_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIii
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %12
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !196
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
@@ -18145,7 +18145,7 @@ define internal fastcc void @"_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIii
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %12
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !196
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
@@ -24354,7 +24354,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %._crit_edge216, %31
   %342 = getelementptr inbounds i8, ptr %340, i64 8
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %345 = icmp ult i16 %338, 16
+  %345 = icmp samesign ult i16 %338, 16
   store i16 257, ptr %344, align 8
   br i1 %345, label %346, label %348
 
@@ -25900,7 +25900,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -26396,7 +26396,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113VectorCombine13foldExtExtCmpEPN4
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = icmp ult i16 %8, 16
+  %14 = icmp samesign ult i16 %8, 16
   store i16 257, ptr %13, align 8
   br i1 %14, label %15, label %17
 

@@ -3548,7 +3548,7 @@ Vec_StrPrintStr.exit261:                          ; preds = %.thread.Vec_StrPrin
 .preheader341:                                    ; preds = %371, %Bac_ObjNameType.exit271
   %indvars.iv405 = phi i64 [ %indvars.iv.next406, %Bac_ObjNameType.exit271 ], [ %372, %371 ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %380 = icmp ult i64 %indvars.iv.next406, %68
+  %380 = icmp samesign ult i64 %indvars.iv.next406, %68
   br i1 %380, label %381, label %.critedge6
 
 381:                                              ; preds = %.preheader341

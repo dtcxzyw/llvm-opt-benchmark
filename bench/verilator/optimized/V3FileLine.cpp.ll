@@ -404,7 +404,7 @@ define dso_local void @_ZN17FileLineSingleton15filenameLettersB5cxx11Et(ptr dead
   %11 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %10, ptr %11, align 1
   %12 = udiv i32 %.08, 26
-  %.not = icmp ult i32 %.08, 26
+  %.not = icmp samesign ult i32 %.08, 26
   br i1 %.not, label %13, label %7, !llvm.loop !5
 
 13:                                               ; preds = %7

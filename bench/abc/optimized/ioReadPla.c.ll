@@ -117,7 +117,7 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
   %44 = and i32 %41, %43
   %.not.us = icmp eq i32 %44, 0
   %45 = add nuw nsw i64 %indvars.iv44, 1
-  %46 = icmp ult i64 %45, %36
+  %46 = icmp samesign ult i64 %45, %36
   %or.cond51 = select i1 %.not.us, i1 %46, i1 false
   br i1 %or.cond51, label %.lr.ph.us, label %.loopexit32.us
 
@@ -308,7 +308,7 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
   %44 = and i32 %41, %43
   %.not.us = icmp eq i32 %44, 0
   %45 = add nuw nsw i64 %indvars.iv65, 1
-  %46 = icmp ult i64 %45, %36
+  %46 = icmp samesign ult i64 %45, %36
   %or.cond73 = select i1 %.not.us, i1 %46, i1 false
   br i1 %or.cond73, label %.lr.ph.us, label %.loopexit52.us
 
@@ -615,7 +615,7 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
   %44 = and i32 %41, %43
   %.not.us = icmp eq i32 %44, 0
   %45 = add nuw nsw i64 %indvars.iv70, 1
-  %46 = icmp ult i64 %45, %36
+  %46 = icmp samesign ult i64 %45, %36
   %or.cond = select i1 %.not.us, i1 %46, i1 false
   br i1 %or.cond, label %.lr.ph.us, label %.loopexit.us
 
@@ -810,7 +810,7 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
   %44 = and i32 %41, %43
   %.not.us = icmp eq i32 %44, 0
   %45 = add nuw nsw i64 %indvars.iv140, 1
-  %46 = icmp ult i64 %45, %36
+  %46 = icmp samesign ult i64 %45, %36
   %or.cond = select i1 %.not.us, i1 %46, i1 false
   br i1 %or.cond, label %.lr.ph.us, label %.loopexit.us
 

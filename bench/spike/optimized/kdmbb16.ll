@@ -470,7 +470,7 @@ define noundef i64 @_Z18fast_rv64e_kdmbb16P11processor_t6insn_tm(ptr nocapture n
 20:                                               ; preds = %12
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = icmp ugt i64 %22, 15
+  %23 = icmp samesign ugt i64 %22, 15
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
@@ -491,7 +491,7 @@ define noundef i64 @_Z18fast_rv64e_kdmbb16P11processor_t6insn_tm(ptr nocapture n
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %1, 15
   %34 = and i64 %33, 31
-  %35 = icmp ugt i64 %34, 15
+  %35 = icmp samesign ugt i64 %34, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %29
@@ -511,7 +511,7 @@ define noundef i64 @_Z18fast_rv64e_kdmbb16P11processor_t6insn_tm(ptr nocapture n
   %43 = load i64, ptr %42, align 8
   %44 = lshr i64 %1, 20
   %45 = and i64 %44, 31
-  %46 = icmp ugt i64 %45, 15
+  %46 = icmp samesign ugt i64 %45, 15
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41
@@ -648,7 +648,7 @@ define noundef i64 @_Z20logged_rv64e_kdmbb16P11processor_t6insn_tm(ptr noundef %
 20:                                               ; preds = %12
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = icmp ugt i64 %22, 15
+  %23 = icmp samesign ugt i64 %22, 15
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
@@ -669,7 +669,7 @@ define noundef i64 @_Z20logged_rv64e_kdmbb16P11processor_t6insn_tm(ptr noundef %
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %1, 15
   %34 = and i64 %33, 31
-  %35 = icmp ugt i64 %34, 15
+  %35 = icmp samesign ugt i64 %34, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %29
@@ -689,7 +689,7 @@ define noundef i64 @_Z20logged_rv64e_kdmbb16P11processor_t6insn_tm(ptr noundef %
   %43 = load i64, ptr %42, align 8
   %44 = lshr i64 %1, 20
   %45 = and i64 %44, 31
-  %46 = icmp ugt i64 %45, 15
+  %46 = icmp samesign ugt i64 %45, 15
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41

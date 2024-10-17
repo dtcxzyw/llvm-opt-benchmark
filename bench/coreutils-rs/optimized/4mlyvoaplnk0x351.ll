@@ -1022,9 +1022,9 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %99 = getelementptr inbounds i8, ptr %35, i64 16
   %100 = getelementptr inbounds i8, ptr %35, i64 24
   %101 = udiv i32 %.sroa.21.0.copyload.i, 1000000
-  %.lhs.trunc7.i = trunc nuw nsw i32 %101 to i16
-  %102 = urem i16 %.lhs.trunc7.i, 1000
-  %.zext8.i = zext nneg i16 %102 to i32
+  %.lhs.trunc9.i = trunc nuw nsw i32 %101 to i16
+  %102 = urem i16 %.lhs.trunc9.i, 1000
+  %.zext10.i = zext nneg i16 %102 to i32
   %103 = getelementptr inbounds i8, ptr %38, i64 8
   %.sroa.5146.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 16
   %.sroa.6147.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 24
@@ -1144,7 +1144,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %170 = lshr i32 %81, 3
   %171 = and i32 %170, 1023
   %172 = zext nneg i32 %171 to i64
-  %173 = icmp ult i32 %171, 733
+  %173 = icmp samesign ult i32 %171, 733
   %174 = getelementptr inbounds [733 x i8], ptr @anon.d49ddda43ab23c9b18523738528052a2.21, i64 0, i64 %172
   %175 = icmp ne i32 %81, 0
   %or.cond6.i = select i1 %175, i1 %85, i1 false
@@ -1289,9 +1289,9 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %284 = icmp eq i32 %.sroa.0.0.copyload.i, 1
   %or.cond.i = select i1 %283, i1 %284, i1 false
   %285 = load i64, ptr %0, align 8, !range !60
-  %.not11.i = icmp eq i64 %285, -9223372036854775808
+  %.not12.i = icmp eq i64 %285, -9223372036854775808
   %286 = sext i32 %259 to i64
-  %..sroa.379.0.i = select i1 %.not11.i, i64 0, i64 %286
+  %..sroa.379.0.i = select i1 %.not12.i, i64 0, i64 %286
   %287 = ashr i32 %282, 13
   %288 = add nsw i32 %287, -1
   %289 = icmp slt i32 %287, 1
@@ -1312,7 +1312,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %303 = add nuw nsw i32 %302, %301
   %304 = trunc nuw nsw i32 %303 to i8
   %305 = udiv i8 %304, 10
-  %306 = icmp ult i32 %303, 10
+  %306 = icmp samesign ult i32 %303, 10
   %307 = or disjoint i8 %305, 48
   %308 = zext nneg i8 %307 to i32
   %309 = urem i8 %304, 10
@@ -1322,7 +1322,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %313 = urem i32 %312, 60
   %314 = trunc nuw nsw i32 %313 to i8
   %315 = udiv i8 %314, 10
-  %316 = icmp ult i32 %313, 10
+  %316 = icmp samesign ult i32 %313, 10
   %317 = or disjoint i8 %315, 48
   %318 = zext nneg i8 %317 to i32
   %319 = urem i8 %314, 10
@@ -1333,12 +1333,12 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %324 = icmp eq i32 %323, 0
   %325 = trunc nuw nsw i32 %323 to i8
   %326 = select i1 %324, i8 12, i8 %325
-  %.frozen8.i = freeze i8 %326
-  %.cmp7.i = icmp ugt i8 %.frozen8.i, 9
-  %327 = icmp ult i8 %.frozen8.i, 10
-  %328 = select i1 %.cmp7.i, i32 49, i32 48
-  %.urem9.i = add i8 %.frozen8.i, -10
-  %329 = select i1 %327, i8 %.frozen8.i, i8 %.urem9.i
+  %.frozen9.i = freeze i8 %326
+  %.cmp8.i = icmp samesign ugt i8 %.frozen9.i, 9
+  %327 = icmp ult i8 %.frozen9.i, 10
+  %328 = select i1 %.cmp8.i, i32 49, i32 48
+  %.urem10.i = add i8 %.frozen9.i, -10
+  %329 = select i1 %327, i8 %.frozen9.i, i8 %.urem10.i
   %330 = or disjoint i8 %329, 48
   %331 = zext nneg i8 %330 to i32
   %332 = trunc i32 %322 to i8
@@ -1360,7 +1360,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %346 = lshr i32 %282, 3
   %347 = and i32 %346, 1023
   %348 = zext nneg i32 %347 to i64
-  %349 = icmp ult i32 %347, 733
+  %349 = icmp samesign ult i32 %347, 733
   %350 = getelementptr inbounds [733 x i8], ptr @anon.d49ddda43ab23c9b18523738528052a2.21, i64 0, i64 %348
   %351 = trunc i32 %346 to i8
   %352 = srem i32 %287, 100
@@ -1423,26 +1423,26 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %400 = sext i32 %narrow.i to i64
   %401 = mul nsw i64 %400, 86400
   %402 = add nsw i64 %298, %401
-  %403 = icmp ult i16 %169, 6
+  %403 = icmp samesign ult i16 %169, 6
   %narrow = add nuw nsw i16 %169, 1
   %narrow278 = select i1 %403, i16 %narrow, i16 0
   %404 = zext nneg i16 %narrow278 to i64
   %405 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.d49ddda43ab23c9b18523738528052a2.83, i64 0, i64 %404
   %406 = getelementptr inbounds i8, ptr %405, i64 8
-  %407 = icmp ult i16 %169, 6
+  %407 = icmp samesign ult i16 %169, 6
   %narrow279 = add nuw nsw i16 %169, 1
   %narrow280 = select i1 %407, i16 %narrow279, i16 0
   %408 = zext nneg i16 %narrow280 to i64
   %409 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.d49ddda43ab23c9b18523738528052a2.32, i64 0, i64 %408
-  %410 = icmp ult i16 %169, 6
+  %410 = icmp samesign ult i16 %169, 6
   %narrow281 = add nuw nsw i16 %169, 1
   %narrow282 = select i1 %410, i16 %narrow281, i16 0
   %411 = zext nneg i16 %narrow282 to i64
   %412 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.d49ddda43ab23c9b18523738528052a2.32, i64 0, i64 %411
-  %413 = icmp ult i16 %343, 6
+  %413 = icmp samesign ult i16 %343, 6
   %narrow283 = add nuw nsw i16 %343, 49
   %switch.offset268 = zext nneg i16 %narrow283 to i32
-  %414 = icmp ult i16 %343, 6
+  %414 = icmp samesign ult i16 %343, 6
   %narrow284 = add nuw nsw i16 %343, 49
   %switch.offset = zext nneg i16 %narrow284 to i32
   br label %416
@@ -1835,8 +1835,8 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i: ; preds = %542
   %544 = zext i8 %543 to i32
   %545 = add nuw nsw i32 %347, %544
   %546 = lshr i32 %545, 6
-  %.cmp.i = icmp ugt i32 %545, 639
-  %547 = icmp ult i32 %545, 640
+  %.cmp.i = icmp samesign ugt i32 %545, 639
+  %547 = icmp samesign ult i32 %545, 640
   br i1 %547, label %548, label %549
 
 548:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i
@@ -1891,7 +1891,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit142.i: ; preds = %56
   %568 = and i8 %567, 31
   %569 = udiv i8 %568, 10
   %570 = urem i8 %568, 10
-  %571 = icmp ult i8 %568, 10
+  %571 = icmp samesign ult i8 %568, 10
   br i1 %571, label %572, label %573
 
 572:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit142.i
@@ -2063,7 +2063,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.7533304140193475963.exit.i
   %636 = and i8 %635, 63
   %637 = udiv i8 %636, 10
   %638 = urem i8 %636, 10
-  %639 = icmp ult i8 %636, 10
+  %639 = icmp samesign ult i8 %636, 10
   br i1 %639, label %640, label %641
 
 640:                                              ; preds = %.noexc49
@@ -2866,7 +2866,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51), !noalias !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !165
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49), !noalias !165
-  store i32 %.zext8.i, ptr %49, align 4, !noalias !165
+  store i32 %.zext10.i, ptr %49, align 4, !noalias !165
   store ptr %49, ptr %50, align 8, !noalias !165
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %128, align 8, !noalias !165
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %48), !noalias !165
@@ -3042,7 +3042,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39), !noalias !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !165
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37), !noalias !165
-  store i32 %.zext8.i, ptr %37, align 4, !noalias !165
+  store i32 %.zext10.i, ptr %37, align 4, !noalias !165
   store ptr %37, ptr %38, align 8, !noalias !165
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %103, align 8, !noalias !165
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36), !noalias !165
@@ -3274,7 +3274,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i172: ; preds = %"_
   %1005 = add nuw nsw i32 %171, %1004
   %1006 = lshr i32 %1005, 1
   %1007 = and i32 %1006, 31
-  %1008 = icmp ult i32 %1007, 10
+  %1008 = icmp samesign ult i32 %1007, 10
   br i1 %1008, label %1016, label %_ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit.thread.i
 
 _ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit.thread.i: ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i172
@@ -3563,14 +3563,14 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i138: ; preds = %_Z
   %1098 = load i8, ptr %174, align 1, !noalias !420, !noundef !5
   %1099 = zext i8 %1098 to i32
   %1100 = add nuw nsw i32 %171, %1099
-  %.cmp.i139 = icmp ugt i32 %1100, 639
+  %.cmp.i139 = icmp samesign ugt i32 %1100, 639
   %1101 = zext i1 %.cmp.i139 to i32
   %1102 = or disjoint i32 %1101, 48
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.7533304140193475963(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %1102)
           to label %.noexc146 unwind label %.loopexit.split-lp.loopexit
 
 .noexc146:                                        ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i138
-  %.cmp198.i = icmp ult i32 %1100, 640
+  %.cmp198.i = icmp samesign ult i32 %1100, 640
   %1103 = lshr i32 %1100, 6
   %.urem.i140 = add nuw nsw i32 %1103, 246
   %1104 = select i1 %.cmp198.i, i32 %1103, i32 %.urem.i140

@@ -113,7 +113,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i8, ptr %12, align 8
   %36 = zext i8 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -739,7 +739,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %20, %_ZNSt6vectorIf
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %64 = load i32, ptr %38, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next102, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next102, %65
   br i1 %66, label %.lr.ph.us, label %.preheader, !llvm.loop !14
 
 .lr.ph94.split:                                   ; preds = %.lr.ph94

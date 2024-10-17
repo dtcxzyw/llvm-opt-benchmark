@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   %.164 = phi i64 [ %.063103, %26 ], [ %30, %28 ]
   %.2 = phi i64 [ %27, %26 ], [ %.062104, %28 ]
   %32 = add nuw nsw i64 %.069102, 1
-  %33 = icmp ult i64 %32, %spec.select
+  %33 = icmp samesign ult i64 %32, %spec.select
   %34 = icmp ult i64 %.164, 6
   %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %.lr.ph, label %._crit_edge
@@ -154,7 +154,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %60 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
   %61 = load ptr, ptr %60, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %61) #11
-  %62 = icmp ult i64 %32, %spec.select
+  %62 = icmp samesign ult i64 %32, %spec.select
   br i1 %62, label %.lr.ph114, label %.critedge.thread
 
 .lr.ph114:                                        ; preds = %get_iin.exit

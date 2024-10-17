@@ -117,7 +117,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %33 = icmp ult i32 %28, 3
+  %33 = icmp samesign ult i32 %28, 3
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -460,7 +460,7 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
-  %162 = icmp ult i32 %28, 2
+  %162 = icmp samesign ult i32 %28, 2
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161

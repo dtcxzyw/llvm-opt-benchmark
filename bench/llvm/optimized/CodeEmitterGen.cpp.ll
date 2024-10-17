@@ -3708,7 +3708,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %61, %63
   %67 = zext i32 %66 to i64
   %68 = add nuw nsw i64 %67, 63
   %69 = lshr i64 %68, 6
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %13, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11, %2
@@ -4598,7 +4598,7 @@ _ZNK4llvm14CGIOperandList19getSubOperandNumberEj.exit: ; preds = %_ZNK4llvm14CGI
   %280 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %279, ptr %280, align 1, !noalias !114
   %281 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -4686,7 +4686,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %311 = getelementptr inbounds i8, ptr %.111.i177, i64 -1
   store i8 %310, ptr %311, align 1, !noalias !126
   %312 = udiv i64 %.0810.i178, 10
-  %.not.i179 = icmp ult i64 %.0810.i178, 10
+  %.not.i179 = icmp samesign ult i64 %.0810.i178, 10
   br i1 %.not.i179, label %_ZN4llvm6utostrB5cxx11Emb.exit182, label %.lr.ph.i176, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit182:                ; preds = %.lr.ph.i176, %.thread.i181
@@ -4760,7 +4760,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %337 = getelementptr inbounds i8, ptr %.111.i187, i64 -1
   store i8 %336, ptr %337, align 1, !noalias !132
   %338 = udiv i64 %.0810.i188, 10
-  %.not.i189 = icmp ult i64 %.0810.i188, 10
+  %.not.i189 = icmp samesign ult i64 %.0810.i188, 10
   br i1 %.not.i189, label %_ZN4llvm6utostrB5cxx11Emb.exit192, label %.lr.ph.i186, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit192:                ; preds = %.lr.ph.i186, %.thread.i191
@@ -4803,7 +4803,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit192:                ; preds = %.lr.ph.i186, %.thre
   %349 = getelementptr inbounds i8, ptr %.111.i194, i64 -1
   store i8 %348, ptr %349, align 1, !noalias !138
   %350 = udiv i64 %.0810.i195, 10
-  %.not.i196 = icmp ult i64 %.0810.i195, 10
+  %.not.i196 = icmp samesign ult i64 %.0810.i195, 10
   br i1 %.not.i196, label %_ZN4llvm6utostrB5cxx11Emb.exit199, label %.lr.ph.i193, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thread.i198
@@ -5113,7 +5113,7 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
 
 473:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #14
-  %474 = icmp ugt i32 %.0132.lcssa, 63
+  %474 = icmp samesign ugt i32 %.0132.lcssa, 63
   %475 = zext nneg i32 %.0132.lcssa to i64
   br i1 %474, label %476, label %511
 
@@ -5608,7 +5608,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %658 = getelementptr inbounds i8, ptr %.111.i246, i64 -1
   store i8 %657, ptr %658, align 1, !noalias !254
   %659 = udiv i64 %.0810.i247, 10
-  %.not.i248 = icmp ult i64 %.0810.i247, 10
+  %.not.i248 = icmp samesign ult i64 %.0810.i247, 10
   br i1 %.not.i248, label %_ZN4llvm6utostrB5cxx11Emb.exit251, label %.lr.ph.i245, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit251:                ; preds = %.lr.ph.i245, %.thread.i250
@@ -5674,7 +5674,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit251:                ; preds = %.lr.ph.i245, %.thre
   %678 = getelementptr inbounds i8, ptr %.111.i253, i64 -1
   store i8 %677, ptr %678, align 1, !noalias !269
   %679 = udiv i64 %.0810.i254, 10
-  %.not.i255 = icmp ult i64 %.0810.i254, 10
+  %.not.i255 = icmp samesign ult i64 %.0810.i254, 10
   br i1 %.not.i255, label %_ZN4llvm6utostrB5cxx11Emb.exit258, label %.lr.ph.i252, !llvm.loop !68
 
 _ZN4llvm6utostrB5cxx11Emb.exit258:                ; preds = %.lr.ph.i252, %.thread.i257

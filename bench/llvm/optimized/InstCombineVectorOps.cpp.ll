@@ -659,7 +659,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %191 = load i32, ptr %57, align 4
   %192 = and i32 %191, 134217727
   %193 = zext nneg i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next, %193
   br i1 %194, label %79, label %._crit_edge169, !llvm.loop !7
 
 ._crit_edge169:                                   ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit, %54
@@ -5154,7 +5154,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %_ZNK4llvm5Value9has
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  %55 = icmp ult i32 %.03464, 10
+  %55 = icmp samesign ult i32 %.03464, 10
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %57, label %.critedge
 

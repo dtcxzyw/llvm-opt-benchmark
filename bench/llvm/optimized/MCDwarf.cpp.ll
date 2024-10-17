@@ -4282,7 +4282,7 @@ _ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit: ; pred
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %170 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %171 = lshr i64 %170, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %158
@@ -8335,19 +8335,19 @@ _ZN4llvmltENS_9StringRefES0_.exit18.i:            ; preds = %_ZN4llvm9StringRef1
   br i1 %152, label %._crit_edge.i, label %153
 
 153:                                              ; preds = %151
-  %154 = icmp ult i8 %93, %136
+  %154 = icmp samesign ult i8 %93, %136
   br i1 %154, label %.lr.ph.i.backedge, label %155
 
 155:                                              ; preds = %153
-  %156 = icmp ult i8 %136, %93
+  %156 = icmp samesign ult i8 %136, %93
   br i1 %156, label %._crit_edge.i, label %157
 
 157:                                              ; preds = %155
-  %158 = icmp ult i8 %95, %135
+  %158 = icmp samesign ult i8 %95, %135
   br i1 %158, label %.lr.ph.i.backedge, label %159
 
 159:                                              ; preds = %157
-  %160 = icmp ult i8 %135, %95
+  %160 = icmp samesign ult i8 %135, %95
   br i1 %160, label %._crit_edge.i, label %161
 
 161:                                              ; preds = %159
@@ -8359,15 +8359,15 @@ _ZN4llvmltENS_9StringRefES0_.exit18.i:            ; preds = %_ZN4llvm9StringRef1
   br i1 %164, label %._crit_edge.i, label %165
 
 165:                                              ; preds = %163
-  %166 = icmp ult i8 %98, %134
+  %166 = icmp samesign ult i8 %98, %134
   br i1 %166, label %.lr.ph.i.backedge, label %167
 
 .lr.ph.i.backedge:                                ; preds = %165, %161, %157, %153, %149, %145, %_ZN4llvmltENS_9StringRefES0_.exit.thread.i, %_ZN4llvmltENS_9StringRefES0_.exit.i, %139, %167
   br label %.lr.ph.i, !llvm.loop !80
 
 167:                                              ; preds = %165
-  %168 = icmp uge i8 %134, %98
-  %169 = icmp ult i8 %100, %133
+  %168 = icmp samesign uge i8 %134, %98
+  %169 = icmp samesign ult i8 %100, %133
   %or.cond = select i1 %168, i1 %169, i1 false
   br i1 %or.cond, label %.lr.ph.i.backedge, label %._crit_edge.i
 
@@ -8764,11 +8764,11 @@ _ZN4llvmltENS_9StringRefES0_.exit18:              ; preds = %_ZN4llvm9StringRef1
   %33 = getelementptr inbounds i8, ptr %1, i64 9
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 1
-  %36 = icmp ult i8 %32, %35
+  %36 = icmp samesign ult i8 %32, %35
   br i1 %36, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %37
 
 37:                                               ; preds = %29
-  %38 = icmp ult i8 %35, %32
+  %38 = icmp samesign ult i8 %35, %32
   br i1 %38, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %39
 
 39:                                               ; preds = %37
@@ -8778,11 +8778,11 @@ _ZN4llvmltENS_9StringRefES0_.exit18:              ; preds = %_ZN4llvm9StringRef1
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, 1
-  %46 = icmp ult i8 %42, %45
+  %46 = icmp samesign ult i8 %42, %45
   br i1 %46, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %47
 
 47:                                               ; preds = %39
-  %48 = icmp ult i8 %45, %42
+  %48 = icmp samesign ult i8 %45, %42
   br i1 %48, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %49
 
 49:                                               ; preds = %47
@@ -8804,11 +8804,11 @@ _ZN4llvmltENS_9StringRefES0_.exit18:              ; preds = %_ZN4llvm9StringRef1
   %61 = getelementptr inbounds i8, ptr %1, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = and i8 %62, 1
-  %64 = icmp ult i8 %60, %63
+  %64 = icmp samesign ult i8 %60, %63
   br i1 %64, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %65
 
 65:                                               ; preds = %57
-  %66 = icmp ult i8 %63, %60
+  %66 = icmp samesign ult i8 %63, %60
   br i1 %66, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit, label %67
 
 67:                                               ; preds = %65
@@ -8816,7 +8816,7 @@ _ZN4llvmltENS_9StringRefES0_.exit18:              ; preds = %_ZN4llvm9StringRef1
   %69 = and i8 %68, 1
   %70 = load i8, ptr %1, align 8
   %71 = and i8 %70, 1
-  %72 = icmp ult i8 %69, %71
+  %72 = icmp samesign ult i8 %69, %71
   br label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit: ; preds = %67, %65, %57, %55, %49, %47, %39, %37, %29, %27, %21, %19, %13, %11, %_ZN4llvmltENS_9StringRefES0_.exit.thread, %7, %_ZN4llvmltENS_9StringRefES0_.exit18, %_ZN4llvmltENS_9StringRefES0_.exit

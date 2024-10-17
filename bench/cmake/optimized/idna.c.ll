@@ -95,15 +95,15 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   %49 = and i32 %48, 4032
   %50 = or disjoint i32 %49, %44
   %51 = or disjoint i32 %50, %47
-  %52 = icmp ult i32 %51, %.0.i
-  %53 = icmp ugt i32 %47, 1114111
-  %or.cond39.i = or i1 %53, %52
+  %52 = icmp samesign ult i32 %51, %.0.i
+  %53 = icmp samesign ugt i32 %47, 1114111
+  %or.cond39.i = select i1 %52, i1 true, i1 %53
   br i1 %or.cond39.i, label %uv__utf8_decode1_slow.exit, label %54
 
 54:                                               ; preds = %43
-  %55 = icmp ugt i32 %51, 55295
-  %56 = icmp ult i32 %47, 57344
-  %or.cond.i = and i1 %56, %55
+  %55 = icmp samesign ugt i32 %51, 55295
+  %56 = icmp samesign ult i32 %47, 57344
+  %or.cond.i = select i1 %55, i1 %56, i1 false
   %..i = select i1 %or.cond.i, i32 -1, i32 %51
   br label %uv__utf8_decode1_slow.exit
 
@@ -210,15 +210,15 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   %55 = and i32 %54, 4032
   %56 = or disjoint i32 %55, %50
   %57 = or disjoint i32 %56, %53
-  %58 = icmp ult i32 %57, %.0.i.i
-  %59 = icmp ugt i32 %53, 1114111
-  %or.cond39.i.i = or i1 %59, %58
+  %58 = icmp samesign ult i32 %57, %.0.i.i
+  %59 = icmp samesign ugt i32 %53, 1114111
+  %or.cond39.i.i = select i1 %58, i1 true, i1 %59
   br i1 %or.cond39.i.i, label %uv__utf8_decode1.exit.thread, label %60
 
 60:                                               ; preds = %49
-  %61 = icmp ugt i32 %57, 55295
-  %62 = icmp ult i32 %53, 57344
-  %or.cond.i.i = and i1 %62, %61
+  %61 = icmp samesign ugt i32 %57, 55295
+  %62 = icmp samesign ult i32 %53, 57344
+  %or.cond.i.i = select i1 %61, i1 %62, i1 false
   br i1 %or.cond.i.i, label %uv__utf8_decode1.exit.thread, label %uv__utf8_decode1.exit
 
 uv__utf8_decode1.exit:                            ; preds = %60, %10
@@ -389,15 +389,15 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   %52 = and i32 %51, 4032
   %53 = or disjoint i32 %52, %47
   %54 = or disjoint i32 %53, %50
-  %55 = icmp ult i32 %54, %.0.i.i
-  %56 = icmp ugt i32 %50, 1114111
-  %or.cond39.i.i = or i1 %56, %55
+  %55 = icmp samesign ult i32 %54, %.0.i.i
+  %56 = icmp samesign ugt i32 %50, 1114111
+  %or.cond39.i.i = select i1 %55, i1 true, i1 %56
   br i1 %or.cond39.i.i, label %uv__utf8_decode1.exit.thread, label %57
 
 57:                                               ; preds = %46
-  %58 = icmp ugt i32 %54, 55295
-  %59 = icmp ult i32 %50, 57344
-  %or.cond.i.i = and i1 %59, %58
+  %58 = icmp samesign ugt i32 %54, 55295
+  %59 = icmp samesign ult i32 %50, 57344
+  %or.cond.i.i = select i1 %58, i1 %59, i1 false
   br i1 %or.cond.i.i, label %uv__utf8_decode1.exit.thread, label %uv__utf8_decode1.exit
 
 uv__utf8_decode1.exit:                            ; preds = %7, %57
@@ -561,15 +561,15 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   %132 = and i32 %131, 4032
   %133 = or disjoint i32 %132, %127
   %134 = or disjoint i32 %133, %130
-  %135 = icmp ult i32 %134, %.0.i.i151
-  %136 = icmp ugt i32 %130, 1114111
-  %or.cond39.i.i155 = or i1 %136, %135
+  %135 = icmp samesign ult i32 %134, %.0.i.i151
+  %136 = icmp samesign ugt i32 %130, 1114111
+  %or.cond39.i.i155 = select i1 %135, i1 true, i1 %136
   br i1 %or.cond39.i.i155, label %uv__utf8_decode1.exit158, label %137
 
 137:                                              ; preds = %126
-  %138 = icmp ugt i32 %134, 55295
-  %139 = icmp ult i32 %130, 57344
-  %or.cond.i.i156 = and i1 %139, %138
+  %138 = icmp samesign ugt i32 %134, 55295
+  %139 = icmp samesign ult i32 %130, 57344
+  %or.cond.i.i156 = select i1 %138, i1 %139, i1 false
   %..i.i157 = select i1 %or.cond.i.i156, i32 -1, i32 %134
   br label %uv__utf8_decode1.exit158
 
@@ -709,15 +709,15 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   %200 = and i32 %199, 4032
   %201 = or disjoint i32 %200, %195
   %202 = or disjoint i32 %201, %198
-  %203 = icmp ult i32 %202, %.0.i.i164
-  %204 = icmp ugt i32 %198, 1114111
-  %or.cond39.i.i168 = or i1 %204, %203
+  %203 = icmp samesign ult i32 %202, %.0.i.i164
+  %204 = icmp samesign ugt i32 %198, 1114111
+  %or.cond39.i.i168 = select i1 %203, i1 true, i1 %204
   br i1 %or.cond39.i.i168, label %uv__utf8_decode1.exit171, label %205
 
 205:                                              ; preds = %194
-  %206 = icmp ugt i32 %202, 55295
-  %207 = icmp ult i32 %198, 57344
-  %or.cond.i.i169 = and i1 %207, %206
+  %206 = icmp samesign ugt i32 %202, 55295
+  %207 = icmp samesign ult i32 %198, 57344
+  %or.cond.i.i169 = select i1 %206, i1 %207, i1 false
   %..i.i170 = select i1 %or.cond.i.i169, i32 -1, i32 %202
   br label %uv__utf8_decode1.exit171
 
@@ -840,15 +840,15 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   %265 = and i32 %264, 4032
   %266 = or disjoint i32 %265, %260
   %267 = or disjoint i32 %266, %263
-  %268 = icmp ult i32 %267, %.0.i.i177
-  %269 = icmp ugt i32 %263, 1114111
-  %or.cond39.i.i181 = or i1 %269, %268
+  %268 = icmp samesign ult i32 %267, %.0.i.i177
+  %269 = icmp samesign ugt i32 %263, 1114111
+  %or.cond39.i.i181 = select i1 %268, i1 true, i1 %269
   br i1 %or.cond39.i.i181, label %uv__utf8_decode1.exit184.thread, label %270
 
 270:                                              ; preds = %259
-  %271 = icmp ugt i32 %267, 55295
-  %272 = icmp ult i32 %263, 57344
-  %or.cond.i.i182 = and i1 %272, %271
+  %271 = icmp samesign ugt i32 %267, 55295
+  %272 = icmp samesign ult i32 %263, 57344
+  %or.cond.i.i182 = select i1 %271, i1 %272, i1 false
   %..i.i183 = select i1 %or.cond.i.i182, i32 -1, i32 %267
   br label %uv__utf8_decode1.exit184
 

@@ -3583,11 +3583,11 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16fEPKhmS2_mPhmNS_5Size_I
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = tail call float @llvm.fabs.f32(float %21)
   %23 = bitcast float %22 to i32
-  %24 = icmp ugt i32 %23, 1199570943
+  %24 = icmp samesign ugt i32 %23, 1199570943
   br i1 %24, label %38, label %25
 
 25:                                               ; preds = %17
-  %26 = icmp ult i32 %23, 947912704
+  %26 = icmp samesign ult i32 %23, 947912704
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -3606,7 +3606,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16fEPKhmS2_mPhmNS_5Size_I
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 38:                                               ; preds = %17
-  %39 = icmp ugt i32 %23, 2139095040
+  %39 = icmp samesign ugt i32 %23, 2139095040
   %40 = select i1 %39, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -3668,11 +3668,11 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16fEPKhmS2_mPhmNS_5Size_I
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = tail call float @llvm.fabs.f32(float %21)
   %23 = bitcast float %22 to i32
-  %24 = icmp ugt i32 %23, 1199570943
+  %24 = icmp samesign ugt i32 %23, 1199570943
   br i1 %24, label %38, label %25
 
 25:                                               ; preds = %17
-  %26 = icmp ult i32 %23, 947912704
+  %26 = icmp samesign ult i32 %23, 947912704
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -3691,7 +3691,7 @@ define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16fEPKhmS2_mPhmNS_5Size_I
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 38:                                               ; preds = %17
-  %39 = icmp ugt i32 %23, 2139095040
+  %39 = icmp samesign ugt i32 %23, 2139095040
   %40 = select i1 %39, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -3754,11 +3754,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16fEPKhmS2_mPhmNS_5Size_
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
   %23 = tail call float @llvm.fabs.f32(float %22)
   %24 = bitcast float %23 to i32
-  %25 = icmp ugt i32 %24, 1199570943
+  %25 = icmp samesign ugt i32 %24, 1199570943
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %18
-  %27 = icmp ult i32 %24, 947912704
+  %27 = icmp samesign ult i32 %24, 947912704
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %26
@@ -3777,7 +3777,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16fEPKhmS2_mPhmNS_5Size_
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 39:                                               ; preds = %18
-  %40 = icmp ugt i32 %24, 2139095040
+  %40 = icmp samesign ugt i32 %24, 2139095040
   %41 = select i1 %40, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -3840,11 +3840,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16fEPKhmS2_mPhmNS_5Size_
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
   %23 = tail call float @llvm.fabs.f32(float %22)
   %24 = bitcast float %23 to i32
-  %25 = icmp ugt i32 %24, 1199570943
+  %25 = icmp samesign ugt i32 %24, 1199570943
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %18
-  %27 = icmp ult i32 %24, 947912704
+  %27 = icmp samesign ult i32 %24, 947912704
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %26
@@ -3863,7 +3863,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16fEPKhmS2_mPhmNS_5Size_
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 39:                                               ; preds = %18
-  %40 = icmp ugt i32 %24, 2139095040
+  %40 = icmp samesign ugt i32 %24, 2139095040
   %41 = select i1 %40, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -3926,11 +3926,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16fEPKhmS2_mPhmNS_5Size_
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %10, float %13)
   %23 = tail call float @llvm.fabs.f32(float %22)
   %24 = bitcast float %23 to i32
-  %25 = icmp ugt i32 %24, 1199570943
+  %25 = icmp samesign ugt i32 %24, 1199570943
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %18
-  %27 = icmp ult i32 %24, 947912704
+  %27 = icmp samesign ult i32 %24, 947912704
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %26
@@ -3949,7 +3949,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16fEPKhmS2_mPhmNS_5Size_
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 39:                                               ; preds = %18
-  %40 = icmp ugt i32 %24, 2139095040
+  %40 = icmp samesign ugt i32 %24, 2139095040
   %41 = select i1 %40, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -4011,11 +4011,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16fEPKhmS2_mPhmNS_5Size_
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %13)
   %22 = tail call float @llvm.fabs.f32(float %21)
   %23 = bitcast float %22 to i32
-  %24 = icmp ugt i32 %23, 1199570943
+  %24 = icmp samesign ugt i32 %23, 1199570943
   br i1 %24, label %38, label %25
 
 25:                                               ; preds = %18
-  %26 = icmp ult i32 %23, 947912704
+  %26 = icmp samesign ult i32 %23, 947912704
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -4034,7 +4034,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16fEPKhmS2_mPhmNS_5Size_
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 38:                                               ; preds = %18
-  %39 = icmp ugt i32 %23, 2139095040
+  %39 = icmp samesign ugt i32 %23, 2139095040
   %40 = select i1 %39, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
@@ -4095,11 +4095,11 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16fEPKhmS2_mPhmNS_5Size_
   %20 = fptrunc double %19 to float
   %21 = tail call float @llvm.fabs.f32(float %20)
   %22 = bitcast float %21 to i32
-  %23 = icmp ugt i32 %22, 1199570943
+  %23 = icmp samesign ugt i32 %22, 1199570943
   br i1 %23, label %37, label %24
 
 24:                                               ; preds = %16
-  %25 = icmp ult i32 %22, 947912704
+  %25 = icmp samesign ult i32 %22, 947912704
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %24
@@ -4118,7 +4118,7 @@ define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16fEPKhmS2_mPhmNS_5Size_
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
 
 37:                                               ; preds = %16
-  %38 = icmp ugt i32 %22, 2139095040
+  %38 = icmp samesign ugt i32 %22, 2139095040
   %39 = select i1 %38, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
 
@@ -4207,11 +4207,11 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %10, float %13)
   %38 = tail call float @llvm.fabs.f32(float %37)
   %39 = bitcast float %38 to i32
-  %40 = icmp ugt i32 %39, 1199570943
+  %40 = icmp samesign ugt i32 %39, 1199570943
   br i1 %40, label %54, label %41
 
 41:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
-  %42 = icmp ult i32 %39, 947912704
+  %42 = icmp samesign ult i32 %39, 947912704
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %41
@@ -4230,7 +4230,7 @@ _ZNK2cv6hfloatcvfEv.exit.us.i:                    ; preds = %31, %26, %18
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 
 54:                                               ; preds = %_ZNK2cv6hfloatcvfEv.exit.us.i
-  %55 = icmp ugt i32 %39, 2139095040
+  %55 = icmp samesign ugt i32 %39, 2139095040
   %56 = select i1 %55, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
 

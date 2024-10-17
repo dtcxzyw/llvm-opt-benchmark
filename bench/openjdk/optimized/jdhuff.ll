@@ -267,7 +267,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
   %127 = load i8, ptr %108, align 1
   %128 = zext i8 %127 to i32
-  %.not116.us.not = icmp ult i32 %.1109146.us, %128
+  %.not116.us.not = icmp samesign ult i32 %.1109146.us, %128
   br i1 %.not116.us.not, label %.lr.ph143.us, label %._crit_edge149.loopexit158, !llvm.loop !12
 
 ._crit_edge149.loopexit158:                       ; preds = %._crit_edge144.us

@@ -420,7 +420,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 244:                                              ; preds = %241, %236
   %245 = phi i64 [ %243, %241 ], [ 1, %236 ]
-  %246 = icmp ugt i64 %245, %237
+  %246 = icmp samesign ugt i64 %245, %237
   %247 = add nuw nsw i64 %237, 1
   br i1 %246, label %236, label %.thread, !llvm.loop !14
 
@@ -628,7 +628,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 362:                                              ; preds = %359, %354
   %363 = phi i64 [ %361, %359 ], [ 1, %354 ]
-  %364 = icmp ugt i64 %363, %355
+  %364 = icmp samesign ugt i64 %363, %355
   %365 = add nuw nsw i64 %355, 1
   br i1 %364, label %354, label %366, !llvm.loop !14
 
@@ -2864,7 +2864,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr nocaptur
   %487 = add nuw nsw i64 %460, 1
   %488 = load i8, ptr %5, align 8
   %489 = zext i8 %488 to i64
-  %490 = icmp ult i64 %487, %489
+  %490 = icmp samesign ult i64 %487, %489
   br i1 %490, label %.preheader, label %491, !llvm.loop !68
 
 491:                                              ; preds = %486

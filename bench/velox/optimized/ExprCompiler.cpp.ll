@@ -4485,7 +4485,7 @@ if.end20.i.i.i.i.i.i:                             ; preds = %while.end.i.i.i.i.i
   %inc.i.i.i.i.i.i1106 = add nuw nsw i64 %tries.i.010.i.i.i.i.i, 1
   %443 = load i32, ptr %chunkMask_.i.i.i.i.i44.i, align 8, !noalias !82
   %conv.i.i.i.i.i.i = zext i32 %443 to i64
-  %cmp.i.not.not.i.i.i.i.i = icmp ult i64 %tries.i.010.i.i.i.i.i, %conv.i.i.i.i.i.i
+  %cmp.i.not.not.i.i.i.i.i = icmp samesign ult i64 %tries.i.010.i.i.i.i.i, %conv.i.i.i.i.i.i
   br i1 %cmp.i.not.not.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end9.i.i.i.i.i, !llvm.loop !90
 
 if.end9.i.i.i.i.i:                                ; preds = %if.end20.i.i.i.i.i.i, %while.end.i.i.i.i.i.i, %call.i.i.i.i.i.noexc.i
@@ -6848,7 +6848,7 @@ if.end20.i.i.i.i.i:                               ; preds = %while.end.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw nsw i64 %tries.i.010.i.i.i.i, 1
   %781 = load i32, ptr %chunkMask_.i.i.i.i.i, align 8, !noalias !124
   %conv.i.i.i.i.i = zext i32 %781 to i64
-  %cmp.i.not.not.i.i.i.i = icmp ult i64 %tries.i.010.i.i.i.i, %conv.i.i.i.i.i
+  %cmp.i.not.not.i.i.i.i = icmp samesign ult i64 %tries.i.010.i.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.not.not.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end9.i.i.i.i, !llvm.loop !90
 
 if.end9.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i.i, %while.end.i.i.i.i.i, %call.i.i.i.i.i.noexc
@@ -9473,7 +9473,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.039, 1
   %10 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %10 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.039, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.039, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %cond.true, !llvm.loop !90
 
 cond.true:                                        ; preds = %while.end.i, %if.end20.i
@@ -19399,13 +19399,13 @@ if.then:                                          ; preds = %entry
   %shr5.i = lshr i64 %mul.i, 5
   %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i5, i64 %add6.i)
-  %cmp.i4.i = icmp ult i64 %.sroa.speculated.i, 13
+  %cmp.i4.i = icmp samesign ult i64 %.sroa.speculated.i, 13
   br i1 %cmp.i4.i, label %if.then3.i.i, label %if.else11.i.i
 
 if.then3.i.i:                                     ; preds = %if.then
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 12, i64 6
-  %cmp4.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 2
+  %cmp4.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 2
   %desiredCapacity.addr.0.i.i = select i1 %cmp4.inv.i.i, i64 %spec.select.i.i, i64 2
   br label %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i.i.i
 
@@ -19424,7 +19424,7 @@ if.else11.i.i:                                    ; preds = %if.then
   %shr.i.i.i = lshr i64 %sub.i.i.i, 12
   %add.i7.i.i = add nuw nsw i64 %shr.i.i.i, 1
   %mul.i.i.i = mul nuw nsw i64 %add.i7.i.i, %conv26.i.i
-  %cmp32.i.i = icmp ugt i64 %mul.i.i.i, 4294967295
+  %cmp32.i.i = icmp samesign ugt i64 %mul.i.i.i, 4294967295
   br i1 %cmp32.i.i, label %if.then33.i.i, label %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i.i.i
 
 if.then33.i.i:                                    ; preds = %if.else11.i.i
@@ -19684,7 +19684,7 @@ if.end.i.i:                                       ; preds = %_ZN5folly3f146detai
   br i1 %cmp12.i.i, label %while.body.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit, !llvm.loop !242
 
 if.else23.i.i:                                    ; preds = %if.else.i.i
-  %cmp25.not.i.i = icmp ugt i64 %.pn.i.i, 256
+  %cmp25.not.i.i = icmp samesign ugt i64 %.pn.i.i, 256
   br i1 %cmp25.not.i.i, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i.i.i, label %if.end34.i12.i
 
 _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i.i.i: ; preds = %if.else23.i.i

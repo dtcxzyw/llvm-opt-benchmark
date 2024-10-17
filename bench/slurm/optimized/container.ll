@@ -978,7 +978,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %262 = load i32, ptr %252, align 8
   %263 = zext i32 %262 to i64
-  %264 = icmp ult i64 %indvars.iv.next117.i, %263
+  %264 = icmp samesign ult i64 %indvars.iv.next117.i, %263
   br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !13
 
 _modify_config.exit:                              ; preds = %255, %._crit_edge.i
@@ -1831,7 +1831,7 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %19, align 8
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %71, %18

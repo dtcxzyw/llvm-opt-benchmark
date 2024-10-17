@@ -190,7 +190,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr nocapture noundef %0, ptr n
 
 116:                                              ; preds = %102
   %117 = add nuw nsw i64 %92, 4
-  %118 = icmp ult i64 %117, %81
+  %118 = icmp samesign ult i64 %117, %81
   br i1 %118, label %91, label %93, !llvm.loop !11
 
 119:                                              ; preds = %119, %98
@@ -2352,7 +2352,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %17 = getelementptr inbounds i8, ptr %3, i64 676
   %18 = getelementptr i8, ptr %3, i64 680
   %19 = getelementptr inbounds i8, ptr %3, i64 624
-  %20 = icmp ugt i32 %13, 12
+  %20 = icmp samesign ugt i32 %13, 12
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(112) %19, i8 0, i64 112, i1 false)
   br i1 %20, label %388, label %21
 
@@ -2593,7 +2593,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %174 = getelementptr i8, ptr %171, i64 24
   store i64 %161, ptr %174, align 2
   %175 = add nuw nsw i64 %170, 8
-  %176 = icmp ult i64 %175, %166
+  %176 = icmp samesign ult i64 %175, %166
   br i1 %176, label %169, label %.loopexit16, !llvm.loop !34
 
 177:                                              ; preds = %167, %157
@@ -3108,7 +3108,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
 
 94:                                               ; preds = %84
   %95 = and i32 %90, 16515072
-  %96 = icmp ult i32 %95, 786432
+  %96 = icmp samesign ult i32 %95, 786432
   %97 = ptrtoint ptr %2 to i64
   %98 = sub nsw i32 0, %91
   %99 = and i32 %98, 63
@@ -4431,7 +4431,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   br i1 %637, label %638, label %818
 
 638:                                              ; preds = %633
-  %639 = icmp ult i32 %43, 12
+  %639 = icmp samesign ult i32 %43, 12
   %640 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
   %641 = icmp eq i32 %640, 0
   br i1 %639, label %651, label %642
@@ -4825,7 +4825,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   br i1 %944, label %945, label %1125
 
 945:                                              ; preds = %940
-  %946 = icmp ult i32 %43, 12
+  %946 = icmp samesign ult i32 %43, 12
   %947 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
   %948 = icmp eq i32 %947, 0
   br i1 %946, label %958, label %949
@@ -5218,7 +5218,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   br i1 %1250, label %1251, label %1431
 
 1251:                                             ; preds = %1247
-  %1252 = icmp ult i32 %43, 12
+  %1252 = icmp samesign ult i32 %43, 12
   %1253 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
   %1254 = icmp eq i32 %1253, 0
   br i1 %1252, label %1264, label %1255
@@ -5611,7 +5611,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   br i1 %1556, label %1557, label %1738
 
 1557:                                             ; preds = %1553
-  %1558 = icmp ult i32 %43, 12
+  %1558 = icmp samesign ult i32 %43, 12
   br i1 %1558, label %1569, label %1559
 
 1559:                                             ; preds = %1557
@@ -8704,7 +8704,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
 
 89:                                               ; preds = %79
   %90 = and i32 %85, 16515072
-  %91 = icmp ult i32 %90, 786432
+  %91 = icmp samesign ult i32 %90, 786432
   %92 = ptrtoint ptr %2 to i64
   %93 = sub nsw i32 0, %86
   %94 = and i32 %93, 63
@@ -10098,7 +10098,7 @@ BIT_initDStream.exit:                             ; preds = %292
   br i1 %707, label %708, label %948
 
 708:                                              ; preds = %703
-  %709 = icmp ult i32 %38, 12
+  %709 = icmp samesign ult i32 %38, 12
   %710 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !27
   %711 = icmp eq i32 %710, 0
   br i1 %709, label %722, label %712
@@ -10592,7 +10592,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %926, %848, %BIT_rel
   br i1 %1074, label %1075, label %1315
 
 1075:                                             ; preds = %1070
-  %1076 = icmp ult i32 %38, 12
+  %1076 = icmp samesign ult i32 %38, 12
   %1077 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
   %1078 = icmp eq i32 %1077, 0
   br i1 %1076, label %1089, label %1079
@@ -11085,7 +11085,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1293, %1215, %BIT_r
   br i1 %1440, label %1441, label %1681
 
 1441:                                             ; preds = %1437
-  %1442 = icmp ult i32 %38, 12
+  %1442 = icmp samesign ult i32 %38, 12
   %1443 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
   %1444 = icmp eq i32 %1443, 0
   br i1 %1442, label %1455, label %1445
@@ -11578,7 +11578,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1659, %1581, %BIT_r
   br i1 %1806, label %1807, label %2048
 
 1807:                                             ; preds = %1803
-  %1808 = icmp ult i32 %38, 12
+  %1808 = icmp samesign ult i32 %38, 12
   br i1 %1808, label %1820, label %1809
 
 1809:                                             ; preds = %1807

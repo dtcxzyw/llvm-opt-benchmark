@@ -919,7 +919,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 2147483647
-  %.not21 = icmp ult i32 %14, %9
+  %.not21 = icmp samesign ult i32 %14, %9
   br i1 %.not21, label %15, label %.loopexit
 
 15:                                               ; preds = %10
@@ -939,7 +939,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
   %20 = getelementptr inbounds nuw i8, ptr %.025, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 2147483647
-  %23 = icmp ugt i32 %19, %22
+  %23 = icmp samesign ugt i32 %19, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.lr.ph
@@ -1003,7 +1003,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 2147483647
-  %.not21 = icmp ugt i32 %15, %10
+  %.not21 = icmp samesign ugt i32 %15, %10
   br i1 %.not21, label %16, label %.loopexit
 
 16:                                               ; preds = %11
@@ -1023,7 +1023,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
   %21 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2147483647
-  %24 = icmp ult i32 %20, %23
+  %24 = icmp samesign ult i32 %20, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.lr.ph
@@ -1218,7 +1218,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 2147483647
-  %.not21.i = icmp ult i32 %46, %41
+  %.not21.i = icmp samesign ult i32 %46, %41
   br i1 %.not21.i, label %47, label %.loopexit.i
 
 47:                                               ; preds = %42
@@ -1238,7 +1238,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %52 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 2147483647
-  %55 = icmp ugt i32 %51, %54
+  %55 = icmp samesign ugt i32 %51, %54
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph.i
@@ -1386,7 +1386,7 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 2147483647
-  %.not21.i41 = icmp ugt i32 %116, %111
+  %.not21.i41 = icmp samesign ugt i32 %116, %111
   br i1 %.not21.i41, label %117, label %.loopexit.i42
 
 117:                                              ; preds = %112
@@ -1406,7 +1406,7 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
   %122 = getelementptr inbounds nuw i8, ptr %.026.i, i64 32
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 2147483647
-  %125 = icmp ult i32 %121, %124
+  %125 = icmp samesign ult i32 %121, %124
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %.lr.ph.i47

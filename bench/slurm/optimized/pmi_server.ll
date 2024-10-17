@@ -208,7 +208,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %99 = getelementptr inbounds i8, ptr %97, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next, %101
   br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %96, %54
@@ -419,7 +419,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %95 = load i32, ptr %32, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next61.i, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next61.i, %96
   br i1 %97, label %40, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %94, %_find_kvs_by_name.exit
@@ -457,7 +457,7 @@ _merge_named_kvs.exit:                            ; preds = %100, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i16, ptr %13, align 8
   %117 = zext i16 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %118, label %18, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_merge_named_kvs.exit, %.preheader
@@ -819,7 +819,7 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %12, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %16, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %16, %.preheader.i
@@ -1315,7 +1315,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %202 = getelementptr inbounds i8, ptr %201, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = zext i32 %203 to i64
-  %205 = icmp ult i64 %indvars.iv.next241, %204
+  %205 = icmp samesign ult i64 %indvars.iv.next241, %204
   br i1 %205, label %.lr.ph200, label %._crit_edge201, !llvm.loop !22
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %.preheader

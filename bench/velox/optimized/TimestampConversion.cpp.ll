@@ -271,7 +271,7 @@ if.then:                                          ; preds = %entry, %_ZN8faceboo
 while.cond1.preheader:                            ; preds = %while.body.preheader, %while.cond.preheader
   %year.addr.0.lcssa = phi i32 [ %year, %while.cond.preheader ], [ %13, %while.body.preheader ]
   %daysSinceEpoch.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %14, %while.body.preheader ]
-  %cmp236 = icmp ugt i32 %year.addr.0.lcssa, 2369
+  %cmp236 = icmp samesign ugt i32 %year.addr.0.lcssa, 2369
   br i1 %cmp236, label %while.body3.preheader, label %while.end6
 
 while.body3.preheader:                            ; preds = %while.cond1.preheader
@@ -409,7 +409,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
   %year.addr.0.lcssa.i = phi i32 [ %weekYear, %while.cond.preheader.i ], [ %13, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %14, %while.body.preheader.i ]
-  %cmp236.i = icmp ugt i32 %year.addr.0.lcssa.i, 2369
+  %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
 
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
@@ -583,7 +583,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
   %year.addr.0.lcssa.i = phi i32 [ %year, %while.cond.preheader.i ], [ %11, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %12, %while.body.preheader.i ]
-  %cmp236.i = icmp ugt i32 %year.addr.0.lcssa.i, 2369
+  %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
 
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
@@ -840,7 +840,7 @@ if.then.i114:                                     ; preds = %_ZN8facebook5velox4
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
   %year.addr.0.lcssa.i = phi i32 [ %year.2, %while.cond.preheader.i ], [ %26, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %27, %while.body.preheader.i ]
-  %cmp236.i = icmp ugt i32 %year.addr.0.lcssa.i, 2369
+  %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
 
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
@@ -898,7 +898,7 @@ if.end55:                                         ; preds = %if.end52
   %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %.lcssa162
   %40 = load i8, ptr %arrayidx57, align 1
   %cmp59 = icmp eq i32 %mode, 2
-  %or.cond.not = icmp ult i32 %mode, 2
+  %or.cond.not = icmp samesign ult i32 %mode, 2
   br i1 %or.cond.not, label %if.else65, label %if.then61
 
 if.then61:                                        ; preds = %if.end55

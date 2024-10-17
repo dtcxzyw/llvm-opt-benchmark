@@ -709,7 +709,7 @@ add_alert_to_session_tree.exit.i:                 ; preds = %204, %200, %196
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %208 = load i32, ptr %187, align 8
   %209 = zext i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next.i52, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next.i52, %209
   br i1 %210, label %.lr.ph.i50, label %get_reassembled_in_frame.exit.thread.i, !llvm.loop !7
 
 get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_session_tree.exit.i, %.preheader478.i, %182, %180, %get_reassembled_in_frame.exit.i, %get_reassembled_in_frame.exit.thread434.i, %161, %155, %150
@@ -1209,7 +1209,7 @@ proto_item_set_generated.exit386.i:               ; preds = %457, %454, %447
   %indvars.iv.next513.i = add nuw nsw i64 %indvars.iv512.i, 1
   %461 = load i32, ptr %441, align 8
   %462 = zext i32 %461 to i64
-  %463 = icmp ult i64 %indvars.iv.next513.i, %462
+  %463 = icmp samesign ult i64 %indvars.iv.next513.i, %462
   br i1 %463, label %447, label %.preheader476.i, !llvm.loop !9
 
 464:                                              ; preds = %proto_item_set_generated.exit389.i, %.lr.ph490.i
@@ -1240,7 +1240,7 @@ proto_item_set_generated.exit389.i:               ; preds = %474, %471, %464
   %indvars.iv.next516.i = add nuw nsw i64 %indvars.iv515.i, 1
   %478 = load i32, ptr %444, align 4
   %479 = zext i32 %478 to i64
-  %480 = icmp ult i64 %indvars.iv.next516.i, %479
+  %480 = icmp samesign ult i64 %indvars.iv.next516.i, %479
   br i1 %480, label %464, label %.loopexit477.i, !llvm.loop !10
 
 .loopexit477.i:                                   ; preds = %proto_item_set_generated.exit389.i, %.preheader476.i, %386
@@ -1637,7 +1637,7 @@ get_content_match.exit.thread442.i:               ; preds = %583, %568, %582, %g
   %indvars.iv.next519.i = add nuw nsw i64 %indvars.iv518.i, 1
   %659 = load i32, ptr %485, align 8
   %660 = zext i32 %659 to i64
-  %661 = icmp ult i64 %indvars.iv.next519.i, %660
+  %661 = icmp samesign ult i64 %indvars.iv.next519.i, %660
   br i1 %661, label %491, label %.preheader.i47, !llvm.loop !13
 
 662:                                              ; preds = %proto_item_set_generated.exit399.i, %.lr.ph497.i
@@ -1677,7 +1677,7 @@ proto_item_set_generated.exit399.i:               ; preds = %676, %672, %669, %6
   %indvars.iv.next522.i = add nuw nsw i64 %indvars.iv521.i, 1
   %680 = load i32, ptr %488, align 8
   %681 = zext i32 %680 to i64
-  %682 = icmp ult i64 %indvars.iv.next522.i, %681
+  %682 = icmp samesign ult i64 %indvars.iv.next522.i, %681
   br i1 %682, label %662, label %.loopexit.i49, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %proto_item_set_generated.exit371.i
@@ -1868,7 +1868,7 @@ snort_show_alert.exit:                            ; preds = %261, %264, %267, %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %776 = load i32, ptr %144, align 8
   %777 = zext i32 %776 to i64
-  %778 = icmp ult i64 %indvars.iv.next, %777
+  %778 = icmp samesign ult i64 %indvars.iv.next, %777
   br i1 %778, label %150, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %snort_show_alert.exit, %.preheader, %add_alert_to_session_tree.exit, %139

@@ -573,7 +573,7 @@ _ZN12_GLOBAL__N_111PhiAnalyzerC2ERKN4llvm4LoopEj.exit: ; preds = %.lr.ph.i.i.i.i
   br label %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit
 
 _ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111PhiAnalyzerC2ERKN4llvm4LoopEj.exit, %57
-  %.not91 = icmp ult i64 %54, 4294967296
+  %.not91 = icmp samesign ult i64 %54, 4294967296
   br i1 %.not91, label %65, label %64
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit

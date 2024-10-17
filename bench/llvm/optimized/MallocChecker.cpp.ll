@@ -2717,7 +2717,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit ]
   %13 = add nuw nsw i32 %12, 2
-  %14 = icmp ugt i32 %8, %13
+  %14 = icmp samesign ugt i32 %8, %13
   br i1 %14, label %15, label %38
 
 15:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
@@ -2747,7 +2747,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60, %22
   %25 = phi i32 [ %24, %22 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60 ]
-  %.not47 = icmp ult i32 %21, %25
+  %.not47 = icmp samesign ult i32 %21, %25
   br i1 %.not47, label %30, label %26
 
 26:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63
@@ -2770,7 +2770,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 38:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
   %39 = add nuw nsw i32 %8, 2
-  %40 = icmp ugt i32 %12, %39
+  %40 = icmp samesign ugt i32 %12, %39
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %38
@@ -2800,7 +2800,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66, %48
   %51 = phi i32 [ %50, %48 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66 ]
-  %.not = icmp ult i32 %47, %51
+  %.not = icmp samesign ult i32 %47, %51
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69
@@ -16693,7 +16693,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_113MallocChecker16HandleDoubleFree
 
 23:                                               ; preds = %16, %6
   %24 = tail call fastcc i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr noundef nonnull align 8 dereferenceable(620) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %4)
-  %.not36 = icmp ult i64 %24, 4294967296
+  %.not36 = icmp samesign ult i64 %24, 4294967296
   br i1 %.not36, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %25
 
 25:                                               ; preds = %23
@@ -18114,7 +18114,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %138, %140
   %143 = phi ptr [ %.pre85, %138 ], [ %142, %140 ]
   %.0.i.i29 = phi ptr [ %139, %138 ], [ %132, %140 ]
   %144 = call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %145 = icmp ugt i32 %144, 1
+  %145 = icmp samesign ugt i32 %144, 1
   %146 = select i1 %145, ptr @.str.128, ptr @.str.129
   %147 = select i1 %145, i64 5, i64 4
   %148 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 24
@@ -25059,7 +25059,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9ge
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit, %10
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
-  %16 = icmp ugt i32 %9, %15
+  %16 = icmp samesign ugt i32 %9, %15
   br i1 %16, label %17, label %46
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49
@@ -25089,7 +25089,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9ge
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit51, %27
   %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit51 ]
-  %.not47 = icmp ult i32 %26, %31
+  %.not47 = icmp samesign ult i32 %26, %31
   br i1 %.not47, label %36, label %32
 
 32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit53
@@ -25112,7 +25112,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9ge
 
 46:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49
   %47 = add nuw nsw i32 %9, 2
-  %48 = icmp ugt i32 %14, %47
+  %48 = icmp samesign ugt i32 %14, %47
   br i1 %48, label %49, label %78
 
 49:                                               ; preds = %46
@@ -25142,7 +25142,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9ge
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit55, %59
   %63 = phi i32 [ %62, %59 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit55 ]
-  %.not = icmp ult i32 %58, %63
+  %.not = icmp samesign ult i32 %58, %63
   br i1 %.not, label %68, label %64
 
 64:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit57
@@ -27493,19 +27493,19 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   br i1 %or.cond.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %67
 
 67:                                               ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit.i
-  %68 = icmp ugt i32 %65, 454
+  %68 = icmp samesign ugt i32 %65, 454
   br i1 %68, label %69, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %65, 458
+  %70 = icmp samesign ult i32 %65, 458
   br i1 %70, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i32 %65, 460
+  %72 = icmp samesign ugt i32 %65, 460
   br i1 %72, label %73, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i32 %65, 463
+  %74 = icmp samesign ugt i32 %65, 463
   %75 = add nsw i32 %65, -470
   %spec.select.i4.i = icmp ult i32 %75, -3
   %or.cond = select i1 %74, i1 %spec.select.i4.i, i1 false
@@ -28243,7 +28243,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getH
 _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit, %10
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
-  %16 = icmp ugt i32 %9, %15
+  %16 = icmp samesign ugt i32 %9, %15
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49
@@ -28273,7 +28273,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getH
 
 _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit51, %27
   %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit51 ]
-  %.not47 = icmp ult i32 %26, %31
+  %.not47 = icmp samesign ult i32 %26, %31
   br i1 %.not47, label %37, label %32
 
 32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit53
@@ -28299,7 +28299,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getH
 
 49:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit49
   %50 = add nuw nsw i32 %9, 2
-  %51 = icmp ugt i32 %14, %50
+  %51 = icmp samesign ugt i32 %14, %50
   br i1 %51, label %52, label %84
 
 52:                                               ; preds = %49
@@ -28329,7 +28329,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getH
 
 _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit55, %62
   %66 = phi i32 [ %65, %62 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit55 ]
-  %.not = icmp ult i32 %61, %66
+  %.not = icmp samesign ult i32 %61, %66
   br i1 %.not, label %72, label %67
 
 67:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit57
@@ -30060,7 +30060,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit ]
   %13 = add nuw nsw i32 %12, 2
-  %14 = icmp ugt i32 %8, %13
+  %14 = icmp samesign ugt i32 %8, %13
   br i1 %14, label %15, label %38
 
 15:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
@@ -30090,7 +30090,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60, %22
   %25 = phi i32 [ %24, %22 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60 ]
-  %.not47 = icmp ult i32 %21, %25
+  %.not47 = icmp samesign ult i32 %21, %25
   br i1 %.not47, label %30, label %26
 
 26:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63
@@ -30113,7 +30113,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 38:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
   %39 = add nuw nsw i32 %8, 2
-  %40 = icmp ugt i32 %12, %39
+  %40 = icmp samesign ugt i32 %12, %39
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %38
@@ -30143,7 +30143,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66, %48
   %51 = phi i32 [ %50, %48 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66 ]
-  %.not = icmp ult i32 %47, %51
+  %.not = icmp samesign ult i32 %47, %51
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69
@@ -35380,7 +35380,7 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.i: ; preds = %61
 
 72:                                               ; preds = %70
   %73 = tail call fastcc i16 @_ZL18getFreeWhenDoneArgRKN5clang4ento14ObjCMethodCallE(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %.not151.i = icmp ult i16 %73, 256
+  %.not151.i = icmp samesign ult i16 %73, 256
   br i1 %.not151.i, label %76, label %74
 
 74:                                               ; preds = %72
@@ -35617,7 +35617,7 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit102.i: ; preds = %153
   %167 = getelementptr inbounds i8, ptr %166, i64 16
   %168 = load i64, ptr %166, align 8
   %169 = and i64 %168, 4294967295
-  %.not.i103.i = icmp ult i64 %169, 6
+  %.not.i103.i = icmp samesign ult i64 %169, 6
   br i1 %.not.i103.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit105.thread.i, label %170
 
 170:                                              ; preds = %163
@@ -37014,7 +37014,7 @@ _ZL10isReleasedPKN5clang4ento7SymExprERNS0_14CheckerContextE.exit: ; preds = %_Z
 
 45:                                               ; preds = %38, %34, %29
   %46 = tail call fastcc i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr noundef nonnull align 8 dereferenceable(620) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %1)
-  %.not41.i = icmp ult i64 %46, 4294967296
+  %.not41.i = icmp samesign ult i64 %46, 4294967296
   br i1 %.not41.i, label %_ZNK12_GLOBAL__N_113MallocChecker18HandleUseAfterFreeERN5clang4ento14CheckerContextENS1_11SourceRangeEPKNS2_7SymExprE.exit, label %47
 
 47:                                               ; preds = %45
@@ -37593,7 +37593,7 @@ _ZL10isReleasedPKN5clang4ento7SymExprERNS0_14CheckerContextE.exit.i.i: ; preds =
 
 137:                                              ; preds = %130
   %138 = call fastcc i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr noundef nonnull align 8 dereferenceable(620) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %111)
-  %.not23.i.i.i = icmp ult i64 %138, 4294967296
+  %.not23.i.i.i = icmp samesign ult i64 %138, 4294967296
   br i1 %.not23.i.i.i, label %_ZNK12_GLOBAL__N_113MallocChecker17checkDoubleDeleteEPKN5clang4ento7SymExprERNS2_14CheckerContextE.exit.i, label %139
 
 139:                                              ; preds = %137
@@ -40031,7 +40031,7 @@ define internal void @_ZN5clang4ento5check15PostObjCMessage17_checkObjCMessageIN
 
 16:                                               ; preds = %14
   %17 = tail call fastcc i16 @_ZL18getFreeWhenDoneArgRKN5clang4ento14ObjCMethodCallE(ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %.not.i = icmp ult i16 %17, 256
+  %.not.i = icmp samesign ult i16 %17, 256
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %16
@@ -40332,7 +40332,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_113MallocChecker18HandleUseZeroAll
 
 21:                                               ; preds = %14, %4
   %22 = tail call fastcc i64 @_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedERN5clang4ento14CheckerContextEPKNS2_7SymExprEb(ptr noundef nonnull align 8 dereferenceable(620) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull %3)
-  %.not32 = icmp ult i64 %22, 4294967296
+  %.not32 = icmp samesign ult i64 %22, 4294967296
   br i1 %.not32, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %23
 
 23:                                               ; preds = %21

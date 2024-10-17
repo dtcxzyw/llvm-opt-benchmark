@@ -1812,7 +1812,7 @@ define internal range(i32 0, 9) i32 @dma_buf_poll(ptr noundef %0, ptr noundef %1
 34:                                               ; preds = %26
   store i32 4, ptr %30, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %11) #10
-  %35 = icmp ult i32 %28, 4
+  %35 = icmp samesign ult i32 %28, 4
   br i1 %35, label %54, label %36
 
 36:                                               ; preds = %34

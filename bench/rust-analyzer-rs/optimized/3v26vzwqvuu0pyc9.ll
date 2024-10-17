@@ -1479,7 +1479,7 @@ _ZN8lz4_flex5block9hashtable11HashTable4K3new17h38d5fc5553627a54E.exit.i: ; pred
   br i1 %64, label %.thread.i.i, label %65
 
 65:                                               ; preds = %_ZN8lz4_flex5block9hashtable11HashTable4K3new17h38d5fc5553627a54E.exit.i
-  %.not1.i.i = icmp ult i64 %.sroa.3.0, 8
+  %.not1.i.i = icmp samesign ult i64 %.sroa.3.0, 8
   br i1 %.not1.i.i, label %_ZN8lz4_flex5block8compress9init_dict17h348ff7f8f1aa90a5E.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %65
@@ -1571,7 +1571,7 @@ _ZN8lz4_flex5block9hashtable14HashTable4KU163new17hea4dcbfbe9d4a03dE.exit.i: ; p
   br i1 %99, label %.thread.i15.i, label %100
 
 100:                                              ; preds = %_ZN8lz4_flex5block9hashtable14HashTable4KU163new17hea4dcbfbe9d4a03dE.exit.i
-  %.not1.i9.i = icmp ult i64 %.sroa.3.0, 8
+  %.not1.i9.i = icmp samesign ult i64 %.sroa.3.0, 8
   br i1 %.not1.i9.i, label %_ZN8lz4_flex5block8compress9init_dict17h17cfb7df0eb34f5cE.exit.i, label %.lr.ph.i10.i
 
 .lr.ph.i10.i:                                     ; preds = %.thread.i15.i, %100
@@ -2413,9 +2413,9 @@ define void @"_ZN70_$LT$base_db..ParseQuery$u20$as$u20$salsa..plumbing..QueryFun
   br i1 %14, label %.thread.i, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 3
+  %17 = icmp samesign ult i64 %13, 3
   br i1 %17, label %18, label %.thread.i
 
 18:                                               ; preds = %15
@@ -3755,21 +3755,21 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
   br i1 %70, label %109, label %71
 
 71:                                               ; preds = %67
-  %72 = icmp ult i64 %.0147.i.i.i.i, 4
+  %72 = icmp samesign ult i64 %.0147.i.i.i.i, 4
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i64 %.0147.i.i.i.i, 8
+  %74 = icmp samesign ult i64 %.0147.i.i.i.i, 8
   br i1 %74, label %80, label %78
 
 75:                                               ; preds = %71
   %76 = load i8, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693, !noundef !4
   store i8 %76, ptr %.017.i.i.i.i, align 1, !noalias !696
-  %77 = icmp ugt i64 %.0147.i.i.i.i, 1
+  %77 = icmp samesign ugt i64 %.0147.i.i.i.i, 1
   br i1 %77, label %101, label %_ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i
 
 78:                                               ; preds = %73
-  %79 = icmp ult i64 %.0147.i.i.i.i, 17
+  %79 = icmp samesign ult i64 %.0147.i.i.i.i, 17
   br i1 %79, label %95, label %86
 
 80:                                               ; preds = %73
@@ -3957,7 +3957,7 @@ _ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i: ; pre
   %.0.sroa.speculated.i172.i.i.i.i = tail call noundef range(i64 0, 4294967315) i64 @llvm.umin.i64(i64 %172, i64 %174)
   %175 = sub nsw i64 0, %.0.sroa.speculated.i172.i.i.i.i
   %176 = getelementptr inbounds i8, ptr %170, i64 %175
-  %.not165.i.i.i.i = icmp ult i64 %.0.sroa.speculated.i172.i.i.i.i, %168
+  %.not165.i.i.i.i = icmp samesign ult i64 %.0.sroa.speculated.i172.i.i.i.i, %168
   %177 = getelementptr inbounds i8, ptr %170, i64 %168
   br i1 %.not165.i.i.i.i, label %178, label %192
 

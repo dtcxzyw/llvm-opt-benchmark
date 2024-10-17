@@ -18,7 +18,7 @@ entry:
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 960
   %1 = ptrtoint ptr %add.ptr to i64
   %and = and i64 %1, 4032
-  %tobool.not = icmp ult i64 %and, 3776
+  %tobool.not = icmp samesign ult i64 %and, 3776
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 320
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 640
   %m.0 = select i1 %tobool.not, ptr %add.ptr, ptr %add.ptr4

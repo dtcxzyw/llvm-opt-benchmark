@@ -4619,7 +4619,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i32 no
   br i1 %.not359, label %103, label %65
 
 65:                                               ; preds = %58
-  %.not380 = icmp ult i32 %.sink, 256
+  %.not380 = icmp samesign ult i32 %.sink, 256
   br i1 %.not380, label %72, label %66
 
 66:                                               ; preds = %65

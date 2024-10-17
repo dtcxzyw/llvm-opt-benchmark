@@ -16900,7 +16900,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6263)
   %40 = load i32, ptr %39, align 8, !range !5668, !alias.scope !6266, !noundef !4
-  %switch.i.i = icmp ult i32 %40, 2
+  %switch.i.i = icmp samesign ult i32 %40, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hd75910c25cc21603E.exit", label %41
 
 41:                                               ; preds = %38

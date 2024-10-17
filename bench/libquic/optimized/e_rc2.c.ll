@@ -226,7 +226,7 @@ entry:
   %incdec.ptr208 = getelementptr inbounds i8, ptr %iv, i64 5
   %1 = load i32, ptr %incdec.ptr204, align 1
   %incdec.ptr210 = getelementptr inbounds i8, ptr %iv, i64 6
-  %cmp225224 = icmp ugt i64 %length, 7
+  %cmp225224 = icmp samesign ugt i64 %length, 7
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

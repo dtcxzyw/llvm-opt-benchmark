@@ -446,9 +446,9 @@ land.lhs.true301:                                 ; preds = %if.end282
   br i1 %or.cond374, label %do.cond, label %if.then305
 
 if.then305:                                       ; preds = %land.lhs.true301
-  %cmp311.not = icmp ugt i32 %and3.i290, %conv284
-  %cmp316.not = icmp ult i32 %and3.i290, %conv261
-  %or.cond210 = or i1 %cmp316.not, %cmp311.not
+  %cmp311.not = icmp samesign ugt i32 %and3.i290, %conv284
+  %cmp316.not = icmp samesign ult i32 %and3.i290, %conv261
+  %or.cond210 = select i1 %cmp311.not, i1 true, i1 %cmp316.not
   %spec.select229 = select i1 %or.cond210, i32 %matched.0, i32 1
   br label %do.cond
 

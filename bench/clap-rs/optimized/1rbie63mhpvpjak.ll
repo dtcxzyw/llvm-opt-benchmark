@@ -1730,7 +1730,7 @@ define hidden noundef zeroext i1 @_ZN4core3str7pattern7Pattern15is_contained_in1
   br i1 %43, label %switch.hole_check, label %44
 
 44:                                               ; preds = %switch.hole_check, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i"
-  %45 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i, 127
+  %45 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i, 127
   br i1 %45, label %46, label %66
 
 46:                                               ; preds = %44
@@ -1876,7 +1876,7 @@ define hidden void @_ZN4core3str7pattern8Searcher10next_match17h3f5c7d813f1a6575
   ]
 
 52:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i"
-  %53 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -3206,7 +3206,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %15 = getelementptr inbounds i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !alias.scope !600, !noalias !597, !noundef !4
   %17 = icmp eq i8 %14, %16
-  %switch.i = icmp ult i8 %3, 2
+  %switch.i = icmp samesign ult i8 %3, 2
   %.not.i = xor i1 %17, true
   %brmerge.i = or i1 %switch.i, %.not.i
   br i1 %brmerge.i, label %9, label %18
@@ -3258,7 +3258,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %45 = getelementptr inbounds i8, ptr %1, i64 5
   %46 = load i8, ptr %45, align 1, !alias.scope !605, !noalias !602, !noundef !4
   %47 = icmp eq i8 %44, %46
-  %switch.i12 = icmp ult i8 %32, 2
+  %switch.i12 = icmp samesign ult i8 %32, 2
   %.not.i13 = xor i1 %47, true
   %brmerge.i14 = or i1 %switch.i12, %.not.i13
   br i1 %brmerge.i14, label %39, label %48
@@ -3310,7 +3310,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %75 = getelementptr inbounds i8, ptr %1, i64 9
   %76 = load i8, ptr %75, align 1, !alias.scope !610, !noalias !607, !noundef !4
   %77 = icmp eq i8 %74, %76
-  %switch.i18 = icmp ult i8 %62, 2
+  %switch.i18 = icmp samesign ult i8 %62, 2
   %.not.i19 = xor i1 %77, true
   %brmerge.i20 = or i1 %switch.i18, %.not.i19
   br i1 %brmerge.i20, label %69, label %78
@@ -3837,7 +3837,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 52:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11"
-  %53 = icmp ugt i32 %.sroa.4.0.i.ph10.i14, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14, 127
   br i1 %53, label %54, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread.sink.split"
 
 54:                                               ; preds = %52
@@ -4264,7 +4264,7 @@ define hidden void @_ZN12clap_builder7builder14possible_value13PossibleValue23ge
   ]
 
 54:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i.i"
-  %55 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %55 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %55, label %56, label %76
 
 56:                                               ; preds = %54
@@ -8969,7 +8969,7 @@ define noundef zeroext i1 @"_ZN74_$LT$clap_builder..error..format..Escape$u20$as
   ]
 
 46:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.llvm.13747326498558855189.exit.thread11.i.i.i"
-  %47 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %47 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %47, label %48, label %68
 
 48:                                               ; preds = %46

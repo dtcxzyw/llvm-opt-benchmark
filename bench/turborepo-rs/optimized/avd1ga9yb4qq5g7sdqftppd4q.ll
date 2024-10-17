@@ -1808,15 +1808,15 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br label %91
 
 147:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.thread"
-  %148 = icmp ult i32 %135, 128
+  %148 = icmp samesign ult i32 %135, 128
   br i1 %148, label %153, label %149
 
 149:                                              ; preds = %147
-  %150 = icmp ult i32 %135, 2048
+  %150 = icmp samesign ult i32 %135, 2048
   br i1 %150, label %153, label %151
 
 151:                                              ; preds = %149
-  %152 = icmp ult i32 %135, 65536
+  %152 = icmp samesign ult i32 %135, 65536
   %. = select i1 %152, i64 3, i64 4
   br label %153
 
@@ -2889,7 +2889,7 @@ define void @_RNvXs_NtCsaPKTPzkFU9s_3nom6branchTNCINvNtNtB6_5bytes8complete3tagR
 
 71:                                               ; preds = %62
   %72 = load i64, ptr %12, align 8, !range !9, !noundef !5
-  %switch = icmp ult i64 %72, 2
+  %switch = icmp samesign ult i64 %72, 2
   br i1 %switch, label %.thread38, label %73
 
 .thread38:                                        ; preds = %71, %70, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1q_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEB2f_.exit.i
@@ -2992,7 +2992,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12Verb
 
 108:                                              ; preds = %90
   %109 = load i64, ptr %14, align 8, !range !9, !noundef !5
-  %switch40 = icmp ult i64 %109, 2
+  %switch40 = icmp samesign ult i64 %109, 2
   br i1 %switch40, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit23, label %110
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit23: ; preds = %108, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1q_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEB2f_.exit.i22, %107, %27

@@ -517,7 +517,7 @@ if.end63.i:                                       ; preds = %if.then60.i, %if.en
   %104 = load i32, ptr %e_phoff115126195.i, align 4
   %conv68.i = zext i32 %104 to i64
   %add.i = add nuw nsw i64 %mul.i, %conv68.i
-  %cmp70.i = icmp ugt i64 %add.i, %conv66.i
+  %cmp70.i = icmp samesign ugt i64 %add.i, %conv66.i
   br i1 %cmp70.i, label %if.then72.i, label %if.end75.i
 
 if.then72.i:                                      ; preds = %if.end63.i

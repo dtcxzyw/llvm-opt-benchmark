@@ -26735,7 +26735,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AllocaUseVisitor13visitCallBaseE
   %38 = sub i64 %36, %37
   %39 = lshr exact i64 %38, 5
   %40 = and i64 %39, 4294967295
-  %41 = icmp ult i64 %indvars.iv, %40
+  %41 = icmp samesign ult i64 %indvars.iv, %40
   %42 = trunc nuw i64 %indvars.iv to i32
   br i1 %41, label %43, label %45
 
@@ -28089,7 +28089,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit.i:     ; preds = %_ZNSt22_Optional_pa
   %64 = add nuw nsw i64 %.012.i, 1
   %65 = load i32, ptr %3, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %.lr.ph.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E8copyFromISC_EEvRKNS0_IT_S3_S6_S8_SB_EE.exit, !llvm.loop !461
 
 68:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit
@@ -28882,7 +28882,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i64 %13, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ult i64 %15, %19
+  %20 = icmp samesign ult i64 %15, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -33387,7 +33387,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %232 = load i32, ptr %170, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next, %233
   br i1 %234, label %175, label %._crit_edge, !llvm.loop !522
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit, %_ZNK4llvm7DIScope7getFileEv.exit
@@ -33596,7 +33596,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

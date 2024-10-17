@@ -2264,7 +2264,7 @@ define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonl
   %24 = load i16, ptr %23, align 2
   %25 = sub i16 %24, %2
   %26 = zext i16 %25 to i32
-  %.not = icmp ult i32 %21, %26
+  %.not = icmp samesign ult i32 %21, %26
   br i1 %.not, label %33, label %27
 
 27:                                               ; preds = %22
@@ -2326,7 +2326,7 @@ define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly
   %narrow = sub nuw i16 %16, %2
   %19 = zext i16 %narrow to i32
   %20 = lshr i32 %19, %3
-  %21 = icmp ult i32 %20, 8
+  %21 = icmp samesign ult i32 %20, 8
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18

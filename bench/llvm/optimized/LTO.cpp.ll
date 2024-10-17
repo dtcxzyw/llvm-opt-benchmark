@@ -14397,7 +14397,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIiSa
   %21 = shl nuw nsw i64 %20, 1
   %22 = xor i64 %21, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN4llvm3lto23generateModulesOrderingENS9_8ArrayRefIPNS9_13BitcodeModuleEEEE3$_0EEEvT_SH_T0_T1_"(ptr nonnull %10, ptr nonnull %.ptr.le, i64 noundef %22, ptr nonnull readonly %4)
-  %23 = icmp ugt i64 %.049.i.i.i.i.i.i.i.i.i.i.idx, 60
+  %23 = icmp samesign ugt i64 %.049.i.i.i.i.i.i.i.i.i.i.idx, 60
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %10, i64 4
   br i1 %23, label %.lr.ph.i.i.i.i.i.i, label %84
 

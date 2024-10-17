@@ -880,7 +880,7 @@ define internal fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr nound
 50:                                               ; preds = %47, %43, %30, %28
   %51 = add nuw nsw i64 %25, 1
   %52 = and i64 %51, 127
-  %53 = icmp ugt i64 %52, 63
+  %53 = icmp samesign ugt i64 %52, 63
   br i1 %53, label %.thread, label %18, !prof !34, !llvm.loop !35
 
 .thread:                                          ; preds = %18, %50, %24
@@ -1657,7 +1657,7 @@ define dso_local range(i64 -2147483648, 2147487738) i64 @cpufreq_show_cpus(ptr n
   %4 = phi i64 [ 0, %2 ], [ %22, %17 ]
   %5 = phi i64 [ 0, %2 ], [ %24, %17 ]
   %6 = and i64 %5, 4294967295
-  %7 = icmp ugt i64 %6, 63
+  %7 = icmp samesign ugt i64 %6, 63
   br i1 %7, label %.thread, label %8, !prof !12
 
 8:                                                ; preds = %3
@@ -2977,7 +2977,7 @@ define dso_local i32 @cpufreq_driver_fast_switch(ptr noundef %0, i32 noundef %1)
 49:                                               ; preds = %46, %42, %29, %28
   %50 = add nuw nsw i64 %25, 1
   %51 = and i64 %50, 127
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread, label %.preheader, !prof !34, !llvm.loop !64
 
 .thread:                                          ; preds = %.preheader, %49, %24, %17, %10
@@ -4482,7 +4482,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
 194:                                              ; preds = %193, %190, %186, %178
   %195 = add nuw nsw i64 %175, 1
   %196 = and i64 %195, 127
-  %197 = icmp ugt i64 %196, 63
+  %197 = icmp samesign ugt i64 %196, 63
   br i1 %197, label %.thread55, label %168, !prof !34, !llvm.loop !83
 
 .thread55:                                        ; preds = %168, %194, %174
@@ -4881,7 +4881,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %406, i64 %419) #21, !srcloc !78
   %420 = add nuw nsw i64 %414, 1
   %421 = and i64 %420, 127
-  %422 = icmp ugt i64 %421, 63
+  %422 = icmp samesign ugt i64 %421, 63
   br i1 %422, label %.thread78, label %407, !prof !34, !llvm.loop !87
 
 .thread78:                                        ; preds = %407, %417, %413, %157
@@ -4989,7 +4989,7 @@ define internal fastcc void @cpufreq_policy_free(ptr noundef nonnull %0) unnamed
   store ptr null, ptr %29, align 8
   %30 = add nuw nsw i64 %21, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %14, !prof !34, !llvm.loop !88
 
 .thread:                                          ; preds = %14, %24, %20
@@ -5277,7 +5277,7 @@ define internal range(i64 -2147483648, 2147487738) i64 @show_affected_cpus(ptr n
   %4 = phi i64 [ 0, %2 ], [ %22, %17 ]
   %5 = phi i64 [ 0, %2 ], [ %24, %17 ]
   %6 = and i64 %5, 4294967295
-  %7 = icmp ugt i64 %6, 63
+  %7 = icmp samesign ugt i64 %6, 63
   br i1 %7, label %.thread, label %8, !prof !12
 
 8:                                                ; preds = %3
@@ -5320,7 +5320,7 @@ define internal range(i64 -2147483648, 2147487738) i64 @show_related_cpus(ptr no
   %5 = phi i64 [ 0, %2 ], [ %23, %18 ]
   %6 = phi i64 [ 0, %2 ], [ %25, %18 ]
   %7 = and i64 %6, 4294967295
-  %8 = icmp ugt i64 %7, 63
+  %8 = icmp samesign ugt i64 %7, 63
   br i1 %8, label %.thread, label %9, !prof !12
 
 9:                                                ; preds = %4

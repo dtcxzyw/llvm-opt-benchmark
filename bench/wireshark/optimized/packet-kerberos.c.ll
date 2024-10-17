@@ -3266,7 +3266,7 @@ define internal fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef 
 23:                                               ; preds = %7
   %24 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
   %25 = and i32 %24, 2147483647
-  %26 = icmp ugt i32 %25, 10485760
+  %26 = icmp samesign ugt i32 %25, 10485760
   br i1 %26, label %166, label %27
 
 27:                                               ; preds = %23

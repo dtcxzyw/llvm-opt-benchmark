@@ -571,7 +571,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
   %282 = add nuw nsw i64 %264, 1
   %283 = load i32, ptr %130, align 8
   %284 = zext i32 %283 to i64
-  %285 = icmp ult i64 %282, %284
+  %285 = icmp samesign ult i64 %282, %284
   br i1 %285, label %.preheader, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %281, %259
@@ -588,7 +588,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
   %293 = add nuw nsw i64 %260, 1
   %294 = load i32, ptr %99, align 8
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %293, %295
+  %296 = icmp samesign ult i64 %293, %295
   br i1 %296, label %259, label %.loopexit13, !llvm.loop !41
 
 .loopexit13:                                      ; preds = %.loopexit, %240

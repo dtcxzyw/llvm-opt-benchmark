@@ -1296,7 +1296,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %2 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %2 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
-  %cmp.i.i4.i = icmp ult i64 %or.i.i.i, 1023
+  %cmp.i.i4.i = icmp samesign ult i64 %or.i.i.i, 1023
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %buf1, i64 2
   %subpkt.sroa.7.0 = select i1 %cmp.i.i4.i, i64 %or.i.i.i, i64 0
   %retval.0.i = zext i1 %cmp.i.i4.i to i32
@@ -1310,7 +1310,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false.i
   br i1 %tobool19.not, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %cmp.i.i = icmp ult i64 %subpkt.sroa.7.0, 2
+  %cmp.i.i = icmp samesign ult i64 %subpkt.sroa.7.0, 2
   br i1 %cmp.i.i, label %PACKET_get_net_2.exit, label %if.end.i3
 
 if.end.i3:                                        ; preds = %lor.lhs.false20
@@ -1337,7 +1337,7 @@ lor.lhs.false26:                                  ; preds = %PACKET_get_net_2.ex
   br i1 %tobool28.not, label %return, label %lor.lhs.false.i8
 
 lor.lhs.false.i8:                                 ; preds = %lor.lhs.false26
-  %cmp.i.i4.i16 = icmp ult i64 %or.i.i.i, 515
+  %cmp.i.i4.i16 = icmp samesign ult i64 %or.i.i.i, 515
   %spec.select31 = zext i1 %cmp.i.i4.i16 to i32
   %call33 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 390, ptr noundef nonnull @.str.114, i32 noundef %spec.select31) #5
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1395,7 +1395,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %2 = load i8, ptr %add.ptr5.i.i.i, align 2
   %conv6.i.i.i = zext i8 %2 to i64
   %or7.i.i.i = or disjoint i64 %or.i.i.i, %conv6.i.i.i
-  %cmp.i.i4.i = icmp ult i64 %or7.i.i.i, 1022
+  %cmp.i.i4.i = icmp samesign ult i64 %or7.i.i.i, 1022
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %buf1, i64 3
   %subpkt.sroa.7.0 = select i1 %cmp.i.i4.i, i64 %or7.i.i.i, i64 0
   %retval.0.i = zext i1 %cmp.i.i4.i to i32
@@ -1409,7 +1409,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false.i
   br i1 %tobool19.not, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %cmp.i.i = icmp ult i64 %subpkt.sroa.7.0, 2
+  %cmp.i.i = icmp samesign ult i64 %subpkt.sroa.7.0, 2
   br i1 %cmp.i.i, label %PACKET_get_net_2.exit, label %if.end.i3
 
 if.end.i3:                                        ; preds = %lor.lhs.false20
@@ -1436,7 +1436,7 @@ lor.lhs.false26:                                  ; preds = %PACKET_get_net_2.ex
   br i1 %tobool28.not, label %return, label %lor.lhs.false.i8
 
 lor.lhs.false.i8:                                 ; preds = %lor.lhs.false26
-  %cmp.i.i4.i20 = icmp ult i64 %or7.i.i.i, 514
+  %cmp.i.i4.i20 = icmp samesign ult i64 %or7.i.i.i, 514
   %spec.select35 = zext i1 %cmp.i.i4.i20 to i32
   %call33 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 414, ptr noundef nonnull @.str.116, i32 noundef %spec.select35) #5
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1663,7 +1663,7 @@ if.end.i.i:                                       ; preds = %PACKET_buf_init.exi
   %shr.i.i.i = zext nneg i8 %3 to i32
   %shl.i.i.i = shl nuw nsw i32 1, %shr.i.i.i
   %conv1.i.i.i = zext nneg i32 %shl.i.i.i to i64
-  %cmp3.i.i = icmp ult i64 %pkt.sroa.5.12428, %conv1.i.i.i
+  %cmp3.i.i = icmp samesign ult i64 %pkt.sroa.5.12428, %conv1.i.i.i
   br i1 %cmp3.i.i, label %PACKET_get_quic_length_prefixed.exit, label %lor.lhs.false1.i
 
 lor.lhs.false1.i:                                 ; preds = %if.end.i.i

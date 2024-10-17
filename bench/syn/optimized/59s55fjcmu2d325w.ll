@@ -839,17 +839,17 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit130: ; preds = %68
   %.sroa.29.2 = phi i64 [ %232, %231 ], [ %132, %129 ]
   %.sroa.0.2 = phi ptr [ %233, %231 ], [ %131, %129 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %134 = icmp ult i32 %.0121, 128
+  %134 = icmp samesign ult i32 %.0121, 128
   br i1 %134, label %.critedge.i, label %135
 
 135:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !56
-  %136 = icmp ult i32 %.0121, 2048
+  %136 = icmp samesign ult i32 %.0121, 2048
   br i1 %136, label %139, label %137
 
 137:                                              ; preds = %135
-  %138 = icmp ult i32 %.0121, 65536
+  %138 = icmp samesign ult i32 %.0121, 65536
   br i1 %138, label %146, label %157
 
 139:                                              ; preds = %135
@@ -1049,15 +1049,15 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit132: ; preds = %69
 
 _ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit: ; preds = %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit15.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit13.i.i"
   %219 = phi i32 [ %.fr.i, %56 ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit15.i.i" ], [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit13.i.i" ]
-  %220 = icmp ult i32 %219, 128
+  %220 = icmp samesign ult i32 %219, 128
   br i1 %220, label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread, label %221
 
 221:                                              ; preds = %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit
-  %222 = icmp ult i32 %219, 2048
+  %222 = icmp samesign ult i32 %219, 2048
   br i1 %222, label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread, label %223
 
 223:                                              ; preds = %221
-  %224 = icmp ult i32 %219, 65536
+  %224 = icmp samesign ult i32 %219, 65536
   %. = select i1 %224, i64 3, i64 4
   br label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread
 
@@ -2255,7 +2255,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit81: ; preds = %27
 
 _ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit13.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit15.i.i", %58
   %70 = phi i32 [ %.fr.i, %58 ], [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit15.i.i" ], [ %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h100ef91c9288c1d4E.exit13.i.i" ]
-  %71 = icmp ult i32 %70, 128
+  %71 = icmp samesign ult i32 %70, 128
   br i1 %71, label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread, label %110
 
 .thread:                                          ; preds = %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i84"
@@ -2375,11 +2375,11 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit87: ; preds = %107
   br i1 %109, label %125, label %130
 
 110:                                              ; preds = %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit
-  %111 = icmp ult i32 %70, 2048
+  %111 = icmp samesign ult i32 %70, 2048
   br i1 %111, label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread, label %112
 
 112:                                              ; preds = %110
-  %113 = icmp ult i32 %70, 65536
+  %113 = icmp samesign ult i32 %70, 65536
   %. = select i1 %113, i64 3, i64 4
   br label %_ZN3syn3lit5value8next_chr17h8a3ef68475e8e7dcE.exit.thread
 

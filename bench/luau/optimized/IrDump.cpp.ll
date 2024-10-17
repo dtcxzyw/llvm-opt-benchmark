@@ -777,7 +777,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 no
 
 10:                                               ; preds = %2
   %11 = and i8 %0, 127
-  %12 = icmp ult i8 %11, 16
+  %12 = icmp samesign ult i8 %11, 16
   br i1 %12, label %switch.lookup, label %14
 
 switch.lookup:                                    ; preds = %10
@@ -1342,7 +1342,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt1
 
 12:                                               ; preds = %3
   %13 = and i8 %4, 127
-  %14 = icmp ult i8 %13, 16
+  %14 = icmp samesign ult i8 %13, 16
   br i1 %14, label %switch.lookup, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
 switch.lookup:                                    ; preds = %12
@@ -1376,7 +1376,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %12, %switch.lookup
 
 26:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
   %27 = and i8 %18, 127
-  %28 = icmp ult i8 %27, 16
+  %28 = icmp samesign ult i8 %27, 16
   br i1 %28, label %switch.lookup36, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
 switch.lookup36:                                  ; preds = %26
@@ -1410,7 +1410,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %26, %switch.look
 
 40:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
   %41 = and i8 %32, 127
-  %42 = icmp ult i8 %41, 16
+  %42 = icmp samesign ult i8 %41, 16
   br i1 %42, label %switch.lookup39, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
 switch.lookup39:                                  ; preds = %40
@@ -1449,7 +1449,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %40, %switch.look
 
 56:                                               ; preds = %47
   %57 = and i8 %48, 127
-  %58 = icmp ult i8 %57, 16
+  %58 = icmp samesign ult i8 %57, 16
   br i1 %58, label %switch.lookup42, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
 switch.lookup42:                                  ; preds = %56
@@ -2337,7 +2337,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 44
   %38 = and i64 %37, 4294967295
-  %39 = icmp ult i64 %indvars.iv, %38
+  %39 = icmp samesign ult i64 %indvars.iv, %38
   br i1 %39, label %40, label %.invoke
 
 40:                                               ; preds = %.lr.ph
@@ -2371,7 +2371,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringB5cxx11ERKNS0_10IrFunctionENS0_1
   %51 = phi i32 [ %.pre, %._crit_edge39 ], [ %31, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = zext i32 %51 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %52
+  %.not.not = icmp samesign ult i64 %indvars.iv, %52
   br i1 %.not.not, label %.lr.ph, label %.invoke, !llvm.loop !16
 
 53:                                               ; preds = %.invoke, %15
@@ -2478,7 +2478,7 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
   %indvars.iv = phi i64 [ %25, %.preheader ], [ %indvars.iv.next, %"_ZZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEbENK3$_0clENS0_4IrOpE.exit63" ]
   %28 = load i32, ptr %23, align 4
   %29 = zext i32 %28 to i64
-  %.not33 = icmp ugt i64 %indvars.iv, %29
+  %.not33 = icmp samesign ugt i64 %indvars.iv, %29
   br i1 %.not33, label %.critedge.loopexit, label %30
 
 30:                                               ; preds = %27

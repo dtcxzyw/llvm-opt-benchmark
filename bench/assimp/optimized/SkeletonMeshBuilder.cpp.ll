@@ -1598,7 +1598,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN6Assi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %mNumChildren, align 8
   %110 = zext i32 %109 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %110
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %cmp3, label %for.body, label %if.end268, !llvm.loop !71
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -4649,7 +4649,7 @@ for.body334:                                      ; preds = %for.body334.lr.ph, 
   %indvars.iv.next2586 = add nuw nsw i64 %indvars.iv2585, 1
   %366 = load i32, ptr %mNumChildren, align 8
   %367 = zext i32 %366 to i64
-  %cmp333 = icmp ult i64 %indvars.iv.next2586, %367
+  %cmp333 = icmp samesign ult i64 %indvars.iv.next2586, %367
   br i1 %cmp333, label %for.body334, label %for.end340, !llvm.loop !203
 
 for.end340:                                       ; preds = %for.body334, %if.end329

@@ -7194,7 +7194,7 @@ invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %9 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i41 = or i64 %conv2.i, %9
@@ -7576,7 +7576,7 @@ entry:
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv.i.i.i
   store i64 %or.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %1 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i1.i = or i64 %conv2.i.i, %1
@@ -7636,7 +7636,7 @@ if.end.i:                                         ; preds = %while.body.i.i.i, %
   %iter.sroa.0.0.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %conv2.i5.i = and i64 %iter.sroa.7.0.i, 255
-  %cmp.i.i6.i = icmp ult i64 %conv2.i5.i, 16
+  %cmp.i.i6.i = icmp samesign ult i64 %conv2.i5.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i6.i)
   %10 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i7.i = or i64 %conv2.i5.i, %10

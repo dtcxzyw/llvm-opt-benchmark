@@ -2138,7 +2138,7 @@ _ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %305 = load i32, ptr %286, align 4
   %306 = zext i32 %305 to i64
-  %307 = icmp ult i64 %indvars.iv.next, %306
+  %307 = icmp samesign ult i64 %indvars.iv.next, %306
   br i1 %307, label %.lr.ph236, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit143, !llvm.loop !17
 
 308:                                              ; preds = %234
@@ -4055,7 +4055,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau15BytecodeBuilder10patchJumpDEmm(pt
 
 17:                                               ; preds = %3
   %18 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
-  %19 = icmp ult i32 %18, 8388608
+  %19 = icmp samesign ult i32 %18, 8388608
   br i1 %19, label %20, label %_ZNSt6vectorIN4Luau15BytecodeBuilder4JumpESaIS2_EE9push_backEOS2_.exit
 
 20:                                               ; preds = %17
@@ -5098,7 +5098,7 @@ _ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.ex
   %119 = sub i64 %117, %118
   %120 = sdiv exact i64 %119, 40
   %121 = and i64 %120, 4294967295
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph74, label %._crit_edge75, !llvm.loop !37
 
 ._crit_edge75:                                    ; preds = %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %.preheader
@@ -6149,7 +6149,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   %87 = xor i32 %81, -1
   %88 = add i32 %86, %87
   %89 = tail call i32 @llvm.abs.i32(i32 %88, i1 true)
-  %90 = icmp ugt i32 %89, 10922
+  %90 = icmp samesign ugt i32 %89, 10922
   br i1 %90, label %91, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit84
 
 91:                                               ; preds = %84
@@ -6701,7 +6701,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit105:       ; preds = %_ZNSt6vectorIiSaIiE
   %276 = load i32, ptr %275, align 4
   %277 = sub nsw i32 %273, %276
   %278 = tail call i32 @llvm.abs.i32(i32 %270, i1 true)
-  %279 = icmp ugt i32 %278, 10922
+  %279 = icmp samesign ugt i32 %278, 10922
   br i1 %279, label %280, label %293
 
 280:                                              ; preds = %.lr.ph320
@@ -8040,7 +8040,7 @@ _ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit: ; pr
   br i1 %.not168, label %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.thread, label %_ZN4LuauL17getBaseTypeStringEh.exit
 
 _ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.thread: ; preds = %69, %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit
-  %86 = icmp ult i8 %73, 16
+  %86 = icmp samesign ult i8 %73, 16
   br i1 %86, label %switch.lookup, label %_ZN4LuauL17getBaseTypeStringEh.exit
 
 switch.lookup:                                    ; preds = %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.thread
@@ -8290,7 +8290,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit179:           ; preds = %176, %175, %174, %1
   %202 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef %201) #30
   %203 = load i8, ptr %202, align 1
   %204 = and i8 %203, 127
-  %205 = icmp ult i8 %204, 16
+  %205 = icmp samesign ult i8 %204, 16
   br i1 %205, label %switch.lookup340, label %_ZN4LuauL17getBaseTypeStringEh.exit181
 
 switch.lookup340:                                 ; preds = %.lr.ph262
@@ -8330,7 +8330,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit181:           ; preds = %.lr.ph262, %switch.
   %221 = load i32, ptr %220, align 4
   %222 = trunc i32 %221 to i8
   %223 = and i8 %222, 127
-  %224 = icmp ult i8 %223, 16
+  %224 = icmp samesign ult i8 %223, 16
   br i1 %224, label %switch.lookup343, label %_ZN4LuauL17getBaseTypeStringEh.exit183
 
 switch.lookup343:                                 ; preds = %.lr.ph264
@@ -8366,7 +8366,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit183:           ; preds = %.lr.ph264, %switch.
   %240 = load i32, ptr %239, align 4
   %241 = trunc i32 %240 to i8
   %242 = and i8 %241, 127
-  %243 = icmp ult i8 %242, 16
+  %243 = icmp samesign ult i8 %242, 16
   br i1 %243, label %switch.lookup346, label %_ZN4LuauL17getBaseTypeStringEh.exit185
 
 switch.lookup346:                                 ; preds = %.lr.ph266
@@ -9610,7 +9610,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dea
   %.not = icmp sgt i8 %17, -1
   %18 = select i1 %.not, ptr @.str.79, ptr @.str.105
   %19 = and i8 %17, 127
-  %20 = icmp ult i8 %19, 16
+  %20 = icmp samesign ult i8 %19, 16
   br i1 %20, label %switch.lookup, label %_ZN4LuauL17getBaseTypeStringEh.exit
 
 switch.lookup:                                    ; preds = %.lr.ph

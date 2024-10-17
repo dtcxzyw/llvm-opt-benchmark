@@ -257,12 +257,12 @@ _trim.exit52:                                     ; preds = %.lr.ph.i49, %.crite
   store ptr %122, ptr %123, align 8
   %124 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #13
   %125 = icmp ne ptr %124, null
-  %126 = icmp ult i64 %indvars.iv.i, 2
-  %127 = and i1 %126, %125
+  %126 = icmp samesign ult i64 %indvars.iv.i, 2
+  %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %.lr.ph.i53, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i53
-  %128 = icmp ugt i64 %indvars.iv.i, 1
+  %128 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %128, label %129, label %_trim.exit.i
 
 129:                                              ; preds = %._crit_edge.i

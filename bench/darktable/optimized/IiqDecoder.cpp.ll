@@ -661,7 +661,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vector
   %184 = zext nneg i32 %177 to i64
   %185 = zext i32 %183 to i64
   %186 = add nuw nsw i64 %185, %184
-  %187 = icmp ugt i64 %186, %161
+  %187 = icmp samesign ugt i64 %186, %161
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %175
@@ -674,7 +674,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder13computeSripesENS_6BufferESt6vector
 190:                                              ; preds = %175
   call void @llvm.assume(i1 %172)
   %191 = add nuw nsw i32 %183, %177
-  %192 = icmp ule i32 %191, %2
+  %192 = icmp samesign ule i32 %191, %2
   call void @llvm.assume(i1 %192)
   %193 = icmp sgt i32 %183, -1
   call void @llvm.assume(i1 %193)
@@ -883,7 +883,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
 32:                                               ; preds = %27
   %33 = zext nneg i32 %29 to i64
   %34 = add nuw nsw i64 %33, 4
-  %35 = icmp ugt i64 %34, %18
+  %35 = icmp samesign ugt i64 %34, %18
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
@@ -897,7 +897,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %40 = getelementptr inbounds i8, ptr %17, i64 %33
   %41 = load i32, ptr %40, align 1
   %42 = add nuw nsw i64 %33, 8
-  %43 = icmp ugt i64 %42, %18
+  %43 = icmp samesign ugt i64 %42, %18
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %37
@@ -920,7 +920,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %52 = zext nneg i32 %46 to i64
   %53 = zext i32 %51 to i64
   %54 = add nuw nsw i64 %53, %52
-  %55 = icmp ugt i64 %54, %18
+  %55 = icmp samesign ugt i64 %54, %18
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %50
@@ -967,7 +967,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %86 = phi i32 [ 0, %63 ], [ %169, %167 ]
   %87 = phi ptr [ null, %63 ], [ %168, %167 ]
   %88 = or disjoint i64 %72, 4
-  %89 = icmp ugt i64 %88, %53
+  %89 = icmp samesign ugt i64 %88, %53
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %71
@@ -978,7 +978,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %92 = getelementptr inbounds i8, ptr %61, i64 %72
   %93 = load i32, ptr %92, align 1
   %94 = or disjoint i64 %72, 8
-  %95 = icmp ugt i64 %94, %53
+  %95 = icmp samesign ugt i64 %94, %53
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %91
@@ -987,7 +987,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
 
 97:                                               ; preds = %91
   %98 = or disjoint i64 %72, 12
-  %99 = icmp ugt i64 %98, %53
+  %99 = icmp samesign ugt i64 %98, %53
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %97
@@ -999,7 +999,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %103 = load i32, ptr %102, align 1
   %.fr51 = freeze i32 %103
   %104 = add nuw nsw i64 %72, 16
-  %105 = icmp ugt i64 %104, %53
+  %105 = icmp samesign ugt i64 %104, %53
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %101
@@ -1026,7 +1026,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %111 = zext i32 %109 to i64
   %112 = zext i32 %.fr51 to i64
   %113 = add nuw nsw i64 %111, %112
-  %114 = icmp ugt i64 %113, %18
+  %114 = icmp samesign ugt i64 %113, %18
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %110
@@ -1070,7 +1070,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %131 = zext i32 %109 to i64
   %132 = zext i32 %.fr51 to i64
   %133 = add nuw nsw i64 %131, %132
-  %134 = icmp ugt i64 %133, %18
+  %134 = icmp samesign ugt i64 %133, %18
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %130
@@ -1110,7 +1110,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %152 = zext i32 %109 to i64
   %153 = zext i32 %.fr51 to i64
   %154 = add nuw nsw i64 %152, %153
-  %155 = icmp ugt i64 %154, %18
+  %155 = icmp samesign ugt i64 %154, %18
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %151
@@ -1194,7 +1194,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %199 = shl nuw nsw i32 %178, 2
   %200 = zext nneg i32 %199 to i64
   %201 = and i64 %173, 4294967295
-  %202 = icmp ult i64 %201, %200
+  %202 = icmp samesign ult i64 %201, %200
   br i1 %202, label %203, label %.preheader.preheader
 
 203:                                              ; preds = %198
@@ -1221,7 +1221,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %215 = phi ptr [ %257, %253 ], [ %210, %.preheader.preheader ]
   %216 = phi ptr [ %254, %253 ], [ %210, %.preheader.preheader ]
   %217 = add nuw nsw i64 %212, 4
-  %218 = icmp ugt i64 %217, %200
+  %218 = icmp samesign ugt i64 %217, %200
   br i1 %218, label %.loopexit, label %219
 
 219:                                              ; preds = %.preheader
@@ -1547,7 +1547,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   %385 = icmp ne ptr %170, null
   %386 = load ptr, ptr %311, align 8
   %387 = lshr i64 %384, 2
-  %388 = icmp ult i64 %384, 4
+  %388 = icmp samesign ult i64 %384, 4
   br i1 %388, label %452, label %389
 
 389:                                              ; preds = %383
@@ -1816,7 +1816,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !52
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %12, %15
+  %16 = icmp samesign ugt i64 %12, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
@@ -1827,13 +1827,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %19 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %19)
   %20 = add nuw nsw i32 %10, 8
-  %21 = icmp ule i32 %20, %14
+  %21 = icmp samesign ule i32 %20, %14
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %22)
   %23 = zext nneg i32 %20 to i64
   %24 = add nuw nsw i64 %23, 4
-  %25 = icmp ugt i64 %24, %15
+  %25 = icmp samesign ugt i64 %24, %15
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %18
@@ -1846,7 +1846,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %30 = icmp eq i32 %29, 57005
   %31 = load ptr, ptr %1, align 8, !tbaa !53, !nonnull !54, !noundef !54
   %32 = add nuw nsw i32 %10, 12
-  %33 = icmp ule i32 %32, %14
+  %33 = icmp samesign ule i32 %32, %14
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %31, i64 %23
   %35 = load i32, ptr %34, align 1
@@ -1862,7 +1862,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 40:                                               ; preds = %27
   %41 = zext nneg i32 %37 to i64
   %42 = add nuw nsw i64 %41, 4
-  %43 = icmp ugt i64 %42, %15
+  %43 = icmp samesign ugt i64 %42, %15
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
@@ -1878,7 +1878,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %50 = tail call i32 @llvm.bswap.i32(i32 %49)
   %51 = select i1 %30, i32 %49, i32 %50
   %52 = add nuw nsw i64 %41, 8
-  %53 = icmp ugt i64 %52, %15
+  %53 = icmp samesign ugt i64 %52, %15
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %45
@@ -1901,7 +1901,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %62 = zext nneg i32 %56 to i64
   %63 = zext i32 %61 to i64
   %64 = add nuw nsw i64 %63, %62
-  %65 = icmp ugt i64 %64, %15
+  %65 = icmp samesign ugt i64 %64, %15
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %60
@@ -1942,7 +1942,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %89 = phi i8 [ 0, %75 ], [ %179, %178 ]
   %90 = phi i32 [ 0, %75 ], [ %181, %178 ]
   %91 = add nuw nsw i64 %87, 4
-  %92 = icmp ugt i64 %91, %63
+  %92 = icmp samesign ugt i64 %91, %63
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %86
@@ -1955,7 +1955,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %97 = tail call i32 @llvm.bswap.i32(i32 %96)
   %98 = select i1 %30, i32 %96, i32 %97
   %99 = add nuw nsw i64 %87, 8
-  %100 = icmp ugt i64 %99, %63
+  %100 = icmp samesign ugt i64 %99, %63
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %94
@@ -1968,7 +1968,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %105 = tail call i32 @llvm.bswap.i32(i32 %104)
   %106 = select i1 %30, i32 %104, i32 %105
   %107 = add nuw nsw i64 %87, 12
-  %108 = icmp ugt i64 %107, %63
+  %108 = icmp samesign ugt i64 %107, %63
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %102
@@ -2001,7 +2001,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %120 = zext i32 %114 to i64
   %121 = zext i32 %106 to i64
   %122 = add nuw nsw i64 %120, %121
-  %123 = icmp ugt i64 %122, %15
+  %123 = icmp samesign ugt i64 %122, %15
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %119
@@ -2010,7 +2010,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 125:                                              ; preds = %119
   %126 = add nuw nsw i32 %114, %106
-  %127 = icmp ule i32 %126, %14
+  %127 = icmp samesign ule i32 %126, %14
   tail call void @llvm.assume(i1 %127)
   %128 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %128)
@@ -2029,7 +2029,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %133 = zext i32 %114 to i64
   %134 = zext i32 %106 to i64
   %135 = add nuw nsw i64 %133, %134
-  %136 = icmp ugt i64 %135, %15
+  %136 = icmp samesign ugt i64 %135, %15
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %132
@@ -2038,7 +2038,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 138:                                              ; preds = %132
   %139 = add nuw nsw i32 %114, %106
-  %140 = icmp ule i32 %139, %14
+  %140 = icmp samesign ule i32 %139, %14
   tail call void @llvm.assume(i1 %140)
   %141 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %141)
@@ -2057,7 +2057,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %146 = zext i32 %114 to i64
   %147 = zext i32 %106 to i64
   %148 = add nuw nsw i64 %146, %147
-  %149 = icmp ugt i64 %148, %15
+  %149 = icmp samesign ugt i64 %148, %15
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %145
@@ -2066,7 +2066,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 151:                                              ; preds = %145
   %152 = add nuw nsw i32 %114, %106
-  %153 = icmp ule i32 %152, %14
+  %153 = icmp samesign ule i32 %152, %14
   tail call void @llvm.assume(i1 %153)
   %154 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %154)
@@ -2099,7 +2099,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
   %166 = zext i32 %114 to i64
   %167 = zext i32 %106 to i64
   %168 = add nuw nsw i64 %166, %167
-  %169 = icmp ugt i64 %168, %15
+  %169 = icmp samesign ugt i64 %168, %15
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %165
@@ -2108,7 +2108,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 171:                                              ; preds = %165
   %172 = add nuw nsw i32 %114, %106
-  %173 = icmp ule i32 %172, %14
+  %173 = icmp samesign ule i32 %172, %14
   tail call void @llvm.assume(i1 %173)
   %174 = icmp sgt i32 %114, -1
   tail call void @llvm.assume(i1 %174)
@@ -2224,28 +2224,28 @@ define hidden void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStr
 .split.us:                                        ; preds = %11, %54
   %20 = phi i64 [ %36, %54 ], [ %18, %11 ]
   %21 = add nuw nsw i64 %20, 2
-  %22 = icmp ugt i64 %21, %12
+  %22 = icmp samesign ugt i64 %21, %12
   br i1 %22, label %.split7.us, label %23
 
 23:                                               ; preds = %.split.us
   %24 = getelementptr inbounds i8, ptr %16, i64 %20
   %25 = load i16, ptr %24, align 1
   %26 = add nuw nsw i64 %20, 4
-  %27 = icmp ugt i64 %26, %12
+  %27 = icmp samesign ugt i64 %26, %12
   br i1 %27, label %.split13.us, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %16, i64 %21
   %30 = load i16, ptr %29, align 1
   %31 = add nuw nsw i64 %20, 6
-  %32 = icmp ugt i64 %31, %12
+  %32 = icmp samesign ugt i64 %31, %12
   br i1 %32, label %.split9.us, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr i8, ptr %19, i64 %20
   %35 = load i16, ptr %34, align 1
   %36 = add nuw nsw i64 %20, 8
-  %37 = icmp ugt i64 %36, %12
+  %37 = icmp samesign ugt i64 %36, %12
   br i1 %37, label %.split11.us, label %38
 
 38:                                               ; preds = %33
@@ -2287,7 +2287,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStr
 .split:                                           ; preds = %11, %93
   %56 = phi i64 [ %75, %93 ], [ %18, %11 ]
   %57 = add nuw nsw i64 %56, 2
-  %58 = icmp ugt i64 %57, %12
+  %58 = icmp samesign ugt i64 %57, %12
   br i1 %58, label %.split7.us, label %59
 
 .split7.us:                                       ; preds = %.split, %.split.us
@@ -2299,7 +2299,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStr
   %61 = load i16, ptr %60, align 1
   %62 = call i16 @llvm.bswap.i16(i16 %61)
   %63 = add nuw nsw i64 %56, 4
-  %64 = icmp ugt i64 %63, %12
+  %64 = icmp samesign ugt i64 %63, %12
   br i1 %64, label %.split13.us, label %65
 
 .split13.us:                                      ; preds = %59, %23
@@ -2311,7 +2311,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStr
   %67 = load i16, ptr %66, align 1
   %68 = call i16 @llvm.bswap.i16(i16 %67)
   %69 = add nuw nsw i64 %56, 6
-  %70 = icmp ugt i64 %69, %12
+  %70 = icmp samesign ugt i64 %69, %12
   br i1 %70, label %.split9.us, label %71
 
 .split9.us:                                       ; preds = %65, %28
@@ -2323,7 +2323,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder20correctSensorDefectsENS_10ByteStr
   %73 = load i16, ptr %72, align 1
   %74 = call i16 @llvm.bswap.i16(i16 %73)
   %75 = add nuw nsw i64 %56, 8
-  %76 = icmp ugt i64 %75, %12
+  %76 = icmp samesign ugt i64 %75, %12
   br i1 %76, label %.split11.us, label %77
 
 .split11.us:                                      ; preds = %71, %33
@@ -2396,7 +2396,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp uge i32 %18, %13
+  %24 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i32 %13, 0
   %26 = icmp ne i32 %15, 0
@@ -2430,7 +2430,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %43 = icmp sgt i32 %35, -1
   %44 = zext i32 %37 to i64
   %45 = add nuw nsw i64 %44, 2
-  %46 = icmp ugt i64 %45, %36
+  %46 = icmp samesign ugt i64 %45, %36
   br i1 %41, label %48, label %47
 
 47:                                               ; preds = %30
@@ -2446,28 +2446,28 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %51 = getelementptr inbounds i8, ptr %42, i64 %44
   %52 = load i16, ptr %51, align 1
   %53 = add nuw nsw i64 %44, 4
-  %54 = icmp ugt i64 %53, %36
+  %54 = icmp samesign ugt i64 %53, %36
   br i1 %54, label %99, label %55
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %42, i64 %45
   %57 = load i16, ptr %56, align 1
   %58 = add nuw nsw i64 %44, 6
-  %59 = icmp ugt i64 %58, %36
+  %59 = icmp samesign ugt i64 %58, %36
   br i1 %59, label %99, label %60
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %42, i64 %53
   %62 = load i16, ptr %61, align 1
   %63 = add nuw nsw i64 %44, 8
-  %64 = icmp ugt i64 %63, %36
+  %64 = icmp samesign ugt i64 %63, %36
   br i1 %64, label %99, label %65
 
 65:                                               ; preds = %60
   %66 = add nuw nsw i64 %44, 10
-  %67 = icmp ugt i64 %66, %36
+  %67 = icmp samesign ugt i64 %66, %36
   %68 = add nuw nsw i64 %44, 12
-  %69 = icmp ugt i64 %68, %36
+  %69 = icmp samesign ugt i64 %68, %36
   %70 = select i1 %67, i1 true, i1 %69
   br i1 %70, label %99, label %71
 
@@ -2479,9 +2479,9 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %76 = getelementptr inbounds i8, ptr %42, i64 %66
   %77 = load i16, ptr %76, align 1
   %78 = add nuw nsw i64 %44, 14
-  %79 = icmp ugt i64 %78, %36
+  %79 = icmp samesign ugt i64 %78, %36
   %80 = add nuw nsw i64 %44, 16
-  %81 = icmp ugt i64 %80, %36
+  %81 = icmp samesign ugt i64 %80, %36
   %82 = select i1 %79, i1 true, i1 %81
   br i1 %82, label %99, label %83
 
@@ -2516,7 +2516,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %103 = load i16, ptr %102, align 1
   %104 = tail call i16 @llvm.bswap.i16(i16 %103)
   %105 = add nuw nsw i64 %44, 4
-  %106 = icmp ugt i64 %105, %36
+  %106 = icmp samesign ugt i64 %105, %36
   br i1 %106, label %99, label %107
 
 107:                                              ; preds = %100
@@ -2524,7 +2524,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %109 = load i16, ptr %108, align 1
   %110 = tail call i16 @llvm.bswap.i16(i16 %109)
   %111 = add nuw nsw i64 %44, 6
-  %112 = icmp ugt i64 %111, %36
+  %112 = icmp samesign ugt i64 %111, %36
   br i1 %112, label %99, label %113
 
 113:                                              ; preds = %107
@@ -2532,14 +2532,14 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %115 = load i16, ptr %114, align 1
   %116 = tail call i16 @llvm.bswap.i16(i16 %115)
   %117 = add nuw nsw i64 %44, 8
-  %118 = icmp ugt i64 %117, %36
+  %118 = icmp samesign ugt i64 %117, %36
   br i1 %118, label %99, label %119
 
 119:                                              ; preds = %113
   %120 = add nuw nsw i64 %44, 10
-  %121 = icmp ugt i64 %120, %36
+  %121 = icmp samesign ugt i64 %120, %36
   %122 = add nuw nsw i64 %44, 12
-  %123 = icmp ugt i64 %122, %36
+  %123 = icmp samesign ugt i64 %122, %36
   %124 = select i1 %121, i1 true, i1 %123
   br i1 %124, label %99, label %125
 
@@ -2554,9 +2554,9 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %133 = load i16, ptr %132, align 1
   %134 = tail call i16 @llvm.bswap.i16(i16 %133)
   %135 = add nuw nsw i64 %44, 14
-  %136 = icmp ugt i64 %135, %36
+  %136 = icmp samesign ugt i64 %135, %36
   %137 = add nuw nsw i64 %44, 16
-  %138 = icmp ugt i64 %137, %36
+  %138 = icmp samesign ugt i64 %137, %36
   %139 = select i1 %136, i1 true, i1 %138
   br i1 %139, label %99, label %83
 
@@ -2627,12 +2627,12 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %194 = phi i32 [ %219, %217 ], [ %191, %192 ]
   %195 = mul nuw nsw i64 %193, %155
   %196 = add nuw nsw i64 %195, %155
-  %197 = icmp ule i64 %196, %156
+  %197 = icmp samesign ule i64 %196, %156
   %198 = getelementptr inbounds float, ptr %151, i64 %195
   %199 = zext i32 %194 to i64
   %200 = icmp sgt i32 %194, -1
   %201 = add nuw nsw i64 %199, 2
-  %202 = icmp ugt i64 %201, %184
+  %202 = icmp samesign ugt i64 %201, %184
   br i1 %202, label %.loopexit44, label %203
 
 203:                                              ; preds = %.preheader43
@@ -2648,7 +2648,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 
 208:                                              ; preds = %203
   %209 = add nuw nsw i64 %199, 4
-  %210 = icmp ugt i64 %209, %184
+  %210 = icmp samesign ugt i64 %209, %184
   br i1 %210, label %.loopexit44, label %211
 
 211:                                              ; preds = %208
@@ -2664,7 +2664,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %218 = phi i64 [ %201, %203 ], [ %209, %211 ]
   %219 = trunc nuw i64 %218 to i32
   %220 = add nuw nsw i64 %193, 1
-  %221 = icmp ult i64 %193, %157
+  %221 = icmp samesign ult i64 %193, %157
   br i1 %221, label %.preheader43, label %.loopexit45, !llvm.loop !222
 
 .preheader46:                                     ; preds = %192, %248
@@ -2672,12 +2672,12 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %223 = phi i32 [ %250, %248 ], [ %191, %192 ]
   %224 = mul nuw nsw i64 %222, %155
   %225 = add nuw nsw i64 %224, %155
-  %226 = icmp ule i64 %225, %156
+  %226 = icmp samesign ule i64 %225, %156
   %227 = getelementptr inbounds float, ptr %151, i64 %224
   %228 = zext i32 %223 to i64
   %229 = icmp sgt i32 %223, -1
   %230 = add nuw nsw i64 %228, 2
-  %231 = icmp ugt i64 %230, %184
+  %231 = icmp samesign ugt i64 %230, %184
   br i1 %231, label %.loopexit44, label %232
 
 232:                                              ; preds = %.preheader46
@@ -2694,7 +2694,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 
 238:                                              ; preds = %232
   %239 = add nuw nsw i64 %228, 4
-  %240 = icmp ugt i64 %239, %184
+  %240 = icmp samesign ugt i64 %239, %184
   br i1 %240, label %.loopexit44, label %241
 
 241:                                              ; preds = %238
@@ -2711,7 +2711,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %249 = phi i64 [ %230, %232 ], [ %239, %241 ]
   %250 = trunc nuw i64 %249 to i32
   %251 = add nuw nsw i64 %222, 1
-  %252 = icmp ult i64 %222, %157
+  %252 = icmp samesign ult i64 %222, %157
   br i1 %252, label %.preheader46, label %.loopexit45, !llvm.loop !222
 
 253:                                              ; preds = %178
@@ -2722,12 +2722,12 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %255 = phi i32 [ %288, %286 ], [ %191, %253 ]
   %256 = mul nuw nsw i64 %254, %155
   %257 = add nuw nsw i64 %256, %155
-  %258 = icmp ule i64 %257, %156
+  %258 = icmp samesign ule i64 %257, %156
   %259 = getelementptr inbounds float, ptr %151, i64 %256
   %260 = zext i32 %255 to i64
   %261 = icmp sgt i32 %255, -1
   %262 = add nuw nsw i64 %260, 2
-  %263 = icmp ugt i64 %262, %184
+  %263 = icmp samesign ugt i64 %262, %184
   br i1 %263, label %.loopexit44, label %264
 
 264:                                              ; preds = %.preheader49
@@ -2747,7 +2747,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 
 273:                                              ; preds = %264
   %274 = add nuw nsw i64 %260, 4
-  %275 = icmp ugt i64 %274, %184
+  %275 = icmp samesign ugt i64 %274, %184
   br i1 %275, label %.loopexit44, label %276
 
 276:                                              ; preds = %273
@@ -2767,7 +2767,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %287 = phi i64 [ %262, %264 ], [ %274, %276 ]
   %288 = trunc nuw i64 %287 to i32
   %289 = add nuw nsw i64 %254, 1
-  %290 = icmp ult i64 %254, %157
+  %290 = icmp samesign ult i64 %254, %157
   br i1 %290, label %.preheader49, label %.loopexit45, !llvm.loop !222
 
 291:                                              ; preds = %.loopexit41
@@ -2779,12 +2779,12 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %293 = phi i32 [ %305, %303 ], [ %191, %253 ]
   %294 = mul nuw nsw i64 %292, %155
   %295 = add nuw nsw i64 %294, %155
-  %296 = icmp ule i64 %295, %156
+  %296 = icmp samesign ule i64 %295, %156
   %297 = getelementptr inbounds float, ptr %151, i64 %294
   %298 = zext i32 %293 to i64
   %299 = icmp sgt i32 %293, -1
   %300 = add nuw nsw i64 %298, 2
-  %301 = icmp ugt i64 %300, %184
+  %301 = icmp samesign ugt i64 %300, %184
   br i1 %301, label %.loopexit44, label %309
 
 .loopexit45:                                      ; preds = %303, %286, %248, %217
@@ -2796,7 +2796,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %304 = phi i64 [ %300, %309 ], [ %320, %322 ]
   %305 = trunc nuw i64 %304 to i32
   %306 = add nuw nsw i64 %292, 1
-  %307 = icmp ult i64 %292, %157
+  %307 = icmp samesign ult i64 %292, %157
   br i1 %307, label %.preheader52, label %.loopexit45, !llvm.loop !222
 
 .loopexit44:                                      ; preds = %319, %.preheader52, %273, %.preheader49, %238, %.preheader46, %208, %.preheader43
@@ -2824,7 +2824,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 
 319:                                              ; preds = %309
   %320 = add nuw nsw i64 %298, 4
-  %321 = icmp ugt i64 %320, %184
+  %321 = icmp samesign ugt i64 %320, %184
   br i1 %321, label %.loopexit44, label %322
 
 322:                                              ; preds = %319
@@ -2889,7 +2889,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %364 = mul nuw nsw i64 %360, %155
   %365 = getelementptr inbounds float, ptr %151, i64 %363
   %366 = add nuw nsw i64 %364, %155
-  %367 = icmp ule i64 %366, %156
+  %367 = icmp samesign ule i64 %366, %156
   tail call void @llvm.assume(i1 %367)
   %368 = getelementptr inbounds float, ptr %151, i64 %364
   %369 = load float, ptr %365, align 4, !tbaa !125
@@ -2930,7 +2930,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 390:                                              ; preds = %387
   %391 = icmp sgt i32 %383, -1
   tail call void @llvm.assume(i1 %391)
-  %392 = icmp ugt i32 %13, %383
+  %392 = icmp samesign ugt i32 %13, %383
   tail call void @llvm.assume(i1 %392)
   tail call void @llvm.assume(i1 %349)
   tail call void @llvm.assume(i1 %350)
@@ -3004,14 +3004,14 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %432 = phi ptr [ %359, %373 ], [ %411, %.thread37.us ], [ %357, %435 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
   %433 = add nuw nsw i64 %360, 1
-  %434 = icmp ult i64 %360, %157
+  %434 = icmp samesign ult i64 %360, %157
   %indvars.iv.next = add i32 %indvars.iv, %166
   br i1 %434, label %356, label %.preheader39, !llvm.loop !228
 
 435:                                              ; preds = %.preheader.split, %435
   %indvars.iv78 = phi i64 [ %361, %.preheader.split ], [ %indvars.iv.next79, %435 ]
   %436 = phi float [ %369, %.preheader.split ], [ %445, %435 ]
-  %437 = icmp ult i64 %indvars.iv78, %177
+  %437 = icmp samesign ult i64 %indvars.iv78, %177
   tail call void @llvm.assume(i1 %437)
   %438 = getelementptr inbounds i16, ptr %355, i64 %indvars.iv78
   %439 = load i16, ptr %438, align 2, !tbaa !225
@@ -3031,7 +3031,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %448 = phi i64 [ %499, %498 ], [ 0, %.loopexit ]
   %449 = mul nuw nsw i64 %448, %155
   %450 = add nuw nsw i64 %449, %155
-  %451 = icmp ule i64 %450, %156
+  %451 = icmp samesign ule i64 %450, %156
   tail call void @llvm.assume(i1 %451)
   %452 = getelementptr inbounds float, ptr %151, i64 %449
   %453 = getelementptr inbounds i8, ptr %452, i64 4
@@ -3050,7 +3050,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
 460:                                              ; preds = %.thread
   %461 = mul nuw nsw i64 %459, %155
   %462 = add nuw nsw i64 %461, %155
-  %463 = icmp ule i64 %462, %156
+  %463 = icmp samesign ule i64 %462, %156
   tail call void @llvm.assume(i1 %463)
   %464 = getelementptr inbounds float, ptr %151, i64 %461
   %465 = getelementptr inbounds i8, ptr %464, i64 4
@@ -3082,7 +3082,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %483 = or disjoint i64 %448, 1
   %484 = mul nuw nsw i64 %483, %155
   %485 = add nuw nsw i64 %484, %155
-  %486 = icmp ule i64 %485, %156
+  %486 = icmp samesign ule i64 %485, %156
   tail call void @llvm.assume(i1 %486)
   %487 = getelementptr inbounds float, ptr %151, i64 %484
   %488 = getelementptr inbounds i8, ptr %487, i64 4
@@ -3120,7 +3120,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %508 = phi ptr [ %180, %335 ], [ %180, %.loopexit45 ], [ %343, %.preheader40 ], [ %458, %475 ]
   %509 = phi ptr [ %181, %335 ], [ %181, %.loopexit45 ], [ %344, %.preheader40 ], [ %458, %475 ]
   %510 = add nuw nsw i32 %182, 1
-  %511 = icmp ult i32 %182, %147
+  %511 = icmp samesign ult i32 %182, %147
   br i1 %511, label %178, label %291, !llvm.loop !232
 
 512:                                              ; preds = %291, %83
@@ -3145,7 +3145,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %12 = add nuw nsw i64 %11, 4
   %13 = load i32, ptr %9, align 8, !tbaa !52
   %14 = zext i32 %13 to i64
-  %15 = icmp ugt i64 %12, %14
+  %15 = icmp samesign ugt i64 %12, %14
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   br i1 %15, label %17, label %18
 
@@ -3162,7 +3162,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %24 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw nsw i32 %10, 4
-  %26 = icmp ule i32 %25, %13
+  %26 = icmp samesign ule i32 %25, %13
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %27)
@@ -3173,13 +3173,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %31, ptr %19, align 4, !tbaa !20
   %32 = zext nneg i32 %25 to i64
   %33 = add nuw nsw i64 %32, 4
-  %34 = icmp ugt i64 %33, %14
+  %34 = icmp samesign ugt i64 %33, %14
   br i1 %34, label %17, label %35
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds i8, ptr %5, i64 8
   %37 = add nuw nsw i32 %10, 8
-  %38 = icmp ule i32 %37, %13
+  %38 = icmp samesign ule i32 %37, %13
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds i8, ptr %23, i64 %32
   %40 = load i32, ptr %39, align 1
@@ -3188,13 +3188,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %42, ptr %36, align 4, !tbaa !20
   %43 = zext nneg i32 %37 to i64
   %44 = add nuw nsw i64 %43, 4
-  %45 = icmp ugt i64 %44, %14
+  %45 = icmp samesign ugt i64 %44, %14
   br i1 %45, label %17, label %46
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds i8, ptr %5, i64 12
   %48 = add nuw nsw i32 %10, 12
-  %49 = icmp ule i32 %48, %13
+  %49 = icmp samesign ule i32 %48, %13
   tail call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds i8, ptr %23, i64 %43
   %51 = load i32, ptr %50, align 1
@@ -3203,13 +3203,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %53, ptr %47, align 4, !tbaa !20
   %54 = zext nneg i32 %48 to i64
   %55 = add nuw nsw i64 %54, 4
-  %56 = icmp ugt i64 %55, %14
+  %56 = icmp samesign ugt i64 %55, %14
   br i1 %56, label %17, label %57
 
 57:                                               ; preds = %46
   %58 = getelementptr inbounds i8, ptr %5, i64 16
   %59 = add nuw nsw i32 %10, 16
-  %60 = icmp ule i32 %59, %13
+  %60 = icmp samesign ule i32 %59, %13
   tail call void @llvm.assume(i1 %60)
   %61 = getelementptr inbounds i8, ptr %23, i64 %54
   %62 = load i32, ptr %61, align 1
@@ -3218,13 +3218,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %64, ptr %58, align 4, !tbaa !20
   %65 = zext nneg i32 %59 to i64
   %66 = add nuw nsw i64 %65, 4
-  %67 = icmp ugt i64 %66, %14
+  %67 = icmp samesign ugt i64 %66, %14
   br i1 %67, label %17, label %68
 
 68:                                               ; preds = %57
   %69 = getelementptr inbounds i8, ptr %5, i64 20
   %70 = add nuw nsw i32 %10, 20
-  %71 = icmp ule i32 %70, %13
+  %71 = icmp samesign ule i32 %70, %13
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds i8, ptr %23, i64 %65
   %73 = load i32, ptr %72, align 1
@@ -3233,13 +3233,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %75, ptr %69, align 4, !tbaa !20
   %76 = zext nneg i32 %70 to i64
   %77 = add nuw nsw i64 %76, 4
-  %78 = icmp ugt i64 %77, %14
+  %78 = icmp samesign ugt i64 %77, %14
   br i1 %78, label %17, label %79
 
 79:                                               ; preds = %68
   %80 = getelementptr inbounds i8, ptr %5, i64 24
   %81 = add nuw nsw i32 %10, 24
-  %82 = icmp ule i32 %81, %13
+  %82 = icmp samesign ule i32 %81, %13
   tail call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds i8, ptr %23, i64 %76
   %84 = load i32, ptr %83, align 1
@@ -3249,13 +3249,13 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store i32 %86, ptr %80, align 4, !tbaa !20
   %87 = zext nneg i32 %81 to i64
   %88 = add nuw nsw i64 %87, 4
-  %89 = icmp ugt i64 %88, %14
+  %89 = icmp samesign ugt i64 %88, %14
   br i1 %89, label %17, label %90
 
 90:                                               ; preds = %79
   %91 = getelementptr inbounds i8, ptr %5, i64 28
   %92 = add nuw nsw i32 %10, 28
-  %93 = icmp ule i32 %92, %13
+  %93 = icmp samesign ule i32 %92, %13
   tail call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds i8, ptr %23, i64 %87
   %95 = load i32, ptr %94, align 1
@@ -3728,7 +3728,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %370 = phi i64 [ %280, %276 ], [ %372, %474 ]
   %371 = phi i64 [ 1, %276 ], [ %478, %474 ]
   %372 = add nuw nsw i64 %370, 4
-  %373 = icmp ugt i64 %372, %14
+  %373 = icmp samesign ugt i64 %372, %14
   br i1 %373, label %374, label %376
 
 374:                                              ; preds = %366
@@ -4012,7 +4012,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   call void @llvm.assume(i1 %532)
   %533 = icmp sgt i32 %528, -1
   call void @llvm.assume(i1 %533)
-  %534 = icmp uge i32 %528, %523
+  %534 = icmp samesign uge i32 %528, %523
   call void @llvm.assume(i1 %534)
   %535 = icmp eq i32 %523, 0
   %536 = icmp ne i32 %525, 0
@@ -4098,7 +4098,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
 
 .loopexit73:                                      ; preds = %.preheader72, %568
   %581 = phi ptr [ %569, %568 ], [ %578, %.preheader72 ]
-  %582 = icmp ult i64 %572, 7
+  %582 = icmp samesign ult i64 %572, 7
   br i1 %582, label %.loopexit71, label %.preheader70
 
 .preheader70:                                     ; preds = %.loopexit73, %.preheader70
@@ -4423,7 +4423,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
 
 804:                                              ; preds = %.loopexit, %794
   %805 = phi i64 [ %491, %794 ], [ %886, %.loopexit ]
-  %806 = icmp ult i64 %805, %797
+  %806 = icmp samesign ult i64 %805, %797
   call void @llvm.assume(i1 %806)
   %807 = trunc nuw nsw i64 %805 to i32
   %808 = mul nsw i32 %528, %807
@@ -4437,7 +4437,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
 .preheader64:                                     ; preds = %804, %.preheader64
   %813 = phi i64 [ %827, %.preheader64 ], [ %795, %804 ]
   %814 = phi i32 [ %828, %.preheader64 ], [ 0, %804 ]
-  %815 = icmp ult i64 %813, %796
+  %815 = icmp samesign ult i64 %813, %796
   call void @llvm.assume(i1 %815)
   %816 = getelementptr inbounds i16, ptr %812, i64 %813
   %817 = load i16, ptr %816, align 2, !tbaa !225
@@ -4960,7 +4960,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp uge i32 %18, %13
+  %24 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i32 %13, 0
   %26 = icmp ne i32 %15, 0
@@ -4977,16 +4977,16 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %34 = icmp ugt i32 %13, %33
   %35 = zext nneg i32 %33 to i64
   %36 = add nuw nsw i32 %32, 2
-  %37 = icmp ugt i32 %13, %36
+  %37 = icmp samesign ugt i32 %13, %36
   %38 = zext nneg i32 %36 to i64
-  %39 = icmp uge i32 %13, %32
+  %39 = icmp samesign uge i32 %13, %32
   %40 = zext i16 %1 to i64
   %41 = add nsw i32 %32, -1
   %42 = icmp ugt i32 %13, %41
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 2
   %45 = add nuw nsw i32 %32, 1
-  %46 = icmp ugt i32 %13, %45
+  %46 = icmp samesign ugt i32 %13, %45
   %47 = zext nneg i32 %45 to i64
   %48 = getelementptr inbounds i8, ptr %3, i64 4
   %49 = getelementptr inbounds i8, ptr %3, i64 6
@@ -5060,7 +5060,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %97 = sub nsw i32 %96, %92
   %98 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
   store i32 %98, ptr %53, align 4, !tbaa !20
-  %99 = icmp ult i32 %95, %98
+  %99 = icmp samesign ult i32 %95, %98
   %100 = zext i1 %99 to i32
   %101 = shl nuw nsw i32 %87, 2
   %102 = sub nsw i32 %101, %92

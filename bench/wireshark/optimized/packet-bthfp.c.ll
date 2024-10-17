@@ -1383,7 +1383,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread312, %158, %
 328:                                              ; preds = %.critedge
   %329 = icmp eq i32 %313, 1
   %or.cond3 = and i1 %322, %329
-  %330 = icmp ugt i64 %indvars.iv, 3
+  %330 = icmp samesign ugt i64 %indvars.iv, 3
   %or.cond5 = and i1 %330, %or.cond3
   br i1 %or.cond5, label %331, label %.thread331
 
@@ -1411,7 +1411,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread312, %158, %
 
 .thread331:                                       ; preds = %342, %339, %335, %331, %328
   %or.cond3334 = phi i1 [ true, %342 ], [ true, %339 ], [ true, %335 ], [ true, %331 ], [ %or.cond3, %328 ]
-  %345 = icmp ugt i64 %indvars.iv, 1
+  %345 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond9 = and i1 %345, %or.cond3334
   br i1 %or.cond9, label %346, label %.thread331.thread
 

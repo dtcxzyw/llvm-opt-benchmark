@@ -374,7 +374,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 194:                                              ; preds = %206, %189
   %.sroa.014.0.i = phi i64 [ %199, %206 ], [ %182, %189 ]
   %.sroa.416.0.i = phi i64 [ %209, %206 ], [ %193, %189 ]
-  %.not25.i = icmp uge i64 %.sroa.014.0.i, %.sroa.416.0.i
+  %.not25.i = icmp samesign uge i64 %.sroa.014.0.i, %.sroa.416.0.i
   %195 = icmp ugt i64 %.sroa.416.0.i, %3
   %or.cond225 = or i1 %.not25.i, %195
   br i1 %or.cond225, label %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread, label %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
@@ -521,7 +521,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %270 = add nuw nsw i64 %267, 131070
   %271 = and i64 %270, 131070
   %272 = add nuw nsw i64 %271, 2
-  %273 = icmp ugt i64 %272, %267
+  %273 = icmp samesign ugt i64 %272, %267
   br i1 %273, label %338, label %274
 
 274:                                              ; preds = %269
@@ -662,7 +662,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %352 = zext i16 %344 to i64
   %353 = shl nuw nsw i64 %352, 1
   %354 = add nuw nsw i64 %353, 2
-  %355 = icmp ugt i64 %354, %.val12.i.i
+  %355 = icmp samesign ugt i64 %354, %.val12.i.i
   br i1 %355, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i", label %358
 
 356:                                              ; preds = %339
@@ -681,7 +681,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   %364 = zext i16 %361 to i64
   %365 = shl nuw nsw i64 %364, 1
   %366 = add nuw nsw i64 %365, 2
-  %367 = icmp ugt i64 %366, %.val12.i.i
+  %367 = icmp samesign ugt i64 %366, %.val12.i.i
   br i1 %367, label %370, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit17.i.i"
 
 "_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit17.i.i": ; preds = %363
@@ -5056,7 +5056,7 @@ default.unreachable161:                           ; preds = %73
 274:                                              ; preds = %288, %269
   %.sroa.014.0.i.i.i.i = phi i64 [ %281, %288 ], [ %262, %269 ]
   %.sroa.416.0.i.i.i.i = phi i64 [ %291, %288 ], [ %273, %269 ]
-  %.not25.i.i.i.i = icmp uge i64 %.sroa.014.0.i.i.i.i, %.sroa.416.0.i.i.i.i
+  %.not25.i.i.i.i = icmp samesign uge i64 %.sroa.014.0.i.i.i.i, %.sroa.416.0.i.i.i.i
   %275 = getelementptr inbounds i8, ptr %64, i64 32
   %276 = load i64, ptr %275, align 8, !alias.scope !911, !noalias !912
   %277 = icmp ugt i64 %.sroa.416.0.i.i.i.i, %276

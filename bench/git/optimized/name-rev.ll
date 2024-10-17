@@ -777,7 +777,7 @@ commit_is_before_cutoff.exit51.i.i:               ; preds = %if.then.i46.i.i
   br i1 %cmp1.i50.i.i, label %for.inc.i.i, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %commit_is_before_cutoff.exit51.i.i, %if.end.i41.i.i, %if.then.i46.i.i
-  %cmp.i8.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i8.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i8.i, label %if.end30.i.i, label %if.else25.i.i
 
 if.else25.i.i:                                    ; preds = %if.end22.i.i
@@ -1296,7 +1296,7 @@ for.body211:                                      ; preds = %for.body211.lr.ph, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %revs, align 8
   %130 = zext i32 %129 to i64
-  %cmp210 = icmp ult i64 %indvars.iv.next, %130
+  %cmp210 = icmp samesign ult i64 %indvars.iv.next, %130
   br i1 %cmp210, label %for.body211, label %do.end, !llvm.loop !15
 
 do.end:                                           ; preds = %for.inc205, %for.body211, %if.then190, %for.cond209.preheader, %while.end

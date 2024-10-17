@@ -421,7 +421,7 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %rem.i88.decomposed = sub i128 %spec.select.i.frozen, %1
   %conv10.i = trunc nuw nsw i128 %rem.i88.decomposed to i64
   %mul11.i = shl nuw nsw i64 %conv10.i, 1
-  %cmp12.not.i = icmp uge i64 %mul11.i, %unsignedDivisor.0.i
+  %cmp12.not.i = icmp samesign uge i64 %mul11.i, %unsignedDivisor.0.i
   %inc.i = zext i1 %cmp12.not.i to i128
   %quotient.0.i = add nuw nsw i128 %div.i87, %inc.i
   %conv15.i = sext i32 %resultSign.1.i to i128

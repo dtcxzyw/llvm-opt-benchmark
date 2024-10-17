@@ -1758,8 +1758,8 @@ define void @_ZNK10open_spiel8deep_sea12DeepSeaState8ToStringB5cxx11Ev(ptr dead_
 
 21:                                               ; preds = %.lr.ph
   %22 = icmp sge i32 %.01429, %14
-  %.not17 = icmp ugt i32 %.027, %.01429
-  %or.cond20 = or i1 %.not17, %22
+  %.not17 = icmp samesign ugt i32 %.027, %.01429
+  %or.cond20 = select i1 %22, i1 true, i1 %.not17
   br i1 %or.cond20, label %.invoke, label %23
 
 23:                                               ; preds = %21

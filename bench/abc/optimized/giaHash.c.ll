@@ -1740,7 +1740,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendMuxReal(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #1 {
   %4 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
-  %5 = icmp ult i32 %1, %2
+  %5 = icmp samesign ult i32 %1, %2
   %6 = getelementptr i8, ptr %0, i64 32
   %.val75 = load ptr, ptr %6, align 8
   %7 = ptrtoint ptr %4 to i64
@@ -3628,7 +3628,7 @@ define void @Gia_ManUsePerm(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
   %indvars.iv109 = phi i64 [ 0, %.lr.ph97.split.us.preheader ], [ %indvars.iv.next110, %..loopexit_crit_edge.us ]
   %indvars.iv = phi i64 [ 1, %.lr.ph97.split.us.preheader ], [ %indvars.iv.next, %..loopexit_crit_edge.us ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %8 = icmp ult i64 %indvars.iv.next110, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next110, %7
   br i1 %8, label %.lr.ph.us, label %._crit_edge.us
 
 9:                                                ; preds = %.lr.ph.us, %13
@@ -3717,7 +3717,7 @@ define void @Gia_ManUsePerm(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.loopexit ], [ 0, %.lr.ph97 ]
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.loopexit ], [ 1, %.lr.ph97 ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %48 = icmp ult i64 %indvars.iv121, 30
+  %48 = icmp samesign ult i64 %indvars.iv121, 30
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph97.split

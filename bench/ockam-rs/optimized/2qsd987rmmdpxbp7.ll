@@ -12075,9 +12075,9 @@ define void @_ZN10ockam_abac6policy7storage35resource_type_policy_repository_sql
   br i1 %20, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread105, label %21
 
 21:                                               ; preds = %4
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 2
+  %23 = icmp samesign ult i64 %19, 2
   br i1 %23, label %24, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread105
 
 24:                                               ; preds = %21
@@ -12130,7 +12130,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %45 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %46 = icmp ult i64 %45, 6
   tail call void @llvm.assume(i1 %46)
-  %switch.selectcmp61 = icmp ugt i64 %45, 3
+  %switch.selectcmp61 = icmp samesign ugt i64 %45, 3
   br i1 %switch.selectcmp61, label %47, label %82
 
 47:                                               ; preds = %44
@@ -12282,7 +12282,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %92 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1873
   %93 = icmp ult i64 %92, 6
   call void @llvm.assume(i1 %93)
-  %94 = icmp ult i64 %92, 4
+  %94 = icmp samesign ult i64 %92, 4
   br i1 %94, label %"_ZN10ockam_abac6policy7storage35resource_type_policy_repository_sql30ResourceTypePolicySqlxDatabase3new28_$u7b$$u7b$closure$u7d$$u7d$17he85fee5a1d8c1741E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %91

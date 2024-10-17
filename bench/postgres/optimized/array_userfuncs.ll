@@ -977,7 +977,7 @@ define dso_local i64 @array_agg_combine(ptr noundef %0) local_unnamed_addr #0 {
 
 89:                                               ; preds = %80
   %90 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %83)
-  %91 = icmp ult i32 %90, 2
+  %91 = icmp samesign ult i32 %90, 2
   %92 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %83, i1 true)
   %93 = xor i32 %92, 31
   %94 = shl nuw i32 2, %93
@@ -1778,7 +1778,7 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
 
 126:                                              ; preds = %._crit_edge
   %127 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92)
-  %128 = icmp ult i32 %127, 2
+  %128 = icmp samesign ult i32 %127, 2
   %129 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %92, i1 true)
   %130 = xor i32 %129, 31
   %131 = shl nuw i32 2, %130
@@ -1811,7 +1811,7 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
   %148 = add i32 %143, 1
   %149 = call i32 @llvm.smax.i32(i32 %148, i32 256)
   %150 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %149)
-  %151 = icmp ult i32 %150, 2
+  %151 = icmp samesign ult i32 %150, 2
   %152 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %153 = xor i32 %152, 31
   %154 = shl nuw i32 2, %153
@@ -1839,7 +1839,7 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
   %167 = load i32, ptr %166, align 8
   %168 = add i32 %167, %163
   %169 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %168)
-  %170 = icmp ult i32 %169, 2
+  %170 = icmp samesign ult i32 %169, 2
   %171 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %168, i1 true)
   %172 = xor i32 %171, 31
   %173 = shl nuw i32 2, %172

@@ -2105,7 +2105,7 @@ define hidden void @IntArgbToFourByteAbgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, %94
-  %100 = icmp ult i32 %70, 255
+  %100 = icmp samesign ult i32 %70, 255
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %56
@@ -2237,7 +2237,7 @@ define hidden void @IntArgbToFourByteAbgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = add nuw nsw i32 %197, %193
-  %199 = icmp ult i32 %169, 255
+  %199 = icmp samesign ult i32 %169, 255
   br i1 %199, label %200, label %.thread192
 
 200:                                              ; preds = %155
@@ -2747,7 +2747,7 @@ define hidden void @IntArgbPreToFourByteAbgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = add nuw nsw i32 %112, %108
-  %114 = icmp ult i32 %85, 255
+  %114 = icmp samesign ult i32 %85, 255
   br i1 %114, label %115, label %.thread
 
 115:                                              ; preds = %71
@@ -2896,7 +2896,7 @@ define hidden void @IntArgbPreToFourByteAbgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = add nuw nsw i32 %224, %220
-  %226 = icmp ult i32 %197, 255
+  %226 = icmp samesign ult i32 %197, 255
   br i1 %226, label %227, label %.thread194
 
 227:                                              ; preds = %183

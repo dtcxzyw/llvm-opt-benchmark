@@ -626,7 +626,7 @@ for.body59:                                       ; preds = %if.end51, %for.body
   %inc63 = add nuw nsw i32 %i52.0238, 1
   %25 = load i16, ptr %num_dungeons, align 4, !tbaa !50
   %conv56 = zext i16 %25 to i32
-  %cmp57 = icmp ult i32 %inc63, %conv56
+  %cmp57 = icmp samesign ult i32 %inc63, %conv56
   br i1 %cmp57, label %for.body59, label %for.cond.cleanup58, !llvm.loop !107
 
 for.cond81.preheader:                             ; preds = %for.cond81.preheader.lr.ph, %for.cond81.for.cond.cleanup86_crit_edge.split
@@ -901,7 +901,7 @@ cleanup.us.us.us:                                 ; preds = %for.body131.us.us.u
   %cmp146.not.us.us.us = icmp ne i16 %30, 127
   %spec.select371.us.us.us = select i1 %cmp146.not.us.us.us, i8 %fits.3505.us.us.us, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp129.us.us.us = icmp ult i64 %indvars.iv.next, %23
+  %cmp129.us.us.us = icmp samesign ult i64 %indvars.iv.next, %23
   %or.cond = select i1 %cmp146.not.us.us.us, i1 %cmp129.us.us.us, i1 false
   br i1 %or.cond, label %for.body131.us.us.us, label %cleanup150.us.us.us, !llvm.loop !112
 
@@ -918,7 +918,7 @@ for.cond118.for.cond.cleanup123_crit_edge.split.us.us.us: ; preds = %cleanup150.
 
 for.cond.cleanup116:                              ; preds = %for.cond118.for.cond.cleanup123_crit_edge.split.us.us.us
   %inc160 = add nuw nsw i32 %i.0522, 1
-  %cmp = icmp ult i32 %i.0522, 99
+  %cmp = icmp samesign ult i32 %i.0522, 99
   %31 = and i8 %fits.5.us.us.us, 1
   %tobool.not = icmp eq i8 %31, 0
   %32 = select i1 %cmp, i1 %tobool.not, i1 false
@@ -1175,7 +1175,7 @@ cleanup336:                                       ; preds = %if.else327, %if.the
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
   %63 = load i16, ptr %num_rooms, align 8, !tbaa !116
   %conv179 = zext i16 %63 to i32
-  %cmp180 = icmp ult i32 %add203, %conv179
+  %cmp180 = icmp samesign ult i32 %add203, %conv179
   br i1 %cmp180, label %for.body182, label %cleanup345, !llvm.loop !118
 
 cleanup345.sink.split:                            ; preds = %if.end209, %cleanup336.thread496
@@ -2182,7 +2182,7 @@ do.body.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %cmp9.i.i = icmp eq i16 %conv6.i.i, 0
   %cmp12.i.i = icmp eq i16 %conv.i.i, 0
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %cmp12.i.i
-  %cmp13.i.i = icmp ult i32 %trycount.0.i.i, 9
+  %cmp13.i.i = icmp samesign ult i32 %trycount.0.i.i, 9
   %or.cond28.i.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %or.cond28.i.i, label %do.body.i.i, label %return.loopexit.i.i, !llvm.loop !130
 
@@ -2319,7 +2319,7 @@ do.body.i.i274:                                   ; preds = %land.lhs.true.i.i24
   %cmp9.i.i290 = icmp eq i16 %conv6.i.i289, 0
   %cmp12.i.i291 = icmp eq i16 %conv.i.i283, 0
   %or.cond.i.i292 = select i1 %cmp9.i.i290, i1 true, i1 %cmp12.i.i291
-  %cmp13.i.i293 = icmp ult i32 %trycount.0.i.i276, 9
+  %cmp13.i.i293 = icmp samesign ult i32 %trycount.0.i.i276, 9
   %or.cond28.i.i294 = select i1 %or.cond.i.i292, i1 %cmp13.i.i293, i1 false
   br i1 %or.cond28.i.i294, label %do.body.i.i274, label %return.loopexit.i.i295, !llvm.loop !130
 
@@ -2666,7 +2666,7 @@ do.body.i.i914:                                   ; preds = %land.lhs.true.i.i88
   %cmp9.i.i930 = icmp eq i16 %conv6.i.i929, 0
   %cmp12.i.i931 = icmp eq i16 %conv.i.i923, 0
   %or.cond.i.i932 = select i1 %cmp9.i.i930, i1 true, i1 %cmp12.i.i931
-  %cmp13.i.i933 = icmp ult i32 %trycount.0.i.i916, 9
+  %cmp13.i.i933 = icmp samesign ult i32 %trycount.0.i.i916, 9
   %or.cond28.i.i934 = select i1 %or.cond.i.i932, i1 %cmp13.i.i933, i1 false
   br i1 %or.cond28.i.i934, label %do.body.i.i914, label %return.loopexit.i.i935, !llvm.loop !130
 
@@ -2727,7 +2727,7 @@ for.inc:                                          ; preds = %if.end125, %_ZN10Du
   %98 = phi i16 [ %retval.sroa.0.0.i.i, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %retval.sroa.0.0.i.i908, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %7, %if.end125 ]
   %99 = phi i16 [ %8, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %8, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %add.i, %if.end125 ]
   %inc = add nuw nsw i32 %i.0999, 1
-  %cmp = icmp ult i32 %i.0999, 99
+  %cmp = icmp samesign ult i32 %i.0999, 99
   %exitcond.not = icmp eq i32 %inc, 100
   br i1 %exitcond.not, label %cleanup128, label %for.body, !llvm.loop !131
 
@@ -2988,7 +2988,7 @@ for.body101.lr.ph:                                ; preds = %if.then75
   %mul.i394 = mul i16 %dir.sroa.0.0707, %make_stairs.1719
   %18 = tail call i16 @llvm.abs.i16(i16 %mul.i394, i1 false)
   %19 = zext i16 %18 to i32
-  %cmp.i = icmp ult i32 %17, %19
+  %cmp.i = icmp samesign ult i32 %17, %19
   %cmp4.i = icmp slt i16 %mul.i394, 0
   %cond.i = select i1 %cmp4.i, i32 3, i32 1
   %20 = lshr i32 %conv1.i, 30
@@ -3525,7 +3525,7 @@ for.inc122:                                       ; preds = %for.cond.cleanup72,
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doordir) #24
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
   %inc123 = add nuw nsw i16 %trycount.0373, 1
-  %cmp = icmp ult i16 %trycount.0373, 29
+  %cmp = icmp samesign ult i16 %trycount.0373, 29
   %exitcond.not = icmp eq i16 %inc123, 30
   br i1 %exitcond.not, label %cleanup124, label %for.body, !llvm.loop !137
 
@@ -3697,7 +3697,7 @@ entry:
   %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv1 = ashr i32 %tr.sh.diff, 16
   %1 = tail call i32 @llvm.abs.i32(i32 %conv1, i1 true)
-  %cmp = icmp ugt i32 %0, %1
+  %cmp = icmp samesign ugt i32 %0, %1
   %cmp4 = icmp slt i32 %conv, 0
   %cond = select i1 %cmp4, i32 3, i32 1
   %2 = lshr i32 %conv1, 30
@@ -3810,7 +3810,7 @@ do.body:                                          ; preds = %land.lhs.true, %do.
   %cmp9 = icmp eq i16 %conv6, 0
   %cmp12 = icmp eq i16 %conv, 0
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp12
-  %cmp13 = icmp ult i32 %trycount.0, 9
+  %cmp13 = icmp samesign ult i32 %trycount.0, 9
   %or.cond28 = select i1 %or.cond, i1 %cmp13, i1 false
   br i1 %or.cond28, label %do.body, label %return.loopexit, !llvm.loop !130
 

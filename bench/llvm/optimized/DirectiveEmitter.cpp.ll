@@ -5030,7 +5030,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i.i.i.i.i.i.i.i, label %2116
 
 2116:                                             ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i.i.i.i.i.i.i.i
-  %2117 = icmp ult i32 %.0.i.i.i.i.i8.i.i.i.i.i.i.i.i, %.0.i.i.i.i.i24.i.i.i.i.i.i.i.i
+  %2117 = icmp samesign ult i32 %.0.i.i.i.i.i8.i.i.i.i.i.i.i.i, %.0.i.i.i.i.i24.i.i.i.i.i.i.i.i
   br i1 %2117, label %.lr.ph.i.backedge.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
 .lr.ph.i.backedge.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i26.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i.i.i.i, %2124, %2116
@@ -14585,7 +14585,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %.not.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i.i.i, label %100
 
 100:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i.i.i
-  %101 = icmp ult i32 %.0.i.i.i.i.i8.i.i.i, %.0.i.i.i.i.i24.i.i.i
+  %101 = icmp samesign ult i32 %.0.i.i.i.i.i8.i.i.i, %.0.i.i.i.i.i24.i.i.i
   br i1 %101, label %"_ZZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEENK3$_1clEii.exit.thread.i.i", label %"_ZZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEENK3$_1clEii.exit.thread48.i.i.preheader"
 
 _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i.i.i: ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i.i.i, %68
@@ -14709,7 +14709,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %.not.i27.i.i, label %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i29.i.i, label %157
 
 157:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i25.i.i
-  %158 = icmp ult i32 %.0.i.i.i.i.i8.i19.i.i, %.0.i.i.i.i.i24.i26.i.i
+  %158 = icmp samesign ult i32 %.0.i.i.i.i.i8.i19.i.i, %.0.i.i.i.i.i24.i26.i.i
   br i1 %158, label %"_ZZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEENK3$_1clEii.exit.thread48.i.i.backedge", label %"_ZZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEENK3$_1clEii.exit40.thread51.i.i"
 
 _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i29.i.i: ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i25.i.i, %"_ZZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEENK3$_1clEii.exit.thread48.i.i"
@@ -14946,7 +14946,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread, label %42
 
 42:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25
-  %43 = icmp ult i32 %.0.i.i.i.i.i8, %.0.i.i.i.i.i24
+  %43 = icmp samesign ult i32 %.0.i.i.i.i.i8, %.0.i.i.i.i.i24
   br label %_ZSt23lexicographical_compareIPiS0_EbT_S1_T0_S2_.exit
 
 _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread: ; preds = %2, %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25
@@ -15133,7 +15133,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %.not.i, label %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.thread.i, label %61
 
 61:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit25.i
-  %62 = icmp ult i32 %.0.i.i.i.i.i8.i, %.0.i.i.i.i.i24.i
+  %62 = icmp samesign ult i32 %.0.i.i.i.i.i8.i, %.0.i.i.i.i.i24.i
   br i1 %62, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZL13EmitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_T0_.exit"
 
 .lr.ph.i.backedge:                                ; preds = %.lr.ph.i.i.i.i.i26.i, %61, %69, %.critedge.i.i.i.i.i.i

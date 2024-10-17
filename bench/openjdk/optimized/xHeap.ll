@@ -973,7 +973,7 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
   %46 = add nsw i32 %42, 1
   %47 = icmp sgt i32 %42, -1
   %48 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %46)
-  %49 = icmp ult i32 %48, 2
+  %49 = icmp samesign ult i32 %48, 2
   %or.cond.i.i.i.i = select i1 %47, i1 %49, i1 false
   %50 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %51 = sub nuw nsw i32 32, %50
@@ -1134,7 +1134,7 @@ _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit6: ; preds = %.loopex
   %112 = getelementptr inbounds ptr, ptr %111, i64 %.09.i.i
   store ptr %102, ptr %112, align 8
   %113 = add nuw nsw i64 %.09.i.i, 1
-  %114 = icmp ult i64 %113, %110
+  %114 = icmp samesign ult i64 %113, %110
   br i1 %114, label %.lr.ph.i.i8, label %_ZN16XForwardingTable6insertEP11XForwarding.exit, !llvm.loop !13
 
 _ZN16XForwardingTable6insertEP11XForwarding.exit: ; preds = %.lr.ph.i.i8, %101
@@ -1406,7 +1406,7 @@ define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 
   %19 = getelementptr inbounds ptr, ptr %18, i64 %.09.i.i
   store ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %.09.i.i, 1
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp samesign ult i64 %20, %17
   br i1 %21, label %.lr.ph.i.i, label %_ZN16XForwardingTable6removeEP11XForwarding.exit, !llvm.loop !13
 
 _ZN16XForwardingTable6removeEP11XForwarding.exit: ; preds = %.lr.ph.i.i, %8
@@ -1862,7 +1862,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12

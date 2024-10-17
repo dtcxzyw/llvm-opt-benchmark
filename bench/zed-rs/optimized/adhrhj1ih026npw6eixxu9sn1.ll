@@ -668,15 +668,15 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %82, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h238d8b33407f05d5E.exit.i.i", label %135
 
 135:                                              ; preds = %133
-  %136 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
+  %136 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
   br i1 %136, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i", label %137
 
 137:                                              ; preds = %135
-  %138 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
+  %138 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
   br i1 %138, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i", label %139
 
 139:                                              ; preds = %137
-  %140 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
+  %140 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
   %..i.i.i.i.i = select i1 %140, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i"
 

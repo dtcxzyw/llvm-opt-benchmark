@@ -777,7 +777,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   %36 = load ptr, ptr %23, align 8
   %37 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %36, ptr noundef nonnull %13)
   %38 = add nuw nsw i32 %.4164237.us, 1
-  %39 = icmp ult i32 %.4164237.us, 2
+  %39 = icmp samesign ult i32 %.4164237.us, 2
   %40 = icmp ne i32 %37, 0
   %41 = and i1 %39, %40
   br i1 %41, label %.preheader231.split.us, label %.loopexit, !llvm.loop !5
@@ -1171,7 +1171,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   %222 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   store i32 %221, ptr %222, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %223 = icmp ult i64 %indvars.iv, 2
+  %223 = icmp samesign ult i64 %indvars.iv, 2
   %224 = icmp ne i32 %220, 0
   %225 = and i1 %223, %224
   br i1 %225, label %.preheader231.split, label %.loopexit, !llvm.loop !5

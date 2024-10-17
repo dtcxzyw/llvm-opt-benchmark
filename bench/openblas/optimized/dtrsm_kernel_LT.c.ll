@@ -52,7 +52,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %36 = getelementptr inbounds double, ptr %34, i64 %32
   %37 = load double, ptr %36, align 8, !tbaa !3
   %38 = getelementptr inbounds double, ptr %23, i64 %32
-  %39 = icmp ult i64 %32, 15
+  %39 = icmp samesign ult i64 %32, 15
   br i1 %39, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %31, %.loopexit28.us
@@ -153,7 +153,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %100 = load double, ptr %99, align 8, !tbaa !3
   %101 = getelementptr inbounds double, ptr %82, i64 %95
   %102 = add nuw nsw i64 %95, 1
-  %103 = icmp ult i64 %102, %80
+  %103 = icmp samesign ult i64 %102, %80
   br i1 %103, label %.split45.us, label %.split45
 
 .split45.us:                                      ; preds = %94, %.loopexit27.us
@@ -218,7 +218,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %141 = phi ptr [ %137, %134 ], [ %82, %.preheader29 ]
   %142 = phi i64 [ %138, %134 ], [ %81, %.preheader29 ]
   %143 = lshr i64 %80, 1
-  %144 = icmp ult i64 %80, 2
+  %144 = icmp samesign ult i64 %80, 2
   br i1 %144, label %.loopexit30, label %.preheader29, !llvm.loop !13
 
 .loopexit30:                                      ; preds = %139, %.loopexit32
@@ -270,7 +270,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %172 = phi ptr [ %167, %166 ], [ %193, %.loopexit24 ]
   %173 = phi ptr [ %168, %166 ], [ %174, %.loopexit24 ]
   %174 = getelementptr i8, ptr %173, i64 8
-  %175 = icmp ult i64 %170, 15
+  %175 = icmp samesign ult i64 %170, 15
   %176 = getelementptr inbounds double, ptr %161, i64 %170
   %177 = getelementptr inbounds double, ptr %172, i64 %170
   %178 = load double, ptr %177, align 8, !tbaa !3
@@ -347,7 +347,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %223 = phi ptr [ %218, %215 ], [ %225, %.loopexit ]
   %224 = add nuw nsw i64 %220, 1
   %225 = getelementptr i8, ptr %223, i64 8
-  %226 = icmp ult i64 %224, %205
+  %226 = icmp samesign ult i64 %224, %205
   %227 = getelementptr inbounds double, ptr %207, i64 %220
   %228 = getelementptr inbounds double, ptr %222, i64 %220
   %229 = load double, ptr %228, align 8, !tbaa !3
@@ -391,7 +391,7 @@ define noundef i32 @dtrsm_kernel_LT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %253 = phi ptr [ %249, %246 ], [ %207, %.preheader ]
   %254 = phi i64 [ %250, %246 ], [ %206, %.preheader ]
   %255 = lshr i64 %205, 1
-  %256 = icmp ult i64 %205, 2
+  %256 = icmp samesign ult i64 %205, 2
   br i1 %256, label %.loopexit23, label %.preheader, !llvm.loop !16
 
 .loopexit23:                                      ; preds = %251, %.loopexit26, %.loopexit33

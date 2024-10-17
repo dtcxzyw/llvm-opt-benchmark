@@ -1998,7 +1998,7 @@ _ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineI
   %118 = load i32, ptr %117, align 4
   %119 = getelementptr inbounds i8, ptr %108, i64 164
   %120 = load i32, ptr %119, align 4
-  %121 = icmp ult i32 %3, 9
+  %121 = icmp samesign ult i32 %3, 9
   %122 = select i1 %121, i64 7, i64 6
   %123 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %108, i64 %122, i32 3
   %124 = load i64, ptr %123, align 8

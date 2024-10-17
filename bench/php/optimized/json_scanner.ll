@@ -58,15 +58,15 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
 .lr.ph1850:                                       ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %16 = phi i8 [ %96, %.lr.ph.split ], [ %8, %.lr.ph.split.preheader ]
   %17 = phi ptr [ %95, %.lr.ph.split ], [ %.promoted, %.lr.ph.split.preheader ]
-  %18 = icmp ult i8 %16, 35
+  %18 = icmp samesign ult i8 %16, 35
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %.lr.ph1850
-  %20 = icmp ult i8 %16, 13
+  %20 = icmp samesign ult i8 %16, 13
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %19
-  %22 = icmp ult i8 %16, 9
+  %22 = icmp samesign ult i8 %16, 9
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
@@ -78,11 +78,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %25, label %85, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ult i8 %16, 11
+  %27 = icmp samesign ult i8 %16, 11
   br i1 %27, label %98, label %.loopexit1636
 
 28:                                               ; preds = %19
-  %29 = icmp ult i8 %16, 32
+  %29 = icmp samesign ult i8 %16, 32
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -96,11 +96,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   ]
 
 33:                                               ; preds = %.lr.ph1850
-  %34 = icmp ult i8 %16, 49
+  %34 = icmp samesign ult i8 %16, 49
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %16, 45
+  %36 = icmp samesign ult i8 %16, 45
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
@@ -114,11 +114,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   ]
 
 39:                                               ; preds = %33
-  %40 = icmp ult i8 %16, 91
+  %40 = icmp samesign ult i8 %16, 91
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
-  %42 = icmp ult i8 %16, 58
+  %42 = icmp samesign ult i8 %16, 58
   br i1 %42, label %.preheader1634, label %43
 
 43:                                               ; preds = %41

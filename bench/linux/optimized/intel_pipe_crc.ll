@@ -142,7 +142,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_crtc_verify_crc_source(ptr
   ]
 
 42:                                               ; preds = %39
-  %43 = icmp ult i32 %18, 9
+  %43 = icmp samesign ult i32 %18, 9
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %22, %42, %41, %41, %41, %41, %38, %38, %38, %38, %34, %34, %34, %34, %34, %27, %27, %27, %16

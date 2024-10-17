@@ -55,7 +55,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load i8, ptr %data, align 1
   %5 = and i8 %.pre.i, 15
-  %cmp.i = icmp ugt i32 %off.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %off.022.i, 1
   %off.0.tr.i = trunc i32 %inc.i to i8
   %6 = shl i8 %off.0.tr.i, 4
   %7 = add i8 %6, -32
@@ -119,7 +119,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load i8, ptr %data, align 1
   %5 = and i8 %.pre.i, 15
-  %cmp.i = icmp ugt i32 %off.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %off.022.i, 1
   %off.0.tr.i = trunc i32 %inc.i to i8
   %6 = shl i8 %off.0.tr.i, 4
   %7 = add i8 %6, -32
@@ -197,7 +197,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -309,7 +309,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 while.end.i.i:                                    ; preds = %if.end.i.i
   %.pre.i.i = load i8, ptr %data.i4, align 1
   %6 = and i8 %.pre.i.i, 15
-  %cmp.i.i = icmp ugt i32 %off.022.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %off.022.i.i, 1
   %off.0.tr.i.i = trunc i32 %inc.i.i to i8
   %7 = shl i8 %off.0.tr.i.i, 4
   %8 = add i8 %7, -32
@@ -407,7 +407,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 while.end.i.i:                                    ; preds = %if.end.i.i
   %.pre.i.i = load i8, ptr %data.i4, align 1
   %6 = and i8 %.pre.i.i, 15
-  %cmp.i.i = icmp ugt i32 %off.022.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %off.022.i.i, 1
   %off.0.tr.i.i = trunc i32 %inc.i.i to i8
   %7 = shl i8 %off.0.tr.i.i, 4
   %8 = add i8 %7, -32
@@ -477,7 +477,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load i8, ptr %data, align 1
   %5 = and i8 %.pre.i, 15
-  %cmp.i = icmp ugt i32 %off.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %off.022.i, 1
   %off.0.tr.i = trunc i32 %inc.i to i8
   %6 = shl i8 %off.0.tr.i, 4
   %7 = add i8 %6, -32
@@ -554,13 +554,13 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store i8 %conv15.sink.i.i, ptr %arrayidx10.i.i, align 1
   %shr.i.i = lshr i32 %number.addr.021.i.i, 4
   %inc.i.i = add nuw nsw i32 %off.022.i.i, 1
-  %tobool.not.i.i = icmp ult i32 %number.addr.021.i.i, 16
+  %tobool.not.i.i = icmp samesign ult i32 %number.addr.021.i.i, 16
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %if.end.i.i
   %.pre.i.i = load i8, ptr %data.i6, align 1
   %17 = and i8 %.pre.i.i, 15
-  %cmp.i.i = icmp ugt i32 %off.022.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %off.022.i.i, 1
   %off.0.tr.i.i = trunc i32 %inc.i.i to i8
   %18 = shl i8 %off.0.tr.i.i, 4
   %19 = add i8 %18, -32
@@ -627,7 +627,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load i8, ptr %data, align 1
   %5 = and i8 %.pre.i, 15
-  %cmp.i = icmp ugt i32 %off.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %off.022.i, 1
   %off.0.tr.i = trunc i32 %inc.i to i8
   %6 = shl i8 %off.0.tr.i, 4
   %7 = add i8 %6, -32
@@ -704,13 +704,13 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store i8 %conv15.sink.i.i, ptr %arrayidx10.i.i, align 1
   %shr.i.i = lshr i32 %number.addr.021.i.i, 4
   %inc.i.i = add nuw nsw i32 %off.022.i.i, 1
-  %tobool.not.i.i = icmp ult i32 %number.addr.021.i.i, 16
+  %tobool.not.i.i = icmp samesign ult i32 %number.addr.021.i.i, 16
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %if.end.i.i
   %.pre.i.i = load i8, ptr %data.i6, align 1
   %17 = and i8 %.pre.i.i, 15
-  %cmp.i.i = icmp ugt i32 %off.022.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %off.022.i.i, 1
   %off.0.tr.i.i = trunc i32 %inc.i.i to i8
   %18 = shl i8 %off.0.tr.i.i, 4
   %19 = add i8 %18, -32
@@ -789,7 +789,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load i8, ptr %data, align 1
   %6 = and i8 %.pre.i, 15
-  %cmp.i = icmp ugt i32 %off.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %off.022.i, 1
   %off.0.tr.i = trunc i32 %inc.i to i8
   %7 = shl i8 %off.0.tr.i, 4
   %8 = add i8 %7, -32
@@ -847,7 +847,7 @@ if.end.i16:                                       ; preds = %if.else.i28, %if.th
 while.end.i21:                                    ; preds = %if.end.i16
   %.pre.i22 = load i8, ptr %add.ptr, align 1
   %18 = and i8 %.pre.i22, 15
-  %cmp.i23 = icmp ugt i32 %off.022.i6, 1
+  %cmp.i23 = icmp samesign ugt i32 %off.022.i6, 1
   %off.0.tr.i24 = trunc i32 %inc.i19 to i8
   %19 = shl i8 %off.0.tr.i24, 4
   %20 = add i8 %19, -32
@@ -1007,7 +1007,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -1064,7 +1064,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -1166,7 +1166,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -1267,7 +1267,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -1377,7 +1377,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i
@@ -1502,7 +1502,7 @@ while.cond.i:                                     ; preds = %entry, %if.end12.i
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %0 = load i8, ptr %data.0.i, align 1
-  %cmp3.i = icmp ugt i32 %shift.0.i, 27
+  %cmp3.i = icmp samesign ugt i32 %shift.0.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i
 
 if.then4.i:                                       ; preds = %while.body.i

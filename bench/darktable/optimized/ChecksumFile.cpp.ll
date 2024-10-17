@@ -1131,7 +1131,7 @@ define hidden void @_ZN8rawspeed16ReadChecksumFileERKNSt7__cxx1112basic_stringIc
   %61 = zext nneg i32 %59 to i64
   %62 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %62, ptr %8, align 8, !tbaa !29
-  %63 = icmp ugt i32 %59, 15
+  %63 = icmp samesign ugt i32 %59, 15
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %55

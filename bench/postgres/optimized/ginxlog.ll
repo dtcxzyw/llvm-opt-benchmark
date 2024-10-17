@@ -1522,7 +1522,7 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   %141 = add nuw nsw i32 %.0169, 1
   %142 = load i16, ptr %1, align 2
   %143 = zext i16 %142 to i32
-  %144 = icmp ult i32 %141, %143
+  %144 = icmp samesign ult i32 %141, %143
   br i1 %144, label %.lr.ph171, label %._crit_edge172, !llvm.loop !10
 
 ._crit_edge172:                                   ; preds = %140

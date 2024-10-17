@@ -64,7 +64,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %30 = fsub double 1.000000e+00, %12
   %31 = getelementptr inbounds i8, ptr %24, i64 24
   store double %30, ptr %31, align 8
-  %32 = icmp ugt i32 %.051.lcssa, 1
+  %32 = icmp samesign ugt i32 %.051.lcssa, 1
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %26, %.lr.ph

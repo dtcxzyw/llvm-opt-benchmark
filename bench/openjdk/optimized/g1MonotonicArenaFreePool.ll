@@ -330,7 +330,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolC2Ej(ptr nocapture noundef nonn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %0, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -357,7 +357,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolD2Ev(ptr nocapture noundef nonn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %0, align 8
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv.next, %8
+  %9 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %9, label %4, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %4, %1
@@ -475,7 +475,7 @@ _ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit:   ; preds = %7, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %13, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %_ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit

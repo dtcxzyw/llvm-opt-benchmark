@@ -587,7 +587,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %v.addr.04.i.i = phi i64 [ %shr.i.i, %while.body.i.i ], [ %conv22.i, %while.body.i.preheader.i ]
   %shr.i.i = lshr i64 %v.addr.04.i.i, 7
   %inc.i.i = add nuw nsw i32 %len.05.i.i, 1
-  %cmp.i18.i = icmp ugt i64 %v.addr.04.i.i, 16383
+  %cmp.i18.i = icmp samesign ugt i64 %v.addr.04.i.i, 16383
   br i1 %cmp.i18.i, label %while.body.i.i, label %_ZN7rocksdb12VarintLengthEm.exit.i, !llvm.loop !9
 
 _ZN7rocksdb12VarintLengthEm.exit.i:               ; preds = %while.body.i.i, %if.end21.i
@@ -804,7 +804,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %v.addr.04.i = phi i64 [ %shr.i, %while.body.i ], [ %conv22, %while.body.i.preheader ]
   %shr.i = lshr i64 %v.addr.04.i, 7
   %inc.i = add nuw nsw i32 %len.05.i, 1
-  %cmp.i18 = icmp ugt i64 %v.addr.04.i, 16383
+  %cmp.i18 = icmp samesign ugt i64 %v.addr.04.i, 16383
   br i1 %cmp.i18, label %while.body.i, label %_ZN7rocksdb12VarintLengthEm.exit, !llvm.loop !9
 
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %while.body.i, %if.end21
@@ -854,7 +854,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %v.addr.04.i.i = phi i64 [ %shr.i.i, %while.body.i.i ], [ %conv.i, %while.body.i.preheader.i ]
   %shr.i.i = lshr i64 %v.addr.04.i.i, 7
   %inc.i.i = add nuw nsw i32 %len.05.i.i, 1
-  %cmp.i.i = icmp ugt i64 %v.addr.04.i.i, 16383
+  %cmp.i.i = icmp samesign ugt i64 %v.addr.04.i.i, 16383
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN7rocksdb12VarintLengthEm.exit.i, !llvm.loop !9
 
 _ZN7rocksdb12VarintLengthEm.exit.i:               ; preds = %while.body.i.i, %entry
@@ -873,7 +873,7 @@ while.body.i3.i:                                  ; preds = %while.body.i3.i, %w
   %v.addr.04.i5.i = phi i64 [ %shr.i6.i, %while.body.i3.i ], [ %conv2.i, %while.body.i3.preheader.i ]
   %shr.i6.i = lshr i64 %v.addr.04.i5.i, 7
   %inc.i7.i = add nuw nsw i32 %len.05.i4.i, 1
-  %cmp.i8.i = icmp ugt i64 %v.addr.04.i5.i, 16383
+  %cmp.i8.i = icmp samesign ugt i64 %v.addr.04.i5.i, 16383
   br i1 %cmp.i8.i, label %while.body.i3.i, label %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit, !llvm.loop !9
 
 _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit: ; preds = %while.body.i3.i, %_ZN7rocksdb12VarintLengthEm.exit.i
@@ -979,7 +979,7 @@ for.inc39:                                        ; preds = %sw.bb, %sw.bb14, %f
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %22 = load i32, ptr %index_size_.i, align 8
   %23 = zext i32 %22 to i64
-  %cmp = icmp ult i64 %indvars.iv.next69, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next69, %23
   br i1 %cmp, label %for.body, label %for.end40, !llvm.loop !11
 
 for.end40:                                        ; preds = %for.inc39, %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit
@@ -1000,7 +1000,7 @@ while.body.i.i50:                                 ; preds = %while.body.i.i50, %
   %v.addr.04.i.i52 = phi i64 [ %shr.i.i53, %while.body.i.i50 ], [ %conv.i49, %while.body.i.preheader.i48 ]
   %shr.i.i53 = lshr i64 %v.addr.04.i.i52, 7
   %inc.i.i54 = add nuw nsw i32 %len.05.i.i51, 1
-  %cmp.i.i55 = icmp ugt i64 %v.addr.04.i.i52, 16383
+  %cmp.i.i55 = icmp samesign ugt i64 %v.addr.04.i.i52, 16383
   br i1 %cmp.i.i55, label %while.body.i.i50, label %_ZN7rocksdb12VarintLengthEm.exit.i30, !llvm.loop !9
 
 _ZN7rocksdb12VarintLengthEm.exit.i30:             ; preds = %while.body.i.i50, %for.end40
@@ -1018,7 +1018,7 @@ while.body.i3.i42:                                ; preds = %while.body.i3.i42, 
   %v.addr.04.i5.i44 = phi i64 [ %shr.i6.i45, %while.body.i3.i42 ], [ %conv2.i41, %while.body.i3.preheader.i40 ]
   %shr.i6.i45 = lshr i64 %v.addr.04.i5.i44, 7
   %inc.i7.i46 = add nuw nsw i32 %len.05.i4.i43, 1
-  %cmp.i8.i47 = icmp ugt i64 %v.addr.04.i5.i44, 16383
+  %cmp.i8.i47 = icmp samesign ugt i64 %v.addr.04.i5.i44, 16383
   br i1 %cmp.i8.i47, label %while.body.i3.i42, label %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit56, !llvm.loop !9
 
 _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit56: ; preds = %while.body.i3.i42, %_ZN7rocksdb12VarintLengthEm.exit.i30

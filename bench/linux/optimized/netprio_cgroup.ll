@@ -261,7 +261,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   %19 = phi i64 [ 128, %15 ], [ %24, %23 ]
   %20 = add i64 %19, -20
   %21 = lshr exact i64 %20, 2
-  %22 = icmp ugt i64 %21, %17
+  %22 = icmp samesign ugt i64 %21, %17
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %18

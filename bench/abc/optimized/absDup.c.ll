@@ -2451,7 +2451,7 @@ Vec_IntStart.exit:                                ; preds = %5, %Vec_IntAlloc.ex
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %70)
   %72 = load i32, ptr %11, align 4
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %72)
-  %74 = icmp ugt i64 %indvars.iv116, 9
+  %74 = icmp samesign ugt i64 %indvars.iv116, 9
   br i1 %74, label %.preheader, label %.preheader82
 
 .preheader:                                       ; preds = %.critedge, %.preheader

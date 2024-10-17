@@ -998,7 +998,7 @@ exit.i111.i:                                      ; preds = %if.end266.i108.i, %
   %185 = and i16 %184, 255
   %conv272.i113.i = zext nneg i16 %185 to i32
   %cmp273.i114.i = icmp eq i32 %conv271.i112.i, %conv272.i113.i
-  %cmp278.i118.i = icmp ult i32 %conv271.i112.i, %conv272.i113.i
+  %cmp278.i118.i = icmp samesign ult i32 %conv271.i112.i, %conv272.i113.i
   %inc.i122.i = zext i1 %cmp278.i118.i to i8
   %spec.select439.i = add i8 %s_gpr.i44.0.i, %inc.i122.i
   %186 = zext i8 %spec.select439.i to i32
@@ -1778,7 +1778,7 @@ while.cond.i48.i:                                 ; preds = %if.end.i59.i, %if.e
   %s.addr.i21.0.in.i = phi i32 [ %s.i.1.i, %if.else22.i.i ], [ %s.addr.i21.2.i, %if.end.i59.i ]
   %s.addr.i21.0.i = and i32 %s.addr.i21.0.in.i, 16383
   %cmp.i49.i = icmp ult ptr %c.i24.0.i, %min_accel_offset.i.0.i
-  %cmp9.i83.i = icmp uge i32 %s.addr.i21.0.i, %conv.i34.i
+  %cmp9.i83.i = icmp samesign uge i32 %s.addr.i21.0.i, %conv.i34.i
   %103 = select i1 %cmp.i49.i, i1 %cmp9.i83.i, i1 false
   br i1 %103, label %while.body.i51.i, label %if.end61.i.i
 
@@ -1787,7 +1787,7 @@ while.body.i51.i:                                 ; preds = %while.cond.i48.i
   %idxprom.i53.i = zext i8 %104 to i64
   %arrayidx.i54.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i53.i
   %105 = load i8, ptr %arrayidx.i54.i, align 1
-  %cmp11.i55.i = icmp ult i32 %s.addr.i21.0.i, %conv2.i36.i
+  %cmp11.i55.i = icmp samesign ult i32 %s.addr.i21.0.i, %conv2.i36.i
   br i1 %cmp11.i55.i, label %if.then.i75.i, label %if.else.i56.i
 
 if.then.i75.i:                                    ; preds = %while.body.i51.i
@@ -2296,7 +2296,7 @@ exit.i.i.i:                                       ; preds = %if.end266.i.i.i, %i
   %193 = and i16 %192, 255
   %conv272.i.i.i = zext nneg i16 %193 to i32
   %cmp273.i.i.i = icmp eq i32 %conv271.i.i.i, %conv272.i.i.i
-  %cmp278.i.i.i = icmp ult i32 %conv271.i.i.i, %conv272.i.i.i
+  %cmp278.i.i.i = icmp samesign ult i32 %conv271.i.i.i, %conv272.i.i.i
   %inc.i272.i.i = zext i1 %cmp278.i.i.i to i8
   %spec.select523.i = add i8 %s_gpr.i.i.0.i, %inc.i272.i.i
   %s_gpr.i.i.1.i = select i1 %cmp273.i.i.i, i8 0, i8 %spec.select523.i
@@ -2356,7 +2356,7 @@ while.cond.i.i:                                   ; preds = %if.end.i13.i, %if.e
   %s.addr.i.0.in.i = phi i32 [ %s.i.4.i, %if.end110.i.i ], [ %s.addr.i.2.i, %if.end.i13.i ]
   %s.addr.i.0.i = and i32 %s.addr.i.0.in.i, 16383
   %cmp.i10.i = icmp ult ptr %c.i3.0.i, %add.ptr.i.i
-  %cmp9.i.i = icmp uge i32 %s.addr.i.0.i, %conv.i6.i
+  %cmp9.i.i = icmp samesign uge i32 %s.addr.i.0.i, %conv.i6.i
   %203 = select i1 %cmp.i10.i, i1 %cmp9.i.i, i1 false
   br i1 %203, label %while.body.i.i, label %if.end156.i.i
 
@@ -2365,7 +2365,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %idxprom.i.i = zext i8 %204 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i.i
   %205 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp11.i.i = icmp ult i32 %s.addr.i.0.i, %conv2.i.i
+  %cmp11.i.i = icmp samesign ult i32 %s.addr.i.0.i, %conv2.i.i
   br i1 %cmp11.i.i, label %if.then.i15.i, label %if.else.i12.i
 
 if.then.i15.i:                                    ; preds = %while.body.i.i
@@ -3835,7 +3835,7 @@ exit.i111.i:                                      ; preds = %if.end266.i108.i, %
   %c.i38.1.i = phi ptr [ %incdec.ptr.i200.i, %if.then29.i270.i ], [ %incdec.ptr35.i207.i, %if.then45.i268.i ], [ %incdec.ptr51.i214.i, %if.then61.i266.i ], [ %incdec.ptr67.i221.i, %if.then77.i264.i ], [ %incdec.ptr83.i228.i, %if.then93.i262.i ], [ %incdec.ptr99.i235.i, %if.then109.i260.i ], [ %incdec.ptr115.i242.i, %if.then125.i258.i ], [ %incdec.ptr131.i249.i, %if.then141.i256.i ], [ %c.i38.2.i, %if.end266.i108.i ], [ %incdec.ptr252.i129.i, %if.then262.i137.i ], [ %incdec.ptr235.i140.i, %if.then245.i147.i ], [ %incdec.ptr218.i150.i, %if.then228.i157.i ], [ %incdec.ptr201.i160.i, %if.then211.i167.i ], [ %incdec.ptr184.i170.i, %if.then194.i177.i ], [ %incdec.ptr167.i180.i, %if.then177.i187.i ], [ %incdec.ptr150.i190.i, %if.then160.i197.i ]
   %conv271.i112.i = zext i8 %s_gpr.i44.0.i to i32
   %cmp273.i114.i = icmp eq i32 %conv271.i112.i, %conv272.i113.i
-  %cmp278.i118.i = icmp ult i32 %conv271.i112.i, %conv272.i113.i
+  %cmp278.i118.i = icmp samesign ult i32 %conv271.i112.i, %conv272.i113.i
   %inc.i122.i = zext i1 %cmp278.i118.i to i8
   %spec.select438.i = add i8 %s_gpr.i44.0.i, %inc.i122.i
   %181 = zext i8 %spec.select438.i to i32
@@ -4557,7 +4557,7 @@ while.cond.i48.i:                                 ; preds = %if.end.i59.i, %if.e
   %s.addr.i21.0.in.i = phi i32 [ %s.i.1.i, %if.else22.i.i ], [ %s.addr.i21.2.i, %if.end.i59.i ]
   %s.addr.i21.0.i = and i32 %s.addr.i21.0.in.i, 16383
   %cmp.i49.i = icmp ult ptr %c.i24.0.i, %min_accel_offset.i.0.i
-  %cmp9.i83.i = icmp uge i32 %s.addr.i21.0.i, %conv.i34.i
+  %cmp9.i83.i = icmp samesign uge i32 %s.addr.i21.0.i, %conv.i34.i
   %103 = select i1 %cmp.i49.i, i1 %cmp9.i83.i, i1 false
   br i1 %103, label %while.body.i51.i, label %if.end61.i.i
 
@@ -4566,7 +4566,7 @@ while.body.i51.i:                                 ; preds = %while.cond.i48.i
   %idxprom.i53.i = zext i8 %104 to i64
   %arrayidx.i54.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i53.i
   %105 = load i8, ptr %arrayidx.i54.i, align 1
-  %cmp11.i55.i = icmp ult i32 %s.addr.i21.0.i, %conv2.i36.i
+  %cmp11.i55.i = icmp samesign ult i32 %s.addr.i21.0.i, %conv2.i36.i
   br i1 %cmp11.i55.i, label %if.then.i75.i, label %if.else.i56.i
 
 if.then.i75.i:                                    ; preds = %while.body.i51.i
@@ -5002,7 +5002,7 @@ exit.i.i.i:                                       ; preds = %if.end266.i.i.i, %i
   %c.i.i.1.i = phi ptr [ %incdec.ptr.i.i.i, %if.then29.i.i.i ], [ %incdec.ptr35.i.i.i, %if.then45.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then61.i.i.i ], [ %incdec.ptr67.i.i.i, %if.then77.i.i.i ], [ %incdec.ptr83.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr99.i.i.i, %if.then109.i.i.i ], [ %incdec.ptr115.i.i.i, %if.then125.i.i.i ], [ %incdec.ptr131.i.i.i, %if.then141.i.i.i ], [ %c.i.i.2.i, %if.end266.i.i.i ], [ %incdec.ptr252.i.i.i, %if.then262.i.i.i ], [ %incdec.ptr235.i.i.i, %if.then245.i.i.i ], [ %incdec.ptr218.i.i.i, %if.then228.i.i.i ], [ %incdec.ptr201.i.i.i, %if.then211.i.i.i ], [ %incdec.ptr184.i.i.i, %if.then194.i.i.i ], [ %incdec.ptr167.i.i.i, %if.then177.i.i.i ], [ %incdec.ptr150.i.i.i, %if.then160.i.i.i ]
   %conv271.i.i.i = zext i8 %s_gpr.i.i.0.i to i32
   %cmp273.i.i.i = icmp eq i32 %conv271.i.i.i, %conv272.i.i.i
-  %cmp278.i.i.i = icmp ult i32 %conv271.i.i.i, %conv272.i.i.i
+  %cmp278.i.i.i = icmp samesign ult i32 %conv271.i.i.i, %conv272.i.i.i
   %inc.i272.i.i = zext i1 %cmp278.i.i.i to i8
   %spec.select522.i = add i8 %s_gpr.i.i.0.i, %inc.i272.i.i
   %s_gpr.i.i.1.i = select i1 %cmp273.i.i.i, i8 0, i8 %spec.select522.i
@@ -5060,7 +5060,7 @@ while.cond.i.i:                                   ; preds = %if.end.i13.i, %if.e
   %s.addr.i.0.in.i = phi i32 [ %s.i.4.i, %if.end110.i.i ], [ %s.addr.i.2.i, %if.end.i13.i ]
   %s.addr.i.0.i = and i32 %s.addr.i.0.in.i, 16383
   %cmp.i10.i = icmp ult ptr %c.i3.0.i, %add.ptr.i.i
-  %cmp9.i.i = icmp uge i32 %s.addr.i.0.i, %conv.i6.i
+  %cmp9.i.i = icmp samesign uge i32 %s.addr.i.0.i, %conv.i6.i
   %197 = select i1 %cmp.i10.i, i1 %cmp9.i.i, i1 false
   br i1 %197, label %while.body.i.i, label %if.end156.i.i
 
@@ -5069,7 +5069,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %idxprom.i.i = zext i8 %198 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i.i
   %199 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp11.i.i = icmp ult i32 %s.addr.i.0.i, %conv2.i.i
+  %cmp11.i.i = icmp samesign ult i32 %s.addr.i.0.i, %conv2.i.i
   br i1 %cmp11.i.i, label %if.then.i15.i, label %if.else.i12.i
 
 if.then.i15.i:                                    ; preds = %while.body.i.i
@@ -5799,7 +5799,7 @@ while.body.i338.i:                                ; preds = %if.else18.i.i, %whi
   %conv13.i347.i = zext i8 %101 to i32
   %incdec.ptr.i348.i = getelementptr inbounds i8, ptr %c.i314.0152.i, i64 1
   %cmp.i335.i = icmp ult ptr %incdec.ptr.i348.i, %min_accel_offset.i.0.i
-  %cmp7.i362.i = icmp uge i32 %conv13.i347.i, %conv.i322.i
+  %cmp7.i362.i = icmp samesign uge i32 %conv13.i347.i, %conv.i322.i
   %102 = select i1 %cmp.i335.i, i1 %cmp7.i362.i, i1 false
   br i1 %102, label %while.body.i338.i, label %if.end53.i.i, !llvm.loop !8
 
@@ -6161,7 +6161,7 @@ exit.i111.i:                                      ; preds = %if.end266.i108.i, %
   %c.i38.1.i = phi ptr [ %incdec.ptr.i200.i, %if.then29.i270.i ], [ %incdec.ptr35.i207.i, %if.then45.i268.i ], [ %incdec.ptr51.i214.i, %if.then61.i266.i ], [ %incdec.ptr67.i221.i, %if.then77.i264.i ], [ %incdec.ptr83.i228.i, %if.then93.i262.i ], [ %incdec.ptr99.i235.i, %if.then109.i260.i ], [ %incdec.ptr115.i242.i, %if.then125.i258.i ], [ %incdec.ptr131.i249.i, %if.then141.i256.i ], [ %c.i38.2.i, %if.end266.i108.i ], [ %incdec.ptr252.i129.i, %if.then262.i137.i ], [ %incdec.ptr235.i140.i, %if.then245.i147.i ], [ %incdec.ptr218.i150.i, %if.then228.i157.i ], [ %incdec.ptr201.i160.i, %if.then211.i167.i ], [ %incdec.ptr184.i170.i, %if.then194.i177.i ], [ %incdec.ptr167.i180.i, %if.then177.i187.i ], [ %incdec.ptr150.i190.i, %if.then160.i197.i ]
   %conv271.i112.i = zext i8 %s_gpr.i44.0.i to i32
   %cmp273.i114.i = icmp eq i32 %conv271.i112.i, %conv272.i113.i
-  %cmp278.i118.i = icmp ult i32 %conv271.i112.i, %conv272.i113.i
+  %cmp278.i118.i = icmp samesign ult i32 %conv271.i112.i, %conv272.i113.i
   %inc.i122.i = zext i1 %cmp278.i118.i to i8
   %spec.select438.i = add i8 %s_gpr.i44.0.i, %inc.i122.i
   %178 = zext i8 %spec.select438.i to i32
@@ -6844,7 +6844,7 @@ if.else22.i.i:                                    ; preds = %if.else.i.i
   %add.ptr7.i46.i = getelementptr inbounds i16, ptr %add.ptr.i32.i, i64 %idx.neg.i45.i
   %s.addr.i21.0150.i = and i32 %s.i.1.i, 16383
   %cmp.i49151.i = icmp ult ptr %c.i.1.i, %min_accel_offset.i.0.i
-  %cmp9.i83152.i = icmp uge i32 %s.addr.i21.0150.i, %conv.i34.i
+  %cmp9.i83152.i = icmp samesign uge i32 %s.addr.i21.0150.i, %conv.i34.i
   %99 = select i1 %cmp.i49151.i, i1 %cmp9.i83152.i, i1 false
   br i1 %99, label %while.body.i51.i, label %if.end61.i.i
 
@@ -6855,7 +6855,7 @@ while.body.i51.i:                                 ; preds = %if.else22.i.i, %if.
   %idxprom.i53.i = zext i8 %100 to i64
   %arrayidx.i54.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i53.i
   %101 = load i8, ptr %arrayidx.i54.i, align 1
-  %cmp11.i55.i = icmp ult i32 %s.addr.i21.0154.i, %conv2.i36.i
+  %cmp11.i55.i = icmp samesign ult i32 %s.addr.i21.0154.i, %conv2.i36.i
   br i1 %cmp11.i55.i, label %if.then.i75.i, label %if.else.i56.i
 
 if.then.i75.i:                                    ; preds = %while.body.i51.i
@@ -7294,7 +7294,7 @@ exit.i.i.i:                                       ; preds = %if.end266.i.i.i, %i
   %c.i.i.1.i = phi ptr [ %incdec.ptr.i.i.i, %if.then29.i.i.i ], [ %incdec.ptr35.i.i.i, %if.then45.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then61.i.i.i ], [ %incdec.ptr67.i.i.i, %if.then77.i.i.i ], [ %incdec.ptr83.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr99.i.i.i, %if.then109.i.i.i ], [ %incdec.ptr115.i.i.i, %if.then125.i.i.i ], [ %incdec.ptr131.i.i.i, %if.then141.i.i.i ], [ %c.i.i.2.i, %if.end266.i.i.i ], [ %incdec.ptr252.i.i.i, %if.then262.i.i.i ], [ %incdec.ptr235.i.i.i, %if.then245.i.i.i ], [ %incdec.ptr218.i.i.i, %if.then228.i.i.i ], [ %incdec.ptr201.i.i.i, %if.then211.i.i.i ], [ %incdec.ptr184.i.i.i, %if.then194.i.i.i ], [ %incdec.ptr167.i.i.i, %if.then177.i.i.i ], [ %incdec.ptr150.i.i.i, %if.then160.i.i.i ]
   %conv271.i.i.i = zext i8 %s_gpr.i.i.0.i to i32
   %cmp273.i.i.i = icmp eq i32 %conv271.i.i.i, %conv272.i.i.i
-  %cmp278.i.i.i = icmp ult i32 %conv271.i.i.i, %conv272.i.i.i
+  %cmp278.i.i.i = icmp samesign ult i32 %conv271.i.i.i, %conv272.i.i.i
   %inc.i272.i.i = zext i1 %cmp278.i.i.i to i8
   %spec.select522.i = add i8 %s_gpr.i.i.0.i, %inc.i272.i.i
   %187 = zext i8 %spec.select522.i to i32
@@ -7345,7 +7345,7 @@ while.cond.i.i:                                   ; preds = %if.end.i13.i, %if.e
   %s.addr.i.0.in.i = phi i32 [ %s.i.4.i, %if.end110.i.i ], [ %s.addr.i.2.i, %if.end.i13.i ]
   %s.addr.i.0.i = and i32 %s.addr.i.0.in.i, 16383
   %cmp.i10.i = icmp ult ptr %c.i3.0.i, %add.ptr.i.i
-  %cmp9.i.i = icmp uge i32 %s.addr.i.0.i, %conv.i6.i
+  %cmp9.i.i = icmp samesign uge i32 %s.addr.i.0.i, %conv.i6.i
   %194 = select i1 %cmp.i10.i, i1 %cmp9.i.i, i1 false
   br i1 %194, label %while.body.i.i, label %if.end156.i.i
 
@@ -7354,7 +7354,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %idxprom.i.i = zext i8 %195 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %remap.i52.i, i64 0, i64 %idxprom.i.i
   %196 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp11.i.i = icmp ult i32 %s.addr.i.0.i, %conv2.i.i
+  %cmp11.i.i = icmp samesign ult i32 %s.addr.i.0.i, %conv2.i.i
   br i1 %cmp11.i.i, label %if.then.i15.i, label %if.else.i12.i
 
 if.then.i15.i:                                    ; preds = %while.body.i.i

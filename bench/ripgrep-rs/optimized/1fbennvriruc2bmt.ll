@@ -1207,7 +1207,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h900d73339c797564E(ptr noal
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.0109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -1811,7 +1811,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd5bf652d547920dcE(ptr noal
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.0109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -2959,7 +2959,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -2972,7 +2972,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

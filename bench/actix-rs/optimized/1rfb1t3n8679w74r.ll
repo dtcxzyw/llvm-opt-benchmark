@@ -416,7 +416,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h764de809b537b3a3E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h764de809b537b3a3E.exit": ; preds = %.critedge.i, %153
-  %162 = icmp ugt i64 %137, 1
+  %162 = icmp samesign ugt i64 %137, 1
   %163 = icmp eq i64 %125, %.0.i
   %or.cond = select i1 %162, i1 true, i1 %163
   br i1 %or.cond, label %165, label %164
@@ -843,7 +843,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2c2c9107cebc542aE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2c2c9107cebc542aE.exit": ; preds = %.critedge.i, %163
-  %172 = icmp ugt i64 %147, 1
+  %172 = icmp samesign ugt i64 %147, 1
   %173 = icmp eq i64 %130, %.0.i
   %or.cond = select i1 %172, i1 true, i1 %173
   br i1 %or.cond, label %180, label %174
@@ -1273,7 +1273,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h3ad0a51e845da8ceE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h3ad0a51e845da8ceE.exit": ; preds = %.critedge.i, %153
-  %162 = icmp ugt i64 %137, 1
+  %162 = icmp samesign ugt i64 %137, 1
   %163 = icmp eq i64 %125, %.0.i
   %or.cond = select i1 %162, i1 true, i1 %163
   br i1 %or.cond, label %165, label %164
@@ -4292,7 +4292,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -4336,7 +4336,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4416,7 +4416,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %82 = load i64, ptr %7, align 8, !alias.scope !314, !noalias !323, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !314, !noalias !323
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -4446,7 +4446,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -4490,7 +4490,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4570,7 +4570,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %82 = load i64, ptr %7, align 8, !alias.scope !353, !noalias !362, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !353, !noalias !362
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -4600,7 +4600,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -4644,7 +4644,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4724,7 +4724,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %82 = load i64, ptr %7, align 8, !alias.scope !392, !noalias !401, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !392, !noalias !401
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -4754,7 +4754,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -4798,7 +4798,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -4878,7 +4878,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %82 = load i64, ptr %7, align 8, !alias.scope !431, !noalias !440, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !431, !noalias !440
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -4901,7 +4901,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
   %.028.lcssa.i = phi i64 [ 10, %6 ], [ %18, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %6 ], [ %11, %.lr.ph.i ]
   %8 = zext nneg i32 %.1.lcssa.i to i64
-  %9 = icmp ugt i32 %.1.lcssa.i, 99
+  %9 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %9, label %25, label %34
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
@@ -4945,7 +4945,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
 34:                                               ; preds = %25, %._crit_edge.i
   %.129.i = phi i64 [ %30, %25 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %25 ], [ %8, %._crit_edge.i ]
-  %35 = icmp ult i64 %.027.i, 10
+  %35 = icmp samesign ult i64 %.027.i, 10
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %34
@@ -5053,7 +5053,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -5097,7 +5097,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5177,7 +5177,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %82 = load i64, ptr %7, align 8, !alias.scope !509, !noalias !518, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !509, !noalias !518
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -5207,7 +5207,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -5251,7 +5251,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5331,7 +5331,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %82 = load i64, ptr %7, align 8, !alias.scope !548, !noalias !557, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !548, !noalias !557
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -5449,7 +5449,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
   %60 = load i64, ptr %7, align 8, !alias.scope !587, !noalias !596, !noundef !4
   %61 = add i64 %60, 1
   store i64 %61, ptr %7, align 8, !alias.scope !587, !noalias !596
-  %62 = icmp ugt i8 %6, %indvars
+  %62 = icmp samesign ugt i8 %6, %indvars
   br i1 %62, label %37, label %._crit_edge
 }
 
@@ -5479,7 +5479,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -5523,7 +5523,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5603,7 +5603,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %82 = load i64, ptr %7, align 8, !alias.scope !626, !noalias !635, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !626, !noalias !635
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -5633,7 +5633,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
   %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp ugt i32 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -5677,7 +5677,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %27 ], [ %10, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -5757,7 +5757,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %82 = load i64, ptr %7, align 8, !alias.scope !665, !noalias !674, !noundef !4
   %83 = add i64 %82, 1
   store i64 %83, ptr %7, align 8, !alias.scope !665, !noalias !674
-  %84 = icmp ugt i8 %6, %indvars
+  %84 = icmp samesign ugt i8 %6, %indvars
   br i1 %84, label %59, label %._crit_edge
 }
 
@@ -6004,7 +6004,7 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %0, align 8, !range !717, !alias.scope !718, !noundef !4
-  %switch.i.i.i = icmp ult i8 %8, 10
+  %switch.i.i.i = icmp samesign ult i8 %8, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$actix_web..guard..MethodGuard$GT$17hfce57590f65df186E.exit", label %9
 
 9:                                                ; preds = %6
@@ -7635,7 +7635,7 @@ define void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias no
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load i8, ptr %5, align 8, !range !717, !alias.scope !888, !noundef !4
-  %switch.i.i.i = icmp ult i8 %22, 10
+  %switch.i.i.i = icmp samesign ult i8 %22, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %23
 
 23:                                               ; preds = %20
@@ -7707,7 +7707,7 @@ define void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias no
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = load i8, ptr %2, align 8, !range !717, !alias.scope !901, !noundef !4
-  %switch.i.i = icmp ult i8 %48, 10
+  %switch.i.i = icmp samesign ult i8 %48, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit", label %49
 
 49:                                               ; preds = %46

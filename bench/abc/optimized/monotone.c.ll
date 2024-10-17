@@ -1521,7 +1521,7 @@ findPendingSignal.exit.thread:                    ; preds = %10, %1
   %34 = tail call ptr @Abc_ObjName(ptr noundef %33) #15
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %29, ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = icmp ult i64 %indvars.iv.next, %26
+  %36 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %36, label %27, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %27, %.preheader..critedge_crit_edge

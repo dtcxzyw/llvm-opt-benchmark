@@ -5995,7 +5995,7 @@ _ZNK4llvm9BitVector10find_firstEv.exit.i:         ; preds = %315
   %331 = lshr i32 %327, 6
   %332 = add i32 %328, -1
   %333 = lshr i32 %332, 6
-  %.not32.i.i.i = icmp ugt i32 %331, %333
+  %.not32.i.i.i = icmp samesign ugt i32 %331, %333
   br i1 %.not32.i.i.i, label %._crit_edge.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %330

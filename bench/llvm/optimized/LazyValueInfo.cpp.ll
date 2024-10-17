@@ -9442,7 +9442,7 @@ _ZL19isOperationFoldablePN4llvm4UserE.exit.thread: ; preds = %113, %_ZL19isOpera
   %151 = load i32, ptr %125, align 4
   %152 = and i32 %151, 134217727
   %153 = zext nneg i32 %152 to i64
-  %154 = icmp ult i64 %indvars.iv.next, %153
+  %154 = icmp samesign ult i64 %indvars.iv.next, %153
   br i1 %154, label %155, label %.critedge, !llvm.loop !105
 
 155:                                              ; preds = %.lr.ph, %150
@@ -9780,7 +9780,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %295, %292
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %292 ], [ %297, %295 ]
   %.idx2.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %301 = getelementptr inbounds i8, ptr %300, i64 %.idx2.i
-  %.not.i121 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not.i121 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not.i121, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm4User8operandsEv.exit.i
@@ -10521,7 +10521,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %6, %9
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %6 ], [ %11, %9 ]
   %.idx2 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %15 = getelementptr inbounds i8, ptr %14, i64 %.idx2
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm4User8operandsEv.exit
@@ -17974,7 +17974,7 @@ _ZNK4llvm13ConstantRangeeqERKS0_.exit.thread:     ; preds = %44, %_ZNK4llvm5APIn
   %69 = or disjoint i16 %35, %68
   store i16 %69, ptr %0, align 8
   %70 = zext nneg i16 %67 to i64
-  %71 = icmp ult i64 %.sroa.33.0.extract.shift, %70
+  %71 = icmp samesign ult i64 %.sroa.33.0.extract.shift, %70
   br i1 %71, label %72, label %90
 
 72:                                               ; preds = %65

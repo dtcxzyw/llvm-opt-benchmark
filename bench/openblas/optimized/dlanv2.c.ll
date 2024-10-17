@@ -37,7 +37,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
   %31 = and i64 %30, 1
   %32 = icmp eq i64 %31, 0
   %33 = select i1 %32, double 1.000000e+00, double %28
-  %34 = icmp ult i32 %29, 2
+  %34 = icmp samesign ult i32 %29, 2
   br i1 %34, label %.loopexit7, label %.preheader
 
 .preheader:                                       ; preds = %25, %.preheader
@@ -50,7 +50,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
   %41 = icmp eq i64 %40, 0
   %42 = select i1 %41, double 1.000000e+00, double %39
   %43 = fmul double %35, %42
-  %44 = icmp ult i64 %36, 4
+  %44 = icmp samesign ult i64 %36, 4
   br i1 %44, label %.loopexit7, label %.preheader, !llvm.loop !3
 
 .loopexit7:                                       ; preds = %.preheader, %25, %10
@@ -187,7 +187,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
 136:                                              ; preds = %122
   %137 = fmul double %45, %123
   %138 = fmul double %45, %124
-  %139 = icmp ult i32 %125, 20
+  %139 = icmp samesign ult i32 %125, 20
   br i1 %139, label %.backedge, label %.thread
 
 140:                                              ; preds = %122
@@ -206,7 +206,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
 145:                                              ; preds = %140
   %146 = fmul double %46, %123
   %147 = fmul double %46, %124
-  %148 = icmp ult i32 %125, 20
+  %148 = icmp samesign ult i32 %125, 20
   br i1 %148, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %145, %136

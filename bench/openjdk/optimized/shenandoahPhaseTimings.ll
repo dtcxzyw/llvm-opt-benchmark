@@ -456,7 +456,7 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %26 = load i32, ptr %15, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next.i.i.i, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %27
   br i1 %28, label %.lr.ph.i.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %12
@@ -510,7 +510,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
   %indvars.iv.next.i.i.i83 = add nuw nsw i64 %indvars.iv.i.i.i82, 1
   %48 = load i32, ptr %37, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i.i.i83, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i.i.i83, %49
   br i1 %50, label %.lr.ph.i.i.i81, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader: ; preds = %.lr.ph.i.i.i81, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit
@@ -564,7 +564,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
   %indvars.iv.next.i.i.i93 = add nuw nsw i64 %indvars.iv.i.i.i92, 1
   %70 = load i32, ptr %59, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next.i.i.i93, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next.i.i.i93, %71
   br i1 %72, label %.lr.ph.i.i.i91, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader: ; preds = %.lr.ph.i.i.i91, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89
@@ -618,7 +618,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %76
   %indvars.iv.next.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i.i102, 1
   %92 = load i32, ptr %81, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next.i.i.i103, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next.i.i.i103, %93
   br i1 %94, label %.lr.ph.i.i.i101, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader: ; preds = %.lr.ph.i.i.i101, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99
@@ -672,7 +672,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %98
   %indvars.iv.next.i.i.i113 = add nuw nsw i64 %indvars.iv.i.i.i112, 1
   %114 = load i32, ptr %103, align 8
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next.i.i.i113, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next.i.i.i113, %115
   br i1 %116, label %.lr.ph.i.i.i111, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader: ; preds = %.lr.ph.i.i.i111, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109
@@ -726,7 +726,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %120
   %indvars.iv.next.i.i.i123 = add nuw nsw i64 %indvars.iv.i.i.i122, 1
   %136 = load i32, ptr %125, align 8
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %indvars.iv.next.i.i.i123, %137
+  %138 = icmp samesign ult i64 %indvars.iv.next.i.i.i123, %137
   br i1 %138, label %.lr.ph.i.i.i121, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader: ; preds = %.lr.ph.i.i.i121, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119
@@ -780,7 +780,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %142
   %indvars.iv.next.i.i.i133 = add nuw nsw i64 %indvars.iv.i.i.i132, 1
   %158 = load i32, ptr %147, align 8
   %159 = zext i32 %158 to i64
-  %160 = icmp ult i64 %indvars.iv.next.i.i.i133, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next.i.i.i133, %159
   br i1 %160, label %.lr.ph.i.i.i131, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader: ; preds = %.lr.ph.i.i.i131, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129
@@ -834,7 +834,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %164
   %indvars.iv.next.i.i.i143 = add nuw nsw i64 %indvars.iv.i.i.i142, 1
   %180 = load i32, ptr %169, align 8
   %181 = zext i32 %180 to i64
-  %182 = icmp ult i64 %indvars.iv.next.i.i.i143, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next.i.i.i143, %181
   br i1 %182, label %.lr.ph.i.i.i141, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader: ; preds = %.lr.ph.i.i.i141, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139
@@ -888,7 +888,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %186
   %indvars.iv.next.i.i.i153 = add nuw nsw i64 %indvars.iv.i.i.i152, 1
   %202 = load i32, ptr %191, align 8
   %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %indvars.iv.next.i.i.i153, %203
+  %204 = icmp samesign ult i64 %indvars.iv.next.i.i.i153, %203
   br i1 %204, label %.lr.ph.i.i.i151, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader: ; preds = %.lr.ph.i.i.i151, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149
@@ -1060,7 +1060,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = load i32, ptr %10, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next.i.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next.i.i, %15
   br i1 %16, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %5
@@ -1146,7 +1146,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %22
@@ -1233,7 +1233,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %23 = load i32, ptr %19, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next.i.i, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next.i.i, %24
   br i1 %25, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %17
@@ -1341,7 +1341,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %0, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %37, %26, %23
@@ -2565,7 +2565,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -3326,7 +3326,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i32, ptr %3, align 8
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv.next.i, %8
+  %9 = icmp samesign ult i64 %indvars.iv.next.i, %8
   br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !23
 
 _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1

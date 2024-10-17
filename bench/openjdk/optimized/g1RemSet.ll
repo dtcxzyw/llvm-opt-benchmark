@@ -1785,7 +1785,7 @@ define hidden void @_ZN8G1RemSet19complete_evac_phaseEb(ptr nocapture noundef no
   %32 = phi i32 [ %14, %13 ], [ %.pre.i.i, %23 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next.i.i, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next.i.i, %33
   br i1 %34, label %13, label %_ZN17G1RemSetScanState19complete_evac_phaseEb.exit, !llvm.loop !16
 
 _ZN17G1RemSetScanState19complete_evac_phaseEb.exit: ; preds = %31, %2, %4
@@ -4046,7 +4046,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_ite
   %30 = sub i64 %12, %25
   %31 = lshr i64 %30, 3
   %32 = lshr i64 %31, %28
-  %33 = icmp ult i64 %29, %32
+  %33 = icmp samesign ult i64 %29, %32
   br i1 %33, label %34, label %.loopexit.i.i.i
 
 34:                                               ; preds = %14
@@ -4072,7 +4072,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_ite
 47:                                               ; preds = %50, %44
   %.025.i.i.i = phi i64 [ %35, %44 ], [ %48, %50 ]
   %48 = add nuw nsw i64 %.025.i.i.i, 1
-  %49 = icmp ult i64 %48, %46
+  %49 = icmp samesign ult i64 %48, %46
   br i1 %49, label %50, label %.loopexit.i.i.i
 
 50:                                               ; preds = %47
@@ -4332,7 +4332,7 @@ _ZNK12G1HeapRegion12block_is_objEPKP12HeapWordImplPS1_.exit: ; preds = %3
   %37 = sub i64 %36, %11
   %38 = lshr i64 %37, 3
   %39 = lshr i64 %38, %16
-  %40 = icmp ult i64 %35, %39
+  %40 = icmp samesign ult i64 %35, %39
   br i1 %40, label %41, label %.loopexit.i.i.i.i.i
 
 41:                                               ; preds = %25
@@ -4357,7 +4357,7 @@ _ZNK12G1HeapRegion12block_is_objEPKP12HeapWordImplPS1_.exit: ; preds = %3
 53:                                               ; preds = %56, %50
   %.025.i.i.i.i.i = phi i64 [ %42, %50 ], [ %54, %56 ]
   %54 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp samesign ult i64 %54, %52
   br i1 %55, label %56, label %.loopexit.i.i.i.i.i
 
 56:                                               ; preds = %53
@@ -5381,7 +5381,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -7662,7 +7662,7 @@ _ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40: ; preds = %34
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %398 = load i32, ptr %391, align 8
   %399 = zext i32 %398 to i64
-  %400 = icmp ult i64 %indvars.iv.next.i47, %399
+  %400 = icmp samesign ult i64 %indvars.iv.next.i47, %399
   br i1 %400, label %394, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, !llvm.loop !58
 
 default.unreachable54:                            ; preds = %3
@@ -8273,7 +8273,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZN15G1CardSet
 .preheader:                                       ; preds = %18, %22
   %.025.i.i = phi i64 [ %20, %22 ], [ %11, %18 ]
   %20 = add nuw nsw i64 %.025.i.i, 1
-  %21 = icmp ult i64 %20, %8
+  %21 = icmp samesign ult i64 %20, %8
   br i1 %21, label %22, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 22:                                               ; preds = %.preheader
@@ -8814,7 +8814,7 @@ define linkonce_odr hidden void @_ZN17G1RemSetScanState20G1ClearCardTableTask7do
   %36 = load ptr, ptr %35, align 8
   tail call void @_ZN12G1HeapRegion15clear_cardtableEv(ptr noundef nonnull align 8 dereferenceable(136) %36) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = icmp ult i64 %indvars.iv.next, %26
+  %37 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -14836,7 +14836,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -15079,7 +15079,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -22960,7 +22960,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %54, %58
   %.025.i.i.i.i.i = phi i64 [ %56, %58 ], [ %48, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %46
+  %57 = icmp samesign ult i64 %56, %46
   br i1 %57, label %58, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 58:                                               ; preds = %.preheader.i.i.i
@@ -23078,7 +23078,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %54, %58
   %.025.i.i.i.i.i = phi i64 [ %56, %58 ], [ %48, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %46
+  %57 = icmp samesign ult i64 %56, %46
   br i1 %57, label %58, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 58:                                               ; preds = %.preheader.i.i.i
@@ -26217,7 +26217,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -26410,7 +26410,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -27155,7 +27155,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_ite
   %30 = sub i64 %12, %25
   %31 = lshr i64 %30, 3
   %32 = lshr i64 %31, %28
-  %33 = icmp ult i64 %29, %32
+  %33 = icmp samesign ult i64 %29, %32
   br i1 %33, label %34, label %.loopexit.i.i.i
 
 34:                                               ; preds = %14
@@ -27181,7 +27181,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_ite
 47:                                               ; preds = %50, %44
   %.025.i.i.i = phi i64 [ %35, %44 ], [ %48, %50 ]
   %48 = add nuw nsw i64 %.025.i.i.i, 1
-  %49 = icmp ult i64 %48, %46
+  %49 = icmp samesign ult i64 %48, %46
   br i1 %49, label %50, label %.loopexit.i.i.i
 
 50:                                               ; preds = %47
@@ -30061,7 +30061,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader
@@ -30461,7 +30461,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader

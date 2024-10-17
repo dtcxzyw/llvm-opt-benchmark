@@ -742,8 +742,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %105 = load i16, ptr %104, align 4
   %.not116.us = icmp eq i16 %105, 0
   %106 = zext i16 %105 to i32
-  %.not117.us = icmp ult i32 %.089171, %106
-  %or.cond133.us = or i1 %.not116.us, %.not117.us
+  %.not117.us = icmp samesign ult i32 %.089171, %106
+  %or.cond133.us = select i1 %.not116.us, i1 true, i1 %.not117.us
   br i1 %or.cond133.us, label %113, label %107
 
 107:                                              ; preds = %.lr.ph165.split.us
@@ -783,8 +783,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %123 = load i16, ptr %122, align 4
   %.not116 = icmp eq i16 %123, 0
   %124 = zext i16 %123 to i32
-  %.not117 = icmp ult i32 %.089171, %124
-  %or.cond133 = or i1 %.not116, %.not117
+  %.not117 = icmp samesign ult i32 %.089171, %124
+  %or.cond133 = select i1 %.not116, i1 true, i1 %.not117
   br i1 %or.cond133, label %135, label %125
 
 125:                                              ; preds = %.lr.ph165.split

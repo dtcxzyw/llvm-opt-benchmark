@@ -382,7 +382,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx32 = getelementptr inbounds %struct.aiTexel, ptr %call11, i64 %indvars.iv
   store i8 %11, ptr %arrayidx32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp15 = icmp ult i64 %indvars.iv.next, %conv
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %conv
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.end
@@ -427,7 +427,7 @@ for.body43:                                       ; preds = %_ZN6Assimp11MDLImpo
   %mNumTextures41 = getelementptr inbounds i8, ptr %21, i64 64
   %22 = load i32, ptr %mNumTextures41, align 8
   %23 = zext i32 %22 to i64
-  %cmp42 = icmp ult i64 %indvars.iv.next46, %23
+  %cmp42 = icmp samesign ult i64 %indvars.iv.next46, %23
   br i1 %cmp42, label %for.body43, label %for.end52.loopexit, !llvm.loop !7
 
 for.end52.loopexit:                               ; preds = %for.body43
@@ -589,7 +589,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %mNumTextures25 = getelementptr inbounds i8, ptr %17, i64 64
   %18 = load i32, ptr %mNumTextures25, align 8
   %19 = zext i32 %18 to i64
-  %cmp26 = icmp ult i64 %indvars.iv.next, %19
+  %cmp26 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp26, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -719,7 +719,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %17 = load i32, ptr %mHeight14, align 4
   %mul21 = mul i32 %17, %16
   %18 = zext i32 %mul21 to i64
-  %cmp22 = icmp ult i64 %indvars.iv.next, %18
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp22, label %for.body, label %if.end53.loopexit, !llvm.loop !9
 
 if.end53.loopexit:                                ; preds = %for.body
@@ -801,7 +801,7 @@ for.body84:                                       ; preds = %for.cond79.preheade
   %33 = load i32, ptr %mHeight71, align 4
   %mul82 = mul i32 %33, %32
   %34 = zext i32 %mul82 to i64
-  %cmp83 = icmp ult i64 %indvars.iv.next186, %34
+  %cmp83 = icmp samesign ult i64 %indvars.iv.next186, %34
   br i1 %cmp83, label %for.body84, label %if.end137.loopexit, !llvm.loop !10
 
 if.end137.loopexit:                               ; preds = %for.body84
@@ -880,7 +880,7 @@ for.body170:                                      ; preds = %for.cond165.prehead
   %48 = load i32, ptr %mHeight157, align 4
   %mul168 = mul i32 %48, %47
   %49 = zext i32 %mul168 to i64
-  %cmp169 = icmp ult i64 %indvars.iv.next189, %49
+  %cmp169 = icmp samesign ult i64 %indvars.iv.next189, %49
   br i1 %cmp169, label %for.body170, label %if.end198.loopexit, !llvm.loop !11
 
 if.end198.loopexit:                               ; preds = %for.body170
@@ -962,7 +962,7 @@ for.body231:                                      ; preds = %for.cond226.prehead
   %64 = load i32, ptr %mHeight218, align 4
   %mul229 = mul i32 %64, %63
   %65 = zext i32 %mul229 to i64
-  %cmp230 = icmp ult i64 %indvars.iv.next195, %65
+  %cmp230 = icmp samesign ult i64 %indvars.iv.next195, %65
   br i1 %cmp230, label %for.body231, label %if.end262.loopexit, !llvm.loop !12
 
 if.end262.loopexit:                               ; preds = %for.body231
@@ -1034,7 +1034,7 @@ for.body290:                                      ; preds = %if.then284, %for.bo
   %80 = load i32, ptr %mHeight278, align 4
   %mul288 = mul i32 %80, %79
   %81 = zext i32 %mul288 to i64
-  %cmp289 = icmp ult i64 %indvars.iv.next192, %81
+  %cmp289 = icmp samesign ult i64 %indvars.iv.next192, %81
   br i1 %cmp289, label %for.body290, label %for.end318.loopexit, !llvm.loop !13
 
 for.end318.loopexit:                              ; preds = %for.body290
@@ -1184,7 +1184,7 @@ for.body:                                         ; preds = %if.else38, %for.bod
   %mNumTextures49 = getelementptr inbounds i8, ptr %18, i64 64
   %19 = load i32, ptr %mNumTextures49, align 8
   %20 = zext i32 %19 to i64
-  %cmp50 = icmp ult i64 %indvars.iv.next, %20
+  %cmp50 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp50, label %for.body, label %for.end.loopexit, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -1841,7 +1841,7 @@ for.body319:                                      ; preds = %invoke.cont311, %fo
   %mNumTextures317 = getelementptr inbounds i8, ptr %76, i64 64
   %77 = load i32, ptr %mNumTextures317, align 8
   %78 = zext i32 %77 to i64
-  %cmp318 = icmp ult i64 %indvars.iv.next145, %78
+  %cmp318 = icmp samesign ult i64 %indvars.iv.next145, %78
   br i1 %cmp318, label %for.body319, label %for.end328.loopexit, !llvm.loop !17
 
 for.end328.loopexit:                              ; preds = %for.body319

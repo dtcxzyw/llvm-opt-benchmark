@@ -191,7 +191,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   %66 = add nuw nsw i64 %.081107.i, 1
-  %67 = icmp ule i64 %62, %66
+  %67 = icmp samesign ule i64 %62, %66
   %.not93.i = select i1 %65, i1 true, i1 %67
   br i1 %.not93.i, label %._crit_edge.i, label %.lr.ph.i
 

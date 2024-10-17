@@ -8266,7 +8266,7 @@ define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZL42stb
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
-  %12 = icmp ult i32 %11, 128
+  %12 = icmp samesign ult i32 %11, 128
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
@@ -10168,7 +10168,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_ii
 
 78:                                               ; preds = %62
   %79 = add nuw nsw i64 %indvars.iv, 1
-  %80 = icmp ult i64 %79, %25
+  %80 = icmp samesign ult i64 %79, %25
   br i1 %80, label %81, label %144
 
 81:                                               ; preds = %78

@@ -26473,7 +26473,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %203, label %.loopexit955, label %204
 
 204:                                              ; preds = %200
-  %205 = icmp ult i64 %201, 4
+  %205 = icmp samesign ult i64 %201, 4
   br i1 %205, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbecdc68c90d6a734E.exit.i", label %206
 
 206:                                              ; preds = %204
@@ -27087,7 +27087,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 .lr.ph1560:                                       ; preds = %385
   %388 = icmp ult i64 %.sroa.8534.01563, %.sroa.5728.0761
   %389 = getelementptr inbounds [0 x i16], ptr %.sroa.3727.0753, i64 0, i64 %.sroa.8534.01563
-  %390 = icmp ult i64 %.sroa.8534.01563, 4
+  %390 = icmp samesign ult i64 %.sroa.8534.01563, 4
   %391 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8534.01563
   %392 = getelementptr inbounds i8, ptr %.sroa.0532.01562, i64 26
   %393 = getelementptr inbounds i8, ptr %.sroa.0532.01562, i64 20
@@ -30881,7 +30881,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %436 = load i16, ptr %170, align 4, !noundef !4
   %437 = zext i16 %436 to i64
   %438 = mul nuw nsw i64 %437, %437
-  %439 = icmp ugt i64 %438, 16384
+  %439 = icmp samesign ugt i64 %438, 16384
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %51)
   %440 = getelementptr inbounds i8, ptr %51, i64 48
   store ptr %1, ptr %440, align 8
@@ -31752,7 +31752,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %730, label %731, label %.invoke1399.i
 
 731:                                              ; preds = %725
-  %732 = icmp ult i64 %.sroa.7347.0753.us.i, 4
+  %732 = icmp samesign ult i64 %.sroa.7347.0753.us.i, 4
   br i1 %732, label %733, label %.invoke1399.i
 
 733:                                              ; preds = %731
@@ -31781,7 +31781,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %748, label %749, label %.invoke1399.i
 
 749:                                              ; preds = %743
-  %750 = icmp ult i64 %.sroa.7347.0753.us.i, 4
+  %750 = icmp samesign ult i64 %.sroa.7347.0753.us.i, 4
   br i1 %750, label %751, label %.invoke1399.i
 
 751:                                              ; preds = %749
@@ -31796,7 +31796,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %757, label %.thread1132.i, label %.invoke1399.i
 
 758:                                              ; preds = %739
-  %759 = icmp ult i64 %.sroa.7347.0753.us.i, 4
+  %759 = icmp samesign ult i64 %.sroa.7347.0753.us.i, 4
   br i1 %759, label %.thread414.us.i, label %.invoke1399.i
 
 .thread414.us.i:                                  ; preds = %758
@@ -32759,7 +32759,7 @@ default.unreachable:                              ; preds = %.thread1133.i
   %1053 = load i16, ptr %.sroa.683.sroa.6.0..sroa.683.0..sroa_idx84.sroa_idx, align 4, !noundef !4
   %1054 = zext i16 %1053 to i64
   %1055 = mul nuw nsw i64 %1054, %1054
-  %1056 = icmp ugt i64 %1055, 16384
+  %1056 = icmp samesign ugt i64 %1055, 16384
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11130.sroa.0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %69)
   %1057 = load i64, ptr %3, align 8, !noalias !6675, !noundef !4
@@ -33744,7 +33744,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.sroa.0.043 = phi i8 [ %5, %.lr.ph ], [ %.sroa.0.1, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = icmp ult i64 %indvars.iv, 64
+  %18 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %18, label %20, label %25
 
 19:                                               ; preds = %40, %72, %84, %54, %._crit_edge
@@ -33806,7 +33806,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
 
 45:                                               ; preds = %47, %82, %70, %43
   %.sroa.0.1 = phi i8 [ %44, %43 ], [ %.sroa.0.043, %82 ], [ %.sroa.0.043, %70 ], [ %.sroa.0.043, %47 ]
-  %46 = icmp ult i64 %indvars.iv.next, %15
+  %46 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %46, label %17, label %._crit_edge
 
 47:                                               ; preds = %33, %39
@@ -59140,7 +59140,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN96_$LT$futures_util..sink..send..Se
   %17 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h6e37279d66105605E.llvm.4353189056609371792"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable_or_null(32) %1)
   br i1 %17, label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit", label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit.thread"
 
-"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit.thread": ; preds = %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17hb4a8976d965f4ad6E.llvm.4353189056609371792.exit.i", %7, %13
+"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit.thread": ; preds = %7, %13, %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17hb4a8976d965f4ad6E.llvm.4353189056609371792.exit.i"
   br label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit"
 
 "_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit": ; preds = %5, %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17hb4a8976d965f4ad6E.llvm.4353189056609371792.exit.i", %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17he0e526d71811b068E.exit.thread"

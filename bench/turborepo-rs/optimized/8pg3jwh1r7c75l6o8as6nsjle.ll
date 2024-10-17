@@ -3667,7 +3667,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit100.
   %.sroa.018.0 = phi ptr [ %146, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit93 ], [ %152, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit100._crit_edge ]
   %155 = getelementptr inbounds i8, ptr %.sroa.018.0, i64 34
   %156 = and i8 %154, 15
-  %157 = icmp ugt i8 %156, 5
+  %157 = icmp samesign ugt i8 %156, 5
   br i1 %157, label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit, label %158
 
 158:                                              ; preds = %153
@@ -3725,7 +3725,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit107.
   %.sroa.010.0 = phi ptr [ %171, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit ], [ %177, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit107._crit_edge ]
   %180 = getelementptr inbounds i8, ptr %.sroa.010.0, i64 34
   %181 = and i8 %179, 15
-  %182 = icmp ugt i8 %181, 5
+  %182 = icmp samesign ugt i8 %181, 5
   br i1 %182, label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit, label %183
 
 183:                                              ; preds = %178
@@ -3916,8 +3916,8 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   %274 = lshr i8 %271, %273
   %275 = and i8 %274, 3
   %276 = icmp ne i8 %275, 3
-  %277 = icmp ugt i8 %275, 1
-  %278 = and i1 %276, %277
+  %277 = icmp samesign ugt i8 %275, 1
+  %278 = select i1 %276, i1 %277, i1 false
   %cond.fr.i = freeze i1 %278
   %279 = select i1 %cond.fr.i, i8 -127, i8 1
   br label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit
@@ -4724,7 +4724,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %10 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %switch = icmp ult i64 %10, 4
+  %switch = icmp samesign ult i64 %10, 4
   br i1 %switch, label %123, label %118
 
 12:                                               ; preds = %2
@@ -5009,7 +5009,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %10 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %switch = icmp ult i64 %10, 4
+  %switch = icmp samesign ult i64 %10, 4
   br i1 %switch, label %82, label %77
 
 12:                                               ; preds = %2
@@ -5322,7 +5322,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %6 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %switch = icmp ult i64 %6, 4
+  %switch = icmp samesign ult i64 %6, 4
   br i1 %switch, label %10, label %8
 
 8:                                                ; preds = %2
@@ -5336,7 +5336,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %12 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %13 = icmp ult i64 %12, 6
   tail call void @llvm.assume(i1 %13)
-  %switch10 = icmp ult i64 %12, 4
+  %switch10 = icmp samesign ult i64 %12, 4
   br i1 %switch10, label %10, label %14
 
 14:                                               ; preds = %11
@@ -5491,7 +5491,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %45 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %46 = icmp ult i64 %45, 6
   call void @llvm.assume(i1 %46)
-  %switch = icmp ult i64 %45, 4
+  %switch = icmp samesign ult i64 %45, 4
   br i1 %switch, label %124, label %122
 
 47:                                               ; preds = %42
@@ -5719,7 +5719,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15set_origin_mode.exit: ; p
   %131 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %132 = icmp ult i64 %131, 6
   call void @llvm.assume(i1 %132)
-  %switch21 = icmp ult i64 %131, 4
+  %switch21 = icmp samesign ult i64 %131, 4
   br i1 %switch21, label %135, label %133
 
 133:                                              ; preds = %130
@@ -5780,7 +5780,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %6 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %switch = icmp ult i64 %6, 4
+  %switch = icmp samesign ult i64 %6, 4
   br i1 %switch, label %10, label %8
 
 8:                                                ; preds = %2
@@ -5794,7 +5794,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %12 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %13 = icmp ult i64 %12, 6
   tail call void @llvm.assume(i1 %13)
-  %switch10 = icmp ult i64 %12, 4
+  %switch10 = icmp samesign ult i64 %12, 4
   br i1 %switch10, label %10, label %14
 
 14:                                               ; preds = %11
@@ -5950,7 +5950,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %44 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %45 = icmp ult i64 %44, 6
   call void @llvm.assume(i1 %45)
-  %switch = icmp ult i64 %44, 4
+  %switch = icmp samesign ult i64 %44, 4
   br i1 %switch, label %90, label %88
 
 46:                                               ; preds = %41
@@ -6109,7 +6109,7 @@ _RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen16clear_mouse_mode.e
   %97 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %98 = icmp ult i64 %97, 6
   call void @llvm.assume(i1 %98)
-  %switch21 = icmp ult i64 %97, 4
+  %switch21 = icmp samesign ult i64 %97, 4
   br i1 %switch21, label %101, label %99
 
 99:                                               ; preds = %96
@@ -6372,7 +6372,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %89 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %90 = icmp ult i64 %89, 6
   call void @llvm.assume(i1 %90)
-  %switch195 = icmp ult i64 %89, 4
+  %switch195 = icmp samesign ult i64 %89, 4
   br i1 %switch195, label %135, label %133
 
 91:                                               ; preds = %85
@@ -6509,7 +6509,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %142 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %143 = icmp ult i64 %142, 6
   call void @llvm.assume(i1 %143)
-  %switch217 = icmp ult i64 %142, 4
+  %switch217 = icmp samesign ult i64 %142, 4
   br i1 %switch217, label %150, label %144
 
 144:                                              ; preds = %141
@@ -6591,7 +6591,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %167 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %168 = icmp ult i64 %167, 6
   call void @llvm.assume(i1 %168)
-  %switch223 = icmp ugt i64 %167, 3
+  %switch223 = icmp samesign ugt i64 %167, 3
   br i1 %switch223, label %211, label %.critedge
 
 169:                                              ; preds = %163
@@ -6728,7 +6728,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %219 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %220 = icmp ult i64 %219, 6
   call void @llvm.assume(i1 %220)
-  %switch246 = icmp ugt i64 %219, 3
+  %switch246 = icmp samesign ugt i64 %219, 3
   br i1 %switch246, label %222, label %221
 
 221:                                              ; preds = %227, %218
@@ -6771,7 +6771,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %229 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %230 = icmp ult i64 %229, 6
   call void @llvm.assume(i1 %230)
-  %switch256 = icmp ugt i64 %229, 3
+  %switch256 = icmp samesign ugt i64 %229, 3
   br i1 %switch256, label %303, label %.critedge284
 
 231:                                              ; preds = %_RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundstE8containstECs8mTrBI1stz4_15turborepo_vt100.exit309.thread
@@ -6969,7 +6969,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   %312 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %313 = icmp ult i64 %312, 6
   call void @llvm.assume(i1 %313)
-  %switch286 = icmp ugt i64 %312, 3
+  %switch286 = icmp samesign ugt i64 %312, 3
   br i1 %switch286, label %319, label %314
 
 314:                                              ; preds = %320, %311
@@ -7062,7 +7062,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %13 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %14 = icmp ult i64 %13, 6
   call void @llvm.assume(i1 %14)
-  %switch = icmp ult i64 %13, 4
+  %switch = icmp samesign ult i64 %13, 4
   br i1 %switch, label %18, label %19
 
 15:                                               ; preds = %2

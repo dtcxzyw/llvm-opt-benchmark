@@ -156,11 +156,11 @@ if.else:                                          ; preds = %if.end25
   %shr.i.i.i = lshr i32 %15, 16
   %17 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %17, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -179,7 +179,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -198,7 +198,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %if.else
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -251,11 +251,11 @@ if.then59:                                        ; preds = %_ZN9Imath_3_24halfa
   %shr.i.i.i50 = lshr i32 %25, 16
   %27 = trunc nuw i32 %shr.i.i.i50 to i16
   %conv.i.i.i51 = and i16 %27, -32768
-  %cmp.i.i.i52 = icmp ugt i32 %and.i.i.i49, 947912703
+  %cmp.i.i.i52 = icmp samesign ugt i32 %and.i.i.i49, 947912703
   br i1 %cmp.i.i.i52, label %if.then.i.i.i75, label %if.end37.i.i.i53
 
 if.then.i.i.i75:                                  ; preds = %if.then59
-  %cmp2.i.i.i76 = icmp ugt i32 %and.i.i.i49, 2139095039
+  %cmp2.i.i.i76 = icmp samesign ugt i32 %and.i.i.i49, 2139095039
   br i1 %cmp2.i.i.i76, label %if.then4.i.i.i90, label %if.end20.i.i.i77
 
 if.then4.i.i.i90:                                 ; preds = %if.then.i.i.i75
@@ -274,7 +274,7 @@ if.end.i.i.i93:                                   ; preds = %if.then4.i.i.i90
   br label %if.end68
 
 if.end20.i.i.i77:                                 ; preds = %if.then.i.i.i75
-  %cmp21.i.i.i78 = icmp ugt i32 %and.i.i.i49, 1199566847
+  %cmp21.i.i.i78 = icmp samesign ugt i32 %and.i.i.i49, 1199566847
   br i1 %cmp21.i.i.i78, label %if.then23.i.i.i88, label %if.end27.i.i.i79
 
 if.then23.i.i.i88:                                ; preds = %if.end20.i.i.i77
@@ -293,7 +293,7 @@ if.end27.i.i.i79:                                 ; preds = %if.end20.i.i.i77
   br label %if.end68
 
 if.end37.i.i.i53:                                 ; preds = %if.then59
-  %cmp38.i.i.i54 = icmp ult i32 %and.i.i.i49, 855638017
+  %cmp38.i.i.i54 = icmp samesign ult i32 %and.i.i.i49, 855638017
   br i1 %cmp38.i.i.i54, label %if.end68, label %if.end40.i.i.i55
 
 if.end40.i.i.i55:                                 ; preds = %if.end37.i.i.i53
@@ -342,11 +342,11 @@ if.then77:                                        ; preds = %if.end68
   %shr.i.i.i106 = lshr i32 %34, 16
   %36 = trunc nuw i32 %shr.i.i.i106 to i16
   %conv.i.i.i107 = and i16 %36, -32768
-  %cmp.i.i.i108 = icmp ugt i32 %and.i.i.i105, 947912703
+  %cmp.i.i.i108 = icmp samesign ugt i32 %and.i.i.i105, 947912703
   br i1 %cmp.i.i.i108, label %if.then.i.i.i131, label %if.end37.i.i.i109
 
 if.then.i.i.i131:                                 ; preds = %if.then77
-  %cmp2.i.i.i132 = icmp ugt i32 %and.i.i.i105, 2139095039
+  %cmp2.i.i.i132 = icmp samesign ugt i32 %and.i.i.i105, 2139095039
   br i1 %cmp2.i.i.i132, label %if.then4.i.i.i146, label %if.end20.i.i.i133
 
 if.then4.i.i.i146:                                ; preds = %if.then.i.i.i131
@@ -365,7 +365,7 @@ if.end.i.i.i149:                                  ; preds = %if.then4.i.i.i146
   br label %_ZN9Imath_3_24halfaSEf.exit154
 
 if.end20.i.i.i133:                                ; preds = %if.then.i.i.i131
-  %cmp21.i.i.i134 = icmp ugt i32 %and.i.i.i105, 1199566847
+  %cmp21.i.i.i134 = icmp samesign ugt i32 %and.i.i.i105, 1199566847
   br i1 %cmp21.i.i.i134, label %if.then23.i.i.i144, label %if.end27.i.i.i135
 
 if.then23.i.i.i144:                               ; preds = %if.end20.i.i.i133
@@ -384,7 +384,7 @@ if.end27.i.i.i135:                                ; preds = %if.end20.i.i.i133
   br label %_ZN9Imath_3_24halfaSEf.exit154
 
 if.end37.i.i.i109:                                ; preds = %if.then77
-  %cmp38.i.i.i110 = icmp ult i32 %and.i.i.i105, 855638017
+  %cmp38.i.i.i110 = icmp samesign ult i32 %and.i.i.i105, 855638017
   br i1 %cmp38.i.i.i110, label %_ZN9Imath_3_24halfaSEf.exit154, label %if.end40.i.i.i111
 
 if.end40.i.i.i111:                                ; preds = %if.end37.i.i.i109
@@ -556,11 +556,11 @@ if.then:                                          ; preds = %for.body
   %shr.i.i.i = lshr i32 %48, 16
   %50 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %50, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -579,7 +579,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -598,7 +598,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %if.then
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -727,11 +727,11 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i133 = lshr i32 %99, 16
   %101 = trunc nuw i32 %shr.i.i.i133 to i16
   %conv.i.i.i134 = and i16 %101, -32768
-  %cmp.i.i.i135 = icmp ugt i32 %and.i.i.i132, 947912703
+  %cmp.i.i.i135 = icmp samesign ugt i32 %and.i.i.i132, 947912703
   br i1 %cmp.i.i.i135, label %if.then.i.i.i158, label %if.end37.i.i.i136
 
 if.then.i.i.i158:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp2.i.i.i159 = icmp ugt i32 %and.i.i.i132, 2139095039
+  %cmp2.i.i.i159 = icmp samesign ugt i32 %and.i.i.i132, 2139095039
   br i1 %cmp2.i.i.i159, label %if.then4.i.i.i173, label %if.end20.i.i.i160
 
 if.then4.i.i.i173:                                ; preds = %if.then.i.i.i158
@@ -750,7 +750,7 @@ if.end.i.i.i176:                                  ; preds = %if.then4.i.i.i173
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 if.end20.i.i.i160:                                ; preds = %if.then.i.i.i158
-  %cmp21.i.i.i161 = icmp ugt i32 %and.i.i.i132, 1199566847
+  %cmp21.i.i.i161 = icmp samesign ugt i32 %and.i.i.i132, 1199566847
   br i1 %cmp21.i.i.i161, label %if.then23.i.i.i171, label %if.end27.i.i.i162
 
 if.then23.i.i.i171:                               ; preds = %if.end20.i.i.i160
@@ -769,7 +769,7 @@ if.end27.i.i.i162:                                ; preds = %if.end20.i.i.i160
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 if.end37.i.i.i136:                                ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp38.i.i.i137 = icmp ult i32 %and.i.i.i132, 855638017
+  %cmp38.i.i.i137 = icmp samesign ult i32 %and.i.i.i132, 855638017
   br i1 %cmp38.i.i.i137, label %_ZN9Imath_3_24halfaSEf.exit181, label %if.end40.i.i.i138
 
 if.end40.i.i.i138:                                ; preds = %if.end37.i.i.i136
@@ -966,11 +966,11 @@ if.then:                                          ; preds = %for.body
   %shr.i.i.i = lshr i32 %60, 16
   %62 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %62, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -989,7 +989,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -1008,7 +1008,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %if.then
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -1152,11 +1152,11 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i132 = lshr i32 %126, 16
   %128 = trunc nuw i32 %shr.i.i.i132 to i16
   %conv.i.i.i133 = and i16 %128, -32768
-  %cmp.i.i.i134 = icmp ugt i32 %and.i.i.i131, 947912703
+  %cmp.i.i.i134 = icmp samesign ugt i32 %and.i.i.i131, 947912703
   br i1 %cmp.i.i.i134, label %if.then.i.i.i157, label %if.end37.i.i.i135
 
 if.then.i.i.i157:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp2.i.i.i158 = icmp ugt i32 %and.i.i.i131, 2139095039
+  %cmp2.i.i.i158 = icmp samesign ugt i32 %and.i.i.i131, 2139095039
   br i1 %cmp2.i.i.i158, label %if.then4.i.i.i172, label %if.end20.i.i.i159
 
 if.then4.i.i.i172:                                ; preds = %if.then.i.i.i157
@@ -1175,7 +1175,7 @@ if.end.i.i.i175:                                  ; preds = %if.then4.i.i.i172
   br label %_ZN9Imath_3_24halfaSEf.exit180
 
 if.end20.i.i.i159:                                ; preds = %if.then.i.i.i157
-  %cmp21.i.i.i160 = icmp ugt i32 %and.i.i.i131, 1199566847
+  %cmp21.i.i.i160 = icmp samesign ugt i32 %and.i.i.i131, 1199566847
   br i1 %cmp21.i.i.i160, label %if.then23.i.i.i170, label %if.end27.i.i.i161
 
 if.then23.i.i.i170:                               ; preds = %if.end20.i.i.i159
@@ -1194,7 +1194,7 @@ if.end27.i.i.i161:                                ; preds = %if.end20.i.i.i159
   br label %_ZN9Imath_3_24halfaSEf.exit180
 
 if.end37.i.i.i135:                                ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp38.i.i.i136 = icmp ult i32 %and.i.i.i131, 855638017
+  %cmp38.i.i.i136 = icmp samesign ult i32 %and.i.i.i131, 855638017
   br i1 %cmp38.i.i.i136, label %_ZN9Imath_3_24halfaSEf.exit180, label %if.end40.i.i.i137
 
 if.end40.i.i.i137:                                ; preds = %if.end37.i.i.i135
@@ -1314,7 +1314,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %shl.i.us = shl nuw nsw i32 %add.i.us, %sub.i
   %conv15.i.us = trunc i32 %shl.i.us to i16
   %conv16.i.us = and i32 %shl.i.us, 64512
-  %cmp17.i.us = icmp ugt i32 %conv16.i.us, 31743
+  %cmp17.i.us = icmp samesign ugt i32 %conv16.i.us, 31743
   %conv27.i.us = and i16 %8, %1
   %e.0.i.us = select i1 %cmp17.i.us, i16 %conv27.i.us, i16 %conv15.i.us
   %or12.i.us = or i16 %e.0.i.us, %and.i.us
@@ -1373,7 +1373,7 @@ if.then.us73:                                     ; preds = %for.body.us60
   %shl.i27.us = shl nuw nsw i32 %add.i26.us, %sub.i22
   %conv15.i28.us = trunc i32 %shl.i27.us to i16
   %conv16.i29.us = and i32 %shl.i27.us, 64512
-  %cmp17.i30.us = icmp ugt i32 %conv16.i29.us, 31743
+  %cmp17.i30.us = icmp samesign ugt i32 %conv16.i29.us, 31743
   %conv27.i32.us = and i16 %14, %3
   %e.0.i33.us = select i1 %cmp17.i30.us, i16 %conv27.i32.us, i16 %conv15.i28.us
   %or12.i34.us = or i16 %e.0.i33.us, %and.i20.us
@@ -1389,7 +1389,7 @@ if.then.us73:                                     ; preds = %for.body.us60
   %shl.i46.us = shl nuw nsw i32 %add.i45.us, %sub.i22
   %conv15.i47.us = trunc i32 %shl.i46.us to i16
   %conv16.i48.us = and i32 %shl.i46.us, 64512
-  %cmp17.i49.us = icmp ugt i32 %conv16.i48.us, 31743
+  %cmp17.i49.us = icmp samesign ugt i32 %conv16.i48.us, 31743
   %conv27.i51.us = and i16 %15, %3
   %e.0.i52.us = select i1 %cmp17.i49.us, i16 %conv27.i51.us, i16 %conv15.i47.us
   %or12.i53.us = or i16 %e.0.i52.us, %and.i39.us
@@ -1416,7 +1416,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %shl.i = shl nuw nsw i32 %add.i, %sub.i
   %conv15.i = trunc i32 %shl.i to i16
   %conv16.i = and i32 %shl.i, 64512
-  %cmp17.i = icmp ugt i32 %conv16.i, 31743
+  %cmp17.i = icmp samesign ugt i32 %conv16.i, 31743
   %conv27.i = and i16 %16, %1
   %e.0.i = select i1 %cmp17.i, i16 %conv27.i, i16 %conv15.i
   %or12.i = or i16 %e.0.i, %and.i
@@ -1442,7 +1442,7 @@ if.then:                                          ; preds = %for.body
   %shl.i27 = shl nuw nsw i32 %add.i26, %sub.i22
   %conv15.i28 = trunc i32 %shl.i27 to i16
   %conv16.i29 = and i32 %shl.i27, 64512
-  %cmp17.i30 = icmp ugt i32 %conv16.i29, 31743
+  %cmp17.i30 = icmp samesign ugt i32 %conv16.i29, 31743
   %conv27.i32 = and i16 %18, %3
   %e.0.i33 = select i1 %cmp17.i30, i16 %conv27.i32, i16 %conv15.i28
   %or12.i34 = or i16 %e.0.i33, %and.i20
@@ -1458,7 +1458,7 @@ if.then:                                          ; preds = %for.body
   %shl.i46 = shl nuw nsw i32 %add.i45, %sub.i22
   %conv15.i47 = trunc i32 %shl.i46 to i16
   %conv16.i48 = and i32 %shl.i46, 64512
-  %cmp17.i49 = icmp ugt i32 %conv16.i48, 31743
+  %cmp17.i49 = icmp samesign ugt i32 %conv16.i48, 31743
   %conv27.i51 = and i16 %19, %3
   %e.0.i52 = select i1 %cmp17.i49, i16 %conv27.i51, i16 %conv15.i47
   %or12.i53 = or i16 %e.0.i52, %and.i39
@@ -1589,11 +1589,11 @@ if.then:                                          ; preds = %for.body
   %shr.i.i.i = lshr i32 %44, 16
   %46 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %46, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -1612,7 +1612,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -1631,7 +1631,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %if.then
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -1754,11 +1754,11 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i133 = lshr i32 %92, 16
   %94 = trunc nuw i32 %shr.i.i.i133 to i16
   %conv.i.i.i134 = and i16 %94, -32768
-  %cmp.i.i.i135 = icmp ugt i32 %and.i.i.i132, 947912703
+  %cmp.i.i.i135 = icmp samesign ugt i32 %and.i.i.i132, 947912703
   br i1 %cmp.i.i.i135, label %if.then.i.i.i158, label %if.end37.i.i.i136
 
 if.then.i.i.i158:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp2.i.i.i159 = icmp ugt i32 %and.i.i.i132, 2139095039
+  %cmp2.i.i.i159 = icmp samesign ugt i32 %and.i.i.i132, 2139095039
   br i1 %cmp2.i.i.i159, label %if.then4.i.i.i173, label %if.end20.i.i.i160
 
 if.then4.i.i.i173:                                ; preds = %if.then.i.i.i158
@@ -1777,7 +1777,7 @@ if.end.i.i.i176:                                  ; preds = %if.then4.i.i.i173
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 if.end20.i.i.i160:                                ; preds = %if.then.i.i.i158
-  %cmp21.i.i.i161 = icmp ugt i32 %and.i.i.i132, 1199566847
+  %cmp21.i.i.i161 = icmp samesign ugt i32 %and.i.i.i132, 1199566847
   br i1 %cmp21.i.i.i161, label %if.then23.i.i.i171, label %if.end27.i.i.i162
 
 if.then23.i.i.i171:                               ; preds = %if.end20.i.i.i160
@@ -1796,7 +1796,7 @@ if.end27.i.i.i162:                                ; preds = %if.end20.i.i.i160
   br label %_ZN9Imath_3_24halfaSEf.exit181
 
 if.end37.i.i.i136:                                ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp38.i.i.i137 = icmp ult i32 %and.i.i.i132, 855638017
+  %cmp38.i.i.i137 = icmp samesign ult i32 %and.i.i.i132, 855638017
   br i1 %cmp38.i.i.i137, label %_ZN9Imath_3_24halfaSEf.exit181, label %if.end40.i.i.i138
 
 if.end40.i.i.i138:                                ; preds = %if.end37.i.i.i136
@@ -1991,11 +1991,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %56, 16
   %58 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %58, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -2014,7 +2014,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -2033,7 +2033,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -2170,11 +2170,11 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i123 = lshr i32 %118, 16
   %120 = trunc nuw i32 %shr.i.i.i123 to i16
   %conv.i.i.i124 = and i16 %120, -32768
-  %cmp.i.i.i125 = icmp ugt i32 %and.i.i.i122, 947912703
+  %cmp.i.i.i125 = icmp samesign ugt i32 %and.i.i.i122, 947912703
   br i1 %cmp.i.i.i125, label %if.then.i.i.i148, label %if.end37.i.i.i126
 
 if.then.i.i.i148:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp2.i.i.i149 = icmp ugt i32 %and.i.i.i122, 2139095039
+  %cmp2.i.i.i149 = icmp samesign ugt i32 %and.i.i.i122, 2139095039
   br i1 %cmp2.i.i.i149, label %if.then4.i.i.i163, label %if.end20.i.i.i150
 
 if.then4.i.i.i163:                                ; preds = %if.then.i.i.i148
@@ -2193,7 +2193,7 @@ if.end.i.i.i166:                                  ; preds = %if.then4.i.i.i163
   br label %_ZN9Imath_3_24halfaSEf.exit171
 
 if.end20.i.i.i150:                                ; preds = %if.then.i.i.i148
-  %cmp21.i.i.i151 = icmp ugt i32 %and.i.i.i122, 1199566847
+  %cmp21.i.i.i151 = icmp samesign ugt i32 %and.i.i.i122, 1199566847
   br i1 %cmp21.i.i.i151, label %if.then23.i.i.i161, label %if.end27.i.i.i152
 
 if.then23.i.i.i161:                               ; preds = %if.end20.i.i.i150
@@ -2212,7 +2212,7 @@ if.end27.i.i.i152:                                ; preds = %if.end20.i.i.i150
   br label %_ZN9Imath_3_24halfaSEf.exit171
 
 if.end37.i.i.i126:                                ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp38.i.i.i127 = icmp ult i32 %and.i.i.i122, 855638017
+  %cmp38.i.i.i127 = icmp samesign ult i32 %and.i.i.i122, 855638017
   br i1 %cmp38.i.i.i127, label %_ZN9Imath_3_24halfaSEf.exit171, label %if.end40.i.i.i128
 
 if.end40.i.i.i128:                                ; preds = %if.end37.i.i.i126
@@ -2325,11 +2325,11 @@ if.else:                                          ; preds = %for.body
   %shr.i.i.i = lshr i32 %13, 16
   %15 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %15, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -2348,7 +2348,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -2367,7 +2367,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 if.end37.i.i.i:                                   ; preds = %if.else
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -2405,11 +2405,11 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i35 = lshr i32 %19, 16
   %21 = trunc nuw i32 %shr.i.i.i35 to i16
   %conv.i.i.i36 = and i16 %21, -32768
-  %cmp.i.i.i37 = icmp ugt i32 %and.i.i.i34, 947912703
+  %cmp.i.i.i37 = icmp samesign ugt i32 %and.i.i.i34, 947912703
   br i1 %cmp.i.i.i37, label %if.then.i.i.i60, label %if.end37.i.i.i38
 
 if.then.i.i.i60:                                  ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp2.i.i.i61 = icmp ugt i32 %and.i.i.i34, 2139095039
+  %cmp2.i.i.i61 = icmp samesign ugt i32 %and.i.i.i34, 2139095039
   br i1 %cmp2.i.i.i61, label %if.then4.i.i.i75, label %if.end20.i.i.i62
 
 if.then4.i.i.i75:                                 ; preds = %if.then.i.i.i60
@@ -2428,7 +2428,7 @@ if.end.i.i.i78:                                   ; preds = %if.then4.i.i.i75
   br label %_ZN9Imath_3_24halfaSEf.exit83
 
 if.end20.i.i.i62:                                 ; preds = %if.then.i.i.i60
-  %cmp21.i.i.i63 = icmp ugt i32 %and.i.i.i34, 1199566847
+  %cmp21.i.i.i63 = icmp samesign ugt i32 %and.i.i.i34, 1199566847
   br i1 %cmp21.i.i.i63, label %if.then23.i.i.i73, label %if.end27.i.i.i64
 
 if.then23.i.i.i73:                                ; preds = %if.end20.i.i.i62
@@ -2447,7 +2447,7 @@ if.end27.i.i.i64:                                 ; preds = %if.end20.i.i.i62
   br label %_ZN9Imath_3_24halfaSEf.exit83
 
 if.end37.i.i.i38:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit
-  %cmp38.i.i.i39 = icmp ult i32 %and.i.i.i34, 855638017
+  %cmp38.i.i.i39 = icmp samesign ult i32 %and.i.i.i34, 855638017
   br i1 %cmp38.i.i.i39, label %_ZN9Imath_3_24halfaSEf.exit83, label %if.end40.i.i.i40
 
 if.end40.i.i.i40:                                 ; preds = %if.end37.i.i.i38
@@ -2485,11 +2485,11 @@ _ZN9Imath_3_24halfaSEf.exit83:                    ; preds = %if.then4.i.i.i75, %
   %shr.i.i.i85 = lshr i32 %25, 16
   %27 = trunc nuw i32 %shr.i.i.i85 to i16
   %conv.i.i.i86 = and i16 %27, -32768
-  %cmp.i.i.i87 = icmp ugt i32 %and.i.i.i84, 947912703
+  %cmp.i.i.i87 = icmp samesign ugt i32 %and.i.i.i84, 947912703
   br i1 %cmp.i.i.i87, label %if.then.i.i.i110, label %if.end37.i.i.i88
 
 if.then.i.i.i110:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit83
-  %cmp2.i.i.i111 = icmp ugt i32 %and.i.i.i84, 2139095039
+  %cmp2.i.i.i111 = icmp samesign ugt i32 %and.i.i.i84, 2139095039
   br i1 %cmp2.i.i.i111, label %if.then4.i.i.i125, label %if.end20.i.i.i112
 
 if.then4.i.i.i125:                                ; preds = %if.then.i.i.i110
@@ -2508,7 +2508,7 @@ if.end.i.i.i128:                                  ; preds = %if.then4.i.i.i125
   br label %_ZN9Imath_3_24halfaSEf.exit133
 
 if.end20.i.i.i112:                                ; preds = %if.then.i.i.i110
-  %cmp21.i.i.i113 = icmp ugt i32 %and.i.i.i84, 1199566847
+  %cmp21.i.i.i113 = icmp samesign ugt i32 %and.i.i.i84, 1199566847
   br i1 %cmp21.i.i.i113, label %if.then23.i.i.i123, label %if.end27.i.i.i114
 
 if.then23.i.i.i123:                               ; preds = %if.end20.i.i.i112
@@ -2527,7 +2527,7 @@ if.end27.i.i.i114:                                ; preds = %if.end20.i.i.i112
   br label %_ZN9Imath_3_24halfaSEf.exit133
 
 if.end37.i.i.i88:                                 ; preds = %_ZN9Imath_3_24halfaSEf.exit83
-  %cmp38.i.i.i89 = icmp ult i32 %and.i.i.i84, 855638017
+  %cmp38.i.i.i89 = icmp samesign ult i32 %and.i.i.i84, 855638017
   br i1 %cmp38.i.i.i89, label %_ZN9Imath_3_24halfaSEf.exit133, label %if.end40.i.i.i90
 
 if.end40.i.i.i90:                                 ; preds = %if.end37.i.i.i88
@@ -2674,7 +2674,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %neighborA1.0140 = phi float [ %retval.0.i, %for.body.lr.ph ], [ %neighborA2.0141, %for.inc ]
   %neighborB2.0139 = phi float [ %retval.0.i47, %for.body.lr.ph ], [ %neighborB2.1, %for.inc ]
   %neighborB1.0138 = phi float [ %retval.0.i47, %for.body.lr.ph ], [ %neighborB2.0139, %for.inc ]
-  %cmp5 = icmp ult i64 %indvars.iv, %31
+  %cmp5 = icmp samesign ult i64 %indvars.iv, %31
   %.pre = load ptr, ptr @imath_half_to_float_table, align 8
   br i1 %cmp5, label %if.then, label %if.end
 
@@ -2838,11 +2838,11 @@ if.then33:                                        ; preds = %if.then26
   %shr.i.i.i.i = lshr i32 %80, 16
   %83 = trunc nuw i32 %shr.i.i.i.i to i16
   %conv.i.i.i.i = and i16 %83, -32768
-  %cmp.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 947912703
+  %cmp.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 947912703
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end37.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then33
-  %cmp2.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 2139095039
+  %cmp2.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 2139095039
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end20.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -2861,7 +2861,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit.i
 
 if.end20.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %cmp21.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 1199566847
+  %cmp21.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 1199566847
   br i1 %cmp21.i.i.i.i, label %if.then23.i.i.i.i, label %if.end27.i.i.i.i
 
 if.then23.i.i.i.i:                                ; preds = %if.end20.i.i.i.i
@@ -2880,7 +2880,7 @@ if.end27.i.i.i.i:                                 ; preds = %if.end20.i.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit.i
 
 if.end37.i.i.i.i:                                 ; preds = %if.then33
-  %cmp38.i.i.i.i = icmp ult i32 %and.i.i.i.i, 855638017
+  %cmp38.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i, 855638017
   br i1 %cmp38.i.i.i.i, label %_ZN9Imath_3_24halfaSEf.exit.i, label %if.end40.i.i.i.i
 
 if.end40.i.i.i.i:                                 ; preds = %if.end37.i.i.i.i
@@ -2929,11 +2929,11 @@ _ZN9Imath_3_24halfaSEf.exit.i:                    ; preds = %if.then55.i.i.i.i, 
   %shr.i.i.i51.i = lshr i32 %91, 16
   %94 = trunc nuw i32 %shr.i.i.i51.i to i16
   %conv.i.i.i52.i = and i16 %94, -32768
-  %cmp.i.i.i53.i = icmp ugt i32 %and.i.i.i50.i, 947912703
+  %cmp.i.i.i53.i = icmp samesign ugt i32 %and.i.i.i50.i, 947912703
   br i1 %cmp.i.i.i53.i, label %if.then.i.i.i76.i, label %if.end37.i.i.i54.i
 
 if.then.i.i.i76.i:                                ; preds = %_ZN9Imath_3_24halfaSEf.exit.i
-  %cmp2.i.i.i77.i = icmp ugt i32 %and.i.i.i50.i, 2139095039
+  %cmp2.i.i.i77.i = icmp samesign ugt i32 %and.i.i.i50.i, 2139095039
   br i1 %cmp2.i.i.i77.i, label %if.then4.i.i.i91.i, label %if.end20.i.i.i78.i
 
 if.then4.i.i.i91.i:                               ; preds = %if.then.i.i.i76.i
@@ -2952,7 +2952,7 @@ if.end.i.i.i94.i:                                 ; preds = %if.then4.i.i.i91.i
   br label %_ZN9Imath_3_24halfaSEf.exit99.i
 
 if.end20.i.i.i78.i:                               ; preds = %if.then.i.i.i76.i
-  %cmp21.i.i.i79.i = icmp ugt i32 %and.i.i.i50.i, 1199566847
+  %cmp21.i.i.i79.i = icmp samesign ugt i32 %and.i.i.i50.i, 1199566847
   br i1 %cmp21.i.i.i79.i, label %if.then23.i.i.i89.i, label %if.end27.i.i.i80.i
 
 if.then23.i.i.i89.i:                              ; preds = %if.end20.i.i.i78.i
@@ -2971,7 +2971,7 @@ if.end27.i.i.i80.i:                               ; preds = %if.end20.i.i.i78.i
   br label %_ZN9Imath_3_24halfaSEf.exit99.i
 
 if.end37.i.i.i54.i:                               ; preds = %_ZN9Imath_3_24halfaSEf.exit.i
-  %cmp38.i.i.i55.i = icmp ult i32 %and.i.i.i50.i, 855638017
+  %cmp38.i.i.i55.i = icmp samesign ult i32 %and.i.i.i50.i, 855638017
   br i1 %cmp38.i.i.i55.i, label %_ZN9Imath_3_24halfaSEf.exit99.i, label %if.end40.i.i.i56.i
 
 if.end40.i.i.i56.i:                               ; preds = %if.end37.i.i.i54.i
@@ -3020,11 +3020,11 @@ _ZN9Imath_3_24halfaSEf.exit99.i:                  ; preds = %if.then55.i.i.i73.i
   %shr.i.i.i105.i = lshr i32 %102, 16
   %105 = trunc nuw i32 %shr.i.i.i105.i to i16
   %conv.i.i.i106.i = and i16 %105, -32768
-  %cmp.i.i.i107.i = icmp ugt i32 %and.i.i.i104.i, 947912703
+  %cmp.i.i.i107.i = icmp samesign ugt i32 %and.i.i.i104.i, 947912703
   br i1 %cmp.i.i.i107.i, label %if.then.i.i.i130.i, label %if.end37.i.i.i108.i
 
 if.then.i.i.i130.i:                               ; preds = %_ZN9Imath_3_24halfaSEf.exit99.i
-  %cmp2.i.i.i131.i = icmp ugt i32 %and.i.i.i104.i, 2139095039
+  %cmp2.i.i.i131.i = icmp samesign ugt i32 %and.i.i.i104.i, 2139095039
   br i1 %cmp2.i.i.i131.i, label %if.then4.i.i.i145.i, label %if.end20.i.i.i132.i
 
 if.then4.i.i.i145.i:                              ; preds = %if.then.i.i.i130.i
@@ -3043,7 +3043,7 @@ if.end.i.i.i148.i:                                ; preds = %if.then4.i.i.i145.i
   br label %_ZN9Imath_3_24halfaSEf.exit153.i
 
 if.end20.i.i.i132.i:                              ; preds = %if.then.i.i.i130.i
-  %cmp21.i.i.i133.i = icmp ugt i32 %and.i.i.i104.i, 1199566847
+  %cmp21.i.i.i133.i = icmp samesign ugt i32 %and.i.i.i104.i, 1199566847
   br i1 %cmp21.i.i.i133.i, label %if.then23.i.i.i143.i, label %if.end27.i.i.i134.i
 
 if.then23.i.i.i143.i:                             ; preds = %if.end20.i.i.i132.i
@@ -3062,7 +3062,7 @@ if.end27.i.i.i134.i:                              ; preds = %if.end20.i.i.i132.i
   br label %_ZN9Imath_3_24halfaSEf.exit153.i
 
 if.end37.i.i.i108.i:                              ; preds = %_ZN9Imath_3_24halfaSEf.exit99.i
-  %cmp38.i.i.i109.i = icmp ult i32 %and.i.i.i104.i, 855638017
+  %cmp38.i.i.i109.i = icmp samesign ult i32 %and.i.i.i104.i, 855638017
   br i1 %cmp38.i.i.i109.i, label %_ZN9Imath_3_24halfaSEf.exit153.i, label %if.end40.i.i.i110.i
 
 if.end40.i.i.i110.i:                              ; preds = %if.end37.i.i.i108.i
@@ -3140,11 +3140,11 @@ if.then.i:                                        ; preds = %_ZN9Imath_3_24halfa
   %shr.i.i.i169.i = lshr i32 %127, 16
   %129 = trunc nuw i32 %shr.i.i.i169.i to i16
   %conv.i.i.i170.i = and i16 %129, -32768
-  %cmp.i.i.i171.i = icmp ugt i32 %and.i.i.i168.i, 947912703
+  %cmp.i.i.i171.i = icmp samesign ugt i32 %and.i.i.i168.i, 947912703
   br i1 %cmp.i.i.i171.i, label %if.then.i.i.i194.i, label %if.end37.i.i.i172.i
 
 if.then.i.i.i194.i:                               ; preds = %if.then.i
-  %cmp2.i.i.i195.i = icmp ugt i32 %and.i.i.i168.i, 2139095039
+  %cmp2.i.i.i195.i = icmp samesign ugt i32 %and.i.i.i168.i, 2139095039
   br i1 %cmp2.i.i.i195.i, label %if.then4.i.i.i209.i, label %if.end20.i.i.i196.i
 
 if.then4.i.i.i209.i:                              ; preds = %if.then.i.i.i194.i
@@ -3163,7 +3163,7 @@ if.end.i.i.i212.i:                                ; preds = %if.then4.i.i.i209.i
   br label %_ZN9Imath_3_24halfmLEf.exit.i
 
 if.end20.i.i.i196.i:                              ; preds = %if.then.i.i.i194.i
-  %cmp21.i.i.i197.i = icmp ugt i32 %and.i.i.i168.i, 1199566847
+  %cmp21.i.i.i197.i = icmp samesign ugt i32 %and.i.i.i168.i, 1199566847
   br i1 %cmp21.i.i.i197.i, label %if.then23.i.i.i207.i, label %if.end27.i.i.i198.i
 
 if.then23.i.i.i207.i:                             ; preds = %if.end20.i.i.i196.i
@@ -3182,7 +3182,7 @@ if.end27.i.i.i198.i:                              ; preds = %if.end20.i.i.i196.i
   br label %_ZN9Imath_3_24halfmLEf.exit.i
 
 if.end37.i.i.i172.i:                              ; preds = %if.then.i
-  %cmp38.i.i.i173.i = icmp ult i32 %and.i.i.i168.i, 855638017
+  %cmp38.i.i.i173.i = icmp samesign ult i32 %and.i.i.i168.i, 855638017
   br i1 %cmp38.i.i.i173.i, label %_ZN9Imath_3_24halfmLEf.exit.i, label %if.end40.i.i.i174.i
 
 if.end40.i.i.i174.i:                              ; preds = %if.end37.i.i.i172.i
@@ -3223,11 +3223,11 @@ _ZN9Imath_3_24halfmLEf.exit.i:                    ; preds = %if.then55.i.i.i191.
   %shr.i.i.i221.i = lshr i32 %135, 16
   %137 = trunc nuw i32 %shr.i.i.i221.i to i16
   %conv.i.i.i222.i = and i16 %137, -32768
-  %cmp.i.i.i223.i = icmp ugt i32 %and.i.i.i220.i, 947912703
+  %cmp.i.i.i223.i = icmp samesign ugt i32 %and.i.i.i220.i, 947912703
   br i1 %cmp.i.i.i223.i, label %if.then.i.i.i246.i, label %if.end37.i.i.i224.i
 
 if.then.i.i.i246.i:                               ; preds = %_ZN9Imath_3_24halfmLEf.exit.i
-  %cmp2.i.i.i247.i = icmp ugt i32 %and.i.i.i220.i, 2139095039
+  %cmp2.i.i.i247.i = icmp samesign ugt i32 %and.i.i.i220.i, 2139095039
   br i1 %cmp2.i.i.i247.i, label %if.then4.i.i.i261.i, label %if.end20.i.i.i248.i
 
 if.then4.i.i.i261.i:                              ; preds = %if.then.i.i.i246.i
@@ -3246,7 +3246,7 @@ if.end.i.i.i264.i:                                ; preds = %if.then4.i.i.i261.i
   br label %_ZN9Imath_3_24halfmLEf.exit269.i
 
 if.end20.i.i.i248.i:                              ; preds = %if.then.i.i.i246.i
-  %cmp21.i.i.i249.i = icmp ugt i32 %and.i.i.i220.i, 1199566847
+  %cmp21.i.i.i249.i = icmp samesign ugt i32 %and.i.i.i220.i, 1199566847
   br i1 %cmp21.i.i.i249.i, label %if.then23.i.i.i259.i, label %if.end27.i.i.i250.i
 
 if.then23.i.i.i259.i:                             ; preds = %if.end20.i.i.i248.i
@@ -3265,7 +3265,7 @@ if.end27.i.i.i250.i:                              ; preds = %if.end20.i.i.i248.i
   br label %_ZN9Imath_3_24halfmLEf.exit269.i
 
 if.end37.i.i.i224.i:                              ; preds = %_ZN9Imath_3_24halfmLEf.exit.i
-  %cmp38.i.i.i225.i = icmp ult i32 %and.i.i.i220.i, 855638017
+  %cmp38.i.i.i225.i = icmp samesign ult i32 %and.i.i.i220.i, 855638017
   br i1 %cmp38.i.i.i225.i, label %_ZN9Imath_3_24halfmLEf.exit269.i, label %if.end40.i.i.i226.i
 
 if.end40.i.i.i226.i:                              ; preds = %if.end37.i.i.i224.i
@@ -3306,11 +3306,11 @@ _ZN9Imath_3_24halfmLEf.exit269.i:                 ; preds = %if.then55.i.i.i243.
   %shr.i.i.i274.i = lshr i32 %143, 16
   %145 = trunc nuw i32 %shr.i.i.i274.i to i16
   %conv.i.i.i275.i = and i16 %145, -32768
-  %cmp.i.i.i276.i = icmp ugt i32 %and.i.i.i273.i, 947912703
+  %cmp.i.i.i276.i = icmp samesign ugt i32 %and.i.i.i273.i, 947912703
   br i1 %cmp.i.i.i276.i, label %if.then.i.i.i299.i, label %if.end37.i.i.i277.i
 
 if.then.i.i.i299.i:                               ; preds = %_ZN9Imath_3_24halfmLEf.exit269.i
-  %cmp2.i.i.i300.i = icmp ugt i32 %and.i.i.i273.i, 2139095039
+  %cmp2.i.i.i300.i = icmp samesign ugt i32 %and.i.i.i273.i, 2139095039
   br i1 %cmp2.i.i.i300.i, label %if.then4.i.i.i314.i, label %if.end20.i.i.i301.i
 
 if.then4.i.i.i314.i:                              ; preds = %if.then.i.i.i299.i
@@ -3329,7 +3329,7 @@ if.end.i.i.i317.i:                                ; preds = %if.then4.i.i.i314.i
   br label %_ZN9Imath_3_24halfmLEf.exit322.i
 
 if.end20.i.i.i301.i:                              ; preds = %if.then.i.i.i299.i
-  %cmp21.i.i.i302.i = icmp ugt i32 %and.i.i.i273.i, 1199566847
+  %cmp21.i.i.i302.i = icmp samesign ugt i32 %and.i.i.i273.i, 1199566847
   br i1 %cmp21.i.i.i302.i, label %if.then23.i.i.i312.i, label %if.end27.i.i.i303.i
 
 if.then23.i.i.i312.i:                             ; preds = %if.end20.i.i.i301.i
@@ -3348,7 +3348,7 @@ if.end27.i.i.i303.i:                              ; preds = %if.end20.i.i.i301.i
   br label %_ZN9Imath_3_24halfmLEf.exit322.i
 
 if.end37.i.i.i277.i:                              ; preds = %_ZN9Imath_3_24halfmLEf.exit269.i
-  %cmp38.i.i.i278.i = icmp ult i32 %and.i.i.i273.i, 855638017
+  %cmp38.i.i.i278.i = icmp samesign ult i32 %and.i.i.i273.i, 855638017
   br i1 %cmp38.i.i.i278.i, label %_ZN9Imath_3_24halfmLEf.exit322.i, label %if.end40.i.i.i279.i
 
 if.end40.i.i.i279.i:                              ; preds = %if.end37.i.i.i277.i

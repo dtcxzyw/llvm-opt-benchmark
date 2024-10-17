@@ -838,7 +838,7 @@ define dso_local range(i32 0, 2038) i32 @srun_user_message(ptr nocapture noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
-  %switch = icmp ult i32 %5, 2
+  %switch = icmp samesign ult i32 %5, 2
   br i1 %switch, label %6, label %67
 
 6:                                                ; preds = %2

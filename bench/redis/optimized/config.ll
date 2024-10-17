@@ -2121,8 +2121,8 @@ for.cond156:                                      ; preds = %for.body163
   %arrayidx158 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv.next179
   %62 = load ptr, ptr %arrayidx158, align 8
   %cmp159 = icmp eq ptr %62, null
-  %cmp161 = icmp uge i64 %indvars.iv178, %indvars.iv181
-  %.not = or i1 %cmp161, %cmp159
+  %cmp161 = icmp samesign uge i64 %indvars.iv178, %indvars.iv181
+  %.not = select i1 %cmp159, i1 true, i1 %cmp161
   br i1 %.not, label %if.then178, label %for.body163, !llvm.loop !20
 
 for.body163:                                      ; preds = %for.cond156.preheader, %for.cond156

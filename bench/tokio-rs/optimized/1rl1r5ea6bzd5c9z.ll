@@ -7042,7 +7042,7 @@ _ZN5tokio7runtime4time6source10TimeSource16deadline_to_tick17h0205983b7cf2d70fE.
   %32 = udiv i32 %.sroa.5.0.i.i, 1000000
   %33 = zext nneg i32 %32 to i128
   %34 = add nuw nsw i128 %31, %33
-  %35 = icmp ult i128 %34, 18446744073709551616
+  %35 = icmp samesign ult i128 %34, 18446744073709551616
   %36 = trunc nuw i128 %34 to i64
   %spec.select.i.i = select i1 %35, i64 %36, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !646

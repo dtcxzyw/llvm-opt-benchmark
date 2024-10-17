@@ -1403,7 +1403,7 @@ define internal range(i64 -2147483647, 2147483658) i64 @show_shost_supported_mod
 
 14:                                               ; preds = %13, %3
   %15 = phi i64 [ 9, %13 ], [ 0, %3 ]
-  %16 = icmp ult i8 %9, 2
+  %16 = icmp samesign ult i8 %9, 2
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %14
@@ -2713,7 +2713,7 @@ define internal i64 @sdev_show_blacklist(ptr nocapture noundef readonly %0, ptr 
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %5
-  %13 = icmp ult i64 %6, 34
+  %13 = icmp samesign ult i64 %6, 34
   %14 = and i64 %9, 151109632
   %15 = icmp eq i64 %14, 0
   %or.cond = and i1 %13, %15

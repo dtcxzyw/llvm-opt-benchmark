@@ -9598,7 +9598,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %_ZNK4llvm5APInt8log
 _ZNK4llvm5Value9hasOneUseEv.exit94:               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit, %.lr.ph.i.i.i.preheader.i.i93
   %223 = phi i32 [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %222, %.lr.ph.i.i.i.preheader.i.i93 ]
   %224 = add nuw nsw i32 %223, %216
-  %225 = icmp ugt i32 %209, %224
+  %225 = icmp samesign ugt i32 %209, %224
   br i1 %225, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_11class_matchIS2_EENS0_11api_pred_tyINS0_9is_power2EEELj28ELb0EEEEEbPT_RKT0_.exit.thread, label %226
 
 226:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit94
@@ -20832,7 +20832,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_14BinaryOperatorEEEEEbPT_
 
 44:                                               ; preds = %39
   %.not19 = icmp ne ptr %43, null
-  %45 = icmp ult i16 %22, 16
+  %45 = icmp samesign ult i16 %22, 16
   %or.cond = and i1 %45, %.not19
   br i1 %or.cond, label %46, label %.critedge
 
@@ -24619,7 +24619,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %46, %49
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %46 ], [ %51, %49 ]
   %55 = getelementptr inbounds %"class.llvm::Use", ptr %54, i64 %.pre-phi2.i.i
   %56 = ptrtoint ptr %55 to i64
-  %.not53 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not53 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm4User8operandsEv.exit
@@ -27157,7 +27157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1

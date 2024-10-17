@@ -5499,7 +5499,7 @@ default.unreachable1599:                          ; preds = %"_ZN4core3num22_$LT
   %.1.i = mul i128 %279, %.01315.i
   %280 = lshr i32 %.017.i, 1
   %281 = mul i128 %.01216.i, %.01216.i
-  %282 = icmp ugt i32 %.017.i, 3
+  %282 = icmp samesign ugt i32 %.017.i, 3
   br i1 %282, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17hc555ceaaddd7fcf7E.exit": ; preds = %206, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit", %._crit_edge.i

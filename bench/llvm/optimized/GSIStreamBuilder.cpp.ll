@@ -466,7 +466,7 @@ _ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE6resizeEm.exit: ; preds = %35, %37
   %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit ]
   %.04161 = phi i32 [ 0, %.preheader ], [ %.1, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit ]
   %69 = add nuw nsw i64 %indvars.iv65, %67
-  %70 = icmp ugt i64 %69, 4095
+  %70 = icmp samesign ugt i64 %69, 4095
   br i1 %70, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit, label %71
 
 71:                                               ; preds = %68

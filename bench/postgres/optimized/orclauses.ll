@@ -136,7 +136,7 @@ consider_new_or_clause.exit:                      ; preds = %40, %46, %53, %63
   %68 = phi i32 [ %.pre, %.thread.loopexit ], [ %14, %22 ], [ %14, %19 ], [ %14, %13 ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next37, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next37, %69
   br i1 %70, label %13, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.thread, %1

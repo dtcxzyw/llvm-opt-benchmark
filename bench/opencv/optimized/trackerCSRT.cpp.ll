@@ -2616,7 +2616,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %6
   %85 = getelementptr inbounds double, ptr %70, i64 %indvars.iv
   store double %84, ptr %85, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not53.not = icmp ult i64 %indvars.iv, %63
+  %.not53.not = icmp samesign ult i64 %indvars.iv, %63
   br i1 %.not53.not, label %75, label %._crit_edge, !llvm.loop !20
 
 86:                                               ; preds = %93
@@ -2626,7 +2626,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %6
 
 ._crit_edge:                                      ; preds = %75
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %.not.not = icmp ult i64 %indvars.iv119, %65
+  %.not.not = icmp samesign ult i64 %indvars.iv119, %65
   br i1 %.not.not, label %.lr.ph, label %._crit_edge116, !llvm.loop !21
 
 ._crit_edge116:                                   ; preds = %._crit_edge, %.lr.ph115, %_ZNK2cv7MatExprcvNS_3MatEEv.exit

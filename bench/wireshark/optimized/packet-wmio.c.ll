@@ -448,7 +448,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
 
 35:                                               ; preds = %29
   %36 = and i32 %.0, 2147483647
-  %37 = icmp ult i32 %36, 11
+  %37 = icmp samesign ult i32 %36, 11
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35

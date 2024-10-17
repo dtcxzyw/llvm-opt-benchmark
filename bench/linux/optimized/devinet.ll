@@ -953,7 +953,7 @@ define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef 
   %209 = and i32 %208, 2
   %210 = icmp ne i32 %209, 0
   %211 = and i32 %204, 255
-  %212 = icmp ult i32 %211, 31
+  %212 = icmp samesign ult i32 %211, 31
   %213 = select i1 %210, i1 %212, i1 false
   br i1 %213, label %214, label %226
 
@@ -4204,7 +4204,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet_fill_ifaddr(ptr nound
   %68 = sub i64 %65, %67
   %69 = udiv i64 %68, 1000
   %70 = zext i32 %60 to i64
-  %71 = icmp ult i64 %69, %70
+  %71 = icmp samesign ult i64 %69, %70
   %72 = trunc i64 %69 to i32
   %73 = sub i32 %60, %72
   %74 = select i1 %71, i32 %73, i32 0
@@ -4213,7 +4213,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet_fill_ifaddr(ptr nound
 
 76:                                               ; preds = %64
   %77 = zext i32 %62 to i64
-  %78 = icmp ult i64 %69, %77
+  %78 = icmp samesign ult i64 %69, %77
   %79 = sub i32 %62, %72
   %80 = select i1 %78, i32 %79, i32 0
   br label %81
@@ -6114,7 +6114,7 @@ define internal void @check_lifetime(ptr nocapture readnone %0) #0 align 16 {
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1
   %27 = zext i32 %25 to i64
-  %28 = icmp ult i64 %23, %27
+  %28 = icmp samesign ult i64 %23, %27
   %29 = select i1 %26, i1 true, i1 %28
   br i1 %29, label %30, label %54
 
@@ -6126,7 +6126,7 @@ define internal void @check_lifetime(ptr nocapture readnone %0) #0 align 16 {
 
 34:                                               ; preds = %30
   %35 = zext i32 %32 to i64
-  %36 = icmp ult i64 %23, %35
+  %36 = icmp samesign ult i64 %23, %35
   br i1 %36, label %47, label %37
 
 37:                                               ; preds = %34
@@ -6187,7 +6187,7 @@ define internal void @check_lifetime(ptr nocapture readnone %0) #0 align 16 {
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, -1
   %79 = zext i32 %77 to i64
-  %80 = icmp ult i64 %75, %79
+  %80 = icmp samesign ult i64 %75, %79
   %81 = select i1 %78, i1 true, i1 %80
   br i1 %81, label %94, label %82
 
@@ -6217,7 +6217,7 @@ define internal void @check_lifetime(ptr nocapture readnone %0) #0 align 16 {
   %96 = load i32, ptr %95, align 8
   %97 = icmp ne i32 %96, -1
   %98 = zext i32 %96 to i64
-  %99 = icmp uge i64 %75, %98
+  %99 = icmp samesign uge i64 %75, %98
   %100 = select i1 %97, i1 %99, i1 false
   %101 = and i32 %68, 32
   %102 = icmp eq i32 %101, 0
@@ -6354,7 +6354,7 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
-  %.not = icmp ult i32 %28, %31
+  %.not = icmp samesign ult i32 %28, %31
   %or.cond = or i1 %30, %.not
   br i1 %or.cond, label %.critedge, label %32
 
@@ -6431,7 +6431,7 @@ define internal noundef range(i32 -97, 1) i32 @inet_set_link_af(ptr nocapture no
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
-  %.not = icmp ult i32 %28, %31
+  %.not = icmp samesign ult i32 %28, %31
   %or.cond = or i1 %30, %.not
   br i1 %or.cond, label %.critedge, label %32
 

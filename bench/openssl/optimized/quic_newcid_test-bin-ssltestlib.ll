@@ -233,7 +233,7 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %puts43.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %cmp4.i = icmp ult i32 %rem.055.i, 13
+  %cmp4.i = icmp samesign ult i32 %rem.055.i, 13
   br i1 %cmp4.i, label %while.end.sink.split.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -290,9 +290,9 @@ if.then34.i:                                      ; preds = %for.end.i
   br i1 %cmp36.not.i, label %if.else.i, label %if.end105.sink.split.i
 
 if.else.i:                                        ; preds = %if.then34.i
-  %cmp40.i = icmp ult i32 %rem.055.i, 25
-  %cmp42.i = icmp ult i32 %or30.i, 12
-  %or.cond.i = or i1 %cmp40.i, %cmp42.i
+  %cmp40.i = icmp samesign ult i32 %rem.055.i, 25
+  %cmp42.i = icmp samesign ult i32 %or30.i, 12
+  %or.cond.i = select i1 %cmp40.i, i1 true, i1 %cmp42.i
   br i1 %or.cond.i, label %if.end105.sink.split.i, label %if.else46.i
 
 if.else46.i:                                      ; preds = %if.else.i
@@ -351,11 +351,11 @@ if.else46.i:                                      ; preds = %if.else.i
   %or88.i = or disjoint i32 %or85.i, %conv87.i
   %call89.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.101, i32 noundef %or88.i)
   %add.i = add nuw nsw i32 %or88.i, %or77.i
-  %cmp90.i = icmp ugt i32 %add.i, %or59.i
+  %cmp90.i = icmp samesign ugt i32 %add.i, %or59.i
   br i1 %cmp90.i, label %if.end105.sink.split.i, label %if.else94.i
 
 if.else94.i:                                      ; preds = %if.else46.i
-  %cmp95.i = icmp ult i32 %or30.i, %or88.i
+  %cmp95.i = icmp samesign ult i32 %or30.i, %or88.i
   %str.5.str.4.i = select i1 %cmp95.i, ptr @str.7, ptr @str.4
   br label %if.end105.sink.split.i
 
@@ -1326,8 +1326,8 @@ mempacket_free.exit:                              ; preds = %for.body160, %if.th
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %27 = load i32, ptr %duprec154, align 8
   %cmp155.inv = icmp sgt i32 %27, 0
-  %cmp15899 = icmp ult i64 %indvars.iv120, 2
-  %cmp158 = and i1 %cmp155.inv, %cmp15899
+  %cmp15899 = icmp samesign ult i64 %indvars.iv120, 2
+  %cmp158 = select i1 %cmp155.inv, i1 %cmp15899, i1 false
   br i1 %cmp158, label %for.body160, label %return, !llvm.loop !15
 
 return:                                           ; preds = %if.end143, %if.end143.us, %do.body, %land.lhs.true102, %mempacket_free.exit, %if.end90, %if.then24, %if.end17, %if.end, %entry
@@ -2559,11 +2559,11 @@ if.then104:                                       ; preds = %if.end102
   br label %err115
 
 if.end105:                                        ; preds = %if.end102
-  %cmp108 = icmp ult i32 %abortctr.0, 50
+  %cmp108 = icmp samesign ult i32 %abortctr.0, 50
+  %or.cond11 = select i1 %tobool79, i1 %cmp108, i1 false
   %rem = urem i32 %inc, 10
   %cmp110 = icmp eq i32 %rem, 0
-  %0 = and i1 %cmp108, %cmp110
-  %or.cond63 = and i1 %tobool79, %0
+  %or.cond63 = and i1 %or.cond11, %cmp110
   br i1 %or.cond63, label %if.then111, label %do.cond
 
 if.then111:                                       ; preds = %if.end105
@@ -2571,8 +2571,8 @@ if.then111:                                       ; preds = %if.end105
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end105, %if.then111
-  %1 = select i1 %cmp.lcssa101, i1 true, i1 %cmp34.lcssa121
-  br i1 %1, label %do.body, label %err115, !llvm.loop !18
+  %0 = select i1 %cmp.lcssa101, i1 true, i1 %cmp34.lcssa121
+  br i1 %0, label %do.body, label %err115, !llvm.loop !18
 
 err115:                                           ; preds = %do.cond, %if.end68, %if.end25, %if.end73, %if.then104, %if.then99, %if.then89
   %ret.0 = phi i32 [ 0, %if.then89 ], [ 0, %if.then99 ], [ 0, %if.then104 ], [ 1, %do.cond ], [ 0, %if.end68 ], [ 0, %if.end25 ], [ 0, %if.end73 ]

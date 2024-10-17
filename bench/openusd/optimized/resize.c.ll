@@ -297,7 +297,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i64 %indvars.iv166.i, %indvars.iv170.i
-  %.not116.i = icmp ult i64 %46, %31
+  %.not116.i = icmp samesign ult i64 %46, %31
   %47 = trunc nuw nsw i64 %46 to i32
   %48 = select i1 %.not116.i, i32 %47, i32 %30
   %49 = sext i32 %48 to i64
@@ -322,7 +322,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %64 = getelementptr inbounds i8, ptr %.0102138.i, i64 1
   store i8 %63, ptr %.0102138.i, align 1
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 2
-  %65 = icmp ult i64 %indvars.iv.next171.i, %31
+  %65 = icmp samesign ult i64 %indvars.iv.next171.i, %31
   br i1 %65, label %32, label %down2_symodd.exit, !llvm.loop !11
 
 .preheader119.i:                                  ; preds = %89
@@ -430,7 +430,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %123 = getelementptr inbounds i8, ptr %.2128.i, i64 1
   store i8 %122, ptr %.2128.i, align 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 2
-  %124 = icmp ult i64 %indvars.iv.next157.i, %66
+  %124 = icmp samesign ult i64 %indvars.iv.next157.i, %66
   br i1 %124, label %.lr.ph.i, label %.preheader117.loopexit.i, !llvm.loop !15
 
 125:                                              ; preds = %149, %.lr.ph134.i
@@ -451,7 +451,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = add nuw nsw i64 %indvars.iv159.i, %indvars.iv163.i
-  %.not.i51 = icmp ult i64 %136, %98
+  %.not.i51 = icmp samesign ult i64 %136, %98
   %137 = trunc nuw nsw i64 %136 to i32
   %138 = select i1 %.not.i51, i32 %137, i32 %97
   %139 = sext i32 %138 to i64
@@ -535,7 +535,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %189 = getelementptr inbounds i8, ptr %.090131.i, i64 1
   store i8 %188, ptr %.090131.i, align 1
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 2
-  %190 = icmp ult i64 %indvars.iv.next163.i, %162
+  %190 = icmp samesign ult i64 %indvars.iv.next163.i, %162
   br i1 %190, label %.preheader.i57, label %down2_symodd.exit, !llvm.loop !19
 
 .preheader113.i:                                  ; preds = %157, %212
@@ -636,7 +636,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %243 = getelementptr inbounds i8, ptr %.2122.i, i64 1
   store i8 %242, ptr %.2122.i, align 1
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 2
-  %244 = icmp ult i64 %indvars.iv.next149.i, %194
+  %244 = icmp samesign ult i64 %indvars.iv.next149.i, %194
   br i1 %244, label %.preheader111.i, label %.preheader109.loopexit.i, !llvm.loop !23
 
 .preheader108.i:                                  ; preds = %263, %.preheader108.lr.ph.i
@@ -1424,7 +1424,7 @@ clip_pixel_highbd.exit.i:                         ; preds = %66, %64, %62
   %70 = getelementptr inbounds i8, ptr %.098145.i, i64 2
   store i16 %.0.i.i, ptr %.098145.i, align 2
   %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 2
-  %71 = icmp ult i64 %indvars.iv.next178.i, %33
+  %71 = icmp samesign ult i64 %indvars.iv.next178.i, %33
   br i1 %71, label %34, label %highbd_down2_symodd.exit, !llvm.loop !46
 
 .preheader126.i:                                  ; preds = %clip_pixel_highbd.exit117.i
@@ -1569,7 +1569,7 @@ clip_pixel_highbd.exit120.i:                      ; preds = %134, %132, %130
   %138 = getelementptr inbounds i8, ptr %.2135.i, i64 2
   store i16 %.0.i119.i, ptr %.2135.i, align 2
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 2
-  %139 = icmp ult i64 %indvars.iv.next164.i, %72
+  %139 = icmp samesign ult i64 %indvars.iv.next164.i, %72
   br i1 %139, label %.lr.ph.i, label %.preheader124.loopexit.i, !llvm.loop !50
 
 140:                                              ; preds = %clip_pixel_highbd.exit123.i, %.lr.ph141.i
@@ -1711,7 +1711,7 @@ clip_pixel_highbd.exit.i63:                       ; preds = %209, %207, %205
   %213 = getelementptr inbounds i8, ptr %.090140.i, i64 2
   store i16 %.0.i.i65, ptr %.090140.i, align 2
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 2
-  %214 = icmp ult i64 %indvars.iv.next172.i, %181
+  %214 = icmp samesign ult i64 %indvars.iv.next172.i, %181
   br i1 %214, label %.preheader.i61, label %highbd_down2_symodd.exit, !llvm.loop !54
 
 .preheader122.i:                                  ; preds = %176, %clip_pixel_highbd.exit109.i
@@ -1850,7 +1850,7 @@ clip_pixel_highbd.exit112.i:                      ; preds = %273, %271, %269
   %277 = getelementptr inbounds i8, ptr %.2131.i, i64 2
   store i16 %.0.i111.i, ptr %.2131.i, align 2
   %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 2
-  %278 = icmp ult i64 %indvars.iv.next158.i, %218
+  %278 = icmp samesign ult i64 %indvars.iv.next158.i, %218
   br i1 %278, label %.preheader120.i, label %.preheader118.loopexit.i, !llvm.loop !58
 
 .preheader117.i:                                  ; preds = %clip_pixel_highbd.exit115.i, %.preheader117.lr.ph.i

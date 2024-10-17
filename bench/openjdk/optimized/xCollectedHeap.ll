@@ -489,7 +489,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
   %13 = add nsw i32 %9, 1
   %14 = icmp sgt i32 %9, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i2 = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17

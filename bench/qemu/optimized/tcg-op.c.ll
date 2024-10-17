@@ -1583,7 +1583,7 @@ if.then.i.i:                                      ; preds = %if.then
 is_power_of_2.exit:                               ; preds = %entry
   %conv = sext i32 %arg2 to i64
   %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %conv)
-  %tobool1.not.i = icmp ult i64 %6, 2
+  %tobool1.not.i = icmp samesign ult i64 %6, 2
   br i1 %tobool1.not.i, label %if.then1, label %if.else3
 
 if.then1:                                         ; preds = %is_power_of_2.exit
@@ -2473,12 +2473,12 @@ if.end4:                                          ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_deposit_i32(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 32
+  %cmp = icmp samesign ult i32 %ofs, 32
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 33
+  %cmp12 = icmp samesign ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
   %cmp16 = icmp eq i32 %len, 32
   br i1 %cmp16, label %if.then17, label %if.end18
@@ -2551,7 +2551,7 @@ if.end24.thread:                                  ; preds = %if.end18
 
 tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %if.end24
   %call97 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
-  %or.cond.i = icmp ult i32 %len, 32
+  %or.cond.i = icmp samesign ult i32 %len, 32
   tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef %len) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -2577,7 +2577,7 @@ tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %i
 
 tcg_gen_rotli_i32.exit:                           ; preds = %if.end24
   tail call void @tcg_gen_extract2_i32(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %len)
-  %or.cond.i49 = icmp ult i32 %len, 32
+  %or.cond.i49 = icmp samesign ult i32 %len, 32
   tail call void @llvm.assume(i1 %or.cond.i49)
   %call.i52 = tail call ptr @tcg_constant_i32(i32 noundef %len) #5
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -2776,12 +2776,12 @@ if.end11:                                         ; preds = %tcg_gen_rotli_i32.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_deposit_z_i32(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 32
+  %cmp = icmp samesign ult i32 %ofs, 32
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 33
+  %cmp12 = icmp samesign ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 32
   %cmp2.i = icmp eq i32 %ofs, 0
@@ -3040,12 +3040,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_extract_i32(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 32
+  %cmp = icmp samesign ult i32 %ofs, 32
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 33
+  %cmp12 = icmp samesign ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 32
   br i1 %cmp17, label %if.then18, label %if.end19
@@ -3251,12 +3251,12 @@ sw.epilog38:                                      ; preds = %if.else.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_sextract_i32(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 32
+  %cmp = icmp samesign ult i32 %ofs, 32
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 33
+  %cmp12 = icmp samesign ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 32
   br i1 %cmp17, label %if.then18, label %if.end19
@@ -6010,7 +6010,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 is_power_of_2.exit:                               ; preds = %entry
   %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %arg2)
-  %tobool1.not.i = icmp ult i64 %6, 2
+  %tobool1.not.i = icmp samesign ult i64 %6, 2
   br i1 %tobool1.not.i, label %if.then1, label %if.else3
 
 if.then1:                                         ; preds = %is_power_of_2.exit
@@ -7134,12 +7134,12 @@ if.end4:                                          ; preds = %if.end.i, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_deposit_i64(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 64
+  %cmp = icmp samesign ult i32 %ofs, 64
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 65
+  %cmp12 = icmp samesign ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
   %cmp16 = icmp eq i32 %len, 64
   br i1 %cmp16, label %if.then17, label %if.end18
@@ -7213,7 +7213,7 @@ if.end24.thread:                                  ; preds = %if.end18
 tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %if.end24
   %call97 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
   %conv29 = zext nneg i32 %len to i64
-  %or.cond.i = icmp ult i32 %len, 64
+  %or.cond.i = icmp samesign ult i32 %len, 64
   tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef %conv29) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -7240,7 +7240,7 @@ tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %i
 tcg_gen_rotli_i64.exit:                           ; preds = %if.end24
   tail call void @tcg_gen_extract2_i64(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %len)
   %conv34 = zext nneg i32 %len to i64
-  %or.cond.i49 = icmp ult i32 %len, 64
+  %or.cond.i49 = icmp samesign ult i32 %len, 64
   tail call void @llvm.assume(i1 %or.cond.i49)
   %call.i52 = tail call ptr @tcg_constant_i64(i64 noundef %conv34) #5
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -7442,12 +7442,12 @@ if.end12:                                         ; preds = %tcg_gen_rotli_i64.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_deposit_z_i64(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 64
+  %cmp = icmp samesign ult i32 %ofs, 64
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 65
+  %cmp12 = icmp samesign ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 64
   %cmp2.i = icmp eq i32 %ofs, 0
@@ -7677,12 +7677,12 @@ if.end52:                                         ; preds = %if.else.i, %if.end.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_extract_i64(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 64
+  %cmp = icmp samesign ult i32 %ofs, 64
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 65
+  %cmp12 = icmp samesign ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 64
   br i1 %cmp17, label %if.then18, label %if.end19
@@ -7933,12 +7933,12 @@ sw.epilog53:                                      ; preds = %if.else.i, %if.end.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_sextract_i64(ptr noundef %ret, ptr noundef %arg, i32 noundef %ofs, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp ult i32 %ofs, 64
+  %cmp = icmp samesign ult i32 %ofs, 64
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
   %add = add nuw nsw i32 %len, %ofs
-  %cmp12 = icmp ult i32 %add, 65
+  %cmp12 = icmp samesign ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
   %cmp17 = icmp eq i32 %add, 64
   br i1 %cmp17, label %if.then18, label %if.end19

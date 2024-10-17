@@ -799,7 +799,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
 
 for.cond.cleanup5:                                ; preds = %if.end
   %add35 = add nuw nsw i32 %first.0295, 4096
-  %cmp2 = icmp ult i32 %first.0295, 59393
+  %cmp2 = icmp samesign ult i32 %first.0295, 59393
   br i1 %cmp2, label %for.cond3.preheader, label %return, !llvm.loop !56
 
 invoke.cont11:                                    ; preds = %if.end, %for.cond3.preheader
@@ -1295,7 +1295,7 @@ ehcleanup30:                                      ; preds = %if.then.i.i129, %_Z
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %69 = phi ptr [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %add32 = add nuw nsw i32 %second.0294, 32
-  %cmp4 = icmp ult i32 %second.0294, 193
+  %cmp4 = icmp samesign ult i32 %second.0294, 193
   br i1 %cmp4, label %invoke.cont11, label %for.cond.cleanup5, !llvm.loop !76
 
 ehcleanup38:                                      ; preds = %ehcleanup30, %ehcleanup, %lpad
@@ -2659,7 +2659,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !115
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18

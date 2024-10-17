@@ -329,7 +329,7 @@ Abc_SclObjIsBufInv.exit.thread:                   ; preds = %28, %Abc_SclObjIsBu
   ]
 
 54:                                               ; preds = %51, %51, %51
-  %.not60 = icmp ult i64 %indvars.iv113, %15
+  %.not60 = icmp samesign ult i64 %indvars.iv113, %15
   br i1 %.not60, label %.preheader, label %.critedge2
 
 .preheader:                                       ; preds = %54
@@ -559,7 +559,7 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
 49:                                               ; preds = %18, %.critedge2, %14
   %.1 = phi i32 [ %.049, %14 ], [ %48, %.critedge2 ], [ %.049, %18 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %50 = icmp ult i64 %indvars.iv.next54, %13
+  %50 = icmp samesign ult i64 %indvars.iv.next54, %13
   br i1 %50, label %14, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %49, %Vec_IntStart.exit
@@ -633,7 +633,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
   ]
 
 24:                                               ; preds = %21, %21, %21
-  %.not63 = icmp ult i64 %indvars.iv112, %14
+  %.not63 = icmp samesign ult i64 %indvars.iv112, %14
   br i1 %.not63, label %.preheader, label %.critedge.loopexit
 
 .preheader:                                       ; preds = %24
@@ -1548,7 +1548,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareLevels(ptr nocapture noundef readonl
   %7 = getelementptr i8, ptr %6, i64 20
   %.val11 = load i32, ptr %7, align 4
   %8 = lshr i32 %.val11, 12
-  %9 = icmp ult i32 %5, %8
+  %9 = icmp samesign ult i32 %5, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %2
@@ -1699,7 +1699,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %48 = getelementptr i8, ptr %47, i64 20
   %.val86 = load i32, ptr %48, align 4
   %49 = lshr i32 %.val86, 12
-  %50 = icmp ult i32 %49, %38
+  %50 = icmp samesign ult i32 %49, %38
   %51 = icmp sgt i32 %.val74, 0
   %or.cond = and i1 %50, %51
   br i1 %or.cond, label %.lr.ph.preheader, label %.thread
@@ -2983,7 +2983,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %53, %49
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i32, ptr %60, i64 %64
   store i32 %.02732.i.i, ptr %65, align 4
-  %66 = icmp ugt i32 %.02732.i.i, 3
+  %66 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %66, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread13.i, !llvm.loop !39
 
 Vec_QueMoveUp.exit.thread13.i:                    ; preds = %59
@@ -3227,7 +3227,7 @@ Vec_QuePrio.exit30.i.i34:                         ; preds = %181, %177
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds i32, ptr %188, i64 %192
   store i32 %.02732.i.i29, ptr %193, align 4
-  %194 = icmp ugt i32 %.02732.i.i29, 3
+  %194 = icmp samesign ugt i32 %.02732.i.i29, 3
   br i1 %194, label %.lr.ph.i.i28, label %Vec_QuePush.exit, !llvm.loop !39
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i34, %185, %Vec_QuePrio.exit.i.i26

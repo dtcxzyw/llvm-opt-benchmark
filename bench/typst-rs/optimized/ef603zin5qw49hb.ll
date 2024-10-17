@@ -1071,7 +1071,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
 
 44:                                               ; preds = %.critedge.i
   %45 = and i8 %42, 127
-  %46 = icmp ugt i8 %45, 14
+  %46 = icmp samesign ugt i8 %45, 14
   br i1 %46, label %63, label %_ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i
 
 _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
@@ -4996,7 +4996,7 @@ _ZN12typst_syntax4node10SyntaxNode4span17hb7c0271c165d158dE.exit: ; preds = %_ZN
   %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load i64, ptr %37, align 8, !range !42, !noundef !7
   %39 = and i64 %38, 281474976710655
-  %40 = icmp ult i64 %35, %39
+  %40 = icmp samesign ult i64 %35, %39
   br i1 %40, label %48, label %42
 
 41:                                               ; preds = %.loopexit, %18
@@ -5287,7 +5287,7 @@ _ZN12typst_syntax4node10SyntaxNode4span17hb7c0271c165d158dE.exit.sink.split.i.i:
   %.0.in.i.i.i = phi ptr [ %.val3.i, %142 ], [ %151, %_ZN12typst_syntax4node10SyntaxNode4span17hb7c0271c165d158dE.exit.sink.split.i.i ]
   %.0.i.i.i11 = load i64, ptr %.0.in.i.i.i, align 8, !range !42, !noalias !852, !noundef !7
   %152 = and i64 %.0.i.i.i11, 281474976710655
-  %153 = icmp ugt i64 %152, %35
+  %153 = icmp samesign ugt i64 %152, %35
   br i1 %153, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h71e83433ffc72678E.exit.thread", label %154
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h71e83433ffc72678E.exit.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h897c1d03be8033beE.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h71e83433ffc72678E.exit"

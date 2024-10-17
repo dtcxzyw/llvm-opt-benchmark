@@ -955,7 +955,7 @@ for.body348:                                      ; preds = %for.body348.lr.ph, 
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %81 = load i32, ptr %pending344, align 8
   %82 = zext i32 %81 to i64
-  %cmp346 = icmp ult i64 %indvars.iv.next259, %82
+  %cmp346 = icmp samesign ult i64 %indvars.iv.next259, %82
   br i1 %cmp346, label %for.body348, label %for.cond361.preheader, !llvm.loop !10
 
 for.body363:                                      ; preds = %for.cond361.preheader, %for.body363

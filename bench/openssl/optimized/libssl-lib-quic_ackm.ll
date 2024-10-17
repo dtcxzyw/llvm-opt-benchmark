@@ -2332,7 +2332,7 @@ if.then.i.i.i:                                    ; preds = %if.then13.i
 if.end14.i:                                       ; preds = %ackm_has_newly_missing.exit.i, %land.lhs.true.i.i, %if.end.i.i, %lor.lhs.false11.i
   %tx_max_ack_delay15.i = getelementptr inbounds i8, ptr %ackm, i64 2360
   %tx_max_ack_delay.sroa.0.0.copyload.i = load i64, ptr %tx_max_ack_delay15.i, align 8
-  %or.cond1.i = icmp ult i8 %bf.clear46, 2
+  %or.cond1.i = icmp samesign ult i8 %bf.clear46, 2
   %spec.select.i = select i1 %or.cond1.i, i64 0, i64 %tx_max_ack_delay.sroa.0.0.copyload.i
   %rx_ack_flush_deadline.i = getelementptr inbounds i8, ptr %ackm, i64 2328
   %arrayidx24.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i, i64 0, i64 %idxprom.i36
@@ -2476,8 +2476,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add nuw nsw i64 %i.017.i, 1
   %x.0.i = load ptr, ptr %6, align 8
   %cmp.i = icmp ne ptr %x.0.i, null
-  %cmp2.i = icmp ult i64 %i.017.i, 2
-  %7 = and i1 %cmp2.i, %cmp.i
+  %cmp2.i = icmp samesign ult i64 %i.017.i, 2
+  %7 = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %7, label %for.body.i, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !20
 
 ackm_fill_rx_ack_ranges.exit:                     ; preds = %for.body.i, %entry

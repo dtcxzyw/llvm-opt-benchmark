@@ -679,7 +679,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(pt
   store i16 %142, ptr %143, align 2
   %144 = trunc i64 %141 to i32
   %145 = and i32 %144, 65535
-  %146 = icmp ult i32 %145, %131
+  %146 = icmp samesign ult i32 %145, %131
   br i1 %146, label %148, label %147
 
 147:                                              ; preds = %126
@@ -725,7 +725,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(pt
   %179 = trunc i64 %178 to i16
   %180 = getelementptr inbounds i8, ptr %0, i64 116
   store i16 %179, ptr %180, align 2
-  %181 = icmp ugt i32 %151, 9
+  %181 = icmp samesign ugt i32 %151, 9
   br i1 %181, label %182, label %192
 
 182:                                              ; preds = %164

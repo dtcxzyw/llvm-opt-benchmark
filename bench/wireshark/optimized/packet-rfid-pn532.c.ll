@@ -1273,7 +1273,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   %219 = add i32 %.112911375, 4
   %220 = add nuw nsw i32 %203, 1
   %221 = and i32 %220, 255
-  %.not1330 = icmp ugt i32 %221, %202
+  %.not1330 = icmp samesign ugt i32 %221, %202
   br i1 %.not1330, label %._crit_edge, label %.lr.ph1376, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph1376, %194
@@ -1833,7 +1833,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %.9 = phi i32 [ %608, %604 ], [ %603, %597 ], [ %596, %585 ], [ %578, %575 ], [ %584, %582 ], [ %572, %579 ], [ %559, %550 ], [ %548, %534 ]
   %610 = add nuw nsw i32 %525, 1
   %611 = and i32 %610, 255
-  %.not1324 = icmp ugt i32 %611, %524
+  %.not1324 = icmp samesign ugt i32 %611, %524
   br i1 %.not1324, label %.loopexit, label %.lr.ph1360, !llvm.loop !10
 
 612:                                              ; preds = %proto_item_set_generated.exit
@@ -2155,7 +2155,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %.14 = phi i32 [ %840, %819 ], [ %844, %841 ]
   %846 = add nuw nsw i32 %784, 1
   %847 = and i32 %846, 255
-  %.not1318 = icmp ugt i32 %847, %783
+  %.not1318 = icmp samesign ugt i32 %847, %783
   br i1 %.not1318, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 848:                                              ; preds = %proto_item_set_generated.exit

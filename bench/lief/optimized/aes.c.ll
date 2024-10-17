@@ -133,7 +133,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %14, ptr %13, align 4
   %15 = shl nuw nsw i32 %.07999.i, 1
-  %.not92.i = icmp ult i32 %.07999.i, 128
+  %.not92.i = icmp samesign ult i32 %.07999.i, 128
   %16 = select i1 %.not92.i, i32 0, i32 27
   %.masked95.i = and i32 %15, 254
   %17 = xor i32 %.masked95.i, %16
@@ -148,7 +148,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %19 = getelementptr inbounds [10 x i32], ptr @RCON, i64 0, i64 %indvars.iv106.i
   store i32 %.180101.i, ptr %19, align 4
   %20 = shl nuw nsw i32 %.180101.i, 1
-  %.not89.i = icmp ult i32 %.180101.i, 128
+  %.not89.i = icmp samesign ult i32 %.180101.i, 128
   %21 = select i1 %.not89.i, i32 0, i32 27
   %.masked91.i = and i32 %20, 254
   %22 = xor i32 %.masked91.i, %21
@@ -2487,7 +2487,7 @@ mbedtls_aes_crypt_ecb.exit84:                     ; preds = %125
   br label %225
 
 .preheader88:                                     ; preds = %225
-  %224 = icmp ult i64 %.066100, 15
+  %224 = icmp samesign ult i64 %.066100, 15
   br i1 %224, label %.lr.ph102, label %._crit_edge103
 
 225:                                              ; preds = %220, %225

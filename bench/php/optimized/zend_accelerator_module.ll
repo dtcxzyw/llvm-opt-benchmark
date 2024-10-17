@@ -1347,7 +1347,7 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   %342 = getelementptr inbounds i8, ptr %341, i64 68
   %343 = load i32, ptr %342, align 4
   %344 = zext i32 %343 to i64
-  %345 = icmp ult i64 %indvars.iv.next.i, %344
+  %345 = icmp samesign ult i64 %indvars.iv.next.i, %344
   br i1 %345, label %281, label %.loopexit
 
 accelerator_get_scripts.exit.thread:              ; preds = %272, %269

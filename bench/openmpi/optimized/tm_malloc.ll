@@ -442,7 +442,7 @@ my_strdup.exit:                                   ; preds = %4, %12
   %230 = getelementptr inbounds i8, ptr %229, i64 8
   %231 = load i32, ptr %230, align 8
   %232 = zext i32 %231 to i64
-  %233 = icmp ult i64 %indvars.iv.next, %232
+  %233 = icmp samesign ult i64 %indvars.iv.next, %232
   br i1 %233, label %.lr.ph275, label %._crit_edge276, !llvm.loop !7
 
 ._crit_edge276:                                   ; preds = %._crit_edge, %175

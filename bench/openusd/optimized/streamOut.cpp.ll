@@ -247,7 +247,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit: ; preds = %
   %33 = add nuw nsw i64 %.01924, 1
   %34 = load i32, ptr %22, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %33, %35
+  %36 = icmp samesign ult i64 %33, %35
   br i1 %36, label %29, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %27, %.preheader22, %.preheader

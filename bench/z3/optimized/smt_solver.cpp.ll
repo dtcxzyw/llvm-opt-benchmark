@@ -1149,7 +1149,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %16 = zext i32 %15 to i64
-  %cmp.i.i7.i = icmp ult i64 %indvars.iv.i.i12.i, %16
+  %cmp.i.i7.i = icmp samesign ult i64 %indvars.iv.i.i12.i, %16
   br i1 %cmp.i.i7.i, label %for.body.i.i.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.thread.i
@@ -1383,7 +1383,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %for.cond.i
   %retval.0.i.i.i = phi i64 [ %49, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i30, %retval.0.i.i.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i30, %retval.0.i.i.i
   br i1 %cmp.i, label %for.body.i31, label %if.end
 
 for.body.i31:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
@@ -5678,7 +5678,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %5 = zext i32 %4 to i64
-  %cmp.i7 = icmp ult i64 %indvars.iv.i11, %5
+  %cmp.i7 = icmp samesign ult i64 %indvars.iv.i11, %5
   br i1 %cmp.i7, label %for.body.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread

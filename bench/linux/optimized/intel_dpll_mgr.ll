@@ -7787,7 +7787,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr nocapture no
   %39 = udiv i32 %38, 2700
   %40 = mul i32 %37, 4800
   %41 = udiv i32 %40, 2700
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %31
@@ -7797,7 +7797,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr nocapture no
   br label %49
 
 47:                                               ; preds = %106
-  %48 = icmp ult i64 %54, %46
+  %48 = icmp samesign ult i64 %54, %46
   br i1 %48, label %49, label %.loopexit, !llvm.loop !311
 
 49:                                               ; preds = %47, %43
@@ -7880,7 +7880,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr nocapture no
   %108 = phi i32 [ %56, %94 ], [ %60, %88 ], [ %60, %98 ], [ %56, %105 ], [ %60, %100 ], [ %56, %57 ], [ %56, %95 ]
   %109 = phi i32 [ %37, %94 ], [ %59, %88 ], [ %59, %98 ], [ %37, %105 ], [ %59, %100 ], [ %37, %57 ], [ %37, %95 ]
   %110 = add nuw nsw i64 %58, 2
-  %111 = icmp ult i64 %58, 63
+  %111 = icmp samesign ult i64 %58, 63
   br i1 %111, label %57, label %47, !llvm.loop !312
 
 .loopexit:                                        ; preds = %47, %31

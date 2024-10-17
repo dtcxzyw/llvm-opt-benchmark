@@ -211,15 +211,15 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %14, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit", label %67
 
 67:                                               ; preds = %65
-  %68 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %68 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %68, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %69
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %70 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %70, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %72, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 

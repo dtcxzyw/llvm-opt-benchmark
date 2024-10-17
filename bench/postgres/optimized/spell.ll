@@ -2928,11 +2928,11 @@ define internal i32 @cmpaffix(ptr nocapture noundef readonly %0, ptr nocapture n
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
-  %9 = icmp ult i32 %5, %8
+  %9 = icmp samesign ult i32 %5, %8
   br i1 %9, label %strbcmp.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = icmp ugt i32 %5, %8
+  %11 = icmp samesign ugt i32 %5, %8
   br i1 %11, label %strbcmp.exit, label %12
 
 12:                                               ; preds = %10
@@ -3915,7 +3915,7 @@ define internal fastcc noundef ptr @NormalizeSubWord(ptr nocapture noundef reado
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %48
-  %59 = icmp ult i32 %56, %68
+  %59 = icmp samesign ult i32 %56, %68
   %60 = getelementptr i8, ptr %54, i64 24
   %.137.us.i = select i1 %59, ptr %60, ptr %.03647.us.i
   %.135.us.i = select i1 %59, ptr %.03448.us.i, ptr %54
@@ -4057,7 +4057,7 @@ IsAffixFlagInUse.exit.i:                          ; preds = %120
   br label %130
 
 126:                                              ; preds = %90
-  %127 = icmp ult i32 %97, %89
+  %127 = icmp samesign ult i32 %97, %89
   %128 = getelementptr i8, ptr %95, i64 16
   %.137.i = select i1 %127, ptr %128, ptr %.03655.i
   %.135.i = select i1 %127, ptr %.03456.i, ptr %95
@@ -4107,7 +4107,7 @@ FindWord.exit.thread:                             ; preds = %.preheader.i112, %1
   %146 = load i32, ptr %.0.i, align 8
   %147 = lshr i32 %146, 8
   %148 = zext nneg i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
   br i1 %149, label %71, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %FindWord.exit.thread
@@ -4204,7 +4204,7 @@ FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %
   br i1 %.not42.i, label %194, label %FindAffixes.exit129.loopexit
 
 190:                                              ; preds = %179
-  %191 = icmp ult i32 %187, %178
+  %191 = icmp samesign ult i32 %187, %178
   %192 = getelementptr i8, ptr %185, i64 24
   %.137.i126 = select i1 %191, ptr %192, ptr %.03647.i
   %.135.i127 = select i1 %191, ptr %.03448.i, ptr %185
@@ -4335,7 +4335,7 @@ IsAffixFlagInUse.exit.i145:                       ; preds = %248
   br label %258
 
 254:                                              ; preds = %218
-  %255 = icmp ult i32 %225, %217
+  %255 = icmp samesign ult i32 %225, %217
   %256 = getelementptr i8, ptr %223, i64 16
   %.137.i139 = select i1 %255, ptr %256, ptr %.03655.i138
   %.135.i140 = select i1 %255, ptr %.03456.i137, ptr %223
@@ -4450,7 +4450,7 @@ FindWord.exit148.thread:                          ; preds = %.preheader.i131, %2
   br i1 %303, label %308, label %304
 
 304:                                              ; preds = %294
-  %305 = icmp ult i32 %302, %314
+  %305 = icmp samesign ult i32 %302, %314
   %306 = getelementptr i8, ptr %300, i64 24
   %.137.us.i168 = select i1 %305, ptr %306, ptr %.03647.us.i167
   %.135.us.i169 = select i1 %305, ptr %.03448.us.i166, ptr %300
@@ -4609,7 +4609,7 @@ IsAffixFlagInUse.exit.i189:                       ; preds = %378
   br label %388
 
 384:                                              ; preds = %348
-  %385 = icmp ult i32 %355, %347
+  %385 = icmp samesign ult i32 %355, %347
   %386 = getelementptr i8, ptr %353, i64 16
   %.137.i183 = select i1 %385, ptr %386, ptr %.03655.i182
   %.135.i184 = select i1 %385, ptr %.03456.i181, ptr %353
@@ -4659,7 +4659,7 @@ FindWord.exit192.thread:                          ; preds = %.preheader.i175, %3
   %404 = load i32, ptr %.0.i154, align 8
   %405 = lshr i32 %404, 8
   %406 = zext nneg i32 %405 to i64
-  %407 = icmp ult i64 %indvars.iv.next361, %406
+  %407 = icmp samesign ult i64 %indvars.iv.next361, %406
   br i1 %407, label %317, label %._crit_edge287, !llvm.loop !48
 
 ._crit_edge287:                                   ; preds = %FindWord.exit192.thread
@@ -4674,7 +4674,7 @@ FindAffixes.exit173.thread:                       ; preds = %._crit_edge287, %28
   %409 = load i32, ptr %.0.i119, align 8
   %410 = lshr i32 %409, 8
   %411 = zext nneg i32 %410 to i64
-  %412 = icmp ult i64 %indvars.iv.next364, %411
+  %412 = icmp samesign ult i64 %indvars.iv.next364, %411
   br i1 %412, label %199, label %._crit_edge302, !llvm.loop !50
 
 ._crit_edge302:                                   ; preds = %FindAffixes.exit173.thread
@@ -5051,7 +5051,7 @@ AddStem.exit:                                     ; preds = %._crit_edge.i, %141
   br i1 %181, label %186, label %182
 
 182:                                              ; preds = %173
-  %183 = icmp ult i32 %180, %172
+  %183 = icmp samesign ult i32 %180, %172
   %184 = getelementptr i8, ptr %178, i64 16
   %.1145 = select i1 %183, ptr %184, ptr %.0144235
   %.1143 = select i1 %183, ptr %.0142236, ptr %178
@@ -5813,7 +5813,7 @@ IsAffixFlagInUse.exit:                            ; preds = %50
   br label %60
 
 56:                                               ; preds = %20
-  %57 = icmp ult i32 %27, %19
+  %57 = icmp samesign ult i32 %27, %19
   %58 = getelementptr i8, ptr %25, i64 16
   %.137 = select i1 %57, ptr %58, ptr %.03655
   %.135 = select i1 %57, ptr %.03456, ptr %25
@@ -5871,7 +5871,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   br i1 %or.cond65, label %._crit_edge, label %91
 
 25:                                               ; preds = %19
-  %.not53 = icmp ult i32 %3, 8
+  %.not53 = icmp samesign ult i32 %3, 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.not53, label %._crit_edge, label %26

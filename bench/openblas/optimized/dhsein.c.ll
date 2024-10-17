@@ -563,7 +563,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %359 = phi i32 [ %221, %.thread21 ], [ %160, %157 ], [ %221, %338 ], [ %221, %355 ], [ %221, %.thread19 ]
   %360 = phi i32 [ %356, %.thread21 ], [ %159, %157 ], [ %259, %338 ], [ %259, %355 ], [ %259, %.thread19 ]
   %361 = add nuw nsw i64 %158, 1
-  %362 = icmp ult i64 %158, %156
+  %362 = icmp samesign ult i64 %158, %156
   br i1 %362, label %157, label %.loopexit24, !llvm.loop !15
 
 .loopexit24:                                      ; preds = %357, %215, %136, %134, %130

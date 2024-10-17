@@ -752,7 +752,7 @@ _ZN2cv10AutoBufferIPhLm136EED2Ev.exit:            ; preds = %45, %41
 47:                                               ; preds = %46, %40
   %48 = load i32, ptr %1, align 8
   %49 = and i32 %48, 4088
-  %50 = icmp ult i32 %49, 24
+  %50 = icmp samesign ult i32 %49, 24
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %47
@@ -850,7 +850,7 @@ _ZN2cv10AutoBufferIPhLm136EED2Ev.exit:            ; preds = %45, %41
   %84 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
   store ptr %83, ptr %84, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = icmp ult i64 %indvars.iv.next, %80
+  %85 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %85, label %81, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %81, %.preheader

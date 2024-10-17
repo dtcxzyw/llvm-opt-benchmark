@@ -1084,7 +1084,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %83 = add nuw nsw i64 %78, 1
   %84 = load i32, ptr %9, align 8, !tbaa !52
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %83, %85
+  %86 = icmp samesign ult i64 %83, %85
   br i1 %86, label %77, label %.loopexit23, !llvm.loop !54
 
 87:                                               ; preds = %77

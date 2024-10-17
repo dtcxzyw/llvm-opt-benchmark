@@ -123,7 +123,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   %46 = load i32, ptr %45, align 8, !tbaa !17
   %47 = getelementptr inbounds i8, ptr %2, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !21
-  %49 = icmp uge i32 %46, %48
+  %49 = icmp samesign uge i32 %46, %48
   tail call void @llvm.assume(i1 %49)
   %50 = icmp sgt i32 %46, -1
   tail call void @llvm.assume(i1 %50)
@@ -132,7 +132,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   %52 = sub nsw i32 %46, %48
   %53 = lshr i32 %52, 4
   %54 = zext nneg i32 %53 to i64
-  %55 = icmp ugt i64 %44, %54
+  %55 = icmp samesign ugt i64 %44, %54
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %40
@@ -154,7 +154,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   %64 = zext i32 %62 to i64
   %65 = add nuw nsw i64 %63, %64
   %66 = zext nneg i32 %46 to i64
-  %67 = icmp ugt i64 %65, %66
+  %67 = icmp samesign ugt i64 %65, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %60
@@ -167,7 +167,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
 70:                                               ; preds = %60
   %71 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !87, !nonnull !94, !noundef !94
   %72 = add nuw nsw i32 %48, %62
-  %73 = icmp ule i32 %72, %46
+  %73 = icmp samesign ule i32 %72, %46
   tail call void @llvm.assume(i1 %73)
   %74 = icmp sgt i32 %62, -1
   tail call void @llvm.assume(i1 %74)
@@ -305,17 +305,17 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp uge i32 %15, %10
+  %21 = icmp samesign uge i32 %15, %10
   tail call void @llvm.assume(i1 %21)
   %22 = icmp ne i32 %10, 0
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ugt i32 %12, %1
+  %24 = icmp samesign ugt i32 %12, %1
   tail call void @llvm.assume(i1 %24)
   %25 = mul nuw nsw i32 %15, %1
   %26 = add nuw nsw i32 %25, %10
-  %27 = icmp ule i32 %26, %16
+  %27 = icmp samesign ule i32 %26, %16
   tail call void @llvm.assume(i1 %27)
   %28 = zext nneg i32 %25 to i64
   %29 = getelementptr i16, ptr %5, i64 %28
@@ -338,7 +338,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %43 = icmp sgt i32 %37, -1
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr i8, ptr %42, i64 %40
-  %45 = icmp ult i32 %10, 9
+  %45 = icmp samesign ult i32 %10, 9
   br i1 %45, label %.loopexit6, label %46
 
 46:                                               ; preds = %39
@@ -357,7 +357,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %59 = add nsw i64 %50, -1
   %60 = tail call i64 @llvm.umin.i64(i64 %48, i64 %59)
   %61 = add nuw nsw i64 %60, 1
-  %62 = icmp ult i64 %60, 8
+  %62 = icmp samesign ult i64 %60, 8
   br i1 %62, label %.loopexit7.preheader, label %64
 
 .loopexit7.preheader:                             ; preds = %.loopexit7.loopexit, %64, %46
@@ -417,7 +417,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %97)
   %98 = mul nuw nsw <8 x i64> %86, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
   %99 = add nuw nsw <8 x i64> %98, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
-  %100 = icmp ule <8 x i64> %99, %83
+  %100 = icmp samesign ule <8 x i64> %99, %83
   %101 = extractelement <8 x i1> %100, i64 0
   tail call void @llvm.assume(i1 %101)
   %102 = extractelement <8 x i1> %100, i64 1
@@ -718,7 +718,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %303)
   %304 = mul nuw nsw i64 %297, 9
   %305 = add nuw nsw i64 %304, 9
-  %306 = icmp ule i64 %305, %47
+  %306 = icmp samesign ule i64 %305, %47
   tail call void @llvm.assume(i1 %306)
   %307 = load i32, ptr %302, align 1
   %308 = trunc i32 %307 to i16

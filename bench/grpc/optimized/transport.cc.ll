@@ -1220,7 +1220,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.040, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -2197,7 +2197,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6, %if.t
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i36)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i46)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i47)
-  %tobool.not.i49 = icmp ult i32 %flags.3, 1073741824
+  %tobool.not.i49 = icmp samesign ult i32 %flags.3, 1073741824
   br i1 %tobool.not.i49, label %invoke.cont10, label %if.then.i50
 
 if.then.i50:                                      ; preds = %invoke.cont8

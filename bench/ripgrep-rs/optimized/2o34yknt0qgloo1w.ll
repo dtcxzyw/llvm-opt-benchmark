@@ -882,7 +882,7 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   %111 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %112 = icmp ult i64 %111, 6
   call void @llvm.assume(i1 %112)
-  %switch.selectcmp88 = icmp ugt i64 %111, 4
+  %switch.selectcmp88 = icmp samesign ugt i64 %111, 4
   br i1 %switch.selectcmp88, label %113, label %104
 
 113:                                              ; preds = %105

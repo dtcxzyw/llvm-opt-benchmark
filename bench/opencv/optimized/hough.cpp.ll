@@ -12809,7 +12809,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit94:           ; preds = %.noexc93, %_ZN2cv10
 109:                                              ; preds = %105, %.lr.ph.i
   %.1.i = phi i32 [ %106, %105 ], [ %.021.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %110 = icmp ult i64 %indvars.iv.next.i, %95
+  %110 = icmp samesign ult i64 %indvars.iv.next.i, %95
   br i1 %110, label %.lr.ph.i, label %_ZNK2cv32HoughCircleEstimateRadiusInvokerINS_11NZPointListEE13filterCirclesERKNS_6Point_IfEEPf.exit, !llvm.loop !154
 
 _ZNK2cv32HoughCircleEstimateRadiusInvokerINS_11NZPointListEE13filterCirclesERKNS_6Point_IfEEPf.exit: ; preds = %109
@@ -14996,7 +14996,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit318.i.i.i:          ; preds = %170, %.lr.ph.i.i.i
   %249 = getelementptr inbounds i8, ptr %239, i64 16
   %250 = load i64, ptr %249, align 8
   %251 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %250)
-  %252 = icmp ult i64 %251, 15
+  %252 = icmp samesign ult i64 %251, 15
   br i1 %252, label %253, label %254
 
 253:                                              ; preds = %248, %243
@@ -15014,8 +15014,8 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit318.i.i.i:          ; preds = %170, %.lr.ph.i.i.i
   %256 = getelementptr inbounds i8, ptr %255, i64 8
   %257 = load i32, ptr %256, align 8
   %258 = icmp ne i32 %257, 0
-  %259 = icmp ult i64 %indvars.iv482.i.i.i, 9
-  %or.cond521.i.i.i = and i1 %259, %258
+  %259 = icmp samesign ult i64 %indvars.iv482.i.i.i, 9
+  %or.cond521.i.i.i = select i1 %258, i1 %259, i1 false
   br i1 %or.cond521.i.i.i, label %.lr.ph419.i.i.i, label %.loopexit366.i.i.i
 
 .lr.ph419.i.i.i:                                  ; preds = %.preheader373.i.i.i
@@ -15151,7 +15151,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit318.i.i.i:          ; preds = %170, %.lr.ph.i.i.i
   br i1 %330, label %331, label %335
 
 331:                                              ; preds = %327
-  %332 = icmp ult i32 %313, 64
+  %332 = icmp samesign ult i32 %313, 64
   %333 = select i1 %332, i32 %316, i32 0
   %334 = add nsw i32 %storemerge.i.i.i, %333
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %.1362.i.i.i, i32 %334)
@@ -15161,11 +15161,11 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit318.i.i.i:          ; preds = %170, %.lr.ph.i.i.i
   %.2.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %331 ], [ %.1362.i.i.i, %327 ]
   %336 = fmul double %329, 3.000000e+00
   %337 = fcmp ole double %336, %328
-  %338 = icmp ugt i32 %313, 34
+  %338 = icmp samesign ugt i32 %313, 34
   %or.cond5.i.i.i = select i1 %337, i1 %338, i1 false
   %339 = icmp sgt i32 %.2.i.i.i, 19
   %or.cond7.i.i.i = select i1 %or.cond5.i.i.i, i1 %339, i1 false
-  %340 = icmp ugt i32 %313, 54
+  %340 = icmp samesign ugt i32 %313, 54
   %spec.select314.i.i.i = select i1 %or.cond7.i.i.i, i1 true, i1 %340
   br i1 %spec.select314.i.i.i, label %341, label %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit.i.i.i
 

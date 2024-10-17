@@ -1455,8 +1455,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %call141 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %sourceline, i64 noundef %indvars.iv) #19
   %47 = load i8, ptr %call141, align 1
   %cmp143 = icmp eq i8 %47, 0
-  %cmp145 = icmp ugt i64 %indvars.iv, 1019
-  %or.cond3 = or i1 %cmp143, %cmp145
+  %cmp145 = icmp samesign ugt i64 %indvars.iv, 1019
+  %or.cond3 = select i1 %cmp143, i1 true, i1 %cmp145
   br i1 %or.cond3, label %for.end.loopexit.split.loop.exit, label %do.end160
 
 do.end160:                                        ; preds = %for.body
@@ -1492,7 +1492,7 @@ for.body170:                                      ; preds = %for.body170.prehead
   %call172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %sourceline, i64 noundef %indvars.iv94) #19
   %54 = load i8, ptr %call172, align 1
   %cmp174 = icmp eq i8 %54, 0
-  %cmp176 = icmp ugt i64 %indvars.iv96, 1019
+  %cmp176 = icmp samesign ugt i64 %indvars.iv96, 1019
   %or.cond4 = select i1 %cmp174, i1 true, i1 %cmp176
   br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit103, label %do.end191
 
@@ -1511,7 +1511,7 @@ do.body198.loopexit.split.loop.exit103:           ; preds = %for.body170
 
 do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit103, %for.end
   %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %56, %do.body198.loopexit.split.loop.exit103 ], [ %53, %do.end191 ]
-  %cmp199 = icmp ugt i32 %off.1.lcssa, 1020
+  %cmp199 = icmp samesign ugt i32 %off.1.lcssa, 1020
   br i1 %cmp199, label %do.body205, label %do.end210
 
 do.body205:                                       ; preds = %do.body198
@@ -5668,7 +5668,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

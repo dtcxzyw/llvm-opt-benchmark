@@ -325,7 +325,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %57 = mul nuw nsw i32 %.026.lcssa.i, 5
   %58 = shl i32 %56, %57
   %59 = or i32 %58, %.1.lcssa.i
-  %60 = icmp ugt i32 %.026.lcssa.i, 3
+  %60 = icmp samesign ugt i32 %.026.lcssa.i, 3
   %61 = icmp ugt i32 %59, 1114111
   %or.cond.i = select i1 %60, i1 true, i1 %61
   br i1 %or.cond.i, label %.loopexit, label %62
@@ -398,7 +398,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   %17 = lshr i64 %.015.i.i, 6
   %18 = lshr i32 %.0.i.i, 1
   %19 = zext nneg i32 %18 to i64
-  %20 = icmp ugt i64 %17, %19
+  %20 = icmp samesign ugt i64 %17, %19
   br i1 %20, label %.preheader.i.i, label %21, !llvm.loop !13
 
 21:                                               ; preds = %.preheader.i.i
@@ -464,7 +464,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %46 = lshr i64 %.015.i.i15, 6
   %47 = lshr i32 %.0.i.i16, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ugt i64 %46, %48
+  %49 = icmp samesign ugt i64 %46, %48
   br i1 %49, label %.preheader.i.i13, label %50, !llvm.loop !13
 
 50:                                               ; preds = %.preheader.i.i13
@@ -620,7 +620,7 @@ _ZL10u_posrelatim.exit30:                         ; preds = %_ZL10u_posrelatim.e
   %53 = mul nuw nsw i32 %.026.lcssa.i, 5
   %54 = shl i32 %52, %53
   %55 = or i32 %54, %.1.lcssa.i
-  %56 = icmp ugt i32 %.026.lcssa.i, 3
+  %56 = icmp samesign ugt i32 %.026.lcssa.i, 3
   %57 = icmp ugt i32 %55, 1114111
   %or.cond.i = select i1 %56, i1 true, i1 %57
   br i1 %or.cond.i, label %.loopexit, label %58
@@ -786,7 +786,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %34 = mul nuw nsw i32 %.026.lcssa.i, 5
   %35 = shl i32 %33, %34
   %36 = or i32 %35, %.1.lcssa.i
-  %37 = icmp ugt i32 %.026.lcssa.i, 3
+  %37 = icmp samesign ugt i32 %.026.lcssa.i, 3
   %38 = icmp ugt i32 %36, 1114111
   %or.cond.i = select i1 %37, i1 true, i1 %38
   br i1 %or.cond.i, label %_ZL11utf8_decodePKcPi.exit.thread, label %39

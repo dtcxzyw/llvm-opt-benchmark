@@ -3149,7 +3149,7 @@ _ZN2cvpLIddLi9ELi1EEERNS_4MatxIT_XT1_EXT2_EEES4_RKNS1_IT0_XT1_EXT2_EEE.exit: ; p
 _ZN2cvL4normIdLi9ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEEi.exit: ; preds = %_ZN2cvpLIddLi9ELi1EEERNS_4MatxIT_XT1_EXT2_EEES4_RKNS1_IT0_XT1_EXT2_EEE.exit
   %17 = add nuw nsw i32 %.0612, 1
   %18 = fcmp ogt double %16, 1.000000e-10
-  %19 = icmp ult i32 %.0612, 14
+  %19 = icmp samesign ult i32 %.0612, 14
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %7, label %.critedge, !llvm.loop !116
 

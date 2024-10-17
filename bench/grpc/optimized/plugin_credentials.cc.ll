@@ -6476,7 +6476,7 @@ for.inc:                                          ; preds = %if.then.i10, %invok
   %inc = add nuw nsw i64 %i.023, 1
   %11 = load i64, ptr %metadata_, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !348
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

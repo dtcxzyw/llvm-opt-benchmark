@@ -1213,7 +1213,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %420 = add i64 %417, 1
   %421 = select i1 %419, i64 %420, i64 %399
   %422 = and i64 %421, 4294967295
-  %423 = icmp ugt i64 %422, 2147483647
+  %423 = icmp samesign ugt i64 %422, 2147483647
   br i1 %423, label %424, label %425, !prof !19
 
 424:                                              ; preds = %416

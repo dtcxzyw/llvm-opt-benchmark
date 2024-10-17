@@ -1417,7 +1417,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %432 = load ptr, ptr %192, align 8
   %433 = icmp ne ptr %431, %432
-  %434 = icmp ult i64 %indvars.iv648, 11
+  %434 = icmp samesign ult i64 %indvars.iv648, 11
   %or.cond.not = select i1 %433, i1 %434, i1 false
   br i1 %or.cond.not, label %.lr.ph499, label %._crit_edge500, !llvm.loop !12
 

@@ -6661,7 +6661,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %206 = icmp sgt i32 %194, 0
   %or.cond527 = and i1 %206, %or.cond525
   %207 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %194)
-  %208 = icmp ult i32 %207, 2
+  %208 = icmp samesign ult i32 %207, 2
   %or.cond530 = select i1 %or.cond527, i1 %208, i1 false
   br i1 %or.cond530, label %209, label %_ZL18is_cloop_conditionP8BoolNode.exit444
 
@@ -6781,7 +6781,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %282 = icmp sgt i64 %270, 0
   %or.cond534 = and i1 %282, %or.cond532
   %283 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %270)
-  %284 = icmp ult i64 %283, 2
+  %284 = icmp samesign ult i64 %283, 2
   %or.cond537 = select i1 %or.cond534, i1 %284, i1 false
   br i1 %or.cond537, label %285, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577
 

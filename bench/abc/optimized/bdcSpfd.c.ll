@@ -419,7 +419,7 @@ Abc_Clock.exit:                                   ; preds = %Vec_IntPush.exit, %
   %indvars.iv656 = phi i64 [ 1, %.lr.ph577.preheader ], [ %indvars.iv.next657, %.loopexit551 ]
   %.0440576 = phi i32 [ 0, %.lr.ph577.preheader ], [ %.1.lcssa, %.loopexit551 ]
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
-  %118 = icmp ult i64 %indvars.iv.next666, %116
+  %118 = icmp samesign ult i64 %indvars.iv.next666, %116
   br i1 %118, label %.lr.ph568, label %.loopexit551
 
 .lr.ph568:                                        ; preds = %.lr.ph577
@@ -874,7 +874,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   %indvars.iv698 = phi i64 [ 1, %.lr.ph611 ], [ %indvars.iv.next699, %.loopexit ]
   %.5610 = phi i32 [ %.3.lcssa, %.lr.ph611 ], [ %.6.lcssa, %.loopexit ]
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
-  %337 = icmp ult i64 %indvars.iv.next708, %272
+  %337 = icmp samesign ult i64 %indvars.iv.next708, %272
   br i1 %337, label %.lr.ph607, label %.loopexit
 
 .lr.ph607:                                        ; preds = %336
@@ -990,7 +990,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   %402 = and i64 %398, 4503599627370495
   %403 = or disjoint i64 %401, %402
   store i64 %403, ptr %394, align 8
-  %404 = icmp ugt i32 %399, 300
+  %404 = icmp samesign ugt i32 %399, 300
   br i1 %404, label %405, label %417
 
 405:                                              ; preds = %.lr.ph616
@@ -1775,7 +1775,7 @@ Abc_Clock.exit:                                   ; preds = %1, %10
   %gep = getelementptr inbounds i8, ptr %16, i64 %.0158.idx254
   store i32 0, ptr %gep, align 4
   %.0158.add = add nuw nsw i64 %.0158.idx254, 24
-  %18 = icmp ult i64 %.0158.idx254, 5999999976
+  %18 = icmp samesign ult i64 %.0158.idx254, 5999999976
   br i1 %18, label %17, label %Vec_IntPush.exit, !llvm.loop !23
 
 Vec_IntPush.exit:                                 ; preds = %17
@@ -2088,8 +2088,8 @@ Vec_IntPush.exit195:                              ; preds = %.Vec_IntGrow.exit10
   %.4267 = phi ptr [ %.3269, %.preheader244 ], [ %.5, %344 ]
   %157 = add nuw nsw i64 %indvars.iv278, %indvars.iv282
   %.not = icmp ne i64 %157, %indvars.iv286
-  %158 = icmp ugt i64 %indvars.iv282, %indvars.iv278
-  %or.cond = or i1 %158, %.not
+  %158 = icmp samesign ugt i64 %indvars.iv282, %indvars.iv278
+  %or.cond = select i1 %.not, i1 true, i1 %158
   br i1 %or.cond, label %344, label %159
 
 159:                                              ; preds = %156
@@ -2142,7 +2142,7 @@ Abc_Clock.exit197:                                ; preds = %159, %178
 
 .preheader243.lr.ph:                              ; preds = %Abc_Clock.exit197
   %187 = icmp slt i32 %169, %173
-  %188 = icmp ult i64 %indvars.iv282, %indvars.iv278
+  %188 = icmp samesign ult i64 %indvars.iv282, %indvars.iv278
   br i1 %187, label %.preheader243.us, label %._crit_edge265
 
 .preheader243.us:                                 ; preds = %.preheader243.lr.ph, %._crit_edge.us

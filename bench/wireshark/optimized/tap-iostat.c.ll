@@ -220,7 +220,7 @@ define internal void @iostat_init(ptr noundef %0, ptr nocapture readnone %1) #0 
   %48 = add i32 %44, -1
   store i32 %48, ptr %42, align 8
   %49 = mul nuw nsw i32 %.0113, 10
-  %50 = icmp ult i32 %.0113, 1000000
+  %50 = icmp samesign ult i32 %.0113, 1000000
   br i1 %50, label %43, label %51, !llvm.loop !5
 
 51:                                               ; preds = %43, %47
@@ -319,7 +319,7 @@ define internal void @iostat_init(ptr noundef %0, ptr nocapture readnone %1) #0 
   %99 = getelementptr i32, ptr %96, i64 %indvars.iv
   store i32 0, ptr %99, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = icmp ult i64 %indvars.iv.next, %88
+  %100 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %100, label %.lr.ph116, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph116, %.loopexit
@@ -974,7 +974,7 @@ define internal noundef i32 @iostat_packet(ptr nocapture noundef %0, ptr nocaptu
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %171 = load i32, ptr %89, align 8
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next486, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next486, %172
   br i1 %173, label %94, label %thread-pre-split, !llvm.loop !12
 
 174:                                              ; preds = %._crit_edge
@@ -1202,7 +1202,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %299 = load i32, ptr %183, align 8
   %300 = zext i32 %299 to i64
-  %301 = icmp ult i64 %indvars.iv.next483, %300
+  %301 = icmp samesign ult i64 %indvars.iv.next483, %300
   br i1 %301, label %switch.lookup, label %thread-pre-split, !llvm.loop !13
 
 302:                                              ; preds = %._crit_edge
@@ -1381,7 +1381,7 @@ switch.lookup511:                                 ; preds = %switch.hole_check51
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %399 = load i32, ptr %311, align 8
   %400 = zext i32 %399 to i64
-  %401 = icmp ult i64 %indvars.iv.next480, %400
+  %401 = icmp samesign ult i64 %indvars.iv.next480, %400
   br i1 %401, label %switch.lookup511, label %thread-pre-split, !llvm.loop !14
 
 402:                                              ; preds = %._crit_edge
@@ -1536,7 +1536,7 @@ switch.lookup511:                                 ; preds = %switch.hole_check51
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %494 = load i32, ptr %411, align 8
   %495 = zext i32 %494 to i64
-  %496 = icmp ult i64 %indvars.iv.next477, %495
+  %496 = icmp samesign ult i64 %indvars.iv.next477, %495
   br i1 %496, label %417, label %thread-pre-split, !llvm.loop !15
 
 497:                                              ; preds = %._crit_edge
@@ -1628,7 +1628,7 @@ switch.lookup511:                                 ; preds = %switch.hole_check51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %542 = load i32, ptr %506, align 8
   %543 = zext i32 %542 to i64
-  %544 = icmp ult i64 %indvars.iv.next, %543
+  %544 = icmp samesign ult i64 %indvars.iv.next, %543
   br i1 %544, label %512, label %thread-pre-split, !llvm.loop !17
 
 thread-pre-split.sink.split:                      ; preds = %81, %71
@@ -1885,7 +1885,7 @@ define internal void @iostat_draw(ptr nocapture noundef readonly %0) #0 {
   %.011.i = phi i32 [ 0, %30 ], [ %37, %39 ]
   %.079.i = phi i64 [ %35, %30 ], [ %40, %39 ]
   %37 = add nuw nsw i32 %.011.i, 1
-  %38 = icmp ult i64 %.079.i, 10
+  %38 = icmp samesign ult i64 %.079.i, 10
   br i1 %38, label %magnitude.exit, label %39
 
 39:                                               ; preds = %36
@@ -1903,7 +1903,7 @@ magnitude.exit:                                   ; preds = %36, %39
   %.011.i603 = phi i32 [ 0, %magnitude.exit ], [ %44, %46 ]
   %.079.i604 = phi i64 [ %42, %magnitude.exit ], [ %47, %46 ]
   %44 = add nuw nsw i32 %.011.i603, 1
-  %45 = icmp ult i64 %.079.i604, 10
+  %45 = icmp samesign ult i64 %.079.i604, 10
   br i1 %45, label %magnitude.exit607, label %46
 
 46:                                               ; preds = %43
@@ -1962,7 +1962,7 @@ magnitude.exit607:                                ; preds = %43, %46
   %.0518.lcssa = phi i64 [ %62, %._crit_edge674.loopexit ], [ 1000000, %53 ]
   %64 = udiv i64 %.0518.lcssa, 10
   %65 = mul nuw nsw i64 %64, 5
-  %66 = icmp ugt i64 %.pre-phi, %65
+  %66 = icmp samesign ugt i64 %.pre-phi, %65
   br i1 %66, label %67, label %magnitude.exit612
 
 67:                                               ; preds = %._crit_edge674
@@ -1981,7 +1981,7 @@ magnitude.exit607:                                ; preds = %43, %46
   %.011.i608 = phi i32 [ 0, %67 ], [ %77, %79 ]
   %.079.i609 = phi i64 [ %75, %67 ], [ %80, %79 ]
   %77 = add nuw nsw i32 %.011.i608, 1
-  %78 = icmp ult i64 %.079.i609, 10
+  %78 = icmp samesign ult i64 %.079.i609, 10
   br i1 %78, label %magnitude.exit612, label %79
 
 79:                                               ; preds = %76
@@ -2064,7 +2064,7 @@ magnitude.exit612:                                ; preds = %79, %76, %._crit_ed
   %.011.i613 = phi i32 [ 0, %.thread ], [ %114, %116 ]
   %.079.i614 = phi i64 [ %112, %.thread ], [ %117, %116 ]
   %114 = add nuw nsw i32 %.011.i613, 1
-  %115 = icmp ult i64 %.079.i614, 10
+  %115 = icmp samesign ult i64 %.079.i614, 10
   br i1 %115, label %magnitude.exit617, label %116
 
 116:                                              ; preds = %113

@@ -17,7 +17,7 @@ while.body:                                       ; preds = %entry, %while.body
   %inc4 = add nuw nsw i32 %slot_bits.08, 1
   %shl5 = shl i64 %volume.010, 1
   %cmp = icmp ult i64 %shl5, %source_size
-  %cmp2 = icmp ult i32 %bucket_bits.09, 21
+  %cmp2 = icmp samesign ult i32 %bucket_bits.09, 21
   %0 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %0, label %while.body, label %while.end, !llvm.loop !4
 
@@ -42,7 +42,7 @@ while.end:                                        ; preds = %while.body, %entry
   %cmp15.i = icmp ugt i32 %slot_bits.0.lcssa, %bucket_bits.0.lcssa
   %or.cond.i = or i1 %cmp.i, %cmp15.i
   %sub18.i = sub nuw i32 %bucket_bits.0.lcssa, %slot_bits.0.lcssa
-  %cmp19.i = icmp ugt i32 %sub18.i, 15
+  %cmp19.i = icmp samesign ugt i32 %sub18.i, 15
   %or.cond126.i = select i1 %or.cond.i, i1 true, i1 %cmp19.i
   br i1 %or.cond126.i, label %CreatePreparedDictionaryWithParams.exit, label %if.end21.i
 
@@ -112,7 +112,7 @@ for.body69.i:                                     ; preds = %for.body69.i.prehea
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.then97.i ], [ 0, %for.body69.i.preheader ]
   %total_items.0137.i = phi i32 [ %add100.i, %if.then97.i ], [ 0, %for.body69.i.preheader ]
   %arrayidx72.i = getelementptr inbounds i32, ptr %arrayidx.i, i64 %indvars.iv.i
-  %cmp79.not130.i = icmp ult i64 %indvars.iv.i, %idxprom26.i
+  %cmp79.not130.i = icmp samesign ult i64 %indvars.iv.i, %idxprom26.i
   store i32 32, ptr %arrayidx72.i, align 4
   br i1 %cmp79.not130.i, label %for.body81.lr.ph.us.i, label %if.then97.i
 
@@ -123,7 +123,7 @@ for.body81.lr.ph.us.i:                            ; preds = %for.body69.i, %if.e
 for.body81.us.i:                                  ; preds = %if.end87.us.i, %for.body81.lr.ph.us.i
   %count75.0132.us.i = phi i32 [ 0, %for.body81.lr.ph.us.i ], [ %add92.us.i, %if.end87.us.i ]
   %j.0131.us.i = phi i64 [ %indvars.iv.i, %for.body81.lr.ph.us.i ], [ %add95.us.i, %if.end87.us.i ]
-  %cmp84.us.i = icmp ugt i32 %count75.0132.us.i, 65534
+  %cmp84.us.i = icmp samesign ugt i32 %count75.0132.us.i, 65534
   br i1 %cmp84.us.i, label %if.end101.us.i, label %if.end87.us.i
 
 if.end87.us.i:                                    ; preds = %for.body81.us.i
@@ -133,7 +133,7 @@ if.end87.us.i:                                    ; preds = %for.body81.us.i
   %spec.select124.us.i = tail call i32 @llvm.umin.i32(i32 %storemerge134.us.i, i32 %conv83.us.i)
   %add92.us.i = add nuw nsw i32 %spec.select124.us.i, %count75.0132.us.i
   %add95.us.i = add nuw nsw i64 %j.0131.us.i, %idxprom.i
-  %cmp79.not.us.i = icmp ult i64 %add95.us.i, %idxprom26.i
+  %cmp79.not.us.i = icmp samesign ult i64 %add95.us.i, %idxprom26.i
   br i1 %cmp79.not.us.i, label %for.body81.us.i, label %if.then97.i, !llvm.loop !7
 
 if.end101.us.i:                                   ; preds = %for.body81.us.i

@@ -885,7 +885,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr nocapture noundef
   %727 = add i32 %724, %711
   store i32 %727, ptr %4, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 8
-  %728 = icmp ult i64 %indvars.iv178, 56
+  %728 = icmp samesign ult i64 %indvars.iv178, 56
   br i1 %728, label %279, label %.preheader, !llvm.loop !7
 
 729:                                              ; preds = %.preheader, %729
@@ -1002,7 +1002,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
   %6 = zext nneg i32 %4 to i64
   %7 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %6
   store i8 -128, ptr %7, align 1
-  %8 = icmp ult i32 %4, 56
+  %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 1
@@ -1352,7 +1352,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) loca
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.be, %.backedge.backedge ]
   %indvars76 = trunc i64 %indvars.iv to i32
   %.urem = add nsw i32 %indvars76, -3
-  %.cmp = icmp ult i64 %indvars.iv, 3
+  %.cmp = icmp samesign ult i64 %indvars.iv, 3
   %21 = select i1 %.cmp, i32 %indvars76, i32 %.urem
   %22 = zext i1 %.cmp to i32
   br i1 %.not37, label %27, label %23

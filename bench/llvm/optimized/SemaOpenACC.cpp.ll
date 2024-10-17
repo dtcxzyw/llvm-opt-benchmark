@@ -6542,7 +6542,7 @@ define dso_local noundef i64 @_ZN5clang11SemaOpenACC21ActOnArraySectionExprEPNS_
   %.not.i.i = icmp ne i8 %61, 13
   %62 = load i32, ptr %60, align 16
   %63 = and i32 %62, 267911168
-  %64 = icmp ult i32 %63, 256901121
+  %64 = icmp samesign ult i32 %63, 256901121
   %65 = and i32 %62, 267911423
   %or.cond = icmp eq i32 %65, 261619725
   %66 = or i1 %64, %or.cond
@@ -6577,7 +6577,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
   %.not.i124 = icmp eq i8 %81, 13
   %82 = load i32, ptr %80, align 16
   %83 = and i32 %82, 266338304
-  %84 = icmp ugt i32 %83, 257425408
+  %84 = icmp samesign ugt i32 %83, 257425408
   %.0.i125 = select i1 %.not.i124, i1 %84, i1 false
   br i1 %.0.i125, label %85, label %.critedge
 
@@ -6616,7 +6616,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
   %.not.i128 = icmp eq i8 %104, 13
   %105 = load i32, ptr %103, align 16
   %106 = and i32 %105, 266338304
-  %107 = icmp ugt i32 %106, 257425408
+  %107 = icmp samesign ugt i32 %106, 257425408
   %.0.i129 = select i1 %.not.i128, i1 %107, i1 false
   br i1 %.0.i129, label %108, label %.critedge2
 
@@ -6999,7 +6999,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %27
   %301 = load i64, ptr %300, align 8, !noalias !27
   %302 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %299, ptr %302, align 8, !alias.scope !27
-  %303 = icmp ult i32 %299, 65
+  %303 = icmp samesign ult i32 %299, 65
   br i1 %303, label %304, label %312
 
 304:                                              ; preds = %297

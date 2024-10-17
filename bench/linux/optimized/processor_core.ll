@@ -434,7 +434,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_map_cpuid(i32 noundef %0, i32 noun
 12:                                               ; preds = %24, %4
   %13 = phi i64 [ %32, %24 ], [ 0, %4 ]
   %14 = and i64 %13, 4294967295
-  %15 = icmp ugt i64 %14, 63
+  %15 = icmp samesign ugt i64 %14, 63
   br i1 %15, label %.thread, label %16, !prof !5
 
 16:                                               ; preds = %12
@@ -486,7 +486,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_get_cpuid(ptr noundef %0, i32 noun
 14:                                               ; preds = %26, %6
   %15 = phi i64 [ %34, %26 ], [ 0, %6 ]
   %16 = and i64 %15, 4294967295
-  %17 = icmp ugt i64 %16, 63
+  %17 = icmp samesign ugt i64 %16, 63
   br i1 %17, label %.thread, label %18, !prof !5
 
 18:                                               ; preds = %14

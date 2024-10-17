@@ -3267,7 +3267,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52.i.i:           ; preds = %1445, %1443
   %1452 = lshr i32 %1448, 6
   %1453 = add i32 %1449, -1
   %1454 = lshr i32 %1453, 6
-  %.not32.i.i.i.i.i.i = icmp ugt i32 %1452, %1454
+  %.not32.i.i.i.i.i.i = icmp samesign ugt i32 %1452, %1454
   br i1 %.not32.i.i.i.i.i.i, label %._crit_edge.i.i25, label %.lr.ph.i.i.i.i.i.i23
 
 .lr.ph.i.i.i.i.i.i23:                             ; preds = %1451
@@ -3518,7 +3518,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90.i.i:           ; preds = %1590, %1588
   %1597 = lshr i32 %1593, 6
   %1598 = add i32 %1594, -1
   %1599 = lshr i32 %1598, 6
-  %.not32.i.i.i.i91.i.i = icmp ugt i32 %1597, %1599
+  %.not32.i.i.i.i91.i.i = icmp samesign ugt i32 %1597, %1599
   br i1 %.not32.i.i.i.i91.i.i, label %._crit_edge30.i.i, label %.lr.ph.i.i.i.i92.i.i
 
 .lr.ph.i.i.i.i92.i.i:                             ; preds = %1596
@@ -4359,7 +4359,7 @@ _ZN4llvm8DebugLocD2Ev.exit140.i:                  ; preds = %1956, %_ZN4llvm10MI
   %1961 = lshr i32 %1957, 6
   %1962 = add i32 %1958, -1
   %1963 = lshr i32 %1962, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %1961, %1963
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %1961, %1963
   br i1 %.not32.i.i.i.i.i, label %._crit_edge.i48, label %.lr.ph.i.i.i.i.i47
 
 .lr.ph.i.i.i.i.i47:                               ; preds = %1960
@@ -4812,7 +4812,7 @@ _ZN4llvm8DebugLocD2Ev.exit199.i:                  ; preds = %2150, %_ZN4llvm10MI
   %2155 = lshr i32 %2151, 6
   %2156 = add i32 %2152, -1
   %2157 = lshr i32 %2156, 6
-  %.not32.i.i.i.i200.i = icmp ugt i32 %2155, %2157
+  %.not32.i.i.i.i200.i = icmp samesign ugt i32 %2155, %2157
   br i1 %.not32.i.i.i.i200.i, label %.loopexit.i51, label %.lr.ph.i.i.i.i201.i
 
 .lr.ph.i.i.i.i201.i:                              ; preds = %2154

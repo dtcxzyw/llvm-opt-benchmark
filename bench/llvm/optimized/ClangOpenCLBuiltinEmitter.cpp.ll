@@ -12163,7 +12163,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %111, %109, %105, %1
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %.0.lcssa.i.i = phi i32 [ %49, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %122, %.lr.ph.i11.i ]
-  %137 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %137 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %137, label %138, label %148
 
 138:                                              ; preds = %._crit_edge.i.i

@@ -29,7 +29,7 @@ define hidden range(i32 0, 2) i32 @av1_get_shear_params(ptr nocapture noundef %0
   %14 = xor i32 %13, 31
   %.neg.i = shl nsw i32 -1, %14
   %15 = add nsw i32 %.neg.i, %.val
-  %16 = icmp ugt i32 %14, 8
+  %16 = icmp samesign ugt i32 %14, 8
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %4
@@ -199,7 +199,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
   %127 = zext i16 %126 to i32
   %128 = mul nuw nsw i32 %127, 7
   %129 = add nuw nsw i32 %128, %125
-  %130 = icmp ugt i32 %129, 65535
+  %130 = icmp samesign ugt i32 %129, 65535
   br i1 %130, label %is_affine_shear_allowed.exit.thread, label %is_affine_shear_allowed.exit
 
 is_affine_shear_allowed.exit:                     ; preds = %120
@@ -1319,7 +1319,7 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
 ._crit_edge.us.i:                                 ; preds = %71, %.preheader.us.i
   %.us-phi.us.i = phi i64 [ %.051.us.i, %.preheader.us.i ], [ %.2.us.us.i, %71 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 32
-  %37 = icmp ult i64 %indvars.iv.next64.i, %26
+  %37 = icmp samesign ult i64 %indvars.iv.next64.i, %26
   br i1 %37, label %.preheader.us.i, label %highbd_segmented_frame_error.exit, !llvm.loop !25
 
 .lr.ph.split.us.us.i:                             ; preds = %71, %.lr.ph.split.us.us.preheader.i
@@ -1398,7 +1398,7 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
 71:                                               ; preds = %av1_calc_highbd_frame_error.exit.us.us.i, %.lr.ph.split.us.us.i
   %.2.us.us.i = phi i64 [ %70, %av1_calc_highbd_frame_error.exit.us.us.i ], [ %.147.us.us.i, %.lr.ph.split.us.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
-  %72 = icmp ult i64 %indvars.iv.next.i, %25
+  %72 = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %72, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !26
 
 73:                                               ; preds = %10
@@ -1502,13 +1502,13 @@ av1_calc_frame_error_c.exit.us55.i:               ; preds = %._crit_edge.us.i.us
 112:                                              ; preds = %av1_calc_frame_error_c.exit.us55.i, %.lr.ph.split.us57.i
   %.2.us.i = phi i64 [ %111, %av1_calc_frame_error_c.exit.us55.i ], [ %.146.us.i, %.lr.ph.split.us57.i ]
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 32
-  %113 = icmp ult i64 %indvars.iv.next.i28, %78
+  %113 = icmp samesign ult i64 %indvars.iv.next.i28, %78
   br i1 %113, label %.lr.ph.split.us57.i, label %._crit_edge.us.i23, !llvm.loop !27
 
 ._crit_edge.us.i23:                               ; preds = %112, %.preheader.us.i21
   %.us-phi.us.i24 = phi i64 [ %.050.us.i, %.preheader.us.i21 ], [ %.2.us.i, %112 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 32
-  %114 = icmp ult i64 %indvars.iv.next63.i, %79
+  %114 = icmp samesign ult i64 %indvars.iv.next63.i, %79
   br i1 %114, label %.preheader.us.i21, label %highbd_segmented_frame_error.exit, !llvm.loop !28
 
 highbd_segmented_frame_error.exit:                ; preds = %._crit_edge.us.i, %._crit_edge.us.i23, %.preheader.lr.ph.i19, %73, %.preheader.lr.ph.i, %11
@@ -1640,13 +1640,13 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nocap
   %40 = sub nsw i32 %39, %21
   %41 = sub nsw i32 %37, %30
   %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %43 = icmp ult i32 %42, 256
+  %43 = icmp samesign ult i32 %42, 256
   br i1 %43, label %44, label %94
 
 44:                                               ; preds = %26
   %45 = sub nsw i32 %40, %34
   %46 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
-  %47 = icmp ult i32 %46, 256
+  %47 = icmp samesign ult i32 %46, 256
   br i1 %47, label %48, label %94
 
 48:                                               ; preds = %44
@@ -1739,7 +1739,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nocap
 105:                                              ; preds = %._crit_edge.i
   %106 = sub nsw i64 %102, %103
   %107 = tail call i64 @llvm.abs.i64(i64 %106, i1 true)
-  %.not.i.i = icmp ult i64 %107, 4294967296
+  %.not.i.i = icmp samesign ult i64 %107, 4294967296
   br i1 %.not.i.i, label %115, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %105
@@ -1761,7 +1761,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nocap
   %120 = zext nneg i32 %118 to i64
   %.neg.i.i = shl nsw i64 -1, %120
   %121 = add nsw i64 %.neg.i.i, %107
-  %122 = icmp ugt i32 %118, 8
+  %122 = icmp samesign ugt i32 %118, 8
   br i1 %122, label %123, label %133
 
 123:                                              ; preds = %115, %.thread.i.i

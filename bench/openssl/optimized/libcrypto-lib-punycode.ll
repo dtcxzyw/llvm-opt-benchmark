@@ -192,8 +192,8 @@ adapt.exit:                                       ; preds = %while.body.i, %cond
   %div92 = udiv i64 %conv90, %add85
   %sub93 = xor i32 %n.093, -1
   %conv94 = zext i32 %sub93 to i64
-  %cmp95 = icmp ule i64 %div92, %conv94
-  %cmp109.not = icmp ult i64 %written_out.289, %conv108
+  %cmp95 = icmp samesign ule i64 %div92, %conv94
+  %cmp109.not = icmp samesign ult i64 %written_out.289, %conv108
   %or.cond = select i1 %cmp95, i1 %cmp109.not, i1 false
   br i1 %or.cond, label %if.end112, label %return
 

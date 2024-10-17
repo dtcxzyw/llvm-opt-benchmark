@@ -3538,7 +3538,7 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
 .thread:                                          ; preds = %2
   %10 = getelementptr i8, ptr %4, i64 434
   %11 = load i16, ptr %10, align 2
-  br label %38
+  br label %45
 
 12:                                               ; preds = %2
   %13 = zext i16 %8 to i32
@@ -3559,73 +3559,73 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
 22:                                               ; preds = %14, %19
   %23 = phi i32 [ 0, %19 ], [ %15, %14 ]
   %24 = icmp ult i32 %23, 7
-  %25 = getelementptr i8, ptr %4, i64 434
-  %26 = load i16, ptr %25, align 2
-  br label %27
+  %25 = icmp eq i16 %6, 0
+  %26 = select i1 %24, i1 true, i1 %25
+  %27 = and i16 %6, 15
+  %28 = icmp samesign ugt i16 %27, 5
+  %29 = trunc nuw nsw i16 %27 to i8
+  %30 = getelementptr i8, ptr %4, i64 434
+  %31 = load i16, ptr %30, align 2
+  br label %32
 
-27:                                               ; preds = %32, %22
-  %28 = phi i32 [ 14, %22 ], [ %33, %32 ]
-  %29 = shl nuw i32 1, %28
-  %30 = and i32 %29, %13
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %35
+32:                                               ; preds = %37, %22
+  %33 = phi i32 [ 14, %22 ], [ %38, %37 ]
+  %34 = shl nuw i32 1, %33
+  %35 = and i32 %34, %13
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %40
 
-32:                                               ; preds = %27
-  %33 = add nsw i32 %28, -1
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %27, !llvm.loop !15
+37:                                               ; preds = %32
+  %38 = add nsw i32 %33, -1
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %32, !llvm.loop !15
 
-35:                                               ; preds = %32, %27
-  %36 = phi i32 [ 0, %32 ], [ %28, %27 ]
-  %37 = icmp ult i32 %36, 7
-  br label %38
+40:                                               ; preds = %37, %32
+  %41 = phi i32 [ 0, %37 ], [ %33, %32 ]
+  %42 = icmp ult i32 %41, 7
+  %43 = select i1 %26, i1 true, i1 %28
+  %44 = select i1 %43, i8 0, i8 %29
+  br label %45
 
-38:                                               ; preds = %.thread, %35
-  %39 = phi i16 [ %26, %35 ], [ %11, %.thread ]
-  %40 = phi i1 [ %24, %35 ], [ true, %.thread ]
-  %41 = phi i1 [ %37, %35 ], [ true, %.thread ]
-  %42 = icmp eq i16 %6, 0
-  %.in = and i16 %6, 15
-  %43 = icmp ugt i16 %.in, 5
-  %44 = trunc nuw nsw i16 %.in to i8
-  %45 = add i16 %39, 1
-  %46 = icmp ult i16 %45, 2
-  %47 = select i1 %41, i1 true, i1 %46
-  %48 = add i16 %39, -2
-  %49 = icmp ult i16 %48, 1023
-  %50 = select i1 %49, i16 0, i16 %39
-  %51 = zext i16 %50 to i32
-  %52 = select i1 %47, i32 0, i32 %51
-  %53 = getelementptr i8, ptr %4, i64 138
-  %54 = load i16, ptr %53, align 2
-  %55 = trunc i16 %54 to i8
-  %56 = and i8 %55, 3
-  %57 = getelementptr i8, ptr %1, i64 1
-  store i8 -79, ptr %57, align 1
-  %58 = getelementptr i8, ptr %1, i64 3
-  store i8 60, ptr %58, align 1
-  %59 = lshr i32 %52, 8
-  %60 = trunc nuw i32 %59 to i8
-  %61 = getelementptr i8, ptr %1, i64 4
-  store i8 %60, ptr %61, align 1
-  %62 = trunc i32 %52 to i8
-  %63 = getelementptr i8, ptr %1, i64 5
-  store i8 %62, ptr %63, align 1
-  %64 = or i1 %43, %42
-  %65 = select i1 %40, i1 true, i1 %64
-  %66 = select i1 %65, i8 0, i8 %44
-  %67 = getelementptr i8, ptr %1, i64 7
+45:                                               ; preds = %.thread, %40
+  %46 = phi i16 [ %31, %40 ], [ %11, %.thread ]
+  %47 = phi i8 [ %44, %40 ], [ 0, %.thread ]
+  %48 = phi i1 [ %42, %40 ], [ true, %.thread ]
+  %49 = add i16 %46, 1
+  %50 = icmp ult i16 %49, 2
+  %51 = select i1 %48, i1 true, i1 %50
+  %52 = add i16 %46, -2
+  %53 = icmp ult i16 %52, 1023
+  %54 = select i1 %53, i16 0, i16 %46
+  %55 = zext i16 %54 to i32
+  %56 = select i1 %51, i32 0, i32 %55
+  %57 = getelementptr i8, ptr %4, i64 138
+  %58 = load i16, ptr %57, align 2
+  %59 = trunc i16 %58 to i8
+  %60 = and i8 %59, 3
+  %61 = getelementptr i8, ptr %1, i64 1
+  store i8 -79, ptr %61, align 1
+  %62 = getelementptr i8, ptr %1, i64 3
+  store i8 60, ptr %62, align 1
+  %63 = lshr i32 %56, 8
+  %64 = trunc nuw i32 %63 to i8
+  %65 = getelementptr i8, ptr %1, i64 4
+  store i8 %64, ptr %65, align 1
+  %66 = trunc i32 %56 to i8
+  %67 = getelementptr i8, ptr %1, i64 5
   store i8 %66, ptr %67, align 1
-  %68 = icmp eq i8 %56, 0
-  br i1 %68, label %72, label %69
+  %68 = getelementptr i8, ptr %1, i64 7
+  store i8 %47, ptr %68, align 1
+  %69 = icmp eq i8 %60, 0
+  br i1 %69, label %73, label %70
 
-69:                                               ; preds = %38
-  %70 = shl nuw nsw i8 %56, 4
-  %71 = getelementptr i8, ptr %1, i64 8
-  store i8 %70, ptr %71, align 1
-  br label %72
+70:                                               ; preds = %45
+  %71 = shl nuw nsw i8 %60, 4
+  %72 = getelementptr i8, ptr %1, i64 8
+  store i8 %71, ptr %72, align 1
+  br label %73
 
-72:                                               ; preds = %69, %38
+73:                                               ; preds = %70, %45
   ret i32 0
 }
 
@@ -3719,7 +3719,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr nocapture noundef readonly %0
   %35 = getelementptr i8, ptr %20, i64 32
   %36 = load i8, ptr %5, align 8
   %37 = zext i8 %36 to i64
-  %38 = icmp ult i64 %34, %37
+  %38 = icmp samesign ult i64 %34, %37
   br i1 %38, label %18, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %18, %2
@@ -3752,7 +3752,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
   %19 = and i8 %18, 15
   %20 = select i1 %17, i8 %19, i8 0
   %21 = zext nneg i8 %20 to i16
-  %22 = icmp ugt i8 %20, 1
+  %22 = icmp samesign ugt i8 %20, 1
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %14
@@ -5343,9 +5343,9 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr nocapture 
   %119 = urem i32 %114, %117
   %120 = urem i32 %110, %113
   %121 = icmp ult i32 %118, 65536
-  %122 = icmp ult i32 %119, 16
+  %122 = icmp samesign ult i32 %119, 16
   %123 = and i1 %121, %122
-  %124 = icmp ult i32 %120, 255
+  %124 = icmp samesign ult i32 %120, 255
   %125 = and i1 %123, %124
   br i1 %125, label %126, label %152
 
@@ -5972,7 +5972,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocap
   %42 = getelementptr inbounds i8, ptr %41, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = icmp ult i32 %43, %26
-  %45 = icmp ult i32 %26, %25
+  %45 = icmp samesign ult i32 %26, %25
   %46 = or i1 %45, %44
   br i1 %46, label %177, label %47
 
@@ -7467,7 +7467,7 @@ define internal fastcc void @ata_gen_passthru_sense(ptr nocapture noundef readon
   %62 = load ptr, ptr %5, align 8
   %63 = load i8, ptr %62, align 1
   %64 = and i8 %63, 126
-  %65 = icmp ugt i8 %64, 113
+  %65 = icmp samesign ugt i8 %64, 113
   br i1 %65, label %66, label %120
 
 66:                                               ; preds = %61

@@ -512,7 +512,7 @@ define internal void @native_stop_other_cpus(i32 noundef %0) #6 align 16 {
   tail call void @__SCT__apic_call_send_IPI(i32 noundef %43, i32 noundef 2) #12
   %46 = add nuw nsw i64 %42, 1
   %47 = and i64 %46, 127
-  %48 = icmp ugt i64 %47, 63
+  %48 = icmp samesign ugt i64 %47, 63
   br i1 %48, label %.thread4thread-pre-split, label %35, !prof !66, !llvm.loop !67
 
 .thread4thread-pre-split:                         ; preds = %41, %45, %28, %30

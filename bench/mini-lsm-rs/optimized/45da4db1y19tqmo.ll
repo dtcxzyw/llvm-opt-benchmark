@@ -6933,7 +6933,7 @@ define void @_ZN8mini_lsm7compact7leveled27LeveledCompactionController24generate
   %.077.i.i.i = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17hb8f6167b518e2fc4E.exit.i.i.i" ], [ %.0.i.i.i.i, %._crit_edge.i.i.i ]
   %114 = sub nuw i64 %455, %.077.i.i.i
   %115 = getelementptr inbounds { double, i64 }, ptr %.pre, i64 %.077.i.i.i
-  %116 = icmp ult i64 %114, 2
+  %116 = icmp samesign ult i64 %114, 2
   br i1 %116, label %.thread.i.i.i, label %117
 
 117:                                              ; preds = %111
@@ -8880,7 +8880,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %316 = sub nuw i64 %267, %.0147.i.i.i
   %317 = getelementptr inbounds i64, ptr %268, i64 %.0147.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
-  %318 = icmp ult i64 %316, 2
+  %318 = icmp samesign ult i64 %316, 2
   br i1 %318, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h62bd04c718048240E.exit.i.i.i", label %319
 
 319:                                              ; preds = %314

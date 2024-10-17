@@ -159,7 +159,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br label %184
 
 119:                                              ; preds = %100
-  %.not162 = icmp ugt i32 %35, %63
+  %.not162 = icmp samesign ugt i32 %35, %63
   br i1 %.not162, label %138, label %120
 
 120:                                              ; preds = %119
@@ -186,7 +186,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br label %184
 
 138:                                              ; preds = %119
-  %.not163 = icmp ugt i32 %57, %63
+  %.not163 = icmp samesign ugt i32 %57, %63
   %139 = or i32 %16, %11
   %140 = tail call i32 @Lpk_SuppDelay(i32 noundef %139, ptr noundef nonnull %6) #4
   %141 = load i32, ptr %37, align 4
@@ -274,7 +274,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %198 = tail call i32 @llvm.umax.i32(i32 %194, i32 %196)
   %199 = lshr i32 %188, 7
   %200 = and i32 %199, 31
-  %201 = icmp ugt i32 %198, %200
+  %201 = icmp samesign ugt i32 %198, %200
   br i1 %201, label %221, label %202
 
 202:                                              ; preds = %192
@@ -339,7 +339,7 @@ define ptr @Lpk_MuxSplit(ptr nocapture noundef readnone %0, ptr noundef %1, i32 
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 7
   %9 = and i32 %8, 31
-  %10 = icmp ult i32 %9, 6
+  %10 = icmp samesign ult i32 %9, 6
   %11 = add nsw i32 %9, -5
   %12 = select i1 %10, i32 0, i32 %11
   %13 = shl nuw nsw i32 1, %12
@@ -386,7 +386,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %32, %35
   %39 = load i32, ptr %6, align 8
   %40 = lshr i32 %39, 7
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %41, 6
+  %42 = icmp samesign ult i32 %41, 6
   %43 = add nsw i32 %41, -5
   %44 = shl nuw nsw i32 1, %43
   %45 = select i1 %42, i32 1, i32 %44
@@ -466,7 +466,7 @@ Kit_TruthIthVar.exit:                             ; preds = %54, %52
   %82 = and i32 %81, 31
   %83 = lshr i32 %80, 12
   %84 = and i32 %83, 15
-  %.not76 = icmp ugt i32 %82, %84
+  %.not76 = icmp samesign ugt i32 %82, %84
   br i1 %.not76, label %93, label %85
 
 85:                                               ; preds = %60
@@ -486,7 +486,7 @@ Kit_TruthIthVar.exit:                             ; preds = %54, %52
   %96 = and i32 %95, 31
   %97 = lshr i32 %94, 12
   %98 = and i32 %97, 15
-  %.not77 = icmp ugt i32 %96, %98
+  %.not77 = icmp samesign ugt i32 %96, %98
   br i1 %.not77, label %107, label %99
 
 99:                                               ; preds = %93
@@ -501,7 +501,7 @@ Kit_TruthIthVar.exit:                             ; preds = %54, %52
   br label %141
 
 107:                                              ; preds = %93
-  %108 = icmp ult i32 %96, %82
+  %108 = icmp samesign ult i32 %96, %82
   br i1 %108, label %109, label %125
 
 109:                                              ; preds = %107

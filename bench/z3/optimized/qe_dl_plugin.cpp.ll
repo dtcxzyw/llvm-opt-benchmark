@@ -1209,7 +1209,7 @@ if.end.i.i.i15.i:                                 ; preds = %for.cond.i
 
 _ZNK2qe8eq_atoms7num_eqsEv.exit18.i:              ; preds = %if.end.i.i.i15.i, %for.cond.i
   %retval.0.i.i.i17.i = phi i64 [ %14, %if.end.i.i.i15.i ], [ 0, %for.cond.i ]
-  %cmp5.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i17.i
+  %cmp5.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i17.i
   br i1 %cmp5.i, label %for.body.i, label %for.cond10.preheader.i
 
 for.cond10.preheader.i:                           ; preds = %_ZNK2qe8eq_atoms7num_eqsEv.exit18.i
@@ -1242,7 +1242,7 @@ if.end.i.i.i24.i:                                 ; preds = %for.cond10.i
 
 _ZNK2qe8eq_atoms8num_neqsEv.exit.i:               ; preds = %if.end.i.i.i24.i, %for.cond10.i
   %retval.0.i.i.i26.i = phi i64 [ %21, %if.end.i.i.i24.i ], [ 0, %for.cond10.i ]
-  %cmp12.i = icmp ult i64 %indvars.iv31.i, %retval.0.i.i.i26.i
+  %cmp12.i = icmp samesign ult i64 %indvars.iv31.i, %retval.0.i.i.i26.i
   br i1 %cmp12.i, label %for.body13.i, label %if.end
 
 for.body13.i:                                     ; preds = %_ZNK2qe8eq_atoms8num_neqsEv.exit.i
@@ -3022,7 +3022,7 @@ if.end.i.i.i14:                                   ; preds = %for.cond
 
 _ZNK2qe8eq_atoms7num_eqsEv.exit17:                ; preds = %for.cond, %if.end.i.i.i14
   %retval.0.i.i.i16 = phi i64 [ %8, %if.end.i.i.i14 ], [ 0, %for.cond ]
-  %cmp4 = icmp ult i64 %indvars.iv, %retval.0.i.i.i16
+  %cmp4 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i.i16
   br i1 %cmp4, label %for.body, label %for.cond13.preheader
 
 for.cond13.preheader:                             ; preds = %_ZNK2qe8eq_atoms7num_eqsEv.exit17
@@ -3104,7 +3104,7 @@ if.end.i.i.i26:                                   ; preds = %for.cond13
 
 _ZNK2qe8eq_atoms8num_neqsEv.exit:                 ; preds = %for.cond13, %if.end.i.i.i26
   %retval.0.i.i.i28 = phi i64 [ %22, %if.end.i.i.i26 ], [ 0, %for.cond13 ]
-  %cmp15 = icmp ult i64 %indvars.iv49, %retval.0.i.i.i28
+  %cmp15 = icmp samesign ult i64 %indvars.iv49, %retval.0.i.i.i28
   br i1 %cmp15, label %for.body16, label %if.end
 
 for.body16:                                       ; preds = %_ZNK2qe8eq_atoms8num_neqsEv.exit

@@ -1146,13 +1146,13 @@ define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
   %15 = sext i32 %.2 to i64
   %16 = icmp sge i64 %14, %15
   %17 = add nuw nsw i64 %.023, 1
-  %18 = icmp ult i64 %17, %4
+  %18 = icmp samesign ult i64 %17, %4
   %or.cond = select i1 %16, i1 %18, i1 false
   br i1 %or.cond, label %.lr.ph.backedge, label %._crit_edge
 
 19:                                               ; preds = %.lr.ph
   %.old = add nuw nsw i64 %.023, 1
-  %.old26 = icmp ult i64 %.old, %4
+  %.old26 = icmp samesign ult i64 %.old, %4
   br i1 %.old26, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %19, %13
@@ -1987,7 +1987,7 @@ define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr nocapture noundef re
   %.01923.i.in = phi i64 [ %.01923.i, %13 ], [ %3, %.preheader.i ]
   %.01923.i = add nsw i64 %.01923.i.in, -1
   %.unshifted.i = xor i64 %.01923.i, %.01923.i.in
-  %6 = icmp ult i64 %.unshifted.i, 64
+  %6 = icmp samesign ult i64 %.unshifted.i, 64
   br i1 %6, label %7, label %.lr.ph31.i
 
 7:                                                ; preds = %.lr.ph.i
@@ -2049,7 +2049,7 @@ define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr nocapture 
   %.01923 = phi i64 [ %16, %15 ], [ %1, %.preheader ]
   %7 = add nuw nsw i64 %.01923, 1
   %.unshifted = xor i64 %7, %.01923
-  %8 = icmp ult i64 %.unshifted, 64
+  %8 = icmp samesign ult i64 %.unshifted, 64
   br i1 %8, label %9, label %.lr.ph31
 
 9:                                                ; preds = %.lr.ph
@@ -2139,7 +2139,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   %.01923.i.in.i = phi i64 [ %.01923.i.i, %20 ], [ %.pre.i.i, %.preheader.i.i ]
   %.01923.i.i = add nsw i64 %.01923.i.in.i, -1
   %.unshifted.i.i = xor i64 %.01923.i.i, %.01923.i.in.i
-  %13 = icmp ult i64 %.unshifted.i.i, 64
+  %13 = icmp samesign ult i64 %.unshifted.i.i, 64
   br i1 %13, label %14, label %.lr.ph31.i.i
 
 14:                                               ; preds = %.lr.ph.i.i
@@ -3205,7 +3205,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
   %38 = load i64, ptr %gep.i, align 8
   %39 = or i64 %36, %38
   store i64 %39, ptr %gep.i, align 8
-  %.not.i = icmp ult i64 %.01722.i, %31
+  %.not.i = icmp samesign ult i64 %.01722.i, %31
   %40 = and i64 %34, 7
   %41 = icmp ne i64 %40, 0
   %or.cond.i = and i1 %.not.i, %41
@@ -3412,7 +3412,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, 
   %.01923.i.in.i = phi i64 [ %.01923.i.i, %15 ], [ %4, %.preheader.i.i ]
   %.01923.i.i = add nsw i64 %.01923.i.in.i, -1
   %.unshifted.i.i = xor i64 %.01923.i.i, %.01923.i.in.i
-  %8 = icmp ult i64 %.unshifted.i.i, 64
+  %8 = icmp samesign ult i64 %.unshifted.i.i, 64
   br i1 %8, label %9, label %.lr.ph31.i.i
 
 9:                                                ; preds = %.lr.ph.i.i

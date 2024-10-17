@@ -11121,7 +11121,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %164 = add nuw nsw i64 %.092136.us, 1
   %165 = load i32, ptr %130, align 4
   %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %164, %166
+  %167 = icmp samesign ult i64 %164, %166
   br i1 %167, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !133
 
 .loopexit135.split.us:                            ; preds = %.lr.ph.split.us, %162
@@ -11147,7 +11147,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %175 = add nuw nsw i64 %.092136, 1
   %176 = load i32, ptr %130, align 4
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %175, %177
+  %178 = icmp samesign ult i64 %175, %177
   br i1 %178, label %.lr.ph.split, label %._crit_edge, !llvm.loop !133
 
 179:                                              ; preds = %140, %133, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
@@ -15234,7 +15234,7 @@ _ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit211: ; preds = %370, %376
   %378 = add nuw nsw i64 %.0275, 1
   %379 = load i32, ptr %50, align 8
   %380 = zext i32 %379 to i64
-  %381 = icmp ult i64 %378, %380
+  %381 = icmp samesign ult i64 %378, %380
   br i1 %381, label %.lr.ph276, label %._crit_edge, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit211, %.preheader243
@@ -15242,7 +15242,7 @@ _ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit211: ; preds = %370, %376
   %382 = add nuw nsw i64 %.0129279, 1
   %383 = load i32, ptr %49, align 4
   %384 = zext i32 %383 to i64
-  %385 = icmp ult i64 %382, %384
+  %385 = icmp samesign ult i64 %382, %384
   br i1 %385, label %238, label %_ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit214, !llvm.loop !217
 
 _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit214: ; preds = %._crit_edge, %.preheader245, %_ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit206
@@ -16271,7 +16271,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %147 = add nuw nsw i64 %.0114167.us, 1
   %148 = load i32, ptr %106, align 4
   %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %147, %149
+  %150 = icmp samesign ult i64 %147, %149
   br i1 %150, label %.lr.ph168.split.us, label %.loopexit153, !llvm.loop !222
 
 .loopexit154.split.us:                            ; preds = %.lr.ph168.split.us
@@ -16294,7 +16294,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %158 = add nuw nsw i64 %.0114167, 1
   %159 = load i32, ptr %106, align 4
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %158, %160
+  %161 = icmp samesign ult i64 %158, %160
   br i1 %161, label %.lr.ph168.split, label %.loopexit153, !llvm.loop !222
 
 162:                                              ; preds = %116, %109, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
@@ -18817,7 +18817,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %189 = add nuw nsw i64 %.076, 1
   %190 = load i32, ptr %164, align 4
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %189, %191
+  %192 = icmp samesign ult i64 %189, %191
   br i1 %192, label %184, label %._crit_edge78, !llvm.loop !235
 
 ._crit_edge78:                                    ; preds = %184, %.preheader
@@ -19044,7 +19044,7 @@ define void @_ZNK7mitsuba6Bitmap10write_jpegEPNS_6StreamEi(ptr noundef nonnull a
   %64 = add nuw nsw i64 %.031, 1
   %65 = load i32, ptr %38, align 4
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %54, label %._crit_edge, !llvm.loop !236
 
 ._crit_edge:                                      ; preds = %54, %51
@@ -19672,13 +19672,13 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %229 = add nuw nsw i64 %.15056.i, 1
   %230 = add i64 %229, %218
   %231 = icmp ult i64 %230, %214
-  %232 = icmp ult i64 %.15056.i, 126
-  %or.cond.i = and i1 %232, %231
+  %232 = icmp samesign ult i64 %.15056.i, 126
+  %or.cond.i = select i1 %231, i1 %232, i1 false
   br i1 %or.cond.i, label %223, label %.critedge.i, !llvm.loop !240
 
 .critedge.i:                                      ; preds = %228, %223, %217
   %.150.lcssa.i = phi i64 [ 1, %217 ], [ %.15056.i, %223 ], [ %229, %228 ]
-  %233 = icmp ult i64 %.150.lcssa.i, 4
+  %233 = icmp samesign ult i64 %.150.lcssa.i, 4
   %234 = icmp ult i64 %218, %214
   %235 = and i1 %234, %233
   br i1 %235, label %217, label %236, !llvm.loop !241
@@ -19734,7 +19734,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 
 ._crit_edge.i:                                    ; preds = %.noexc114, %.thread.i, %247
   %.2.lcssa.i = phi i64 [ %.064.i, %247 ], [ %218, %.thread.i ], [ %258, %.noexc114 ]
-  %260 = icmp ugt i64 %.150.lcssa.i, 3
+  %260 = icmp samesign ugt i64 %.150.lcssa.i, 3
   br i1 %260, label %261, label %270
 
 261:                                              ; preds = %._crit_edge.i
@@ -19770,7 +19770,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %273 = add nuw nsw i64 %.087156, 1
   %274 = load i32, ptr %103, align 4
   %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %273, %275
+  %276 = icmp samesign ult i64 %273, %275
   br i1 %276, label %167, label %_ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit118, !llvm.loop !246
 
 _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit118: ; preds = %.split.us, %.preheader140
@@ -20008,7 +20008,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %90 = add nuw nsw i64 %.08197, 1
   %91 = load i32, ptr %56, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %79, label %.loopexit, !llvm.loop !247
 
 .loopexit92.split:                                ; preds = %.lr.ph109.split
@@ -20089,7 +20089,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %122 = add nuw nsw i64 %.076108.us, 1
   %123 = load i32, ptr %56, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %.lr.ph109.split.us, label %.loopexit, !llvm.loop !248
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.us.us
@@ -20115,7 +20115,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %132 = add nuw nsw i64 %.072105.us.us, 1
   %133 = load i32, ptr %55, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %132, %134
+  %135 = icmp samesign ult i64 %132, %134
   br i1 %135, label %.preheader.us.us, label %._crit_edge106.split.us.us, !llvm.loop !250
 
 .loopexit92.split.us:                             ; preds = %._crit_edge106.split.us.us
@@ -20138,7 +20138,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %143 = add nuw nsw i64 %.076108, 1
   %144 = load i32, ptr %56, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %143, %145
+  %146 = icmp samesign ult i64 %143, %145
   br i1 %146, label %.lr.ph109.split, label %.loopexit, !llvm.loop !248
 
 .loopexit:                                        ; preds = %89, %121, %142, %73, %100
@@ -29317,7 +29317,7 @@ _ZNSt3__110unique_ptrIA_N5drjit4halfENS_14default_deleteIS3_EEED2B8ne190000Ev.ex
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %153 = load i32, ptr %36, align 8
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next196, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next196, %154
   br i1 %155, label %.lr.ph182, label %._crit_edge183, !llvm.loop !330
 
 ._crit_edge183:                                   ; preds = %145
@@ -29340,7 +29340,7 @@ _ZNSt3__110unique_ptrIA_N5drjit4halfENS_14default_deleteIS3_EEED2B8ne190000Ev.ex
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %167 = load i32, ptr %36, align 8
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next199, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next199, %168
   br i1 %169, label %.lr.ph187, label %._crit_edge188, !llvm.loop !331
 
 ._crit_edge188:                                   ; preds = %.lr.ph187, %_ZNSt3__110unique_ptrIA_N5drjit4halfENS_14default_deleteIS3_EEED2B8ne190000Ev.exit87, %._crit_edge183
@@ -31780,7 +31780,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85: ; pred
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %141 = load i32, ptr %34, align 8
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next188, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next188, %142
   br i1 %143, label %.lr.ph174, label %._crit_edge175, !llvm.loop !373
 
 ._crit_edge175:                                   ; preds = %136
@@ -31800,7 +31800,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85: ; pred
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %152 = load i32, ptr %34, align 8
   %153 = zext i32 %152 to i64
-  %154 = icmp ult i64 %indvars.iv.next191, %153
+  %154 = icmp samesign ult i64 %indvars.iv.next191, %153
   br i1 %154, label %.lr.ph179, label %._crit_edge180, !llvm.loop !374
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85, %._crit_edge175
@@ -33959,7 +33959,7 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85: ; pred
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %139 = load i32, ptr %34, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next188, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next188, %140
   br i1 %141, label %.lr.ph174, label %._crit_edge175, !llvm.loop !416
 
 ._crit_edge175:                                   ; preds = %134
@@ -33977,7 +33977,7 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85: ; pred
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %148 = load i32, ptr %34, align 8
   %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %indvars.iv.next191, %149
+  %150 = icmp samesign ult i64 %indvars.iv.next191, %149
   br i1 %150, label %.lr.ph179, label %._crit_edge180, !llvm.loop !417
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %_ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit85, %._crit_edge175
@@ -36992,7 +36992,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %20, align 8
   %25 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
-  %.not.i.i = icmp ult i64 %25, 2
+  %.not.i.i = icmp samesign ult i64 %25, 2
   br i1 %.not.i.i, label %26, label %29
 
 26:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKSF_.exit
@@ -37483,7 +37483,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112__hash_tableINS_17__hash_valu
   %17 = shl i64 %5, 1
   %18 = icmp ult i64 %5, 3
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %.not.i = icmp ugt i64 %19, 1
+  %.not.i = icmp samesign ugt i64 %19, 1
   %.not39 = select i1 %18, i1 true, i1 %.not.i
   %20 = zext i1 %.not39 to i64
   %21 = or disjoint i64 %17, %20
@@ -37496,7 +37496,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112__hash_tableINS_17__hash_valu
 
 26:                                               ; preds = %16
   %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %27, 2
+  %.not.i.i = icmp samesign ult i64 %27, 2
   br i1 %.not.i.i, label %30, label %28
 
 28:                                               ; preds = %26
@@ -37517,7 +37517,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__112__hash_tableINS_17__hash_valu
 35:                                               ; preds = %33
   %36 = icmp ugt i64 %31, 2
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %31)
-  %.not.i.i.i = icmp ult i64 %37, 2
+  %.not.i.i.i = icmp samesign ult i64 %37, 2
   %38 = select i1 %36, i1 %.not.i.i.i, i1 false
   %39 = load i64, ptr %6, align 8
   %40 = uitofp i64 %39 to float
@@ -37558,7 +37558,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 58:                                               ; preds = %3, %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairIS7_PKN7mitsuba6Struct5FieldEEEEENS_22__unordered_map_hasherIS7_SF_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SF_SK_SI_Lb1EEENS5_ISF_EEE14__rehash_multiB8ne190000Em.exit
   %.023 = phi i64 [ %57, %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairIS7_PKN7mitsuba6Struct5FieldEEEEENS_22__unordered_map_hasherIS7_SF_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SF_SK_SI_Lb1EEENS5_ISF_EEE14__rehash_multiB8ne190000Em.exit ], [ %5, %3 ]
   %59 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.023)
-  %.not.i31 = icmp ult i64 %59, 2
+  %.not.i31 = icmp samesign ult i64 %59, 2
   br i1 %.not.i31, label %60, label %63
 
 60:                                               ; preds = %58
@@ -37806,7 +37806,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i55 = icmp ult i64 %21, 2
+  %.not.i55 = icmp samesign ult i64 %21, 2
   br i1 %.not.i55, label %22, label %25
 
 22:                                               ; preds = %18
@@ -38174,7 +38174,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i = icmp ult i64 %22, 2
+  %.not.i = icmp samesign ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %21

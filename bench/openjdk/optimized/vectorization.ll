@@ -113,7 +113,7 @@ define hidden noundef ptr @_ZN5VLoop26check_preconditions_helperEv(ptr nocapture
   %2 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext 8) #13
   %3 = icmp sgt i32 %2, 1
   %4 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %5 = icmp ult i32 %4, 2
+  %5 = icmp samesign ult i32 %4, 2
   %or.cond = select i1 %3, i1 %5, i1 false
   br i1 %or.cond, label %6, label %145
 
@@ -791,7 +791,7 @@ _ZNK8VPointer3cmpERKS_.exit.thread:               ; preds = %._ZNK8VPointer3cmpE
 _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %_ZNK8VPointer3cmpERKS_.exit.thread
   %163 = icmp sgt i32 %.sroa.0.095, -1
   %164 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %162)
-  %165 = icmp ult i32 %164, 2
+  %165 = icmp samesign ult i32 %164, 2
   %or.cond.i.i.i.i = select i1 %163, i1 %165, i1 false
   %166 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %162, i1 true)
   %167 = sub nuw nsw i32 32, %166
@@ -916,7 +916,7 @@ _ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13GrowableArrayIiEP5Arena.
   %223 = add nsw i32 %218, 1
   %224 = icmp sgt i32 %218, -1
   %225 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %223)
-  %226 = icmp ult i32 %225, 2
+  %226 = icmp samesign ult i32 %225, 2
   %or.cond.i.i.i.i.i = select i1 %224, i1 %226, i1 false
   %227 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %223, i1 true)
   %228 = sub nuw nsw i32 32, %227
@@ -1530,7 +1530,7 @@ _ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13GrowableArrayIiEP5Arena.
   %48 = add nsw i32 %42, 1
   %49 = icmp sgt i32 %42, -1
   %50 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %48)
-  %51 = icmp ult i32 %50, 2
+  %51 = icmp samesign ult i32 %50, 2
   %or.cond.i.i.i.i = select i1 %49, i1 %51, i1 false
   %52 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %53 = sub nuw nsw i32 32, %52
@@ -2191,16 +2191,16 @@ _ZNK8VPointer14is_loop_memberEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
   %111 = tail call noundef i32 @_ZNK15CountedLoopNode10stride_conEv(ptr noundef nonnull align 8 dereferenceable(92) %110) #13
   %112 = sext i32 %111 to i64
   %113 = tail call noundef i64 @llvm.abs.i64(i64 %107, i1 true)
-  %114 = icmp ugt i64 %113, 1073741823
+  %114 = icmp samesign ugt i64 %113, 1073741823
   %115 = tail call i64 @llvm.abs.i64(i64 %112, i1 true)
-  %116 = icmp ugt i64 %115, 1073741823
+  %116 = icmp samesign ugt i64 %115, 1073741823
   %or.cond31 = select i1 %114, i1 true, i1 %116
   br i1 %or.cond31, label %.loopexit, label %117
 
 117:                                              ; preds = %105
   %118 = mul nsw i64 %112, %107
   %119 = tail call noundef i64 @llvm.abs.i64(i64 %118, i1 true)
-  %120 = icmp ugt i64 %119, 1073741823
+  %120 = icmp samesign ugt i64 %119, 1073741823
   br i1 %120, label %.loopexit, label %121
 
 121:                                              ; preds = %117
@@ -4090,7 +4090,7 @@ define hidden noundef ptr @_ZNK15AlignmentSolver5solveEv(ptr nocapture noundef n
   %4 = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
   %5 = icmp ne i32 %3, 0
   %6 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
-  %7 = icmp ult i32 %6, 2
+  %7 = icmp samesign ult i32 %6, 2
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %10, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -4110,7 +4110,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit27: ; preds = %10
   %14 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit27, %10

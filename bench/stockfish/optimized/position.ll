@@ -1042,7 +1042,7 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.
   %indvars.iv102 = phi i64 [ 0, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv96 = phi i64 [ 1, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader ], [ %indvars.iv.next97, %.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %49 = icmp ult i64 %indvars.iv102, 63
+  %49 = icmp samesign ult i64 %indvars.iv102, 63
   br i1 %49, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %48
@@ -2079,7 +2079,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   br label %.loopexit
 
 79:                                               ; preds = %2
-  %80 = icmp ugt i16 %8, %6
+  %80 = icmp samesign ugt i16 %8, %6
   %81 = select i1 %80, i32 6, i32 2
   %82 = mul nsw i32 %4, 56
   %83 = or disjoint i32 %82, %81
@@ -2744,7 +2744,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182,
 
 241:                                              ; preds = %240
   %242 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %239)
-  %243 = icmp ugt i64 %242, 1
+  %243 = icmp samesign ugt i64 %242, 1
   br i1 %243, label %265, label %244
 
 244:                                              ; preds = %241
@@ -3016,7 +3016,7 @@ default.unreachable:                              ; preds = %43, %41
   unreachable
 
 189:                                              ; preds = %41
-  %190 = icmp ugt i16 %5, %4
+  %190 = icmp samesign ugt i16 %5, %4
   %191 = select i1 %190, i32 5, i32 3
   %192 = mul nsw i32 %21, 56
   %193 = or disjoint i32 %192, %191

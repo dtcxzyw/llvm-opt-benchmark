@@ -262,7 +262,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %14 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %4, i32 noundef 12)
   %15 = zext i32 %14 to i64
   %16 = add nuw nsw i64 %15, %13
-  %17 = icmp ugt i64 %16, 4294967295
+  %17 = icmp samesign ugt i64 %16, 4294967295
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %11
@@ -348,7 +348,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %72 = phi ptr [ %24, %50 ], [ %24, %19 ], [ %70, %67 ]
   %73 = icmp eq ptr %72, %24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #25
-  %74 = icmp ult i64 %16, 86016
+  %74 = icmp samesign ult i64 %16, 86016
   %75 = select i1 %74, i64 86016, i64 94208
   %76 = select i1 %73, i64 %16, i64 %75
   %77 = trunc nuw i64 %76 to i32
@@ -366,7 +366,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %84 = sub nuw i32 %79, %77
   %85 = zext i32 %84 to i64
   %86 = add nuw nsw i64 %76, %85
-  %87 = icmp ugt i64 %86, %83
+  %87 = icmp samesign ugt i64 %86, %83
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %82

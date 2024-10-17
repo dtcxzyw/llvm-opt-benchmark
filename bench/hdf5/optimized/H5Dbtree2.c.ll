@@ -463,7 +463,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_insert(ptr nocapture noundef 
   %59 = getelementptr inbounds [33 x i64], ptr %4, i64 0, i64 %indvars.iv
   store i64 %58, ptr %59, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = icmp ult i64 %indvars.iv.next, %55
+  %60 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %60, label %56, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %50
@@ -552,7 +552,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_get_addr(ptr nocapture nounde
   %45 = getelementptr inbounds [33 x i64], ptr %3, i64 0, i64 %indvars.iv
   store i64 %44, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = icmp ult i64 %indvars.iv.next, %41
+  %46 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %46, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %25
@@ -772,7 +772,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_remove(ptr nocapture noundef 
   %39 = getelementptr inbounds [33 x i64], ptr %3, i64 0, i64 %indvars.iv
   store i64 %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = icmp ult i64 %indvars.iv.next, %35
+  %40 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %40, label %36, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36, %23
@@ -1153,7 +1153,7 @@ H5VM_log2_gen.exit:                               ; preds = %32, %38, %44, %50
   %55 = lshr i32 %54, 3
   %56 = add nuw nsw i32 %55, 1
   %57 = getelementptr inbounds i8, ptr %2, i64 16
-  %58 = icmp ugt i32 %.0.i, 55
+  %58 = icmp samesign ugt i32 %.0.i, 55
   %narrow = select i1 %58, i32 8, i32 %56
   %spec.select = zext nneg i32 %narrow to i64
   store i64 %spec.select, ptr %57, align 8
@@ -1271,7 +1271,7 @@ define internal noundef i32 @H5D__bt2_unfilt_encode(ptr noundef %0, ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %9, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19, %3
@@ -1329,7 +1329,7 @@ define internal noundef i32 @H5D__bt2_unfilt_decode(ptr noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %11, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %3
@@ -1366,7 +1366,7 @@ define internal noundef i32 @H5D__bt2_unfilt_debug(ptr nocapture noundef %0, i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %10, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %5
@@ -1475,7 +1475,7 @@ define internal noundef i32 @H5D__bt2_filt_encode(ptr noundef %0, ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %42, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph44, label %._crit_edge45
 
 ._crit_edge45:                                    ; preds = %52, %._crit_edge
@@ -1583,7 +1583,7 @@ define internal noundef i32 @H5D__bt2_filt_decode(ptr noundef %0, ptr noundef %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %43, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph39, label %._crit_edge40
 
 ._crit_edge40:                                    ; preds = %57, %._crit_edge
@@ -1626,7 +1626,7 @@ define internal noundef i32 @H5D__bt2_filt_debug(ptr nocapture noundef %0, i32 n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %16, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %19, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19, %5

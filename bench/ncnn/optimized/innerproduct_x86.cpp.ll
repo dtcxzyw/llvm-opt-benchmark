@@ -406,7 +406,7 @@ common.resume:                                    ; preds = %157, %161, %168, %1
 ._crit_edge.us.i:                                 ; preds = %.lr.ph19.us.i, %..preheader_crit_edge.us.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 4
   %76 = or disjoint i64 %indvars.iv.next43.i, 3
-  %77 = icmp ult i64 %76, %51
+  %77 = icmp samesign ult i64 %76, %51
   br i1 %77, label %.lr.ph.us.i, label %._crit_edge22.i, !llvm.loop !4
 
 .lr.ph19.us.i:                                    ; preds = %..preheader_crit_edge.us.i, %.lr.ph19.us.i
@@ -541,7 +541,7 @@ common.resume:                                    ; preds = %157, %161, %168, %1
 ._crit_edge.us32.i:                               ; preds = %141
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %155 = or disjoint i64 %indvars.iv.next.i, 3
-  %156 = icmp ult i64 %155, %116
+  %156 = icmp samesign ult i64 %155, %116
   br i1 %156, label %.preheader.us23.i, label %._crit_edge22.i, !llvm.loop !4
 
 157:                                              ; preds = %42

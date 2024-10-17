@@ -327,11 +327,11 @@ define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture n
   %24 = getelementptr inbounds i8, ptr %2, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 127
-  %27 = icmp ult i32 %23, %26
+  %27 = icmp samesign ult i32 %23, %26
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %20
-  %29 = icmp ugt i32 %23, %26
+  %29 = icmp samesign ugt i32 %23, %26
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28

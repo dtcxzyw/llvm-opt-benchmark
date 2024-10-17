@@ -9142,7 +9142,7 @@ _ZN4llvm16CachedHashStringC2ERKS0_.exit.i:        ; preds = %40, %39
   %44 = add nuw nsw i64 %.01340.i, 1
   %45 = load i32, ptr %3, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %.lr.ph.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16CachedHashStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E8copyFromIS9_EEvRKNS0_IT_S2_S4_S6_S8_EE.exit, !llvm.loop !208
 
 48:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16CachedHashStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E10destroyAllEv.exit
@@ -11147,7 +11147,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -11171,7 +11171,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15

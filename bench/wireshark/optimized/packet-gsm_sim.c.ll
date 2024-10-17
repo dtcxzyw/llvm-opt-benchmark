@@ -1557,7 +1557,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %63 = load i32, ptr @hf_file_id, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %63, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef 0) #2
   %65 = add nuw nsw i32 %.0396407.i, 2
-  %66 = icmp ult i32 %65, %43
+  %66 = icmp samesign ult i32 %65, %43
   br i1 %66, label %57, label %67, !llvm.loop !6
 
 67:                                               ; preds = %57

@@ -198,7 +198,7 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %121 = zext i1 %120 to i64
   %122 = add nuw nsw i64 %119, %121
   %123 = and i64 %108, 15
-  %124 = icmp ult i64 %123, 3
+  %124 = icmp samesign ult i64 %123, 3
   br i1 %124, label %125, label %171
 
 125:                                              ; preds = %104

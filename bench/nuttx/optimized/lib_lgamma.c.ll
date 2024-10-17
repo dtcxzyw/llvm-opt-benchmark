@@ -12,7 +12,7 @@ define double @lgamma_r(double noundef %0, ptr nocapture noundef writeonly %1) l
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = and i32 %5, 2147483647
-  %7 = icmp ugt i32 %6, 2146435071
+  %7 = icmp samesign ugt i32 %6, 2146435071
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
@@ -20,7 +20,7 @@ define double @lgamma_r(double noundef %0, ptr nocapture noundef writeonly %1) l
   br label %190
 
 10:                                               ; preds = %2
-  %11 = icmp ult i32 %6, 999292928
+  %11 = icmp samesign ult i32 %6, 999292928
   %.not166 = icmp sgt i64 %3, -1
   br i1 %11, label %12, label %18
 
@@ -122,29 +122,29 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br i1 %or.cond4, label %188, label %63
 
 63:                                               ; preds = %58
-  %64 = icmp ult i32 %6, 1073741824
+  %64 = icmp samesign ult i32 %6, 1073741824
   br i1 %64, label %65, label %133
 
 65:                                               ; preds = %63
-  %66 = icmp ult i32 %6, 1072483533
+  %66 = icmp samesign ult i32 %6, 1072483533
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %65
   %68 = tail call double @log(double noundef %.1) #4
   %69 = fneg double %68
-  %70 = icmp ugt i32 %6, 1072130371
+  %70 = icmp samesign ugt i32 %6, 1072130371
   br i1 %70, label %79, label %71
 
 71:                                               ; preds = %67
-  %72 = icmp ugt i32 %6, 1070442080
+  %72 = icmp samesign ugt i32 %6, 1070442080
   br i1 %72, label %95, label %118
 
 73:                                               ; preds = %65
-  %74 = icmp ugt i32 %6, 1073460418
+  %74 = icmp samesign ugt i32 %6, 1073460418
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ugt i32 %6, 1072936131
+  %76 = icmp samesign ugt i32 %6, 1072936131
   br i1 %76, label %95, label %77
 
 77:                                               ; preds = %75
@@ -219,7 +219,7 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %188
 
 133:                                              ; preds = %63
-  %134 = icmp ult i32 %6, 1075838976
+  %134 = icmp samesign ult i32 %6, 1075838976
   br i1 %134, label %135, label %170
 
 135:                                              ; preds = %133
@@ -280,7 +280,7 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %188
 
 170:                                              ; preds = %133
-  %171 = icmp ult i32 %6, 1133510656
+  %171 = icmp samesign ult i32 %6, 1133510656
   %172 = tail call double @log(double noundef %.1) #4
   br i1 %171, label %173, label %185
 

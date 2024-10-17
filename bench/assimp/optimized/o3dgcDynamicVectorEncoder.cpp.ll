@@ -913,7 +913,7 @@ if.else:                                          ; preds = %for.end21
 while.cond:                                       ; preds = %if.else, %while.body
   %71 = phi i64 [ %72, %while.body ], [ %70, %if.else ]
   %M.0124144 = phi i64 [ %mul43, %while.body ], [ 1, %if.else ]
-  %cmp39 = icmp ult i64 %M.0124144, 512
+  %cmp39 = icmp samesign ult i64 %M.0124144, 512
   br i1 %cmp39, label %while.body, label %while.end, !llvm.loop !14
 
 while.body:                                       ; preds = %while.cond

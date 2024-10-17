@@ -50,7 +50,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i = icmp ugt i64 %length, 8
+  %cmp.i.i.i = icmp samesign ugt i64 %length, 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -78,7 +78,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %XXH_INLINE_XXH3_64bits.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp2.i.i.i = icmp ugt i64 %length, 3
+  %cmp2.i.i.i = icmp samesign ugt i64 %length, 3
   br i1 %cmp2.i.i.i, label %if.then6.i.i.i, label %if.end8.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -140,15 +140,15 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i.i = mul i64 %length, -7046029288634856825
-  %cmp.i18.i.i = icmp ugt i64 %length, 32
+  %cmp.i18.i.i = icmp samesign ugt i64 %length, 32
   br i1 %cmp.i18.i.i, label %if.then.i20.i.i, label %XXH3_len_17to128_64b.exit.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then2.i.i
-  %cmp1.i.i.i = icmp ugt i64 %length, 64
+  %cmp1.i.i.i = icmp samesign ugt i64 %length, 64
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %if.end20.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i20.i.i
-  %cmp3.i.i.i = icmp ugt i64 %length, 96
+  %cmp3.i.i.i = icmp samesign ugt i64 %length, 96
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end.i21.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i.i.i

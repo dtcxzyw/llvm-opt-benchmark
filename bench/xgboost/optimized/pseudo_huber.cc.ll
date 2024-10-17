@@ -2591,7 +2591,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.0117180 = phi i32 [ %109, %108 ], [ 0, %.preheader161 ]
   %.0118179 = phi i64 [ %.1119, %108 ], [ 0, %.preheader161 ]
   %.0120178 = phi i64 [ %.1121, %108 ], [ 1, %.preheader161 ]
-  %101 = icmp ult i32 %.0117180, 19
+  %101 = icmp samesign ult i32 %.0117180, 19
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %.lr.ph182

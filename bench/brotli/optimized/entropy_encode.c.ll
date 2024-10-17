@@ -1203,7 +1203,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %9 = load i64, ptr %arrayidx8.i, align 8
   %or.i = or i64 %9, %shl.i
   %add.i = add nuw nsw i64 %i.011.i, 4
-  %cmp.i = icmp ult i64 %add.i, %conv20
+  %cmp.i = icmp samesign ult i64 %add.i, %conv20
   br i1 %cmp.i, label %for.body.i, label %BrotliReverseBits.exit, !llvm.loop !30
 
 BrotliReverseBits.exit:                           ; preds = %for.body.i, %if.then

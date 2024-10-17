@@ -322,7 +322,7 @@ if.end41:                                         ; preds = %sw.bb37
   br i1 %tobool.not, label %if.then50, label %if.end64
 
 if.then50:                                        ; preds = %if.end41
-  %cmp51 = icmp ult i32 %or, 16
+  %cmp51 = icmp samesign ult i32 %or, 16
   br i1 %cmp51, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.then50

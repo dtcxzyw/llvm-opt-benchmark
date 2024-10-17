@@ -288,7 +288,7 @@ do.body:                                          ; preds = %entry, %for.end3591
   %conv11 = add i32 %1, %0
   store i32 %conv11, ptr %t, align 8
   %conv14 = zext i32 %conv11 to i64
-  %cmp15 = icmp ugt i64 %cond, %conv14
+  %cmp15 = icmp samesign ugt i64 %cond, %conv14
   %conv16 = zext i1 %cmp15 to i32
   %2 = load i32, ptr %arrayidx18, align 4
   %add19 = add i32 %2, %conv16

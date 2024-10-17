@@ -4728,7 +4728,7 @@ define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noun
   %42 = add nsw i32 %38, 1
   %43 = icmp sgt i32 %38, -1
   %44 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %42)
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp samesign ult i32 %44, 2
   %or.cond.i.i.i.i = select i1 %43, i1 %45, i1 false
   %46 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %47 = sub nuw nsw i32 32, %46
@@ -4830,7 +4830,7 @@ define linkonce_odr hidden void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10Bl
   %53 = add nsw i32 %49, 1
   %54 = icmp sgt i32 %49, -1
   %55 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %53)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   %or.cond.i.i.i.i = select i1 %54, i1 %56, i1 false
   %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %58 = sub nuw nsw i32 32, %57
@@ -4857,7 +4857,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %69 = add nsw i32 %65, 1
   %70 = icmp sgt i32 %65, -1
   %71 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %69)
-  %72 = icmp ult i32 %71, 2
+  %72 = icmp samesign ult i32 %71, 2
   %or.cond.i.i.i.i9 = select i1 %70, i1 %72, i1 false
   %73 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %69, i1 true)
   %74 = sub nuw nsw i32 32, %73

@@ -4351,7 +4351,7 @@ define internal fastcc void @gsm_rr_padding_bits(ptr noundef %0, ptr noundef %1,
   %6 = zext i16 %2 to i32
   %7 = zext i8 %3 to i32
   %8 = shl nuw nsw i32 %7, 3
-  %9 = icmp ugt i32 %8, %6
+  %9 = icmp samesign ugt i32 %8, %6
   br i1 %9, label %10, label %28
 
 10:                                               ; preds = %5
@@ -4369,7 +4369,7 @@ define internal fastcc void @gsm_rr_padding_bits(ptr noundef %0, ptr noundef %1,
 
 .preheader:                                       ; preds = %10
   %.032 = add nuw nsw i32 %15, 1
-  %20 = icmp ult i32 %.032, %7
+  %20 = icmp samesign ult i32 %.032, %7
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -4377,7 +4377,7 @@ define internal fastcc void @gsm_rr_padding_bits(ptr noundef %0, ptr noundef %1,
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.034) #10
   %.not28 = icmp eq i8 %21, %4
   %.0 = add nuw nsw i32 %.034, 1
-  %22 = icmp ult i32 %.0, %7
+  %22 = icmp samesign ult i32 %.0, %7
   %23 = select i1 %22, i1 %.not28, i1 false
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
@@ -11884,7 +11884,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
 greatest_power_of_2_lesser_or_equal_to.exit.i:    ; preds = %65
   %68 = getelementptr i32, ptr %7, i64 %indvars.iv104
   %69 = load i32, ptr %68, align 4
-  %70 = icmp ugt i64 %indvars.iv104, 1
+  %70 = icmp samesign ugt i64 %indvars.iv104, 1
   br i1 %70, label %.preheader.preheader.i, label %f_k.exit
 
 .preheader.preheader.i:                           ; preds = %greatest_power_of_2_lesser_or_equal_to.exit.i
@@ -19016,7 +19016,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %111 = lshr i32 %.4, 3
   %112 = icmp ule i32 %111, %91
   %113 = and i32 %110, 255
-  %114 = icmp ult i32 %113, 96
+  %114 = icmp samesign ult i32 %113, 96
   %115 = select i1 %112, i1 %114, i1 false
   br i1 %115, label %.lr.ph, label %.loopexit, !llvm.loop !86
 
@@ -20712,7 +20712,7 @@ define internal fastcc noundef i32 @dtap_rr_ec_paging_imsi(ptr noundef %0, ptr n
   %22 = load i64, ptr %5, align 8
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 255
-  %.not = icmp ult i32 %24, %21
+  %.not = icmp samesign ult i32 %24, %21
   br i1 %.not, label %25, label %14, !llvm.loop !99
 
 25:                                               ; preds = %14

@@ -906,7 +906,7 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = icmp ult i32 %1, %2
+  %9 = icmp samesign ult i32 %1, %2
   br i1 %9, label %.lr.ph64, label %.loopexit51
 
 .lr.ph64:                                         ; preds = %5
@@ -3333,7 +3333,7 @@ hash.exit.i:                                      ; preds = %76, %35
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
   %97 = add nuw nsw i32 %90, %96
-  %98 = icmp ult i32 %97, 6177
+  %98 = icmp samesign ult i32 %97, 6177
   br i1 %98, label %99, label %unicode_lookup_property_name.exit.thread
 
 99:                                               ; preds = %hash.exit.i

@@ -172,7 +172,7 @@ define hidden void @_ZN6G1NUMA10initializeEb(ptr nocapture noundef nonnull align
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %30 = load i32, ptr %22, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next33, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next33, %31
   br i1 %32, label %.lr.ph25, label %.preheader, !llvm.loop !8
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
@@ -188,7 +188,7 @@ define hidden void @_ZN6G1NUMA10initializeEb(ptr nocapture noundef nonnull align
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %40 = load i32, ptr %15, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next36, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next36, %41
   br i1 %42, label %.lr.ph27, label %._crit_edge28, !llvm.loop !9
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %.preheader
@@ -641,7 +641,7 @@ define hidden void @_ZN23G1NodeIndexCheckClosureD2Ev(ptr nocapture noundef nonnu
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %15, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %15, %1

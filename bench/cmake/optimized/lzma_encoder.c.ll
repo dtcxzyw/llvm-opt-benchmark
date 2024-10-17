@@ -276,7 +276,7 @@ encode_init.exit.thread:                          ; preds = %40, %18
   %187 = xor i32 %186, %172
   %188 = xor i32 %187, -1
   %189 = and i32 %.017.i.i.i, %188
-  %190 = icmp ult i32 %.016.i.i.i, 32768
+  %190 = icmp samesign ult i32 %.016.i.i.i, 32768
   br i1 %190, label %170, label %rc_bittree.exit.i.i, !llvm.loop !7
 
 rc_bittree.exit.i.i:                              ; preds = %170, %146
@@ -873,7 +873,7 @@ literal_init.exit.preheader:                      ; preds = %42
   %55 = add nuw nsw i64 %.06394, 1
   %56 = load i32, ptr %24, align 8
   %57 = zext i32 %56 to i64
-  %.not.not = icmp ult i64 %.06394, %57
+  %.not.not = icmp samesign ult i64 %.06394, %57
   br i1 %.not.not, label %52, label %literal_init.exit, !llvm.loop !14
 
 literal_init.exit:                                ; preds = %52
@@ -1440,7 +1440,7 @@ get_dist_slot.exit:                               ; preds = %14, %21, %28
   br i1 %.not.i, label %rc_bittree.exit, label %44, !llvm.loop !5
 
 rc_bittree.exit:                                  ; preds = %44
-  %58 = icmp ugt i32 %.0.i, 3
+  %58 = icmp samesign ugt i32 %.0.i, 3
   br i1 %58, label %59, label %rc_bittree_reverse.exit
 
 59:                                               ; preds = %rc_bittree.exit
@@ -1450,7 +1450,7 @@ rc_bittree.exit:                                  ; preds = %44
   %63 = or disjoint i32 %62, 2
   %64 = shl i32 %63, %61
   %65 = sub i32 %2, %64
-  %66 = icmp ult i32 %.0.i, 14
+  %66 = icmp samesign ult i32 %.0.i, 14
   br i1 %66, label %67, label %89
 
 67:                                               ; preds = %59
@@ -1756,15 +1756,15 @@ define internal fastcc void @length_update_prices(ptr nocapture noundef %0, i32 
   br label %41
 
 .preheader47:                                     ; preds = %rc_bittree_price.exit
-  %invariant.umin51 = tail call i32 @llvm.umin.i32(i32 %4, i32 16)
+  %invariant.umin52 = tail call i32 @llvm.umin.i32(i32 %4, i32 16)
   %37 = icmp ugt i32 %4, 8
-  br i1 %37, label %.lr.ph53, label %.preheader
+  br i1 %37, label %.lr.ph54, label %.preheader
 
-.lr.ph53:                                         ; preds = %.preheader47
+.lr.ph54:                                         ; preds = %.preheader47
   %38 = getelementptr inbounds i8, ptr %0, i64 260
   %39 = getelementptr inbounds [16 x [8 x i16]], ptr %38, i64 0, i64 %6
   %40 = zext nneg i32 %invariant.umin to i64
-  %wide.trip.count65 = zext nneg i32 %invariant.umin51 to i64
+  %wide.trip.count66 = zext nneg i32 %invariant.umin52 to i64
   br label %64
 
 41:                                               ; preds = %.lr.ph, %rc_bittree_price.exit
@@ -1802,19 +1802,19 @@ rc_bittree_price.exit:                            ; preds = %44
   br i1 %exitcond.not, label %.preheader47, label %41, !llvm.loop !29
 
 .preheader:                                       ; preds = %rc_bittree_price.exit42, %2, %.preheader47
-  %.1.lcssa = phi i32 [ %invariant.umin, %.preheader47 ], [ 0, %2 ], [ %invariant.umin51, %rc_bittree_price.exit42 ]
+  %.1.lcssa = phi i32 [ %invariant.umin, %.preheader47 ], [ 0, %2 ], [ %invariant.umin52, %rc_bittree_price.exit42 ]
   %61 = icmp ult i32 %.1.lcssa, %4
-  br i1 %61, label %.lr.ph56, label %._crit_edge
+  br i1 %61, label %.lr.ph57, label %._crit_edge
 
-.lr.ph56:                                         ; preds = %.preheader
+.lr.ph57:                                         ; preds = %.preheader
   %62 = getelementptr inbounds i8, ptr %0, i64 516
   %63 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count70 = zext i32 %4 to i64
+  %wide.trip.count71 = zext i32 %4 to i64
   br label %83
 
-64:                                               ; preds = %.lr.ph53, %rc_bittree_price.exit42
-  %indvars.iv62 = phi i64 [ %40, %.lr.ph53 ], [ %indvars.iv.next63, %rc_bittree_price.exit42 ]
-  %65 = trunc nuw nsw i64 %indvars.iv62 to i32
+64:                                               ; preds = %.lr.ph54, %rc_bittree_price.exit42
+  %indvars.iv63 = phi i64 [ %40, %.lr.ph54 ], [ %indvars.iv.next64, %rc_bittree_price.exit42 ]
+  %65 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %66
 
 66:                                               ; preds = %66, %64
@@ -1839,15 +1839,15 @@ rc_bittree_price.exit:                            ; preds = %44
 
 rc_bittree_price.exit42:                          ; preds = %66
   %81 = add i32 %26, %80
-  %82 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv62
+  %82 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv63
   store i32 %81, ptr %82, align 4
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader, label %64, !llvm.loop !30
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.preheader, label %64, !llvm.loop !30
 
-83:                                               ; preds = %.lr.ph56, %rc_bittree_price.exit46
-  %indvars.iv67 = phi i64 [ %63, %.lr.ph56 ], [ %indvars.iv.next68, %rc_bittree_price.exit46 ]
-  %84 = trunc nuw i64 %indvars.iv67 to i32
+83:                                               ; preds = %.lr.ph57, %rc_bittree_price.exit46
+  %indvars.iv68 = phi i64 [ %63, %.lr.ph57 ], [ %indvars.iv.next69, %rc_bittree_price.exit46 ]
+  %84 = trunc nuw i64 %indvars.iv68 to i32
   %85 = add i32 %84, 240
   br label %86
 
@@ -1873,11 +1873,11 @@ rc_bittree_price.exit42:                          ; preds = %66
 
 rc_bittree_price.exit46:                          ; preds = %86
   %101 = add i32 %32, %100
-  %102 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv67
+  %102 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv68
   store i32 %101, ptr %102, align 4
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge, label %83, !llvm.loop !31
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %._crit_edge, label %83, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %rc_bittree_price.exit46, %.preheader
   ret void

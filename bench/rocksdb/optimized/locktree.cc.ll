@@ -2823,7 +2823,7 @@ if.else.i202:                                     ; preds = %if.then35.i
   %sub.i203 = sub i32 %112, %113
   %conv5.i = zext i32 %sub.i203 to i64
   %mul6.i = mul nuw nsw i64 %conv5.i, 24
-  %cmp7.not.i = icmp ugt i64 %mul.i, %mul6.i
+  %cmp7.not.i = icmp samesign ugt i64 %mul.i, %mul6.i
   br i1 %cmp7.not.i, label %if.else15.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i202
@@ -4410,7 +4410,7 @@ if.else:                                          ; preds = %entry
   %sub = sub i32 %8, %9
   %conv5 = zext i32 %sub to i64
   %mul6 = mul nuw nsw i64 %conv5, 24
-  %cmp7.not = icmp ugt i64 %mul, %mul6
+  %cmp7.not = icmp samesign ugt i64 %mul, %mul6
   br i1 %cmp7.not, label %if.else15, label %if.then8
 
 if.then8:                                         ; preds = %if.else

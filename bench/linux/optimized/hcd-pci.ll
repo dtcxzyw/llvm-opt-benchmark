@@ -927,7 +927,7 @@ define internal fastcc noundef i32 @suspend_common(ptr noundef %0, i32 range(i32
   %3 = getelementptr i8, ptr %0, i64 -184
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ult i32 %1, 1024
+  %6 = icmp samesign ult i32 %1, 1024
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2

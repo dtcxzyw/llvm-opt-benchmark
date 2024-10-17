@@ -1600,7 +1600,7 @@ lpad2:                                            ; preds = %invoke.cont23, %if.
 
 invoke.cont11:                                    ; preds = %invoke.cont, %invoke.cont
   %and.i27 = and i64 %0, 4503599627370495
-  %cmp.i.i = icmp ult i64 %and.i27, 2147483647
+  %cmp.i.i = icmp samesign ult i64 %and.i27, 2147483647
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i.invoke
 
 if.then.i.i:                                      ; preds = %invoke.cont11
@@ -1632,7 +1632,7 @@ invoke.cont23:                                    ; preds = %if.end20
   %and.i40 = lshr i64 %n.0.copyload.i.i39, 52
   %3 = trunc nuw nsw i64 %and.i40 to i32
   %4 = and i32 %3, 2047
-  %cmp = icmp ugt i32 %4, 1022
+  %cmp = icmp samesign ugt i32 %4, 1022
   %sub = sub nuw nsw i32 1023, %4
   %conv.i = add nsw i32 %4, -1023
   %5 = select i1 %cmp, ptr %m_num.i, ptr %m_num.i16
@@ -1949,11 +1949,11 @@ if.end:                                           ; preds = %entry
   %and.i5 = lshr i64 %0, 52
   %1 = trunc nuw nsw i64 %and.i5 to i32
   %2 = and i32 %1, 2047
-  %cmp = icmp ugt i32 %2, 1074
+  %cmp = icmp samesign ugt i32 %2, 1074
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp4 = icmp ult i32 %2, 1023
+  %cmp4 = icmp samesign ult i32 %2, 1023
   br i1 %cmp4, label %return, label %if.else6
 
 if.else6:                                         ; preds = %if.else

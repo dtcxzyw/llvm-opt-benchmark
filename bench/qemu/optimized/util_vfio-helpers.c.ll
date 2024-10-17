@@ -1759,7 +1759,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i8, ptr %nb_iova_ranges, align 8
   %11 = zext i8 %10 to i64
-  %cmp17 = icmp ult i64 %indvars.iv.next, %11
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %while.body, %for.body, %if.end14

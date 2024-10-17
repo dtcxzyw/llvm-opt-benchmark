@@ -2100,7 +2100,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 224:                                              ; preds = %221
   %.not321 = icmp eq i32 %.0253510, 0
   %225 = select i1 %.not321, i32 0, i32 %.0255
-  %226 = icmp ult i32 %225, %spec.select
+  %226 = icmp samesign ult i32 %225, %spec.select
   br i1 %226, label %227, label %248
 
 227:                                              ; preds = %224
@@ -2787,7 +2787,7 @@ yara_eval.exit:                                   ; preds = %184, %187, %191
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %206 = load i32, ptr %9, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next, %207
   br i1 %208, label %25, label %.loopexit
 
 .loopexit:                                        ; preds = %205, %195, %5, %201

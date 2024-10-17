@@ -1302,7 +1302,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %2 = urem i16 %.lhs.trunc, 100
   %3 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %2 to i64
-  %4 = icmp ult i64 %0, 21
+  %4 = icmp samesign ult i64 %0, 21
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
@@ -1323,14 +1323,14 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   br label %73
 
 14:                                               ; preds = %8
-  %15 = icmp ugt i64 %0, 99
+  %15 = icmp samesign ugt i64 %0, 99
   br i1 %15, label %16, label %47
 
 16:                                               ; preds = %14
   %17 = urem i16 %.lhs.trunc, 10
   %18 = icmp eq i16 %17, 0
-  %19 = icmp ugt i16 %2, 10
-  %or.cond = and i1 %18, %19
+  %19 = icmp samesign ugt i16 %2, 10
+  %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %20, label %29
 
 20:                                               ; preds = %16
@@ -1347,7 +1347,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   br label %73
 
 29:                                               ; preds = %16
-  %30 = icmp ult i16 %2, 20
+  %30 = icmp samesign ult i16 %2, 20
   %.zext41 = zext nneg i16 %3 to i64
   %31 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %.zext41
   %32 = load ptr, ptr %31, align 8
@@ -1376,8 +1376,8 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %.lhs.trunc48 = trunc nuw i64 %0 to i8
   %48 = urem i8 %.lhs.trunc48, 10
   %49 = icmp eq i8 %48, 0
-  %50 = icmp ugt i16 %2, 10
-  %or.cond3 = and i1 %49, %50
+  %50 = icmp samesign ugt i16 %2, 10
+  %or.cond3 = select i1 %49, i1 %50, i1 false
   br i1 %or.cond3, label %51, label %57
 
 51:                                               ; preds = %47
@@ -1390,7 +1390,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   br label %73
 
 57:                                               ; preds = %47
-  %58 = icmp ult i16 %2, 20
+  %58 = icmp samesign ult i16 %2, 20
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %57

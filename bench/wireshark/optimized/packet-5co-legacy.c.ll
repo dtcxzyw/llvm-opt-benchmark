@@ -612,7 +612,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %174 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %173, ptr noundef %0, i32 noundef %.pre-phi587, i32 noundef 1, i32 noundef 0) #8
   %175 = add nuw nsw i32 %.pre-phi, 1
   %176 = and i32 %175, 65535
-  %177 = icmp ult i32 %176, %33
+  %177 = icmp samesign ult i32 %176, %33
   br i1 %177, label %148, label %.critedge, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph531, %.preheader
@@ -831,7 +831,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 .loopexit492:                                     ; preds = %.lr.ph522, %277, %255, %267
   %.9 = phi i16 [ %262, %255 ], [ %276, %267 ], [ %241, %277 ], [ %284, %.lr.ph522 ]
   %293 = zext i16 %.9 to i32
-  %294 = icmp ugt i32 %239, %293
+  %294 = icmp samesign ugt i32 %239, %293
   br i1 %294, label %.lr.ph525, label %.critedge, !llvm.loop !15
 
 295:                                              ; preds = %142
@@ -873,7 +873,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %.10517 = phi i16 [ %141, %.lr.ph518 ], [ %.12, %353 ]
   %.0439516 = phi i16 [ 0, %.lr.ph518 ], [ %324, %353 ]
   %314 = zext i16 %.10517 to i32
-  %315 = icmp ugt i32 %309, %314
+  %315 = icmp samesign ugt i32 %309, %314
   br i1 %315, label %316, label %.critedge
 
 316:                                              ; preds = %312
@@ -972,7 +972,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %indvars.iv562 = phi i32 [ 0, %.lr.ph512 ], [ %indvars.iv.next563, %.loopexit493 ]
   %.13511 = phi i16 [ %141, %.lr.ph512 ], [ %.16, %.loopexit493 ]
   %366 = zext i16 %.13511 to i32
-  %367 = icmp ugt i32 %363, %366
+  %367 = icmp samesign ugt i32 %363, %366
   br i1 %367, label %368, label %.critedge
 
 368:                                              ; preds = %365
@@ -1071,7 +1071,7 @@ split:                                            ; preds = %371, %368, %._crit_
   %.16 = phi i16 [ %393, %386 ], [ %407, %398 ], [ %378, %408 ], [ %415, %.lr.ph ]
   %422 = load i16, ptr %.0444489, align 8
   %423 = zext i16 %422 to i32
-  %424 = icmp ult i32 %indvars.iv.next563, %423
+  %424 = icmp samesign ult i32 %indvars.iv.next563, %423
   br i1 %424, label %365, label %.critedge, !llvm.loop !19
 
 425:                                              ; preds = %142

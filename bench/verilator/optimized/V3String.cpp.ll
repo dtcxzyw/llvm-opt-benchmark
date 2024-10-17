@@ -2797,7 +2797,7 @@ _ZN11VHashSha25612digestBinaryB5cxx11Ev.exit:     ; preds = %13
 
 58:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %59 = icmp ult i64 %indvars.iv, 27
+  %59 = icmp samesign ult i64 %indvars.iv, 27
   br i1 %59, label %.preheader, label %61, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %22, %36, %50

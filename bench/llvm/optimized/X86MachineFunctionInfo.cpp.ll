@@ -179,7 +179,7 @@ define dso_local void @_ZN4llvm22X86MachineFunctionInfo21setRestoreBasePointerEP
   %28 = lshr i32 %27, 3
   %29 = load i16, ptr %19, align 2
   %30 = zext i16 %29 to i32
-  %.not.i.i = icmp ult i32 %28, %30
+  %.not.i.i = icmp samesign ult i32 %28, %30
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread16
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %25
@@ -197,7 +197,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %25
 .thread16:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %25
   %39 = load i16, ptr %22, align 2
   %40 = zext i16 %39 to i32
-  %.not.i.i12 = icmp ult i32 %28, %40
+  %.not.i.i12 = icmp samesign ult i32 %28, %40
   br i1 %.not.i.i12, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit13: ; preds = %.thread16

@@ -140,7 +140,7 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef %0, i8 noundef zeroext %
   call void @_raw_spin_lock_irq(ptr noundef %54) #7
   %55 = load i8, ptr %6, align 1
   %56 = icmp eq i8 %55, -2
-  %57 = icmp ult i32 %10, %3
+  %57 = icmp samesign ult i32 %10, %3
   %58 = and i1 %57, %56
   br i1 %58, label %9, label %59, !llvm.loop !6
 
@@ -325,7 +325,7 @@ define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef %1, i32 noundef 
   %7 = and i32 %6, 15
   %8 = lshr i32 %2, 8
   %9 = and i32 %8, 15
-  %10 = icmp ugt i32 %9, 8
+  %10 = icmp samesign ugt i32 %9, 8
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3

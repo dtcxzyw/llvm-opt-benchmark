@@ -723,7 +723,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %234 = load i16, ptr %233, align 2
   %235 = add nuw nsw i32 %174, %175
   %236 = add nuw nsw i32 %235, %179
-  %237 = icmp ugt i32 %236, 30
+  %237 = icmp samesign ugt i32 %236, 30
   br i1 %237, label %238, label %246
 
 238:                                              ; preds = %.lr.ph.i
@@ -767,7 +767,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %269 = shl i64 %267, %268
   %270 = or i64 %258, %269
   %271 = add nuw nsw i32 %259, %179
-  %272 = icmp ugt i32 %236, 56
+  %272 = icmp samesign ugt i32 %236, 56
   br i1 %272, label %273, label %281
 
 273:                                              ; preds = %246

@@ -1308,7 +1308,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %137, %139
   %146 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i61, i64 noundef %145) #15
   %147 = load i32, ptr %42, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv, %148
+  %149 = icmp samesign ult i64 %indvars.iv, %148
   br i1 %149, label %150, label %_ZN4llvm11raw_ostreamlsEPKc.exit65
 
 150:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit62
@@ -1334,7 +1334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %137, %139
 _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %159, %157, %_ZN4llvm11raw_ostreamlsEPKc.exit62
   %162 = load i32, ptr %42, align 8
   %163 = zext i32 %162 to i64
-  %164 = icmp uge i64 %indvars.iv, %163
+  %164 = icmp samesign uge i64 %indvars.iv, %163
   %.pre = load i64, ptr %46, align 8
   %.not41 = icmp eq i64 %.pre, -1
   %or.cond = select i1 %164, i1 %.not41, i1 false

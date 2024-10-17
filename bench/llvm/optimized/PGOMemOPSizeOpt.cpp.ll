@@ -1357,7 +1357,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i: ; preds = %495,
   %513 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %509, i1 false)
   %514 = trunc nuw nsw i64 %513 to i32
   %515 = add nuw nsw i32 %514, %505
-  %516 = icmp ugt i32 %515, 63
+  %516 = icmp samesign ugt i32 %515, 63
   br i1 %516, label %517, label %519
 
 517:                                              ; preds = %512

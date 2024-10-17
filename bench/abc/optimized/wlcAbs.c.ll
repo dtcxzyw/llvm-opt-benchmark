@@ -1783,7 +1783,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %35, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = icmp ult i64 %indvars.iv.next, %27
+  %36 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %36, label %30, label %.lr.ph77, !llvm.loop !26
 
 .critedge2.preheader:                             ; preds = %Vec_IntPush.exit, %Vec_IntStartFull.exit
@@ -2376,7 +2376,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %36, %Wlc_NtkNumPiBi
   %.val112.i22.i = phi i32 [ %.val112.i24.i, %.lr.ph154.i.i ], [ %.val112.i.i, %177 ]
   %indvars.iv.i47.i = phi i64 [ 0, %.lr.ph154.i.i ], [ %indvars.iv.next.i48.i, %177 ]
   %.not92.i.i = icmp sge i64 %indvars.iv.i47.i, %69
-  %75 = icmp ult i64 %indvars.iv.i47.i, %68
+  %75 = icmp samesign ult i64 %indvars.iv.i47.i, %68
   %or.cond.i.i = select i1 %.not92.i.i, i1 %75, i1 false
   br i1 %or.cond.i.i, label %76, label %121
 
@@ -5565,11 +5565,11 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %193, %Wlc_NtkNumPiB
 236:                                              ; preds = %403, %.lr.ph227.i.i
   %indvars.iv.i101.i = phi i64 [ 0, %.lr.ph227.i.i ], [ %indvars.iv.next.i102.i, %403 ]
   %.val172226.i.i = phi ptr [ %.val172223.i.i, %.lr.ph227.i.i ], [ %.val172.i.i, %403 ]
-  %.not148.i.i = icmp ult i64 %indvars.iv.i101.i, %230
+  %.not148.i.i = icmp samesign ult i64 %indvars.iv.i101.i, %230
   br i1 %.not148.i.i, label %369, label %237
 
 237:                                              ; preds = %236
-  %238 = icmp ult i64 %indvars.iv.i101.i, %229
+  %238 = icmp samesign ult i64 %indvars.iv.i101.i, %229
   br i1 %238, label %239, label %383
 
 239:                                              ; preds = %237
@@ -6618,12 +6618,12 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val47 = load i32, ptr %33, align 4
   %38 = sub nsw i32 %.val46, %.val47
   %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %.not57.not = icmp ult i32 %.03861, %39
+  %.not57.not = icmp samesign ult i32 %.03861, %39
   br i1 %.not57.not, label %35, label %40, !llvm.loop !69
 
 40:                                               ; preds = %35
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %41 = icmp ult i64 %indvars.iv.next75, %26
+  %41 = icmp samesign ult i64 %indvars.iv.next75, %26
   br i1 %41, label %27, label %.critedge.loopexit, !llvm.loop !70
 
 .critedge.loopexit:                               ; preds = %40

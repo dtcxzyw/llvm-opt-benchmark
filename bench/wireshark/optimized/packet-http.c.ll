@@ -1453,7 +1453,7 @@ define internal void @header_fields_post_update_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr @dynamic_hf_size, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1538,7 +1538,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr @dynamic_hf_size, align 4
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1582,7 +1582,7 @@ define internal void @header_fields_reset_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr @dynamic_hf_size, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

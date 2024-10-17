@@ -346,7 +346,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = and i32 %13, 15
-  %15 = icmp ugt i32 %14, 9
+  %15 = icmp samesign ugt i32 %14, 9
   %16 = add nuw nsw i32 %14, 87
   %17 = or disjoint i32 %14, 48
   %18 = select i1 %15, i32 %16, i32 %17
@@ -387,7 +387,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = and i32 %39, 15
-  %41 = icmp ugt i32 %40, 9
+  %41 = icmp samesign ugt i32 %40, 9
   %42 = add nuw nsw i32 %40, 87
   %43 = or disjoint i32 %40, 48
   %44 = select i1 %41, i32 %42, i32 %43
@@ -428,7 +428,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %68 = add nuw nsw i32 %65, 87
   %69 = or disjoint i32 %65, 48
   %70 = select i1 %67, i32 %68, i32 %69
-  %71 = icmp ugt i32 %66, 9
+  %71 = icmp samesign ugt i32 %66, 9
   %72 = add nuw nsw i32 %66, 87
   %73 = or disjoint i32 %66, 48
   %74 = select i1 %71, i32 %72, i32 %73
@@ -710,7 +710,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %14 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.021
   store i8 %13, ptr %14, align 1
   %15 = udiv i64 %.1, 10
-  %.not27 = icmp ult i64 %.1, 10
+  %.not27 = icmp samesign ult i64 %.1, 10
   br i1 %.not27, label %16, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8, %9
@@ -771,7 +771,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %14 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.021
   store i32 %13, ptr %14, align 4
   %15 = udiv i64 %.1, 10
-  %.not27 = icmp ult i64 %.1, 10
+  %.not27 = icmp samesign ult i64 %.1, 10
   br i1 %.not27, label %16, label %8, !llvm.loop !17
 
 16:                                               ; preds = %8, %9
@@ -839,7 +839,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, 
   %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.021.i
   store i32 %18, ptr %19, align 4
   %20 = udiv i64 %.1.i, 10
-  %.not27.i = icmp ult i64 %.1.i, 10
+  %.not27.i = icmp samesign ult i64 %.1.i, 10
   br i1 %.not27.i, label %21, label %13, !llvm.loop !17
 
 21:                                               ; preds = %14, %13

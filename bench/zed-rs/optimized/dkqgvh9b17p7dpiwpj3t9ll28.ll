@@ -1427,7 +1427,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17h4092b7f5883
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %23, ptr %7, align 8, !noalias !211
-  %switch = icmp ult i64 %23, 6
+  %switch = icmp samesign ult i64 %23, 6
   br i1 %switch, label %26, label %29
 
 24:                                               ; preds = %19
@@ -1604,7 +1604,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17h7afe7ff2e97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   store i64 %79, ptr %46, align 8, !noalias !237
-  %switch = icmp ult i64 %79, 6
+  %switch = icmp samesign ult i64 %79, 6
   br i1 %switch, label %82, label %85
 
 80:                                               ; preds = %75
@@ -2541,7 +2541,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17he320a96e911
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   store i64 %84, ptr %48, align 8, !noalias !426
-  %switch = icmp ult i64 %84, 6
+  %switch = icmp samesign ult i64 %84, 6
   br i1 %switch, label %87, label %90
 
 85:                                               ; preds = %80
@@ -3486,7 +3486,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17he3e13b30c5e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %23, ptr %7, align 8, !noalias !641
-  %switch = icmp ult i64 %23, 6
+  %switch = icmp samesign ult i64 %23, 6
   br i1 %switch, label %26, label %29
 
 24:                                               ; preds = %19

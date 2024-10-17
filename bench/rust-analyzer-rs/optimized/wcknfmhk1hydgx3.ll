@@ -11009,9 +11009,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -73061,7 +73061,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h7c54bb90ea30ab00E.exit: ; pred
   %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.440.0..sroa_idx, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %97 = icmp ult i8 %94, 11
+  %97 = icmp samesign ult i8 %94, 11
   br i1 %97, label %98, label %195
 
 98:                                               ; preds = %96

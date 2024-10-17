@@ -1641,14 +1641,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76
@@ -7581,13 +7581,13 @@ default.unreachable.i:                            ; preds = %.noexc
 21:                                               ; preds = %.noexc
   %22 = getelementptr inbounds i8, ptr %14, i64 29
   %23 = load i8, ptr %22, align 1, !range !1287, !alias.scope !1534, !noalias !1533, !noundef !4
-  %or.cond.not.i = icmp ult i8 %23, 2
+  %or.cond.not.i = icmp samesign ult i8 %23, 2
   br i1 %.not, label %29, label %32
 
 24:                                               ; preds = %.noexc
   %25 = getelementptr inbounds i8, ptr %14, i64 29
   %26 = load i8, ptr %25, align 1, !range !1287, !alias.scope !1535, !noalias !1533, !noundef !4
-  %switch.not.i.i = icmp ult i8 %26, 2
+  %switch.not.i.i = icmp samesign ult i8 %26, 2
   br i1 %switch.not.i.i, label %27, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
 
 27:                                               ; preds = %24
@@ -8047,13 +8047,13 @@ default.unreachable.i:                            ; preds = %.noexc48
 54:                                               ; preds = %.noexc48
   %55 = getelementptr inbounds i8, ptr %1, i64 125
   %56 = load i8, ptr %55, align 1, !range !1287, !alias.scope !1621, !noalias !1620, !noundef !4
-  %or.cond.not.i = icmp ult i8 %56, 2
+  %or.cond.not.i = icmp samesign ult i8 %56, 2
   br i1 %.not.i, label %65, label %62
 
 57:                                               ; preds = %.noexc48
   %58 = getelementptr inbounds i8, ptr %1, i64 125
   %59 = load i8, ptr %58, align 1, !range !1287, !alias.scope !1622, !noalias !1620, !noundef !4
-  %switch.not.i.i = icmp ult i8 %59, 2
+  %switch.not.i.i = icmp samesign ult i8 %59, 2
   br i1 %switch.not.i.i, label %60, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
 
 60:                                               ; preds = %57
@@ -8803,13 +8803,13 @@ _ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requi
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 29
   %9 = load i8, ptr %8, align 1, !range !1287, !noundef !4
-  %or.cond.not = icmp ult i8 %9, 2
+  %or.cond.not = icmp samesign ult i8 %9, 2
   br i1 %1, label %18, label %15
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 29
   %12 = load i8, ptr %11, align 1, !range !1287, !alias.scope !1776, !noundef !4
-  %switch.not.i = icmp ult i8 %12, 2
+  %switch.not.i = icmp samesign ult i8 %12, 2
   br i1 %switch.not.i, label %13, label %_ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE.exit
 
 13:                                               ; preds = %10
@@ -8879,7 +8879,7 @@ define internal void @_ZN6diesel2pg10connection21noop_notice_processor17hee2ae34
 define void @_ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE(ptr noalias nocapture noundef align 4 dereferenceable(8) %0, i1 noundef zeroext %1) unnamed_addr #22 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5
   %4 = load i8, ptr %3, align 1, !range !1287, !noundef !4
-  %switch.not = icmp ult i8 %4, 2
+  %switch.not = icmp samesign ult i8 %4, 2
   br i1 %switch.not, label %6, label %5
 
 5:                                                ; preds = %2, %6
@@ -8914,7 +8914,7 @@ define void @_ZN6diesel10connection19transaction_manager24TransactionManagerStat
 define void @_ZN6diesel10connection19transaction_manager24TransactionManagerStatus25set_test_transaction_flag17h5283b3f2cc365803E(ptr noalias nocapture noundef align 4 dereferenceable(8) %0) unnamed_addr #22 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5
   %3 = load i8, ptr %2, align 1, !range !1287, !noundef !4
-  %switch.not = icmp ult i8 %3, 2
+  %switch.not = icmp samesign ult i8 %3, 2
   br i1 %switch.not, label %5, label %4
 
 4:                                                ; preds = %1, %5

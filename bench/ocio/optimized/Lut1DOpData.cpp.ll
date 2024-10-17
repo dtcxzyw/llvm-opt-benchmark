@@ -341,7 +341,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %shr.i.i.us.us = and i32 %conv.i.i.us.us, 268427264
   %sext.us.us = shl i32 %conv.us.us, 16
   %shl3.i.i.us.us = and i32 %sext.us.us, -2147483648
-  %cmp.i.i.us.us = icmp ugt i32 %shr.i.i.us.us, 8388607
+  %cmp.i.i.us.us = icmp samesign ugt i32 %shr.i.i.us.us, 8388607
   br i1 %cmp.i.i.us.us, label %if.then.i.i.us.us, label %if.else9.i.i.us.us
 
 if.else9.i.i.us.us:                               ; preds = %for.body.us.us
@@ -360,7 +360,7 @@ if.then11.i.i.us.us:                              ; preds = %if.else9.i.i.us.us
 
 if.then.i.i.us.us:                                ; preds = %for.body.us.us
   %or.i.i.us.us = or disjoint i32 %shr.i.i.us.us, %shl3.i.i.us.us
-  %cmp5.i.i.us.us = icmp ult i32 %shr.i.i.us.us, 260046848
+  %cmp5.i.i.us.us = icmp samesign ult i32 %shr.i.i.us.us, 260046848
   br i1 %cmp5.i.i.us.us, label %if.then7.i.i.us.us, label %if.else.i.i.us.us
 
 if.else.i.i.us.us:                                ; preds = %if.then.i.i.us.us
@@ -398,7 +398,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %shr.i.i.us = and i32 %conv.i.i.us, 268427264
   %sext.us = shl i32 %conv.us, 16
   %shl3.i.i.us = and i32 %sext.us, -2147483648
-  %cmp.i.i.us = icmp ugt i32 %shr.i.i.us, 8388607
+  %cmp.i.i.us = icmp samesign ugt i32 %shr.i.i.us, 8388607
   br i1 %cmp.i.i.us, label %if.then.i.i.us, label %if.else9.i.i.us
 
 if.else9.i.i.us:                                  ; preds = %for.body.us
@@ -417,7 +417,7 @@ if.then11.i.i.us:                                 ; preds = %if.else9.i.i.us
 
 if.then.i.i.us:                                   ; preds = %for.body.us
   %or.i.i.us = or disjoint i32 %shr.i.i.us, %shl3.i.i.us
-  %cmp5.i.i.us = icmp ult i32 %shr.i.i.us, 260046848
+  %cmp5.i.i.us = icmp samesign ult i32 %shr.i.i.us, 260046848
   br i1 %cmp5.i.i.us, label %if.then7.i.i.us, label %if.else.i.i.us
 
 if.else.i.i.us:                                   ; preds = %if.then.i.i.us
@@ -770,11 +770,11 @@ for.body7:                                        ; preds = %for.body, %for.cond
   %shr.i.i = lshr i32 %4, 16
   %6 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %6, -32768
-  %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
 
 if.then.i.i:                                      ; preds = %for.body7
-  %cmp2.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp2.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end20.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -793,7 +793,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 if.end20.i.i:                                     ; preds = %if.then.i.i
-  %cmp21.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp21.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp21.i.i, label %if.then23.i.i, label %if.end27.i.i
 
 if.then23.i.i:                                    ; preds = %if.end20.i.i
@@ -812,7 +812,7 @@ if.end27.i.i:                                     ; preds = %if.end20.i.i
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 if.end37.i.i:                                     ; preds = %for.body7
-  %cmp38.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp38.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp38.i.i, label %_ZN9Imath_3_14halfC2Ef.exit, label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end37.i.i

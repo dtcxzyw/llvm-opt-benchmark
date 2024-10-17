@@ -9265,8 +9265,8 @@ define dso_local noundef zeroext i1 @AfterTriggerPendingOnRel(i32 noundef %0) lo
 
 ._crit_edge:                                      ; preds = %.loopexit, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = icmp ult i64 %indvars.iv, %9
-  %55 = icmp ult i64 %indvars.iv.next, %8
+  %54 = icmp samesign ult i64 %indvars.iv, %9
+  %55 = icmp samesign ult i64 %indvars.iv.next, %8
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %31, label %.loopexit42, !llvm.loop !63
 

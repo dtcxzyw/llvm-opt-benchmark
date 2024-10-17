@@ -403,7 +403,7 @@ define hidden void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %3, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %2

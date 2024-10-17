@@ -187,7 +187,7 @@ define internal void @chmd_close(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %42, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %45, label %._crit_edge57.loopexit
 
 ._crit_edge57.loopexit:                           ; preds = %45
@@ -2371,7 +2371,7 @@ define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonl
   %65 = zext nneg i8 %64 to i32
   %66 = or disjoint i32 %62, %65
   %67 = or disjoint i32 %66, %57
-  %68 = icmp ugt i32 %57, 1114111
+  %68 = icmp samesign ugt i32 %57, 1114111
   %spec.store.select = select i1 %68, i32 65533, i32 %67
   %69 = getelementptr inbounds i8, ptr %.092118, i64 4
   br label %.thread
@@ -2455,7 +2455,7 @@ define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonl
   %123 = zext nneg i8 %122 to i32
   %124 = or disjoint i32 %120, %123
   %125 = or disjoint i32 %124, %115
-  %126 = icmp ugt i32 %115, 1114111
+  %126 = icmp samesign ugt i32 %115, 1114111
   %spec.store.select18 = select i1 %126, i32 65533, i32 %125
   %127 = getelementptr inbounds i8, ptr %.095117, i64 4
   br label %.thread114

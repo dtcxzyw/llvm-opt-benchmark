@@ -11208,7 +11208,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %40 = icmp ugt i64 %39, 15
   %41 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %39)
-  %42 = icmp ult i64 %41, 2
+  %42 = icmp samesign ult i64 %41, 2
   %or.cond219 = select i1 %40, i1 %42, i1 false
   br i1 %or.cond219, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %43
 

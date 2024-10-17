@@ -546,7 +546,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4
   %indvars.iv.next219248 = add nuw nsw i64 %indvars.iv218, 1
-  %102 = icmp ult i64 %indvars.iv.next219248, %87
+  %102 = icmp samesign ult i64 %indvars.iv.next219248, %87
   br i1 %102, label %.lr.ph149.split, label %.critedge.loopexit
 
 .lr.ph149.split:                                  ; preds = %.thread, %109
@@ -6012,7 +6012,7 @@ Vec_IntFree.exit281:                              ; preds = %Vec_IntFree.exit279
   %512 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %511
   %513 = load ptr, ptr %512, align 8
   store ptr null, ptr %512, align 8
-  %514 = icmp ugt i32 %.0162, 1
+  %514 = icmp samesign ugt i32 %.0162, 1
   br i1 %514, label %515, label %520
 
 515:                                              ; preds = %510
@@ -7260,7 +7260,7 @@ Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275
   %506 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %505
   %507 = load ptr, ptr %506, align 8
   store ptr null, ptr %506, align 8
-  %508 = icmp ugt i32 %.0159, 1
+  %508 = icmp samesign ugt i32 %.0159, 1
   br i1 %508, label %509, label %514
 
 509:                                              ; preds = %504
@@ -8299,7 +8299,7 @@ Vec_IntFree.exit237:                              ; preds = %Vec_IntFree.exit235
   %408 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %407
   %409 = load ptr, ptr %408, align 8
   store ptr null, ptr %408, align 8
-  %410 = icmp ugt i32 %.0145, 1
+  %410 = icmp samesign ugt i32 %.0145, 1
   br i1 %410, label %411, label %416
 
 411:                                              ; preds = %406
@@ -9301,7 +9301,7 @@ Vec_IntFree.exit238:                              ; preds = %Vec_IntFree.exit236
   %409 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %408
   %410 = load ptr, ptr %409, align 8
   store ptr null, ptr %409, align 8
-  %411 = icmp ugt i32 %.0146, 1
+  %411 = icmp samesign ugt i32 %.0146, 1
   br i1 %411, label %412, label %417
 
 412:                                              ; preds = %407

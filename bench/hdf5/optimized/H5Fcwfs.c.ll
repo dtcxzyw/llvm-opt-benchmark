@@ -143,7 +143,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %17 = getelementptr inbounds i8, ptr %16, i64 1440
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.preheader
 
 .lr.ph71:                                         ; preds = %.preheader, %86
@@ -235,7 +235,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %88 = getelementptr inbounds i8, ptr %87, i64 1440
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next86, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next86, %90
   br i1 %91, label %.lr.ph71, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %.lr.ph, %73

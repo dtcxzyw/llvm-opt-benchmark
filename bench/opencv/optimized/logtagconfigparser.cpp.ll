@@ -574,7 +574,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser17parseNameAndLevelE
 9:                                                ; preds = %2
   %10 = tail call i64 @_ZN2cv5utils7logging18LogTagConfigParser13parseLogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.sroa.02.0.extract.trunc = trunc i64 %10 to i32
-  %.not30 = icmp ult i64 %10, 4294967296
+  %.not30 = icmp samesign ult i64 %10, 4294967296
   br i1 %.not30, label %19, label %11
 
 11:                                               ; preds = %9
@@ -684,7 +684,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser17parseNameAndLevelE
 
 56:                                               ; preds = %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  %.not29 = icmp ult i64 %55, 4294967296
+  %.not29 = icmp samesign ult i64 %55, 4294967296
   br i1 %.not29, label %63, label %57
 
 57:                                               ; preds = %56
@@ -1518,7 +1518,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

@@ -26356,7 +26356,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
   store atomic i64 %41, ptr %61 release, align 8
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
-  %64 = and i1 %60, %63
+  %64 = and i1 %63, %60
   br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEELm128EEEZNS1_18spin_wait_while_eqISA_SA_EET_RKSt6atomicISC_ET0_St12memory_orderEUlSA_E_EESC_SG_SH_SI_.exit, !llvm.loop !224
 
 65:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEELm128EEENS3_23cache_aligned_allocatorISA_EEE14create_segmentEPSt6atomicIPSA_EmmEUlvE_E12on_exceptionIZNSD_14create_segmentESH_mmEUlvE0_EEvT_.exit

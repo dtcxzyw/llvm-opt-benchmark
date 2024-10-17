@@ -6876,9 +6876,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h710d621caac76404E.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -10509,7 +10509,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -10522,7 +10522,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -11011,7 +11011,7 @@ define hidden void @"_ZN80_$LT$core..core_arch..x86..__m128i$u20$as$u20$core..co
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h013015e69c275036E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcea9b741f88aafacE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11037,7 +11037,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1e342a0614413a99E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hb2eedb2aaf70f9b3E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11063,7 +11063,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h28d7d8181fcc78daE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h80c15066c555e20dE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11089,7 +11089,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h3f5f977fe77f9d15E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h0014167eb600f9cbE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11115,7 +11115,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h458465ae5489408eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hb960bb959fd01e3cE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11141,7 +11141,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h5b6771d8d5e433acE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h43028bdc697bfcf7E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11167,7 +11167,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h6e26db764c929348E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hb8a6ba6d3d751eeeE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11193,7 +11193,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h77d63fc0749f8462E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h5159bf28d176339dE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11219,7 +11219,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h838beca4811d0be5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h0e127a2ab0a0a98bE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11338,7 +11338,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hd997f431de86814bE.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2646
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !2645
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hd997f431de86814bE.exit"
@@ -11364,7 +11364,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h8e8c673eda04ed32E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hdbcda44dd1b440fcE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11390,7 +11390,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h94af687bbfb6a7a4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h7e201577f8ce0863E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11416,7 +11416,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9ac54f9ae0b91603E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h9a99f994264756b8E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11442,7 +11442,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hcac9355f21548f26E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17he2f948bd24d76859E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11561,7 +11561,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hbe2e7a47351d1df3E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2663
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !2662
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hbe2e7a47351d1df3E.exit"
@@ -11587,7 +11587,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd06fdaa6994ee3acE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hf3c0a7af0b1df2cbE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11706,7 +11706,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hc38207735b972b8aE.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2680
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !2679
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hc38207735b972b8aE.exit"
@@ -11732,7 +11732,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd62d1b2e2241ddc2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h388b1897b9dfbdc4E.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11758,7 +11758,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hdd8c66d4c6204a70E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hff56192468a345ebE.llvm.3835216717863518526"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !740
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11877,7 +11877,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hf0fef9d148975cc8E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2697
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !2696
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hf0fef9d148975cc8E.exit"
@@ -11996,7 +11996,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h1e76e1c1b6c51775E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2714
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !2713
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h1e76e1c1b6c51775E.exit"
@@ -41482,7 +41482,7 @@ default.unreachable:                              ; preds = %51
           to label %.noexc.i.i.i unwind label %213, !noalias !9107
 
 .noexc.i.i.i:                                     ; preds = %193
-  %or.cond.not.i.i.i.i = icmp ult i8 %207, 3
+  %or.cond.not.i.i.i.i = icmp samesign ult i8 %207, 3
   br i1 %or.cond.not.i.i.i.i, label %208, label %215
 
 208:                                              ; preds = %.noexc.i.i.i
@@ -42344,7 +42344,7 @@ define internal fastcc void @_ZN3ide18view_memory_layout18view_memory_layout11re
           to label %.noexc.i96 unwind label %.loopexit184, !noalias !9266
 
 .noexc.i96:                                       ; preds = %163
-  %or.cond.not.i.i = icmp ult i8 %164, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %164, 3
   br i1 %or.cond.not.i.i, label %165, label %171
 
 165:                                              ; preds = %.noexc.i96
@@ -42697,7 +42697,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %242
           to label %.noexc.i117 unwind label %.loopexit180, !noalias !9341
 
 .noexc.i117:                                      ; preds = %255
-  %or.cond.not.i.i118 = icmp ult i8 %261, 3
+  %or.cond.not.i.i118 = icmp samesign ult i8 %261, 3
   br i1 %or.cond.not.i.i118, label %262, label %268
 
 262:                                              ; preds = %.noexc.i117
@@ -43938,7 +43938,7 @@ default.unreachable:                              ; preds = %105, %64, %34
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit
 
 49:                                               ; preds = %34
-  %50 = icmp ult i8 %36, 24
+  %50 = icmp samesign ult i8 %36, 24
   tail call void @llvm.assume(i1 %50)
   %51 = zext nneg i8 %36 to i64
   %52 = getelementptr inbounds i8, ptr %0, i64 49
@@ -44008,7 +44008,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %38, %44, %49
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit22
 
 77:                                               ; preds = %64
-  %78 = icmp ult i8 %61, 24
+  %78 = icmp samesign ult i8 %61, 24
   tail call void @llvm.assume(i1 %78)
   %79 = zext nneg i8 %61 to i64
   %80 = getelementptr inbounds i8, ptr %0, i64 73
@@ -44108,7 +44108,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit22: ; preds = %66, %72, %77
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit27
 
 118:                                              ; preds = %105
-  %119 = icmp ult i8 %102, 24
+  %119 = icmp samesign ult i8 %102, 24
   tail call void @llvm.assume(i1 %119)
   %120 = zext nneg i8 %102 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 97

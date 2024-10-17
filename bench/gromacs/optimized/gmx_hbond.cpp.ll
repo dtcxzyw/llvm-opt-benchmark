@@ -2728,7 +2728,7 @@ _ZL13gmx_snew_implIhEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %412 = load i32, ptr %411, align 4
   %413 = icmp ne i32 %410, %412
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %414 = icmp uge i64 %indvars.iv.next, %407
+  %414 = icmp samesign uge i64 %indvars.iv.next, %407
   %.not279 = select i1 %414, i1 true, i1 %413
   br i1 %.not279, label %._crit_edge, label %408, !llvm.loop !13
 
@@ -7454,7 +7454,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %2464, %2461
 2594:                                             ; preds = %2589, %2585, %2583
   %2595 = phi i32 [ 1, %2583 ], [ 0, %2585 ], [ %2593, %2589 ]
   %indvars.iv.next.i.i555 = add nuw nsw i64 %indvars.iv.i.i554, 1
-  %2596 = icmp ult i64 %indvars.iv.next.i.i555, %2572
+  %2596 = icmp samesign ult i64 %indvars.iv.next.i.i555, %2572
   %.not.i.i = icmp eq i32 %2584, 0
   %2597 = and i1 %2596, %.not.i.i
   br i1 %2597, label %2575, label %.loopexit.i.i, !llvm.loop !70
@@ -9191,7 +9191,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
 
 3251:                                             ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i
   %3252 = getelementptr inbounds i8, ptr %155, i64 216
-  %3253 = icmp ugt i64 %3248, 4611686018427387903
+  %3253 = icmp samesign ugt i64 %3248, 4611686018427387903
   br i1 %3253, label %.invoke1210, label %_ZNKSt6vectorIsSaIsEE12_M_check_lenEmPKc.exit.i
 
 .invoke1210:                                      ; preds = %3251, %3451
@@ -13749,7 +13749,7 @@ _ZL13grid_loop_endiibb.exit._crit_edge:           ; preds = %_ZL13grid_loop_endi
   %1477 = add nuw nsw i32 %.02131226, 1
   %1478 = and i8 %1473, 1
   %1479 = zext nneg i8 %1478 to i64
-  %.not231.not = icmp ult i64 %indvars.iv1620, %1479
+  %.not231.not = icmp samesign ult i64 %indvars.iv1620, %1479
   br i1 %.not231.not, label %617, label %1480, !llvm.loop !139
 
 1480:                                             ; preds = %._crit_edge1219

@@ -219,7 +219,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr
 
 power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
   %24 = add nuw nsw i64 %12, 1
-  %25 = icmp ult i64 %12, 4
+  %25 = icmp samesign ult i64 %12, 4
   %26 = icmp eq i64 %24, 5
   br i1 %26, label %.split9.us, label %.split.us, !llvm.loop !10
 
@@ -251,7 +251,7 @@ power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
 
 power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   %38 = add nuw nsw i64 %28, 1
-  %39 = icmp ult i64 %28, 4
+  %39 = icmp samesign ult i64 %28, 4
   %40 = icmp eq i64 %38, 5
   br i1 %40, label %.split9.us, label %.split, !llvm.loop !10
 

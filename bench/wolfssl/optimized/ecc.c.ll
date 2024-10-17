@@ -2838,7 +2838,7 @@ wc_ecc_curve_cache_load_item.exit87:              ; preds = %if.then41, %if.end.
 
 if.end45:                                         ; preds = %wc_ecc_curve_cache_load_item.exit87, %if.end37
   %ret.3 = phi i32 [ %add44, %wc_ecc_curve_cache_load_item.exit87 ], [ %ret.2, %if.end37 ]
-  %tobool48.not = icmp ult i8 %and35, 32
+  %tobool48.not = icmp samesign ult i8 %and35, 32
   br i1 %tobool48.not, label %if.end53, label %if.then49
 
 if.then49:                                        ; preds = %if.end45

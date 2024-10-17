@@ -175,7 +175,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 92:                                               ; preds = %.loopexit35
   %93 = and i32 %75, 15728640
-  %94 = icmp ult i32 %93, 3145728
+  %94 = icmp samesign ult i32 %93, 3145728
   br i1 %94, label %95, label %105
 
 95:                                               ; preds = %92

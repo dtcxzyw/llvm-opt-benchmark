@@ -69018,7 +69018,7 @@ common.resume:                                    ; preds = %342, %.body
   %65 = load ptr, ptr %64, align 8, !alias.scope !10110, !noalias !10113, !nonnull !4, !noundef !4
   %66 = getelementptr inbounds [0 x { i32, [15 x i32] }], ptr %65, i64 0, i64 %60
   %67 = load i32, ptr %66, align 8, !range !10115, !noundef !4
-  %68 = icmp ult i32 %67, 3
+  %68 = icmp samesign ult i32 %67, 3
   br i1 %68, label %269, label %.invoke
 
 ._crit_edge94.i:                                  ; preds = %.noexc40, %._crit_edge.i

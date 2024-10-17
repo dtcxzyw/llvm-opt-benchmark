@@ -29,8 +29,8 @@ entry:
   %conv = sext i8 %0 to i64
   %cmp = icmp eq i8 %0, 0
   %conv3 = and i64 %conv, 4294967295
-  %cmp4 = icmp ugt i64 %conv3, 127
-  %or.cond = or i1 %cmp, %cmp4
+  %cmp4 = icmp samesign ugt i64 %conv3, 127
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp4
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -45,8 +45,8 @@ if.end:                                           ; preds = %entry
   %conv10 = sext i8 %2 to i64
   %cmp11 = icmp eq i8 %2, 0
   %conv14 = and i64 %conv10, 4294967295
-  %cmp15 = icmp ugt i64 %conv14, 127
-  %or.cond1 = or i1 %cmp11, %cmp15
+  %cmp15 = icmp samesign ugt i64 %conv14, 127
+  %or.cond1 = select i1 %cmp11, i1 true, i1 %cmp15
   br i1 %or.cond1, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end
@@ -73,7 +73,7 @@ if.end26:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.end40, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %cmp3345 = icmp ult i64 %indvars.iv, 8
+  %cmp3345 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp3345, label %for.body35.preheader, label %for.end40
 
 for.body35.preheader:                             ; preds = %for.end

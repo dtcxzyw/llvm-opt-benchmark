@@ -845,7 +845,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %m_num_args.i, align 8
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
@@ -856,7 +856,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call15 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %9)
   %pair.sroa.0.0.extract.trunc = trunc i64 %call15 to i32
   %add = add i32 %r.025, %pair.sroa.0.0.extract.trunc
-  %tobool.not = icmp ult i64 %call15, 4294967296
+  %tobool.not = icmp samesign ult i64 %call15, 4294967296
   br i1 %tobool.not, label %for.cond, label %return
 
 sw.bb20:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit

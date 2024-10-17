@@ -447,7 +447,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   %31 = getelementptr inbounds i8, ptr %.05772, i64 24
   %32 = add i32 %.05574, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ugt i64 %17, %33
+  %34 = icmp samesign ugt i64 %17, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %29, %16

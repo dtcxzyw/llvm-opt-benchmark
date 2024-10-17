@@ -9149,7 +9149,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %.noexc
   %__val.addr.0.lcssa.i.i = phi i64 [ %entry1, %.noexc ], [ %div.i10.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i111, label %if.else.i.i
 
 if.then.i.i111:                                   ; preds = %while.end.i.i
@@ -9272,7 +9272,7 @@ while.body.i.i153:                                ; preds = %while.body.i.i153, 
 
 while.end.i.i137:                                 ; preds = %while.body.i.i153, %.noexc175
   %__val.addr.0.lcssa.i.i138 = phi i64 [ %entry1, %.noexc175 ], [ %div.i10.i158, %while.body.i.i153 ]
-  %cmp7.i.i139 = icmp ugt i64 %__val.addr.0.lcssa.i.i138, 9
+  %cmp7.i.i139 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i138, 9
   br i1 %cmp7.i.i139, label %if.then.i.i143, label %if.else.i.i140
 
 if.then.i.i143:                                   ; preds = %while.end.i.i137

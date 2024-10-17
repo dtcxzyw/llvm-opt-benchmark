@@ -136,7 +136,7 @@ define void @_ZN5Nbnxm4Grid8GeometryC2E12PairlistType(ptr nocapture noundef nonn
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %16 = icmp sgt i32 %9, 0
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %19 = select i1 %16, i1 %18, i1 false
   br i1 %19, label %_ZL8get_2logi.exit, label %20
 
@@ -4421,7 +4421,7 @@ _ZN5NbnxmL20print_bbsizes_simpleEP8_IO_FILERKNS_4GridE.exit: ; preds = %._crit_e
 
 388:                                              ; preds = %387
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 4
-  %389 = icmp ult i64 %indvars.iv.next68.i, %371
+  %389 = icmp samesign ult i64 %indvars.iv.next68.i, %371
   br i1 %389, label %372, label %._crit_edge.i86, !llvm.loop !57
 
 ._crit_edge.i86:                                  ; preds = %388, %.preheader53.i

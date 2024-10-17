@@ -255,7 +255,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i
   %8 = and i8 %7, 1
   %9 = load i8, ptr %_M_storage.i.i.i.i.i.i, align 1
   %10 = and i8 %9, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %8, %10
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %8, %10
   br label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i.i
@@ -358,7 +358,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
   %6 = and i8 %5, 1
   %7 = load i8, ptr %_M_storage.i.i.i.i.i.i, align 1
   %8 = and i8 %7, 1
-  %cmp.i.i.i.i.i.i.i = icmp ult i8 %6, %8
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i8 %6, %8
   br label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %land.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i.i
@@ -618,7 +618,7 @@ lor.rhs.i.i.i.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i.i.i.
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i
   %16 = load i8, ptr %_M_storage.i.i.i.i.i, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ult i8 %17, %frombool
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %17, %frombool
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit.i.i.i, %land.rhs.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %while.body.i.i.i
@@ -670,7 +670,7 @@ lor.rhs.i.i.i.i.i12.i.i:                          ; preds = %land.rhs.i.i.i.i8.i
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i12.i.i
   %21 = load i8, ptr %_M_storage.i.i.i3.i.i, align 1
   %22 = and i8 %21, 1
-  %cmp.i.i.i.i.i.i15.i.i = icmp ult i8 %frombool, %22
+  %cmp.i.i.i.i.i.i15.i.i = icmp samesign ult i8 %frombool, %22
   br i1 %cmp.i.i.i.i.i.i15.i.i, label %if.then29, label %if.end64.sink.split
 
 lpad:                                             ; preds = %if.then138, %if.then96
@@ -709,7 +709,7 @@ lor.rhs.i.i.i.i.i.i.i28:                          ; preds = %land.rhs.i.i.i.i.i.
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i28
   %27 = load i8, ptr %_M_storage.i.i.i.i.i20, align 1
   %28 = and i8 %27, 1
-  %cmp.i.i.i.i.i.i.i.i30 = icmp ult i8 %28, %frombool
+  %cmp.i.i.i.i.i.i.i.i30 = icmp samesign ult i8 %28, %frombool
   br i1 %cmp.i.i.i.i.i.i.i.i30, label %if.else.i.i.i51, label %if.end.i.i.i31
 
 if.else.i.i.i51:                                  ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i.i, %land.rhs.i.i.i.i.i.i25, %while.body.i.i.i17
@@ -751,7 +751,7 @@ lor.rhs.i.i.i.i7.i.i47:                           ; preds = %land.rhs.i.i.i.i.i4
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i: ; preds = %lor.rhs.i.i.i.i7.i.i47
   %31 = load i8, ptr %_M_storage.i.i.i3.i.i39, align 1
   %32 = and i8 %31, 1
-  %cmp.i.i.i.i.i9.i.i = icmp ult i8 %frombool, %32
+  %cmp.i.i.i.i.i9.i.i = icmp samesign ult i8 %frombool, %32
   br i1 %cmp.i.i.i.i.i9.i.i, label %if.then49, label %if.end64.sink.split
 
 if.then49:                                        ; preds = %land.rhs.i.i.i.i.i44, %lor.lhs.false.i.i38, %if.then29, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i
@@ -775,7 +775,7 @@ lor.rhs.i.i.i.i.i.i60:                            ; preds = %while.body.i.i.i56
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i60
   %35 = load i8, ptr %_M_storage.i.i.i.i.i57, align 1
   %36 = and i8 %35, 1
-  %cmp.i.i.i.i.i.i.i62 = icmp ult i8 %36, %frombool
+  %cmp.i.i.i.i.i.i.i62 = icmp samesign ult i8 %36, %frombool
   br i1 %cmp.i.i.i.i.i.i.i62, label %if.else.i.i.i78, label %if.end.i.i.i63
 
 if.else.i.i.i78:                                  ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i.i, %while.body.i.i.i56
@@ -807,7 +807,7 @@ lor.rhs.i.i.i.i.i74:                              ; preds = %lor.lhs.false.i.i70
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i74
   %38 = load i8, ptr %_M_storage.i.i.i3.i.i71, align 1
   %39 = and i8 %38, 1
-  %cmp.i.i.i.i4.i.i = icmp ult i8 %frombool, %39
+  %cmp.i.i.i.i4.i.i = icmp samesign ult i8 %frombool, %39
   br i1 %cmp.i.i.i.i4.i.i, label %if.end64, label %if.end64.sink.split
 
 if.end64.sink.split:                              ; preds = %lor.rhs.i.i.i.i.i74, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i, %lor.rhs.i.i.i.i.i42, %lor.rhs.i.i.i.i7.i.i47, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit.i.i, %lor.rhs.i.i.i.i.i12.i.i, %lor.rhs.i.i.i.i7.i.i, %lor.rhs.i.i.i.i.i
@@ -3851,7 +3851,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i
   %9 = and i8 %8, 1
   %10 = load i8, ptr %_M_storage.i.i.i.i.i, align 1
   %11 = and i8 %10, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %9, %11
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %9, %11
   br label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit.i: ; preds = %land.rhs.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i.i, %lor.rhs.i.i, %if.then.i
@@ -3931,7 +3931,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %9 = and i8 %8, 1
   %10 = load i8, ptr %__k, align 4
   %11 = and i8 %10, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %9, %11
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %9, %11
   br i1 %cmp.i.i.i.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit, %if.then
@@ -3982,7 +3982,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %21 = and i8 %20, 1
   %22 = load i8, ptr %_M_storage.i.i.i10, align 1
   %23 = and i8 %22, 1
-  %cmp.i.i.i.i.i.i29 = icmp ult i8 %21, %23
+  %cmp.i.i.i.i.i.i29 = icmp samesign ult i8 %21, %23
   br i1 %cmp.i.i.i.i.i.i29, label %if.then18, label %land.rhs.i.i.i64
 
 if.then18:                                        ; preds = %land.rhs.i.i.i.i22, %land.rhs.i.i.i16, %if.else12, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit30
@@ -4032,7 +4032,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %31 = and i8 %30, 1
   %32 = load i8, ptr %__k, align 4
   %33 = and i8 %32, 1
-  %cmp.i.i.i.i.i.i53 = icmp ult i8 %31, %33
+  %cmp.i.i.i.i.i.i53 = icmp samesign ult i8 %31, %33
   br i1 %cmp.i.i.i.i.i.i53, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %land.rhs.i.i.i.i46, %land.rhs.i.i.i40, %if.else25, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit54
@@ -4078,7 +4078,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %42 = and i8 %41, 1
   %43 = load i8, ptr %__k, align 4
   %44 = and i8 %43, 1
-  %cmp.i.i.i.i.i.i77 = icmp ult i8 %42, %44
+  %cmp.i.i.i.i.i.i77 = icmp samesign ult i8 %42, %44
   br i1 %cmp.i.i.i.i.i.i77, label %if.then50, label %return
 
 if.then50:                                        ; preds = %lor.rhs.i.i.i14, %land.rhs.i.i.i.i70, %land.rhs.i.i.i64, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit78
@@ -4128,7 +4128,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %52 = and i8 %51, 1
   %53 = load i8, ptr %_M_storage.i.i.i83, align 1
   %54 = and i8 %53, 1
-  %cmp.i.i.i.i.i.i102 = icmp ult i8 %52, %54
+  %cmp.i.i.i.i.i.i102 = icmp samesign ult i8 %52, %54
   br i1 %cmp.i.i.i.i.i.i102, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %land.rhs.i.i.i.i95, %land.rhs.i.i.i89, %if.else57, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit103
@@ -4208,7 +4208,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit: ; preds = %lor.rhs.i.i.i.i.i
   %8 = load i8, ptr %_M_storage.i.i, align 1
   %9 = and i8 %8, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %4, %9
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %4, %9
   br i1 %cmp.i.i.i.i.i.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %lor.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit
@@ -4280,7 +4280,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   %19 = and i8 %18, 1
   %20 = load i8, ptr %__k, align 4
   %21 = and i8 %20, 1
-  %cmp.i.i.i.i.i.i22 = icmp ult i8 %19, %21
+  %cmp.i.i.i.i.i.i22 = icmp samesign ult i8 %19, %21
   br i1 %cmp.i.i.i.i.i.i22, label %return, label %if.end18
 
 if.end18:                                         ; preds = %lor.rhs.i.i.i.i.i19, %lor.rhs.i.i.i.i13, %lor.rhs.i.i.i7, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit23
@@ -4348,7 +4348,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %7 = and i8 %6, 1
   %8 = load i8, ptr %__k, align 4
   %9 = and i8 %8, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %7, %9
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %7, %9
   br i1 %cmp.i.i.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i.i.i.i, %lor.rhs.i.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit, %if.then
@@ -4391,7 +4391,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i15
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i: ; preds = %lor.rhs.i.i.i.i.i
   %16 = load i8, ptr %_M_storage.i.i.i11, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %13, %17
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %13, %17
   br i1 %cmp.i.i.i.i.i.i, label %cond.end.i, label %cond.end.i.thread
 
 cond.end.i:                                       ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i, %land.rhs.i.i.i.i15, %while.body.i
@@ -4455,7 +4455,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %24 = and i8 %23, 1
   %25 = load i8, ptr %__k, align 4
   %26 = and i8 %25, 1
-  %cmp.i.i.i.i.i16.i = icmp ult i8 %24, %26
+  %cmp.i.i.i.i.i16.i = icmp samesign ult i8 %24, %26
   br i1 %cmp.i.i.i.i.i16.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit17.i, %lor.rhs.i.i.i.i13.i, %lor.rhs.i.i.i7.i
@@ -4491,7 +4491,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %32 = and i8 %31, 1
   %33 = load i8, ptr %_M_storage.i.i.i17, align 1
   %34 = and i8 %33, 1
-  %cmp.i.i.i.i.i30 = icmp ult i8 %32, %34
+  %cmp.i.i.i.i.i30 = icmp samesign ult i8 %32, %34
   br i1 %cmp.i.i.i.i.i30, label %if.then18, label %land.rhs.i.i.i116
 
 if.then18:                                        ; preds = %land.rhs.i.i.i23, %if.else12, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit31
@@ -4529,7 +4529,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %40 = and i8 %39, 1
   %41 = load i8, ptr %__k, align 4
   %42 = and i8 %41, 1
-  %cmp.i.i.i.i.i48 = icmp ult i8 %40, %42
+  %cmp.i.i.i.i.i48 = icmp samesign ult i8 %40, %42
   br i1 %cmp.i.i.i.i.i48, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %land.rhs.i.i.i41, %if.else25, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit49
@@ -4578,7 +4578,7 @@ lor.rhs.i.i.i.i.i70:                              ; preds = %land.rhs.i.i.i.i67
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i72: ; preds = %lor.rhs.i.i.i.i.i70
   %49 = load i8, ptr %_M_storage.i.i.i62, align 1
   %50 = and i8 %49, 1
-  %cmp.i.i.i.i.i.i73 = icmp ult i8 %46, %50
+  %cmp.i.i.i.i.i.i73 = icmp samesign ult i8 %46, %50
   br i1 %cmp.i.i.i.i.i.i73, label %cond.end.i75, label %cond.end.i75.thread
 
 cond.end.i75:                                     ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i72, %land.rhs.i.i.i.i67, %while.body.i60
@@ -4637,7 +4637,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %55 = and i8 %54, 1
   %56 = load i8, ptr %__k, align 4
   %57 = and i8 %56, 1
-  %cmp.i.i.i.i.i16.i97 = icmp ult i8 %55, %57
+  %cmp.i.i.i.i.i16.i97 = icmp samesign ult i8 %55, %57
   br i1 %cmp.i.i.i.i.i16.i97, label %return, label %if.end18.i98
 
 if.end18.i98:                                     ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit17.i96, %lor.rhs.i.i.i.i13.i94, %lor.rhs.i.i.i7.i88
@@ -4660,7 +4660,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %61 = and i8 %60, 1
   %62 = load i8, ptr %__k, align 4
   %63 = and i8 %62, 1
-  %cmp.i.i.i.i.i123 = icmp ult i8 %61, %63
+  %cmp.i.i.i.i.i123 = icmp samesign ult i8 %61, %63
   br i1 %cmp.i.i.i.i.i123, label %if.then50, label %return
 
 if.then50:                                        ; preds = %lor.rhs.i.i.i21, %land.rhs.i.i.i116, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit124
@@ -4698,7 +4698,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %69 = and i8 %68, 1
   %70 = load i8, ptr %_M_storage.i.i.i129, align 1
   %71 = and i8 %70, 1
-  %cmp.i.i.i.i.i142 = icmp ult i8 %69, %71
+  %cmp.i.i.i.i.i142 = icmp samesign ult i8 %69, %71
   br i1 %cmp.i.i.i.i.i142, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %land.rhs.i.i.i135, %if.else57, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit143
@@ -4747,7 +4747,7 @@ lor.rhs.i.i.i.i.i164:                             ; preds = %land.rhs.i.i.i.i161
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i166: ; preds = %lor.rhs.i.i.i.i.i164
   %78 = load i8, ptr %_M_storage.i.i.i156, align 1
   %79 = and i8 %78, 1
-  %cmp.i.i.i.i.i.i167 = icmp ult i8 %75, %79
+  %cmp.i.i.i.i.i.i167 = icmp samesign ult i8 %75, %79
   br i1 %cmp.i.i.i.i.i.i167, label %cond.end.i169, label %cond.end.i169.thread
 
 cond.end.i169:                                    ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.i166, %land.rhs.i.i.i.i161, %while.body.i154
@@ -4808,7 +4808,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   %85 = and i8 %84, 1
   %86 = load i8, ptr %__k, align 4
   %87 = and i8 %86, 1
-  %cmp.i.i.i.i.i16.i191 = icmp ult i8 %85, %87
+  %cmp.i.i.i.i.i16.i191 = icmp samesign ult i8 %85, %87
   br i1 %cmp.i.i.i.i.i16.i191, label %return, label %if.end18.i192
 
 if.end18.i192:                                    ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit17.i190, %lor.rhs.i.i.i.i13.i188, %lor.rhs.i.i.i7.i182
@@ -4855,7 +4855,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit: ; p
   %5 = and i8 %4, 1
   %6 = load i8, ptr %__k, align 4
   %7 = and i8 %6, 1
-  %cmp.i.i.i.i = icmp ult i8 %5, %7
+  %cmp.i.i.i.i = icmp samesign ult i8 %5, %7
   br i1 %cmp.i.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit, %if.then
@@ -4886,7 +4886,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %12 = load i8, ptr %_M_storage.i.i.i10, align 1
   %13 = and i8 %12, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %10, %13
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %10, %13
   br i1 %cmp.i.i.i.i.i, label %cond.end.i, label %cond.end.i.thread
 
 cond.end.i:                                       ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i, %while.body.i
@@ -4938,7 +4938,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i:
   %18 = and i8 %17, 1
   %19 = load i8, ptr %__k, align 4
   %20 = and i8 %19, 1
-  %cmp.i.i.i.i10.i = icmp ult i8 %18, %20
+  %cmp.i.i.i.i10.i = icmp samesign ult i8 %18, %20
   br i1 %cmp.i.i.i.i10.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i, %lor.rhs.i.i.i7.i
@@ -4962,7 +4962,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit20: ;
   %24 = and i8 %23, 1
   %25 = load i8, ptr %_M_storage.i.i.i12, align 1
   %26 = and i8 %25, 1
-  %cmp.i.i.i.i19 = icmp ult i8 %24, %26
+  %cmp.i.i.i.i19 = icmp samesign ult i8 %24, %26
   br i1 %cmp.i.i.i.i19, label %if.then18, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit89
 
 if.then18:                                        ; preds = %if.else12, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit20
@@ -4988,7 +4988,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit32: ;
   %30 = and i8 %29, 1
   %31 = load i8, ptr %__k, align 4
   %32 = and i8 %31, 1
-  %cmp.i.i.i.i31 = icmp ult i8 %30, %32
+  %cmp.i.i.i.i31 = icmp samesign ult i8 %30, %32
   br i1 %cmp.i.i.i.i31, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit32
@@ -5025,7 +5025,7 @@ lor.rhs.i.i.i.i47:                                ; preds = %while.body.i42
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i49: ; preds = %lor.rhs.i.i.i.i47
   %37 = load i8, ptr %_M_storage.i.i.i44, align 1
   %38 = and i8 %37, 1
-  %cmp.i.i.i.i.i50 = icmp ult i8 %35, %38
+  %cmp.i.i.i.i.i50 = icmp samesign ult i8 %35, %38
   br i1 %cmp.i.i.i.i.i50, label %cond.end.i52, label %cond.end.i52.thread
 
 cond.end.i52:                                     ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i49, %while.body.i42
@@ -5072,7 +5072,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i6
   %41 = and i8 %40, 1
   %42 = load i8, ptr %__k, align 4
   %43 = and i8 %42, 1
-  %cmp.i.i.i.i10.i68 = icmp ult i8 %41, %43
+  %cmp.i.i.i.i10.i68 = icmp samesign ult i8 %41, %43
   br i1 %cmp.i.i.i.i10.i68, label %return, label %if.end18.i69
 
 if.end18.i69:                                     ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i67, %lor.rhs.i.i.i7.i65
@@ -5083,7 +5083,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit89: ;
   %45 = and i8 %44, 1
   %46 = load i8, ptr %__k, align 4
   %47 = and i8 %46, 1
-  %cmp.i.i.i.i88 = icmp ult i8 %45, %47
+  %cmp.i.i.i.i88 = icmp samesign ult i8 %45, %47
   br i1 %cmp.i.i.i.i88, label %if.then50, label %return
 
 if.then50:                                        ; preds = %lor.rhs.i.i.i16, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit89
@@ -5109,7 +5109,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit102: 
   %51 = and i8 %50, 1
   %52 = load i8, ptr %_M_storage.i.i.i94, align 1
   %53 = and i8 %52, 1
-  %cmp.i.i.i.i101 = icmp ult i8 %51, %53
+  %cmp.i.i.i.i101 = icmp samesign ult i8 %51, %53
   br i1 %cmp.i.i.i.i101, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit102
@@ -5146,7 +5146,7 @@ lor.rhs.i.i.i.i117:                               ; preds = %while.body.i112
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i119: ; preds = %lor.rhs.i.i.i.i117
   %58 = load i8, ptr %_M_storage.i.i.i114, align 1
   %59 = and i8 %58, 1
-  %cmp.i.i.i.i.i120 = icmp ult i8 %56, %59
+  %cmp.i.i.i.i.i120 = icmp samesign ult i8 %56, %59
   br i1 %cmp.i.i.i.i.i120, label %cond.end.i122, label %cond.end.i122.thread
 
 cond.end.i122:                                    ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i119, %while.body.i112
@@ -5195,7 +5195,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i1
   %63 = and i8 %62, 1
   %64 = load i8, ptr %__k, align 4
   %65 = and i8 %64, 1
-  %cmp.i.i.i.i10.i138 = icmp ult i8 %63, %65
+  %cmp.i.i.i.i10.i138 = icmp samesign ult i8 %63, %65
   br i1 %cmp.i.i.i.i10.i138, label %return, label %if.end18.i139
 
 if.end18.i139:                                    ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit11.i137, %lor.rhs.i.i.i7.i135

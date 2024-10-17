@@ -143,7 +143,7 @@ invoke.cont12:                                    ; preds = %invoke.cont12.prehe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %m_size.i31, align 8
   %18 = zext i32 %17 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %18
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp9, label %invoke.cont12, label %for.end.loopexit, !llvm.loop !5
 
 lpad.loopexit:                                    ; preds = %if.then3.i.i.i120, %if.else.i.i.i131
@@ -429,7 +429,7 @@ if.end83:                                         ; preds = %if.then58, %if.then
   %coincident_count.1 = phi i32 [ 0, %if.then58 ], [ %inc69, %if.then68 ], [ %coincident_count.0155, %if.then59 ], [ %coincident_count.0155, %if.else ], [ %coincident_count.2, %invoke.cont80 ]
   %pcontact.1 = phi ptr [ %pcontact.0157, %if.then58 ], [ %pcontact.0157, %if.then68 ], [ %pcontact.0157, %if.then59 ], [ %pcontact.0157, %if.else ], [ %arrayidx.i145, %invoke.cont80 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %cmp41 = icmp ult i64 %indvars.iv.next162, %34
+  %cmp41 = icmp samesign ult i64 %indvars.iv.next162, %34
   br i1 %cmp41, label %for.body42, label %for.end86, !llvm.loop !9
 
 for.end86:                                        ; preds = %if.end83, %invoke.cont35

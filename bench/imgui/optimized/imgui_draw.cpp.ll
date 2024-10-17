@@ -5452,7 +5452,7 @@ if.end4:                                          ; preds = %_ZNK10ImDrawList27_
   %sub = sub nsw i32 %a_max_sample, %a_min_sample
   %cond.i73 = tail call noundef range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %sub, i1 true)
   %add = add nuw nsw i32 %cond.i73, 1
-  %cmp7 = icmp ugt i32 %cond5.i, 1
+  %cmp7 = icmp samesign ugt i32 %cond5.i, 1
   br i1 %cmp7, label %if.then8, label %if.end20
 
 if.then8:                                         ; preds = %if.end4
@@ -16454,7 +16454,7 @@ for.inc130:                                       ; preds = %if.end115, %for.bod
   %total_glyphs_count.3 = phi i32 [ %total_glyphs_count.2874, %for.body110 ], [ %inc129, %invoke.cont128 ], [ %total_glyphs_count.2874, %if.end115 ]
   %inc131 = add nuw nsw i32 %codepoint.0873, 1
   %conv108 = zext i16 %310 to i32
-  %cmp109.not.not = icmp ult i32 %codepoint.0873, %conv108
+  %cmp109.not.not = icmp samesign ult i32 %codepoint.0873, %conv108
   br i1 %cmp109.not.not, label %for.body110, label %for.inc133, !llvm.loop !56
 
 for.inc133:                                       ; preds = %for.inc130, %for.body103
@@ -16642,7 +16642,7 @@ if.then.i.i382:                                   ; preds = %invoke.cont151
 
 for.inc154:                                       ; preds = %.noexc384, %invoke.cont151
   %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
-  %cmp142 = icmp ult i64 %indvars.iv.next948, %280
+  %cmp142 = icmp samesign ult i64 %indvars.iv.next948, %280
   br i1 %cmp142, label %for.body143, label %for.cond157.preheader, !llvm.loop !61
 
 for.body160:                                      ; preds = %for.cond157.preheader, %for.inc165
@@ -16968,7 +16968,7 @@ for.inc284:                                       ; preds = %for.body242, %cond.
   %buf_rects_out_n.1 = phi i32 [ %buf_rects_out_n.0896, %for.body187 ], [ %add200, %cond.end236 ], [ %add200, %for.body242 ]
   %total_surface.1 = phi i32 [ %total_surface.0897, %for.body187 ], [ %total_surface.0897, %cond.end236 ], [ %add280, %for.body242 ]
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
-  %cmp186 = icmp ult i64 %indvars.iv.next957, %342
+  %cmp186 = icmp samesign ult i64 %indvars.iv.next957, %342
   br i1 %cmp186, label %for.body187, label %for.end286.loopexit, !llvm.loop !64
 
 for.end286.loopexit:                              ; preds = %for.inc284
@@ -17149,7 +17149,7 @@ for.inc358:                                       ; preds = %for.body339, %if.th
 
 for.inc361:                                       ; preds = %for.inc358, %for.cond336.preheader, %for.body322
   %indvars.iv.next963 = add nuw nsw i64 %indvars.iv962, 1
-  %cmp321 = icmp ult i64 %indvars.iv.next963, %384
+  %cmp321 = icmp samesign ult i64 %indvars.iv.next963, %384
   br i1 %cmp321, label %for.body322, label %for.end363, !llvm.loop !67
 
 for.end363:                                       ; preds = %for.inc361, %for.cond319.preheader
@@ -20977,7 +20977,7 @@ for.inc524:                                       ; preds = %if.end7.i.i.i696, %
 
 for.inc527:                                       ; preds = %for.inc524, %invoke.cont483
   %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
-  %cmp451 = icmp ult i64 %indvars.iv.next972, %799
+  %cmp451 = icmp samesign ult i64 %indvars.iv.next972, %799
   br i1 %cmp451, label %for.body452, label %for.body.i714.preheader, !llvm.loop !103
 
 for.body.i714.preheader:                          ; preds = %for.inc527
@@ -21022,7 +21022,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 _ZN18ImFontBuildSrcDataD2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_ZN8ImVectorIiED2Ev.exit.i.i
   %indvars.iv.next.i720 = add nuw nsw i64 %indvars.iv.i715, 1
-  %cmp.i721 = icmp ult i64 %indvars.iv.next.i720, %863
+  %cmp.i721 = icmp samesign ult i64 %indvars.iv.next.i720, %863
   br i1 %cmp.i721, label %for.body.i714, label %if.then.i.i710, !llvm.loop !104
 
 for.end.i:                                        ; preds = %_ZN8ImVectorI10stbrp_rectE5clearEv.exit
@@ -21363,7 +21363,7 @@ if.then27:                                        ; preds = %for.body24
 
 for.inc48:                                        ; preds = %for.body24, %if.then27
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %cmp23 = icmp ult i64 %indvars.iv.next63, %15
+  %cmp23 = icmp samesign ult i64 %indvars.iv.next63, %15
   br i1 %cmp23, label %for.body24, label %if.then.i56, !llvm.loop !106
 
 for.end50:                                        ; preds = %for.cond21.preheader
@@ -23762,9 +23762,9 @@ for.body7:                                        ; preds = %for.body7.preheader
   %inc = add nuw nsw i32 %c.09, 1
   %6 = load i16, ptr %arrayidx4, align 2
   %conv5 = zext i16 %6 to i32
-  %cmp = icmp ult i32 %c.09, %conv5
-  %cmp6 = icmp ult i32 %c.09, 65535
-  %7 = and i1 %cmp6, %cmp
+  %cmp = icmp samesign ult i32 %c.09, %conv5
+  %cmp6 = icmp samesign ult i32 %c.09, 65535
+  %7 = select i1 %cmp, i1 %cmp6, i1 false
   br i1 %7, label %for.body7, label %for.inc9, !llvm.loop !130
 
 for.inc9:                                         ; preds = %for.body7, %for.body
@@ -24403,7 +24403,7 @@ define noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr nocapture nound
 entry:
   %div5 = lshr i32 %c_begin, 12
   %div26 = lshr i32 %c_last, 12
-  %cmp.not7 = icmp ugt i32 %div5, %div26
+  %cmp.not7 = icmp samesign ugt i32 %div5, %div26
   br i1 %cmp.not7, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -24412,7 +24412,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %page_n.08 = phi i32 [ %div5, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %cmp3 = icmp ult i32 %page_n.08, 16
+  %cmp3 = icmp samesign ult i32 %page_n.08, 16
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
@@ -27899,7 +27899,7 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
   %arrayidx = getelementptr inbounds i32, ptr %out, i64 %indvars.iv
   store i32 %retval.0.i, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   %cmp1 = icmp slt i32 %operands.sroa.2.7, %sub.i
   %31 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %31, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i6, label %for.end, !llvm.loop !146
@@ -28255,7 +28255,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %11, float noundef %12)
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 2
   %13 = or disjoint i64 %indvars.iv.next418, 1
-  %cmp34 = icmp ult i64 %13, %9
+  %cmp34 = icmp samesign ult i64 %13, %9
   br i1 %cmp34, label %for.body, label %sw.epilog405, !llvm.loop !147
 
 sw.bb41:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
@@ -28473,7 +28473,7 @@ for.body192:                                      ; preds = %for.body192.prehead
   tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %55, float noundef %56)
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 2
   %57 = or disjoint i64 %indvars.iv.next392, 1
-  %cmp191 = icmp ult i64 %57, %53
+  %cmp191 = icmp samesign ult i64 %57, %53
   br i1 %cmp191, label %for.body192, label %for.end200, !llvm.loop !152
 
 for.end200:                                       ; preds = %for.body192

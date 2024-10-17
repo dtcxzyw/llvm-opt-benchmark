@@ -5765,7 +5765,7 @@ if.then29:                                        ; preds = %if.else
   %spec.select22 = select i1 %cmp33, i32 %add35, i32 %rem32
   %sub37 = sub nuw nsw i32 6, %spec.select22
   %conv39 = zext i8 %.pre to i32
-  %cmp40.not = icmp ult i32 %sub37, %conv39
+  %cmp40.not = icmp samesign ult i32 %sub37, %conv39
   br i1 %cmp40.not, label %if.end48, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then29
@@ -6351,7 +6351,7 @@ sw.bb116:                                         ; preds = %if.end7
   %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %38 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv135 = zext i8 %38 to i32
-  %cmp136 = icmp ult i32 %sub133, %conv135
+  %cmp136 = icmp samesign ult i32 %sub133, %conv135
   %.pn140 = select i1 %cmp136, i32 8, i32 1
   %start132.0 = sub nsw i32 %.pn140, %fdm.0
   %vtable142 = load ptr, ptr %this, align 8
@@ -6407,7 +6407,7 @@ sw.bb172:                                         ; preds = %if.end7
   %fMinimalDaysInFirstWeek.i183 = getelementptr inbounds i8, ptr %this, i64 268
   %45 = load i8, ptr %fMinimalDaysInFirstWeek.i183, align 4
   %conv192 = zext i8 %45 to i32
-  %cmp193 = icmp ult i32 %sub190, %conv192
+  %cmp193 = icmp samesign ult i32 %sub190, %conv192
   %.pn = select i1 %cmp193, i32 8, i32 1
   %start189.0 = sub nsw i32 %.pn, %fdy.0
   %vtable199 = load ptr, ptr %this, align 8
@@ -9225,8 +9225,8 @@ for.inc:                                          ; preds = %for.body, %if.then5
   %5 = phi i32 [ %1, %for.body ], [ %.pre, %if.then5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.i6 = icmp slt i32 %5, 1
-  %cmp = icmp ult i64 %indvars.iv, 23
-  %6 = and i1 %cmp.i6, %cmp
+  %cmp = icmp samesign ult i64 %indvars.iv, 23
+  %6 = select i1 %cmp.i6, i1 %cmp, i1 false
   br i1 %6, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -9604,8 +9604,8 @@ for.inc.i:                                        ; preds = %if.then5.i, %for.bo
   %6 = phi i32 [ %2, %for.body.i ], [ %.pre.i, %if.then5.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i6.i = icmp slt i32 %6, 1
-  %cmp.i26 = icmp ult i64 %indvars.iv.i, 23
-  %7 = and i1 %cmp.i26, %cmp.i6.i
+  %cmp.i26 = icmp samesign ult i64 %indvars.iv.i, 23
+  %7 = select i1 %cmp.i6.i, i1 %cmp.i26, i1 false
   br i1 %7, label %for.body.i, label %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit, !llvm.loop !18
 
 _ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit: ; preds = %for.inc.i

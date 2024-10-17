@@ -3029,7 +3029,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %6 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp.i.i12 = icmp ugt i64 %6, 256
+  %cmp.i.i12 = icmp samesign ugt i64 %6, 256
   br i1 %cmp.i.i12, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end

@@ -3695,7 +3695,7 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
   %35 = sub i64 %34, %32
   %36 = icmp ult i64 %35, 8
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ugt i64 %35, %27
+  %37 = icmp samesign ugt i64 %35, %27
   br i1 %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee425af40dedac5dE.exit", label %38
 
 38:                                               ; preds = %31
@@ -3841,7 +3841,7 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
   %35 = sub i64 %34, %32
   %36 = icmp ult i64 %35, 2
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ugt i64 %35, %27
+  %37 = icmp samesign ugt i64 %35, %27
   br i1 %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit.thread", label %38
 
 38:                                               ; preds = %31
@@ -3982,7 +3982,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
   %35 = sub i64 %34, %32
   %36 = icmp ult i64 %35, 4
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ugt i64 %35, %27
+  %37 = icmp samesign ugt i64 %35, %27
   br i1 %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d6bda58600f782dE.exit", label %38
 
 38:                                               ; preds = %31

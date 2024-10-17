@@ -1282,7 +1282,7 @@ define hidden void @_ZN2cv4usac8saveMaskERKNS_12_OutputArrayERKSt6vectorIbSaIbEE
   %28 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv
   store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = icmp ult i64 %indvars.iv.next, %19
+  %29 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 30:                                               ; preds = %._crit_edge
@@ -8457,7 +8457,7 @@ _ZNSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE7reserveEm.exit: ; 
   %839 = fcmp ogt float %838, %.0105368
   %.1106 = select i1 %839, float %838, float %.0105368
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %840 = icmp ult i64 %indvars.iv.next, %814
+  %840 = icmp samesign ult i64 %indvars.iv.next, %814
   br i1 %840, label %.lr.ph, label %.preheader, !llvm.loop !189
 
 841:                                              ; preds = %.lr.ph374, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275

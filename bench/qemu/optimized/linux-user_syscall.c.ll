@@ -16065,7 +16065,7 @@ if.end33:                                         ; preds = %if.then32, %if.end2
   %cond = getelementptr inbounds i8, ptr %info, i64 48
   %call37 = call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef null) #27
   store ptr %call18, ptr %info, align 8
-  %tobool40.not = icmp ult i32 %spec.select, 16777216
+  %tobool40.not = icmp samesign ult i32 %spec.select, 16777216
   br i1 %tobool40.not, label %if.end43, label %if.then41
 
 if.then41:                                        ; preds = %if.end33
@@ -16155,7 +16155,7 @@ cpu_clone_regs_child.exit72:                      ; preds = %if.then94, %if.then
   %arrayidx2.i71 = getelementptr i8, ptr %env, i64 80
   store i64 0, ptr %arrayidx2.i71, align 16
   tail call void @fork_end(i32 noundef 1) #27
-  %tobool96.not = icmp ult i32 %spec.select, 16777216
+  %tobool96.not = icmp samesign ult i32 %spec.select, 16777216
   br i1 %tobool96.not, label %if.end104, label %if.then97
 
 if.then97:                                        ; preds = %cpu_clone_regs_child.exit72
@@ -16597,7 +16597,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv2 = and i64 %arg2, 4294967295
-  %cmp = icmp ugt i64 %conv2, 268435455
+  %cmp = icmp samesign ugt i64 %conv2, 268435455
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
@@ -16893,7 +16893,7 @@ do.body:                                          ; preds = %for.body8
   store i64 %val.1, ptr %arrayidx17, align 1
   %indvars.iv.next34 = add i64 %indvars.iv33, 1
   %conv = and i64 %indvars.iv.next34, 4294967295
-  %cmp3 = icmp ugt i64 %div17, %conv
+  %cmp3 = icmp samesign ugt i64 %div17, %conv
   %indvars.iv.next = add i32 %indvars.iv, 64
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !45
 
@@ -16959,7 +16959,7 @@ for.inc:                                          ; preds = %for.body9, %if.then
 for.inc19:                                        ; preds = %for.inc
   %indvars.iv.next33 = add i64 %indvars.iv32, 1
   %conv = and i64 %indvars.iv.next33, 4294967295
-  %cmp3 = icmp ugt i64 %div17, %conv
+  %cmp3 = icmp samesign ugt i64 %div17, %conv
   %indvars.iv.next = add i32 %indvars.iv, 64
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !47
 
@@ -16971,7 +16971,7 @@ return:                                           ; preds = %for.inc19, %if.end2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -14, 2) i32 @check_zeroed_user(i64 noundef range(i64 1, 0) %addr, i64 noundef range(i64 48, 4294967296) %usize) unnamed_addr #2 {
 entry:
-  %cmp = icmp ult i64 %usize, 57
+  %cmp = icmp samesign ult i64 %usize, 57
   br i1 %cmp, label %return, label %for.body
 
 for.cond:                                         ; preds = %if.end8
@@ -19375,7 +19375,7 @@ for.inc.i:                                        ; preds = %if.then11.i, %for.b
 for.inc19.i:                                      ; preds = %for.inc.i
   %indvars.iv.next33.i = add i64 %indvars.iv32.i, 1
   %conv.i = and i64 %indvars.iv.next33.i, 4294967295
-  %cmp3.i = icmp ugt i64 %div17.i, %conv.i
+  %cmp3.i = icmp samesign ugt i64 %div17.i, %conv.i
   %indvars.iv.next.i = add i32 %indvars.iv.i, 64
   br i1 %cmp3.i, label %for.body.i, label %target_to_host_cpu_mask.exit, !llvm.loop !47
 

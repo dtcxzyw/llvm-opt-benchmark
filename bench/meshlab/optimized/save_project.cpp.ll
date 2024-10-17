@@ -2991,7 +2991,7 @@ define linkonce_odr void @_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE9serializeE
   %7 = load i64, ptr %0, align 8, !noalias !30
   %.not.i.i.i.i.i = icmp ne i64 %7, 0
   %8 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 4
+  %9 = icmp samesign ult i64 %8, 4
   %10 = select i1 %.not.i.i.i.i.i, i1 %9, i1 false
   br i1 %10, label %_ZNKSt6bitsetILm4EE10_Find_nextEm.exit.i.i.i, label %_ZNKSt6bitsetILm4EE9to_stringB5cxx11Ev.exit
 

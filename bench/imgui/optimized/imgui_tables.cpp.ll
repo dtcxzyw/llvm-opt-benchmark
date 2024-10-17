@@ -7731,7 +7731,7 @@ if.then126:                                       ; preds = %if.then118
 
 if.end133:                                        ; preds = %if.then118, %if.then126
   %merge_clip_rect.sroa.0.0 = phi <4 x float> [ %merge_clip_rect.sroa.0.0.vec.insert, %if.then126 ], [ %merge_clip_rect.sroa.0.0.copyload, %if.then118 ]
-  %cmp135 = icmp ugt i64 %indvars.iv207, 1
+  %cmp135 = icmp samesign ugt i64 %indvars.iv207, 1
   %brmerge106.not = select i1 %cmp135, i1 %cmp, i1 false
   br i1 %brmerge106.not, label %if.end145, label %if.then138
 
@@ -10125,7 +10125,7 @@ for.end:                                          ; preds = %if.end
   %sh_prom11 = zext nneg i32 %sort_order_count.1 to i64
   %shl12 = shl nuw i64 1, %sh_prom11
   %cmp13.not = icmp ne i64 %shl12, %8
-  %cmp14 = icmp ugt i32 %sort_order_count.1, 1
+  %cmp14 = icmp samesign ugt i32 %sort_order_count.1, 1
   br i1 %cmp14, label %land.end, label %land.end.thread114
 
 land.end:                                         ; preds = %for.end

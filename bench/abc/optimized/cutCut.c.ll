@@ -93,11 +93,11 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, p
   %4 = lshr i32 %3, 28
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 28
-  %7 = icmp ult i32 %4, %6
+  %7 = icmp samesign ult i32 %4, %6
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i32 %4, %6
+  %9 = icmp samesign ugt i32 %4, %6
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -231,11 +231,11 @@ define ptr @Cut_CutMergeLists(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %8 = lshr i32 %7, 28
   %9 = load i32, ptr %.01621, align 8
   %10 = lshr i32 %9, 28
-  %11 = icmp ult i32 %8, %10
+  %11 = icmp samesign ult i32 %8, %10
   br i1 %11, label %Cut_CutCompare.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ugt i32 %8, %10
+  %13 = icmp samesign ugt i32 %8, %10
   br i1 %13, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
@@ -430,7 +430,7 @@ define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %11 = load i32, ptr %0, align 8
   %12 = lshr i32 %11, 28
   %13 = zext nneg i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next19, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next19, %13
   br i1 %14, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %23
@@ -453,7 +453,7 @@ define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %24 = load i32, ptr %0, align 8
   %25 = lshr i32 %24, 28
   %26 = zext nneg i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph.split.us, %2

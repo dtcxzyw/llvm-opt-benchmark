@@ -1848,7 +1848,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
   br i1 %60, label %82, label %84
 
 61:                                               ; preds = %51
-  %62 = icmp ult i32 %2, 8192
+  %62 = icmp samesign ult i32 %2, 8192
   br i1 %62, label %73, label %63
 
 63:                                               ; preds = %61
@@ -1989,7 +1989,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   %56 = tail call i32 @allocate_resource(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %54, i64 noundef %50, i64 noundef 4294967295, i64 noundef %55, ptr noundef null, ptr noundef null) #11
   %57 = icmp eq i32 %56, 0
   %58 = lshr i32 %53, 1
-  %59 = icmp ult i32 %58, %2
+  %59 = icmp samesign ult i32 %58, %2
   %60 = or i1 %57, %59
   br i1 %60, label %61, label %51, !llvm.loop !19
 
@@ -4062,7 +4062,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   %22 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %18, ptr noundef nonnull @.str.46, i32 noundef %21) #11
   %23 = add i32 %22, %18
   %24 = add nuw nsw i64 %9, 4
-  %25 = icmp ult i64 %9, 32
+  %25 = icmp samesign ult i64 %9, 32
   br i1 %25, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %17

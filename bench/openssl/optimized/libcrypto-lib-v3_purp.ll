@@ -983,7 +983,7 @@ X509_PURPOSE_get_count.exit:                      ; preds = %for.cond, %if.end.i
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %X509_PURPOSE_get_count.exit
-  %cmp1.i = icmp ult i64 %indvars.iv, 10
+  %cmp1.i = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %for.body

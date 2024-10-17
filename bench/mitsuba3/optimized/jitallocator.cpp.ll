@@ -40,7 +40,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %16 = add i32 %10, -64
   %17 = icmp ult i32 %16, 193
   %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10), !range !12
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %20 = select i1 %17, i1 %19, i1 false
   %21 = select i1 %20, i32 %10, i32 64
   %22 = mul nuw nsw i64 %15, 56
@@ -56,7 +56,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %30 = add i32 %8, -65536
   %31 = icmp ult i32 %30, 268369921
   %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8), !range !12
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   %34 = select i1 %31, i1 %33, i1 false
   %35 = lshr i64 %3, 32
   %36 = trunc nuw i64 %35 to i32
@@ -892,7 +892,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %91 = and i64 %87, 4294967232
   %92 = lshr i64 %87, 6
   %93 = getelementptr inbounds i64, ptr %83, i64 %92
-  %94 = icmp ult i64 %91, %90
+  %94 = icmp samesign ult i64 %91, %90
   br i1 %94, label %95, label %.preheader135
 
 95:                                               ; preds = %81

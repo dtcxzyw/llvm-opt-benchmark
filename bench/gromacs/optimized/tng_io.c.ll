@@ -9912,7 +9912,7 @@ tng_file_input_numerical.exit.thread.i293.i:      ; preds = %tng_file_input_nume
   store i8 %668, ptr %669, align 1
   %sext.mask.i318.i = and i32 %663, 255
   %670 = icmp ne i32 %sext.mask.i318.i, 0
-  %671 = icmp ult i64 %indvars.iv.i316.i, 1023
+  %671 = icmp samesign ult i64 %indvars.iv.i316.i, 1023
   %672 = select i1 %670, i1 %671, i1 false
   br i1 %672, label %661, label %673, !llvm.loop !64
 
@@ -9965,7 +9965,7 @@ tng_freadstr.exit321.i:                           ; preds = %684, %682, %678, %6
   store i8 %692, ptr %693, align 1
   %sext.mask.i.i = and i32 %687, 255
   %694 = icmp ne i32 %sext.mask.i.i, 0
-  %695 = icmp ult i64 %indvars.iv.i.i, 1023
+  %695 = icmp samesign ult i64 %indvars.iv.i.i, 1023
   %696 = select i1 %694, i1 %695, i1 false
   br i1 %696, label %685, label %697, !llvm.loop !64
 
@@ -10110,7 +10110,7 @@ tng_file_input_numerical.exit.thread.i68:         ; preds = %tng_file_input_nume
   store i8 %755, ptr %756, align 1
   %sext.mask.i73 = and i32 %750, 255
   %757 = icmp ne i32 %sext.mask.i73, 0
-  %758 = icmp ult i64 %indvars.iv.i71, 1023
+  %758 = icmp samesign ult i64 %indvars.iv.i71, 1023
   %759 = select i1 %757, i1 %758, i1 false
   br i1 %759, label %748, label %760, !llvm.loop !64
 
@@ -10164,7 +10164,7 @@ tng_freadstr.exit76:                              ; preds = %752, %765, %769, %7
   store i8 %780, ptr %781, align 1
   %sext.mask.i = and i32 %775, 255
   %782 = icmp ne i32 %sext.mask.i, 0
-  %783 = icmp ult i64 %indvars.iv.i, 1023
+  %783 = icmp samesign ult i64 %indvars.iv.i, 1023
   %784 = select i1 %782, i1 %783, i1 false
   br i1 %784, label %773, label %785, !llvm.loop !64
 
@@ -16986,7 +16986,7 @@ switch.lookup437:                                 ; preds = %142
 
 147:                                              ; preds = %142, %switch.lookup437
   %.053.i = phi i64 [ %switch.load439, %switch.lookup437 ], [ 8, %142 ]
-  %148 = icmp ugt i64 %.sink, 1
+  %148 = icmp samesign ugt i64 %.sink, 1
   %spec.select1.i = select i1 %148, i64 34, i64 18
   store i64 %spec.select1.i, ptr %143, align 8
   %149 = load i64, ptr %115, align 8
@@ -32564,7 +32564,7 @@ define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr
   store i8 %15, ptr %16, align 1
   %sext.mask = and i32 %10, 255
   %17 = icmp ne i32 %sext.mask, 0
-  %18 = icmp ult i64 %indvars.iv, 1023
+  %18 = icmp samesign ult i64 %indvars.iv, 1023
   %19 = select i1 %17, i1 %18, i1 false
   br i1 %19, label %8, label %20, !llvm.loop !64
 

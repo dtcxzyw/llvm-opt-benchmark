@@ -186,11 +186,11 @@ _ZNSt12_Vector_baseIN10VisibleSet11FaceVisInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %39, float %.sroa.056.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %45 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %46 = sitofp i32 %45 to float
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %40, float %.sroa.2.0.copyload)
-  %48 = icmp ugt i32 %.02339.i, 3
+  %48 = icmp samesign ugt i32 %.02339.i, 3
   %49 = uitofp i1 %48 to float
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %41, float %.sroa.3.0.copyload)
   %51 = fmul float %.sroa.4.0.copyload.i, %47

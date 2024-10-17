@@ -32,7 +32,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx19 = getelementptr inbounds [8 x i32], ptr %key18, i64 0, i64 %1
   store i32 %0, ptr %arrayidx19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp1 = icmp ult i64 %indvars.iv, 28
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 28
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %entry
@@ -75,7 +75,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %xor58, ptr %out.addr.164, align 1
   %dec = add i64 %inl.addr.163, -1
   %cmp1 = icmp ne i64 %dec, 0
-  %cmp2 = icmp ult i64 %indvars.iv, 63
+  %cmp2 = icmp samesign ult i64 %indvars.iv, 63
   %5 = and i1 %cmp1, %cmp2
   br i1 %5, label %while.body, label %while.end.loopexit, !llvm.loop !6
 
@@ -139,7 +139,7 @@ while.body35:                                     ; preds = %while.body35.lr.ph,
   %conv40 = trunc nuw nsw i64 %spec.store.select to i32
   %add = add i32 %ctr32.073, %conv40
   %conv41 = zext i32 %add to i64
-  %cmp42 = icmp ugt i64 %spec.store.select, %conv41
+  %cmp42 = icmp samesign ugt i64 %spec.store.select, %conv41
   %spec.select = select i1 %cmp42, i32 0, i32 %add
   %sub46 = select i1 %cmp42, i64 %conv41, i64 0
   %spec.select59 = sub nuw nsw i64 %spec.store.select, %sub46
@@ -218,7 +218,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx23 = getelementptr inbounds [4 x i32], ptr %counter, i64 0, i64 %2
   store i32 %1, ptr %arrayidx23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp = icmp ult i64 %indvars.iv, 12
+  %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body, %entry

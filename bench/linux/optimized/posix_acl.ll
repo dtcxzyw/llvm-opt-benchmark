@@ -2955,7 +2955,7 @@ vfs_get_acl.exit.thread:                          ; preds = %29, %10, %25, %18, 
   %77 = getelementptr i8, ptr %57, i64 8
   %78 = load i32, ptr %38, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %76, %79
+  %80 = icmp samesign ult i64 %76, %79
   br i1 %80, label %56, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %73, %36, %44, %46

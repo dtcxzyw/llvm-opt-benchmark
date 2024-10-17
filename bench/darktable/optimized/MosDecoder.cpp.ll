@@ -2462,7 +2462,7 @@ define hidden void @_ZN8rawspeed10MosDecoder22decodeMetaDataInternalEPKNS_14Came
 39:                                               ; preds = %258, %35
   %40 = phi i64 [ %38, %35 ], [ %259, %258 ]
   %41 = add nuw nsw i64 %40, 16
-  %42 = icmp ugt i64 %41, %36
+  %42 = icmp samesign ugt i64 %41, %36
   br i1 %42, label %255, label %43
 
 43:                                               ; preds = %39
@@ -2898,7 +2898,7 @@ define linkonce_odr hidden { i64, ptr } @_ZNK8rawspeed10ByteStream10peekStringEv
   %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !59
-  %6 = icmp uge i32 %3, %5
+  %6 = icmp samesign uge i32 %3, %5
   tail call void @llvm.assume(i1 %6)
   %7 = icmp sgt i32 %3, -1
   tail call void @llvm.assume(i1 %7)
@@ -2909,7 +2909,7 @@ define linkonce_odr hidden { i64, ptr } @_ZNK8rawspeed10ByteStream10peekStringEv
   %11 = zext i32 %9 to i64
   %12 = add nuw nsw i64 %11, %10
   %13 = zext nneg i32 %3 to i64
-  %14 = icmp ugt i64 %12, %13
+  %14 = icmp samesign ugt i64 %12, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
@@ -2924,7 +2924,7 @@ define linkonce_odr hidden { i64, ptr } @_ZNK8rawspeed10ByteStream10peekStringEv
   %20 = getelementptr inbounds i8, ptr %19, i64 %11
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
-  %23 = icmp ult i32 %9, 4
+  %23 = icmp samesign ult i32 %9, 4
   br i1 %23, label %51, label %24
 
 24:                                               ; preds = %16

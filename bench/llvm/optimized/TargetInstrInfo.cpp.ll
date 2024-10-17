@@ -2483,7 +2483,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %12
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 22
   %171 = load i16, ptr %170, align 2
   %172 = zext i16 %171 to i32
-  %.not.i.i.i = icmp ult i32 %169, %172
+  %.not.i.i.i = icmp samesign ult i32 %169, %172
   br i1 %.not.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %.critedge
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %167

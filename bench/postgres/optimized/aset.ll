@@ -133,7 +133,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %storemerge = phi i32 [ 8192, %._crit_edge ], [ %66, %63 ]
   %narrow = add nuw nsw i32 %storemerge, 8
   %64 = zext nneg i32 %narrow to i64
-  %65 = icmp ult i64 %62, %64
+  %65 = icmp samesign ult i64 %62, %64
   %66 = lshr i32 %storemerge, 1
   br i1 %65, label %63, label %67, !llvm.loop !5
 

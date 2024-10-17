@@ -337,7 +337,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
 ; Function Attrs: nounwind nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$gpui..scene..PaintOperation$GT$17h1aa419cb7e4eb8feE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !80, !noundef !4
-  %3 = icmp ult i32 %2, 7
+  %3 = icmp samesign ult i32 %2, 7
   br i1 %3, label %4, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17hbfdf03b650864b52E.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17hbfdf03b650864b52E.exit": ; preds = %9, %5, %4, %1

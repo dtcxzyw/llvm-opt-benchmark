@@ -77,7 +77,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 
 25:                                               ; preds = %97
   %26 = add nuw nsw i64 %30, 1
-  %27 = icmp ult i64 %30, 6
+  %27 = icmp samesign ult i64 %30, 6
   %28 = icmp eq i64 %26, 7
   br i1 %28, label %98, label %29, !llvm.loop !5
 

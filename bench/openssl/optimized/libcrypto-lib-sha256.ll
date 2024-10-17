@@ -431,7 +431,7 @@ for.body125:                                      ; preds = %for.cond121.prehead
   %8 = load i32, ptr %md_len, align 4
   %div82 = lshr i32 %8, 2
   %9 = zext nneg i32 %div82 to i64
-  %cmp123 = icmp ult i64 %indvars.iv.next109, %9
+  %cmp123 = icmp samesign ult i64 %indvars.iv.next109, %9
   br i1 %cmp123, label %for.body125, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body93, %for.body66, %for.body, %for.body125, %for.cond121.preheader, %sw.default

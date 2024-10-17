@@ -25168,7 +25168,7 @@ define internal fastcc void @_ZN3exr4meta9attribute15TileDescription4read17h91ac
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %43 = and i8 %42, 15
   %44 = lshr i8 %42, 4
-  %switch = icmp ult i8 %43, 3
+  %switch = icmp samesign ult i8 %43, 3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %switch, label %48, label %47
 
@@ -32964,7 +32964,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0f763bc1b52ee89
   %12 = load i64, ptr %1, align 8, !range !1227, !alias.scope !7970, !noalias !7971, !noundef !4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !7970, !noalias !7971, !nonnull !4, !noundef !4
-  %switch.i.i.i = icmp ult i64 %12, 2
+  %switch.i.i.i = icmp samesign ult i64 %12, 2
   %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %14, i64 %spec.select.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -33730,7 +33730,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8c95d998c3155be
   %12 = load i64, ptr %1, align 8, !range !1227, !alias.scope !8153, !noalias !8154, !noundef !4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !8153, !noalias !8154, !nonnull !4, !noundef !4
-  %switch.i.i.i = icmp ult i64 %12, 2
+  %switch.i.i.i = icmp samesign ult i64 %12, 2
   %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %14, i64 %spec.select.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -34048,7 +34048,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc1c35402e7e2a0f
   %12 = load i64, ptr %1, align 8, !range !1227, !alias.scope !8227, !noalias !8228, !noundef !4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !8227, !noalias !8228, !nonnull !4, !noundef !4
-  %switch.i.i.i = icmp ult i64 %12, 2
+  %switch.i.i.i = icmp samesign ult i64 %12, 2
   %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %14, i64 %spec.select.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -34264,7 +34264,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hd5e864033c7cd15
   %12 = load i64, ptr %1, align 8, !range !1227, !alias.scope !8283, !noalias !8284, !noundef !4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !8283, !noalias !8284, !nonnull !4, !noundef !4
-  %switch.i.i.i = icmp ult i64 %12, 2
+  %switch.i.i.i = icmp samesign ult i64 %12, 2
   %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
   %spec.select.i.i.i = getelementptr inbounds i8, ptr %14, i64 %spec.select.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -34645,7 +34645,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %5 = load i64, ptr %4, align 8, !range !1227, !alias.scope !8383, !noalias !8384, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !8383, !noalias !8384, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %5, 2
+  %switch.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -34698,7 +34698,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %5 = load i64, ptr %4, align 8, !range !1227, !alias.scope !8427, !noalias !8428, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !8427, !noalias !8428, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %5, 2
+  %switch.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -34736,7 +34736,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %5 = load i64, ptr %4, align 8, !range !1227, !alias.scope !8460, !noalias !8461, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !8460, !noalias !8461, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %5, 2
+  %switch.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -34915,7 +34915,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %5 = load i64, ptr %4, align 8, !range !1227, !alias.scope !8573, !noalias !8574, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !8573, !noalias !8574, !nonnull !4, !noundef !4
-  %switch.i.i = icmp ult i64 %5, 2
+  %switch.i.i = icmp samesign ult i64 %5, 2
   %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -36244,7 +36244,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
   %59 = zext i16 %58 to i64
   %60 = sub i64 %.sroa.07.0.i, %59
   %61 = and i64 %60, %41
-  %62 = icmp ult i64 %61, %.sroa.03.0.i.ph
+  %62 = icmp samesign ult i64 %61, %.sroa.03.0.i.ph
   br i1 %62, label %71, label %68
 
 63:                                               ; preds = %52
@@ -51830,7 +51830,7 @@ default.unreachable8:                             ; preds = %11, %1
   unreachable
 
 10:                                               ; preds = %1
-  %switch.inv = icmp ugt i16 %7, 1
+  %switch.inv = icmp samesign ugt i16 %7, 1
   %spec.select = select i1 %switch.inv, i16 %9, i16 1
   br label %12
 
@@ -54311,7 +54311,7 @@ default.unreachable22:                            ; preds = %105, %104, %40, %39
   %143 = load i64, ptr %142, align 8, !range !1227, !alias.scope !11460, !noalias !11461, !noundef !4
   %144 = getelementptr inbounds i8, ptr %.sroa.0.05.i, i64 16
   %145 = load ptr, ptr %144, align 8, !alias.scope !11460, !noalias !11461, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %143, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %143, 2
   %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
   %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %145, i64 %spec.select.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i, i64 24
@@ -54354,7 +54354,7 @@ _ZN4core4hash4Hash10hash_slice17h03ca32be848056a6E.exit: ; preds = %.lr.ph.i, %1
   %156 = load i64, ptr %155, align 8, !range !1227, !alias.scope !11501, !noalias !11502, !noundef !4
   %157 = getelementptr inbounds i8, ptr %.sroa.0.05.i16, i64 16
   %158 = load ptr, ptr %157, align 8, !alias.scope !11501, !noalias !11502, !nonnull !4, !noundef !4
-  %switch.i.i.i.i17 = icmp ult i64 %156, 2
+  %switch.i.i.i.i17 = icmp samesign ult i64 %156, 2
   %spec.select.idx.i.i.i.i18 = select i1 %switch.i.i.i.i17, i64 0, i64 16
   %spec.select.i.i.i.i19 = getelementptr inbounds i8, ptr %158, i64 %spec.select.idx.i.i.i.i18
   %.sroa.4.0.in.i.i.i.i20 = getelementptr inbounds i8, ptr %.sroa.0.05.i16, i64 24
@@ -55239,7 +55239,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -55252,7 +55252,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -55754,7 +55754,7 @@ define hidden void @"_ZN75_$LT$zvariant..object_path..OwnedObjectPath$u20$as$u20
   %4 = load i64, ptr %0, align 8, !range !1227, !alias.scope !11739, !noalias !11742, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !11739, !noalias !11742, !nonnull !4, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
   %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -55774,7 +55774,7 @@ define hidden void @"_ZN78_$LT$zbus_names..interface_name..InterfaceName$u20$as$
   %4 = load i64, ptr %0, align 8, !range !1227, !alias.scope !11751, !noalias !11754, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !11751, !noalias !11754, !nonnull !4, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
   %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -55794,7 +55794,7 @@ define hidden void @"_ZN79_$LT$zbus_names..well_known_name..WellKnownName$u20$as
   %4 = load i64, ptr %0, align 8, !range !1227, !alias.scope !11763, !noalias !11766, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !11763, !noalias !11766, !nonnull !4, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
   %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -56793,7 +56793,7 @@ define hidden void @"_ZN83_$LT$zbus_names..interface_name..OwnedInterfaceName$u2
   %4 = load i64, ptr %0, align 8, !range !1227, !alias.scope !12073, !noalias !12076, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !12073, !noalias !12076, !nonnull !4, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
   %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -57010,7 +57010,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %88 = zext i16 %67 to i64
   %89 = add nuw nsw i64 %88, %87
   %90 = zext i16 %83 to i64
-  %.not.i = icmp ugt i64 %89, %90
+  %.not.i = icmp samesign ugt i64 %89, %90
   br i1 %.not.i, label %91, label %96
 
 91:                                               ; preds = %86, %._crit_edge415.i
@@ -57227,7 +57227,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %.sroa.699.i)
   %152 = zext i16 %67 to i64
   %153 = mul nuw nsw i64 %93, %152
-  %154 = icmp ugt i64 %153, %94
+  %154 = icmp samesign ugt i64 %153, %94
   br i1 %154, label %155, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hc87987e02e63ab7cE.exit.i"
 
 155:                                              ; preds = %151
@@ -57333,7 +57333,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %188 = add nuw nsw i64 %186, %187
   %189 = shl nuw nsw i64 %188, 2
   %190 = add nuw nsw i64 %189, 4
-  %191 = icmp ugt i64 %190, %94
+  %191 = icmp samesign ugt i64 %190, %94
   br i1 %191, label %.invoke, label %192
 
 192:                                              ; preds = %184
@@ -65078,7 +65078,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %189 = icmp sgt i32 %.sroa.064.1144.us.i, 0
   %190 = add nsw i32 %.sroa.064.1144.us.i, -1
   %.sroa.064.1.us.i = select i1 %189, i32 %190, i32 %.sroa.064.1144.us.i
-  %.not79.us.i = icmp ult i64 %indvars.iv.next.i, %152
+  %.not79.us.i = icmp samesign ult i64 %indvars.iv.next.i, %152
   %or.cond.us.i = select i1 %189, i1 %.not79.us.i, i1 false
   br i1 %or.cond.us.i, label %.lr.ph.us.i, label %.loopexit.us.loopexit.i
 
@@ -73162,7 +73162,7 @@ _ZN4gpui3app10entity_map9EntityMap12take_dropped17hc2fc0d4ed82c14f5E.exit: ; pre
 
 194:                                              ; preds = %174
   %195 = load i64, ptr %75, align 8, !range !4237, !alias.scope !14330, !noalias !14258, !noundef !4
-  %switch.not.i.i.i.i = icmp ult i64 %195, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %195, 2
   br i1 %switch.not.i.i.i.i, label %196, label %"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..option..IntoIter$LT$alloc..collections..btree..map..IntoValues$LT$usize$C$gpui..subscription..Subscriber$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RF$mut$u20$gpui..app..AppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$$GT$$GT$$GT$17hd35216c3cbdd92b7E.llvm.10989238744551635161.exit.i.i"
 
 196:                                              ; preds = %194
@@ -73227,7 +73227,7 @@ _ZN4gpui3app10entity_map9EntityMap12take_dropped17hc2fc0d4ed82c14f5E.exit: ; pre
 
 215:                                              ; preds = %"_ZN4core3ptr641drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..collections..btree..map..IntoValues$LT$usize$C$gpui..subscription..Subscriber$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RF$mut$u20$gpui..app..AppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$$GT$$GT$$C$gpui..subscription..SubscriberSet$LT$gpui..app..entity_map..EntityId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RF$mut$u20$gpui..app..AppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$..remove..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5dfb1d9e495a3aeE.exit.i"
   %216 = load i64, ptr %78, align 8, !range !4237, !alias.scope !14349, !noalias !14258, !noundef !4
-  %switch.not.i.i.i42.i = icmp ult i64 %216, 2
+  %switch.not.i.i.i42.i = icmp samesign ult i64 %216, 2
   br i1 %switch.not.i.i.i42.i, label %217, label %"_ZN4core3ptr382drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..option..IntoIter$LT$alloc..collections..btree..map..IntoValues$LT$usize$C$gpui..subscription..Subscriber$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RF$dyn$u20$core..any..Any$C$$RF$mut$u20$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$RP$$GT$$GT$$GT$$GT$$GT$17h54d69d5b3a6f2bdbE.llvm.10989238744551635161.exit.i.i"
 
 217:                                              ; preds = %215
@@ -78220,7 +78220,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %113 = add i32 %13, 1
   store i32 %113, ptr %112, align 8, !noalias !15697
   %.pr = load i64, ptr %9, align 8, !alias.scope !15698
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %114, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 114:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -78548,7 +78548,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %119 = add i32 %104, 1
   store i32 %119, ptr %118, align 8, !noalias !15770
   %.pr = load i64, ptr %10, align 8, !alias.scope !15771
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %120, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 120:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -78828,7 +78828,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %97 = add i32 %13, 1
   store i32 %97, ptr %96, align 8, !noalias !15825
   %.pr = load i64, ptr %9, align 8, !alias.scope !15826
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %98, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 98:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -79417,7 +79417,7 @@ _ZN4gpui6window13WindowContext24clear_pending_keystrokes17h6448dbd8dd8b70dbE.exi
   %231 = add i32 %216, 1
   store i32 %231, ptr %230, align 8, !noalias !15959
   %.pr = load i64, ptr %14, align 8, !alias.scope !15960
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %232, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 232:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -79793,7 +79793,7 @@ _ZN4gpui6window13WindowContext4blur17h8d5606acb5d62effE.exit.i: ; preds = %91, %
   %141 = add i32 %15, 1
   store i32 %141, ptr %140, align 8, !noalias !16020
   %.pr = load i64, ptr %11, align 8, !alias.scope !16021
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %142, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 142:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -80239,7 +80239,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %170 = add i32 %155, 1
   store i32 %170, ptr %169, align 8, !noalias !16126
   %.pr = load i64, ptr %11, align 8, !alias.scope !16127
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %171, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 171:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -80593,7 +80593,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %128 = add i32 %14, 1
   store i32 %128, ptr %127, align 8, !noalias !16198
   %.pr = load i64, ptr %10, align 8, !alias.scope !16199
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %129, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 129:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -80904,7 +80904,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %116 = add i32 %101, 1
   store i32 %116, ptr %115, align 8, !noalias !16263
   %.pr = load i64, ptr %9, align 8, !alias.scope !16264
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %117, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 117:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -81203,7 +81203,7 @@ _ZN4gpui6window13WindowContext7refresh17ha40082eb59a30d7fE.exit.i: ; preds = %61
   %109 = add i32 %14, 1
   store i32 %109, ptr %108, align 8, !noalias !16319
   %.pr = load i64, ptr %10, align 8, !alias.scope !16320
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %110, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 110:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -81521,7 +81521,7 @@ _ZN4gpui6window13WindowContext6bounds17h0e1d539a5b188211E.exit.i: ; preds = %55
   %113 = add i32 %15, 1
   store i32 %113, ptr %112, align 8, !noalias !16378
   %.pr = load i64, ptr %10, align 8, !alias.scope !16379
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %114, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 114:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -81825,7 +81825,7 @@ _ZN4gpui6window13WindowContext14complete_frame17hbba4fda9e6401d2fE.exit.i: ; pre
   %107 = add i32 %13, 1
   store i32 %107, ptr %106, align 8, !noalias !16434
   %.pr = load i64, ptr %9, align 8, !alias.scope !16435
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %108, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 108:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -82138,7 +82138,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %116 = add i32 %101, 1
   store i32 %116, ptr %115, align 8, !noalias !16499
   %.pr = load i64, ptr %9, align 8, !alias.scope !16500
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %117, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 117:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -82519,7 +82519,7 @@ define hidden { i64, ptr } @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Co
   %139 = add i32 %124, 1
   store i32 %139, ptr %138, align 8, !noalias !16581
   %.pr = load i64, ptr %9, align 8, !alias.scope !16582
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %140, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 140:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -82883,7 +82883,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %134 = add i32 %118, 1
   store i32 %134, ptr %133, align 8, !noalias !16650
   %.pr = load i64, ptr %11, align 8, !alias.scope !16651
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %135, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 135:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -83223,7 +83223,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %121 = add i32 %106, 1
   store i32 %121, ptr %120, align 8, !noalias !16717
   %.pr = load i64, ptr %10, align 8, !alias.scope !16718
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %122, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 122:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -83519,7 +83519,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %102 = add i32 %13, 1
   store i32 %102, ptr %101, align 8, !noalias !16770
   %.pr = load i64, ptr %9, align 8, !alias.scope !16771
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %103, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 103:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -83857,7 +83857,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %122 = add i32 %107, 1
   store i32 %122, ptr %121, align 8, !noalias !16844
   %.pr = load i64, ptr %10, align 8, !alias.scope !16845
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %123, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 123:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -84271,7 +84271,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %150 = add i32 %134, 1
   store i32 %150, ptr %149, align 8, !noalias !16929
   %.pr = load i64, ptr %10, align 8, !alias.scope !16930
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %151, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 151:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -84616,7 +84616,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %120 = add i32 %105, 1
   store i32 %120, ptr %119, align 8, !noalias !17002
   %.pr = load i64, ptr %11, align 8, !alias.scope !17003
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %121, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 121:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -85028,7 +85028,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %159 = add i32 %144, 1
   store i32 %159, ptr %158, align 8, !noalias !17100
   %.pr = load i64, ptr %11, align 8, !alias.scope !17101
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %160, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 160:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -85401,7 +85401,7 @@ _ZN4gpui6window13WindowContext19is_action_available17h5431cf762bf0b388E.exit.i: 
   %141 = add i32 %126, 1
   store i32 %141, ptr %140, align 8, !noalias !17176
   %.pr = load i64, ptr %12, align 8, !alias.scope !17177
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %142, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 142:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -85715,7 +85715,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %116 = add i32 %101, 1
   store i32 %116, ptr %115, align 8, !noalias !17241
   %.pr = load i64, ptr %9, align 8, !alias.scope !17242
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %117, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 117:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -86199,7 +86199,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %190 = add i32 %174, 1
   store i32 %190, ptr %189, align 8, !noalias !17372
   %.pr = load i64, ptr %10, align 8, !alias.scope !17373
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %191, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 191:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -86613,7 +86613,7 @@ _ZN4gpui6window13WindowContext7refresh17ha40082eb59a30d7fE.exit.i: ; preds = %80
   %130 = add i32 %15, 1
   store i32 %130, ptr %129, align 8, !noalias !17470
   %.pr = load i64, ptr %11, align 8, !alias.scope !17471
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %131, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 131:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -86908,7 +86908,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %102 = add i32 %13, 1
   store i32 %102, ptr %101, align 8, !noalias !17523
   %.pr = load i64, ptr %9, align 8, !alias.scope !17524
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %103, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 103:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -87213,7 +87213,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %111 = add i32 %13, 1
   store i32 %111, ptr %110, align 8, !noalias !17579
   %.pr = load i64, ptr %9, align 8, !alias.scope !17580
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %112, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 112:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -87519,7 +87519,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %107 = add i32 %14, 1
   store i32 %107, ptr %106, align 8, !noalias !17638
   %.pr = load i64, ptr %10, align 8, !alias.scope !17639
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %108, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 108:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -87976,7 +87976,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %155 = add i32 %20, 1
   store i32 %155, ptr %154, align 8, !noalias !17745
   %.pr = load i64, ptr %16, align 8, !alias.scope !17746
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %156, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 156:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -88295,7 +88295,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %121 = add i32 %106, 1
   store i32 %121, ptr %120, align 8, !noalias !17811
   %.pr = load i64, ptr %9, align 8, !alias.scope !17812
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %122, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 122:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -88627,7 +88627,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %121 = add i32 %106, 1
   store i32 %121, ptr %120, align 8, !noalias !17885
   %.pr = load i64, ptr %10, align 8, !alias.scope !17886
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %122, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h4fd10d730c681a41E.exit"
 
 122:                                              ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h09b0b24d774bb7e8E.exit"
@@ -99389,7 +99389,7 @@ common.resume:                                    ; preds = %135, %96
   br i1 %or.cond3.i.i.i.i.i.i.i.i, label %193, label %187
 
 187:                                              ; preds = %179
-  %188 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
+  %188 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
   br i1 %188, label %189, label %_ZN4gpui6keymap7context18is_identifier_char17h75dafb82e8d35586E.exit.i.i.i.i.i.i
 
 189:                                              ; preds = %187
@@ -100264,7 +100264,7 @@ define internal fastcc { ptr, i64 } @_ZN4gpui6keymap7context15skip_whitespace17h
   ]
 
 49:                                               ; preds = %43
-  %50 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
+  %50 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
   br i1 %50, label %51, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h78374da11c0d770cE.exit.thread"
 
 51:                                               ; preds = %49

@@ -415,7 +415,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   %207 = mul nuw nsw i64 %indvars.iv112.i, %206
   %208 = getelementptr inbounds i32, ptr %4, i64 %207
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %209 = icmp ult i64 %indvars.iv.next113.i, %199
+  %209 = icmp samesign ult i64 %indvars.iv.next113.i, %199
   %210 = zext i1 %209 to i32
   %211 = add nuw nsw i32 %0, %210
   %212 = zext nneg i32 %211 to i64
@@ -475,14 +475,14 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   %235 = mul nsw i64 %indvars.iv107.i, %200
   %236 = getelementptr inbounds i32, ptr %4, i64 %235
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %237 = icmp ult i64 %indvars.iv.next108.i, %199
+  %237 = icmp samesign ult i64 %indvars.iv.next108.i, %199
   %238 = zext i1 %237 to i32
   %239 = add nsw i32 %0, %238
   %240 = sext i32 %239 to i64
   %241 = shl nsw i64 %240, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.us.us90.i, ptr align 4 %236, i64 %241, i1 false)
   %242 = add nuw nsw i64 %indvars.iv107.i, 2
-  %243 = icmp ult i64 %242, %199
+  %243 = icmp samesign ult i64 %242, %199
   br i1 %243, label %244, label %PredictBatch.exit.loopexit.us.us95.i
 
 244:                                              ; preds = %.lr.ph89.split.us.split.split.us.i
@@ -502,7 +502,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %247 = mul nsw i64 %indvars.iv102.i, %200
   %248 = getelementptr inbounds i32, ptr %4, i64 %247
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
-  %249 = icmp ult i64 %indvars.iv.next103.i, %199
+  %249 = icmp samesign ult i64 %indvars.iv.next103.i, %199
   %250 = zext i1 %249 to i32
   %251 = add nsw i32 %0, %250
   %252 = sext i32 %251 to i64
@@ -518,7 +518,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %254 = mul nsw i64 %indvars.iv.i62, %197
   %255 = getelementptr inbounds i32, ptr %4, i64 %254
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
-  %256 = icmp ult i64 %indvars.iv.next.i63, %196
+  %256 = icmp samesign ult i64 %indvars.iv.next.i63, %196
   %257 = zext i1 %256 to i32
   %258 = add nsw i32 %0, %257
   %259 = sext i32 %258 to i64
@@ -1076,7 +1076,7 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
 
 136:                                              ; preds = %191
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %137 = icmp ugt i64 %117, %indvars.iv.next100.i
+  %137 = icmp samesign ugt i64 %117, %indvars.iv.next100.i
   %138 = select i1 %116, i1 %137, i1 false
   br i1 %138, label %139, label %GetBestGreenRedToBlue.exit, !llvm.loop !22
 
@@ -1166,8 +1166,8 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
   %.461.i = select i1 %189, i32 %154, i32 %.25988.i
   %.4.i = select i1 %189, i32 %149, i32 %.289.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %190 = icmp ult i64 %indvars.iv.i, 7
-  %or.cond94.i = and i1 %or.cond.not96.i, %190
+  %190 = icmp samesign ult i64 %indvars.iv.i, 7
+  %or.cond94.i = select i1 %or.cond.not96.i, i1 %190, i1 false
   br i1 %or.cond94.i, label %144, label %191, !llvm.loop !23
 
 191:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i
@@ -1685,19 +1685,19 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   %172 = and i32 %169, %171
   %173 = add nsw i32 %172, %.037.i
   %174 = xor i32 %163, 255
-  %175 = icmp ult i32 %174, %170
+  %175 = icmp samesign ult i32 %174, %170
   %176 = zext i1 %175 to i32
   %177 = sub nsw i32 %169, %172
   %178 = sub nsw i32 %176, %169
   %179 = add i32 %178, %173
   %180 = icmp slt i32 %177, %179
-  %181 = icmp ule i32 %169, %170
+  %181 = icmp samesign ule i32 %169, %170
   %182 = add nuw i32 %172, %161
   br i1 %180, label %183, label %184
 
 183:                                              ; preds = %168
-  %.not33.i.i = icmp ugt i32 %172, %170
-  %or.cond.i.i = or i1 %181, %.not33.i.i
+  %.not33.i.i = icmp samesign ugt i32 %172, %170
+  %or.cond.i.i = select i1 %181, i1 true, i1 %.not33.i.i
   %spec.select.i = select i1 %or.cond.i.i, i32 %172, i32 %182
   br label %NearLosslessComponent.exit.i
 
@@ -1722,19 +1722,19 @@ NearLosslessComponent.exit.i:                     ; preds = %184, %183, %167
   %195 = and i32 %.pre-phi.i, %193
   %196 = add nsw i32 %195, %.037.i
   %197 = xor i32 %190, 255
-  %198 = icmp ult i32 %197, %194
+  %198 = icmp samesign ult i32 %197, %194
   %199 = zext i1 %198 to i32
   %200 = sub nsw i32 %193, %195
   %201 = sub nsw i32 %199, %193
   %202 = add i32 %201, %196
   %203 = icmp slt i32 %200, %202
-  %204 = icmp ule i32 %193, %194
+  %204 = icmp samesign ule i32 %193, %194
   %205 = add nuw i32 %195, %161
   br i1 %203, label %206, label %207
 
 206:                                              ; preds = %NearLosslessComponent.exit.i
-  %.not33.i47.i = icmp ugt i32 %195, %194
-  %or.cond.i48.i = or i1 %204, %.not33.i47.i
+  %.not33.i47.i = icmp samesign ugt i32 %195, %194
+  %or.cond.i48.i = select i1 %204, i1 true, i1 %.not33.i47.i
   %spec.select69.i = select i1 %or.cond.i48.i, i32 %195, i32 %205
   br label %NearLosslessComponent.exit49.i
 
@@ -1766,19 +1766,19 @@ NearLosslessComponent.exit49.i:                   ; preds = %207, %206
   %221 = add nsw i32 %220, %.037.i
   %222 = sub nsw i32 %217, %214
   %223 = and i32 %222, 255
-  %224 = icmp ult i32 %223, %219
+  %224 = icmp samesign ult i32 %223, %219
   %225 = zext i1 %224 to i32
   %226 = sub nsw i32 %216, %220
   %227 = sub i32 %221, %216
   %228 = add nsw i32 %227, %225
   %229 = icmp slt i32 %226, %228
-  %230 = icmp ule i32 %216, %219
+  %230 = icmp samesign ule i32 %216, %219
   %231 = add nuw i32 %220, %161
   br i1 %229, label %232, label %233
 
 232:                                              ; preds = %NearLosslessComponent.exit49.i
-  %.not33.i55.i = icmp ugt i32 %220, %219
-  %or.cond.i56.i = or i1 %230, %.not33.i55.i
+  %.not33.i55.i = icmp samesign ugt i32 %220, %219
+  %or.cond.i56.i = select i1 %230, i1 true, i1 %.not33.i55.i
   %spec.select71.i = select i1 %or.cond.i56.i, i32 %220, i32 %231
   br label %NearLosslessComponent.exit57.i
 
@@ -1801,19 +1801,19 @@ NearLosslessComponent.exit57.i:                   ; preds = %233, %232
   %242 = add nsw i32 %241, %.037.i
   %243 = sub nsw i32 %217, %236
   %244 = and i32 %243, 255
-  %245 = icmp ult i32 %244, %240
+  %245 = icmp samesign ult i32 %244, %240
   %246 = zext i1 %245 to i32
   %247 = sub nsw i32 %238, %241
   %248 = sub i32 %242, %238
   %249 = add nsw i32 %248, %246
   %250 = icmp slt i32 %247, %249
-  %251 = icmp ule i32 %238, %240
+  %251 = icmp samesign ule i32 %238, %240
   %252 = add nuw i32 %241, %161
   br i1 %250, label %253, label %254
 
 253:                                              ; preds = %NearLosslessComponent.exit57.i
-  %.not33.i62.i = icmp ugt i32 %241, %240
-  %or.cond.i63.i = or i1 %251, %.not33.i62.i
+  %.not33.i62.i = icmp samesign ugt i32 %241, %240
+  %or.cond.i63.i = select i1 %251, i1 true, i1 %.not33.i62.i
   %spec.select73.i = select i1 %or.cond.i63.i, i32 %241, i32 %252
   br label %NearLosslessComponent.exit64.i
 

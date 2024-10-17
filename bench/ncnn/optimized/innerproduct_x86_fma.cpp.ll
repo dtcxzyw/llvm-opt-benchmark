@@ -609,7 +609,7 @@ common.resume:                                    ; preds = %152, %156, %163, %1
 ._crit_edge.i:                                    ; preds = %.lr.ph69.i, %.preheader.i
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 8
   %196 = or disjoint i64 %indvars.iv.next97.i, 7
-  %197 = icmp ult i64 %196, %62
+  %197 = icmp samesign ult i64 %196, %62
   br i1 %197, label %63, label %._crit_edge72.i, !llvm.loop !7
 
 ._crit_edge72.i:                                  ; preds = %._crit_edge.i, %.preheader6.i
@@ -707,7 +707,7 @@ common.resume:                                    ; preds = %152, %156, %163, %1
 ._crit_edge.us.i:                                 ; preds = %.lr.ph26.us.i, %..preheader7_crit_edge.us.i
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 4
   %250 = or disjoint i64 %indvars.iv.next93.i, 3
-  %251 = icmp ult i64 %250, %225
+  %251 = icmp samesign ult i64 %250, %225
   br i1 %251, label %.lr.ph.us.i, label %._crit_edge29.i, !llvm.loop !8
 
 .lr.ph26.us.i:                                    ; preds = %..preheader7_crit_edge.us.i, %.lr.ph26.us.i
@@ -842,7 +842,7 @@ common.resume:                                    ; preds = %152, %156, %163, %1
 ._crit_edge.us39.i:                               ; preds = %315
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %329 = or disjoint i64 %indvars.iv.next.i, 3
-  %330 = icmp ult i64 %329, %290
+  %330 = icmp samesign ult i64 %329, %290
   br i1 %330, label %.preheader7.us30.i, label %._crit_edge29.i, !llvm.loop !8
 
 331:                                              ; preds = %216

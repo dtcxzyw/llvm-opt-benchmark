@@ -471,7 +471,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
 
 39:                                               ; preds = %33
   %40 = and i64 %35, 2147483647
-  %41 = icmp ugt i64 %40, 44739242
+  %41 = icmp samesign ugt i64 %40, 44739242
   br i1 %41, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %39, %33
@@ -981,7 +981,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %22 = getelementptr %struct.ParsedWord, ptr %.pre, i64 %21, i32 4
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i32
-  %25 = icmp ult i32 %20, %24
+  %25 = icmp samesign ult i32 %20, %24
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %19, %30
@@ -1004,7 +1004,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %34 = getelementptr %struct.ParsedWord, ptr %33, i64 %21, i32 4
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
-  %37 = icmp ult i32 %32, %36
+  %37 = icmp samesign ult i32 %32, %36
   br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %30

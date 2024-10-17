@@ -505,7 +505,7 @@ cond.end29:                                       ; preds = %for.body21, %cond.t
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.119, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %cond30) #10
   %inc32 = add nuw nsw i32 %i.132, 1
   %20 = load ptr, ptr %next18, align 8
-  %cmp15 = icmp ugt i32 %i.132, 48
+  %cmp15 = icmp samesign ugt i32 %i.132, 48
   %tobool16.not = icmp eq ptr %20, null
   %or.cond = select i1 %cmp15, i1 true, i1 %tobool16.not
   br i1 %or.cond, label %for.end39, label %cond.true17, !llvm.loop !10

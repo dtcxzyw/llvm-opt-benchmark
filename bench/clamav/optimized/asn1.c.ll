@@ -1041,7 +1041,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
   %142 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %141) #11
   %143 = load i8, ptr %133, align 8
   %144 = zext i8 %143 to i64
-  %145 = icmp ult i64 %indvars.iv.next, %144
+  %145 = icmp samesign ult i64 %indvars.iv.next, %144
   br i1 %145, label %.lr.ph, label %.preheader414
 
 .preheader413:                                    ; preds = %.lr.ph440, %.preheader414
@@ -1061,7 +1061,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
   %153 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %152) #11
   %154 = load i8, ptr %135, align 8
   %155 = zext i8 %154 to i64
-  %156 = icmp ult i64 %indvars.iv.next472, %155
+  %156 = icmp samesign ult i64 %indvars.iv.next472, %155
   br i1 %156, label %.lr.ph440, label %.preheader413
 
 .preheader:                                       ; preds = %.lr.ph442, %.preheader413
@@ -1087,7 +1087,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
   %169 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %165, i32 noundef %168) #11
   %170 = load i8, ptr %146, align 8
   %171 = zext i8 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next475, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next475, %171
   br i1 %172, label %.lr.ph442, label %.preheader
 
 173:                                              ; preds = %.preheader, %173
@@ -2662,7 +2662,7 @@ asn1_expect_objtype.exit165:                      ; preds = %34
 144:                                              ; preds = %140
   %145 = load i8, ptr %7, align 8
   %146 = zext i8 %145 to i32
-  %147 = icmp uge i32 %141, %146
+  %147 = icmp samesign uge i32 %141, %146
   %148 = icmp ugt i8 %145, -93
   %or.cond6 = or i1 %148, %147
   br i1 %or.cond6, label %149, label %150
@@ -4242,7 +4242,7 @@ asn1_getnum.exit95:                               ; preds = %42
   %narrow10.i92 = add nsw i8 %.pre.i, -48
   %47 = zext nneg i8 %narrow10.i92 to i32
   %48 = add nuw nsw i32 %47, %46
-  %49 = icmp ugt i32 %48, 49
+  %49 = icmp samesign ugt i32 %48, 49
   %. = select i1 %49, i32 1900, i32 2000
   %50 = add nuw nsw i32 %48, %.
   br label %51

@@ -1876,7 +1876,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -3039,7 +3039,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1508)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -3122,7 +3122,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1530)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1533)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -5572,7 +5572,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2747)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -6167,7 +6167,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3110)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -8140,7 +8140,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4058)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4061)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -10082,7 +10082,7 @@ define hidden void @"_ZN4core3ptr143drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5107)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -11807,7 +11807,7 @@ define hidden void @"_ZN4core3ptr157drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6082)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -11869,7 +11869,7 @@ define hidden void @"_ZN4core3ptr157drop_in_place$LT$anyhow..error..ErrorImpl$LT
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6107)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -18595,7 +18595,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17h
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !range !9648, !noundef !4
-  %switch = icmp ult i64 %4, 2
+  %switch = icmp samesign ult i64 %4, 2
   br i1 %switch, label %"_ZN4core3ptr142drop_in_place$LT$std..sync..lazy_lock..LazyLock$LT$std..backtrace..Capture$C$std..backtrace..lazy_resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hee23aad7c16e003cE.llvm.11357125133562502446.exit", label %5
 
 5:                                                ; preds = %1
@@ -18764,7 +18764,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9695)
   %4 = load i64, ptr %0, align 8, !range !9648, !alias.scope !9695, !noundef !4
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   br i1 %switch.i, label %"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17h922fed5b0a743e9dE.llvm.11357125133562502446.exit", label %5
 
 5:                                                ; preds = %1
@@ -28554,7 +28554,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14827)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14830)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -29294,7 +29294,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std.
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15315)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15318)
-  %switch.i.i = icmp ult i64 %4, 2
+  %switch.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h8f2976a56fea6315E.llvm.11357125133562502446.exit", label %7
 
 7:                                                ; preds = %6
@@ -32814,7 +32814,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17285)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17288)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -35946,7 +35946,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18975)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18978)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7
@@ -36008,7 +36008,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$anyhow..error..ErrorImpl$LT$
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19000)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19003)
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17he02f4fff5497c846E.llvm.11357125133562502446.exit", label %8
 
 8:                                                ; preds = %7

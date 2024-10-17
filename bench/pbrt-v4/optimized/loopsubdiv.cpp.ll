@@ -1237,7 +1237,7 @@ call.i361.noexc:                                  ; preds = %_ZN4pbrt6SDFace8nex
   %86 = ptrtoint ptr %call.i.i to i64
   store i64 %86, ptr %pRing.i, align 8
   store ptr null, ptr %ptr.i.i.i, align 8
-  %cmp.not.i.i.i.i362 = icmp ugt i32 %nf.0.i1692, 16
+  %cmp.not.i.i.i.i362 = icmp samesign ugt i32 %nf.0.i1692, 16
   store i64 0, ptr %nAlloc.i.i.i, align 8
   br i1 %cmp.not.i.i.i.i362, label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i.i.thread.i, label %for.body.i.i.i.preheader
 
@@ -1441,7 +1441,7 @@ call.i387.noexc:                                  ; preds = %_ZN4pbrt6SDFace8nex
   %100 = ptrtoint ptr %call.i.i389 to i64
   store i64 %100, ptr %pRing.i386, align 8
   store ptr null, ptr %ptr.i.i.i390, align 8
-  %cmp.not.i.i.i.i393 = icmp ugt i32 %nf.0.i1760, 16
+  %cmp.not.i.i.i.i393 = icmp samesign ugt i32 %nf.0.i1760, 16
   store i64 0, ptr %nAlloc.i.i.i391, align 8
   br i1 %cmp.not.i.i.i.i393, label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i.i.thread.i465, label %for.body.i.i.i397.preheader
 
@@ -1629,7 +1629,7 @@ call.i476.noexc:                                  ; preds = %_ZN4pbrt6SDFace8pre
   %115 = ptrtoint ptr %call.i.i478 to i64
   store i64 %115, ptr %pRing.i475, align 8
   store ptr null, ptr %ptr.i.i.i479, align 8
-  %cmp.not.i.i.i.i482 = icmp ugt i32 %nf3.1.i1867, 15
+  %cmp.not.i.i.i.i482 = icmp samesign ugt i32 %nf3.1.i1867, 15
   store i64 0, ptr %nAlloc.i.i.i480, align 8
   br i1 %cmp.not.i.i.i.i482, label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i.i.thread.i521, label %for.body.i.i.i486.preheader
 

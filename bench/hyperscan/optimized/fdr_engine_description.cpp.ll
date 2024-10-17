@@ -219,15 +219,15 @@ for.cond6.preheader:                              ; preds = %_ZN3ue2L17findDesir
   %best.070 = phi ptr [ null, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best.2, %for.inc89 ]
   %domain.069 = phi i32 [ 9, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %inc90, %for.inc89 ]
   %best_score.068 = phi i32 [ 0, %_ZN3ue2L17findDesiredStrideEmmm.exit ], [ %best_score.2, %for.inc89 ]
-  %cmp9 = icmp ugt i32 %domain.069, 13
+  %cmp9 = icmp samesign ugt i32 %domain.069, 13
   br label %for.body8
 
 for.body8:                                        ; preds = %for.cond6.preheader, %for.inc
   %best.167 = phi ptr [ %best.070, %for.cond6.preheader ], [ %best.2, %for.inc ]
   %stride.066 = phi i64 [ 1, %for.cond6.preheader ], [ %mul, %for.inc ]
   %best_score.165 = phi i32 [ %best_score.068, %for.cond6.preheader ], [ %best_score.2, %for.inc ]
-  %cmp10 = icmp ugt i64 %stride.066, 1
-  %or.cond = and i1 %cmp9, %cmp10
+  %cmp10 = icmp samesign ugt i64 %stride.066, 1
+  %or.cond = select i1 %cmp9, i1 %cmp10, i1 false
   br i1 %or.cond, label %for.inc, label %if.end
 
 lpad.loopexit:                                    ; preds = %if.end, %if.end17, %if.end58, %invoke.cont68
@@ -260,7 +260,7 @@ if.end17:                                         ; preds = %invoke.cont11
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %if.end17
-  %cmp21.not = icmp ugt i64 %stride.066, %conv20
+  %cmp21.not = icmp samesign ugt i64 %stride.066, %conv20
   %5 = add nuw nsw i32 %conv, 100
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %vl, align 8
@@ -339,7 +339,7 @@ for.inc:                                          ; preds = %invoke.cont77, %if.
   %best_score.2 = phi i32 [ %best_score.165, %for.body8 ], [ %sub79, %if.then85 ], [ %best_score.165, %invoke.cont11 ], [ %best_score.165, %invoke.cont77 ]
   %best.2 = phi ptr [ %best.167, %for.body8 ], [ %4, %if.then85 ], [ %best.167, %invoke.cont11 ], [ %best.167, %invoke.cont77 ]
   %mul = shl nuw nsw i64 %stride.066, 1
-  %cmp7 = icmp ult i64 %stride.066, 3
+  %cmp7 = icmp samesign ult i64 %stride.066, 3
   br i1 %cmp7, label %for.body8, label %for.inc89, !llvm.loop !7
 
 for.inc89:                                        ; preds = %for.inc

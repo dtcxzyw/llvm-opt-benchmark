@@ -2914,7 +2914,7 @@ switch.lookup:                                    ; preds = %546
 570:                                              ; preds = %561, %565
   %571 = phi i8 [ %562, %561 ], [ %567, %565 ]
   %572 = add nuw nsw i32 %.09031079, 1
-  %573 = icmp ult i32 %.09031079, 27
+  %573 = icmp samesign ult i32 %.09031079, 27
   %574 = icmp ult i8 %571, 28
   %575 = select i1 %573, i1 %574, i1 false
   br i1 %575, label %561, label %.loopexit, !llvm.loop !13
@@ -4243,7 +4243,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 117:                                              ; preds = %.lr.ph244.us, %134
   %indvars.iv282 = phi i64 [ 0, %.lr.ph244.us ], [ %indvars.iv.next283, %134 ]
   %118 = add nuw nsw i64 %indvars.iv282, %116
-  %119 = icmp ugt i64 %118, 511
+  %119 = icmp samesign ugt i64 %118, 511
   br i1 %119, label %.loopexit, label %120
 
 120:                                              ; preds = %117

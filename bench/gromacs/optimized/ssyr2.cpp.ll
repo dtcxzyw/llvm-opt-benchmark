@@ -221,7 +221,7 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph229._crit_edge:                             ; preds = %.lr.ph229
   %107 = fmul float %17, %.pre336
   %108 = fmul float %17, %102
-  %.not187223 = icmp ugt i64 %indvars.iv279, %98
+  %.not187223 = icmp samesign ugt i64 %indvars.iv279, %98
   br i1 %.not187223, label %.loopexit197, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %.lr.ph229._crit_edge

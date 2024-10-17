@@ -338,11 +338,11 @@ define dso_local range(i64 -1, 2) i64 @macaddr_cmp(ptr nocapture noundef readonl
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = icmp ult i64 %19, %31
+  %32 = icmp samesign ult i64 %19, %31
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %1
-  %34 = icmp ugt i64 %19, %31
+  %34 = icmp samesign ugt i64 %19, %31
   br i1 %34, label %macaddr_cmp_internal.exit, label %35
 
 35:                                               ; preds = %33
@@ -372,11 +372,11 @@ define dso_local range(i64 -1, 2) i64 @macaddr_cmp(ptr nocapture noundef readonl
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = or disjoint i64 %57, %60
-  %62 = icmp ult i64 %48, %61
+  %62 = icmp samesign ult i64 %48, %61
   br i1 %62, label %macaddr_cmp_internal.exit, label %63
 
 63:                                               ; preds = %35
-  %64 = icmp ugt i64 %48, %61
+  %64 = icmp samesign ugt i64 %48, %61
   %65 = zext i1 %64 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -417,11 +417,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_lt(ptr nocapture noundef readonly 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = icmp ult i64 %19, %31
+  %32 = icmp samesign ult i64 %19, %31
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %1
-  %34 = icmp ugt i64 %19, %31
+  %34 = icmp samesign ugt i64 %19, %31
   br i1 %34, label %macaddr_cmp_internal.exit, label %35
 
 35:                                               ; preds = %33
@@ -451,7 +451,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_lt(ptr nocapture noundef readonly 
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = or disjoint i64 %57, %60
-  %62 = icmp ult i64 %48, %61
+  %62 = icmp samesign ult i64 %48, %61
   %spec.select = zext i1 %62 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -492,11 +492,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_le(ptr nocapture noundef readonly 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = icmp ult i64 %19, %31
+  %32 = icmp samesign ult i64 %19, %31
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %1
-  %34 = icmp ugt i64 %19, %31
+  %34 = icmp samesign ugt i64 %19, %31
   br i1 %34, label %macaddr_cmp_internal.exit, label %35
 
 35:                                               ; preds = %33
@@ -526,11 +526,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_le(ptr nocapture noundef readonly 
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = or disjoint i64 %57, %60
-  %62 = icmp ult i64 %48, %61
+  %62 = icmp samesign ult i64 %48, %61
   br i1 %62, label %macaddr_cmp_internal.exit, label %63
 
 63:                                               ; preds = %35
-  %64 = icmp ule i64 %48, %61
+  %64 = icmp samesign ule i64 %48, %61
   %65 = zext i1 %64 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -601,11 +601,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_eq(ptr nocapture noundef readonly 
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i64
   %58 = or disjoint i64 %54, %57
-  %59 = icmp ult i64 %45, %58
+  %59 = icmp samesign ult i64 %45, %58
   br i1 %59, label %macaddr_cmp_internal.exit, label %60
 
 60:                                               ; preds = %32
-  %61 = icmp ule i64 %45, %58
+  %61 = icmp samesign ule i64 %45, %58
   %62 = zext i1 %61 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -646,11 +646,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_ge(ptr nocapture noundef readonly 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = icmp ult i64 %19, %31
+  %32 = icmp samesign ult i64 %19, %31
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %1
-  %34 = icmp ugt i64 %19, %31
+  %34 = icmp samesign ugt i64 %19, %31
   br i1 %34, label %macaddr_cmp_internal.exit, label %35
 
 35:                                               ; preds = %33
@@ -680,7 +680,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_ge(ptr nocapture noundef readonly 
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = or disjoint i64 %57, %60
-  %62 = icmp uge i64 %48, %61
+  %62 = icmp samesign uge i64 %48, %61
   %spec.select = zext i1 %62 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -721,11 +721,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_gt(ptr nocapture noundef readonly 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = icmp ult i64 %19, %31
+  %32 = icmp samesign ult i64 %19, %31
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %1
-  %34 = icmp ugt i64 %19, %31
+  %34 = icmp samesign ugt i64 %19, %31
   br i1 %34, label %macaddr_cmp_internal.exit, label %35
 
 35:                                               ; preds = %33
@@ -755,11 +755,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_gt(ptr nocapture noundef readonly 
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = or disjoint i64 %57, %60
-  %62 = icmp ult i64 %48, %61
+  %62 = icmp samesign ult i64 %48, %61
   br i1 %62, label %macaddr_cmp_internal.exit, label %63
 
 63:                                               ; preds = %35
-  %64 = icmp ugt i64 %48, %61
+  %64 = icmp samesign ugt i64 %48, %61
   %65 = zext i1 %64 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -830,11 +830,11 @@ define dso_local range(i64 0, 2) i64 @macaddr_ne(ptr nocapture noundef readonly 
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i64
   %58 = or disjoint i64 %54, %57
-  %59 = icmp ult i64 %45, %58
+  %59 = icmp samesign ult i64 %45, %58
   br i1 %59, label %macaddr_cmp_internal.exit, label %60
 
 60:                                               ; preds = %32
-  %61 = icmp ugt i64 %45, %58
+  %61 = icmp samesign ugt i64 %45, %58
   %62 = zext i1 %61 to i64
   br label %macaddr_cmp_internal.exit
 
@@ -1099,11 +1099,11 @@ define internal range(i32 -1, 2) i32 @macaddr_fast_cmp(i64 noundef %0, i64 nound
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
   %29 = or disjoint i64 %25, %28
-  %30 = icmp ult i64 %17, %29
+  %30 = icmp samesign ult i64 %17, %29
   br i1 %30, label %macaddr_cmp_internal.exit, label %31
 
 31:                                               ; preds = %3
-  %32 = icmp ugt i64 %17, %29
+  %32 = icmp samesign ugt i64 %17, %29
   br i1 %32, label %macaddr_cmp_internal.exit, label %33
 
 33:                                               ; preds = %31
@@ -1133,11 +1133,11 @@ define internal range(i32 -1, 2) i32 @macaddr_fast_cmp(i64 noundef %0, i64 nound
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = or disjoint i64 %55, %58
-  %60 = icmp ult i64 %46, %59
+  %60 = icmp samesign ult i64 %46, %59
   br i1 %60, label %macaddr_cmp_internal.exit, label %61
 
 61:                                               ; preds = %33
-  %62 = icmp ugt i64 %46, %59
+  %62 = icmp samesign ugt i64 %46, %59
   %..i = zext i1 %62 to i32
   br label %macaddr_cmp_internal.exit
 

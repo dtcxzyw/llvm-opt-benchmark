@@ -1922,7 +1922,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   ]
 
 60:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i"
-  %61 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 127
+  %61 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 127
   br i1 %61, label %62, label %82
 
 62:                                               ; preds = %60
@@ -4938,7 +4938,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
 .lr.ph225:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h4e9197dd0a56fe07E.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv278, %wide.trip.count281
+  %91 = icmp samesign uge i64 %indvars.iv278, %wide.trip.count281
   br label %98
 
 92:                                               ; preds = %.lr.ph, %192
@@ -5107,7 +5107,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
 
 154:                                              ; preds = %147
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
-  %155 = icmp uge i64 %indvars.iv273, %wide.trip.count276
+  %155 = icmp samesign uge i64 %indvars.iv273, %wide.trip.count276
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %155
   br i1 %or.cond.i.i134, label %156, label %160
 
@@ -5429,7 +5429,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
 .lr.ph209:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3fb57adc1d8f9aeeE.exit"
   %89 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %72)
   %wide.trip.count = zext i32 %89 to i64
-  %90 = icmp uge i64 %indvars.iv261, %wide.trip.count264
+  %90 = icmp samesign uge i64 %indvars.iv261, %wide.trip.count264
   br label %97
 
 91:                                               ; preds = %.lr.ph, %169
@@ -5558,7 +5558,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %.0.in.sroa.speculate.load.3.sroa.speculated.i117 = select i1 %131, float 1.000000e+00, float %.083.lcssa
   %.0.in.sroa.speculated.i118 = select i1 %130, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i117
   call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  %132 = icmp uge i64 %indvars.iv256, %wide.trip.count259
+  %132 = icmp samesign uge i64 %indvars.iv256, %wide.trip.count259
   %or.cond.i.i121 = select i1 %90, i1 true, i1 %132
   br i1 %or.cond.i.i121, label %133, label %137
 
@@ -5889,7 +5889,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
 .lr.ph240:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hbaf39d8fc0d38d1eE.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv301, %wide.trip.count304
+  %91 = icmp samesign uge i64 %indvars.iv301, %wide.trip.count304
   br label %98
 
 92:                                               ; preds = %.lr.ph, %199
@@ -6070,7 +6070,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %.sroa.0.2.insert.shift.i = shl nuw i24 %.sroa.0.2.insert.ext.i, 16
   %.sroa.0.2.insert.insert.i = or disjoint i24 %.sroa.0.1.insert.insert.i, %.sroa.0.2.insert.shift.i
   call void @llvm.experimental.noalias.scope.decl(metadata !536)
-  %159 = icmp uge i64 %indvars.iv296, %wide.trip.count299
+  %159 = icmp samesign uge i64 %indvars.iv296, %wide.trip.count299
   %or.cond.i.i132 = select i1 %91, i1 true, i1 %159
   br i1 %or.cond.i.i132, label %160, label %164
 
@@ -6399,7 +6399,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
 .lr.ph240:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haa253593ced55989E.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv298, %wide.trip.count301
+  %91 = icmp samesign uge i64 %indvars.iv298, %wide.trip.count301
   br label %98
 
 92:                                               ; preds = %.lr.ph, %199
@@ -6583,7 +6583,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %.sroa.0.0.insert.ext.i = zext i8 %132 to i32
   %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   call void @llvm.experimental.noalias.scope.decl(metadata !596)
-  %159 = icmp uge i64 %indvars.iv293, %wide.trip.count296
+  %159 = icmp samesign uge i64 %indvars.iv293, %wide.trip.count296
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %159
   br i1 %or.cond.i.i134, label %160, label %164
 
@@ -6912,7 +6912,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
 .lr.ph240:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17he01a2c2e7222686fE.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv298, %wide.trip.count301
+  %91 = icmp samesign uge i64 %indvars.iv298, %wide.trip.count301
   br label %98
 
 92:                                               ; preds = %.lr.ph, %198
@@ -7089,7 +7089,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %.sroa.0.1.insert.shift.i = shl nuw i16 %.sroa.0.1.insert.ext.i, 8
   %.sroa.0.1.insert.insert.i = or disjoint i16 %.sroa.0.1.insert.shift.i, %.sroa.0.0.insert.ext.i
   call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %158 = icmp uge i64 %indvars.iv293, %wide.trip.count296
+  %158 = icmp samesign uge i64 %indvars.iv293, %wide.trip.count296
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %158
   br i1 %or.cond.i.i134, label %159, label %163
 
@@ -7418,7 +7418,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
 .lr.ph233:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc72b79856674f5c1E.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv286, %wide.trip.count289
+  %91 = icmp samesign uge i64 %indvars.iv286, %wide.trip.count289
   br label %98
 
 92:                                               ; preds = %.lr.ph, %192
@@ -7586,7 +7586,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   br i1 %or.cond.i.i132.not, label %.invoke, label %154
 
 154:                                              ; preds = %147
-  %155 = icmp uge i64 %indvars.iv281, %wide.trip.count284
+  %155 = icmp samesign uge i64 %indvars.iv281, %wide.trip.count284
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %155
   br i1 %or.cond.i.i134, label %156, label %160
 
@@ -7907,7 +7907,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
 .lr.ph232:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5306634c4070441aE.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv290, %wide.trip.count293
+  %91 = icmp samesign uge i64 %indvars.iv290, %wide.trip.count293
   br label %98
 
 92:                                               ; preds = %.lr.ph, %201
@@ -8084,7 +8084,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %160 = shl nuw i32 %144, 16
   %.sroa.0.2.insert.insert.i = or disjoint i32 %160, %134
   call void @llvm.experimental.noalias.scope.decl(metadata !771)
-  %161 = icmp uge i64 %indvars.iv285, %wide.trip.count288
+  %161 = icmp samesign uge i64 %indvars.iv285, %wide.trip.count288
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %161
   br i1 %or.cond.i.i134, label %162, label %166
 
@@ -8409,7 +8409,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
 .lr.ph232:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h01178aabac38044bE.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv293, %wide.trip.count296
+  %91 = icmp samesign uge i64 %indvars.iv293, %wide.trip.count296
   br label %98
 
 92:                                               ; preds = %.lr.ph, %204
@@ -8590,7 +8590,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %163 = shl nuw i48 %153, 32
   %.sroa.0.4.insert.insert.i = or disjoint i48 %.sroa.0.2.insert.insert.i, %163
   call void @llvm.experimental.noalias.scope.decl(metadata !828)
-  %164 = icmp uge i64 %indvars.iv288, %wide.trip.count291
+  %164 = icmp samesign uge i64 %indvars.iv288, %wide.trip.count291
   %or.cond.i.i132 = select i1 %91, i1 true, i1 %164
   br i1 %or.cond.i.i132, label %165, label %169
 
@@ -8915,7 +8915,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
 .lr.ph232:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha9745307575f0a2bE.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv290, %wide.trip.count293
+  %91 = icmp samesign uge i64 %indvars.iv290, %wide.trip.count293
   br label %98
 
 92:                                               ; preds = %.lr.ph, %204
@@ -9099,7 +9099,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %163
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %133
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
-  %164 = icmp uge i64 %indvars.iv285, %wide.trip.count288
+  %164 = icmp samesign uge i64 %indvars.iv285, %wide.trip.count288
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %164
   br i1 %or.cond.i.i134, label %165, label %169
 
@@ -9424,7 +9424,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
 .lr.ph213:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3b658eed71a30274E.exit"
   %90 = call i32 @llvm.usub.sat.i32(i32 %20, i32 %73)
   %wide.trip.count = zext i32 %90 to i64
-  %91 = icmp uge i64 %indvars.iv263, %wide.trip.count266
+  %91 = icmp samesign uge i64 %indvars.iv263, %wide.trip.count266
   br label %98
 
 92:                                               ; preds = %.lr.ph, %174
@@ -9558,7 +9558,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %.0.in.sroa.speculate.load.3.sroa.speculated.i119 = select i1 %133, float 1.000000e+00, float %.0.lcssa
   %.0.in.sroa.speculated.i120 = select i1 %132, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i119
   call void @llvm.experimental.noalias.scope.decl(metadata !942)
-  %134 = icmp uge i64 %indvars.iv258, %wide.trip.count261
+  %134 = icmp samesign uge i64 %indvars.iv258, %wide.trip.count261
   %or.cond.i.i121 = select i1 %91, i1 true, i1 %134
   br i1 %or.cond.i.i121, label %135, label %139
 
@@ -9866,7 +9866,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   br i1 %.not176, label %.loopexit130, label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb0739373e1071096E.exit"
-  %78 = icmp uge i64 %indvars.iv204, %wide.trip.count207
+  %78 = icmp samesign uge i64 %indvars.iv204, %wide.trip.count207
   %79 = mul nuw i64 %indvars.iv204, %wide.trip.count
   br label %86
 
@@ -9910,7 +9910,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %129, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %131, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !999)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -10247,7 +10247,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h1762744e95230fb
   br i1 %.not169, label %.loopexit123, label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h30323d32674dfa12E.exit"
-  %82 = icmp uge i64 %indvars.iv197, %wide.trip.count200
+  %82 = icmp samesign uge i64 %indvars.iv197, %wide.trip.count200
   %83 = mul nuw i64 %indvars.iv197, %wide.trip.count
   br label %90
 
@@ -10293,7 +10293,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h1762744e95230fb
   %.072.lcssa = phi float [ 0.000000e+00, %90 ], [ %139, %128 ]
   %.071.lcssa = phi float [ 0.000000e+00, %90 ], [ %141, %128 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1052)
-  %100 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %100 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %100, i1 true, i1 %82
   br i1 %or.cond.i.i, label %101, label %112
 
@@ -10632,7 +10632,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   br i1 %.not176, label %.loopexit130, label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc320b3895218016bE.exit"
-  %78 = icmp uge i64 %indvars.iv204, %wide.trip.count207
+  %78 = icmp samesign uge i64 %indvars.iv204, %wide.trip.count207
   %79 = mul nuw i64 %indvars.iv204, %wide.trip.count
   br label %86
 
@@ -10676,7 +10676,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %129, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %131, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1109)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -11009,7 +11009,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h3878542d63973fa
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h7b5acd13234f9425E.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -11053,7 +11053,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h3878542d63973fa
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %126, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %127, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1162)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -11380,7 +11380,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4d8a995c3aaba83
   br i1 %.not169, label %.loopexit123, label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hae6ab3282c7505e5E.exit"
-  %82 = icmp uge i64 %indvars.iv197, %wide.trip.count200
+  %82 = icmp samesign uge i64 %indvars.iv197, %wide.trip.count200
   %83 = mul nuw i64 %indvars.iv197, %wide.trip.count
   br label %90
 
@@ -11426,7 +11426,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4d8a995c3aaba83
   %.072.lcssa = phi float [ 0.000000e+00, %90 ], [ %139, %128 ]
   %.071.lcssa = phi float [ 0.000000e+00, %90 ], [ %141, %128 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1215)
-  %100 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %100 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %100, i1 true, i1 %82
   br i1 %or.cond.i.i, label %101, label %112
 
@@ -11765,7 +11765,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4fecdf41759844d
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h947500002c14d177E.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -11809,7 +11809,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4fecdf41759844d
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %128, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %129, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1272)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -12137,7 +12137,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h61e8135335dc229
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h9bbce6801fd927a6E.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -12181,7 +12181,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h61e8135335dc229
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %130, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %132, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1325)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -12516,7 +12516,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hb1ac84f2b92540e
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h333e777606b7d7ceE.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -12560,7 +12560,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hb1ac84f2b92540e
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %130, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %132, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1378)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -12895,7 +12895,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hef6a0e2ed107b33
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1dd1a4a3f6a85971E.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -12939,7 +12939,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hef6a0e2ed107b33
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %126, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %127, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1431)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -13262,7 +13262,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hf5a387b683ecef2
   br i1 %.not175, label %.loopexit129, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb4ed55174ac7a9f2E.exit"
-  %78 = icmp uge i64 %indvars.iv203, %wide.trip.count206
+  %78 = icmp samesign uge i64 %indvars.iv203, %wide.trip.count206
   %79 = mul nuw i64 %indvars.iv203, %wide.trip.count
   br label %86
 
@@ -13306,7 +13306,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hf5a387b683ecef2
   %.080.lcssa = phi float [ 0.000000e+00, %86 ], [ %128, %117 ]
   %.079.lcssa = phi float [ 0.000000e+00, %86 ], [ %129, %117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1484)
-  %94 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %94 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i = select i1 %94, i1 true, i1 %78
   br i1 %or.cond.i.i, label %95, label %106
 
@@ -13550,7 +13550,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h060308dcad8cb126E(ptr 
   %reass.mul167.us = mul i32 %reass.add166.us, 255
   %50 = uitofp i32 %reass.mul167.us to float
   %51 = uitofp i32 %reass.add166.us to float
-  %52 = icmp uge i64 %indvars.iv331, %wide.trip.count334
+  %52 = icmp samesign uge i64 %indvars.iv331, %wide.trip.count334
   %53 = mul nuw i64 %indvars.iv331, %wide.trip.count
   br label %54
 
@@ -13950,7 +13950,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hef81cf2301d290c4E.exit.us: ;
   %.sroa.013.0.in.us = phi i32 [ %.sroa.0.0.insert.insert.i106.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17hb3c3b848dd82ece7E.exit.us ], [ %.sroa.0.0.insert.insert.i131.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125E.exit.us ], [ %.sroa.0.0.insert.insert.i88.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8aeb2E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17hef81cf2301d290c4E.exit.us ]
   %226 = trunc i32 %.sroa.013.0.in.us to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1518)
-  %227 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %227 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %227, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split259.us, label %228
 
@@ -14174,7 +14174,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h10c176f3ea8cc4d2E(ptr 
   %reass.mul179.us = mul i32 %reass.add178.us, 255
   %50 = uitofp i32 %reass.mul179.us to float
   %51 = uitofp i32 %reass.add178.us to float
-  %52 = icmp uge i64 %indvars.iv375, %wide.trip.count378
+  %52 = icmp samesign uge i64 %indvars.iv375, %wide.trip.count378
   %53 = mul nuw i64 %indvars.iv375, %wide.trip.count
   br label %54
 
@@ -14656,7 +14656,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h00df2d7097e8919bE.exit.us: ;
   %.sroa.013.0.in.us = phi i32 [ %.sroa.0.0.insert.insert.i108.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h404e84f92ac1115cE.exit.us ], [ %.sroa.0.0.insert.insert.i138.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fbE.exit.us ], [ %.sroa.0.0.insert.insert.i88.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44a2E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17h00df2d7097e8919bE.exit.us ]
   %265 = trunc i32 %.sroa.013.0.in.us to i24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1539)
-  %266 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %266 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %266, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split289.us, label %267
 
@@ -14873,7 +14873,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h2e2029530eb8e447E(ptr 
   %49 = icmp ult i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.0.in.sroa.speculated.i.us
   %50 = sub i32 %.0.in.sroa.speculated.i.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i.us
   %51 = uitofp i32 %50 to float
-  %52 = icmp uge i64 %indvars.iv381, %wide.trip.count384
+  %52 = icmp samesign uge i64 %indvars.iv381, %wide.trip.count384
   %53 = mul nuw i64 %indvars.iv381, %wide.trip.count
   br label %54
 
@@ -15392,7 +15392,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit.us: ;
 281:                                              ; preds = %_ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2de4E.exit.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15eE.exit.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.exit.us
   %.sroa.013.0.in.us = phi i64 [ %.sroa.0.0.insert.insert.i109.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.exit.us ], [ %.sroa.0.0.insert.insert.i140.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15eE.exit.us ], [ %.sroa.0.0.insert.insert.i90.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2de4E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit.us ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1557)
-  %282 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %282 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %282, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split295.us, label %283
 
@@ -15646,7 +15646,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h3911af8e08ca8400E(ptr 
   %85 = icmp ult i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.0.in.sroa.speculated.i.us
   %86 = sub i32 %.0.in.sroa.speculated.i.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i.us
   %87 = uitofp i32 %86 to float
-  %88 = icmp uge i64 %indvars.iv210, %wide.trip.count213
+  %88 = icmp samesign uge i64 %indvars.iv210, %wide.trip.count213
   %89 = mul nuw i64 %indvars.iv210, %wide.trip.count
   br label %90
 
@@ -16174,7 +16174,7 @@ _ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit26.i.us: ; pre
   %.sroa.7.0.us = phi float [ %300, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h7991f3748439b34dE.exit.us ], [ %234, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h05bea1a3ff3ccda3E.exit.us ], [ %165, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h8ec0299e1508db01E.exit.us ], [ %.0.i23.i.us, %359 ], [ %.0.i23.i.us, %_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit26.i.us ], [ %.0.i23.i.us, %357 ]
   %.sroa.0.0.us = phi float [ %297, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h7991f3748439b34dE.exit.us ], [ %231, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h05bea1a3ff3ccda3E.exit.us ], [ %158, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h8ec0299e1508db01E.exit.us ], [ %.0.i.i.us, %359 ], [ %.0.i.i.us, %_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit26.i.us ], [ %.0.i.i.us, %357 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1642)
-  %362 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %362 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %362, i1 true, i1 %88
   br i1 %or.cond.i.i.us, label %.split.us, label %363
 
@@ -16410,7 +16410,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h5fcdf4091cbe6fadE(ptr 
   %76 = icmp ult i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.0.in.sroa.speculated.i.us
   %77 = sub i32 %.0.in.sroa.speculated.i.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i.us
   %78 = uitofp i32 %77 to float
-  %79 = icmp uge i64 %indvars.iv209, %wide.trip.count212
+  %79 = icmp samesign uge i64 %indvars.iv209, %wide.trip.count212
   %80 = mul nuw i64 %indvars.iv209, %wide.trip.count
   br label %81
 
@@ -16875,7 +16875,7 @@ _ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit26.i.us: ; pre
   %.sroa.7.0.us = phi float [ %261, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h6da9c5f9b59f0208E.exit.us ], [ %206, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h3012b05a94d107d7E.exit.us ], [ %152, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17haa7779533a7bac5fE.exit.us ], [ %.0.i23.i.us, %307 ], [ %.0.i23.i.us, %_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit24.i.us ], [ %.0.i23.i.us, %305 ]
   %.sroa.0.0.us = phi float [ %258, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h6da9c5f9b59f0208E.exit.us ], [ %203, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h3012b05a94d107d7E.exit.us ], [ %145, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17haa7779533a7bac5fE.exit.us ], [ %.0.i.i.us, %307 ], [ %.0.i.i.us, %_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit24.i.us ], [ %.0.i.i.us, %305 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1727)
-  %309 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %309 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %309, i1 true, i1 %79
   br i1 %or.cond.i.i.us, label %.split.us, label %310
 
@@ -17087,7 +17087,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h9239e8715a56b42fE(ptr 
   %49 = icmp ult i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.0.in.sroa.speculated.i.us
   %50 = sub i32 %.0.in.sroa.speculated.i.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i.us
   %51 = uitofp i32 %50 to float
-  %52 = icmp uge i64 %indvars.iv377, %wide.trip.count380
+  %52 = icmp samesign uge i64 %indvars.iv377, %wide.trip.count380
   %53 = mul nuw i64 %indvars.iv377, %wide.trip.count
   br label %54
 
@@ -17592,7 +17592,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6bf59ad2fae3ac19E.exit.us: ;
 280:                                              ; preds = %_ZN5image8imageops6sample22thumbnail_sample_block17h6bf59ad2fae3ac19E.exit.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c193E.exit.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521E.exit.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17hc7c72bab9398f419E.exit.us
   %.sroa.013.0.in.us = phi i32 [ %.sroa.0.0.insert.insert.i109.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17hc7c72bab9398f419E.exit.us ], [ %.sroa.0.0.insert.insert.i140.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521E.exit.us ], [ %.sroa.0.0.insert.insert.i90.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c193E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17h6bf59ad2fae3ac19E.exit.us ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1748)
-  %281 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %281 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %281, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split291.us, label %282
 
@@ -17811,7 +17811,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17ha03cf2638c346779E(ptr 
   %reass.mul181.us = mul i32 %reass.add180.us, 65535
   %50 = uitofp i32 %reass.mul181.us to float
   %51 = uitofp i32 %reass.add180.us to float
-  %52 = icmp uge i64 %indvars.iv377, %wide.trip.count380
+  %52 = icmp samesign uge i64 %indvars.iv377, %wide.trip.count380
   %53 = mul nuw i64 %indvars.iv377, %wide.trip.count
   br label %54
 
@@ -18297,7 +18297,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit.us: ;
   %.sroa.013.0.in.us = phi i64 [ %.sroa.0.0.insert.insert.i108.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h1b36313f48b81dbbE.exit.us ], [ %.sroa.0.0.insert.insert.i138.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930aE.exit.us ], [ %.sroa.0.0.insert.insert.i88.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbbe4E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit.us ]
   %261 = trunc i64 %.sroa.013.0.in.us to i48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1766)
-  %262 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %262 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %262, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split291.us, label %263
 
@@ -18517,7 +18517,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17hbe17d4f47d6a9731E(ptr 
   %reass.mul150.us = mul i32 %reass.add149.us, 65535
   %50 = uitofp i32 %reass.mul150.us to float
   %51 = uitofp i32 %reass.add149.us to float
-  %52 = icmp uge i64 %indvars.iv270, %wide.trip.count273
+  %52 = icmp samesign uge i64 %indvars.iv270, %wide.trip.count273
   %53 = mul nuw i64 %indvars.iv270, %wide.trip.count
   br label %54
 
@@ -18791,7 +18791,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17he36bc5a17c356f00E.exit.us: ;
 178:                                              ; preds = %_ZN5image8imageops6sample22thumbnail_sample_block17he36bc5a17c356f00E.exit.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hba7b54b32d6e859aE.exit.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5E.exit.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h08ada2920921563dE.exit.us
   %.sroa.013.0.in.us = phi i16 [ %106, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h08ada2920921563dE.exit.us ], [ %132, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5E.exit.us ], [ %163, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hba7b54b32d6e859aE.exit.us ], [ %spec.select.i.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17he36bc5a17c356f00E.exit.us ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1784)
-  %179 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %179 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %179, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split219.us, label %180
 
@@ -18999,7 +18999,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17he1da859793ac12b3E(ptr 
   %reass.mul165.us = mul i32 %reass.add164.us, 65535
   %50 = uitofp i32 %reass.mul165.us to float
   %51 = uitofp i32 %reass.add164.us to float
-  %52 = icmp uge i64 %indvars.iv329, %wide.trip.count332
+  %52 = icmp samesign uge i64 %indvars.iv329, %wide.trip.count332
   %53 = mul nuw i64 %indvars.iv329, %wide.trip.count
   br label %54
 
@@ -19364,7 +19364,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hfb8d10c5f77b972bE.exit.us: ;
 215:                                              ; preds = %_ZN5image8imageops6sample22thumbnail_sample_block17hfb8d10c5f77b972bE.exit.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f6dE.exit.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fcE.exit.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h025b0a7fe9ec053aE.exit.us
   %.sroa.013.0.in.us = phi i32 [ %.sroa.0.0.insert.insert.i106.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17h025b0a7fe9ec053aE.exit.us ], [ %.sroa.0.0.insert.insert.i131.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fcE.exit.us ], [ %.sroa.0.0.insert.insert.i88.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f6dE.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17hfb8d10c5f77b972bE.exit.us ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1802)
-  %216 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %216 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %216, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split257.us, label %217
 
@@ -19589,7 +19589,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17hfeff1542b82013e4E(ptr 
   %reass.mul150.us = mul i32 %reass.add149.us, 255
   %50 = uitofp i32 %reass.mul150.us to float
   %51 = uitofp i32 %reass.add149.us to float
-  %52 = icmp uge i64 %indvars.iv272, %wide.trip.count275
+  %52 = icmp samesign uge i64 %indvars.iv272, %wide.trip.count275
   %53 = mul nuw i64 %indvars.iv272, %wide.trip.count
   br label %54
 
@@ -19889,7 +19889,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h9b58128ff1da5636E.exit.us: ;
 183:                                              ; preds = %_ZN5image8imageops6sample22thumbnail_sample_block17h9b58128ff1da5636E.exit.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908f0E.exit.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ceE.exit.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17hbbb8b7ab046a8420E.exit.us
   %.sroa.013.0.in.us = phi i32 [ %.sroa.0.0.insert.insert.i103.us, %_ZN5image8imageops6sample30thumbnail_sample_fraction_both17hbbb8b7ab046a8420E.exit.us ], [ %.sroa.0.0.insert.insert.i123.us, %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ceE.exit.us ], [ %.sroa.0.0.insert.insert.i87.us, %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908f0E.exit.us ], [ %.sroa.0.0.insert.insert.i.us, %_ZN5image8imageops6sample22thumbnail_sample_block17h9b58128ff1da5636E.exit.us ]
   %.sroa.013.0.us = trunc i32 %.sroa.013.0.in.us to i8
-  %184 = icmp uge i64 %indvars.iv, %wide.trip.count
+  %184 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
   %or.cond.i.i.us = select i1 %184, i1 true, i1 %52
   br i1 %or.cond.i.i.us, label %.split219.us, label %185
 
@@ -20106,7 +20106,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h023c8a7430c039bfE(ptr 
   %indvars.iv197 = phi i64 [ 1, %.lr.ph152.us.preheader ], [ %indvars.iv.next198, %..loopexit121_crit_edge.us ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %44 = trunc nuw i64 %indvars.iv197 to i32
-  %45 = icmp uge i64 %indvars.iv197, %43
+  %45 = icmp samesign uge i64 %indvars.iv197, %43
   %46 = mul nuw i64 %indvars.iv197, %42
   br label %47
 
@@ -20139,7 +20139,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h023c8a7430c039bfE(ptr 
   %.0.in.sroa.speculate.load.3.sroa.speculated.i88.us = select i1 %57, float 1.000000e+00, float %51
   %.0.in.sroa.speculated.i89.us = select i1 %56, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i88.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1848)
-  %58 = icmp uge i64 %indvars.iv, %42
+  %58 = icmp samesign uge i64 %indvars.iv, %42
   %or.cond.i.i.us = select i1 %58, i1 true, i1 %45
   br i1 %or.cond.i.i.us, label %.split.us, label %59
 
@@ -20385,7 +20385,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5917e13582bfebcdE(ptr 
   %indvars.iv243 = phi i64 [ 1, %.lr.ph185.us.preheader ], [ %indvars.iv.next244, %..loopexit145_crit_edge.us ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %41 = trunc nuw i64 %indvars.iv243 to i32
-  %42 = icmp uge i64 %indvars.iv243, %40
+  %42 = icmp samesign uge i64 %indvars.iv243, %40
   %43 = mul nuw i64 %indvars.iv243, %39
   br label %44
 
@@ -20462,7 +20462,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5917e13582bfebcdE(ptr 
   %.sroa.0.0.insert.ext.i.us = zext i8 %53 to i32
   %.sroa.0.0.insert.insert.i.us = or disjoint i32 %.sroa.4.0.insert.insert.i.us, %.sroa.0.0.insert.ext.i.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1882)
-  %74 = icmp uge i64 %indvars.iv, %39
+  %74 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %74, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split196.us, label %75
 
@@ -20708,7 +20708,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5fd160655bed68c9E(ptr 
   %indvars.iv196 = phi i64 [ 1, %.lr.ph154.us.preheader ], [ %indvars.iv.next197, %..loopexit122_crit_edge.us ]
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %45 = trunc nuw i64 %indvars.iv196 to i32
-  %46 = icmp uge i64 %indvars.iv196, %44
+  %46 = icmp samesign uge i64 %indvars.iv196, %44
   %47 = mul nuw i64 %indvars.iv196, %43
   br label %48
 
@@ -20747,7 +20747,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h5fd160655bed68c9E(ptr 
   %.0.in.sroa.speculate.load.3.sroa.speculated.i90.us = select i1 %61, float 1.000000e+00, float %53
   %.0.in.sroa.speculated.i91.us = select i1 %60, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i90.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1909)
-  %62 = icmp uge i64 %indvars.iv, %43
+  %62 = icmp samesign uge i64 %indvars.iv, %43
   %or.cond.i.i.us = select i1 %62, i1 true, i1 %46
   br i1 %or.cond.i.i.us, label %.split.us, label %63
 
@@ -20999,7 +20999,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
   %indvars.iv251 = phi i64 [ 1, %.lr.ph189.us.preheader ], [ %indvars.iv.next252, %..loopexit147_crit_edge.us ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %41 = trunc nuw i64 %indvars.iv251 to i32
-  %42 = icmp uge i64 %indvars.iv251, %40
+  %42 = icmp samesign uge i64 %indvars.iv251, %40
   %43 = mul nuw i64 %indvars.iv251, %39
   br label %44
 
@@ -21072,7 +21072,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
   %.sroa.0.2.insert.shift.i.us = shl nuw i24 %.sroa.0.2.insert.ext.i.us, 16
   %.sroa.0.2.insert.insert.i.us = or disjoint i24 %.sroa.0.1.insert.insert.i.us, %.sroa.0.2.insert.shift.i.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1943)
-  %73 = icmp uge i64 %indvars.iv, %39
+  %73 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %73, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split200.us, label %74
 
@@ -21317,7 +21317,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h924705a9b6b2819bE(ptr 
   %indvars.iv228 = phi i64 [ 1, %.lr.ph178.us.preheader ], [ %indvars.iv.next229, %..loopexit144_crit_edge.us ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %41 = trunc nuw i64 %indvars.iv228 to i32
-  %42 = icmp uge i64 %indvars.iv228, %40
+  %42 = icmp samesign uge i64 %indvars.iv228, %40
   %43 = mul nuw i64 %indvars.iv228, %39
   br label %44
 
@@ -21380,7 +21380,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h924705a9b6b2819bE(ptr 
   br i1 %or.cond.i.i116.not.us, label %.split.us.invoke, label %70
 
 70:                                               ; preds = %65
-  %71 = icmp uge i64 %indvars.iv, %39
+  %71 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %71, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split189.us, label %72
 
@@ -21597,7 +21597,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
   %indvars.iv239 = phi i64 [ 1, %.lr.ph181.us.preheader ], [ %indvars.iv.next240, %..loopexit141_crit_edge.us ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %41 = trunc nuw i64 %indvars.iv239 to i32
-  %42 = icmp uge i64 %indvars.iv239, %40
+  %42 = icmp samesign uge i64 %indvars.iv239, %40
   %43 = mul nuw i64 %indvars.iv239, %39
   br label %44
 
@@ -21674,7 +21674,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
   %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %78
   %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1998)
-  %79 = icmp uge i64 %indvars.iv, %39
+  %79 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %79, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split192.us, label %80
 
@@ -21922,7 +21922,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317ha4f2ee62ec18add2E(ptr 
   %indvars.iv244 = phi i64 [ 1, %.lr.ph186.us.preheader ], [ %indvars.iv.next245, %..loopexit146_crit_edge.us ]
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %41 = trunc nuw i64 %indvars.iv244 to i32
-  %42 = icmp uge i64 %indvars.iv244, %40
+  %42 = icmp samesign uge i64 %indvars.iv244, %40
   %43 = mul nuw i64 %indvars.iv244, %39
   br label %44
 
@@ -21991,7 +21991,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317ha4f2ee62ec18add2E(ptr 
   %.sroa.0.1.insert.shift.i.us = shl nuw i16 %.sroa.0.1.insert.ext.i.us, 8
   %.sroa.0.1.insert.insert.i.us = or disjoint i16 %.sroa.0.1.insert.shift.i.us, %.sroa.0.0.insert.ext.i.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2028)
-  %72 = icmp uge i64 %indvars.iv, %39
+  %72 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %72, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split197.us, label %73
 
@@ -22226,7 +22226,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hb2fcd79f4b59f3d2E(ptr 
   %indvars.iv224 = phi i64 [ 1, %.lr.ph174.us.preheader ], [ %indvars.iv.next225, %..loopexit140_crit_edge.us ]
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %41 = trunc nuw i64 %indvars.iv224 to i32
-  %42 = icmp uge i64 %indvars.iv224, %40
+  %42 = icmp samesign uge i64 %indvars.iv224, %40
   %43 = mul nuw i64 %indvars.iv224, %39
   br label %44
 
@@ -22290,7 +22290,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hb2fcd79f4b59f3d2E(ptr 
 
 70:                                               ; preds = %65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2055)
-  %71 = icmp uge i64 %indvars.iv, %39
+  %71 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %71, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split185.us, label %72
 
@@ -22509,7 +22509,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   %indvars.iv247 = phi i64 [ 1, %.lr.ph185.us.preheader ], [ %indvars.iv.next248, %..loopexit143_crit_edge.us ]
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %41 = trunc nuw i64 %indvars.iv247 to i32
-  %42 = icmp uge i64 %indvars.iv247, %40
+  %42 = icmp samesign uge i64 %indvars.iv247, %40
   %43 = mul nuw i64 %indvars.iv247, %39
   br label %44
 
@@ -22582,7 +22582,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   %77 = shl nuw i48 %69, 32
   %.sroa.0.4.insert.insert.i.us = or disjoint i48 %.sroa.0.2.insert.insert.i.us, %77
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2082)
-  %78 = icmp uge i64 %indvars.iv, %39
+  %78 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %78, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split196.us, label %79
 
@@ -22823,7 +22823,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
   %indvars.iv240 = phi i64 [ 1, %.lr.ph182.us.preheader ], [ %indvars.iv.next241, %..loopexit142_crit_edge.us ]
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %41 = trunc nuw i64 %indvars.iv240 to i32
-  %42 = icmp uge i64 %indvars.iv240, %40
+  %42 = icmp samesign uge i64 %indvars.iv240, %40
   %43 = mul nuw i64 %indvars.iv240, %39
   br label %44
 
@@ -22892,7 +22892,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
   %74 = shl nuw i32 %62, 16
   %.sroa.0.2.insert.insert.i.us = or disjoint i32 %74, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2109)
-  %75 = icmp uge i64 %indvars.iv, %39
+  %75 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %75, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split193.us, label %76
 
@@ -26248,10 +26248,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h07603649d2f84d68E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2577)
   %26 = load i32, ptr %17, align 8, !alias.scope !2577, !noalias !2580, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2577, !noalias !2580
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv88, %30
+  %31 = icmp samesign uge i64 %indvars.iv88, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -26419,10 +26419,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h3b8716d2e39e1fa2E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2601)
   %26 = load i32, ptr %17, align 8, !alias.scope !2601, !noalias !2604, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2601, !noalias !2604
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv73, %30
+  %31 = icmp samesign uge i64 %indvars.iv73, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -26577,10 +26577,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h500fae8c4c91c4a9E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2622)
   %26 = load i32, ptr %17, align 8, !alias.scope !2622, !noalias !2625, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2622, !noalias !2625
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv89, %30
+  %31 = icmp samesign uge i64 %indvars.iv89, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -26750,10 +26750,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h71891b2e5af35742E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2643)
   %26 = load i32, ptr %17, align 8, !alias.scope !2643, !noalias !2646, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2643, !noalias !2646
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv94, %30
+  %31 = icmp samesign uge i64 %indvars.iv94, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -26921,10 +26921,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h79816b6b019a27b7E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2667)
   %26 = load i32, ptr %17, align 8, !alias.scope !2667, !noalias !2670, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2667, !noalias !2670
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv94, %30
+  %31 = icmp samesign uge i64 %indvars.iv94, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -27091,10 +27091,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h872207909f956a70E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2689)
   %26 = load i32, ptr %17, align 8, !alias.scope !2689, !noalias !2692, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2689, !noalias !2692
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv94, %30
+  %31 = icmp samesign uge i64 %indvars.iv94, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -27261,10 +27261,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17h908c8daeae984629E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2711)
   %26 = load i32, ptr %17, align 8, !alias.scope !2711, !noalias !2714, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2711, !noalias !2714
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv89, %30
+  %31 = icmp samesign uge i64 %indvars.iv89, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -27431,10 +27431,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17hb523cd6ee855a088E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2732)
   %26 = load i32, ptr %17, align 8, !alias.scope !2732, !noalias !2735, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2732, !noalias !2735
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv73, %30
+  %31 = icmp samesign uge i64 %indvars.iv73, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -27589,10 +27589,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17hb717cb0f00f380f9E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2753)
   %26 = load i32, ptr %17, align 8, !alias.scope !2753, !noalias !2756, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2753, !noalias !2756
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv89, %30
+  %31 = icmp samesign uge i64 %indvars.iv89, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -27759,10 +27759,10 @@ define hidden void @_ZN5image8imageops6sample9unsharpen17hc7e5a362ad2d3c56E(ptr 
   call void @llvm.experimental.noalias.scope.decl(metadata !2774)
   %26 = load i32, ptr %17, align 8, !alias.scope !2774, !noalias !2777, !noundef !14
   %27 = zext i32 %26 to i64
-  %28 = icmp uge i64 %indvars.iv, %27
+  %28 = icmp samesign uge i64 %indvars.iv, %27
   %29 = load i32, ptr %18, align 4, !alias.scope !2774, !noalias !2777
   %30 = zext i32 %29 to i64
-  %31 = icmp uge i64 %indvars.iv89, %30
+  %31 = icmp samesign uge i64 %indvars.iv89, %30
   %or.cond.i.i.us = select i1 %28, i1 true, i1 %31
   br i1 %or.cond.i.i.us, label %.split.us, label %32
 
@@ -29544,15 +29544,15 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   br i1 %88, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i", label %89
 
 89:                                               ; preds = %87
-  %90 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %90 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %90, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %91
 
 91:                                               ; preds = %89
-  %92 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %92 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %92, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %94 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %94, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i"
 

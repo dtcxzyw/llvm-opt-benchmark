@@ -3681,7 +3681,7 @@ if.then253:                                       ; preds = %invoke.cont250
           to label %if.else270 unwind label %lpad232.loopexit
 
 if.then258:                                       ; preds = %invoke.cont250
-  %cmp259 = icmp ugt i32 %c.0694, 65534
+  %cmp259 = icmp samesign ugt i32 %c.0694, 65534
   br i1 %cmp259, label %if.then260, label %if.end263
 
 if.then260:                                       ; preds = %if.then258

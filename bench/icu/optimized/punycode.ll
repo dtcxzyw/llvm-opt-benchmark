@@ -558,7 +558,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %delta.addr.110.i = phi i32 [ %div3.i, %for.body.i ], [ %add.i, %if.end.i ]
   %div3.i = udiv i32 %delta.addr.110.i, 35
   %add4.i = add nuw nsw i32 %count.011.i, 36
-  %cmp.i164 = icmp ugt i32 %delta.addr.110.i, 15959
+  %cmp.i164 = icmp samesign ugt i32 %delta.addr.110.i, 15959
   br i1 %cmp.i164, label %for.body.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !9
 
 _ZL9adaptBiasiia.exit:                            ; preds = %for.body.i, %if.end.i
@@ -857,7 +857,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %delta.addr.110.i = phi i32 [ %div3.i, %for.body.i ], [ %add.i139, %if.end.i ]
   %div3.i = udiv i32 %delta.addr.110.i, 35
   %add4.i = add nuw nsw i32 %count.011.i, 36
-  %cmp.i140 = icmp ugt i32 %delta.addr.110.i, 15959
+  %cmp.i140 = icmp samesign ugt i32 %delta.addr.110.i, 15959
   br i1 %cmp.i140, label %for.body.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !9
 
 _ZL9adaptBiasiia.exit:                            ; preds = %for.body.i, %if.end.i

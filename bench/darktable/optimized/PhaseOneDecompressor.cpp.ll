@@ -496,7 +496,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp uge i32 %18, %13
+  %24 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %24)
   %25 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %25)
@@ -510,7 +510,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %30 = load i32, ptr %29, align 8, !tbaa !115
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !116
-  %33 = icmp uge i32 %32, %30
+  %33 = icmp samesign uge i32 %32, %30
   tail call void @llvm.assume(i1 %33)
   %34 = icmp sgt i32 %32, -1
   tail call void @llvm.assume(i1 %34)
@@ -521,7 +521,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %38 = zext i32 %36 to i64
   %39 = add nuw nsw i64 %38, %37
   %40 = zext nneg i32 %32 to i64
-  %41 = icmp ugt i64 %39, %40
+  %41 = icmp samesign ugt i64 %39, %40
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %2
@@ -535,7 +535,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %45, i64 %37
   store i32 0, ptr %3, align 4
-  %48 = icmp ult i32 %36, 4
+  %48 = icmp samesign ult i32 %36, 4
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
@@ -653,7 +653,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %119 = phi i64 [ %113, %108 ], [ %259, %255 ]
   %120 = icmp ult i32 %118, 65
   tail call void @llvm.assume(i1 %120)
-  %121 = icmp ult i32 %118, 32
+  %121 = icmp samesign ult i32 %118, 32
   br i1 %121, label %122, label %149
 
 122:                                              ; preds = %115
@@ -703,7 +703,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %150 = phi i64 [ %148, %140 ], [ %119, %115 ]
   %151 = phi i32 [ %144, %140 ], [ %118, %115 ]
   %152 = phi i32 [ %123, %140 ], [ %117, %115 ]
-  %153 = icmp ult i64 %116, %63
+  %153 = icmp samesign ult i64 %116, %63
   br i1 %153, label %155, label %154
 
 154:                                              ; preds = %149

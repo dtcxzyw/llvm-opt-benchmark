@@ -362,7 +362,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
 
 154:                                              ; preds = %144
   %155 = add nuw nsw i64 %138, 2
-  %156 = icmp ult i64 %155, %131
+  %156 = icmp samesign ult i64 %155, %131
   br i1 %156, label %.split.us, label %.loopexit87
 
 .preheader84:                                     ; preds = %129, %208
@@ -432,7 +432,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
 
 208:                                              ; preds = %.loopexit85
   %209 = add nuw nsw i64 %157, 2
-  %210 = icmp ult i64 %209, %131
+  %210 = icmp samesign ult i64 %209, %131
   br i1 %210, label %.preheader84, label %.loopexit87
 
 .loopexit87:                                      ; preds = %208, %154, %123, %compute_channel_noise.exit
@@ -522,7 +522,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
 
 .loopexit82:                                      ; preds = %261, %260
   %269 = add nuw nsw i64 %229, 2
-  %270 = icmp ult i64 %269, %223
+  %270 = icmp samesign ult i64 %269, %223
   br i1 %270, label %228, label %.loopexit86
 
 .loopexit86:                                      ; preds = %.loopexit82, %214, %.loopexit87

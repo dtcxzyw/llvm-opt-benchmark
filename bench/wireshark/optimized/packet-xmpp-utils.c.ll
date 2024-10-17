@@ -1631,7 +1631,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 
 85:                                               ; preds = %.sink.split, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = icmp ult i64 %indvars.iv.next, %16
+  %86 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %86, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %85, %11
@@ -2011,7 +2011,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
 128:                                              ; preds = %.sink.split, %119, %26
   %.3.us = phi i32 [ %.2.us, %119 ], [ %.1146.us, %26 ], [ %.2.us, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = icmp ult i64 %indvars.iv.next, %25
+  %129 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %129, label %26, label %._crit_edge.us, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %128
@@ -2278,7 +2278,7 @@ select.unfold120:                                 ; preds = %105
 
 .critedge:                                        ; preds = %101, %select.unfold120, %72, %select.unfold117, %54, %select.unfold114, %21, %select.unfold, %xmpp_steal_element_by_name.exit.thread.i, %xmpp_get_attr.exit.thread21.i, %xmpp_get_attr.exit.thread23.i, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = icmp ult i64 %indvars.iv.next, %11
+  %119 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %119, label %12, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.critedge, %6

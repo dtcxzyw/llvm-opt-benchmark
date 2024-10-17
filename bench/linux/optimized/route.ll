@@ -7113,7 +7113,7 @@ rt6_remove_exception.exit:                        ; preds = %54, %49
 96:                                               ; preds = %95, %85
   %97 = add nuw nsw i64 %82, 1
   %98 = and i64 %97, 127
-  %99 = icmp ugt i64 %98, 63
+  %99 = icmp samesign ugt i64 %98, 63
   br i1 %99, label %.thread.loopexit, label %.preheader, !prof !72, !llvm.loop !73
 
 .thread.loopexit:                                 ; preds = %81, %96, %.preheader
@@ -7171,7 +7171,7 @@ define dso_local void @fib6_nh_release_dsts(ptr nocapture noundef readonly %0) l
 25:                                               ; preds = %24, %14
   %26 = add nuw nsw i64 %11, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %.preheader, !prof !72, !llvm.loop !73
 
 .thread:                                          ; preds = %.preheader, %25, %10, %1
@@ -9453,7 +9453,7 @@ define dso_local void @rt6_disable_ip(ptr noundef %0, i64 noundef %1) local_unna
   %91 = phi i64 [ %.pre, %.loopexit ], [ %14, %23 ]
   %92 = add nuw nsw i64 %20, 1
   %93 = and i64 %92, 127
-  %94 = icmp ugt i64 %93, 63
+  %94 = icmp samesign ugt i64 %93, 63
   br i1 %94, label %.thread, label %13, !prof !72, !llvm.loop !89
 
 .thread:                                          ; preds = %13, %90, %19
@@ -10962,7 +10962,7 @@ define dso_local i32 @ip6_route_init() local_unnamed_addr #11 section ".init.tex
   store i32 0, ptr %48, align 8
   %53 = add nuw nsw i64 %40, 1
   %54 = and i64 %53, 127
-  %55 = icmp ugt i64 %54, 63
+  %55 = icmp samesign ugt i64 %54, 63
   br i1 %55, label %.thread, label %.preheader, !prof !72, !llvm.loop !109
 
 .thread:                                          ; preds = %.preheader, %43, %39, %69, %0
@@ -11105,7 +11105,7 @@ define internal i32 @inet6_rtm_newroute(ptr nocapture noundef readonly %0, ptr n
   %52 = load i16, ptr %50, align 4
   %53 = icmp ult i16 %52, 8
   %54 = zext i16 %52 to i32
-  %.not = icmp ult i32 %51, %54
+  %.not = icmp samesign ult i32 %51, %54
   %or.cond = or i1 %53, %.not
   br i1 %or.cond, label %.critedge, label %55
 
@@ -11733,7 +11733,7 @@ define internal i32 @inet6_rtm_delroute(ptr nocapture noundef readonly %0, ptr n
   %40 = load i16, ptr %38, align 4
   %41 = icmp ult i16 %40, 8
   %42 = zext i16 %40 to i32
-  %.not = icmp ult i32 %39, %42
+  %.not = icmp samesign ult i32 %39, %42
   %or.cond = or i1 %41, %.not
   br i1 %or.cond, label %.critedge, label %43
 
@@ -15046,7 +15046,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rt6_fill_node_nexthop(ptr 
   %31 = add nuw nsw i64 %35, 1
   %32 = load i16, ptr %27, align 8
   %33 = zext i16 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.preheader, label %.loopexit3, !llvm.loop !137
 
 .preheader:                                       ; preds = %24, %30
@@ -16005,7 +16005,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib6_config(ptr noc
   %132 = load i16, ptr %125, align 2
   %133 = add i16 %132, -4
   %134 = zext i16 %133 to i32
-  %135 = icmp ugt i32 %131, %134
+  %135 = icmp samesign ugt i32 %131, %134
   br i1 %135, label %.thread, label %136
 
 136:                                              ; preds = %127
@@ -16027,7 +16027,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib6_config(ptr noc
   %148 = load i16, ptr %141, align 2
   %149 = add i16 %148, -4
   %150 = zext i16 %149 to i32
-  %151 = icmp ugt i32 %147, %150
+  %151 = icmp samesign ugt i32 %147, %150
   br i1 %151, label %.thread, label %152
 
 152:                                              ; preds = %143

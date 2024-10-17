@@ -1386,9 +1386,9 @@ define void @_ZN6parser13TopEntryPoint5parse17h969a27913f26e20dE(ptr noalias noc
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 3
+  %18 = icmp samesign ult i64 %14, 3
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16

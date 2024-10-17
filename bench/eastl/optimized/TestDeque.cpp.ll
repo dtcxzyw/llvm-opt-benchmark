@@ -14451,7 +14451,7 @@ _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.the
   %inc3.i32 = add nsw i64 %20, 1
   store i64 %inc3.i32, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %p34.0.add = add nuw nsw i64 %p34.0.idx70, 24
-  %cmp37 = icmp ult i64 %p34.0.idx70, 168
+  %cmp37 = icmp samesign ult i64 %p34.0.idx70, 168
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !561
 
 for.end41:                                        ; preds = %_ZN10TestObjectD2Ev.exit33
@@ -19501,7 +19501,7 @@ while.body.i.i3488:                               ; preds = %while.body.i.i3488,
   %call.i.i12.i2.i3501 = call noundef ptr %679(ptr noundef nonnull align 8 dereferenceable(8) %mAllocator.i3481, i64 noundef 256, i32 noundef 0)
   %pPtrArrayCurrent.018.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.018.i.i.idx, 8
   store ptr %call.i.i12.i2.i3501, ptr %pPtrArrayCurrent.018.i.i.ptr, align 8
-  %cmp.i.i3490 = icmp ult i64 %pPtrArrayCurrent.018.i.i.idx, 512
+  %cmp.i.i3490 = icmp samesign ult i64 %pPtrArrayCurrent.018.i.i.idx, 512
   br i1 %cmp.i.i3490, label %while.body.i.i3488, label %while.body.i.i.preheader, !llvm.loop !686
 
 while.body.i.i.preheader:                         ; preds = %while.body.i.i3488
@@ -21706,7 +21706,7 @@ call.i.i.i10.i.i.noexc:                           ; preds = %while.body.i.i
   %pPtrArrayCurrent.016.i.i.ptr = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %pPtrArrayCurrent.016.i.i.idx
   %pPtrArrayCurrent.016.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.016.i.i.idx, 8
   store ptr %call.i.i.i10.i.i448, ptr %pPtrArrayCurrent.016.i.i.ptr, align 8
-  %cmp.i.i = icmp ult i64 %pPtrArrayCurrent.016.i.i.idx, 248
+  %cmp.i.i = icmp samesign ult i64 %pPtrArrayCurrent.016.i.i.idx, 248
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EE6DoInitEm.exit.i, !llvm.loop !5
 
 _ZN5eastl9DequeBaseIiNS_9allocatorELj64EE6DoInitEm.exit.i: ; preds = %call.i.i.i10.i.i.noexc
@@ -22642,7 +22642,7 @@ call.i.i.i9.i.i.i64.noexc:                        ; preds = %while.body.i.i.i62
   %pPtrArrayCurrent.015.i.i.i63.ptr = getelementptr inbounds i8, ptr %add.ptr.i.i.i60, i64 %pPtrArrayCurrent.015.i.i.i63.idx
   %pPtrArrayCurrent.015.i.i.i63.add = add nuw nsw i64 %pPtrArrayCurrent.015.i.i.i63.idx, 8
   store ptr %call.i.i.i9.i.i.i6482, ptr %pPtrArrayCurrent.015.i.i.i63.ptr, align 8
-  %cmp.i.i.i66 = icmp ult i64 %pPtrArrayCurrent.015.i.i.i63.idx, 8000
+  %cmp.i.i.i66 = icmp samesign ult i64 %pPtrArrayCurrent.015.i.i.i63.idx, 8000
   br i1 %cmp.i.i.i66, label %while.body.i.i.i62, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EEC2EmRKS1_.exit.i, !llvm.loop !796
 
 _ZN5eastl9DequeBaseIiNS_9allocatorELj1EEC2EmRKS1_.exit.i: ; preds = %call.i.i.i9.i.i.i64.noexc
@@ -22808,7 +22808,7 @@ call.i.i.i9.i.i.noexc:                            ; preds = %while.body.i.i595
   %pPtrArrayCurrent.015.i.i.ptr = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %pPtrArrayCurrent.015.i.i.idx
   %pPtrArrayCurrent.015.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.015.i.i.idx, 8
   store ptr %call.i.i.i9.i.i611, ptr %pPtrArrayCurrent.015.i.i.ptr, align 8
-  %cmp.i.i597 = icmp ult i64 %pPtrArrayCurrent.015.i.i.idx, 16000
+  %cmp.i.i597 = icmp samesign ult i64 %pPtrArrayCurrent.015.i.i.idx, 16000
   br i1 %cmp.i.i597, label %while.body.i.i595, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE6DoInitEm.exit.i, !llvm.loop !796
 
 _ZN5eastl9DequeBaseIiNS_9allocatorELj1EE6DoInitEm.exit.i: ; preds = %call.i.i.i9.i.i.noexc
@@ -41967,7 +41967,7 @@ for.cond163:                                      ; preds = %invoke.cont157, %fo
   %sub.ptr.div10.i.i620 = ashr exact i64 %sub.ptr.sub9.i.i619, 2
   %add11.i.i621 = add nsw i64 %add.i.i615, %sub.ptr.div10.i.i620
   %div23 = lshr i64 %add11.i.i621, 1
-  %cmp165 = icmp ult i64 %i162.0, %div23
+  %cmp165 = icmp samesign ult i64 %i162.0, %div23
   br i1 %cmp165, label %invoke.cont167, label %for.end174
 
 invoke.cont167:                                   ; preds = %for.cond163
@@ -42087,7 +42087,7 @@ for.cond192:                                      ; preds = %invoke.cont187, %fo
   %sub.ptr.div10.i.i749 = ashr exact i64 %sub.ptr.sub9.i.i748, 2
   %add11.i.i750 = add nsw i64 %add.i.i744, %sub.ptr.div10.i.i749
   %div19424 = lshr i64 %add11.i.i750, 1
-  %cmp195 = icmp ult i64 %i191.0, %div19424
+  %cmp195 = icmp samesign ult i64 %i191.0, %div19424
   br i1 %cmp195, label %invoke.cont200, label %for.end207
 
 invoke.cont200:                                   ; preds = %for.cond192
@@ -42742,7 +42742,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351: ; preds = %for.body347, %if.t
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1350, %if.then.i1346 ], [ %itNearBegin.sroa.55.12232, %for.body347 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1348, %if.then.i1346 ], [ %itNearBegin.sroa.75.12233, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02234, 1
-  %cmp344 = icmp ugt i32 %i342.02234, 1
+  %cmp344 = icmp samesign ugt i32 %i342.02234, 1
   %cmp.i1342.not = icmp eq ptr %itNearBegin.sroa.0.7, %248
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1342.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1384
@@ -42868,7 +42868,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424: ; preds = %for.body376, %if.t
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1423, %if.then.i1419 ], [ %itNearBegin.sroa.55.42242, %for.body376 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1421, %if.then.i1419 ], [ %itNearBegin.sroa.75.42243, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02244, 1
-  %cmp371 = icmp ugt i64 %numElementsToErase.02244, 20
+  %cmp371 = icmp samesign ugt i64 %numElementsToErase.02244, 20
   %cmp.i1415.not = icmp eq ptr %itNearBegin.sroa.0.8, %256
   %or.cond2166 = select i1 %cmp371, i1 true, i1 %cmp.i1415.not
   br i1 %or.cond2166, label %for.end380, label %for.body376, !llvm.loop !1390
@@ -42974,7 +42974,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503: ; preds = %for.body404, %if.t
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1502, %if.then.i1498 ], [ %itNearBegin.sroa.55.62248, %for.body404 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1500, %if.then.i1498 ], [ %itNearBegin.sroa.75.62249, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02250, 1
-  %cmp399 = icmp ugt i32 %i397.02250, 15
+  %cmp399 = icmp samesign ugt i32 %i397.02250, 15
   %cmp.i1494.not = icmp eq ptr %itNearBegin.sroa.0.9, %269
   %or.cond2167 = select i1 %cmp399, i1 true, i1 %cmp.i1494.not
   br i1 %or.cond2167, label %while.cond365.loopexit, label %for.body404, !llvm.loop !1391
@@ -44677,7 +44677,7 @@ for.cond163:                                      ; preds = %invoke.cont157, %fo
   %sub.ptr.div10.i.i549 = ashr exact i64 %sub.ptr.sub9.i.i548, 2
   %add11.i.i550 = add nsw i64 %add.i.i544, %sub.ptr.div10.i.i549
   %div23 = lshr i64 %add11.i.i550, 1
-  %cmp165 = icmp ult i64 %i162.0, %div23
+  %cmp165 = icmp samesign ult i64 %i162.0, %div23
   br i1 %cmp165, label %invoke.cont167, label %for.end174
 
 invoke.cont167:                                   ; preds = %for.cond163
@@ -44785,7 +44785,7 @@ for.cond192:                                      ; preds = %invoke.cont187, %fo
   %sub.ptr.div10.i.i665 = ashr exact i64 %sub.ptr.sub9.i.i664, 2
   %add11.i.i666 = add nsw i64 %add.i.i660, %sub.ptr.div10.i.i665
   %div19424 = lshr i64 %add11.i.i666, 1
-  %cmp195 = icmp ult i64 %i191.0, %div19424
+  %cmp195 = icmp samesign ult i64 %i191.0, %div19424
   br i1 %cmp195, label %invoke.cont200, label %for.end207
 
 invoke.cont200:                                   ; preds = %for.cond192
@@ -45388,7 +45388,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206: ; preds = %for.body347, %if.th
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1205, %if.then.i1201 ], [ %itNearBegin.sroa.55.12059, %for.body347 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1203, %if.then.i1201 ], [ %itNearBegin.sroa.75.12060, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02061, 1
-  %cmp344 = icmp ugt i32 %i342.02061, 1
+  %cmp344 = icmp samesign ugt i32 %i342.02061, 1
   %cmp.i1197.not = icmp eq ptr %itNearBegin.sroa.0.7, %272
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1197.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1605
@@ -45514,7 +45514,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279: ; preds = %for.body376, %if.th
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1278, %if.then.i1274 ], [ %itNearBegin.sroa.55.42069, %for.body376 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1276, %if.then.i1274 ], [ %itNearBegin.sroa.75.42070, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02071, 1
-  %cmp371 = icmp ugt i64 %numElementsToErase.02071, 20
+  %cmp371 = icmp samesign ugt i64 %numElementsToErase.02071, 20
   %cmp.i1270.not = icmp eq ptr %itNearBegin.sroa.0.8, %280
   %or.cond1993 = select i1 %cmp371, i1 true, i1 %cmp.i1270.not
   br i1 %or.cond1993, label %for.end380, label %for.body376, !llvm.loop !1611
@@ -45620,7 +45620,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358: ; preds = %for.body404, %if.th
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1357, %if.then.i1353 ], [ %itNearBegin.sroa.55.62075, %for.body404 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1355, %if.then.i1353 ], [ %itNearBegin.sroa.75.62076, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02077, 1
-  %cmp399 = icmp ugt i32 %i397.02077, 15
+  %cmp399 = icmp samesign ugt i32 %i397.02077, 15
   %cmp.i1349.not = icmp eq ptr %itNearBegin.sroa.0.9, %293
   %or.cond1994 = select i1 %cmp399, i1 true, i1 %cmp.i1349.not
   br i1 %or.cond1994, label %while.cond365.loopexit, label %for.body404, !llvm.loop !1612
@@ -47423,7 +47423,7 @@ for.cond163:                                      ; preds = %invoke.cont157, %fo
   %sub.ptr.div10.i.i624 = ashr exact i64 %sub.ptr.sub9.i.i623, 2
   %add11.i.i625 = add nsw i64 %add.i.i619, %sub.ptr.div10.i.i624
   %div23 = lshr i64 %add11.i.i625, 1
-  %cmp165 = icmp ult i64 %i162.0, %div23
+  %cmp165 = icmp samesign ult i64 %i162.0, %div23
   br i1 %cmp165, label %invoke.cont167, label %for.end174
 
 invoke.cont167:                                   ; preds = %for.cond163
@@ -47543,7 +47543,7 @@ for.cond192:                                      ; preds = %invoke.cont187, %fo
   %sub.ptr.div10.i.i753 = ashr exact i64 %sub.ptr.sub9.i.i752, 2
   %add11.i.i754 = add nsw i64 %add.i.i748, %sub.ptr.div10.i.i753
   %div19424 = lshr i64 %add11.i.i754, 1
-  %cmp195 = icmp ult i64 %i191.0, %div19424
+  %cmp195 = icmp samesign ult i64 %i191.0, %div19424
   br i1 %cmp195, label %invoke.cont200, label %for.end207
 
 invoke.cont200:                                   ; preds = %for.cond192
@@ -48198,7 +48198,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355: ; preds = %for.body347, %i
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1354, %if.then.i1350 ], [ %itNearBegin.sroa.55.12278, %for.body347 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1352, %if.then.i1350 ], [ %itNearBegin.sroa.75.12279, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02280, 1
-  %cmp344 = icmp ugt i32 %i342.02280, 1
+  %cmp344 = icmp samesign ugt i32 %i342.02280, 1
   %cmp.i1346.not = icmp eq ptr %itNearBegin.sroa.0.7, %250
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1346.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1821
@@ -48324,7 +48324,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428: ; preds = %for.body376, %i
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1427, %if.then.i1423 ], [ %itNearBegin.sroa.55.42288, %for.body376 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1425, %if.then.i1423 ], [ %itNearBegin.sroa.75.42289, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02290, 1
-  %cmp371 = icmp ugt i64 %numElementsToErase.02290, 20
+  %cmp371 = icmp samesign ugt i64 %numElementsToErase.02290, 20
   %cmp.i1419.not = icmp eq ptr %itNearBegin.sroa.0.8, %258
   %or.cond2212 = select i1 %cmp371, i1 true, i1 %cmp.i1419.not
   br i1 %or.cond2212, label %for.end380, label %for.body376, !llvm.loop !1827
@@ -48430,7 +48430,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507: ; preds = %for.body404, %i
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1506, %if.then.i1502 ], [ %itNearBegin.sroa.55.62294, %for.body404 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1504, %if.then.i1502 ], [ %itNearBegin.sroa.75.62295, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02296, 1
-  %cmp399 = icmp ugt i32 %i397.02296, 15
+  %cmp399 = icmp samesign ugt i32 %i397.02296, 15
   %cmp.i1498.not = icmp eq ptr %itNearBegin.sroa.0.9, %271
   %or.cond2213 = select i1 %cmp399, i1 true, i1 %cmp.i1498.not
   br i1 %or.cond2213, label %while.cond365.loopexit, label %for.body404, !llvm.loop !1828
@@ -50644,7 +50644,7 @@ for.cond186:                                      ; preds = %_ZN10TestObjectD2Ev
   %add.i.i811 = add nsw i64 %mul.i.i810, %sub.ptr.div5.i.i803
   %add11.i.i812 = add nsw i64 %add.i.i811, %sub.ptr.div10.i.i808
   %div23 = lshr i64 %add11.i.i812, 1
-  %cmp188 = icmp ult i64 %i185.0, %div23
+  %cmp188 = icmp samesign ult i64 %i185.0, %div23
   br i1 %cmp188, label %invoke.cont190, label %for.end200
 
 invoke.cont190:                                   ; preds = %for.cond186
@@ -50860,7 +50860,7 @@ for.cond220:                                      ; preds = %invoke.cont215, %_Z
   %add.i.i985 = add nsw i64 %mul.i.i984, %sub.ptr.div5.i.i977
   %add11.i.i986 = add nsw i64 %add.i.i985, %sub.ptr.div10.i.i982
   %div22224 = lshr i64 %add11.i.i986, 1
-  %cmp223 = icmp ult i64 %i219.0, %div22224
+  %cmp223 = icmp samesign ult i64 %i219.0, %div22224
   br i1 %cmp223, label %invoke.cont228, label %for.end238
 
 invoke.cont228:                                   ; preds = %for.cond220
@@ -52138,7 +52138,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893: ; preds = %for.
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1892, %if.then.i1888 ], [ %itNearBegin.sroa.55.13090, %for.body484 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1890, %if.then.i1888 ], [ %itNearBegin.sroa.75.13091, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.03092, 1
-  %cmp481 = icmp ugt i32 %i479.03092, 1
+  %cmp481 = icmp samesign ugt i32 %i479.03092, 1
   %cmp.i1884.not = icmp eq ptr %itNearBegin.sroa.0.7, %464
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1884.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2018
@@ -52391,7 +52391,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007: ; preds = %for.
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i2006, %if.then.i2002 ], [ %itNearBegin.sroa.55.43100, %for.body513 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i2004, %if.then.i2002 ], [ %itNearBegin.sroa.75.43101, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.03102, 1
-  %cmp508 = icmp ugt i64 %numElementsToErase.03102, 20
+  %cmp508 = icmp samesign ugt i64 %numElementsToErase.03102, 20
   %cmp.i1998.not = icmp eq ptr %itNearBegin.sroa.0.8, %490
   %or.cond3009 = select i1 %cmp508, i1 true, i1 %cmp.i1998.not
   br i1 %or.cond3009, label %for.end517, label %for.body513, !llvm.loop !2024
@@ -52495,7 +52495,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084: ; preds = %for.
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2083, %if.then.i2079 ], [ %itNearBegin.sroa.55.63106, %for.body541 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2081, %if.then.i2079 ], [ %itNearBegin.sroa.75.63107, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.03108, 1
-  %cmp536 = icmp ugt i32 %i534.03108, 15
+  %cmp536 = icmp samesign ugt i32 %i534.03108, 15
   %cmp.i2075.not = icmp eq ptr %itNearBegin.sroa.0.9, %505
   %or.cond3010 = select i1 %cmp536, i1 true, i1 %cmp.i2075.not
   br i1 %or.cond3010, label %while.cond502.loopexit, label %for.body541, !llvm.loop !2025
@@ -54893,7 +54893,7 @@ for.cond186:                                      ; preds = %_ZN10TestObjectD2Ev
   %sub.ptr.div10.i.i743 = sdiv exact i64 %sub.ptr.sub9.i.i742, 24
   %add11.i.i744 = add nsw i64 %add.i.i738, %sub.ptr.div10.i.i743
   %div23 = lshr i64 %add11.i.i744, 1
-  %cmp188 = icmp ult i64 %i185.0, %div23
+  %cmp188 = icmp samesign ult i64 %i185.0, %div23
   br i1 %cmp188, label %invoke.cont190, label %for.end200
 
 invoke.cont190:                                   ; preds = %for.cond186
@@ -55099,7 +55099,7 @@ for.cond220:                                      ; preds = %invoke.cont215, %_Z
   %sub.ptr.div10.i.i906 = sdiv exact i64 %sub.ptr.sub9.i.i905, 24
   %add11.i.i907 = add nsw i64 %add.i.i901, %sub.ptr.div10.i.i906
   %div22224 = lshr i64 %add11.i.i907, 1
-  %cmp223 = icmp ult i64 %i219.0, %div22224
+  %cmp223 = icmp samesign ult i64 %i219.0, %div22224
   br i1 %cmp223, label %invoke.cont228, label %for.end238
 
 invoke.cont228:                                   ; preds = %for.cond220
@@ -56326,7 +56326,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755: ; preds = %for.
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1754, %if.then.i1750 ], [ %itNearBegin.sroa.55.12971, %for.body484 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1752, %if.then.i1750 ], [ %itNearBegin.sroa.75.12972, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.02973, 1
-  %cmp481 = icmp ugt i32 %i479.02973, 1
+  %cmp481 = icmp samesign ugt i32 %i479.02973, 1
   %cmp.i1746.not = icmp eq ptr %itNearBegin.sroa.0.7, %507
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1746.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2216
@@ -56579,7 +56579,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870: ; preds = %for.
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1869, %if.then.i1865 ], [ %itNearBegin.sroa.55.42981, %for.body513 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1867, %if.then.i1865 ], [ %itNearBegin.sroa.75.42982, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.02983, 1
-  %cmp508 = icmp ugt i64 %numElementsToErase.02983, 20
+  %cmp508 = icmp samesign ugt i64 %numElementsToErase.02983, 20
   %cmp.i1861.not = icmp eq ptr %itNearBegin.sroa.0.8, %533
   %or.cond2890 = select i1 %cmp508, i1 true, i1 %cmp.i1861.not
   br i1 %or.cond2890, label %for.end517, label %for.body513, !llvm.loop !2222
@@ -56685,7 +56685,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949: ; preds = %for.
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1948, %if.then.i1944 ], [ %itNearBegin.sroa.55.62987, %for.body541 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1946, %if.then.i1944 ], [ %itNearBegin.sroa.75.62988, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.02989, 1
-  %cmp536 = icmp ugt i32 %i534.02989, 15
+  %cmp536 = icmp samesign ugt i32 %i534.02989, 15
   %cmp.i1940.not = icmp eq ptr %itNearBegin.sroa.0.9, %546
   %or.cond2891 = select i1 %cmp536, i1 true, i1 %cmp.i1940.not
   br i1 %or.cond2891, label %while.cond502.loopexit, label %for.body541, !llvm.loop !2223
@@ -59310,7 +59310,7 @@ for.cond186:                                      ; preds = %_ZN10TestObjectD2Ev
   %sub.ptr.div10.i.i825 = sdiv exact i64 %sub.ptr.sub9.i.i824, 24
   %add11.i.i826 = add nsw i64 %add.i.i820, %sub.ptr.div10.i.i825
   %div23 = lshr i64 %add11.i.i826, 1
-  %cmp188 = icmp ult i64 %i185.0, %div23
+  %cmp188 = icmp samesign ult i64 %i185.0, %div23
   br i1 %cmp188, label %invoke.cont190, label %for.end200
 
 invoke.cont190:                                   ; preds = %for.cond186
@@ -59528,7 +59528,7 @@ for.cond220:                                      ; preds = %invoke.cont215, %_Z
   %sub.ptr.div10.i.i1002 = sdiv exact i64 %sub.ptr.sub9.i.i1001, 24
   %add11.i.i1003 = add nsw i64 %add.i.i997, %sub.ptr.div10.i.i1002
   %div22224 = lshr i64 %add11.i.i1003, 1
-  %cmp223 = icmp ult i64 %i219.0, %div22224
+  %cmp223 = icmp samesign ult i64 %i219.0, %div22224
   br i1 %cmp223, label %invoke.cont228, label %for.end238
 
 invoke.cont228:                                   ; preds = %for.cond220
@@ -60807,7 +60807,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913: ; preds = %
   %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1912, %if.then.i1908 ], [ %itNearBegin.sroa.55.13206, %for.body484 ]
   %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1910, %if.then.i1908 ], [ %itNearBegin.sroa.75.13207, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.03208, 1
-  %cmp481 = icmp ugt i32 %i479.03208, 1
+  %cmp481 = icmp samesign ugt i32 %i479.03208, 1
   %cmp.i1904.not = icmp eq ptr %itNearBegin.sroa.0.7, %466
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1904.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2408
@@ -61060,7 +61060,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028: ; preds = %
   %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i2027, %if.then.i2023 ], [ %itNearBegin.sroa.55.43216, %for.body513 ]
   %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i2025, %if.then.i2023 ], [ %itNearBegin.sroa.75.43217, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.03218, 1
-  %cmp508 = icmp ugt i64 %numElementsToErase.03218, 20
+  %cmp508 = icmp samesign ugt i64 %numElementsToErase.03218, 20
   %cmp.i2019.not = icmp eq ptr %itNearBegin.sroa.0.8, %492
   %or.cond3125 = select i1 %cmp508, i1 true, i1 %cmp.i2019.not
   br i1 %or.cond3125, label %for.end517, label %for.body513, !llvm.loop !2414
@@ -61166,7 +61166,7 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107: ; preds = %
   %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2106, %if.then.i2102 ], [ %itNearBegin.sroa.55.63222, %for.body541 ]
   %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2104, %if.then.i2102 ], [ %itNearBegin.sroa.75.63223, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.03224, 1
-  %cmp536 = icmp ugt i32 %i534.03224, 15
+  %cmp536 = icmp samesign ugt i32 %i534.03224, 15
   %cmp.i2098.not = icmp eq ptr %itNearBegin.sroa.0.9, %505
   %or.cond3126 = select i1 %cmp536, i1 true, i1 %cmp.i2098.not
   br i1 %or.cond3126, label %while.cond502.loopexit, label %for.body541, !llvm.loop !2415
@@ -82030,7 +82030,7 @@ _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.the
   %inc3.i32 = add nsw i64 %20, 1
   store i64 %inc3.i32, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %p34.0.add = add nuw nsw i64 %p34.0.idx70, 24
-  %cmp37 = icmp ult i64 %p34.0.idx70, 786408
+  %cmp37 = icmp samesign ult i64 %p34.0.idx70, 786408
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !3697
 
 for.end41:                                        ; preds = %_ZN10TestObjectD2Ev.exit33
@@ -119654,7 +119654,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i29: ; preds = %if.then.i.i27
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit30: ; preds = %for.body38, %if.then.i.i27, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i29
   %p34.0.add = add nuw nsw i64 %p34.0.idx40, 24
-  %cmp37 = icmp ult i64 %p34.0.idx40, 168
+  %cmp37 = icmp samesign ult i64 %p34.0.idx40, 168
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !6493
 
 for.end41:                                        ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit30

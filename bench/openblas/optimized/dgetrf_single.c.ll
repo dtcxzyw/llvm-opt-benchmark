@@ -46,7 +46,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr nocapture readnone %1, ptr noundef
   %38 = add nuw nsw i64 %37, 1
   %39 = and i64 %38, 9223372036854775806
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 384)
-  %41 = icmp ult i64 %39, 5
+  %41 = icmp samesign ult i64 %39, 5
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35

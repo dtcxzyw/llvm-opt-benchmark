@@ -869,7 +869,7 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef %0) unname
   %34 = load i16, ptr %33, align 8
   %35 = zext i16 %34 to i64
   %36 = mul nuw nsw i64 %35, 6
-  %37 = icmp ugt i64 %36, %30
+  %37 = icmp samesign ugt i64 %36, %30
   %38 = trunc i32 %.06096 to i8
   %39 = getelementptr i8, ptr %.05898, i64 1
   store i8 %38, ptr %.05898, align 1

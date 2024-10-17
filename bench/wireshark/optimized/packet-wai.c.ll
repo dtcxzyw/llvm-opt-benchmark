@@ -708,7 +708,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %229 = zext i16 %228 to i32
   %230 = add nuw nsw i32 %229, 4
   %231 = add nuw nsw i32 %230, %226
-  %232 = icmp ult i32 %231, %70
+  %232 = icmp samesign ult i32 %231, %70
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %218

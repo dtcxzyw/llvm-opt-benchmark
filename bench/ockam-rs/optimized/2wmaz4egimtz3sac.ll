@@ -688,7 +688,7 @@ define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outg
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -742,7 +742,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -3405,7 +3405,7 @@ common.ret:                                       ; preds = %1836, %2058, %183
   %1052 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !516
   %1053 = icmp ult i64 %1052, 6
   tail call void @llvm.assume(i1 %1053)
-  %switch.selectcmp.i54.i.i.i.i = icmp ugt i64 %1052, 1
+  %switch.selectcmp.i54.i.i.i.i = icmp samesign ugt i64 %1052, 1
   br i1 %switch.selectcmp.i54.i.i.i.i, label %1054, label %.thread743.i.i.i
 
 1054:                                             ; preds = %1051
@@ -3871,7 +3871,7 @@ common.ret:                                       ; preds = %1836, %2058, %183
   %1201 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !326
   %1202 = icmp ult i64 %1201, 6
   call void @llvm.assume(i1 %1202)
-  %switch.selectcmp.i410.i.i.i = icmp ugt i64 %1201, 1
+  %switch.selectcmp.i410.i.i.i = icmp samesign ugt i64 %1201, 1
   br i1 %switch.selectcmp.i410.i.i.i, label %1203, label %1300
 
 1203:                                             ; preds = %1200
@@ -5106,7 +5106,7 @@ common.ret:                                       ; preds = %1836, %2058, %183
   %1722 = getelementptr inbounds i8, ptr %0, i64 440
   call void @llvm.experimental.noalias.scope.decl(metadata !728)
   %1723 = load i64, ptr %1722, align 8, !range !731, !alias.scope !728, !noalias !326, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %1723, 4
+  %switch.i.i.i.i = icmp samesign ult i64 %1723, 4
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit.i.i.i", label %1724
 
 1724:                                             ; preds = %1721
@@ -5485,7 +5485,7 @@ common.ret:                                       ; preds = %1836, %2058, %183
   %1859 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %1860 = icmp ult i64 %1859, 6
   call void @llvm.assume(i1 %1860)
-  %switch.selectcmp.i152 = icmp ugt i64 %1859, 3
+  %switch.selectcmp.i152 = icmp samesign ugt i64 %1859, 3
   br i1 %switch.selectcmp.i152, label %1861, label %1936
 
 1861:                                             ; preds = %1858
@@ -5803,7 +5803,7 @@ common.ret:                                       ; preds = %1836, %2058, %183
   %1962 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %1963 = icmp ult i64 %1962, 6
   call void @llvm.assume(i1 %1963)
-  %switch.selectcmp.i176 = icmp ugt i64 %1962, 1
+  %switch.selectcmp.i176 = icmp samesign ugt i64 %1962, 1
   br i1 %switch.selectcmp.i176, label %1964, label %1936
 
 1964:                                             ; preds = %1961
@@ -6146,7 +6146,7 @@ define internal fastcc void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8sch
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6200,7 +6200,7 @@ define internal fastcc void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8sch
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -7184,7 +7184,7 @@ common.ret:                                       ; preds = %73, %1, %190
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1129
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   %45 = load i64, ptr %0, align 8, !range !731, !alias.scope !1145, !noundef !4
-  %switch.i = icmp ult i64 %45, 4
+  %switch.i = icmp samesign ult i64 %45, 4
   br i1 %switch.i, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit", label %46
 
 46:                                               ; preds = %44
@@ -7510,7 +7510,7 @@ common.ret:                                       ; preds = %73, %1, %190
   %171 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1195)
   %172 = load i64, ptr %171, align 8, !range !731, !alias.scope !1195, !noundef !4
-  %switch.i38 = icmp ult i64 %172, 4
+  %switch.i38 = icmp samesign ult i64 %172, 4
   br i1 %switch.i38, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit42", label %173
 
 173:                                              ; preds = %170
@@ -7685,7 +7685,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr46drop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1214
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1223)
   %21 = load i64, ptr %0, align 8, !range !731, !alias.scope !1223, !noundef !4
-  %switch.i = icmp ult i64 %21, 4
+  %switch.i = icmp samesign ult i64 %21, 4
   br i1 %switch.i, label %common.ret, label %22
 
 22:                                               ; preds = %20
@@ -7808,7 +7808,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1233
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1242)
   %27 = load i64, ptr %0, align 8, !range !731, !alias.scope !1242, !noundef !4
-  %switch.i = icmp ult i64 %27, 4
+  %switch.i = icmp samesign ult i64 %27, 4
   br i1 %switch.i, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit", label %28
 
 28:                                               ; preds = %26
@@ -8586,7 +8586,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !731, !noundef !4
-  %switch = icmp ult i64 %3, 4
+  %switch = icmp samesign ult i64 %3, 4
   br i1 %switch, label %14, label %4
 
 4:                                                ; preds = %1
@@ -9354,7 +9354,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !1549)
   %17 = load i64, ptr %1, align 8, !range !731, !alias.scope !1549, !noundef !4
-  %switch.i = icmp ult i64 %17, 4
+  %switch.i = icmp samesign ult i64 %17, 4
   br i1 %switch.i, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit", label %18
 
 18:                                               ; preds = %16
@@ -9429,7 +9429,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !1566)
   %44 = load i64, ptr %1, align 8, !range !731, !alias.scope !1566, !noundef !4
-  %switch.i7 = icmp ult i64 %44, 4
+  %switch.i7 = icmp samesign ult i64 %44, 4
   br i1 %switch.i7, label %"_ZN4core3ptr77drop_in_place$LT$ockam_transport_udp..hole_puncher..message..PunchMessage$GT$17hd477d5e5a84c3b8cE.llvm.14000083674900485454.exit", label %45
 
 45:                                               ; preds = %43

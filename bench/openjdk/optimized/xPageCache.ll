@@ -136,7 +136,7 @@ _ZN13XValueStorageI15XPerNUMAStorageE5allocEm.exit.i: ; preds = %tailrecurse.i.i
   store i64 0, ptr %23, align 8
   %24 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next.i, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %26, label %.lr.ph.i, label %_ZN6XValueI15XPerNUMAStorage5XListI5XPageEEC2Ev.exit, !llvm.loop !6
 
 _ZN6XValueI15XPerNUMAStorage5XListI5XPageEEC2Ev.exit: ; preds = %.lr.ph.i, %_ZN13XValueStorageI15XPerNUMAStorageE5allocEm.exit.i
@@ -1507,7 +1507,7 @@ define hidden void @_ZNK10XPageCache8pages_doEP12XPageClosure(ptr noundef nonnul
 _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit: ; preds = %select.unfold, %.lr.ph56
   %4 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
   %5 = zext i32 %4 to i64
-  %6 = icmp ult i64 %indvars.iv.next, %5
+  %6 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %6, label %.lr.ph56, label %_ZN19XValueConstIteratorI15XPerNUMAStorage5XListI5XPageEE4nextEPPKS3_.exit, !llvm.loop !13
 
 .lr.ph56:                                         ; preds = %2, %_ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit

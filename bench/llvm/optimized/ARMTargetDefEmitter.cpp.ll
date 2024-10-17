@@ -4242,7 +4242,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit703: ; preds = %1973, %1982, %
   br i1 %.not.i.i.i609, label %"_ZN4llvm8count_ifIRSt6vectorIPNS_6RecordESaIS3_EEZL16EmitARMTargetDefRNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !43
 
 "_ZN4llvm8count_ifIRSt6vectorIPNS_6RecordESaIS3_EEZL16EmitARMTargetDefRNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit": ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit703
-  %1986 = icmp ugt i64 %spec.select.i.i.i, 1
+  %1986 = icmp samesign ugt i64 %spec.select.i.i.i, 1
   br i1 %1986, label %1987, label %"_ZN4llvm8count_ifIRSt6vectorIPNS_6RecordESaIS3_EEZL16EmitARMTargetDefRNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit.thread"
 
 1987:                                             ; preds = %"_ZN4llvm8count_ifIRSt6vectorIPNS_6RecordESaIS3_EEZL16EmitARMTargetDefRNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit"
@@ -6176,7 +6176,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i

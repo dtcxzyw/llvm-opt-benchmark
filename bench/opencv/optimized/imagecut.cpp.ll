@@ -144,7 +144,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
 .lr.ph71.split.us:                                ; preds = %.lr.ph71.split.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv74 = phi i64 [ 0, %.lr.ph71.split.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
   %.04468.us = phi i32 [ 0, %.lr.ph71.split.us.preheader ], [ %.1.us, %..loopexit_crit_edge.us ]
-  %50 = icmp ult i64 %indvars.iv74, %47
+  %50 = icmp samesign ult i64 %indvars.iv74, %47
   %51 = icmp sgt i64 %indvars.iv74, %48
   %or.cond56.us = or i1 %50, %51
   br i1 %or.cond56.us, label %..loopexit_crit_edge.us, label %.preheader.us
@@ -152,7 +152,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
 52:                                               ; preds = %.preheader.us, %63
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %63 ]
   %.266.us = phi i32 [ %.04468.us, %.preheader.us ], [ %.3.us, %63 ]
-  %53 = icmp ult i64 %indvars.iv, %45
+  %53 = icmp samesign ult i64 %indvars.iv, %45
   %54 = icmp sgt i64 %indvars.iv, %46
   %or.cond57.us = or i1 %53, %54
   br i1 %or.cond57.us, label %63, label %55

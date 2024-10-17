@@ -600,7 +600,7 @@ define hidden void @PMurHash128x64_Result(ptr nocapture noundef readonly %0, ptr
 
 12:                                               ; preds = %4
   %13 = load i64, ptr %1, align 8
-  %14 = icmp ugt i32 %11, 8
+  %14 = icmp samesign ugt i32 %11, 8
   %15 = shl nuw nsw i32 %11, 3
   br i1 %14, label %16, label %26
 
@@ -940,7 +940,7 @@ define hidden void @PMurHash128x64(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 15:                                               ; preds = %4
   %16 = load i64, ptr %5, align 16
-  %17 = icmp ugt i32 %14, 8
+  %17 = icmp samesign ugt i32 %14, 8
   %18 = shl nuw nsw i32 %14, 3
   br i1 %17, label %19, label %29
 

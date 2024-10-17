@@ -4439,7 +4439,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %218
 350:                                              ; preds = %347
   %351 = load i32, ptr %97, align 8
   %352 = and i32 %351, 4095
-  %353 = icmp ult i32 %352, 5
+  %353 = icmp samesign ult i32 %352, 5
   %354 = zext i1 %353 to i8
   %355 = load i32, ptr %133, align 8
   %356 = and i32 %355, 16384
@@ -8475,7 +8475,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -9263,7 +9263,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.2.0.copyload15 = load i32, ptr %.sroa.2.0..sroa_idx14, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -11773,7 +11773,7 @@ _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %9, %16, %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = icmp ult i64 %indvars.iv, %43
+  %44 = icmp samesign ult i64 %indvars.iv, %43
   %45 = zext i1 %44 to i8
   %46 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv
   store i8 %45, ptr %46, align 1

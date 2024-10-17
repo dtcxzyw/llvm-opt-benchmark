@@ -16503,7 +16503,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
   %78 = getelementptr i8, ptr %77, i64 6
   store i8 1, ptr %78, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %79 = icmp ult i64 %indvars.iv.next, %52
+  %79 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %79, label %.lr.ph85, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader82

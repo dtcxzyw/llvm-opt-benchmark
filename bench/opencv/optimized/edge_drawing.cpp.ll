@@ -4662,8 +4662,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit: ; preds = %5
   %624 = load i32, ptr %619, align 4
   %625 = sub nsw i32 %610, %624
   %626 = call i32 @llvm.abs.i32(i32 %625, i1 true)
-  %627 = icmp ult i32 %623, 2
-  %628 = icmp ult i32 %626, 2
+  %627 = icmp samesign ult i32 %623, 2
+  %628 = icmp samesign ult i32 %626, 2
   %or.cond = select i1 %627, i1 %628, i1 false
   br i1 %or.cond, label %629, label %._crit_edge940.loopexit
 
@@ -4713,8 +4713,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit: ; preds = %5
   %659 = load i32, ptr %654, align 4
   %660 = sub nsw i32 %646, %659
   %661 = call i32 @llvm.abs.i32(i32 %660, i1 true)
-  %662 = icmp ult i32 %658, 2
-  %663 = icmp ult i32 %661, 2
+  %662 = icmp samesign ult i32 %658, 2
+  %663 = icmp samesign ult i32 %661, 2
   %or.cond5 = select i1 %662, i1 %663, i1 false
   br i1 %or.cond5, label %664, label %.lr.ph947.preheader
 
@@ -4925,8 +4925,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit762: ; preds =
   %757 = load i32, ptr %752, align 4
   %758 = sub nsw i32 %743, %757
   %759 = call i32 @llvm.abs.i32(i32 %758, i1 true)
-  %760 = icmp ult i32 %756, 2
-  %761 = icmp ult i32 %759, 2
+  %760 = icmp samesign ult i32 %756, 2
+  %761 = icmp samesign ult i32 %759, 2
   %or.cond7 = select i1 %760, i1 %761, i1 false
   br i1 %or.cond7, label %762, label %._crit_edge959
 
@@ -4970,8 +4970,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit762: ; preds =
   %791 = load i32, ptr %786, align 4
   %792 = sub nsw i32 %778, %791
   %793 = call i32 @llvm.abs.i32(i32 %792, i1 true)
-  %794 = icmp ult i32 %790, 2
-  %795 = icmp ult i32 %793, 2
+  %794 = icmp samesign ult i32 %790, 2
+  %795 = icmp samesign ult i32 %793, 2
   %or.cond11 = select i1 %794, i1 %795, i1 false
   %spec.select747 = zext i1 %or.cond11 to i32
   br label %796
@@ -5109,8 +5109,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit777: ; preds = %809, %_
   %857 = load i32, ptr %852, align 4
   %858 = sub nsw i32 %849, %857
   %859 = call i32 @llvm.abs.i32(i32 %858, i1 true)
-  %860 = icmp ult i32 %856, 2
-  %861 = icmp ult i32 %859, 2
+  %860 = icmp samesign ult i32 %856, 2
+  %861 = icmp samesign ult i32 %859, 2
   %or.cond13 = select i1 %860, i1 %861, i1 false
   br i1 %or.cond13, label %862, label %870
 
@@ -5269,8 +5269,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit792: ; preds =
   %926 = load i32, ptr %921, align 4
   %927 = sub nsw i32 %912, %926
   %928 = call i32 @llvm.abs.i32(i32 %927, i1 true)
-  %929 = icmp ult i32 %925, 2
-  %930 = icmp ult i32 %928, 2
+  %929 = icmp samesign ult i32 %925, 2
+  %930 = icmp samesign ult i32 %928, 2
   %or.cond15 = select i1 %929, i1 %930, i1 false
   br i1 %or.cond15, label %931, label %._crit_edge977
 
@@ -5314,8 +5314,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl16RetrieveChainNosEP5ChainiPi.exit792: ; preds =
   %960 = load i32, ptr %955, align 4
   %961 = sub nsw i32 %947, %960
   %962 = call i32 @llvm.abs.i32(i32 %961, i1 true)
-  %963 = icmp ult i32 %959, 2
-  %964 = icmp ult i32 %962, 2
+  %963 = icmp samesign ult i32 %959, 2
+  %964 = icmp samesign ult i32 %962, 2
   %or.cond19 = select i1 %963, i1 %964, i1 false
   %spec.select748 = zext i1 %or.cond19 to i32
   br label %965
@@ -22517,7 +22517,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl14AllocateMatrixEii.exit183: ; preds = %27
 83:                                               ; preds = %81
   %84 = zext i32 %.1152 to i64
   %.not165 = icmp eq i64 %indvars.iv302, %84
-  %.not166253 = icmp ugt i64 %indvars.iv302, %46
+  %.not166253 = icmp samesign ugt i64 %indvars.iv302, %46
   %or.cond = select i1 %.not165, i1 true, i1 %.not166253
   br i1 %or.cond, label %.loopexit232, label %.lr.ph255
 
@@ -23128,7 +23128,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6choldcEPPdiS3_(ptr nocaptur
 .preheader68:                                     ; preds = %.preheader68.preheader, %.split.us
   %indvars.iv = phi i64 [ 1, %.preheader68.preheader ], [ %indvars.iv.next, %.split.us ]
   %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
-  %11 = icmp ugt i64 %indvars.iv, 1
+  %11 = icmp samesign ugt i64 %indvars.iv, 1
   %12 = getelementptr inbounds double, ptr %9, i64 %indvars.iv
   br i1 %11, label %.lr.ph.us, label %.preheader68.split
 
@@ -23462,11 +23462,11 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   br i1 %35, label %._crit_edge220.thread, label %.lr.ph243
 
 .lr.ph243:                                        ; preds = %._crit_edge220
-  %36 = icmp ult i32 %.0176248, 4
+  %36 = icmp samesign ult i32 %.0176248, 4
   %37 = fmul double %34, 2.000000e-01
   %38 = fdiv double %37, %19
   %.0177 = select i1 %36, double %38, double 0.000000e+00
-  %39 = icmp ugt i32 %.0176248, 4
+  %39 = icmp samesign ugt i32 %.0176248, 4
   br label %.lr.ph239
 
 .loopexit198:                                     ; preds = %.loopexit
@@ -23484,7 +23484,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv299
   %41 = getelementptr inbounds double, ptr %2, i64 %indvars.iv299
   %42 = getelementptr inbounds double, ptr %11, i64 %indvars.iv299
-  %.not189.not222 = icmp ugt i64 %indvars.iv299, 1
+  %.not189.not222 = icmp samesign ugt i64 %indvars.iv299, 1
   br label %43
 
 43:                                               ; preds = %.lr.ph239, %.loopexit
@@ -23563,7 +23563,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   br label %89
 
 .preheader197:                                    ; preds = %89, %70
-  %.not190.not226 = icmp ult i64 %indvars.iv.next300, %indvars.iv284
+  %.not190.not226 = icmp samesign ult i64 %indvars.iv.next300, %indvars.iv284
   br i1 %.not190.not226, label %.lr.ph228, label %.preheader196
 
 .lr.ph228:                                        ; preds = %.preheader197

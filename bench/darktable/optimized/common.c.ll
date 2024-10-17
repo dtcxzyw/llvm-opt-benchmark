@@ -537,25 +537,25 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
 .loopexit32:                                      ; preds = %.preheader, %316, %.loopexit34, %.loopexit35
   %380 = getelementptr double, ptr %4, i64 %204
   %381 = getelementptr double, ptr %380, i64 %154
-  %382 = icmp ult i64 %154, 8
+  %382 = icmp samesign ult i64 %154, 8
   %383 = add nuw nsw i64 %154, 1
   %384 = getelementptr double, ptr %380, i64 %383
   %385 = icmp eq i64 %154, 7
   %386 = add nuw nsw i64 %154, 2
   %387 = getelementptr double, ptr %380, i64 %386
-  %388 = icmp ult i64 %154, 6
+  %388 = icmp samesign ult i64 %154, 6
   %389 = add nuw nsw i64 %154, 3
   %390 = getelementptr double, ptr %380, i64 %389
   %391 = icmp eq i64 %154, 5
   %392 = add nuw nsw i64 %154, 4
   %393 = getelementptr double, ptr %380, i64 %392
-  %394 = icmp ult i64 %154, 4
+  %394 = icmp samesign ult i64 %154, 4
   %395 = add nuw nsw i64 %154, 5
   %396 = getelementptr double, ptr %380, i64 %395
   %397 = icmp eq i64 %154, 3
   %398 = add nuw nsw i64 %154, 6
   %399 = getelementptr double, ptr %380, i64 %398
-  %400 = icmp ult i64 %154, 2
+  %400 = icmp samesign ult i64 %154, 2
   %401 = add nuw nsw i64 %154, 7
   %402 = getelementptr double, ptr %380, i64 %401
   br label %403
@@ -645,7 +645,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
 
 462:                                              ; preds = %455, %448, %441, %434, %427, %420, %414, %403
   %463 = add nuw nsw i64 %404, 1
-  %464 = icmp ult i64 %404, 8
+  %464 = icmp samesign ult i64 %404, 8
   br i1 %464, label %403, label %.loopexit.loopexit
 
 465:                                              ; preds = %209

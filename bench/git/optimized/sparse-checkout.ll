@@ -1111,7 +1111,7 @@ for.inc.i:                                        ; preds = %if.then26.i, %land.
   %cache_nr.i = getelementptr inbounds i8, ptr %29, i64 12
   %30 = load i32, ptr %cache_nr.i, align 4
   %31 = zext i32 %30 to i64
-  %cmp21.i = icmp ult i64 %indvars.iv.next.i, %31
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i

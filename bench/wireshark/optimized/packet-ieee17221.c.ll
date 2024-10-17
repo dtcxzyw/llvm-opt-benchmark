@@ -1719,7 +1719,7 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
   %17 = and i16 %16, 15
   %18 = icmp eq i16 %17, 0
   %19 = icmp eq i16 %17, 1
-  %or.cond = icmp ult i16 %17, 2
+  %or.cond = icmp samesign ult i16 %17, 2
   br i1 %or.cond, label %20, label %529
 
 20:                                               ; preds = %3

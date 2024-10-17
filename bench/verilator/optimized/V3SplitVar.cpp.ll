@@ -4535,7 +4535,7 @@ _ZN8FileLine9singletonEv.exit.i133:               ; preds = %187, %184, %181
   unreachable
 
 _ZNK8FileLine5msgEnEv.exit136:                    ; preds = %_ZN8FileLine9singletonEv.exit.i133
-  %200 = icmp ugt i64 %.036.i74, 118
+  %200 = icmp samesign ugt i64 %.036.i74, 118
   br i1 %200, label %201, label %_ZNKSt6bitsetILm119EE4testEm.exit132
 
 201:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit136
@@ -4847,7 +4847,7 @@ _ZN8FileLine9singletonEv.exit.i112:               ; preds = %341, %338, %335
   unreachable
 
 _ZNK8FileLine5msgEnEv.exit115:                    ; preds = %_ZN8FileLine9singletonEv.exit.i112
-  %354 = icmp ugt i64 %.036.i63, 118
+  %354 = icmp samesign ugt i64 %.036.i63, 118
   br i1 %354, label %355, label %_ZNKSt6bitsetILm119EE4testEm.exit111
 
 355:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit115
@@ -5130,7 +5130,7 @@ _ZNK8FileLine5msgEnEv.exit98:                     ; preds = %_ZN8FileLine9single
 
 494:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit98
   %495 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %391)
-  %496 = icmp ugt i64 %.036.i52, 118
+  %496 = icmp samesign ugt i64 %.036.i52, 118
   br i1 %496, label %497, label %_ZNKSt6bitsetILm119EE4testEm.exit94
 
 497:                                              ; preds = %494
@@ -5418,7 +5418,7 @@ _ZNK8FileLine5msgEnEv.exit81:                     ; preds = %_ZN8FileLine9single
 
 631:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit81
   %632 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %528)
-  %633 = icmp ugt i64 %.036.i, 118
+  %633 = icmp samesign ugt i64 %.036.i, 118
   br i1 %633, label %634, label %_ZNKSt6bitsetILm119EE4testEm.exit
 
 634:                                              ; preds = %631
@@ -23934,7 +23934,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_
   %40 = and i8 %39, 1
   %41 = load i8, ptr %10, align 4
   %42 = and i8 %41, 1
-  %43 = icmp ult i8 %40, %42
+  %43 = icmp samesign ult i8 %40, %42
   br i1 %43, label %45, label %47
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i: ; preds = %34
@@ -23962,7 +23962,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %54 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
   %55 = load i8, ptr %54, align 4
   %56 = and i8 %55, 1
-  %57 = icmp ult i8 %53, %56
+  %57 = icmp samesign ult i8 %53, %56
   br i1 %57, label %.backedge, label %59
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit9.i.i: ; preds = %48
@@ -24031,7 +24031,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   %15 = and i8 %14, 1
   %16 = load i8, ptr %7, align 4
   %17 = and i8 %16, 1
-  %18 = icmp ult i8 %15, %17
+  %18 = icmp samesign ult i8 %15, %17
   br i1 %18, label %.lr.ph.i.i.i.i.i.preheader.i, label %33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i: ; preds = %8
@@ -24089,7 +24089,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS
   %40 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 -4
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 1
-  %43 = icmp ult i8 %35, %42
+  %43 = icmp samesign ult i8 %35, %42
   br i1 %43, label %45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEclISt4pairIibENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i: ; preds = %36
@@ -24145,7 +24145,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_S
   %56 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i16, i64 -4
   %57 = load i8, ptr %56, align 4
   %58 = and i8 %57, 1
-  %59 = icmp ult i8 %51, %58
+  %59 = icmp samesign ult i8 %51, %58
   br i1 %59, label %61, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_T0_.exit.i19
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEclISt4pairIibENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i18: ; preds = %52
@@ -24200,7 +24200,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6ve
   %75 = and i8 %74, 1
   %76 = load i8, ptr %67, align 4
   %77 = and i8 %76, 1
-  %78 = icmp ult i8 %75, %77
+  %78 = icmp samesign ult i8 %75, %77
   br i1 %78, label %80, label %97
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i32: ; preds = %68
@@ -24264,7 +24264,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS
   %104 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i36, i64 -4
   %105 = load i8, ptr %104, align 4
   %106 = and i8 %105, 1
-  %107 = icmp ult i8 %99, %106
+  %107 = icmp samesign ult i8 %99, %106
   br i1 %107, label %109, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_T0_.exit.i39
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12PackedVarRef11SortByFirstEEclISt4pairIibENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i38: ; preds = %100
@@ -24325,7 +24325,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %20 = getelementptr inbounds i8, ptr %12, i64 4
   %21 = load i8, ptr %20, align 4
   %22 = and i8 %21, 1
-  %23 = icmp ult i8 %19, %22
+  %23 = icmp samesign ult i8 %19, %22
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit
 
 24:                                               ; preds = %.lr.ph
@@ -24395,7 +24395,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %57 = getelementptr inbounds i8, ptr %53, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
-  %60 = icmp ult i8 %59, %52
+  %60 = icmp samesign ult i8 %59, %52
   br i1 %60, label %62, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIN12PackedVarRef11SortByFirstEEEEvT_T0_SF_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i: ; preds = %.lr.ph.i
@@ -24440,7 +24440,7 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
   %12 = getelementptr inbounds i8, ptr %2, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, 1
-  %15 = icmp ult i8 %11, %14
+  %15 = icmp samesign ult i8 %11, %14
   br i1 %15, label %17, label %41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit: ; preds = %4
@@ -24459,7 +24459,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %24 = getelementptr inbounds i8, ptr %3, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = and i8 %25, 1
-  %27 = icmp ult i8 %23, %26
+  %27 = icmp samesign ult i8 %23, %26
   br i1 %27, label %65, label %29
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit27: ; preds = %17
@@ -24477,7 +24477,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %35 = getelementptr inbounds i8, ptr %3, i64 4
   %36 = load i8, ptr %35, align 4
   %37 = and i8 %36, 1
-  %38 = icmp ult i8 %34, %37
+  %38 = icmp samesign ult i8 %34, %37
   br i1 %38, label %65, label %40
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit29: ; preds = %29
@@ -24499,7 +24499,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %48 = getelementptr inbounds i8, ptr %3, i64 4
   %49 = load i8, ptr %48, align 4
   %50 = and i8 %49, 1
-  %51 = icmp ult i8 %47, %50
+  %51 = icmp samesign ult i8 %47, %50
   br i1 %51, label %65, label %53
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit31: ; preds = %41
@@ -24517,7 +24517,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__nor
   %59 = getelementptr inbounds i8, ptr %3, i64 4
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, 1
-  %62 = icmp ult i8 %58, %61
+  %62 = icmp samesign ult i8 %58, %61
   br i1 %62, label %65, label %64
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEclINS_17__normal_iteratorIPSt4pairIibESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit33: ; preds = %53

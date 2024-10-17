@@ -323,7 +323,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool94.not, label %for.inc, label %if.then95
 
 if.then95:                                        ; preds = %for.body
-  %cmp.i = icmp ugt i64 %indvars.iv, 255
+  %cmp.i = icmp samesign ugt i64 %indvars.iv, 255
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, -704
   %or.cond.i = icmp ult i32 %33, -352

@@ -6577,7 +6577,7 @@ define internal fastcc noundef zeroext i1 @_ZL29areOuterLoopExitPHIsSupportedPN4
   %25 = load i32, ptr %6, align 4
   %26 = and i32 %25, 134217727
   %27 = zext nneg i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %10, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %24, %.preheader
@@ -7315,7 +7315,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %131, %134
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %131 ], [ %136, %134 ]
   %.idx85 = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %140 = getelementptr inbounds i8, ptr %139, i64 %.idx85
-  %.not84 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not84 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not84, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit

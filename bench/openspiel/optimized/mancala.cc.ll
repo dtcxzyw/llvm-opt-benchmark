@@ -1495,7 +1495,7 @@ define noundef zeroext i1 @_ZNK10open_spiel7mancala12MancalaState10IsTerminalEv(
   br i1 %20, label %21, label %.preheader23, !llvm.loop !16
 
 21:                                               ; preds = %17, %.preheader23
-  %22 = icmp ugt i64 %indvars.iv18, 5
+  %22 = icmp samesign ugt i64 %indvars.iv18, 5
   %23 = or i1 %16, %22
   br label %24
 

@@ -304,7 +304,7 @@ for.body.i.i:                                     ; preds = %cond.end.i.i, %for.
   %18 = load float, ptr %y.i14.i.i, align 4
   %sub3.i16.i.i = fsub float %18, %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp4.i.i = icmp ult i64 %indvars.iv.next.i.i, %16
+  %cmp4.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %16
   br i1 %cmp4.i.i, label %cond.true.i.i, label %cond.end.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
@@ -485,7 +485,7 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
   %20 = load float, ptr %y.i14.i, align 4
   %sub3.i16.i = fsub float %20, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp4.i = icmp ult i64 %indvars.iv.next.i, %18
+  %cmp4.i = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %cmp4.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %for.body.i
@@ -863,7 +863,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %5 = load float, ptr %y.i25, align 4
   %sub3.i = fsub float %5, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp5 = icmp ult i64 %indvars.iv.next, %3
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp5, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body

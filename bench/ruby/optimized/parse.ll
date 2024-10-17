@@ -1611,7 +1611,7 @@ yylex.exit.thread:                                ; preds = %212, %yylex.exit
 
 231:                                              ; preds = %227
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
-  %232 = icmp ult i32 %228, 163
+  %232 = icmp samesign ult i32 %228, 163
   %233 = select i1 %232, ptr @.str.85, ptr @.str.86
   %234 = zext nneg i32 %228 to i64
   %235 = getelementptr [442 x ptr], ptr @yytname, i64 0, i64 %234
@@ -24687,7 +24687,7 @@ define dso_local noundef i32 @rb_reg_named_capture_assign_iter_impl(ptr noundef 
   br i1 %or.cond.i, label %16, label %reserved_word.exit.thread
 
 16:                                               ; preds = %13
-  %switch.i.i = icmp ult i64 %14, 3
+  %switch.i.i = icmp samesign ult i64 %14, 3
   br i1 %switch.i.i, label %hash.exit.i, label %17
 
 17:                                               ; preds = %16
@@ -24717,7 +24717,7 @@ hash.exit.i:                                      ; preds = %17, %16
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %31, %38
-  %40 = icmp ult i32 %39, 51
+  %40 = icmp samesign ult i32 %39, 51
   br i1 %40, label %41, label %reserved_word.exit.thread
 
 41:                                               ; preds = %hash.exit.i
@@ -25380,7 +25380,7 @@ hash.exit.i:                                      ; preds = %6, %5
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %19, %26
-  %28 = icmp ult i32 %27, 51
+  %28 = icmp samesign ult i32 %27, 51
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %hash.exit.i
@@ -45373,7 +45373,7 @@ hash.exit.i:                                      ; preds = %175, %174
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = add nuw nsw i32 %188, %195
-  %197 = icmp ult i32 %196, 51
+  %197 = icmp samesign ult i32 %196, 51
   br i1 %197, label %198, label %reserved_word.exit.thread
 
 198:                                              ; preds = %hash.exit.i
@@ -45463,7 +45463,7 @@ hash.exit.i199:                                   ; preds = %230, %229
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = add nuw nsw i32 %243, %250
-  %252 = icmp ult i32 %251, 51
+  %252 = icmp samesign ult i32 %251, 51
   br i1 %252, label %253, label %thread-pre-split
 
 253:                                              ; preds = %hash.exit.i199
@@ -46348,14 +46348,14 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %200
   store i8 120, ptr %209, align 1
   %211 = lshr i32 %193, 4
   %212 = and i32 %211, 15
-  %213 = icmp ult i32 %212, 10
+  %213 = icmp samesign ult i32 %212, 10
   %214 = select i1 %213, i32 48, i32 55
   %215 = add nuw nsw i32 %214, %212
   %216 = trunc nuw nsw i32 %215 to i8
   %217 = getelementptr i8, ptr %208, i64 3
   store i8 %216, ptr %210, align 1
   %218 = and i32 %193, 15
-  %219 = icmp ult i32 %218, 10
+  %219 = icmp samesign ult i32 %218, 10
   %220 = select i1 %219, i32 48, i32 55
   %221 = add nuw nsw i32 %220, %218
   %222 = trunc nuw nsw i32 %221 to i8
@@ -47635,7 +47635,7 @@ pushback.exit:                                    ; preds = %11, %20, %23, %27
   br label %128
 
 40:                                               ; preds = %tailrecurse
-  %.not83 = icmp ult i32 %.tr102, 2
+  %.not83 = icmp samesign ult i32 %.tr102, 2
   br i1 %.not83, label %41, label %.loopexit103
 
 41:                                               ; preds = %40
@@ -47680,7 +47680,7 @@ tailrecurse.backedge:                             ; preds = %45, %48
   br i1 %.not86, label %62, label %.sink.split
 
 .sink.split:                                      ; preds = %54
-  %56 = icmp ult i32 %44, 32
+  %56 = icmp samesign ult i32 %44, 32
   %57 = icmp eq i32 %44, 127
   %narrow.i = or i1 %56, %57
   %.not89 = icmp eq i32 %.tr102, 0
@@ -49364,7 +49364,7 @@ define internal fastcc noundef range(i32 314, 318) i32 @set_number_literal(ptr n
   %6 = and i32 %2, 1
   %.not = icmp eq i32 %6, 0
   %spec.select = select i1 %.not, i32 %1, i32 316
-  %.not45 = icmp ult i32 %2, 2
+  %.not45 = icmp samesign ult i32 %2, 2
   %.1 = select i1 %.not45, i32 %spec.select, i32 317
   switch i32 %.1, label %default.unreachable62 [
     i32 314, label %7

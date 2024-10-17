@@ -889,7 +889,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store ptr %19, ptr %next_.i, align 8
   %23 = load i32, ptr %argCount_.i, align 8
   %24 = zext i32 %23 to i64
-  %cmp.i83 = icmp ult i64 %indvars.iv, %24
+  %cmp.i83 = icmp samesign ult i64 %indvars.iv, %24
   %25 = load ptr, ptr %args, align 8
   %idx.neg.i.i.i = sub nsw i64 0, %indvars.iv
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %25, i64 %idx.neg.i.i.i
@@ -6659,7 +6659,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13
@@ -6879,7 +6879,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

@@ -2250,7 +2250,7 @@ define dso_local void @xas_pause(ptr nocapture noundef %0) #0 align 16 {
 14:                                               ; preds = %18, %9
   %15 = phi i64 [ %12, %9 ], [ %16, %18 ]
   %16 = add nuw nsw i64 %15, 1
-  %17 = icmp ult i64 %15, 63
+  %17 = icmp samesign ult i64 %15, 63
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %14
@@ -2836,7 +2836,7 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
   %97 = zext i8 %95 to i32
   %98 = zext nneg i8 %72 to i32
   %99 = add nuw nsw i32 %97, %98
-  %100 = icmp ult i32 %99, 64
+  %100 = icmp samesign ult i32 %99, 64
   br i1 %100, label %101, label %.thread10
 
 101:                                              ; preds = %94

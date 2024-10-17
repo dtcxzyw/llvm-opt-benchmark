@@ -2403,7 +2403,7 @@ for.inc681:                                       ; preds = %for.inc678, %invoke
   %indvars.iv.next921 = add nuw nsw i64 %indvars.iv920, 1
   %163 = load i32, ptr %mNumMeshes522, align 8
   %164 = zext i32 %163 to i64
-  %cmp548 = icmp ult i64 %indvars.iv.next921, %164
+  %cmp548 = icmp samesign ult i64 %indvars.iv.next921, %164
   br i1 %cmp548, label %for.body549, label %for.cond691.preheader, !llvm.loop !26
 
 for.body693:                                      ; preds = %for.body693.lr.ph, %for.inc763

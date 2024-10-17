@@ -303,7 +303,7 @@ define internal fastcc void @pti_clone_user_shared() unnamed_addr #0 section ".i
   store i64 %34, ptr %18, align 8
   %35 = add nuw nsw i64 %8, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %1, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %1, %21, %7, %20

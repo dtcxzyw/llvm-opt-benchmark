@@ -336,7 +336,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
   %113 = add nuw nsw i32 %.0104107.us.i, 1
   %114 = load i8, ptr %50, align 1
   %115 = zext i8 %114 to i32
-  %116 = icmp ult i32 %113, %115
+  %116 = icmp samesign ult i32 %113, %115
   br i1 %116, label %.lr.ph.split.us.i, label %dissect_bat_batman_v5.exit, !llvm.loop !4
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %dissect_bat_hna.exit.i
@@ -386,7 +386,7 @@ dissect_bat_hna.exit.i:                           ; preds = %134, %129
   %143 = add nuw nsw i32 %.0104107.i, 1
   %144 = load i8, ptr %50, align 1
   %145 = zext i8 %144 to i32
-  %146 = icmp ult i32 %143, %145
+  %146 = icmp samesign ult i32 %143, %145
   br i1 %146, label %.lr.ph.split.i, label %dissect_bat_batman_v5.exit, !llvm.loop !4
 
 dissect_bat_batman_v5.exit:                       ; preds = %dissect_bat_hna.exit.i, %dissect_bat_hna.exit.us.i, %60

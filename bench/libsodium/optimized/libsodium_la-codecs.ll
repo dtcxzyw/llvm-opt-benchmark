@@ -846,7 +846,7 @@ lor.lhs.false:                                    ; preds = %while.cond.preheade
 land.lhs.true42:                                  ; preds = %lor.lhs.false
   %and43 = and i32 %variant, 2
   %cmp44 = icmp ne i32 %and43, 0
-  %cmp.not6.i = icmp ult i64 %acc_len.1213, 2
+  %cmp.not6.i = icmp samesign ult i64 %acc_len.1213, 2
   %or.cond = or i1 %cmp44, %cmp.not6.i
   br i1 %or.cond, label %if.else53, label %while.body.lr.ph.i
 

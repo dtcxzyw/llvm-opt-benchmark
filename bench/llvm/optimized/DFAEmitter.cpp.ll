@@ -9353,7 +9353,7 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110Transit
   %38 = phi i64 [ %23, %21 ], [ %35, %33 ], [ %23, %29 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %39 = zext i32 %37 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i.i, %39
   br i1 %40, label %21, label %._crit_edge.i.i, !llvm.loop !202
 
 ._crit_edge.i.i:                                  ; preds = %36, %1

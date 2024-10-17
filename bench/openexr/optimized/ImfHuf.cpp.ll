@@ -71,7 +71,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %_ZN7
 
 for.cond.preheader.i:                             ; preds = %while.cond.i
   %3 = trunc nuw nsw i64 %indvars.iv.i13 to i32
-  %cmp207.i = icmp ult i64 %indvars.iv.i13, 65537
+  %cmp207.i = icmp samesign ult i64 %indvars.iv.i13, 65537
   br i1 %cmp207.i, label %for.body.i, label %for.end.i
 
 lpad.i:                                           ; preds = %call.i.i.noexc
@@ -134,7 +134,7 @@ if.end.split.i.i.i:                               ; preds = %for.end.i
   %8 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %idxprom31.i, -1
   %div.i13.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ult i64 %div11.i.i.i, %div.i13.i.i.i
+  %cmp24.i.i.i.i = icmp samesign ult i64 %div11.i.i.i, %div.i13.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.split.i.i.i, %while.cond.i.i.i.i
@@ -715,7 +715,7 @@ while.body.i:                                     ; preds = %for.body.i18, %if.e
 if.end.i:                                         ; preds = %while.body.i
   %inc9.i29 = add nuw nsw i32 %zerun.085.i, 1
   %cmp2.i = icmp slt i64 %indvars.iv.next.i23, %idxprom17.i
-  %cmp3.i = icmp ult i32 %zerun.085.i, 260
+  %cmp3.i = icmp samesign ult i32 %zerun.085.i, 260
   %73 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
   br i1 %73, label %while.body.i, label %while.end.thread123.i, !llvm.loop !17
 
@@ -725,13 +725,13 @@ while.end.thread123.i:                            ; preds = %if.end.i
 
 while.end.i:                                      ; preds = %while.body.i
   %im.addr.2.lcssa.ph.i = trunc i64 %indvars.iv.i22 to i32
-  %cmp10.i = icmp ugt i32 %zerun.085.i, 1
+  %cmp10.i = icmp samesign ugt i32 %zerun.085.i, 1
   br i1 %cmp10.i, label %if.then11.i, label %if.end20.i
 
 if.then11.i:                                      ; preds = %while.end.i, %while.end.thread123.i
   %im.addr.2.lcssa.ph129.i = phi i32 [ %im.addr.2.lcssa.ph126.i, %while.end.thread123.i ], [ %im.addr.2.lcssa.ph.i, %while.end.i ]
   %zerun.0.lcssa.ph128.i = phi i32 [ %inc9.i29, %while.end.thread123.i ], [ %zerun.085.i, %while.end.i ]
-  %cmp12.i = icmp ugt i32 %zerun.0.lcssa.ph128.i, 5
+  %cmp12.i = icmp samesign ugt i32 %zerun.0.lcssa.ph128.i, 5
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.then11.i
@@ -1616,7 +1616,7 @@ lpad.i42.i:                                       ; preds = %if.then16.i
   br label %common.resume.i
 
 if.else.i:                                        ; preds = %_ZN7Imf_3_212_GLOBAL__N_17getBitsEiRmRiRPKc.exit.i
-  %cmp21.i = icmp ugt i64 %and.i.i, 58
+  %cmp21.i = icmp samesign ugt i64 %and.i.i, 58
   br i1 %cmp21.i, label %if.then22.i, label %for.inc.i
 
 if.then22.i:                                      ; preds = %if.else.i
@@ -1829,7 +1829,7 @@ lpad.i.i80:                                       ; preds = %if.then.i78
   br label %common.resume.i81
 
 if.end.i84:                                       ; preds = %for.body.i72
-  %cmp4.i = icmp ugt i64 %and.i.i75, 14
+  %cmp4.i = icmp samesign ugt i64 %and.i.i75, 14
   br i1 %cmp4.i, label %if.then5.i, label %if.else45.i
 
 if.then5.i:                                       ; preds = %if.end.i84

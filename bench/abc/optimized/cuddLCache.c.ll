@@ -729,7 +729,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr nocapture noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %0, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %33, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %33

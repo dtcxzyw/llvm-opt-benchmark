@@ -1119,7 +1119,7 @@ mdiobus_scan_bus_c22.exit.thread:                 ; preds = %95, %mdiobus_scan_b
 
 .thread3.i:                                       ; preds = %113, %108, %102
   %117 = add nuw nsw i64 %103, 1
-  %118 = icmp ult i64 %103, 31
+  %118 = icmp samesign ult i64 %103, 31
   %119 = icmp eq i64 %117, 32
   br i1 %119, label %mdiobus_prevent_c45_scan.exit, label %102, !llvm.loop !24
 

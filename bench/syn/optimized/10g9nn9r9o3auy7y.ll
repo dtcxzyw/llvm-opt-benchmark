@@ -1249,7 +1249,7 @@ switch.lookup:                                    ; preds = %75
   %79 = zext nneg i32 %78 to i64
   %switch.gep = getelementptr inbounds [28 x i8], ptr @switch.table._ZN3syn4expr7parsing10parse_expr17h169c8e9fb8cdfdf8E.10, i64 0, i64 %79
   %switch.load = load i8, ptr %switch.gep, align 1
-  %switch.not = icmp ult i8 %switch.load, %3
+  %switch.not = icmp samesign ult i8 %switch.load, %3
   br i1 %switch.not, label %250, label %81
 
 default.unreachable:                              ; preds = %82

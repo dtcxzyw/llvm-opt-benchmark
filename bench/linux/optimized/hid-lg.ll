@@ -1879,7 +1879,7 @@ define internal noundef range(i32 -1, 2) i32 @lg_input_mapping(ptr nocapture nou
 600:                                              ; preds = %589
   %601 = and i64 %279, 16
   %602 = icmp ne i64 %601, 0
-  %603 = icmp ult i32 %590, 80
+  %603 = icmp samesign ult i32 %590, 80
   %604 = select i1 %602, i1 %603, i1 false
   br i1 %604, label %605, label %627
 

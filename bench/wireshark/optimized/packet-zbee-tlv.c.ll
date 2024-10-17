@@ -1922,7 +1922,7 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
 
 .loopexit.i:                                      ; preds = %19
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.205, i32 noundef %.043.i) #4
-  %24 = icmp ult i32 %.043.i, 31
+  %24 = icmp samesign ult i32 %.043.i, 31
   br i1 %24, label %.lr.ph.i.preheader, label %dissect_zbee_tlv_chanmask.exit
 
 .lr.ph.i.preheader:                               ; preds = %.loopexit.i

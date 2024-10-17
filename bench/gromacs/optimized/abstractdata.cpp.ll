@@ -1609,7 +1609,7 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr nocapture noun
 27:                                               ; preds = %23, %.lr.ph
   %.1 = phi i1 [ false, %.lr.ph ], [ %26, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = icmp uge i64 %indvars.iv.next, %22
+  %28 = icmp samesign uge i64 %indvars.iv.next, %22
   %.not15 = select i1 %28, i1 true, i1 %.1
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 

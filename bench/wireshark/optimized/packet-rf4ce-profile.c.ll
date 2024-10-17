@@ -1041,7 +1041,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %.not98 = icmp eq i32 %20, 0
   %21 = and i32 %17, 8
   %.not99 = icmp eq i32 %21, 0
-  %22 = icmp ugt i8 %3, 15
+  %22 = icmp samesign ugt i8 %3, 15
   br label %23
 
 23:                                               ; preds = %.lr.ph, %279

@@ -27636,7 +27636,7 @@ _ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions
   %.pn = phi double [ %44, %43 ], [ %66, %64 ], [ %68, %67 ]
   %70 = getelementptr inbounds double, ptr %1, i64 %.171.lcssa
   %71 = load double, ptr %70, align 8
-  %72 = icmp ult i64 %.171.lcssa, %.1
+  %72 = icmp samesign ult i64 %.171.lcssa, %.1
   %73 = fcmp une double %71, 0.000000e+00
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %.lr.ph.i, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit
@@ -27732,7 +27732,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %101, %92, %
   %133 = fmul double %.sroa.14.0.i, %132
   %134 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %115, double %133)
   store double %134, ptr %112, align 8
-  %135 = icmp ugt i64 %.074110.i, %.171.lcssa
+  %135 = icmp samesign ugt i64 %.074110.i, %.171.lcssa
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
@@ -27794,7 +27794,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %101, %92, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !294
 
 _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i: ; preds = %.lr.ph.i.i.i.i, %151, %150
-  %166 = icmp ult i64 %116, %.1
+  %166 = icmp samesign ult i64 %116, %.1
   %167 = fcmp une double %.1.i, 0.000000e+00
   %168 = select i1 %166, i1 %167, i1 false
   br i1 %168, label %78, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit, !llvm.loop !295

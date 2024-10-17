@@ -3932,7 +3932,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   %124 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv
   store i32 %123, ptr %124, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = icmp ult i64 %indvars.iv.next, %117
+  %125 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

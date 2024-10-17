@@ -130,7 +130,7 @@ ExUtilGetInt.exit:                                ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %17, i64 1
   %spec.select = select i1 %.not17, ptr %18, ptr null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = icmp ult i64 %indvars.iv.next, %9
+  %19 = icmp samesign ult i64 %indvars.iv.next, %9
   %20 = select i1 %.not17, i1 %19, i1 false
   br i1 %20, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !5
 

@@ -42,7 +42,7 @@ define dso_local i64 @convert_ip_to_linear(ptr nocapture noundef readonly %0, pt
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %10, %21
+  %22 = icmp samesign ult i64 %10, %21
   br i1 %22, label %23, label %42, !prof !6
 
 23:                                               ; preds = %18
@@ -202,7 +202,7 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %28, %39
+  %40 = icmp samesign ult i64 %28, %39
   br i1 %40, label %41, label %60, !prof !6
 
 41:                                               ; preds = %36

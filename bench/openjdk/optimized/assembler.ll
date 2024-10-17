@@ -453,7 +453,7 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
   %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   %or.cond.i.i.i.i.i = select i1 %31, i1 %33, i1 false
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %35 = sub nuw nsw i32 32, %34

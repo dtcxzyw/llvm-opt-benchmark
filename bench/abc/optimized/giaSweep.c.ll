@@ -3831,7 +3831,7 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %6, %13
   br i1 %exitcond.not.i59, label %Vec_IntCountEntry.exit, label %33, !llvm.loop !38
 
 Vec_IntCountEntry.exit:                           ; preds = %33
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   br i1 %39, label %Vec_IntCountEntry.exit.thread, label %40
 
 40:                                               ; preds = %Vec_IntCountEntry.exit

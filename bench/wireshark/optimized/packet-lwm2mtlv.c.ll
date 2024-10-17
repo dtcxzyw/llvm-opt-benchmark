@@ -1060,7 +1060,7 @@ define internal fastcc void @lwm2m_free_fields(ptr nocapture noundef %0) unnamed
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %3, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

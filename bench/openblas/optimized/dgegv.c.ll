@@ -850,7 +850,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 544:                                              ; preds = %542
   %545 = fcmp olt double %513, 0.000000e+00
-  %546 = icmp ugt i64 %506, 1
+  %546 = icmp samesign ugt i64 %506, 1
   %547 = and i1 %546, %545
   br i1 %547, label %548, label %550
 
@@ -861,7 +861,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 550:                                              ; preds = %544
   %551 = fcmp ogt double %513, 0.000000e+00
-  %552 = icmp ult i64 %506, %502
+  %552 = icmp samesign ult i64 %506, %502
   %553 = and i1 %552, %551
   br i1 %553, label %554, label %556
 

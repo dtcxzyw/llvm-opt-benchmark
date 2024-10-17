@@ -946,7 +946,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 .preheader1008:                                   ; preds = %.lr.ph1167
   %430 = trunc nuw nsw i64 %indvars.iv.next1383 to i32
-  %431 = icmp ult i64 %indvars.iv1382, 100
+  %431 = icmp samesign ult i64 %indvars.iv1382, 100
   br i1 %431, label %.lr.ph1170.preheader, label %._crit_edge1171
 
 .lr.ph1170.preheader:                             ; preds = %421, %.preheader1008
@@ -1385,7 +1385,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   %594 = getelementptr inbounds i32, ptr %585, i64 %indvars.iv1453
   store i32 %593, ptr %594, align 4
   %indvars.iv.next1454 = add nuw nsw i64 %indvars.iv1453, 1
-  %595 = icmp ult i64 %indvars.iv.next1454, %589
+  %595 = icmp samesign ult i64 %indvars.iv.next1454, %589
   br i1 %595, label %590, label %._crit_edge1229, !llvm.loop !35
 
 ._crit_edge1229:                                  ; preds = %590, %._crit_edge1225

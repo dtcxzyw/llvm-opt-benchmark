@@ -391,7 +391,7 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %218 = getelementptr inbounds i8, ptr %217, i64 8
   %219 = load i32, ptr %218, align 8
   %220 = zext i32 %219 to i64
-  %221 = icmp ult i64 %indvars.iv.next, %220
+  %221 = icmp samesign ult i64 %indvars.iv.next, %220
   br i1 %221, label %170, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %214, %.loopexit

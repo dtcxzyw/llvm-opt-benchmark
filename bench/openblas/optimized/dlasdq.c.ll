@@ -456,7 +456,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %290
 
 290:                                              ; preds = %285, %282, %.loopexit
-  %291 = icmp ult i64 %237, %235
+  %291 = icmp samesign ult i64 %237, %235
   %292 = add nuw nsw i64 %238, 1
   br i1 %291, label %236, label %.loopexit9, !llvm.loop !14
 

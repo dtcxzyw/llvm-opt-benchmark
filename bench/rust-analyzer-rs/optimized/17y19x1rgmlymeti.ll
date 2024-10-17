@@ -1181,9 +1181,9 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   br i1 %205, label %.critedge93, label %206
 
 206:                                              ; preds = %203
-  %207 = icmp ult i64 %204, 5
+  %207 = icmp samesign ult i64 %204, 5
   call void @llvm.assume(i1 %207)
-  %208 = icmp ult i64 %204, 2
+  %208 = icmp samesign ult i64 %204, 2
   br i1 %208, label %209, label %.critedge93
 
 209:                                              ; preds = %206

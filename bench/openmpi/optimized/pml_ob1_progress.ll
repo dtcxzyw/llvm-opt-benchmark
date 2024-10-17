@@ -262,7 +262,7 @@ lock_send_request.exit.i.i:                       ; preds = %72, %69
   %97 = phi i32 [ %86, %85 ], [ %.pre.i.i.i.i, %90 ]
   %98 = add nuw nsw i64 %.013.i.i.i.i, 1
   %99 = zext i32 %97 to i64
-  %100 = icmp ult i64 %98, %99
+  %100 = icmp samesign ult i64 %98, %99
   br i1 %100, label %85, label %mca_pml_ob1_free_rdma_resources.exit.i.i.i, !llvm.loop !7
 
 mca_pml_ob1_free_rdma_resources.exit.i.i.i:       ; preds = %96, %81
@@ -865,7 +865,7 @@ opal_convertor_need_buffers.exit.thread.i:        ; preds = %356
   %390 = phi i32 [ %379, %.lr.ph.i ], [ %.pre.i38, %383 ]
   %391 = add nuw nsw i64 %.013.i, 1
   %392 = zext i32 %390 to i64
-  %393 = icmp ult i64 %391, %392
+  %393 = icmp samesign ult i64 %391, %392
   br i1 %393, label %.lr.ph.i, label %mca_pml_ob1_send_request_start_btl.exit.thread, !llvm.loop !7
 
 mca_pml_ob1_send_request_start_btl.exit.thread:   ; preds = %389, %377

@@ -70,7 +70,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
 collapsible.exit:                                 ; preds = %.loopexit.i
   %.not21.i = icmp eq i32 %.014.i, 0
   %21 = select i1 %.not21.i, i32 0, i32 %.0.i
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   br i1 %22, label %85, label %23
 
 23:                                               ; preds = %collapsible.exit

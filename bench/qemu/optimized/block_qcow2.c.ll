@@ -1830,7 +1830,7 @@ if.end60:                                         ; preds = %if.end57.if.end60_c
   %tobool.not.i = icmp ne i64 %18, 0
   %or.cond161.not164 = and i1 %cmp62, %tobool.not.i
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %tobool1.not.i = icmp ult i64 %19, 2
+  %tobool1.not.i = icmp samesign ult i64 %19, 2
   %or.cond162 = select i1 %or.cond161.not164, i1 %tobool1.not.i, i1 false
   br i1 %or.cond162, label %if.end66, label %if.then65
 
@@ -5510,7 +5510,7 @@ if.end6:                                          ; preds = %qcow2_opt_get_versi
   %5 = add i64 %call.i72, -1
   %or.cond6.i = icmp ult i64 %5, 64
   %6 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call.i72)
-  %tobool1.not.i.i = icmp ult i64 %6, 2
+  %tobool1.not.i.i = icmp samesign ult i64 %6, 2
   %or.cond7.i = select i1 %or.cond6.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond7.i, label %if.end.i, label %if.then.i
 
@@ -6324,7 +6324,7 @@ lor.lhs.false.i:                                  ; preds = %if.end75.i
   %conv94.i = sext i32 %.pre.i.pre to i64
   %cmp95.i = icmp ule i64 %l2_cache_entry_size.0, %conv94.i
   %8 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %l2_cache_entry_size.0)
-  %tobool1.not.i.i = icmp ult i64 %8, 2
+  %tobool1.not.i.i = icmp samesign ult i64 %8, 2
   %or.cond1.i = select i1 %cmp95.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond1.i, label %if.end5, label %if.then99.i
 
@@ -7511,7 +7511,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %l1_size277, align 8
   %89 = zext i32 %88 to i64
-  %cmp321 = icmp ult i64 %indvars.iv.next, %89
+  %cmp321 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %cmp321, label %for.body, label %if.end328, !llvm.loop !24
 
 if.end328:                                        ; preds = %for.body, %for.cond.preheader, %if.end293
@@ -7665,7 +7665,7 @@ if.then428:                                       ; preds = %if.end424
   %conv432 = sext i32 %107 to i64
   %sub434 = sub i64 %conv432, %105
   %cond437 = call i64 @llvm.umin.i64(i64 %sub434, i64 1023)
-  %cmp438 = icmp ult i64 %cond437, %conv430
+  %cmp438 = icmp samesign ult i64 %cond437, %conv430
   br i1 %cmp438, label %if.then444, label %if.end445
 
 if.then444:                                       ; preds = %if.then428

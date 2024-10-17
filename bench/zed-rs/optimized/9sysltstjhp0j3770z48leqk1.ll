@@ -34622,7 +34622,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.i.i.i.i.i.i
   %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.i.i.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.val7.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.i.i.i.i.i.i ], [ %69, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %67 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %67 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %67, label %83, label %92
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -34666,7 +34666,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h9c0450352873e432E.exit.i.i.i.
 92:                                               ; preds = %83, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.012.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %88, %83 ], [ %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext30.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %83 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %93 = icmp ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %93 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %92

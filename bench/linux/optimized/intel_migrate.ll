@@ -1526,7 +1526,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %80, %83
-  %85 = icmp ugt i32 %84, 3121
+  %85 = icmp samesign ugt i32 %84, 3121
   %86 = icmp ugt i8 %78, 7
   %87 = select i1 %86, i32 8, i32 6
   %88 = select i1 %85, i32 16, i32 %87
@@ -1541,7 +1541,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   %95 = load i8, ptr %81, align 1
   %96 = zext i8 %95 to i32
   %97 = or disjoint i32 %94, %96
-  %98 = icmp ugt i32 %97, 3121
+  %98 = icmp samesign ugt i32 %97, 3121
   br i1 %98, label %99, label %118
 
 99:                                               ; preds = %91

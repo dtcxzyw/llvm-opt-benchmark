@@ -11570,7 +11570,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11tryPressureERKNS_14PressureChange
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = lshr i16 %12, 15
-  %14 = icmp ugt i16 %10, %13
+  %14 = icmp samesign ugt i16 %10, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %7
@@ -11579,7 +11579,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11tryPressureERKNS_14PressureChange
   br label %_ZN4llvm7tryLessEiiRNS_20GenericSchedulerBase14SchedCandidateES2_NS0_10CandReasonE.exit
 
 17:                                               ; preds = %7
-  %18 = icmp ult i16 %10, %13
+  %18 = icmp samesign ult i16 %10, %13
   br i1 %18, label %19, label %_ZN4llvm10tryGreaterEiiRNS_20GenericSchedulerBase14SchedCandidateES2_NS0_10CandReasonE.exit
 
 19:                                               ; preds = %17
@@ -20392,7 +20392,7 @@ _ZN12_GLOBAL__N_124BaseMemOpClusterMutation19collectMemOpRecordsERSt6vectorIN4ll
   %147 = udiv i64 %146, 1000
   %148 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL20FastClusterThreshold, i64 128), align 8
   %149 = zext i32 %148 to i64
-  %150 = icmp ugt i64 %147, %149
+  %150 = icmp samesign ugt i64 %147, %149
   br label %151
 
 151:                                              ; preds = %139, %135
@@ -21002,7 +21002,7 @@ _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2ERKS1_.exit.i: ; preds = 
   %430 = getelementptr inbounds nuw i8, ptr %401, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %340, ptr noundef nonnull align 8 dereferenceable(17) %430, i64 17, i1 false)
   %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 1
-  %431 = icmp ult i64 %indvars.iv.next178.i, %399
+  %431 = icmp samesign ult i64 %indvars.iv.next178.i, %399
   br i1 %431, label %.lr.ph.i44, label %._crit_edge.i
 
 .lr.ph.i44:                                       ; preds = %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2ERKS1_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjjENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5countERKj.exit.i

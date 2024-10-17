@@ -7776,7 +7776,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
 .preheader:                                       ; preds = %53
   %56 = trunc nuw nsw i64 %indvars.iv278 to i32
   %.0198235 = add nuw nsw i32 %56, 1
-  %57 = icmp ult i32 %.0198235, %12
+  %57 = icmp samesign ult i32 %.0198235, %12
   br i1 %57, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -7857,7 +7857,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
   %90 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #44
   %91 = tail call noalias ptr @malloc(i64 noundef %14) #44
   %92 = add nsw i32 %12, -1
-  %93 = icmp ugt i32 %12, 1
+  %93 = icmp samesign ugt i32 %12, 1
   br i1 %93, label %.lr.ph.preheader.i, label %stbrp_init_target.exit
 
 .lr.ph.preheader.i:                               ; preds = %89
@@ -10793,7 +10793,7 @@ TextLength.exit40:                                ; preds = %.lr.ph.i35, %.lr.ph
   %34 = sext i32 %.0.i39 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr align 1 %26, i64 %34, i1 false)
   %35 = getelementptr inbounds i8, ptr %.044, i64 %34
-  %36 = icmp ult i64 %indvars.iv49, %12
+  %36 = icmp samesign ult i64 %indvars.iv49, %12
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
@@ -11983,7 +11983,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   %126 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   store i32 %.0.i7, ptr %126, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %127 = icmp ult i64 %indvars.iv.next, %70
+  %127 = icmp samesign ult i64 %indvars.iv.next, %70
   %128 = icmp slt i32 %.sroa.2.7, %64
   %129 = select i1 %127, i1 %128, i1 false
   br i1 %129, label %stbtt__buf_get8.exit.i8, label %._crit_edge
@@ -13533,7 +13533,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef %80, float noundef %82)
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 2
   %83 = or disjoint i64 %indvars.iv.next498, 1
-  %84 = icmp ult i64 %83, %77
+  %84 = icmp samesign ult i64 %83, %77
   br i1 %84, label %.preheader405, label %.thread
 
 85:                                               ; preds = %stbtt__buf_get8.exit
@@ -13751,7 +13751,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef %212, float noundef %214)
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 2
   %215 = or disjoint i64 %indvars.iv.next484, 1
-  %216 = icmp ult i64 %215, %209
+  %216 = icmp samesign ult i64 %215, %209
   br i1 %216, label %.lr.ph421, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph421

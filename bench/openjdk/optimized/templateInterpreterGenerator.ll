@@ -1061,7 +1061,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
 
 356:                                              ; preds = %366, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit165
   %indvars.iv.i = phi i64 [ 0, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit165 ], [ %indvars.iv.next.i, %366 ]
-  %357 = icmp ult i64 %indvars.iv.i, 239
+  %357 = icmp samesign ult i64 %indvars.iv.i, 239
   br i1 %357, label %_ZN9Bytecodes10is_definedEi.exit.i, label %_ZN9Bytecodes10is_definedEi.exit.thread.i
 
 _ZN9Bytecodes10is_definedEi.exit.i:               ; preds = %356
@@ -1094,7 +1094,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread.i:        ; preds = %_ZN9Bytecodes10is_d
 
 _ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit: ; preds = %366, %_ZN9Bytecodes10is_definedEi.exit.thread.i168
   %indvars.iv.i167 = phi i64 [ %indvars.iv.next.i169, %_ZN9Bytecodes10is_definedEi.exit.thread.i168 ], [ 0, %366 ]
-  %367 = icmp ult i64 %indvars.iv.i167, 239
+  %367 = icmp samesign ult i64 %indvars.iv.i167, 239
   br i1 %367, label %_ZN9Bytecodes10is_definedEi.exit.i171, label %_ZN9Bytecodes10is_definedEi.exit.thread.i168
 
 _ZN9Bytecodes10is_definedEi.exit.i171:            ; preds = %_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_bytesEv.exit
@@ -1290,7 +1290,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator30set_entry_points_for_all_
 
 4:                                                ; preds = %1, %14
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
-  %5 = icmp ult i64 %indvars.iv, 239
+  %5 = icmp samesign ult i64 %indvars.iv, 239
   br i1 %5, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %4
@@ -1331,7 +1331,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator28set_safepoints_for_all_by
 
 2:                                                ; preds = %1, %_ZN9Bytecodes10is_definedEi.exit.thread
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN9Bytecodes10is_definedEi.exit.thread ]
-  %3 = icmp ult i64 %indvars.iv, 239
+  %3 = icmp samesign ult i64 %indvars.iv, 239
   br i1 %3, label %_ZN9Bytecodes10is_definedEi.exit, label %_ZN9Bytecodes10is_definedEi.exit.thread
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %2

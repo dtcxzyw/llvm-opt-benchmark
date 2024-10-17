@@ -11289,7 +11289,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeINS_10MaybeAlignEEENSt9enable_ifI
 
 _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %48
   %50 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %51 = icmp ult i64 %50, 2
+  %51 = icmp samesign ult i64 %50, 2
   br i1 %51, label %_ZNSt8optionalIN4llvm5AlignEE7emplaceIJRmEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS6_.exit.i.i, label %55
 
 _ZNSt8optionalIN4llvm5AlignEE7emplaceIJRmEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS6_.exit.i.i: ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i
@@ -24549,7 +24549,7 @@ _ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit:         ; preds = %.lr.ph.i.i.i.i.i.i,
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.thread: ; preds = %_ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit
   %32 = icmp eq i32 %.sroa.01.0.extract.trunc, %.sroa.0.0.extract.trunc
-  %33 = icmp ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
+  %33 = icmp samesign ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
   %34 = icmp ult i32 %.sroa.01.0.extract.trunc, %.sroa.0.0.extract.trunc
   %.0.i9 = select i1 %32, i1 %33, i1 %34
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit
@@ -24596,7 +24596,7 @@ _ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit13:       ; preds = %.lr.ph.i.i.i.i.i.i8
   br i1 %.not.i.i.i.i.i14, label %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %50 = icmp ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
+  %50 = icmp samesign ult i64 %.sroa.22.0.extract.shift, %.sroa.2.0.extract.shift
   %.0.i = select i1 %47, i1 %50, i1 %48
   tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %31) #23
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit
@@ -24820,7 +24820,7 @@ _ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.thread.i.i: ; preds = %_ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit.i.i
   %99 = icmp eq i32 %.sroa.01.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
-  %100 = icmp ult i64 %.sroa.22.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
+  %100 = icmp samesign ult i64 %.sroa.22.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
   %101 = icmp ult i32 %.sroa.01.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %.0.i8.i.i = select i1 %99, i1 %100, i1 %101
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i
@@ -24862,7 +24862,7 @@ _ZNSt12_Vector_baseIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2EmRKS4_.exit
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i34: ; preds = %.lr.ph.i.i.i.i.i.i.i32
   %113 = icmp eq i32 %.sroa.01.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %114 = icmp ult i32 %.sroa.01.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
-  %115 = icmp ult i64 %.sroa.22.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
+  %115 = icmp samesign ult i64 %.sroa.22.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
   %.0.i.i.i = select i1 %113, i1 %115, i1 %114
   tail call void @_ZdlPvm(ptr noundef nonnull %104, i64 noundef %74) #23
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i
@@ -25175,7 +25175,7 @@ _ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit.i:       ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.thread.i: ; preds = %_ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit.i
   %33 = icmp eq i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
-  %34 = icmp ult i64 %.sroa.22.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %34 = icmp samesign ult i64 %.sroa.22.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   %35 = icmp ult i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %.0.i8.i = select i1 %33, i1 %34, i1 %35
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i
@@ -25222,7 +25222,7 @@ _ZN4llvm4yaml12CallSiteInfoC2ERKS1_.exit14.i:     ; preds = %.lr.ph.i.i.i.i.i.i9
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %50 = icmp ult i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
-  %51 = icmp ult i64 %.sroa.22.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %51 = icmp samesign ult i64 %.sroa.22.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   %.0.i.i = select i1 %48, i1 %51, i1 %50
   tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %32) #23
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i

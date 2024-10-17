@@ -12635,7 +12635,7 @@ invoke.cont64.i.i.i:                              ; preds = %for.cond19.i.i10.i.
   %385 = load i64, ptr %arrayidx.i.i46.i.i.i.i.i, align 8
   %386 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %385)
   %add21.i.i.i.i.i = add nuw nsw i64 %add15.i.i.i.i.i, %386
-  %cmp.i.i.i402 = icmp ugt i64 %add21.i.i.i.i.i, 40
+  %cmp.i.i.i402 = icmp samesign ugt i64 %add21.i.i.i.i.i, 40
   br i1 %cmp.i.i.i402, label %skip_to_next_terminal.i.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont64.i.i.i, %invoke.cont36.i.i.i394
@@ -13126,7 +13126,7 @@ if.then7.i.i.i.i.i407:                            ; preds = %if.then5.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i.preheader, %for.body.i.i427.i.i.i
   %i.0.in.i.i.i.i.i = phi i64 [ %i.0.i.i.i.i.i, %for.body.i.i427.i.i.i ], [ %div1.i.i.i421.i.i.i, %for.cond.i.i.i.i.i.preheader ]
-  %cmp14.i.i.i.i.i = icmp ult i64 %i.0.in.i.i.i.i.i, 3
+  %cmp14.i.i.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i.i.i, 3
   br i1 %cmp14.i.i.i.i.i, label %for.body.i.i427.i.i.i, label %for.inc174.i.i.i
 
 for.body.i.i427.i.i.i:                            ; preds = %for.cond.i.i.i.i.i

@@ -1672,7 +1672,7 @@ for.inc.i:                                        ; preds = %if.then15.i, %land.
   %54 = phi i8 [ %49, %for.body.i ], [ %49, %land.lhs.true.i111 ], [ %.pre.i, %if.then15.i ]
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i106, 1
   %55 = zext i8 %54 to i64
-  %cmp.i110 = icmp ult i64 %indvars.iv.next.i109, %55
+  %cmp.i110 = icmp samesign ult i64 %indvars.iv.next.i109, %55
   br i1 %cmp.i110, label %for.body.i, label %traverseclosure.exit, !llvm.loop !75
 
 if.else.i112:                                     ; preds = %if.end.i
@@ -1718,7 +1718,7 @@ for.inc46.i:                                      ; preds = %if.then41.i, %for.b
   %64 = phi i8 [ %60, %for.body34.i ], [ %.pre83.i, %if.then41.i ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %65 = zext i8 %64 to i64
-  %cmp32.i = icmp ult i64 %indvars.iv.next81.i, %65
+  %cmp32.i = icmp samesign ult i64 %indvars.iv.next81.i, %65
   br i1 %cmp32.i, label %for.body34.i, label %traverseclosure.exit, !llvm.loop !76
 
 traverseclosure.exit:                             ; preds = %for.inc.i, %for.inc46.i, %if.end28.i, %for.cond.preheader.i

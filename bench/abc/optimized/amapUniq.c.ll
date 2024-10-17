@@ -651,7 +651,7 @@ Vec_IntGrow.exit.i:                               ; preds = %67, %56, %55
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv.next.i
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 65535
-  %80 = icmp ugt i32 %79, %73
+  %80 = icmp samesign ugt i32 %79, %73
   br i1 %80, label %81, label %._crit_edge.loopexit.split.loop.exit.i
 
 81:                                               ; preds = %75
@@ -716,7 +716,7 @@ Vec_IntGrow.exit.i66:                             ; preds = %97, %86, %85
   %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv.next.i70
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 65535
-  %110 = icmp ugt i32 %109, %103
+  %110 = icmp samesign ugt i32 %109, %103
   br i1 %110, label %111, label %._crit_edge.loopexit.split.loop.exit.i71
 
 111:                                              ; preds = %105
@@ -799,7 +799,7 @@ Vec_IntGrow.exit.i77:                             ; preds = %141, %130, %Vec_Int
   %151 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv.next.i81
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 65535
-  %154 = icmp ugt i32 %153, %147
+  %154 = icmp samesign ugt i32 %153, %147
   br i1 %154, label %155, label %._crit_edge.loopexit.split.loop.exit.i82
 
 155:                                              ; preds = %149
@@ -877,7 +877,7 @@ Vec_IntGrow.exit.i88:                             ; preds = %181, %170, %169
   %191 = getelementptr inbounds i32, ptr %190, i64 %indvars.iv.next.i92
   %192 = load i32, ptr %191, align 4
   %193 = and i32 %192, 65535
-  %194 = icmp ugt i32 %193, %187
+  %194 = icmp samesign ugt i32 %193, %187
   br i1 %194, label %195, label %._crit_edge.loopexit.split.loop.exit.i93
 
 195:                                              ; preds = %189
@@ -942,7 +942,7 @@ Vec_IntGrow.exit.i99:                             ; preds = %211, %200, %199
   %221 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv.next.i103
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 65535
-  %224 = icmp ugt i32 %223, %217
+  %224 = icmp samesign ugt i32 %223, %217
   br i1 %224, label %225, label %._crit_edge.loopexit.split.loop.exit.i104
 
 225:                                              ; preds = %219
@@ -1025,7 +1025,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %255, %244, %Vec_Int
   %265 = getelementptr inbounds i32, ptr %264, i64 %indvars.iv.next.i114
   %266 = load i32, ptr %265, align 4
   %267 = and i32 %266, 65535
-  %268 = icmp ugt i32 %267, %261
+  %268 = icmp samesign ugt i32 %267, %261
   br i1 %268, label %269, label %._crit_edge.loopexit.split.loop.exit.i115
 
 269:                                              ; preds = %263

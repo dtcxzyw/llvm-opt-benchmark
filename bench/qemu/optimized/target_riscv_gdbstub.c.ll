@@ -464,7 +464,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call1.i = call ptr @g_byte_array_append(ptr noundef %buf, ptr noundef nonnull %to_quad.i, i32 noundef 8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %to_quad.i)
   %add8 = add nuw nsw i32 %cnt.09, 8
-  %cmp4 = icmp ult i32 %add8, %conv3
+  %cmp4 = icmp samesign ult i32 %add8, %conv3
   br i1 %cmp4, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %entry
@@ -503,7 +503,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr [512 x i64], ptr %vreg, i64 0, i64 %idxprom
   store i64 %add.ptr.val, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp4 = icmp ult i64 %indvars.iv.next, %2
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp4, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %entry

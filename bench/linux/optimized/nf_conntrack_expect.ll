@@ -1892,7 +1892,7 @@ nf_ct_unlink_expect_report.exit:                  ; preds = %91, %93, %94
   %110 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %5, %.preheader4 ]
   %111 = add nuw nsw i64 %6, 1
   %112 = zext i32 %110 to i64
-  %113 = icmp ult i64 %111, %112
+  %113 = icmp samesign ult i64 %111, %112
   br i1 %113, label %.preheader4, label %.loopexit5, !llvm.loop !34
 
 .loopexit5:                                       ; preds = %.loopexit, %2
@@ -1976,7 +1976,7 @@ define dso_local void @nf_ct_expect_iterate_net(ptr noundef readnone %0, ptr noc
   %44 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %8, %.preheader4 ]
   %45 = add nuw nsw i64 %9, 1
   %46 = zext i32 %44 to i64
-  %47 = icmp ult i64 %45, %46
+  %47 = icmp samesign ult i64 %45, %46
   br i1 %47, label %.preheader4, label %.loopexit5, !llvm.loop !36
 
 .loopexit5:                                       ; preds = %.loopexit, %5

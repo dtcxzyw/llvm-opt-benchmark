@@ -1390,7 +1390,7 @@ Saig_ManSimInfo2Not.exit109:                      ; preds = %111, %110, %109, %S
   %118 = load i64, ptr %28, align 8
   %119 = trunc i64 %118 to i32
   %120 = lshr i32 %119, 6
-  %121 = icmp ult i32 %117, %120
+  %121 = icmp samesign ult i32 %117, %120
   br i1 %121, label %53, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %tailrecurse, %Saig_ObjIsLi.exit, %Saig_ObjIsPo.exit, %.critedge121, %.critedge121.preheader

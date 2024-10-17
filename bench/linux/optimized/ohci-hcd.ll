@@ -327,7 +327,7 @@ define dso_local range(i32 0, 3) i32 @ohci_hub_status_data(ptr noundef %0, ptr n
 
 95:                                               ; preds = %.thread3, %.loopexit
   %96 = phi i32 [ 1, %.thread3 ], [ %92, %.loopexit ]
-  %97 = icmp ugt i64 %69, 6
+  %97 = icmp samesign ugt i64 %69, 6
   %98 = trunc i64 %69 to i32
   %99 = shl nuw nsw i32 2, %98
   %100 = add i32 %98, -7
@@ -1449,7 +1449,7 @@ define internal fastcc void @ed_deschedule(ptr nocapture noundef %0, ptr noundef
   %138 = load i16, ptr %106, align 4
   %139 = zext i16 %138 to i32
   %140 = add nuw nsw i32 %108, %139
-  %141 = icmp ult i32 %140, 32
+  %141 = icmp samesign ult i32 %140, 32
   br i1 %141, label %107, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %132, %..loopexit_crit_edge
@@ -5460,7 +5460,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr nocapture 
 
 116:                                              ; preds = %119
   %117 = add nuw nsw i64 %120, %102
-  %118 = icmp ult i64 %117, 32
+  %118 = icmp samesign ult i64 %117, 32
   br i1 %118, label %119, label %.loopexit13, !llvm.loop !63
 
 119:                                              ; preds = %116, %114
@@ -5585,7 +5585,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr nocapture 
   %190 = load i16, ptr %93, align 4
   %191 = zext i16 %190 to i32
   %192 = add nuw nsw i32 %141, %191
-  %193 = icmp ult i32 %192, 32
+  %193 = icmp samesign ult i32 %192, 32
   br i1 %193, label %139, label %.loopexit.loopexit, !llvm.loop !68
 
 .loopexit.loopexit:                               ; preds = %184
@@ -6565,7 +6565,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %359 = and i32 %356, 65535
   %360 = load i16, ptr %215, align 8
   %361 = zext i16 %360 to i32
-  %362 = icmp ult i32 %359, %361
+  %362 = icmp samesign ult i32 %359, %361
   br i1 %362, label %365, label %363
 
 363:                                              ; preds = %351

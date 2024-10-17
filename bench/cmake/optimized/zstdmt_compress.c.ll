@@ -179,7 +179,7 @@ ZSTD_customFree.exit.i:                           ; preds = %70, %69, %65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %71 = load i32, ptr %60, align 8
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next.i, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next.i, %72
   br i1 %73, label %65, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ZSTD_customFree.exit.i, %.preheader.i
@@ -280,7 +280,7 @@ ZSTD_customFree.exit.i.i:                         ; preds = %107, %106, %102
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %108 = load i32, ptr %97, align 8
   %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next.i.i, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next.i.i, %109
   br i1 %110, label %102, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %ZSTD_customFree.exit.i.i, %.preheader.i.i
@@ -2834,7 +2834,7 @@ ZSTD_customFree.exit.i:                           ; preds = %16, %15, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = load i32, ptr %5, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next.i, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %19, label %11, label %._crit_edge.i.loopexit, !llvm.loop !7
 
 ._crit_edge.i.loopexit:                           ; preds = %ZSTD_customFree.exit.i

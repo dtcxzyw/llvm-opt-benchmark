@@ -3967,7 +3967,7 @@ _ZNK4llvm14DITypeRefArray4sizeEv.exit34.thread.split: ; preds = %_ZNK4llvm14DITy
 
 _ZNK4llvm14DITypeRefArray4sizeEv.exit40:          ; preds = %95, %98
   %101 = phi i64 [ %100, %98 ], [ %97, %95 ]
-  %102 = icmp ult i64 %indvars.iv, %101
+  %102 = icmp samesign ult i64 %indvars.iv, %101
   br i1 %102, label %103, label %.split.us
 
 103:                                              ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit40
@@ -34766,7 +34766,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

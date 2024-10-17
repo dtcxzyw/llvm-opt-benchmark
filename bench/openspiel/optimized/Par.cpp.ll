@@ -432,7 +432,7 @@ define range(i32 -1, 2) i32 @SidesParBin(ptr nocapture noundef readonly %0, ptr 
   br label %58
 
 53:                                               ; preds = %47
-  %or.cond.i = icmp ult i64 %indvars.iv, 3
+  %or.cond.i = icmp samesign ult i64 %indvars.iv, 3
   br i1 %or.cond.i, label %54, label %56
 
 54:                                               ; preds = %53
@@ -727,7 +727,7 @@ _Z8rawscoreiii.exit496:                           ; preds = %146, %143, %138, %1
   %170 = load i32, ptr %indvars.iv719.sroa.phi857, align 4
   %171 = load i32, ptr %indvars.iv719.sroa.phi840, align 4
   %.not479 = icmp ne i32 %170, %171
-  %172 = icmp ugt i32 %.ph834, 4
+  %172 = icmp samesign ugt i32 %.ph834, 4
   %or.cond576 = or i1 %172, %.not479
   br i1 %or.cond576, label %184, label %._crit_edge768
 

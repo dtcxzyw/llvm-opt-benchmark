@@ -1340,7 +1340,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl13getIntImmCostEl(ptr noc
   br label %.loopexit.i.i
 
 12:                                               ; preds = %.preheader.i.i
-  %13 = icmp ugt i32 %.044.i.i, 5
+  %13 = icmp samesign ugt i32 %.044.i.i, 5
   br i1 %13, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !10
 
 .loopexit.i.i:                                    ; preds = %12, %10
@@ -2422,8 +2422,8 @@ _ZNK4llvm3EVTeqES0_.exit.thread29.i456.backedge:  ; preds = %218, %_ZN4llvm15Ins
 
 233:                                              ; preds = %224
   %234 = icmp sgt i64 %.fca.0.extract224, 0
-  %235 = icmp ugt i64 %.sroa.019.1.lcssa.sink.i44411081116, 1
-  %or.cond.i.i475 = and i1 %235, %234
+  %235 = icmp samesign ugt i64 %.sroa.019.1.lcssa.sink.i44411081116, 1
+  %or.cond.i.i475 = select i1 %234, i1 %235, i1 false
   br i1 %or.cond.i.i475, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit478, label %236
 
 236:                                              ; preds = %233
@@ -6610,7 +6610,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i: ; preds = %332, %320
 
 362:                                              ; preds = %351
   %363 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %361)
-  %364 = icmp ult i32 %363, 2
+  %364 = icmp samesign ult i32 %363, 2
   %365 = select i1 %364, i64 4294967298, i64 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
@@ -7191,7 +7191,7 @@ tailrecurse.us:                                   ; preds = %2, %._crit_edge.spl
 
 _ZN4llvm13isPowerOf2_64Em.exit.us:                ; preds = %tailrecurse.us
   %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %5 = icmp ult i64 %4, 2
+  %5 = icmp samesign ult i64 %4, 2
   br i1 %5, label %6, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
 6:                                                ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.us
@@ -7249,7 +7249,7 @@ tailrecurse:                                      ; preds = %2, %._crit_edge.spl
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %tailrecurse
   %23 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
-  %24 = icmp ult i64 %23, 2
+  %24 = icmp samesign ult i64 %23, 2
   br i1 %24, label %25, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
 25:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -8949,7 +8949,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit43.i
   %184 = load i32, ptr %44, align 4
   %185 = and i32 %184, 134217727
   %186 = zext nneg i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next.i, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next.i, %186
   br i1 %187, label %112, label %._crit_edge53.i, !llvm.loop !55
 
 ._crit_edge53.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit43.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i
@@ -17365,10 +17365,10 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %176
   %spec.select116 = select i1 %or.cond.i.i73, i64 9223372036854775807, i64 -9223372036854775808
   %.0.i.i69 = select i1 %200, i64 %spec.select116, i64 %201
   %.not.i.i77 = icmp eq i32 %.sink.i, %.sink.i46
-  %204 = icmp uge i32 %.sink.i, %.sink.i46
+  %204 = icmp samesign uge i32 %.sink.i, %.sink.i46
   %205 = icmp sge i64 %.0.i.i64, %.0.i.i69
   %.0.i.i78 = select i1 %.not.i.i77, i1 %205, i1 %204
-  %206 = icmp uge i32 %.sink.i46, %.sink.i
+  %206 = icmp samesign uge i32 %.sink.i46, %.sink.i
   %207 = icmp sge i64 %.0.i.i69, %.0.i.i64
   %.0.i4.i = select i1 %.not.i.i77, i1 %207, i1 %206
   %208 = select i1 %.0.i.i78, i1 %.0.i4.i, i1 false
@@ -17916,10 +17916,10 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
 
 83:                                               ; preds = %78, %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit198
   %.not.i.i = icmp eq i32 %.sink.i, %.sink.i184
-  %84 = icmp uge i32 %.sink.i, %.sink.i184
+  %84 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %85 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i.i = select i1 %.not.i.i, i1 %85, i1 %84
-  %86 = icmp uge i32 %.sink.i184, %.sink.i
+  %86 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %87 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i4.i = select i1 %.not.i.i, i1 %87, i1 %86
   %88 = select i1 %.0.i.i, i1 %.0.i4.i, i1 false
@@ -17969,10 +17969,10 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit: ; preds
   %111 = call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef nonnull %2, i1 noundef zeroext false) #24
   %112 = call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef nonnull %3, i1 noundef zeroext false) #24
   %.not.i.i205 = icmp eq i32 %.sink.i184, %.sink.i
-  %113 = icmp uge i32 %.sink.i184, %.sink.i
+  %113 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %114 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i.i206 = select i1 %.not.i.i205, i1 %114, i1 %113
-  %115 = icmp uge i32 %.sink.i, %.sink.i184
+  %115 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %116 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i4.i207 = select i1 %.not.i.i205, i1 %116, i1 %115
   %117 = select i1 %.0.i.i206, i1 %.0.i4.i207, i1 false
@@ -18048,10 +18048,10 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit.thread: 
   %spec.select.i.i.i.i.i.i.i.i214 = icmp ult i32 %156, 2
   %spec.select.i.i215 = select i1 %spec.select.i.i.i.i.i.i.i.i214, ptr %2, ptr null
   %.not.i.i216 = icmp eq i32 %.sink.i, %.sink.i184
-  %157 = icmp uge i32 %.sink.i, %.sink.i184
+  %157 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %158 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i.i217 = select i1 %.not.i.i216, i1 %158, i1 %157
-  %159 = icmp uge i32 %.sink.i184, %.sink.i
+  %159 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %160 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i4.i218 = select i1 %.not.i.i216, i1 %160, i1 %159
   %161 = select i1 %.0.i.i217, i1 %.0.i4.i218, i1 false
@@ -20495,7 +20495,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %118, %123
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
   %130 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %129)
-  %131 = icmp ult i32 %130, 2
+  %131 = icmp samesign ult i32 %130, 2
   %132 = add i32 %129, -8
   %133 = icmp ult i32 %132, 57
   %or.cond9.not = and i1 %133, %131
@@ -22909,7 +22909,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl34shouldConsiderAdd
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 134217727
-  %23 = icmp ugt i32 %22, 2
+  %23 = icmp samesign ugt i32 %22, 2
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
@@ -23355,7 +23355,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i: ; preds = %68, %_ZN4llvm15In
   br label %_ZN4llvm23IntrinsicCostAttributesD2Ev.exit
 
 _ZN4llvm23IntrinsicCostAttributesD2Ev.exit:       ; preds = %_ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i, %72
-  %73 = icmp ugt i32 %58, %51
+  %73 = icmp samesign ugt i32 %58, %51
   br i1 %73, label %_ZN4llvm15InstructionCostpLERKS0_.exit, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit, !llvm.loop !135
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit: ; preds = %_ZN4llvm23IntrinsicCostAttributesD2Ev.exit
@@ -23585,8 +23585,8 @@ _ZN4llvm15InstructionCost14propagateStateERKS0_.exit.i: ; preds = %32, %30
 
 41:                                               ; preds = %_ZN4llvm15InstructionCost14propagateStateERKS0_.exit.i
   %42 = icmp sgt i64 %.fca.0.extract9, 0
-  %43 = icmp ugt i64 %.sroa.019.1.lcssa.sink.i5361, 1
-  %or.cond.i31 = and i1 %43, %42
+  %43 = icmp samesign ugt i64 %.sroa.019.1.lcssa.sink.i5361, 1
+  %or.cond.i31 = select i1 %42, i1 %43, i1 false
   br i1 %or.cond.i31, label %_ZN4llvm15InstructionCostmLERKS0_.exit, label %44
 
 44:                                               ; preds = %41
@@ -23982,7 +23982,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %._crit_edge.loopexi
   %.not.i.i139 = icmp ne i32 %170, 0
   %or.cond246.not258 = and i1 %.not100, %.not.i.i139
   %171 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %170)
-  %172 = icmp ult i32 %171, 2
+  %172 = icmp samesign ult i32 %171, 2
   %or.cond248 = select i1 %or.cond246.not258, i1 %172, i1 false
   br i1 %or.cond248, label %173, label %_ZN4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE.exit177
 
@@ -37438,7 +37438,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %71, %_ZN4llvm15Inst
   %.sroa.6175.1 = select i1 %79, i32 1, i32 %.sroa.6175.0.fr209
   %.0.i100 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0172.0205, i64 %.fca.0.extract32)
   %80 = add i32 %.092207, 1
-  %81 = icmp ugt i32 %74, %72
+  %81 = icmp samesign ugt i32 %74, %72
   br i1 %81, label %_ZN4llvm15InstructionCostpLERKS0_.exit, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit, !llvm.loop !253
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit: ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit

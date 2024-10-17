@@ -1316,7 +1316,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %29, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %1, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -2428,7 +2428,7 @@ _ZNSt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS1_EED2Ev.exit71: 
   br i1 %.not.i.i.i.i.i72, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4llvm8RegisterEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !34
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIN4llvm8RegisterEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %258 = icmp ugt i64 %.06.i.i.i.i.i, 2305843009213693950
+  %258 = icmp samesign ugt i64 %.06.i.i.i.i.i, 2305843009213693950
   br i1 %258, label %259, label %_ZNSt12_Vector_baseIN4llvm8RegisterESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 259:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4llvm8RegisterEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i.i
@@ -8180,7 +8180,7 @@ _ZNSt10shared_ptrIKN4llvm4PBQP8MDMatrixINS1_8RegAlloc14MatrixMetadataEEEED2Ev.ex
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %699 = load i32, ptr %687, align 4
   %700 = zext i32 %699 to i64
-  %701 = icmp ult i64 %indvars.iv.next.i.i.i, %700
+  %701 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %700
   br i1 %701, label %690, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit.i, !llvm.loop !138
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit.i: ; preds = %690, %663
@@ -8226,7 +8226,7 @@ _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit.i: ; pre
   %indvars.iv.next.i.i9.i = add nuw nsw i64 %indvars.iv.i.i8.i, 1
   %732 = load i32, ptr %720, align 4
   %733 = zext i32 %732 to i64
-  %734 = icmp ult i64 %indvars.iv.next.i.i9.i, %733
+  %734 = icmp samesign ult i64 %indvars.iv.next.i.i9.i, %733
   br i1 %734, label %723, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE29addEdgeBypassingCostAllocatorISt10shared_ptrIKNS0_8MDMatrixINS2_14MatrixMetadataEEEEEEjjjT_.exit, !llvm.loop !138
 
 _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE29addEdgeBypassingCostAllocatorISt10shared_ptrIKNS0_8MDMatrixINS2_14MatrixMetadataEEEEEEjjjT_.exit: ; preds = %723, %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit.i, %_ZNSt10shared_ptrIKN4llvm4PBQP8MDMatrixINS1_8RegAlloc14MatrixMetadataEEEED2Ev.exit.i
@@ -9772,7 +9772,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl13han
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %39 = load i32, ptr %27, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next.i.i, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next.i.i, %40
   br i1 %41, label %30, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit, !llvm.loop !138
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit: ; preds = %30, %2
@@ -9818,7 +9818,7 @@ _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit: ; preds
   %indvars.iv.next.i.i9 = add nuw nsw i64 %indvars.iv.i.i8, 1
   %72 = load i32, ptr %60, align 4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next.i.i9, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next.i.i9, %73
   br i1 %74, label %63, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit10, !llvm.loop !138
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit10: ; preds = %63, %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl19handleReconnectEdgeEjj.exit
@@ -10691,7 +10691,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %.1 = phi i32 [ %37, %36 ], [ %.02931, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %27, label %._crit_edge.loopexit, !llvm.loop !200
 
 ._crit_edge.loopexit:                             ; preds = %47
@@ -10706,7 +10706,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %52 = load i32, ptr %1, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next37, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next37, %53
   br i1 %54, label %.preheader, label %._crit_edge34.loopexit, !llvm.loop !201
 
 ._crit_edge34.loopexit:                           ; preds = %._crit_edge
@@ -13679,7 +13679,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl17han
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load i32, ptr %28, align 4
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next.i, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %42, label %31, label %_ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.exit, !llvm.loop !230
 
 _ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.exit: ; preds = %31, %3
@@ -13714,7 +13714,7 @@ _ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %62 = load i32, ptr %50, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next.i29, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next.i29, %63
   br i1 %64, label %53, label %_ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.exit30.loopexit, !llvm.loop !230
 
 _ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.exit30.loopexit: ; preds = %53
@@ -13753,7 +13753,7 @@ _ZN4llvm4PBQP8RegAlloc12NodeMetadata16handleRemoveEdgeERKNS1_14MatrixMetadataEb.
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %84 = load i32, ptr %28, align 4
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next.i36, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next.i36, %85
   br i1 %86, label %75, label %_ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exit.loopexit, !llvm.loop !138
 
 _ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exit.loopexit: ; preds = %75
@@ -13789,7 +13789,7 @@ _ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exi
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %103 = load i32, ptr %50, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next.i42, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next.i42, %104
   br i1 %105, label %94, label %_ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exit43, !llvm.loop !138
 
 _ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exit43: ; preds = %94, %_ZN4llvm4PBQP8RegAlloc12NodeMetadata13handleAddEdgeERKNS1_14MatrixMetadataEb.exit
@@ -16343,7 +16343,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPNS_10
 .lr.ph:                                           ; preds = %2, %5
   %.02057 = phi ptr [ %16, %5 ], [ %0, %2 ]
   %.042.idx56 = phi i64 [ %.042.add, %5 ], [ 0, %2 ]
-  %.not51 = icmp ugt i64 %.042.idx56, 56
+  %.not51 = icmp samesign ugt i64 %.042.idx56, 56
   br i1 %.not51, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
@@ -16449,8 +16449,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPNS_10
   store i64 %60, ptr %.244.ptr61, align 8
   %61 = getelementptr inbounds i8, ptr %.260, i64 4
   %.not23 = icmp eq ptr %61, %1
-  %.not52 = icmp ugt i64 %.244.idx59, 48
-  %or.cond = or i1 %.not23, %.not52
+  %.not52 = icmp samesign ugt i64 %.244.idx59, 48
+  %or.cond = select i1 %.not23, i1 true, i1 %.not52
   br i1 %or.cond, label %.critedge2, label %50, !llvm.loop !280
 
 .critedge2:                                       ; preds = %50
@@ -18456,7 +18456,7 @@ _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE18getEdgeOtherNodeIdEjj.e
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %161 = load i32, ptr %149, align 4
   %162 = zext i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next.i.i.i, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %162
   br i1 %163, label %152, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i, !llvm.loop !230
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i: ; preds = %152, %127
@@ -19135,7 +19135,7 @@ _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE18getEdgeOtherNodeIdEjj.e
   %indvars.iv.next.i.i.i43 = add nuw nsw i64 %indvars.iv.i.i.i42, 1
   %483 = load i32, ptr %471, align 4
   %484 = zext i32 %483 to i64
-  %485 = icmp ult i64 %indvars.iv.next.i.i.i43, %484
+  %485 = icmp samesign ult i64 %indvars.iv.next.i.i.i43, %484
   br i1 %485, label %474, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i44, !llvm.loop !230
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i44: ; preds = %474, %449
@@ -20794,7 +20794,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolv
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %41 = load i32, ptr %29, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i.i, %42
   br i1 %43, label %32, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit, !llvm.loop !230
 
 _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit: ; preds = %32, %6

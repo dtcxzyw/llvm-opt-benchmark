@@ -106,7 +106,7 @@ define void @If_CluHashTableCheck(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph.split.us.split.us.i:                       ; preds = %If_CluHasVar.exit.thread.us.us.i, %.lr.ph
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48.i, %If_CluHasVar.exit.thread.us.us.i ]
   %.021.us.us.i = phi i32 [ 0, %.lr.ph ], [ %45, %If_CluHasVar.exit.thread.us.us.i ]
-  %15 = icmp ult i64 %indvars.iv47.i, 6
+  %15 = icmp samesign ult i64 %indvars.iv47.i, 6
   %16 = trunc i64 %indvars.iv47.i to i32
   br i1 %15, label %.lr.ph.i.us.us.i, label %.preheader.us.preheader.i.us.us.i
 
@@ -193,7 +193,7 @@ If_CluSupportSize.exit:                           ; preds = %If_CluHasVar.exit.t
 .lr.ph.split.us.split.us.i18:                     ; preds = %If_CluHasVar.exit.thread.us.us.i31, %48
   %indvars.iv47.i19 = phi i64 [ 0, %48 ], [ %indvars.iv.next48.i32, %If_CluHasVar.exit.thread.us.us.i31 ]
   %.021.us.us.i20 = phi i32 [ 0, %48 ], [ %79, %If_CluHasVar.exit.thread.us.us.i31 ]
-  %49 = icmp ult i64 %indvars.iv47.i19, 6
+  %49 = icmp samesign ult i64 %indvars.iv47.i19, 6
   %50 = trunc i64 %indvars.iv47.i19 to i32
   br i1 %49, label %.lr.ph.i.us.us.i38, label %.preheader.us.preheader.i.us.us.i22
 
@@ -432,7 +432,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %Abc_TtSwapVars.exit
 .lr.ph.split.i:                                   ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.preheader.i
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i57, %Abc_TtHasVar.exit.thread.i ]
   %.019.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.1.i, %Abc_TtHasVar.exit.thread.i ]
-  %72 = icmp ult i64 %indvars.iv.i56, 6
+  %72 = icmp samesign ult i64 %indvars.iv.i56, 6
   br i1 %72, label %73, label %86
 
 73:                                               ; preds = %.lr.ph.split.i
@@ -790,7 +790,7 @@ define i32 @If_CluSupportSize(ptr nocapture noundef readonly %0, i32 noundef %1)
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %If_CluHasVar.exit.thread.us.us
   %indvars.iv47 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next48, %If_CluHasVar.exit.thread.us.us ]
   %.021.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %42, %If_CluHasVar.exit.thread.us.us ]
-  %9 = icmp ult i64 %indvars.iv47, 6
+  %9 = icmp samesign ult i64 %indvars.iv47, 6
   br i1 %9, label %.lr.ph.i.us.us, label %.preheader.lr.ph.i.us.us
 
 .preheader.lr.ph.i.us.us:                         ; preds = %.lr.ph.split.us.split.us
@@ -912,7 +912,7 @@ define void @If_CluHashPrintStats(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not, label %16, label %14, !llvm.loop !26
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %.0, 10
+  %17 = icmp samesign ult i32 %.0, 10
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %16
@@ -2033,7 +2033,7 @@ define i32 @If_CluSemiCanonicize(ptr nocapture noundef %0, i32 noundef %1, ptr n
   %22 = or i32 %21, %.06699
   store i32 %18, ptr %14, align 8
   store i32 %15, ptr %17, align 4
-  %23 = icmp ult i64 %indvars.iv, 6
+  %23 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %19
@@ -2158,7 +2158,7 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %
   %79 = load i32, ptr %78, align 4
   store i32 %79, ptr %75, align 4
   store i32 %76, ptr %78, align 4
-  %80 = icmp ult i64 %indvars.iv129, 5
+  %80 = icmp samesign ult i64 %indvars.iv129, 5
   br i1 %80, label %121, label %81
 
 81:                                               ; preds = %68
@@ -2239,7 +2239,7 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %
   %119 = getelementptr inbounds i64, ptr %.172103.us, i64 %110
   store i64 %118, ptr %119, align 8
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %120 = icmp ult i64 %indvars.iv.next165.i.us, %60
+  %120 = icmp samesign ult i64 %indvars.iv.next165.i.us, %60
   br i1 %120, label %.lr.ph.i88.us, label %If_CluSwapAdjacent.exit.us, !llvm.loop !50
 
 121:                                              ; preds = %68
@@ -2471,7 +2471,7 @@ define internal fastcc void @If_CluSwapAdjacent(ptr nocapture noundef writeonly 
   %81 = getelementptr inbounds i64, ptr %0, i64 %70
   store i64 %80, ptr %81, align 8
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %82 = icmp ult i64 %indvars.iv.next165, %34
+  %82 = icmp samesign ult i64 %indvars.iv.next165, %34
   br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph, %21, %.preheader87.lr.ph, %35, %.preheader, %10
@@ -2523,7 +2523,7 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   %22 = add nsw i32 %.1104.us, 1
   store i32 %19, ptr %16, align 4
   store i32 %17, ptr %18, align 4
-  %23 = icmp ult i64 %indvars.iv, 5
+  %23 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %23, label %64, label %24
 
 24:                                               ; preds = %21
@@ -2604,7 +2604,7 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   %62 = getelementptr inbounds i64, ptr %.155100.us, i64 %53
   store i64 %61, ptr %62, align 8
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %63 = icmp ult i64 %indvars.iv.next165.i.us, %.pre-phi
+  %63 = icmp samesign ult i64 %indvars.iv.next165.i.us, %.pre-phi
   br i1 %63, label %.lr.ph.i71.us, label %If_CluSwapAdjacent.exit.us, !llvm.loop !50
 
 64:                                               ; preds = %21
@@ -2684,7 +2684,7 @@ If_CluCopy.exit78:                                ; preds = %If_CluCopy.exit, %.
   br i1 %.not65, label %If_CluChangePhase.exit, label %93
 
 93:                                               ; preds = %89
-  %94 = icmp ult i64 %indvars.iv123, 6
+  %94 = icmp samesign ult i64 %indvars.iv123, 6
   br i1 %94, label %95, label %108
 
 95:                                               ; preds = %93
@@ -4190,12 +4190,12 @@ define void @If_CluSwapVars(ptr nocapture noundef %0, i32 noundef %1, ptr nounde
 
 ._crit_edge.us.us.us:                             ; preds = %89
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, %82
-  %94 = icmp ult i64 %indvars.iv.next187, %83
+  %94 = icmp samesign ult i64 %indvars.iv.next187, %83
   br i1 %94, label %.preheader160.us.us.us, label %._crit_edge165.split.us.us.us, !llvm.loop !80
 
 ._crit_edge165.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, %84
-  %95 = icmp ult i64 %indvars.iv.next190, %86
+  %95 = icmp samesign ult i64 %indvars.iv.next190, %86
   br i1 %95, label %.preheader161.us.us, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %._crit_edge165.split.us.us.us, %._crit_edge.us, %27, %.preheader161.lr.ph, %.preheader.lr.ph, %70, %37, %14
@@ -5653,7 +5653,7 @@ If_CluDetectSpecialCaseCofs.exit:                 ; preds = %137
 
 ._crit_edge:                                      ; preds = %.lr.ph111
   call void @If_CluMoveVar(ptr noundef %.070113, i32 noundef %.0114, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %143, i32 noundef %31)
-  %or.cond = icmp ult i64 %indvars.iv137.i, 2
+  %or.cond = icmp samesign ult i64 %indvars.iv137.i, 2
   br i1 %or.cond, label %172, label %187
 
 172:                                              ; preds = %._crit_edge
@@ -6538,7 +6538,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
   %88 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 %indvars.iv78
   store i8 %87, ptr %88, align 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %89 = icmp ult i64 %indvars.iv.next79, %80
+  %89 = icmp samesign ult i64 %indvars.iv.next79, %80
   br i1 %89, label %.lr.ph54, label %.loopexit, !llvm.loop !113
 
 90:                                               ; preds = %72, %.lr.ph.split.split
@@ -7117,7 +7117,7 @@ define range(i32 0, 2) i32 @If_CluMinimumBase(ptr nocapture noundef %0, ptr noun
   %indvars.iv84 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next85, %If_CluHasVar.exit.thread.us ]
   %.055.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.1.us, %If_CluHasVar.exit.thread.us ]
   %.02254.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.123.us, %If_CluHasVar.exit.thread.us ]
-  %12 = icmp ult i64 %indvars.iv84, 6
+  %12 = icmp samesign ult i64 %indvars.iv84, 6
   br i1 %12, label %.lr.ph.i.us, label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.lr.ph.split.us
@@ -7378,7 +7378,7 @@ If_CluHasVar.exit.thread.us:                      ; preds = %._crit_edge.us.i.us
   %128 = getelementptr inbounds i64, ptr %.13045.i, i64 %119
   store i64 %127, ptr %128, align 8
   %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 2
-  %129 = icmp ult i64 %indvars.iv.next165.i.i, %63
+  %129 = icmp samesign ult i64 %indvars.iv.next165.i.i, %63
   br i1 %129, label %.lr.ph.i.i, label %If_CluSwapAdjacent.exit.i, !llvm.loop !50
 
 If_CluSwapAdjacent.exit.i:                        ; preds = %.lr.ph.us.preheader.i.i, %.lr.ph.i.i, %79, %.preheader87.lr.ph.i.i, %92, %.preheader.i.i, %69
@@ -7526,7 +7526,7 @@ If_CluCopy.exit151:                               ; preds = %.lr.ph.preheader.i1
 .lr.ph.split.us.split.us.i:                       ; preds = %If_CluHasVar.exit.thread.us.us.i, %.lr.ph.split.us.split.us.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %indvars.iv.next48.i, %If_CluHasVar.exit.thread.us.us.i ]
   %.021.us.us.i = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %85, %If_CluHasVar.exit.thread.us.us.i ]
-  %50 = icmp ult i64 %indvars.iv47.i, 6
+  %50 = icmp samesign ult i64 %indvars.iv47.i, 6
   br i1 %50, label %.lr.ph.i.us.us.i, label %.preheader.lr.ph.i.us.us.i
 
 .preheader.lr.ph.i.us.us.i:                       ; preds = %.lr.ph.split.us.split.us.i
@@ -8072,7 +8072,7 @@ If_CluCopy.exit196:                               ; preds = %.lr.ph.preheader.i1
 
 .lr.ph.i197:                                      ; preds = %If_CluCopy.exit196, %If_CluCopy.exit.i
   %.012.i198 = phi i32 [ %320, %If_CluCopy.exit.i ], [ %308, %If_CluCopy.exit196 ]
-  %310 = icmp ult i32 %.012.i198, 7
+  %310 = icmp samesign ult i32 %.012.i198, 7
   %311 = add nsw i32 %.012.i198, -6
   %312 = shl nuw i32 1, %311
   %313 = select i1 %310, i32 1, i32 %312
@@ -8165,7 +8165,7 @@ define range(i32 0, 2) i32 @If_CluCheckDecInAny(i64 noundef %0, i32 noundef %1) 
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next51, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph45.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %5 = icmp ult i64 %indvars.iv.next51, %4
+  %5 = icmp samesign ult i64 %indvars.iv.next51, %4
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph45

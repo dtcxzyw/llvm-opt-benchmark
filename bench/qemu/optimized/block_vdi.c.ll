@@ -981,7 +981,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %blocks_in_image, align 8
   %14 = zext i32 %13 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %14
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end6

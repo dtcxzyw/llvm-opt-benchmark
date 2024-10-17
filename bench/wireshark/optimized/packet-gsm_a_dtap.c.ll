@@ -3349,27 +3349,27 @@ define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %94
 
 82:                                               ; preds = %27
-  %83 = icmp ult i8 %30, 32
+  %83 = icmp samesign ult i8 %30, 32
   br i1 %83, label %94, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i8 %30, 48
+  %85 = icmp samesign ult i8 %30, 48
   br i1 %85, label %94, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ult i8 %30, 64
+  %87 = icmp samesign ult i8 %30, 64
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ult i8 %30, 80
+  %89 = icmp samesign ult i8 %30, 80
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i8 %30, 96
+  %91 = icmp samesign ult i8 %30, 96
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ult i8 %30, 112
+  %93 = icmp samesign ult i8 %30, 112
   %.str.894..str.895 = select i1 %93, ptr @.str.894, ptr @.str.895
   br label %94
 
@@ -4152,9 +4152,9 @@ define internal noundef zeroext i16 @de_tp_ue_test_loop_mode(ptr noundef %0, ptr
   %25 = add i32 %.142, 3
   %26 = add nuw nsw i32 %17, 3
   %27 = and i32 %26, 255
-  %28 = icmp ult i32 %27, %16
-  %29 = icmp ult i32 %indvars.iv, 3
-  %30 = and i1 %28, %29
+  %28 = icmp samesign ult i32 %27, %16
+  %29 = icmp samesign ult i32 %indvars.iv, 3
+  %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 31:                                               ; preds = %7

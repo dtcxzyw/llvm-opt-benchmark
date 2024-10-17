@@ -20359,7 +20359,7 @@ define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12ep
   %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
   %335 = load i32, ptr %49, align 8
   %336 = zext i32 %335 to i64
-  %337 = icmp ult i64 %indvars.iv.next261.i, %336
+  %337 = icmp samesign ult i64 %indvars.iv.next261.i, %336
   br i1 %337, label %76, label %_ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit, !llvm.loop !112
 
 _ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit: ; preds = %.loopexit.i, %._crit_edge.i, %.preheader.i

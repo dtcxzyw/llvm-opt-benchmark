@@ -299,7 +299,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 181:                                              ; preds = %175, %172, %165
   %182 = phi double [ %166, %165 ], [ %139, %175 ], [ %139, %172 ]
   %183 = add nuw nsw i32 %138, 1
-  %184 = icmp ult i32 %138, %127
+  %184 = icmp samesign ult i32 %138, %127
   br i1 %184, label %137, label %.loopexit, !llvm.loop !9
 
 185:                                              ; preds = %134, %131
@@ -731,7 +731,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 460:                                              ; preds = %454, %451, %443
   %461 = phi double [ %445, %443 ], [ %276, %454 ], [ %276, %451 ]
   %462 = add nuw nsw i32 %275, 1
-  %463 = icmp ult i32 %275, %127
+  %463 = icmp samesign ult i32 %275, %127
   br i1 %463, label %274, label %.loopexit37, !llvm.loop !18
 
 464:                                              ; preds = %244
@@ -763,7 +763,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .loopexit36:                                      ; preds = %618
   %483 = add nuw nsw i64 %485, 1
-  %484 = icmp ult i64 %485, %482
+  %484 = icmp samesign ult i64 %485, %482
   br i1 %484, label %.split55, label %.loopexit37, !llvm.loop !19
 
 .split55:                                         ; preds = %.split55.preheader, %.loopexit36
@@ -785,7 +785,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %499 = add nsw i32 %487, %55
   %500 = sext i32 %499 to i64
   %501 = getelementptr inbounds double, ptr %58, i64 %500
-  %502 = icmp ult i64 %485, %481
+  %502 = icmp samesign ult i64 %485, %481
   %503 = mul nsw i32 %489, %35
   %504 = add nsw i32 %503, %487
   %505 = sext i32 %504 to i64

@@ -1237,7 +1237,7 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %41, %_ZN17QArrayDat
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %20, label %.loopexit, !llvm.loop !6
 
 48:                                               ; preds = %_ZN7QStringD2Ev.exit

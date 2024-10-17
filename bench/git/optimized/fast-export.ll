@@ -812,7 +812,7 @@ for.inc.i:                                        ; preds = %if.then42.i, %if.en
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %cmdline, align 8
   %33 = zext i32 %32 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %33
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %cmp.i, label %for.body.i, label %get_tags_and_duplicates.exit, !llvm.loop !8
 
 get_tags_and_duplicates.exit:                     ; preds = %for.inc.i, %if.end261

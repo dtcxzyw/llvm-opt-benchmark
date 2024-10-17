@@ -361,7 +361,7 @@ copy_address.exit.i60:                            ; preds = %98, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = load i32, ptr %130, align 8
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next, %154
   br i1 %155, label %145, label %.thread82, !llvm.loop !7
 
 .thread82:                                        ; preds = %145, %.preheader, %89, %90, %.thread86, %.thread78, %139, %5

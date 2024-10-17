@@ -1650,7 +1650,7 @@ opal_convertor_need_buffers.exit.thread.i:        ; preds = %97
   %130 = phi i32 [ %119, %.lr.ph.i ], [ %.pre.i51, %123 ]
   %131 = add nuw nsw i64 %.013.i, 1
   %132 = zext i32 %130 to i64
-  %133 = icmp ult i64 %131, %132
+  %133 = icmp samesign ult i64 %131, %132
   br i1 %133, label %.lr.ph.i, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !10
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %129, %117

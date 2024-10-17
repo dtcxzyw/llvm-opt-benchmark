@@ -210,7 +210,7 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef %0) unnam
   %21 = mul i64 %13, %3
   %22 = select i1 %19, i64 %21, i64 %20
   %23 = lshr i64 %22, 12
-  %24 = icmp ult i64 %23, %18
+  %24 = icmp samesign ult i64 %23, %18
   %25 = lshr i64 %17, 13
   %26 = select i1 %24, i64 %23, i64 %25
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   %131 = mul i32 %130, %127
   %132 = zext i32 %131 to i64
   %133 = shl nuw nsw i64 %132, 1
-  %134 = icmp ult i64 %120, %133
+  %134 = icmp samesign ult i64 %120, %133
   br i1 %134, label %135, label %141
 
 135:                                              ; preds = %125
@@ -2022,7 +2022,7 @@ define dso_local zeroext i1 @wb_over_bg_thresh(ptr noundef %0) local_unnamed_add
   %56 = mul i32 %55, %52
   %57 = zext i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 1
-  %59 = icmp ult i64 %51, %58
+  %59 = icmp samesign ult i64 %51, %58
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %27
@@ -3997,7 +3997,7 @@ define internal fastcc void @wb_dirty_limits(ptr nocapture noundef %0) unnamed_a
   %47 = mul i32 %46, %43
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 1
-  %50 = icmp ult i64 %31, %49
+  %50 = icmp samesign ult i64 %31, %49
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %40

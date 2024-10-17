@@ -771,7 +771,7 @@ if.then:                                          ; preds = %if.end42, %entry
   %conv.i = shl nuw nsw i32 %1, 2
   %bf.set4.i = add nsw i32 %conv.i, -1
   store i32 %bf.set4.i, ptr %axis.i, align 4
-  %cmp14.i = icmp ugt i64 %count.tr.lcssa, 1
+  %cmp14.i = icmp samesign ugt i64 %count.tr.lcssa, 1
   br i1 %cmp14.i, label %for.body.i, label %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
@@ -1300,7 +1300,7 @@ for.inc:                                          ; preds = %if.end, %if.then29,
   %bf.load1 = load i32, ptr %axis.le, align 4
   %bf.lshr = lshr i32 %bf.load1, 2
   %13 = zext nneg i32 %bf.lshr to i64
-  %cmp2.not.not = icmp ult i64 %indvars.iv, %13
+  %cmp2.not.not = icmp samesign ult i64 %indvars.iv, %13
   br i1 %cmp2.not.not, label %for.body, label %if.end51, !llvm.loop !25
 
 if.else:                                          ; preds = %entry, %if.then47
@@ -1391,7 +1391,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %inc = add nuw nsw i64 %j.054, 1
   %9 = load i32, ptr %vertex_count, align 4
   %conv20 = zext i32 %9 to i64
-  %cmp21 = icmp ult i64 %inc, %conv20
+  %cmp21 = icmp samesign ult i64 %inc, %conv20
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %if.then

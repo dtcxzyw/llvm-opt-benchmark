@@ -474,7 +474,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .loopexit:                                        ; preds = %31, %.preheader, %21
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %42 = icmp ult i64 %indvars.iv.next23, %20
+  %42 = icmp samesign ult i64 %indvars.iv.next23, %20
   br i1 %42, label %21, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %Vec_IntStart.exit
@@ -2823,7 +2823,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 23:                                               ; preds = %17, %20
   %.1 = phi i32 [ %21, %20 ], [ %.01015, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = icmp ult i64 %indvars.iv.next, %16
+  %24 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %24, label %17, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %23, %Vec_IntStart.exit
@@ -2903,7 +2903,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4
-  %33 = icmp ult i64 %indvars.iv.next, %24
+  %33 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %33, label %25, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %25, %.preheader

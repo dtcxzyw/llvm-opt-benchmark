@@ -79,7 +79,7 @@ dlist_push_head.exit:                             ; preds = %5
   %storemerge = phi i32 [ %36, %dlist_push_head.exit ], [ %42, %39 ]
   %narrow = add nuw nsw i32 %storemerge, 8
   %40 = zext nneg i32 %narrow to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   %42 = lshr i32 %storemerge, 1
   br i1 %41, label %39, label %43, !llvm.loop !5
 
@@ -371,12 +371,12 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %80, i32 %82)
   store i32 %spec.store.select.i, ptr %77, align 8
   %83 = add nuw nsw i64 %5, 64
-  %84 = icmp ugt i64 %83, %79
+  %84 = icmp samesign ugt i64 %83, %79
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %76
   %86 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %83)
-  %87 = icmp ult i64 %86, 2
+  %87 = icmp samesign ult i64 %86, 2
   %88 = tail call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %83, i1 true)
   %89 = sub nuw nsw i64 64, %88
   %90 = shl nuw nsw i64 1, %89

@@ -1436,7 +1436,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   %43 = add nuw nsw i64 %42, %39
   %44 = shl nuw nsw i64 %34, 1
   %45 = or disjoint i64 %44, 1
-  %.not = icmp ugt i64 %43, %45
+  %.not = icmp samesign ugt i64 %43, %45
   br i1 %.not, label %78, label %46
 
 46:                                               ; preds = %33
@@ -1946,7 +1946,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %41 = add nuw nsw i64 %40, %37
   %42 = shl nuw nsw i64 %32, 1
   %43 = or disjoint i64 %42, 1
-  %.not = icmp ugt i64 %41, %43
+  %.not = icmp samesign ugt i64 %41, %43
   br i1 %.not, label %76, label %44
 
 44:                                               ; preds = %31

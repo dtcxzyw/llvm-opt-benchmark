@@ -910,7 +910,7 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
   br label %do_range_limit.exit.sink.split
 
 56:                                               ; preds = %45
-  %57 = icmp ugt i64 %.fr21.i, 999999
+  %57 = icmp samesign ugt i64 %.fr21.i, 999999
   br i1 %57, label %58, label %do_range_limit.exit
 
 58:                                               ; preds = %56
@@ -1085,7 +1085,7 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
   br label %do_range_limit.exit.sink.split
 
 56:                                               ; preds = %45
-  %57 = icmp ugt i64 %.fr21.i, 999999
+  %57 = icmp samesign ugt i64 %.fr21.i, 999999
   br i1 %57, label %58, label %do_range_limit.exit
 
 58:                                               ; preds = %56

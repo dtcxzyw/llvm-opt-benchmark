@@ -90,7 +90,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_u16(ptr nocapture noundef read
   %51 = trunc nuw nsw i64 %50 to i32
   %.not.i = icmp ugt i32 %43, 32768
   %spec.store.select.i = select i1 %.not.i, i32 1, i32 %51
-  %52 = icmp ugt i32 %spec.store.select.i, 1600
+  %52 = icmp samesign ugt i32 %spec.store.select.i, 1600
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %42

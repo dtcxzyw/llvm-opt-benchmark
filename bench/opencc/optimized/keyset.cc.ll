@@ -165,7 +165,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %15, %28
   %39 = add nuw nsw i64 %.014, 1
   %40 = load i32, ptr %3, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %39, %41
+  %42 = icmp samesign ult i64 %39, %41
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6marisa6Keyset7reserveEm.exit
@@ -335,7 +335,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %21, %33
   %44 = add nuw nsw i64 %.017, 1
   %45 = load i32, ptr %13, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6marisa6Keyset7reserveEm.exit

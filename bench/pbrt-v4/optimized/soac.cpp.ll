@@ -3375,7 +3375,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %__beg.sroa.0.2.us = phi ptr [ %__beg.sroa.0.0.us, %while.cond.us ], [ %spec.select.us, %land.lhs.true2.i.i.i.i.us ]
   %__ret.0.i.i.i.i.us = phi i32 [ %__beg.sroa.11.0.us, %while.cond.us ], [ %call4.i.i.i.i.us, %land.lhs.true2.i.i.i.i.us ]
   %cmp.i.i.i.i.i.us = icmp eq i32 %__ret.0.i.i.i.i.us, -1
-  %cmp.us = icmp ult i64 %__len.0.us, 15
+  %cmp.us = icmp samesign ult i64 %__len.0.us, 15
   %0 = select i1 %cmp.i.i.i.i.i.us, i1 %cmp.us, i1 false
   br i1 %0, label %while.body.us, label %while.end
 
@@ -3440,7 +3440,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %__ret.0.i.i5.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %3, %land.lhs.true2.i.i7.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %__ret.0.i.i.i.i, -1
   %lnot.i = xor i1 %cmp.i.i.i.i.i, %__ret.0.i.i5.i.i
-  %cmp = icmp ult i64 %__len.0, 15
+  %cmp = icmp samesign ult i64 %__len.0, 15
   %4 = select i1 %lnot.i, i1 %cmp, i1 false
   br i1 %4, label %while.body, label %while.end
 

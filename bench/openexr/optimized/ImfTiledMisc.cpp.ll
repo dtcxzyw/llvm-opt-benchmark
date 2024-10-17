@@ -349,7 +349,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %x.addr.04.i.i.i = phi i32 [ %shr.i.i.i, %while.body.i.i.i ], [ %.sroa.speculated.i, %cond.true.i.i ]
   %add.i.i.i = add nuw nsw i32 %y.05.i.i.i, 1
   %shr.i.i.i = lshr i32 %x.addr.04.i.i.i, 1
-  %cmp.i.i.i = icmp ugt i32 %x.addr.04.i.i.i, 3
+  %cmp.i.i.i = icmp samesign ugt i32 %x.addr.04.i.i.i, 3
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i, !llvm.loop !9
 
 cond.false.i.i:                                   ; preds = %sw.bb1.i
@@ -364,7 +364,7 @@ while.body.i2.i.i:                                ; preds = %cond.false.i.i, %wh
   %spec.select.i.i.i = select i1 %tobool.not.i.i.i, i32 %r.07.i.i.i, i32 1
   %add.i3.i.i = add nuw nsw i32 %y.06.i.i.i, 1
   %shr.i4.i.i = lshr i32 %x.addr.05.i.i.i, 1
-  %cmp.i5.i.i = icmp ugt i32 %x.addr.05.i.i.i, 3
+  %cmp.i5.i.i = icmp samesign ugt i32 %x.addr.05.i.i.i, 3
   br i1 %cmp.i5.i.i, label %while.body.i2.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !10
 
 while.end.loopexit.i.i.i:                         ; preds = %while.body.i2.i.i
@@ -391,7 +391,7 @@ while.body.i.i22.i:                               ; preds = %cond.true.i21.i, %w
   %x.addr.04.i.i24.i = phi i32 [ %shr.i.i26.i, %while.body.i.i22.i ], [ %add9.i, %cond.true.i21.i ]
   %add.i.i25.i = add nuw nsw i32 %y.05.i.i23.i, 1
   %shr.i.i26.i = lshr i32 %x.addr.04.i.i24.i, 1
-  %cmp.i.i27.i = icmp ugt i32 %x.addr.04.i.i24.i, 3
+  %cmp.i.i27.i = icmp samesign ugt i32 %x.addr.04.i.i24.i, 3
   br i1 %cmp.i.i27.i, label %while.body.i.i22.i, label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i, !llvm.loop !9
 
 cond.false.i8.i:                                  ; preds = %sw.bb6.i
@@ -406,7 +406,7 @@ while.body.i2.i10.i:                              ; preds = %cond.false.i8.i, %w
   %spec.select.i.i16.i = select i1 %tobool.not.i.i15.i, i32 %r.07.i.i11.i, i32 1
   %add.i3.i17.i = add nuw nsw i32 %y.06.i.i12.i, 1
   %shr.i4.i18.i = lshr i32 %x.addr.05.i.i13.i, 1
-  %cmp.i5.i19.i = icmp ugt i32 %x.addr.05.i.i13.i, 3
+  %cmp.i5.i19.i = icmp samesign ugt i32 %x.addr.05.i.i13.i, 3
   br i1 %cmp.i5.i19.i, label %while.body.i2.i10.i, label %while.end.loopexit.i.i20.i, !llvm.loop !10
 
 while.end.loopexit.i.i20.i:                       ; preds = %while.body.i2.i10.i
@@ -467,7 +467,7 @@ while.body.i.i.i75:                               ; preds = %cond.true.i.i74, %w
   %x.addr.04.i.i.i77 = phi i32 [ %shr.i.i.i79, %while.body.i.i.i75 ], [ %.sroa.speculated.i56, %cond.true.i.i74 ]
   %add.i.i.i78 = add nuw nsw i32 %y.05.i.i.i76, 1
   %shr.i.i.i79 = lshr i32 %x.addr.04.i.i.i77, 1
-  %cmp.i.i.i80 = icmp ugt i32 %x.addr.04.i.i.i77, 3
+  %cmp.i.i.i80 = icmp samesign ugt i32 %x.addr.04.i.i.i77, 3
   br i1 %cmp.i.i.i80, label %while.body.i.i.i75, label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60, !llvm.loop !9
 
 cond.false.i.i59:                                 ; preds = %sw.bb1.i51
@@ -482,7 +482,7 @@ while.body.i2.i.i63:                              ; preds = %cond.false.i.i59, %
   %spec.select.i.i.i69 = select i1 %tobool.not.i.i.i68, i32 %r.07.i.i.i64, i32 1
   %add.i3.i.i70 = add nuw nsw i32 %y.06.i.i.i65, 1
   %shr.i4.i.i71 = lshr i32 %x.addr.05.i.i.i66, 1
-  %cmp.i5.i.i72 = icmp ugt i32 %x.addr.05.i.i.i66, 3
+  %cmp.i5.i.i72 = icmp samesign ugt i32 %x.addr.05.i.i.i66, 3
   br i1 %cmp.i5.i.i72, label %while.body.i2.i.i63, label %while.end.loopexit.i.i.i73, !llvm.loop !10
 
 while.end.loopexit.i.i.i73:                       ; preds = %while.body.i2.i.i63
@@ -509,7 +509,7 @@ while.body.i.i22.i45:                             ; preds = %cond.true.i21.i44, 
   %x.addr.04.i.i24.i47 = phi i32 [ %shr.i.i26.i49, %while.body.i.i22.i45 ], [ %add9.i25, %cond.true.i21.i44 ]
   %add.i.i25.i48 = add nuw nsw i32 %y.05.i.i23.i46, 1
   %shr.i.i26.i49 = lshr i32 %x.addr.04.i.i24.i47, 1
-  %cmp.i.i27.i50 = icmp ugt i32 %x.addr.04.i.i24.i47, 3
+  %cmp.i.i27.i50 = icmp samesign ugt i32 %x.addr.04.i.i24.i47, 3
   br i1 %cmp.i.i27.i50, label %while.body.i.i22.i45, label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29, !llvm.loop !9
 
 cond.false.i8.i28:                                ; preds = %sw.bb6.i23
@@ -524,7 +524,7 @@ while.body.i2.i10.i33:                            ; preds = %cond.false.i8.i28, 
   %spec.select.i.i16.i39 = select i1 %tobool.not.i.i15.i38, i32 %r.07.i.i11.i34, i32 1
   %add.i3.i17.i40 = add nuw nsw i32 %y.06.i.i12.i35, 1
   %shr.i4.i18.i41 = lshr i32 %x.addr.05.i.i13.i36, 1
-  %cmp.i5.i19.i42 = icmp ugt i32 %x.addr.05.i.i13.i36, 3
+  %cmp.i5.i19.i42 = icmp samesign ugt i32 %x.addr.05.i.i13.i36, 3
   br i1 %cmp.i5.i19.i42, label %while.body.i2.i10.i33, label %while.end.loopexit.i.i20.i43, !llvm.loop !10
 
 while.end.loopexit.i.i20.i43:                     ; preds = %while.body.i2.i10.i33

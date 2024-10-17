@@ -179,7 +179,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   %7 = and i32 %1, 65280
   %8 = icmp ne i32 %7, 13056
   %9 = and i32 %1, 255
-  %10 = icmp ugt i32 %9, 20
+  %10 = icmp samesign ugt i32 %9, 20
   %11 = or i1 %8, %10
   br i1 %11, label %164, label %12
 

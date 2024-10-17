@@ -1699,7 +1699,7 @@ define hidden noundef i8 @_ZN16wasmtime_environ9vmoffsets7PtrSize24vmcontext_run
   %8 = urem i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %8 to i32
   %9 = sub nuw nsw i32 %7, %.zext
-  %10 = icmp ult i32 %9, 256
+  %10 = icmp samesign ult i32 %9, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   br i1 %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h106436a8ab46248aE.llvm.7808069312437652055.exit", label %11
 
@@ -1769,7 +1769,7 @@ define hidden noundef i8 @_ZN16wasmtime_environ9vmoffsets7PtrSize40vmnative_call
   %8 = urem i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %8 to i32
   %9 = sub nuw nsw i32 %7, %.zext
-  %10 = icmp ult i32 %9, 256
+  %10 = icmp samesign ult i32 %9, 256
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   br i1 %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h106436a8ab46248aE.llvm.7808069312437652055.exit", label %11
 
@@ -4224,7 +4224,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   %80 = getelementptr inbounds i8, ptr %0, i64 152
   %81 = load i8, ptr %80, align 8, !range !391, !noundef !4
-  %switch = icmp ult i8 %81, 2
+  %switch = icmp samesign ult i8 %81, 2
   br i1 %switch, label %82, label %85
 
 82:                                               ; preds = %79
@@ -5294,7 +5294,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit189:
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16), !noalias !581
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %543 = load i8, ptr %80, align 8, !range !391, !noundef !4
-  %switch68 = icmp ult i8 %543, 2
+  %switch68 = icmp samesign ult i8 %543, 2
   br i1 %switch68, label %544, label %550
 
 544:                                              ; preds = %542
@@ -8060,7 +8060,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18Trampol
   store i64 %13, ptr %.sroa.6.0..sroa_idx, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 152
   %20 = load i8, ptr %19, align 8, !range !391, !noundef !4
-  %switch = icmp ult i8 %20, 2
+  %switch = icmp samesign ult i8 %20, 2
   br i1 %switch, label %21, label %22
 
 21:                                               ; preds = %2
@@ -8179,7 +8179,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18Trampol
   %8 = alloca { ptr, i32, [1 x i32] }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   %10 = load i8, ptr %9, align 8, !range !391, !noundef !4
-  %switch = icmp ult i8 %10, 2
+  %switch = icmp samesign ult i8 %10, 2
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %switch, label %12, label %26
 
@@ -13598,7 +13598,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %98 = load ptr, ptr %22, align 8, !alias.scope !1773, !nonnull !4, !align !11, !noundef !4
   %99 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98), !noalias !1773
   %100 = and i32 %96, 11
-  %switch.i.i = icmp ult i32 %100, 3
+  %switch.i.i = icmp samesign ult i32 %100, 3
   br i1 %switch.i.i, label %"_ZN118_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$as$u20$cranelift_wasm..environ..spec..TargetEnvironment$GT$14reference_type17hbb6395ec574547afE.exit", label %101
 
 101:                                              ; preds = %95
@@ -15808,7 +15808,7 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %19 = getelementptr inbounds [0 x { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }], ptr %.val, i64 0, i64 %15, i32 0, i32 1
   %20 = load i32, ptr %19, align 4, !range !1766, !noundef !4
   %21 = and i32 %20, 11
-  %switch = icmp ult i32 %21, 3
+  %switch = icmp samesign ult i32 %21, 3
   br i1 %switch, label %22, label %28
 
 22:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h46eba33f18d06885E.exit"
@@ -16229,7 +16229,7 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %20 = getelementptr inbounds [0 x { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }], ptr %.val, i64 0, i64 %16, i32 0, i32 1
   %21 = load i32, ptr %20, align 4, !range !1766, !noundef !4
   %22 = and i32 %21, 11
-  %switch = icmp ult i32 %22, 3
+  %switch = icmp samesign ult i32 %22, 3
   br i1 %switch, label %23, label %29
 
 23:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h46eba33f18d06885E.exit"
@@ -20723,7 +20723,7 @@ define void @"_ZN99_$LT$wasmtime_cranelift..gc..enabled..DrcCompiler$u20$as$u20$
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !align !11, !noundef !4
   %48 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47), !noalias !3220
   %49 = and i32 %43, 11
-  %switch.i.i = icmp ult i32 %49, 3
+  %switch.i.i = icmp samesign ult i32 %49, 3
   br i1 %switch.i.i, label %"_ZN118_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$as$u20$cranelift_wasm..environ..spec..TargetEnvironment$GT$14reference_type17hbb6395ec574547afE.exit", label %50
 
 50:                                               ; preds = %42
@@ -21290,7 +21290,7 @@ define void @"_ZN99_$LT$wasmtime_cranelift..gc..enabled..DrcCompiler$u20$as$u20$
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !align !11, !noundef !4
   %49 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48), !noalias !3360
   %50 = and i32 %44, 11
-  %switch.i.i = icmp ult i32 %50, 3
+  %switch.i.i = icmp samesign ult i32 %50, 3
   br i1 %switch.i.i, label %"_ZN118_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$as$u20$cranelift_wasm..environ..spec..TargetEnvironment$GT$14reference_type17hbb6395ec574547afE.exit", label %51
 
 51:                                               ; preds = %43

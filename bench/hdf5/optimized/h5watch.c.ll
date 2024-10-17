@@ -1238,7 +1238,7 @@ declare i32 @H5LDget_dset_dims(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -9223372036854775808) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, -2147483648) %5, i32 noundef range(i32 0, -2147483648) %6) unnamed_addr #8 {
   %8 = sub nsw i32 %5, %6
   %9 = add nsw i32 %6, -1
-  %10 = icmp ugt i32 %6, 1
+  %10 = icmp samesign ugt i32 %6, 1
   %11 = sext i32 %8 to i64
   br i1 %10, label %.preheader, label %..loopexit_crit_edge
 

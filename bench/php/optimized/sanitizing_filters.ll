@@ -430,7 +430,7 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   %40 = getelementptr inbounds i8, ptr %.0216, i64 -1
   store i8 %39, ptr %40, align 1
   %41 = udiv i64 %.0217, 10
-  %.not244 = icmp ult i64 %.0217, 10
+  %.not244 = icmp samesign ult i64 %.0217, 10
   br i1 %.not244, label %42, label %36
 
 42:                                               ; preds = %36

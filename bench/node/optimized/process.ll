@@ -856,7 +856,7 @@ for.body11:                                       ; preds = %for.body11.preheade
   %arrayidx12 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %indvars.iv, i64 1
   %3 = load i32, ptr %arrayidx12, align 4
   %4 = zext i32 %3 to i64
-  %or.cond = icmp ugt i64 %indvars.iv, %4
+  %or.cond = icmp samesign ugt i64 %indvars.iv, %4
   br i1 %or.cond, label %if.end17, label %for.inc28
 
 if.end17:                                         ; preds = %for.body11

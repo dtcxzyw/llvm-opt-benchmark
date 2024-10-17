@@ -517,11 +517,11 @@ for.body113.i:                                    ; preds = %for.body113.i, %if.
   %inc120.i = zext i1 %cmp116.i to i32
   %spec.select.i = add nuw nsw i32 %15, %inc120.i
   %add.i = add nuw nsw i32 %i.348.i, 2
-  %cmp111.i = icmp ult i32 %i.348.i, 318
+  %cmp111.i = icmp samesign ult i32 %i.348.i, 318
   br i1 %cmp111.i, label %for.body113.i, label %for.end124.i, !llvm.loop !9
 
 for.end124.i:                                     ; preds = %for.body113.i
-  %cmp126.i = icmp ugt i32 %spec.select.i, 7
+  %cmp126.i = icmp samesign ugt i32 %spec.select.i, 7
   br i1 %cmp126.i, label %if.end130.thread.i, label %if.end130.i
 
 if.end130.thread.i:                               ; preds = %for.end124.i

@@ -28712,7 +28712,7 @@ for.body.i:                                       ; preds = %for.body.outer.i, %
   br i1 %cmp2.i.not, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %cmp3.i = icmp ugt i64 %i.049.i, 255
+  %cmp3.i = icmp samesign ugt i64 %i.049.i, 255
   br i1 %cmp3.i, label %return.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
@@ -34712,7 +34712,7 @@ for.body:                                         ; preds = %for.body.outer, %fo
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmp3 = icmp ugt i64 %i.049, 255
+  %cmp3 = icmp samesign ugt i64 %i.049, 255
   br i1 %cmp3, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then

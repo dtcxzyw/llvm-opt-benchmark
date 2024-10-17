@@ -2978,12 +2978,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10JSONParser10parseValueEPcRNS_8Fi
 
 84:                                               ; preds = %78
   %85 = icmp eq i8 %79, 36
-  %86 = icmp ult i64 %.093, 10
+  %86 = icmp samesign ult i64 %.093, 10
   %or.cond = select i1 %85, i1 %86, i1 false
   br i1 %or.cond, label %87, label %.critedge
 
 _Z10cv_isalnumc.exit.thread:                      ; preds = %78
-  %.old1 = icmp ult i64 %.093, 10
+  %.old1 = icmp samesign ult i64 %.093, 10
   br i1 %.old1, label %87, label %.critedge.thread
 
 87:                                               ; preds = %84, %_Z10cv_isalnumc.exit.thread
@@ -2992,7 +2992,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   br label %78, !llvm.loop !23
 
 .critedge:                                        ; preds = %84
-  %90 = icmp ugt i64 %.093, 7
+  %90 = icmp samesign ugt i64 %.093, 7
   br i1 %90, label %.critedge.thread, label %114
 
 .critedge.thread:                                 ; preds = %_Z10cv_isalnumc.exit.thread, %.critedge
@@ -3792,7 +3792,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   %449 = and i8 %448, -33
   %450 = add i8 %449, -65
   %451 = icmp ult i8 %450, 26
-  %452 = icmp ult i32 %.0182, 6
+  %452 = icmp samesign ult i32 %.0182, 6
   %453 = select i1 %451, i1 %452, i1 false
   br i1 %453, label %422, label %._crit_edge, !llvm.loop !26
 

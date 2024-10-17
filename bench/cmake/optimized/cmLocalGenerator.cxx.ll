@@ -8498,7 +8498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %60 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %61 = lshr i64 %60, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -18259,7 +18259,7 @@ define dso_local void @_ZN16cmLocalGenerator21GetTargetCompileFlagsEP17cmGenerat
           to label %46 unwind label %25
 
 46:                                               ; preds = %44
-  %.not = icmp ult i64 %45, 4294967296
+  %.not = icmp samesign ult i64 %45, 4294967296
   br i1 %.not, label %100, label %47
 
 47:                                               ; preds = %46
@@ -43337,7 +43337,7 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__norm
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %10 = add nuw nsw i64 %storemerge26.i, 1
   %11 = lshr i64 %10, 1
-  %.not10.i = icmp ult i64 %storemerge26.i, 2
+  %.not10.i = icmp samesign ult i64 %storemerge26.i, 2
   br i1 %.not10.i, label %_ZSt20get_temporary_bufferI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !1318
 
 12:                                               ; preds = %.lr.ph.i
@@ -50596,7 +50596,7 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %20 = add nuw nsw i64 %storemerge26.i.i, 1
   %21 = lshr i64 %20, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !50
 
 22:                                               ; preds = %.lr.ph.i.i

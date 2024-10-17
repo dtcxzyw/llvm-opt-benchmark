@@ -2094,7 +2094,7 @@ for.body.i200:                                    ; preds = %for.body.i200.prehe
   store i8 %conv.i, ptr %p.017.i, align 1
   %div.i = udiv i32 %n.addr.016.i, 10
   %dec.i202 = add nsw i32 %digits.addr.015.i, -1
-  %cmp.i203 = icmp ugt i32 %n.addr.016.i, 9
+  %cmp.i203 = icmp samesign ugt i32 %n.addr.016.i, 9
   %cmp2.i204 = icmp ugt ptr %incdec.ptr.i201, %buffer.i183
   %48 = select i1 %cmp.i203, i1 %cmp2.i204, i1 false
   br i1 %48, label %for.body.i200, label %while.cond.preheader.i, !llvm.loop !25
@@ -2190,7 +2190,7 @@ for.body.i243:                                    ; preds = %sw.bb92, %for.body.
   store i8 %conv.i248, ptr %p.017.i244, align 1
   %div.i250 = udiv i32 %n.addr.016.i245, 10
   %dec.i251 = add nsw i32 %digits.addr.015.i246, -1
-  %cmp.i252 = icmp ugt i32 %n.addr.016.i245, 9
+  %cmp.i252 = icmp samesign ugt i32 %n.addr.016.i245, 9
   %cmp2.i253 = icmp ugt ptr %incdec.ptr.i249, %buffer.i206
   %59 = select i1 %cmp.i252, i1 %cmp2.i253, i1 false
   br i1 %59, label %for.body.i243, label %while.cond.preheader.i211, !llvm.loop !25
@@ -2296,7 +2296,7 @@ for.body.i292:                                    ; preds = %sw.bb106, %for.body
   store i8 %conv.i297, ptr %p.017.i293, align 1
   %div.i299 = udiv i32 %n.addr.016.i294, 10
   %dec.i300 = add nsw i32 %digits.addr.015.i295, -1
-  %cmp.i301 = icmp ugt i32 %n.addr.016.i294, 9
+  %cmp.i301 = icmp samesign ugt i32 %n.addr.016.i294, 9
   %cmp2.i302 = icmp ugt ptr %incdec.ptr.i298, %buffer.i255
   %70 = select i1 %cmp.i301, i1 %cmp2.i302, i1 false
   br i1 %70, label %for.body.i292, label %while.cond.preheader.i260, !llvm.loop !25
@@ -2402,7 +2402,7 @@ for.body.i341:                                    ; preds = %sw.bb123, %for.body
   store i8 %conv.i346, ptr %p.017.i342, align 1
   %div.i348 = udiv i32 %n.addr.016.i343, 10
   %dec.i349 = add nsw i32 %digits.addr.015.i344, -1
-  %cmp.i350 = icmp ugt i32 %n.addr.016.i343, 9
+  %cmp.i350 = icmp samesign ugt i32 %n.addr.016.i343, 9
   %cmp2.i351 = icmp ugt ptr %incdec.ptr.i347, %buffer.i304
   %81 = select i1 %cmp.i350, i1 %cmp2.i351, i1 false
   br i1 %81, label %for.body.i341, label %while.cond.preheader.i309, !llvm.loop !25
@@ -2501,7 +2501,7 @@ for.body.i390:                                    ; preds = %sw.bb129, %for.body
   store i8 %conv.i395, ptr %p.017.i391, align 1
   %div.i397 = udiv i32 %n.addr.016.i392, 10
   %dec.i398 = add nsw i32 %digits.addr.015.i393, -1
-  %cmp.i399 = icmp ugt i32 %n.addr.016.i392, 9
+  %cmp.i399 = icmp samesign ugt i32 %n.addr.016.i392, 9
   %cmp2.i400 = icmp ugt ptr %incdec.ptr.i396, %buffer.i353
   %92 = select i1 %cmp.i399, i1 %cmp2.i400, i1 false
   br i1 %92, label %for.body.i390, label %while.cond.preheader.i358, !llvm.loop !25
@@ -2601,7 +2601,7 @@ for.body.i439:                                    ; preds = %for.body.i439.prehe
   store i8 %conv.i444, ptr %p.017.i440, align 1
   %div.i446 = udiv i32 %n.addr.016.i441, 10
   %dec.i447 = add nsw i32 %digits.addr.015.i442, -1
-  %cmp.i448 = icmp ugt i32 %n.addr.016.i441, 9
+  %cmp.i448 = icmp samesign ugt i32 %n.addr.016.i441, 9
   %cmp2.i449 = icmp ugt ptr %incdec.ptr.i445, %buffer.i402
   %103 = select i1 %cmp.i448, i1 %cmp2.i449, i1 false
   br i1 %103, label %for.body.i439, label %while.cond.preheader.i407, !llvm.loop !25
@@ -2697,7 +2697,7 @@ for.body.i488:                                    ; preds = %sw.bb146, %for.body
   store i8 %conv.i493, ptr %p.017.i489, align 1
   %div.i495 = udiv i32 %n.addr.016.i490, 10
   %dec.i496 = add nsw i32 %digits.addr.015.i491, -1
-  %cmp.i497 = icmp ugt i32 %n.addr.016.i490, 9
+  %cmp.i497 = icmp samesign ugt i32 %n.addr.016.i490, 9
   %cmp2.i498 = icmp ugt ptr %incdec.ptr.i494, %buffer.i451
   %114 = select i1 %cmp.i497, i1 %cmp2.i498, i1 false
   br i1 %114, label %for.body.i488, label %while.cond.preheader.i456, !llvm.loop !25
@@ -2797,7 +2797,7 @@ for.body.i537:                                    ; preds = %for.body.i537.prehe
   store i8 %conv.i542, ptr %p.017.i538, align 1
   %div.i544 = udiv i32 %n.addr.016.i539, 10
   %dec.i545 = add nsw i32 %digits.addr.015.i540, -1
-  %cmp.i546 = icmp ugt i32 %n.addr.016.i539, 9
+  %cmp.i546 = icmp samesign ugt i32 %n.addr.016.i539, 9
   %cmp2.i547 = icmp ugt ptr %incdec.ptr.i543, %buffer.i500
   %125 = select i1 %cmp.i546, i1 %cmp2.i547, i1 false
   br i1 %125, label %for.body.i537, label %while.cond.preheader.i505, !llvm.loop !25
@@ -2967,7 +2967,7 @@ for.body.i610:                                    ; preds = %sw.bb191, %for.body
   store i8 %conv.i615, ptr %p.017.i611, align 1
   %div.i617 = udiv i32 %n.addr.016.i612, 10
   %dec.i618 = add nsw i32 %digits.addr.015.i613, -1
-  %cmp.i619 = icmp ugt i32 %n.addr.016.i612, 9
+  %cmp.i619 = icmp samesign ugt i32 %n.addr.016.i612, 9
   %cmp2.i620 = icmp ugt ptr %incdec.ptr.i616, %buffer.i573
   %140 = select i1 %cmp.i619, i1 %cmp2.i620, i1 false
   br i1 %140, label %for.body.i610, label %while.cond.preheader.i578, !llvm.loop !25
@@ -3102,7 +3102,7 @@ for.body.i671:                                    ; preds = %sw.bb212, %for.body
   store i8 %conv.i676, ptr %p.017.i672, align 1
   %div.i678 = udiv i32 %n.addr.016.i673, 10
   %dec.i679 = add nsw i32 %digits.addr.015.i674, -1
-  %cmp.i680 = icmp ugt i32 %n.addr.016.i673, 9
+  %cmp.i680 = icmp samesign ugt i32 %n.addr.016.i673, 9
   %cmp2.i681 = icmp ugt ptr %incdec.ptr.i677, %buffer.i634
   %151 = select i1 %cmp.i680, i1 %cmp2.i681, i1 false
   br i1 %151, label %for.body.i671, label %while.cond.preheader.i639, !llvm.loop !25
@@ -3243,7 +3243,7 @@ for.body.i751:                                    ; preds = %for.body.i751.prehe
   store i8 %conv.i756, ptr %p.017.i752, align 1
   %div.i758 = udiv i32 %n.addr.016.i753, 10
   %dec.i759 = add nsw i32 %digits.addr.015.i754, -1
-  %cmp.i760 = icmp ugt i32 %n.addr.016.i753, 9
+  %cmp.i760 = icmp samesign ugt i32 %n.addr.016.i753, 9
   %cmp2.i761 = icmp ugt ptr %incdec.ptr.i757, %buffer.i714
   %164 = select i1 %cmp.i760, i1 %cmp2.i761, i1 false
   br i1 %164, label %for.body.i751, label %while.cond.preheader.i719, !llvm.loop !25
@@ -3353,7 +3353,7 @@ for.body.i800:                                    ; preds = %sw.bb246, %for.body
   store i8 %conv.i805, ptr %p.017.i801, align 1
   %div.i807 = udiv i32 %n.addr.016.i802, 10
   %dec.i808 = add nsw i32 %digits.addr.015.i803, -1
-  %cmp.i809 = icmp ugt i32 %n.addr.016.i802, 9
+  %cmp.i809 = icmp samesign ugt i32 %n.addr.016.i802, 9
   %cmp2.i810 = icmp ugt ptr %incdec.ptr.i806, %buffer.i763
   %176 = select i1 %cmp.i809, i1 %cmp2.i810, i1 false
   br i1 %176, label %for.body.i800, label %while.cond.preheader.i768, !llvm.loop !25
@@ -3449,7 +3449,7 @@ for.body.i843:                                    ; preds = %sw.bb283, %for.body
   store i8 %conv.i848, ptr %p.017.i844, align 1
   %div.i850 = udiv i32 %n.addr.016.i845, 10
   %dec.i851 = add nsw i32 %digits.addr.015.i846, -1
-  %cmp.i852 = icmp ugt i32 %n.addr.016.i845, 9
+  %cmp.i852 = icmp samesign ugt i32 %n.addr.016.i845, 9
   %cmp2.i853 = icmp ugt ptr %incdec.ptr.i849, %buffer.i812
   %187 = select i1 %cmp.i852, i1 %cmp2.i853, i1 false
   br i1 %187, label %for.body.i843, label %while.cond.preheader.i817, !llvm.loop !25
@@ -3572,7 +3572,7 @@ for.body.i923:                                    ; preds = %for.body.i923.prehe
   store i8 %conv.i928, ptr %p.017.i924, align 1
   %div.i930 = udiv i32 %n.addr.016.i925, 10
   %dec.i931 = add nsw i32 %digits.addr.015.i926, -1
-  %cmp.i932 = icmp ugt i32 %n.addr.016.i925, 9
+  %cmp.i932 = icmp samesign ugt i32 %n.addr.016.i925, 9
   %cmp2.i933 = icmp ugt ptr %incdec.ptr.i929, %buffer.i886
   %199 = select i1 %cmp.i932, i1 %cmp2.i933, i1 false
   br i1 %199, label %for.body.i923, label %while.cond.preheader.i891, !llvm.loop !25
@@ -3823,7 +3823,7 @@ for.body.i1047:                                   ; preds = %if.else364, %for.bo
   store i8 %conv.i1052, ptr %p.017.i1048, align 1
   %div.i1054 = udiv i32 %n.addr.016.i1049, 10
   %dec.i1055 = add nsw i32 %digits.addr.015.i1050, -1
-  %cmp.i1056 = icmp ugt i32 %n.addr.016.i1049, 9
+  %cmp.i1056 = icmp samesign ugt i32 %n.addr.016.i1049, 9
   %cmp2.i1057 = icmp ugt ptr %incdec.ptr.i1053, %buffer.i1010
   %225 = select i1 %cmp.i1056, i1 %cmp2.i1057, i1 false
   br i1 %225, label %for.body.i1047, label %while.cond.preheader.i1015, !llvm.loop !25
@@ -3923,7 +3923,7 @@ for.body.i1096:                                   ; preds = %for.body.i1096.preh
   store i8 %conv.i1101, ptr %p.017.i1097, align 1
   %div.i1103 = udiv i32 %n.addr.016.i1098, 10
   %dec.i1104 = add nsw i32 %digits.addr.015.i1099, -1
-  %cmp.i1105 = icmp ugt i32 %n.addr.016.i1098, 9
+  %cmp.i1105 = icmp samesign ugt i32 %n.addr.016.i1098, 9
   %cmp2.i1106 = icmp ugt ptr %incdec.ptr.i1102, %buffer.i1059
   %236 = select i1 %cmp.i1105, i1 %cmp2.i1106, i1 false
   br i1 %236, label %for.body.i1096, label %while.cond.preheader.i1064, !llvm.loop !25
@@ -4372,7 +4372,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %conv3.i = zext nneg i8 %27 to i32
   %sub.i = add i32 %mul.i, -48
   %add.i = add i32 %sub.i, %conv3.i
-  %tobool.not.i = icmp ult i32 %rMax.0.i, 10
+  %tobool.not.i = icmp samesign ult i32 %rMax.0.i, 10
   br i1 %tobool.not.i, label %do.end.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %do.body.i
@@ -4426,7 +4426,7 @@ do.body.i75:                                      ; preds = %do.body.i75.prehead
   %conv3.i81 = zext nneg i8 %33 to i32
   %sub.i82 = add i32 %mul.i79, -48
   %add.i83 = add i32 %sub.i82, %conv3.i81
-  %tobool.not.i84 = icmp ult i32 %rMax.0.i78, 10
+  %tobool.not.i84 = icmp samesign ult i32 %rMax.0.i78, 10
   br i1 %tobool.not.i84, label %do.end.i91, label %land.lhs.true4.i85
 
 land.lhs.true4.i85:                               ; preds = %do.body.i75
@@ -4473,7 +4473,7 @@ do.body.i99:                                      ; preds = %do.body.i99.prehead
   %conv3.i105 = zext nneg i8 %39 to i32
   %sub.i106 = add i32 %mul.i103, -48
   %add.i107 = add i32 %sub.i106, %conv3.i105
-  %tobool.not.i108 = icmp ult i32 %rMax.0.i102, 10
+  %tobool.not.i108 = icmp samesign ult i32 %rMax.0.i102, 10
   br i1 %tobool.not.i108, label %do.end.i115, label %land.lhs.true4.i109
 
 land.lhs.true4.i109:                              ; preds = %do.body.i99
@@ -4514,7 +4514,7 @@ do.body.i123:                                     ; preds = %do.body.i123.prehea
   %conv3.i129 = zext nneg i8 %44 to i32
   %sub.i130 = add i32 %mul.i127, -48
   %add.i131 = add i32 %sub.i130, %conv3.i129
-  %tobool.not.i132 = icmp ult i32 %rMax.0.i126, 10
+  %tobool.not.i132 = icmp samesign ult i32 %rMax.0.i126, 10
   br i1 %tobool.not.i132, label %do.end.i139, label %land.lhs.true4.i133
 
 land.lhs.true4.i133:                              ; preds = %do.body.i123
@@ -4556,7 +4556,7 @@ do.body.i147:                                     ; preds = %do.body.i147.prehea
   %conv3.i153 = zext nneg i8 %50 to i32
   %sub.i154 = add i32 %mul.i151, -48
   %add.i155 = add i32 %sub.i154, %conv3.i153
-  %tobool.not.i156 = icmp ult i32 %rMax.0.i150, 10
+  %tobool.not.i156 = icmp samesign ult i32 %rMax.0.i150, 10
   br i1 %tobool.not.i156, label %do.end.i163, label %land.lhs.true4.i157
 
 land.lhs.true4.i157:                              ; preds = %do.body.i147
@@ -4599,7 +4599,7 @@ do.body.i171:                                     ; preds = %do.body.i171.prehea
   %conv3.i177 = zext nneg i8 %56 to i32
   %sub.i178 = add i32 %mul.i175, -48
   %add.i179 = add i32 %sub.i178, %conv3.i177
-  %tobool.not.i180 = icmp ult i32 %rMax.0.i174, 10
+  %tobool.not.i180 = icmp samesign ult i32 %rMax.0.i174, 10
   br i1 %tobool.not.i180, label %do.end.i187, label %land.lhs.true4.i181
 
 land.lhs.true4.i181:                              ; preds = %do.body.i171
@@ -4640,7 +4640,7 @@ do.body.i195:                                     ; preds = %do.body.i195.prehea
   %conv3.i201 = zext nneg i8 %61 to i32
   %sub.i202 = add i32 %mul.i199, -48
   %add.i203 = add i32 %sub.i202, %conv3.i201
-  %tobool.not.i204 = icmp ult i32 %rMax.0.i198, 10
+  %tobool.not.i204 = icmp samesign ult i32 %rMax.0.i198, 10
   br i1 %tobool.not.i204, label %do.end.i211, label %land.lhs.true4.i205
 
 land.lhs.true4.i205:                              ; preds = %do.body.i195
@@ -4749,7 +4749,7 @@ do.body.i222:                                     ; preds = %do.body.i222.prehea
   %conv3.i228 = zext nneg i8 %74 to i32
   %sub.i229 = add i32 %mul.i226, -48
   %add.i230 = add i32 %sub.i229, %conv3.i228
-  %tobool.not.i231 = icmp ult i32 %rMax.0.i225, 10
+  %tobool.not.i231 = icmp samesign ult i32 %rMax.0.i225, 10
   br i1 %tobool.not.i231, label %do.end.i238, label %land.lhs.true4.i232
 
 land.lhs.true4.i232:                              ; preds = %do.body.i222
@@ -4922,7 +4922,7 @@ do.body.i280:                                     ; preds = %do.body.i280.prehea
   %conv3.i286 = zext nneg i8 %95 to i32
   %sub.i287 = add i32 %mul.i284, -48
   %add.i288 = add i32 %sub.i287, %conv3.i286
-  %tobool.not.i289 = icmp ult i32 %rMax.0.i283, 10
+  %tobool.not.i289 = icmp samesign ult i32 %rMax.0.i283, 10
   br i1 %tobool.not.i289, label %do.end.i296, label %land.lhs.true4.i290
 
 land.lhs.true4.i290:                              ; preds = %do.body.i280
@@ -4964,7 +4964,7 @@ do.body.i304:                                     ; preds = %do.body.i304.prehea
   %conv3.i310 = zext nneg i8 %100 to i32
   %sub.i311 = add i32 %mul.i308, -48
   %add.i312 = add i32 %sub.i311, %conv3.i310
-  %tobool.not.i313 = icmp ult i32 %rMax.0.i307, 10
+  %tobool.not.i313 = icmp samesign ult i32 %rMax.0.i307, 10
   br i1 %tobool.not.i313, label %do.end.i320, label %land.lhs.true4.i314
 
 land.lhs.true4.i314:                              ; preds = %do.body.i304

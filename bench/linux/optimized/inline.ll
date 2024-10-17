@@ -427,7 +427,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ext4_readpage_inline(ptr noundef
 
 54:                                               ; preds = %50
   %55 = load volatile i64, ptr %1, align 8
-  %56 = icmp ugt i64 %33, 19
+  %56 = icmp samesign ugt i64 %33, 19
   br i1 %56, label %59, label %58
 
 57:                                               ; preds = %50
@@ -458,7 +458,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ext4_readpage_inline(ptr noundef
 
 70:                                               ; preds = %67, %61
   %71 = phi i64 [ %69, %67 ], [ 1, %61 ]
-  %72 = icmp ugt i64 %71, %63
+  %72 = icmp samesign ugt i64 %71, %63
   %73 = add i32 %62, 1
   br i1 %72, label %61, label %74, !llvm.loop !10
 
@@ -544,7 +544,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = load i64, ptr %35, align 8
   %37 = call i64 @llvm.umin.i64(i64 %36, i64 %34)
-  %38 = icmp ugt i64 %37, 4096
+  %38 = icmp samesign ugt i64 %37, 4096
   br i1 %38, label %39, label %40, !prof !7
 
 39:                                               ; preds = %33
@@ -568,7 +568,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %51 = getelementptr i8, ptr %0, i64 732
   %52 = load i16, ptr %51, align 4
   %53 = zext i16 %52 to i64
-  %54 = icmp ugt i64 %37, %53
+  %54 = icmp samesign ugt i64 %37, %53
   br i1 %54, label %55, label %56, !prof !7
 
 55:                                               ; preds = %50
@@ -587,7 +587,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %64 = getelementptr inbounds i8, ptr %63, i64 40
   %65 = zext nneg i32 %57 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %64, i64 %65, i1 false)
-  %66 = icmp ult i64 %37, 61
+  %66 = icmp samesign ult i64 %37, 61
   br i1 %66, label %88, label %67
 
 67:                                               ; preds = %56
@@ -2275,7 +2275,7 @@ lock_buffer.exit:                                 ; preds = %98, %103
   %151 = getelementptr i8, ptr %1, i64 732
   %152 = load i16, ptr %151, align 4
   %153 = zext i16 %152 to i32
-  %154 = icmp ugt i32 %54, %153
+  %154 = icmp samesign ugt i32 %54, %153
   br i1 %154, label %155, label %156, !prof !7
 
 155:                                              ; preds = %150
@@ -2294,7 +2294,7 @@ lock_buffer.exit:                                 ; preds = %98, %103
   %164 = zext nneg i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %162, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr nonnull align 8 %56, i64 %164, i1 false)
-  %166 = icmp ult i32 %54, 61
+  %166 = icmp samesign ult i32 %54, 61
   br i1 %166, label %186, label %167
 
 167:                                              ; preds = %156
@@ -2960,7 +2960,7 @@ define dso_local ptr @ext4_read_inline_link(ptr noundef %0) local_unnamed_addr #
   %25 = getelementptr i8, ptr %0, i64 732
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i32
-  %28 = icmp ugt i32 %17, %27
+  %28 = icmp samesign ugt i32 %17, %27
   br i1 %28, label %29, label %30, !prof !7
 
 29:                                               ; preds = %24
@@ -2979,7 +2979,7 @@ define dso_local ptr @ext4_read_inline_link(ptr noundef %0) local_unnamed_addr #
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = zext nneg i32 %31 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %38, i64 %39, i1 false)
-  %40 = icmp ult i32 %17, 61
+  %40 = icmp samesign ult i32 %17, 61
   br i1 %40, label %62, label %41
 
 41:                                               ; preds = %30
@@ -3431,7 +3431,7 @@ define dso_local noundef zeroext i1 @empty_inline_dir(ptr noundef %0, ptr nocapt
 47:                                               ; preds = %43
   %48 = load i16, ptr %37, align 4
   %49 = zext i16 %48 to i32
-  %50 = icmp ugt i32 %44, %49
+  %50 = icmp samesign ugt i32 %44, %49
   br i1 %50, label %.thread, label %51, !prof !52
 
 .thread:                                          ; preds = %43, %47
@@ -3440,7 +3440,7 @@ define dso_local noundef zeroext i1 @empty_inline_dir(ptr noundef %0, ptr nocapt
   unreachable
 
 51:                                               ; preds = %47
-  %52 = icmp ult i32 %44, 60
+  %52 = icmp samesign ult i32 %44, 60
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
@@ -3503,7 +3503,7 @@ define dso_local noundef zeroext i1 @empty_inline_dir(ptr noundef %0, ptr nocapt
   %99 = load i16, ptr %98, align 4
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %44, %100
-  %102 = icmp ult i32 %101, %39
+  %102 = icmp samesign ult i32 %101, %39
   br i1 %102, label %43, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %97, %94, %82, %36, %31, %20
@@ -3857,7 +3857,7 @@ define dso_local i32 @ext4_inline_data_truncate(ptr noundef %0, ptr nocapture no
   br label %68
 
 68:                                               ; preds = %67, %63
-  %69 = icmp ugt i32 %59, 60
+  %69 = icmp samesign ugt i32 %59, 60
   br i1 %69, label %70, label %94
 
 70:                                               ; preds = %68

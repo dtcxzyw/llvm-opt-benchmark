@@ -124,7 +124,7 @@ define dso_local void @_ZN4llvm16FinalizeISelPass3runERNS_15MachineFunctionERNS_
 
 19:                                               ; preds = %4
   tail call void @_ZN4llvm39getMachineFunctionPassPreservedAnalysesEv(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8 %0) #9
-  %.not = icmp ult i16 %5, 256
+  %.not = icmp samesign ult i16 %5, 256
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %19

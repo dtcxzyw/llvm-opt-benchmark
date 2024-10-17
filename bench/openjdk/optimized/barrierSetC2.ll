@@ -5352,7 +5352,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %73, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr %24, align 8
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %89, label %73, label %.preheader, !llvm.loop !9
 
 90:                                               ; preds = %.lr.ph155, %_ZNK7RegMask11is_NotEmptyEv.exit.thread
@@ -5703,7 +5703,7 @@ _ZN7RegMask6InsertEi.exit95:                      ; preds = %283
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %295 = load i32, ptr %250, align 8
   %296 = zext i32 %295 to i64
-  %297 = icmp ult i64 %indvars.iv.next164, %296
+  %297 = icmp samesign ult i64 %indvars.iv.next164, %296
   br i1 %297, label %254, label %._crit_edge145, !llvm.loop !12
 
 ._crit_edge145:                                   ; preds = %294, %249
@@ -5980,7 +5980,7 @@ _ZN10Block_List4pushEP5Block.exit122:             ; preds = %.lr.ph153, %430
   %437 = getelementptr inbounds i8, ptr %436, i64 24
   %438 = load i32, ptr %437, align 8
   %439 = zext i32 %438 to i64
-  %440 = icmp ult i64 %indvars.iv.next170, %439
+  %440 = icmp samesign ult i64 %indvars.iv.next170, %439
   br i1 %440, label %.lr.ph153, label %_ZNK7RegMask11is_NotEmptyEv.exit.thread, !llvm.loop !16
 
 _ZNK7RegMask11is_NotEmptyEv.exit.thread:          ; preds = %_ZN10Block_List4pushEP5Block.exit122, %_ZN7RegMask2ORERKS_.exit118, %_ZN7RegMask8SUBTRACTERKS_.exit, %_ZNK7RegMask11is_NotEmptyEv.exit

@@ -479,7 +479,7 @@ invoke.cont21:                                    ; preds = %if.then17
 
 cond.true.i:                                      ; preds = %invoke.cont21
   %and2.i = and i32 %conv.i, 32767
-  %cmp.i.i = icmp ult i32 %and2.i, 16384
+  %cmp.i.i = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i, label %if.end25, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i

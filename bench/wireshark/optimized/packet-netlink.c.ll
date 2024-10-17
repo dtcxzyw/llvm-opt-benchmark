@@ -345,7 +345,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   %87 = add nuw nsw i32 %33, 3
   %88 = and i32 %87, 131068
   %89 = call i32 @llvm.umin.i32(i32 %88, i32 %.0119134)
-  %90 = icmp ugt i32 %89, %32
+  %90 = icmp samesign ugt i32 %89, %32
   br i1 %90, label %91, label %96
 
 91:                                               ; preds = %86

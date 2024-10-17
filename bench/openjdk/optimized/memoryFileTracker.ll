@@ -161,7 +161,7 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
   %18 = icmp sgt i64 %indvars.iv.i.i, -1
   %19 = trunc nsw i64 %16 to i32
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -834,7 +834,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
 18:                                               ; preds = %13
   %19 = icmp sgt i64 %indvars.iv, 0
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i9 = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -893,7 +893,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
 44:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit25
   %45 = icmp sgt i64 %indvars.iv, -1
   %46 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
-  %47 = icmp ult i32 %46, 2
+  %47 = icmp samesign ult i32 %46, 2
   %or.cond.i.i.i.i29 = select i1 %45, i1 %47, i1 false
   %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %49 = sub nuw nsw i32 32, %48
@@ -1006,7 +1006,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN17Memo
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12

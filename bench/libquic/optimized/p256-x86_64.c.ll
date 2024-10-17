@@ -325,7 +325,7 @@ for.body.lr.ph:                                   ; preds = %if.end18
 
 for.cond65.preheader:                             ; preds = %for.body
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %cmp66114 = icmp ult i64 %indvars.iv, 25
+  %cmp66114 = icmp samesign ult i64 %indvars.iv, 25
   br i1 %cmp66114, label %for.body68.preheader, label %for.end72
 
 for.body68.preheader:                             ; preds = %if.end18, %for.cond65.preheader
@@ -380,7 +380,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx63 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %14
   store i8 %conv60, ptr %arrayidx63, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp19 = icmp ult i64 %indvars.iv.next, %3
+  %cmp19 = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp19, label %for.body, label %for.cond65.preheader, !llvm.loop !15
 
 for.end72:                                        ; preds = %for.body68.preheader, %for.cond65.preheader
@@ -392,7 +392,7 @@ for.end72:                                        ; preds = %for.body68.preheade
   %not.i = sub nsw i32 0, %shr.i
   %sub2.i = xor i32 %and75, 255
   %and.i = and i32 %sub2.i, %not.i
-  %16 = icmp ult i32 %and75, 128
+  %16 = icmp samesign ult i32 %and75, 128
   %and4.i = select i1 %16, i32 %and75, i32 0
   %or.i = or i32 %and.i, %and4.i
   %shr5.i = lshr i32 %or.i, 1
@@ -470,7 +470,7 @@ for.body90:                                       ; preds = %for.end72, %for.bod
   %not.i60 = sub nsw i32 0, %shr.i59
   %sub2.i61 = xor i32 %and102, 255
   %and.i62 = and i32 %sub2.i61, %not.i60
-  %27 = icmp ult i32 %and102, 128
+  %27 = icmp samesign ult i32 %and102, 128
   %and4.i63 = select i1 %27, i32 %and102, i32 0
   %or.i64 = or i32 %and.i62, %and4.i63
   %shr5.i65 = lshr i32 %or.i64, 1
@@ -591,7 +591,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end16.i
 
 for.cond63.preheader.i:                           ; preds = %for.body.i
   %39 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %cmp64189.i = icmp ult i64 %indvars.iv.i, 25
+  %cmp64189.i = icmp samesign ult i64 %indvars.iv.i, 25
   br i1 %cmp64189.i, label %for.body66.preheader.i, label %for.end70.i
 
 for.body66.preheader.i:                           ; preds = %for.cond63.preheader.i, %if.end16.i
@@ -646,7 +646,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx61.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %49
   store i8 %conv58.i, ptr %arrayidx61.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %38
+  %cmp17.i = icmp samesign ult i64 %indvars.iv.next.i, %38
   br i1 %cmp17.i, label %for.body.i, label %for.cond63.preheader.i, !llvm.loop !17
 
 for.end70.i:                                      ; preds = %for.body66.preheader.i, %for.cond63.preheader.i
@@ -764,7 +764,7 @@ if.then142.i:                                     ; preds = %while.body.i
   %not.i122.i = sub nsw i32 0, %shr.i121.i
   %sub2.i123.i = xor i32 %and155.i, 63
   %and.i124.i = and i32 %sub2.i123.i, %not.i122.i
-  %60 = icmp ult i32 %and155.i, 32
+  %60 = icmp samesign ult i32 %and155.i, 32
   %and4.i.i = select i1 %60, i32 %and155.i, i32 0
   %or.i125.i = or i32 %and.i124.i, %and4.i.i
   %shr5.i126.i = lshr i32 %or.i125.i, 1
@@ -821,7 +821,7 @@ while.end.i:                                      ; preds = %if.end167.i
   %not.i135.i = sub nsw i32 0, %shr.i134.i
   %sub2.i136.i = xor i32 %and172.i, 63
   %and.i137.i = and i32 %sub2.i136.i, %not.i135.i
-  %70 = icmp ult i32 %and172.i, 32
+  %70 = icmp samesign ult i32 %and172.i, 32
   %and4.i138.i = select i1 %70, i32 %and172.i, i32 0
   %or.i139.i = or i32 %and.i137.i, %and4.i138.i
   %shr5.i140.i = lshr i32 %or.i139.i, 1

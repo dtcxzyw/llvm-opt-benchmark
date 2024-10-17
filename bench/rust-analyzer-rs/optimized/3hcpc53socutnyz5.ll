@@ -1364,7 +1364,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   br i1 %or.cond, label %.critedge, label %105
 
 105:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  %106 = icmp ugt i32 %.sroa.4.0.i.ph81, 127
+  %106 = icmp samesign ugt i32 %.sroa.4.0.i.ph81, 127
   br i1 %106, label %107, label %.critedge50
 
 107:                                              ; preds = %105
@@ -1422,7 +1422,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   br label %.critedge50
 
 .critedge50.thread83:                             ; preds = %.critedge50
-  %125 = icmp ugt i32 %.sroa.4.0.i.ph81, 127
+  %125 = icmp samesign ugt i32 %.sroa.4.0.i.ph81, 127
   br i1 %125, label %.critedge50.thread83.thread, label %.critedge50.thread
 
 .critedge50.thread83.thread:                      ; preds = %109, %.critedge50.thread83
@@ -1786,7 +1786,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   br i1 %or.cond, label %.critedge, label %105
 
 105:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  %106 = icmp ugt i32 %.sroa.4.0.i.ph81, 127
+  %106 = icmp samesign ugt i32 %.sroa.4.0.i.ph81, 127
   br i1 %106, label %107, label %.critedge50
 
 107:                                              ; preds = %105
@@ -1844,7 +1844,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   br label %.critedge50
 
 .critedge50.thread83:                             ; preds = %.critedge50
-  %125 = icmp ugt i32 %.sroa.4.0.i.ph81, 127
+  %125 = icmp samesign ugt i32 %.sroa.4.0.i.ph81, 127
   br i1 %125, label %.critedge50.thread83.thread, label %.critedge50.thread
 
 .critedge50.thread83.thread:                      ; preds = %109, %.critedge50.thread83

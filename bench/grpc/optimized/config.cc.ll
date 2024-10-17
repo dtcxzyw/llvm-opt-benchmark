@@ -367,7 +367,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %for
   %arrayidx68 = getelementptr inbounds i8, ptr %23, i64 %j.047
   %24 = load i8, ptr %arrayidx68, align 1
   %conv69 = zext i8 %24 to i64
-  %cmp70.not = icmp ugt i64 %i58.048, %conv69
+  %cmp70.not = icmp samesign ugt i64 %i58.048, %conv69
   br i1 %cmp70.not, label %do.end, label %if.then72
 
 if.then72:                                        ; preds = %do.body

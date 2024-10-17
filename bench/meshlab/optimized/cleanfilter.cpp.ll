@@ -24043,7 +24043,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
-  %40 = icmp ugt i64 %.pre-phi.i, 12
+  %40 = icmp samesign ugt i64 %.pre-phi.i, 12
   br i1 %40, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
@@ -44197,7 +44197,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !503
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -44828,7 +44828,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI6CEdgeOSaIS2_EEbE7Re
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !505
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -45213,7 +45213,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !506
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -45595,7 +45595,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !507
 
 ._crit_edge:                                      ; preds = %17, %2

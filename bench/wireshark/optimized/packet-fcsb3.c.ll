@@ -780,7 +780,7 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %262 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %261, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, i8 noundef signext 58) #3
   %263 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %.064, i32 noundef %256, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %257, i32 noundef %260, ptr noundef %262) #3
   %264 = add nuw nsw i32 %.05557.i, 4
-  %265 = icmp ult i32 %258, %253
+  %265 = icmp samesign ult i32 %258, %253
   br i1 %265, label %255, label %dissect_fc_sbccs_dib_data_hdr.exit, !llvm.loop !4
 
 266:                                              ; preds = %67

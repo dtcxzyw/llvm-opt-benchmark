@@ -79,7 +79,7 @@ define void @dlarfg_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %46 = fneg double %42
   %47 = select i1 %45, double %42, double %46
   %48 = fcmp olt double %47, %29
-  %49 = icmp ult i32 %37, 19
+  %49 = icmp samesign ult i32 %37, 19
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %35, label %51
 

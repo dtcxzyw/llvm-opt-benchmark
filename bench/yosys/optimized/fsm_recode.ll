@@ -5519,7 +5519,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit68:                 ; preds = %_ZN5Yosys5RTLIL5Con
   %.0135 = phi i32 [ %44, %.lr.ph ], [ 0, %_ZN5Yosys5RTLIL5ConstD2Ev.exit68 ]
   %44 = add nuw nsw i32 %.0135, 1
   %45 = lshr i32 %.061136, 1
-  %.not = icmp ult i32 %.061136, 2
+  %.not = icmp samesign ult i32 %.061136, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 46:                                               ; preds = %17, %2

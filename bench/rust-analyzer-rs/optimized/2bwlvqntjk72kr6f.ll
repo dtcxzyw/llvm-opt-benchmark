@@ -527,7 +527,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h26aa1b0d3d2594a6E.exit.thread:
 
 34:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8905b64944b1b3f7E.exit.i
   %.pr = load i64, ptr %9, align 8, !alias.scope !232, !noalias !171
-  %switch.not.i.i = icmp ult i64 %.pr, 2
+  %switch.not.i.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i.i, label %35, label %"_ZN4core3ptr895drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$project_model..cargo_workspace..PackageData$GT$$GT$$C$la_arena..Arena$LT$project_model..cargo_workspace..PackageData$GT$..iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$project_model..cargo_workspace..CargoWorkspace..packages..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$project_model..workspace..ProjectWorkspace..to_roots..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..result..IntoIter$LT$$RF$project_model..sysroot..Sysroot$GT$$C$alloc..vec..Vec$LT$project_model..workspace..PackageRoot$GT$$C$project_model..workspace..ProjectWorkspace..to_roots..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hfe95900c7cbbecabE.exit.i"
 
 35:                                               ; preds = %34
@@ -3900,7 +3900,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %19 = getelementptr inbounds i8, ptr %1, i64 80
   %20 = load i64, ptr %19, align 8, !range !10, !alias.scope !1371, !noundef !11
-  %switch.not.i.i = icmp ult i64 %20, 2
+  %switch.not.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.not.i.i, label %21, label %"_ZN4core3ptr1869drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$project_model..cargo_workspace..PackageData$GT$$GT$$C$la_arena..Arena$LT$project_model..cargo_workspace..PackageData$GT$..iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$project_model..cargo_workspace..CargoWorkspace..packages..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$project_model..workspace..ProjectWorkspace..to_roots..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..result..IntoIter$LT$$RF$project_model..sysroot..Sysroot$GT$$C$alloc..vec..Vec$LT$project_model..workspace..PackageRoot$GT$$C$project_model..workspace..ProjectWorkspace..to_roots..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$core..result..Iter$LT$alloc."
 
 21:                                               ; preds = %16
@@ -4047,7 +4047,7 @@ common.resume:                                    ; preds = %92, %.body, %26, %3
 67:                                               ; preds = %51
   %68 = getelementptr inbounds i8, ptr %6, i64 80
   %69 = load i64, ptr %68, align 8, !range !10, !alias.scope !1407, !noalias !1405, !noundef !11
-  %switch.not.i.i.i.i = icmp ult i64 %69, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %69, 2
   br i1 %switch.not.i.i.i.i, label %70, label %89
 
 70:                                               ; preds = %67

@@ -4178,7 +4178,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel17getEdgeFaceValuesEi
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %24 = add nuw nsw i32 %23, %17
-  %25 = icmp ugt i32 %24, 2
+  %25 = icmp samesign ugt i32 %24, 2
   br i1 %25, label %26, label %83
 
 26:                                               ; preds = %4

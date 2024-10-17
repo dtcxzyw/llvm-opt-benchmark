@@ -793,7 +793,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !97
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h4070a03fe92e6b87E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 %8), !noalias !97
   %11 = load i64, ptr %9, align 8, !range !100, !noundef !4
-  %.not.i = icmp ult i64 %11, 2
+  %.not.i = icmp samesign ult i64 %11, 2
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i, i64 0, i64 %12
   switch i64 %13, label %14 [
@@ -894,7 +894,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !109
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h1d76aacc990b04a1E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %8), !noalias !109
   %10 = load i32, ptr %3, align 4, !range !112, !noundef !4
-  %.not.i = icmp ult i32 %10, 2
+  %.not.i = icmp samesign ult i32 %10, 2
   %11 = zext nneg i32 %10 to i64
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i, i64 0, i64 %12
@@ -988,7 +988,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$8try_n
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !126
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h1d76aacc990b04a1E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %7), !noalias !126
   %9 = load i32, ptr %3, align 4, !range !112, !noalias !129, !noundef !4
-  %.not.i.i = icmp ult i32 %9, 2
+  %.not.i.i = icmp samesign ult i32 %9, 2
   %10 = zext nneg i32 %9 to i64
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i, i64 0, i64 %11
@@ -13713,7 +13713,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %156, ptr %154, align 8, !noalias !2509
   %.pr = load i64, ptr %14, align 8, !alias.scope !2515
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %157, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 157:                                              ; preds = %145
@@ -14227,7 +14227,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %179, ptr %177, align 8, !noalias !2567
   %.pr = load i64, ptr %18, align 8, !alias.scope !2573
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %180, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 180:                                              ; preds = %168
@@ -14725,7 +14725,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %179, ptr %177, align 8, !noalias !2625
   %.pr = load i64, ptr %18, align 8, !alias.scope !2631
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %180, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 180:                                              ; preds = %168
@@ -15265,7 +15265,7 @@ common.resume:                                    ; preds = %.critedge62, %42, %
   store i32 %199, ptr %197, align 8, !noalias !2723
   %.pr = load i64, ptr %16, align 8, !alias.scope !2729
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %200, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 200:                                              ; preds = %188
@@ -15769,7 +15769,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %179, ptr %177, align 8, !noalias !2781
   %.pr = load i64, ptr %18, align 8, !alias.scope !2787
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %180, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 180:                                              ; preds = %168
@@ -16242,7 +16242,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %167, ptr %165, align 8, !noalias !2875
   %.pr = load i64, ptr %15, align 8, !alias.scope !2881
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %168, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 168:                                              ; preds = %156
@@ -16713,7 +16713,7 @@ define hidden { i64, ptr } @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Co
   store i32 %156, ptr %154, align 8, !noalias !2976
   %.pr = load i64, ptr %13, align 8, !alias.scope !2982
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %157, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 157:                                              ; preds = %145
@@ -17215,7 +17215,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %179, ptr %177, align 8, !noalias !3034
   %.pr = load i64, ptr %18, align 8, !alias.scope !3040
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %180, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 180:                                              ; preds = %168
@@ -17624,7 +17624,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %154, ptr %152, align 8, !noalias !3085
   %.pr = load i64, ptr %14, align 8, !alias.scope !3091
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %155, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 155:                                              ; preds = %143
@@ -18159,7 +18159,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %197, ptr %195, align 8, !noalias !3173
   %.pr = load i64, ptr %17, align 8, !alias.scope !3179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %198, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 198:                                              ; preds = %186
@@ -18550,7 +18550,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %144, ptr %142, align 8, !noalias !3226
   %.pr = load i64, ptr %14, align 8, !alias.scope !3232
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %145, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 145:                                              ; preds = %133
@@ -18996,7 +18996,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %162, ptr %160, align 8, !noalias !3284
   %.pr = load i64, ptr %17, align 8, !alias.scope !3290
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %163, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h3e4c7721d5fca915E.exit"
 
 163:                                              ; preds = %151
@@ -21471,7 +21471,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -21484,7 +21484,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -23193,7 +23193,7 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !3764
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h4070a03fe92e6b87E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 %8), !noalias !3764
   %11 = load i64, ptr %9, align 8, !range !100, !noalias !3768, !noundef !4
-  %.not.i.i = icmp ult i64 %11, 2
+  %.not.i.i = icmp samesign ult i64 %11, 2
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i.i, i64 0, i64 %12
   switch i64 %13, label %14 [
@@ -23323,7 +23323,7 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !3782
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h1d76aacc990b04a1E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 %9), !noalias !3782
   %11 = load i32, ptr %5, align 4, !range !112, !noalias !3786, !noundef !4
-  %.not.i.i = icmp ult i32 %11, 2
+  %.not.i.i = icmp samesign ult i32 %11, 2
   %12 = zext nneg i32 %11 to i64
   %13 = add nsw i64 %12, -1
   %14 = select i1 %.not.i.i, i64 0, i64 %13
@@ -23440,7 +23440,7 @@ common.resume:                                    ; preds = %63, %28
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !3802
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h1d76aacc990b04a1E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 %43), !noalias !3802
   %45 = load i32, ptr %4, align 4, !range !112, !noalias !3805, !noundef !4
-  %.not.i.i8 = icmp ult i32 %45, 2
+  %.not.i.i8 = icmp samesign ult i32 %45, 2
   %46 = zext nneg i32 %45 to i64
   %47 = add nsw i64 %46, -1
   %48 = select i1 %.not.i.i8, i64 0, i64 %47

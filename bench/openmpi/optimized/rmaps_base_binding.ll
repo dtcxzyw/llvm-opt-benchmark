@@ -398,7 +398,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %187, %hwloc_get_ob
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %198 = load i16, ptr %4, align 8
   %199 = zext i16 %198 to i32
-  %200 = icmp ult i32 %indvars.iv.next.i, %199
+  %200 = icmp samesign ult i32 %indvars.iv.next.i, %199
   br i1 %200, label %170, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i

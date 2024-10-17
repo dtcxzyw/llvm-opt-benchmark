@@ -749,7 +749,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %534 = phi i32 [ %340, %337 ], [ %330, %.thread40 ], [ %420, %419 ], [ %311, %422 ], [ %449, %.loopexit52 ]
   %535 = phi i32 [ %339, %337 ], [ %333, %.thread40 ], [ %421, %419 ], [ %310, %422 ], [ %454, %.loopexit52 ]
   %536 = add nuw nsw i64 %309, 1
-  %537 = icmp ult i64 %309, %307
+  %537 = icmp samesign ult i64 %309, %307
   br i1 %537, label %308, label %538, !llvm.loop !16
 
 538:                                              ; preds = %532

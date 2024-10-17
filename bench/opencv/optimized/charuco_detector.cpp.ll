@@ -2531,7 +2531,7 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit:          ; preds = %260, %259
   %311 = fmul float %310, %310
   %312 = call float @llvm.fmuladd.f32(float %309, float %309, float %311)
   %313 = fadd float %.0108469, %312
-  %314 = icmp ult i32 %306, 4
+  %314 = icmp samesign ult i32 %306, 4
   br i1 %314, label %259, label %317, !llvm.loop !32
 
 315:                                              ; preds = %324, %322, %317
@@ -5328,7 +5328,7 @@ _ZNK2cv11_InputArray6getMatEi.exit69:             ; preds = %32, %35
 
 126:                                              ; preds = %.preheader234, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit76
   %.045 = phi i32 [ %188, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit76 ], [ 0, %.preheader234 ]
-  %127 = icmp ult i32 %.045, 4
+  %127 = icmp samesign ult i32 %.045, 4
   br i1 %127, label %128, label %.thread
 
 128:                                              ; preds = %126

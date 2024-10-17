@@ -266,7 +266,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
   %7 = and i64 %6, 4294967295
-  %.not.i = icmp ugt i64 %7, 8
+  %.not.i = icmp samesign ugt i64 %7, 8
   br i1 %.not.i, label %_ZN9metaspace9Metachunk15uncommit_lockedEv.exit, label %8
 
 8:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -296,7 +296,7 @@ define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture nou
   %3 = load i8, ptr %2, align 8
   %4 = sext i8 %3 to i64
   %5 = and i64 %4, 4294967295
-  %.not = icmp ugt i64 %5, 8
+  %.not = icmp samesign ugt i64 %5, 8
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1

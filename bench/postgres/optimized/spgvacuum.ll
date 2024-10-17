@@ -615,7 +615,7 @@ spgAddPendingTID.exit.i:                          ; preds = %.lr.ph.i.i42, %._cr
   %295 = load i32, ptr %267, align 4
   %296 = lshr i32 %295, 3
   %297 = and i32 %296, 8191
-  %298 = icmp ult i32 %289, %297
+  %298 = icmp samesign ult i32 %289, %297
   br i1 %298, label %.lr.ph97.i, label %spgAddPendingTID.exit81.i, !llvm.loop !10
 
 299:                                              ; preds = %260
@@ -912,7 +912,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br i1 %.not119, label %spgAddPendingTID.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = icmp ugt i16 %69, %32
+  %71 = icmp samesign ugt i16 %69, %32
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %70
@@ -1209,7 +1209,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   store i32 %208, ptr %202, align 4
   store i32 %.sroa.0.0.copyload, ptr %207, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %209 = icmp ult i64 %indvars.iv.next, %196
+  %209 = icmp samesign ult i64 %indvars.iv.next, %196
   br i1 %209, label %197, label %._crit_edge178.loopexit, !llvm.loop !17
 
 ._crit_edge178.loopexit:                          ; preds = %197
@@ -1247,7 +1247,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %226 = or disjoint i16 %225, %222
   store i16 %226, ptr %gep181, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %227 = icmp ult i64 %indvars.iv.next195, %212
+  %227 = icmp samesign ult i64 %indvars.iv.next195, %212
   br i1 %227, label %213, label %._crit_edge185, !llvm.loop !18
 
 ._crit_edge185:                                   ; preds = %213, %._crit_edge178

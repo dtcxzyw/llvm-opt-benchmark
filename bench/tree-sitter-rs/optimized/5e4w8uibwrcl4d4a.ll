@@ -18078,7 +18078,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.val.i = load ptr, ptr %.val, align 8, !noalias !4009, !nonnull !12, !align !107, !noundef !12
   %.val1.i = load ptr, ptr %8, align 8, !noalias !4009, !nonnull !12, !align !107, !noundef !12
   %13 = tail call noundef i8 @_ZN15tree_sitter_cli8generate10node_types28variable_type_for_child_type17h82b7adb28763f6e9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1.i), !range !4012
-  %switch.i.i = icmp ugt i8 %13, 1
+  %switch.i.i = icmp samesign ugt i8 %13, 1
   %14 = add i64 %10, 1
   store i64 %14, ptr %5, align 8
   br i1 %switch.i.i, label %30, label %15
@@ -18387,7 +18387,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.val.i = load ptr, ptr %.val, align 8, !noalias !4071, !nonnull !12, !align !107, !noundef !12
   %.val1.i = load ptr, ptr %8, align 8, !noalias !4071, !nonnull !12, !align !107, !noundef !12
   %17 = tail call noundef i8 @_ZN15tree_sitter_cli8generate10node_types28variable_type_for_child_type17h82b7adb28763f6e9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1.i), !range !4012
-  %switch.i.i = icmp ugt i8 %17, 1
+  %switch.i.i = icmp samesign ugt i8 %17, 1
   br i1 %switch.i.i, label %32, label %18
 
 ._crit_edge:                                      ; preds = %.backedge, %3
@@ -18753,7 +18753,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h5bbe8245d4dfe
   br label %._crit_edge.i.i15
 
 .noexc:                                           ; preds = %10
-  %switch.i.i.i = icmp ugt i8 %13, 1
+  %switch.i.i.i = icmp samesign ugt i8 %13, 1
   %15 = add i64 %11, 1
   br i1 %switch.i.i.i, label %29, label %16
 
@@ -18823,7 +18823,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h5bbe8245d4dfe
           to label %.noexc11 unwind label %58
 
 .noexc11:                                         ; preds = %35
-  %switch.i.i.i7 = icmp ugt i8 %38, 1
+  %switch.i.i.i7 = icmp samesign ugt i8 %38, 1
   br i1 %switch.i.i.i7, label %52, label %39
 
 39:                                               ; preds = %.noexc11
@@ -23456,15 +23456,15 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E.exit.i.i"
 
 205:                                              ; preds = %203
-  %206 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %206 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %206, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %208 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %208, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %209
 
 209:                                              ; preds = %207
-  %210 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %210 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %210, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i"
 

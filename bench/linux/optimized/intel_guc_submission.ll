@@ -364,7 +364,7 @@ define internal fastcc void @guc_update_pm_timestamp(ptr nocapture noundef %0, p
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #20, !srcloc !13
   %34 = icmp ne i32 %33, %21
   %35 = add nuw nsw i32 %20, 1
-  %36 = icmp ult i32 %20, 2
+  %36 = icmp samesign ult i32 %20, 2
   %37 = select i1 %34, i1 %36, i1 false
   br i1 %37, label %19, label %38, !llvm.loop !14
 
@@ -2212,7 +2212,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_submission_setup(ptr n
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = or disjoint i32 %128, %131
-  %133 = icmp ugt i32 %132, 3121
+  %133 = icmp samesign ugt i32 %132, 3121
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %122
@@ -4444,7 +4444,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %89 = add nuw nsw i64 %87, 1
   %90 = load i8, ptr %53, align 4
   %91 = zext i8 %90 to i64
-  %92 = icmp ult i64 %87, %91
+  %92 = icmp samesign ult i64 %87, %91
   br i1 %92, label %86, label %93, !llvm.loop !77
 
 93:                                               ; preds = %86
@@ -4746,7 +4746,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %300 = add nuw nsw i64 %298, 1
   %301 = load i8, ptr %198, align 4
   %302 = zext i8 %301 to i64
-  %303 = icmp ult i64 %298, %302
+  %303 = icmp samesign ult i64 %298, %302
   br i1 %303, label %297, label %304, !llvm.loop !77
 
 304:                                              ; preds = %297
@@ -6128,7 +6128,7 @@ define dso_local void @intel_guc_submission_print_context_info(ptr noundef %0, p
   %90 = add nuw nsw i64 %81, 1
   %91 = load i8, ptr %46, align 4
   %92 = zext i8 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.preheader4, label %.loopexit5, !llvm.loop !88
 
 .loopexit5:                                       ; preds = %.preheader4, %70, %64
@@ -6241,7 +6241,7 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
   %44 = add nuw nsw i32 %24, 1
   %45 = load i8, ptr %7, align 4
   %46 = zext i8 %45 to i32
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %23, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %23, %14
@@ -6902,7 +6902,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr noc
   %35 = xor i64 %34, -1
   %36 = add nsw i64 %33, %35
   %37 = and i64 %36, 2047
-  %38 = icmp ult i64 %37, %30
+  %38 = icmp samesign ult i64 %37, %30
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %29
@@ -6951,7 +6951,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr noc
   %73 = xor i64 %72, -1
   %74 = add nsw i64 %73, %71
   %75 = and i64 %74, 2047
-  %76 = icmp ult i64 %75, %68
+  %76 = icmp samesign ult i64 %75, %68
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %66
@@ -6964,7 +6964,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr noc
   %83 = xor i32 %82, -1
   %84 = add i32 %80, %83
   %85 = and i32 %84, 2047
-  %86 = icmp ult i32 %85, %23
+  %86 = icmp samesign ult i32 %85, %23
   br i1 %86, label %.thread6, label %87
 
 87:                                               ; preds = %66, %77
@@ -10763,7 +10763,7 @@ define internal noundef ptr @emit_fini_breadcrumb_parent_no_preempt_mid_batch(pt
   %51 = add nuw nsw i32 %31, 1
   %52 = load i8, ptr %24, align 4
   %53 = zext i8 %52 to i32
-  %54 = icmp ult i32 %51, %53
+  %54 = icmp samesign ult i32 %51, %53
   br i1 %54, label %30, label %.loopexit, !llvm.loop !120
 
 .loopexit:                                        ; preds = %30, %23

@@ -5383,7 +5383,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
   %47 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv40
   store i32 %46, ptr %47, align 4
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %48 = icmp ult i64 %indvars.iv.next41, %37
+  %48 = icmp samesign ult i64 %indvars.iv.next41, %37
   br i1 %48, label %38, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %38, %20

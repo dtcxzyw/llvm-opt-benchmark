@@ -4455,7 +4455,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop10BFSClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -4665,7 +4665,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc10BFSClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 53:                                               ; preds = %.preheader.i.i.i

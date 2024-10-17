@@ -4925,7 +4925,7 @@ _ZN4llvm11raw_ostreamlsEc.exit147.i:              ; preds = %1926, %1924
   %1930 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
   %1931 = load i32, ptr %1930, align 4
   %1932 = zext i32 %1931 to i64
-  %1933 = icmp ugt i64 %indvars.iv.i83, %1932
+  %1933 = icmp samesign ugt i64 %indvars.iv.i83, %1932
   %.19.i.i.i.i.i = select i1 %1933, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %1933, i64 24, i64 16
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
@@ -4941,7 +4941,7 @@ _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i.i
   %1935 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 32
   %1936 = load i32, ptr %1935, align 4
   %1937 = zext i32 %1936 to i64
-  %1938 = icmp ult i64 %indvars.iv.i83, %1937
+  %1938 = icmp samesign ult i64 %indvars.iv.i83, %1937
   br i1 %1938, label %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i.i, label %_ZNK4llvm12InfoByHwModeINS_11RegSizeInfoEE3getEj.exit.i
 
 _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i.i: ; preds = %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm11RegSizeInfoEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit147.i
@@ -5091,7 +5091,7 @@ _ZN4llvm11raw_ostreamlsEc.exit168.i:              ; preds = %1996, %1994
   %2000 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i171.i, i64 32
   %2001 = load i32, ptr %2000, align 4
   %2002 = zext i32 %2001 to i64
-  %2003 = icmp ugt i64 %indvars.iv504.i, %2002
+  %2003 = icmp samesign ugt i64 %indvars.iv504.i, %2002
   %.19.i.i.i.i173.i = select i1 %2003, ptr %.0811.i.i.i.i172.i, ptr %.012.i.i.i.i171.i
   %.1.in.v.i.i.i.i174.i = select i1 %2003, i64 24, i64 16
   %.1.in.i.i.i.i175.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i171.i, i64 %.1.in.v.i.i.i.i174.i
@@ -5107,7 +5107,7 @@ _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i17
   %2005 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i173.i, i64 32
   %2006 = load i32, ptr %2005, align 4
   %2007 = zext i32 %2006 to i64
-  %2008 = icmp ult i64 %indvars.iv504.i, %2007
+  %2008 = icmp samesign ult i64 %indvars.iv504.i, %2007
   br i1 %2008, label %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i182.i, label %_ZNK4llvm12InfoByHwModeINS_11RegSizeInfoEE3getEj.exit183.i
 
 _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i182.i: ; preds = %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i179.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm11RegSizeInfoEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i178.i, %_ZN4llvm11raw_ostreamlsEc.exit168.i
@@ -6044,7 +6044,7 @@ _ZN4llvm11raw_ostreamlsEc.exit303.i:              ; preds = %2462, %2460
   %2466 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i306.i, i64 32
   %2467 = load i32, ptr %2466, align 4
   %2468 = zext i32 %2467 to i64
-  %2469 = icmp ugt i64 %indvars.iv507.i, %2468
+  %2469 = icmp samesign ugt i64 %indvars.iv507.i, %2468
   %.19.i.i.i.i308.i = select i1 %2469, ptr %.0811.i.i.i.i307.i, ptr %.012.i.i.i.i306.i
   %.1.in.v.i.i.i.i309.i = select i1 %2469, i64 24, i64 16
   %.1.in.i.i.i.i310.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i306.i, i64 %.1.in.v.i.i.i.i309.i
@@ -6060,7 +6060,7 @@ _ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i.i
   %2471 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i308.i, i64 32
   %2472 = load i32, ptr %2471, align 4
   %2473 = zext i32 %2472 to i64
-  %2474 = icmp ult i64 %indvars.iv507.i, %2473
+  %2474 = icmp samesign ult i64 %indvars.iv507.i, %2473
   br i1 %2474, label %_ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i.i, label %_ZNK4llvm12InfoByHwModeINS_11SubRegRangeEE3getEj.exit.i
 
 _ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i.i: ; preds = %_ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm11SubRegRangeEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit303.i
@@ -6210,7 +6210,7 @@ _ZN4llvm11raw_ostreamlsEc.exit334.i:              ; preds = %2532, %2530
   %2536 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i337.i, i64 32
   %2537 = load i32, ptr %2536, align 4
   %2538 = zext i32 %2537 to i64
-  %2539 = icmp ugt i64 %indvars.iv510.i, %2538
+  %2539 = icmp samesign ugt i64 %indvars.iv510.i, %2538
   %.19.i.i.i.i339.i = select i1 %2539, ptr %.0811.i.i.i.i338.i, ptr %.012.i.i.i.i337.i
   %.1.in.v.i.i.i.i340.i = select i1 %2539, i64 24, i64 16
   %.1.in.i.i.i.i341.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i337.i, i64 %.1.in.v.i.i.i.i340.i
@@ -6226,7 +6226,7 @@ _ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i34
   %2541 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i339.i, i64 32
   %2542 = load i32, ptr %2541, align 4
   %2543 = zext i32 %2542 to i64
-  %2544 = icmp ult i64 %indvars.iv510.i, %2543
+  %2544 = icmp samesign ult i64 %indvars.iv510.i, %2543
   br i1 %2544, label %_ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i348.i, label %_ZNK4llvm12InfoByHwModeINS_11SubRegRangeEE3getEj.exit349.i
 
 _ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i348.i: ; preds = %_ZNKSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i345.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm11SubRegRangeEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i344.i, %_ZN4llvm11raw_ostreamlsEc.exit334.i
@@ -7335,7 +7335,7 @@ _ZN4llvm15SparseBitVectorILj128EEC2ERKS1_.exit:   ; preds = %.lr.ph.i.i.i
 
 370:                                              ; preds = %370, %366
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %370 ], [ 0, %366 ]
-  %371 = icmp ult i64 %indvars.iv.i.i.i.i.i, 2
+  %371 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   call void @llvm.assume(i1 %371)
   %372 = getelementptr inbounds [2 x i64], ptr %369, i64 0, i64 %indvars.iv.i.i.i.i.i
   %373 = load i64, ptr %372, align 8, !noalias !73
@@ -7466,7 +7466,7 @@ _ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i244: ; preds = %400, 
   br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
 
 437:                                              ; preds = %419
-  %438 = icmp ult i32 %422, 64
+  %438 = icmp samesign ult i32 %422, 64
   br i1 %438, label %439, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i
 
 439:                                              ; preds = %437
@@ -7504,7 +7504,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i: ; preds = %
 
 455:                                              ; preds = %455, %450
   %indvars.iv.i.i655 = phi i64 [ %indvars.iv.next.i.i656, %455 ], [ 0, %450 ]
-  %456 = icmp ult i64 %indvars.iv.i.i655, 2
+  %456 = icmp samesign ult i64 %indvars.iv.i.i655, 2
   call void @llvm.assume(i1 %456)
   %457 = getelementptr inbounds [2 x i64], ptr %454, i64 0, i64 %indvars.iv.i.i655
   %458 = load i64, ptr %457, align 8
@@ -8455,7 +8455,7 @@ _ZNK4llvm15CodeGenRegister17getNativeRegUnitsEv.exit354: ; preds = %.lr.ph.i.i.i
 
 934:                                              ; preds = %934, %930
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %934 ], [ 0, %930 ]
-  %935 = icmp ult i64 %indvars.iv.i.i, 2
+  %935 = icmp samesign ult i64 %indvars.iv.i.i, 2
   call void @llvm.assume(i1 %935)
   %936 = getelementptr inbounds [2 x i64], ptr %933, i64 0, i64 %indvars.iv.i.i
   %937 = load i64, ptr %936, align 8
@@ -12489,7 +12489,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit714:              ; preds = %757, %759
   %765 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i717, i64 32
   %766 = load i32, ptr %765, align 4
   %767 = zext i32 %766 to i64
-  %768 = icmp ugt i64 %indvars.iv, %767
+  %768 = icmp samesign ugt i64 %indvars.iv, %767
   %.19.i.i.i.i719 = select i1 %768, ptr %.0811.i.i.i.i718, ptr %.012.i.i.i.i717
   %.1.in.v.i.i.i.i720 = select i1 %768, i64 24, i64 16
   %.1.in.i.i.i.i721 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i717, i64 %.1.in.v.i.i.i.i720
@@ -12505,7 +12505,7 @@ _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i: 
   %770 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i719, i64 32
   %771 = load i32, ptr %770, align 4
   %772 = zext i32 %771 to i64
-  %773 = icmp ult i64 %indvars.iv, %772
+  %773 = icmp samesign ult i64 %indvars.iv, %772
   br i1 %773, label %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i, label %_ZNK4llvm12InfoByHwModeINS_11RegSizeInfoEE3getEj.exit
 
 _ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i: ; preds = %_ZNKSt3mapIjN4llvm11RegSizeInfoESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm11RegSizeInfoEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %.lr.ph2268
@@ -12637,7 +12637,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit734:              ; preds = %815, %817
   %840 = getelementptr inbounds nuw i8, ptr %.012.i.i.i737, i64 32
   %841 = load i32, ptr %840, align 4
   %842 = zext i32 %841 to i64
-  %843 = icmp ugt i64 %indvars.iv, %842
+  %843 = icmp samesign ugt i64 %indvars.iv, %842
   %.19.i.i.i739 = select i1 %843, ptr %.0811.i.i.i738, ptr %.012.i.i.i737
   %.1.in.v.i.i.i740 = select i1 %843, i64 24, i64 16
   %.1.in.i.i.i741 = getelementptr inbounds nuw i8, ptr %.012.i.i.i737, i64 %.1.in.v.i.i.i740
@@ -12653,7 +12653,7 @@ _ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit747: ; preds 
   %845 = getelementptr inbounds nuw i8, ptr %.19.i.i.i739, i64 32
   %846 = load i32, ptr %845, align 4
   %847 = zext i32 %846 to i64
-  %848 = icmp ult i64 %indvars.iv, %847
+  %848 = icmp samesign ult i64 %indvars.iv, %847
   br i1 %848, label %_ZNSt6vectorIN4llvm3MVT15SimpleValueTypeESaIS2_EE9push_backERKS2_.exit771, label %849
 
 849:                                              ; preds = %._crit_edge2551, %_ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit747
@@ -12668,7 +12668,7 @@ _ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit747: ; preds 
   %852 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i750, i64 32
   %853 = load i32, ptr %852, align 4
   %854 = zext i32 %853 to i64
-  %855 = icmp ugt i64 %indvars.iv, %854
+  %855 = icmp samesign ugt i64 %indvars.iv, %854
   %.19.i.i.i.i752 = select i1 %855, ptr %.0811.i.i.i.i751, ptr %.012.i.i.i.i750
   %.1.in.v.i.i.i.i753 = select i1 %855, i64 24, i64 16
   %.1.in.i.i.i.i754 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i750, i64 %.1.in.v.i.i.i.i753
@@ -12684,7 +12684,7 @@ _ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i758: ; pred
   %857 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i752, i64 32
   %858 = load i32, ptr %857, align 4
   %859 = zext i32 %858 to i64
-  %860 = icmp ult i64 %indvars.iv, %859
+  %860 = icmp samesign ult i64 %indvars.iv, %859
   br i1 %860, label %_ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i761, label %_ZNK4llvm12InfoByHwModeINS_3MVTEE3getEj.exit762
 
 _ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.i761: ; preds = %_ZNKSt3mapIjN4llvm3MVTESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i758, %_ZNKSt8_Rb_treeIjSt4pairIKjN4llvm3MVTEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i757, %849
@@ -22091,7 +22091,7 @@ _ZNK4llvm20CodeGenRegisterClass17getBaseClassOrderEv.exit: ; preds = %5716, %.lr
   br i1 %.not.i.i.i.i.i1336, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN4llvm20CodeGenRegisterClassES3_EC2ES4_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i1335
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i1335, !llvm.loop !301
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %5739
@@ -34322,7 +34322,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
 
 34:                                               ; preds = %13
-  %35 = icmp ult i32 %19, 64
+  %35 = icmp samesign ult i32 %19, 64
   br i1 %35, label %36, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread
 
 36:                                               ; preds = %34
@@ -34366,7 +34366,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread: ; preds = %34
 
 55:                                               ; preds = %55, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
-  %56 = icmp ult i64 %indvars.iv.i, 2
+  %56 = icmp samesign ult i64 %indvars.iv.i, 2
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8
@@ -36114,7 +36114,7 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !839
 
 12:                                               ; preds = %.lr.ph.i.i

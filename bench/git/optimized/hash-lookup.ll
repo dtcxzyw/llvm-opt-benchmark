@@ -72,11 +72,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load i8, ptr %arrayidx2.i46, align 1
   %conv3.i47 = zext i8 %11 to i32
   %or.i48 = or disjoint i32 %shl.i44, %conv3.i47
-  %cmp10 = icmp ult i32 %or.i48, %or.i
+  %cmp10 = icmp samesign ult i32 %or.i48, %or.i
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %for.body
-  %cmp14 = icmp ult i32 %or.i41, %or.i48
+  %cmp14 = icmp samesign ult i32 %or.i41, %or.i48
   br i1 %cmp14, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end13

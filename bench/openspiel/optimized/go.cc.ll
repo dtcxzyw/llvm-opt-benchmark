@@ -1446,7 +1446,7 @@ define void @_ZN10open_spiel2go7GoState10ResetBoardEv(ptr noundef nonnull align 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
-  %29 = icmp ugt i32 %26, 9
+  %29 = icmp samesign ugt i32 %26, 9
   br i1 %29, label %._crit_edge.thread, label %30
 
 ._crit_edge.thread:                               ; preds = %28
@@ -1930,7 +1930,7 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit.i:        ; preds = %_ZNSt6vectorItSaItE
   br label %common.resume
 
 170:                                              ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i
-  %171 = icmp ult i32 %26, 5
+  %171 = icmp samesign ult i32 %26, 5
   %172 = and i32 %26, 1
   %.not54.i = icmp eq i32 %172, 0
   %or.cond.i = or i1 %171, %.not54.i

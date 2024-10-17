@@ -2486,7 +2486,7 @@ for.inc:                                          ; preds = %.noexc123, %lor.lhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %m_num_decls.i, align 4
   %61 = zext i32 %60 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %61
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 lpad69:                                           ; preds = %invoke.cont61

@@ -63,7 +63,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %addr.addr.1.i = phi ptr [ %addr.addr.036.i, %if.then.i ], [ %add.ptr20.i, %if.else.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %tobool.i = icmp ne i64 %size.addr.1.i, 0
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %1
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %1
   %4 = select i1 %tobool.i, i1 %cmp.i, i1 false
   br i1 %4, label %for.body.i, label %v9fs_packunpack.exit, !llvm.loop !5
 
@@ -168,7 +168,7 @@ for.inc.us.i.i:                                   ; preds = %if.else.us.i.i, %if
   %addr.addr.1.us.i.i = phi ptr [ %addr.addr.036.us.i.i, %if.then.us.i.i ], [ %add.ptr20.us.i.i, %if.else.us.i.i ]
   %indvars.iv.next40.i.i = add nuw nsw i64 %indvars.iv39.i.i, 1
   %tobool.us.i.i = icmp ne i64 %size.addr.1.us.i.i, 0
-  %cmp.us.i.i = icmp ult i64 %indvars.iv.next40.i.i, %1
+  %cmp.us.i.i = icmp samesign ult i64 %indvars.iv.next40.i.i, %1
   %10 = select i1 %tobool.us.i.i, i1 %cmp.us.i.i, i1 false
   br i1 %10, label %for.body.us.i.i, label %v9fs_unpack.exit, !llvm.loop !5
 
@@ -237,7 +237,7 @@ for.inc.us.i.i101:                                ; preds = %if.else.us.i.i109, 
   %addr.addr.1.us.i.i105 = phi ptr [ %addr.addr.036.us.i.i92, %if.then.us.i.i99 ], [ %add.ptr20.us.i.i115, %if.else.us.i.i109 ]
   %indvars.iv.next40.i.i106 = add nuw nsw i64 %indvars.iv39.i.i91, 1
   %tobool.us.i.i107 = icmp ne i64 %size.addr.1.us.i.i103, 0
-  %cmp.us.i.i108 = icmp ult i64 %indvars.iv.next40.i.i106, %1
+  %cmp.us.i.i108 = icmp samesign ult i64 %indvars.iv.next40.i.i106, %1
   %18 = select i1 %tobool.us.i.i107, i1 %cmp.us.i.i108, i1 false
   br i1 %18, label %for.body.us.i.i90, label %v9fs_unpack.exit118, !llvm.loop !5
 
@@ -315,7 +315,7 @@ for.inc.us.i.i135:                                ; preds = %if.else.us.i.i143, 
   %addr.addr.1.us.i.i139 = phi ptr [ %addr.addr.036.us.i.i126, %if.then.us.i.i133 ], [ %add.ptr20.us.i.i149, %if.else.us.i.i143 ]
   %indvars.iv.next40.i.i140 = add nuw nsw i64 %indvars.iv39.i.i125, 1
   %tobool.us.i.i141 = icmp ne i64 %size.addr.1.us.i.i137, 0
-  %cmp.us.i.i142 = icmp ult i64 %indvars.iv.next40.i.i140, %1
+  %cmp.us.i.i142 = icmp samesign ult i64 %indvars.iv.next40.i.i140, %1
   %29 = select i1 %tobool.us.i.i141, i1 %cmp.us.i.i142, i1 false
   br i1 %29, label %for.body.us.i.i124, label %v9fs_unpack.exit152, !llvm.loop !5
 
@@ -393,7 +393,7 @@ for.inc.us.i.i169:                                ; preds = %if.else.us.i.i177, 
   %addr.addr.1.us.i.i173 = phi ptr [ %addr.addr.036.us.i.i160, %if.then.us.i.i167 ], [ %add.ptr20.us.i.i183, %if.else.us.i.i177 ]
   %indvars.iv.next40.i.i174 = add nuw nsw i64 %indvars.iv39.i.i159, 1
   %tobool.us.i.i175 = icmp ne i64 %size.addr.1.us.i.i171, 0
-  %cmp.us.i.i176 = icmp ult i64 %indvars.iv.next40.i.i174, %1
+  %cmp.us.i.i176 = icmp samesign ult i64 %indvars.iv.next40.i.i174, %1
   %40 = select i1 %tobool.us.i.i175, i1 %cmp.us.i.i176, i1 false
   br i1 %40, label %for.body.us.i.i158, label %v9fs_unpack.exit186, !llvm.loop !5
 
@@ -486,7 +486,7 @@ for.inc.us.i.i203:                                ; preds = %if.else.us.i.i211, 
   %addr.addr.1.us.i.i207 = phi ptr [ %addr.addr.036.us.i.i194, %if.then.us.i.i201 ], [ %add.ptr20.us.i.i217, %if.else.us.i.i211 ]
   %indvars.iv.next40.i.i208 = add nuw nsw i64 %indvars.iv39.i.i193, 1
   %tobool.us.i.i209 = icmp ne i64 %size.addr.1.us.i.i205, 0
-  %cmp.us.i.i210 = icmp ult i64 %indvars.iv.next40.i.i208, %1
+  %cmp.us.i.i210 = icmp samesign ult i64 %indvars.iv.next40.i.i208, %1
   %53 = select i1 %tobool.us.i.i209, i1 %cmp.us.i.i210, i1 false
   br i1 %53, label %for.body.us.i.i192, label %v9fs_unpack.exit220, !llvm.loop !5
 
@@ -746,7 +746,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %if.th
   %addr.addr.1.i.i = phi ptr [ %addr.addr.036.i.i, %if.then.i.i ], [ %add.ptr20.i.i, %if.else.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %tobool.i.i = icmp ne i64 %size.addr.1.i.i, 0
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %1
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %1
   %10 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
   br i1 %10, label %for.body.i.i, label %v9fs_pack.exit, !llvm.loop !5
 
@@ -817,7 +817,7 @@ for.inc.i.i103:                                   ; preds = %if.else.i.i111, %if
   %addr.addr.1.i.i107 = phi ptr [ %addr.addr.036.i.i94, %if.then.i.i101 ], [ %add.ptr20.i.i117, %if.else.i.i111 ]
   %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i93, 1
   %tobool.i.i109 = icmp ne i64 %size.addr.1.i.i105, 0
-  %cmp.i.i110 = icmp ult i64 %indvars.iv.next.i.i108, %1
+  %cmp.i.i110 = icmp samesign ult i64 %indvars.iv.next.i.i108, %1
   %18 = select i1 %tobool.i.i109, i1 %cmp.i.i110, i1 false
   br i1 %18, label %for.body.i.i92, label %v9fs_pack.exit120, !llvm.loop !5
 
@@ -887,7 +887,7 @@ for.inc.i.i137:                                   ; preds = %if.else.i.i145, %if
   %addr.addr.1.i.i141 = phi ptr [ %addr.addr.036.i.i128, %if.then.i.i135 ], [ %add.ptr20.i.i151, %if.else.i.i145 ]
   %indvars.iv.next.i.i142 = add nuw nsw i64 %indvars.iv.i.i127, 1
   %tobool.i.i143 = icmp ne i64 %size.addr.1.i.i139, 0
-  %cmp.i.i144 = icmp ult i64 %indvars.iv.next.i.i142, %1
+  %cmp.i.i144 = icmp samesign ult i64 %indvars.iv.next.i.i142, %1
   %26 = select i1 %tobool.i.i143, i1 %cmp.i.i144, i1 false
   br i1 %26, label %for.body.i.i126, label %v9fs_pack.exit154, !llvm.loop !5
 
@@ -957,7 +957,7 @@ for.inc.i.i171:                                   ; preds = %if.else.i.i179, %if
   %addr.addr.1.i.i175 = phi ptr [ %addr.addr.036.i.i162, %if.then.i.i169 ], [ %add.ptr20.i.i185, %if.else.i.i179 ]
   %indvars.iv.next.i.i176 = add nuw nsw i64 %indvars.iv.i.i161, 1
   %tobool.i.i177 = icmp ne i64 %size.addr.1.i.i173, 0
-  %cmp.i.i178 = icmp ult i64 %indvars.iv.next.i.i176, %1
+  %cmp.i.i178 = icmp samesign ult i64 %indvars.iv.next.i.i176, %1
   %34 = select i1 %tobool.i.i177, i1 %cmp.i.i178, i1 false
   br i1 %34, label %for.body.i.i160, label %v9fs_pack.exit188, !llvm.loop !5
 
@@ -1042,7 +1042,7 @@ for.inc.i.i205:                                   ; preds = %if.else.i.i213, %if
   %addr.addr.1.i.i209 = phi ptr [ %addr.addr.036.i.i196, %if.then.i.i203 ], [ %add.ptr20.i.i219, %if.else.i.i213 ]
   %indvars.iv.next.i.i210 = add nuw nsw i64 %indvars.iv.i.i195, 1
   %tobool.i.i211 = icmp ne i64 %size.addr.1.i.i207, 0
-  %cmp.i.i212 = icmp ult i64 %indvars.iv.next.i.i210, %1
+  %cmp.i.i212 = icmp samesign ult i64 %indvars.iv.next.i.i210, %1
   %45 = select i1 %tobool.i.i211, i1 %cmp.i.i212, i1 false
   br i1 %45, label %for.body.i.i194, label %v9fs_pack.exit222, !llvm.loop !5
 

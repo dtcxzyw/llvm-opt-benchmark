@@ -308,7 +308,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx18 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %4
   store float %5, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp9 = icmp ugt i64 %spec.select, %indvars.iv.next
+  %cmp9 = icmp samesign ugt i64 %spec.select, %indvars.iv.next
   br i1 %cmp9, label %for.body, label %while.cond, !llvm.loop !9
 
 while.cond:                                       ; preds = %for.body, %if.end115

@@ -361,7 +361,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %92 ], [ 0, %.lr.ph54.i.preheader ]
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %92 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %69 = icmp ult i64 %indvars.iv.next64.i, %66
+  %69 = icmp samesign ult i64 %indvars.iv.next64.i, %66
   %70 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %69, label %.lr.ph50.i, label %._crit_edge.i
 
@@ -675,7 +675,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %114 ], [ 0, %.lr.ph54.i.preheader ]
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %114 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %91 = icmp ult i64 %indvars.iv.next64.i, %81
+  %91 = icmp samesign ult i64 %indvars.iv.next64.i, %81
   %92 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %91, label %.lr.ph50.i, label %._crit_edge.i
 
@@ -968,7 +968,7 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %93 ], [ 0, %.lr.ph54.i.preheader ]
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %93 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %70 = icmp ult i64 %indvars.iv.next64.i, %67
+  %70 = icmp samesign ult i64 %indvars.iv.next64.i, %67
   %71 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %70, label %.lr.ph50.i, label %._crit_edge.i
 

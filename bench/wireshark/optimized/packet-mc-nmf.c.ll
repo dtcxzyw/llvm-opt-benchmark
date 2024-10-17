@@ -306,7 +306,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %98 = shl nuw nsw i64 %97, %95
   %99 = or i64 %98, %.0.i
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
-  %100 = icmp ugt i64 %98, 4294967295
+  %100 = icmp samesign ugt i64 %98, 4294967295
   br i1 %100, label %101, label %90, !llvm.loop !4
 
 101:                                              ; preds = %93, %91
@@ -363,7 +363,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %134 = shl nuw nsw i64 %133, %131
   %135 = or i64 %134, %.0.i129
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %136 = icmp ugt i64 %134, 4294967295
+  %136 = icmp samesign ugt i64 %134, 4294967295
   br i1 %136, label %137, label %126, !llvm.loop !4
 
 137:                                              ; preds = %129, %127
@@ -415,7 +415,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %163 = shl nuw nsw i64 %162, %160
   %164 = or i64 %163, %.0.i134
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
-  %165 = icmp ugt i64 %163, 4294967295
+  %165 = icmp samesign ugt i64 %163, 4294967295
   br i1 %165, label %166, label %156, !llvm.loop !4
 
 166:                                              ; preds = %159, %157
@@ -472,7 +472,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %198 = shl nuw nsw i64 %197, %195
   %199 = or i64 %198, %.0.i139
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
-  %200 = icmp ugt i64 %198, 4294967295
+  %200 = icmp samesign ugt i64 %198, 4294967295
   br i1 %200, label %201, label %190, !llvm.loop !4
 
 201:                                              ; preds = %193, %191
@@ -521,7 +521,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %228 = shl nuw nsw i64 %227, %225
   %229 = or i64 %228, %.0.i144
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
-  %230 = icmp ugt i64 %228, 4294967295
+  %230 = icmp samesign ugt i64 %228, 4294967295
   br i1 %230, label %231, label %220, !llvm.loop !4
 
 231:                                              ; preds = %223, %221
@@ -570,7 +570,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %258 = shl nuw nsw i64 %257, %255
   %259 = or i64 %258, %.0.i149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %260 = icmp ugt i64 %258, 4294967295
+  %260 = icmp samesign ugt i64 %258, 4294967295
   br i1 %260, label %261, label %250, !llvm.loop !4
 
 261:                                              ; preds = %253, %251

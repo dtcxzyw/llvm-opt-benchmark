@@ -389,7 +389,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !70
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h674c0425fcf4a9d8E.llvm.1773812968689397802"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 %8), !noalias !70
   %10 = load i64, ptr %3, align 8, !range !73, !noundef !5
-  %.not.i = icmp ult i64 %10, 2
+  %.not.i = icmp samesign ult i64 %10, 2
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i, i64 0, i64 %11
   switch i64 %12, label %13 [
@@ -930,7 +930,7 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h674c0425fcf4a9d8E.llvm.1773812968689397802"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !73, !noundef !5
-  %.not = icmp ult i64 %5, 2
+  %.not = icmp samesign ult i64 %5, 2
   %6 = add nsw i64 %5, -1
   %7 = select i1 %.not, i64 0, i64 %6
   switch i64 %7, label %8 [

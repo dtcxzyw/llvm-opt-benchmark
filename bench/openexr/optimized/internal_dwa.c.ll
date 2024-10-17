@@ -2694,11 +2694,11 @@ for.body:                                         ; preds = %entry, %float_to_ha
   %shr.i.i = lshr i32 %1, 16
   %3 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %3, -32768
-  %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end43.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %cmp3.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp3.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp3.i.i, label %if.then6.i.i, label %if.end24.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
@@ -2717,7 +2717,7 @@ if.end.i.i:                                       ; preds = %if.then6.i.i
   br label %float_to_half.exit
 
 if.end24.i.i:                                     ; preds = %if.then.i.i
-  %cmp25.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp25.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp25.i.i, label %if.then29.i.i, label %if.end33.i.i
 
 if.then29.i.i:                                    ; preds = %if.end24.i.i
@@ -2736,7 +2736,7 @@ if.end33.i.i:                                     ; preds = %if.end24.i.i
   br label %float_to_half.exit
 
 if.end43.i.i:                                     ; preds = %for.body
-  %cmp44.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp44.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp44.i.i, label %float_to_half.exit, label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %if.end43.i.i
@@ -2785,12 +2785,12 @@ entry:
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else12.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp6.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp6.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp6.i.i, label %if.then10.i.i, label %if.else.i.i
 
 if.then10.i.i:                                    ; preds = %if.then.i.i
@@ -2825,12 +2825,12 @@ half_to_float.exit:                               ; preds = %if.then10.i.i, %if.
   %shr.i.i128 = and i32 %4, 268427264
   %h.signext.i.i129 = sext i16 %3 to i32
   %shl3.i.i130 = and i32 %h.signext.i.i129, -2147483648
-  %cmp.i.i131 = icmp ugt i32 %shr.i.i128, 8388607
+  %cmp.i.i131 = icmp samesign ugt i32 %shr.i.i128, 8388607
   br i1 %cmp.i.i131, label %if.then.i.i142, label %if.else12.i.i132
 
 if.then.i.i142:                                   ; preds = %half_to_float.exit
   %or.i.i143 = or disjoint i32 %shr.i.i128, %shl3.i.i130
-  %cmp6.i.i144 = icmp ult i32 %shr.i.i128, 260046848
+  %cmp6.i.i144 = icmp samesign ult i32 %shr.i.i128, 260046848
   br i1 %cmp6.i.i144, label %if.then10.i.i147, label %if.else.i.i145
 
 if.then10.i.i147:                                 ; preds = %if.then.i.i142
@@ -2866,12 +2866,12 @@ half_to_float.exit149:                            ; preds = %if.then10.i.i147, %
   %shr.i.i151 = and i32 %7, 268427264
   %h.signext.i.i152 = sext i16 %6 to i32
   %shl3.i.i153 = and i32 %h.signext.i.i152, -2147483648
-  %cmp.i.i154 = icmp ugt i32 %shr.i.i151, 8388607
+  %cmp.i.i154 = icmp samesign ugt i32 %shr.i.i151, 8388607
   br i1 %cmp.i.i154, label %if.then.i.i165, label %if.else12.i.i155
 
 if.then.i.i165:                                   ; preds = %half_to_float.exit149
   %or.i.i166 = or disjoint i32 %shr.i.i151, %shl3.i.i153
-  %cmp6.i.i167 = icmp ult i32 %shr.i.i151, 260046848
+  %cmp6.i.i167 = icmp samesign ult i32 %shr.i.i151, 260046848
   br i1 %cmp6.i.i167, label %if.then10.i.i170, label %if.else.i.i168
 
 if.then10.i.i170:                                 ; preds = %if.then.i.i165
@@ -2907,12 +2907,12 @@ half_to_float.exit172:                            ; preds = %if.then10.i.i170, %
   %shr.i.i174 = and i32 %10, 268427264
   %h.signext.i.i175 = sext i16 %9 to i32
   %shl3.i.i176 = and i32 %h.signext.i.i175, -2147483648
-  %cmp.i.i177 = icmp ugt i32 %shr.i.i174, 8388607
+  %cmp.i.i177 = icmp samesign ugt i32 %shr.i.i174, 8388607
   br i1 %cmp.i.i177, label %if.then.i.i188, label %if.else12.i.i178
 
 if.then.i.i188:                                   ; preds = %half_to_float.exit172
   %or.i.i189 = or disjoint i32 %shr.i.i174, %shl3.i.i176
-  %cmp6.i.i190 = icmp ult i32 %shr.i.i174, 260046848
+  %cmp6.i.i190 = icmp samesign ult i32 %shr.i.i174, 260046848
   br i1 %cmp6.i.i190, label %if.then10.i.i193, label %if.else.i.i191
 
 if.then10.i.i193:                                 ; preds = %if.then.i.i188
@@ -2948,12 +2948,12 @@ half_to_float.exit195:                            ; preds = %if.then10.i.i193, %
   %shr.i.i197 = and i32 %13, 268427264
   %h.signext.i.i198 = sext i16 %12 to i32
   %shl3.i.i199 = and i32 %h.signext.i.i198, -2147483648
-  %cmp.i.i200 = icmp ugt i32 %shr.i.i197, 8388607
+  %cmp.i.i200 = icmp samesign ugt i32 %shr.i.i197, 8388607
   br i1 %cmp.i.i200, label %if.then.i.i211, label %if.else12.i.i201
 
 if.then.i.i211:                                   ; preds = %half_to_float.exit195
   %or.i.i212 = or disjoint i32 %shr.i.i197, %shl3.i.i199
-  %cmp6.i.i213 = icmp ult i32 %shr.i.i197, 260046848
+  %cmp6.i.i213 = icmp samesign ult i32 %shr.i.i197, 260046848
   br i1 %cmp6.i.i213, label %if.then10.i.i216, label %if.else.i.i214
 
 if.then10.i.i216:                                 ; preds = %if.then.i.i211
@@ -2989,12 +2989,12 @@ half_to_float.exit218:                            ; preds = %if.then10.i.i216, %
   %shr.i.i220 = and i32 %16, 268427264
   %h.signext.i.i221 = sext i16 %15 to i32
   %shl3.i.i222 = and i32 %h.signext.i.i221, -2147483648
-  %cmp.i.i223 = icmp ugt i32 %shr.i.i220, 8388607
+  %cmp.i.i223 = icmp samesign ugt i32 %shr.i.i220, 8388607
   br i1 %cmp.i.i223, label %if.then.i.i234, label %if.else12.i.i224
 
 if.then.i.i234:                                   ; preds = %half_to_float.exit218
   %or.i.i235 = or disjoint i32 %shr.i.i220, %shl3.i.i222
-  %cmp6.i.i236 = icmp ult i32 %shr.i.i220, 260046848
+  %cmp6.i.i236 = icmp samesign ult i32 %shr.i.i220, 260046848
   br i1 %cmp6.i.i236, label %if.then10.i.i239, label %if.else.i.i237
 
 if.then10.i.i239:                                 ; preds = %if.then.i.i234
@@ -3030,12 +3030,12 @@ half_to_float.exit241:                            ; preds = %if.then10.i.i239, %
   %shr.i.i243 = and i32 %19, 268427264
   %h.signext.i.i244 = sext i16 %18 to i32
   %shl3.i.i245 = and i32 %h.signext.i.i244, -2147483648
-  %cmp.i.i246 = icmp ugt i32 %shr.i.i243, 8388607
+  %cmp.i.i246 = icmp samesign ugt i32 %shr.i.i243, 8388607
   br i1 %cmp.i.i246, label %if.then.i.i257, label %if.else12.i.i247
 
 if.then.i.i257:                                   ; preds = %half_to_float.exit241
   %or.i.i258 = or disjoint i32 %shr.i.i243, %shl3.i.i245
-  %cmp6.i.i259 = icmp ult i32 %shr.i.i243, 260046848
+  %cmp6.i.i259 = icmp samesign ult i32 %shr.i.i243, 260046848
   br i1 %cmp6.i.i259, label %if.then10.i.i262, label %if.else.i.i260
 
 if.then10.i.i262:                                 ; preds = %if.then.i.i257
@@ -3071,12 +3071,12 @@ half_to_float.exit264:                            ; preds = %if.then10.i.i262, %
   %shr.i.i266 = and i32 %22, 268427264
   %h.signext.i.i267 = sext i16 %21 to i32
   %shl3.i.i268 = and i32 %h.signext.i.i267, -2147483648
-  %cmp.i.i269 = icmp ugt i32 %shr.i.i266, 8388607
+  %cmp.i.i269 = icmp samesign ugt i32 %shr.i.i266, 8388607
   br i1 %cmp.i.i269, label %if.then.i.i280, label %if.else12.i.i270
 
 if.then.i.i280:                                   ; preds = %half_to_float.exit264
   %or.i.i281 = or disjoint i32 %shr.i.i266, %shl3.i.i268
-  %cmp6.i.i282 = icmp ult i32 %shr.i.i266, 260046848
+  %cmp6.i.i282 = icmp samesign ult i32 %shr.i.i266, 260046848
   br i1 %cmp6.i.i282, label %if.then10.i.i285, label %if.else.i.i283
 
 if.then10.i.i285:                                 ; preds = %if.then.i.i280
@@ -3112,12 +3112,12 @@ half_to_float.exit287:                            ; preds = %if.then10.i.i285, %
   %shr.i.i289 = and i32 %25, 268427264
   %h.signext.i.i290 = sext i16 %24 to i32
   %shl3.i.i291 = and i32 %h.signext.i.i290, -2147483648
-  %cmp.i.i292 = icmp ugt i32 %shr.i.i289, 8388607
+  %cmp.i.i292 = icmp samesign ugt i32 %shr.i.i289, 8388607
   br i1 %cmp.i.i292, label %if.then.i.i303, label %if.else12.i.i293
 
 if.then.i.i303:                                   ; preds = %half_to_float.exit287
   %or.i.i304 = or disjoint i32 %shr.i.i289, %shl3.i.i291
-  %cmp6.i.i305 = icmp ult i32 %shr.i.i289, 260046848
+  %cmp6.i.i305 = icmp samesign ult i32 %shr.i.i289, 260046848
   br i1 %cmp6.i.i305, label %if.then10.i.i308, label %if.else.i.i306
 
 if.then10.i.i308:                                 ; preds = %if.then.i.i303
@@ -3153,12 +3153,12 @@ half_to_float.exit310:                            ; preds = %if.then10.i.i308, %
   %shr.i.i312 = and i32 %28, 268427264
   %h.signext.i.i313 = sext i16 %27 to i32
   %shl3.i.i314 = and i32 %h.signext.i.i313, -2147483648
-  %cmp.i.i315 = icmp ugt i32 %shr.i.i312, 8388607
+  %cmp.i.i315 = icmp samesign ugt i32 %shr.i.i312, 8388607
   br i1 %cmp.i.i315, label %if.then.i.i326, label %if.else12.i.i316
 
 if.then.i.i326:                                   ; preds = %half_to_float.exit310
   %or.i.i327 = or disjoint i32 %shr.i.i312, %shl3.i.i314
-  %cmp6.i.i328 = icmp ult i32 %shr.i.i312, 260046848
+  %cmp6.i.i328 = icmp samesign ult i32 %shr.i.i312, 260046848
   br i1 %cmp6.i.i328, label %if.then10.i.i331, label %if.else.i.i329
 
 if.then10.i.i331:                                 ; preds = %if.then.i.i326
@@ -3194,12 +3194,12 @@ half_to_float.exit333:                            ; preds = %if.then10.i.i331, %
   %shr.i.i335 = and i32 %31, 268427264
   %h.signext.i.i336 = sext i16 %30 to i32
   %shl3.i.i337 = and i32 %h.signext.i.i336, -2147483648
-  %cmp.i.i338 = icmp ugt i32 %shr.i.i335, 8388607
+  %cmp.i.i338 = icmp samesign ugt i32 %shr.i.i335, 8388607
   br i1 %cmp.i.i338, label %if.then.i.i349, label %if.else12.i.i339
 
 if.then.i.i349:                                   ; preds = %half_to_float.exit333
   %or.i.i350 = or disjoint i32 %shr.i.i335, %shl3.i.i337
-  %cmp6.i.i351 = icmp ult i32 %shr.i.i335, 260046848
+  %cmp6.i.i351 = icmp samesign ult i32 %shr.i.i335, 260046848
   br i1 %cmp6.i.i351, label %if.then10.i.i354, label %if.else.i.i352
 
 if.then10.i.i354:                                 ; preds = %if.then.i.i349
@@ -3235,12 +3235,12 @@ half_to_float.exit356:                            ; preds = %if.then10.i.i354, %
   %shr.i.i358 = and i32 %34, 268427264
   %h.signext.i.i359 = sext i16 %33 to i32
   %shl3.i.i360 = and i32 %h.signext.i.i359, -2147483648
-  %cmp.i.i361 = icmp ugt i32 %shr.i.i358, 8388607
+  %cmp.i.i361 = icmp samesign ugt i32 %shr.i.i358, 8388607
   br i1 %cmp.i.i361, label %if.then.i.i372, label %if.else12.i.i362
 
 if.then.i.i372:                                   ; preds = %half_to_float.exit356
   %or.i.i373 = or disjoint i32 %shr.i.i358, %shl3.i.i360
-  %cmp6.i.i374 = icmp ult i32 %shr.i.i358, 260046848
+  %cmp6.i.i374 = icmp samesign ult i32 %shr.i.i358, 260046848
   br i1 %cmp6.i.i374, label %if.then10.i.i377, label %if.else.i.i375
 
 if.then10.i.i377:                                 ; preds = %if.then.i.i372
@@ -3276,12 +3276,12 @@ half_to_float.exit379:                            ; preds = %if.then10.i.i377, %
   %shr.i.i381 = and i32 %37, 268427264
   %h.signext.i.i382 = sext i16 %36 to i32
   %shl3.i.i383 = and i32 %h.signext.i.i382, -2147483648
-  %cmp.i.i384 = icmp ugt i32 %shr.i.i381, 8388607
+  %cmp.i.i384 = icmp samesign ugt i32 %shr.i.i381, 8388607
   br i1 %cmp.i.i384, label %if.then.i.i395, label %if.else12.i.i385
 
 if.then.i.i395:                                   ; preds = %half_to_float.exit379
   %or.i.i396 = or disjoint i32 %shr.i.i381, %shl3.i.i383
-  %cmp6.i.i397 = icmp ult i32 %shr.i.i381, 260046848
+  %cmp6.i.i397 = icmp samesign ult i32 %shr.i.i381, 260046848
   br i1 %cmp6.i.i397, label %if.then10.i.i400, label %if.else.i.i398
 
 if.then10.i.i400:                                 ; preds = %if.then.i.i395
@@ -3317,12 +3317,12 @@ half_to_float.exit402:                            ; preds = %if.then10.i.i400, %
   %shr.i.i404 = and i32 %40, 268427264
   %h.signext.i.i405 = sext i16 %39 to i32
   %shl3.i.i406 = and i32 %h.signext.i.i405, -2147483648
-  %cmp.i.i407 = icmp ugt i32 %shr.i.i404, 8388607
+  %cmp.i.i407 = icmp samesign ugt i32 %shr.i.i404, 8388607
   br i1 %cmp.i.i407, label %if.then.i.i418, label %if.else12.i.i408
 
 if.then.i.i418:                                   ; preds = %half_to_float.exit402
   %or.i.i419 = or disjoint i32 %shr.i.i404, %shl3.i.i406
-  %cmp6.i.i420 = icmp ult i32 %shr.i.i404, 260046848
+  %cmp6.i.i420 = icmp samesign ult i32 %shr.i.i404, 260046848
   br i1 %cmp6.i.i420, label %if.then10.i.i423, label %if.else.i.i421
 
 if.then10.i.i423:                                 ; preds = %if.then.i.i418
@@ -3358,12 +3358,12 @@ half_to_float.exit425:                            ; preds = %if.then10.i.i423, %
   %shr.i.i427 = and i32 %43, 268427264
   %h.signext.i.i428 = sext i16 %42 to i32
   %shl3.i.i429 = and i32 %h.signext.i.i428, -2147483648
-  %cmp.i.i430 = icmp ugt i32 %shr.i.i427, 8388607
+  %cmp.i.i430 = icmp samesign ugt i32 %shr.i.i427, 8388607
   br i1 %cmp.i.i430, label %if.then.i.i441, label %if.else12.i.i431
 
 if.then.i.i441:                                   ; preds = %half_to_float.exit425
   %or.i.i442 = or disjoint i32 %shr.i.i427, %shl3.i.i429
-  %cmp6.i.i443 = icmp ult i32 %shr.i.i427, 260046848
+  %cmp6.i.i443 = icmp samesign ult i32 %shr.i.i427, 260046848
   br i1 %cmp6.i.i443, label %if.then10.i.i446, label %if.else.i.i444
 
 if.then10.i.i446:                                 ; preds = %if.then.i.i441
@@ -3399,12 +3399,12 @@ half_to_float.exit448:                            ; preds = %if.then10.i.i446, %
   %shr.i.i450 = and i32 %46, 268427264
   %h.signext.i.i451 = sext i16 %45 to i32
   %shl3.i.i452 = and i32 %h.signext.i.i451, -2147483648
-  %cmp.i.i453 = icmp ugt i32 %shr.i.i450, 8388607
+  %cmp.i.i453 = icmp samesign ugt i32 %shr.i.i450, 8388607
   br i1 %cmp.i.i453, label %if.then.i.i464, label %if.else12.i.i454
 
 if.then.i.i464:                                   ; preds = %half_to_float.exit448
   %or.i.i465 = or disjoint i32 %shr.i.i450, %shl3.i.i452
-  %cmp6.i.i466 = icmp ult i32 %shr.i.i450, 260046848
+  %cmp6.i.i466 = icmp samesign ult i32 %shr.i.i450, 260046848
   br i1 %cmp6.i.i466, label %if.then10.i.i469, label %if.else.i.i467
 
 if.then10.i.i469:                                 ; preds = %if.then.i.i464
@@ -3440,12 +3440,12 @@ half_to_float.exit471:                            ; preds = %if.then10.i.i469, %
   %shr.i.i473 = and i32 %49, 268427264
   %h.signext.i.i474 = sext i16 %48 to i32
   %shl3.i.i475 = and i32 %h.signext.i.i474, -2147483648
-  %cmp.i.i476 = icmp ugt i32 %shr.i.i473, 8388607
+  %cmp.i.i476 = icmp samesign ugt i32 %shr.i.i473, 8388607
   br i1 %cmp.i.i476, label %if.then.i.i487, label %if.else12.i.i477
 
 if.then.i.i487:                                   ; preds = %half_to_float.exit471
   %or.i.i488 = or disjoint i32 %shr.i.i473, %shl3.i.i475
-  %cmp6.i.i489 = icmp ult i32 %shr.i.i473, 260046848
+  %cmp6.i.i489 = icmp samesign ult i32 %shr.i.i473, 260046848
   br i1 %cmp6.i.i489, label %if.then10.i.i492, label %if.else.i.i490
 
 if.then10.i.i492:                                 ; preds = %if.then.i.i487
@@ -3481,12 +3481,12 @@ half_to_float.exit494:                            ; preds = %if.then10.i.i492, %
   %shr.i.i496 = and i32 %52, 268427264
   %h.signext.i.i497 = sext i16 %51 to i32
   %shl3.i.i498 = and i32 %h.signext.i.i497, -2147483648
-  %cmp.i.i499 = icmp ugt i32 %shr.i.i496, 8388607
+  %cmp.i.i499 = icmp samesign ugt i32 %shr.i.i496, 8388607
   br i1 %cmp.i.i499, label %if.then.i.i510, label %if.else12.i.i500
 
 if.then.i.i510:                                   ; preds = %half_to_float.exit494
   %or.i.i511 = or disjoint i32 %shr.i.i496, %shl3.i.i498
-  %cmp6.i.i512 = icmp ult i32 %shr.i.i496, 260046848
+  %cmp6.i.i512 = icmp samesign ult i32 %shr.i.i496, 260046848
   br i1 %cmp6.i.i512, label %if.then10.i.i515, label %if.else.i.i513
 
 if.then10.i.i515:                                 ; preds = %if.then.i.i510
@@ -3522,12 +3522,12 @@ half_to_float.exit517:                            ; preds = %if.then10.i.i515, %
   %shr.i.i519 = and i32 %55, 268427264
   %h.signext.i.i520 = sext i16 %54 to i32
   %shl3.i.i521 = and i32 %h.signext.i.i520, -2147483648
-  %cmp.i.i522 = icmp ugt i32 %shr.i.i519, 8388607
+  %cmp.i.i522 = icmp samesign ugt i32 %shr.i.i519, 8388607
   br i1 %cmp.i.i522, label %if.then.i.i533, label %if.else12.i.i523
 
 if.then.i.i533:                                   ; preds = %half_to_float.exit517
   %or.i.i534 = or disjoint i32 %shr.i.i519, %shl3.i.i521
-  %cmp6.i.i535 = icmp ult i32 %shr.i.i519, 260046848
+  %cmp6.i.i535 = icmp samesign ult i32 %shr.i.i519, 260046848
   br i1 %cmp6.i.i535, label %if.then10.i.i538, label %if.else.i.i536
 
 if.then10.i.i538:                                 ; preds = %if.then.i.i533
@@ -3563,12 +3563,12 @@ half_to_float.exit540:                            ; preds = %if.then10.i.i538, %
   %shr.i.i542 = and i32 %58, 268427264
   %h.signext.i.i543 = sext i16 %57 to i32
   %shl3.i.i544 = and i32 %h.signext.i.i543, -2147483648
-  %cmp.i.i545 = icmp ugt i32 %shr.i.i542, 8388607
+  %cmp.i.i545 = icmp samesign ugt i32 %shr.i.i542, 8388607
   br i1 %cmp.i.i545, label %if.then.i.i556, label %if.else12.i.i546
 
 if.then.i.i556:                                   ; preds = %half_to_float.exit540
   %or.i.i557 = or disjoint i32 %shr.i.i542, %shl3.i.i544
-  %cmp6.i.i558 = icmp ult i32 %shr.i.i542, 260046848
+  %cmp6.i.i558 = icmp samesign ult i32 %shr.i.i542, 260046848
   br i1 %cmp6.i.i558, label %if.then10.i.i561, label %if.else.i.i559
 
 if.then10.i.i561:                                 ; preds = %if.then.i.i556
@@ -3604,12 +3604,12 @@ half_to_float.exit563:                            ; preds = %if.then10.i.i561, %
   %shr.i.i565 = and i32 %61, 268427264
   %h.signext.i.i566 = sext i16 %60 to i32
   %shl3.i.i567 = and i32 %h.signext.i.i566, -2147483648
-  %cmp.i.i568 = icmp ugt i32 %shr.i.i565, 8388607
+  %cmp.i.i568 = icmp samesign ugt i32 %shr.i.i565, 8388607
   br i1 %cmp.i.i568, label %if.then.i.i579, label %if.else12.i.i569
 
 if.then.i.i579:                                   ; preds = %half_to_float.exit563
   %or.i.i580 = or disjoint i32 %shr.i.i565, %shl3.i.i567
-  %cmp6.i.i581 = icmp ult i32 %shr.i.i565, 260046848
+  %cmp6.i.i581 = icmp samesign ult i32 %shr.i.i565, 260046848
   br i1 %cmp6.i.i581, label %if.then10.i.i584, label %if.else.i.i582
 
 if.then10.i.i584:                                 ; preds = %if.then.i.i579
@@ -3645,12 +3645,12 @@ half_to_float.exit586:                            ; preds = %if.then10.i.i584, %
   %shr.i.i588 = and i32 %64, 268427264
   %h.signext.i.i589 = sext i16 %63 to i32
   %shl3.i.i590 = and i32 %h.signext.i.i589, -2147483648
-  %cmp.i.i591 = icmp ugt i32 %shr.i.i588, 8388607
+  %cmp.i.i591 = icmp samesign ugt i32 %shr.i.i588, 8388607
   br i1 %cmp.i.i591, label %if.then.i.i602, label %if.else12.i.i592
 
 if.then.i.i602:                                   ; preds = %half_to_float.exit586
   %or.i.i603 = or disjoint i32 %shr.i.i588, %shl3.i.i590
-  %cmp6.i.i604 = icmp ult i32 %shr.i.i588, 260046848
+  %cmp6.i.i604 = icmp samesign ult i32 %shr.i.i588, 260046848
   br i1 %cmp6.i.i604, label %if.then10.i.i607, label %if.else.i.i605
 
 if.then10.i.i607:                                 ; preds = %if.then.i.i602
@@ -3686,12 +3686,12 @@ half_to_float.exit609:                            ; preds = %if.then10.i.i607, %
   %shr.i.i611 = and i32 %67, 268427264
   %h.signext.i.i612 = sext i16 %66 to i32
   %shl3.i.i613 = and i32 %h.signext.i.i612, -2147483648
-  %cmp.i.i614 = icmp ugt i32 %shr.i.i611, 8388607
+  %cmp.i.i614 = icmp samesign ugt i32 %shr.i.i611, 8388607
   br i1 %cmp.i.i614, label %if.then.i.i625, label %if.else12.i.i615
 
 if.then.i.i625:                                   ; preds = %half_to_float.exit609
   %or.i.i626 = or disjoint i32 %shr.i.i611, %shl3.i.i613
-  %cmp6.i.i627 = icmp ult i32 %shr.i.i611, 260046848
+  %cmp6.i.i627 = icmp samesign ult i32 %shr.i.i611, 260046848
   br i1 %cmp6.i.i627, label %if.then10.i.i630, label %if.else.i.i628
 
 if.then10.i.i630:                                 ; preds = %if.then.i.i625
@@ -3727,12 +3727,12 @@ half_to_float.exit632:                            ; preds = %if.then10.i.i630, %
   %shr.i.i634 = and i32 %70, 268427264
   %h.signext.i.i635 = sext i16 %69 to i32
   %shl3.i.i636 = and i32 %h.signext.i.i635, -2147483648
-  %cmp.i.i637 = icmp ugt i32 %shr.i.i634, 8388607
+  %cmp.i.i637 = icmp samesign ugt i32 %shr.i.i634, 8388607
   br i1 %cmp.i.i637, label %if.then.i.i648, label %if.else12.i.i638
 
 if.then.i.i648:                                   ; preds = %half_to_float.exit632
   %or.i.i649 = or disjoint i32 %shr.i.i634, %shl3.i.i636
-  %cmp6.i.i650 = icmp ult i32 %shr.i.i634, 260046848
+  %cmp6.i.i650 = icmp samesign ult i32 %shr.i.i634, 260046848
   br i1 %cmp6.i.i650, label %if.then10.i.i653, label %if.else.i.i651
 
 if.then10.i.i653:                                 ; preds = %if.then.i.i648
@@ -3768,12 +3768,12 @@ half_to_float.exit655:                            ; preds = %if.then10.i.i653, %
   %shr.i.i657 = and i32 %73, 268427264
   %h.signext.i.i658 = sext i16 %72 to i32
   %shl3.i.i659 = and i32 %h.signext.i.i658, -2147483648
-  %cmp.i.i660 = icmp ugt i32 %shr.i.i657, 8388607
+  %cmp.i.i660 = icmp samesign ugt i32 %shr.i.i657, 8388607
   br i1 %cmp.i.i660, label %if.then.i.i671, label %if.else12.i.i661
 
 if.then.i.i671:                                   ; preds = %half_to_float.exit655
   %or.i.i672 = or disjoint i32 %shr.i.i657, %shl3.i.i659
-  %cmp6.i.i673 = icmp ult i32 %shr.i.i657, 260046848
+  %cmp6.i.i673 = icmp samesign ult i32 %shr.i.i657, 260046848
   br i1 %cmp6.i.i673, label %if.then10.i.i676, label %if.else.i.i674
 
 if.then10.i.i676:                                 ; preds = %if.then.i.i671
@@ -3809,12 +3809,12 @@ half_to_float.exit678:                            ; preds = %if.then10.i.i676, %
   %shr.i.i680 = and i32 %76, 268427264
   %h.signext.i.i681 = sext i16 %75 to i32
   %shl3.i.i682 = and i32 %h.signext.i.i681, -2147483648
-  %cmp.i.i683 = icmp ugt i32 %shr.i.i680, 8388607
+  %cmp.i.i683 = icmp samesign ugt i32 %shr.i.i680, 8388607
   br i1 %cmp.i.i683, label %if.then.i.i694, label %if.else12.i.i684
 
 if.then.i.i694:                                   ; preds = %half_to_float.exit678
   %or.i.i695 = or disjoint i32 %shr.i.i680, %shl3.i.i682
-  %cmp6.i.i696 = icmp ult i32 %shr.i.i680, 260046848
+  %cmp6.i.i696 = icmp samesign ult i32 %shr.i.i680, 260046848
   br i1 %cmp6.i.i696, label %if.then10.i.i699, label %if.else.i.i697
 
 if.then10.i.i699:                                 ; preds = %if.then.i.i694
@@ -3850,12 +3850,12 @@ half_to_float.exit701:                            ; preds = %if.then10.i.i699, %
   %shr.i.i703 = and i32 %79, 268427264
   %h.signext.i.i704 = sext i16 %78 to i32
   %shl3.i.i705 = and i32 %h.signext.i.i704, -2147483648
-  %cmp.i.i706 = icmp ugt i32 %shr.i.i703, 8388607
+  %cmp.i.i706 = icmp samesign ugt i32 %shr.i.i703, 8388607
   br i1 %cmp.i.i706, label %if.then.i.i717, label %if.else12.i.i707
 
 if.then.i.i717:                                   ; preds = %half_to_float.exit701
   %or.i.i718 = or disjoint i32 %shr.i.i703, %shl3.i.i705
-  %cmp6.i.i719 = icmp ult i32 %shr.i.i703, 260046848
+  %cmp6.i.i719 = icmp samesign ult i32 %shr.i.i703, 260046848
   br i1 %cmp6.i.i719, label %if.then10.i.i722, label %if.else.i.i720
 
 if.then10.i.i722:                                 ; preds = %if.then.i.i717
@@ -3891,12 +3891,12 @@ half_to_float.exit724:                            ; preds = %if.then10.i.i722, %
   %shr.i.i726 = and i32 %82, 268427264
   %h.signext.i.i727 = sext i16 %81 to i32
   %shl3.i.i728 = and i32 %h.signext.i.i727, -2147483648
-  %cmp.i.i729 = icmp ugt i32 %shr.i.i726, 8388607
+  %cmp.i.i729 = icmp samesign ugt i32 %shr.i.i726, 8388607
   br i1 %cmp.i.i729, label %if.then.i.i740, label %if.else12.i.i730
 
 if.then.i.i740:                                   ; preds = %half_to_float.exit724
   %or.i.i741 = or disjoint i32 %shr.i.i726, %shl3.i.i728
-  %cmp6.i.i742 = icmp ult i32 %shr.i.i726, 260046848
+  %cmp6.i.i742 = icmp samesign ult i32 %shr.i.i726, 260046848
   br i1 %cmp6.i.i742, label %if.then10.i.i745, label %if.else.i.i743
 
 if.then10.i.i745:                                 ; preds = %if.then.i.i740
@@ -3932,12 +3932,12 @@ half_to_float.exit747:                            ; preds = %if.then10.i.i745, %
   %shr.i.i749 = and i32 %85, 268427264
   %h.signext.i.i750 = sext i16 %84 to i32
   %shl3.i.i751 = and i32 %h.signext.i.i750, -2147483648
-  %cmp.i.i752 = icmp ugt i32 %shr.i.i749, 8388607
+  %cmp.i.i752 = icmp samesign ugt i32 %shr.i.i749, 8388607
   br i1 %cmp.i.i752, label %if.then.i.i763, label %if.else12.i.i753
 
 if.then.i.i763:                                   ; preds = %half_to_float.exit747
   %or.i.i764 = or disjoint i32 %shr.i.i749, %shl3.i.i751
-  %cmp6.i.i765 = icmp ult i32 %shr.i.i749, 260046848
+  %cmp6.i.i765 = icmp samesign ult i32 %shr.i.i749, 260046848
   br i1 %cmp6.i.i765, label %if.then10.i.i768, label %if.else.i.i766
 
 if.then10.i.i768:                                 ; preds = %if.then.i.i763
@@ -3973,12 +3973,12 @@ half_to_float.exit770:                            ; preds = %if.then10.i.i768, %
   %shr.i.i772 = and i32 %88, 268427264
   %h.signext.i.i773 = sext i16 %87 to i32
   %shl3.i.i774 = and i32 %h.signext.i.i773, -2147483648
-  %cmp.i.i775 = icmp ugt i32 %shr.i.i772, 8388607
+  %cmp.i.i775 = icmp samesign ugt i32 %shr.i.i772, 8388607
   br i1 %cmp.i.i775, label %if.then.i.i786, label %if.else12.i.i776
 
 if.then.i.i786:                                   ; preds = %half_to_float.exit770
   %or.i.i787 = or disjoint i32 %shr.i.i772, %shl3.i.i774
-  %cmp6.i.i788 = icmp ult i32 %shr.i.i772, 260046848
+  %cmp6.i.i788 = icmp samesign ult i32 %shr.i.i772, 260046848
   br i1 %cmp6.i.i788, label %if.then10.i.i791, label %if.else.i.i789
 
 if.then10.i.i791:                                 ; preds = %if.then.i.i786
@@ -4014,12 +4014,12 @@ half_to_float.exit793:                            ; preds = %if.then10.i.i791, %
   %shr.i.i795 = and i32 %91, 268427264
   %h.signext.i.i796 = sext i16 %90 to i32
   %shl3.i.i797 = and i32 %h.signext.i.i796, -2147483648
-  %cmp.i.i798 = icmp ugt i32 %shr.i.i795, 8388607
+  %cmp.i.i798 = icmp samesign ugt i32 %shr.i.i795, 8388607
   br i1 %cmp.i.i798, label %if.then.i.i809, label %if.else12.i.i799
 
 if.then.i.i809:                                   ; preds = %half_to_float.exit793
   %or.i.i810 = or disjoint i32 %shr.i.i795, %shl3.i.i797
-  %cmp6.i.i811 = icmp ult i32 %shr.i.i795, 260046848
+  %cmp6.i.i811 = icmp samesign ult i32 %shr.i.i795, 260046848
   br i1 %cmp6.i.i811, label %if.then10.i.i814, label %if.else.i.i812
 
 if.then10.i.i814:                                 ; preds = %if.then.i.i809
@@ -4055,12 +4055,12 @@ half_to_float.exit816:                            ; preds = %if.then10.i.i814, %
   %shr.i.i818 = and i32 %94, 268427264
   %h.signext.i.i819 = sext i16 %93 to i32
   %shl3.i.i820 = and i32 %h.signext.i.i819, -2147483648
-  %cmp.i.i821 = icmp ugt i32 %shr.i.i818, 8388607
+  %cmp.i.i821 = icmp samesign ugt i32 %shr.i.i818, 8388607
   br i1 %cmp.i.i821, label %if.then.i.i832, label %if.else12.i.i822
 
 if.then.i.i832:                                   ; preds = %half_to_float.exit816
   %or.i.i833 = or disjoint i32 %shr.i.i818, %shl3.i.i820
-  %cmp6.i.i834 = icmp ult i32 %shr.i.i818, 260046848
+  %cmp6.i.i834 = icmp samesign ult i32 %shr.i.i818, 260046848
   br i1 %cmp6.i.i834, label %if.then10.i.i837, label %if.else.i.i835
 
 if.then10.i.i837:                                 ; preds = %if.then.i.i832
@@ -4096,12 +4096,12 @@ half_to_float.exit839:                            ; preds = %if.then10.i.i837, %
   %shr.i.i841 = and i32 %97, 268427264
   %h.signext.i.i842 = sext i16 %96 to i32
   %shl3.i.i843 = and i32 %h.signext.i.i842, -2147483648
-  %cmp.i.i844 = icmp ugt i32 %shr.i.i841, 8388607
+  %cmp.i.i844 = icmp samesign ugt i32 %shr.i.i841, 8388607
   br i1 %cmp.i.i844, label %if.then.i.i855, label %if.else12.i.i845
 
 if.then.i.i855:                                   ; preds = %half_to_float.exit839
   %or.i.i856 = or disjoint i32 %shr.i.i841, %shl3.i.i843
-  %cmp6.i.i857 = icmp ult i32 %shr.i.i841, 260046848
+  %cmp6.i.i857 = icmp samesign ult i32 %shr.i.i841, 260046848
   br i1 %cmp6.i.i857, label %if.then10.i.i860, label %if.else.i.i858
 
 if.then10.i.i860:                                 ; preds = %if.then.i.i855
@@ -4137,12 +4137,12 @@ half_to_float.exit862:                            ; preds = %if.then10.i.i860, %
   %shr.i.i864 = and i32 %100, 268427264
   %h.signext.i.i865 = sext i16 %99 to i32
   %shl3.i.i866 = and i32 %h.signext.i.i865, -2147483648
-  %cmp.i.i867 = icmp ugt i32 %shr.i.i864, 8388607
+  %cmp.i.i867 = icmp samesign ugt i32 %shr.i.i864, 8388607
   br i1 %cmp.i.i867, label %if.then.i.i878, label %if.else12.i.i868
 
 if.then.i.i878:                                   ; preds = %half_to_float.exit862
   %or.i.i879 = or disjoint i32 %shr.i.i864, %shl3.i.i866
-  %cmp6.i.i880 = icmp ult i32 %shr.i.i864, 260046848
+  %cmp6.i.i880 = icmp samesign ult i32 %shr.i.i864, 260046848
   br i1 %cmp6.i.i880, label %if.then10.i.i883, label %if.else.i.i881
 
 if.then10.i.i883:                                 ; preds = %if.then.i.i878
@@ -4178,12 +4178,12 @@ half_to_float.exit885:                            ; preds = %if.then10.i.i883, %
   %shr.i.i887 = and i32 %103, 268427264
   %h.signext.i.i888 = sext i16 %102 to i32
   %shl3.i.i889 = and i32 %h.signext.i.i888, -2147483648
-  %cmp.i.i890 = icmp ugt i32 %shr.i.i887, 8388607
+  %cmp.i.i890 = icmp samesign ugt i32 %shr.i.i887, 8388607
   br i1 %cmp.i.i890, label %if.then.i.i901, label %if.else12.i.i891
 
 if.then.i.i901:                                   ; preds = %half_to_float.exit885
   %or.i.i902 = or disjoint i32 %shr.i.i887, %shl3.i.i889
-  %cmp6.i.i903 = icmp ult i32 %shr.i.i887, 260046848
+  %cmp6.i.i903 = icmp samesign ult i32 %shr.i.i887, 260046848
   br i1 %cmp6.i.i903, label %if.then10.i.i906, label %if.else.i.i904
 
 if.then10.i.i906:                                 ; preds = %if.then.i.i901
@@ -4219,12 +4219,12 @@ half_to_float.exit908:                            ; preds = %if.then10.i.i906, %
   %shr.i.i910 = and i32 %106, 268427264
   %h.signext.i.i911 = sext i16 %105 to i32
   %shl3.i.i912 = and i32 %h.signext.i.i911, -2147483648
-  %cmp.i.i913 = icmp ugt i32 %shr.i.i910, 8388607
+  %cmp.i.i913 = icmp samesign ugt i32 %shr.i.i910, 8388607
   br i1 %cmp.i.i913, label %if.then.i.i924, label %if.else12.i.i914
 
 if.then.i.i924:                                   ; preds = %half_to_float.exit908
   %or.i.i925 = or disjoint i32 %shr.i.i910, %shl3.i.i912
-  %cmp6.i.i926 = icmp ult i32 %shr.i.i910, 260046848
+  %cmp6.i.i926 = icmp samesign ult i32 %shr.i.i910, 260046848
   br i1 %cmp6.i.i926, label %if.then10.i.i929, label %if.else.i.i927
 
 if.then10.i.i929:                                 ; preds = %if.then.i.i924
@@ -4260,12 +4260,12 @@ half_to_float.exit931:                            ; preds = %if.then10.i.i929, %
   %shr.i.i933 = and i32 %109, 268427264
   %h.signext.i.i934 = sext i16 %108 to i32
   %shl3.i.i935 = and i32 %h.signext.i.i934, -2147483648
-  %cmp.i.i936 = icmp ugt i32 %shr.i.i933, 8388607
+  %cmp.i.i936 = icmp samesign ugt i32 %shr.i.i933, 8388607
   br i1 %cmp.i.i936, label %if.then.i.i947, label %if.else12.i.i937
 
 if.then.i.i947:                                   ; preds = %half_to_float.exit931
   %or.i.i948 = or disjoint i32 %shr.i.i933, %shl3.i.i935
-  %cmp6.i.i949 = icmp ult i32 %shr.i.i933, 260046848
+  %cmp6.i.i949 = icmp samesign ult i32 %shr.i.i933, 260046848
   br i1 %cmp6.i.i949, label %if.then10.i.i952, label %if.else.i.i950
 
 if.then10.i.i952:                                 ; preds = %if.then.i.i947
@@ -4301,12 +4301,12 @@ half_to_float.exit954:                            ; preds = %if.then10.i.i952, %
   %shr.i.i956 = and i32 %112, 268427264
   %h.signext.i.i957 = sext i16 %111 to i32
   %shl3.i.i958 = and i32 %h.signext.i.i957, -2147483648
-  %cmp.i.i959 = icmp ugt i32 %shr.i.i956, 8388607
+  %cmp.i.i959 = icmp samesign ugt i32 %shr.i.i956, 8388607
   br i1 %cmp.i.i959, label %if.then.i.i970, label %if.else12.i.i960
 
 if.then.i.i970:                                   ; preds = %half_to_float.exit954
   %or.i.i971 = or disjoint i32 %shr.i.i956, %shl3.i.i958
-  %cmp6.i.i972 = icmp ult i32 %shr.i.i956, 260046848
+  %cmp6.i.i972 = icmp samesign ult i32 %shr.i.i956, 260046848
   br i1 %cmp6.i.i972, label %if.then10.i.i975, label %if.else.i.i973
 
 if.then10.i.i975:                                 ; preds = %if.then.i.i970
@@ -4342,12 +4342,12 @@ half_to_float.exit977:                            ; preds = %if.then10.i.i975, %
   %shr.i.i979 = and i32 %115, 268427264
   %h.signext.i.i980 = sext i16 %114 to i32
   %shl3.i.i981 = and i32 %h.signext.i.i980, -2147483648
-  %cmp.i.i982 = icmp ugt i32 %shr.i.i979, 8388607
+  %cmp.i.i982 = icmp samesign ugt i32 %shr.i.i979, 8388607
   br i1 %cmp.i.i982, label %if.then.i.i993, label %if.else12.i.i983
 
 if.then.i.i993:                                   ; preds = %half_to_float.exit977
   %or.i.i994 = or disjoint i32 %shr.i.i979, %shl3.i.i981
-  %cmp6.i.i995 = icmp ult i32 %shr.i.i979, 260046848
+  %cmp6.i.i995 = icmp samesign ult i32 %shr.i.i979, 260046848
   br i1 %cmp6.i.i995, label %if.then10.i.i998, label %if.else.i.i996
 
 if.then10.i.i998:                                 ; preds = %if.then.i.i993
@@ -4383,12 +4383,12 @@ half_to_float.exit1000:                           ; preds = %if.then10.i.i998, %
   %shr.i.i1002 = and i32 %118, 268427264
   %h.signext.i.i1003 = sext i16 %117 to i32
   %shl3.i.i1004 = and i32 %h.signext.i.i1003, -2147483648
-  %cmp.i.i1005 = icmp ugt i32 %shr.i.i1002, 8388607
+  %cmp.i.i1005 = icmp samesign ugt i32 %shr.i.i1002, 8388607
   br i1 %cmp.i.i1005, label %if.then.i.i1016, label %if.else12.i.i1006
 
 if.then.i.i1016:                                  ; preds = %half_to_float.exit1000
   %or.i.i1017 = or disjoint i32 %shr.i.i1002, %shl3.i.i1004
-  %cmp6.i.i1018 = icmp ult i32 %shr.i.i1002, 260046848
+  %cmp6.i.i1018 = icmp samesign ult i32 %shr.i.i1002, 260046848
   br i1 %cmp6.i.i1018, label %if.then10.i.i1021, label %if.else.i.i1019
 
 if.then10.i.i1021:                                ; preds = %if.then.i.i1016
@@ -4424,12 +4424,12 @@ half_to_float.exit1023:                           ; preds = %if.then10.i.i1021, 
   %shr.i.i1025 = and i32 %121, 268427264
   %h.signext.i.i1026 = sext i16 %120 to i32
   %shl3.i.i1027 = and i32 %h.signext.i.i1026, -2147483648
-  %cmp.i.i1028 = icmp ugt i32 %shr.i.i1025, 8388607
+  %cmp.i.i1028 = icmp samesign ugt i32 %shr.i.i1025, 8388607
   br i1 %cmp.i.i1028, label %if.then.i.i1039, label %if.else12.i.i1029
 
 if.then.i.i1039:                                  ; preds = %half_to_float.exit1023
   %or.i.i1040 = or disjoint i32 %shr.i.i1025, %shl3.i.i1027
-  %cmp6.i.i1041 = icmp ult i32 %shr.i.i1025, 260046848
+  %cmp6.i.i1041 = icmp samesign ult i32 %shr.i.i1025, 260046848
   br i1 %cmp6.i.i1041, label %if.then10.i.i1044, label %if.else.i.i1042
 
 if.then10.i.i1044:                                ; preds = %if.then.i.i1039
@@ -4465,12 +4465,12 @@ half_to_float.exit1046:                           ; preds = %if.then10.i.i1044, 
   %shr.i.i1048 = and i32 %124, 268427264
   %h.signext.i.i1049 = sext i16 %123 to i32
   %shl3.i.i1050 = and i32 %h.signext.i.i1049, -2147483648
-  %cmp.i.i1051 = icmp ugt i32 %shr.i.i1048, 8388607
+  %cmp.i.i1051 = icmp samesign ugt i32 %shr.i.i1048, 8388607
   br i1 %cmp.i.i1051, label %if.then.i.i1062, label %if.else12.i.i1052
 
 if.then.i.i1062:                                  ; preds = %half_to_float.exit1046
   %or.i.i1063 = or disjoint i32 %shr.i.i1048, %shl3.i.i1050
-  %cmp6.i.i1064 = icmp ult i32 %shr.i.i1048, 260046848
+  %cmp6.i.i1064 = icmp samesign ult i32 %shr.i.i1048, 260046848
   br i1 %cmp6.i.i1064, label %if.then10.i.i1067, label %if.else.i.i1065
 
 if.then10.i.i1067:                                ; preds = %if.then.i.i1062
@@ -4506,12 +4506,12 @@ half_to_float.exit1069:                           ; preds = %if.then10.i.i1067, 
   %shr.i.i1071 = and i32 %127, 268427264
   %h.signext.i.i1072 = sext i16 %126 to i32
   %shl3.i.i1073 = and i32 %h.signext.i.i1072, -2147483648
-  %cmp.i.i1074 = icmp ugt i32 %shr.i.i1071, 8388607
+  %cmp.i.i1074 = icmp samesign ugt i32 %shr.i.i1071, 8388607
   br i1 %cmp.i.i1074, label %if.then.i.i1085, label %if.else12.i.i1075
 
 if.then.i.i1085:                                  ; preds = %half_to_float.exit1069
   %or.i.i1086 = or disjoint i32 %shr.i.i1071, %shl3.i.i1073
-  %cmp6.i.i1087 = icmp ult i32 %shr.i.i1071, 260046848
+  %cmp6.i.i1087 = icmp samesign ult i32 %shr.i.i1071, 260046848
   br i1 %cmp6.i.i1087, label %if.then10.i.i1090, label %if.else.i.i1088
 
 if.then10.i.i1090:                                ; preds = %if.then.i.i1085
@@ -4547,12 +4547,12 @@ half_to_float.exit1092:                           ; preds = %if.then10.i.i1090, 
   %shr.i.i1094 = and i32 %130, 268427264
   %h.signext.i.i1095 = sext i16 %129 to i32
   %shl3.i.i1096 = and i32 %h.signext.i.i1095, -2147483648
-  %cmp.i.i1097 = icmp ugt i32 %shr.i.i1094, 8388607
+  %cmp.i.i1097 = icmp samesign ugt i32 %shr.i.i1094, 8388607
   br i1 %cmp.i.i1097, label %if.then.i.i1108, label %if.else12.i.i1098
 
 if.then.i.i1108:                                  ; preds = %half_to_float.exit1092
   %or.i.i1109 = or disjoint i32 %shr.i.i1094, %shl3.i.i1096
-  %cmp6.i.i1110 = icmp ult i32 %shr.i.i1094, 260046848
+  %cmp6.i.i1110 = icmp samesign ult i32 %shr.i.i1094, 260046848
   br i1 %cmp6.i.i1110, label %if.then10.i.i1113, label %if.else.i.i1111
 
 if.then10.i.i1113:                                ; preds = %if.then.i.i1108
@@ -4588,12 +4588,12 @@ half_to_float.exit1115:                           ; preds = %if.then10.i.i1113, 
   %shr.i.i1117 = and i32 %133, 268427264
   %h.signext.i.i1118 = sext i16 %132 to i32
   %shl3.i.i1119 = and i32 %h.signext.i.i1118, -2147483648
-  %cmp.i.i1120 = icmp ugt i32 %shr.i.i1117, 8388607
+  %cmp.i.i1120 = icmp samesign ugt i32 %shr.i.i1117, 8388607
   br i1 %cmp.i.i1120, label %if.then.i.i1131, label %if.else12.i.i1121
 
 if.then.i.i1131:                                  ; preds = %half_to_float.exit1115
   %or.i.i1132 = or disjoint i32 %shr.i.i1117, %shl3.i.i1119
-  %cmp6.i.i1133 = icmp ult i32 %shr.i.i1117, 260046848
+  %cmp6.i.i1133 = icmp samesign ult i32 %shr.i.i1117, 260046848
   br i1 %cmp6.i.i1133, label %if.then10.i.i1136, label %if.else.i.i1134
 
 if.then10.i.i1136:                                ; preds = %if.then.i.i1131
@@ -4629,12 +4629,12 @@ half_to_float.exit1138:                           ; preds = %if.then10.i.i1136, 
   %shr.i.i1140 = and i32 %136, 268427264
   %h.signext.i.i1141 = sext i16 %135 to i32
   %shl3.i.i1142 = and i32 %h.signext.i.i1141, -2147483648
-  %cmp.i.i1143 = icmp ugt i32 %shr.i.i1140, 8388607
+  %cmp.i.i1143 = icmp samesign ugt i32 %shr.i.i1140, 8388607
   br i1 %cmp.i.i1143, label %if.then.i.i1154, label %if.else12.i.i1144
 
 if.then.i.i1154:                                  ; preds = %half_to_float.exit1138
   %or.i.i1155 = or disjoint i32 %shr.i.i1140, %shl3.i.i1142
-  %cmp6.i.i1156 = icmp ult i32 %shr.i.i1140, 260046848
+  %cmp6.i.i1156 = icmp samesign ult i32 %shr.i.i1140, 260046848
   br i1 %cmp6.i.i1156, label %if.then10.i.i1159, label %if.else.i.i1157
 
 if.then10.i.i1159:                                ; preds = %if.then.i.i1154
@@ -4670,12 +4670,12 @@ half_to_float.exit1161:                           ; preds = %if.then10.i.i1159, 
   %shr.i.i1163 = and i32 %139, 268427264
   %h.signext.i.i1164 = sext i16 %138 to i32
   %shl3.i.i1165 = and i32 %h.signext.i.i1164, -2147483648
-  %cmp.i.i1166 = icmp ugt i32 %shr.i.i1163, 8388607
+  %cmp.i.i1166 = icmp samesign ugt i32 %shr.i.i1163, 8388607
   br i1 %cmp.i.i1166, label %if.then.i.i1177, label %if.else12.i.i1167
 
 if.then.i.i1177:                                  ; preds = %half_to_float.exit1161
   %or.i.i1178 = or disjoint i32 %shr.i.i1163, %shl3.i.i1165
-  %cmp6.i.i1179 = icmp ult i32 %shr.i.i1163, 260046848
+  %cmp6.i.i1179 = icmp samesign ult i32 %shr.i.i1163, 260046848
   br i1 %cmp6.i.i1179, label %if.then10.i.i1182, label %if.else.i.i1180
 
 if.then10.i.i1182:                                ; preds = %if.then.i.i1177
@@ -4711,12 +4711,12 @@ half_to_float.exit1184:                           ; preds = %if.then10.i.i1182, 
   %shr.i.i1186 = and i32 %142, 268427264
   %h.signext.i.i1187 = sext i16 %141 to i32
   %shl3.i.i1188 = and i32 %h.signext.i.i1187, -2147483648
-  %cmp.i.i1189 = icmp ugt i32 %shr.i.i1186, 8388607
+  %cmp.i.i1189 = icmp samesign ugt i32 %shr.i.i1186, 8388607
   br i1 %cmp.i.i1189, label %if.then.i.i1200, label %if.else12.i.i1190
 
 if.then.i.i1200:                                  ; preds = %half_to_float.exit1184
   %or.i.i1201 = or disjoint i32 %shr.i.i1186, %shl3.i.i1188
-  %cmp6.i.i1202 = icmp ult i32 %shr.i.i1186, 260046848
+  %cmp6.i.i1202 = icmp samesign ult i32 %shr.i.i1186, 260046848
   br i1 %cmp6.i.i1202, label %if.then10.i.i1205, label %if.else.i.i1203
 
 if.then10.i.i1205:                                ; preds = %if.then.i.i1200
@@ -4752,12 +4752,12 @@ half_to_float.exit1207:                           ; preds = %if.then10.i.i1205, 
   %shr.i.i1209 = and i32 %145, 268427264
   %h.signext.i.i1210 = sext i16 %144 to i32
   %shl3.i.i1211 = and i32 %h.signext.i.i1210, -2147483648
-  %cmp.i.i1212 = icmp ugt i32 %shr.i.i1209, 8388607
+  %cmp.i.i1212 = icmp samesign ugt i32 %shr.i.i1209, 8388607
   br i1 %cmp.i.i1212, label %if.then.i.i1223, label %if.else12.i.i1213
 
 if.then.i.i1223:                                  ; preds = %half_to_float.exit1207
   %or.i.i1224 = or disjoint i32 %shr.i.i1209, %shl3.i.i1211
-  %cmp6.i.i1225 = icmp ult i32 %shr.i.i1209, 260046848
+  %cmp6.i.i1225 = icmp samesign ult i32 %shr.i.i1209, 260046848
   br i1 %cmp6.i.i1225, label %if.then10.i.i1228, label %if.else.i.i1226
 
 if.then10.i.i1228:                                ; preds = %if.then.i.i1223
@@ -4793,12 +4793,12 @@ half_to_float.exit1230:                           ; preds = %if.then10.i.i1228, 
   %shr.i.i1232 = and i32 %148, 268427264
   %h.signext.i.i1233 = sext i16 %147 to i32
   %shl3.i.i1234 = and i32 %h.signext.i.i1233, -2147483648
-  %cmp.i.i1235 = icmp ugt i32 %shr.i.i1232, 8388607
+  %cmp.i.i1235 = icmp samesign ugt i32 %shr.i.i1232, 8388607
   br i1 %cmp.i.i1235, label %if.then.i.i1246, label %if.else12.i.i1236
 
 if.then.i.i1246:                                  ; preds = %half_to_float.exit1230
   %or.i.i1247 = or disjoint i32 %shr.i.i1232, %shl3.i.i1234
-  %cmp6.i.i1248 = icmp ult i32 %shr.i.i1232, 260046848
+  %cmp6.i.i1248 = icmp samesign ult i32 %shr.i.i1232, 260046848
   br i1 %cmp6.i.i1248, label %if.then10.i.i1251, label %if.else.i.i1249
 
 if.then10.i.i1251:                                ; preds = %if.then.i.i1246
@@ -4834,12 +4834,12 @@ half_to_float.exit1253:                           ; preds = %if.then10.i.i1251, 
   %shr.i.i1255 = and i32 %151, 268427264
   %h.signext.i.i1256 = sext i16 %150 to i32
   %shl3.i.i1257 = and i32 %h.signext.i.i1256, -2147483648
-  %cmp.i.i1258 = icmp ugt i32 %shr.i.i1255, 8388607
+  %cmp.i.i1258 = icmp samesign ugt i32 %shr.i.i1255, 8388607
   br i1 %cmp.i.i1258, label %if.then.i.i1269, label %if.else12.i.i1259
 
 if.then.i.i1269:                                  ; preds = %half_to_float.exit1253
   %or.i.i1270 = or disjoint i32 %shr.i.i1255, %shl3.i.i1257
-  %cmp6.i.i1271 = icmp ult i32 %shr.i.i1255, 260046848
+  %cmp6.i.i1271 = icmp samesign ult i32 %shr.i.i1255, 260046848
   br i1 %cmp6.i.i1271, label %if.then10.i.i1274, label %if.else.i.i1272
 
 if.then10.i.i1274:                                ; preds = %if.then.i.i1269
@@ -4875,12 +4875,12 @@ half_to_float.exit1276:                           ; preds = %if.then10.i.i1274, 
   %shr.i.i1278 = and i32 %154, 268427264
   %h.signext.i.i1279 = sext i16 %153 to i32
   %shl3.i.i1280 = and i32 %h.signext.i.i1279, -2147483648
-  %cmp.i.i1281 = icmp ugt i32 %shr.i.i1278, 8388607
+  %cmp.i.i1281 = icmp samesign ugt i32 %shr.i.i1278, 8388607
   br i1 %cmp.i.i1281, label %if.then.i.i1292, label %if.else12.i.i1282
 
 if.then.i.i1292:                                  ; preds = %half_to_float.exit1276
   %or.i.i1293 = or disjoint i32 %shr.i.i1278, %shl3.i.i1280
-  %cmp6.i.i1294 = icmp ult i32 %shr.i.i1278, 260046848
+  %cmp6.i.i1294 = icmp samesign ult i32 %shr.i.i1278, 260046848
   br i1 %cmp6.i.i1294, label %if.then10.i.i1297, label %if.else.i.i1295
 
 if.then10.i.i1297:                                ; preds = %if.then.i.i1292
@@ -4916,12 +4916,12 @@ half_to_float.exit1299:                           ; preds = %if.then10.i.i1297, 
   %shr.i.i1301 = and i32 %157, 268427264
   %h.signext.i.i1302 = sext i16 %156 to i32
   %shl3.i.i1303 = and i32 %h.signext.i.i1302, -2147483648
-  %cmp.i.i1304 = icmp ugt i32 %shr.i.i1301, 8388607
+  %cmp.i.i1304 = icmp samesign ugt i32 %shr.i.i1301, 8388607
   br i1 %cmp.i.i1304, label %if.then.i.i1315, label %if.else12.i.i1305
 
 if.then.i.i1315:                                  ; preds = %half_to_float.exit1299
   %or.i.i1316 = or disjoint i32 %shr.i.i1301, %shl3.i.i1303
-  %cmp6.i.i1317 = icmp ult i32 %shr.i.i1301, 260046848
+  %cmp6.i.i1317 = icmp samesign ult i32 %shr.i.i1301, 260046848
   br i1 %cmp6.i.i1317, label %if.then10.i.i1320, label %if.else.i.i1318
 
 if.then10.i.i1320:                                ; preds = %if.then.i.i1315
@@ -4957,12 +4957,12 @@ half_to_float.exit1322:                           ; preds = %if.then10.i.i1320, 
   %shr.i.i1324 = and i32 %160, 268427264
   %h.signext.i.i1325 = sext i16 %159 to i32
   %shl3.i.i1326 = and i32 %h.signext.i.i1325, -2147483648
-  %cmp.i.i1327 = icmp ugt i32 %shr.i.i1324, 8388607
+  %cmp.i.i1327 = icmp samesign ugt i32 %shr.i.i1324, 8388607
   br i1 %cmp.i.i1327, label %if.then.i.i1338, label %if.else12.i.i1328
 
 if.then.i.i1338:                                  ; preds = %half_to_float.exit1322
   %or.i.i1339 = or disjoint i32 %shr.i.i1324, %shl3.i.i1326
-  %cmp6.i.i1340 = icmp ult i32 %shr.i.i1324, 260046848
+  %cmp6.i.i1340 = icmp samesign ult i32 %shr.i.i1324, 260046848
   br i1 %cmp6.i.i1340, label %if.then10.i.i1343, label %if.else.i.i1341
 
 if.then10.i.i1343:                                ; preds = %if.then.i.i1338
@@ -4998,12 +4998,12 @@ half_to_float.exit1345:                           ; preds = %if.then10.i.i1343, 
   %shr.i.i1347 = and i32 %163, 268427264
   %h.signext.i.i1348 = sext i16 %162 to i32
   %shl3.i.i1349 = and i32 %h.signext.i.i1348, -2147483648
-  %cmp.i.i1350 = icmp ugt i32 %shr.i.i1347, 8388607
+  %cmp.i.i1350 = icmp samesign ugt i32 %shr.i.i1347, 8388607
   br i1 %cmp.i.i1350, label %if.then.i.i1361, label %if.else12.i.i1351
 
 if.then.i.i1361:                                  ; preds = %half_to_float.exit1345
   %or.i.i1362 = or disjoint i32 %shr.i.i1347, %shl3.i.i1349
-  %cmp6.i.i1363 = icmp ult i32 %shr.i.i1347, 260046848
+  %cmp6.i.i1363 = icmp samesign ult i32 %shr.i.i1347, 260046848
   br i1 %cmp6.i.i1363, label %if.then10.i.i1366, label %if.else.i.i1364
 
 if.then10.i.i1366:                                ; preds = %if.then.i.i1361
@@ -5039,12 +5039,12 @@ half_to_float.exit1368:                           ; preds = %if.then10.i.i1366, 
   %shr.i.i1370 = and i32 %166, 268427264
   %h.signext.i.i1371 = sext i16 %165 to i32
   %shl3.i.i1372 = and i32 %h.signext.i.i1371, -2147483648
-  %cmp.i.i1373 = icmp ugt i32 %shr.i.i1370, 8388607
+  %cmp.i.i1373 = icmp samesign ugt i32 %shr.i.i1370, 8388607
   br i1 %cmp.i.i1373, label %if.then.i.i1384, label %if.else12.i.i1374
 
 if.then.i.i1384:                                  ; preds = %half_to_float.exit1368
   %or.i.i1385 = or disjoint i32 %shr.i.i1370, %shl3.i.i1372
-  %cmp6.i.i1386 = icmp ult i32 %shr.i.i1370, 260046848
+  %cmp6.i.i1386 = icmp samesign ult i32 %shr.i.i1370, 260046848
   br i1 %cmp6.i.i1386, label %if.then10.i.i1389, label %if.else.i.i1387
 
 if.then10.i.i1389:                                ; preds = %if.then.i.i1384
@@ -5080,12 +5080,12 @@ half_to_float.exit1391:                           ; preds = %if.then10.i.i1389, 
   %shr.i.i1393 = and i32 %169, 268427264
   %h.signext.i.i1394 = sext i16 %168 to i32
   %shl3.i.i1395 = and i32 %h.signext.i.i1394, -2147483648
-  %cmp.i.i1396 = icmp ugt i32 %shr.i.i1393, 8388607
+  %cmp.i.i1396 = icmp samesign ugt i32 %shr.i.i1393, 8388607
   br i1 %cmp.i.i1396, label %if.then.i.i1407, label %if.else12.i.i1397
 
 if.then.i.i1407:                                  ; preds = %half_to_float.exit1391
   %or.i.i1408 = or disjoint i32 %shr.i.i1393, %shl3.i.i1395
-  %cmp6.i.i1409 = icmp ult i32 %shr.i.i1393, 260046848
+  %cmp6.i.i1409 = icmp samesign ult i32 %shr.i.i1393, 260046848
   br i1 %cmp6.i.i1409, label %if.then10.i.i1412, label %if.else.i.i1410
 
 if.then10.i.i1412:                                ; preds = %if.then.i.i1407
@@ -5121,12 +5121,12 @@ half_to_float.exit1414:                           ; preds = %if.then10.i.i1412, 
   %shr.i.i1416 = and i32 %172, 268427264
   %h.signext.i.i1417 = sext i16 %171 to i32
   %shl3.i.i1418 = and i32 %h.signext.i.i1417, -2147483648
-  %cmp.i.i1419 = icmp ugt i32 %shr.i.i1416, 8388607
+  %cmp.i.i1419 = icmp samesign ugt i32 %shr.i.i1416, 8388607
   br i1 %cmp.i.i1419, label %if.then.i.i1430, label %if.else12.i.i1420
 
 if.then.i.i1430:                                  ; preds = %half_to_float.exit1414
   %or.i.i1431 = or disjoint i32 %shr.i.i1416, %shl3.i.i1418
-  %cmp6.i.i1432 = icmp ult i32 %shr.i.i1416, 260046848
+  %cmp6.i.i1432 = icmp samesign ult i32 %shr.i.i1416, 260046848
   br i1 %cmp6.i.i1432, label %if.then10.i.i1435, label %if.else.i.i1433
 
 if.then10.i.i1435:                                ; preds = %if.then.i.i1430
@@ -5162,12 +5162,12 @@ half_to_float.exit1437:                           ; preds = %if.then10.i.i1435, 
   %shr.i.i1439 = and i32 %175, 268427264
   %h.signext.i.i1440 = sext i16 %174 to i32
   %shl3.i.i1441 = and i32 %h.signext.i.i1440, -2147483648
-  %cmp.i.i1442 = icmp ugt i32 %shr.i.i1439, 8388607
+  %cmp.i.i1442 = icmp samesign ugt i32 %shr.i.i1439, 8388607
   br i1 %cmp.i.i1442, label %if.then.i.i1453, label %if.else12.i.i1443
 
 if.then.i.i1453:                                  ; preds = %half_to_float.exit1437
   %or.i.i1454 = or disjoint i32 %shr.i.i1439, %shl3.i.i1441
-  %cmp6.i.i1455 = icmp ult i32 %shr.i.i1439, 260046848
+  %cmp6.i.i1455 = icmp samesign ult i32 %shr.i.i1439, 260046848
   br i1 %cmp6.i.i1455, label %if.then10.i.i1458, label %if.else.i.i1456
 
 if.then10.i.i1458:                                ; preds = %if.then.i.i1453
@@ -5203,12 +5203,12 @@ half_to_float.exit1460:                           ; preds = %if.then10.i.i1458, 
   %shr.i.i1462 = and i32 %178, 268427264
   %h.signext.i.i1463 = sext i16 %177 to i32
   %shl3.i.i1464 = and i32 %h.signext.i.i1463, -2147483648
-  %cmp.i.i1465 = icmp ugt i32 %shr.i.i1462, 8388607
+  %cmp.i.i1465 = icmp samesign ugt i32 %shr.i.i1462, 8388607
   br i1 %cmp.i.i1465, label %if.then.i.i1476, label %if.else12.i.i1466
 
 if.then.i.i1476:                                  ; preds = %half_to_float.exit1460
   %or.i.i1477 = or disjoint i32 %shr.i.i1462, %shl3.i.i1464
-  %cmp6.i.i1478 = icmp ult i32 %shr.i.i1462, 260046848
+  %cmp6.i.i1478 = icmp samesign ult i32 %shr.i.i1462, 260046848
   br i1 %cmp6.i.i1478, label %if.then10.i.i1481, label %if.else.i.i1479
 
 if.then10.i.i1481:                                ; preds = %if.then.i.i1476
@@ -5244,12 +5244,12 @@ half_to_float.exit1483:                           ; preds = %if.then10.i.i1481, 
   %shr.i.i1485 = and i32 %181, 268427264
   %h.signext.i.i1486 = sext i16 %180 to i32
   %shl3.i.i1487 = and i32 %h.signext.i.i1486, -2147483648
-  %cmp.i.i1488 = icmp ugt i32 %shr.i.i1485, 8388607
+  %cmp.i.i1488 = icmp samesign ugt i32 %shr.i.i1485, 8388607
   br i1 %cmp.i.i1488, label %if.then.i.i1499, label %if.else12.i.i1489
 
 if.then.i.i1499:                                  ; preds = %half_to_float.exit1483
   %or.i.i1500 = or disjoint i32 %shr.i.i1485, %shl3.i.i1487
-  %cmp6.i.i1501 = icmp ult i32 %shr.i.i1485, 260046848
+  %cmp6.i.i1501 = icmp samesign ult i32 %shr.i.i1485, 260046848
   br i1 %cmp6.i.i1501, label %if.then10.i.i1504, label %if.else.i.i1502
 
 if.then10.i.i1504:                                ; preds = %if.then.i.i1499
@@ -5285,12 +5285,12 @@ half_to_float.exit1506:                           ; preds = %if.then10.i.i1504, 
   %shr.i.i1508 = and i32 %184, 268427264
   %h.signext.i.i1509 = sext i16 %183 to i32
   %shl3.i.i1510 = and i32 %h.signext.i.i1509, -2147483648
-  %cmp.i.i1511 = icmp ugt i32 %shr.i.i1508, 8388607
+  %cmp.i.i1511 = icmp samesign ugt i32 %shr.i.i1508, 8388607
   br i1 %cmp.i.i1511, label %if.then.i.i1522, label %if.else12.i.i1512
 
 if.then.i.i1522:                                  ; preds = %half_to_float.exit1506
   %or.i.i1523 = or disjoint i32 %shr.i.i1508, %shl3.i.i1510
-  %cmp6.i.i1524 = icmp ult i32 %shr.i.i1508, 260046848
+  %cmp6.i.i1524 = icmp samesign ult i32 %shr.i.i1508, 260046848
   br i1 %cmp6.i.i1524, label %if.then10.i.i1527, label %if.else.i.i1525
 
 if.then10.i.i1527:                                ; preds = %if.then.i.i1522
@@ -5326,12 +5326,12 @@ half_to_float.exit1529:                           ; preds = %if.then10.i.i1527, 
   %shr.i.i1531 = and i32 %187, 268427264
   %h.signext.i.i1532 = sext i16 %186 to i32
   %shl3.i.i1533 = and i32 %h.signext.i.i1532, -2147483648
-  %cmp.i.i1534 = icmp ugt i32 %shr.i.i1531, 8388607
+  %cmp.i.i1534 = icmp samesign ugt i32 %shr.i.i1531, 8388607
   br i1 %cmp.i.i1534, label %if.then.i.i1545, label %if.else12.i.i1535
 
 if.then.i.i1545:                                  ; preds = %half_to_float.exit1529
   %or.i.i1546 = or disjoint i32 %shr.i.i1531, %shl3.i.i1533
-  %cmp6.i.i1547 = icmp ult i32 %shr.i.i1531, 260046848
+  %cmp6.i.i1547 = icmp samesign ult i32 %shr.i.i1531, 260046848
   br i1 %cmp6.i.i1547, label %if.then10.i.i1550, label %if.else.i.i1548
 
 if.then10.i.i1550:                                ; preds = %if.then.i.i1545
@@ -5367,12 +5367,12 @@ half_to_float.exit1552:                           ; preds = %if.then10.i.i1550, 
   %shr.i.i1554 = and i32 %190, 268427264
   %h.signext.i.i1555 = sext i16 %189 to i32
   %shl3.i.i1556 = and i32 %h.signext.i.i1555, -2147483648
-  %cmp.i.i1557 = icmp ugt i32 %shr.i.i1554, 8388607
+  %cmp.i.i1557 = icmp samesign ugt i32 %shr.i.i1554, 8388607
   br i1 %cmp.i.i1557, label %if.then.i.i1568, label %if.else12.i.i1558
 
 if.then.i.i1568:                                  ; preds = %half_to_float.exit1552
   %or.i.i1569 = or disjoint i32 %shr.i.i1554, %shl3.i.i1556
-  %cmp6.i.i1570 = icmp ult i32 %shr.i.i1554, 260046848
+  %cmp6.i.i1570 = icmp samesign ult i32 %shr.i.i1554, 260046848
   br i1 %cmp6.i.i1570, label %if.then10.i.i1573, label %if.else.i.i1571
 
 if.then10.i.i1573:                                ; preds = %if.then.i.i1568
@@ -7200,11 +7200,11 @@ if.end57:                                         ; preds = %for.body46, %if.els
   %shr.i.i = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %20, -32768
-  %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end43.i.i
 
 if.then.i.i:                                      ; preds = %if.end57
-  %cmp3.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp3.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp3.i.i, label %if.then6.i.i, label %if.end24.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
@@ -7223,7 +7223,7 @@ if.end.i.i:                                       ; preds = %if.then6.i.i
   br label %float_to_half.exit
 
 if.end24.i.i:                                     ; preds = %if.then.i.i
-  %cmp25.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp25.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp25.i.i, label %if.then29.i.i, label %if.end33.i.i
 
 if.then29.i.i:                                    ; preds = %if.end24.i.i
@@ -7242,7 +7242,7 @@ if.end33.i.i:                                     ; preds = %if.end24.i.i
   br label %float_to_half.exit
 
 if.end43.i.i:                                     ; preds = %if.end57
-  %cmp44.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp44.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp44.i.i, label %float_to_half.exit, label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %if.end43.i.i
@@ -7605,7 +7605,7 @@ while.body.i.us:                                  ; preds = %while.cond.backedge
   br i1 %cmp2.not.i.us, label %while.cond7.preheader.i.us, label %while.cond.backedge.i.us
 
 while.cond7.preheader.i.us:                       ; preds = %while.body.i.us
-  %cmp1029.i.us = icmp ult i32 %dctComp.035.i.us, 63
+  %cmp1029.i.us = icmp samesign ult i32 %dctComp.035.i.us, 63
   br i1 %cmp1029.i.us, label %land.rhs.i.us.preheader, label %while.cond.backedge.i.us
 
 land.rhs.i.us.preheader:                          ; preds = %while.cond7.preheader.i.us
@@ -7625,7 +7625,7 @@ while.body20.i.us:                                ; preds = %land.rhs.i.us
   %inc21.i.us = add i16 %runLen.030.i.us, 1
   %conv8.i.us = zext i16 %inc21.i.us to i32
   %add9.i.us = add nuw nsw i32 %dctComp.035.i.us, %conv8.i.us
-  %cmp10.i.us = icmp ult i32 %add9.i.us, 64
+  %cmp10.i.us = icmp samesign ult i32 %add9.i.us, 64
   br i1 %cmp10.i.us, label %land.rhs.i.us, label %while.end.i.us, !llvm.loop !72
 
 while.end.i.us:                                   ; preds = %while.body20.i.us, %land.rhs.i.us
@@ -7650,7 +7650,7 @@ while.cond.backedge.i.us:                         ; preds = %if.else.i.us, %whil
   store i64 %storemerge.i.us, ptr %_numAcComp, align 8
   %add.i.us = add nuw nsw i32 %.sink.i.us, %dctComp.035.i.us
   %curAC.0.be.i.us = getelementptr inbounds i8, ptr %curAC.036.i.us, i64 2
-  %cmp.i117.us = icmp ult i32 %add.i.us, 64
+  %cmp.i117.us = icmp samesign ult i32 %add.i.us, 64
   br i1 %cmp.i117.us, label %while.body.i.us, label %LossyDctEncoder_rleAc.exit.us, !llvm.loop !73
 
 LossyDctEncoder_rleAc.exit.us:                    ; preds = %while.cond.backedge.i.us
@@ -7670,11 +7670,11 @@ for.body210.us:                                   ; preds = %for.cond207.prehead
   %shr.i.i.i.us = lshr i32 %91, 16
   %93 = trunc nuw i32 %shr.i.i.i.us to i16
   %conv.i.i.i.us = and i16 %93, -32768
-  %cmp.i.i.i.us = icmp ugt i32 %and.i.i.i.us, 947912703
+  %cmp.i.i.i.us = icmp samesign ugt i32 %and.i.i.i.us, 947912703
   br i1 %cmp.i.i.i.us, label %if.then.i.i.i.us, label %if.end43.i.i.i.us
 
 if.end43.i.i.i.us:                                ; preds = %for.body210.us
-  %cmp44.i.i.i.us = icmp ult i32 %and.i.i.i.us, 855638017
+  %cmp44.i.i.i.us = icmp samesign ult i32 %and.i.i.i.us, 855638017
   br i1 %cmp44.i.i.i.us, label %float_to_half.exit.i.us, label %if.end47.i.i.i.us
 
 if.end47.i.i.i.us:                                ; preds = %if.end43.i.i.i.us
@@ -7703,11 +7703,11 @@ if.then65.i.i.i.us:                               ; preds = %lor.lhs.false.i.i.i
   br label %float_to_half.exit.i.us
 
 if.then.i.i.i.us:                                 ; preds = %for.body210.us
-  %cmp3.i.i.i.us = icmp ugt i32 %and.i.i.i.us, 2139095039
+  %cmp3.i.i.i.us = icmp samesign ugt i32 %and.i.i.i.us, 2139095039
   br i1 %cmp3.i.i.i.us, label %if.then6.i.i.i.us, label %if.end24.i.i.i.us
 
 if.end24.i.i.i.us:                                ; preds = %if.then.i.i.i.us
-  %cmp25.i.i.i.us = icmp ugt i32 %and.i.i.i.us, 1199566847
+  %cmp25.i.i.i.us = icmp samesign ugt i32 %and.i.i.i.us, 1199566847
   br i1 %cmp25.i.i.i.us, label %if.then29.i.i.i.us, label %if.end33.i.i.i.us
 
 if.end33.i.i.i.us:                                ; preds = %if.end24.i.i.i.us
@@ -7747,7 +7747,7 @@ float_to_half.exit.i.us:                          ; preds = %if.end.i.i.i.us, %i
   %shr.i.i8.i.us = and i32 %97, 268427264
   %h.signext.i.i.i.us = sext i16 %retval.0.i.i.i.us to i32
   %shl3.i.i.i.us = and i32 %h.signext.i.i.i.us, -2147483648
-  %cmp.i.i9.i.us = icmp ugt i32 %shr.i.i8.i.us, 8388607
+  %cmp.i.i9.i.us = icmp samesign ugt i32 %shr.i.i8.i.us, 8388607
   br i1 %cmp.i.i9.i.us, label %if.then.i.i10.i.us, label %if.else12.i.i.i.us
 
 if.else12.i.i.i.us:                               ; preds = %float_to_half.exit.i.us
@@ -7766,7 +7766,7 @@ if.then15.i.i.i.us:                               ; preds = %if.else12.i.i.i.us
 
 if.then.i.i10.i.us:                               ; preds = %float_to_half.exit.i.us
   %or.i.i.i.us = or disjoint i32 %shr.i.i8.i.us, %shl3.i.i.i.us
-  %cmp6.i.i.i.us = icmp ult i32 %shr.i.i8.i.us, 260046848
+  %cmp6.i.i.i.us = icmp samesign ult i32 %shr.i.i8.i.us, 260046848
   br i1 %cmp6.i.i.i.us, label %if.then10.i.i.i.us, label %if.else.i.i.i.us
 
 if.else.i.i.i.us:                                 ; preds = %if.then.i.i10.i.us
@@ -7812,7 +7812,7 @@ for.body.i107.us:                                 ; preds = %for.cond.i.us, %for
   %shr.i.i13.i.us = and i32 %104, 268427264
   %h.signext.i.i14.i.us = sext i16 %103 to i32
   %shl3.i.i15.i.us = and i32 %h.signext.i.i14.i.us, -2147483648
-  %cmp.i.i16.i.us = icmp ugt i32 %shr.i.i13.i.us, 8388607
+  %cmp.i.i16.i.us = icmp samesign ugt i32 %shr.i.i13.i.us, 8388607
   br i1 %cmp.i.i16.i.us, label %if.then.i.i27.i.us, label %if.else12.i.i17.i.us
 
 if.else12.i.i17.i.us:                             ; preds = %for.body.i107.us
@@ -7831,7 +7831,7 @@ if.then15.i.i19.i.us:                             ; preds = %if.else12.i.i17.i.u
 
 if.then.i.i27.i.us:                               ; preds = %for.body.i107.us
   %or.i.i28.i.us = or disjoint i32 %shr.i.i13.i.us, %shl3.i.i15.i.us
-  %cmp6.i.i29.i.us = icmp ult i32 %shr.i.i13.i.us, 260046848
+  %cmp6.i.i29.i.us = icmp samesign ult i32 %shr.i.i13.i.us, 260046848
   br i1 %cmp6.i.i29.i.us, label %if.then10.i.i32.i.us, label %if.else.i.i30.i.us
 
 if.else.i.i30.i.us:                               ; preds = %if.then.i.i27.i.us
@@ -7918,7 +7918,7 @@ if.end168.us:                                     ; preds = %if.then162.us, %for
   %shr.i.i94.us = and i32 %118, 268427264
   %h.signext.i.i.us = sext i16 %h.0.us to i32
   %shl3.i.i.us = and i32 %h.signext.i.i.us, -2147483648
-  %cmp.i.i95.us = icmp ugt i32 %shr.i.i94.us, 8388607
+  %cmp.i.i95.us = icmp samesign ugt i32 %shr.i.i94.us, 8388607
   br i1 %cmp.i.i95.us, label %if.then.i.i96.us, label %if.else12.i.i.us
 
 if.else12.i.i.us:                                 ; preds = %if.end168.us
@@ -7937,7 +7937,7 @@ if.then15.i.i.us:                                 ; preds = %if.else12.i.i.us
 
 if.then.i.i96.us:                                 ; preds = %if.end168.us
   %or.i.i.us = or disjoint i32 %shr.i.i94.us, %shl3.i.i.us
-  %cmp6.i.i.us = icmp ult i32 %shr.i.i94.us, 260046848
+  %cmp6.i.i.us = icmp samesign ult i32 %shr.i.i94.us, 260046848
   br i1 %cmp6.i.i.us, label %if.then10.i.i.us, label %if.else.i.i.us
 
 if.else.i.i.us:                                   ; preds = %if.then.i.i96.us
@@ -8424,12 +8424,12 @@ if.then131:                                       ; preds = %if.end128
   %shr.i.i = and i32 %26, 268427264
   %h.signext.i.i = sext i16 %25 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else12.i.i
 
 if.then.i.i:                                      ; preds = %if.then131
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp6.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp6.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp6.i.i, label %if.then10.i.i, label %if.else.i.i
 
 if.then10.i.i:                                    ; preds = %if.then.i.i
@@ -8819,11 +8819,11 @@ for.body204:                                      ; preds = %for.body204.prehead
   %shr.i.i228 = lshr i32 %146, 16
   %148 = trunc nuw i32 %shr.i.i228 to i16
   %conv.i.i229 = and i16 %148, -32768
-  %cmp.i.i230 = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i230 = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i230, label %if.then.i.i231, label %if.end43.i.i
 
 if.then.i.i231:                                   ; preds = %for.body204
-  %cmp3.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp3.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp3.i.i, label %if.then6.i.i, label %if.end24.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i231
@@ -8842,7 +8842,7 @@ if.end.i.i:                                       ; preds = %if.then6.i.i
   br label %float_to_half.exit
 
 if.end24.i.i:                                     ; preds = %if.then.i.i231
-  %cmp25.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp25.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp25.i.i, label %if.then29.i.i, label %if.end33.i.i
 
 if.then29.i.i:                                    ; preds = %if.end24.i.i
@@ -8861,7 +8861,7 @@ if.end33.i.i:                                     ; preds = %if.end24.i.i
   br label %float_to_half.exit
 
 if.end43.i.i:                                     ; preds = %for.body204
-  %cmp44.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp44.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp44.i.i, label %float_to_half.exit, label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %if.end43.i.i
@@ -9233,12 +9233,12 @@ for.body522:                                      ; preds = %for.body522.prehead
   %shr.i.i234 = and i32 %241, 268427264
   %h.signext.i.i235 = sext i16 %240 to i32
   %shl3.i.i236 = and i32 %h.signext.i.i235, -2147483648
-  %cmp.i.i237 = icmp ugt i32 %shr.i.i234, 8388607
+  %cmp.i.i237 = icmp samesign ugt i32 %shr.i.i234, 8388607
   br i1 %cmp.i.i237, label %if.then.i.i248, label %if.else12.i.i238
 
 if.then.i.i248:                                   ; preds = %for.body522
   %or.i.i249 = or disjoint i32 %shr.i.i234, %shl3.i.i236
-  %cmp6.i.i250 = icmp ult i32 %shr.i.i234, 260046848
+  %cmp6.i.i250 = icmp samesign ult i32 %shr.i.i234, 260046848
   br i1 %cmp6.i.i250, label %if.then10.i.i253, label %if.else.i.i251
 
 if.then10.i.i253:                                 ; preds = %if.then.i.i248

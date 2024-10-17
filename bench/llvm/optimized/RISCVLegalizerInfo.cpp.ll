@@ -10557,7 +10557,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeVSca
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %51 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
-  %52 = icmp ult i64 %51, 2
+  %52 = icmp samesign ult i64 %51, 2
   br i1 %52, label %53, label %102
 
 53:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -10565,7 +10565,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %55 = trunc nuw nsw i64 %54 to i32
   %56 = xor i32 %55, 63
   %57 = zext nneg i32 %56 to i64
-  %58 = icmp ult i32 %56, 3
+  %58 = icmp samesign ult i32 %56, 3
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %53

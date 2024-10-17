@@ -384,7 +384,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
   %.01626.i = phi i32 [ %73, %.lr.ph.i ], [ %220, %dissect_scsi_smc_element.exit.i ]
   %.01725.i = phi i32 [ %spec.select, %.lr.ph.i ], [ %221, %dissect_scsi_smc_element.exit.i ]
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.01725.i, i32 %75)
-  %78 = icmp ult i32 %spec.select.i, 2
+  %78 = icmp samesign ult i32 %spec.select.i, 2
   br i1 %78, label %dissect_scsi_smc_elements.exit, label %79
 
 79:                                               ; preds = %77

@@ -6169,7 +6169,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition6orthesEv(ptr no
 
 .preheader167:                                    ; preds = %.preheader167.lr.ph, %._crit_edge.thread
   %indvars.iv = phi i64 [ 1, %.preheader167.lr.ph ], [ %indvars.iv.next, %._crit_edge.thread ]
-  %.not.not151168 = icmp ult i64 %indvars.iv, %7
+  %.not.not151168 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %.not.not151168, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader167

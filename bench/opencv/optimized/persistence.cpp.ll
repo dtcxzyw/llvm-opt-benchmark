@@ -449,7 +449,7 @@ define hidden noundef nonnull ptr @_ZN2cv2fs4itoaEiPci(i32 noundef %0, ptr nound
   %10 = add i8 %9, 48
   %11 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %10, ptr %11, align 1
-  %.not = icmp ult i32 %.011, 10
+  %.not = icmp samesign ult i32 %.011, 10
   br i1 %.not, label %12, label %6, !llvm.loop !6
 
 12:                                               ; preds = %6
@@ -998,7 +998,7 @@ define hidden noundef i32 @_ZN2cv2fs12calcElemSizeEPKci(ptr noundef %0, i32 noun
   %25 = mul nsw i32 %18, %24
   %26 = add nsw i32 %22, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %27 = icmp ult i64 %indvars.iv.next, %7
+  %27 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1065,7 +1065,7 @@ define hidden noundef i32 @_ZN2cv2fs14calcStructSizeEPKci(ptr noundef %0, i32 no
   %26 = mul nsw i32 %19, %25
   %27 = add nsw i32 %23, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %28 = icmp ult i64 %indvars.iv.next.i, %8
+  %28 = icmp samesign ult i64 %indvars.iv.next.i, %8
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
@@ -9724,7 +9724,7 @@ _ZNK2cv6hfloatcvfEv.exit.us:                      ; preds = %131, %126, %119
   %249 = add i8 %248, 48
   %250 = getelementptr inbounds i8, ptr %.0.i107.us, i64 -1
   store i8 %249, ptr %250, align 1
-  %.not.i109.us = icmp ult i32 %.011.i106.us, 10
+  %.not.i109.us = icmp samesign ult i32 %.011.i106.us, 10
   br i1 %.not.i109.us, label %251, label %245, !llvm.loop !6
 
 251:                                              ; preds = %245
@@ -9753,7 +9753,7 @@ _ZNK2cv6hfloatcvfEv.exit.us:                      ; preds = %131, %126, %119
   %263 = add i8 %262, 48
   %264 = getelementptr inbounds i8, ptr %.0.i101.us, i64 -1
   store i8 %263, ptr %264, align 1
-  %.not.i103.us = icmp ult i32 %.011.i100.us, 10
+  %.not.i103.us = icmp samesign ult i32 %.011.i100.us, 10
   br i1 %.not.i103.us, label %265, label %259, !llvm.loop !6
 
 265:                                              ; preds = %259
@@ -9781,7 +9781,7 @@ _ZNK2cv6hfloatcvfEv.exit.us:                      ; preds = %131, %126, %119
   %276 = add i8 %275, 48
   %277 = getelementptr inbounds i8, ptr %.0.i95.us, i64 -1
   store i8 %276, ptr %277, align 1
-  %.not.i97.us = icmp ult i32 %.011.i94.us, 10
+  %.not.i97.us = icmp samesign ult i32 %.011.i94.us, 10
   br i1 %.not.i97.us, label %_ZN2cv2fs13floatToStringEPcmfbb.exit122.us, label %272, !llvm.loop !6
 
 278:                                              ; preds = %.lr.ph.split.us
@@ -9801,7 +9801,7 @@ _ZNK2cv6hfloatcvfEv.exit.us:                      ; preds = %131, %126, %119
   %286 = add i8 %285, 48
   %287 = getelementptr inbounds i8, ptr %.0.i90.us, i64 -1
   store i8 %286, ptr %287, align 1
-  %.not.i92.us = icmp ult i32 %.011.i89.us, 10
+  %.not.i92.us = icmp samesign ult i32 %.011.i89.us, 10
   br i1 %.not.i92.us, label %288, label %282, !llvm.loop !6
 
 288:                                              ; preds = %282
@@ -9829,7 +9829,7 @@ _ZNK2cv6hfloatcvfEv.exit.us:                      ; preds = %131, %126, %119
   %299 = add i8 %298, 48
   %300 = getelementptr inbounds i8, ptr %.0.i.us, i64 -1
   store i8 %299, ptr %300, align 1
-  %.not.i.us = icmp ult i32 %.011.i.us, 10
+  %.not.i.us = icmp samesign ult i32 %.011.i.us, 10
   br i1 %.not.i.us, label %_ZN2cv2fs13floatToStringEPcmfbb.exit122.us, label %295, !llvm.loop !6
 
 _ZN2cv2fs13floatToStringEPcmfbb.exit122.us:       ; preds = %272, %295, %288, %290, %265, %267, %251, %253, %227, %229, %231, %233, %237, %238, %188, %190, %192, %194, %203, %207, %153, %155, %157, %159, %163, %164
@@ -12992,7 +12992,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit94:         ; preds = %238, %_ZNSt6vectorI
   %285 = getelementptr inbounds i8, ptr %281, i64 %indvars.iv124
   store i8 %284, ptr %285, align 1
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %286 = icmp ult i64 %indvars.iv.next125, %280
+  %286 = icmp samesign ult i64 %indvars.iv.next125, %280
   br i1 %286, label %.lr.ph120, label %._crit_edge121, !llvm.loop !93
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %.thread.._crit_edge121_crit_edge
@@ -13397,11 +13397,11 @@ _ZN2cv11FileStorage4Impl13Base64Decoder9getUInt16Ev.exit85.thread.us: ; preds = 
   %102 = bitcast i32 %101 to float
   %103 = call float @llvm.fabs.f32(float %102)
   %104 = bitcast float %103 to i32
-  %105 = icmp ugt i32 %104, 1199570943
+  %105 = icmp samesign ugt i32 %104, 1199570943
   br i1 %105, label %119, label %106
 
 106:                                              ; preds = %98
-  %107 = icmp ult i32 %104, 947912704
+  %107 = icmp samesign ult i32 %104, 947912704
   br i1 %107, label %115, label %108
 
 108:                                              ; preds = %106
@@ -13420,7 +13420,7 @@ _ZN2cv11FileStorage4Impl13Base64Decoder9getUInt16Ev.exit85.thread.us: ; preds = 
   br label %_ZN2cv14hfloatFromBitsEt.exit.us
 
 119:                                              ; preds = %98
-  %120 = icmp ugt i32 %104, 2139095040
+  %120 = icmp samesign ugt i32 %104, 2139095040
   %121 = select i1 %120, i16 32256, i16 31744
   br label %_ZN2cv14hfloatFromBitsEt.exit.us
 
@@ -17449,11 +17449,11 @@ _ZNK2cv8FileNodecviEv.exit.us:                    ; preds = %126, %123, %_ZNK2cv
   %128 = sitofp i32 %.0.i.us to float
   %129 = call float @llvm.fabs.f32(float %128)
   %130 = bitcast float %129 to i32
-  %131 = icmp ugt i32 %130, 1199570943
+  %131 = icmp samesign ugt i32 %130, 1199570943
   br i1 %131, label %145, label %132
 
 132:                                              ; preds = %127
-  %133 = icmp ult i32 %130, 947912704
+  %133 = icmp samesign ult i32 %130, 947912704
   br i1 %133, label %141, label %134
 
 134:                                              ; preds = %132
@@ -17472,7 +17472,7 @@ _ZNK2cv8FileNodecviEv.exit.us:                    ; preds = %126, %123, %_ZNK2cv
   br label %_ZN2cv6hfloatC2Ef.exit.us
 
 145:                                              ; preds = %127
-  %146 = icmp ugt i32 %130, 2139095040
+  %146 = icmp samesign ugt i32 %130, 2139095040
   %147 = select i1 %146, i16 32256, i16 31744
   br label %_ZN2cv6hfloatC2Ef.exit.us
 
@@ -17574,11 +17574,11 @@ _ZNK2cv8FileNodecvdEv.exit.us:                    ; preds = %186, %185, %_ZNK2cv
   %189 = fptrunc double %.0.i110.us to float
   %190 = call float @llvm.fabs.f32(float %189)
   %191 = bitcast float %190 to i32
-  %192 = icmp ugt i32 %191, 1199570943
+  %192 = icmp samesign ugt i32 %191, 1199570943
   br i1 %192, label %206, label %193
 
 193:                                              ; preds = %188
-  %194 = icmp ult i32 %191, 947912704
+  %194 = icmp samesign ult i32 %191, 947912704
   br i1 %194, label %202, label %195
 
 195:                                              ; preds = %193
@@ -17597,7 +17597,7 @@ _ZNK2cv8FileNodecvdEv.exit.us:                    ; preds = %186, %185, %_ZNK2cv
   br label %_ZN2cv6hfloatC2Ef.exit112.us
 
 206:                                              ; preds = %188
-  %207 = icmp ugt i32 %191, 2139095040
+  %207 = icmp samesign ugt i32 %191, 2139095040
   %208 = select i1 %207, i16 32256, i16 31744
   br label %_ZN2cv6hfloatC2Ef.exit112.us
 

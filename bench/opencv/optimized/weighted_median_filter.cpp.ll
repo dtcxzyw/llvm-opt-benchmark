@@ -1520,7 +1520,7 @@ _ZN12_GLOBAL__N_17float2DEii.exit217.i:           ; preds = %.lr.ph.i211.i, %.no
 
 .preheader287.i:                                  ; preds = %606, %._crit_edge320.i
   %indvars.iv365.i = phi i64 [ %indvars.iv.next366.i, %._crit_edge320.i ], [ 0, %606 ]
-  %618 = icmp ult i64 %indvars.iv365.i, %580
+  %618 = icmp samesign ult i64 %indvars.iv365.i, %580
   br i1 %618, label %.lr.ph319.i, label %._crit_edge320.i
 
 .lr.ph319.i:                                      ; preds = %.preheader287.i

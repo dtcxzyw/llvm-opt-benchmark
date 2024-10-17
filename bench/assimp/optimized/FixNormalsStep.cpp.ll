@@ -75,7 +75,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %mNumMeshes, align 8
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
@@ -268,7 +268,7 @@ for.body137:                                      ; preds = %if.end132, %for.bod
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %21 = load i32, ptr %mNumVertices.i, align 4
   %22 = zext i32 %21 to i64
-  %cmp136 = icmp ult i64 %indvars.iv.next156, %22
+  %cmp136 = icmp samesign ult i64 %indvars.iv.next156, %22
   br i1 %cmp136, label %for.body137, label %for.cond146.preheader, !llvm.loop !7
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.inc165
@@ -302,7 +302,7 @@ for.body153:                                      ; preds = %for.body153.lr.ph, 
   %32 = load i32, ptr %arrayidx150, align 8
   %div47 = lshr i32 %32, 1
   %33 = zext nneg i32 %div47 to i64
-  %cmp152 = icmp ult i64 %indvars.iv.next159, %33
+  %cmp152 = icmp samesign ult i64 %indvars.iv.next159, %33
   br i1 %cmp152, label %for.body153, label %for.inc165.loopexit, !llvm.loop !8
 
 for.inc165.loopexit:                              ; preds = %for.body153
@@ -313,7 +313,7 @@ for.inc165:                                       ; preds = %for.inc165.loopexit
   %34 = phi i32 [ %.pre, %for.inc165.loopexit ], [ %23, %for.body148 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %35 = zext i32 %34 to i64
-  %cmp147 = icmp ult i64 %indvars.iv.next162, %35
+  %cmp147 = icmp samesign ult i64 %indvars.iv.next162, %35
   br i1 %cmp147, label %for.body148, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.inc165, %for.cond146.preheader, %if.end121, %if.end115, %if.end109, %if.end104, %if.end97, %if.end90, %for.end, %entry

@@ -1100,7 +1100,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   %82 = add nuw nsw i32 %74, 44
   %83 = add nuw nsw i32 %82, %76
   %84 = add nuw nsw i32 %83, %78
-  %85 = icmp ult i32 %72, %84
+  %85 = icmp samesign ult i32 %72, %84
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %81, %69
@@ -1255,7 +1255,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %16 = icmp slt i32 %15, %13
   %.pre = zext i16 %14 to i32
   %17 = add nuw nsw i32 %.pre, 44
-  %18 = icmp ult i32 %13, %17
+  %18 = icmp samesign ult i32 %13, %17
   %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %._crit_edge, label %21
 
@@ -1355,7 +1355,7 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
   %18 = add nuw nsw i32 %.pre, 8
   %19 = zext i16 %14 to i32
   %20 = add nuw nsw i32 %18, %19
-  %21 = icmp ult i32 %12, %20
+  %21 = icmp samesign ult i32 %12, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %._crit_edge, %17
@@ -1505,7 +1505,7 @@ define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %16 = icmp slt i32 %15, %12
   %17 = add nuw nsw i32 %14, 12
-  %18 = icmp ult i32 %12, %17
+  %18 = icmp samesign ult i32 %12, %17
   %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %19, label %22
 
@@ -1585,7 +1585,7 @@ define internal fastcc void @dissect_uftp_keyinfoack(ptr noundef %0, ptr noundef
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %16 = icmp slt i32 %15, %12
   %17 = add nuw nsw i32 %14, 4
-  %18 = icmp ult i32 %12, %17
+  %18 = icmp samesign ult i32 %12, %17
   %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %19, label %22
 
@@ -1648,7 +1648,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %23 = add nuw nsw i32 %.pre, 28
   %24 = zext nneg i16 %19 to i32
   %25 = add nuw nsw i32 %23, %24
-  %26 = icmp ult i32 %14, %25
+  %26 = icmp samesign ult i32 %14, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %._crit_edge, %22
@@ -2399,7 +2399,7 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
   %18 = add nuw nsw i32 %.pre, 12
   %19 = zext i16 %14 to i32
   %20 = add nuw nsw i32 %18, %19
-  %21 = icmp ult i32 %12, %20
+  %21 = icmp samesign ult i32 %12, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %._crit_edge, %17
@@ -2546,7 +2546,7 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
   %21 = add nuw nsw i32 %19, %20
   %22 = zext i16 %15 to i32
   %23 = add nuw nsw i32 %21, %22
-  %24 = icmp ult i32 %12, %23
+  %24 = icmp samesign ult i32 %12, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %._crit_edge, %18

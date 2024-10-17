@@ -574,7 +574,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %131 = getelementptr inbounds i8, ptr %120, i64 %indvars.iv
   store i8 %130, ptr %131, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %132 = icmp ult i64 %indvars.iv.next, %122
+  %132 = icmp samesign ult i64 %indvars.iv.next, %122
   br i1 %132, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 133:                                              ; preds = %3

@@ -215,7 +215,7 @@ define internal fastcc noundef ptr @bios_signature(ptr noundef %0) unnamed_addr 
 
 11:                                               ; preds = %14
   %12 = add nuw nsw i64 %15, 16
-  %13 = icmp ult i64 %15, 65520
+  %13 = icmp samesign ult i64 %15, 65520
   br i1 %13, label %14, label %19, !llvm.loop !7
 
 14:                                               ; preds = %11, %1
@@ -1981,12 +1981,12 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr nocapture noundef readon
 
 .thread21:                                        ; preds = %441, %428
   %448 = zext nneg i32 %429 to i64
-  %449 = icmp ult i64 %363, %448
+  %449 = icmp samesign ult i64 %363, %448
   br label %464
 
 450:                                              ; preds = %427
   %451 = zext nneg i32 %364 to i64
-  %452 = icmp ult i64 %363, %451
+  %452 = icmp samesign ult i64 %363, %451
   %453 = and i1 %304, %452
   br i1 %453, label %454, label %464
 

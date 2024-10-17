@@ -89,7 +89,7 @@ if.end.i.i:                                       ; preds = %if.end24.i, %if.end
   %and52.i = phi i64 [ %and48.i, %if.end24.thread.i ], [ %len, %if.end24.i ]
   %add2551.i = phi i32 [ %add2547.i, %if.end24.thread.i ], [ %add25.i, %if.end24.i ]
   %input.addr.150.i = phi ptr [ %add.ptr18.i, %if.end24.thread.i ], [ %input, %if.end24.i ]
-  %cmp213.i.i = icmp ugt i64 %and52.i, 3
+  %cmp213.i.i = icmp samesign ugt i64 %and52.i, 3
   br i1 %cmp213.i.i, label %do.body.i.i, label %while.cond4.preheader.i.i
 
 while.cond4.preheader.i.i:                        ; preds = %do.body.i.i, %if.end.i.i
@@ -395,7 +395,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %11 = load i32, ptr %memsize, align 4
   %12 = and i32 %11, 15
   %and.i = zext nneg i32 %12 to i64
-  %cmp213.i = icmp ugt i32 %12, 3
+  %cmp213.i = icmp samesign ugt i32 %12, 3
   br i1 %cmp213.i, label %do.body.i, label %while.cond4.preheader.i
 
 while.cond4.preheader.i:                          ; preds = %do.body.i, %if.end
@@ -566,7 +566,7 @@ if.end.i.i:                                       ; preds = %if.end28.i, %if.end
   %input.addr.176.i = phi ptr [ %add.ptr18.i, %if.end28.thread.i ], [ %input, %if.end28.i ]
   %add2977.i = add i64 %add.i65.pn.i, %len
   %and.i.i = and i64 %len, 31
-  %cmp222.i.i = icmp ugt i64 %and.i.i, 7
+  %cmp222.i.i = icmp samesign ugt i64 %and.i.i, 7
   br i1 %cmp222.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -590,7 +590,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
   %len.addr.0.lcssa.i.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %sub.i.i, %while.body.i.i ]
   %ptr.addr.0.lcssa.i.i = phi ptr [ %input.addr.176.i, %if.end.i.i ], [ %add.ptr.i.i, %while.body.i.i ]
   %hash.addr.0.lcssa.i.i = phi i64 [ %add2977.i, %if.end.i.i ], [ %add.i70.i, %while.body.i.i ]
-  %cmp4.i.i = icmp ugt i64 %len.addr.0.lcssa.i.i, 3
+  %cmp4.i.i = icmp samesign ugt i64 %len.addr.0.lcssa.i.i, 3
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end13.i.i
 
 if.then5.i.i:                                     ; preds = %while.end.i.i
@@ -900,7 +900,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %add24 = add i64 %h64.0, %0
   %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %and.i = and i64 %0, 31
-  %cmp222.i = icmp ugt i64 %and.i, 7
+  %cmp222.i = icmp samesign ugt i64 %and.i, 7
   br i1 %cmp222.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
@@ -924,7 +924,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %len.addr.0.lcssa.i = phi i64 [ %and.i, %if.end ], [ %sub.i, %while.body.i ]
   %ptr.addr.0.lcssa.i = phi ptr [ %mem64, %if.end ], [ %add.ptr.i, %while.body.i ]
   %hash.addr.0.lcssa.i = phi i64 [ %add24, %if.end ], [ %add.i37, %while.body.i ]
-  %cmp4.i = icmp ugt i64 %len.addr.0.lcssa.i, 3
+  %cmp4.i = icmp samesign ugt i64 %len.addr.0.lcssa.i, 3
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %while.end.i

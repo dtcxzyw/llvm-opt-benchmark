@@ -4052,7 +4052,7 @@ proto_item_set_generated.exit1404:                ; preds = %117, %114, %111, %8
   %1512 = load i64, ptr %12, align 8
   %1513 = trunc i64 %1512 to i32
   %1514 = and i32 %1513, 65535
-  %1515 = icmp ult i32 %1511, %1514
+  %1515 = icmp samesign ult i32 %1511, %1514
   br i1 %1515, label %135, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %1510, %123, %proto_item_set_generated.exit1404

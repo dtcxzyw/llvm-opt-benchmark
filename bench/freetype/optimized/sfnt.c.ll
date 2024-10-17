@@ -192,8 +192,8 @@ define internal noundef i32 @tt_cmap0_validate(ptr noundef readonly %0, ptr noun
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load volatile ptr, ptr %4, align 8
   %20 = icmp ugt ptr %18, %19
-  %21 = icmp ult i32 %16, 262
-  %or.cond = or i1 %21, %20
+  %21 = icmp samesign ult i32 %16, 262
+  %or.cond = select i1 %20, i1 true, i1 %21
   br i1 %or.cond, label %22, label %23
 
 22:                                               ; preds = %8
@@ -446,7 +446,7 @@ tt_cmap2_get_subheader.exit:                      ; preds = %23, %12
   %67 = or disjoint i32 %63, %66
   %68 = and i32 %.06084, 255
   %69 = add nuw nsw i32 %51, %43
-  %70 = icmp uge i32 %68, %69
+  %70 = icmp samesign uge i32 %68, %69
   %or.cond = and i1 %11, %70
   br i1 %or.cond, label %.backedge, label %71
 
@@ -463,7 +463,7 @@ tt_cmap2_get_subheader.exit:                      ; preds = %23, %12
   %.056 = tail call i32 @llvm.usub.sat.i32(i32 %68, i32 %43)
   %76 = and i32 %.06084, 65280
   %77 = add nuw nsw i32 %.058, %76
-  %78 = icmp ult i32 %.056, %51
+  %78 = icmp samesign ult i32 %.056, %51
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %75
@@ -497,7 +497,7 @@ tt_cmap2_get_subheader.exit:                      ; preds = %23, %12
 94:                                               ; preds = %.lr.ph, %91
   %95 = add nuw nsw i32 %.15783, 1
   %96 = add nuw nsw i32 %.26282, 1
-  %97 = icmp ult i32 %95, %51
+  %97 = icmp samesign ult i32 %95, %51
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %94, %75
@@ -553,8 +553,8 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly %0, ptr noun
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load volatile ptr, ptr %4, align 8
   %20 = icmp ugt ptr %18, %19
-  %21 = icmp ult i32 %16, 518
-  %or.cond = or i1 %21, %20
+  %21 = icmp samesign ult i32 %16, 518
+  %or.cond = select i1 %20, i1 true, i1 %21
   br i1 %or.cond, label %22, label %23
 
 22:                                               ; preds = %8
@@ -660,7 +660,7 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly %0, ptr noun
 88:                                               ; preds = %85
   %.not87 = icmp ne i8 %53, 0
   %89 = sub nuw nsw i32 256, %59
-  %90 = icmp ugt i32 %67, %89
+  %90 = icmp samesign ugt i32 %67, %89
   %or.cond95 = select i1 %.not87, i1 true, i1 %90
   br i1 %or.cond95, label %91, label %92
 
@@ -1012,10 +1012,10 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
 102:                                              ; preds = %101, %74
   %103 = lshr i32 %82, 1
   %104 = lshr i32 %98, 1
-  %105 = icmp ule i32 %103, %65
+  %105 = icmp samesign ule i32 %103, %65
   %106 = and i32 %82, 65534
-  %107 = icmp uge i32 %106, %65
-  %or.cond196.not202 = and i1 %105, %107
+  %107 = icmp samesign uge i32 %106, %65
+  %or.cond196.not202 = select i1 %105, i1 %107, i1 false
   %108 = add nuw nsw i32 %104, %103
   %.not186 = icmp eq i32 %108, %65
   %or.cond197 = select i1 %or.cond196.not202, i1 %.not186, i1 false
@@ -1059,7 +1059,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
   br label %133
 
 133:                                              ; preds = %121, %132, %111
-  %.not216 = icmp ult i32 %58, 2
+  %.not216 = icmp samesign ult i32 %58, 2
   br i1 %.not216, label %._crit_edge, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %133
@@ -1113,7 +1113,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = or disjoint i32 %168, %171
-  %173 = icmp ugt i32 %148, %156
+  %173 = icmp samesign ugt i32 %148, %156
   br i1 %173, label %174, label %175
 
 174:                                              ; preds = %140
@@ -1206,8 +1206,8 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
 216:                                              ; preds = %.sink.split, %202, %208, %195
   %217 = load volatile i32, ptr %59, align 8
   %.not191 = icmp ne i32 %217, 0
-  %218 = icmp ult i32 %148, %156
-  %or.cond215 = and i1 %.not191, %218
+  %218 = icmp samesign ult i32 %148, %156
+  %or.cond215 = select i1 %.not191, i1 %218, i1 false
   br i1 %or.cond215, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %216, %232
@@ -1237,7 +1237,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
 
 232:                                              ; preds = %.lr.ph, %231, %227
   %233 = add nuw nsw i32 %.0204, 1
-  %234 = icmp ult i32 %233, %156
+  %234 = icmp samesign ult i32 %233, %156
   br i1 %234, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 235:                                              ; preds = %188
@@ -1440,7 +1440,7 @@ define internal noundef i32 @tt_cmap6_validate(ptr noundef readonly %0, ptr noun
 29:                                               ; preds = %8
   %30 = shl nuw nsw i32 %24, 1
   %31 = add nuw nsw i32 %30, 10
-  %32 = icmp ult i32 %16, %31
+  %32 = icmp samesign ult i32 %16, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29, %8
@@ -2286,14 +2286,14 @@ define internal noundef i32 @tt_cmap10_validate(ptr noundef %0, ptr noundef %1) 
   %47 = ptrtoint ptr %0 to i64
   %48 = sub i64 %46, %47
   %49 = icmp ugt i64 %26, %48
-  %50 = icmp ult i64 %26, 20
-  %or.cond = or i1 %50, %49
+  %50 = icmp samesign ult i64 %26, 20
+  %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %55, label %51
 
 51:                                               ; preds = %8
   %52 = add nsw i64 %26, -20
   %53 = lshr i64 %52, 1
-  %54 = icmp ult i64 %53, %44
+  %54 = icmp samesign ult i64 %53, %44
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51, %8
@@ -2613,8 +2613,8 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
   %47 = ptrtoint ptr %0 to i64
   %48 = sub i64 %46, %47
   %49 = icmp ugt i64 %26, %48
-  %50 = icmp ult i64 %26, 16
-  %or.cond = or i1 %50, %49
+  %50 = icmp samesign ult i64 %26, 16
+  %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %55, label %51
 
 51:                                               ; preds = %8
@@ -2622,7 +2622,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
   %.lhs.trunc = add i32 %52, -16
   %53 = udiv i32 %.lhs.trunc, 12
   %.zext = zext nneg i32 %53 to i64
-  %54 = icmp ugt i64 %44, %.zext
+  %54 = icmp samesign ugt i64 %44, %.zext
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51, %8
@@ -2699,7 +2699,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
   %116 = or disjoint i64 %112, %115
-  %117 = icmp ugt i64 %79, %97
+  %117 = icmp samesign ugt i64 %79, %97
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %62
@@ -2728,7 +2728,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
   %127 = icmp uge i32 %126, %125
   %128 = sub nuw i32 %126, %125
   %129 = zext i32 %128 to i64
-  %.not64 = icmp ult i64 %116, %129
+  %.not64 = icmp samesign ult i64 %116, %129
   %or.cond67 = select i1 %127, i1 %.not64, i1 false
   br i1 %or.cond67, label %131, label %130
 
@@ -3104,8 +3104,8 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
   %47 = ptrtoint ptr %0 to i64
   %48 = sub i64 %46, %47
   %49 = icmp ugt i64 %26, %48
-  %50 = icmp ult i64 %26, 16
-  %or.cond = or i1 %50, %49
+  %50 = icmp samesign ult i64 %26, 16
+  %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %55, label %51
 
 51:                                               ; preds = %8
@@ -3113,7 +3113,7 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
   %.lhs.trunc = add i32 %52, -16
   %53 = udiv i32 %.lhs.trunc, 12
   %.zext = zext nneg i32 %53 to i64
-  %54 = icmp ugt i64 %44, %.zext
+  %54 = icmp samesign ugt i64 %44, %.zext
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51, %8
@@ -3190,7 +3190,7 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
   %116 = or disjoint i64 %112, %115
-  %117 = icmp ugt i64 %79, %97
+  %117 = icmp samesign ugt i64 %79, %97
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %62
@@ -3215,7 +3215,7 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
 123:                                              ; preds = %121
   %124 = load i32, ptr %58, align 8
   %125 = zext i32 %124 to i64
-  %.not57 = icmp ult i64 %116, %125
+  %.not57 = icmp samesign ult i64 %116, %125
   br i1 %.not57, label %127, label %126
 
 126:                                              ; preds = %123
@@ -3375,11 +3375,11 @@ define internal i32 @tt_cmap14_char_var_index(ptr nocapture noundef readonly %0,
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = or disjoint i64 %40, %43
-  %45 = icmp ugt i64 %44, %26
+  %45 = icmp samesign ugt i64 %44, %26
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %27
-  %47 = icmp ult i64 %44, %26
+  %47 = icmp samesign ult i64 %44, %26
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %46
@@ -3479,7 +3479,7 @@ define internal i32 @tt_cmap14_char_var_index(ptr nocapture noundef readonly %0,
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i64
   %127 = or disjoint i64 %123, %126
-  %128 = icmp ugt i64 %127, %109
+  %128 = icmp samesign ugt i64 %127, %109
   br i1 %128, label %137, label %129
 
 129:                                              ; preds = %110
@@ -3487,7 +3487,7 @@ define internal i32 @tt_cmap14_char_var_index(ptr nocapture noundef readonly %0,
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i64
   %133 = add nuw nsw i64 %127, %132
-  %134 = icmp ult i64 %133, %109
+  %134 = icmp samesign ult i64 %133, %109
   br i1 %134, label %135, label %tt_cmap14_char_map_def_binary.exit
 
 135:                                              ; preds = %129
@@ -3638,11 +3638,11 @@ define internal range(i32 -1, 2) i32 @tt_cmap14_char_var_isdefault(ptr nocapture
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = or disjoint i64 %39, %42
-  %44 = icmp ugt i64 %43, %25
+  %44 = icmp samesign ugt i64 %43, %25
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %26
-  %46 = icmp ult i64 %43, %25
+  %46 = icmp samesign ult i64 %43, %25
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
@@ -3742,7 +3742,7 @@ define internal range(i32 -1, 2) i32 @tt_cmap14_char_var_isdefault(ptr nocapture
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
   %126 = or disjoint i64 %122, %125
-  %127 = icmp ugt i64 %126, %108
+  %127 = icmp samesign ugt i64 %126, %108
   br i1 %127, label %136, label %128
 
 128:                                              ; preds = %109
@@ -3750,7 +3750,7 @@ define internal range(i32 -1, 2) i32 @tt_cmap14_char_var_isdefault(ptr nocapture
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i64
   %132 = add nuw nsw i64 %126, %131
-  %133 = icmp ult i64 %132, %108
+  %133 = icmp samesign ult i64 %132, %108
   br i1 %133, label %134, label %tt_cmap14_char_map_def_binary.exit
 
 134:                                              ; preds = %128
@@ -4091,7 +4091,7 @@ tt_cmap14_ensure.exit:                            ; preds = %14
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
   %115 = or disjoint i64 %111, %114
-  %116 = icmp ugt i64 %115, %27
+  %116 = icmp samesign ugt i64 %115, %27
   br i1 %116, label %125, label %117
 
 117:                                              ; preds = %.lr.ph.i
@@ -4099,7 +4099,7 @@ tt_cmap14_ensure.exit:                            ; preds = %14
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i64
   %121 = add nuw nsw i64 %115, %120
-  %122 = icmp ult i64 %121, %27
+  %122 = icmp samesign ult i64 %121, %27
   br i1 %122, label %123, label %tt_cmap14_char_map_def_binary.exit
 
 123:                                              ; preds = %117
@@ -4264,11 +4264,11 @@ define internal ptr @tt_cmap14_variant_chars(ptr nocapture noundef %0, ptr nound
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = or disjoint i64 %42, %45
-  %47 = icmp ugt i64 %46, %28
+  %47 = icmp samesign ugt i64 %46, %28
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %29
-  %49 = icmp ult i64 %46, %28
+  %49 = icmp samesign ult i64 %46, %28
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
@@ -4914,8 +4914,8 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %47 = ptrtoint ptr %0 to i64
   %48 = sub i64 %46, %47
   %49 = icmp ugt i64 %26, %48
-  %50 = icmp ult i64 %26, 10
-  %or.cond = or i1 %50, %49
+  %50 = icmp samesign ult i64 %26, 10
+  %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %55, label %51
 
 51:                                               ; preds = %8
@@ -4923,7 +4923,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %.lhs.trunc = add i32 %52, -10
   %53 = udiv i32 %.lhs.trunc, 11
   %.zext = zext nneg i32 %53 to i64
-  %54 = icmp ugt i64 %44, %.zext
+  %54 = icmp samesign ugt i64 %44, %.zext
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51, %8
@@ -4995,8 +4995,8 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i64
   %111 = or disjoint i64 %107, %110
-  %.not = icmp ult i64 %92, %26
-  %.not124 = icmp ult i64 %111, %26
+  %.not = icmp samesign ult i64 %92, %26
+  %.not124 = icmp samesign ult i64 %111, %26
   %or.cond129 = select i1 %.not, i1 %.not124, i1 false
   br i1 %or.cond129, label %113, label %112
 
@@ -5051,7 +5051,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %144 = ptrtoint ptr %120 to i64
   %145 = sub i64 %143, %144
   %146 = lshr i64 %145, 2
-  %147 = icmp ugt i64 %141, %146
+  %147 = icmp samesign ugt i64 %141, %146
   br i1 %147, label %.thread, label %148
 
 .thread:                                          ; preds = %124
@@ -5086,7 +5086,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %163 = load i8, ptr %149, align 1
   %164 = zext i8 %163 to i64
   %165 = add nuw nsw i64 %161, %164
-  %166 = icmp ugt i64 %165, 1114111
+  %166 = icmp samesign ugt i64 %165, 1114111
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %.lr.ph
@@ -5145,7 +5145,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   %200 = ptrtoint ptr %176 to i64
   %201 = sub i64 %199, %200
   %202 = udiv i64 %201, 5
-  %203 = icmp ugt i64 %197, %202
+  %203 = icmp samesign ugt i64 %197, %202
   br i1 %203, label %.thread148, label %204
 
 .thread148:                                       ; preds = %180
@@ -5208,7 +5208,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
 234:                                              ; preds = %231
   %235 = load i32, ptr %58, align 8
   %236 = zext i32 %235 to i64
-  %.not128 = icmp ult i64 %225, %236
+  %.not128 = icmp samesign ult i64 %225, %236
   br i1 %.not128, label %238, label %237
 
 237:                                              ; preds = %234
@@ -5700,7 +5700,7 @@ define internal i32 @sfnt_init_face(ptr noundef %0, ptr noundef %1, i32 noundef 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %213 = load i16, ptr %82, align 8
   %214 = zext i16 %213 to i64
-  %215 = icmp ult i64 %indvars.iv.next.i.i, %214
+  %215 = icmp samesign ult i64 %indvars.iv.next.i.i, %214
   br i1 %215, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !42
 
 ._crit_edge.i.i:                                  ; preds = %211, %.preheader.i.i
@@ -6001,7 +6001,7 @@ define internal i32 @sfnt_init_face(ptr noundef %0, ptr noundef %1, i32 noundef 
   %indvars.iv.next268.i.i = add nuw nsw i64 %indvars.iv267.i.i, 1
   %379 = load i16, ptr %82, align 8
   %380 = zext i16 %379 to i64
-  %381 = icmp ult i64 %indvars.iv.next268.i.i, %380
+  %381 = icmp samesign ult i64 %indvars.iv.next268.i.i, %380
   br i1 %381, label %283, label %._crit_edge258.i.i, !llvm.loop !44
 
 ._crit_edge258.i.i:                               ; preds = %._crit_edge253.i.i, %279
@@ -6378,7 +6378,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %indvars.iv.next.i96.i = add nuw nsw i64 %indvars.iv.i95.i, 1
   %527 = load i16, ptr %64, align 8
   %528 = zext i16 %527 to i64
-  %529 = icmp ult i64 %indvars.iv.next.i96.i, %528
+  %529 = icmp samesign ult i64 %indvars.iv.next.i96.i, %528
   br i1 %529, label %.lr.ph.i94.i, label %._crit_edge.i97.i, !llvm.loop !46
 
 ._crit_edge.i97.i:                                ; preds = %.thread396.i.i, %.preheader321.i.i
@@ -6522,7 +6522,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %591 = add nuw nsw i64 %.0222335.i.i, 1
   %592 = load i16, ptr %562, align 8
   %593 = zext i16 %592 to i64
-  %594 = icmp ult i64 %591, %593
+  %594 = icmp samesign ult i64 %591, %593
   br i1 %594, label %.lr.ph336.i.i, label %._crit_edge337.i.i, !llvm.loop !47
 
 ._crit_edge337.i.i:                               ; preds = %580, %.preheader317.i.i
@@ -6548,7 +6548,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %indvars.iv.next369.i.i = add nuw nsw i64 %indvars.iv368.i.i, 1
   %602 = load i16, ptr %71, align 8
   %603 = zext i16 %602 to i64
-  %604 = icmp ult i64 %indvars.iv.next369.i.i, %603
+  %604 = icmp samesign ult i64 %indvars.iv.next369.i.i, %603
   br i1 %604, label %.lr.ph341.i.i, label %.loopexit319.i.i, !llvm.loop !48
 
 605:                                              ; preds = %541
@@ -6701,7 +6701,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %indvars.iv.next372.i.i = add nuw nsw i64 %indvars.iv371.i.i, 1
   %676 = load i16, ptr %658, align 8
   %677 = zext i16 %676 to i64
-  %678 = icmp ult i64 %indvars.iv.next372.i.i, %677
+  %678 = icmp samesign ult i64 %indvars.iv.next372.i.i, %677
   br i1 %678, label %668, label %._crit_edge344.i.i, !llvm.loop !49
 
 ._crit_edge344.i.i:                               ; preds = %668, %.preheader316.i.i
@@ -6727,7 +6727,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %indvars.iv.next375.i.i = add nuw nsw i64 %indvars.iv374.i.i, 1
   %687 = load i16, ptr %658, align 8
   %688 = zext i16 %687 to i64
-  %689 = icmp ult i64 %indvars.iv.next375.i.i, %688
+  %689 = icmp samesign ult i64 %indvars.iv.next375.i.i, %688
   br i1 %689, label %.lr.ph347.i.i, label %._crit_edge348.i.i, !llvm.loop !50
 
 ._crit_edge348.i.i:                               ; preds = %.lr.ph347.i.i, %.preheader315.i.i
@@ -6990,7 +6990,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   %815 = add nuw nsw i32 %.5353.i.i, 1
   %816 = load i16, ptr %71, align 8
   %817 = zext i16 %816 to i32
-  %818 = icmp ult i32 %815, %817
+  %818 = icmp samesign ult i32 %815, %817
   br i1 %818, label %.lr.ph355.i.i, label %._crit_edge356.loopexit.i.i, !llvm.loop !52
 
 ._crit_edge356.loopexit.i.i:                      ; preds = %.lr.ph355.i.i
@@ -7398,7 +7398,7 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
 988:                                              ; preds = %985, %982, %979
   %.3 = phi i16 [ %.2, %982 ], [ %.2, %979 ], [ %spec.select191, %985 ]
   %989 = zext i16 %.3 to i32
-  %990 = icmp ugt i32 %881, %989
+  %990 = icmp samesign ugt i32 %881, %989
   br i1 %990, label %991, label %993
 
 991:                                              ; preds = %988
@@ -8079,7 +8079,7 @@ thread-pre-split497:                              ; preds = %211
 
 307:                                              ; preds = %302, %299
   %.010.add.i = add nuw nsw i64 %.010.idx13.i, 12
-  %308 = icmp ult i64 %.010.idx13.i, 120
+  %308 = icmp samesign ult i64 %.010.idx13.i, 120
   br i1 %308, label %299, label %sfnt_find_encoding.exit.thread, !llvm.loop !57
 
 sfnt_find_encoding.exit.thread:                   ; preds = %307
@@ -9304,7 +9304,7 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %34, %37
-  %39 = icmp ult i32 %38, 15
+  %39 = icmp samesign ult i32 %38, 15
   br i1 %39, label %._crit_edge116, label %40
 
 40:                                               ; preds = %30
@@ -9667,7 +9667,7 @@ define internal i32 @tt_face_load_sbit_image(ptr noundef %0, i64 noundef %1, i32
 95:                                               ; preds = %51
   %96 = sub nuw i64 %45, %70
   %97 = lshr i64 %96, 3
-  %98 = icmp ugt i64 %89, %97
+  %98 = icmp samesign ugt i64 %89, %97
   br i1 %98, label %.thread, label %tt_sbit_decoder_init.exit
 
 tt_sbit_decoder_init.exit:                        ; preds = %95
@@ -10301,7 +10301,7 @@ define internal i32 @tt_face_get_kerning(ptr nocapture noundef readonly %0, i32 
   br i1 %84, label %.loopexit134, label %85
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i64 %83, %22
+  %86 = icmp samesign ult i64 %83, %22
   %87 = add nuw i32 %63, 1
   %.189 = select i1 %86, i32 %87, i32 %.088110
   %.187 = select i1 %86, i32 %.086111, i32 %63
@@ -10504,7 +10504,7 @@ thread-pre-split.i:                               ; preds = %41, %41, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load i16, ptr %22, align 8
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %57
   br i1 %58, label %28, label %.loopexit.i, !llvm.loop !70
 
 .loopexit.i:                                      ; preds = %55, %30
@@ -11756,7 +11756,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   %62 = sub nuw i64 %60, %59
   %63 = udiv i64 %62, 6
   %64 = zext i16 %40 to i64
-  %65 = icmp ult i64 %63, %64
+  %65 = icmp samesign ult i64 %63, %64
   br i1 %65, label %306, label %66
 
 66:                                               ; preds = %61
@@ -11796,7 +11796,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   %96 = sub nuw i64 %94, %84
   %97 = lshr i64 %96, 2
   %98 = zext i16 %92 to i64
-  %99 = icmp ult i64 %97, %98
+  %99 = icmp samesign ult i64 %97, %98
   br i1 %99, label %306, label %100
 
 100:                                              ; preds = %95
@@ -11852,7 +11852,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   %143 = or disjoint i64 %139, %142
   %144 = sub i64 %94, %122
   %145 = udiv i64 %144, 6
-  %146 = icmp ult i64 %145, %143
+  %146 = icmp samesign ult i64 %145, %143
   br i1 %146, label %306, label %147
 
 147:                                              ; preds = %124
@@ -11910,7 +11910,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   %188 = or disjoint i64 %184, %187
   %189 = sub i64 %94, %167
   %190 = lshr i64 %189, 2
-  %191 = icmp ult i64 %190, %188
+  %191 = icmp samesign ult i64 %190, %188
   br i1 %191, label %306, label %192
 
 192:                                              ; preds = %170
@@ -12202,7 +12202,7 @@ define internal range(i32 0, 9) i32 @tt_face_palette_set(ptr nocapture noundef r
   %26 = getelementptr inbounds i8, ptr %4, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ugt i32 %25, %28
+  %29 = icmp samesign ugt i32 %25, %28
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %9
@@ -12412,7 +12412,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr nocapture 
   %107 = getelementptr inbounds i8, ptr %0, i64 1072
   %108 = load i16, ptr %107, align 8
   %109 = zext i16 %108 to i32
-  %.not45 = icmp ult i32 %100, %109
+  %.not45 = icmp samesign ult i32 %100, %109
   br i1 %.not45, label %110, label %find_base_glyph_record.exit.thread
 
 110:                                              ; preds = %106, %105
@@ -15399,7 +15399,7 @@ define internal i32 @tt_face_colr_blend_layer(ptr nocapture noundef readonly %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %207 = load i32, ptr %136, align 4
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next, %208
   br i1 %209, label %.lr.ph221, label %._crit_edge222.loopexit, !llvm.loop !83
 
 ._crit_edge222.loopexit:                          ; preds = %.lr.ph221
@@ -15892,7 +15892,7 @@ thread-pre-split.thread:                          ; preds = %20, %27, %8, %14, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i16, ptr %5, align 8
   %48 = zext i16 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %8, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %thread-pre-split.thread, %4
@@ -15971,7 +15971,7 @@ define internal i32 @tt_face_load_svg(ptr noundef %0, ptr noundef %1) #0 {
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = or disjoint i64 %41, %44
-  %46 = icmp ult i64 %45, 10
+  %46 = icmp samesign ult i64 %45, 10
   br i1 %46, label %77, label %47
 
 47:                                               ; preds = %19
@@ -16215,7 +16215,7 @@ define internal i32 @tt_face_load_svg_doc(ptr nocapture noundef %0, i32 noundef 
 
 128:                                              ; preds = %81
   %129 = getelementptr inbounds i8, ptr %14, i64 %117
-  %130 = icmp ugt i64 %99, 6
+  %130 = icmp samesign ugt i64 %99, 6
   br i1 %130, label %131, label %169
 
 131:                                              ; preds = %128
@@ -17946,7 +17946,7 @@ get_x_mins.exit:                                  ; preds = %571, %551, %546
 .preheader.i181:                                  ; preds = %647, %.preheader.preheader.i
   %indvars.iv157.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next158.i, %647 ]
   %.097128.i = phi ptr [ %635, %.preheader.preheader.i ], [ %655, %647 ]
-  %637 = icmp ult i64 %indvars.iv157.i, %606
+  %637 = icmp samesign ult i64 %indvars.iv157.i, %606
   br i1 %637, label %638, label %647
 
 638:                                              ; preds = %.preheader.i181
@@ -18118,7 +18118,7 @@ write_buf.exit187:                                ; preds = %661, %696, %700
   %719 = or disjoint i64 %715, %718
   %720 = add i64 %719, %.02022.i191
   %721 = add nuw nsw i64 %.01724.i189, 4
-  %722 = icmp ult i64 %.01724.i189, 12
+  %722 = icmp samesign ult i64 %.01724.i189, 12
   br i1 %722, label %.lr.ph.i188, label %compute_ULong_sum.exit204, !llvm.loop !99
 
 compute_ULong_sum.exit204:                        ; preds = %.lr.ph.i188
@@ -18480,15 +18480,15 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr nocapture noundef
   %11 = zext i1 %.not to i8
   %12 = and i8 %10, 127
   %13 = zext nneg i8 %12 to i32
-  %14 = icmp ult i8 %12, 84
+  %14 = icmp samesign ult i8 %12, 84
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i8 %12, 120
+  %16 = icmp samesign ult i8 %12, 120
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i8 %12, 124
+  %18 = icmp samesign ult i8 %12, 124
   %. = select i1 %18, i64 3, i64 4
   br label %19
 
@@ -18501,7 +18501,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr nocapture noundef
   br i1 %or.cond, label %safe_int_addition.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = icmp ult i8 %12, 10
+  %24 = icmp samesign ult i8 %12, 10
   br i1 %24, label %.thread, label %34
 
 .thread:                                          ; preds = %23
@@ -18518,7 +18518,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr nocapture noundef
   br label %142
 
 34:                                               ; preds = %23
-  %35 = icmp ult i8 %12, 20
+  %35 = icmp samesign ult i8 %12, 20
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %34
@@ -18563,7 +18563,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr nocapture noundef
   br label %138
 
 68:                                               ; preds = %47
-  %69 = icmp ult i8 %12, 120
+  %69 = icmp samesign ult i8 %12, 120
   br i1 %69, label %70, label %92
 
 70:                                               ; preds = %68
@@ -18596,7 +18596,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr nocapture noundef
   br label %138
 
 92:                                               ; preds = %68
-  %93 = icmp ult i8 %12, 124
+  %93 = icmp samesign ult i8 %12, 124
   %94 = getelementptr i8, ptr %1, i64 %.084131
   br i1 %93, label %95, label %116
 
@@ -18913,7 +18913,7 @@ define internal fastcc range(i32 0, 9) i32 @store_points(i64 noundef range(i64 0
   %.1 = phi i32 [ %.0125176, %52 ], [ %68, %67 ]
   %71 = add nuw nsw i32 %.0142170, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = icmp ult i32 %71, %15
+  %73 = icmp samesign ult i32 %71, %15
   br i1 %73, label %16, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %70
@@ -19108,7 +19108,7 @@ define internal fastcc i32 @store_loca(ptr nocapture noundef readonly %0, i64 no
   br i1 %.not.i, label %.lr.ph31.i.preheader, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %39 = icmp ult i64 %59, %14
+  %39 = icmp samesign ult i64 %59, %14
   br i1 %39, label %.lr.ph31.i.preheader, label %compute_ULong_sum.exit
 
 .lr.ph31.i.preheader:                             ; preds = %.split.us, %.preheader.i
@@ -19141,7 +19141,7 @@ define internal fastcc i32 @store_loca(ptr nocapture noundef readonly %0, i64 no
   %57 = or disjoint i64 %53, %56
   %58 = add i64 %57, %.02022.i
   %59 = add nuw nsw i64 %.01724.i, 4
-  %60 = icmp ult i64 %59, %38
+  %60 = icmp samesign ult i64 %59, %38
   br i1 %60, label %.lr.ph.i, label %.preheader.i, !llvm.loop !99
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i.preheader, %.lr.ph31.i
@@ -20082,7 +20082,7 @@ tt_sbit_decoder_load_metrics.exit.thread:         ; preds = %30, %tt_sbit_decode
   %68 = add nuw nsw i32 %62, 7
   %69 = lshr i32 %68, 3
   %70 = mul nuw nsw i32 %69, %64
-  %71 = icmp ult i32 %67, %70
+  %71 = icmp samesign ult i32 %67, %70
   br i1 %71, label %72, label %79
 
 72:                                               ; preds = %57
@@ -20213,7 +20213,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   br i1 %.not140, label %.loopexit, label %.preheader100.lr.ph
 
 .preheader100.lr.ph:                              ; preds = %.preheader101
-  %50 = icmp ugt i32 %27, 7
+  %50 = icmp samesign ugt i32 %27, 7
   %51 = sext i32 %13 to i64
   br i1 %50, label %.preheader100.us, label %.preheader100.lr.ph.split
 
@@ -20284,7 +20284,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   br i1 %89, label %52, label %59
 
 .preheader100.lr.ph.split:                        ; preds = %.preheader100.lr.ph
-  %90 = icmp ugt i32 %27, %invariant.op
+  %90 = icmp samesign ugt i32 %27, %invariant.op
   %91 = lshr exact i32 65280, %27
   br i1 %90, label %.preheader100.us113.us.lver.check, label %.preheader100.lr.ph.split.split
 
@@ -20376,7 +20376,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   br i1 %.not142, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader99
-  %138 = icmp ugt i32 %27, 7
+  %138 = icmp samesign ugt i32 %27, 7
   %139 = sext i32 %13 to i64
   br i1 %138, label %.preheader.us, label %.preheader.lr.ph.split
 
@@ -20518,7 +20518,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr nocapt
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %44
-  %60 = icmp ugt i32 %23, 7
+  %60 = icmp samesign ugt i32 %23, 7
   br i1 %60, label %.lr.ph.us.us, label %.split.us.split
 
 .lr.ph.us.us:                                     ; preds = %.split.us, %90
@@ -21563,7 +21563,7 @@ define internal void @premultiply_data(ptr nocapture readnone %0, ptr nocapture 
 
 43:                                               ; preds = %13, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %44 = icmp ult i64 %indvars.iv.next, %7
+  %44 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %43, %3
@@ -21703,7 +21703,7 @@ define internal fastcc i32 @load_format_20(ptr nocapture noundef nonnull writeon
   %47 = getelementptr inbounds i8, ptr %44, i64 %46
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %48 = icmp ult ptr %47, %41
-  %49 = icmp ult i64 %indvars.iv.next101, %31
+  %49 = icmp samesign ult i64 %indvars.iv.next101, %31
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %.lr.ph90, label %._crit_edge91.loopexit, !llvm.loop !135
 
@@ -21728,7 +21728,7 @@ define internal fastcc i32 @load_format_20(ptr nocapture noundef nonnull writeon
   %54 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv103
   store ptr %41, ptr %54, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %55 = icmp ult i64 %indvars.iv.next104, %31
+  %55 = icmp samesign ult i64 %indvars.iv.next104, %31
   br i1 %55, label %.lr.ph95, label %.loopexit, !llvm.loop !136
 
 .loopexit:                                        ; preds = %.lr.ph95, %._crit_edge91, %._crit_edge
@@ -22852,7 +22852,7 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   %270 = getelementptr inbounds i8, ptr %.04576.i.i, i64 1
   store i8 %269, ptr %.04576.i.i, align 1
   %271 = udiv i32 %.04477.i.i, 10
-  %.not.i218.i = icmp ult i32 %.04477.i.i, 10
+  %.not.i218.i = icmp samesign ult i32 %.04477.i.i, 10
   br i1 %.not.i218.i, label %.preheader.i.i, label %.lr.ph.i217.i, !llvm.loop !141
 
 .lr.ph80.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph80.i.i
@@ -22900,8 +22900,8 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   %289 = ptrtoint ptr %.148.lcssa.i.i to i64
   %290 = sub i64 %288, %289
   %291 = icmp eq i64 %290, 5
-  %292 = icmp ult i32 %283, 34480
-  %or.cond.i.i = and i1 %291, %292
+  %292 = icmp samesign ult i32 %283, 34480
+  %or.cond.i.i = select i1 %291, i1 %292, i1 false
   br i1 %or.cond.i.i, label %.thread63.i.i, label %.thread70.i.i
 
 .thread.i.i:                                      ; preds = %279
@@ -22933,7 +22933,7 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   br i1 %.not58.i.i, label %.thread70.i.i, label %.thread70.sink.split.i.i
 
 304:                                              ; preds = %300
-  %305 = icmp ult i32 %283, 17232
+  %305 = icmp samesign ult i32 %283, 17232
   br i1 %305, label %.thread104.i.i, label %.thread70.i.i
 
 .thread104.i.i:                                   ; preds = %304, %.thread63.thread.i.i
@@ -24020,7 +24020,7 @@ tt_face_goto_table.exit.i:                        ; preds = %19
   %67 = zext i8 %66 to i64
   %68 = or disjoint i64 %64, %67
   %69 = icmp ne i32 %42, 1
-  %70 = icmp ult i64 %68, 8
+  %70 = icmp samesign ult i64 %68, 8
   %or.cond3.i = select i1 %69, i1 true, i1 %70
   br i1 %or.cond3.i, label %99, label %71
 
@@ -24028,7 +24028,7 @@ tt_face_goto_table.exit.i:                        ; preds = %19
   %72 = add nsw i64 %68, -8
   %73 = lshr i64 %72, 2
   %74 = zext nneg i32 %50 to i64
-  %75 = icmp uge i64 %73, %74
+  %75 = icmp samesign uge i64 %73, %74
   %.not59.i = icmp ult i64 %68, %21
   %or.cond61.i = select i1 %75, i1 %.not59.i, i1 false
   br i1 %or.cond61.i, label %76, label %99
@@ -24302,7 +24302,7 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr noc
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
-  %.not = icmp ult i32 %15, 2
+  %.not = icmp samesign ult i32 %15, 2
   br i1 %.not, label %.thread5, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %2
@@ -24510,7 +24510,7 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr noc
 133:                                              ; preds = %120, %128
   %.4 = phi i32 [ %spec.store.select, %128 ], [ 0, %120 ]
   %134 = icmp ne i32 %.4, 0
-  %135 = icmp ugt i64 %indvars.iv, 65534
+  %135 = icmp samesign ugt i64 %indvars.iv, 65534
   %or.cond9 = or i1 %134, %135
   br i1 %or.cond9, label %.loopexit, label %136
 
@@ -24562,7 +24562,7 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr nocapture noundef %0, p
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = lshr i32 %22, 1
-  %.not = icmp ult i32 %22, 2
+  %.not = icmp samesign ult i32 %22, 2
   br i1 %.not, label %.thread294, label %24
 
 24:                                               ; preds = %3
@@ -25054,7 +25054,7 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr nocapture noundef %0, p
   %333 = zext i8 %332 to i32
   %334 = or disjoint i32 %330, %333
   %.fr.i = freeze i32 %334
-  %.not.i = icmp uge i64 %indvars.iv.i, %298
+  %.not.i = icmp samesign uge i64 %indvars.iv.i, %298
   %335 = icmp eq i32 %317, 65535
   %or.cond.i = select i1 %.not.i, i1 %335, i1 false
   %336 = icmp eq i32 %309, 65535
@@ -25325,7 +25325,7 @@ define internal fastcc void @tt_cmap4_next(ptr nocapture noundef %0) unnamed_add
   %111 = zext i8 %110 to i32
   %112 = or disjoint i32 %108, %111
   %.fr.i = freeze i32 %112
-  %.not.i = icmp uge i64 %indvars.iv.i, %76
+  %.not.i = icmp samesign uge i64 %indvars.iv.i, %76
   %113 = icmp eq i32 %95, 65535
   %or.cond.i = select i1 %.not.i, i1 %113, i1 false
   %114 = icmp eq i32 %87, 65535

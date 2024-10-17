@@ -143,7 +143,7 @@ for.inc:                                          ; preds = %_ZN6icu_75L16adjust
 for.end:                                          ; preds = %for.inc, %for.body, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %entry
   %confidence.1 = phi i32 [ 10, %entry ], [ %confidence.addr.1.i, %_ZN6icu_75L16adjustConfidenceEDsi.exit ], [ %confidence.addr.1.i, %_ZN6icu_75L16adjustConfidenceEDsi.exit ], [ 100, %for.body ], [ %confidence.addr.1.i, %for.inc ]
   %cmp15 = icmp slt i32 %1, 4
-  %cmp17 = icmp ult i32 %confidence.1, 100
+  %cmp17 = icmp samesign ult i32 %confidence.1, 100
   %or.cond2 = and i1 %cmp15, %cmp17
   %spec.store.select = select i1 %or.cond2, i32 0, i32 %confidence.1
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %spec.store.select, ptr noundef null, ptr noundef null)
@@ -256,7 +256,7 @@ for.inc:                                          ; preds = %_ZN6icu_75L16adjust
 for.end:                                          ; preds = %for.inc, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %entry, %land.lhs.true15, %if.then, %land.lhs.true11
   %confidence.1 = phi i32 [ 100, %land.lhs.true11 ], [ 100, %if.then ], [ %spec.select, %land.lhs.true15 ], [ 10, %entry ], [ %confidence.addr.1.i, %_ZN6icu_75L16adjustConfidenceEDsi.exit ], [ %confidence.addr.1.i, %_ZN6icu_75L16adjustConfidenceEDsi.exit ], [ %confidence.addr.1.i, %for.inc ]
   %cmp26 = icmp slt i32 %1, 4
-  %cmp28 = icmp ult i32 %confidence.1, 100
+  %cmp28 = icmp samesign ult i32 %confidence.1, 100
   %or.cond2 = and i1 %cmp26, %cmp28
   %spec.store.select = select i1 %or.cond2, i32 0, i32 %confidence.1
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %spec.store.select, ptr noundef null, ptr noundef null)
@@ -327,13 +327,13 @@ for.end:                                          ; preds = %for.body
 
 if.else20:                                        ; preds = %for.end
   %mul23 = mul nuw nsw i32 %numInvalid.1, 10
-  %cmp24 = icmp ugt i32 %numValid.1, %mul23
+  %cmp24 = icmp samesign ugt i32 %numValid.1, %mul23
   %cond.fr = freeze i1 %cmp24
   %or.cond26 = and i1 %cmp2, %cond.fr
   br i1 %or.cond26, label %if.end44, label %if.else26
 
 if.else26:                                        ; preds = %if.else20
-  %cmp27 = icmp ugt i32 %numValid.1, 3
+  %cmp27 = icmp samesign ugt i32 %numValid.1, 3
   %or.cond3 = select i1 %cmp27, i1 %cmp18, i1 false
   br i1 %or.cond3, label %if.end44, label %if.else31
 

@@ -3349,7 +3349,7 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not.i.i, label %select.unfold.i.i, label %13
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !45
 
 13:                                               ; preds = %.lr.ph.i.i

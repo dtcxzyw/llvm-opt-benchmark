@@ -89,7 +89,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode(i64 noundef %0, i64 noundef 
 
 aom_uleb_size_in_bytes.exit:                      ; preds = %5
   %8 = icmp ugt i64 %0, 4294967295
-  %9 = icmp ugt i64 %.0.i, 7
+  %9 = icmp samesign ugt i64 %.0.i, 7
   %or.cond = select i1 %8, i1 true, i1 %9
   br i1 %or.cond, label %20, label %10
 

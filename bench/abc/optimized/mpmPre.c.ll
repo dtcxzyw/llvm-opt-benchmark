@@ -3435,7 +3435,7 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   br label %.preheader218
 
 .preheader219:                                    ; preds = %256
-  %7 = icmp ugt i64 %indvars.iv304, 2
+  %7 = icmp samesign ugt i64 %indvars.iv304, 2
   br i1 %7, label %.preheader217.us, label %._crit_edge.split.us
 
 .preheader217.us:                                 ; preds = %.preheader219, %._crit_edge250.split.us.us
@@ -4713,7 +4713,7 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr nocapture noundef %1) loca
   %72 = trunc i64 %71 to i32
   %73 = lshr i32 %72, 1
   %74 = and i32 %73, 127
-  %.not = icmp ugt i32 %54, %30
+  %.not = icmp samesign ugt i32 %54, %30
   br i1 %.not, label %79, label %75
 
 75:                                               ; preds = %3

@@ -82,7 +82,7 @@ define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_ad
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %18
-  %33 = icmp ugt i32 %20, %13
+  %33 = icmp samesign ugt i32 %20, %13
   br i1 %33, label %85, label %34
 
 34:                                               ; preds = %32
@@ -90,7 +90,7 @@ define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_ad
   br label %85
 
 36:                                               ; preds = %18
-  %37 = icmp ugt i32 %29, %13
+  %37 = icmp samesign ugt i32 %29, %13
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -137,7 +137,7 @@ define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_ad
   %64 = and i64 %63, 1099494850560
   %65 = add nuw nsw i64 %64, 16777216
   %66 = tail call i64 @llvm.umin.i64(i64 %65, i64 %2)
-  %67 = icmp ugt i64 %66, %25
+  %67 = icmp samesign ugt i64 %66, %25
   br i1 %67, label %68, label %85
 
 68:                                               ; preds = %62
@@ -151,7 +151,7 @@ define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_ad
   br label %85
 
 74:                                               ; preds = %68
-  %75 = icmp ult i64 %66, %70
+  %75 = icmp samesign ult i64 %66, %70
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74

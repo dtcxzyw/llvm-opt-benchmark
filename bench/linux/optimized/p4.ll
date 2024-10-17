@@ -613,7 +613,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
   %88 = and i64 %87, 9223371968168792063
   store i64 %88, ptr %86, align 8
   %89 = lshr i64 %88, 57
-  %90 = icmp ugt i64 %88, 6629298651489370111
+  %90 = icmp samesign ugt i64 %88, 6629298651489370111
   br i1 %90, label %.thread11, label %91
 
 91:                                               ; preds = %85
@@ -675,8 +675,8 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
   %123 = icmp ne i64 %122, 0
   %.not15 = or i1 %123, %121
   %124 = and i64 %112, 62
-  %125 = icmp ugt i64 %124, 9
-  %or.cond = or i1 %125, %.not15
+  %125 = icmp samesign ugt i64 %124, 9
+  %or.cond = select i1 %.not15, i1 true, i1 %125
   br i1 %or.cond, label %.thread11, label %126
 
 126:                                              ; preds = %111
@@ -685,7 +685,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
   store i64 %128, ptr %81, align 8
   %129 = lshr i64 %112, 57
   %130 = and i64 %129, 63
-  %131 = icmp ugt i64 %130, 45
+  %131 = icmp samesign ugt i64 %130, 45
   %132 = getelementptr [46 x %struct.p4_event_bind], ptr @p4_event_bind_map, i64 0, i64 %130
   %133 = icmp eq ptr %132, null
   %134 = or i1 %131, %133
@@ -780,7 +780,7 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %37 = phi i32 [ 0, %32 ], [ %109, %106 ]
   %38 = lshr i64 %36, 57
   %39 = and i64 %38, 63
-  %40 = icmp ult i64 %39, 46
+  %40 = icmp samesign ult i64 %39, 46
   %41 = getelementptr [46 x %struct.p4_event_bind], ptr @p4_event_bind_map, i64 0, i64 %39
   %42 = select i1 %40, ptr %41, ptr null
   %43 = getelementptr inbounds i8, ptr %42, i64 4
@@ -1079,7 +1079,7 @@ define internal i64 @p4_pmu_event_map(i32 noundef %0) #7 align 16 {
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 57
   %6 = and i64 %5, 63
-  %7 = icmp ult i64 %6, 46
+  %7 = icmp samesign ult i64 %6, 46
   %8 = getelementptr [46 x %struct.p4_event_bind], ptr @p4_event_bind_map, i64 0, i64 %6
   %9 = select i1 %7, ptr %8, ptr null
   %10 = load i32, ptr %9, align 4

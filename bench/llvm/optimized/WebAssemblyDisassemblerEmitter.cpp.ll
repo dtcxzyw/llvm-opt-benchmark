@@ -600,7 +600,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit140:              ; preds = %250, %252
   %259 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %260 = load i32, ptr %259, align 4
   %261 = zext i32 %260 to i64
-  %262 = icmp ugt i64 %indvars.iv, %261
+  %262 = icmp samesign ugt i64 %indvars.iv, %261
   %.19.i.i.i = select i1 %262, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %262, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -616,7 +616,7 @@ _ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4find
   %264 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %265 = load i32, ptr %264, align 4
   %266 = zext i32 %265 to i64
-  %267 = icmp ult i64 %indvars.iv, %266
+  %267 = icmp samesign ult i64 %indvars.iv, %266
   br i1 %267, label %_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4findERS8_.exit.thread, label %268
 
 268:                                              ; preds = %_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4findERS8_.exit
@@ -977,7 +977,7 @@ _ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4find
   %421 = getelementptr inbounds nuw i8, ptr %.012.i.i.i163, i64 32
   %422 = load i32, ptr %421, align 4
   %423 = zext i32 %422 to i64
-  %424 = icmp ugt i64 %indvars.iv, %423
+  %424 = icmp samesign ugt i64 %indvars.iv, %423
   %.19.i.i.i165 = select i1 %424, ptr %.0811.i.i.i164, ptr %.012.i.i.i163
   %.1.in.v.i.i.i166 = select i1 %424, i64 24, i64 16
   %.1.in.i.i.i167 = getelementptr inbounds nuw i8, ptr %.012.i.i.i163, i64 %.1.in.v.i.i.i166
@@ -994,7 +994,7 @@ _ZNSt3mapIjS_IjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEES
   %.19.i.i.i165.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i165.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %426 = load i32, ptr %.19.i.i.i165.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %427 = zext i32 %426 to i64
-  %428 = icmp uge i64 %indvars.iv, %427
+  %428 = icmp samesign uge i64 %indvars.iv, %427
   %429 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %429, %428
   br i1 %or.cond, label %430, label %.critedge

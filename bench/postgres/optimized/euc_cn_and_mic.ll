@@ -166,7 +166,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr nocapture nound
   unreachable
 
 24:                                               ; preds = %21
-  %25 = icmp ult i32 %.03248.i, 3
+  %25 = icmp samesign ult i32 %.03248.i, 3
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24

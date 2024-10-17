@@ -480,7 +480,7 @@ if.end.i.i19:                                     ; preds = %for.cond
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit22: ; preds = %for.cond, %if.end.i.i19
   %retval.0.i.i21 = phi i64 [ %8, %if.end.i.i19 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i21
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i21
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit22

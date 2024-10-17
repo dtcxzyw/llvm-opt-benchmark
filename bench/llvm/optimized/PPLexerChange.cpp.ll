@@ -2795,7 +2795,7 @@ _ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit: ; preds = %
   %194 = trunc nuw nsw i64 %193 to i32
   %195 = call noundef i32 @_ZNK4llvm9StringRef13edit_distanceES0_bj(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr nonnull %190, i64 %192, i1 noundef zeroext true, i32 noundef %194) #17
   %196 = zext i32 %195 to i64
-  %.not113 = icmp ult i64 %193, %196
+  %.not113 = icmp samesign ult i64 %193, %196
   br i1 %.not113, label %260, label %197
 
 197:                                              ; preds = %181

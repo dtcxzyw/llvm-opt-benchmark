@@ -1511,7 +1511,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17hba1fcb4ce5bb3dd
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 52
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 52
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %3
@@ -24318,7 +24318,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.14071410801088
   %25 = shl nuw nsw i64 %9, 4
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !4594, !noalias !4597, !nonnull !4, !noundef !4
-  %28 = icmp uge i64 %22, %25
+  %28 = icmp samesign uge i64 %22, %25
   tail call void @llvm.assume(i1 %28)
   %29 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %27, i64 noundef %25, i64 noundef 8, i64 noundef %22) #29, !noalias !4599
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i"

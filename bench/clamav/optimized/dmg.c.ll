@@ -1819,7 +1819,7 @@ dmg_stripe_store.exit:                            ; preds = %141, %123, %dmg_str
   %325 = getelementptr inbounds i8, ptr %324, i64 200
   %326 = load i32, ptr %325, align 1
   %327 = zext i32 %326 to i64
-  %328 = icmp ult i64 %indvars.iv.next, %327
+  %328 = icmp samesign ult i64 %indvars.iv.next, %327
   %329 = icmp eq i32 %.1169, 0
   %330 = select i1 %328, i1 %329, i1 false
   br i1 %330, label %107, label %._crit_edge276

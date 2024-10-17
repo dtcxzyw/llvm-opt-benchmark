@@ -6069,7 +6069,7 @@ define noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMess
   br label %104
 
 27:                                               ; preds = %._crit_edge
-  %28 = icmp ugt i32 %.140, 1
+  %28 = icmp samesign ugt i32 %.140, 1
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %27
@@ -10471,7 +10471,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i

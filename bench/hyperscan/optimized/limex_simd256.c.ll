@@ -151,7 +151,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
   %31 = phi i32 [ %18, %land.lhs.true.i ], [ %.pre, %if.end21.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = zext i32 %31 to i64
-  %cmp.i3 = icmp ult i64 %indvars.iv.next, %32
+  %cmp.i3 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp.i3, label %for.body.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -420,7 +420,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
   %31 = phi i32 [ %18, %land.lhs.true.i ], [ %.pre, %if.end20.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = zext i32 %31 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %32
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp.i, label %for.body.i, label %nfaExecLimEx256_Expand_Repeats.exit, !llvm.loop !55
 
 nfaExecLimEx256_Expand_Repeats.exit:              ; preds = %for.inc.i, %if.end.i7, %moNfaExpandState256.exit
@@ -447,7 +447,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %repeatCount, align 4
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !56
 
 for.end:                                          ; preds = %for.body, %entry
@@ -605,7 +605,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %repeatCount, align 4
   %25 = zext i32 %24 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %25
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp, label %for.body, label %return, !llvm.loop !79
 
 return:                                           ; preds = %for.body, %moNfaCompressState256.exit, %entry
@@ -3306,7 +3306,7 @@ for.inc.i:                                        ; preds = %if.then53.i.else, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %461 = load i32, ptr %repeatCount.i, align 4
   %462 = zext i32 %461 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %462
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %462
   br i1 %cmp.i, label %for.body.i, label %do.end80, !llvm.loop !238
 
 do.end80:                                         ; preds = %for.inc.i, %if.end.i123, %while.end
@@ -3891,7 +3891,7 @@ for.inc.i:                                        ; preds = %if.end47.i, %if.the
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load i32, ptr %repeatCount.i, align 4
   %87 = zext i32 %86 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %87
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %cmp.i, label %for.body.i, label %do.end136, !llvm.loop !238
 
 do.end136:                                        ; preds = %for.inc.i, %if.end.i176, %while.end
@@ -6301,7 +6301,7 @@ for.inc.i:                                        ; preds = %if.end47.i, %if.the
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %repeatCount.i, align 4
   %51 = zext i32 %50 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %51
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %cmp.i, label %for.body.i, label %do.end57.loopexit, !llvm.loop !238
 
 do.end57.loopexit:                                ; preds = %for.inc.i
@@ -6453,7 +6453,7 @@ for.inc.i166:                                     ; preds = %if.end6.i, %if.end.
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %73 = load i32, ptr %repeatCount.i, align 4
   %74 = zext i32 %73 to i64
-  %cmp.i157 = icmp ult i64 %indvars.iv.next264, %74
+  %cmp.i157 = icmp samesign ult i64 %indvars.iv.next264, %74
   br i1 %cmp.i157, label %for.body.i158, label %lazyTug256.exit, !llvm.loop !431
 
 lazyTug256.exit:                                  ; preds = %for.inc.i166, %if.end.i93
@@ -8624,7 +8624,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.end.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %repeatCount.i, align 4
   %18 = zext i32 %17 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %18
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp.i, label %for.body.i, label %lazyTug256.exit, !llvm.loop !431
 
 lazyTug256.exit:                                  ; preds = %for.inc.i, %if.end.i
@@ -9040,7 +9040,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %repeatCount.i, align 4
   %17 = zext i32 %16 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %17
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp.i, label %for.body.i, label %lazyTug256.exit, !llvm.loop !431
 
 lazyTug256.exit:                                  ; preds = %for.inc.i, %if.end.i
@@ -9938,7 +9938,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.end.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %repeatCount.i, align 4
   %26 = zext i32 %25 to i64
-  %cmp.i24 = icmp ult i64 %indvars.iv.next, %26
+  %cmp.i24 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp.i24, label %for.body.i25, label %lazyTug256.exit, !llvm.loop !431
 
 lazyTug256.exit:                                  ; preds = %for.inc.i, %if.end.i
@@ -10195,7 +10195,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.end.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %repeatCount.i, align 4
   %26 = zext i32 %25 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %26
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp.i, label %for.body.i, label %lazyTug256.exit, !llvm.loop !431
 
 lazyTug256.exit:                                  ; preds = %for.inc.i, %if.end.i
@@ -10361,7 +10361,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.end.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %repeatCount, align 4
   %20 = zext i32 %19 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %20
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !431
 
 if.end:                                           ; preds = %for.inc.i, %entry

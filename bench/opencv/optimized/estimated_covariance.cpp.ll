@@ -2020,7 +2020,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
 ._crit_edge499:                                   ; preds = %._crit_edge499.loopexit, %.loopexit
   %.3.lcssa = phi i32 [ %.3493, %.loopexit ], [ %754, %._crit_edge499.loopexit ]
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %755 = icmp ult i64 %indvars.iv.next582, %160
+  %755 = icmp samesign ult i64 %indvars.iv.next582, %160
   br i1 %755, label %332, label %.preheader, !llvm.loop !24
 
 756:                                              ; preds = %.lr.ph505, %756

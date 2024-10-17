@@ -237,7 +237,7 @@ define float @Amap_ManComputeMapping_rec(ptr nocapture noundef readonly %0, ptr 
   %57 = load i32, ptr %33, align 8
   %58 = lshr i32 %57, 24
   %59 = zext nneg i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %36, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %36, %17, %15, %3
@@ -977,7 +977,7 @@ define internal fastcc float @Amap_CutAreaDeref(ptr nocapture noundef readonly %
   %69 = load i32, ptr %68, align 4
   %70 = lshr i32 %69, 17
   %71 = zext nneg i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %22, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %67, %2
@@ -1095,7 +1095,7 @@ define internal fastcc float @Amap_CutAreaRef(ptr nocapture noundef readonly %0,
   %69 = load i32, ptr %68, align 4
   %70 = lshr i32 %69, 17
   %71 = zext nneg i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %22, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %67, %2
@@ -1673,7 +1673,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 17
   %105 = zext nneg i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next, %105
   br i1 %106, label %27, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %101, %.preheader, %4

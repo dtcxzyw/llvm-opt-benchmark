@@ -384,7 +384,7 @@ extractMax.exit:                                  ; preds = %153
   store i32 %195, ptr %202, align 4
   %203 = getelementptr inbounds i32, ptr %11, i64 %196
   store i32 %.029.i60, ptr %203, align 4
-  %.not32.i = icmp ult i32 %.029.i60, 2
+  %.not32.i = icmp samesign ult i32 %.029.i60, 2
   br i1 %.not32.i, label %.critedge.i, label %.lr.ph.i59
 
 .critedge.i:                                      ; preds = %200, %.lr.ph.i59, %188
@@ -674,7 +674,7 @@ extractMax_f.exit:                                ; preds = %81
   store i32 %123, ptr %130, align 4
   %131 = getelementptr inbounds i32, ptr %12, i64 %124
   store i32 %.01.i, ptr %131, align 4
-  %.not.i = icmp ult i32 %.01.i, 2
+  %.not.i = icmp samesign ult i32 %.01.i, 2
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %128, %.lr.ph.i, %116
@@ -1146,7 +1146,7 @@ extractMax_f.exit:                                ; preds = %95
   store i32 %161, ptr %168, align 4
   %169 = getelementptr inbounds i32, ptr %12, i64 %162
   store i32 %.01.i, ptr %169, align 4
-  %.not.i = icmp ult i32 %.01.i, 2
+  %.not.i = icmp samesign ult i32 %.01.i, 2
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %166, %.lr.ph.i, %154

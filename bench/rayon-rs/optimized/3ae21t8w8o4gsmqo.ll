@@ -376,7 +376,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h1f65477078e1658fE(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !34, !alias.scope !48, !noundef !5
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0.i = select i1 %switch.i, ptr null, ptr %3
   %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0

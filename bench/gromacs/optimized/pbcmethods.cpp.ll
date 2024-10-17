@@ -1037,7 +1037,7 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
 73:                                               ; preds = %.loopexit, %21
   %.153 = phi i32 [ %72, %.loopexit ], [ %.05276, %21 ]
   %.1 = phi double [ 0.000000e+00, %.loopexit ], [ %.081, %21 ]
-  %74 = icmp ult i64 %indvars.iv88, %17
+  %74 = icmp samesign ult i64 %indvars.iv88, %17
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %73

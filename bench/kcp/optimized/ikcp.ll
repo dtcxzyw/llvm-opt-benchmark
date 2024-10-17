@@ -1633,7 +1633,7 @@ for.body14.i:                                     ; preds = %for.cond10.preheade
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = load i32, ptr %ackcount.i, align 8
   %52 = zext i32 %51 to i64
-  %cmp12.i = icmp ult i64 %indvars.iv.next.i, %52
+  %cmp12.i = icmp samesign ult i64 %indvars.iv.next.i, %52
   br i1 %cmp12.i, label %for.body14.i, label %for.end32.loopexit.i, !llvm.loop !23
 
 for.end32.loopexit.i:                             ; preds = %for.body14.i

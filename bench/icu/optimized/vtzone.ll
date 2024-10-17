@@ -6433,7 +6433,7 @@ do.body:                                          ; preds = %do.body, %if.end4
   %arrayidx = getelementptr inbounds [20 x i32], ptr %digits, i64 0, i64 %indvars.iv
   store i32 %conv8, ptr %arrayidx, align 4
   %div = udiv i64 %number.2, 10
-  %cmp9.not = icmp ult i64 %number.2, 10
+  %cmp9.not = icmp samesign ult i64 %number.2, 10
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !27
 
 do.end:                                           ; preds = %do.body
@@ -6905,7 +6905,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
-  %cmp7.not.i = icmp ult i32 %number.addr.1.i, 10
+  %cmp7.not.i = icmp samesign ult i32 %number.addr.1.i, 10
   br i1 %cmp7.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
 
 do.end.i:                                         ; preds = %do.body.i
@@ -8283,7 +8283,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
-  %cmp7.not.i = icmp ult i32 %number.addr.1.i, 10
+  %cmp7.not.i = icmp samesign ult i32 %number.addr.1.i, 10
   br i1 %cmp7.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
 
 do.end.i:                                         ; preds = %do.body.i
@@ -8506,7 +8506,7 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
-  %cmp7.not.i = icmp ult i32 %number.addr.1.i, 10
+  %cmp7.not.i = icmp samesign ult i32 %number.addr.1.i, 10
   br i1 %cmp7.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
 
 do.end.i:                                         ; preds = %do.body.i
@@ -8857,7 +8857,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
-  %cmp7.not.i = icmp ult i32 %number.addr.1.i, 10
+  %cmp7.not.i = icmp samesign ult i32 %number.addr.1.i, 10
   br i1 %cmp7.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
 
 do.end.i:                                         ; preds = %do.body.i
@@ -8942,7 +8942,7 @@ do.body.i50:                                      ; preds = %do.body.i50, %invok
   %arrayidx.i55 = getelementptr inbounds [10 x i32], ptr %digits.i47, i64 0, i64 %indvars.iv27.i51
   store i32 %rem.i53, ptr %arrayidx.i55, align 4
   %div.i56 = udiv i32 %number.addr.1.i52, 10
-  %cmp7.not.i57 = icmp ult i32 %number.addr.1.i52, 10
+  %cmp7.not.i57 = icmp samesign ult i32 %number.addr.1.i52, 10
   br i1 %cmp7.not.i57, label %do.end.i58, label %do.body.i50, !llvm.loop !29
 
 do.end.i58:                                       ; preds = %do.body.i50

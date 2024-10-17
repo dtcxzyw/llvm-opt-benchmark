@@ -736,7 +736,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h29c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !131
   store ptr %11, ptr %5, align 8, !noalias !137
   %12 = load i8, ptr %11, align 8, !range !138, !alias.scope !137, !noundef !4
-  %switch.i.i = icmp ult i8 %12, 2
+  %switch.i.i = icmp samesign ult i8 %12, 2
   br i1 %switch.i.i, label %"_ZN14regex_automata4meta8wrappers12HybridEngine10try_search28_$u7b$$u7b$closure$u7d$$u7d$17h1e4dcbd70f1ed035E.exit", label %17
 
 13:                                               ; preds = %17
@@ -3080,7 +3080,7 @@ common.resume:                                    ; preds = %.body, %215, %.body
   %515 = ptrtoint ptr %.sroa.0.057.i.i to i64
   %516 = sub nuw i64 %509, %515
   %517 = lshr exact i64 %516, 5
-  %.not.i.i48.not.i.i = icmp ult i64 %.sroa.10.0.i.i, %517
+  %.not.i.i48.not.i.i = icmp samesign ult i64 %.sroa.10.0.i.i, %517
   %518 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.057.i.i, i64 %.sroa.10.0.i.i
   br i1 %.not.i.i48.not.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread61.i.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread.i.i"
 
@@ -4171,7 +4171,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %77 = icmp ne i64 %76, 0
   %78 = zext i1 %77 to i64
   %.0.i2.i = add nuw nsw i64 %75, %78
-  %79 = icmp ugt i64 %.0.i2.i, 288230376151711743
+  %79 = icmp samesign ugt i64 %.0.i2.i, 288230376151711743
   %80 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %79, i64 -1, i64 %80
   %81 = udiv i64 %spec.select.i.i, %66
@@ -4504,7 +4504,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %72 = icmp ne i64 %71, 0
   %73 = zext i1 %72 to i64
   %.0.i2.i = add nuw nsw i64 %70, %73
-  %74 = icmp ugt i64 %.0.i2.i, 288230376151711743
+  %74 = icmp samesign ugt i64 %.0.i2.i, 288230376151711743
   %75 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %74, i64 -1, i64 %75
   %76 = udiv i64 %spec.select.i.i, %61
@@ -4719,7 +4719,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %69 = icmp ne i64 %68, 0
   %70 = zext i1 %69 to i64
   %.0.i2.i = add nuw nsw i64 %67, %70
-  %71 = icmp ugt i64 %.0.i2.i, 288230376151711743
+  %71 = icmp samesign ugt i64 %.0.i2.i, 288230376151711743
   %72 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %71, i64 -1, i64 %72
   %73 = udiv i64 %spec.select.i.i, %58
@@ -5386,7 +5386,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !1216
   store ptr %24, ptr %7, align 8, !noalias !1217
   %25 = load i8, ptr %24, align 8, !range !138, !alias.scope !1218, !noalias !1219, !noundef !4
-  %switch.i.i.i = icmp ult i8 %25, 2
+  %switch.i.i.i = icmp samesign ult i8 %25, 2
   br i1 %switch.i.i.i, label %41, label %30
 
 26:                                               ; preds = %30
@@ -5561,7 +5561,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1271
   store ptr %43, ptr %9, align 8, !noalias !1272
   %44 = load i8, ptr %43, align 8, !range !138, !alias.scope !1273, !noalias !1264, !noundef !4
-  %switch.i.i.i = icmp ult i8 %44, 2
+  %switch.i.i.i = icmp samesign ult i8 %44, 2
   br i1 %switch.i.i.i, label %64, label %49
 
 45:                                               ; preds = %49
@@ -5764,7 +5764,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !1339
   store ptr %39, ptr %6, align 8, !noalias !1340
   %40 = load i8, ptr %39, align 8, !range !138, !alias.scope !1341, !noalias !1342, !noundef !4
-  %switch.i.i.i = icmp ult i8 %40, 2
+  %switch.i.i.i = icmp samesign ult i8 %40, 2
   br i1 %switch.i.i.i, label %58, label %45
 
 41:                                               ; preds = %45
@@ -5899,7 +5899,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !1395
   store ptr %44, ptr %15, align 8, !noalias !1396
   %45 = load i8, ptr %44, align 8, !range !138, !alias.scope !1397, !noalias !1398, !noundef !4
-  %switch.i.i.i = icmp ult i8 %45, 2
+  %switch.i.i.i = icmp samesign ult i8 %45, 2
   br i1 %switch.i.i.i, label %61, label %50
 
 46:                                               ; preds = %50
@@ -6083,7 +6083,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !1459
   store ptr %109, ptr %12, align 8, !noalias !1460
   %110 = load i8, ptr %109, align 8, !range !138, !alias.scope !1461, !noalias !1462, !noundef !4
-  %switch.i.i.i66 = icmp ult i8 %110, 2
+  %switch.i.i.i66 = icmp samesign ult i8 %110, 2
   br i1 %switch.i.i.i66, label %_ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.exit.thread110, label %115
 
 111:                                              ; preds = %115
@@ -6757,7 +6757,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !1668
   store ptr %66, ptr %12, align 8, !noalias !1669
   %67 = load i8, ptr %66, align 8, !range !138, !alias.scope !1670, !noalias !1671, !noundef !4
-  %switch.i.i.i = icmp ult i8 %67, 2
+  %switch.i.i.i = icmp samesign ult i8 %67, 2
   br i1 %switch.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread", label %72
 
 68:                                               ; preds = %72
@@ -6863,7 +6863,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1719
   store ptr %99, ptr %9, align 8, !noalias !1720
   %100 = load i8, ptr %99, align 8, !range !138, !alias.scope !1721, !noalias !1722, !noundef !4
-  %switch.i.i.i20 = icmp ult i8 %100, 2
+  %switch.i.i.i20 = icmp samesign ult i8 %100, 2
   br i1 %switch.i.i.i20, label %116, label %105
 
 101:                                              ; preds = %105
@@ -7126,7 +7126,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !1795
   store ptr %69, ptr %15, align 8, !noalias !1796
   %70 = load i8, ptr %69, align 8, !range !138, !alias.scope !1797, !noalias !1798, !noundef !4
-  %switch.i.i.i = icmp ult i8 %70, 2
+  %switch.i.i.i = icmp samesign ult i8 %70, 2
   br i1 %switch.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread", label %75
 
 71:                                               ; preds = %75
@@ -7290,7 +7290,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !1865
   store ptr %119, ptr %11, align 8, !noalias !1866
   %120 = load i8, ptr %119, align 8, !range !138, !alias.scope !1867, !noalias !1868, !noundef !4
-  %switch.i.i.i26 = icmp ult i8 %120, 2
+  %switch.i.i.i26 = icmp samesign ult i8 %120, 2
   br i1 %switch.i.i.i26, label %140, label %125
 
 121:                                              ; preds = %125
@@ -7569,7 +7569,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !1954
   store ptr %65, ptr %11, align 8, !noalias !1955
   %66 = load i8, ptr %65, align 8, !range !138, !alias.scope !1956, !noalias !1957, !noundef !4
-  %switch.i.i.i = icmp ult i8 %66, 2
+  %switch.i.i.i = icmp samesign ult i8 %66, 2
   br i1 %switch.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread", label %71
 
 67:                                               ; preds = %71
@@ -7714,7 +7714,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !2010
   store ptr %114, ptr %7, align 8, !noalias !2011
   %115 = load i8, ptr %114, align 8, !range !138, !alias.scope !2012, !noalias !2013, !noundef !4
-  %switch.i.i.i25 = icmp ult i8 %115, 2
+  %switch.i.i.i25 = icmp samesign ult i8 %115, 2
   br i1 %switch.i.i.i25, label %133, label %120
 
 116:                                              ; preds = %120
@@ -7946,7 +7946,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24), !noalias !2079
   store ptr %82, ptr %24, align 8, !noalias !2080
   %83 = load i8, ptr %82, align 8, !range !138, !alias.scope !2081, !noalias !2082, !noundef !4
-  %switch.i.i.i = icmp ult i8 %83, 2
+  %switch.i.i.i = icmp samesign ult i8 %83, 2
   br i1 %switch.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread", label %88
 
 84:                                               ; preds = %88
@@ -8067,7 +8067,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21), !noalias !2145
   store ptr %125, ptr %21, align 8, !noalias !2146
   %126 = load i8, ptr %125, align 8, !range !138, !alias.scope !2147, !noalias !2148, !noundef !4
-  %switch.i.i.i64 = icmp ult i8 %126, 2
+  %switch.i.i.i64 = icmp samesign ult i8 %126, 2
   br i1 %switch.i.i.i64, label %142, label %131
 
 127:                                              ; preds = %131
@@ -8222,7 +8222,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !2210
   store ptr %179, ptr %18, align 8, !noalias !2211
   %180 = load i8, ptr %179, align 8, !range !138, !alias.scope !2212, !noalias !2213, !noundef !4
-  %switch.i.i.i68 = icmp ult i8 %180, 2
+  %switch.i.i.i68 = icmp samesign ult i8 %180, 2
   br i1 %switch.i.i.i68, label %_ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.exit.i.thread140, label %185
 
 181:                                              ; preds = %185
@@ -9180,7 +9180,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !2469
   store ptr %119, ptr %20, align 8, !noalias !2470
   %120 = load i8, ptr %119, align 8, !range !138, !alias.scope !2471, !noalias !2472, !noundef !4
-  %switch.i.i.i = icmp ult i8 %120, 2
+  %switch.i.i.i = icmp samesign ult i8 %120, 2
   br i1 %switch.i.i.i, label %136, label %125
 
 121:                                              ; preds = %125
@@ -9398,7 +9398,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !2533
   store ptr %174, ptr %12, align 8, !noalias !2534
   %175 = load i8, ptr %174, align 8, !range !138, !alias.scope !2535, !noalias !2536, !noundef !4
-  %switch.i.i.i70 = icmp ult i8 %175, 2
+  %switch.i.i.i70 = icmp samesign ult i8 %175, 2
   br i1 %switch.i.i.i70, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53d6e07ec9d774eaE.exit.thread", label %180
 
 176:                                              ; preds = %180
@@ -9535,7 +9535,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !2586
   store ptr %214, ptr %8, align 8, !noalias !2587
   %215 = load i8, ptr %214, align 8, !range !138, !alias.scope !2588, !noalias !2589, !noundef !4
-  %switch.i.i.i75 = icmp ult i8 %215, 2
+  %switch.i.i.i75 = icmp samesign ult i8 %215, 2
   br i1 %switch.i.i.i75, label %230, label %220
 
 216:                                              ; preds = %220
@@ -9964,7 +9964,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !2693
   store ptr %141, ptr %25, align 8, !noalias !2694
   %142 = load i8, ptr %141, align 8, !range !138, !alias.scope !2695, !noalias !2696, !noundef !4
-  %switch.i.i.i = icmp ult i8 %142, 2
+  %switch.i.i.i = icmp samesign ult i8 %142, 2
   br i1 %switch.i.i.i, label %162, label %147
 
 143:                                              ; preds = %147
@@ -10221,7 +10221,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit77.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !2772
   store ptr %203, ptr %15, align 8, !noalias !2773
   %204 = load i8, ptr %203, align 8, !range !138, !alias.scope !2774, !noalias !2775, !noundef !4
-  %switch.i.i.i78 = icmp ult i8 %204, 2
+  %switch.i.i.i78 = icmp samesign ult i8 %204, 2
   br i1 %switch.i.i.i78, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53d6e07ec9d774eaE.exit83.thread", label %209
 
 205:                                              ; preds = %209
@@ -10400,7 +10400,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit97.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !2841
   store ptr %254, ptr %10, align 8, !noalias !2842
   %255 = load i8, ptr %254, align 8, !range !138, !alias.scope !2843, !noalias !2844, !noundef !4
-  %switch.i.i.i98 = icmp ult i8 %255, 2
+  %switch.i.i.i98 = icmp samesign ult i8 %255, 2
   br i1 %switch.i.i.i98, label %270, label %260
 
 256:                                              ; preds = %260
@@ -10822,7 +10822,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !2957
   store ptr %114, ptr %7, align 8, !noalias !2958
   %115 = load i8, ptr %114, align 8, !range !138, !alias.scope !2959, !noalias !2960, !noundef !4
-  %switch.i.i.i = icmp ult i8 %115, 2
+  %switch.i.i.i = icmp samesign ult i8 %115, 2
   br i1 %switch.i.i.i, label %133, label %120
 
 116:                                              ; preds = %120
@@ -11029,7 +11029,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37), !noalias !3028
   store ptr %100, ptr %37, align 8, !noalias !3029
   %101 = load i8, ptr %100, align 8, !range !138, !alias.scope !3030, !noalias !3031, !noundef !4
-  %switch.i.i.i = icmp ult i8 %101, 2
+  %switch.i.i.i = icmp samesign ult i8 %101, 2
   br i1 %switch.i.i.i, label %117, label %106
 
 102:                                              ; preds = %106
@@ -11188,7 +11188,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !3093
   store ptr %154, ptr %34, align 8, !noalias !3094
   %155 = load i8, ptr %154, align 8, !range !138, !alias.scope !3095, !noalias !3096, !noundef !4
-  %switch.i.i.i215 = icmp ult i8 %155, 2
+  %switch.i.i.i215 = icmp samesign ult i8 %155, 2
   br i1 %switch.i.i.i215, label %_ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.exit.i73.thread359, label %160
 
 156:                                              ; preds = %160
@@ -11699,7 +11699,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !3220
   store ptr %294, ptr %18, align 8, !noalias !3221
   %295 = load i8, ptr %294, align 8, !range !138, !alias.scope !3222, !noalias !3223, !noundef !4
-  %switch.i.i.i241 = icmp ult i8 %295, 2
+  %switch.i.i.i241 = icmp samesign ult i8 %295, 2
   br i1 %switch.i.i.i241, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53d6e07ec9d774eaE.exit.thread", label %300
 
 296:                                              ; preds = %300
@@ -13371,7 +13371,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !3648
   store ptr %159, ptr %11, align 8, !noalias !3649
   %160 = load i8, ptr %159, align 8, !range !138, !alias.scope !3650, !noalias !3651, !noundef !4
-  %switch.i.i.i = icmp ult i8 %160, 2
+  %switch.i.i.i = icmp samesign ult i8 %160, 2
   br i1 %switch.i.i.i, label %176, label %165
 
 161:                                              ; preds = %165
@@ -13493,7 +13493,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !3696
   store ptr %189, ptr %8, align 8, !noalias !3697
   %190 = load i8, ptr %189, align 8, !range !138, !alias.scope !3698, !noalias !3699, !noundef !4
-  %switch.i.i.i52 = icmp ult i8 %190, 2
+  %switch.i.i.i52 = icmp samesign ult i8 %190, 2
   br i1 %switch.i.i.i52, label %206, label %195
 
 191:                                              ; preds = %195
@@ -14077,7 +14077,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !3835
   store ptr %182, ptr %17, align 8, !noalias !3836
   %183 = load i8, ptr %182, align 8, !range !138, !alias.scope !3837, !noalias !3838, !noundef !4
-  %switch.i.i.i = icmp ult i8 %183, 2
+  %switch.i.i.i = icmp samesign ult i8 %183, 2
   br i1 %switch.i.i.i, label %203, label %188
 
 184:                                              ; preds = %188
@@ -14288,7 +14288,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit73.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !3910
   store ptr %239, ptr %11, align 8, !noalias !3911
   %240 = load i8, ptr %239, align 8, !range !138, !alias.scope !3912, !noalias !3913, !noundef !4
-  %switch.i.i.i74 = icmp ult i8 %240, 2
+  %switch.i.i.i74 = icmp samesign ult i8 %240, 2
   br i1 %switch.i.i.i74, label %260, label %245
 
 241:                                              ; preds = %245
@@ -14901,7 +14901,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !4066
   store ptr %170, ptr %7, align 8, !noalias !4067
   %171 = load i8, ptr %170, align 8, !range !138, !alias.scope !4068, !noalias !4069, !noundef !4
-  %switch.i.i.i = icmp ult i8 %171, 2
+  %switch.i.i.i = icmp samesign ult i8 %171, 2
   br i1 %switch.i.i.i, label %189, label %176
 
 172:                                              ; preds = %176
@@ -15116,7 +15116,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38), !noalias !4137
   store ptr %104, ptr %38, align 8, !noalias !4138
   %105 = load i8, ptr %104, align 8, !range !138, !alias.scope !4139, !noalias !4140, !noundef !4
-  %switch.i.i.i = icmp ult i8 %105, 2
+  %switch.i.i.i = icmp samesign ult i8 %105, 2
   br i1 %switch.i.i.i, label %121, label %110
 
 106:                                              ; preds = %110
@@ -15275,7 +15275,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35), !noalias !4202
   store ptr %158, ptr %35, align 8, !noalias !4203
   %159 = load i8, ptr %158, align 8, !range !138, !alias.scope !4204, !noalias !4205, !noundef !4
-  %switch.i.i.i227 = icmp ult i8 %159, 2
+  %switch.i.i.i227 = icmp samesign ult i8 %159, 2
   br i1 %switch.i.i.i227, label %_ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.exit.i78.thread386, label %164
 
 160:                                              ; preds = %164
@@ -16773,7 +16773,7 @@ _ZN14regex_automata6hybrid3dfa3DFA29try_which_overlapping_matches17hab5db6d2737a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !4539
   store ptr %.0.i, ptr %7, align 8, !noalias !4540
   %69 = load i8, ptr %.0.i, align 8, !range !138, !alias.scope !4540, !noundef !4
-  %switch.i.i.i = icmp ult i8 %69, 2
+  %switch.i.i.i = icmp samesign ult i8 %69, 2
   br i1 %switch.i.i.i, label %"_ZN14regex_automata4meta8wrappers12HybridEngine29try_which_overlapping_matches28_$u7b$$u7b$closure$u7d$$u7d$17hbbd19c14756212eeE.exit.i", label %74
 
 70:                                               ; preds = %74
@@ -17172,7 +17172,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson6pikevm7Builder10build_many1
   %13 = load i8, ptr %12, align 8, !range !91, !alias.scope !4592, !noalias !4595, !noundef !4
   %14 = getelementptr inbounds i8, ptr %1, i64 464
   %15 = load i8, ptr %14, align 8, !range !138, !alias.scope !4592, !noalias !4595, !noundef !4
-  %switch.not.i = icmp ult i8 %15, 2
+  %switch.not.i = icmp samesign ult i8 %15, 2
   br i1 %switch.not.i, label %21, label %_ZN14regex_automata3nfa8thompson6pikevm7Builder14build_from_nfa17h24501099b190cc48E.exit
 
 16:                                               ; preds = %21

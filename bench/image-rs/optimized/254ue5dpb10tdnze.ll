@@ -38178,7 +38178,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %24 = trunc nuw i64 %indvars.iv86 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv86, %wide.trip.count89
+  %26 = icmp samesign uge i64 %indvars.iv86, %wide.trip.count89
   %27 = mul nuw i64 %indvars.iv86, %wide.trip.count
   br label %28
 
@@ -38193,8 +38193,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i48, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4515)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -38350,7 +38350,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %24 = trunc nuw i64 %indvars.iv85 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv85, %wide.trip.count88
+  %26 = icmp samesign uge i64 %indvars.iv85, %wide.trip.count88
   %27 = mul nuw i64 %indvars.iv85, %wide.trip.count
   br label %28
 
@@ -38364,8 +38364,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
 
 32:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4529)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -38526,7 +38526,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -38541,8 +38541,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i16, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4546)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -38697,7 +38697,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -38712,8 +38712,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i32, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4560)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -38869,7 +38869,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %24 = trunc nuw i64 %indvars.iv66 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv66, %wide.trip.count69
+  %26 = icmp samesign uge i64 %indvars.iv66, %wide.trip.count69
   %27 = mul nuw i64 %indvars.iv66, %wide.trip.count
   br label %28
 
@@ -38884,8 +38884,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i16, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4574)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39029,7 +39029,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %24 = trunc nuw i64 %indvars.iv79 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv79, %wide.trip.count82
+  %26 = icmp samesign uge i64 %indvars.iv79, %wide.trip.count82
   %27 = mul nuw i64 %indvars.iv79, %wide.trip.count
   br label %28
 
@@ -39043,8 +39043,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
 
 32:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4588)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39205,7 +39205,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -39220,8 +39220,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i16, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4605)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39381,7 +39381,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %24 = trunc nuw i64 %indvars.iv86 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv86, %wide.trip.count89
+  %26 = icmp samesign uge i64 %indvars.iv86, %wide.trip.count89
   %27 = mul nuw i64 %indvars.iv86, %wide.trip.count
   br label %28
 
@@ -39396,8 +39396,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i24, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4622)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39557,7 +39557,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %24 = trunc nuw i64 %indvars.iv86 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv86, %wide.trip.count89
+  %26 = icmp samesign uge i64 %indvars.iv86, %wide.trip.count89
   %27 = mul nuw i64 %indvars.iv86, %wide.trip.count
   br label %28
 
@@ -39572,8 +39572,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i24, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4639)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39728,7 +39728,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -39743,8 +39743,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i64, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4653)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -39900,7 +39900,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %24 = trunc nuw i64 %indvars.iv86 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv86, %wide.trip.count89
+  %26 = icmp samesign uge i64 %indvars.iv86, %wide.trip.count89
   %27 = mul nuw i64 %indvars.iv86, %wide.trip.count
   br label %28
 
@@ -39915,8 +39915,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i48, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4667)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40072,7 +40072,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %24 = trunc nuw i64 %indvars.iv85 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv85, %wide.trip.count88
+  %26 = icmp samesign uge i64 %indvars.iv85, %wide.trip.count88
   %27 = mul nuw i64 %indvars.iv85, %wide.trip.count
   br label %28
 
@@ -40086,8 +40086,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
 
 32:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4681)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40243,7 +40243,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %24 = trunc nuw i64 %indvars.iv79 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv79, %wide.trip.count82
+  %26 = icmp samesign uge i64 %indvars.iv79, %wide.trip.count82
   %27 = mul nuw i64 %indvars.iv79, %wide.trip.count
   br label %28
 
@@ -40257,8 +40257,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
 
 32:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4695)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40414,7 +40414,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -40429,8 +40429,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i64, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4709)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40586,7 +40586,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %24 = trunc nuw i64 %indvars.iv66 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv66, %wide.trip.count69
+  %26 = icmp samesign uge i64 %indvars.iv66, %wide.trip.count69
   %27 = mul nuw i64 %indvars.iv66, %wide.trip.count
   br label %28
 
@@ -40601,8 +40601,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i16, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4723)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40746,7 +40746,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %21, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -40761,8 +40761,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i32, ptr %31, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4737)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -40923,7 +40923,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f6802
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -40938,8 +40938,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f6802
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i32, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4754)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -41099,7 +41099,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a5
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %24 = trunc nuw i64 %indvars.iv66 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv66, %wide.trip.count69
+  %26 = icmp samesign uge i64 %indvars.iv66, %wide.trip.count69
   %27 = mul nuw i64 %indvars.iv66, %wide.trip.count
   br label %28
 
@@ -41113,8 +41113,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a5
 
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i8, ptr %31, align 1
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -41261,7 +41261,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f96
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %24 = trunc nuw i64 %indvars.iv81 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv81, %wide.trip.count84
+  %26 = icmp samesign uge i64 %indvars.iv81, %wide.trip.count84
   %27 = mul nuw i64 %indvars.iv81, %wide.trip.count
   br label %28
 
@@ -41276,8 +41276,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f96
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i32, ptr %31, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4786)
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32
@@ -41437,7 +41437,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %24 = trunc nuw i64 %indvars.iv66 to i32
   %25 = add i32 %23, %24
-  %26 = icmp uge i64 %indvars.iv66, %wide.trip.count69
+  %26 = icmp samesign uge i64 %indvars.iv66, %wide.trip.count69
   %27 = mul nuw i64 %indvars.iv66, %wide.trip.count
   br label %28
 
@@ -41451,8 +41451,8 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765
 
 32:                                               ; preds = %28
   %.sroa.0.0.copyload.i.us = load i8, ptr %31, align 1
-  %33 = icmp uge i64 %indvars.iv, %wide.trip.count
-  %or.cond.i.i.us = or i1 %33, %26
+  %33 = icmp samesign uge i64 %indvars.iv, %wide.trip.count
+  %or.cond.i.i.us = select i1 %33, i1 true, i1 %26
   br i1 %or.cond.i.i.us, label %.split.us, label %34
 
 34:                                               ; preds = %32

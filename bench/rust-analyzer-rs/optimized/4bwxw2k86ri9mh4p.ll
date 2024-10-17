@@ -995,7 +995,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   br label %.preheader.split.us
 
 10:                                               ; preds = %7
-  %11 = icmp ult i32 %.0, 7
+  %11 = icmp samesign ult i32 %.0, 7
   br i1 %11, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %10
@@ -1374,7 +1374,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br i1 %46, label %72, label %69
 
 47:                                               ; preds = %41
-  %48 = icmp ult i32 %.027.i, 7
+  %48 = icmp samesign ult i32 %.027.i, 7
   br i1 %48, label %.preheader.i.i, label %49
 
 49:                                               ; preds = %47
@@ -1382,7 +1382,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %49
-  %50 = icmp ult i32 %.027.i, 11
+  %50 = icmp samesign ult i32 %.027.i, 11
   %51 = load atomic i64, ptr %1 monotonic, align 128, !noalias !155
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
@@ -1408,7 +1408,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br label %63
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %63
-  %61 = icmp ult i32 %.027.i, 7
+  %61 = icmp samesign ult i32 %.027.i, 7
   %62 = load atomic i64, ptr %1 monotonic, align 128, !noalias !155
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
@@ -1449,7 +1449,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br label %79
 
 77:                                               ; preds = %79
-  %78 = icmp ult i32 %.027.i, 7
+  %78 = icmp samesign ult i32 %.027.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 79:                                               ; preds = %79, %76
@@ -1515,7 +1515,7 @@ common.resume:                                    ; preds = %119, %140, %82
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37e804f085f49a55E.exit"
 
 94:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_recv17ha9a4203e37f22d66E.exit"
-  %95 = icmp ult i32 %.0, 7
+  %95 = icmp samesign ult i32 %.0, 7
   br i1 %95, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %94
@@ -1895,7 +1895,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %52, label %77, label %74
 
 53:                                               ; preds = %44
-  %54 = icmp ult i32 %.02734.i, 7
+  %54 = icmp samesign ult i32 %.02734.i, 7
   br i1 %54, label %.preheader.i.i, label %55
 
 55:                                               ; preds = %53
@@ -1903,7 +1903,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
           to label %.thread.i.i unwind label %.body.thread50.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %55
-  %56 = icmp ult i32 %.02734.i, 11
+  %56 = icmp samesign ult i32 %.02734.i, 11
   %57 = load atomic i64, ptr %19 monotonic, align 128, !noalias !218
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
@@ -1928,7 +1928,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br label %68
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %68
-  %66 = icmp ult i32 %.02734.i, 7
+  %66 = icmp samesign ult i32 %.02734.i, 7
   %67 = load atomic i64, ptr %19 monotonic, align 128, !noalias !218
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
@@ -1971,7 +1971,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br label %86
 
 84:                                               ; preds = %86
-  %85 = icmp ult i32 %.02734.i, 7
+  %85 = icmp samesign ult i32 %.02734.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 86:                                               ; preds = %86, %83
@@ -2017,7 +2017,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0b4dc35543b2788bE.exit"
 
 92:                                               ; preds = %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_send17h57a0ad0191df1c9fE.exit"
-  %93 = icmp ult i32 %.084, 7
+  %93 = icmp samesign ult i32 %.084, 7
   br i1 %93, label %.preheader.i, label %94
 
 94:                                               ; preds = %92

@@ -260,7 +260,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx72 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 %54
   store i32 %xor54, ptr %arrayidx72, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp = icmp ult i64 %indvars.iv, 28
+  %cmp = icmp samesign ult i64 %indvars.iv, 28
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body

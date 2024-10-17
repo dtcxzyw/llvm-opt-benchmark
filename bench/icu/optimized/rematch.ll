@@ -10002,7 +10002,7 @@ cond.false3573:                                   ; preds = %land.lhs.true3555, 
 cond.end3576:                                     ; preds = %cond.false3573, %cond.true3564
   %cond3577 = phi i32 [ %conv3572, %cond.true3564 ], [ %call3575, %cond.false3573 ]
   %and3578 = and i32 %cond3577, 126
-  %cmp3579 = icmp ult i32 %and3578, 42
+  %cmp3579 = icmp samesign ult i32 %and3578, 42
   br i1 %cmp3579, label %if.then3580, label %if.end3590
 
 if.then3580:                                      ; preds = %cond.end3576
@@ -13919,7 +13919,7 @@ do.end2115:                                       ; preds = %do.body2088, %if.th
   %ix2070.2 = phi i32 [ %inc2107, %if.then2106 ], [ %inc2089, %land.lhs.true2100 ], [ %inc2089, %if.then2095 ], [ %inc2089, %do.body2088 ]
   %c2087.0 = phi i32 [ %sub2111, %if.then2106 ], [ %conv2092, %land.lhs.true2100 ], [ %conv2092, %if.then2095 ], [ %conv2092, %do.body2088 ]
   %and2116 = and i32 %c2087.0, 126
-  %cmp2117 = icmp ult i32 %and2116, 42
+  %cmp2117 = icmp samesign ult i32 %and2116, 42
   br i1 %cmp2117, label %if.then2118, label %if.end2149
 
 if.then2118:                                      ; preds = %do.end2115

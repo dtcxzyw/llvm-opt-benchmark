@@ -1147,7 +1147,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %.split.split
-  %34 = icmp ugt i32 %.0, 599
+  %34 = icmp samesign ugt i32 %.0, 599
   br i1 %34, label %.split47.us.split, label %43
 
 .split47.us.split:                                ; preds = %33, %.split.us
@@ -1161,7 +1161,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not28, label %.loopexit, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ugt i32 %.0, 599
+  %40 = icmp samesign ugt i32 %.0, 599
   br i1 %40, label %.split45.us, label %43
 
 .split45.us:                                      ; preds = %39, %._crit_edge62

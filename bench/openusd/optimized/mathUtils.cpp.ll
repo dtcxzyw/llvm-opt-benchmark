@@ -126,7 +126,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us: 
   %39 = tail call double @llvm.fabs.f64(double %34)
   %40 = fcmp uge double %39, 1.000000e-05
   %41 = add nuw nsw i32 %.01828.us, 1
-  %42 = icmp ult i32 %.01828.us, 19
+  %42 = icmp samesign ult i32 %.01828.us, 19
   %or.cond = select i1 %40, i1 %42, i1 false
   br i1 %or.cond, label %.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
@@ -153,7 +153,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39
   %52 = tail call double @llvm.fabs.f64(double %49)
   %53 = fcmp uge double %52, 1.000000e-05
   %54 = add nuw nsw i32 %.01828.us36, 1
-  %55 = icmp ult i32 %.01828.us36, 19
+  %55 = icmp samesign ult i32 %.01828.us36, 19
   %or.cond53 = select i1 %53, i1 %55, i1 false
   br i1 %or.cond53, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
@@ -230,7 +230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; p
   %97 = tail call double @llvm.fabs.f64(double %62)
   %98 = fcmp uge double %97, 1.000000e-05
   %99 = add nuw nsw i32 %.01828, 1
-  %100 = icmp ult i32 %.01828, 19
+  %100 = icmp samesign ult i32 %.01828, 19
   %or.cond54 = select i1 %98, i1 %100, i1 false
   br i1 %or.cond54, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 

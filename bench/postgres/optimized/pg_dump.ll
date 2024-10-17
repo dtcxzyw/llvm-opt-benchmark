@@ -29755,7 +29755,7 @@ define internal fastcc ptr @getFormattedTypeName(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %7, label %21
 
 7:                                                ; preds = %5
-  %.not20 = icmp ult i32 %2, 4
+  %.not20 = icmp samesign ult i32 %2, 4
   br i1 %.not20, label %8, label %21
 
 8:                                                ; preds = %7, %3

@@ -2269,7 +2269,7 @@ define internal i32 @packet_setsockopt(ptr nocapture noundef readonly %0, i32 no
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i64
   %41 = add nuw nsw i64 %40, 8
-  %42 = icmp ugt i64 %41, %29
+  %42 = icmp samesign ugt i64 %41, %29
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %37
@@ -3455,7 +3455,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %195 = add i32 %194, %180
   %196 = add nuw nsw i64 %185, 1
   %197 = and i64 %196, 127
-  %198 = icmp ugt i64 %197, 63
+  %198 = icmp samesign ugt i64 %197, 63
   br i1 %198, label %.thread85.us, label %178, !prof !62, !llvm.loop !63
 
 .thread85.us:                                     ; preds = %188, %184, %178
@@ -3600,7 +3600,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %289 = getelementptr inbounds i8, ptr %260, i64 2
   %290 = load i16, ptr %289, align 2
   %291 = zext i16 %290 to i32
-  %292 = icmp ugt i32 %288, %291
+  %292 = icmp samesign ugt i32 %288, %291
   br i1 %292, label %293, label %296
 
 293:                                              ; preds = %280
@@ -3775,13 +3775,13 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %412 = load ptr, ptr %373, align 8
   %413 = load i16, ptr %129, align 4
   %414 = zext i16 %413 to i32
-  %415 = icmp ult i32 %401, %414
+  %415 = icmp samesign ult i32 %401, %414
   br i1 %415, label %416, label %438, !prof !18
 
 416:                                              ; preds = %411
   %417 = load i8, ptr %136, align 2
   %418 = zext i8 %417 to i32
-  %419 = icmp ult i32 %401, %418
+  %419 = icmp samesign ult i32 %401, %418
   br i1 %419, label %.thread, label %420
 
 420:                                              ; preds = %416
@@ -4362,7 +4362,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %766 = getelementptr inbounds i8, ptr %6, i64 2
   %767 = load i16, ptr %766, align 2
   %768 = zext i16 %767 to i32
-  %769 = icmp ugt i32 %765, %768
+  %769 = icmp samesign ugt i32 %765, %768
   br i1 %769, label %770, label %773
 
 770:                                              ; preds = %757
@@ -5467,7 +5467,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %42 = add i32 %41, %27
   %43 = add nuw nsw i64 %32, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %25, !prof !62, !llvm.loop !63
 
 .thread:                                          ; preds = %25, %35, %31
@@ -5533,7 +5533,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %80 = zext i32 %72 to i64
   %81 = add nuw nsw i64 %80, 48
   %82 = add nuw nsw i64 %81, %79
-  %83 = icmp ugt i64 %82, %64
+  %83 = icmp samesign ugt i64 %82, %64
   br i1 %83, label %.thread25, label %84
 
 84:                                               ; preds = %74, %67
@@ -8438,7 +8438,7 @@ define internal fastcc i32 @copy_from_sockptr(ptr noundef %0, ptr %1, i8 %2, i64
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %4
-  %8 = icmp ugt i64 %3, 2147483647
+  %8 = icmp samesign ugt i64 %3, 2147483647
   br i1 %8, label %9, label %10, !prof !18
 
 9:                                                ; preds = %7
@@ -10148,7 +10148,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
   %101 = add i32 %100, %86
   %102 = add nuw nsw i64 %91, 1
   %103 = and i64 %102, 127
-  %104 = icmp ugt i64 %103, 63
+  %104 = icmp samesign ugt i64 %103, 63
   br i1 %104, label %.thread8, label %84, !prof !62, !llvm.loop !63
 
 .thread8:                                         ; preds = %84, %94, %90

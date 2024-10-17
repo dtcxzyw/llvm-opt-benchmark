@@ -5467,7 +5467,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %cmp18.us, label %if.then19, label %if.end23.us
 
 if.end23.us:                                      ; preds = %for.body.us
-  %cmp24.us = icmp ult i64 %indvars.iv119, %6
+  %cmp24.us = icmp samesign ult i64 %indvars.iv119, %6
   br i1 %cmp24.us, label %if.then25.us, label %if.end34.us
 
 if.then25.us:                                     ; preds = %if.end23.us

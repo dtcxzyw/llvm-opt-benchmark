@@ -330,7 +330,7 @@ define noundef i32 @H5HF_get_id_off_test(ptr nocapture noundef readonly %0, ptr 
   %18 = getelementptr inbounds i8, ptr %17, i64 697
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = icmp ult i64 %16, %20
+  %21 = icmp samesign ult i64 %16, %20
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

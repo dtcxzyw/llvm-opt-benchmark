@@ -2902,7 +2902,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   %239 = getelementptr inbounds i8, ptr %235, i64 5
   %240 = load i8, ptr %239, align 1
   %241 = zext i8 %240 to i64
-  %242 = icmp ult i64 %86, %241
+  %242 = icmp samesign ult i64 %86, %241
   br i1 %242, label %243, label %252
 
 243:                                              ; preds = %238
@@ -5489,7 +5489,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %310 = getelementptr inbounds i8, ptr %309, i64 5
   %311 = load i8, ptr %310, align 1
   %312 = zext i8 %311 to i64
-  %313 = icmp ult i64 %308, %312
+  %313 = icmp samesign ult i64 %308, %312
   br i1 %313, label %97, label %.loopexit, !llvm.loop !139
 
 .loopexit:                                        ; preds = %.thread24, %83

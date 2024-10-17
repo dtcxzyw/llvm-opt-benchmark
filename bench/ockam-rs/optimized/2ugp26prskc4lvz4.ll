@@ -45338,10 +45338,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h73b425f5952cf769E.exit.threa
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3e4dce78fd68db99E.exit.i.i": ; preds = %94
   %103 = load i8, ptr %62, align 8, !range !14003, !alias.scope !14104, !noalias !14109, !noundef !4
   %104 = or disjoint i8 %103, -8
-  %narrow69.i.i.i.i = icmp ult i8 %104, -2
+  %narrow69.i.i.i.i = icmp samesign ult i8 %104, -2
   %105 = load i8, ptr %8, align 8, !range !14003, !alias.scope !14104, !noalias !14109, !noundef !4
   %106 = or disjoint i8 %105, -8
-  %narrow.i.i.i.i = icmp ult i8 %106, -2
+  %narrow.i.i.i.i = icmp samesign ult i8 %106, -2
   %.sroa.7.0.i.i.i.i = zext i1 %narrow.i.i.i.i to i64
   %107 = select i1 %narrow69.i.i.i.i, i64 2, i64 1
   %108 = add nuw nsw i64 %107, %.sroa.7.0.i.i.i.i
@@ -49828,7 +49828,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h08c3c67870
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h0dc036400c3f7c6aE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15025)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15028)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -49913,7 +49913,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h0ed11fc4eb
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h1c161dd049a2eeb3E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15038)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15041)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -49998,7 +49998,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h0fd6594bae
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hb4a6dbadf6ebfa69E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15051)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15054)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50083,7 +50083,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h1b5bb084c1
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hca18f2efe6771171E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15064)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15067)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50169,7 +50169,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h1cb077c3ee
 12:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15084)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15087)
-  %switch.i.i.i = icmp ult i64 %10, 4
+  %switch.i.i.i = icmp samesign ult i64 %10, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %13
 
 13:                                               ; preds = %12
@@ -50255,7 +50255,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h233b464871
 12:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15107)
-  %switch.i.i.i = icmp ult i64 %10, 4
+  %switch.i.i.i = icmp samesign ult i64 %10, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %13
 
 13:                                               ; preds = %12
@@ -50340,7 +50340,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h26c320c777
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h05afac75c73647d5E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15120)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50425,7 +50425,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h2a0b0e366e
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17he7adddfdcb77046eE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15133)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50510,7 +50510,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h2f828579d4
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h6e9359906e8fa605E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15146)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50596,7 +50596,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h3053f2959b
 12:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15163)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15166)
-  %switch.i.i.i = icmp ult i64 %10, 4
+  %switch.i.i.i = icmp samesign ult i64 %10, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %13
 
 13:                                               ; preds = %12
@@ -50681,7 +50681,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h4034e6b348
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h0ad6e53c82dfe949E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15179)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50785,7 +50785,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h5de3c01312
 15:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15194)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15197)
-  %switch.i.i.i = icmp ult i64 %13, 4
+  %switch.i.i.i = icmp samesign ult i64 %13, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %16
 
 16:                                               ; preds = %15
@@ -50868,7 +50868,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h6a25abb0bc
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hb23948238ea35fd7E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15210)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -50953,7 +50953,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h6be1e65367
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hd6d97576eb0d7889E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15223)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51038,7 +51038,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h79d0f768d8
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h39ce4c0da54f6c43E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15236)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51123,7 +51123,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h7ac1d7b356
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h0d6b82be2e03edb7E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15249)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51208,7 +51208,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h7b002567ce
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h288b316781660506E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15262)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51291,7 +51291,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h7cc424091f
 10:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15276)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15279)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51375,7 +51375,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h839636c47f
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17ha46871f7e553c898E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15292)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51460,7 +51460,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h90596a665b
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h3a64acb64e774e1dE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15305)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51546,7 +51546,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hbacfd60760
 12:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15322)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15325)
-  %switch.i.i.i = icmp ult i64 %10, 4
+  %switch.i.i.i = icmp samesign ult i64 %10, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %13
 
 13:                                               ; preds = %12
@@ -51631,7 +51631,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hc3da3e7de5
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h1a07480387763cb0E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15338)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51716,7 +51716,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hc5fb0daeeb
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h6ce9fdbc2b34159fE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15351)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51801,7 +51801,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hd4b1038882
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hba07fdba50e10e4dE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15364)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51886,7 +51886,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hdd4bc4d9ce
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17h64407a9d53a12fc6E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15374)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15377)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -51971,7 +51971,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hde5e24ff78
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hb861380caed22af2E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15387)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15390)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -52056,7 +52056,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17he7952f20de
 10:                                               ; preds = %"_ZN127_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$15into_resettable17hfd93eb714ea65832E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15403)
-  %switch.i.i.i = icmp ult i64 %8, 4
+  %switch.i.i.i = icmp samesign ult i64 %8, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93b20aca5d79fa3bE.llvm.7819687297340404219.exit", label %11
 
 11:                                               ; preds = %10
@@ -52880,7 +52880,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 1
-  %.not3 = icmp ult i64 %15, %18
+  %.not3 = icmp samesign ult i64 %15, %18
   br i1 %.not3, label %19, label %46
 
 19:                                               ; preds = %9
@@ -59609,7 +59609,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17164)
   %33 = load i64, ptr %32, align 8, !range !17167, !alias.scope !17164, !noundef !4
-  %switch.i = icmp ult i64 %33, 11
+  %switch.i = icmp samesign ult i64 %33, 11
   br i1 %switch.i, label %"_ZN4core3ptr46drop_in_place$LT$rustls..error..OtherError$GT$17hddb95863083d8a25E.exit", label %34
 
 34:                                               ; preds = %31
@@ -61238,7 +61238,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17942)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17945)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17he478cb7fb04abc86E.exit", label %5
 
 5:                                                ; preds = %4
@@ -71347,7 +71347,7 @@ default.unreachable25:                            ; preds = %2
   %56 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19809)
   %57 = load i64, ptr %56, align 8, !range !17167, !alias.scope !19809, !noalias !19812, !noundef !4
-  %switch = icmp ult i64 %57, 11
+  %switch = icmp samesign ult i64 %57, 11
   br i1 %switch, label %"_ZN70_$LT$rustls..error..CertificateError$u20$as$u20$core..clone..Clone$GT$5clone17h23c61a39c110a628E.exit", label %58
 
 58:                                               ; preds = %55
@@ -88992,7 +88992,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %178
   store ptr %161, ptr %199, align 8, !alias.scope !24011, !noalias !24014
   store i16 %176, ptr %169, align 2, !noalias !24014
-  %200 = icmp ult i64 %178, %198
+  %200 = icmp samesign ult i64 %178, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread96
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -89831,7 +89831,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !24195, !noalias !24198
   store i16 %174, ptr %167, align 2, !noalias !24198
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -90619,7 +90619,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %189 = getelementptr inbounds ptr, ptr %187, i64 %169
   store ptr %152, ptr %189, align 8, !alias.scope !24364, !noalias !24355
   store i16 %167, ptr %160, align 2, !noalias !24355
-  %190 = icmp ult i64 %169, %188
+  %190 = icmp samesign ult i64 %169, %188
   br i1 %190, label %.lr.ph.i.i.i.preheader, label %.thread79
 
 .lr.ph.i.i.i.preheader:                           ; preds = %186
@@ -91413,7 +91413,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !24542, !noalias !24545
   store i16 %174, ptr %167, align 2, !noalias !24545
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -92249,7 +92249,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %194 = getelementptr inbounds ptr, ptr %192, i64 %173
   store ptr %156, ptr %194, align 8, !alias.scope !24727, !noalias !24730
   store i16 %171, ptr %164, align 2, !noalias !24730
-  %195 = icmp ult i64 %173, %193
+  %195 = icmp samesign ult i64 %173, %193
   br i1 %195, label %.lr.ph.i.i.i.preheader, label %.thread96
 
 .lr.ph.i.i.i.preheader:                           ; preds = %191
@@ -93005,7 +93005,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %164 = getelementptr inbounds ptr, ptr %162, i64 %147
   store ptr %131, ptr %164, align 8, !alias.scope !24881, !noalias !24884
   store i16 %146, ptr %139, align 2, !noalias !24884
-  %165 = icmp ult i64 %147, %163
+  %165 = icmp samesign ult i64 %147, %163
   br i1 %165, label %.lr.ph.i.i.i.preheader, label %.thread73
 
 .lr.ph.i.i.i.preheader:                           ; preds = %161
@@ -93816,7 +93816,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %178
   store ptr %161, ptr %199, align 8, !alias.scope !25051, !noalias !25054
   store i16 %176, ptr %169, align 2, !noalias !25054
-  %200 = icmp ult i64 %178, %198
+  %200 = icmp samesign ult i64 %178, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread96
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -94585,7 +94585,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %164 = getelementptr inbounds ptr, ptr %162, i64 %147
   store ptr %131, ptr %164, align 8, !alias.scope !25205, !noalias !25208
   store i16 %146, ptr %139, align 2, !noalias !25208
-  %165 = icmp ult i64 %147, %163
+  %165 = icmp samesign ult i64 %147, %163
   br i1 %165, label %.lr.ph.i.i.i.preheader, label %.thread73
 
 .lr.ph.i.i.i.preheader:                           ; preds = %161
@@ -95380,7 +95380,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %192 = getelementptr inbounds ptr, ptr %190, i64 %168
   store ptr %.sroa.1165.1134152, ptr %192, align 8, !alias.scope !25381, !noalias !25384
   store i16 %167, ptr %160, align 2, !noalias !25384
-  %193 = icmp ult i64 %168, %191
+  %193 = icmp samesign ult i64 %168, %191
   br i1 %193, label %.lr.ph.i.i.i.preheader, label %.loopexit
 
 .lr.ph.i.i.i.preheader:                           ; preds = %189
@@ -96151,7 +96151,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %164 = getelementptr inbounds ptr, ptr %162, i64 %147
   store ptr %131, ptr %164, align 8, !alias.scope !25533, !noalias !25536
   store i16 %146, ptr %139, align 2, !noalias !25536
-  %165 = icmp ult i64 %147, %163
+  %165 = icmp samesign ult i64 %147, %163
   br i1 %165, label %.lr.ph.i.i.i.preheader, label %.thread73
 
 .lr.ph.i.i.i.preheader:                           ; preds = %161
@@ -96921,7 +96921,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !25702, !noalias !25705
   store i16 %174, ptr %167, align 2, !noalias !25705
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -97730,7 +97730,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %202 = getelementptr inbounds ptr, ptr %200, i64 %178
   store ptr %162, ptr %202, align 8, !alias.scope !25884, !noalias !25887
   store i16 %177, ptr %170, align 2, !noalias !25887
-  %203 = icmp ult i64 %178, %201
+  %203 = icmp samesign ult i64 %178, %201
   br i1 %203, label %.lr.ph.i.i.i.preheader, label %.thread85
 
 .lr.ph.i.i.i.preheader:                           ; preds = %199
@@ -98540,7 +98540,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !26066, !noalias !26069
   store i16 %174, ptr %167, align 2, !noalias !26069
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -99330,7 +99330,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %196 = getelementptr inbounds ptr, ptr %194, i64 %172
   store ptr %156, ptr %196, align 8, !alias.scope !26254, !noalias !26257
   store i16 %171, ptr %164, align 2, !noalias !26257
-  %197 = icmp ult i64 %172, %195
+  %197 = icmp samesign ult i64 %172, %195
   br i1 %197, label %.lr.ph.i.i.i.preheader, label %.thread74
 
 .lr.ph.i.i.i.preheader:                           ; preds = %193
@@ -100135,7 +100135,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !26435, !noalias !26438
   store i16 %174, ptr %167, align 2, !noalias !26438
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -100734,7 +100734,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %13 = load i16, ptr %12, align 2, !noundef !4
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %1, %14
-  %16 = icmp ult i64 %15, 12
+  %16 = icmp samesign ult i64 %15, 12
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
@@ -100742,7 +100742,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %9
+  %.not = icmp samesign ugt i64 %1, %9
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %18
@@ -100872,7 +100872,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %13 = load i16, ptr %12, align 2, !noundef !4
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %1, %14
-  %16 = icmp ult i64 %15, 12
+  %16 = icmp samesign ult i64 %15, 12
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
@@ -100880,7 +100880,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %9
+  %.not = icmp samesign ugt i64 %1, %9
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %18
@@ -101012,7 +101012,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %13 = load i16, ptr %12, align 2, !noundef !4
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %1, %9
-  %16 = icmp ult i64 %15, 12
+  %16 = icmp samesign ult i64 %15, 12
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
@@ -101020,7 +101020,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %14
+  %.not = icmp samesign ugt i64 %1, %14
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %18
@@ -101153,7 +101153,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %13 = load i16, ptr %12, align 2, !noundef !4
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %1, %9
-  %16 = icmp ult i64 %15, 12
+  %16 = icmp samesign ult i64 %15, 12
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
@@ -101161,7 +101161,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %14
+  %.not = icmp samesign ugt i64 %1, %14
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %18
@@ -101321,7 +101321,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -101480,7 +101480,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -101975,7 +101975,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %63 = add nuw nsw i64 %62, 1
   %64 = zext nneg i16 %33 to i64
   %65 = add nuw nsw i64 %63, %64
-  %66 = icmp ult i64 %65, 12
+  %66 = icmp samesign ult i64 %65, 12
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %54
@@ -102047,7 +102047,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %87 = load i16, ptr %86, align 2, !noundef !4
   %88 = zext i16 %87 to i64
   %89 = add nuw nsw i64 %85, %88
-  %90 = icmp ult i64 %89, 12
+  %90 = icmp samesign ult i64 %89, 12
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82
@@ -102183,7 +102183,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %121 = zext i16 %120 to i64
   %122 = add nuw nsw i64 %102, 1
   %123 = add nuw nsw i64 %122, %121
-  %124 = icmp ult i64 %123, 12
+  %124 = icmp samesign ult i64 %123, 12
   br i1 %124, label %._crit_edge161, label %134
 
 125:                                              ; preds = %108
@@ -102202,7 +102202,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %130 = load i16, ptr %129, align 2, !noalias !4, !noundef !4
   %131 = zext i16 %130 to i64
   %132 = add nuw nsw i64 %128, %131
-  %133 = icmp ult i64 %132, 12
+  %133 = icmp samesign ult i64 %132, 12
   br i1 %133, label %._crit_edge161.thread, label %136
 
 134:                                              ; preds = %113
@@ -102225,7 +102225,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !26752
   %.pre167 = add nuw nsw i64 %121, 1
   %.pre169 = add nuw nsw i64 %.pre167, %102
-  %138 = icmp ult i64 %.pre169, 12
+  %138 = icmp samesign ult i64 %.pre169, 12
   br i1 %138, label %._crit_edge161.thread, label %.noexc52.i.invoke
 
 ._crit_edge161.thread:                            ; preds = %125, %._crit_edge161
@@ -102494,7 +102494,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %62 = add nuw nsw i64 %61, 1
   %63 = zext nneg i16 %31 to i64
   %64 = add nuw nsw i64 %62, %63
-  %65 = icmp ult i64 %64, 12
+  %65 = icmp samesign ult i64 %64, 12
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %53
@@ -102567,7 +102567,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %87 = load i16, ptr %86, align 2, !noundef !4
   %88 = zext i16 %87 to i64
   %89 = add nuw nsw i64 %85, %88
-  %90 = icmp ult i64 %89, 12
+  %90 = icmp samesign ult i64 %89, 12
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %82
@@ -102704,7 +102704,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %122 = zext i16 %121 to i64
   %123 = add nuw nsw i64 %102, 1
   %124 = add nuw nsw i64 %123, %122
-  %125 = icmp ult i64 %124, 12
+  %125 = icmp samesign ult i64 %124, 12
   br i1 %125, label %._crit_edge161, label %135
 
 126:                                              ; preds = %109
@@ -102723,7 +102723,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %131 = load i16, ptr %130, align 2, !noalias !4, !noundef !4
   %132 = zext i16 %131 to i64
   %133 = add nuw nsw i64 %129, %132
-  %134 = icmp ult i64 %133, 12
+  %134 = icmp samesign ult i64 %133, 12
   br i1 %134, label %._crit_edge161.thread, label %137
 
 135:                                              ; preds = %114
@@ -102746,7 +102746,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !26845
   %.pre167 = add nuw nsw i64 %122, 1
   %.pre169 = add nuw nsw i64 %.pre167, %102
-  %139 = icmp ult i64 %.pre169, 12
+  %139 = icmp samesign ult i64 %.pre169, 12
   br i1 %139, label %._crit_edge161.thread, label %.noexc52.i.invoke
 
 ._crit_edge161.thread:                            ; preds = %126, %._crit_edge161
@@ -137976,7 +137976,7 @@ _ZN6rustls12common_state11CommonState16send_fatal_alert17h1f9e5c672bf8d81cE.exit
   %204 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !34921
   %205 = icmp ult i64 %204, 6
   call void @llvm.assume(i1 %205)
-  %switch.selectcmp49.i.i = icmp ugt i64 %204, 4
+  %switch.selectcmp49.i.i = icmp samesign ugt i64 %204, 4
   br i1 %switch.selectcmp49.i.i, label %206, label %.thread91.i.i
 
 206:                                              ; preds = %202
@@ -143150,15 +143150,15 @@ _ZN4core3str11validations15next_code_point17h23ec383a3cd45524E.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.thread7.i.i"
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %76, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i"
 
@@ -144523,7 +144523,7 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   store i64 %57, ptr %29, align 8
   %58 = load i16, ptr %30, align 2, !noalias !35804, !noundef !4
   %59 = zext i16 %58 to i64
-  %60 = icmp ult i64 %39, %59
+  %60 = icmp samesign ult i64 %39, %59
   br i1 %60, label %36, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h57b3c646b8e47554E.exit"
 
 61:                                               ; preds = %40
@@ -144744,7 +144744,7 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %130 = load i16, ptr %81, align 2, !noalias !35827, !noundef !4
   %131 = zext i16 %130 to i64
-  %132 = icmp ult i64 %90, %131
+  %132 = icmp samesign ult i64 %90, %131
   br i1 %132, label %88, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17hf4196e45970622bbE.exit"
 
 .loopexit149:                                     ; preds = %99
@@ -144986,7 +144986,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %83, ptr %36, align 8
   %84 = load i16, ptr %37, align 2, !noalias !35846, !noundef !4
   %85 = zext i16 %84 to i64
-  %86 = icmp ult i64 %48, %85
+  %86 = icmp samesign ult i64 %48, %85
   br i1 %86, label %44, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17hb5175730f145aee3E.exit"
 
 87:                                               ; preds = %51, %66
@@ -145271,7 +145271,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %177 = load i16, ptr %108, align 2, !noalias !35880, !noundef !4
   %178 = zext i16 %177 to i64
-  %179 = icmp ult i64 %119, %178
+  %179 = icmp samesign ult i64 %119, %178
   br i1 %179, label %116, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h7dd62f0906eb7f5fE.exit"
 
 .loopexit165:                                     ; preds = %144
@@ -145540,7 +145540,7 @@ default.unreachable:                              ; preds = %126
   store i64 %89, ptr %38, align 8
   %90 = load i16, ptr %39, align 2, !noalias !35912, !noundef !4
   %91 = zext i16 %90 to i64
-  %92 = icmp ult i64 %49, %91
+  %92 = icmp samesign ult i64 %49, %91
   br i1 %92, label %45, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h9ff3c8ef9945c0abE.exit"
 
 93:                                               ; preds = %52, %63, %65, %70
@@ -145850,7 +145850,7 @@ default.unreachable:                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   %190 = load i16, ptr %115, align 2, !noalias !35951, !noundef !4
   %191 = zext i16 %190 to i64
-  %192 = icmp ult i64 %125, %191
+  %192 = icmp samesign ult i64 %125, %191
   br i1 %192, label %122, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h9cb6bfb17a95097bE.exit"
 
 .loopexit159:                                     ; preds = %157
@@ -146039,7 +146039,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %60, ptr %25, align 8
   %61 = load i16, ptr %26, align 2, !noalias !35986, !noundef !4
   %62 = zext i16 %61 to i64
-  %63 = icmp ult i64 %35, %62
+  %63 = icmp samesign ult i64 %35, %62
   br i1 %63, label %31, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h06fe0218aea7c1b7E.exit"
 
 64:                                               ; preds = %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h7c810f6182a54febE.exit", %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h06fe0218aea7c1b7E.exit"
@@ -146272,7 +146272,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %144 = load i16, ptr %86, align 2, !noalias !36013, !noundef !4
   %145 = zext i16 %144 to i64
-  %146 = icmp ult i64 %95, %145
+  %146 = icmp samesign ult i64 %95, %145
   br i1 %146, label %92, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h7c810f6182a54febE.exit"
 
 .loopexit147:                                     ; preds = %112
@@ -146502,7 +146502,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %81, ptr %35, align 8
   %82 = load i16, ptr %36, align 2, !noalias !36037, !noundef !4
   %83 = zext i16 %82 to i64
-  %84 = icmp ult i64 %48, %83
+  %84 = icmp samesign ult i64 %48, %83
   br i1 %84, label %44, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h850e29625a977f50E.exit"
 
 85:                                               ; preds = %51, %64
@@ -146781,7 +146781,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %170 = load i16, ptr %104, align 2, !noalias !36071, !noundef !4
   %171 = zext i16 %170 to i64
-  %172 = icmp ult i64 %116, %171
+  %172 = icmp samesign ult i64 %116, %171
   br i1 %172, label %113, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h00c3b591daeaae9eE.exit"
 
 .loopexit165:                                     ; preds = %139

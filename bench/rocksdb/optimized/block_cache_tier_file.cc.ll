@@ -1029,7 +1029,7 @@ for.body:                                         ; preds = %if.then27, %for.bod
   %inc = add nuw nsw i64 %i.029, 1
   %24 = load i32, ptr %val_size_, align 4
   %conv49 = zext i32 %24 to i64
-  %cmp50 = icmp ult i64 %inc, %conv49
+  %cmp50 = icmp samesign ult i64 %inc, %conv49
   br i1 %cmp50, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.then27
@@ -5002,7 +5002,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

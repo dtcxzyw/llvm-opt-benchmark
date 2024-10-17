@@ -1306,7 +1306,7 @@ if.end81.us:                                      ; preds = %if.else78.us, %if.t
   %ret.5.us = phi i32 [ %call77.us, %if.then75.us ], [ %call80.us, %if.else78.us ]
   %cmp82.us = icmp sgt i32 %ret.5.us, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp61.us = icmp ult i64 %indvars.iv.next, %7
+  %cmp61.us = icmp samesign ult i64 %indvars.iv.next, %7
   %or.cond = and i1 %cmp82.us, %cmp61.us
   br i1 %or.cond, label %for.body.us, label %for.end, !llvm.loop !20
 
@@ -1337,7 +1337,7 @@ if.end81:                                         ; preds = %if.else78, %if.then
   %ret.5 = phi i32 [ %call77, %if.then75 ], [ %call80, %if.else78 ]
   %cmp82 = icmp sgt i32 %ret.5, -1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %cmp61 = icmp ult i64 %indvars.iv.next69, %7
+  %cmp61 = icmp samesign ult i64 %indvars.iv.next69, %7
   %or.cond60 = select i1 %cmp82, i1 %cmp61, i1 false
   br i1 %or.cond60, label %for.body, label %for.end, !llvm.loop !20
 
@@ -1884,7 +1884,7 @@ if.then23.i:                                      ; preds = %if.then6.i
   %add.i.i = add i64 %sector.062.i, -1
   %sub.i.i = add i64 %add.i.i, %nr_sectors.059.i
   %div111.i.i = lshr i64 %sub.i.i, 11
-  %cmp.not13.i.i = icmp ugt i64 %div10.i.i, %div111.i.i
+  %cmp.not13.i.i = icmp samesign ugt i64 %div10.i.i, %div111.i.i
   br i1 %cmp.not13.i.i, label %bmds_set_aio_inflight.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then23.i, %for.body.i.i
@@ -2032,7 +2032,7 @@ entry:
   %add.i = add i64 %3, -1
   %sub.i = add i64 %add.i, %conv.i
   %div111.i = lshr i64 %sub.i, 11
-  %cmp.not13.i = icmp ugt i64 %div10.i, %div111.i
+  %cmp.not13.i = icmp samesign ugt i64 %div10.i, %div111.i
   br i1 %cmp.not13.i, label %bmds_set_aio_inflight.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry

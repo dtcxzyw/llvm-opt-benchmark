@@ -1401,7 +1401,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i131.i = fadd float %mul107.i, 0x4168000000000000
   %19 = bitcast float %add.i131.i to i32
   %and.i132.i = and i32 %19, 8388607
-  %cmp115.i = icmp ult i32 %and.i132.i, 4194304
+  %cmp115.i = icmp samesign ult i32 %and.i132.i, 4194304
   %20 = tail call i32 @llvm.umin.i32(i32 %and.i132.i, i32 4194307)
   %cond114.i = add nsw i32 %20, -4194304
   %cond126.i = select i1 %cmp115.i, i32 0, i32 %cond114.i
@@ -2034,7 +2034,7 @@ for.body21:                                       ; preds = %if.then16, %if.end6
   %conv26 = ashr exact i32 %sext, 24
   %cond = tail call i32 @llvm.smin.i32(i32 %conv26, i32 31)
   %cond43 = tail call i32 @llvm.smax.i32(i32 %cond, i32 -32)
-  %cmp45 = icmp ult i64 %indvars.iv114, 8
+  %cmp45 = icmp samesign ult i64 %indvars.iv114, 8
   br i1 %cmp45, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %for.body21
@@ -2095,7 +2095,7 @@ if.end96:                                         ; preds = %if.else89, %for.end
 
 for.body101:                                      ; preds = %if.end96, %for.inc190
   %indvars.iv125 = phi i64 [ 0, %if.end96 ], [ %indvars.iv.next126, %for.inc190 ]
-  %cmp102 = icmp ult i64 %indvars.iv125, 8
+  %cmp102 = icmp samesign ult i64 %indvars.iv125, 8
   br i1 %cmp102, label %cond.true104, label %cond.false112
 
 cond.true104:                                     ; preds = %for.body101
@@ -2591,7 +2591,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i131.i = fadd float %mul107.i, 0x4168000000000000
   %20 = bitcast float %add.i131.i to i32
   %and.i132.i = and i32 %20, 8388607
-  %cmp115.i = icmp ult i32 %and.i132.i, 4194304
+  %cmp115.i = icmp samesign ult i32 %and.i132.i, 4194304
   %21 = tail call i32 @llvm.umin.i32(i32 %and.i132.i, i32 4194319)
   %cond114.i = add nsw i32 %21, -4194304
   %cond126.i = select i1 %cmp115.i, i32 0, i32 %cond114.i
@@ -2704,7 +2704,7 @@ for.body60:                                       ; preds = %for.end48, %for.inc
   %cond77 = tail call i32 @llvm.umin.i32(i32 %conv70, i32 63)
   %conv79 = and i32 %39, 255
   %cond86 = tail call i32 @llvm.umin.i32(i32 %conv79, i32 63)
-  %cmp88 = icmp ult i64 %indvars.iv142, 4
+  %cmp88 = icmp samesign ult i64 %indvars.iv142, 4
   br i1 %cmp88, label %if.then90, label %if.else
 
 if.then90:                                        ; preds = %for.body60
@@ -2770,7 +2770,7 @@ for.end137:                                       ; preds = %for.inc135
 
 for.body158:                                      ; preds = %for.end137, %for.inc218
   %indvars.iv154 = phi i64 [ 0, %for.end137 ], [ %indvars.iv.next155, %for.inc218 ]
-  %cmp.i = icmp ult i64 %indvars.iv154, 4
+  %cmp.i = icmp samesign ult i64 %indvars.iv154, 4
   %arrayidx.i = getelementptr inbounds i8, ptr %scales161, i64 %indvars.iv154
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -2867,7 +2867,7 @@ for.body233:                                      ; preds = %for.cond230.prehead
 for.end250:                                       ; preds = %for.body233
   %add.ptr251 = getelementptr inbounds i8, ptr %q.0117, i64 32
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 64
-  %cmp226 = icmp ult i64 %indvars.iv164, 192
+  %cmp226 = icmp samesign ult i64 %indvars.iv164, 192
   br i1 %cmp226, label %for.cond230.preheader, label %for.end254, !llvm.loop !143
 
 for.end254:                                       ; preds = %for.end250
@@ -2916,7 +2916,7 @@ for.body9:                                        ; preds = %for.body, %for.end5
   %y.addr.149 = phi ptr [ %y.addr.052, %for.body ], [ %incdec.ptr48, %for.end51 ]
   %q.048 = phi ptr [ %qs, %for.body ], [ %add.ptr, %for.end51 ]
   %j.046 = phi i32 [ 0, %for.body ], [ %add54, %for.end51 ]
-  %cmp.i = icmp ult i64 %indvars.iv58, 4
+  %cmp.i = icmp samesign ult i64 %indvars.iv58, 4
   %arrayidx.i26 = getelementptr inbounds i8, ptr %scales, i64 %indvars.iv58
   br i1 %cmp.i, label %if.then.i35, label %if.else.i28
 
@@ -3018,7 +3018,7 @@ for.end51:                                        ; preds = %for.body41
   %add.ptr = getelementptr inbounds i8, ptr %q.048, i64 32
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 2
   %add54 = add nuw nsw i32 %j.046, 64
-  %cmp8 = icmp ult i32 %j.046, 192
+  %cmp8 = icmp samesign ult i32 %j.046, 192
   br i1 %cmp8, label %for.body9, label %for.inc56, !llvm.loop !159
 
 for.inc56:                                        ; preds = %for.end51
@@ -3224,7 +3224,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i131.i = fadd float %mul107.i, 0x4168000000000000
   %20 = bitcast float %add.i131.i to i32
   %and.i132.i = and i32 %20, 8388607
-  %cmp115.i = icmp ult i32 %and.i132.i, 4194304
+  %cmp115.i = icmp samesign ult i32 %and.i132.i, 4194304
   %21 = tail call i32 @llvm.umin.i32(i32 %and.i132.i, i32 4194335)
   %cond114.i = add nsw i32 %21, -4194304
   %cond126.i = select i1 %cmp115.i, i32 0, i32 %cond114.i
@@ -3337,7 +3337,7 @@ for.body60:                                       ; preds = %for.end48, %for.inc
   %cond77 = tail call i32 @llvm.umin.i32(i32 %conv70, i32 63)
   %conv79 = and i32 %39, 255
   %cond86 = tail call i32 @llvm.umin.i32(i32 %conv79, i32 63)
-  %cmp88 = icmp ult i64 %indvars.iv158, 4
+  %cmp88 = icmp samesign ult i64 %indvars.iv158, 4
   br i1 %cmp88, label %if.then90, label %if.else
 
 if.then90:                                        ; preds = %for.body60
@@ -3403,7 +3403,7 @@ for.end137:                                       ; preds = %for.inc135
 
 for.body158:                                      ; preds = %for.end137, %for.inc218
   %indvars.iv170 = phi i64 [ 0, %for.end137 ], [ %indvars.iv.next171, %for.inc218 ]
-  %cmp.i = icmp ult i64 %indvars.iv170, 4
+  %cmp.i = icmp samesign ult i64 %indvars.iv170, 4
   %arrayidx.i = getelementptr inbounds i8, ptr %scales161, i64 %indvars.iv170
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -3532,7 +3532,7 @@ for.end275:                                       ; preds = %if.end267
   %shl280 = shl i8 %m2.0133, 2
   %add.ptr282 = getelementptr inbounds i8, ptr %ql.0131, i64 32
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 64
-  %cmp229 = icmp ult i64 %indvars.iv180, 192
+  %cmp229 = icmp samesign ult i64 %indvars.iv180, 192
   br i1 %cmp229, label %for.cond233.preheader, label %for.end285, !llvm.loop !193
 
 for.end285:                                       ; preds = %for.end275
@@ -3581,7 +3581,7 @@ for.body13:                                       ; preds = %for.body, %for.end6
   %j.057 = phi i32 [ 0, %for.body ], [ %add77, %for.end69 ]
   %u2.056 = phi i8 [ 2, %for.body ], [ %shl74, %for.end69 ]
   %u1.055 = phi i8 [ 1, %for.body ], [ %shl, %for.end69 ]
-  %cmp.i = icmp ult i64 %indvars.iv69, 4
+  %cmp.i = icmp samesign ult i64 %indvars.iv69, 4
   %arrayidx.i35 = getelementptr inbounds i8, ptr %scales, i64 %indvars.iv69
   br i1 %cmp.i, label %if.then.i44, label %if.else.i37
 
@@ -3699,7 +3699,7 @@ for.end69:                                        ; preds = %for.body51
   %shl = shl i8 %u1.055, 2
   %shl74 = shl i8 %u2.056, 2
   %add77 = add nuw nsw i32 %j.057, 64
-  %cmp12 = icmp ult i32 %j.057, 192
+  %cmp12 = icmp samesign ult i32 %j.057, 192
   br i1 %cmp12, label %for.body13, label %for.inc79, !llvm.loop !209
 
 for.inc79:                                        ; preds = %for.end69
@@ -3859,7 +3859,7 @@ for.body150.i:                                    ; preds = %for.body150.i, %if.
   %add.i123.i = fadd float %mul154.i, 0x4168000000000000
   %13 = bitcast float %add.i123.i to i32
   %and.i124.i = and i32 %13, 8388607
-  %cmp165.i = icmp ult i32 %and.i124.i, 4194272
+  %cmp165.i = icmp samesign ult i32 %and.i124.i, 4194272
   %14 = tail call i32 @llvm.umin.i32(i32 %and.i124.i, i32 4194335)
   %cond164.i = add nsw i32 %14, -4194304
   %15 = sitofp i32 %cond164.i to float
@@ -3891,7 +3891,7 @@ for.body215.i:                                    ; preds = %land.lhs.true.i, %f
   %add.i126.i = fadd float %mul219.i, 0x4168000000000000
   %19 = bitcast float %add.i126.i to i32
   %and.i127.i = and i32 %19, 8388607
-  %cmp230.i = icmp ult i32 %and.i127.i, 4194272
+  %cmp230.i = icmp samesign ult i32 %and.i127.i, 4194272
   %20 = tail call i32 @llvm.umin.i32(i32 %and.i127.i, i32 4194335)
   %21 = trunc i32 %20 to i8
   %22 = add i8 %21, 32
@@ -3966,7 +3966,7 @@ for.body29:                                       ; preds = %if.end14, %for.body
   %add.i = fadd float %mul32, 0x4168000000000000
   %29 = bitcast float %add.i to i32
   %and.i = and i32 %29, 8388480
-  %cmp34 = icmp ugt i32 %and.i, 4194431
+  %cmp34 = icmp samesign ugt i32 %and.i, 4194431
   %30 = trunc i32 %29 to i8
   %spec.select = select i1 %cmp34, i8 127, i8 %30
   %arrayidx43 = getelementptr inbounds [16 x i8], ptr %scales41, i64 0, i64 %indvars.iv100

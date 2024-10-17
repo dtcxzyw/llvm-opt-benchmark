@@ -233,7 +233,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %19, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv66, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv66, %retval.0.i
   br i1 %cmp, label %for.body, label %while.cond.backedge
 
 for.body:                                         ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
@@ -358,7 +358,7 @@ for.inc:                                          ; preds = %.noexc37, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %m_arity.i, align 8
   %33 = zext i32 %32 to i64
-  %cmp37 = icmp ult i64 %indvars.iv.next, %33
+  %cmp37 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %cmp37, label %for.body38, label %for.inc43, !llvm.loop !4
 
 for.inc43:                                        ; preds = %for.inc, %for.body

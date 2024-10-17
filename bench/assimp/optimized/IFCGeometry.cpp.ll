@@ -8741,7 +8741,7 @@ land.rhs:                                         ; preds = %if.then, %for.body
   %it.sroa.0.014 = phi ptr [ %call.i, %for.body ], [ %2, %if.then ]
   %4 = load i32, ptr %mNumMeshes, align 8
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv, %5
+  %cmp = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp, label %for.body, label %if.end
 
 for.body:                                         ; preds = %land.rhs

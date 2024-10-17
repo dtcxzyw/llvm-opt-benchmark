@@ -1879,7 +1879,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i
   store i8 %82, ptr %.ptr.i.i.i, align 1
   %83 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %84, label %79, !llvm.loop !6
 
 84:                                               ; preds = %79
@@ -2002,7 +2002,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   %.ptr.i.i.i37 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i36
   store i8 %132, ptr %.ptr.i.i.i37, align 1
   %133 = udiv i64 %.08.i.i.i34, 10
-  %.not.i.i.i38 = icmp ult i64 %.08.i.i.i34, 10
+  %.not.i.i.i38 = icmp samesign ult i64 %.08.i.i.i34, 10
   br i1 %.not.i.i.i38, label %134, label %129, !llvm.loop !6
 
 134:                                              ; preds = %129
@@ -2945,7 +2945,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13: ; preds = %._ZN4llvm
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
   store i8 %62, ptr %.ptr.i.i.i, align 1
   %63 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %64, label %59, !llvm.loop !6
 
 64:                                               ; preds = %59
@@ -4696,7 +4696,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.0.add.i.i.i
   store i8 %39, ptr %.ptr.i.i.i, align 1
   %40 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %41, label %36, !llvm.loop !6
 
 41:                                               ; preds = %36
@@ -4840,7 +4840,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
   %.ptr.i.i.i24 = getelementptr inbounds i8, ptr %9, i64 %.0.add.i.i.i23
   store i8 %101, ptr %.ptr.i.i.i24, align 1
   %102 = udiv i64 %.08.i.i.i21, 10
-  %.not.i.i.i25 = icmp ult i64 %.08.i.i.i21, 10
+  %.not.i.i.i25 = icmp samesign ult i64 %.08.i.i.i21, 10
   br i1 %.not.i.i.i25, label %103, label %98, !llvm.loop !6
 
 103:                                              ; preds = %98
@@ -4948,7 +4948,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   %.ptr.i.i.i43 = getelementptr inbounds i8, ptr %8, i64 %.0.add.i.i.i42
   store i8 %145, ptr %.ptr.i.i.i43, align 1
   %146 = udiv i64 %.08.i.i.i40, 10
-  %.not.i.i.i44 = icmp ult i64 %.08.i.i.i40, 10
+  %.not.i.i.i44 = icmp samesign ult i64 %.08.i.i.i40, 10
   br i1 %.not.i.i.i44, label %147, label %142, !llvm.loop !6
 
 147:                                              ; preds = %142
@@ -5055,7 +5055,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
   %.ptr.i.i.i67 = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i66
   store i8 %188, ptr %.ptr.i.i.i67, align 1
   %189 = udiv i64 %.08.i.i.i64, 10
-  %.not.i.i.i68 = icmp ult i64 %.08.i.i.i64, 10
+  %.not.i.i.i68 = icmp samesign ult i64 %.08.i.i.i64, 10
   br i1 %.not.i.i.i68, label %190, label %185, !llvm.loop !6
 
 190:                                              ; preds = %185
@@ -5160,7 +5160,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i83: ; preds = %._ZN4llvm
   %.ptr.i.i.i91 = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i90
   store i8 %229, ptr %.ptr.i.i.i91, align 1
   %230 = udiv i64 %.08.i.i.i88, 10
-  %.not.i.i.i92 = icmp ult i64 %.08.i.i.i88, 10
+  %.not.i.i.i92 = icmp samesign ult i64 %.08.i.i.i88, 10
   br i1 %.not.i.i.i92, label %231, label %226, !llvm.loop !6
 
 231:                                              ; preds = %226
@@ -5289,7 +5289,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
   %.ptr.i.i.i119 = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i118
   store i8 %283, ptr %.ptr.i.i.i119, align 1
   %284 = udiv i64 %.08.i.i.i116, 10
-  %.not.i.i.i120 = icmp ult i64 %.08.i.i.i116, 10
+  %.not.i.i.i120 = icmp samesign ult i64 %.08.i.i.i116, 10
   br i1 %.not.i.i.i120, label %285, label %280, !llvm.loop !6
 
 285:                                              ; preds = %280
@@ -5395,7 +5395,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i135: ; preds = %._ZN4llv
   %.ptr.i.i.i143 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i142
   store i8 %325, ptr %.ptr.i.i.i143, align 1
   %326 = udiv i64 %.08.i.i.i140, 10
-  %.not.i.i.i144 = icmp ult i64 %.08.i.i.i140, 10
+  %.not.i.i.i144 = icmp samesign ult i64 %.08.i.i.i140, 10
   br i1 %.not.i.i.i144, label %327, label %322, !llvm.loop !6
 
 327:                                              ; preds = %322
@@ -6837,7 +6837,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i
   store i8 %31, ptr %.ptr.i.i.i, align 1
   %32 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %33, label %28, !llvm.loop !6
 
 33:                                               ; preds = %28
@@ -6933,7 +6933,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
   %.ptr.i.i.i14 = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i13
   store i8 %71, ptr %.ptr.i.i.i14, align 1
   %72 = udiv i64 %.08.i.i.i11, 10
-  %.not.i.i.i15 = icmp ult i64 %.08.i.i.i11, 10
+  %.not.i.i.i15 = icmp samesign ult i64 %.08.i.i.i11, 10
   br i1 %.not.i.i.i15, label %73, label %68, !llvm.loop !6
 
 73:                                               ; preds = %68
@@ -7039,7 +7039,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25: ; preds = %._ZN4llvm
   %.ptr.i.i.i33 = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i32
   store i8 %113, ptr %.ptr.i.i.i33, align 1
   %114 = udiv i64 %.08.i.i.i30, 10
-  %.not.i.i.i34 = icmp ult i64 %.08.i.i.i30, 10
+  %.not.i.i.i34 = icmp samesign ult i64 %.08.i.i.i30, 10
   br i1 %.not.i.i.i34, label %115, label %110, !llvm.loop !6
 
 115:                                              ; preds = %110
@@ -7134,7 +7134,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i46: ; preds = %._ZN4llvm
   %.ptr.i.i.i54 = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i53
   store i8 %152, ptr %.ptr.i.i.i54, align 1
   %153 = udiv i64 %.08.i.i.i51, 10
-  %.not.i.i.i55 = icmp ult i64 %.08.i.i.i51, 10
+  %.not.i.i.i55 = icmp samesign ult i64 %.08.i.i.i51, 10
   br i1 %.not.i.i.i55, label %154, label %149, !llvm.loop !6
 
 154:                                              ; preds = %149

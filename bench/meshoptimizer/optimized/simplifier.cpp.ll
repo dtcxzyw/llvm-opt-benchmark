@@ -3247,7 +3247,7 @@ if.end48:                                         ; preds = %_ZN7meshoptL14count
   %min_triangles.2 = phi i64 [ %min_triangles.1302, %if.else ], [ %result.0.lcssa.i133, %_ZN7meshoptL14countTrianglesEPKjS1_m.exit134 ]
   %max_grid.1 = phi i32 [ %cond31, %if.else ], [ %max_grid.0303, %_ZN7meshoptL14countTrianglesEPKjS1_m.exit134 ]
   %min_grid.1 = phi i32 [ %min_grid.0304, %if.else ], [ %cond31, %_ZN7meshoptL14countTrianglesEPKjS1_m.exit134 ]
-  %cmp49 = icmp ult i32 %pass.0299, 5
+  %cmp49 = icmp samesign ult i32 %pass.0299, 5
   br i1 %cmp49, label %cond.true50, label %cond.false53
 
 cond.true50:                                      ; preds = %if.end48
@@ -4181,7 +4181,7 @@ lpad:                                             ; preds = %invoke.cont58, %_ZN
   resume { ptr, i32 } %14
 
 if.end38:                                         ; preds = %invoke.cont20
-  %cmp39 = icmp ult i32 %pass.0209, 5
+  %cmp39 = icmp samesign ult i32 %pass.0209, 5
   br i1 %cmp39, label %cond.true40, label %cond.false43
 
 cond.true40:                                      ; preds = %if.end38

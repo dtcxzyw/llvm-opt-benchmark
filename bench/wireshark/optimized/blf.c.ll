@@ -721,7 +721,7 @@ define internal void @blf_close(ptr nocapture noundef readonly %0) #1 {
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next.i, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %14, %.preheader.i
@@ -1129,7 +1129,7 @@ blf_read_log_object_header3.exit:                 ; preds = %61
   %195 = zext i32 %75 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %196 = add nuw nsw i64 %193, 16
-  %197 = icmp ugt i64 %196, %195
+  %197 = icmp samesign ugt i64 %196, %195
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %192

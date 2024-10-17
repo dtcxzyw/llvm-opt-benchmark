@@ -172,7 +172,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   %44 = sub nuw i64 %1, %.0112
   %45 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 %.0112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %46 = icmp ult i64 %44, 2
+  %46 = icmp samesign ult i64 %44, 2
   br i1 %46, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit", label %47
 
 47:                                               ; preds = %41

@@ -1860,7 +1860,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %26, i64 4
   %27 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %27, 2147483647
-  %cmp.i50 = icmp ugt i32 %and.i, 25
+  %cmp.i50 = icmp samesign ugt i32 %and.i, 25
   br i1 %cmp.i50, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit
 
 _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit49
@@ -8202,7 +8202,7 @@ _ZNK6hermes2vm10StringViewixEj.exit228:           ; preds = %_ZNK6hermes2vm10Str
   %cmp88 = icmp eq i32 %add81, 0
   %or.cond3.not1014 = select i1 %or.cond2, i1 true, i1 %cmp88
   %conv90 = zext nneg i32 %add81 to i64
-  %cmp91.not = icmp ult i64 %cond, %conv90
+  %cmp91.not = icmp samesign ult i64 %cond, %conv90
   %or.cond72 = select i1 %or.cond3.not1014, i1 true, i1 %cmp91.not
   br i1 %or.cond72, label %if.else103, label %if.then92
 
@@ -8467,7 +8467,7 @@ _ZNK6hermes2vm10StringView3endEv.exit:            ; preds = %_ZNK6hermes2vm10Str
 if.else103:                                       ; preds = %_ZNK6hermes2vm10StringViewixEj.exit228
   %cmp104.not = icmp eq i32 %sub, 0
   %conv106 = zext nneg i32 %sub to i64
-  %cmp107.not = icmp ult i64 %cond, %conv106
+  %cmp107.not = icmp samesign ult i64 %cond, %conv106
   %or.cond73 = select i1 %cmp104.not, i1 true, i1 %cmp107.not
   br i1 %or.cond73, label %if.else120, label %if.then108
 
@@ -8759,7 +8759,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit: ; preds =
 if.else128:                                       ; preds = %if.then69
   %cmp129.not = icmp eq i32 %sub, 0
   %conv131 = zext nneg i32 %sub to i64
-  %cmp132.not = icmp ult i64 %cond, %conv131
+  %cmp132.not = icmp samesign ult i64 %cond, %conv131
   %or.cond74 = select i1 %cmp129.not, i1 true, i1 %cmp132.not
   br i1 %or.cond74, label %if.else145, label %if.then133
 
@@ -10215,7 +10215,7 @@ entry:
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   %overflowed_.i = getelementptr inbounds i8, ptr %this, i64 24

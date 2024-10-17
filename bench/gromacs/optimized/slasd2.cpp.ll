@@ -589,7 +589,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %gep623 = getelementptr float, ptr %invariant.gep622, i64 %indvars.iv586
   call void @scopy_(ptr noundef nonnull %26, ptr noundef %321, ptr noundef nonnull %11, ptr noundef %gep623, ptr noundef nonnull %16)
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
-  %.not434.not = icmp ult i64 %indvars.iv586, %298
+  %.not434.not = icmp samesign ult i64 %indvars.iv586, %298
   br i1 %.not434.not, label %.lr.ph519, label %._crit_edge520, !llvm.loop !14
 
 ._crit_edge520:                                   ; preds = %.lr.ph519, %._crit_edge509.thread.critedge

@@ -259,8 +259,8 @@ define internal fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h1c478
   %112 = shl nuw nsw i32 %.sroa.4.0.i97124, 4
   %113 = or disjoint i32 %.sroa.4.0.i100128, %112
   %114 = tail call noundef zeroext i1 @_ZN17ra_ap_rustc_lexer8unescape4Mode16allow_high_bytes17hfb8ead34fdd1d994E(i8 noundef %1)
-  %115 = icmp ult i32 %.sroa.4.0.i97124, 8
-  %or.cond = or i1 %115, %114
+  %115 = icmp samesign ult i32 %.sroa.4.0.i97124, 8
+  %or.cond = select i1 %114, i1 true, i1 %115
   %spec.select = select i1 %or.cond, i32 %113, i32 undef
   %not.or.cond = xor i1 %or.cond, true
   %spec.select129 = zext i1 %not.or.cond to i64
@@ -650,15 +650,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %58, %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -784,15 +784,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %58, %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -916,7 +916,7 @@ switch.lookup:
   %46 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %46, %6
   %47 = add i64 %.neg, %1
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %48, label %49, label %53
 
 .thread:                                          ; preds = %35, %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h63d51e39603b3b06E.llvm.11162169574061779932.exit", %switch.lookup
@@ -931,8 +931,8 @@ switch.lookup:
   br i1 %52, label %.thread55, label %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h63d51e39603b3b06E.llvm.11162169574061779932.exit"
 
 53:                                               ; preds = %.thread32
-  %54 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %55 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %55, i64 -3, i64 -4
   %.018.neg.ph = select i1 %54, i64 -2, i64 %.
   %56 = add i64 %47, %.018.neg.ph
@@ -1030,15 +1030,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %"_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h79cd86ccf55a3dd2E.exit", %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -1173,15 +1173,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %"_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17he806349842f58adbE.exit", %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -1314,7 +1314,7 @@ switch.lookup:
   %46 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %46, %6
   %47 = add i64 %.neg, %1
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %48, label %49, label %53
 
 .thread:                                          ; preds = %35, %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17ha41d92179938eb30E.llvm.11162169574061779932.exit", %switch.lookup
@@ -1329,8 +1329,8 @@ switch.lookup:
   br i1 %52, label %.thread55, label %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17ha41d92179938eb30E.llvm.11162169574061779932.exit"
 
 53:                                               ; preds = %.thread32
-  %54 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %55 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %55, i64 -3, i64 -4
   %.018.neg.ph = select i1 %54, i64 -2, i64 %.
   %56 = add i64 %47, %.018.neg.ph
@@ -1428,15 +1428,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %"_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h98f56e71cb9f45d6E.exit", %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -1571,15 +1571,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %"_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h5d105d388d84c8aaE.exit", %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -1713,15 +1713,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %58, %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -1842,7 +1842,7 @@ switch.lookup:
   %46 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %46, %6
   %47 = add i64 %.neg, %1
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %48, label %49, label %53
 
 .thread:                                          ; preds = %35, %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h95d44b86cfcd0df2E.llvm.11162169574061779932.exit", %switch.lookup
@@ -1857,8 +1857,8 @@ switch.lookup:
   br i1 %52, label %.thread55, label %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h95d44b86cfcd0df2E.llvm.11162169574061779932.exit"
 
 53:                                               ; preds = %.thread32
-  %54 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %55 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %55, i64 -3, i64 -4
   %.018.neg.ph = select i1 %54, i64 -2, i64 %.
   %56 = add i64 %47, %.018.neg.ph
@@ -1954,7 +1954,7 @@ switch.lookup:
   %46 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %46, %6
   %47 = add i64 %.neg, %1
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %48, label %49, label %53
 
 .thread:                                          ; preds = %35, %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h6aa5653c7bb62a63E.llvm.11162169574061779932.exit", %switch.lookup
@@ -1969,8 +1969,8 @@ switch.lookup:
   br i1 %52, label %.thread55, label %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h6aa5653c7bb62a63E.llvm.11162169574061779932.exit"
 
 53:                                               ; preds = %.thread32
-  %54 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %55 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %55, i64 -3, i64 -4
   %.018.neg.ph = select i1 %54, i64 -2, i64 %.
   %56 = add i64 %47, %.018.neg.ph
@@ -2067,15 +2067,15 @@ switch.lookup:
   %45 = ptrtoint ptr %.sroa.0.1.ph36 to i64
   %.neg = sub i64 %45, %6
   %46 = add i64 %.neg, %1
-  %47 = icmp ult i32 %.sroa.4.0.i.ph37, 128
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 128
   br i1 %47, label %51, label %.thread39
 
 .thread:                                          ; preds = %34, %58, %switch.lookup
   ret void
 
 .thread39:                                        ; preds = %.thread32
-  %48 = icmp ult i32 %.sroa.4.0.i.ph37, 2048
-  %49 = icmp ult i32 %.sroa.4.0.i.ph37, 65536
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 2048
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph37, 65536
   %. = select i1 %49, i64 -3, i64 -4
   %.018.neg.ph = select i1 %48, i64 -2, i64 %.
   %50 = add i64 %46, %.018.neg.ph
@@ -2581,7 +2581,7 @@ switch.lookup:
   %54 = ptrtoint ptr %14 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub nuw i64 %54, %55
-  %57 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %57 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %57, label %62, label %58
 
 .thread:                                          ; preds = %.outer, %147, %42, %switch.lookup
@@ -2589,11 +2589,11 @@ switch.lookup:
   ret void
 
 58:                                               ; preds = %.thread64
-  %59 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %59 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %59, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %61 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %61, i64 -3, i64 -4
   br label %62
 
@@ -2869,7 +2869,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hdc71df85e6e2fa4eE.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h3b66f11463a501fbE.exit
 
 191:                                              ; preds = %189
@@ -3036,7 +3036,7 @@ switch.lookup:
   %51 = ptrtoint ptr %11 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub nuw i64 %51, %52
-  %54 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %54, label %59, label %55
 
 .thread:                                          ; preds = %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h6aa5653c7bb62a63E.llvm.11162169574061779932.exit", %147, %39, %switch.lookup
@@ -3044,11 +3044,11 @@ switch.lookup:
   ret void
 
 55:                                               ; preds = %.thread64
-  %56 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %56 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %58 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %58, i64 -3, i64 -4
   br label %59
 
@@ -3316,7 +3316,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h62f556d7a17ba04eE.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hf64b6c77928f755fE.exit
 
 191:                                              ; preds = %189
@@ -3490,7 +3490,7 @@ switch.lookup:
   %55 = ptrtoint ptr %15 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub nuw i64 %55, %56
-  %58 = icmp ult i32 %.sroa.4.0.i.ph70, 128
+  %58 = icmp samesign ult i32 %.sroa.4.0.i.ph70, 128
   br i1 %58, label %63, label %59
 
 .thread:                                          ; preds = %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit", %173, %43, %switch.lookup
@@ -3498,11 +3498,11 @@ switch.lookup:
   ret void
 
 59:                                               ; preds = %.thread67
-  %60 = icmp ult i32 %.sroa.4.0.i.ph70, 2048
+  %60 = icmp samesign ult i32 %.sroa.4.0.i.ph70, 2048
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %59
-  %62 = icmp ult i32 %.sroa.4.0.i.ph70, 65536
+  %62 = icmp samesign ult i32 %.sroa.4.0.i.ph70, 65536
   %. = select i1 %62, i64 -3, i64 -4
   br label %63
 
@@ -3833,7 +3833,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0886ec014b5ce555E.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %215
 
 215:                                              ; preds = %213
-  %216 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %216 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %216, label %217, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit
 
 217:                                              ; preds = %215
@@ -3876,11 +3876,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   br i1 %236, label %237, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit
 
 237:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i
-  %238 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %238 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %238, label %.critedge.thread.i, label %239
 
 239:                                              ; preds = %237
-  %240 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %240 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %240, i64 3, i64 4
   br label %.critedge.thread.i
 
@@ -4127,7 +4127,7 @@ switch.lookup:
   %51 = ptrtoint ptr %11 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub nuw i64 %51, %52
-  %54 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %54, label %59, label %55
 
 .thread:                                          ; preds = %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h63d51e39603b3b06E.llvm.11162169574061779932.exit", %147, %39, %switch.lookup
@@ -4135,11 +4135,11 @@ switch.lookup:
   ret void
 
 55:                                               ; preds = %.thread64
-  %56 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %56 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %58 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %58, i64 -3, i64 -4
   br label %59
 
@@ -4407,7 +4407,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc359db94cae769a8E.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hb00c2808dd61d93aE.exit
 
 191:                                              ; preds = %189
@@ -4578,7 +4578,7 @@ switch.lookup:
   %52 = ptrtoint ptr %12 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub nuw i64 %52, %53
-  %55 = icmp ult i32 %.sroa.4.0.i.ph69, 128
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 128
   br i1 %55, label %60, label %56
 
 .thread:                                          ; preds = %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit", %146, %40, %switch.lookup
@@ -4586,11 +4586,11 @@ switch.lookup:
   ret void
 
 56:                                               ; preds = %.thread66
-  %57 = icmp ult i32 %.sroa.4.0.i.ph69, 2048
+  %57 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 2048
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %.sroa.4.0.i.ph69, 65536
+  %59 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 65536
   %. = select i1 %59, i64 -3, i64 -4
   br label %60
 
@@ -4865,7 +4865,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb8353e33e96a1c5eE.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %189 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %189, label %190, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit
 
 190:                                              ; preds = %188
@@ -5047,7 +5047,7 @@ switch.lookup:
   %54 = ptrtoint ptr %14 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub nuw i64 %54, %55
-  %57 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %57 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %57, label %62, label %58
 
 .thread:                                          ; preds = %.outer, %147, %42, %switch.lookup
@@ -5055,11 +5055,11 @@ switch.lookup:
   ret void
 
 58:                                               ; preds = %.thread64
-  %59 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %59 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %59, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %61 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %61, i64 -3, i64 -4
   br label %62
 
@@ -5335,7 +5335,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h2cb9cdb61e4f6df6E.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h8ae4fac37ef9f9c3E.exit
 
 191:                                              ; preds = %189
@@ -5502,7 +5502,7 @@ switch.lookup:
   %51 = ptrtoint ptr %11 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub nuw i64 %51, %52
-  %54 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %54, label %59, label %55
 
 .thread:                                          ; preds = %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17ha41d92179938eb30E.llvm.11162169574061779932.exit", %147, %39, %switch.lookup
@@ -5510,11 +5510,11 @@ switch.lookup:
   ret void
 
 55:                                               ; preds = %.thread64
-  %56 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %56 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %58 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %58, i64 -3, i64 -4
   br label %59
 
@@ -5782,7 +5782,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hce5c6c1854bc440cE.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h476075b0bdc0d5c5E.exit
 
 191:                                              ; preds = %189
@@ -5957,7 +5957,7 @@ switch.lookup:
   %56 = ptrtoint ptr %16 to i64
   %57 = ptrtoint ptr %55 to i64
   %58 = sub nuw i64 %56, %57
-  %59 = icmp ult i32 %.sroa.4.0.i.ph69, 128
+  %59 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 128
   br i1 %59, label %64, label %60
 
 .thread:                                          ; preds = %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit", %149, %44, %switch.lookup
@@ -5965,11 +5965,11 @@ switch.lookup:
   ret void
 
 60:                                               ; preds = %.thread66
-  %61 = icmp ult i32 %.sroa.4.0.i.ph69, 2048
+  %61 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 2048
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %.sroa.4.0.i.ph69, 65536
+  %63 = icmp samesign ult i32 %.sroa.4.0.i.ph69, 65536
   %. = select i1 %63, i64 -3, i64 -4
   br label %64
 
@@ -6245,7 +6245,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h27bac6c900df8a36E.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %191
 
 191:                                              ; preds = %189
-  %192 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %192 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %192, label %193, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit
 
 193:                                              ; preds = %191
@@ -6525,7 +6525,7 @@ switch.lookup:
   %51 = ptrtoint ptr %11 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub nuw i64 %51, %52
-  %54 = icmp ult i32 %.sroa.4.0.i.ph67, 128
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 128
   br i1 %54, label %59, label %55
 
 .thread:                                          ; preds = %"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h95d44b86cfcd0df2E.llvm.11162169574061779932.exit", %147, %39, %switch.lookup
@@ -6533,11 +6533,11 @@ switch.lookup:
   ret void
 
 55:                                               ; preds = %.thread64
-  %56 = icmp ult i32 %.sroa.4.0.i.ph67, 2048
+  %56 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 2048
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.sroa.4.0.i.ph67, 65536
+  %58 = icmp samesign ult i32 %.sroa.4.0.i.ph67, 65536
   %. = select i1 %58, i64 -3, i64 -4
   br label %59
 
@@ -6805,7 +6805,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h42243ac7aa702be5E.exit.i: ; pr
   br i1 %or.cond.i, label %.critedge.thread.i, label %189
 
 189:                                              ; preds = %187
-  %190 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %190 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %190, label %191, label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h6a5efd7e7e406badE.exit
 
 191:                                              ; preds = %189

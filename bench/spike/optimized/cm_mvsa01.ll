@@ -119,14 +119,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cm_mvsa01P
   %22 = getelementptr inbounds i8, ptr %0, i64 120
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
-  %25 = icmp ult i64 %13, 2
+  %25 = icmp samesign ult i64 %13, 2
   %.v = select i1 %25, i64 8, i64 16
   %26 = or disjoint i64 %.v, %13
   %27 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %26
   store i64 %24, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 208
   %29 = load i64, ptr %28, align 8
-  %30 = icmp ult i64 %15, 2
+  %30 = icmp samesign ult i64 %15, 2
   %.v27 = select i1 %30, i64 8, i64 16
   %31 = or disjoint i64 %.v27, %15
   %32 = shl i64 %2, 32
@@ -196,14 +196,14 @@ define noundef i64 @_Z20fast_rv64i_cm_mvsa01P11processor_t6insn_tm(ptr nocapture
   %22 = getelementptr inbounds i8, ptr %0, i64 120
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
-  %25 = icmp ult i64 %13, 2
+  %25 = icmp samesign ult i64 %13, 2
   %.v = select i1 %25, i64 8, i64 16
   %26 = or disjoint i64 %.v, %13
   %27 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %26
   store i64 %24, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 208
   %29 = load i64, ptr %28, align 8
-  %30 = icmp ult i64 %15, 2
+  %30 = icmp samesign ult i64 %15, 2
   %.v27 = select i1 %30, i64 8, i64 16
   %31 = or disjoint i64 %.v27, %15
   %32 = add i64 %2, 2
@@ -257,7 +257,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cm_mvsa0
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 3672
-  %26 = icmp ult i64 %13, 2
+  %26 = icmp samesign ult i64 %13, 2
   %.v = select i1 %26, i64 8, i64 16
   %27 = or disjoint i64 %.v, %13
   %28 = shl nuw nsw i64 %27, 4
@@ -325,7 +325,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %24, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 208
   %54 = load i64, ptr %53, align 8
-  %55 = icmp ult i64 %15, 2
+  %55 = icmp samesign ult i64 %15, 2
   %.v52 = select i1 %55, i64 8, i64 16
   %56 = or disjoint i64 %.v52, %15
   %57 = shl nuw nsw i64 %56, 4
@@ -435,7 +435,7 @@ define noundef i64 @_Z22logged_rv64i_cm_mvsa01P11processor_t6insn_tm(ptr noundef
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 3672
-  %26 = icmp ult i64 %13, 2
+  %26 = icmp samesign ult i64 %13, 2
   %.v = select i1 %26, i64 8, i64 16
   %27 = or disjoint i64 %.v, %13
   %28 = shl nuw nsw i64 %27, 4
@@ -503,7 +503,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %24, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 208
   %54 = load i64, ptr %53, align 8
-  %55 = icmp ult i64 %15, 2
+  %55 = icmp samesign ult i64 %15, 2
   %.v52 = select i1 %55, i64 8, i64 16
   %56 = or disjoint i64 %.v52, %15
   %57 = shl nuw nsw i64 %56, 4
@@ -608,7 +608,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cm_mvsa01P
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %0, i64 120
-  %23 = icmp ult i64 %13, 2
+  %23 = icmp samesign ult i64 %13, 2
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %21
@@ -629,7 +629,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cm_mvsa01P
   %32 = or disjoint i64 %13, 8
   %33 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %32
   store i64 %31, ptr %33, align 8
-  %34 = icmp ult i64 %15, 2
+  %34 = icmp samesign ult i64 %15, 2
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %29
@@ -698,7 +698,7 @@ define noundef i64 @_Z20fast_rv64e_cm_mvsa01P11processor_t6insn_tm(ptr nocapture
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %0, i64 120
-  %23 = icmp ult i64 %13, 2
+  %23 = icmp samesign ult i64 %13, 2
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %21
@@ -719,7 +719,7 @@ define noundef i64 @_Z20fast_rv64e_cm_mvsa01P11processor_t6insn_tm(ptr nocapture
   %32 = or disjoint i64 %13, 8
   %33 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %32
   store i64 %31, ptr %33, align 8
-  %34 = icmp ult i64 %15, 2
+  %34 = icmp samesign ult i64 %15, 2
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %29
@@ -789,7 +789,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cm_mvsa0
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 3672
-  %26 = icmp ult i64 %13, 2
+  %26 = icmp samesign ult i64 %13, 2
   %.v = select i1 %26, i64 8, i64 16
   %27 = or disjoint i64 %.v, %13
   %28 = shl nuw nsw i64 %27, 4
@@ -873,7 +873,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %24, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 208
   %61 = load i64, ptr %60, align 8
-  %62 = icmp ult i64 %15, 2
+  %62 = icmp samesign ult i64 %15, 2
   %.v66 = select i1 %62, i64 8, i64 16
   %63 = or disjoint i64 %.v66, %15
   %64 = shl nuw nsw i64 %63, 4
@@ -999,7 +999,7 @@ define noundef i64 @_Z22logged_rv64e_cm_mvsa01P11processor_t6insn_tm(ptr noundef
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 3672
-  %26 = icmp ult i64 %13, 2
+  %26 = icmp samesign ult i64 %13, 2
   %.v = select i1 %26, i64 8, i64 16
   %27 = or disjoint i64 %.v, %13
   %28 = shl nuw nsw i64 %27, 4
@@ -1083,7 +1083,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %24, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 208
   %61 = load i64, ptr %60, align 8
-  %62 = icmp ult i64 %15, 2
+  %62 = icmp samesign ult i64 %15, 2
   %.v66 = select i1 %62, i64 8, i64 16
   %63 = or disjoint i64 %.v66, %15
   %64 = shl nuw nsw i64 %63, 4

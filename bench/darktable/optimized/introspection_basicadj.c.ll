@@ -1932,7 +1932,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %235 = add i32 %234, 1
   store i32 %235, ptr %233, align 4, !tbaa !24
   %236 = add nuw nsw i64 %193, 4
-  %237 = icmp ult i64 %236, %191
+  %237 = icmp samesign ult i64 %236, %191
   br i1 %237, label %192, label %.loopexit64
 
 .loopexit64:                                      ; preds = %232, %136, %185, %98

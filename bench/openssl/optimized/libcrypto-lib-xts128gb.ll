@@ -122,7 +122,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %22, ptr %arrayidx59, align 1
   %inc = add i32 %i.099, 1
   %conv54 = zext i32 %inc to i64
-  %cmp55 = icmp ugt i64 %len.addr.1.lcssa, %conv54
+  %cmp55 = icmp samesign ugt i64 %len.addr.1.lcssa, %conv54
   br i1 %cmp55, label %for.body, label %for.end.loopexit, !llvm.loop !10
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -210,7 +210,7 @@ for.body138:                                      ; preds = %if.else, %for.body1
   store i8 %48, ptr %arrayidx143, align 1
   %inc150 = add i32 %i.196, 1
   %conv135 = zext i32 %inc150 to i64
-  %cmp136 = icmp ugt i64 %len.addr.1.lcssa, %conv135
+  %cmp136 = icmp samesign ugt i64 %len.addr.1.lcssa, %conv135
   br i1 %cmp136, label %for.body138, label %for.end151.loopexit, !llvm.loop !15
 
 for.end151.loopexit:                              ; preds = %for.body138

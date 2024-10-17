@@ -266,7 +266,7 @@ define void @"_ZN68_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..
   %14 = getelementptr inbounds i8, ptr %1, i64 56
   %15 = load i32, ptr %14, align 8, !range !9, !alias.scope !13, !noalias !17, !noundef !7
   %16 = add nuw nsw i32 %15, %13
-  %17 = icmp ugt i32 %16, 999999999
+  %17 = icmp samesign ugt i32 %16, 999999999
   br i1 %17, label %18, label %"_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..Add$LT$$RF$grep_printer..stats..Stats$GT$$GT$3add17h8ba0765ded2236c7E.exit"
 
 18:                                               ; preds = %11
@@ -346,7 +346,7 @@ define void @"_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith.
   %14 = getelementptr inbounds i8, ptr %1, i64 56
   %15 = load i32, ptr %14, align 8, !range !9, !noundef !7
   %16 = add nuw nsw i32 %15, %13
-  %17 = icmp ugt i32 %16, 999999999
+  %17 = icmp samesign ugt i32 %16, 999999999
   br i1 %17, label %18, label %_ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit
 
 18:                                               ; preds = %11
@@ -428,7 +428,7 @@ define void @"_ZN74_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..
   %13 = getelementptr inbounds i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8, !range !9, !alias.scope !24, !noalias !21, !noundef !7
   %15 = add nuw nsw i32 %14, %12
-  %16 = icmp ugt i32 %15, 999999999
+  %16 = icmp samesign ugt i32 %15, 999999999
   br i1 %16, label %17, label %"_ZN112_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$grep_printer..stats..Stats$GT$$GT$10add_assign17h028b02d7b5a0f15cE.exit"
 
 17:                                               ; preds = %11
@@ -501,7 +501,7 @@ define void @"_ZN112_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith.
   %13 = getelementptr inbounds i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8, !range !9, !noundef !7
   %15 = add nuw nsw i32 %14, %12
-  %16 = icmp ugt i32 %15, 999999999
+  %16 = icmp samesign ugt i32 %15, 999999999
   br i1 %16, label %17, label %_ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit
 
 17:                                               ; preds = %11

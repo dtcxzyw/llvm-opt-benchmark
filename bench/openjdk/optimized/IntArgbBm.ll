@@ -519,7 +519,7 @@ define hidden void @ByteIndexedBmToIntArgbBmXparBgCopy(ptr noundef %0, ptr nound
   %.042.ptr = getelementptr inbounds i8, ptr %10, i64 %.042.idx
   store i32 %4, ptr %.042.ptr, align 4
   %.042.add = add nuw nsw i64 %.042.idx, 4
-  %19 = icmp ult i64 %.042.idx, 1020
+  %19 = icmp samesign ult i64 %.042.idx, 1020
   br i1 %19, label %18, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %18, %9

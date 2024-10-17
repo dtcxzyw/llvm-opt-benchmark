@@ -329,13 +329,13 @@ while.body.i.i:                                   ; preds = %cond.end, %while.bo
   %inc.i.i = add nuw nsw i32 %cnt.06.i.i, 1
   %shr.i.i = lshr i64 %bits.addr.07.i.i, 8
   %tobool.i.i = icmp ugt i64 %bits.addr.07.i.i, 255
-  %cmp.i.i = icmp ult i32 %cnt.06.i.i, 7
+  %cmp.i.i = icmp samesign ult i32 %cnt.06.i.i, 7
   %3 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
   br i1 %3, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !4
 
 get_encode_size.exit.i:                           ; preds = %while.body.i.i
   %conv.i = zext nneg i32 %inc.i.i to i64
-  %cmp.i = icmp ugt i32 %cnt.06.i.i, 2
+  %cmp.i = icmp samesign ugt i32 %cnt.06.i.i, 2
   br i1 %cmp.i, label %right_encode.exit.thread, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end, %get_encode_size.exit.i, %cond.end
@@ -535,8 +535,8 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %cnt.06.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.else.i ]
   %inc.i.i = add nuw nsw i32 %cnt.06.i.i, 1
   %shr.i.i = lshr i64 %bits.addr.07.i.i, 8
-  %tobool.i.i = icmp ugt i64 %bits.addr.07.i.i, 255
-  %cmp.i.i = icmp ult i32 %cnt.06.i.i, 7
+  %tobool.i.i = icmp samesign ugt i64 %bits.addr.07.i.i, 255
+  %cmp.i.i = icmp samesign ult i32 %cnt.06.i.i, 7
   %5 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
   br i1 %5, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !4
 
@@ -546,7 +546,7 @@ get_encode_size.exit.i:                           ; preds = %while.body.i.i, %if
   %conv.i = zext nneg i32 %spec.store.select.i.i to i64
   %add.i = add nuw nsw i64 %3, 1
   %add1.i = add nuw nsw i64 %add.i, %conv.i
-  %cmp2.i = icmp ugt i64 %add1.i, 516
+  %cmp2.i = icmp samesign ugt i64 %add1.i, 516
   br i1 %cmp2.i, label %encode_string.exit.thread, label %if.end.i
 
 encode_string.exit.thread:                        ; preds = %get_encode_size.exit.i
@@ -753,8 +753,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %cnt.06.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %if.else.i.i ]
   %inc.i.i.i = add nuw nsw i32 %cnt.06.i.i.i, 1
   %shr.i.i.i = lshr i64 %bits.addr.07.i.i.i, 8
-  %tobool.i.i.i = icmp ugt i64 %bits.addr.07.i.i.i, 255
-  %cmp.i.i.i = icmp ult i32 %cnt.06.i.i.i, 7
+  %tobool.i.i.i = icmp samesign ugt i64 %bits.addr.07.i.i.i, 255
+  %cmp.i.i.i = icmp samesign ult i32 %cnt.06.i.i.i, 7
   %1 = select i1 %tobool.i.i.i, i1 %cmp.i.i.i, i1 false
   br i1 %1, label %while.body.i.i.i, label %get_encode_size.exit.i.i, !llvm.loop !4
 
@@ -762,7 +762,7 @@ get_encode_size.exit.i.i:                         ; preds = %while.body.i.i.i
   %conv.i.i = zext nneg i32 %inc.i.i.i to i64
   %add.i.i = add nuw nsw i64 %keylen, 1
   %add1.i.i = add nuw nsw i64 %add.i.i, %conv.i.i
-  %cmp2.i.i = icmp ugt i64 %add1.i.i, 516
+  %cmp2.i.i = icmp samesign ugt i64 %add1.i.i, 516
   br i1 %cmp2.i.i, label %encode_string.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %get_encode_size.exit.i.i

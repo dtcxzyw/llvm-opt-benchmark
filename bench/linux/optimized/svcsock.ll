@@ -2778,7 +2778,7 @@ define internal noundef range(i32 0, 2) i32 @svc_udp_has_wspace(ptr noundef %0) 
 
 28:                                               ; preds = %20, %1
   %29 = phi i64 [ 0, %1 ], [ %27, %20 ]
-  %30 = icmp ugt i64 %13, %29
+  %30 = icmp samesign ugt i64 %13, %29
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28

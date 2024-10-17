@@ -35523,7 +35523,7 @@ define linkonce_odr void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iterato
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %10 = add nuw nsw i64 %storemerge26.i, 1
   %11 = lshr i64 %10, 1
-  %.not10.i = icmp ult i64 %storemerge26.i, 2
+  %.not10.i = icmp samesign ult i64 %storemerge26.i, 2
   br i1 %.not10.i, label %_ZSt20get_temporary_bufferIN32pxrInternal_v0_24__pxrReserved__16Pcp_SublayerInfoEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !408
 
 12:                                               ; preds = %.lr.ph.i
@@ -40859,7 +40859,7 @@ _ZSt8distanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24
   br i1 %.not48, label %67, label %15
 
 15:                                               ; preds = %_ZSt8distanceISt13move_iteratorISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit
-  %16 = icmp ugt i64 %.05.i.i, 1152921504606846974
+  %16 = icmp samesign ugt i64 %.05.i.i, 1152921504606846974
   br i1 %16, label %17, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_M_allocateEm.exit.i
 
 17:                                               ; preds = %15

@@ -7359,7 +7359,7 @@ define void @"_ZN107_$LT$title_bar..platforms..platform_windows..WindowsWindowCo
   %19 = alloca [720 x i8], align 8
   %20 = alloca [720 x i8], align 8
   %21 = tail call noundef i8 @_ZN4gpui6window13WindowContext10appearance17h8e16af23e6baeb76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !range !1343
-  %switch = icmp ult i8 %21, 2
+  %switch = icmp samesign ult i8 %21, 2
   %. = select i1 %switch, float 0x3FC99999A0000000, float 0x3FB99999A0000000
   %.18 = select i1 %switch, float 0x3FB99999A0000000, float 0x3FECCCCCC0000000
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %20)

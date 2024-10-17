@@ -950,7 +950,7 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %9 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %6
   store i8 -128, ptr %9, align 1
   %10 = xor i64 %6, 63
-  %11 = icmp ult i64 %10, 8
+  %11 = icmp samesign ult i64 %10, 8
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
@@ -1012,7 +1012,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 
   %8 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 %5
   store i8 -128, ptr %8, align 1
   %9 = xor i64 %5, 63
-  %10 = icmp ult i64 %9, 8
+  %10 = icmp samesign ult i64 %9, 8
   br i1 %10, label %11, label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 11:                                               ; preds = %1
@@ -1060,7 +1060,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4
   %9 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %6
   store i8 -128, ptr %9, align 1
   %10 = xor i64 %6, 63
-  %11 = icmp ult i64 %10, 8
+  %11 = icmp samesign ult i64 %10, 8
   br i1 %11, label %12, label %_ZN4llvm3MD55finalEv.exit
 
 12:                                               ; preds = %1
@@ -1246,7 +1246,7 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
   %42 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 %39
   store i8 -128, ptr %42, align 1
   %43 = xor i64 %39, 63
-  %44 = icmp ult i64 %43, 8
+  %44 = icmp samesign ult i64 %43, 8
   br i1 %44, label %45, label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 45:                                               ; preds = %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit

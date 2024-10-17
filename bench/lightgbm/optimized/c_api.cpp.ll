@@ -16634,7 +16634,7 @@ _ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i60:     ; preds = %.lr.ph
   %288 = add nsw i32 %287, 1
   store i32 %288, ptr %19, align 8
   %289 = zext nneg i32 %282 to i64
-  %290 = icmp ugt i64 %indvars.iv, %289
+  %290 = icmp samesign ugt i64 %indvars.iv, %289
   br i1 %290, label %275, label %.loopexit, !llvm.loop !280
 
 .loopexit:                                        ; preds = %275, %285, %.lr.ph.i, %284, %269
@@ -22068,7 +22068,7 @@ define noundef i32 @LGBM_DatasetGetSubset(ptr noundef %0, ptr noundef %1, i32 no
 
 .noexc:                                           ; preds = %.sink.split.i, %53, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %57 = icmp ult i64 %indvars.iv.next.i, %36
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !304
 
 ._crit_edge.i:                                    ; preds = %.noexc, %28

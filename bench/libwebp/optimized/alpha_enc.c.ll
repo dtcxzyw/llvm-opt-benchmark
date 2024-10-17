@@ -210,7 +210,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 
 GetNumColors.exit.i.i.i:                          ; preds = %.preheader.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  %77 = icmp ult i32 %spec.select.i.i.i.i, 17
+  %77 = icmp samesign ult i32 %spec.select.i.i.i.i, 17
   br i1 %77, label %GetFilterMap.exit.i.i, label %78
 
 78:                                               ; preds = %GetNumColors.exit.i.i.i
@@ -226,7 +226,7 @@ GetFilterMap.exit.thread57.i.i:                   ; preds = %.critedge.i
 GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.exit.i.i.i
   %82 = phi i32 [ %79, %78 ], [ 0, %GetNumColors.exit.i.i.i ]
   %83 = shl nuw i32 1, %82
-  %84 = icmp ugt i32 %spec.select.i.i.i.i, 192
+  %84 = icmp samesign ugt i32 %spec.select.i.i.i.i, 192
   %or.cond.i.i.i = or i1 %63, %84
   %85 = zext i1 %or.cond.i.i.i to i32
   %spec.select.i.i.i = or i32 %83, %85

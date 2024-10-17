@@ -87,7 +87,7 @@ define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 
   %29 = load i8, ptr %4, align 1
   %30 = add i8 %29, 1
   store i8 %30, ptr %4, align 1
-  %31 = icmp ult i8 %30, 2
+  %31 = icmp samesign ult i8 %30, 2
   br i1 %31, label %.split.us, label %.split39.us, !llvm.loop !4
 
 .split:                                           ; preds = %3, %45

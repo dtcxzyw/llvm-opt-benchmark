@@ -2439,7 +2439,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_
   %40 = fptoui double %39 to i64
   %41 = tail call i64 @llvm.umax.i64(i64 %40, i64 2)
   %42 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %41)
-  %43 = icmp ult i64 %42, 2
+  %43 = icmp samesign ult i64 %42, 2
   %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 true)
   %45 = sub nuw nsw i64 64, %44
   %46 = shl nuw i64 1, %45
@@ -2458,7 +2458,7 @@ rolename_compute_size.exit.i:                     ; preds = %29
   %51 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr %50, ptr %51, align 8
   %52 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i)
-  %53 = icmp ult i64 %52, 2
+  %53 = icmp samesign ult i64 %52, 2
   %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i, i1 true)
   %55 = sub nuw nsw i64 64, %54
   %56 = shl nuw i64 1, %55
@@ -2604,7 +2604,7 @@ rolename_lookup.exit.us:                          ; preds = %103, %87, %86
   %129 = load ptr, ptr %51, align 8
   %130 = tail call i64 @llvm.umax.i64(i64 %128, i64 2)
   %131 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %130)
-  %132 = icmp ult i64 %131, 2
+  %132 = icmp samesign ult i64 %131, 2
   %133 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %130, i1 true)
   %134 = sub nuw nsw i64 64, %133
   %135 = shl nuw i64 1, %134
@@ -2617,7 +2617,7 @@ rolename_compute_size.exit.i.i.i.us:              ; preds = %127
   %138 = tail call ptr @pg_malloc0(i64 noundef %136) #14
   store ptr %138, ptr %51, align 8
   %139 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i.us)
-  %140 = icmp ult i64 %139, 2
+  %140 = icmp samesign ult i64 %139, 2
   %141 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i.us, i1 true)
   %142 = sub nuw nsw i64 64, %141
   %143 = shl nuw i64 1, %142

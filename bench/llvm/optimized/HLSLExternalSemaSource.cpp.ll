@@ -1387,7 +1387,7 @@ define dso_local void @_ZN5clang22HLSLExternalSemaSource12CompleteTypeEPNS_7TagD
   br i1 %8, label %9, label %57
 
 9:                                                ; preds = %2
-  %10 = icmp ult i32 %6, 57
+  %10 = icmp samesign ult i32 %6, 57
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %9

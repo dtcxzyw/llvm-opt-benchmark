@@ -288,7 +288,7 @@ for.inc:                                          ; preds = %do.end, %land.lhs.t
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %25 = zext i32 %24 to i64
-  %cmp29 = icmp ult i64 %indvars.iv.next, %25
+  %cmp29 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.end28

@@ -2338,7 +2338,7 @@ define internal fastcc void @_handle_removed_clusters(ptr nocapture noundef nonn
   %43 = getelementptr inbounds i8, ptr %42, i64 448
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 255
-  %46 = icmp ugt i32 %45, 2
+  %46 = icmp samesign ugt i32 %45, 2
   %47 = and i32 %44, 32768
   %48 = icmp eq i32 %47, 0
   %or.cond.i = and i1 %46, %48
@@ -2482,7 +2482,7 @@ _remove_sibling_bit.exit.i:                       ; preds = %95, %93, %92
 122:                                              ; preds = %119
   %123 = load i32, ptr %43, align 8
   %124 = and i32 %123, 255
-  %125 = icmp ugt i32 %124, 2
+  %125 = icmp samesign ugt i32 %124, 2
   %126 = and i32 %123, 32768
   %127 = icmp eq i32 %126, 0
   %or.cond57.i = and i1 %125, %127
@@ -2732,7 +2732,7 @@ define internal fastcc void @_cleanup_removed_origin_jobs() unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %14, i64 448
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 255
-  %18 = icmp ugt i32 %17, 2
+  %18 = icmp samesign ugt i32 %17, 2
   %19 = and i32 %16, 32768
   %20 = icmp eq i32 %19, 0
   %or.cond = and i1 %18, %20
@@ -2779,7 +2779,7 @@ define internal fastcc void @_cleanup_removed_origin_jobs() unnamed_addr #0 {
   tail call void @free_job_fed_details(ptr noundef nonnull %23) #17
   %40 = load i32, ptr %15, align 8
   %41 = and i32 %40, 255
-  %42 = icmp ugt i32 %41, 2
+  %42 = icmp samesign ugt i32 %41, 2
   %43 = and i32 %40, 32768
   %44 = icmp eq i32 %43, 0
   %or.cond49 = and i1 %42, %44
@@ -7017,7 +7017,7 @@ define dso_local noundef i32 @fed_mgr_job_revoke(ptr noundef %0, i1 noundef zero
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
-  %9 = icmp ugt i32 %8, 2
+  %9 = icmp samesign ugt i32 %8, 2
   %10 = and i32 %7, 32768
   %11 = icmp eq i32 %10, 0
   %or.cond = and i1 %9, %11
@@ -7103,7 +7103,7 @@ _is_fed_job.exit:                                 ; preds = %16
 48:                                               ; preds = %44
   %49 = load i32, ptr %6, align 8
   %50 = and i32 %49, 255
-  %51 = icmp ugt i32 %50, 2
+  %51 = icmp samesign ugt i32 %50, 2
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
@@ -11134,7 +11134,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i.i40.i:  ; preds = %fed_mgr_get_cluster
   %428 = getelementptr inbounds i8, ptr %415, i64 448
   %429 = load i32, ptr %428, align 8
   %430 = and i32 %429, 255
-  %431 = icmp ult i32 %430, 3
+  %431 = icmp samesign ult i32 %430, 3
   %432 = and i32 %429, 32768
   %433 = icmp eq i32 %432, 0
   %brmerge.not.i.i.i.i = and i1 %431, %433
@@ -11209,7 +11209,7 @@ fed_mgr_is_origin_job.exit.thread.i.i.i.i:        ; preds = %444, %fed_mgr_is_or
   %459 = getelementptr inbounds i8, ptr %453, i64 432
   %460 = load i32, ptr %459, align 8
   %461 = and i32 %460, 255
-  %462 = icmp ugt i32 %461, 2
+  %462 = icmp samesign ugt i32 %461, 2
   %463 = and i32 %460, 32768
   %464 = icmp eq i32 %463, 0
   %or.cond211.i.i.i.i = and i1 %462, %464
@@ -11307,7 +11307,7 @@ fed_mgr_is_origin_job.exit.thread.i.i.i.i:        ; preds = %444, %fed_mgr_is_or
   br i1 %511, label %.sink.split.sink.split.i.i.i.i, label %.sink.split.i.i.i.i
 
 512:                                              ; preds = %506
-  %513 = icmp ugt i32 %491, 2
+  %513 = icmp samesign ugt i32 %491, 2
   br i1 %513, label %514, label %.thread234.i.i.i.i
 
 514:                                              ; preds = %512
@@ -11571,7 +11571,7 @@ fed_mgr_is_origin_job.exit.thread.i.i.i.i:        ; preds = %444, %fed_mgr_is_or
   br label %.thread234.i.i.i.i
 
 656:                                              ; preds = %638
-  %657 = icmp ugt i32 %641, 2
+  %657 = icmp samesign ugt i32 %641, 2
   %658 = and i32 %640, 32768
   %659 = icmp eq i32 %658, 0
   %or.cond216.i.i.i.i = and i1 %657, %659
@@ -13497,7 +13497,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_completed(ptr nocapture nound
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
-  %6 = icmp ult i32 %5, 3
+  %6 = icmp samesign ult i32 %5, 3
   %7 = and i32 %4, 32768
   %8 = icmp ne i32 %7, 0
   %or.cond.not = or i1 %6, %8

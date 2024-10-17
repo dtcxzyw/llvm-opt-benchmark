@@ -114,7 +114,7 @@ define hidden i32 @av1_cdef_compute_sb_list(ptr nocapture noundef readonly %0, i
 is_8x8_block_skip.exit.us:                        ; preds = %50, %52
   %.2.us = phi i32 [ %58, %52 ], [ %.147.us, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %59 = icmp ult i64 %indvars.iv.next, %30
+  %59 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %59, label %34, label %._crit_edge.us, !llvm.loop !7
 
 ._crit_edge.us:                                   ; preds = %is_8x8_block_skip.exit.us
@@ -526,12 +526,12 @@ fill_rect.exit:                                   ; preds = %._crit_edge.us.i, %
 is_8x8_block_skip.exit.us.i:                      ; preds = %168, %170
   %.2.us.i = phi i32 [ %176, %170 ], [ %.147.us.i, %168 ]
   %indvars.iv.next.i337 = add nuw nsw i64 %indvars.iv.i336, 2
-  %177 = icmp ult i64 %indvars.iv.next.i337, %153
+  %177 = icmp samesign ult i64 %indvars.iv.next.i337, %153
   br i1 %177, label %159, label %._crit_edge.us.i338, !llvm.loop !7
 
 ._crit_edge.us.i338:                              ; preds = %is_8x8_block_skip.exit.us.i
   %indvars.iv.next714 = add nuw nsw i64 %indvars.iv713, 2
-  %178 = icmp ult i64 %indvars.iv.next714, %154
+  %178 = icmp samesign ult i64 %indvars.iv.next714, %154
   br i1 %178, label %.preheader.us.i335, label %av1_cdef_compute_sb_list.exit, !llvm.loop !8
 
 av1_cdef_compute_sb_list.exit:                    ; preds = %._crit_edge.us.i338

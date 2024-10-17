@@ -15432,7 +15432,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   %15 = or disjoint i32 %14, %8
   %16 = or disjoint i32 %15, %12
   %17 = zext nneg i32 %16 to i64
-  %18 = icmp ult i32 %spec.store.select.i.i, 128
+  %18 = icmp samesign ult i32 %spec.store.select.i.i, 128
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
@@ -15440,7 +15440,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = icmp ult i32 %spec.store.select.i.i, 2048
+  %22 = icmp samesign ult i32 %spec.store.select.i.i, 2048
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %21
@@ -15455,7 +15455,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 28:                                               ; preds = %21
-  %29 = icmp ult i32 %spec.store.select.i.i, 65536
+  %29 = icmp samesign ult i32 %spec.store.select.i.i, 65536
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %28
@@ -25945,7 +25945,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8_M_checkEmPKc.exit.i.i
   %114 = sub nuw i64 %107, %106
   %spec.select.i.i.i76 = call noundef i64 @llvm.umin.i64(i64 %111, i64 %114)
   %.idx.i.i77 = shl nuw nsw i64 %spec.select.i.i.i76, 2
-  %115 = icmp ugt i64 %spec.select.i.i.i76, 3
+  %115 = icmp samesign ugt i64 %spec.select.i.i.i76, 3
   br i1 %115, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.i79, label %._crit_edge.i.i.i78
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.i79: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8_M_checkEmPKc.exit.i.i75
@@ -32555,7 +32555,7 @@ _ZNSt6vectorIN7jsonnet8internal10TraceFrameESaIS2_EE9push_backEOS2_.exit: ; pred
   %91 = or disjoint i32 %90, %84
   %92 = or disjoint i32 %91, %88
   %93 = zext nneg i32 %92 to i64
-  %94 = icmp ult i32 %spec.store.select.i.i.i, 128
+  %94 = icmp samesign ult i32 %spec.store.select.i.i.i, 128
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.lr.ph.i.i
@@ -32563,7 +32563,7 @@ _ZNSt6vectorIN7jsonnet8internal10TraceFrameESaIS2_EE9push_backEOS2_.exit: ; pred
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 
 97:                                               ; preds = %.lr.ph.i.i
-  %98 = icmp ult i32 %spec.store.select.i.i.i, 2048
+  %98 = icmp samesign ult i32 %spec.store.select.i.i.i, 2048
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %97
@@ -32578,7 +32578,7 @@ _ZNSt6vectorIN7jsonnet8internal10TraceFrameESaIS2_EE9push_backEOS2_.exit: ; pred
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 
 104:                                              ; preds = %97
-  %105 = icmp ult i32 %spec.store.select.i.i.i, 65536
+  %105 = icmp samesign ult i32 %spec.store.select.i.i.i, 65536
   br i1 %105, label %106, label %113
 
 106:                                              ; preds = %104
@@ -40958,7 +40958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -48474,7 +48474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i

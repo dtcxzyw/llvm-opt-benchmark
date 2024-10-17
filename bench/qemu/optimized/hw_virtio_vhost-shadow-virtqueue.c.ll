@@ -694,7 +694,7 @@ for.body:                                         ; preds = %entry, %for.body
   %6 = load i32, ptr %svq, align 8
   %sub = add i32 %6, -1
   %7 = zext i32 %sub to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
@@ -768,7 +768,7 @@ if.end5:                                          ; preds = %if.then3, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %svq, align 8
   %6 = zext i32 %5 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %6
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end5, %if.end

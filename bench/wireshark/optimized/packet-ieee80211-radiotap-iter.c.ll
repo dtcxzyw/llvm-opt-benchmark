@@ -71,7 +71,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
 34:                                               ; preds = %12
   %35 = ptrtoint ptr %1 to i64
   %36 = zext nneg i32 %17 to i64
-  %.not41 = icmp ult i32 %17, 12
+  %.not41 = icmp samesign ult i32 %17, 12
   br i1 %.not41, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %34

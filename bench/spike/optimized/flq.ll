@@ -696,7 +696,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_flqP11proc
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 %1, i1 noundef zeroext false)
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -767,7 +767,7 @@ define noundef i64 @_Z14fast_rv64e_flqP11processor_t6insn_tm(ptr nocapture nound
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 %1, i1 noundef zeroext false)
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -836,7 +836,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_flqP11pr
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 %1, i1 noundef zeroext false)
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -965,7 +965,7 @@ define noundef i64 @_Z16logged_rv64e_flqP11processor_t6insn_tm(ptr noundef %0, i
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 %1, i1 noundef zeroext false)
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13

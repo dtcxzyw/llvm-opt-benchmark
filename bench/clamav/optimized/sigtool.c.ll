@@ -5418,7 +5418,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %105 = tail call ptr @fgets(ptr noundef nonnull %28, i32 noundef %20, ptr noundef nonnull %.0151.ph)
   %.not200 = icmp ne ptr %105, null
   %106 = add nuw nsw i32 %.0154225, 1
-  %107 = icmp ult i32 %.0154225, %.0156
+  %107 = icmp samesign ult i32 %.0154225, %.0156
   %or.cond234 = select i1 %.not200, i1 %107, i1 false
   br i1 %or.cond234, label %.lr.ph, label %._crit_edge
 

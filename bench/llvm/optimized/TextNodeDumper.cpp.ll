@@ -25499,7 +25499,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %33 = load i64, ptr %32, align 8, !noalias !74
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %34, align 8, !alias.scope !74
-  %35 = icmp ult i32 %31, 65
+  %35 = icmp samesign ult i32 %31, 65
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %29

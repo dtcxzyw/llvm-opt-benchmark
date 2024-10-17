@@ -6061,7 +6061,7 @@ for.body45:                                       ; preds = %for.cond43.preheade
   %i.0101 = phi i64 [ %inc, %for.body45 ], [ 0, %for.cond43.preheader ]
   call void @_ZN4llvh14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIN6hermes10BasicBlockELb0EEEE15ApplyNextUpdateERS5_RNS6_15BatchUpdateInfoE(ptr noundef nonnull align 8 dereferenceable(72) %DT, ptr noundef nonnull align 8 dereferenceable(129) %BUI)
   %inc = add nuw nsw i64 %i.0101, 1
-  %cmp44 = icmp uge i64 %inc, %conv.i
+  %cmp44 = icmp samesign uge i64 %inc, %conv.i
   %38 = load i8, ptr %IsRecalculated.i, align 8
   %tobool = trunc i8 %38 to i1
   %.not = select i1 %cmp44, i1 true, i1 %tobool
@@ -17705,7 +17705,7 @@ _ZN6hermes12PredIteratorINS_10BasicBlockEPPNS_11InstructionEEppEv.exit.i.i.i.i: 
   br i1 %cmp.i.i.not.i.i.i.i, label %_ZSt8distanceIN6hermes12PredIteratorINS0_10BasicBlockEPPNS0_11InstructionEEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !150
 
 _ZSt8distanceIN6hermes12PredIteratorINS0_10BasicBlockEPPNS0_11InstructionEEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i: ; preds = %_ZN6hermes12PredIteratorINS_10BasicBlockEPPNS_11InstructionEEppEv.exit.i.i.i.i
-  %cmp.not.i.i = icmp ult i64 %__n.05.i.i.i.i, 8
+  %cmp.not.i.i = icmp samesign ult i64 %__n.05.i.i.i.i, 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZSt8distanceIN6hermes12PredIteratorINS0_10BasicBlockEPPNS0_11InstructionEEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
@@ -24983,7 +24983,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6062 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div11, %div.i6062
+  %cmp23.i = icmp samesign ult i64 %div11, %div.i6062
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

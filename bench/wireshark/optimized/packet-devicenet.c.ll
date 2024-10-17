@@ -1000,7 +1000,7 @@ body_type_8_over_16_dissection.exit:              ; preds = %298, %290, %281, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %304 = load i32, ptr @num_devicenet_records_uat, align 4
   %305 = zext i32 %304 to i64
-  %306 = icmp ult i64 %indvars.iv.next, %305
+  %306 = icmp samesign ult i64 %indvars.iv.next, %305
   br i1 %306, label %232, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %body_type_8_over_16_dissection.exit, %.preheader.._crit_edge_crit_edge

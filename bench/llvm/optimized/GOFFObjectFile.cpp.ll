@@ -716,7 +716,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -1340,7 +1340,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %70
 
 43:                                               ; preds = %38
-  %or.cond17 = icmp ugt i8 %19, 2
+  %or.cond17 = icmp samesign ugt i8 %19, 2
   br i1 %or.cond17, label %_ZN4llvm5ErrorD2Ev.exit26, label %62
 
 _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %43
@@ -1709,7 +1709,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

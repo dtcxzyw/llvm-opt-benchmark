@@ -1133,13 +1133,13 @@ define hidden noundef zeroext i1 @_ZN18tracing_subscriber6filter3env9EnvFilter7e
 11:                                               ; preds = %14, %75, %4
   %12 = phi i64 [ %.pre62, %14 ], [ %.pre, %75 ], [ %.pre62, %4 ]
   %13 = load i64, ptr %0, align 8, !range !234, !noundef !4
-  %.not39 = icmp ult i64 %12, %13
+  %.not39 = icmp samesign ult i64 %12, %13
   br i1 %.not39, label %81, label %79
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8, !range !234, !noundef !4
-  %.not = icmp ult i64 %.pre62, %16
+  %.not = icmp samesign ult i64 %.pre62, %16
   br i1 %.not, label %11, label %17
 
 17:                                               ; preds = %14
@@ -1299,7 +1299,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock4read17h6e07bcfccebc1fafE.llvm.21
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %.sroa.054.0, i64 8
   %78 = load i64, ptr %.sroa.054.0, align 8, !range !234, !noundef !4
-  %.not38 = icmp ult i64 %.pre62, %78
+  %.not38 = icmp samesign ult i64 %.pre62, %78
   br i1 %.not38, label %73, label %82
 
 79:                                               ; preds = %11
@@ -3910,7 +3910,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -3923,7 +3923,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

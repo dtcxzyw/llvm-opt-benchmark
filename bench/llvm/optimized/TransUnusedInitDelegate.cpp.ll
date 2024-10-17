@@ -6770,7 +6770,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -7284,7 +7284,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -11683,7 +11683,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %31
   %46 = load i64, ptr %6, align 16
   %47 = lshr i64 %46, 38
   %48 = and i64 %47, 65535
-  %49 = icmp ult i64 %indvars.iv, %48
+  %49 = icmp samesign ult i64 %indvars.iv, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45
@@ -36377,7 +36377,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -44659,7 +44659,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -45266,7 +45266,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -52933,7 +52933,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -53377,7 +53377,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -53526,7 +53526,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -62220,7 +62220,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv, %13
+  %14 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -62785,7 +62785,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -62868,7 +62868,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread

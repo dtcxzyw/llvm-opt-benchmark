@@ -3874,7 +3874,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
   %69 = fcmp ogt double %68, 0x3D19000000000000
   %.277 = select i1 %69, i32 0, i32 %.176105
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %70 = icmp ult i64 %indvars.iv.next128, %62
+  %70 = icmp samesign ult i64 %indvars.iv.next128, %62
   br i1 %70, label %65, label %71
 
 71:                                               ; preds = %65
@@ -3943,7 +3943,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
   %indvars.iv137 = phi i64 [ 1, %.lr.ph119 ], [ %indvars.iv.next138, %.loopexit99 ]
   %.5117 = phi i32 [ 1, %.lr.ph119 ], [ %.6.lcssa, %.loopexit99 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %88 = icmp ult i64 %indvars.iv.next145, %85
+  %88 = icmp samesign ult i64 %indvars.iv.next145, %85
   br i1 %88, label %.lr.ph115, label %.loopexit99
 
 .lr.ph115:                                        ; preds = %87

@@ -2202,14 +2202,14 @@ if.end44.i.i.i:                                   ; preds = %if.end31.i.i.i
   %and48.i.i.i = shl nsw i32 %conv22.i.i.i, 6
   %shl49.i.i.i = and i32 %and48.i.i.i, 4032
   %or50.i.i.i = or disjoint i32 %shl49.i.i.i, %shl47.i.i.i
-  %cmp53.i.i.i = icmp ult i32 %or50.i.i.i, 2048
+  %cmp53.i.i.i = icmp samesign ult i32 %or50.i.i.i, 2048
   br i1 %cmp53.i.i.i, label %if.then.i30, label %if.end57.i.i.i
 
 if.end57.i.i.i:                                   ; preds = %if.end44.i.i.i
   %add.ptr45.i.i.i = getelementptr inbounds i8, ptr %it.052.i, i64 3
-  %cmp58.i.i.i = icmp ugt i32 %or50.i.i.i, 55295
-  %cmp59.i.i.i = icmp ult i32 %shl47.i.i.i, 57344
-  %or.cond.i.i.i = and i1 %cmp59.i.i.i, %cmp58.i.i.i
+  %cmp58.i.i.i = icmp samesign ugt i32 %or50.i.i.i, 55295
+  %cmp59.i.i.i = icmp samesign ult i32 %shl47.i.i.i, 57344
+  %or.cond.i.i.i = select i1 %cmp58.i.i.i, i1 %cmp59.i.i.i, i1 false
   br label %"_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i"
 
 if.else68.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -2245,19 +2245,19 @@ if.end112.i.i.i:                                  ; preds = %if.end99.i.i.i
   %and116.i.i.i = shl nsw i32 %conv74.i.i.i, 12
   %shl117.i.i.i = and i32 %and116.i.i.i, 258048
   %or118.i.i.i = or disjoint i32 %shl117.i.i.i, %shl115.i.i.i
-  %cmp124.i.i.i = icmp ult i32 %or118.i.i.i, 65536
+  %cmp124.i.i.i = icmp samesign ult i32 %or118.i.i.i, 65536
   br i1 %cmp124.i.i.i, label %if.then.i30, label %if.end128.i.i.i
 
 if.end128.i.i.i:                                  ; preds = %if.end112.i.i.i
   %add.ptr113.i.i.i = getelementptr inbounds i8, ptr %it.052.i, i64 4
-  %cmp129.i.i.i = icmp ugt i32 %or118.i.i.i, 1114111
+  %cmp129.i.i.i = icmp samesign ugt i32 %or118.i.i.i, 1114111
   br label %"_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i"
 
 "_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i": ; preds = %if.end128.i.i.i, %if.end57.i.i.i, %if.end.i.i.i31
   %hasSurrogate.2.i = phi i1 [ %cmp11.i.i.i, %if.end.i.i.i31 ], [ %or.cond.i.i.i, %if.end57.i.i.i ], [ %cmp129.i.i.i, %if.end128.i.i.i ]
   %it.3.i = phi ptr [ %add.ptr8.i.i.i, %if.end.i.i.i31 ], [ %add.ptr45.i.i.i, %if.end57.i.i.i ], [ %add.ptr113.i.i.i, %if.end128.i.i.i ]
   %cmp.i = icmp uge ptr %it.3.i, %add.ptr.i.i26
-  %.not.i = or i1 %hasSurrogate.2.i, %cmp.i
+  %.not.i = select i1 %cmp.i, i1 true, i1 %hasSurrogate.2.i
   br i1 %.not.i, label %while.end.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %"_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i", %"_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i.thread"

@@ -1160,7 +1160,7 @@ invoke.cont313.thread:                            ; preds = %call.i.noexc261
   %80 = select i1 %tobool.not.i257, i1 true, i1 %tobool5.not.i260
   %cond.fr = freeze i1 %80
   %spec.select = select i1 %cond.fr, i8 %found_slack.0345, i8 1
-  %cmp304 = icmp uge i64 %indvars.iv.next368, %76
+  %cmp304 = icmp samesign uge i64 %indvars.iv.next368, %76
   %tobool305 = trunc i8 %spec.select to i1
   %.not = select i1 %cmp304, i1 true, i1 %tobool305
   br i1 %.not, label %for.end319.loopexit, label %for.body307, !llvm.loop !11
@@ -1671,7 +1671,7 @@ for.cond:                                         ; preds = %lor.lhs.false51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %s1, align 8
   %3 = zext i32 %2 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %3
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -2465,7 +2465,7 @@ if.end7:                                          ; preds = %if.then5, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %s, align 8
   %3 = zext i32 %2 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %3
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %if.end7, %if.end

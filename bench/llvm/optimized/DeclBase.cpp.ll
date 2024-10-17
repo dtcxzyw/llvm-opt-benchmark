@@ -1129,7 +1129,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang11DeclContext16hasValidDeclKindEv
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 126
-  %switch = icmp ult i16 %4, 86
+  %switch = icmp samesign ult i16 %4, 86
   ret i1 %switch
 }
 
@@ -12585,7 +12585,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %10
   %30 = load i64, ptr %29, align 8, !noalias !10
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %28, ptr %31, align 8, !alias.scope !10
-  %32 = icmp ult i32 %28, 65
+  %32 = icmp samesign ult i32 %28, 65
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
@@ -12758,7 +12758,7 @@ _ZN4llvm19dyn_cast_if_presentIN5clang9FieldDeclEKNS1_4DeclEEEDaPT0_.exit: ; pred
   %102 = load i64, ptr %101, align 8, !noalias !13
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %100, ptr %103, align 8, !alias.scope !13
-  %104 = icmp ult i32 %100, 65
+  %104 = icmp samesign ult i32 %100, 65
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %98
@@ -15497,20 +15497,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit106.thread:   ; preds = %101
   br i1 %126, label %.critedge, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ult i32 %109, %118
+  %128 = icmp samesign ult i32 %109, %118
   br i1 %128, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ult i32 %118, %109
+  %130 = icmp samesign ult i32 %118, %109
   br i1 %130, label %.critedge, label %131
 
 131:                                              ; preds = %129
-  %132 = icmp ult i32 %111, %120
+  %132 = icmp samesign ult i32 %111, %120
   br i1 %132, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %131
-  %133 = icmp uge i32 %120, %111
-  %134 = icmp ult i32 %114, %123
+  %133 = icmp samesign uge i32 %120, %111
+  %134 = icmp samesign ult i32 %114, %123
   %spec.select.i = select i1 %133, i1 %134, i1 false
   br i1 %spec.select.i, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %.critedge
 
@@ -15655,20 +15655,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit127.thread:   ; preds = %.critedge
   br i1 %209, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread199, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ult i32 %192, %201
+  %211 = icmp samesign ult i32 %192, %201
   br i1 %211, label %.critedge2, label %212
 
 212:                                              ; preds = %210
-  %213 = icmp ult i32 %201, %192
+  %213 = icmp samesign ult i32 %201, %192
   br i1 %213, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread199, label %214
 
 214:                                              ; preds = %212
-  %215 = icmp ult i32 %194, %203
+  %215 = icmp samesign ult i32 %194, %203
   br i1 %215, label %.critedge2, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %214
-  %216 = icmp ult i32 %203, %194
-  %217 = icmp uge i32 %197, %206
+  %216 = icmp samesign ult i32 %203, %194
+  %217 = icmp samesign uge i32 %197, %206
   %spec.select.i.not.i = select i1 %216, i1 true, i1 %217
   br i1 %spec.select.i.not.i, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread199, label %.critedge2
 
@@ -15760,20 +15760,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit146.thread:   ; preds = %.critedge2
   br i1 %261, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread201, label %262
 
 262:                                              ; preds = %260
-  %263 = icmp ult i32 %244, %253
+  %263 = icmp samesign ult i32 %244, %253
   br i1 %263, label %.critedge4, label %264
 
 264:                                              ; preds = %262
-  %265 = icmp ult i32 %253, %244
+  %265 = icmp samesign ult i32 %253, %244
   br i1 %265, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread201, label %266
 
 266:                                              ; preds = %264
-  %267 = icmp ult i32 %246, %255
+  %267 = icmp samesign ult i32 %246, %255
   br i1 %267, label %.critedge4, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit153:       ; preds = %266
-  %268 = icmp ult i32 %255, %246
-  %269 = icmp uge i32 %249, %258
+  %268 = icmp samesign ult i32 %255, %246
+  %269 = icmp samesign uge i32 %249, %258
   %spec.select.i.not.i152 = select i1 %268, i1 true, i1 %269
   br i1 %spec.select.i.not.i152, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread201, label %.critedge4
 
@@ -18619,7 +18619,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11DeclContext7classofEPKNS_4DeclE(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 127
-  %5 = icmp ult i32 %4, 60
+  %5 = icmp samesign ult i32 %4, 60
   %switch.cast = zext nneg i32 %4 to i60
   %switch.downshift = lshr i60 -36028661693972225, %switch.cast
   %switch.masked = trunc i60 %switch.downshift to i1
@@ -25672,7 +25672,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.split, %36
   %.0.copyload.i.i.i.i15.i = load i64, ptr %41, align 8
   %47 = trunc i64 %.0.copyload.i.i.i.i15.i to i8
   %48 = and i8 %47, 7
-  %.not14.i = icmp ugt i8 %46, %48
+  %.not14.i = icmp samesign ugt i8 %46, %48
   br i1 %.not14.i, label %51, label %49
 
 49:                                               ; preds = %42

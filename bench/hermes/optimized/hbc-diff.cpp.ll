@@ -3185,7 +3185,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.end.i, %if.then.i, %entry
   %2 = tail call noundef i64 @llvm.abs.i64(i64 %size, i1 true)
-  %cmp2 = icmp ugt i64 %2, 1023
+  %cmp2 = icmp samesign ugt i64 %2, 1023
   %or.cond.not = and i1 %cmp2, %humanize
   br i1 %or.cond.not, label %if.end6, label %if.then3
 

@@ -959,7 +959,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %112 = add nuw nsw i32 %96, 1
   %113 = load i8, ptr %89, align 1
   %114 = zext i8 %113 to i32
-  %115 = icmp ult i32 %96, %114
+  %115 = icmp samesign ult i32 %96, %114
   br i1 %115, label %95, label %116, !llvm.loop !47
 
 cdrom_count_tracks.exit:                          ; preds = %82
@@ -3529,7 +3529,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %675 = add nuw nsw i32 %653, 1
   %676 = load i8, ptr %646, align 1
   %677 = zext i8 %676 to i32
-  %678 = icmp ult i32 %653, %677
+  %678 = icmp samesign ult i32 %653, %677
   br i1 %678, label %652, label %680, !llvm.loop !47
 
 679:                                              ; preds = %639
@@ -6356,7 +6356,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %9
   %15 = lshr i32 %10, 1
-  %16 = icmp ult i32 %10, 2
+  %16 = icmp samesign ult i32 %10, 2
   br i1 %16, label %.thread, label %9, !llvm.loop !54
 
 17:                                               ; preds = %9
@@ -6566,7 +6566,7 @@ define internal fastcc range(i32 -124, 2) i32 @check_for_audio_disc(ptr noundef 
   %78 = add nuw nsw i32 %66, 1
   %79 = load i8, ptr %59, align 1
   %80 = zext i8 %79 to i32
-  %81 = icmp ult i32 %66, %80
+  %81 = icmp samesign ult i32 %66, %80
   br i1 %81, label %65, label %83, !llvm.loop !47
 
 82:                                               ; preds = %52

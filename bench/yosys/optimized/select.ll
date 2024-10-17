@@ -98729,7 +98729,7 @@ _ZNSt6vectorIN5Yosys5RTLIL9SelectionESaIS2_EE9push_backERKS2_.exit: ; preds = %.
   %460 = add nuw nsw i32 %457, %459
   %461 = add nuw nsw i32 %460, %455
   %462 = add nuw nsw i32 %461, %453
-  %463 = icmp ugt i32 %462, 1
+  %463 = icmp samesign ugt i32 %462, 1
   br i1 %463, label %.invoke1300, label %464
 
 464:                                              ; preds = %448

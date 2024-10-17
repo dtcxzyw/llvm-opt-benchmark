@@ -792,7 +792,7 @@ _ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i: ; preds = %.noexc5
   %cmp.i4.i.i.i.i = icmp ne i64 %rem.i3.i.i.i.i, 0
   %conv5.i.i.i.i.i = zext i1 %cmp.i4.i.i.i.i to i64
   %add.i.i.i.i.i = add nuw nsw i64 %div15.i.i.i.i.i, %conv5.i.i.i.i.i
-  %cmp.i5.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, 2
+  %cmp.i5.i.i.i.i = icmp samesign ugt i64 %add.i.i.i.i.i, 2
   br i1 %cmp.i5.i.i.i.i, label %while.body.i.i.i.i.i.preheader, label %while.end.i.i.i.i.i, !prof !75
 
 while.body.i.i.i.i.i.preheader:                   ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i
@@ -902,7 +902,7 @@ _ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i58.i: ; preds = %.noex
   %cmp.i4.i.i.i62.i = icmp ne i64 %rem.i3.i.i.i61.i, 0
   %conv5.i.i.i.i63.i = zext i1 %cmp.i4.i.i.i62.i to i64
   %add.i.i.i.i64.i = add nuw nsw i64 %div15.i.i.i.i60.i, %conv5.i.i.i.i63.i
-  %cmp.i5.i.i.i65.i = icmp ugt i64 %add.i.i.i.i64.i, 2
+  %cmp.i5.i.i.i65.i = icmp samesign ugt i64 %add.i.i.i.i64.i, 2
   br i1 %cmp.i5.i.i.i65.i, label %while.body.i.i.i.i81.i.preheader, label %while.end.i.i.i.i66.i, !prof !75
 
 while.body.i.i.i.i81.i.preheader:                 ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i58.i
@@ -1039,7 +1039,7 @@ _ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i121.i: ; preds = %.noe
   %cmp.i4.i.i.i125.i = icmp ne i64 %rem.i3.i.i.i124.i, 0
   %conv5.i.i.i.i126.i = zext i1 %cmp.i4.i.i.i125.i to i64
   %add.i.i.i.i127.i = add nuw nsw i64 %div15.i.i.i.i123.i, %conv5.i.i.i.i126.i
-  %cmp.i5.i.i.i128.i = icmp ugt i64 %add.i.i.i.i127.i, 2
+  %cmp.i5.i.i.i128.i = icmp samesign ugt i64 %add.i.i.i.i127.i, 2
   br i1 %cmp.i5.i.i.i128.i, label %while.body.i.i.i.i144.i.preheader, label %while.end.i.i.i.i129.i, !prof !75
 
 while.body.i.i.i.i144.i.preheader:                ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i121.i
@@ -1151,7 +1151,7 @@ _ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i170.i: ; preds = %.noe
   %cmp.i4.i.i.i174.i = icmp ne i64 %rem.i3.i.i.i173.i, 0
   %conv5.i.i.i.i175.i = zext i1 %cmp.i4.i.i.i174.i to i64
   %add.i.i.i.i176.i = add nuw nsw i64 %div15.i.i.i.i172.i, %conv5.i.i.i.i175.i
-  %cmp.i5.i.i.i177.i = icmp ugt i64 %add.i.i.i.i176.i, 2
+  %cmp.i5.i.i.i177.i = icmp samesign ugt i64 %add.i.i.i.i176.i, 2
   br i1 %cmp.i5.i.i.i177.i, label %while.body.i.i.i.i193.i.preheader, label %while.end.i.i.i.i178.i, !prof !75
 
 while.body.i.i.i.i193.i.preheader:                ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i170.i
@@ -1265,7 +1265,7 @@ _ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i214.i: ; preds = %.noe
   %cmp.i4.i.i.i218.i = icmp ne i64 %rem.i3.i.i.i217.i, 0
   %conv5.i.i.i.i219.i = zext i1 %cmp.i4.i.i.i218.i to i64
   %add.i.i.i.i220.i = add nuw nsw i64 %div15.i.i.i.i216.i, %conv5.i.i.i.i219.i
-  %cmp.i5.i.i.i221.i = icmp ugt i64 %add.i.i.i.i220.i, 2
+  %cmp.i5.i.i.i221.i = icmp samesign ugt i64 %add.i.i.i.i220.i, 2
   br i1 %cmp.i5.i.i.i221.i, label %while.body.i.i.i.i237.i.preheader, label %while.end.i.i.i.i222.i, !prof !75
 
 while.body.i.i.i.i237.i.preheader:                ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i214.i

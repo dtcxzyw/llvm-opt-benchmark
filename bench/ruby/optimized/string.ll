@@ -373,7 +373,7 @@ define dso_local i64 @rb_str_size_as_embedded(i64 noundef %0) local_unnamed_addr
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 24
   %9 = and i64 %3, 532676608
-  %switch.i = icmp ult i64 %9, 12582912
+  %switch.i = icmp samesign ult i64 %9, 12582912
   br i1 %switch.i, label %20, label %10
 
 10:                                               ; preds = %5
@@ -420,7 +420,7 @@ rb_str_reembeddable_p.exit.thread:                ; preds = %23, %rb_str_reembed
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   %36 = and i64 %3, 532676608
-  %switch.i10 = icmp ult i64 %36, 12582912
+  %switch.i10 = icmp samesign ult i64 %36, 12582912
   br i1 %switch.i10, label %47, label %37
 
 37:                                               ; preds = %rb_str_reembeddable_p.exit.thread
@@ -480,7 +480,7 @@ str_dependent_p.exit:                             ; preds = %1
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %.fr6.i, 532676608
-  %switch.i.i = icmp ult i64 %14, 12582912
+  %switch.i.i = icmp samesign ult i64 %14, 12582912
   br i1 %switch.i.i, label %str_make_independent.exit, label %15
 
 15:                                               ; preds = %11
@@ -550,7 +550,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_UNSET.exit
   %17 = phi i64 [ %.pre18, %RB_FL_UNSET.exit ], [ %.pre, %ruby_nonempty_memcpy.exit ]
   %18 = getelementptr i8, ptr %3, i64 %6
   %19 = and i64 %17, 532676608
-  %switch.i = icmp ult i64 %19, 12582912
+  %switch.i = icmp samesign ult i64 %19, 12582912
   br i1 %switch.i, label %.thread, label %20
 
 .thread:                                          ; preds = %16
@@ -953,7 +953,7 @@ str_independent.exit:                             ; preds = %rb_check_lockedtmp.
 29:                                               ; preds = %27, %str_independent.exit
   %30 = phi i64 [ %28, %27 ], [ %.fr6.i.i, %str_independent.exit ]
   %31 = and i64 %30, 532676608
-  %switch.i = icmp ult i64 %31, 12582912
+  %switch.i = icmp samesign ult i64 %31, 12582912
   br i1 %switch.i, label %41, label %32
 
 32:                                               ; preds = %29
@@ -1118,7 +1118,7 @@ define internal fastcc noundef i64 @str_replace_shared_without_enc(i64 noundef r
   %3 = inttoptr i64 %1 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 532676608
-  %switch.i = icmp ult i64 %5, 12582912
+  %switch.i = icmp samesign ult i64 %5, 12582912
   br i1 %switch.i, label %rbimpl_rstring_getmem.exit, label %6
 
 6:                                                ; preds = %2
@@ -1275,7 +1275,7 @@ rbimpl_rstring_getmem.exit56:                     ; preds = %rb_str_new_frozen.e
 
 73:                                               ; preds = %70
   %74 = and i64 %65, 532676608
-  %switch.i61 = icmp ult i64 %74, 12582912
+  %switch.i61 = icmp samesign ult i64 %74, 12582912
   br i1 %switch.i61, label %83, label %75
 
 75:                                               ; preds = %73
@@ -2131,7 +2131,7 @@ define dso_local i64 @rb_str_capacity(i64 noundef %0) local_unnamed_addr #8 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 532676608
-  %switch.i = icmp ult i64 %4, 12582912
+  %switch.i = icmp samesign ult i64 %4, 12582912
   br i1 %switch.i, label %16, label %5
 
 5:                                                ; preds = %1
@@ -2731,7 +2731,7 @@ define internal fastcc noundef i64 @str_cat_conv_enc_opts(i64 noundef %0, i64 no
   %11 = inttoptr i64 %0 to ptr
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 532676608
-  %switch.i.i = icmp ult i64 %13, 12582912
+  %switch.i.i = icmp samesign ult i64 %13, 12582912
   br i1 %switch.i.i, label %25, label %14
 
 14:                                               ; preds = %8
@@ -3051,7 +3051,7 @@ str_independent.exit:                             ; preds = %rb_check_lockedtmp.
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %.fr6.i.i, 532676608
-  %switch.i.i = icmp ult i64 %21, 12582912
+  %switch.i.i = icmp samesign ult i64 %21, 12582912
   br i1 %switch.i.i, label %str_make_independent.exit, label %22
 
 22:                                               ; preds = %18
@@ -3677,7 +3677,7 @@ define internal fastcc i64 @str_new_frozen_buffer(i64 noundef %0, i64 noundef %1
   %.not = icmp eq i32 %2, 0
   %.pre102 = load i64, ptr %4, align 8
   %7 = and i64 %.pre102, 532676608
-  %switch.i = icmp ult i64 %7, 12582912
+  %switch.i = icmp samesign ult i64 %7, 12582912
   %or.cond114 = select i1 %.not, i1 true, i1 %switch.i
   br i1 %or.cond114, label %17, label %8
 
@@ -3857,7 +3857,7 @@ str_replace_shared.exit:                          ; preds = %71, %81
 102:                                              ; preds = %32
   %103 = load i64, ptr %5, align 8
   %104 = and i64 %.pre106, 532676608
-  %switch.i79 = icmp ult i64 %104, 12582912
+  %switch.i79 = icmp samesign ult i64 %104, 12582912
   br i1 %switch.i79, label %115, label %105
 
 105:                                              ; preds = %102
@@ -3890,7 +3890,7 @@ RB_ENCODING_GET.exit81:                           ; preds = %105, %110
   %121 = load i64, ptr %5, align 8
   %122 = load i64, ptr %4, align 8
   %123 = and i64 %122, 532676608
-  %switch.i82 = icmp ult i64 %123, 12582912
+  %switch.i82 = icmp samesign ult i64 %123, 12582912
   br i1 %switch.i82, label %134, label %124
 
 124:                                              ; preds = %120
@@ -3990,7 +3990,7 @@ RSTRING_END.exit:                                 ; preds = %ruby_nonempty_memcp
   %163 = getelementptr i8, ptr %.sroa.3.0.i, i64 %160
   %164 = load i64, ptr %4, align 8
   %165 = and i64 %164, 532676608
-  %switch.i95 = icmp ult i64 %165, 12582912
+  %switch.i95 = icmp samesign ult i64 %165, 12582912
   br i1 %switch.i95, label %.thread, label %166
 
 .thread:                                          ; preds = %RSTRING_END.exit
@@ -4135,7 +4135,7 @@ rb_str_reembeddable_p.exit.thread:                ; preds = %6, %rb_str_reembedd
 RB_FL_SET.exit:                                   ; preds = %27, %35, %.critedge.i
   %41 = load i64, ptr %2, align 8
   %42 = and i64 %41, 532676608
-  %switch.i = icmp ult i64 %42, 12582912
+  %switch.i = icmp samesign ult i64 %42, 12582912
   br i1 %switch.i, label %54, label %43
 
 43:                                               ; preds = %RB_FL_SET.exit
@@ -4206,7 +4206,7 @@ str_capacity.exit:                                ; preds = %57, %69, %RB_FL_TES
 
 76:                                               ; preds = %str_capacity.exit
   %77 = and i64 %74, 532676608
-  %switch.i49 = icmp ult i64 %77, 12582912
+  %switch.i49 = icmp samesign ult i64 %77, 12582912
   br i1 %switch.i49, label %88, label %78
 
 78:                                               ; preds = %76
@@ -4421,7 +4421,7 @@ define dso_local i64 @rb_str_new_with_class(i64 noundef %0, ptr noundef %1, i64 
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 532676608
-  %switch.i = icmp ult i64 %7, 12582912
+  %switch.i = icmp samesign ult i64 %7, 12582912
   br i1 %switch.i, label %17, label %8
 
 8:                                                ; preds = %3
@@ -4570,7 +4570,7 @@ RB_FL_TEST.exit12.thread:                         ; preds = %rb_vm_lock_leave.ex
   %29 = getelementptr inbounds i8, ptr %8, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = and i64 %28, 532676608
-  %switch.i = icmp ult i64 %31, 12582912
+  %switch.i = icmp samesign ult i64 %31, 12582912
   br i1 %switch.i, label %40, label %32
 
 32:                                               ; preds = %RB_FL_TEST.exit12.thread
@@ -4624,7 +4624,7 @@ define hidden i64 @rb_str_memsize(i64 noundef %0) local_unnamed_addr #1 {
   %14 = getelementptr inbounds i8, ptr %7, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %8, 532676608
-  %switch.i = icmp ult i64 %16, 12582912
+  %switch.i = icmp samesign ult i64 %16, 12582912
   br i1 %switch.i, label %27, label %17
 
 17:                                               ; preds = %13
@@ -5067,7 +5067,7 @@ define internal fastcc noundef i64 @str_duplicate(i64 noundef %0, i64 noundef %1
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %4, 532676608
-  %switch.i = icmp ult i64 %9, 12582912
+  %switch.i = icmp samesign ult i64 %9, 12582912
   br i1 %switch.i, label %20, label %10
 
 10:                                               ; preds = %6
@@ -5205,7 +5205,7 @@ define hidden noundef i64 @rb_ec_str_resurrect(ptr noundef %0, i64 noundef %1) l
   %16 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %13, 532676608
-  %switch.i.i = icmp ult i64 %18, 12582912
+  %switch.i.i = icmp samesign ult i64 %18, 12582912
   br i1 %switch.i.i, label %29, label %19
 
 19:                                               ; preds = %15
@@ -6375,7 +6375,7 @@ RSTRING_PTR.exit73:                               ; preds = %36, %45
   %64 = mul i64 %23, %.0.i
   %65 = load i64, ptr %21, align 8
   %66 = and i64 %65, 532676608
-  %switch.i = icmp ult i64 %66, 12582912
+  %switch.i = icmp samesign ult i64 %66, 12582912
   br i1 %switch.i, label %76, label %67
 
 67:                                               ; preds = %63
@@ -6707,7 +6707,7 @@ define dso_local void @rb_str_modify_expand(i64 noundef %0, i64 noundef %1) loca
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 532676608
-  %switch.i = icmp ult i64 %5, 12582912
+  %switch.i = icmp samesign ult i64 %5, 12582912
   br i1 %switch.i, label %15, label %6
 
 6:                                                ; preds = %2
@@ -7934,7 +7934,7 @@ define internal fastcc i64 @str_subseq(i64 noundef %0, i64 noundef %1, i64 nound
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 532676608
-  %switch.i = icmp ult i64 %9, 12582912
+  %switch.i = icmp samesign ult i64 %9, 12582912
   br i1 %switch.i, label %19, label %10
 
 10:                                               ; preds = %3
@@ -8756,7 +8756,7 @@ define dso_local void @rb_str_set_len(i64 noundef %0, i64 noundef %1) local_unna
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 532676608
-  %switch.i = icmp ult i64 %6, 12582912
+  %switch.i = icmp samesign ult i64 %6, 12582912
   br i1 %switch.i, label %16, label %7
 
 7:                                                ; preds = %2
@@ -8976,7 +8976,7 @@ define internal fastcc noundef i64 @str_buf_cat4(i64 noundef %0, ptr noundef %1,
   %10 = inttoptr i64 %0 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 532676608
-  %switch.i = icmp ult i64 %12, 12582912
+  %switch.i = icmp samesign ult i64 %12, 12582912
   br i1 %switch.i, label %22, label %13
 
 13:                                               ; preds = %9
@@ -9600,7 +9600,7 @@ rb_enc_str_coderange.exit:                        ; preds = %2, %enc_coderange_s
   %32 = inttoptr i64 %0 to ptr
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 532676608
-  %switch.i = icmp ult i64 %34, 12582912
+  %switch.i = icmp samesign ult i64 %34, 12582912
   br i1 %switch.i, label %35, label %64
 
 35:                                               ; preds = %rb_enc_str_coderange.exit
@@ -11069,7 +11069,7 @@ ruby_nonempty_memcpy.exit157:                     ; preds = %158, %rb_enc_asciic
   %.2131 = phi i64 [ %.0129.ph, %.split.us._crit_edge ], [ %.1130.ph, %163 ]
   %.3 = phi i64 [ %.0127.ph, %.split.us._crit_edge ], [ %.1128.ph, %163 ]
   %168 = and i64 %167, 532676608
-  %switch.i = icmp ult i64 %168, 12582912
+  %switch.i = icmp samesign ult i64 %168, 12582912
   br i1 %switch.i, label %179, label %169
 
 169:                                              ; preds = %166
@@ -12439,7 +12439,7 @@ str_modifiable.exit:                              ; preds = %rb_check_lockedtmp.
   %24 = add i64 %23, -24
   %25 = load i64, ptr %3, align 8
   %26 = and i64 %25, 532676608
-  %switch.i = icmp ult i64 %26, 12582912
+  %switch.i = icmp samesign ult i64 %26, 12582912
   br i1 %switch.i, label %37, label %27
 
 27:                                               ; preds = %str_modifiable.exit
@@ -12533,7 +12533,7 @@ rb_enc_cr_str_exact_copy.exit:                    ; preds = %52, %60
   %72 = getelementptr i8, ptr %.041, i64 %22
   %73 = load i64, ptr %3, align 8
   %74 = and i64 %73, 532676608
-  %switch.i47 = icmp ult i64 %74, 12582912
+  %switch.i47 = icmp samesign ult i64 %74, 12582912
   br i1 %switch.i47, label %.thread, label %75
 
 .thread:                                          ; preds = %71
@@ -13181,7 +13181,7 @@ str_modifiable.exit:                              ; preds = %rb_check_lockedtmp.
   %18 = getelementptr inbounds i8, ptr %7, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = and i64 %8, 532676608
-  %switch.i = icmp ult i64 %20, 12582912
+  %switch.i = icmp samesign ult i64 %20, 12582912
   br i1 %switch.i, label %29, label %21
 
 21:                                               ; preds = %17
@@ -13363,7 +13363,7 @@ str_independent.exit:                             ; preds = %rb_check_lockedtmp.
 43:                                               ; preds = %str_independent.exit
   %44 = load i64, ptr %10, align 8
   %45 = and i64 %.fr6.i.i, 532676608
-  %switch.i.i = icmp ult i64 %45, 12582912
+  %switch.i.i = icmp samesign ult i64 %45, 12582912
   br i1 %switch.i.i, label %str_make_independent.exit, label %46
 
 46:                                               ; preds = %43
@@ -16116,7 +16116,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %11 ], [ %10, %7 ]
   %12 = getelementptr i8, ptr %.sroa.2.0.i, i64 %6
   %13 = and i64 %8, 532676608
-  %switch.i = icmp ult i64 %13, 12582912
+  %switch.i = icmp samesign ult i64 %13, 12582912
   br i1 %switch.i, label %.thread, label %14
 
 .thread:                                          ; preds = %RSTRING_PTR.exit
@@ -16465,7 +16465,7 @@ str_independent.exit:                             ; preds = %rb_check_lockedtmp.
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %.fr6.i.i, 532676608
-  %switch.i.i = icmp ult i64 %21, 12582912
+  %switch.i.i = icmp samesign ult i64 %21, 12582912
   br i1 %switch.i.i, label %str_make_independent.exit, label %22
 
 22:                                               ; preds = %18
@@ -19094,7 +19094,7 @@ rb_num2long_inline.exit:                          ; preds = %62, %64
   %69 = inttoptr i64 %66 to ptr
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 532676608
-  %switch.i.i = icmp ult i64 %71, 12582912
+  %switch.i.i = icmp samesign ult i64 %71, 12582912
   br i1 %switch.i.i, label %83, label %72
 
 72:                                               ; preds = %68
@@ -19394,7 +19394,7 @@ RSTRING_PTR.exit:                                 ; preds = %.thread, %69
   %72 = getelementptr inbounds i8, ptr %56, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %57, 532676608
-  %switch.i = icmp ult i64 %74, 12582912
+  %switch.i = icmp samesign ult i64 %74, 12582912
   br i1 %switch.i, label %85, label %75
 
 75:                                               ; preds = %RSTRING_PTR.exit
@@ -19439,7 +19439,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %85, %90
   %94 = getelementptr inbounds i8, ptr %56, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = and i64 %57, 532676608
-  %switch.i91 = icmp ult i64 %96, 12582912
+  %switch.i91 = icmp samesign ult i64 %96, 12582912
   br i1 %switch.i91, label %107, label %97
 
 97:                                               ; preds = %93
@@ -22745,7 +22745,7 @@ get_encoding.exit.i:                              ; preds = %12, %3
   unreachable
 
 str_true_enc.exit:                                ; preds = %get_encoding.exit.i
-  %.not.i = icmp ult i32 %5, 4194304
+  %.not.i = icmp samesign ult i32 %5, 4194304
   br i1 %.not.i, label %25, label %19
 
 19:                                               ; preds = %str_true_enc.exit
@@ -22897,7 +22897,7 @@ get_encoding.exit.i:                              ; preds = %12, %3
   unreachable
 
 str_true_enc.exit:                                ; preds = %get_encoding.exit.i
-  %.not.i = icmp ult i32 %5, 4194304
+  %.not.i = icmp samesign ult i32 %5, 4194304
   br i1 %.not.i, label %25, label %19
 
 19:                                               ; preds = %str_true_enc.exit
@@ -23067,7 +23067,7 @@ RSTRING_PTR.exit:                                 ; preds = %22
   br i1 %.not, label %31, label %RSTRING_PTR.exit.thread
 
 RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.exit
-  %.not14 = icmp ult i32 %5, 4194304
+  %.not14 = icmp samesign ult i32 %5, 4194304
   br i1 %.not14, label %29, label %26
 
 26:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23140,7 +23140,7 @@ RSTRING_PTR.exit:                                 ; preds = %22
   br label %34
 
 RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.exit
-  %.not14 = icmp ult i32 %5, 4194304
+  %.not14 = icmp samesign ult i32 %5, 4194304
   br i1 %.not14, label %32, label %29
 
 29:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23191,7 +23191,7 @@ get_encoding.exit.i:                              ; preds = %12, %3
   unreachable
 
 str_true_enc.exit:                                ; preds = %get_encoding.exit.i
-  %.not.i = icmp ult i32 %5, 4194304
+  %.not.i = icmp samesign ult i32 %5, 4194304
   br i1 %.not.i, label %25, label %19
 
 19:                                               ; preds = %str_true_enc.exit
@@ -23320,7 +23320,7 @@ get_encoding.exit.i:                              ; preds = %12, %3
   unreachable
 
 str_true_enc.exit:                                ; preds = %get_encoding.exit.i
-  %.not.i = icmp ult i32 %5, 4194304
+  %.not.i = icmp samesign ult i32 %5, 4194304
   br i1 %.not.i, label %25, label %19
 
 19:                                               ; preds = %str_true_enc.exit
@@ -23467,7 +23467,7 @@ RSTRING_PTR.exit:                                 ; preds = %22
   br i1 %.not, label %32, label %RSTRING_PTR.exit.thread
 
 RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.exit
-  %.not13 = icmp ult i32 %5, 4194304
+  %.not13 = icmp samesign ult i32 %5, 4194304
   br i1 %.not13, label %27, label %26
 
 26:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23524,7 +23524,7 @@ get_encoding.exit.i:                              ; preds = %12, %3
   unreachable
 
 str_true_enc.exit:                                ; preds = %get_encoding.exit.i
-  %.not = icmp ult i32 %5, 4194304
+  %.not = icmp samesign ult i32 %5, 4194304
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %str_true_enc.exit
@@ -25554,7 +25554,7 @@ get_encoding.exit215:                             ; preds = %170, %177
 198:                                              ; preds = %._crit_edge284
   %199 = load i64, ptr %35, align 8
   %200 = and i64 %199, 532676608
-  %switch.i = icmp ult i64 %200, 12582912
+  %switch.i = icmp samesign ult i64 %200, 12582912
   br i1 %switch.i, label %211, label %201
 
 201:                                              ; preds = %198
@@ -25702,7 +25702,7 @@ RSTRING_PTR.exit236:                              ; preds = %RSTRING_PTR.exit232
   %.sroa.2.0.i235 = phi ptr [ %.sroa.2.0.copyload.i234, %262 ], [ %244, %RSTRING_PTR.exit232 ]
   %263 = getelementptr i8, ptr %.sroa.2.0.i235, i64 %259
   %264 = and i64 %260, 532676608
-  %switch.i237 = icmp ult i64 %264, 12582912
+  %switch.i237 = icmp samesign ult i64 %264, 12582912
   br i1 %switch.i237, label %.thread278, label %265
 
 .thread278:                                       ; preds = %RSTRING_PTR.exit236
@@ -25784,7 +25784,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %11
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %11 ], [ %10, %6 ]
   %12 = getelementptr i8, ptr %.sroa.2.0.i, i64 %7
   %13 = and i64 %8, 532676608
-  %switch.i = icmp ult i64 %13, 12582912
+  %switch.i = icmp samesign ult i64 %13, 12582912
   br i1 %switch.i, label %.thread, label %14
 
 .thread:                                          ; preds = %RSTRING_PTR.exit
@@ -25901,7 +25901,7 @@ RSTRING_PTR.exit.i:                               ; preds = %32, %28
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %32 ], [ %31, %28 ]
   %33 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 %27
   %34 = and i64 %29, 532676608
-  %switch.i.i = icmp ult i64 %34, 12582912
+  %switch.i.i = icmp samesign ult i64 %34, 12582912
   br i1 %switch.i.i, label %.thread.i, label %35
 
 .thread.i:                                        ; preds = %RSTRING_PTR.exit.i
@@ -26371,7 +26371,7 @@ RSTRING_PTR.exit:                                 ; preds = %19, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %19 ]
   %27 = getelementptr i8, ptr %.sroa.2.0.i, i64 %22
   %28 = and i64 %23, 532676608
-  %switch.i = icmp ult i64 %28, 12582912
+  %switch.i = icmp samesign ult i64 %28, 12582912
   br i1 %switch.i, label %.thread, label %29
 
 .thread:                                          ; preds = %RSTRING_PTR.exit
@@ -27145,7 +27145,7 @@ tr_find.exit.thread:                              ; preds = %69, %70, %tr_find.e
   %.058.lcssa = phi i64 [ 4, %RSTRING_END.exit ], [ %93, %._crit_edge.loopexit ]
   %.054.lcssa = phi i32 [ %42, %RSTRING_END.exit ], [ %.1, %._crit_edge.loopexit ]
   %95 = and i64 %94, 532676608
-  %switch.i = icmp ult i64 %95, 12582912
+  %switch.i = icmp samesign ult i64 %95, 12582912
   br i1 %switch.i, label %.thread, label %96
 
 .thread:                                          ; preds = %._crit_edge
@@ -27565,7 +27565,7 @@ tr_find.exit.thread:                              ; preds = %127, %128, %140, %t
   %.6 = phi ptr [ %.sroa.2.0.i133135139, %.preheader ], [ %.sroa.2.0.i133135139, %.preheader155 ], [ %.482, %146 ], [ %.179.us, %89 ], [ %.179, %98 ]
   %149 = load i64, ptr %9, align 8
   %150 = and i64 %149, 532676608
-  %switch.i = icmp ult i64 %150, 12582912
+  %switch.i = icmp samesign ult i64 %150, 12582912
   br i1 %switch.i, label %.thread145, label %151
 
 .thread145:                                       ; preds = %.loopexit
@@ -27889,7 +27889,7 @@ str_mod_check.exit:                               ; preds = %32, %.lr.ph
 
 .thread56:                                        ; preds = %._crit_edge.thread, %47
   %.033.lcssa5159 = phi i64 [ %38, %47 ], [ 0, %._crit_edge.thread ]
-  %49 = icmp ult i32 %.0, 64
+  %49 = icmp samesign ult i32 %.0, 64
   %50 = zext nneg i32 %.0 to i64
   %notmask = shl nsw i64 -1, %50
   %51 = xor i64 %notmask, -1
@@ -28241,7 +28241,7 @@ RSTRING_PTR.exit142:                              ; preds = %135, %140
   %154 = getelementptr i8, ptr %.sroa.2.0.i141, i64 %153
   %155 = load i64, ptr %136, align 8
   %156 = and i64 %155, 532676608
-  %switch.i = icmp ult i64 %156, 12582912
+  %switch.i = icmp samesign ult i64 %156, 12582912
   br i1 %switch.i, label %.thread, label %157
 
 .thread:                                          ; preds = %147
@@ -28600,7 +28600,7 @@ define internal noundef i64 @rb_str_b(i64 noundef %0) #1 {
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %3, 532676608
-  %switch.i = icmp ult i64 %9, 12582912
+  %switch.i = icmp samesign ult i64 %9, 12582912
   br i1 %switch.i, label %20, label %10
 
 10:                                               ; preds = %6
@@ -29440,7 +29440,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %38, %47
   %54 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %50, 532676608
-  %switch.i.i = icmp ult i64 %56, 12582912
+  %switch.i.i = icmp samesign ult i64 %56, 12582912
   br i1 %switch.i.i, label %str_make_independent.exit, label %57
 
 57:                                               ; preds = %53
@@ -30036,7 +30036,7 @@ define internal fastcc range(i32 0, 3) i32 @enc_succ_char(ptr noundef nonnull %0
   %6 = add nsw i64 %1, -1
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   %7 = getelementptr i8, ptr %0, i64 %1
-  %8 = icmp ugt i64 %1, 1
+  %8 = icmp samesign ugt i64 %1, 1
   br i1 %8, label %.preheader70.split.us, label %.preheader70.split
 
 .preheader70.split.us:                            ; preds = %.preheader70, %.preheader70.split.us.backedge
@@ -30207,7 +30207,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %11, %16
 
 18:                                               ; preds = %rbimpl_rstring_getmem.exit
   %19 = and i64 %13, 532676608
-  %switch.i = icmp ult i64 %19, 12582912
+  %switch.i = icmp samesign ult i64 %19, 12582912
   br i1 %switch.i, label %30, label %20
 
 20:                                               ; preds = %18
@@ -30419,7 +30419,7 @@ RSTRING_PTR.exit106:                              ; preds = %109, %115
   %120 = getelementptr i8, ptr %.0, i64 %119
   %121 = load i64, ptr %12, align 8
   %122 = and i64 %121, 532676608
-  %switch.i107 = icmp ult i64 %122, 12582912
+  %switch.i107 = icmp samesign ult i64 %122, 12582912
   br i1 %switch.i107, label %.thread, label %123
 
 .thread:                                          ; preds = %117
@@ -31157,7 +31157,7 @@ get_encoding.exit.i94:                            ; preds = %38, %34
   br i1 %.not82, label %.critedge, label %58
 
 58:                                               ; preds = %47
-  %59 = icmp ult i32 %53, %57
+  %59 = icmp samesign ult i32 %53, %57
   %60 = select i1 %59, i64 -1, i64 3
   br label %114
 
@@ -31203,7 +31203,7 @@ get_encoding.exit.i94:                            ; preds = %38, %34
   br label %99
 
 83:                                               ; preds = %74
-  %84 = icmp ult i32 %78, %82
+  %84 = icmp samesign ult i32 %78, %82
   %85 = select i1 %84, i64 -1, i64 3
   br label %114
 
@@ -35861,7 +35861,7 @@ rb_num2int_inline.exit:                           ; preds = %220, %222
 256:                                              ; preds = %.outer._crit_edge
   %257 = load ptr, ptr %53, align 8
   %258 = and i64 %254, 532676608
-  %switch.i = icmp ult i64 %258, 12582912
+  %switch.i = icmp samesign ult i64 %258, 12582912
   br i1 %switch.i, label %267, label %259
 
 259:                                              ; preds = %256
@@ -36160,7 +36160,7 @@ rb_num2int_inline.exit393:                        ; preds = %356, %358
 394:                                              ; preds = %._crit_edge531
   %395 = load ptr, ptr %53, align 8
   %396 = and i64 %392, 532676608
-  %switch.i395 = icmp ult i64 %396, 12582912
+  %switch.i395 = icmp samesign ult i64 %396, 12582912
   br i1 %switch.i395, label %405, label %397
 
 397:                                              ; preds = %394

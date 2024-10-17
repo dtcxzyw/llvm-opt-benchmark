@@ -1335,8 +1335,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc456, %254
   %326 = shl nuw nsw i64 1, %323
   %327 = and i64 %326, 109
   %328 = icmp ne i64 %327, 0
-  %329 = icmp ult i32 %72, 4
-  %or.cond21 = and i1 %329, %328
+  %329 = icmp samesign ult i32 %72, 4
+  %or.cond21 = select i1 %328, i1 %329, i1 false
   br i1 %or.cond21, label %338, label %330
 
 330:                                              ; preds = %322
@@ -1684,7 +1684,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit469:          ; preds = %411, %406, %375
   %450 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %450, ptr %42, align 8
   %451 = getelementptr inbounds i8, ptr %42, i64 8
-  %.not.i.i472 = icmp ugt i64 %449, 1032
+  %.not.i.i472 = icmp samesign ugt i64 %449, 1032
   store i64 %449, ptr %451, align 8
   br i1 %.not.i.i472, label %452, label %.lr.ph550
 
@@ -1721,8 +1721,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit469:          ; preds = %411, %406, %375
   %472 = zext nneg i32 %.0376 to i64
   %473 = zext nneg i32 %factor.op.mul546 to i64
   %wide.trip.count = zext nneg i32 %73 to i64
-  %474 = icmp ult i32 %.0376, %factor.op.mul546
-  %475 = icmp ult i32 %.0376, %factor.op.mul546
+  %474 = icmp samesign ult i32 %.0376, %factor.op.mul546
+  %475 = icmp samesign ult i32 %.0376, %factor.op.mul546
   br label %486
 
 .preheader529:                                    ; preds = %.loopexit531
@@ -2008,7 +2008,7 @@ _ZN2cvL19interpolateLanczos4EfPf.exit:            ; preds = %598, %602, %549
   %618 = getelementptr inbounds i16, ptr %457, i64 %614
   store i16 %617, ptr %618, align 2
   %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
-  %619 = icmp ult i64 %indvars.iv.next608, %473
+  %619 = icmp samesign ult i64 %indvars.iv.next608, %473
   br i1 %619, label %.lr.ph545, label %.loopexit531, !llvm.loop !16
 
 .lr.ph.preheader:                                 ; preds = %.preheader535
@@ -6323,7 +6323,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIiEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -7001,7 +7001,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
   %indvars.iv84 = phi i64 [ %83, %.lr.ph66.preheader ], [ %indvars.iv.next85, %102 ]
-  %84 = icmp ult i64 %indvars.iv84, 16
+  %84 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %84, label %85, label %102
 
 85:                                               ; preds = %.lr.ph66
@@ -7012,7 +7012,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 89:                                               ; preds = %85
   %90 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %91 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %91 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %89
@@ -7194,7 +7194,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIhisLi2048ENS_12HResizeNo
 
 ._crit_edge.us:                                   ; preds = %.lr.ph101.us, %..preheader98_crit_edge.us
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
-  %.not.us = icmp ugt i64 %indvars.iv.next152, %14
+  %.not.us = icmp samesign ugt i64 %indvars.iv.next152, %14
   br i1 %.not.us, label %.preheader97.loopexit, label %.lr.ph.us, !llvm.loop !115
 
 .lr.ph101.us:                                     ; preds = %..preheader98_crit_edge.us, %.lr.ph101.us
@@ -7315,7 +7315,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIhisLi2048ENS_12HResizeNo
 
 ._crit_edge.us112:                                ; preds = %87
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %.not.us109 = icmp ugt i64 %indvars.iv.next139, %77
+  %.not.us109 = icmp samesign ugt i64 %indvars.iv.next139, %77
   br i1 %.not.us109, label %.preheader97.loopexit131, label %.preheader98.us107, !llvm.loop !115
 
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
@@ -7717,7 +7717,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %43, %39
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
   %indvars.iv84 = phi i64 [ %88, %.lr.ph66.preheader ], [ %indvars.iv.next85, %102 ]
-  %89 = icmp ult i64 %indvars.iv84, 16
+  %89 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %89, label %90, label %102
 
 90:                                               ; preds = %.lr.ph66
@@ -7728,7 +7728,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %43, %39
 
 94:                                               ; preds = %90
   %95 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %96 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %96 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %96, label %97, label %.loopexit
 
 97:                                               ; preds = %94
@@ -7889,7 +7889,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearItffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us:                                   ; preds = %.lr.ph101.us, %..preheader98_crit_edge.us
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
-  %.not.us = icmp ugt i64 %indvars.iv.next152, %14
+  %.not.us = icmp samesign ugt i64 %indvars.iv.next152, %14
   br i1 %.not.us, label %.preheader97.loopexit, label %.lr.ph.us, !llvm.loop !126
 
 .lr.ph101.us:                                     ; preds = %..preheader98_crit_edge.us, %.lr.ph101.us
@@ -8002,7 +8002,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearItffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us112:                                ; preds = %81
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %.not.us109 = icmp ugt i64 %indvars.iv.next139, %71
+  %.not.us109 = icmp samesign ugt i64 %indvars.iv.next139, %71
   br i1 %.not.us109, label %.preheader97.loopexit131, label %.preheader98.us107, !llvm.loop !126
 
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
@@ -8383,7 +8383,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %97
   %indvars.iv84 = phi i64 [ %83, %.lr.ph66.preheader ], [ %indvars.iv.next85, %97 ]
-  %84 = icmp ult i64 %indvars.iv84, 16
+  %84 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %.lr.ph66
@@ -8394,7 +8394,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 89:                                               ; preds = %85
   %90 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %91 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %91 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %89
@@ -8571,7 +8571,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIsffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us:                                   ; preds = %.lr.ph101.us, %..preheader98_crit_edge.us
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
-  %.not.us = icmp ugt i64 %indvars.iv.next152, %14
+  %.not.us = icmp samesign ugt i64 %indvars.iv.next152, %14
   br i1 %.not.us, label %.preheader97.loopexit, label %.lr.ph.us, !llvm.loop !137
 
 .lr.ph101.us:                                     ; preds = %..preheader98_crit_edge.us, %.lr.ph101.us
@@ -8684,7 +8684,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIsffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us112:                                ; preds = %81
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %.not.us109 = icmp ugt i64 %indvars.iv.next139, %71
+  %.not.us109 = icmp samesign ugt i64 %indvars.iv.next139, %71
   br i1 %.not.us109, label %.preheader97.loopexit131, label %.preheader98.us107, !llvm.loop !137
 
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
@@ -9065,7 +9065,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %97
   %indvars.iv84 = phi i64 [ %83, %.lr.ph66.preheader ], [ %indvars.iv.next85, %97 ]
-  %84 = icmp ult i64 %indvars.iv84, 16
+  %84 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %.lr.ph66
@@ -9076,7 +9076,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 89:                                               ; preds = %85
   %90 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %91 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %91 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %89
@@ -9248,7 +9248,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIfffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us:                                   ; preds = %.lr.ph101.us, %..preheader98_crit_edge.us
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
-  %.not.us = icmp ugt i64 %indvars.iv.next152, %14
+  %.not.us = icmp samesign ugt i64 %indvars.iv.next152, %14
   br i1 %.not.us, label %.preheader97.loopexit, label %.lr.ph.us, !llvm.loop !148
 
 .lr.ph101.us:                                     ; preds = %..preheader98_crit_edge.us, %.lr.ph101.us
@@ -9353,7 +9353,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIfffLi1ENS_12HResizeNoVec
 
 ._crit_edge.us112:                                ; preds = %75
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %.not.us109 = icmp ugt i64 %indvars.iv.next139, %65
+  %.not.us109 = icmp samesign ugt i64 %indvars.iv.next139, %65
   br i1 %.not.us109, label %.preheader97.loopexit131, label %.preheader98.us107, !llvm.loop !148
 
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
@@ -9746,7 +9746,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %43, %39
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
   %indvars.iv84 = phi i64 [ %88, %.lr.ph66.preheader ], [ %indvars.iv.next85, %102 ]
-  %89 = icmp ult i64 %indvars.iv84, 16
+  %89 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %89, label %90, label %102
 
 90:                                               ; preds = %.lr.ph66
@@ -9757,7 +9757,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %43, %39
 
 94:                                               ; preds = %90
   %95 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %96 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %96 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %96, label %97, label %.loopexit
 
 97:                                               ; preds = %94
@@ -9915,7 +9915,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIddfLi1ENS_12HResizeNoVec
 
 ._crit_edge.us:                                   ; preds = %.lr.ph101.us, %..preheader98_crit_edge.us
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
-  %.not.us = icmp ugt i64 %indvars.iv.next152, %14
+  %.not.us = icmp samesign ugt i64 %indvars.iv.next152, %14
   br i1 %.not.us, label %.preheader97.loopexit, label %.lr.ph.us, !llvm.loop !159
 
 .lr.ph101.us:                                     ; preds = %..preheader98_crit_edge.us, %.lr.ph101.us
@@ -10022,7 +10022,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIddfLi1ENS_12HResizeNoVec
 
 ._crit_edge.us112:                                ; preds = %77
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %.not.us109 = icmp ugt i64 %indvars.iv.next139, %67
+  %.not.us109 = icmp samesign ugt i64 %indvars.iv.next139, %67
   br i1 %.not.us109, label %.preheader97.loopexit131, label %.preheader98.us107, !llvm.loop !159
 
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
@@ -10403,7 +10403,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %99
   %indvars.iv84 = phi i64 [ %85, %.lr.ph66.preheader ], [ %indvars.iv.next85, %99 ]
-  %86 = icmp ult i64 %indvars.iv84, 16
+  %86 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %.lr.ph66
@@ -10414,7 +10414,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %93 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %93 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %91
@@ -10992,7 +10992,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %99
   %indvars.iv84 = phi i64 [ %85, %.lr.ph66.preheader ], [ %indvars.iv.next85, %99 ]
-  %86 = icmp ult i64 %indvars.iv84, 16
+  %86 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %.lr.ph66
@@ -11003,7 +11003,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %93 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %93 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %91
@@ -11565,7 +11565,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %99
   %indvars.iv84 = phi i64 [ %85, %.lr.ph66.preheader ], [ %indvars.iv.next85, %99 ]
-  %86 = icmp ult i64 %indvars.iv84, 16
+  %86 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %.lr.ph66
@@ -11576,7 +11576,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %93 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %93 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %91
@@ -12138,7 +12138,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %99
   %indvars.iv84 = phi i64 [ %85, %.lr.ph66.preheader ], [ %indvars.iv.next85, %99 ]
-  %86 = icmp ult i64 %indvars.iv84, 16
+  %86 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %.lr.ph66
@@ -12149,7 +12149,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %93 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %93 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %91
@@ -12701,7 +12701,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %99
   %indvars.iv84 = phi i64 [ %85, %.lr.ph66.preheader ], [ %indvars.iv.next85, %99 ]
-  %86 = icmp ult i64 %indvars.iv84, 16
+  %86 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %86, label %87, label %99
 
 87:                                               ; preds = %.lr.ph66
@@ -12712,7 +12712,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %93 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %93 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %91
@@ -13277,7 +13277,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %103
   %indvars.iv84 = phi i64 [ %89, %.lr.ph66.preheader ], [ %indvars.iv.next85, %103 ]
-  %90 = icmp ult i64 %indvars.iv84, 16
+  %90 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.lr.ph66
@@ -13288,7 +13288,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 95:                                               ; preds = %91
   %96 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %97 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %97 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %95
@@ -13946,7 +13946,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %103
   %indvars.iv84 = phi i64 [ %89, %.lr.ph66.preheader ], [ %indvars.iv.next85, %103 ]
-  %90 = icmp ult i64 %indvars.iv84, 16
+  %90 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.lr.ph66
@@ -13957,7 +13957,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 95:                                               ; preds = %91
   %96 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %97 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %97 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %95
@@ -14583,7 +14583,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %103
   %indvars.iv84 = phi i64 [ %89, %.lr.ph66.preheader ], [ %indvars.iv.next85, %103 ]
-  %90 = icmp ult i64 %indvars.iv84, 16
+  %90 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.lr.ph66
@@ -14594,7 +14594,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 95:                                               ; preds = %91
   %96 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %97 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %97 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %95
@@ -15220,7 +15220,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %103
   %indvars.iv84 = phi i64 [ %89, %.lr.ph66.preheader ], [ %indvars.iv.next85, %103 ]
-  %90 = icmp ult i64 %indvars.iv84, 16
+  %90 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.lr.ph66
@@ -15231,7 +15231,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 95:                                               ; preds = %91
   %96 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %97 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %97 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %95
@@ -15843,7 +15843,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %103
   %indvars.iv84 = phi i64 [ %89, %.lr.ph66.preheader ], [ %indvars.iv.next85, %103 ]
-  %90 = icmp ult i64 %indvars.iv84, 16
+  %90 = icmp samesign ult i64 %indvars.iv84, 16
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.lr.ph66
@@ -15854,7 +15854,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 95:                                               ; preds = %91
   %96 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %97 = icmp ugt i64 %indvars.iv84, %indvars.iv88
+  %97 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv88
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %95
@@ -16488,7 +16488,7 @@ _ZN2cv17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEC2Eiiii.exit: ; preds =
   %132 = add nsw i32 %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %57
-  %134 = icmp ult i64 %indvars.iv.next142, %124
+  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
   %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
   %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !277
@@ -16674,7 +16674,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecIhNS_19ResizeA
   %105 = getelementptr i8, ptr %63, i64 2
   store i8 %104, ptr %105, align 1
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 3
-  %106 = icmp ult i64 %indvars.iv.next122, %20
+  %106 = icmp samesign ult i64 %indvars.iv.next122, %20
   br i1 %106, label %.lr.ph111, label %.loopexit.loopexit116, !llvm.loop !282
 
 107:                                              ; preds = %10
@@ -16796,7 +16796,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecIhNS_19ResizeA
   %198 = getelementptr i8, ptr %135, i64 3
   store i8 %197, ptr %198, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %199 = icmp ult i64 %indvars.iv.next, %18
+  %199 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %199, label %.lr.ph, label %.loopexit.loopexit117, !llvm.loop !283
 
 .loopexit.loopexit116:                            ; preds = %.lr.ph111
@@ -17073,7 +17073,7 @@ _ZN2cv17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEC2Eiiii.exit: ; preds =
   %132 = fadd float %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %58
-  %134 = icmp ult i64 %indvars.iv.next142, %124
+  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
   %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
   %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !286
@@ -17258,7 +17258,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecItNS_19ResizeA
   %105 = getelementptr i8, ptr %63, i64 4
   store i16 %104, ptr %105, align 2
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 3
-  %106 = icmp ult i64 %indvars.iv.next122, %20
+  %106 = icmp samesign ult i64 %indvars.iv.next122, %20
   br i1 %106, label %.lr.ph111, label %.loopexit.loopexit116, !llvm.loop !291
 
 107:                                              ; preds = %10
@@ -17380,7 +17380,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecItNS_19ResizeA
   %198 = getelementptr i8, ptr %135, i64 6
   store i16 %197, ptr %198, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %199 = icmp ult i64 %indvars.iv.next, %18
+  %199 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %199, label %.lr.ph, label %.loopexit.loopexit117, !llvm.loop !292
 
 .loopexit.loopexit116:                            ; preds = %.lr.ph111
@@ -17657,7 +17657,7 @@ _ZN2cv17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEC2Eiiii.exit: ; preds =
   %132 = fadd float %.173101.us, %131
   %133 = add nsw i32 %.1102.us, 1
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %58
-  %134 = icmp ult i64 %indvars.iv.next142, %124
+  %134 = icmp samesign ult i64 %indvars.iv.next142, %124
   %.not84.us = icmp slt i64 %indvars.iv.next142, %invariant.op
   %or.cond.us = select i1 %134, i1 %.not84.us, i1 false
   br i1 %or.cond.us, label %128, label %._crit_edge106.us, !llvm.loop !295
@@ -17842,7 +17842,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecIsNS_19ResizeA
   %105 = getelementptr i8, ptr %63, i64 4
   store i16 %104, ptr %105, align 2
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 3
-  %106 = icmp ult i64 %indvars.iv.next122, %20
+  %106 = icmp samesign ult i64 %indvars.iv.next122, %20
   br i1 %106, label %.lr.ph111, label %.loopexit.loopexit116, !llvm.loop !300
 
 107:                                              ; preds = %10
@@ -17964,7 +17964,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv17ResizeAreaFastVecIsNS_19ResizeA
   %198 = getelementptr i8, ptr %135, i64 6
   store i16 %197, ptr %198, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %199 = icmp ult i64 %indvars.iv.next, %18
+  %199 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %199, label %.lr.ph, label %.loopexit.loopexit117, !llvm.loop !301
 
 .loopexit.loopexit116:                            ; preds = %.lr.ph111
@@ -18193,7 +18193,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIffNS_19ResizeAr
   %103 = fadd float %.173101.us, %102
   %104 = add nsw i32 %.1102.us, 1
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, %44
-  %105 = icmp ult i64 %indvars.iv.next150, %96
+  %105 = icmp samesign ult i64 %indvars.iv.next150, %96
   %.not84.us = icmp slt i64 %indvars.iv.next150, %invariant.op
   %or.cond.us = select i1 %105, i1 %.not84.us, i1 false
   br i1 %or.cond.us, label %100, label %._crit_edge106.us, !llvm.loop !304
@@ -18444,7 +18444,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
   %104 = fadd double %.173101.us, %103
   %105 = add nsw i32 %.1102.us, 1
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, %45
-  %106 = icmp ult i64 %indvars.iv.next150, %97
+  %106 = icmp samesign ult i64 %indvars.iv.next150, %97
   %.not84.us = icmp slt i64 %indvars.iv.next150, %invariant.op
   %or.cond.us = select i1 %106, i1 %.not84.us, i1 false
   br i1 %or.cond.us, label %101, label %._crit_edge106.us, !llvm.loop !310
@@ -27775,8 +27775,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %37 = and i64 %35, 4294967295
   %38 = lshr i64 %34, 32
   %39 = add nuw nsw i64 %37, %38
-  %40 = icmp ugt i64 %35, 2147483647
-  %41 = icmp ugt i64 %39, 2147483647
+  %40 = icmp samesign ugt i64 %35, 2147483647
+  %41 = icmp samesign ugt i64 %39, 2147483647
   %or.cond.i = select i1 %40, i1 true, i1 %41
   br i1 %or.cond.i, label %42, label %44
 
@@ -27822,8 +27822,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %67 = and i64 %65, 4294967295
   %68 = lshr i64 %64, 32
   %69 = add nuw nsw i64 %67, %68
-  %70 = icmp ugt i64 %65, 2147483647
-  %71 = icmp ugt i64 %69, 2147483647
+  %70 = icmp samesign ugt i64 %65, 2147483647
+  %71 = icmp samesign ugt i64 %69, 2147483647
   %or.cond3.i = select i1 %70, i1 true, i1 %71
   br i1 %or.cond3.i, label %72, label %74
 
@@ -27962,8 +27962,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %43 = and i64 %41, 4294967295
   %44 = lshr i64 %40, 32
   %45 = add nuw nsw i64 %43, %44
-  %46 = icmp ugt i64 %41, 2147483647
-  %47 = icmp ugt i64 %45, 2147483647
+  %46 = icmp samesign ugt i64 %41, 2147483647
+  %47 = icmp samesign ugt i64 %45, 2147483647
   %or.cond.i = select i1 %46, i1 true, i1 %47
   br i1 %or.cond.i, label %48, label %50
 
@@ -28009,8 +28009,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %73 = and i64 %71, 4294967295
   %74 = lshr i64 %70, 32
   %75 = add nuw nsw i64 %73, %74
-  %76 = icmp ugt i64 %71, 2147483647
-  %77 = icmp ugt i64 %75, 2147483647
+  %76 = icmp samesign ugt i64 %71, 2147483647
+  %77 = icmp samesign ugt i64 %75, 2147483647
   %or.cond3.i = select i1 %76, i1 true, i1 %77
   br i1 %or.cond3.i, label %78, label %80
 
@@ -28065,8 +28065,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %111 = and i64 %109, 4294967295
   %112 = lshr i64 %108, 32
   %113 = add nuw nsw i64 %111, %112
-  %114 = icmp ugt i64 %109, 2147483647
-  %115 = icmp ugt i64 %113, 2147483647
+  %114 = icmp samesign ugt i64 %109, 2147483647
+  %115 = icmp samesign ugt i64 %113, 2147483647
   %or.cond5.i = select i1 %114, i1 true, i1 %115
   br i1 %or.cond5.i, label %116, label %118
 
@@ -28111,8 +28111,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %140 = and i64 %138, 4294967295
   %141 = lshr i64 %137, 32
   %142 = add nuw nsw i64 %140, %141
-  %143 = icmp ugt i64 %138, 2147483647
-  %144 = icmp ugt i64 %142, 2147483647
+  %143 = icmp samesign ugt i64 %138, 2147483647
+  %144 = icmp samesign ugt i64 %142, 2147483647
   %or.cond7.i = select i1 %143, i1 true, i1 %144
   br i1 %or.cond7.i, label %145, label %147
 
@@ -28264,8 +28264,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %48 = and i64 %46, 4294967295
   %49 = lshr i64 %45, 32
   %50 = add nuw nsw i64 %48, %49
-  %51 = icmp ugt i64 %46, 2147483647
-  %52 = icmp ugt i64 %50, 2147483647
+  %51 = icmp samesign ugt i64 %46, 2147483647
+  %52 = icmp samesign ugt i64 %50, 2147483647
   %or.cond.i = select i1 %51, i1 true, i1 %52
   br i1 %or.cond.i, label %53, label %55
 
@@ -28311,8 +28311,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %78 = and i64 %76, 4294967295
   %79 = lshr i64 %75, 32
   %80 = add nuw nsw i64 %78, %79
-  %81 = icmp ugt i64 %76, 2147483647
-  %82 = icmp ugt i64 %80, 2147483647
+  %81 = icmp samesign ugt i64 %76, 2147483647
+  %82 = icmp samesign ugt i64 %80, 2147483647
   %or.cond3.i = select i1 %81, i1 true, i1 %82
   br i1 %or.cond3.i, label %83, label %85
 
@@ -28367,8 +28367,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %116 = and i64 %114, 4294967295
   %117 = lshr i64 %113, 32
   %118 = add nuw nsw i64 %116, %117
-  %119 = icmp ugt i64 %114, 2147483647
-  %120 = icmp ugt i64 %118, 2147483647
+  %119 = icmp samesign ugt i64 %114, 2147483647
+  %120 = icmp samesign ugt i64 %118, 2147483647
   %or.cond5.i = select i1 %119, i1 true, i1 %120
   br i1 %or.cond5.i, label %121, label %123
 
@@ -28413,8 +28413,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %145 = and i64 %143, 4294967295
   %146 = lshr i64 %142, 32
   %147 = add nuw nsw i64 %145, %146
-  %148 = icmp ugt i64 %143, 2147483647
-  %149 = icmp ugt i64 %147, 2147483647
+  %148 = icmp samesign ugt i64 %143, 2147483647
+  %149 = icmp samesign ugt i64 %147, 2147483647
   %or.cond7.i = select i1 %148, i1 true, i1 %149
   br i1 %or.cond7.i, label %150, label %152
 
@@ -28469,8 +28469,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %183 = and i64 %181, 4294967295
   %184 = lshr i64 %180, 32
   %185 = add nuw nsw i64 %183, %184
-  %186 = icmp ugt i64 %181, 2147483647
-  %187 = icmp ugt i64 %185, 2147483647
+  %186 = icmp samesign ugt i64 %181, 2147483647
+  %187 = icmp samesign ugt i64 %185, 2147483647
   %or.cond9.i = select i1 %186, i1 true, i1 %187
   br i1 %or.cond9.i, label %188, label %190
 
@@ -28515,8 +28515,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %212 = and i64 %210, 4294967295
   %213 = lshr i64 %209, 32
   %214 = add nuw nsw i64 %212, %213
-  %215 = icmp ugt i64 %210, 2147483647
-  %216 = icmp ugt i64 %214, 2147483647
+  %215 = icmp samesign ugt i64 %210, 2147483647
+  %216 = icmp samesign ugt i64 %214, 2147483647
   %or.cond11.i = select i1 %215, i1 true, i1 %216
   br i1 %or.cond11.i, label %217, label %219
 
@@ -28680,8 +28680,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %53 = and i64 %51, 4294967295
   %54 = lshr i64 %50, 32
   %55 = add nuw nsw i64 %53, %54
-  %56 = icmp ugt i64 %51, 2147483647
-  %57 = icmp ugt i64 %55, 2147483647
+  %56 = icmp samesign ugt i64 %51, 2147483647
+  %57 = icmp samesign ugt i64 %55, 2147483647
   %or.cond.i = select i1 %56, i1 true, i1 %57
   br i1 %or.cond.i, label %58, label %60
 
@@ -28727,8 +28727,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %83 = and i64 %81, 4294967295
   %84 = lshr i64 %80, 32
   %85 = add nuw nsw i64 %83, %84
-  %86 = icmp ugt i64 %81, 2147483647
-  %87 = icmp ugt i64 %85, 2147483647
+  %86 = icmp samesign ugt i64 %81, 2147483647
+  %87 = icmp samesign ugt i64 %85, 2147483647
   %or.cond3.i = select i1 %86, i1 true, i1 %87
   br i1 %or.cond3.i, label %88, label %90
 
@@ -28783,8 +28783,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %121 = and i64 %119, 4294967295
   %122 = lshr i64 %118, 32
   %123 = add nuw nsw i64 %121, %122
-  %124 = icmp ugt i64 %119, 2147483647
-  %125 = icmp ugt i64 %123, 2147483647
+  %124 = icmp samesign ugt i64 %119, 2147483647
+  %125 = icmp samesign ugt i64 %123, 2147483647
   %or.cond5.i = select i1 %124, i1 true, i1 %125
   br i1 %or.cond5.i, label %126, label %128
 
@@ -28829,8 +28829,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %150 = and i64 %148, 4294967295
   %151 = lshr i64 %147, 32
   %152 = add nuw nsw i64 %150, %151
-  %153 = icmp ugt i64 %148, 2147483647
-  %154 = icmp ugt i64 %152, 2147483647
+  %153 = icmp samesign ugt i64 %148, 2147483647
+  %154 = icmp samesign ugt i64 %152, 2147483647
   %or.cond7.i = select i1 %153, i1 true, i1 %154
   br i1 %or.cond7.i, label %155, label %157
 
@@ -28885,8 +28885,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %188 = and i64 %186, 4294967295
   %189 = lshr i64 %185, 32
   %190 = add nuw nsw i64 %188, %189
-  %191 = icmp ugt i64 %186, 2147483647
-  %192 = icmp ugt i64 %190, 2147483647
+  %191 = icmp samesign ugt i64 %186, 2147483647
+  %192 = icmp samesign ugt i64 %190, 2147483647
   %or.cond9.i = select i1 %191, i1 true, i1 %192
   br i1 %or.cond9.i, label %193, label %195
 
@@ -28931,8 +28931,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %217 = and i64 %215, 4294967295
   %218 = lshr i64 %214, 32
   %219 = add nuw nsw i64 %217, %218
-  %220 = icmp ugt i64 %215, 2147483647
-  %221 = icmp ugt i64 %219, 2147483647
+  %220 = icmp samesign ugt i64 %215, 2147483647
+  %221 = icmp samesign ugt i64 %219, 2147483647
   %or.cond11.i = select i1 %220, i1 true, i1 %221
   br i1 %or.cond11.i, label %222, label %224
 
@@ -28987,8 +28987,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %255 = and i64 %253, 4294967295
   %256 = lshr i64 %252, 32
   %257 = add nuw nsw i64 %255, %256
-  %258 = icmp ugt i64 %253, 2147483647
-  %259 = icmp ugt i64 %257, 2147483647
+  %258 = icmp samesign ugt i64 %253, 2147483647
+  %259 = icmp samesign ugt i64 %257, 2147483647
   %or.cond13.i = select i1 %258, i1 true, i1 %259
   br i1 %or.cond13.i, label %260, label %262
 
@@ -29033,8 +29033,8 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
   %284 = and i64 %282, 4294967295
   %285 = lshr i64 %281, 32
   %286 = add nuw nsw i64 %284, %285
-  %287 = icmp ugt i64 %282, 2147483647
-  %288 = icmp ugt i64 %286, 2147483647
+  %287 = icmp samesign ugt i64 %282, 2147483647
+  %288 = icmp samesign ugt i64 %286, 2147483647
   %or.cond15.i = select i1 %287, i1 true, i1 %288
   br i1 %or.cond15.i, label %289, label %291
 
@@ -29225,8 +29225,8 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb1E
   %50 = and i64 %48, 4294967295
   %51 = lshr i64 %47, 32
   %52 = add nuw nsw i64 %50, %51
-  %53 = icmp ugt i64 %48, 2147483647
-  %54 = icmp ugt i64 %52, 2147483647
+  %53 = icmp samesign ugt i64 %48, 2147483647
+  %54 = icmp samesign ugt i64 %52, 2147483647
   %or.cond.us = select i1 %53, i1 true, i1 %54
   br i1 %or.cond.us, label %60, label %55
 
@@ -29272,8 +29272,8 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb1E
   %77 = and i64 %75, 4294967295
   %78 = lshr i64 %74, 32
   %79 = add nuw nsw i64 %77, %78
-  %80 = icmp ugt i64 %75, 2147483647
-  %81 = icmp ugt i64 %79, 2147483647
+  %80 = icmp samesign ugt i64 %75, 2147483647
+  %81 = icmp samesign ugt i64 %79, 2147483647
   %or.cond3.us = select i1 %80, i1 true, i1 %81
   br i1 %or.cond3.us, label %87, label %82
 
@@ -29467,8 +29467,8 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0E
   %52 = and i64 %50, 4294967295
   %53 = lshr i64 %49, 32
   %54 = add nuw nsw i64 %52, %53
-  %55 = icmp ugt i64 %50, 2147483647
-  %56 = icmp ugt i64 %54, 2147483647
+  %55 = icmp samesign ugt i64 %50, 2147483647
+  %56 = icmp samesign ugt i64 %54, 2147483647
   %or.cond.us = select i1 %55, i1 true, i1 %56
   br i1 %or.cond.us, label %62, label %57
 
@@ -29518,8 +29518,8 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0E
   %81 = and i64 %79, 4294967295
   %82 = lshr i64 %78, 32
   %83 = add nuw nsw i64 %81, %82
-  %84 = icmp ugt i64 %79, 2147483647
-  %85 = icmp ugt i64 %83, 2147483647
+  %84 = icmp samesign ugt i64 %79, 2147483647
+  %85 = icmp samesign ugt i64 %83, 2147483647
   %or.cond3.us = select i1 %84, i1 true, i1 %85
   br i1 %or.cond3.us, label %91, label %86
 
@@ -30004,8 +30004,8 @@ _ZN12_GLOBAL__N_18vlineSetIiNS_12fixedpoint64EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %166 = lshr i64 %160, 32
   %167 = add nuw nsw i64 %165, %166
   %168 = and i64 %160, 4294967295
-  %169 = icmp ugt i64 %155, 2147483647
-  %170 = icmp ugt i64 %167, 2147483647
+  %169 = icmp samesign ugt i64 %155, 2147483647
+  %170 = icmp samesign ugt i64 %167, 2147483647
   %or.cond.i = select i1 %169, i1 true, i1 %170
   br i1 %or.cond.i, label %171, label %173
 
@@ -30053,8 +30053,8 @@ _ZN12_GLOBAL__N_18vlineSetIiNS_12fixedpoint64EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %198 = lshr i64 %192, 32
   %199 = add nuw nsw i64 %197, %198
   %200 = and i64 %192, 4294967295
-  %201 = icmp ugt i64 %187, 2147483647
-  %202 = icmp ugt i64 %199, 2147483647
+  %201 = icmp samesign ugt i64 %187, 2147483647
+  %202 = icmp samesign ugt i64 %199, 2147483647
   %or.cond3.i = select i1 %201, i1 true, i1 %202
   br i1 %or.cond3.i, label %203, label %205
 

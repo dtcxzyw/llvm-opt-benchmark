@@ -2108,7 +2108,7 @@ for.body114:                                      ; preds = %for.body114.prehead
   %vfn133 = getelementptr inbounds i8, ptr %vtable132, i64 16
   %18 = load ptr, ptr %vfn133, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %16, i32 noundef %17)
-  %cmp135 = icmp ult i64 %indvars.iv123, %9
+  %cmp135 = icmp samesign ult i64 %indvars.iv123, %9
   br i1 %cmp135, label %if.then136, label %for.inc144
 
 if.then136:                                       ; preds = %for.body114
@@ -5420,7 +5420,7 @@ if.end237:                                        ; preds = %for.inc234, %for.co
           to label %invoke.cont240 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont240:                                   ; preds = %if.end237
-  %cmp242.not = icmp ult i32 %options, 2
+  %cmp242.not = icmp samesign ult i32 %options, 2
   br i1 %cmp242.not, label %if.then243, label %if.end259
 
 if.then243:                                       ; preds = %invoke.cont240

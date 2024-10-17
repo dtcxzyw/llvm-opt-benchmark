@@ -1726,7 +1726,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
   %shl.i.i.i.i = and i32 %and9.i.i.i.i, 1984
   %and10.i.i.i.i = and i32 %conv372.i.i.i.i, 63
   %or.i.i.i.i = or disjoint i32 %and10.i.i.i.i, %shl.i.i.i.i
-  %cmp11.i.i.i.i = icmp ult i32 %shl.i.i.i.i, 128
+  %cmp11.i.i.i.i = icmp samesign ult i32 %shl.i.i.i.i, 128
   br i1 %cmp11.i.i.i.i, label %if.then65.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i15.i.i
@@ -1757,7 +1757,7 @@ if.end44.i.i.i.i:                                 ; preds = %if.end31.i.i.i.i
   %and48.i.i.i.i = shl nsw i32 %conv22.i.i.i.i, 6
   %shl49.i.i.i.i = and i32 %and48.i.i.i.i, 4032
   %or50.i.i.i.i = or disjoint i32 %shl49.i.i.i.i, %shl47.i.i.i.i
-  %cmp53.i.i.i.i = icmp ult i32 %or50.i.i.i.i, 2048
+  %cmp53.i.i.i.i = icmp samesign ult i32 %or50.i.i.i.i, 2048
   br i1 %cmp53.i.i.i.i, label %if.then65.i.i, label %if.end57.i.i.i.i
 
 if.end57.i.i.i.i:                                 ; preds = %if.end44.i.i.i.i
@@ -1801,7 +1801,7 @@ if.end112.i.i.i.i:                                ; preds = %if.end99.i.i.i.i
   %and116.i.i.i.i = shl nsw i32 %conv74.i.i.i.i, 12
   %shl117.i.i.i.i = and i32 %and116.i.i.i.i, 258048
   %or118.i.i.i.i = or disjoint i32 %shl117.i.i.i.i, %shl115.i.i.i.i
-  %cmp124.i.i.i.i = icmp ult i32 %or118.i.i.i.i, 65536
+  %cmp124.i.i.i.i = icmp samesign ult i32 %or118.i.i.i.i, 65536
   br i1 %cmp124.i.i.i.i, label %if.then65.i.i, label %if.end128.i.i.i.i
 
 if.end128.i.i.i.i:                                ; preds = %if.end112.i.i.i.i
@@ -1810,7 +1810,7 @@ if.end128.i.i.i.i:                                ; preds = %if.end112.i.i.i.i
   %and122.i.i.i.i = and i32 %conv10174.i.i.i.i, 63
   %16 = or disjoint i32 %shl120.i.i.i.i, %and122.i.i.i.i
   %or123.i.i.i.i = or disjoint i32 %16, %or118.i.i.i.i
-  %cmp129.i.i.i.i = icmp ugt i32 %or118.i.i.i.i, 1114111
+  %cmp129.i.i.i.i = icmp samesign ugt i32 %or118.i.i.i.i, 1114111
   br i1 %cmp129.i.i.i.i, label %if.then65.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i": ; preds = %if.end128.i.i.i.i, %if.end57.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i
@@ -3743,7 +3743,7 @@ if.end79:                                         ; preds = %if.end76
   br i1 %cmp81, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end79
-  %tobool84.not = icmp ult i64 %call66, 4294967296
+  %tobool84.not = icmp samesign ult i64 %call66, 4294967296
   br i1 %tobool84.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end83

@@ -58824,7 +58824,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$typst..layout..frame..FrameI
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$typst..layout..stack..StackItem$GT$17hbf30d751173c7498E.llvm.10579729455205085779"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !538, !noundef !4
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E.exit"
 
 3:                                                ; preds = %1
@@ -58987,7 +58987,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16402)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16405)
   %36 = load i32, ptr %35, align 8, !range !578, !alias.scope !16408, !noundef !4
-  %switch.i.i = icmp ult i32 %36, 2
+  %switch.i.i = icmp samesign ult i32 %36, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit", label %37
 
 37:                                               ; preds = %34
@@ -59607,7 +59607,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$$u5b$typst..layout..stack..S
   %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16641)
   %6 = load i64, ptr %4, align 8, !range !538, !alias.scope !16641, !noundef !4
-  %switch.not.i = icmp ult i64 %6, 2
+  %switch.not.i = icmp samesign ult i64 %6, 2
   br i1 %switch.not.i, label %7, label %"_ZN4core3ptr52drop_in_place$LT$typst..layout..stack..StackItem$GT$17hbf30d751173c7498E.llvm.10579729455205085779.exit"
 
 7:                                                ; preds = %.lr.ph
@@ -89546,7 +89546,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h1b00c9f482c3b0d3
   %13 = add nuw i64 %.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23159)
   %14 = load i64, ptr %12, align 8, !range !538, !alias.scope !23162, !noundef !4
-  %switch.not.i.i = icmp ult i64 %14, 2
+  %switch.not.i.i = icmp samesign ult i64 %14, 2
   br i1 %switch.not.i.i, label %15, label %"_ZN4core3ptr52drop_in_place$LT$typst..layout..stack..StackItem$GT$17hbf30d751173c7498E.llvm.10579729455205085779.exit.i"
 
 15:                                               ; preds = %.lr.ph.i
@@ -108003,7 +108003,7 @@ switch.lookup:                                    ; preds = %315
   br i1 %369, label %.invoke.i.i, label %.noexc96.i.i
 
 .noexc96.i.i:                                     ; preds = %368
-  %.not.i.i.i21 = icmp ult i64 %365, 2
+  %.not.i.i.i21 = icmp samesign ult i64 %365, 2
   br i1 %.not.i.i.i21, label %.noexc97.thread.i.i, label %.noexc97.i.i
 
 .noexc97.i.i:                                     ; preds = %.noexc96.i.i
@@ -108042,7 +108042,7 @@ switch.lookup:                                    ; preds = %315
   %384 = sub i64 %383, %354
   %385 = icmp sgt i64 %384, -1
   call void @llvm.assume(i1 %385)
-  %386 = icmp ult i64 %384, %365
+  %386 = icmp samesign ult i64 %384, %365
   br i1 %386, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h55906f34c594cf2cE.exit.i.i.i", label %387, !prof !23438
 
 387:                                              ; preds = %.lr.ph.i.i.i
@@ -108113,7 +108113,7 @@ switch.lookup:                                    ; preds = %315
   unreachable
 
 .noexc104.i.i:                                    ; preds = %405
-  %.not.i138.i.i = icmp ult i64 %365, 2
+  %.not.i138.i.i = icmp samesign ult i64 %365, 2
   br i1 %.not.i138.i.i, label %.noexc105.thread.i.i, label %.noexc105.i.i
 
 .noexc105.i.i:                                    ; preds = %.noexc104.i.i

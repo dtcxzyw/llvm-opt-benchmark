@@ -1990,7 +1990,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   %250 = and i32 %249, 65535
   %251 = icmp ugt i32 %249, 65535
   %252 = lshr i32 %249, 16
-  %253 = icmp ugt i32 %250, %252
+  %253 = icmp samesign ugt i32 %250, %252
   %254 = and i1 %251, %253
   br i1 %254, label %559, label %255
 
@@ -2444,7 +2444,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   %487 = shl nuw i32 %479, 2
   %488 = zext i32 %487 to i64
   %489 = add nuw nsw i64 %488, 16
-  %490 = icmp ugt i64 %489, %465
+  %490 = icmp samesign ugt i64 %489, %465
   br i1 %490, label %491, label %492
 
 491:                                              ; preds = %486
@@ -2668,7 +2668,7 @@ define internal fastcc ptr @memdup_sockptr(ptr %0, i8 %1, i64 noundef range(i64 
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %2, 2147483647
+  %12 = icmp samesign ugt i64 %2, 2147483647
   br i1 %12, label %13, label %14, !prof !8
 
 13:                                               ; preds = %11
@@ -3020,7 +3020,7 @@ define internal fastcc i32 @compat_ip_set_mcast_msfilter(ptr noundef %0, ptr %1,
   %33 = shl nuw i32 %30, 7
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 140
-  %36 = icmp ugt i64 %35, %20
+  %36 = icmp samesign ugt i64 %35, %20
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %32

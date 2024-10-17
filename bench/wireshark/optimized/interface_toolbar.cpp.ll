@@ -11521,7 +11521,7 @@ _ZN7QStringD2Ev.exit42:                           ; preds = %_ZN7QStringD2Ev.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %12, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %33, label %._crit_edge, !llvm.loop !160
 
 125:                                              ; preds = %_ZN7QStringC2ERKS_.exit

@@ -4359,7 +4359,7 @@ _ZN4core5clone5Clone5clone17h6be5e67e74500580E.exit.i.i: ; preds = %.noexc.i.i.i
   %646 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !681
   %647 = icmp ult i64 %646, 6
   call void @llvm.assume(i1 %647)
-  %switch.i206.i = icmp ugt i64 %646, 2
+  %switch.i206.i = icmp samesign ugt i64 %646, 2
   br i1 %switch.i206.i, label %648, label %664
 
 648:                                              ; preds = %639
@@ -22411,7 +22411,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !1146, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -22420,14 +22420,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !1146, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 

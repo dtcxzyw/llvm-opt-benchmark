@@ -4280,7 +4280,7 @@ if.then3:                                         ; preds = %if.end
   %mul = mul i32 %sub, %div
   %conv8 = zext i16 %initial_wear to i32
   %conv9 = and i32 %mul, 65535
-  %cmp10.not = icmp ule i32 %conv9, %conv8
+  %cmp10.not = icmp samesign ule i32 %conv9, %conv8
   %spec.select = zext i1 %cmp10.not to i32
   br label %if.end13
 
@@ -4704,7 +4704,7 @@ if.then3.i:                                       ; preds = %if.end.i335
   %sub.i = sub i32 %conv93, %rem.i
   %mul.i = mul i32 %sub.i, %div.i
   %conv9.i = and i32 %mul.i, 65535
-  %cmp10.not.i = icmp ule i32 %conv9.i, %conv8.i
+  %cmp10.not.i = icmp samesign ule i32 %conv9.i, %conv8.i
   %spec.select.i = zext i1 %cmp10.not.i to i32
   br label %if.end13.i
 
@@ -4866,7 +4866,7 @@ if.then3.i:                                       ; preds = %if.end.i59
   %mul.i = mul i32 %sub.i, %div.i
   %conv8.i = zext i16 %initial_wear to i32
   %conv9.i = and i32 %mul.i, 65535
-  %cmp10.not.i = icmp ule i32 %conv9.i, %conv8.i
+  %cmp10.not.i = icmp samesign ule i32 %conv9.i, %conv8.i
   %spec.select.i = zext i1 %cmp10.not.i to i32
   br label %_Z19calculateResultWearjt.exit
 
@@ -5235,7 +5235,7 @@ if.then3.i.i:                                     ; preds = %if.end.i59.i
   %mul.i.i = mul i32 %sub.i.i, %div.i.i
   %conv8.i.i = zext i16 %20 to i32
   %conv9.i.i = and i32 %mul.i.i, 65535
-  %cmp10.not.i.i = icmp ule i32 %conv9.i.i, %conv8.i.i
+  %cmp10.not.i.i = icmp samesign ule i32 %conv9.i.i, %conv8.i.i
   %spec.select.i.i = zext i1 %cmp10.not.i.i to i32
   br label %_Z19calculateResultWearjt.exit.i
 

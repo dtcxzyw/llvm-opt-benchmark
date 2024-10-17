@@ -3395,7 +3395,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %29 = getelementptr inbounds i8, ptr %0, i64 448
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 255
-  %32 = icmp ult i32 %31, 3
+  %32 = icmp samesign ult i32 %31, 3
   %33 = and i32 %30, 40960
   %or.cond178 = icmp eq i32 %33, 0
   %or.cond184 = and i1 %32, %or.cond178
@@ -3724,7 +3724,7 @@ define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture n
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
-  %6 = icmp ult i32 %5, 3
+  %6 = icmp samesign ult i32 %5, 3
   %7 = and i32 %4, 32768
   %.not = icmp eq i32 %7, 0
   %or.cond = and i1 %6, %.not
@@ -3855,7 +3855,7 @@ define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr nou
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
-  %6 = icmp ult i32 %5, 3
+  %6 = icmp samesign ult i32 %5, 3
   %7 = and i32 %4, 32768
   %.not.i = icmp eq i32 %7, 0
   %or.cond.i = and i1 %6, %.not.i

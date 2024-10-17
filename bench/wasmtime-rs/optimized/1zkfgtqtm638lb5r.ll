@@ -1718,7 +1718,7 @@ define hidden void @"_ZN4core3ptr190drop_in_place$LT$core..task..poll..Poll$LT$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr209drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17h211c6b44c75ac893E.llvm.16590137254369539614"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4, !range !489, !noundef !5
-  %switch = icmp ult i32 %2, 2
+  %switch = icmp samesign ult i32 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -2016,7 +2016,7 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$core..result..Result$LT$was
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !588)
   %7 = load i32, ptr %6, align 4, !range !489, !alias.scope !588, !noundef !5
-  %switch = icmp ult i32 %7, 2
+  %switch = icmp samesign ult i32 %7, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr209drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17h211c6b44c75ac893E.llvm.16590137254369539614.exit"
 
 .sink.split.i:                                    ; preds = %5
@@ -2128,7 +2128,7 @@ define hidden void @"_ZN4core3ptr330drop_in_place$LT$core..result..Result$LT$cor
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
   %11 = load i32, ptr %10, align 4, !range !489, !alias.scope !630, !noundef !5
-  %switch.i = icmp ult i32 %11, 2
+  %switch.i = icmp samesign ult i32 %11, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr261drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$17h4cb7613f4e36242dE.llvm.16590137254369539614.exit"
 
 .sink.split.i.i:                                  ; preds = %9

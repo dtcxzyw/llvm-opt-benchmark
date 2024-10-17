@@ -724,7 +724,7 @@ define hidden void @ByteIndexedToIndex12GrayScaleConvert(ptr noundef %0, ptr nou
   %.055.ptr = getelementptr inbounds i8, ptr %14, i64 %.055.idx
   store i16 %25, ptr %.055.ptr, align 2
   %.055.add = add nuw nsw i64 %.055.idx, 2
-  %27 = icmp ult i64 %.055.idx, 510
+  %27 = icmp samesign ult i64 %.055.idx, 510
   br i1 %27, label %26, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %26, %13
@@ -897,7 +897,7 @@ define hidden void @Index8GrayToIndex12GrayScaleConvert(ptr noundef %0, ptr noun
   %.055.ptr = getelementptr inbounds i8, ptr %14, i64 %.055.idx
   store i16 %25, ptr %.055.ptr, align 2
   %.055.add = add nuw nsw i64 %.055.idx, 2
-  %27 = icmp ult i64 %.055.idx, 510
+  %27 = icmp samesign ult i64 %.055.idx, 510
   br i1 %27, label %26, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %26, %13
@@ -1243,7 +1243,7 @@ define hidden void @ByteIndexedBmToIndex12GrayXparBgCopy(ptr noundef %0, ptr nou
   %.049.ptr = getelementptr inbounds i8, ptr %10, i64 %.049.idx
   store i32 %4, ptr %.049.ptr, align 4
   %.049.add = add nuw nsw i64 %.049.idx, 4
-  %21 = icmp ult i64 %.049.idx, 1020
+  %21 = icmp samesign ult i64 %.049.idx, 1020
   br i1 %21, label %20, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %20, %9

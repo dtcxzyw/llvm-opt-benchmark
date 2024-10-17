@@ -42,7 +42,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 4) #7
   %19 = sdiv i32 %0, %spec.select
   store i32 %19, ptr %18, align 4
-  %20 = icmp ugt i32 %.0441.lcssa, 1
+  %20 = icmp samesign ugt i32 %.0441.lcssa, 1
   br i1 %20, label %.lr.ph548.preheader, label %.preheader534
 
 .lr.ph548.preheader:                              ; preds = %14
@@ -1176,7 +1176,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(
   store i32 %.1116136, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = add nsw i32 %.1116136, 1
-  %40 = icmp ult i64 %indvars.iv.next, %36
+  %40 = icmp samesign ult i64 %indvars.iv.next, %36
   %41 = icmp slt i32 %39, %0
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph137, label %.loopexit130, !llvm.loop !46

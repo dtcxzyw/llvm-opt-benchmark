@@ -1553,7 +1553,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit146:            ; preds = %.loopexit273, %_ZSt
   %196 = load i32, ptr %16, align 8
   %197 = mul nsw i32 %196, %196
   %198 = zext nneg i32 %197 to i64
-  %199 = icmp ult i64 %195, %198
+  %199 = icmp samesign ult i64 %195, %198
   br i1 %199, label %.lr.ph312, label %._crit_edge313, !llvm.loop !23
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.thread:             ; preds = %179, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1722,12 +1722,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 ._crit_edge322:                                   ; preds = %._crit_edge320.us
   %258 = mul nsw i64 %95, %95
-  %259 = icmp ugt i64 %258, 2305843009213693951
+  %259 = icmp samesign ugt i64 %258, 2305843009213693951
   br i1 %259, label %262, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i160
 
 ._crit_edge322.thread:                            ; preds = %.preheader270.lr.ph
   %260 = mul nsw i64 %95, %95
-  %261 = icmp ugt i64 %260, 2305843009213693951
+  %261 = icmp samesign ugt i64 %260, 2305843009213693951
   br i1 %261, label %262, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i160
 
 262:                                              ; preds = %._crit_edge322.thread, %._crit_edge322
@@ -1822,7 +1822,7 @@ thread-pre-split:                                 ; preds = %271
 .loopexit269:                                     ; preds = %._crit_edge326, %276, %thread-pre-split
   %293 = phi i64 [ %.pr, %thread-pre-split ], [ %277, %276 ], [ %291, %._crit_edge326 ]
   %294 = mul nsw i64 %293, %293
-  %295 = icmp ugt i64 %294, 1152921504606846975
+  %295 = icmp samesign ugt i64 %294, 1152921504606846975
   br i1 %295, label %296, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i168
 
 296:                                              ; preds = %.loopexit269
@@ -2341,7 +2341,7 @@ define void @_ZN5faiss9ITQMatrix5trainElPKf(ptr noundef nonnull align 8 derefere
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, %29
-  %31 = icmp ugt i64 %30, 1152921504606846975
+  %31 = icmp samesign ugt i64 %30, 1152921504606846975
   br i1 %31, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %3
@@ -4419,7 +4419,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit169:            ; preds = %_ZSt6fill_nIPfmfET_
   %.sroa.0261.0 = phi ptr [ %176, %.noexc168 ], [ %176, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i164 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i162 ]
   %180 = mul nuw nsw i64 %32, %32
   %181 = shl i64 %180, 4
-  %182 = icmp ugt i64 %180, 576460752303423487
+  %182 = icmp samesign ugt i64 %180, 576460752303423487
   br i1 %182, label %183, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i170
 
 183:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit169

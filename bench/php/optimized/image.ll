@@ -581,7 +581,7 @@ define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr no
   %14 = shl nuw nsw i32 %.025, 7
   %15 = and i32 %11, 127
   %16 = or disjoint i32 %15, %14
-  %17 = icmp ugt i32 %16, 2048
+  %17 = icmp samesign ugt i32 %16, 2048
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %13
@@ -599,7 +599,7 @@ define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr no
   %23 = shl nuw nsw i32 %.0, 7
   %24 = and i32 %20, 127
   %25 = or disjoint i32 %24, %23
-  %26 = icmp ugt i32 %25, 2048
+  %26 = icmp samesign ugt i32 %25, 2048
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %22

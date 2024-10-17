@@ -672,7 +672,7 @@ define linkonce_odr hidden void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncP
   %41 = add nsw i32 %36, 1
   %42 = icmp sgt i32 %36, -1
   %43 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
-  %44 = icmp ult i32 %43, 2
+  %44 = icmp samesign ult i32 %43, 2
   %or.cond.i.i.i.i.i = select i1 %42, i1 %44, i1 false
   %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %46 = sub nuw nsw i32 32, %45
@@ -6388,7 +6388,7 @@ define linkonce_odr hidden noundef ptr @_ZN23LateInlineCallGenerator8generateEP8
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -6577,7 +6577,7 @@ define linkonce_odr hidden noundef ptr @_ZN25LateInlineMHCallGenerator8generateE
   %28 = add nsw i32 %23, 1
   %29 = icmp sgt i32 %23, -1
   %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   %or.cond.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %33 = sub nuw nsw i32 32, %32
@@ -7226,7 +7226,7 @@ define linkonce_odr hidden noundef ptr @_ZN29LateInlineStringCallGenerator8gener
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19
@@ -7405,7 +7405,7 @@ define linkonce_odr hidden noundef ptr @_ZN29LateInlineBoxingCallGenerator8gener
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19
@@ -7485,7 +7485,7 @@ define linkonce_odr hidden noundef ptr @_ZN37LateInlineVectorReboxingCallGenerat
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19

@@ -1259,7 +1259,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_cleanP
 58:                                               ; preds = %49, %._crit_edge
   %59 = lshr i64 %1, 15
   %60 = and i64 %59, 31
-  %61 = icmp ugt i64 %60, 15
+  %61 = icmp samesign ugt i64 %60, 15
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58
@@ -1385,7 +1385,7 @@ define noundef i64 @_Z20fast_rv64e_cbo_cleanP11processor_t6insn_tm(ptr nocapture
 58:                                               ; preds = %49, %._crit_edge
   %59 = lshr i64 %1, 15
   %60 = and i64 %59, 31
-  %61 = icmp ugt i64 %60, 15
+  %61 = icmp samesign ugt i64 %60, 15
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58
@@ -1509,7 +1509,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_clea
 58:                                               ; preds = %49, %._crit_edge
   %59 = lshr i64 %1, 15
   %60 = and i64 %59, 31
-  %61 = icmp ugt i64 %60, 15
+  %61 = icmp samesign ugt i64 %60, 15
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58
@@ -1635,7 +1635,7 @@ define noundef i64 @_Z22logged_rv64e_cbo_cleanP11processor_t6insn_tm(ptr nocaptu
 58:                                               ; preds = %49, %._crit_edge
   %59 = lshr i64 %1, 15
   %60 = and i64 %59, 31
-  %61 = icmp ugt i64 %60, 15
+  %61 = icmp samesign ugt i64 %60, 15
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58

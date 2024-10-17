@@ -403,7 +403,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.critedge.i ], [ 0, %.lr.ph57.i.preheader ]
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.critedge.i ], [ 1, %.lr.ph57.i.preheader ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %129 = icmp ult i64 %indvars.iv.next67.i, %111
+  %129 = icmp samesign ult i64 %indvars.iv.next67.i, %111
   %130 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br i1 %129, label %.lr.ph53.i, label %._crit_edge.i
 
@@ -817,7 +817,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %indvars.iv66.i324 = phi i64 [ %indvars.iv.next67.i326, %.critedge.i330 ], [ 0, %.lr.ph57.i322.preheader ]
   %indvars.iv61.i325 = phi i64 [ %indvars.iv.next62.i332, %.critedge.i330 ], [ 1, %.lr.ph57.i322.preheader ]
   %indvars.iv.next67.i326 = add nuw nsw i64 %indvars.iv66.i324, 1
-  %329 = icmp ult i64 %indvars.iv.next67.i326, %311
+  %329 = icmp samesign ult i64 %indvars.iv.next67.i326, %311
   %330 = trunc nuw nsw i64 %indvars.iv66.i324 to i32
   br i1 %329, label %.lr.ph53.i335, label %._crit_edge.i327
 
@@ -2057,7 +2057,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.critedge.i ], [ 0, %.lr.ph57.i.preheader ]
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.critedge.i ], [ 1, %.lr.ph57.i.preheader ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %103 = icmp ult i64 %indvars.iv.next67.i, %85
+  %103 = icmp samesign ult i64 %indvars.iv.next67.i, %85
   %104 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br i1 %103, label %.lr.ph53.i, label %._crit_edge.i
 

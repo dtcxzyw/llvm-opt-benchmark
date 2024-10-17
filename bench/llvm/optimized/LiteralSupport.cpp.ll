@@ -5343,7 +5343,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i82.i.i: ; preds = %250, %_ZNK5clang17D
   %313 = getelementptr inbounds i8, ptr %.117.us.i.i.i, i64 -1
   store i8 %312, ptr %313, align 1, !noalias !123
   %314 = lshr i64 %.019.us.i.i.i, 4
-  %.not15.us.i.i.i = icmp ult i64 %.019.us.i.i.i, 16
+  %.not15.us.i.i.i = icmp samesign ult i64 %.019.us.i.i.i, 16
   br i1 %.not15.us.i.i.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !126
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i.i:           ; preds = %.lr.ph.split.us.i.i.i, %.thread.i.i
@@ -6955,7 +6955,7 @@ _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit: ; preds = %226, %_ZNK5clang19
   %249 = add nsw i32 %248, -48
   %250 = or i32 %249, %245
   %251 = icmp ne ptr %246, %2
-  %252 = icmp ult i32 %.0291, 2
+  %252 = icmp samesign ult i32 %.0291, 2
   %or.cond = select i1 %251, i1 %252, i1 false
   br i1 %or.cond, label %253, label %.critedge
 

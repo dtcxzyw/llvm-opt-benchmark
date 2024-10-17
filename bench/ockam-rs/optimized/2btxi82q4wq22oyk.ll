@@ -1742,7 +1742,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !265
   %34 = icmp ult i64 %33, 6
   call void @llvm.assume(i1 %34)
-  %35 = icmp ugt i64 %.0.i8, %33
+  %35 = icmp samesign ugt i64 %.0.i8, %33
   br i1 %35, label %.noexc5, label %.critedge.i9
 
 .critedge.i9:                                     ; preds = %.noexc12
@@ -12686,7 +12686,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   %657 = ptrtoint ptr %.sroa.8.0499579 to i64
   %658 = sub nuw i64 %651, %657
   %659 = lshr exact i64 %658, 5
-  %.not.i.i.i410.not = icmp ult i64 %.sroa.15.0581, %659
+  %.not.i.i.i410.not = icmp samesign ult i64 %.sroa.15.0581, %659
   %660 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.8.0499579, i64 %.sroa.15.0581
   br i1 %.not.i.i.i410.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893abe2535492e61E.exit.i.thread537", label %select.unfold.loopexit
 

@@ -494,7 +494,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i:   ; preds = %102, %86
   %106 = sdiv i32 %100, 128
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %106, i32 1)
   %107 = udiv i32 %105, %.sroa.speculated.i.i
-  %.not22.i.i = icmp ugt i32 %.sroa.speculated.i.i, %105
+  %.not22.i.i = icmp samesign ugt i32 %.sroa.speculated.i.i, %105
   br i1 %.not22.i.i, label %_ZL19createShuffleStrideN4llvm3MVTEiRNS_15SmallVectorImplIiEE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i, %._crit_edge.i.i
@@ -1590,7 +1590,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %587
 
 .preheader.i.i:                                   ; preds = %613
   %612 = getelementptr inbounds i8, ptr %6, i64 432
-  %.not.i.i51 = icmp ugt i32 %609, %603
+  %.not.i.i51 = icmp samesign ugt i32 %609, %603
   br i1 %.not.i.i51, label %_ZL13group2ShuffleN4llvm3MVTERNS_15SmallVectorImplIiEES3_.exit.i, label %.lr.ph.i.i52
 
 613:                                              ; preds = %613, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
@@ -1635,7 +1635,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i.i55: ; preds = %628,
   %634 = add nsw i32 %624, 1
   store i32 %634, ptr %623, align 4
   %635 = add nuw nsw i32 %.024.i.i53, 1
-  %636 = icmp ult i32 %635, %610
+  %636 = icmp samesign ult i32 %635, %610
   br i1 %636, label %.lr.ph.i.i52, label %_ZL13group2ShuffleN4llvm3MVTERNS_15SmallVectorImplIiEES3_.exit.i, !llvm.loop !20
 
 _ZL13group2ShuffleN4llvm3MVTERNS_15SmallVectorImplIiEES3_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i.i55, %.preheader.i.i
@@ -3491,7 +3491,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us:  ; preds = %37, %.lr.ph.split.u
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   store i32 0, ptr %35, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
-  %55 = icmp ult i64 %indvars.iv.next54, %36
+  %55 = icmp samesign ult i64 %indvars.iv.next54, %36
   br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit
@@ -3589,7 +3589,7 @@ _ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   store i32 0, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %106 = icmp ult i64 %indvars.iv.next, %36
+  %106 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us

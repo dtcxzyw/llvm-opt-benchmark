@@ -882,7 +882,7 @@ is_escape_use.exit:                               ; preds = %380, %384, %384, %3
 456:                                              ; preds = %449
   %457 = lshr i8 %415, 4
   %458 = and i8 %457, 3
-  %459 = icmp ugt i8 %454, %458
+  %459 = icmp samesign ugt i8 %454, %458
   br i1 %459, label %460, label %.thread280.us
 
 460:                                              ; preds = %456

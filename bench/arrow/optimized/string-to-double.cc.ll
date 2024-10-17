@@ -2617,7 +2617,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond13.i, label %if.end6, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %cmp4.i = icmp ugt i32 %base, 10
+  %cmp4.i = icmp samesign ugt i32 %base, 10
   %cmp6.i = icmp sgt i8 %1, 96
   %or.cond1.i = and i1 %cmp4.i, %cmp6.i
   %sub.i = add nuw nsw i32 %base, 87
@@ -2666,7 +2666,7 @@ land.lhs.true:                                    ; preds = %if.end13
   br i1 %or.cond13.i21, label %if.then20, label %lor.lhs.false.i22
 
 lor.lhs.false.i22:                                ; preds = %land.lhs.true
-  %cmp4.i23 = icmp ugt i32 %base, 10
+  %cmp4.i23 = icmp samesign ugt i32 %base, 10
   %cmp6.i24 = icmp sgt i8 %4, 96
   %or.cond1.i25 = and i1 %cmp4.i23, %cmp6.i24
   %sub.i26 = add nuw nsw i32 %base, 87
@@ -3459,7 +3459,7 @@ while.body66:                                     ; preds = %while.cond64.prehea
   %overflow.0628 = phi i32 [ %shr67, %while.body66 ], [ %.us-phi596, %while.cond64.preheader ]
   %inc = add nuw nsw i32 %overflow_bits_count.0629, 1
   %shr67 = lshr i32 %overflow.0628, 1
-  %cmp65 = icmp ugt i32 %overflow.0628, 3
+  %cmp65 = icmp samesign ugt i32 %overflow.0628, 3
   br i1 %cmp65, label %while.body66, label %while.end68, !llvm.loop !27
 
 while.end68:                                      ; preds = %while.body66, %while.cond64.preheader
@@ -3896,7 +3896,7 @@ while.body150:                                    ; preds = %if.end146, %while.c
   %written_exponent.0640 = phi i32 [ %written_exponent.2, %while.cond147.backedge ], [ 0, %if.end146 ]
   %incdec.ptr.i508635639 = phi ptr [ %incdec.ptr.i508636, %while.cond147.backedge ], [ %current.promoted634, %if.end146 ]
   %55 = tail call i32 @llvm.abs.i32(i32 %written_exponent.0640, i1 true)
-  %cmp151 = icmp ult i32 %55, 97201
+  %cmp151 = icmp samesign ult i32 %55, 97201
   %mul153 = mul nsw i32 %written_exponent.0640, 10
   %add155 = add i32 %mul153, -48
   %sub156 = add i32 %add155, %conv148641
@@ -4229,7 +4229,7 @@ while.body66:                                     ; preds = %while.cond64.prehea
   %overflow.0210 = phi i32 [ %shr67, %while.body66 ], [ %.us-phi202, %while.cond64.preheader ]
   %inc = add nuw nsw i32 %overflow_bits_count.0211, 1
   %shr67 = lshr i32 %overflow.0210, 1
-  %cmp65 = icmp ugt i32 %overflow.0210, 3
+  %cmp65 = icmp samesign ugt i32 %overflow.0210, 3
   br i1 %cmp65, label %while.body66, label %while.end68, !llvm.loop !35
 
 while.end68:                                      ; preds = %while.body66, %while.cond64.preheader
@@ -4686,16 +4686,16 @@ if.end:                                           ; preds = %entry
   %2 = add nsw i32 %conv2, -48
   %or.cond.i = icmp ult i32 %2, 10
   %add.i = add nuw nsw i32 %base, 48
-  %cmp3.i = icmp ugt i32 %add.i, %conv2
+  %cmp3.i = icmp samesign ugt i32 %add.i, %conv2
   %or.cond13.i = select i1 %or.cond.i, i1 %cmp3.i, i1 false
   br i1 %or.cond13.i, label %if.end6, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %cmp4.i = icmp ugt i32 %base, 10
+  %cmp4.i = icmp samesign ugt i32 %base, 10
   %cmp6.i = icmp ugt i16 %1, 96
   %or.cond1.i = and i1 %cmp4.i, %cmp6.i
   %sub.i = add nuw nsw i32 %base, 87
-  %cmp9.i = icmp ugt i32 %sub.i, %conv2
+  %cmp9.i = icmp samesign ugt i32 %sub.i, %conv2
   %or.cond14.i = select i1 %or.cond1.i, i1 %cmp9.i, i1 false
   br i1 %or.cond14.i, label %if.end6, label %lor.rhs.i
 
@@ -4703,7 +4703,7 @@ lor.rhs.i:                                        ; preds = %lor.lhs.false.i
   %cmp12.i = icmp ugt i16 %1, 64
   %or.cond2.i = and i1 %cmp4.i, %cmp12.i
   %sub14.i = add nuw nsw i32 %base, 55
-  %cmp15.i = icmp ugt i32 %sub14.i, %conv2
+  %cmp15.i = icmp samesign ugt i32 %sub14.i, %conv2
   %or.cond = select i1 %or.cond2.i, i1 %cmp15.i, i1 false
   br i1 %or.cond, label %if.end6, label %if.then3
 
@@ -4734,16 +4734,16 @@ land.lhs.true:                                    ; preds = %if.end13
   %conv18 = zext i16 %4 to i32
   %5 = add nsw i32 %conv18, -48
   %or.cond.i18 = icmp ult i32 %5, 10
-  %cmp3.i20 = icmp ugt i32 %add.i, %conv18
+  %cmp3.i20 = icmp samesign ugt i32 %add.i, %conv18
   %or.cond13.i21 = select i1 %or.cond.i18, i1 %cmp3.i20, i1 false
   br i1 %or.cond13.i21, label %if.then20, label %lor.lhs.false.i22
 
 lor.lhs.false.i22:                                ; preds = %land.lhs.true
-  %cmp4.i23 = icmp ugt i32 %base, 10
+  %cmp4.i23 = icmp samesign ugt i32 %base, 10
   %cmp6.i24 = icmp ugt i16 %4, 96
   %or.cond1.i25 = and i1 %cmp4.i23, %cmp6.i24
   %sub.i26 = add nuw nsw i32 %base, 87
-  %cmp9.i27 = icmp ugt i32 %sub.i26, %conv18
+  %cmp9.i27 = icmp samesign ugt i32 %sub.i26, %conv18
   %or.cond14.i28 = select i1 %or.cond1.i25, i1 %cmp9.i27, i1 false
   br i1 %or.cond14.i28, label %if.then20, label %lor.rhs.i29
 
@@ -4751,7 +4751,7 @@ lor.rhs.i29:                                      ; preds = %lor.lhs.false.i22
   %cmp12.i30 = icmp ugt i16 %4, 64
   %or.cond2.i31 = and i1 %cmp4.i23, %cmp12.i30
   %sub14.i33 = add nuw nsw i32 %base, 55
-  %cmp15.i34 = icmp ugt i32 %sub14.i33, %conv18
+  %cmp15.i34 = icmp samesign ugt i32 %sub14.i33, %conv18
   %or.cond3 = select i1 %or.cond2.i31, i1 %cmp15.i34, i1 false
   br i1 %or.cond3, label %if.then20, label %if.end22
 
@@ -5549,7 +5549,7 @@ while.body69:                                     ; preds = %while.cond67.prehea
   %overflow.0631 = phi i32 [ %shr70, %while.body69 ], [ %.us-phi599, %while.cond67.preheader ]
   %inc = add nuw nsw i32 %overflow_bits_count.0632, 1
   %shr70 = lshr i32 %overflow.0631, 1
-  %cmp68 = icmp ugt i32 %overflow.0631, 3
+  %cmp68 = icmp samesign ugt i32 %overflow.0631, 3
   br i1 %cmp68, label %while.body69, label %while.end71, !llvm.loop !43
 
 while.end71:                                      ; preds = %while.body69, %while.cond67.preheader
@@ -5998,7 +5998,7 @@ while.body153:                                    ; preds = %if.end149, %while.c
   %written_exponent.0643 = phi i32 [ %written_exponent.2, %while.cond150.backedge ], [ 0, %if.end149 ]
   %incdec.ptr.i504638642 = phi ptr [ %incdec.ptr.i504639, %while.cond150.backedge ], [ %current.promoted637, %if.end149 ]
   %57 = tail call i32 @llvm.abs.i32(i32 %written_exponent.0643, i1 true)
-  %cmp154 = icmp ult i32 %57, 97201
+  %cmp154 = icmp samesign ult i32 %57, 97201
   %mul156 = mul nsw i32 %written_exponent.0643, 10
   %add158 = add i32 %mul156, -48
   %sub159 = add i32 %add158, %conv151644

@@ -13821,7 +13821,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
   store i8 0, ptr %1619, align 1
   %1620 = load i64, ptr %62, align 8
   %1621 = and i64 %1620, 127
-  %1622 = icmp ult i64 %1621, 31
+  %1622 = icmp samesign ult i64 %1621, 31
   br i1 %1622, label %switch.lookup952, label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
 switch.lookup952:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit482
@@ -13956,7 +13956,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
   %1677 = trunc i64 %1676 to i32
   %1678 = lshr i32 %1677, 25
   %1679 = and i32 %1678, 7
-  %1680 = icmp ult i32 %1679, 4
+  %1680 = icmp samesign ult i32 %1679, 4
   br i1 %1680, label %switch.lookup955, label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
 switch.lookup955:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit494
@@ -15919,7 +15919,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
   %2584 = trunc i64 %2583 to i32
   %2585 = lshr i32 %2584, 25
   %2586 = and i32 %2585, 7
-  %2587 = icmp ult i32 %2586, 4
+  %2587 = icmp samesign ult i32 %2586, 4
   br i1 %2587, label %switch.lookup958, label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit698
 
 switch.lookup958:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit696
@@ -27304,7 +27304,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPoin
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = and i32 %24, 127
-  %26 = icmp ult i32 %25, 28
+  %26 = icmp samesign ult i32 %25, 28
   br i1 %26, label %switch.lookup, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 27:                                               ; preds = %10
@@ -27317,7 +27317,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPoin
 31:                                               ; preds = %27
   %32 = trunc i64 %29 to i32
   %33 = and i32 %32, 127
-  %34 = icmp ult i32 %33, 31
+  %34 = icmp samesign ult i32 %33, 31
   br i1 %34, label %switch.lookup1, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 35:                                               ; preds = %10
@@ -27330,7 +27330,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPoin
 39:                                               ; preds = %35
   %40 = trunc i64 %37 to i32
   %41 = and i32 %40, 127
-  %42 = icmp ult i32 %41, 28
+  %42 = icmp samesign ult i32 %41, 28
   br i1 %42, label %switch.lookup6, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 43:                                               ; preds = %10
@@ -27343,7 +27343,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPoin
 47:                                               ; preds = %43
   %48 = trunc i64 %45 to i32
   %49 = and i32 %48, 127
-  %50 = icmp ult i32 %49, 28
+  %50 = icmp samesign ult i32 %49, 28
   br i1 %50, label %switch.lookup11, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 51:                                               ; preds = %10
@@ -27356,7 +27356,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext19transformEntryPoin
 55:                                               ; preds = %51
   %56 = trunc i64 %53 to i32
   %57 = and i32 %56, 127
-  %58 = icmp ult i32 %57, 31
+  %58 = icmp samesign ult i32 %57, 31
   br i1 %58, label %switch.lookup16, label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
 switch.lookup:                                    ; preds = %21
@@ -41179,7 +41179,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit5
   %393 = load i32, ptr %257, align 8
   %394 = lshr i32 %393, 8
   %395 = and i32 %394, 15
-  %396 = icmp ult i32 %392, %395
+  %396 = icmp samesign ult i32 %392, %395
   br i1 %396, label %.lr.ph, label %._crit_edge, !llvm.loop !218
 
 _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %280, %285, %290, %_ZNK7glslang5TType8isScalarEv.exit
@@ -53934,7 +53934,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 182:                                              ; preds = %.preheader144, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit126.thread
   %.090146 = phi i32 [ 1, %.preheader144 ], [ %192, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit126.thread ]
-  %183 = icmp ult i32 %.090146, 5
+  %183 = icmp samesign ult i32 %.090146, 5
   br i1 %183, label %switch.lookup, label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
 
 switch.lookup:                                    ; preds = %182
@@ -54145,7 +54145,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i126: ; preds = %_ZNSt11char_traits
 55:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i126
   %56 = icmp sgt i32 %.0, 0
   %57 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.0)
-  %58 = icmp ult i32 %57, 2
+  %58 = icmp samesign ult i32 %57, 2
   %or.cond172 = select i1 %56, i1 %58, i1 false
   br i1 %or.cond172, label %62, label %_ZN7glslang6IsPow2IiEEbT_.exit.thread
 
@@ -57829,7 +57829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %418 = getelementptr inbounds i8, ptr %417, i64 24
   %419 = load i64, ptr %418, align 8
   %420 = and i64 %419, 127
-  %421 = icmp ult i64 %420, 31
+  %421 = icmp samesign ult i64 %420, 31
   br i1 %421, label %switch.lookup, label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
 switch.lookup:                                    ; preds = %.thread107
@@ -61184,7 +61184,7 @@ switch.lookup94:                                  ; preds = %57
 
 _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72: ; preds = %57, %switch.lookup94
   %.0.i71 = phi ptr [ %switch.load97, %switch.lookup94 ], [ @.str.454, %57 ]
-  %60 = icmp ult i32 %23, 31
+  %60 = icmp samesign ult i32 %23, 31
   br i1 %60, label %switch.lookup98, label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
 switch.lookup98:                                  ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
@@ -71622,7 +71622,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -71753,7 +71753,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -72010,7 +72010,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i88: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i87
   %59 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %59)
-  %.not.i.i89 = icmp ugt i64 %56, 15
+  %.not.i.i89 = icmp samesign ugt i64 %56, 15
   br i1 %.not.i.i89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i300, label %61
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i88.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i87
@@ -72173,7 +72173,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i96: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i95
   %121 = icmp ult i64 %114, 16
   call void @llvm.assume(i1 %121)
-  %.not.i.i97 = icmp ugt i64 %118, 15
+  %.not.i.i97 = icmp samesign ugt i64 %118, 15
   br i1 %.not.i.i97, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i313, label %123
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i96.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i95
@@ -72271,7 +72271,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i102: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i101
   %155 = icmp ult i64 %149, 16
   call void @llvm.assume(i1 %155)
-  %.not.i.i103 = icmp ugt i64 %152, 15
+  %.not.i.i103 = icmp samesign ugt i64 %152, 15
   br i1 %.not.i.i103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i326, label %157
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i102.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i101
@@ -72369,7 +72369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i108: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i107
   %189 = icmp ult i64 %183, 16
   call void @llvm.assume(i1 %189)
-  %.not.i.i109 = icmp ugt i64 %186, 15
+  %.not.i.i109 = icmp samesign ugt i64 %186, 15
   br i1 %.not.i.i109, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i339, label %191
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i108.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE15_M_check_lengthEmmPKc.exit.i107
@@ -83245,7 +83245,7 @@ switch.lookup12:                                  ; preds = %"_ZZZN7glslang16Hls
   %.0.i38.neg.i.i.i = phi i32 [ %switch.load15, %switch.lookup12 ], [ 0, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit37.i.i.i" ]
   %218 = add nsw i32 %.0.i38.neg.i.i.i, %.0.i36.i.i.i
   %219 = tail call i32 @llvm.abs.i32(i32 %218, i1 true)
-  %220 = icmp ult i32 %205, %219
+  %220 = icmp samesign ult i32 %205, %219
   br label %"_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 "_ZSt10__invoke_rIbRZN7glslang16HlslParseContext12findFunctionERKNS0_10TSourceLocERNS0_9TFunctionERbRiRPNS0_12TIntermTypedEE3$_1JRKNS0_5TTypeESG_SG_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %7, %9, %31, %50, %142, %185, %"_ZZZN7glslang16HlslParseContext12findFunctionERKNS_10TSourceLocERNS_9TFunctionERbRiRPNS_12TIntermTypedEENK3$_1clERKNS_5TTypeESE_SE_ENKUlRKNS_10TBasicTypeEE_clESH_.exit39.i.i.i"

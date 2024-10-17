@@ -1226,7 +1226,7 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE6appendEmS2_.exit: ; preds = %.lr.ph.i.i.i.
 66:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_4TypeEE6appendEmS2_.exit
   %67 = icmp ult i32 %64, 3
   %68 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %64)
-  %69 = icmp ult i32 %68, 2
+  %69 = icmp samesign ult i32 %68, 2
   %or.cond = select i1 %67, i1 true, i1 %69
   br i1 %or.cond, label %.preheader, label %70
 
@@ -1383,7 +1383,7 @@ _ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4Ty
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt i32 %32, 3
   %36 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %or.cond.i = select i1 %35, i1 %37, i1 false
   br i1 %or.cond.i, label %38, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
 
@@ -1503,7 +1503,7 @@ define dso_local { ptr, i32 } @_ZN5clang7CodeGen9swiftcall20splitLegalVectorType
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ugt i32 %5, 3
   %9 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %5)
-  %10 = icmp ult i32 %9, 2
+  %10 = icmp samesign ult i32 %9, 2
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %23
 
@@ -1942,7 +1942,7 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering16splitVecto
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ugt i32 %12, 3
   %16 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %12)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %or.cond.i = select i1 %15, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
 

@@ -47,7 +47,7 @@ if.then2:                                         ; preds = %if.end
   %options = getelementptr inbounds i8, ptr %pArgs, i64 12
   %1 = load i32, ptr %options, align 4
   %and = and i32 %1, 15
-  %cmp4 = icmp ult i32 %and, 9
+  %cmp4 = icmp samesign ult i32 %and, 9
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then2

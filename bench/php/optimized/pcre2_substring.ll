@@ -110,7 +110,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %61 = icmp ult i32 %60, %51
+  %61 = icmp samesign ult i32 %60, %51
   br i1 %61, label %62, label %102
 
 62:                                               ; preds = %53
@@ -146,7 +146,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %78 = getelementptr inbounds i8, ptr %77, i64 128
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i32
-  %81 = icmp ugt i32 %60, %80
+  %81 = icmp samesign ugt i32 %60, %80
   br i1 %81, label %php_pcre2_substring_copy_bynumber.exit, label %._crit_edge.i.i
 
 82:                                               ; preds = %74
@@ -612,7 +612,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %61 = icmp ult i32 %60, %51
+  %61 = icmp samesign ult i32 %60, %51
   br i1 %61, label %62, label %106
 
 62:                                               ; preds = %53
@@ -649,7 +649,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %79 = getelementptr inbounds i8, ptr %78, i64 128
   %80 = load i16, ptr %79, align 8
   %81 = zext i16 %80 to i32
-  %82 = icmp ugt i32 %60, %81
+  %82 = icmp samesign ugt i32 %60, %81
   br i1 %82, label %php_pcre2_substring_get_bynumber.exit, label %._crit_edge.i.i
 
 83:                                               ; preds = %75
@@ -938,7 +938,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
-  %60 = icmp ult i32 %59, %50
+  %60 = icmp samesign ult i32 %59, %50
   br i1 %60, label %61, label %94
 
 61:                                               ; preds = %52
@@ -974,7 +974,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   %77 = getelementptr inbounds i8, ptr %76, i64 128
   %78 = load i16, ptr %77, align 8
   %79 = zext i16 %78 to i32
-  %80 = icmp ugt i32 %59, %79
+  %80 = icmp samesign ugt i32 %59, %79
   br i1 %80, label %php_pcre2_substring_length_bynumber.exit, label %._crit_edge.i
 
 81:                                               ; preds = %73
@@ -1070,7 +1070,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %32 = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 %31)
   %.269 = add i64 %27, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %33 = icmp ult i64 %indvars.iv.next, %24
+  %33 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1149,7 +1149,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %65 = getelementptr inbounds i8, ptr %64, i64 1
   store i8 0, ptr %64, align 1
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 2
-  %66 = icmp ult i64 %indvars.iv.next97, %40
+  %66 = icmp samesign ult i64 %indvars.iv.next97, %40
   br i1 %66, label %50, label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %63, %48

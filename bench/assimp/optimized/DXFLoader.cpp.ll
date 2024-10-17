@@ -4195,7 +4195,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %invoke.cont18, %if.
   %mNumChildren14 = getelementptr inbounds i8, ptr %10, i64 1104
   %11 = load i32, ptr %mNumChildren14, align 8
   %12 = zext i32 %11 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next, %12
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp15, label %for.body, label %if.end, !llvm.loop !26
 
 lpad17:                                           ; preds = %for.body
@@ -5998,7 +5998,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit329:        ; preds = %if.then.i.i299, %_Z
   %sub.ptr.sub.i248 = sub i64 %sub.ptr.lhs.cast.i246, %sub.ptr.rhs.cast.i247
   %sub.ptr.div.i249 = sdiv exact i64 %sub.ptr.sub.i248, 12
   %div8645 = lshr i64 %sub.ptr.div.i249, 1
-  %cmp87 = icmp ugt i64 %div8645, %conv83
+  %cmp87 = icmp samesign ugt i64 %div8645, %conv83
   br i1 %cmp87, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit329, %_ZNSt6vectorIjSaIjEE7reserveEm.exit244

@@ -25389,7 +25389,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %.preheader
   %22 = add i64 %21, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %22) #27
   %23 = lshr i32 %.0, 4
-  %.not9 = icmp ult i32 %.0, 16
+  %.not9 = icmp samesign ult i32 %.0, 16
   br i1 %.not9, label %24, label %.preheader, !llvm.loop !46
 
 24:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit
@@ -30993,7 +30993,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %33, %36
   %.0.i.i = phi i64 [ %38, %36 ], [ %35, %33 ]
-  %39 = icmp ult i64 %indvars.iv, %.0.i.i
+  %39 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %39, label %40, label %_ZNK4llvm5Value11getMetadataEj.exit.thread
 
 40:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
@@ -31737,7 +31737,7 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
   %43 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %42, ptr %43, align 1, !noalias !79
   %44 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !82
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -31921,7 +31921,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %120 = load i32, ptr %113, align 4
   %121 = add i32 %120, -1
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %116, %122
+  %123 = icmp samesign ult i64 %116, %122
   br i1 %123, label %.lr.ph130, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph130, %107
@@ -32045,7 +32045,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %176 = getelementptr inbounds i8, ptr %.111.i103, i64 -1
   store i8 %175, ptr %176, align 1, !noalias !105
   %177 = udiv i64 %.0810.i104, 10
-  %.not.i105 = icmp ult i64 %.0810.i104, 10
+  %.not.i105 = icmp samesign ult i64 %.0810.i104, 10
   br i1 %.not.i105, label %_ZN4llvm6utostrB5cxx11Emb.exit108, label %.lr.ph.i102, !llvm.loop !82
 
 _ZN4llvm6utostrB5cxx11Emb.exit108:                ; preds = %.lr.ph.i102, %.thread.i107

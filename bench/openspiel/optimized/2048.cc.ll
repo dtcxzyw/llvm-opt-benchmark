@@ -2845,7 +2845,7 @@ switch.lookup:                                    ; preds = %42
   %.sroa.4.8.insert.ext.i = zext i32 %53 to i64
   %.sroa.216.8.insert.ext.i = zext i32 %52 to i64
   %62 = or i64 %.sroa.216.8.insert.ext.i, %.sroa.4.8.insert.ext.i
-  %spec.select.i.i40.i = icmp ult i64 %62, 4
+  %spec.select.i.i40.i = icmp samesign ult i64 %62, 4
   br i1 %spec.select.i.i40.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i, label %.critedge.i
 
 _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i: ; preds = %.noexc
@@ -3126,7 +3126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i12.i, %42
   %.0.lcssa.i.i = phi i32 [ %18, %42 ], [ %47, %.lr.ph.i12.i ]
-  %62 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %62 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %62, label %63, label %73
 
 63:                                               ; preds = %._crit_edge.i.i

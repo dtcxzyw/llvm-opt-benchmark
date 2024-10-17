@@ -5211,7 +5211,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
   %76 = getelementptr inbounds i8, ptr %0, i64 96
   %77 = load i8, ptr %76, align 8
   %78 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %77), !range !48
-  %79 = icmp ult i8 %78, 2
+  %79 = icmp samesign ult i8 %78, 2
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %75
@@ -5671,7 +5671,7 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
   %73 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %53, ptr %9, align 4
   store i32 %.ph, ptr %73, align 8
-  %74 = icmp ugt i32 %.ph, 337500
+  %74 = icmp samesign ugt i32 %.ph, 337500
   %75 = zext i1 %74 to i8
   br label %76
 
@@ -5736,7 +5736,7 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
   %107 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %53, ptr %107, align 4
   store i32 %.ph11, ptr %106, align 4
-  %108 = icmp ugt i32 %.ph11, 337500
+  %108 = icmp samesign ugt i32 %.ph11, 337500
   %109 = zext i1 %108 to i8
   br label %110
 
@@ -6926,7 +6926,7 @@ define internal void @g33_get_cdclk(ptr noundef %0, ptr nocapture noundef %1) #0
   %11 = lshr i16 %10, 4
   %12 = and i16 %11, 7
   %13 = zext nneg i16 %12 to i64
-  %14 = icmp ugt i16 %12, 5
+  %14 = icmp samesign ugt i16 %12, 5
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %2
@@ -6997,7 +6997,7 @@ define internal void @i965gm_get_cdclk(ptr noundef %0, ptr nocapture noundef %1)
   %13 = zext nneg i16 %12 to i64
   %14 = add nuw nsw i64 %13, 4294967295
   %15 = and i64 %14, 4294967295
-  %16 = icmp ugt i64 %15, 2
+  %16 = icmp samesign ugt i64 %15, 2
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %2

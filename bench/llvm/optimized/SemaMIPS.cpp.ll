@@ -504,7 +504,7 @@ define dso_local void @_ZN5clang8SemaMIPS19handleInterruptAttrEPNS_4DeclERKNS_10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 65535
-  %26 = icmp ugt i32 %25, 1
+  %26 = icmp samesign ugt i32 %25, 1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %3

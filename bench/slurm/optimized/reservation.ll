@@ -1151,7 +1151,7 @@ _create_resv_lists.exit:                          ; preds = %16, %18
   %98 = lshr i32 %91, 4
   %99 = and i32 %98, 1
   %.4.i = add nuw nsw i32 %.3.i, %99
-  %100 = icmp ugt i32 %.4.i, 1
+  %100 = icmp samesign ugt i32 %.4.i, 1
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %88
@@ -5000,7 +5000,7 @@ _copy_resv.exit:                                  ; preds = %211, %160
   %330 = lshr i32 %323, 4
   %331 = and i32 %330, 1
   %.4.i = add nuw nsw i32 %.3.i, %331
-  %332 = icmp ugt i32 %.4.i, 1
+  %332 = icmp samesign ugt i32 %.4.i, 1
   br i1 %332, label %333, label %340
 
 333:                                              ; preds = %320, %318
@@ -12473,7 +12473,7 @@ define dso_local ptr @job_test_bb_resv(ptr nocapture noundef readonly %0, i64 no
 _get_job_duration.exit:                           ; preds = %26, %29
   %.0.i = phi i32 [ %33, %29 ], [ 1, %26 ]
   %34 = icmp eq i32 %.013.i, 31536000
-  %35 = icmp ult i32 %.0.i, 2
+  %35 = icmp samesign ult i32 %.0.i, 2
   %or.cond.not22.i = select i1 %34, i1 true, i1 %35
   %36 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %.not19.i = icmp sgt i16 %36, -1
@@ -12843,7 +12843,7 @@ define dso_local i32 @job_test_lic_resv(ptr nocapture noundef readonly %0, ptr n
 _get_job_duration.exit:                           ; preds = %17, %20
   %.0.i = phi i32 [ %24, %20 ], [ 1, %17 ]
   %25 = icmp eq i32 %.013.i, 31536000
-  %26 = icmp ult i32 %.0.i, 2
+  %26 = icmp samesign ult i32 %.0.i, 2
   %or.cond.not22.i = select i1 %25, i1 true, i1 %26
   %27 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %.not19.i = icmp sgt i16 %27, -1
@@ -13024,7 +13024,7 @@ define dso_local i32 @job_test_watts_resv(ptr nocapture noundef readonly %0, i64
 _get_job_duration.exit:                           ; preds = %26, %29
   %.0.i = phi i32 [ %33, %29 ], [ 1, %26 ]
   %34 = icmp eq i32 %.013.i, 31536000
-  %35 = icmp ult i32 %.0.i, 2
+  %35 = icmp samesign ult i32 %.0.i, 2
   %or.cond.not22.i = select i1 %34, i1 true, i1 %35
   %36 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %.not19.i = icmp sgt i16 %36, -1
@@ -13455,7 +13455,7 @@ define dso_local range(i32 0, 2119) i32 @job_test_resv(ptr noundef %0, ptr nocap
 _get_job_duration.exit:                           ; preds = %22, %25
   %.0.i = phi i32 [ %29, %25 ], [ 1, %22 ]
   %30 = icmp eq i32 %.013.i, 31536000
-  %31 = icmp ult i32 %.0.i, 2
+  %31 = icmp samesign ult i32 %.0.i, 2
   %or.cond.not22.i = select i1 %30, i1 true, i1 %31
   %32 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %.not19.i = icmp sgt i16 %32, -1
@@ -14298,7 +14298,7 @@ _addto_gres_list_exc.exit:                        ; preds = %408, %406, %.thread
 
 .thread300:                                       ; preds = %427, %430, %431
   %.2302 = phi i32 [ %.1, %431 ], [ 2016, %430 ], [ 2016, %427 ]
-  %432 = icmp ult i32 %.0190, 10
+  %432 = icmp samesign ult i32 %.0190, 10
   %or.cond3 = select i1 %2, i1 %432, i1 false
   br i1 %or.cond3, label %433, label %459
 
@@ -14339,7 +14339,7 @@ _addto_gres_list_exc.exit:                        ; preds = %408, %406, %.thread
 _get_job_duration.exit287:                        ; preds = %444, %446
   %.0.i282 = phi i32 [ %450, %446 ], [ 1, %444 ]
   %451 = icmp eq i32 %.013.i280, 31536000
-  %452 = icmp ult i32 %.0.i282, 2
+  %452 = icmp samesign ult i32 %.0.i282, 2
   %or.cond.not22.i283 = select i1 %451, i1 true, i1 %452
   %453 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
   %.not19.i284 = icmp sgt i16 %453, -1
@@ -14822,7 +14822,7 @@ define internal noundef i32 @_job_resv_check(ptr nocapture noundef readonly %0, 
   br label %28
 
 22:                                               ; preds = %8
-  %23 = icmp ugt i32 %11, 2
+  %23 = icmp samesign ugt i32 %11, 2
   %brmerge = or i1 %.not, %23
   br i1 %brmerge, label %28, label %24
 
@@ -16786,7 +16786,7 @@ define internal range(i32 0, 2) i32 @_find_running_job_with_resv_ptr(ptr nocaptu
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
-  %6 = icmp ugt i32 %5, 2
+  %6 = icmp samesign ugt i32 %5, 2
   br i1 %6, label %_find_job_with_resv_ptr.exit, label %7
 
 7:                                                ; preds = %2
@@ -16861,7 +16861,7 @@ define internal noundef i32 @_foreach_clear_job_resv(ptr noundef %0, ptr noundef
   %25 = getelementptr inbounds i8, ptr %0, i64 448
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 255
-  %28 = icmp ugt i32 %27, 2
+  %28 = icmp samesign ugt i32 %27, 2
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %24
@@ -18587,7 +18587,7 @@ _pick_node_cnt.exit:                              ; preds = %400, %449, %451
   %558 = icmp ne i64 %.1153, 0
   %559 = icmp ne i64 %.2, 0
   %or.cond = select i1 %558, i1 true, i1 %559
-  %560 = icmp ult i64 %557, %.pre-phi
+  %560 = icmp samesign ult i64 %557, %.pre-phi
   %or.cond228 = select i1 %or.cond, i1 %560, i1 false
   br i1 %or.cond228, label %110, label %.critedge5, !llvm.loop !110
 
@@ -19115,7 +19115,7 @@ define internal noundef i32 @_switch_select_alloc_gres(ptr nocapture noundef rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %7, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %14, %.preheader
@@ -19229,7 +19229,7 @@ define internal noundef i32 @_combine_gres_list_exc(ptr noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %25, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %29, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %42, %17, %14

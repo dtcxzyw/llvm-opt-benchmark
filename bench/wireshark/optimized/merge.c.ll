@@ -189,7 +189,7 @@ define internal fastcc range(i32 0, 8) i32 @merge_files_common(ptr noundef %0, p
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = getelementptr inbounds i8, ptr %47, i64 328
   %50 = getelementptr inbounds i8, ptr %47, i64 332
-  %51 = icmp ugt i64 %indvars.iv.i, 2
+  %51 = icmp samesign ugt i64 %indvars.iv.i, 2
   %52 = trunc nuw i64 %indvars.iv.i to i32
   %53 = sub i32 %40, %52
   %54 = zext i32 %53 to i64
@@ -655,7 +655,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph33.i.i, %.lr.
   %indvars.iv.next.i57.i.us = add nuw nsw i64 %indvars.iv.i55.i.us, 1
   %226 = load i32, ptr %209, align 8
   %227 = zext i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv.next.i57.i.us, %227
+  %228 = icmp samesign ult i64 %indvars.iv.next.i57.i.us, %227
   br i1 %228, label %.lr.ph.i54.i.us, label %find_duplicate_idb.exit.thread.i.us, !llvm.loop !16
 
 find_duplicate_idb.exit.thread.i.us:              ; preds = %225, %.lr.ph.i170.split.us
@@ -1309,7 +1309,7 @@ map_rec_interface_id.exit:                        ; preds = %130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = load i32, ptr %151, align 8
   %162 = zext i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next, %162
   br i1 %163, label %.lr.ph, label %.loopexit219, !llvm.loop !23
 
 .loopexit219:                                     ; preds = %.lr.ph, %148, %143, %142
@@ -1348,7 +1348,7 @@ map_rec_interface_id.exit:                        ; preds = %130
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %182 = load i32, ptr %172, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %indvars.iv.next273, %183
+  %184 = icmp samesign ult i64 %indvars.iv.next273, %183
   br i1 %184, label %.lr.ph241, label %.loopexit218, !llvm.loop !24
 
 .loopexit218:                                     ; preds = %.lr.ph241, %169, %164, %.loopexit219
@@ -1437,7 +1437,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit218,
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %223 = load i32, ptr %213, align 8
   %224 = zext i32 %223 to i64
-  %225 = icmp ult i64 %indvars.iv.next276, %224
+  %225 = icmp samesign ult i64 %indvars.iv.next276, %224
   br i1 %225, label %.lr.ph243, label %.loopexit215, !llvm.loop !25
 
 .loopexit215:                                     ; preds = %.lr.ph243, %210, %.preheader216
@@ -1484,7 +1484,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %130, %.loopexit218,
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %244 = load i32, ptr %234, align 8
   %245 = zext i32 %244 to i64
-  %246 = icmp ult i64 %indvars.iv.next282, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next282, %245
   br i1 %246, label %.lr.ph246, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph246, %231, %.preheader
@@ -1880,7 +1880,7 @@ define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef nonnull
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next.i.us.us, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next.i.us.us, %33
   br i1 %34, label %.lr.ph.i.us.us, label %find_duplicate_idb.exit.thread.us.us, !llvm.loop !16
 
 find_duplicate_idb.exit.thread.us.us:             ; preds = %29, %16

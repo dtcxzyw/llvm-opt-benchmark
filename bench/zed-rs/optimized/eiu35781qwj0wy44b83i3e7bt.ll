@@ -47499,7 +47499,7 @@ common.ret:                                       ; preds = %208, %"_ZN153_$LT$c
   %92 = phi ptr [ %.pre, %.noexc78 ], [ %68, %88 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 24
   %94 = load i8, ptr %93, align 8, !range !1770, !noundef !5
-  %switch53.not = icmp ult i8 %94, 2
+  %switch53.not = icmp samesign ult i8 %94, 2
   br i1 %switch53.not, label %95, label %97
 
 95:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17ha69db2660d55e092E.exit"
@@ -47869,7 +47869,7 @@ _ZN6rustix3net6socket7connect17ha0d373def27f3e1eE.exit: ; preds = %.noexc90
   %252 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %253 = icmp ult i64 %252, 6
   call void @llvm.assume(i1 %253)
-  %switch.i.i = icmp ult i64 %252, 4
+  %switch.i.i = icmp samesign ult i64 %252, 4
   br i1 %switch.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he5c12361582a9236E.exit.thread175", label %254
 
 254:                                              ; preds = %251
@@ -48006,7 +48006,7 @@ _ZN6rustix3net6socket7connect17ha0d373def27f3e1eE.exit: ; preds = %.noexc90
   %293 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !10384
   %294 = icmp ult i64 %293, 6
   call void @llvm.assume(i1 %294)
-  %switch.i.i.i = icmp ult i64 %293, 4
+  %switch.i.i.i = icmp samesign ult i64 %293, 4
   br i1 %switch.i.i.i, label %"_ZN13wasmtime_wasi4host3udp136_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..udp..HostUdpSocket$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$6stream28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfcd255a10ce63a4fE.exit.i.i", label %295
 
 295:                                              ; preds = %292
@@ -51114,7 +51114,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9df09a517b193acdE.exit.i: ; preds = %36
   %.sroa.9.0191 = phi i64 [ 0, %.lr.ph ], [ %147, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5995be2c8ae74758E.exit" ]
   %146 = getelementptr inbounds i8, ptr %.sroa.079.0192, i64 16
   %147 = add nuw nsw i64 %.sroa.9.0191, 1
-  %148 = icmp ugt i64 %.sroa.9.0191, 4294967295
+  %148 = icmp samesign ugt i64 %.sroa.9.0191, 4294967295
   %149 = trunc nuw i64 %.sroa.9.0191 to i32
   %.sroa.3.0.i.i = select i1 %148, i32 undef, i32 %149
   %exitcond = icmp eq i64 %.sroa.9.0191, 4294967296

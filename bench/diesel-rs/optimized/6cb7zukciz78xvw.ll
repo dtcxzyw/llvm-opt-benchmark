@@ -1226,7 +1226,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %.017.i = phi i64 [ 0, %6 ], [ %15, %11 ]
   %12 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %0, i64 %.017.i
   %.val.i = load i32, ptr %12, align 8, !range !414, !alias.scope !415, !noundef !11
-  %switch.i.i.i.i = icmp ult i32 %.val.i, 4
+  %switch.i.i.i.i = icmp samesign ult i32 %.val.i, 4
   %13 = zext i1 %switch.i.i.i.i to i64
   %14 = add i64 %.018.i, %13
   %15 = add nuw i64 %.017.i, 1
@@ -4411,15 +4411,15 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   br i1 %187, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h218c2cc70c1f0386E.exit.thread", label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.us, 128
+  %189 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.us, 128
   br i1 %189, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.us", label %190
 
 190:                                              ; preds = %188
-  %191 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.us, 2048
+  %191 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.us, 2048
   br i1 %191, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.us", label %192
 
 192:                                              ; preds = %190
-  %193 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.us, 65536
+  %193 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.us, 65536
   %..i.i.i.us = select i1 %193, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.us"
 
@@ -4860,14 +4860,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76
@@ -5350,7 +5350,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.017 = phi i64 [ 0, %6 ], [ %15, %11 ]
   %12 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %0, i64 %.017
   %.val = load i32, ptr %12, align 8, !range !414, !alias.scope !1719, !noundef !11
-  %switch.i.i.i = icmp ult i32 %.val, 4
+  %switch.i.i.i = icmp samesign ult i32 %.val, 4
   %13 = zext i1 %switch.i.i.i to i64
   %14 = add i64 %.018, %13
   %15 = add nuw i64 %.017, 1

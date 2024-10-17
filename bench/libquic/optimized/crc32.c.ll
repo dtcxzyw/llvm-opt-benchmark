@@ -60,7 +60,7 @@ while.cond161.preheader.i:                        ; preds = %while.body7.i, %whi
   %len.addr.1.lcssa.i = phi i32 [ %len.addr.0.lcssa.i, %while.cond5.preheader.i ], [ %sub.i, %while.body7.i ]
   %c.1.lcssa.i = phi i32 [ %c.0.lcssa.i, %while.cond5.preheader.i ], [ %xor159.i, %while.body7.i ]
   %buf4.0.lcssa.i = phi ptr [ %buf.addr.0.lcssa.i, %while.cond5.preheader.i ], [ %incdec.ptr141.i, %while.body7.i ]
-  %cmp16286.i = icmp ugt i32 %len.addr.1.lcssa.i, 3
+  %cmp16286.i = icmp samesign ugt i32 %len.addr.1.lcssa.i, 3
   br i1 %cmp16286.i, label %while.body164.i, label %while.end185.i
 
 while.body7.i:                                    ; preds = %while.cond5.preheader.i, %while.body7.i

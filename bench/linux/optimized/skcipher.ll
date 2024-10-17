@@ -629,7 +629,7 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   %47 = load i32, ptr %9, align 4
   %48 = zext i32 %47 to i64
   %49 = add nuw nsw i64 %46, %48
-  %50 = icmp ugt i64 %49, 4096
+  %50 = icmp samesign ugt i64 %49, 4096
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %35
@@ -2103,7 +2103,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr nou
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = add nuw nsw i64 %54, %57
-  %59 = icmp ugt i64 %58, 4096
+  %59 = icmp samesign ugt i64 %58, 4096
   %60 = getelementptr i8, ptr %49, i64 %53
   %61 = select i1 %59, ptr null, ptr %60
   store ptr %61, ptr %2, align 8

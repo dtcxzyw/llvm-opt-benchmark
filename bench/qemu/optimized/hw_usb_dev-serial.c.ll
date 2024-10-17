@@ -938,7 +938,7 @@ entry:
   %1 = load i16, ptr %recv_ptr, align 8
   %conv5 = zext i16 %1 to i32
   %add = add nuw nsw i32 %conv5, %conv
-  %cmp8 = icmp ult i32 %add, 496
+  %cmp8 = icmp samesign ult i32 %add, 496
   br i1 %cmp8, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %entry

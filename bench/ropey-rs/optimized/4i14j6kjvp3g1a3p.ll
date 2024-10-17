@@ -153,7 +153,7 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
 .thread:                                          ; preds = %30, %23, %27, %54, %51, %43, %38, %35, %24
   %.sroa.02.1.i11 = phi i64 [ %25, %51 ], [ %25, %24 ], [ %.sroa.02.0.i8274, %38 ], [ %.sroa.02.0.i8274, %35 ], [ %spec.select.i13, %43 ], [ %spec.select25.i14, %54 ], [ %.sroa.02.0.i8274, %27 ], [ %.sroa.02.0.i8274, %23 ], [ %spec.select, %30 ]
   %48 = add nuw nsw i64 %.sroa.08.0.i9275, 1
-  %49 = icmp ult i64 %48, %.sroa.0.0.sroa.speculated.i32
+  %49 = icmp samesign ult i64 %48, %.sroa.0.0.sroa.speculated.i32
   %50 = icmp ult i64 %.sroa.02.1.i11, %.sroa.01.0.lcssa303
   %or.cond.i10 = select i1 %49, i1 %50, i1 false
   br i1 %or.cond.i10, label %.lr.ph276, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15
@@ -973,7 +973,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
 .thread:                                          ; preds = %162, %155, %159, %186, %183, %175, %170, %167, %156
   %.sroa.02.1.i122 = phi i64 [ %157, %183 ], [ %157, %156 ], [ %.sroa.02.0.i1191806, %170 ], [ %.sroa.02.0.i1191806, %167 ], [ %spec.select.i124, %175 ], [ %spec.select25.i125, %186 ], [ %.sroa.02.0.i1191806, %159 ], [ %.sroa.02.0.i1191806, %155 ], [ %spec.select, %162 ]
   %180 = add nuw nsw i64 %.sroa.08.0.i1201807, 1
-  %181 = icmp ult i64 %180, %.sroa.0.0.sroa.speculated.i
+  %181 = icmp samesign ult i64 %180, %.sroa.0.0.sroa.speculated.i
   %182 = icmp ult i64 %.sroa.02.1.i122, %101
   %or.cond.i121 = select i1 %181, i1 %182, i1 false
   br i1 %or.cond.i121, label %.lr.ph1809, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
@@ -2063,7 +2063,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread1490:                                      ; preds = %685, %678, %682, %709, %706, %698, %693, %690, %679
   %.sroa.02.1.i138 = phi i64 [ %680, %706 ], [ %680, %679 ], [ %.sroa.02.0.i1351714, %693 ], [ %.sroa.02.0.i1351714, %690 ], [ %spec.select.i140, %698 ], [ %spec.select25.i141, %709 ], [ %.sroa.02.0.i1351714, %682 ], [ %.sroa.02.0.i1351714, %678 ], [ %spec.select1522, %685 ]
   %703 = add nuw nsw i64 %.sroa.08.0.i1361715, 1
-  %704 = icmp ult i64 %703, %.sroa.0.0.sroa.speculated.i368
+  %704 = icmp samesign ult i64 %703, %.sroa.0.0.sroa.speculated.i368
   %705 = icmp ult i64 %.sroa.02.1.i138, %.sroa.0.4.i
   %or.cond.i137 = select i1 %704, i1 %705, i1 false
   br i1 %or.cond.i137, label %.lr.ph1717, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
@@ -2849,7 +2849,7 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224: ; preds
   br i1 %1106, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; preds = %.lr.ph
-  %1107 = icmp ult i64 %.sroa.8.01621, %460
+  %1107 = icmp samesign ult i64 %.sroa.8.01621, %460
   br i1 %1107, label %1108, label %1115, !prof !25
 
 1108:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
@@ -3417,7 +3417,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
 .thread:                                          ; preds = %251, %244, %248, %275, %272, %264, %259, %256, %245
   %.sroa.02.1.i150 = phi i64 [ %246, %272 ], [ %246, %245 ], [ %.sroa.02.0.i1471434, %259 ], [ %.sroa.02.0.i1471434, %256 ], [ %spec.select.i152, %264 ], [ %spec.select25.i153, %275 ], [ %.sroa.02.0.i1471434, %248 ], [ %.sroa.02.0.i1471434, %244 ], [ %spec.select, %251 ]
   %269 = add nuw nsw i64 %.sroa.08.0.i1481435, 1
-  %270 = icmp ult i64 %269, %.sroa.0.0.sroa.speculated.i
+  %270 = icmp samesign ult i64 %269, %.sroa.0.0.sroa.speculated.i
   %271 = icmp ult i64 %.sroa.02.1.i150, %105
   %or.cond.i149 = select i1 %270, i1 %271, i1 false
   br i1 %or.cond.i149, label %.lr.ph1437, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154
@@ -4228,7 +4228,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread1222:                                      ; preds = %644, %637, %641, %668, %665, %657, %652, %649, %638
   %.sroa.02.1.i166 = phi i64 [ %639, %665 ], [ %639, %638 ], [ %.sroa.02.0.i1631388, %652 ], [ %.sroa.02.0.i1631388, %649 ], [ %spec.select.i168, %657 ], [ %spec.select25.i169, %668 ], [ %.sroa.02.0.i1631388, %641 ], [ %.sroa.02.0.i1631388, %637 ], [ %spec.select1232, %644 ]
   %662 = add nuw nsw i64 %.sroa.08.0.i1641389, 1
-  %663 = icmp ult i64 %662, %.sroa.0.0.sroa.speculated.i351
+  %663 = icmp samesign ult i64 %662, %.sroa.0.0.sroa.speculated.i351
   %664 = icmp ult i64 %.sroa.02.1.i166, %626
   %or.cond.i165 = select i1 %663, i1 %664, i1 false
   br i1 %or.cond.i165, label %.lr.ph1391, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170
@@ -5029,7 +5029,7 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405: ; preds = %.p
   br i1 %1075, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; preds = %.lr.ph
-  %1076 = icmp ult i64 %.sroa.8.01341, %447
+  %1076 = icmp samesign ult i64 %.sroa.8.01341, %447
   br i1 %1076, label %1077, label %1084, !prof !25
 
 1077:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit

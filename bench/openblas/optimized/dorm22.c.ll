@@ -240,7 +240,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %142, ptr noundef nonnull %7, ptr noundef %145, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef nonnull %147, ptr noundef nonnull %15) #5
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef %10, ptr noundef nonnull %15, ptr noundef %127, ptr noundef nonnull %9) #5
   %148 = add nuw nsw i64 %109, %105
-  %149 = icmp ugt i64 %148, %107
+  %149 = icmp samesign ugt i64 %148, %107
   br i1 %149, label %.loopexit, label %108, !llvm.loop !9
 
 150:                                              ; preds = %101
@@ -373,7 +373,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %239, ptr noundef nonnull %9, ptr noundef %245, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %249, ptr noundef nonnull %15) #5
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull %15, ptr noundef %220, ptr noundef nonnull %9) #5
   %250 = add nuw nsw i64 %205, %200
-  %251 = icmp ugt i64 %250, %203
+  %251 = icmp samesign ugt i64 %250, %203
   br i1 %251, label %.loopexit, label %204, !llvm.loop !13
 
 .preheader:                                       ; preds = %196, %.preheader

@@ -3391,7 +3391,7 @@ dissect_radiotap_flags.exit:                      ; preds = %266, %.sink.split.i
   %800 = or i16 %799, 64
   store i16 %800, ptr %87, align 4
   store i8 %798, ptr %108, align 2
-  %801 = icmp ult i8 %798, 26
+  %801 = icmp samesign ult i8 %798, 26
   br i1 %801, label %802, label %806
 
 802:                                              ; preds = %795
@@ -3521,8 +3521,8 @@ proto_item_set_generated.exit871:                 ; preds = %863, %860, %856, %8
   %.1752 = phi ptr [ %840, %proto_item_set_generated.exit871 ], [ %.0751958, %835 ]
   %871 = icmp ult i8 %824, -96
   %or.cond12 = and i1 %818, %871
-  %872 = icmp ult i32 %826, 9
-  %or.cond14 = and i1 %or.cond12, %872
+  %872 = icmp samesign ult i32 %826, 9
+  %or.cond14 = select i1 %or.cond12, i1 %872, i1 false
   br i1 %or.cond14, label %873, label %900
 
 873:                                              ; preds = %870
@@ -3806,7 +3806,7 @@ dissect_radiotap_timestamp.exit:                  ; preds = %921, %931
   %1019 = load i32, ptr @ett_radiotap_he_info_data_3, align 4
   %1020 = call ptr @proto_tree_add_bitmask(ptr noundef %966, ptr noundef %0, i32 noundef %983, i32 noundef %1018, i32 noundef %1019, ptr noundef nonnull %8, i32 noundef -2147483648) #9
   %1021 = add i32 %.us-phi953, 6
-  %or.cond.i = icmp ult i16 %949, 2
+  %or.cond.i = icmp samesign ult i16 %949, 2
   br i1 %or.cond.i, label %1022, label %1024
 
 1022:                                             ; preds = %1017

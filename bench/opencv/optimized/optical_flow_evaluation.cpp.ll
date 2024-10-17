@@ -5113,7 +5113,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %39
   %247 = fptosi float %246 to i32
   %248 = add nsw i32 %.011.i, %247
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %249 = icmp ult i64 %indvars.iv.next.i66, %242
+  %249 = icmp samesign ult i64 %indvars.iv.next.i66, %242
   %250 = icmp slt i32 %248, %232
   %251 = select i1 %249, i1 %250, i1 false
   br i1 %251, label %243, label %._crit_edge.loopexit.i, !llvm.loop !34

@@ -1935,8 +1935,8 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
 40:                                               ; preds = %19
   %41 = and i64 %36, 4
   %42 = icmp eq i64 %41, 0
-  %43 = icmp ugt i32 %18, 1791
-  %or.cond3 = and i1 %43, %42
+  %43 = icmp samesign ugt i32 %18, 1791
+  %or.cond3 = select i1 %42, i1 %43, i1 false
   br i1 %or.cond3, label %44, label %55
 
 44:                                               ; preds = %40
@@ -2014,7 +2014,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
 92:                                               ; preds = %67
   %93 = and i64 %88, 4
   %94 = icmp eq i64 %93, 0
-  %95 = icmp ugt i32 %narrow, 7167
+  %95 = icmp samesign ugt i32 %narrow, 7167
   %or.cond7 = select i1 %94, i1 %95, i1 false
   br i1 %or.cond7, label %96, label %108
 

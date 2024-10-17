@@ -3134,7 +3134,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
   %57 = add nuw nsw i64 %.091.i, 1
   %58 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %57, %59
+  %60 = icmp samesign ult i64 %57, %59
   br i1 %60, label %39, label %.thread23, !llvm.loop !26
 
 .thread23:                                        ; preds = %44, %36

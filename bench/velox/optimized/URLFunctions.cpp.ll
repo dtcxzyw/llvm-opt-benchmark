@@ -29882,7 +29882,7 @@ if.then40.i:                                      ; preds = %if.end35.i
 
 if.end47.i:                                       ; preds = %if.end35.i
   %mul48.i = mul nsw i64 %spec.store.select.i, %spec.store.select.i
-  %cmp51.i = icmp ugt i64 %mul48.i, 9223372036854675807
+  %cmp51.i = icmp samesign ugt i64 %mul48.i, 9223372036854675807
   br i1 %cmp51.i, label %if.then52.i, label %if.end59.i
 
 if.then52.i:                                      ; preds = %if.end47.i
@@ -35095,7 +35095,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i12.i.i.i, label %if.end31.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp7.i.i.i.i.not = icmp ult i64 %__len.060.i.i.i, 2
+  %cmp7.i.i.i.i.not = icmp samesign ult i64 %__len.060.i.i.i, 2
   br i1 %cmp7.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -37103,7 +37103,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i12.i.i.i, label %if.end31.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp7.i.i.i.i.not = icmp ult i64 %__len.060.i.i.i, 2
+  %cmp7.i.i.i.i.not = icmp samesign ult i64 %__len.060.i.i.i, 2
   br i1 %cmp7.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -37323,7 +37323,7 @@ if.else.i.i.i61:                                  ; preds = %while.body.i.i.i50
   br i1 %cmp.i.i12.i.i.i62, label %if.end31.i.i.i112, label %if.else15.i.i.i63
 
 if.else15.i.i.i63:                                ; preds = %if.else.i.i.i61
-  %cmp7.i.i.i.i67.not = icmp ult i64 %__len.060.i.i.i51, 2
+  %cmp7.i.i.i.i67.not = icmp samesign ult i64 %__len.060.i.i.i51, 2
   br i1 %cmp7.i.i.i.i67.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i68, label %while.body.i.i.i.i96
 
 while.body.i.i.i.i96:                             ; preds = %if.else15.i.i.i63, %while.body.i.i.i.i96

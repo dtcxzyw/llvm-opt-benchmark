@@ -454,7 +454,7 @@ for.body5:                                        ; preds = %entry, %for.body5
   %xor26.i126 = xor i32 %add23.i125, %or.i36.i121
   %or.i38.i127 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i126, i32 %xor26.i126, i32 7)
   %add = add nuw nsw i64 %i2.0145, 2
-  %cmp4 = icmp ult i64 %i2.0145, 18
+  %cmp4 = icmp samesign ult i64 %i2.0145, 18
   br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !9
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.body18

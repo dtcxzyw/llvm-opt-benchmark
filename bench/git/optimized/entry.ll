@@ -1329,7 +1329,7 @@ for.inc.us:                                       ; preds = %if.then.us, %if.end
   %cache_nr.us = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %cache_nr.us, align 4
   %11 = zext i32 %10 to i64
-  %cmp.us = icmp ult i64 %indvars.iv.next24, %11
+  %cmp.us = icmp samesign ult i64 %indvars.iv.next24, %11
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1373,7 +1373,7 @@ for.inc:                                          ; preds = %if.end8, %if.end, %
   %cache_nr = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i32, ptr %cache_nr, align 4
   %19 = zext i32 %18 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %19
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.then, %for.inc.us, %if.then.us, %entry, %if.then18

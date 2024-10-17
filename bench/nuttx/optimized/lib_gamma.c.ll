@@ -14,7 +14,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = and i32 %5, 2147483647
-  %7 = icmp ugt i32 %6, 2146435071
+  %7 = icmp samesign ugt i32 %6, 2146435071
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
@@ -22,7 +22,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   br label %105
 
 10:                                               ; preds = %1
-  %11 = icmp ult i32 %6, 1016070144
+  %11 = icmp samesign ult i32 %6, 1016070144
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -51,7 +51,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   br label %105
 
 26:                                               ; preds = %18, %14
-  %27 = icmp ugt i32 %6, 1080492031
+  %27 = icmp samesign ugt i32 %6, 1080492031
   br i1 %27, label %28, label %39
 
 28:                                               ; preds = %26

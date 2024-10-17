@@ -2128,7 +2128,7 @@ _ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i:       ; preds = %837
   %895 = fpext float %.04351.i.i to double
   %896 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.048, ptr noundef nonnull @.str.129, double noundef %893, double noundef %894, double noundef %895) #17
   %indvars.iv.next.i342.i = add nuw nsw i64 %indvars.iv.i341.i, 1
-  %897 = icmp ult i64 %indvars.iv.next.i342.i, %874
+  %897 = icmp samesign ult i64 %indvars.iv.next.i342.i, %874
   br i1 %897, label %898, label %909
 
 898:                                              ; preds = %875
@@ -2213,7 +2213,7 @@ _ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i:       ; preds = %909, %921, %865
   %951 = fpext float %.04351.i349.i to double
   %952 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.049, ptr noundef nonnull @.str.129, double noundef %949, double noundef %950, double noundef %951) #17
   %indvars.iv.next.i352.i = add nuw nsw i64 %indvars.iv.i347.i, 1
-  %953 = icmp ult i64 %indvars.iv.next.i352.i, %930
+  %953 = icmp samesign ult i64 %indvars.iv.next.i352.i, %930
   br i1 %953, label %954, label %965
 
 954:                                              ; preds = %931

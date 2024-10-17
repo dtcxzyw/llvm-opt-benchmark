@@ -307,7 +307,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i16, ptr @gpus_len, align 2
   %28 = zext i16 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next.i, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %22
@@ -414,7 +414,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %76 = load i16, ptr @gpus_len, align 2
   %77 = zext i16 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next28.i, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next28.i, %77
   br i1 %78, label %.lr.ph.split.us.i, label %._crit_edge.i76, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i73, %.lr.ph.split.i
@@ -426,7 +426,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %81 = load i16, ptr @gpus_len, align 2
   %82 = zext i16 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next.i75, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next.i75, %82
   br i1 %83, label %.lr.ph.split.i, label %._crit_edge.i76, !llvm.loop !8
 
 ._crit_edge.i76:                                  ; preds = %.lr.ph.split.i, %75, %61
@@ -488,7 +488,7 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %109 = load i16, ptr @gpus_len, align 2
   %110 = zext i16 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next.i80, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next.i80, %110
   br i1 %111, label %.lr.ph.i78, label %._crit_edge.i81, !llvm.loop !6
 
 ._crit_edge.i81:                                  ; preds = %.lr.ph.i78, %104
@@ -798,7 +798,7 @@ _update_energy.exit:                              ; preds = %32, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i16, ptr @gpus_len, align 2
   %45 = zext i16 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %43
@@ -841,7 +841,7 @@ _update_energy.exit:                              ; preds = %32, %38
   %67 = trunc nuw i64 %indvars.iv.next24 to i32
   %68 = load i16, ptr @gpus_len, align 2
   %69 = zext i16 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next24, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next24, %69
   br i1 %70, label %.lr.ph19, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %66, %._crit_edge
@@ -988,7 +988,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i16, ptr %3, align 2
   %83 = zext i16 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %81, %.preheader
@@ -1144,7 +1144,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i16, ptr @gpus_len, align 2
   %28 = zext i16 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
@@ -1166,7 +1166,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %35 = load i16, ptr @gpus_len, align 2
   %36 = zext i16 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next52, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next52, %36
   br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !15
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge
@@ -1250,7 +1250,7 @@ _running_profile.exit:                            ; preds = %0, %10
   %71 = trunc nuw i64 %indvars.iv.next58 to i32
   %72 = load i16, ptr @gpus_len, align 2
   %73 = zext i16 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next58, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next58, %73
   br i1 %74, label %.lr.ph45, label %.loopexit.loopexit, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %70

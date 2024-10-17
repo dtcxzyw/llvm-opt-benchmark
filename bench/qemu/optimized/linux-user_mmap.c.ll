@@ -1246,7 +1246,7 @@ if.end31:                                         ; preds = %for.end17.if.end31_
   %and1.i38 = lshr i32 %or32, 2
   %and1.lobit.i39 = and i32 %and1.i38, 1
   %or.i40 = or i32 %and1.lobit.i39, %and.i37
-  %tobool36.not = icmp ult i32 %and.i33.pre-phi, 2
+  %tobool36.not = icmp samesign ult i32 %and.i33.pre-phi, 2
   br i1 %tobool36.not, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %if.end31

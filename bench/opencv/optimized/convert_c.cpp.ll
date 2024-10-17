@@ -319,7 +319,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
   %121 = lshr i32 %97, 3
   %122 = and i32 %121, 511
   %123 = zext nneg i32 %122 to i64
-  %.not83 = icmp ugt i64 %indvars.iv90, %123
+  %.not83 = icmp samesign ugt i64 %indvars.iv90, %123
   br i1 %.not83, label %124, label %132
 
 124:                                              ; preds = %120
@@ -657,7 +657,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
   %74 = lshr i32 %68, 3
   %75 = and i32 %74, 511
   %76 = zext nneg i32 %75 to i64
-  %.not64 = icmp ugt i64 %indvars.iv72, %76
+  %.not64 = icmp samesign ugt i64 %indvars.iv72, %76
   br i1 %.not64, label %83, label %91
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i

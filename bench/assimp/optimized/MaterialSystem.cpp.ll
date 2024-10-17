@@ -1328,7 +1328,7 @@ for.inc.i:                                        ; preds = %_ZN18aiMaterialProp
   %5 = phi i32 [ %1, %for.body.i ], [ %.pre.i, %_ZN18aiMaterialPropertyD2Ev.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = zext i32 %5 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %_ZN10aiMaterial5ClearEv.exit, !llvm.loop !15
 
 _ZN10aiMaterial5ClearEv.exit:                     ; preds = %for.inc.i, %entry
@@ -1381,7 +1381,7 @@ for.inc:                                          ; preds = %for.body, %_ZN18aiM
   %5 = phi i32 [ %1, %for.body ], [ %.pre, %_ZN18aiMaterialPropertyD2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = zext i32 %5 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %6
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -1542,7 +1542,7 @@ for.body14:                                       ; preds = %_ZN18aiMaterialProp
   store ptr %9, ptr %arrayidx20, align 8
   %10 = load i32, ptr %mNumProperties, align 8
   %11 = zext i32 %10 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next24, %11
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next24, %11
   br i1 %cmp13, label %for.body14, label %return, !llvm.loop !16
 
 for.inc21:                                        ; preds = %for.body, %land.lhs.true, %land.lhs.true3, %land.lhs.true5
@@ -1617,7 +1617,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %iOutIndex.1 = phi i32 [ %iOutIndex.024, %land.lhs.true ], [ %7, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %iOutIndex.024, %land.lhs.true6 ], [ %iOutIndex.024, %land.lhs.true4 ], [ %iOutIndex.024, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next, %9
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -1889,7 +1889,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %hash.1 = phi i32 [ %add67.i39, %if.then ], [ %hash.043, %lor.lhs.false ], [ %hash.043, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i32 %20 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %entry

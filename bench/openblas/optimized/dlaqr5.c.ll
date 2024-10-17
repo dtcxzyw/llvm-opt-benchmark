@@ -105,7 +105,7 @@ define void @dlaqr5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 83:                                               ; preds = %._crit_edge, %71
   %.pre-phi92 = phi i64 [ %.pre91, %._crit_edge ], [ %76, %71 ]
-  %84 = icmp ugt i64 %.pre-phi92, %62
+  %84 = icmp samesign ugt i64 %.pre-phi92, %62
   br i1 %84, label %.loopexit53, label %63, !llvm.loop !9
 
 .loopexit53:                                      ; preds = %83, %58
@@ -625,7 +625,7 @@ define void @dlaqr5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %472 = call double @llvm.fmuladd.f64(double %471, double %469, double %470)
   store double %472, ptr %464, align 8, !tbaa !7
   %473 = add nuw nsw i64 %459, 1
-  %474 = icmp ult i64 %459, %455
+  %474 = icmp samesign ult i64 %459, %455
   br i1 %474, label %458, label %.loopexit44, !llvm.loop !14
 
 475:                                              ; preds = %436

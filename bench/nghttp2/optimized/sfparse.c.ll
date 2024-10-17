@@ -1211,7 +1211,7 @@ for.body11:                                       ; preds = %for.cond9.preheader
   br i1 %cmp12, label %if.then13, label %if.end52
 
 if.then13:                                        ; preds = %for.body11
-  %cmp14 = icmp ugt i64 %i.043, 2
+  %cmp14 = icmp samesign ugt i64 %i.043, 2
   br i1 %cmp14, label %if.end17, label %if.else16
 
 if.else16:                                        ; preds = %if.then13
@@ -1564,7 +1564,7 @@ if.then34:                                        ; preds = %if.then32
   br label %return.sink.split
 
 if.end38:                                         ; preds = %lor.lhs.false
-  %cmp39 = icmp ugt i64 %len.074, 12
+  %cmp39 = icmp samesign ugt i64 %len.074, 12
   br i1 %cmp39, label %return, label %for.cond45.preheader
 
 for.cond45.preheader:                             ; preds = %if.end38

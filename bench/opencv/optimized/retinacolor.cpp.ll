@@ -530,7 +530,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %46 = load i64, ptr %19, align 8
   %47 = and i64 %46, 4294967295
-  %48 = icmp ult i64 %indvars.iv.next62, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next62, %47
   br i1 %48, label %23, label %._crit_edge44.loopexit, !llvm.loop !30
 
 ._crit_edge44.loopexit:                           ; preds = %38
@@ -584,7 +584,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
   %81 = load i64, ptr %14, align 8
   %82 = trunc i64 %81 to i32
   %83 = and i64 %81, 4294967295
-  %84 = icmp ult i64 %indvars.iv.next59, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next59, %83
   br i1 %84, label %68, label %._crit_edge41, !llvm.loop !31
 
 ._crit_edge41:                                    ; preds = %68, %.preheader35
@@ -614,7 +614,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
   %100 = load i64, ptr %9, align 8
   %101 = trunc i64 %100 to i32
   %102 = and i64 %100, 4294967295
-  %103 = icmp ult i64 %indvars.iv.next, %102
+  %103 = icmp samesign ult i64 %indvars.iv.next, %102
   br i1 %103, label %85, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %85, %.preheader36
@@ -659,7 +659,7 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %121 = load i64, ptr %110, align 8
   %122 = and i64 %121, 4294967295
-  %123 = icmp ult i64 %indvars.iv.next65, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next65, %122
   br i1 %123, label %114, label %._crit_edge47, !llvm.loop !36
 
 ._crit_edge47:                                    ; preds = %114, %_ZNSt8valarrayIfEaSERKf.exit
@@ -1402,7 +1402,7 @@ _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheade
   %107 = getelementptr inbounds i8, ptr %.0141194, i64 4
   %108 = load i64, ptr %16, align 8
   %109 = and i64 %108, 4294967295
-  %110 = icmp ult i64 %indvars.iv.next, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next, %109
   br i1 %110, label %67, label %.loopexit182, !llvm.loop !90
 
 111:                                              ; preds = %.lr.ph192, %111
@@ -1530,7 +1530,7 @@ _ZN2cv11bioinspired11RetinaColor20runColorMultiplexingERKSt8valarrayIfERS3_.exit
   %195 = getelementptr inbounds i8, ptr %.0147198, i64 4
   %196 = load i64, ptr %16, align 8
   %197 = and i64 %196, 4294967295
-  %198 = icmp ult i64 %indvars.iv.next229, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next229, %197
   br i1 %198, label %169, label %.loopexit, !llvm.loop !93
 
 199:                                              ; preds = %34
@@ -1592,7 +1592,7 @@ _ZN2cv11bioinspired11RetinaColor20runColorMultiplexingERKSt8valarrayIfERS3_.exit
   %242 = getelementptr inbounds i8, ptr %.0145202, i64 4
   %243 = load i64, ptr %16, align 8
   %244 = and i64 %243, 4294967295
-  %245 = icmp ult i64 %indvars.iv.next232, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next232, %244
   br i1 %245, label %204, label %._crit_edge208.loopexit, !llvm.loop !94
 
 ._crit_edge208.loopexit:                          ; preds = %204
@@ -1748,7 +1748,7 @@ _ZNSt8valarrayIfEdVERKS0_.exit:                   ; preds = %.lr.ph.i.i151, %265
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %348 = load i64, ptr %16, align 8
   %349 = and i64 %348, 4294967295
-  %350 = icmp ult i64 %indvars.iv.next235, %349
+  %350 = icmp samesign ult i64 %indvars.iv.next235, %349
   br i1 %350, label %313, label %._crit_edge211, !llvm.loop !96
 
 common.resume:                                    ; preds = %472, %351
@@ -1842,7 +1842,7 @@ _ZNSt8valarrayIfEaSERKf.exit163:                  ; preds = %.lr.ph.i.i159.prehe
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %398 = load i64, ptr %16, align 8
   %399 = and i64 %398, 4294967295
-  %400 = icmp ult i64 %indvars.iv.next238, %399
+  %400 = icmp samesign ult i64 %indvars.iv.next238, %399
   br i1 %400, label %377, label %._crit_edge214, !llvm.loop !100
 
 ._crit_edge214:                                   ; preds = %377, %_ZNSt8valarrayIfEaSERKf.exit163
@@ -1919,7 +1919,7 @@ _ZNSt8valarrayIfEaSERKf.exit163:                  ; preds = %.lr.ph.i.i159.prehe
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %460 = load i64, ptr %16, align 8
   %461 = and i64 %460, 4294967295
-  %462 = icmp ult i64 %indvars.iv.next241, %461
+  %462 = icmp samesign ult i64 %indvars.iv.next241, %461
   br i1 %462, label %.lr.ph217, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %169, %.lr.ph217, %.loopexit182, %_ZN2cv11bioinspired11RetinaColor20runColorMultiplexingERKSt8valarrayIfERS3_.exit, %._crit_edge214
@@ -3101,7 +3101,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor27_getNormalizedContoursImag
   %82 = load i64, ptr %4, align 8
   %83 = add i64 %82, 4294967295
   %84 = and i64 %83, 4294967295
-  %85 = icmp ult i64 %indvars.iv.next, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
   br i1 %85, label %.lr.ph52, label %._crit_edge53, !llvm.loop !119
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %3, %._crit_edge48

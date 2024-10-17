@@ -19517,7 +19517,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairINS2_5StateES3_ENS0_8hash_opsIS3
   %343 = load i32, ptr %4, align 8
   %344 = sext i32 %343 to i64
   %345 = icmp slt i64 %indvars.iv.next, %344
-  %346 = icmp ult i64 %indvars.iv.next, %123
+  %346 = icmp samesign ult i64 %indvars.iv.next, %123
   %or.cond116 = and i1 %346, %345
   br i1 %or.cond116, label %.lr.ph, label %.critedge, !llvm.loop !161
 
@@ -24573,7 +24573,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1111._crit_edge:  ; preds = %_ZN5Yosys5RTLIL7Sig
   %1658 = add i32 %1654, -1
   %1659 = add i32 %1658, %1657
   %1660 = sdiv i32 %1659, %1657
-  %1661 = icmp ult i32 %6, 2
+  %1661 = icmp samesign ult i32 %6, 2
   br i1 %1661, label %1662, label %2102
 
 1662:                                             ; preds = %._crit_edge3551

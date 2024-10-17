@@ -996,7 +996,7 @@ _ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.i.i: ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.0714.i.i, i64 37
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
-  %22 = icmp ult i8 %21, %5
+  %22 = icmp samesign ult i8 %21, %5
   br i1 %22, label %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread.i.i, label %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread10.i.i
 
 _ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread10.i.i: ; preds = %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.i.i, %17, %11
@@ -1032,7 +1032,7 @@ _ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE23_M
   %34 = getelementptr inbounds i8, ptr %.0714.i.i, i64 37
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 1
-  %37 = icmp ult i8 %36, %5
+  %37 = icmp samesign ult i8 %36, %5
   br label %_ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE15_M_insert_equalIS0_EESt17_Rb_tree_iteratorIS0_EOT_.exit
 
 _ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE15_M_insert_equalIS0_EESt17_Rb_tree_iteratorIS0_EOT_.exit: ; preds = %4, %_ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE23_M_get_insert_equal_posERKS0_.exit.i, %25, %27, %31, %33
@@ -11852,7 +11852,7 @@ _ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.i: ; preds = %21
   %23 = getelementptr inbounds i8, ptr %.0714.i, i64 37
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 1
-  %26 = icmp ugt i8 %10, %25
+  %26 = icmp samesign ugt i8 %10, %25
   br i1 %26, label %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread.i, label %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread10.i
 
 _ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.thread10.i: ; preds = %_ZNKSt4lessI19V3ConfigIgnoresLineEclERKS0_S3_.exit.i, %21, %15
@@ -11888,7 +11888,7 @@ _ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE23_M
   %38 = getelementptr inbounds i8, ptr %.0714.i, i64 37
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 1
-  %41 = icmp ugt i8 %10, %40
+  %41 = icmp samesign ugt i8 %10, %40
   br label %_ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
 
 _ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit: ; preds = %_ZNSt8_Rb_treeI19V3ConfigIgnoresLineS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE23_M_get_insert_equal_posERKS0_.exit, %2, %29, %31, %35, %37

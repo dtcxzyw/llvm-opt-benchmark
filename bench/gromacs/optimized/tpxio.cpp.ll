@@ -1009,7 +1009,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .thread:                                          ; preds = %148, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread87
   %165 = phi i32 [ %.pr, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread87 ], [ %149, %148 ]
-  %166 = icmp ult i32 %165, 134
+  %166 = icmp samesign ult i32 %165, 134
   %brmerge86 = or i1 %4, %166
   br i1 %brmerge86, label %167, label %170
 
@@ -2608,7 +2608,7 @@ define internal fastcc void @_ZL7do_mtopPN3gmx11ISerializerEP10gmx_mtop_ti(ptr n
   %104 = load i32, ptr %.03361.i, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
-  %107 = icmp ult i64 %indvars.iv.next.i, %73
+  %107 = icmp samesign ult i64 %indvars.iv.next.i, %73
   %108 = select i1 %106, i1 %107, i1 false
   br i1 %108, label %74, label %._crit_edge.loopexit.i, !llvm.loop !22
 
@@ -11956,12 +11956,12 @@ _ZL20do_pullgrp_tpx_pre95PN3gmx11ISerializerEP12t_pull_groupP12t_pull_coord.exit
   br i1 %1852, label %.lr.ph124.i, label %.loopexit.i525
 
 .lr.ph124.i:                                      ; preds = %.preheader.i524
-  %1853 = icmp ugt i32 %2, 106
-  %1854 = icmp ugt i32 %2, 100
+  %1853 = icmp samesign ugt i32 %2, 106
+  %1854 = icmp samesign ugt i32 %2, 100
   %1855 = getelementptr inbounds i8, ptr %53, i64 4
   %1856 = getelementptr inbounds i8, ptr %53, i64 8
-  %1857 = icmp ugt i32 %2, 109
-  %1858 = icmp ugt i32 %2, 123
+  %1857 = icmp samesign ugt i32 %2, 109
+  %1858 = icmp samesign ugt i32 %2, 123
   br label %1937
 
 .lr.ph.i526:                                      ; preds = %.preheader121.i, %.noexc575
@@ -14780,7 +14780,7 @@ _ZL13gmx_snew_implI12t_swapcoordsEvPKcS2_iRPT_m.exit: ; preds = %2890
 
 2893:                                             ; preds = %._crit_edge1739, %_ZL13gmx_snew_implI12t_swapcoordsEvPKcS2_iRPT_m.exit
   %2894 = phi ptr [ %.pre1741, %._crit_edge1739 ], [ %2891, %_ZL13gmx_snew_implI12t_swapcoordsEvPKcS2_iRPT_m.exit ]
-  %2895 = icmp ugt i32 %2, 104
+  %2895 = icmp samesign ugt i32 %2, 104
   %2896 = getelementptr inbounds i8, ptr %2894, i64 48
   br i1 %2895, label %2897, label %3012
 
@@ -15294,7 +15294,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i:      ; preds = %.noexc869, %.noexc8
   br i1 %3113, label %.preheader.i813, label %.loopexit.i814, !llvm.loop !129
 
 .loopexit.i814:                                   ; preds = %.noexc871, %.noexc845
-  %3126 = icmp ugt i32 %2, 103
+  %3126 = icmp samesign ugt i32 %2, 103
   br i1 %3126, label %3127, label %_ZL17do_swapcoords_tpxPN3gmx11ISerializerEP12t_swapcoordsi.exit
 
 3127:                                             ; preds = %.loopexit.i814

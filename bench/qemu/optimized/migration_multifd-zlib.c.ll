@@ -215,7 +215,7 @@ if.end26:                                         ; preds = %land.lhs.true
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %normal_num, align 8
   %20 = zext i32 %19 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %20
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end26, %entry

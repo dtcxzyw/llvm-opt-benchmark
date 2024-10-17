@@ -138,7 +138,7 @@ define hidden void @_ZN19StringArrayArgument3addEPKcm(ptr nocapture noundef nonn
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19
@@ -271,7 +271,7 @@ define hidden void @_ZNK15GenDCmdArgument9to_stringEP19StringArrayArgumentPcm(pt
 
 19:                                               ; preds = %10
   %20 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %15) #15
-  %21 = icmp uge i64 %indvars.iv, %9
+  %21 = icmp samesign uge i64 %indvars.iv, %9
   %.not = icmp eq i64 %3, %17
   %or.cond = or i1 %21, %.not
   br i1 %or.cond, label %23, label %22
@@ -766,7 +766,7 @@ define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE11parse_valueEPKcmP
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22

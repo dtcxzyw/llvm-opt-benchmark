@@ -391,7 +391,7 @@ define internal void @disable_freq_invariance_workfn(ptr nocapture readnone %0) 
   store i64 1024, ptr %17, align 8
   %18 = add nuw nsw i64 %9, 1
   %19 = and i64 %18, 127
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %.thread, label %2, !prof !27, !llvm.loop !28
 
 .thread:                                          ; preds = %2, %12, %8
@@ -652,7 +652,7 @@ define internal fastcc noundef zeroext i1 @skx_set_max_freq_ratio(ptr nocapture 
 
 35:                                               ; preds = %.preheader
   %36 = add nuw nsw i64 %38, 8
-  %37 = icmp ult i64 %38, 56
+  %37 = icmp samesign ult i64 %38, 56
   br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .preheader:                                       ; preds = %33, %35
@@ -660,7 +660,7 @@ define internal fastcc noundef zeroext i1 @skx_set_max_freq_ratio(ptr nocapture 
   %39 = lshr i64 %.pre-phi14, %38
   %40 = trunc i64 %39 to i32
   %41 = and i32 %40, 255
-  %42 = icmp ult i32 %41, %2
+  %42 = icmp samesign ult i32 %41, %2
   br i1 %42, label %35, label %43
 
 43:                                               ; preds = %.preheader
@@ -752,7 +752,7 @@ define internal fastcc noundef zeroext i1 @knl_set_max_freq_ratio(ptr nocapture 
   %39 = icmp eq i32 %38, 0
   %40 = sub i32 %30, %38
   %41 = add nuw nsw i64 %29, 8
-  %42 = icmp ult i64 %29, 56
+  %42 = icmp samesign ult i64 %29, 56
   br i1 %42, label %28, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %34, %32, %22, %10

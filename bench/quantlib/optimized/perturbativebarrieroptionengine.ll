@@ -8140,8 +8140,8 @@ for.end:                                          ; preds = %for.body
   %call46 = tail call double @pow(double noundef %10, double noundef 5.000000e-01) #30, !tbaa !108
   %mul = fmul double %call46, 4.000000e+00
   %cmp = fcmp ogt double %mul, %TOL
-  %cmp1 = icmp ult i64 %indvars.iv13, 99
-  %11 = and i1 %cmp, %cmp1
+  %cmp1 = icmp samesign ult i64 %indvars.iv13, 99
+  %11 = select i1 %cmp, i1 %cmp1, i1 false
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   br i1 %11, label %while.body, label %while.end, !llvm.loop !141
 

@@ -1242,7 +1242,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28
   %32 = add nuw nsw i32 %.0.i, 1
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw i64 1, %33
-  %35 = icmp ugt i32 %.0.i, 19
+  %35 = icmp samesign ugt i32 %.0.i, 19
   br i1 %35, label %H5VM_log2_gen.exit.thread, label %117
 
 H5VM_log2_gen.exit.thread:                        ; preds = %11, %15, %H5VM_log2_gen.exit

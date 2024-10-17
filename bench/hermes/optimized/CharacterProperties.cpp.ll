@@ -401,7 +401,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointR
   br i1 %spec.select.i.i27.i.i, label %if.end11.i.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i, %if.else.i.i
-  %cmp25.i.i.i.not = icmp ult i64 %__len.094.i.i, 2
+  %cmp25.i.i.i.not = icmp samesign ult i64 %__len.094.i.i, 2
   br i1 %cmp25.i.i.i.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i, label %while.body.i.i33.i
 
 while.body.i.i33.i:                               ; preds = %if.else6.i.i, %.thread.i.i.i
@@ -792,18 +792,18 @@ while.body.i.i65:                                 ; preds = %if.end11.i.i189, %w
   %agg.tmp.sroa.0.0.copyload.i.i.i73 = load i64, ptr %add.ptr.i.i.i22.i, align 4
   %lhs.sroa.4.0.extract.shift.i.i.i.i74 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i73, 32
   %66 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i73, 4294967295
-  %cmp.i.i.i.i.i75 = icmp uge i64 %indvars.iv.i, %66
+  %cmp.i.i.i.i.i75 = icmp samesign uge i64 %indvars.iv.i, %66
   %add.i3.i.i.i.i.i76 = add i64 %lhs.sroa.4.0.extract.shift.i.i.i.i74, %agg.tmp.sroa.0.0.copyload.i.i.i73
   %67 = and i64 %add.i3.i.i.i.i.i76, 4294967295
-  %cmp4.i.i.i.i.i77 = icmp ugt i64 %67, %indvars.iv.i
-  %68 = and i1 %cmp.i.i.i.i.i75, %cmp4.i.i.i.i.i77
-  br i1 %68, label %if.else6.i.i89, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78
+  %cmp4.i.i.i.i.i77 = icmp samesign ugt i64 %67, %indvars.iv.i
+  %68 = select i1 %cmp.i.i.i.i.i75, i1 %cmp4.i.i.i.i.i77, i1 false
+  br i1 %68, label %if.else.i.i82, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78: ; preds = %while.body.i.i65
   %cmp4.i6.i.i.i.i79 = icmp ne i64 %67, %indvars.iv.i
-  %cmp.i.i9.i.i80 = icmp ugt i64 %indvars.iv.i, %66
+  %cmp.i.i9.i.i80 = icmp samesign ugt i64 %indvars.iv.i, %66
   %spec.select.i.i.i.i81 = and i1 %cmp.i.i9.i.i80, %cmp4.i6.i.i.i.i79
-  br i1 %spec.select.i.i.i.i81, label %if.then.i.i192, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83
+  br i1 %spec.select.i.i.i.i81, label %if.then.i.i192, label %if.else.i.i82
 
 if.then.i.i192:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78
   %incdec.ptr.i.i193 = getelementptr inbounds i8, ptr %add.ptr.i.i.i22.i, i64 8
@@ -811,15 +811,20 @@ if.then.i.i192:                                   ; preds = %_ZN9__gnu_cxx5__ops
   %sub3.i.i194 = add nsw i64 %__len.094.i.i66, %69
   br label %if.end11.i.i189
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78
+if.else.i.i82:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i78, %while.body.i.i65
+  %70 = and i1 %cmp.i.i.i.i.i75, %cmp4.i.i.i.i.i77
+  br i1 %70, label %if.else6.i.i89, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83
+
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83: ; preds = %if.else.i.i82
+  %cmp.i3.i.i23.i.i84 = icmp ne i64 %67, %indvars.iv.i
   %cmp4.i6.i.i24.i.i85 = icmp ne i64 %65, %66
-  %cmp.i.i26.i.i87 = icmp ult i64 %indvars.iv.i, %66
-  %70 = and i1 %cmp4.i6.i.i24.i.i85, %cmp.i.i26.i.i87
-  %spec.select.i.i27.i.i88 = and i1 %70, %cmp4.i6.i.i.i.i79
+  %.not.i.i25.i.i86 = and i1 %cmp4.i6.i.i24.i.i85, %cmp.i3.i.i23.i.i84
+  %cmp.i.i26.i.i87 = icmp samesign ult i64 %indvars.iv.i, %66
+  %spec.select.i.i27.i.i88 = and i1 %cmp.i.i26.i.i87, %.not.i.i25.i.i86
   br i1 %spec.select.i.i27.i.i88, label %if.end11.i.i189, label %if.else6.i.i89
 
-if.else6.i.i89:                                   ; preds = %while.body.i.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83
-  %cmp25.i.i.i94.not = icmp ult i64 %__len.094.i.i66, 2
+if.else6.i.i89:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i83, %if.else.i.i82
+  %cmp25.i.i.i94.not = icmp samesign ult i64 %__len.094.i.i66, 2
   br i1 %cmp25.i.i.i94.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i95, label %while.body.i.i.i164
 
 while.body.i.i.i164:                              ; preds = %if.else6.i.i89, %.thread.i.i.i187
@@ -830,16 +835,16 @@ while.body.i.i.i164:                              ; preds = %if.else6.i.i89, %.t
   %agg.tmp.sroa.0.0.copyload.i.i.i.i173 = load i64, ptr %add.ptr.i.i.i.i.i170, align 4
   %lhs.sroa.4.0.extract.shift.i.i.i.i.i174 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i173, 32
   %71 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i173, 4294967295
-  %cmp.i.i.i.i.i.i175 = icmp uge i64 %indvars.iv.i, %71
+  %cmp.i.i.i.i.i.i175 = icmp samesign uge i64 %indvars.iv.i, %71
   %add.i3.i.i.i.i.i.i176 = add i64 %lhs.sroa.4.0.extract.shift.i.i.i.i.i174, %agg.tmp.sroa.0.0.copyload.i.i.i.i173
   %72 = and i64 %add.i3.i.i.i.i.i.i176, 4294967295
-  %cmp4.i.i.i.i.i.i177 = icmp ugt i64 %72, %indvars.iv.i
-  %73 = and i1 %cmp.i.i.i.i.i.i175, %cmp4.i.i.i.i.i.i177
+  %cmp4.i.i.i.i.i.i177 = icmp samesign ugt i64 %72, %indvars.iv.i
+  %73 = select i1 %cmp.i.i.i.i.i.i175, i1 %cmp4.i.i.i.i.i.i177, i1 false
   br i1 %73, label %.thread.i.i.i187, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i.i178
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i.i178: ; preds = %while.body.i.i.i164
   %cmp4.i6.i.i.i.i.i179 = icmp ne i64 %72, %indvars.iv.i
-  %cmp.i.i8.i.i.i180 = icmp ugt i64 %indvars.iv.i, %71
+  %cmp.i.i8.i.i.i180 = icmp samesign ugt i64 %indvars.iv.i, %71
   %spec.select.i.i.i.i.i181 = and i1 %cmp.i.i8.i.i.i180, %cmp4.i6.i.i.i.i.i179
   %cond.fr.i.i.i182 = freeze i1 %spec.select.i.i.i.i.i181
   %incdec.ptr.i.i.i183 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i170, i64 8
@@ -875,9 +880,9 @@ while.body.i49.i.i136:                            ; preds = %_ZSt13__lower_bound
   %rhs.sroa.4.0.extract.shift.i.i.i58.i.i146 = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i56.i.i145, 32
   %add.i.i.i.i.i60.i.i147 = add i64 %rhs.sroa.4.0.extract.shift.i.i.i58.i.i146, %agg.tmp2.sroa.0.0.copyload.i.i56.i.i145
   %77 = and i64 %add.i.i.i.i.i60.i.i147, 4294967295
-  %cmp.i.i.i.i61.i.i148 = icmp ugt i64 %77, %indvars.iv.i
+  %cmp.i.i.i.i61.i.i148 = icmp samesign ugt i64 %77, %indvars.iv.i
   %78 = and i64 %agg.tmp2.sroa.0.0.copyload.i.i56.i.i145, 4294967295
-  %cmp4.i.i.i.i62.i.i149 = icmp uge i64 %indvars.iv.i, %78
+  %cmp4.i.i.i.i62.i.i149 = icmp samesign uge i64 %indvars.iv.i, %78
   %79 = and i1 %cmp4.i.i.i.i62.i.i149, %cmp.i.i.i.i61.i.i148
   br i1 %79, label %.thread.i72.i.i161, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i150
 
@@ -891,7 +896,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointR
   %cmp.i3.i.i.i63.i.i151 = icmp ne i64 %77, %indvars.iv.i
   %cmp4.i6.i.i.i64.i.i152 = icmp ne i64 %65, %78
   %.not.i.i.i65.i.i153 = and i1 %cmp4.i6.i.i.i64.i.i152, %cmp.i3.i.i.i63.i.i151
-  %cmp.i.i8.i66.i.i154 = icmp ult i64 %indvars.iv.i, %78
+  %cmp.i.i8.i66.i.i154 = icmp samesign ult i64 %indvars.iv.i, %78
   %spec.select.i.i.i67.i.i155 = and i1 %cmp.i.i8.i66.i.i154, %.not.i.i.i65.i.i153
   %cond.fr.i68.i.i156 = freeze i1 %spec.select.i.i.i67.i.i155
   br i1 %cond.fr.i68.i.i156, label %while.cond.i.i.i159, label %81
@@ -1055,7 +1060,7 @@ _ZN6hermes12CodePointSet3addEj.exit.i134:         ; preds = %_ZSt13move_backward
 
 for.inc.i:                                        ; preds = %_ZN6hermes12CodePointSet3addEj.exit.i134, %for.body21.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp20.i = icmp ult i64 %indvars.iv.next.i, %58
+  %cmp20.i = icmp samesign ult i64 %indvars.iv.next.i, %58
   br i1 %cmp20.i, label %for.body21.i, label %for.inc31.i, !llvm.loop !12
 
 for.inc31.i:                                      ; preds = %for.inc.i, %for.body.i49

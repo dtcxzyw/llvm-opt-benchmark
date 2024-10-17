@@ -360,7 +360,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %78
   %106 = shl nuw nsw i32 %.sroa.speculated8.i.i.i.i, 2
   %107 = udiv i32 %106, 3
   %108 = add nuw nsw i32 %107, 1
-  %.not.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i.i, %108
+  %.not.i.i.i = icmp samesign ugt i32 %.sroa.speculated.i.i.i.i, %108
   br i1 %.not.i.i.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %109
 
 109:                                              ; preds = %._crit_edge.i.i.i
@@ -1042,7 +1042,7 @@ _ZN5ZXing5AztecL18FindFinderPatternsERKNS_9BitMatrixEb.exit: ; preds = %.thread.
   %.01011.i.i = phi i32 [ %361, %.lr.ph.i48 ], [ %378, %373 ]
   %370 = xor i32 %.01011.i.i, %368
   %371 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %370)
-  %372 = icmp ult i32 %371, 3
+  %372 = icmp samesign ult i32 %371, 3
   br i1 %372, label %_ZN5ZXing5AztecL12FindRotationEjb.exit.i, label %373
 
 373:                                              ; preds = %369
@@ -1392,7 +1392,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.i.thread:  ; preds = %373, %_ZN5ZXing5Azt
 
 .loopexit.i47:                                    ; preds = %_ZN5ZXing5AztecL12FindRotationEjb.exit.i.thread, %.noexc50
   %516 = add nuw nsw i32 %.0158, 2
-  %517 = icmp ult i32 %.0158, 6
+  %517 = icmp samesign ult i32 %.0158, 6
   br i1 %517, label %360, label %518, !llvm.loop !47
 
 518:                                              ; preds = %.loopexit.i47
@@ -1446,7 +1446,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.i.thread:  ; preds = %373, %_ZN5ZXing5Azt
   %.01011.i = phi i32 [ %542, %537 ], [ %533, %532 ]
   %534 = xor i32 %.01011.i, %368
   %535 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %534)
-  %536 = icmp ult i32 %535, 3
+  %536 = icmp samesign ult i32 %535, 3
   br i1 %536, label %544, label %537
 
 537:                                              ; preds = %.preheader

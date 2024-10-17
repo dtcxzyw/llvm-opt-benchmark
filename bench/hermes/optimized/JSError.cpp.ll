@@ -4177,7 +4177,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13
@@ -4397,7 +4397,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

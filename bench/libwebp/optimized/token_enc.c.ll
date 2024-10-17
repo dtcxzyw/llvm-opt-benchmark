@@ -1344,7 +1344,7 @@ TBufferNewPage.exit.i276:                         ; preds = %631
 
 AddConstantToken.exit280:                         ; preds = %TBufferNewPage.exit.thread.i275, %641
   %649 = lshr i32 %.1115296, 1
-  %.not132 = icmp ult i32 %.1115296, 2
+  %.not132 = icmp samesign ult i32 %.1115296, 2
   br i1 %.not132, label %AddConstantToken.exit, label %622, !llvm.loop !7
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit280, %AddToken.exit173, %AddToken.exit165, %TBufferNewPage.exit.thread.i191, %326, %TBufferNewPage.exit.thread.i204, %368, %AddToken.exit149

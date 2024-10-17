@@ -4548,7 +4548,7 @@ _set_job_time_limit.exit809:                      ; preds = %1481
   %1491 = getelementptr inbounds i8, ptr %1490, i64 448
   %1492 = load i32, ptr %1491, align 8
   %1493 = and i32 %1492, 255
-  %1494 = icmp ugt i32 %1493, 2
+  %1494 = icmp samesign ugt i32 %1493, 2
   br i1 %1494, label %1513, label %1495
 
 1495:                                             ; preds = %1488

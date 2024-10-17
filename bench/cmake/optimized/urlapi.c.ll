@@ -2454,7 +2454,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   %.0165.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
   %109 = load i8, ptr %.0165.i, align 1
   %110 = icmp eq i8 %109, 47
-  %111 = icmp ult i32 %.0166.i, 4
+  %111 = icmp samesign ult i32 %.0166.i, 4
   %112 = select i1 %110, i1 %111, i1 false
   %113 = add nuw nsw i32 %.0166.i, 1
   br i1 %112, label %.preheader, label %114, !llvm.loop !14
@@ -3120,7 +3120,7 @@ sub_0:                                            ; preds = %12
   %25 = phi i8 [ %31, %28 ], [ %.ph, %.lr.ph.preheader ]
   %.164 = phi ptr [ %29, %28 ], [ %.164.ph, %.lr.ph.preheader ]
   %26 = icmp ne i8 %25, 93
-  %27 = icmp ult i64 %indvars.iv, 15
+  %27 = icmp samesign ult i64 %indvars.iv, 15
   %or.cond = select i1 %26, i1 %27, i1 false
   br i1 %or.cond, label %28, label %.critedge
 

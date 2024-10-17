@@ -73700,7 +73700,7 @@ if.then15:                                        ; preds = %if.end
   %add19 = sub nuw nsw i32 65536, %conv4
   %rem36 = urem i32 %add19, %conv4
   %conv2337 = and i32 %mul.i, 65535
-  %cmp2538 = icmp ugt i32 %rem36, %conv2337
+  %cmp2538 = icmp samesign ugt i32 %rem36, %conv2337
   br i1 %cmp2538, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
@@ -73738,7 +73738,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31
   %conv.i32 = and i32 %conv.i.i24, 65535
   %mul.i34 = mul nuw i32 %conv.i32, %conv4
   %conv23 = and i32 %mul.i34, 65535
-  %cmp25 = icmp ugt i32 %rem36, %conv23
+  %cmp25 = icmp samesign ugt i32 %rem36, %conv23
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !691
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31, %if.then15, %if.end

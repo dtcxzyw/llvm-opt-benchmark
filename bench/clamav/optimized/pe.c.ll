@@ -1902,7 +1902,7 @@ scan_pe_mdb.exit._crit_edge:                      ; preds = %scan_pe_mdb.exit
   %.2 = phi i8 [ %.1, %scan_pe_mdb.exit._crit_edge ], [ %.1, %108 ], [ %.1, %106 ], [ %.020473001, %86 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %288 = zext i16 %287 to i64
-  %289 = icmp ult i64 %indvars.iv.next, %288
+  %289 = icmp samesign ult i64 %indvars.iv.next, %288
   br i1 %289, label %86, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %286
@@ -2180,7 +2180,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %427 = load i32, ptr %426, align 4
   %428 = and i32 %427, 2
   %429 = icmp ne i32 %428, 0
-  %430 = icmp ugt i64 %.0.i2815, 199
+  %430 = icmp samesign ugt i64 %.0.i2815, 199
   %or.cond9 = and i1 %430, %429
   br i1 %or.cond9, label %431, label %.loopexit2959
 
@@ -2207,7 +2207,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %446 = zext i32 %443 to i64
   %447 = add nuw nsw i64 %445, 4050
   %448 = add nuw nsw i64 %446, %438
-  %.not2394.not = icmp ugt i64 %447, %448
+  %.not2394.not = icmp samesign ugt i64 %447, %448
   br i1 %.not2394.not, label %.loopexit2959, label %449
 
 449:                                              ; preds = %444
@@ -2680,9 +2680,9 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %683 = zext i32 %670 to i64
   %684 = add nuw nsw i64 %683, 9
   %685 = add nuw nsw i64 %682, %676
-  %.not2421 = icmp ule i64 %684, %685
-  %686 = icmp ugt i64 %685, %683
-  %or.cond2753 = and i1 %686, %.not2421
+  %.not2421 = icmp samesign ule i64 %684, %685
+  %686 = icmp samesign ugt i64 %685, %683
+  %or.cond2753 = select i1 %.not2421, i1 %686, i1 false
   br i1 %or.cond2753, label %687, label %710
 
 687:                                              ; preds = %681
@@ -2971,7 +2971,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %805 = load i32, ptr %804, align 4
   %806 = and i32 %805, 8192
   %807 = icmp ne i32 %806, 0
-  %808 = icmp ugt i64 %.0.i2815, 15
+  %808 = icmp samesign ugt i64 %.0.i2815, 15
   %or.cond27 = and i1 %808, %807
   %809 = load i8, ptr %7, align 16
   %810 = icmp eq i8 %809, -23
@@ -3173,9 +3173,9 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %922 = zext i32 %918 to i64
   %923 = add nuw nsw i64 %922, 4
   %924 = add nuw nsw i64 %921, %912
-  %.not2450 = icmp ule i64 %923, %924
-  %925 = icmp ugt i64 %924, %922
-  %or.cond2757 = and i1 %925, %.not2450
+  %.not2450 = icmp samesign ule i64 %923, %924
+  %925 = icmp samesign ugt i64 %924, %922
+  %or.cond2757 = select i1 %.not2450, i1 %925, i1 false
   br i1 %or.cond2757, label %927, label %926
 
 926:                                              ; preds = %908, %920, %913
@@ -3311,7 +3311,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
 .loopexit2955:                                    ; preds = %802, %.preheader2954, %773, %811, %840, %845, %854, %856, %879, %926, %981, %819, %803
   %.42830 = phi i32 [ %799, %811 ], [ %799, %840 ], [ %799, %845 ], [ %799, %854 ], [ %799, %856 ], [ %799, %879 ], [ %799, %926 ], [ %799, %981 ], [ %799, %819 ], [ %799, %803 ], [ %.12049, %773 ], [ 0, %.preheader2954 ], [ %783, %802 ]
   %983 = phi i1 [ true, %811 ], [ true, %840 ], [ true, %845 ], [ true, %854 ], [ true, %856 ], [ true, %879 ], [ true, %926 ], [ true, %981 ], [ true, %819 ], [ true, %803 ], [ false, %773 ], [ false, %.preheader2954 ], [ false, %802 ]
-  %984 = icmp ult i64 %.0.i2815, 168
+  %984 = icmp samesign ult i64 %.0.i2815, 168
   br i1 %984, label %985, label %986
 
 985:                                              ; preds = %.loopexit2955
@@ -3485,7 +3485,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %1089 = sub i32 %1088, %.02130
   %1090 = zext i32 %1089 to i64
   %1091 = add nuw nsw i64 %1090, %1086
-  %.not2464 = icmp ule i64 %1091, %1079
+  %.not2464 = icmp samesign ule i64 %1091, %1079
   %1092 = icmp ult i32 %1089, %1078
   %or.cond2765 = and i1 %1092, %.not2464
   br i1 %or.cond2765, label %1093, label %1107
@@ -3506,7 +3506,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %1101 = sub i32 %1099, %1100
   %1102 = zext i32 %1101 to i64
   %1103 = add nuw nsw i64 %1102, %1097
-  %.not2467 = icmp ugt i64 %1103, %1079
+  %.not2467 = icmp samesign ugt i64 %1103, %1079
   %1104 = icmp uge i32 %1101, %1078
   %or.cond2767.not2916 = or i1 %1104, %.not2467
   %1105 = icmp ugt i32 %.02075, %1078
@@ -3780,9 +3780,9 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %1245 = zext i32 %1243 to i64
   %1246 = add nuw nsw i64 %1242, 4
   %1247 = add nuw nsw i64 %1245, %1240
-  %.not2482 = icmp ule i64 %1246, %1247
-  %1248 = icmp ugt i64 %1247, %1242
-  %or.cond2771 = and i1 %.not2482, %1248
+  %.not2482 = icmp samesign ule i64 %1246, %1247
+  %1248 = icmp samesign ugt i64 %1247, %1242
+  %or.cond2771 = select i1 %.not2482, i1 %1248, i1 false
   br i1 %or.cond2771, label %1250, label %1249
 
 1249:                                             ; preds = %1230, %1244, %1241
@@ -3854,9 +3854,9 @@ fmap_readn.exit:                                  ; preds = %305, %293
 1285:                                             ; preds = %1283
   %1286 = add nuw nsw i64 %1284, 4
   %1287 = add nuw nsw i64 %1282, %1264
-  %.not2489 = icmp ule i64 %1286, %1287
-  %1288 = icmp ugt i64 %1287, %1284
-  %or.cond2776 = and i1 %.not2489, %1288
+  %.not2489 = icmp samesign ule i64 %1286, %1287
+  %1288 = icmp samesign ugt i64 %1287, %1284
+  %or.cond2776 = select i1 %.not2489, i1 %1288, i1 false
   br i1 %or.cond2776, label %1290, label %1289
 
 1289:                                             ; preds = %1276, %1285, %1283
@@ -3923,9 +3923,9 @@ fmap_readn.exit:                                  ; preds = %305, %293
 1318:                                             ; preds = %1316
   %1319 = zext i32 %1308 to i64
   %1320 = add nuw nsw i64 %1319, 16
-  %.not2495 = icmp ule i64 %1320, %1287
-  %1321 = icmp ugt i64 %1287, %1319
-  %or.cond2781 = and i1 %1321, %.not2495
+  %.not2495 = icmp samesign ule i64 %1320, %1287
+  %1321 = icmp samesign ugt i64 %1287, %1319
+  %or.cond2781 = select i1 %.not2495, i1 %1321, i1 false
   br i1 %or.cond2781, label %1323, label %1322
 
 1322:                                             ; preds = %1318, %1316
@@ -5539,7 +5539,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   br label %3094
 
 .critedge109:                                     ; preds = %1860, %2114, %.critedge69
-  %2182 = icmp ult i64 %.0.i2815, 200
+  %2182 = icmp samesign ult i64 %.0.i2815, 200
   br i1 %2182, label %2183, label %2184
 
 2183:                                             ; preds = %.critedge109
@@ -5713,7 +5713,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   %2276 = phi ptr [ %2235, %2233 ], [ %2270, %._crit_edge3170 ]
   %indvars.iv.next3138 = add nuw nsw i64 %indvars.iv3137, 1
   %2277 = zext i16 %2275 to i64
-  %2278 = icmp ult i64 %indvars.iv.next3138, %2277
+  %2278 = icmp samesign ult i64 %indvars.iv.next3138, %2277
   br i1 %2278, label %2233, label %._crit_edge3049
 
 ._crit_edge3049:                                  ; preds = %2274, %.preheader2949
@@ -6547,7 +6547,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   %2686 = zext i16 %2684 to i64
   %2687 = add nuw nsw i64 %2686, 4294967295
   %2688 = and i64 %2687, 4294967295
-  %2689 = icmp ult i64 %indvars.iv.next3144, %2688
+  %2689 = icmp samesign ult i64 %indvars.iv.next3144, %2688
   br i1 %2689, label %2659, label %._crit_edge3060.loopexit
 
 ._crit_edge3060.loopexit:                         ; preds = %2675, %2665, %2667, %._crit_edge3173
@@ -6765,7 +6765,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   %lhsv = load i64, ptr %7, align 16
   %.not2664 = icmp ne i64 %lhsv, -1447625805222647712
   %or.cond2801.not2921 = select i1 %or.cond2800.not2923, i1 true, i1 %.not2664
-  %2793 = icmp ult i64 %.0.i2815, 959
+  %2793 = icmp samesign ult i64 %.0.i2815, 959
   %or.cond2802 = or i1 %2793, %or.cond2801.not2921
   br i1 %or.cond2802, label %.critedge174, label %2794
 
@@ -6891,7 +6891,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   %2848 = phi ptr [ %2824, %2822 ], [ %2843, %2838 ]
   %indvars.iv.next3153 = add nuw nsw i64 %indvars.iv3152, 1
   %2849 = zext i16 %2847 to i64
-  %2850 = icmp ult i64 %indvars.iv.next3153, %2849
+  %2850 = icmp samesign ult i64 %indvars.iv.next3153, %2849
   br i1 %2850, label %2822, label %._crit_edge3076
 
 ._crit_edge3076:                                  ; preds = %._crit_edge3177, %2830, %2828, %2838
@@ -8381,7 +8381,7 @@ fmap_readn.exit841.thread:                        ; preds = %214, %209, %fmap_re
   %443 = shl nuw nsw i32 %spec.select, 3
   %444 = zext i16 %175 to i32
   %445 = add nuw nsw i32 %443, %.0662
-  %446 = icmp ugt i32 %445, %444
+  %446 = icmp samesign ugt i32 %445, %444
   br i1 %446, label %447, label %448
 
 447:                                              ; preds = %442
@@ -8547,7 +8547,7 @@ fmap_readn.exit841.thread:                        ; preds = %214, %209, %fmap_re
 
 .lr.ph:                                           ; preds = %.lr.ph1009, %510, %514
   %519 = add nuw nsw i64 %.16729201008, 1
-  %520 = icmp ult i64 %519, %508
+  %520 = icmp samesign ult i64 %519, %508
   br i1 %520, label %.lr.ph1009, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.thread980, %.preheader910
@@ -9182,7 +9182,7 @@ thread-pre-split:                                 ; preds = %695
   br i1 %840, label %.loopexit906, label %841
 
 841:                                              ; preds = %837
-  %842 = icmp ult i32 %839, 93
+  %842 = icmp samesign ult i32 %839, 93
   %.mask = and i32 %838, -65536
   %843 = icmp ne i32 %.mask, 3407872
   %or.cond16 = or i1 %842, %843
@@ -9217,8 +9217,8 @@ thread-pre-split:                                 ; preds = %695
   br i1 %855, label %.loopexit906, label %856
 
 856:                                              ; preds = %.lr.ph937
-  %857 = icmp ugt i32 %854, 30
-  %or.cond18 = and i1 %852, %857
+  %857 = icmp samesign ugt i32 %854, 30
+  %or.cond18 = select i1 %852, i1 %857, i1 false
   br i1 %or.cond18, label %858, label %865
 
 858:                                              ; preds = %856
@@ -9235,7 +9235,7 @@ thread-pre-split:                                 ; preds = %695
   br i1 %864, label %.lr.ph937, label %.loopexit906
 
 865:                                              ; preds = %858, %856
-  %866 = icmp ult i32 %854, 37
+  %866 = icmp samesign ult i32 %854, 37
   br i1 %866, label %.loopexit906, label %867
 
 867:                                              ; preds = %865
@@ -9263,8 +9263,8 @@ thread-pre-split:                                 ; preds = %695
   %878 = getelementptr inbounds i8, ptr %.1676948, i64 %877
   %879 = sub i32 %.0667949, %876
   %880 = icmp ugt i32 %876, %.0667949
-  %881 = icmp ult i32 %876, 25
-  %or.cond20 = or i1 %880, %881
+  %881 = icmp samesign ult i32 %876, 25
+  %or.cond20 = select i1 %880, i1 true, i1 %881
   br i1 %or.cond20, label %.loopexit906, label %882
 
 882:                                              ; preds = %874
@@ -9284,8 +9284,8 @@ thread-pre-split:                                 ; preds = %695
   %888 = add nuw nsw i32 %887, 3
   %889 = and i32 %888, 131068
   %890 = icmp ugt i32 %889, %.0666941
-  %891 = icmp ult i32 %889, 17
-  %or.cond22 = or i1 %890, %891
+  %891 = icmp samesign ult i32 %889, 17
+  %or.cond22 = select i1 %890, i1 true, i1 %891
   br i1 %or.cond22, label %.loopexit906, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph943
@@ -9314,7 +9314,7 @@ thread-pre-split:                                 ; preds = %695
 901:                                              ; preds = %.preheader, %895
   %indvars.iv.next967 = add nuw nsw i64 %indvars.iv966, 2
   %902 = or disjoint i64 %indvars.iv.next967, 1
-  %903 = icmp ult i64 %902, %892
+  %903 = icmp samesign ult i64 %902, %892
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   br i1 %903, label %.preheader, label %.loopexit.loopexit
 
@@ -9395,7 +9395,7 @@ thread-pre-split:                                 ; preds = %695
 .loopexit906:                                     ; preds = %860, %.lr.ph937, %874, %._crit_edge944, %.lr.ph943, %869, %837, %846, %844, %841, %865, %867, %830, %819, %815, %.lr.ph955
   %934 = load i32, ptr %797, align 4
   %935 = zext i32 %934 to i64
-  %936 = icmp ult i64 %808, %935
+  %936 = icmp samesign ult i64 %808, %935
   br i1 %936, label %.lr.ph955, label %.critedge14
 
 .critedge14:                                      ; preds = %.loopexit906, %803, %787, %784, %796, %790
@@ -9698,7 +9698,7 @@ define internal fastcc void @cli_parseres_special(i32 noundef %0, i32 noundef %1
 
 16:                                               ; preds = %9
   %17 = zext i32 %1 to i64
-  %.not36.i.not = icmp ugt i64 %4, %17
+  %.not36.i.not = icmp samesign ugt i64 %4, %17
   %.44.i = select i1 %.not36.i.not, i32 %1, i32 0
   br label %cli_rawaddr.exit
 
@@ -9902,7 +9902,7 @@ cli_rawaddr.exit120.thread147:                    ; preds = %100
 
 cli_rawaddr.exit120:                              ; preds = %88
   %113 = zext i32 %89 to i64
-  %.not36.i117.not = icmp ugt i64 %4, %113
+  %.not36.i117.not = icmp samesign ugt i64 %4, %113
   br i1 %.not36.i117.not, label %114, label %.thread
 
 114:                                              ; preds = %cli_rawaddr.exit120.thread147, %cli_rawaddr.exit120
@@ -9925,7 +9925,7 @@ cli_rawaddr.exit120:                              ; preds = %88
 
 126:                                              ; preds = %118
   %127 = zext i32 %121 to i64
-  %.not36.i130.not = icmp ugt i64 %4, %127
+  %.not36.i130.not = icmp samesign ugt i64 %4, %127
   %.44.i132 = select i1 %.not36.i130.not, i32 %121, i32 0
   br label %cli_rawaddr.exit133
 
@@ -9977,10 +9977,10 @@ cli_rawaddr.exit133:                              ; preds = %126, %140
 
 149:                                              ; preds = %cli_rawaddr.exit133
   %150 = zext i32 %120 to i64
-  %.not102 = icmp ugt i64 %4, %150
+  %.not102 = icmp samesign ugt i64 %4, %150
   %151 = add i32 %.0.i129, %120
   %152 = zext i32 %151 to i64
-  %.not103 = icmp ugt i64 %4, %152
+  %.not103 = icmp samesign ugt i64 %4, %152
   %or.cond107 = select i1 %.not102, i1 %.not103, i1 false
   br i1 %or.cond107, label %157, label %cli_rawaddr.exit133.thread
 
@@ -10511,7 +10511,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   %52 = add nuw nsw i64 %51, %46
   %53 = load i32, ptr %.0116.sroa.phi, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ugt i64 %52, %54
+  %55 = icmp samesign ugt i64 %52, %54
   br i1 %55, label %.thread.thread, label %56
 
 56:                                               ; preds = %41
@@ -10530,7 +10530,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 61:                                               ; preds = %57
   %62 = zext i32 %24 to i64
-  %63 = icmp ult i64 %52, %62
+  %63 = icmp samesign ult i64 %52, %62
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %61
@@ -10543,7 +10543,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %72
 
 69:                                               ; preds = %61
-  %70 = icmp ugt i64 %52, %62
+  %70 = icmp samesign ugt i64 %52, %62
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
@@ -10904,7 +10904,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %76 = load i16, ptr %22, align 8
   %77 = zext i16 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next91, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next91, %77
   br i1 %78, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %109
@@ -10969,7 +10969,7 @@ define range(i32 0, 27) i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i16, ptr %22, align 8
   %111 = zext i16 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next, %111
   br i1 %112, label %.lr.ph.split, label %.loopexit
 
 113:                                              ; preds = %50
@@ -12111,7 +12111,7 @@ hash_impfns.exit:                                 ; preds = %313, %fmap_readn.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   tail call void @free(ptr noundef %124) #20
   %434 = icmp ugt i64 %86, 20
-  %435 = icmp ult i32 %.077190, 1023
+  %435 = icmp samesign ult i32 %.077190, 1023
   %436 = select i1 %434, i1 %435, i1 false
   br i1 %436, label %83, label %._crit_edge.preheader
 

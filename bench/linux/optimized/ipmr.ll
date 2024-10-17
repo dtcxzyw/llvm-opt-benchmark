@@ -4013,7 +4013,7 @@ define internal i32 @ipmr_rtm_route(ptr nocapture noundef readonly %0, ptr nound
   %46 = load i16, ptr %43, align 2
   %47 = icmp ult i16 %46, 4
   %48 = zext i16 %46 to i32
-  %.not = icmp ult i32 %45, %48
+  %.not = icmp samesign ult i32 %45, %48
   %or.cond = or i1 %47, %.not
   br i1 %or.cond, label %.critedge, label %49
 
@@ -4070,7 +4070,7 @@ define internal i32 @ipmr_rtm_route(ptr nocapture noundef readonly %0, ptr nound
   %72 = load i16, ptr %69, align 4
   %73 = icmp ult i16 %72, 8
   %74 = zext i16 %72 to i32
-  %.not11 = icmp ult i32 %70, %74
+  %.not11 = icmp samesign ult i32 %70, %74
   %or.cond14 = or i1 %73, %.not11
   br i1 %or.cond14, label %.thread17, label %75
 
@@ -4681,7 +4681,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr nocapture noundef %1)
   %291 = phi i32 [ %.pre60, %256 ], [ %187, %190 ], [ %187, %186 ]
   %292 = add nuw nsw i64 %188, 1
   %293 = zext i32 %291 to i64
-  %294 = icmp ult i64 %292, %293
+  %294 = icmp samesign ult i64 %292, %293
   br i1 %294, label %186, label %.loopexit14, !llvm.loop !87
 
 .loopexit14:                                      ; preds = %290, %163

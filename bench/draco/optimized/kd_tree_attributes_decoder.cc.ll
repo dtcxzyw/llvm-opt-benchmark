@@ -594,7 +594,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %123 = add nuw nsw i32 %.045155, 1
   %124 = load i8, ptr %92, align 8
   %125 = zext i8 %124 to i32
-  %126 = icmp ult i32 %123, %125
+  %126 = icmp samesign ult i32 %123, %125
   br i1 %126, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 127:                                              ; preds = %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit
@@ -4610,7 +4610,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %43 = load i32, ptr %16, align 8
   %44 = zext i32 %43 to i64
-  %.not65 = icmp ult i64 %indvars.iv.next69, %44
+  %.not65 = icmp samesign ult i64 %indvars.iv.next69, %44
   br i1 %.not65, label %23, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %._crit_edge, %33, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
@@ -4731,7 +4731,7 @@ _ZNSt6vectorIsSaIsEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPsmsET_
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %41 = load i32, ptr %16, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next67, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next67, %42
   br i1 %43, label %22, label %._crit_edge63, !llvm.loop !27
 
 ._crit_edge63:                                    ; preds = %._crit_edge, %_ZNSt6vectorIsSaIsEEC2EmRKS0_.exit
@@ -4849,7 +4849,7 @@ _ZNSt6vectorIaSaIaEEC2EmRKS0_.exit:               ; preds = %14, %.noexc25, %3
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %41 = load i32, ptr %16, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next67, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next67, %42
   br i1 %43, label %22, label %._crit_edge63, !llvm.loop !29
 
 ._crit_edge63:                                    ; preds = %._crit_edge, %_ZNSt6vectorIaSaIaEEC2EmRKS0_.exit
@@ -5884,7 +5884,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %129 = getelementptr inbounds i8, ptr %.02630.i, i64 %128
   %130 = load i32, ptr %98, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
   br i1 %132, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -5953,7 +5953,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = load i32, ptr %9, align 4
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %.lr.ph, label %.preheader162, !llvm.loop !41
 
 .preheader:                                       ; preds = %.preheader162, %.loopexit159
@@ -6054,7 +6054,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next189, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -6120,7 +6120,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %269 = getelementptr inbounds i8, ptr %.02630.i110, i64 %268
   %270 = load i32, ptr %238, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next.i111, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next.i111, %271
   br i1 %272, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -7240,7 +7240,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %139 = getelementptr inbounds i8, ptr %.02630.i, i64 %138
   %140 = load i32, ptr %108, align 4
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %indvars.iv.next.i, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next.i, %141
   br i1 %142, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -7309,7 +7309,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %177 = load i32, ptr %8, align 4
   %178 = zext i32 %177 to i64
-  %179 = icmp ult i64 %indvars.iv.next, %178
+  %179 = icmp samesign ult i64 %indvars.iv.next, %178
   br i1 %179, label %.lr.ph, label %.preheader167, !llvm.loop !51
 
 .preheader:                                       ; preds = %.preheader167, %.loopexit164
@@ -7410,7 +7410,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %242 = load i32, ptr %8, align 4
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next193, %243
+  %244 = icmp samesign ult i64 %indvars.iv.next193, %243
   br i1 %244, label %.lr.ph175, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -7476,7 +7476,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %279 = getelementptr inbounds i8, ptr %.02630.i110, i64 %278
   %280 = load i32, ptr %248, align 4
   %281 = zext i32 %280 to i64
-  %282 = icmp ult i64 %indvars.iv.next.i111, %281
+  %282 = icmp samesign ult i64 %indvars.iv.next.i111, %281
   br i1 %282, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -8518,7 +8518,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %129 = getelementptr inbounds i8, ptr %.02630.i, i64 %128
   %130 = load i32, ptr %98, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
   br i1 %132, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -8587,7 +8587,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = load i32, ptr %9, align 4
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %.lr.ph, label %.preheader162, !llvm.loop !61
 
 .preheader:                                       ; preds = %.preheader162, %.loopexit159
@@ -8688,7 +8688,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next189, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -8754,7 +8754,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %269 = getelementptr inbounds i8, ptr %.02630.i110, i64 %268
   %270 = load i32, ptr %238, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next.i111, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next.i111, %271
   br i1 %272, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -9760,7 +9760,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %138 = getelementptr inbounds i8, ptr %.02630.i, i64 %137
   %139 = load i32, ptr %107, align 4
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next.i, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next.i, %140
   br i1 %141, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -9829,7 +9829,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %176 = load i32, ptr %9, align 4
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next, %177
   br i1 %178, label %.lr.ph, label %.preheader163, !llvm.loop !71
 
 .preheader:                                       ; preds = %.preheader163, %.loopexit160
@@ -9930,7 +9930,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %241 = load i32, ptr %9, align 4
   %242 = zext i32 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next189, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next189, %242
   br i1 %243, label %.lr.ph171, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -9996,7 +9996,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %278 = getelementptr inbounds i8, ptr %.02630.i110, i64 %277
   %279 = load i32, ptr %247, align 4
   %280 = zext i32 %279 to i64
-  %281 = icmp ult i64 %indvars.iv.next.i111, %280
+  %281 = icmp samesign ult i64 %indvars.iv.next.i111, %280
   br i1 %281, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -11003,7 +11003,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %129 = getelementptr inbounds i8, ptr %.02630.i, i64 %128
   %130 = load i32, ptr %98, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
   br i1 %132, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -11072,7 +11072,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = load i32, ptr %9, align 4
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %.lr.ph, label %.preheader162, !llvm.loop !82
 
 .preheader:                                       ; preds = %.preheader162, %.loopexit159
@@ -11173,7 +11173,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next189, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -11239,7 +11239,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %269 = getelementptr inbounds i8, ptr %.02630.i110, i64 %268
   %270 = load i32, ptr %238, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next.i111, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next.i111, %271
   br i1 %272, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -12264,7 +12264,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %136 = getelementptr inbounds i8, ptr %.02630.i, i64 %135
   %137 = load i32, ptr %105, align 4
   %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next.i, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next.i, %138
   br i1 %139, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -12333,7 +12333,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = load i32, ptr %8, align 4
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next, %175
   br i1 %176, label %.lr.ph, label %.preheader166, !llvm.loop !92
 
 .preheader:                                       ; preds = %.preheader166, %.loopexit163
@@ -12434,7 +12434,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %239 = load i32, ptr %8, align 4
   %240 = zext i32 %239 to i64
-  %241 = icmp ult i64 %indvars.iv.next197, %240
+  %241 = icmp samesign ult i64 %indvars.iv.next197, %240
   br i1 %241, label %.lr.ph179, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -12500,7 +12500,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %276 = getelementptr inbounds i8, ptr %.02630.i110, i64 %275
   %277 = load i32, ptr %245, align 4
   %278 = zext i32 %277 to i64
-  %279 = icmp ult i64 %indvars.iv.next.i111, %278
+  %279 = icmp samesign ult i64 %indvars.iv.next.i111, %278
   br i1 %279, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -13520,7 +13520,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %129 = getelementptr inbounds i8, ptr %.02630.i, i64 %128
   %130 = load i32, ptr %98, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
   br i1 %132, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -13589,7 +13589,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = load i32, ptr %9, align 4
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %.lr.ph, label %.preheader162, !llvm.loop !103
 
 .preheader:                                       ; preds = %.preheader162, %.loopexit159
@@ -13690,7 +13690,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next189, %233
+  %234 = icmp samesign ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -13756,7 +13756,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %269 = getelementptr inbounds i8, ptr %.02630.i110, i64 %268
   %270 = load i32, ptr %238, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next.i111, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next.i111, %271
   br i1 %272, label %.lr.ph.i108, label %._crit_edge.loopexit.i112, !llvm.loop !38
 
 ._crit_edge.loopexit.i112:                        ; preds = %.lr.ph.i108
@@ -14625,7 +14625,7 @@ _ZNSt12_Vector_baseIN5draco30AttributeQuantizationTransformESaIS1_EE13_M_dealloc
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #14 {
-  %4 = icmp ugt i32 %0, 5
+  %4 = icmp samesign ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
 5:                                                ; preds = %3

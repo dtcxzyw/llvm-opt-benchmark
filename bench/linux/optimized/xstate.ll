@@ -460,7 +460,7 @@ define internal fastcc void @setup_xstate_cache() unnamed_addr #3 section ".init
 8:                                                ; preds = %1
   %9 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %6) #13, !srcloc !35
   %10 = and i64 %9, 4294967295
-  %11 = icmp ult i64 %10, 64
+  %11 = icmp samesign ult i64 %10, 64
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
@@ -504,7 +504,7 @@ define internal fastcc void @setup_xstate_cache() unnamed_addr #3 section ".init
   %33 = phi i32 [ %3, %12 ], [ %.pre, %31 ], [ %26, %25 ]
   %34 = add i64 %9, 1
   %35 = and i64 %34, 4294967295
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %1, !prof !41, !llvm.loop !42
 
 .thread:                                          ; preds = %1, %32, %8
@@ -641,7 +641,7 @@ define internal fastcc void @print_xstate_offset_size() unnamed_addr #3 section 
 23:                                               ; preds = %.preheader.i
   %24 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #13, !srcloc !35
   %25 = and i64 %24, 4294967295
-  %26 = icmp ult i64 %25, 64
+  %26 = icmp samesign ult i64 %25, 64
   br i1 %26, label %27, label %xfeature_get_offset.exit
 
 27:                                               ; preds = %23
@@ -664,7 +664,7 @@ define internal fastcc void @print_xstate_offset_size() unnamed_addr #3 section 
   %42 = add i32 %41, %37
   %43 = add i64 %24, 1
   %44 = and i64 %43, 4294967295
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %xfeature_get_offset.exit, label %.preheader.i, !prof !41, !llvm.loop !44
 
 xfeature_get_offset.exit:                         ; preds = %.preheader.i, %23, %27, %39, %.thread.i
@@ -872,7 +872,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly %0, i32 nounde
 27:                                               ; preds = %.preheader
   %28 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %25) #13, !srcloc !35
   %29 = and i64 %28, 4294967295
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp samesign ult i64 %29, 64
   br i1 %30, label %31, label %.thread3
 
 31:                                               ; preds = %27
@@ -895,7 +895,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly %0, i32 nounde
   %46 = add i32 %45, %41
   %47 = add i64 %28, 1
   %48 = and i64 %47, 4294967295
-  %49 = icmp ugt i64 %48, 63
+  %49 = icmp samesign ugt i64 %48, 63
   br i1 %49, label %.thread3, label %.preheader, !prof !41, !llvm.loop !44
 
 .thread3:                                         ; preds = %.preheader, %43, %31, %27, %.thread
@@ -2048,7 +2048,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 107:                                              ; preds = %.preheader
   %108 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %105) #13, !srcloc !35
   %109 = and i64 %108, 4294967295
-  %110 = icmp ult i64 %109, 64
+  %110 = icmp samesign ult i64 %109, 64
   br i1 %110, label %111, label %.thread8
 
 111:                                              ; preds = %107
@@ -2071,7 +2071,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
   %126 = add i32 %125, %121
   %127 = add i64 %108, 1
   %128 = and i64 %127, 4294967295
-  %129 = icmp ugt i64 %128, 63
+  %129 = icmp samesign ugt i64 %128, 63
   br i1 %129, label %.thread8, label %.preheader, !prof !41, !llvm.loop !44
 
 .thread8:                                         ; preds = %.preheader, %123, %111, %107, %.thread, %93
@@ -2274,7 +2274,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
 20:                                               ; preds = %.preheader
   %21 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #13, !srcloc !35
   %22 = and i64 %21, 4294967295
-  %23 = icmp ult i64 %22, 64
+  %23 = icmp samesign ult i64 %22, 64
   br i1 %23, label %24, label %.thread4
 
 24:                                               ; preds = %20
@@ -2297,7 +2297,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
   %39 = add i32 %38, %34
   %40 = add i64 %21, 1
   %41 = and i64 %40, 4294967295
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread4, label %.preheader, !prof !41, !llvm.loop !44
 
 .thread4:                                         ; preds = %.preheader, %36, %24, %20, %.thread, %6
@@ -2379,7 +2379,7 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
 31:                                               ; preds = %22, %21
   %32 = add nuw nsw i64 %15, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %..thread_crit_edge, label %8, !prof !41, !llvm.loop !112
 
 ..thread_crit_edge:                               ; preds = %31
@@ -2727,7 +2727,7 @@ define internal fastcc void @check_xtile_data_against_struct(i32 noundef %0) unn
   %7 = lshr i32 %6, 16
   %8 = trunc nuw i32 %7 to i16
   %9 = zext i16 %15 to i32
-  %10 = icmp ugt i32 %7, %9
+  %10 = icmp samesign ugt i32 %7, %9
   %11 = select i1 %10, i16 %8, i16 %15
   %12 = add i32 %14, 1
   %13 = icmp ugt i32 %12, %3

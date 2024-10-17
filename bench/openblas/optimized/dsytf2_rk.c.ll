@@ -748,7 +748,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %505 = load double, ptr %504, align 8, !tbaa !7
   store double %505, ptr %373, align 8, !tbaa !7
   store double %501, ptr %504, align 8, !tbaa !7
-  %506 = icmp ugt i32 %369, 1
+  %506 = icmp samesign ugt i32 %369, 1
   br i1 %506, label %507, label %.thread64
 
 507:                                              ; preds = %500
@@ -844,7 +844,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   br label %571
 
 571:                                              ; preds = %561, %552
-  %572 = icmp ugt i32 %369, 1
+  %572 = icmp samesign ugt i32 %369, 1
   br i1 %572, label %573, label %581
 
 573:                                              ; preds = %571

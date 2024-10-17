@@ -4879,7 +4879,7 @@ _ZNSt6vectorIlSaIlEE2atEm.exit.i:                 ; preds = %_ZNSt6vectorIlSaIlE
 .noexc24:                                         ; preds = %_ZNSt6vectorIlSaIlEE2atEm.exit.i
   %21 = and i64 %.0.in15.i, 4294967295
   %22 = urem i64 %20, %21
-  %.not.i.i7.i = icmp ult i64 %22, 54
+  %.not.i.i7.i = icmp samesign ult i64 %22, 54
   br i1 %.not.i.i7.i, label %_ZNSt6vectorIlSaIlEE2atEm.exit8.i, label %23
 
 23:                                               ; preds = %.noexc24

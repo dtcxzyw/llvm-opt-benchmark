@@ -1281,7 +1281,7 @@ _ZNSt6vectorIP13AstNodeModuleSaIS1_EED2Ev.exit61: ; preds = %174, %173, %167
   br i1 %.not.i.i.i.i62, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %183

@@ -1393,7 +1393,7 @@ define internal i32 @pt_init() #5 section ".init.text" align 16 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
   %25 = add nuw nsw i64 %14, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %6, !prof !37, !llvm.loop !38
 
 .thread:                                          ; preds = %6, %17, %13
@@ -2194,7 +2194,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #2 align 16 {
   %126 = add nuw nsw i64 %85, 1
   %127 = load i32, ptr %79, align 8
   %128 = zext i32 %127 to i64
-  %129 = icmp ult i64 %126, %128
+  %129 = icmp samesign ult i64 %126, %128
   br i1 %129, label %84, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %118, %78, %72
@@ -3196,7 +3196,7 @@ define internal noundef range(i32 -95, 1) i32 @pt_event_addr_filters_validate(pt
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   %17 = add nuw nsw i32 %5, 1
-  %18 = icmp uge i32 %5, %3
+  %18 = icmp samesign uge i32 %5, %3
   %19 = select i1 %16, i1 true, i1 %18
   br i1 %19, label %20, label %4, !llvm.loop !76
 

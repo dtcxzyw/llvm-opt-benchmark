@@ -2020,7 +2020,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 91:                                               ; preds = %88
   %92 = icmp sgt i32 %.sroa.0.2, -1
   %93 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %90)
-  %94 = icmp ult i32 %93, 2
+  %94 = icmp samesign ult i32 %93, 2
   %or.cond.i.i.i.i = select i1 %92, i1 %94, i1 false
   %95 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
   %96 = sub nuw nsw i32 32, %95
@@ -2810,7 +2810,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 79:                                               ; preds = %76
   %80 = icmp sgt i32 %.sroa.0.2, -1
   %81 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %78)
-  %82 = icmp ult i32 %81, 2
+  %82 = icmp samesign ult i32 %81, 2
   %or.cond.i.i.i.i = select i1 %80, i1 %82, i1 false
   %83 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %78, i1 true)
   %84 = sub nuw nsw i32 32, %83
@@ -3361,7 +3361,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lock
 94:                                               ; preds = %91
   %95 = icmp sgt i32 %.sroa.0.2, -1
   %96 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %93)
-  %97 = icmp ult i32 %96, 2
+  %97 = icmp samesign ult i32 %96, 2
   %or.cond.i.i.i.i = select i1 %95, i1 %97, i1 false
   %98 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
   %99 = sub nuw nsw i32 32, %98

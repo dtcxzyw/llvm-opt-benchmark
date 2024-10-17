@@ -2796,7 +2796,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   %234 = phi i32 [ %195, %193 ], [ %.sink16, %.sink.split ]
   %235 = load i32, ptr %4, align 4
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %21, %236
+  %237 = icmp samesign ult i64 %21, %236
   br i1 %237, label %14, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %232, %..loopexit_crit_edge
@@ -2972,7 +2972,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   %87 = sub i64 %86, %64
   %88 = lshr i64 %77, 3
   %89 = lshr i64 %87, 1
-  %90 = icmp ult i64 %88, %89
+  %90 = icmp samesign ult i64 %88, %89
   br i1 %90, label %97, label %91
 
 91:                                               ; preds = %85, %80, %54, %47

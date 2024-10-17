@@ -2025,7 +2025,7 @@ _ZN4llvm9ListScopeD2Ev.exit90:                    ; preds = %.preheader, %347, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %355 = load i32, ptr %50, align 4
   %356 = zext i32 %355 to i64
-  %357 = icmp ult i64 %indvars.iv.next, %356
+  %357 = icmp samesign ult i64 %indvars.iv.next, %356
   br i1 %357, label %304, label %_ZN4llvm9ListScopeD2Ev.exit92, !llvm.loop !63
 
 _ZN4llvm9ListScopeD2Ev.exit92:                    ; preds = %304, %_ZN4llvm9ListScopeD2Ev.exit90, %.preheader118, %300, %298
@@ -3015,7 +3015,7 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i, %49
   %57 = load i32, ptr %56, align 8
   %58 = urem i32 %.0.lcssa.i, %57
   %59 = call i64 @_ZNK4llvm21AppleAcceleratorTable17idxOfHashInBucketEjj(ptr noundef nonnull align 8 dereferenceable(149) %1, i32 noundef %.0.lcssa.i, i32 noundef %58)
-  %.not53 = icmp ult i64 %59, 4294967296
+  %.not53 = icmp samesign ult i64 %59, 4294967296
   br i1 %.not53, label %60, label %61
 
 60:                                               ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit
@@ -3705,7 +3705,7 @@ _ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit: ; preds = %64, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %38, align 4
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %43, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %73, %.critedge16, %75, %.critedge, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit
@@ -7070,7 +7070,7 @@ define dso_local void @_ZNK4llvm15DWARFDebugNames9NameIndex14dumpForeignTUsERNS_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %5, align 4
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %21, label %_ZN4llvm9ListScopeD2Ev.exit, !llvm.loop !513
 
 _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %21, %8

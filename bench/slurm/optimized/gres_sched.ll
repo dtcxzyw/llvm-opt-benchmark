@@ -225,7 +225,7 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %28 = zext i16 %.0.ph47 to i64
   %29 = zext i16 %21 to i64
   %30 = mul nuw nsw i64 %., %29
-  %31 = icmp ult i64 %30, %28
+  %31 = icmp samesign ult i64 %30, %28
   %32 = trunc i64 %30 to i16
   %33 = select i1 %31, i16 %.0.ph47, i16 %32
   br label %.outer

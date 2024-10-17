@@ -5157,7 +5157,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %156 = load i32, ptr %155, align 4
   %157 = add nsw i64 %144, -1
   %158 = lshr i64 %157, 1
-  %159 = icmp ult i64 %154, %158
+  %159 = icmp samesign ult i64 %154, %158
   br i1 %159, label %.lr.ph.i.i.i96, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i96:                                   ; preds = %.split.i.i, %.lr.ph.i.i.i96
@@ -13113,7 +13113,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_7
 .lr.ph:                                           ; preds = %2, %5
   %.02059 = phi ptr [ %48, %5 ], [ %0, %2 ]
   %.044.idx58 = phi i64 [ %.044.add, %5 ], [ 0, %2 ]
-  %.not53 = icmp ugt i64 %.044.idx58, 56
+  %.not53 = icmp samesign ugt i64 %.044.idx58, 56
   br i1 %.not53, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
@@ -13287,7 +13287,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_7
   store i64 %124, ptr %.246.ptr63, align 8
   %125 = getelementptr inbounds i8, ptr %.262, i64 16
   %.not23 = icmp eq ptr %125, %1
-  %.not54 = icmp ugt i64 %.246.idx61, 48
+  %.not54 = icmp samesign ugt i64 %.246.idx61, 48
   %or.cond = select i1 %.not23, i1 true, i1 %.not54
   br i1 %or.cond, label %.critedge2, label %82, !llvm.loop !187
 

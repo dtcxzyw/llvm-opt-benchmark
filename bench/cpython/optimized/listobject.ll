@@ -3131,7 +3131,7 @@ while.body.i131:                                  ; preds = %if.end160, %while.b
   br i1 %cmp.i136, label %while.body.i131, label %if.end163, !llvm.loop !16
 
 if.end163:                                        ; preds = %while.body.i131, %if.end160, %if.end152
-  %cmp5.i = icmp ugt i64 %self.val114, 63
+  %cmp5.i = icmp samesign ugt i64 %self.val114, 63
   br i1 %cmp5.i, label %while.body.i139, label %merge_compute_minrun.exit
 
 while.body.i139:                                  ; preds = %if.end163, %while.body.i139
@@ -3140,7 +3140,7 @@ while.body.i139:                                  ; preds = %if.end163, %while.b
   %and.i = and i64 %n.addr.06.i, 1
   %or.i = or i64 %and.i, %r.07.i
   %shr.i = lshr i64 %n.addr.06.i, 1
-  %cmp.i140 = icmp ugt i64 %n.addr.06.i, 127
+  %cmp.i140 = icmp samesign ugt i64 %n.addr.06.i, 127
   br i1 %cmp.i140, label %while.body.i139, label %merge_compute_minrun.exit, !llvm.loop !17
 
 merge_compute_minrun.exit:                        ; preds = %while.body.i139, %if.end163
@@ -4593,7 +4593,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp3 = icmp ult i64 %and.i, 2
+  %cmp3 = icmp samesign ult i64 %and.i, 2
   br i1 %cmp3, label %if.end8, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end
@@ -6010,7 +6010,7 @@ if.then.i.i.i136:                                 ; preds = %if.end.i.i131
 
 merge_freemem.exit.i.i137:                        ; preds = %if.then.i.i.i136, %if.end.i.i131
   %div.i.i138 = select i1 %cmp1.not.i.i133, i64 576460752303423487, i64 1152921504606846975
-  %cmp2.i.i139 = icmp ugt i64 %call37, %div.i.i138
+  %cmp2.i.i139 = icmp samesign ugt i64 %call37, %div.i.i138
   br i1 %cmp2.i.i139, label %if.then4.i.i151, label %if.end5.i.i140
 
 if.then4.i.i151:                                  ; preds = %merge_freemem.exit.i.i137
@@ -8584,7 +8584,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 
 if.end11.i:                                       ; preds = %if.then5.i, %if.end3.i
   %stop.addr.0.i = phi i64 [ %spec.store.select1.i, %if.then5.i ], [ %4, %if.end3.i ]
-  %cmp1227.i = icmp ult i64 %start.addr.0.i, %stop.addr.0.i
+  %cmp1227.i = icmp samesign ult i64 %start.addr.0.i, %stop.addr.0.i
   br i1 %cmp1227.i, label %land.rhs.lr.ph.i, label %for.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end11.i

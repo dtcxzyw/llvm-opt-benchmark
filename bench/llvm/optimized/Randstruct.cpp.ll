@@ -245,7 +245,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9FieldDeclELb1EE9push_backES3_.exit: ;
   %100 = load i64, ptr %99, align 8, !noalias !4
   %101 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %98, ptr %101, align 8, !alias.scope !4
-  %102 = icmp ult i32 %98, 65
+  %102 = icmp samesign ult i32 %98, 65
   br i1 %102, label %103, label %111
 
 103:                                              ; preds = %96

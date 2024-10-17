@@ -282,7 +282,7 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_e
   %indvars.iv55.i = phi i64 [ 0, %Vec_PtrAllocSimInfo.exit.split.us.split.us.preheader.i ], [ %indvars.iv.next56.i, %..loopexit27_crit_edge.us.us.i ]
   %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv55.i
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp ult i64 %indvars.iv55.i, 5
+  %26 = icmp samesign ult i64 %indvars.iv55.i, 5
   br i1 %26, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 27:                                               ; preds = %.preheader26.us.us.i, %27

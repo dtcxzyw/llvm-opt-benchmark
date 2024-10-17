@@ -1319,7 +1319,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %36
 48:                                               ; preds = %45
   %49 = load i8, ptr %34, align 1
   %50 = zext i8 %49 to i64
-  %.not13 = icmp ult i64 %indvars.iv, %50
+  %.not13 = icmp samesign ult i64 %indvars.iv, %50
   br i1 %.not13, label %56, label %51
 
 51:                                               ; preds = %48, %_ZNKSt6bitsetILm256EE4testEm.exit
@@ -2551,7 +2551,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit343: ; preds = %600
   %622 = trunc i32 %.010.i346 to i8
   tail call void @_ZN4Luau7CodeGen20RemoveDeadStoreState6defRegEh(ptr noundef nonnull align 8 dereferenceable(4109) %0, i8 noundef zeroext %622)
   %623 = add nuw nsw i32 %.010.i346, 1
-  %624 = icmp ult i32 %623, %621
+  %624 = icmp samesign ult i32 %623, %621
   br i1 %624, label %.lr.ph.i345, label %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit, !llvm.loop !14
 
 625:                                              ; preds = %3
@@ -2884,7 +2884,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %26
 37:                                               ; preds = %34
   %38 = load i8, ptr %24, align 1
   %39 = zext i8 %38 to i64
-  %.not21 = icmp ult i64 %indvars.iv, %39
+  %.not21 = icmp samesign ult i64 %indvars.iv, %39
   br i1 %.not21, label %_ZNKSt6bitsetILm256EE4testEm.exit18, label %.critedge
 
 _ZNKSt6bitsetILm256EE4testEm.exit18:              ; preds = %37, %34

@@ -1607,7 +1607,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   ]
 
 553:                                              ; preds = %536
-  %554 = icmp ugt i16 %550, 14
+  %554 = icmp samesign ugt i16 %550, 14
   br i1 %554, label %555, label %568
 
 555:                                              ; preds = %553
@@ -1646,7 +1646,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %575 = load i32, ptr @hf_6lowpan_6lorhe_hoplimit, align 4
   %576 = add i32 %.1241.i, 2
   %577 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %575, ptr noundef %.2, i32 noundef %576, i32 noundef 1, i32 noundef 0) #10
-  %578 = icmp ugt i32 %544, 256
+  %578 = icmp samesign ugt i32 %544, 256
   br i1 %578, label %.preheader205.i, label %588
 
 .preheader205.i:                                  ; preds = %570
@@ -1721,7 +1721,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   br label %.loopexit.i
 
 619:                                              ; preds = %590
-  %620 = icmp ult i16 %550, 5
+  %620 = icmp samesign ult i16 %550, 5
   br i1 %620, label %621, label %.loopexit.i
 
 621:                                              ; preds = %619
@@ -3291,7 +3291,7 @@ default.unreachable:                              ; preds = %105
   br i1 %.not253, label %.thread, label %128
 
 128:                                              ; preds = %126
-  %.not241 = icmp ult i32 %.0226, 128
+  %.not241 = icmp samesign ult i32 %.0226, 128
   br i1 %.not241, label %133, label %129
 
 129:                                              ; preds = %128
@@ -3911,7 +3911,7 @@ lowpan_parse_nhc_proto.exit314:                   ; preds = %switch.lookup321, %
   %142 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %140, i32 noundef %.1, i64 noundef %141) #10
   %143 = add i32 %.1, %.pre319
   %144 = add nuw nsw i32 %.pre319, %139
-  %145 = icmp ugt i32 %.0293, %144
+  %145 = icmp samesign ugt i32 %.0293, %144
   br i1 %145, label %146, label %159
 
 146:                                              ; preds = %137

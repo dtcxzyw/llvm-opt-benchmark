@@ -766,7 +766,7 @@ _ZN19GenericTaskQueueSetI17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072E
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %24, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %.lr.ph, label %.preheader, !llvm.loop !9
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
@@ -802,7 +802,7 @@ _ZN19GenericTaskQueueSetI17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072E
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %98 = load i32, ptr %32, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next31, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next31, %99
   br i1 %100, label %.lr.ph27, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %.preheader
@@ -943,7 +943,7 @@ _ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit: ; preds = %1
   %54 = phi i32 [ %19, %18 ], [ %.pre, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %18, label %.preheader, !llvm.loop !13
 
 57:                                               ; preds = %.lr.ph33, %93
@@ -1028,7 +1028,7 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5
   %94 = phi i32 [ %58, %57 ], [ %.pre40, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next38, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next38, %95
   br i1 %96, label %57, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %93, %.preheader
@@ -4144,7 +4144,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %82
 
@@ -4358,7 +4358,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %81
 
@@ -8717,7 +8717,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 63:                                               ; preds = %66, %60
   %.025.i.i.i.i.i = phi i64 [ %52, %60 ], [ %64, %66 ]
   %64 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %65 = icmp ult i64 %64, %62
+  %65 = icmp samesign ult i64 %64, %62
   br i1 %65, label %66, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 66:                                               ; preds = %63
@@ -9105,7 +9105,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader
@@ -11866,7 +11866,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 63:                                               ; preds = %66, %60
   %.025.i.i.i.i.i = phi i64 [ %52, %60 ], [ %64, %66 ]
   %64 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %65 = icmp ult i64 %64, %62
+  %65 = icmp samesign ult i64 %64, %62
   br i1 %65, label %66, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 66:                                               ; preds = %63
@@ -12233,7 +12233,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %39, %43
   %.025.i.i.i.i = phi i64 [ %41, %43 ], [ %33, %39 ]
   %41 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %42 = icmp ult i64 %41, %28
+  %42 = icmp samesign ult i64 %41, %28
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc23ZHeapIteratorOopClosureILb0EEEEEbPT_mm.exit
 
 43:                                               ; preds = %.preheader.i.i

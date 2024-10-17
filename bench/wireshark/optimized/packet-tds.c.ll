@@ -3705,7 +3705,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
 
 674:                                              ; preds = %673, %672
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %675 = icmp ult i64 %indvars.iv.next.i, %661
+  %675 = icmp samesign ult i64 %indvars.iv.next.i, %661
   br i1 %675, label %.lr.ph.i201, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %674
@@ -8564,7 +8564,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %436 = add i8 %7, -5
   %or.cond5 = icmp ult i8 %436, 3
   %.2560 = select i1 %or.cond5, i32 5, i32 %.1559
-  %437 = icmp ugt i32 %.2560, 1
+  %437 = icmp samesign ugt i32 %.2560, 1
   br i1 %437, label %.lr.ph657, label %._crit_edge658
 
 .lr.ph657:                                        ; preds = %432, %.lr.ph657
@@ -8666,7 +8666,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %498 = add i8 %7, -5
   %or.cond11 = icmp ult i8 %498, 3
   %.2 = select i1 %or.cond11, i32 5, i32 %.1
-  %499 = icmp ugt i32 %.2, 1
+  %499 = icmp samesign ugt i32 %.2, 1
   br i1 %499, label %.lr.ph645, label %._crit_edge646
 
 .lr.ph645:                                        ; preds = %494, %.lr.ph645
@@ -9446,7 +9446,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   ]
 
 36:                                               ; preds = %33
-  %37 = icmp ult i64 %indvars.iv, 11
+  %37 = icmp samesign ult i64 %indvars.iv, 11
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
@@ -9454,7 +9454,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   br label %44
 
 40:                                               ; preds = %33
-  %41 = icmp ult i64 %indvars.iv, 9
+  %41 = icmp samesign ult i64 %indvars.iv, 9
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %40
@@ -9488,7 +9488,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %54 = phi i32 [ %34, %36 ], [ %34, %40 ], [ %34, %33 ], [ %.pre15, %44 ], [ %.pre, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %33, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.thread
@@ -10443,7 +10443,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef nonnull 
   %33 = add nuw nsw i32 %.125, 1
   %34 = load i32, ptr %5, align 4
   %35 = lshr i32 %34, 1
-  %36 = icmp ult i32 %33, %35
+  %36 = icmp samesign ult i32 %33, %35
   br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph28, %28, %20
@@ -10876,7 +10876,7 @@ dissect_tds_type_info_minimal.exit:               ; preds = %34, %39, %.sink.spl
   call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef %7, ptr noundef %1, ptr noundef %4, i32 noundef %43, ptr noundef %5, i8 noundef zeroext %38, i8 noundef zeroext %45, i32 noundef %.037, i32 noundef %47, ptr noundef %46)
   %48 = load i32, ptr %.0, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %34, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %dissect_tds_type_info_minimal.exit

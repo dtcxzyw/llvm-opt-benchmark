@@ -3603,7 +3603,7 @@ for.body109:                                      ; preds = %invoke.cont102, %fo
   %inc116 = add nuw nsw i64 %i104.0109, 1
   %28 = load i32, ptr %mNumChildren, align 8
   %conv107 = zext i32 %28 to i64
-  %cmp108 = icmp ult i64 %inc116, %conv107
+  %cmp108 = icmp samesign ult i64 %inc116, %conv107
   br i1 %cmp108, label %for.body109, label %if.end118, !llvm.loop !51
 
 if.end118:                                        ; preds = %for.body109, %invoke.cont102, %for.end91
@@ -3639,7 +3639,7 @@ for.body136:                                      ; preds = %invoke.cont129, %fo
   %inc144 = add nuw nsw i64 %i131.0113, 1
   %35 = load i32, ptr %mNumMeshes, align 8
   %conv134 = zext i32 %35 to i64
-  %cmp135 = icmp ult i64 %inc144, %conv134
+  %cmp135 = icmp samesign ult i64 %inc144, %conv134
   br i1 %cmp135, label %for.body136, label %if.end146.loopexit, !llvm.loop !52
 
 if.end146.loopexit:                               ; preds = %for.body136

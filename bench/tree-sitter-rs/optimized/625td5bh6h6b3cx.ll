@@ -4807,7 +4807,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hf67b812764e30f76E.llvm.14413389980263760380.exit.sink.split", label %.preheader
 
 40:                                               ; preds = %26
-  %41 = icmp ult i64 %8, 29
+  %41 = icmp samesign ult i64 %8, 29
   br i1 %41, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hf67b812764e30f76E.llvm.14413389980263760380.exit.sink.split"
 
 .lr.ph.i6:                                        ; preds = %40, %51
@@ -4918,7 +4918,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h1f2b3734601c857eE.exit.sink.split", label %.lr.ph.i4
 
 45:                                               ; preds = %31
-  %46 = icmp ult i64 %12, 29
+  %46 = icmp samesign ult i64 %12, 29
   br i1 %46, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h1f2b3734601c857eE.exit.sink.split"
 
 .lr.ph.i6:                                        ; preds = %45, %56
@@ -5042,7 +5042,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %37
 
 48:                                               ; preds = %31
-  %49 = icmp ult i64 %11, 29
+  %49 = icmp samesign ult i64 %11, 29
   br i1 %49, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split"
 
 .lr.ph.i6:                                        ; preds = %48
@@ -11711,15 +11711,15 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i: ; 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.thread7"
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %70 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %70, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit", label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %74, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit"
 
@@ -12055,15 +12055,15 @@ common.resume:                                    ; preds = %155, %24
   %59 = trunc nuw nsw i64 %58 to i16
   %60 = and i16 %59, 2047
   %61 = add nuw nsw i64 %58, 1
-  %62 = icmp ult i16 %60, 992
+  %62 = icmp samesign ult i16 %60, 992
   br i1 %62, label %_ZN4core4time8Duration13from_secs_f6417h665274dcf5532c00E.exit.i.i, label %63
 
 63:                                               ; preds = %54
-  %64 = icmp ult i16 %60, 1023
+  %64 = icmp samesign ult i16 %60, 1023
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %63
-  %66 = icmp ult i16 %60, 1075
+  %66 = icmp samesign ult i16 %60, 1075
   br i1 %66, label %85, label %83
 
 67:                                               ; preds = %63
@@ -12091,7 +12091,7 @@ common.resume:                                    ; preds = %155, %24
   br label %_ZN4core4time8Duration13from_secs_f6417h665274dcf5532c00E.exit.i.i
 
 83:                                               ; preds = %65
-  %84 = icmp ult i16 %60, 1087
+  %84 = icmp samesign ult i16 %60, 1087
   br i1 %84, label %104, label %.thread20.i.i.i
 
 85:                                               ; preds = %65

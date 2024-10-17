@@ -407,7 +407,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor = xor i32 %or36, %11
   %inc39 = add nuw nsw i32 %i.0205, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %data.0202, i64 1
-  %cmp29 = icmp ult i32 %i.0205, 15
+  %cmp29 = icmp samesign ult i32 %i.0205, 15
   %cmp31 = icmp ult ptr %incdec.ptr, %add.ptr27
   %12 = select i1 %cmp29, i1 %cmp31, i1 false
   br i1 %12, label %for.body, label %while.cond40.preheader, !llvm.loop !16
@@ -725,7 +725,7 @@ if.end239:                                        ; preds = %if.then233, %if.end
   %add242 = add i64 %sub183, %moff.5
   %cmp244 = icmp sgt i64 %add242, 4294967295
   %spec.store.select = select i1 %cmp244, i64 0, i64 %conv182
-  %cmp248 = icmp ult i64 %spec.store.select, 4096
+  %cmp248 = icmp samesign ult i64 %spec.store.select, 4096
   br i1 %cmp248, label %for.body254, label %if.end268
 
 for.body254:                                      ; preds = %if.end239, %for.body254

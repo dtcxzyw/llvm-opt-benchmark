@@ -6335,7 +6335,7 @@ define internal fastcc range(i32 0, 257) i32 @size_fifo(ptr noundef %0) unnamed_
   %38 = tail call i32 %37(ptr noundef %0, i32 noundef 5) #14
   %39 = and i32 %38, 1
   %40 = icmp ne i32 %39, 0
-  %41 = icmp ult i32 %33, 255
+  %41 = icmp samesign ult i32 %33, 255
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !40
 

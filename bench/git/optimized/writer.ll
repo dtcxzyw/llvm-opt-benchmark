@@ -479,7 +479,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call = tail call i32 @reftable_writer_add_ref(ptr noundef %w, ptr noundef %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call, 0
-  %cmp2 = icmp ult i64 %indvars.iv.next, %0
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %0
   %1 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %1, label %for.body, label %for.end, !llvm.loop !5
 
@@ -690,7 +690,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call = tail call i32 @reftable_writer_add_log(ptr noundef %w, ptr noundef %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call, 0
-  %cmp2 = icmp ult i64 %indvars.iv.next, %0
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %0
   %1 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %1, label %for.body, label %for.end, !llvm.loop !8
 

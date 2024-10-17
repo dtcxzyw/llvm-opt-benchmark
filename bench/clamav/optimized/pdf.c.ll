@@ -4137,7 +4137,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %.thr
   %.1285 = phi i32 [ 1, %275 ], [ %.0284463, %278 ]
   %281 = add nuw nsw i64 %.0301461, 1
   %282 = icmp sgt i64 %.3308, 0
-  %283 = icmp ult i64 %.0301461, 62
+  %283 = icmp samesign ult i64 %.0301461, 62
   %284 = select i1 %282, i1 %283, i1 false
   br i1 %284, label %.lr.ph465, label %.critedge385.loopexit
 
@@ -5764,7 +5764,7 @@ dbg_printhex.exit129:                             ; preds = %9, %dbg_printhex.ex
 21:                                               ; preds = %dbg_printhex.exit129, %dbg_printhex.exit129, %dbg_printhex.exit129
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %1, 4
+  %24 = icmp samesign ult i32 %1, 4
   %25 = icmp ne i32 %5, 0
   %.not116 = or i1 %24, %25
   %26 = select i1 %.not116, i32 68, i32 72
@@ -5796,7 +5796,7 @@ dbg_printhex.exit129:                             ; preds = %9, %dbg_printhex.ex
   %40 = call ptr @cl_hash_data(ptr noundef nonnull @.str.50, ptr noundef nonnull %29, i64 noundef %28, ptr noundef nonnull %11, ptr noundef null) #23
   call void @free(ptr noundef nonnull %29) #23
   %spec.store.select = call i32 @llvm.umin.i32(i32 %8, i32 128)
-  %41 = icmp ugt i32 %1, 2
+  %41 = icmp samesign ugt i32 %1, 2
   %42 = lshr i32 %spec.store.select, 3
   br i1 %41, label %.preheader146, label %.loopexit147
 
@@ -6173,7 +6173,7 @@ define range(i32 0, 27) i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef %0, p
   %42 = add nuw nsw i64 %.034, 1
   %43 = load i32, ptr %17, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %25, label %.loopexit
 
 46:                                               ; preds = %29
@@ -6543,7 +6543,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %164 = load i32, ptr %150, align 8
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next.i, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next.i, %165
   br i1 %166, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %163, %.preheader60.i
@@ -6598,7 +6598,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   %.14165.i = phi i32 [ 0, %.preheader.i ], [ %.242.i, %211 ]
   %191 = load i32, ptr %150, align 8
   %192 = zext i32 %191 to i64
-  %193 = icmp ult i64 %indvars.iv68.i, %192
+  %193 = icmp samesign ult i64 %indvars.iv68.i, %192
   br i1 %193, label %194, label %pdf_find_and_extract_objs.exit
 
 194:                                              ; preds = %190
@@ -7780,7 +7780,7 @@ pdf_find_and_extract_objs.exit:                   ; preds = %190, %211, %156, %1
   %824 = add nuw nsw i64 %.0475.i, 1
   %825 = load i32, ptr %805, align 8
   %826 = zext i32 %825 to i64
-  %827 = icmp ult i64 %824, %826
+  %827 = icmp samesign ult i64 %824, %826
   br i1 %827, label %.lr.ph.i227, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %823, %804, %265, %262, %257, %255
@@ -8011,7 +8011,7 @@ pdf_export_json.exit:                             ; preds = %883, %889
   %912 = phi i32 [ %895, %.lr.ph249 ], [ %.pre264, %907 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %913 = zext i32 %912 to i64
-  %914 = icmp ult i64 %indvars.iv.next, %913
+  %914 = icmp samesign ult i64 %indvars.iv.next, %913
   br i1 %914, label %.lr.ph249, label %._crit_edge250.loopexit
 
 ._crit_edge250.loopexit:                          ; preds = %911
@@ -8073,7 +8073,7 @@ pdf_export_json.exit:                             ; preds = %883, %889
   %937 = phi i32 [ %920, %.lr.ph252 ], [ %.pre267, %932 ]
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %938 = zext i32 %937 to i64
-  %939 = icmp ult i64 %indvars.iv.next261, %938
+  %939 = icmp samesign ult i64 %indvars.iv.next261, %938
   br i1 %939, label %.lr.ph252, label %._crit_edge253.loopexit
 
 ._crit_edge253.loopexit:                          ; preds = %936
@@ -9392,7 +9392,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef 
   %.043 = phi i32 [ 32, %12 ], [ %55, %62 ]
   %.041 = phi i64 [ 0, %12 ], [ %.142, %62 ]
   %.040 = phi i32 [ 0, %12 ], [ %63, %62 ]
-  %16 = icmp ult i32 %.040, 64
+  %16 = icmp samesign ult i32 %.040, 64
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
@@ -9402,7 +9402,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef 
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 32
-  %24 = icmp ult i32 %.040, %23
+  %24 = icmp samesign ult i32 %.040, %23
   br i1 %24, label %.critedge, label %64
 
 .critedge:                                        ; preds = %15, %17

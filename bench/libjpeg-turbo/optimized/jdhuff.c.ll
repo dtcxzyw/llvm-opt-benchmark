@@ -288,7 +288,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv.next183 = add nsw i64 %indvars.iv182, 1
   %134 = load i8, ptr %114, align 1
   %135 = zext i8 %134 to i32
-  %.not119.us.not = icmp ult i32 %.2111151.us, %135
+  %.not119.us.not = icmp samesign ult i32 %.2111151.us, %135
   br i1 %.not119.us.not, label %.lr.ph148.us, label %._crit_edge154.loopexit162, !llvm.loop !11
 
 ._crit_edge154.loopexit162:                       ; preds = %._crit_edge149.us
@@ -321,7 +321,7 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %146 = load i32, ptr %145, align 4
   %.not118 = icmp eq i32 %146, 0
   %147 = select i1 %.not118, i32 15, i32 16
-  %148 = icmp ult i32 %147, %143
+  %148 = icmp samesign ult i32 %147, %143
   br i1 %148, label %149, label %154
 
 149:                                              ; preds = %140

@@ -2076,7 +2076,7 @@ define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapt
 
 29:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %30 = icmp ult i64 %indvars.iv.next, %7
+  %30 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %30, label %.lr.ph, label %.preheader, !llvm.loop !33
 
 .lr.ph45:                                         ; preds = %.lr.ph45, %.lr.ph45.preheader

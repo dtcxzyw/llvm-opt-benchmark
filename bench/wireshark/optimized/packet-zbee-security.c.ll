@@ -457,7 +457,7 @@ define internal void @uat_key_record_post_update() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = icmp ne ptr %31, null
   %33 = zext i32 %30 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   %35 = select i1 %32, i1 %34, i1 false
   br i1 %35, label %13, label %._crit_edge, !llvm.loop !7
 

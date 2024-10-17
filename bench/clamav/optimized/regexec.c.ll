@@ -39,7 +39,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
   %23 = getelementptr inbounds i8, ptr %9, i64 48
   %24 = getelementptr inbounds i8, ptr %9, i64 56
   %25 = getelementptr inbounds i8, ptr %9, i64 36
-  %.not157.i = icmp ult i32 %19, 4
+  %.not157.i = icmp samesign ult i32 %19, 4
   br i1 %22, label %26, label %270
 
 26:                                               ; preds = %18

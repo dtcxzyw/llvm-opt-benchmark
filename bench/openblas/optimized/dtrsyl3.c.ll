@@ -565,7 +565,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %369 = getelementptr i32, ptr %12, i64 %365
   %370 = load i32, ptr %369, align 4, !tbaa !3
   store i32 %261, ptr %59, align 4, !tbaa !3
-  %371 = icmp ugt i64 %365, %360
+  %371 = icmp samesign ugt i64 %365, %360
   br i1 %371, label %.loopexit239, label %372
 
 372:                                              ; preds = %364
@@ -649,7 +649,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %422 = getelementptr i8, ptr %420, i64 4
   %423 = load i32, ptr %422, align 4, !tbaa !3
   store i32 %413, ptr %59, align 4, !tbaa !3
-  %424 = icmp ugt i64 %419, %417
+  %424 = icmp samesign ugt i64 %419, %417
   br i1 %424, label %.loopexit237, label %425
 
 425:                                              ; preds = %418
@@ -831,7 +831,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %549 = and i64 %548, 1
   %550 = icmp eq i64 %549, 0
   %551 = select i1 %550, double 1.000000e+00, double %546
-  %552 = icmp ult i32 %547, 2
+  %552 = icmp samesign ult i32 %547, 2
   br i1 %552, label %.loopexit148, label %.preheader147
 
 .preheader147:                                    ; preds = %544, %.preheader147
@@ -844,7 +844,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %559 = icmp eq i64 %558, 0
   %560 = select i1 %559, double 1.000000e+00, double %557
   %561 = fmul double %553, %560
-  %562 = icmp ult i64 %554, 4
+  %562 = icmp samesign ult i64 %554, 4
   br i1 %562, label %.loopexit148, label %.preheader147, !llvm.loop !24
 
 .loopexit148:                                     ; preds = %.preheader147, %544, %540
@@ -881,7 +881,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %583 = and i64 %582, 1
   %584 = icmp eq i64 %583, 0
   %585 = select i1 %584, double 1.000000e+00, double %580
-  %586 = icmp ult i32 %581, 2
+  %586 = icmp samesign ult i32 %581, 2
   br i1 %586, label %.loopexit126, label %.preheader125
 
 .preheader125:                                    ; preds = %578, %.preheader125
@@ -894,7 +894,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %593 = icmp eq i64 %592, 0
   %594 = select i1 %593, double 1.000000e+00, double %591
   %595 = fmul double %587, %594
-  %596 = icmp ult i64 %588, 4
+  %596 = icmp samesign ult i64 %588, 4
   br i1 %596, label %.loopexit126, label %.preheader125, !llvm.loop !24
 
 .loopexit126:                                     ; preds = %.preheader125, %578, %571
@@ -989,7 +989,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %652 = and i64 %651, 1
   %653 = icmp eq i64 %652, 0
   %654 = select i1 %653, double 1.000000e+00, double %649
-  %655 = icmp ult i32 %650, 2
+  %655 = icmp samesign ult i32 %650, 2
   br i1 %655, label %.loopexit144, label %.preheader143
 
 .preheader143:                                    ; preds = %647, %.preheader143
@@ -1002,7 +1002,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %662 = icmp eq i64 %661, 0
   %663 = select i1 %662, double 1.000000e+00, double %660
   %664 = fmul double %656, %663
-  %665 = icmp ult i64 %657, 4
+  %665 = icmp samesign ult i64 %657, 4
   br i1 %665, label %.loopexit144, label %.preheader143, !llvm.loop !24
 
 .loopexit144:                                     ; preds = %.preheader143, %647, %643
@@ -1035,7 +1035,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %683 = and i64 %682, 1
   %684 = icmp eq i64 %683, 0
   %685 = select i1 %684, double 1.000000e+00, double %680
-  %686 = icmp ult i32 %681, 2
+  %686 = icmp samesign ult i32 %681, 2
   br i1 %686, label %.loopexit124, label %.preheader123
 
 .preheader123:                                    ; preds = %678, %.preheader123
@@ -1048,7 +1048,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %693 = icmp eq i64 %692, 0
   %694 = select i1 %693, double 1.000000e+00, double %691
   %695 = fmul double %687, %694
-  %696 = icmp ult i64 %688, 4
+  %696 = icmp samesign ult i64 %688, 4
   br i1 %696, label %.loopexit124, label %.preheader123, !llvm.loop !24
 
 .loopexit124:                                     ; preds = %.preheader123, %678, %671
@@ -1085,7 +1085,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %716 = and i64 %715, 1
   %717 = icmp eq i64 %716, 0
   %718 = select i1 %717, double 1.000000e+00, double %713
-  %719 = icmp ult i32 %714, 2
+  %719 = icmp samesign ult i32 %714, 2
   br i1 %719, label %.loopexit142, label %.preheader141
 
 .preheader141:                                    ; preds = %711, %.preheader141
@@ -1098,7 +1098,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %726 = icmp eq i64 %725, 0
   %727 = select i1 %726, double 1.000000e+00, double %724
   %728 = fmul double %720, %727
-  %729 = icmp ult i64 %721, 4
+  %729 = icmp samesign ult i64 %721, 4
   br i1 %729, label %.loopexit142, label %.preheader141, !llvm.loop !24
 
 .loopexit142:                                     ; preds = %.preheader141, %711, %706
@@ -1119,7 +1119,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %740 = and i64 %739, 1
   %741 = icmp eq i64 %740, 0
   %742 = select i1 %741, double 1.000000e+00, double %737
-  %743 = icmp ult i32 %738, 2
+  %743 = icmp samesign ult i32 %738, 2
   br i1 %743, label %.loopexit140, label %.preheader139
 
 .preheader139:                                    ; preds = %735, %.preheader139
@@ -1132,7 +1132,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %750 = icmp eq i64 %749, 0
   %751 = select i1 %750, double 1.000000e+00, double %748
   %752 = fmul double %744, %751
-  %753 = icmp ult i64 %745, 4
+  %753 = icmp samesign ult i64 %745, 4
   br i1 %753, label %.loopexit140, label %.preheader139, !llvm.loop !24
 
 .loopexit140:                                     ; preds = %.preheader139, %735, %.loopexit142
@@ -1238,7 +1238,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %802 = phi double [ %608, %607 ], [ %759, %.loopexit136 ]
   store i32 %469, ptr %59, align 4, !tbaa !3
   %803 = add nuw nsw i64 %513, 1
-  %804 = icmp ult i64 %513, %485
+  %804 = icmp samesign ult i64 %513, %485
   br i1 %804, label %805, label %.loopexit145
 
 805:                                              ; preds = %.loopexit146
@@ -1304,7 +1304,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %850 = and i64 %849, 1
   %851 = icmp eq i64 %850, 0
   %852 = select i1 %851, double 1.000000e+00, double %847
-  %853 = icmp ult i32 %848, 2
+  %853 = icmp samesign ult i32 %848, 2
   br i1 %853, label %.loopexit135, label %.preheader134
 
 .preheader134:                                    ; preds = %845, %.preheader134
@@ -1317,7 +1317,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %860 = icmp eq i64 %859, 0
   %861 = select i1 %860, double 1.000000e+00, double %858
   %862 = fmul double %854, %861
-  %863 = icmp ult i64 %855, 4
+  %863 = icmp samesign ult i64 %855, 4
   br i1 %863, label %.loopexit135, label %.preheader134, !llvm.loop !24
 
 .loopexit135:                                     ; preds = %.preheader134, %845, %841
@@ -1350,7 +1350,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %881 = and i64 %880, 1
   %882 = icmp eq i64 %881, 0
   %883 = select i1 %882, double 1.000000e+00, double %878
-  %884 = icmp ult i32 %879, 2
+  %884 = icmp samesign ult i32 %879, 2
   br i1 %884, label %.loopexit122, label %.preheader
 
 .preheader:                                       ; preds = %876, %.preheader
@@ -1363,7 +1363,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %891 = icmp eq i64 %890, 0
   %892 = select i1 %891, double 1.000000e+00, double %889
   %893 = fmul double %885, %892
-  %894 = icmp ult i64 %886, 4
+  %894 = icmp samesign ult i64 %886, 4
   br i1 %894, label %.loopexit122, label %.preheader, !llvm.loop !24
 
 .loopexit122:                                     ; preds = %.preheader, %876, %869
@@ -1400,7 +1400,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %914 = and i64 %913, 1
   %915 = icmp eq i64 %914, 0
   %916 = select i1 %915, double 1.000000e+00, double %911
-  %917 = icmp ult i32 %912, 2
+  %917 = icmp samesign ult i32 %912, 2
   br i1 %917, label %.loopexit133, label %.preheader132
 
 .preheader132:                                    ; preds = %909, %.preheader132
@@ -1413,7 +1413,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %924 = icmp eq i64 %923, 0
   %925 = select i1 %924, double 1.000000e+00, double %922
   %926 = fmul double %918, %925
-  %927 = icmp ult i64 %919, 4
+  %927 = icmp samesign ult i64 %919, 4
   br i1 %927, label %.loopexit133, label %.preheader132, !llvm.loop !24
 
 .loopexit133:                                     ; preds = %.preheader132, %909, %904
@@ -1434,7 +1434,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %938 = and i64 %937, 1
   %939 = icmp eq i64 %938, 0
   %940 = select i1 %939, double 1.000000e+00, double %935
-  %941 = icmp ult i32 %936, 2
+  %941 = icmp samesign ult i32 %936, 2
   br i1 %941, label %.loopexit131, label %.preheader130
 
 .preheader130:                                    ; preds = %933, %.preheader130
@@ -1447,7 +1447,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %948 = icmp eq i64 %947, 0
   %949 = select i1 %948, double 1.000000e+00, double %946
   %950 = fmul double %942, %949
-  %951 = icmp ult i64 %943, 4
+  %951 = icmp samesign ult i64 %943, 4
   br i1 %951, label %.loopexit131, label %.preheader130, !llvm.loop !24
 
 .loopexit131:                                     ; preds = %.preheader130, %933, %.loopexit133
@@ -1610,7 +1610,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1041 = mul nsw i64 %1040, %1013
   %1042 = sext i32 %1031 to i64
   %1043 = getelementptr double, ptr %88, i64 %1027
-  %1044 = icmp ult i64 %1027, %1018
+  %1044 = icmp samesign ult i64 %1027, %1018
   %1045 = getelementptr double, ptr %88, i64 %1041
   %1046 = getelementptr double, ptr %83, i64 %1042
   br label %1052
@@ -1675,7 +1675,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1089 = and i64 %1088, 1
   %1090 = icmp eq i64 %1089, 0
   %1091 = select i1 %1090, double 1.000000e+00, double %1086
-  %1092 = icmp ult i32 %1087, 2
+  %1092 = icmp samesign ult i32 %1087, 2
   br i1 %1092, label %.loopexit178, label %.preheader177
 
 .preheader177:                                    ; preds = %1084, %.preheader177
@@ -1688,7 +1688,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1099 = icmp eq i64 %1098, 0
   %1100 = select i1 %1099, double 1.000000e+00, double %1097
   %1101 = fmul double %1093, %1100
-  %1102 = icmp ult i64 %1094, 4
+  %1102 = icmp samesign ult i64 %1094, 4
   br i1 %1102, label %.loopexit178, label %.preheader177, !llvm.loop !24
 
 .loopexit178:                                     ; preds = %.preheader177, %1084, %1080
@@ -1725,7 +1725,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1123 = and i64 %1122, 1
   %1124 = icmp eq i64 %1123, 0
   %1125 = select i1 %1124, double 1.000000e+00, double %1120
-  %1126 = icmp ult i32 %1121, 2
+  %1126 = icmp samesign ult i32 %1121, 2
   br i1 %1126, label %.loopexit156, label %.preheader155
 
 .preheader155:                                    ; preds = %1118, %.preheader155
@@ -1738,7 +1738,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1133 = icmp eq i64 %1132, 0
   %1134 = select i1 %1133, double 1.000000e+00, double %1131
   %1135 = fmul double %1127, %1134
-  %1136 = icmp ult i64 %1128, 4
+  %1136 = icmp samesign ult i64 %1128, 4
   br i1 %1136, label %.loopexit156, label %.preheader155, !llvm.loop !24
 
 .loopexit156:                                     ; preds = %.preheader155, %1118, %1111
@@ -1834,7 +1834,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1192 = and i64 %1191, 1
   %1193 = icmp eq i64 %1192, 0
   %1194 = select i1 %1193, double 1.000000e+00, double %1189
-  %1195 = icmp ult i32 %1190, 2
+  %1195 = icmp samesign ult i32 %1190, 2
   br i1 %1195, label %.loopexit174, label %.preheader173
 
 .preheader173:                                    ; preds = %1187, %.preheader173
@@ -1847,7 +1847,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1202 = icmp eq i64 %1201, 0
   %1203 = select i1 %1202, double 1.000000e+00, double %1200
   %1204 = fmul double %1196, %1203
-  %1205 = icmp ult i64 %1197, 4
+  %1205 = icmp samesign ult i64 %1197, 4
   br i1 %1205, label %.loopexit174, label %.preheader173, !llvm.loop !24
 
 .loopexit174:                                     ; preds = %.preheader173, %1187, %1183
@@ -1880,7 +1880,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1223 = and i64 %1222, 1
   %1224 = icmp eq i64 %1223, 0
   %1225 = select i1 %1224, double 1.000000e+00, double %1220
-  %1226 = icmp ult i32 %1221, 2
+  %1226 = icmp samesign ult i32 %1221, 2
   br i1 %1226, label %.loopexit154, label %.preheader153
 
 .preheader153:                                    ; preds = %1218, %.preheader153
@@ -1893,7 +1893,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1233 = icmp eq i64 %1232, 0
   %1234 = select i1 %1233, double 1.000000e+00, double %1231
   %1235 = fmul double %1227, %1234
-  %1236 = icmp ult i64 %1228, 4
+  %1236 = icmp samesign ult i64 %1228, 4
   br i1 %1236, label %.loopexit154, label %.preheader153, !llvm.loop !24
 
 .loopexit154:                                     ; preds = %.preheader153, %1218, %1211
@@ -1930,7 +1930,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1256 = and i64 %1255, 1
   %1257 = icmp eq i64 %1256, 0
   %1258 = select i1 %1257, double 1.000000e+00, double %1253
-  %1259 = icmp ult i32 %1254, 2
+  %1259 = icmp samesign ult i32 %1254, 2
   br i1 %1259, label %.loopexit172, label %.preheader171
 
 .preheader171:                                    ; preds = %1251, %.preheader171
@@ -1943,7 +1943,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1266 = icmp eq i64 %1265, 0
   %1267 = select i1 %1266, double 1.000000e+00, double %1264
   %1268 = fmul double %1260, %1267
-  %1269 = icmp ult i64 %1261, 4
+  %1269 = icmp samesign ult i64 %1261, 4
   br i1 %1269, label %.loopexit172, label %.preheader171, !llvm.loop !24
 
 .loopexit172:                                     ; preds = %.preheader171, %1251, %1246
@@ -1964,7 +1964,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1280 = and i64 %1279, 1
   %1281 = icmp eq i64 %1280, 0
   %1282 = select i1 %1281, double 1.000000e+00, double %1277
-  %1283 = icmp ult i32 %1278, 2
+  %1283 = icmp samesign ult i32 %1278, 2
   br i1 %1283, label %.loopexit170, label %.preheader169
 
 .preheader169:                                    ; preds = %1275, %.preheader169
@@ -1977,7 +1977,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1290 = icmp eq i64 %1289, 0
   %1291 = select i1 %1290, double 1.000000e+00, double %1288
   %1292 = fmul double %1284, %1291
-  %1293 = icmp ult i64 %1285, 4
+  %1293 = icmp samesign ult i64 %1285, 4
   br i1 %1293, label %.loopexit170, label %.preheader169, !llvm.loop !24
 
 .loopexit170:                                     ; preds = %.preheader169, %1275, %.loopexit172
@@ -2086,7 +2086,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1345 = phi double [ %1148, %1147 ], [ %1299, %.loopexit166 ]
   store i32 %469, ptr %60, align 4, !tbaa !3
   %1346 = add nuw nsw i64 %1053, 1
-  %1347 = icmp ult i64 %1053, %1017
+  %1347 = icmp samesign ult i64 %1053, %1017
   br i1 %1347, label %1348, label %.loopexit175
 
 1348:                                             ; preds = %.loopexit176
@@ -2152,7 +2152,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1393 = and i64 %1392, 1
   %1394 = icmp eq i64 %1393, 0
   %1395 = select i1 %1394, double 1.000000e+00, double %1390
-  %1396 = icmp ult i32 %1391, 2
+  %1396 = icmp samesign ult i32 %1391, 2
   br i1 %1396, label %.loopexit165, label %.preheader164
 
 .preheader164:                                    ; preds = %1388, %.preheader164
@@ -2165,7 +2165,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1403 = icmp eq i64 %1402, 0
   %1404 = select i1 %1403, double 1.000000e+00, double %1401
   %1405 = fmul double %1397, %1404
-  %1406 = icmp ult i64 %1398, 4
+  %1406 = icmp samesign ult i64 %1398, 4
   br i1 %1406, label %.loopexit165, label %.preheader164, !llvm.loop !24
 
 .loopexit165:                                     ; preds = %.preheader164, %1388, %1384
@@ -2198,7 +2198,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1424 = and i64 %1423, 1
   %1425 = icmp eq i64 %1424, 0
   %1426 = select i1 %1425, double 1.000000e+00, double %1421
-  %1427 = icmp ult i32 %1422, 2
+  %1427 = icmp samesign ult i32 %1422, 2
   br i1 %1427, label %.loopexit152, label %.preheader151
 
 .preheader151:                                    ; preds = %1419, %.preheader151
@@ -2211,7 +2211,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1434 = icmp eq i64 %1433, 0
   %1435 = select i1 %1434, double 1.000000e+00, double %1432
   %1436 = fmul double %1428, %1435
-  %1437 = icmp ult i64 %1429, 4
+  %1437 = icmp samesign ult i64 %1429, 4
   br i1 %1437, label %.loopexit152, label %.preheader151, !llvm.loop !24
 
 .loopexit152:                                     ; preds = %.preheader151, %1419, %1412
@@ -2248,7 +2248,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1457 = and i64 %1456, 1
   %1458 = icmp eq i64 %1457, 0
   %1459 = select i1 %1458, double 1.000000e+00, double %1454
-  %1460 = icmp ult i32 %1455, 2
+  %1460 = icmp samesign ult i32 %1455, 2
   br i1 %1460, label %.loopexit163, label %.preheader162
 
 .preheader162:                                    ; preds = %1452, %.preheader162
@@ -2261,7 +2261,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1467 = icmp eq i64 %1466, 0
   %1468 = select i1 %1467, double 1.000000e+00, double %1465
   %1469 = fmul double %1461, %1468
-  %1470 = icmp ult i64 %1462, 4
+  %1470 = icmp samesign ult i64 %1462, 4
   br i1 %1470, label %.loopexit163, label %.preheader162, !llvm.loop !24
 
 .loopexit163:                                     ; preds = %.preheader162, %1452, %1447
@@ -2282,7 +2282,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1481 = and i64 %1480, 1
   %1482 = icmp eq i64 %1481, 0
   %1483 = select i1 %1482, double 1.000000e+00, double %1478
-  %1484 = icmp ult i32 %1479, 2
+  %1484 = icmp samesign ult i32 %1479, 2
   br i1 %1484, label %.loopexit161, label %.preheader160
 
 .preheader160:                                    ; preds = %1476, %.preheader160
@@ -2295,7 +2295,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1491 = icmp eq i64 %1490, 0
   %1492 = select i1 %1491, double 1.000000e+00, double %1489
   %1493 = fmul double %1485, %1492
-  %1494 = icmp ult i64 %1486, 4
+  %1494 = icmp samesign ult i64 %1486, 4
   br i1 %1494, label %.loopexit161, label %.preheader160, !llvm.loop !24
 
 .loopexit161:                                     ; preds = %.preheader160, %1476, %.loopexit163
@@ -2451,7 +2451,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1581 = mul nsw i64 %1580, %1552
   %1582 = sext i32 %1571 to i64
   %1583 = getelementptr double, ptr %88, i64 %1566
-  %1584 = icmp ult i64 %1566, %1557
+  %1584 = icmp samesign ult i64 %1566, %1557
   %1585 = getelementptr double, ptr %88, i64 %1581
   %1586 = getelementptr double, ptr %83, i64 %1582
   br label %1588
@@ -2512,7 +2512,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1625 = and i64 %1624, 1
   %1626 = icmp eq i64 %1625, 0
   %1627 = select i1 %1626, double 1.000000e+00, double %1622
-  %1628 = icmp ult i32 %1623, 2
+  %1628 = icmp samesign ult i32 %1623, 2
   br i1 %1628, label %.loopexit235, label %.preheader234
 
 .preheader234:                                    ; preds = %1620, %.preheader234
@@ -2525,7 +2525,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1635 = icmp eq i64 %1634, 0
   %1636 = select i1 %1635, double 1.000000e+00, double %1633
   %1637 = fmul double %1629, %1636
-  %1638 = icmp ult i64 %1630, 4
+  %1638 = icmp samesign ult i64 %1630, 4
   br i1 %1638, label %.loopexit235, label %.preheader234, !llvm.loop !24
 
 .loopexit235:                                     ; preds = %.preheader234, %1620, %1616
@@ -2562,7 +2562,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1659 = and i64 %1658, 1
   %1660 = icmp eq i64 %1659, 0
   %1661 = select i1 %1660, double 1.000000e+00, double %1656
-  %1662 = icmp ult i32 %1657, 2
+  %1662 = icmp samesign ult i32 %1657, 2
   br i1 %1662, label %.loopexit214, label %.preheader213
 
 .preheader213:                                    ; preds = %1654, %.preheader213
@@ -2575,7 +2575,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1669 = icmp eq i64 %1668, 0
   %1670 = select i1 %1669, double 1.000000e+00, double %1667
   %1671 = fmul double %1663, %1670
-  %1672 = icmp ult i64 %1664, 4
+  %1672 = icmp samesign ult i64 %1664, 4
   br i1 %1672, label %.loopexit214, label %.preheader213, !llvm.loop !24
 
 .loopexit214:                                     ; preds = %.preheader213, %1654, %1647
@@ -2667,7 +2667,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1728 = and i64 %1727, 1
   %1729 = icmp eq i64 %1728, 0
   %1730 = select i1 %1729, double 1.000000e+00, double %1725
-  %1731 = icmp ult i32 %1726, 2
+  %1731 = icmp samesign ult i32 %1726, 2
   br i1 %1731, label %.loopexit232, label %.preheader231
 
 .preheader231:                                    ; preds = %1723, %.preheader231
@@ -2680,7 +2680,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1738 = icmp eq i64 %1737, 0
   %1739 = select i1 %1738, double 1.000000e+00, double %1736
   %1740 = fmul double %1732, %1739
-  %1741 = icmp ult i64 %1733, 4
+  %1741 = icmp samesign ult i64 %1733, 4
   br i1 %1741, label %.loopexit232, label %.preheader231, !llvm.loop !24
 
 .loopexit232:                                     ; preds = %.preheader231, %1723, %1719
@@ -2713,7 +2713,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1759 = and i64 %1758, 1
   %1760 = icmp eq i64 %1759, 0
   %1761 = select i1 %1760, double 1.000000e+00, double %1756
-  %1762 = icmp ult i32 %1757, 2
+  %1762 = icmp samesign ult i32 %1757, 2
   br i1 %1762, label %.loopexit212, label %.preheader211
 
 .preheader211:                                    ; preds = %1754, %.preheader211
@@ -2726,7 +2726,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1769 = icmp eq i64 %1768, 0
   %1770 = select i1 %1769, double 1.000000e+00, double %1767
   %1771 = fmul double %1763, %1770
-  %1772 = icmp ult i64 %1764, 4
+  %1772 = icmp samesign ult i64 %1764, 4
   br i1 %1772, label %.loopexit212, label %.preheader211, !llvm.loop !24
 
 .loopexit212:                                     ; preds = %.preheader211, %1754, %1747
@@ -2763,7 +2763,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1792 = and i64 %1791, 1
   %1793 = icmp eq i64 %1792, 0
   %1794 = select i1 %1793, double 1.000000e+00, double %1789
-  %1795 = icmp ult i32 %1790, 2
+  %1795 = icmp samesign ult i32 %1790, 2
   br i1 %1795, label %.loopexit230, label %.preheader229
 
 .preheader229:                                    ; preds = %1787, %.preheader229
@@ -2776,7 +2776,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1802 = icmp eq i64 %1801, 0
   %1803 = select i1 %1802, double 1.000000e+00, double %1800
   %1804 = fmul double %1796, %1803
-  %1805 = icmp ult i64 %1797, 4
+  %1805 = icmp samesign ult i64 %1797, 4
   br i1 %1805, label %.loopexit230, label %.preheader229, !llvm.loop !24
 
 .loopexit230:                                     ; preds = %.preheader229, %1787, %1782
@@ -2797,7 +2797,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1816 = and i64 %1815, 1
   %1817 = icmp eq i64 %1816, 0
   %1818 = select i1 %1817, double 1.000000e+00, double %1813
-  %1819 = icmp ult i32 %1814, 2
+  %1819 = icmp samesign ult i32 %1814, 2
   br i1 %1819, label %.loopexit228, label %.preheader227
 
 .preheader227:                                    ; preds = %1811, %.preheader227
@@ -2810,7 +2810,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1826 = icmp eq i64 %1825, 0
   %1827 = select i1 %1826, double 1.000000e+00, double %1824
   %1828 = fmul double %1820, %1827
-  %1829 = icmp ult i64 %1821, 4
+  %1829 = icmp samesign ult i64 %1821, 4
   br i1 %1829, label %.loopexit228, label %.preheader227, !llvm.loop !24
 
 .loopexit228:                                     ; preds = %.preheader227, %1811, %.loopexit230
@@ -2986,7 +2986,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1930 = and i64 %1929, 1
   %1931 = icmp eq i64 %1930, 0
   %1932 = select i1 %1931, double 1.000000e+00, double %1927
-  %1933 = icmp ult i32 %1928, 2
+  %1933 = icmp samesign ult i32 %1928, 2
   br i1 %1933, label %.loopexit223, label %.preheader222
 
 .preheader222:                                    ; preds = %1925, %.preheader222
@@ -2999,7 +2999,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1940 = icmp eq i64 %1939, 0
   %1941 = select i1 %1940, double 1.000000e+00, double %1938
   %1942 = fmul double %1934, %1941
-  %1943 = icmp ult i64 %1935, 4
+  %1943 = icmp samesign ult i64 %1935, 4
   br i1 %1943, label %.loopexit223, label %.preheader222, !llvm.loop !24
 
 .loopexit223:                                     ; preds = %.preheader222, %1925, %1921
@@ -3032,7 +3032,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1961 = and i64 %1960, 1
   %1962 = icmp eq i64 %1961, 0
   %1963 = select i1 %1962, double 1.000000e+00, double %1958
-  %1964 = icmp ult i32 %1959, 2
+  %1964 = icmp samesign ult i32 %1959, 2
   br i1 %1964, label %.loopexit210, label %.preheader209
 
 .preheader209:                                    ; preds = %1956, %.preheader209
@@ -3045,7 +3045,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1971 = icmp eq i64 %1970, 0
   %1972 = select i1 %1971, double 1.000000e+00, double %1969
   %1973 = fmul double %1965, %1972
-  %1974 = icmp ult i64 %1966, 4
+  %1974 = icmp samesign ult i64 %1966, 4
   br i1 %1974, label %.loopexit210, label %.preheader209, !llvm.loop !24
 
 .loopexit210:                                     ; preds = %.preheader209, %1956, %1949
@@ -3082,7 +3082,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1994 = and i64 %1993, 1
   %1995 = icmp eq i64 %1994, 0
   %1996 = select i1 %1995, double 1.000000e+00, double %1991
-  %1997 = icmp ult i32 %1992, 2
+  %1997 = icmp samesign ult i32 %1992, 2
   br i1 %1997, label %.loopexit221, label %.preheader220
 
 .preheader220:                                    ; preds = %1989, %.preheader220
@@ -3095,7 +3095,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2004 = icmp eq i64 %2003, 0
   %2005 = select i1 %2004, double 1.000000e+00, double %2002
   %2006 = fmul double %1998, %2005
-  %2007 = icmp ult i64 %1999, 4
+  %2007 = icmp samesign ult i64 %1999, 4
   br i1 %2007, label %.loopexit221, label %.preheader220, !llvm.loop !24
 
 .loopexit221:                                     ; preds = %.preheader220, %1989, %1984
@@ -3116,7 +3116,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2018 = and i64 %2017, 1
   %2019 = icmp eq i64 %2018, 0
   %2020 = select i1 %2019, double 1.000000e+00, double %2015
-  %2021 = icmp ult i32 %2016, 2
+  %2021 = icmp samesign ult i32 %2016, 2
   br i1 %2021, label %.loopexit219, label %.preheader218
 
 .preheader218:                                    ; preds = %2013, %.preheader218
@@ -3129,7 +3129,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2028 = icmp eq i64 %2027, 0
   %2029 = select i1 %2028, double 1.000000e+00, double %2026
   %2030 = fmul double %2022, %2029
-  %2031 = icmp ult i64 %2023, 4
+  %2031 = icmp samesign ult i64 %2023, 4
   br i1 %2031, label %.loopexit219, label %.preheader218, !llvm.loop !24
 
 .loopexit219:                                     ; preds = %.preheader218, %2013, %.loopexit221
@@ -3323,7 +3323,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2150 = and i64 %2149, 1
   %2151 = icmp eq i64 %2150, 0
   %2152 = select i1 %2151, double 1.000000e+00, double %2147
-  %2153 = icmp ult i32 %2148, 2
+  %2153 = icmp samesign ult i32 %2148, 2
   br i1 %2153, label %.loopexit207.us, label %.preheader206.us
 
 .preheader206.us:                                 ; preds = %2145, %.preheader206.us
@@ -3336,7 +3336,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2160 = icmp eq i64 %2159, 0
   %2161 = select i1 %2160, double 1.000000e+00, double %2158
   %2162 = fmul double %2154, %2161
-  %2163 = icmp ult i64 %2155, 4
+  %2163 = icmp samesign ult i64 %2155, 4
   br i1 %2163, label %.loopexit207.us, label %.preheader206.us, !llvm.loop !24
 
 .loopexit207.us:                                  ; preds = %.preheader206.us, %2145, %2141
@@ -3373,7 +3373,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2184 = and i64 %2183, 1
   %2185 = icmp eq i64 %2184, 0
   %2186 = select i1 %2185, double 1.000000e+00, double %2181
-  %2187 = icmp ult i32 %2182, 2
+  %2187 = icmp samesign ult i32 %2182, 2
   br i1 %2187, label %.loopexit186.us, label %.preheader185.us
 
 .preheader185.us:                                 ; preds = %2179, %.preheader185.us
@@ -3386,7 +3386,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2194 = icmp eq i64 %2193, 0
   %2195 = select i1 %2194, double 1.000000e+00, double %2192
   %2196 = fmul double %2188, %2195
-  %2197 = icmp ult i64 %2189, 4
+  %2197 = icmp samesign ult i64 %2189, 4
   br i1 %2197, label %.loopexit186.us, label %.preheader185.us, !llvm.loop !24
 
 .loopexit186.us:                                  ; preds = %.preheader185.us, %2179, %2172
@@ -3482,7 +3482,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2253 = and i64 %2252, 1
   %2254 = icmp eq i64 %2253, 0
   %2255 = select i1 %2254, double 1.000000e+00, double %2250
-  %2256 = icmp ult i32 %2251, 2
+  %2256 = icmp samesign ult i32 %2251, 2
   br i1 %2256, label %.loopexit204.us, label %.preheader203.us
 
 .preheader203.us:                                 ; preds = %2248, %.preheader203.us
@@ -3495,7 +3495,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2263 = icmp eq i64 %2262, 0
   %2264 = select i1 %2263, double 1.000000e+00, double %2261
   %2265 = fmul double %2257, %2264
-  %2266 = icmp ult i64 %2258, 4
+  %2266 = icmp samesign ult i64 %2258, 4
   br i1 %2266, label %.loopexit204.us, label %.preheader203.us, !llvm.loop !24
 
 .loopexit204.us:                                  ; preds = %.preheader203.us, %2248, %2244
@@ -3528,7 +3528,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2284 = and i64 %2283, 1
   %2285 = icmp eq i64 %2284, 0
   %2286 = select i1 %2285, double 1.000000e+00, double %2281
-  %2287 = icmp ult i32 %2282, 2
+  %2287 = icmp samesign ult i32 %2282, 2
   br i1 %2287, label %.loopexit184.us, label %.preheader183.us
 
 .preheader183.us:                                 ; preds = %2279, %.preheader183.us
@@ -3541,7 +3541,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2294 = icmp eq i64 %2293, 0
   %2295 = select i1 %2294, double 1.000000e+00, double %2292
   %2296 = fmul double %2288, %2295
-  %2297 = icmp ult i64 %2289, 4
+  %2297 = icmp samesign ult i64 %2289, 4
   br i1 %2297, label %.loopexit184.us, label %.preheader183.us, !llvm.loop !24
 
 .loopexit184.us:                                  ; preds = %.preheader183.us, %2279, %2272
@@ -3578,7 +3578,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2317 = and i64 %2316, 1
   %2318 = icmp eq i64 %2317, 0
   %2319 = select i1 %2318, double 1.000000e+00, double %2314
-  %2320 = icmp ult i32 %2315, 2
+  %2320 = icmp samesign ult i32 %2315, 2
   br i1 %2320, label %.loopexit202.us, label %.preheader201.us
 
 .preheader201.us:                                 ; preds = %2312, %.preheader201.us
@@ -3591,7 +3591,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2327 = icmp eq i64 %2326, 0
   %2328 = select i1 %2327, double 1.000000e+00, double %2325
   %2329 = fmul double %2321, %2328
-  %2330 = icmp ult i64 %2322, 4
+  %2330 = icmp samesign ult i64 %2322, 4
   br i1 %2330, label %.loopexit202.us, label %.preheader201.us, !llvm.loop !24
 
 .loopexit202.us:                                  ; preds = %.preheader201.us, %2312, %2307
@@ -3612,7 +3612,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2341 = and i64 %2340, 1
   %2342 = icmp eq i64 %2341, 0
   %2343 = select i1 %2342, double 1.000000e+00, double %2338
-  %2344 = icmp ult i32 %2339, 2
+  %2344 = icmp samesign ult i32 %2339, 2
   br i1 %2344, label %.loopexit200.us, label %.preheader199.us
 
 .preheader199.us:                                 ; preds = %2336, %.preheader199.us
@@ -3625,7 +3625,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2351 = icmp eq i64 %2350, 0
   %2352 = select i1 %2351, double 1.000000e+00, double %2349
   %2353 = fmul double %2345, %2352
-  %2354 = icmp ult i64 %2346, 4
+  %2354 = icmp samesign ult i64 %2346, 4
   br i1 %2354, label %.loopexit200.us, label %.preheader199.us, !llvm.loop !24
 
 .loopexit200.us:                                  ; preds = %.preheader199.us, %2336, %.loopexit202.us
@@ -3800,7 +3800,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2454 = and i64 %2453, 1
   %2455 = icmp eq i64 %2454, 0
   %2456 = select i1 %2455, double 1.000000e+00, double %2451
-  %2457 = icmp ult i32 %2452, 2
+  %2457 = icmp samesign ult i32 %2452, 2
   br i1 %2457, label %.loopexit195.us, label %.preheader194.us
 
 .preheader194.us:                                 ; preds = %2449, %.preheader194.us
@@ -3813,7 +3813,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2464 = icmp eq i64 %2463, 0
   %2465 = select i1 %2464, double 1.000000e+00, double %2462
   %2466 = fmul double %2458, %2465
-  %2467 = icmp ult i64 %2459, 4
+  %2467 = icmp samesign ult i64 %2459, 4
   br i1 %2467, label %.loopexit195.us, label %.preheader194.us, !llvm.loop !24
 
 .loopexit195.us:                                  ; preds = %.preheader194.us, %2449, %2445
@@ -3846,7 +3846,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2485 = and i64 %2484, 1
   %2486 = icmp eq i64 %2485, 0
   %2487 = select i1 %2486, double 1.000000e+00, double %2482
-  %2488 = icmp ult i32 %2483, 2
+  %2488 = icmp samesign ult i32 %2483, 2
   br i1 %2488, label %.loopexit182.us, label %.preheader181.us
 
 .preheader181.us:                                 ; preds = %2480, %.preheader181.us
@@ -3859,7 +3859,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2495 = icmp eq i64 %2494, 0
   %2496 = select i1 %2495, double 1.000000e+00, double %2493
   %2497 = fmul double %2489, %2496
-  %2498 = icmp ult i64 %2490, 4
+  %2498 = icmp samesign ult i64 %2490, 4
   br i1 %2498, label %.loopexit182.us, label %.preheader181.us, !llvm.loop !24
 
 .loopexit182.us:                                  ; preds = %.preheader181.us, %2480, %2473
@@ -3896,7 +3896,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2518 = and i64 %2517, 1
   %2519 = icmp eq i64 %2518, 0
   %2520 = select i1 %2519, double 1.000000e+00, double %2515
-  %2521 = icmp ult i32 %2516, 2
+  %2521 = icmp samesign ult i32 %2516, 2
   br i1 %2521, label %.loopexit193.us, label %.preheader192.us
 
 .preheader192.us:                                 ; preds = %2513, %.preheader192.us
@@ -3909,7 +3909,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2528 = icmp eq i64 %2527, 0
   %2529 = select i1 %2528, double 1.000000e+00, double %2526
   %2530 = fmul double %2522, %2529
-  %2531 = icmp ult i64 %2523, 4
+  %2531 = icmp samesign ult i64 %2523, 4
   br i1 %2531, label %.loopexit193.us, label %.preheader192.us, !llvm.loop !24
 
 .loopexit193.us:                                  ; preds = %.preheader192.us, %2513, %2508
@@ -3930,7 +3930,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2542 = and i64 %2541, 1
   %2543 = icmp eq i64 %2542, 0
   %2544 = select i1 %2543, double 1.000000e+00, double %2539
-  %2545 = icmp ult i32 %2540, 2
+  %2545 = icmp samesign ult i32 %2540, 2
   br i1 %2545, label %.loopexit191.us, label %.preheader190.us
 
 .preheader190.us:                                 ; preds = %2537, %.preheader190.us
@@ -3943,7 +3943,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2552 = icmp eq i64 %2551, 0
   %2553 = select i1 %2552, double 1.000000e+00, double %2550
   %2554 = fmul double %2546, %2553
-  %2555 = icmp ult i64 %2547, 4
+  %2555 = icmp samesign ult i64 %2547, 4
   br i1 %2555, label %.loopexit191.us, label %.preheader190.us, !llvm.loop !24
 
 .loopexit191.us:                                  ; preds = %.preheader190.us, %2537, %.loopexit193.us

@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1
   store i32 %2, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store i32 1000, ptr %28, align 8
-  %29 = icmp ult i32 %2, 6
+  %29 = icmp samesign ult i32 %2, 6
   %30 = add nsw i32 %2, -5
   %31 = shl nuw nsw i32 1, %30
   %32 = select i1 %29, i32 1, i32 %31
@@ -1596,7 +1596,7 @@ Abc_NodeSuperChoiceLut.exit.thread153:            ; preds = %.critedge2.i, %Abc_
   %662 = lshr i32 %.sink298, 12
   %663 = load i32, ptr %118, align 4
   %664 = lshr i32 %663, 12
-  %.not112 = icmp ult i32 %662, %664
+  %.not112 = icmp samesign ult i32 %662, %664
   br i1 %.not112, label %666, label %665
 
 665:                                              ; preds = %Abc_NodeSuperChoiceLut.exit.thread153

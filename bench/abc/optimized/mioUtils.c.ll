@@ -1889,11 +1889,11 @@ define range(i32 -1, 2) i32 @Mio_AreaCompare(ptr nocapture noundef readonly %0, 
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 28
-  %9 = icmp ult i32 %5, %8
+  %9 = icmp samesign ult i32 %5, %8
   br i1 %9, label %28, label %10
 
 10:                                               ; preds = %2
-  %11 = icmp ugt i32 %5, %8
+  %11 = icmp samesign ugt i32 %5, %8
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %10
@@ -1935,11 +1935,11 @@ define range(i32 -1, 2) i32 @Mio_AreaCompare2(ptr nocapture noundef readonly %0,
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 28
-  %9 = icmp ult i32 %5, %8
+  %9 = icmp samesign ult i32 %5, %8
   br i1 %9, label %26, label %10
 
 10:                                               ; preds = %2
-  %11 = icmp ugt i32 %5, %8
+  %11 = icmp samesign ugt i32 %5, %8
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %10

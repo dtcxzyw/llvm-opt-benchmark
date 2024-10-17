@@ -79,7 +79,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = getelementptr inbounds i8, ptr %0, i64 232
-  %17 = icmp ult i8 %1, 2
+  %17 = icmp samesign ult i8 %1, 2
   %18 = getelementptr i8, ptr %2, i64 1
   %19 = getelementptr i8, ptr %2, i64 2
   br label %20
@@ -100,7 +100,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %25 = call i32 @__SCT__might_resched() #8
   %26 = load i8, ptr %11, align 1
   %27 = zext i8 %26 to i32
-  %28 = icmp ugt i32 %13, %27
+  %28 = icmp samesign ugt i32 %13, %27
   br i1 %28, label %29, label %44
 
 29:                                               ; preds = %20
@@ -110,7 +110,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %30 = call i64 @prepare_to_wait_event(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 2) #8
   %31 = load i8, ptr %11, align 1
   %32 = zext i8 %31 to i32
-  %.not = icmp ugt i32 %13, %32
+  %.not = icmp samesign ugt i32 %13, %32
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
@@ -119,7 +119,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %35 = call i64 @prepare_to_wait_event(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 2) #8
   %36 = load i8, ptr %11, align 1
   %37 = zext i8 %36 to i32
-  %38 = icmp ule i32 %13, %37
+  %38 = icmp samesign ule i32 %13, %37
   %39 = icmp eq i64 %34, 0
   %40 = select i1 %38, i1 %39, i1 false
   %41 = select i1 %40, i64 1, i64 %34
@@ -244,7 +244,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cypress_init(ptr noundef %0) loc
   store i32 %26, ptr %12, align 4
   %27 = lshr i8 %24, 7
   %28 = getelementptr inbounds i8, ptr %12, i64 44
-  %29 = icmp ugt i8 %25, 10
+  %29 = icmp samesign ugt i8 %25, 10
   %30 = select i1 %29, i8 0, i8 %27
   %31 = zext nneg i8 %30 to i32
   store i32 %31, ptr %28, align 4

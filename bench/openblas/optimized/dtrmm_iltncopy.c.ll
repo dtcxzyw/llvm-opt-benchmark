@@ -48,18 +48,18 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %46 = getelementptr inbounds double, ptr %2, i64 %4
   %47 = shl nsw i64 %3, 4
   %48 = icmp eq i64 %13, 1
-  %49 = icmp ugt i64 %13, 2
-  %50 = icmp ugt i64 %13, 3
-  %51 = icmp ugt i64 %13, 4
-  %52 = icmp ugt i64 %13, 5
-  %53 = icmp ugt i64 %13, 6
-  %54 = icmp ugt i64 %13, 7
-  %55 = icmp ugt i64 %13, 8
-  %56 = icmp ugt i64 %13, 9
-  %57 = icmp ugt i64 %13, 10
-  %58 = icmp ugt i64 %13, 11
-  %59 = icmp ugt i64 %13, 12
-  %60 = icmp ugt i64 %13, 13
+  %49 = icmp samesign ugt i64 %13, 2
+  %50 = icmp samesign ugt i64 %13, 3
+  %51 = icmp samesign ugt i64 %13, 4
+  %52 = icmp samesign ugt i64 %13, 5
+  %53 = icmp samesign ugt i64 %13, 6
+  %54 = icmp samesign ugt i64 %13, 7
+  %55 = icmp samesign ugt i64 %13, 8
+  %56 = icmp samesign ugt i64 %13, 9
+  %57 = icmp samesign ugt i64 %13, 10
+  %58 = icmp samesign ugt i64 %13, 11
+  %59 = icmp samesign ugt i64 %13, 12
+  %60 = icmp samesign ugt i64 %13, 13
   %61 = icmp eq i64 %13, 15
   %62 = and i64 %0, -16
   %63 = add i64 %4, %62
@@ -2081,7 +2081,7 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1563 = getelementptr inbounds i8, ptr %1471, i64 120
   store double %1562, ptr %1563, align 8, !tbaa !3
   %1564 = getelementptr inbounds i8, ptr %1471, i64 128
-  %1565 = icmp ugt i64 %1480, 2
+  %1565 = icmp samesign ugt i64 %1480, 2
   br i1 %1565, label %1566, label %.thread74
 
 1566:                                             ; preds = %1542
@@ -2137,7 +2137,7 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1601 = getelementptr inbounds i8, ptr %1471, i64 248
   store double %1600, ptr %1601, align 8, !tbaa !3
   %1602 = getelementptr inbounds i8, ptr %1471, i64 256
-  %1603 = icmp ugt i64 %1480, 4
+  %1603 = icmp samesign ugt i64 %1480, 4
   br i1 %1603, label %1604, label %.thread74
 
 1604:                                             ; preds = %1586

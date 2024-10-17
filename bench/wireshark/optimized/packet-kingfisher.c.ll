@@ -364,7 +364,7 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
   %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %101, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %80, ptr noundef nonnull @.str.103, i32 noundef %83, i32 noundef %80, ptr noundef nonnull %102) #2
   %104 = load i32, ptr @hf_kingfisher_function, align 4
   %105 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %104, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.103, i32 noundef %24, i32 noundef %24, ptr noundef %76) #2
-  %106 = icmp ult i32 %75, %29
+  %106 = icmp samesign ult i32 %75, %29
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %74

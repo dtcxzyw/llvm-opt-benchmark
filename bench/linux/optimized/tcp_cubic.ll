@@ -330,7 +330,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %122 = getelementptr inbounds i8, ptr %0, i64 1284
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %121, %124
+  %125 = icmp samesign ult i64 %121, %124
   %126 = sub nsw i64 %124, %121
   %127 = sub nsw i64 %121, %124
   %128 = select i1 %125, i64 %126, i64 %127

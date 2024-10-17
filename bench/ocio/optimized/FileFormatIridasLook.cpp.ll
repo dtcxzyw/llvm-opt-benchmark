@@ -898,7 +898,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.i:        ; preds = %_ZNSt6vectorIfSaIfE
   %conv26.i = zext i32 %inc.i26 to i64
   %call28.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_lutString.i) #22
   %div12.i = lshr i64 %call28.i, 3
-  %cmp29.i = icmp ugt i64 %div12.i, %conv26.i
+  %cmp29.i = icmp samesign ugt i64 %div12.i, %conv26.i
   br i1 %cmp29.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !6
 
 for.end.i.loopexit:                               ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i

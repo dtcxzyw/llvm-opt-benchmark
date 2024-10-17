@@ -419,7 +419,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.i2363 = sub <4 x i32> %50, %49
   store <4 x i32> %sub.i2363, ptr %add.ptr124, align 1
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 4
-  %cmp52 = icmp ult i64 %indvars.iv.next900, %24
+  %cmp52 = icmp samesign ult i64 %indvars.iv.next900, %24
   br i1 %cmp52, label %for.body, label %if.end1054.loopexit, !llvm.loop !8
 
 if.else:                                          ; preds = %if.then4
@@ -547,7 +547,7 @@ for.body187:                                      ; preds = %for.body187.lr.ph, 
   %sub.i2360 = sub <4 x i32> %97, %96
   store <4 x i32> %sub.i2360, ptr %add.ptr257, align 1
   %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 4
-  %cmp186 = icmp ult i64 %indvars.iv.next897, %73
+  %cmp186 = icmp samesign ult i64 %indvars.iv.next897, %73
   br i1 %cmp186, label %for.body187, label %if.end1054.loopexit853, !llvm.loop !9
 
 if.else265:                                       ; preds = %if.then2
@@ -669,7 +669,7 @@ for.body321:                                      ; preds = %for.body321.lr.ph, 
   %sub.i2357 = sub <4 x i32> %140, %139
   store <4 x i32> %sub.i2357, ptr %add.ptr385, align 1
   %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 4
-  %cmp320 = icmp ult i64 %indvars.iv.next894, %118
+  %cmp320 = icmp samesign ult i64 %indvars.iv.next894, %118
   br i1 %cmp320, label %for.body321, label %if.end1054.loopexit854, !llvm.loop !10
 
 if.else393:                                       ; preds = %if.else265
@@ -777,7 +777,7 @@ for.body442:                                      ; preds = %for.body442.lr.ph, 
   %sub.i2354 = sub <4 x i32> %179, %178
   store <4 x i32> %sub.i2354, ptr %add.ptr500, align 1
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 4
-  %cmp441 = icmp ult i64 %indvars.iv.next891, %159
+  %cmp441 = icmp samesign ult i64 %indvars.iv.next891, %159
   br i1 %cmp441, label %for.body442, label %if.end1054.loopexit855, !llvm.loop !11
 
 if.else510:                                       ; preds = %if.then
@@ -887,7 +887,7 @@ for.body560:                                      ; preds = %for.body560.lr.ph, 
   %sub.i2351 = sub <4 x i32> %214, %213
   store <4 x i32> %sub.i2351, ptr %add.ptr612, align 1
   %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 4
-  %cmp559 = icmp ult i64 %indvars.iv.next888, %196
+  %cmp559 = icmp samesign ult i64 %indvars.iv.next888, %196
   br i1 %cmp559, label %for.body560, label %if.end1054.loopexit856, !llvm.loop !12
 
 if.else620:                                       ; preds = %if.then514
@@ -975,7 +975,7 @@ for.body659:                                      ; preds = %for.body659.lr.ph, 
   %sub.i2348 = sub <4 x i32> %245, %244
   store <4 x i32> %sub.i2348, ptr %add.ptr705, align 1
   %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 4
-  %cmp658 = icmp ult i64 %indvars.iv.next885, %229
+  %cmp658 = icmp samesign ult i64 %indvars.iv.next885, %229
   br i1 %cmp658, label %for.body659, label %if.end1054.loopexit857, !llvm.loop !13
 
 if.else714:                                       ; preds = %if.then512
@@ -1057,7 +1057,7 @@ for.body750:                                      ; preds = %for.body750.lr.ph, 
   %sub.i2345 = sub <4 x i32> %272, %271
   store <4 x i32> %sub.i2345, ptr %add.ptr790, align 1
   %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 4
-  %cmp749 = icmp ult i64 %indvars.iv.next882, %258
+  %cmp749 = icmp samesign ult i64 %indvars.iv.next882, %258
   br i1 %cmp749, label %for.body750, label %if.end1054.loopexit858, !llvm.loop !14
 
 if.else798:                                       ; preds = %if.else714
@@ -1125,7 +1125,7 @@ for.body827:                                      ; preds = %for.body827.lr.ph, 
   %sub.i2342 = sub <4 x i32> %295, %294
   store <4 x i32> %sub.i2342, ptr %add.ptr861, align 1
   %indvars.iv.next879 = add nuw nsw i64 %indvars.iv878, 4
-  %cmp826 = icmp ult i64 %indvars.iv.next879, %283
+  %cmp826 = icmp samesign ult i64 %indvars.iv.next879, %283
   br i1 %cmp826, label %for.body827, label %if.end1054.loopexit859, !llvm.loop !15
 
 if.else871:                                       ; preds = %if.else510
@@ -1191,7 +1191,7 @@ for.body899:                                      ; preds = %for.body899.lr.ph, 
   %sub.i2339 = sub <4 x i32> %314, %313
   store <4 x i32> %sub.i2339, ptr %add.ptr927, align 1
   %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 4
-  %cmp898 = icmp ult i64 %indvars.iv.next876, %304
+  %cmp898 = icmp samesign ult i64 %indvars.iv.next876, %304
   br i1 %cmp898, label %for.body899, label %if.end1054.loopexit860, !llvm.loop !16
 
 if.else935:                                       ; preds = %if.then873
@@ -1239,7 +1239,7 @@ for.body954:                                      ; preds = %for.body954.lr.ph, 
   %sub.i2336 = sub <4 x i32> %329, %328
   store <4 x i32> %sub.i2336, ptr %add.ptr976, align 1
   %indvars.iv.next873 = add nuw nsw i64 %indvars.iv872, 4
-  %cmp953 = icmp ult i64 %indvars.iv.next873, %321
+  %cmp953 = icmp samesign ult i64 %indvars.iv.next873, %321
   br i1 %cmp953, label %for.body954, label %if.end1054.loopexit861, !llvm.loop !17
 
 if.else985:                                       ; preds = %if.else871
@@ -1281,7 +1281,7 @@ for.body1001:                                     ; preds = %for.body1001.lr.ph,
   %sub.i2333 = sub <4 x i32> %340, %339
   store <4 x i32> %sub.i2333, ptr %add.ptr1017, align 1
   %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 4
-  %cmp1000 = icmp ult i64 %indvars.iv.next870, %334
+  %cmp1000 = icmp samesign ult i64 %indvars.iv.next870, %334
   br i1 %cmp1000, label %for.body1001, label %if.end1054.loopexit862, !llvm.loop !18
 
 if.else1025:                                      ; preds = %if.else985
@@ -1309,7 +1309,7 @@ for.body1034:                                     ; preds = %for.body1034.lr.ph,
   %sub.i = sub <4 x i32> %347, %346
   store <4 x i32> %sub.i, ptr %add.ptr1043, align 1
   %indvars.iv.next867 = add nuw nsw i64 %indvars.iv866, 4
-  %cmp1033 = icmp ult i64 %indvars.iv.next867, %343
+  %cmp1033 = icmp samesign ult i64 %indvars.iv.next867, %343
   br i1 %cmp1033, label %for.body1034, label %if.end1054.loopexit863, !llvm.loop !19
 
 if.end1054.loopexit:                              ; preds = %for.body

@@ -202,7 +202,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   br label %utrie2_set32_75.exit
 
 utrie2_set32_75.exit:                             ; preds = %for.body120, %if.then.i.i, %if.then2.i.i, %if.end3.i.i
-  %cmp119 = icmp ult i32 %i.11110, 2016
+  %cmp119 = icmp samesign ult i32 %i.11110, 2016
   br i1 %cmp119, label %for.body120thread-pre-split, label %return, !llvm.loop !13
 
 return:                                           ; preds = %utrie2_set32_75.exit, %for.cond118.preheader, %entry, %if.then7
@@ -2109,7 +2109,7 @@ while.body.i:                                     ; preds = %if.then25, %while.b
   %block.addr.012.i.ptr = getelementptr inbounds i8, ptr %add.ptr30, i64 %block.addr.012.i.idx
   %block.addr.012.i.add = add nuw nsw i64 %block.addr.012.i.idx, 4
   store i32 %value, ptr %block.addr.012.i.ptr, align 4
-  %cmp.i84 = icmp ult i64 %block.addr.012.i.idx, 124
+  %cmp.i84 = icmp samesign ult i64 %block.addr.012.i.idx, 124
   br i1 %cmp.i84, label %while.body.i, label %if.end35, !llvm.loop !45
 
 while.body5.i:                                    ; preds = %if.then25, %if.end.i
@@ -2125,7 +2125,7 @@ if.then7.i:                                       ; preds = %while.body5.i
 
 if.end.i:                                         ; preds = %if.then7.i, %while.body5.i
   %block.addr.114.i.add = add nuw nsw i64 %block.addr.114.i.idx, 4
-  %cmp4.i = icmp ult i64 %block.addr.114.i.idx, 124
+  %cmp4.i = icmp samesign ult i64 %block.addr.114.i.idx, 124
   br i1 %cmp4.i, label %while.body5.i, label %if.end35, !llvm.loop !46
 
 if.else:                                          ; preds = %if.end21
@@ -2137,7 +2137,7 @@ if.else:                                          ; preds = %if.end21
   %idx.ext1.i86 = zext nneg i32 %and to i64
   %add.ptr2.i87 = getelementptr inbounds i32, ptr %add.ptr30, i64 %idx.ext1.i86
   %tobool.not.i88 = icmp eq i8 %overwrite, 0
-  %cmp413.i = icmp ult i32 %and, %and32
+  %cmp413.i = icmp samesign ult i32 %and, %and32
   br i1 %tobool.not.i88, label %while.cond3.preheader.i94, label %while.cond.preheader.i89
 
 while.cond.preheader.i89:                         ; preds = %if.else
@@ -2319,7 +2319,7 @@ while.body.i122:                                  ; preds = %if.else65, %while.b
   %block.addr.012.i123.ptr = getelementptr inbounds i8, ptr %add.ptr68, i64 %block.addr.012.i123.idx
   %block.addr.012.i123.add = add nuw nsw i64 %block.addr.012.i123.idx, 4
   store i32 %value, ptr %block.addr.012.i123.ptr, align 4
-  %cmp.i125 = icmp ult i64 %block.addr.012.i123.idx, 124
+  %cmp.i125 = icmp samesign ult i64 %block.addr.012.i123.idx, 124
   br i1 %cmp.i125, label %while.body.i122, label %if.end97, !llvm.loop !45
 
 while.body5.i127:                                 ; preds = %if.else65, %if.end.i130
@@ -2335,7 +2335,7 @@ if.then7.i133:                                    ; preds = %while.body5.i127
 
 if.end.i130:                                      ; preds = %if.then7.i133, %while.body5.i127
   %block.addr.114.i128.add = add nuw nsw i64 %block.addr.114.i128.idx, 4
-  %cmp4.i132 = icmp ult i64 %block.addr.114.i128.idx, 124
+  %cmp4.i132 = icmp samesign ult i64 %block.addr.114.i128.idx, 124
   br i1 %cmp4.i132, label %while.body5.i127, label %if.end97, !llvm.loop !46
 
 if.else71:                                        ; preds = %if.end55, %_ZL15isWritableBlockP9UNewTrie2i.exit
@@ -2396,7 +2396,7 @@ while.body.i145:                                  ; preds = %while.body.i145, %i
   %block.addr.0.ptr.i = getelementptr inbounds i8, ptr %add.ptr95, i64 %block.addr.0.idx3.i
   %block.addr.0.add.i = add nuw nsw i64 %block.addr.0.idx3.i, 4
   store i32 %value, ptr %block.addr.0.ptr.i, align 4
-  %cmp.i146 = icmp ult i64 %block.addr.0.idx3.i, 124
+  %cmp.i146 = icmp samesign ult i64 %block.addr.0.idx3.i, 124
   br i1 %cmp.i146, label %while.body.i145, label %if.end97, !llvm.loop !48
 
 if.end97:                                         ; preds = %while.body.i122, %if.end.i130, %while.body.i145, %if.else71, %_ZL14setIndex2EntryP9UNewTrie2ii.exit

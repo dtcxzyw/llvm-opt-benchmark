@@ -1915,7 +1915,7 @@ if.end27.i:                                       ; preds = %if.else15.i, %if.el
   %incdec.ptr.i = getelementptr inbounds i8, ptr %string.addr.2, i64 1
   %6 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i11 = icmp ne i8 %6, 0
-  %cmp1.i = icmp ult i32 %noDigits.021.i, 3
+  %cmp1.i = icmp samesign ult i32 %noDigits.021.i, 3
   %7 = select i1 %cmp.i11, i1 %cmp1.i, i1 false
   br i1 %7, label %while.body.i, label %while.end.i, !llvm.loop !12
 
@@ -1936,7 +1936,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %while.end.i, %retur
   store i16 %retval.0.i, ptr %arrayidx, align 2
   %8 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %8, 1
-  %cmp = icmp ult i64 %indvars.iv, 31
+  %cmp = icmp samesign ult i64 %indvars.iv, 31
   %or.cond = select i1 %cmp.i, i1 %cmp, i1 false
   br i1 %or.cond, label %land.lhs.true2, label %while.end, !llvm.loop !13
 
@@ -1998,7 +1998,7 @@ if.end27.i26:                                     ; preds = %if.else15.i21, %if.
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %string.addr.5, i64 1
   %17 = load i8, ptr %incdec.ptr.i32, align 1
   %cmp.i33 = icmp ne i8 %17, 0
-  %cmp1.i34 = icmp ult i32 %noDigits.021.i15, 3
+  %cmp1.i34 = icmp samesign ult i32 %noDigits.021.i15, 3
   %18 = select i1 %cmp.i33, i1 %cmp1.i34, i1 false
   br i1 %18, label %while.body.i14, label %while.end.i35, !llvm.loop !12
 

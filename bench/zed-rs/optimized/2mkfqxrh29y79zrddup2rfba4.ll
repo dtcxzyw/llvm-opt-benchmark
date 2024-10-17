@@ -851,7 +851,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = udiv exact i64 %27, 56
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h779e84c2332e27a5E.exit.i"
 
 30:                                               ; preds = %19
@@ -963,7 +963,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd20e4211c01c96faE.exit.i"
 
 21:                                               ; preds = %16

@@ -640,7 +640,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h12429eece92bfea1E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h12429eece92bfea1E.exit": ; preds = %.critedge.i, %157
-  %166 = icmp ugt i64 %143, 1
+  %166 = icmp samesign ugt i64 %143, 1
   %167 = icmp eq i64 %131, %.sroa.0.0.i
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %169, label %168
@@ -1027,7 +1027,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd50986086b260d66E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd50986086b260d66E.exit": ; preds = %.critedge.i, %149
-  %158 = icmp ugt i64 %135, 1
+  %158 = icmp samesign ugt i64 %135, 1
   %159 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %158, i1 true, i1 %159
   br i1 %or.cond, label %161, label %160
@@ -13761,7 +13761,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$http..request..Builder..uri
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr108drop_in_place$LT$http..request..Builder..method$LT$http..method..Method$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a87f2b7f0014e9eE.llvm.508871978467108173"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !1902, !alias.scope !1903, !noundef !4
-  %switch.i.i = icmp ult i8 %2, 10
+  %switch.i.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h0ac304b92125098dE.exit", label %3
 
 3:                                                ; preds = %1
@@ -16119,7 +16119,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %47 = sub i64 %.sroa.018.0, %46
   %48 = zext i16 %44 to i64
   %49 = and i64 %47, %48
-  %50 = icmp ult i64 %49, %.sroa.012.0.ph
+  %50 = icmp samesign ult i64 %49, %.sroa.012.0.ph
   br i1 %50, label %.noexc50, label %51
 
 51:                                               ; preds = %40
@@ -16334,7 +16334,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
   unreachable
 
 .noexc50:                                         ; preds = %40
-  %143 = icmp ugt i64 %.sroa.012.0.ph, 511
+  %143 = icmp samesign ugt i64 %.sroa.012.0.ph, 511
   %144 = load i64, ptr %0, align 8, !range !62
   %145 = icmp ne i64 %144, 2
   %.sroa.010.0 = select i1 %143, i1 %145, i1 false
@@ -17193,7 +17193,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
 define hidden void @"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17h07086fb61e6c4a38E.llvm.508871978467108173"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(224) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 184
   %5 = load i8, ptr %4, align 8, !range !1902, !alias.scope !2447, !noundef !4
-  %switch.i.i = icmp ult i8 %5, 10
+  %switch.i.i = icmp samesign ult i8 %5, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h0ac304b92125098dE.exit", label %6
 
 6:                                                ; preds = %3
@@ -17413,7 +17413,7 @@ define hidden void @_ZN4http7request7Builder8and_then17h52aa0752524cb82eE(ptr de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2477)
   %8 = getelementptr inbounds i8, ptr %4, i64 184
   %9 = load i8, ptr %8, align 8, !range !1902, !alias.scope !2480, !noalias !2486, !noundef !4
-  %switch.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i, label %"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17h07086fb61e6c4a38E.llvm.508871978467108173.exit", label %10
 
 10:                                               ; preds = %7
@@ -17454,7 +17454,7 @@ define hidden void @_ZN4http7request7Builder8and_then17h52aa0752524cb82eE(ptr de
 
 17:                                               ; preds = %3
   %18 = load i8, ptr %5, align 8, !range !1902, !alias.scope !2490, !noundef !4
-  %switch.i.i.i10 = icmp ult i8 %18, 10
+  %switch.i.i.i10 = icmp samesign ult i8 %18, 10
   br i1 %switch.i.i.i10, label %"_ZN4core3ptr108drop_in_place$LT$http..request..Builder..method$LT$http..method..Method$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a87f2b7f0014e9eE.llvm.508871978467108173.exit", label %19
 
 19:                                               ; preds = %17

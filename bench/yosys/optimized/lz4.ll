@@ -707,7 +707,7 @@ _ZL9LZ4_countPKhS0_S0_.exit340:                   ; preds = %252, %270, %272
 ._crit_edge418:                                   ; preds = %.lr.ph417.preheader, %291
   %.5252.lcssa = phi ptr [ %159, %291 ], [ %scevgep481, %.lr.ph417.preheader ]
   %.1224.lcssa = phi i32 [ %293, %291 ], [ %300, %.lr.ph417.preheader ]
-  %301 = icmp ugt i32 %.1224.lcssa, 254
+  %301 = icmp samesign ugt i32 %.1224.lcssa, 254
   br i1 %301, label %302, label %305
 
 302:                                              ; preds = %._crit_edge418

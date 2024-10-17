@@ -1453,12 +1453,12 @@ if.then.i:                                        ; preds = %for.body.i
   call void %17(ptr noundef nonnull %dec.i, i32 noundef %isa) #12
   %18 = load i16, ptr %op.i, align 8
   %cmp10.not.i = icmp eq i16 %18, 0
-  %cmp.i = icmp ult i64 %i.068.i, 12
+  %cmp.i = icmp samesign ult i64 %i.068.i, 12
   %or.cond69.i = and i1 %cmp.i, %cmp10.not.i
   br i1 %or.cond69.i, label %for.body.backedge.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %cmp.old.i = icmp ult i64 %i.068.i, 12
+  %cmp.old.i = icmp samesign ult i64 %i.068.i, 12
   br i1 %cmp.old.i, label %for.body.backedge.i, label %for.inc.for.end_crit_edge.i
 
 for.inc.for.end_crit_edge.i:                      ; preds = %for.inc.i
@@ -2840,7 +2840,7 @@ sw.bb561.i.i:                                     ; preds = %if.end20.i
   %343 = trunc i64 %21 to i32
   %344 = lshr i32 %343, 7
   %conv.i699.i.i = and i32 %344, 7
-  %cmp.i.i700.i.i = icmp ult i32 %conv.i699.i.i, 2
+  %cmp.i.i700.i.i = icmp samesign ult i32 %conv.i699.i.i, 2
   %cond.v.i.i.i.i = select i1 %cmp.i.i700.i.i, i32 8, i32 16
   %cond.i.i701.i.i = or disjoint i32 %cond.v.i.i.i.i, %conv.i699.i.i
   %conv563.i.i = trunc nuw nsw i32 %cond.i.i701.i.i to i8
@@ -2848,7 +2848,7 @@ sw.bb561.i.i:                                     ; preds = %if.end20.i
   store i8 %conv563.i.i, ptr %rd564.i.i, align 1
   %345 = lshr i32 %343, 2
   %conv.i702.i.i = and i32 %345, 7
-  %cmp.i.i703.i.i = icmp ult i32 %conv.i702.i.i, 2
+  %cmp.i.i703.i.i = icmp samesign ult i32 %conv.i702.i.i, 2
   %cond.v.i.i704.i.i = select i1 %cmp.i.i703.i.i, i32 8, i32 16
   %cond.i.i705.i.i = or disjoint i32 %cond.v.i.i704.i.i, %conv.i702.i.i
   %conv566.i.i = trunc nuw nsw i32 %cond.i.i705.i.i to i8
@@ -5017,7 +5017,7 @@ sw.bb79:                                          ; preds = %sw.bb68
 sw.bb80:                                          ; preds = %sw.bb68
   %shr81 = lshr i64 %0, 2
   %and82 = and i64 %shr81, 7
-  %5 = icmp ult i64 %and82, 6
+  %5 = icmp samesign ult i64 %and82, 6
   br i1 %5, label %switch.lookup, label %sw.epilog1655
 
 sw.bb92:                                          ; preds = %sw.bb42
@@ -5416,7 +5416,7 @@ sw.bb303:                                         ; preds = %sw.epilog292
 sw.bb306:                                         ; preds = %sw.bb202
   %shr307 = lshr i64 %0, 12
   %and308 = and i64 %shr307, 7
-  %30 = icmp ult i64 %and308, 3
+  %30 = icmp samesign ult i64 %and308, 3
   br i1 %30, label %switch.lookup363, label %sw.epilog1655
 
 sw.bb313:                                         ; preds = %sw.bb202
@@ -5459,7 +5459,7 @@ sw.bb321:                                         ; preds = %sw.bb317
 sw.bb326:                                         ; preds = %sw.bb317
   %shr327 = lshr i64 %0, 20
   %and328 = and i64 %shr327, 127
-  %32 = icmp ult i64 %and328, 10
+  %32 = icmp samesign ult i64 %and328, 10
   br i1 %32, label %switch.lookup364, label %sw.epilog1655
 
 sw.bb340:                                         ; preds = %sw.bb317
@@ -5485,7 +5485,7 @@ sw.bb353:                                         ; preds = %sw.bb317
 sw.bb354:                                         ; preds = %sw.bb317
   %shr355 = lshr i64 %0, 20
   %and356 = and i64 %shr355, 127
-  %35 = icmp ult i64 %and356, 6
+  %35 = icmp samesign ult i64 %and356, 6
   br i1 %35, label %switch.lookup367, label %sw.epilog1655
 
 sw.bb364:                                         ; preds = %sw.bb313
@@ -5588,7 +5588,7 @@ sw.bb400:                                         ; preds = %sw.bb396
 sw.bb401:                                         ; preds = %sw.bb396
   %shr402 = lshr i64 %0, 20
   %and403 = and i64 %shr402, 31
-  %37 = icmp ult i64 %and403, 3
+  %37 = icmp samesign ult i64 %and403, 3
   br i1 %37, label %switch.lookup370, label %sw.epilog1655
 
 sw.bb409:                                         ; preds = %sw.bb392
@@ -5612,7 +5612,7 @@ sw.bb414:                                         ; preds = %sw.bb409
 sw.bb417:                                         ; preds = %sw.bb202
   %shr418 = lshr i64 %0, 12
   %and419 = and i64 %shr418, 7
-  %38 = icmp ult i64 %and419, 5
+  %38 = icmp samesign ult i64 %and419, 5
   br i1 %38, label %switch.lookup373, label %sw.epilog1655
 
 sw.bb426:                                         ; preds = %sw.bb202
@@ -6348,31 +6348,31 @@ sw.bb689:                                         ; preds = %sw.bb675
 sw.bb690:                                         ; preds = %sw.bb675
   %shr691 = lshr i64 %0, 12
   %and692 = and i64 %shr691, 7
-  %55 = icmp ult i64 %and692, 3
+  %55 = icmp samesign ult i64 %and692, 3
   br i1 %55, label %switch.lookup399, label %sw.epilog1655
 
 sw.bb697:                                         ; preds = %sw.bb675
   %shr698 = lshr i64 %0, 12
   %and699 = and i64 %shr698, 7
-  %56 = icmp ult i64 %and699, 3
+  %56 = icmp samesign ult i64 %and699, 3
   br i1 %56, label %switch.lookup402, label %sw.epilog1655
 
 sw.bb704:                                         ; preds = %sw.bb675
   %shr705 = lshr i64 %0, 12
   %and706 = and i64 %shr705, 7
-  %57 = icmp ult i64 %and706, 3
+  %57 = icmp samesign ult i64 %and706, 3
   br i1 %57, label %switch.lookup405, label %sw.epilog1655
 
 sw.bb711:                                         ; preds = %sw.bb675
   %shr712 = lshr i64 %0, 12
   %and713 = and i64 %shr712, 7
-  %58 = icmp ult i64 %and713, 4
+  %58 = icmp samesign ult i64 %and713, 4
   br i1 %58, label %switch.lookup408, label %sw.epilog1655
 
 sw.bb719:                                         ; preds = %sw.bb675
   %shr720 = lshr i64 %0, 12
   %and721 = and i64 %shr720, 7
-  %59 = icmp ult i64 %and721, 4
+  %59 = icmp samesign ult i64 %and721, 4
   br i1 %59, label %switch.lookup412, label %sw.epilog1655
 
 sw.bb727:                                         ; preds = %sw.bb675
@@ -6387,7 +6387,7 @@ sw.bb727:                                         ; preds = %sw.bb675
 sw.bb733:                                         ; preds = %sw.bb675
   %shr734 = lshr i64 %0, 12
   %and735 = and i64 %shr734, 7
-  %60 = icmp ult i64 %and735, 4
+  %60 = icmp samesign ult i64 %and735, 4
   br i1 %60, label %switch.lookup416, label %sw.epilog1655
 
 sw.bb741:                                         ; preds = %sw.bb675
@@ -6400,7 +6400,7 @@ sw.bb741:                                         ; preds = %sw.bb675
 sw.bb750:                                         ; preds = %sw.bb675
   %shr751 = lshr i64 %0, 20
   %and752 = and i64 %shr751, 31
-  %62 = icmp ult i64 %and752, 6
+  %62 = icmp samesign ult i64 %and752, 6
   br i1 %62, label %switch.lookup424, label %sw.epilog1655
 
 sw.bb758:                                         ; preds = %sw.bb675
@@ -6413,7 +6413,7 @@ sw.bb758:                                         ; preds = %sw.bb675
 sw.bb765:                                         ; preds = %sw.bb675
   %shr766 = lshr i64 %0, 20
   %and767 = and i64 %shr766, 31
-  %64 = icmp ult i64 %and767, 6
+  %64 = icmp samesign ult i64 %and767, 6
   br i1 %64, label %switch.lookup431, label %sw.epilog1655
 
 sw.bb773:                                         ; preds = %sw.bb675
@@ -6437,13 +6437,13 @@ sw.bb783:                                         ; preds = %sw.bb675
 sw.bb788:                                         ; preds = %sw.bb675
   %shr789 = lshr i64 %0, 12
   %and790 = and i64 %shr789, 7
-  %68 = icmp ult i64 %and790, 6
+  %68 = icmp samesign ult i64 %and790, 6
   br i1 %68, label %switch.lookup434, label %sw.epilog1655
 
 sw.bb797:                                         ; preds = %sw.bb675
   %shr798 = lshr i64 %0, 12
   %and799 = and i64 %shr798, 7
-  %69 = icmp ult i64 %and799, 6
+  %69 = icmp samesign ult i64 %and799, 6
   br i1 %69, label %switch.lookup437, label %sw.epilog1655
 
 sw.bb806:                                         ; preds = %sw.bb675
@@ -6458,7 +6458,7 @@ sw.bb806:                                         ; preds = %sw.bb675
 sw.bb812:                                         ; preds = %sw.bb675
   %shr813 = lshr i64 %0, 12
   %and814 = and i64 %shr813, 7
-  %70 = icmp ult i64 %and814, 6
+  %70 = icmp samesign ult i64 %and814, 6
   br i1 %70, label %switch.lookup440, label %sw.epilog1655
 
 sw.bb821:                                         ; preds = %sw.bb675
@@ -6476,37 +6476,37 @@ sw.bb826:                                         ; preds = %sw.bb675
 sw.bb831:                                         ; preds = %sw.bb675
   %shr832 = lshr i64 %0, 20
   %and833 = and i64 %shr832, 31
-  %73 = icmp ult i64 %and833, 4
+  %73 = icmp samesign ult i64 %and833, 4
   br i1 %73, label %switch.lookup443, label %sw.epilog1655
 
 sw.bb839:                                         ; preds = %sw.bb675
   %shr840 = lshr i64 %0, 20
   %and841 = and i64 %shr840, 31
-  %74 = icmp ult i64 %and841, 9
+  %74 = icmp samesign ult i64 %and841, 9
   br i1 %74, label %switch.lookup447, label %sw.epilog1655
 
 sw.bb848:                                         ; preds = %sw.bb675
   %shr849 = lshr i64 %0, 20
   %and850 = and i64 %shr849, 31
-  %75 = icmp ult i64 %and850, 4
+  %75 = icmp samesign ult i64 %and850, 4
   br i1 %75, label %switch.lookup450, label %sw.epilog1655
 
 sw.bb856:                                         ; preds = %sw.bb675
   %shr857 = lshr i64 %0, 20
   %and858 = and i64 %shr857, 31
-  %76 = icmp ult i64 %and858, 4
+  %76 = icmp samesign ult i64 %and858, 4
   br i1 %76, label %switch.lookup454, label %sw.epilog1655
 
 sw.bb864:                                         ; preds = %sw.bb675
   %shr865 = lshr i64 %0, 20
   %and866 = and i64 %shr865, 31
-  %77 = icmp ult i64 %and866, 4
+  %77 = icmp samesign ult i64 %and866, 4
   br i1 %77, label %switch.lookup458, label %sw.epilog1655
 
 sw.bb872:                                         ; preds = %sw.bb675
   %shr873 = lshr i64 %0, 20
   %and874 = and i64 %shr873, 31
-  %78 = icmp ult i64 %and874, 4
+  %78 = icmp samesign ult i64 %and874, 4
   br i1 %78, label %switch.lookup462, label %sw.epilog1655
 
 sw.bb880:                                         ; preds = %sw.bb675
@@ -6913,7 +6913,7 @@ sw.bb1038:                                        ; preds = %sw.bb1024
 sw.bb1048:                                        ; preds = %sw.bb1024
   %shr1049 = lshr i64 %0, 15
   %and1050 = and i64 %shr1049, 31
-  %84 = icmp ult i64 %and1050, 30
+  %84 = icmp samesign ult i64 %and1050, 30
   br i1 %84, label %switch.lookup466, label %sw.epilog1655
 
 sw.bb1075:                                        ; preds = %sw.bb1024
@@ -7420,7 +7420,7 @@ sw.bb1289:                                        ; preds = %sw.bb1250
 sw.bb1290:                                        ; preds = %sw.bb1250
   %shr1291 = lshr i64 %0, 15
   %and1292 = and i64 %shr1291, 31
-  %100 = icmp ult i64 %and1292, 8
+  %100 = icmp samesign ult i64 %and1292, 8
   br i1 %100, label %switch.lookup473, label %sw.epilog1655
 
 sw.bb1298:                                        ; preds = %sw.bb1250

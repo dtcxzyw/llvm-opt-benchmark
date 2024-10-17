@@ -771,7 +771,7 @@ _print_jag_prec.exit:                             ; preds = %192, %._crit_edge.i
   %307 = phi i32 [ %269, %268 ], [ %.pre229, %274 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %308 = zext i32 %307 to i64
-  %309 = icmp ult i64 %indvars.iv.next, %308
+  %309 = icmp samesign ult i64 %indvars.iv.next, %308
   br i1 %309, label %268, label %._crit_edge210, !llvm.loop !9
 
 ._crit_edge210:                                   ; preds = %306, %_print_jag_prec.exit
@@ -2449,12 +2449,12 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %12, 11
-  %16 = icmp ult i32 %.02332, 100
+  %16 = icmp samesign ult i32 %.02332, 100
   %or.cond = select i1 %15, i1 %16, i1 false
   br i1 %or.cond, label %18, label %.thread
 
 17:                                               ; preds = %11
-  %.old1 = icmp ult i32 %.02332, 100
+  %.old1 = icmp samesign ult i32 %.02332, 100
   br i1 %.old1, label %18, label %.thread
 
 18:                                               ; preds = %14, %17

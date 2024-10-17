@@ -624,7 +624,7 @@ define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias nocapture
   %.0725 = phi i32 [ 0, %4 ], [ %30, %26 ]
   %.01424 = phi i32 [ 0, %4 ], [ %29, %26 ]
   %13 = phi i64 [ %6, %4 ], [ %19, %26 ]
-  %14 = icmp ugt i32 %.0725, 31
+  %14 = icmp samesign ugt i32 %.0725, 31
   br i1 %14, label %.sink.split, label %15
 
 15:                                               ; preds = %12
@@ -697,7 +697,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
   %.0726 = phi i64 [ 0, %6 ], [ %37, %32 ]
   %.01625 = phi i64 [ 0, %6 ], [ %36, %32 ]
   %15 = phi i64 [ %8, %6 ], [ %24, %32 ]
-  %16 = icmp ugt i64 %.0726, 63
+  %16 = icmp samesign ugt i64 %.0726, 63
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
@@ -1240,7 +1240,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   %.0725.i = phi i32 [ 0, %8 ], [ %34, %30 ]
   %.01424.i = phi i32 [ 0, %8 ], [ %33, %30 ]
   %17 = phi i64 [ %10, %8 ], [ %23, %30 ]
-  %18 = icmp ugt i32 %.0725.i, 31
+  %18 = icmp samesign ugt i32 %.0725.i, 31
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %16
@@ -1508,7 +1508,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %.not47 = icmp eq i8 %136, -128
   %spec.select53 = select i1 %.not47, i8 %.486, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %137 = icmp ult i64 %indvars.iv.next, %128
+  %137 = icmp samesign ult i64 %indvars.iv.next, %128
   %138 = trunc nuw i8 %spec.select53 to i1
   %139 = select i1 %137, i1 %138, i1 false
   br i1 %139, label %129, label %._crit_edge, !llvm.loop !67
@@ -1695,7 +1695,7 @@ define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias noca
   %.0725.i = phi i32 [ 0, %6 ], [ %32, %28 ]
   %.01424.i = phi i32 [ 0, %6 ], [ %31, %28 ]
   %15 = phi i64 [ %8, %6 ], [ %21, %28 ]
-  %16 = icmp ugt i32 %.0725.i, 31
+  %16 = icmp samesign ugt i32 %.0725.i, 31
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14

@@ -345,7 +345,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %cmp1 = icmp ult i64 %indvars.iv, 32
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.body
@@ -2562,7 +2562,7 @@ if.else.for.end.loopexit_crit_edge:               ; preds = %if.else
 
 if.end22:                                         ; preds = %if.else, %if.then10
   %obj_s.0 = phi ptr [ %dbuf, %if.then10 ], [ %call17, %if.else ]
-  %cmp23 = icmp ult i64 %indvars.iv, 32
+  %cmp23 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp23, label %land.lhs.true, label %if.end22.if.else41_crit_edge
 
 if.end22.if.else41_crit_edge:                     ; preds = %if.end22

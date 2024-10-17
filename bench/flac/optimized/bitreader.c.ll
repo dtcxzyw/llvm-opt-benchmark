@@ -215,7 +215,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %conv5.i.i = zext i16 %10 to i32
   %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, 56
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 56
   br i1 %cmp.i.i, label %for.body.i.i, label %crc16_update_word_.exit.i, !llvm.loop !4
 
 crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.then.i
@@ -642,7 +642,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %conv5.i.i = zext i16 %9 to i32
   %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, 56
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 56
   br i1 %cmp.i.i, label %for.body.i.i, label %crc16_update_word_.exit.i, !llvm.loop !4
 
 crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.then.i

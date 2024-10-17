@@ -311,7 +311,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_c_jrP11pro
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
 21:                                               ; preds = %19
@@ -375,7 +375,7 @@ define noundef range(i64 0, -1) i64 @_Z15fast_rv64e_c_jrP11processor_t6insn_tm(p
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
 21:                                               ; preds = %19
@@ -437,7 +437,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_c_jrP11p
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
 21:                                               ; preds = %19
@@ -501,7 +501,7 @@ define noundef range(i64 0, -1) i64 @_Z17logged_rv64e_c_jrP11processor_t6insn_tm
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
 21:                                               ; preds = %19

@@ -4804,7 +4804,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2471 = and i8 %2470, 1
   %2472 = getelementptr inbounds i8, ptr %0, i64 150
   store i8 %2471, ptr %2472, align 2
-  %.not3516 = icmp ult i32 %2425, 32768
+  %.not3516 = icmp samesign ult i32 %2425, 32768
   %.in3517.v = select i1 %.not3516, i64 524, i64 636
   %.in3517 = getelementptr inbounds i8, ptr %0, i64 %.in3517.v
   %2473 = load i32, ptr %.in3517, align 4
@@ -5330,7 +5330,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2811 = and i32 %2810, 31
   %2812 = icmp ne i32 %2811, 0
   %2813 = zext i1 %2812 to i8
-  %.not3606.not = icmp ugt i8 %2795, %2813
+  %.not3606.not = icmp samesign ugt i8 %2795, %2813
   br i1 %.not3606.not, label %2814, label %2817
 
 2814:                                             ; preds = %2805
@@ -5346,7 +5346,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2822 = and i32 %2821, 31
   %2823 = icmp ne i32 %2822, 0
   %2824 = zext i1 %2823 to i8
-  %.not3607.not = icmp ugt i8 %2786, %2824
+  %.not3607.not = icmp samesign ugt i8 %2786, %2824
   br i1 %.not3607.not, label %2825, label %2828
 
 2825:                                             ; preds = %2817

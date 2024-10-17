@@ -253,7 +253,7 @@ _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %.lr.ph.i
   %23 = load i32, ptr %6, align 4
   %24 = lshr i32 %23, 3
   %25 = and i32 %24, 63
-  %26 = icmp ult i32 %25, 56
+  %26 = icmp samesign ult i32 %25, 56
   %.v = select i1 %26, i32 56, i32 120
   %27 = sub nsw i32 %.v, %25
   %28 = shl nsw i32 %27, 3
@@ -316,7 +316,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %38, %48
   %62 = zext i1 %60 to i32
   %63 = add i32 %61, %62
   store i32 %63, ptr %31, align 4
-  %.not.i5 = icmp ult i32 %58, 56
+  %.not.i5 = icmp samesign ult i32 %58, 56
   br i1 %.not.i5, label %69, label %64
 
 64:                                               ; preds = %_ZN3MD56updateEPKhj.exit

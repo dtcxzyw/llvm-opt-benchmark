@@ -406,7 +406,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang7IPAKindEES4_E4CaseENS_13StringLiteral
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang15AnalyzerOptions26mayInlineCXXMemberFunctionENS_23CXXInlineableMemberKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK5clang15AnalyzerOptions10getIPAModeEv(ptr noundef nonnull align 8 dereferenceable(488) %0)
-  %4 = icmp ult i32 %3, 3
+  %4 = icmp samesign ult i32 %3, 3
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2

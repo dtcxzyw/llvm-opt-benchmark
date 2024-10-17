@@ -671,7 +671,7 @@ define hidden void @cmsMD5finish(ptr nocapture noundef writeonly %0, ptr noundef
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 -128, ptr %9, align 1
   %11 = xor i32 %6, 63
-  %12 = icmp ult i32 %11, 8
+  %12 = icmp samesign ult i32 %11, 8
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -790,7 +790,7 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   %41 = getelementptr inbounds i8, ptr %40, i64 1
   store i8 -128, ptr %40, align 1
   %42 = xor i32 %38, 63
-  %43 = icmp ult i32 %42, 8
+  %43 = icmp samesign ult i32 %42, 8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %._crit_edge.i

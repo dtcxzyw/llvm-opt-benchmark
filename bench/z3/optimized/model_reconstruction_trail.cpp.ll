@@ -697,7 +697,7 @@ for.inc111:                                       ; preds = %_ZN6bufferIP4exprLb
   %m_arity.i = getelementptr inbounds i8, ptr %71, i64 32
   %72 = load i32, ptr %m_arity.i, align 8
   %73 = zext i32 %72 to i64
-  %cmp100 = icmp ult i64 %indvars.iv.next, %73
+  %cmp100 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %cmp100, label %for.body101, label %for.end113.loopexit, !llvm.loop !7
 
 lpad79:                                           ; preds = %for.body147, %for.cond141
@@ -1006,7 +1006,7 @@ if.end.i.i196:                                    ; preds = %for.cond186
 
 invoke.cont187:                                   ; preds = %if.end.i.i196, %for.cond186
   %retval.0.i.i198 = phi i64 [ %116, %if.end.i.i196 ], [ 0, %for.cond186 ]
-  %cmp189 = icmp ult i64 %indvars.iv563, %retval.0.i.i198
+  %cmp189 = icmp samesign ult i64 %indvars.iv563, %retval.0.i.i198
   br i1 %cmp189, label %invoke.cont192, label %for.end219
 
 invoke.cont192:                                   ; preds = %invoke.cont187
@@ -1870,7 +1870,7 @@ if.end.i.i414:                                    ; preds = %for.cond338
 
 invoke.cont339:                                   ; preds = %if.end.i.i414, %for.cond338
   %retval.0.i.i417 = phi i64 [ %231, %if.end.i.i414 ], [ 0, %for.cond338 ]
-  %cmp341 = icmp ult i64 %indvars.iv566, %retval.0.i.i417
+  %cmp341 = icmp samesign ult i64 %indvars.iv566, %retval.0.i.i417
   br i1 %cmp341, label %invoke.cont344, label %for.end369
 
 invoke.cont344:                                   ; preds = %invoke.cont339

@@ -9554,7 +9554,7 @@ default.unreachable70:                            ; preds = %66, %1
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   %15 = load i64, ptr %14, align 8, !range !550, !alias.scope !3707, !noundef !4
-  %switch.i = icmp ugt i64 %15, 6
+  %switch.i = icmp samesign ugt i64 %15, 6
   br i1 %switch.i, label %34, label %9
 
 16:                                               ; preds = %1
@@ -9563,7 +9563,7 @@ default.unreachable70:                            ; preds = %66, %1
   %19 = getelementptr inbounds i8, ptr %18, i64 88
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !5, !noundef !4
   %21 = load i64, ptr %20, align 8, !range !550, !alias.scope !3710, !noundef !4
-  %switch.i6 = icmp ugt i64 %21, 6
+  %switch.i6 = icmp samesign ugt i64 %21, 6
   br i1 %switch.i6, label %34, label %9
 
 22:                                               ; preds = %1

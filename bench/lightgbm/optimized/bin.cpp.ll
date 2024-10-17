@@ -2376,7 +2376,7 @@ define weak_odr void @_ZN8LightGBM8DenseBinIhLb1EE10CopySubrowEPKNS_3BinEPKii(pt
   %45 = getelementptr inbounds i8, ptr %44, i64 %40
   store i8 %43, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %46 = icmp ult i64 %indvars.iv.next, %15
+  %46 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %46, label %16, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %16, %8
@@ -20995,9 +20995,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
   %31 = and i32 %30, 4
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 15
-  %34 = icmp ugt i32 %19, %33
-  %35 = icmp ult i32 %20, %33
-  %or.cond = or i1 %34, %35
+  %34 = icmp samesign ugt i32 %19, %33
+  %35 = icmp samesign ult i32 %20, %33
+  %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %.cont70, label %37
 
 .cont70:                                          ; preds = %21
@@ -21036,7 +21036,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
 48:                                               ; preds = %11
   %49 = and i32 %2, 255
   %50 = zext i8 %spec.select to i32
-  %.not62 = icmp ugt i32 %49, %50
+  %.not62 = icmp samesign ugt i32 %49, %50
   %spec.select65 = select i1 %.not62, ptr %10, ptr %9
   %51 = icmp sgt i32 %8, 0
   br i1 %51, label %.lr.ph, label %.loopexit
@@ -21199,9 +21199,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
   %31 = and i32 %30, 4
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 15
-  %34 = icmp ugt i32 %19, %33
-  %35 = icmp ult i32 %20, %33
-  %or.cond = or i1 %34, %35
+  %34 = icmp samesign ugt i32 %19, %33
+  %35 = icmp samesign ult i32 %20, %33
+  %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %.cont72, label %37
 
 .cont72:                                          ; preds = %21
@@ -21240,7 +21240,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 48:                                               ; preds = %11
   %49 = and i32 %2, 255
   %50 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %49, %50
+  %.not64 = icmp samesign ugt i32 %49, %50
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %51 = icmp sgt i32 %8, 0
   br i1 %51, label %.lr.ph, label %.loopexit
@@ -21414,9 +21414,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 
 37:                                               ; preds = %.lr.ph145.split.us
   %38 = and i32 %33, 15
-  %39 = icmp ugt i32 %21, %38
-  %40 = icmp ult i32 %22, %38
-  %or.cond.us = or i1 %39, %40
+  %39 = icmp samesign ugt i32 %21, %38
+  %40 = icmp samesign ult i32 %22, %38
+  %or.cond.us = select i1 %39, i1 true, i1 %40
   br i1 %or.cond.us, label %.cont97.us, label %41
 
 41:                                               ; preds = %37
@@ -21479,9 +21479,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 
 66:                                               ; preds = %.lr.ph145.split.split.us
   %67 = and i32 %62, 15
-  %68 = icmp ugt i32 %21, %67
-  %69 = icmp ult i32 %22, %67
-  %or.cond.us150 = or i1 %68, %69
+  %68 = icmp samesign ugt i32 %21, %67
+  %69 = icmp samesign ult i32 %22, %67
+  %or.cond.us150 = select i1 %68, i1 true, i1 %69
   br i1 %or.cond.us150, label %.cont97.us151, label %70
 
 70:                                               ; preds = %66
@@ -21542,9 +21542,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 
 96:                                               ; preds = %.lr.ph145.split.split
   %97 = and i32 %91, 15
-  %98 = icmp ugt i32 %21, %97
-  %99 = icmp ult i32 %22, %97
-  %or.cond = or i1 %98, %99
+  %98 = icmp samesign ugt i32 %21, %97
+  %99 = icmp samesign ult i32 %22, %97
+  %or.cond = select i1 %98, i1 true, i1 %99
   br i1 %or.cond, label %.cont97, label %101
 
 .cont97:                                          ; preds = %96
@@ -21578,7 +21578,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 110:                                              ; preds = %11
   %111 = and i32 %2, 255
   %112 = zext i8 %.0 to i32
-  %.not78 = icmp ugt i32 %111, %112
+  %.not78 = icmp samesign ugt i32 %111, %112
   %spec.select = select i1 %.not78, ptr %10, ptr %9
   %113 = icmp sgt i32 %8, 0
   br i1 %113, label %.lr.ph, label %.loopexit
@@ -21689,9 +21689,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
   %31 = and i32 %30, 4
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 15
-  %34 = icmp ugt i32 %19, %33
-  %35 = icmp ult i32 %20, %33
-  %or.cond = or i1 %34, %35
+  %34 = icmp samesign ugt i32 %19, %33
+  %35 = icmp samesign ult i32 %20, %33
+  %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %.cont72, label %37
 
 .cont72:                                          ; preds = %21
@@ -21730,7 +21730,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
 48:                                               ; preds = %11
   %49 = and i32 %2, 255
   %50 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %49, %50
+  %.not64 = icmp samesign ugt i32 %49, %50
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %51 = icmp sgt i32 %8, 0
   br i1 %51, label %.lr.ph, label %.loopexit
@@ -21986,9 +21986,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
   br label %82
 
 72:                                               ; preds = %55
-  %73 = icmp ugt i32 %54, %69
-  %74 = icmp ult i32 %53, %69
-  %or.cond = or i1 %73, %74
+  %73 = icmp samesign ugt i32 %54, %69
+  %74 = icmp samesign ult i32 %53, %69
+  %or.cond = select i1 %73, i1 true, i1 %74
   br i1 %or.cond, label %.cont81, label %76
 
 .cont81:                                          ; preds = %72
@@ -22142,7 +22142,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
 44:                                               ; preds = %11
   %45 = and i32 %2, 255
   %46 = zext i8 %spec.select to i32
-  %.not59 = icmp ugt i32 %45, %46
+  %.not59 = icmp samesign ugt i32 %45, %46
   %spec.select61 = select i1 %.not59, ptr %10, ptr %9
   %47 = icmp sgt i32 %8, 0
   br i1 %47, label %.lr.ph, label %.loopexit
@@ -22341,7 +22341,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 44:                                               ; preds = %11
   %45 = and i32 %2, 255
   %46 = zext i8 %spec.select to i32
-  %.not61 = icmp ugt i32 %45, %46
+  %.not61 = icmp samesign ugt i32 %45, %46
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %47 = icmp sgt i32 %8, 0
   br i1 %47, label %.lr.ph, label %.loopexit
@@ -22668,7 +22668,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb1EL
 102:                                              ; preds = %11
   %103 = and i32 %2, 255
   %104 = zext i8 %.0 to i32
-  %.not75 = icmp ugt i32 %103, %104
+  %.not75 = icmp samesign ugt i32 %103, %104
   %spec.select = select i1 %.not75, ptr %10, ptr %9
   %105 = icmp sgt i32 %8, 0
   br i1 %105, label %.lr.ph, label %.loopexit
@@ -22815,7 +22815,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb1EE10SplitInnerILb0EL
 44:                                               ; preds = %11
   %45 = and i32 %2, 255
   %46 = zext i8 %spec.select to i32
-  %.not61 = icmp ugt i32 %45, %46
+  %.not61 = icmp samesign ugt i32 %45, %46
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %47 = icmp sgt i32 %8, 0
   br i1 %47, label %.lr.ph, label %.loopexit
@@ -23705,36 +23705,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph121, label %.loopexit
+  br i1 %17, label %.lr.ph122, label %.loopexit
 
-.lr.ph121:                                        ; preds = %.preheader
+.lr.ph122:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 255
   %20 = and i32 %2, 255
-  %wide.trip.count150 = zext nneg i32 %8 to i64
+  %wide.trip.count151 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph121, %38
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next148, %38 ]
-  %.0119 = phi i32 [ 0, %.lr.ph121 ], [ %.1, %38 ]
-  %.087118 = phi i32 [ 0, %.lr.ph121 ], [ %.188, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv147
+21:                                               ; preds = %.lr.ph122, %38
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next149, %38 ]
+  %.0120 = phi i32 [ 0, %.lr.ph122 ], [ %.1, %38 ]
+  %.087119 = phi i32 [ 0, %.lr.ph122 ], [ %.188, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv148
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %24
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont70, label %32
 
 .cont70:                                          ; preds = %21
-  %.sroa.speculated69 = select i1 %.not, i32 %.0119, i32 %.087118
+  %.sroa.speculated69 = select i1 %.not, i32 %.0120, i32 %.087119
   %31 = add nsw i32 %.sroa.speculated69, 1
-  %spec.select94 = select i1 %.not, i32 %.087118, i32 %31
-  %spec.select95 = select i1 %.not, i32 %31, i32 %.0119
+  %spec.select94 = select i1 %.not, i32 %.087119, i32 %31
+  %spec.select95 = select i1 %.not, i32 %31, i32 %.0120
   br label %38
 
 32:                                               ; preds = %21
@@ -23742,29 +23742,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0119, 1
+  %35 = add nsw i32 %.0120, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.087118, 1
+  %37 = add nsw i32 %.087119, 1
   br label %38
 
 38:                                               ; preds = %.cont70, %36, %34
-  %.sroa.speculated69.sink = phi i32 [ %.sroa.speculated69, %.cont70 ], [ %.087118, %36 ], [ %.0119, %34 ]
+  %.sroa.speculated69.sink = phi i32 [ %.sroa.speculated69, %.cont70 ], [ %.087119, %36 ], [ %.0120, %34 ]
   %.056.sink = phi ptr [ %.056, %.cont70 ], [ %9, %36 ], [ %10, %34 ]
-  %.188 = phi i32 [ %spec.select94, %.cont70 ], [ %37, %36 ], [ %.087118, %34 ]
-  %.1 = phi i32 [ %spec.select95, %.cont70 ], [ %.0119, %36 ], [ %35, %34 ]
+  %.188 = phi i32 [ %spec.select94, %.cont70 ], [ %37, %36 ], [ %.087119, %34 ]
+  %.1 = phi i32 [ %spec.select95, %.cont70 ], [ %.0120, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated69.sink to i64
   %40 = getelementptr inbounds i32, ptr %.056.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.loopexit, label %21, !llvm.loop !325
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
+  br i1 %exitcond152.not, label %.loopexit, label %21, !llvm.loop !325
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 255
   %43 = zext i8 %spec.select to i32
-  %.not62 = icmp ugt i32 %42, %43
+  %.not62 = icmp samesign ugt i32 %42, %43
   %spec.select65 = select i1 %.not62, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -23772,15 +23772,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i8
-  %wide.trip.count145 = zext nneg i32 %8 to i64
+  %wide.trip.count146 = zext nneg i32 %8 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not62, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -23788,17 +23788,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %52 = load i8, ptr %51, align 1
   %.not63.us.us = icmp eq i8 %52, %46
   %spec.select65..056 = select i1 %.not63.us.us, ptr %spec.select65, ptr %.056
-  %53 = getelementptr inbounds i32, ptr %spec.select65..056, i64 %indvars.iv140
+  %53 = getelementptr inbounds i32, ptr %spec.select65..056, i64 %indvars.iv141
   store i32 %48, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count145
-  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !326
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count146
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !326
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %62
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %62 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %62 ], [ 0, %.lr.ph.split.us ]
   %.2102.us = phi i32 [ %.3.us, %62 ], [ 0, %.lr.ph.split.us ]
   %.390101.us = phi i32 [ %.491.us, %62 ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv135
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv136
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %45, align 8
@@ -23817,24 +23817,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 62:                                               ; preds = %.cont76.us, %.cont.us
   %.2102.us.sink = phi i32 [ %.2102.us, %.cont76.us ], [ %.390101.us, %.cont.us ]
-  %.056.sink157 = phi ptr [ %.056, %.cont76.us ], [ %spec.select65, %.cont.us ]
+  %.056.sink158 = phi ptr [ %.056, %.cont76.us ], [ %spec.select65, %.cont.us ]
   %.491.us = phi i32 [ %.390101.us, %.cont76.us ], [ %61, %.cont.us ]
   %.3.us = phi i32 [ %60, %.cont76.us ], [ %.2102.us, %.cont.us ]
   %63 = sext i32 %.2102.us.sink to i64
-  %64 = getelementptr inbounds i32, ptr %.056.sink157, i64 %63
+  %64 = getelementptr inbounds i32, ptr %.056.sink158, i64 %63
   store i32 %55, ptr %64, align 4
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count145
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !326
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count146
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !326
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not62, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %73
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %73 ], [ 0, %.lr.ph.split ]
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %73 ], [ 0, %.lr.ph.split ]
   %.2102.us105 = phi i32 [ %.3.us111, %73 ], [ 0, %.lr.ph.split ]
   %.390101.us106 = phi i32 [ %.491.us110, %73 ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
@@ -23853,15 +23853,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 73:                                               ; preds = %.cont.us109, %.cont76.us108
   %.2102.us105.sink = phi i32 [ %.2102.us105, %.cont.us109 ], [ %.390101.us106, %.cont76.us108 ]
-  %spec.select65.sink159 = phi ptr [ %spec.select65, %.cont.us109 ], [ %.056, %.cont76.us108 ]
+  %spec.select65.sink160 = phi ptr [ %spec.select65, %.cont.us109 ], [ %.056, %.cont76.us108 ]
   %.491.us110 = phi i32 [ %.390101.us106, %.cont.us109 ], [ %71, %.cont76.us108 ]
   %.3.us111 = phi i32 [ %72, %.cont.us109 ], [ %.2102.us105, %.cont76.us108 ]
   %74 = sext i32 %.2102.us105.sink to i64
-  %75 = getelementptr inbounds i32, ptr %spec.select65.sink159, i64 %74
+  %75 = getelementptr inbounds i32, ptr %spec.select65.sink160, i64 %74
   store i32 %66, ptr %75, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count145
-  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !326
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count146
+  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !326
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -23872,11 +23872,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %80 = getelementptr inbounds i8, ptr %79, i64 %78
   %81 = load i8, ptr %80, align 1
   %.not63 = icmp eq i8 %81, %46
-  %spec.select65..056162 = select i1 %.not63, ptr %spec.select65, ptr %.056
-  %82 = getelementptr inbounds i32, ptr %spec.select65..056162, i64 %indvars.iv
+  %spec.select65..056163 = select i1 %.not63, ptr %spec.select65, ptr %.056
+  %82 = getelementptr inbounds i32, ptr %spec.select65..056163, i64 %indvars.iv
   store i32 %77, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count145
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !326
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %73, %62, %.lr.ph.split.us.split.us, %38, %41, %.preheader
@@ -23897,36 +23897,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph123, label %.loopexit
+  br i1 %17, label %.lr.ph124, label %.loopexit
 
-.lr.ph123:                                        ; preds = %.preheader
+.lr.ph124:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 255
   %20 = and i32 %2, 255
-  %wide.trip.count152 = zext nneg i32 %8 to i64
+  %wide.trip.count153 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph123, %38
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next150, %38 ]
-  %.0121 = phi i32 [ 0, %.lr.ph123 ], [ %.1, %38 ]
-  %.089120 = phi i32 [ 0, %.lr.ph123 ], [ %.190, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv149
+21:                                               ; preds = %.lr.ph124, %38
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %38 ]
+  %.0122 = phi i32 [ 0, %.lr.ph124 ], [ %.1, %38 ]
+  %.089121 = phi i32 [ 0, %.lr.ph124 ], [ %.190, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv150
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %24
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont72, label %32
 
 .cont72:                                          ; preds = %21
-  %.sroa.speculated71 = select i1 %5, i32 %.089120, i32 %.0121
+  %.sroa.speculated71 = select i1 %5, i32 %.089121, i32 %.0122
   %31 = add nsw i32 %.sroa.speculated71, 1
-  %spec.select96 = select i1 %5, i32 %31, i32 %.089120
-  %spec.select97 = select i1 %5, i32 %.0121, i32 %31
+  %spec.select96 = select i1 %5, i32 %31, i32 %.089121
+  %spec.select97 = select i1 %5, i32 %.0122, i32 %31
   br label %38
 
 32:                                               ; preds = %21
@@ -23934,29 +23934,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0121, 1
+  %35 = add nsw i32 %.0122, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.089120, 1
+  %37 = add nsw i32 %.089121, 1
   br label %38
 
 38:                                               ; preds = %.cont72, %36, %34
-  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089120, %36 ], [ %.0121, %34 ]
+  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089121, %36 ], [ %.0122, %34 ]
   %.060.sink = phi ptr [ %.060, %.cont72 ], [ %9, %36 ], [ %10, %34 ]
-  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089120, %34 ]
-  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0121, %36 ], [ %35, %34 ]
+  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089121, %34 ]
+  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0122, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated71.sink to i64
   %40 = getelementptr inbounds i32, ptr %.060.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit, label %21, !llvm.loop !327
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
+  br i1 %exitcond154.not, label %.loopexit, label %21, !llvm.loop !327
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 255
   %43 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %42, %43
+  %.not64 = icmp samesign ugt i32 %42, %43
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -23964,17 +23964,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i8
-  %wide.trip.count147 = zext nneg i32 %8 to i64
+  %wide.trip.count148 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %55 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %55 ], [ 0, %.lr.ph.split.us ]
   %.2104.us.us = phi i32 [ %.3.us.us, %55 ], [ 0, %.lr.ph.split.us ]
   %.392103.us.us = phi i32 [ %.493.us.us, %55 ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -23999,13 +23999,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   %56 = sext i32 %.2104.us.us.sink to i64
   %57 = getelementptr inbounds i32, ptr %spec.select67.sink, i64 %56
   store i32 %48, ptr %57, align 4
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !328
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !328
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv138
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %45, align 8
@@ -24013,30 +24013,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   %63 = load i8, ptr %62, align 1
   %.not65.us = icmp eq i8 %63, %46
   %spec.select67..060 = select i1 %.not65.us, ptr %spec.select67, ptr %.060
-  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv137
+  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv138
   store i32 %59, ptr %64, align 4
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count147
-  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !328
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count148
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !328
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %67
   %70 = load i8, ptr %69, align 1
   %.not65.us109 = icmp eq i8 %70, %46
-  %spec.select67..060164 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
-  %71 = getelementptr inbounds i32, ptr %spec.select67..060164, i64 %indvars.iv130
+  %spec.select67..060165 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
+  %71 = getelementptr inbounds i32, ptr %spec.select67..060165, i64 %indvars.iv131
   store i32 %66, ptr %71, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count147
-  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !328
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count148
+  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !328
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph.split ]
@@ -24061,14 +24061,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 80:                                               ; preds = %.cont78, %.cont
   %.2104.sink = phi i32 [ %.2104, %.cont78 ], [ %.392103, %.cont ]
-  %.060.sink162 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
+  %.060.sink163 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
   %.493 = phi i32 [ %.392103, %.cont78 ], [ %79, %.cont ]
   %.3 = phi i32 [ %78, %.cont78 ], [ %.2104, %.cont ]
   %81 = sext i32 %.2104.sink to i64
-  %82 = getelementptr inbounds i32, ptr %.060.sink162, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.060.sink163, i64 %81
   store i32 %73, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !328
 
 .loopexit:                                        ; preds = %80, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %55, %38, %41, %.preheader
@@ -24118,9 +24118,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 30:                                               ; preds = %.lr.ph145.split.us
   %31 = zext i8 %28 to i32
-  %32 = icmp ugt i32 %21, %31
-  %33 = icmp ult i32 %22, %31
-  %or.cond.us = or i1 %32, %33
+  %32 = icmp samesign ugt i32 %21, %31
+  %33 = icmp samesign ult i32 %22, %31
+  %or.cond.us = select i1 %32, i1 true, i1 %33
   br i1 %or.cond.us, label %.cont97.us, label %34
 
 34:                                               ; preds = %30
@@ -24176,9 +24176,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 52:                                               ; preds = %.lr.ph145.split.split.us
   %53 = zext i8 %50 to i32
-  %54 = icmp ugt i32 %21, %53
-  %55 = icmp ult i32 %22, %53
-  %or.cond.us150 = or i1 %54, %55
+  %54 = icmp samesign ugt i32 %21, %53
+  %55 = icmp samesign ult i32 %22, %53
+  %or.cond.us150 = select i1 %54, i1 true, i1 %55
   br i1 %or.cond.us150, label %.cont97.us151, label %56
 
 56:                                               ; preds = %52
@@ -24232,9 +24232,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 75:                                               ; preds = %.lr.ph145.split.split
   %76 = zext i8 %72 to i32
-  %77 = icmp ugt i32 %21, %76
-  %78 = icmp ult i32 %22, %76
-  %or.cond = or i1 %77, %78
+  %77 = icmp samesign ugt i32 %21, %76
+  %78 = icmp samesign ult i32 %22, %76
+  %or.cond = select i1 %77, i1 true, i1 %78
   br i1 %or.cond, label %.cont97, label %80
 
 .cont97:                                          ; preds = %75
@@ -24268,7 +24268,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 89:                                               ; preds = %11
   %90 = and i32 %2, 255
   %91 = zext i8 %.0 to i32
-  %.not78 = icmp ugt i32 %90, %91
+  %.not78 = icmp samesign ugt i32 %90, %91
   %spec.select = select i1 %.not78, ptr %10, ptr %9
   %92 = icmp sgt i32 %8, 0
   br i1 %92, label %.lr.ph, label %.loopexit
@@ -24347,36 +24347,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph123, label %.loopexit
+  br i1 %17, label %.lr.ph124, label %.loopexit
 
-.lr.ph123:                                        ; preds = %.preheader
+.lr.ph124:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 255
   %20 = and i32 %2, 255
-  %wide.trip.count152 = zext nneg i32 %8 to i64
+  %wide.trip.count153 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph123, %38
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next150, %38 ]
-  %.0121 = phi i32 [ 0, %.lr.ph123 ], [ %.1, %38 ]
-  %.089120 = phi i32 [ 0, %.lr.ph123 ], [ %.190, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv149
+21:                                               ; preds = %.lr.ph124, %38
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %38 ]
+  %.0122 = phi i32 [ 0, %.lr.ph124 ], [ %.1, %38 ]
+  %.089121 = phi i32 [ 0, %.lr.ph124 ], [ %.190, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv150
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %24
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont72, label %32
 
 .cont72:                                          ; preds = %21
-  %.sroa.speculated71 = select i1 %5, i32 %.089120, i32 %.0121
+  %.sroa.speculated71 = select i1 %5, i32 %.089121, i32 %.0122
   %31 = add nsw i32 %.sroa.speculated71, 1
-  %spec.select96 = select i1 %5, i32 %31, i32 %.089120
-  %spec.select97 = select i1 %5, i32 %.0121, i32 %31
+  %spec.select96 = select i1 %5, i32 %31, i32 %.089121
+  %spec.select97 = select i1 %5, i32 %.0122, i32 %31
   br label %38
 
 32:                                               ; preds = %21
@@ -24384,29 +24384,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0121, 1
+  %35 = add nsw i32 %.0122, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.089120, 1
+  %37 = add nsw i32 %.089121, 1
   br label %38
 
 38:                                               ; preds = %.cont72, %36, %34
-  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089120, %36 ], [ %.0121, %34 ]
+  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089121, %36 ], [ %.0122, %34 ]
   %.060.sink = phi ptr [ %.060, %.cont72 ], [ %9, %36 ], [ %10, %34 ]
-  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089120, %34 ]
-  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0121, %36 ], [ %35, %34 ]
+  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089121, %34 ]
+  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0122, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated71.sink to i64
   %40 = getelementptr inbounds i32, ptr %.060.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit, label %21, !llvm.loop !331
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
+  br i1 %exitcond154.not, label %.loopexit, label %21, !llvm.loop !331
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 255
   %43 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %42, %43
+  %.not64 = icmp samesign ugt i32 %42, %43
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -24414,17 +24414,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i8
-  %wide.trip.count147 = zext nneg i32 %8 to i64
+  %wide.trip.count148 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %55 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %55 ], [ 0, %.lr.ph.split.us ]
   %.2104.us.us = phi i32 [ %.3.us.us, %55 ], [ 0, %.lr.ph.split.us ]
   %.392103.us.us = phi i32 [ %.493.us.us, %55 ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -24449,13 +24449,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %56 = sext i32 %.2104.us.us.sink to i64
   %57 = getelementptr inbounds i32, ptr %spec.select67.sink, i64 %56
   store i32 %48, ptr %57, align 4
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !332
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !332
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv138
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %45, align 8
@@ -24463,30 +24463,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %63 = load i8, ptr %62, align 1
   %.not65.us = icmp eq i8 %63, %46
   %spec.select67..060 = select i1 %.not65.us, ptr %spec.select67, ptr %.060
-  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv137
+  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv138
   store i32 %59, ptr %64, align 4
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count147
-  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !332
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count148
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !332
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %67
   %70 = load i8, ptr %69, align 1
   %.not65.us109 = icmp eq i8 %70, %46
-  %spec.select67..060164 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
-  %71 = getelementptr inbounds i32, ptr %spec.select67..060164, i64 %indvars.iv130
+  %spec.select67..060165 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
+  %71 = getelementptr inbounds i32, ptr %spec.select67..060165, i64 %indvars.iv131
   store i32 %66, ptr %71, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count147
-  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !332
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count148
+  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !332
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph.split ]
@@ -24511,14 +24511,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 80:                                               ; preds = %.cont78, %.cont
   %.2104.sink = phi i32 [ %.2104, %.cont78 ], [ %.392103, %.cont ]
-  %.060.sink162 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
+  %.060.sink163 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
   %.493 = phi i32 [ %.392103, %.cont78 ], [ %79, %.cont ]
   %.3 = phi i32 [ %78, %.cont78 ], [ %.2104, %.cont ]
   %81 = sext i32 %.2104.sink to i64
-  %82 = getelementptr inbounds i32, ptr %.060.sink162, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.060.sink163, i64 %81
   store i32 %73, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !332
 
 .loopexit:                                        ; preds = %80, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %55, %38, %41, %.preheader
@@ -24652,9 +24652,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br label %68
 
 58:                                               ; preds = %48
-  %59 = icmp ugt i32 %47, %55
-  %60 = icmp ult i32 %46, %55
-  %or.cond = or i1 %59, %60
+  %59 = icmp samesign ugt i32 %47, %55
+  %60 = icmp samesign ult i32 %46, %55
+  %or.cond = select i1 %59, i1 true, i1 %60
   br i1 %or.cond, label %.cont81, label %62
 
 .cont81:                                          ; preds = %58
@@ -24740,18 +24740,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph117, label %.loopexit
+  br i1 %17, label %.lr.ph118, label %.loopexit
 
-.lr.ph117:                                        ; preds = %.preheader
+.lr.ph118:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count146 = zext nneg i32 %8 to i64
+  %wide.trip.count147 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph117, %34
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next144, %34 ]
-  %.0115 = phi i32 [ 0, %.lr.ph117 ], [ %.1, %34 ]
-  %.083114 = phi i32 [ 0, %.lr.ph117 ], [ %.184, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv143
+19:                                               ; preds = %.lr.ph118, %34
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next145, %34 ]
+  %.0116 = phi i32 [ 0, %.lr.ph118 ], [ %.1, %34 ]
+  %.083115 = phi i32 [ 0, %.lr.ph118 ], [ %.184, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -24761,10 +24761,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %26, label %.cont66, label %28
 
 .cont66:                                          ; preds = %19
-  %.sroa.speculated65 = select i1 %.not, i32 %.0115, i32 %.083114
+  %.sroa.speculated65 = select i1 %.not, i32 %.0116, i32 %.083115
   %27 = add nsw i32 %.sroa.speculated65, 1
-  %spec.select90 = select i1 %.not, i32 %.083114, i32 %27
-  %spec.select91 = select i1 %.not, i32 %27, i32 %.0115
+  %spec.select90 = select i1 %.not, i32 %.083115, i32 %27
+  %spec.select91 = select i1 %.not, i32 %27, i32 %.0116
   br label %34
 
 28:                                               ; preds = %19
@@ -24772,29 +24772,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0115, 1
+  %31 = add nsw i32 %.0116, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.083114, 1
+  %33 = add nsw i32 %.083115, 1
   br label %34
 
 34:                                               ; preds = %.cont66, %32, %30
-  %.sroa.speculated65.sink = phi i32 [ %.sroa.speculated65, %.cont66 ], [ %.083114, %32 ], [ %.0115, %30 ]
+  %.sroa.speculated65.sink = phi i32 [ %.sroa.speculated65, %.cont66 ], [ %.083115, %32 ], [ %.0116, %30 ]
   %.053.sink = phi ptr [ %.053, %.cont66 ], [ %9, %32 ], [ %10, %30 ]
-  %.184 = phi i32 [ %spec.select90, %.cont66 ], [ %33, %32 ], [ %.083114, %30 ]
-  %.1 = phi i32 [ %spec.select91, %.cont66 ], [ %.0115, %32 ], [ %31, %30 ]
+  %.184 = phi i32 [ %spec.select90, %.cont66 ], [ %33, %32 ], [ %.083115, %30 ]
+  %.1 = phi i32 [ %spec.select91, %.cont66 ], [ %.0116, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated65.sink to i64
   %36 = getelementptr inbounds i32, ptr %.053.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.loopexit, label %19, !llvm.loop !335
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
+  br i1 %exitcond148.not, label %.loopexit, label %19, !llvm.loop !335
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 255
   %39 = zext i8 %spec.select to i32
-  %.not59 = icmp ugt i32 %38, %39
+  %.not59 = icmp samesign ugt i32 %38, %39
   %spec.select61 = select i1 %.not59, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -24802,15 +24802,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i8
-  %wide.trip.count141 = zext nneg i32 %8 to i64
+  %wide.trip.count142 = zext nneg i32 %8 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not59, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv136
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -24818,17 +24818,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %48 = load i8, ptr %47, align 1
   %.not60.us.us = icmp eq i8 %48, %42
   %spec.select61..053 = select i1 %.not60.us.us, ptr %spec.select61, ptr %.053
-  %49 = getelementptr inbounds i32, ptr %spec.select61..053, i64 %indvars.iv136
+  %49 = getelementptr inbounds i32, ptr %spec.select61..053, i64 %indvars.iv137
   store i32 %44, ptr %49, align 4
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count141
-  br i1 %exitcond142.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !336
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count142
+  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !336
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %58
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %58 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %58 ], [ 0, %.lr.ph.split.us ]
   %.298.us = phi i32 [ %.3.us, %58 ], [ 0, %.lr.ph.split.us ]
   %.38697.us = phi i32 [ %.487.us, %58 ], [ 0, %.lr.ph.split.us ]
-  %50 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
+  %50 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv132
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = load ptr, ptr %41, align 8
@@ -24847,24 +24847,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 58:                                               ; preds = %.cont72.us, %.cont.us
   %.298.us.sink = phi i32 [ %.298.us, %.cont72.us ], [ %.38697.us, %.cont.us ]
-  %.053.sink153 = phi ptr [ %.053, %.cont72.us ], [ %spec.select61, %.cont.us ]
+  %.053.sink154 = phi ptr [ %.053, %.cont72.us ], [ %spec.select61, %.cont.us ]
   %.487.us = phi i32 [ %.38697.us, %.cont72.us ], [ %57, %.cont.us ]
   %.3.us = phi i32 [ %56, %.cont72.us ], [ %.298.us, %.cont.us ]
   %59 = sext i32 %.298.us.sink to i64
-  %60 = getelementptr inbounds i32, ptr %.053.sink153, i64 %59
+  %60 = getelementptr inbounds i32, ptr %.053.sink154, i64 %59
   store i32 %51, ptr %60, align 4
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count141
-  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !336
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count142
+  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !336
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not59, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %69
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %69 ], [ 0, %.lr.ph.split ]
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %69 ], [ 0, %.lr.ph.split ]
   %.298.us101 = phi i32 [ %.3.us107, %69 ], [ 0, %.lr.ph.split ]
   %.38697.us102 = phi i32 [ %.487.us106, %69 ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
@@ -24883,15 +24883,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 69:                                               ; preds = %.cont.us105, %.cont72.us104
   %.298.us101.sink = phi i32 [ %.298.us101, %.cont.us105 ], [ %.38697.us102, %.cont72.us104 ]
-  %spec.select61.sink155 = phi ptr [ %spec.select61, %.cont.us105 ], [ %.053, %.cont72.us104 ]
+  %spec.select61.sink156 = phi ptr [ %spec.select61, %.cont.us105 ], [ %.053, %.cont72.us104 ]
   %.487.us106 = phi i32 [ %.38697.us102, %.cont.us105 ], [ %67, %.cont72.us104 ]
   %.3.us107 = phi i32 [ %68, %.cont.us105 ], [ %.298.us101, %.cont72.us104 ]
   %70 = sext i32 %.298.us101.sink to i64
-  %71 = getelementptr inbounds i32, ptr %spec.select61.sink155, i64 %70
+  %71 = getelementptr inbounds i32, ptr %spec.select61.sink156, i64 %70
   store i32 %62, ptr %71, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count141
-  br i1 %exitcond130.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !336
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count142
+  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !336
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -24902,11 +24902,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   %77 = load i8, ptr %76, align 1
   %.not60 = icmp eq i8 %77, %42
-  %spec.select61..053158 = select i1 %.not60, ptr %spec.select61, ptr %.053
-  %78 = getelementptr inbounds i32, ptr %spec.select61..053158, i64 %indvars.iv
+  %spec.select61..053159 = select i1 %.not60, ptr %spec.select61, ptr %.053
+  %78 = getelementptr inbounds i32, ptr %spec.select61..053159, i64 %indvars.iv
   store i32 %73, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count141
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count142
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !336
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %69, %58, %.lr.ph.split.us.split.us, %34, %37, %.preheader
@@ -24927,18 +24927,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph119, label %.loopexit
+  br i1 %17, label %.lr.ph120, label %.loopexit
 
-.lr.ph119:                                        ; preds = %.preheader
+.lr.ph120:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count148 = zext nneg i32 %8 to i64
+  %wide.trip.count149 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph119, %34
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next146, %34 ]
-  %.0117 = phi i32 [ 0, %.lr.ph119 ], [ %.1, %34 ]
-  %.085116 = phi i32 [ 0, %.lr.ph119 ], [ %.186, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
+19:                                               ; preds = %.lr.ph120, %34
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next147, %34 ]
+  %.0118 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %34 ]
+  %.085117 = phi i32 [ 0, %.lr.ph120 ], [ %.186, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv146
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -24948,10 +24948,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   br i1 %26, label %.cont68, label %28
 
 .cont68:                                          ; preds = %19
-  %.sroa.speculated67 = select i1 %5, i32 %.085116, i32 %.0117
+  %.sroa.speculated67 = select i1 %5, i32 %.085117, i32 %.0118
   %27 = add nsw i32 %.sroa.speculated67, 1
-  %spec.select92 = select i1 %5, i32 %27, i32 %.085116
-  %spec.select93 = select i1 %5, i32 %.0117, i32 %27
+  %spec.select92 = select i1 %5, i32 %27, i32 %.085117
+  %spec.select93 = select i1 %5, i32 %.0118, i32 %27
   br label %34
 
 28:                                               ; preds = %19
@@ -24959,29 +24959,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0117, 1
+  %31 = add nsw i32 %.0118, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.085116, 1
+  %33 = add nsw i32 %.085117, 1
   br label %34
 
 34:                                               ; preds = %.cont68, %32, %30
-  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085116, %32 ], [ %.0117, %30 ]
+  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085117, %32 ], [ %.0118, %30 ]
   %.057.sink = phi ptr [ %.057, %.cont68 ], [ %9, %32 ], [ %10, %30 ]
-  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085116, %30 ]
-  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0117, %32 ], [ %31, %30 ]
+  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085117, %30 ]
+  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0118, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated67.sink to i64
   %36 = getelementptr inbounds i32, ptr %.057.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %19, !llvm.loop !337
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %.loopexit, label %19, !llvm.loop !337
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 255
   %39 = zext i8 %spec.select to i32
-  %.not61 = icmp ugt i32 %38, %39
+  %.not61 = icmp samesign ugt i32 %38, %39
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -24989,17 +24989,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i8
-  %wide.trip.count143 = zext nneg i32 %8 to i64
+  %wide.trip.count144 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %51
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %51 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %51 ], [ 0, %.lr.ph.split.us ]
   %.2100.us.us = phi i32 [ %.3.us.us, %51 ], [ 0, %.lr.ph.split.us ]
   %.38899.us.us = phi i32 [ %.489.us.us, %51 ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -25024,13 +25024,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   %52 = sext i32 %.2100.us.us.sink to i64
   %53 = getelementptr inbounds i32, ptr %spec.select63.sink, i64 %52
   store i32 %44, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !338
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !338
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv133
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv134
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %41, align 8
@@ -25038,30 +25038,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
   %59 = load i8, ptr %58, align 1
   %.not62.us = icmp eq i8 %59, %42
   %spec.select63..057 = select i1 %.not62.us, ptr %spec.select63, ptr %.057
-  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv133
+  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv134
   store i32 %55, ptr %60, align 4
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count143
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !338
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count144
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !338
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %63
   %66 = load i8, ptr %65, align 1
   %.not62.us105 = icmp eq i8 %66, %42
-  %spec.select63..057160 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
-  %67 = getelementptr inbounds i32, ptr %spec.select63..057160, i64 %indvars.iv126
+  %spec.select63..057161 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
+  %67 = getelementptr inbounds i32, ptr %spec.select63..057161, i64 %indvars.iv127
   store i32 %62, ptr %67, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count143
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !338
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count144
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !338
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph.split ]
@@ -25086,14 +25086,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 
 76:                                               ; preds = %.cont74, %.cont
   %.2100.sink = phi i32 [ %.2100, %.cont74 ], [ %.38899, %.cont ]
-  %.057.sink158 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
+  %.057.sink159 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
   %.489 = phi i32 [ %.38899, %.cont74 ], [ %75, %.cont ]
   %.3 = phi i32 [ %74, %.cont74 ], [ %.2100, %.cont ]
   %77 = sext i32 %.2100.sink to i64
-  %78 = getelementptr inbounds i32, ptr %.057.sink158, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.057.sink159, i64 %77
   store i32 %69, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !338
 
 .loopexit:                                        ; preds = %76, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %51, %34, %37, %.preheader
@@ -25282,7 +25282,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb1EL
 81:                                               ; preds = %11
   %82 = and i32 %2, 255
   %83 = zext i8 %.0 to i32
-  %.not75 = icmp ugt i32 %82, %83
+  %.not75 = icmp samesign ugt i32 %82, %83
   %spec.select = select i1 %.not75, ptr %10, ptr %9
   %84 = icmp sgt i32 %8, 0
   br i1 %84, label %.lr.ph, label %.loopexit
@@ -25361,18 +25361,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph119, label %.loopexit
+  br i1 %17, label %.lr.ph120, label %.loopexit
 
-.lr.ph119:                                        ; preds = %.preheader
+.lr.ph120:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count148 = zext nneg i32 %8 to i64
+  %wide.trip.count149 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph119, %34
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next146, %34 ]
-  %.0117 = phi i32 [ 0, %.lr.ph119 ], [ %.1, %34 ]
-  %.085116 = phi i32 [ 0, %.lr.ph119 ], [ %.186, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
+19:                                               ; preds = %.lr.ph120, %34
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next147, %34 ]
+  %.0118 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %34 ]
+  %.085117 = phi i32 [ 0, %.lr.ph120 ], [ %.186, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv146
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -25382,10 +25382,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %26, label %.cont68, label %28
 
 .cont68:                                          ; preds = %19
-  %.sroa.speculated67 = select i1 %5, i32 %.085116, i32 %.0117
+  %.sroa.speculated67 = select i1 %5, i32 %.085117, i32 %.0118
   %27 = add nsw i32 %.sroa.speculated67, 1
-  %spec.select92 = select i1 %5, i32 %27, i32 %.085116
-  %spec.select93 = select i1 %5, i32 %.0117, i32 %27
+  %spec.select92 = select i1 %5, i32 %27, i32 %.085117
+  %spec.select93 = select i1 %5, i32 %.0118, i32 %27
   br label %34
 
 28:                                               ; preds = %19
@@ -25393,29 +25393,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0117, 1
+  %31 = add nsw i32 %.0118, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.085116, 1
+  %33 = add nsw i32 %.085117, 1
   br label %34
 
 34:                                               ; preds = %.cont68, %32, %30
-  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085116, %32 ], [ %.0117, %30 ]
+  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085117, %32 ], [ %.0118, %30 ]
   %.057.sink = phi ptr [ %.057, %.cont68 ], [ %9, %32 ], [ %10, %30 ]
-  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085116, %30 ]
-  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0117, %32 ], [ %31, %30 ]
+  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085117, %30 ]
+  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0118, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated67.sink to i64
   %36 = getelementptr inbounds i32, ptr %.057.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %19, !llvm.loop !341
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %.loopexit, label %19, !llvm.loop !341
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 255
   %39 = zext i8 %spec.select to i32
-  %.not61 = icmp ugt i32 %38, %39
+  %.not61 = icmp samesign ugt i32 %38, %39
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -25423,17 +25423,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i8
-  %wide.trip.count143 = zext nneg i32 %8 to i64
+  %wide.trip.count144 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %51
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %51 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %51 ], [ 0, %.lr.ph.split.us ]
   %.2100.us.us = phi i32 [ %.3.us.us, %51 ], [ 0, %.lr.ph.split.us ]
   %.38899.us.us = phi i32 [ %.489.us.us, %51 ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -25458,13 +25458,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %52 = sext i32 %.2100.us.us.sink to i64
   %53 = getelementptr inbounds i32, ptr %spec.select63.sink, i64 %52
   store i32 %44, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !342
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !342
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv133
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv134
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %41, align 8
@@ -25472,30 +25472,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
   %59 = load i8, ptr %58, align 1
   %.not62.us = icmp eq i8 %59, %42
   %spec.select63..057 = select i1 %.not62.us, ptr %spec.select63, ptr %.057
-  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv133
+  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv134
   store i32 %55, ptr %60, align 4
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count143
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !342
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count144
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !342
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %63
   %66 = load i8, ptr %65, align 1
   %.not62.us105 = icmp eq i8 %66, %42
-  %spec.select63..057160 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
-  %67 = getelementptr inbounds i32, ptr %spec.select63..057160, i64 %indvars.iv126
+  %spec.select63..057161 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
+  %67 = getelementptr inbounds i32, ptr %spec.select63..057161, i64 %indvars.iv127
   store i32 %62, ptr %67, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count143
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !342
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count144
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !342
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph.split ]
@@ -25520,14 +25520,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinIhLb0EE10SplitInnerILb0EL
 
 76:                                               ; preds = %.cont74, %.cont
   %.2100.sink = phi i32 [ %.2100, %.cont74 ], [ %.38899, %.cont ]
-  %.057.sink158 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
+  %.057.sink159 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
   %.489 = phi i32 [ %.38899, %.cont74 ], [ %75, %.cont ]
   %.3 = phi i32 [ %74, %.cont74 ], [ %.2100, %.cont ]
   %77 = sext i32 %.2100.sink to i64
-  %78 = getelementptr inbounds i32, ptr %.057.sink158, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.057.sink159, i64 %77
   store i32 %69, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !342
 
 .loopexit:                                        ; preds = %76, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %51, %34, %37, %.preheader
@@ -26249,36 +26249,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph121, label %.loopexit
+  br i1 %17, label %.lr.ph122, label %.loopexit
 
-.lr.ph121:                                        ; preds = %.preheader
+.lr.ph122:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 65535
   %20 = and i32 %2, 65535
-  %wide.trip.count150 = zext nneg i32 %8 to i64
+  %wide.trip.count151 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph121, %38
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next148, %38 ]
-  %.0119 = phi i32 [ 0, %.lr.ph121 ], [ %.1, %38 ]
-  %.087118 = phi i32 [ 0, %.lr.ph121 ], [ %.188, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv147
+21:                                               ; preds = %.lr.ph122, %38
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next149, %38 ]
+  %.0120 = phi i32 [ 0, %.lr.ph122 ], [ %.1, %38 ]
+  %.087119 = phi i32 [ 0, %.lr.ph122 ], [ %.188, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv148
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i16, ptr %25, i64 %24
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont70, label %32
 
 .cont70:                                          ; preds = %21
-  %.sroa.speculated69 = select i1 %.not, i32 %.0119, i32 %.087118
+  %.sroa.speculated69 = select i1 %.not, i32 %.0120, i32 %.087119
   %31 = add nsw i32 %.sroa.speculated69, 1
-  %spec.select94 = select i1 %.not, i32 %.087118, i32 %31
-  %spec.select95 = select i1 %.not, i32 %31, i32 %.0119
+  %spec.select94 = select i1 %.not, i32 %.087119, i32 %31
+  %spec.select95 = select i1 %.not, i32 %31, i32 %.0120
   br label %38
 
 32:                                               ; preds = %21
@@ -26286,29 +26286,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0119, 1
+  %35 = add nsw i32 %.0120, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.087118, 1
+  %37 = add nsw i32 %.087119, 1
   br label %38
 
 38:                                               ; preds = %.cont70, %36, %34
-  %.sroa.speculated69.sink = phi i32 [ %.sroa.speculated69, %.cont70 ], [ %.087118, %36 ], [ %.0119, %34 ]
+  %.sroa.speculated69.sink = phi i32 [ %.sroa.speculated69, %.cont70 ], [ %.087119, %36 ], [ %.0120, %34 ]
   %.056.sink = phi ptr [ %.056, %.cont70 ], [ %9, %36 ], [ %10, %34 ]
-  %.188 = phi i32 [ %spec.select94, %.cont70 ], [ %37, %36 ], [ %.087118, %34 ]
-  %.1 = phi i32 [ %spec.select95, %.cont70 ], [ %.0119, %36 ], [ %35, %34 ]
+  %.188 = phi i32 [ %spec.select94, %.cont70 ], [ %37, %36 ], [ %.087119, %34 ]
+  %.1 = phi i32 [ %spec.select95, %.cont70 ], [ %.0120, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated69.sink to i64
   %40 = getelementptr inbounds i32, ptr %.056.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.loopexit, label %21, !llvm.loop !347
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
+  br i1 %exitcond152.not, label %.loopexit, label %21, !llvm.loop !347
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 65535
   %43 = zext i16 %spec.select to i32
-  %.not62 = icmp ugt i32 %42, %43
+  %.not62 = icmp samesign ugt i32 %42, %43
   %spec.select65 = select i1 %.not62, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -26316,15 +26316,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i16
-  %wide.trip.count145 = zext nneg i32 %8 to i64
+  %wide.trip.count146 = zext nneg i32 %8 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not62, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -26332,17 +26332,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %52 = load i16, ptr %51, align 2
   %.not63.us.us = icmp eq i16 %52, %46
   %spec.select65..056 = select i1 %.not63.us.us, ptr %spec.select65, ptr %.056
-  %53 = getelementptr inbounds i32, ptr %spec.select65..056, i64 %indvars.iv140
+  %53 = getelementptr inbounds i32, ptr %spec.select65..056, i64 %indvars.iv141
   store i32 %48, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count145
-  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !348
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count146
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !348
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %62
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %62 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %62 ], [ 0, %.lr.ph.split.us ]
   %.2102.us = phi i32 [ %.3.us, %62 ], [ 0, %.lr.ph.split.us ]
   %.390101.us = phi i32 [ %.491.us, %62 ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv135
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv136
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %45, align 8
@@ -26361,24 +26361,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 62:                                               ; preds = %.cont76.us, %.cont.us
   %.2102.us.sink = phi i32 [ %.2102.us, %.cont76.us ], [ %.390101.us, %.cont.us ]
-  %.056.sink157 = phi ptr [ %.056, %.cont76.us ], [ %spec.select65, %.cont.us ]
+  %.056.sink158 = phi ptr [ %.056, %.cont76.us ], [ %spec.select65, %.cont.us ]
   %.491.us = phi i32 [ %.390101.us, %.cont76.us ], [ %61, %.cont.us ]
   %.3.us = phi i32 [ %60, %.cont76.us ], [ %.2102.us, %.cont.us ]
   %63 = sext i32 %.2102.us.sink to i64
-  %64 = getelementptr inbounds i32, ptr %.056.sink157, i64 %63
+  %64 = getelementptr inbounds i32, ptr %.056.sink158, i64 %63
   store i32 %55, ptr %64, align 4
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count145
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !348
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count146
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !348
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not62, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %73
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %73 ], [ 0, %.lr.ph.split ]
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %73 ], [ 0, %.lr.ph.split ]
   %.2102.us105 = phi i32 [ %.3.us111, %73 ], [ 0, %.lr.ph.split ]
   %.390101.us106 = phi i32 [ %.491.us110, %73 ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
@@ -26397,15 +26397,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 73:                                               ; preds = %.cont.us109, %.cont76.us108
   %.2102.us105.sink = phi i32 [ %.2102.us105, %.cont.us109 ], [ %.390101.us106, %.cont76.us108 ]
-  %spec.select65.sink159 = phi ptr [ %spec.select65, %.cont.us109 ], [ %.056, %.cont76.us108 ]
+  %spec.select65.sink160 = phi ptr [ %spec.select65, %.cont.us109 ], [ %.056, %.cont76.us108 ]
   %.491.us110 = phi i32 [ %.390101.us106, %.cont.us109 ], [ %71, %.cont76.us108 ]
   %.3.us111 = phi i32 [ %72, %.cont.us109 ], [ %.2102.us105, %.cont76.us108 ]
   %74 = sext i32 %.2102.us105.sink to i64
-  %75 = getelementptr inbounds i32, ptr %spec.select65.sink159, i64 %74
+  %75 = getelementptr inbounds i32, ptr %spec.select65.sink160, i64 %74
   store i32 %66, ptr %75, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count145
-  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !348
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count146
+  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !348
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -26416,11 +26416,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %80 = getelementptr inbounds i16, ptr %79, i64 %78
   %81 = load i16, ptr %80, align 2
   %.not63 = icmp eq i16 %81, %46
-  %spec.select65..056162 = select i1 %.not63, ptr %spec.select65, ptr %.056
-  %82 = getelementptr inbounds i32, ptr %spec.select65..056162, i64 %indvars.iv
+  %spec.select65..056163 = select i1 %.not63, ptr %spec.select65, ptr %.056
+  %82 = getelementptr inbounds i32, ptr %spec.select65..056163, i64 %indvars.iv
   store i32 %77, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count145
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !348
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %73, %62, %.lr.ph.split.us.split.us, %38, %41, %.preheader
@@ -26441,36 +26441,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph123, label %.loopexit
+  br i1 %17, label %.lr.ph124, label %.loopexit
 
-.lr.ph123:                                        ; preds = %.preheader
+.lr.ph124:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 65535
   %20 = and i32 %2, 65535
-  %wide.trip.count152 = zext nneg i32 %8 to i64
+  %wide.trip.count153 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph123, %38
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next150, %38 ]
-  %.0121 = phi i32 [ 0, %.lr.ph123 ], [ %.1, %38 ]
-  %.089120 = phi i32 [ 0, %.lr.ph123 ], [ %.190, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv149
+21:                                               ; preds = %.lr.ph124, %38
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %38 ]
+  %.0122 = phi i32 [ 0, %.lr.ph124 ], [ %.1, %38 ]
+  %.089121 = phi i32 [ 0, %.lr.ph124 ], [ %.190, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv150
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i16, ptr %25, i64 %24
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont72, label %32
 
 .cont72:                                          ; preds = %21
-  %.sroa.speculated71 = select i1 %5, i32 %.089120, i32 %.0121
+  %.sroa.speculated71 = select i1 %5, i32 %.089121, i32 %.0122
   %31 = add nsw i32 %.sroa.speculated71, 1
-  %spec.select96 = select i1 %5, i32 %31, i32 %.089120
-  %spec.select97 = select i1 %5, i32 %.0121, i32 %31
+  %spec.select96 = select i1 %5, i32 %31, i32 %.089121
+  %spec.select97 = select i1 %5, i32 %.0122, i32 %31
   br label %38
 
 32:                                               ; preds = %21
@@ -26478,29 +26478,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0121, 1
+  %35 = add nsw i32 %.0122, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.089120, 1
+  %37 = add nsw i32 %.089121, 1
   br label %38
 
 38:                                               ; preds = %.cont72, %36, %34
-  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089120, %36 ], [ %.0121, %34 ]
+  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089121, %36 ], [ %.0122, %34 ]
   %.060.sink = phi ptr [ %.060, %.cont72 ], [ %9, %36 ], [ %10, %34 ]
-  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089120, %34 ]
-  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0121, %36 ], [ %35, %34 ]
+  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089121, %34 ]
+  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0122, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated71.sink to i64
   %40 = getelementptr inbounds i32, ptr %.060.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit, label %21, !llvm.loop !349
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
+  br i1 %exitcond154.not, label %.loopexit, label %21, !llvm.loop !349
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 65535
   %43 = zext i16 %spec.select to i32
-  %.not64 = icmp ugt i32 %42, %43
+  %.not64 = icmp samesign ugt i32 %42, %43
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -26508,17 +26508,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i16
-  %wide.trip.count147 = zext nneg i32 %8 to i64
+  %wide.trip.count148 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %55 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %55 ], [ 0, %.lr.ph.split.us ]
   %.2104.us.us = phi i32 [ %.3.us.us, %55 ], [ 0, %.lr.ph.split.us ]
   %.392103.us.us = phi i32 [ %.493.us.us, %55 ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -26543,13 +26543,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   %56 = sext i32 %.2104.us.us.sink to i64
   %57 = getelementptr inbounds i32, ptr %spec.select67.sink, i64 %56
   store i32 %48, ptr %57, align 4
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !350
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !350
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv138
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %45, align 8
@@ -26557,30 +26557,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   %63 = load i16, ptr %62, align 2
   %.not65.us = icmp eq i16 %63, %46
   %spec.select67..060 = select i1 %.not65.us, ptr %spec.select67, ptr %.060
-  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv137
+  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv138
   store i32 %59, ptr %64, align 4
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count147
-  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !350
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count148
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !350
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
   %69 = getelementptr inbounds i16, ptr %68, i64 %67
   %70 = load i16, ptr %69, align 2
   %.not65.us109 = icmp eq i16 %70, %46
-  %spec.select67..060164 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
-  %71 = getelementptr inbounds i32, ptr %spec.select67..060164, i64 %indvars.iv130
+  %spec.select67..060165 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
+  %71 = getelementptr inbounds i32, ptr %spec.select67..060165, i64 %indvars.iv131
   store i32 %66, ptr %71, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count147
-  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !350
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count148
+  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !350
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph.split ]
@@ -26605,14 +26605,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 80:                                               ; preds = %.cont78, %.cont
   %.2104.sink = phi i32 [ %.2104, %.cont78 ], [ %.392103, %.cont ]
-  %.060.sink162 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
+  %.060.sink163 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
   %.493 = phi i32 [ %.392103, %.cont78 ], [ %79, %.cont ]
   %.3 = phi i32 [ %78, %.cont78 ], [ %.2104, %.cont ]
   %81 = sext i32 %.2104.sink to i64
-  %82 = getelementptr inbounds i32, ptr %.060.sink162, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.060.sink163, i64 %81
   store i32 %73, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !350
 
 .loopexit:                                        ; preds = %80, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %55, %38, %41, %.preheader
@@ -26662,9 +26662,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 30:                                               ; preds = %.lr.ph145.split.us
   %31 = zext i16 %28 to i32
-  %32 = icmp ugt i32 %21, %31
-  %33 = icmp ult i32 %22, %31
-  %or.cond.us = or i1 %32, %33
+  %32 = icmp samesign ugt i32 %21, %31
+  %33 = icmp samesign ult i32 %22, %31
+  %or.cond.us = select i1 %32, i1 true, i1 %33
   br i1 %or.cond.us, label %.cont97.us, label %34
 
 34:                                               ; preds = %30
@@ -26720,9 +26720,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 52:                                               ; preds = %.lr.ph145.split.split.us
   %53 = zext i16 %50 to i32
-  %54 = icmp ugt i32 %21, %53
-  %55 = icmp ult i32 %22, %53
-  %or.cond.us150 = or i1 %54, %55
+  %54 = icmp samesign ugt i32 %21, %53
+  %55 = icmp samesign ult i32 %22, %53
+  %or.cond.us150 = select i1 %54, i1 true, i1 %55
   br i1 %or.cond.us150, label %.cont97.us151, label %56
 
 56:                                               ; preds = %52
@@ -26776,9 +26776,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 75:                                               ; preds = %.lr.ph145.split.split
   %76 = zext i16 %72 to i32
-  %77 = icmp ugt i32 %21, %76
-  %78 = icmp ult i32 %22, %76
-  %or.cond = or i1 %77, %78
+  %77 = icmp samesign ugt i32 %21, %76
+  %78 = icmp samesign ult i32 %22, %76
+  %or.cond = select i1 %77, i1 true, i1 %78
   br i1 %or.cond, label %.cont97, label %80
 
 .cont97:                                          ; preds = %75
@@ -26812,7 +26812,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 89:                                               ; preds = %11
   %90 = and i32 %2, 65535
   %91 = zext i16 %.0 to i32
-  %.not78 = icmp ugt i32 %90, %91
+  %.not78 = icmp samesign ugt i32 %90, %91
   %spec.select = select i1 %.not78, ptr %10, ptr %9
   %92 = icmp sgt i32 %8, 0
   br i1 %92, label %.lr.ph, label %.loopexit
@@ -26891,36 +26891,36 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph123, label %.loopexit
+  br i1 %17, label %.lr.ph124, label %.loopexit
 
-.lr.ph123:                                        ; preds = %.preheader
+.lr.ph124:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = and i32 %1, 65535
   %20 = and i32 %2, 65535
-  %wide.trip.count152 = zext nneg i32 %8 to i64
+  %wide.trip.count153 = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph123, %38
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next150, %38 ]
-  %.0121 = phi i32 [ 0, %.lr.ph123 ], [ %.1, %38 ]
-  %.089120 = phi i32 [ 0, %.lr.ph123 ], [ %.190, %38 ]
-  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv149
+21:                                               ; preds = %.lr.ph124, %38
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %38 ]
+  %.0122 = phi i32 [ 0, %.lr.ph124 ], [ %.1, %38 ]
+  %.089121 = phi i32 [ 0, %.lr.ph124 ], [ %.190, %38 ]
+  %22 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv150
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i16, ptr %25, i64 %24
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ugt i32 %19, %28
-  %30 = icmp ult i32 %20, %28
-  %or.cond = or i1 %29, %30
+  %29 = icmp samesign ugt i32 %19, %28
+  %30 = icmp samesign ult i32 %20, %28
+  %or.cond = select i1 %29, i1 true, i1 %30
   br i1 %or.cond, label %.cont72, label %32
 
 .cont72:                                          ; preds = %21
-  %.sroa.speculated71 = select i1 %5, i32 %.089120, i32 %.0121
+  %.sroa.speculated71 = select i1 %5, i32 %.089121, i32 %.0122
   %31 = add nsw i32 %.sroa.speculated71, 1
-  %spec.select96 = select i1 %5, i32 %31, i32 %.089120
-  %spec.select97 = select i1 %5, i32 %.0121, i32 %31
+  %spec.select96 = select i1 %5, i32 %31, i32 %.089121
+  %spec.select97 = select i1 %5, i32 %.0122, i32 %31
   br label %38
 
 32:                                               ; preds = %21
@@ -26928,29 +26928,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0121, 1
+  %35 = add nsw i32 %.0122, 1
   br label %38
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.089120, 1
+  %37 = add nsw i32 %.089121, 1
   br label %38
 
 38:                                               ; preds = %.cont72, %36, %34
-  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089120, %36 ], [ %.0121, %34 ]
+  %.sroa.speculated71.sink = phi i32 [ %.sroa.speculated71, %.cont72 ], [ %.089121, %36 ], [ %.0122, %34 ]
   %.060.sink = phi ptr [ %.060, %.cont72 ], [ %9, %36 ], [ %10, %34 ]
-  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089120, %34 ]
-  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0121, %36 ], [ %35, %34 ]
+  %.190 = phi i32 [ %spec.select96, %.cont72 ], [ %37, %36 ], [ %.089121, %34 ]
+  %.1 = phi i32 [ %spec.select97, %.cont72 ], [ %.0122, %36 ], [ %35, %34 ]
   %39 = sext i32 %.sroa.speculated71.sink to i64
   %40 = getelementptr inbounds i32, ptr %.060.sink, i64 %39
   store i32 %23, ptr %40, align 4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit, label %21, !llvm.loop !353
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
+  br i1 %exitcond154.not, label %.loopexit, label %21, !llvm.loop !353
 
 41:                                               ; preds = %11
   %42 = and i32 %2, 65535
   %43 = zext i16 %spec.select to i32
-  %.not64 = icmp ugt i32 %42, %43
+  %.not64 = icmp samesign ugt i32 %42, %43
   %spec.select67 = select i1 %.not64, ptr %10, ptr %9
   %44 = icmp sgt i32 %8, 0
   br i1 %44, label %.lr.ph, label %.loopexit
@@ -26958,17 +26958,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = trunc i32 %2 to i16
-  %wide.trip.count147 = zext nneg i32 %8 to i64
+  %wide.trip.count148 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %55 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %55 ], [ 0, %.lr.ph.split.us ]
   %.2104.us.us = phi i32 [ %.3.us.us, %55 ], [ 0, %.lr.ph.split.us ]
   %.392103.us.us = phi i32 [ %.493.us.us, %55 ], [ 0, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
+  %47 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %45, align 8
@@ -26993,13 +26993,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %56 = sext i32 %.2104.us.us.sink to i64
   %57 = getelementptr inbounds i32, ptr %spec.select67.sink, i64 %56
   store i32 %48, ptr %57, align 4
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !354
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !354
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %58 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv138
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = load ptr, ptr %45, align 8
@@ -27007,30 +27007,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %63 = load i16, ptr %62, align 2
   %.not65.us = icmp eq i16 %63, %46
   %spec.select67..060 = select i1 %.not65.us, ptr %spec.select67, ptr %.060
-  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv137
+  %64 = getelementptr inbounds i32, ptr %spec.select67..060, i64 %indvars.iv138
   store i32 %59, ptr %64, align 4
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count147
-  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !354
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count148
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !354
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv130
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %65 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %45, align 8
   %69 = getelementptr inbounds i16, ptr %68, i64 %67
   %70 = load i16, ptr %69, align 2
   %.not65.us109 = icmp eq i16 %70, %46
-  %spec.select67..060164 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
-  %71 = getelementptr inbounds i32, ptr %spec.select67..060164, i64 %indvars.iv130
+  %spec.select67..060165 = select i1 %.not65.us109, ptr %spec.select67, ptr %.060
+  %71 = getelementptr inbounds i32, ptr %spec.select67..060165, i64 %indvars.iv131
   store i32 %66, ptr %71, align 4
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count147
-  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !354
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count148
+  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !354
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph.split ]
@@ -27055,14 +27055,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 80:                                               ; preds = %.cont78, %.cont
   %.2104.sink = phi i32 [ %.2104, %.cont78 ], [ %.392103, %.cont ]
-  %.060.sink162 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
+  %.060.sink163 = phi ptr [ %.060, %.cont78 ], [ %spec.select67, %.cont ]
   %.493 = phi i32 [ %.392103, %.cont78 ], [ %79, %.cont ]
   %.3 = phi i32 [ %78, %.cont78 ], [ %.2104, %.cont ]
   %81 = sext i32 %.2104.sink to i64
-  %82 = getelementptr inbounds i32, ptr %.060.sink162, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.060.sink163, i64 %81
   store i32 %73, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !354
 
 .loopexit:                                        ; preds = %80, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %55, %38, %41, %.preheader
@@ -27196,9 +27196,9 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br label %68
 
 58:                                               ; preds = %48
-  %59 = icmp ugt i32 %47, %55
-  %60 = icmp ult i32 %46, %55
-  %or.cond = or i1 %59, %60
+  %59 = icmp samesign ugt i32 %47, %55
+  %60 = icmp samesign ult i32 %46, %55
+  %or.cond = select i1 %59, i1 true, i1 %60
   br i1 %or.cond, label %.cont81, label %62
 
 .cont81:                                          ; preds = %58
@@ -27284,18 +27284,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph117, label %.loopexit
+  br i1 %17, label %.lr.ph118, label %.loopexit
 
-.lr.ph117:                                        ; preds = %.preheader
+.lr.ph118:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count146 = zext nneg i32 %8 to i64
+  %wide.trip.count147 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph117, %34
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next144, %34 ]
-  %.0115 = phi i32 [ 0, %.lr.ph117 ], [ %.1, %34 ]
-  %.083114 = phi i32 [ 0, %.lr.ph117 ], [ %.184, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv143
+19:                                               ; preds = %.lr.ph118, %34
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next145, %34 ]
+  %.0116 = phi i32 [ 0, %.lr.ph118 ], [ %.1, %34 ]
+  %.083115 = phi i32 [ 0, %.lr.ph118 ], [ %.184, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv144
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -27305,10 +27305,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %26, label %.cont66, label %28
 
 .cont66:                                          ; preds = %19
-  %.sroa.speculated65 = select i1 %.not, i32 %.0115, i32 %.083114
+  %.sroa.speculated65 = select i1 %.not, i32 %.0116, i32 %.083115
   %27 = add nsw i32 %.sroa.speculated65, 1
-  %spec.select90 = select i1 %.not, i32 %.083114, i32 %27
-  %spec.select91 = select i1 %.not, i32 %27, i32 %.0115
+  %spec.select90 = select i1 %.not, i32 %.083115, i32 %27
+  %spec.select91 = select i1 %.not, i32 %27, i32 %.0116
   br label %34
 
 28:                                               ; preds = %19
@@ -27316,29 +27316,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0115, 1
+  %31 = add nsw i32 %.0116, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.083114, 1
+  %33 = add nsw i32 %.083115, 1
   br label %34
 
 34:                                               ; preds = %.cont66, %32, %30
-  %.sroa.speculated65.sink = phi i32 [ %.sroa.speculated65, %.cont66 ], [ %.083114, %32 ], [ %.0115, %30 ]
+  %.sroa.speculated65.sink = phi i32 [ %.sroa.speculated65, %.cont66 ], [ %.083115, %32 ], [ %.0116, %30 ]
   %.053.sink = phi ptr [ %.053, %.cont66 ], [ %9, %32 ], [ %10, %30 ]
-  %.184 = phi i32 [ %spec.select90, %.cont66 ], [ %33, %32 ], [ %.083114, %30 ]
-  %.1 = phi i32 [ %spec.select91, %.cont66 ], [ %.0115, %32 ], [ %31, %30 ]
+  %.184 = phi i32 [ %spec.select90, %.cont66 ], [ %33, %32 ], [ %.083115, %30 ]
+  %.1 = phi i32 [ %spec.select91, %.cont66 ], [ %.0116, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated65.sink to i64
   %36 = getelementptr inbounds i32, ptr %.053.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.loopexit, label %19, !llvm.loop !357
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
+  br i1 %exitcond148.not, label %.loopexit, label %19, !llvm.loop !357
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 65535
   %39 = zext i16 %spec.select to i32
-  %.not59 = icmp ugt i32 %38, %39
+  %.not59 = icmp samesign ugt i32 %38, %39
   %spec.select61 = select i1 %.not59, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -27346,15 +27346,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i16
-  %wide.trip.count141 = zext nneg i32 %8 to i64
+  %wide.trip.count142 = zext nneg i32 %8 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not59, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv136
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv137
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -27362,17 +27362,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %48 = load i16, ptr %47, align 2
   %.not60.us.us = icmp eq i16 %48, %42
   %spec.select61..053 = select i1 %.not60.us.us, ptr %spec.select61, ptr %.053
-  %49 = getelementptr inbounds i32, ptr %spec.select61..053, i64 %indvars.iv136
+  %49 = getelementptr inbounds i32, ptr %spec.select61..053, i64 %indvars.iv137
   store i32 %44, ptr %49, align 4
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count141
-  br i1 %exitcond142.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !358
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond143.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count142
+  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !358
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %58
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %58 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %58 ], [ 0, %.lr.ph.split.us ]
   %.298.us = phi i32 [ %.3.us, %58 ], [ 0, %.lr.ph.split.us ]
   %.38697.us = phi i32 [ %.487.us, %58 ], [ 0, %.lr.ph.split.us ]
-  %50 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv131
+  %50 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv132
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = load ptr, ptr %41, align 8
@@ -27391,24 +27391,24 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 58:                                               ; preds = %.cont72.us, %.cont.us
   %.298.us.sink = phi i32 [ %.298.us, %.cont72.us ], [ %.38697.us, %.cont.us ]
-  %.053.sink153 = phi ptr [ %.053, %.cont72.us ], [ %spec.select61, %.cont.us ]
+  %.053.sink154 = phi ptr [ %.053, %.cont72.us ], [ %spec.select61, %.cont.us ]
   %.487.us = phi i32 [ %.38697.us, %.cont72.us ], [ %57, %.cont.us ]
   %.3.us = phi i32 [ %56, %.cont72.us ], [ %.298.us, %.cont.us ]
   %59 = sext i32 %.298.us.sink to i64
-  %60 = getelementptr inbounds i32, ptr %.053.sink153, i64 %59
+  %60 = getelementptr inbounds i32, ptr %.053.sink154, i64 %59
   store i32 %51, ptr %60, align 4
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count141
-  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !358
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count142
+  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !358
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not59, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %69
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %69 ], [ 0, %.lr.ph.split ]
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %69 ], [ 0, %.lr.ph.split ]
   %.298.us101 = phi i32 [ %.3.us107, %69 ], [ 0, %.lr.ph.split ]
   %.38697.us102 = phi i32 [ %.487.us106, %69 ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
@@ -27427,15 +27427,15 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 69:                                               ; preds = %.cont.us105, %.cont72.us104
   %.298.us101.sink = phi i32 [ %.298.us101, %.cont.us105 ], [ %.38697.us102, %.cont72.us104 ]
-  %spec.select61.sink155 = phi ptr [ %spec.select61, %.cont.us105 ], [ %.053, %.cont72.us104 ]
+  %spec.select61.sink156 = phi ptr [ %spec.select61, %.cont.us105 ], [ %.053, %.cont72.us104 ]
   %.487.us106 = phi i32 [ %.38697.us102, %.cont.us105 ], [ %67, %.cont72.us104 ]
   %.3.us107 = phi i32 [ %68, %.cont.us105 ], [ %.298.us101, %.cont72.us104 ]
   %70 = sext i32 %.298.us101.sink to i64
-  %71 = getelementptr inbounds i32, ptr %spec.select61.sink155, i64 %70
+  %71 = getelementptr inbounds i32, ptr %spec.select61.sink156, i64 %70
   store i32 %62, ptr %71, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count141
-  br i1 %exitcond130.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !358
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count142
+  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !358
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -27446,11 +27446,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %76 = getelementptr inbounds i16, ptr %75, i64 %74
   %77 = load i16, ptr %76, align 2
   %.not60 = icmp eq i16 %77, %42
-  %spec.select61..053158 = select i1 %.not60, ptr %spec.select61, ptr %.053
-  %78 = getelementptr inbounds i32, ptr %spec.select61..053158, i64 %indvars.iv
+  %spec.select61..053159 = select i1 %.not60, ptr %spec.select61, ptr %.053
+  %78 = getelementptr inbounds i32, ptr %spec.select61..053159, i64 %indvars.iv
   store i32 %73, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count141
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count142
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !358
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %69, %58, %.lr.ph.split.us.split.us, %34, %37, %.preheader
@@ -27471,18 +27471,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph119, label %.loopexit
+  br i1 %17, label %.lr.ph120, label %.loopexit
 
-.lr.ph119:                                        ; preds = %.preheader
+.lr.ph120:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count148 = zext nneg i32 %8 to i64
+  %wide.trip.count149 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph119, %34
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next146, %34 ]
-  %.0117 = phi i32 [ 0, %.lr.ph119 ], [ %.1, %34 ]
-  %.085116 = phi i32 [ 0, %.lr.ph119 ], [ %.186, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
+19:                                               ; preds = %.lr.ph120, %34
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next147, %34 ]
+  %.0118 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %34 ]
+  %.085117 = phi i32 [ 0, %.lr.ph120 ], [ %.186, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv146
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -27492,10 +27492,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   br i1 %26, label %.cont68, label %28
 
 .cont68:                                          ; preds = %19
-  %.sroa.speculated67 = select i1 %5, i32 %.085116, i32 %.0117
+  %.sroa.speculated67 = select i1 %5, i32 %.085117, i32 %.0118
   %27 = add nsw i32 %.sroa.speculated67, 1
-  %spec.select92 = select i1 %5, i32 %27, i32 %.085116
-  %spec.select93 = select i1 %5, i32 %.0117, i32 %27
+  %spec.select92 = select i1 %5, i32 %27, i32 %.085117
+  %spec.select93 = select i1 %5, i32 %.0118, i32 %27
   br label %34
 
 28:                                               ; preds = %19
@@ -27503,29 +27503,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0117, 1
+  %31 = add nsw i32 %.0118, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.085116, 1
+  %33 = add nsw i32 %.085117, 1
   br label %34
 
 34:                                               ; preds = %.cont68, %32, %30
-  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085116, %32 ], [ %.0117, %30 ]
+  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085117, %32 ], [ %.0118, %30 ]
   %.057.sink = phi ptr [ %.057, %.cont68 ], [ %9, %32 ], [ %10, %30 ]
-  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085116, %30 ]
-  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0117, %32 ], [ %31, %30 ]
+  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085117, %30 ]
+  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0118, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated67.sink to i64
   %36 = getelementptr inbounds i32, ptr %.057.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %19, !llvm.loop !359
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %.loopexit, label %19, !llvm.loop !359
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 65535
   %39 = zext i16 %spec.select to i32
-  %.not61 = icmp ugt i32 %38, %39
+  %.not61 = icmp samesign ugt i32 %38, %39
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -27533,17 +27533,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i16
-  %wide.trip.count143 = zext nneg i32 %8 to i64
+  %wide.trip.count144 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %51
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %51 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %51 ], [ 0, %.lr.ph.split.us ]
   %.2100.us.us = phi i32 [ %.3.us.us, %51 ], [ 0, %.lr.ph.split.us ]
   %.38899.us.us = phi i32 [ %.489.us.us, %51 ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -27568,13 +27568,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   %52 = sext i32 %.2100.us.us.sink to i64
   %53 = getelementptr inbounds i32, ptr %spec.select63.sink, i64 %52
   store i32 %44, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !360
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !360
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv133
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv134
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %41, align 8
@@ -27582,30 +27582,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
   %59 = load i16, ptr %58, align 2
   %.not62.us = icmp eq i16 %59, %42
   %spec.select63..057 = select i1 %.not62.us, ptr %spec.select63, ptr %.057
-  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv133
+  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv134
   store i32 %55, ptr %60, align 4
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count143
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !360
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count144
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !360
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
   %65 = getelementptr inbounds i16, ptr %64, i64 %63
   %66 = load i16, ptr %65, align 2
   %.not62.us105 = icmp eq i16 %66, %42
-  %spec.select63..057160 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
-  %67 = getelementptr inbounds i32, ptr %spec.select63..057160, i64 %indvars.iv126
+  %spec.select63..057161 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
+  %67 = getelementptr inbounds i32, ptr %spec.select63..057161, i64 %indvars.iv127
   store i32 %62, ptr %67, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count143
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !360
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count144
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !360
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph.split ]
@@ -27630,14 +27630,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 
 76:                                               ; preds = %.cont74, %.cont
   %.2100.sink = phi i32 [ %.2100, %.cont74 ], [ %.38899, %.cont ]
-  %.057.sink158 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
+  %.057.sink159 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
   %.489 = phi i32 [ %.38899, %.cont74 ], [ %75, %.cont ]
   %.3 = phi i32 [ %74, %.cont74 ], [ %.2100, %.cont ]
   %77 = sext i32 %.2100.sink to i64
-  %78 = getelementptr inbounds i32, ptr %.057.sink158, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.057.sink159, i64 %77
   store i32 %69, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !360
 
 .loopexit:                                        ; preds = %76, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %51, %34, %37, %.preheader
@@ -27826,7 +27826,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb1EL
 81:                                               ; preds = %11
   %82 = and i32 %2, 65535
   %83 = zext i16 %.0 to i32
-  %.not75 = icmp ugt i32 %82, %83
+  %.not75 = icmp samesign ugt i32 %82, %83
   %spec.select = select i1 %.not75, ptr %10, ptr %9
   %84 = icmp sgt i32 %8, 0
   br i1 %84, label %.lr.ph, label %.loopexit
@@ -27905,18 +27905,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 .preheader:                                       ; preds = %11
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph119, label %.loopexit
+  br i1 %17, label %.lr.ph120, label %.loopexit
 
-.lr.ph119:                                        ; preds = %.preheader
+.lr.ph120:                                        ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count148 = zext nneg i32 %8 to i64
+  %wide.trip.count149 = zext nneg i32 %8 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph119, %34
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next146, %34 ]
-  %.0117 = phi i32 [ 0, %.lr.ph119 ], [ %.1, %34 ]
-  %.085116 = phi i32 [ 0, %.lr.ph119 ], [ %.186, %34 ]
-  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv145
+19:                                               ; preds = %.lr.ph120, %34
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next147, %34 ]
+  %.0118 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %34 ]
+  %.085117 = phi i32 [ 0, %.lr.ph120 ], [ %.186, %34 ]
+  %20 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv146
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %18, align 8
@@ -27926,10 +27926,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %26, label %.cont68, label %28
 
 .cont68:                                          ; preds = %19
-  %.sroa.speculated67 = select i1 %5, i32 %.085116, i32 %.0117
+  %.sroa.speculated67 = select i1 %5, i32 %.085117, i32 %.0118
   %27 = add nsw i32 %.sroa.speculated67, 1
-  %spec.select92 = select i1 %5, i32 %27, i32 %.085116
-  %spec.select93 = select i1 %5, i32 %.0117, i32 %27
+  %spec.select92 = select i1 %5, i32 %27, i32 %.085117
+  %spec.select93 = select i1 %5, i32 %.0118, i32 %27
   br label %34
 
 28:                                               ; preds = %19
@@ -27937,29 +27937,29 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0117, 1
+  %31 = add nsw i32 %.0118, 1
   br label %34
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.085116, 1
+  %33 = add nsw i32 %.085117, 1
   br label %34
 
 34:                                               ; preds = %.cont68, %32, %30
-  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085116, %32 ], [ %.0117, %30 ]
+  %.sroa.speculated67.sink = phi i32 [ %.sroa.speculated67, %.cont68 ], [ %.085117, %32 ], [ %.0118, %30 ]
   %.057.sink = phi ptr [ %.057, %.cont68 ], [ %9, %32 ], [ %10, %30 ]
-  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085116, %30 ]
-  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0117, %32 ], [ %31, %30 ]
+  %.186 = phi i32 [ %spec.select92, %.cont68 ], [ %33, %32 ], [ %.085117, %30 ]
+  %.1 = phi i32 [ %spec.select93, %.cont68 ], [ %.0118, %32 ], [ %31, %30 ]
   %35 = sext i32 %.sroa.speculated67.sink to i64
   %36 = getelementptr inbounds i32, ptr %.057.sink, i64 %35
   store i32 %21, ptr %36, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %19, !llvm.loop !363
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %.loopexit, label %19, !llvm.loop !363
 
 37:                                               ; preds = %11
   %38 = and i32 %2, 65535
   %39 = zext i16 %spec.select to i32
-  %.not61 = icmp ugt i32 %38, %39
+  %.not61 = icmp samesign ugt i32 %38, %39
   %spec.select63 = select i1 %.not61, ptr %10, ptr %9
   %40 = icmp sgt i32 %8, 0
   br i1 %40, label %.lr.ph, label %.loopexit
@@ -27967,17 +27967,17 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = trunc i32 %2 to i16
-  %wide.trip.count143 = zext nneg i32 %8 to i64
+  %wide.trip.count144 = zext nneg i32 %8 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %51
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %51 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %51 ], [ 0, %.lr.ph.split.us ]
   %.2100.us.us = phi i32 [ %.3.us.us, %51 ], [ 0, %.lr.ph.split.us ]
   %.38899.us.us = phi i32 [ %.489.us.us, %51 ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv140
+  %43 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %41, align 8
@@ -28002,13 +28002,13 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %52 = sext i32 %.2100.us.us.sink to i64
   %53 = getelementptr inbounds i32, ptr %spec.select63.sink, i64 %52
   store i32 %44, ptr %53, align 4
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !364
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !364
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv133
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %54 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv134
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %41, align 8
@@ -28016,30 +28016,30 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
   %59 = load i16, ptr %58, align 2
   %.not62.us = icmp eq i16 %59, %42
   %spec.select63..057 = select i1 %.not62.us, ptr %spec.select63, ptr %.057
-  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv133
+  %60 = getelementptr inbounds i32, ptr %spec.select63..057, i64 %indvars.iv134
   store i32 %55, ptr %60, align 4
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count143
-  br i1 %exitcond139.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !364
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count144
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !364
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not61, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv126
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %61 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv127
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %41, align 8
   %65 = getelementptr inbounds i16, ptr %64, i64 %63
   %66 = load i16, ptr %65, align 2
   %.not62.us105 = icmp eq i16 %66, %42
-  %spec.select63..057160 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
-  %67 = getelementptr inbounds i32, ptr %spec.select63..057160, i64 %indvars.iv126
+  %spec.select63..057161 = select i1 %.not62.us105, ptr %spec.select63, ptr %.057
+  %67 = getelementptr inbounds i32, ptr %spec.select63..057161, i64 %indvars.iv127
   store i32 %62, ptr %67, align 4
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count143
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !364
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count144
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !364
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph.split ]
@@ -28064,14 +28064,14 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM8DenseBinItLb0EE10SplitInnerILb0EL
 
 76:                                               ; preds = %.cont74, %.cont
   %.2100.sink = phi i32 [ %.2100, %.cont74 ], [ %.38899, %.cont ]
-  %.057.sink158 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
+  %.057.sink159 = phi ptr [ %.057, %.cont74 ], [ %spec.select63, %.cont ]
   %.489 = phi i32 [ %.38899, %.cont74 ], [ %75, %.cont ]
   %.3 = phi i32 [ %74, %.cont74 ], [ %.2100, %.cont ]
   %77 = sext i32 %.2100.sink to i64
-  %78 = getelementptr inbounds i32, ptr %.057.sink158, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.057.sink159, i64 %77
   store i32 %69, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !364
 
 .loopexit:                                        ; preds = %76, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %51, %34, %37, %.preheader
@@ -31521,9 +31521,9 @@ _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i8 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i8 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont89, label %66
 
 .cont89:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit
@@ -31560,7 +31560,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %76 = and i32 %2, 255
   %77 = zext i8 %spec.select to i32
-  %.not65 = icmp ugt i32 %76, %77
+  %.not65 = icmp samesign ugt i32 %76, %77
   %spec.select68 = select i1 %.not65, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -31893,9 +31893,9 @@ _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i8 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i8 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont91, label %66
 
 .cont91:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit
@@ -31932,7 +31932,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %76 = and i32 %2, 255
   %77 = zext i8 %spec.select to i32
-  %.not67 = icmp ugt i32 %76, %77
+  %.not67 = icmp samesign ugt i32 %76, %77
   %spec.select70 = select i1 %.not67, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -32281,9 +32281,9 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %59, %._crit_e
 
 66:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit
   %67 = zext i8 %.0.i to i32
-  %68 = icmp ugt i32 %40, %67
-  %69 = icmp ult i32 %41, %67
-  %or.cond = or i1 %68, %69
+  %68 = icmp samesign ugt i32 %40, %67
+  %69 = icmp samesign ult i32 %41, %67
+  %or.cond = select i1 %68, i1 true, i1 %69
   br i1 %or.cond, label %.cont116, label %71
 
 .cont116:                                         ; preds = %66
@@ -32320,7 +32320,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %59, %._crit_e
 80:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %81 = and i32 %2, 255
   %82 = zext i8 %.0 to i32
-  %.not81 = icmp ugt i32 %81, %82
+  %.not81 = icmp samesign ugt i32 %81, %82
   %spec.select = select i1 %.not81, ptr %10, ptr %9
   %83 = icmp sgt i32 %8, 0
   br i1 %83, label %.lr.ph, label %.loopexit
@@ -32533,9 +32533,9 @@ _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i8 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i8 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont91, label %66
 
 .cont91:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit
@@ -32572,7 +32572,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %76 = and i32 %2, 255
   %77 = zext i8 %spec.select to i32
-  %.not67 = icmp ugt i32 %76, %77
+  %.not67 = icmp samesign ugt i32 %76, %77
   %spec.select70 = select i1 %.not67, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -33067,9 +33067,9 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit: ; preds = %110, %._crit_
   br label %128
 
 118:                                              ; preds = %_ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit
-  %119 = icmp ugt i32 %92, %115
-  %120 = icmp ult i32 %91, %115
-  %or.cond = or i1 %119, %120
+  %119 = icmp samesign ugt i32 %92, %115
+  %120 = icmp samesign ult i32 %91, %115
+  %or.cond = select i1 %119, i1 true, i1 %120
   br i1 %or.cond, label %.cont100, label %122
 
 .cont100:                                         ; preds = %118
@@ -33316,7 +33316,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %71 = and i32 %2, 255
   %72 = zext i8 %spec.select to i32
-  %.not62 = icmp ugt i32 %71, %72
+  %.not62 = icmp samesign ugt i32 %71, %72
   %spec.select64 = select i1 %.not62, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -33679,7 +33679,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %71 = and i32 %2, 255
   %72 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %71, %72
+  %.not64 = icmp samesign ugt i32 %71, %72
   %spec.select66 = select i1 %.not64, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -34062,7 +34062,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit.thread: ; preds = %._crit
 76:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %77 = and i32 %2, 255
   %78 = zext i8 %.0 to i32
-  %.not78 = icmp ugt i32 %77, %78
+  %.not78 = icmp samesign ugt i32 %77, %78
   %spec.select = select i1 %.not78, ptr %10, ptr %9
   %79 = icmp sgt i32 %8, 0
   br i1 %79, label %.lr.ph, label %.loopexit
@@ -34305,7 +34305,7 @@ _ZN8LightGBM17SparseBinIteratorIhE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %71 = and i32 %2, 255
   %72 = zext i8 %spec.select to i32
-  %.not64 = icmp ugt i32 %71, %72
+  %.not64 = icmp samesign ugt i32 %71, %72
   %spec.select66 = select i1 %.not64, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -38685,9 +38685,9 @@ _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i16 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i16 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont89, label %66
 
 .cont89:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit
@@ -38724,7 +38724,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %76 = and i32 %2, 65535
   %77 = zext i16 %spec.select to i32
-  %.not65 = icmp ugt i32 %76, %77
+  %.not65 = icmp samesign ugt i32 %76, %77
   %spec.select68 = select i1 %.not65, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -39057,9 +39057,9 @@ _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i16 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i16 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont91, label %66
 
 .cont91:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit
@@ -39096,7 +39096,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %76 = and i32 %2, 65535
   %77 = zext i16 %spec.select to i32
-  %.not67 = icmp ugt i32 %76, %77
+  %.not67 = icmp samesign ugt i32 %76, %77
   %spec.select70 = select i1 %.not67, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -39445,9 +39445,9 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %59, %._crit_e
 
 66:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit
   %67 = zext i16 %.0.i to i32
-  %68 = icmp ugt i32 %40, %67
-  %69 = icmp ult i32 %41, %67
-  %or.cond = or i1 %68, %69
+  %68 = icmp samesign ugt i32 %40, %67
+  %69 = icmp samesign ult i32 %41, %67
+  %or.cond = select i1 %68, i1 true, i1 %69
   br i1 %or.cond, label %.cont116, label %71
 
 .cont116:                                         ; preds = %66
@@ -39484,7 +39484,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %59, %._crit_e
 80:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %81 = and i32 %2, 65535
   %82 = zext i16 %.0 to i32
-  %.not81 = icmp ugt i32 %81, %82
+  %.not81 = icmp samesign ugt i32 %81, %82
   %spec.select = select i1 %.not81, ptr %10, ptr %9
   %83 = icmp sgt i32 %8, 0
   br i1 %83, label %.lr.ph, label %.loopexit
@@ -39697,9 +39697,9 @@ _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i: ; preds = %_ZNK8LightG
 _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_edge.i
   %.0.i = phi i16 [ %61, %57 ], [ 0, %._crit_edge.i ]
   %62 = zext i16 %.0.i to i32
-  %63 = icmp ugt i32 %38, %62
-  %64 = icmp ult i32 %39, %62
-  %or.cond = or i1 %63, %64
+  %63 = icmp samesign ugt i32 %38, %62
+  %64 = icmp samesign ult i32 %39, %62
+  %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %.cont91, label %66
 
 .cont91:                                          ; preds = %_ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit
@@ -39736,7 +39736,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %57, %._crit_e
 75:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %76 = and i32 %2, 65535
   %77 = zext i16 %spec.select to i32
-  %.not67 = icmp ugt i32 %76, %77
+  %.not67 = icmp samesign ugt i32 %76, %77
   %spec.select70 = select i1 %.not67, ptr %10, ptr %9
   %78 = icmp sgt i32 %8, 0
   br i1 %78, label %.lr.ph, label %.loopexit
@@ -40231,9 +40231,9 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit: ; preds = %110, %._crit_
   br label %128
 
 118:                                              ; preds = %_ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit
-  %119 = icmp ugt i32 %92, %115
-  %120 = icmp ult i32 %91, %115
-  %or.cond = or i1 %119, %120
+  %119 = icmp samesign ugt i32 %92, %115
+  %120 = icmp samesign ult i32 %91, %115
+  %or.cond = select i1 %119, i1 true, i1 %120
   br i1 %or.cond, label %.cont100, label %122
 
 .cont100:                                         ; preds = %118
@@ -40480,7 +40480,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %71 = and i32 %2, 65535
   %72 = zext i16 %spec.select to i32
-  %.not62 = icmp ugt i32 %71, %72
+  %.not62 = icmp samesign ugt i32 %71, %72
   %spec.select64 = select i1 %.not62, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -40843,7 +40843,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %71 = and i32 %2, 65535
   %72 = zext i16 %spec.select to i32
-  %.not64 = icmp ugt i32 %71, %72
+  %.not64 = icmp samesign ugt i32 %71, %72
   %spec.select66 = select i1 %.not64, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -41226,7 +41226,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit.thread: ; preds = %._crit
 76:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %77 = and i32 %2, 65535
   %78 = zext i16 %.0 to i32
-  %.not78 = icmp ugt i32 %77, %78
+  %.not78 = icmp samesign ugt i32 %77, %78
   %spec.select = select i1 %.not78, ptr %10, ptr %9
   %79 = icmp sgt i32 %8, 0
   br i1 %79, label %.lr.ph, label %.loopexit
@@ -41469,7 +41469,7 @@ _ZN8LightGBM17SparseBinIteratorItE11InnerRawGetEi.exit.thread: ; preds = %._crit
 70:                                               ; preds = %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %71 = and i32 %2, 65535
   %72 = zext i16 %spec.select to i32
-  %.not64 = icmp ugt i32 %71, %72
+  %.not64 = icmp samesign ugt i32 %71, %72
   %spec.select66 = select i1 %.not64, ptr %10, ptr %9
   %73 = icmp sgt i32 %8, 0
   br i1 %73, label %.lr.ph, label %.loopexit
@@ -60779,7 +60779,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit134:       ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i.i135, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !736
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %166
@@ -60978,7 +60978,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %236, %237
   br i1 %.not.i.i.i.i149, label %select.unfold.i.i.i.i151, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEC2ES6_l.exit.i.i150
 
 select.unfold.i.i.i.i151:                         ; preds = %.lr.ph.i.i.i.i145
-  %.not10.i.i.i.i152 = icmp ult i64 %storemerge26.i.i.in.in.i.i146, 3
+  %.not10.i.i.i.i152 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i146, 3
   br i1 %.not10.i.i.i.i152, label %.loopexit.i.i142, label %.lr.ph.i.i.i.i145, !llvm.loop !736
 
 .loopexit.i.i142:                                 ; preds = %select.unfold.i.i.i.i151, %250
@@ -62771,7 +62771,7 @@ define void @_ZN8LightGBM9BinMapper7FindBinEPdimiiibNS_7BinTypeEbbRKSt6vectorIdS
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPddEC2ES0_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !736
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %47
@@ -64167,7 +64167,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRiS5_EEEvDpOT_.exit.i: ; preds =
   br i1 %.not.i.i.i.i.i279, label %select.unfold.i.i.i.i.i, label %565
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !778
 
 565:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -71668,7 +71668,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinIthE10PushOneRowEiiRKSt
   %35 = sub i64 %33, %34
   %36 = trunc i64 %35 to i32
   %37 = and i32 %36, 65535
-  %38 = icmp ugt i32 %28, %37
+  %38 = icmp samesign ugt i32 %28, %37
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %20
@@ -71725,7 +71725,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinIthE10PushOneRowEiiRKSt
   %77 = sub i64 %75, %76
   %78 = trunc i64 %77 to i32
   %79 = and i32 %78, 65535
-  %80 = icmp ugt i32 %66, %79
+  %80 = icmp samesign ugt i32 %66, %79
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %56
@@ -71898,7 +71898,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinIthE6ReSizeEiiidRKSt6ve
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 65535
   %36 = trunc nuw nsw i64 %26 to i32
-  %37 = icmp ult i32 %35, %36
+  %37 = icmp samesign ult i32 %35, %36
   br i1 %37, label %38, label %_ZNSt6vectorIhN8LightGBM6Common18AlignmentAllocatorIhLm32EEEE6resizeEmRKh.exit
 
 38:                                               ; preds = %6
@@ -71944,7 +71944,7 @@ _ZNSt6vectorIhN8LightGBM6Common18AlignmentAllocatorIhLm32EEEE6resizeEmRKh.exit: 
   %56 = sub i64 %54, %55
   %57 = trunc i64 %56 to i32
   %58 = and i32 %57, 65535
-  %59 = icmp ult i32 %58, %36
+  %59 = icmp samesign ult i32 %58, %36
   br i1 %59, label %60, label %_ZNSt6vectorIhN8LightGBM6Common18AlignmentAllocatorIhLm32EEEE6resizeEmRKh.exit14
 
 60:                                               ; preds = %.lr.ph
@@ -75614,7 +75614,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinIttE10PushOneRowEiiRKSt
   %36 = ashr exact i64 %35, 1
   %37 = trunc i64 %36 to i32
   %38 = and i32 %37, 65535
-  %39 = icmp ugt i32 %28, %38
+  %39 = icmp samesign ugt i32 %28, %38
   br i1 %39, label %40, label %_ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEm.exit
 
 40:                                               ; preds = %20
@@ -75690,7 +75690,7 @@ _ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEm.exit: ; p
   %86 = ashr exact i64 %85, 1
   %87 = trunc i64 %86 to i32
   %88 = and i32 %87, 65535
-  %89 = icmp ugt i32 %74, %88
+  %89 = icmp samesign ugt i32 %74, %88
   br i1 %89, label %90, label %_ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEm.exit25
 
 90:                                               ; preds = %64
@@ -75882,7 +75882,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinIttE6ReSizeEiiidRKSt6ve
   %35 = trunc i64 %34 to i32
   %36 = and i32 %35, 65535
   %37 = trunc nuw nsw i64 %26 to i32
-  %38 = icmp ult i32 %36, %37
+  %38 = icmp samesign ult i32 %36, %37
   br i1 %38, label %39, label %_ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEmRKt.exit
 
 39:                                               ; preds = %6
@@ -75929,7 +75929,7 @@ _ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEmRKt.exit: 
   %58 = ashr exact i64 %57, 1
   %59 = trunc i64 %58 to i32
   %60 = and i32 %59, 65535
-  %61 = icmp ult i32 %60, %37
+  %61 = icmp samesign ult i32 %60, %37
   br i1 %61, label %62, label %_ZNSt6vectorItN8LightGBM6Common18AlignmentAllocatorItLm32EEEE6resizeEmRKt.exit14
 
 62:                                               ; preds = %.lr.ph
@@ -79489,7 +79489,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinItjE10PushOneRowEiiRKSt
   %36 = ashr exact i64 %35, 2
   %37 = trunc i64 %36 to i32
   %38 = and i32 %37, 65535
-  %39 = icmp ugt i32 %28, %38
+  %39 = icmp samesign ugt i32 %28, %38
   br i1 %39, label %40, label %_ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEm.exit
 
 40:                                               ; preds = %20
@@ -79564,7 +79564,7 @@ _ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEm.exit: ; p
   %85 = ashr exact i64 %84, 2
   %86 = trunc i64 %85 to i32
   %87 = and i32 %86, 65535
-  %88 = icmp ugt i32 %73, %87
+  %88 = icmp samesign ugt i32 %73, %87
   br i1 %88, label %89, label %_ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEm.exit25
 
 89:                                               ; preds = %63
@@ -79755,7 +79755,7 @@ define linkonce_odr void @_ZN8LightGBM17MultiValSparseBinItjE6ReSizeEiiidRKSt6ve
   %35 = trunc i64 %34 to i32
   %36 = and i32 %35, 65535
   %37 = trunc nuw nsw i64 %26 to i32
-  %38 = icmp ult i32 %36, %37
+  %38 = icmp samesign ult i32 %36, %37
   br i1 %38, label %39, label %_ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEmRKj.exit
 
 39:                                               ; preds = %6
@@ -79802,7 +79802,7 @@ _ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEmRKj.exit: 
   %58 = ashr exact i64 %57, 2
   %59 = trunc i64 %58 to i32
   %60 = and i32 %59, 65535
-  %61 = icmp ult i32 %60, %37
+  %61 = icmp samesign ult i32 %60, %37
   br i1 %61, label %62, label %_ZNSt6vectorIjN8LightGBM6Common18AlignmentAllocatorIjLm32EEEE6resizeEmRKj.exit14
 
 62:                                               ; preds = %.lr.ph

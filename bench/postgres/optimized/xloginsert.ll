@@ -1459,7 +1459,7 @@ XLogRegisterBlock.exit:                           ; preds = %60
   store i8 1, ptr %65, align 8
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = icmp ult i64 %indvars.iv, 31
+  %74 = icmp samesign ult i64 %indvars.iv, 31
   %75 = icmp slt i64 %indvars.iv.next39, %44
   %76 = select i1 %74, i1 %75, i1 false
   br i1 %76, label %50, label %77, !llvm.loop !11

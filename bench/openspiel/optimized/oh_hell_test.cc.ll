@@ -1786,7 +1786,7 @@ _ZN10open_spiel7oh_hell12_GLOBAL__N_114BasicGameTestsEv.exit: ; preds = %376, %3
 520:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i, %.preheader.i
   %.022686.i = phi i32 [ 2, %.preheader.i ], [ %1269, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i ]
   %521 = mul nuw nsw i32 %.022686.i, %.023687.i
-  %.not.not.i = icmp ugt i32 %521, %.024688.i
+  %.not.not.i = icmp samesign ugt i32 %521, %.024688.i
   br i1 %.not.not.i, label %522, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i
 
 522:                                              ; preds = %520
@@ -4141,7 +4141,7 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit185.i: ; preds = %1259, %1256
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i: ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit177.i, %520
   %1269 = add nuw nsw i32 %.022686.i, 5
-  %1270 = icmp ult i32 %.022686.i, 9
+  %1270 = icmp samesign ult i32 %.022686.i, 9
   br i1 %1270, label %520, label %1271, !llvm.loop !9
 
 1271:                                             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i
@@ -4151,7 +4151,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Gam
 
 1273:                                             ; preds = %1271
   %1274 = add nuw nsw i32 %.024688.i, 2
-  %1275 = icmp ult i32 %.024688.i, 6
+  %1275 = icmp samesign ult i32 %.024688.i, 6
   br i1 %1275, label %.preheader265.i, label %_ZN10open_spiel7oh_hell12_GLOBAL__N_117GameConfigSimTestEv.exit, !llvm.loop !11
 
 _ZN10open_spiel7oh_hell12_GLOBAL__N_117GameConfigSimTestEv.exit: ; preds = %1273
@@ -5518,7 +5518,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit226.i.i: ; preds = %1748, %1755
   %.0131483.i.i = phi i32 [ %1756, %1755 ], [ 0, %1748 ]
   %.urem.i.i = add nsw i32 %.0131483.i.i, -3
-  %.cmp.i.i = icmp ult i32 %.0131483.i.i, 3
+  %.cmp.i.i = icmp samesign ult i32 %.0131483.i.i, 3
   %1752 = select i1 %.cmp.i.i, i32 %.0131483.i.i, i32 %.urem.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !17
   %.sroa.0.0.insert.ext.i.i.i.i231.i.i = zext i32 %1752 to i64

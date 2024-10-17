@@ -3067,7 +3067,7 @@ _ZN12_GLOBAL__N_126StraightLineStrengthReduce10isBasisForERKNS0_9CandidateES3_.e
   %163 = add nuw nsw i32 %.034, 1
   %.val = load ptr, ptr %129, align 8
   %164 = icmp ne ptr %162, %.val
-  %165 = icmp ult i32 %.034, 49
+  %165 = icmp samesign ult i32 %.034, 49
   %166 = select i1 %164, i1 %165, i1 false
   br i1 %166, label %133, label %_ZN12_GLOBAL__N_126StraightLineStrengthReduce14isSimplestFormERKNS0_9CandidateE.exit.thread, !llvm.loop !53
 

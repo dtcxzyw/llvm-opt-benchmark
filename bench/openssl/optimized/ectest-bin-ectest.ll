@@ -5616,7 +5616,7 @@ for.body:                                         ; preds = %err, %for.body
   %2 = load ptr, ptr %g_next.0.ptr, align 8
   tail call void @EC_GROUP_free(ptr noundef %2) #5
   %g_next.0.add = add nuw nsw i64 %g_next.0.idx120, 8
-  %cmp327 = icmp ult i64 %g_next.0.idx120, 56
+  %cmp327 = icmp samesign ult i64 %g_next.0.idx120, 56
   br i1 %cmp327, label %for.body, label %for.body336, !llvm.loop !8
 
 for.body336:                                      ; preds = %for.body, %for.body336
@@ -5625,7 +5625,7 @@ for.body336:                                      ; preds = %for.body, %for.body
   %3 = load ptr, ptr %p_next.0.ptr, align 8
   tail call void @ECPARAMETERS_free(ptr noundef %3) #5
   %p_next.0.add = add nuw nsw i64 %p_next.0.idx121, 8
-  %cmp334 = icmp ult i64 %p_next.0.idx121, 56
+  %cmp334 = icmp samesign ult i64 %p_next.0.idx121, 56
   br i1 %cmp334, label %for.body336, label %for.end339, !llvm.loop !9
 
 for.end339:                                       ; preds = %for.body336

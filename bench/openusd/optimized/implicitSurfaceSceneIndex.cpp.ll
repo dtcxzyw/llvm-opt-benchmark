@@ -13373,7 +13373,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %275 = add nuw nsw i64 %storemerge209, 1
   %276 = load i32, ptr %18, align 8
   %277 = zext i32 %276 to i64
-  %278 = icmp ult i64 %275, %277
+  %278 = icmp samesign ult i64 %275, %277
   br i1 %278, label %26, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit

@@ -129,7 +129,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %13 = zext nneg i8 %7 to i64
   %14 = add nsw i64 %13, -5
   %15 = select i1 %12, i64 %14, i64 0
-  %16 = icmp ult i8 %8, 6
+  %16 = icmp samesign ult i8 %8, 6
   %17 = zext nneg i8 %8 to i64
   %18 = add nsw i64 %17, -5
   %19 = select i1 %16, i64 0, i64 %18
@@ -995,7 +995,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h2c529d58b3164941E.llvm.1065602
 .outer._crit_edge:                                ; preds = %.outer, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb691387db8117a96E.exit", %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %280, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb691387db8117a96E.exit" ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %281, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb691387db8117a96E.exit" ], [ %.sroa.0.1, %.outer ]
-  %29 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %29 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %29, label %286, label %.loopexit
 
 30:                                               ; preds = %27

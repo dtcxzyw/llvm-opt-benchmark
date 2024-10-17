@@ -6613,7 +6613,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %_ZN32px
 
 49:                                               ; preds = %47
   %50 = lshr i64 %48, 1
-  %51 = icmp ult i64 %.0, %50
+  %51 = icmp samesign ult i64 %.0, %50
   br i1 %51, label %52, label %67
 
 52:                                               ; preds = %49

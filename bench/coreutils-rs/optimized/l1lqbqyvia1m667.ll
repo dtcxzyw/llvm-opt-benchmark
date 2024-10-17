@@ -231,15 +231,15 @@ define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_st
   %3 = load i32, ptr %1, align 4, !range !4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %4 = icmp ult i32 %3, 128
+  %4 = icmp samesign ult i32 %3, 128
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %3, 2048
+  %6 = icmp samesign ult i32 %3, 2048
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %3, 65536
+  %8 = icmp samesign ult i32 %3, 65536
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2
@@ -6166,7 +6166,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
   unreachable
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i32 %14, 127
+  %17 = icmp samesign ugt i32 %14, 127
   br i1 %17, label %18, label %.critedge25
 
 18:                                               ; preds = %16
@@ -6222,7 +6222,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 41:                                               ; preds = %.critedge25
-  %42 = icmp ugt i32 %40, 127
+  %42 = icmp samesign ugt i32 %40, 127
   br i1 %42, label %43, label %.critedge30.split
 
 43:                                               ; preds = %41
@@ -6254,7 +6254,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 49:                                               ; preds = %.lr.ph
-  %50 = icmp ugt i32 %48, 127
+  %50 = icmp samesign ugt i32 %48, 127
   br i1 %50, label %51, label %.critedge34
 
 51:                                               ; preds = %49
@@ -6316,7 +6316,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
   unreachable
 
 17:                                               ; preds = %13
-  %18 = icmp ugt i32 %15, 127
+  %18 = icmp samesign ugt i32 %15, 127
   br i1 %18, label %19, label %.critedge25
 
 19:                                               ; preds = %17
@@ -6379,7 +6379,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 44:                                               ; preds = %40
-  %45 = icmp ugt i32 %42, 127
+  %45 = icmp samesign ugt i32 %42, 127
   br i1 %45, label %46, label %.critedge30
 
 46:                                               ; preds = %44
@@ -6419,7 +6419,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 55:                                               ; preds = %51
-  %56 = icmp ugt i32 %53, 127
+  %56 = icmp samesign ugt i32 %53, 127
   br i1 %56, label %57, label %.critedge34
 
 57:                                               ; preds = %55
@@ -6475,7 +6475,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit.preheader.split: ; pre
   br i1 %11, label %.lr.ph45, label %.critedge32
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ugt i32 %10, 127
+  %13 = icmp samesign ugt i32 %10, 127
   br i1 %13, label %14, label %.critedge27
 
 14:                                               ; preds = %12
@@ -6552,7 +6552,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 43:                                               ; preds = %39
-  %44 = icmp ugt i32 %41, 127
+  %44 = icmp samesign ugt i32 %41, 127
   br i1 %44, label %45, label %.critedge32
 
 45:                                               ; preds = %43
@@ -7451,15 +7451,15 @@ define hidden void @_ZN6uu_ptx10tex_mapper17h6d870ef8bc12d6e6E(ptr noalias nocap
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1243)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !1246
-  %9 = icmp ult i32 %1, 128
+  %9 = icmp samesign ult i32 %1, 128
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %1, 2048
+  %11 = icmp samesign ult i32 %1, 2048
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %1, 65536
+  %13 = icmp samesign ult i32 %1, 65536
   br i1 %13, label %23, label %34
 
 14:                                               ; preds = %8

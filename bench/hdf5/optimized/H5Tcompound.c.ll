@@ -1082,7 +1082,7 @@ H5T__is_packed.exit:                              ; preds = %8
   %87 = getelementptr inbounds i8, ptr %86, i64 52
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %74, %.preheader49
@@ -1124,7 +1124,7 @@ H5T__is_packed.exit:                              ; preds = %8
   %108 = getelementptr inbounds i8, ptr %102, i64 52
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next65, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next65, %110
   br i1 %111, label %.lr.ph55, label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %.preheader

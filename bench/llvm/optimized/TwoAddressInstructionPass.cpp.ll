@@ -924,7 +924,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit110.i: ; 
   %207 = add i64 %206, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %207) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %208 = icmp ult i64 %indvars.iv.next.i, %195
+  %208 = icmp samesign ult i64 %indvars.iv.next.i, %195
   br i1 %208, label %.lr.ph.i56, label %._crit_edge.i51, !llvm.loop !16
 
 ._crit_edge.i51:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit110.i, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i
@@ -1227,7 +1227,7 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i: ; preds = %_Z
 .preheader.i:                                     ; preds = %357, %363
   %indvars.iv229.i = phi i64 [ %indvars.iv.next230.i, %363 ], [ %indvars.iv227.i, %357 ]
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 2
-  %362 = icmp ult i64 %indvars.iv.next230.i, %335
+  %362 = icmp samesign ult i64 %indvars.iv.next230.i, %335
   br i1 %362, label %363, label %.loopexit192.i
 
 363:                                              ; preds = %.preheader.i
@@ -1452,7 +1452,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %426, %_ZN4llvm10MIM
   %.sroa.0179.1.i = phi i64 [ %356, %350 ], [ %.sroa.0179.0203.i, %434 ], [ %.sroa.0179.0203.i, %439 ]
   %.1.i = phi i8 [ %.096206.i, %350 ], [ 1, %434 ], [ 1, %439 ]
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 2
-  %442 = icmp ult i64 %indvars.iv.next228.i, %335
+  %442 = icmp samesign ult i64 %indvars.iv.next228.i, %335
   br i1 %442, label %338, label %.preheader.i.i.i.preheader.loopexit.i, !llvm.loop !28
 
 _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.preheader.i
@@ -9174,7 +9174,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
   %105 = load i8, ptr %104, align 4
   %106 = zext i8 %105 to i32
   store i32 %106, ptr %26, align 4
-  %107 = icmp ult i32 %106, %103
+  %107 = icmp samesign ult i32 %106, %103
   br i1 %107, label %.lr.ph.i, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl21tryInstructionCommuteEPN4llvm12MachineInstrEjjbj.exit.thread
 
 .lr.ph.i:                                         ; preds = %95

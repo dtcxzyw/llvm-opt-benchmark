@@ -123,7 +123,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %32 = getelementptr inbounds i8, ptr %.0117178, i64 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = zext i16 %29 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph, label %.preheader164, !llvm.loop !8
 
 .lr.ph185:                                        ; preds = %.preheader164, %.loopexit
@@ -243,7 +243,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %108 = load i16, ptr %13, align 4
   %109 = zext i16 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next209, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next209, %109
   br i1 %110, label %.lr.ph185, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader164
@@ -352,7 +352,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %160 = icmp eq ptr %.4, null
   %161 = zext i16 %158 to i64
-  %162 = icmp ult i64 %indvars.iv.next212, %161
+  %162 = icmp samesign ult i64 %indvars.iv.next212, %161
   %163 = select i1 %160, i1 %162, i1 false
   br i1 %163, label %.lr.ph189, label %._crit_edge190, !llvm.loop !12
 
@@ -508,7 +508,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   %221 = phi i16 [ %216, %.lr.ph194 ], [ %.pre222, %219 ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %222 = zext i16 %221 to i64
-  %223 = icmp ult i64 %indvars.iv.next215, %222
+  %223 = icmp samesign ult i64 %indvars.iv.next215, %222
   br i1 %223, label %.lr.ph194, label %.thread158.sink.split, !llvm.loop !13
 
 .thread158.sink.split:                            ; preds = %220, %.preheader, %11

@@ -5765,7 +5765,7 @@ prefs_get_effect_flags.exit151:                   ; preds = %86
   %129 = getelementptr i8, ptr %128, i64 %.idx134
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next, %131
   br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph163
@@ -5787,7 +5787,7 @@ prefs_get_effect_flags.exit151:                   ; preds = %86
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %144, align 4
   %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %indvars.iv.next183, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next183, %146
   br i1 %147, label %.lr.ph163, label %.loopexit158, !llvm.loop !18
 
 .loopexit158:                                     ; preds = %._crit_edge, %.preheader157, %101, %104, %prefs_get_effect_flags.exit151
@@ -5852,7 +5852,7 @@ prefs_get_effect_flags.exit151:                   ; preds = %86
   %179 = getelementptr i8, ptr %178, i64 %.idx
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
-  %182 = icmp ult i64 %indvars.iv.next186, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next186, %181
   br i1 %182, label %.lr.ph166, label %._crit_edge167, !llvm.loop !19
 
 ._crit_edge167:                                   ; preds = %.lr.ph166, %.lr.ph170
@@ -5874,7 +5874,7 @@ prefs_get_effect_flags.exit151:                   ; preds = %86
   %194 = load ptr, ptr %193, align 8
   %195 = load i32, ptr %194, align 4
   %196 = zext i32 %195 to i64
-  %197 = icmp ult i64 %indvars.iv.next189, %196
+  %197 = icmp samesign ult i64 %indvars.iv.next189, %196
   br i1 %197, label %.lr.ph170, label %.loopexit, !llvm.loop !20
 
 198:                                              ; preds = %2
@@ -8497,7 +8497,7 @@ prefs_get_effect_flags.exit405:                   ; preds = %718
   %763 = getelementptr i8, ptr %762, i64 %.idx386
   %764 = load i32, ptr %763, align 4
   %765 = zext i32 %764 to i64
-  %766 = icmp ult i64 %indvars.iv.next, %765
+  %766 = icmp samesign ult i64 %indvars.iv.next, %765
   br i1 %766, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph453
@@ -8519,7 +8519,7 @@ prefs_get_effect_flags.exit405:                   ; preds = %718
   %778 = load ptr, ptr %777, align 8
   %779 = load i32, ptr %778, align 4
   %780 = zext i32 %779 to i64
-  %781 = icmp ult i64 %indvars.iv.next478, %780
+  %781 = icmp samesign ult i64 %indvars.iv.next478, %780
   br i1 %781, label %.lr.ph453, label %.preheader, !llvm.loop !30
 
 .lr.ph460:                                        ; preds = %.preheader, %._crit_edge457
@@ -8554,7 +8554,7 @@ prefs_get_effect_flags.exit405:                   ; preds = %718
   %798 = getelementptr i8, ptr %797, i64 %.idx
   %799 = load i32, ptr %798, align 4
   %800 = zext i32 %799 to i64
-  %801 = icmp ult i64 %indvars.iv.next481, %800
+  %801 = icmp samesign ult i64 %indvars.iv.next481, %800
   br i1 %801, label %.lr.ph456, label %._crit_edge457, !llvm.loop !31
 
 ._crit_edge457:                                   ; preds = %.lr.ph456, %.lr.ph460
@@ -8574,7 +8574,7 @@ prefs_get_effect_flags.exit405:                   ; preds = %718
   %811 = load ptr, ptr %8, align 8
   %812 = load i32, ptr %811, align 4
   %813 = zext i32 %812 to i64
-  %814 = icmp ult i64 %indvars.iv.next484, %813
+  %814 = icmp samesign ult i64 %indvars.iv.next484, %813
   br i1 %814, label %.lr.ph460, label %deprecated_heur_dissector_pref.exit, !llvm.loop !32
 
 815:                                              ; preds = %718
@@ -12586,7 +12586,7 @@ prefs_find_preference.exit139:                    ; preds = %118, %127
   %158 = getelementptr i8, ptr %157, i64 %.idx
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.next187, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next187, %160
   br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph161
@@ -12606,7 +12606,7 @@ prefs_find_preference.exit139:                    ; preds = %118, %127
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next190, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next190, %173
   br i1 %174, label %.lr.ph161, label %.loopexit, !llvm.loop !64
 
 175:                                              ; preds = %.preheader148

@@ -1897,7 +1897,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13p
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !nonnull !9, !align !16, !noundef !9
   %8 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17hed3887a93f3a9319E.llvm.16188651594484228709"(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %7), !range !86
-  %switch = icmp ult i8 %8, 2
+  %switch = icmp samesign ult i8 %8, 2
   br i1 %switch, label %14, label %9
 
 9:                                                ; preds = %2
@@ -6567,7 +6567,7 @@ define hidden noundef ptr @_ZN14wasmtime_fiber4unix7Suspend6switch17h1a194589fc5
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %1, align 8, !range !441, !noundef !9
-  %switch = icmp ugt i64 %12, 2
+  %switch = icmp samesign ugt i64 %12, 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -14302,7 +14302,7 @@ define hidden void @"_ZN4core3ptr242drop_in_place$LT$core..result..Result$LT$cor
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr245drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17ha1cc4c5573b772dbE.llvm.16188651594484228709"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 4, !range !2268, !noundef !9
-  %switch = icmp ult i32 %2, 2
+  %switch = icmp samesign ult i32 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -14476,7 +14476,7 @@ define hidden void @"_ZN4core3ptr297drop_in_place$LT$core..result..Result$LT$was
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2323)
   %7 = load i32, ptr %6, align 4, !range !2268, !alias.scope !2323, !noundef !9
-  %switch = icmp ult i32 %7, 2
+  %switch = icmp samesign ult i32 %7, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr245drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17ha1cc4c5573b772dbE.llvm.16188651594484228709.exit"
 
 .sink.split.i:                                    ; preds = %5
@@ -14603,7 +14603,7 @@ define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..task..poll..
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2374)
   %8 = load i32, ptr %7, align 4, !range !2268, !alias.scope !2377, !noundef !9
-  %switch.i = icmp ult i32 %8, 2
+  %switch.i = icmp samesign ult i32 %8, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr297drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$17he3a7e60e4b57e2cdE.llvm.16188651594484228709.exit"
 
 .sink.split.i.i:                                  ; preds = %6
@@ -14656,7 +14656,7 @@ define hidden void @"_ZN4core3ptr366drop_in_place$LT$core..result..Result$LT$cor
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2394)
   %11 = load i32, ptr %10, align 4, !range !2268, !alias.scope !2397, !noundef !9
-  %switch.i = icmp ult i32 %11, 2
+  %switch.i = icmp samesign ult i32 %11, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr297drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$17he3a7e60e4b57e2cdE.llvm.16188651594484228709.exit"
 
 .sink.split.i.i:                                  ; preds = %9
@@ -75367,7 +75367,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$event_listener..EventListener$LT$T$
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !alias.scope !11533, !nonnull !9, !align !16, !noundef !9
   %8 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17hed3887a93f3a9319E.llvm.16188651594484228709"(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %7), !range !86, !noalias !11533
-  %switch.i = icmp ult i8 %8, 2
+  %switch.i = icmp samesign ult i8 %8, 2
   br i1 %switch.i, label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13poll_internal17hd25a0d7ef09afb49E.llvm.16188651594484228709.exit", label %9
 
 9:                                                ; preds = %2

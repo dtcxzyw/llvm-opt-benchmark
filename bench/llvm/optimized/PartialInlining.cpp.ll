@@ -919,7 +919,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118PartialInlinerImpl
   br i1 %.not.i.i.i.i, label %_ZNK4llvm6Module4sizeEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZNK4llvm6Module4sizeEv.exit:                     ; preds = %.lr.ph.i.i.i.i
-  %89 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %89 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %89, label %90, label %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE7reserveEm.exit
 
 90:                                               ; preds = %_ZNK4llvm6Module4sizeEv.exit
@@ -5524,7 +5524,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %2138, %2135
   %.pre-phi2.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i, %2135 ], [ %2140, %2138 ]
   %.idx.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
   %2144 = getelementptr inbounds i8, ptr %2143, i64 %.idx.i.i
-  %or.cond.i.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i, 2
+  %or.cond.i.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i, 2
   br i1 %or.cond.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i", label %.lr.ph.i.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
@@ -7353,7 +7353,7 @@ _ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i: ; preds = %
   br i1 %.not.i.i.i.i53, label %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !145
 
 _ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %274 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %274 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %274, label %275, label %_ZNSt12_Vector_baseIPN4llvm4UserESaIS2_EE11_M_allocateEm.exit.i.i
 
 275:                                              ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i
@@ -7417,7 +7417,7 @@ _ZNSt6vectorIPN4llvm4UserESaIS2_EEC2INS0_5Value18user_iterator_implIS1_EEvEET_S9
   br i1 %.not.i.i.i.i.i54, label %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !145
 
 _ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %296 = icmp ugt i64 %.06.i.i.i.i.i, 1152921504606846974
+  %296 = icmp samesign ugt i64 %.06.i.i.i.i.i, 1152921504606846974
   br i1 %296, label %297, label %_ZNSt12_Vector_baseIPN4llvm4UserESaIS2_EE11_M_allocateEm.exit.i.i.i
 
 297:                                              ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i

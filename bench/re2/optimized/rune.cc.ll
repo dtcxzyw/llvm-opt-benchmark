@@ -31,7 +31,7 @@ if.end8:                                          ; preds = %if.then5
   %shl = shl nuw nsw i32 %conv, 6
   %shl.masked = and i32 %shl, 1984
   %and9 = or disjoint i32 %shl.masked, %xor
-  %cmp10 = icmp ult i32 %and9, 128
+  %cmp10 = icmp samesign ult i32 %and9, 128
   br i1 %cmp10, label %bad, label %return
 
 if.end13:                                         ; preds = %if.end3
@@ -51,7 +51,7 @@ if.then22:                                        ; preds = %if.end20
   %6 = shl nuw nsw i32 %xor, 6
   %.masked = and i32 %5, 61440
   %shl25.masked = or disjoint i32 %6, %.masked
-  %cmp28 = icmp ult i32 %shl25.masked, 2048
+  %cmp28 = icmp samesign ult i32 %shl25.masked, 2048
   br i1 %cmp28, label %bad, label %if.end30
 
 if.end30:                                         ; preds = %if.then22
@@ -74,7 +74,7 @@ if.then40:                                        ; preds = %if.end31
   %or44 = or disjoint i32 %shl43, %xor16
   %shl45 = shl nuw nsw i32 %or44, 6
   %shl45.masked = and i32 %shl45, 2097088
-  %cmp48 = icmp ult i32 %shl45.masked, 65536
+  %cmp48 = icmp samesign ult i32 %shl45.masked, 65536
   br i1 %cmp48, label %bad, label %if.end50
 
 if.end50:                                         ; preds = %if.then40
@@ -270,7 +270,7 @@ if.end8.i:                                        ; preds = %if.then5.i
   %shl.i = shl nuw nsw i32 %conv.i, 6
   %shl.masked.i = and i32 %shl.i, 1920
   %and9.i = or disjoint i32 %shl.masked.i, %xor.i
-  %cmp10.i = icmp ult i32 %and9.i, 128
+  %cmp10.i = icmp samesign ult i32 %and9.i, 128
   br i1 %cmp10.i, label %bad.i, label %if.end3
 
 if.end13.i:                                       ; preds = %if.end3.i
@@ -288,7 +288,7 @@ if.then22.i:                                      ; preds = %if.end20.i
   %5 = shl nuw nsw i32 %xor.i, 6
   %.masked.i = and i32 %4, 61440
   %shl25.masked.i = or disjoint i32 %5, %.masked.i
-  %cmp28.i = icmp ult i32 %shl25.masked.i, 2048
+  %cmp28.i = icmp samesign ult i32 %shl25.masked.i, 2048
   br i1 %cmp28.i, label %bad.i, label %if.end3
 
 if.end31.i:                                       ; preds = %if.end20.i
@@ -304,7 +304,7 @@ if.then40.i:                                      ; preds = %if.end31.i
   %8 = shl nuw nsw i32 %xor.i, 12
   %.masked = and i32 %7, 1835008
   %shl45.masked.i = or disjoint i32 %8, %.masked
-  %cmp48.i = icmp ult i32 %shl45.masked.i, 65536
+  %cmp48.i = icmp samesign ult i32 %shl45.masked.i, 65536
   br i1 %cmp48.i, label %bad.i, label %if.end3
 
 bad.i:                                            ; preds = %if.then40.i, %if.end31.i, %if.then22.i, %if.end13.i, %if.end8.i, %if.then5.i, %if.end.i
@@ -367,7 +367,7 @@ if.end8.i:                                        ; preds = %if.then5.i
   %shl.i = shl nuw nsw i32 %conv, 6
   %shl.masked.i = and i32 %shl.i, 1984
   %and9.i = or disjoint i32 %shl.masked.i, %xor.i
-  %cmp10.i = icmp ult i32 %and9.i, 128
+  %cmp10.i = icmp samesign ult i32 %and9.i, 128
   br i1 %cmp10.i, label %bad.i, label %_ZN3re210chartoruneEPiPKc.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
@@ -387,7 +387,7 @@ if.then22.i:                                      ; preds = %if.end20.i
   %6 = shl nuw nsw i32 %xor.i, 6
   %.masked.i = and i32 %5, 61440
   %shl25.masked.i = or disjoint i32 %6, %.masked.i
-  %cmp28.i = icmp ult i32 %shl25.masked.i, 2048
+  %cmp28.i = icmp samesign ult i32 %shl25.masked.i, 2048
   br i1 %cmp28.i, label %bad.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then22.i
@@ -410,7 +410,7 @@ if.then40.i:                                      ; preds = %if.end31.i
   %or44.i = or disjoint i32 %shl43.i, %xor16.i
   %shl45.i = shl nuw nsw i32 %or44.i, 6
   %shl45.masked.i = and i32 %shl45.i, 2097088
-  %cmp48.i = icmp ult i32 %shl45.masked.i, 65536
+  %cmp48.i = icmp samesign ult i32 %shl45.masked.i, 65536
   br i1 %cmp48.i, label %bad.i, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then40.i

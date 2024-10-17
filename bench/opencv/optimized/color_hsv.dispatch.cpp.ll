@@ -1865,7 +1865,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   store float %.155.i, ptr %76, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %77 = getelementptr inbounds float, ptr %.05668.i, i64 %39
-  %78 = icmp ult i64 %indvars.iv.next.i, %40
+  %78 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %78, label %41, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %70, %.noexc
@@ -2035,7 +2035,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   store float %55, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %58 = getelementptr inbounds i8, ptr %.141.i, i64 %33
-  %59 = icmp ult i64 %indvars.iv.next.i, %41
+  %59 = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
 
 60:                                               ; preds = %._crit_edge.i
@@ -2198,7 +2198,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %146 = getelementptr inbounds i8, ptr %.03448.i, i64 %137
   store i8 %145, ptr %146, align 1
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 3
-  %147 = icmp ult i64 %indvars.iv.next55.i, %118
+  %147 = icmp samesign ult i64 %indvars.iv.next55.i, %118
   br i1 %147, label %.lr.ph45.i, label %._crit_edge46.i, !llvm.loop !25
 
 ._crit_edge46.i:                                  ; preds = %.lr.ph45.i, %.preheader.i
@@ -2643,7 +2643,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 117:                                              ; preds = %115, %88
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %118 = getelementptr inbounds i8, ptr %.029.i, i64 %38
-  %119 = icmp ult i64 %indvars.iv.next.i, %39
+  %119 = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %119, label %40, label %._crit_edge.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %117, %.noexc
@@ -2853,7 +2853,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 93:                                               ; preds = %91, %87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %94 = getelementptr inbounds float, ptr %.033.i, i64 %43
-  %95 = icmp ult i64 %indvars.iv.next.i, %44
+  %95 = icmp samesign ult i64 %indvars.iv.next.i, %44
   br i1 %95, label %45, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %93, %.noexc
@@ -3020,7 +3020,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %62 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %57
   store float %61, ptr %62, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %63 = icmp ult i64 %indvars.iv.next.i, %46
+  %63 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %63, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
@@ -3208,7 +3208,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 169:                                              ; preds = %165, %.lr.ph47.i
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 3
   %170 = getelementptr inbounds i8, ptr %.145.i, i64 %39
-  %171 = icmp ult i64 %indvars.iv.next58.i, %136
+  %171 = icmp samesign ult i64 %indvars.iv.next58.i, %136
   br i1 %171, label %.lr.ph47.i, label %._crit_edge48.i, !llvm.loop !35
 
 ._crit_edge48.i:                                  ; preds = %169, %.preheader.i

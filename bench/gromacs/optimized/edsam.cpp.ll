@@ -1288,7 +1288,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
 .preheader136.i:                                  ; preds = %.preheader136.i.preheader, %.split.us.i
   %indvars.iv194.i = phi i64 [ %indvars.iv.next195.i, %.split.us.i ], [ 0, %.preheader136.i.preheader ]
   %indvars.iv192.i = phi i64 [ %indvars.iv.next193.i, %.split.us.i ], [ 1, %.preheader136.i.preheader ]
-  %109 = icmp ugt i64 %indvars.iv194.i, 2
+  %109 = icmp samesign ugt i64 %indvars.iv194.i, 2
   %110 = add nsw i64 %indvars.iv194.i, -3
   br i1 %109, label %.preheader136.split.i, label %.preheader136.split.us.i
 
@@ -1310,7 +1310,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
 
 .preheader136.split.i:                            ; preds = %.preheader136.i, %124
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %124 ], [ 0, %.preheader136.i ]
-  %119 = icmp ult i64 %indvars.iv187.i, 3
+  %119 = icmp samesign ult i64 %indvars.iv187.i, 3
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %.preheader136.split.i
@@ -2457,7 +2457,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_NS
   %.0369441 = phi ptr [ %408, %.thread380 ], [ null, %.lr.ph443.preheader ]
   %.0370440 = phi ptr [ %412, %.thread380 ], [ null, %.lr.ph443.preheader ]
   %.sroa.0262.0438 = phi ptr [ %627, %.thread380 ], [ %349, %.lr.ph443.preheader ]
-  %350 = icmp ugt i32 %.0442, 1
+  %350 = icmp samesign ugt i32 %.0442, 1
   br i1 %350, label %351, label %356
 
 351:                                              ; preds = %.lr.ph443
@@ -10571,7 +10571,7 @@ _Z7snew_bcIA3_fEvbRPT_m.exit:                     ; preds = %.thread, %.thread52
   %37 = load ptr, ptr %26, align 8
   %38 = mul nsw i64 %36, 12
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %38, ptr noundef %37, ptr noundef %34)
-  %or.cond = icmp ult i32 %2, 2
+  %or.cond = icmp samesign ult i32 %2, 2
   br i1 %or.cond, label %39, label %63
 
 39:                                               ; preds = %_Z7snew_bcIA3_fEvbRPT_m.exit

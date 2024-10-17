@@ -386,7 +386,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %35 = select i1 %32, i32 1, i32 %34
   %36 = add nsw i32 %35, %.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = icmp ult i64 %indvars.iv.next, %19
+  %37 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %37, label %24, label %.critedge.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph40, %.critedge
@@ -1826,7 +1826,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 .critedge:                                        ; preds = %33, %29, %40, %36
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %44 = icmp ult i64 %indvars.iv.next125, %18
+  %44 = icmp samesign ult i64 %indvars.iv.next125, %18
   br i1 %44, label %29, label %.lr.ph116, !llvm.loop !34
 
 .lr.ph116:                                        ; preds = %.critedge, %.critedge2

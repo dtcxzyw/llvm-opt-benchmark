@@ -2130,7 +2130,7 @@ define internal fastcc i32 @compat_ipv6_set_mcast_msfilter(ptr noundef %0, ptr %
   %37 = shl nuw i32 %31, 7
   %38 = zext i32 %37 to i64
   %39 = add nuw nsw i64 %38, 140
-  %40 = icmp ugt i64 %39, %21
+  %40 = icmp samesign ugt i64 %39, %21
   br i1 %40, label %51, label %41
 
 41:                                               ; preds = %36

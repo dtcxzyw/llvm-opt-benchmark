@@ -252,7 +252,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
   %28 = add nuw nsw i64 %26, 1
   %29 = load i32, ptr %23, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %.preheader5, label %.loopexit6, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %.preheader5, %22

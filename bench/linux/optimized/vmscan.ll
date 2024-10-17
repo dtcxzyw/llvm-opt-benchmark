@@ -2566,7 +2566,7 @@ define dso_local i64 @zone_reclaimable_pages(ptr noundef %0) local_unnamed_addr 
   %27 = add i64 %8, %26
   %28 = add nuw nsw i64 %13, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %6, !prof !39, !llvm.loop !40
 
 .thread:                                          ; preds = %6, %16, %12
@@ -2603,7 +2603,7 @@ define dso_local i64 @zone_reclaimable_pages(ptr noundef %0) local_unnamed_addr 
   %54 = add i64 %35, %53
   %55 = add nuw nsw i64 %40, 1
   %56 = and i64 %55, 127
-  %57 = icmp ugt i64 %56, 63
+  %57 = icmp samesign ugt i64 %56, 63
   br i1 %57, label %.thread9, label %33, !prof !39, !llvm.loop !40
 
 .thread9:                                         ; preds = %33, %43, %39
@@ -2665,7 +2665,7 @@ define dso_local i64 @zone_reclaimable_pages(ptr noundef %0) local_unnamed_addr 
   %96 = add i64 %77, %95
   %97 = add nuw nsw i64 %82, 1
   %98 = and i64 %97, 127
-  %99 = icmp ugt i64 %98, 63
+  %99 = icmp samesign ugt i64 %98, 63
   br i1 %99, label %.thread11, label %75, !prof !39, !llvm.loop !40
 
 .thread11:                                        ; preds = %75, %85, %81
@@ -2702,7 +2702,7 @@ define dso_local i64 @zone_reclaimable_pages(ptr noundef %0) local_unnamed_addr 
   %123 = add i64 %104, %122
   %124 = add nuw nsw i64 %109, 1
   %125 = and i64 %124, 127
-  %126 = icmp ugt i64 %125, 63
+  %126 = icmp samesign ugt i64 %125, 63
   br i1 %126, label %.thread13, label %102, !prof !39, !llvm.loop !40
 
 .thread13:                                        ; preds = %102, %112, %108
@@ -2896,7 +2896,7 @@ define dso_local void @reclaim_throttle(ptr noundef %0, i32 noundef %1) local_un
   %68 = add i64 %49, %67
   %69 = add nuw nsw i64 %54, 1
   %70 = and i64 %69, 127
-  %71 = icmp ugt i64 %70, 63
+  %71 = icmp samesign ugt i64 %70, 63
   br i1 %71, label %.thread, label %47, !prof !39, !llvm.loop !40
 
 .thread:                                          ; preds = %47, %57, %53
@@ -3904,7 +3904,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %291
 
 291:                                              ; preds = %289, %285, %283, %277, %253
-  %292 = icmp ugt i64 %85, 1
+  %292 = icmp samesign ugt i64 %85, 1
   br i1 %292, label %293, label %302
 
 293:                                              ; preds = %291
@@ -4425,7 +4425,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %646, !llvm.loop !74
 
 600:                                              ; preds = %283, %279
-  %601 = icmp ugt i64 %85, 1
+  %601 = icmp samesign ugt i64 %85, 1
   br i1 %601, label %602, label %.thread23
 
 602:                                              ; preds = %600
@@ -6665,7 +6665,7 @@ prepare_kswapd_sleep.exit20:                      ; preds = %127
   %400 = add i64 %381, %399
   %401 = add nuw nsw i64 %386, 1
   %402 = and i64 %401, 127
-  %403 = icmp ugt i64 %402, 63
+  %403 = icmp samesign ugt i64 %402, 63
   br i1 %403, label %.thread.i22, label %379, !prof !39, !llvm.loop !40
 
 .thread.i22:                                      ; preds = %389, %385, %379
@@ -6702,7 +6702,7 @@ prepare_kswapd_sleep.exit20:                      ; preds = %127
   %427 = add i64 %408, %426
   %428 = add nuw nsw i64 %413, 1
   %429 = and i64 %428, 127
-  %430 = icmp ugt i64 %429, 63
+  %430 = icmp samesign ugt i64 %429, 63
   br i1 %430, label %.thread9.i, label %406, !prof !39, !llvm.loop !40
 
 .thread9.i:                                       ; preds = %416, %412, %406
@@ -6764,7 +6764,7 @@ prepare_kswapd_sleep.exit20:                      ; preds = %127
   %469 = add i64 %450, %468
   %470 = add nuw nsw i64 %455, 1
   %471 = and i64 %470, 127
-  %472 = icmp ugt i64 %471, 63
+  %472 = icmp samesign ugt i64 %471, 63
   br i1 %472, label %.thread11.i, label %448, !prof !39, !llvm.loop !40
 
 .thread11.i:                                      ; preds = %458, %454, %448
@@ -6801,7 +6801,7 @@ prepare_kswapd_sleep.exit20:                      ; preds = %127
   %496 = add i64 %477, %495
   %497 = add nuw nsw i64 %482, 1
   %498 = and i64 %497, 127
-  %499 = icmp ugt i64 %498, 63
+  %499 = icmp samesign ugt i64 %498, 63
   br i1 %499, label %.thread13.i, label %475, !prof !39, !llvm.loop !40
 
 .thread13.i:                                      ; preds = %485, %481, %475
@@ -6854,7 +6854,7 @@ zone_reclaimable_pages.exit:                      ; preds = %438, %441, %.thread
   %534 = add i64 %516, %533
   %535 = add nuw nsw i64 %521, 1
   %536 = and i64 %535, 127
-  %537 = icmp ugt i64 %536, 63
+  %537 = icmp samesign ugt i64 %536, 63
   br i1 %537, label %.thread.i, label %514, !prof !39, !llvm.loop !40
 
 .thread.i:                                        ; preds = %524, %520, %514
@@ -7741,7 +7741,7 @@ define dso_local void @check_move_unevictable_folios(ptr nocapture noundef reado
   %147 = add nuw nsw i64 %7, 1
   %148 = load i8, ptr %0, align 8
   %149 = zext i8 %148 to i64
-  %150 = icmp ult i64 %147, %149
+  %150 = icmp samesign ult i64 %147, %149
   br i1 %150, label %6, label %151, !llvm.loop !143
 
 151:                                              ; preds = %144
@@ -8499,7 +8499,7 @@ define internal fastcc noundef zeroext i1 @allow_direct_reclaim(ptr noundef %0) 
   %44 = add i64 %26, %43
   %45 = add nuw nsw i64 %31, 1
   %46 = and i64 %45, 127
-  %47 = icmp ugt i64 %46, 63
+  %47 = icmp samesign ugt i64 %46, 63
   br i1 %47, label %.thread, label %24, !prof !39, !llvm.loop !40
 
 .thread:                                          ; preds = %24, %34, %30
@@ -8869,7 +8869,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef %1) unnamed
 
 219:                                              ; preds = %253, %208
   %220 = phi i64 [ 0, %208 ], [ %256, %253 ]
-  %221 = icmp ugt i64 %220, 1
+  %221 = icmp samesign ugt i64 %220, 1
   %222 = zext i1 %221 to i32
   br i1 %213, label %.loopexit24, label %223
 

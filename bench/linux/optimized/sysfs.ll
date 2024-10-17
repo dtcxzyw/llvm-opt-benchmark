@@ -463,7 +463,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   %64 = add i64 %63, %44
   %65 = add nuw nsw i64 %49, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %42, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %42, %52, %48
@@ -516,7 +516,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   %105 = add i64 %104, %85
   %106 = add nuw nsw i64 %90, 1
   %107 = and i64 %106, 127
-  %108 = icmp ugt i64 %107, 63
+  %108 = icmp samesign ugt i64 %107, 63
   br i1 %108, label %.thread7, label %83, !prof !6, !llvm.loop !10
 
 .thread7:                                         ; preds = %83, %93, %89
@@ -826,7 +826,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
 
 92:                                               ; preds = %89
   %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %90), !range !12
-  %94 = icmp ult i64 %93, 2
+  %94 = icmp samesign ult i64 %93, 2
   %95 = icmp ult i64 %90, 1073741825
   %96 = and i1 %95, %94
   br i1 %96, label %97, label %100

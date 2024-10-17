@@ -851,7 +851,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvm9StringMapI
   %.pre-phi45.i.i.i = phi i64 [ %239, %237 ], [ %239, %_ZNK4llvm7DagInit13getArgNameStrEj.exit.i.i.i ], [ %.pre44.i.i.i, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit49.i ]
   %272 = phi i32 [ %238, %237 ], [ %238, %_ZNK4llvm7DagInit13getArgNameStrEj.exit.i.i.i ], [ %.pre.i.i.i, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit49.i ]
   %indvars.iv.next.i50.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
-  %273 = icmp ult i64 %indvars.iv.next.i50.i.i, %.pre-phi45.i.i.i
+  %273 = icmp samesign ult i64 %indvars.iv.next.i50.i.i, %.pre-phi45.i.i.i
   br i1 %273, label %237, label %.preheader.i51.i.i, !llvm.loop !19
 
 274:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit86.thread.i.i.i, %.lr.ph32.i.i.i
@@ -1136,7 +1136,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit86.thread.i.i.i: ; preds = %_ZN4llvm9StringMapI
   %.pre-phi.i.i.i = phi i64 [ %276, %274 ], [ %276, %_ZNK4llvm7DagInit13getArgNameStrEj.exit82.i.i.i ], [ %.pre43.i.i.i, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit.i ]
   %413 = phi i32 [ %275, %274 ], [ %275, %_ZNK4llvm7DagInit13getArgNameStrEj.exit82.i.i.i ], [ %.pre42.i.i.i, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit.i ]
   %indvars.iv.next40.i.i.i = add nuw nsw i64 %indvars.iv39.i.i.i, 1
-  %414 = icmp ult i64 %indvars.iv.next40.i.i.i, %.pre-phi.i.i.i
+  %414 = icmp samesign ult i64 %indvars.iv.next40.i.i.i, %.pre-phi.i.i.i
   br i1 %414, label %274, label %_ZN12_GLOBAL__N_119CompressInstEmitter23createDagOperandMappingEPN4llvm6RecordERNS1_9StringMapIjNS1_15MallocAllocatorEEES7_PNS1_7DagInitES9_RNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEE.exit.i.i, !llvm.loop !29
 
 _ZN12_GLOBAL__N_119CompressInstEmitter23createDagOperandMappingEPN4llvm6RecordERNS1_9StringMapIjNS1_15MallocAllocatorEEES7_PNS1_7DagInitES9_RNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEE.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit86.thread.i.i.i, %.preheader.i51.i.i
@@ -2411,7 +2411,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter23emitCompres
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %58
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !42
 
 58:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -3037,7 +3037,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit279:              ; preds = %376, %378
   %381 = icmp eq i32 %2, 2
   %382 = or i1 %80, %381
   %383 = icmp eq i32 %2, 1
-  %384 = icmp ugt i32 %2, 1
+  %384 = icmp samesign ugt i32 %2, 1
   br i1 %384, label %398, label %385
 
 385:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit279
@@ -4395,7 +4395,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit437:              ; preds = %1037, %1035, %924, 
   %1045 = sub i64 %1043, %1044
   %1046 = sdiv exact i64 %1045, 264
   %1047 = and i64 %1046, 4294967295
-  %1048 = icmp ult i64 %indvars.iv.next, %1047
+  %1048 = icmp samesign ult i64 %indvars.iv.next, %1047
   br i1 %1048, label %.lr.ph931, label %._crit_edge932, !llvm.loop !83
 
 ._crit_edge932:                                   ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit437, %.preheader
@@ -9302,11 +9302,11 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit: ; preds = %81, %_ZN4llvmeqEN
   %115 = getelementptr inbounds nuw i8, ptr %.03237.i, i64 32
   %116 = load i8, ptr %115, align 8
   %117 = and i8 %116, 1
-  %118 = icmp ult i8 %.032, %117
+  %118 = icmp samesign ult i8 %.032, %117
   br i1 %118, label %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i, label %119
 
 119:                                              ; preds = %.lr.ph.i74
-  %120 = icmp ult i8 %117, %.032
+  %120 = icmp samesign ult i8 %117, %.032
   br i1 %120, label %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread, label %121
 
 121:                                              ; preds = %119
@@ -9364,11 +9364,11 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread: ; pred
   %.pre-phi = phi i8 [ %.pre98, %131 ], [ %117, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread ]
   %.031.lcssa41.i = phi ptr [ %.031.lcssa42.i, %131 ], [ %.03237.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread ]
   %.sroa.017.0.i = phi ptr [ %132, %131 ], [ %.03237.i, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i.thread ]
-  %133 = icmp ult i8 %.pre-phi, %.032
+  %133 = icmp samesign ult i8 %.pre-phi, %.032
   br i1 %133, label %142, label %134
 
 134:                                              ; preds = %._crit_edge.i.thread
-  %135 = icmp ult i8 %.032, %.pre-phi
+  %135 = icmp samesign ult i8 %.032, %.pre-phi
   br i1 %135, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIS3_EES0_ISt17_Rb_tree_iteratorIS3_EbEOT_.exit, label %136
 
 136:                                              ; preds = %134
@@ -9402,11 +9402,11 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit16.i: ; preds = %_ZN4llv
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
   %146 = load i8, ptr %145, align 8
   %147 = and i8 %146, 1
-  %148 = icmp ult i8 %.032, %147
+  %148 = icmp samesign ult i8 %.032, %147
   br i1 %148, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %149
 
 149:                                              ; preds = %144
-  %150 = icmp ult i8 %147, %.032
+  %150 = icmp samesign ult i8 %147, %.032
   br i1 %150, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %151
 
 151:                                              ; preds = %149
@@ -9456,11 +9456,11 @@ _ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_
   %163 = getelementptr inbounds nuw i8, ptr %.03237.i84, i64 32
   %164 = load i8, ptr %163, align 8
   %165 = and i8 %164, 1
-  %166 = icmp ult i8 %.032, %165
+  %166 = icmp samesign ult i8 %.032, %165
   br i1 %166, label %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93, label %167
 
 167:                                              ; preds = %.lr.ph.i80
-  %168 = icmp ult i8 %165, %.032
+  %168 = icmp samesign ult i8 %165, %.032
   br i1 %168, label %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93.thread, label %169
 
 169:                                              ; preds = %167
@@ -9518,11 +9518,11 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93.thread: ; pr
   %.pre-phi100 = phi i8 [ %.pre99, %179 ], [ %165, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93.thread ]
   %.031.lcssa41.i98 = phi ptr [ %.031.lcssa42.i117, %179 ], [ %.03237.i84, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93.thread ]
   %.sroa.017.0.i99 = phi ptr [ %180, %179 ], [ %.03237.i84, %_ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit.thread.i93.thread ]
-  %181 = icmp ult i8 %.pre-phi100, %.032
+  %181 = icmp samesign ult i8 %.pre-phi100, %.032
   br i1 %181, label %190, label %182
 
 182:                                              ; preds = %._crit_edge.i97.thread
-  %183 = icmp ult i8 %.032, %.pre-phi100
+  %183 = icmp samesign ult i8 %.032, %.pre-phi100
   br i1 %183, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIS3_EES0_ISt17_Rb_tree_iteratorIS3_EbEOT_.exit, label %184
 
 184:                                              ; preds = %182
@@ -9556,11 +9556,11 @@ _ZNKSt4lessISt4pairIbN4llvm9StringRefEEEclERKS3_S6_.exit16.i115: ; preds = %_ZN4
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i112.ph, i64 32
   %194 = load i8, ptr %193, align 8
   %195 = and i8 %194, 1
-  %196 = icmp ult i8 %.032, %195
+  %196 = icmp samesign ult i8 %.032, %195
   br i1 %196, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i67, label %197
 
 197:                                              ; preds = %192
-  %198 = icmp ult i8 %195, %.032
+  %198 = icmp samesign ult i8 %195, %.032
   br i1 %198, label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i67, label %199
 
 199:                                              ; preds = %197
@@ -13873,11 +13873,11 @@ define linkonce_odr noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt2
   %10 = and i8 %9, 1
   %11 = load i8, ptr %8, align 8
   %12 = and i8 %11, 1
-  %13 = icmp ult i8 %10, %12
+  %13 = icmp samesign ult i8 %10, %12
   br i1 %13, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorISt4pairIbN4llvm9StringRefEEES8_EEbT_T0_.exit.thread, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp ult i8 %12, %10
+  %15 = icmp samesign ult i8 %12, %10
   br i1 %15, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorISt4pairIbN4llvm9StringRefEEES8_EEbT_T0_.exit.thread, label %16
 
 16:                                               ; preds = %14

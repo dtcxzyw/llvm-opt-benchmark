@@ -2377,7 +2377,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_dirty(ptr noundef %0) local_unnamed_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = load i32, ptr %12, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next.i, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next.i, %34
   br i1 %35, label %15, label %H5C__mark_flush_dep_unserialized.exit
 
 36:                                               ; preds = %29
@@ -2555,7 +2555,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_dirty(ptr noundef %0) local_unnamed_
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
   %156 = load i32, ptr %135, align 8
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next.i62, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next.i62, %157
   br i1 %158, label %138, label %H5C__mark_flush_dep_dirty.exit
 
 159:                                              ; preds = %152
@@ -2608,7 +2608,7 @@ H5C__mark_flush_dep_dirty.exit:                   ; preds = %155, %134, %121
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i66, 1
   %188 = load i32, ptr %167, align 8
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %indvars.iv.next.i68, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next.i68, %189
   br i1 %190, label %170, label %H5C__mark_flush_dep_unserialized.exit
 
 191:                                              ; preds = %184
@@ -2676,7 +2676,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__mark_flush_dep_unserialized(pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %2, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %26, %1, %22
@@ -2729,7 +2729,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__mark_flush_dep_dirty(ptr nocap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %2, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %26, %1, %22
@@ -2993,7 +2993,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_unserialized(ptr nocapture noundef %
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %14, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %37, label %17, label %H5C__mark_flush_dep_unserialized.exit
 
 38:                                               ; preds = %31
@@ -3913,7 +3913,7 @@ define range(i32 -1, 1) i32 @H5C_resize_entry(ptr noundef %0, i64 noundef %1) lo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %32, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
   br i1 %55, label %35, label %H5C__mark_flush_dep_unserialized.exit
 
 56:                                               ; preds = %49
@@ -4207,7 +4207,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %52, %31, %24
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i126, 1
   %245 = load i32, ptr %224, align 8
   %246 = zext i32 %245 to i64
-  %247 = icmp ult i64 %indvars.iv.next.i128, %246
+  %247 = icmp samesign ult i64 %indvars.iv.next.i128, %246
   br i1 %247, label %227, label %H5C__mark_flush_dep_dirty.exit
 
 248:                                              ; preds = %241
@@ -6667,7 +6667,7 @@ H5C__unpin_entry_from_client.exit:                ; preds = %66, %70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %125 = load i32, ptr %104, align 8
   %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next.i, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next.i, %126
   br i1 %127, label %107, label %H5C__mark_flush_dep_unserialized.exit
 
 128:                                              ; preds = %121

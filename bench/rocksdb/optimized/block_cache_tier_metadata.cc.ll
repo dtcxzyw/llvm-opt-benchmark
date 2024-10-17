@@ -506,7 +506,7 @@ land.rhs:                                         ; preds = %_ZN7rocksdb9WriteLo
   %i.024 = phi i64 [ 0, %entry ], [ %inc, %_ZN7rocksdb9WriteLockD2Ev.exit15 ]
   %2 = load i32, ptr %nlocks_, align 8
   %conv4 = zext i32 %2 to i64
-  %cmp = icmp ult i64 %i.024, %conv4
+  %cmp = icmp samesign ult i64 %i.024, %conv4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
@@ -820,7 +820,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit13.i:               ; preds = %_ZNSt7__cxx114listI
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %nbuckets_.i, align 8
   %27 = zext i32 %26 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %27
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %cmp.i, label %for.body.i, label %_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit, !llvm.loop !9
 
 _ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit: ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit13.i, %entry
@@ -907,7 +907,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit9.i:                ; preds = %_ZNSt7__cxx114listI
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i7, 1
   %39 = load i32, ptr %nbuckets_.i1, align 8
   %40 = zext i32 %39 to i64
-  %cmp.i26 = icmp ult i64 %indvars.iv.next.i25, %40
+  %cmp.i26 = icmp samesign ult i64 %indvars.iv.next.i25, %40
   br i1 %cmp.i26, label %for.body.i6, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5ClearEPFvS2_E.exit, !llvm.loop !10
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5ClearEPFvS2_E.exit: ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit9.i, %_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit

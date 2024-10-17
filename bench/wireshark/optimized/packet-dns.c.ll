@@ -3677,7 +3677,7 @@ switch.lookup:                                    ; preds = %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %734 = load i32, ptr %258, align 4
   %735 = zext i32 %734 to i64
-  %736 = icmp ult i64 %indvars.iv.next, %735
+  %736 = icmp samesign ult i64 %indvars.iv.next, %735
   br i1 %736, label %687, label %.preheader396, !llvm.loop !7
 
 .preheader:                                       ; preds = %785, %.preheader396
@@ -3776,7 +3776,7 @@ switch.lookup:                                    ; preds = %73
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %786 = load i32, ptr %338, align 8
   %787 = zext i32 %786 to i64
-  %788 = icmp ult i64 %indvars.iv.next407, %787
+  %788 = icmp samesign ult i64 %indvars.iv.next407, %787
   br i1 %788, label %739, label %.preheader, !llvm.loop !8
 
 789:                                              ; preds = %.lr.ph401, %835
@@ -3866,7 +3866,7 @@ switch.lookup:                                    ; preds = %73
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %836 = load i32, ptr %418, align 4
   %837 = zext i32 %836 to i64
-  %838 = icmp ult i64 %indvars.iv.next410, %837
+  %838 = icmp samesign ult i64 %indvars.iv.next410, %837
   br i1 %838, label %789, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %835, %.preheader, %203, %208, %201, %5
@@ -7063,7 +7063,7 @@ proto_item_set_generated.exit2172:                ; preds = %940, %982, %985
   %1037 = lshr i32 %1036, 3
   %1038 = add nuw nsw i32 %1037, 1
   %1039 = and i32 %1038, 65535
-  %1040 = icmp ult i32 %1039, 16
+  %1040 = icmp samesign ult i32 %1039, 16
   br i1 %1040, label %.preheader, label %.lr.ph2285.preheader
 
 .preheader:                                       ; preds = %1029, %1033
@@ -7088,7 +7088,7 @@ proto_item_set_generated.exit2172:                ; preds = %940, %982, %985
   store i8 %1045, ptr %1046, align 1
   %1047 = add i32 %.12284, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1048 = icmp ult i64 %indvars.iv, 15
+  %1048 = icmp samesign ult i64 %indvars.iv, 15
   br i1 %1048, label %.lr.ph2285, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph2285, %.preheader
@@ -7262,7 +7262,7 @@ proto_item_set_generated.exit2172:                ; preds = %940, %982, %985
   %1134 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1133, ptr noundef %0, i32 noundef %1132, i32 noundef 1, i32 noundef 0) #10
   %1135 = add i32 %.22279, 8
   %1136 = and i32 %1124, 65535
-  %1137 = icmp ugt i32 %1136, 16
+  %1137 = icmp samesign ugt i32 %1136, 16
   br i1 %1137, label %1138, label %1140
 
 1138:                                             ; preds = %1123
@@ -7406,7 +7406,7 @@ proto_item_set_generated.exit2172:                ; preds = %940, %982, %985
   %1222 = add nsw i32 %.021002254, -4
   %1223 = icmp eq i16 %1208, 1
   %1224 = zext nneg i8 %1216 to i32
-  %1225 = icmp ult i8 %1216, 5
+  %1225 = icmp samesign ult i8 %1216, 5
   %or.cond11 = select i1 %1223, i1 %1225, i1 false
   br i1 %or.cond11, label %1226, label %1234
 
@@ -7422,7 +7422,7 @@ proto_item_set_generated.exit2172:                ; preds = %940, %982, %985
 
 1234:                                             ; preds = %.lr.ph2256
   %1235 = icmp eq i16 %1208, 2
-  %1236 = icmp ult i8 %1216, 17
+  %1236 = icmp samesign ult i8 %1216, 17
   %or.cond14 = select i1 %1235, i1 %1236, i1 false
   br i1 %or.cond14, label %1237, label %1244
 
@@ -8525,7 +8525,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @compute_key_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, 65536) %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
-  %8 = icmp ult i32 %4, 4
+  %8 = icmp samesign ult i32 %4, 4
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %7

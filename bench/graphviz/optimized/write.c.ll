@@ -1722,7 +1722,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   %10 = load i32, ptr %1, align 8
   %11 = lshr i32 %10, 4
   %12 = zext nneg i32 %11 to i64
-  %13 = icmp ugt i64 %2, %12
+  %13 = icmp samesign ugt i64 %2, %12
   br i1 %13, label %not_default_attrs.exit, label %14
 
 14:                                               ; preds = %.loopexit17
@@ -1740,7 +1740,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 4
-  %.not15.i = icmp ult i32 %20, %16
+  %.not15.i = icmp samesign ult i32 %20, %16
   br i1 %.not15.i, label %not_default_attrs.exit, label %21
 
 21:                                               ; preds = %.lr.ph.i9

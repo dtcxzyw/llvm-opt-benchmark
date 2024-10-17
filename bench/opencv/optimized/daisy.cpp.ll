@@ -6140,7 +6140,7 @@ define internal fastcc void @_ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5D
   br i1 %exitcond.not.i22, label %._crit_edge.us.i, label %.lr.ph.us.i, !llvm.loop !78
 
 ..loopexit_crit_edge.us.i:                        ; preds = %47
-  %56 = icmp ult i32 %.02941.us.i, 4
+  %56 = icmp samesign ult i32 %.02941.us.i, 4
   %57 = select i1 %.2.us.i, i1 %56, i1 false
   br i1 %57, label %.lr.ph.us.preheader.i, label %_ZN2cv11xfeatures2dL17normalize_partialEPfii.exit, !llvm.loop !79
 

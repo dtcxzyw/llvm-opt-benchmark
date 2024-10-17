@@ -322,8 +322,8 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr nocapture noundef 
   %166 = getelementptr inbounds [3 x i32], ptr %151, i64 0, i64 %indvars.iv
   store i32 %165, ptr %166, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %167 = icmp ult i64 %indvars.iv, 2
-  %168 = and i1 %.not124.not, %167
+  %167 = icmp samesign ult i64 %indvars.iv, 2
+  %168 = select i1 %.not124.not, i1 %167, i1 false
   br i1 %168, label %152, label %.loopexit.sink.split, !llvm.loop !4
 
 .thread131:                                       ; preds = %62, %66

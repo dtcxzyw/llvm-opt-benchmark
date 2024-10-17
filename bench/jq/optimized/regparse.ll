@@ -2933,7 +2933,7 @@ bbuf_init.exit.i:                                 ; preds = %9
 .preheader:                                       ; preds = %156, %.preheader
   %159 = phi i32 [ %160, %.preheader ], [ %157, %156 ]
   %160 = shl nuw nsw i32 %159, 1
-  %161 = icmp ult i32 %159, 2
+  %161 = icmp samesign ult i32 %159, 2
   br i1 %161, label %.preheader, label %162, !llvm.loop !29
 
 162:                                              ; preds = %.preheader
@@ -5631,7 +5631,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_octal_number(ptr nocapture n
   %31 = add i32 %30, -48
   %32 = add i32 %31, %13
   %33 = icmp ult ptr %17, %1
-  %34 = icmp ult i32 %29, %3
+  %34 = icmp samesign ult i32 %29, %3
   %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %11, label %._crit_edge, !llvm.loop !37
 
@@ -5639,7 +5639,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_octal_number(ptr nocapture n
   %.032.lcssa = phi i32 [ 0, %6 ], [ %.03238, %11 ], [ %.03238, %19 ], [ %32, %28 ]
   %.031.lcssa = phi i32 [ 0, %6 ], [ %.03139, %11 ], [ %.03139, %19 ], [ %29, %28 ]
   %.030.lcssa = phi ptr [ %7, %6 ], [ %.03040, %11 ], [ %.03040, %19 ], [ %17, %28 ]
-  %36 = icmp ult i32 %.031.lcssa, %2
+  %36 = icmp samesign ult i32 %.031.lcssa, %2
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %._crit_edge
@@ -5708,7 +5708,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_hexadecimal_number(ptr nocap
   %35 = shl nuw i32 %.03745, 4
   %36 = add i32 %30, %35
   %37 = icmp ult ptr %17, %1
-  %38 = icmp ult i32 %23, %3
+  %38 = icmp samesign ult i32 %23, %3
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %11, label %._crit_edge, !llvm.loop !38
 
@@ -5716,7 +5716,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_hexadecimal_number(ptr nocap
   %.037.lcssa = phi i32 [ 0, %6 ], [ %.03745, %11 ], [ %.03745, %19 ], [ %36, %34 ]
   %.036.lcssa = phi i32 [ 0, %6 ], [ %.03646, %11 ], [ %.03646, %19 ], [ %23, %34 ]
   %.035.lcssa = phi ptr [ %7, %6 ], [ %.03547, %11 ], [ %.03547, %19 ], [ %17, %34 ]
-  %40 = icmp ult i32 %.036.lcssa, %2
+  %40 = icmp samesign ult i32 %.036.lcssa, %2
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %._crit_edge
@@ -6791,7 +6791,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
   %35 = shl nuw i32 %.03745.i, 4
   %36 = add i32 %30, %35
   %37 = icmp ult ptr %17, %1
-  %38 = icmp ult i32 %.03646.i, 7
+  %38 = icmp samesign ult i32 %.03646.i, 7
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %11, label %scan_hexadecimal_number.exit.sink.split, !llvm.loop !38
 
@@ -6842,7 +6842,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
   %66 = add i32 %65, -48
   %67 = add i32 %66, %48
   %68 = icmp ult ptr %52, %1
-  %69 = icmp ult i32 %.03139.i, 10
+  %69 = icmp samesign ult i32 %.03139.i, 10
   %70 = select i1 %68, i1 %69, i1 false
   br i1 %70, label %46, label %scan_hexadecimal_number.exit.sink.split, !llvm.loop !37
 
@@ -11369,7 +11369,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   br i1 %129, label %prs_posix_bracket.exit.thread, label %.lr.ph405.preheader
 
 .preheader362:                                    ; preds = %._crit_edge
-  %130 = icmp ult i32 %.0215.lcssa, 7
+  %130 = icmp samesign ult i32 %.0215.lcssa, 7
   br i1 %130, label %.lr.ph405.preheader, label %._crit_edge406
 
 .lr.ph405.preheader:                              ; preds = %._crit_edge.thread, %.preheader362
@@ -14358,7 +14358,7 @@ is_allowed_callout_tag_name.exit:                 ; preds = %.thread.i183
   %93 = zext i1 %.not133.i to i32
   %spec.select = add nuw nsw i32 %.0110.i, %93
   %94 = icmp ne i32 %80, 125
-  %95 = icmp ult i32 %spec.select, 4
+  %95 = icmp samesign ult i32 %spec.select, 4
   %or.cond5.i188 = select i1 %94, i1 %95, i1 false
   br i1 %or.cond5.i188, label %77, label %96, !llvm.loop !97
 
@@ -14658,7 +14658,7 @@ onig_get_callout_end_func_by_name_id.exit:        ; preds = %onig_get_callout_st
   %254 = load i32, ptr %253, align 4
   %255 = getelementptr inbounds [4 x i32], ptr %247, i64 0, i64 %indvars.iv
   store i32 %254, ptr %255, align 4
-  %256 = icmp ult i64 %indvars.iv, %249
+  %256 = icmp samesign ult i64 %indvars.iv, %249
   %257 = getelementptr inbounds [4 x %union.OnigValue], ptr %248, i64 0, i64 %indvars.iv
   br i1 %256, label %258, label %260
 

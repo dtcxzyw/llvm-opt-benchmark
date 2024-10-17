@@ -778,7 +778,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %419 = load i16, ptr %415, align 2
   %420 = zext i16 %419 to i32
   %421 = and i32 %418, 65535
-  %422 = icmp ugt i32 %421, %420
+  %422 = icmp samesign ugt i32 %421, %420
   br label %471
 
 423:                                              ; preds = %408
@@ -792,7 +792,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %431 = load i16, ptr %427, align 2
   %432 = zext i16 %431 to i32
   %433 = and i32 %430, 65535
-  %434 = icmp uge i32 %433, %432
+  %434 = icmp samesign uge i32 %433, %432
   br label %471
 
 435:                                              ; preds = %408
@@ -806,7 +806,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %443 = load i16, ptr %439, align 2
   %444 = zext i16 %443 to i32
   %445 = and i32 %442, 65535
-  %446 = icmp ult i32 %445, %444
+  %446 = icmp samesign ult i32 %445, %444
   br label %471
 
 447:                                              ; preds = %408
@@ -820,7 +820,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %455 = load i16, ptr %451, align 2
   %456 = zext i16 %455 to i32
   %457 = and i32 %454, 65535
-  %458 = icmp ule i32 %457, %456
+  %458 = icmp samesign ule i32 %457, %456
   br label %471
 
 459:                                              ; preds = %408
@@ -1004,7 +1004,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %591 = load i8, ptr %587, align 1
   %592 = zext i8 %591 to i32
   %593 = and i32 %590, 255
-  %594 = icmp ugt i32 %593, %592
+  %594 = icmp samesign ugt i32 %593, %592
   br label %643
 
 595:                                              ; preds = %580
@@ -1018,7 +1018,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %603 = load i8, ptr %599, align 1
   %604 = zext i8 %603 to i32
   %605 = and i32 %602, 255
-  %606 = icmp uge i32 %605, %604
+  %606 = icmp samesign uge i32 %605, %604
   br label %643
 
 607:                                              ; preds = %580
@@ -1032,7 +1032,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %615 = load i8, ptr %611, align 1
   %616 = zext i8 %615 to i32
   %617 = and i32 %614, 255
-  %618 = icmp ult i32 %617, %616
+  %618 = icmp samesign ult i32 %617, %616
   br label %643
 
 619:                                              ; preds = %580
@@ -1046,7 +1046,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #3 alig
   %627 = load i8, ptr %623, align 1
   %628 = zext i8 %627 to i32
   %629 = and i32 %626, 255
-  %630 = icmp ule i32 %629, %628
+  %630 = icmp samesign ule i32 %629, %628
   br label %643
 
 631:                                              ; preds = %580

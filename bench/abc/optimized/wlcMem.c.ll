@@ -7076,7 +7076,7 @@ define void @Wlc_NtkPrintCex(ptr nocapture readnone %0, ptr nocapture noundef re
   %.val30 = load i32, ptr %25, align 4
   %37 = sub nsw i32 %.val, %.val30
   %38 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
-  %.not34.not = icmp ult i32 %.02337, %38
+  %.not34.not = icmp samesign ult i32 %.02337, %38
   br i1 %.not34.not, label %26, label %39, !llvm.loop !63
 
 39:                                               ; preds = %26
@@ -8683,7 +8683,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
   %59 = or i16 %58, %.pre.pre
   store i16 %59, ptr %41, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %60 = icmp ult i64 %indvars.iv.next116, %47
+  %60 = icmp samesign ult i64 %indvars.iv.next116, %47
   br i1 %60, label %48, label %.critedge8.loopexit, !llvm.loop !77
 
 .critedge8.loopexit:                              ; preds = %Wlc_ObjFaninId.exit
@@ -9319,7 +9319,7 @@ define void @Wlc_NtkCreateMemoryConstr(ptr noundef %0, ptr nocapture noundef rea
   store i32 %46, ptr %48, align 4
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 2
   %49 = or disjoint i64 %indvars.iv.next295, 1
-  %50 = icmp ult i64 %49, %36
+  %50 = icmp samesign ult i64 %49, %36
   br i1 %50, label %.critedge2, label %.critedge4.thread, !llvm.loop !85
 
 .critedge4:                                       ; preds = %.critedge2.preheader

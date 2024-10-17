@@ -14745,7 +14745,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont57.i
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %161
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %161
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -16144,7 +16144,7 @@ if.end.i.i.i598:                                  ; preds = %invoke.cont65.i
 for.cond.i.i.i599:                                ; preds = %for.body.i.i.i603, %if.end.i.i.i598
   %indvars.iv.i600 = phi i64 [ %indvars.iv.next.i601, %for.body.i.i.i603 ], [ 0, %if.end.i.i.i598 ]
   %indvars.iv.next.i601 = add nuw nsw i64 %indvars.iv.i600, 64
-  %cmp19.not.i.i.i602 = icmp ugt i64 %indvars.iv.next.i601, %354
+  %cmp19.not.i.i.i602 = icmp samesign ugt i64 %indvars.iv.next.i601, %354
   br i1 %cmp19.not.i.i.i602, label %for.end.i.i.i619, label %for.body.i.i.i603
 
 for.body.i.i.i603:                                ; preds = %for.cond.i.i.i599
@@ -52151,7 +52151,7 @@ for.body.i32:                                     ; preds = %for.body.i32, %for.
   %not.i = xor i64 %22, -1
   store i64 %not.i, ptr %add.ptr.i, align 8
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 64
-  %cmp.not.i = icmp ugt i64 %indvars.iv.next.i34, %16
+  %cmp.not.i = icmp samesign ugt i64 %indvars.iv.next.i34, %16
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 64
   br i1 %cmp.not.i, label %for.cond2.preheader.loopexit.i, label %for.body.i32, !llvm.loop !381
 
@@ -53313,7 +53313,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   br i1 %tobool.not.i108, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit, label %if.end.i109
 
 if.end.i109:                                      ; preds = %for.body22
-  %cmp.i111 = icmp ult i64 %.sroa.speculated, %invariant.op
+  %cmp.i111 = icmp samesign ult i64 %.sroa.speculated, %invariant.op
   br i1 %cmp.i111, label %if.then2.i116, label %if.end5.i112
 
 if.then2.i116:                                    ; preds = %if.end.i109
@@ -53347,7 +53347,7 @@ _ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit: ; preds = %for.body22, 
   %conv7.i131 = trunc i64 %or.i130 to i8
   store i8 %conv7.i131, ptr %55, align 1
   %add9.i132 = add nuw nsw i64 %50, %.sroa.speculated
-  %cmp10.i133 = icmp ugt i64 %add9.i132, 8
+  %cmp10.i133 = icmp samesign ugt i64 %add9.i132, 8
   br i1 %cmp10.i133, label %if.then.i135, label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
 
 if.then.i135:                                     ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
@@ -70860,7 +70860,7 @@ for.cond:                                         ; preds = %invoke.cont68, %_ZN
 
 invoke.cont76:                                    ; preds = %for.cond
   %52 = zext i32 %call77 to i64
-  %cmp78 = icmp ult i64 %indvars.iv, %52
+  %cmp78 = icmp samesign ult i64 %indvars.iv, %52
   br i1 %cmp78, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont76
@@ -76012,7 +76012,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i110.i = getelementptr inbounds [256 x i64], ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 0, i64 %idxprom.i.i
   %89 = load i64, ptr %arrayidx.i110.i, align 8
   store i64 %89, ptr %word.i, align 8
-  %cmp54.i = icmp ult i64 %indvars.iv.i, %87
+  %cmp54.i = icmp samesign ult i64 %indvars.iv.i, %87
   br i1 %cmp54.i, label %if.then55.i, label %if.else58.i
 
 if.then55.i:                                      ; preds = %for.body.i

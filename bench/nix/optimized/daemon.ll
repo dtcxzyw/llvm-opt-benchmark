@@ -5538,7 +5538,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i245: ; preds = %352, %350, %346, %3
 
 ._crit_edge.i.i247:                               ; preds = %.lr.ph.i2.i251, %367
   %.0.lcssa.i.i248 = phi i32 [ %339, %367 ], [ %377, %.lr.ph.i2.i251 ]
-  %392 = icmp ugt i32 %.0.lcssa.i.i248, 9
+  %392 = icmp samesign ugt i32 %.0.lcssa.i.i248, 9
   br i1 %392, label %393, label %403
 
 393:                                              ; preds = %._crit_edge.i.i247
@@ -5786,7 +5786,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i224: ; preds = %449, %447, %443, %4
 
 ._crit_edge.i.i226:                               ; preds = %.lr.ph.i2.i, %464
   %.0.lcssa.i.i227 = phi i32 [ %436, %464 ], [ %474, %.lr.ph.i2.i ]
-  %489 = icmp ugt i32 %.0.lcssa.i.i227, 9
+  %489 = icmp samesign ugt i32 %.0.lcssa.i.i227, 9
   br i1 %489, label %490, label %500
 
 490:                                              ; preds = %._crit_edge.i.i226
@@ -6386,7 +6386,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %646, %644, %640, %6
 
 ._crit_edge.i.i110:                               ; preds = %.lr.ph.i11.i, %662
   %.0.lcssa.i.i = phi i32 [ %633, %662 ], [ %672, %.lr.ph.i11.i ]
-  %687 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %687 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %687, label %688, label %698
 
 688:                                              ; preds = %._crit_edge.i.i110
@@ -11359,7 +11359,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !62
 
 .critedge:                                        ; preds = %27
@@ -19892,7 +19892,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i

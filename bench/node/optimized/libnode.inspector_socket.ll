@@ -2332,7 +2332,7 @@ land.lhs.true.i.i:                                ; preds = %sw.bb.i.i, %if.end3
 
 if.end41.i.i:                                     ; preds = %land.lhs.true.i.i
   %6 = and i8 %3, 127
-  %cmp45.i.i = icmp ugt i8 %6, 125
+  %cmp45.i.i = icmp samesign ugt i8 %6, 125
   br i1 %cmp45.i.i, label %if.then46.i.i, label %if.end41.if.end73_crit_edge.i.i
 
 if.end41.if.end73_crit_edge.i.i:                  ; preds = %if.end41.i.i

@@ -601,7 +601,7 @@ define dso_local void @_ZN4llvm8coverage17RawCoverageReader11readULEB128ERm(ptr 
 
 26:                                               ; preds = %21
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %23, 1
+  %.not.i = icmp samesign ugt i8 %23, 1
   %27 = icmp ne i8 %23, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %27
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %28
@@ -705,7 +705,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm13decodeULEB128EPKhPjS1_PPKc(ptr
 
 16:                                               ; preds = %11
   %.not37 = icmp eq i32 %.026, 63
-  %.not = icmp ugt i8 %13, 1
+  %.not = icmp samesign ugt i8 %13, 1
   %17 = icmp ne i8 %13, 0
   %or.cond36 = select i1 %.not37, i1 %.not, i1 %17
   br i1 %or.cond36, label %18, label %19
@@ -4880,7 +4880,7 @@ _ZN4llvm5ErrorD2Ev.exit56.i:                      ; preds = %103
 
 121:                                              ; preds = %116
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %118, 1
+  %.not.i.i = icmp samesign ugt i8 %118, 1
   %122 = icmp ne i8 %118, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %122
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i, label %123
@@ -4956,7 +4956,7 @@ _ZN4llvm5ErrorD2Ev.exit61.i:                      ; preds = %139
 
 155:                                              ; preds = %150
   %.not37.i68.i = icmp eq i32 %.026.i64.i, 63
-  %.not.i69.i = icmp ugt i8 %152, 1
+  %.not.i69.i = icmp samesign ugt i8 %152, 1
   %156 = icmp ne i8 %152, 0
   %or.cond36.i70.i = select i1 %.not37.i68.i, i1 %.not.i69.i, i1 %156
   br i1 %or.cond36.i70.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit71.i, label %157

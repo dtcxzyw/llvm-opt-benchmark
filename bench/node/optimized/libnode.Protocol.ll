@@ -6123,7 +6123,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -6160,7 +6160,7 @@ if.end:                                           ; preds = %entry
   %shr = zext nneg i8 %1 to i32
   store i32 %shr, ptr %type, align 4
   %and3 = and i8 %0, 31
-  %cmp = icmp ult i8 %and3, 24
+  %cmp = icmp samesign ult i8 %and3, 24
   br i1 %cmp, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
@@ -8572,7 +8572,7 @@ if.end.i:                                         ; preds = %sw.bb29
   %shr.i = zext nneg i8 %6 to i32
   store i32 %shr.i, ptr %token_start_type_, align 8
   %and3.i = and i8 %5, 31
-  %cmp.i = icmp ult i8 %and3.i, 24
+  %cmp.i = icmp samesign ult i8 %and3.i, 24
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -8788,7 +8788,7 @@ sw.default:                                       ; preds = %if.end15
   %shr.i64 = zext nneg i8 %14 to i32
   store i32 %shr.i64, ptr %token_start_type_92, align 8
   %and3.i65 = and i8 %4, 31
-  %cmp.i66 = icmp ult i8 %and3.i65, 24
+  %cmp.i66 = icmp samesign ult i8 %and3.i65, 24
   br i1 %cmp.i66, label %if.then6.i127, label %if.end8.i67
 
 if.then6.i127:                                    ; preds = %sw.default
@@ -10783,7 +10783,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -21580,7 +21580,7 @@ for.body:                                         ; preds = %entry, %_ZNSt6vecto
   %mul = shl nsw i32 %ii.05, 2
   %shr = lshr i32 %conv, %mul
   %and = and i32 %shr, 15
-  %cmp1 = icmp ult i32 %and, 10
+  %cmp1 = icmp samesign ult i32 %and, 10
   %cond = select i1 %cmp1, i32 48, i32 87
   %add = add nuw nsw i32 %cond, %and
   %conv2 = trunc nuw nsw i32 %add to i8
@@ -22517,7 +22517,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %mul.i = shl nsw i32 %ii.04.i, 2
   %shr.i = lshr i32 %conv, %mul.i
   %and.i = and i32 %shr.i, 15
-  %cmp1.i = icmp ult i32 %and.i, 10
+  %cmp1.i = icmp samesign ult i32 %and.i, 10
   %cond.i = select i1 %cmp1.i, i32 48, i32 87
   %add.i = add nuw nsw i32 %cond.i, %and.i
   %conv2.i = trunc nuw nsw i32 %add.i to i8
@@ -22609,7 +22609,7 @@ for.body.i98:                                     ; preds = %for.body.i98, %if.t
   %mul.i100 = shl nsw i32 %ii.04.i99, 2
   %shr.i101 = lshr i32 %codepoint.1.ph, %mul.i100
   %and.i102 = and i32 %shr.i101, 15
-  %cmp1.i103 = icmp ult i32 %and.i102, 10
+  %cmp1.i103 = icmp samesign ult i32 %and.i102, 10
   %cond.i104 = select i1 %cmp1.i103, i32 48, i32 87
   %add.i105 = add nuw nsw i32 %cond.i104, %and.i102
   %conv2.i106 = trunc nuw nsw i32 %add.i105 to i8
@@ -22636,7 +22636,7 @@ for.body.i117:                                    ; preds = %for.body.i117, %if.
   %mul.i119 = shl nsw i32 %ii.04.i118, 2
   %shr.i120 = lshr i32 %conv.i116, %mul.i119
   %and.i121 = and i32 %shr.i120, 15
-  %cmp1.i122 = icmp ult i32 %and.i121, 10
+  %cmp1.i122 = icmp samesign ult i32 %and.i121, 10
   %cond.i123 = select i1 %cmp1.i122, i32 48, i32 87
   %add.i124 = add nuw nsw i32 %cond.i123, %and.i121
   %conv2.i125 = trunc nuw nsw i32 %add.i124 to i8
@@ -22661,7 +22661,7 @@ for.body.i136:                                    ; preds = %for.body.i136, %_ZN
   %mul.i138 = shl nsw i32 %ii.04.i137, 2
   %shr.i139 = lshr i32 %conv96, %mul.i138
   %and.i140 = and i32 %shr.i139, 15
-  %cmp1.i141 = icmp ult i32 %and.i140, 10
+  %cmp1.i141 = icmp samesign ult i32 %and.i140, 10
   %cond.i142 = select i1 %cmp1.i141, i32 48, i32 87
   %add.i143 = add nuw nsw i32 %cond.i142, %and.i140
   %conv2.i144 = trunc nuw nsw i32 %add.i143 to i8
@@ -22836,7 +22836,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %mul.i = shl nsw i32 %ii.04.i, 2
   %shr.i = lshr i32 %conv.i, %mul.i
   %and.i = and i32 %shr.i, 15
-  %cmp1.i = icmp ult i32 %and.i, 10
+  %cmp1.i = icmp samesign ult i32 %and.i, 10
   %cond.i = select i1 %cmp1.i, i32 48, i32 87
   %add.i = add nuw nsw i32 %cond.i, %and.i
   %conv2.i = trunc nuw nsw i32 %add.i to i8

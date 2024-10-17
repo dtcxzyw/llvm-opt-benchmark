@@ -287,7 +287,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %.0246259 = phi i32 [ %11, %1 ], [ %.0242260, %33 ]
   %.0250258 = phi i64 [ 0, %1 ], [ %45, %33 ]
   %13 = and i64 %.0250258, 15
-  %14 = icmp ugt i64 %.0250258, 15
+  %14 = icmp samesign ugt i64 %.0250258, 15
   br i1 %14, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
@@ -498,7 +498,7 @@ define dso_local void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef write
   %15 = phi i8 [ %10, %2 ], [ %13, %12 ]
   %16 = zext nneg i8 %15 to i64
   %17 = sub nuw nsw i64 64, %16
-  %18 = icmp ugt i8 %15, 56
+  %18 = icmp samesign ugt i8 %15, 56
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %14

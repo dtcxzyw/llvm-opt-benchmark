@@ -780,7 +780,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %335, %337
   %385 = getelementptr inbounds i32, ptr %376, i64 %384
   store i32 %380, ptr %385, align 4
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
-  %386 = icmp ult i64 %indvars.iv.next313, %378
+  %386 = icmp samesign ult i64 %indvars.iv.next313, %378
   br i1 %386, label %.lr.ph282.split, label %.critedge16, !llvm.loop !13
 
 .critedge16:                                      ; preds = %.lr.ph282.split, %.lr.ph282, %372

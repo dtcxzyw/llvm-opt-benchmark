@@ -323,7 +323,7 @@ if.else72:                                        ; preds = %if.then67
 if.else77:                                        ; preds = %if.then64
   %conv81 = add i32 %24, 223
   %conv82 = and i32 %conv81, 255
-  %cmp83 = icmp ult i32 %conv82, 93
+  %cmp83 = icmp samesign ult i32 %conv82, 93
   %sub85 = add i8 %6, -33
   %cmp88 = icmp ult i8 %sub85, 94
   %or.cond1 = select i1 %cmp83, i1 %cmp88, i1 false
@@ -599,13 +599,13 @@ land.lhs.true43:                                  ; preds = %if.else40
   %23 = load i32, ptr %targetUniChar, align 4
   %conv45 = add i32 %23, 24159
   %conv46 = and i32 %conv45, 65534
-  %cmp47 = icmp ult i32 %conv46, 23646
+  %cmp47 = icmp samesign ult i32 %conv46, 23646
   br i1 %cmp47, label %land.lhs.true48, label %if.end58.thread
 
 land.lhs.true48:                                  ; preds = %land.lhs.true43
   %conv50 = add i32 %23, 95
   %conv51 = and i32 %conv50, 254
-  %cmp52 = icmp ult i32 %conv51, 94
+  %cmp52 = icmp samesign ult i32 %conv51, 94
   br i1 %cmp52, label %if.then53, label %if.end58.thread
 
 if.then53:                                        ; preds = %land.lhs.true48

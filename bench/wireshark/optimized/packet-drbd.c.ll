@@ -630,7 +630,7 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   %30 = phi i32 [ %7, %12 ], [ %.14365, %26 ], [ %.14365, %22 ], [ %.14365, %19 ], [ %spec.select75, %.thread ]
   %.3 = select i1 %.not48, i32 -1, i32 %30
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %31 = icmp ult i64 %indvars.iv, 63
+  %31 = icmp samesign ult i64 %indvars.iv, 63
   %32 = icmp slt i32 %.169, 240
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !4

@@ -4712,7 +4712,7 @@ define linkonce_odr dso_local void @_ZN11PropagateCpILN8GraphWay2enE0EE8selfTest
 
 16:                                               ; preds = %13
   %17 = urem i64 %15, 50
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %19, label %59
 
 19:                                               ; preds = %16
@@ -4793,7 +4793,7 @@ define linkonce_odr dso_local void @_ZN11PropagateCpILN8GraphWay2enE0EE8selfTest
   br label %.loopexit.split-lp75
 
 59:                                               ; preds = %16
-  %60 = icmp ugt i64 %17, %14
+  %60 = icmp samesign ugt i64 %17, %14
   br i1 %60, label %61, label %.loopexit67
 
 61:                                               ; preds = %59
@@ -5094,7 +5094,7 @@ define linkonce_odr dso_local void @_ZN11PropagateCpILN8GraphWay2enE1EE8selfTest
 
 16:                                               ; preds = %13
   %17 = urem i64 %15, 50
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %19, label %59
 
 19:                                               ; preds = %16
@@ -5175,7 +5175,7 @@ define linkonce_odr dso_local void @_ZN11PropagateCpILN8GraphWay2enE1EE8selfTest
   br label %.loopexit.split-lp75
 
 59:                                               ; preds = %16
-  %60 = icmp ugt i64 %17, %14
+  %60 = icmp samesign ugt i64 %17, %14
   br i1 %60, label %61, label %.loopexit67
 
 61:                                               ; preds = %59
@@ -7987,7 +7987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 187:                                              ; preds = %185
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %186) #28
-  %188 = icmp ult i64 %indvars.iv, 10
+  %188 = icmp samesign ult i64 %indvars.iv, 10
   %189 = select i1 %188, ptr @.str.63, ptr @.str.17
   %190 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %189)
           to label %191 unwind label %214
@@ -17089,7 +17089,7 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13
   %46 = load ptr, ptr %45, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %40, ptr noundef %46)
   %47 = add nuw nsw i64 %.047, 2
-  %48 = icmp ult i64 %47, %31
+  %48 = icmp samesign ult i64 %47, %31
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %2
@@ -17170,7 +17170,7 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13
   %46 = load ptr, ptr %45, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %40, ptr noundef %46)
   %47 = add nuw nsw i64 %.047, 2
-  %48 = icmp ult i64 %47, %31
+  %48 = icmp samesign ult i64 %47, %31
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %2
@@ -18960,7 +18960,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   %.sroa.22.0.copyload15 = load i64, ptr %.sroa.22.0..sroa_idx14, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
@@ -19785,7 +19785,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   %.sroa.22.0.copyload15 = load i64, ptr %.sroa.22.0..sroa_idx14, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
@@ -21742,7 +21742,7 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
   br i1 %.not, label %34, label %.preheader
 
 34:                                               ; preds = %31
-  %35 = icmp ult i64 %.04263, 6
+  %35 = icmp samesign ult i64 %.04263, 6
   br i1 %35, label %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, label %.lr.ph.i.i.i
 
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %34
@@ -21771,7 +21771,7 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13
   %51 = load ptr, ptr %50, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %45, ptr noundef %51)
   %52 = add nuw nsw i64 %.04365, 2
-  %53 = icmp ult i64 %52, %36
+  %53 = icmp samesign ult i64 %52, %36
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !118
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader, %34
@@ -21934,7 +21934,7 @@ _ZSt12partial_sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1EL
   %119 = load ptr, ptr %118, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %113, ptr noundef %119)
   %120 = add nuw nsw i64 %.064, 2
-  %121 = icmp ult i64 %.064, 4
+  %121 = icmp samesign ult i64 %.064, 4
   br i1 %121, label %108, label %.loopexit, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph, %108, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %2
@@ -21993,7 +21993,7 @@ define linkonce_odr dso_local void @_ZN11Contraction24siblingPairFromRelativesIL
   br i1 %.not, label %34, label %.preheader
 
 34:                                               ; preds = %31
-  %35 = icmp ult i64 %.04263, 6
+  %35 = icmp samesign ult i64 %.04263, 6
   br i1 %35, label %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, label %.lr.ph.i.i.i
 
 _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit: ; preds = %34
@@ -22022,7 +22022,7 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13
   %51 = load ptr, ptr %50, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %45, ptr noundef %51)
   %52 = add nuw nsw i64 %.04365, 2
-  %53 = icmp ult i64 %52, %36
+  %53 = icmp samesign ult i64 %52, %36
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !124
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader, %34
@@ -22185,7 +22185,7 @@ _ZSt12partial_sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0EL
   %119 = load ptr, ptr %118, align 8
   call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %113, ptr noundef %119)
   %120 = add nuw nsw i64 %.064, 2
-  %121 = icmp ult i64 %.064, 4
+  %121 = icmp samesign ult i64 %.064, 4
   br i1 %121, label %108, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %.lr.ph, %108, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %2
@@ -23700,7 +23700,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   %.sroa.22.0.copyload15 = load i64, ptr %.sroa.22.0..sroa_idx14, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
@@ -24522,7 +24522,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   %.sroa.22.0.copyload15 = load i64, ptr %.sroa.22.0..sroa_idx14, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
@@ -25552,7 +25552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i

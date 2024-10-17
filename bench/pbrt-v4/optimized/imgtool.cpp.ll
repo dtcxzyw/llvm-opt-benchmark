@@ -9138,16 +9138,16 @@ sw.default.i.i.i:                                 ; preds = %sw.bb
 sw.bb7:                                           ; preds = %if.end
   %13 = call float @llvm.fabs.f32(float %4)
   %xor.i = bitcast float %13 to i32
-  %cmp.i = icmp ugt i32 %xor.i, 1199570943
+  %cmp.i = icmp samesign ugt i32 %xor.i, 1199570943
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb7
-  %cmp2.i = icmp ugt i32 %xor.i, 2139095040
+  %cmp2.i = icmp samesign ugt i32 %xor.i, 2139095040
   %conv.i3 = select i1 %cmp2.i, i32 32256, i32 31744
   br label %_ZN4pbrt4HalfC2Ef.exit
 
 if.else.i:                                        ; preds = %sw.bb7
-  %cmp3.i = icmp ult i32 %xor.i, 947912704
+  %cmp3.i = icmp samesign ult i32 %xor.i, 947912704
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -30572,7 +30572,7 @@ if.end885:                                        ; preds = %invoke.cont878, %la
   %297 = and i8 %296, 1
   %conv901 = zext nneg i8 %297 to i32
   %add902 = add nuw nsw i32 %add899, %conv901
-  %cmp903 = icmp ult i32 %add902, 2
+  %cmp903 = icmp samesign ult i32 %add902, 2
   %298 = load i32, ptr %image, align 8
   %cmp.i791 = icmp eq i32 %298, 2
   %or.cond3894 = select i1 %cmp903, i1 true, i1 %cmp.i791
@@ -37564,7 +37564,7 @@ if.end145:                                        ; preds = %if.end141
   %cmp151 = fcmp une float %55, 0.000000e+00
   %conv152 = zext i1 %cmp151 to i32
   %add153 = add nuw nsw i32 %add, %conv152
-  %cmp154 = icmp ugt i32 %add153, 1
+  %cmp154 = icmp samesign ugt i32 %add153, 1
   br i1 %cmp154, label %if.then139.invoke, label %if.end157
 
 if.end157:                                        ; preds = %if.end145
@@ -70947,7 +70947,7 @@ if.else.i.i:                                      ; preds = %if.end18
 _ZN4pbrt18ImageChannelValuesC2EOS0_.exit:         ; preds = %for.body.lr.ph.i.i, %for.cond.preheader.i.i, %if.else.i.i
   store i64 0, ptr %nAlloc5.i.i, align 8
   store ptr null, ptr %ptr7.i.i, align 8
-  %cmp3.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit

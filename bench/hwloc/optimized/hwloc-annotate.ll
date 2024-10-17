@@ -433,7 +433,7 @@ sub_1265:                                         ; preds = %sub_0264
 
 .tail263.thread:                                  ; preds = %sub_1265, %sub_0264, %.tail263
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = icmp ult i64 %indvars.iv.next, %71
+  %80 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %80, label %sub_0264, label %.critedge2, !llvm.loop !7
 
 .critedge2.loopexit.split.loop.exit351:           ; preds = %.tail263
@@ -1960,7 +1960,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %77 = phi ptr [ %61, %.lr.ph ], [ %.pre, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = zext i32 %76 to i64
-  %79 = icmp ult i64 %indvars.iv.next, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %75, %.preheader
@@ -2056,7 +2056,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %125 = phi ptr [ %.pre111, %115 ], [ %108, %.lr.ph76.split.us.split.us ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %126 = zext i32 %124 to i64
-  %127 = icmp ult i64 %indvars.iv.next106, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next106, %126
   br i1 %127, label %.lr.ph76.split.us.split.us, label %._crit_edge77, !llvm.loop !16
 
 .lr.ph76.split.us.split:                          ; preds = %.lr.ph76.thread, %149
@@ -2101,7 +2101,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %151 = phi ptr [ %.pre109, %141 ], [ %129, %139 ], [ %129, %136 ], [ %129, %.lr.ph76.split.us.split ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %152 = zext i32 %150 to i64
-  %153 = icmp ult i64 %indvars.iv.next103, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next103, %152
   br i1 %153, label %.lr.ph76.split.us.split, label %._crit_edge77, !llvm.loop !16
 
 .lr.ph76.split:                                   ; preds = %102
@@ -2142,7 +2142,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %173 = load ptr, ptr %3, align 8
   %174 = load i32, ptr %173, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next100, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next100, %175
   br i1 %176, label %.lr.ph76.split.split.us, label %._crit_edge77, !llvm.loop !16
 
 .lr.ph76.split.split:                             ; preds = %.lr.ph76.split, %200
@@ -2190,7 +2190,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %201 = load ptr, ptr %3, align 8
   %202 = load i32, ptr %201, align 8
   %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %indvars.iv.next97, %203
+  %204 = icmp samesign ult i64 %indvars.iv.next97, %203
   br i1 %204, label %.lr.ph76.split.split, label %._crit_edge77, !llvm.loop !16
 
 ._crit_edge77:                                    ; preds = %200, %172, %149, %123, %102

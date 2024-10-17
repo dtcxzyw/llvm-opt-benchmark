@@ -548,7 +548,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %140 = load i8, ptr %123, align 2
   %141 = zext i8 %140 to i64
-  %142 = icmp ult i64 %indvars.iv.next138, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next138, %141
   br i1 %142, label %.lr.ph131, label %._crit_edge132, !llvm.loop !9
 
 ._crit_edge132:                                   ; preds = %.lr.ph131, %109
@@ -1227,7 +1227,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %287, %285, %275, %2
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %330 = load i8, ptr %313, align 2
   %331 = zext i8 %330 to i64
-  %332 = icmp ult i64 %indvars.iv.next210, %331
+  %332 = icmp samesign ult i64 %indvars.iv.next210, %331
   br i1 %332, label %.lr.ph205, label %._crit_edge206, !llvm.loop !14
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %299
@@ -1663,7 +1663,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   %52 = getelementptr inbounds i8, ptr %41, i64 8
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp ult i64 %indvars.iv.next, %38
+  %53 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %53, label %39, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %39
@@ -4380,7 +4380,7 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = load i8, ptr %87, align 2
   %108 = zext i8 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
   br i1 %109, label %92, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %92
@@ -6553,7 +6553,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %248, %249
   %267 = getelementptr inbounds i8, ptr %266, i64 30
   %268 = load i8, ptr %267, align 2
   %269 = zext i8 %268 to i64
-  %270 = icmp ult i64 %indvars.iv.next267, %269
+  %270 = icmp samesign ult i64 %indvars.iv.next267, %269
   %271 = trunc nuw nsw i64 %indvars.iv266 to i32
   br i1 %270, label %146, label %.loopexit210, !llvm.loop !48
 
@@ -8689,7 +8689,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   %308 = getelementptr inbounds i8, ptr %307, i64 30
   %309 = load i8, ptr %308, align 2
   %310 = zext i8 %309 to i64
-  %311 = icmp ult i64 %indvars.iv.next222, %310
+  %311 = icmp samesign ult i64 %indvars.iv.next222, %310
   %312 = trunc nuw nsw i64 %indvars.iv221 to i32
   br i1 %311, label %34, label %._crit_edge213, !llvm.loop !65
 
@@ -9074,7 +9074,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %220 = getelementptr inbounds i8, ptr %219, i64 30
   %221 = load i8, ptr %220, align 2
   %222 = zext i8 %221 to i64
-  %223 = icmp ult i64 %indvars.iv.next, %222
+  %223 = icmp samesign ult i64 %indvars.iv.next, %222
   %224 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %223, label %.lr.ph203, label %.preheader194, !llvm.loop !68
 

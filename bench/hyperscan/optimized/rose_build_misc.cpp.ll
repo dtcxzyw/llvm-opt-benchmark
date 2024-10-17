@@ -7486,7 +7486,7 @@ for.body.lr.ph:                                   ; preds = %if.end8
   br i1 %tobool29.not, label %if.end38, label %return
 
 if.end38:                                         ; preds = %for.body.lr.ph, %if.end8
-  %cmp39 = icmp ult i32 %always_run.4, 2
+  %cmp39 = icmp samesign ult i32 %always_run.4, 2
   %. = zext i1 %cmp39 to i32
   br label %return
 

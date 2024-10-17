@@ -458,7 +458,7 @@ land.lhs.true:                                    ; preds = %for.end
   %add.i = add nuw nsw i64 %conv.i, 1
   %cmp.i.i29.i = icmp ult i32 %min_depth.sroa.0.3.i, 2147483647
   %conv.i.i = zext nneg i32 %min_depth.sroa.0.3.i to i64
-  %cmp.i30.i = icmp uge i64 %add.i, %conv.i.i
+  %cmp.i30.i = icmp samesign uge i64 %add.i, %conv.i.i
   %retval.0.i.i = and i1 %cmp.i.i29.i, %cmp.i30.i
   call void @_ZdlPv(ptr noundef nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %depths.i)

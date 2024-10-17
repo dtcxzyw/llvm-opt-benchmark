@@ -2555,7 +2555,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_115printIndexArrayItEEvRKNS1_10C
   %530 = load i16, ptr %527, align 2
   %531 = lshr i16 %530, 7
   %532 = and i16 %531, 15
-  %533 = icmp ult i16 %532, 9
+  %533 = icmp samesign ult i16 %532, 9
   br i1 %533, label %switch.lookup, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_110ruleStringENS0_3Sdc6Crease4RuleE.exit
 
 switch.lookup:                                    ; preds = %.lr.ph323

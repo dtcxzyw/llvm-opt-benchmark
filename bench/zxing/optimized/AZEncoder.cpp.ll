@@ -96,7 +96,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   %26 = trunc nuw nsw i32 %.lobit to i8
   %27 = call i32 @llvm.abs.i32(i32 %3, i1 true)
   %28 = select i1 %25, i32 4, i32 32
-  %29 = icmp ugt i32 %27, %28
+  %29 = icmp samesign ugt i32 %27, %28
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %24
@@ -210,7 +210,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   %.pre777 = phi ptr [ null, %.preheader370 ], [ %.pre778, %99 ]
   %.1546 = phi i32 [ 0, %.preheader370 ], [ %.2, %99 ]
   %.0187545 = phi i32 [ 0, %.preheader370 ], [ %77, %99 ]
-  %76 = icmp ult i32 %.0187545, 4
+  %76 = icmp samesign ult i32 %.0187545, 4
   %77 = add nuw nsw i32 %.0187545, 1
   %78 = select i1 %76, i32 %77, i32 %.0187545
   %79 = select i1 %76, i32 88, i32 112
@@ -1357,7 +1357,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit62.i:             ; preds = %553
 
 566:                                              ; preds = %637, %.preheader86.i
   %indvars.iv.i = phi i64 [ 0, %.preheader86.i ], [ %indvars.iv.next.i, %637 ]
-  %.cmp.i = icmp ugt i64 %indvars.iv.i, 4
+  %.cmp.i = icmp samesign ugt i64 %indvars.iv.i, 4
   %567 = zext i1 %.cmp.i to i32
   %568 = trunc i64 %indvars.iv.i to i32
   %569 = add i32 %488, %568
@@ -1605,7 +1605,7 @@ _ZN5ZXing5AztecL15DrawModeMessageERNS_9BitMatrixEbiRKNS_8BitArrayE.exit: ; preds
 ._crit_edge562.us:                                ; preds = %689
   %693 = add nuw nsw i32 %.0167563.us, 15
   %694 = add nuw nsw i32 %.0166564.us, 16
-  %695 = icmp ult i32 %693, %641
+  %695 = icmp samesign ult i32 %693, %641
   br i1 %695, label %.lr.ph561.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !15
 
 .split576.us.invoke:                              ; preds = %398, %392, %465, %460, %445, %440, %423, %418, %626, %621, %610, %605, %594, %589, %578, %566, %553, %548, %537, %532, %520, %515, %504, %495, %678, %667, %656, %646
@@ -1818,7 +1818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -2740,7 +2740,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit62:               ; preds = %_ZN5ZXing9BitMatrix
 
 ._crit_edge:                                      ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit62, %7
   %55 = add nuw nsw i32 %.05496, 2
-  %56 = icmp ult i32 %55, %2
+  %56 = icmp samesign ult i32 %55, %2
   %indvars.iv.next = add nsw i32 %indvars.iv, 2
   br i1 %56, label %7, label %57, !llvm.loop !26
 

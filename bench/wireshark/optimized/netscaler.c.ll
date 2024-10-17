@@ -90,7 +90,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   br label %184
 
 17:                                               ; preds = %14
-  %18 = icmp ugt i32 %9, 34
+  %18 = icmp samesign ugt i32 %9, 34
   br i1 %18, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %17, %50
@@ -3660,7 +3660,7 @@ define internal range(i32 0, 2) i32 @nstrace_seek_read_v20(ptr nocapture noundef
   %36 = getelementptr i8, ptr %33, i64 %35
   %37 = zext nneg i32 %.0386 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %7, i64 %37, i1 false)
-  %38 = icmp ugt i32 %31, %.0386
+  %38 = icmp samesign ugt i32 %31, %.0386
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %22
@@ -4875,7 +4875,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   %164 = zext i32 %.2340480 to i64
   %165 = getelementptr i8, ptr %16, i64 %164
   store i8 %162, ptr %165, align 1
-  %166 = icmp ult i64 %indvars.iv.next580, %158
+  %166 = icmp samesign ult i64 %indvars.iv.next580, %158
   br i1 %166, label %.lr.ph482, label %._crit_edge483, !llvm.loop !13
 
 ._crit_edge483:                                   ; preds = %.lr.ph482, %.preheader410
@@ -5112,7 +5112,7 @@ select.unfold:                                    ; preds = %._crit_edge483
   %276 = zext i32 %.6344463 to i64
   %277 = getelementptr i8, ptr %16, i64 %276
   store i8 %274, ptr %277, align 1
-  %278 = icmp ult i64 %indvars.iv.next561, %270
+  %278 = icmp samesign ult i64 %indvars.iv.next561, %270
   br i1 %278, label %.lr.ph465, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph465, %.preheader412
@@ -5371,7 +5371,7 @@ define internal range(i32 0, 2) i32 @nstrace_seek_read_v30(ptr nocapture noundef
   %36 = getelementptr i8, ptr %33, i64 %35
   %37 = zext nneg i32 %.098 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %7, i64 %37, i1 false)
-  %38 = icmp ugt i32 %31, %.098
+  %38 = icmp samesign ugt i32 %31, %.098
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %22

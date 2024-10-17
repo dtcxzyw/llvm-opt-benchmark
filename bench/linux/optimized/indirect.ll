@@ -1446,7 +1446,7 @@ define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef range(i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %4, align 4
   %7 = getelementptr i8, ptr %2, i64 -4
-  %8 = icmp ugt i32 %1, 1
+  %8 = icmp samesign ugt i32 %1, 1
   br i1 %8, label %.preheader17, label %.loopexit18
 
 .preheader17:                                     ; preds = %5, %14
@@ -2002,7 +2002,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 
 117:                                              ; preds = %110, %102, %92, %87
   %118 = phi i32 [ 2, %87 ], [ 3, %92 ], [ 4, %102 ], [ 0, %110 ]
-  %119 = icmp ugt i32 %81, %118
+  %119 = icmp samesign ugt i32 %81, %118
   br i1 %119, label %120, label %151, !prof !18
 
 .thread121:                                       ; preds = %76
@@ -2065,7 +2065,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %.thread
 
 151:                                              ; preds = %117
-  %152 = icmp ugt i32 %118, %81
+  %152 = icmp samesign ugt i32 %118, %81
   br i1 %152, label %153, label %265
 
 153:                                              ; preds = %151
@@ -2458,7 +2458,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 
 410:                                              ; preds = %.loopexit67
   %411 = add nuw nsw i32 %81, 1
-  %412 = icmp ult i32 %411, %118
+  %412 = icmp samesign ult i32 %411, %118
   br i1 %412, label %413, label %.loopexit70
 
 413:                                              ; preds = %410

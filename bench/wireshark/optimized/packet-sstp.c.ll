@@ -249,7 +249,7 @@ define internal i32 @dissect_sstp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 64:                                               ; preds = %.preheader
   %65 = and i16 %58, 4095
-  %66 = icmp ugt i16 %65, 3
+  %66 = icmp samesign ugt i16 %65, 3
   %67 = add nsw i16 %65, -4
   %spec.select = select i1 %66, i16 %67, i16 %65
   %68 = load i32, ptr @hf_sstp_reserved, align 4

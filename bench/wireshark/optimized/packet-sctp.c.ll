@@ -3223,7 +3223,7 @@ define internal fastcc i32 @dissect_sctp_chunk(ptr noundef %0, ptr noundef %1, p
   %.0176188 = phi ptr [ %22, %.thread ], [ null, %25 ]
   %44 = load i32, ptr @hf_chunk_length, align 4
   %45 = tail call ptr @proto_tree_add_uint(ptr noundef %.0173191, i32 noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %11) #17
-  %46 = icmp ult i32 %10, %11
+  %46 = icmp samesign ult i32 %10, %11
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %43
@@ -3707,7 +3707,7 @@ define internal fastcc i32 @dissect_data_chunk(ptr noundef %0, i16 noundef zeroe
   %161 = add nuw nsw i32 %.061.i, 1
   %162 = load ptr, ptr %160, align 8
   %163 = icmp ne ptr %162, null
-  %164 = icmp ult i32 %.061.i, 99
+  %164 = icmp samesign ult i32 %.061.i, 99
   %165 = select i1 %163, i1 %164, i1 false
   br i1 %165, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !9
 

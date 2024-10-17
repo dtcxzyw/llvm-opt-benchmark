@@ -10843,7 +10843,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.ex
   %2712 = zext nneg i32 %2710 to i64
   %2713 = icmp sge i64 %2708, %2712
   %2714 = zext nneg i32 %.0.i70.i.i to i64
-  %2715 = icmp ult i32 %.0.i70.i.i, 4
+  %2715 = icmp samesign ult i32 %.0.i70.i.i, 4
   %or.cond.i.i = and i1 %2715, %2713
   br i1 %or.cond.i.i, label %2716, label %_ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.exit.thread.i.i
 
@@ -21142,7 +21142,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -33986,7 +33986,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor28handleVe
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 257, ptr %55, align 8
   %56 = call noundef ptr @_ZN4llvm13IRBuilderBase20CreateExtractElementEPNS_5ValueES2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef %44, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  %57 = icmp ugt i32 %2, 1
+  %57 = icmp samesign ugt i32 %2, 1
   br i1 %57, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %51
@@ -38719,7 +38719,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.ex
   %32 = zext nneg i32 %30 to i64
   %33 = icmp sge i64 %28, %32
   %34 = zext nneg i32 %.0.i to i64
-  %35 = icmp ult i32 %.0.i, 4
+  %35 = icmp samesign ult i32 %.0.i, 4
   %or.cond = and i1 %35, %33
   br i1 %or.cond, label %36, label %_ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.exit.thread
 

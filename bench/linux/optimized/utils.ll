@@ -20,7 +20,7 @@ define dso_local void @__crypto_xor(ptr nocapture noundef writeonly %0, ptr noca
   %7 = phi ptr [ %2, %4 ], [ %20, %.preheader ]
   %8 = phi ptr [ %1, %4 ], [ %19, %.preheader ]
   %9 = phi ptr [ %0, %4 ], [ %18, %.preheader ]
-  %10 = icmp ugt i32 %6, 3
+  %10 = icmp samesign ugt i32 %6, 3
   br i1 %10, label %29, label %23
 
 .preheader:                                       ; preds = %4, %.preheader

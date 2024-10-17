@@ -295,7 +295,7 @@ define noundef ptr @Amap_ManCutCreate(ptr nocapture noundef readonly %0, ptr noc
   %27 = load i32, ptr %1, align 4
   %28 = lshr i32 %27, 17
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %23, label %.preheader, !llvm.loop !7
 
 31:                                               ; preds = %.lr.ph37, %31
@@ -312,7 +312,7 @@ define noundef ptr @Amap_ManCutCreate(ptr nocapture noundef readonly %0, ptr noc
   %39 = load i32, ptr %2, align 4
   %40 = lshr i32 %39, 17
   %41 = zext nneg i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next41, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next41, %41
   br i1 %42, label %31, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %31, %.preheader
@@ -398,7 +398,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr nocapture noundef readonly %0, ptr no
   %31 = load i32, ptr %1, align 4
   %32 = lshr i32 %31, 17
   %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %27, label %.preheader45, !llvm.loop !9
 
 .preheader:                                       ; preds = %38, %.preheader45
@@ -425,7 +425,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr nocapture noundef readonly %0, ptr no
   %46 = load i32, ptr %2, align 4
   %47 = lshr i32 %46, 17
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next55, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next55, %48
   br i1 %49, label %38, label %.preheader, !llvm.loop !10
 
 50:                                               ; preds = %.lr.ph50, %50
@@ -446,7 +446,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr nocapture noundef readonly %0, ptr no
   %62 = load i32, ptr %3, align 4
   %63 = lshr i32 %62, 17
   %64 = zext nneg i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next58, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next58, %64
   br i1 %65, label %50, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %50, %.preheader
@@ -884,7 +884,7 @@ switch.lookup:                                    ; preds = %1
   %34 = load i32, ptr %.02023, align 4
   %35 = lshr i32 %34, 17
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %27, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph26
@@ -1509,7 +1509,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %148 = load i32, ptr %66, align 4
   %149 = lshr i32 %148, 17
   %150 = zext nneg i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next.i, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next.i, %150
   br i1 %151, label %144, label %.preheader45.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %155, %.preheader45.i
@@ -1536,7 +1536,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %163 = load i32, ptr %79, align 4
   %164 = lshr i32 %163, 17
   %165 = zext nneg i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next55.i, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next55.i, %165
   br i1 %166, label %155, label %.preheader.i, !llvm.loop !10
 
 167:                                              ; preds = %167, %.lr.ph50.i
@@ -1557,7 +1557,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %179 = load i32, ptr %87, align 4
   %180 = lshr i32 %179, 17
   %181 = zext nneg i32 %180 to i64
-  %182 = icmp ult i64 %indvars.iv.next58.i, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next58.i, %181
   br i1 %182, label %167, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %167, %.preheader.i
@@ -1957,7 +1957,7 @@ define void @Amap_ManMergeNodeCuts(ptr nocapture noundef %0, ptr noundef %1) loc
   br label %92
 
 92:                                               ; preds = %88, %85
-  %.not104 = icmp ult i32 %45, %79
+  %.not104 = icmp samesign ult i32 %45, %79
   %93 = load ptr, ptr %30, align 8
   %94 = getelementptr inbounds i32, ptr %93, i64 %81
   %95 = load i32, ptr %94, align 4
@@ -2004,7 +2004,7 @@ define void @Amap_ManMergeNodeCuts(ptr nocapture noundef %0, ptr noundef %1) loc
   %116 = load i32, ptr %.0161, align 4
   %117 = lshr i32 %116, 17
   %118 = zext nneg i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next.i, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next.i, %118
   br i1 %119, label %112, label %.preheader.i, !llvm.loop !7
 
 120:                                              ; preds = %120, %.lr.ph37.i
@@ -2021,7 +2021,7 @@ define void @Amap_ManMergeNodeCuts(ptr nocapture noundef %0, ptr noundef %1) loc
   %128 = load i32, ptr %.089151, align 4
   %129 = lshr i32 %128, 17
   %130 = zext nneg i32 %129 to i64
-  %131 = icmp ult i64 %indvars.iv.next41.i, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next41.i, %130
   br i1 %131, label %120, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %120, %.preheader.i
@@ -2161,7 +2161,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   %196 = load i32, ptr %.089151, align 4
   %197 = lshr i32 %196, 17
   %198 = zext nneg i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next.i115, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next.i115, %198
   br i1 %199, label %192, label %.preheader.i116, !llvm.loop !7
 
 200:                                              ; preds = %200, %.lr.ph37.i118
@@ -2178,7 +2178,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   %208 = load i32, ptr %.0161, align 4
   %209 = lshr i32 %208, 17
   %210 = zext nneg i32 %209 to i64
-  %211 = icmp ult i64 %indvars.iv.next41.i120, %210
+  %211 = icmp samesign ult i64 %indvars.iv.next41.i120, %210
   br i1 %211, label %200, label %._crit_edge.i121, !llvm.loop !8
 
 ._crit_edge.i121:                                 ; preds = %200, %.preheader.i116

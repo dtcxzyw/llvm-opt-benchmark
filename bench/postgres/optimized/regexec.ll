@@ -2881,7 +2881,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %or.cond125.i, label %287, label %277
 
 277:                                              ; preds = %.preheader89
-  %.not119.i = icmp ult i32 %.097.i109, %.0103.i
+  %.not119.i = icmp samesign ult i32 %.097.i109, %.0103.i
   br i1 %.not119.i, label %278, label %285
 
 278:                                              ; preds = %277
@@ -2939,7 +2939,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %300, label %.preheader89, label %.backedge90.thread, !llvm.loop !21
 
 301:                                              ; preds = %296
-  %302 = icmp ult i32 %.097.i109, %.0103.i
+  %302 = icmp samesign ult i32 %.097.i109, %.0103.i
   br i1 %302, label %.lr.ph.preheader, label %.preheader87
 
 .preheader87:                                     ; preds = %301, %303
@@ -3084,7 +3084,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %364, label %365, label %373
 
 365:                                              ; preds = %362
-  %.not130.i = icmp ult i32 %.0103.i61122, %spec.store.select.i
+  %.not130.i = icmp samesign ult i32 %.0103.i61122, %spec.store.select.i
   br i1 %.not130.i, label %366, label %.lr.ph112.preheader
 
 366:                                              ; preds = %365
@@ -3112,7 +3112,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %376, label %.preheader85, label %.backedge.thread, !llvm.loop !23
 
 377:                                              ; preds = %360
-  %378 = icmp ult i32 %.0103.i61122, %spec.store.select.i
+  %378 = icmp samesign ult i32 %.0103.i61122, %spec.store.select.i
   br i1 %378, label %.lr.ph112.preheader, label %.preheader84
 
 .preheader84:                                     ; preds = %377, %379
@@ -3172,7 +3172,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %400, label %.backedge.loopexit, label %401
 
 401:                                              ; preds = %398
-  %402 = icmp ult i64 %indvars.iv, %345
+  %402 = icmp samesign ult i64 %indvars.iv, %345
   br i1 %402, label %403, label %408
 
 403:                                              ; preds = %401

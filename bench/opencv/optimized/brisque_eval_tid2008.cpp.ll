@@ -484,10 +484,10 @@ _ZNSt6vectorISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
   br label %._crit_edge178.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader160.i
-  %162 = icmp ult i64 %indvars.iv191.i, 9
+  %162 = icmp samesign ult i64 %indvars.iv191.i, 9
   %163 = select i1 %162, ptr @.str.12, ptr @.str.13
   %164 = add nuw nsw i64 %indvars.iv191.i, 1
-  %165 = icmp ugt i64 %indvars.iv191.i, 8
+  %165 = icmp samesign ugt i64 %indvars.iv191.i, 8
   %166 = trunc nuw nsw i64 %164 to i32
   %167 = trunc i64 %164 to i8
   %168 = or disjoint i8 %167, 48
@@ -708,7 +708,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i95.i: ; preds = %239, %237, %233, %
 
 ._crit_edge.i.i98.i:                              ; preds = %.lr.ph.i11.i102.i, %248
   %.0.lcssa.i.i99.i = phi i32 [ %226, %248 ], [ %253, %.lr.ph.i11.i102.i ]
-  %268 = icmp ugt i32 %.0.lcssa.i.i99.i, 9
+  %268 = icmp samesign ugt i32 %.0.lcssa.i.i99.i, 9
   br i1 %268, label %269, label %279
 
 269:                                              ; preds = %._crit_edge.i.i98.i

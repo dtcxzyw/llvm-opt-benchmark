@@ -3179,7 +3179,7 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
 
 is_power_of_two.exit:                             ; preds = %438
   %440 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.0210)
-  %441 = icmp ult i32 %440, 2
+  %441 = icmp samesign ult i32 %440, 2
   %442 = icmp ult i32 %.0210, 129
   %or.cond.not = and i1 %442, %441
   br i1 %or.cond.not, label %.thread369, label %443
@@ -3247,7 +3247,7 @@ is_power_of_two.exit:                             ; preds = %438
 
 is_power_of_two.exit362:                          ; preds = %466
   %468 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %467)
-  %469 = icmp ult i32 %468, 2
+  %469 = icmp samesign ult i32 %468, 2
   br i1 %469, label %.thread369, label %470
 
 470:                                              ; preds = %is_power_of_two.exit362

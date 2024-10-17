@@ -4823,7 +4823,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
 
 17:                                               ; preds = %8
   %18 = and i32 %14, 255
-  %19 = icmp ugt i32 %18, 2
+  %19 = icmp samesign ugt i32 %18, 2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -5366,7 +5366,7 @@ define i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %5, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27

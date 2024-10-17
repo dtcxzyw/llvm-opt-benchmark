@@ -4834,7 +4834,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %ref.tmp18.sroa.3.0.add.ptr.i30.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i30, i64 8
   store float %9, ptr %ref.tmp18.sroa.3.0.add.ptr.i30.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp16 = icmp ugt i64 %div, %indvars.iv.next
+  %cmp16 = icmp samesign ugt i64 %div, %indvars.iv.next
   br i1 %cmp16, label %for.body17, label %for.end, !llvm.loop !124
 
 for.end:                                          ; preds = %for.body17, %invoke.cont.thread

@@ -400,7 +400,7 @@ for.end.i340.i:                                   ; preds = %for.inc.i457.i, %if
   %conv64.i350.i = zext i16 %30 to i64
   %31 = load i64, ptr %block_size_.i351.i, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %conv64.i350.i, i64 %31)
-  %cmp76.i36010321078.i = icmp ult i64 %spec.select.i, %conv64.i350.i
+  %cmp76.i36010321078.i = icmp samesign ult i64 %spec.select.i, %conv64.i350.i
   %.pre.i = load i32, ptr %block_mask_.i380.i, align 4
   br i1 %cmp76.i36010321078.i, label %for.body78.i378.lr.ph.lr.ph.i, label %for.end128.i361.i
 
@@ -1336,7 +1336,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.en
   %conv64.i.i = zext i16 %107 to i64
   %108 = load i64, ptr %block_size_.i351.i, align 8
   %spec.select943.i = tail call i64 @llvm.usub.sat.i64(i64 %conv64.i.i, i64 %108)
-  %cmp76.i12271274.i = icmp ult i64 %spec.select943.i, %conv64.i.i
+  %cmp76.i12271274.i = icmp samesign ult i64 %spec.select943.i, %conv64.i.i
   br i1 %cmp76.i12271274.i, label %for.body78.i.lr.ph.lr.ph.i, label %for.end128.i.i
 
 for.body78.i.lr.ph.lr.ph.i:                       ; preds = %for.end.i.i
@@ -2051,7 +2051,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i: ; preds = %LookupCompoun
 if.then117.i:                                     ; preds = %LookupCompoundDictionaryMatch.exit.i
   %inc118.i = add i64 %insert_length.1.i, 1
   %inc119.i = add nuw nsw i32 %delayed_backward_references_in_row.0.i, 1
-  %cmp120.i = icmp ult i32 %delayed_backward_references_in_row.0.i, 3
+  %cmp120.i = icmp samesign ult i32 %delayed_backward_references_in_row.0.i, 3
   %add123.i = add i64 %position.addr.1.i, 5
   %cmp124.i = icmp ult i64 %add123.i, %add.i
   %or.cond947.i = select i1 %cmp120.i, i1 %cmp124.i, i1 false
@@ -2317,14 +2317,14 @@ GetCopyLengthCode.exit.i:                         ; preds = %if.then13.i1598.i, 
   %and2.i1623.i = shl i32 %retval.i1568.0.i, 3
   %shl.i1624.i = and i32 %and2.i1623.i, 56
   %or.i1625.i = or disjoint i32 %and.i1621.i, %shl.i1624.i
-  %cmp.i1637.i = icmp ult i32 %conv1.i1622.i, 8
+  %cmp.i1637.i = icmp samesign ult i32 %conv1.i1622.i, 8
   %or.cond5.i = select i1 %cmp.i543.i, i1 %cmp.i1637.i, i1 false
-  %cmp8.i.i = icmp ult i32 %conv.i1620.i, 16
+  %cmp8.i.i = icmp samesign ult i32 %conv.i1620.i, 16
   %or.cond6.i = select i1 %or.cond5.i, i1 %cmp8.i.i, i1 false
   br i1 %or.cond6.i, label %if.then.i1639.i, label %if.else.i1628.i
 
 if.then.i1639.i:                                  ; preds = %GetCopyLengthCode.exit.i
-  %cmp11.i1641.i = icmp ult i32 %conv.i1620.i, 8
+  %cmp11.i1641.i = icmp samesign ult i32 %conv.i1620.i, 8
   %or15.i.i = or disjoint i32 %or.i1625.i, 64
   %cond.i1644.i = select i1 %cmp11.i1641.i, i32 %or.i1625.i, i32 %or15.i.i
   br label %CombineLengthCodes.exit.i
@@ -2871,7 +2871,7 @@ for.end.i1035.i:                                  ; preds = %for.inc.i1327.i, %i
   %spec.select.i294 = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i1044.i, i64 %245)
   %246 = trunc i64 %t.i.i1489.0.copyload.i to i32
   %sub71.i1051.i = add i64 %sub11.i259, -4
-  %cmp75.i105510291075.i = icmp ult i64 %spec.select.i294, %conv63.i1044.i
+  %cmp75.i105510291075.i = icmp samesign ult i64 %spec.select.i294, %conv63.i1044.i
   %.pre.i295 = load i32, ptr %block_mask_.i1198.i, align 8
   br i1 %cmp75.i105510291075.i, label %for.body77.i1196.lr.ph.lr.ph.i, label %for.end132.i1056.i
 
@@ -3812,7 +3812,7 @@ for.end.i841.i:                                   ; preds = %for.inc.i905.i, %if
   %spec.select949.i = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i, i64 %323)
   %324 = trunc i64 %t.i.i1496.0.copyload.i to i32
   %sub71.i.i = add i64 %max_length.0.in.i422, -5
-  %cmp75.i12241273.i = icmp ult i64 %spec.select949.i, %conv63.i.i
+  %cmp75.i12241273.i = icmp samesign ult i64 %spec.select949.i, %conv63.i.i
   br i1 %cmp75.i12241273.i, label %for.body77.i.lr.ph.lr.ph.i, label %for.end132.i.i
 
 for.body77.i.lr.ph.lr.ph.i:                       ; preds = %for.end.i841.i
@@ -4531,7 +4531,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i617: ; preds = %LookupComp
 if.then117.i497:                                  ; preds = %LookupCompoundDictionaryMatch.exit.i490
   %inc118.i498 = add i64 %insert_length.1.i421, 1
   %inc119.i499 = add nuw nsw i32 %delayed_backward_references_in_row.0.i425, 1
-  %cmp120.i500 = icmp ult i32 %delayed_backward_references_in_row.0.i425, 3
+  %cmp120.i500 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i425, 3
   %add123.i501 = add i64 %position.addr.1.i420, 9
   %cmp124.i502 = icmp ult i64 %add123.i501, %add.i225
   %or.cond953.i = select i1 %cmp120.i500, i1 %cmp124.i502, i1 false
@@ -4797,14 +4797,14 @@ GetCopyLengthCode.exit.i559:                      ; preds = %if.then13.i719.i, %
   %and2.i.i560 = shl i32 %retval.i693.0.i, 3
   %shl.i742.i = and i32 %and2.i.i560, 56
   %or.i743.i = or disjoint i32 %and.i740.i, %shl.i742.i
-  %cmp.i752.i = icmp ult i32 %conv1.i741.i, 8
+  %cmp.i752.i = icmp samesign ult i32 %conv1.i741.i, 8
   %or.cond5.i561 = select i1 %cmp.i328.i, i1 %cmp.i752.i, i1 false
-  %cmp8.i.i562 = icmp ult i32 %conv.i739.i, 16
+  %cmp8.i.i562 = icmp samesign ult i32 %conv.i739.i, 16
   %or.cond6.i563 = select i1 %or.cond5.i561, i1 %cmp8.i.i562, i1 false
   br i1 %or.cond6.i563, label %if.then.i754.i, label %if.else.i745.i
 
 if.then.i754.i:                                   ; preds = %GetCopyLengthCode.exit.i559
-  %cmp11.i756.i = icmp ult i32 %conv.i739.i, 8
+  %cmp11.i756.i = icmp samesign ult i32 %conv.i739.i, 8
   %or15.i.i584 = or disjoint i32 %or.i743.i, 64
   %cond.i759.i = select i1 %cmp11.i756.i, i32 %or.i743.i, i32 %or15.i.i584
   br label %CombineLengthCodes.exit.i571
@@ -6912,7 +6912,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i1330: ; preds = %LookupCom
 if.then117.i1141:                                 ; preds = %LookupCompoundDictionaryMatch.exit.i1134
   %inc118.i1142 = add i64 %insert_length.1.i978, 1
   %inc119.i1143 = add nuw nsw i32 %delayed_backward_references_in_row.0.i982, 1
-  %cmp120.i1144 = icmp ult i32 %delayed_backward_references_in_row.0.i982, 3
+  %cmp120.i1144 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i982, 3
   %add123.i1145 = add i64 %position.addr.1.i977, 5
   %cmp124.i1146 = icmp ult i64 %add123.i1145, %add.i754
   %or.cond981.i = select i1 %cmp120.i1144, i1 %cmp124.i1146, i1 false
@@ -7145,14 +7145,14 @@ GetCopyLengthCode.exit.i1229:                     ; preds = %if.then13.i719.i127
   %and2.i.i1234 = shl i32 %retval.i693.0.i1223, 3
   %shl.i742.i1235 = and i32 %and2.i.i1234, 56
   %or.i743.i1236 = or disjoint i32 %and.i740.i1232, %shl.i742.i1235
-  %cmp.i752.i1237 = icmp ult i32 %conv1.i741.i1233, 8
+  %cmp.i752.i1237 = icmp samesign ult i32 %conv1.i741.i1233, 8
   %or.cond4.i1238 = select i1 %cmp.i328.i1210, i1 %cmp.i752.i1237, i1 false
-  %cmp8.i.i1239 = icmp ult i32 %conv.i739.i1231, 16
+  %cmp8.i.i1239 = icmp samesign ult i32 %conv.i739.i1231, 16
   %or.cond5.i1240 = select i1 %or.cond4.i1238, i1 %cmp8.i.i1239, i1 false
   br i1 %or.cond5.i1240, label %if.then.i754.i1271, label %if.else.i745.i1241
 
 if.then.i754.i1271:                               ; preds = %GetCopyLengthCode.exit.i1229
-  %cmp11.i756.i1272 = icmp ult i32 %conv.i739.i1231, 8
+  %cmp11.i756.i1272 = icmp samesign ult i32 %conv.i739.i1231, 8
   %or15.i.i1273 = or disjoint i32 %or.i743.i1236, 64
   %cond.i759.i1274 = select i1 %cmp11.i756.i1272, i32 %or.i743.i1236, i32 %or15.i.i1273
   br label %CombineLengthCodes.exit.i1253
@@ -9309,7 +9309,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i2561: ; preds = %LookupCom
 if.then117.i2339:                                 ; preds = %LookupCompoundDictionaryMatch.exit.i2332
   %inc118.i2340 = add i64 %insert_length.1.i2042, 1
   %inc119.i2341 = add nuw nsw i32 %delayed_backward_references_in_row.0.i2046, 1
-  %cmp120.i2342 = icmp ult i32 %delayed_backward_references_in_row.0.i2046, 3
+  %cmp120.i2342 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i2046, 3
   %add123.i2343 = add i64 %position.addr.1.i2041, 5
   %cmp124.i2344 = icmp ult i64 %add123.i2343, %add.i1615
   %or.cond981.i2345 = select i1 %cmp120.i2342, i1 %cmp124.i2344, i1 false
@@ -9554,14 +9554,14 @@ GetCopyLengthCode.exit.i2429:                     ; preds = %if.then13.i719.i250
   %and2.i.i2434 = shl i32 %retval.i693.0.i2423, 3
   %shl.i742.i2435 = and i32 %and2.i.i2434, 56
   %or.i743.i2436 = or disjoint i32 %and.i740.i2432, %shl.i742.i2435
-  %cmp.i752.i2437 = icmp ult i32 %conv1.i741.i2433, 8
+  %cmp.i752.i2437 = icmp samesign ult i32 %conv1.i741.i2433, 8
   %or.cond4.i2438 = select i1 %cmp.i328.i2410, i1 %cmp.i752.i2437, i1 false
-  %cmp8.i.i2439 = icmp ult i32 %conv.i739.i2431, 16
+  %cmp8.i.i2439 = icmp samesign ult i32 %conv.i739.i2431, 16
   %or.cond5.i2440 = select i1 %or.cond4.i2438, i1 %cmp8.i.i2439, i1 false
   br i1 %or.cond5.i2440, label %if.then.i754.i2496, label %if.else.i745.i2441
 
 if.then.i754.i2496:                               ; preds = %GetCopyLengthCode.exit.i2429
-  %cmp11.i756.i2497 = icmp ult i32 %conv.i739.i2431, 8
+  %cmp11.i756.i2497 = icmp samesign ult i32 %conv.i739.i2431, 8
   %or15.i.i2498 = or disjoint i32 %or.i743.i2436, 64
   %cond.i759.i2499 = select i1 %cmp11.i756.i2497, i32 %or.i743.i2436, i32 %or15.i.i2498
   br label %CombineLengthCodes.exit.i2453
@@ -11747,7 +11747,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i3922: ; preds = %LookupCom
 if.then117.i3716:                                 ; preds = %LookupCompoundDictionaryMatch.exit.i3709
   %inc118.i3717 = add i64 %insert_length.1.i3495, 1
   %inc119.i3718 = add nuw nsw i32 %delayed_backward_references_in_row.0.i3499, 1
-  %cmp120.i3719 = icmp ult i32 %delayed_backward_references_in_row.0.i3499, 3
+  %cmp120.i3719 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i3499, 3
   %add123.i3720 = add i64 %position.addr.1.i3494, 5
   %cmp124.i3721 = icmp ult i64 %add123.i3720, %add.i3242
   %or.cond988.i = select i1 %cmp120.i3719, i1 %cmp124.i3721, i1 false
@@ -12004,14 +12004,14 @@ GetCopyLengthCode.exit.i3804:                     ; preds = %if.then13.i719.i385
   %and2.i.i3809 = shl i32 %retval.i693.0.i3798, 3
   %shl.i742.i3810 = and i32 %and2.i.i3809, 56
   %or.i743.i3811 = or disjoint i32 %and.i740.i3807, %shl.i742.i3810
-  %cmp.i752.i3812 = icmp ult i32 %conv1.i741.i3808, 8
+  %cmp.i752.i3812 = icmp samesign ult i32 %conv1.i741.i3808, 8
   %or.cond4.i3813 = select i1 %cmp.i328.i3785, i1 %cmp.i752.i3812, i1 false
-  %cmp8.i.i3814 = icmp ult i32 %conv.i739.i3806, 16
+  %cmp8.i.i3814 = icmp samesign ult i32 %conv.i739.i3806, 16
   %or.cond5.i3815 = select i1 %or.cond4.i3813, i1 %cmp8.i.i3814, i1 false
   br i1 %or.cond5.i3815, label %if.then.i754.i3851, label %if.else.i745.i3816
 
 if.then.i754.i3851:                               ; preds = %GetCopyLengthCode.exit.i3804
-  %cmp11.i756.i3852 = icmp ult i32 %conv.i739.i3806, 8
+  %cmp11.i756.i3852 = icmp samesign ult i32 %conv.i739.i3806, 8
   %or15.i.i3853 = or disjoint i32 %or.i743.i3811, 64
   %cond.i759.i3854 = select i1 %cmp11.i756.i3852, i32 %or.i743.i3811, i32 %or15.i.i3853
   br label %CombineLengthCodes.exit.i3828
@@ -12581,7 +12581,7 @@ for.body.i1214.i:                                 ; preds = %if.end4.i.i, %if.en
   %mul3.neg.i.i = mul i32 %1057, %add.i2.neg.i.i
   %sub.i866.i = add i32 %add1.i.i, %mul3.neg.i.i
   store i32 %sub.i866.i, ptr %hb.i841.i, align 8
-  %cmp13.i1219.i = icmp ult i32 %and6.i.i, 16777216
+  %cmp13.i1219.i = icmp samesign ult i32 %and6.i.i, 16777216
   br i1 %cmp13.i1219.i, label %if.then14.i.i, label %if.end52.i.i
 
 if.then14.i.i:                                    ; preds = %for.body.i1214.i
@@ -13372,7 +13372,7 @@ for.body.i1318.i:                                 ; preds = %if.end4.i1311.i, %i
   %mul3.neg.i876.i = mul i32 %1117, %add.i2.neg.i875.i
   %sub.i877.i = add i32 %add1.i873.i, %mul3.neg.i876.i
   store i32 %sub.i877.i, ptr %hb.i841.i, align 8
-  %cmp13.i1328.i = icmp ult i32 %and6.i1319.i, 16777216
+  %cmp13.i1328.i = icmp samesign ult i32 %and6.i1319.i, 16777216
   br i1 %cmp13.i1328.i, label %if.then14.i1332.i, label %if.end52.i1329.i
 
 if.then14.i1332.i:                                ; preds = %for.body.i1318.i
@@ -13862,7 +13862,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i4814: ; preds = %LookupCom
 if.then117.i4633:                                 ; preds = %LookupCompoundDictionaryMatch.exit.i4630
   %inc118.i4634 = add i64 %insert_length.1.i4516, 1
   %inc119.i4635 = add nuw nsw i32 %delayed_backward_references_in_row.0.i4518, 1
-  %cmp120.i4636 = icmp ult i32 %delayed_backward_references_in_row.0.i4518, 3
+  %cmp120.i4636 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i4518, 3
   %add123.i4637 = add i64 %position.addr.1.i4515, 9
   %cmp124.i4638 = icmp ult i64 %add123.i4637, %add.i4341
   %or.cond862.i = and i1 %cmp124.i4638, %cmp120.i4636
@@ -14121,14 +14121,14 @@ GetCopyLengthCode.exit.i4716:                     ; preds = %if.then13.i719.i476
   %and2.i.i4721 = shl i32 %retval.i693.0.i4710, 3
   %shl.i742.i4722 = and i32 %and2.i.i4721, 56
   %or.i743.i4723 = or disjoint i32 %and.i740.i4719, %shl.i742.i4722
-  %cmp.i752.i4724 = icmp ult i32 %conv1.i741.i4720, 8
+  %cmp.i752.i4724 = icmp samesign ult i32 %conv1.i741.i4720, 8
   %or.cond3.i4725 = select i1 %cmp.i328.i4697, i1 %cmp.i752.i4724, i1 false
-  %cmp8.i.i4726 = icmp ult i32 %conv.i739.i4718, 16
+  %cmp8.i.i4726 = icmp samesign ult i32 %conv.i739.i4718, 16
   %or.cond4.i4727 = select i1 %or.cond3.i4725, i1 %cmp8.i.i4726, i1 false
   br i1 %or.cond4.i4727, label %if.then.i754.i4757, label %if.else.i745.i4728
 
 if.then.i754.i4757:                               ; preds = %GetCopyLengthCode.exit.i4716
-  %cmp11.i756.i4758 = icmp ult i32 %conv.i739.i4718, 8
+  %cmp11.i756.i4758 = icmp samesign ult i32 %conv.i739.i4718, 8
   %or15.i.i4759 = or disjoint i32 %or.i743.i4723, 64
   %cond.i759.i4760 = select i1 %cmp11.i756.i4758, i32 %or.i743.i4723, i32 %or15.i.i4759
   br label %CombineLengthCodes.exit.i4740
@@ -14637,7 +14637,7 @@ for.end.i.i1023.i:                                ; preds = %for.inc.i.i1317.i, 
   %spec.select.i5087 = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i1033.i, i64 %1207)
   %1208 = trunc i64 %t.i.i2.i891.0.copyload.i to i32
   %sub71.i.i1040.i = add i64 %sub11.i5055, -4
-  %cmp75.i.i104412101256.i = icmp ult i64 %spec.select.i5087, %conv63.i.i1033.i
+  %cmp75.i.i104412101256.i = icmp samesign ult i64 %spec.select.i5087, %conv63.i.i1033.i
   %.pre.i5088 = load i32, ptr %block_mask_.i.i1188.i, align 8
   br i1 %cmp75.i.i104412101256.i, label %for.body77.i.i1186.lr.ph.lr.ph.i, label %for.end132.i.i1045.i
 
@@ -15017,7 +15017,7 @@ for.body.i1511.i:                                 ; preds = %if.end4.i.i5092, %i
   %mul3.neg.i.i5101 = mul i32 %1244, %add.i2.neg.i.i5100
   %sub.i1120.i = add i32 %add1.i.i5098, %mul3.neg.i.i5101
   store i32 %sub.i1120.i, ptr %hb.i1057.i, align 8
-  %cmp13.i.i5102 = icmp ult i32 %and6.i.i5093, 16777216
+  %cmp13.i.i5102 = icmp samesign ult i32 %and6.i.i5093, 16777216
   br i1 %cmp13.i.i5102, label %if.then14.i.i5780, label %if.end52.i.i5103
 
 if.then14.i.i5780:                                ; preds = %for.body.i1511.i
@@ -15740,7 +15740,7 @@ for.end.i.i869.i:                                 ; preds = %for.inc.i.i.i, %if.
   %spec.select1113.i = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i.i, i64 %1297)
   %1298 = trunc i64 %t.i.i2.i.0.copyload.i to i32
   %sub71.i.i.i = add i64 %max_length.0.in.i5241, -5
-  %cmp75.i.i14281477.i = icmp ult i64 %spec.select1113.i, %conv63.i.i.i
+  %cmp75.i.i14281477.i = icmp samesign ult i64 %spec.select1113.i, %conv63.i.i.i
   br i1 %cmp75.i.i14281477.i, label %for.body77.i.i.lr.ph.lr.ph.i, label %for.end132.i.i.i
 
 for.body77.i.i.lr.ph.lr.ph.i:                     ; preds = %for.end.i.i869.i
@@ -16121,7 +16121,7 @@ for.body.i1609.i:                                 ; preds = %if.end4.i1602.i, %i
   %mul3.neg.i1127.i = mul i32 %1336, %add.i2.neg.i1126.i
   %sub.i1128.i = add i32 %add1.i1124.i, %mul3.neg.i1127.i
   store i32 %sub.i1128.i, ptr %hb.i1057.i, align 8
-  %cmp13.i1619.i = icmp ult i32 %and6.i1610.i, 16777216
+  %cmp13.i1619.i = icmp samesign ult i32 %and6.i1610.i, 16777216
   br i1 %cmp13.i1619.i, label %if.then14.i1623.i, label %if.end52.i1620.i
 
 if.then14.i1623.i:                                ; preds = %for.body.i1609.i
@@ -16621,7 +16621,7 @@ LookupCompoundDictionaryMatch.exit.for.end_crit_edge.i5571: ; preds = %LookupCom
 if.then117.i5383:                                 ; preds = %LookupCompoundDictionaryMatch.exit.i5380
   %inc118.i5384 = add i64 %insert_length.1.i5240, 1
   %inc119.i5385 = add nuw nsw i32 %delayed_backward_references_in_row.0.i5244, 1
-  %cmp120.i5386 = icmp ult i32 %delayed_backward_references_in_row.0.i5244, 3
+  %cmp120.i5386 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i5244, 3
   %add123.i5387 = add i64 %position.addr.1.i5239, 9
   %cmp124.i5388 = icmp ult i64 %add123.i5387, %add.i5014
   %or.cond1118.i = select i1 %cmp120.i5386, i1 %cmp124.i5388, i1 false
@@ -16887,14 +16887,14 @@ GetCopyLengthCode.exit.i5468:                     ; preds = %if.then13.i719.i551
   %and2.i.i5473 = shl i32 %retval.i693.0.i5462, 3
   %shl.i742.i5474 = and i32 %and2.i.i5473, 56
   %or.i743.i5475 = or disjoint i32 %and.i740.i5471, %shl.i742.i5474
-  %cmp.i752.i5476 = icmp ult i32 %conv1.i741.i5472, 8
+  %cmp.i752.i5476 = icmp samesign ult i32 %conv1.i741.i5472, 8
   %or.cond7.i = select i1 %cmp.i328.i5449, i1 %cmp.i752.i5476, i1 false
-  %cmp8.i.i5477 = icmp ult i32 %conv.i739.i5470, 16
+  %cmp8.i.i5477 = icmp samesign ult i32 %conv.i739.i5470, 16
   %or.cond8.i = select i1 %or.cond7.i, i1 %cmp8.i.i5477, i1 false
   br i1 %or.cond8.i, label %if.then.i754.i5508, label %if.else.i745.i5478
 
 if.then.i754.i5508:                               ; preds = %GetCopyLengthCode.exit.i5468
-  %cmp11.i756.i5509 = icmp ult i32 %conv.i739.i5470, 8
+  %cmp11.i756.i5509 = icmp samesign ult i32 %conv.i739.i5470, 8
   %or15.i.i5510 = or disjoint i32 %or.i743.i5475, 64
   %cond.i759.i5511 = select i1 %cmp11.i756.i5509, i32 %or.i743.i5475, i32 %or15.i.i5510
   br label %CombineLengthCodes.exit.i5490
@@ -17982,7 +17982,7 @@ FindLongestMatchH2.exit.for.end_crit_edge.i:      ; preds = %FindLongestMatchH2.
 if.then108.i:                                     ; preds = %FindLongestMatchH2.exit.i
   %inc109.i = add i64 %insert_length.1.i5880, 1
   %inc110.i = add nuw nsw i32 %delayed_backward_references_in_row.0.i5884, 1
-  %cmp111.i = icmp ult i32 %delayed_backward_references_in_row.0.i5884, 3
+  %cmp111.i = icmp samesign ult i32 %delayed_backward_references_in_row.0.i5884, 3
   %add114.i5893 = add i64 %position.addr.1.i5879, 9
   %cmp115.i = icmp ult i64 %add114.i5893, %add.i5808
   %or.cond529.i = select i1 %cmp111.i, i1 %cmp115.i, i1 false
@@ -18215,14 +18215,14 @@ GetCopyLengthCode.exit.i5946:                     ; preds = %if.then13.i356.i, %
   %and2.i.i5947 = shl i32 %retval.i331.0.i, 3
   %shl.i377.i = and i32 %and2.i.i5947, 56
   %or.i378.i = or disjoint i32 %and.i375.i, %shl.i377.i
-  %cmp.i387.i = icmp ult i32 %conv1.i376.i, 8
+  %cmp.i387.i = icmp samesign ult i32 %conv1.i376.i, 8
   %or.cond3.i5948 = select i1 %cmp.i289.i, i1 %cmp.i387.i, i1 false
-  %cmp8.i.i5949 = icmp ult i32 %conv.i374.i, 16
+  %cmp8.i.i5949 = icmp samesign ult i32 %conv.i374.i, 16
   %or.cond4.i5950 = select i1 %or.cond3.i5948, i1 %cmp8.i.i5949, i1 false
   br i1 %or.cond4.i5950, label %if.then.i389.i, label %if.else.i380.i
 
 if.then.i389.i:                                   ; preds = %GetCopyLengthCode.exit.i5946
-  %cmp11.i391.i = icmp ult i32 %conv.i374.i, 8
+  %cmp11.i391.i = icmp samesign ult i32 %conv.i374.i, 8
   %or15.i.i5966 = or disjoint i32 %or.i378.i, 64
   %cond.i393.i = select i1 %cmp11.i391.i, i32 %or.i378.i, i32 %or15.i.i5966
   br label %CombineLengthCodes.exit.i5959
@@ -18920,7 +18920,7 @@ FindLongestMatchH3.exit.i:                        ; preds = %for.inc88.i.i6232
 if.then108.i6239:                                 ; preds = %FindLongestMatchH3.exit.i
   %inc109.i6240 = add i64 %insert_length.1.i6195, 1
   %inc110.i6241 = add nuw nsw i32 %delayed_backward_references_in_row.0.i6197, 1
-  %cmp111.i6242 = icmp ult i32 %delayed_backward_references_in_row.0.i6197, 3
+  %cmp111.i6242 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i6197, 3
   %add114.i6243 = add i64 %position.addr.1.i6194, 9
   %cmp115.i6244 = icmp ult i64 %add114.i6243, %add.i6132
   %or.cond439.i = and i1 %cmp115.i6244, %cmp111.i6242
@@ -19180,14 +19180,14 @@ GetCopyLengthCode.exit.i6326:                     ; preds = %if.then13.i356.i637
   %and2.i.i6331 = shl i32 %retval.i331.0.i6320, 3
   %shl.i377.i6332 = and i32 %and2.i.i6331, 56
   %or.i378.i6333 = or disjoint i32 %and.i375.i6329, %shl.i377.i6332
-  %cmp.i387.i6334 = icmp ult i32 %conv1.i376.i6330, 8
+  %cmp.i387.i6334 = icmp samesign ult i32 %conv1.i376.i6330, 8
   %or.cond1.i6335 = select i1 %cmp.i289.i6307, i1 %cmp.i387.i6334, i1 false
-  %cmp8.i.i6336 = icmp ult i32 %conv.i374.i6328, 16
+  %cmp8.i.i6336 = icmp samesign ult i32 %conv.i374.i6328, 16
   %or.cond2.i6337 = select i1 %or.cond1.i6335, i1 %cmp8.i.i6336, i1 false
   br i1 %or.cond2.i6337, label %if.then.i389.i6369, label %if.else.i380.i6338
 
 if.then.i389.i6369:                               ; preds = %GetCopyLengthCode.exit.i6326
-  %cmp11.i391.i6370 = icmp ult i32 %conv.i374.i6328, 8
+  %cmp11.i391.i6370 = icmp samesign ult i32 %conv.i374.i6328, 8
   %or15.i.i6371 = or disjoint i32 %or.i378.i6333, 64
   %cond.i393.i6372 = select i1 %cmp11.i391.i6370, i32 %or.i378.i6333, i32 %or15.i.i6371
   br label %CombineLengthCodes.exit.i6350
@@ -20345,7 +20345,7 @@ FindLongestMatchH4.exit.for.end_crit_edge.i:      ; preds = %FindLongestMatchH4.
 if.then108.i6709:                                 ; preds = %FindLongestMatchH4.exit.i
   %inc109.i6710 = add i64 %insert_length.1.i6637, 1
   %inc110.i6711 = add nuw nsw i32 %delayed_backward_references_in_row.0.i6641, 1
-  %cmp111.i6712 = icmp ult i32 %delayed_backward_references_in_row.0.i6641, 3
+  %cmp111.i6712 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i6641, 3
   %add114.i6713 = add i64 %position.addr.1.i6636, 9
   %cmp115.i6714 = icmp ult i64 %add114.i6713, %add.i6538
   %or.cond558.i = select i1 %cmp111.i6712, i1 %cmp115.i6714, i1 false
@@ -20578,14 +20578,14 @@ GetCopyLengthCode.exit.i6796:                     ; preds = %if.then13.i356.i684
   %and2.i.i6801 = shl i32 %retval.i331.0.i6790, 3
   %shl.i377.i6802 = and i32 %and2.i.i6801, 56
   %or.i378.i6803 = or disjoint i32 %and.i375.i6799, %shl.i377.i6802
-  %cmp.i387.i6804 = icmp ult i32 %conv1.i376.i6800, 8
+  %cmp.i387.i6804 = icmp samesign ult i32 %conv1.i376.i6800, 8
   %or.cond3.i6805 = select i1 %cmp.i289.i6777, i1 %cmp.i387.i6804, i1 false
-  %cmp8.i.i6806 = icmp ult i32 %conv.i374.i6798, 16
+  %cmp8.i.i6806 = icmp samesign ult i32 %conv.i374.i6798, 16
   %or.cond4.i6807 = select i1 %or.cond3.i6805, i1 %cmp8.i.i6806, i1 false
   br i1 %or.cond4.i6807, label %if.then.i389.i6839, label %if.else.i380.i6808
 
 if.then.i389.i6839:                               ; preds = %GetCopyLengthCode.exit.i6796
-  %cmp11.i391.i6840 = icmp ult i32 %conv.i374.i6798, 8
+  %cmp11.i391.i6840 = icmp samesign ult i32 %conv.i374.i6798, 8
   %or15.i.i6841 = or disjoint i32 %or.i378.i6803, 64
   %cond.i393.i6842 = select i1 %cmp11.i391.i6840, i32 %or.i378.i6803, i32 %or15.i.i6841
   br label %CombineLengthCodes.exit.i6820
@@ -21092,7 +21092,7 @@ for.end.i331.i:                                   ; preds = %for.inc.i448.i, %if
   %conv64.i341.i = zext i16 %1762 to i64
   %1763 = load i64, ptr %block_size_.i342.i, align 8
   %spec.select.i7101 = tail call i64 @llvm.usub.sat.i64(i64 %conv64.i341.i, i64 %1763)
-  %cmp76.i351766812.i = icmp ult i64 %spec.select.i7101, %conv64.i341.i
+  %cmp76.i351766812.i = icmp samesign ult i64 %spec.select.i7101, %conv64.i341.i
   %.pre.i7102 = load i32, ptr %block_mask_.i371.i, align 4
   br i1 %cmp76.i351766812.i, label %for.body78.i369.lr.ph.lr.ph.i, label %for.end128.i352.i
 
@@ -21668,7 +21668,7 @@ for.end.i.i7188:                                  ; preds = %for.inc.i.i7182, %i
   %conv64.i.i7200 = zext i16 %1814 to i64
   %1815 = load i64, ptr %block_size_.i342.i, align 8
   %spec.select688.i = tail call i64 @llvm.usub.sat.i64(i64 %conv64.i.i7200, i64 %1815)
-  %cmp76.i867914.i = icmp ult i64 %spec.select688.i, %conv64.i.i7200
+  %cmp76.i867914.i = icmp samesign ult i64 %spec.select688.i, %conv64.i.i7200
   %.pre1020.i = load i32, ptr %block_mask_.i371.i, align 4
   br i1 %cmp76.i867914.i, label %for.body78.i.lr.ph.lr.ph.i7390, label %for.end128.i.i7201
 
@@ -22022,7 +22022,7 @@ FindLongestMatchH5.exit.for.end_crit_edge.i:      ; preds = %FindLongestMatchH5.
 if.then108.i7216:                                 ; preds = %FindLongestMatchH5.exit.i7211
   %inc109.i7217 = add i64 %insert_length.1.i7135, 1
   %inc110.i7218 = add nuw nsw i32 %delayed_backward_references_in_row.0.i7139, 1
-  %cmp111.i7219 = icmp ult i32 %delayed_backward_references_in_row.0.i7139, 3
+  %cmp111.i7219 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i7139, 3
   %add114.i7220 = add i64 %position.addr.1.i7134, 5
   %cmp115.i7221 = icmp ult i64 %add114.i7220, %add.i7036
   %or.cond689.i = select i1 %cmp111.i7219, i1 %cmp115.i7221, i1 false
@@ -22288,14 +22288,14 @@ GetCopyLengthCode.exit.i7271:                     ; preds = %if.then13.i1146.i, 
   %and2.i1169.i = shl i32 %retval.i1117.0.i, 3
   %shl.i1170.i = and i32 %and2.i1169.i, 56
   %or.i1171.i = or disjoint i32 %and.i1167.i, %shl.i1170.i
-  %cmp.i1183.i = icmp ult i32 %conv1.i1168.i, 8
+  %cmp.i1183.i = icmp samesign ult i32 %conv1.i1168.i, 8
   %or.cond5.i7272 = select i1 %cmp.i491.i7260, i1 %cmp.i1183.i, i1 false
-  %cmp8.i.i7273 = icmp ult i32 %conv.i1166.i, 16
+  %cmp8.i.i7273 = icmp samesign ult i32 %conv.i1166.i, 16
   %or.cond6.i7274 = select i1 %or.cond5.i7272, i1 %cmp8.i.i7273, i1 false
   br i1 %or.cond6.i7274, label %if.then.i1185.i, label %if.else.i1174.i
 
 if.then.i1185.i:                                  ; preds = %GetCopyLengthCode.exit.i7271
-  %cmp11.i1187.i = icmp ult i32 %conv.i1166.i, 8
+  %cmp11.i1187.i = icmp samesign ult i32 %conv.i1166.i, 8
   %or15.i.i7295 = or disjoint i32 %or.i1171.i, 64
   %cond.i1190.i = select i1 %cmp11.i1187.i, i32 %or.i1171.i, i32 %or15.i.i7295
   br label %CombineLengthCodes.exit.i7282
@@ -22840,7 +22840,7 @@ for.end.i590.i:                                   ; preds = %for.inc.i882.i, %if
   %spec.select.i7598 = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i599.i, i64 %1925)
   %1926 = trunc i64 %t.i.i1043.0.copyload.i to i32
   %sub71.i606.i = add i64 %sub11.i7561, -4
-  %cmp75.i610763809.i = icmp ult i64 %spec.select.i7598, %conv63.i599.i
+  %cmp75.i610763809.i = icmp samesign ult i64 %spec.select.i7598, %conv63.i599.i
   %.pre.i7599 = load i32, ptr %block_mask_.i753.i, align 8
   br i1 %cmp75.i610763809.i, label %for.body77.i751.lr.ph.lr.ph.i, label %for.end132.i611.i
 
@@ -23421,7 +23421,7 @@ for.end.i.i7696:                                  ; preds = %for.inc.i.i7689, %i
   %spec.select694.i = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i7705, i64 %1978)
   %1979 = trunc i64 %t.i.i1050.0.copyload.i to i32
   %sub71.i.i7706 = add i64 %max_length.0.in.i7645, -5
-  %cmp75.i864913.i = icmp ult i64 %spec.select694.i, %conv63.i.i7705
+  %cmp75.i864913.i = icmp samesign ult i64 %spec.select694.i, %conv63.i.i7705
   %.pre1019.i = load i32, ptr %block_mask_.i753.i, align 8
   br i1 %cmp75.i864913.i, label %for.body77.i.lr.ph.lr.ph.i8032, label %for.end132.i.i7707
 
@@ -23779,7 +23779,7 @@ FindLongestMatchH6.exit.for.end_crit_edge.i:      ; preds = %FindLongestMatchH6.
 if.then108.i7725:                                 ; preds = %FindLongestMatchH6.exit.i7718
   %inc109.i7726 = add i64 %insert_length.1.i7644, 1
   %inc110.i7727 = add nuw nsw i32 %delayed_backward_references_in_row.0.i7648, 1
-  %cmp111.i7728 = icmp ult i32 %delayed_backward_references_in_row.0.i7648, 3
+  %cmp111.i7728 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i7648, 3
   %add114.i7729 = add i64 %position.addr.1.i7643, 9
   %cmp115.i7730 = icmp ult i64 %add114.i7729, %add.i7515
   %or.cond695.i = select i1 %cmp111.i7728, i1 %cmp115.i7730, i1 false
@@ -24045,14 +24045,14 @@ GetCopyLengthCode.exit.i7813:                     ; preds = %if.then13.i356.i785
   %and2.i.i7818 = shl i32 %retval.i331.0.i7807, 3
   %shl.i377.i7819 = and i32 %and2.i.i7818, 56
   %or.i378.i7820 = or disjoint i32 %and.i375.i7816, %shl.i377.i7819
-  %cmp.i387.i7821 = icmp ult i32 %conv1.i376.i7817, 8
+  %cmp.i387.i7821 = icmp samesign ult i32 %conv1.i376.i7817, 8
   %or.cond5.i7822 = select i1 %cmp.i289.i7794, i1 %cmp.i387.i7821, i1 false
-  %cmp8.i.i7823 = icmp ult i32 %conv.i374.i7815, 16
+  %cmp8.i.i7823 = icmp samesign ult i32 %conv.i374.i7815, 16
   %or.cond6.i7824 = select i1 %or.cond5.i7822, i1 %cmp8.i.i7823, i1 false
   br i1 %or.cond6.i7824, label %if.then.i389.i7855, label %if.else.i380.i7825
 
 if.then.i389.i7855:                               ; preds = %GetCopyLengthCode.exit.i7813
-  %cmp11.i391.i7856 = icmp ult i32 %conv.i374.i7815, 8
+  %cmp11.i391.i7856 = icmp samesign ult i32 %conv.i374.i7815, 8
   %or15.i.i7857 = or disjoint i32 %or.i378.i7820, 64
   %cond.i393.i7858 = select i1 %cmp11.i391.i7856, i32 %or.i378.i7820, i32 %or15.i.i7857
   br label %CombineLengthCodes.exit.i7837
@@ -25438,7 +25438,7 @@ FindLongestMatchH40.exit.for.end_crit_edge.i:     ; preds = %FindLongestMatchH40
 if.then108.i8398:                                 ; preds = %FindLongestMatchH40.exit.i8391
   %inc109.i8399 = add i64 %insert_length.1.i8297, 1
   %inc110.i8400 = add nuw nsw i32 %delayed_backward_references_in_row.0.i8301, 1
-  %cmp111.i8401 = icmp ult i32 %delayed_backward_references_in_row.0.i8301, 3
+  %cmp111.i8401 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i8301, 3
   %add114.i8402 = add i64 %position.addr.1.i8296, 5
   %cmp115.i8403 = icmp ult i64 %add114.i8402, %add.i8182
   %or.cond724.i = select i1 %cmp111.i8401, i1 %cmp115.i8403, i1 false
@@ -25671,14 +25671,14 @@ GetCopyLengthCode.exit.i8486:                     ; preds = %if.then13.i356.i853
   %and2.i.i8491 = shl i32 %retval.i331.0.i8480, 3
   %shl.i377.i8492 = and i32 %and2.i.i8491, 56
   %or.i378.i8493 = or disjoint i32 %and.i375.i8489, %shl.i377.i8492
-  %cmp.i387.i8494 = icmp ult i32 %conv1.i376.i8490, 8
+  %cmp.i387.i8494 = icmp samesign ult i32 %conv1.i376.i8490, 8
   %or.cond4.i8495 = select i1 %cmp.i289.i8467, i1 %cmp.i387.i8494, i1 false
-  %cmp8.i.i8496 = icmp ult i32 %conv.i374.i8488, 16
+  %cmp8.i.i8496 = icmp samesign ult i32 %conv.i374.i8488, 16
   %or.cond5.i8497 = select i1 %or.cond4.i8495, i1 %cmp8.i.i8496, i1 false
   br i1 %or.cond5.i8497, label %if.then.i389.i8532, label %if.else.i380.i8498
 
 if.then.i389.i8532:                               ; preds = %GetCopyLengthCode.exit.i8486
-  %cmp11.i391.i8533 = icmp ult i32 %conv.i374.i8488, 8
+  %cmp11.i391.i8533 = icmp samesign ult i32 %conv.i374.i8488, 8
   %or15.i.i8534 = or disjoint i32 %or.i378.i8493, 64
   %cond.i393.i8535 = select i1 %cmp11.i391.i8533, i32 %or.i378.i8493, i32 %or15.i.i8534
   br label %CombineLengthCodes.exit.i8510
@@ -27113,7 +27113,7 @@ FindLongestMatchH41.exit.for.end_crit_edge.i:     ; preds = %FindLongestMatchH41
 if.then108.i9228:                                 ; preds = %FindLongestMatchH41.exit.i9221
   %inc109.i9229 = add i64 %insert_length.1.i9072, 1
   %inc110.i9230 = add nuw nsw i32 %delayed_backward_references_in_row.0.i9076, 1
-  %cmp111.i9231 = icmp ult i32 %delayed_backward_references_in_row.0.i9076, 3
+  %cmp111.i9231 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i9076, 3
   %add114.i9232 = add i64 %position.addr.1.i9071, 5
   %cmp115.i9233 = icmp ult i64 %add114.i9232, %add.i8790
   %or.cond724.i9234 = select i1 %cmp111.i9231, i1 %cmp115.i9233, i1 false
@@ -27358,14 +27358,14 @@ GetCopyLengthCode.exit.i9318:                     ; preds = %if.then13.i356.i938
   %and2.i.i9323 = shl i32 %retval.i331.0.i9312, 3
   %shl.i377.i9324 = and i32 %and2.i.i9323, 56
   %or.i378.i9325 = or disjoint i32 %and.i375.i9321, %shl.i377.i9324
-  %cmp.i387.i9326 = icmp ult i32 %conv1.i376.i9322, 8
+  %cmp.i387.i9326 = icmp samesign ult i32 %conv1.i376.i9322, 8
   %or.cond4.i9327 = select i1 %cmp.i289.i9299, i1 %cmp.i387.i9326, i1 false
-  %cmp8.i.i9328 = icmp ult i32 %conv.i374.i9320, 16
+  %cmp8.i.i9328 = icmp samesign ult i32 %conv.i374.i9320, 16
   %or.cond5.i9329 = select i1 %or.cond4.i9327, i1 %cmp8.i.i9328, i1 false
   br i1 %or.cond5.i9329, label %if.then.i389.i9385, label %if.else.i380.i9330
 
 if.then.i389.i9385:                               ; preds = %GetCopyLengthCode.exit.i9318
-  %cmp11.i391.i9386 = icmp ult i32 %conv.i374.i9320, 8
+  %cmp11.i391.i9386 = icmp samesign ult i32 %conv.i374.i9320, 8
   %or15.i.i9387 = or disjoint i32 %or.i378.i9325, 64
   %cond.i393.i9388 = select i1 %cmp11.i391.i9386, i32 %or.i378.i9325, i32 %or15.i.i9387
   br label %CombineLengthCodes.exit.i9342
@@ -28829,7 +28829,7 @@ FindLongestMatchH42.exit.for.end_crit_edge.i:     ; preds = %FindLongestMatchH42
 if.then108.i10158:                                ; preds = %FindLongestMatchH42.exit.i10151
   %inc109.i10159 = add i64 %insert_length.1.i10046, 1
   %inc110.i10160 = add nuw nsw i32 %delayed_backward_references_in_row.0.i10050, 1
-  %cmp111.i10161 = icmp ult i32 %delayed_backward_references_in_row.0.i10050, 3
+  %cmp111.i10161 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i10050, 3
   %add114.i10162 = add i64 %position.addr.1.i10045, 5
   %cmp115.i10163 = icmp ult i64 %add114.i10162, %add.i9908
   %or.cond731.i = select i1 %cmp111.i10161, i1 %cmp115.i10163, i1 false
@@ -29086,14 +29086,14 @@ GetCopyLengthCode.exit.i10246:                    ; preds = %if.then13.i356.i102
   %and2.i.i10251 = shl i32 %retval.i331.0.i10240, 3
   %shl.i377.i10252 = and i32 %and2.i.i10251, 56
   %or.i378.i10253 = or disjoint i32 %and.i375.i10249, %shl.i377.i10252
-  %cmp.i387.i10254 = icmp ult i32 %conv1.i376.i10250, 8
+  %cmp.i387.i10254 = icmp samesign ult i32 %conv1.i376.i10250, 8
   %or.cond4.i10255 = select i1 %cmp.i289.i10227, i1 %cmp.i387.i10254, i1 false
-  %cmp8.i.i10256 = icmp ult i32 %conv.i374.i10248, 16
+  %cmp8.i.i10256 = icmp samesign ult i32 %conv.i374.i10248, 16
   %or.cond5.i10257 = select i1 %or.cond4.i10255, i1 %cmp8.i.i10256, i1 false
   br i1 %or.cond5.i10257, label %if.then.i389.i10295, label %if.else.i380.i10258
 
 if.then.i389.i10295:                              ; preds = %GetCopyLengthCode.exit.i10246
-  %cmp11.i391.i10296 = icmp ult i32 %conv.i374.i10248, 8
+  %cmp11.i391.i10296 = icmp samesign ult i32 %conv.i374.i10248, 8
   %or15.i.i10297 = or disjoint i32 %or.i378.i10253, 64
   %cond.i393.i10298 = select i1 %cmp11.i391.i10296, i32 %or.i378.i10253, i32 %or15.i.i10297
   br label %CombineLengthCodes.exit.i10270
@@ -29899,7 +29899,7 @@ FindLongestMatchH54.exit.i10802:                  ; preds = %for.inc88.i.i10794
 if.then108.i10807:                                ; preds = %FindLongestMatchH54.exit.i10802
   %inc109.i10808 = add i64 %insert_length.1.i10740, 1
   %inc110.i10809 = add nuw nsw i32 %delayed_backward_references_in_row.0.i10742, 1
-  %cmp111.i10810 = icmp ult i32 %delayed_backward_references_in_row.0.i10742, 3
+  %cmp111.i10810 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i10742, 3
   %add114.i10811 = add i64 %position.addr.1.i10739, 9
   %cmp115.i10812 = icmp ult i64 %add114.i10811, %add.i10592
   %or.cond439.i10813 = and i1 %cmp115.i10812, %cmp111.i10810
@@ -30159,14 +30159,14 @@ GetCopyLengthCode.exit.i10899:                    ; preds = %if.then13.i356.i109
   %and2.i.i10904 = shl i32 %retval.i331.0.i10893, 3
   %shl.i377.i10905 = and i32 %and2.i.i10904, 56
   %or.i378.i10906 = or disjoint i32 %and.i375.i10902, %shl.i377.i10905
-  %cmp.i387.i10907 = icmp ult i32 %conv1.i376.i10903, 8
+  %cmp.i387.i10907 = icmp samesign ult i32 %conv1.i376.i10903, 8
   %or.cond1.i10908 = select i1 %cmp.i289.i10880, i1 %cmp.i387.i10907, i1 false
-  %cmp8.i.i10909 = icmp ult i32 %conv.i374.i10901, 16
+  %cmp8.i.i10909 = icmp samesign ult i32 %conv.i374.i10901, 16
   %or.cond2.i10910 = select i1 %or.cond1.i10908, i1 %cmp8.i.i10909, i1 false
   br i1 %or.cond2.i10910, label %if.then.i389.i10952, label %if.else.i380.i10911
 
 if.then.i389.i10952:                              ; preds = %GetCopyLengthCode.exit.i10899
-  %cmp11.i391.i10953 = icmp ult i32 %conv.i374.i10901, 8
+  %cmp11.i391.i10953 = icmp samesign ult i32 %conv.i374.i10901, 8
   %or15.i.i10954 = or disjoint i32 %or.i378.i10906, 64
   %cond.i393.i10955 = select i1 %cmp11.i391.i10953, i32 %or.i378.i10906, i32 %or15.i.i10954
   br label %CombineLengthCodes.exit.i10923
@@ -30646,7 +30646,7 @@ for.body.i.i595.i:                                ; preds = %if.end4.i.i588.i, %
   %mul3.neg.i.i11294 = mul i32 %2611, %add.i2.neg.i.i11293
   %sub.i610.i = add i32 %add1.i.i11291, %mul3.neg.i.i11294
   store i32 %sub.i610.i, ptr %hb.i582.i, align 8
-  %cmp13.i.i605.i = icmp ult i32 %and6.i.i596.i, 16777216
+  %cmp13.i.i605.i = icmp samesign ult i32 %and6.i.i596.i, 16777216
   br i1 %cmp13.i.i605.i, label %if.then14.i.i608.i, label %if.end52.i.i606.i
 
 if.then14.i.i608.i:                               ; preds = %for.body.i.i595.i
@@ -31070,7 +31070,7 @@ for.body.i.i.i11352:                              ; preds = %if.end4.i.i.i, %if.
   %mul3.neg.i620.i = mul i32 %2646, %add.i2.neg.i619.i
   %sub.i621.i = add i32 %add1.i617.i, %mul3.neg.i620.i
   store i32 %sub.i621.i, ptr %hb.i582.i, align 8
-  %cmp13.i.i.i11355 = icmp ult i32 %and6.i.i.i, 16777216
+  %cmp13.i.i.i11355 = icmp samesign ult i32 %and6.i.i.i, 16777216
   br i1 %cmp13.i.i.i11355, label %if.then14.i.i.i, label %if.end52.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %for.body.i.i.i11352
@@ -31202,7 +31202,7 @@ FindLongestMatchH35.exit.i:                       ; preds = %for.end.i.i.i, %Fin
 if.then108.i11364:                                ; preds = %FindLongestMatchH35.exit.i
   %inc109.i11365 = add i64 %insert_length.1.i11335, 1
   %inc110.i11366 = add nuw nsw i32 %delayed_backward_references_in_row.0.i11337, 1
-  %cmp111.i11367 = icmp ult i32 %delayed_backward_references_in_row.0.i11337, 3
+  %cmp111.i11367 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i11337, 3
   %add114.i11368 = add i64 %position.addr.1.i11334, 9
   %cmp115.i11369 = icmp ult i64 %add114.i11368, %add.i11258
   %or.cond606.i = and i1 %cmp115.i11369, %cmp111.i11367
@@ -31462,14 +31462,14 @@ GetCopyLengthCode.exit.i11454:                    ; preds = %if.then13.i356.i115
   %and2.i.i11459 = shl i32 %retval.i331.0.i11448, 3
   %shl.i377.i11460 = and i32 %and2.i.i11459, 56
   %or.i378.i11461 = or disjoint i32 %and.i375.i11457, %shl.i377.i11460
-  %cmp.i387.i11462 = icmp ult i32 %conv1.i376.i11458, 8
+  %cmp.i387.i11462 = icmp samesign ult i32 %conv1.i376.i11458, 8
   %or.cond3.i11463 = select i1 %cmp.i289.i11435, i1 %cmp.i387.i11462, i1 false
-  %cmp8.i.i11464 = icmp ult i32 %conv.i374.i11456, 16
+  %cmp8.i.i11464 = icmp samesign ult i32 %conv.i374.i11456, 16
   %or.cond4.i11465 = select i1 %or.cond3.i11463, i1 %cmp8.i.i11464, i1 false
   br i1 %or.cond4.i11465, label %if.then.i389.i11496, label %if.else.i380.i11466
 
 if.then.i389.i11496:                              ; preds = %GetCopyLengthCode.exit.i11454
-  %cmp11.i391.i11497 = icmp ult i32 %conv.i374.i11456, 8
+  %cmp11.i391.i11497 = icmp samesign ult i32 %conv.i374.i11456, 8
   %or15.i.i11498 = or disjoint i32 %or.i378.i11461, 64
   %cond.i393.i11499 = select i1 %cmp11.i391.i11497, i32 %or.i378.i11461, i32 %or15.i.i11498
   br label %CombineLengthCodes.exit.i11478
@@ -31961,7 +31961,7 @@ for.body.i779.i:                                  ; preds = %if.end4.i.i11707, %
   %mul3.neg.i.i11719 = mul i32 %2711, %add.i2.neg.i.i11718
   %sub.i611.i = add i32 %add1.i.i11716, %mul3.neg.i.i11719
   store i32 %sub.i611.i, ptr %hb.i469.i, align 8
-  %cmp13.i784.i = icmp ult i32 %and6.i.i11711, 16777216
+  %cmp13.i784.i = icmp samesign ult i32 %and6.i.i11711, 16777216
   br i1 %cmp13.i784.i, label %if.then14.i.i12031, label %if.end52.i.i11720
 
 if.then14.i.i12031:                               ; preds = %for.body.i779.i
@@ -32397,7 +32397,7 @@ for.body.i881.i:                                  ; preds = %if.end4.i874.i, %if
   %mul3.neg.i621.i = mul i32 %2746, %add.i2.neg.i620.i
   %sub.i622.i11797 = add i32 %add1.i618.i, %mul3.neg.i621.i
   store i32 %sub.i622.i11797, ptr %hb.i469.i, align 8
-  %cmp13.i891.i = icmp ult i32 %and6.i882.i, 16777216
+  %cmp13.i891.i = icmp samesign ult i32 %and6.i882.i, 16777216
   br i1 %cmp13.i891.i, label %if.then14.i894.i, label %if.end52.i892.i
 
 if.then14.i894.i:                                 ; preds = %for.body.i881.i
@@ -32529,7 +32529,7 @@ FindLongestMatchHROLLING_FAST.exit972.i:          ; preds = %for.end.i878.i, %Fi
 if.then108.i11809:                                ; preds = %FindLongestMatchHROLLING_FAST.exit972.i
   %inc109.i11810 = add i64 %insert_length.1.i11774, 1
   %inc110.i11811 = add nuw nsw i32 %delayed_backward_references_in_row.0.i11776, 1
-  %cmp111.i11812 = icmp ult i32 %delayed_backward_references_in_row.0.i11776, 3
+  %cmp111.i11812 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i11776, 3
   %add114.i11813 = add i64 %position.addr.1.i11773, 9
   %cmp115.i11814 = icmp ult i64 %add114.i11813, %add.i11621
   %or.cond606.i11815 = and i1 %cmp115.i11814, %cmp111.i11812
@@ -32789,14 +32789,14 @@ GetCopyLengthCode.exit.i11901:                    ; preds = %if.then13.i356.i119
   %and2.i.i11906 = shl i32 %retval.i331.0.i11895, 3
   %shl.i377.i11907 = and i32 %and2.i.i11906, 56
   %or.i378.i11908 = or disjoint i32 %and.i375.i11904, %shl.i377.i11907
-  %cmp.i387.i11909 = icmp ult i32 %conv1.i376.i11905, 8
+  %cmp.i387.i11909 = icmp samesign ult i32 %conv1.i376.i11905, 8
   %or.cond3.i11910 = select i1 %cmp.i289.i11882, i1 %cmp.i387.i11909, i1 false
-  %cmp8.i.i11911 = icmp ult i32 %conv.i374.i11903, 16
+  %cmp8.i.i11911 = icmp samesign ult i32 %conv.i374.i11903, 16
   %or.cond4.i11912 = select i1 %or.cond3.i11910, i1 %cmp8.i.i11911, i1 false
   br i1 %or.cond4.i11912, label %if.then.i389.i11944, label %if.else.i380.i11913
 
 if.then.i389.i11944:                              ; preds = %GetCopyLengthCode.exit.i11901
-  %cmp11.i391.i11945 = icmp ult i32 %conv.i374.i11903, 8
+  %cmp11.i391.i11945 = icmp samesign ult i32 %conv.i374.i11903, 8
   %or15.i.i11946 = or disjoint i32 %or.i378.i11908, 64
   %cond.i393.i11947 = select i1 %cmp11.i391.i11945, i32 %or.i378.i11908, i32 %or15.i.i11946
   br label %CombineLengthCodes.exit.i11925
@@ -33303,7 +33303,7 @@ for.end.i.i636.i:                                 ; preds = %for.inc.i.i930.i, %
   %spec.select.i12253 = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i646.i, i64 %2811)
   %2812 = trunc i64 %t.i.i2.i504.0.copyload.i to i32
   %sub71.i.i653.i = add i64 %sub11.i12219, -4
-  %cmp75.i.i657940986.i = icmp ult i64 %spec.select.i12253, %conv63.i.i646.i
+  %cmp75.i.i657940986.i = icmp samesign ult i64 %spec.select.i12253, %conv63.i.i646.i
   %.pre.i12254 = load i32, ptr %block_mask_.i.i801.i, align 8
   br i1 %cmp75.i.i657940986.i, label %for.body77.i.i799.lr.ph.lr.ph.i, label %for.end132.i.i658.i
 
@@ -33683,7 +33683,7 @@ for.body.i.i12259:                                ; preds = %if.end4.i.i12258, %
   %mul3.neg.i.i12268 = mul i32 %2848, %add.i2.neg.i.i12267
   %sub.i863.i = add i32 %add1.i.i12265, %mul3.neg.i.i12268
   store i32 %sub.i863.i, ptr %hb.i670.i, align 8
-  %cmp13.i.i12269 = icmp ult i32 %and6.i.i12260, 16777216
+  %cmp13.i.i12269 = icmp samesign ult i32 %and6.i.i12260, 16777216
   br i1 %cmp13.i.i12269, label %if.then14.i.i12851, label %if.end52.i.i12270
 
 if.then14.i.i12851:                               ; preds = %for.body.i.i12259
@@ -34046,7 +34046,7 @@ for.end.i.i.i12365:                               ; preds = %for.inc.i.i.i12360,
   %spec.select858.i = tail call i64 @llvm.usub.sat.i64(i64 %conv63.i.i.i12377, i64 %2876)
   %2877 = trunc i64 %t.i.i2.i.0.copyload.i12370 to i32
   %sub71.i.i.i12378 = add i64 %max_length.0.in.i12312, -5
-  %cmp75.i.i10741123.i = icmp ult i64 %spec.select858.i, %conv63.i.i.i12377
+  %cmp75.i.i10741123.i = icmp samesign ult i64 %spec.select858.i, %conv63.i.i.i12377
   %.pre1251.i = load i32, ptr %block_mask_.i.i801.i, align 8
   br i1 %cmp75.i.i10741123.i, label %for.body77.i.i.lr.ph.lr.ph.i12721, label %for.end132.i.i.i12379
 
@@ -34426,7 +34426,7 @@ for.body.i1180.i:                                 ; preds = %if.end4.i1173.i, %i
   %mul3.neg.i870.i = mul i32 %2913, %add.i2.neg.i869.i
   %sub.i871.i = add i32 %add1.i867.i, %mul3.neg.i870.i
   store i32 %sub.i871.i, ptr %hb.i670.i, align 8
-  %cmp13.i1190.i = icmp ult i32 %and6.i1181.i, 16777216
+  %cmp13.i1190.i = icmp samesign ult i32 %and6.i1181.i, 16777216
   br i1 %cmp13.i1190.i, label %if.then14.i1193.i, label %if.end52.i1191.i
 
 if.then14.i1193.i:                                ; preds = %for.body.i1180.i
@@ -34566,7 +34566,7 @@ FindLongestMatchHROLLING.exit1270.for.end_crit_edge.i: ; preds = %FindLongestMat
 if.then108.i12396:                                ; preds = %FindLongestMatchHROLLING.exit1270.i
   %inc109.i12397 = add i64 %insert_length.1.i12311, 1
   %inc110.i12398 = add nuw nsw i32 %delayed_backward_references_in_row.0.i12315, 1
-  %cmp111.i12399 = icmp ult i32 %delayed_backward_references_in_row.0.i12315, 3
+  %cmp111.i12399 = icmp samesign ult i32 %delayed_backward_references_in_row.0.i12315, 3
   %add114.i12400 = add i64 %position.addr.1.i12310, 9
   %cmp115.i12401 = icmp ult i64 %add114.i12400, %add.i12169
   %or.cond860.i = select i1 %cmp111.i12399, i1 %cmp115.i12401, i1 false
@@ -34832,14 +34832,14 @@ GetCopyLengthCode.exit.i12482:                    ; preds = %if.then13.i356.i125
   %and2.i.i12487 = shl i32 %retval.i331.0.i12476, 3
   %shl.i377.i12488 = and i32 %and2.i.i12487, 56
   %or.i378.i12489 = or disjoint i32 %and.i375.i12485, %shl.i377.i12488
-  %cmp.i387.i12490 = icmp ult i32 %conv1.i376.i12486, 8
+  %cmp.i387.i12490 = icmp samesign ult i32 %conv1.i376.i12486, 8
   %or.cond7.i12491 = select i1 %cmp.i289.i12463, i1 %cmp.i387.i12490, i1 false
-  %cmp8.i.i12492 = icmp ult i32 %conv.i374.i12484, 16
+  %cmp8.i.i12492 = icmp samesign ult i32 %conv.i374.i12484, 16
   %or.cond8.i12493 = select i1 %or.cond7.i12491, i1 %cmp8.i.i12492, i1 false
   br i1 %or.cond8.i12493, label %if.then.i389.i12528, label %if.else.i380.i12494
 
 if.then.i389.i12528:                              ; preds = %GetCopyLengthCode.exit.i12482
-  %cmp11.i391.i12529 = icmp ult i32 %conv.i374.i12484, 8
+  %cmp11.i391.i12529 = icmp samesign ult i32 %conv.i374.i12484, 8
   %or15.i.i12530 = or disjoint i32 %or.i378.i12489, 64
   %cond.i393.i12531 = select i1 %cmp11.i391.i12529, i32 %or.i378.i12489, i32 %or15.i.i12530
   br label %CombineLengthCodes.exit.i12506

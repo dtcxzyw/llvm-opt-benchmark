@@ -68,7 +68,7 @@ while.cond20.preheader:                           ; preds = %do.end, %while.cond
   %next.1.lcssa = phi ptr [ %next.0.lcssa, %while.cond2.preheader ], [ %add.ptr18, %do.end ]
   %crc0.1.lcssa = phi i64 [ %crc0.0.lcssa, %while.cond2.preheader ], [ %xor17, %do.end ]
   %len.addr.1.lcssa = phi i64 [ %len.addr.0.lcssa, %while.cond2.preheader ], [ %sub, %do.end ]
-  %cmp21114 = icmp ugt i64 %len.addr.1.lcssa, 767
+  %cmp21114 = icmp samesign ugt i64 %len.addr.1.lcssa, 767
   br i1 %cmp21114, label %do.body28.preheader, label %while.end47
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -82,7 +82,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %asmresult6 = extractvalue { i64, i64, i64 } %5, 1
   %asmresult7 = extractvalue { i64, i64, i64 } %5, 2
   %next.2.add = add nuw nsw i64 %next.2.idx, 8
-  %cmp9 = icmp ult i64 %next.2.idx, 8184
+  %cmp9 = icmp samesign ult i64 %next.2.idx, 8184
   br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !10
 
 do.end:                                           ; preds = %do.body
@@ -151,7 +151,7 @@ do.body28:                                        ; preds = %do.body28.preheader
   %asmresult30 = extractvalue { i64, i64, i64 } %15, 1
   %asmresult31 = extractvalue { i64, i64, i64 } %15, 2
   %next.4.add = add nuw nsw i64 %next.4.idx, 8
-  %cmp34 = icmp ult i64 %next.4.idx, 248
+  %cmp34 = icmp samesign ult i64 %next.4.idx, 248
   br i1 %cmp34, label %do.body28, label %do.end36, !llvm.loop !13
 
 do.end36:                                         ; preds = %do.body28
@@ -814,7 +814,7 @@ gf2_matrix_times.exit.i54.i:                      ; preds = %if.end.i.i49.i, %fo
   br i1 %exitcond.not.i58.i, label %gf2_matrix_square.exit59.i, label %for.body.i37.i, !llvm.loop !33
 
 gf2_matrix_square.exit59.i:                       ; preds = %gf2_matrix_times.exit.i54.i
-  %cmp4.i = icmp ult i64 %len.addr.0.i, 2
+  %cmp4.i = icmp samesign ult i64 %len.addr.0.i, 2
   br i1 %cmp4.i, label %crc32c_zeros_op.exit, label %for.body.i60.i
 
 for.body.i60.i:                                   ; preds = %gf2_matrix_square.exit59.i, %gf2_matrix_times.exit.i77.i
@@ -854,7 +854,7 @@ gf2_matrix_times.exit.i77.i:                      ; preds = %if.end.i.i72.i, %fo
 
 gf2_matrix_square.exit82.i:                       ; preds = %gf2_matrix_times.exit.i77.i
   %shr.i = lshr i64 %len.addr.0.i, 2
-  %tobool.not.i = icmp ult i64 %len.addr.0.i, 4
+  %tobool.not.i = icmp samesign ult i64 %len.addr.0.i, 4
   br i1 %tobool.not.i, label %for.body10.preheader.i, label %do.body.i, !llvm.loop !34
 
 for.body10.preheader.i:                           ; preds = %gf2_matrix_square.exit82.i
@@ -900,7 +900,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %sum.1.i = phi i32 [ %xor.i, %if.then.i ], [ %sum.08.i, %while.body.i ]
   %shr.i13 = lshr i32 %vec.addr.07.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %mat.addr.06.i, i64 4
-  %tobool.not.i14 = icmp ult i32 %vec.addr.07.i, 2
+  %tobool.not.i14 = icmp samesign ult i32 %vec.addr.07.i, 2
   br i1 %tobool.not.i14, label %gf2_matrix_times.exit, label %while.body.i, !llvm.loop !32
 
 gf2_matrix_times.exit:                            ; preds = %if.end.i
@@ -927,7 +927,7 @@ if.end.i24:                                       ; preds = %if.then.i22, %while
   %sum.1.i25 = phi i32 [ %xor.i23, %if.then.i22 ], [ %sum.08.i17, %while.body.i16 ]
   %shr.i26 = lshr i32 %vec.addr.07.i18, 1
   %incdec.ptr.i27 = getelementptr inbounds i8, ptr %mat.addr.06.i19, i64 4
-  %tobool.not.i28 = icmp ult i32 %vec.addr.07.i18, 2
+  %tobool.not.i28 = icmp samesign ult i32 %vec.addr.07.i18, 2
   br i1 %tobool.not.i28, label %gf2_matrix_times.exit30, label %while.body.i16, !llvm.loop !32
 
 gf2_matrix_times.exit30:                          ; preds = %if.end.i24
@@ -954,7 +954,7 @@ if.end.i40:                                       ; preds = %if.then.i38, %while
   %sum.1.i41 = phi i32 [ %xor.i39, %if.then.i38 ], [ %sum.08.i33, %while.body.i32 ]
   %shr.i42 = lshr i32 %vec.addr.07.i34, 1
   %incdec.ptr.i43 = getelementptr inbounds i8, ptr %mat.addr.06.i35, i64 4
-  %tobool.not.i44 = icmp ult i32 %vec.addr.07.i34, 2
+  %tobool.not.i44 = icmp samesign ult i32 %vec.addr.07.i34, 2
   br i1 %tobool.not.i44, label %gf2_matrix_times.exit46, label %while.body.i32, !llvm.loop !32
 
 gf2_matrix_times.exit46:                          ; preds = %if.end.i40

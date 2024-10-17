@@ -6650,7 +6650,7 @@ _ZNK6vectorIN9bv_bounds9nintervalELb1EjE4sizeEv.exit.thread: ; preds = %_ZNK6vec
   %arrayidx.i51 = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i51, align 4
   %19 = zext i32 %18 to i64
-  %cmp23352 = icmp ult i64 %indvars.iv, %19
+  %cmp23352 = icmp samesign ult i64 %indvars.iv, %19
   br i1 %cmp23352, label %for.body24, label %_ZNK6vectorIN9bv_bounds9nintervalELb1EjE4sizeEv.exit57
 
 for.body24:                                       ; preds = %_ZNK6vectorIN9bv_bounds9nintervalELb1EjE4sizeEv.exit.thread

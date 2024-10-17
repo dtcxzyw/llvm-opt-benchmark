@@ -81,7 +81,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %51 = add nuw nsw i64 %50, 1
   %52 = and i64 %51, 9223372036854775806
   %53 = tail call i64 @llvm.umin.i64(i64 %52, i64 384)
-  %54 = icmp ult i64 %52, 3
+  %54 = icmp samesign ult i64 %52, 3
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %46

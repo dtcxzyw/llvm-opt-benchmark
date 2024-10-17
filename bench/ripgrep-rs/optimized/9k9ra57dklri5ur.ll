@@ -410,7 +410,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !144, !alias.scope !145, !noundef !9
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %.sink.split.i.i, label %"_ZN4core3ptr45drop_in_place$LT$grep_regex..error..Error$GT$17h3232638243f7e0eaE.exit"
 
 .sink.split.i.i:                                  ; preds = %1
@@ -544,8 +544,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h0bc666f429281eceE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %6, align 8, !range !107, !noundef !9
-  %switch.i.i.i = icmp ugt i8 %8, 1
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
+  %or.cond.not = icmp samesign ugt i8 %8, 1
+  br i1 %or.cond.not, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !157
@@ -611,8 +611,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h0bc666f429281eceE(ptr 
   unreachable
 
 "_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit": ; preds = %14, %.body, %.sink.split.i.i.i
-  %.pn15 = phi { ptr, i32 } [ %7, %.body ], [ %7, %.sink.split.i.i.i ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn15
+  %.pn17 = phi { ptr, i32 } [ %7, %.body ], [ %7, %.sink.split.i.i.i ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn17
 
 .sink.split.i.i.i:                                ; preds = %.body
   %28 = getelementptr inbounds i8, ptr %6, i64 8
@@ -640,8 +640,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc42ba8858bcd8fbeE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %6, align 8, !range !107, !noundef !9
-  %switch.i.i.i = icmp ugt i8 %8, 1
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
+  %or.cond.not = icmp samesign ugt i8 %8, 1
+  br i1 %or.cond.not, label %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit", label %.sink.split.i.i.i
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !182
@@ -707,8 +707,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc42ba8858bcd8fbeE(ptr 
   unreachable
 
 "_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit": ; preds = %14, %.body, %.sink.split.i.i.i
-  %.pn15 = phi { ptr, i32 } [ %7, %.body ], [ %7, %.sink.split.i.i.i ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn15
+  %.pn17 = phi { ptr, i32 } [ %7, %.body ], [ %7, %.sink.split.i.i.i ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn17
 
 .sink.split.i.i.i:                                ; preds = %.body
   %28 = getelementptr inbounds i8, ptr %6, i64 8
@@ -954,7 +954,7 @@ define void @_ZN10grep_regex6config13ConfiguredHIR8to_regex17h6c7df5e8a0592f86E(
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx, align 8, !range !144, !alias.scope !220, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %36, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %36, 2
   br i1 %switch.not.i.i.i, label %37, label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17hc19bb3ceb2062d16E.exit"
 
 37:                                               ; preds = %34
@@ -1000,7 +1000,7 @@ define void @_ZN10grep_regex6config13ConfiguredHIR8to_regex17h6c7df5e8a0592f86E(
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17heeaf46ca4b09d54fE.exit": ; preds = %.noexc25, %42
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
   %50 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx, align 8, !range !144, !alias.scope !237, !noundef !9
-  %switch.not.i.i.i26 = icmp ult i8 %50, 2
+  %switch.not.i.i.i26 = icmp samesign ult i8 %50, 2
   br i1 %switch.not.i.i.i26, label %51, label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17hc19bb3ceb2062d16E.exit27"
 
 51:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17heeaf46ca4b09d54fE.exit"

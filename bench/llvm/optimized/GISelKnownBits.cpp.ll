@@ -365,7 +365,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %_ZNK4llvm3LLT13isFi
   %26 = and i32 %25, 65535
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %26, ptr %27, align 8, !alias.scope !6
-  %28 = icmp ult i32 %26, 65
+  %28 = icmp samesign ult i32 %26, 65
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
@@ -1906,7 +1906,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %335, %_ZNK4llvm5API
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 2
   %349 = load i24, ptr %276, align 8
   %350 = zext i24 %349 to i64
-  %351 = icmp ult i64 %indvars.iv.next546, %350
+  %351 = icmp samesign ult i64 %indvars.iv.next546, %350
   br i1 %351, label %286, label %.loopexit, !llvm.loop !26
 
 352:                                              ; preds = %214
@@ -5836,7 +5836,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %21, %25
   %28 = and i32 %27, 65535
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %28, ptr %29, align 8, !alias.scope !62
-  %30 = icmp ult i32 %28, 65
+  %30 = icmp samesign ult i32 %28, 65
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit

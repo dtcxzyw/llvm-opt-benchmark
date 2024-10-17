@@ -615,7 +615,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %257 = getelementptr inbounds i8, ptr %.02356, i64 -1
   store i8 %256, ptr %257, align 1
   %258 = udiv i64 %.02357, 10
-  %.not2750 = icmp ult i64 %.02357, 10
+  %.not2750 = icmp samesign ult i64 %.02357, 10
   br i1 %.not2750, label %259, label %253
 
 259:                                              ; preds = %253
@@ -2417,7 +2417,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1046 = getelementptr inbounds i8, ptr %.02359, i64 -1
   store i8 %1045, ptr %1046, align 1
   %1047 = udiv i64 %.02361, 10
-  %.not2878 = icmp ult i64 %.02361, 10
+  %.not2878 = icmp samesign ult i64 %.02361, 10
   br i1 %.not2878, label %1048, label %1042
 
 1048:                                             ; preds = %1042

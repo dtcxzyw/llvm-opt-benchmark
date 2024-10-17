@@ -491,7 +491,7 @@ sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
   %and2.i.i = lshr i32 %add.ptr.val.i.i, 5
   %shr3.i.i = and i32 %and2.i.i, 524287
   %conv4.i.i = zext nneg i32 %shr3.i.i to i64
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 131072
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 131072
   %2 = lshr i32 %add.ptr.val.i.i, 24
   %3 = trunc nuw i32 %2 to i8
   br i1 %cmp.i.i, label %ZSTD_decodeLiteralsBlock.exit.thread43, label %if.end.i.i
@@ -506,7 +506,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %Dtime.i.i.i)
   %shr.i.i.i = lshr i32 %shr.i.i, 8
   %cmp.i.i.i = icmp eq i32 %shr.i.i, 0
-  %cmp2.i.i.i = icmp ugt i32 %shr3.i.i, %shr.i.i
+  %cmp2.i.i.i = icmp samesign ugt i32 %shr3.i.i, %shr.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i, label %HUF_decompress.exit.thread13.i.i, label %if.end5.i.i.i
 
@@ -585,7 +585,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
   br i1 %cmp12.i, label %if.then14.i, label %if.end34.i
 
 if.then14.i:                                      ; preds = %sw.bb7.i
-  %cmp15.i = icmp ugt i32 %shr.i, 131072
+  %cmp15.i = icmp samesign ugt i32 %shr.i, 131072
   %sub19.i = add nsw i64 %srcSize, -3
   %cmp20.i = icmp ult i64 %sub19.i, %conv11.i
   %or.cond.i = or i1 %cmp15.i, %cmp20.i
@@ -616,7 +616,7 @@ sw.bb39.i:                                        ; preds = %if.end.i
   %src.val.i = load i32, ptr %src, align 1
   %and42.i = lshr i32 %src.val.i, 2
   %shr43.i = and i32 %and42.i, 4194303
-  %cmp45.i = icmp ugt i32 %shr43.i, 131072
+  %cmp45.i = icmp samesign ugt i32 %shr43.i, 131072
   br i1 %cmp45.i, label %return, label %if.end48.i
 
 if.end48.i:                                       ; preds = %sw.bb39.i
@@ -4410,7 +4410,7 @@ BIT_reloadDStream.exit.i.i:                       ; preds = %if.end22.i.i.i, %if
   %bitD.i13.sroa.61839.8.idx.i.i = sub nsw i64 %bitD.i13.sroa.61839.0.idx.i56.i, %idx.ext38.i.pn.i.i
   %bitD.i13.sroa.0.6.in.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i13.sroa.61839.8.idx.i.i
   %bitD.i13.sroa.0.6.i.i = load i64, ptr %bitD.i13.sroa.0.6.in.i.i, align 1
-  %cmp4.i142.i.i = icmp ult i64 %op.i10.0.idx.i59.i, 252
+  %cmp4.i142.i.i = icmp samesign ult i64 %op.i10.0.idx.i59.i, 252
   %31 = select i1 %retval.0.i123.i.i, i1 %cmp4.i142.i.i, i1 false
   br i1 %31, label %cond.true.i138.i.i, label %while.body.i28.preheader.i.i
 
@@ -4939,7 +4939,7 @@ BIT_reloadDStream.exit535.i.i:                    ; preds = %if.end22.i514.i.i, 
   %bitD.i.sroa.61785.8.idx.i.i = sub nsw i64 %bitD.i.sroa.61785.0.idx.i71.i, %idx.ext38.i526.pn.i.i
   %bitD.i.sroa.0.6.in.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i.sroa.61785.8.idx.i.i
   %bitD.i.sroa.0.6.i.i = load i64, ptr %bitD.i.sroa.0.6.in.i.i, align 1
-  %cmp4.i.i.i = icmp ult i64 %op.i.0.idx.i74.i, 252
+  %cmp4.i.i.i = icmp samesign ult i64 %op.i.0.idx.i74.i, 252
   %57 = select i1 %retval.0.i511.i.i, i1 %cmp4.i.i.i, i1 false
   br i1 %57, label %cond.false.i.i.i, label %while.body.i.preheader.i.i
 
@@ -5273,7 +5273,7 @@ if.end77:                                         ; preds = %for.end73
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add70, i1 true)
   %xor.i = xor i32 %72, 31
   %add79 = sub nuw nsw i32 32, %72
-  %cmp80 = icmp ugt i32 %xor.i, 15
+  %cmp80 = icmp samesign ugt i32 %xor.i, 15
   br i1 %cmp80, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end77
@@ -5326,7 +5326,7 @@ entry:
 if.end:                                           ; preds = %entry
   %headerBuffer.val = load i32, ptr %headerBuffer, align 1
   %and = and i32 %headerBuffer.val, 15
-  %cmp1 = icmp ugt i32 %and, 10
+  %cmp1 = icmp samesign ugt i32 %and, 10
   br i1 %cmp1, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end

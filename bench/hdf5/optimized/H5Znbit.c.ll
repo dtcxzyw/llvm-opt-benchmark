@@ -1909,7 +1909,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %52 = add i64 %51, %1
   call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %0, i64 noundef %52, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %53 = icmp ult i64 %indvars.iv.next93, %49
+  %53 = icmp samesign ult i64 %indvars.iv.next93, %49
   br i1 %53, label %50, label %H5Z__nbit_decompress_one_nooptype.exit
 
 54:                                               ; preds = %7
@@ -1942,7 +1942,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
 70:                                               ; preds = %61
   store i32 %14, ptr %6, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %71 = icmp ult i64 %indvars.iv.next90, %60
+  %71 = icmp samesign ult i64 %indvars.iv.next90, %60
   br i1 %71, label %61, label %H5Z__nbit_decompress_one_nooptype.exit
 
 72:                                               ; preds = %7
@@ -1975,7 +1975,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
 88:                                               ; preds = %79
   store i32 %14, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = icmp ult i64 %indvars.iv.next, %78
+  %89 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %89, label %79, label %H5Z__nbit_decompress_one_nooptype.exit
 
 90:                                               ; preds = %7
@@ -2709,7 +2709,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %43 = add i64 %42, %1
   call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %0, i64 noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %44 = icmp ult i64 %indvars.iv.next85, %40
+  %44 = icmp samesign ult i64 %indvars.iv.next85, %40
   br i1 %44, label %41, label %H5Z__nbit_compress_one_nooptype.exit
 
 45:                                               ; preds = %7
@@ -2732,7 +2732,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %55 = icmp ult i64 %indvars.iv.next82, %51
+  %55 = icmp samesign ult i64 %indvars.iv.next82, %51
   br i1 %55, label %52, label %H5Z__nbit_compress_one_nooptype.exit
 
 56:                                               ; preds = %7
@@ -2755,7 +2755,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = icmp ult i64 %indvars.iv.next, %62
+  %66 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %66, label %63, label %H5Z__nbit_compress_one_nooptype.exit
 
 67:                                               ; preds = %7

@@ -5701,7 +5701,7 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyEN
   %2396 = lshr i32 %2393, 6
   %2397 = add i32 %2392, -1
   %2398 = lshr i32 %2397, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %2396, %2398
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %2396, %2398
   br i1 %.not32.i.i.i.i.i, label %._crit_edge636.i, label %.lr.ph.i.i.i.i347.i
 
 .lr.ph.i.i.i.i347.i:                              ; preds = %2395
@@ -7687,7 +7687,7 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
   %3417 = zext i8 %3416 to i32
   %3418 = add i32 %3413, %3417
   %3419 = zext i32 %3418 to i64
-  %3420 = icmp ult i64 %indvars.iv.next.i, %3419
+  %3420 = icmp samesign ult i64 %indvars.iv.next.i, %3419
   br i1 %3420, label %.lr.ph271.i, label %_ZN12_GLOBAL__N_115MachineVerifier23visitMachineInstrBeforeEPKN4llvm12MachineInstrE.exit, !llvm.loop !63
 
 .lr.ph271.i:                                      ; preds = %"_ZZN12_GLOBAL__N_115MachineVerifier23visitMachineInstrBeforeEPKN4llvm12MachineInstrEENK3$_0clEj.exit", %3412
@@ -8045,7 +8045,7 @@ _ZN12_GLOBAL__N_115MachineVerifier23visitMachineInstrBeforeEPKN4llvm12MachineIns
 3612:                                             ; preds = %3608, %3597
   %.0.i175 = phi i32 [ %3603, %3597 ], [ %spec.select.i, %3608 ]
   %3613 = zext nneg i32 %.0.i175 to i64
-  %3614 = icmp ult i64 %indvars.iv, %3613
+  %3614 = icmp samesign ult i64 %indvars.iv, %3613
   br i1 %3614, label %3615, label %.thread.i
 
 3615:                                             ; preds = %3612
@@ -8295,7 +8295,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i735:           ; preds = %3744, %3742
   %3760 = getelementptr inbounds nuw i8, ptr %3600, i64 2
   %3761 = load i16, ptr %3760, align 2
   %3762 = zext i16 %3761 to i64
-  %3763 = icmp ult i64 %indvars.iv, %3762
+  %3763 = icmp samesign ult i64 %indvars.iv, %3762
   br i1 %3763, label %3764, label %4164
 
 3764:                                             ; preds = %.thread.i
@@ -8682,7 +8682,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i719:           ; preds = %3968, %3966
 _ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE.exit720: ; preds = %3981, %3979, %3935, %3933, %3929, %3764
   %3984 = load i16, ptr %3760, align 2
   %3985 = zext i16 %3984 to i64
-  %3986 = icmp ult i64 %indvars.iv, %3985
+  %3986 = icmp samesign ult i64 %indvars.iv, %3985
   br i1 %3986, label %3987, label %._ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread_crit_edge.i
 
 ._ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE.exit720
@@ -11251,7 +11251,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i645:           ; preds = %5298, %5296
 _ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE.exit646: ; preds = %5311, %5309, %_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE.exit650
   %5314 = load i8, ptr %3601, align 4
   %5315 = zext i8 %5314 to i64
-  %5316 = icmp ult i64 %indvars.iv, %5315
+  %5316 = icmp samesign ult i64 %indvars.iv, %5315
   br i1 %5316, label %5317, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit346.i
 
 5317:                                             ; preds = %_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE.exit646
@@ -11483,7 +11483,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i637:           ; preds = %5435, %5433
   %5452 = getelementptr inbounds nuw i8, ptr %3600, i64 2
   %5453 = load i16, ptr %5452, align 2
   %5454 = zext i16 %5453 to i64
-  %5455 = icmp ult i64 %indvars.iv, %5454
+  %5455 = icmp samesign ult i64 %indvars.iv, %5454
   br i1 %5455, label %5456, label %_ZN4llvm9PrintableD2Ev.exit.i192
 
 5456:                                             ; preds = %5451
@@ -11504,7 +11504,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i637:           ; preds = %5435, %5433
   %5468 = getelementptr inbounds nuw i8, ptr %5466, i64 22
   %5469 = load i16, ptr %5468, align 2
   %5470 = zext i16 %5469 to i32
-  %.not.i.i351.i = icmp ult i32 %5467, %5470
+  %.not.i.i351.i = icmp samesign ult i32 %5467, %5470
   br i1 %.not.i.i351.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %5465
@@ -12298,7 +12298,7 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
   %5913 = getelementptr inbounds nuw i8, ptr %3600, i64 2
   %5914 = load i16, ptr %5913, align 2
   %5915 = zext i16 %5914 to i64
-  %5916 = icmp ult i64 %indvars.iv, %5915
+  %5916 = icmp samesign ult i64 %indvars.iv, %5915
   br i1 %5916, label %5917, label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 5917:                                             ; preds = %5912
@@ -12647,7 +12647,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit519:              ; preds = %6102, %6104
   %6120 = getelementptr inbounds nuw i8, ptr %3600, i64 2
   %6121 = load i16, ptr %6120, align 2
   %6122 = zext i16 %6121 to i64
-  %6123 = icmp ult i64 %indvars.iv, %6122
+  %6123 = icmp samesign ult i64 %indvars.iv, %6122
   br i1 %6123, label %6124, label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 6124:                                             ; preds = %6119
@@ -25458,7 +25458,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %138
   %178 = phi i24 [ %165, %171 ], [ %.pre1911, %176 ], [ %165, %164 ]
   %indvars.iv.next1906 = add nuw nsw i64 %indvars.iv1905, 1
   %179 = zext i24 %178 to i64
-  %180 = icmp ult i64 %indvars.iv.next1906, %179
+  %180 = icmp samesign ult i64 %indvars.iv.next1906, %179
   br i1 %180, label %164, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
@@ -35401,7 +35401,7 @@ _ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyE
 
 27:                                               ; preds = %24
   %28 = and i32 %25, 2147483647
-  %29 = icmp ult i32 %28, 81920
+  %29 = icmp samesign ult i32 %28, 81920
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %27
@@ -35606,7 +35606,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
   %134 = getelementptr inbounds %"class.llvm::Register", ptr %133, i64 %132
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 2147483647
-  %137 = icmp ult i32 %136, 81920
+  %137 = icmp samesign ult i32 %136, 81920
   br i1 %137, label %138, label %148
 
 138:                                              ; preds = %131

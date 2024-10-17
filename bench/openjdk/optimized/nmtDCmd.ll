@@ -804,7 +804,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %60
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %64 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
+  %64 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2336
   br i1 %64, label %60, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !8
 
 _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i
@@ -1025,7 +1025,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %47
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %51 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
+  %51 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2336
   br i1 %51, label %47, label %_ZN21MemDetailDiffReporterD2Ev.exit, !llvm.loop !8
 
 _ZN21MemDetailDiffReporterD2Ev.exit:              ; preds = %._crit_edge.i.i.i.i

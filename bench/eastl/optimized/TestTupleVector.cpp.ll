@@ -25351,7 +25351,7 @@ land.rhs.lr.ph.split.us.split.us:                 ; preds = %land.rhs.lr.ph.spli
   %14 = and i8 %13, 1
   %15 = load i8, ptr %arrayidx2.i.i6.us.us140, align 1
   %16 = and i8 %15, 1
-  %cmp.i.i.i.i.us.us143 = icmp ult i8 %14, %16
+  %cmp.i.i.i.i.us.us143 = icmp samesign ult i8 %14, %16
   br i1 %cmp.i.i.i.i.us.us143, label %return, label %lor.rhs.i.i.i.us.us
 
 lor.rhs.i.i.i.us.us:                              ; preds = %land.rhs.lr.ph.split.us.split.us, %for.inc.us.us
@@ -25363,7 +25363,7 @@ lor.rhs.i.i.i.us.us:                              ; preds = %land.rhs.lr.ph.spli
   %arrayidx10.i.i.us.us147 = getelementptr inbounds float, ptr %8, i64 %inc.i5561.us.us144
   %arrayidx6.i.i8.us.us148 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760.us.us145
   %arrayidx10.i.i10.us.us149 = getelementptr inbounds float, ptr %10, i64 %inc.i375760.us.us145
-  %cmp.i5.i.i.i.us.us = icmp ult i8 %17, %18
+  %cmp.i5.i.i.i.us.us = icmp samesign ult i8 %17, %18
   br i1 %cmp.i5.i.i.i.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us: ; preds = %lor.rhs.i.i.i.us.us
@@ -25407,7 +25407,7 @@ for.inc.us.us:                                    ; preds = %_ZN5eastlltIJRKbRK1
   %28 = and i8 %27, 1
   %29 = load i8, ptr %arrayidx2.i.i6.us.us, align 1
   %30 = and i8 %29, 1
-  %cmp.i.i.i.i.us.us = icmp ult i8 %28, %30
+  %cmp.i.i.i.i.us.us = icmp samesign ult i8 %28, %30
   br i1 %cmp.i.i.i.i.us.us, label %return, label %lor.rhs.i.i.i.us.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %for.inc.us
@@ -25423,11 +25423,11 @@ land.rhs.us:                                      ; preds = %land.rhs.us.prehead
   %32 = and i8 %31, 1
   %33 = load i8, ptr %arrayidx2.i.i6.us, align 1
   %34 = and i8 %33, 1
-  %cmp.i.i.i.i.us = icmp ult i8 %32, %34
+  %cmp.i.i.i.i.us = icmp samesign ult i8 %32, %34
   br i1 %cmp.i.i.i.i.us, label %return, label %lor.rhs.i.i.i.us
 
 lor.rhs.i.i.i.us:                                 ; preds = %land.rhs.us
-  %cmp.i5.i.i.i.us = icmp ult i8 %34, %32
+  %cmp.i5.i.i.i.us = icmp samesign ult i8 %34, %32
   br i1 %cmp.i5.i.i.i.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us: ; preds = %lor.rhs.i.i.i.us
@@ -25500,11 +25500,11 @@ for.body.us84:                                    ; preds = %for.body.us84.prehe
   %50 = and i8 %49, 1
   %51 = load i8, ptr %arrayidx2.i.i6.us88, align 1
   %52 = and i8 %51, 1
-  %cmp.i.i.i.i.us91 = icmp ult i8 %50, %52
+  %cmp.i.i.i.i.us91 = icmp samesign ult i8 %50, %52
   br i1 %cmp.i.i.i.i.us91, label %return, label %lor.rhs.i.i.i.us92
 
 lor.rhs.i.i.i.us92:                               ; preds = %for.body.us84
-  %cmp.i5.i.i.i.us93 = icmp ult i8 %52, %50
+  %cmp.i5.i.i.i.us93 = icmp samesign ult i8 %52, %50
   br i1 %cmp.i5.i.i.i.us93, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94: ; preds = %lor.rhs.i.i.i.us92
@@ -25562,11 +25562,11 @@ for.body:                                         ; preds = %land.rhs
   %62 = and i8 %61, 1
   %63 = load i8, ptr %arrayidx2.i.i6, align 1
   %64 = and i8 %63, 1
-  %cmp.i.i.i.i = icmp ult i8 %62, %64
+  %cmp.i.i.i.i = icmp samesign ult i8 %62, %64
   br i1 %cmp.i.i.i.i, label %return, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %for.body
-  %cmp.i5.i.i.i = icmp ult i8 %64, %62
+  %cmp.i5.i.i.i = icmp samesign ult i8 %64, %62
   br i1 %cmp.i5.i.i.i, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i: ; preds = %lor.rhs.i.i.i

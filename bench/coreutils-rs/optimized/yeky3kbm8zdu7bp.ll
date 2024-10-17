@@ -2303,15 +2303,15 @@ _ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread: ; pr
   br label %90
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %85, i64 3, i64 4
   br label %86
 

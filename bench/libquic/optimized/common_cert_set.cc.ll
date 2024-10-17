@@ -412,7 +412,7 @@ for.inc38:                                        ; preds = %for.inc
   %inc39 = add nuw nsw i64 %i.035, 1
   %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
   %div19 = lshr i64 %call2, 3
-  %cmp3 = icmp ult i64 %inc39, %div19
+  %cmp3 = icmp samesign ult i64 %inc39, %div19
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.inc38, %for.cond.preheader, %entry, %if.else35

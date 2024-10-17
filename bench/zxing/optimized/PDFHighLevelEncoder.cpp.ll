@@ -587,7 +587,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %274 = phi i64 [ 0, %271 ], [ %282, %281 ]
   %275 = getelementptr i32, ptr %272, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !21
-  %277 = icmp ult i64 %274, 13
+  %277 = icmp samesign ult i64 %274, 13
   %278 = add i32 %276, -48
   %279 = icmp ult i32 %278, 10
   %280 = select i1 %277, i1 %279, i1 false

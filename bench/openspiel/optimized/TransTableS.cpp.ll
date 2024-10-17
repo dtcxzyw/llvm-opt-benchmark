@@ -106,7 +106,7 @@ define void @_ZN11TransTableSC2Ev(ptr nocapture noundef nonnull writeonly align 
   %.0910.i = phi i32 [ 1, %3 ], [ %spec.select.i, %4 ]
   %5 = shl i32 %.0910.i, 1
   %6 = zext i32 %5 to i64
-  %.not.i = icmp ult i64 %indvars.iv.i, %6
+  %.not.i = icmp samesign ult i64 %indvars.iv.i, %6
   %spec.select.i = select i1 %.not.i, i32 %.0910.i, i32 %5
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = xor i32 %spec.select.i, %7
@@ -136,7 +136,7 @@ define void @_ZN11TransTableS12SetConstantsEv(ptr nocapture noundef nonnull read
   %.0910 = phi i32 [ 1, %1 ], [ %spec.select, %2 ]
   %3 = shl i32 %.0910, 1
   %4 = zext i32 %3 to i64
-  %.not = icmp ult i64 %indvars.iv, %4
+  %.not = icmp samesign ult i64 %indvars.iv, %4
   %spec.select = select i1 %.not, i32 %.0910, i32 %3
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = xor i32 %spec.select, %5
@@ -338,7 +338,7 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
   %.03035 = phi i32 [ %.131, %35 ], [ 1, %4 ]
   %10 = shl i32 %.03035, 1
   %11 = zext i32 %10 to i64
-  %.not = icmp uge i64 %indvars.iv43, %11
+  %.not = icmp samesign uge i64 %indvars.iv43, %11
   %.131 = select i1 %.not, i32 %10, i32 %.03035
   %12 = zext i1 %.not to i32
   %.1 = add i32 %.02936, %12
@@ -2193,7 +2193,7 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   store i32 %141, ptr %128, align 8
   %142 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr null, ptr %142, align 8
-  %143 = icmp ult i64 %indvars.iv, 3
+  %143 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %143, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %137, %.lr.ph

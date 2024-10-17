@@ -1585,7 +1585,7 @@ for.body:                                         ; preds = %_ZNSt3mapIPK6aiNode
   %mNumChildren = getelementptr inbounds i8, ptr %76, i64 1104
   %77 = load i32, ptr %mNumChildren, align 8
   %78 = zext i32 %77 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %78
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %_ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit31
@@ -1657,7 +1657,7 @@ _ZNSt8multimapIPK6aiNodejSt4lessIS2_ESaISt4pairIKS2_jEEE6insertIS5_IS2_jEEENSt9e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %mNumMeshes, align 8
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !8
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.body5
@@ -1669,7 +1669,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %11 = load i32, ptr %mNumChildren, align 8
   %12 = zext i32 %11 to i64
-  %cmp4 = icmp ult i64 %indvars.iv.next14, %12
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next14, %12
   br i1 %cmp4, label %for.body5, label %for.end10, !llvm.loop !9
 
 for.end10:                                        ; preds = %for.body5, %for.cond3.preheader
@@ -3086,7 +3086,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit586: ; preds = %invoke.cont124, %.
   %mNumMaterials = getelementptr inbounds i8, ptr %246, i64 32
   %247 = load i32, ptr %mNumMaterials, align 8
   %248 = zext i32 %247 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %248
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %248
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 ehcleanup126:                                     ; preds = %lpad104, %lpad91, %lpad80, %lpad69, %lpad55, %lpad44, %lpad33, %lpad22, %lpad12, %ehcleanup, %lpad
@@ -3704,7 +3704,7 @@ for.inc:                                          ; preds = %.noexc159, %invoke.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %mNumVertices, align 4
   %75 = zext i32 %74 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %75
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %cmp, label %for.body25, label %for.end, !llvm.loop !14
 
 lpad:                                             ; preds = %_ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit
@@ -4098,7 +4098,7 @@ for.inc60:                                        ; preds = %.noexc244, %invoke.
   %indvars.iv.next1635 = add nuw nsw i64 %indvars.iv1634, 1
   %124 = load i32, ptr %mNumVertices, align 4
   %125 = zext i32 %124 to i64
-  %cmp48 = icmp ult i64 %indvars.iv.next1635, %125
+  %cmp48 = icmp samesign ult i64 %indvars.iv.next1635, %125
   br i1 %cmp48, label %for.body49, label %for.end62, !llvm.loop !15
 
 lpad43.loopexit:                                  ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i674, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i726
@@ -4548,7 +4548,7 @@ for.inc109:                                       ; preds = %_ZN6Assimp12StreamW
   %175 = phi i64 [ %add9.i.i333, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit335 ], [ %154, %for.body87 ]
   %indvars.iv.next1644 = add nuw nsw i64 %indvars.iv1643, 1
   %176 = zext i32 %174 to i64
-  %cmp86 = icmp ult i64 %indvars.iv.next1644, %176
+  %cmp86 = icmp samesign ult i64 %indvars.iv.next1644, %176
   br i1 %cmp86, label %for.body87, label %for.end111, !llvm.loop !18
 
 for.end111:                                       ; preds = %for.inc109, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit306
@@ -5375,7 +5375,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit.i: ; preds = %.noexc89, %for.bod
   %inc.i = add nuw nsw i64 %i.020.i, 1
   %29 = load i32, ptr %node, align 8
   %conv.i = zext i32 %29 to i64
-  %cmp.i = icmp ult i64 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i64 %inc.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !23
 
 for.end.i:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit.i, %invoke.cont
@@ -5581,7 +5581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %mNumChildren, align 8
   %64 = zext i32 %63 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %64
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %cmp10, label %for.body, label %for.cond14.preheader, !llvm.loop !24
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
@@ -5838,7 +5838,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit257: ; preds = %_ZN6Assimp12_GLOBA
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %118 = load i32, ptr %mNumMeshes, align 8
   %119 = zext i32 %118 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next298, %119
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next298, %119
   br i1 %cmp15, label %for.body16, label %for.end49, !llvm.loop !25
 
 lpad28:                                           ; preds = %if.then.i.i12.i184, %if.then.i.i.i173
@@ -6120,7 +6120,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit:  ; preds = %for.body, %if.then.
   %inc = add nuw nsw i64 %i.020, 1
   %8 = load i32, ptr %s, align 4
   %conv = zext i32 %8 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit, %entry.for.end_crit_edge
@@ -6980,7 +6980,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit.i: ; preds = %.noexc64, %for.bod
   %inc.i = add nuw nsw i64 %i.020.i, 1
   %31 = load i32, ptr %path, align 4
   %conv.i = zext i32 %31 to i64
-  %cmp.i = icmp ult i64 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i64 %inc.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !23
 
 for.end.i:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit.i, %invoke.cont

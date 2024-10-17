@@ -854,7 +854,7 @@ _ZN7mitsuba6Stream4readIfEEvRT_.exit:             ; preds = %.lr.ph._ZN7mitsuba6
   %161 = add nuw nsw i64 %.0110, 1
   %162 = load i32, ptr %92, align 16
   %163 = zext i32 %162 to i64
-  %164 = icmp ult i64 %161, %163
+  %164 = icmp samesign ult i64 %161, %163
   br i1 %164, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %_ZN7mitsuba6Stream4readIfEEvRT_.exit, %.preheader
@@ -1102,7 +1102,7 @@ define weak_odr void @_ZNK7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4
   %11 = add nuw nsw i64 %.05, 1
   %12 = load i32, ptr %3, align 16
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %11, %13
+  %14 = icmp samesign ult i64 %11, %13
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %6, %2
@@ -1137,7 +1137,7 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %11 = add nuw nsw i64 %.05, 1
   %12 = load i32, ptr %3, align 16
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %11, %13
+  %14 = icmp samesign ult i64 %11, %13
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %6, %2

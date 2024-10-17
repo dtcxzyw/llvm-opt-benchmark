@@ -1004,7 +1004,7 @@ if.end7:                                          ; preds = %_ZN6icu_7515MaybeSt
   %10 = load ptr, ptr %vfn, align 8
   %call8 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %and = and i32 %call8, 255
-  %cmp9 = icmp ult i32 %and, 192
+  %cmp9 = icmp samesign ult i32 %and, 192
   br i1 %cmp9, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.end7
@@ -1131,7 +1131,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.true.i, %cond.
   %arrayidx52.i = getelementptr inbounds i32, ptr %19, i64 %idxprom51.i
   %31 = load i32, ptr %arrayidx52.i, align 4
   %and33 = and i32 %31, 255
-  %cmp34 = icmp ult i32 %and33, 192
+  %cmp34 = icmp samesign ult i32 %and33, 192
   br i1 %cmp34, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit
@@ -1847,7 +1847,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %incdec.ptr = getelementptr inbounds i8, ptr %ce32s.0, i64 4
   %39 = load i32, ptr %ce32s.0, align 4
   %and.i204 = and i32 %39, 255
-  %cmp.i205 = icmp ult i32 %and.i204, 192
+  %cmp.i205 = icmp samesign ult i32 %and.i204, 192
   br i1 %cmp.i205, label %if.then.i207, label %if.else.i
 
 if.then.i207:                                     ; preds = %do.body
@@ -2534,7 +2534,7 @@ if.then154:                                       ; preds = %_ZN6icu_7515MaybeSt
   %arrayidx159 = getelementptr inbounds i32, ptr %119, i64 %idxprom158
   %128 = load i32, ptr %arrayidx159, align 4
   %and.i396 = and i32 %128, 255
-  %cmp.i397 = icmp ult i32 %and.i396, 192
+  %cmp.i397 = icmp samesign ult i32 %and.i396, 192
   br i1 %cmp.i397, label %if.then.i407, label %if.else.i398
 
 if.then.i407:                                     ; preds = %if.then154
@@ -2574,7 +2574,7 @@ _ZN6icu_759Collation10ceFromCE32Ej.exit418:       ; preds = %if.then.i407, %if.e
   %arrayidx168 = getelementptr i8, ptr %132, i64 76
   %133 = load i32, ptr %arrayidx168, align 4
   %and.i422 = and i32 %133, 255
-  %cmp.i423 = icmp ult i32 %and.i422, 192
+  %cmp.i423 = icmp samesign ult i32 %and.i422, 192
   br i1 %cmp.i423, label %if.then.i433, label %if.else.i424
 
 if.then.i433:                                     ; preds = %_ZN6icu_759Collation10ceFromCE32Ej.exit418
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %if.else183, %if.end
 define linkonce_odr noundef i64 @_ZN6icu_759Collation10ceFromCE32Ej(i32 noundef %ce32) local_unnamed_addr #0 comdat align 2 {
 entry:
   %and = and i32 %ce32, 255
-  %cmp = icmp ult i32 %and, 192
+  %cmp = icmp samesign ult i32 %and, 192
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3147,7 +3147,7 @@ if.then10:                                        ; preds = %invoke.cont7
 
 cond.true.i:                                      ; preds = %if.then10
   %and2.i = and i32 %conv.i10, 32767
-  %cmp.i.i = icmp ult i32 %and2.i, 16384
+  %cmp.i.i = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i, label %if.end13, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i
@@ -3449,7 +3449,7 @@ if.then10:                                        ; preds = %for.cond
 
 cond.true.i:                                      ; preds = %if.then10
   %and2.i = and i32 %conv.i, 32767
-  %cmp.i.i26 = icmp ult i32 %and2.i, 16384
+  %cmp.i.i26 = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i26, label %invoke.cont11, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i
@@ -4982,7 +4982,7 @@ for.cond46:                                       ; preds = %_ZNK6icu_7513Collat
   %sinceMatch.0 = phi i32 [ 2, %if.end44 ], [ %inc68, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %59 = lshr i16 %fcd16.0, 8
   %60 = zext i8 %prevCC.0 to i16
-  %cmp49 = icmp ugt i16 %59, %60
+  %cmp49 = icmp samesign ugt i16 %59, %60
   br i1 %cmp49, label %land.lhs.true, label %if.else59
 
 land.lhs.true:                                    ; preds = %for.cond46
@@ -5000,7 +5000,7 @@ if.then52:                                        ; preds = %land.lhs.true
 
 cond.true.i:                                      ; preds = %if.then52
   %and2.i = and i32 %conv.i138, 32767
-  %cmp.i.i139 = icmp ult i32 %and2.i, 16384
+  %cmp.i.i139 = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i139, label %_ZNK6icu_7510UCharsTrie8getValueEv.exit, label %if.else.i.i140
 
 if.else.i.i140:                                   ; preds = %cond.true.i
@@ -6255,7 +6255,7 @@ lor.lhs.false.i:                                  ; preds = %if.end23
 
 if.then26:                                        ; preds = %lor.lhs.false.i, %if.end23
   %and.i69 = and i32 %ce32.0, 255
-  %cmp.i70 = icmp ult i32 %and.i69, 192
+  %cmp.i70 = icmp samesign ult i32 %and.i69, 192
   br i1 %cmp.i70, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then26

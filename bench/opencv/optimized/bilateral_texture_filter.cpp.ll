@@ -795,7 +795,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit112:              ; preds = %317
   %325 = lshr i32 %324, 3
   %326 = and i32 %325, 511
   %327 = zext nneg i32 %326 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %327
+  %.not.not = icmp samesign ult i64 %indvars.iv, %327
   br i1 %.not.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit110, label %340, !llvm.loop !18
 
 328:                                              ; preds = %305
@@ -2073,7 +2073,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit185:              ; preds = %412
   %418 = lshr i32 %417, 3
   %419 = and i32 %418, 511
   %420 = zext nneg i32 %419 to i64
-  %.not225.not = icmp ult i64 %indvars.iv, %420
+  %.not225.not = icmp samesign ult i64 %indvars.iv, %420
   br i1 %.not225.not, label %294, label %441, !llvm.loop !46
 
 421:                                              ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit180, %_ZNK2cv7MatExprcvNS_3MatEEv.exit178

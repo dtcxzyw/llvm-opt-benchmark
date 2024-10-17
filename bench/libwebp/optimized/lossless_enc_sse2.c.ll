@@ -70,7 +70,7 @@ define internal void @SubtractGreenFromBlueAndRed_SSE2(ptr noundef %0, i32 nound
   %12 = sub <16 x i8> %10, %11
   store <16 x i8> %12, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %3
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %3
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -151,7 +151,7 @@ define internal void @TransformColor_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %48 = sub <16 x i8> %46, %47
   store <16 x i8> %48, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %30
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %30
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 4
   br i1 %.not, label %._crit_edge.loopexit, label %31, !llvm.loop !6
 
@@ -214,7 +214,7 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noundef %0, i32 nounde
 
 .loopexit:                                        ; preds = %62
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 8
-  %.not140 = icmp ugt i64 %indvars.iv.next156, %23
+  %.not140 = icmp samesign ugt i64 %indvars.iv.next156, %23
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 8
   br i1 %.not140, label %._crit_edge, label %27, !llvm.loop !7
 
@@ -325,7 +325,7 @@ define internal void @CollectColorRedTransforms_SSE2(ptr noundef %0, i32 noundef
 
 .loopexit:                                        ; preds = %46
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 8
-  %.not106 = icmp ugt i64 %indvars.iv.next117, %15
+  %.not106 = icmp samesign ugt i64 %indvars.iv.next117, %15
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 8
   br i1 %.not106, label %._crit_edge, label %19, !llvm.loop !10
 
@@ -455,7 +455,7 @@ define internal void @AddVector_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %35 = add <4 x i32> %27, %19
   store <4 x i32> %35, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 16
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !13
 
@@ -530,7 +530,7 @@ define internal void @AddVectorEq_SSE2(ptr nocapture noundef readonly %0, ptr no
   %30 = add <4 x i32> %26, %18
   store <4 x i32> %30, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %.not = icmp ugt i64 %indvars.iv.next, %4
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 16
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !15
 
@@ -666,7 +666,7 @@ VP8LFastSLog2.exit92:                             ; preds = %57, %61
   %.186.lcssa = phi i32 [ %.085103, %3 ], [ %55, %VP8LFastSLog2.exit92 ]
   %.1.lcssa = phi float [ %.084104, %3 ], [ %65, %VP8LFastSLog2.exit92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %68 = icmp ult i64 %indvars.iv, 240
+  %68 = icmp samesign ult i64 %indvars.iv, 240
   br i1 %68, label %3, label %69, !llvm.loop !18
 
 69:                                               ; preds = %._crit_edge
@@ -886,7 +886,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   store <8 x i16> %18, ptr %21, align 1
   %22 = getelementptr inbounds i8, ptr %.0259, i64 64
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 16
-  %.not238 = icmp ugt i64 %indvars.iv.next292, %7
+  %.not238 = icmp samesign ugt i64 %indvars.iv.next292, %7
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 16
   br i1 %.not238, label %.loopexit.loopexit269, label %.lr.ph260, !llvm.loop !21
 
@@ -905,7 +905,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   store <8 x i16> %28, ptr %29, align 1
   %30 = getelementptr inbounds i8, ptr %.2253, i64 32
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 16
-  %.not237 = icmp ugt i64 %indvars.iv.next285, %6
+  %.not237 = icmp samesign ugt i64 %indvars.iv.next285, %6
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 16
   br i1 %.not237, label %.loopexit.loopexit270, label %.lr.ph254, !llvm.loop !22
 
@@ -926,7 +926,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   store <2 x i64> %40, ptr %.3249, align 1
   %41 = getelementptr inbounds i8, ptr %.3249, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 16
   br i1 %.not, label %.loopexit.loopexit271, label %.lr.ph, !llvm.loop !23
 
@@ -951,7 +951,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %53, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %.4265, i64 8
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 16
-  %.not239 = icmp ugt i64 %indvars.iv.next299, %8
+  %.not239 = icmp samesign ugt i64 %indvars.iv.next299, %8
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 16
   br i1 %.not239, label %.loopexit.loopexit, label %.lr.ph266, !llvm.loop !24
 
@@ -1006,7 +1006,7 @@ define internal void @PredictorSub0_SSE2(ptr noundef %0, ptr nocapture readnone 
   %9 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv36
   store <16 x i8> %8, ptr %9, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
@@ -1052,7 +1052,7 @@ define internal void @PredictorSub1_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv33
   store <16 x i8> %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
@@ -1101,7 +1101,7 @@ define internal void @PredictorSub2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv33
   store <16 x i8> %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
@@ -1151,7 +1151,7 @@ define internal void @PredictorSub3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv33
   store <16 x i8> %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
 
@@ -1201,7 +1201,7 @@ define internal void @PredictorSub4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %10 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv33
   store <16 x i8> %9, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
@@ -1266,7 +1266,7 @@ define internal void @PredictorSub5_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %26 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv46
   store <16 x i8> %25, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
@@ -1323,7 +1323,7 @@ define internal void @PredictorSub6_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
   store <16 x i8> %19, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
@@ -1379,7 +1379,7 @@ define internal void @PredictorSub7_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
   store <16 x i8> %18, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
@@ -1435,7 +1435,7 @@ define internal void @PredictorSub8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
   store <16 x i8> %18, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
@@ -1492,7 +1492,7 @@ define internal void @PredictorSub9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
   store <16 x i8> %19, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
@@ -1565,7 +1565,7 @@ define internal void @PredictorSub10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %36 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv55
   store <16 x i8> %35, ptr %36, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
@@ -1648,7 +1648,7 @@ define internal void @PredictorSub11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %47 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv61
   store <16 x i8> %46, ptr %47, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
 
@@ -1717,7 +1717,7 @@ define internal void @PredictorSub12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %33 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv84
   store <16 x i8> %32, ptr %33, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
@@ -1781,7 +1781,7 @@ define internal void @PredictorSub13_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %28 = lshr <8 x i16> %27, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
   %29 = bitcast <16 x i8> %24 to <8 x i16>
   %30 = sub nsw <8 x i16> %28, %29
-  %31 = icmp ult <8 x i16> %28, %29
+  %31 = icmp samesign ult <8 x i16> %28, %29
   %.neg = zext <8 x i1> %31 to <8 x i16>
   %32 = add nsw <8 x i16> %30, %.neg
   %33 = ashr <8 x i16> %32, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
@@ -1794,7 +1794,7 @@ define internal void @PredictorSub13_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %40 = extractelement <2 x i64> %38, i64 0
   store i64 %40, ptr %39, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 

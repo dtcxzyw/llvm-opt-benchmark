@@ -2326,7 +2326,7 @@ addrconf_mod_dad_work.exit:                       ; preds = %43, %45
   %92 = load i64, ptr %91, align 8
   %93 = sub i64 %87, %92
   %94 = udiv i64 %93, 1000
-  %95 = icmp ult i64 %94, %90
+  %95 = icmp samesign ult i64 %94, %90
   %96 = trunc i64 %94 to i32
   %97 = sub i32 %89, %96
   %98 = select i1 %95, i32 %97, i32 0
@@ -4087,7 +4087,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 1
   %61 = icmp ne i32 %60, 0
-  %62 = icmp ult i32 %2, 256
+  %62 = icmp samesign ult i32 %2, 256
   %63 = or i1 %62, %61
   br i1 %63, label %66, label %64
 
@@ -4848,7 +4848,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
 57:                                               ; preds = %65, %55
   %58 = phi i64 [ %69, %65 ], [ 0, %55 ]
   %59 = and i64 %58, 4294967295
-  %60 = icmp ugt i64 %59, 63
+  %60 = icmp samesign ugt i64 %59, 63
   br i1 %60, label %.thread, label %61, !prof !6
 
 61:                                               ; preds = %57
@@ -5022,7 +5022,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %154, label %147, label %155, !llvm.loop !71
 
 155:                                              ; preds = %151
-  %.not = icmp ult i64 %149, %146
+  %.not = icmp samesign ult i64 %149, %146
   br i1 %.not, label %156, label %.critedge
 
 156:                                              ; preds = %155, %139
@@ -9952,7 +9952,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, -1
   %134 = zext i32 %132 to i64
-  %135 = icmp ult i64 %48, %134
+  %135 = icmp samesign ult i64 %48, %134
   %136 = select i1 %133, i1 true, i1 %135
   br i1 %136, label %148, label %137
 
@@ -9989,7 +9989,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 
 152:                                              ; preds = %148
   %153 = zext i32 %150 to i64
-  %154 = icmp ult i64 %48, %153
+  %154 = icmp samesign ult i64 %48, %153
   br i1 %154, label %194, label %155
 
 155:                                              ; preds = %152
@@ -10870,7 +10870,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
 250:                                              ; preds = %241
   %251 = add nuw nsw i64 %232, 1
   %252 = and i64 %251, 127
-  %253 = icmp ugt i64 %252, 63
+  %253 = icmp samesign ugt i64 %252, 63
   br i1 %253, label %.thread, label %226, !prof !148, !llvm.loop !149
 
 .thread:                                          ; preds = %226, %250, %231
@@ -11447,7 +11447,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifaddr(ptr noun
   %84 = sub i64 %81, %83
   %85 = udiv i64 %84, 1000
   %86 = zext i32 %.pre to i64
-  %87 = icmp ult i64 %85, %86
+  %87 = icmp samesign ult i64 %85, %86
   %88 = trunc i64 %85 to i32
   %89 = sub i32 %.pre, %88
   %90 = select i1 %87, i32 %89, i32 0
@@ -11456,7 +11456,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifaddr(ptr noun
 
 92:                                               ; preds = %79
   %93 = zext i32 %80 to i64
-  %94 = icmp ult i64 %85, %93
+  %94 = icmp samesign ult i64 %85, %93
   %95 = sub i32 %80, %88
   %96 = select i1 %94, i32 %95, i32 0
   br label %97
@@ -13766,7 +13766,7 @@ define internal fastcc zeroext i1 @addrconf_link_ready(ptr nocapture noundef rea
 
 24:                                               ; preds = %20, %16
   %.lcssa = phi i64 [ %18, %20 ], [ %15, %16 ]
-  %25 = icmp ult i64 %.lcssa, %15
+  %25 = icmp samesign ult i64 %.lcssa, %15
   br label %26
 
 26:                                               ; preds = %4, %8, %24, %1
@@ -14688,7 +14688,7 @@ define internal fastcc void @addrconf_disable_policy_idev(ptr noundef %0, i32 no
 52:                                               ; preds = %47, %37
   %53 = add nuw nsw i64 %34, 1
   %54 = and i64 %53, 127
-  %55 = icmp ugt i64 %54, 63
+  %55 = icmp samesign ugt i64 %54, 63
   br i1 %55, label %.thread, label %28, !prof !148, !llvm.loop !207
 
 .thread:                                          ; preds = %28, %52, %33, %17

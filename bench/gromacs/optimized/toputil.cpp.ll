@@ -526,7 +526,7 @@ define void @_Z10print_exclP8_IO_FILEiP7t_excls(ptr nocapture noundef %0, i32 no
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = icmp uge i64 %indvars.iv.next, %5
+  %9 = icmp samesign uge i64 %indvars.iv.next, %5
   %.not28 = select i1 %9, i1 true, i1 %8
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 

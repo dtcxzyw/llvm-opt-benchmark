@@ -629,7 +629,7 @@ sw.bb19:                                          ; preds = %for.body
 sw.default:                                       ; preds = %for.body
   %cmp = icmp slt i32 %call1, 0
   %spec.store.select = select i1 %cmp, i32 65533, i32 %call1
-  %cmp22 = icmp ugt i32 %spec.store.select, 65535
+  %cmp22 = icmp samesign ugt i32 %spec.store.select, 65535
   br i1 %cmp22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %sw.default

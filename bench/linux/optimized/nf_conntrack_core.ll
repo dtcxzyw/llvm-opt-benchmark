@@ -1782,7 +1782,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef range(i32 0, -1) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = and i32 %0, 1023
   %5 = and i32 %1, 1023
-  %6 = icmp ugt i32 %4, %5
+  %6 = icmp samesign ugt i32 %4, %5
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
@@ -1929,7 +1929,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr nocaptu
   %8 = getelementptr inbounds i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = and i64 %5, 7
-  %11 = icmp ugt i64 %10, 2
+  %11 = icmp samesign ugt i64 %10, 2
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %1
@@ -3642,7 +3642,7 @@ init_conntrack.exit:                              ; preds = %127, %191
   br label %280
 
 280:                                              ; preds = %279, %274, %257
-  %281 = icmp ugt i32 %237, 2
+  %281 = icmp samesign ugt i32 %237, 2
   %282 = load i32, ptr %62, align 8
   %283 = getelementptr inbounds i8, ptr %239, i64 176
   %284 = load ptr, ptr %283, align 8
@@ -4161,7 +4161,7 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr nocapture noundef readonl
   %54 = phi ptr [ %.pre, %.loopexit ], [ %11, %9 ]
   %55 = add nuw nsw i64 %12, 1
   %56 = zext i32 %53 to i64
-  %57 = icmp ult i64 %55, %56
+  %57 = icmp samesign ult i64 %55, %56
   br i1 %57, label %9, label %.thread12, !llvm.loop !90
 
 58:                                               ; preds = %42
@@ -5319,7 +5319,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nf_ct_resolve_clash(ptr no
 
 154:                                              ; preds = %151
   %155 = and i64 %10, 7
-  %156 = icmp ugt i64 %155, 2
+  %156 = icmp samesign ugt i64 %155, 2
   %157 = zext i1 %156 to i64
   %158 = getelementptr %struct.nf_conn_counter, ptr %152, i64 %157, i32 1
   %159 = load volatile i64, ptr %158, align 8
@@ -6131,7 +6131,7 @@ define internal void @gc_worker(ptr noundef %0) #0 align 16 {
   %222 = sub i32 %220, %221
   %223 = tail call i32 @llvm.smax.i32(i32 %222, i32 1)
   %224 = zext nneg i32 %223 to i64
-  %225 = icmp ugt i64 %218, %224
+  %225 = icmp samesign ugt i64 %218, %224
   %226 = sub nsw i64 %218, %224
   %227 = select i1 %225, i64 %226, i64 1
   br label %.thread27
@@ -6545,7 +6545,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr nocapture nou
   %10 = inttoptr i64 %7 to ptr
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = and i64 %6, 7
-  %13 = icmp ugt i64 %12, 2
+  %13 = icmp samesign ugt i64 %12, 2
   %.offs = select i1 %13, i64 72, i64 16
   %14 = getelementptr i8, ptr %11, i64 %.offs
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %14, i64 40, i1 false)
@@ -6681,7 +6681,7 @@ define internal void @nf_conntrack_attach(ptr nocapture noundef %0, ptr nocaptur
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -8
   %6 = and i64 %4, 7
-  %7 = icmp ult i64 %6, 3
+  %7 = icmp samesign ult i64 %6, 3
   %8 = select i1 %7, i64 4, i64 1
   %9 = or disjoint i64 %8, %5
   %10 = getelementptr inbounds i8, ptr %0, i64 129

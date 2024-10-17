@@ -1746,7 +1746,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sg_ioctl(ptr nocapture n
 
 92:                                               ; preds = %90
   %93 = and i32 %82, 2147483644
-  %94 = icmp ult i32 %93, 214748364
+  %94 = icmp samesign ult i32 %93, 214748364
   %95 = select i1 %94, i32 %82, i32 214748364
   %96 = getelementptr inbounds i8, ptr %9, i64 92
   store i32 %95, ptr %96, align 4
@@ -3112,7 +3112,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @sg_read_oxfer(ptr nocaptur
   %55 = add nuw nsw i64 %22, 1
   %56 = load i16, ptr %4, align 8
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.split, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.split, %50, %53, %.split.us, %.split19.us, %8
@@ -3210,7 +3210,7 @@ define internal fastcc i32 @sg_finish_rem_req(ptr nocapture noundef %0) unnamed_
   %51 = add nuw nsw i64 %44, 1
   %52 = load i16, ptr %4, align 8
   %53 = zext i16 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %43, label %..loopexit.loopexit_crit_edge, !llvm.loop !56
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %49
@@ -3349,7 +3349,7 @@ define internal fastcc void @sg_remove_scat(ptr nocapture noundef %0) unnamed_ad
   %26 = add nuw nsw i64 %19, 1
   %27 = load i16, ptr %0, align 8
   %28 = zext i16 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %18, label %..loopexit.loopexit_crit_edge, !llvm.loop !56
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %24
@@ -3413,7 +3413,7 @@ define internal fastcc range(i64 88, 0) i64 @sg_new_write(ptr noundef nonnull %0
   br i1 %29, label %sg_add_request.exit.thread, label %.preheader.i, !llvm.loop !57
 
 30:                                               ; preds = %.preheader.i
-  %31 = icmp ugt i32 %21, 15
+  %31 = icmp samesign ugt i32 %21, 15
   br i1 %31, label %sg_add_request.exit.thread, label %sg_add_request.exit
 
 sg_add_request.exit.thread:                       ; preds = %26, %18, %30
@@ -3701,7 +3701,7 @@ define internal fastcc noundef ptr @sg_add_request(ptr noundef nonnull %0) unnam
   br i1 %20, label %.thread, label %.preheader, !llvm.loop !57
 
 21:                                               ; preds = %.preheader
-  %22 = icmp ugt i32 %12, 15
+  %22 = icmp samesign ugt i32 %12, 15
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21, %1
@@ -4583,7 +4583,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noca
   %62 = add nuw nsw i64 %39, 1
   %63 = sub i32 %40, %36
   %64 = icmp sgt i32 %63, 0
-  %65 = icmp ult i64 %62, %33
+  %65 = icmp samesign ult i64 %62, %33
   %66 = select i1 %64, i1 %65, i1 false
   br i1 %66, label %37, label %67, !llvm.loop !68
 
@@ -4813,7 +4813,7 @@ define internal void @sg_remove_sfp_usercontext(ptr noundef %0) #2 align 16 {
   %48 = add nuw nsw i64 %41, 1
   %49 = load i16, ptr %23, align 8
   %50 = zext i16 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %40, label %..loopexit.loopexit_crit_edge, !llvm.loop !56
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %46
@@ -4948,7 +4948,7 @@ define internal fastcc void @sg_build_reserve(ptr nocapture noundef nonnull %0, 
   %34 = add nuw nsw i64 %27, 1
   %35 = load i16, ptr %3, align 8
   %36 = zext i16 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %.preheader, label %..loopexit.loopexit_crit_edge, !llvm.loop !56
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %32
@@ -5037,7 +5037,7 @@ define internal fastcc void @sg_fill_request_table(ptr noundef nonnull readonly 
   %49 = add nuw nsw i64 %6, 1
   %50 = load ptr, ptr %7, align 8
   %51 = icmp eq ptr %50, %3
-  %52 = icmp ugt i64 %6, 14
+  %52 = icmp samesign ugt i64 %6, 14
   %53 = or i1 %52, %51
   br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !72
 
@@ -5536,7 +5536,7 @@ define internal fastcc noundef ptr @sg_add_sfp(ptr noundef %0) unnamed_addr #2 a
   %74 = add nuw nsw i64 %67, 1
   %75 = load i16, ptr %44, align 8
   %76 = zext i16 %75 to i64
-  %77 = icmp ult i64 %74, %76
+  %77 = icmp samesign ult i64 %74, %76
   br i1 %77, label %.preheader.i, label %..loopexit.loopexit_crit_edge.i, !llvm.loop !56
 
 ..loopexit.loopexit_crit_edge.i:                  ; preds = %72

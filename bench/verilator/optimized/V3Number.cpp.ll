@@ -4172,7 +4172,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK12V3NumberData3
   %spec.select.i30 = select i1 %100, ptr %0, ptr %101
   %102 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i30, i64 %indvars.iv
   store i32 %99, ptr %102, align 4
-  %103 = icmp ugt i64 %98, 4294967295
+  %103 = icmp samesign ugt i64 %98, 4294967295
   %104 = zext i1 %103 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %56, align 8
@@ -20475,7 +20475,7 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
   %356 = load i32, ptr %spec.select.i263, align 4
   %357 = shl i32 %356, %269
   store i32 %357, ptr %19, align 16
-  %.not410 = icmp ult i32 %121, %123
+  %.not410 = icmp samesign ult i32 %121, %123
   br i1 %.not410, label %._crit_edge348, label %.lr.ph347
 
 .lr.ph347:                                        ; preds = %_ZNK12V3NumberData3numEv.exit264
@@ -20561,7 +20561,7 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
   %416 = ashr i64 %413, 32
   %417 = sub nsw i64 %415, %416
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
-  %418 = icmp ult i64 %indvars.iv.next382, %367
+  %418 = icmp samesign ult i64 %indvars.iv.next382, %367
   br i1 %418, label %.lr.ph338, label %._crit_edge339.loopexit, !llvm.loop !150
 
 ._crit_edge339.loopexit:                          ; preds = %.lr.ph338
@@ -20640,7 +20640,7 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %434
   store i32 %457, ptr %449, align 4
   %458 = lshr i64 %456, 32
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
-  %459 = icmp ult i64 %indvars.iv.next385, %367
+  %459 = icmp samesign ult i64 %indvars.iv.next385, %367
   br i1 %459, label %.lr.ph342, label %._crit_edge343.loopexit, !llvm.loop !151
 
 ._crit_edge343.loopexit:                          ; preds = %.lr.ph342
@@ -20716,7 +20716,7 @@ _ZN12V3NumberData3numEv.exit273:                  ; preds = %475
   %spec.select.i272 = select i1 %492, ptr %0, ptr %493
   %494 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i272, i64 %indvars.iv392
   store i32 %490, ptr %494, align 4
-  %495 = icmp ult i64 %indvars.iv.next393, %468
+  %495 = icmp samesign ult i64 %indvars.iv.next393, %468
   br i1 %495, label %475, label %.preheader306, !llvm.loop !153
 
 496:                                              ; preds = %.lr.ph352, %_ZN12V3NumberData3numEv.exit276

@@ -7184,7 +7184,7 @@ define hidden void @_ZN9Arguments20add_patch_mod_prefixEPKcS1_Pb(ptr nocapture n
   %31 = add nsw i32 %26, 1
   %32 = icmp sgt i32 %26, -1
   %33 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %31)
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   %or.cond.i.i.i.i.i = select i1 %32, i1 %34, i1 false
   %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
   %36 = sub nuw nsw i32 32, %35
@@ -7636,7 +7636,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
 39:                                               ; preds = %.critedge2
   %40 = trunc nuw i64 %38 to i32
   %41 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %40)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %44 = sub nuw nsw i32 32, %43
   %45 = shl nuw i32 1, %44
@@ -8025,7 +8025,7 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
   %33 = icmp sgt i64 %indvars.iv93, -1
   %34 = trunc nsw i64 %31 to i32
   %35 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   %or.cond.i.i.i.i = select i1 %33, i1 %36, i1 false
   %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %38 = sub nuw nsw i32 32, %37
@@ -8094,7 +8094,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %63 = add nsw i32 %.sroa.16.083, 1
   %64 = icmp sgt i32 %.sroa.16.083, -1
   %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
-  %66 = icmp ult i32 %65, 2
+  %66 = icmp samesign ult i32 %65, 2
   %or.cond.i.i.i.i21 = select i1 %64, i1 %66, i1 false
   %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
   %68 = sub nuw nsw i32 32, %67

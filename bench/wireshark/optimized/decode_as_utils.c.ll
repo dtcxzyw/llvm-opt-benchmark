@@ -411,7 +411,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   %135 = trunc i64 %.0125185 to i32
   call void @dissector_change_uint(ptr noundef nonnull %.0126, i32 noundef %135, ptr noundef nonnull %119) #7
   %136 = add nuw nsw i64 %.0125185, 1
-  %137 = icmp ult i64 %136, %134
+  %137 = icmp samesign ult i64 %136, %134
   br i1 %137, label %.lr.ph187, label %.loopexit, !llvm.loop !10
 
 138:                                              ; preds = %129

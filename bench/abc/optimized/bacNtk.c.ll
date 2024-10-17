@@ -749,7 +749,7 @@ define i32 @Bac_ManAssignCountNames(ptr nocapture noundef readonly %0) local_unn
   %29 = add nsw i32 %28, -5
   %30 = icmp ult i32 %29, 68
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %31 = icmp ult i64 %indvars.iv.next70, %11
+  %31 = icmp samesign ult i64 %indvars.iv.next70, %11
   %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %.lr.ph53, label %.critedge2
 
@@ -905,7 +905,7 @@ Bac_NtkStartNames.exit:                           ; preds = %15, %Vec_IntGrow.ex
   %45 = add nsw i32 %44, -5
   %46 = icmp ult i32 %45, 68
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %47 = icmp ult i64 %indvars.iv.next70.i, %27
+  %47 = icmp samesign ult i64 %indvars.iv.next70.i, %27
   %or.cond.i = select i1 %46, i1 %47, i1 false
   br i1 %or.cond.i, label %.lr.ph53.i, label %.critedge2.i
 

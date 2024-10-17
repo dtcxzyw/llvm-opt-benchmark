@@ -1657,7 +1657,7 @@ define internal i32 @i915_ttm_get_pages(ptr noundef %0) #1 align 16 {
   %36 = load i64, ptr %5, align 8
   call fastcc void @i915_ttm_place_from_region(ptr noundef %33, ptr noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef %13)
   %37 = add nuw nsw i64 %30, 1
-  %38 = icmp ult i64 %37, %28
+  %38 = icmp samesign ult i64 %37, %28
   br i1 %38, label %29, label %.loopexit, !llvm.loop !26
 
 39:                                               ; preds = %20
@@ -2117,7 +2117,7 @@ define internal fastcc void @i915_ttm_place_from_region(ptr noundef %0, ptr noca
   %27 = and i64 %22, 4294967295
   %28 = lshr i64 %3, 12
   %29 = add nuw nsw i64 %27, %28
-  %30 = icmp ugt i64 %29, 4294967295
+  %30 = icmp samesign ugt i64 %29, 4294967295
   br i1 %30, label %31, label %32, !prof !9
 
 31:                                               ; preds = %25

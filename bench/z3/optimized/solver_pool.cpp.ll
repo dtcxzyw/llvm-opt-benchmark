@@ -1822,7 +1822,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %5 = zext i32 %4 to i64
-  %cmp26 = icmp ult i64 %indvars.iv, %5
+  %cmp26 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp26, label %for.body, label %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
@@ -2332,7 +2332,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %16, i64 -4
   %17 = load i32, ptr %arrayidx.i.i.i, align 4
   %18 = zext i32 %17 to i64
-  %cmp.i312 = icmp ult i64 %indvars.iv.i15, %18
+  %cmp.i312 = icmp samesign ult i64 %indvars.iv.i15, %18
   br i1 %cmp.i312, label %for.body.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread

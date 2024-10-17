@@ -289,7 +289,7 @@ _ZN2cvL4normIdLi5ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %89
   %indvars.iv144 = phi i64 [ 0, %96 ], [ %indvars.iv.next145, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %96 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %108 = icmp ult i64 %indvars.iv144, 4
+  %108 = icmp samesign ult i64 %indvars.iv144, 4
   br i1 %108, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %107

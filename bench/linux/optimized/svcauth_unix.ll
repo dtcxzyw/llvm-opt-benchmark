@@ -1212,7 +1212,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %55 = getelementptr [0 x %struct.kgid_t], ptr %54, i64 0, i64 %48
   store i32 %52, ptr %55, align 4
   %56 = add nuw nsw i64 %48, 1
-  %57 = icmp ult i64 %56, %47
+  %57 = icmp samesign ult i64 %56, %47
   br i1 %57, label %.preheader, label %.loopexit.loopexit, !llvm.loop !19
 
 .loopexit.loopexit:                               ; preds = %.preheader

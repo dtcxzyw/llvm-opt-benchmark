@@ -5344,7 +5344,7 @@ unreachable.i442:                                 ; preds = %invoke.cont.i439
   store i32 %shr.i430, ptr %call25.i456, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i423)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i424)
-  %cmp3.i.i294.not = icmp ult i32 %shr.i50, %shr.i430
+  %cmp3.i.i294.not = icmp samesign ult i32 %shr.i50, %shr.i430
   br i1 %cmp3.i.i294.not, label %while.end.i.i295, label %if.else.i426, !llvm.loop !6
 
 while.end.i.i295:                                 ; preds = %.noexc314, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i282

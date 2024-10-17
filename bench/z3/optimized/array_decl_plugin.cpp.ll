@@ -4768,7 +4768,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %m_arity.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 lpad:                                             ; preds = %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit
@@ -6023,7 +6023,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %m_num_args.i, align 8
   %15 = zext i32 %14 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %15
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond

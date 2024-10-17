@@ -3820,7 +3820,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = load i16, ptr %86, align 2
   %151 = zext i16 %150 to i64
-  %152 = icmp ult i64 %indvars.iv.next, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next, %151
   br i1 %152, label %92, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %149, %.preheader, %.loopexit197

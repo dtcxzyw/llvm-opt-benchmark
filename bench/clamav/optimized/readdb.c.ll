@@ -5109,7 +5109,7 @@ define internal fastcc i32 @cli_loadhash(ptr noundef %0, ptr nocapture noundef %
   %20 = getelementptr inbounds i8, ptr %18, i64 408
   store ptr %19, ptr %20, align 8
   %21 = icmp eq i32 %3, 0
-  %brmerge = icmp ult i32 %3, 2
+  %brmerge = icmp samesign ult i32 %3, 2
   %.mux = select i1 %21, i64 104, i64 112
   %22 = icmp eq i32 %3, 3
   %. = select i1 %22, i64 120, i64 128
@@ -7587,7 +7587,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %114 = or i32 %110, %113
   %115 = getelementptr inbounds [3 x i32], ptr %98, i64 0, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
-  %116 = icmp ugt i32 %114, 4072
+  %116 = icmp samesign ugt i32 %114, 4072
   br i1 %116, label %.thread, label %117
 
 117:                                              ; preds = %102
@@ -7651,7 +7651,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %156 = or i32 %152, %155
   %157 = getelementptr inbounds [3 x i32], ptr %141, i64 0, i64 %indvars.iv538
   store i32 %156, ptr %157, align 4
-  %158 = icmp ugt i32 %156, 4072
+  %158 = icmp samesign ugt i32 %156, 4072
   br i1 %158, label %.thread299, label %159
 
 159:                                              ; preds = %144
@@ -7954,8 +7954,8 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   store i32 %357, ptr %358, align 4
   %359 = add nuw nsw i32 %339, %330
   %360 = add nuw nsw i32 %359, %348
-  %361 = icmp ugt i32 %360, 103
-  %362 = icmp ugt i32 %357, 100
+  %361 = icmp samesign ugt i32 %360, 103
+  %362 = icmp samesign ugt i32 %357, 100
   %or.cond = select i1 %361, i1 true, i1 %362
   br i1 %or.cond, label %363, label %364
 
@@ -11412,7 +11412,7 @@ define range(i32 0, 3) i32 @cl_engine_free(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next676 = add nuw nsw i64 %indvars.iv675, 1
   %170 = load i32, ptr %109, align 8
   %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next676, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next676, %171
   br i1 %172, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %169
@@ -11761,7 +11761,7 @@ define range(i32 0, 3) i32 @cl_engine_free(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
   %338 = load i32, ptr %326, align 8
   %339 = zext i32 %338 to i64
-  %340 = icmp ult i64 %indvars.iv.next683, %339
+  %340 = icmp samesign ult i64 %indvars.iv.next683, %339
   br i1 %340, label %329, label %.loopexit
 
 .loopexit:                                        ; preds = %337, %.preheader629, %323
@@ -11963,7 +11963,7 @@ cli_pwdb_list_free.exit:                          ; preds = %.lr.ph.i, %384
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 1
   %434 = load i32, ptr %428, align 4
   %435 = zext i32 %434 to i64
-  %436 = icmp ult i64 %indvars.iv.next694, %435
+  %436 = icmp samesign ult i64 %indvars.iv.next694, %435
   br i1 %436, label %.lr.ph654, label %._crit_edge655.loopexit
 
 ._crit_edge655.loopexit:                          ; preds = %.lr.ph654
@@ -12002,7 +12002,7 @@ cli_pwdb_list_free.exit:                          ; preds = %.lr.ph.i, %384
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
   %448 = load i32, ptr %442, align 8
   %449 = zext i32 %448 to i64
-  %450 = icmp ult i64 %indvars.iv.next701, %449
+  %450 = icmp samesign ult i64 %indvars.iv.next701, %449
   br i1 %450, label %.lr.ph658, label %._crit_edge659.loopexit
 
 ._crit_edge659.loopexit:                          ; preds = %.lr.ph658
@@ -12037,7 +12037,7 @@ cli_pwdb_list_free.exit:                          ; preds = %.lr.ph.i, %384
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %462 = load i32, ptr %456, align 4
   %463 = zext i32 %462 to i64
-  %464 = icmp ult i64 %indvars.iv.next704, %463
+  %464 = icmp samesign ult i64 %indvars.iv.next704, %463
   br i1 %464, label %.lr.ph661, label %._crit_edge662.loopexit
 
 ._crit_edge662.loopexit:                          ; preds = %.lr.ph661
@@ -12330,7 +12330,7 @@ cli_pwdb_list_free.exit:                          ; preds = %.lr.ph.i, %384
   %indvars.iv.next707 = add nuw nsw i64 %indvars.iv706, 1
   %607 = load i32, ptr %543, align 8
   %608 = zext i32 %607 to i64
-  %609 = icmp ult i64 %indvars.iv.next707, %608
+  %609 = icmp samesign ult i64 %indvars.iv.next707, %608
   br i1 %609, label %547, label %._crit_edge666.loopexit
 
 ._crit_edge666.loopexit:                          ; preds = %606
@@ -12960,7 +12960,7 @@ define i32 @cl_engine_compile(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %248 = load i32, ptr %191, align 8
   %249 = zext i32 %248 to i64
-  %250 = icmp ult i64 %indvars.iv.next306, %249
+  %250 = icmp samesign ult i64 %indvars.iv.next306, %249
   br i1 %250, label %194, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %245

@@ -13,7 +13,7 @@ define range(i64 -1, -2047) i64 @f64_to_ui64_r_minMag(i64 %0, i1 noundef zeroext
   %.neg = add nuw nsw i64 %3, 13
   %.neg29 = add nsw i64 %4, -1075
   %6 = sub nsw i64 1075, %4
-  %7 = icmp ult i64 %4, 1023
+  %7 = icmp samesign ult i64 %4, 1023
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
@@ -33,11 +33,11 @@ define range(i64 -1, -2047) i64 @f64_to_ui64_r_minMag(i64 %0, i1 noundef zeroext
   br i1 %.not, label %14, label %30
 
 14:                                               ; preds = %13
-  %15 = icmp ugt i64 %4, 1074
+  %15 = icmp samesign ugt i64 %4, 1074
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %4, 1086
+  %17 = icmp samesign ugt i64 %4, 1086
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %16

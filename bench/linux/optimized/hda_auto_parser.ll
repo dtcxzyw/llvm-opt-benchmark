@@ -123,7 +123,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %31 = phi i16 [ 0, %14 ], [ %221, %.thread ]
   %32 = load i16, ptr %9, align 4
   %33 = zext i16 %32 to i32
-  %34 = icmp ult i32 %30, %33
+  %34 = icmp samesign ult i32 %30, %33
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %29
@@ -477,7 +477,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %222 = add nuw nsw i32 %30, 1
   %223 = load i16, ptr %11, align 2
   %224 = zext i16 %223 to i32
-  %225 = icmp ult i32 %222, %224
+  %225 = icmp samesign ult i32 %222, %224
   br i1 %225, label %29, label %.loopexit54, !llvm.loop !9
 
 .loopexit54:                                      ; preds = %.thread, %4

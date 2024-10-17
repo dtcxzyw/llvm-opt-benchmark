@@ -981,7 +981,7 @@ default.unreachable81:                            ; preds = %149
   %229 = load i8, ptr %228, align 1
   %230 = add i8 %229, 1
   %231 = and i8 %230, 3
-  %232 = icmp ult i8 %231, 2
+  %232 = icmp samesign ult i8 %231, 2
   br i1 %232, label %.thread35, label %233
 
 233:                                              ; preds = %227
@@ -1912,7 +1912,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   %258 = getelementptr inbounds i8, ptr %1, i64 60
   %259 = load volatile i16, ptr %258, align 4
   %260 = zext i16 %259 to i32
-  %261 = icmp ugt i32 %257, %260
+  %261 = icmp samesign ugt i32 %257, %260
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %256
@@ -3209,7 +3209,7 @@ define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nocapt
   %471 = getelementptr inbounds i8, ptr %1, i64 60
   %472 = load volatile i16, ptr %471, align 4
   %473 = zext i16 %472 to i32
-  %474 = icmp ugt i32 %470, %473
+  %474 = icmp samesign ugt i32 %470, %473
   br i1 %474, label %475, label %477
 
 475:                                              ; preds = %469
@@ -5218,7 +5218,7 @@ define dso_local i32 @ip_tunnel_init(ptr noundef %0) #3 align 16 {
 11:                                               ; preds = %19, %9
   %12 = phi i64 [ %23, %19 ], [ 0, %9 ]
   %13 = and i64 %12, 4294967295
-  %14 = icmp ugt i64 %13, 63
+  %14 = icmp samesign ugt i64 %13, 63
   br i1 %14, label %.thread, label %15, !prof !12
 
 15:                                               ; preds = %11

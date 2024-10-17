@@ -9338,7 +9338,7 @@ for.body67:                                       ; preds = %_ZN6hermes2vm13Muta
   %agg.tmp.sroa.0.0.copyload.i.i82 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i83 = and i64 %agg.tmp.sroa.0.0.copyload.i.i82, 281474976710655
   %31 = inttoptr i64 %and.i.i.i.i.i83 to ptr
-  %cmp.i84 = icmp ult i64 %indvars.iv, 4096
+  %cmp.i84 = icmp samesign ult i64 %indvars.iv, 4096
   br i1 %cmp.i84, label %if.then.i101, label %if.else.i85
 
 if.then.i101:                                     ; preds = %for.body67
@@ -11951,7 +11951,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13
@@ -12171,7 +12171,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

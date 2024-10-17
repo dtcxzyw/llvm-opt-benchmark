@@ -29444,11 +29444,11 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !3971
   %4 = load i32, ptr %3, align 8, !range !3543, !alias.scope !3975, !noalias !3980, !noundef !118
-  %narrow.i.i = icmp ult i32 %4, 17
+  %narrow.i.i = icmp samesign ult i32 %4, 17
   %.sroa.7.0.i.i = zext i1 %narrow.i.i to i64
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8, !range !3543, !alias.scope !3975, !noalias !3980, !noundef !118
-  %narrow63.i.i = icmp ult i32 %6, 17
+  %narrow63.i.i = icmp samesign ult i32 %6, 17
   %.sroa.055.0.i.i = zext i1 %narrow63.i.i to i64
   %7 = add nuw nsw i64 %.sroa.055.0.i.i, %.sroa.7.0.i.i
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -29905,11 +29905,11 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !4108
   %4 = load i32, ptr %3, align 8, !range !3543, !alias.scope !4112, !noalias !4117, !noundef !118
-  %narrow.i.i = icmp ult i32 %4, 17
+  %narrow.i.i = icmp samesign ult i32 %4, 17
   %.sroa.7.0.i.i = zext i1 %narrow.i.i to i64
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8, !range !3543, !alias.scope !4112, !noalias !4117, !noundef !118
-  %narrow63.i.i = icmp ult i32 %6, 17
+  %narrow63.i.i = icmp samesign ult i32 %6, 17
   %.sroa.055.0.i.i = zext i1 %narrow63.i.i to i64
   %7 = add nuw nsw i64 %.sroa.055.0.i.i, %.sroa.7.0.i.i
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -41799,7 +41799,7 @@ define internal fastcc void @_ZN7hir_def4body5scope20compute_block_scopes17hc0e5
   %28 = getelementptr inbounds i8, ptr %.sroa.0.010, i64 32
   %29 = getelementptr inbounds i8, ptr %.sroa.0.010, i64 8
   %30 = load i32, ptr %29, align 8, !range !2103, !noundef !118
-  %.not8 = icmp ult i32 %30, 2
+  %.not8 = icmp samesign ult i32 %30, 2
   %31 = zext nneg i32 %30 to i64
   %32 = add nsw i64 %31, -1
   %33 = select i1 %.not8, i64 0, i64 %32
@@ -47448,7 +47448,7 @@ define { i32, i32 } @_ZN7hir_def8resolver8Resolver10body_owner17hddc5cdb75550501
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %8, i64 -24
   %.val.i = load i32, ptr %11, align 8, !range !4359, !noalias !7631, !noundef !118
-  %12 = icmp ugt i32 %.val.i, 4
+  %12 = icmp samesign ugt i32 %.val.i, 4
   br i1 %12, label %7, label %.split.loop.exit10.i
 
 .split.loop.exit10.i:                             ; preds = %10
@@ -47648,7 +47648,7 @@ define noundef i64 @_ZN7hir_def8resolver8Resolver21update_to_inner_scope17h62f47
   %19 = getelementptr inbounds { i32, [5 x i32] }, ptr %18, i64 %14
   %20 = getelementptr inbounds i8, ptr %19, i64 -24
   %21 = load i32, ptr %20, align 8, !range !4359, !noundef !118
-  %22 = icmp ult i32 %21, 5
+  %22 = icmp samesign ult i32 %21, 5
   br i1 %22, label %35, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h801713b3a3c19f19E.exit.thread"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h801713b3a3c19f19E.exit.thread": ; preds = %6, %17

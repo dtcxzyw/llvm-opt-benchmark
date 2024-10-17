@@ -2861,7 +2861,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -5642,7 +5642,7 @@ _ZNK4llvm3LLT9isPointerEv.exit57:                 ; preds = %_ZNK4llvm3LLT9isPoi
   br i1 %.not, label %.thread124, label %43
 
 43:                                               ; preds = %40
-  %44 = icmp ult i32 %.0.i, %.0.i62
+  %44 = icmp samesign ult i32 %.0.i, %.0.i62
   br label %_ZStltIJbjEJbjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit
 
 .thread141:                                       ; preds = %_ZNK4llvm3LLT9isPointerEv.exit.thread
@@ -5676,8 +5676,8 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEneERKS3_.exit.thr
 
 57:                                               ; preds = %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEneERKS3_.exit.thread
   %.not153 = or i1 %55, %.not1.i76
-  %58 = icmp ult i32 %.sroa.0122.0.extract.trunc, %.sroa.0120.0.extract.trunc
-  %spec.select = and i1 %58, %.not153
+  %58 = icmp samesign ult i32 %.sroa.0122.0.extract.trunc, %.sroa.0120.0.extract.trunc
+  %spec.select = select i1 %.not153, i1 %58, i1 false
   br label %_ZStltIJbjEJbjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit
 
 .critedge:                                        ; preds = %.thread
@@ -6289,7 +6289,7 @@ _ZN4llvm2gi11RuleMatcher27getFirstConditionAsRootTypeEv.exit.thread: ; preds = %
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !145
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %36
@@ -6579,7 +6579,7 @@ define dso_local void @_ZN4llvm2gi13SwitchMatcher8finalizeEv(ptr nocapture nound
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !145
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %9
@@ -33961,7 +33961,7 @@ define linkonce_odr void @_ZSt18__stable_partitionISt15_Deque_iteratorISt10uniqu
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %65 = add nuw nsw i64 %storemerge26.i.i, 1
   %66 = lshr i64 %65, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS4_EERS7_PS7_ES7_EC2ESA_l.exit, label %.lr.ph.i.i, !llvm.loop !1817
 
 67:                                               ; preds = %.lr.ph.i.i

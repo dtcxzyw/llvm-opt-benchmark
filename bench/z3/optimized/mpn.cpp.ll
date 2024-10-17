@@ -97,10 +97,10 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %k.033 = phi i32 [ 0, %for.body.preheader ], [ %or, %for.body ]
-  %cmp3 = icmp ult i64 %indvars.iv, %0
+  %cmp3 = icmp samesign ult i64 %indvars.iv, %0
   %arrayidx = getelementptr inbounds i32, ptr %a, i64 %indvars.iv
   %cond-lvalue = select i1 %cmp3, ptr %arrayidx, ptr @_ZN11mpn_manager4zeroE
-  %cmp7 = icmp ult i64 %indvars.iv, %1
+  %cmp7 = icmp samesign ult i64 %indvars.iv, %1
   %arrayidx10 = getelementptr inbounds i32, ptr %b, i64 %indvars.iv
   %cond-lvalue13 = select i1 %cmp7, ptr %arrayidx10, ptr @_ZN11mpn_manager4zeroE
   %2 = load i32, ptr %cond-lvalue, align 4
@@ -167,10 +167,10 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %2 = phi i32 [ 0, %for.body.preheader ], [ %or, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %cmp3 = icmp ult i64 %indvars.iv, %0
+  %cmp3 = icmp samesign ult i64 %indvars.iv, %0
   %arrayidx = getelementptr inbounds i32, ptr %a, i64 %indvars.iv
   %cond-lvalue = select i1 %cmp3, ptr %arrayidx, ptr @_ZN11mpn_manager4zeroE
-  %cmp7 = icmp ult i64 %indvars.iv, %1
+  %cmp7 = icmp samesign ult i64 %indvars.iv, %1
   %arrayidx10 = getelementptr inbounds i32, ptr %b, i64 %indvars.iv
   %cond-lvalue13 = select i1 %cmp7, ptr %arrayidx10, ptr @_ZN11mpn_manager4zeroE
   %3 = load i32, ptr %cond-lvalue, align 4
@@ -313,7 +313,7 @@ for.cond4.preheader:                              ; preds = %for.body.preheader,
 
 for.body6:                                        ; preds = %for.cond4.preheader, %cond.end
   %indvars.iv120 = phi i64 [ 0, %for.cond4.preheader ], [ %indvars.iv.next121, %cond.end ]
-  %cmp7 = icmp ult i64 %indvars.iv120, %3
+  %cmp7 = icmp samesign ult i64 %indvars.iv120, %3
   br i1 %cmp7, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body6
@@ -335,7 +335,7 @@ for.body18:                                       ; preds = %for.body18.preheade
   %5 = load i32, ptr %arrayidx20, align 4
   %cmp21.not = icmp eq i32 %5, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp17 = icmp ult i64 %indvars.iv.next, %0
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %0
   %6 = select i1 %cmp17, i1 %cmp21.not, i1 false
   br i1 %6, label %for.body18, label %for.end26, !llvm.loop !12
 
@@ -1202,7 +1202,7 @@ lor.lhs.false:                                    ; preds = %recheck
 if.then:                                          ; preds = %lor.lhs.false, %recheck
   %dec28 = add i64 %q_hat.0, -1
   %add32 = add nuw nsw i64 %r_hat.0, %conv12
-  %cmp33 = icmp ult i64 %add32, 4294967296
+  %cmp33 = icmp samesign ult i64 %add32, 4294967296
   br i1 %cmp33, label %recheck, label %if.end35
 
 if.end35:                                         ; preds = %if.then, %lor.lhs.false
@@ -1261,7 +1261,7 @@ for.body.preheader.i:                             ; preds = %if.end35, %_ZNK11mp
 for.body.i72:                                     ; preds = %for.body.i72, %for.body.preheader.i
   %25 = phi i32 [ 0, %for.body.preheader.i ], [ %or.i, %for.body.i72 ]
   %indvars.iv.i73 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i76, %for.body.i72 ]
-  %cmp3.i74 = icmp ult i64 %indvars.iv.i73, %11
+  %cmp3.i74 = icmp samesign ult i64 %indvars.iv.i73, %11
   %arrayidx.i75 = getelementptr inbounds i32, ptr %arrayidx.i69148, i64 %indvars.iv.i73
   %cond-lvalue.i = select i1 %cmp3.i74, ptr %arrayidx.i75, ptr @_ZN11mpn_manager4zeroE
   %arrayidx10.i = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i73
@@ -1374,10 +1374,10 @@ _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120:       ; preds = %_ZN6bufferIjLb0ELj1
 for.body.i125:                                    ; preds = %for.body.i125, %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120
   %indvars.iv.i126 = phi i64 [ 0, %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120 ], [ %indvars.iv.next.i137, %for.body.i125 ]
   %k.033.i = phi i32 [ 0, %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120 ], [ %or.i136, %for.body.i125 ]
-  %cmp3.i127 = icmp ult i64 %indvars.iv.i126, %wide.trip.count43.i
+  %cmp3.i127 = icmp samesign ult i64 %indvars.iv.i126, %wide.trip.count43.i
   %arrayidx.i128 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.i126
   %cond-lvalue.i129 = select i1 %cmp3.i127, ptr %arrayidx.i128, ptr @_ZN11mpn_manager4zeroE
-  %cmp7.i130 = icmp ult i64 %indvars.iv.i126, %11
+  %cmp7.i130 = icmp samesign ult i64 %indvars.iv.i126, %11
   %arrayidx10.i131 = getelementptr inbounds i32, ptr %arrayidx.i122, i64 %indvars.iv.i126
   %cond-lvalue13.i132 = select i1 %cmp7.i130, ptr %arrayidx10.i131, ptr @_ZN11mpn_manager4zeroE
   %39 = load i32, ptr %cond-lvalue.i129, align 4
@@ -1452,7 +1452,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %3 = load i32, ptr %m_pos.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next38, %4
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next38, %4
   br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !15
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.body8
@@ -1471,7 +1471,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %8 = load i32, ptr %m_pos.i, align 8
   %sub = add i32 %8, -1
   %9 = zext i32 %sub to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next, %9
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp7, label %for.body8, label %for.end24.loopexit, !llvm.loop !16
 
 for.end24.loopexit:                               ; preds = %for.body8
@@ -1957,7 +1957,7 @@ for.body54:                                       ; preds = %for.body54.preheade
   store i8 %51, ptr %arrayidx56, align 1
   store i8 %50, ptr %arrayidx58, align 1
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %cmp53 = icmp ult i64 %indvars.iv.next165, %48
+  %cmp53 = icmp samesign ult i64 %indvars.iv.next165, %48
   br i1 %cmp53, label %for.body54, label %for.end61, !llvm.loop !29
 
 for.end61:                                        ; preds = %for.body54, %while.end46

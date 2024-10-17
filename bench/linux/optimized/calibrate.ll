@@ -479,7 +479,7 @@ define internal fastcc i64 @calibrate_delay_converge() unnamed_addr #1 align 16 
   %40 = icmp eq i64 %39, %38
   %41 = select i1 %40, i64 %37, i64 %31
   %42 = lshr i64 %30, 1
-  %43 = icmp ugt i64 %42, %28
+  %43 = icmp samesign ugt i64 %42, %28
   br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %36, %25

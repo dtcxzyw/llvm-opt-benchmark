@@ -1506,7 +1506,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoState10ResetBoardEv(ptr nound
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
-  %29 = icmp ugt i32 %26, 9
+  %29 = icmp samesign ugt i32 %26, 9
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %28
@@ -1663,7 +1663,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %71, %66, %
   %73 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #26, !noalias !4
   %74 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %73, ptr noundef nonnull align 2 dereferenceable(1) @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 %.idx.i, i1 false), !noalias !4
-  %75 = icmp ult i32 %26, 5
+  %75 = icmp samesign ult i32 %26, 5
   %76 = and i32 %26, 1
   %.not51.i = icmp eq i32 %76, 0
   %or.cond.i = or i1 %75, %.not51.i

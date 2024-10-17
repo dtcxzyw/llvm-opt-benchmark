@@ -95,7 +95,7 @@ entry:
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %1, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -146,7 +146,7 @@ entry:
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %2 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %2, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -214,7 +214,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
   %6 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %6, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i5.i, label %if.else.i.i
 
 if.then.i5.i:                                     ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
@@ -315,7 +315,7 @@ entry:
   %3 = load ptr, ptr %1, align 8
   %bf.load3.i = load i64, ptr %3, align 8
   %bf.clear4.i = and i64 %bf.load3.i, 1099511627775
-  %cmp.i = icmp ult i64 %bf.clear.i, %bf.clear4.i
+  %cmp.i = icmp samesign ult i64 %bf.clear.i, %bf.clear4.i
   ret i1 %cmp.i
 }
 
@@ -330,7 +330,7 @@ entry:
   %3 = load ptr, ptr %1, align 8
   %bf.load3.i = load i64, ptr %3, align 8
   %bf.clear4.i = and i64 %bf.load3.i, 1099511627775
-  %cmp.i = icmp ule i64 %bf.clear.i, %bf.clear4.i
+  %cmp.i = icmp samesign ule i64 %bf.clear.i, %bf.clear4.i
   ret i1 %cmp.i
 }
 
@@ -345,7 +345,7 @@ entry:
   %3 = load ptr, ptr %1, align 8
   %bf.load3.i.i = load i64, ptr %3, align 8
   %bf.clear4.i.i = and i64 %bf.load3.i.i, 1099511627775
-  %cmp.i.i.not = icmp ugt i64 %bf.clear.i.i, %bf.clear4.i.i
+  %cmp.i.i.not = icmp samesign ugt i64 %bf.clear.i.i, %bf.clear4.i.i
   ret i1 %cmp.i.i.not
 }
 
@@ -360,7 +360,7 @@ entry:
   %3 = load ptr, ptr %1, align 8
   %bf.load3.i.i = load i64, ptr %3, align 8
   %bf.clear4.i.i = and i64 %bf.load3.i.i, 1099511627775
-  %cmp.i.i = icmp uge i64 %bf.clear.i.i, %bf.clear4.i.i
+  %cmp.i.i = icmp samesign uge i64 %bf.clear.i.i, %bf.clear4.i.i
   ret i1 %cmp.i.i
 }
 

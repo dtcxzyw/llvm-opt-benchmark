@@ -3085,7 +3085,7 @@ for.body16.us:                                    ; preds = %for.body16.lr.ph, %
   %arrayidx.i.i.us = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv57
   %16 = load i16, ptr %arrayidx.i.i.us, align 2
   %conv.us = zext i16 %16 to i32
-  %cmp.i.i28.us = icmp ult i64 %indvars.iv57, %15
+  %cmp.i.i28.us = icmp samesign ult i64 %indvars.iv57, %15
   br i1 %cmp.i.i28.us, label %if.then.i.i30.us, label %_ZNK6icu_7513UnicodeString6charAtEi.exit37.us
 
 if.then.i.i30.us:                                 ; preds = %for.body16.us
@@ -3129,7 +3129,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %22 = load i16, ptr %arrayidx.i.i, align 2
   %conv = zext i16 %22 to i32
-  %cmp.i.i28 = icmp ult i64 %indvars.iv, %15
+  %cmp.i.i28 = icmp samesign ult i64 %indvars.iv, %15
   br i1 %cmp.i.i28, label %if.then.i.i30, label %_ZNK6icu_7513UnicodeString6charAtEi.exit37
 
 if.then.i.i30:                                    ; preds = %for.body16
@@ -3328,7 +3328,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %_
   %9 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %9, i32 %shr.i.i.i.i
   %10 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i13 = icmp ult i64 %indvars.iv, %10
+  %cmp.i.i13 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp.i.i13, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %for.body8
@@ -4033,7 +4033,7 @@ for.body111:                                      ; preds = %for.body111.lr.ph, 
   %34 = zext i16 %33 to i32
   %35 = or disjoint i64 %indvars.iv171, 1
   %36 = zext i32 %cond.i68156 to i64
-  %cmp.i.i75 = icmp ult i64 %35, %36
+  %cmp.i.i75 = icmp samesign ult i64 %35, %36
   br i1 %cmp.i.i75, label %if.then.i.i77, label %invoke.cont118
 
 if.then.i.i77:                                    ; preds = %for.body111
@@ -4266,7 +4266,7 @@ for.body42.us.us:                                 ; preds = %_ZNK6icu_7513Unicod
   %17 = load i32, ptr %fLength.i.i.i.us.us, align 4
   %cond.i.i.i39.us.us = select i1 %cmp.i.i.i.i36.us.us, i32 %17, i32 %shr.i.i.i.i37.us.us
   %18 = zext i32 %cond.i.i.i39.us.us to i64
-  %cmp.i.i40.us.us = icmp ult i64 %indvars.iv, %18
+  %cmp.i.i40.us.us = icmp samesign ult i64 %indvars.iv, %18
   br i1 %cmp.i.i40.us.us, label %if.then.i.i42.us.us, label %_ZNK6icu_7513UnicodeString6charAtEi.exit49.us.us
 
 if.then.i.i42.us.us:                              ; preds = %for.body42.us.us
@@ -4310,7 +4310,7 @@ for.body33.us.us:                                 ; preds = %if.then30.us.us, %_
   %25 = load i32, ptr %fLength.i.i.i.us.us, align 4
   %cond.i.i.i.us.us = select i1 %cmp.i.i.i.i.us.us, i32 %25, i32 %shr.i.i.i.i.us.us
   %26 = zext i32 %cond.i.i.i.us.us to i64
-  %cmp.i.i.us.us = icmp ult i64 %indvars.iv102, %26
+  %cmp.i.i.us.us = icmp samesign ult i64 %indvars.iv102, %26
   br i1 %cmp.i.i.us.us, label %if.then.i.i.us.us, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.us.us
 
 if.then.i.i.us.us:                                ; preds = %for.body33.us.us

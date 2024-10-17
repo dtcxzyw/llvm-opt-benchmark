@@ -958,7 +958,7 @@ select.unfold.i:                                  ; preds = %210, %_ZN4Luau7Code
   %217 = add nuw nsw i32 %.034.i, 1
   %218 = load i8, ptr %189, align 4
   %219 = zext i8 %218 to i32
-  %220 = icmp ult i32 %217, %219
+  %220 = icmp samesign ult i32 %217, %219
   br i1 %220, label %193, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.noexc88
@@ -2538,7 +2538,7 @@ select.unfold.i:                                  ; preds = %211, %_ZN4Luau7Code
   %218 = add nuw nsw i32 %.034.i, 1
   %219 = load i8, ptr %190, align 4
   %220 = zext i8 %219 to i32
-  %221 = icmp ult i32 %218, %220
+  %221 = icmp samesign ult i32 %218, %220
   br i1 %221, label %194, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.noexc88

@@ -1669,7 +1669,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %168 = load i32, ptr @hf_ospf_hello_active_neighbor, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %168, ptr noundef %0, i32 noundef %.066.i, i32 noundef 4, i32 noundef 0) #5
   %170 = add nuw nsw i32 %.066.i, 4
-  %171 = icmp ugt i32 %167, %170
+  %171 = icmp samesign ugt i32 %167, %170
   br i1 %171, label %.lr.ph67.i, label %dissect_ospf_hello.exit, !llvm.loop !4
 
 172:                                              ; preds = %142
@@ -1696,7 +1696,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %189 = load i32, ptr @hf_ospf_hello_active_neighbor, align 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %189, ptr noundef %0, i32 noundef %.165.i, i32 noundef 4, i32 noundef 0) #5
   %191 = add nuw nsw i32 %.165.i, 4
-  %192 = icmp ugt i32 %188, %191
+  %192 = icmp samesign ugt i32 %188, %191
   br i1 %192, label %.lr.ph.i, label %dissect_ospf_hello.exit, !llvm.loop !6
 
 193:                                              ; preds = %141
@@ -1854,7 +1854,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %280 = add nuw nsw i32 %.038.i, 8
   %281 = call ptr @proto_tree_add_item(ptr noundef %253, i32 noundef %279, ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef 0) #5
   %282 = add nuw nsw i32 %.038.i, 12
-  %283 = icmp ugt i32 %251, %282
+  %283 = icmp samesign ugt i32 %251, %282
   br i1 %283, label %.lr.ph.i201, label %dissect_ospf_hello.exit, !llvm.loop !8
 
 284:                                              ; preds = %141
@@ -4258,7 +4258,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %98 = add i32 %.09551023, %86
   %99 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #5
   %100 = add nuw nsw i32 %.09551023, 4
-  %101 = icmp ult i32 %100, %51
+  %101 = icmp samesign ult i32 %100, %51
   br i1 %101, label %94, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !32
 
 102:                                              ; preds = %.lr.ph1028
@@ -4771,7 +4771,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %466 = add i32 %463, %.51006
   %467 = call ptr @proto_tree_add_item(ptr noundef %458, i32 noundef %465, ptr noundef %0, i32 noundef %466, i32 noundef 4, i32 noundef 0) #5
   %468 = add nuw nsw i32 %.51006, 4
-  %469 = icmp ult i32 %468, %51
+  %469 = icmp samesign ult i32 %468, %51
   br i1 %469, label %464, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !40
 
 470:                                              ; preds = %.lr.ph1028
@@ -5500,7 +5500,7 @@ define internal fastcc void @dissect_ospf_v3_address_prefix(ptr noundef %0, ptr 
   %8 = add nuw nsw i32 %3, 31
   %9 = lshr i32 %8, 3
   %10 = and i32 %9, 60
-  %11 = icmp ugt i32 %3, 128
+  %11 = icmp samesign ugt i32 %3, 128
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6

@@ -30,7 +30,7 @@ sw.bb11.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %sw.bb11.i
   %1 = shl nuw nsw i16 %and5.i, 1
   %shl14.i = zext nneg i16 %1 to i32
-  %cmp1615.i = icmp ult i16 %and5.i, 512
+  %cmp1615.i = icmp samesign ult i16 %and5.i, 512
   br i1 %cmp1615.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
@@ -79,7 +79,7 @@ entry:
   %and1.i = and i32 %0, 2139095040
   %shr2.i = lshr exact i32 %and1.i, 23
   %and8.i = and i32 %0, 8388607
-  %cmp.i = icmp ugt i32 %and1.i, 1191182336
+  %cmp.i = icmp samesign ugt i32 %and1.i, 1191182336
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
@@ -88,7 +88,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then12.i:                                      ; preds = %if.then.i
   %shr13.i = lshr i32 %and8.i, 13
-  %cmp16.i = icmp ult i32 %and8.i, 8192
+  %cmp16.i = icmp samesign ult i32 %and8.i, 8192
   %or.i = and i32 %shr.i, 64512
   %conv19.i = select i1 %cmp16.i, i32 1, i32 %shr13.i
   %or20.i = or disjoint i32 %conv19.i, %or.i
@@ -100,11 +100,11 @@ if.end22.i:                                       ; preds = %if.then.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 if.end26.i:                                       ; preds = %entry
-  %cmp28.i = icmp ult i32 %and1.i, 947912704
+  %cmp28.i = icmp samesign ult i32 %and1.i, 947912704
   br i1 %cmp28.i, label %if.then29.i, label %if.end52.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %cmp31.i = icmp ult i32 %and1.i, 855638016
+  %cmp31.i = icmp samesign ult i32 %and1.i, 855638016
   br i1 %cmp31.i, label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then29.i
@@ -173,7 +173,7 @@ sw.bb12.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %sw.bb12.i
   %1 = shl nuw nsw i16 %and6.i, 1
   %shl15.i = zext nneg i16 %1 to i64
-  %cmp1715.i = icmp ult i16 %and6.i, 512
+  %cmp1715.i = icmp samesign ult i16 %and6.i, 512
   br i1 %cmp1715.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
@@ -223,7 +223,7 @@ entry:
   %shr2.i = lshr exact i64 %and1.i, 52
   %conv3.i = trunc nuw nsw i64 %shr2.i to i16
   %and8.i = and i64 %0, 4503599627370495
-  %cmp.i = icmp ugt i64 %and1.i, 4674736413210574848
+  %cmp.i = icmp samesign ugt i64 %and1.i, 4674736413210574848
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
@@ -233,7 +233,7 @@ if.then.i:                                        ; preds = %entry
 if.then12.i:                                      ; preds = %if.then.i
   %shr13.i = lshr i64 %and8.i, 42
   %conv14.i = trunc nuw nsw i64 %shr13.i to i16
-  %cmp16.i = icmp ult i64 %and8.i, 4398046511104
+  %cmp16.i = icmp samesign ult i64 %and8.i, 4398046511104
   %conv19.i = select i1 %cmp16.i, i16 1, i16 %conv14.i
   %2 = or disjoint i16 %conv.i, %conv19.i
   %or20.i = or disjoint i16 %2, 31744
@@ -244,11 +244,11 @@ if.end22.i:                                       ; preds = %if.then.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit
 
 if.end26.i:                                       ; preds = %entry
-  %cmp28.i = icmp ult i64 %and1.i, 4544132024016830464
+  %cmp28.i = icmp samesign ult i64 %and1.i, 4544132024016830464
   br i1 %cmp28.i, label %if.then29.i, label %if.end52.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %cmp31.i = icmp ult i64 %and1.i, 4494592428115755008
+  %cmp31.i = icmp samesign ult i64 %and1.i, 4494592428115755008
   br i1 %cmp31.i, label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then29.i
@@ -312,7 +312,7 @@ sw.bb11.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %sw.bb11.i.i
   %0 = shl nuw nsw i16 %and5.i.i, 1
   %shl14.i.i = zext nneg i16 %0 to i32
-  %cmp1615.i.i = icmp ult i16 %and5.i.i, 512
+  %cmp1615.i.i = icmp samesign ult i16 %and5.i.i, 512
   br i1 %cmp1615.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i

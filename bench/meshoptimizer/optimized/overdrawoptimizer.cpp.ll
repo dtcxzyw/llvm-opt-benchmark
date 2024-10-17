@@ -201,7 +201,7 @@ cond.true.i:                                      ; preds = %for.body.i71
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i71
   %cond.i74 = phi i64 [ %conv4.i, %cond.true.i ], [ %div, %for.body.i71 ]
   %add6.i = add i32 %timestamp.092.i, 17
-  %cmp878.i = icmp ugt i64 %cond.i74, %conv.i73
+  %cmp878.i = icmp samesign ugt i64 %cond.i74, %conv.i73
   br i1 %cmp878.i, label %for.body9.i, label %for.end.i
 
 for.body9.i:                                      ; preds = %cond.end.i, %_ZN7meshoptL11updateCacheEjjjjPjRj.exit.i95

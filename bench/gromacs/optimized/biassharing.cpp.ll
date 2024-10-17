@@ -2558,7 +2558,7 @@ define noundef zeroext i1 @_ZN3gmx31haveBiasSharingWithinSimulationERKNS_9AwhPar
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %15 = icmp ult i64 %indvars.iv.next26, %11
+  %15 = icmp samesign ult i64 %indvars.iv.next26, %11
   %or.cond = select i1 %14, i1 %15, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 

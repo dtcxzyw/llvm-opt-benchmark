@@ -2302,7 +2302,7 @@ define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data_
   %72 = trunc i32 %56 to i8
   %73 = and i32 %56, 255
   %74 = add nuw nsw i32 %73, 2
-  %75 = icmp ugt i32 %74, %51
+  %75 = icmp samesign ugt i32 %74, %51
   br i1 %75, label %.loopexit7, label %55, !llvm.loop !55
 
 .loopexit7:                                       ; preds = %65, %50, %41

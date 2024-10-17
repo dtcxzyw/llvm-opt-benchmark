@@ -516,7 +516,7 @@ for.inc:                                          ; preds = %for.body, %if.else,
   %inc17 = add nuw nsw i32 %rounds.05, 1
   %3 = load i8, ptr %m_has_new_eq, align 4
   %tobool = trunc i8 %3 to i1
-  %cmp = icmp ult i32 %rounds.05, 3
+  %cmp = icmp samesign ult i32 %rounds.05, 3
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %land.rhs, label %for.end, !llvm.loop !7
 
@@ -1222,7 +1222,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %5, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end80
 
 for.body:                                         ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit

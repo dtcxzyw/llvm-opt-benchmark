@@ -2504,7 +2504,7 @@ common.resume.i.i.i:                              ; preds = %43, %common.resume.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !954)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !957)
   %32 = load i8, ptr %31, align 8, !range !960, !alias.scope !961, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %32, 10
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %32, 10
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit.i.i.i.i.i", label %33
 
 33:                                               ; preds = %30
@@ -7049,7 +7049,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h7fab3f9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2746)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2749)
   %2 = load i8, ptr %0, align 8, !range !182, !alias.scope !2752, !noundef !4
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h293286fd9482f694E.llvm.14998522591088738574.exit", label %3
 
 3:                                                ; preds = %1
@@ -7337,7 +7337,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h37
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h296908f9f7e18a0aE.llvm.14998522591088738574"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !960, !noundef !4
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17h300e15235ed14624E.llvm.14998522591088738574.exit", label %3
 
 3:                                                ; preds = %1
@@ -7382,7 +7382,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h40
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2915)
   %2 = load i8, ptr %0, align 8, !range !960, !alias.scope !2915, !noundef !4
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h296908f9f7e18a0aE.llvm.14998522591088738574.exit", label %3
 
 3:                                                ; preds = %1
@@ -7700,7 +7700,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$actix_http..test..Inner$GT$1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3039)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3042)
   %3 = load i8, ptr %2, align 8, !range !960, !alias.scope !3045, !noundef !4
-  %switch.i.i = icmp ult i8 %3, 10
+  %switch.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit", label %4
 
 4:                                                ; preds = %1
@@ -7945,7 +7945,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h293286fd9482f694E.llvm.14998522591088738574"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3124)
   %2 = load i8, ptr %0, align 8, !range !182, !alias.scope !3124, !noundef !4
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h599a4e2820cf1fe0E.llvm.14998522591088738574.exit", label %3
 
 3:                                                ; preds = %1
@@ -8235,7 +8235,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..header..name..Custom$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h599a4e2820cf1fe0E.llvm.14998522591088738574"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !182, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %16, label %3
 
 3:                                                ; preds = %1
@@ -11465,7 +11465,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$actix_http..requests..head..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4435)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4438)
   %3 = load i8, ptr %2, align 8, !range !960, !alias.scope !4441, !noundef !4
-  %switch.i.i = icmp ult i8 %3, 10
+  %switch.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit", label %4
 
 4:                                                ; preds = %1
@@ -14339,7 +14339,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..rc..RcBox$LT$actix_ht
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5578)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5581)
   %3 = load i8, ptr %2, align 8, !range !960, !alias.scope !5584, !noundef !4
-  %switch.i.i.i = icmp ult i8 %3, 10
+  %switch.i.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit.i", label %4
 
 4:                                                ; preds = %1
@@ -17991,7 +17991,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6584)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6587)
   %8 = load i8, ptr %7, align 8, !range !960, !alias.scope !6590, !noundef !4
-  %switch.i.i.i = icmp ult i8 %8, 10
+  %switch.i.i.i = icmp samesign ult i8 %8, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit.i", label %9
 
 9:                                                ; preds = %6

@@ -3262,7 +3262,7 @@ NextCh.exit.i.backedge:                           ; preds = %46, %42, %41, %33, 
 
 49:                                               ; preds = %.preheader.i
   %50 = add nuw nsw i32 %.0.i, 1
-  %51 = icmp ult i32 %.0.i, 1024
+  %51 = icmp samesign ult i32 %.0.i, 1024
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
@@ -4425,7 +4425,7 @@ SetData.exit:                                     ; preds = %75, %.lr.ph.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = load i32, ptr %0, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next, %140
   br i1 %141, label %.lr.ph, label %GetData.exit.thread, !llvm.loop !44
 
 GetData.exit.thread:                              ; preds = %SetData.exit, %.preheader, %57, %GetTable.exit.i, %GetData.exit
@@ -4449,7 +4449,7 @@ GetData.exit.thread:                              ; preds = %SetData.exit, %.pre
   %148 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %13, %12 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %indvars.iv.next88, %149
+  %150 = icmp samesign ult i64 %indvars.iv.next88, %149
   br i1 %150, label %12, label %._crit_edge77, !llvm.loop !47
 
 ._crit_edge77:                                    ; preds = %._crit_edge, %1

@@ -25819,7 +25819,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -28901,7 +28901,7 @@ _ZN4llvm5APInt6negateEv.exit66:                   ; preds = %_ZN4llvm5APInt15cle
 
 "_ZZNK4llvm14TargetLowering36optimizeSetCCOfSignedTruncationCheckENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERNS0_15DAGCombinerInfoERKNS_5SDLocEENK3$_0clEv.exit69": ; preds = %117
   %122 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %118)
-  %123 = icmp ult i64 %122, 2
+  %123 = icmp samesign ult i64 %122, 2
   br i1 %123, label %124, label %"_ZZNK4llvm14TargetLowering36optimizeSetCCOfSignedTruncationCheckENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERNS0_15DAGCombinerInfoERKNS_5SDLocEENK3$_0clEv.exit69.thread"
 
 124:                                              ; preds = %72, %119, %75, %"_ZZNK4llvm14TargetLowering36optimizeSetCCOfSignedTruncationCheckENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERNS0_15DAGCombinerInfoERKNS_5SDLocEENK3$_0clEv.exit69"
@@ -39852,7 +39852,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefENS_14TargetLowering14ConstraintT
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %49
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES5_EC2ES6_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !217
 
 49:                                               ; preds = %.lr.ph.i.i.i.i
@@ -51586,7 +51586,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit510: ; pr
   %.not.i.i511 = icmp ne i32 %219, 0
   %or.cond.not572 = select i1 %spec.select.i507, i1 %.not.i.i511, i1 false
   %254 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %219)
-  %255 = icmp ult i32 %254, 2
+  %255 = icmp samesign ult i32 %254, 2
   %or.cond566 = select i1 %or.cond.not572, i1 %255, i1 false
   br i1 %or.cond566, label %256, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit502.thread559
 
@@ -52152,7 +52152,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit246: ; pr
   %.not.i.i247 = icmp ne i32 %54, 0
   %or.cond.not331 = select i1 %spec.select.i243, i1 %.not.i.i247, i1 false
   %94 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %54)
-  %95 = icmp ult i32 %94, 2
+  %95 = icmp samesign ult i32 %94, 2
   %or.cond328 = select i1 %or.cond.not331, i1 %95, i1 false
   br i1 %or.cond328, label %96, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread315
 
@@ -65434,7 +65434,7 @@ _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit:        ; preds = %86, %90
   %93 = trunc i64 %.pn.i.i to i32
   %94 = icmp ugt i32 %93, 7
   %95 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %93)
-  %96 = icmp ult i32 %95, 2
+  %96 = icmp samesign ult i32 %95, 2
   %or.cond = select i1 %94, i1 %96, i1 false
   br i1 %or.cond, label %97, label %170
 
@@ -65786,7 +65786,7 @@ _ZN4llvm5APIntD2Ev.exit384:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %.sroa.15.1490 = extractvalue { ptr, i32 } %.pn, 1
   %.0378491 = add i32 %.0378491.in, -1
   %175 = zext i32 %.0378491 to i64
-  %176 = icmp ult i64 %indvars.iv, %175
+  %176 = icmp samesign ult i64 %indvars.iv, %175
   %.sroa.049.0.copyload = load i16, ptr %6, align 8
   %.sroa.251.0.copyload = load ptr, ptr %62, align 8
   br i1 %176, label %177, label %181
@@ -66055,7 +66055,7 @@ _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit:        ; preds = %80, %84
   %87 = trunc i64 %.pn.i.i to i32
   %88 = icmp ugt i32 %87, 7
   %89 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %87)
-  %90 = icmp ult i32 %89, 2
+  %90 = icmp samesign ult i32 %89, 2
   %or.cond = select i1 %88, i1 %90, i1 false
   br i1 %or.cond, label %91, label %_ZN4llvm5APIntD2Ev.exit287
 
@@ -71155,7 +71155,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %132, %129, %_ZN4llv
 
 _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %138
   %140 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i126.i)
-  %141 = icmp ult i32 %140, 2
+  %141 = icmp samesign ult i32 %140, 2
   %142 = icmp eq i32 %.sroa.0.0.extract.trunc.i, 1
   %or.cond.i = and i1 %142, %141
   br i1 %or.cond.i, label %143, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
@@ -78839,7 +78839,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %42, %47
   %.sroa.0.0.in.i.i.i = phi i64 [ %.sroa.0.0.insert.ext.i.i.i.i.i, %42 ], [ %48, %47 ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.in.i.i.i to i32
   %49 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i.i)
-  %.not.i65 = icmp ult i32 %49, 2
+  %.not.i65 = icmp samesign ult i32 %49, 2
   br i1 %.not.i65, label %thread-pre-split, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread
 
 thread-pre-split:                                 ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit
@@ -84197,7 +84197,7 @@ define linkonce_odr hidden noundef zeroext i8 @_ZNK4llvm18TargetLoweringBase24ge
 
 10:                                               ; preds = %2
   %11 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %6)
-  %.not.i = icmp ult i16 %11, 2
+  %.not.i = icmp samesign ult i16 %11, 2
   %. = select i1 %.not.i, i8 1, i8 7
   br label %12
 
@@ -89812,7 +89812,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %27
   %6 = sext i32 %.sroa.1.0.copyload.i to i64
   %switch.gep33 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %6
   %switch.load34 = load i32, ptr %switch.gep33, align 4
-  %7 = icmp ugt i32 %switch.load, %switch.load34
+  %7 = icmp samesign ugt i32 %switch.load, %switch.load34
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %switch.lookup
@@ -89862,7 +89862,7 @@ switch.lookup29:                                  ; preds = %26, %21
   %23 = sext i32 %.sroa.1.0.copyload.i.i to i64
   %switch.gep36 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %23
   %switch.load37 = load i32, ptr %switch.gep36, align 4
-  %24 = icmp ugt i32 %switch.load31, %switch.load37
+  %24 = icmp samesign ugt i32 %switch.load31, %switch.load37
   %25 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   br i1 %24, label %26, label %"_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_T0_.exit"
 
@@ -89919,7 +89919,7 @@ switch.lookup:                                    ; preds = %10
   %14 = sext i32 %.sroa.1.0.copyload.i to i64
   %switch.gep128 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %14
   %switch.load129 = load i32, ptr %switch.gep128, align 4
-  %15 = icmp ugt i32 %switch.load, %switch.load129
+  %15 = icmp samesign ugt i32 %switch.load, %switch.load129
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %switch.lookup
@@ -89965,7 +89965,7 @@ _ZSt7advanceIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEElEv
   %31 = sext i32 %.sroa.12.0.copyload.i.i to i64
   %switch.gep122 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %31
   %switch.load123 = load i32, ptr %switch.gep122, align 4
-  %32 = icmp ugt i32 %switch.load123, %switch.load132
+  %32 = icmp samesign ugt i32 %switch.load123, %switch.load132
   %33 = getelementptr inbounds i8, ptr %30, i64 24
   %34 = xor i64 %29, -1
   %35 = add nsw i64 %.0116.i, %34
@@ -90012,7 +90012,7 @@ _ZSt7advanceIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEElEv
   %49 = sext i32 %.sroa.1.0.copyload.i.i to i64
   %switch.gep134 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %49
   %switch.load135 = load i32, ptr %switch.gep134, align 4
-  %50 = icmp ugt i32 %switch.load126, %switch.load135
+  %50 = icmp samesign ugt i32 %switch.load126, %switch.load135
   %51 = getelementptr inbounds i8, ptr %48, i64 24
   %52 = xor i64 %47, -1
   %53 = add nsw i64 %.0116.i48, %52
@@ -90247,7 +90247,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %22 = sext i32 %.sroa.1.0.copyload.i.i to i64
   %switch.gep254 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %22
   %switch.load255 = load i32, ptr %switch.gep254, align 4
-  %23 = icmp ugt i32 %switch.load, %switch.load255
+  %23 = icmp samesign ugt i32 %switch.load, %switch.load255
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i
@@ -90397,7 +90397,7 @@ switch.lookup:                                    ; preds = %switch.lookup.outer
   %78 = sext i32 %.sroa.1.0.copyload.i.i83 to i64
   %switch.gep257 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %78
   %switch.load258 = load i32, ptr %switch.gep257, align 4
-  %79 = icmp ugt i32 %switch.load246, %switch.load258
+  %79 = icmp samesign ugt i32 %switch.load246, %switch.load258
   %80 = getelementptr inbounds i8, ptr %.0.i, i64 -24
   %81 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   br i1 %79, label %82, label %99
@@ -90477,7 +90477,7 @@ _ZSt7advanceIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEElEv
   %114 = sext i32 %.sroa.12.0.copyload.i.i93 to i64
   %switch.gep248 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %114
   %switch.load249 = load i32, ptr %switch.gep248, align 4
-  %115 = icmp ugt i32 %switch.load249, %switch.load261
+  %115 = icmp samesign ugt i32 %switch.load249, %switch.load261
   %116 = getelementptr inbounds i8, ptr %113, i64 24
   %117 = xor i64 %112, -1
   %118 = add nsw i64 %.0116.i, %117
@@ -90524,7 +90524,7 @@ _ZSt7advanceIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEElEv
   %132 = sext i32 %.sroa.1.0.copyload.i.i111 to i64
   %switch.gep263 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %132
   %switch.load264 = load i32, ptr %switch.gep263, align 4
-  %133 = icmp ugt i32 %switch.load252, %switch.load264
+  %133 = icmp samesign ugt i32 %switch.load252, %switch.load264
   %134 = getelementptr inbounds i8, ptr %131, i64 24
   %135 = xor i64 %130, -1
   %136 = add nsw i64 %.0116.i107, %135
@@ -90597,7 +90597,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefE
   %14 = sext i32 %.sroa.1.0.copyload.i.i to i64
   %switch.gep108 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %14
   %switch.load109 = load i32, ptr %switch.gep108, align 4
-  %15 = icmp ugt i32 %switch.load, %switch.load109
+  %15 = icmp samesign ugt i32 %switch.load, %switch.load109
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
@@ -90711,7 +90711,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %57 = sext i32 %.sroa.1.0.copyload.i.i47 to i64
   %switch.gep110 = getelementptr inbounds [7 x i32], ptr @"switch.table._ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_.126", i64 0, i64 %57
   %switch.load111 = load i32, ptr %switch.gep110, align 4
-  %58 = icmp ugt i32 %switch.load107, %switch.load111
+  %58 = icmp samesign ugt i32 %switch.load107, %switch.load111
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %.lr.ph.i40

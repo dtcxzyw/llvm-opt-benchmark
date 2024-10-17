@@ -678,7 +678,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %49 = add nuw nsw i64 %indvars.iv140.i, 1
   %50 = load i16, ptr %18, align 8
   %51 = zext i16 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %.lr.ph.split.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %gres_is_shared_name.exit.i, %39
@@ -692,7 +692,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %59 = add nuw nsw i64 %indvars.iv140.i, 1
   %60 = load i16, ptr %18, align 8
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %.lr.ph.split.us.i, label %.loopexit164.i
 
 .lr.ph.split.us.i:                                ; preds = %.thread.i, %78
@@ -728,7 +728,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %79 = load i16, ptr %18, align 8
   %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next138.i, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next138.i, %80
   br i1 %81, label %.lr.ph.split.us.i, label %.loopexit164.i, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %48, %109
@@ -785,7 +785,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %110 = load i16, ptr %18, align 8
   %111 = zext i16 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next135.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next135.i, %111
   br i1 %112, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %109, %48
@@ -850,7 +850,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %.1.i = phi ptr [ %.091124.i, %._crit_edge147.i ], [ @.str.7, %139 ]
   %141 = load i16, ptr %18, align 8
   %142 = zext i16 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next141.pre-phi.i, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next141.pre-phi.i, %142
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %143, label %36, label %._crit_edge127.loopexit.i, !llvm.loop !8
 
@@ -925,7 +925,7 @@ gres_is_shared_name.exit.i:                       ; preds = %39
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %175 = load i16, ptr %150, align 8
   %176 = zext i16 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next145.i, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next145.i, %176
   br i1 %177, label %163, label %_node_gres_used.exit, !llvm.loop !9
 
 _node_gres_used.exit:                             ; preds = %174, %._crit_edge127.i, %145, %146, %159, %160
@@ -3918,7 +3918,7 @@ _compare_conf_counts.exit63.i:                    ; preds = %226, %237
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %241 = load i16, ptr %195, align 8
   %242 = zext i16 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next.i, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next.i, %242
   br i1 %243, label %218, label %.backedge.i, !llvm.loop !39
 
 ._crit_edge79.i:                                  ; preds = %.backedge.i, %._crit_edge.i
@@ -4062,7 +4062,7 @@ _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %309 = load i16, ptr %294, align 8
   %310 = zext i16 %309 to i64
-  %311 = icmp ult i64 %indvars.iv.next.i.i, %310
+  %311 = icmp samesign ult i64 %indvars.iv.next.i.i, %310
   br i1 %311, label %302, label %_merge_gres.exit.i, !llvm.loop !44
 
 _merge_gres.exit.i:                               ; preds = %302, %299
@@ -5912,7 +5912,7 @@ _find_context_by_id.exit:                         ; preds = %85
   %191 = add nuw nsw i32 %.068111, 1
   %192 = load i16, ptr %8, align 2
   %193 = zext i16 %192 to i32
-  %194 = icmp ult i32 %191, %193
+  %194 = icmp samesign ult i32 %191, %193
   br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %190, %.preheader
@@ -6312,7 +6312,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %7, %.pre
   %.pre-phi = phi i32 [ %.pre49, %25 ], [ 0, %gres_build_id.exit ]
   %33 = phi i16 [ %.pre, %25 ], [ 0, %gres_build_id.exit ]
   %.039 = phi i32 [ %26, %25 ], [ 0, %gres_build_id.exit ]
-  %.not36 = icmp ult i32 %.039, %.pre-phi
+  %.not36 = icmp samesign ult i32 %.039, %.pre-phi
   br i1 %.not36, label %65, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %32, %.loopexit
@@ -6960,7 +6960,7 @@ _find_gres_type.exit.thread.i:                    ; preds = %163, %169, %152
   %.4330.i = phi i1 [ %.3329552.i, %169 ], [ %.3329552.i, %_find_gres_type.exit.i ], [ false, %177 ], [ false, %174 ], [ %.not378.i, %_find_gres_type.exit.thread.i ]
   %indvars.iv.next625.i = add nuw nsw i64 %indvars.iv624.i, 1
   %181 = zext i16 %180 to i64
-  %182 = icmp ult i64 %indvars.iv.next625.i, %181
+  %182 = icmp samesign ult i64 %indvars.iv.next625.i, %181
   br i1 %182, label %152, label %.loopexit518.i, !llvm.loop !57
 
 .loopexit518.i:                                   ; preds = %179, %.loopexit520.i
@@ -7567,7 +7567,7 @@ gres_build_id.exit.i:                             ; preds = %.lr.ph.i439.i, %.pr
   %indvars.iv.next640.i = add nuw nsw i64 %indvars.iv639.i, 1
   %465 = load i16, ptr %.phi.trans.insert.i, align 8
   %466 = zext i16 %465 to i64
-  %.not406.i = icmp ult i64 %indvars.iv.next640.i, %466
+  %.not406.i = icmp samesign ult i64 %indvars.iv.next640.i, %466
   br i1 %.not406.i, label %.outer.i, label %.loopexit515.i, !llvm.loop !58
 
 .loopexit515.i:                                   ; preds = %gres_build_id.exit.i, %266
@@ -7911,7 +7911,7 @@ _gres_bit_alloc_resize.exit.i:                    ; preds = %576, %572, %569, %5
   %.3.i.i = phi i64 [ %.256.i.i, %.lr.ph.i456.i ], [ %.pre74.i.i, %611 ], [ %606, %602 ]
   %indvars.iv.next.i459.i = add nuw nsw i64 %indvars.iv.i457.i, 1
   %615 = zext i16 %614 to i64
-  %616 = icmp ult i64 %indvars.iv.next.i459.i, %615
+  %616 = icmp samesign ult i64 %indvars.iv.next.i459.i, %615
   br i1 %616, label %.lr.ph.i456.i, label %._crit_edge.i460.i, !llvm.loop !66
 
 ._crit_edge.i460.i:                               ; preds = %613, %.preheader.i455.i
@@ -7929,7 +7929,7 @@ _gres_bit_alloc_resize.exit.i:                    ; preds = %576, %572, %569, %5
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %624 = load i16, ptr %583, align 8
   %625 = zext i16 %624 to i64
-  %.not52.i.i = icmp ult i64 %indvars.iv.next65.i.i, %625
+  %.not52.i.i = icmp samesign ult i64 %indvars.iv.next65.i.i, %625
   br i1 %.not52.i.i, label %.preheader.i455.i, label %_valid_gres_types.exit.thread.i, !llvm.loop !67
 
 626:                                              ; preds = %._crit_edge.i460.i
@@ -8048,7 +8048,7 @@ _valid_gres_types.exit.thread.i:                  ; preds = %623, %586, %580, %_
   %.pr.us.i.i = load i16, ptr %652, align 8
   %684 = zext i16 %.pr.us.i.i to i32
   %685 = zext i16 %.pr.us.i.i to i64
-  %686 = icmp ult i64 %indvars.iv.next174.i.i, %685
+  %686 = icmp samesign ult i64 %indvars.iv.next174.i.i, %685
   br i1 %686, label %.preheader127.us.i.i, label %.preheader.i465.i, !llvm.loop !69
 
 .preheader.i465.i:                                ; preds = %.loopexit128.us.i.i
@@ -8196,7 +8196,7 @@ _valid_gres_types.exit.thread.i:                  ; preds = %623, %586, %580, %_
   %indvars.iv.next182.i.i = add nuw nsw i64 %indvars.iv181.i.i, 1
   %756 = load i16, ptr %689, align 8
   %757 = zext i16 %756 to i64
-  %758 = icmp ult i64 %indvars.iv.next182.i.i, %757
+  %758 = icmp samesign ult i64 %indvars.iv.next182.i.i, %757
   br i1 %758, label %729, label %._crit_edge146.i.i, !llvm.loop !71
 
 ._crit_edge146.i.i:                               ; preds = %755, %719
@@ -8367,7 +8367,7 @@ _valid_gres_type.exit.thread.i:                   ; preds = %._valid_gres_type.e
   %indvars.iv.next653.i = add nuw nsw i64 %indvars.iv652.i, 1
   %823 = load i16, ptr %.phi.trans.insert.i, align 8
   %824 = zext i16 %823 to i64
-  %825 = icmp ult i64 %indvars.iv.next653.i, %824
+  %825 = icmp samesign ult i64 %indvars.iv.next653.i, %824
   br i1 %825, label %802, label %._crit_edge585.i, !llvm.loop !73
 
 ._crit_edge585.i:                                 ; preds = %820, %.preheader.i
@@ -8709,7 +8709,7 @@ define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly %
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %138 = load i16, ptr %29, align 8
   %139 = zext i16 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next164, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next164, %139
   br i1 %140, label %.lr.ph151.splitthread-pre-split, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %137, %.lr.ph151, %._crit_edge148, %25, %21, %24, %2, %1, %64
@@ -8864,7 +8864,7 @@ define internal fastcc void @_build_node_gres_str(ptr nocapture noundef readonly
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i16, ptr %29, align 8
   %78 = zext i16 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %79, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !80
 
 ._crit_edge.loopexit:                             ; preds = %.thread
@@ -9042,7 +9042,7 @@ _get_suffix.exit:                                 ; preds = %105, %119, %.sink.s
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %133 = load i16, ptr %29, align 8
   %134 = zext i16 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next161, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next161, %134
   br i1 %135, label %42, label %._crit_edge140.loopexit, !llvm.loop !83
 
 ._crit_edge140.loopexit:                          ; preds = %132
@@ -9133,7 +9133,7 @@ _get_suffix.exit111:                              ; preds = %145, %162, %.sink.s
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %172 = load i16, ptr %140, align 8
   %173 = zext i16 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next164, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next164, %173
   br i1 %174, label %145, label %.loopexit, !llvm.loop !84
 
 175:                                              ; preds = %139
@@ -9278,7 +9278,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %5, %.pre
   %.01821.i = phi i64 [ %35, %.lr.ph.i63 ], [ %2, %.loopexit ]
   %35 = lshr exact i64 %.01821.i, 10
   %36 = add nuw nsw i32 %.022.i, 1
-  %37 = icmp ult i32 %.022.i, 3
+  %37 = icmp samesign ult i32 %.022.i, 3
   %38 = icmp ne i64 %.01821.i, 0
   %39 = and i64 %.01821.i, 1047552
   %40 = icmp eq i64 %39, 0
@@ -9695,7 +9695,7 @@ _node_reconfig_test.exit:                         ; preds = %58, %32, %.lr.ph
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %153 = load i16, ptr %137, align 8
   %154 = zext i16 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next.i, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next.i, %154
   br i1 %155, label %.lr.ph.splitthread-pre-split.i, label %_node_reconfig.exit, !llvm.loop !89
 
 _node_reconfig.exit:                              ; preds = %152, %131, %.lr.ph.i
@@ -9943,7 +9943,7 @@ define noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i16, ptr %31, align 8
   %70 = zext i16 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %36, label %._crit_edge.loopexit, !llvm.loop !92
 
 ._crit_edge.loopexit:                             ; preds = %68
@@ -10251,7 +10251,7 @@ define range(i32 -1, 1) i32 @gres_node_state_unpack(ptr nocapture noundef %0, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = load i16, ptr %62, align 8
   %126 = zext i16 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next, %126
   br i1 %127, label %.lr.ph.us, label %.loopexit131.us, !llvm.loop !94
 
 .loopexit131.us:                                  ; preds = %124, %66, %64
@@ -10518,7 +10518,7 @@ define internal fastcc void @_gres_node_state_delete(ptr noundef %0) unnamed_add
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %25 = load i16, ptr %19, align 8
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next17, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next17, %26
   br i1 %27, label %22, label %._crit_edge12, !llvm.loop !97
 
 ._crit_edge12:                                    ; preds = %22, %18
@@ -10794,7 +10794,7 @@ _find_context_by_id.exit:                         ; preds = %22
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %154 = load i16, ptr %83, align 8
   %155 = zext i16 %154 to i64
-  %156 = icmp ult i64 %indvars.iv.next133.i, %155
+  %156 = icmp samesign ult i64 %indvars.iv.next133.i, %155
   br i1 %156, label %118, label %.loopexit120.i, !llvm.loop !100
 
 .loopexit120.i:                                   ; preds = %126, %85, %82
@@ -10867,7 +10867,7 @@ _find_context_by_id.exit:                         ; preds = %22
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %204 = load i16, ptr %157, align 8
   %205 = zext i16 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next136.i, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next136.i, %205
   br i1 %206, label %182, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %182, %.loopexit120.i, %159
@@ -10960,7 +10960,7 @@ define internal noundef i32 @_node_state_dealloc(ptr nocapture noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %10, align 8
   %22 = zext i16 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !102
 
 24:                                               ; preds = %9
@@ -10985,7 +10985,7 @@ define internal noundef i32 @_node_state_dealloc(ptr nocapture noundef readonly 
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %31 = load i16, ptr %25, align 8
   %32 = zext i16 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next30, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next30, %32
   br i1 %33, label %28, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %28, %.loopexit
@@ -11304,7 +11304,7 @@ define void @gres_node_state_log(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %176 = load i16, ptr %94, align 8
   %177 = zext i16 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next98.i, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next98.i, %177
   br i1 %178, label %108, label %.preheader.i, !llvm.loop !106
 
 179:                                              ; preds = %206, %.lr.ph89.i
@@ -11354,7 +11354,7 @@ define void @gres_node_state_log(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %207 = load i16, ptr %102, align 8
   %208 = zext i16 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next101.i, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next101.i, %208
   br i1 %209, label %179, label %_node_state_log.exit, !llvm.loop !107
 
 _node_state_log.exit:                             ; preds = %206, %.preheader.i
@@ -11612,7 +11612,7 @@ define void @gres_job_state_delete(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %7, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %13, %.preheader11
@@ -11639,7 +11639,7 @@ define void @gres_job_state_delete(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %26 = load i32, ptr %22, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next22, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next22, %27
   br i1 %28, label %.lr.ph15, label %._crit_edge16, !llvm.loop !112
 
 ._crit_edge16:                                    ; preds = %.lr.ph15, %.preheader
@@ -11743,7 +11743,7 @@ define void @gres_job_clear_alloc(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %2, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %8, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %34, %1
@@ -14174,7 +14174,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %89 = phi i32 [ %79, %.lr.ph ], [ %.pre, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next, %90
   br i1 %91, label %.lr.ph, label %.loopexit112, !llvm.loop !133
 
 .loopexit112:                                     ; preds = %88, %73, %70
@@ -14220,7 +14220,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %116 = load i32, ptr %35, align 8
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next129, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next129, %117
   br i1 %118, label %.lr.ph115, label %.loopexit111, !llvm.loop !134
 
 .loopexit111:                                     ; preds = %.lr.ph115, %96, %94, %.loopexit112
@@ -14260,7 +14260,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %136 = phi i32 [ %127, %.lr.ph117 ], [ %.pre140, %131 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %indvars.iv.next132, %137
+  %138 = icmp samesign ult i64 %indvars.iv.next132, %137
   br i1 %138, label %.lr.ph117, label %.loopexit110, !llvm.loop !135
 
 .loopexit110:                                     ; preds = %135, %121, %.loopexit111
@@ -14307,7 +14307,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %164 = load i32, ptr %35, align 8
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next135, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next135, %165
   br i1 %166, label %.lr.ph119, label %.loopexit109, !llvm.loop !136
 
 .loopexit109:                                     ; preds = %.lr.ph119, %143, %141, %.loopexit110
@@ -14364,7 +14364,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %195 = phi i32 [ %185, %.lr.ph121 ], [ %.pre141, %190 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %196 = zext i32 %195 to i64
-  %197 = icmp ult i64 %indvars.iv.next138, %196
+  %197 = icmp samesign ult i64 %indvars.iv.next138, %196
   br i1 %197, label %.lr.ph121, label %.loopexit, !llvm.loop !137
 
 .loopexit:                                        ; preds = %194, %179, %176, %1
@@ -14524,7 +14524,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %80 = load i32, ptr %51, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next318, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next318, %81
   br i1 %82, label %.lr.ph277.us, label %.loopexit264.us, !llvm.loop !138
 
 83:                                               ; preds = %59
@@ -14585,7 +14585,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %106 = load i32, ptr %51, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next324, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next324, %107
   br i1 %108, label %.lr.ph283.us, label %.loopexit263.us, !llvm.loop !139
 
 109:                                              ; preds = %85, %._crit_edge.us
@@ -14616,7 +14616,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %117 = load i32, ptr %51, align 8
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next327, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next327, %118
   br i1 %119, label %.lr.ph286.us, label %.loopexit262.us, !llvm.loop !140
 
 120:                                              ; preds = %.loopexit263.us.thread, %.loopexit263.us
@@ -14681,7 +14681,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %146 = load i32, ptr %51, align 8
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next321, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next321, %147
   br i1 %148, label %125, label %._crit_edge.us, !llvm.loop !142
 
 .loopexit.us:                                     ; preds = %.lr.ph290.us.split, %172, %112, %.loopexit262.us
@@ -14743,7 +14743,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %173 = load i32, ptr %51, align 8
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %indvars.iv.next330, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next330, %174
   br i1 %175, label %.lr.ph290.us.split.us, label %.loopexit.us, !llvm.loop !141
 
 .lr.ph294.split:                                  ; preds = %.lr.ph294
@@ -14864,7 +14864,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %236 = load i32, ptr %207, align 8
   %237 = zext i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next, %237
   br i1 %238, label %.lr.ph.us, label %.loopexit267.us, !llvm.loop !144
 
 239:                                              ; preds = %215
@@ -14919,7 +14919,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %261 = load i32, ptr %207, align 8
   %262 = zext i32 %261 to i64
-  %263 = icmp ult i64 %indvars.iv.next312, %262
+  %263 = icmp samesign ult i64 %indvars.iv.next312, %262
   br i1 %263, label %.lr.ph273.us, label %.loopexit266.us, !llvm.loop !145
 
 264:                                              ; preds = %240, %.loopexit267.us
@@ -14950,7 +14950,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %272 = load i32, ptr %207, align 8
   %273 = zext i32 %272 to i64
-  %274 = icmp ult i64 %indvars.iv.next315, %273
+  %274 = icmp samesign ult i64 %indvars.iv.next315, %273
   br i1 %274, label %.lr.ph275.us, label %.loopexit265.us, !llvm.loop !146
 
 275:                                              ; preds = %.loopexit266.us.thread, %.loopexit266.us
@@ -15298,7 +15298,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %indvars.iv.next642 = add nuw nsw i64 %indvars.iv641, 1
   %149 = load i32, ptr %99, align 8
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next642, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next642, %150
   br i1 %151, label %123, label %.loopexit426.us, !llvm.loop !147
 
 .loopexit426.us:                                  ; preds = %148, %113
@@ -15395,7 +15395,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
   %191 = load i32, ptr %99, align 8
   %192 = zext i32 %191 to i64
-  %193 = icmp ult i64 %indvars.iv.next648, %192
+  %193 = icmp samesign ult i64 %indvars.iv.next648, %192
   br i1 %193, label %165, label %.loopexit422.us, !llvm.loop !148
 
 .loopexit422.us:                                  ; preds = %190, %.thread675, %163, %154
@@ -15435,7 +15435,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
   %206 = load i32, ptr %99, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next651, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next651, %207
   br i1 %208, label %209, label %.loopexit420.us, !llvm.loop !149
 
 209:                                              ; preds = %.lr.ph522.us, %205
@@ -15523,7 +15523,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %241 = load i32, ptr %99, align 8
   %242 = zext i32 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next654, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next654, %242
   br i1 %243, label %224, label %.loopexit418.us, !llvm.loop !150
 
 244:                                              ; preds = %.lr.ph514.us, %260
@@ -15569,7 +15569,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
   %261 = load i32, ptr %99, align 8
   %262 = zext i32 %261 to i64
-  %263 = icmp ult i64 %indvars.iv.next645, %262
+  %263 = icmp samesign ult i64 %indvars.iv.next645, %262
   br i1 %263, label %244, label %._crit_edge.us, !llvm.loop !151
 
 .loopexit418.us:                                  ; preds = %240, %.thread677, %203, %.loopexit420.us
@@ -15836,7 +15836,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %379 = load i32, ptr %328, align 8
   %380 = zext i32 %379 to i64
-  %381 = icmp ult i64 %indvars.iv.next, %380
+  %381 = icmp samesign ult i64 %indvars.iv.next, %380
   br i1 %381, label %353, label %.loopexit433.us, !llvm.loop !153
 
 .loopexit433.us:                                  ; preds = %378, %.thread680, %351, %342
@@ -15928,7 +15928,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
   %420 = load i32, ptr %328, align 8
   %421 = zext i32 %420 to i64
-  %422 = icmp ult i64 %indvars.iv.next636, %421
+  %422 = icmp samesign ult i64 %indvars.iv.next636, %421
   br i1 %422, label %394, label %.loopexit431.us, !llvm.loop !154
 
 .loopexit431.us:                                  ; preds = %419, %.thread682, %392, %383
@@ -15968,7 +15968,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %indvars.iv.next639 = add nuw nsw i64 %indvars.iv638, 1
   %436 = load i32, ptr %328, align 8
   %437 = zext i32 %436 to i64
-  %438 = icmp ult i64 %indvars.iv.next639, %437
+  %438 = icmp samesign ult i64 %indvars.iv.next639, %437
   br i1 %438, label %439, label %.loopexit429.us, !llvm.loop !155
 
 439:                                              ; preds = %.lr.ph508.us, %435
@@ -16269,7 +16269,7 @@ define noundef i32 @gres_prep_pack(ptr noundef %0, ptr noundef %1, i16 noundef z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %18, align 4
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !156
 
 50:                                               ; preds = %26
@@ -16518,7 +16518,7 @@ define range(i32 -1, 1) i32 @gres_prep_unpack(ptr nocapture noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr %50, align 4
   %102 = zext i32 %101 to i64
-  %103 = icmp ult i64 %indvars.iv.next, %102
+  %103 = icmp samesign ult i64 %indvars.iv.next, %102
   br i1 %103, label %75, label %.loopexit119.us, !llvm.loop !158
 
 .loopexit119.us:                                  ; preds = %100, %.thread157, %73, %64
@@ -16578,7 +16578,7 @@ define range(i32 -1, 1) i32 @gres_prep_unpack(ptr nocapture noundef %0, ptr noun
   %indvars.iv.next.i98.us = add nuw nsw i64 %indvars.iv.i97.us, 1
   %124 = load i32, ptr %50, align 4
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next.i98.us, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next.i98.us, %125
   br i1 %126, label %.lr.ph.i96.us, label %._crit_edge.i.us, !llvm.loop !159
 
 ._crit_edge.i.us:                                 ; preds = %121, %.preheader.i.us
@@ -16698,7 +16698,7 @@ _find_context_by_id.exit.us:                      ; preds = %108
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i104, 1
   %163 = load i32, ptr %154, align 4
   %164 = zext i32 %163 to i64
-  %165 = icmp ult i64 %indvars.iv.next.i107, %164
+  %165 = icmp samesign ult i64 %indvars.iv.next.i107, %164
   br i1 %165, label %.lr.ph.i103, label %._crit_edge.i108, !llvm.loop !159
 
 ._crit_edge.i108:                                 ; preds = %160, %.preheader.i101
@@ -16769,7 +16769,7 @@ define internal void @_prep_list_del(ptr noundef %0) #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %6, align 4
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %12, %.preheader
@@ -17157,7 +17157,7 @@ _core_bitmap_rebuild.exit:                        ; preds = %.lr.ph48.split.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i16, ptr %4, align 8
   %67 = zext i16 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %15, label %.loopexit, !llvm.loop !167
 
 .loopexit:                                        ; preds = %65, %3, %13
@@ -17421,7 +17421,7 @@ gres_use_busy_dev.exit.i:                         ; preds = %50, %47
   %indvars.iv.next484.i = add nuw nsw i64 %indvars.iv483.i, 1
   %139 = load i16, ptr %63, align 8
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next484.i, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next484.i, %140
   br i1 %141, label %76, label %._crit_edge421.i, !llvm.loop !169
 
 ._crit_edge421.i:                                 ; preds = %.loopexit377.i, %68
@@ -17662,7 +17662,7 @@ gres_use_busy_dev.exit.i:                         ; preds = %50, %47
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %247 = load i16, ptr %63, align 8
   %248 = zext i16 %247 to i64
-  %249 = icmp ult i64 %indvars.iv.next460.i, %248
+  %249 = icmp samesign ult i64 %indvars.iv.next460.i, %248
   br i1 %249, label %190, label %.preheader380.i, !llvm.loop !173
 
 .preheader379.i:                                  ; preds = %.preheader379.i.outer, %.thread
@@ -17714,7 +17714,7 @@ gres_use_busy_dev.exit.i:                         ; preds = %50, %47
   %indvars.iv.next466.i = add nuw nsw i64 %indvars.iv465.i, 1
   %269 = load i16, ptr %63, align 8
   %270 = zext i16 %269 to i64
-  %271 = icmp ult i64 %indvars.iv.next466.i, %270
+  %271 = icmp samesign ult i64 %indvars.iv.next466.i, %270
   br i1 %271, label %.lr.ph406.split.us.i, label %._crit_edge.i, !llvm.loop !174
 
 .lr.ph406.split.i:                                ; preds = %.lr.ph406.i, %296
@@ -17767,7 +17767,7 @@ gres_use_busy_dev.exit.i:                         ; preds = %50, %47
   %indvars.iv.next463.i = add nuw nsw i64 %indvars.iv462.i, 1
   %297 = load i16, ptr %63, align 8
   %298 = zext i16 %297 to i64
-  %299 = icmp ult i64 %indvars.iv.next463.i, %298
+  %299 = icmp samesign ult i64 %indvars.iv.next463.i, %298
   br i1 %299, label %.lr.ph406.split.i, label %._crit_edge.i, !llvm.loop !174
 
 ._crit_edge.i:                                    ; preds = %296, %267
@@ -18779,7 +18779,7 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %175 = load i32, ptr %105, align 8
   %176 = zext i32 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next.i, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next.i, %176
   br i1 %177, label %116, label %._crit_edge.i, !llvm.loop !183
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %111, %104
@@ -19078,7 +19078,7 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv212.i, 1
   %332 = load i32, ptr %186, align 8
   %333 = zext i32 %332 to i64
-  %334 = icmp ult i64 %indvars.iv.next213.i, %333
+  %334 = icmp samesign ult i64 %indvars.iv.next213.i, %333
   br i1 %334, label %200, label %_job_state_log.exit, !llvm.loop !186
 
 _job_state_log.exit:                              ; preds = %331, %185, %192
@@ -20212,7 +20212,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %11, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %17, %.preheader12
@@ -20239,7 +20239,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %30 = load i32, ptr %26, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next23, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next23, %31
   br i1 %32, label %.lr.ph16, label %._crit_edge17, !llvm.loop !195
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %.preheader
@@ -21136,7 +21136,7 @@ define ptr @gres_step_state_extract(ptr noundef %0, i32 noundef %1) local_unname
   %75 = phi i32 [ %65, %.lr.ph.i.us ], [ %.pre.i.us, %70 ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next.i.us, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next.i.us, %76
   br i1 %77, label %.lr.ph.i.us, label %.loopexit61.i.us, !llvm.loop !204
 
 .loopexit61.i.us:                                 ; preds = %74, %59, %56
@@ -21186,7 +21186,7 @@ define ptr @gres_step_state_extract(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %104 = load i32, ptr %35, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next69.i.us, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next69.i.us, %105
   br i1 %106, label %88, label %_step_state_dup.exit.us, !llvm.loop !205
 
 _step_state_dup.exit.us:                          ; preds = %88, %82, %80, %.loopexit61.i.us
@@ -21576,7 +21576,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %93 = load i32, ptr %51, align 8
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next312, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next312, %94
   br i1 %95, label %.lr.ph280.us, label %.loopexit266.us, !llvm.loop !207
 
 96:                                               ; preds = %72
@@ -21633,7 +21633,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %119 = load i32, ptr %51, align 8
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %indvars.iv.next315, %120
+  %121 = icmp samesign ult i64 %indvars.iv.next315, %120
   br i1 %121, label %98, label %.loopexit.us, !llvm.loop !208
 
 .loopexit.us:                                     ; preds = %118, %75, %.loopexit266.us
@@ -21772,7 +21772,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %188 = load i32, ptr %146, align 8
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %indvars.iv.next306, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next306, %189
   br i1 %190, label %.lr.ph275.us, label %.loopexit268.us, !llvm.loop !210
 
 191:                                              ; preds = %167
@@ -21829,7 +21829,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %214 = load i32, ptr %146, align 8
   %215 = zext i32 %214 to i64
-  %216 = icmp ult i64 %indvars.iv.next309, %215
+  %216 = icmp samesign ult i64 %indvars.iv.next309, %215
   br i1 %216, label %193, label %.loopexit267.us, !llvm.loop !211
 
 .loopexit267.us:                                  ; preds = %213, %170, %.loopexit268.us
@@ -21967,7 +21967,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %282 = load i32, ptr %240, align 8
   %283 = zext i32 %282 to i64
-  %284 = icmp ult i64 %indvars.iv.next, %283
+  %284 = icmp samesign ult i64 %indvars.iv.next, %283
   br i1 %284, label %.lr.ph.us, label %.loopexit269.us, !llvm.loop !212
 
 285:                                              ; preds = %261
@@ -22378,7 +22378,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %184 = load i32, ptr %106, align 8
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next504, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next504, %185
   br i1 %186, label %.lr.ph442, label %.loopexit370, !llvm.loop !213
 
 .loopexit370:                                     ; preds = %183, %144
@@ -22433,7 +22433,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %206 = load i32, ptr %106, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next507, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next507, %207
   br i1 %208, label %189, label %.loopexit369, !llvm.loop !214
 
 209:                                              ; preds = %58
@@ -22681,7 +22681,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %321 = load i32, ptr %243, align 8
   %322 = zext i32 %321 to i64
-  %323 = icmp ult i64 %indvars.iv.next498, %322
+  %323 = icmp samesign ult i64 %indvars.iv.next498, %322
   br i1 %323, label %.lr.ph437, label %.loopexit375, !llvm.loop !215
 
 .loopexit375:                                     ; preds = %320, %281
@@ -22736,7 +22736,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %343 = load i32, ptr %243, align 8
   %344 = zext i32 %343 to i64
-  %345 = icmp ult i64 %indvars.iv.next501, %344
+  %345 = icmp samesign ult i64 %indvars.iv.next501, %344
   br i1 %345, label %326, label %.loopexit369, !llvm.loop !216
 
 346:                                              ; preds = %209
@@ -22984,7 +22984,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %459 = load i32, ptr %380, align 8
   %460 = zext i32 %459 to i64
-  %461 = icmp ult i64 %indvars.iv.next, %460
+  %461 = icmp samesign ult i64 %indvars.iv.next, %460
   br i1 %461, label %.lr.ph, label %.loopexit369, !llvm.loop !217
 
 462:                                              ; preds = %346
@@ -23222,7 +23222,7 @@ define ptr @cpu_set_to_bit_str(ptr noundef readonly %0, i32 noundef %1) local_un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
-  %6 = icmp ult i64 %indvars.iv, 1024
+  %6 = icmp samesign ult i64 %indvars.iv, 1024
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %.lr.ph
@@ -24369,7 +24369,7 @@ _step_state_log_node.exit.i:                      ; preds = %144, %.preheader.i.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %154 = load i32, ptr %92, align 8
   %155 = zext i32 %154 to i64
-  %156 = icmp ult i64 %indvars.iv.next.i, %155
+  %156 = icmp samesign ult i64 %indvars.iv.next.i, %155
   br i1 %156, label %98, label %_step_state_log.exit, !llvm.loop !230
 
 .loopexit.sink.split.i:                           ; preds = %95, %85
@@ -25759,7 +25759,7 @@ define void @gres_clear_tres_cnt(ptr nocapture noundef writeonly %0, i1 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr @g_tres_count, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %15, %5
@@ -26812,7 +26812,7 @@ define internal fastcc void @_get_gres_cnt(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i16, ptr %11, align 8
   %18 = zext i16 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %14, label %._crit_edge, !llvm.loop !251
 
 ._crit_edge:                                      ; preds = %14, %.preheader
@@ -26980,7 +26980,7 @@ define internal fastcc void @_gres_node_state_delete_topo(ptr noundef %0) unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i16, ptr %2, align 8
   %29 = zext i16 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %7, label %._crit_edge, !llvm.loop !254
 
 ._crit_edge:                                      ; preds = %25, %1
@@ -27745,7 +27745,7 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
-  %65 = icmp ult i64 %indvars.iv.i.i, 1024
+  %65 = icmp samesign ult i64 %indvars.iv.i.i, 1024
   br i1 %65, label %66, label %.critedge.i.i
 
 66:                                               ; preds = %.lr.ph.i.i
@@ -28039,7 +28039,7 @@ define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %15 = icmp ult i64 %indvars.iv.i, 1024
+  %15 = icmp samesign ult i64 %indvars.iv.i, 1024
   br i1 %15, label %16, label %.critedge.i
 
 16:                                               ; preds = %.lr.ph.i

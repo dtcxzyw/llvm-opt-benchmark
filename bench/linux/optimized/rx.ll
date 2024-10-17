@@ -4458,7 +4458,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %64 = zext i16 %59 to i32
   %65 = sub nsw i32 %64, %63
   %66 = and i32 %65, 4095
-  %67 = icmp ugt i32 %66, 2048
+  %67 = icmp samesign ugt i32 %66, 2048
   br i1 %67, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %58, %.preheader
@@ -4471,7 +4471,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %73 = zext i16 %72 to i32
   %74 = sub nsw i32 %73, %63
   %75 = and i32 %74, 4095
-  %76 = icmp ugt i32 %75, 2048
+  %76 = icmp samesign ugt i32 %75, 2048
   br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %58
@@ -4484,7 +4484,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %80 = zext i16 %79 to i32
   %81 = sub nsw i32 %80, %78
   %82 = and i32 %81, 4095
-  %83 = icmp ugt i32 %82, 2048
+  %83 = icmp samesign ugt i32 %82, 2048
   br i1 %83, label %84, label %.loopexit6
 
 84:                                               ; preds = %77
@@ -4501,7 +4501,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %92 = zext i16 %91 to i32
   %93 = sub nsw i32 %92, %78
   %94 = and i32 %93, 4095
-  %95 = icmp ugt i32 %94, 2048
+  %95 = icmp samesign ugt i32 %94, 2048
   br i1 %95, label %86, label %.loopexit6, !llvm.loop !77
 
 .loopexit6:                                       ; preds = %86, %77, %.loopexit
@@ -4509,7 +4509,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %96 = getelementptr inbounds i8, ptr %52, i64 150
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
-  %99 = icmp ult i32 %.pre-phi10, %98
+  %99 = icmp samesign ult i32 %.pre-phi10, %98
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %.loopexit6
@@ -4578,7 +4578,7 @@ define internal fastcc void @ieee80211_release_reorder_frames(ptr nocapture noun
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %7, %5
   %9 = and i32 %8, 4095
-  %10 = icmp ugt i32 %9, 2048
+  %10 = icmp samesign ugt i32 %9, 2048
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %3
@@ -4595,7 +4595,7 @@ define internal fastcc void @ieee80211_release_reorder_frames(ptr nocapture noun
   %19 = zext i16 %18 to i32
   %20 = sub nsw i32 %19, %5
   %21 = and i32 %20, 4095
-  %22 = icmp ugt i32 %21, 2048
+  %22 = icmp samesign ugt i32 %21, 2048
   br i1 %22, label %13, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %13, %3
@@ -6072,7 +6072,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %550, ptr %562, align 4
   %563 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 %550, ptr %563, align 8
-  %564 = icmp ugt i8 %549, 7
+  %564 = icmp samesign ugt i8 %549, 7
   %spec.select = select i1 %564, i32 0, i32 %550
   br label %565
 
@@ -8560,7 +8560,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_process_rx_twt_action(ptr n
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = add nuw nsw i64 %42, 29
-  %44 = icmp ugt i64 %43, %33
+  %44 = icmp samesign ugt i64 %43, %33
   br i1 %44, label %49, label %50
 
 45:                                               ; preds = %27
@@ -11447,7 +11447,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %918 = zext i16 %911 to i32
   %919 = sub nsw i32 %917, %918
   %920 = and i32 %919, 4095
-  %921 = icmp ugt i32 %920, 2048
+  %921 = icmp samesign ugt i32 %920, 2048
   br i1 %916, label %922, label %924, !prof !6
 
 922:                                              ; preds = %909
@@ -11470,7 +11470,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %928 = zext i16 %927 to i32
   %929 = sub nsw i32 %917, %928
   %930 = and i32 %929, 4095
-  %931 = icmp ugt i32 %930, 2048
+  %931 = icmp samesign ugt i32 %930, 2048
   br i1 %931, label %.loopexit, label %932
 
 932:                                              ; preds = %926
@@ -11479,7 +11479,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %935 = zext i16 %934 to i32
   %936 = sub nsw i32 %918, %935
   %937 = and i32 %936, 4095
-  %938 = icmp ugt i32 %937, 2048
+  %938 = icmp samesign ugt i32 %937, 2048
   br i1 %938, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %932, %.preheader
@@ -11492,7 +11492,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %944 = zext i16 %943 to i32
   %945 = sub nsw i32 %944, %935
   %946 = and i32 %945, 4095
-  %947 = icmp ugt i32 %946, 2048
+  %947 = icmp samesign ugt i32 %946, 2048
   br i1 %947, label %.preheader, label %.loopexit.loopexit, !llvm.loop !77
 
 .loopexit.loopexit:                               ; preds = %.preheader

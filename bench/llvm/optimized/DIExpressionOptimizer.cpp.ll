@@ -566,7 +566,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
   %268 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %250, i1 false)
   %269 = trunc nuw nsw i64 %268 to i32
   %270 = add nuw nsw i32 %269, %267
-  %271 = icmp ugt i32 %270, 63
+  %271 = icmp samesign ugt i32 %270, 63
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %265
@@ -767,7 +767,7 @@ _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i: ;
   %372 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %357, i1 false)
   %373 = trunc nuw nsw i64 %372 to i32
   %374 = add nuw nsw i32 %373, %371
-  %375 = icmp ugt i32 %374, 63
+  %375 = icmp samesign ugt i32 %374, 63
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %369
@@ -1049,7 +1049,7 @@ _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit20.i:
   %512 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %488, i1 false)
   %513 = trunc nuw nsw i64 %512 to i32
   %514 = add nuw nsw i32 %513, %511
-  %515 = icmp ugt i32 %514, 63
+  %515 = icmp samesign ugt i32 %514, 63
   br i1 %515, label %516, label %518
 
 516:                                              ; preds = %509

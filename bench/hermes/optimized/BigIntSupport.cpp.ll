@@ -217,7 +217,7 @@ entry:
   %0 = bitcast double %src to i64
   %shr = lshr i64 %0, 52
   %and = and i64 %shr, 2047
-  %cmp = icmp ult i64 %and, 1023
+  %cmp = icmp samesign ult i64 %and, 1023
   %1 = trunc nuw nsw i64 %and to i32
   %sub1.i.i = add nsw i32 %1, -958
   %div1.i = lshr i32 %sub1.i.i, 6
@@ -724,7 +724,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %10 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %11 = or disjoint i16 %9, %10
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i16 %11, i16 0
-  %tobool.i.not.i.i.i.i = icmp ult i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 256
+  %tobool.i.not.i.i.i.i = icmp samesign ult i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 256
   %brmerge.i.i.i.i = or i1 %cmp.i.i.i.i.i.i, %tobool.i.not.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 2
   %ref.tmp.sroa.0.10 = select i1 %brmerge.i.i.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i.i.i.i.i
@@ -755,7 +755,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %17 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i.i.i to i16
   %18 = or disjoint i16 %16, %17
   %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i16 %18, i16 0
-  %tobool.i.not.i.i.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 255
+  %tobool.i.not.i.i.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 255
   %brmerge.i.i.i.i.i.i.not = and i1 %cmp.i.i.i.i.i.i.i.i, %tobool.i.not.i.i.i.i.i.i
   %spec.select30.idx = zext i1 %brmerge.i.i.i.i.i.i.not to i64
   %spec.select30 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.10, i64 %spec.select30.idx
@@ -789,7 +789,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %24 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i.i.i to i16
   %25 = or disjoint i16 %23, %24
   %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i = select i1 %or.cond.i.i10.i.i.i.i.i, i16 %25, i16 0
-  %tobool.i.not.i12.i.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i, 255
+  %tobool.i.not.i12.i.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i, 255
   %brmerge.i13.i.i.i.i.i.not = and i1 %cmp.i.i.i3.i.i.i.i.i, %tobool.i.not.i12.i.i.i.i.i
   %spec.select32.idx = zext i1 %brmerge.i13.i.i.i.i.i.not to i64
   %spec.select32 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.12, i64 %spec.select32.idx
@@ -826,7 +826,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %31 = zext nneg i8 %retval.sroa.0.0.i.i.i.i5.i.i to i16
   %32 = or disjoint i16 %30, %31
   %retval.sroa.0.0.insert.insert.i.i.i10.i.i = select i1 %or.cond.i.i.i9.i.i, i16 %32, i16 0
-  %tobool.i.not.i.i11.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i10.i.i, 255
+  %tobool.i.not.i.i11.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i10.i.i, 255
   %brmerge.i.i12.i.i.not = and i1 %cmp.i.i.i.i3.i.i, %tobool.i.not.i.i11.i.i
   %ref.tmp.sroa.0.17.idx = zext i1 %brmerge.i.i12.i.i.not to i64
   %ref.tmp.sroa.0.17 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.16, i64 %ref.tmp.sroa.0.17.idx
@@ -857,7 +857,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %38 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i24.i.i to i16
   %39 = or disjoint i16 %37, %38
   %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i = select i1 %or.cond.i.i.i.i.i27.i.i, i16 %39, i16 0
-  %tobool.i.not.i.i.i.i29.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i, 255
+  %tobool.i.not.i.i.i.i29.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i, 255
   %brmerge.i.i.i.i30.i.i.not = and i1 %cmp.i.i.i.i.i.i22.i.i, %tobool.i.not.i.i.i.i29.i.i
   %spec.select34.idx = zext i1 %brmerge.i.i.i.i30.i.i.not to i64
   %spec.select34 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.17, i64 %spec.select34.idx
@@ -891,7 +891,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %45 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i45.i.i to i16
   %46 = or disjoint i16 %44, %45
   %retval.sroa.0.0.insert.insert.i.i11.i.i.i49.i.i = select i1 %or.cond.i.i10.i.i.i48.i.i, i16 %46, i16 0
-  %tobool.i.not.i12.i.i.i50.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i49.i.i, 255
+  %tobool.i.not.i12.i.i.i50.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i49.i.i, 255
   %brmerge.i13.i.i.i51.i.i.not = and i1 %cmp.i.i.i3.i.i.i43.i.i, %tobool.i.not.i12.i.i.i50.i.i
   %spec.select36.idx = zext i1 %brmerge.i13.i.i.i51.i.i.not to i64
   %spec.select36 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.19, i64 %spec.select36.idx
@@ -928,7 +928,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %52 = zext nneg i8 %retval.sroa.0.0.i.i.i.i65.i.i to i16
   %53 = or disjoint i16 %51, %52
   %retval.sroa.0.0.insert.insert.i.i.i70.i.i = select i1 %or.cond.i.i.i69.i.i, i16 %53, i16 0
-  %tobool.i.not.i.i71.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i70.i.i, 255
+  %tobool.i.not.i.i71.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i70.i.i, 255
   %brmerge.i.i72.i.i.not = and i1 %cmp.i.i.i.i63.i.i, %tobool.i.not.i.i71.i.i
   %spec.select38.idx = zext i1 %brmerge.i.i72.i.i.not to i64
   %spec.select38 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.22, i64 %spec.select38.idx
@@ -1128,7 +1128,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %71 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i.i to i16
   %72 = or disjoint i16 %70, %71
   %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i = select i1 %or.cond.i.i11.i.i.i.i, i16 %72, i16 0
-  %tobool.i.not.i13.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i, 255
+  %tobool.i.not.i13.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i, 255
   %brmerge.i14.i.i.i.i.not = and i1 %cmp.i.i.i3.i.i.i.i, %tobool.i.not.i13.i.i.i.i
   %spec.select42.idx = zext i1 %brmerge.i14.i.i.i.i.not to i64
   %spec.select42 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.6, i64 %spec.select42.idx
@@ -1767,7 +1767,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %9 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %10 = or disjoint i16 %8, %9
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i16 %10, i16 0
-  %tobool.i.not.i.i.i.i = icmp ult i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 256
+  %tobool.i.not.i.i.i.i = icmp samesign ult i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 256
   %brmerge.i.i.i.i = or i1 %cmp.i.i.i.i.i.not, %tobool.i.not.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %src.coerce0, i64 2
   %ref.tmp.sroa.0.5 = select i1 %brmerge.i.i.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i.i.i.i.i
@@ -1798,7 +1798,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %16 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i.i.i to i16
   %17 = or disjoint i16 %15, %16
   %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i16 %17, i16 0
-  %tobool.i.not.i.i.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 255
+  %tobool.i.not.i.i.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 255
   %brmerge.i.i.i.i.i.i.not = and i1 %cmp.i.i.i.i.i.i.i.i, %tobool.i.not.i.i.i.i.i.i
   %spec.select.idx = zext i1 %brmerge.i.i.i.i.i.i.not to i64
   %spec.select = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.5, i64 %spec.select.idx
@@ -1845,7 +1845,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %24 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i.i.i to i16
   %25 = or disjoint i16 %23, %24
   %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i = select i1 %or.cond.i.i10.i.i.i.i.i, i16 %25, i16 0
-  %tobool.i.not.i12.i.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i, 255
+  %tobool.i.not.i12.i.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i.i.i, 255
   %brmerge.i13.i.i.i.i.i.not = and i1 %cmp.i.i.i3.i.i.i.i.i, %tobool.i.not.i12.i.i.i.i.i
   %spec.select20.idx = zext i1 %brmerge.i13.i.i.i.i.i.not to i64
   %spec.select20 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.8, i64 %spec.select20.idx
@@ -1886,7 +1886,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %31 = zext nneg i8 %retval.sroa.0.0.i.i.i.i5.i.i to i16
   %32 = or disjoint i16 %30, %31
   %retval.sroa.0.0.insert.insert.i.i.i10.i.i = select i1 %or.cond.i.i.i9.i.i, i16 %32, i16 0
-  %tobool.i.not.i.i11.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i10.i.i, 255
+  %tobool.i.not.i.i11.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i10.i.i, 255
   %brmerge.i.i12.i.i.not = and i1 %cmp.i.i.i.i3.i.i, %tobool.i.not.i.i11.i.i
   %ref.tmp.sroa.0.13.idx = zext i1 %brmerge.i.i12.i.i.not to i64
   %ref.tmp.sroa.0.13 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.12, i64 %ref.tmp.sroa.0.13.idx
@@ -1917,7 +1917,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %38 = zext nneg i8 %retval.sroa.0.0.i.i.i.i.i.i24.i.i to i16
   %39 = or disjoint i16 %37, %38
   %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i = select i1 %or.cond.i.i.i.i.i27.i.i, i16 %39, i16 0
-  %tobool.i.not.i.i.i.i29.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i, 255
+  %tobool.i.not.i.i.i.i29.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i.i.i28.i.i, 255
   %brmerge.i.i.i.i30.i.i.not = and i1 %cmp.i.i.i.i.i.i22.i.i, %tobool.i.not.i.i.i.i29.i.i
   %spec.select22.idx = zext i1 %brmerge.i.i.i.i30.i.i.not to i64
   %spec.select22 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.13, i64 %spec.select22.idx
@@ -1964,7 +1964,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %46 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i49.i.i to i16
   %47 = or disjoint i16 %45, %46
   %retval.sroa.0.0.insert.insert.i.i11.i.i.i53.i.i = select i1 %or.cond.i.i10.i.i.i52.i.i, i16 %47, i16 0
-  %tobool.i.not.i12.i.i.i54.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i53.i.i, 255
+  %tobool.i.not.i12.i.i.i54.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i11.i.i.i53.i.i, 255
   %brmerge.i13.i.i.i55.i.i.not = and i1 %cmp.i.i.i3.i.i.i47.i.i, %tobool.i.not.i12.i.i.i54.i.i
   %spec.select24.idx = zext i1 %brmerge.i13.i.i.i55.i.i.not to i64
   %spec.select24 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.16, i64 %spec.select24.idx
@@ -2005,7 +2005,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %53 = zext nneg i8 %retval.sroa.0.0.i.i.i.i76.i.i to i16
   %54 = or disjoint i16 %52, %53
   %retval.sroa.0.0.insert.insert.i.i.i81.i.i = select i1 %or.cond.i.i.i80.i.i, i16 %54, i16 0
-  %tobool.i.not.i.i82.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i.i81.i.i, 255
+  %tobool.i.not.i.i82.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i.i81.i.i, 255
   %brmerge.i.i83.i.i.not = and i1 %cmp.i.i.i.i74.i.i, %tobool.i.not.i.i82.i.i
   %spec.select26.idx = zext i1 %brmerge.i.i83.i.i.not to i64
   %spec.select26 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.19, i64 %spec.select26.idx
@@ -2197,7 +2197,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %71 = zext nneg i8 %retval.sroa.0.0.i.i.i6.i.i.i.i to i16
   %72 = or disjoint i16 %70, %71
   %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i = select i1 %or.cond.i.i11.i.i.i.i, i16 %72, i16 0
-  %tobool.i.not.i13.i.i.i.i = icmp ugt i16 %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i, 255
+  %tobool.i.not.i13.i.i.i.i = icmp samesign ugt i16 %retval.sroa.0.0.insert.insert.i.i12.i.i.i.i, 255
   %brmerge.i14.i.i.i.i.not = and i1 %cmp.i.i.i3.i.i.i.i, %tobool.i.not.i13.i.i.i.i
   %spec.select31.idx = zext i1 %brmerge.i14.i.i.i.i.not to i64
   %spec.select31 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.2, i64 %spec.select31.idx
@@ -2316,7 +2316,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   %ZeroBits.1.i.i.i.i.i = or i8 %shr14.i.i.i.i.i, %ZeroBits.013.i.i.i.i.i
   %3 = lshr i8 %Shift.014.i.i.i.i.i, 1
   %shr23.i.i.i.i.i = lshr i8 %Mask.015.i.i.i.i.i, %3
-  %tobool7.not.i.i.i.i.i = icmp ult i8 %Shift.014.i.i.i.i.i, 2
+  %tobool7.not.i.i.i.i.i = icmp samesign ult i8 %Shift.014.i.i.i.i.i, 2
   br i1 %tobool7.not.i.i.i.i.i, label %_ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !31
 
 _ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i: ; preds = %while.body.i.i.i.i.i
@@ -2505,7 +2505,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   %ZeroBits.1.i.i.i.i.i = or i8 %shr14.i.i.i.i.i, %ZeroBits.013.i.i.i.i.i
   %3 = lshr i8 %Shift.014.i.i.i.i.i, 1
   %shr23.i.i.i.i.i = lshr i8 %Mask.015.i.i.i.i.i, %3
-  %tobool7.not.i.i.i.i.i = icmp ult i8 %Shift.014.i.i.i.i.i, 2
+  %tobool7.not.i.i.i.i.i = icmp samesign ult i8 %Shift.014.i.i.i.i.i, 2
   br i1 %tobool7.not.i.i.i.i.i, label %_ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !31
 
 _ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i: ; preds = %while.body.i.i.i.i.i
@@ -2694,7 +2694,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   %ZeroBits.1.i.i.i.i.i = or i8 %shr14.i.i.i.i.i, %ZeroBits.013.i.i.i.i.i
   %3 = lshr i8 %Shift.014.i.i.i.i.i, 1
   %shr23.i.i.i.i.i = lshr i8 %Mask.015.i.i.i.i.i, %3
-  %tobool7.not.i.i.i.i.i = icmp ult i8 %Shift.014.i.i.i.i.i, 2
+  %tobool7.not.i.i.i.i.i = icmp samesign ult i8 %Shift.014.i.i.i.i.i, 2
   br i1 %tobool7.not.i.i.i.i.i, label %_ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !31
 
 _ZN4llvh12findFirstSetIhEET_S1_NS_12ZeroBehaviorE.exit.loopexit.i.i: ; preds = %while.body.i.i.i.i.i
@@ -3649,7 +3649,7 @@ if.end8:                                          ; preds = %if.end
   %conv12 = zext i32 %src.coerce1 to i64
   %.sroa.speculated39 = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv12)
   %conv19 = zext i32 %numDigits to i64
-  %cmp.i24 = icmp ugt i64 %.sroa.speculated39, %conv19
+  %cmp.i24 = icmp samesign ugt i64 %.sroa.speculated39, %conv19
   br i1 %cmp.i24, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end8
@@ -3670,7 +3670,7 @@ if.end32:                                         ; preds = %if.end8
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 %14, i64 %conv8.i, i1 false)
   %15 = load i32, ptr %dst.coerce1, align 4
   %conv34 = zext i32 %15 to i64
-  %cmp35 = icmp ult i64 %div19, %conv34
+  %cmp35 = icmp samesign ult i64 %div19, %conv34
   br i1 %cmp35, label %if.then36, label %if.end68
 
 if.then36:                                        ; preds = %if.end32
@@ -3723,7 +3723,7 @@ if.end53:                                         ; preds = %land.end.thread, %i
   %19 = phi i1 [ false, %land.end.thread ], [ true, %if.then46 ], [ false, %if.else ], [ %cmp39, %land.end ]
   %20 = load i32, ptr %dst.coerce1, align 4
   %conv56 = zext i32 %20 to i64
-  %cmp57 = icmp ult i64 %add, %conv56
+  %cmp57 = icmp samesign ult i64 %add, %conv56
   %21 = trunc i64 %div19 to i32
   %22 = xor i32 %21, -1
   %23 = add i32 %20, %22
@@ -6493,7 +6493,7 @@ if.end22:                                         ; preds = %if.end6.i.i63, %con
   %storemerge = phi i32 [ 0, %if.end ], [ 0, %if.end6.i.i63 ], [ %22, %cond.end.i.i.i.i74 ], [ 0, %if.end.i.i61 ]
   store i32 %storemerge, ptr %dst.coerce1, align 4
   %invariant.gep = getelementptr i8, ptr %rhs.addr.i, i64 -8
-  %cmp23.not210 = icmp ult i32 %exponent, 2
+  %cmp23.not210 = icmp samesign ult i32 %exponent, 2
   br i1 %cmp23.not210, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end22
@@ -6703,7 +6703,7 @@ for.inc:                                          ; preds = %if.end59, %if.end35
   %result.sroa.0.1 = phi ptr [ %result.sroa.0.0214, %if.end35 ], [ %nextResult.sroa.0.0216, %if.end59 ]
   %nextResult.sroa.8.1 = phi i32 [ %nextResult.sroa.8.0215, %if.end35 ], [ %result.sroa.9.0213, %if.end59 ]
   %nextResult.sroa.0.1 = phi ptr [ %nextResult.sroa.0.0216, %if.end35 ], [ %result.sroa.0.0214, %if.end59 ]
-  %cmp23.not = icmp ult i32 %exponent.addr.0.in219, 4
+  %cmp23.not = icmp samesign ult i32 %exponent.addr.0.in219, 4
   br i1 %cmp23.not, label %for.end, label %for.body, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc

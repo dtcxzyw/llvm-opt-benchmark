@@ -127,7 +127,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr nocaptu
   %23 = phi i32 [ %27, %50 ], [ %.pre, %.loopexit ], [ %27, %39 ]
   %24 = add nuw nsw i64 %28, 1
   %25 = zext i32 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %.split, label %.thread, !llvm.loop !8
 
 .split:                                           ; preds = %7, %.critedge13
@@ -146,7 +146,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr nocaptu
   br i1 %36, label %.thread14, label %37
 
 37:                                               ; preds = %33
-  %38 = icmp ugt i64 %28, %9
+  %38 = icmp samesign ugt i64 %28, %9
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %37
@@ -168,7 +168,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr nocaptu
   br i1 %49, label %50, label %.preheader15, !llvm.loop !9
 
 50:                                               ; preds = %46
-  %51 = icmp ult i64 %44, %28
+  %51 = icmp samesign ult i64 %44, %28
   br i1 %51, label %.critedge13, label %.critedge
 
 .critedge:                                        ; preds = %.preheader15, %37, %50

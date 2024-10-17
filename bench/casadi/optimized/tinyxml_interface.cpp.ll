@@ -1411,7 +1411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
 
 ._crit_edge:                                      ; preds = %.lr.ph163
   %163 = getelementptr inbounds i8, ptr %0, i64 48
-  %164 = icmp ugt i64 %.035161, 52405522936674861
+  %164 = icmp samesign ugt i64 %.035161, 52405522936674861
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %._crit_edge

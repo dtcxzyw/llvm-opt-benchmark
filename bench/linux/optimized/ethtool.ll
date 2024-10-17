@@ -1305,7 +1305,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %80, label %.preheader113, label %81, !llvm.loop !18
 
 81:                                               ; preds = %74
-  %82 = icmp ult i64 %71, 3
+  %82 = icmp samesign ult i64 %71, 3
   %83 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %83, ptr noundef nonnull @.str.6, i32 noundef 40, i32 noundef %79, i32 noundef %76) #16
   store i64 40, ptr %2, align 8
@@ -1337,7 +1337,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %98, label %.preheader111, label %99, !llvm.loop !18
 
 99:                                               ; preds = %91
-  %100 = icmp ult i64 %88, 3
+  %100 = icmp samesign ult i64 %88, 3
   %101 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %101, ptr noundef nonnull @.str.6, i32 noundef 44, i32 noundef %96, i32 noundef %97) #16
   store i64 44, ptr %2, align 8
@@ -1369,7 +1369,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %116, label %.preheader109, label %117, !llvm.loop !18
 
 117:                                              ; preds = %109
-  %118 = icmp ult i64 %106, 3
+  %118 = icmp samesign ult i64 %106, 3
   %119 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %119, ptr noundef nonnull @.str.6, i32 noundef 48, i32 noundef %114, i32 noundef %115) #16
   store i64 48, ptr %2, align 8
@@ -1401,7 +1401,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %134, label %.preheader107, label %135, !llvm.loop !18
 
 135:                                              ; preds = %127
-  %136 = icmp ult i64 %124, 3
+  %136 = icmp samesign ult i64 %124, 3
   %137 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %137, ptr noundef nonnull @.str.6, i32 noundef 56, i32 noundef %132, i32 noundef %133) #16
   store i64 56, ptr %2, align 8
@@ -1433,7 +1433,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %152, label %.preheader105, label %153, !llvm.loop !18
 
 153:                                              ; preds = %145
-  %154 = icmp ult i64 %142, 3
+  %154 = icmp samesign ult i64 %142, 3
   %155 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %155, ptr noundef nonnull @.str.6, i32 noundef 10272, i32 noundef %150, i32 noundef %151) #16
   store i64 10272, ptr %2, align 8
@@ -1464,7 +1464,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %169, label %.preheader103, label %170, !llvm.loop !18
 
 170:                                              ; preds = %163
-  %171 = icmp ult i64 %160, 3
+  %171 = icmp samesign ult i64 %160, 3
   %172 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %172, ptr noundef nonnull @.str.6, i32 noundef 10244, i32 noundef %168, i32 noundef %165) #16
   store i64 10244, ptr %2, align 8
@@ -1497,7 +1497,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %188, label %.preheader101, label %189, !llvm.loop !18
 
 189:                                              ; preds = %180
-  %190 = icmp ult i64 %177, 3
+  %190 = icmp samesign ult i64 %177, 3
   %191 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %191, ptr noundef nonnull @.str.6, i32 noundef 10248, i32 noundef %186, i32 noundef %187) #16
   store i64 10248, ptr %2, align 8
@@ -1529,7 +1529,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %206, label %.preheader99, label %207, !llvm.loop !18
 
 207:                                              ; preds = %199
-  %208 = icmp ult i64 %196, 3
+  %208 = icmp samesign ult i64 %196, 3
   %209 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %209, ptr noundef nonnull @.str.6, i32 noundef 10256, i32 noundef %205, i32 noundef %202) #16
   store i64 10256, ptr %2, align 8
@@ -1561,7 +1561,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %224, label %.preheader97, label %225, !llvm.loop !18
 
 225:                                              ; preds = %217
-  %226 = icmp ult i64 %214, 3
+  %226 = icmp samesign ult i64 %214, 3
   %227 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %227, ptr noundef nonnull @.str.6, i32 noundef 10264, i32 noundef %223, i32 noundef %220) #16
   store i64 10264, ptr %2, align 8
@@ -1598,7 +1598,7 @@ reg_pattern_test.exit.thread63:                   ; preds = %.loopexit98
   br i1 %243, label %.preheader.i, label %reg_pattern_test.exit, !llvm.loop !18
 
 reg_pattern_test.exit:                            ; preds = %236
-  %244 = icmp ult i64 %233, 3
+  %244 = icmp samesign ult i64 %233, 3
   %245 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %245, ptr noundef nonnull @.str.6, i32 noundef 8552, i32 noundef %242, i32 noundef %239) #16
   store i64 8552, ptr %2, align 8
@@ -1635,7 +1635,7 @@ reg_pattern_test.exit58.thread64:                 ; preds = %reg_pattern_test.ex
   br i1 %261, label %.preheader.i57, label %reg_pattern_test.exit58, !llvm.loop !18
 
 reg_pattern_test.exit58:                          ; preds = %254
-  %262 = icmp ult i64 %251, 3
+  %262 = icmp samesign ult i64 %251, 3
   %263 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %263, ptr noundef nonnull @.str.6, i32 noundef 368, i32 noundef %260, i32 noundef %257) #16
   store i64 368, ptr %2, align 8
@@ -1672,7 +1672,7 @@ reg_pattern_test.exit60.thread65:                 ; preds = %reg_pattern_test.ex
   br i1 %279, label %.preheader.i59, label %reg_pattern_test.exit60, !llvm.loop !18
 
 reg_pattern_test.exit60:                          ; preds = %272
-  %280 = icmp ult i64 %269, 3
+  %280 = icmp samesign ult i64 %269, 3
   %281 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %281, ptr noundef nonnull @.str.6, i32 noundef 1040, i32 noundef %278, i32 noundef %275) #16
   store i64 1040, ptr %2, align 8
@@ -1708,7 +1708,7 @@ reg_pattern_test.exit62.thread66:                 ; preds = %reg_pattern_test.ex
   br i1 %296, label %.preheader.i61, label %reg_pattern_test.exit62, !llvm.loop !18
 
 reg_pattern_test.exit62:                          ; preds = %290
-  %297 = icmp ult i64 %287, 3
+  %297 = icmp samesign ult i64 %287, 3
   %298 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %298, ptr noundef nonnull @.str.6, i32 noundef 14340, i32 noundef %295, i32 noundef %292) #16
   store i64 14340, ptr %2, align 8
@@ -1871,7 +1871,7 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   %391 = add nuw nsw i32 %395, 1
   %392 = load i16, ptr %341, align 2
   %393 = zext i16 %392 to i32
-  %394 = icmp ult i32 %391, %393
+  %394 = icmp samesign ult i32 %391, %393
   br i1 %394, label %.preheader, label %.loopexit93, !llvm.loop !20
 
 .preheader:                                       ; preds = %.loopexit96, %390
@@ -2885,7 +2885,7 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   %1002 = load i32, ptr %632, align 4
   %1003 = icmp eq i32 %1001, %1002
   %1004 = select i1 %1003, i32 0, i32 %1001
-  %1005 = icmp ult i32 %1000, 64
+  %1005 = icmp samesign ult i32 %1000, 64
   %1006 = load volatile i64, ptr @jiffies, align 64
   %1007 = sub i64 %973, %1006
   br i1 %1005, label %1008, label %1010
@@ -4328,7 +4328,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr noundef %0, ptr nocaptur
   br i1 %34, label %.preheader, label %35, !llvm.loop !18
 
 35:                                               ; preds = %25
-  %36 = icmp ult i64 %22, 3
+  %36 = icmp samesign ult i64 %22, 3
   br label %37
 
 37:                                               ; preds = %35, %6

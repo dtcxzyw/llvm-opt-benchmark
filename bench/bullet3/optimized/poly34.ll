@@ -514,7 +514,7 @@ if.end:                                           ; preds = %entry
   %fneg = fneg float %c
   %mul8 = fmul float %c, %fneg
   %call9 = tail call noundef i32 @_Z7SolveP3Pffff(ptr noundef %x, float noundef %mul5, float noundef %3, float noundef %mul8)
-  %cmp10 = icmp ugt i32 %call9, 1
+  %cmp10 = icmp samesign ugt i32 %call9, 1
   br i1 %cmp10, label %if.then11, label %if.end99
 
 if.then11:                                        ; preds = %if.end
@@ -842,7 +842,7 @@ if.end.i62:                                       ; preds = %_Z6N4Stepfffff.exit
 if.end70:                                         ; preds = %if.end.i62, %_Z6N4Stepfffff.exit
   %retval.0.i66 = phi float [ %sub.i65, %if.end.i62 ], [ %20, %_Z6N4Stepfffff.exit ]
   store float %retval.0.i66, ptr %arrayidx67, align 4
-  %cmp71 = icmp ugt i32 %call, 2
+  %cmp71 = icmp samesign ugt i32 %call, 2
   br i1 %cmp71, label %if.then72, label %if.end79
 
 if.then72:                                        ; preds = %if.end70

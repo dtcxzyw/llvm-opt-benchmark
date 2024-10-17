@@ -362,7 +362,7 @@ define internal i32 @dissect_iso8583_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %31 = getelementptr i8, ptr %.243.i, i64 1
   store i8 %30, ptr %.243.i, align 1
   %32 = and i8 %25, 15
-  %33 = icmp ugt i8 %32, 9
+  %33 = icmp samesign ugt i8 %32, 9
   %34 = add nuw nsw i8 %32, 55
   %35 = or disjoint i8 %32, 48
   %36 = select i1 %33, i8 %34, i8 %35
@@ -443,7 +443,7 @@ isnum_str.exit.thread174:                         ; preds = %53, %isnum_str.exit
   %73 = getelementptr i8, ptr %.243.i125, i64 1
   store i8 %72, ptr %.243.i125, align 1
   %74 = and i8 %67, 15
-  %75 = icmp ugt i8 %74, 9
+  %75 = icmp samesign ugt i8 %74, 9
   %76 = add nuw nsw i8 %74, 55
   %77 = or disjoint i8 %74, 48
   %78 = select i1 %75, i8 %76, i8 %77
@@ -976,7 +976,7 @@ thread-pre-split.i.i:                             ; preds = %267
 334:                                              ; preds = %325
   %335 = load i8, ptr %5, align 16
   %336 = and i8 %335, 15
-  %337 = icmp ugt i8 %336, 9
+  %337 = icmp samesign ugt i8 %336, 9
   %338 = add nuw nsw i8 %336, 55
   %339 = or disjoint i8 %336, 48
   %340 = select i1 %337, i8 %338, i8 %339
@@ -1008,7 +1008,7 @@ thread-pre-split.i.i:                             ; preds = %267
   %351 = getelementptr i8, ptr %.243.i.i, i64 1
   store i8 %350, ptr %.243.i.i, align 1
   %352 = and i8 %345, 15
-  %353 = icmp ugt i8 %352, 9
+  %353 = icmp samesign ugt i8 %352, 9
   %354 = add nuw nsw i8 %352, 55
   %355 = or disjoint i8 %352, 48
   %356 = select i1 %353, i8 %354, i8 %355
@@ -1087,7 +1087,7 @@ bin2hex.exit.i:                                   ; preds = %.lr.ph.i41.i, %342
   %396 = getelementptr i8, ptr %.243.i.i.i, i64 1
   store i8 %395, ptr %.243.i.i.i, align 1
   %397 = and i8 %390, 15
-  %398 = icmp ugt i8 %397, 9
+  %398 = icmp samesign ugt i8 %397, 9
   %399 = add nuw nsw i8 %397, 55
   %400 = or disjoint i8 %397, 48
   %401 = select i1 %398, i8 %399, i8 %400

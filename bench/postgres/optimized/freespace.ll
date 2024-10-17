@@ -155,7 +155,7 @@ BufferGetPage.exit.i:                             ; preds = %51, %45
 
 fsm_set_and_search.exit:                          ; preds = %BufferGetPage.exit.i, %58
   tail call void @UnlockReleaseBuffer(i32 noundef %43) #6
-  %59 = icmp ugt i32 %.049.ph, 10000
+  %59 = icmp samesign ugt i32 %.049.ph, 10000
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %fsm_set_and_search.exit

@@ -477,7 +477,7 @@ sw.epilog.i:                                      ; preds = %if.then32.i, %sw.bb
 
 calc_func.exit:                                   ; preds = %if.then.i, %sw.epilog.i
   %retval.0.i159 = phi i16 [ %51, %if.then.i ], [ %62, %sw.epilog.i ]
-  %cmp22.us.i.not = icmp ugt i16 %retval.0.i164, %retval.0.i159
+  %cmp22.us.i.not = icmp samesign ugt i16 %retval.0.i164, %retval.0.i159
   br i1 %cmp22.us.i.not, label %if.else26.us.i, label %if.then23.us.i
 
 if.else26.us.i:                                   ; preds = %calc_func.exit

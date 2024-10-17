@@ -23447,7 +23447,7 @@ _ZNK7AstNode6isQuadEv.exit:                       ; preds = %53
 
 _ZNK7AstNode6isQuadEv.exit.thread:                ; preds = %_ZNK7AstNode6isQuadEv.exit, %53
   %59 = phi i64 [ 4, %53 ], [ %spec.select, %_ZNK7AstNode6isQuadEv.exit ]
-  %.not = icmp ult i64 %59, %54
+  %.not = icmp samesign ult i64 %59, %54
   br i1 %.not, label %148, label %60
 
 60:                                               ; preds = %_ZNK7AstNode6isQuadEv.exit.thread
@@ -36117,7 +36117,7 @@ _ZNSt6vectorIPK8AstCFuncSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !221
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %55

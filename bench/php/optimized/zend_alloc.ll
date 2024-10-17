@@ -1499,7 +1499,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %139, %106, %104
   br i1 %156, label %343, label %157
 
 157:                                              ; preds = %153
-  %158 = icmp ult i64 %155, %151
+  %158 = icmp samesign ult i64 %155, %151
   %159 = lshr i64 %154, 12
   %160 = trunc nuw i64 %159 to i32
   br i1 %158, label %161, label %227
@@ -1602,7 +1602,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %139, %106, %104
 
 227:                                              ; preds = %157
   %228 = add nuw nsw i64 %16, %159
-  %229 = icmp ult i64 %228, 513
+  %229 = icmp samesign ult i64 %228, 513
   br i1 %229, label %230, label %.thread
 
 230:                                              ; preds = %227
@@ -2072,7 +2072,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %108, %106
   br i1 %159, label %346, label %160
 
 160:                                              ; preds = %156
-  %161 = icmp ult i64 %158, %154
+  %161 = icmp samesign ult i64 %158, %154
   %162 = lshr i64 %157, 12
   %163 = trunc nuw i64 %162 to i32
   br i1 %161, label %164, label %230
@@ -2175,7 +2175,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %108, %106
 
 230:                                              ; preds = %160
   %231 = add nuw nsw i64 %17, %162
-  %232 = icmp ult i64 %231, 513
+  %232 = icmp samesign ult i64 %231, 513
   br i1 %232, label %233, label %.thread
 
 233:                                              ; preds = %230
@@ -6967,7 +6967,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %131, label %318, label %132
 
 132:                                              ; preds = %128
-  %133 = icmp ult i64 %130, %126
+  %133 = icmp samesign ult i64 %130, %126
   %134 = lshr i64 %129, 12
   %135 = trunc nuw i64 %134 to i32
   br i1 %133, label %136, label %202
@@ -7070,7 +7070,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 
 202:                                              ; preds = %132
   %203 = add nuw nsw i64 %22, %134
-  %204 = icmp ult i64 %203, 513
+  %204 = icmp samesign ult i64 %203, 513
   br i1 %204, label %205, label %.thread
 
 205:                                              ; preds = %202
@@ -7491,7 +7491,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %134, label %321, label %135
 
 135:                                              ; preds = %131
-  %136 = icmp ult i64 %133, %129
+  %136 = icmp samesign ult i64 %133, %129
   %137 = lshr i64 %132, 12
   %138 = trunc nuw i64 %137 to i32
   br i1 %136, label %139, label %205
@@ -7594,7 +7594,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 
 205:                                              ; preds = %135
   %206 = add nuw nsw i64 %23, %137
-  %207 = icmp ult i64 %206, 513
+  %207 = icmp samesign ult i64 %206, 513
   br i1 %207, label %208, label %.thread
 
 208:                                              ; preds = %205
@@ -9539,7 +9539,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   %150 = phi i32 [ 511, %130 ], [ %8, %39 ], [ %8, %51 ], [ %8, %20 ], [ %8, %41 ]
   %.1184 = phi ptr [ %.2185, %130 ], [ %.0183, %39 ], [ %.0183, %51 ], [ %.0183, %20 ], [ %.0183, %41 ]
   %.0182 = phi i32 [ 1, %130 ], [ %29, %39 ], [ %29, %51 ], [ %.0179, %20 ], [ %.0179, %41 ]
-  %151 = icmp ugt i32 %.0181, 2
+  %151 = icmp samesign ugt i32 %.0181, 2
   %152 = icmp ult i32 %1, 8
   %or.cond4 = and i1 %152, %151
   br i1 %or.cond4, label %153, label %168

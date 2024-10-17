@@ -997,7 +997,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   store i64 %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 1, ptr %106, align 8
-  %107 = icmp ult i32 %51, 2
+  %107 = icmp samesign ult i32 %51, 2
   %108 = getelementptr inbounds i8, ptr %0, i64 72
   %109 = select i1 %107, i64 50, i64 1048576
   store i64 %109, ptr %108, align 8

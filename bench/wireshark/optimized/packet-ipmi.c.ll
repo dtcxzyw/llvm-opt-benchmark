@@ -2097,7 +2097,7 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 0, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %13 = icmp ult i64 %indvars.iv, 62
+  %13 = icmp samesign ult i64 %indvars.iv, 62
   br i1 %13, label %8, label %14, !llvm.loop !11
 
 14:                                               ; preds = %8

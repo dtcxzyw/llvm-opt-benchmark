@@ -1092,7 +1092,7 @@ default.unreachable66:                            ; preds = %.lr.ph.split
   br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %11
 
 11:                                               ; preds = %.split
-  %12 = icmp ugt i32 %.val5, 127
+  %12 = icmp samesign ugt i32 %.val5, 127
   br i1 %12, label %13, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
 13:                                               ; preds = %11
@@ -1241,7 +1241,7 @@ define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_se
   br i1 %or.cond1.i, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = icmp ugt i32 %.val3, 127
+  %16 = icmp samesign ugt i32 %.val3, 127
   br i1 %16, label %17, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
 17:                                               ; preds = %15
@@ -1265,7 +1265,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; p
   br i1 %or.cond1.i10, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16, label %23
 
 23:                                               ; preds = %20
-  %24 = icmp ugt i32 %.val4, 127
+  %24 = icmp samesign ugt i32 %.val4, 127
   br i1 %24, label %25, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
 
 25:                                               ; preds = %23
@@ -1285,7 +1285,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12: ;
   br i1 %or.cond1.i14, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16, label %30
 
 30:                                               ; preds = %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
-  %31 = icmp ugt i32 %8, 127
+  %31 = icmp samesign ugt i32 %8, 127
   br i1 %31, label %32, label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16
 
 32:                                               ; preds = %30

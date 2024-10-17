@@ -17617,7 +17617,7 @@ define linkonce_odr { i64, ptr } @_ZNSt11__copy_moveILb0ELb0ESt26random_access_i
 17:                                               ; preds = %15
   %18 = load i64, ptr %9, align 8, !noalias !122
   %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %.not.i.i.i.i = icmp ult i64 %19, 2
+  %.not.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i, label %.split.us.i.i.i.i, label %.split.i.i.i.i
 
 .split.us.i.i.i.i:                                ; preds = %17
@@ -17638,7 +17638,7 @@ define linkonce_odr { i64, ptr } @_ZNSt11__copy_moveILb0ELb0ESt26random_access_i
   %28 = load i64, ptr %9, align 8, !noalias !127
   %29 = trunc i64 %28 to i32
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %.not.i7.i.i.i = icmp ult i32 %30, 2
+  %.not.i7.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i, label %.split.us.i11.i.i.i, label %.split.i8.i.i.i
 
 .split.us.i11.i.i.i:                              ; preds = %26
@@ -17677,7 +17677,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginINS_6detail20GradientP
 47:                                               ; preds = %_ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginINS_6detail20GradientPairInternalIfEELi2EEEDaRKNS2_10TensorViewIT_XT0_EEEEUlmE_EdeEv.exit
   %48 = load i64, ptr %12, align 8, !noalias !130
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
-  %.not.i.i.i.i10 = icmp ult i64 %49, 2
+  %.not.i.i.i.i10 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i10, label %.split.us.i.i.i.i12, label %.split.i.i.i.i11
 
 .split.us.i.i.i.i12:                              ; preds = %47
@@ -17698,7 +17698,7 @@ _ZNK7xgboost6common18IndexTransformIterIZNS_6linalg6cbeginINS_6detail20GradientP
   %58 = load i64, ptr %12, align 8, !noalias !135
   %59 = trunc i64 %58 to i32
   %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
-  %.not.i7.i.i.i2 = icmp ult i32 %60, 2
+  %.not.i7.i.i.i2 = icmp samesign ult i32 %60, 2
   br i1 %.not.i7.i.i.i2, label %.split.us.i11.i.i.i9, label %.split.i8.i.i.i3
 
 .split.us.i11.i.i.i9:                             ; preds = %56
@@ -20000,7 +20000,7 @@ _ZNSt6vectorIPKN7xgboost4tree21BoundedHistCollectionESaIS4_EE9push_backEOS4_.exi
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %328 = load i32, ptr %42, align 4
   %329 = zext i32 %328 to i64
-  %330 = icmp ult i64 %indvars.iv.next214, %329
+  %330 = icmp samesign ult i64 %indvars.iv.next214, %329
   br i1 %330, label %.lr.ph197, label %._crit_edge198.loopexit, !llvm.loop !207
 
 331:                                              ; preds = %.noexc83, %.noexc.i
@@ -21841,7 +21841,7 @@ _ZNSt6vectorIPKN7xgboost4tree21BoundedHistCollectionESaIS4_EE9push_backEOS4_.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %19, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %22, label %._crit_edge.loopexit, !llvm.loop !236
 
 51:                                               ; preds = %.noexc, %4
@@ -28361,7 +28361,7 @@ _ZN7xgboost4tree21BoundedHistCollection5ClearEb.exit.i: ; preds = %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = load i32, ptr %11, align 4
   %162 = zext i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next, %162
   br i1 %163, label %135, label %._crit_edge._crit_edge, !llvm.loop !281
 
 164:                                              ; preds = %125, %123
@@ -28747,7 +28747,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit: ; preds = %_ZN7xgboost13B
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %324 = load i32, ptr %11, align 4
   %325 = zext i32 %324 to i64
-  %326 = icmp ult i64 %indvars.iv.next155, %325
+  %326 = icmp samesign ult i64 %indvars.iv.next155, %325
   br i1 %326, label %.lr.ph145, label %._crit_edge146, !llvm.loop !297
 
 327:                                              ; preds = %316
@@ -28783,7 +28783,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit: ; preds = %_ZN7xgboost13B
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %336 = load i32, ptr %28, align 4
   %337 = zext i32 %336 to i64
-  %338 = icmp ult i64 %indvars.iv.next158, %337
+  %338 = icmp samesign ult i64 %indvars.iv.next158, %337
   br i1 %338, label %.lr.ph148, label %._crit_edge149, !llvm.loop !298
 
 ._crit_edge149:                                   ; preds = %335, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit
@@ -29180,11 +29180,11 @@ _ZN7xgboost4tree19CalcGainGivenWeightERKNS0_10TrainParamENS_6linalg10TensorViewI
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.loopexit59
   %150 = trunc i64 %142 to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i.i.i.i.i = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i.i.i.i.i = icmp samesign ult i32 %151, 2
   %152 = add i32 %150, -1
   %153 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
   %154 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %154, 2
+  %.not.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %154, 2
   %155 = add i64 %142, -1
   %156 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %155)
   br label %.lr.ph.i.i.i.i.i
@@ -29195,7 +29195,7 @@ _ZN7xgboost4tree19CalcGainGivenWeightERKNS0_10TrainParamENS_6linalg10TensorViewI
   %158 = mul i64 %157, %.sroa.0.010.i.i.i.i.i
   %159 = load ptr, ptr %46, align 8
   %160 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %159, i64 %158
-  %161 = icmp ugt i64 %.sroa.0.010.i.i.i.i.i, 4294967295
+  %161 = icmp samesign ugt i64 %.sroa.0.010.i.i.i.i.i, 4294967295
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -30044,7 +30044,7 @@ _ZN7xgboost4tree16MultiExpandEntryaSERKS1_.exit:  ; preds = %.noexc78
   %319 = getelementptr inbounds i8, ptr %306, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = and i32 %320, 2147483647
-  %.not.i.i80 = icmp ugt i32 %321, %318
+  %.not.i.i80 = icmp samesign ugt i32 %321, %318
   %322 = load float, ptr %306, align 8
   br i1 %.not.i.i80, label %_ZNK7xgboost4tree19SplitEntryContainerISt6vectorINS_6detail20GradientPairInternalIdEESaIS5_EEE11NeedReplaceEfj.exit.i, label %323
 
@@ -30274,7 +30274,7 @@ _ZN7xgboost4tree19SplitEntryContainerISt6vectorINS_6detail20GradientPairInternal
   %425 = getelementptr inbounds i8, ptr %413, i64 4
   %426 = load i32, ptr %425, align 4
   %427 = and i32 %426, 2147483647
-  %.not.i.i84 = icmp ugt i32 %427, %424
+  %.not.i.i84 = icmp samesign ugt i32 %427, %424
   %428 = load float, ptr %413, align 8
   br i1 %.not.i.i84, label %_ZNK7xgboost4tree19SplitEntryContainerISt6vectorINS_6detail20GradientPairInternalIdEESaIS5_EEE11NeedReplaceEfj.exit.i86, label %429
 
@@ -30948,7 +30948,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %70 = load i32, ptr %.sroa.076.0.copyload, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next.i.i, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next.i.i, %71
   br i1 %72, label %.lr.ph.i.i, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit: ; preds = %.lr.ph.i.i, %.lr.ph132.split
@@ -31030,7 +31030,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2
   %indvars.iv.next.i.i50 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %111 = load i32, ptr %.sroa.080.0.copyload, align 4
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next.i.i50, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next.i.i50, %112
   br i1 %113, label %.lr.ph.i.i48, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit51, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit51: ; preds = %.lr.ph.i.i48, %.lr.ph130.split
@@ -31073,7 +31073,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2
   %indvars.iv.next.i.i55 = add nuw nsw i64 %indvars.iv.i.i54, 1
   %138 = load i32, ptr %.sroa.086.0.copyload, align 4
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next.i.i55, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next.i.i55, %139
   br i1 %140, label %.lr.ph.i.i53, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit56, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit56: ; preds = %.lr.ph.i.i53, %.lr.ph128.split
@@ -31155,7 +31155,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2
   %indvars.iv.next.i.i60 = add nuw nsw i64 %indvars.iv.i.i59, 1
   %179 = load i32, ptr %.sroa.092.0.copyload, align 4
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next.i.i60, %180
+  %181 = icmp samesign ult i64 %indvars.iv.next.i.i60, %180
   br i1 %181, label %.lr.ph.i.i58, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit61, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit61: ; preds = %.lr.ph.i.i58, %.lr.ph126.split
@@ -31198,7 +31198,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2
   %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %206 = load i32, ptr %.sroa.098.0.copyload, align 4
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next.i.i65, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next.i.i65, %207
   br i1 %208, label %.lr.ph.i.i63, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit66, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit66: ; preds = %.lr.ph.i.i63, %.lr.ph124.split
@@ -31241,7 +31241,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2
   %indvars.iv.next.i.i70 = add nuw nsw i64 %indvars.iv.i.i69, 1
   %233 = load i32, ptr %.sroa.0104.0.copyload, align 4
   %234 = zext i32 %233 to i64
-  %235 = icmp ult i64 %indvars.iv.next.i.i70, %234
+  %235 = icmp samesign ult i64 %indvars.iv.next.i.i70, %234
   br i1 %235, label %.lr.ph.i.i68, label %_ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit71, !llvm.loop !338
 
 _ZN4dmlc12OMPException3RunIZN7xgboost4tree22MultiTargetHistBuilder8InitRootEPNS2_7DMatrixENS2_6linalg10TensorViewIKNS2_6detail20GradientPairInternalIfEELi2EEEPNS2_7RegTreeEEUlT_E_JmEEEvSG_DpT0_.exit71: ; preds = %.lr.ph.i.i68, %.lr.ph.split
@@ -112046,7 +112046,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %468 = load i32, ptr %242, align 4
   %469 = zext i32 %468 to i64
-  %470 = icmp ult i64 %indvars.iv.next, %469
+  %470 = icmp samesign ult i64 %indvars.iv.next, %469
   br i1 %470, label %.lr.ph196, label %._crit_edge197, !llvm.loop !1908
 
 471:                                              ; preds = %461, %459
@@ -112086,7 +112086,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %479 = load i32, ptr %242, align 4
   %480 = zext i32 %479 to i64
-  %481 = icmp ult i64 %indvars.iv.next207, %480
+  %481 = icmp samesign ult i64 %indvars.iv.next207, %480
   br i1 %481, label %.lr.ph199, label %._crit_edge200, !llvm.loop !1909
 
 ._crit_edge200:                                   ; preds = %478, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit
@@ -120033,7 +120033,7 @@ _ZN7xgboost4tree21BoundedHistCollection5ClearEb.exit.i: ; preds = %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = load i32, ptr %11, align 4
   %162 = zext i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next, %162
   br i1 %163, label %135, label %._crit_edge._crit_edge, !llvm.loop !2041
 
 164:                                              ; preds = %125, %123
@@ -120419,7 +120419,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit: ; preds = %_ZN7xgboost13B
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %324 = load i32, ptr %11, align 4
   %325 = zext i32 %324 to i64
-  %326 = icmp ult i64 %indvars.iv.next155, %325
+  %326 = icmp samesign ult i64 %indvars.iv.next155, %325
   br i1 %326, label %.lr.ph145, label %._crit_edge146, !llvm.loop !2057
 
 327:                                              ; preds = %316
@@ -120455,7 +120455,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit: ; preds = %_ZN7xgboost13B
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %336 = load i32, ptr %28, align 4
   %337 = zext i32 %336 to i64
-  %338 = icmp ult i64 %indvars.iv.next158, %337
+  %338 = icmp samesign ult i64 %indvars.iv.next158, %337
   br i1 %338, label %.lr.ph148, label %._crit_edge149, !llvm.loop !2058
 
 ._crit_edge149:                                   ; preds = %335, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit
@@ -121474,7 +121474,7 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %306
   %344 = getelementptr inbounds i8, ptr %331, i64 4
   %345 = load i32, ptr %344, align 4
   %346 = and i32 %345, 2147483647
-  %.not.i.i90 = icmp ugt i32 %346, %343
+  %.not.i.i90 = icmp samesign ugt i32 %346, %343
   %347 = load float, ptr %331, align 8
   br i1 %.not.i.i90, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %348
 
@@ -121698,7 +121698,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit: ; pred
   %449 = getelementptr inbounds i8, ptr %437, i64 4
   %450 = load i32, ptr %449, align 4
   %451 = and i32 %450, 2147483647
-  %.not.i.i92 = icmp ugt i32 %451, %448
+  %.not.i.i92 = icmp samesign ugt i32 %451, %448
   %452 = load float, ptr %437, align 8
   br i1 %.not.i.i92, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i94, label %453
 
@@ -124144,7 +124144,7 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
   br i1 %.not.i.i.i.i57, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2099
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %171
@@ -124579,7 +124579,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %172 = getelementptr inbounds i8, ptr %6, i64 4
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 2147483647
-  %.not.i.i50 = icmp ugt i32 %174, %171
+  %.not.i.i50 = icmp samesign ugt i32 %174, %171
   %175 = load float, ptr %6, align 8
   br i1 %.not.i.i50, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i51, label %176
 
@@ -125040,7 +125040,7 @@ _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709
   %193 = getelementptr inbounds i8, ptr %7, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 2147483647
-  %.not.i.i67 = icmp ugt i32 %195, %192
+  %.not.i.i67 = icmp samesign ugt i32 %195, %192
   %196 = load float, ptr %7, align 8
   br i1 %.not.i.i67, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i68, label %197
 
@@ -125511,7 +125511,7 @@ _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709
   %192 = getelementptr inbounds i8, ptr %7, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = and i32 %193, 2147483647
-  %.not.i.i67 = icmp ugt i32 %194, %191
+  %.not.i.i67 = icmp samesign ugt i32 %194, %191
   %195 = load float, ptr %7, align 8
   br i1 %.not.i.i67, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i68, label %196
 
@@ -125951,7 +125951,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %163 = getelementptr inbounds i8, ptr %6, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = and i32 %164, 2147483647
-  %.not.i.i67 = icmp ugt i32 %165, %162
+  %.not.i.i67 = icmp samesign ugt i32 %165, %162
   %166 = load float, ptr %6, align 8
   br i1 %.not.i.i67, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i68, label %167
 
@@ -126396,7 +126396,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %163 = getelementptr inbounds i8, ptr %6, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = and i32 %164, 2147483647
-  %.not.i.i71 = icmp ugt i32 %165, %162
+  %.not.i.i71 = icmp samesign ugt i32 %165, %162
   %166 = load float, ptr %6, align 8
   br i1 %.not.i.i71, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i72, label %167
 
@@ -191145,7 +191145,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %468 = load i32, ptr %242, align 4
   %469 = zext i32 %468 to i64
-  %470 = icmp ult i64 %indvars.iv.next, %469
+  %470 = icmp samesign ult i64 %indvars.iv.next, %469
   br i1 %470, label %.lr.ph196, label %._crit_edge197, !llvm.loop !3459
 
 471:                                              ; preds = %461, %459
@@ -191185,7 +191185,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %479 = load i32, ptr %242, align 4
   %480 = zext i32 %479 to i64
-  %481 = icmp ult i64 %indvars.iv.next207, %480
+  %481 = icmp samesign ult i64 %indvars.iv.next207, %480
   br i1 %481, label %.lr.ph199, label %._crit_edge200, !llvm.loop !3460
 
 ._crit_edge200:                                   ; preds = %478, %_ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit
@@ -194085,7 +194085,7 @@ _ZNK7xgboost7RegTree6IsLeafEi.exit.i:             ; preds = %34, %30
   %73 = load ptr, ptr %50, align 8
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %72, %75
+  %76 = icmp samesign ult i64 %72, %75
   br i1 %76, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !3487
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

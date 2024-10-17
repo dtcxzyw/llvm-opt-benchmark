@@ -1062,7 +1062,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %32 = phi i8 [ %14, %13 ], [ %.pre.i, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next.i, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %34, label %13, label %_add_param_eflags.exit, !llvm.loop !14
 
 35:                                               ; preds = %3
@@ -1181,7 +1181,7 @@ define internal fastcc void @_add_param_flag_enum(ptr noundef %0, ptr nocapture 
   %24 = phi i8 [ %12, %11 ], [ %.pre, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = zext i8 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %11, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %2
@@ -1299,7 +1299,7 @@ define internal fastcc void @_add_eflags(ptr noundef %0, i32 %.8.val) unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i8, ptr %3, align 8
   %13 = zext i8 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %6, %1

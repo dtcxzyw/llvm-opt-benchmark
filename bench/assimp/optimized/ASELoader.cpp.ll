@@ -3299,7 +3299,7 @@ for.body402:                                      ; preds = %arrayctor.cont398, 
   %indvars.iv.next844 = add nuw nsw i64 %indvars.iv843, 1
   %151 = load i32, ptr %mNumWeights.i, align 4
   %152 = zext i32 %151 to i64
-  %cmp401 = icmp ult i64 %indvars.iv.next844, %152
+  %cmp401 = icmp samesign ult i64 %indvars.iv.next844, %152
   br i1 %cmp401, label %for.body402, label %for.end417, !llvm.loop !45
 
 for.end417:                                       ; preds = %for.body402, %arrayctor.cont398
@@ -3700,7 +3700,7 @@ for.body592:                                      ; preds = %if.end588, %for.bod
   %indvars.iv.next851 = add nuw nsw i64 %indvars.iv850, 1
   %230 = load i32, ptr %mNumFaces.i417, align 8
   %231 = zext i32 %230 to i64
-  %cmp591 = icmp ult i64 %indvars.iv.next851, %231
+  %cmp591 = icmp samesign ult i64 %indvars.iv.next851, %231
   br i1 %cmp591, label %for.body592, label %for.end634, !llvm.loop !49
 
 for.end634:                                       ; preds = %for.body592, %if.end588
@@ -4253,7 +4253,7 @@ for.inc70:                                        ; preds = %for.body57, %land.l
   %mNumMeshes = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load i32, ptr %mNumMeshes, align 8
   %40 = zext i32 %39 to i64
-  %cmp56 = icmp ult i64 %indvars.iv.next, %40
+  %cmp56 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %cmp56, label %for.body57, label %for.end72, !llvm.loop !63
 
 for.end72:                                        ; preds = %for.inc70, %if.then49
@@ -4327,7 +4327,7 @@ for.inc119:                                       ; preds = %for.body101, %land.
   %mNumMeshes99 = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load i32, ptr %mNumMeshes99, align 8
   %59 = zext i32 %58 to i64
-  %cmp100 = icmp ult i64 %indvars.iv.next102, %59
+  %cmp100 = icmp samesign ult i64 %indvars.iv.next102, %59
   br i1 %cmp100, label %for.body101, label %for.end121, !llvm.loop !64
 
 for.end121:                                       ; preds = %for.inc119, %if.then88
@@ -4758,7 +4758,7 @@ for.inc73:                                        ; preds = %_ZNSt6vectorIP6aiNo
   %mNumChildren66 = getelementptr inbounds i8, ptr %47, i64 1104
   %48 = load i32, ptr %mNumChildren66, align 8
   %49 = zext i32 %48 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %49
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %cmp, label %for.body67, label %for.end74, !llvm.loop !69
 
 lpad61.loopexit:                                  ; preds = %for.body86, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %invoke.cont98, %cond.true.i.i.i107
@@ -5022,7 +5022,7 @@ for.body137:                                      ; preds = %if.end132, %for.bod
   %mNumMeshes = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load i32, ptr %mNumMeshes, align 8
   %76 = zext i32 %75 to i64
-  %cmp136 = icmp ult i64 %indvars.iv.next288, %76
+  %cmp136 = icmp samesign ult i64 %indvars.iv.next288, %76
   br i1 %cmp136, label %for.body137, label %for.end144, !llvm.loop !72
 
 for.end144:                                       ; preds = %for.body137, %if.end132
@@ -5632,7 +5632,7 @@ if.end182:                                        ; preds = %if.then.i, %cond.en
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %mNumRotationKeys, align 8
   %83 = zext i32 %82 to i64
-  %cmp167 = icmp ult i64 %indvars.iv.next, %83
+  %cmp167 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %cmp167, label %for.body168, label %if.end194, !llvm.loop !74
 
 if.end194:                                        ; preds = %if.end182, %arrayctor.cont164, %if.end144
@@ -5791,7 +5791,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %mNumCameras11 = getelementptr inbounds i8, ptr %17, i64 96
   %18 = load i32, ptr %mNumCameras11, align 8
   %19 = zext i32 %18 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %19
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !76
 
 if.end:                                           ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then, %entry
@@ -5945,7 +5945,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb2
   %mNumLights11 = getelementptr inbounds i8, ptr %21, i64 80
   %22 = load i32, ptr %mNumLights11, align 8
   %23 = zext i32 %22 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !80
 
 if.end:                                           ; preds = %sw.epilog, %if.then, %entry
@@ -6617,7 +6617,7 @@ for.body98:                                       ; preds = %for.body98.lr.ph, %
   store ptr %90, ptr %arrayidx102, align 8
   %91 = load i32, ptr %mNumChildren, align 8
   %92 = zext i32 %91 to i64
-  %cmp97 = icmp ult i64 %indvars.iv.next, %92
+  %cmp97 = icmp samesign ult i64 %indvars.iv.next, %92
   br i1 %cmp97, label %for.body98, label %for.end, !llvm.loop !85
 
 lpad71:                                           ; preds = %invoke.cont69
@@ -6756,7 +6756,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %mNumMeshes = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i32, ptr %mNumMeshes, align 8
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !88
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -6926,7 +6926,7 @@ for.inc59:                                        ; preds = %while.body51, %if.t
   %mNumMeshes14 = getelementptr inbounds i8, ptr %65, i64 16
   %66 = load i32, ptr %mNumMeshes14, align 8
   %67 = zext i32 %66 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next78, %67
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next78, %67
   br i1 %cmp15, label %for.body16, label %if.end62, !llvm.loop !91
 
 if.end62:                                         ; preds = %for.inc59, %if.then8, %for.end

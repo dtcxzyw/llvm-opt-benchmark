@@ -13457,7 +13457,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9
 .lr.ph:                                           ; preds = %2, %5
   %.02057 = phi ptr [ %6, %5 ], [ %0, %2 ]
   %.042.idx56 = phi i64 [ %.042.add, %5 ], [ 0, %2 ]
-  %.not51 = icmp ugt i64 %.042.idx56, 56
+  %.not51 = icmp samesign ugt i64 %.042.idx56, 56
   br i1 %.not51, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
@@ -13545,8 +13545,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9
   store ptr %.2.val, ptr %.244.ptr61, align 8
   %41 = getelementptr inbounds i8, ptr %.260, i64 8
   %.not23 = icmp eq ptr %41, %1
-  %.not52 = icmp ugt i64 %.244.idx59, 48
-  %or.cond = or i1 %.not23, %.not52
+  %.not52 = icmp samesign ugt i64 %.244.idx59, 48
+  %or.cond = select i1 %.not23, i1 true, i1 %.not52
   br i1 %or.cond, label %.critedge2, label %40, !llvm.loop !184
 
 .critedge2:                                       ; preds = %40

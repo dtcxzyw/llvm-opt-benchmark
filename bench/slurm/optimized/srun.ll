@@ -617,7 +617,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 1
   %241 = load i16, ptr %227, align 2
   %242 = zext i16 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next315.i, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next315.i, %242
   br i1 %243, label %234, label %._crit_edge255.i, !llvm.loop !10
 
 ._crit_edge255.i:                                 ; preds = %234, %226
@@ -1149,7 +1149,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   %indvars.iv.next321.i = add nuw nsw i64 %indvars.iv320.i, 1
   %484 = load i32, ptr %428, align 8
   %485 = zext i32 %484 to i64
-  %486 = icmp ult i64 %indvars.iv.next321.i, %485
+  %486 = icmp samesign ult i64 %indvars.iv.next321.i, %485
   br i1 %486, label %.lr.ph275.i, label %.loopexit.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %.lr.ph275.i, %.preheader.i, %474, %427, %427
@@ -1937,7 +1937,7 @@ _file_bcast.exit:                                 ; preds = %82
   %.030.i = phi ptr [ @.str.38, %.lr.ph.i ], [ %.1.i, %239 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i ], [ %.122.i, %239 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %224 = icmp ult i64 %indvars.iv.next.i, %221
+  %224 = icmp samesign ult i64 %indvars.iv.next.i, %221
   %225 = getelementptr inbounds i16, ptr %216, i64 %indvars.iv.i
   %226 = load i16, ptr %225, align 2
   br i1 %224, label %227, label %._crit_edge

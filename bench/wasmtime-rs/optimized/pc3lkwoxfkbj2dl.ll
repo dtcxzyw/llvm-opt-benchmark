@@ -7044,7 +7044,7 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
 .outer._crit_edge:                                ; preds = %.outer, %86, %47, %5
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %49, %47 ], [ %88, %86 ], [ %.sroa.0.1, %.outer ]
   %.lcssa = phi i64 [ %9, %5 ], [ %48, %47 ], [ %87, %86 ], [ %.sroa.14.1, %.outer ]
-  %53 = icmp ugt i64 %.lcssa, 1
+  %53 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %53, label %.preheader.i, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split
@@ -7321,7 +7321,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
 .outer._crit_edge:                                ; preds = %.outer, %101, %43, %62, %5
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %103, %101 ], [ %.sroa.0.1, %.outer ]
   %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %102, %101 ], [ %.sroa.14.1, %.outer ]
-  %68 = icmp ugt i64 %.lcssa, 1
+  %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split
@@ -7598,7 +7598,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
 .outer._crit_edge:                                ; preds = %.outer, %101, %43, %62, %5
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %103, %101 ], [ %.sroa.0.1, %.outer ]
   %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %102, %101 ], [ %.sroa.14.1, %.outer ]
-  %68 = icmp ugt i64 %.lcssa, 1
+  %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split
@@ -7846,7 +7846,7 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
 .outer._crit_edge:                                ; preds = %.outer, %86, %47, %5
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %49, %47 ], [ %88, %86 ], [ %.sroa.0.1, %.outer ]
   %.lcssa = phi i64 [ %9, %5 ], [ %48, %47 ], [ %87, %86 ], [ %.sroa.14.1, %.outer ]
-  %53 = icmp ugt i64 %.lcssa, 1
+  %53 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %53, label %.preheader.i, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split
@@ -8123,7 +8123,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
 .outer._crit_edge:                                ; preds = %.outer, %101, %43, %62, %5
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %103, %101 ], [ %.sroa.0.1, %.outer ]
   %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %102, %101 ], [ %.sroa.14.1, %.outer ]
-  %68 = icmp ugt i64 %.lcssa, 1
+  %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split

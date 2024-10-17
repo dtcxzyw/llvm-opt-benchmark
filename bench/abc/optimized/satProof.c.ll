@@ -403,7 +403,7 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %165 = lshr i32 %164, 3
   %166 = zext nneg i32 %165 to i64
-  %167 = icmp ult i64 %indvars.iv.next, %166
+  %167 = icmp samesign ult i64 %indvars.iv.next, %166
   br i1 %167, label %114, label %.critedge.backedge, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.critedge.backedge, %Vec_IntPush.exit, %4
@@ -557,7 +557,7 @@ define void @Proof_CollectUsed_rec(ptr nocapture noundef readonly %0, i32 nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = lshr i32 %38, 3
   %40 = zext nneg i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %19, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.thread, %16
@@ -748,7 +748,7 @@ define i32 @Proof_MarkUsed_rec(ptr nocapture noundef readonly %0, i32 noundef %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = lshr i32 %39, 3
   %41 = zext nneg i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %18, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.thread, %15, %2
@@ -1072,7 +1072,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 141:                                              ; preds = %122, %126
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %142 = icmp ult i64 %indvars.iv.next, %121
+  %142 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %142, label %122, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %141, %Vec_PtrPush.exit, %.lr.ph128
@@ -1490,7 +1490,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %114 = lshr i32 %113, 3
   %115 = zext nneg i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next99, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next99, %115
   br i1 %116, label %63, label %.critedge6.loopexit, !llvm.loop !21
 
 .critedge6.loopexit:                              ; preds = %112

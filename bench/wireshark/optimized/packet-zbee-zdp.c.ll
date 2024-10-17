@@ -829,7 +829,7 @@ define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, pt
 
 .loopexit:                                        ; preds = %16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.118, i32 noundef %.043) #4
-  %21 = icmp ult i32 %.043, 31
+  %21 = icmp samesign ult i32 %.043, 31
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
@@ -949,7 +949,7 @@ define hidden void @zdp_parse_node_desc(ptr noundef %0, ptr nocapture noundef re
   %23 = call ptr @proto_tree_add_uint(ptr noundef %.071, i32 noundef %20, ptr noundef %4, i32 noundef %21, i32 noundef 2, i32 noundef %22) #4
   %24 = load i32, ptr %5, align 4
   call void @proto_tree_add_bitmask_list(ptr noundef %.071, ptr noundef %4, i32 noundef %24, i32 noundef 2, ptr noundef nonnull @zdp_parse_node_desc.nodes, i32 noundef -2147483648) #4
-  %25 = icmp ult i16 %19, 3
+  %25 = icmp samesign ult i16 %19, 3
   br i1 %25, label %switch.lookup, label %.sink.split
 
 switch.lookup:                                    ; preds = %17

@@ -130,7 +130,7 @@ define hidden void @_ZN17CodeBlobCollector7do_blobEP8CodeBlob(ptr noundef %0) #0
   %46 = add nsw i32 %41, 1
   %47 = icmp sgt i32 %41, -1
   %48 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %46)
-  %49 = icmp ult i32 %48, 2
+  %49 = icmp samesign ult i32 %48, 2
   %or.cond.i.i.i.i = select i1 %47, i1 %49, i1 false
   %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %51 = sub nuw nsw i32 32, %50
@@ -187,7 +187,7 @@ define hidden void @_ZN17CodeBlobCollector14do_vtable_stubEP10VtableStub(ptr nou
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -260,7 +260,7 @@ define hidden void @_ZN17CodeBlobCollector7collectEv(ptr nocapture noundef nonnu
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -565,7 +565,7 @@ define hidden void @_ZN19JvmtiCodeBlobEvents29build_jvmti_addr_location_mapEP7nm
   %29 = add nsw i32 %24, 1
   %30 = icmp sgt i32 %24, -1
   %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp ult i32 %31, 2
+  %32 = icmp samesign ult i32 %31, 2
   %or.cond.i.i.i.i.i.i = select i1 %30, i1 %32, i1 false
   %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %34 = sub nuw nsw i32 32, %33

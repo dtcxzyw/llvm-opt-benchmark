@@ -8464,7 +8464,7 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -12090,7 +12090,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit115: ; p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %21, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next, %107
   br i1 %108, label %57, label %._crit_edge, !llvm.loop !583
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit115, %23

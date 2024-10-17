@@ -109,7 +109,7 @@ define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed
 
 31:                                               ; preds = %22, %15
   %32 = add nuw nsw i64 %16, 1
-  %33 = icmp ult i64 %16, 6
+  %33 = icmp samesign ult i64 %16, 6
   %34 = icmp eq i64 %32, 7
   br i1 %34, label %35, label %15, !llvm.loop !5
 
@@ -163,7 +163,7 @@ define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed
 
 69:                                               ; preds = %60, %53
   %70 = add nuw nsw i64 %54, 1
-  %71 = icmp ult i64 %54, 6
+  %71 = icmp samesign ult i64 %54, 6
   %72 = icmp eq i64 %70, 7
   br i1 %72, label %73, label %53, !llvm.loop !5
 

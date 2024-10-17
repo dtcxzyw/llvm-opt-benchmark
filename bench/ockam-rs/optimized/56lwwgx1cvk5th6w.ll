@@ -3624,7 +3624,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$aws_smithy_types..config_ba
 
 3:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !621)
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$GT$17hd152c462b1b7a060E.llvm.9117523114633567068.exit", label %4
 
 4:                                                ; preds = %3
@@ -4426,7 +4426,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$GT$17hd152c462b1b7a060E.llvm.9117523114633567068"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !799, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %13, label %3
 
 3:                                                ; preds = %1

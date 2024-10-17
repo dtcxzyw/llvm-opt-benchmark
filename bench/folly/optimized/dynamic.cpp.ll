@@ -2941,7 +2941,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread: ; preds = %for.inc.
   br i1 %21, label %_ZN5folly6detail19to_ascii_with_routeILm10ENS_17to_ascii_alphabetILb0EEEEEmPcPKcm.exit, label %while.body.i.preheader, !prof !54
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit
-  %cmp.i511 = icmp ugt i64 %add.i, 2
+  %cmp.i511 = icmp samesign ugt i64 %add.i, 2
   br i1 %cmp.i511, label %while.body.i.preheader, label %while.end.i, !prof !65
 
 while.body.i.preheader:                           ; preds = %while.cond.i.preheader, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread
@@ -3644,7 +3644,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i: ; preds = %for.inc.i.i.1
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3.i3, label %while.body.i.i.preheader, label %while.end.i.i, !prof !65
 
 while.body.i.i.preheader:                         ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i, %for.inc.i.i.18
@@ -4060,7 +4060,7 @@ sw.bb45:                                          ; preds = %do.body
   %u_.i.i147 = getelementptr inbounds i8, ptr %b, i64 8
   %13 = load i8, ptr %u_.i.i146, align 8, !tbaa !125, !range !99, !noundef !100
   %14 = load i8, ptr %u_.i.i147, align 8, !tbaa !125, !range !99, !noundef !100
-  %cmp.i = icmp ult i8 %13, %14
+  %cmp.i = icmp samesign ult i8 %13, %14
   br label %cleanup
 
 sw.bb49:                                          ; preds = %do.body
@@ -6214,7 +6214,7 @@ _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6deta
   %4 = and i8 %3, 15
   %conv2.i = zext nneg i8 %4 to i64
   %cmp11 = icmp ugt i64 %shl.i.i.i, %.pn.i
-  %cmp13 = icmp ult i64 %desiredCapacity.addr.0.pn.i, %conv2.i
+  %cmp13 = icmp samesign ult i64 %desiredCapacity.addr.0.pn.i, %conv2.i
   %or.cond = select i1 %cmp11, i1 true, i1 %cmp13
   %ccas.sroa.0.0 = select i1 %or.cond, i64 %.pn.i, i64 %shl.i.i.i
   %ccas.sroa.6.0 = select i1 %or.cond, i64 %desiredCapacity.addr.0.pn.i, i64 %conv2.i
@@ -6467,7 +6467,7 @@ invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
-  %cmp.i.i199 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i199 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i199)
   %shr.i.i = lshr i64 %conv2.i, 1
   %9 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
@@ -6950,7 +6950,7 @@ entry:
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !205
   %sh_prom.i.i.i = and i64 %0, 255
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %cmp.not = icmp ugt i64 %sh_prom.i.i.i, 8
+  %cmp.not = icmp samesign ugt i64 %sh_prom.i.i.i, 8
   br i1 %cmp.not, label %if.else, label %invoke.cont13
 
 if.else:                                          ; preds = %entry
@@ -10199,7 +10199,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %0 = ptrtoint ptr %pos.coerce0 to i64
@@ -12571,7 +12571,7 @@ invoke.cont:                                      ; preds = %call5.i.i.i.noexc
   %u_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i11, i64 48
   store ptr null, ptr %u_.i.i.i.i.i, align 8, !tbaa !28
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %1 = ptrtoint ptr %pos.coerce0 to i64
@@ -13225,7 +13225,7 @@ _ZN5folly3f146detail10BasePolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15
   %div2.i.i.i.i = and i64 %sub.i.i.i.i, 9223372036854775792
   %call5.i.i3.i.i6.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div2.i.i.i.i) #35
   %xtraiter = and i64 %.pn.i28.i, 7
-  %5 = icmp ult i64 %.pn.i28.i, 8
+  %5 = icmp samesign ult i64 %.pn.i28.i, 8
   br i1 %5, label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE16initializeChunksEPhmm.exit.i.unr-lcssa, label %_ZN5folly3f146detail10BasePolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvPSt4pairIKS3_S3_EE12beforeRehashEmmmmRPh.exit.i.new
 
 _ZN5folly3f146detail10BasePolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvPSt4pairIKS3_S3_EE12beforeRehashEmmmmRPh.exit.i.new: ; preds = %_ZN5folly3f146detail10BasePolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvPSt4pairIKS3_S3_EE12beforeRehashEmmmmRPh.exit.i

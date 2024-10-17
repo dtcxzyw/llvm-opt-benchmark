@@ -13376,7 +13376,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %69, %_ZNSt
   %84 = add nuw nsw i64 %.09.i, 1
   %85 = load i32, ptr %6, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %84, %86
+  %87 = icmp samesign ult i64 %84, %86
   br i1 %87, label %.lr.ph.i, label %.loopexit33, !llvm.loop !66
 
 .loopexit33:                                      ; preds = %.noexc18, %.noexc17, %40, %38
@@ -13908,7 +13908,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %32
   %53 = add nuw nsw i64 %.010.i, 1
   %54 = load i32, ptr %3, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %53, %55
+  %56 = icmp samesign ult i64 %53, %55
   br i1 %56, label %.lr.ph.i, label %.loopexit5, !llvm.loop !74
 
 .loopexit5:                                       ; preds = %.noexc4, %.noexc3, %31, %29
@@ -14062,7 +14062,7 @@ _ZNSt3mapIimSt4lessIiESaISt4pairIKimEEE5clearEv.exit: ; preds = %2
   %30 = add nuw nsw i64 %.06, 1
   %31 = load i32, ptr %3, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt3mapIimSt4lessIiESaISt4pairIKimEEE5clearEv.exit

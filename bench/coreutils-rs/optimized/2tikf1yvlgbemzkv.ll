@@ -136,7 +136,7 @@ define hidden void @_ZN5uu_od13parse_formats18parse_format_flags17h36e0411bfbcaf
   %47 = ptrtoint ptr %.sroa.0.0 to i64
   %48 = sub nuw i64 %25, %47
   %49 = udiv exact i64 %48, 24
-  %.not.i.i.not = icmp ult i64 %.sroa.10.0, %49
+  %.not.i.i.not = icmp samesign ult i64 %.sroa.10.0, %49
   %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2a17fb69b5f3e18E.exit.thread241", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2a17fb69b5f3e18E.exit.thread"
 

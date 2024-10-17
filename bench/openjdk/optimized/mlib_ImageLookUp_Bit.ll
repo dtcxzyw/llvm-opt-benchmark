@@ -136,7 +136,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %.2 = add nsw i32 %.2.v, %.1145
   %67 = add nsw i32 %.1115143, -1
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %68 = icmp ult i64 %indvars.iv.next179, %55
+  %68 = icmp samesign ult i64 %indvars.iv.next179, %55
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge

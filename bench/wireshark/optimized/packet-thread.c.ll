@@ -2789,7 +2789,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
 
 .preheader829:                                    ; preds = %486
   %489 = udiv i32 %77, %62
-  %.not858 = icmp ugt i32 %62, %77
+  %.not858 = icmp samesign ugt i32 %62, %77
   br i1 %.not858, label %.loopexit830, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader829, %.lr.ph
@@ -2804,7 +2804,7 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
   %495 = load i32, ptr @hf_thread_mc_tlv_energy_list, align 4
   %496 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %495, ptr noundef %0, i32 noundef %.4838, i32 noundef %.04762.i, i32 noundef 0) #7
   %497 = add i32 %.4838, %.04762.i
-  %498 = icmp ult i32 %492, %489
+  %498 = icmp samesign ult i32 %492, %489
   br i1 %498, label %.lr.ph, label %.loopexit830, !llvm.loop !20
 
 499:                                              ; preds = %485, %485, %486
@@ -3122,7 +3122,7 @@ define internal i32 @dissect_thread_nwd(ptr noundef %0, ptr noundef %1, ptr noun
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.473, ptr noundef %80, i32 noundef %68) #7
   %81 = add i32 %70, %71
   %82 = add nuw nsw i32 %70, 2
-  %83 = icmp ult i32 %82, %21
+  %83 = icmp samesign ult i32 %82, %21
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %76

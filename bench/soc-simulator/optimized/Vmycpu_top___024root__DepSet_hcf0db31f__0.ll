@@ -473,7 +473,7 @@ define dso_local void @_Z42Vmycpu_top___024root___ico_sequent__TOP__0P20Vmycpu_t
   %339 = and i32 %338, 31
   %340 = icmp ne i32 %339, 0
   %341 = zext i1 %340 to i8
-  %.not274.not = icmp ugt i8 %326, %341
+  %.not274.not = icmp samesign ugt i8 %326, %341
   br i1 %.not274.not, label %342, label %345
 
 342:                                              ; preds = %333
@@ -489,7 +489,7 @@ define dso_local void @_Z42Vmycpu_top___024root___ico_sequent__TOP__0P20Vmycpu_t
   %350 = and i32 %349, 31
   %351 = icmp ne i32 %350, 0
   %352 = zext i1 %351 to i8
-  %.not275.not = icmp ugt i8 %317, %352
+  %.not275.not = icmp samesign ugt i8 %317, %352
   br i1 %.not275.not, label %353, label %356
 
 353:                                              ; preds = %345

@@ -4805,7 +4805,7 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
 55:                                               ; preds = %34, %38
   %56 = add nuw nsw i32 %.028, 1
   %57 = add nuw nsw i32 %56, %32
-  %58 = icmp ult i32 %57, %17
+  %58 = icmp samesign ult i32 %57, %17
   br i1 %58, label %29, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %55, %29, %.preheader, %5
@@ -5752,7 +5752,7 @@ define internal void @bt_uuids_post_update_cb() #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @num_bt_uuids, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %0

@@ -4627,7 +4627,7 @@ _ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %87, %.lr.ph.s
 
 ._crit_edge72.split.split.us.us:                  ; preds = %._crit_edge.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %88 = icmp ult i32 %indvars121, 3
+  %88 = icmp samesign ult i32 %indvars121, 3
   br i1 %88, label %.lr.ph71.us79, label %.preheader, !llvm.loop !42
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.loopexit.us.us.us.us, %_ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us
@@ -5116,7 +5116,7 @@ _ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %79, %.lr.ph.s
 
 ._crit_edge81.split.split.us.us:                  ; preds = %._crit_edge.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %81 = icmp ult i32 %indvars153, 3
+  %81 = icmp samesign ult i32 %indvars153, 3
   br i1 %81, label %.lr.ph80.us100, label %.critedge61, !llvm.loop !53
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.loopexit.us.us.us.us, %_ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us

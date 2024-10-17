@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = load i32, ptr %23, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next.i, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next.i, %44
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %38
@@ -280,7 +280,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   %.171.i = phi i32 [ %100, %99 ], [ %.070127.i, %.lr.ph129.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next160.i, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next160.i, %103
   br i1 %104, label %.lr.ph129.i, label %.loopexit.i, !llvm.loop !12
 
 105:                                              ; preds = %92
@@ -1156,7 +1156,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i160, %
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %444 = load i16, ptr %427, align 2
   %445 = zext i16 %444 to i64
-  %446 = icmp ult i64 %indvars.iv.next47.i, %445
+  %446 = icmp samesign ult i64 %indvars.iv.next47.i, %445
   br i1 %446, label %431, label %._crit_edge.split.us.us.i, !llvm.loop !19
 
 .preheader.i169:                                  ; preds = %392, %._crit_edge.split.i
@@ -1200,7 +1200,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i160, %
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i171, 1
   %466 = load i16, ptr %447, align 2
   %467 = zext i16 %466 to i64
-  %468 = icmp ult i64 %indvars.iv.next.i173, %467
+  %468 = icmp samesign ult i64 %indvars.iv.next.i173, %467
   br i1 %468, label %451, label %._crit_edge.split.i, !llvm.loop !19
 
 ._crit_edge.split.i:                              ; preds = %465, %.preheader.i169

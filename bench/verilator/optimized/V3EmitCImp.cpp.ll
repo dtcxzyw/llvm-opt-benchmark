@@ -5749,7 +5749,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit7:       ; preds = %.lr.ph
   %32 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #31
   %.not.i.i6 = icmp eq i32 %32, 0
   %33 = add nuw nsw i32 %.022, 1
-  %34 = icmp ugt i32 %.022, 49998
+  %34 = icmp samesign ugt i32 %.022, 49998
   %brmerge = or i1 %.not.i.i6, %34
   br i1 %brmerge, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
@@ -28265,7 +28265,7 @@ _ZNK7AstNode6isQuadEv.exit:                       ; preds = %53
 
 _ZNK7AstNode6isQuadEv.exit.thread:                ; preds = %_ZNK7AstNode6isQuadEv.exit, %53
   %59 = phi i64 [ 4, %53 ], [ %spec.select, %_ZNK7AstNode6isQuadEv.exit ]
-  %.not = icmp ult i64 %59, %54
+  %.not = icmp samesign ult i64 %59, %54
   br i1 %.not, label %148, label %60
 
 60:                                               ; preds = %_ZNK7AstNode6isQuadEv.exit.thread
@@ -58149,7 +58149,7 @@ define linkonce_odr dso_local void @_ZN10EmitCTrace5visitEP11AstTraceInc(ptr nou
   %13 = load i32, ptr %12, align 4
   %sub.i = sub nsw i32 %11, %13
   %14 = tail call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %.not.not = icmp ult i32 %.08, %14
+  %.not.not = icmp samesign ult i32 %.08, %14
   br i1 %.not.not, label %.preheader, label %.loopexit, !llvm.loop !565
 
 15:                                               ; preds = %2

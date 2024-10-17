@@ -2567,7 +2567,7 @@ if.end36.i:                                       ; preds = %while.end.i
   %dirty45.i = getelementptr inbounds i8, ptr %62, i64 80
   store i32 1, ptr %dirty45.i, align 8
   %call46.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa475, ptr noundef null, ptr noundef null)
-  %cmp47.i = icmp ugt i32 %call46.i, %call9.i
+  %cmp47.i = icmp samesign ugt i32 %call46.i, %call9.i
   br i1 %cmp47.i, label %if.then49.i, label %if.end52.i
 
 if.then49.i:                                      ; preds = %if.end36.i
@@ -2585,7 +2585,7 @@ while.end53.i:                                    ; preds = %if.end52.i, %if.end
   %call54.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa475, ptr noundef null, ptr noundef null)
   %cmp55.i = icmp eq i32 %call54.i, 0
   %cond.i203 = select i1 %cmp55.i, i32 4, i32 2
-  %cmp59.i = icmp ugt i32 %call54.i, 9999
+  %cmp59.i = icmp samesign ugt i32 %call54.i, 9999
   %.str.210..str.211.i = select i1 %cmp59.i, ptr @.str.210, ptr @.str.211
   %msg.0.i = select i1 %cmp55.i, ptr @.str.209, ptr %.str.210..str.211.i
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef %cond.i203, ptr noundef nonnull @.str.115, ptr noundef nonnull %msg.0.i)
@@ -6962,7 +6962,7 @@ if.end23:                                         ; preds = %if.end16
   %not.cmp17 = xor i1 %cmp17, true
   %p.0.add = zext i1 %not.cmp17 to i64
   %spec.select = add nuw nsw i64 %p.0.idx, %p.0.add
-  %cmp31.not = icmp ult i64 %spec.select, 4095
+  %cmp31.not = icmp samesign ult i64 %spec.select, 4095
   br i1 %cmp31.not, label %while.body, label %while.end.split.loop.exit
 
 while.end.split.loop.exit:                        ; preds = %if.end23
@@ -7026,7 +7026,7 @@ if.end70:                                         ; preds = %if.end61
   %not.cmp63 = xor i1 %cmp63, true
   %p.3.add = zext i1 %not.cmp63 to i64
   %spec.select25 = add nuw nsw i64 %p.3.idx, %p.3.add
-  %cmp80.not = icmp ult i64 %spec.select25, 4095
+  %cmp80.not = icmp samesign ult i64 %spec.select25, 4095
   br i1 %cmp80.not, label %while.body55, label %while.end84.split.loop.exit
 
 while.end84.split.loop.exit:                      ; preds = %if.end70
@@ -12285,7 +12285,7 @@ if.end22:                                         ; preds = %if.then13.if.end22_
   br i1 %tobool24.not, label %if.end43, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %tobool27.not = icmp ult i32 %flags, 2
+  %tobool27.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool27.not, label %if.then28, label %if.end42
 
 if.then28:                                        ; preds = %if.then25
@@ -12551,7 +12551,7 @@ if.end23:                                         ; preds = %if.end23.preheader,
   br i1 %.b23, label %if.then25, label %if.end42.thread
 
 if.then25:                                        ; preds = %if.end23
-  %cmp26 = icmp ugt i64 %call.i53, 39
+  %cmp26 = icmp samesign ugt i64 %call.i53, 39
   br i1 %cmp26, label %if.then27, label %if.else30
 
 if.then27:                                        ; preds = %if.then25
@@ -12793,7 +12793,7 @@ if.end39:                                         ; preds = %if.end26
   br i1 %.b38, label %if.then41, label %if.end58.thread
 
 if.then41:                                        ; preds = %if.end39
-  %cmp42 = icmp ugt i64 %call.i3967, 39
+  %cmp42 = icmp samesign ugt i64 %call.i3967, 39
   br i1 %cmp42, label %if.then43, label %if.else46
 
 if.then43:                                        ; preds = %if.then41
@@ -17466,7 +17466,7 @@ hi_sdslen.exit.i:                                 ; preds = %sw.bb13.i.i, %sw.bb
 for.inc.i:                                        ; preds = %hi_sdslen.exit.i, %if.end.i
   %argv_idx.1.i = phi i32 [ %inc.i, %hi_sdslen.exit.i ], [ %argv_idx.037.i, %if.end.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.i, 16383
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 16383
   %cmp8.not.i = icmp slt i32 %argv_idx.1.i, %add.i
   %or.cond.i = select i1 %cmp.i, i1 %cmp8.not.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %for.end.i, !llvm.loop !154
@@ -22288,7 +22288,7 @@ if.end18:                                         ; preds = %if.end13, %if.end5
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 520), align 8
   %and.i = and i32 %9, 1
   %and1.i = and i32 %9, 64
-  %tobool18.not.i = icmp ult i32 %opts, 128
+  %tobool18.not.i = icmp samesign ult i32 %opts, 128
   %ip45.i = getelementptr inbounds i8, ptr %source, i64 16
   %port46.i = getelementptr inbounds i8, ptr %source, i64 24
   %tobool53.not.i = icmp eq i32 %and.i, 0

@@ -20227,7 +20227,7 @@ _ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUnitEE6resizeEm.exit: ; preds
 
 30:                                               ; preds = %_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUnitEE6resizeEm.exit
   %31 = and i64 %4, 4294967295
-  %32 = icmp ult i64 %31, %13
+  %32 = icmp samesign ult i64 %31, %13
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %30

@@ -2473,7 +2473,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add nuw nsw i32 %i.0117, 1
   call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %evens, i32 noundef %add)
   %add2 = add nuw nsw i32 %i.0117, 2
-  %cmp = icmp ult i32 %i.0117, 198
+  %cmp = icmp samesign ult i32 %i.0117, 198
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !64
 
 for.end:                                          ; preds = %for.body

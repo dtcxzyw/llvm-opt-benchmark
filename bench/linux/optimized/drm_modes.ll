@@ -1855,7 +1855,7 @@ define dso_local i32 @drm_mode_validate_driver(ptr noundef %0, ptr noundef %1) #
   %10 = and i32 %9, -521216
   %11 = icmp ne i32 %10, 0
   %12 = and i32 %9, 507904
-  %13 = icmp ugt i32 %12, 131072
+  %13 = icmp samesign ugt i32 %12, 131072
   %14 = or i1 %11, %13
   br i1 %14, label %.thread, label %15
 
@@ -3884,7 +3884,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_mode_convert_umode(ptr nound
   %54 = load i32, ptr %41, align 4
   %55 = lshr i32 %54, 19
   %56 = and i32 %55, 15
-  %57 = icmp ult i32 %56, 5
+  %57 = icmp samesign ult i32 %56, 5
   br i1 %57, label %58, label %109
 
 58:                                               ; preds = %10
@@ -3899,7 +3899,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_mode_convert_umode(ptr nound
   %64 = and i32 %52, -8385536
   %65 = icmp ne i32 %64, 0
   %66 = and i32 %52, 507904
-  %67 = icmp ugt i32 %66, 131072
+  %67 = icmp samesign ugt i32 %66, 131072
   %68 = or i1 %65, %67
   br i1 %68, label %.thread11, label %69
 

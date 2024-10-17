@@ -43,7 +43,7 @@ define dso_local void @_Z16SplitStringPiece11StringPiecec(ptr dead_on_unwind noa
   br i1 %.not.i.i, label %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit: ; preds = %.lr.ph.i.i
-  %10 = icmp ugt i64 %spec.select.i.i, 576460752303423486
+  %10 = icmp samesign ugt i64 %spec.select.i.i, 576460752303423486
   br i1 %10, label %.invoke, label %thread-pre-split
 
 .invoke:                                          ; preds = %97, %68, %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit

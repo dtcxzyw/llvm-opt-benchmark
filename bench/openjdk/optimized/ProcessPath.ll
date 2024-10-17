@@ -2093,7 +2093,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.pn = load i32, ptr %.pn.in, align 4
   %.0293 = sub nsw i32 %.0284404, %.pn
   %111 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %112 = icmp ugt i32 %111, 1048576
+  %112 = icmp samesign ugt i32 %111, 1048576
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %109
@@ -2223,7 +2223,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.pn342 = load i32, ptr %.pn342.in, align 4
   %.0281 = sub nsw i32 %.0284404, %.pn342
   %174 = tail call i32 @llvm.abs.i32(i32 %169, i1 true)
-  %175 = icmp ugt i32 %174, 1048576
+  %175 = icmp samesign ugt i32 %174, 1048576
   br i1 %175, label %176, label %186
 
 176:                                              ; preds = %166
@@ -3168,7 +3168,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   %166 = shl i32 %.0114.i, 2
   %167 = shl i32 %.092113.i, 2
   %168 = add nuw nsw i32 %.096111.i, 2
-  %169 = icmp ugt i32 %.097110.i, 32771
+  %169 = icmp samesign ugt i32 %.097110.i, 32771
   br i1 %169, label %.lr.ph.i, label %.preheader.i, !llvm.loop !18
 
 .lr.ph127.i:                                      ; preds = %.lr.ph127.i, %.lr.ph127.preheader.i

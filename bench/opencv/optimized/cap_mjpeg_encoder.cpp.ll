@@ -333,7 +333,7 @@ define hidden void @_ZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiii(ptr no
   %85 = select i1 %82, ptr @_ZN2cv5mjpegL11jpegTableK5E, ptr %84
   %86 = select i1 %81, ptr @_ZN2cv5mjpegL11jpegTableK3E, ptr %85
   %87 = and i32 %.1106141, 1
-  %88 = icmp ugt i32 %.1106141, 1
+  %88 = icmp samesign ugt i32 %.1106141, 1
   %89 = zext i1 %88 to i32
   %.not = icmp eq i32 %87, 0
   %90 = select i1 %.not, i32 28, i32 178
@@ -1196,7 +1196,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
   %210 = load i32, ptr %161, align 8
   %211 = add i32 %210, -1
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %indvars.iv.next, %212
+  %213 = icmp samesign ult i64 %indvars.iv.next, %212
   br i1 %213, label %195, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %195
@@ -1876,7 +1876,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
 
 77:                                               ; preds = %.lr.ph.us, %77
   %.0143289.us = phi i32 [ 0, %.lr.ph.us ], [ %94, %77 ]
-  %78 = icmp uge i32 %.0143289.us, %22
+  %78 = icmp samesign uge i32 %.0143289.us, %22
   %79 = zext i1 %78 to i64
   %80 = and i32 %.0143289.us, 2147483646
   %81 = zext nneg i32 %80 to i64
@@ -1887,7 +1887,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %86 = getelementptr inbounds i16, ptr %82, i64 %85
   %87 = getelementptr inbounds [2 x [64 x i16]], ptr %76, i64 0, i64 %79
   call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef %86, ptr noundef %15, i32 noundef %21, ptr noundef %87)
-  %88 = icmp ugt i32 %.0143289.us, %22
+  %88 = icmp samesign ugt i32 %.0143289.us, %22
   %89 = zext i1 %88 to i64
   %90 = add nuw nsw i64 %79, %89
   %91 = load i16, ptr %15, align 16
@@ -2077,7 +2077,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
 
 209:                                              ; preds = %.lr.ph297.us, %.thread344
   %.1144295.us = phi i32 [ 0, %.lr.ph297.us ], [ %512, %.thread344 ]
-  %210 = icmp uge i32 %.1144295.us, %22
+  %210 = icmp samesign uge i32 %.1144295.us, %22
   %211 = zext i1 %210 to i64
   %212 = and i32 %.1144295.us, 2147483646
   %213 = zext nneg i32 %212 to i64
@@ -2091,7 +2091,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   %221 = load ptr, ptr %130, align 8
   %222 = getelementptr inbounds [2 x [64 x i16]], ptr %221, i64 0, i64 %211
   call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef %218, ptr noundef %15, i32 noundef %21, ptr noundef %222)
-  %223 = icmp ugt i32 %.1144295.us, %22
+  %223 = icmp samesign ugt i32 %.1144295.us, %22
   %224 = zext i1 %223 to i64
   %225 = add nuw nsw i64 %211, %224
   %226 = load i16, ptr %15, align 16
@@ -2116,7 +2116,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   %244 = and i32 %242, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %or.cond.i172.us = icmp ult i32 %244, 32
+  %or.cond.i172.us = icmp samesign ult i32 %244, 32
   br i1 %or.cond.i172.us, label %245, label %.split.us
 
 245:                                              ; preds = %209
@@ -2477,7 +2477,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %401, %391
   %424 = and i32 %422, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %or.cond.i215.us = icmp ult i32 %424, 32
+  %or.cond.i215.us = icmp samesign ult i32 %424, 32
   br i1 %or.cond.i215.us, label %425, label %.split309.us
 
 425:                                              ; preds = %421
@@ -2685,7 +2685,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
   %531 = and i32 %529, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %or.cond.i192.us = icmp ult i32 %531, 32
+  %or.cond.i192.us = icmp samesign ult i32 %531, 32
   br i1 %or.cond.i192.us, label %532, label %.split313.us
 
 532:                                              ; preds = %._crit_edge.us
@@ -3038,7 +3038,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us: ; preds = %_ZNSt6vectorIjSaIjE
   %710 = and i32 %708, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %or.cond.i182.us = icmp ult i32 %710, 32
+  %or.cond.i182.us = icmp samesign ult i32 %710, 32
   br i1 %or.cond.i182.us, label %711, label %.split321.us
 
 711:                                              ; preds = %.lr.ph.us301
@@ -4158,7 +4158,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   store i16 %258, ptr %260, align 2
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 2
   %261 = getelementptr inbounds i8, ptr %.1146210, i64 2
-  %262 = icmp ult i64 %indvars.iv244, 14
+  %262 = icmp samesign ult i64 %indvars.iv244, 14
   br i1 %262, label %202, label %263, !llvm.loop !67
 
 263:                                              ; preds = %202
@@ -4167,7 +4167,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   %266 = getelementptr inbounds i8, ptr %264, i64 %200
   %267 = getelementptr inbounds i8, ptr %.0142213, i64 64
   %268 = getelementptr inbounds i8, ptr %.0214, i64 32
-  %269 = icmp ult i32 %.0148211, 14
+  %269 = icmp samesign ult i32 %.0148211, 14
   br i1 %269, label %.preheader, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %._crit_edge.split.split.us192, %263, %.preheader162.lr.ph, %.preheader165.lr.ph, %.preheader166, %.preheader163

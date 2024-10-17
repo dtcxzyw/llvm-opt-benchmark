@@ -401,7 +401,7 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   %68 = getelementptr i8, ptr %65, i64 %.idx
   store i64 0, ptr %68, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %69 = icmp ult i64 %indvars.iv.next85, %66
+  %69 = icmp samesign ult i64 %indvars.iv.next85, %66
   br i1 %69, label %67, label %._crit_edge74, !llvm.loop !8
 
 ._crit_edge74:                                    ; preds = %67, %.preheader

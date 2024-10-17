@@ -2347,7 +2347,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_13SdfValueBlockEEEbR
 
 257:                                              ; preds = %251, %256
   %258 = add nuw nsw i64 %.053221, 2
-  %259 = icmp ult i64 %.053221, 118
+  %259 = icmp samesign ult i64 %.053221, 118
   br i1 %259, label %.preheader, label %260, !llvm.loop !15
 
 260:                                              ; preds = %257

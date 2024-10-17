@@ -77,7 +77,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %35 = shl nuw i16 %.2.i, 1
   %36 = or i16 %35, -32768
   %37 = shl i16 %.0162, 2
-  %38 = icmp ult i16 %.0162, 16384
+  %38 = icmp samesign ult i16 %.0162, 16384
   %39 = icmp sgt i16 %37, -1
   br i1 %38, label %.preheader.i234, label %.preheader12.i228
 
@@ -121,7 +121,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; pred
   %53 = or i16 %52, -32768
   %54 = zext i16 %53 to i32
   %55 = mul nuw i32 %54, %51
-  %56 = icmp ugt i8 %50, 1
+  %56 = icmp samesign ugt i8 %50, 1
   %57 = xor i8 %50, 2
   %.0180 = select i1 %56, i8 %57, i8 %50
   %58 = zext i1 %56 to i8
@@ -150,7 +150,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; pred
 
 68:                                               ; preds = %61
   %69 = shl i16 %.0163, 2
-  %70 = icmp ult i16 %.0163, 16384
+  %70 = icmp samesign ult i16 %.0163, 16384
   %71 = icmp sgt i16 %69, -1
   br i1 %70, label %.preheader.i248, label %.preheader12.i242
 
@@ -254,7 +254,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br i1 %110, label %114, label %116
 
 114:                                              ; preds = %113
-  %115 = icmp ult i32 %.0186, %83
+  %115 = icmp samesign ult i32 %.0186, %83
   br i1 %115, label %.thread, label %118
 
 116:                                              ; preds = %113
@@ -406,7 +406,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.10282 = phi i32 [ %188, %.lr.ph ], [ %.3189262, %.preheader ]
   %187 = add i8 %.3283, -1
   %188 = shl nuw nsw i32 %.10282, 2
-  %189 = icmp ult i32 %.10282, 134217728
+  %189 = icmp samesign ult i32 %.10282, 134217728
   br i1 %189, label %.lr.ph, label %._crit_edge
 
 .thread266:                                       ; preds = %175, %._crit_edge

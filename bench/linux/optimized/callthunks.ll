@@ -215,7 +215,7 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
 
 43:                                               ; preds = %34, %27
   %44 = add nuw nsw i64 %28, 1
-  %45 = icmp ult i64 %28, 6
+  %45 = icmp samesign ult i64 %28, 6
   %46 = icmp eq i64 %44, 7
   br i1 %46, label %.loopexit, label %27, !llvm.loop !13
 
@@ -495,7 +495,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
 
 82:                                               ; preds = %73, %66
   %83 = add nuw nsw i64 %67, 1
-  %84 = icmp ult i64 %67, 6
+  %84 = icmp samesign ult i64 %67, 6
   %85 = icmp eq i64 %83, 7
   br i1 %85, label %.loopexit, label %66, !llvm.loop !13
 

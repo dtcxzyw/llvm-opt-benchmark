@@ -2267,7 +2267,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
   %indvars.iv79 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next80, %51 ]
   %.04459.us = phi ptr [ %44, %.preheader.us.preheader ], [ %52, %51 ]
   call void @llvm.memset.p0.i64(ptr align 4 %.04459.us, i8 0, i64 %46, i1 false)
-  %48 = icmp ult i64 %indvars.iv79, %47
+  %48 = icmp samesign ult i64 %indvars.iv79, %47
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.preheader.us
@@ -2763,7 +2763,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArra
   %indvars.iv55 = phi i64 [ 0, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next56, %.loopexit.us ]
   %indvars.iv49 = phi i64 [ 1, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next50, %.loopexit.us ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %46 = icmp ult i64 %indvars.iv.next56, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next56, %45
   br i1 %46, label %.lr.ph.us, label %.loopexit.us
 
 47:                                               ; preds = %.lr.ph.us, %47
@@ -18171,7 +18171,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18309,7 +18309,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !260
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -18427,7 +18427,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18566,7 +18566,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 91:                                               ; preds = %84
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %92 = icmp ult i64 %indvars.iv.next91, %56
+  %92 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %92, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !266
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %91
@@ -18685,7 +18685,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18824,7 +18824,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 91:                                               ; preds = %84
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %92 = icmp ult i64 %indvars.iv.next91, %56
+  %92 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %92, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !272
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %91
@@ -18943,7 +18943,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -19081,7 +19081,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !278
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -19199,7 +19199,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -19337,7 +19337,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !284
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -19455,7 +19455,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -19593,7 +19593,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !290
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -19711,7 +19711,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -19849,7 +19849,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !296
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -19967,7 +19967,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -20102,7 +20102,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !302
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -20219,7 +20219,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -20357,7 +20357,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 90:                                               ; preds = %83
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %55
-  %91 = icmp ult i64 %indvars.iv.next91, %56
+  %91 = icmp samesign ult i64 %indvars.iv.next91, %56
   br i1 %91, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !308
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %90
@@ -20475,7 +20475,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -20610,7 +20610,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !314
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -20859,7 +20859,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:
 
 88:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %89 = icmp ult i64 %indvars.iv.next91, %51
+  %89 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %89, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !320
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %88
@@ -21102,7 +21102,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit:
 
 82:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %83 = icmp ult i64 %indvars.iv.next91, %51
+  %83 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %83, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !326
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %82
@@ -21345,7 +21345,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:
 
 82:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %83 = icmp ult i64 %indvars.iv.next91, %51
+  %83 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %83, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !332
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %82
@@ -21462,7 +21462,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5Op
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -21598,7 +21598,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !338
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -21715,7 +21715,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5Op
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -21851,7 +21851,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !344
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -22100,7 +22100,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:
 
 89:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %90 = icmp ult i64 %indvars.iv.next91, %51
+  %90 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %90, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !350
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %89
@@ -22343,7 +22343,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit:
 
 82:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %83 = icmp ult i64 %indvars.iv.next91, %51
+  %83 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %83, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !356
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %82
@@ -22586,7 +22586,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:
 
 82:                                               ; preds = %77
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %50
-  %83 = icmp ult i64 %indvars.iv.next91, %51
+  %83 = icmp samesign ult i64 %indvars.iv.next91, %51
   br i1 %83, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !362
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %82
@@ -22703,7 +22703,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5Op
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -22839,7 +22839,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !368
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -22956,7 +22956,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5Op
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -23092,7 +23092,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 87:                                               ; preds = %81
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, %54
-  %88 = icmp ult i64 %indvars.iv.next91, %55
+  %88 = icmp samesign ult i64 %indvars.iv.next91, %55
   br i1 %88, label %.preheader.us, label %..preheader58_crit_edge.us.preheader, !llvm.loop !374
 
 ..preheader58_crit_edge.us.preheader:             ; preds = %87
@@ -23209,7 +23209,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -23350,7 +23350,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 93:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %94 = icmp ult i64 %indvars.iv.next87, %57
+  %94 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %94, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !380
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %93
@@ -23469,7 +23469,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -23612,7 +23612,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 95:                                               ; preds = %87
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %57
-  %96 = icmp ult i64 %indvars.iv.next87, %58
+  %96 = icmp samesign ult i64 %indvars.iv.next87, %58
   br i1 %96, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !386
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %95
@@ -23732,7 +23732,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -23875,7 +23875,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
 
 95:                                               ; preds = %87
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %57
-  %96 = icmp ult i64 %indvars.iv.next87, %58
+  %96 = icmp samesign ult i64 %indvars.iv.next87, %58
   br i1 %96, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !392
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %95
@@ -23995,7 +23995,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -24135,7 +24135,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 92:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %93 = icmp ult i64 %indvars.iv.next87, %57
+  %93 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %93, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !398
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %92
@@ -24254,7 +24254,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -24394,7 +24394,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 92:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %93 = icmp ult i64 %indvars.iv.next87, %57
+  %93 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %93, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !404
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %92
@@ -24513,7 +24513,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -24653,7 +24653,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 92:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %93 = icmp ult i64 %indvars.iv.next87, %57
+  %93 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %93, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !410
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %92
@@ -24772,7 +24772,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -24912,7 +24912,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 92:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %93 = icmp ult i64 %indvars.iv.next87, %57
+  %93 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %93, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !416
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %92
@@ -25031,7 +25031,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 263
+  %.not.i.i = icmp samesign ugt i32 %8, 263
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -25168,7 +25168,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
 
 89:                                               ; preds = %83
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %55
-  %90 = icmp ult i64 %indvars.iv.next87, %56
+  %90 = icmp samesign ult i64 %indvars.iv.next87, %56
   br i1 %90, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !422
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %89
@@ -25286,7 +25286,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -25426,7 +25426,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 92:                                               ; preds = %85
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %56
-  %93 = icmp ult i64 %indvars.iv.next87, %57
+  %93 = icmp samesign ult i64 %indvars.iv.next87, %57
   br i1 %93, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !428
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %92
@@ -25545,7 +25545,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEEN
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i = icmp ugt i32 %8, 135
+  %.not.i.i = icmp samesign ugt i32 %8, 135
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -25682,7 +25682,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
 
 89:                                               ; preds = %83
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %55
-  %90 = icmp ult i64 %indvars.iv.next87, %56
+  %90 = icmp samesign ult i64 %indvars.iv.next87, %56
   br i1 %90, label %.preheader.us, label %..preheader54_crit_edge.us.preheader, !llvm.loop !434
 
 ..preheader54_crit_edge.us.preheader:             ; preds = %89
@@ -26119,7 +26119,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPhN9__gnu_cxx5__ops15_Iter_le
   %11 = load i8, ptr %10, align 1
   %12 = add nsw i64 %6, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %9, %13
+  %14 = icmp samesign ult i64 %9, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -26669,7 +26669,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPaN9__gnu_cxx5__ops15_Iter_le
   %11 = load i8, ptr %10, align 1
   %12 = add nsw i64 %6, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %9, %13
+  %14 = icmp samesign ult i64 %9, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -27220,7 +27220,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPtN9__gnu_cxx5__ops15_Iter_le
   %12 = load i16, ptr %11, align 2
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -27771,7 +27771,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPsN9__gnu_cxx5__ops15_Iter_le
   %12 = load i16, ptr %11, align 2
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -28322,7 +28322,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -28873,7 +28873,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -29424,7 +29424,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_le
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -30267,7 +30267,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -31157,7 +31157,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -32047,7 +32047,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -32937,7 +32937,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -33827,7 +33827,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -34717,7 +34717,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -35607,7 +35607,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

@@ -8619,7 +8619,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %.sroa.speculated81 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %.not72 = icmp sge i32 %24, %.sroa.speculated81
   %28 = add nuw nsw i32 %.sroa.speculated81, %22
-  %29 = icmp ult i32 %28, 6
+  %29 = icmp samesign ult i32 %28, 6
   %or.cond = select i1 %.not72, i1 true, i1 %29
   br i1 %or.cond, label %30, label %39
 
@@ -9223,7 +9223,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %65 = load i8, ptr %18, align 1
   %66 = zext i8 %65 to i64
-  %.not.not = icmp ult i64 %indvars.iv30, %66
+  %.not.not = icmp samesign ult i64 %indvars.iv30, %66
   br i1 %.not.not, label %59, label %.loopexit, !llvm.loop !159
 
 .loopexit:                                        ; preds = %59, %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE10transfer_nElllPSH_PSF_.exit

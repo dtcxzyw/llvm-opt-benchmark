@@ -2074,7 +2074,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %328, %326
   %508 = getelementptr inbounds double, ptr %.2178.i, i64 %507
   store double %sqrt232.i, ptr %508, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %.not212.i = icmp ugt i64 %indvars.iv.next.i, %477
+  %.not212.i = icmp samesign ugt i64 %indvars.iv.next.i, %477
   br i1 %.not212.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i

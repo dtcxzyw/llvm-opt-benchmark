@@ -2722,7 +2722,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1

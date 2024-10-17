@@ -690,7 +690,7 @@ gc_remove_from_buffer.exit.i:                     ; preds = %97, %gc_remove_comp
   %113 = phi i32 [ %45, %54 ], [ %.pre.i, %gc_remove_from_buffer.exit.i ], [ %45, %63 ], [ %45, %57 ], [ %45, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i, %114
   br i1 %115, label %.lr.ph.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %111, %.lr.ph.i, %32, %30, %.lr.ph40.i
@@ -3799,7 +3799,7 @@ gc_compact.exit:                                  ; preds = %.thread533, %1423, 
   %1530 = phi i32 [ %1494, %1503 ], [ %1494, %1524 ], [ %.pre47.i, %1528 ], [ %1494, %1517 ], [ %1494, %1506 ], [ %1494, %1500 ]
   %indvars.iv.next.i271 = add nuw nsw i64 %indvars.iv.i270, 1
   %1531 = zext i32 %1530 to i64
-  %1532 = icmp ult i64 %indvars.iv.next.i271, %1531
+  %1532 = icmp samesign ult i64 %indvars.iv.next.i271, %1531
   br i1 %1532, label %.lr.ph.i269, label %.loopexit.i272
 
 .loopexit.i272:                                   ; preds = %1529, %.lr.ph.i269, %1482, %1480, %.lr.ph44.i

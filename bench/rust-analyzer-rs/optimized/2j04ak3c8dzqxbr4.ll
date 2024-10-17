@@ -175,7 +175,7 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit.i
 
 25:                                               ; preds = %11
-  %26 = icmp ult i8 %12, 24
+  %26 = icmp samesign ult i8 %12, 24
   tail call void @llvm.assume(i1 %26), !noalias !16
   %27 = zext nneg i8 %12 to i64
   %28 = getelementptr inbounds i8, ptr %2, i64 1
@@ -380,7 +380,7 @@ default.unreachable:                              ; preds = %1
   br label %19
 
 15:                                               ; preds = %1
-  %16 = icmp ult i8 %2, 24
+  %16 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %16)
   %17 = zext nneg i8 %2 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 1
@@ -424,7 +424,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 16:                                               ; preds = %2
-  %17 = icmp ult i8 %3, 24
+  %17 = icmp samesign ult i8 %3, 24
   tail call void @llvm.assume(i1 %17)
   %18 = zext nneg i8 %3 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 1
@@ -524,7 +524,7 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.357507703110778157.exit
 
 25:                                               ; preds = %11
-  %26 = icmp ult i8 %12, 24
+  %26 = icmp samesign ult i8 %12, 24
   tail call void @llvm.assume(i1 %26), !noalias !85
   %27 = zext nneg i8 %12 to i64
   %28 = getelementptr inbounds i8, ptr %2, i64 1

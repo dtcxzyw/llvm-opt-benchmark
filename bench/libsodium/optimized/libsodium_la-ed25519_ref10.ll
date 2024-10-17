@@ -4575,8 +4575,8 @@ for.body10.i:                                     ; preds = %for.body.i, %for.in
   %arrayidx12.i = getelementptr i8, ptr %aslide, i64 %indvars.iv71.i
   %2 = load i8, ptr %arrayidx12.i, align 1
   %tobool.not.i = icmp ne i8 %2, 0
-  %cmp1647.i = icmp ult i64 %indvars.iv71.i, 255
-  %or.cond.i = and i1 %cmp1647.i, %tobool.not.i
+  %cmp1647.i = icmp samesign ult i64 %indvars.iv71.i, 255
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp1647.i, i1 false
   br i1 %or.cond.i, label %for.body18.preheader.i, label %for.inc73.i
 
 for.body18.preheader.i:                           ; preds = %for.body10.i
@@ -4672,8 +4672,8 @@ for.body10.i28:                                   ; preds = %for.body.i17, %for.
   %arrayidx12.i32 = getelementptr i8, ptr %bslide, i64 %indvars.iv71.i29
   %10 = load i8, ptr %arrayidx12.i32, align 1
   %tobool.not.i33 = icmp ne i8 %10, 0
-  %cmp1647.i34 = icmp ult i64 %indvars.iv71.i29, 255
-  %or.cond.i35 = and i1 %cmp1647.i34, %tobool.not.i33
+  %cmp1647.i34 = icmp samesign ult i64 %indvars.iv71.i29, 255
+  %or.cond.i35 = select i1 %tobool.not.i33, i1 %cmp1647.i34, i1 false
   br i1 %or.cond.i35, label %for.body18.preheader.i41, label %for.inc73.i36
 
 for.body18.preheader.i41:                         ; preds = %for.body10.i28
@@ -7742,7 +7742,7 @@ for.body49:                                       ; preds = %for.end40, %for.bod
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
-  %cmp47 = icmp ult i64 %indvars.iv70, 62
+  %cmp47 = icmp samesign ult i64 %indvars.iv70, 62
   br i1 %cmp47, label %for.body49, label %for.end54, !llvm.loop !32
 
 for.end54:                                        ; preds = %for.body49
@@ -7787,7 +7787,7 @@ for.body58:                                       ; preds = %for.end54, %for.bod
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 2
-  %cmp56 = icmp ult i64 %indvars.iv74, 62
+  %cmp56 = icmp samesign ult i64 %indvars.iv74, 62
   br i1 %cmp56, label %for.body58, label %for.end64, !llvm.loop !33
 
 for.end64:                                        ; preds = %for.body58

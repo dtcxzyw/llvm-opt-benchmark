@@ -185,7 +185,7 @@ define hidden noundef nonnull ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr
   %7 = urem i64 %6, %5
   %8 = sub nuw nsw i64 %6, %7
   %9 = zext i32 %2 to i64
-  %10 = icmp ugt i64 %8, %9
+  %10 = icmp samesign ugt i64 %8, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3

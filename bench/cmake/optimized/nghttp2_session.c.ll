@@ -3605,7 +3605,7 @@ session_prep_frame.exit.thread.thread:            ; preds = %308, %session_prep_
   br i1 %.not171, label %346, label %340
 
 340:                                              ; preds = %338
-  %341 = icmp ult i32 %.0.i202234, -899
+  %341 = icmp samesign ult i32 %.0.i202234, -899
   %.not173 = icmp eq i8 %337, 8
   %or.cond = or i1 %341, %.not173
   br i1 %or.cond, label %346, label %342

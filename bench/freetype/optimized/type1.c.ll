@@ -2470,7 +2470,7 @@ define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 
   br label %T1_Get_Kerning.exit
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = icmp ult i64 %30, %14
+  %40 = icmp samesign ult i64 %30, %14
   %41 = getelementptr inbounds i8, ptr %23, i64 16
   %42 = getelementptr inbounds i8, ptr %23, i64 -16
   %.124.i = select i1 %40, ptr %.0232.i, ptr %42
@@ -3160,7 +3160,7 @@ switch.lookup505:                                 ; preds = %21
   %71 = add i32 %70, 1
   %72 = zext i32 %71 to i64
   %.not429 = icmp eq ptr %3, null
-  %.not430 = icmp ult i64 %6, %72
+  %.not430 = icmp samesign ult i64 %6, %72
   %or.cond451 = select i1 %.not429, i1 true, i1 %.not430
   br i1 %or.cond451, label %345, label %73
 
@@ -3266,7 +3266,7 @@ switch.lookup505:                                 ; preds = %21
   %126 = add i32 %125, 1
   %127 = zext i32 %126 to i64
   %.not423 = icmp eq ptr %3, null
-  %.not424 = icmp ult i64 %6, %127
+  %.not424 = icmp samesign ult i64 %6, %127
   %or.cond455 = select i1 %.not423, i1 true, i1 %.not424
   br i1 %or.cond455, label %345, label %128
 
@@ -3860,7 +3860,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Track_Kerning(ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %7, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %10, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %39, %.preheader, %4
@@ -3917,7 +3917,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Multi_Master(ptr nocapture noundef r
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %6, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %14, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %14, %5, %2
@@ -3953,7 +3953,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ult i64 %indvars.iv98, %11
+  %19 = icmp samesign ult i64 %indvars.iv98, %11
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %12
@@ -4046,7 +4046,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   store i64 %.061, ptr %68, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %69 = zext i32 %67 to i64
-  %70 = icmp ult i64 %indvars.iv.next99, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next99, %69
   br i1 %70, label %12, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %66
@@ -4089,7 +4089,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %99 ]
   %.0303.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %99 ]
-  %.not41.i = icmp ult i64 %indvars.iv.i, %75
+  %.not41.i = icmp samesign ult i64 %indvars.iv.i, %75
   br i1 %.not41.i, label %81, label %79
 
 79:                                               ; preds = %.lr.ph.i
@@ -4145,7 +4145,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   %.132.i = phi i8 [ 1, %103 ], [ %.0317.i, %._crit_edge.i ]
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next13.i, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next13.i, %106
   br i1 %107, label %.preheaderthread-pre-split.i, label %._crit_edge8.loopexit.i, !llvm.loop !21
 
 ._crit_edge8.loopexit.i:                          ; preds = %104
@@ -4198,7 +4198,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
   %.0303.i = phi i64 [ 65536, %.lr.ph.preheader.i ], [ %.2.i, %34 ]
-  %.not41.i = icmp ult i64 %indvars.iv.i, %10
+  %.not41.i = icmp samesign ult i64 %indvars.iv.i, %10
   br i1 %.not41.i, label %16, label %14
 
 14:                                               ; preds = %.lr.ph.i
@@ -4254,7 +4254,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
   %.132.i = phi i8 [ 1, %38 ], [ %.0317.i, %._crit_edge.i ]
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next13.i, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next13.i, %41
   br i1 %42, label %.preheaderthread-pre-split.i, label %._crit_edge8.loopexit.i, !llvm.loop !21
 
 ._crit_edge8.loopexit.i:                          ; preds = %39
@@ -4751,7 +4751,7 @@ define internal range(i32 -1, 7) i32 @T1_Reset_MM_Blend(ptr nocapture noundef re
   %.132.i.i = phi i8 [ 1, %14 ], [ %.0317.i.i, %._crit_edge.i.i ]
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next13.i.i, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next13.i.i, %17
   br i1 %18, label %.preheader.i.i, label %._crit_edge8.loopexit.i.i, !llvm.loop !21
 
 ._crit_edge8.loopexit.i.i:                        ; preds = %15
@@ -4798,7 +4798,7 @@ define internal range(i32 0, 7) i32 @T1_Set_MM_WeightVector(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %5, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %12, label %.loopexit, !llvm.loop !28
 
 21:                                               ; preds = %6
@@ -4848,7 +4848,7 @@ define internal range(i32 0, 7) i32 @T1_Set_MM_WeightVector(ptr nocapture nounde
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %37 = load i32, ptr %5, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next50, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next50, %38
   br i1 %39, label %34, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %12, %34, %.preheader35, %.preheader, %21, %3
@@ -4903,7 +4903,7 @@ define internal range(i32 0, 7) i32 @T1_Get_MM_WeightVector(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %5, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %16, label %.preheader.loopexit, !llvm.loop !31
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
@@ -4913,7 +4913,7 @@ define internal range(i32 0, 7) i32 @T1_Get_MM_WeightVector(ptr nocapture nounde
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %25 = load i32, ptr %1, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next31, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next31, %26
   br i1 %27, label %.lr.ph27, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph27

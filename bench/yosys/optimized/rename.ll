@@ -3311,7 +3311,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i828: ; preds = %1260, %1258, %1254,
 
 ._crit_edge.i.i831:                               ; preds = %.lr.ph.i11.i835, %1269
   %.0.lcssa.i.i832 = phi i32 [ %1247, %1269 ], [ %1274, %.lr.ph.i11.i835 ]
-  %1289 = icmp ugt i32 %.0.lcssa.i.i832, 9
+  %1289 = icmp samesign ugt i32 %.0.lcssa.i.i832, 9
   br i1 %1289, label %1290, label %1300
 
 1290:                                             ; preds = %._crit_edge.i.i831
@@ -3467,7 +3467,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1333, %1331, %1327,
 
 ._crit_edge.i.i824:                               ; preds = %.lr.ph.i11.i, %1342
   %.0.lcssa.i.i = phi i32 [ %1320, %1342 ], [ %1347, %.lr.ph.i11.i ]
-  %1362 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %1362 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %1362, label %1363, label %1373
 
 1363:                                             ; preds = %._crit_edge.i.i824

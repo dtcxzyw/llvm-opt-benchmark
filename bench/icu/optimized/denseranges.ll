@@ -187,7 +187,7 @@ if.then.i50:                                      ; preds = %for.end45
 _ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %for.end45, %if.then.i50
   %17 = phi i32 [ %gaps.val.pre, %for.end45 ], [ %sub46, %if.then.i50 ]
   store i32 %0, ptr %ranges, align 4
-  %cmp51.not70 = icmp ult i32 %num.069, 2
+  %cmp51.not70 = icmp samesign ult i32 %num.069, 2
   br i1 %cmp51.not70, label %for.end69, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit

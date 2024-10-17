@@ -191,7 +191,7 @@ if.then:                                          ; preds = %entry
   %6 = trunc i64 %bf.load2.i to i32
   %7 = lshr i32 %6, 16
   %bf.cast5.i = and i32 %7, 255
-  %cmp.i = icmp uge i32 %bf.cast5.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast5.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %8 = ptrtoint ptr %add.ptr.i.i.i to i64
   %9 = ptrtoint ptr %add.ptr.i.i4.i to i64
@@ -241,7 +241,7 @@ if.then.i:                                        ; preds = %entry
   %9 = trunc i64 %bf.load2.i.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast5.i.i = and i32 %10, 255
-  %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %11 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %12 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
@@ -467,13 +467,13 @@ entry:
   %7 = trunc i64 %bf.load3.i to i32
   %8 = lshr i32 %7, 16
   %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %9 = trunc i64 %bf.load8.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
   %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -514,13 +514,13 @@ entry:
   %7 = trunc i64 %bf.load3.i to i32
   %8 = lshr i32 %7, 16
   %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %9 = trunc i64 %bf.load8.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
   %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -561,13 +561,13 @@ entry:
   %7 = trunc i64 %bf.load3.i to i32
   %8 = lshr i32 %7, 16
   %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %9 = trunc i64 %bf.load8.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
   %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -608,13 +608,13 @@ entry:
   %7 = trunc i64 %bf.load3.i to i32
   %8 = lshr i32 %7, 16
   %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %9 = trunc i64 %bf.load8.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %11 = ptrtoint ptr %add.ptr.i.i.i to i64
   %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -661,13 +661,13 @@ if.then:                                          ; preds = %entry
   %9 = trunc i64 %bf.load3.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %11 = trunc i64 %bf.load8.i to i32
   %12 = lshr i32 %11, 16
   %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
   %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -710,7 +710,7 @@ if.then.i:                                        ; preds = %if.else
   %24 = trunc i64 %bf.load2.i.i to i32
   %25 = lshr i32 %24, 16
   %bf.cast5.i.i = and i32 %25, 255
-  %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %26 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %27 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
@@ -746,13 +746,13 @@ if.else.i:                                        ; preds = %if.else
   %35 = trunc i64 %bf.load3.i.i.i to i32
   %36 = lshr i32 %35, 16
   %bf.cast6.i.i.i = and i32 %36, 255
-  %cmp.i.i.i = icmp uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
+  %cmp.i.i.i = icmp samesign uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
   %37 = trunc i64 %bf.load8.i.i.i to i32
   %38 = lshr i32 %37, 16
   %bf.cast11.i.i.i = and i32 %38, 255
-  %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
+  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
   %39 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %40 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
@@ -790,13 +790,13 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %47 = trunc i64 %bf.load3.i.i to i32
   %48 = lshr i32 %47, 16
   %bf.cast6.i.i = and i32 %48, 255
-  %cmp.i.i11 = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i10
+  %cmp.i.i11 = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i10
   tail call void @llvm.assume(i1 %cmp.i.i11)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
   %49 = trunc i64 %bf.load8.i.i to i32
   %50 = lshr i32 %49, 16
   %bf.cast11.i.i = and i32 %50, 255
-  %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i10
+  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i10
   tail call void @llvm.assume(i1 %cmp12.i.i)
   %51 = ptrtoint ptr %add.ptr.i.i.i.i8 to i64
   %52 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
@@ -847,7 +847,7 @@ if.then:                                          ; preds = %entry
   %8 = trunc i64 %bf.load2.i to i32
   %9 = lshr i32 %8, 16
   %bf.cast5.i = and i32 %9, 255
-  %cmp.i = icmp uge i32 %bf.cast5.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast5.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %10 = ptrtoint ptr %add.ptr.i.i.i to i64
   %11 = ptrtoint ptr %add.ptr.i.i4.i to i64
@@ -883,13 +883,13 @@ if.else:                                          ; preds = %entry
   %19 = trunc i64 %bf.load3.i.i to i32
   %20 = lshr i32 %19, 16
   %bf.cast6.i.i = and i32 %20, 255
-  %cmp.i.i = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
   %21 = trunc i64 %bf.load8.i.i to i32
   %22 = lshr i32 %21, 16
   %bf.cast11.i.i = and i32 %22, 255
-  %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
+  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
   %23 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %24 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
@@ -938,13 +938,13 @@ entry:
   %9 = trunc i64 %bf.load3.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %11 = trunc i64 %bf.load8.i to i32
   %12 = lshr i32 %11, 16
   %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
   %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -1018,7 +1018,7 @@ if.else.i:                                        ; preds = %if.else
   %25 = trunc i64 %bf.load8.i.i.i to i32
   %26 = lshr i32 %25, 16
   %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
+  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
   %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
@@ -1064,13 +1064,13 @@ entry:
   %9 = trunc i64 %bf.load3.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %11 = trunc i64 %bf.load8.i to i32
   %12 = lshr i32 %11, 16
   %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
   %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -1144,7 +1144,7 @@ if.else.i:                                        ; preds = %if.else
   %25 = trunc i64 %bf.load8.i.i.i to i32
   %26 = lshr i32 %25, 16
   %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
+  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
   %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
@@ -1190,13 +1190,13 @@ entry:
   %9 = trunc i64 %bf.load3.i to i32
   %10 = lshr i32 %9, 16
   %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp uge i32 %bf.cast6.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
   %11 = trunc i64 %bf.load8.i to i32
   %12 = lshr i32 %11, 16
   %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
+  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
   %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
@@ -1270,7 +1270,7 @@ if.else.i:                                        ; preds = %if.else
   %25 = trunc i64 %bf.load8.i.i.i to i32
   %26 = lshr i32 %25, 16
   %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
+  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
   %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
@@ -1319,13 +1319,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i.i = and i32 %11, 255
-  %cmp.i.i.i = icmp uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
+  %cmp.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i.i = and i32 %13, 255
-  %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
+  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
@@ -1382,13 +1382,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -1442,7 +1442,7 @@ entry:
   %8 = trunc i64 %bf.load4.i to i32
   %9 = lshr i32 %8, 16
   %bf.cast7.i = and i32 %9, 255
-  %cmp.i = icmp uge i32 %bf.cast7.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast7.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %call8.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 159, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp9.i = icmp sgt i32 %call8.i, 0
@@ -1507,13 +1507,13 @@ if.then7:                                         ; preds = %if.then
   %21 = trunc i64 %bf.load6.i.i.i.i to i32
   %22 = lshr i32 %21, 16
   %bf.cast9.i.i.i.i = and i32 %22, 255
-  %cmp.i.i.i.i = icmp uge i32 %bf.cast9.i.i.i.i, %bf.cast.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i.i, %bf.cast.i.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %bf.load11.i.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i.i, align 8
   %23 = trunc i64 %bf.load11.i.i.i.i to i32
   %24 = lshr i32 %23, 16
   %bf.cast14.i.i.i.i = and i32 %24, 255
-  %cmp15.i.i.i.i = icmp uge i32 %bf.cast14.i.i.i.i, %bf.cast.i.i.i.i
+  %cmp15.i.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i.i, %bf.cast.i.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i.i)
   %call19.i.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i.i = icmp sgt i32 %call19.i.i.i.i, 0
@@ -1580,13 +1580,13 @@ if.else11:                                        ; preds = %if.else
   %33 = trunc i64 %bf.load6.i to i32
   %34 = lshr i32 %33, 16
   %bf.cast9.i = and i32 %34, 255
-  %cmp.i35 = icmp uge i32 %bf.cast9.i, %bf.cast.i34
+  %cmp.i35 = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i34
   tail call void @llvm.assume(i1 %cmp.i35)
   %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
   %35 = trunc i64 %bf.load11.i to i32
   %36 = lshr i32 %35, 16
   %bf.cast14.i = and i32 %36, 255
-  %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i34
+  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i34
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0
@@ -1633,13 +1633,13 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %40 = trunc i64 %bf.load3.i.i to i32
   %41 = lshr i32 %40, 16
   %bf.cast6.i.i = and i32 %41, 255
-  %cmp.i.i = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
   %42 = trunc i64 %bf.load8.i.i to i32
   %43 = lshr i32 %42, 16
   %bf.cast11.i.i = and i32 %43, 255
-  %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
+  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
   %44 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %45 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
@@ -1671,7 +1671,7 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %52 = trunc i64 %bf.load11.i.i.i to i32
   %53 = lshr i32 %52, 16
   %bf.cast14.i.i.i = and i32 %53, 255
-  %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
+  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
@@ -1748,13 +1748,13 @@ entry:
   %10 = trunc i64 %bf.load6 to i32
   %11 = lshr i32 %10, 16
   %bf.cast9 = and i32 %11, 255
-  %cmp = icmp uge i32 %bf.cast9, %bf.cast
+  %cmp = icmp samesign uge i32 %bf.cast9, %bf.cast
   tail call void @llvm.assume(i1 %cmp)
   %bf.load11 = load i64, ptr %add.ptr.i.i16, align 8
   %12 = trunc i64 %bf.load11 to i32
   %13 = lshr i32 %12, 16
   %bf.cast14 = and i32 %13, 255
-  %cmp15 = icmp uge i32 %bf.cast14, %bf.cast
+  %cmp15 = icmp samesign uge i32 %bf.cast14, %bf.cast
   tail call void @llvm.assume(i1 %cmp15)
   %call19 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece) #5
   %cmp20 = icmp sgt i32 %call19, 0
@@ -1937,13 +1937,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2000,13 +2000,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 157, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2063,13 +2063,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 160, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2126,13 +2126,13 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
   %12 = trunc i64 %bf.load11.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i
+  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 161, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0
@@ -2185,7 +2185,7 @@ if.then.i:                                        ; preds = %if.then
   %20 = trunc i64 %bf.load2.i.i to i32
   %21 = lshr i32 %20, 16
   %bf.cast5.i.i = and i32 %21, 255
-  %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %22 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %23 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
@@ -2219,13 +2219,13 @@ if.else.i13:                                      ; preds = %if.then
   %29 = trunc i64 %bf.load3.i.i.i to i32
   %30 = lshr i32 %29, 16
   %bf.cast6.i.i.i = and i32 %30, 255
-  %cmp.i.i.i = icmp uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
+  %cmp.i.i.i = icmp samesign uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
   %31 = trunc i64 %bf.load8.i.i.i to i32
   %32 = lshr i32 %31, 16
   %bf.cast11.i.i.i = and i32 %32, 255
-  %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
+  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
   %33 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %34 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
@@ -2264,13 +2264,13 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %42 = trunc i64 %bf.load6.i.i.i to i32
   %43 = lshr i32 %42, 16
   %bf.cast9.i.i.i = and i32 %43, 255
-  %cmp.i.i.i18 = icmp uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i17
+  %cmp.i.i.i18 = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i17
   tail call void @llvm.assume(i1 %cmp.i.i.i18)
   %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
   %44 = trunc i64 %bf.load11.i.i.i to i32
   %45 = lshr i32 %44, 16
   %bf.cast14.i.i.i = and i32 %45, 255
-  %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i17
+  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i17
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
@@ -2338,13 +2338,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 162, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2401,13 +2401,13 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
   %12 = trunc i64 %bf.load11.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i
+  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 163, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0
@@ -2459,13 +2459,13 @@ if.then:                                          ; preds = %if.else.i
   %21 = trunc i64 %bf.load6.i.i.i to i32
   %22 = lshr i32 %21, 16
   %bf.cast9.i.i.i = and i32 %22, 255
-  %cmp.i.i.i = icmp uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
+  %cmp.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
   %23 = trunc i64 %bf.load11.i.i.i to i32
   %24 = lshr i32 %23, 16
   %bf.cast14.i.i.i = and i32 %24, 255
-  %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
+  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
@@ -2540,13 +2540,13 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
   %12 = trunc i64 %bf.load11.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i
+  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef %opc, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0
@@ -2609,13 +2609,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 185, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2672,13 +2672,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 186, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2735,13 +2735,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 187, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2798,13 +2798,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 188, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2861,13 +2861,13 @@ entry:
   %10 = trunc i64 %bf.load6.i.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp uge i32 %bf.cast9.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
   %12 = trunc i64 %bf.load11.i.i to i32
   %13 = lshr i32 %12, 16
   %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp uge i32 %bf.cast14.i.i, %bf.cast.i.i
+  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 189, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
@@ -2924,7 +2924,7 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 181, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp11.i = icmp sgt i32 %call10.i, 0
@@ -2987,7 +2987,7 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 182, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp11.i = icmp sgt i32 %call10.i, 0
@@ -3050,7 +3050,7 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 183, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp11.i = icmp sgt i32 %call10.i, 0
@@ -3113,7 +3113,7 @@ entry:
   %10 = trunc i64 %bf.load6.i to i32
   %11 = lshr i32 %10, 16
   %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 184, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp11.i = icmp sgt i32 %call10.i, 0
@@ -3175,19 +3175,19 @@ entry:
   %8 = trunc i64 %bf.load4 to i32
   %9 = lshr i32 %8, 16
   %bf.cast7 = and i32 %9, 255
-  %cmp = icmp uge i32 %bf.cast7, %bf.cast
+  %cmp = icmp samesign uge i32 %bf.cast7, %bf.cast
   tail call void @llvm.assume(i1 %cmp)
   %bf.load9 = load i64, ptr %add.ptr.i.i19, align 8
   %10 = trunc i64 %bf.load9 to i32
   %11 = lshr i32 %10, 16
   %bf.cast12 = and i32 %11, 255
-  %cmp13 = icmp uge i32 %bf.cast12, %bf.cast
+  %cmp13 = icmp samesign uge i32 %bf.cast12, %bf.cast
   tail call void @llvm.assume(i1 %cmp13)
   %bf.load18 = load i64, ptr %add.ptr.i.i20, align 8
   %12 = trunc i64 %bf.load18 to i32
   %13 = lshr i32 %12, 16
   %bf.cast21 = and i32 %13, 255
-  %cmp22 = icmp uge i32 %bf.cast21, %bf.cast
+  %cmp22 = icmp samesign uge i32 %bf.cast21, %bf.cast
   tail call void @llvm.assume(i1 %cmp22)
   %14 = load i32, ptr @cpuinfo, align 4
   %15 = and i32 %14, 6144
@@ -3232,13 +3232,13 @@ if.else:                                          ; preds = %entry
   %24 = trunc i64 %bf.load3.i.i to i32
   %25 = lshr i32 %24, 16
   %bf.cast6.i.i = and i32 %25, 255
-  %cmp.i.i = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i
+  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
   %26 = trunc i64 %bf.load8.i.i to i32
   %27 = lshr i32 %26, 16
   %bf.cast11.i.i = and i32 %27, 255
-  %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
+  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
   %28 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %29 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
@@ -3269,13 +3269,13 @@ if.else:                                          ; preds = %entry
   %34 = trunc i64 %bf.load3.i.i26 to i32
   %35 = lshr i32 %34, 16
   %bf.cast6.i.i27 = and i32 %35, 255
-  %cmp.i.i28 = icmp uge i32 %bf.cast6.i.i27, %bf.cast.i.i25
+  %cmp.i.i28 = icmp samesign uge i32 %bf.cast6.i.i27, %bf.cast.i.i25
   tail call void @llvm.assume(i1 %cmp.i.i28)
   %bf.load8.i.i29 = load i64, ptr %add.ptr.i.i7.i.i23, align 8
   %36 = trunc i64 %bf.load8.i.i29 to i32
   %37 = lshr i32 %36, 16
   %bf.cast11.i.i30 = and i32 %37, 255
-  %cmp12.i.i31 = icmp uge i32 %bf.cast11.i.i30, %bf.cast.i.i25
+  %cmp12.i.i31 = icmp samesign uge i32 %bf.cast11.i.i30, %bf.cast.i.i25
   tail call void @llvm.assume(i1 %cmp12.i.i31)
   %38 = ptrtoint ptr %add.ptr.i.i.i.i21 to i64
   %39 = ptrtoint ptr %add.ptr.i.i6.i.i22 to i64
@@ -3305,7 +3305,7 @@ if.else:                                          ; preds = %entry
   %44 = trunc i64 %bf.load8.i.i50 to i32
   %45 = lshr i32 %44, 16
   %bf.cast11.i.i51 = and i32 %45, 255
-  %cmp12.i.i52 = icmp uge i32 %bf.cast11.i.i51, %bf.cast.i.i46
+  %cmp12.i.i52 = icmp samesign uge i32 %bf.cast11.i.i51, %bf.cast.i.i46
   tail call void @llvm.assume(i1 %cmp12.i.i52)
   %46 = ptrtoint ptr %add.ptr.i.i.i.i42 to i64
   %47 = ptrtoint ptr %add.ptr.i.i7.i.i44 to i64
@@ -3358,25 +3358,25 @@ entry:
   %14 = trunc i64 %bf.load10 to i32
   %15 = lshr i32 %14, 16
   %bf.cast13 = and i32 %15, 255
-  %cmp = icmp uge i32 %bf.cast13, %bf.cast
+  %cmp = icmp samesign uge i32 %bf.cast13, %bf.cast
   tail call void @llvm.assume(i1 %cmp)
   %bf.load15 = load i64, ptr %add.ptr.i.i33, align 8
   %16 = trunc i64 %bf.load15 to i32
   %17 = lshr i32 %16, 16
   %bf.cast18 = and i32 %17, 255
-  %cmp19 = icmp uge i32 %bf.cast18, %bf.cast
+  %cmp19 = icmp samesign uge i32 %bf.cast18, %bf.cast
   tail call void @llvm.assume(i1 %cmp19)
   %bf.load24 = load i64, ptr %add.ptr.i.i34, align 8
   %18 = trunc i64 %bf.load24 to i32
   %19 = lshr i32 %18, 16
   %bf.cast27 = and i32 %19, 255
-  %cmp28 = icmp uge i32 %bf.cast27, %bf.cast
+  %cmp28 = icmp samesign uge i32 %bf.cast27, %bf.cast
   tail call void @llvm.assume(i1 %cmp28)
   %bf.load33 = load i64, ptr %add.ptr.i.i35, align 8
   %20 = trunc i64 %bf.load33 to i32
   %21 = lshr i32 %20, 16
   %bf.cast36 = and i32 %21, 255
-  %cmp37 = icmp uge i32 %bf.cast36, %bf.cast
+  %cmp37 = icmp samesign uge i32 %bf.cast36, %bf.cast
   tail call void @llvm.assume(i1 %cmp37)
   %call42 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 192, i32 noundef %bf.cast, i32 noundef %vece) #5
   %cmp43 = icmp sgt i32 %call42, 0
@@ -3434,13 +3434,13 @@ if.else48:                                        ; preds = %if.else
   %29 = trunc i64 %bf.load6.i to i32
   %30 = lshr i32 %29, 16
   %bf.cast9.i = and i32 %30, 255
-  %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
+  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
   %31 = trunc i64 %bf.load11.i to i32
   %32 = lshr i32 %31, 16
   %bf.cast14.i = and i32 %32, 255
-  %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i
+  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0

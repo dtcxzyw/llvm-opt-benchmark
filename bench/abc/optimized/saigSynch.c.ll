@@ -1547,7 +1547,7 @@ Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.th
 118:                                              ; preds = %116
   %119 = tail call i32 @Saig_SynchSavePattern(ptr noundef %0, ptr noundef nonnull %27, i32 noundef %1, i32 noundef %.13652.i, ptr noundef nonnull %6)
   %120 = add nuw nsw i32 %.04684, 1
-  %121 = icmp ult i32 %.04684, 99
+  %121 = icmp samesign ult i32 %.04684, 99
   %122 = icmp sgt i32 %.154.i, 0
   %123 = and i1 %121, %122
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !33

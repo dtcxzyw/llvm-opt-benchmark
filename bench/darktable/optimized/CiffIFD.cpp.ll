@@ -129,7 +129,7 @@ define hidden void @_ZN8rawspeed7CiffIFD13parseIFDEntryEPNS_11NORangesSetINS_6Bu
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !18, !noalias !19
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %14, %17
+  %18 = icmp samesign ugt i64 %14, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %4
@@ -141,7 +141,7 @@ define hidden void @_ZN8rawspeed7CiffIFD13parseIFDEntryEPNS_11NORangesSetINS_6Bu
   %22 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw nsw i32 %12, 10
-  %24 = icmp ule i32 %23, %16
+  %24 = icmp samesign ule i32 %23, %16
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %25)
@@ -842,7 +842,7 @@ define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonn
   %58 = shl nuw i64 %57, 32
   %59 = or disjoint i64 %58, %52
   %60 = add nuw nsw i64 %52, 2
-  %61 = icmp ugt i64 %60, %42
+  %61 = icmp samesign ugt i64 %60, %42
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %56
@@ -868,7 +868,7 @@ define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonn
   %73 = zext nneg i32 %65 to i64
   %74 = zext nneg i32 %72 to i64
   %75 = add nuw nsw i64 %74, %73
-  %76 = icmp ugt i64 %75, %42
+  %76 = icmp samesign ugt i64 %75, %42
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %64

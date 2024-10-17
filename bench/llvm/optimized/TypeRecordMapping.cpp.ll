@@ -935,7 +935,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %24, %20
   %44 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %43, ptr %44, align 1, !noalias !27
   %45 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !30
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread
@@ -1971,7 +1971,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %110, %111
   %122 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %121, ptr %122, align 1, !noalias !70
   %123 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !30
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread
@@ -2803,7 +2803,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %113, %114
   %125 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %124, ptr %125, align 1, !noalias !100
   %126 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !30
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread
@@ -5864,7 +5864,7 @@ _ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit: ; pr
   %89 = add nuw nsw i32 %58, 1
   %90 = load i16, ptr %5, align 2
   %91 = zext i16 %90 to i32
-  %92 = icmp ult i32 %89, %91
+  %92 = icmp samesign ult i32 %89, %91
   br i1 %92, label %93, label %_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit44
 
 93:                                               ; preds = %_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit
@@ -5938,7 +5938,7 @@ _ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit44: ; 
   %121 = and i32 %120, 65535
   %122 = load i16, ptr %5, align 2
   %123 = zext i16 %122 to i32
-  %124 = icmp ult i32 %121, %123
+  %124 = icmp samesign ult i32 %121, %123
   br i1 %124, label %_ZN4llvm5ErrorD2Ev.exit35, label %_ZN4llvm12ErrorSuccessD2Ev.exit, !llvm.loop !250
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %37, %_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit44, %.preheader58, %.preheader
@@ -8010,7 +8010,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %190, %189
   %201 = getelementptr inbounds i8, ptr %.117.us.i.i, i64 -1
   store i8 %200, ptr %201, align 1, !noalias !322
   %202 = lshr i64 %.019.us.i.i, 4
-  %.not15.us.i.i = icmp ult i64 %.019.us.i.i, 16
+  %.not15.us.i.i = icmp samesign ult i64 %.019.us.i.i, 16
   br i1 %.not15.us.i.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !30
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %.lr.ph.split.us.i.i, %.thread.i

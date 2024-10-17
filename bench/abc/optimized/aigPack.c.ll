@@ -680,7 +680,7 @@ define void @Aig_ManPackPrintStats(ptr nocapture noundef readonly %0) local_unna
   %65 = add nuw nsw i32 %63, %64
   %66 = add nuw nsw i32 %65, %45
   %67 = add nuw nsw i32 %66, %44
-  %68 = icmp ugt i32 %67, 32
+  %68 = icmp samesign ugt i32 %67, 32
   %69 = sub nsw i32 64, %67
   %spec.select = select i1 %68, i32 %69, i32 %67
   %70 = sext i32 %spec.select to i64

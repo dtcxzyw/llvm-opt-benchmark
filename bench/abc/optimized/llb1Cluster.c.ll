@@ -107,7 +107,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
   %.055 = phi i32 [ -1, %.lr.ph56 ], [ %.1.lcssa, %.loopexit ]
   %.02753 = phi i32 [ -100000, %.lr.ph56 ], [ %.128.lcssa, %.loopexit ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %14 = icmp ult i64 %indvars.iv.next65, %12
+  %14 = icmp samesign ult i64 %indvars.iv.next65, %12
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %13
@@ -473,7 +473,7 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
   %.051 = phi i32 [ -1, %.lr.ph52 ], [ %.1.lcssa, %.loopexit ]
   %.02749 = phi float [ -1.000000e+05, %.lr.ph52 ], [ %.128.lcssa, %.loopexit ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %13 = icmp ult i64 %indvars.iv.next60, %11
+  %13 = icmp samesign ult i64 %indvars.iv.next60, %11
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12
@@ -1052,7 +1052,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
   %.055.i = phi i32 [ -1, %.lr.ph56.i ], [ %.1.lcssa.i, %.loopexit.i ]
   %.02753.i = phi i32 [ -100000, %.lr.ph56.i ], [ %.128.lcssa.i, %.loopexit.i ]
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %17 = icmp ult i64 %indvars.iv.next65.i, %15
+  %17 = icmp samesign ult i64 %indvars.iv.next65.i, %15
   br i1 %17, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %16

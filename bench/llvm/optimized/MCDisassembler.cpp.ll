@@ -174,7 +174,7 @@ switch.lookup11:                                  ; preds = %_ZL14getSMCPriority
 
 _ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9: ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit, %switch.lookup11
   %.0.i8 = phi i8 [ %switch.load13, %switch.lookup11 ], [ 0, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit ]
-  %27 = icmp ult i8 %.0.i, %.0.i8
+  %27 = icmp samesign ult i8 %.0.i, %.0.i8
   br label %28
 
 28:                                               ; preds = %11, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9, %9

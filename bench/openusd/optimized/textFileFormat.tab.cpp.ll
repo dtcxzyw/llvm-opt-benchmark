@@ -23527,7 +23527,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4TakeINS_9SdfListOpINSt7__cxx1112ba
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %or.cond = icmp ult i32 %0, 2
+  %or.cond = icmp samesign ult i32 %0, 2
   br i1 %or.cond, label %182, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit
 
 182:                                              ; preds = %181
@@ -25996,7 +25996,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_7SdfPathESaIS2_EE
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_7SdfPathESaIS2_EELb0EEppEv.exit, %.preheader
-  %or.cond3 = icmp ult i32 %0, 2
+  %or.cond3 = icmp samesign ult i32 %0, 2
   br i1 %or.cond3, label %53, label %108
 
 53:                                               ; preds = %._crit_edge
@@ -28374,7 +28374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_7SdfPathESaIS2_EE
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_7SdfPathESaIS2_EELb0EEppEv.exit, %.preheader
-  %or.cond3 = icmp ult i32 %0, 2
+  %or.cond3 = icmp samesign ult i32 %0, 2
   br i1 %or.cond3, label %53, label %.loopexit
 
 53:                                               ; preds = %._crit_edge
@@ -50128,7 +50128,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc.i.i:                                       ; preds = %68
-  %74 = icmp ugt i64 %.09.i.i.i.i.i.idx.i.i, 120
+  %74 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx.i.i, 120
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %.noexc.i.i

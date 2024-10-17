@@ -303,7 +303,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %2
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %23 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv74.i
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp ult i64 %indvars.iv74.i, 5
+  %25 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %25, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 26:                                               ; preds = %.preheader26.us.us.i, %26
@@ -632,7 +632,7 @@ define void @Kit_DsdNtkFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i16, ptr %3, align 4
   %10 = zext i16 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %8, %1
@@ -692,7 +692,7 @@ define void @Kit_DsdPrintHex(ptr nocapture noundef %0, ptr nocapture noundef rea
   %12 = and i32 %11, 28
   %13 = lshr i32 %10, %12
   %14 = and i32 %13, 15
-  %15 = icmp ult i32 %14, 10
+  %15 = icmp samesign ult i32 %14, 10
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
@@ -737,7 +737,7 @@ define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr nocapture noundef read
   %12 = and i32 %11, 28
   %13 = lshr i32 %10, %12
   %14 = and i32 %13, 15
-  %15 = icmp ult i32 %14, 10
+  %15 = icmp samesign ult i32 %14, 10
   %16 = trunc nuw nsw i32 %14 to i8
   %17 = add nuw nsw i8 %16, 55
   %18 = or disjoint i8 %16, 48
@@ -828,7 +828,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   %37 = lshr i32 %36, 26
   %38 = add nsw i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv, %39
+  %40 = icmp samesign ult i64 %indvars.iv, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %34
@@ -842,7 +842,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   %43 = phi i32 [ %36, %34 ], [ %.pre, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext nneg i32 %.pre-phi to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %28, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %42, %23
@@ -958,7 +958,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   %41 = and i32 %40, 28
   %42 = lshr i32 %39, %41
   %43 = and i32 %42, 15
-  %44 = icmp ult i32 %43, 10
+  %44 = icmp samesign ult i32 %43, 10
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.lr.ph.i
@@ -1004,7 +1004,7 @@ Kit_DsdPrintHex.exit:                             ; preds = %49, %26, %23
   %62 = lshr i32 %61, 26
   %63 = add nsw i32 %62, -1
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv, %64
+  %65 = icmp samesign ult i64 %indvars.iv, %64
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %59
@@ -1017,7 +1017,7 @@ Kit_DsdPrintHex.exit:                             ; preds = %49, %26, %23
   %.pre-phi = phi i32 [ %62, %59 ], [ %.pre39, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = zext nneg i32 %.pre-phi to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %53, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %67, %Kit_DsdPrintHex.exit
@@ -1128,7 +1128,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   %43 = and i32 %42, 28
   %44 = lshr i32 %41, %43
   %45 = and i32 %44, 15
-  %46 = icmp ult i32 %45, 10
+  %46 = icmp samesign ult i32 %45, 10
   %47 = trunc nuw nsw i32 %45 to i8
   %48 = add nuw nsw i8 %47, 55
   %49 = or disjoint i8 %47, 48
@@ -1173,7 +1173,7 @@ Kit_DsdWriteHex.exit:                             ; preds = %.lr.ph.i, %28, %25
   %65 = lshr i32 %64, 26
   %66 = add nsw i32 %65, -1
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv, %67
+  %68 = icmp samesign ult i64 %indvars.iv, %67
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %61
@@ -1188,7 +1188,7 @@ Kit_DsdWriteHex.exit:                             ; preds = %.lr.ph.i, %28, %25
   %.3 = phi ptr [ %63, %61 ], [ %70, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = zext nneg i32 %.pre-phi to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %54, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %71, %Kit_DsdWriteHex.exit
@@ -1491,7 +1491,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %30 = phi i16 [ %.pre.i, %Kit_TruthCopy.exit.loopexit.i ], [ %21, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = zext i16 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %20, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %3
@@ -1747,7 +1747,7 @@ select.unfold.i99:                                ; preds = %select.unfold.i99, 
   %72 = load i32, ptr %19, align 4
   %73 = lshr i32 %72, 26
   %74 = zext nneg i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %65, label %.critedge.loopexit, !llvm.loop !19
 
 .critedge.loopexit:                               ; preds = %65
@@ -1859,7 +1859,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i106,
   %120 = load i32, ptr %19, align 4
   %121 = lshr i32 %120, 26
   %122 = zext nneg i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next172, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next172, %122
   br i1 %123, label %91, label %.critedge2, !llvm.loop !22
 
 124:                                              ; preds = %.critedge
@@ -1933,7 +1933,7 @@ Kit_TruthXor.exit:                                ; preds = %Kit_TruthXor.exit.l
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %158 = lshr i32 %154, 26
   %159 = zext nneg i32 %158 to i64
-  %160 = icmp ult i64 %indvars.iv.next169, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next169, %159
   br i1 %160, label %135, label %.critedge4, !llvm.loop !24
 
 .critedge4:                                       ; preds = %Kit_TruthXor.exit
@@ -2008,7 +2008,7 @@ Kit_TruthNot.exit127:                             ; preds = %Kit_TruthNot.exit12
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %194 = lshr i32 %193, 26
   %195 = zext nneg i32 %194 to i64
-  %196 = icmp ult i64 %indvars.iv.next175, %195
+  %196 = icmp samesign ult i64 %indvars.iv.next175, %195
   br i1 %196, label %174, label %.critedge6, !llvm.loop !25
 
 .critedge6:                                       ; preds = %Kit_TruthNot.exit127, %.preheader
@@ -2115,7 +2115,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %26 = phi i16 [ %.pre, %Kit_TruthCopy.exit.loopexit ], [ %7, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = zext i16 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %6, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %Kit_TruthCopy.exit, %2
@@ -2335,7 +2335,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %69, %79, %81
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %92 = lshr i32 %90, 26
   %93 = zext nneg i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next227, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next227, %93
   br i1 %94, label %69, label %.critedge.loopexit, !llvm.loop !26
 
 95:                                               ; preds = %.lr.ph, %95
@@ -2351,7 +2351,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %69, %79, %81
   %102 = load i32, ptr %20, align 4
   %103 = lshr i32 %102, 26
   %104 = zext nneg i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next, %104
   br i1 %105, label %95, label %.critedge, !llvm.loop !27
 
 .critedge.loopexit:                               ; preds = %89
@@ -2459,7 +2459,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i153,
   %151 = load i32, ptr %20, align 4
   %152 = lshr i32 %151, 26
   %153 = zext nneg i32 %152 to i64
-  %154 = icmp ult i64 %indvars.iv.next233, %153
+  %154 = icmp samesign ult i64 %indvars.iv.next233, %153
   br i1 %154, label %121, label %.critedge4, !llvm.loop !28
 
 155:                                              ; preds = %.critedge
@@ -2544,7 +2544,7 @@ Kit_TruthXor.exit:                                ; preds = %Kit_TruthXor.exit.l
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %191 = lshr i32 %190, 26
   %192 = zext nneg i32 %191 to i64
-  %193 = icmp ult i64 %indvars.iv.next230, %192
+  %193 = icmp samesign ult i64 %indvars.iv.next230, %192
   br i1 %193, label %166, label %.critedge6, !llvm.loop !29
 
 .critedge6:                                       ; preds = %189
@@ -2665,7 +2665,7 @@ Kit_TruthNot.exit174:                             ; preds = %Kit_TruthNot.exit17
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %237 = lshr i32 %236, 26
   %238 = zext nneg i32 %237 to i64
-  %239 = icmp ult i64 %indvars.iv.next236, %238
+  %239 = icmp samesign ult i64 %indvars.iv.next236, %238
   br i1 %239, label %217, label %.critedge11, !llvm.loop !31
 
 .critedge11:                                      ; preds = %Kit_TruthNot.exit174, %.preheader182
@@ -2850,7 +2850,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %70 = phi i16 [ %.pre29, %Kit_TruthCopy.exit.loopexit ], [ %51, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = zext i16 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %50, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %Kit_TruthCopy.exit, %Kit_DsdGetSupports.exit
@@ -3125,7 +3125,7 @@ Kit_DsdLitSupport.exit209:                        ; preds = %.lr.ph351, %69, %71
   %83 = load i32, ptr %23, align 4
   %84 = lshr i32 %83, 26
   %85 = zext nneg i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next408, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next408, %85
   br i1 %86, label %.lr.ph351, label %.critedge2, !llvm.loop !34
 
 .critedge2:                                       ; preds = %81
@@ -3223,7 +3223,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i, %s
   %129 = load i32, ptr %23, align 4
   %130 = lshr i32 %129, 26
   %131 = zext nneg i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next414, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next414, %131
   br i1 %132, label %100, label %.critedge4, !llvm.loop !35
 
 133:                                              ; preds = %.critedge2
@@ -3297,7 +3297,7 @@ Kit_TruthXor.exit:                                ; preds = %Kit_TruthXor.exit.l
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %167 = lshr i32 %166, 26
   %168 = zext nneg i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next411, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next411, %168
   br i1 %169, label %144, label %.critedge6, !llvm.loop !36
 
 .critedge6:                                       ; preds = %Kit_TruthXor.exit
@@ -3368,7 +3368,7 @@ Kit_DsdLitSupport.exit225:                        ; preds = %.lr.ph360, %193, %1
   %204 = load i32, ptr %23, align 4
   %205 = lshr i32 %204, 26
   %206 = zext nneg i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next417, %206
+  %207 = icmp samesign ult i64 %indvars.iv.next417, %206
   br i1 %207, label %.lr.ph360, label %.critedge8, !llvm.loop !37
 
 .critedge8:                                       ; preds = %Kit_DsdLitSupport.exit225
@@ -3571,7 +3571,7 @@ Kit_TruthAndPhase.exit243:                        ; preds = %select.unfold.i236,
   %290 = load i32, ptr %23, align 4
   %291 = lshr i32 %290, 26
   %292 = zext nneg i32 %291 to i64
-  %293 = icmp ult i64 %indvars.iv.next423, %292
+  %293 = icmp samesign ult i64 %indvars.iv.next423, %292
   br i1 %293, label %240, label %.critedge4, !llvm.loop !40
 
 294:                                              ; preds = %.critedge8
@@ -3714,7 +3714,7 @@ Kit_TruthXor.exit278:                             ; preds = %select.unfold.i275,
   %356 = load i32, ptr %23, align 4
   %357 = lshr i32 %356, 26
   %358 = zext nneg i32 %357 to i64
-  %359 = icmp ult i64 %indvars.iv.next420, %358
+  %359 = icmp samesign ult i64 %indvars.iv.next420, %358
   br i1 %359, label %324, label %.critedge12, !llvm.loop !41
 
 .critedge12:                                      ; preds = %Kit_TruthXor.exit278
@@ -3902,7 +3902,7 @@ Kit_TruthNot.exit316:                             ; preds = %Kit_TruthNot.exit31
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %430 = lshr i32 %429, 26
   %431 = zext nneg i32 %430 to i64
-  %432 = icmp ult i64 %indvars.iv.next431, %431
+  %432 = icmp samesign ult i64 %indvars.iv.next431, %431
   br i1 %432, label %410, label %.critedge16, !llvm.loop !43
 
 .critedge16:                                      ; preds = %Kit_TruthNot.exit316, %Kit_TruthIthVar.exit310
@@ -4105,7 +4105,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %83 = phi i16 [ %.pre.i41, %Kit_TruthCopy.exit.loopexit.i ], [ %64, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %84 = zext i16 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next.i, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next.i, %84
   br i1 %85, label %63, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %Kit_TruthClear.exit
@@ -4207,7 +4207,7 @@ Kit_TruthCopy.exit.i48:                           ; preds = %Kit_TruthCopy.exit.
   %132 = phi i16 [ %.pre.i62, %Kit_TruthCopy.exit.loopexit.i61 ], [ %113, %112 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i44, 1
   %133 = zext i16 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next.i49, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next.i49, %133
   br i1 %134, label %112, label %._crit_edge.i50, !llvm.loop !16
 
 ._crit_edge.i50:                                  ; preds = %Kit_TruthCopy.exit.i48, %109
@@ -4370,7 +4370,7 @@ Kit_TruthCopy.exit78:                             ; preds = %Kit_TruthCopy.exit7
   %199 = phi i16 [ %.pre, %Kit_TruthCopy.exit78.loopexit ], [ %180, %179 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = zext i16 %199 to i64
-  %201 = icmp ult i64 %indvars.iv.next, %200
+  %201 = icmp samesign ult i64 %indvars.iv.next, %200
   br i1 %201, label %179, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %Kit_TruthCopy.exit78, %.preheader
@@ -4470,7 +4470,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %29 = phi i16 [ %.pre.i, %Kit_TruthCopy.exit.loopexit.i ], [ %20, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = zext i16 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
   br i1 %31, label %19, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %2
@@ -4695,7 +4695,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
   %54 = load i32, ptr %13, align 4
   %55 = lshr i32 %54, 26
   %56 = zext nneg i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %48, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %48, %.preheader
@@ -4938,7 +4938,7 @@ Kit_DsdGetSupports.exit:                          ; preds = %Kit_DsdLitSupport.e
 57:                                               ; preds = %54
   %58 = load i16, ptr %0, align 8
   %59 = zext i16 %58 to i32
-  %60 = icmp ult i32 %55, %59
+  %60 = icmp samesign ult i32 %55, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
@@ -5020,7 +5020,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %4, %Kit_DsdNtkObj.e
   %28 = load i32, ptr %14, align 4
   %29 = lshr i32 %28, 26
   %30 = zext nneg i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %24, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %24, %.preheader, %Kit_DsdNtkObj.exit
@@ -5074,7 +5074,7 @@ Kit_DsdNtkObj.exit22:                             ; preds = %9
   %27 = load i32, ptr %15, align 4
   %28 = lshr i32 %27, 26
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %23, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %23, %Kit_DsdNtkObj.exit22
@@ -5147,7 +5147,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %33 = load i32, ptr %24, align 4
   %34 = lshr i32 %33, 26
   %35 = zext nneg i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next140, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next140, %35
   br i1 %36, label %27, label %._crit_edge124, !llvm.loop !51
 
 ._crit_edge124:                                   ; preds = %27, %21
@@ -5188,7 +5188,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %57 = load i32, ptr %45, align 4
   %58 = lshr i32 %57, 26
   %59 = zext nneg i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %48, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %48, %41
@@ -5280,7 +5280,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %109 = load i32, ptr %15, align 4
   %110 = lshr i32 %109, 26
   %111 = zext nneg i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next143, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next143, %111
   br i1 %112, label %.lr.ph127, label %.critedge.loopexit, !llvm.loop !53
 
 .critedge.loopexit:                               ; preds = %108
@@ -5760,7 +5760,7 @@ Kit_DsdObjAlloc.exit:                             ; preds = %._crit_edge.i, %77
   %94 = load i32, ptr %16, align 4
   %95 = lshr i32 %94, 26
   %96 = zext nneg i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next169, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next169, %96
   br i1 %97, label %58, label %._crit_edge140, !llvm.loop !59
 
 ._crit_edge140:                                   ; preds = %Kit_DsdObjAlloc.exit
@@ -5877,7 +5877,7 @@ Kit_DsdObjAlloc.exit118:                          ; preds = %._crit_edge.i112, %
   %157 = load i32, ptr %16, align 4
   %158 = lshr i32 %157, 26
   %159 = zext nneg i32 %158 to i64
-  %160 = icmp ult i64 %indvars.iv.next158, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next158, %159
   br i1 %160, label %121, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %Kit_DsdObjAlloc.exit118
@@ -5965,7 +5965,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %207 = load i32, ptr %16, align 4
   %208 = lshr i32 %207, 26
   %209 = zext nneg i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next172, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next172, %209
   br i1 %210, label %.lr.ph143, label %.critedge4.loopexit, !llvm.loop !62
 
 .critedge4.loopexit:                              ; preds = %206
@@ -6345,7 +6345,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %5
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %84 = load i16, ptr %5, align 4
   %85 = zext i16 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next110, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next110, %85
   br i1 %86, label %9, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %9, %Kit_TruthCopy.exit, %2
@@ -6412,7 +6412,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %2
   %29 = load i32, ptr %12, align 4
   %30 = lshr i32 %29, 26
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %23, label %.critedge.loopexit, !llvm.loop !68
 
 .critedge.loopexit:                               ; preds = %23
@@ -6903,7 +6903,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 75:                                               ; preds = %.lr.ph, %69
   %.1 = phi i32 [ %72, %69 ], [ %.0472721, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = icmp ult i64 %indvars.iv.next, %65
+  %76 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %75, %43
@@ -7125,7 +7125,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i518,
   %184 = load i32, ptr %.tr648.ph, align 4
   %185 = lshr i32 %184, 26
   %186 = zext nneg i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next837, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next837, %186
   br i1 %187, label %167, label %._crit_edge750, !llvm.loop !79
 
 ._crit_edge750:                                   ; preds = %181, %156
@@ -7752,7 +7752,7 @@ Kit_TruthIsEqual.exit590:                         ; preds = %select.unfold.i586,
 529:                                              ; preds = %._crit_edge839, %Kit_TruthIsEqual.exit590
   %.pre-phi848 = phi i32 [ %.pre847, %._crit_edge839 ], [ %452, %Kit_TruthIsEqual.exit590 ]
   %530 = phi i32 [ %.pre840, %._crit_edge839 ], [ %451, %Kit_TruthIsEqual.exit590 ]
-  %531 = icmp ult i32 %.1475.in727, %.pre-phi848
+  %531 = icmp samesign ult i32 %.1475.in727, %.pre-phi848
   br i1 %531, label %.lr.ph725, label %.loopexit
 
 .lr.ph725:                                        ; preds = %529, %671
@@ -8040,7 +8040,7 @@ tailrecurse.backedge:                             ; preds = %643, %656, %666, %6
 
 671:                                              ; preds = %Kit_TruthIsEqual.exit626
   %672 = add nuw nsw i32 %.3723, 1
-  %673 = icmp ult i32 %672, %540
+  %673 = icmp samesign ult i32 %672, %540
   br i1 %673, label %.lr.ph725, label %.loopexit, !llvm.loop !83
 
 ._crit_edge731:                                   ; preds = %.loopexit658, %.loopexit
@@ -8088,7 +8088,7 @@ tailrecurse.backedge:                             ; preds = %643, %656, %666, %6
   %701 = load i32, ptr %.tr648.ph, align 4
   %702 = lshr i32 %701, 26
   %703 = zext nneg i32 %702 to i64
-  %704 = icmp ult i64 %indvars.iv.next834, %703
+  %704 = icmp samesign ult i64 %indvars.iv.next834, %703
   br i1 %704, label %696, label %._crit_edge744, !llvm.loop !84
 
 ._crit_edge744:                                   ; preds = %696, %678
@@ -8493,7 +8493,7 @@ Kit_DsdPrint.exit46:                              ; preds = %Kit_DsdPrint.exit42
   %59 = add nuw nsw i32 %.047, 1
   %60 = load i16, ptr %0, align 8
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %59, %61
+  %62 = icmp samesign ult i32 %59, %61
   br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %Kit_DsdPrint.exit46, %Kit_DsdPrint.exit
@@ -8599,7 +8599,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %48 = phi i16 [ %.pre.i, %Kit_TruthCopy.exit.loopexit.i ], [ %39, %38 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = zext i16 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %38, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %Kit_DsdCountLuts.exit
@@ -8749,7 +8749,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %39 = phi i16 [ %.pre.i15, %Kit_TruthCopy.exit.loopexit.i ], [ %30, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = zext i16 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next.i, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %41, label %29, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %Kit_DsdPrint.exit
@@ -8939,7 +8939,7 @@ Kit_TruthCopy.exit.i:                             ; preds = %Kit_TruthCopy.exit.
   %60 = phi i16 [ %.pre.i28, %Kit_TruthCopy.exit.loopexit.i ], [ %41, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next.i, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next.i, %61
   br i1 %62, label %40, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %Kit_TruthCopy.exit.i, %31
@@ -9123,7 +9123,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %39 = lshr i32 %38, 26
   %40 = zext nneg i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next64, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next64, %40
   br i1 %41, label %19, label %.critedge2.loopexit, !llvm.loop !89
 
 .critedge2.loopexit:                              ; preds = %37
@@ -9137,7 +9137,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
   %43 = getelementptr inbounds i8, ptr %42, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = zext i16 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next67, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next67, %45
   br i1 %46, label %.lr.ph52, label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph52, %.preheader42
@@ -9341,7 +9341,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 .critedge2.i:                                     ; preds = %76, %53
   %.2.i = phi i32 [ %.151.i, %53 ], [ %.4.i, %76 ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %77 = icmp ult i64 %indvars.iv.next67.i, %50
+  %77 = icmp samesign ult i64 %indvars.iv.next67.i, %50
   br i1 %77, label %.lr.ph52.i, label %.critedge.i, !llvm.loop !90
 
 .critedge.i:                                      ; preds = %.critedge2.i, %.lr.ph52.i, %.preheader42.i
@@ -9499,7 +9499,7 @@ Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %117, %120, %Kit_Dsd
   %indvars.iv.next.i188.us = add nuw nsw i64 %indvars.iv.i186.us, 1
   %135 = load i16, ptr %101, align 4
   %136 = zext i16 %135 to i64
-  %137 = icmp ult i64 %indvars.iv.next.i188.us, %136
+  %137 = icmp samesign ult i64 %indvars.iv.next.i188.us, %136
   br i1 %137, label %.lr.ph.i185.us, label %.critedge.i189.us, !llvm.loop !9
 
 .critedge.i189.us:                                ; preds = %.lr.ph.i185.us, %134, %Kit_DsdNonDsdSizeMax.exit184.us
@@ -9553,7 +9553,7 @@ Kit_DsdNtkFree.exit.us:                           ; preds = %147, %144
   %indvars.iv.next.i194.us = add nuw nsw i64 %indvars.iv.i192.us, 1
   %154 = load i16, ptr %113, align 4
   %155 = zext i16 %154 to i64
-  %156 = icmp ult i64 %indvars.iv.next.i194.us, %155
+  %156 = icmp samesign ult i64 %indvars.iv.next.i194.us, %155
   br i1 %156, label %.lr.ph.i191.us, label %.critedge.i195.us, !llvm.loop !9
 
 .critedge.i195.us:                                ; preds = %.lr.ph.i191.us, %153, %Kit_DsdNtkFree.exit.us
@@ -9655,7 +9655,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %166, %163
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i202, 1
   %194 = load i16, ptr %188, align 4
   %195 = zext i16 %194 to i64
-  %196 = icmp ult i64 %indvars.iv.next.i204, %195
+  %196 = icmp samesign ult i64 %indvars.iv.next.i204, %195
   br i1 %196, label %.lr.ph.i201, label %.critedge.i205, !llvm.loop !9
 
 .critedge.i205:                                   ; preds = %193, %.lr.ph.i201, %185
@@ -9712,7 +9712,7 @@ Kit_DsdNtkFree.exit209:                           ; preds = %203, %206
   %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i212, 1
   %215 = load i16, ptr %209, align 4
   %216 = zext i16 %215 to i64
-  %217 = icmp ult i64 %indvars.iv.next.i214, %216
+  %217 = icmp samesign ult i64 %indvars.iv.next.i214, %216
   br i1 %217, label %.lr.ph.i211, label %.critedge.i215, !llvm.loop !9
 
 .critedge.i215:                                   ; preds = %214, %.lr.ph.i211, %Kit_DsdNtkFree.exit209
@@ -9836,7 +9836,7 @@ Kit_DsdCofactoringGetVars.exit.thread:            ; preds = %._crit_edge, %Kit_D
   %indvars.iv.next.i230 = add nuw nsw i64 %indvars.iv.i228, 1
   %262 = load i16, ptr %256, align 4
   %263 = zext i16 %262 to i64
-  %264 = icmp ult i64 %indvars.iv.next.i230, %263
+  %264 = icmp samesign ult i64 %indvars.iv.next.i230, %263
   br i1 %264, label %.lr.ph.i227, label %.critedge.i231, !llvm.loop !9
 
 .critedge.i231:                                   ; preds = %261, %.lr.ph.i227, %254
@@ -10045,7 +10045,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   %indvars.iv.next.i337 = add nuw nsw i64 %indvars.iv.i335, 1
   %67 = load i16, ptr %61, align 4
   %68 = zext i16 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next.i337, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next.i337, %68
   br i1 %69, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %66, %.lr.ph.i, %54
@@ -10161,7 +10161,7 @@ Kit_DsdNonDsdSizeMax.exit:                        ; preds = %99, %102
   %indvars.iv.next.i352 = add nuw nsw i64 %indvars.iv.i350, 1
   %111 = load i16, ptr %93, align 4
   %112 = zext i16 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next.i352, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next.i352, %112
   br i1 %113, label %.lr.ph.i349, label %.critedge.i353, !llvm.loop !9
 
 .critedge.i353:                                   ; preds = %110, %.lr.ph.i349, %Kit_DsdNonDsdSizeMax.exit.thread
@@ -10309,7 +10309,7 @@ Kit_DsdNtkFree.exit357:                           ; preds = %122, %125
   %indvars.iv.next.i362 = add nuw nsw i64 %indvars.iv.i360, 1
   %170 = load i16, ptr %164, align 4
   %171 = zext i16 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next.i362, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next.i362, %171
   br i1 %172, label %.lr.ph.i359, label %.critedge.i363, !llvm.loop !9
 
 .critedge.i363:                                   ; preds = %169, %.lr.ph.i359, %.preheader488
@@ -10425,7 +10425,7 @@ Kit_DsdNonDsdSizeMax.exit385:                     ; preds = %202, %205
   %indvars.iv.next.i390 = add nuw nsw i64 %indvars.iv.i388, 1
   %214 = load i16, ptr %196, align 4
   %215 = zext i16 %214 to i64
-  %216 = icmp ult i64 %indvars.iv.next.i390, %215
+  %216 = icmp samesign ult i64 %indvars.iv.next.i390, %215
   br i1 %216, label %.lr.ph.i387, label %.critedge.i391, !llvm.loop !9
 
 .critedge.i391:                                   ; preds = %213, %.lr.ph.i387, %Kit_DsdNonDsdSizeMax.exit385.thread
@@ -10599,7 +10599,7 @@ Kit_DsdNtkFree.exit395:                           ; preds = %225, %228
   %indvars.iv.next.i400 = add nuw nsw i64 %indvars.iv.i398, 1
   %278 = load i16, ptr %272, align 4
   %279 = zext i16 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next.i400, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next.i400, %279
   br i1 %280, label %.lr.ph.i397, label %.critedge.i401, !llvm.loop !9
 
 .critedge.i401:                                   ; preds = %277, %.lr.ph.i397, %.preheader483
@@ -10715,7 +10715,7 @@ Kit_DsdNonDsdSizeMax.exit423:                     ; preds = %310, %313
   %indvars.iv.next.i428 = add nuw nsw i64 %indvars.iv.i426, 1
   %322 = load i16, ptr %304, align 4
   %323 = zext i16 %322 to i64
-  %324 = icmp ult i64 %indvars.iv.next.i428, %323
+  %324 = icmp samesign ult i64 %indvars.iv.next.i428, %323
   br i1 %324, label %.lr.ph.i425, label %.critedge.i429, !llvm.loop !9
 
 .critedge.i429:                                   ; preds = %321, %.lr.ph.i425, %Kit_DsdNonDsdSizeMax.exit423.thread
@@ -10899,7 +10899,7 @@ Kit_DsdNtkFree.exit433:                           ; preds = %333, %336
   %indvars.iv.next.i438 = add nuw nsw i64 %indvars.iv.i436, 1
   %389 = load i16, ptr %383, align 4
   %390 = zext i16 %389 to i64
-  %391 = icmp ult i64 %indvars.iv.next.i438, %390
+  %391 = icmp samesign ult i64 %indvars.iv.next.i438, %390
   br i1 %391, label %.lr.ph.i435, label %.critedge.i439, !llvm.loop !9
 
 .critedge.i439:                                   ; preds = %388, %.lr.ph.i435, %.preheader477
@@ -11015,7 +11015,7 @@ Kit_DsdNonDsdSizeMax.exit461:                     ; preds = %421, %424
   %indvars.iv.next.i466 = add nuw nsw i64 %indvars.iv.i464, 1
   %433 = load i16, ptr %415, align 4
   %434 = zext i16 %433 to i64
-  %435 = icmp ult i64 %indvars.iv.next.i466, %434
+  %435 = icmp samesign ult i64 %indvars.iv.next.i466, %434
   br i1 %435, label %.lr.ph.i463, label %.critedge.i467, !llvm.loop !9
 
 .critedge.i467:                                   ; preds = %432, %.lr.ph.i463, %Kit_DsdNonDsdSizeMax.exit461.thread

@@ -1097,7 +1097,7 @@ define void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_str
   %8 = or i8 %7, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %8)
   %9 = lshr i64 %.06.i, 7
-  %10 = icmp ugt i64 %.06.i, 16383
+  %10 = icmp samesign ugt i64 %.06.i, 16383
   br i1 %10, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %3
@@ -1137,7 +1137,7 @@ define void @_ZN6google8protobuf8internal20WriteLengthDelimitedEjNS0_11StringPie
   %10 = or i8 %9, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %10)
   %11 = lshr i64 %.06.i, 7
-  %12 = icmp ugt i64 %.06.i, 16383
+  %12 = icmp samesign ugt i64 %.06.i, 16383
   br i1 %12, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %4
@@ -2115,7 +2115,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_2
   %47 = or i8 %46, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 noundef signext %47)
   %48 = lshr i64 %.06.i.i, 7
-  %49 = icmp ugt i64 %.06.i.i, 16383
+  %49 = icmp samesign ugt i64 %.06.i.i, 16383
   br i1 %49, label %.lr.ph.i.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %.lr.ph.i.i, %42
@@ -2162,7 +2162,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %68 = or i8 %67, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 noundef signext %68)
   %69 = lshr i64 %.06.i.i41, 7
-  %70 = icmp ugt i64 %.06.i.i41, 16383
+  %70 = icmp samesign ugt i64 %.06.i.i41, 16383
   br i1 %70, label %.lr.ph.i.i40, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i38, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i38: ; preds = %.lr.ph.i.i40, %62
@@ -2228,7 +2228,7 @@ _ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit: 
   %94 = or i8 %93, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 noundef signext %94)
   %95 = lshr i64 %.06.i.i46, 7
-  %96 = icmp ugt i64 %.06.i.i46, 16383
+  %96 = icmp samesign ugt i64 %.06.i.i46, 16383
   br i1 %96, label %.lr.ph.i.i45, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i43, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i43: ; preds = %.lr.ph.i.i45, %88
@@ -5506,7 +5506,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i: ; pre
   %87 = or i8 %86, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext %87)
   %88 = lshr i64 %.06.i, 7
-  %89 = icmp ugt i64 %.06.i, 16383
+  %89 = icmp samesign ugt i64 %.06.i, 16383
   br i1 %89, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %81
@@ -5574,7 +5574,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   %11 = or i8 %10, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %11)
   %12 = lshr i64 %.06.i, 7
-  %13 = icmp ugt i64 %.06.i, 16383
+  %13 = icmp samesign ugt i64 %.06.i, 16383
   br i1 %13, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %6
@@ -5629,7 +5629,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %39 = or i8 %38, -128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %39)
   %40 = lshr i64 %.06.i21, 7
-  %41 = icmp ugt i64 %.06.i21, 16383
+  %41 = icmp samesign ugt i64 %.06.i21, 16383
   br i1 %41, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22, !llvm.loop !14
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %.lr.ph.i20, %34

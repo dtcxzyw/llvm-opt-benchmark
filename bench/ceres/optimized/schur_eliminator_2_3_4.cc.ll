@@ -4224,7 +4224,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %141 = fadd double %.sroa.40.1.lcssa.i.us, %140
   store double %141, ptr %139, align 8
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 4
-  %142 = icmp ult i64 %indvars.iv.next120, %54
+  %142 = icmp samesign ult i64 %indvars.iv.next120, %54
   br i1 %142, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !64
 
 .preheader.i.loopexit.us:                         ; preds = %56
@@ -4253,7 +4253,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %155 = fadd double %154, 0.000000e+00
   store double %155, ptr %153, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 4
-  %156 = icmp ult i64 %indvars.iv.next117, %54
+  %156 = icmp samesign ult i64 %indvars.iv.next117, %54
   br i1 %156, label %.preheader.i.us89, label %.loopexit, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %.lr.ph88.split, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit
@@ -4305,7 +4305,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %158
   %186 = fadd double %170, %185
   store double %186, ptr %184, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %187 = icmp ult i64 %indvars.iv.next, %54
+  %187 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %187, label %.preheader.i, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, %.preheader.i.us89, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, %._crit_edge122, %._crit_edge83, %._crit_edge
@@ -10300,7 +10300,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELi1ELb
   %65 = sub nuw nsw i64 3, %.083188
   %66 = getelementptr inbounds double, ptr %10, i64 %.083188
   %67 = load double, ptr %66, align 8
-  %68 = icmp ult i64 %.083188, 2
+  %68 = icmp samesign ult i64 %.083188, 2
   br i1 %68, label %.preheader.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEE8maxCoeffIlEEdPT_.exit
 
 .preheader.i.i.i.i:                               ; preds = %64, %.preheader.i.i.i.i
@@ -13440,7 +13440,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %28 = mul nsw i64 %19, %19
   %29 = getelementptr inbounds i8, ptr %12, i64 8
   %30 = getelementptr inbounds i8, ptr %12, i64 16
-  %31 = icmp ugt i64 %28, 2305843009213693951
+  %31 = icmp samesign ugt i64 %28, 2305843009213693951
   br i1 %31, label %.noexc, label %33
 
 .noexc:                                           ; preds = %27
@@ -15537,7 +15537,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i322:                              ; preds = %189
   %199 = add nuw nsw i64 %.07992.us.i317, 4
-  %200 = icmp ult i64 %199, %183
+  %200 = icmp samesign ult i64 %199, %183
   br i1 %200, label %.preheader88.us.i316, label %.preheader87.i291, !llvm.loop !431
 
 .preheader87.i291:                                ; preds = %._crit_edge.us.i322, %180
@@ -16147,7 +16147,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(pt
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !442
 
@@ -16261,7 +16261,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !442
 
@@ -18822,7 +18822,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
 
 .lr.ph:                                           ; preds = %25
   %30 = shl nuw nsw i64 %indvars.iv228, 1
-  %31 = icmp ugt i64 %indvars.iv228, 3
+  %31 = icmp samesign ugt i64 %indvars.iv228, 3
   %32 = and i64 %indvars.iv228, 2
   %.not.not = icmp eq i64 %32, 0
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
@@ -18868,7 +18868,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv228
   store <2 x double> %49, ptr %52, align 16
   %53 = add nuw nsw i64 %.0153168.us, 2
-  %54 = icmp ult i64 %53, %indvars.iv228
+  %54 = icmp samesign ult i64 %53, %indvars.iv228
   br i1 %54, label %.preheader161.us, label %35, !llvm.loop !568
 
 .preheader164.us:                                 ; preds = %.preheader164.us.preheader, %35
@@ -18962,7 +18962,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv228
   store <2 x double> %93, ptr %96, align 16
   %97 = add nuw nsw i64 %.0153168, 2
-  %98 = icmp ult i64 %97, %indvars.iv228
+  %98 = icmp samesign ult i64 %97, %indvars.iv228
   br i1 %98, label %.preheader161, label %99, !llvm.loop !568
 
 99:                                               ; preds = %.preheader161
@@ -19692,7 +19692,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i334:                              ; preds = %215
   %225 = add nuw nsw i64 %.07992.us.i329, 4
-  %226 = icmp ult i64 %225, %209
+  %226 = icmp samesign ult i64 %225, %209
   br i1 %226, label %.preheader88.us.i328, label %.preheader87.i303, !llvm.loop !431
 
 .preheader87.i303:                                ; preds = %._crit_edge.us.i334, %204
@@ -20805,7 +20805,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEELi3ELi1ELb0
   %94 = mul i64 %.05293, 24
   %95 = getelementptr i8, ptr %92, i64 %94
   %96 = getelementptr i8, ptr %95, i64 24
-  %97 = icmp ult i64 %.05293, 2
+  %97 = icmp samesign ult i64 %.05293, 2
   br i1 %97, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i55, label %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEELi3ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit59
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i55:                 ; preds = %.lr.ph94, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i55
@@ -21504,7 +21504,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi3ELin1ELi1ELi3ELin1EEE
   %storemerge.i.i = select i1 %177, double %176, double %178
   %179 = fsub double %172, %storemerge.i.i
   %180 = load i64, ptr %4, align 8
-  %181 = icmp ult i64 %.083165, 2
+  %181 = icmp samesign ult i64 %.083165, 2
   br i1 %181, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS0_INS0_INS_6MatrixIdLi3ELin1ELi1ELi3ELin1EEELi3ELi1ELb0EEELin1ELi1ELb0EEELin1ELi1ELb0EEaSINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIddEEKNS0_IKS4_Lin1ELi1ELb0EEEKNS_14CwiseNullaryOpINS8_18scalar_constant_opIdEEKNS1_IdLin1ELi1ELi0ELi3ELi1EEEEEEEEERS5_RKNS_9DenseBaseIT_EE.exit.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.critedge.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -23510,7 +23510,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %28 = mul nsw i64 %19, %19
   %29 = getelementptr inbounds i8, ptr %12, i64 8
   %30 = getelementptr inbounds i8, ptr %12, i64 16
-  %31 = icmp ugt i64 %28, 2305843009213693951
+  %31 = icmp samesign ugt i64 %28, 2305843009213693951
   br i1 %31, label %.noexc, label %33
 
 .noexc:                                           ; preds = %27
@@ -29538,7 +29538,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 4
-  %231 = icmp ult i64 %indvars.iv.next220, %123
+  %231 = icmp samesign ult i64 %indvars.iv.next220, %123
   br i1 %231, label %.preheader.us.us, label %.loopexit, !llvm.loop !893
 
 .preheader.lr.ph.split.us.split:                  ; preds = %.preheader.lr.ph.split.us
@@ -29705,7 +29705,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151: ; preds = %.lr
 
 ._crit_edge.split.split.us157:                    ; preds = %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 4
-  %315 = icmp ult i64 %indvars.iv.next207, %232
+  %315 = icmp samesign ult i64 %indvars.iv.next207, %232
   br i1 %315, label %.preheader.us, label %.loopexit, !llvm.loop !893
 
 .loopexit:                                        ; preds = %._crit_edge.split.split.us157, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %.preheader.lr.ph, %115, %._crit_edge127, %._crit_edge117

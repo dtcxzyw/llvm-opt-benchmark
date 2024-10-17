@@ -2379,7 +2379,7 @@ if.then.i201:                                     ; preds = %_ZNKSt3mapIiN3ue29C
 
 call2.i.i.i.i.noexc.i:                            ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i
   %268 = call i32 @llvm.abs.i32(i32 %256, i1 true)
-  %cmp9.i = icmp ult i32 %268, %255
+  %cmp9.i = icmp samesign ult i32 %268, %255
   br i1 %cmp9.i, label %while.body.i.i.i.i, label %invoke.cont29.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i201, %call2.i.i.i.i.noexc.i
@@ -6313,7 +6313,7 @@ if.then.i16:                                      ; preds = %_ZNKSt3mapIiN3ue29C
 
 call2.i.i.i.i.noexc:                              ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i
   %32 = call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %cmp9.i = icmp ult i32 %32, %19
+  %cmp9.i = icmp samesign ult i32 %32, %19
   br i1 %cmp9.i, label %while.body.i.i.i, label %invoke.cont40
 
 while.body.i.i.i:                                 ; preds = %if.then.i16, %call2.i.i.i.i.noexc
@@ -10966,7 +10966,7 @@ if.then.i:                                        ; preds = %_ZNKSt3mapIiN3ue29C
 if.end.i:                                         ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i
   %13 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %14 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp9.i = icmp ult i32 %13, %14
+  %cmp9.i = icmp samesign ult i32 %13, %14
   br label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit
 
 _ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit:   ; preds = %if.then.i, %if.end.i
@@ -11093,7 +11093,7 @@ if.then.i39:                                      ; preds = %_ZNKSt3mapIiN3ue29C
 
 _ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46: ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36
   %30 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
-  %cmp9.i43 = icmp ult i32 %30, %17
+  %cmp9.i43 = icmp samesign ult i32 %30, %17
   br i1 %cmp9.i43, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %if.then.i39, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46

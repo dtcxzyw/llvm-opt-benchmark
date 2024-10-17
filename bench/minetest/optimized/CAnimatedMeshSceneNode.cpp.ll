@@ -854,7 +854,7 @@ for.body19:                                       ; preds = %if.end12, %for.body
   %sub.ptr.sub.i.i56 = sub i64 %sub.ptr.lhs.cast.i.i54, %sub.ptr.rhs.cast.i.i55
   %sub.ptr.div.i.i57 = lshr exact i64 %sub.ptr.sub.i.i56, 3
   %23 = and i64 %sub.ptr.div.i.i57, 4294967295
-  %cmp17 = icmp ult i64 %indvars.iv.next, %23
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp17, label %for.body19, label %for.cond.cleanup18, !llvm.loop !108
 
 if.end30:                                         ; preds = %for.cond.cleanup18, %if.end
@@ -1306,7 +1306,7 @@ for.inc:                                          ; preds = %if.then36, %for.bod
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %25 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp31 = icmp ult i64 %indvars.iv.next, %25
+  %cmp31 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp31, label %for.body, label %if.end42thread-pre-split, !llvm.loop !115
 
 if.end42thread-pre-split:                         ; preds = %for.inc, %if.then27
@@ -1666,7 +1666,7 @@ if.end59:                                         ; preds = %if.end54, %for.body
   %95 = load ptr, ptr %vtable16, align 8
   %call18 = call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(8) %call7) #21
   %96 = zext i32 %call18 to i64
-  %cmp19 = icmp ult i64 %indvars.iv.next, %96
+  %cmp19 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %cmp19, label %for.body, label %for.cond.cleanup, !llvm.loop !123
 
 if.then67:                                        ; preds = %for.cond.cleanup
@@ -2161,7 +2161,7 @@ for.cond.cleanup192:                              ; preds = %for.body193, %for.b
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %274 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp181 = icmp ult i64 %indvars.iv.next560, %274
+  %cmp181 = icmp samesign ult i64 %indvars.iv.next560, %274
   br i1 %cmp181, label %for.body183, label %if.end213, !llvm.loop !150
 
 for.body193:                                      ; preds = %for.body193, %for.body193.lr.ph
@@ -2196,7 +2196,7 @@ for.body193:                                      ; preds = %for.body193, %for.b
   %sub.ptr.sub.i.i449 = sub i64 %sub.ptr.lhs.cast.i.i447, %sub.ptr.rhs.cast.i.i448
   %sub.ptr.div.i.i450 = lshr exact i64 %sub.ptr.sub.i.i449, 3
   %284 = and i64 %sub.ptr.div.i.i450, 4294967295
-  %cmp191 = icmp ult i64 %indvars.iv.next557, %284
+  %cmp191 = icmp samesign ult i64 %indvars.iv.next557, %284
   br i1 %cmp191, label %for.body193, label %for.cond.cleanup192, !llvm.loop !151
 
 if.end213:                                        ; preds = %for.cond.cleanup192, %for.cond175.preheader, %if.then167, %if.end163
@@ -2734,7 +2734,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %14 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp6 = icmp ult i64 %indvars.iv.next, %14
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp6, label %for.body, label %for.cond.cleanup, !llvm.loop !158
 
 if.end18:                                         ; preds = %_ZN3irr4core5arrayIPNS_5scene14IBoneSceneNodeEE5clearEv.exit, %if.end, %lor.lhs.false, %entry
@@ -4298,7 +4298,7 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %sub.ptr.sub.i.i132 = sub i64 %sub.ptr.lhs.cast.i.i130, %sub.ptr.rhs.cast.i.i131
   %sub.ptr.div.i.i133 = lshr exact i64 %sub.ptr.sub.i.i132, 3
   %203 = and i64 %sub.ptr.div.i.i133, 4294967295
-  %cmp27 = icmp ult i64 %indvars.iv.next, %203
+  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %203
   br i1 %cmp27, label %for.body29, label %if.end73, !llvm.loop !173
 
 if.end73:                                         ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit, %if.end, %if.then
@@ -4344,7 +4344,7 @@ for.inc93:                                        ; preds = %if.then87, %for.bod
   %sub.ptr.sub.i.i230 = sub i64 %sub.ptr.lhs.cast.i.i228, %sub.ptr.rhs.cast.i.i229
   %sub.ptr.div.i.i231 = lshr exact i64 %sub.ptr.sub.i.i230, 3
   %214 = and i64 %sub.ptr.div.i.i231, 4294967295
-  %cmp80 = icmp ult i64 %indvars.iv.next270, %214
+  %cmp80 = icmp samesign ult i64 %indvars.iv.next270, %214
   br i1 %cmp80, label %for.body82, label %if.end97, !llvm.loop !174
 
 if.end97:                                         ; preds = %for.inc93, %for.cond77.preheader, %if.end73, %land.lhs.true, %entry

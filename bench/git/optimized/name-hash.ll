@@ -228,7 +228,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %20 = phi i32 [ %17, %for.body.i35.i ], [ %.pre.i.i, %if.then.i.i ]
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %21 = zext i32 %20 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i38.i, %21
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i38.i, %21
   br i1 %cmp.i.i, label %for.body.i35.i, label %lazy_update_dir_ref_counts.exit.i, !llvm.loop !9
 
 lazy_update_dir_ref_counts.exit.i:                ; preds = %for.inc.i.i, %if.end42.i
@@ -349,7 +349,7 @@ hash_index_entry.exit:                            ; preds = %land.rhs.i.i, %whil
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %cache_nr, align 4
   %35 = zext i32 %34 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %35
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %cmp, label %for.body, label %if.end10, !llvm.loop !13
 
 if.end10:                                         ; preds = %hash_index_entry.exit, %lookup_lazy_params.exit, %hashmap_enable_item_counting.exit
@@ -902,7 +902,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cache_nr = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %cache_nr, align 4
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %entry

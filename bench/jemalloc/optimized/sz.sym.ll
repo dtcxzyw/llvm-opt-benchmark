@@ -244,7 +244,7 @@ for.body16.lr.ph.i:                               ; preds = %for.body.i19
 for.inc19.i:                                      ; preds = %for.body16.lr.ph.i, %for.body.i19
   %dst_ind.1.lcssa.i = phi i64 [ %dst_ind.014.i, %for.body.i19 ], [ %15, %for.body16.lr.ph.i ]
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i20, 1
-  %cmp.i = icmp ult i64 %indvars.iv.i20, 231
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i20, 231
   %cmp2.i = icmp ult i64 %dst_ind.1.lcssa.i, 513
   %16 = and i1 %cmp.i, %cmp2.i
   br i1 %16, label %for.body.i19, label %sz_boot_size2index_tab.exit, !llvm.loop !8

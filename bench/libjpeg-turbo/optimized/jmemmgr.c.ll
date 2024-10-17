@@ -396,7 +396,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
   %27 = zext i1 %12 to i64
   %28 = shl nuw nsw i64 %26, %27
   %29 = udiv i64 999999976, %28
-  %30 = icmp ugt i64 %28, 999999976
+  %30 = icmp samesign ugt i64 %28, 999999976
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %22
@@ -410,7 +410,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
 
 36:                                               ; preds = %31, %22
   %37 = zext i32 %3 to i64
-  %38 = icmp ult i64 %29, %37
+  %38 = icmp samesign ult i64 %29, %37
   %39 = trunc nuw nsw i64 %29 to i32
   %.0104 = select i1 %38, i32 %39, i32 %3
   %40 = getelementptr inbounds i8, ptr %6, i64 160
@@ -547,7 +547,7 @@ define internal nonnull ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 no
 
 16:                                               ; preds = %11, %4
   %17 = zext i32 %3 to i64
-  %18 = icmp ult i64 %9, %17
+  %18 = icmp samesign ult i64 %9, %17
   %19 = trunc nuw nsw i64 %9 to i32
   %.037 = select i1 %18, i32 %19, i32 %3
   %20 = getelementptr inbounds i8, ptr %6, i64 160
@@ -970,7 +970,7 @@ define internal void @realize_virt_arrays(ptr noundef %0) #0 {
 
 164:                                              ; preds = %159, %150
   %165 = zext i32 %151 to i64
-  %166 = icmp ult i64 %157, %165
+  %166 = icmp samesign ult i64 %157, %165
   %167 = trunc nuw nsw i64 %157 to i32
   %.037.i = select i1 %166, i32 %167, i32 %151
   %168 = getelementptr inbounds i8, ptr %154, i64 160
@@ -1421,7 +1421,7 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
   %82 = add nuw nsw i64 %.056.i, %81
   %83 = load i32, ptr %48, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %82, %84
+  %85 = icmp samesign ult i64 %82, %84
   br i1 %85, label %.lr.ph.split.i, label %do_barray_io.exit, !llvm.loop !19
 
 do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73, %42
@@ -1505,7 +1505,7 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
   %134 = add nuw nsw i64 %.056.us.i, %133
   %135 = load i32, ptr %103, align 4
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %134, %136
+  %137 = icmp samesign ult i64 %134, %136
   br i1 %137, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !19
 
 do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.us.i, %96, %26
@@ -1862,7 +1862,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %51 = add nuw nsw i64 %.08698.us, %50
   %52 = load i32, ptr %20, align 4
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1907,7 +1907,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %79 = add nuw nsw i64 %.08698.us102, %78
   %80 = load i32, ptr %20, align 4
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %79, %81
+  %82 = icmp samesign ult i64 %79, %81
   br i1 %82, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -1948,7 +1948,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %108 = add nuw nsw i64 %.08698.us106, %107
   %109 = load i32, ptr %20, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %108, %110
+  %111 = icmp samesign ult i64 %108, %110
   br i1 %111, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !26
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %128
@@ -1986,7 +1986,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %137 = add nuw nsw i64 %.08698, %136
   %138 = load i32, ptr %20, align 4
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %137, %139
+  %140 = icmp samesign ult i64 %137, %139
   br i1 %140, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %128, %.lr.ph.split.split.split, %99, %.lr.ph.split.split.split.us, %71, %.lr.ph.split.split.us, %43, %.lr.ph.split.us, %3

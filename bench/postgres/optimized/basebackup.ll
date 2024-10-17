@@ -2124,7 +2124,7 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
 
 177:                                              ; preds = %170
   %178 = and i64 %171, 2147483647
-  %179 = icmp ugt i64 %178, 1023
+  %179 = icmp samesign ugt i64 %178, 1023
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %177
@@ -2416,8 +2416,8 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
 59:                                               ; preds = %52
   %60 = and i64 %49, 7
   %61 = icmp eq i64 %60, 0
-  %62 = icmp ult i64 %55, 1025
-  %or.cond3.i = and i1 %61, %62
+  %62 = icmp samesign ult i64 %55, 1025
+  %or.cond3.i = select i1 %61, i1 %62, i1 false
   br i1 %or.cond3.i, label %63, label %.loopexit.i.sink.split
 
 63:                                               ; preds = %59
@@ -2910,8 +2910,8 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
 242:                                              ; preds = %236
   %243 = and i64 %233, 7
   %244 = icmp eq i64 %243, 0
-  %245 = icmp ult i64 %238, 1025
-  %or.cond3.i = and i1 %244, %245
+  %245 = icmp samesign ult i64 %238, 1025
+  %or.cond3.i = select i1 %244, i1 %245, i1 false
   br i1 %or.cond3.i, label %246, label %.loopexit.i.sink.split
 
 246:                                              ; preds = %242

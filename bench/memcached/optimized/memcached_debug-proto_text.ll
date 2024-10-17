@@ -4001,7 +4001,7 @@ for.body:                                         ; preds = %if.then92, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i8, ptr %nkey29, align 1
   %39 = zext i8 %38 to i64
-  %cmp96 = icmp ult i64 %indvars.iv.next, %39
+  %cmp96 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %cmp96, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %if.then92
@@ -5016,7 +5016,7 @@ sw.epilog:                                        ; preds = %sw.bb13, %sw.bb12, 
 define internal fastcc void @process_delete_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 6) %ntokens) unnamed_addr #0 {
 entry:
   %hv = alloca i32, align 4
-  %cmp = icmp ugt i64 %ntokens, 3
+  %cmp = icmp samesign ugt i64 %ntokens, 3
   br i1 %cmp, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry

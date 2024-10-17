@@ -11605,7 +11605,7 @@ _ZNSt6vectorIdSaIdEEaSESt16initializer_listIdE.exit: ; preds = %368, %_ZNSt6vect
   %.sroa.0249.1 = phi ptr [ %.sroa.0249.0320, %185 ], [ %.sroa.0249.2, %_ZNSt6vectorIdSaIdEEaSESt16initializer_listIdE.exit ]
   %.181 = phi i32 [ %.080323, %185 ], [ %.282, %_ZNSt6vectorIdSaIdEEaSESt16initializer_listIdE.exit ]
   %.int = add nuw nsw i32 %storemerge321.int, 150
-  %409 = icmp ugt i32 %storemerge321.int, 2850
+  %409 = icmp samesign ugt i32 %storemerge321.int, 2850
   br i1 %409, label %410, label %135, !llvm.loop !171
 
 .loopexit.split-lp260:                            ; preds = %.loopexit.split-lp260.loopexit328, %.loopexit259, %.loopexit.split-lp260.loopexit.split-lp.loopexit, %.loopexit.split-lp260.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp260.loopexit, %372

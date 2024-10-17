@@ -55,7 +55,7 @@ define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 224
-  %9 = icmp ugt i16 %8, 80
+  %9 = icmp samesign ugt i16 %8, 80
   br i1 %9, label %10, label %56
 
 10:                                               ; preds = %3
@@ -1235,7 +1235,7 @@ define dso_local ptr @tcp_check_req(ptr noundef %0, ptr noundef %1, ptr noundef 
   %17 = getelementptr inbounds i8, ptr %6, i64 16
   store i24 0, ptr %17, align 4
   %18 = and i32 %15, 224
-  %19 = icmp ugt i32 %18, 80
+  %19 = icmp samesign ugt i32 %18, 80
   br i1 %19, label %20, label %79
 
 20:                                               ; preds = %5

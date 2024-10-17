@@ -887,7 +887,7 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = tail call i64 @_find_first_bit(ptr noundef %78, i64 noundef 384) #17
   %80 = and i64 %79, 4294967168
-  %81 = icmp ult i64 %80, 384
+  %81 = icmp samesign ult i64 %80, 384
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %.preheader33
@@ -925,7 +925,7 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = call i64 @_find_first_bit(ptr noundef %103, i64 noundef 384) #17
   %105 = and i64 %104, 4294967168
-  %106 = icmp ult i64 %105, 384
+  %106 = icmp samesign ult i64 %105, 384
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %.preheader30
@@ -1132,7 +1132,7 @@ services_compute_xperms_decision.exit:            ; preds = %.preheader24, %.pre
   %226 = zext i32 %225 to i64
   %227 = call i64 @_find_next_bit(ptr noundef %221, i64 noundef 384, i64 noundef %226) #17
   %228 = and i64 %227, 4294967168
-  %229 = icmp ult i64 %228, 384
+  %229 = icmp samesign ult i64 %228, 384
   br i1 %229, label %230, label %.preheader26
 
 230:                                              ; preds = %.loopexit
@@ -1151,7 +1151,7 @@ services_compute_xperms_decision.exit:            ; preds = %.preheader24, %.pre
   %238 = getelementptr inbounds i8, ptr %235, i64 8
   %239 = call i64 @_find_first_bit(ptr noundef %238, i64 noundef 384) #17
   %240 = and i64 %239, 4294967168
-  %241 = icmp ult i64 %240, 384
+  %241 = icmp samesign ult i64 %240, 384
   br i1 %241, label %242, label %.preheader26, !llvm.loop !29
 
 242:                                              ; preds = %237
@@ -1181,7 +1181,7 @@ services_compute_xperms_decision.exit:            ; preds = %.preheader24, %.pre
   %259 = zext i32 %258 to i64
   %260 = call i64 @_find_next_bit(ptr noundef %254, i64 noundef 384, i64 noundef %259) #17
   %261 = and i64 %260, 4294967168
-  %262 = icmp ult i64 %261, 384
+  %262 = icmp samesign ult i64 %261, 384
   br i1 %262, label %263, label %.preheader28
 
 263:                                              ; preds = %.loopexit29
@@ -1200,7 +1200,7 @@ services_compute_xperms_decision.exit:            ; preds = %.preheader24, %.pre
   %271 = getelementptr inbounds i8, ptr %268, i64 8
   %272 = call i64 @_find_first_bit(ptr noundef %271, i64 noundef 384) #17
   %273 = and i64 %272, 4294967168
-  %274 = icmp ult i64 %273, 384
+  %274 = icmp samesign ult i64 %273, 384
   br i1 %274, label %275, label %.preheader28, !llvm.loop !29
 
 275:                                              ; preds = %270
@@ -1569,7 +1569,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = tail call i64 @_find_first_bit(ptr noundef %53, i64 noundef 384) #17
   %55 = and i64 %54, 4294967168
-  %56 = icmp ult i64 %55, 384
+  %56 = icmp samesign ult i64 %55, 384
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %.preheader43
@@ -1608,7 +1608,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = call i64 @_find_first_bit(ptr noundef %79, i64 noundef 384) #17
   %81 = and i64 %80, 4294967168
-  %82 = icmp ult i64 %81, 384
+  %82 = icmp samesign ult i64 %81, 384
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %.preheader40
@@ -1738,7 +1738,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %158 = zext i32 %157 to i64
   %159 = call i64 @_find_next_bit(ptr noundef %153, i64 noundef 384, i64 noundef %158) #17
   %160 = and i64 %159, 4294967168
-  %161 = icmp ult i64 %160, 384
+  %161 = icmp samesign ult i64 %160, 384
   br i1 %161, label %162, label %.preheader35
 
 162:                                              ; preds = %.loopexit37
@@ -1757,7 +1757,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %170 = getelementptr inbounds i8, ptr %167, i64 8
   %171 = call i64 @_find_first_bit(ptr noundef %170, i64 noundef 384) #17
   %172 = and i64 %171, 4294967168
-  %173 = icmp ult i64 %172, 384
+  %173 = icmp samesign ult i64 %172, 384
   br i1 %173, label %174, label %.preheader35, !llvm.loop !29
 
 174:                                              ; preds = %169
@@ -1787,7 +1787,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %191 = zext i32 %190 to i64
   %192 = call i64 @_find_next_bit(ptr noundef %186, i64 noundef 384, i64 noundef %191) #17
   %193 = and i64 %192, 4294967168
-  %194 = icmp ult i64 %193, 384
+  %194 = icmp samesign ult i64 %193, 384
   br i1 %194, label %195, label %.preheader38
 
 195:                                              ; preds = %.loopexit39
@@ -1806,7 +1806,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %203 = getelementptr inbounds i8, ptr %200, i64 8
   %204 = call i64 @_find_first_bit(ptr noundef %203, i64 noundef 384) #17
   %205 = and i64 %204, 4294967168
-  %206 = icmp ult i64 %205, 384
+  %206 = icmp samesign ult i64 %205, 384
   br i1 %206, label %207, label %.preheader38, !llvm.loop !29
 
 207:                                              ; preds = %202
@@ -3738,7 +3738,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = call i64 @_find_first_bit(ptr noundef %49, i64 noundef 384) #17
   %51 = and i64 %50, 4294967168
-  %52 = icmp ult i64 %51, 384
+  %52 = icmp samesign ult i64 %51, 384
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %.preheader11
@@ -3776,7 +3776,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %74 = zext i32 %73 to i64
   %75 = call i64 @_find_next_bit(ptr noundef %69, i64 noundef 384, i64 noundef %74) #17
   %76 = and i64 %75, 4294967168
-  %77 = icmp ult i64 %76, 384
+  %77 = icmp samesign ult i64 %76, 384
   br i1 %77, label %78, label %.preheader
 
 78:                                               ; preds = %68
@@ -3795,7 +3795,7 @@ define dso_local void @selinux_policy_commit(ptr nocapture noundef readonly %0) 
   %86 = getelementptr inbounds i8, ptr %83, i64 8
   %87 = call i64 @_find_first_bit(ptr noundef %86, i64 noundef 384) #17
   %88 = and i64 %87, 4294967168
-  %89 = icmp ult i64 %88, 384
+  %89 = icmp samesign ult i64 %88, 384
   br i1 %89, label %90, label %.preheader, !llvm.loop !29
 
 90:                                               ; preds = %85
@@ -4713,7 +4713,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   br i1 %34, label %.preheader.us.us, label %35, !llvm.loop !71
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i64 %23, 2
+  %36 = icmp samesign ugt i64 %23, 2
   br i1 %36, label %.thread10.us.us41, label %37
 
 37:                                               ; preds = %35, %16
@@ -4915,7 +4915,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = call i64 @_find_first_bit(ptr noundef %38, i64 noundef 384) #17
   %40 = and i64 %39, 4294967168
-  %41 = icmp ult i64 %40, 384
+  %41 = icmp samesign ult i64 %40, 384
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %.preheader33
@@ -4960,7 +4960,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = call i64 @_find_first_bit(ptr noundef %69, i64 noundef 384) #17
   %71 = and i64 %70, 4294967168
-  %72 = icmp ult i64 %71, 384
+  %72 = icmp samesign ult i64 %71, 384
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %.preheader30
@@ -5050,7 +5050,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %125 = zext i32 %124 to i64
   %126 = call i64 @_find_next_bit(ptr noundef %121, i64 noundef 384, i64 noundef %125) #17
   %127 = and i64 %126, 4294967168
-  %128 = icmp ult i64 %127, 384
+  %128 = icmp samesign ult i64 %127, 384
   br i1 %128, label %129, label %.preheader
 
 129:                                              ; preds = %117
@@ -5069,7 +5069,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %137 = getelementptr inbounds i8, ptr %134, i64 8
   %138 = call i64 @_find_first_bit(ptr noundef %137, i64 noundef 384) #17
   %139 = and i64 %138, 4294967168
-  %140 = icmp ult i64 %139, 384
+  %140 = icmp samesign ult i64 %139, 384
   br i1 %140, label %141, label %.preheader, !llvm.loop !29
 
 141:                                              ; preds = %136
@@ -5101,7 +5101,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %160 = zext i32 %159 to i64
   %161 = call i64 @_find_next_bit(ptr noundef %156, i64 noundef 384, i64 noundef %160) #17
   %162 = and i64 %161, 4294967168
-  %163 = icmp ult i64 %162, 384
+  %163 = icmp samesign ult i64 %162, 384
   br i1 %163, label %164, label %.preheader27
 
 164:                                              ; preds = %.loopexit29
@@ -5120,7 +5120,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %172 = getelementptr inbounds i8, ptr %169, i64 8
   %173 = call i64 @_find_first_bit(ptr noundef %172, i64 noundef 384) #17
   %174 = and i64 %173, 4294967168
-  %175 = icmp ult i64 %174, 384
+  %175 = icmp samesign ult i64 %174, 384
   br i1 %175, label %176, label %.preheader27, !llvm.loop !29
 
 176:                                              ; preds = %171
@@ -5531,7 +5531,7 @@ define dso_local noundef range(i32 -12, 1) i32 @security_get_bools(ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %1, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %29, label %.loopexit3, !llvm.loop !82
 
 29:                                               ; preds = %25, %22
@@ -5584,7 +5584,7 @@ thread-pre-split:                                 ; preds = %13
   %57 = add nuw nsw i64 %53, 1
   %58 = load i32, ptr %1, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %57, %59
+  %60 = icmp samesign ult i64 %57, %59
   br i1 %60, label %.preheader, label %.loopexit.loopexit, !llvm.loop !83
 
 .loopexit.loopexit:                               ; preds = %.preheader
@@ -6102,7 +6102,7 @@ define dso_local i32 @security_get_classes(ptr noundef %0, ptr nocapture noundef
   %21 = add nuw nsw i64 %17, 1
   %22 = load i32, ptr %2, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.preheader, %14
@@ -6191,7 +6191,7 @@ define dso_local i32 @security_get_permissions(ptr noundef %0, ptr noundef %1, p
   %38 = add nuw nsw i64 %34, 1
   %39 = load i32, ptr %3, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.preheader, %30

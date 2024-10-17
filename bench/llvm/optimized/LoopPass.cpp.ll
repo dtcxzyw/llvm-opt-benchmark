@@ -665,7 +665,7 @@ _ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds =
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #18
   %77 = and i64 %76, 4294967295
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %.lr.ph121, label %._crit_edge122, !llvm.loop !73
 
 ._crit_edge122:                                   ; preds = %.lr.ph121, %64
@@ -761,7 +761,7 @@ _ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit:    ; preds = %109, %113
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #18
   %125 = and i64 %124, 4294967295
-  %126 = icmp ult i64 %indvars.iv.next162, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next162, %125
   br i1 %126, label %.lr.ph131, label %_ZN4llvm14TimeTraceScopeD2Ev.exit._crit_edge, !llvm.loop !77
 
 .lr.ph131:                                        ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit, %123
@@ -967,7 +967,7 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit._crit_edge:     ; preds = %123, %_ZN4llvm14Tim
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #18
   %211 = and i64 %210, 4294967295
-  %212 = icmp ult i64 %indvars.iv.next164, %211
+  %212 = icmp samesign ult i64 %indvars.iv.next164, %211
   br i1 %212, label %.lr.ph142, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph142, %.preheader114, %_ZN4llvm14TimeTraceScopeD2Ev.exit._crit_edge
@@ -1014,7 +1014,7 @@ _ZNSt5dequeIPN4llvm4LoopESaIS2_EE8pop_backEv.exit: ; preds = %215, %217
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #18
   %235 = and i64 %234, 4294967295
-  %236 = icmp ult i64 %indvars.iv.next167, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next167, %235
   br i1 %236, label %.lr.ph151, label %._crit_edge152, !llvm.loop !80
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader
@@ -1211,7 +1211,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #18
   %32 = and i64 %31, 4294967295
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %24, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit

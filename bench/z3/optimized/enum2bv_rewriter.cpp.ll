@@ -1224,7 +1224,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp.i5 = icmp ult i64 %indvars.iv.i8, %3
+  %cmp.i5 = icmp samesign ult i64 %indvars.iv.i8, %3
   br i1 %cmp.i5, label %for.body.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread
@@ -11811,7 +11811,7 @@ for.inc:                                          ; preds = %if.then2.i.i.i, %if
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %m_num_decls.i, align 4
   %37 = zext i32 %36 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %37
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc

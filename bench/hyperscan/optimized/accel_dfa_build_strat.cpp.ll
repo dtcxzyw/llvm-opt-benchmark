@@ -552,7 +552,7 @@ invoke.cont85:                                    ; preds = %invoke.cont85.loope
   %58 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
   %add21.i.i85 = add nuw nsw i64 %add15.i.i83, %58
   %mul = mul nuw nsw i64 %add21.i.i85, %add21.i.i
-  %cmp87 = icmp ugt i64 %mul, 8
+  %cmp87 = icmp samesign ugt i64 %mul, 8
   br i1 %cmp87, label %do.end91, label %for.body.i.i
 
 do.end91:                                         ; preds = %invoke.cont85
@@ -729,7 +729,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i124
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i124 ], [ %div1.i.i.i, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i124, label %for.inc121
 
 for.body.i.i124:                                  ; preds = %for.cond.i.i
@@ -777,7 +777,7 @@ if.then7.i.i137:                                  ; preds = %if.then5.i.i132
 
 for.cond.i.i141:                                  ; preds = %for.cond.i.i141.preheader, %for.body.i.i144
   %i.0.in.i.i142 = phi i64 [ %i.0.i.i145, %for.body.i.i144 ], [ %div1.i.i.i129, %for.cond.i.i141.preheader ]
-  %cmp14.i.i143 = icmp ult i64 %i.0.in.i.i142, 3
+  %cmp14.i.i143 = icmp samesign ult i64 %i.0.in.i.i142, 3
   br i1 %cmp14.i.i143, label %for.body.i.i144, label %for.inc126
 
 for.body.i.i144:                                  ; preds = %for.cond.i.i141
@@ -830,8 +830,8 @@ invoke.cont142:                                   ; preds = %do.end141
   %95 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %94)
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %95
   %cmp.i = icmp ult i64 %add21.i.i.i, %87
-  %cmp6.i = icmp ult i64 %add21.i.i.i, 3
-  %spec.select.i = and i1 %cmp.i, %cmp6.i
+  %cmp6.i = icmp samesign ult i64 %add21.i.i.i, 3
+  %spec.select.i = select i1 %cmp.i, i1 %cmp6.i, i1 false
   br i1 %spec.select.i, label %if.end185, label %land.lhs.true144
 
 land.lhs.true144:                                 ; preds = %do.end141, %invoke.cont142
@@ -2971,8 +2971,8 @@ invoke.cont169:                                   ; preds = %do.end167
   %279 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %278)
   %add21.i.i.i186 = add nuw nsw i64 %add15.i.i.i184, %279
   %cmp.i187 = icmp ult i64 %add21.i.i.i186, %271
-  %cmp6.i188 = icmp ult i64 %add21.i.i.i186, 3
-  %spec.select.i189 = and i1 %cmp.i187, %cmp6.i188
+  %cmp6.i188 = icmp samesign ult i64 %add21.i.i.i186, 3
+  %spec.select.i189 = select i1 %cmp.i187, i1 %cmp6.i188, i1 false
   br i1 %spec.select.i189, label %do.end181, label %invoke.cont175
 
 invoke.cont175:                                   ; preds = %do.end167, %invoke.cont169
@@ -3005,7 +3005,7 @@ invoke.cont175:                                   ; preds = %do.end167, %invoke.
   %294 = load i64, ptr %arrayidx.i.i46.i.i201, align 8
   %295 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %294)
   %add21.i.i202 = add nuw nsw i64 %add15.i.i200, %295
-  %cmp177 = icmp ult i64 %add21.i.i196, %add21.i.i202
+  %cmp177 = icmp samesign ult i64 %add21.i.i196, %add21.i.i202
   br i1 %cmp177, label %do.end181, label %if.end184
 
 do.end181:                                        ; preds = %invoke.cont169, %invoke.cont175
@@ -3282,8 +3282,8 @@ _ZN3ue2L14double_byte_okERKNS_11AccelSchemeE.exit: ; preds = %_ZN3ue29verify_u8I
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %10
   %cmp.i = icmp ult i64 %add21.i.i.i, %2
-  %cmp6.i = icmp ult i64 %add21.i.i.i, 3
-  %spec.select.i = and i1 %cmp.i, %cmp6.i
+  %cmp6.i = icmp samesign ult i64 %add21.i.i.i, 3
+  %spec.select.i = select i1 %cmp.i, i1 %cmp6.i, i1 false
   br i1 %spec.select.i, label %for.body.i.i, label %_ZN3ue2L14double_byte_okERKNS_11AccelSchemeE.exit130
 
 for.body.i.i:                                     ; preds = %_ZN3ue2L14double_byte_okERKNS_11AccelSchemeE.exit, %for.body.i.i
@@ -3487,8 +3487,8 @@ _ZN3ue2L14double_byte_okERKNS_11AccelSchemeE.exit130: ; preds = %_ZN3ue2L14doubl
   %45 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
   %add21.i.i.i126 = add nuw nsw i64 %add15.i.i.i124, %45
   %cmp.i127 = icmp ult i64 %add21.i.i.i126, %.pr204
-  %cmp6.i128 = icmp ult i64 %add21.i.i.i126, 3
-  %spec.select.i129 = and i1 %cmp.i127, %cmp6.i128
+  %cmp6.i128 = icmp samesign ult i64 %add21.i.i.i126, 3
+  %spec.select.i129 = select i1 %cmp.i127, i1 %cmp6.i128, i1 false
   br i1 %spec.select.i129, label %land.lhs.true97, label %if.end107
 
 land.lhs.true97:                                  ; preds = %_ZN3ue2L14double_byte_okERKNS_11AccelSchemeE.exit130
@@ -3651,7 +3651,7 @@ if.end137:                                        ; preds = %land.lhs.true126.if
   %64 = load ptr, ptr %vfn, align 8
   %call140 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(17) %this)
   %conv141 = zext i32 %call140 to i64
-  %cmp142 = icmp ugt i64 %add21.i.i171.pre-phi, %conv141
+  %cmp142 = icmp samesign ugt i64 %add21.i.i171.pre-phi, %conv141
   br i1 %cmp142, label %if.then143, label %if.end146
 
 if.then143:                                       ; preds = %if.end137
@@ -4264,7 +4264,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then5.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i.preheader, %for.body.i.i8.i.i
   %i.0.in.i.i.i.i = phi i64 [ %i.0.i.i.i.i, %for.body.i.i8.i.i ], [ %div1.i.i.i.i.i, %for.cond.i.i.i.i.preheader ]
-  %cmp14.i.i.i.i = icmp ult i64 %i.0.in.i.i.i.i, 3
+  %cmp14.i.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i.i, 3
   br i1 %cmp14.i.i.i.i, label %for.body.i.i8.i.i, label %invoke.cont7.i
 
 for.body.i.i8.i.i:                                ; preds = %for.cond.i.i.i.i
@@ -4708,7 +4708,7 @@ if.end6.i:                                        ; preds = %invoke.cont47
   %116 = load i64, ptr %arrayidx.i.i46.i.i12.i, align 8
   %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
   %add21.i.i13.i = add nuw nsw i64 %add15.i.i11.i, %117
-  %cmp.i109 = icmp ult i64 %add21.i.i.i, %add21.i.i13.i
+  %cmp.i109 = icmp samesign ult i64 %add21.i.i.i, %add21.i.i13.i
   br i1 %cmp.i109, label %if.then51, label %for.inc57
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -4902,7 +4902,7 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   %18 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
   %add21.i.i = add nuw nsw i64 %add15.i.i, %18
   %conv11 = zext i32 %call7 to i64
-  %cmp16 = icmp ugt i64 %add21.i.i, %conv11
+  %cmp16 = icmp samesign ugt i64 %add21.i.i, %conv11
   br i1 %cmp16, label %cleanup, label %do.end23
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i

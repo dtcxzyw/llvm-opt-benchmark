@@ -2105,7 +2105,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %30 = add i32 %visualStart83.0.lcssa120, %29
   %cmp139.us = icmp ne i32 %add137.us, %30
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %cmp117.us = icmp ult i64 %indvars.iv.next154, %23
+  %cmp117.us = icmp samesign ult i64 %indvars.iv.next154, %23
   %or.cond138 = select i1 %cmp139.us, i1 %cmp117.us, i1 false
   br i1 %or.cond138, label %for.body.us, label %if.end151, !llvm.loop !40
 
@@ -2130,7 +2130,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %33 = add i32 %visualStart83.0.lcssa120, %32
   %cmp139 = icmp ne i32 %add137, %33
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %cmp117 = icmp ult i64 %indvars.iv.next149, %23
+  %cmp117 = icmp samesign ult i64 %indvars.iv.next149, %23
   %or.cond139 = select i1 %cmp139, i1 %cmp117, i1 false
   br i1 %or.cond139, label %for.body, label %if.end151, !llvm.loop !40
 

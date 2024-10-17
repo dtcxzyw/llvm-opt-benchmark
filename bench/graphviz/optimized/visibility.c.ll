@@ -81,7 +81,7 @@ define void @visibility(ptr nocapture noundef %0) local_unnamed_addr #2 {
 gv_calloc.exit.i:                                 ; preds = %9
   %17 = sext i32 %3 to i64
   %18 = mul nsw i64 %17, %17
-  %mul.ov.i21.i = icmp ugt i64 %18, 2305843009213693951
+  %mul.ov.i21.i = icmp samesign ugt i64 %18, 2305843009213693951
   br i1 %mul.ov.i21.i, label %19, label %22
 
 19:                                               ; preds = %gv_calloc.exit.i

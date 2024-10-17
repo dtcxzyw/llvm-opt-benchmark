@@ -4865,14 +4865,14 @@ invoke.cont15.i:                                  ; preds = %if.end11.i
           to label %for.cond.preheader.i158 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond.preheader.i158:                          ; preds = %invoke.cont15.i
-  %cmp102.i = icmp ult i32 %diacriticLimit.0, 847
+  %cmp102.i = icmp samesign ult i32 %diacriticLimit.0, 847
   br i1 %cmp102.i, label %for.body.i159, label %for.body40.i.preheader
 
 for.body40.i.preheader:                           ; preds = %for.cond38.preheader.i, %for.cond.preheader.i158
   br label %for.body40.i
 
 for.cond38.preheader.i:                           ; preds = %for.inc.i
-  %cmp39104.i = icmp ugt i32 %diacriticLimit.0, 768
+  %cmp39104.i = icmp samesign ugt i32 %diacriticLimit.0, 768
   br i1 %cmp39104.i, label %for.body40.i.preheader, label %for.end53.i
 
 for.body.i159:                                    ; preds = %for.cond.preheader.i158, %for.inc.i
@@ -5057,7 +5057,7 @@ if.end69:                                         ; preds = %_ZL22writeCollation
   %75 = load i32, ptr %options.i, align 8
   %and.i175 = lshr i32 %75, 4
   %shr.i176 = and i32 %and.i175, 7
-  %cmp71 = icmp ugt i32 %shr.i176, 3
+  %cmp71 = icmp samesign ugt i32 %shr.i176, 3
   br i1 %cmp71, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %if.end69
@@ -5742,7 +5742,7 @@ if.then18:                                        ; preds = %if.then15
 
 if.else23:                                        ; preds = %lor.lhs.false.i, %if.else
   %and.i78 = and i32 %ce32.0, 255
-  %cmp.i79 = icmp ult i32 %and.i78, 192
+  %cmp.i79 = icmp samesign ult i32 %and.i78, 192
   br i1 %cmp.i79, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else23

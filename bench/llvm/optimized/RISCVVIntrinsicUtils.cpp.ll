@@ -2547,7 +2547,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
 
 36:                                               ; preds = %34
   %37 = tail call range(i32 1, 8) i32 @llvm.ctpop.i32(i32 %10)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 39:                                               ; preds = %.critedge
@@ -2557,7 +2557,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
 
 41:                                               ; preds = %39
   %42 = tail call range(i32 1, 7) i32 @llvm.ctpop.i32(i32 %10)
-  %43 = icmp ult i32 %42, 2
+  %43 = icmp samesign ult i32 %42, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 44:                                               ; preds = %.critedge
@@ -2567,7 +2567,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
 
 46:                                               ; preds = %44
   %47 = tail call range(i32 1, 6) i32 @llvm.ctpop.i32(i32 %10)
-  %48 = icmp ult i32 %47, 2
+  %48 = icmp samesign ult i32 %47, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 49:                                               ; preds = %.critedge
@@ -2577,7 +2577,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
 
 51:                                               ; preds = %49
   %52 = tail call range(i32 1, 5) i32 @llvm.ctpop.i32(i32 %10)
-  %53 = icmp ult i32 %52, 2
+  %53 = icmp samesign ult i32 %52, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %49, %44, %39, %34, %51, %46, %41, %36, %.critedge, %29, %24, %18, %13, %1
@@ -2855,7 +2855,7 @@ switch.lookup:                                    ; preds = %1, %1
   %136 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %135, ptr %136, align 1, !noalias !31
   %137 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -2921,7 +2921,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %163 = getelementptr inbounds i8, ptr %.111.i2, i64 -1
   store i8 %162, ptr %163, align 1, !noalias !40
   %164 = udiv i64 %.0810.i3, 10
-  %.not.i4 = icmp ult i64 %.0810.i3, 10
+  %.not.i4 = icmp samesign ult i64 %.0810.i3, 10
   br i1 %.not.i4, label %_ZN4llvm6utostrB5cxx11Emb.exit7, label %.lr.ph.i1, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit7:                  ; preds = %.lr.ph.i1, %.thread.i6
@@ -3061,7 +3061,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType11initTypeStrEv(ptr noundef nonnul
   %60 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %59, ptr %60, align 1, !noalias !49
   %61 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -3247,7 +3247,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType19initClangBuiltinStrEv(ptr nounde
   %34 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %33, ptr %34, align 1, !noalias !58
   %35 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -3310,7 +3310,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %56 = getelementptr inbounds i8, ptr %.111.i5, i64 -1
   store i8 %55, ptr %56, align 1, !noalias !67
   %57 = udiv i64 %.0810.i6, 10
-  %.not.i7 = icmp ult i64 %.0810.i6, 10
+  %.not.i7 = icmp samesign ult i64 %.0810.i6, 10
   br i1 %.not.i7, label %_ZN4llvm6utostrB5cxx11Emb.exit10, label %.lr.ph.i4, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit10:                 ; preds = %.lr.ph.i4, %.thread.i9
@@ -3382,7 +3382,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %85 = getelementptr inbounds i8, ptr %.111.i13, i64 -1
   store i8 %84, ptr %85, align 1, !noalias !73
   %86 = udiv i64 %.0810.i14, 10
-  %.not.i15 = icmp ult i64 %.0810.i14, 10
+  %.not.i15 = icmp samesign ult i64 %.0810.i14, 10
   br i1 %.not.i15, label %_ZN4llvm6utostrB5cxx11Emb.exit18, label %.lr.ph.i12, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit18:                 ; preds = %.lr.ph.i12, %.thread.i17
@@ -3583,7 +3583,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit48:                ; preds = %3
   %60 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %59, ptr %60, align 1, !noalias !108
   %61 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .thread:                                          ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit48
@@ -3761,7 +3761,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType12initShortStrEv(ptr noundef nonnu
   %40 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %39, ptr %40, align 1, !noalias !128
   %41 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -3809,7 +3809,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %57 = getelementptr inbounds i8, ptr %.111.i2, i64 -1
   store i8 %56, ptr %57, align 1, !noalias !134
   %58 = udiv i64 %.0810.i3, 10
-  %.not.i4 = icmp ult i64 %.0810.i3, 10
+  %.not.i4 = icmp samesign ult i64 %.0810.i3, 10
   br i1 %.not.i4, label %_ZN4llvm6utostrB5cxx11Emb.exit7, label %.lr.ph.i1, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit7:                  ; preds = %.lr.ph.i1, %.thread.i6
@@ -3855,7 +3855,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit7:                  ; preds = %.lr.ph.i1, %.thread
   %72 = getelementptr inbounds i8, ptr %.111.i9, i64 -1
   store i8 %71, ptr %72, align 1, !noalias !140
   %73 = udiv i64 %.0810.i10, 10
-  %.not.i11 = icmp ult i64 %.0810.i10, 10
+  %.not.i11 = icmp samesign ult i64 %.0810.i10, 10
   br i1 %.not.i11, label %_ZN4llvm6utostrB5cxx11Emb.exit14, label %.lr.ph.i8, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit14:                 ; preds = %.lr.ph.i8, %.thread.i13
@@ -3901,7 +3901,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit14:                 ; preds = %.lr.ph.i8, %.thread
   %87 = getelementptr inbounds i8, ptr %.111.i16, i64 -1
   store i8 %86, ptr %87, align 1, !noalias !146
   %88 = udiv i64 %.0810.i17, 10
-  %.not.i18 = icmp ult i64 %.0810.i17, 10
+  %.not.i18 = icmp samesign ult i64 %.0810.i17, 10
   br i1 %.not.i18, label %_ZN4llvm6utostrB5cxx11Emb.exit21, label %.lr.ph.i15, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit21:                 ; preds = %.lr.ph.i15, %.thread.i20
@@ -3947,7 +3947,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit21:                 ; preds = %.lr.ph.i15, %.threa
   %102 = getelementptr inbounds i8, ptr %.111.i23, i64 -1
   store i8 %101, ptr %102, align 1, !noalias !152
   %103 = udiv i64 %.0810.i24, 10
-  %.not.i25 = icmp ult i64 %.0810.i24, 10
+  %.not.i25 = icmp samesign ult i64 %.0810.i24, 10
   br i1 %.not.i25, label %_ZN4llvm6utostrB5cxx11Emb.exit28, label %.lr.ph.i22, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit28:                 ; preds = %.lr.ph.i22, %.thread.i27
@@ -4026,7 +4026,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit28:                 ; preds = %.lr.ph.i22, %.threa
   %136 = getelementptr inbounds i8, ptr %.111.i30, i64 -1
   store i8 %135, ptr %136, align 1, !noalias !158
   %137 = udiv i64 %.0810.i31, 10
-  %.not.i32 = icmp ult i64 %.0810.i31, 10
+  %.not.i32 = icmp samesign ult i64 %.0810.i31, 10
   br i1 %.not.i32, label %_ZN4llvm6utostrB5cxx11Emb.exit35, label %.lr.ph.i29, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit35:                 ; preds = %.lr.ph.i29, %.thread.i34

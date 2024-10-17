@@ -350,7 +350,7 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
 
 16:                                               ; preds = %15, %13, %13
   %17 = phi i64 [ 524288, %15 ], [ 33554432, %13 ], [ 33554432, %13 ]
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp samesign ult i64 %14, %17
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -363,7 +363,7 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
 
 22:                                               ; preds = %21, %19, %19
   %23 = phi i64 [ 2048, %21 ], [ 131072, %19 ], [ 131072, %19 ]
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %25, label %35, !prof !9
 
 25:                                               ; preds = %22

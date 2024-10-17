@@ -661,7 +661,7 @@ for.body20.i:                                     ; preds = %send_batch.exit.i, 
   %indvars.iv33.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next34.i, %send_batch.exit.i ]
   %batch_beginning.030.i = phi i64 [ 0, %for.end.i ], [ %add.i, %send_batch.exit.i ]
   %arrayidx22.i = getelementptr inbounds %struct.pc_worker, ptr %call1.i, i64 %indvars.iv33.i
-  %cmp23.i = icmp ult i64 %indvars.iv33.i, %rem.i
+  %cmp23.i = icmp samesign ult i64 %indvars.iv33.i, %rem.i
   %inc26.i = zext i1 %cmp23.i to i64
   %spec.select.i = add nuw i64 %div.i, %inc26.i
   %in29.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 80
@@ -856,7 +856,7 @@ if.then38.i:                                      ; preds = %if.else.i
   br label %if.end59.i
 
 if.else40.i:                                      ; preds = %if.else.i
-  %cmp.i.i = icmp ult i32 %call33.i, 16
+  %cmp.i.i = icmp samesign ult i32 %call33.i, 16
   br i1 %cmp.i.i, label %if.then.i.i28, label %if.end.i.i
 
 if.then.i.i28:                                    ; preds = %if.else40.i
@@ -969,7 +969,7 @@ for.inc61.i:                                      ; preds = %if.end59.i, %for.bo
   %nr.1.i = phi i32 [ %dec60.i, %if.end59.i ], [ %nr.046.i, %for.body20.i19 ]
   %active_workers.2.i = phi i32 [ %active_workers.3.i, %if.end59.i ], [ %active_workers.147.i, %for.body20.i19 ]
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %cmp16.i = icmp ult i64 %indvars.iv.next59.i, %conv.i
+  %cmp16.i = icmp samesign ult i64 %indvars.iv.next59.i, %conv.i
   %cmp18.i = icmp sgt i32 %nr.1.i, 0
   %41 = select i1 %cmp16.i, i1 %cmp18.i, i1 false
   br i1 %41, label %for.body20.i19, label %while.cond.loopexit.i, !llvm.loop !12

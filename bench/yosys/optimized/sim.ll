@@ -34300,7 +34300,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit39
   %indvars.iv.next3563 = add nuw nsw i64 %indvars.iv3562, 1
   %1898 = sext i32 %1897 to i64
   %1899 = icmp slt i64 %indvars.iv.next3563, %1898
-  %1900 = icmp ult i64 %indvars.iv.next3563, %1515
+  %1900 = icmp samesign ult i64 %indvars.iv.next3563, %1515
   %or.cond2114 = and i1 %1900, %1899
   br i1 %or.cond2114, label %.lr.ph2930, label %.critedge, !llvm.loop !301
 
@@ -61186,11 +61186,11 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111SimInstance13prin
   %9 = getelementptr inbounds i8, ptr %4, i64 112
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
-  %12 = icmp ult i8 %8, %11
+  %12 = icmp samesign ult i8 %8, %11
   br i1 %12, label %_ZStltIJbN5Yosys5RTLIL7SigSpecENS1_5ConstEiPNS1_4CellEEJbS2_S3_iS5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = icmp ult i8 %11, %8
+  %14 = icmp samesign ult i8 %11, %8
   br i1 %14, label %_ZStltIJbN5Yosys5RTLIL7SigSpecENS1_5ConstEiPNS1_4CellEEJbS2_S3_iS5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit, label %15
 
 15:                                               ; preds = %13

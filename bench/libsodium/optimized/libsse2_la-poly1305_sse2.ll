@@ -684,7 +684,7 @@ if.end282:                                        ; preds = %while.body, %if.end
   %H0.1 = phi <2 x i64> [ %H0.0, %if.end99 ], [ %and.i646, %while.body ]
   %bytes.addr.1 = phi i64 [ %bytes.addr.0, %if.end99 ], [ %sub281, %while.body ]
   %m.addr.1 = phi ptr [ %m.addr.0, %if.end99 ], [ %add.ptr280, %while.body ]
-  %cmp283 = icmp ugt i64 %bytes.addr.1, 31
+  %cmp283 = icmp samesign ugt i64 %bytes.addr.1, 31
   br i1 %cmp283, label %if.then284, label %if.end399
 
 if.then284:                                       ; preds = %if.end282

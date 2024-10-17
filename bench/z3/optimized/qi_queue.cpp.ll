@@ -3904,7 +3904,7 @@ if.end.i20:                                       ; preds = %for.cond38
 
 _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit23: ; preds = %for.cond38, %if.end.i20
   %retval.0.i22 = phi i64 [ %19, %if.end.i20 ], [ 0, %for.cond38 ]
-  %cmp41 = icmp ult i64 %indvars.iv, %retval.0.i22
+  %cmp41 = icmp samesign ult i64 %indvars.iv, %retval.0.i22
   br i1 %cmp41, label %for.body42, label %return
 
 for.body42:                                       ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit23
@@ -4429,7 +4429,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit

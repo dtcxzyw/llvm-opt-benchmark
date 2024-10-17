@@ -8527,7 +8527,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i.i.i.i.i.i = extractvalue { i64, i8 } %61, 0
   %62 = add i64 %.fca.0.extract.i.i8.i.i.i.i.i.i.i, 7
   %63 = lshr i64 %62, 3
-  %.not53.i.i.i.i.i = icmp ugt i64 %60, %63
+  %.not53.i.i.i.i.i = icmp samesign ugt i64 %60, %63
   br i1 %.not53.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
@@ -8549,7 +8549,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i34.i.i.i.i.i = extractvalue { i64, i8 } %73, 0
   %74 = add i64 %.fca.0.extract.i.i8.i.i34.i.i.i.i.i, 7
   %75 = lshr i64 %74, 3
-  %.not54.i.i.i.i.i = icmp ugt i64 %72, %75
+  %.not54.i.i.i.i.i = icmp samesign ugt i64 %72, %75
   br i1 %.not54.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit35.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit35.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit35.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i.i"
@@ -8571,7 +8571,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i37.i.i.i.i.i = extractvalue { i64, i8 } %85, 0
   %86 = add i64 %.fca.0.extract.i.i8.i.i37.i.i.i.i.i, 7
   %87 = lshr i64 %86, 3
-  %.not55.i.i.i.i.i = icmp ugt i64 %84, %87
+  %.not55.i.i.i.i.i = icmp samesign ugt i64 %84, %87
   br i1 %.not55.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit38.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit38.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit38.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit35.thread.i.i.i.i.i"
@@ -8593,7 +8593,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i40.i.i.i.i.i = extractvalue { i64, i8 } %97, 0
   %98 = add i64 %.fca.0.extract.i.i8.i.i40.i.i.i.i.i, 7
   %99 = lshr i64 %98, 3
-  %.not56.i.i.i.i.i = icmp ugt i64 %96, %99
+  %.not56.i.i.i.i.i = icmp samesign ugt i64 %96, %99
   br i1 %.not56.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit41.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit41.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit41.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit38.thread.i.i.i.i.i"
@@ -8635,7 +8635,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i43.i.i.i.i.i = extractvalue { i64, i8 } %113, 0
   %114 = add i64 %.fca.0.extract.i.i8.i.i43.i.i.i.i.i, 7
   %115 = lshr i64 %114, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %112, %115
+  %.not.i.i.i.i.i = icmp samesign ugt i64 %112, %115
   br i1 %.not.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit44.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit44.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit44.i.i.i.i.i", %104
@@ -8661,7 +8661,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i46.i.i.i.i.i = extractvalue { i64, i8 } %125, 0
   %126 = add i64 %.fca.0.extract.i.i8.i.i46.i.i.i.i.i, 7
   %127 = lshr i64 %126, 3
-  %.not51.i.i.i.i.i = icmp ugt i64 %124, %127
+  %.not51.i.i.i.i.i = icmp samesign ugt i64 %124, %127
   br i1 %.not51.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit47.thread.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit47.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i
@@ -8687,7 +8687,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit: ; pred
   %.fca.0.extract.i.i8.i.i49.i.i.i.i.i = extractvalue { i64, i8 } %137, 0
   %138 = add i64 %.fca.0.extract.i.i8.i.i49.i.i.i.i.i, 7
   %139 = lshr i64 %138, 3
-  %.not52.i.i.i.i.i = icmp ugt i64 %136, %139
+  %.not52.i.i.i.i.i = icmp samesign ugt i64 %136, %139
   br i1 %.not52.i.i.i.i.i, label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm7none_ofIRNS_11SmallVectorIPNS_9StoreInstELj4EEEZL35isPointerValueDeadOnEntryToFunctionPKNS_8FunctionEPNS_11GlobalValueENS_12function_refIFRNS_13DominatorTreeERS6_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL35isPointerValueDeadOnEntryToFunctionPKN4llvm8FunctionEPNS2_11GlobalValueENS2_12function_refIFRNS2_13DominatorTreeERS3_EEEE3$_0EclIPPNS2_9StoreInstEEEbT_.exit35.i.i.i.i.i"

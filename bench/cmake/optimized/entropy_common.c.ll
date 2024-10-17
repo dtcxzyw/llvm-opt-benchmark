@@ -70,7 +70,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   tail call void @llvm.memset.p0.i64(ptr align 2 %0, i8 0, i64 %19, i1 false)
   %.val.i = load i32, ptr %3, align 1
   %20 = and i32 %.val.i, 15
-  %21 = icmp ugt i32 %20, 10
+  %21 = icmp samesign ugt i32 %20, 10
   br i1 %21, label %FSE_readNCount_body_default.exit, label %22
 
 22:                                               ; preds = %17
@@ -101,7 +101,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %34 = xor i32 %.0142.i, -1
   %35 = or i32 %34, -2147483648
   %36 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %35, i1 true)
-  %37 = icmp ugt i32 %36, 23
+  %37 = icmp samesign ugt i32 %36, 23
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
@@ -124,7 +124,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %44 = xor i32 %43, -1
   %45 = or i32 %44, -2147483648
   %46 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %45, i1 true)
-  %47 = icmp ugt i32 %46, 23
+  %47 = icmp samesign ugt i32 %46, 23
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
@@ -409,7 +409,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
 56:                                               ; preds = %._crit_edge.i
   %57 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %51, i1 true)
   %58 = xor i32 %57, 31
-  %59 = icmp ugt i32 %58, 11
+  %59 = icmp samesign ugt i32 %58, 11
   br i1 %59, label %HUF_readStats_body_default.exit, label %60
 
 60:                                               ; preds = %56

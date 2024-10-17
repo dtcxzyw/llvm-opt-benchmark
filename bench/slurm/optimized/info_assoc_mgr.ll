@@ -680,7 +680,7 @@ define internal fastcc void @_print_assoc_mgr_info(ptr nocapture noundef readonl
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %203 = load i32, ptr @tres_cnt, align 4
   %204 = zext i32 %203 to i64
-  %205 = icmp ult i64 %indvars.iv.next.i, %204
+  %205 = icmp samesign ult i64 %indvars.iv.next.i, %204
   br i1 %205, label %.lr.ph.split.split.i, label %_print_tres_line.exit, !llvm.loop !11
 
 _print_tres_line.exit:                            ; preds = %198, %.loopexit327
@@ -797,7 +797,7 @@ _print_tres_line.exit:                            ; preds = %198, %.loopexit327
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %270 = load i32, ptr @tres_cnt, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next40.i, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next40.i, %271
   br i1 %272, label %.lr.ph.split.us.i, label %_print_tres_line.exit249, !llvm.loop !11
 
 _print_tres_line.exit249:                         ; preds = %269, %248
@@ -842,7 +842,7 @@ _print_tres_line.exit249:                         ; preds = %269, %248
   %indvars.iv.next40.i257 = add nuw nsw i64 %indvars.iv39.i254, 1
   %294 = load i32, ptr @tres_cnt, align 4
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %indvars.iv.next40.i257, %295
+  %296 = icmp samesign ult i64 %indvars.iv.next40.i257, %295
   br i1 %296, label %.lr.ph.split.us.i253, label %_print_tres_line.exit259, !llvm.loop !11
 
 _print_tres_line.exit259:                         ; preds = %293, %_print_tres_line.exit249
@@ -887,7 +887,7 @@ _print_tres_line.exit259:                         ; preds = %293, %_print_tres_l
   %indvars.iv.next40.i267 = add nuw nsw i64 %indvars.iv39.i264, 1
   %318 = load i32, ptr @tres_cnt, align 4
   %319 = zext i32 %318 to i64
-  %320 = icmp ult i64 %indvars.iv.next40.i267, %319
+  %320 = icmp samesign ult i64 %indvars.iv.next40.i267, %319
   br i1 %320, label %.lr.ph.split.us.i263, label %_print_tres_line.exit269, !llvm.loop !11
 
 _print_tres_line.exit269:                         ; preds = %317, %_print_tres_line.exit259
@@ -1115,7 +1115,7 @@ _print_tres_line.exit269:                         ; preds = %317, %_print_tres_l
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i274, 1
   %442 = load i32, ptr @tres_cnt, align 4
   %443 = zext i32 %442 to i64
-  %444 = icmp ult i64 %indvars.iv.next.i276, %443
+  %444 = icmp samesign ult i64 %indvars.iv.next.i276, %443
   br i1 %444, label %.lr.ph.split.split.i273, label %_print_tres_line.exit284, !llvm.loop !11
 
 _print_tres_line.exit284:                         ; preds = %437, %.loopexit
@@ -1182,7 +1182,7 @@ _print_tres_line.exit284:                         ; preds = %437, %.loopexit
   %indvars.iv.next40.i292 = add nuw nsw i64 %indvars.iv39.i289, 1
   %480 = load i32, ptr @tres_cnt, align 4
   %481 = zext i32 %480 to i64
-  %482 = icmp ult i64 %indvars.iv.next40.i292, %481
+  %482 = icmp samesign ult i64 %indvars.iv.next40.i292, %481
   br i1 %482, label %.lr.ph.split.us.i288, label %_print_tres_line.exit294, !llvm.loop !11
 
 _print_tres_line.exit294:                         ; preds = %479, %458
@@ -1227,7 +1227,7 @@ _print_tres_line.exit294:                         ; preds = %479, %458
   %indvars.iv.next40.i302 = add nuw nsw i64 %indvars.iv39.i299, 1
   %504 = load i32, ptr @tres_cnt, align 4
   %505 = zext i32 %504 to i64
-  %506 = icmp ult i64 %indvars.iv.next40.i302, %505
+  %506 = icmp samesign ult i64 %indvars.iv.next40.i302, %505
   br i1 %506, label %.lr.ph.split.us.i298, label %_print_tres_line.exit304, !llvm.loop !11
 
 _print_tres_line.exit304:                         ; preds = %503, %_print_tres_line.exit294
@@ -1272,7 +1272,7 @@ _print_tres_line.exit304:                         ; preds = %503, %_print_tres_l
   %indvars.iv.next40.i312 = add nuw nsw i64 %indvars.iv39.i309, 1
   %528 = load i32, ptr @tres_cnt, align 4
   %529 = zext i32 %528 to i64
-  %530 = icmp ult i64 %indvars.iv.next40.i312, %529
+  %530 = icmp samesign ult i64 %indvars.iv.next40.i312, %529
   br i1 %530, label %.lr.ph.split.us.i308, label %_print_tres_line.exit314, !llvm.loop !11
 
 _print_tres_line.exit314:                         ; preds = %527, %_print_tres_line.exit304
@@ -1332,7 +1332,7 @@ _print_tres_line.exit314:                         ; preds = %527, %_print_tres_l
   %indvars.iv.next40.i322 = add nuw nsw i64 %indvars.iv39.i319, 1
   %560 = load i32, ptr @tres_cnt, align 4
   %561 = zext i32 %560 to i64
-  %562 = icmp ult i64 %indvars.iv.next40.i322, %561
+  %562 = icmp samesign ult i64 %indvars.iv.next40.i322, %561
   br i1 %562, label %.lr.ph.split.us.i318, label %_print_tres_line.exit324, !llvm.loop !11
 
 _print_tres_line.exit324:                         ; preds = %559, %538
@@ -1479,7 +1479,7 @@ define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readon
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %23 = load i32, ptr @tres_cnt, align 4
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next40, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next40, %24
   br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1513,7 +1513,7 @@ define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readon
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %40 = load i32, ptr @tres_cnt, align 4
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next37, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next37, %41
   br i1 %42, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %53
@@ -1544,7 +1544,7 @@ define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr @tres_cnt, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %53, %36, %22, %4

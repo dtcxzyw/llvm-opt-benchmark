@@ -6598,7 +6598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i3.i, %137
   %.0.lcssa.i.i = phi i32 [ %115, %137 ], [ %144, %.lr.ph.i3.i ]
-  %159 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %159 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %159, label %160, label %170
 
 160:                                              ; preds = %._crit_edge.i.i
@@ -6940,7 +6940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i

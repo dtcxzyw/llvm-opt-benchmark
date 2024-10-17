@@ -646,7 +646,7 @@ _ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb0
   %154 = ptrtoint ptr %.0304572 to i64
   %155 = sub i64 %153, %154
   %156 = and i64 %155, 4294967295
-  %157 = icmp ugt i64 %156, 1023
+  %157 = icmp samesign ugt i64 %156, 1023
   br i1 %157, label %158, label %164
 
 158:                                              ; preds = %_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb0ELj2EEEvPPKcS9_RAT0__S8_.exit
@@ -1296,7 +1296,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %_ZN5drjit12DynamicA
   %460 = add nuw nsw i64 %.0288591, 1
   %461 = load i32, ptr %21, align 16
   %462 = zext i32 %461 to i64
-  %463 = icmp ult i64 %460, %462
+  %463 = icmp samesign ult i64 %460, %462
   br i1 %463, label %428, label %._crit_edge593, !llvm.loop !29
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit404.thread:    ; preds = %.noexc.i384

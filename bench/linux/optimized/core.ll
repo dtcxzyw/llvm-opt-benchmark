@@ -959,7 +959,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #3 section ".init.text
 
 19:                                               ; preds = %12
   %20 = and i32 %14, 255
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
@@ -1006,7 +1006,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #3 section ".init.text
   br label %51
 
 46:                                               ; preds = %24
-  %47 = icmp ugt i32 %20, 4
+  %47 = icmp samesign ugt i32 %20, 4
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
@@ -1049,7 +1049,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #3 section ".init.text
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 248), align 8
   store ptr %66, ptr @intel_pmu_init.__quirk, align 8
   store ptr @intel_pmu_init.__quirk, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 248), align 8
-  %67 = icmp ugt i32 %20, 4
+  %67 = icmp samesign ugt i32 %20, 4
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %65
@@ -4303,8 +4303,8 @@ define internal fastcc noundef zeroext i1 @check_msr(i64 noundef range(i64 0, 42
   %21 = add i32 %20, %19
   %22 = zext i32 %21 to i64
   %23 = zext i32 %19 to i64
-  %24 = icmp uge i64 %0, %23
-  %25 = icmp ult i64 %0, %22
+  %24 = icmp samesign uge i64 %0, %23
+  %25 = icmp samesign ult i64 %0, %22
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %27, label %29
 
@@ -4361,8 +4361,8 @@ define internal fastcc noundef zeroext i1 @check_msr(i64 noundef range(i64 0, 42
   %53 = add i32 %52, %51
   %54 = zext i32 %53 to i64
   %55 = zext i32 %51 to i64
-  %56 = icmp uge i64 %0, %55
-  %57 = icmp ult i64 %0, %54
+  %56 = icmp samesign uge i64 %0, %55
+  %57 = icmp samesign ult i64 %0, %54
   %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %59, label %61
 
@@ -4616,7 +4616,7 @@ define internal noundef i32 @fixup_ht_bug() #3 section ".init.text" align 16 {
   store ptr null, ptr %41, align 8
   %43 = add nuw nsw i64 %17, 1
   %44 = and i64 %43, 127
-  %45 = icmp ult i64 %44, 64
+  %45 = icmp samesign ult i64 %44, 64
   br i1 %45, label %10, label %.thread, !prof !15, !llvm.loop !73
 
 .thread:                                          ; preds = %10, %40, %16
@@ -5881,7 +5881,7 @@ define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
 289:                                              ; preds = %283, %274
   %290 = add nuw nsw i64 %271, 1
   %291 = and i64 %290, 127
-  %292 = icmp ult i64 %291, 64
+  %292 = icmp samesign ult i64 %291, 64
   br i1 %292, label %265, label %.thread16, !prof !15, !llvm.loop !93
 
 .thread16:                                        ; preds = %265, %289, %270, %287
@@ -5968,7 +5968,7 @@ define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
 344:                                              ; preds = %331, %322
   %345 = add nuw nsw i64 %319, 1
   %346 = and i64 %345, 127
-  %347 = icmp ult i64 %346, 64
+  %347 = icmp samesign ult i64 %346, 64
   br i1 %347, label %313, label %.thread18.loopexit, !prof !15, !llvm.loop !94
 
 .thread18.loopexit:                               ; preds = %318, %344, %313

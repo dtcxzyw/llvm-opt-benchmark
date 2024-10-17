@@ -434,7 +434,7 @@ define internal fastcc i64 @iomap_readpage_iter(ptr nocapture noundef readonly %
 
 109:                                              ; preds = %106, %100
   %110 = phi i64 [ %108, %106 ], [ 1, %100 ]
-  %111 = icmp ugt i64 %110, %102
+  %111 = icmp samesign ugt i64 %110, %102
   %112 = add i32 %101, 1
   br i1 %111, label %100, label %113, !llvm.loop !32
 
@@ -2394,7 +2394,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0,
 
 132:                                              ; preds = %129, %123
   %133 = phi i64 [ %131, %129 ], [ 1, %123 ]
-  %134 = icmp ugt i64 %133, %125
+  %134 = icmp samesign ugt i64 %133, %125
   %135 = add i32 %124, 1
   br i1 %134, label %123, label %136, !llvm.loop !32
 
@@ -3608,7 +3608,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
 
 137:                                              ; preds = %134, %129
   %138 = phi i64 [ %136, %134 ], [ 1, %129 ]
-  %139 = icmp ugt i64 %138, %130
+  %139 = icmp samesign ugt i64 %138, %130
   %140 = add nuw nsw i64 %130, 1
   br i1 %139, label %129, label %.loopexit27, !llvm.loop !32
 
@@ -5630,7 +5630,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
 
 329:                                              ; preds = %326, %321
   %330 = phi i64 [ %328, %326 ], [ 1, %321 ]
-  %331 = icmp ugt i64 %330, %322
+  %331 = icmp samesign ugt i64 %330, %322
   %332 = add nuw nsw i64 %322, 1
   br i1 %331, label %321, label %.loopexit, !llvm.loop !32
 

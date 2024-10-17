@@ -1136,7 +1136,7 @@ define dso_local void @_ZNK4llvm9BitsRecTy11getAsStringB5cxx11Ev(ptr dead_on_unw
   %16 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %15, ptr %16, align 1, !noalias !4
   %17 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -3877,7 +3877,7 @@ define dso_local void @_ZNK4llvm17AnonymousNameInit11getAsStringB5cxx11Ev(ptr de
   %15 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %14, ptr %15, align 1, !noalias !55
   %16 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -7775,7 +7775,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10StringInitELb1EE9push_backES2_.exit318: 
   %.0242442 = phi ptr [ %242, %241 ], [ %.ptr465, %233 ]
   %237 = load ptr, ptr %.0242442, align 8
   %238 = call i16 @_ZNK4llvm9BinOpInit11CompareInitEjPNS_4InitES2_(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 19, ptr noundef %234, ptr noundef %237)
-  %.not425 = icmp ult i16 %238, 256
+  %.not425 = icmp samesign ult i16 %238, 256
   br i1 %.not425, label %241, label %239
 
 239:                                              ; preds = %.lr.ph444
@@ -8381,7 +8381,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %576 = load ptr, ptr %575, align 8
   %577 = tail call i16 @_ZNK4llvm9BinOpInit11CompareInitEjPNS_4InitES2_(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %572, ptr noundef %574, ptr noundef %576)
-  %.not423 = icmp ult i16 %577, 256
+  %.not423 = icmp samesign ult i16 %577, 256
   br i1 %.not423, label %.critedge, label %578
 
 578:                                              ; preds = %571
@@ -8420,7 +8420,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   %599 = load ptr, ptr %594, align 8
   %600 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %589, ptr noundef %599, ptr noundef nonnull align 8 dereferenceable(32) %26)
-  %.not421 = icmp ult i64 %600, 4294967296
+  %.not421 = icmp samesign ult i64 %600, 4294967296
   br i1 %.not421, label %601, label %607
 
 601:                                              ; preds = %598
@@ -9765,7 +9765,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -9874,7 +9874,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -11900,7 +11900,7 @@ _ZN4llvm7IntInit3getERNS_12RecordKeeperEl.exit446: ; preds = %728, %_ZnwIN4llvm1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #25
   %776 = load ptr, ptr %771, align 8
   %777 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %766, ptr noundef %776, ptr noundef nonnull align 8 dereferenceable(32) %49)
-  %.not513 = icmp ult i64 %777, 4294967296
+  %.not513 = icmp samesign ult i64 %777, 4294967296
   br i1 %.not513, label %778, label %784
 
 778:                                              ; preds = %775
@@ -11997,7 +11997,7 @@ _ZN4llvm11SmallVectorIPNS_4InitELj8EED2Ev.exit452: ; preds = %_ZN4llvm11SmallVec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   %833 = load ptr, ptr %828, align 8
   %834 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %823, ptr noundef %833, ptr noundef nonnull align 8 dereferenceable(32) %54)
-  %.not511 = icmp ult i64 %834, 4294967296
+  %.not511 = icmp samesign ult i64 %834, 4294967296
   br i1 %.not511, label %835, label %841
 
 835:                                              ; preds = %832
@@ -15112,7 +15112,7 @@ define dso_local void @_ZNK4llvm10VarBitInit11getAsStringB5cxx11Ev(ptr dead_on_u
   %24 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %23, ptr %24, align 1, !noalias !351
   %25 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -17587,7 +17587,7 @@ define dso_local noundef ptr @_ZNK4llvm10CondOpInit4FoldEPNS_6RecordE(ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %8, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %20, label %._crit_edge, !llvm.loop !384
 
 20:                                               ; preds = %.lr.ph, %16
@@ -17716,7 +17716,7 @@ define dso_local void @_ZNK4llvm10CondOpInit11getAsStringB5cxx11Ev(ptr dead_on_u
   %36 = phi i32 [ %30, %12 ], [ %.pre, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %38, label %12, label %._crit_edge, !llvm.loop !391
 
 ._crit_edge:                                      ; preds = %35, %2
@@ -22897,7 +22897,7 @@ _ZNK4llvm12ArgumentInit8getIndexEv.exit:          ; preds = %2
   %23 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %22, ptr %23, align 1, !noalias !481
   %24 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -24355,7 +24355,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4InitEPNS_10StringInitEELb1EE9push
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %30, align 8
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %37, label %._crit_edge, !llvm.loop !526
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4InitEPNS_10StringInitEELb1EE9push_backES6_.exit, %4

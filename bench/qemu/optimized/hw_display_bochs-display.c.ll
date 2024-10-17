@@ -483,7 +483,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry
   %conv2 = and i64 %shr, 4294967295
-  %cmp = icmp ugt i64 %conv2, 9
+  %cmp = icmp samesign ugt i64 %conv2, 9
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.epilog
@@ -503,7 +503,7 @@ define internal void @bochs_display_vbe_write(ptr nocapture noundef writeonly %p
 entry:
   %shr = lshr i64 %addr, 1
   %conv1 = and i64 %shr, 4294967295
-  %cmp = icmp ugt i64 %conv1, 9
+  %cmp = icmp samesign ugt i64 %conv1, 9
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

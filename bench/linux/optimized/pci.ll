@@ -5437,7 +5437,7 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %22 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %3) #27
   %23 = load i16, ptr %3, align 2
   %24 = and i16 %23, 7
-  %25 = icmp ugt i16 %24, 3
+  %25 = icmp samesign ugt i16 %24, 3
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %19
@@ -5649,12 +5649,12 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %49 = select i1 %47, i32 %48, i32 %44
   %50 = trunc i32 %49 to i8
   %51 = and i32 %49, 255
-  %52 = icmp ugt i32 %51, 7
+  %52 = icmp samesign ugt i32 %51, 7
   br i1 %52, label %146, label %53
 
 53:                                               ; preds = %41
   %54 = trunc nuw nsw i32 %43 to i8
-  %55 = icmp ult i8 %54, 6
+  %55 = icmp samesign ult i8 %54, 6
   %56 = icmp ult i8 %50, 3
   %57 = and i1 %55, %56
   %58 = zext nneg i32 %43 to i64
@@ -5662,7 +5662,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %60 = icmp eq i8 %54, 8
   %61 = select i1 %60, ptr %28, ptr null
   %62 = select i1 %57, ptr %59, ptr %61
-  %63 = icmp ult i32 %43, 10
+  %63 = icmp samesign ult i32 %43, 10
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %53
@@ -5791,7 +5791,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   store i64 %117, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %62, i64 24
   store i64 %118, ptr %134, align 8
-  %135 = icmp ult i32 %43, 6
+  %135 = icmp samesign ult i32 %43, 6
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %130
@@ -5807,7 +5807,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br label %146
 
 140:                                              ; preds = %137
-  %141 = icmp ugt i32 %43, 8
+  %141 = icmp samesign ugt i32 %43, 8
   %142 = icmp ne i32 %43, 15
   %143 = and i1 %141, %142
   br i1 %143, label %144, label %145
@@ -5828,7 +5828,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %148 = add nuw nsw i32 %32, 1
   %149 = load i8, ptr %7, align 1
   %150 = zext i8 %149 to i32
-  %151 = icmp ult i32 %148, %150
+  %151 = icmp samesign ult i32 %148, %150
   br i1 %151, label %31, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %146, %10, %1
@@ -8614,7 +8614,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
 
 47:                                               ; preds = %39
   %48 = tail call i32 @pcie_get_speed_cap(ptr noundef %0), !range !75
-  %49 = icmp ult i32 %48, 22
+  %49 = icmp samesign ult i32 %48, 22
   br i1 %49, label %50, label %68
 
 50:                                               ; preds = %47
@@ -9864,7 +9864,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcix_set_mmrbc(ptr noundef %0, i
   %5 = add i32 %1, -512
   %6 = icmp ult i32 %5, 3585
   %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !88
-  %8 = icmp ult i32 %7, 2
+  %8 = icmp samesign ult i32 %7, 2
   %9 = select i1 %6, i1 %8, i1 false
   br i1 %9, label %10, label %53
 
@@ -9964,7 +9964,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, 
   %8 = add i32 %1, -128
   %9 = icmp ult i32 %8, 3969
   %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !88
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %12 = select i1 %9, i1 %11, i1 false
   br i1 %12, label %13, label %55
 
@@ -10078,7 +10078,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_mps(ptr noundef %0, i32
   %3 = add i32 %1, -128
   %4 = icmp ult i32 %3, 3969
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !88
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %30
 

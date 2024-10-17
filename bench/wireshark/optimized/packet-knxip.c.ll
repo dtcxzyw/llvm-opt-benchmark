@@ -742,7 +742,7 @@ hex_to_knx_key.exit:                              ; preds = %16, %.thread.i, %20
 24:                                               ; preds = %hex_to_knx_key.exit.thread, %.lr.ph, %22, %hex_to_knx_key.exit
   %25 = phi i8 [ %.pre, %hex_to_knx_key.exit.thread ], [ %8, %.lr.ph ], [ %23, %22 ], [ %.pre14, %hex_to_knx_key.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv, 9
+  %26 = icmp samesign ult i64 %indvars.iv, 9
   %27 = icmp ult i8 %25, 10
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -962,7 +962,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
 94:                                               ; preds = %87, %89
   %.pre-phi157 = phi i32 [ %.pre156, %87 ], [ %92, %89 ]
   %.0122 = phi ptr [ null, %87 ], [ %93, %89 ]
-  %95 = icmp ugt i32 %55, %.pre-phi157
+  %95 = icmp samesign ugt i32 %55, %.pre-phi157
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -994,7 +994,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0129 = phi i16 [ %70, %76 ], [ 0, %67 ], [ 0, %53 ], [ %70, %100 ], [ %70, %104 ], [ %70, %102 ], [ %70, %96 ], [ %70, %.thread149 ]
   %.1 = phi i8 [ %.2, %76 ], [ %.2, %67 ], [ 1, %53 ], [ 1, %100 ], [ 1, %104 ], [ %.2, %102 ], [ 1, %96 ], [ %.2, %.thread149 ]
   %.0 = phi i32 [ 4, %76 ], [ 2, %67 ], [ 1, %53 ], [ 6, %100 ], [ 6, %104 ], [ 6, %102 ], [ 6, %96 ], [ 4, %.thread149 ]
-  %108 = icmp ult i32 %.0, %107
+  %108 = icmp samesign ult i32 %.0, %107
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %106
@@ -2078,7 +2078,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
 
 33:                                               ; preds = %31, %21
   %.091.i = phi i8 [ 0, %31 ], [ 1, %21 ]
-  %34 = icmp ult i32 %17, 2
+  %34 = icmp samesign ult i32 %17, 2
   br i1 %34, label %.thread116.i, label %36
 
 .thread116.i:                                     ; preds = %33
@@ -2262,7 +2262,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
 67:                                               ; preds = %64, %52
   %.0146.i = phi i8 [ 0, %64 ], [ 1, %52 ]
   %.1.i = phi i8 [ %66, %64 ], [ %51, %52 ]
-  %68 = icmp ult i32 %54, 2
+  %68 = icmp samesign ult i32 %54, 2
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -4621,7 +4621,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
   %90 = load i8, ptr @knx_decryption_key_count, align 1
   %.fr = freeze i8 %90
   %91 = zext i8 %.fr to i64
-  %92 = icmp ult i64 %indvars.iv.next, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next, %91
   br i1 %92, label %.lr.ph186, label %._crit_edge, !llvm.loop !20
 
 .lr.ph186:                                        ; preds = %.loopexit, %89
@@ -4833,7 +4833,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i8, ptr @knx_decryption_key_count, align 1
   %85 = zext i8 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %87, label %.loopexit, !llvm.loop !23
 
 87:                                               ; preds = %.lr.ph135, %83
@@ -5299,7 +5299,7 @@ define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, 
   %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, 48
   %15 = xor i32 %3, 7
-  %16 = icmp ult i32 %3, 4
+  %16 = icmp samesign ult i32 %3, 4
   %17 = zext i1 %16 to i32
   %18 = add nuw nsw i32 %15, %17
   %19 = zext nneg i32 %18 to i64
@@ -5432,7 +5432,7 @@ define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %
   %8 = add nuw nsw i32 %7, 2
   %spec.select = tail call i32 @llvm.umin.i32(i32 %8, i32 %2)
   %9 = add nuw nsw i32 %7, 16
-  %.not = icmp ult i32 %2, %9
+  %.not = icmp samesign ult i32 %2, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4

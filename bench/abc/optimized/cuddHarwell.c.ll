@@ -203,7 +203,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %.1444552 = phi i32 [ %119, %.lr.ph555 ], [ %.0443, %117 ]
   %119 = lshr i32 %.1444552, 1
   %120 = add nuw nsw i32 %.1437553, 1
-  %.not614 = icmp ult i32 %.1444552, 2
+  %.not614 = icmp samesign ult i32 %.1444552, 2
   br i1 %.not614, label %._crit_edge556, label %.lr.ph555, !llvm.loop !6
 
 ._crit_edge556:                                   ; preds = %.lr.ph555, %117

@@ -1417,7 +1417,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %201 = getelementptr inbounds ptr, ptr %199, i64 %178
   store ptr %162, ptr %201, align 8, !alias.scope !176, !noalias !179
   store i16 %177, ptr %170, align 2, !noalias !179
-  %202 = icmp ult i64 %178, %200
+  %202 = icmp samesign ult i64 %178, %200
   br i1 %202, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %198
@@ -2143,7 +2143,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %165 = getelementptr inbounds ptr, ptr %163, i64 %148
   store ptr %132, ptr %165, align 8, !alias.scope !328, !noalias !331
   store i16 %147, ptr %140, align 2, !noalias !331
-  %166 = icmp ult i64 %148, %164
+  %166 = icmp samesign ult i64 %148, %164
   br i1 %166, label %.lr.ph.i.i.i.preheader, label %.thread73
 
 .lr.ph.i.i.i.preheader:                           ; preds = %162
@@ -2917,7 +2917,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !498, !noalias !501
   store i16 %174, ptr %167, align 2, !noalias !501
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196

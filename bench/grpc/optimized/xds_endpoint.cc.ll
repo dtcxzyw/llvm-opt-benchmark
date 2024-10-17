@@ -3476,7 +3476,7 @@ for.body125.i:                                    ; preds = %if.else117.i, %for.
   %212 = load i32, ptr %lb_weight127.i, align 8, !noalias !42
   %conv.i = zext i32 %212 to i64
   %add128.i = add nuw nsw i64 %total_weight.076.i, %conv.i
-  %cmp131.i = icmp ugt i64 %add128.i, 4294967295
+  %cmp131.i = icmp samesign ugt i64 %add128.i, 4294967295
   br i1 %cmp131.i, label %invoke.cont136.i, label %for.inc147.i
 
 invoke.cont136.i:                                 ; preds = %for.body125.i

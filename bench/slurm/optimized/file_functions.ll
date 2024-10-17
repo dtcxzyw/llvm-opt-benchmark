@@ -1226,7 +1226,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i23.i, %_str
   %208 = getelementptr inbounds [4096 x i8], ptr %12, i64 0, i64 %indvars.iv807
   %209 = load i8, ptr %208, align 1
   %210 = icmp ne i8 %209, 32
-  %211 = icmp ult i64 %indvars.iv807, %sext
+  %211 = icmp samesign ult i64 %indvars.iv807, %sext
   %212 = and i1 %211, %210
   %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
   br i1 %212, label %.preheader552, label %213, !llvm.loop !18

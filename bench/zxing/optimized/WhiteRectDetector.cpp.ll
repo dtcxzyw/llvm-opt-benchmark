@@ -104,7 +104,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
 
 43:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not22.not.i = icmp ult i64 %indvars.iv.i, %34
+  %.not22.not.i = icmp samesign ult i64 %indvars.iv.i, %34
   br i1 %.not22.not.i, label %44, label %.loopexit304, !llvm.loop !4
 
 44:                                               ; preds = %43, %.lr.ph.i
@@ -177,7 +177,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
 
 66:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %.not24.not.i = icmp ult i64 %indvars.iv70.i, %56
+  %.not24.not.i = icmp samesign ult i64 %indvars.iv70.i, %56
   br i1 %.not24.not.i, label %67, label %.loopexit303, !llvm.loop !7
 
 67:                                               ; preds = %66, %.lr.ph61.i
@@ -254,7 +254,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
 
 90:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i232
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i230, 1
-  %.not22.not.i235 = icmp ult i64 %indvars.iv.i230, %78
+  %.not22.not.i235 = icmp samesign ult i64 %indvars.iv.i230, %78
   br i1 %.not22.not.i235, label %91, label %.loopexit302, !llvm.loop !4
 
 91:                                               ; preds = %90, %.lr.ph.i229
@@ -324,7 +324,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %91
 
 111:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i246
   %indvars.iv.next71.i248 = add nuw nsw i64 %indvars.iv70.i244, 1
-  %.not24.not.i249 = icmp ult i64 %indvars.iv70.i244, %56
+  %.not24.not.i249 = icmp samesign ult i64 %indvars.iv70.i244, %56
   br i1 %.not24.not.i249, label %112, label %.loopexit, !llvm.loop !7
 
 112:                                              ; preds = %111, %.lr.ph61.i243

@@ -3656,15 +3656,15 @@ for.body32:                                       ; preds = %for.body32.preheade
   %29 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %29 to i32
   %or = or disjoint i32 %shl, %conv38
-  %cmp39 = icmp ult i64 %indvars.iv64, 14
+  %cmp39 = icmp samesign ult i64 %indvars.iv64, 14
   %cond = select i1 %cmp39, ptr @.str.44, ptr @.str.24
   %call41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.43, i32 noundef %or, ptr noundef nonnull %cond) #15
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 2
-  %cmp30 = icmp ult i64 %indvars.iv.next65, %26
+  %cmp30 = icmp samesign ult i64 %indvars.iv.next65, %26
   br i1 %cmp30, label %for.body32, label %for.end44, !llvm.loop !30
 
 for.end44:                                        ; preds = %for.body32
-  %cmp45 = icmp ult i64 %indvars.iv64, 14
+  %cmp45 = icmp samesign ult i64 %indvars.iv64, 14
   br i1 %cmp45, label %if.end49, label %return
 
 if.end49:                                         ; preds = %for.end44

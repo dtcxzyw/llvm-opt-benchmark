@@ -1239,7 +1239,7 @@ define hidden void @ByteIndexedBmToByteGrayXparBgCopy(ptr noundef %0, ptr nounde
   %.045.ptr = getelementptr inbounds i8, ptr %10, i64 %.045.idx
   store i32 %4, ptr %.045.ptr, align 4
   %.045.add = add nuw nsw i64 %.045.idx, 4
-  %19 = icmp ult i64 %.045.idx, 1020
+  %19 = icmp samesign ult i64 %.045.idx, 1020
   br i1 %19, label %18, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %18, %9

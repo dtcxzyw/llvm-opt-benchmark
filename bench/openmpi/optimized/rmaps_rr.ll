@@ -92,7 +92,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
   %36 = getelementptr inbounds i8, ptr %20, i64 136
   %37 = load i16, ptr %36, align 8
   %38 = and i16 %37, 255
-  %39 = icmp ugt i16 %38, 16
+  %39 = icmp samesign ugt i16 %38, 16
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond122 = icmp ult i32 %40, 64
   br i1 %39, label %41, label %50

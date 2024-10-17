@@ -186,7 +186,7 @@ Abc_Clock.exit:                                   ; preds = %3, %20
   br i1 %narrow.i, label %Ivy_NodeRewriteSeq.exit.thread.thread, label %106
 
 106:                                              ; preds = %102
-  %.not = icmp ult i64 %indvars.iv108, %95
+  %.not = icmp samesign ult i64 %indvars.iv108, %95
   br i1 %.not, label %107, label %.critedge2
 
 107:                                              ; preds = %106
@@ -742,7 +742,7 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   %405 = load i32, ptr %404, align 8
   %406 = lshr i32 %405, 17
   %407 = and i32 %406, 31
-  %408 = icmp ult i32 %.068112.i.i.i, %407
+  %408 = icmp samesign ult i32 %.068112.i.i.i, %407
   br i1 %408, label %409, label %.critedge2.loopexit.i.i.i
 
 409:                                              ; preds = %.lr.ph.i.i.i
@@ -787,7 +787,7 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   %424 = load i32, ptr %404, align 8
   %425 = lshr i32 %424, 22
   %426 = and i32 %425, 31
-  %427 = icmp ult i32 %.169120.i.i.i, %426
+  %427 = icmp samesign ult i32 %.169120.i.i.i, %426
   br i1 %427, label %428, label %.critedge4.i.i.i
 
 428:                                              ; preds = %.lr.ph121.i.i.i
@@ -1407,7 +1407,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %24 = add nuw nsw i32 %.077.i, 1
   %25 = load i32, ptr %20, align 8
   %26 = lshr i32 %25, 27
-  %27 = icmp ult i32 %24, %26
+  %27 = icmp samesign ult i32 %24, %26
   br i1 %27, label %.lr.ph79.i, label %._crit_edge80.loopexit.i, !llvm.loop !20
 
 ._crit_edge80.loopexit.i:                         ; preds = %.lr.ph79.i
@@ -1468,7 +1468,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %62 = load i32, ptr %55, align 8
   %63 = lshr i32 %62, 17
   %64 = and i32 %63, 31
-  %65 = icmp ult i32 %61, %64
+  %65 = icmp samesign ult i32 %61, %64
   br i1 %65, label %.lr.ph.i, label %.preheader.i, !llvm.loop !21
 
 .lr.ph70.i:                                       ; preds = %.preheader.i, %.lr.ph70.i
@@ -1479,7 +1479,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %68 = load i32, ptr %55, align 8
   %69 = lshr i32 %68, 22
   %70 = and i32 %69, 31
-  %71 = icmp ult i32 %67, %70
+  %71 = icmp samesign ult i32 %67, %70
   br i1 %71, label %.lr.ph70.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph70.i, %.preheader.i
@@ -1501,7 +1501,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %79 = add nuw nsw i32 %.375.i, 1
   %80 = load i32, ptr %55, align 8
   %81 = lshr i32 %80, 27
-  %82 = icmp ult i32 %79, %81
+  %82 = icmp samesign ult i32 %79, %81
   br i1 %82, label %.critedge.i, label %.critedge._crit_edge.i, !llvm.loop !24
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i

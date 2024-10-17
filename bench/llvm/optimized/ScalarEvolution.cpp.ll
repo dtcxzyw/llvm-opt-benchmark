@@ -4826,7 +4826,7 @@ _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %35, %39, %41, %55, 
   br label %_ZL19BinomialCoefficientPKN4llvm4SCEVEjRNS_15ScalarEvolutionEPNS_4TypeE.exit
 
 67:                                               ; preds = %_ZNK4llvm4SCEV7getTypeEv.exit
-  %68 = icmp ugt i64 %indvars.iv, 1000
+  %68 = icmp samesign ugt i64 %indvars.iv, 1000
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -4874,7 +4874,7 @@ _ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit: ; preds = %77, %7
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %84, %86
-  %.not.i42 = icmp ult i64 %indvars.iv, 3
+  %.not.i42 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %.not.i42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %.lr.ph
@@ -4887,7 +4887,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %84, %86
   %91 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmLEm(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef %90) #28
   %92 = add i32 %.050.i43, 1
   %93 = zext i32 %92 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %93
+  %.not.i = icmp samesign ult i64 %indvars.iv, %93
   br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm5APIntC2Ejmbb.exit
@@ -11365,7 +11365,7 @@ _ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit: ; preds = %663, %
   br i1 %or.cond.i, label %_ZL6ChoosemmRb.exit, label %688
 
 688:                                              ; preds = %684
-  %689 = icmp ugt i64 %686, %indvars.iv628
+  %689 = icmp samesign ugt i64 %686, %indvars.iv628
   br i1 %689, label %_ZL6ChoosemmRb.exit, label %690
 
 690:                                              ; preds = %688
@@ -18068,7 +18068,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %130
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit:               ; preds = %130
   %137 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr271)
-  %138 = icmp ult i64 %137, 2
+  %138 = icmp samesign ult i64 %137, 2
   %139 = sub i64 %.0.i205, %122
   br i1 %138, label %140, label %141
 
@@ -18873,7 +18873,7 @@ define internal fastcc void @_ZL30extractConstantWithoutWrappingRN4llvm15ScalarE
   %20 = tail call noundef i32 @_ZN4llvm15ScalarEvolution19getMinTrailingZerosEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef %19)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %20, i32 %.05)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = icmp ult i64 %indvars.iv.next, %15
+  %21 = icmp samesign ult i64 %indvars.iv.next, %15
   %22 = icmp ne i32 %.sroa.speculated, 0
   %23 = select i1 %21, i1 %22, i1 false
   br i1 %23, label %16, label %._crit_edge, !llvm.loop !157
@@ -18988,7 +18988,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -25430,7 +25430,7 @@ _ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit58: ; preds = %151
 174:                                              ; preds = %"_ZSt13__find_if_notIPKPKN4llvm4SCEVEN9__gnu_cxx5__ops10_Iter_predIZL21StrengthenNoWrapFlagsPNS0_15ScalarEvolutionENS0_9SCEVTypesENS0_8ArrayRefIS3_EENS1_11NoWrapFlagsEE3$_0EEET_SH_SH_T0_.exit", %5
   %.pre-phi = phi i32 [ 4, %"_ZSt13__find_if_notIPKPKN4llvm4SCEVEN9__gnu_cxx5__ops10_Iter_predIZL21StrengthenNoWrapFlagsPNS0_15ScalarEvolutionENS0_9SCEVTypesENS0_8ArrayRefIS3_EENS1_11NoWrapFlagsEE3$_0EEET_SH_SH_T0_.exit" ], [ %22, %5 ]
   %.not = icmp ne i32 %.pre-phi, 6
-  %or.cond5 = icmp ult i16 %1, 7
+  %or.cond5 = icmp samesign ult i16 %1, 7
   %or.cond122 = and i1 %or.cond5, %.not
   br i1 %or.cond122, label %175, label %_ZN4llvm13ConstantRangeD2Ev.exit51
 
@@ -52198,7 +52198,7 @@ _ZN4llvm5APIntD2Ev.exit376:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 583:                                              ; preds = %580
   %584 = tail call noundef i32 @_ZN4llvm15ScalarEvolution20getNoWrapFlagsFromUBEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef nonnull %582)
-  %.not278 = icmp ult i32 %584, 4
+  %.not278 = icmp samesign ult i32 %584, 4
   %.pre540 = and i32 %584, 2
   br i1 %.not278, label %._crit_edge539, label %585
 
@@ -72212,7 +72212,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit190: ; pred
   %192 = load i32, ptr %173, align 4
   %193 = and i32 %192, 134217727
   %194 = zext nneg i32 %193 to i64
-  %.not229 = icmp ult i64 %indvars.iv.next, %194
+  %.not229 = icmp samesign ult i64 %indvars.iv.next, %194
   br i1 %.not229, label %178, label %._crit_edge, !llvm.loop !859
 
 ._crit_edge:                                      ; preds = %191
@@ -78664,7 +78664,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_4UserEEEDcPT0_.exit.thread: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm15ScalarEvolution19evaluatePredicateAtENS_7CmpInst9PredicateEPKNS_4SCEVES5_PKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = tail call i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_7CmpInst9PredicateEPKNS_4SCEVES5_(ptr noundef nonnull align 8 dereferenceable(1392) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  %.not = icmp ult i16 %6, 256
+  %.not = icmp samesign ult i16 %6, 256
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
@@ -78985,7 +78985,7 @@ define dso_local void @_ZN4llvm15ScalarEvolution25getLoopInvariantPredicateENS_7
 
 22:                                               ; preds = %19
   %23 = tail call range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution29getMonotonicPredicateTypeImplEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef nonnull %.048, i32 noundef %.0)
-  %.not51 = icmp ult i64 %23, 4294967296
+  %.not51 = icmp samesign ult i64 %23, 4294967296
   br i1 %.not51, label %53, label %24
 
 24:                                               ; preds = %22
@@ -106707,7 +106707,7 @@ define dso_local void @_ZN4llvm25PredicatedScalarEvolutionC2ERKS0_(ptr noundef n
   %32 = add nuw nsw i64 %.012.i.i.i, 1
   %33 = load i32, ptr %5, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %.lr.ph.i.i.i, label %_ZN4llvm8DenseMapIPKNS_4SCEVESt4pairIjS3_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2ERKSB_.exit, !llvm.loop !1305
 
 36:                                               ; preds = %2
@@ -125906,7 +125906,7 @@ define internal fastcc void @_ZL17GroupByComplexityRN4llvm15SmallVectorImplIPKNS
   %23 = load ptr, ptr %19, align 8
   %24 = load ptr, ptr %4, align 8
   %25 = call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %24, ptr noundef %22, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(124) %2, i32 noundef 0)
-  %26 = icmp ugt i64 %25, 4294967295
+  %26 = icmp samesign ugt i64 %25, 4294967295
   %27 = and i64 %25, 2147483648
   %28 = icmp ne i64 %27, 0
   %29 = and i1 %26, %28
@@ -125939,7 +125939,7 @@ define internal fastcc void @_ZL17GroupByComplexityRN4llvm15SmallVectorImplIPKNS
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN4llvm4SCEVES3_EC2ES4_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1411
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %37
@@ -126345,7 +126345,7 @@ _ZNK4llvm4SCEV8operandsEv.exit66:                 ; preds = %_ZNK4llvm4SCEV8oper
   %134 = load ptr, ptr %133, align 8
   %135 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %132, ptr noundef %134, ptr noundef nonnull align 8 dereferenceable(124) %4, i32 noundef %125)
   %.sroa.080.0.extract.trunc = trunc i64 %135 to i32
-  %136 = icmp ugt i64 %135, 4294967295
+  %136 = icmp samesign ugt i64 %135, 4294967295
   %137 = icmp eq i32 %.sroa.080.0.extract.trunc, 0
   %.not86 = and i1 %137, %136
   br i1 %.not86, label %129, label %.loopexit.loopexit
@@ -126907,7 +126907,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN4llvm4SCEVEN9__gnu_cxx5
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   %13 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11, ptr noundef %.0.val, ptr noundef %.val18, ptr noundef nonnull align 8 dereferenceable(124) %12, i32 noundef 0)
-  %14 = icmp ugt i64 %13, 4294967295
+  %14 = icmp samesign ugt i64 %13, 4294967295
   %15 = and i64 %13, 2147483648
   %16 = icmp ne i64 %15, 0
   %17 = and i1 %14, %16
@@ -126933,7 +126933,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN4llvm4SCEVEN9__gnu_cxx5
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %6, align 8
   %29 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %27, ptr noundef %18, ptr noundef %.0.val.i, ptr noundef nonnull align 8 dereferenceable(124) %28, i32 noundef 0)
-  %30 = icmp ugt i64 %29, 4294967295
+  %30 = icmp samesign ugt i64 %29, 4294967295
   %31 = and i64 %29, 2147483648
   %32 = icmp ne i64 %31, 0
   %33 = and i1 %30, %32
@@ -126985,7 +126985,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPPKN4llvm4SCEVElN9__g
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %10, align 8
   %20 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %18, ptr noundef %.val41, ptr noundef %.val42, ptr noundef nonnull align 8 dereferenceable(124) %19, i32 noundef 0)
-  %21 = icmp ugt i64 %20, 4294967295
+  %21 = icmp samesign ugt i64 %20, 4294967295
   %22 = and i64 %20, 2147483648
   %23 = icmp ne i64 %22, 0
   %24 = and i1 %21, %23
@@ -127023,7 +127023,7 @@ _ZSt7advanceIPPKN4llvm4SCEVElEvRT_T0_.exit.i:     ; preds = %_ZSt7advanceIPPKN4l
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef %40, ptr noundef %.val13.i, ptr noundef %.val14.i, ptr noundef nonnull align 8 dereferenceable(124) %41, i32 noundef 0)
-  %43 = icmp ugt i64 %42, 4294967295
+  %43 = icmp samesign ugt i64 %42, 4294967295
   %44 = and i64 %42, 2147483648
   %45 = icmp ne i64 %44, 0
   %46 = and i1 %43, %45
@@ -127067,7 +127067,7 @@ _ZSt7advanceIPPKN4llvm4SCEVElEvRT_T0_.exit.i49:   ; preds = %_ZSt7advanceIPPKN4l
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %10, align 8
   %65 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef %63, ptr noundef %.val13.i54, ptr noundef %.val14.i55, ptr noundef nonnull align 8 dereferenceable(124) %64, i32 noundef 0)
-  %66 = icmp ugt i64 %65, 4294967295
+  %66 = icmp samesign ugt i64 %65, 4294967295
   %67 = and i64 %65, 2147483648
   %68 = icmp ne i64 %67, 0
   %69 = and i1 %66, %68
@@ -127301,7 +127301,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPPKN4llvm4SCEVES4_N
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %18, ptr noundef %.0.val.i.i, ptr noundef %.val18.i.i, ptr noundef nonnull align 8 dereferenceable(124) %19, i32 noundef 0)
-  %21 = icmp ugt i64 %20, 4294967295
+  %21 = icmp samesign ugt i64 %20, 4294967295
   %22 = and i64 %20, 2147483648
   %23 = icmp ne i64 %22, 0
   %24 = and i1 %21, %23
@@ -127327,7 +127327,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPPKN4llvm4SCEVES4_N
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %12, align 8
   %36 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %34, ptr noundef %25, ptr noundef %.0.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %35, i32 noundef 0)
-  %37 = icmp ugt i64 %36, 4294967295
+  %37 = icmp samesign ugt i64 %36, 4294967295
   %38 = and i64 %36, 2147483648
   %39 = icmp ne i64 %38, 0
   %40 = and i1 %37, %39
@@ -127421,7 +127421,7 @@ _ZSt4moveIPPKN4llvm4SCEVES4_ET0_T_S6_S5_.exit:    ; preds = %tailrecurse._crit_e
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %22, align 8
   %28 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %26, ptr noundef %.019.val.i, ptr noundef %.018.val.i, ptr noundef nonnull align 8 dereferenceable(124) %27, i32 noundef 0)
-  %29 = icmp ugt i64 %28, 4294967295
+  %29 = icmp samesign ugt i64 %28, 4294967295
   %30 = and i64 %28, 2147483648
   %31 = icmp ne i64 %30, 0
   %32 = and i1 %29, %31
@@ -127493,7 +127493,7 @@ _ZSt4moveIPPKN4llvm4SCEVES4_ET0_T_S6_S5_.exit70.thread: ; preds = %41
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %11, align 8
   %53 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %51, ptr noundef %.024.val.i, ptr noundef %.026.val.i, ptr noundef nonnull align 8 dereferenceable(124) %52, i32 noundef 0)
-  %54 = icmp ugt i64 %53, 4294967295
+  %54 = icmp samesign ugt i64 %53, 4294967295
   %55 = and i64 %53, 2147483648
   %56 = icmp ne i64 %55, 0
   %57 = and i1 %54, %56
@@ -127557,7 +127557,7 @@ _ZSt7advanceIPPKN4llvm4SCEVElEvRT_T0_.exit.i:     ; preds = %_ZSt7advanceIPPKN4l
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %11, align 8
   %87 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef %85, ptr noundef %.val13.i, ptr noundef %.val14.i, ptr noundef nonnull align 8 dereferenceable(124) %86, i32 noundef 0)
-  %88 = icmp ugt i64 %87, 4294967295
+  %88 = icmp samesign ugt i64 %87, 4294967295
   %89 = and i64 %87, 2147483648
   %90 = icmp ne i64 %89, 0
   %91 = and i1 %88, %90
@@ -127601,7 +127601,7 @@ _ZSt7advanceIPPKN4llvm4SCEVElEvRT_T0_.exit.i82:   ; preds = %_ZSt7advanceIPPKN4l
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %11, align 8
   %110 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef %108, ptr noundef %.val13.i87, ptr noundef %.val14.i88, ptr noundef nonnull align 8 dereferenceable(124) %109, i32 noundef 0)
-  %111 = icmp ugt i64 %110, 4294967295
+  %111 = icmp samesign ugt i64 %110, 4294967295
   %112 = and i64 %110, 2147483648
   %113 = icmp ne i64 %112, 0
   %114 = and i1 %111, %113
@@ -127768,7 +127768,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPPKN4llvm4SCEVES4_lN9__gnu
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %18, ptr noundef %.019.val.i, ptr noundef %.018.val.i, ptr noundef nonnull align 8 dereferenceable(124) %19, i32 noundef 0)
-  %21 = icmp ugt i64 %20, 4294967295
+  %21 = icmp samesign ugt i64 %20, 4294967295
   %22 = and i64 %20, 2147483648
   %23 = icmp ne i64 %22, 0
   %24 = and i1 %21, %23
@@ -127842,7 +127842,7 @@ _ZSt4moveIPPKN4llvm4SCEVES4_ET0_T_S6_S5_.exit.i:  ; preds = %32, %._crit_edge.i.
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %46, align 8
   %52 = tail call fastcc i64 @_ZL21CompareSCEVComplexityRN4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EEEPKNS_8LoopInfoES3_S3_RNS_13DominatorTreeEj(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef %50, ptr noundef %.019.val.i33, ptr noundef %.018.val.i34, ptr noundef nonnull align 8 dereferenceable(124) %51, i32 noundef 0)
-  %53 = icmp ugt i64 %52, 4294967295
+  %53 = icmp samesign ugt i64 %52, 4294967295
   %54 = and i64 %52, 2147483648
   %55 = icmp ne i64 %54, 0
   %56 = and i1 %53, %55

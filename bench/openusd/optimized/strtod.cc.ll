@@ -153,7 +153,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %26 = mul nuw i64 %.09.i.i, 10
   %27 = add i64 %26, -48
   %28 = add i64 %27, %25
-  %29 = icmp ult i64 %indvars.iv.next.i.i, %22
+  %29 = icmp samesign ult i64 %indvars.iv.next.i.i, %22
   %30 = icmp ult i64 %28, 1844674407370955161
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !4
@@ -192,7 +192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
   %44 = mul nuw i64 %.09.i35.i, 10
   %45 = add i64 %44, -48
   %46 = add i64 %45, %43
-  %47 = icmp ult i64 %indvars.iv.next.i36.i, %40
+  %47 = icmp samesign ult i64 %indvars.iv.next.i36.i, %40
   %48 = icmp ult i64 %46, 1844674407370955161
   %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph.i33.i, label %._crit_edge.loopexit.i37.i, !llvm.loop !4
@@ -237,7 +237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
   %67 = mul nuw i64 %.09.i44.i, 10
   %68 = add i64 %67, -48
   %69 = add i64 %68, %66
-  %70 = icmp ult i64 %indvars.iv.next.i45.i, %63
+  %70 = icmp samesign ult i64 %indvars.iv.next.i45.i, %63
   %71 = icmp ult i64 %69, 1844674407370955161
   %72 = select i1 %70, i1 %71, i1 false
   br i1 %72, label %.lr.ph.i42.i, label %._crit_edge.loopexit.i46.i, !llvm.loop !4
@@ -283,7 +283,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_
   %88 = mul nuw i64 %.09.i.i.i, 10
   %89 = add i64 %88, -48
   %90 = add i64 %89, %87
-  %91 = icmp ult i64 %indvars.iv.next.i.i.i, %84
+  %91 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %84
   %92 = icmp ult i64 %90, 1844674407370955161
   %93 = select i1 %91, i1 %92, i1 false
   br i1 %93, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !4

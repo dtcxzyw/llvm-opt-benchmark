@@ -6061,7 +6061,7 @@ switch.lookup95:                                  ; preds = %switch.hole_check
   store i32 %switch.load, ptr %state28.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc35 = add i32 %n.144, 1
-  %cmp21 = icmp ult i64 %indvars.iv.next, %9
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp21, label %for.body, label %while.cond.loopexit, !llvm.loop !37
 
 while.end:                                        ; preds = %while.cond.loopexit, %if.end, %entry

@@ -5572,7 +5572,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %48 = and i32 %47, 31
   %49 = add nuw nsw i32 %37, 5
   %50 = and i32 %49, 31
-  %51 = icmp ult i32 %48, %50
+  %51 = icmp samesign ult i32 %48, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br i1 %51, label %53, label %.split23.us.i.i.i
 
@@ -5655,7 +5655,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %88 = and i32 %87, 31
   %89 = add nuw nsw i32 %77, 5
   %90 = and i32 %89, 31
-  %91 = icmp ult i32 %88, %90
+  %91 = icmp samesign ult i32 %88, %90
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br i1 %91, label %93, label %.split23.us.i.i.i
 
@@ -22686,7 +22686,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %120 = and i32 %119, 31
   %121 = add nuw nsw i32 %109, 5
   %122 = and i32 %121, 31
-  %123 = icmp ult i32 %120, %122
+  %123 = icmp samesign ult i32 %120, %122
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br i1 %123, label %125, label %.preheader
 
@@ -22766,7 +22766,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %162 = and i32 %161, 31
   %163 = add nuw nsw i32 %151, 5
   %164 = and i32 %163, 31
-  %165 = icmp ult i32 %162, %164
+  %165 = icmp samesign ult i32 %162, %164
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br i1 %165, label %.backedge, label %167
 
@@ -23031,7 +23031,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %37 = and i32 %36, 31
   %38 = add nuw nsw i32 %26, 5
   %39 = and i32 %38, 31
-  %40 = icmp ult i32 %37, %39
+  %40 = icmp samesign ult i32 %37, %39
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %29, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3

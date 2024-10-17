@@ -190,7 +190,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %3 = load i16, ptr %_count, align 2
   %conv8 = zext i16 %3 to i32
   %add = add nuw nsw i32 %conv8, %conv3
-  %cmp9.not = icmp ugt i32 %add, %conv
+  %cmp9.not = icmp samesign ugt i32 %add, %conv
   br i1 %cmp9.not, label %if.end160, label %if.then10
 
 if.then10:                                        ; preds = %if.end.if.then10_crit_edge, %lor.lhs.false
@@ -556,7 +556,7 @@ lor.lhs.false:                                    ; preds = %if.end6
   %cmp9 = icmp uge i8 %2, %3
   %conv15 = zext i16 %1 to i32
   %add = add nuw nsw i32 %conv8, %conv15
-  %cmp16.not = icmp ugt i32 %add, %conv
+  %cmp16.not = icmp samesign ugt i32 %add, %conv
   %or.cond = select i1 %cmp9, i1 %cmp16.not, i1 false
   br i1 %or.cond, label %if.end18, label %return
 
@@ -946,7 +946,7 @@ lor.lhs.false:                                    ; preds = %if.end4
   %3 = load i16, ptr %_count, align 2
   %conv9 = zext i16 %3 to i32
   %add = add nuw nsw i32 %conv9, %conv5
-  %cmp10.not = icmp ugt i32 %add, %conv
+  %cmp10.not = icmp samesign ugt i32 %add, %conv
   br i1 %cmp10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %lor.lhs.false

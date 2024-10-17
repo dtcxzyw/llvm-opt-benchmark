@@ -456,7 +456,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   %147 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %132, ptr noundef %0, i32 noundef %138, i32 noundef %143, i32 noundef %144, ptr noundef null, ptr noundef nonnull @.str.116, ptr noundef %146) #4
   %148 = load i32, ptr @hf_classicstun_att_type, align 4
   %149 = call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef %145) #4
-  %150 = icmp ugt i32 %143, %137
+  %150 = icmp samesign ugt i32 %143, %137
   %151 = load i32, ptr @hf_classicstun_att_length, align 4
   %152 = and i32 %140, 65535
   br i1 %150, label %153, label %155
@@ -649,7 +649,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   %.reass = add nuw nsw i32 %.0244286, %invariant.op
   %250 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %249, ptr noundef %0, i32 noundef %.reass, i32 noundef 2, i32 noundef 0) #4
   %251 = add nuw nsw i32 %.0244286, 4
-  %252 = icmp ult i32 %251, %142
+  %252 = icmp samesign ult i32 %251, %142
   br i1 %252, label %245, label %proto_item_set_generated.exit278, !llvm.loop !4
 
 253:                                              ; preds = %155

@@ -686,8 +686,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.i.i.i, label %do.body.i, label %land.rhs.i.i.i, !llvm.loop !7
 
 do.body.i:                                        ; preds = %while.body.i.i.i, %land.rhs.i.i.i
-  %cmp13.i.i = icmp ugt i64 %spec.select, 600
-  %or.cond.i.i = and i1 %cmp13.i.i, %tobool1.not.i.not.i.not.not.not.i.not.not.not.not.not
+  %cmp13.i.i = icmp samesign ugt i64 %spec.select, 600
+  %or.cond.i.i = select i1 %tobool1.not.i.not.i.not.not.not.i.not.not.not.not.not, i1 %cmp13.i.i, i1 false
   %div20.i.i = zext i1 %or.cond.i.i to i64
   %cond20.i.i = lshr i64 %spec.select, %div20.i.i
   %timeoutms.i.i = getelementptr inbounds i8, ptr %call.i59.i, i64 80
@@ -762,8 +762,8 @@ land.rhs.i.i77.i:                                 ; preds = %while.body.i.i90.i,
   %addr.addr.0.i.i78.i = phi ptr [ %addr.addr.0.lcssa.i57.i, %if.end.i66.i ], [ %38, %while.body.i.i90.i ]
   %ai_next.i.i79.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i78.i, i64 40
   %38 = load ptr, ptr %ai_next.i.i79.i, align 8
-  %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not = icmp ne ptr %38, null
-  br i1 %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not, label %while.body.i.i90.i, label %do.body60.i
+  %tobool1.not.i.not.i80.not.not.not.i = icmp eq ptr %38, null
+  br i1 %tobool1.not.i.not.i80.not.not.not.i, label %do.body60.i, label %while.body.i.i90.i
 
 while.body.i.i90.i:                               ; preds = %land.rhs.i.i77.i
   %ai_family.i.i91.i = getelementptr inbounds i8, ptr %38, i64 4
@@ -772,7 +772,7 @@ while.body.i.i90.i:                               ; preds = %land.rhs.i.i77.i
   br i1 %cmp.i.i92.i, label %do.body60.i, label %land.rhs.i.i77.i, !llvm.loop !7
 
 do.body60.i:                                      ; preds = %while.body.i.i90.i, %land.rhs.i.i77.i
-  %or.cond.i83.i = and i1 %cmp13.i.i, %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not
+  %or.cond.i83.i = phi i1 [ false, %land.rhs.i.i77.i ], [ %cmp13.i.i, %while.body.i.i90.i ]
   %div20.i84.i = zext i1 %or.cond.i83.i to i64
   %cond20.i85.i = lshr i64 %spec.select, %div20.i84.i
   %timeoutms.i86.i = getelementptr inbounds i8, ptr %call.i64.i, i64 80

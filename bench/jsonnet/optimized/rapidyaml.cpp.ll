@@ -11832,7 +11832,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit: ; preds = %99
   br i1 %exitcond.not.i29, label %_ZNK2c43yml4Tree18num_tag_directivesEv.exit.thread, label %117, !llvm.loop !94
 
 _ZNK2c43yml4Tree18num_tag_directivesEv.exit:      ; preds = %117, %122
-  %127 = icmp ult i64 %.07.i, 4
+  %127 = icmp samesign ult i64 %.07.i, 4
   br i1 %127, label %136, label %_ZNK2c43yml4Tree18num_tag_directivesEv.exit.thread
 
 _ZNK2c43yml4Tree18num_tag_directivesEv.exit.thread: ; preds = %125, %_ZNK2c43yml4Tree18num_tag_directivesEv.exit
@@ -52058,7 +52058,7 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJE
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ %5, %.preheader ], [ %54, %.lr.ph ]
-  %69 = icmp ugt i64 %.0.lcssa, 9
+  %69 = icmp samesign ugt i64 %.0.lcssa, 9
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %._crit_edge
@@ -53611,7 +53611,7 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJN
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ %5, %.preheader ], [ %54, %.lr.ph ]
-  %69 = icmp ugt i64 %.0.lcssa, 9
+  %69 = icmp samesign ugt i64 %.0.lcssa, 9
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %._crit_edge

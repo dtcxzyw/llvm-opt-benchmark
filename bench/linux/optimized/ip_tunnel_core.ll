@@ -287,7 +287,7 @@ define dso_local i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef %1, i16
   %36 = getelementptr inbounds i8, ptr %35, i64 12
   %37 = load i16, ptr %36, align 1
   %38 = and i16 %37, 254
-  %39 = icmp ugt i16 %38, 5
+  %39 = icmp samesign ugt i16 %38, 5
   %40 = getelementptr inbounds i8, ptr %0, i64 176
   %41 = select i1 %39, i16 %37, i16 1024, !prof !6
   store i16 %41, ptr %40, align 8

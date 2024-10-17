@@ -4633,7 +4633,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i30:
 
 341:                                              ; preds = %323
   %indvars.iv.next22.i.us.us.i = add nuw nsw i64 %indvars.iv21.i.us.us.i, 4
-  %342 = icmp ult i64 %indvars.iv.next22.i.us.us.i, %321
+  %342 = icmp samesign ult i64 %indvars.iv.next22.i.us.us.i, %321
   br i1 %342, label %.preheader.i.us.us.i, label %_ZL23copy_lj_to_nbat_lj_combILi4EEvN3gmx8ArrayRefIKfEEPKiiPf.exit.us.us.loopexit.i, !llvm.loop !73
 
 _ZL23copy_lj_to_nbat_lj_combILi4EEvN3gmx8ArrayRefIKfEEPKiiPf.exit.us.us.loopexit.i: ; preds = %341
@@ -4733,7 +4733,7 @@ _ZL23copy_lj_to_nbat_lj_combILi4EEvN3gmx8ArrayRefIKfEEPKiiPf.exit.us.us.i: ; pre
 
 401:                                              ; preds = %383
   %indvars.iv.next22.i43.us.us.i = add nuw nsw i64 %indvars.iv21.i39.us.us.i, 8
-  %402 = icmp ult i64 %indvars.iv.next22.i43.us.us.i, %381
+  %402 = icmp samesign ult i64 %indvars.iv.next22.i43.us.us.i, %381
   br i1 %402, label %.preheader.i38.us.us.i, label %_ZL23copy_lj_to_nbat_lj_combILi4EEvN3gmx8ArrayRefIKfEEPKiiPf.exit.us61.us.loopexit.i, !llvm.loop !76
 
 _ZL23copy_lj_to_nbat_lj_combILi4EEvN3gmx8ArrayRefIKfEEPKiiPf.exit.us61.us.loopexit.i: ; preds = %401

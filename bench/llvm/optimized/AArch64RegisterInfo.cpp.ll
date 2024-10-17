@@ -1841,7 +1841,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22AArch64GenRegisterInfo24isGenera
   %7 = lshr i32 %2, 3
   %8 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %9 = zext i16 %8 to i32
-  %.not.i.i = icmp ult i32 %7, %9
+  %.not.i.i = icmp samesign ult i32 %7, %9
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread9
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
@@ -1859,7 +1859,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
 .thread9:                                         ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %6
   %18 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 790), align 2
   %19 = zext i16 %18 to i32
-  %.not.i.i5 = icmp ult i32 %7, %19
+  %.not.i.i5 = icmp samesign ult i32 %7, %19
   br i1 %.not.i.i5, label %20, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit6
 
 20:                                               ; preds = %.thread9
@@ -1920,7 +1920,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22AArch64GenRegisterInfo15isFixedR
   %7 = lshr i32 %2, 3
   %8 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1014), align 2
   %9 = zext i16 %8 to i32
-  %.not.i.i = icmp ult i32 %7, %9
+  %.not.i.i = icmp samesign ult i32 %7, %9
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread9
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
@@ -1938,7 +1938,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
 .thread9:                                         ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %6
   %18 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1622), align 2
   %19 = zext i16 %18 to i32
-  %.not.i.i5 = icmp ult i32 %7, %19
+  %.not.i.i5 = icmp samesign ult i32 %7, %19
   br i1 %.not.i.i5, label %20, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit6
 
 20:                                               ; preds = %.thread9
@@ -2009,7 +2009,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo11regNeedsCFI
   %7 = lshr i32 %1, 3
   %8 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %9 = zext i16 %8 to i32
-  %.not.i.i = icmp ult i32 %7, %9
+  %.not.i.i = icmp samesign ult i32 %7, %9
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread20
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
@@ -2027,7 +2027,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %6
 .thread20:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %6
   %18 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %19 = zext i16 %18 to i32
-  %.not.i.i14 = icmp ult i32 %7, %19
+  %.not.i.i14 = icmp samesign ult i32 %7, %19
   br i1 %.not.i.i14, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15: ; preds = %.thread20
@@ -2444,7 +2444,7 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit14: ; preds = %32, %39
   %46 = phi i16 [ %22, %21 ], [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit14 ]
   %47 = add nuw nsw i64 %.021, 1
   %48 = zext i16 %46 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %21, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %45, %.preheader
@@ -2904,7 +2904,7 @@ _ZN4llvm16MCSubRegIteratorppEv.exit:              ; preds = %_ZN4llvm16MCSubRegI
   %49 = phi i16 [ %.pre, %.loopexit.loopexit ], [ %17, %27 ], [ %17, %16 ]
   %50 = add nuw nsw i64 %.027, 1
   %51 = zext i16 %49 to i64
-  %52 = icmp ult i64 %50, %51
+  %52 = icmp samesign ult i64 %50, %51
   br i1 %52, label %16, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
@@ -3322,7 +3322,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %28, %_ZNK4llvm6Trip
   %57 = phi i16 [ %41, %.lr.ph ], [ %.pre, %51 ]
   %58 = add nuw nsw i64 %.02264, 1
   %59 = zext i16 %57 to i64
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp samesign ult i64 %58, %59
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %56, %.loopexit62
@@ -3565,7 +3565,7 @@ define dso_local void @_ZNK4llvm19AArch64RegisterInfo15getReservedRegsERKNS_15Ma
   %23 = phi i16 [ %7, %6 ], [ %.pre, %17 ]
   %24 = add nuw nsw i64 %.010, 1
   %25 = zext i16 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %6, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %22, %3
@@ -3631,7 +3631,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo13isReservedR
   %24 = phi i16 [ %8, %7 ], [ %.pre.i, %18 ]
   %25 = add nuw nsw i64 %.010.i, 1
   %26 = zext i16 %24 to i64
-  %27 = icmp ult i64 %25, %26
+  %27 = icmp samesign ult i64 %25, %26
   br i1 %27, label %7, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %23, %3

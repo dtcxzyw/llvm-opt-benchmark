@@ -123,7 +123,7 @@ define hidden void @_ZN2cv12cpu_baseline10medianBlurERKNS_3MatERS1_i(ptr noundef
   br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %45
-  %50 = icmp ugt i32 %47, 3
+  %50 = icmp samesign ugt i32 %47, 3
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #12
   br i1 %50, label %51, label %5352
 
@@ -979,7 +979,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit452.i: ; preds = %546, 
   %.23171609.i = phi i32 [ 0, %.preheader1593.lr.ph.i ], [ %668, %667 ]
   %.not334.i = icmp eq i32 %.23171609.i, 0
   %573 = select i1 %.not334.i, i32 0, i32 %566
-  %574 = icmp ugt i32 %.23171609.i, 1
+  %574 = icmp samesign ugt i32 %.23171609.i, 1
   %575 = select i1 %574, i32 %567, i32 %573
   %576 = icmp slt i32 %.23171609.i, %568
   %577 = select i1 %576, i32 %562, i32 0
@@ -5302,7 +5302,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_8MinMax8uES3_EEvRKNS_
   %.23171193.i = phi i32 [ 0, %.preheader1176.lr.ph.i ], [ %3316, %3315 ]
   %.not334.i99 = icmp eq i32 %.23171193.i, 0
   %3274 = select i1 %.not334.i99, i32 0, i32 %3267
-  %3275 = icmp ugt i32 %.23171193.i, 1
+  %3275 = icmp samesign ugt i32 %.23171193.i, 1
   %3276 = select i1 %3275, i32 %3268, i32 %3274
   %3277 = icmp slt i32 %.23171193.i, %3269
   %3278 = select i1 %3277, i32 %3263, i32 0
@@ -6482,7 +6482,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16uES3_EEvRKNS
   %.23171193.i305 = phi i32 [ 0, %.preheader1176.lr.ph.i299 ], [ %4063, %4062 ]
   %.not334.i306 = icmp eq i32 %.23171193.i305, 0
   %4027 = select i1 %.not334.i306, i32 0, i32 %4020
-  %4028 = icmp ugt i32 %.23171193.i305, 1
+  %4028 = icmp samesign ugt i32 %.23171193.i305, 1
   %4029 = select i1 %4028, i32 %4021, i32 %4027
   %4030 = icmp slt i32 %.23171193.i305, %4022
   %4031 = select i1 %4030, i32 %4016, i32 0
@@ -7679,7 +7679,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16sES3_EEvRKNS
   %.23171200.i = phi i32 [ 0, %.preheader1183.lr.ph.i ], [ %4728, %4727 ]
   %.not334.i632 = icmp eq i32 %.23171200.i, 0
   %4690 = select i1 %.not334.i632, i32 0, i32 %4683
-  %4691 = icmp ugt i32 %.23171200.i, 1
+  %4691 = icmp samesign ugt i32 %.23171200.i, 1
   %4692 = select i1 %4691, i32 %4684, i32 %4690
   %4693 = icmp slt i32 %.23171200.i, %4685
   %4694 = select i1 %4693, i32 %4679, i32 0
@@ -8856,7 +8856,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax32fES3_EEvRKNS
   %sext.i694 = mul i64 %5408, %5399
   %5409 = ashr exact i64 %sext.i694, 32
   %5410 = getelementptr inbounds i8, ptr %5395, i64 %5409
-  %or.cond.i695 = icmp ult i32 %5406, 4
+  %or.cond.i695 = icmp samesign ult i32 %5406, 4
   br i1 %or.cond.i695, label %.preheader260.i, label %5438
 
 .preheader260.i:                                  ; preds = %.noexc704
@@ -9449,7 +9449,7 @@ _ZN2cv12cpu_baselineL16medianBlur_8u_OmERKNS_3MatERS1_i.exit: ; preds = %._crit_
   %5724 = load i32, ptr %5723, align 8
   %5725 = add nsw i32 %2, -1
   %5726 = lshr i32 %5725, 1
-  %or.cond.i705 = icmp ult i32 %5721, 4
+  %or.cond.i705 = icmp samesign ult i32 %5721, 4
   br i1 %or.cond.i705, label %5735, label %5727
 
 5727:                                             ; preds = %.noexc716
@@ -9956,7 +9956,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i361.i: ; preds = %_ZNSt6vec
   %6004 = load i16, ptr %6003, align 2
   %6005 = sub nuw nsw i64 %indvars.iv544.i, %5791
   %6006 = zext i16 %6004 to i64
-  %.not.i709 = icmp ult i64 %6005, %6006
+  %.not.i709 = icmp samesign ult i64 %6005, %6006
   br i1 %.not.i709, label %6050, label %6007
 
 6007:                                             ; preds = %6001
@@ -10010,7 +10010,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i361.i: ; preds = %_ZNSt6vec
   %.lcssa440.i = phi i32 [ %6015, %6007 ], [ %6031, %6028 ]
   store i16 %.lcssa461.i, ptr %6003, align 2
   %6033 = zext nneg i32 %.lcssa440.i to i64
-  %.not350.i = icmp ult i64 %5977, %6033
+  %.not350.i = icmp samesign ult i64 %5977, %6033
   br i1 %.not350.i, label %6075, label %6034
 
 6034:                                             ; preds = %._crit_edge.i710
@@ -10044,7 +10044,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i361.i: ; preds = %_ZNSt6vec
   %6052 = mul nsw i32 %6051, %5805
   %6053 = sext i32 %6052 to i64
   %6054 = getelementptr inbounds i16, ptr %5774, i64 %6053
-  %.not347469.i = icmp ult i64 %5977, %6006
+  %.not347469.i = icmp samesign ult i64 %5977, %6006
   br i1 %.not347469.i, label %.sink.split.i, label %.preheader.i711
 
 .preheader.i711:                                  ; preds = %6050, %6072
@@ -10081,7 +10081,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i361.i: ; preds = %_ZNSt6vec
 6072:                                             ; preds = %6063
   %6073 = add i16 %6055, 1
   %6074 = zext i16 %6073 to i64
-  %.not347.i = icmp ult i64 %5977, %6074
+  %.not347.i = icmp samesign ult i64 %5977, %6074
   br i1 %.not347.i, label %.sink.split.i, label %.preheader.i711, !llvm.loop !83
 
 .sink.split.i:                                    ; preds = %6072, %6050, %6048

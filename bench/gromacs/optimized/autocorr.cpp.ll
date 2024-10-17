@@ -958,7 +958,7 @@ _ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %._cri
   %indvars.iv261.i = phi i64 [ %indvars.iv.next262.i, %346 ], [ 0, %.lr.ph143.us.us.us.us.us.i ]
   %303 = trunc nuw nsw i64 %indvars.iv261.i to i32
   %304 = add nuw nsw i64 %indvars.iv261.i, %indvars.iv266.i
-  %305 = icmp ult i64 %304, %108
+  %305 = icmp samesign ult i64 %304, %108
   br i1 %305, label %.preheader132.us.us.us.us.us.us.us.us.us.i, label %.critedge.us.us.us.us.us.i
 
 .preheader132.us.us.us.us.us.us.us.us.us.i:       ; preds = %302
@@ -1070,7 +1070,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 359:                                              ; preds = %.preheader133.us.us.us.us.us.us.us.us.us.i, %.lr.ph143.us.us.us.us.us181.i
   %indvars.iv242.i = phi i64 [ %indvars.iv.next243.i, %.preheader133.us.us.us.us.us.us.us.us.us.i ], [ 0, %.lr.ph143.us.us.us.us.us181.i ]
   %360 = add nuw nsw i64 %indvars.iv242.i, %indvars.iv249.i185
-  %361 = icmp ult i64 %360, %108
+  %361 = icmp samesign ult i64 %360, %108
   br i1 %361, label %.preheader133.us.us.us.us.us.us.us.us.us.i, label %.critedge.us.us.us.us.us183.i
 
 .preheader133.us.us.us.us.us.us.us.us.us.i:       ; preds = %359
@@ -1138,7 +1138,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 390:                                              ; preds = %.preheader134.us.us.us.us.us.us.us.i, %.lr.ph143.us.us.us.us.i
   %indvars.iv223.i = phi i64 [ 0, %.lr.ph143.us.us.us.us.i ], [ %indvars.iv.next224.i, %.preheader134.us.us.us.us.us.us.us.i ]
   %391 = add nuw nsw i64 %indvars.iv223.i, %indvars.iv230.i
-  %392 = icmp ult i64 %391, %108
+  %392 = icmp samesign ult i64 %391, %108
   br i1 %392, label %.preheader134.us.us.us.us.us.us.us.i, label %.critedge.us.us.us.us.i
 
 .preheader134.us.us.us.us.us.us.us.i:             ; preds = %390
@@ -1174,13 +1174,13 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 
 .critedge.us.us.us.i:                             ; preds = %415, %412
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, %293
-  %411 = icmp ult i64 %indvars.iv.next217.i, %108
+  %411 = icmp samesign ult i64 %indvars.iv.next217.i, %108
   br i1 %411, label %.lr.ph143.us.us.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 412:                                              ; preds = %415, %.lr.ph143.us.us.us.i
   %indvars.iv211.i = phi i64 [ 0, %.lr.ph143.us.us.us.i ], [ %indvars.iv.next212.i, %415 ]
   %413 = add nuw nsw i64 %indvars.iv211.i, %indvars.iv216.i
-  %414 = icmp ult i64 %413, %108
+  %414 = icmp samesign ult i64 %413, %108
   br i1 %414, label %415, label %.critedge.us.us.us.i
 
 415:                                              ; preds = %412
@@ -1204,13 +1204,13 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 
 .critedge.us.us.i:                                ; preds = %429, %426
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, %292
-  %425 = icmp ult i64 %indvars.iv.next209.i, %108
+  %425 = icmp samesign ult i64 %indvars.iv.next209.i, %108
   br i1 %425, label %.lr.ph143.us.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 426:                                              ; preds = %429, %.lr.ph143.us.us.i
   %indvars.iv203.i = phi i64 [ 0, %.lr.ph143.us.us.i ], [ %indvars.iv.next204.i, %429 ]
   %427 = add nuw nsw i64 %indvars.iv203.i, %indvars.iv208.i
-  %428 = icmp ult i64 %427, %108
+  %428 = icmp samesign ult i64 %427, %108
   br i1 %428, label %429, label %.critedge.us.us.i
 
 429:                                              ; preds = %426
@@ -1235,12 +1235,12 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 439:                                              ; preds = %443, %.lr.ph143.us.i
   %indvars.iv.i182 = phi i64 [ 0, %.lr.ph143.us.i ], [ %indvars.iv.next.i183, %443 ]
   %440 = add nuw nsw i64 %indvars.iv.i182, %indvars.iv200.i
-  %441 = icmp ult i64 %440, %108
+  %441 = icmp samesign ult i64 %440, %108
   br i1 %441, label %443, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %443, %439
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, %291
-  %442 = icmp ult i64 %indvars.iv.next201.i, %108
+  %442 = icmp samesign ult i64 %indvars.iv.next201.i, %108
   br i1 %442, label %.lr.ph143.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 443:                                              ; preds = %439

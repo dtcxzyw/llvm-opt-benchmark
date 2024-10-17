@@ -473,7 +473,7 @@ if.then.i:                                        ; preds = %for.end118
 
 if.then3.i:                                       ; preds = %if.then.i
   %shr.i = lshr i32 %and2.i, 8
-  %cmp5.i = icmp ult i32 %and2.i, 256
+  %cmp5.i = icmp samesign ult i32 %and2.i, 256
   %conv.i = zext i1 %cmp5.i to i32
   %or.i = or i32 %shr.i, %conv.i
   %or6.i = or disjoint i32 %or.i, 8355840

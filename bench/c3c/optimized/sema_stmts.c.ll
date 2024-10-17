@@ -4390,7 +4390,7 @@ sema_analyse_return_stmt.exit:                    ; preds = %1462, %1596, %.loop
 
 2027:                                             ; preds = %._crit_edge325
   %2028 = zext i32 %.0130.i328 to i64
-  %2029 = icmp ult i64 %indvars.iv533, %2028
+  %2029 = icmp samesign ult i64 %indvars.iv533, %2028
   br i1 %2029, label %2030, label %2053
 
 2030:                                             ; preds = %2027
@@ -6365,7 +6365,7 @@ type_flatten.exit:                                ; preds = %.preheader
 115:                                              ; preds = %113
   %116 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv
   %117 = load ptr, ptr %116, align 8
-  %118 = icmp ult i64 %indvars.iv, %112
+  %118 = icmp samesign ult i64 %indvars.iv, %112
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
@@ -6766,7 +6766,7 @@ sema_check_type_case.exit:                        ; preds = %168, %.loopexit141,
   store ptr %1, ptr %297, align 8
   %313 = load i32, ptr %74, align 4
   store i32 %313, ptr %296, align 8
-  %314 = icmp uge i64 %indvars.iv235, %307
+  %314 = icmp samesign uge i64 %indvars.iv235, %307
   br i1 %314, label %317, label %315
 
 315:                                              ; preds = %308
@@ -7648,7 +7648,7 @@ define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr nocaptu
   ]
 
 22:                                               ; preds = %._crit_edge.i
-  %or.cond.i.i = icmp ugt i32 %2, 1
+  %or.cond.i.i = icmp samesign ugt i32 %2, 1
   br i1 %or.cond.i.i, label %23, label %26
 
 23:                                               ; preds = %22
@@ -8054,7 +8054,7 @@ sema_analyse_try_unwrap.exit.i.i.i:               ; preds = %220, %215, %84, %50
   br label %sema_analyse_last_cond.exit.thread29.i
 
 226:                                              ; preds = %._crit_edge.i
-  %or.cond3.i.i = icmp ugt i32 %2, 1
+  %or.cond3.i.i = icmp samesign ugt i32 %2, 1
   br i1 %or.cond3.i.i, label %227, label %230
 
 227:                                              ; preds = %226

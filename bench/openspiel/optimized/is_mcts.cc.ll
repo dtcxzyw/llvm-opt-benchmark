@@ -4761,7 +4761,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %46
   %67 = shl nuw i32 %64, 16
   %68 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %69 = add nuw nsw i32 %68, %66
-  %70 = icmp ult i32 %69, 16
+  %70 = icmp samesign ult i32 %69, 16
   %spec.select11.i.i = select i1 %70, i8 -128, i8 -2
   %71 = zext i1 %70 to i64
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10open_spiel10algorithms9ChildInfoEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS6_EEE5eraseENSH_8iteratorE.exit
@@ -5417,7 +5417,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %_ZNSt6v
   %128 = shl i64 %126, 32
   %129 = add i64 %127, %128
   %130 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %117)
-  %131 = icmp ult i64 %130, 2
+  %131 = icmp samesign ult i64 %130, 2
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %.noexc45

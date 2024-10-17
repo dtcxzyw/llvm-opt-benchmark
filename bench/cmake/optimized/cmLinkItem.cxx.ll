@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @_ZltRK10cmLinkItemS1_(ptr noundef nonnull a
   %15 = getelementptr inbounds i8, ptr %1, i64 80
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 1
-  %18 = icmp ult i8 %14, %17
+  %18 = icmp samesign ult i8 %14, %17
   br label %41
 
 19:                                               ; preds = %2
@@ -227,7 +227,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %37 = getelementptr inbounds i8, ptr %1, i64 80
   %38 = load i8, ptr %37, align 8
   %39 = and i8 %38, 1
-  %40 = icmp ult i8 %36, %39
+  %40 = icmp samesign ult i8 %36, %39
   br label %41
 
 41:                                               ; preds = %7, %19, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread23, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %11, %9

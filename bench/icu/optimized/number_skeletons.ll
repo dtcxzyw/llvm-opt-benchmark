@@ -3717,7 +3717,7 @@ if.end27:                                         ; preds = %sw.epilog
 
 cond.true.i:                                      ; preds = %if.end27
   %and2.i = and i32 %conv.i, 32767
-  %cmp.i.i = icmp ult i32 %and2.i, 16384
+  %cmp.i.i = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i, label %_ZNK6icu_7510UCharsTrie8getValueEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i
@@ -6060,7 +6060,7 @@ if.end:                                           ; preds = %invoke.cont10
 
 cond.true.i:                                      ; preds = %if.end
   %and2.i = and i32 %conv.i, 32767
-  %cmp.i.i = icmp ult i32 %and2.i, 16384
+  %cmp.i.i = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i, label %invoke.cont13, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i

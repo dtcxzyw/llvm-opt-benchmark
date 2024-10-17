@@ -158,8 +158,8 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = add nuw nsw i32 %.02830, 1
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #2
   %15 = icmp sgt i32 %14, 0
-  %16 = icmp ult i32 %.02830, 7
-  %17 = and i1 %16, %15
+  %16 = icmp samesign ult i32 %.02830, 7
+  %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %7, %12

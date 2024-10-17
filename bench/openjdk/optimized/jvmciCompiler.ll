@@ -342,7 +342,7 @@ define hidden void @_ZN13JVMCICompiler9bootstrapEP10JavaThread(ptr noundef nonnu
   %46 = add nsw i32 %41, 1
   %47 = icmp sgt i32 %41, -1
   %48 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %46)
-  %49 = icmp ult i32 %48, 2
+  %49 = icmp samesign ult i32 %48, 2
   %or.cond.i.i.i.i.i.i = select i1 %47, i1 %49, i1 false
   %50 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %51 = sub nuw nsw i32 32, %50

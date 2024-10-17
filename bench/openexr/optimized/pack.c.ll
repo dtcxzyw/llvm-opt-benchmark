@@ -171,11 +171,11 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %shr.i.i = lshr i32 %22, 16
   %24 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %24, -32768
-  %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
+  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end43.i.i
 
 if.then.i.i:                                      ; preds = %for.body48
-  %cmp3.i.i = icmp ugt i32 %and.i.i, 2139095039
+  %cmp3.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
   br i1 %cmp3.i.i, label %if.then6.i.i, label %if.end24.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
@@ -194,7 +194,7 @@ if.end.i.i:                                       ; preds = %if.then6.i.i
   br label %float_to_half.exit
 
 if.end24.i.i:                                     ; preds = %if.then.i.i
-  %cmp25.i.i = icmp ugt i32 %and.i.i, 1199566847
+  %cmp25.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
   br i1 %cmp25.i.i, label %if.then29.i.i, label %if.end33.i.i
 
 if.then29.i.i:                                    ; preds = %if.end24.i.i
@@ -213,7 +213,7 @@ if.end33.i.i:                                     ; preds = %if.end24.i.i
   br label %float_to_half.exit
 
 if.end43.i.i:                                     ; preds = %for.body48
-  %cmp44.i.i = icmp ult i32 %and.i.i, 855638017
+  %cmp44.i.i = icmp samesign ult i32 %and.i.i, 855638017
   br i1 %cmp44.i.i, label %float_to_half.exit, label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %if.end43.i.i
@@ -261,11 +261,11 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
 if.end.i:                                         ; preds = %for.body61
   %conv.i = uitofp nneg i32 %28 to float
   %29 = bitcast float %conv.i to i32
-  %cmp.i.i.i = icmp ugt i32 %29, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %29, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end43.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %cmp3.i.i.i = icmp ugt i32 %29, 2139095039
+  %cmp3.i.i.i = icmp samesign ugt i32 %29, 2139095039
   br i1 %cmp3.i.i.i, label %if.then6.i.i.i, label %if.end24.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -283,7 +283,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i.i.i
   br label %uint_to_half.exit
 
 if.end24.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp25.i.i.i = icmp ugt i32 %29, 1199566847
+  %cmp25.i.i.i = icmp samesign ugt i32 %29, 1199566847
   br i1 %cmp25.i.i.i, label %uint_to_half.exit, label %if.end33.i.i.i
 
 if.end33.i.i.i:                                   ; preds = %if.end24.i.i.i
@@ -296,7 +296,7 @@ if.end33.i.i.i:                                   ; preds = %if.end24.i.i.i
   br label %uint_to_half.exit
 
 if.end43.i.i.i:                                   ; preds = %if.end.i
-  %cmp44.i.i.i = icmp ult i32 %29, 855638017
+  %cmp44.i.i.i = icmp samesign ult i32 %29, 855638017
   br i1 %cmp44.i.i.i, label %uint_to_half.exit, label %if.end47.i.i.i
 
 if.end47.i.i.i:                                   ; preds = %if.end43.i.i.i
@@ -374,12 +374,12 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   %shr.i.i.i = and i32 %35, 268427264
   %h.signext.i.i.i = sext i16 %34 to i32
   %shl3.i.i.i = and i32 %h.signext.i.i.i, -2147483648
-  %cmp.i.i.i92 = icmp ugt i32 %shr.i.i.i, 8388607
+  %cmp.i.i.i92 = icmp samesign ugt i32 %shr.i.i.i, 8388607
   br i1 %cmp.i.i.i92, label %if.then.i.i.i93, label %if.else12.i.i.i
 
 if.then.i.i.i93:                                  ; preds = %for.body79
   %or.i.i.i = or disjoint i32 %shr.i.i.i, %shl3.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %shr.i.i.i, 260046848
+  %cmp6.i.i.i = icmp samesign ult i32 %shr.i.i.i, 260046848
   br i1 %cmp6.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.then.i.i.i93

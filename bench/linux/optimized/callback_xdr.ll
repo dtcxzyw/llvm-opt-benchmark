@@ -470,7 +470,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr noc
   %9 = trunc i32 %8 to i16
   store i16 %9, ptr %2, align 2
   %10 = and i32 %8, 65535
-  %11 = icmp ugt i32 %10, 128
+  %11 = icmp samesign ugt i32 %10, 128
   br i1 %11, label %.thread, label %12, !prof !25
 
 12:                                               ; preds = %6
@@ -700,7 +700,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr noca
   %20 = trunc i32 %19 to i16
   store i16 %20, ptr %2, align 2
   %21 = and i32 %19, 65535
-  %22 = icmp ugt i32 %21, 128
+  %22 = icmp samesign ugt i32 %21, 128
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %17

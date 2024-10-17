@@ -149,7 +149,7 @@ define void @sorgbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph134:                                        ; preds = %.preheader, %._crit_edge131
   %.1133 = phi i32 [ %87, %._crit_edge131 ], [ 2, %.preheader ]
   %69 = add nsw i32 %.1133, -1
-  %70 = icmp ugt i32 %.1133, 2
+  %70 = icmp samesign ugt i32 %.1133, 2
   br i1 %70, label %.lr.ph130, label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %.lr.ph134, %.lr.ph130

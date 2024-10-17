@@ -143,7 +143,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %61 = bitcast <8 x i64> %60 to <8 x double>
   %62 = fadd <8 x double> %35, %61
   %63 = add nuw nsw i64 %39, 32
-  %64 = icmp ult i64 %63, %32
+  %64 = icmp samesign ult i64 %63, %32
   br i1 %64, label %.preheader6, label %65, !llvm.loop !14
 
 65:                                               ; preds = %.preheader6
@@ -168,7 +168,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   br i1 %79, label %80, label %121
 
 80:                                               ; preds = %73
-  %81 = icmp ult i64 %74, %75
+  %81 = icmp samesign ult i64 %74, %75
   br i1 %81, label %.preheader5, label %116
 
 .preheader5:                                      ; preds = %80, %.preheader5
@@ -201,7 +201,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   %108 = bitcast <2 x i64> %107 to <2 x double>
   %109 = fadd <2 x double> %82, %108
   %110 = add nuw nsw i64 %86, 8
-  %111 = icmp ult i64 %110, %75
+  %111 = icmp samesign ult i64 %110, %75
   br i1 %111, label %.preheader5, label %112, !llvm.loop !15
 
 112:                                              ; preds = %.preheader5

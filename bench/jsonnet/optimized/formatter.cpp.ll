@@ -2374,7 +2374,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr
   %56 = or disjoint i32 %55, %49
   %57 = or disjoint i32 %56, %53
   %58 = zext nneg i32 %57 to i64
-  %59 = icmp ult i32 %spec.store.select.i, 128
+  %59 = icmp samesign ult i32 %spec.store.select.i, 128
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %.lr.ph.i.i.i
@@ -2382,7 +2382,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr
   br label %87
 
 62:                                               ; preds = %.lr.ph.i.i.i
-  %63 = icmp ult i32 %spec.store.select.i, 2048
+  %63 = icmp samesign ult i32 %spec.store.select.i, 2048
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %62
@@ -2397,7 +2397,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr
   br label %87
 
 69:                                               ; preds = %62
-  %70 = icmp ult i32 %spec.store.select.i, 65536
+  %70 = icmp samesign ult i32 %spec.store.select.i, 65536
   br i1 %70, label %71, label %78
 
 71:                                               ; preds = %69
@@ -18994,7 +18994,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   %12 = or disjoint i32 %11, %5
   %13 = or disjoint i32 %12, %9
   %14 = zext nneg i32 %13 to i64
-  %15 = icmp ult i32 %spec.store.select, 128
+  %15 = icmp samesign ult i32 %spec.store.select, 128
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
@@ -19002,7 +19002,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   br label %43
 
 18:                                               ; preds = %2
-  %19 = icmp ult i32 %spec.store.select, 2048
+  %19 = icmp samesign ult i32 %spec.store.select, 2048
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
@@ -19014,7 +19014,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   br label %43
 
 25:                                               ; preds = %18
-  %26 = icmp ult i32 %spec.store.select, 65536
+  %26 = icmp samesign ult i32 %spec.store.select, 65536
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25
@@ -26989,7 +26989,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser12unparseSpecsERKSt6vecto
   %30 = or disjoint i32 %29, %23
   %31 = or disjoint i32 %30, %27
   %32 = zext nneg i32 %31 to i64
-  %33 = icmp ult i32 %spec.store.select.i, 128
+  %33 = icmp samesign ult i32 %spec.store.select.i, 128
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph.i.i.i
@@ -26997,7 +26997,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser12unparseSpecsERKSt6vecto
   br label %61
 
 36:                                               ; preds = %.lr.ph.i.i.i
-  %37 = icmp ult i32 %spec.store.select.i, 2048
+  %37 = icmp samesign ult i32 %spec.store.select.i, 2048
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
@@ -27012,7 +27012,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser12unparseSpecsERKSt6vecto
   br label %61
 
 43:                                               ; preds = %36
-  %44 = icmp ult i32 %spec.store.select.i, 65536
+  %44 = icmp samesign ult i32 %spec.store.select.i, 65536
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %43
@@ -27163,7 +27163,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseParamsERKSt6vect
   %34 = or disjoint i32 %33, %27
   %35 = or disjoint i32 %34, %31
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i32 %spec.store.select.i, 128
+  %37 = icmp samesign ult i32 %spec.store.select.i, 128
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i.i.i
@@ -27171,7 +27171,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseParamsERKSt6vect
   br label %65
 
 40:                                               ; preds = %.lr.ph.i.i.i
-  %41 = icmp ult i32 %spec.store.select.i, 2048
+  %41 = icmp samesign ult i32 %spec.store.select.i, 2048
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %40
@@ -27186,7 +27186,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseParamsERKSt6vect
   br label %65
 
 47:                                               ; preds = %40
-  %48 = icmp ult i32 %spec.store.select.i, 65536
+  %48 = icmp samesign ult i32 %spec.store.select.i, 65536
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %47
@@ -27367,7 +27367,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
   %37 = or disjoint i32 %36, %30
   %38 = or disjoint i32 %37, %34
   %39 = zext nneg i32 %38 to i64
-  %40 = icmp ult i32 %spec.store.select.i, 128
+  %40 = icmp samesign ult i32 %spec.store.select.i, 128
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i.i.i
@@ -27375,7 +27375,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
   br label %68
 
 43:                                               ; preds = %.lr.ph.i.i.i
-  %44 = icmp ult i32 %spec.store.select.i, 2048
+  %44 = icmp samesign ult i32 %spec.store.select.i, 2048
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %43
@@ -27390,7 +27390,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
   br label %68
 
 50:                                               ; preds = %43
-  %51 = icmp ult i32 %spec.store.select.i, 65536
+  %51 = icmp samesign ult i32 %spec.store.select.i, 65536
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %50
@@ -27522,7 +27522,7 @@ _ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit: ; p
   %110 = or disjoint i32 %109, %103
   %111 = or disjoint i32 %110, %107
   %112 = zext nneg i32 %111 to i64
-  %113 = icmp ult i32 %spec.store.select.i66, 128
+  %113 = icmp samesign ult i32 %spec.store.select.i66, 128
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %.lr.ph.i.i.i54
@@ -27530,7 +27530,7 @@ _ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit: ; p
   br label %141
 
 116:                                              ; preds = %.lr.ph.i.i.i54
-  %117 = icmp ult i32 %spec.store.select.i66, 2048
+  %117 = icmp samesign ult i32 %spec.store.select.i66, 2048
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %116
@@ -27545,7 +27545,7 @@ _ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit: ; p
   br label %141
 
 123:                                              ; preds = %116
-  %124 = icmp ult i32 %spec.store.select.i66, 65536
+  %124 = icmp samesign ult i32 %spec.store.select.i66, 65536
   br i1 %124, label %125, label %132
 
 125:                                              ; preds = %123

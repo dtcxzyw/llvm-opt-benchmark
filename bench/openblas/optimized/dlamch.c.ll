@@ -80,7 +80,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
   %25 = and i64 %24, 1
   %26 = icmp eq i64 %25, 0
   %27 = select i1 %26, double 1.000000e+00, double %22
-  %28 = icmp ult i32 %23, 2
+  %28 = icmp samesign ult i32 %23, 2
   br i1 %28, label %.loopexit3, label %.preheader2
 
 .preheader2:                                      ; preds = %18, %.preheader2
@@ -93,7 +93,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
   %35 = icmp eq i64 %34, 0
   %36 = select i1 %35, double 1.000000e+00, double %33
   %37 = fmul double %29, %36
-  %38 = icmp ult i64 %30, 4
+  %38 = icmp samesign ult i64 %30, 4
   br i1 %38, label %.loopexit3, label %.preheader2, !llvm.loop !9
 
 .loopexit3:                                       ; preds = %.preheader2, %18, %17
@@ -115,7 +115,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
   %49 = and i64 %48, 1
   %50 = icmp eq i64 %49, 0
   %51 = select i1 %50, double 1.000000e+00, double %46
-  %52 = icmp ult i32 %47, 2
+  %52 = icmp samesign ult i32 %47, 2
   br i1 %52, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %42, %.preheader
@@ -128,7 +128,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
   %59 = icmp eq i64 %58, 0
   %60 = select i1 %59, double 1.000000e+00, double %57
   %61 = fmul double %53, %60
-  %62 = icmp ult i64 %54, 4
+  %62 = icmp samesign ult i64 %54, 4
   br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %42, %41, %.loopexit3
@@ -368,7 +368,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %66 = and i64 %65, 1
   %67 = icmp eq i64 %66, 0
   %68 = select i1 %67, double 1.000000e+00, double %63
-  %69 = icmp ult i32 %64, 2
+  %69 = icmp samesign ult i32 %64, 2
   br i1 %69, label %.loopexit31, label %.preheader30
 
 .preheader30:                                     ; preds = %56, %.preheader30
@@ -381,7 +381,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %76 = icmp eq i64 %75, 0
   %77 = select i1 %76, double 1.000000e+00, double %74
   %78 = fmul double %70, %77
-  %79 = icmp ult i64 %71, 4
+  %79 = icmp samesign ult i64 %71, 4
   br i1 %79, label %.loopexit31, label %.preheader30, !llvm.loop !9
 
 .loopexit31:                                      ; preds = %.preheader30, %56, %52

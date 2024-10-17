@@ -2703,7 +2703,7 @@ define hidden void @_ZN6cvtest12smoothBorderERN2cv3MatERKNS0_7Scalar_IdEEi(ptr n
   %12 = load i32, ptr %0, align 8
   %13 = and i32 %12, 7
   %14 = icmp eq i32 %13, 0
-  %15 = icmp ult i32 %9, 4
+  %15 = icmp samesign ult i32 %9, 4
   %or.cond = and i1 %15, %14
   br i1 %or.cond, label %24, label %16
 

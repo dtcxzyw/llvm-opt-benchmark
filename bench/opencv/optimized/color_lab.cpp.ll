@@ -3536,7 +3536,7 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
 
 .preheader:                                       ; preds = %322, %340
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %340 ], [ 0, %322 ]
-  %328 = icmp ult i64 %indvars.iv153, 21
+  %328 = icmp samesign ult i64 %indvars.iv153, 21
   %329 = trunc i64 %indvars.iv153 to i32
   br i1 %328, label %330, label %336
 
@@ -8989,7 +8989,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   store float %92, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %95 = getelementptr inbounds i8, ptr %.153, i64 %63
-  %96 = icmp ult i64 %indvars.iv.next, %77
+  %96 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %96, label %78, label %._crit_edge, !llvm.loop !263
 
 97:                                               ; preds = %25, %24
@@ -9080,7 +9080,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   %143 = getelementptr inbounds i8, ptr %.03859, i64 %132
   store i8 %142, ptr %143, align 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 3
-  %144 = icmp ult i64 %indvars.iv.next66, %109
+  %144 = icmp samesign ult i64 %indvars.iv.next66, %109
   br i1 %144, label %.lr.ph57, label %._crit_edge58, !llvm.loop !264
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
@@ -10372,7 +10372,7 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
   %68 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %63
   store float %67, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %69 = icmp ult i64 %indvars.iv.next, %50
+  %69 = icmp samesign ult i64 %indvars.iv.next, %50
   br i1 %69, label %51, label %._crit_edge, !llvm.loop !274
 
 70:                                               ; preds = %20, %19
@@ -10448,7 +10448,7 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
 107:                                              ; preds = %.lr.ph56, %105
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 3
   %108 = getelementptr inbounds i8, ptr %.155, i64 %40
-  %109 = icmp ult i64 %indvars.iv.next66, %76
+  %109 = icmp samesign ult i64 %indvars.iv.next66, %76
   br i1 %109, label %.lr.ph56, label %._crit_edge57, !llvm.loop !275
 
 ._crit_edge57:                                    ; preds = %107, %.preheader

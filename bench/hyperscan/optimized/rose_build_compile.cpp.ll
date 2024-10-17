@@ -6604,7 +6604,7 @@ if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i178
 
 for.inc.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %for.body.i.i.i.i178
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %cmp.not.i.i53.i.i = icmp uge i64 %indvars.iv.next.i.i.i.i, %330
+  %cmp.not.i.i53.i.i = icmp samesign uge i64 %indvars.iv.next.i.i.i.i, %330
   %exitcond.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %330
   br i1 %exitcond.i.i.i.i, label %invoke.cont27.i.i.i, label %for.body.i.i.i.i178, !llvm.loop !377
 
@@ -6805,7 +6805,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 for.inc.i.i.i180:                                 ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i, %if.then.i255.i.i.i, %for.body.i.i.i158
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp14.not.i.i.i = icmp uge i64 %indvars.iv.next.i.i.i, %321
+  %cmp14.not.i.i.i = icmp samesign uge i64 %indvars.iv.next.i.i.i, %321
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %321
   br i1 %exitcond.i.i.i, label %for.inc.preheader.i.i.i.i.i.i.i.i, label %for.body.i.i.i158, !llvm.loop !390
 
@@ -7300,7 +7300,7 @@ if.then7.i.i.i.i.i:                               ; preds = %if.then5.i.i.i.i.i
   br label %for.body106.i.i.i.backedge
 
 for.cond.i.i.i.i.i:                               ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ult i64 %div1.i.i.i245.i.pre-phi.i.i, 3
+  %cmp14.i.i.i.i.i = icmp samesign ult i64 %div1.i.i.i245.i.pre-phi.i.i, 3
   br i1 %cmp14.i.i.i.i.i, label %for.body.i.i249.i.i.i, label %for.cond.cleanup105.i.i.i
 
 for.body.i.i249.i.i.i:                            ; preds = %for.cond.i.i.i.i.i
@@ -13942,7 +13942,7 @@ if.then24.i.i:                                    ; preds = %if.end20.i.i
 for.cond158.i:                                    ; preds = %while.body.lr.ph.i.i, %if.end20.i.i, %if.then24.i.i, %invoke.cont163.i, %.loopexit.i
   %1102 = phi i64 [ %and.i, %.loopexit.i ], [ %squash_mask.0396.i, %invoke.cont163.i ], [ %squash_mask.0396.i, %if.then24.i.i ], [ %squash_mask.0396.i, %if.end20.i.i ], [ %squash_mask.0396.i, %while.body.lr.ph.i.i ]
   %inc.i483 = add nuw nsw i32 %i.i.0, 1
-  %cmp159.i = icmp ult i32 %i.i.0, 63
+  %cmp159.i = icmp samesign ult i32 %i.i.0, 63
   br i1 %cmp159.i, label %for.body161.i, label %for.cond.cleanup160.i, !llvm.loop !736
 
 lpad162.i:                                        ; preds = %if.then.i.i487

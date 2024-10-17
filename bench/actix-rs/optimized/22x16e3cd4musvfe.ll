@@ -380,7 +380,7 @@ default.unreachable258:                           ; preds = %38
   %47 = zext i32 %45 to i64
   %48 = zext i32 %46 to i64
   %49 = add nuw nsw i64 %48, 1
-  %50 = icmp ult i64 %49, %47
+  %50 = icmp samesign ult i64 %49, %47
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %44
@@ -3089,14 +3089,14 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hb50d52495e7532c3E.exit: ; pr
 
 515:                                              ; preds = %510
   %516 = lshr i64 %.02279.i, 5
-  %517 = icmp ult i64 %.02279.i, 256
+  %517 = icmp samesign ult i64 %.02279.i, 256
   br i1 %517, label %523, label %530, !prof !61
 
 518:                                              ; preds = %523, %510
   %519 = phi i32 [ %.pre.i, %523 ], [ %503, %510 ]
   %520 = add nuw nsw i64 %.02279.i, 1
   %521 = zext i32 %519 to i64
-  %522 = icmp ult i64 %520, %521
+  %522 = icmp samesign ult i64 %520, %521
   br i1 %522, label %.lr.ph.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17hc65ec3ddb683e5d7E.exit
 
 523:                                              ; preds = %515
@@ -3160,7 +3160,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hb50d52495e7532c3E.exit: ; pr
   %559 = zext i8 %558 to i64
   %560 = or i64 %.078.i, %559
   %561 = add nuw nsw i64 %.02177.i, 4
-  %562 = icmp ult i64 %.02177.i, 60
+  %562 = icmp samesign ult i64 %.02177.i, 60
   br i1 %562, label %512, label %510
 
 563:                                              ; preds = %543
@@ -7956,7 +7956,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h41fe6e6cc145e51
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %2, 1
+  %13 = icmp samesign ugt i64 %2, 1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -7964,7 +7964,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h41fe6e6cc145e51
   br i1 %15, label %18, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %2, 3
+  %17 = icmp samesign ugt i64 %2, 3
   br i1 %17, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 18:                                               ; preds = %14
@@ -8114,7 +8114,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc036ac54176d452
   br i1 %14, label %47, label %15
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, 1
+  %16 = icmp samesign ugt i64 %11, 1
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
@@ -8122,7 +8122,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc036ac54176d452
   br i1 %18, label %21, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i64 %11, 3
+  %20 = icmp samesign ugt i64 %11, 3
   br i1 %20, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 21:                                               ; preds = %17
@@ -8295,7 +8295,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he2f6981d16a3df5
   br i1 %34, label %67, label %35
 
 35:                                               ; preds = %28
-  %36 = icmp ugt i64 %31, 1
+  %36 = icmp samesign ugt i64 %31, 1
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %35
@@ -8303,7 +8303,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he2f6981d16a3df5
   br i1 %38, label %41, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 39:                                               ; preds = %35
-  %40 = icmp ugt i64 %31, 3
+  %40 = icmp samesign ugt i64 %31, 3
   br i1 %40, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 41:                                               ; preds = %37
@@ -8878,7 +8878,7 @@ define hidden void @"_ZN68_$LT$ahash..fallback_hash..AHasher$u20$as$u20$core..ha
   br i1 %8, label %46, label %9
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i64 %2, 1
+  %10 = icmp samesign ugt i64 %2, 1
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
@@ -8886,7 +8886,7 @@ define hidden void @"_ZN68_$LT$ahash..fallback_hash..AHasher$u20$as$u20$core..ha
   br i1 %12, label %15, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ugt i64 %2, 3
+  %14 = icmp samesign ugt i64 %2, 3
   br i1 %14, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit"
 
 15:                                               ; preds = %11

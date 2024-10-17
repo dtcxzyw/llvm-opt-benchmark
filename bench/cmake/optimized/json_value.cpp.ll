@@ -1142,7 +1142,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8CZStringltERKS1_(ptr nocapt
 
 30:                                               ; preds = %26
   %.not18 = icmp eq i32 %28, 0
-  %31 = icmp ult i32 %13, %16
+  %31 = icmp samesign ult i32 %13, %16
   %spec.select = select i1 %.not18, i1 %31, i1 false
   br label %32
 
@@ -2268,7 +2268,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr nocapture nound
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i16 %5, %8
+  %10 = icmp samesign ult i16 %5, %8
   br label %74
 
 11:                                               ; preds = %2
@@ -2306,7 +2306,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5ValueltERKS0_(ptr nocapture nound
   %26 = and i8 %25, 1
   %27 = load i8, ptr %1, align 8
   %28 = and i8 %27, 1
-  %29 = icmp ult i8 %26, %28
+  %29 = icmp samesign ult i8 %26, %28
   br label %74
 
 30:                                               ; preds = %11
@@ -4125,7 +4125,7 @@ _ZNK4Json5Value6isUIntEv.exit.thread.thread38:    ; preds = %67, %_ZNK4Json5Valu
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 254
-  %switch = icmp ult i16 %90, 6
+  %switch = icmp samesign ult i16 %90, 6
   br label %.thread14
 
 91:                                               ; preds = %2
@@ -7127,7 +7127,7 @@ _ZNK4Json5Value4sizeEv.exit:                      ; preds = %58, %60, %65, %70
 
 .noexc23:                                         ; preds = %105
   %.not18.i = icmp eq i32 %108, 0
-  %117 = icmp ult i32 %106, %91
+  %117 = icmp samesign ult i32 %106, %91
   %spec.select.i = select i1 %.not18.i, i1 %117, i1 false
   %cond.fr61 = freeze i1 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

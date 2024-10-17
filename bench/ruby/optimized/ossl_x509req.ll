@@ -809,7 +809,7 @@ rb_array_len.exit:                                ; preds = %Check_Type.exit
 rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
   %17 = lshr i64 %13, 15
   %18 = and i64 %17, 127
-  %19 = icmp ult i64 %.0, %18
+  %19 = icmp samesign ult i64 %.0, %18
   br i1 %19, label %rb_array_const_ptr.exit, label %38
 
 20:                                               ; preds = %rb_array_len.exit
@@ -894,7 +894,7 @@ rb_array_len.exit33:                              ; preds = %.preheader
 rb_array_len.exit33.thread:                       ; preds = %.preheader
   %53 = lshr i64 %49, 15
   %54 = and i64 %53, 127
-  %55 = icmp ult i64 %.2, %54
+  %55 = icmp samesign ult i64 %.2, %54
   br i1 %55, label %rb_array_const_ptr.exit36, label %65
 
 56:                                               ; preds = %rb_array_len.exit33

@@ -2337,8 +2337,8 @@ dissect_erf_pseudo_header.exit:                   ; preds = %erf_type_has_color.
   %.1.i.i = phi i32 [ %.03.i.i, %165 ], [ %.03.i.i, %171 ], [ %spec.select20.i.i, %174 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %177 = icmp slt i64 %167, 0
-  %178 = icmp ult i64 %indvars.iv.i.i, 15
-  %179 = and i1 %178, %177
+  %178 = icmp samesign ult i64 %indvars.iv.i.i, 15
+  %179 = select i1 %177, i1 %178, i1 false
   br i1 %179, label %165, label %find_host_id.exit.i, !llvm.loop !11
 
 find_host_id.exit.i:                              ; preds = %176
@@ -3015,8 +3015,8 @@ dissect_host_anchor_id.exit.i:                    ; preds = %551, %532, %proto_i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.0112.i = and i8 %585, -128
   %586 = icmp ne i8 %.0112.i, 0
-  %587 = icmp ult i64 %indvars.iv.i, 15
-  %588 = and i1 %587, %586
+  %587 = icmp samesign ult i64 %indvars.iv.i, 15
+  %588 = select i1 %586, i1 %587, i1 false
   br i1 %588, label %190, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %584
@@ -4449,7 +4449,7 @@ dissect_relative_time.exit.i:                     ; preds = %1250, %1248
   br label %dissect_meta_tag_ext_hdrs.exit.i
 
 dissect_meta_tag_ext_hdrs.exit.i:                 ; preds = %._crit_edge95.thread.i.i, %._crit_edge95.i.i
-  %1353 = icmp ugt i32 %spec.select.i.i145, 3
+  %1353 = icmp samesign ugt i32 %spec.select.i.i145, 3
   %1354 = and i32 %1025, 3
   %.not72.i.i = icmp eq i32 %1354, 0
   %or.cond.i453.i = or i1 %.not72.i.i, %1353
@@ -5247,7 +5247,7 @@ define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noun
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %13, ptr %14, align 8
-  %15 = icmp ugt i64 %11, 4294967295999999999
+  %15 = icmp samesign ugt i64 %11, 4294967295999999999
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3

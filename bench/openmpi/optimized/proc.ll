@@ -741,7 +741,7 @@ ompi_proc_for_name.exit:                          ; preds = %.lr.ph76, %109
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %114 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next81, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next81, %115
   br i1 %116, label %.lr.ph76, label %._crit_edge77, !llvm.loop !9
 
 ._crit_edge77:                                    ; preds = %ompi_proc_for_name.exit, %103

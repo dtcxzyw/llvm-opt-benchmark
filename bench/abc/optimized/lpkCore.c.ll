@@ -187,7 +187,7 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
   %50 = getelementptr inbounds i8, ptr %48, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 12
-  %53 = icmp ult i32 %49, %52
+  %53 = icmp samesign ult i32 %49, %52
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %41
@@ -200,7 +200,7 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
 58:                                               ; preds = %41, %54
   %59 = phi i32 [ %42, %41 ], [ %57, %54 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %60 = icmp ult i64 %indvars.iv.next126, %40
+  %60 = icmp samesign ult i64 %indvars.iv.next126, %40
   br i1 %60, label %41, label %.critedge4, !llvm.loop !6
 
 .critedge4:                                       ; preds = %58, %30
@@ -318,7 +318,7 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
   %116 = getelementptr inbounds i8, ptr %115, i64 20
   %117 = load i32, ptr %116, align 4
   %118 = lshr i32 %117, 12
-  %119 = icmp ult i32 %114, %118
+  %119 = icmp samesign ult i32 %114, %118
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %100
@@ -670,7 +670,7 @@ Kit_DsdNtkRoot.exit:
   %132 = load i32, ptr %1, align 4
   %133 = and i32 %132, 63
   %134 = zext nneg i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next129, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next129, %134
   br i1 %135, label %113, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %113, %.preheader
@@ -853,7 +853,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit, %16
   %251 = load i32, ptr %1, align 4
   %252 = and i32 %251, 63
   %253 = zext nneg i32 %252 to i64
-  %254 = icmp ult i64 %indvars.iv.next132, %253
+  %254 = icmp samesign ult i64 %indvars.iv.next132, %253
   br i1 %254, label %236, label %.critedge3, !llvm.loop !14
 
 .critedge3:                                       ; preds = %236, %229
@@ -1080,7 +1080,7 @@ Abc_Clock.exit85:                                 ; preds = %30, %33
   %104 = load i32, ptr %83, align 4
   %105 = and i32 %104, 63
   %106 = zext nneg i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next, %106
   br i1 %107, label %92, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %92, %.preheader
@@ -1115,7 +1115,7 @@ Abc_Clock.exit85:                                 ; preds = %30, %33
   %125 = load i32, ptr %83, align 4
   %126 = and i32 %125, 63
   %127 = zext nneg i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next117, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next117, %127
   br i1 %128, label %113, label %._crit_edge103, !llvm.loop !16
 
 ._crit_edge103:                                   ; preds = %113, %._crit_edge
@@ -1556,7 +1556,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
   %115 = load i32, ptr %94, align 4
   %116 = and i32 %115, 63
   %117 = zext nneg i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %118, label %103, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %103, %.preheader
@@ -1591,7 +1591,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
   %136 = load i32, ptr %94, align 4
   %137 = and i32 %136, 63
   %138 = zext nneg i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next192, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next192, %138
   br i1 %139, label %124, label %._crit_edge167, !llvm.loop !19
 
 ._crit_edge167:                                   ; preds = %124, %._crit_edge
@@ -1700,7 +1700,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %192 = load i32, ptr %94, align 4
   %193 = and i32 %192, 63
   %194 = zext nneg i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next195, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next195, %194
   br i1 %195, label %151, label %._crit_edge171, !llvm.loop !20
 
 ._crit_edge171:                                   ; preds = %Vec_PtrPush.exit, %145

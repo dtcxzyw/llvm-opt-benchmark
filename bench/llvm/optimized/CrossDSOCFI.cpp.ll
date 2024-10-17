@@ -852,7 +852,7 @@ _ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEE
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %364, %361
   %.0.i.i113.i.i = phi i64 [ %366, %364 ], [ %363, %361 ]
-  %367 = icmp ult i64 %indvars.iv.i.i, %.0.i.i113.i.i
+  %367 = icmp samesign ult i64 %indvars.iv.i.i, %.0.i.i113.i.i
   br i1 %367, label %368, label %576
 
 368:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i

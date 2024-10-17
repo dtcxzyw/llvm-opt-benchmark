@@ -206,7 +206,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %97 = getelementptr inbounds [256 x i8], ptr %95, i64 0, i64 %indvars.iv112
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
-  %100 = icmp ult i32 %93, %99
+  %100 = icmp samesign ult i32 %93, %99
   %.pre117 = zext i8 %98 to i64
   br i1 %100, label %._crit_edge116, label %101
 
@@ -807,7 +807,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
   %.04050.i = phi i32 [ %57, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %57 = add nuw nsw i32 %.04050.i, 1
   %58 = lshr i32 %.151.i, 1
-  %.not.i = icmp ult i32 %.151.i, 2
+  %.not.i = icmp samesign ult i32 %.151.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %32
@@ -878,7 +878,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
   %.14157.i = phi i32 [ %90, %.lr.ph60.i ], [ 1, %.lr.ph60.preheader.i ]
   %89 = lshr i32 %.358.i, 1
   %90 = add nuw nsw i32 %.14157.i, 1
-  %.not47.i = icmp ult i32 %.358.i, 4
+  %.not47.i = icmp samesign ult i32 %.358.i, 4
   br i1 %.not47.i, label %._crit_edge61.i, label %.lr.ph60.i, !llvm.loop !24
 
 ._crit_edge61.i:                                  ; preds = %.lr.ph60.i, %87

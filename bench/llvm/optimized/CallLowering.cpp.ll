@@ -3476,7 +3476,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit164.i:         ; preds = %_ZNK4llvm3LLT19getS
   %.sroa.012.0.in.i156.i = phi i64 [ %399, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i149.i ], [ %384, %383 ], [ %392, %390 ], [ %spec.select.i.i163.i, %387 ]
   %.sroa.3.0.i157.i = phi i1 [ %.not1.i4.i151.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i149.i ], [ true, %383 ], [ true, %390 ], [ true, %387 ]
   %.sroa.012.0.i158.i = and i64 %.sroa.012.0.in.i156.i, 4294967295
-  %.old.i = icmp ugt i64 %.sroa.012.0.i.i, %.sroa.012.0.i158.i
+  %.old.i = icmp samesign ugt i64 %.sroa.012.0.i.i, %.sroa.012.0.i158.i
   br i1 %.sroa.3.0.i.i, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.i, label %400
 
 400:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit164.i
@@ -3630,12 +3630,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit222.i:         ; preds = %_ZNK4llvm3LLT19getS
   %465 = select i1 %.not.i.not.i.i, i64 2251799813685248, i64 576460752303423488
   %466 = and i64 %465, %.sroa.0106.0.copyload
   %.not1.i227.i = icmp ne i64 %466, 0
-  %467 = icmp ult i32 %.sroa.0378.0.extract.trunc.i, %.sroa.0376.0.extract.trunc.i
+  %467 = icmp samesign ult i32 %.sroa.0378.0.extract.trunc.i, %.sroa.0376.0.extract.trunc.i
   %or.cond470.i = select i1 %.not1.i227.i, i1 %467, i1 false
   br i1 %or.cond470.i, label %468, label %.critedge2.i
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.i: ; preds = %457
-  %.old469.i = icmp ult i32 %.sroa.0378.0.extract.trunc.i, %.sroa.0376.0.extract.trunc.i
+  %.old469.i = icmp samesign ult i32 %.sroa.0378.0.extract.trunc.i, %.sroa.0376.0.extract.trunc.i
   br i1 %.old469.i, label %468, label %.critedge2.i
 
 468:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.i, %464
@@ -4785,7 +4785,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvvEELb0EE19moveElementsForGrowEPS
 977:                                              ; preds = %963, %"_ZN4llvm15SmallVectorImplISt8functionIFvvEEE12emplace_backIJZNKS_12CallLowering17handleAssignmentsERNS6_12ValueHandlerERNS0_INS6_7ArgInfoEEERNS_7CCStateERNS0_INS_11CCValAssignEEERNS_16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEEE3$_0EEERS3_DpOT_.exit"
   %978 = trunc nuw i8 %.2269 to i1
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %979 = icmp uge i64 %indvars.iv.next580, %697
+  %979 = icmp samesign uge i64 %indvars.iv.next580, %697
   %or.cond567.not = or i1 %979, %978
   br i1 %or.cond567.not, label %.loopexit540.loopexit, label %699, !llvm.loop !41
 
@@ -5522,7 +5522,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit388.i:         ; preds = %_ZNK4llvm3LLT19getS
   %.sroa.012.0.in.i380.i = phi i64 [ %1270, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i374.i ], [ %1257, %1256 ], [ %1264, %1262 ], [ %spec.select.i.i387.i, %1259 ]
   %.sroa.3.0.i381.i = phi i1 [ %.not1.i4.i376.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i374.i ], [ true, %1256 ], [ true, %1262 ], [ true, %1259 ]
   %.sroa.012.0.i382.i = and i64 %.sroa.012.0.in.i380.i, 4294967295
-  %.old168.i = icmp ugt i64 %.sroa.012.0.i363.i, %.sroa.012.0.i382.i
+  %.old168.i = icmp samesign ugt i64 %.sroa.012.0.i363.i, %.sroa.012.0.i382.i
   br i1 %.sroa.3.0.i362.i, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.i388, label %1271
 
 1271:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit388.i
@@ -6818,7 +6818,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit611.us.i:
   %1814 = add i64 %1813, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef %1814) #18
   %indvars.iv.next.i390 = add nuw nsw i64 %indvars.iv.i389, 1
-  %1815 = icmp ult i64 %indvars.iv.next.i390, %1790
+  %1815 = icmp samesign ult i64 %indvars.iv.next.i390, %1790
   br i1 %1815, label %1796, label %._crit_edge.us.i, !llvm.loop !47
 
 ._crit_edge.us.i:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit611.us.i

@@ -253,7 +253,7 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   %82 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #2
   %83 = zext i16 %81 to i32
   %84 = and i32 %82, 65535
-  %85 = icmp ugt i32 %84, %83
+  %85 = icmp samesign ugt i32 %84, %83
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %._crit_edge

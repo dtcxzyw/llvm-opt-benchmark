@@ -2920,12 +2920,12 @@ define internal i32 @Disto16x16_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %118 = lshr i32 %117, 5
   %119 = add nsw i32 %118, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %120 = icmp ult i64 %indvars.iv, 12
+  %120 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %120, label %5, label %121, !llvm.loop !21
 
 121:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
-  %122 = icmp ult i64 %indvars.iv23, 384
+  %122 = icmp samesign ult i64 %indvars.iv23, 384
   br i1 %122, label %.preheader, label %123, !llvm.loop !22
 
 123:                                              ; preds = %121

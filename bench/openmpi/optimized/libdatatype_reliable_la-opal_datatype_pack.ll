@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_checksum(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %2, align 4
   %58 = zext i32 %57 to i64
-  %59 = icmp uge i64 %indvars.iv.next, %58
+  %59 = icmp samesign uge i64 %indvars.iv.next, %58
   %60 = icmp eq i64 %49, 0
   %or.cond = select i1 %59, i1 true, i1 %60
   br i1 %or.cond, label %._crit_edge.loopexit, label %31, !llvm.loop !4
@@ -252,7 +252,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps_checksum(ptr 
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %82 = load i32, ptr %2, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next185, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next185, %83
   br i1 %84, label %61, label %.critedge.loopexit, !llvm.loop !6
 
 85:                                               ; preds = %.lr.ph164, %164
@@ -407,7 +407,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps_checksum(ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %165 = load i32, ptr %2, align 4
   %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %indvars.iv.next, %166
+  %167 = icmp samesign ult i64 %indvars.iv.next, %166
   br i1 %167, label %85, label %.critedge.loopexit178, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %61, %63
@@ -6775,7 +6775,7 @@ pack_contiguous_loop.exit._crit_edge:             ; preds = %pack_contiguous_loo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3323 = load i32, ptr %2, align 4
   %3324 = zext i32 %3323 to i64
-  %3325 = icmp ult i64 %indvars.iv.next, %3324
+  %3325 = icmp samesign ult i64 %indvars.iv.next, %3324
   br i1 %3325, label %36, label %._crit_edge858.loopexit, !llvm.loop !139
 
 ._crit_edge858.loopexit:                          ; preds = %3319
@@ -7238,7 +7238,7 @@ pack_predefined_heterogeneous.exit:               ; preds = %66, %.loopexit.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %227 = load i32, ptr %2, align 4
   %228 = zext i32 %227 to i64
-  %229 = icmp ult i64 %indvars.iv.next, %228
+  %229 = icmp samesign ult i64 %indvars.iv.next, %228
   br i1 %229, label %34, label %._crit_edge183.loopexit, !llvm.loop !142
 
 ._crit_edge183.loopexit:                          ; preds = %223

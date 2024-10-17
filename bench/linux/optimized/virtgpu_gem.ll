@@ -441,7 +441,7 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr nocaptur
 
 .thread6:                                         ; preds = %33, %35, %36, %.preheader
   %37 = add nuw nsw i64 %26, 1
-  %38 = icmp ult i64 %37, %25
+  %38 = icmp samesign ult i64 %37, %25
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread6, %22
@@ -506,7 +506,7 @@ define dso_local void @virtio_gpu_array_put_free(ptr noundef %0) local_unnamed_a
   %21 = add nuw nsw i64 %10, 1
   %22 = load i32, ptr %4, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %9, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %3
@@ -550,7 +550,7 @@ define dso_local i32 @virtio_gpu_array_lock_resv(ptr noundef %0) local_unnamed_a
   %20 = add nuw nsw i64 %24, 1
   %21 = load i32, ptr %2, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %20, %22
+  %23 = icmp samesign ult i64 %20, %22
   br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .preheader:                                       ; preds = %16, %19
@@ -730,7 +730,7 @@ define dso_local void @virtio_gpu_array_put_free_work(ptr noundef %0) local_unna
   %31 = add nuw nsw i64 %20, 1
   %32 = load i32, ptr %14, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %19, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %13

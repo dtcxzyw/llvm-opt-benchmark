@@ -191,7 +191,7 @@ if.then38:                                        ; preds = %for.end
 if.then50:                                        ; preds = %if.then38
   %conv52 = shl i32 %sub42, 2
   %conv53 = and i32 %conv52, 65532
-  %cmp60 = icmp ult i32 %conv53, 65520
+  %cmp60 = icmp samesign ult i32 %conv53, 65520
   br i1 %cmp60, label %if.then62, label %if.end71
 
 if.then62:                                        ; preds = %if.then50
@@ -479,7 +479,7 @@ while.body8.lr.ph.i:                              ; preds = %while.cond4.prehead
   %3 = add nuw nsw i64 %indvars.iv.i, 2
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr @indexes, i64 0, i64 %3
   %cmp20.i = icmp eq i64 %indvars.iv.i, 4
-  %cmp73.i = icmp ugt i64 %indvars.iv.i, 3
+  %cmp73.i = icmp samesign ugt i64 %indvars.iv.i, 3
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %conv76.i = trunc i64 %indvars.iv.i to i16
   br label %while.body8.i
@@ -632,7 +632,7 @@ while.end.i:                                      ; preds = %if.end96.i, %while.
   br i1 %cmp2.i, label %while.cond4.preheader.i, label %while.end98.i, !llvm.loop !9
 
 while.end98.i:                                    ; preds = %while.end.i
-  %cmp99.i = icmp ult i64 %indvars.iv.i, 3
+  %cmp99.i = icmp samesign ult i64 %indvars.iv.i, 3
   br i1 %cmp99.i, label %if.then101.i, label %if.else107.i
 
 if.then101.i:                                     ; preds = %while.end98.i, %if.end.i

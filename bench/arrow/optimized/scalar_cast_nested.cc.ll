@@ -42212,7 +42212,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 for.inc:                                          ; preds = %for.body, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %if.end
   %out_field_index.1 = phi i32 [ %inc, %if.end ], [ %out_field_index.0361, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %out_field_index.0361, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   %cmp9 = icmp slt i32 %out_field_index.1, %conv.i53
   %26 = select i1 %cmp, i1 %cmp9, i1 false
   br i1 %26, label %for.body, label %for.end, !llvm.loop !698

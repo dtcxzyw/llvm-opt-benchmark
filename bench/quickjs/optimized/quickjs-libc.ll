@@ -8143,7 +8143,7 @@ JS_FreeValue.exit280:                             ; preds = %47, %51, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %6, align 4
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %57
@@ -8565,7 +8565,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %226 = load i32, ptr %6, align 4
   %227 = zext i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv.next350, %227
+  %228 = icmp samesign ult i64 %indvars.iv.next350, %227
   br i1 %228, label %.lr.ph317, label %._crit_edge318, !llvm.loop !42
 
 ._crit_edge318:                                   ; preds = %.lr.ph317, %.loopexit
@@ -9028,7 +9028,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %4, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %43, %8, %._crit_edge
@@ -9046,7 +9046,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %55 = load i32, ptr %4, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next109, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next109, %56
   br i1 %57, label %.lr.ph94, label %._crit_edge95, !llvm.loop !45
 
 ._crit_edge95:                                    ; preds = %.lr.ph94, %.preheader, %.critedge
@@ -9072,7 +9072,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %62 = load i32, ptr %4, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next106, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next106, %63
   br i1 %64, label %.lr.ph92, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph92, %.loopexit

@@ -3024,7 +3024,7 @@ define dso_local void @intel_link_compute_m_n(i16 noundef zeroext %0, i32 nounde
   %21 = lshr i32 %19, 1
   %22 = lshr i32 %20, 1
   %23 = icmp ugt i32 %19, 33554431
-  %24 = icmp ugt i32 %20, 33554431
+  %24 = icmp samesign ugt i32 %20, 33554431
   %or.cond = select i1 %23, i1 true, i1 %24
   br i1 %or.cond, label %18, label %25, !llvm.loop !70
 
@@ -8477,7 +8477,7 @@ define dso_local i32 @intel_atomic_check(ptr noundef %0, ptr noundef %1) local_u
 
 .loopexit300:                                     ; preds = %187, %77, %121, %72
   %190 = add nuw nsw i64 %73, 1
-  %191 = icmp ult i64 %190, %71
+  %191 = icmp samesign ult i64 %190, %71
   br i1 %191, label %72, label %.loopexit301, !llvm.loop !98
 
 .loopexit301:                                     ; preds = %.loopexit300, %61
@@ -9447,7 +9447,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 
 835:                                              ; preds = %826, %813, %807, %801
   %836 = add nuw nsw i64 %802, 1
-  %837 = icmp uge i64 %836, %800
+  %837 = icmp samesign uge i64 %836, %800
   %838 = icmp eq i64 %836, %800
   br i1 %838, label %839, label %801, !llvm.loop !121
 
@@ -10759,7 +10759,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 
 1664:                                             ; preds = %1659, %1652, %1648, %1640
   %1665 = add nuw nsw i64 %1641, 1
-  %1666 = icmp ult i64 %1665, %1639
+  %1666 = icmp samesign ult i64 %1665, %1639
   %1667 = icmp eq i64 %1665, %1639
   br i1 %1667, label %1668, label %1640, !llvm.loop !143
 
@@ -10846,7 +10846,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 
 1724:                                             ; preds = %1719, %1712, %1708, %1700
   %1725 = add nuw nsw i64 %1701, 1
-  %1726 = icmp ult i64 %1725, %1699
+  %1726 = icmp samesign ult i64 %1725, %1699
   %1727 = icmp eq i64 %1725, %1699
   br i1 %1727, label %1728, label %1700, !llvm.loop !143
 
@@ -10919,7 +10919,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 
 1771:                                             ; preds = %1766, %1759, %1755, %1747
   %1772 = add nuw nsw i64 %1748, 1
-  %1773 = icmp ult i64 %1772, %1746
+  %1773 = icmp samesign ult i64 %1772, %1746
   %1774 = icmp eq i64 %1772, %1746
   br i1 %1774, label %1775, label %1747, !llvm.loop !144
 
@@ -15927,56 +15927,56 @@ define dso_local range(i32 -2, 16) i32 @intel_mode_valid(ptr nocapture noundef r
   %44 = getelementptr inbounds i8, ptr %1, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i32
-  %47 = icmp ult i32 %40, %46
+  %47 = icmp samesign ult i32 %40, %46
   br i1 %47, label %84, label %48
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds i8, ptr %1, i64 6
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = icmp ult i32 %41, %51
+  %52 = icmp samesign ult i32 %41, %51
   br i1 %52, label %84, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds i8, ptr %1, i64 8
   %55 = load i16, ptr %54, align 8
   %56 = zext i16 %55 to i32
-  %57 = icmp ult i32 %41, %56
+  %57 = icmp samesign ult i32 %41, %56
   br i1 %57, label %84, label %58
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %1, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %41, %61
+  %62 = icmp samesign ult i32 %41, %61
   br i1 %62, label %84, label %63
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds i8, ptr %1, i64 14
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
-  %67 = icmp ult i32 %42, %66
+  %67 = icmp samesign ult i32 %42, %66
   br i1 %67, label %84, label %68
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds i8, ptr %1, i64 16
   %70 = load i16, ptr %69, align 8
   %71 = zext i16 %70 to i32
-  %72 = icmp ult i32 %43, %71
+  %72 = icmp samesign ult i32 %43, %71
   br i1 %72, label %84, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds i8, ptr %1, i64 18
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
-  %77 = icmp ult i32 %43, %76
+  %77 = icmp samesign ult i32 %43, %76
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds i8, ptr %1, i64 20
   %80 = load i16, ptr %79, align 4
   %81 = zext i16 %80 to i32
-  %82 = icmp ult i32 %43, %81
+  %82 = icmp samesign ult i32 %43, %81
   %83 = select i1 %82, i32 4, i32 0
   br label %84
 
@@ -16077,7 +16077,7 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nocapt
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
-  %15 = icmp ult i32 %11, %14
+  %15 = icmp samesign ult i32 %11, %14
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %7
@@ -16085,7 +16085,7 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nocapt
   %18 = getelementptr inbounds i8, ptr %1, i64 14
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
-  %21 = icmp ult i32 %17, %20
+  %21 = icmp samesign ult i32 %17, %20
   %22 = select i1 %21, i32 4, i32 0
   br label %23
 
@@ -18285,7 +18285,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %165 = icmp ne i8 %164, 0
   %166 = zext i1 %165 to i32
   %167 = add nuw nsw i32 %163, %166
-  %168 = icmp ugt i32 %167, 1
+  %168 = icmp samesign ugt i32 %167, 1
   br i1 %168, label %169, label %180, !prof !13
 
 169:                                              ; preds = %156
@@ -20137,7 +20137,7 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   %51 = phi i8 [ %17, %14 ], [ %17, %25 ], [ %49, %45 ], [ %17, %36 ]
   %52 = phi i8 [ %16, %14 ], [ %16, %25 ], [ %16, %45 ], [ %44, %36 ]
   %53 = add nuw nsw i64 %15, 1
-  %54 = icmp ult i64 %53, %11
+  %54 = icmp samesign ult i64 %53, %11
   br i1 %54, label %14, label %12, !llvm.loop !324
 
 .loopexit29:                                      ; preds = %73

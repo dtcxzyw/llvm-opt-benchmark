@@ -2868,7 +2868,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
   %166 = add nuw nsw i64 %158, 1
   %167 = load i32, ptr %134, align 8
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %166, %168
+  %169 = icmp samesign ult i64 %166, %168
   br i1 %169, label %.preheader, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %155
@@ -3813,7 +3813,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr nocapture 
   br label %26
 
 24:                                               ; preds = %26
-  %25 = icmp ult i32 %3, 8
+  %25 = icmp samesign ult i32 %3, 8
   br i1 %25, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %20, %24
@@ -4247,13 +4247,13 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
   %35 = add nuw nsw i64 %40, 8
   %36 = load i8, ptr %8, align 1
   %37 = zext i8 %36 to i64
-  %38 = icmp ult i64 %35, %37
+  %38 = icmp samesign ult i64 %35, %37
   br i1 %38, label %39, label %.loopexit, !llvm.loop !66
 
 39:                                               ; preds = %34, %32
   %40 = phi i64 [ 0, %32 ], [ %35, %34 ]
   store i64 0, ptr %9, align 8
-  %41 = icmp ult i64 %40, %33
+  %41 = icmp samesign ult i64 %40, %33
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
@@ -4318,7 +4318,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr noc
 14:                                               ; preds = %12
   %15 = load i8, ptr %8, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp ugt i32 %1, %16
+  %17 = icmp samesign ugt i32 %1, %16
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %14
@@ -4378,7 +4378,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr noc
   %49 = add nuw nsw i64 %53, 8
   %50 = load i8, ptr %6, align 1
   %51 = zext i8 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %.preheader, label %.critedge, !llvm.loop !67
 
 .preheader:                                       ; preds = %41, %48

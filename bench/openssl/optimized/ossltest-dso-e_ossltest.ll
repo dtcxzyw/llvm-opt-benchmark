@@ -1573,7 +1573,7 @@ if.then17:                                        ; preds = %if.end
   br i1 %cmp20, label %if.then22, label %if.end36
 
 if.then22:                                        ; preds = %if.then17
-  %cmp23 = icmp ult i32 %or, 16
+  %cmp23 = icmp samesign ult i32 %or, 16
   br i1 %cmp23, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.then22

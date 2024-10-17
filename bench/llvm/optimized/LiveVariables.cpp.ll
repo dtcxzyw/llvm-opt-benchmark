@@ -934,7 +934,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread: ; preds = %_ZN4llvm11raw
 
 28:                                               ; preds = %28, %24
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %28 ], [ 0, %24 ]
-  %29 = icmp ult i64 %indvars.iv.i.i.i.i, 2
+  %29 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds [2 x i64], ptr %27, i64 0, i64 %indvars.iv.i.i.i.i
   %31 = load i64, ptr %30, align 8, !noalias !25
@@ -5899,7 +5899,7 @@ _ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5vfindERKj.exit.i: ; preds = %.lr.ph.i.i, %._
   %187 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
-  %190 = icmp ugt i64 %indvars.iv, %189
+  %190 = icmp samesign ugt i64 %indvars.iv, %189
   %.19.i.i.i.i = select i1 %190, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %190, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
@@ -5916,7 +5916,7 @@ _ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit: ; preds = %_ZNKSt8_Rb_treeIj
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %192 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv, %193
+  %194 = icmp samesign ult i64 %indvars.iv, %193
   br i1 %194, label %_ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit.thread, label %196
 
 _ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit.thread: ; preds = %185, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i, %_ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5vfindERKj.exit.i, %_ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit
@@ -6526,7 +6526,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread: ; preds = %.outer._crit_
 
 195:                                              ; preds = %195, %191
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %195 ], [ 0, %191 ]
-  %196 = icmp ult i64 %indvars.iv.i.i.i.i, 2
+  %196 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %196)
   %197 = getelementptr inbounds [2 x i64], ptr %194, i64 0, i64 %indvars.iv.i.i.i.i
   %198 = load i64, ptr %197, align 8, !noalias !168
@@ -8405,7 +8405,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.thread: ; preds = %5
 
 25:                                               ; preds = %25, %21
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %25 ], [ 0, %21 ]
-  %26 = icmp ult i64 %indvars.iv.i.i.i.i, 2
+  %26 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds [2 x i64], ptr %24, i64 0, i64 %indvars.iv.i.i.i.i
   %28 = load i64, ptr %27, align 8, !noalias !200
@@ -9232,7 +9232,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
 
 34:                                               ; preds = %13
-  %35 = icmp ult i32 %19, 64
+  %35 = icmp samesign ult i32 %19, 64
   br i1 %35, label %36, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread
 
 36:                                               ; preds = %34
@@ -9276,7 +9276,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread: ; preds = %34
 
 55:                                               ; preds = %55, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
-  %56 = icmp ult i64 %indvars.iv.i, 2
+  %56 = icmp samesign ult i64 %indvars.iv.i, 2
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8

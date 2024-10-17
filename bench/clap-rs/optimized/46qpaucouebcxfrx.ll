@@ -1835,15 +1835,15 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %4 = load i32, ptr %2, align 4, !range !516, !alias.scope !550, !noalias !547, !noundef !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !552
-  %5 = icmp ult i32 %4, 128
+  %5 = icmp samesign ult i32 %4, 128
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i32 %4, 2048
+  %7 = icmp samesign ult i32 %4, 2048
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ult i32 %4, 65536
+  %9 = icmp samesign ult i32 %4, 65536
   br i1 %9, label %19, label %30
 
 10:                                               ; preds = %3
@@ -11395,15 +11395,15 @@ define hidden void @"_ZN12clap_builder6output13help_template12HelpTemplate9spec_
   %4 = load i32, ptr %2, align 4, !range !516, !noundef !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %4, 128
+  %5 = icmp samesign ult i32 %4, 128
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i32 %4, 2048
+  %7 = icmp samesign ult i32 %4, 2048
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ult i32 %4, 65536
+  %9 = icmp samesign ult i32 %4, 65536
   br i1 %9, label %19, label %30
 
 10:                                               ; preds = %3

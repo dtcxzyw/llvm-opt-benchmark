@@ -1548,7 +1548,7 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %685, %
   %735 = lshr i32 %734, 3
   %736 = and i32 %735, 8191
   %737 = zext nneg i32 %736 to i64
-  %738 = icmp ult i64 %indvars.iv.next679.i, %737
+  %738 = icmp samesign ult i64 %indvars.iv.next679.i, %737
   br i1 %738, label %.lr.ph613.i, label %.preheader.i, !llvm.loop !18
 
 739:                                              ; preds = %748, %.lr.ph615.i
@@ -2852,7 +2852,7 @@ spgMatchNodeAction.exit:                          ; preds = %1332, %ItemPointerI
 .lr.ph.i.i178:                                    ; preds = %.lr.ph.i.i178, %.lr.ph.preheader.i.i177
   %indvars.iv.i.i179 = phi i64 [ 0, %.lr.ph.preheader.i.i177 ], [ %indvars.iv.next.i.i180, %.lr.ph.i.i178 ]
   %.03234.i.i = phi ptr [ %1391, %.lr.ph.preheader.i.i177 ], [ %1399, %.lr.ph.i.i178 ]
-  %1393 = icmp ult i64 %indvars.iv.i.i179, %1392
+  %1393 = icmp samesign ult i64 %indvars.iv.i.i179, %1392
   %.invariant.gep.idx.i.i = select i1 %1393, i64 0, i64 8
   %.invariant.gep.i.i = getelementptr i8, ptr %1385, i64 %.invariant.gep.idx.i.i
   %1394 = getelementptr ptr, ptr %.invariant.gep.i.i, i64 %indvars.iv.i.i179
@@ -2867,7 +2867,7 @@ spgMatchNodeAction.exit:                          ; preds = %1332, %ItemPointerI
   %1401 = lshr i32 %1400, 3
   %1402 = and i32 %1401, 8191
   %1403 = zext nneg i32 %1402 to i64
-  %1404 = icmp ult i64 %indvars.iv.next.i.i180, %1403
+  %1404 = icmp samesign ult i64 %indvars.iv.next.i.i180, %1403
   br i1 %1404, label %.lr.ph.i.i178, label %._crit_edge.i.i181, !llvm.loop !25
 
 ._crit_edge.i.i181:                               ; preds = %.lr.ph.i.i178, %.._crit_edge.i_crit_edge.i
@@ -3380,7 +3380,7 @@ spgAddNodeAction.exit:                            ; preds = %1618, %1478, %1622
   %1684 = lshr i32 %1683, 3
   %1685 = and i32 %1684, 8191
   %1686 = zext nneg i32 %1685 to i64
-  %1687 = icmp ult i64 %indvars.iv.next153.i, %1686
+  %1687 = icmp samesign ult i64 %indvars.iv.next153.i, %1686
   br i1 %1687, label %.lr.ph144.i, label %._crit_edge145.i, !llvm.loop !27
 
 ._crit_edge145.i:                                 ; preds = %.lr.ph144.i, %1666

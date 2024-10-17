@@ -1019,7 +1019,7 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   %550 = xor i64 %549, %457
   %551 = xor i64 %550, %507
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %552 = icmp ult i64 %indvars.iv, 22
+  %552 = icmp samesign ult i64 %indvars.iv, 22
   br i1 %552, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %234

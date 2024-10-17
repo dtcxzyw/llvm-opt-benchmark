@@ -1580,7 +1580,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   call void @rb_Digest_RMD160_Transform(ptr noundef %0, ptr noundef nonnull %4)
   %35 = add i32 %.035, 1
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %32, %36
+  %37 = icmp samesign ugt i64 %32, %36
   br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1677,7 +1677,7 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr nounde
   %46 = getelementptr inbounds i8, ptr %1, i64 %45
   store i8 %44, ptr %46, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %47 = icmp ult i64 %indvars.iv, 16
+  %47 = icmp samesign ult i64 %indvars.iv, 16
   br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %18

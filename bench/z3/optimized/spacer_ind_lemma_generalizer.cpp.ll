@@ -1639,7 +1639,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %for.end.i.i.i
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %51, i64 -4
   %52 = load i32, ptr %arrayidx.i.i3.i.i, align 4
   %53 = zext i32 %52 to i64
-  %cmp720.i.i.i = icmp ult i64 %indvars.iv, %53
+  %cmp720.i.i.i = icmp samesign ult i64 %indvars.iv, %53
   br i1 %cmp720.i.i.i, label %for.body8.i.i.i, label %for.end26.i.i.i
 
 for.body8.i.i.i:                                  ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, %for.inc24.i.i.i

@@ -20493,7 +20493,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i:             ; preds = %725, %.noexc.i, %71
   %759 = or i8 %757, %758
   store i8 %759, ptr %756, align 1
   %760 = lshr i64 %.01318.i.i, 8
-  %.not16.i.i = icmp ult i64 %.01318.i.i, 256
+  %.not16.i.i = icmp samesign ult i64 %.01318.i.i, 256
   br i1 %.not16.i.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZN5faiss15BitstringWriter5writeEmi.exit.i:       ; preds = %.lr.ph.i.i, %747, %740
@@ -20546,7 +20546,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit.i:       ; preds = %.lr.ph.i.i, %747, %
   %791 = or i8 %789, %790
   store i8 %791, ptr %788, align 1
   %792 = lshr i64 %.01318.i64.i, 8
-  %.not16.i66.i = icmp ult i64 %.01318.i64.i, 256
+  %.not16.i66.i = icmp samesign ult i64 %.01318.i64.i, 256
   br i1 %.not16.i66.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit67.i, label %.lr.ph.i62.i, !llvm.loop !17
 
 _ZN5faiss15BitstringWriter5writeEmi.exit67.i:     ; preds = %.lr.ph.i62.i, %779, %772
@@ -20600,7 +20600,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit67.i:     ; preds = %.lr.ph.i62.i, %779,
   %818 = or i8 %816, %817
   store i8 %818, ptr %815, align 1
   %819 = lshr i64 %.01318.i72.i, 8
-  %.not16.i74.i = icmp ult i64 %.01318.i72.i, 256
+  %.not16.i74.i = icmp samesign ult i64 %.01318.i72.i, 256
   br i1 %.not16.i74.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit75.i, label %.lr.ph.i70.i, !llvm.loop !17
 
 _ZN5faiss15BitstringWriter5writeEmi.exit75.i:     ; preds = %.lr.ph.i70.i, %806, %799
@@ -21323,7 +21323,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %100, %.noexc, %88
   %134 = or i8 %132, %133
   store i8 %134, ptr %131, align 1
   %135 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp ult i64 %.01318.i, 256
+  %.not16.i = icmp samesign ult i64 %.01318.i, 256
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %115, %122
@@ -21376,7 +21376,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %115, %12
   %166 = or i8 %164, %165
   store i8 %166, ptr %163, align 1
   %167 = lshr i64 %.01318.i109, 8
-  %.not16.i111 = icmp ult i64 %.01318.i109, 256
+  %.not16.i111 = icmp samesign ult i64 %.01318.i109, 256
   br i1 %.not16.i111, label %_ZN5faiss15BitstringWriter5writeEmi.exit112, label %.lr.ph.i107, !llvm.loop !17
 
 _ZN5faiss15BitstringWriter5writeEmi.exit112:      ; preds = %.lr.ph.i107, %147, %154

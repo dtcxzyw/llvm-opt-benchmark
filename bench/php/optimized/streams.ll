@@ -3748,7 +3748,7 @@ _php_stream_write.exit.thread:                    ; preds = %99, %86, %_php_stre
   br i1 %or.cond129, label %108, label %.cont
 
 108:                                              ; preds = %.cont153
-  %109 = icmp ult i64 %.013.i167, %.0101
+  %109 = icmp samesign ult i64 %.013.i167, %.0101
   %110 = icmp eq i64 %.0100, %.013.i167
   %or.cond131 = select i1 %62, i1 %110, i1 false
   %or.cond = select i1 %109, i1 true, i1 %or.cond131

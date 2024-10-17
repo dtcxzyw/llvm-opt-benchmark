@@ -326,7 +326,7 @@ ZSTD_litLengthPrice.exit528:                      ; preds = %147, %150
   %165 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %162, i1 true)
   %166 = xor i32 %165, 31
   %167 = zext nneg i32 %166 to i64
-  %168 = icmp ugt i32 %166, 19
+  %168 = icmp samesign ugt i32 %166, 19
   %169 = shl nuw nsw i32 %166, 9
   %170 = add nsw i32 %169, -9677
   %171 = select i1 %168, i32 %170, i32 51
@@ -829,7 +829,7 @@ ZSTD_litLengthPrice.exit543:                      ; preds = %406, %410
   %458 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %448, i1 true)
   %459 = xor i32 %458, 31
   %460 = zext nneg i32 %459 to i64
-  %461 = icmp ugt i32 %459, 19
+  %461 = icmp samesign ugt i32 %459, 19
   %462 = shl nuw nsw i32 %459, 9
   %463 = add nsw i32 %462, -9677
   %464 = select i1 %461, i32 %463, i32 51
@@ -928,7 +928,7 @@ ZSTD_MLcode.exit544:                              ; preds = %487, %490
   %indvars.iv.next733 = add nuw nsw i64 %indvars.iv732, 1
   %521 = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %38, i64 %indvars.iv.next733
   store i32 1073741824, ptr %521, align 4
-  %522 = icmp ult i64 %indvars.iv.next733, %520
+  %522 = icmp samesign ult i64 %indvars.iv.next733, %520
   br i1 %522, label %.lr.ph651, label %._crit_edge652.loopexit, !llvm.loop !12
 
 ._crit_edge652.loopexit:                          ; preds = %.lr.ph651
@@ -2470,7 +2470,7 @@ ZSTD_MLcode.exit547:                              ; preds = %572, %575
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
   %610 = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %37, i64 %indvars.iv.next793
   store i32 1073741824, ptr %610, align 4
-  %611 = icmp ult i64 %indvars.iv.next793, %609
+  %611 = icmp samesign ult i64 %indvars.iv.next793, %609
   br i1 %611, label %.lr.ph704, label %._crit_edge705.loopexit, !llvm.loop !12
 
 ._crit_edge705.loopexit:                          ; preds = %.lr.ph704

@@ -187,7 +187,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %1 = load i8, ptr %multi, align 4
   %tobool5 = trunc i8 %1 to i1
   %2 = select i1 %tobool5, i64 8, i64 2
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
@@ -332,7 +332,7 @@ sw.bb10.i:                                        ; preds = %sw.bb
   %4 = load i8, ptr %multi.i, align 4
   %tobool12.i = trunc i8 %4 to i1
   %cond.i = select i1 %tobool12.i, i32 8, i32 2
-  %cmp.i = icmp ugt i32 %cond.i, %conv11.i
+  %cmp.i = icmp samesign ugt i32 %cond.i, %conv11.i
   br i1 %cmp.i, label %if.then.i, label %if.then10
 
 if.then.i:                                        ; preds = %sw.bb10.i
@@ -359,7 +359,7 @@ sw.bb29.i:                                        ; preds = %sw.bb
   %7 = load i8, ptr %multi31.i, align 4
   %tobool32.i = trunc i8 %7 to i1
   %cond34.i = select i1 %tobool32.i, i32 8, i32 2
-  %cmp35.i = icmp ugt i32 %cond34.i, %conv30.i
+  %cmp35.i = icmp samesign ugt i32 %cond34.i, %conv30.i
   br i1 %cmp35.i, label %if.then37.i, label %if.then10
 
 if.then37.i:                                      ; preds = %sw.bb29.i
@@ -374,7 +374,7 @@ sw.bb41.i:                                        ; preds = %sw.bb
   %8 = load i8, ptr %multi43.i, align 4
   %tobool44.i = trunc i8 %8 to i1
   %cond46.i = select i1 %tobool44.i, i32 8, i32 2
-  %cmp47.i = icmp ugt i32 %cond46.i, %conv42.i
+  %cmp47.i = icmp samesign ugt i32 %cond46.i, %conv42.i
   br i1 %cmp47.i, label %if.then49.i, label %if.then10
 
 if.then49.i:                                      ; preds = %sw.bb41.i
@@ -389,7 +389,7 @@ sw.bb53.i:                                        ; preds = %sw.bb
   %9 = load i8, ptr %multi55.i, align 4
   %tobool56.i = trunc i8 %9 to i1
   %cond58.i = select i1 %tobool56.i, i32 8, i32 2
-  %cmp59.i = icmp ugt i32 %cond58.i, %conv54.i
+  %cmp59.i = icmp samesign ugt i32 %cond58.i, %conv54.i
   br i1 %cmp59.i, label %if.then61.i, label %if.then10
 
 if.then61.i:                                      ; preds = %sw.bb53.i
@@ -437,7 +437,7 @@ sw.bb10.i41:                                      ; preds = %sw.bb17
   %14 = load i8, ptr %multi.i43, align 4
   %tobool12.i44 = trunc i8 %14 to i1
   %cond.i45 = select i1 %tobool12.i44, i32 8, i32 2
-  %cmp.i46 = icmp ugt i32 %cond.i45, %conv11.i42
+  %cmp.i46 = icmp samesign ugt i32 %cond.i45, %conv11.i42
   br i1 %cmp.i46, label %if.then.i47, label %if.then25
 
 if.then.i47:                                      ; preds = %sw.bb10.i41
@@ -501,7 +501,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %27 = load i8, ptr %multi54.i, align 4
   %tobool55.i = trunc i8 %27 to i1
   %28 = select i1 %tobool55.i, i64 8, i64 2
-  %cmp58.i = icmp ult i64 %indvars.iv.next.i, %28
+  %cmp58.i = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %cmp58.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i

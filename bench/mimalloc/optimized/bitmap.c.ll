@@ -823,7 +823,7 @@ if.then6:                                         ; preds = %for.body
 if.end.i:                                         ; preds = %if.then6
   %not.i = xor i64 %0, -1
   %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
-  %cmp2.not22.i = icmp ugt i64 %1, %sub.i
+  %cmp2.not22.i = icmp samesign ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i, label %if.end10, label %while.cond.outer.split.lr.ph.i
 
 while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
@@ -897,7 +897,7 @@ if.then2.i:                                       ; preds = %if.end.i19
 if.end.i.i21:                                     ; preds = %if.then2.i
   %not.i.i = xor i64 %13, -1
   %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.i, i1 true)
-  %cmp2.not22.i.i = icmp ugt i64 %14, %sub.i
+  %cmp2.not22.i.i = icmp samesign ugt i64 %14, %sub.i
   br i1 %cmp2.not22.i.i, label %for.inc, label %while.cond.outer.split.lr.ph.i.i
 
 while.cond.outer.split.lr.ph.i.i:                 ; preds = %if.end.i.i21

@@ -831,7 +831,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %370, label %371, label %.critedge29
 
 371:                                              ; preds = %366
-  %372 = icmp ugt i32 %363, 1
+  %372 = icmp samesign ugt i32 %363, 1
   br i1 %372, label %373, label %388
 
 373:                                              ; preds = %371

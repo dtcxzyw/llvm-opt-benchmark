@@ -23314,7 +23314,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %3, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -23411,7 +23411,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %60 = load i32, ptr %3, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next76, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next76, %61
   br i1 %62, label %.preheader, label %._crit_edge65, !llvm.loop !109
 
 ._crit_edge65:                                    ; preds = %59, %._crit_edge60

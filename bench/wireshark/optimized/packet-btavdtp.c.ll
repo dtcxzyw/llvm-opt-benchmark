@@ -2937,7 +2937,7 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %61, ptr noundef %0, i32 noundef %.0116126, i32 noundef 1, i32 noundef 0) #6
   %63 = add i32 %.0116126, 1
   %. = select i1 %.0115121, i32 1, i32 2
-  %64 = icmp ult i32 %.0113122, 6
+  %64 = icmp samesign ult i32 %.0113122, 6
   br i1 %64, label %switch.lookup, label %67
 
 switch.lookup:                                    ; preds = %60

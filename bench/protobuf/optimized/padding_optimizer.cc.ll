@@ -1890,7 +1890,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.then.i.i
 
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp1.not.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i, 3
+  %cmp1.not.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i, 3
   br i1 %cmp1.not.i.i.i, label %if.end22.i.thread, label %while.body.i.i.i, !llvm.loop !25
 
 if.then.i.i:                                      ; preds = %while.body.i.i.i

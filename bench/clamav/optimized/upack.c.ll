@@ -1337,7 +1337,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 43:                                               ; preds = %39
   %44 = and i32 %.promoted373, 255
-  %45 = icmp ugt i32 %44, 6
+  %45 = icmp samesign ugt i32 %44, 6
   %46 = select i1 %45, i32 11, i32 8
   %47 = and i32 %.promoted373, -256
   %48 = or disjoint i32 %46, %47
@@ -1401,7 +1401,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %gep378 = getelementptr inbounds i8, ptr %invariant.gep377, i64 %83
   store ptr %gep378, ptr %15, align 8
   %84 = and i32 %79, 254
-  %85 = icmp ugt i32 %84, 5
+  %85 = icmp samesign ugt i32 %84, 5
   br i1 %85, label %86, label %126
 
 86:                                               ; preds = %75
@@ -1717,7 +1717,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 .preheader352:                                    ; preds = %39, %.preheader352
   %240 = phi i32 [ %245, %.preheader352 ], [ %.promoted373, %39 ]
   %241 = and i32 %240, 255
-  %242 = icmp ugt i32 %241, 2
+  %242 = icmp samesign ugt i32 %241, 2
   %243 = add nsw i32 %241, -3
   %.0253 = select i1 %242, i32 %243, i32 0
   %244 = and i32 %240, -256
@@ -1794,7 +1794,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %288 = and i32 %284, -256
   %289 = or disjoint i32 %287, %288
   store i32 %289, ptr %11, align 4
-  %.not298 = icmp ult i32 %276, 2
+  %.not298 = icmp samesign ult i32 %276, 2
   br i1 %.not298, label %.loopexit, label %290
 
 290:                                              ; preds = %.preheader

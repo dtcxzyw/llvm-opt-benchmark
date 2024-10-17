@@ -2089,7 +2089,7 @@ define internal ptr @H5EA__cache_sblock_deserialize(ptr noundef %0, i64 noundef 
   %76 = getelementptr inbounds i8, ptr %75, i64 424
   %77 = load i8, ptr %76, align 8
   %78 = zext i8 %77 to i64
-  %79 = icmp ult i64 %74, %78
+  %79 = icmp samesign ult i64 %74, %78
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
@@ -2213,7 +2213,7 @@ define internal noundef i32 @H5EA__cache_sblock_serialize(ptr noundef %0, ptr no
   %29 = getelementptr inbounds i8, ptr %28, i64 424
   %30 = load i8, ptr %29, align 8
   %31 = zext i8 %30 to i64
-  %32 = icmp ult i64 %26, %31
+  %32 = icmp samesign ult i64 %26, %31
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2616,7 +2616,7 @@ define internal ptr @H5EA__cache_dblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %76 = getelementptr inbounds i8, ptr %75, i64 424
   %77 = load i8, ptr %76, align 8
   %78 = zext i8 %77 to i64
-  %79 = icmp ult i64 %74, %78
+  %79 = icmp samesign ult i64 %74, %78
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
@@ -2769,7 +2769,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_dblock_serialize(ptr noundef %
   %29 = getelementptr inbounds i8, ptr %28, i64 424
   %30 = load i8, ptr %29, align 8
   %31 = zext i8 %30 to i64
-  %32 = icmp ult i64 %26, %31
+  %32 = icmp samesign ult i64 %26, %31
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

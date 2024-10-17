@@ -1443,7 +1443,7 @@ _ZNK4llvm12MachineInstr10isFullCopyEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm1
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 22
   %522 = load i16, ptr %521, align 2
   %523 = zext i16 %522 to i32
-  %.not.i.i.i.i.i95.i = icmp ult i32 %520, %523
+  %.not.i.i.i.i.i95.i = icmp samesign ult i32 %520, %523
   br i1 %.not.i.i.i.i.i95.i, label %_ZN12_GLOBAL__N_115MachineCombiner13isTransientMIEPKN4llvm12MachineInstrE.exit.i.i.i, label %_ZN12_GLOBAL__N_115MachineCombiner13isTransientMIEPKN4llvm12MachineInstrE.exit.thread.i.i.i
 
 _ZN12_GLOBAL__N_115MachineCombiner13isTransientMIEPKN4llvm12MachineInstrE.exit.i.i.i: ; preds = %.thread18.thread.i.i.i.i

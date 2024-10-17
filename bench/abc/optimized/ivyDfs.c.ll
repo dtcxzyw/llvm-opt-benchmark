@@ -481,7 +481,7 @@ Vec_IntAlloc.exit77:                              ; preds = %.critedge2, %64
   %97 = inttoptr i64 %96 to ptr
   tail call void @Ivy_ManDfs_rec(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %61)
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %98 = icmp ult i64 %indvars.iv.next96, %75
+  %98 = icmp samesign ult i64 %indvars.iv.next96, %75
   br i1 %98, label %.lr.ph87, label %.critedge6, !llvm.loop !9
 
 .critedge6:                                       ; preds = %.lr.ph87, %.critedge4, %.critedge4.preheader
@@ -1634,7 +1634,7 @@ define internal fastcc range(i32 1, 2097154) i32 @Ivy_ObjLevelNew(ptr nocapture 
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 11
-  %19 = icmp ugt i32 %11, %18
+  %19 = icmp samesign ugt i32 %11, %18
   %spec.select = select i1 %19, ptr %8, ptr %15
   %.in.in = getelementptr inbounds i8, ptr %spec.select, i64 8
   %.in = load i32, ptr %.in.in, align 8

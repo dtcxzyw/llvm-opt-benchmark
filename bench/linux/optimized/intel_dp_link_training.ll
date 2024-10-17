@@ -509,7 +509,7 @@ intel_dp_phy_is_downstream_of_source.exit:        ; preds = %96
   %127 = add nuw nsw i32 %123, 1
   %128 = load i8, ptr %78, align 1
   %129 = zext i8 %128 to i32
-  %130 = icmp ult i32 %127, %129
+  %130 = icmp samesign ult i32 %127, %129
   br i1 %130, label %.preheader, label %.loopexit, !llvm.loop !16
 
 131:                                              ; preds = %87
@@ -577,7 +577,7 @@ intel_dp_phy_is_downstream_of_source.exit4:       ; preds = %131
   %166 = add nuw nsw i32 %159, 1
   %167 = load i8, ptr %78, align 1
   %168 = zext i8 %167 to i32
-  %169 = icmp ult i32 %166, %168
+  %169 = icmp samesign ult i32 %166, %168
   br i1 %169, label %.preheader11, label %.loopexit12, !llvm.loop !17
 
 .loopexit12:                                      ; preds = %.preheader11, %151, %148
@@ -3371,7 +3371,7 @@ define internal fastcc noundef zeroext i1 @intel_dp_link_train_phy(ptr noundef %
   %293 = add nuw nsw i32 %297, 1
   %294 = load i8, ptr %41, align 1
   %295 = zext i8 %294 to i32
-  %296 = icmp ult i32 %293, %295
+  %296 = icmp samesign ult i32 %293, %295
   br i1 %296, label %.preheader47, label %.thread, !llvm.loop !41
 
 .preheader47:                                     ; preds = %291, %292
@@ -3444,7 +3444,7 @@ define internal fastcc noundef zeroext i1 @intel_dp_link_train_phy(ptr noundef %
   %335 = add nuw nsw i64 %318, 1
   %336 = load i8, ptr %41, align 1
   %337 = zext i8 %336 to i64
-  %.not43 = icmp ult i64 %335, %337
+  %.not43 = icmp samesign ult i64 %335, %337
   br i1 %.not43, label %.preheader, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %334, %328, %325, %322, %.loopexit48

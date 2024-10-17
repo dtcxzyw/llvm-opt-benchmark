@@ -30,15 +30,15 @@ define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_st
   %3 = load i32, ptr %1, align 4, !range !4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %4 = icmp ult i32 %3, 128
+  %4 = icmp samesign ult i32 %3, 128
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %3, 2048
+  %6 = icmp samesign ult i32 %3, 2048
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %3, 65536
+  %8 = icmp samesign ult i32 %3, 65536
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2
@@ -849,15 +849,15 @@ define void @_ZN6uu_env15string_expander14StringExpander12put_one_char17hc94b037
   %3 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !147
-  %4 = icmp ult i32 %1, 128
+  %4 = icmp samesign ult i32 %1, 128
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %1, 2048
+  %6 = icmp samesign ult i32 %1, 2048
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %1, 65536
+  %8 = icmp samesign ult i32 %1, 65536
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2

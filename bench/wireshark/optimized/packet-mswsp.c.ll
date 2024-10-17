@@ -4838,7 +4838,7 @@ define internal noundef i32 @parse_CPropertyRestriction(ptr noundef %0, ptr noun
   %14 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
   %15 = and i32 %14, 3840
   %16 = and i32 %14, 15
-  %17 = icmp ult i32 %16, 9
+  %17 = icmp samesign ult i32 %16, 9
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %7

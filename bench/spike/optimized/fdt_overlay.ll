@@ -736,7 +736,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %33 = load i32, ptr %6, align 4
   %34 = sext i32 %33 to i64
   %35 = lshr i64 %34, 2
-  %36 = icmp ugt i64 %35, %indvars.iv.next
+  %36 = icmp samesign ugt i64 %35, %indvars.iv.next
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %32, %.preheader

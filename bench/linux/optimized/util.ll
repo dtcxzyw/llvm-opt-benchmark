@@ -201,7 +201,7 @@ define dso_local i32 @ipc_addid(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %40 = zext i16 %39 to i32
   %41 = load i32, ptr @ipc_mni_shift, align 4
   %42 = lshr i32 2147483647, %41
-  %43 = icmp ugt i32 %42, %40
+  %43 = icmp samesign ugt i32 %42, %40
   %44 = select i1 %43, i16 %39, i16 0
   store i16 %44, ptr %.phi.trans.insert, align 4
   br label %._crit_edge

@@ -1953,7 +1953,7 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %68
   %.val177 = load i32, ptr %78, align 4
   %79 = sub nsw i32 %.val176, %.val177
   %80 = call i32 @llvm.abs.i32(i32 %79, i1 true)
-  %81 = icmp ugt i32 %80, 31
+  %81 = icmp samesign ugt i32 %80, 31
   br i1 %81, label %Vec_IntPush.exit185, label %147
 
 Vec_IntPush.exit185:                              ; preds = %70

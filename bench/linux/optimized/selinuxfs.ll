@@ -285,7 +285,7 @@ define internal void @sel_kill_sb(ptr noundef %0) #5 align 16 {
   %16 = add nuw nsw i64 %12, 1
   %17 = load i32, ptr %6, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %16, %18
+  %19 = icmp samesign ult i64 %16, %18
   br i1 %19, label %11, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %11, %5
@@ -633,7 +633,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   %189 = add nuw nsw i64 %185, 1
   %190 = load i32, ptr %179, align 8
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %189, %191
+  %192 = icmp samesign ult i64 %189, %191
   br i1 %192, label %184, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %184, %178
@@ -996,7 +996,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr nocapture noundef %0, ptr 
   %90 = add nuw nsw i64 %95, 1
   %91 = load i32, ptr %8, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %94, label %129, !llvm.loop !17
 
 94:                                               ; preds = %82, %80
@@ -1222,7 +1222,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr nocapture noundef %0, ptr 
   %211 = add nuw nsw i64 %192, 1
   %212 = load i32, ptr %3, align 4
   %213 = zext i32 %212 to i64
-  %214 = icmp ult i64 %211, %213
+  %214 = icmp samesign ult i64 %211, %213
   br i1 %214, label %191, label %.loopexit55, !llvm.loop !18
 
 .loopexit55:                                      ; preds = %203, %.thread39
@@ -1240,7 +1240,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr nocapture noundef %0, ptr 
   %222 = add nuw nsw i64 %218, 1
   %223 = load i32, ptr %3, align 4
   %224 = zext i32 %223 to i64
-  %225 = icmp ult i64 %222, %224
+  %225 = icmp samesign ult i64 %222, %224
   br i1 %225, label %.preheader54, label %.thread40, !llvm.loop !19
 
 .thread40:                                        ; preds = %.preheader54, %185, %.loopexit55
@@ -1265,7 +1265,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr nocapture noundef %0, ptr 
   %234 = add nuw nsw i64 %142, 1
   %235 = load i32, ptr %5, align 4
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %234, %236
+  %237 = icmp samesign ult i64 %234, %236
   br i1 %237, label %.preheader56, label %.loopexit57, !llvm.loop !20
 
 thread-pre-split:                                 ; preds = %151, %230, %178, %148, %134
@@ -1288,7 +1288,7 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   %245 = add nuw nsw i64 %241, 1
   %246 = load i32, ptr %5, align 4
   %247 = zext i32 %246 to i64
-  %248 = icmp ult i64 %245, %247
+  %248 = icmp samesign ult i64 %245, %247
   br i1 %248, label %.preheader, label %.loopexit53, !llvm.loop !21
 
 .loopexit53:                                      ; preds = %.preheader, %.loopexit57
@@ -2387,7 +2387,7 @@ define internal i64 @sel_write_user(ptr nocapture readnone %0, ptr nocapture nou
   %74 = add nuw nsw i64 %52, 1
   %75 = load i32, ptr %8, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %74, %76
+  %77 = icmp samesign ult i64 %74, %76
   br i1 %77, label %51, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %69, %68, %60, %42, %37, %33, %30, %27, %23, %3
@@ -3566,7 +3566,7 @@ define internal ptr @sel_avc_stats_seq_start(ptr nocapture readnone %0, ptr noca
   %25 = add nuw nsw i64 %13, 1
   %26 = load i32, ptr @nr_cpu_ids, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %12, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %24, %17, %6, %2
@@ -3615,7 +3615,7 @@ define internal ptr @sel_avc_stats_seq_next(ptr nocapture readnone %0, ptr nocap
   %25 = add nuw nsw i64 %11, 1
   %26 = load i32, ptr @nr_cpu_ids, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %10, label %.loopexit.loopexit, !llvm.loop !39
 
 .loopexit.loopexit:                               ; preds = %24

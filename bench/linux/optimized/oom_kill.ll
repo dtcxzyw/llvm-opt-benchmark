@@ -4381,7 +4381,7 @@ __oom_reap_task_mm.exit:                          ; preds = %125
   br i1 %214, label %.thread10, label %45, !llvm.loop !77
 
 215:                                              ; preds = %210
-  %216 = icmp ult i32 %46, 11
+  %216 = icmp samesign ult i32 %46, 11
   br i1 %216, label %223, label %.thread10
 
 .thread10:                                        ; preds = %211, %215

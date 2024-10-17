@@ -466,7 +466,7 @@ define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noun
   %36 = lshr i64 %30, 16
   %37 = trunc i64 %36 to i8
   %38 = and i8 %37, 127
-  %39 = icmp ult i8 %38, 11
+  %39 = icmp samesign ult i8 %38, 11
   br i1 %39, label %40, label %62
 
 40:                                               ; preds = %35
@@ -1190,7 +1190,7 @@ define internal void @throttle_active_work(ptr noundef %0) #0 align 16 {
   %78 = getelementptr i8, ptr %0, i64 125
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
-  %81 = icmp ult i32 %77, %80
+  %81 = icmp samesign ult i32 %77, %80
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %76

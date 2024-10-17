@@ -1090,7 +1090,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %57, %60
   %63 = phi ptr [ %59, %57 ], [ %62, %60 ]
   %64 = getelementptr inbounds %"class.llvm::Use", ptr %63, i64 %53
   %65 = ptrtoint ptr %64 to i64
-  %.not28 = icmp ult i32 %51, 4
+  %.not28 = icmp samesign ult i32 %51, 4
   br i1 %.not28, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm4User8operandsEv.exit
@@ -1625,7 +1625,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %.lr.ph60, %313, %31
   %.idx30 = shl nuw nsw i64 %.pre-phi93, 3
   %328 = getelementptr inbounds i8, ptr %327, i64 %.idx30
   %329 = ptrtoint ptr %327 to i64
-  %.not29 = icmp ult i32 %.pre-phi, 4
+  %.not29 = icmp samesign ult i32 %.pre-phi, 4
   br i1 %.not29, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i20
 
 .lr.ph.i.i.i.i20:                                 ; preds = %._crit_edge61
@@ -12649,7 +12649,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isTransposeMas
   %6 = trunc i64 %1 to i32
   %7 = icmp sgt i32 %6, 1
   %8 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %10, label %.loopexit
 
@@ -14503,7 +14503,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst16isInterleaveMa
 9:                                                ; preds = %5
   %.not.i.i = icmp ule i32 %2, %6
   %10 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond92 = select i1 %.not.i.i, i1 %11, i1 false
   br i1 %or.cond92, label %12, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -14613,7 +14613,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst16isInterleaveMa
 56:                                               ; preds = %53, %49
   %.368.us = phi i32 [ %54, %53 ], [ %spec.select.us, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = icmp ult i64 %indvars.iv.next, %16
+  %57 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %57, label %36, label %._crit_edge.us, !llvm.loop !111
 
 ._crit_edge.us:                                   ; preds = %56

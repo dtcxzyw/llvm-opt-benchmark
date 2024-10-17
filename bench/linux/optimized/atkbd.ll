@@ -1005,7 +1005,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef non
   br i1 %24, label %25, label %.preheader, !llvm.loop !18
 
 25:                                               ; preds = %21
-  %26 = icmp ult i64 %18, 5
+  %26 = icmp samesign ult i64 %18, 5
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %25, %16

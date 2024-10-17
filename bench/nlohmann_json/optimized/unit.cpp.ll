@@ -18578,7 +18578,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit219: ; preds = %if.th
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %68 = load i32, ptr %num_data, align 8
   %69 = zext i32 %68 to i64
-  %cmp = icmp ult i64 %indvars.iv.next437, %69
+  %cmp = icmp samesign ult i64 %indvars.iv.next437, %69
   br i1 %cmp, label %for.body88, label %for.end166, !llvm.loop !136
 
 lpad93:                                           ; preds = %call.i142.noexc, %for.body88
@@ -18891,7 +18891,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit275: ; preds = %if.th
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load i32, ptr %num_data193, align 8
   %104 = zext i32 %103 to i64
-  %cmp194 = icmp ult i64 %indvars.iv.next, %104
+  %cmp194 = icmp samesign ult i64 %indvars.iv.next, %104
   br i1 %cmp194, label %for.body195, label %for.end222, !llvm.loop !143
 
 lpad200:                                          ; preds = %call.i248.noexc, %for.body195
@@ -23370,8 +23370,8 @@ for.end.i:                                        ; preds = %for.body62.i
 lor.lhs.false81.i:                                ; preds = %for.end.i
   %11 = add i32 %or.i, -2049
   %or.cond5.i = icmp ult i32 %11, 63487
-  %cmp86.i = icmp ugt i64 %retval.0.i.i, 3
-  %or.cond6.i = and i1 %cmp86.i, %or.cond5.i
+  %cmp86.i = icmp samesign ugt i64 %retval.0.i.i, 3
+  %or.cond6.i = select i1 %or.cond5.i, i1 %cmp86.i, i1 false
   %cmp88.i = icmp ugt i32 %shl.i, 1114111
   %or.cond7.i = select i1 %or.cond6.i, i1 true, i1 %cmp88.i
   br i1 %or.cond7.i, label %if.then89.i, label %for.body94.i
@@ -30265,7 +30265,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit47:         ; preds = %for.body, %land.lhs
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %208 = load i32, ptr %num_data, align 8
   %209 = zext i32 %208 to i64
-  %cmp = icmp ult i64 %indvars.iv.next100, %209
+  %cmp = icmp samesign ult i64 %indvars.iv.next100, %209
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !219
 
 for.end:                                          ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit47, %if.end
@@ -30411,7 +30411,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit93:         ; preds = %for.body46, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %237 = load i32, ptr %num_data44, align 8
   %238 = zext i32 %237 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next, %238
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next, %238
   br i1 %cmp45, label %for.body46, label %for.end56, !llvm.loop !220
 
 for.end56:                                        ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit93, %if.then36

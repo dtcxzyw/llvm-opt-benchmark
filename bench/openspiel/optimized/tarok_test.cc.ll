@@ -24753,7 +24753,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIlSaIlE
 
 190:                                              ; preds = %.preheader, %_ZNSt6vectorIlSaIlEED2Ev.exit86
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEED2Ev.exit86 ]
-  %191 = icmp ult i64 %indvars.iv, 3
+  %191 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %191, label %192, label %269
 
 192:                                              ; preds = %190

@@ -769,15 +769,15 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   br i1 %110, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i", label %111
 
 111:                                              ; preds = %109
-  %112 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
+  %112 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
   br i1 %112, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i", label %113
 
 113:                                              ; preds = %111
-  %114 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
+  %114 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
   br i1 %114, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i", label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
+  %116 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
   %..i.i.i.i.i = select i1 %116, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i"
 
@@ -994,11 +994,11 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   br i1 %12, label %221, label %214
 
 214:                                              ; preds = %213
-  %215 = icmp ult i32 %1, 2048
+  %215 = icmp samesign ult i32 %1, 2048
   br i1 %215, label %223, label %216
 
 216:                                              ; preds = %214
-  %217 = icmp ult i32 %1, 65536
+  %217 = icmp samesign ult i32 %1, 65536
   %218 = trunc i32 %1 to i8
   %219 = and i8 %218, 63
   %220 = or disjoint i8 %219, -128

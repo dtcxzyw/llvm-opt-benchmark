@@ -394,7 +394,7 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
   %32 = load i16, ptr %31, align 4
   %33 = zext i16 %32 to i64
   %34 = add nuw nsw i64 %33, 36
-  %35 = icmp ugt i64 %34, %30
+  %35 = icmp samesign ugt i64 %34, %30
   br i1 %35, label %69, label %36
 
 36:                                               ; preds = %25

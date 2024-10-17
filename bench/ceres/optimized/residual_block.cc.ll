@@ -995,7 +995,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %161 = tail call double @llvm.fmuladd.f64(double %148, double %160, double %145)
   %.reass139.i.us.us.us = add i32 %.0133144.i.us.us.us, %invariant.op138.i
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 4
-  %162 = icmp ult i64 %indvars.iv.next.i.us.us.us, %82
+  %162 = icmp samesign ult i64 %indvars.iv.next.i.us.us.us, %82
   br i1 %162, label %.lr.ph.i.us.us.us, label %.preheader.loopexit.i.us.us.us, !llvm.loop !16
 
 .preheader.loopexit.i.us.us.us:                   ; preds = %.lr.ph.i.us.us.us
@@ -1050,7 +1050,7 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 4
-  %183 = icmp ult i64 %indvars.iv.next227, %87
+  %183 = icmp samesign ult i64 %indvars.iv.next227, %87
   br i1 %183, label %.preheader.us.us, label %.loopexit, !llvm.loop !19
 
 .preheader.lr.ph.split.us.split:                  ; preds = %.preheader.lr.ph.split.us
@@ -1147,7 +1147,7 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150: ; preds = %.lr.
 
 ._crit_edge.split.split.us156:                    ; preds = %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 4
-  %223 = icmp ult i64 %indvars.iv.next214, %184
+  %223 = icmp samesign ult i64 %indvars.iv.next214, %184
   br i1 %223, label %.preheader.us, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge.split.split.us156, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %.preheader.lr.ph, %77, %._crit_edge127, %._crit_edge117

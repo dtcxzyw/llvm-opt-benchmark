@@ -430,7 +430,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %154, %13, %._crit_e
 
 179:                                              ; preds = %171, %174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %180 = icmp ult i64 %indvars.iv.next, %164
+  %180 = icmp samesign ult i64 %indvars.iv.next, %164
   br i1 %180, label %165, label %.preheader.preheader, !llvm.loop !9
 
 .preheader.preheader:                             ; preds = %179, %161

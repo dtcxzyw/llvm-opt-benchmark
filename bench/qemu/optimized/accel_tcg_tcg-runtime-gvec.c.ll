@@ -31,7 +31,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -70,11 +70,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %add, ptr %add.ptr4, align 2
   %add5 = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add5, %cond.i
+  %cmp = icmp samesign ult i64 %add5, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -113,11 +113,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %add, ptr %add.ptr2, align 4
   %add3 = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add3, %cond.i
+  %cmp = icmp samesign ult i64 %add3, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -156,11 +156,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %add, ptr %add.ptr2, align 8
   %add3 = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add3, %cond.i
+  %cmp = icmp samesign ult i64 %add3, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -202,7 +202,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -240,11 +240,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.010
   store i16 %add, ptr %add.ptr4, align 2
   %add5 = add nuw nsw i64 %i.010, 2
-  %cmp = icmp ult i64 %add5, %cond.i
+  %cmp = icmp samesign ult i64 %add5, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -282,11 +282,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i32 %add, ptr %add.ptr1, align 4
   %add2 = add nuw nsw i64 %i.010, 4
-  %cmp = icmp ult i64 %add2, %cond.i
+  %cmp = icmp samesign ult i64 %add2, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -323,11 +323,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %add, ptr %add.ptr1, align 8
   %add2 = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add2, %cond.i
+  %cmp = icmp samesign ult i64 %add2, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -370,7 +370,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -409,11 +409,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %sub, ptr %add.ptr4, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -452,11 +452,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %sub, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -495,11 +495,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %sub, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -541,7 +541,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -579,11 +579,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.010
   store i16 %sub, ptr %add.ptr4, align 2
   %add = add nuw nsw i64 %i.010, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -621,11 +621,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i32 %sub, ptr %add.ptr1, align 4
   %add = add nuw nsw i64 %i.010, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -662,11 +662,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %sub, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -709,7 +709,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -748,11 +748,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %mul, ptr %add.ptr4, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -791,11 +791,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %mul, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -834,11 +834,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %mul, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -880,7 +880,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -918,11 +918,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.010
   store i16 %mul, ptr %add.ptr4, align 2
   %add = add nuw nsw i64 %i.010, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -960,11 +960,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i32 %mul, ptr %add.ptr1, align 4
   %add = add nuw nsw i64 %i.010, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1001,11 +1001,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %mul, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1046,7 +1046,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1083,11 +1083,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.010
   store i16 %sub, ptr %add.ptr2, align 2
   %add = add nuw nsw i64 %i.010, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1124,11 +1124,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i32 %sub, ptr %add.ptr1, align 4
   %add = add nuw nsw i64 %i.010, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1165,11 +1165,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %sub, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1210,7 +1210,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1247,11 +1247,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %1, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1288,11 +1288,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %cond, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1329,11 +1329,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %cond, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1361,7 +1361,7 @@ entry:
   %cond.v.i = add nuw nsw i32 %cond.v.v.i, 8
   %cond.i = zext nneg i32 %cond.v.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %d, ptr noundef nonnull align 1 dereferenceable(1) %a, i64 %cond.i, i1 false)
-  %cmp.i6 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i6 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i6, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %entry
@@ -1399,11 +1399,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %d, i64 %i.015
   store i64 %c, ptr %add.ptr, align 8
   %add = add nuw nsw i64 %i.015, 8
-  %cmp1 = icmp ult i64 %add, %cond.i
+  %cmp1 = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !38
 
 if.end:                                           ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %entry, %if.end
@@ -1441,11 +1441,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %d, i64 %i.015
   store i32 %c, ptr %add.ptr, align 4
   %add = add nuw nsw i64 %i.015, 4
-  %cmp1 = icmp ult i64 %add, %cond.i
+  %cmp1 = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !39
 
 if.end:                                           ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %entry, %if.end
@@ -1485,11 +1485,11 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.ptr.i = getelementptr i8, ptr %d, i64 %i.015.i
   store i32 %mul, ptr %add.ptr.i, align 4
   %add.i = add nuw nsw i64 %i.015.i, 4
-  %cmp1.i = icmp ult i64 %add.i, %cond.i.i
+  %cmp1.i = icmp samesign ult i64 %add.i, %cond.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !39
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp.i9.i = icmp ult i32 %cond.v.v.i.i, %mul.i.i.i
+  %cmp.i9.i = icmp samesign ult i32 %cond.v.v.i.i, %mul.i.i.i
   br i1 %cmp.i9.i, label %for.body.preheader.i.i, label %helper_gvec_dup32.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
@@ -1529,11 +1529,11 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.ptr.i = getelementptr i8, ptr %d, i64 %i.015.i
   store i32 %mul, ptr %add.ptr.i, align 4
   %add.i = add nuw nsw i64 %i.015.i, 4
-  %cmp1.i = icmp ult i64 %add.i, %cond.i.i
+  %cmp1.i = icmp samesign ult i64 %add.i, %cond.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !39
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp.i9.i = icmp ult i32 %cond.v.v.i.i, %mul.i.i.i
+  %cmp.i9.i = icmp samesign ult i32 %cond.v.v.i.i, %mul.i.i.i
   br i1 %cmp.i9.i, label %for.body.preheader.i.i, label %helper_gvec_dup32.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
@@ -1573,11 +1573,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %not, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1616,11 +1616,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %and, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !41
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1659,11 +1659,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1702,11 +1702,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %xor, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1746,11 +1746,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %and, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1790,11 +1790,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1834,11 +1834,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %not, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !46
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1878,11 +1878,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %not, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !47
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1922,11 +1922,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %not, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !48
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1963,11 +1963,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %and, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !49
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2005,11 +2005,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %and, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !50
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2046,11 +2046,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %xor, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !51
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2087,11 +2087,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr1 = getelementptr i8, ptr %d, i64 %i.010
   store i64 %or, ptr %add.ptr1, align 8
   %add = add nuw nsw i64 %i.010, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !52
 
 for.end:                                          ; preds = %for.body
-  %cmp.i9 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i9 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2135,7 +2135,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2175,11 +2175,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv2, ptr %add.ptr3, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2217,11 +2217,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %shl, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2260,11 +2260,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %shl, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !56
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2308,7 +2308,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2348,11 +2348,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv2, ptr %add.ptr3, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !58
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2390,11 +2390,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %shr, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !59
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2433,11 +2433,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %shr, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !60
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2481,7 +2481,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2521,11 +2521,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv2, ptr %add.ptr3, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2563,11 +2563,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %shr, ptr %add.ptr2, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !63
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2606,11 +2606,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr2 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %shr, ptr %add.ptr2, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !64
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2653,7 +2653,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !65
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2692,11 +2692,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv3.i, ptr %add.ptr3, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !66
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2734,11 +2734,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %or.i, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !67
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2777,11 +2777,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %or.i, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !68
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2825,7 +2825,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !69
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2865,11 +2865,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %shl, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !70
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2909,11 +2909,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %shl, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !71
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -2953,11 +2953,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %shl, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !72
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3001,7 +3001,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !73
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3041,11 +3041,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %shr, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !74
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3085,11 +3085,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %shr, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !75
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3129,11 +3129,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %shr, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !76
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3177,7 +3177,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !77
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3217,11 +3217,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %shr, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !78
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3261,11 +3261,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %shr, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !79
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3305,11 +3305,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %shr, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !80
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3352,7 +3352,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !81
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3391,11 +3391,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv3.i, ptr %add.ptr5, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !82
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3434,11 +3434,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !83
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3477,11 +3477,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or.i, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !84
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3524,7 +3524,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !85
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3563,11 +3563,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %or.i, ptr %add.ptr5, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !86
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3606,11 +3606,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !87
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3649,11 +3649,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or.i, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !88
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3697,7 +3697,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !89
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3741,7 +3741,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !90
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3785,7 +3785,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !91
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3829,7 +3829,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !92
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3873,7 +3873,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !93
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3917,7 +3917,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !94
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -3957,11 +3957,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !95
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4001,11 +4001,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !96
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4045,11 +4045,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !97
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4089,11 +4089,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !98
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4133,11 +4133,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !99
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4177,11 +4177,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.011, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !100
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4221,11 +4221,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !101
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4265,11 +4265,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !102
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4309,11 +4309,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !103
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4353,11 +4353,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !104
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4397,11 +4397,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !105
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4441,11 +4441,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %conv.neg, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !106
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4485,11 +4485,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !107
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4529,11 +4529,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !108
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4573,11 +4573,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !109
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4617,11 +4617,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !110
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4661,11 +4661,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !111
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4705,11 +4705,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %conv3, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !112
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4756,7 +4756,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !113
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4806,7 +4806,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !114
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4856,7 +4856,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !115
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4893,7 +4893,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i8, ptr %add.ptr, align 1
   %conv4 = zext i8 %0 to i32
-  %cmp6 = icmp ugt i32 %conv5, %conv4
+  %cmp6 = icmp samesign ugt i32 %conv5, %conv4
   %conv7 = zext i1 %cmp6 to i32
   %xor = xor i32 %shr.i.i8, %conv7
   %1 = trunc i32 %xor to i8
@@ -4905,7 +4905,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !116
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4942,7 +4942,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i8, ptr %add.ptr, align 1
   %conv4 = zext i8 %0 to i32
-  %cmp6 = icmp uge i32 %conv5, %conv4
+  %cmp6 = icmp samesign uge i32 %conv5, %conv4
   %conv7 = zext i1 %cmp6 to i32
   %xor = xor i32 %shr.i.i8, %conv7
   %1 = trunc i32 %xor to i8
@@ -4954,7 +4954,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !117
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -4997,11 +4997,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv9, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !118
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5047,11 +5047,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %conv9, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !119
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5097,11 +5097,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %conv9, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !120
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5138,7 +5138,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i16, ptr %add.ptr, align 2
   %conv4 = zext i16 %0 to i32
-  %cmp6 = icmp ugt i32 %conv5, %conv4
+  %cmp6 = icmp samesign ugt i32 %conv5, %conv4
   %conv7 = zext i1 %cmp6 to i32
   %xor = xor i32 %shr.i.i8, %conv7
   %1 = trunc i32 %xor to i16
@@ -5146,11 +5146,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv9, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !121
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5187,7 +5187,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i16, ptr %add.ptr, align 2
   %conv4 = zext i16 %0 to i32
-  %cmp6 = icmp uge i32 %conv5, %conv4
+  %cmp6 = icmp samesign uge i32 %conv5, %conv4
   %conv7 = zext i1 %cmp6 to i32
   %xor = xor i32 %shr.i.i8, %conv7
   %1 = trunc i32 %xor to i16
@@ -5195,11 +5195,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv9, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !122
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5241,11 +5241,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %sub, ptr %add.ptr5, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !123
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5287,11 +5287,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %sub, ptr %add.ptr5, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !124
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5333,11 +5333,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %sub, ptr %add.ptr5, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !125
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5379,11 +5379,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %sub, ptr %add.ptr5, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !126
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5425,11 +5425,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %sub, ptr %add.ptr5, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !127
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5471,11 +5471,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %sub, ptr %add.ptr6, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !128
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5517,11 +5517,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %sub, ptr %add.ptr6, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !129
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5563,11 +5563,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %sub, ptr %add.ptr6, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !130
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5609,11 +5609,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %sub, ptr %add.ptr6, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !131
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5655,11 +5655,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %sub, ptr %add.ptr6, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !132
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5702,7 +5702,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !133
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5741,11 +5741,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i16 %2, ptr %add.ptr10, align 2
   %add11 = add nuw nsw i64 %i.014, 2
-  %cmp = icmp ult i64 %add11, %cond.i
+  %cmp = icmp samesign ult i64 %add11, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !134
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5789,11 +5789,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %di.0, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !135
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5837,11 +5837,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %di.0, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !136
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5884,7 +5884,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !137
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5923,11 +5923,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i16 %2, ptr %add.ptr10, align 2
   %add = add nuw nsw i64 %i.014, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !138
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -5971,11 +5971,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %di.0, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.012, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !139
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6019,11 +6019,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %di.0, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.012, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !140
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6070,7 +6070,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !141
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6113,11 +6113,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv5, ptr %add.ptr6, align 2
   %add7 = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add7, %cond.i
+  %cmp = icmp samesign ult i64 %add7, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !142
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6156,11 +6156,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %spec.select, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !143
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6199,11 +6199,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %spec.select, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !144
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6250,7 +6250,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !145
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6293,11 +6293,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr6 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv5, ptr %add.ptr6, align 2
   %add = add nuw nsw i64 %i.012, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !146
 
 for.end:                                          ; preds = %for.body
-  %cmp.i11 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i11 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6336,11 +6336,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %spec.select, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.011, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !147
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6379,11 +6379,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %spec.select, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.011, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !148
 
 for.end:                                          ; preds = %for.body
-  %cmp.i10 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i10 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6426,7 +6426,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !149
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6465,11 +6465,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr8 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %2, ptr %add.ptr8, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !150
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6508,11 +6508,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i32 %cond, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.013, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !151
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6551,11 +6551,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i64 %cond, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.013, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !152
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6598,7 +6598,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !153
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6637,11 +6637,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr8 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %2, ptr %add.ptr8, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !154
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6680,11 +6680,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i32 %cond, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.013, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !155
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6723,11 +6723,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i64 %cond, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.013, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !156
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6770,7 +6770,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !157
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6809,11 +6809,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr8 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %2, ptr %add.ptr8, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !158
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6852,11 +6852,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i32 %cond, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.013, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !159
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6895,11 +6895,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i64 %cond, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.013, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !160
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6942,7 +6942,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !161
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -6981,11 +6981,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr8 = getelementptr i8, ptr %d, i64 %i.013
   store i16 %2, ptr %add.ptr8, align 2
   %add = add nuw nsw i64 %i.013, 2
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !162
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -7024,11 +7024,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i32 %cond, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.013, 4
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !163
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -7067,11 +7067,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.013
   store i64 %cond, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.013, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !164
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -7115,11 +7115,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.013
   store i64 %or, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.013, 8
-  %cmp = icmp ult i64 %add, %cond.i
+  %cmp = icmp samesign ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !165
 
 for.end:                                          ; preds = %for.body
-  %cmp.i12 = icmp ult i32 %cond.v.v.i, %mul.i.i
+  %cmp.i12 = icmp samesign ult i32 %cond.v.v.i, %mul.i.i
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end

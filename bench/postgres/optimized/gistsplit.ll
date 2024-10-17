@@ -201,7 +201,7 @@ index_getattr.exit.thread:                        ; preds = %57, %54, %51, %48, 
 
 108:                                              ; preds = %119, %.lr.ph.i
   %.018.i = phi i32 [ 1, %.lr.ph.i ], [ %122, %119 ]
-  %109 = icmp ult i32 %.018.i, %107
+  %109 = icmp samesign ult i32 %.018.i, %107
   %110 = trunc i32 %.018.i to i16
   br i1 %109, label %111, label %115
 
@@ -706,7 +706,7 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
 
 84:                                               ; preds = %100, %.lr.ph.i
   %indvars.iv = phi i32 [ %indvars.iv.next, %100 ], [ 1, %.lr.ph.i ]
-  %.not44.i = icmp ult i32 %82, %indvars.iv
+  %.not44.i = icmp samesign ult i32 %82, %indvars.iv
   %85 = trunc nuw i32 %indvars.iv to i16
   br i1 %.not44.i, label %93, label %86
 

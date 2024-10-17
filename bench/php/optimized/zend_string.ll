@@ -173,7 +173,7 @@ define range(i64 -9223372036854775808, 0) i64 @zend_hash_func(ptr nocapture noun
   %.037.lcssa = phi i64 [ 5381, %2 ], [ %42, %.lr.ph ]
   %.035.lcssa = phi i64 [ %1, %2 ], [ %43, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %2 ], [ %44, %.lr.ph ]
-  %46 = icmp ugt i64 %.035.lcssa, 3
+  %46 = icmp samesign ugt i64 %.035.lcssa, 3
   br i1 %46, label %47, label %69
 
 47:                                               ; preds = %._crit_edge
@@ -296,7 +296,7 @@ define void @zend_interned_strings_init() local_unnamed_addr #2 {
   %16 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %10)
   %17 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
-  %18 = icmp ult i64 %indvars.iv, 128
+  %18 = icmp samesign ult i64 %indvars.iv, 128
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %8
@@ -626,7 +626,7 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   %.0167.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
   %.0165.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
   %.0164.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
-  %48 = icmp ugt i64 %.0165.lcssa, 3
+  %48 = icmp samesign ugt i64 %.0165.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
@@ -878,7 +878,7 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   %.0156.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
   %.0154.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
   %.0153.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
-  %47 = icmp ugt i64 %.0154.lcssa, 3
+  %47 = icmp samesign ugt i64 %.0154.lcssa, 3
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge
@@ -1258,7 +1258,7 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
   %.0139.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
   %.0136.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
   %.0135.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
-  %48 = icmp ugt i64 %.0136.lcssa, 3
+  %48 = icmp samesign ugt i64 %.0136.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
@@ -1460,7 +1460,7 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
   %.0127.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
   %.0124.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
   %.0123.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
-  %47 = icmp ugt i64 %.0124.lcssa, 3
+  %47 = icmp samesign ugt i64 %.0124.lcssa, 3
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge

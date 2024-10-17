@@ -8253,7 +8253,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %6, %9
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %6 ], [ %11, %9 ]
   %15 = getelementptr inbounds %"class.llvm::Use", ptr %14, i64 %.pre-phi2.i.i
   %16 = ptrtoint ptr %15 to i64
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK4llvm4User8operandsEv.exit
@@ -15443,7 +15443,7 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 define dso_local noundef i32 @_ZN4llvm19getIntLoopAttributeEPKNS_4LoopENS_9StringRefEi(ptr noundef nonnull %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr %1, i64 %2)
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
-  %.not = icmp ult i64 %5, 4294967296
+  %.not = icmp samesign ult i64 %5, 4294967296
   %.0.i = select i1 %.not, i32 %3, i32 %.sroa.0.0.extract.trunc
   ret i32 %.0.i
 }

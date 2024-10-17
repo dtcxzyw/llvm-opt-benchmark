@@ -1494,7 +1494,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %21
   %48 = or disjoint i32 %47, %46
   store i32 %48, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = icmp ult i64 %indvars.iv.next, %38
+  %49 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %49, label %39, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %39

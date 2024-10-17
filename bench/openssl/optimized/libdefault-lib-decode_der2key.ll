@@ -1792,7 +1792,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   br i1 %cmp2.not.i, label %for.cond.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %cmp5.i = icmp ult i64 %i.01.i, 2
+  %cmp5.i = icmp samesign ult i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
   br label %der2key_check_selection.exit
 
@@ -1838,7 +1838,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   br i1 %cmp2.not.i, label %for.cond.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %cmp5.i = icmp ult i64 %i.01.i, 2
+  %cmp5.i = icmp samesign ult i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
   br label %der2key_check_selection.exit
 

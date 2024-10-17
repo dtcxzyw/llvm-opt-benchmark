@@ -3438,7 +3438,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   %30 = lshr i32 %18, 8
   %31 = and i32 %30, 7
   %32 = shl nuw nsw i32 1, %31
-  %33 = icmp ugt i32 %31, 4
+  %33 = icmp samesign ugt i32 %31, 4
   br i1 %33, label %.thread67, label %.thread55
 
 34:                                               ; preds = %15, %24
@@ -5217,7 +5217,7 @@ psa_mac_update.exit88.thread119.i.i:              ; preds = %psa_mac_update.exit
 
 232:                                              ; preds = %229
   %233 = zext i8 %230 to i64
-  %234 = icmp ult i64 %226, %233
+  %234 = icmp samesign ult i64 %226, %233
   br i1 %234, label %.thread.i.i.i, label %235
 
 235:                                              ; preds = %232
@@ -7532,7 +7532,7 @@ switch.early.test136:                             ; preds = %8
   %27 = and i32 %26, 63
   %28 = lshr i32 %2, 16
   %29 = and i32 %28, 63
-  %30 = icmp ule i32 %27, %29
+  %30 = icmp samesign ule i32 %27, %29
   br label %psa_mac_key_can_do.exit
 
 31:                                               ; preds = %.critedge
@@ -7875,13 +7875,13 @@ switch.early.test217:                             ; preds = %.critedge
 
 46:                                               ; preds = %33
   %.not143 = icmp eq i32 %39, 0
-  %.not145 = icmp ugt i32 %35, %37
-  %or.cond188 = or i1 %.not143, %.not145
+  %.not145 = icmp samesign ugt i32 %35, %37
+  %or.cond188 = select i1 %.not143, i1 true, i1 %.not145
   br i1 %or.cond188, label %47, label %psa_mac_key_can_do.exit
 
 47:                                               ; preds = %46
-  %.not147 = icmp ugt i32 %37, %35
-  %or.cond189 = or i1 %.not144, %.not147
+  %.not147 = icmp samesign ugt i32 %37, %35
+  %or.cond189 = select i1 %.not144, i1 true, i1 %.not147
   br i1 %or.cond189, label %.thread, label %psa_mac_key_can_do.exit
 
 .thread:                                          ; preds = %47, %29
@@ -8180,7 +8180,7 @@ select.unfold4:                                   ; preds = %22, %17
   %30 = phi i32 [ %18, %17 ], [ %28, %22 ]
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %1, align 1
-  %32 = icmp ult i32 %30, 4
+  %32 = icmp samesign ult i32 %30, 4
   br i1 %32, label %psa_mac_key_can_do.exit, label %33
 
 33:                                               ; preds = %select.unfold4

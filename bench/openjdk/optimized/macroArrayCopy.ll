@@ -6053,7 +6053,7 @@ _ZN4Node8init_reqEjPS_.exit616:                   ; preds = %1792, %1781, %1777,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1798 = load i32, ptr %1768, align 8
   %1799 = zext i32 %1798 to i64
-  %1800 = icmp ult i64 %indvars.iv.next, %1799
+  %1800 = icmp samesign ult i64 %indvars.iv.next, %1799
   br i1 %1800, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit616, %_ZN4Node8init_reqEjPS_.exit612
@@ -6614,7 +6614,7 @@ _ZN4NodenwEm.exit146:                             ; preds = %222, %224
   %240 = load i8, ptr @UseCompressedClassPointers, align 1
   %241 = trunc i8 %240 to i1
   %242 = select i1 %241, i32 16, i32 20
-  %243 = icmp ult i32 %239, %242
+  %243 = icmp samesign ult i32 %239, %242
   br i1 %243, label %272, label %244
 
 244:                                              ; preds = %235
@@ -6838,7 +6838,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24generate_block_arraycop
   %15 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 true)
-  %18 = icmp ugt i32 %17, 2
+  %18 = icmp samesign ugt i32 %17, 2
   br i1 %18, label %282, label %19
 
 19:                                               ; preds = %13

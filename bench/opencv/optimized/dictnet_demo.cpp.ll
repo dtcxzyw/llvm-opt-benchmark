@@ -133,7 +133,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %35
-  %40 = icmp ult i64 %indvars.iv.i, %34
+  %40 = icmp samesign ult i64 %indvars.iv.i, %34
   br i1 %40, label %41, label %.noexc18
 
 41:                                               ; preds = %.noexc

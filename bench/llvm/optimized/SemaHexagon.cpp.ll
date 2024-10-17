@@ -274,7 +274,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %.sroa.25.0.copyload19.i.i.i = load i32, ptr %.sroa.25.0..sroa_idx18.i.i.i, align 4
   %23 = add nsw i64 %19, -1
   %24 = lshr i64 %23, 1
-  %25 = icmp ult i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -314,7 +314,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
 44:                                               ; preds = %39, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %41, %39 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.04.0.copyload17.i.i.i to i32
-  %45 = icmp ugt i64 %.1.i.i.i.i, %21
+  %45 = icmp samesign ugt i64 %.1.i.i.i.i, %21
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %44, %48
@@ -387,7 +387,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
 69:                                               ; preds = %68, %._crit_edge.i26.i.i.i
   %.1.i28.i.i.i = phi i64 [ %53, %68 ], [ %.0.lcssa.i27.i.i.i, %._crit_edge.i26.i.i.i ]
   %.sroa.0.sroa.0.0.extract.trunc.i.i29.i.i.i = trunc i64 %.sroa.04.0.copyload22.i.i.i to i32
-  %70 = icmp ugt i64 %.1.i28.i.i.i, %56
+  %70 = icmp samesign ugt i64 %.1.i28.i.i.i, %56
   br i1 %70, label %.lr.ph.i.i32.i.i.i, label %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit42.i.i.i"
 
 .lr.ph.i.i32.i.i.i:                               ; preds = %69, %73

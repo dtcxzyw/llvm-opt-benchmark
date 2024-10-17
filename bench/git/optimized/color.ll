@@ -411,7 +411,7 @@ while.cond8.preheader.lr.ph.lr.ph:                ; preds = %while.cond8.prehead
 
 if.end55:                                         ; preds = %if.else49.i, %if.end22.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  %cmp.not.i.i = icmp ult i32 %wordlen.0.lcssa, 2
+  %cmp.not.i.i = icmp samesign ult i32 %wordlen.0.lcssa, 2
   br i1 %cmp.not.i.i, label %if.end.i69, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end55

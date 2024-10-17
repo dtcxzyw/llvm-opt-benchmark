@@ -340,7 +340,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture
 21:                                               ; preds = %24, %18
   %.025.i.i.i = phi i64 [ %9, %18 ], [ %22, %24 ]
   %22 = add nuw nsw i64 %.025.i.i.i, 1
-  %23 = icmp ult i64 %22, %20
+  %23 = icmp samesign ult i64 %22, %20
   br i1 %23, label %24, label %.loopexit.i.i.i
 
 24:                                               ; preds = %21
@@ -404,7 +404,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 53:                                               ; preds = %56, %50
   %.025.i.i.i12 = phi i64 [ %40, %50 ], [ %54, %56 ]
   %54 = add nuw nsw i64 %.025.i.i.i12, 1
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp samesign ult i64 %54, %52
   br i1 %55, label %56, label %.loopexit.i.i.i7
 
 56:                                               ; preds = %53
@@ -470,7 +470,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noca
 22:                                               ; preds = %25, %19
   %.025.i.i.i = phi i64 [ %9, %19 ], [ %23, %25 ]
   %23 = add nuw nsw i64 %.025.i.i.i, 1
-  %24 = icmp ult i64 %23, %21
+  %24 = icmp samesign ult i64 %23, %21
   br i1 %24, label %25, label %.loopexit.i.i.i
 
 25:                                               ; preds = %22
@@ -534,7 +534,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit._ZNK6BitMap18find_first_set_bitEm.exit_
 54:                                               ; preds = %57, %51
   %.025.i.i.i12 = phi i64 [ %42, %51 ], [ %55, %57 ]
   %55 = add nuw nsw i64 %.025.i.i.i12, 1
-  %56 = icmp ult i64 %55, %53
+  %56 = icmp samesign ult i64 %55, %53
   br i1 %56, label %57, label %.loopexit.i.i.i7
 
 57:                                               ; preds = %54
@@ -598,7 +598,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocaptu
 21:                                               ; preds = %24, %18
   %.025.i.i.i = phi i64 [ %9, %18 ], [ %22, %24 ]
   %22 = add nuw nsw i64 %.025.i.i.i, 1
-  %23 = icmp ult i64 %22, %20
+  %23 = icmp samesign ult i64 %22, %20
   br i1 %23, label %24, label %.loopexit.i.i.i
 
 24:                                               ; preds = %21
@@ -664,7 +664,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 55:                                               ; preds = %58, %52
   %.025.i.i.i12 = phi i64 [ %42, %52 ], [ %56, %58 ]
   %56 = add nuw nsw i64 %.025.i.i.i12, 1
-  %57 = icmp ult i64 %56, %54
+  %57 = icmp samesign ult i64 %56, %54
   br i1 %57, label %58, label %.loopexit.i.i.i7
 
 58:                                               ; preds = %55

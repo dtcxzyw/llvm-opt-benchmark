@@ -8382,8 +8382,8 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
 .body:                                            ; preds = %77, %62, %38
   %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %39, %38 ], [ %78, %77 ]
   %64 = load i64, ptr %7, align 8, !range !320, !noundef !7
-  %switch.not.i28 = icmp ult i64 %64, 2
-  br i1 %switch.not.i28, label %86, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit30"
+  %or.cond33 = icmp samesign ult i64 %64, 2
+  br i1 %or.cond33, label %86, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit30"
 
 65:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
@@ -8394,7 +8394,7 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %74, ptr noundef nonnull align 8 dereferenceable(136) %6, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
   %.pre35 = load i64, ptr %7, align 8, !range !320
-  %67 = icmp ult i64 %.pre35, 2
+  %67 = icmp samesign ult i64 %.pre35, 2
   br i1 %67, label %82, label %.sink.split
 
 "_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit": ; preds = %55
@@ -8406,8 +8406,8 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
 
 68:                                               ; preds = %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit._crit_edge", %60
   %69 = phi i64 [ %.pre, %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit._crit_edge" ], [ %.pr, %60 ]
-  %switch.not.i = icmp ult i64 %69, 2
-  br i1 %switch.not.i, label %81, label %.sink.split
+  %or.cond = icmp samesign ult i64 %69, 2
+  br i1 %or.cond, label %81, label %.sink.split
 
 70:                                               ; preds = %60, %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit"
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)

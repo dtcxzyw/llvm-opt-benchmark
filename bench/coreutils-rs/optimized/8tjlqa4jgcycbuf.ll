@@ -126,7 +126,7 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias nocapture 
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds i8, ptr %9, i64 16
   %25 = load i8, ptr %24, align 8, !range !36, !noalias !30
-  %or.cond.i.i = icmp ult i8 %25, 5
+  %or.cond.i.i = icmp samesign ult i8 %25, 5
   %.0.i.i = select i1 %23, i1 true, i1 %or.cond.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !30
   br i1 %.0.i.i, label %.lr.ph.i.i, label %_ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread

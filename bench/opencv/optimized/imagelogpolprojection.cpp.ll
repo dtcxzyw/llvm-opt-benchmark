@@ -1047,7 +1047,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %151 = load i32, ptr %27, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next113, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next113, %152
   br i1 %153, label %97, label %._crit_edge97.loopexit, !llvm.loop !57
 
 ._crit_edge97.loopexit:                           ; preds = %150
@@ -1059,7 +1059,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %155 = phi i32 [ %151, %._crit_edge97.loopexit ], [ 0, %.preheader ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %156 = zext i32 %154 to i64
-  %157 = icmp ult i64 %indvars.iv.next116, %156
+  %157 = icmp samesign ult i64 %indvars.iv.next116, %156
   br i1 %157, label %.preheader, label %._crit_edge99.loopexit105, !llvm.loop !58
 
 ._crit_edge99.loopexit105:                        ; preds = %._crit_edge97

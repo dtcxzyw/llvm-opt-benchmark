@@ -1475,7 +1475,7 @@ entry:
   %cdw323 = getelementptr inbounds i8, ptr %req, i64 68
   %13 = load i32, ptr %cdw323, align 1
   %conv25 = zext i32 %13 to i64
-  %tobool = icmp ugt i8 %conv15, 7
+  %tobool = icmp samesign ugt i8 %conv15, 7
   %shl = shl nuw i64 %conv25, 32
   %or = or disjoint i64 %shl, %conv22
   store i64 %or, ptr %reftag, align 8

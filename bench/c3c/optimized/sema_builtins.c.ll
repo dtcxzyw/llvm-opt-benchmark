@@ -3537,7 +3537,7 @@ define internal fastcc noundef zeroext i1 @sema_check_alignment_expression(ptr n
   %19 = getelementptr inbounds i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %22 = icmp ult i64 %21, 2
+  %22 = icmp samesign ult i64 %21, 2
   br i1 %22, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %18, %10, %15, %5

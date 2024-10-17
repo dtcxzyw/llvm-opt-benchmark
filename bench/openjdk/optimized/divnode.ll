@@ -295,7 +295,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit: ; preds = %31
   %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %5)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   br i1 %33, label %34, label %217
 
 34:                                               ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
@@ -361,7 +361,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit111: ; preds = %72
   %79 = sub nsw i32 0, %74
   %80 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
-  %81 = icmp ugt i32 %80, 1
+  %81 = icmp samesign ugt i32 %80, 1
   %.not107 = icmp ugt i32 %5, %79
   %or.cond = or i1 %.not107, %81
   br i1 %or.cond, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit111.thread, label %82
@@ -1563,7 +1563,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 
 _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit: ; preds = %32
   %33 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %5)
-  %34 = icmp ult i64 %33, 2
+  %34 = icmp samesign ult i64 %33, 2
   br i1 %34, label %35, label %220
 
 35:                                               ; preds = %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
@@ -1629,7 +1629,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit94: ; preds = %73
   %80 = sub nsw i64 0, %75
   %81 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %80)
-  %82 = icmp ugt i64 %81, 1
+  %82 = icmp samesign ugt i64 %81, 1
   %.not90 = icmp ugt i64 %5, %80
   %or.cond = or i1 %.not90, %82
   br i1 %or.cond, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit94.thread, label %83
@@ -4010,12 +4010,12 @@ _ZN4NodenwEm.exit:                                ; preds = %75, %77
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit: ; preds = %81
   %82 = add nuw nsw i32 %56, 1
   %83 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %82)
-  %84 = icmp ult i32 %83, 2
+  %84 = icmp samesign ult i32 %83, 2
   br i1 %84, label %85, label %277
 
 85:                                               ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
   %86 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %82, i1 true)
-  %87 = icmp ult i32 %86, 17
+  %87 = icmp samesign ult i32 %86, 17
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %85
@@ -4411,7 +4411,7 @@ _ZN4NodenwEm.exit141:                             ; preds = %297, %299
 
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit142: ; preds = %279
   %304 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %280)
-  %305 = icmp ult i32 %304, 2
+  %305 = icmp samesign ult i32 %304, 2
   %.pre155 = load ptr, ptr %4, align 8
   br i1 %305, label %306, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit142._crit_edge
 
@@ -4921,13 +4921,13 @@ _ZN4NodenwEm.exit:                                ; preds = %75, %77
 _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit: ; preds = %81
   %82 = add nuw nsw i64 %56, 1
   %83 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %82)
-  %84 = icmp ult i64 %83, 2
+  %84 = icmp samesign ult i64 %83, 2
   br i1 %84, label %85, label %277
 
 85:                                               ; preds = %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
   %86 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
   %87 = trunc nuw nsw i64 %86 to i32
-  %88 = icmp ult i64 %86, 33
+  %88 = icmp samesign ult i64 %86, 33
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %85
@@ -5322,7 +5322,7 @@ _ZN4NodenwEm.exit141:                             ; preds = %297, %299
 
 _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit142: ; preds = %279
   %304 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %280)
-  %305 = icmp ult i64 %304, 2
+  %305 = icmp samesign ult i64 %304, 2
   %.pre155 = load ptr, ptr %4, align 8
   br i1 %305, label %306, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit142._crit_edge
 

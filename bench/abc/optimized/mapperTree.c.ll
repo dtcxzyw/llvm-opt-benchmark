@@ -1143,7 +1143,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
   %39 = lshr i32 %38, 2
   %40 = and i32 %39, 7
   %41 = zext nneg i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %28, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %37, %..loopexit_crit_edge, %._crit_edge204
@@ -1174,7 +1174,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
   %57 = lshr i32 %56, 2
   %58 = and i32 %57, 7
   %59 = zext nneg i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next187, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next187, %59
   br i1 %60, label %47, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %.loopexit
@@ -1433,7 +1433,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %188, %._crit_edge.i
   %194 = lshr i32 %193, 2
   %195 = and i32 %194, 7
   %196 = zext nneg i32 %195 to i64
-  %197 = icmp ult i64 %indvars.iv.next193, %196
+  %197 = icmp samesign ult i64 %indvars.iv.next193, %196
   br i1 %197, label %85, label %._crit_edge160, !llvm.loop !21
 
 ._crit_edge160:                                   ; preds = %Map_LibraryAddFaninDelays.exit, %._crit_edge155
@@ -1566,7 +1566,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %188, %._crit_edge.i
   %268 = lshr i32 %255, 2
   %269 = and i32 %268, 7
   %270 = zext nneg i32 %269 to i64
-  %271 = icmp ult i64 %indvars.iv.next199, %270
+  %271 = icmp samesign ult i64 %indvars.iv.next199, %270
   br i1 %271, label %253, label %._crit_edge170, !llvm.loop !23
 
 ._crit_edge170:                                   ; preds = %253, %._crit_edge165
@@ -1829,7 +1829,7 @@ define void @Map_LibraryPrintTree(ptr nocapture noundef readonly %0) local_unnam
   %31 = lshr i32 %30, 2
   %32 = and i32 %31, 7
   %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %25, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %25, %7

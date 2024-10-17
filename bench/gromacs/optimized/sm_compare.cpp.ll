@@ -415,7 +415,7 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %124, %119
   store ptr null, ptr %143, align 8
   store i32 %77, ptr %8, align 8
   store i32 %42, ptr %43, align 8
-  %146 = icmp ult i32 %.0.i63.ph, 5
+  %146 = icmp samesign ult i32 %.0.i63.ph, 5
   br i1 %146, label %switch.lookup, label %_ZL23reverse_comparison_type14e_comparison_t.exit
 
 switch.lookup:                                    ; preds = %139

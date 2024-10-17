@@ -7080,7 +7080,7 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %2
-  %20 = icmp ugt i64 %12, 4080
+  %20 = icmp samesign ugt i64 %12, 4080
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %19
@@ -22368,7 +22368,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
   store i8 %68, ptr %.ptr.i.i.i, align 1
   %69 = udiv i64 %.08.i.i.i, 10
-  %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
+  %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %70, label %65, !llvm.loop !44
 
 70:                                               ; preds = %65

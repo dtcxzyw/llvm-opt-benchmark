@@ -824,7 +824,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2913,7 +2913,7 @@ if.end20:                                         ; preds = %if.else, %if.then, 
   %inc = add nuw nsw i64 %i.080, 1
   %and.i = and i64 %9, 64
   %tobool.i = icmp ne i64 %and.i, 0
-  %cmp = icmp ugt i64 %i.080, 8
+  %cmp = icmp samesign ugt i64 %i.080, 8
   %.not = select i1 %tobool.i, i1 true, i1 %cmp
   br i1 %.not, label %if.end27.preheader, label %for.body, !llvm.loop !38
 
@@ -5071,7 +5071,7 @@ if.end:                                           ; preds = %entry
   %6 = load atomic i64, ptr %head_next_with_shift15 acquire, align 8
   %7 = trunc i64 %6 to i32
   %conv1.i.i16 = and i32 %7, 63
-  %cmp13.not17 = icmp ult i32 %conv1.i.i16, %sub.i
+  %cmp13.not17 = icmp samesign ult i32 %conv1.i.i16, %sub.i
   %and18 = and i64 %6, 192
   %cmp15.not19 = icmp eq i64 %and18, 128
   %or.cond20 = or i1 %cmp15.not19, %cmp13.not17
@@ -5089,7 +5089,7 @@ if.end18:                                         ; preds = %if.end18.lr.ph, %if
   %10 = load atomic i64, ptr %head_next_with_shift acquire, align 8
   %11 = trunc i64 %10 to i32
   %conv1.i.i = and i32 %11, 63
-  %cmp13.not = icmp ult i32 %conv1.i.i, %sub.i
+  %cmp13.not = icmp samesign ult i32 %conv1.i.i, %sub.i
   %and = and i64 %10, 192
   %cmp15.not = icmp eq i64 %and, 128
   %or.cond = or i1 %cmp15.not, %cmp13.not
@@ -5134,7 +5134,7 @@ if.then.i:                                        ; preds = %while.body.i
   %18 = load atomic i64, ptr %head_next_with_shift.i acquire, align 8
   %19 = trunc i64 %18 to i32
   %conv1.i.i.i = and i32 %19, 63
-  %cmp10.not.i = icmp ugt i32 %conv1.i.i.i, %sub.i.i
+  %cmp10.not.i = icmp samesign ugt i32 %conv1.i.i.i, %sub.i.i
   br i1 %cmp10.not.i, label %if.end12.i, label %while.end.i
 
 if.end12.i:                                       ; preds = %if.then.i, %while.body.i
@@ -5640,7 +5640,7 @@ if.then:                                          ; preds = %while.body
   %6 = load atomic i64, ptr %head_next_with_shift acquire, align 8
   %7 = trunc i64 %6 to i32
   %conv1.i.i = and i32 %7, 63
-  %cmp10.not = icmp ugt i32 %conv1.i.i, %sub.i
+  %cmp10.not = icmp samesign ugt i32 %conv1.i.i, %sub.i
   br i1 %cmp10.not, label %if.end12, label %while.end
 
 if.end12:                                         ; preds = %if.then, %while.body
@@ -6057,7 +6057,7 @@ if.then.i158:                                     ; preds = %while.body.i
   %39 = load atomic i64, ptr %head_next_with_shift.i acquire, align 8
   %40 = trunc i64 %39 to i32
   %conv1.i.i.i160 = and i32 %40, 63
-  %cmp10.not.i = icmp ugt i32 %conv1.i.i.i160, %sub.i.i159
+  %cmp10.not.i = icmp samesign ugt i32 %conv1.i.i.i160, %sub.i.i159
   br i1 %cmp10.not.i, label %if.end12.i, label %while.end.i
 
 if.end12.i:                                       ; preds = %if.then.i158, %while.body.i
@@ -6191,7 +6191,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleI
   %.lcssa.i.i = phi i64 [ %6, %entry ], [ %8, %if.end.i.i ]
   %9 = trunc i64 %.lcssa.i.i to i32
   %conv1.i.i47 = and i32 %9, 63
-  %cmp48 = icmp ugt i32 %conv1.i.i47, %add.i
+  %cmp48 = icmp samesign ugt i32 %conv1.i.i47, %add.i
   br i1 %cmp48, label %invoke.cont, label %for.end
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock5ResetEPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
@@ -6227,7 +6227,7 @@ if.end.i.i.i:                                     ; preds = %_ZN7rocksdb11clock_
 _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock5ResetEPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit: ; preds = %if.end.i.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i
   %.lcssa.i.i.i = phi i64 [ %13, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i ], [ %15, %if.end.i.i.i ]
   %conv1.i.i = and i64 %.lcssa.i.i.i, 63
-  %cmp = icmp ugt i64 %conv1.i.i, %indvars.iv.next
+  %cmp = icmp samesign ugt i64 %conv1.i.i, %indvars.iv.next
   br i1 %cmp, label %invoke.cont, label %for.end
 
 for.end:                                          ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock5ResetEPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
@@ -11118,7 +11118,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

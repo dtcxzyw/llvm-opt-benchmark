@@ -242,7 +242,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %40, %43, %45
   %59 = add nsw i32 %55, 1
   %60 = icmp sgt i32 %55, -1
   %61 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i.i = select i1 %60, i1 %62, i1 false
   %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -303,7 +303,7 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit.i: ; preds = %76, %72, %68
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %84, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %87 = icmp ult i64 %indvars.iv.next.i, %80
+  %87 = icmp samesign ult i64 %indvars.iv.next.i, %80
   br i1 %87, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !12
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i

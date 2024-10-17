@@ -1077,7 +1077,7 @@ land.rhs112:                                      ; preds = %land.rhs112.prehead
   %77 = phi i16 [ %72, %land.rhs112.preheader ], [ %83, %for.inc121 ]
   %valueStart.0337 = phi i32 [ %keyLen.0.lcssa433, %land.rhs112.preheader ], [ %inc122, %for.inc121 ]
   %78 = zext i32 %cond.i112338 to i64
-  %cmp.i.i118 = icmp ult i64 %indvars.iv423, %78
+  %cmp.i.i118 = icmp samesign ult i64 %indvars.iv423, %78
   br i1 %cmp.i.i118, label %if.then.i.i120, label %invoke.cont113
 
 if.then.i.i120:                                   ; preds = %land.rhs112
@@ -1118,7 +1118,7 @@ for.end123.loopexit.split.loop.exit523:           ; preds = %invoke.cont116
 
 for.end123:                                       ; preds = %for.inc121, %for.end123.loopexit.split.loop.exit523, %invoke.cont109.preheader
   %valueStart.0.lcssa = phi i32 [ %keyLen.0.lcssa433, %invoke.cont109.preheader ], [ %87, %for.end123.loopexit.split.loop.exit523 ], [ %inc122, %for.inc121 ]
-  %cmp124 = icmp ult i32 %keyLen.0.lcssa433, %valueStart.0.lcssa
+  %cmp124 = icmp samesign ult i32 %keyLen.0.lcssa433, %valueStart.0.lcssa
   br i1 %cmp124, label %invoke.cont126, label %if.else
 
 invoke.cont126:                                   ; preds = %for.end123

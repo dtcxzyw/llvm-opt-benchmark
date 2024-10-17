@@ -2247,7 +2247,7 @@ for.body.i.i:                                     ; preds = %if.then.i20, %for.b
   br i1 %cmp.not.i.i, label %if.end.i21, label %for.body.i.i, !llvm.loop !74
 
 if.end.i21:                                       ; preds = %for.body.i.i, %if.then.i20, %invoke.cont20
-  %cmp.i22 = icmp ult i64 %idx.ext.i, %conv2.i.i.i
+  %cmp.i22 = icmp samesign ult i64 %idx.ext.i, %conv2.i.i.i
   br i1 %cmp.i22, label %if.then10.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt4pairINS_5RangeIPKcEEdELm8ENS_19small_vector_policy16policy_size_typeItEEE16makeSizeInternalIZNSC_12emplace_backIJRKS7_RdEEERS8_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 if.then10.i:                                      ; preds = %if.end.i21

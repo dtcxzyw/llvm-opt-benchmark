@@ -4794,7 +4794,7 @@ define dso_local noundef ptr @_ZN4llvm26collectUsedGlobalVariablesERKNS_6ModuleE
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, -1
   %11 = zext nneg i32 %9 to i64
-  %12 = icmp ugt i64 %5, %11
+  %12 = icmp samesign ugt i64 %5, %11
   %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
   br i1 %or.cond.i.i.i.i, label %13, label %15
 

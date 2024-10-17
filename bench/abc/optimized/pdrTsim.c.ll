@@ -1120,7 +1120,7 @@ Vec_IntPushOrder.exit:                            ; preds = %245, %Vec_IntGrow.e
   %254 = load i64, ptr %117, align 8
   %255 = trunc i64 %254 to i32
   %256 = lshr i32 %255, 6
-  %257 = icmp ult i32 %253, %256
+  %257 = icmp samesign ult i32 %253, %256
   br i1 %257, label %121, label %.critedge2.loopexit, !llvm.loop !13
 
 .critedge2.loopexit:                              ; preds = %252

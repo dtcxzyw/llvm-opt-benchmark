@@ -1213,7 +1213,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %.not18.i.i, label %.critedge.thread.i, label %21
 
 21:                                               ; preds = %.critedge.i.i
-  %22 = icmp ult i64 %.01319.i.idx.i, 6
+  %22 = icmp samesign ult i64 %.01319.i.idx.i, 6
   br i1 %22, label %.tail.thread.i.i, label %sub_0.i.i
 
 sub_0.i.i:                                        ; preds = %21

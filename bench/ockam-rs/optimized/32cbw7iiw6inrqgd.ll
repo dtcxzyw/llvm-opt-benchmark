@@ -16824,7 +16824,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %58, ptr %28, align 8
   %59 = load i16, ptr %29, align 2, !noalias !3409, !noundef !4
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %35, %60
+  %61 = icmp samesign ult i64 %35, %60
   br i1 %61, label %32, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17hdc7aac58ed3faa8cE.exit"
 
 62:                                               ; preds = %98, %124, %.body78, %.body
@@ -17017,7 +17017,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %121 = load i16, ptr %85, align 2, !noalias !3431, !noundef !4
   %122 = zext i16 %121 to i64
-  %123 = icmp ult i64 %91, %122
+  %123 = icmp samesign ult i64 %91, %122
   br i1 %123, label %89, label %"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..Edge$GT$8right_kv17h6fd0a33029a72e3cE.exit"
 
 .loopexit131:                                     ; preds = %108

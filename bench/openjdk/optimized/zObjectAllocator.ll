@@ -130,7 +130,7 @@ _ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i: ; preds = %tailrecurse.i.i,
   store i64 0, ptr %28, align 8
   %29 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
   br i1 %31, label %.lr.ph.i, label %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit.loopexit, !llvm.loop !6
 
 _ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit.loopexit: ; preds = %.lr.ph.i
@@ -185,7 +185,7 @@ _ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i2: ; preds = %_ZN13ZValueStor
   store i64 0, ptr %53, align 8
   %54 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i9, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i9, %55
   br i1 %56, label %.lr.ph.i7, label %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit10, !llvm.loop !6
 
 _ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit10:       ; preds = %.lr.ph.i7, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i2
@@ -256,7 +256,7 @@ _ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i14: ; preds = %tailrecurse.i.
   store ptr null, ptr %91, align 8
   %92 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next.i21, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next.i21, %93
   br i1 %94, label %.lr.ph.i19, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit, !llvm.loop !8
 
 _ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit: ; preds = %.lr.ph.i19, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i14
@@ -1129,7 +1129,7 @@ define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr nocapture noundef 
   store i64 0, ptr %7, align 8
   %8 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next.i, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %10, label %.lr.ph.i, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit, !llvm.loop !16
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
@@ -1147,7 +1147,7 @@ _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
   store i64 0, ptr %15, align 8
   %16 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next.i6, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next.i6, %17
   br i1 %18, label %.lr.ph.i4, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, !llvm.loop !16
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7:  ; preds = %.lr.ph.i4, %1, %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit
@@ -1170,7 +1170,7 @@ _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7:  ; preds = %.lr.ph.i4, %1, %_ZN
   store ptr null, ptr %27, align 8
   %28 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i13, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i13, %29
   br i1 %30, label %.lr.ph.i11, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit, !llvm.loop !17
 
 _ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit: ; preds = %.lr.ph.i11, %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7

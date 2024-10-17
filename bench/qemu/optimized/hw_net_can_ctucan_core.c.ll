@@ -112,7 +112,7 @@ if.then2:                                         ; preds = %if.end
   %rem = and i64 %addr, 255
   %conv5 = zext i32 %size to i64
   %add = add nuw nsw i64 %rem, %conv5
-  %cmp6 = icmp ult i64 %add, 81
+  %cmp6 = icmp samesign ult i64 %add, 81
   br i1 %cmp6, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.then2

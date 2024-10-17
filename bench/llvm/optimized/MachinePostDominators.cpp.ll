@@ -3928,7 +3928,7 @@ define linkonce_odr hidden void @_ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17Domi
 
 45:                                               ; preds = %33
   %46 = udiv i64 %42, 40
-  %47 = icmp ugt i64 %38, %46
+  %47 = icmp samesign ugt i64 %38, %46
   br i1 %47, label %.sink.split, label %48
 
 .sink.split:                                      ; preds = %45, %43
@@ -12360,7 +12360,7 @@ _ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EE14DeletesInsertsC2ERKS4_.exit: ;
   %73 = load i32, ptr %11, align 8
   %74 = select i1 %.not.i.i, i32 %73, i32 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %72, %75
+  %76 = icmp samesign ult i64 %72, %75
   br i1 %76, label %15, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EE14DeletesInsertsC2ERKS4_.exit, %2

@@ -1602,7 +1602,7 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
   br i1 %.not195, label %98, label %74
 
 74:                                               ; preds = %.preheader
-  %75 = icmp ult i32 %.0211, 6
+  %75 = icmp samesign ult i32 %.0211, 6
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %74

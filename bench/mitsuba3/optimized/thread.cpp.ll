@@ -975,7 +975,7 @@ common.resume:                                    ; preds = %121, %86, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %57 = phi i32 [ 0, %.lr.ph ], [ %71, %.critedge ]
   %58 = lshr i64 %indvars.iv, 3
-  %59 = icmp ult i64 %58, %24
+  %59 = icmp samesign ult i64 %58, %24
   br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %56
@@ -1049,7 +1049,7 @@ _ZN7mitsuba6Thread6threadEv.exit110:              ; preds = %._crit_edge, %73
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %24, i1 false)
   %90 = and i64 %indvars.iv, 4294967295
   %91 = lshr i64 %90, 3
-  %92 = icmp ult i64 %91, %24
+  %92 = icmp samesign ult i64 %91, %24
   br i1 %92, label %93, label %100
 
 93:                                               ; preds = %89

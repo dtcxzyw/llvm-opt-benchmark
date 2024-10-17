@@ -2201,7 +2201,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36.i.i.i.i: ; pre
   %128 = add nsw i64 %.03863.i.i, %.sroa.speculated23.i.i
   %.sroa.speculated.i.i = call i64 @llvm.smin.i64(i64 %21, i64 %128)
   %129 = add nuw nsw i64 %56, 1
-  %130 = icmp ult i64 %129, %35
+  %130 = icmp samesign ult i64 %129, %35
   %131 = icmp slt i64 %.03863.i.i, %21
   %132 = select i1 %130, i1 %131, i1 false
   br i1 %132, label %54, label %._crit_edge.i.i, !llvm.loop !16
@@ -2786,7 +2786,7 @@ define internal fastcc void @"_ZZN3igl12parallel_forIlZ16fit_rotations_l1RKN5Eig
   %64 = load <2 x double>, ptr %63, align 1
   store <2 x double> %64, ptr %62, align 16
   %65 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
-  %66 = icmp ult i64 %65, %61
+  %66 = icmp samesign ult i64 %65, %61
   br i1 %66, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !30
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1, %60, %.thread405.i
@@ -2872,7 +2872,7 @@ common.resume.i:                                  ; preds = %.body.i, %74
   %99 = load <2 x double>, ptr %98, align 1
   store <2 x double> %99, ptr %97, align 16
   %100 = add nuw nsw i64 %.011.i.i.i.i.i.i.i62.i, 2
-  %101 = icmp ult i64 %100, %96
+  %101 = icmp samesign ult i64 %100, %96
   br i1 %101, label %.lr.ph.i.i.i.i.i.i.i61.i, label %._crit_edge.i.i.i.i.i.i.i57.i, !llvm.loop !30
 
 ._crit_edge.i.i.i.i.i.i.i57.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i61.i, %.loopexit358.i, %95, %.thread408.i
@@ -6381,7 +6381,7 @@ define linkonce_odr void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(ptr nound
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !121
 
@@ -6495,7 +6495,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !121
 

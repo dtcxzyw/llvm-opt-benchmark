@@ -3164,7 +3164,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i.i.i.i
           to label %.noexc35 unwind label %ehcleanup95.thread
 
 .noexc35:                                         ; preds = %if.then.i.i
-  %cmp.i1.i.i = icmp ugt i64 %__cur.07.i.i.i.i.i.idx, 120
+  %cmp.i1.i.i = icmp samesign ugt i64 %__cur.07.i.i.i.i.i.idx, 120
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i6.i31, i64 8
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
 
@@ -10781,7 +10781,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %add5.i = fadd x86_fp80 %sum.112.i, %mul.i
   %cmp6.i = fcmp olt x86_fp80 %mul.i, 0xK3FF1D1B71758E2196800
   %inc.i = add nuw nsw i32 %i.014.i, 1
-  %cmp2.not.i = icmp ugt i32 %i.014.i, 99
+  %cmp2.not.i = icmp samesign ugt i32 %i.014.i, 99
   %or.cond.i = or i1 %cmp2.not.i, %cmp6.i
   br i1 %or.cond.i, label %_ZN5boost4math6detail11didonato_SNIeEET_S3_S3_jS3_.exit, label %for.body.i, !llvm.loop !230
 
@@ -14304,7 +14304,7 @@ if.end:                                           ; preds = %entry
   %4 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %5 = extractvalue { x86_fp80, i32 } %4, 1
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp2 = icmp ult i32 %6, 64
+  %cmp2 = icmp samesign ult i32 %6, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -14323,7 +14323,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %10
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !30
-  %cmp17 = icmp ugt i32 %6, 1024
+  %cmp17 = icmp samesign ugt i32 %6, 1024
   %cond18 = select i1 %cmp17, i32 8, i32 2
   %conv19 = uitofp nneg i32 %cond18 to x86_fp80
   %11 = load x86_fp80, ptr %f, align 16
@@ -14462,7 +14462,7 @@ if.end:                                           ; preds = %entry
   %3 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %4 = extractvalue { x86_fp80, i32 } %3, 1
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp ult i32 %5, 64
+  %cmp2 = icmp samesign ult i32 %5, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -14481,7 +14481,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %9
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !30
-  %cmp16 = icmp ugt i32 %5, 1024
+  %cmp16 = icmp samesign ugt i32 %5, 1024
   %cond17 = select i1 %cmp16, i32 8, i32 2
   %conv18 = uitofp nneg i32 %cond17 to x86_fp80
   %10 = load x86_fp80, ptr %f, align 16
@@ -17726,7 +17726,7 @@ if.end:                                           ; preds = %while.body
   %rem = and i64 %sub11, %15
   %cmp13 = icmp eq i64 %rem, 0
   %mul = fmul x86_fp80 %factor.addr.091, 0xK40008000000000000000
-  %cmp15 = icmp ugt i32 %step.092, 1
+  %cmp15 = icmp samesign ugt i32 %step.092, 1
   %factor.addr.1 = select i1 %cmp13, x86_fp80 %mul, x86_fp80 %factor.addr.091
   %narrow73 = select i1 %cmp13, i1 %cmp15, i1 false
   %spec.select = zext i1 %narrow73 to i32
@@ -17821,7 +17821,7 @@ if.end44:                                         ; preds = %if.end39
   %rem47 = and i64 %sub45, %30
   %cmp48 = icmp eq i64 %rem47, 0
   %mul50 = fmul x86_fp80 %factor.addr.283, 0xK40008000000000000000
-  %cmp51 = icmp ugt i32 %step.284, 1
+  %cmp51 = icmp samesign ugt i32 %step.284, 1
   %factor.addr.3 = select i1 %cmp48, x86_fp80 %mul50, x86_fp80 %factor.addr.283
   %narrow = select i1 %cmp48, i1 %cmp51, i1 false
   %spec.select23 = zext i1 %narrow to i32
@@ -19644,7 +19644,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %div53 = fdiv x86_fp80 %mul50, %add51
   %12 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %div53)
   %cmp55 = fcmp ogt x86_fp80 %12, 0xK3FC08000000000000000
-  %cmp57 = icmp ult i64 %indvars.iv70, 999999
+  %cmp57 = icmp samesign ult i64 %indvars.iv70, 999999
   %13 = select i1 %cmp55, i1 %cmp57, i1 false
   br i1 %13, label %do.body, label %do.end, !llvm.loop !304
 

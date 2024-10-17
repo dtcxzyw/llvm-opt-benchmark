@@ -135,7 +135,7 @@ define hidden { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5w
 25:                                               ; preds = %._crit_edge, %17
   %.sroa.010.1 = phi i64 [ 3, %17 ], [ 5, %._crit_edge ]
   %.sroa.04.0.in = phi i16 [ %21, %17 ], [ %0, %._crit_edge ]
-  %26 = icmp ult i16 %.sroa.04.0.in, 10
+  %26 = icmp samesign ult i16 %.sroa.04.0.in, 10
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -188,7 +188,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
   %.sroa.010.0.lcssa = phi i64 [ 11, %2 ], [ %15, %.lr.ph ]
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.0, %2 ], [ %8, %.lr.ph ]
   %5 = zext nneg i32 %.sroa.0.1.lcssa to i64
-  %6 = icmp ugt i32 %.sroa.0.1.lcssa, 99
+  %6 = icmp samesign ugt i32 %.sroa.0.1.lcssa, 99
   br i1 %6, label %22, label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -232,7 +232,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
 31:                                               ; preds = %._crit_edge, %22
   %.sroa.010.1 = phi i64 [ %27, %22 ], [ %.sroa.010.0.lcssa, %._crit_edge ]
   %.sroa.04.0 = phi i64 [ %.zext30, %22 ], [ %5, %._crit_edge ]
-  %32 = icmp ult i64 %.sroa.04.0, 10
+  %32 = icmp samesign ult i64 %.sroa.04.0, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
@@ -356,7 +356,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %.sroa.010.0.lcssa.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i ]
   %.sroa.0.1.lcssa.i = phi i32 [ %.sroa.0.0.i, %2 ], [ %9, %.lr.ph.i ]
   %6 = zext nneg i32 %.sroa.0.1.lcssa.i to i64
-  %7 = icmp ugt i32 %.sroa.0.1.lcssa.i, 99
+  %7 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i, 99
   br i1 %7, label %23, label %32
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
@@ -400,7 +400,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
 32:                                               ; preds = %23, %._crit_edge.i
   %.sroa.010.1.i = phi i64 [ %28, %23 ], [ %.sroa.010.0.lcssa.i, %._crit_edge.i ]
   %.sroa.04.0.i = phi i64 [ %.zext30.i, %23 ], [ %6, %._crit_edge.i ]
-  %33 = icmp ult i64 %.sroa.04.0.i, 10
+  %33 = icmp samesign ult i64 %.sroa.04.0.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -504,7 +504,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
 26:                                               ; preds = %18, %._crit_edge.i
   %.sroa.010.1.i = phi i64 [ 3, %18 ], [ 5, %._crit_edge.i ]
   %.sroa.04.0.in.i = phi i16 [ %22, %18 ], [ %1, %._crit_edge.i ]
-  %27 = icmp ult i16 %.sroa.04.0.in.i, 10
+  %27 = icmp samesign ult i16 %.sroa.04.0.in.i, 10
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %26

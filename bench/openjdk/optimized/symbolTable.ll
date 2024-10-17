@@ -516,7 +516,7 @@ define hidden void @_ZN11SymbolTable10symbols_doEP13SymbolClosure(ptr noundef %0
   %27 = and i32 %26, 1073741823
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %12, i64 %28
-  %30 = icmp ult i32 %11, %27
+  %30 = icmp samesign ult i32 %11, %27
   br i1 %30, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -582,7 +582,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %63 = and i32 %62, 1073741823
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds i32, ptr %48, i64 %64
-  %66 = icmp ult i32 %47, %63
+  %66 = icmp samesign ult i32 %47, %63
   br i1 %66, label %.lr.ph.i8, label %.loopexit.i6
 
 .lr.ph.i8:                                        ; preds = %59, %.lr.ph.i8
@@ -781,7 +781,7 @@ define hidden void @_ZN11SymbolTable17shared_symbols_doEP13SymbolClosure(ptr nou
   %26 = and i32 %25, 1073741823
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %11, i64 %27
-  %29 = icmp ult i32 %10, %26
+  %29 = icmp samesign ult i32 %10, %26
   br i1 %29, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
@@ -847,7 +847,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %62 = and i32 %61, 1073741823
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %47, i64 %63
-  %65 = icmp ult i32 %46, %62
+  %65 = icmp samesign ult i32 %46, %62
   br i1 %65, label %.lr.ph.i7, label %.loopexit.i5
 
 .lr.ph.i7:                                        ; preds = %58, %.lr.ph.i7
@@ -1109,7 +1109,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i: ; preds = %29
   %43 = and i32 %42, 1073741823
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %25, i64 %44
-  %46 = icmp ult i32 %24, %43
+  %46 = icmp samesign ult i32 %24, %43
   br i1 %46, label %.lr.ph.i, label %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit
 
 .lr.ph.i:                                         ; preds = %40
@@ -1194,7 +1194,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22: ; preds = %79
   %93 = and i32 %92, 1073741823
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds i32, ptr %75, i64 %94
-  %96 = icmp ult i32 %74, %93
+  %96 = icmp samesign ult i32 %74, %93
   br i1 %96, label %.lr.ph.i15, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13
 
 .lr.ph.i15:                                       ; preds = %90
@@ -2661,7 +2661,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_
   %32 = and i32 %31, 1073741823
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %12, i64 %33
-  %35 = icmp ult i32 %11, %32
+  %35 = icmp samesign ult i32 %11, %32
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
@@ -5490,7 +5490,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
 75:                                               ; preds = %72
   %76 = icmp sgt i32 %.sroa.0.2, -1
   %77 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %74)
-  %78 = icmp ult i32 %77, 2
+  %78 = icmp samesign ult i32 %77, 2
   %or.cond.i.i.i.i = select i1 %76, i1 %78, i1 false
   %79 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %80 = sub nuw nsw i32 32, %79

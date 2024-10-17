@@ -222,7 +222,7 @@ entry:
   %2 = load i64, ptr %capacity.i, align 8
   %shr5.i = lshr i64 %2, 3
   %cmp.i = icmp ult i64 %cond.i22.i, %shr5.i
-  %cmp6.i = icmp ult i64 %sh_prom.i.i17.i, 48
+  %cmp6.i = icmp samesign ult i64 %sh_prom.i.i17.i, 48
   %or.cond.i = and i1 %cmp6.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %buffer_shrink.exit
 

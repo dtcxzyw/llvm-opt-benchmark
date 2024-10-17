@@ -624,7 +624,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %.1.i = phi i32 [ %.060.i, %356 ], [ %249, %353 ]
   %358 = load i16, ptr %235, align 2
   %359 = zext i16 %358 to i32
-  %360 = icmp ult i32 %245, %359
+  %360 = icmp samesign ult i32 %245, %359
   br i1 %360, label %244, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %357

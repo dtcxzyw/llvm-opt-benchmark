@@ -8478,7 +8478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 167:                                              ; preds = %163
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13)
   %168 = atomicrmw add ptr @_ZZL11TestLoggingbE15occurrences_325, i32 1 seq_cst, align 4
-  %169 = icmp ult i32 %.03161, 3
+  %169 = icmp samesign ult i32 %.03161, 3
   br i1 %169, label %170, label %186
 
 170:                                              ; preds = %167

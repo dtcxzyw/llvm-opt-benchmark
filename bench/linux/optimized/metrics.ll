@@ -47,7 +47,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
   %20 = load i16, ptr %18, align 2
   %21 = icmp ult i16 %20, 4
   %22 = zext i16 %20 to i32
-  %.not = icmp ult i32 %19, %22
+  %.not = icmp samesign ult i32 %19, %22
   %or.cond = or i1 %21, %.not
   br i1 %or.cond, label %.thread, label %23
 
@@ -60,7 +60,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
   br i1 %28, label %74, label %29
 
 29:                                               ; preds = %23
-  %30 = icmp ugt i16 %26, 17
+  %30 = icmp samesign ugt i16 %26, 17
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29

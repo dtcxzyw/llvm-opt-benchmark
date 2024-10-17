@@ -2926,12 +2926,12 @@ _ZL8classendP10MatchStatePKc.exit:                ; preds = %142
 
 173:                                              ; preds = %170
   %174 = zext i8 %161 to i32
-  %.not.i106 = icmp ult i32 %156, %174
+  %.not.i106 = icmp samesign ult i32 %156, %174
   br i1 %.not.i106, label %180, label %175
 
 175:                                              ; preds = %173
   %176 = load i8, ptr %171, align 1
-  %.not28.i = icmp ult i8 %176, %159
+  %.not28.i = icmp samesign ult i8 %176, %159
   br i1 %.not28.i, label %180, label %_ZL17matchbracketclassiPKcS0_.exit
 
 177:                                              ; preds = %170, %168
@@ -2984,7 +2984,7 @@ _ZL17matchbracketclassiPKcS0_.exit:               ; preds = %165, %175, %177, %1
 
 200:                                              ; preds = %199
   %201 = load i8, ptr %197, align 1
-  %.not28.i116 = icmp ult i8 %201, %184
+  %.not28.i116 = icmp samesign ult i8 %201, %184
   br i1 %.not28.i116, label %204, label %_ZL17matchbracketclassiPKcS0_.exit118
 
 202:                                              ; preds = %196, %194
@@ -3151,7 +3151,7 @@ _ZL8classendP10MatchStatePKc.exit127:             ; preds = %33, %93, %234, %251
 
 280:                                              ; preds = %279
   %281 = load i8, ptr %277, align 1
-  %.not28.i.i = icmp ult i8 %281, %254
+  %.not28.i.i = icmp samesign ult i8 %281, %254
   br i1 %.not28.i.i, label %284, label %_ZL17matchbracketclassiPKcS0_.exit.i
 
 282:                                              ; preds = %276, %274
@@ -3308,7 +3308,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295: ; preds = %.split.us292
 
 331:                                              ; preds = %330
   %332 = load i8, ptr %326, align 1
-  %.not28.i.i148.us = icmp ult i8 %332, %316
+  %.not28.i.i148.us = icmp samesign ult i8 %332, %316
   br i1 %.not28.i.i148.us, label %336, label %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit
 
 333:                                              ; preds = %.lr.ph.i.i144.us
@@ -3426,7 +3426,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
 
 378:                                              ; preds = %377
   %379 = load i8, ptr %375, align 1
-  %.not28.i.i162 = icmp ult i8 %379, %352
+  %.not28.i.i162 = icmp samesign ult i8 %379, %352
   br i1 %.not28.i.i162, label %382, label %_ZL17matchbracketclassiPKcS0_.exit.i155
 
 380:                                              ; preds = %374, %372
@@ -3835,7 +3835,7 @@ define internal fastcc noundef range(i32 0, 9) i32 @_ZL10getdetailsP6HeadermPPKc
   %27 = load i32, ptr %26, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %27)
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %spec.select)
-  %.not = icmp ult i32 %28, 2
+  %.not = icmp samesign ult i32 %28, 2
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %25

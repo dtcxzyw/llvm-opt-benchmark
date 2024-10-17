@@ -1190,7 +1190,7 @@ define internal void @uds_sa_subfunction_format(ptr nocapture noundef writeonly 
   ]
 
 10:                                               ; preds = %9
-  %11 = icmp ugt i8 %4, 96
+  %11 = icmp samesign ugt i8 %4, 96
   br i1 %11, label %uds_sa_subfunction_to_string.exit, label %uds_sa_subfunction_to_type.exit.i
 
 uds_sa_subfunction_to_type.exit.i:                ; preds = %10
@@ -2023,7 +2023,7 @@ define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noun
   br label %13
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i8 %2, 96
+  %10 = icmp samesign ugt i8 %2, 96
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
@@ -2060,7 +2060,7 @@ define internal fastcc noundef nonnull ptr @uds_sa_subfunction_to_string(i8 noun
   ]
 
 8:                                                ; preds = %7
-  %9 = icmp ugt i8 %2, 96
+  %9 = icmp samesign ugt i8 %2, 96
   br i1 %9, label %uds_sa_subfunction_to_type.exit.thread, label %uds_sa_subfunction_to_type.exit
 
 uds_sa_subfunction_to_type.exit:                  ; preds = %8

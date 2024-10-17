@@ -135,7 +135,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %65 = fmul double %50, %64
   %66 = call double @llvm.fabs.f64(double %65)
   %67 = fcmp ogt double %63, %66
-  %68 = icmp ult i32 %.050.us, 99
+  %68 = icmp samesign ult i32 %.050.us, 99
   %69 = select i1 %67, i1 %68, i1 false
   br i1 %69, label %.split.us, label %.split60.us, !llvm.loop !7
 
@@ -170,7 +170,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %83 = fmul double %78, %82
   %84 = call double @llvm.fabs.f64(double %83)
   %85 = fcmp ogt double %81, %84
-  %86 = icmp ult i32 %.050, 99
+  %86 = icmp samesign ult i32 %.050, 99
   %87 = select i1 %85, i1 %86, i1 false
   br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !7
 

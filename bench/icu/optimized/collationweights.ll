@@ -317,7 +317,7 @@ _ZN6icu_7516CollationWeights14lengthOfWeightEj.exit98: ; preds = %_ZN6icu_7516Co
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6icu_7516CollationWeights14lengthOfWeightEj.exit98
-  %cmp3 = icmp ult i32 %retval.0.i, %retval.0.i97
+  %cmp3 = icmp samesign ult i32 %retval.0.i, %retval.0.i97
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
@@ -824,7 +824,7 @@ if.end:                                           ; preds = %for.end
   %6 = load i32, ptr %ranges, align 4
   %end14 = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i32, ptr %end14, align 4
-  %cmp16106 = icmp ugt i32 %minLengthRangeCount.0.lcssa, 1
+  %cmp16106 = icmp samesign ugt i32 %minLengthRangeCount.0.lcssa, 1
   br i1 %cmp16106, label %for.body17.preheader, label %for.end42
 
 for.body17.preheader:                             ; preds = %if.end

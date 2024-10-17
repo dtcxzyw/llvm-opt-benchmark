@@ -308,7 +308,7 @@ Abc_Clock.exit67:                                 ; preds = %Abc_Clock.exit65, %
 
 .preheader:                                       ; preds = %112, %.loopexit.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.loopexit.i ], [ 0, %112 ]
-  %115 = icmp ult i64 %indvars.iv31.i, 6
+  %115 = icmp samesign ult i64 %indvars.iv31.i, 6
   br i1 %115, label %.preheader.i, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %.preheader
@@ -3458,7 +3458,7 @@ Abc_TtSwapVars.exit.us:                           ; preds = %25, %23
   br i1 %exitcond164.not.i, label %Abc_TtSwapVars.exit, label %70, !llvm.loop !48
 
 80:                                               ; preds = %57
-  %81 = icmp ult i32 %.020, 6
+  %81 = icmp samesign ult i32 %.020, 6
   br i1 %81, label %82, label %109
 
 82:                                               ; preds = %80
@@ -12315,7 +12315,7 @@ define void @Abc_NtkAreaOpt(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %17, label %27
 
 17:                                               ; preds = %14
-  %.not16 = icmp ult i64 %indvars.iv, %7
+  %.not16 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %.not16, label %18, label %.critedge
 
 18:                                               ; preds = %17
@@ -13932,7 +13932,7 @@ Sfm_NtkSimulate.exit:                             ; preds = %.critedge2.i, %192
   br i1 %.not.i, label %223, label %233
 
 223:                                              ; preds = %220
-  %.not16.i = icmp ult i64 %indvars.iv.i98, %213
+  %.not16.i = icmp samesign ult i64 %indvars.iv.i98, %213
   br i1 %.not16.i, label %224, label %Abc_NtkAreaOpt.exit
 
 224:                                              ; preds = %223

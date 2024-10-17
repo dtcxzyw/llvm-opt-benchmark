@@ -22792,12 +22792,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -60559,11 +60559,11 @@ entry:
   %shr.i.i.i = lshr i32 %1, 16
   %3 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %3, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -60582,7 +60582,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -60601,7 +60601,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end37.i.i.i:                                   ; preds = %entry
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -60636,12 +60636,12 @@ _ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit: ; preds = %if.then4.i.i.i, %
   %shr.i.i = and i32 %7, 268427264
   %h.signext.i.i = sext i16 %retval.0.i.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -61523,11 +61523,11 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -61546,7 +61546,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -61565,7 +61565,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -66075,7 +66075,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 4088
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 4088
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !798
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -67696,7 +67696,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 504
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 504
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !819
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -67955,7 +67955,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 56
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 56
   br i1 %cmp9.i.i, label %land.rhs.i.i, label %if.end.i, !llvm.loop !827
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -82891,7 +82891,7 @@ for.body19:                                       ; preds = %for.cond16.preheade
   store atomic i64 %9, ptr %arrayidx20 release, align 8
   %inc22 = add nuw nsw i64 %i15.094, 1
   %cmp17 = icmp ult i64 %inc22, %16
-  %17 = and i1 %cmp18, %cmp17
+  %17 = and i1 %cmp17, %cmp18
   br i1 %17, label %for.body19, label %return, !llvm.loop !1020
 
 if.else:                                          ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN7openvdb5v11_04tree4TreeINS9_8RootNodeINS9_12InternalNodeINSC_INS9_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELm128EEENS3_23cache_aligned_allocatorISK_EEE14create_segmentEPSt6atomicIPSK_EmmEUlvE_E12on_exceptionIZNSN_14create_segmentESR_mmEUlvE0_EEvT_.exit
@@ -102911,12 +102911,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -140624,11 +140624,11 @@ entry:
   %shr.i.i.i = lshr i32 %1, 16
   %3 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %3, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -140647,7 +140647,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -140666,7 +140666,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end37.i.i.i:                                   ; preds = %entry
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -140701,12 +140701,12 @@ _ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit: ; preds = %if.then4.i.i.i, %
   %shr.i.i = and i32 %7, 268427264
   %h.signext.i.i = sext i16 %retval.0.i.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -141590,11 +141590,11 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -141613,7 +141613,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -141632,7 +141632,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -146130,7 +146130,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 4088
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 4088
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !798
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -147740,7 +147740,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 504
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 504
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !819
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -147999,7 +147999,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 56
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 56
   br i1 %cmp9.i.i, label %land.rhs.i.i, label %if.end.i, !llvm.loop !827
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -161522,7 +161522,7 @@ for.body19:                                       ; preds = %for.cond16.preheade
   store atomic i64 %9, ptr %arrayidx20 release, align 8
   %inc22 = add nuw nsw i64 %i15.094, 1
   %cmp17 = icmp ult i64 %inc22, %16
-  %17 = and i1 %cmp18, %cmp17
+  %17 = and i1 %cmp17, %cmp18
   br i1 %17, label %for.body19, label %return, !llvm.loop !2037
 
 if.else:                                          ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN7openvdb5v11_04tree4TreeINS9_8RootNodeINS9_12InternalNodeINSC_INS9_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELm128EEENS3_23cache_aligned_allocatorISK_EEE14create_segmentEPSt6atomicIPSK_EmmEUlvE_E12on_exceptionIZNSN_14create_segmentESR_mmEUlvE0_EEvT_.exit

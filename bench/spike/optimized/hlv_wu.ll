@@ -576,7 +576,7 @@ define noundef i64 @_Z17fast_rv64e_hlv_wuP11processor_t6insn_tm(ptr nocapture no
 40:                                               ; preds = %24
   %41 = lshr i64 %1, 15
   %42 = and i64 %41, 31
-  %43 = icmp ugt i64 %42, 15
+  %43 = icmp samesign ugt i64 %42, 15
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
@@ -647,7 +647,7 @@ _ZN5mmu_t10guest_loadIjEET_m.exit:                ; preds = %49, %57, %68, %73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %75 = lshr i64 %1, 7
   %76 = and i64 %75, 31
-  %77 = icmp ugt i64 %76, 15
+  %77 = icmp samesign ugt i64 %76, 15
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %_ZN5mmu_t10guest_loadIjEET_m.exit
@@ -763,7 +763,7 @@ define noundef i64 @_Z19logged_rv64e_hlv_wuP11processor_t6insn_tm(ptr noundef %0
 40:                                               ; preds = %24
   %41 = lshr i64 %1, 15
   %42 = and i64 %41, 31
-  %43 = icmp ugt i64 %42, 15
+  %43 = icmp samesign ugt i64 %42, 15
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
@@ -892,7 +892,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %75, ptr %.0.i.i27, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %103 = icmp ugt i64 %78, 15
+  %103 = icmp samesign ugt i64 %78, 15
   br i1 %103, label %104, label %109
 
 104:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

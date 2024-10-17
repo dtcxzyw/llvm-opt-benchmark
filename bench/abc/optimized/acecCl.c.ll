@@ -80,7 +80,7 @@ Gia_ObjIsXor.exit:                                ; preds = %16
   %28 = lshr i64 %.val42, 32
   %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
-  %.not44 = icmp ult i32 %27, %30
+  %.not44 = icmp samesign ult i32 %27, %30
   br i1 %.not44, label %31, label %Gia_ObjIsXor.exit.thread
 
 31:                                               ; preds = %Gia_ObjIsXor.exit

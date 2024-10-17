@@ -416,7 +416,7 @@ if.end30.i.i:                                     ; preds = %if.end27.i.i, %if.e
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = load i32, ptr %cmdline, align 8
   %30 = zext i32 %29 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %30
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %30
   br i1 %cmp.i.i, label %for.body.i.i, label %get_ref_information.exit.i, !llvm.loop !5
 
 get_ref_information.exit.i:                       ; preds = %if.end30.i.i

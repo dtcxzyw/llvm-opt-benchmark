@@ -132,7 +132,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %dist_prefix_.i = getelementptr inbounds i8, ptr %arrayidx23, i64 14
   %dist_extra_.i = getelementptr inbounds i8, ptr %arrayidx23, i64 8
   %add.i60 = add nuw nsw i64 %conv5.i, 16
-  %cmp.i61 = icmp ugt i64 %add.i60, %conv22
+  %cmp.i61 = icmp samesign ugt i64 %add.i60, %conv22
   br i1 %cmp.i61, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -264,14 +264,14 @@ GetCopyLengthCode.exit:                           ; preds = %if.else10.i, %if.th
   %and2.i = shl i32 %retval.i.0, 3
   %shl.i116 = and i32 %and2.i, 56
   %or.i117 = or disjoint i32 %and.i114, %shl.i116
-  %cmp.i125 = icmp ult i32 %conv1.i115, 8
+  %cmp.i125 = icmp samesign ult i32 %conv1.i115, 8
   %or.cond = select i1 %cmp.i57, i1 %cmp.i125, i1 false
-  %cmp8.i = icmp ult i32 %conv.i113, 16
+  %cmp8.i = icmp samesign ult i32 %conv.i113, 16
   %or.cond1 = select i1 %or.cond, i1 %cmp8.i, i1 false
   br i1 %or.cond1, label %if.then.i127, label %if.else.i119
 
 if.then.i127:                                     ; preds = %GetCopyLengthCode.exit
-  %cmp11.i129 = icmp ult i32 %conv.i113, 8
+  %cmp11.i129 = icmp samesign ult i32 %conv.i113, 8
   %or15.i = or disjoint i32 %or.i117, 64
   %cond.i131 = select i1 %cmp11.i129, i32 %or.i117, i32 %or15.i
   br label %CombineLengthCodes.exit
@@ -1162,7 +1162,7 @@ while.body.i537:                                  ; preds = %LookupAllCompoundDi
   %length_and_code.i.i538 = getelementptr inbounds i8, ptr %src2.addr.019.i, i64 4
   %69 = load i32, ptr %length_and_code.i.i538, align 4
   %shr.i.i539 = lshr i32 %69, 5
-  %cmp3.i = icmp ult i32 %shr.i27.i, %shr.i.i539
+  %cmp3.i = icmp samesign ult i32 %shr.i27.i, %shr.i.i539
   br i1 %cmp3.i, label %if.then.i, label %lor.lhs.false.i540
 
 lor.lhs.false.i540:                               ; preds = %while.body.i537
@@ -1244,7 +1244,7 @@ land.lhs.true:                                    ; preds = %if.end74
   %78 = load i32, ptr %length_and_code.i177, align 4
   %shr.i178 = lshr i32 %78, 5
   %conv.i179 = zext nneg i32 %shr.i178 to i64
-  %cmp80 = icmp ult i64 %cond.i139, %conv.i179
+  %cmp80 = icmp samesign ult i64 %cond.i139, %conv.i179
   br i1 %cmp80, label %if.then82, label %if.end86
 
 if.then82:                                        ; preds = %land.lhs.true
@@ -1265,7 +1265,7 @@ land.lhs.true94:                                  ; preds = %if.end86
   %80 = load i32, ptr %length_and_code.i173, align 4
   %shr.i174 = lshr i32 %80, 5
   %conv.i175 = zext nneg i32 %shr.i174 to i64
-  %cmp97 = icmp ult i64 %cond.i139, %conv.i175
+  %cmp97 = icmp samesign ult i64 %cond.i139, %conv.i175
   br i1 %cmp97, label %if.then99, label %if.end103
 
 if.then99:                                        ; preds = %land.lhs.true94
@@ -1774,7 +1774,7 @@ while.body.i.i557:                                ; preds = %if.then.i556, %whil
   %sub13.i.i = sub nsw i64 %p.0.i.i, %130
   %p.0.in.in.i.i = getelementptr inbounds %struct.ZopfliNode, ptr %nodes, i64 %sub13.i.i, i32 3
   %p.0.in.i.i = load i32, ptr %p.0.in.in.i.i, align 4
-  %cmp.i21.i = icmp ult i64 %indvars.iv.i.i, 3
+  %cmp.i21.i = icmp samesign ult i64 %indvars.iv.i.i, 3
   %cmp2.i.i = icmp ne i32 %p.0.in.i.i, 0
   %131 = select i1 %cmp.i21.i, i1 %cmp2.i.i, i1 false
   br i1 %131, label %while.body.i.i557, label %for.cond.preheader.i.i, !llvm.loop !23
@@ -1948,7 +1948,7 @@ for.cond23.preheader:                             ; preds = %FastLog2.exit56
 for.body15:                                       ; preds = %for.body15.preheader, %FastLog2.exit56
   %i.139 = phi i64 [ %inc21, %FastLog2.exit56 ], [ 0, %for.body15.preheader ]
   %add16 = add nuw nsw i64 %i.139, 11
-  %cmp.i50 = icmp ult i64 %i.139, 245
+  %cmp.i50 = icmp samesign ult i64 %i.139, 245
   br i1 %cmp.i50, label %if.then.i54, label %if.end.i51
 
 if.then.i54:                                      ; preds = %for.body15
@@ -1974,7 +1974,7 @@ for.body27:                                       ; preds = %for.cond23.preheade
   %i.242 = phi i64 [ %inc35, %FastLog2.exit47 ], [ 0, %for.cond23.preheader ]
   %add29 = add nuw nsw i64 %i.242, 20
   %conv30 = and i64 %add29, 4294967295
-  %cmp.i41 = icmp ult i64 %conv30, 256
+  %cmp.i41 = icmp samesign ult i64 %conv30, 256
   br i1 %cmp.i41, label %if.then.i45, label %if.end.i42
 
 if.then.i45:                                      ; preds = %for.body27
@@ -1995,7 +1995,7 @@ FastLog2.exit47:                                  ; preds = %if.end.i42, %if.the
   %inc35 = add nuw nsw i64 %i.242, 1
   %9 = load i32, ptr %distance_histogram_size, align 8
   %conv24 = zext i32 %9 to i64
-  %cmp25 = icmp ult i64 %inc35, %conv24
+  %cmp25 = icmp samesign ult i64 %inc35, %conv24
   br i1 %cmp25, label %for.body27, label %FastLog2.exit, !llvm.loop !31
 
 FastLog2.exit:                                    ; preds = %FastLog2.exit47, %for.cond23.preheader
@@ -2096,7 +2096,7 @@ land.rhs:                                         ; preds = %ComputeMinimumCopyL
   %k.0334 = phi i64 [ 0, %ComputeMinimumCopyLength.exit ], [ %inc227, %for.inc226 ]
   %queue.val = load i64, ptr %idx_.i, align 8
   %cond.i.i = tail call range(i64 0, 9) i64 @llvm.umin.i64(i64 %queue.val, i64 8)
-  %cmp15 = icmp ult i64 %k.0334, %cond.i.i
+  %cmp15 = icmp samesign ult i64 %k.0334, %cond.i.i
   br i1 %cmp15, label %for.body, label %for.end228
 
 for.body:                                         ; preds = %land.rhs
@@ -2521,14 +2521,14 @@ for.inc149:                                       ; preds = %if.end147, %if.end1
   %best_len.1 = phi i64 [ %best_len.0320, %if.end ], [ %best_len.0320, %if.then53 ], [ %best_len.0320, %if.end57 ], [ %best_len.0320, %lor.lhs.false ], [ %best_len.0320, %while.end ], [ %best_len.0320, %lor.lhs.false101 ], [ %best_len.0320, %if.else ], [ %best_len.0320, %if.end115 ], [ %l.0314, %if.end147 ]
   %result.2 = phi i64 [ %result.1321, %if.end ], [ %result.1321, %if.then53 ], [ %result.1321, %if.end57 ], [ %result.1321, %lor.lhs.false ], [ %result.1321, %while.end ], [ %result.1321, %lor.lhs.false101 ], [ %result.1321, %if.else ], [ %result.1321, %if.end115 ], [ %result.4, %if.end147 ]
   %inc150 = add nuw nsw i64 %j.0318, 1
-  %cmp27 = icmp ult i64 %j.0318, 15
+  %cmp27 = icmp samesign ult i64 %j.0318, 15
   %cmp30 = icmp ult i64 %best_len.1, %sub
   %57 = and i1 %cmp27, %cmp30
   br i1 %57, label %for.body33, label %for.end151, !llvm.loop !35
 
 for.end151:                                       ; preds = %for.inc149, %for.body33, %GetInsertLengthCode.exit
   %result.1.lcssa = phi i64 [ %result.0335, %GetInsertLengthCode.exit ], [ %result.1321, %for.body33 ], [ %result.2, %for.inc149 ]
-  %cmp152 = icmp ugt i64 %k.0334, 1
+  %cmp152 = icmp samesign ugt i64 %k.0334, 1
   %brmerge = or i1 %cmp152, %cmp158329.not336
   br i1 %brmerge, label %for.inc226, label %for.body160.lr.ph
 
@@ -2554,7 +2554,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   %59 = load i32, ptr %num_direct_distance_codes, align 4
   %conv172 = zext i32 %59 to i64
   %add.i = add nuw nsw i64 %conv172, 16
-  %cmp.i252 = icmp ult i64 %sub169, %add.i
+  %cmp.i252 = icmp samesign ult i64 %sub169, %add.i
   br i1 %cmp.i252, label %PrefixEncodeCopyDistance.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body160
@@ -2600,7 +2600,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %for.body160, %if.el
   %shr.i = lshr i32 %match.sroa.2.0.copyload, 5
   %conv.i238 = zext nneg i32 %shr.i to i64
   %cmp184 = icmp ult i64 %len156.0332, %conv.i238
-  %cmp188 = icmp ult i64 %cond.i237, %conv.i238
+  %cmp188 = icmp samesign ult i64 %cond.i237, %conv.i238
   %or.cond264 = select i1 %cmp164, i1 true, i1 %cmp188
   %or.cond265 = select i1 %cmp184, i1 %or.cond264, i1 false
   %len156.1 = select i1 %or.cond265, i64 %conv.i238, i64 %len156.0332
@@ -2718,8 +2718,8 @@ for.inc223:                                       ; preds = %for.inc220, %Prefix
 for.inc226:                                       ; preds = %for.inc223, %for.end151
   %result.5 = phi i64 [ %result.1.lcssa, %for.end151 ], [ %result.7.lcssa, %for.inc223 ]
   %inc227 = add nuw nsw i64 %k.0334, 1
-  %cmp337 = icmp ult i64 %k.0334, 4
-  %cmp = and i1 %cmp.i236, %cmp337
+  %cmp337 = icmp samesign ult i64 %k.0334, 4
+  %cmp = select i1 %cmp.i236, i1 %cmp337, i1 false
   br i1 %cmp, label %land.rhs, label %for.end228, !llvm.loop !38
 
 for.end228:                                       ; preds = %for.inc226, %land.rhs
@@ -2833,7 +2833,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %sub13.i = sub nsw i64 %p.0.i, %15
   %p.0.in.in.i = getelementptr inbounds %struct.ZopfliNode, ptr %nodes, i64 %sub13.i, i32 3
   %p.0.in.i = load i32, ptr %p.0.in.in.i, align 4
-  %cmp.i21 = icmp ult i64 %indvars.iv.i, 3
+  %cmp.i21 = icmp samesign ult i64 %indvars.iv.i, 3
   %cmp2.i = icmp ne i32 %p.0.in.i, 0
   %16 = select i1 %cmp.i21, i1 %cmp2.i, i1 false
   br i1 %16, label %while.body.i, label %for.cond.preheader.i, !llvm.loop !23
@@ -3773,7 +3773,7 @@ while.body.i582:                                  ; preds = %LookupAllCompoundDi
   %length_and_code.i.i583 = getelementptr inbounds i8, ptr %src2.addr.019.i, i64 4
   %66 = load i32, ptr %length_and_code.i.i583, align 4
   %shr.i.i584 = lshr i32 %66, 5
-  %cmp3.i = icmp ult i32 %shr.i27.i, %shr.i.i584
+  %cmp3.i = icmp samesign ult i32 %shr.i27.i, %shr.i.i584
   br i1 %cmp3.i, label %if.then.i, label %lor.lhs.false.i585
 
 lor.lhs.false.i585:                               ; preds = %while.body.i582
@@ -4614,7 +4614,7 @@ land.lhs.true.i661:                               ; preds = %for.body.i641
   %143 = load i32, ptr %gep59.i, align 4
   %shr.i45.i = lshr i32 %143, 5
   %conv.i46.i = zext nneg i32 %shr.i45.i to i64
-  %cmp17.i = icmp ult i64 %cond.i.i629, %conv.i46.i
+  %cmp17.i = icmp samesign ult i64 %cond.i.i629, %conv.i46.i
   br i1 %cmp17.i, label %if.then19.i662, label %if.end24.i646
 
 if.then19.i662:                                   ; preds = %land.lhs.true.i661
@@ -4737,7 +4737,7 @@ while.body.i.i.i657:                              ; preds = %if.then.i.i655, %wh
   %sub13.i.i.i = sub nsw i64 %p.0.i.i.i, %159
   %p.0.in.in.i.i.i = getelementptr inbounds %struct.ZopfliNode, ptr %cond165674, i64 %sub13.i.i.i, i32 3
   %p.0.in.i.i.i = load i32, ptr %p.0.in.in.i.i.i, align 4
-  %cmp.i21.i.i = icmp ult i64 %indvars.iv.i.i.i, 3
+  %cmp.i21.i.i = icmp samesign ult i64 %indvars.iv.i.i.i, 3
   %cmp2.i.i.i = icmp ne i32 %p.0.in.i.i.i, 0
   %160 = select i1 %cmp.i21.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %160, label %while.body.i.i.i657, label %for.cond.preheader.i.i.i, !llvm.loop !23

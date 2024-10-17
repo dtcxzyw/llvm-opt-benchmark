@@ -13,7 +13,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h08ae55b272c7e19
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %.sroa.0.0.sroa.speculated.i)
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %6 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 257
+  %6 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 257
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
@@ -67,7 +67,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h8082825fa738deb
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 257
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 257
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %3

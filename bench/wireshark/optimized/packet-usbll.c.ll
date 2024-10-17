@@ -3660,12 +3660,12 @@ define internal fastcc void @usbll_set_address(ptr noundef %0, ptr noundef %1, p
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 3) #13
   %10 = load ptr, ptr %7, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 3) #13
-  %.not = icmp ugt i8 %5, 7
+  %.not = icmp samesign ugt i8 %5, 7
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %6
   store i8 1, ptr %9, align 1
-  %.not58 = icmp ult i8 %5, 4
+  %.not58 = icmp samesign ult i8 %5, 4
   br i1 %.not58, label %14, label %13
 
 13:                                               ; preds = %12
@@ -3677,7 +3677,7 @@ define internal fastcc void @usbll_set_address(ptr noundef %0, ptr noundef %1, p
   store i8 %3, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %11, i64 2
   store i8 %4, ptr %16, align 1
-  %.not59 = icmp ult i8 %5, 2
+  %.not59 = icmp samesign ult i8 %5, 2
   br i1 %.not59, label %18, label %17
 
 17:                                               ; preds = %14

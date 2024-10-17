@@ -1640,7 +1640,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i91
 while.cond6.i.preheader:                          ; preds = %if.end.i104, %while.cond.i.preheader
   %total_bits.addr.i99.0.lcssa = phi i32 [ %32, %while.cond.i.preheader ], [ %sub.i, %if.end.i104 ]
   %bits.addr.i98.0.lcssa = phi ptr [ %30, %while.cond.i.preheader ], [ %add.ptr.i105, %if.end.i104 ]
-  %cmp7.i102169 = icmp ugt i32 %total_bits.addr.i99.0.lcssa, 8
+  %cmp7.i102169 = icmp samesign ugt i32 %total_bits.addr.i99.0.lcssa, 8
   br i1 %cmp7.i102169, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader
@@ -2106,7 +2106,7 @@ while.cond.i.i.preheader:                         ; preds = %if.end.i.i
 while.cond6.i.i.preheader:                        ; preds = %if.end.i17.i, %while.cond.i.i.preheader
   %total_bits.addr.i14.i.0.lcssa = phi i32 [ %22, %while.cond.i.i.preheader ], [ %sub.i.i, %if.end.i17.i ]
   %bits.addr.i13.i.0.lcssa = phi ptr [ %20, %while.cond.i.i.preheader ], [ %add.ptr.i.i, %if.end.i17.i ]
-  %cmp7.i.i296 = icmp ugt i32 %total_bits.addr.i14.i.0.lcssa, 8
+  %cmp7.i.i296 = icmp samesign ugt i32 %total_bits.addr.i14.i.0.lcssa, 8
   br i1 %cmp7.i.i296, label %while.body9.i.i.preheader, label %mmbit_all.exit.i
 
 while.body9.i.i.preheader:                        ; preds = %while.cond6.i.i.preheader
@@ -2368,7 +2368,7 @@ while.cond.i.i281.preheader:                      ; preds = %if.end.i17.i246
 while.cond6.i.i284.preheader:                     ; preds = %if.end.i27.i, %while.cond.i.i281.preheader
   %total_bits.addr.i24.i.0.lcssa = phi i32 [ %61, %while.cond.i.i281.preheader ], [ %sub.i.i306, %if.end.i27.i ]
   %bits.addr.i23.i.0.lcssa = phi ptr [ %59, %while.cond.i.i281.preheader ], [ %add.ptr.i28.i, %if.end.i27.i ]
-  %cmp7.i.i285279 = icmp ugt i32 %total_bits.addr.i24.i.0.lcssa, 8
+  %cmp7.i.i285279 = icmp samesign ugt i32 %total_bits.addr.i24.i.0.lcssa, 8
   br i1 %cmp7.i.i285279, label %while.body9.i.i296.preheader, label %mmbit_all.exit.i264
 
 while.body9.i.i296.preheader:                     ; preds = %while.cond6.i.i284.preheader
@@ -2938,7 +2938,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i77
 while.cond6.i.preheader:                          ; preds = %if.end.i90, %while.cond.i.preheader
   %total_bits.addr.i85.0.lcssa = phi i32 [ %31, %while.cond.i.preheader ], [ %sub.i, %if.end.i90 ]
   %bits.addr.i84.0.lcssa = phi ptr [ %29, %while.cond.i.preheader ], [ %add.ptr.i91, %if.end.i90 ]
-  %cmp7.i88159 = icmp ugt i32 %total_bits.addr.i85.0.lcssa, 8
+  %cmp7.i88159 = icmp samesign ugt i32 %total_bits.addr.i85.0.lcssa, 8
   br i1 %cmp7.i88159, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader
@@ -3365,7 +3365,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i172
 while.cond6.i.preheader:                          ; preds = %if.end.i189, %while.cond.i.preheader
   %total_bits.addr.i184.0.lcssa = phi i32 [ %31, %while.cond.i.preheader ], [ %sub.i, %if.end.i189 ]
   %bits.addr.i183.0.lcssa = phi ptr [ %29, %while.cond.i.preheader ], [ %add.ptr.i190, %if.end.i189 ]
-  %cmp7.i187215 = icmp ugt i32 %total_bits.addr.i184.0.lcssa, 8
+  %cmp7.i187215 = icmp samesign ugt i32 %total_bits.addr.i184.0.lcssa, 8
   br i1 %cmp7.i187215, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader
@@ -4126,7 +4126,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i253
 while.cond6.i.preheader:                          ; preds = %if.end.i270, %while.cond.i.preheader
   %total_bits.addr.i265.0.lcssa = phi i32 [ %50, %while.cond.i.preheader ], [ %sub.i, %if.end.i270 ]
   %bits.addr.i264.0.lcssa = phi ptr [ %48, %while.cond.i.preheader ], [ %add.ptr.i271, %if.end.i270 ]
-  %cmp7.i268241 = icmp ugt i32 %total_bits.addr.i265.0.lcssa, 8
+  %cmp7.i268241 = icmp samesign ugt i32 %total_bits.addr.i265.0.lcssa, 8
   br i1 %cmp7.i268241, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader
@@ -4661,7 +4661,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i90
 while.cond6.i.preheader:                          ; preds = %if.end.i103, %while.cond.i.preheader
   %total_bits.addr.i98.0.lcssa = phi i32 [ %32, %while.cond.i.preheader ], [ %sub.i, %if.end.i103 ]
   %bits.addr.i97.0.lcssa = phi ptr [ %30, %while.cond.i.preheader ], [ %add.ptr.i104, %if.end.i103 ]
-  %cmp7.i101161 = icmp ugt i32 %total_bits.addr.i98.0.lcssa, 8
+  %cmp7.i101161 = icmp samesign ugt i32 %total_bits.addr.i98.0.lcssa, 8
   br i1 %cmp7.i101161, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader
@@ -4935,7 +4935,7 @@ while.cond.i.preheader:                           ; preds = %if.end.i
 while.cond6.i.preheader:                          ; preds = %if.end.i55, %while.cond.i.preheader
   %total_bits.addr.i52.0.lcssa = phi i32 [ %4, %while.cond.i.preheader ], [ %sub.i, %if.end.i55 ]
   %bits.addr.i51.0.lcssa = phi ptr [ %2, %while.cond.i.preheader ], [ %add.ptr.i56, %if.end.i55 ]
-  %cmp7.i27 = icmp ugt i32 %total_bits.addr.i52.0.lcssa, 8
+  %cmp7.i27 = icmp samesign ugt i32 %total_bits.addr.i52.0.lcssa, 8
   br i1 %cmp7.i27, label %while.body9.i.preheader, label %mmbit_all.exit
 
 while.body9.i.preheader:                          ; preds = %while.cond6.i.preheader

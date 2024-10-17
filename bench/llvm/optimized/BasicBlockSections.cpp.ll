@@ -2401,7 +2401,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_17MachineBasi
 
 19:                                               ; preds = %15
   %20 = icmp eq i32 %.sroa.057.0.extract.trunc.i, %.sroa.055.0.extract.trunc.i
-  %21 = icmp ult i64 %.sroa.4.0.extract.shift.i, %.sroa.356.0.extract.shift.i
+  %21 = icmp samesign ult i64 %.sroa.4.0.extract.shift.i, %.sroa.356.0.extract.shift.i
   %22 = icmp slt i32 %.sroa.057.0.extract.trunc.i, %.sroa.055.0.extract.trunc.i
   %23 = select i1 %20, i1 %21, i1 %22
   br label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit"
@@ -2544,7 +2544,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit51.i: ; preds = %.lr.ph.i.i.i39.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6doFindIS2_EEPKS8_RKT_.exit.i43.i, %31
   %.sroa.3.0.i66.i = phi i64 [ %.sroa.3.0.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6doFindIS2_EEPKS8_RKT_.exit.i43.i ], [ 0, %31 ], [ %.sroa.3.0.i.i, %.lr.ph.i.i.i39.i ]
   %.sroa.3.0.i47.i = phi i64 [ %109, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6doFindIS2_EEPKS8_RKT_.exit.i43.i ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i39.i ]
-  %110 = icmp ult i64 %.sroa.3.0.i66.i, %.sroa.3.0.i47.i
+  %110 = icmp samesign ult i64 %.sroa.3.0.i66.i, %.sroa.3.0.i47.i
   br label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit"
 
 111:                                              ; preds = %29

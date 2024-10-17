@@ -260,8 +260,8 @@ define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, pt
   %7 = and i32 %6, 65535
   %8 = add nsw i32 %7, -256
   %or.cond = icmp ult i32 %8, 65024
-  %9 = icmp ugt i32 %7, 65375
-  %or.cond5 = or i1 %9, %or.cond
+  %9 = icmp samesign ugt i32 %7, 65375
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %9
   br i1 %or.cond5, label %50, label %10
 
 10:                                               ; preds = %4
@@ -891,7 +891,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
 
 249:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %250 = icmp ult i16 %75, 4
+  %250 = icmp samesign ult i16 %75, 4
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %249

@@ -481,7 +481,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %206 = add nsw i32 %205, -1
   %207 = add i32 %204, %206
   %208 = udiv i32 %207, %205
-  %209 = icmp ugt i32 %208, 63
+  %209 = icmp samesign ugt i32 %208, 63
   br i1 %209, label %210, label %217
 
 210:                                              ; preds = %180
@@ -506,13 +506,13 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %222 = udiv i32 %221, %205
   %223 = mul i32 %182, 55
   %224 = udiv i32 %223, 1000000
-  %225 = icmp ult i32 %222, %224
+  %225 = icmp samesign ult i32 %222, %224
   %226 = urem i32 %223, 1000000
   %227 = icmp ne i32 %226, 0
   %228 = and i1 %227, %225
   %229 = zext i1 %228 to i32
   %230 = add nuw nsw i32 %222, %229
-  %231 = icmp ugt i32 %230, 63
+  %231 = icmp samesign ugt i32 %230, 63
   br i1 %231, label %232, label %239
 
 232:                                              ; preds = %217
@@ -535,7 +535,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %242 = mul i32 %241, %182
   %243 = add i32 %242, %206
   %244 = udiv i32 %243, %205
-  %245 = icmp ugt i32 %244, 255
+  %245 = icmp samesign ugt i32 %244, 255
   br i1 %245, label %246, label %253
 
 246:                                              ; preds = %239
@@ -563,7 +563,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %261 = mul i32 %182, %260
   %262 = add i32 %261, %206
   %263 = udiv i32 %262, %205
-  %264 = icmp ugt i32 %263, 31
+  %264 = icmp samesign ugt i32 %263, 31
   br i1 %264, label %265, label %272
 
 265:                                              ; preds = %253
@@ -2390,7 +2390,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef
   %97 = tail call i32 %96(ptr noundef %23, i32 %95, i1 noundef zeroext true) #9
   %98 = lshr i32 %97, 7
   %99 = and i32 %98, 7
-  %100 = icmp ult i32 %99, 3
+  %100 = icmp samesign ult i32 %99, 3
   br i1 %100, label %.loopexit.sink.split, label %101, !prof !11
 
 101:                                              ; preds = %92

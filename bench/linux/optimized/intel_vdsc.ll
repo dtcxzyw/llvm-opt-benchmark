@@ -104,7 +104,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
   %26 = zext nneg i16 %23 to i32
   %27 = and i32 %16, 65535
   %28 = mul nuw nsw i32 %27, %26
-  %29 = icmp ult i32 %28, 15000
+  %29 = icmp samesign ult i32 %28, 15000
   br i1 %29, label %45, label %52
 
 30:                                               ; preds = %1
@@ -122,7 +122,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
   %40 = icmp ugt i16 %36, 4094
   %41 = or i1 %40, %39
   %42 = mul nuw nsw i32 %34, %37
-  %43 = icmp ult i32 %42, 30000
+  %43 = icmp samesign ult i32 %42, 30000
   %44 = select i1 %41, i1 true, i1 %43
   br i1 %44, label %45, label %52
 

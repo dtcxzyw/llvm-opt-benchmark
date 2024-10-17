@@ -2692,7 +2692,7 @@ entry:
   %0 = trunc i64 %bf.load to i32
   %1 = lshr i32 %0, 13
   %bf.cast = and i32 %1, 7
-  %2 = icmp ult i32 %bf.cast, 4
+  %2 = icmp samesign ult i32 %bf.cast, 4
   br i1 %2, label %switch.lookup, label %ossl_quic_enc_level_to_pn_space.exit
 
 switch.lookup:                                    ; preds = %entry
@@ -3129,7 +3129,7 @@ entry:
   %0 = trunc i64 %bf.load to i32
   %1 = lshr i32 %0, 13
   %bf.cast = and i32 %1, 7
-  %2 = icmp ult i32 %bf.cast, 4
+  %2 = icmp samesign ult i32 %bf.cast, 4
   br i1 %2, label %switch.lookup, label %ossl_quic_enc_level_to_pn_space.exit
 
 switch.lookup:                                    ; preds = %entry
@@ -3235,11 +3235,11 @@ for.inc:                                          ; preds = %crypto_ensure_empty
   %3 = trunc i64 %bf.load to i32
   %4 = lshr i32 %3, 16
   %bf.cast = and i32 %4, 7
-  %cmp = icmp ult i32 %inc, %bf.cast
+  %cmp = icmp samesign ult i32 %inc, %bf.cast
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
-  %5 = icmp ult i32 %bf.cast, 4
+  %5 = icmp samesign ult i32 %bf.cast, 4
   br i1 %5, label %switch.lookup, label %ossl_quic_enc_level_to_pn_space.exit14
 
 switch.lookup:                                    ; preds = %for.end
@@ -3274,7 +3274,7 @@ entry:
   %0 = trunc i64 %bf.load to i32
   %1 = lshr i32 %0, 16
   %bf.cast = and i32 %1, 7
-  %2 = icmp ult i32 %bf.cast, 4
+  %2 = icmp samesign ult i32 %bf.cast, 4
   br i1 %2, label %switch.lookup, label %ossl_quic_enc_level_to_pn_space.exit
 
 switch.lookup:                                    ; preds = %entry
@@ -5065,7 +5065,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 if.end.i40.i:                                     ; preds = %for.body.i.i
   %103 = lshr i32 %101, 16
   %bf.cast5.i.i = and i32 %103, 7
-  %cmp6.i.i = icmp ugt i32 %enc_level.012.i.i, %bf.cast5.i.i
+  %cmp6.i.i = icmp samesign ugt i32 %enc_level.012.i.i, %bf.cast5.i.i
   br i1 %cmp6.i.i, label %for.end.i.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i40.i
@@ -5222,7 +5222,7 @@ if.then97:                                        ; preds = %if.end91
   %121 = trunc i64 %bf.load98 to i32
   %122 = lshr i32 %121, 13
   %bf.cast101 = and i32 %122, 7
-  %123 = icmp ult i32 %bf.cast101, 4
+  %123 = icmp samesign ult i32 %bf.cast101, 4
   br i1 %123, label %switch.lookup162, label %ossl_quic_enc_level_to_pn_space.exit
 
 switch.lookup162:                                 ; preds = %if.then97

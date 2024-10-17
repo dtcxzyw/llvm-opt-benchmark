@@ -275,7 +275,7 @@ sub_1109:                                         ; preds = %.tail.thread, %.thr
 
 73:                                               ; preds = %69
   %74 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %71)
-  %75 = icmp ult i32 %74, 2
+  %75 = icmp samesign ult i32 %74, 2
   %76 = add nsw i32 %71, -1048576
   %77 = icmp ult i32 %76, 1072693249
   %or.cond3 = and i1 %75, %77

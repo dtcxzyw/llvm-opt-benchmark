@@ -663,7 +663,7 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
   br label %.lr.ph.preheader.i
 
 .critedge273.i.i:                                 ; preds = %127
-  %204 = icmp ugt i32 %125, 2
+  %204 = icmp samesign ugt i32 %125, 2
   br i1 %204, label %.preheader325.preheader.i.i, label %.critedge283.thread.i.i
 
 .preheader325.preheader.i.i:                      ; preds = %.critedge273.i.i

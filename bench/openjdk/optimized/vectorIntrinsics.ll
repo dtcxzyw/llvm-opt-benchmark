@@ -823,7 +823,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %199, %201
   %218 = add nsw i32 %213, 1
   %219 = icmp sgt i32 %213, -1
   %220 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %218)
-  %221 = icmp ult i32 %220, 2
+  %221 = icmp samesign ult i32 %220, 2
   %or.cond.i.i.i.i.i.i = select i1 %219, i1 %221, i1 false
   %222 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %218, i1 true)
   %223 = sub nuw nsw i32 32, %222
@@ -936,7 +936,7 @@ define linkonce_odr hidden void @_ZN21VectorBoxAllocateNodeC2EP7CompilePK11TypeI
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
   %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   %or.cond.i.i.i.i.i = select i1 %31, i1 %33, i1 false
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %35 = sub nuw nsw i32 32, %34
@@ -1176,7 +1176,7 @@ _ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit:      ; preds = %_ZN4Node8init_reqEj
   %59 = add nsw i32 %54, 1
   %60 = icmp sgt i32 %54, -1
   %61 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i.i = select i1 %60, i1 %62, i1 false
   %63 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -2766,7 +2766,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %168 = icmp slt i32 %164, 1
   %or.cond119.not124 = or i1 %168, %167
   %169 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %164)
-  %170 = icmp ugt i32 %169, 1
+  %170 = icmp samesign ugt i32 %169, 1
   %or.cond122 = select i1 %or.cond119.not124, i1 true, i1 %170
   br i1 %or.cond122, label %.thread, label %.critedge
 

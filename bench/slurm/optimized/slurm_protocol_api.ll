@@ -1240,7 +1240,7 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   %43 = phi i32 [ %35, %.lr.ph ], [ %.pre, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %42, %17
@@ -3931,7 +3931,7 @@ define range(i32 -1, 1) i32 @slurm_unpack_addr_array(ptr nocapture noundef write
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %1, align 4
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %11, %13
@@ -4824,7 +4824,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noca
   %54 = add nuw nsw i32 %.03910.us, 1
   %55 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %56 = zext i16 %55 to i32
-  %57 = icmp ult i32 %54, %56
+  %57 = icmp samesign ult i32 %54, %56
   br i1 %57, label %.lr.ph12.split.us, label %.loopexit36, !llvm.loop !19
 
 .preheader.us:                                    ; preds = %18
@@ -4892,7 +4892,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noca
   %83 = add nuw nsw i32 %.03910, 1
   %84 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %85 = zext i16 %84 to i32
-  %86 = icmp ult i32 %83, %85
+  %86 = icmp samesign ult i32 %83, %85
   br i1 %86, label %.lr.ph12.split, label %._crit_edge13.thread, !llvm.loop !19
 
 ._crit_edge13.thread:                             ; preds = %82, %.thread27

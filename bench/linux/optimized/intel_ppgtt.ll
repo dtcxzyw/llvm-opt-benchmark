@@ -578,7 +578,7 @@ alloc_pd.exit:                                    ; preds = %63
   %78 = phi i8 [ %.pre, %._crit_edge16.loopexit ], [ %44, %43 ]
   %79 = add nuw nsw i32 %46, 1
   %80 = zext i8 %78 to i32
-  %81 = icmp ult i32 %79, %80
+  %81 = icmp samesign ult i32 %79, %80
   br i1 %81, label %43, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %.thread.sink.split.i, %.thread7.loopexit, %33, %.thread6.loopexit

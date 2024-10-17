@@ -2663,7 +2663,7 @@ for.inc64:                                        ; preds = %_ZN6bufferIP4exprLb
   %m_arity.i = getelementptr inbounds i8, ptr %77, i64 32
   %78 = load i32, ptr %m_arity.i, align 8
   %79 = zext i32 %78 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %79
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %cmp, label %for.body51, label %for.end65, !llvm.loop !19
 
 for.end65:                                        ; preds = %for.inc64, %invoke.cont46
@@ -2827,7 +2827,7 @@ for.inc106:                                       ; preds = %_ZN6bufferIP4exprLb
   %m_arity.i154 = getelementptr inbounds i8, ptr %108, i64 32
   %109 = load i32, ptr %m_arity.i154, align 8
   %110 = zext i32 %109 to i64
-  %cmp91 = icmp ult i64 %indvars.iv.next513, %110
+  %cmp91 = icmp samesign ult i64 %indvars.iv.next513, %110
   br i1 %cmp91, label %invoke.cont93, label %for.end108, !llvm.loop !20
 
 for.end108:                                       ; preds = %for.inc106, %if.else

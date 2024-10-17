@@ -2325,7 +2325,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
   br label %209
 
 59:                                               ; preds = %50
-  %60 = icmp ult i32 %36, 6
+  %60 = icmp samesign ult i32 %36, 6
   %61 = select i1 %60, i32 5, i32 6
   %62 = or disjoint i32 %.0133, %61
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.0132, i32 noundef 1, i32 noundef %62, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
@@ -6172,7 +6172,7 @@ define void @_ZN2cv24convertPointsHomogeneousERKNS_11_InputArrayERKNS_12_OutputA
   %24 = and i32 %23, 511
   %25 = lshr i32 %8, 3
   %26 = and i32 %25, 511
-  %27 = icmp ugt i32 %24, %26
+  %27 = icmp samesign ugt i32 %24, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %22

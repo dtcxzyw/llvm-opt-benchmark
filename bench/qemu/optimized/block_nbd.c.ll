@@ -4565,7 +4565,7 @@ if.end20:                                         ; preds = %nbd_iter_channel_er
   %add2.i = select i1 %cmp, i64 24, i64 12
   %18 = load i32, ptr %length.i, align 8
   %conv3.i = zext i32 %18 to i64
-  %cmp.i16 = icmp ugt i64 %add2.i, %conv3.i
+  %cmp.i16 = icmp samesign ugt i64 %add2.i, %conv3.i
   br i1 %cmp.i16, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end20
@@ -4688,7 +4688,7 @@ if.end62.i:                                       ; preds = %if.else55.i, %if.th
   %cmp65.not.i = icmp ne i32 %count.0.i, %conv64.i
   %37 = load i32, ptr %length.i, align 8
   %conv68.i = zext i32 %37 to i64
-  %cmp69.i = icmp ult i64 %add2.i, %conv68.i
+  %cmp69.i = icmp samesign ult i64 %add2.i, %conv68.i
   %or.cond57 = select i1 %cmp65.not.i, i1 true, i1 %cmp69.i
   br i1 %or.cond57, label %if.then71.i, label %if.end72.i
 

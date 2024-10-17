@@ -67,13 +67,13 @@ define dso_local range(i32 0, 16777216) i32 @acpi_pm_read_verified() local_unnam
   %11 = trunc i32 %10 to i16
   %12 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %11) #6, !srcloc !5
   %13 = and i32 %12, 16777215
-  %14 = icmp ugt i32 %5, %9
-  %15 = icmp ult i32 %5, %13
+  %14 = icmp samesign ugt i32 %5, %9
+  %15 = icmp samesign ult i32 %5, %13
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %.backedge, label %17, !prof !6
 
 17:                                               ; preds = %1
-  %18 = icmp ugt i32 %9, %13
+  %18 = icmp samesign ugt i32 %9, %13
   %19 = or i1 %14, %15
   %20 = and i1 %18, %19
   br i1 %20, label %.backedge, label %21, !prof !7
@@ -249,13 +249,13 @@ define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr nocapture read
   %12 = trunc i32 %11 to i16
   %13 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #6, !srcloc !5
   %14 = and i32 %13, 16777215
-  %15 = icmp ugt i32 %6, %10
-  %16 = icmp ult i32 %6, %14
+  %15 = icmp samesign ugt i32 %6, %10
+  %16 = icmp samesign ult i32 %6, %14
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.backedge, label %18, !prof !6
 
 18:                                               ; preds = %2
-  %19 = icmp ugt i32 %10, %14
+  %19 = icmp samesign ugt i32 %10, %14
   %20 = or i1 %15, %16
   %21 = and i1 %19, %20
   br i1 %21, label %.backedge, label %22, !prof !7

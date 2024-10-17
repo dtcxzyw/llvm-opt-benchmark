@@ -824,7 +824,7 @@ define internal i64 @read_profile(ptr nocapture readnone %0, ptr noundef %1, i64
 62:                                               ; preds = %59
   %63 = add nuw nsw i64 %32, 1
   %64 = and i64 %63, 127
-  %65 = icmp ugt i64 %64, 63
+  %65 = icmp samesign ugt i64 %64, 63
   br i1 %65, label %.thread, label %25, !prof !39, !llvm.loop !40
 
 .thread:                                          ; preds = %25, %62, %31
@@ -983,7 +983,7 @@ define internal noundef i64 @write_profile(ptr nocapture readnone %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(4096) %47, i8 0, i64 4096, i1 false)
   %48 = add nuw nsw i64 %37, 1
   %49 = and i64 %48, 127
-  %50 = icmp ugt i64 %49, 63
+  %50 = icmp samesign ugt i64 %49, 63
   br i1 %50, label %.thread2, label %30, !prof !39, !llvm.loop !50
 
 .thread2:                                         ; preds = %30, %40, %36

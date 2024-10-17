@@ -3042,7 +3042,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_mat
   %1259 = zext i32 %1258 to i64
   %1260 = icmp ugt i32 %1245, %1258
   %1261 = shl nuw nsw i64 %1257, 1
-  %1262 = icmp ult i64 %1261, %1259
+  %1262 = icmp samesign ult i64 %1261, %1259
   %or.cond.i131 = select i1 %1260, i1 true, i1 %1262
   br i1 %or.cond.i131, label %_ZL28tryToRecognizeTableBasedCttzRN4llvm11InstructionE.exit, label %_ZN4llvm5APIntC2Ejmbb.exit.i.i133
 
@@ -9510,7 +9510,7 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit135: ; preds = %_ZNK4llvm8LoadI
   %298 = icmp ugt i64 %292, 7
   %or.cond117.not325 = and i1 %298, %.not111
   %299 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %292)
-  %300 = icmp ult i64 %299, 2
+  %300 = icmp samesign ult i64 %299, 2
   %or.cond321 = select i1 %or.cond117.not325, i1 %300, i1 false
   br i1 %or.cond321, label %301, label %.critedge116.thread
 

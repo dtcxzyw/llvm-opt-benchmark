@@ -3690,7 +3690,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   %110 = call i32 @ilogb(double noundef %109) #25
   %111 = sext i32 %110 to i64
   %112 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
-  %.not213.i = icmp ugt i64 %112, 1
+  %.not213.i = icmp samesign ugt i64 %112, 1
   %113 = zext i1 %.not213.i to i64
   %spec.select.i = add nsw i64 %111, %113
   %114 = uitofp i64 %spec.select.i to double
@@ -3727,7 +3727,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   %129 = call i32 @ilogb(double noundef %128) #25
   %130 = sext i32 %129 to i64
   %131 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %127)
-  %.not215.i = icmp ugt i64 %131, 1
+  %.not215.i = icmp samesign ugt i64 %131, 1
   %132 = zext i1 %.not215.i to i64
   %.1.i = add nsw i64 %132, %130
   %133 = uitofp i64 %.1.i to double

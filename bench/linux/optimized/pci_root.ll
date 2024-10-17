@@ -296,7 +296,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 256, 513) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  %5 = icmp ult i64 %2, 512
+  %5 = icmp samesign ult i64 %2, 512
   %6 = load volatile ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %.loopexit12, label %8

@@ -248,7 +248,7 @@ define hidden void @av1_calculate_tile_cols(ptr nocapture noundef readonly %0, i
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %43 = tail call i32 @llvm.smin.i32(i32 %41, i32 %2)
   store i32 %43, ptr %42, align 4
-  %44 = icmp ugt i32 %.0.lcssa, 1
+  %44 = icmp samesign ugt i32 %.0.lcssa, 1
   br i1 %44, label %.sink.split, label %76
 
 45:                                               ; preds = %4
@@ -287,7 +287,7 @@ tile_log2.exit:                                   ; preds = %47
   %60 = load i32, ptr %59, align 4
   %61 = sub nsw i32 %60, %58
   %62 = tail call i32 @llvm.smax.i32(i32 %.08397, i32 %61)
-  %63 = icmp ult i64 %indvars.iv106, %56
+  %63 = icmp samesign ult i64 %indvars.iv106, %56
   %64 = tail call i32 @llvm.smin.i32(i32 %.08198, i32 %61)
   %.182 = select i1 %63, i32 %64, i32 %.08198
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count

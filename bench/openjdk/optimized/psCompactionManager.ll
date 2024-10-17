@@ -1552,7 +1552,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %
   %10 = add nsw i32 %5, 1
   %11 = icmp sgt i32 %5, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14
@@ -1589,7 +1589,7 @@ define hidden void @_ZN20ParCompactionManager18push_shadow_regionEm(i64 noundef 
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -2243,7 +2243,7 @@ _ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37: ; preds = %46, %54
   %.sink.i36 = phi i64 [ %39, %54 ], [ %47, %46 ]
   store i64 %.sink.i36, ptr %44, align 8
   %.038 = add nuw nsw i64 %11, 1
-  %55 = icmp ult i64 %.038, %17
+  %55 = icmp samesign ult i64 %.038, %17
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
@@ -5357,7 +5357,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %61, %65
   %.025.i.i.i.i.i = phi i64 [ %63, %65 ], [ %55, %61 ]
   %63 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %64 = icmp ult i64 %63, %52
+  %64 = icmp samesign ult i64 %63, %52
   br i1 %64, label %65, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop27PCIterateMarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 65:                                               ; preds = %.preheader.i.i.i
@@ -5574,7 +5574,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %61, %65
   %.025.i.i.i.i.i = phi i64 [ %63, %65 ], [ %55, %61 ]
   %63 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %64 = icmp ult i64 %63, %52
+  %64 = icmp samesign ult i64 %63, %52
   br i1 %64, label %65, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc27PCIterateMarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 65:                                               ; preds = %.preheader.i.i.i

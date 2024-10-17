@@ -9427,7 +9427,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ugt i64 %and.i, 9218868437227405312
+  %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
   %.sink170 = select i1 %cmp.i, i8 78, i8 73
   %.sink169 = select i1 %cmp.i, i8 65, i8 78
   %.sink = select i1 %cmp.i, i8 78, i8 70
@@ -9741,7 +9741,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ugt i64 %and.i, 9218868437227405312
+  %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
   %.sink109 = select i1 %cmp.i, i8 78, i8 73
   %.sink108 = select i1 %cmp.i, i8 65, i8 78
   %.sink = select i1 %cmp.i, i8 78, i8 70
@@ -10184,7 +10184,7 @@ while.body:                                       ; preds = %_ZN2EA4StdCL8digits
 while.end:                                        ; preds = %while.body, %_ZN2EA4StdCL8digits10Em.exit
   %next.0.lcssa = phi i32 [ %sub, %_ZN2EA4StdCL8digits10Em.exit ], [ %sub8, %while.body ]
   %nValue.addr.0.lcssa = phi i64 [ %nValue, %_ZN2EA4StdCL8digits10Em.exit ], [ %div, %while.body ]
-  %cmp9 = icmp ult i64 %nValue.addr.0.lcssa, 10
+  %cmp9 = icmp samesign ult i64 %nValue.addr.0.lcssa, 10
   br i1 %cmp9, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.end.thread, %while.end
@@ -10354,7 +10354,7 @@ while.body.i:                                     ; preds = %_ZN2EA4StdCL8digits
 while.end.i:                                      ; preds = %while.body.i, %_ZN2EA4StdCL8digits10Em.exit.i
   %next.0.lcssa.i = phi i32 [ %sub.i, %_ZN2EA4StdCL8digits10Em.exit.i ], [ %sub8.i, %while.body.i ]
   %nValue.addr.0.lcssa.i = phi i64 [ %nValue, %_ZN2EA4StdCL8digits10Em.exit.i ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ult i64 %nValue.addr.0.lcssa.i, 10
+  %cmp9.i = icmp samesign ult i64 %nValue.addr.0.lcssa.i, 10
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i, %while.end.thread.i
@@ -11470,7 +11470,7 @@ if.end63.if.then70_crit_edge:                     ; preds = %if.end63
 lor.lhs.false65:                                  ; preds = %if.end63
   %cmp66 = icmp ne i64 %nValue.0, %div
   %conv68 = zext nneg i32 %add to i64
-  %cmp69.not = icmp ult i64 %rem, %conv68
+  %cmp69.not = icmp samesign ult i64 %rem, %conv68
   %or.cond = select i1 %cmp66, i1 true, i1 %cmp69.not
   br i1 %or.cond, label %if.end75, label %if.then70
 
@@ -11685,7 +11685,7 @@ if.end63.if.then70_crit_edge:                     ; preds = %if.end63
 lor.lhs.false65:                                  ; preds = %if.end63
   %cmp66 = icmp ne i64 %nValue.0, %div
   %conv68 = zext nneg i32 %nCurrentDigit.0 to i64
-  %cmp69.not = icmp ult i64 %rem, %conv68
+  %cmp69.not = icmp samesign ult i64 %rem, %conv68
   %or.cond = select i1 %cmp66, i1 true, i1 %cmp69.not
   br i1 %or.cond, label %if.end75, label %if.then70
 
@@ -11927,7 +11927,7 @@ if.end53.if.then60_crit_edge:                     ; preds = %if.end53
 lor.lhs.false55:                                  ; preds = %if.end53
   %cmp56 = icmp ne i64 %nValue.0, %div
   %conv58 = zext nneg i32 %nCurrentDigit.0 to i64
-  %cmp59.not = icmp ult i64 %rem, %conv58
+  %cmp59.not = icmp samesign ult i64 %rem, %conv58
   %or.cond = select i1 %cmp56, i1 true, i1 %cmp59.not
   br i1 %or.cond, label %if.end65, label %if.then60
 
@@ -12179,7 +12179,7 @@ if.then16:                                        ; preds = %while.end
   store i8 %cond, ptr %incdec.ptr, align 1
   %2 = tail call i32 @llvm.abs.i32(i32 %nExponent.0178181, i1 true)
   %conv.i = zext nneg i32 %2 to i64
-  %cmp17.i.i.i = icmp ult i32 %2, 10
+  %cmp17.i.i.i = icmp samesign ult i32 %2, 10
   br i1 %cmp17.i.i.i, label %while.end.thread.i.i, label %if.end.i.i.i
 
 while.end.thread.i.i:                             ; preds = %if.then16
@@ -12188,7 +12188,7 @@ while.end.thread.i.i:                             ; preds = %if.then16
   br label %if.then.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then16
-  %cmp1.i.i.i = icmp ult i32 %2, 100
+  %cmp1.i.i.i = icmp samesign ult i32 %2, 100
   br i1 %cmp1.i.i.i, label %while.end.i.i.thread, label %if.end3.i.i.i
 
 while.end.i.i.thread:                             ; preds = %if.end.i.i.i
@@ -12197,33 +12197,33 @@ while.end.i.i.thread:                             ; preds = %if.end.i.i.i
   br label %if.else.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp4.i.i.i = icmp ult i32 %2, 1000
+  %cmp4.i.i.i = icmp samesign ult i32 %2, 1000
   br i1 %cmp4.i.i.i, label %_ZN2EA4StdCL8digits10Em.exit.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %cmp9.i.i.i = icmp ult i32 %2, 100000000
+  %cmp9.i.i.i = icmp samesign ult i32 %2, 100000000
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end21.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end6.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %2, 1000000
+  %cmp11.i.i.i = icmp samesign ult i32 %2, 1000000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end17.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.then10.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %2, 10000
+  %cmp13.i.i.i = icmp samesign ult i32 %2, 10000
   br i1 %cmp13.i.i.i, label %_ZN2EA4StdCL8digits10Em.exit.i.i, label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.then12.i.i.i
-  %cmp16.i.i.i = icmp ugt i32 %2, 99999
+  %cmp16.i.i.i = icmp samesign ugt i32 %2, 99999
   %add.i.i.i = select i1 %cmp16.i.i.i, i32 6, i32 5
   br label %_ZN2EA4StdCL8digits10Em.exit.i.i
 
 if.end17.i.i.i:                                   ; preds = %if.then10.i.i.i
-  %cmp18.i.i.i = icmp ugt i32 %2, 9999999
+  %cmp18.i.i.i = icmp samesign ugt i32 %2, 9999999
   %add20.i.i.i = select i1 %cmp18.i.i.i, i32 8, i32 7
   br label %_ZN2EA4StdCL8digits10Em.exit.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.end6.i.i.i
-  %cmp24.i.i.i = icmp ugt i32 %2, 999999999
+  %cmp24.i.i.i = icmp samesign ugt i32 %2, 999999999
   %add26.i.i.i = select i1 %cmp24.i.i.i, i32 10, i32 9
   br label %_ZN2EA4StdCL8digits10Em.exit.i.i
 
@@ -12254,11 +12254,11 @@ while.body.i.i:                                   ; preds = %_ZN2EA4StdCL8digits
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %incdec.ptr19, i64 %idxprom6.i.i
   store i8 %4, ptr %arrayidx7.i.i, align 1
   %sub8.i.i = add i32 %next.024.i.i, -2
-  %cmp.i.i = icmp ugt i64 %nValue.addr.025.i.i, 9999
+  %cmp.i.i = icmp samesign ugt i64 %nValue.addr.025.i.i, 9999
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !201
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp9.i.i = icmp ult i64 %nValue.addr.025.i.i, 1000
+  %cmp9.i.i = icmp samesign ult i64 %nValue.addr.025.i.i, 1000
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i, %while.end.thread.i.i
@@ -12693,7 +12693,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %_ZN2E
   %conv7.i.i = or disjoint i16 %12, 48
   %pCurrent.2.i.i = getelementptr inbounds i8, ptr %pCurrent.1.i.i, i64 2
   store i16 %conv7.i.i, ptr %pCurrent.1.i.i, align 2
-  %cmp10.not.i.i = icmp ult i64 %nValue.addr.0.i.i, 10
+  %cmp10.not.i.i = icmp samesign ult i64 %nValue.addr.0.i.i, 10
   br i1 %cmp10.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !204
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -13060,7 +13060,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %_ZN2E
   %add5.i.i = or disjoint i32 %conv1.i.i, 48
   %pCurrent.2.i.i = getelementptr inbounds i8, ptr %pCurrent.1.i.i, i64 4
   store i32 %add5.i.i, ptr %pCurrent.1.i.i, align 4
-  %cmp8.not.i.i = icmp ult i64 %nValue.addr.0.i.i, 10
+  %cmp8.not.i.i = icmp samesign ult i64 %nValue.addr.0.i.i, 10
   br i1 %cmp8.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !206
 
 do.end.i.i:                                       ; preds = %do.body.i.i

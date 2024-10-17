@@ -4556,7 +4556,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN9grpc_core17EndpointAddressesEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit, label %while.body.i.i, !llvm.loop !52
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIN9grpc_core17EndpointAddressesEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit: ; preds = %while.body.i.i
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 288230376151711742
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 288230376151711742
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE11_M_allocateEm.exit
 
 if.then.i:                                        ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN9grpc_core17EndpointAddressesEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit

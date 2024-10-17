@@ -1364,7 +1364,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %49, %_ZN4llvm
   %55 = icmp ult i32 %54, 65473
   %or.cond5.not93 = and i1 %53, %55
   %56 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %52)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond89 = select i1 %or.cond5.not93, i1 %57, i1 false
   br i1 %or.cond89, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %112
 

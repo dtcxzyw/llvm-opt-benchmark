@@ -1029,7 +1029,7 @@ if.end.i144:                                      ; preds = %if.then.i, %if.then
 if.then5.i:                                       ; preds = %if.end.i144
   %tobool6.not.i147 = icmp eq i64 %call15, 0
   %call7.i = select i1 %tobool6.not.i147, i64 8, i64 13
-  %cmp8.i = icmp ult i64 %call7.i, %size.addr.0.i
+  %cmp8.i = icmp samesign ult i64 %call7.i, %size.addr.0.i
   br i1 %cmp8.i, label %if.then9.i, label %ossl_strerror.exit
 
 if.then9.i:                                       ; preds = %if.then5.i
@@ -1108,7 +1108,7 @@ if.end.i158:                                      ; preds = %if.then.i170, %if.t
 if.then5.i163:                                    ; preds = %if.end.i158
   %tobool6.not.i164 = icmp eq i64 %call33, 0
   %call7.i165 = select i1 %tobool6.not.i164, i64 8, i64 13
-  %cmp8.i166 = icmp ult i64 %call7.i165, %size.addr.0.i159
+  %cmp8.i166 = icmp samesign ult i64 %call7.i165, %size.addr.0.i159
   br i1 %cmp8.i166, label %if.then9.i167, label %ossl_strerror.exit175
 
 if.then9.i167:                                    ; preds = %if.then5.i163
@@ -1242,7 +1242,7 @@ if.end.i182:                                      ; preds = %if.then.i194, %if.t
 if.then5.i187:                                    ; preds = %if.end.i182
   %tobool6.not.i188 = icmp eq i64 %call88, 0
   %call7.i189 = select i1 %tobool6.not.i188, i64 8, i64 13
-  %cmp8.i190 = icmp ult i64 %call7.i189, %size.addr.0.i183
+  %cmp8.i190 = icmp samesign ult i64 %call7.i189, %size.addr.0.i183
   br i1 %cmp8.i190, label %if.then9.i191, label %ossl_strerror.exit199
 
 if.then9.i191:                                    ; preds = %if.then5.i187
@@ -2652,7 +2652,7 @@ if.end.i:                                         ; preds = %if.then.i, %cond.tr
   call void @ERR_error_string_n(i64 noundef %call39, ptr noundef nonnull %buf.addr.0.i, i64 noundef %size.addr.0.i) #13
   %9 = load i8, ptr %buf.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %9, 0
-  %cmp8.i = icmp ugt i64 %size.addr.0.i, 13
+  %cmp8.i = icmp samesign ugt i64 %size.addr.0.i, 13
   %or.cond = and i1 %cmp8.i, %tobool.not.i
   br i1 %or.cond, label %if.then9.i, label %cond.end
 
@@ -3162,7 +3162,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 if.then5.i:                                       ; preds = %if.end.i
   %tobool6.not.i = icmp eq i64 %call17, 0
   %call7.i = select i1 %tobool6.not.i, i64 8, i64 13
-  %cmp8.i = icmp ult i64 %call7.i, %size.addr.0.i
+  %cmp8.i = icmp samesign ult i64 %call7.i, %size.addr.0.i
   br i1 %cmp8.i, label %if.then9.i, label %ossl_strerror.exit
 
 if.then9.i:                                       ; preds = %if.then5.i
@@ -3476,7 +3476,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   call void @ERR_error_string_n(i64 noundef %call11, ptr noundef nonnull %buf.addr.0.i, i64 noundef %size.addr.0.i) #13
   %6 = load i8, ptr %buf.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %6, 0
-  %cmp8.i = icmp ugt i64 %size.addr.0.i, 13
+  %cmp8.i = icmp samesign ugt i64 %size.addr.0.i, 13
   %or.cond = and i1 %cmp8.i, %tobool.not.i
   br i1 %or.cond, label %if.then9.i, label %if.end23
 
@@ -3531,7 +3531,7 @@ if.end.i24:                                       ; preds = %if.then.i35, %sw.bb
 if.then5.i28:                                     ; preds = %if.end.i24
   %tobool6.not.i29 = icmp eq i64 %call26, 0
   %call7.i30 = select i1 %tobool6.not.i29, i64 8, i64 13
-  %cmp8.i31 = icmp ult i64 %call7.i30, %size.addr.0.i25
+  %cmp8.i31 = icmp samesign ult i64 %call7.i30, %size.addr.0.i25
   br i1 %cmp8.i31, label %if.then9.i32, label %ossl_strerror.exit40
 
 if.then9.i32:                                     ; preds = %if.then5.i28
@@ -4103,7 +4103,7 @@ if.end.i172.i:                                    ; preds = %if.then.i.i, %if.th
 if.then5.i.i:                                     ; preds = %if.end.i172.i
   %tobool6.not.i.i = icmp eq i64 %call21.i, 0
   %call7.i.i = select i1 %tobool6.not.i.i, i64 8, i64 13
-  %cmp8.i.i = icmp ult i64 %call7.i.i, %size.addr.0.i.i
+  %cmp8.i.i = icmp samesign ult i64 %call7.i.i, %size.addr.0.i.i
   br i1 %cmp8.i.i, label %if.then9.i.i, label %ossl_strerror.exit.i
 
 if.then9.i.i:                                     ; preds = %if.then5.i.i
@@ -4765,7 +4765,7 @@ if.end.i79:                                       ; preds = %if.then.i82, %if.en
 if.then5.i:                                       ; preds = %if.end.i79
   %tobool6.not.i80 = icmp eq i64 %call33.i, 0
   %call7.i = select i1 %tobool6.not.i80, i64 8, i64 13
-  %cmp8.i = icmp ult i64 %call7.i, %size.addr.0.i
+  %cmp8.i = icmp samesign ult i64 %call7.i, %size.addr.0.i
   br i1 %cmp8.i, label %if.then9.i, label %ossl_strerror.exit
 
 if.then9.i:                                       ; preds = %if.then5.i
@@ -4951,7 +4951,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
   %tobool6.not.i.i.i = icmp eq i64 %call6.i.i, 0
   %call7.i.i.i = select i1 %tobool6.not.i.i.i, i64 8, i64 13
-  %cmp8.i.i.i = icmp ult i64 %call7.i.i.i, %size.addr.0.i.i.i
+  %cmp8.i.i.i = icmp samesign ult i64 %call7.i.i.i, %size.addr.0.i.i.i
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %ossl_strerror.exit.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -5204,7 +5204,7 @@ if.end.i152.i.i:                                  ; preds = %if.then.i163.i.i, %
 if.then5.i156.i.i:                                ; preds = %if.end.i152.i.i
   %tobool6.not.i157.i.i = icmp eq i64 %call144.i.i, 0
   %call7.i158.i.i = select i1 %tobool6.not.i157.i.i, i64 8, i64 13
-  %cmp8.i159.i.i = icmp ult i64 %call7.i158.i.i, %size.addr.0.i153.i.i
+  %cmp8.i159.i.i = icmp samesign ult i64 %call7.i158.i.i, %size.addr.0.i153.i.i
   br i1 %cmp8.i159.i.i, label %if.then9.i160.i.i, label %ossl_strerror.exit168.i.i
 
 if.then9.i160.i.i:                                ; preds = %if.then5.i156.i.i

@@ -113,7 +113,7 @@ define internal void @acpi_cpufreq_remove(ptr nocapture readnone %0) #2 align 16
 3:                                                ; preds = %11, %1
   %4 = phi i64 [ 0, %1 ], [ %15, %11 ]
   %5 = and i64 %4, 4294967295
-  %6 = icmp ugt i64 %5, 63
+  %6 = icmp samesign ugt i64 %5, 63
   br i1 %6, label %.thread, label %7, !prof !6
 
 7:                                                ; preds = %3
@@ -146,7 +146,7 @@ define internal fastcc void @free_acpi_perf_data() unnamed_addr #2 align 16 {
 2:                                                ; preds = %10, %0
   %3 = phi i64 [ 0, %0 ], [ %14, %10 ]
   %4 = and i64 %3, 4294967295
-  %5 = icmp ugt i64 %4, 63
+  %5 = icmp samesign ugt i64 %4, 63
   br i1 %5, label %.thread, label %6, !prof !6
 
 6:                                                ; preds = %2
@@ -413,7 +413,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   %157 = phi i32 [ %154, %153 ], [ %145, %143 ]
   %158 = add nuw nsw i64 %146, 1
   %159 = zext i32 %156 to i64
-  %160 = icmp ult i64 %158, %159
+  %160 = icmp samesign ult i64 %158, %159
   br i1 %160, label %143, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %155
@@ -483,7 +483,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
 196:                                              ; preds = %186, %176
   %197 = phi i32 [ %174, %176 ], [ %195, %186 ]
   %198 = add nuw nsw i64 %173, 1
-  %199 = icmp ult i64 %198, %171
+  %199 = icmp samesign ult i64 %198, %171
   br i1 %199, label %172, label %200, !llvm.loop !15
 
 200:                                              ; preds = %196
@@ -1814,7 +1814,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @acpi_cpufreq_early_init() 
   store i64 0, ptr %21, align 8
   %22 = add nuw nsw i64 %12, 1
   %23 = and i64 %22, 127
-  %24 = icmp ugt i64 %23, 63
+  %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread, label %6, !prof !40, !llvm.loop !41
 
 .thread:                                          ; preds = %6, %15, %11

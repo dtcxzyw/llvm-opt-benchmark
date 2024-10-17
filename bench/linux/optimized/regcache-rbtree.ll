@@ -394,7 +394,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %135 = zext i32 %134 to i64
   %136 = add nuw nsw i64 %135, 63
   %137 = lshr i64 %136, 6
-  %138 = icmp ugt i64 %132, %137
+  %138 = icmp samesign ugt i64 %132, %137
   %139 = getelementptr inbounds i8, ptr %101, i64 8
   %140 = load ptr, ptr %139, align 8
   br i1 %138, label %141, label %154

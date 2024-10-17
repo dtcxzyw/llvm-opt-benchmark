@@ -26601,7 +26601,7 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread352.i.i: ; preds = 
   ]
 
 269:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i.i"
-  %270 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i, 127
+  %270 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i, 127
   br i1 %270, label %271, label %291
 
 271:                                              ; preds = %269

@@ -62,7 +62,7 @@ define dso_local zeroext i1 @__virt_addr_valid(i64 noundef %0) #0 align 16 {
 
 22:                                               ; preds = %21, %17, %17
   %23 = phi i64 [ 524288, %21 ], [ 33554432, %17 ], [ 33554432, %17 ]
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %25, label %77
 
 25:                                               ; preds = %22
@@ -75,7 +75,7 @@ define dso_local zeroext i1 @__virt_addr_valid(i64 noundef %0) #0 align 16 {
 
 28:                                               ; preds = %27, %25, %25
   %29 = phi i64 [ 2048, %27 ], [ 131072, %25 ], [ 131072, %25 ]
-  %30 = icmp ult i64 %26, %29
+  %30 = icmp samesign ult i64 %26, %29
   br i1 %30, label %31, label %41, !prof !8
 
 31:                                               ; preds = %28

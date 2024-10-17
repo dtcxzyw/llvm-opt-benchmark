@@ -929,7 +929,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 22:                                               ; preds = %10
   %23 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %24 = icmp ugt i32 %23, 1
+  %24 = icmp samesign ugt i32 %23, 1
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22

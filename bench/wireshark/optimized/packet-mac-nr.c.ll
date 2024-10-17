@@ -3211,7 +3211,7 @@ proto_item_set_hidden.exit:                       ; preds = %82, %93, %96
 
 131:                                              ; preds = %.sink.split83, %124
   %132 = phi i32 [ %125, %124 ], [ %130, %.sink.split83 ]
-  %133 = icmp ult i8 %50, 33
+  %133 = icmp samesign ult i8 %50, 33
   %.pr = load i8, ptr %30, align 1
   %134 = icmp eq i8 %.pr, 0
   br i1 %133, label %137, label %135

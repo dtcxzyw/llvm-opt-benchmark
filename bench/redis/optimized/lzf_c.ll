@@ -235,7 +235,7 @@ if.end256:                                        ; preds = %if.end244, %if.end6
 do.body:                                          ; preds = %land.rhs, %if.end256
   %len.2 = phi i32 [ %len.0, %if.end256 ], [ %inc257, %land.rhs ]
   %inc257 = add nuw nsw i32 %len.2, 1
-  %cmp259 = icmp ult i32 %inc257, %42
+  %cmp259 = icmp samesign ult i32 %inc257, %42
   br i1 %cmp259, label %land.rhs, label %for.end
 
 land.rhs:                                         ; preds = %do.body
@@ -261,7 +261,7 @@ for.end.thread191:                                ; preds = %if.then80, %if.end9
 for.end:                                          ; preds = %do.body, %land.rhs
   %sub269 = add nsw i32 %len.2, -1
   %incdec.ptr270 = getelementptr inbounds i8, ptr %ip.0201, i64 1
-  %cmp271 = icmp ult i32 %len.2, 8
+  %cmp271 = icmp samesign ult i32 %len.2, 8
   br i1 %cmp271, label %if.then273, label %if.else
 
 if.then273:                                       ; preds = %for.end.thread191, %for.end

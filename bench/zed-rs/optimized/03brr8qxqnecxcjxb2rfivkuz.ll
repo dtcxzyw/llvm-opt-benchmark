@@ -25851,7 +25851,7 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !7535
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h94ea445e73064e57E.llvm.21470575066294111"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !7538
   %7 = load i64, ptr %4, align 8, !range !803, !noalias !7535, !noundef !5
-  %.not.i = icmp ult i64 %7, 2
+  %.not.i = icmp samesign ult i64 %7, 2
   %8 = add nsw i64 %7, -1
   %9 = select i1 %.not.i, i64 0, i64 %8
   switch i64 %9, label %10 [
@@ -28809,7 +28809,7 @@ default.unreachable582:                           ; preds = %1688, %1303, %1269,
   %125 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %126 = icmp ult i64 %125, 6
   tail call void @llvm.assume(i1 %126)
-  %switch.i206 = icmp ugt i64 %125, 2
+  %switch.i206 = icmp samesign ugt i64 %125, 2
   br i1 %switch.i206, label %127, label %143
 
 127:                                              ; preds = %118
@@ -38958,7 +38958,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.21470575066294111.exit
           to label %.noexc36 unwind label %63
 
 .noexc36:                                         ; preds = %51
-  %switch.i.i.i = icmp ult i8 %57, 2
+  %switch.i.i.i = icmp samesign ult i8 %57, 2
   br i1 %switch.i.i.i, label %65, label %58
 
 58:                                               ; preds = %.noexc36
@@ -41848,7 +41848,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13p
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !4, !noundef !5
   %8 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h61754ce2b04b3241E.llvm.21470575066294111"(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %7), !range !5173
-  %switch = icmp ult i8 %8, 2
+  %switch = icmp samesign ult i8 %8, 2
   br i1 %switch, label %14, label %9
 
 9:                                                ; preds = %2
@@ -62731,7 +62731,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h1
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h806c0bbdb862e6f2E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h115fda52e7fc695eE.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h806c0bbdb862e6f2E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -62938,7 +62938,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h59f5a5d8678ab9e1E.exit.sink.split", label %.lr.ph.i53
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17ha73253ec90d41ad7E.exit"
-  %87 = icmp ult i64 %10, 29
+  %87 = icmp samesign ult i64 %10, 29
   br i1 %87, label %.lr.ph.i55, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h59f5a5d8678ab9e1E.exit.sink.split"
 
 .lr.ph.i55:                                       ; preds = %86, %97
@@ -63158,7 +63158,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h6
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hb1a3d6cbb1925cdaE.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h49c4e41c534e87bbE.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hb1a3d6cbb1925cdaE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -63380,7 +63380,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17he6f73386287710c2E.exit.sink.split", label %77
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hbca26ed6dcdb9c02E.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17he6f73386287710c2E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
@@ -63600,7 +63600,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h8217cf9609e81296E.exit.sink.split", label %.lr.ph.i49
 
 86:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hf2660ceb4337a174E.exit"
-  %87 = icmp ult i64 %12, 29
+  %87 = icmp samesign ult i64 %12, 29
   br i1 %87, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h8217cf9609e81296E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %86, %97
@@ -79384,7 +79384,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr46
 define hidden void @"_ZN4core3ptr224drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17hd0d759bcb0cf4a3dE.llvm.21470575066294111"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !237, !noundef !5
-  %4 = icmp ult i64 %3, 3
+  %4 = icmp samesign ult i64 %3, 3
   br i1 %4, label %5, label %"_ZN4core3ptr166drop_in_place$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h3ffdd382d9b198cdE.exit"
 
 "_ZN4core3ptr166drop_in_place$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h3ffdd382d9b198cdE.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h639af3174ccf9debE.exit.i.i", %10, %6, %5, %1
@@ -86490,7 +86490,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -93697,7 +93697,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.sroa.027.0.lcssa.i = phi i64 [ %3, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h147116a14d87236aE.exit" ], [ %38, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i" ]
   %.sroa.11.0.lcssa.i = phi i64 [ %9, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h147116a14d87236aE.exit" ], [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i" ]
   %.sroa.0.0.lcssa.i = phi ptr [ %10, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h147116a14d87236aE.exit" ], [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i" ]
-  %14 = icmp ugt i64 %.sroa.11.0.lcssa.i, 3
+  %14 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i, 3
   br i1 %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h949f6dff1c720e8fE.exit.i", label %15
 
 15:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h949f6dff1c720e8fE.exit.i", %._crit_edge.i
@@ -93789,7 +93789,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.sroa.027.0.lcssa.i21 = phi i64 [ %.sroa.027.3.i315354, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b75f8c730758366E.llvm.21470575066294111.exit" ], [ %78, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i36" ]
   %.sroa.11.0.lcssa.i22 = phi i64 [ %49, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b75f8c730758366E.llvm.21470575066294111.exit" ], [ %79, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i36" ]
   %.sroa.0.0.lcssa.i23 = phi ptr [ %50, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b75f8c730758366E.llvm.21470575066294111.exit" ], [ %80, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i36" ]
-  %54 = icmp ugt i64 %.sroa.11.0.lcssa.i22, 3
+  %54 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i22, 3
   br i1 %54, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h949f6dff1c720e8fE.exit.i34", label %55
 
 55:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h949f6dff1c720e8fE.exit.i34", %._crit_edge.i20
@@ -100937,7 +100937,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !9266, !noundef !5
   %36 = icmp eq i8 %35, 6
@@ -100946,14 +100946,14 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !9266, !noundef !5
-  %switch.i.i3454 = icmp ult i8 %38, 3
+  %switch.i.i3454 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3454, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b1665d911890dceE.exit"
 
@@ -112280,7 +112280,7 @@ define hidden void @"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..S
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h94ea445e73064e57E.llvm.21470575066294111"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %7 = load i64, ptr %4, align 8, !range !803, !noundef !5
-  %.not = icmp ult i64 %7, 2
+  %.not = icmp samesign ult i64 %7, 2
   %8 = add nsw i64 %7, -1
   %9 = select i1 %.not, i64 0, i64 %8
   switch i64 %9, label %10 [
@@ -116886,7 +116886,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$event_listener..EventListener$LT$T$
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !alias.scope !32880, !nonnull !5, !align !4, !noundef !5
   %8 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h61754ce2b04b3241E.llvm.21470575066294111"(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %7), !range !5173, !noalias !32880
-  %switch.i = icmp ult i8 %8, 2
+  %switch.i = icmp samesign ult i8 %8, 2
   br i1 %switch.i, label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13poll_internal17hfcd981f65f6061aaE.llvm.21470575066294111.exit", label %9
 
 9:                                                ; preds = %2
@@ -126545,7 +126545,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr71drop
   %242 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %243 = icmp ult i64 %242, 6
   call void @llvm.assume(i1 %243)
-  %switch.i54 = icmp ugt i64 %242, 2
+  %switch.i54 = icmp samesign ugt i64 %242, 2
   br i1 %switch.i54, label %244, label %260
 
 244:                                              ; preds = %241
@@ -155361,7 +155361,7 @@ define hidden void @_ZN7project7Project11open_buffer17hfe0a5a9bfd872c7cE(ptr dea
   %6 = alloca [32 x i8], align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 264
   %8 = load i8, ptr %7, align 8, !range !5173, !noundef !5
-  %switch.i = icmp ugt i8 %8, 1
+  %switch.i = icmp samesign ugt i8 %8, 1
   br i1 %switch.i, label %26, label %.noexc
 
 .noexc:                                           ; preds = %26, %4

@@ -5634,7 +5634,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %123
   %186 = load i64, ptr %185, align 8
   %187 = lshr i64 %186, 32
   %188 = zext i16 %181 to i64
-  %189 = icmp ugt i64 %187, %188
+  %189 = icmp samesign ugt i64 %187, %188
   br i1 %189, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %192
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -5936,7 +5936,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %.thread
   %120 = load i64, ptr %119, align 8
   %121 = lshr i64 %120, 32
   %122 = zext i16 %115 to i64
-  %123 = icmp ugt i64 %121, %122
+  %123 = icmp samesign ugt i64 %121, %122
   br i1 %123, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %126
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -8263,7 +8263,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %87
   %109 = load i64, ptr %108, align 8
   %110 = lshr i64 %109, 32
   %111 = zext i16 %103 to i64
-  %112 = icmp ugt i64 %110, %111
+  %112 = icmp samesign ugt i64 %110, %111
   br i1 %112, label %_ZN5clang6Parser12ConsumeBraceEv.exit, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang6Parser12ConsumeBraceEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -10073,7 +10073,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %2
   %48 = load i64, ptr %47, align 8
   %49 = lshr i64 %48, 32
   %50 = zext i16 %43 to i64
-  %51 = icmp ugt i64 %49, %50
+  %51 = icmp samesign ugt i64 %49, %50
   br i1 %51, label %_ZN5clang6Parser12ConsumeBraceEv.exit, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang6Parser12ConsumeBraceEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -11309,7 +11309,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %7
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 32
   %38 = zext i16 %30 to i64
-  %39 = icmp ugt i64 %37, %38
+  %39 = icmp samesign ugt i64 %37, %38
   br i1 %39, label %_ZN5clang6Parser12ConsumeParenEv.exit50, label %44
 
 _ZN5clang6Parser12ConsumeParenEv.exit50:          ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -14070,7 +14070,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -14094,7 +14094,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -14855,7 +14855,7 @@ _ZNSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %2, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %5, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_EE5resetEPS4_.exit, %1

@@ -3895,7 +3895,7 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
 
 46:                                               ; preds = %34, %.preheader24
   %47 = add nuw nsw i64 %29, 1
-  %48 = icmp ult i64 %29, 15
+  %48 = icmp samesign ult i64 %29, 15
   %49 = icmp eq i64 %47, 16
   br i1 %49, label %.thread16.sink.split, label %.preheader24, !llvm.loop !91
 
@@ -3962,7 +3962,7 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
   br i1 %82, label %83, label %.preheader22, !llvm.loop !95
 
 83:                                               ; preds = %79
-  %84 = icmp ult i64 %76, 15
+  %84 = icmp samesign ult i64 %76, 15
   %85 = getelementptr inbounds i8, ptr %80, i64 8
   br i1 %84, label %.thread20, label %.thread16.sink.split
 
@@ -5934,7 +5934,7 @@ define internal fastcc void @reset_terminal(ptr noundef %0, i32 noundef range(i3
   %47 = phi i64 [ 0, %2 ], [ %48, %46 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 %47) #25, !srcloc !112
   %48 = add nuw nsw i64 %47, 8
-  %49 = icmp ult i64 %47, 248
+  %49 = icmp samesign ult i64 %47, 248
   br i1 %49, label %46, label %50, !llvm.loop !113
 
 50:                                               ; preds = %46

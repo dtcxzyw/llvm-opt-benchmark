@@ -498,8 +498,8 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %9 = and i32 %8, -65536
   %.not = icmp ne i32 %9, 196608
   %10 = and i32 %8, 65535
-  %11 = icmp ugt i32 %10, 2
-  %or.cond = or i1 %.not, %11
+  %11 = icmp samesign ugt i32 %10, 2
+  %or.cond = select i1 %.not, i1 true, i1 %11
   br i1 %or.cond, label %dissect_dlm3_2.exit, label %12
 
 12:                                               ; preds = %7

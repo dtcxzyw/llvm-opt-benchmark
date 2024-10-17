@@ -89,7 +89,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN2cv3halL6LUImplIfEEiPT_m
   %indvars.iv = phi i64 [ 1, %.lr.ph174 ], [ %indvars.iv.next, %.loopexit147 ]
   %.0125172 = phi i32 [ 1, %.lr.ph174 ], [ %.1, %.loopexit147 ]
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %13 = icmp ult i64 %indvars.iv.next204, %11
+  %13 = icmp samesign ult i64 %indvars.iv.next204, %11
   %14 = trunc nuw nsw i64 %indvars.iv203 to i32
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -392,7 +392,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN2cv3halL6LUImplIdEEiPT_m
   %indvars.iv = phi i64 [ 1, %.lr.ph174 ], [ %indvars.iv.next, %.loopexit147 ]
   %.0125172 = phi i32 [ 1, %.lr.ph174 ], [ %.1, %.loopexit147 ]
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %13 = icmp ult i64 %indvars.iv.next204, %11
+  %13 = icmp samesign ult i64 %indvars.iv.next204, %11
   %14 = trunc nuw nsw i64 %indvars.iv203 to i32
   br i1 %13, label %.lr.ph, label %._crit_edge
 

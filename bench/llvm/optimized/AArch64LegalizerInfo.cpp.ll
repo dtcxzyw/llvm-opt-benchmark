@@ -28588,7 +28588,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getS
   %or.cond.i.i.i = icmp ult i32 %40, 120
   %or.cond16.not3.i.i.i = and i1 %or.cond.i.i.i, %.not5.i.i.i
   %41 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %34)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %or.cond2.i.i.i = select i1 %or.cond16.not3.i.i.i, i1 %42, i1 false
   br i1 %or.cond2.i.i.i, label %43, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_23JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
@@ -28661,7 +28661,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit36.i.i.i:      ; preds = %_ZNK4llvm3LLT19getS
 
 _ZN4llvm13isPowerOf2_32Ej.exit38.i.i.i:           ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit36.i.i.i
   %74 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %72)
-  %75 = icmp ult i32 %74, 2
+  %75 = icmp samesign ult i32 %74, 2
   br label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_23JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_23JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit36.i.i.i, %_ZN4llvm13isPowerOf2_32Ej.exit38.i.i.i
@@ -29228,7 +29228,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i:  ; preds = %6
   %8 = and i64 %4, 524280
-  %9 = icmp ult i64 %8, 520
+  %9 = icmp samesign ult i64 %8, 520
   br i1 %9, label %16, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_29JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.thread3.i.i.i: ; preds = %6
@@ -29658,7 +29658,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i:  ; preds = %6
   %8 = and i64 %4, 524280
-  %9 = icmp ult i64 %8, 520
+  %9 = icmp samesign ult i64 %8, 520
   br i1 %9, label %16, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_33JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.thread3.i.i.i: ; preds = %6

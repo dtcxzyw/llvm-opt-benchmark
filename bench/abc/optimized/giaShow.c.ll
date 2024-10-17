@@ -1329,7 +1329,7 @@ Gia_ObjIsXor.exit:                                ; preds = %53
   %59 = lshr i64 %.val413, 32
   %60 = trunc nuw i64 %59 to i32
   %61 = and i32 %60, 536870911
-  %.not460 = icmp ult i32 %58, %61
+  %.not460 = icmp samesign ult i32 %58, %61
   br i1 %.not460, label %64, label %Gia_ObjIsXor.exit.thread
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %53, %Gia_ObjIsXor.exit
@@ -1689,7 +1689,7 @@ Gia_ObjIsXor.exit433:                             ; preds = %220
   %228 = lshr i64 %.val414, 32
   %229 = trunc nuw i64 %228 to i32
   %230 = and i32 %229, 536870911
-  %.not467 = icmp ult i32 %227, %230
+  %.not467 = icmp samesign ult i32 %227, %230
   br i1 %.not467, label %231, label %Gia_ObjIsXor.exit433.thread
 
 231:                                              ; preds = %Gia_ObjIsXor.exit433
@@ -2641,7 +2641,7 @@ Gia_ObjIsXor.exit:                                ; preds = %238
   %244 = lshr i64 %209, 32
   %245 = trunc nuw i64 %244 to i32
   %246 = and i32 %245, 536870911
-  %.not623 = icmp ult i32 %243, %246
+  %.not623 = icmp samesign ult i32 %243, %246
   br i1 %.not623, label %247, label %Gia_ObjIsXor.exit.thread
 
 247:                                              ; preds = %Gia_ObjIsXor.exit
@@ -3459,7 +3459,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %40 = or i32 %39, %35
   store i32 %40, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = icmp ult i64 %indvars.iv.next, %30
+  %41 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %41, label %31, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %31, %.preheader, %Vec_IntStartFull.exit
@@ -3657,7 +3657,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   store i32 %24, ptr %23, align 4
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %25 = shl nsw i64 %indvars.iv.next15, 2
-  %26 = icmp ult i64 %25, %18
+  %26 = icmp samesign ult i64 %25, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   br i1 %26, label %19, label %._crit_edge, !llvm.loop !53
 

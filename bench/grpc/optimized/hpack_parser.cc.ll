@@ -6704,7 +6704,7 @@ if.end.i54:                                       ; preds = %_ZN9grpc_core11HPac
   %dynamic_table_updates_allowed.i = getelementptr inbounds i8, ptr %36, i64 99
   store i8 0, ptr %dynamic_table_updates_allowed.i, align 1
   %37 = load ptr, ptr %state_.i52, align 8
-  %cmp.i.i55 = icmp ult i32 %and66, 62
+  %cmp.i.i55 = icmp samesign ult i32 %and66, 62
   br i1 %cmp.i.i55, label %if.then.i.i57, label %if.else.i.i
 
 if.then.i.i57:                                    ; preds = %if.end.i54
@@ -6807,7 +6807,7 @@ if.end.i88:                                       ; preds = %sw.bb70
   %dynamic_table_updates_allowed.i86 = getelementptr inbounds i8, ptr %47, i64 99
   store i8 0, ptr %dynamic_table_updates_allowed.i86, align 1
   %48 = load ptr, ptr %state_.i85, align 8
-  %cmp.i.i89 = icmp ult i32 %and86, 62
+  %cmp.i.i89 = icmp samesign ult i32 %and86, 62
   br i1 %cmp.i.i89, label %if.then.i.i103, label %if.else.i.i90
 
 if.then.i.i103:                                   ; preds = %if.end.i88
@@ -9443,7 +9443,7 @@ if.end65:                                         ; preds = %if.end54
 
 if.end73:                                         ; preds = %if.end65
   %26 = and i8 %cur.sroa.0.0.extract.trunc87, 127
-  %cmp77 = icmp ugt i8 %26, 15
+  %cmp77 = icmp samesign ugt i8 %26, 15
   br i1 %cmp77, label %if.then78, label %if.end83
 
 if.then78:                                        ; preds = %if.end73
@@ -19924,7 +19924,7 @@ sw.bb.i5.i:                                       ; preds = %if.then.i, %if.then
 sw.bb7.i.i205:                                    ; preds = %if.then.i
   %243 = load i64, ptr %buffer_.i37.i.i, align 8
   %and9.i.i = and i64 %243, 15
-  %cmp.i.i.i = icmp ult i64 %and9.i.i, 3
+  %cmp.i.i.i = icmp samesign ult i64 %and9.i.i, 3
   %244 = add nsw i64 %and9.i.i, -15
   %div.i.cmp.i.i = icmp ult i64 %244, -12
   %add.i.i.i = select i1 %div.i.cmp.i.i, i64 4, i64 3
@@ -21745,7 +21745,7 @@ if.end.i643.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %and.i.i227 = and i64 %shr.i.i226, 3
   %tobool.not.i.i647.i = icmp eq i64 %and.i.i227, 2
   %420 = select i1 %tobool.not.i.i647.i, i64 6, i64 10
-  %cmp1.inv.i.i.i = icmp ult i64 %and.i.i227, 2
+  %cmp1.inv.i.i.i = icmp samesign ult i64 %and.i.i227, 2
   %cond19.i.i.i = select i1 %cmp1.inv.i.i.i, i64 1, i64 %420
   %421 = trunc nuw nsw i64 %cond19.i.i.i to i32
   %conv.i648.i = and i32 %421, 3
@@ -21853,7 +21853,7 @@ if.end.i688.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i691.i = zext nneg i32 %sub.i690.i to i64
   %shr.i692.i = lshr i64 %429, %sh_prom.i691.i
   %and.i693.i = and i64 %shr.i692.i, 3
-  %cmp.i.i694.i = icmp ugt i64 %and.i693.i, 1
+  %cmp.i.i694.i = icmp samesign ugt i64 %and.i693.i, 1
   %tobool.not.i.i695.i = icmp ne i64 %and.i693.i, 0
   %cond.i.i696.i = zext i1 %tobool.not.i.i695.i to i8
   %tobool1.not.i.i.i = icmp eq i64 %and.i693.i, 2
@@ -21959,7 +21959,7 @@ if.end.i740.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i743.i = zext nneg i32 %sub.i742.i to i64
   %shr.i744.i = lshr i64 %437, %sh_prom.i743.i
   %and.i745.i = and i64 %shr.i744.i, 3
-  %cmp.i.i746.i = icmp ugt i64 %and.i745.i, 1
+  %cmp.i.i746.i = icmp samesign ugt i64 %and.i745.i, 1
   %tobool.not.i.not.i.i = icmp eq i64 %and.i745.i, 0
   %tobool1.not.i.i747.i = icmp eq i64 %and.i745.i, 2
   store i32 %sub.i742.i, ptr %buffer_len_.i, align 8
@@ -22153,7 +22153,7 @@ if.end.i823.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i826.i = zext nneg i32 %sub.i825.i to i64
   %shr.i827.i = lshr i64 %454, %sh_prom.i826.i
   %and.i828.i = and i64 %shr.i827.i, 7
-  %cmp.i.i829.i = icmp ult i64 %and.i828.i, 3
+  %cmp.i.i829.i = icmp samesign ult i64 %and.i828.i, 3
   %div3.i.i.i = lshr i64 %and.i828.i, 1
   %add1.i.i.i = add nsw i64 %and.i828.i, -2
   %cond.i.i830.i = select i1 %cmp.i.i829.i, i64 %div3.i.i.i, i64 %add1.i.i.i
@@ -25376,7 +25376,7 @@ sw.bb.i5.i:                                       ; preds = %if.then.i231, %if.t
 sw.bb7.i.i234:                                    ; preds = %if.then.i231
   %277 = load i64, ptr %buffer_.i37.i.i, align 8
   %and9.i.i = and i64 %277, 15
-  %cmp.i.i.i = icmp ult i64 %and9.i.i, 3
+  %cmp.i.i.i = icmp samesign ult i64 %and9.i.i, 3
   %278 = add nsw i64 %and9.i.i, -15
   %div.i.cmp.i.i = icmp ult i64 %278, -12
   %add.i.i.i = select i1 %div.i.cmp.i.i, i64 4, i64 3
@@ -27411,7 +27411,7 @@ if.end.i676.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %and.i.i259 = and i64 %shr.i.i258, 3
   %tobool.not.i.i680.i = icmp eq i64 %and.i.i259, 2
   %511 = select i1 %tobool.not.i.i680.i, i64 6, i64 10
-  %cmp1.inv.i.i.i = icmp ult i64 %and.i.i259, 2
+  %cmp1.inv.i.i.i = icmp samesign ult i64 %and.i.i259, 2
   %cond19.i.i.i = select i1 %cmp1.inv.i.i.i, i64 1, i64 %511
   %512 = trunc nuw nsw i64 %cond19.i.i.i to i32
   %conv.i681.i = and i32 %512, 3
@@ -27529,7 +27529,7 @@ if.end.i721.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i724.i = zext nneg i32 %sub.i723.i to i64
   %shr.i725.i = lshr i64 %523, %sh_prom.i724.i
   %and.i726.i = and i64 %shr.i725.i, 3
-  %cmp.i.i727.i = icmp ugt i64 %and.i726.i, 1
+  %cmp.i.i727.i = icmp samesign ugt i64 %and.i726.i, 1
   %tobool.not.i.i728.i = icmp ne i64 %and.i726.i, 0
   %cond.i.i729.i = zext i1 %tobool.not.i.i728.i to i8
   %tobool1.not.i.i.i = icmp eq i64 %and.i726.i, 2
@@ -27645,7 +27645,7 @@ if.end.i775.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i778.i = zext nneg i32 %sub.i777.i to i64
   %shr.i779.i = lshr i64 %534, %sh_prom.i778.i
   %and.i780.i = and i64 %shr.i779.i, 3
-  %cmp.i.i781.i = icmp ugt i64 %and.i780.i, 1
+  %cmp.i.i781.i = icmp samesign ugt i64 %and.i780.i, 1
   %tobool.not.i.not.i.i = icmp eq i64 %and.i780.i, 0
   %tobool1.not.i.i782.i = icmp eq i64 %and.i780.i, 2
   store i32 %sub.i777.i, ptr %buffer_len_.i, align 8
@@ -27859,7 +27859,7 @@ if.end.i861.i:                                    ; preds = %"_ZN9grpc_core11Huf
   %sh_prom.i864.i = zext nneg i32 %sub.i863.i to i64
   %shr.i865.i = lshr i64 %557, %sh_prom.i864.i
   %and.i866.i = and i64 %shr.i865.i, 7
-  %cmp.i.i867.i = icmp ult i64 %and.i866.i, 3
+  %cmp.i.i867.i = icmp samesign ult i64 %and.i866.i, 3
   %div3.i.i.i = lshr i64 %and.i866.i, 1
   %add1.i.i.i = add nsw i64 %and.i866.i, -2
   %cond.i.i868.i = select i1 %cmp.i.i867.i, i64 %div3.i.i.i, i64 %add1.i.i.i

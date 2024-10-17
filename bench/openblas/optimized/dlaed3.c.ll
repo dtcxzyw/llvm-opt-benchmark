@@ -165,7 +165,7 @@ thread-pre-split14:                               ; preds = %64
 
 103:                                              ; preds = %.loopexit21, %98
   %104 = phi i64 [ 1, %98 ], [ %143, %.loopexit21 ]
-  %105 = icmp ugt i64 %104, 1
+  %105 = icmp samesign ugt i64 %104, 1
   br i1 %105, label %106, label %.loopexit22
 
 106:                                              ; preds = %103
@@ -175,7 +175,7 @@ thread-pre-split14:                               ; preds = %64
   br label %115
 
 .loopexit22:                                      ; preds = %115, %103
-  %110 = icmp ult i64 %104, %99
+  %110 = icmp samesign ult i64 %104, %99
   br i1 %110, label %111, label %.loopexit21
 
 111:                                              ; preds = %.loopexit22

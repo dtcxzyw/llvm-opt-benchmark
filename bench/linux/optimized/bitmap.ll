@@ -204,7 +204,7 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %11 = and i32 %10, 63
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 -1, %12
-  %14 = icmp ult i32 %9, %8
+  %14 = icmp samesign ult i32 %9, %8
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %4
@@ -240,7 +240,7 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %38 = phi i64 [ %59, %49 ], [ 0, %15 ]
   %39 = add nuw nsw i64 %38, %23
   %40 = add nuw nsw i64 %39, 1
-  %41 = icmp ult i64 %40, %7
+  %41 = icmp samesign ult i64 %40, %7
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %.split
@@ -399,7 +399,7 @@ define dso_local void @bitmap_cut(ptr nocapture noundef %0, ptr nocapture nounde
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %0, i64 8
-  %27 = icmp ult i32 %.pre, %9
+  %27 = icmp samesign ult i32 %.pre, %9
   %28 = add nuw nsw i64 %8, 4294967295
   %29 = zext nneg i32 %.pre to i64
   %30 = and i64 %28, 4294967295
@@ -411,7 +411,7 @@ define dso_local void @bitmap_cut(ptr nocapture noundef %0, ptr nocapture nounde
 
 32:                                               ; preds = %.preheader.us, %38
   %33 = phi i64 [ %43, %38 ], [ %29, %.preheader.us ]
-  %34 = icmp ult i64 %33, %30
+  %34 = icmp samesign ult i64 %33, %30
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
@@ -1509,7 +1509,7 @@ define dso_local void @bitmap_from_arr32(ptr nocapture noundef %0, ptr nocapture
   %15 = getelementptr i64, ptr %0, i64 %14
   store i64 %13, ptr %15, align 8
   %16 = or disjoint i64 %10, 1
-  %17 = icmp ult i64 %16, %8
+  %17 = icmp samesign ult i64 %16, %8
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %9
@@ -1523,7 +1523,7 @@ define dso_local void @bitmap_from_arr32(ptr nocapture noundef %0, ptr nocapture
 
 24:                                               ; preds = %18, %9
   %25 = add nuw nsw i64 %10, 2
-  %26 = icmp ult i64 %25, %8
+  %26 = icmp samesign ult i64 %25, %8
   br i1 %26, label %9, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %24, %3
@@ -1569,7 +1569,7 @@ define dso_local void @bitmap_to_arr32(ptr nocapture noundef %0, ptr nocapture n
   %15 = getelementptr i32, ptr %0, i64 %10
   store i32 %14, ptr %15, align 4
   %16 = or disjoint i64 %10, 1
-  %17 = icmp ult i64 %16, %8
+  %17 = icmp samesign ult i64 %16, %8
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %9
@@ -1582,7 +1582,7 @@ define dso_local void @bitmap_to_arr32(ptr nocapture noundef %0, ptr nocapture n
 
 23:                                               ; preds = %18, %9
   %24 = add nuw nsw i64 %10, 2
-  %25 = icmp ult i64 %24, %8
+  %25 = icmp samesign ult i64 %24, %8
   br i1 %25, label %9, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %23, %3

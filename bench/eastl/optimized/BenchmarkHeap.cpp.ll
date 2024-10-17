@@ -2034,7 +2034,7 @@ for.body.i.i531:                                  ; preds = %_ZN2EA4StdC9Stopwat
   store i32 %240, ptr %add.ptr.i.i.i532, align 4
   %sub.ptr.div.i.i.i533 = lshr exact i64 %sub.ptr.sub8.i.i, 2
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i533, -1
-  %cmp22.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i.i, 12
+  %cmp22.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i.i, 12
   br i1 %cmp22.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i531, %for.body.i.i.i.i.i

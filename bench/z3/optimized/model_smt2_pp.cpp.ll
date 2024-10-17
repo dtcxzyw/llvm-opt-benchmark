@@ -2989,7 +2989,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %invoke.cont85, %if.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %m_arity.i168, align 8
   %73 = zext i32 %72 to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next, %73
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %cmp65, label %invoke.cont67, label %for.end89.loopexit, !llvm.loop !26
 
 lpad70:                                           ; preds = %call12.i.noexc, %call11.i.noexc, %call10.i.noexc, %call9.i.noexc, %call8.i.noexc, %call7.i.noexc, %call6.i.noexc, %call5.i.noexc, %if.end.i627, %if.end.i.i.i.i199, %if.then.i180, %invoke.cont67
@@ -3056,7 +3056,7 @@ if.end.i.i235:                                    ; preds = %for.cond111
 
 invoke.cont112:                                   ; preds = %if.end.i.i235, %for.cond111
   %retval.0.i.i237 = phi i64 [ %84, %if.end.i.i235 ], [ 0, %for.cond111 ]
-  %cmp114 = icmp ult i64 %indvars.iv734, %retval.0.i.i237
+  %cmp114 = icmp samesign ult i64 %indvars.iv734, %retval.0.i.i237
   br i1 %cmp114, label %invoke.cont116, label %for.end199
 
 invoke.cont116:                                   ; preds = %invoke.cont112
@@ -3192,7 +3192,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit295:       ; preds = %invoke.cont145, %if
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 1
   %105 = load i32, ptr %m_arity.i168, align 8
   %106 = zext i32 %105 to i64
-  %cmp121 = icmp ult i64 %indvars.iv.next732, %106
+  %cmp121 = icmp samesign ult i64 %indvars.iv.next732, %106
   br i1 %cmp121, label %invoke.cont123, label %for.end149, !llvm.loop !27
 
 lpad104.loopexit:                                 ; preds = %for.body214, %if.then.i431, %if.end.i.i.i.i450

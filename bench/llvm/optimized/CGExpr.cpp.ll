@@ -10256,7 +10256,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 5:                                                ; preds = %tailrecurse
   %6 = load i32, ptr %.tr5, align 8
   %7 = and i32 %6, 16515072
-  %switch = icmp ult i32 %7, 8650752
+  %switch = icmp samesign ult i32 %7, 8650752
   br i1 %switch, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116StructAccessBaseEPKNS_4ExprEJEE5VisitEPKNS_4StmtE.exit, label %13
 
 8:                                                ; preds = %tailrecurse
@@ -14109,7 +14109,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %66, %56
   %88 = load i64, ptr %87, align 8, !noalias !494
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %86, ptr %89, align 8, !alias.scope !494
-  %90 = icmp ult i32 %86, 65
+  %90 = icmp samesign ult i32 %86, 65
   br i1 %90, label %91, label %99
 
 91:                                               ; preds = %84
@@ -21898,7 +21898,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %36
   %390 = load i64, ptr %389, align 8, !noalias !882
   %391 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %388, ptr %391, align 8, !alias.scope !882
-  %392 = icmp ult i32 %388, 65
+  %392 = icmp samesign ult i32 %388, 65
   br i1 %392, label %393, label %401
 
 393:                                              ; preds = %386
@@ -26259,7 +26259,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %13, %13, %13, %13, 
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = lshr i32 %37, 8
-  %.not23 = icmp ugt i32 %35, %38
+  %.not23 = icmp samesign ugt i32 %35, %38
   br i1 %.not23, label %.thread, label %39
 
 39:                                               ; preds = %34
@@ -27632,7 +27632,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %125, %124
   br i1 %126, label %_ZN4llvm5APInt13getLowBitsSetEjj.exit, label %127
 
 127:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %128 = icmp ult i32 %118, 65
+  %128 = icmp samesign ult i32 %118, 65
   br i1 %128, label %129, label %142
 
 129:                                              ; preds = %127
@@ -28445,7 +28445,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %99, %98
   br i1 %100, label %_ZN4llvm5APInt13getLowBitsSetEjj.exit, label %101
 
 101:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %102 = icmp ult i32 %95, 65
+  %102 = icmp samesign ult i32 %95, 65
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %101
@@ -28520,7 +28520,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i60:                   ; preds = %132, %131
   br i1 %133, label %_ZN4llvm5APInt10getBitsSetEjjj.exit, label %134
 
 134:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i60
-  %135 = icmp ult i32 %128, 65
+  %135 = icmp samesign ult i32 %128, 65
   br i1 %135, label %136, label %149
 
 136:                                              ; preds = %134
@@ -28628,7 +28628,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i62:                   ; preds = %186, %185
   br i1 %187, label %_ZN4llvm5APInt10getBitsSetEjjj.exit, label %188
 
 188:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i62
-  %189 = icmp ult i32 %182, 65
+  %189 = icmp samesign ult i32 %182, 65
   br i1 %189, label %190, label %204
 
 190:                                              ; preds = %188
@@ -30805,7 +30805,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %38, %39
   %50 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %49, ptr %50, align 1, !noalias !1195
   %51 = udiv i64 %.0810.i, 10
-  %.not.i35 = icmp ult i64 %.0810.i, 10
+  %.not.i35 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i35, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !1198
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i

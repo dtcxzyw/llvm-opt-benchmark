@@ -2540,7 +2540,7 @@ ps_parser_to_token_array.exit.thread:             ; preds = %14
   br i1 %.not.i, label %ps_parser_to_token_array.exit, label %30
 
 30:                                               ; preds = %.lr.ph.split.i
-  %31 = icmp ult i64 %.024.i.idx, 768
+  %31 = icmp samesign ult i64 %.024.i.idx, 768
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
@@ -4430,7 +4430,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %255, %253, %248
   %403 = phi i32 [ %378, %377 ], [ %401, %398 ]
   %.1188.i.i.i = phi i32 [ %.0187235.i.i.i, %377 ], [ %spec.select.i.i.i, %398 ]
   %404 = add nuw nsw i64 %.0192234.i.i.i, 2
-  %405 = icmp ult i64 %404, %307
+  %405 = icmp samesign ult i64 %404, %307
   br i1 %405, label %377, label %.preheader233.i.i.i, !llvm.loop !18
 
 406:                                              ; preds = %425, %.lr.ph238.i.i.i
@@ -4469,7 +4469,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %255, %253, %248
   %426 = phi i32 [ %407, %406 ], [ %424, %421 ]
   %.4191.i.i.i = phi i32 [ %.3190237.i.i.i, %406 ], [ %spec.select216.i.i.i, %421 ]
   %427 = add nuw nsw i64 %.1193236.i.i.i, 2
-  %428 = icmp ult i64 %427, %311
+  %428 = icmp samesign ult i64 %427, %311
   br i1 %428, label %406, label %._crit_edge.i.i.i, !llvm.loop !19
 
 ._crit_edge.i.i.i:                                ; preds = %425, %.preheader233.i.i.i
@@ -4535,7 +4535,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %255, %253, %248
 458:                                              ; preds = %456, %.lr.ph242.i.i.i
   %.2.i.i.i = phi i32 [ %453, %456 ], [ %.0241.i.i.i, %.lr.ph242.i.i.i ]
   %459 = add nuw nsw i64 %.0185240.i.i.i, 2
-  %460 = icmp ult i64 %459, %319
+  %460 = icmp samesign ult i64 %459, %319
   br i1 %460, label %.lr.ph242.i.i.i, label %._crit_edge243.i.i.i, !llvm.loop !20
 
 ._crit_edge243.i.i.i:                             ; preds = %458, %456, %.preheader232.i.i.i
@@ -4578,7 +4578,7 @@ cf2_computeDarkening.exit.i.i:                    ; preds = %255, %253, %248
 479:                                              ; preds = %477, %.lr.ph249.i.i.i
   %.4.i.i.i = phi i32 [ %474, %477 ], [ %.3248.i.i.i, %.lr.ph249.i.i.i ]
   %480 = add nuw nsw i64 %.1186247.i.i.i, 2
-  %481 = icmp ult i64 %480, %315
+  %481 = icmp samesign ult i64 %480, %315
   br i1 %481, label %.lr.ph249.i.i.i, label %.loopexit231.i.i.i, !llvm.loop !21
 
 .loopexit231.i.i.i:                               ; preds = %479, %477, %468, %461, %._crit_edge243.i.i.i, %.preheader.i.i.i
@@ -6942,7 +6942,7 @@ afm_parser_read_int.exit.i:                       ; preds = %73
   %87 = sub i64 %85, %86
   %88 = udiv i64 %87, 20
   %89 = zext nneg i32 %78 to i64
-  %90 = icmp ult i64 %88, %89
+  %90 = icmp samesign ult i64 %88, %89
   br i1 %90, label %afm_parse_track_kern.exit.thread, label %91
 
 91:                                               ; preds = %80
@@ -7159,7 +7159,7 @@ afm_parser_read_int.exit.i27:                     ; preds = %163
   %177 = sub i64 %175, %176
   %178 = udiv i64 %177, 10
   %179 = zext nneg i32 %168 to i64
-  %180 = icmp ult i64 %178, %179
+  %180 = icmp samesign ult i64 %178, %179
   br i1 %180, label %afm_parse_kern_pairs.exit.thread, label %181
 
 181:                                              ; preds = %170
@@ -7725,7 +7725,7 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr nocapture noundef %0, ptr nounde
   %.373214 = phi i64 [ %.474, %111 ], [ %.070, %.preheader119 ]
   %.379213 = phi i64 [ %.480, %111 ], [ %.076, %.preheader119 ]
   %.184212 = phi i64 [ %103, %111 ], [ %.083.fr, %.preheader119 ]
-  %101 = icmp ugt i64 %.184212, 214748363
+  %101 = icmp samesign ugt i64 %.184212, 214748363
   br i1 %101, label %.thread114, label %102
 
 102:                                              ; preds = %.lr.ph216
@@ -8008,7 +8008,7 @@ PS_Conv_Strtol.exit:                              ; preds = %14, %._crit_edge.lo
 77:                                               ; preds = %75
   %78 = icmp eq i64 %.04670.i26, %.zext.i
   %79 = zext nneg i8 %71 to i32
-  %80 = icmp ult i32 %62, %79
+  %80 = icmp samesign ult i32 %62, %79
   %or.cond65.i33 = select i1 %78, i1 %80, i1 false
   br i1 %or.cond65.i33, label %84, label %81
 
@@ -8839,7 +8839,7 @@ define internal fastcc range(i32 0, 4) i32 @skip_literal_string(ptr nocapture no
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.235, i64 1
   %18 = add nuw nsw i32 %.02434, 1
-  %19 = icmp ult i32 %.02434, 2
+  %19 = icmp samesign ult i32 %.02434, 2
   %20 = icmp ult ptr %17, %1
   %21 = select i1 %19, i1 %20, i1 false
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !47
@@ -10882,7 +10882,7 @@ cf2_stack_getReal.exit1277:                       ; preds = %491, %493, %495, %4
   %524 = sub i64 %522, %523
   %525 = lshr exact i64 %524, 3
   %526 = and i64 %525, 4294967295
-  %.not.i1280 = icmp ult i64 %indvars.iv1935, %526
+  %.not.i1280 = icmp samesign ult i64 %indvars.iv1935, %526
   br i1 %.not.i1280, label %532, label %527
 
 527:                                              ; preds = %.lr.ph1890
@@ -11699,8 +11699,8 @@ cf2_buf_readByte.exit1375.thread:                 ; preds = %841, %839, %837, %c
   %.0.i13741760 = phi i32 [ %844, %cf2_buf_readByte.exit1375 ], [ 0, %837 ], [ 0, %839 ], [ 0, %841 ]
   %849 = load i8, ptr %106, align 1
   %850 = icmp ne i8 %849, 0
-  %851 = icmp ugt i32 %.0.i13741760, 37
-  %or.cond55 = or i1 %851, %850
+  %851 = icmp samesign ugt i32 %.0.i13741760, 37
+  %or.cond55 = select i1 %850, i1 true, i1 %851
   br i1 %or.cond55, label %cf2_hintmask_read.exit, label %852
 
 852:                                              ; preds = %cf2_buf_readByte.exit1375.thread
@@ -12445,7 +12445,7 @@ ps_builder_check_points.exit1389.thread:          ; preds = %1144, %ps_builder_c
   %indvars.iv.next1929 = add nuw nsw i64 %indvars.iv1928, 1
   %1208 = load i32, ptr %1180, align 8
   %1209 = zext i32 %1208 to i64
-  %1210 = icmp ult i64 %indvars.iv.next1929, %1209
+  %1210 = icmp samesign ult i64 %indvars.iv.next1929, %1209
   br i1 %1210, label %.lr.ph1857, label %._crit_edge1858, !llvm.loop !54
 
 ._crit_edge1858:                                  ; preds = %.lr.ph1857, %1190
@@ -13036,7 +13036,7 @@ cf2_stack_popFixed.exit1407:                      ; preds = %1470, %1472, %1474,
 .lr.ph1848:                                       ; preds = %.lr.ph1848.preheader, %cf2_arrstack_getPointer.exit1412
   %indvars.iv = phi i64 [ %1502, %.lr.ph1848.preheader ], [ %indvars.iv.next, %cf2_arrstack_getPointer.exit1412 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not.i1408 = icmp ult i64 %indvars.iv.next, 17
+  %.not.i1408 = icmp samesign ult i64 %indvars.iv.next, 17
   br i1 %.not.i1408, label %cf2_arrstack_getPointer.exit1412, label %1503
 
 1503:                                             ; preds = %.lr.ph1848
@@ -15728,7 +15728,7 @@ define internal fastcc void @cf2_computeDarkening(i32 noundef range(i32 -6553600
   %39 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %40 = xor i32 %39, 31
   %41 = add nuw nsw i32 %38, %40
-  %42 = icmp ugt i32 %41, 45
+  %42 = icmp samesign ugt i32 %41, 45
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %12
@@ -18468,7 +18468,7 @@ cf2_hint_init.exit161:                            ; preds = %359, %363
   br i1 %.not147.i, label %.thread.i171, label %422
 
 422:                                              ; preds = %418, %416
-  %423 = icmp ult i32 %407, %406
+  %423 = icmp samesign ult i32 %407, %406
   %424 = select i1 %423, i32 %408, i32 %406
   br label %.thread.i171
 
@@ -18486,7 +18486,7 @@ cf2_hint_init.exit161:                            ; preds = %359, %363
   br i1 %.not145.i, label %.thread162.i, label %431
 
 431:                                              ; preds = %427, %425
-  %.not168.i = icmp ult i32 %406, %407
+  %.not168.i = icmp samesign ult i32 %406, %407
   br i1 %.not168.i, label %.thread162.i, label %.thread.i171
 
 .thread162.i:                                     ; preds = %431, %427
@@ -18723,7 +18723,7 @@ cf2_arrstack_getPointer.exit:                     ; preds = %530, %534, %536, %5
   %548 = phi i32 [ %527, %526 ], [ %.pre251, %cf2_arrstack_getPointer.exit ]
   %549 = add nuw nsw i64 %.2103219, 1
   %550 = zext i32 %548 to i64
-  %551 = icmp ult i64 %549, %550
+  %551 = icmp samesign ult i64 %549, %550
   br i1 %551, label %526, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %547, %.preheader, %cf2_hintmap_adjustHints.exit

@@ -4068,7 +4068,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit221:          ; preds = %320
   br i1 %.not.i.i.i.i225, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -4375,7 +4375,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit252:          ; preds = %458
   br i1 %.not.i.i.i.i266, label %select.unfold.i.i.i.i268, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i267
 
 select.unfold.i.i.i.i268:                         ; preds = %.lr.ph.i.i.i.i262
-  %.not10.i.i.i.i269 = icmp ult i64 %storemerge26.i.i.in.in.i.i263, 3
+  %.not10.i.i.i.i269 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i263, 3
   br i1 %.not10.i.i.i.i269, label %.loopexit.i.i259, label %.lr.ph.i.i.i.i262, !llvm.loop !22
 
 .loopexit.i.i259:                                 ; preds = %select.unfold.i.i.i.i268
@@ -4696,7 +4696,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM16RegressionL1loss14BoostFromSc
   br i1 %.not.i.i.i.i63, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -12058,7 +12058,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit221:          ; preds = %328
   br i1 %.not.i.i.i.i225, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -12368,7 +12368,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit252:          ; preds = %469
   br i1 %.not.i.i.i.i266, label %select.unfold.i.i.i.i268, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i267
 
 select.unfold.i.i.i.i268:                         ; preds = %.lr.ph.i.i.i.i262
-  %.not10.i.i.i.i269 = icmp ult i64 %storemerge26.i.i.in.in.i.i263, 3
+  %.not10.i.i.i.i269 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i263, 3
   br i1 %.not10.i.i.i.i269, label %.loopexit.i.i259, label %.lr.ph.i.i.i.i262, !llvm.loop !22
 
 .loopexit.i.i259:                                 ; preds = %select.unfold.i.i.i.i268
@@ -12692,7 +12692,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM22RegressionQuantileloss14Boost
   br i1 %.not.i.i.i.i63, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -18449,7 +18449,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLoss4InitERKNS_8Metadat
   %34 = fadd float %30, %31
   %35 = fadd float %.13914.i, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %36 = icmp ult i64 %indvars.iv.next.i, %27
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %36, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !133
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %24
@@ -20312,7 +20312,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i.i136, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %27
@@ -25244,7 +25244,7 @@ define linkonce_odr void @_ZN8LightGBM12CrossEntropy4InitERKNS_8MetadataEi(ptr n
   %47 = fadd float %43, %44
   %48 = fadd float %.13914.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %49 = icmp ult i64 %indvars.iv.next.i, %40
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !133
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %37
@@ -25481,7 +25481,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIf
 
 34:                                               ; preds = %.sink.split, %24, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %35 = icmp ult i64 %indvars.iv.next, %13
+  %35 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %34, %3
@@ -26092,7 +26092,7 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   %48 = fcmp olt float %.0, %.24.i
   %storemerge46.i = select i1 %48, float %.24.i, float %.0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %49 = icmp ult i64 %indvars.iv.next.i, %41
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !198
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %38
@@ -26890,7 +26890,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %30
   br i1 %.not.i.i.i.i71, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -27198,7 +27198,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit93:           ; preds = %169
   br i1 %.not.i.i.i.i107, label %select.unfold.i.i.i.i109, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i108
 
 select.unfold.i.i.i.i109:                         ; preds = %.lr.ph.i.i.i.i103
-  %.not10.i.i.i.i110 = icmp ult i64 %storemerge26.i.i.in.in.i.i104, 3
+  %.not10.i.i.i.i110 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i104, 3
   br i1 %.not10.i.i.i.i110, label %.loopexit.i.i100, label %.lr.ph.i.i.i.i103, !llvm.loop !22
 
 .loopexit.i.i100:                                 ; preds = %select.unfold.i.i.i.i109
@@ -27509,7 +27509,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM18RegressionMAPELOSS14BoostFrom
   br i1 %.not.i.i.i.i31, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
@@ -35119,7 +35119,7 @@ thread-pre-split:                                 ; preds = %15, %thread-pre-spl
 .preheader193:                                    ; preds = %.lr.ph226, %.critedge4
   %.1132.lcssa = phi double [ 1.000000e+00, %.critedge4 ], [ %62, %.lr.ph226 ]
   %.1126.lcssa = phi i32 [ %spec.store.select, %.critedge4 ], [ %63, %.lr.ph226 ]
-  %61 = icmp ugt i32 %.1126.lcssa, 7
+  %61 = icmp samesign ugt i32 %.1126.lcssa, 7
   br i1 %61, label %.lr.ph231, label %.preheader
 
 .lr.ph226:                                        ; preds = %.critedge4, %.lr.ph226

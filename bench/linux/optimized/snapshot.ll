@@ -409,7 +409,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
 
 41:                                               ; preds = %40, %38, %38
   %42 = phi i64 [ 524288, %40 ], [ 33554432, %38 ], [ 33554432, %38 ]
-  %43 = icmp ult i64 %39, %42
+  %43 = icmp samesign ult i64 %39, %42
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %41
@@ -422,7 +422,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
 
 47:                                               ; preds = %46, %44, %44
   %48 = phi i64 [ 2048, %46 ], [ 131072, %44 ], [ 131072, %44 ]
-  %49 = icmp ult i64 %45, %48
+  %49 = icmp samesign ult i64 %45, %48
   br i1 %49, label %50, label %60, !prof !8
 
 50:                                               ; preds = %47
@@ -2894,7 +2894,7 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
 
 64:                                               ; preds = %63, %61, %61
   %65 = phi i64 [ 524288, %63 ], [ 33554432, %61 ], [ 33554432, %61 ]
-  %66 = icmp ult i64 %62, %65
+  %66 = icmp samesign ult i64 %62, %65
   br i1 %66, label %67, label %.thread15
 
 67:                                               ; preds = %64
@@ -2907,7 +2907,7 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
 
 70:                                               ; preds = %69, %67, %67
   %71 = phi i64 [ 2048, %69 ], [ 131072, %67 ], [ 131072, %67 ]
-  %72 = icmp ult i64 %68, %71
+  %72 = icmp samesign ult i64 %68, %71
   br i1 %72, label %73, label %83, !prof !8
 
 73:                                               ; preds = %70
@@ -3144,7 +3144,7 @@ define dso_local range(i32 0, -1) i32 @snapshot_additional_pages(ptr nocapture n
   %18 = lshr i64 %17, 9
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = add i32 %15, %19
-  %21 = icmp ugt i64 %16, 512
+  %21 = icmp samesign ugt i64 %16, 512
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.preheader, %1
@@ -3598,7 +3598,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
 
 285:                                              ; preds = %284, %282, %282
   %286 = phi i64 [ 524288, %284 ], [ 33554432, %282 ], [ 33554432, %282 ]
-  %287 = icmp ult i64 %283, %286
+  %287 = icmp samesign ult i64 %283, %286
   br i1 %287, label %288, label %.thread
 
 288:                                              ; preds = %285
@@ -3611,7 +3611,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
 
 291:                                              ; preds = %290, %288, %288
   %292 = phi i64 [ 2048, %290 ], [ 131072, %288 ], [ 131072, %288 ]
-  %293 = icmp ult i64 %289, %292
+  %293 = icmp samesign ult i64 %289, %292
   br i1 %293, label %294, label %304, !prof !8
 
 294:                                              ; preds = %291
@@ -3891,7 +3891,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   %84 = lshr i64 %83, 9
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = add i32 %81, %85
-  %87 = icmp ugt i64 %82, 512
+  %87 = icmp samesign ugt i64 %82, 512
   br i1 %87, label %.preheader35, label %.loopexit36, !llvm.loop !58
 
 .loopexit36:                                      ; preds = %.preheader35, %67
@@ -3929,7 +3929,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   %113 = add i64 %112, 4095
   %114 = lshr i64 %113, 12
   %115 = tail call i64 @llvm.umin.i64(i64 %114, i64 %111)
-  %116 = icmp ult i64 %115, %58
+  %116 = icmp samesign ult i64 %115, %58
   br i1 %116, label %146, label %117
 
 117:                                              ; preds = %.loopexit38
@@ -4001,7 +4001,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   %160 = add i64 %157, %159
   %161 = tail call i64 @llvm.usub.sat.i64(i64 %58, i64 %160)
   %162 = tail call i64 @llvm.usub.sat.i64(i64 %101, i64 %161)
-  %163 = icmp ult i64 %115, %161
+  %163 = icmp samesign ult i64 %115, %161
   %164 = select i1 %163, i64 %161, i64 %114
   %165 = tail call i64 @llvm.umin.i64(i64 %164, i64 %111)
   %166 = sub nsw i64 %58, %165
@@ -5940,7 +5940,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 114:                                              ; preds = %109
   %115 = icmp sgt i64 %112, -1
   %116 = and i64 %112, 9223372036854775807
-  %117 = icmp ult i64 %116, 4503599627370496
+  %117 = icmp samesign ult i64 %116, 4503599627370496
   br i1 %117, label %118, label %.thread83
 
 118:                                              ; preds = %114
@@ -5953,7 +5953,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 
 121:                                              ; preds = %120, %118, %118
   %122 = phi i64 [ 524288, %120 ], [ 33554432, %118 ], [ 33554432, %118 ]
-  %123 = icmp ult i64 %119, %122
+  %123 = icmp samesign ult i64 %119, %122
   br i1 %123, label %124, label %.thread79
 
 124:                                              ; preds = %121
@@ -5966,7 +5966,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 
 127:                                              ; preds = %126, %124, %124
   %128 = phi i64 [ 2048, %126 ], [ 131072, %124 ], [ 131072, %124 ]
-  %129 = icmp ult i64 %125, %128
+  %129 = icmp samesign ult i64 %125, %128
   br i1 %129, label %130, label %140, !prof !8
 
 130:                                              ; preds = %127
@@ -6120,7 +6120,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 
 202:                                              ; preds = %201, %.thread79, %.thread79
   %203 = phi i64 [ 524288, %201 ], [ 33554432, %.thread79 ], [ 33554432, %.thread79 ]
-  %204 = icmp ult i64 %119, %203
+  %204 = icmp samesign ult i64 %119, %203
   br i1 %204, label %205, label %.thread83
 
 205:                                              ; preds = %202
@@ -6133,7 +6133,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 
 208:                                              ; preds = %207, %205, %205
   %209 = phi i64 [ 2048, %207 ], [ 131072, %205 ], [ 131072, %205 ]
-  %210 = icmp ult i64 %206, %209
+  %210 = icmp samesign ult i64 %206, %209
   br i1 %210, label %211, label %221, !prof !8
 
 211:                                              ; preds = %208
@@ -7907,7 +7907,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 
 23:                                               ; preds = %22, %20, %20
   %24 = phi i64 [ 524288, %22 ], [ 33554432, %20 ], [ 33554432, %20 ]
-  %25 = icmp ult i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
@@ -7920,7 +7920,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 
 29:                                               ; preds = %28, %26, %26
   %30 = phi i64 [ 2048, %28 ], [ 131072, %26 ], [ 131072, %26 ]
-  %31 = icmp ult i64 %27, %30
+  %31 = icmp samesign ult i64 %27, %30
   br i1 %31, label %32, label %42, !prof !8
 
 32:                                               ; preds = %29
@@ -8319,7 +8319,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone %0, i64 n
 
 11:                                               ; preds = %10, %8, %8
   %12 = phi i64 [ 524288, %10 ], [ 33554432, %8 ], [ 33554432, %8 ]
-  %13 = icmp ult i64 %9, %12
+  %13 = icmp samesign ult i64 %9, %12
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %11
@@ -8332,7 +8332,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone %0, i64 n
 
 17:                                               ; preds = %16, %14, %14
   %18 = phi i64 [ 2048, %16 ], [ 131072, %14 ], [ 131072, %14 ]
-  %19 = icmp ult i64 %15, %18
+  %19 = icmp samesign ult i64 %15, %18
   br i1 %19, label %20, label %30, !prof !8
 
 20:                                               ; preds = %17
@@ -8436,7 +8436,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone %0, i64 n
 
 74:                                               ; preds = %73, %.thread19, %.thread19
   %75 = phi i64 [ 2048, %73 ], [ 131072, %.thread19 ], [ 131072, %.thread19 ]
-  %76 = icmp ult i64 %15, %75
+  %76 = icmp samesign ult i64 %15, %75
   br i1 %76, label %77, label %87, !prof !8
 
 77:                                               ; preds = %74

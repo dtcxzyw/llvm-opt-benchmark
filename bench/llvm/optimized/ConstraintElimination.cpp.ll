@@ -2667,7 +2667,7 @@ _ZN12_GLOBAL__N_15State10addInfoForERN4llvm10BasicBlockE.exit: ; preds = %_ZN4ll
   br i1 %.not.i.i.i.i.i128, label %select.unfold.i.i.i.i.i, label %941
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i127
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_111FactOrCheckES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i127, !llvm.loop !81
 
 941:                                              ; preds = %.lr.ph.i.i.i.i.i127
@@ -3242,7 +3242,7 @@ _ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit: ; preds = %1187, %1193, 
   %1229 = getelementptr inbounds i8, ptr %.0.i290, i64 -32
   %1230 = load ptr, ptr %1229, align 8
   %1231 = call fastcc i16 @_ZL14checkConditionN4llvm7CmpInst9PredicateEPNS_5ValueES3_PNS_11InstructionERN12_GLOBAL__N_114ConstraintInfoE(i32 noundef %1226, ptr noundef %1228, ptr noundef %1230, ptr noundef nonnull align 8 dereferenceable(1256) %74)
-  %1232 = icmp ugt i16 %1231, 255
+  %1232 = icmp samesign ugt i16 %1231, 255
   br i1 %1232, label %1233, label %_ZL24checkAndReplaceConditionPN4llvm7CmpInstERN12_GLOBAL__N_114ConstraintInfoEjjPNS_11InstructionEPNS_6ModuleENS_8ArrayRefINS2_15ReproducerEntryEEERNS_13DominatorTreeERNS_15SmallVectorImplIS6_EE.exit.thread
 
 1233:                                             ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit
@@ -4093,7 +4093,7 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_15LogicalOp_matchINS0_11class_
   %1587 = getelementptr inbounds i8, ptr %.0.i34.i, i64 -32
   %1588 = load ptr, ptr %1587, align 8
   %1589 = call fastcc i16 @_ZL14checkConditionN4llvm7CmpInst9PredicateEPNS_5ValueES3_PNS_11InstructionERN12_GLOBAL__N_114ConstraintInfoE(i32 noundef %1584, ptr noundef %1586, ptr noundef %1588, ptr noundef nonnull align 8 dereferenceable(1256) %74)
-  %1590 = icmp ugt i16 %1589, 255
+  %1590 = icmp samesign ugt i16 %1589, 255
   br i1 %1590, label %1591, label %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i
 
 1591:                                             ; preds = %1580
@@ -4339,7 +4339,7 @@ _ZNK4llvm15MinMaxIntrinsic12getPredicateEv.exit.i: ; preds = %1687, %1692, %1691
   %1701 = getelementptr inbounds i8, ptr %1699, i64 32
   %1702 = load ptr, ptr %1701, align 8
   %1703 = call fastcc i16 @_ZL14checkConditionN4llvm7CmpInst9PredicateEPNS_5ValueES3_PNS_11InstructionERN12_GLOBAL__N_114ConstraintInfoE(i32 noundef %1693, ptr noundef %1700, ptr noundef %1702, ptr noundef nonnull align 8 dereferenceable(1256) %74)
-  %.not.i183 = icmp ult i16 %1703, 256
+  %.not.i183 = icmp samesign ult i16 %1703, 256
   br i1 %.not.i183, label %1706, label %1704
 
 1704:                                             ; preds = %_ZNK4llvm15MinMaxIntrinsic12getPredicateEv.exit.i
@@ -4356,7 +4356,7 @@ _ZNK4llvm15MinMaxIntrinsic12getPredicateEv.exit.i: ; preds = %1687, %1692, %1691
   %1713 = load ptr, ptr %1712, align 8
   %1714 = load ptr, ptr %1711, align 8
   %1715 = call fastcc i16 @_ZL14checkConditionN4llvm7CmpInst9PredicateEPNS_5ValueES3_PNS_11InstructionERN12_GLOBAL__N_114ConstraintInfoE(i32 noundef %1693, ptr noundef %1713, ptr noundef %1714, ptr noundef nonnull align 8 dereferenceable(1256) %74)
-  %.not18.i185 = icmp ult i16 %1715, 256
+  %.not18.i185 = icmp samesign ult i16 %1715, 256
   br i1 %.not18.i185, label %_ZL21checkAndReplaceMinMaxPN4llvm15MinMaxIntrinsicERN12_GLOBAL__N_114ConstraintInfoERNS_15SmallVectorImplIPNS_11InstructionEEE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1706, %1704
@@ -20254,7 +20254,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i64 %13, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ult i64 %15, %19
+  %20 = icmp samesign ult i64 %15, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

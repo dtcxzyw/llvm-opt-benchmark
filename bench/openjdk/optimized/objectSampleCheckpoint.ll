@@ -195,7 +195,7 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i: ; preds = %9, %6
   %38 = add nsw i32 %16, 1
   %39 = icmp sgt i32 %16, -1
   %40 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %38)
-  %41 = icmp ult i32 %40, 2
+  %41 = icmp samesign ult i32 %40, 2
   %or.cond.i.i.i.i.i.i = select i1 %39, i1 %41, i1 false
   %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %38, i1 true)
   %43 = sub nuw nsw i32 32, %42
@@ -337,7 +337,7 @@ _ZNK12ObjectSample23is_alive_and_older_thanEl.exit.i: ; preds = %.lr.ph.i.i
   %31 = add nsw i32 %26, 1
   %32 = icmp sgt i32 %26, -1
   %33 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %31)
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %32, i1 %34, i1 false
   %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
   %36 = sub nuw nsw i32 32, %35
@@ -821,7 +821,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %40, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %44, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %44, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIhEEvT_.exit
@@ -1060,7 +1060,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   %26 = add nsw i32 %4, 1
   %27 = icmp sgt i32 %4, -1
   %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %26)
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   %or.cond.i.i.i.i.i.i = select i1 %27, i1 %29, i1 false
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
   %31 = sub nuw nsw i32 32, %30

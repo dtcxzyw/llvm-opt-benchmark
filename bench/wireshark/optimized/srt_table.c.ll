@@ -154,7 +154,7 @@ free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %3, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %free_srt_table_data.exit, %2
@@ -209,7 +209,7 @@ reset_srt_table_data.exit:                        ; preds = %reset_srt_table_dat
   %18 = phi i32 [ %.pre, %reset_srt_table_data.exit.loopexit ], [ %4, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %reset_srt_table_data.exit, %1

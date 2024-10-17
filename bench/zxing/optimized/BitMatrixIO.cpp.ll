@@ -512,7 +512,7 @@ define void @_ZN5ZXing14ParseBitMatrixERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 .loopexit:                                        ; preds = %59, %24
   %29 = add nuw nsw i64 %25, 1
-  %30 = icmp ult i64 %29, %23
+  %30 = icmp samesign ult i64 %29, %23
   br i1 %30, label %24, label %.loopexit7, !llvm.loop !30
 
 31:                                               ; preds = %59, %26

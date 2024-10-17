@@ -488,7 +488,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %11 = zext i16 %3 to i32
   %12 = add nuw nsw i32 %11, 255
   %13 = and i32 %12, 255
-  %14 = icmp ugt i32 %13, 14
+  %14 = icmp samesign ugt i32 %13, 14
   %15 = select i1 %14, i32 0, i32 %13
   %16 = getelementptr inbounds i8, ptr %0, i64 800
   %17 = load ptr, ptr %16, align 8
@@ -515,7 +515,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 27:                                               ; preds = %6
   %28 = icmp eq i16 %3, 0
-  %29 = icmp ult i32 %10, %11
+  %29 = icmp samesign ult i32 %10, %11
   %30 = select i1 %28, i1 true, i1 %29
   br i1 %30, label %479, label %31
 
@@ -717,7 +717,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 144:                                              ; preds = %6
   %145 = icmp eq i16 %3, 0
-  %146 = icmp ult i32 %10, %11
+  %146 = icmp samesign ult i32 %10, %11
   %147 = select i1 %145, i1 true, i1 %146
   br i1 %147, label %479, label %148
 
@@ -1072,7 +1072,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 ._crit_edge:                                      ; preds = %346, %356, %351
   %360 = icmp eq i16 %347, 0
-  %361 = icmp ult i32 %10, %.pre15
+  %361 = icmp samesign ult i32 %10, %.pre15
   %362 = select i1 %360, i1 true, i1 %361
   br i1 %362, label %479, label %363
 
@@ -2354,7 +2354,7 @@ define internal noundef i32 @ehci_hrtimer_func(ptr noundef %0) #0 align 16 {
 35:                                               ; preds = %34, %28, %25
   %36 = add nuw nsw i64 %17, 1
   %37 = and i64 %36, 31
-  %38 = icmp ugt i64 %37, 11
+  %38 = icmp samesign ugt i64 %37, 11
   br i1 %38, label %.thread, label %11, !prof !29, !llvm.loop !30
 
 .thread:                                          ; preds = %11, %35, %16
@@ -5200,7 +5200,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
   %59 = load i8, ptr %31, align 4
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %37, %60
-  %62 = icmp ult i32 %61, 64
+  %62 = icmp samesign ult i32 %61, 64
   br i1 %62, label %.splitthread-pre-split, label %.loopexit36, !llvm.loop !56
 
 .loopexit37:                                      ; preds = %.loopexit36, %18, %15
@@ -5272,7 +5272,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 106:                                              ; preds = %100
   %107 = add nuw nsw i64 %101, %93
-  %108 = icmp ult i64 %107, 64
+  %108 = icmp samesign ult i64 %107, 64
   br i1 %108, label %100, label %check_intr_schedule.exit.loopexit55, !llvm.loop !58
 
 .loopexit33.us.us:                                ; preds = %100
@@ -5282,7 +5282,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 .split45:                                         ; preds = %.split45.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.split45.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %110 = icmp ugt i64 %indvars.iv, 5
+  %110 = icmp samesign ugt i64 %indvars.iv, 5
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %.split45
@@ -5292,7 +5292,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
   %115 = load i32, ptr %72, align 4
   %116 = sub i32 %115, %114
   %117 = or disjoint i64 %indvars.iv, %87
-  %118 = icmp ult i64 %117, 64
+  %118 = icmp samesign ult i64 %117, 64
   br i1 %118, label %119, label %.loopexit8.i
 
 119:                                              ; preds = %111
@@ -5301,7 +5301,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 121:                                              ; preds = %124
   %122 = add nuw nsw i64 %125, %120
-  %123 = icmp ult i64 %122, 64
+  %123 = icmp samesign ult i64 %122, 64
   br i1 %123, label %124, label %.loopexit8.i, !llvm.loop !58
 
 124:                                              ; preds = %121, %119
@@ -5342,7 +5342,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 148:                                              ; preds = %151
   %149 = add nuw nsw i64 %152, %136
-  %150 = icmp ult i64 %149, 64
+  %150 = icmp samesign ult i64 %149, 64
   br i1 %150, label %151, label %.loopexit6.i, !llvm.loop !58
 
 151:                                              ; preds = %148, %146
@@ -5358,7 +5358,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
   %158 = trunc i32 %157 to i8
   %159 = or i8 %142, %158
   %160 = add nuw nsw i64 %141, 1
-  %161 = icmp ult i64 %141, %139
+  %161 = icmp samesign ult i64 %141, %139
   br i1 %161, label %140, label %162, !llvm.loop !60
 
 162:                                              ; preds = %.loopexit6.i
@@ -5392,7 +5392,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 180:                                              ; preds = %183
   %181 = add nuw nsw i64 %184, %179
-  %182 = icmp ult i64 %181, 64
+  %182 = icmp samesign ult i64 %181, 64
   br i1 %182, label %183, label %189, !llvm.loop !58
 
 183:                                              ; preds = %180, %168
@@ -5999,7 +5999,7 @@ define internal fastcc void @compute_tt_budget(ptr nocapture noundef %0, ptr nou
   %45 = load i8, ptr %17, align 4
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %23, %46
-  %48 = icmp ult i32 %47, 64
+  %48 = icmp samesign ult i32 %47, 64
   br i1 %48, label %.splitthread-pre-split, label %.loopexit8, !llvm.loop !69
 
 .loopexit9:                                       ; preds = %.loopexit8, %4, %2
@@ -6037,7 +6037,7 @@ define internal fastcc void @reserve_release_intr_bandwidth(ptr nocapture nounde
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %19, %29
-  %31 = icmp ult i32 %30, 64
+  %31 = icmp samesign ult i32 %30, 64
   br i1 %31, label %32, label %.loopexit5
 
 32:                                               ; preds = %9
@@ -6055,7 +6055,7 @@ define internal fastcc void @reserve_release_intr_bandwidth(ptr nocapture nounde
   %41 = load i8, ptr %34, align 4
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %36, %42
-  %44 = icmp ult i32 %43, 64
+  %44 = icmp samesign ult i32 %43, 64
   br i1 %44, label %35, label %.loopexit5.loopexit, !llvm.loop !70
 
 .loopexit5.loopexit:                              ; preds = %35
@@ -6107,7 +6107,7 @@ define internal fastcc void @reserve_release_intr_bandwidth(ptr nocapture nounde
   %73 = load i8, ptr %52, align 4
   %74 = zext i8 %73 to i32
   %75 = add nuw nsw i32 %54, %74
-  %76 = icmp ult i32 %75, 64
+  %76 = icmp samesign ult i32 %75, 64
   br i1 %76, label %53, label %.loopexit4, !llvm.loop !72
 
 .loopexit4:                                       ; preds = %72, %.loopexit5
@@ -6161,7 +6161,7 @@ define internal fastcc void @reserve_release_intr_bandwidth(ptr nocapture nounde
   %103 = load i8, ptr %96, align 1
   %104 = zext i8 %103 to i32
   %105 = add nuw nsw i32 %98, %104
-  %106 = icmp ult i32 %105, 8
+  %106 = icmp samesign ult i32 %105, 8
   br i1 %106, label %97, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %97, %93, %.loopexit4, %3
@@ -6217,7 +6217,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = add nuw nsw i32 %30, %6
-  %32 = icmp ugt i32 %31, 900
+  %32 = icmp samesign ugt i32 %31, 900
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.split.us
@@ -6283,12 +6283,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
 
 73:                                               ; preds = %70
   %74 = add nuw nsw i64 %27, %26
-  %75 = icmp ult i64 %74, 8
+  %75 = icmp samesign ult i64 %74, 8
   br i1 %75, label %.split.us, label %.loopexit3, !llvm.loop !77
 
 76:                                               ; preds = %130
   %77 = add nuw nsw i64 %79, %26
-  %78 = icmp ult i64 %77, 8
+  %78 = icmp samesign ult i64 %77, 8
   br i1 %78, label %.split, label %.loopexit3, !llvm.loop !77
 
 .split:                                           ; preds = %15, %76
@@ -6299,7 +6299,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %82, %6
-  %84 = icmp ugt i32 %83, 900
+  %84 = icmp samesign ugt i32 %83, 900
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %.split
@@ -6330,8 +6330,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
 
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %109, 1
-  %106 = icmp uge i64 %105, %24
-  %107 = icmp ugt i64 %109, 6
+  %106 = icmp samesign uge i64 %105, %24
+  %107 = icmp samesign ugt i64 %109, 6
   %108 = or i1 %107, %106
   br i1 %108, label %.loopexit1, label %.preheader, !llvm.loop !78
 
@@ -8543,7 +8543,7 @@ default.unreachable93:                            ; preds = %3
   %.lhs.trunc = add nuw nsw i16 %548, 187
   %549 = udiv i16 %.lhs.trunc, 188
   %.zext = zext nneg i16 %549 to i32
-  %550 = icmp ugt i32 %521, 188
+  %550 = icmp samesign ugt i32 %521, 188
   %551 = or i32 %.zext, 8
   %552 = select i1 %550, i32 %551, i32 %.zext
   %553 = or disjoint i32 %539, %552
@@ -9231,7 +9231,7 @@ define internal void @ehci_endpoint_reset(ptr noundef %0, ptr nocapture noundef 
   %11 = zext nneg i8 %10 to i32
   %12 = icmp sgt i8 %9, -1
   %13 = or i32 %7, -4
-  %14 = icmp ult i32 %13, -2
+  %14 = icmp samesign ult i32 %13, -2
   br i1 %14, label %74, label %15
 
 15:                                               ; preds = %2
@@ -9349,7 +9349,7 @@ define internal range(i32 0, 3) i32 @ehci_hub_status_data(ptr noundef %0, ptr no
   %3 = getelementptr inbounds i8, ptr %0, i64 816
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
-  %6 = icmp ugt i32 %5, 7
+  %6 = icmp samesign ugt i32 %5, 7
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
@@ -9465,7 +9465,7 @@ define internal range(i32 0, 3) i32 @ehci_hub_status_data(ptr noundef %0, ptr no
   br i1 %84, label %85, label %96
 
 85:                                               ; preds = %78, %70, %62, %58
-  %86 = icmp ugt i64 %47, 6
+  %86 = icmp samesign ugt i64 %47, 6
   %87 = shl nuw nsw i32 2, %49
   %88 = add i32 %49, -7
   %89 = shl nuw nsw i32 1, %88
@@ -11118,7 +11118,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %37 = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %36, ptr %37, align 32
   %38 = and i32 %33, 4095
-  %39 = icmp ult i32 %38, 4088
+  %39 = icmp samesign ult i32 %38, 4088
   br i1 %39, label %50, label %40, !prof !18
 
 40:                                               ; preds = %30
@@ -11266,7 +11266,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %136 = add nuw nsw i64 %123, 1
   %137 = zext i32 %135 to i64
   %138 = icmp ult i64 %137, %108
-  %139 = icmp ult i64 %123, 4
+  %139 = icmp samesign ult i64 %123, 4
   %140 = and i1 %139, %138
   br i1 %140, label %122, label %.loopexit21, !llvm.loop !132
 
@@ -11705,7 +11705,7 @@ define internal fastcc noundef ptr @qh_make(ptr nocapture noundef readonly %0, p
   %32 = and i16 %31, 3
   %33 = add nuw nsw i16 %32, 1
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ugt i16 %29, 1024
+  %35 = icmp samesign ugt i16 %29, 1024
   br i1 %35, label %179, label %36
 
 36:                                               ; preds = %9
@@ -12099,7 +12099,7 @@ define internal fastcc i32 @iso_stream_schedule(ptr nocapture noundef %0, ptr no
 
 77:                                               ; preds = %71
   %78 = add nuw nsw i64 %72, %63
-  %79 = icmp ult i64 %78, 64
+  %79 = icmp samesign ult i64 %78, 64
   br i1 %79, label %71, label %.thread12, !llvm.loop !137
 
 .loopexit.us:                                     ; preds = %71
@@ -12136,7 +12136,7 @@ define internal fastcc i32 @iso_stream_schedule(ptr nocapture noundef %0, ptr no
 
 98:                                               ; preds = %101
   %99 = add nuw nsw i64 %102, %97
-  %100 = icmp ult i64 %99, 64
+  %100 = icmp samesign ult i64 %99, 64
   br i1 %100, label %101, label %.thread12, !llvm.loop !137
 
 101:                                              ; preds = %98, %95
@@ -12660,9 +12660,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr nocapture n
   %8 = and i32 %2, 7
   %9 = and i32 %7, 255
   %10 = shl nuw nsw i32 %9, %8
-  %11 = icmp ult i32 %10, 128
+  %11 = icmp samesign ult i32 %10, 128
   %12 = shl nuw nsw i32 %7, %8
-  %13 = icmp ult i32 %12, 65536
+  %13 = icmp samesign ult i32 %12, 65536
   %14 = select i1 %11, i1 %13, i1 false
   br i1 %14, label %15, label %.thread
 
@@ -12767,7 +12767,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr nocapture n
 82:                                               ; preds = %74
   %83 = lshr i32 %76, 1
   %84 = add i32 %75, 1
-  %85 = icmp ult i32 %76, 2
+  %85 = icmp samesign ult i32 %76, 2
   br i1 %85, label %.loopexit5, label %74, !llvm.loop !142
 
 .loopexit5:                                       ; preds = %82
@@ -12869,7 +12869,7 @@ define internal fastcc void @reserve_release_iso_bandwidth(ptr nocapture noundef
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %18, %32
-  %34 = icmp ult i32 %33, 64
+  %34 = icmp samesign ult i32 %33, 64
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %29
@@ -12887,7 +12887,7 @@ define internal fastcc void @reserve_release_iso_bandwidth(ptr nocapture noundef
   %44 = load i8, ptr %37, align 4
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %39, %45
-  %47 = icmp ult i32 %46, 64
+  %47 = icmp samesign ult i32 %46, 64
   br i1 %47, label %38, label %.loopexit, !llvm.loop !143
 
 48:                                               ; preds = %8
@@ -12954,7 +12954,7 @@ define internal fastcc void @reserve_release_iso_bandwidth(ptr nocapture noundef
   %86 = load i8, ptr %56, align 4
   %87 = zext i8 %86 to i32
   %88 = add nuw nsw i32 %61, %87
-  %89 = icmp ult i32 %88, 64
+  %89 = icmp samesign ult i32 %88, 64
   br i1 %89, label %.splitthread-pre-split, label %.loopexit6, !llvm.loop !145
 
 .loopexit6:                                       ; preds = %.loopexit5, %54, %48
@@ -13003,7 +13003,7 @@ define internal fastcc void @reserve_release_iso_bandwidth(ptr nocapture noundef
   %113 = load i8, ptr %106, align 1
   %114 = zext i8 %113 to i32
   %115 = add nuw nsw i32 %108, %114
-  %116 = icmp ult i32 %115, 8
+  %116 = icmp samesign ult i32 %115, 8
   br i1 %116, label %107, label %.loopexit, !llvm.loop !146
 
 .loopexit:                                        ; preds = %107, %38, %104, %29, %3

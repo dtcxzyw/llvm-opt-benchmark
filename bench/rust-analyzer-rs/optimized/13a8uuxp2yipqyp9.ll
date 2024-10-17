@@ -4134,9 +4134,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h24f3626b9beade0aE.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -13974,7 +13974,7 @@ default.unreachable:                              ; preds = %550
   br label %416
 
 411:                                              ; preds = %401
-  %412 = icmp ult i8 %402, 24
+  %412 = icmp samesign ult i8 %402, 24
   call void @llvm.assume(i1 %412)
   %413 = zext nneg i8 %402 to i64
   br label %416
@@ -14453,7 +14453,7 @@ _ZN6syntax3ast7AstNode16clone_for_update17h6805cb4765281188E.exit.i: ; preds = %
   br label %565
 
 560:                                              ; preds = %550
-  %561 = icmp ult i8 %551, 24
+  %561 = icmp samesign ult i8 %551, 24
   call void @llvm.assume(i1 %561)
   %562 = zext nneg i8 %551 to i64
   br label %565
@@ -19677,7 +19677,7 @@ default.unreachable:                              ; preds = %450
   br label %.noexc.i26.i
 
 464:                                              ; preds = %450
-  %465 = icmp ult i8 %451, 24
+  %465 = icmp samesign ult i8 %451, 24
   call void @llvm.assume(i1 %465)
   %466 = zext nneg i8 %451 to i64
   %467 = getelementptr inbounds i8, ptr %42, i64 1

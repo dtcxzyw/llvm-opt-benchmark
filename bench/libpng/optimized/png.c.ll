@@ -281,7 +281,7 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %13 = icmp eq i8 %6, 46
   %14 = zext i1 %13 to i32
   %spec.select = add nuw nsw i32 %.021, %14
-  %15 = icmp ult i32 %spec.select, 2
+  %15 = icmp samesign ult i32 %spec.select, 2
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %12
@@ -574,7 +574,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %73 = load i8, ptr %68, align 1
   %74 = zext i8 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next211, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next211, %74
   br i1 %75, label %.lr.ph196, label %._crit_edge197.loopexit, !llvm.loop !8
 
 ._crit_edge197.loopexit:                          ; preds = %.lr.ph196
@@ -848,7 +848,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %201 = load i32, ptr %196, align 4
   %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %indvars.iv.next220, %202
+  %203 = icmp samesign ult i64 %indvars.iv.next220, %202
   br i1 %203, label %.lr.ph205, label %._crit_edge206.loopexit, !llvm.loop !11
 
 ._crit_edge206.loopexit:                          ; preds = %.lr.ph205
@@ -5020,7 +5020,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr nocapture noundef 
 28:                                               ; preds = %._crit_edge54
   store i8 46, ptr %.1.lcssa, align 1
   %.257 = getelementptr i8, ptr %.1.lcssa, i64 1
-  %29 = icmp ult i32 %.137.lcssa, 5
+  %29 = icmp samesign ult i32 %.137.lcssa, 5
   br i1 %29, label %.lr.ph61.preheader, label %.preheader
 
 .lr.ph61.preheader:                               ; preds = %28

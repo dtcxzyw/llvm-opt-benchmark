@@ -543,7 +543,7 @@ while.body:                                       ; preds = %while.body.preheade
   %remain.0117 = phi i64 [ %conv75, %while.body.preheader ], [ %sub166, %if.end138 ]
   %call128 = tail call ptr @do_item_alloc_chunk(ptr noundef nonnull %chunk.0118, i64 noundef %remain.0117) #22
   %cmp129 = icmp eq ptr %call128, null
-  %cmp131 = icmp ugt i64 %indvars.iv, 1023
+  %cmp131 = icmp samesign ugt i64 %indvars.iv, 1023
   %or.cond = select i1 %cmp129, i1 true, i1 %cmp131
   br i1 %or.cond, label %if.then133, label %if.end138
 
@@ -1008,7 +1008,7 @@ for.body:                                         ; preds = %if.then4, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %iovcnt, align 8
   %16 = zext i32 %15 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next, %16
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp11, label %for.body, label %if.end, !llvm.loop !8
 
 if.else20:                                        ; preds = %if.else
@@ -1133,7 +1133,7 @@ for.body96:                                       ; preds = %if.else91, %for.bod
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx99, i8 0, i64 16, i1 false)
   %33 = load i32, ptr %iovec_data93, align 8
   %34 = zext i32 %33 to i64
-  %cmp94.not.not = icmp ult i64 %indvars.iv68, %34
+  %cmp94.not.not = icmp samesign ult i64 %indvars.iv68, %34
   br i1 %cmp94.not.not, label %for.body96, label %if.end116, !llvm.loop !9
 
 if.end116:                                        ; preds = %for.body96, %if.then82
@@ -2033,7 +2033,7 @@ while.cond.i:                                     ; preds = %if.end210.i, %do.en
   %lost.0.i = phi i32 [ 0, %do.end103 ], [ %lost.2.i, %if.end210.i ]
   %rescues.0.i = phi i32 [ 0, %do.end103 ], [ %rescues.2.i, %if.end210.i ]
   %offset.0.i = phi i64 [ 0, %do.end103 ], [ %add212.i, %if.end210.i ]
-  %cmp.i30 = icmp ult i64 %offset.0.i, %conv105
+  %cmp.i30 = icmp samesign ult i64 %offset.0.i, %conv105
   br i1 %cmp.i30, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i

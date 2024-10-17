@@ -181,7 +181,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
   %48 = phi i32 [ %18, %.preheader.i ], [ %.pre.i, %29 ], [ %18, %25 ]
   %49 = add nuw nsw i64 %19, 1
   %50 = zext i32 %48 to i64
-  %51 = icmp ult i64 %49, %50
+  %51 = icmp samesign ult i64 %49, %50
   br i1 %51, label %.preheader.i, label %map_add_var.exit, !llvm.loop !6
 
 map_add_var.exit:                                 ; preds = %.thread.i, %15, %0
@@ -318,7 +318,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
   %85 = phi i32 [ %55, %.preheader.i ], [ %.pre.i, %66 ], [ %55, %62 ]
   %86 = add nuw nsw i64 %56, 1
   %87 = zext i32 %85 to i64
-  %88 = icmp ult i64 %86, %87
+  %88 = icmp samesign ult i64 %86, %87
   br i1 %88, label %.preheader.i, label %map_add_var.exit.loopexit, !llvm.loop !6
 
 map_add_var.exit.loopexit:                        ; preds = %.thread.i
@@ -363,7 +363,7 @@ map_add_var.exit:                                 ; preds = %map_add_var.exit.lo
   %120 = add nuw nsw i64 %106, 1
   %121 = load i32, ptr @cache_map_n, align 4
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %map_add_var.exit
@@ -720,7 +720,7 @@ define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, pt
   %84 = phi i64 [ %20, %17 ], [ %82, %79 ]
   %85 = phi i8 [ %19, %17 ], [ %80, %79 ]
   %86 = add nuw nsw i64 %18, 1
-  %87 = icmp ult i64 %86, %16
+  %87 = icmp samesign ult i64 %86, %16
   %88 = icmp ult i64 %84, %1
   %89 = select i1 %87, i1 %88, i1 false
   br i1 %89, label %17, label %90, !llvm.loop !21
@@ -1013,7 +1013,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
   %42 = add nuw nsw i64 %13, 1
   %43 = load i32, ptr @num_var_ranges, align 4
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %.preheader, label %thread-pre-split, !llvm.loop !29
 
 thread-pre-split:                                 ; preds = %36
@@ -1175,7 +1175,7 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
   %55 = add nuw nsw i64 %33, 1
   %56 = load i32, ptr @num_var_ranges, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %54, %22
@@ -1531,7 +1531,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %88 = add nuw nsw i64 %3, 1
   %89 = load i32, ptr @num_var_ranges, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %88, %90
+  %91 = icmp samesign ult i64 %88, %90
   br i1 %91, label %.preheader, label %.loopexit5, !llvm.loop !34
 
 .loopexit5:                                       ; preds = %86, %0

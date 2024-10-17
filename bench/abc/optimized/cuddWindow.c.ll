@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %111
 
 111:                                              ; preds = %109, %107
-  %112 = icmp ugt i64 %indvars.iv143.i, 1
+  %112 = icmp samesign ugt i64 %indvars.iv143.i, 1
   br i1 %112, label %.thread.us.sink.split.i, label %.thread.us.i
 
 113:                                              ; preds = %103, %103, %103
@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %121
 
 121:                                              ; preds = %119, %117
-  %122 = icmp ugt i64 %indvars.iv143.i, 1
+  %122 = icmp samesign ugt i64 %indvars.iv143.i, 1
   br i1 %122, label %123, label %.thread.us.i
 
 123:                                              ; preds = %121
@@ -328,7 +328,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 140:                                              ; preds = %138
   %141 = getelementptr i8, ptr %101, i64 -8
   store i32 1, ptr %141, align 4
-  %142 = icmp ugt i64 %indvars.iv143.i, 2
+  %142 = icmp samesign ugt i64 %indvars.iv143.i, 2
   br i1 %142, label %.thread.us.sink.split.i, label %.thread.us.i
 
 143:                                              ; preds = %103, %103, %103
@@ -397,7 +397,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 168:                                              ; preds = %167
   %169 = getelementptr i8, ptr %101, i64 -4
   store i32 1, ptr %169, align 4
-  %170 = icmp ugt i64 %indvars.iv143.i, 2
+  %170 = icmp samesign ugt i64 %indvars.iv143.i, 2
   br i1 %170, label %.thread.us.sink.split.i, label %.thread.us.i
 
 171:                                              ; preds = %103
@@ -410,7 +410,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %175
 
 175:                                              ; preds = %173, %171
-  %176 = icmp ugt i64 %indvars.iv143.i, 2
+  %176 = icmp samesign ugt i64 %indvars.iv143.i, 2
   br i1 %176, label %.thread.us.sink.split.i, label %.thread.us.i
 
 .thread.us.sink.split.i:                          ; preds = %175, %168, %158, %152, %140, %123, %111
@@ -692,7 +692,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br label %46
 
 46:                                               ; preds = %44, %42
-  %47 = icmp ugt i64 %indvars.iv79, 1
+  %47 = icmp samesign ugt i64 %indvars.iv79, 1
   br i1 %47, label %.thread.us.sink.split, label %.thread.us
 
 .thread.us.sink.split:                            ; preds = %46, %40, %30

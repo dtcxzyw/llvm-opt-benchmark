@@ -549,7 +549,7 @@ define internal void @cb_byte_array_postprocess(ptr nocapture noundef readonly %
 
 32:                                               ; preds = %30
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef nonnull %21) #7
-  %33 = icmp ugt i32 %11, 1
+  %33 = icmp samesign ugt i32 %11, 1
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %32
@@ -1791,7 +1791,7 @@ define internal fastcc void @cb_str_postprocess_options(ptr nocapture noundef re
 
 17:                                               ; preds = %15
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #7
-  %18 = icmp ugt i32 %6, 1
+  %18 = icmp samesign ugt i32 %6, 1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %17
@@ -2016,7 +2016,7 @@ define hidden i32 @dissect_ndr_nt_SID_with_options(ptr noundef %0, i32 noundef %
 
 30:                                               ; preds = %28
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef nonnull %16) #7
-  %31 = icmp ugt i32 %11, 1
+  %31 = icmp samesign ugt i32 %11, 1
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %30

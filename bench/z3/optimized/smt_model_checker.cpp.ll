@@ -3039,7 +3039,7 @@ for.inc:                                          ; preds = %.noexc224, %lor.lhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr %m_arity.i, align 8
   %117 = zext i32 %116 to i64
-  %cmp104 = icmp ult i64 %indvars.iv.next, %117
+  %cmp104 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %cmp104, label %for.body105thread-pre-split, label %for.end, !llvm.loop !19
 
 lpad101.loopexit:                                 ; preds = %if.then.i
@@ -3802,7 +3802,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %for.cond.i
   %retval.0.i.i.i = phi i64 [ %4, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.exit
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i

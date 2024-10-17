@@ -332,7 +332,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = load ptr, ptr %10, align 8
   %129 = call i32 %128(ptr noundef nonnull %0) #7
-  %130 = icmp ult i64 %indvars.iv.next, %123
+  %130 = icmp samesign ult i64 %indvars.iv.next, %123
   %131 = icmp sgt i32 %129, 0
   %132 = select i1 %130, i1 %131, i1 false
   br i1 %132, label %.lr.ph650, label %._crit_edge, !llvm.loop !13

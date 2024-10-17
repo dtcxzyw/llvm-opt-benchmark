@@ -1392,7 +1392,7 @@ BTPageIsRecyclable.exit.thread.i:                 ; preds = %BTPageIsRecyclable.
   %134 = getelementptr inbounds i8, ptr %80, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %indvars.iv, %136
+  %137 = icmp samesign ugt i64 %indvars.iv, %136
   %spec.select.i = select i1 %137, i32 %135, i32 0
   br label %138
 
@@ -1640,7 +1640,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %216, %208, %btreeva
   %.0132.i = phi i16 [ %.0.i175.i, %246 ], [ %.0.i175.i, %242 ], [ %.0.i175.i, %240 ], [ %.0.i179.i, %230 ], [ %.0.i179.i, %.lr.ph234.i ]
   %247 = zext nneg i16 %142 to i32
   %248 = zext nneg i16 %.0132.i to i32
-  %249 = icmp ugt i16 %142, %.0132.i
+  %249 = icmp samesign ugt i16 %142, %.0132.i
   br i1 %249, label %259, label %250
 
 250:                                              ; preds = %.loopexit.i

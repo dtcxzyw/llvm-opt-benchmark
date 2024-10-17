@@ -10108,7 +10108,7 @@ define internal fastcc noundef i64 @_ZN5ahash12random_state11RandomState8hash_on
   br i1 %17, label %52, label %18
 
 18:                                               ; preds = %3
-  %19 = icmp ugt i64 %2, 1
+  %19 = icmp samesign ugt i64 %2, 1
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18
@@ -10116,7 +10116,7 @@ define internal fastcc noundef i64 @_ZN5ahash12random_state11RandomState8hash_on
   br i1 %21, label %24, label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i
 
 22:                                               ; preds = %18
-  %23 = icmp ugt i64 %2, 3
+  %23 = icmp samesign ugt i64 %2, 3
   br i1 %23, label %34, label %27
 
 24:                                               ; preds = %20
@@ -13209,7 +13209,7 @@ _ZN4core3ptr19swap_nonoverlapping17h984dcd14aa83f486E.exit.loopexit: ; preds = %
   br i1 %227, label %262, label %228
 
 228:                                              ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h5753f3a1109b9928E.exit25"
-  %229 = icmp ugt i64 %214, 1
+  %229 = icmp samesign ugt i64 %214, 1
   br i1 %229, label %232, label %230
 
 230:                                              ; preds = %228
@@ -13217,7 +13217,7 @@ _ZN4core3ptr19swap_nonoverlapping17h984dcd14aa83f486E.exit.loopexit: ; preds = %
   br i1 %231, label %234, label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i.i
 
 232:                                              ; preds = %228
-  %233 = icmp ugt i64 %214, 3
+  %233 = icmp samesign ugt i64 %214, 3
   br i1 %233, label %244, label %237
 
 234:                                              ; preds = %230

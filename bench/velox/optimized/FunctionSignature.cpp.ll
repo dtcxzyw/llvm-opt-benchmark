@@ -7338,7 +7338,7 @@ while.body:                                       ; preds = %while.cond.preheade
   store i8 %call.i.i.i.i.i.i, ptr %arrayidx, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__beg.sroa.0.031, i64 1
   %cmp.i.i.i.i = icmp ne ptr %incdec.ptr.i.i.i.i, %__end.coerce0
-  %cmp = icmp ult i64 %__len.032, 14
+  %cmp = icmp samesign ult i64 %__len.032, 14
   %4 = select i1 %cmp.i.i.i.i, i1 %cmp, i1 false
   br i1 %4, label %while.body, label %while.end, !llvm.loop !50
 

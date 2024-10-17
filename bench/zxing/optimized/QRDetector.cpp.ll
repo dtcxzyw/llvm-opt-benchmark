@@ -170,7 +170,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %.sroa.speculated4.i.i = tail call i16 @llvm.umax.i16(i16 %23, i16 %25)
   %26 = zext i16 %.sroa.speculated4.i.i to i32
   %27 = shl nuw nsw i32 %26, 1
-  %28 = icmp ugt i32 %27, %22
+  %28 = icmp samesign ugt i32 %27, %22
   br i1 %28, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i", label %29
 
 29:                                               ; preds = %19
@@ -221,7 +221,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %.sroa.speculated4.i5.i = call i16 @llvm.umax.i16(i16 %52, i16 %54)
   %55 = zext i16 %.sroa.speculated4.i5.i to i32
   %56 = shl nuw nsw i32 %55, 1
-  %57 = icmp ugt i32 %56, %51
+  %57 = icmp samesign ugt i32 %56, %51
   br i1 %57, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i", label %58
 
 58:                                               ; preds = %.lr.ph.i
@@ -380,7 +380,7 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %.sroa.speculated4.i.i.i = call i16 @llvm.umax.i16(i16 %66, i16 %68)
   %69 = zext i16 %.sroa.speculated4.i.i.i to i32
   %70 = shl nuw nsw i32 %69, 1
-  %71 = icmp ugt i32 %70, %65
+  %71 = icmp samesign ugt i32 %70, %65
   br i1 %71, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i", label %72
 
 72:                                               ; preds = %62
@@ -422,7 +422,7 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %.sroa.speculated4.i5.i.i = call i16 @llvm.umax.i16(i16 %90, i16 %92)
   %93 = zext i16 %.sroa.speculated4.i5.i.i to i32
   %94 = shl nuw nsw i32 %93, 1
-  %95 = icmp ugt i32 %94, %89
+  %95 = icmp samesign ugt i32 %94, %89
   br i1 %95, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %96
 
 96:                                               ; preds = %.lr.ph.i.i
@@ -1838,7 +1838,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
 78:                                               ; preds = %_ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.exit337
   %79 = icmp eq i32 %.sink.i, %.sink.i336
   %80 = icmp sgt i32 %.sink25.i, %.sink25.i334
-  %81 = icmp ult i32 %.sink.i, %.sink.i336
+  %81 = icmp samesign ult i32 %.sink.i, %.sink.i336
   %..val = tail call i32 @llvm.smax.i32(i32 %.sink25.i, i32 %.sink25.i334)
   %.3.val = select i1 %81, i32 %.sink25.i, i32 %.sink25.i334
   %.sroa.0215.0.copyload = select i1 %79, i32 %..val, i32 %.3.val
@@ -2365,7 +2365,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit:       ; preds = %314, %312, %309, %3
   %.sroa.15.0.i.i = phi i32 [ %316, %314 ], [ %311, %309 ], [ 0, %307 ], [ 0, %312 ]
   %317 = sub nsw i32 %.sroa.15.0.i.i, %.sroa.0215.0.copyload
   %318 = call i32 @llvm.abs.i32(i32 %317, i1 true)
-  %319 = icmp ugt i32 %318, 8
+  %319 = icmp samesign ugt i32 %318, 8
   br i1 %319, label %320, label %321
 
 320:                                              ; preds = %_ZNK5ZXing6QRCode7Version9dimensionEv.exit, %300
@@ -4555,7 +4555,7 @@ define void @_ZN5ZXing6QRCode12DetectPureQRERKNS_9BitMatrixE(ptr dead_on_unwind 
   %16 = load i32, ptr %8, align 4
   %17 = sub nsw i32 %15, %16
   %18 = call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %19 = icmp ugt i32 %18, 1
+  %19 = icmp samesign ugt i32 %18, 1
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14, %2
@@ -5082,7 +5082,7 @@ define void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind
   %13 = load i32, ptr %6, align 4
   %14 = sub nsw i32 %12, %13
   %15 = call i32 @llvm.abs.i32(i32 %14, i1 true)
-  %16 = icmp ugt i32 %15, 1
+  %16 = icmp samesign ugt i32 %15, 1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11, %2
@@ -6173,7 +6173,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %.prehea
   %135 = trunc nuw nsw i64 %.sroa.024.sroa.2.0.extract.shift to i32
   %136 = and i32 %135, 255
   %137 = zext i8 %.sroa.3112.0150 to i32
-  %138 = icmp ult i32 %136, %137
+  %138 = icmp samesign ult i32 %136, %137
   br i1 %138, label %139, label %"_ZZN5ZXing6QRCode9SampleMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_0clEib.exit.thread"
 
 139:                                              ; preds = %132
@@ -6327,7 +6327,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit81.thread: ; preds =
 ._crit_edge:                                      ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit81.thread
   %210 = shl nuw nsw i32 %.sroa.15.0.i, 1
   %211 = udiv i32 %210, 3
-  %212 = icmp ugt i32 %208, %211
+  %212 = icmp samesign ugt i32 %208, %211
   br i1 %212, label %213, label %._crit_edge.thread
 
 213:                                              ; preds = %._crit_edge
@@ -6683,7 +6683,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %.prehea
   %186 = trunc nuw nsw i64 %.sroa.015.sroa.2.0.extract.shift to i32
   %187 = and i32 %186, 255
   %188 = zext i8 %.sroa.3274.0419 to i32
-  %189 = icmp ult i32 %187, %188
+  %189 = icmp samesign ult i32 %187, %188
   br i1 %189, label %190, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 190:                                              ; preds = %183

@@ -1791,7 +1791,7 @@ define dso_local noundef ptr @_ZN4llvm10VNCoercion22getMemInstValueForLoadEPNS_1
   %.04081 = phi i32 [ 1, %.lr.ph ], [ %.040.be, %.backedge ]
   %78 = shl i32 %.04081, 1
   %79 = zext i32 %78 to i64
-  %.not46 = icmp ult i64 %19, %79
+  %.not46 = icmp samesign ult i64 %19, %79
   %80 = getelementptr inbounds nuw i8, ptr %.182, i64 8
   %81 = load ptr, ptr %80, align 8
   br i1 %.not46, label %122, label %82

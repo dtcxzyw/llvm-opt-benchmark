@@ -2718,7 +2718,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i.i:           ; preds = %900, %898
   %905 = zext i32 %904 to i64
   %906 = add nuw nsw i64 %905, 63
   %907 = lshr i64 %906, 6
-  %908 = icmp ult i64 %indvars.iv.next.i.i, %907
+  %908 = icmp samesign ult i64 %indvars.iv.next.i.i, %907
   br i1 %908, label %.lr.ph.i.i, label %_ZL12emitInstBitsRN4llvm11raw_ostreamES1_RKNS_5APIntERj.exit.i, !llvm.loop !31
 
 _ZL12emitInstBitsRN4llvm11raw_ostreamES1_RKNS_5APIntERj.exit.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit23.i.i, %798, %796
@@ -6257,7 +6257,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %235, %237
   %245 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %244, ptr %245, align 1, !noalias !72
   %246 = udiv i64 %.0810.i, 10
-  %.not.i79 = icmp ult i64 %.0810.i, 10
+  %.not.i79 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i79, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -6356,7 +6356,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %275, %277
   %286 = getelementptr inbounds i8, ptr %.111.i90, i64 -1
   store i8 %285, ptr %286, align 1, !noalias !75
   %287 = udiv i64 %.0810.i91, 10
-  %.not.i92 = icmp ult i64 %.0810.i91, 10
+  %.not.i92 = icmp samesign ult i64 %.0810.i91, 10
   br i1 %.not.i92, label %_ZN4llvm6utostrB5cxx11Emb.exit95, label %.lr.ph.i89, !llvm.loop !30
 
 _ZN4llvm6utostrB5cxx11Emb.exit95:                 ; preds = %.lr.ph.i89, %.thread.i94
@@ -6525,7 +6525,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit114:              ; preds = %347, %349
   %358 = getelementptr inbounds i8, ptr %.111.i116, i64 -1
   store i8 %357, ptr %358, align 1, !noalias !81
   %359 = udiv i64 %.0810.i117, 10
-  %.not.i118 = icmp ult i64 %.0810.i117, 10
+  %.not.i118 = icmp samesign ult i64 %.0810.i117, 10
   br i1 %.not.i118, label %_ZN4llvm6utostrB5cxx11Emb.exit121, label %.lr.ph.i115, !llvm.loop !30
 
 _ZN4llvm6utostrB5cxx11Emb.exit121:                ; preds = %.lr.ph.i115, %.thread.i120
@@ -6587,7 +6587,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit124:              ; preds = %372, %374
   %382 = getelementptr inbounds i8, ptr %.111.i126, i64 -1
   store i8 %381, ptr %382, align 1, !noalias !84
   %383 = udiv i64 %.0810.i127, 10
-  %.not.i128 = icmp ult i64 %.0810.i127, 10
+  %.not.i128 = icmp samesign ult i64 %.0810.i127, 10
   br i1 %.not.i128, label %_ZN4llvm6utostrB5cxx11Emb.exit131, label %.lr.ph.i125, !llvm.loop !30
 
 _ZN4llvm6utostrB5cxx11Emb.exit131:                ; preds = %.lr.ph.i125, %.thread.i130

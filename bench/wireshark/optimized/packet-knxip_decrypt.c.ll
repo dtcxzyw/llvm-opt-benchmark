@@ -85,7 +85,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noc
   %.132.lcssa = phi ptr [ %.03159, %.preheader40 ], [ %33, %.preheader39.loopexit ]
   %.1.lcssa = phi i8 [ %.060, %.preheader40 ], [ %28, %.preheader39.loopexit ]
   %29 = icmp ne i32 %.03358, 0
-  %30 = icmp ult i8 %.1.lcssa, 16
+  %30 = icmp samesign ult i8 %.1.lcssa, 16
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %.lr.ph49.preheader, label %.preheader
 
@@ -107,8 +107,8 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noc
   %39 = add i32 %.13841, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp ne i32 %39, 0
-  %41 = icmp ult i64 %indvars.iv, 15
-  %42 = and i1 %40, %41
+  %41 = icmp samesign ult i64 %indvars.iv, 15
+  %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph, label %.preheader39.loopexit, !llvm.loop !4
 
 .preheader.loopexit:                              ; preds = %.lr.ph49
@@ -119,7 +119,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noc
   %.136.lcssa = phi ptr [ %.03557, %.preheader39 ], [ %47, %.preheader.loopexit ]
   %.134.lcssa = phi i32 [ %.03358, %.preheader39 ], [ %53, %.preheader.loopexit ]
   %.2.lcssa = phi i8 [ %.1.lcssa, %.preheader39 ], [ %43, %.preheader.loopexit ]
-  %44 = icmp ult i8 %.2.lcssa, 16
+  %44 = icmp samesign ult i8 %.2.lcssa, 16
   br i1 %44, label %.lr.ph54.preheader, label %._crit_edge
 
 .lr.ph54.preheader:                               ; preds = %.preheader
@@ -145,7 +145,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noc
   %53 = add i32 %.13447, -1
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %54 = icmp ne i32 %53, 0
-  %55 = icmp ult i64 %indvars.iv69, 15
+  %55 = icmp samesign ult i64 %indvars.iv69, 15
   %56 = and i1 %54, %55
   br i1 %56, label %.lr.ph49, label %.preheader.loopexit, !llvm.loop !6
 
@@ -282,7 +282,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   store i8 %42, ptr %.03455, align 1
   %44 = add nsw i32 %.04153, -1
   %45 = icmp ne i32 %44, 0
-  %46 = icmp ult i64 %indvars.iv, 15
+  %46 = icmp samesign ult i64 %indvars.iv, 15
   %47 = and i1 %45, %46
   br i1 %47, label %.lr.ph, label %.preheader, !llvm.loop !8
 

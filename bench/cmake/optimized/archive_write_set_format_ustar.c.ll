@@ -611,7 +611,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br i1 %137, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %138 = icmp ugt i64 %.01621.i.i, 7
+  %138 = icmp samesign ugt i64 %.01621.i.i, 7
   br i1 %138, label %format_number.exit, label %format_number.exit.thread
 
 .lr.ph.i23.i:                                     ; preds = %126, %.lr.ph.i23.i
@@ -629,7 +629,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br i1 %145, label %.lr.ph.i23.i, label %._crit_edge.i27.i, !llvm.loop !5
 
 ._crit_edge.i27.i:                                ; preds = %.lr.ph.i23.i
-  %146 = icmp ugt i64 %.01621.i26.i, 7
+  %146 = icmp samesign ugt i64 %.01621.i26.i, 7
   br i1 %146, label %format_number.exit, label %format_number.exit.thread
 
 format_number.exit:                               ; preds = %._crit_edge.i27.i, %._crit_edge.i.i
@@ -1019,7 +1019,7 @@ format_number.exit203.thread:                     ; preds = %._crit_edge.i27.i20
   br i1 %284, label %.lr.ph.i23.i223, label %._crit_edge.i27.i227, !llvm.loop !5
 
 ._crit_edge.i27.i227:                             ; preds = %.lr.ph.i23.i223
-  %285 = icmp ugt i64 %.01621.i26.i226, 7
+  %285 = icmp samesign ugt i64 %.01621.i26.i226, 7
   br i1 %285, label %.lr.ph27.preheader.i29.i228, label %format_number.exit229.thread
 
 .lr.ph27.preheader.i29.i228:                      ; preds = %._crit_edge.i27.i227
@@ -1373,7 +1373,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
   br i1 %413, label %.lr.ph.i282, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i282
-  %414 = icmp ugt i64 %.01621.i, 7
+  %414 = icmp samesign ugt i64 %.01621.i, 7
   br i1 %414, label %.lr.ph27.preheader.i, label %format_octal.exit
 
 .lr.ph27.preheader.i:                             ; preds = %._crit_edge.i

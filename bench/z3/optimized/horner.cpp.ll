@@ -2084,7 +2084,7 @@ if.end.i.i28:                                     ; preds = %for.cond.i
 
 _ZNK6vectorIPPN3nla3nexELb1EjE4sizeEv.exit.i:     ; preds = %if.end.i.i28, %for.cond.i
   %retval.0.i.i30 = phi i64 [ %51, %if.end.i.i28 ], [ 0, %for.cond.i ]
-  %cmp.i31 = icmp ult i64 %indvars.iv.i, %retval.0.i.i30
+  %cmp.i31 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i30
   br i1 %cmp.i31, label %for.body.i32, label %invoke.cont13
 
 for.body.i32:                                     ; preds = %_ZNK6vectorIPPN3nla3nexELb1EjE4sizeEv.exit.i
@@ -2109,7 +2109,7 @@ _ZNK6vectorIPN3nla3nexELb0EjE4sizeEv.exit.thread.i.i: ; preds = %invoke.cont13, 
   %arrayidx.i.i.i33 = getelementptr inbounds i8, ptr %57, i64 -4
   %58 = load i32, ptr %arrayidx.i.i.i33, align 4
   %59 = zext i32 %58 to i64
-  %cmp9.i.i = icmp ult i64 %indvars.iv.i.i, %59
+  %cmp9.i.i = icmp samesign ult i64 %indvars.iv.i.i, %59
   br i1 %cmp9.i.i, label %for.body.i.i, label %_ZNK6vectorIPN3nla3nexELb0EjE4sizeEv.exit.thread.i.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK6vectorIPN3nla3nexELb0EjE4sizeEv.exit.thread.i.i
@@ -4617,7 +4617,7 @@ if.end.split:                                     ; preds = %entry
   store ptr %agg.tmp.sroa.0.0.copyload10, ptr %__comp.i, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i154156 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i154156
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i154156
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -6637,7 +6637,7 @@ for.cond8:                                        ; preds = %invoke.cont15, %for
 
 invoke.cont:                                      ; preds = %for.cond8
   %5 = zext i32 %call9 to i64
-  %cmp = icmp ult i64 %indvars.iv, %5
+  %cmp = icmp samesign ult i64 %indvars.iv, %5
   %6 = and i1 %cmp, %divides_the_rest.0
   br i1 %6, label %invoke.cont11, label %for.end
 

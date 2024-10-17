@@ -164,7 +164,7 @@ for.inc.i.us:                                     ; preds = %for.body.i.us
   %inc.i.us = add nuw nsw i64 %storemerge9.i.us, 1
   %5 = load i64, ptr %0, align 8
   %shr.i.i.i.us = lshr i64 %5, 1
-  %cmp1.i.us = icmp ult i64 %inc.i.us, %shr.i.i.i.us
+  %cmp1.i.us = icmp samesign ult i64 %inc.i.us, %shr.i.i.i.us
   br i1 %cmp1.i.us, label %for.body.i.us, label %return, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
@@ -190,7 +190,7 @@ for.inc.i:                                        ; preds = %land.rhs.i.i, %for.
   %inc.i = add nuw nsw i64 %storemerge9.i, 1
   %10 = load i64, ptr %0, align 8
   %shr.i.i.i = lshr i64 %10, 1
-  %cmp1.i = icmp ult i64 %inc.i, %shr.i.i.i
+  %cmp1.i = icmp samesign ult i64 %inc.i, %shr.i.i.i
   br i1 %cmp1.i, label %for.body.i, label %return, !llvm.loop !5
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %land.rhs.i.i, %for.body.i.us
@@ -285,7 +285,7 @@ for.inc.i.us:                                     ; preds = %for.body.i.us
   %inc.i.us = add nuw nsw i64 %storemerge9.i.us, 1
   %4 = load i64, ptr %0, align 8
   %shr.i.i.i.us = lshr i64 %4, 1
-  %cmp1.i.us = icmp ult i64 %inc.i.us, %shr.i.i.i.us
+  %cmp1.i.us = icmp samesign ult i64 %inc.i.us, %shr.i.i.i.us
   br i1 %cmp1.i.us, label %for.body.i.us, label %if.end16, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
@@ -311,7 +311,7 @@ for.inc.i:                                        ; preds = %land.rhs.i.i, %for.
   %inc.i = add nuw nsw i64 %storemerge9.i, 1
   %9 = load i64, ptr %0, align 8
   %shr.i.i.i = lshr i64 %9, 1
-  %cmp1.i = icmp ult i64 %inc.i, %shr.i.i.i
+  %cmp1.i = icmp samesign ult i64 %inc.i, %shr.i.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.end16, !llvm.loop !5
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %land.rhs.i.i, %for.body.i.us
@@ -503,7 +503,7 @@ for.inc.i.us:                                     ; preds = %for.body.i.us
   %inc.i.us = add nuw nsw i64 %storemerge9.i.us, 1
   %5 = load i64, ptr %0, align 8
   %shr.i.i.i.us = lshr i64 %5, 1
-  %cmp1.i.us = icmp ult i64 %inc.i.us, %shr.i.i.i.us
+  %cmp1.i.us = icmp samesign ult i64 %inc.i.us, %shr.i.i.i.us
   br i1 %cmp1.i.us, label %for.body.i.us, label %if.then, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
@@ -529,7 +529,7 @@ for.inc.i:                                        ; preds = %land.rhs.i.i, %for.
   %inc.i = add nuw nsw i64 %storemerge9.i, 1
   %10 = load i64, ptr %0, align 8
   %shr.i.i.i = lshr i64 %10, 1
-  %cmp1.i = icmp ult i64 %inc.i, %shr.i.i.i
+  %cmp1.i = icmp samesign ult i64 %inc.i, %shr.i.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.then, !llvm.loop !5
 
 if.then:                                          ; preds = %for.inc.i, %for.inc.i.us, %entry, %for.cond.preheader.i
@@ -628,7 +628,7 @@ for.body.lr.ph.thread:                            ; preds = %land.end
 for.body.lr.ph:                                   ; preds = %if.then
   %2 = ptrtoint ptr %.fr17 to i64
   %rem = urem i64 %2, 13
-  %cmp3 = icmp ugt i64 %rem, 6
+  %cmp3 = icmp samesign ugt i64 %rem, 6
   %data_.i.i.i = getelementptr inbounds i8, ptr %.fr17, i64 8
   br i1 %cmp3, label %for.body.us.preheader, label %for.body.preheader
 
@@ -659,7 +659,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %inc.us = add nuw nsw i64 %index.014.us, 1
   %9 = load i64, ptr %.fr17, align 8
   %shr.i.i10.us = lshr i64 %9, 1
-  %cmp5.us = icmp ult i64 %inc.us, %shr.i.i10.us
+  %cmp5.us = icmp samesign ult i64 %inc.us, %shr.i.i10.us
   br i1 %cmp5.us, label %for.body.us, label %if.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -678,7 +678,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add nuw nsw i64 %index.014, 1
   %14 = load i64, ptr %.fr17, align 8
   %shr.i.i10 = lshr i64 %14, 1
-  %cmp5 = icmp ult i64 %inc, %shr.i.i10
+  %cmp5 = icmp samesign ult i64 %inc, %shr.i.i10
   br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !13
 
 if.end:                                           ; preds = %for.body, %for.body.us, %land.end, %entry
@@ -760,7 +760,7 @@ for.body.lr.ph.thread.i:                          ; preds = %land.end.i
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %11 = ptrtoint ptr %.fr17.i to i64
   %rem.i = urem i64 %11, 13
-  %cmp3.i = icmp ugt i64 %rem.i, 6
+  %cmp3.i = icmp samesign ugt i64 %rem.i, 6
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %.fr17.i, i64 8
   br i1 %cmp3.i, label %for.body.us.preheader.i, label %for.body.preheader.i
 
@@ -794,7 +794,7 @@ for.body.us.i:                                    ; preds = %.noexc, %for.body.u
   %inc.us.i = add nuw nsw i64 %index.014.us.i, 1
   %18 = load i64, ptr %.fr17.i, align 8
   %shr.i.i10.us.i = lshr i64 %18, 1
-  %cmp5.us.i = icmp ult i64 %inc.us.i, %shr.i.i10.us.i
+  %cmp5.us.i = icmp samesign ult i64 %inc.us.i, %shr.i.i10.us.i
   br i1 %cmp5.us.i, label %for.body.us.i, label %nrvo.skipdtor, !llvm.loop !13
 
 for.body.i:                                       ; preds = %.noexc3, %for.body.preheader.i
@@ -816,7 +816,7 @@ for.body.i:                                       ; preds = %.noexc3, %for.body.
   %inc.i = add nuw nsw i64 %index.014.i, 1
   %23 = load i64, ptr %.fr17.i, align 8
   %shr.i.i10.i = lshr i64 %23, 1
-  %cmp5.i = icmp ult i64 %inc.i, %shr.i.i10.i
+  %cmp5.i = icmp samesign ult i64 %inc.i, %shr.i.i10.i
   br i1 %cmp5.i, label %for.body.i, label %nrvo.skipdtor, !llvm.loop !13
 
 lpad.loopexit:                                    ; preds = %for.body.us.i
@@ -906,7 +906,7 @@ if.end5:                                          ; preds = %land.rhs.i.i, %_ZSt
   %shr.i.i = lshr i64 %4, 1
   %5 = load i64, ptr %cond13, align 8
   %shr.i.i13 = lshr i64 %5, 1
-  %cmp16 = icmp ult i64 %shr.i.i, %shr.i.i13
+  %cmp16 = icmp samesign ult i64 %shr.i.i, %shr.i.i13
   %6 = select i1 %cmp16, i64 %5, i64 %4
   %7 = select i1 %cmp16, i64 %4, i64 %5
   %shr.i.i14 = lshr i64 %6, 1

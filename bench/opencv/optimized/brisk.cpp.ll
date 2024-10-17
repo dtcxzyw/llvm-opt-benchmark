@@ -1033,7 +1033,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %235, %233, %_ZNSt12
   %.pre233 = load i32, ptr %52, align 8
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %311 = zext i32 %.pre233 to i64
-  %312 = icmp ult i64 %indvars.iv.next227, %311
+  %312 = icmp samesign ult i64 %indvars.iv.next227, %311
   br i1 %312, label %.lr.ph192, label %._crit_edge194, !llvm.loop !14
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.loopexit
@@ -2032,7 +2032,7 @@ _ZNK2cv11_InputArray6getMatEi.exit192:            ; preds = %166, %169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %206 = load i32, ptr %153, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next, %207
   br i1 %208, label %.lr.ph237, label %._crit_edge238, !llvm.loop !28
 
 ._crit_edge238:                                   ; preds = %204, %.preheader
@@ -2185,7 +2185,7 @@ _ZNK2cv11_InputArray6getMatEi.exit192:            ; preds = %166, %169
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %286 = load i32, ptr %153, align 8
   %287 = zext i32 %286 to i64
-  %288 = icmp ult i64 %indvars.iv.next274, %287
+  %288 = icmp samesign ult i64 %indvars.iv.next274, %287
   br i1 %288, label %.lr.ph250, label %._crit_edge251, !llvm.loop !30
 
 ._crit_edge251:                                   ; preds = %284, %277
@@ -5062,7 +5062,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %84, %87
   %181 = add nuw nsw i32 %180, %172
   %182 = add nuw nsw i32 %181, %178
   %183 = add nuw nsw i32 %182, %reass.mul
-  %184 = icmp ule i32 %183, %135
+  %184 = icmp samesign ule i32 %183, %135
   %185 = add i32 %.0109128, 2
   %186 = icmp ult i32 %185, %124
   %or.cond = and i1 %184, %186
@@ -6736,7 +6736,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit368:   ; preds = %_ZNK2cv10BriskLayer
   %619 = add nuw nsw i32 %618, %.0.i351
   %620 = add nuw nsw i32 %619, %.0.i358
   %621 = add nuw nsw i32 %620, %.0.i365
-  %622 = icmp ugt i32 %379, %621
+  %622 = icmp samesign ugt i32 %379, %621
   %spec.select = select i1 %622, i32 %.0238431, i32 %.2228421
   %spec.select256 = select i1 %622, i32 %.0239419, i32 %.5422
   br label %623

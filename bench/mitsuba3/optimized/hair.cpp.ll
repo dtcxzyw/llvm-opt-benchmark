@@ -1586,7 +1586,7 @@ define weak_odr void @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %spec.select.i = select i1 %.not11.i, float %.01518.i, float %61
   %62 = fmul contract float %.01019.i, %.01019.i
   %63 = lshr i32 %.020.i, 1
-  %.not.i = icmp ult i32 %.020.i, 2
+  %.not.i = icmp samesign ult i32 %.020.i, 2
   br i1 %.not.i, label %.lr.ph.preheader.i34, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.preheader.i34:                             ; preds = %.lr.ph.i
@@ -1611,7 +1611,7 @@ define weak_odr void @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %spec.select.i40 = select i1 %.not11.i39, float %.01518.i38, float %73
   %74 = fmul contract float %.01019.i37, %.01019.i37
   %75 = lshr i32 %.020.i36, 1
-  %.not.i41 = icmp ult i32 %.020.i36, 2
+  %.not.i41 = icmp samesign ult i32 %.020.i36, 2
   br i1 %.not.i41, label %_ZN5drjit3powIfiEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit44, label %.lr.ph.i35, !llvm.loop !11
 
 _ZN5drjit3powIfiEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit44: ; preds = %.lr.ph.i35

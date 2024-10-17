@@ -236,17 +236,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr nocapture noundef %0, ptr noc
   %7 = lshr i64 %5, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %8 = lshr i64 %spec.select.i.i.i, 16
   %9 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %10 = lshr i64 %.122.i.i.i, 8
   %11 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %12 = lshr i64 %.223.i.i.i, 4
   %13 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
@@ -574,7 +574,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %26 = load i32, ptr %0, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next.i.i, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %27
   br i1 %28, label %23, label %hwloc_bitmap_fill.exit, !llvm.loop !9
 
 hwloc_bitmap_fill.exit:                           ; preds = %23, %hwloc_bitmap_reset_by_ulongs.exit.i
@@ -603,17 +603,17 @@ hwloc_bitmap_fill.exit:                           ; preds = %23, %hwloc_bitmap_r
   %38 = lshr i64 %36, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %36, i64 %38
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %39 = lshr i64 %spec.select.i.i.i, 16
   %40 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %39
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %40
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %41 = lshr i64 %.122.i.i.i, 8
   %42 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %41
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %42
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %43 = lshr i64 %.223.i.i.i, 4
   %44 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %43
@@ -746,7 +746,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i50:            ; preds = %92
   %indvars.iv.next.i.i48 = add nuw nsw i64 %indvars.iv.i.i47, 1
   %98 = load i32, ptr %0, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next.i.i48, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next.i.i48, %99
   br i1 %100, label %.lr.ph.i.i46, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
 hwloc_bitmap_zero.exit:                           ; preds = %.lr.ph.i.i46, %hwloc_bitmap_reset_by_ulongs.exit.i50
@@ -804,7 +804,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %0, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %16, label %11, label %hwloc_bitmap__fill.exit, !llvm.loop !9
 
 hwloc_bitmap__fill.exit:                          ; preds = %11, %hwloc_bitmap_reset_by_ulongs.exit
@@ -856,7 +856,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %0, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %16, label %11, label %hwloc_bitmap__zero.exit, !llvm.loop !11
 
 hwloc_bitmap__zero.exit:                          ; preds = %11, %hwloc_bitmap_reset_by_ulongs.exit
@@ -1343,7 +1343,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next.i.i, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next.i.i, %17
   br i1 %18, label %13, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
 hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_reset_by_ulongs.exit.i
@@ -1452,7 +1452,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %65 = load i32, ptr %0, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next63.i, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next63.i, %66
   br i1 %67, label %.lr.ph61.i, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !15
 
 68:                                               ; preds = %36, %36, %36
@@ -1542,7 +1542,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i31:            ; preds = %93
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i28, 1
   %99 = load i32, ptr %0, align 8
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next.i.i29, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next.i.i29, %100
   br i1 %101, label %.lr.ph.i.i27, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !11
 
 hwloc_bitmap_set_range.exit.thread.sink.split:    ; preds = %.lr.ph61.i, %.lr.ph.i.i27, %hwloc_bitmap_reset_by_ulongs.exit.i31, %52
@@ -1617,7 +1617,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %35 = load i32, ptr %0, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next63, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next63, %36
   br i1 %37, label %.lr.ph61, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %19
@@ -1682,7 +1682,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
   %76 = or i64 %75, %.sink67
   store i64 %76, ptr %74, align 8
   %.158 = add nuw nsw i32 %46, 1
-  %77 = icmp ult i32 %.158, %41
+  %77 = icmp samesign ult i32 %.158, %41
   br i1 %77, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %72
@@ -1972,7 +1972,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next.i.i, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next.i.i, %24
   br i1 %25, label %20, label %hwloc_bitmap_fill.exit, !llvm.loop !9
 
 hwloc_bitmap_fill.exit:                           ; preds = %20, %hwloc_bitmap_reset_by_ulongs.exit.i
@@ -2042,7 +2042,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i44:            ; preds = %41
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %50 = load i32, ptr %0, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next.i.i42, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next.i.i42, %51
   br i1 %52, label %47, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
 hwloc_bitmap_zero.exit:                           ; preds = %47, %hwloc_bitmap_reset_by_ulongs.exit.i44
@@ -2068,17 +2068,17 @@ hwloc_bitmap_zero.exit:                           ; preds = %47, %hwloc_bitmap_r
   %63 = lshr i64 %61, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %61, i64 %63
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %64 = lshr i64 %spec.select.i.i.i, 16
   %65 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %64
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %65
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %66 = lshr i64 %.122.i.i.i, 8
   %67 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %66
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %67
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %68 = lshr i64 %.223.i.i.i, 4
   %69 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %68
@@ -2194,7 +2194,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i54:            ; preds = %107
   %indvars.iv.next.i.i52 = add nuw nsw i64 %indvars.iv.i.i51, 1
   %113 = load i32, ptr %0, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i.i52, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i.i52, %114
   br i1 %115, label %.lr.ph.i.i50, label %hwloc_bitmap_zero.exit57, !llvm.loop !11
 
 hwloc_bitmap_zero.exit57:                         ; preds = %.lr.ph.i.i50, %hwloc_bitmap_reset_by_ulongs.exit.i54
@@ -2254,17 +2254,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr nocapture noundef %
   %8 = lshr i64 %6, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %6, i64 %8
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %9 = lshr i64 %spec.select.i.i.i, 16
   %10 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %9
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %10
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %11 = lshr i64 %.122.i.i.i, 8
   %12 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %11
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %12
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %13 = lshr i64 %.223.i.i.i, 4
   %14 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %13
@@ -2344,17 +2344,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr nocapture noundef %0, 
   %7 = lshr i64 %5, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %8 = lshr i64 %spec.select.i.i.i, 16
   %9 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %10 = lshr i64 %.122.i.i.i, 8
   %11 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %12 = lshr i64 %.223.i.i.i, 4
   %13 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
@@ -2472,7 +2472,7 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr nocapture noundef readonly %0, i3
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %7 = load i32, ptr %0, align 8
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv, %8
+  %9 = icmp samesign ult i64 %indvars.iv, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
@@ -2532,17 +2532,17 @@ hwloc_flsl_manual.exit.i:                         ; preds = %11
   %17 = lshr i64 %15, 32
   %spec.select.i.i = select i1 %.not28.i.i, i64 %15, i64 %17
   %spec.select34.i.i = select i1 %.not28.i.i, i32 1, i32 33
-  %.not29.i.i = icmp ult i64 %spec.select.i.i, 65536
+  %.not29.i.i = icmp samesign ult i64 %spec.select.i.i, 65536
   %18 = lshr i64 %spec.select.i.i, 16
   %19 = or disjoint i32 %spec.select34.i.i, 16
   %.122.i.i = select i1 %.not29.i.i, i64 %spec.select.i.i, i64 %18
   %.1.i.i = select i1 %.not29.i.i, i32 %spec.select34.i.i, i32 %19
-  %.not30.i.i = icmp ult i64 %.122.i.i, 256
+  %.not30.i.i = icmp samesign ult i64 %.122.i.i, 256
   %20 = lshr i64 %.122.i.i, 8
   %21 = or disjoint i32 %.1.i.i, 8
   %.223.i.i = select i1 %.not30.i.i, i64 %.122.i.i, i64 %20
   %.2.i.i = select i1 %.not30.i.i, i32 %.1.i.i, i32 %21
-  %.not31.i.i = icmp ult i64 %.223.i.i, 16
+  %.not31.i.i = icmp samesign ult i64 %.223.i.i, 16
   %22 = lshr i64 %.223.i.i, 4
   %23 = or disjoint i32 %.2.i.i, 4
   %.324.i.i = select i1 %.not31.i.i, i64 %.223.i.i, i64 %22
@@ -2601,17 +2601,17 @@ hwloc_flsl_manual.exit:                           ; preds = %11
   %17 = lshr i64 %15, 32
   %spec.select.i = select i1 %.not28.i, i64 %15, i64 %17
   %spec.select34.i = select i1 %.not28.i, i32 1, i32 33
-  %.not29.i = icmp ult i64 %spec.select.i, 65536
+  %.not29.i = icmp samesign ult i64 %spec.select.i, 65536
   %18 = lshr i64 %spec.select.i, 16
   %19 = or disjoint i32 %spec.select34.i, 16
   %.122.i = select i1 %.not29.i, i64 %spec.select.i, i64 %18
   %.1.i = select i1 %.not29.i, i32 %spec.select34.i, i32 %19
-  %.not30.i = icmp ult i64 %.122.i, 256
+  %.not30.i = icmp samesign ult i64 %.122.i, 256
   %20 = lshr i64 %.122.i, 8
   %21 = or disjoint i32 %.1.i, 8
   %.223.i = select i1 %.not30.i, i64 %.122.i, i64 %20
   %.2.i = select i1 %.not30.i, i32 %.1.i, i32 %21
-  %.not31.i = icmp ult i64 %.223.i, 16
+  %.not31.i = icmp samesign ult i64 %.223.i, 16
   %22 = lshr i64 %.223.i, 4
   %23 = or disjoint i32 %.2.i, 4
   %.324.i = select i1 %.not31.i, i64 %.223.i, i64 %22
@@ -2649,12 +2649,12 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr nocapture noundef %0, i32 nou
   %7 = lshr i64 %6, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %6, i64 %7
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 1, i32 17
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %8 = lshr i64 %.122.i.i.i, 8
   %9 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %8
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %9
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %10 = lshr i64 %.223.i.i.i, 4
   %11 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %10
@@ -2706,7 +2706,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %5, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next.i, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next.i, %34
   br i1 %35, label %30, label %hwloc_bitmap__zero.exit, !llvm.loop !11
 
 hwloc_bitmap__zero.exit:                          ; preds = %30
@@ -2741,12 +2741,12 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr nocapture noundef %0, i32 n
   %7 = lshr i64 %6, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %6, i64 %7
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 1, i32 17
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %8 = lshr i64 %.122.i.i.i, 8
   %9 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %8
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %9
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %10 = lshr i64 %.223.i.i.i, 4
   %11 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %10
@@ -2798,7 +2798,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %5, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next.i, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next.i, %34
   br i1 %35, label %30, label %hwloc_bitmap__fill.exit, !llvm.loop !9
 
 hwloc_bitmap__fill.exit:                          ; preds = %30
@@ -2838,12 +2838,12 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr 
   %8 = lshr i64 %6, 16
   %.122.i.i = select i1 %.not29.i.i, i64 %6, i64 %8
   %.1.i.i = select i1 %.not29.i.i, i32 1, i32 17
-  %.not30.i.i = icmp ult i64 %.122.i.i, 256
+  %.not30.i.i = icmp samesign ult i64 %.122.i.i, 256
   %9 = lshr i64 %.122.i.i, 8
   %10 = or disjoint i32 %.1.i.i, 8
   %.223.i.i = select i1 %.not30.i.i, i64 %.122.i.i, i64 %9
   %.2.i.i = select i1 %.not30.i.i, i32 %.1.i.i, i32 %10
-  %.not31.i.i = icmp ult i64 %.223.i.i, 16
+  %.not31.i.i = icmp samesign ult i64 %.223.i.i, 16
   %11 = lshr i64 %.223.i.i, 4
   %12 = or disjoint i32 %.2.i.i, 4
   %.324.i.i = select i1 %.not31.i.i, i64 %.223.i.i, i64 %11
@@ -3036,7 +3036,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %36 = load i32, ptr %0, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next63, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next63, %37
   br i1 %38, label %.lr.ph61, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %19
@@ -3103,7 +3103,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
   %77 = and i64 %76, %.sink67
   store i64 %77, ptr %75, align 8
   %.158 = add nuw nsw i32 %46, 1
-  %78 = icmp ult i32 %.158, %41
+  %78 = icmp samesign ult i32 %.158, %41
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %73
@@ -3578,17 +3578,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr nocapture noundef %0, ptr nocap
   %11 = lshr i64 %9, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %12 = lshr i64 %spec.select.i.i.i, 16
   %13 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %14 = lshr i64 %.122.i.i.i, 8
   %15 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %16 = lshr i64 %.223.i.i.i, 4
   %17 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
@@ -3765,17 +3765,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr nocapture noundef %0, ptr noca
   %11 = lshr i64 %9, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %12 = lshr i64 %spec.select.i.i.i, 16
   %13 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %14 = lshr i64 %.122.i.i.i, 8
   %15 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %16 = lshr i64 %.223.i.i.i, 4
   %17 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
@@ -3952,17 +3952,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr nocapture noundef %0, ptr n
   %11 = lshr i64 %9, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %12 = lshr i64 %spec.select.i.i.i, 16
   %13 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %14 = lshr i64 %.122.i.i.i, 8
   %15 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %16 = lshr i64 %.223.i.i.i, 4
   %17 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
@@ -4141,17 +4141,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr nocapture noundef %0, ptr noca
   %11 = lshr i64 %9, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %12 = lshr i64 %spec.select.i.i.i, 16
   %13 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %14 = lshr i64 %.122.i.i.i, 8
   %15 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %16 = lshr i64 %.223.i.i.i, 4
   %17 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
@@ -4313,17 +4313,17 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr nocapture noundef %0, ptr noca
   %7 = lshr i64 %5, 32
   %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
+  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
   %8 = lshr i64 %spec.select.i.i.i, 16
   %9 = or disjoint i32 %spec.select34.i.i.i, 16
   %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
   %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
+  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %10 = lshr i64 %.122.i.i.i, 8
   %11 = or disjoint i32 %.1.i.i.i, 8
   %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
   %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
+  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %12 = lshr i64 %.223.i.i.i, 4
   %13 = or disjoint i32 %.2.i.i.i, 4
   %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
@@ -4527,17 +4527,17 @@ hwloc_flsl_manual.exit:                           ; preds = %11
   %18 = lshr i64 %17, 32
   %spec.select.i = select i1 %.not28.i, i64 %17, i64 %18
   %spec.select34.i = select i1 %.not28.i, i32 1, i32 33
-  %.not29.i = icmp ult i64 %spec.select.i, 65536
+  %.not29.i = icmp samesign ult i64 %spec.select.i, 65536
   %19 = lshr i64 %spec.select.i, 16
   %20 = or disjoint i32 %spec.select34.i, 16
   %.122.i = select i1 %.not29.i, i64 %spec.select.i, i64 %19
   %.1.i = select i1 %.not29.i, i32 %spec.select34.i, i32 %20
-  %.not30.i = icmp ult i64 %.122.i, 256
+  %.not30.i = icmp samesign ult i64 %.122.i, 256
   %21 = lshr i64 %.122.i, 8
   %22 = or disjoint i32 %.1.i, 8
   %.223.i = select i1 %.not30.i, i64 %.122.i, i64 %21
   %.2.i = select i1 %.not30.i, i32 %.1.i, i32 %22
-  %.not31.i = icmp ult i64 %.223.i, 16
+  %.not31.i = icmp samesign ult i64 %.223.i, 16
   %23 = lshr i64 %.223.i, 4
   %24 = or disjoint i32 %.2.i, 4
   %.324.i = select i1 %.not31.i, i64 %.223.i, i64 %23
@@ -4601,7 +4601,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %4, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %11
@@ -4972,7 +4972,7 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef
   %.074104 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
   %.076102 = phi i32 [ 1, %.lr.ph ], [ %.177, %66 ]
   %.078101 = phi i32 [ 1, %.lr.ph ], [ %.179, %66 ]
-  %12 = icmp ult i64 %indvars.iv, %9
+  %12 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -4989,7 +4989,7 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef
 
 20:                                               ; preds = %17, %13
   %21 = phi i64 [ %16, %13 ], [ %19, %17 ]
-  %22 = icmp ult i64 %indvars.iv, %10
+  %22 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %20

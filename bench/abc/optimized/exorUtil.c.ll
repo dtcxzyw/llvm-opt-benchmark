@@ -202,8 +202,8 @@ switch.lookup:                                    ; preds = %.lr.ph
   %22 = add nsw i32 %.12740, 1
   %23 = icmp ne i32 %22, %12
   %24 = add nuw nsw i32 %.141, 1
-  %25 = icmp ult i32 %.141, 31
-  %or.cond = and i1 %23, %25
+  %25 = icmp samesign ult i32 %.141, 31
+  %or.cond = select i1 %23, i1 %25, i1 false
   br i1 %or.cond, label %16, label %26, !llvm.loop !10
 
 26:                                               ; preds = %16

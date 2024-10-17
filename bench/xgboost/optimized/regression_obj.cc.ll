@@ -4119,7 +4119,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.0117180 = phi i32 [ %109, %108 ], [ 0, %.preheader161 ]
   %.0118179 = phi i64 [ %.1119, %108 ], [ 0, %.preheader161 ]
   %.0120178 = phi i64 [ %.1121, %108 ], [ 1, %.preheader161 ]
-  %101 = icmp ult i32 %.0117180, 19
+  %101 = icmp samesign ult i32 %.0117180, 19
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %.lr.ph182
@@ -12578,7 +12578,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 15:                                               ; preds = %13
   %16 = load i64, ptr %7, align 8, !noalias !134
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp ult i64 %17, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %15
@@ -12599,7 +12599,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
   %26 = load i64, ptr %7, align 8, !noalias !134
   %27 = trunc i64 %26 to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp ult i32 %28, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %24
@@ -12641,7 +12641,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 
 47:                                               ; preds = %44
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i44 = icmp ult i64 %48, 2
+  %.not.i.i.i.i.i44 = icmp samesign ult i64 %48, 2
   br i1 %.not.i.i.i.i.i44, label %.split.us.i.i.i.i.i46, label %.split.i.i.i.i.i45
 
 .split.us.i.i.i.i.i46:                            ; preds = %47
@@ -12661,7 +12661,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %56 = trunc nuw i64 %45 to i32
   %57 = trunc i64 %37 to i32
   %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %.not.i7.i.i.i.i36 = icmp ult i32 %58, 2
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %58, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i43, label %.split.i8.i.i.i.i37
 
 .split.us.i11.i.i.i.i43:                          ; preds = %55
@@ -12702,7 +12702,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 
 76:                                               ; preds = %73
   %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i56 = icmp ult i64 %77, 2
+  %.not.i.i.i.i.i56 = icmp samesign ult i64 %77, 2
   br i1 %.not.i.i.i.i.i56, label %.split.us.i.i.i.i.i58, label %.split.i.i.i.i.i57
 
 .split.us.i.i.i.i.i58:                            ; preds = %76
@@ -12722,7 +12722,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %85 = trunc nuw i64 %74 to i32
   %86 = trunc i64 %37 to i32
   %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %87, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %87, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i55, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i55:                          ; preds = %84
@@ -12763,7 +12763,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 
 105:                                              ; preds = %102
   %106 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i68 = icmp ult i64 %106, 2
+  %.not.i.i.i.i.i68 = icmp samesign ult i64 %106, 2
   br i1 %.not.i.i.i.i.i68, label %.split.us.i.i.i.i.i70, label %.split.i.i.i.i.i69
 
 .split.us.i.i.i.i.i70:                            ; preds = %105
@@ -12783,7 +12783,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %114 = trunc nuw i64 %103 to i32
   %115 = trunc i64 %37 to i32
   %116 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %.not.i7.i.i.i.i60 = icmp ult i32 %116, 2
+  %.not.i7.i.i.i.i60 = icmp samesign ult i32 %116, 2
   br i1 %.not.i7.i.i.i.i60, label %.split.us.i11.i.i.i.i67, label %.split.i8.i.i.i.i61
 
 .split.us.i11.i.i.i.i67:                          ; preds = %113
@@ -12840,7 +12840,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %139 = getelementptr inbounds i8, ptr %1, i64 24
   %140 = load i64, ptr %139, align 8, !noalias !136
   %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %.not.i.i.i.i.i80 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i80 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i80, label %.split.us.i.i.i.i.i82, label %.split.i.i.i.i.i81
 
 .split.us.i.i.i.i.i82:                            ; preds = %138
@@ -12862,7 +12862,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %151 = load i64, ptr %150, align 8, !noalias !141
   %152 = trunc i64 %151 to i32
   %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
-  %.not.i7.i.i.i.i72 = icmp ult i32 %153, 2
+  %.not.i7.i.i.i.i72 = icmp samesign ult i32 %153, 2
   br i1 %.not.i7.i.i.i.i72, label %.split.us.i11.i.i.i.i79, label %.split.i8.i.i.i.i73
 
 .split.us.i11.i.i.i.i79:                          ; preds = %148
@@ -12914,7 +12914,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %178 = getelementptr inbounds i8, ptr %1, i64 24
   %179 = load i64, ptr %178, align 8, !noalias !144
   %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i.i92 = icmp ult i64 %180, 2
+  %.not.i.i.i.i.i92 = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i.i92, label %.split.us.i.i.i.i.i94, label %.split.i.i.i.i.i93
 
 .split.us.i.i.i.i.i94:                            ; preds = %177
@@ -12936,7 +12936,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %190 = load i64, ptr %189, align 8, !noalias !149
   %191 = trunc i64 %190 to i32
   %192 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
-  %.not.i7.i.i.i.i84 = icmp ult i32 %192, 2
+  %.not.i7.i.i.i.i84 = icmp samesign ult i32 %192, 2
   br i1 %.not.i7.i.i.i.i84, label %.split.us.i11.i.i.i.i91, label %.split.i8.i.i.i.i85
 
 .split.us.i11.i.i.i.i91:                          ; preds = %187
@@ -12988,7 +12988,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %217 = getelementptr inbounds i8, ptr %1, i64 24
   %218 = load i64, ptr %217, align 8, !noalias !152
   %219 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %218)
-  %.not.i.i.i.i.i104 = icmp ult i64 %219, 2
+  %.not.i.i.i.i.i104 = icmp samesign ult i64 %219, 2
   br i1 %.not.i.i.i.i.i104, label %.split.us.i.i.i.i.i106, label %.split.i.i.i.i.i105
 
 .split.us.i.i.i.i.i106:                           ; preds = %216
@@ -13010,7 +13010,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
   %229 = load i64, ptr %228, align 8, !noalias !157
   %230 = trunc i64 %229 to i32
   %231 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %230)
-  %.not.i7.i.i.i.i96 = icmp ult i32 %231, 2
+  %.not.i7.i.i.i.i96 = icmp samesign ult i32 %231, 2
   br i1 %.not.i7.i.i.i.i96, label %.split.us.i11.i.i.i.i103, label %.split.i8.i.i.i.i97
 
 .split.us.i11.i.i.i.i103:                         ; preds = %226
@@ -15292,7 +15292,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 15:                                               ; preds = %13
   %16 = load i64, ptr %7, align 8, !noalias !134
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp ult i64 %17, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %15
@@ -15313,7 +15313,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
   %26 = load i64, ptr %7, align 8, !noalias !134
   %27 = trunc i64 %26 to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp ult i32 %28, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %24
@@ -15357,7 +15357,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 
 48:                                               ; preds = %45
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i45 = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i45 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i45, label %.split.us.i.i.i.i.i47, label %.split.i.i.i.i.i46
 
 .split.us.i.i.i.i.i47:                            ; preds = %48
@@ -15377,7 +15377,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %57 = trunc nuw i64 %46 to i32
   %58 = trunc i64 %37 to i32
   %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i36 = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i44, label %.split.i8.i.i.i.i37
 
 .split.us.i11.i.i.i.i44:                          ; preds = %56
@@ -15420,7 +15420,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 
 78:                                               ; preds = %75
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i58 = icmp ult i64 %79, 2
+  %.not.i.i.i.i.i58 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i58, label %.split.us.i.i.i.i.i60, label %.split.i.i.i.i.i59
 
 .split.us.i.i.i.i.i60:                            ; preds = %78
@@ -15440,7 +15440,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %87 = trunc nuw i64 %76 to i32
   %88 = trunc i64 %37 to i32
   %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %.not.i7.i.i.i.i49 = icmp ult i32 %89, 2
+  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i49, label %.split.us.i11.i.i.i.i57, label %.split.i8.i.i.i.i50
 
 .split.us.i11.i.i.i.i57:                          ; preds = %86
@@ -15483,7 +15483,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 
 108:                                              ; preds = %105
   %109 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i71 = icmp ult i64 %109, 2
+  %.not.i.i.i.i.i71 = icmp samesign ult i64 %109, 2
   br i1 %.not.i.i.i.i.i71, label %.split.us.i.i.i.i.i73, label %.split.i.i.i.i.i72
 
 .split.us.i.i.i.i.i73:                            ; preds = %108
@@ -15503,7 +15503,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %117 = trunc nuw i64 %106 to i32
   %118 = trunc i64 %37 to i32
   %119 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %118)
-  %.not.i7.i.i.i.i62 = icmp ult i32 %119, 2
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %119, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i70, label %.split.i8.i.i.i.i63
 
 .split.us.i11.i.i.i.i70:                          ; preds = %116
@@ -15562,7 +15562,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %143 = getelementptr inbounds i8, ptr %1, i64 24
   %144 = load i64, ptr %143, align 8, !noalias !215
   %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
-  %.not.i.i.i.i.i84 = icmp ult i64 %145, 2
+  %.not.i.i.i.i.i84 = icmp samesign ult i64 %145, 2
   br i1 %.not.i.i.i.i.i84, label %.split.us.i.i.i.i.i86, label %.split.i.i.i.i.i85
 
 .split.us.i.i.i.i.i86:                            ; preds = %142
@@ -15584,7 +15584,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %155 = load i64, ptr %154, align 8, !noalias !220
   %156 = trunc i64 %155 to i32
   %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
-  %.not.i7.i.i.i.i75 = icmp ult i32 %157, 2
+  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %157, 2
   br i1 %.not.i7.i.i.i.i75, label %.split.us.i11.i.i.i.i83, label %.split.i8.i.i.i.i76
 
 .split.us.i11.i.i.i.i83:                          ; preds = %152
@@ -15638,7 +15638,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %183 = getelementptr inbounds i8, ptr %1, i64 24
   %184 = load i64, ptr %183, align 8, !noalias !223
   %185 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %184)
-  %.not.i.i.i.i.i97 = icmp ult i64 %185, 2
+  %.not.i.i.i.i.i97 = icmp samesign ult i64 %185, 2
   br i1 %.not.i.i.i.i.i97, label %.split.us.i.i.i.i.i99, label %.split.i.i.i.i.i98
 
 .split.us.i.i.i.i.i99:                            ; preds = %182
@@ -15660,7 +15660,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %195 = load i64, ptr %194, align 8, !noalias !228
   %196 = trunc i64 %195 to i32
   %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
-  %.not.i7.i.i.i.i88 = icmp ult i32 %197, 2
+  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %197, 2
   br i1 %.not.i7.i.i.i.i88, label %.split.us.i11.i.i.i.i96, label %.split.i8.i.i.i.i89
 
 .split.us.i11.i.i.i.i96:                          ; preds = %192
@@ -15714,7 +15714,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %223 = getelementptr inbounds i8, ptr %1, i64 24
   %224 = load i64, ptr %223, align 8, !noalias !231
   %225 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %224)
-  %.not.i.i.i.i.i110 = icmp ult i64 %225, 2
+  %.not.i.i.i.i.i110 = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i.i110, label %.split.us.i.i.i.i.i112, label %.split.i.i.i.i.i111
 
 .split.us.i.i.i.i.i112:                           ; preds = %222
@@ -15736,7 +15736,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
   %235 = load i64, ptr %234, align 8, !noalias !236
   %236 = trunc i64 %235 to i32
   %237 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %236)
-  %.not.i7.i.i.i.i101 = icmp ult i32 %237, 2
+  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %237, 2
   br i1 %.not.i7.i.i.i.i101, label %.split.us.i11.i.i.i.i109, label %.split.i8.i.i.i.i102
 
 .split.us.i11.i.i.i.i109:                         ; preds = %232
@@ -18106,7 +18106,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 15:                                               ; preds = %13
   %16 = load i64, ptr %7, align 8, !noalias !134
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp ult i64 %17, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %15
@@ -18127,7 +18127,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
   %26 = load i64, ptr %7, align 8, !noalias !134
   %27 = trunc i64 %26 to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp ult i32 %28, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %24
@@ -18171,7 +18171,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 
 48:                                               ; preds = %45
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i45 = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i45 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i45, label %.split.us.i.i.i.i.i47, label %.split.i.i.i.i.i46
 
 .split.us.i.i.i.i.i47:                            ; preds = %48
@@ -18191,7 +18191,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %57 = trunc nuw i64 %46 to i32
   %58 = trunc i64 %37 to i32
   %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i36 = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i44, label %.split.i8.i.i.i.i37
 
 .split.us.i11.i.i.i.i44:                          ; preds = %56
@@ -18234,7 +18234,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 
 78:                                               ; preds = %75
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i58 = icmp ult i64 %79, 2
+  %.not.i.i.i.i.i58 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i58, label %.split.us.i.i.i.i.i60, label %.split.i.i.i.i.i59
 
 .split.us.i.i.i.i.i60:                            ; preds = %78
@@ -18254,7 +18254,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %87 = trunc nuw i64 %76 to i32
   %88 = trunc i64 %37 to i32
   %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %.not.i7.i.i.i.i49 = icmp ult i32 %89, 2
+  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i49, label %.split.us.i11.i.i.i.i57, label %.split.i8.i.i.i.i50
 
 .split.us.i11.i.i.i.i57:                          ; preds = %86
@@ -18297,7 +18297,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 
 108:                                              ; preds = %105
   %109 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i71 = icmp ult i64 %109, 2
+  %.not.i.i.i.i.i71 = icmp samesign ult i64 %109, 2
   br i1 %.not.i.i.i.i.i71, label %.split.us.i.i.i.i.i73, label %.split.i.i.i.i.i72
 
 .split.us.i.i.i.i.i73:                            ; preds = %108
@@ -18317,7 +18317,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %117 = trunc nuw i64 %106 to i32
   %118 = trunc i64 %37 to i32
   %119 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %118)
-  %.not.i7.i.i.i.i62 = icmp ult i32 %119, 2
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %119, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i70, label %.split.i8.i.i.i.i63
 
 .split.us.i11.i.i.i.i70:                          ; preds = %116
@@ -18376,7 +18376,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %143 = getelementptr inbounds i8, ptr %1, i64 24
   %144 = load i64, ptr %143, align 8, !noalias !294
   %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
-  %.not.i.i.i.i.i84 = icmp ult i64 %145, 2
+  %.not.i.i.i.i.i84 = icmp samesign ult i64 %145, 2
   br i1 %.not.i.i.i.i.i84, label %.split.us.i.i.i.i.i86, label %.split.i.i.i.i.i85
 
 .split.us.i.i.i.i.i86:                            ; preds = %142
@@ -18398,7 +18398,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %155 = load i64, ptr %154, align 8, !noalias !299
   %156 = trunc i64 %155 to i32
   %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
-  %.not.i7.i.i.i.i75 = icmp ult i32 %157, 2
+  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %157, 2
   br i1 %.not.i7.i.i.i.i75, label %.split.us.i11.i.i.i.i83, label %.split.i8.i.i.i.i76
 
 .split.us.i11.i.i.i.i83:                          ; preds = %152
@@ -18452,7 +18452,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %183 = getelementptr inbounds i8, ptr %1, i64 24
   %184 = load i64, ptr %183, align 8, !noalias !302
   %185 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %184)
-  %.not.i.i.i.i.i97 = icmp ult i64 %185, 2
+  %.not.i.i.i.i.i97 = icmp samesign ult i64 %185, 2
   br i1 %.not.i.i.i.i.i97, label %.split.us.i.i.i.i.i99, label %.split.i.i.i.i.i98
 
 .split.us.i.i.i.i.i99:                            ; preds = %182
@@ -18474,7 +18474,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %195 = load i64, ptr %194, align 8, !noalias !307
   %196 = trunc i64 %195 to i32
   %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
-  %.not.i7.i.i.i.i88 = icmp ult i32 %197, 2
+  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %197, 2
   br i1 %.not.i7.i.i.i.i88, label %.split.us.i11.i.i.i.i96, label %.split.i8.i.i.i.i89
 
 .split.us.i11.i.i.i.i96:                          ; preds = %192
@@ -18528,7 +18528,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %223 = getelementptr inbounds i8, ptr %1, i64 24
   %224 = load i64, ptr %223, align 8, !noalias !310
   %225 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %224)
-  %.not.i.i.i.i.i110 = icmp ult i64 %225, 2
+  %.not.i.i.i.i.i110 = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i.i110, label %.split.us.i.i.i.i.i112, label %.split.i.i.i.i.i111
 
 .split.us.i.i.i.i.i112:                           ; preds = %222
@@ -18550,7 +18550,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
   %235 = load i64, ptr %234, align 8, !noalias !315
   %236 = trunc i64 %235 to i32
   %237 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %236)
-  %.not.i7.i.i.i.i101 = icmp ult i32 %237, 2
+  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %237, 2
   br i1 %.not.i7.i.i.i.i101, label %.split.us.i11.i.i.i.i109, label %.split.i8.i.i.i.i102
 
 .split.us.i11.i.i.i.i109:                         ; preds = %232
@@ -20834,7 +20834,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 15:                                               ; preds = %13
   %16 = load i64, ptr %7, align 8, !noalias !134
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp ult i64 %17, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %15
@@ -20855,7 +20855,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
   %26 = load i64, ptr %7, align 8, !noalias !134
   %27 = trunc i64 %26 to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp ult i32 %28, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %24
@@ -20899,7 +20899,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 
 48:                                               ; preds = %45
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i45 = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i45 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i45, label %.split.us.i.i.i.i.i47, label %.split.i.i.i.i.i46
 
 .split.us.i.i.i.i.i47:                            ; preds = %48
@@ -20919,7 +20919,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %57 = trunc nuw i64 %46 to i32
   %58 = trunc i64 %37 to i32
   %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i36 = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i44, label %.split.i8.i.i.i.i37
 
 .split.us.i11.i.i.i.i44:                          ; preds = %56
@@ -20962,7 +20962,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 
 78:                                               ; preds = %75
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i58 = icmp ult i64 %79, 2
+  %.not.i.i.i.i.i58 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i58, label %.split.us.i.i.i.i.i60, label %.split.i.i.i.i.i59
 
 .split.us.i.i.i.i.i60:                            ; preds = %78
@@ -20982,7 +20982,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %87 = trunc nuw i64 %76 to i32
   %88 = trunc i64 %37 to i32
   %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %.not.i7.i.i.i.i49 = icmp ult i32 %89, 2
+  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i49, label %.split.us.i11.i.i.i.i57, label %.split.i8.i.i.i.i50
 
 .split.us.i11.i.i.i.i57:                          ; preds = %86
@@ -21025,7 +21025,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 
 108:                                              ; preds = %105
   %109 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i71 = icmp ult i64 %109, 2
+  %.not.i.i.i.i.i71 = icmp samesign ult i64 %109, 2
   br i1 %.not.i.i.i.i.i71, label %.split.us.i.i.i.i.i73, label %.split.i.i.i.i.i72
 
 .split.us.i.i.i.i.i73:                            ; preds = %108
@@ -21045,7 +21045,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %117 = trunc nuw i64 %106 to i32
   %118 = trunc i64 %37 to i32
   %119 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %118)
-  %.not.i7.i.i.i.i62 = icmp ult i32 %119, 2
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %119, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i70, label %.split.i8.i.i.i.i63
 
 .split.us.i11.i.i.i.i70:                          ; preds = %116
@@ -21104,7 +21104,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %143 = getelementptr inbounds i8, ptr %1, i64 24
   %144 = load i64, ptr %143, align 8, !noalias !373
   %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
-  %.not.i.i.i.i.i84 = icmp ult i64 %145, 2
+  %.not.i.i.i.i.i84 = icmp samesign ult i64 %145, 2
   br i1 %.not.i.i.i.i.i84, label %.split.us.i.i.i.i.i86, label %.split.i.i.i.i.i85
 
 .split.us.i.i.i.i.i86:                            ; preds = %142
@@ -21126,7 +21126,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %155 = load i64, ptr %154, align 8, !noalias !378
   %156 = trunc i64 %155 to i32
   %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
-  %.not.i7.i.i.i.i75 = icmp ult i32 %157, 2
+  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %157, 2
   br i1 %.not.i7.i.i.i.i75, label %.split.us.i11.i.i.i.i83, label %.split.i8.i.i.i.i76
 
 .split.us.i11.i.i.i.i83:                          ; preds = %152
@@ -21180,7 +21180,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %183 = getelementptr inbounds i8, ptr %1, i64 24
   %184 = load i64, ptr %183, align 8, !noalias !381
   %185 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %184)
-  %.not.i.i.i.i.i97 = icmp ult i64 %185, 2
+  %.not.i.i.i.i.i97 = icmp samesign ult i64 %185, 2
   br i1 %.not.i.i.i.i.i97, label %.split.us.i.i.i.i.i99, label %.split.i.i.i.i.i98
 
 .split.us.i.i.i.i.i99:                            ; preds = %182
@@ -21202,7 +21202,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %195 = load i64, ptr %194, align 8, !noalias !386
   %196 = trunc i64 %195 to i32
   %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
-  %.not.i7.i.i.i.i88 = icmp ult i32 %197, 2
+  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %197, 2
   br i1 %.not.i7.i.i.i.i88, label %.split.us.i11.i.i.i.i96, label %.split.i8.i.i.i.i89
 
 .split.us.i11.i.i.i.i96:                          ; preds = %192
@@ -21256,7 +21256,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %223 = getelementptr inbounds i8, ptr %1, i64 24
   %224 = load i64, ptr %223, align 8, !noalias !389
   %225 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %224)
-  %.not.i.i.i.i.i110 = icmp ult i64 %225, 2
+  %.not.i.i.i.i.i110 = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i.i110, label %.split.us.i.i.i.i.i112, label %.split.i.i.i.i.i111
 
 .split.us.i.i.i.i.i112:                           ; preds = %222
@@ -21278,7 +21278,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
   %235 = load i64, ptr %234, align 8, !noalias !394
   %236 = trunc i64 %235 to i32
   %237 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %236)
-  %.not.i7.i.i.i.i101 = icmp ult i32 %237, 2
+  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %237, 2
   br i1 %.not.i7.i.i.i.i101, label %.split.us.i11.i.i.i.i109, label %.split.i8.i.i.i.i102
 
 .split.us.i11.i.i.i.i109:                         ; preds = %232
@@ -23554,7 +23554,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 15:                                               ; preds = %13
   %16 = load i64, ptr %7, align 8, !noalias !134
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp ult i64 %17, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %15
@@ -23575,7 +23575,7 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
   %26 = load i64, ptr %7, align 8, !noalias !134
   %27 = trunc i64 %26 to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp ult i32 %28, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %24
@@ -23617,7 +23617,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 
 47:                                               ; preds = %44
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i44 = icmp ult i64 %48, 2
+  %.not.i.i.i.i.i44 = icmp samesign ult i64 %48, 2
   br i1 %.not.i.i.i.i.i44, label %.split.us.i.i.i.i.i46, label %.split.i.i.i.i.i45
 
 .split.us.i.i.i.i.i46:                            ; preds = %47
@@ -23637,7 +23637,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %56 = trunc nuw i64 %45 to i32
   %57 = trunc i64 %37 to i32
   %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %.not.i7.i.i.i.i36 = icmp ult i32 %58, 2
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %58, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i43, label %.split.i8.i.i.i.i37
 
 .split.us.i11.i.i.i.i43:                          ; preds = %55
@@ -23678,7 +23678,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 
 76:                                               ; preds = %73
   %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i56 = icmp ult i64 %77, 2
+  %.not.i.i.i.i.i56 = icmp samesign ult i64 %77, 2
   br i1 %.not.i.i.i.i.i56, label %.split.us.i.i.i.i.i58, label %.split.i.i.i.i.i57
 
 .split.us.i.i.i.i.i58:                            ; preds = %76
@@ -23698,7 +23698,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %85 = trunc nuw i64 %74 to i32
   %86 = trunc i64 %37 to i32
   %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %87, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %87, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i55, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i55:                          ; preds = %84
@@ -23739,7 +23739,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 
 105:                                              ; preds = %102
   %106 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
-  %.not.i.i.i.i.i68 = icmp ult i64 %106, 2
+  %.not.i.i.i.i.i68 = icmp samesign ult i64 %106, 2
   br i1 %.not.i.i.i.i.i68, label %.split.us.i.i.i.i.i70, label %.split.i.i.i.i.i69
 
 .split.us.i.i.i.i.i70:                            ; preds = %105
@@ -23759,7 +23759,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %114 = trunc nuw i64 %103 to i32
   %115 = trunc i64 %37 to i32
   %116 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %.not.i7.i.i.i.i60 = icmp ult i32 %116, 2
+  %.not.i7.i.i.i.i60 = icmp samesign ult i32 %116, 2
   br i1 %.not.i7.i.i.i.i60, label %.split.us.i11.i.i.i.i67, label %.split.i8.i.i.i.i61
 
 .split.us.i11.i.i.i.i67:                          ; preds = %113
@@ -23816,7 +23816,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %139 = getelementptr inbounds i8, ptr %1, i64 24
   %140 = load i64, ptr %139, align 8, !noalias !452
   %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %.not.i.i.i.i.i80 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i80 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i80, label %.split.us.i.i.i.i.i82, label %.split.i.i.i.i.i81
 
 .split.us.i.i.i.i.i82:                            ; preds = %138
@@ -23838,7 +23838,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %151 = load i64, ptr %150, align 8, !noalias !457
   %152 = trunc i64 %151 to i32
   %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
-  %.not.i7.i.i.i.i72 = icmp ult i32 %153, 2
+  %.not.i7.i.i.i.i72 = icmp samesign ult i32 %153, 2
   br i1 %.not.i7.i.i.i.i72, label %.split.us.i11.i.i.i.i79, label %.split.i8.i.i.i.i73
 
 .split.us.i11.i.i.i.i79:                          ; preds = %148
@@ -23890,7 +23890,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %178 = getelementptr inbounds i8, ptr %1, i64 24
   %179 = load i64, ptr %178, align 8, !noalias !460
   %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i.i92 = icmp ult i64 %180, 2
+  %.not.i.i.i.i.i92 = icmp samesign ult i64 %180, 2
   br i1 %.not.i.i.i.i.i92, label %.split.us.i.i.i.i.i94, label %.split.i.i.i.i.i93
 
 .split.us.i.i.i.i.i94:                            ; preds = %177
@@ -23912,7 +23912,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %190 = load i64, ptr %189, align 8, !noalias !465
   %191 = trunc i64 %190 to i32
   %192 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
-  %.not.i7.i.i.i.i84 = icmp ult i32 %192, 2
+  %.not.i7.i.i.i.i84 = icmp samesign ult i32 %192, 2
   br i1 %.not.i7.i.i.i.i84, label %.split.us.i11.i.i.i.i91, label %.split.i8.i.i.i.i85
 
 .split.us.i11.i.i.i.i91:                          ; preds = %187
@@ -23964,7 +23964,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %217 = getelementptr inbounds i8, ptr %1, i64 24
   %218 = load i64, ptr %217, align 8, !noalias !468
   %219 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %218)
-  %.not.i.i.i.i.i104 = icmp ult i64 %219, 2
+  %.not.i.i.i.i.i104 = icmp samesign ult i64 %219, 2
   br i1 %.not.i.i.i.i.i104, label %.split.us.i.i.i.i.i106, label %.split.i.i.i.i.i105
 
 .split.us.i.i.i.i.i106:                           ; preds = %216
@@ -23986,7 +23986,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
   %229 = load i64, ptr %228, align 8, !noalias !473
   %230 = trunc i64 %229 to i32
   %231 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %230)
-  %.not.i7.i.i.i.i96 = icmp ult i32 %231, 2
+  %.not.i7.i.i.i.i96 = icmp samesign ult i32 %231, 2
   br i1 %.not.i7.i.i.i.i96, label %.split.us.i11.i.i.i.i103, label %.split.i8.i.i.i.i97
 
 .split.us.i11.i.i.i.i103:                         ; preds = %226
@@ -28403,7 +28403,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i64, ptr %6, align 8, !noalias !579
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %.not.i.i = icmp ult i64 %8, 2
+  %.not.i.i = icmp samesign ult i64 %8, 2
   br i1 %.not.i.i, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %5
@@ -28425,7 +28425,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %18 = load i64, ptr %17, align 8, !noalias !584
   %19 = trunc i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
-  %.not.i7.i = icmp ult i32 %20, 2
+  %.not.i7.i = icmp samesign ult i32 %20, 2
   br i1 %.not.i7.i, label %.split.us.i11.i, label %.split.i8.i
 
 .split.us.i11.i:                                  ; preds = %15
@@ -38027,7 +38027,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i64, ptr %6, align 8, !noalias !838
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %.not.i.i = icmp ult i64 %8, 2
+  %.not.i.i = icmp samesign ult i64 %8, 2
   br i1 %.not.i.i, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %5
@@ -38049,7 +38049,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %18 = load i64, ptr %17, align 8, !noalias !843
   %19 = trunc i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
-  %.not.i7.i = icmp ult i32 %20, 2
+  %.not.i7.i = icmp samesign ult i32 %20, 2
   br i1 %.not.i7.i, label %.split.us.i11.i, label %.split.i8.i
 
 .split.us.i11.i:                                  ; preds = %15

@@ -1148,7 +1148,7 @@ _ZN3mbe8expander11transcriber12push_subtree17hfcbd89c71104bea4E.exit: ; preds = 
   br i1 %.not.i, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread100.i, label %59
 
 59:                                               ; preds = %57
-  %60 = icmp ult i64 %58, 5
+  %60 = icmp samesign ult i64 %58, 5
   tail call void @llvm.assume(i1 %60)
   %61 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3mbe8expander11transcriber23fix_up_and_push_path_tt10__CALLSITE17h3e9bedd8e4c6a0cfE, i64 16) monotonic, align 8, !noalias !347
   switch i8 %61, label %62 [

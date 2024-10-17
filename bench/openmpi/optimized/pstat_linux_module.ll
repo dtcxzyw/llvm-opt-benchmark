@@ -172,7 +172,7 @@ define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef %1, ptr
   %.010.lcssa.i = phi ptr [ %53, %55 ], [ %68, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ 0, %55 ], [ %69, %.lr.ph.i ]
   %65 = icmp ne i16 %.pre-phi23.i, 0
-  %66 = icmp ult i32 %.0.lcssa.i, %42
+  %66 = icmp samesign ult i32 %.0.lcssa.i, %42
   %67 = select i1 %65, i1 %66, i1 false
   br i1 %67, label %.lr.ph19.i, label %next_field.exit
 
@@ -187,7 +187,7 @@ define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef %1, ptr
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 8192
   %.not.i = icmp eq i16 %74, 0
-  %75 = icmp ult i32 %69, %42
+  %75 = icmp samesign ult i32 %69, %42
   %76 = select i1 %.not.i, i1 %75, i1 false
   br i1 %76, label %.lr.ph.i, label %.preheader.i, !llvm.loop !4
 
@@ -202,7 +202,7 @@ define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef %1, ptr
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 8192
   %84 = icmp ne i16 %83, 0
-  %85 = icmp ult i32 %78, %42
+  %85 = icmp samesign ult i32 %78, %42
   %86 = select i1 %84, i1 %85, i1 false
   br i1 %86, label %.lr.ph19.i, label %next_field.exit, !llvm.loop !6
 
@@ -226,7 +226,7 @@ next_field.exit:                                  ; preds = %.lr.ph19.i, %.prehe
   %.010.lcssa.i252 = phi ptr [ %.111.lcssa.i, %next_field.exit ], [ %98, %.lr.ph.i258 ]
   %.0.lcssa.i253 = phi i32 [ 0, %next_field.exit ], [ %99, %.lr.ph.i258 ]
   %95 = icmp ne i16 %.pre-phi23.i251, 0
-  %96 = icmp ult i32 %.0.lcssa.i253, %42
+  %96 = icmp samesign ult i32 %.0.lcssa.i253, %42
   %97 = select i1 %95, i1 %96, i1 false
   br i1 %97, label %.lr.ph19.i255, label %next_field.exit262
 
@@ -241,7 +241,7 @@ next_field.exit:                                  ; preds = %.lr.ph19.i, %.prehe
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 8192
   %.not.i261 = icmp eq i16 %104, 0
-  %105 = icmp ult i32 %99, %42
+  %105 = icmp samesign ult i32 %99, %42
   %106 = select i1 %.not.i261, i1 %105, i1 false
   br i1 %106, label %.lr.ph.i258, label %.preheader.i250, !llvm.loop !4
 
@@ -256,7 +256,7 @@ next_field.exit:                                  ; preds = %.lr.ph19.i, %.prehe
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 8192
   %114 = icmp ne i16 %113, 0
-  %115 = icmp ult i32 %108, %42
+  %115 = icmp samesign ult i32 %108, %42
   %116 = select i1 %114, i1 %115, i1 false
   br i1 %116, label %.lr.ph19.i255, label %next_field.exit262, !llvm.loop !6
 
@@ -277,7 +277,7 @@ next_field.exit262:                               ; preds = %.lr.ph19.i255, %.pr
   %.010.lcssa.i266 = phi ptr [ %.111.lcssa.i254, %next_field.exit262 ], [ %126, %.lr.ph.i272 ]
   %.0.lcssa.i267 = phi i32 [ 0, %next_field.exit262 ], [ %127, %.lr.ph.i272 ]
   %123 = icmp ne i16 %.pre-phi23.i265, 0
-  %124 = icmp ult i32 %.0.lcssa.i267, %42
+  %124 = icmp samesign ult i32 %.0.lcssa.i267, %42
   %125 = select i1 %123, i1 %124, i1 false
   br i1 %125, label %.lr.ph19.i269, label %next_field.exit276
 
@@ -292,7 +292,7 @@ next_field.exit262:                               ; preds = %.lr.ph19.i255, %.pr
   %131 = load i16, ptr %130, align 2
   %132 = and i16 %131, 8192
   %.not.i275 = icmp eq i16 %132, 0
-  %133 = icmp ult i32 %127, %42
+  %133 = icmp samesign ult i32 %127, %42
   %134 = select i1 %.not.i275, i1 %133, i1 false
   br i1 %134, label %.lr.ph.i272, label %.preheader.i264, !llvm.loop !4
 
@@ -307,7 +307,7 @@ next_field.exit262:                               ; preds = %.lr.ph19.i255, %.pr
   %140 = load i16, ptr %139, align 2
   %141 = and i16 %140, 8192
   %142 = icmp ne i16 %141, 0
-  %143 = icmp ult i32 %136, %42
+  %143 = icmp samesign ult i32 %136, %42
   %144 = select i1 %142, i1 %143, i1 false
   br i1 %144, label %.lr.ph19.i269, label %next_field.exit276, !llvm.loop !6
 
@@ -328,7 +328,7 @@ next_field.exit276:                               ; preds = %.lr.ph19.i269, %.pr
   %.010.lcssa.i280 = phi ptr [ %.111.lcssa.i268, %next_field.exit276 ], [ %154, %.lr.ph.i286 ]
   %.0.lcssa.i281 = phi i32 [ 0, %next_field.exit276 ], [ %155, %.lr.ph.i286 ]
   %151 = icmp ne i16 %.pre-phi23.i279, 0
-  %152 = icmp ult i32 %.0.lcssa.i281, %42
+  %152 = icmp samesign ult i32 %.0.lcssa.i281, %42
   %153 = select i1 %151, i1 %152, i1 false
   br i1 %153, label %.lr.ph19.i283, label %next_field.exit290
 
@@ -343,7 +343,7 @@ next_field.exit276:                               ; preds = %.lr.ph19.i269, %.pr
   %159 = load i16, ptr %158, align 2
   %160 = and i16 %159, 8192
   %.not.i289 = icmp eq i16 %160, 0
-  %161 = icmp ult i32 %155, %42
+  %161 = icmp samesign ult i32 %155, %42
   %162 = select i1 %.not.i289, i1 %161, i1 false
   br i1 %162, label %.lr.ph.i286, label %.preheader.i278, !llvm.loop !4
 
@@ -358,7 +358,7 @@ next_field.exit276:                               ; preds = %.lr.ph19.i269, %.pr
   %168 = load i16, ptr %167, align 2
   %169 = and i16 %168, 8192
   %170 = icmp ne i16 %169, 0
-  %171 = icmp ult i32 %164, %42
+  %171 = icmp samesign ult i32 %164, %42
   %172 = select i1 %170, i1 %171, i1 false
   br i1 %172, label %.lr.ph19.i283, label %next_field.exit290, !llvm.loop !6
 
@@ -379,7 +379,7 @@ next_field.exit290:                               ; preds = %.lr.ph19.i283, %.pr
   %.010.lcssa.i294 = phi ptr [ %.111.lcssa.i282, %next_field.exit290 ], [ %182, %.lr.ph.i300 ]
   %.0.lcssa.i295 = phi i32 [ 0, %next_field.exit290 ], [ %183, %.lr.ph.i300 ]
   %179 = icmp ne i16 %.pre-phi23.i293, 0
-  %180 = icmp ult i32 %.0.lcssa.i295, %42
+  %180 = icmp samesign ult i32 %.0.lcssa.i295, %42
   %181 = select i1 %179, i1 %180, i1 false
   br i1 %181, label %.lr.ph19.i297, label %next_field.exit304
 
@@ -394,7 +394,7 @@ next_field.exit290:                               ; preds = %.lr.ph19.i283, %.pr
   %187 = load i16, ptr %186, align 2
   %188 = and i16 %187, 8192
   %.not.i303 = icmp eq i16 %188, 0
-  %189 = icmp ult i32 %183, %42
+  %189 = icmp samesign ult i32 %183, %42
   %190 = select i1 %.not.i303, i1 %189, i1 false
   br i1 %190, label %.lr.ph.i300, label %.preheader.i292, !llvm.loop !4
 
@@ -409,7 +409,7 @@ next_field.exit290:                               ; preds = %.lr.ph19.i283, %.pr
   %196 = load i16, ptr %195, align 2
   %197 = and i16 %196, 8192
   %198 = icmp ne i16 %197, 0
-  %199 = icmp ult i32 %192, %42
+  %199 = icmp samesign ult i32 %192, %42
   %200 = select i1 %198, i1 %199, i1 false
   br i1 %200, label %.lr.ph19.i297, label %next_field.exit304, !llvm.loop !6
 
@@ -430,7 +430,7 @@ next_field.exit304:                               ; preds = %.lr.ph19.i297, %.pr
   %.010.lcssa.i308 = phi ptr [ %.111.lcssa.i296, %next_field.exit304 ], [ %210, %.lr.ph.i314 ]
   %.0.lcssa.i309 = phi i32 [ 0, %next_field.exit304 ], [ %211, %.lr.ph.i314 ]
   %207 = icmp ne i16 %.pre-phi23.i307, 0
-  %208 = icmp ult i32 %.0.lcssa.i309, %42
+  %208 = icmp samesign ult i32 %.0.lcssa.i309, %42
   %209 = select i1 %207, i1 %208, i1 false
   br i1 %209, label %.lr.ph19.i311, label %next_field.exit318
 
@@ -445,7 +445,7 @@ next_field.exit304:                               ; preds = %.lr.ph19.i297, %.pr
   %215 = load i16, ptr %214, align 2
   %216 = and i16 %215, 8192
   %.not.i317 = icmp eq i16 %216, 0
-  %217 = icmp ult i32 %211, %42
+  %217 = icmp samesign ult i32 %211, %42
   %218 = select i1 %.not.i317, i1 %217, i1 false
   br i1 %218, label %.lr.ph.i314, label %.preheader.i306, !llvm.loop !4
 
@@ -460,7 +460,7 @@ next_field.exit304:                               ; preds = %.lr.ph19.i297, %.pr
   %224 = load i16, ptr %223, align 2
   %225 = and i16 %224, 8192
   %226 = icmp ne i16 %225, 0
-  %227 = icmp ult i32 %220, %42
+  %227 = icmp samesign ult i32 %220, %42
   %228 = select i1 %226, i1 %227, i1 false
   br i1 %228, label %.lr.ph19.i311, label %next_field.exit318, !llvm.loop !6
 
@@ -481,7 +481,7 @@ next_field.exit318:                               ; preds = %.lr.ph19.i311, %.pr
   %.010.lcssa.i322 = phi ptr [ %.111.lcssa.i310, %next_field.exit318 ], [ %238, %.lr.ph.i328 ]
   %.0.lcssa.i323 = phi i32 [ 0, %next_field.exit318 ], [ %239, %.lr.ph.i328 ]
   %235 = icmp ne i16 %.pre-phi23.i321, 0
-  %236 = icmp ult i32 %.0.lcssa.i323, %42
+  %236 = icmp samesign ult i32 %.0.lcssa.i323, %42
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %.lr.ph19.i325, label %next_field.exit332
 
@@ -496,7 +496,7 @@ next_field.exit318:                               ; preds = %.lr.ph19.i311, %.pr
   %243 = load i16, ptr %242, align 2
   %244 = and i16 %243, 8192
   %.not.i331 = icmp eq i16 %244, 0
-  %245 = icmp ult i32 %239, %42
+  %245 = icmp samesign ult i32 %239, %42
   %246 = select i1 %.not.i331, i1 %245, i1 false
   br i1 %246, label %.lr.ph.i328, label %.preheader.i320, !llvm.loop !4
 
@@ -511,7 +511,7 @@ next_field.exit318:                               ; preds = %.lr.ph19.i311, %.pr
   %252 = load i16, ptr %251, align 2
   %253 = and i16 %252, 8192
   %254 = icmp ne i16 %253, 0
-  %255 = icmp ult i32 %248, %42
+  %255 = icmp samesign ult i32 %248, %42
   %256 = select i1 %254, i1 %255, i1 false
   br i1 %256, label %.lr.ph19.i325, label %next_field.exit332, !llvm.loop !6
 
@@ -532,7 +532,7 @@ next_field.exit332:                               ; preds = %.lr.ph19.i325, %.pr
   %.010.lcssa.i336 = phi ptr [ %.111.lcssa.i324, %next_field.exit332 ], [ %266, %.lr.ph.i342 ]
   %.0.lcssa.i337 = phi i32 [ 0, %next_field.exit332 ], [ %267, %.lr.ph.i342 ]
   %263 = icmp ne i16 %.pre-phi23.i335, 0
-  %264 = icmp ult i32 %.0.lcssa.i337, %42
+  %264 = icmp samesign ult i32 %.0.lcssa.i337, %42
   %265 = select i1 %263, i1 %264, i1 false
   br i1 %265, label %.lr.ph19.i339, label %next_field.exit346
 
@@ -547,7 +547,7 @@ next_field.exit332:                               ; preds = %.lr.ph19.i325, %.pr
   %271 = load i16, ptr %270, align 2
   %272 = and i16 %271, 8192
   %.not.i345 = icmp eq i16 %272, 0
-  %273 = icmp ult i32 %267, %42
+  %273 = icmp samesign ult i32 %267, %42
   %274 = select i1 %.not.i345, i1 %273, i1 false
   br i1 %274, label %.lr.ph.i342, label %.preheader.i334, !llvm.loop !4
 
@@ -562,7 +562,7 @@ next_field.exit332:                               ; preds = %.lr.ph19.i325, %.pr
   %280 = load i16, ptr %279, align 2
   %281 = and i16 %280, 8192
   %282 = icmp ne i16 %281, 0
-  %283 = icmp ult i32 %276, %42
+  %283 = icmp samesign ult i32 %276, %42
   %284 = select i1 %282, i1 %283, i1 false
   br i1 %284, label %.lr.ph19.i339, label %next_field.exit346, !llvm.loop !6
 
@@ -583,7 +583,7 @@ next_field.exit346:                               ; preds = %.lr.ph19.i339, %.pr
   %.010.lcssa.i350 = phi ptr [ %.111.lcssa.i338, %next_field.exit346 ], [ %294, %.lr.ph.i356 ]
   %.0.lcssa.i351 = phi i32 [ 0, %next_field.exit346 ], [ %295, %.lr.ph.i356 ]
   %291 = icmp ne i16 %.pre-phi23.i349, 0
-  %292 = icmp ult i32 %.0.lcssa.i351, %42
+  %292 = icmp samesign ult i32 %.0.lcssa.i351, %42
   %293 = select i1 %291, i1 %292, i1 false
   br i1 %293, label %.lr.ph19.i353, label %next_field.exit360
 
@@ -598,7 +598,7 @@ next_field.exit346:                               ; preds = %.lr.ph19.i339, %.pr
   %299 = load i16, ptr %298, align 2
   %300 = and i16 %299, 8192
   %.not.i359 = icmp eq i16 %300, 0
-  %301 = icmp ult i32 %295, %42
+  %301 = icmp samesign ult i32 %295, %42
   %302 = select i1 %.not.i359, i1 %301, i1 false
   br i1 %302, label %.lr.ph.i356, label %.preheader.i348, !llvm.loop !4
 
@@ -613,7 +613,7 @@ next_field.exit346:                               ; preds = %.lr.ph19.i339, %.pr
   %308 = load i16, ptr %307, align 2
   %309 = and i16 %308, 8192
   %310 = icmp ne i16 %309, 0
-  %311 = icmp ult i32 %304, %42
+  %311 = icmp samesign ult i32 %304, %42
   %312 = select i1 %310, i1 %311, i1 false
   br i1 %312, label %.lr.ph19.i353, label %next_field.exit360, !llvm.loop !6
 
@@ -634,7 +634,7 @@ next_field.exit360:                               ; preds = %.lr.ph19.i353, %.pr
   %.010.lcssa.i364 = phi ptr [ %.111.lcssa.i352, %next_field.exit360 ], [ %322, %.lr.ph.i370 ]
   %.0.lcssa.i365 = phi i32 [ 0, %next_field.exit360 ], [ %323, %.lr.ph.i370 ]
   %319 = icmp ne i16 %.pre-phi23.i363, 0
-  %320 = icmp ult i32 %.0.lcssa.i365, %42
+  %320 = icmp samesign ult i32 %.0.lcssa.i365, %42
   %321 = select i1 %319, i1 %320, i1 false
   br i1 %321, label %.lr.ph19.i367, label %next_field.exit374
 
@@ -649,7 +649,7 @@ next_field.exit360:                               ; preds = %.lr.ph19.i353, %.pr
   %327 = load i16, ptr %326, align 2
   %328 = and i16 %327, 8192
   %.not.i373 = icmp eq i16 %328, 0
-  %329 = icmp ult i32 %323, %42
+  %329 = icmp samesign ult i32 %323, %42
   %330 = select i1 %.not.i373, i1 %329, i1 false
   br i1 %330, label %.lr.ph.i370, label %.preheader.i362, !llvm.loop !4
 
@@ -664,7 +664,7 @@ next_field.exit360:                               ; preds = %.lr.ph19.i353, %.pr
   %336 = load i16, ptr %335, align 2
   %337 = and i16 %336, 8192
   %338 = icmp ne i16 %337, 0
-  %339 = icmp ult i32 %332, %42
+  %339 = icmp samesign ult i32 %332, %42
   %340 = select i1 %338, i1 %339, i1 false
   br i1 %340, label %.lr.ph19.i367, label %next_field.exit374, !llvm.loop !6
 
@@ -685,7 +685,7 @@ next_field.exit374:                               ; preds = %.lr.ph19.i367, %.pr
   %.010.lcssa.i378 = phi ptr [ %.111.lcssa.i366, %next_field.exit374 ], [ %350, %.lr.ph.i384 ]
   %.0.lcssa.i379 = phi i32 [ 0, %next_field.exit374 ], [ %351, %.lr.ph.i384 ]
   %347 = icmp ne i16 %.pre-phi23.i377, 0
-  %348 = icmp ult i32 %.0.lcssa.i379, %42
+  %348 = icmp samesign ult i32 %.0.lcssa.i379, %42
   %349 = select i1 %347, i1 %348, i1 false
   br i1 %349, label %.lr.ph19.i381, label %next_field.exit388
 
@@ -700,7 +700,7 @@ next_field.exit374:                               ; preds = %.lr.ph19.i367, %.pr
   %355 = load i16, ptr %354, align 2
   %356 = and i16 %355, 8192
   %.not.i387 = icmp eq i16 %356, 0
-  %357 = icmp ult i32 %351, %42
+  %357 = icmp samesign ult i32 %351, %42
   %358 = select i1 %.not.i387, i1 %357, i1 false
   br i1 %358, label %.lr.ph.i384, label %.preheader.i376, !llvm.loop !4
 
@@ -715,7 +715,7 @@ next_field.exit374:                               ; preds = %.lr.ph19.i367, %.pr
   %364 = load i16, ptr %363, align 2
   %365 = and i16 %364, 8192
   %366 = icmp ne i16 %365, 0
-  %367 = icmp ult i32 %360, %42
+  %367 = icmp samesign ult i32 %360, %42
   %368 = select i1 %366, i1 %367, i1 false
   br i1 %368, label %.lr.ph19.i381, label %next_field.exit388, !llvm.loop !6
 
@@ -736,7 +736,7 @@ next_field.exit388:                               ; preds = %.lr.ph19.i381, %.pr
   %.010.lcssa.i392 = phi ptr [ %.111.lcssa.i380, %next_field.exit388 ], [ %378, %.lr.ph.i398 ]
   %.0.lcssa.i393 = phi i32 [ 0, %next_field.exit388 ], [ %379, %.lr.ph.i398 ]
   %375 = icmp ne i16 %.pre-phi23.i391, 0
-  %376 = icmp ult i32 %.0.lcssa.i393, %42
+  %376 = icmp samesign ult i32 %.0.lcssa.i393, %42
   %377 = select i1 %375, i1 %376, i1 false
   br i1 %377, label %.lr.ph19.i395, label %next_field.exit402
 
@@ -751,7 +751,7 @@ next_field.exit388:                               ; preds = %.lr.ph19.i381, %.pr
   %383 = load i16, ptr %382, align 2
   %384 = and i16 %383, 8192
   %.not.i401 = icmp eq i16 %384, 0
-  %385 = icmp ult i32 %379, %42
+  %385 = icmp samesign ult i32 %379, %42
   %386 = select i1 %.not.i401, i1 %385, i1 false
   br i1 %386, label %.lr.ph.i398, label %.preheader.i390, !llvm.loop !4
 
@@ -766,7 +766,7 @@ next_field.exit388:                               ; preds = %.lr.ph19.i381, %.pr
   %392 = load i16, ptr %391, align 2
   %393 = and i16 %392, 8192
   %394 = icmp ne i16 %393, 0
-  %395 = icmp ult i32 %388, %42
+  %395 = icmp samesign ult i32 %388, %42
   %396 = select i1 %394, i1 %395, i1 false
   br i1 %396, label %.lr.ph19.i395, label %next_field.exit402, !llvm.loop !6
 
@@ -807,7 +807,7 @@ next_field.exit402:                               ; preds = %.lr.ph19.i395, %.pr
   %.010.lcssa.i406 = phi ptr [ %413, %next_field.exit402 ], [ %424, %.lr.ph.i412 ]
   %.0.lcssa.i407 = phi i32 [ 0, %next_field.exit402 ], [ %425, %.lr.ph.i412 ]
   %421 = icmp ne i16 %.pre-phi23.i405, 0
-  %422 = icmp ult i32 %.0.lcssa.i407, %42
+  %422 = icmp samesign ult i32 %.0.lcssa.i407, %42
   %423 = select i1 %421, i1 %422, i1 false
   br i1 %423, label %.lr.ph19.i409, label %next_field.exit416
 
@@ -822,7 +822,7 @@ next_field.exit402:                               ; preds = %.lr.ph19.i395, %.pr
   %429 = load i16, ptr %428, align 2
   %430 = and i16 %429, 8192
   %.not.i415 = icmp eq i16 %430, 0
-  %431 = icmp ult i32 %425, %42
+  %431 = icmp samesign ult i32 %425, %42
   %432 = select i1 %.not.i415, i1 %431, i1 false
   br i1 %432, label %.lr.ph.i412, label %.preheader.i404, !llvm.loop !4
 
@@ -837,7 +837,7 @@ next_field.exit402:                               ; preds = %.lr.ph19.i395, %.pr
   %438 = load i16, ptr %437, align 2
   %439 = and i16 %438, 8192
   %440 = icmp ne i16 %439, 0
-  %441 = icmp ult i32 %434, %42
+  %441 = icmp samesign ult i32 %434, %42
   %442 = select i1 %440, i1 %441, i1 false
   br i1 %442, label %.lr.ph19.i409, label %next_field.exit416, !llvm.loop !6
 
@@ -858,7 +858,7 @@ next_field.exit416:                               ; preds = %.lr.ph19.i409, %.pr
   %.010.lcssa.i420 = phi ptr [ %.111.lcssa.i408, %next_field.exit416 ], [ %452, %.lr.ph.i426 ]
   %.0.lcssa.i421 = phi i32 [ 0, %next_field.exit416 ], [ %453, %.lr.ph.i426 ]
   %449 = icmp ne i16 %.pre-phi23.i419, 0
-  %450 = icmp ult i32 %.0.lcssa.i421, %42
+  %450 = icmp samesign ult i32 %.0.lcssa.i421, %42
   %451 = select i1 %449, i1 %450, i1 false
   br i1 %451, label %.lr.ph19.i423, label %next_field.exit430
 
@@ -873,7 +873,7 @@ next_field.exit416:                               ; preds = %.lr.ph19.i409, %.pr
   %457 = load i16, ptr %456, align 2
   %458 = and i16 %457, 8192
   %.not.i429 = icmp eq i16 %458, 0
-  %459 = icmp ult i32 %453, %42
+  %459 = icmp samesign ult i32 %453, %42
   %460 = select i1 %.not.i429, i1 %459, i1 false
   br i1 %460, label %.lr.ph.i426, label %.preheader.i418, !llvm.loop !4
 
@@ -888,7 +888,7 @@ next_field.exit416:                               ; preds = %.lr.ph19.i409, %.pr
   %466 = load i16, ptr %465, align 2
   %467 = and i16 %466, 8192
   %468 = icmp ne i16 %467, 0
-  %469 = icmp ult i32 %462, %42
+  %469 = icmp samesign ult i32 %462, %42
   %470 = select i1 %468, i1 %469, i1 false
   br i1 %470, label %.lr.ph19.i423, label %next_field.exit430, !llvm.loop !6
 
@@ -909,7 +909,7 @@ next_field.exit430:                               ; preds = %.lr.ph19.i423, %.pr
   %.010.lcssa.i434 = phi ptr [ %.111.lcssa.i422, %next_field.exit430 ], [ %480, %.lr.ph.i440 ]
   %.0.lcssa.i435 = phi i32 [ 0, %next_field.exit430 ], [ %481, %.lr.ph.i440 ]
   %477 = icmp ne i16 %.pre-phi23.i433, 0
-  %478 = icmp ult i32 %.0.lcssa.i435, %42
+  %478 = icmp samesign ult i32 %.0.lcssa.i435, %42
   %479 = select i1 %477, i1 %478, i1 false
   br i1 %479, label %.lr.ph19.i437, label %next_field.exit444
 
@@ -924,7 +924,7 @@ next_field.exit430:                               ; preds = %.lr.ph19.i423, %.pr
   %485 = load i16, ptr %484, align 2
   %486 = and i16 %485, 8192
   %.not.i443 = icmp eq i16 %486, 0
-  %487 = icmp ult i32 %481, %42
+  %487 = icmp samesign ult i32 %481, %42
   %488 = select i1 %.not.i443, i1 %487, i1 false
   br i1 %488, label %.lr.ph.i440, label %.preheader.i432, !llvm.loop !4
 
@@ -939,7 +939,7 @@ next_field.exit430:                               ; preds = %.lr.ph19.i423, %.pr
   %494 = load i16, ptr %493, align 2
   %495 = and i16 %494, 8192
   %496 = icmp ne i16 %495, 0
-  %497 = icmp ult i32 %490, %42
+  %497 = icmp samesign ult i32 %490, %42
   %498 = select i1 %496, i1 %497, i1 false
   br i1 %498, label %.lr.ph19.i437, label %next_field.exit444, !llvm.loop !6
 
@@ -966,7 +966,7 @@ next_field.exit444:                               ; preds = %.lr.ph19.i437, %.pr
   %.010.lcssa.i448 = phi ptr [ %502, %next_field.exit444 ], [ %513, %.lr.ph.i454 ]
   %.0.lcssa.i449 = phi i32 [ 0, %next_field.exit444 ], [ %514, %.lr.ph.i454 ]
   %510 = icmp ne i16 %.pre-phi23.i447, 0
-  %511 = icmp ult i32 %.0.lcssa.i449, %42
+  %511 = icmp samesign ult i32 %.0.lcssa.i449, %42
   %512 = select i1 %510, i1 %511, i1 false
   br i1 %512, label %.lr.ph19.i451, label %next_field.exit458
 
@@ -981,7 +981,7 @@ next_field.exit444:                               ; preds = %.lr.ph19.i437, %.pr
   %518 = load i16, ptr %517, align 2
   %519 = and i16 %518, 8192
   %.not.i457 = icmp eq i16 %519, 0
-  %520 = icmp ult i32 %514, %42
+  %520 = icmp samesign ult i32 %514, %42
   %521 = select i1 %.not.i457, i1 %520, i1 false
   br i1 %521, label %.lr.ph.i454, label %.preheader.i446, !llvm.loop !4
 
@@ -996,7 +996,7 @@ next_field.exit444:                               ; preds = %.lr.ph19.i437, %.pr
   %527 = load i16, ptr %526, align 2
   %528 = and i16 %527, 8192
   %529 = icmp ne i16 %528, 0
-  %530 = icmp ult i32 %523, %42
+  %530 = icmp samesign ult i32 %523, %42
   %531 = select i1 %529, i1 %530, i1 false
   br i1 %531, label %.lr.ph19.i451, label %next_field.exit458, !llvm.loop !6
 
@@ -1017,7 +1017,7 @@ next_field.exit458:                               ; preds = %.lr.ph19.i451, %.pr
   %.010.lcssa.i462 = phi ptr [ %.111.lcssa.i450, %next_field.exit458 ], [ %541, %.lr.ph.i468 ]
   %.0.lcssa.i463 = phi i32 [ 0, %next_field.exit458 ], [ %542, %.lr.ph.i468 ]
   %538 = icmp ne i16 %.pre-phi23.i461, 0
-  %539 = icmp ult i32 %.0.lcssa.i463, %42
+  %539 = icmp samesign ult i32 %.0.lcssa.i463, %42
   %540 = select i1 %538, i1 %539, i1 false
   br i1 %540, label %.lr.ph19.i465, label %next_field.exit472
 
@@ -1032,7 +1032,7 @@ next_field.exit458:                               ; preds = %.lr.ph19.i451, %.pr
   %546 = load i16, ptr %545, align 2
   %547 = and i16 %546, 8192
   %.not.i471 = icmp eq i16 %547, 0
-  %548 = icmp ult i32 %542, %42
+  %548 = icmp samesign ult i32 %542, %42
   %549 = select i1 %.not.i471, i1 %548, i1 false
   br i1 %549, label %.lr.ph.i468, label %.preheader.i460, !llvm.loop !4
 
@@ -1047,7 +1047,7 @@ next_field.exit458:                               ; preds = %.lr.ph19.i451, %.pr
   %555 = load i16, ptr %554, align 2
   %556 = and i16 %555, 8192
   %557 = icmp ne i16 %556, 0
-  %558 = icmp ult i32 %551, %42
+  %558 = icmp samesign ult i32 %551, %42
   %559 = select i1 %557, i1 %558, i1 false
   br i1 %559, label %.lr.ph19.i465, label %next_field.exit472, !llvm.loop !6
 
@@ -1074,7 +1074,7 @@ next_field.exit472:                               ; preds = %.lr.ph19.i465, %.pr
   %.010.lcssa.i476 = phi ptr [ %563, %next_field.exit472 ], [ %574, %.lr.ph.i482 ]
   %.0.lcssa.i477 = phi i32 [ 0, %next_field.exit472 ], [ %575, %.lr.ph.i482 ]
   %571 = icmp ne i16 %.pre-phi23.i475, 0
-  %572 = icmp ult i32 %.0.lcssa.i477, %42
+  %572 = icmp samesign ult i32 %.0.lcssa.i477, %42
   %573 = select i1 %571, i1 %572, i1 false
   br i1 %573, label %.lr.ph19.i479, label %next_field.exit486
 
@@ -1089,7 +1089,7 @@ next_field.exit472:                               ; preds = %.lr.ph19.i465, %.pr
   %579 = load i16, ptr %578, align 2
   %580 = and i16 %579, 8192
   %.not.i485 = icmp eq i16 %580, 0
-  %581 = icmp ult i32 %575, %42
+  %581 = icmp samesign ult i32 %575, %42
   %582 = select i1 %.not.i485, i1 %581, i1 false
   br i1 %582, label %.lr.ph.i482, label %.preheader.i474, !llvm.loop !4
 
@@ -1104,7 +1104,7 @@ next_field.exit472:                               ; preds = %.lr.ph19.i465, %.pr
   %588 = load i16, ptr %587, align 2
   %589 = and i16 %588, 8192
   %590 = icmp ne i16 %589, 0
-  %591 = icmp ult i32 %584, %42
+  %591 = icmp samesign ult i32 %584, %42
   %592 = select i1 %590, i1 %591, i1 false
   br i1 %592, label %.lr.ph19.i479, label %next_field.exit486, !llvm.loop !6
 
@@ -1125,7 +1125,7 @@ next_field.exit486:                               ; preds = %.lr.ph19.i479, %.pr
   %.010.lcssa.i490 = phi ptr [ %.111.lcssa.i478, %next_field.exit486 ], [ %602, %.lr.ph.i496 ]
   %.0.lcssa.i491 = phi i32 [ 0, %next_field.exit486 ], [ %603, %.lr.ph.i496 ]
   %599 = icmp ne i16 %.pre-phi23.i489, 0
-  %600 = icmp ult i32 %.0.lcssa.i491, %42
+  %600 = icmp samesign ult i32 %.0.lcssa.i491, %42
   %601 = select i1 %599, i1 %600, i1 false
   br i1 %601, label %.lr.ph19.i493, label %next_field.exit500
 
@@ -1140,7 +1140,7 @@ next_field.exit486:                               ; preds = %.lr.ph19.i479, %.pr
   %607 = load i16, ptr %606, align 2
   %608 = and i16 %607, 8192
   %.not.i499 = icmp eq i16 %608, 0
-  %609 = icmp ult i32 %603, %42
+  %609 = icmp samesign ult i32 %603, %42
   %610 = select i1 %.not.i499, i1 %609, i1 false
   br i1 %610, label %.lr.ph.i496, label %.preheader.i488, !llvm.loop !4
 
@@ -1155,7 +1155,7 @@ next_field.exit486:                               ; preds = %.lr.ph19.i479, %.pr
   %616 = load i16, ptr %615, align 2
   %617 = and i16 %616, 8192
   %618 = icmp ne i16 %617, 0
-  %619 = icmp ult i32 %612, %42
+  %619 = icmp samesign ult i32 %612, %42
   %620 = select i1 %618, i1 %619, i1 false
   br i1 %620, label %.lr.ph19.i493, label %next_field.exit500, !llvm.loop !6
 
@@ -1176,7 +1176,7 @@ next_field.exit500:                               ; preds = %.lr.ph19.i493, %.pr
   %.010.lcssa.i504 = phi ptr [ %.111.lcssa.i492, %next_field.exit500 ], [ %630, %.lr.ph.i510 ]
   %.0.lcssa.i505 = phi i32 [ 0, %next_field.exit500 ], [ %631, %.lr.ph.i510 ]
   %627 = icmp ne i16 %.pre-phi23.i503, 0
-  %628 = icmp ult i32 %.0.lcssa.i505, %42
+  %628 = icmp samesign ult i32 %.0.lcssa.i505, %42
   %629 = select i1 %627, i1 %628, i1 false
   br i1 %629, label %.lr.ph19.i507, label %next_field.exit514
 
@@ -1191,7 +1191,7 @@ next_field.exit500:                               ; preds = %.lr.ph19.i493, %.pr
   %635 = load i16, ptr %634, align 2
   %636 = and i16 %635, 8192
   %.not.i513 = icmp eq i16 %636, 0
-  %637 = icmp ult i32 %631, %42
+  %637 = icmp samesign ult i32 %631, %42
   %638 = select i1 %.not.i513, i1 %637, i1 false
   br i1 %638, label %.lr.ph.i510, label %.preheader.i502, !llvm.loop !4
 
@@ -1206,7 +1206,7 @@ next_field.exit500:                               ; preds = %.lr.ph19.i493, %.pr
   %644 = load i16, ptr %643, align 2
   %645 = and i16 %644, 8192
   %646 = icmp ne i16 %645, 0
-  %647 = icmp ult i32 %640, %42
+  %647 = icmp samesign ult i32 %640, %42
   %648 = select i1 %646, i1 %647, i1 false
   br i1 %648, label %.lr.ph19.i507, label %next_field.exit514, !llvm.loop !6
 
@@ -1227,7 +1227,7 @@ next_field.exit514:                               ; preds = %.lr.ph19.i507, %.pr
   %.010.lcssa.i518 = phi ptr [ %.111.lcssa.i506, %next_field.exit514 ], [ %658, %.lr.ph.i524 ]
   %.0.lcssa.i519 = phi i32 [ 0, %next_field.exit514 ], [ %659, %.lr.ph.i524 ]
   %655 = icmp ne i16 %.pre-phi23.i517, 0
-  %656 = icmp ult i32 %.0.lcssa.i519, %42
+  %656 = icmp samesign ult i32 %.0.lcssa.i519, %42
   %657 = select i1 %655, i1 %656, i1 false
   br i1 %657, label %.lr.ph19.i521, label %next_field.exit528
 
@@ -1242,7 +1242,7 @@ next_field.exit514:                               ; preds = %.lr.ph19.i507, %.pr
   %663 = load i16, ptr %662, align 2
   %664 = and i16 %663, 8192
   %.not.i527 = icmp eq i16 %664, 0
-  %665 = icmp ult i32 %659, %42
+  %665 = icmp samesign ult i32 %659, %42
   %666 = select i1 %.not.i527, i1 %665, i1 false
   br i1 %666, label %.lr.ph.i524, label %.preheader.i516, !llvm.loop !4
 
@@ -1257,7 +1257,7 @@ next_field.exit514:                               ; preds = %.lr.ph19.i507, %.pr
   %672 = load i16, ptr %671, align 2
   %673 = and i16 %672, 8192
   %674 = icmp ne i16 %673, 0
-  %675 = icmp ult i32 %668, %42
+  %675 = icmp samesign ult i32 %668, %42
   %676 = select i1 %674, i1 %675, i1 false
   br i1 %676, label %.lr.ph19.i521, label %next_field.exit528, !llvm.loop !6
 
@@ -1278,7 +1278,7 @@ next_field.exit528:                               ; preds = %.lr.ph19.i521, %.pr
   %.010.lcssa.i532 = phi ptr [ %.111.lcssa.i520, %next_field.exit528 ], [ %686, %.lr.ph.i538 ]
   %.0.lcssa.i533 = phi i32 [ 0, %next_field.exit528 ], [ %687, %.lr.ph.i538 ]
   %683 = icmp ne i16 %.pre-phi23.i531, 0
-  %684 = icmp ult i32 %.0.lcssa.i533, %42
+  %684 = icmp samesign ult i32 %.0.lcssa.i533, %42
   %685 = select i1 %683, i1 %684, i1 false
   br i1 %685, label %.lr.ph19.i535, label %next_field.exit542
 
@@ -1293,7 +1293,7 @@ next_field.exit528:                               ; preds = %.lr.ph19.i521, %.pr
   %691 = load i16, ptr %690, align 2
   %692 = and i16 %691, 8192
   %.not.i541 = icmp eq i16 %692, 0
-  %693 = icmp ult i32 %687, %42
+  %693 = icmp samesign ult i32 %687, %42
   %694 = select i1 %.not.i541, i1 %693, i1 false
   br i1 %694, label %.lr.ph.i538, label %.preheader.i530, !llvm.loop !4
 
@@ -1308,7 +1308,7 @@ next_field.exit528:                               ; preds = %.lr.ph19.i521, %.pr
   %700 = load i16, ptr %699, align 2
   %701 = and i16 %700, 8192
   %702 = icmp ne i16 %701, 0
-  %703 = icmp ult i32 %696, %42
+  %703 = icmp samesign ult i32 %696, %42
   %704 = select i1 %702, i1 %703, i1 false
   br i1 %704, label %.lr.ph19.i535, label %next_field.exit542, !llvm.loop !6
 
@@ -1329,7 +1329,7 @@ next_field.exit542:                               ; preds = %.lr.ph19.i535, %.pr
   %.010.lcssa.i546 = phi ptr [ %.111.lcssa.i534, %next_field.exit542 ], [ %714, %.lr.ph.i552 ]
   %.0.lcssa.i547 = phi i32 [ 0, %next_field.exit542 ], [ %715, %.lr.ph.i552 ]
   %711 = icmp ne i16 %.pre-phi23.i545, 0
-  %712 = icmp ult i32 %.0.lcssa.i547, %42
+  %712 = icmp samesign ult i32 %.0.lcssa.i547, %42
   %713 = select i1 %711, i1 %712, i1 false
   br i1 %713, label %.lr.ph19.i549, label %next_field.exit556
 
@@ -1344,7 +1344,7 @@ next_field.exit542:                               ; preds = %.lr.ph19.i535, %.pr
   %719 = load i16, ptr %718, align 2
   %720 = and i16 %719, 8192
   %.not.i555 = icmp eq i16 %720, 0
-  %721 = icmp ult i32 %715, %42
+  %721 = icmp samesign ult i32 %715, %42
   %722 = select i1 %.not.i555, i1 %721, i1 false
   br i1 %722, label %.lr.ph.i552, label %.preheader.i544, !llvm.loop !4
 
@@ -1359,7 +1359,7 @@ next_field.exit542:                               ; preds = %.lr.ph19.i535, %.pr
   %728 = load i16, ptr %727, align 2
   %729 = and i16 %728, 8192
   %730 = icmp ne i16 %729, 0
-  %731 = icmp ult i32 %724, %42
+  %731 = icmp samesign ult i32 %724, %42
   %732 = select i1 %730, i1 %731, i1 false
   br i1 %732, label %.lr.ph19.i549, label %next_field.exit556, !llvm.loop !6
 
@@ -1380,7 +1380,7 @@ next_field.exit556:                               ; preds = %.lr.ph19.i549, %.pr
   %.010.lcssa.i560 = phi ptr [ %.111.lcssa.i548, %next_field.exit556 ], [ %742, %.lr.ph.i566 ]
   %.0.lcssa.i561 = phi i32 [ 0, %next_field.exit556 ], [ %743, %.lr.ph.i566 ]
   %739 = icmp ne i16 %.pre-phi23.i559, 0
-  %740 = icmp ult i32 %.0.lcssa.i561, %42
+  %740 = icmp samesign ult i32 %.0.lcssa.i561, %42
   %741 = select i1 %739, i1 %740, i1 false
   br i1 %741, label %.lr.ph19.i563, label %next_field.exit570
 
@@ -1395,7 +1395,7 @@ next_field.exit556:                               ; preds = %.lr.ph19.i549, %.pr
   %747 = load i16, ptr %746, align 2
   %748 = and i16 %747, 8192
   %.not.i569 = icmp eq i16 %748, 0
-  %749 = icmp ult i32 %743, %42
+  %749 = icmp samesign ult i32 %743, %42
   %750 = select i1 %.not.i569, i1 %749, i1 false
   br i1 %750, label %.lr.ph.i566, label %.preheader.i558, !llvm.loop !4
 
@@ -1410,7 +1410,7 @@ next_field.exit556:                               ; preds = %.lr.ph19.i549, %.pr
   %756 = load i16, ptr %755, align 2
   %757 = and i16 %756, 8192
   %758 = icmp ne i16 %757, 0
-  %759 = icmp ult i32 %752, %42
+  %759 = icmp samesign ult i32 %752, %42
   %760 = select i1 %758, i1 %759, i1 false
   br i1 %760, label %.lr.ph19.i563, label %next_field.exit570, !llvm.loop !6
 
@@ -1431,7 +1431,7 @@ next_field.exit570:                               ; preds = %.lr.ph19.i563, %.pr
   %.010.lcssa.i574 = phi ptr [ %.111.lcssa.i562, %next_field.exit570 ], [ %770, %.lr.ph.i580 ]
   %.0.lcssa.i575 = phi i32 [ 0, %next_field.exit570 ], [ %771, %.lr.ph.i580 ]
   %767 = icmp ne i16 %.pre-phi23.i573, 0
-  %768 = icmp ult i32 %.0.lcssa.i575, %42
+  %768 = icmp samesign ult i32 %.0.lcssa.i575, %42
   %769 = select i1 %767, i1 %768, i1 false
   br i1 %769, label %.lr.ph19.i577, label %next_field.exit584
 
@@ -1446,7 +1446,7 @@ next_field.exit570:                               ; preds = %.lr.ph19.i563, %.pr
   %775 = load i16, ptr %774, align 2
   %776 = and i16 %775, 8192
   %.not.i583 = icmp eq i16 %776, 0
-  %777 = icmp ult i32 %771, %42
+  %777 = icmp samesign ult i32 %771, %42
   %778 = select i1 %.not.i583, i1 %777, i1 false
   br i1 %778, label %.lr.ph.i580, label %.preheader.i572, !llvm.loop !4
 
@@ -1461,7 +1461,7 @@ next_field.exit570:                               ; preds = %.lr.ph19.i563, %.pr
   %784 = load i16, ptr %783, align 2
   %785 = and i16 %784, 8192
   %786 = icmp ne i16 %785, 0
-  %787 = icmp ult i32 %780, %42
+  %787 = icmp samesign ult i32 %780, %42
   %788 = select i1 %786, i1 %787, i1 false
   br i1 %788, label %.lr.ph19.i577, label %next_field.exit584, !llvm.loop !6
 
@@ -1482,7 +1482,7 @@ next_field.exit584:                               ; preds = %.lr.ph19.i577, %.pr
   %.010.lcssa.i588 = phi ptr [ %.111.lcssa.i576, %next_field.exit584 ], [ %798, %.lr.ph.i594 ]
   %.0.lcssa.i589 = phi i32 [ 0, %next_field.exit584 ], [ %799, %.lr.ph.i594 ]
   %795 = icmp ne i16 %.pre-phi23.i587, 0
-  %796 = icmp ult i32 %.0.lcssa.i589, %42
+  %796 = icmp samesign ult i32 %.0.lcssa.i589, %42
   %797 = select i1 %795, i1 %796, i1 false
   br i1 %797, label %.lr.ph19.i591, label %next_field.exit598
 
@@ -1497,7 +1497,7 @@ next_field.exit584:                               ; preds = %.lr.ph19.i577, %.pr
   %803 = load i16, ptr %802, align 2
   %804 = and i16 %803, 8192
   %.not.i597 = icmp eq i16 %804, 0
-  %805 = icmp ult i32 %799, %42
+  %805 = icmp samesign ult i32 %799, %42
   %806 = select i1 %.not.i597, i1 %805, i1 false
   br i1 %806, label %.lr.ph.i594, label %.preheader.i586, !llvm.loop !4
 
@@ -1512,7 +1512,7 @@ next_field.exit584:                               ; preds = %.lr.ph19.i577, %.pr
   %812 = load i16, ptr %811, align 2
   %813 = and i16 %812, 8192
   %814 = icmp ne i16 %813, 0
-  %815 = icmp ult i32 %808, %42
+  %815 = icmp samesign ult i32 %808, %42
   %816 = select i1 %814, i1 %815, i1 false
   br i1 %816, label %.lr.ph19.i591, label %next_field.exit598, !llvm.loop !6
 
@@ -1533,7 +1533,7 @@ next_field.exit598:                               ; preds = %.lr.ph19.i591, %.pr
   %.010.lcssa.i602 = phi ptr [ %.111.lcssa.i590, %next_field.exit598 ], [ %826, %.lr.ph.i608 ]
   %.0.lcssa.i603 = phi i32 [ 0, %next_field.exit598 ], [ %827, %.lr.ph.i608 ]
   %823 = icmp ne i16 %.pre-phi23.i601, 0
-  %824 = icmp ult i32 %.0.lcssa.i603, %42
+  %824 = icmp samesign ult i32 %.0.lcssa.i603, %42
   %825 = select i1 %823, i1 %824, i1 false
   br i1 %825, label %.lr.ph19.i605, label %next_field.exit612
 
@@ -1548,7 +1548,7 @@ next_field.exit598:                               ; preds = %.lr.ph19.i591, %.pr
   %831 = load i16, ptr %830, align 2
   %832 = and i16 %831, 8192
   %.not.i611 = icmp eq i16 %832, 0
-  %833 = icmp ult i32 %827, %42
+  %833 = icmp samesign ult i32 %827, %42
   %834 = select i1 %.not.i611, i1 %833, i1 false
   br i1 %834, label %.lr.ph.i608, label %.preheader.i600, !llvm.loop !4
 
@@ -1563,7 +1563,7 @@ next_field.exit598:                               ; preds = %.lr.ph19.i591, %.pr
   %840 = load i16, ptr %839, align 2
   %841 = and i16 %840, 8192
   %842 = icmp ne i16 %841, 0
-  %843 = icmp ult i32 %836, %42
+  %843 = icmp samesign ult i32 %836, %42
   %844 = select i1 %842, i1 %843, i1 false
   br i1 %844, label %.lr.ph19.i605, label %next_field.exit612, !llvm.loop !6
 
@@ -1584,7 +1584,7 @@ next_field.exit612:                               ; preds = %.lr.ph19.i605, %.pr
   %.010.lcssa.i616 = phi ptr [ %.111.lcssa.i604, %next_field.exit612 ], [ %854, %.lr.ph.i622 ]
   %.0.lcssa.i617 = phi i32 [ 0, %next_field.exit612 ], [ %855, %.lr.ph.i622 ]
   %851 = icmp ne i16 %.pre-phi23.i615, 0
-  %852 = icmp ult i32 %.0.lcssa.i617, %42
+  %852 = icmp samesign ult i32 %.0.lcssa.i617, %42
   %853 = select i1 %851, i1 %852, i1 false
   br i1 %853, label %.lr.ph19.i619, label %next_field.exit626
 
@@ -1599,7 +1599,7 @@ next_field.exit612:                               ; preds = %.lr.ph19.i605, %.pr
   %859 = load i16, ptr %858, align 2
   %860 = and i16 %859, 8192
   %.not.i625 = icmp eq i16 %860, 0
-  %861 = icmp ult i32 %855, %42
+  %861 = icmp samesign ult i32 %855, %42
   %862 = select i1 %.not.i625, i1 %861, i1 false
   br i1 %862, label %.lr.ph.i622, label %.preheader.i614, !llvm.loop !4
 
@@ -1614,7 +1614,7 @@ next_field.exit612:                               ; preds = %.lr.ph19.i605, %.pr
   %868 = load i16, ptr %867, align 2
   %869 = and i16 %868, 8192
   %870 = icmp ne i16 %869, 0
-  %871 = icmp ult i32 %864, %42
+  %871 = icmp samesign ult i32 %864, %42
   %872 = select i1 %870, i1 %871, i1 false
   br i1 %872, label %.lr.ph19.i619, label %next_field.exit626, !llvm.loop !6
 
@@ -1635,7 +1635,7 @@ next_field.exit626:                               ; preds = %.lr.ph19.i619, %.pr
   %.010.lcssa.i630 = phi ptr [ %.111.lcssa.i618, %next_field.exit626 ], [ %882, %.lr.ph.i636 ]
   %.0.lcssa.i631 = phi i32 [ 0, %next_field.exit626 ], [ %883, %.lr.ph.i636 ]
   %879 = icmp ne i16 %.pre-phi23.i629, 0
-  %880 = icmp ult i32 %.0.lcssa.i631, %42
+  %880 = icmp samesign ult i32 %.0.lcssa.i631, %42
   %881 = select i1 %879, i1 %880, i1 false
   br i1 %881, label %.lr.ph19.i633, label %next_field.exit640
 
@@ -1650,7 +1650,7 @@ next_field.exit626:                               ; preds = %.lr.ph19.i619, %.pr
   %887 = load i16, ptr %886, align 2
   %888 = and i16 %887, 8192
   %.not.i639 = icmp eq i16 %888, 0
-  %889 = icmp ult i32 %883, %42
+  %889 = icmp samesign ult i32 %883, %42
   %890 = select i1 %.not.i639, i1 %889, i1 false
   br i1 %890, label %.lr.ph.i636, label %.preheader.i628, !llvm.loop !4
 
@@ -1665,7 +1665,7 @@ next_field.exit626:                               ; preds = %.lr.ph19.i619, %.pr
   %896 = load i16, ptr %895, align 2
   %897 = and i16 %896, 8192
   %898 = icmp ne i16 %897, 0
-  %899 = icmp ult i32 %892, %42
+  %899 = icmp samesign ult i32 %892, %42
   %900 = select i1 %898, i1 %899, i1 false
   br i1 %900, label %.lr.ph19.i633, label %next_field.exit640, !llvm.loop !6
 
@@ -1686,7 +1686,7 @@ next_field.exit640:                               ; preds = %.lr.ph19.i633, %.pr
   %.010.lcssa.i644 = phi ptr [ %.111.lcssa.i632, %next_field.exit640 ], [ %910, %.lr.ph.i650 ]
   %.0.lcssa.i645 = phi i32 [ 0, %next_field.exit640 ], [ %911, %.lr.ph.i650 ]
   %907 = icmp ne i16 %.pre-phi23.i643, 0
-  %908 = icmp ult i32 %.0.lcssa.i645, %42
+  %908 = icmp samesign ult i32 %.0.lcssa.i645, %42
   %909 = select i1 %907, i1 %908, i1 false
   br i1 %909, label %.lr.ph19.i647, label %next_field.exit654
 
@@ -1701,7 +1701,7 @@ next_field.exit640:                               ; preds = %.lr.ph19.i633, %.pr
   %915 = load i16, ptr %914, align 2
   %916 = and i16 %915, 8192
   %.not.i653 = icmp eq i16 %916, 0
-  %917 = icmp ult i32 %911, %42
+  %917 = icmp samesign ult i32 %911, %42
   %918 = select i1 %.not.i653, i1 %917, i1 false
   br i1 %918, label %.lr.ph.i650, label %.preheader.i642, !llvm.loop !4
 
@@ -1716,7 +1716,7 @@ next_field.exit640:                               ; preds = %.lr.ph19.i633, %.pr
   %924 = load i16, ptr %923, align 2
   %925 = and i16 %924, 8192
   %926 = icmp ne i16 %925, 0
-  %927 = icmp ult i32 %920, %42
+  %927 = icmp samesign ult i32 %920, %42
   %928 = select i1 %926, i1 %927, i1 false
   br i1 %928, label %.lr.ph19.i647, label %next_field.exit654, !llvm.loop !6
 
@@ -1737,7 +1737,7 @@ next_field.exit654:                               ; preds = %.lr.ph19.i647, %.pr
   %.010.lcssa.i658 = phi ptr [ %.111.lcssa.i646, %next_field.exit654 ], [ %938, %.lr.ph.i664 ]
   %.0.lcssa.i659 = phi i32 [ 0, %next_field.exit654 ], [ %939, %.lr.ph.i664 ]
   %935 = icmp ne i16 %.pre-phi23.i657, 0
-  %936 = icmp ult i32 %.0.lcssa.i659, %42
+  %936 = icmp samesign ult i32 %.0.lcssa.i659, %42
   %937 = select i1 %935, i1 %936, i1 false
   br i1 %937, label %.lr.ph19.i661, label %next_field.exit668
 
@@ -1752,7 +1752,7 @@ next_field.exit654:                               ; preds = %.lr.ph19.i647, %.pr
   %943 = load i16, ptr %942, align 2
   %944 = and i16 %943, 8192
   %.not.i667 = icmp eq i16 %944, 0
-  %945 = icmp ult i32 %939, %42
+  %945 = icmp samesign ult i32 %939, %42
   %946 = select i1 %.not.i667, i1 %945, i1 false
   br i1 %946, label %.lr.ph.i664, label %.preheader.i656, !llvm.loop !4
 
@@ -1767,7 +1767,7 @@ next_field.exit654:                               ; preds = %.lr.ph19.i647, %.pr
   %952 = load i16, ptr %951, align 2
   %953 = and i16 %952, 8192
   %954 = icmp ne i16 %953, 0
-  %955 = icmp ult i32 %948, %42
+  %955 = icmp samesign ult i32 %948, %42
   %956 = select i1 %954, i1 %955, i1 false
   br i1 %956, label %.lr.ph19.i661, label %next_field.exit668, !llvm.loop !6
 
@@ -1788,7 +1788,7 @@ next_field.exit668:                               ; preds = %.lr.ph19.i661, %.pr
   %.010.lcssa.i672 = phi ptr [ %.111.lcssa.i660, %next_field.exit668 ], [ %966, %.lr.ph.i678 ]
   %.0.lcssa.i673 = phi i32 [ 0, %next_field.exit668 ], [ %967, %.lr.ph.i678 ]
   %963 = icmp ne i16 %.pre-phi23.i671, 0
-  %964 = icmp ult i32 %.0.lcssa.i673, %42
+  %964 = icmp samesign ult i32 %.0.lcssa.i673, %42
   %965 = select i1 %963, i1 %964, i1 false
   br i1 %965, label %.lr.ph19.i675, label %next_field.exit682
 
@@ -1803,7 +1803,7 @@ next_field.exit668:                               ; preds = %.lr.ph19.i661, %.pr
   %971 = load i16, ptr %970, align 2
   %972 = and i16 %971, 8192
   %.not.i681 = icmp eq i16 %972, 0
-  %973 = icmp ult i32 %967, %42
+  %973 = icmp samesign ult i32 %967, %42
   %974 = select i1 %.not.i681, i1 %973, i1 false
   br i1 %974, label %.lr.ph.i678, label %.preheader.i670, !llvm.loop !4
 
@@ -1818,7 +1818,7 @@ next_field.exit668:                               ; preds = %.lr.ph19.i661, %.pr
   %980 = load i16, ptr %979, align 2
   %981 = and i16 %980, 8192
   %982 = icmp ne i16 %981, 0
-  %983 = icmp ult i32 %976, %42
+  %983 = icmp samesign ult i32 %976, %42
   %984 = select i1 %982, i1 %983, i1 false
   br i1 %984, label %.lr.ph19.i675, label %next_field.exit682, !llvm.loop !6
 
@@ -1839,7 +1839,7 @@ next_field.exit682:                               ; preds = %.lr.ph19.i675, %.pr
   %.010.lcssa.i686 = phi ptr [ %.111.lcssa.i674, %next_field.exit682 ], [ %994, %.lr.ph.i692 ]
   %.0.lcssa.i687 = phi i32 [ 0, %next_field.exit682 ], [ %995, %.lr.ph.i692 ]
   %991 = icmp ne i16 %.pre-phi23.i685, 0
-  %992 = icmp ult i32 %.0.lcssa.i687, %42
+  %992 = icmp samesign ult i32 %.0.lcssa.i687, %42
   %993 = select i1 %991, i1 %992, i1 false
   br i1 %993, label %.lr.ph19.i689, label %next_field.exit696
 
@@ -1854,7 +1854,7 @@ next_field.exit682:                               ; preds = %.lr.ph19.i675, %.pr
   %999 = load i16, ptr %998, align 2
   %1000 = and i16 %999, 8192
   %.not.i695 = icmp eq i16 %1000, 0
-  %1001 = icmp ult i32 %995, %42
+  %1001 = icmp samesign ult i32 %995, %42
   %1002 = select i1 %.not.i695, i1 %1001, i1 false
   br i1 %1002, label %.lr.ph.i692, label %.preheader.i684, !llvm.loop !4
 
@@ -1869,7 +1869,7 @@ next_field.exit682:                               ; preds = %.lr.ph19.i675, %.pr
   %1008 = load i16, ptr %1007, align 2
   %1009 = and i16 %1008, 8192
   %1010 = icmp ne i16 %1009, 0
-  %1011 = icmp ult i32 %1004, %42
+  %1011 = icmp samesign ult i32 %1004, %42
   %1012 = select i1 %1010, i1 %1011, i1 false
   br i1 %1012, label %.lr.ph19.i689, label %next_field.exit696, !llvm.loop !6
 
@@ -1890,7 +1890,7 @@ next_field.exit696:                               ; preds = %.lr.ph19.i689, %.pr
   %.010.lcssa.i700 = phi ptr [ %.111.lcssa.i688, %next_field.exit696 ], [ %1022, %.lr.ph.i706 ]
   %.0.lcssa.i701 = phi i32 [ 0, %next_field.exit696 ], [ %1023, %.lr.ph.i706 ]
   %1019 = icmp ne i16 %.pre-phi23.i699, 0
-  %1020 = icmp ult i32 %.0.lcssa.i701, %42
+  %1020 = icmp samesign ult i32 %.0.lcssa.i701, %42
   %1021 = select i1 %1019, i1 %1020, i1 false
   br i1 %1021, label %.lr.ph19.i703, label %next_field.exit710
 
@@ -1905,7 +1905,7 @@ next_field.exit696:                               ; preds = %.lr.ph19.i689, %.pr
   %1027 = load i16, ptr %1026, align 2
   %1028 = and i16 %1027, 8192
   %.not.i709 = icmp eq i16 %1028, 0
-  %1029 = icmp ult i32 %1023, %42
+  %1029 = icmp samesign ult i32 %1023, %42
   %1030 = select i1 %.not.i709, i1 %1029, i1 false
   br i1 %1030, label %.lr.ph.i706, label %.preheader.i698, !llvm.loop !4
 
@@ -1920,7 +1920,7 @@ next_field.exit696:                               ; preds = %.lr.ph19.i689, %.pr
   %1036 = load i16, ptr %1035, align 2
   %1037 = and i16 %1036, 8192
   %1038 = icmp ne i16 %1037, 0
-  %1039 = icmp ult i32 %1032, %42
+  %1039 = icmp samesign ult i32 %1032, %42
   %1040 = select i1 %1038, i1 %1039, i1 false
   br i1 %1040, label %.lr.ph19.i703, label %next_field.exit710, !llvm.loop !6
 
@@ -1941,7 +1941,7 @@ next_field.exit710:                               ; preds = %.lr.ph19.i703, %.pr
   %.010.lcssa.i714 = phi ptr [ %.111.lcssa.i702, %next_field.exit710 ], [ %1050, %.lr.ph.i720 ]
   %.0.lcssa.i715 = phi i32 [ 0, %next_field.exit710 ], [ %1051, %.lr.ph.i720 ]
   %1047 = icmp ne i16 %.pre-phi23.i713, 0
-  %1048 = icmp ult i32 %.0.lcssa.i715, %42
+  %1048 = icmp samesign ult i32 %.0.lcssa.i715, %42
   %1049 = select i1 %1047, i1 %1048, i1 false
   br i1 %1049, label %.lr.ph19.i717, label %next_field.exit724
 
@@ -1956,7 +1956,7 @@ next_field.exit710:                               ; preds = %.lr.ph19.i703, %.pr
   %1055 = load i16, ptr %1054, align 2
   %1056 = and i16 %1055, 8192
   %.not.i723 = icmp eq i16 %1056, 0
-  %1057 = icmp ult i32 %1051, %42
+  %1057 = icmp samesign ult i32 %1051, %42
   %1058 = select i1 %.not.i723, i1 %1057, i1 false
   br i1 %1058, label %.lr.ph.i720, label %.preheader.i712, !llvm.loop !4
 
@@ -1971,7 +1971,7 @@ next_field.exit710:                               ; preds = %.lr.ph19.i703, %.pr
   %1064 = load i16, ptr %1063, align 2
   %1065 = and i16 %1064, 8192
   %1066 = icmp ne i16 %1065, 0
-  %1067 = icmp ult i32 %1060, %42
+  %1067 = icmp samesign ult i32 %1060, %42
   %1068 = select i1 %1066, i1 %1067, i1 false
   br i1 %1068, label %.lr.ph19.i717, label %next_field.exit724, !llvm.loop !6
 
@@ -1992,7 +1992,7 @@ next_field.exit724:                               ; preds = %.lr.ph19.i717, %.pr
   %.010.lcssa.i728 = phi ptr [ %.111.lcssa.i716, %next_field.exit724 ], [ %1078, %.lr.ph.i734 ]
   %.0.lcssa.i729 = phi i32 [ 0, %next_field.exit724 ], [ %1079, %.lr.ph.i734 ]
   %1075 = icmp ne i16 %.pre-phi23.i727, 0
-  %1076 = icmp ult i32 %.0.lcssa.i729, %42
+  %1076 = icmp samesign ult i32 %.0.lcssa.i729, %42
   %1077 = select i1 %1075, i1 %1076, i1 false
   br i1 %1077, label %.lr.ph19.i731, label %next_field.exit738
 
@@ -2007,7 +2007,7 @@ next_field.exit724:                               ; preds = %.lr.ph19.i717, %.pr
   %1083 = load i16, ptr %1082, align 2
   %1084 = and i16 %1083, 8192
   %.not.i737 = icmp eq i16 %1084, 0
-  %1085 = icmp ult i32 %1079, %42
+  %1085 = icmp samesign ult i32 %1079, %42
   %1086 = select i1 %.not.i737, i1 %1085, i1 false
   br i1 %1086, label %.lr.ph.i734, label %.preheader.i726, !llvm.loop !4
 
@@ -2022,7 +2022,7 @@ next_field.exit724:                               ; preds = %.lr.ph19.i717, %.pr
   %1092 = load i16, ptr %1091, align 2
   %1093 = and i16 %1092, 8192
   %1094 = icmp ne i16 %1093, 0
-  %1095 = icmp ult i32 %1088, %42
+  %1095 = icmp samesign ult i32 %1088, %42
   %1096 = select i1 %1094, i1 %1095, i1 false
   br i1 %1096, label %.lr.ph19.i731, label %next_field.exit738, !llvm.loop !6
 

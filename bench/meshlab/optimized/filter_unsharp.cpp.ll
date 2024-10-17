@@ -13357,7 +13357,7 @@ _ZNSt6vectorIN3vcg6Color4IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %912 = getelementptr inbounds i8, ptr %893, i64 12
   store float %911, ptr %912, align 4
   %indvars.iv.next1176 = add nuw nsw i64 %indvars.iv1175, 1
-  %913 = icmp ult i64 %indvars.iv.next1176, %891
+  %913 = icmp samesign ult i64 %indvars.iv.next1176, %891
   br i1 %913, label %892, label %._crit_edge1140, !llvm.loop !41
 
 914:                                              ; preds = %853
@@ -13642,7 +13642,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc812
   %1037 = getelementptr inbounds float, ptr %1028, i64 %indvars.iv1169
   store float %1036, ptr %1037, align 4
   %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 1
-  %1038 = icmp ult i64 %indvars.iv.next1170, %1033
+  %1038 = icmp samesign ult i64 %indvars.iv.next1170, %1033
   br i1 %1038, label %1034, label %._crit_edge1134, !llvm.loop !43
 
 1039:                                             ; preds = %992
@@ -30040,7 +30040,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !301
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -30677,7 +30677,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI6CEdgeOSaIS2_EEbE7Re
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -31062,7 +31062,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !304
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -31444,7 +31444,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !305
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -47404,7 +47404,7 @@ define linkonce_odr void @_ZSt11__make_heapIPlN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

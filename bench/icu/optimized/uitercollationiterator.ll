@@ -1082,7 +1082,7 @@ invoke.cont21:                                    ; preds = %if.end20
 
 land.lhs.true25:                                  ; preds = %invoke.cont21
   %15 = and i16 %prevCC.0, 255
-  %cmp28 = icmp ugt i16 %15, %14
+  %cmp28 = icmp samesign ugt i16 %15, %14
   br i1 %cmp28, label %for.cond33.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true25
@@ -1902,7 +1902,7 @@ invoke.cont20:                                    ; preds = %if.end19
 
 land.lhs.true24:                                  ; preds = %invoke.cont20
   %cmp26.not = icmp ne i32 %nextCC.0, 0
-  %cmp30 = icmp ult i32 %nextCC.0, %conv1068
+  %cmp30 = icmp samesign ult i32 %nextCC.0, %conv1068
   %or.cond = select i1 %cmp26.not, i1 %cmp30, i1 false
   br i1 %or.cond, label %while.cond.preheader, label %lor.lhs.false
 

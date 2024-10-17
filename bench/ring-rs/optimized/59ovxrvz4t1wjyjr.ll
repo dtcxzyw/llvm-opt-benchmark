@@ -2272,15 +2272,15 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %148, %_Z
 
 .thread13.i:                                      ; preds = %184, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit13.i.i"
   %.sroa.4.0.i.ph15.i = phi i32 [ %194, %184 ], [ %182, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i" ], [ %172, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit13.i.i" ]
-  %200 = icmp ult i32 %.sroa.4.0.i.ph15.i, 128
+  %200 = icmp samesign ult i32 %.sroa.4.0.i.ph15.i, 128
   br i1 %200, label %_ZN5alloc6string6String6remove17h25efbbe12ee2d8ecE.exit, label %201
 
 201:                                              ; preds = %.thread13.i
-  %202 = icmp ult i32 %.sroa.4.0.i.ph15.i, 2048
+  %202 = icmp samesign ult i32 %.sroa.4.0.i.ph15.i, 2048
   br i1 %202, label %_ZN5alloc6string6String6remove17h25efbbe12ee2d8ecE.exit, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp ult i32 %.sroa.4.0.i.ph15.i, 65536
+  %204 = icmp samesign ult i32 %.sroa.4.0.i.ph15.i, 65536
   %..i55 = select i1 %204, i64 3, i64 4
   br label %_ZN5alloc6string6String6remove17h25efbbe12ee2d8ecE.exit
 

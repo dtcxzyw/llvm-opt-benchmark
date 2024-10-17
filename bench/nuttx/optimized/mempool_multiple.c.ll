@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
-  %.not = icmp ult i64 %11, 2
+  %.not = icmp samesign ult i64 %11, 2
   br i1 %.not, label %12, label %82
 
 12:                                               ; preds = %10

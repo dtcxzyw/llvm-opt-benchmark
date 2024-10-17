@@ -200,7 +200,7 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %.03449 = phi i32 [ 0, %.lr.ph.preheader ], [ %38, %37 ]
   %27 = lshr i64 %indvars.iv, 3
-  %28 = icmp ult i64 %27, %11
+  %28 = icmp samesign ult i64 %27, %11
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %.lr.ph
@@ -708,7 +708,7 @@ define void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind noalias writable
   %8 = phi float [ %9, %.lr.ph ], [ %6, %3 ]
   %9 = fmul contract float %8, 0x3F50000000000000
   %10 = add nuw nsw i32 %.06, 1
-  %11 = icmp ult i32 %.06, 5
+  %11 = icmp samesign ult i32 %.06, 5
   %12 = fcmp contract ogt float %9, 1.024000e+03
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17

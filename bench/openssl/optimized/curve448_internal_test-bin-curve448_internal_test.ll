@@ -255,7 +255,7 @@ if.end55:                                         ; preds = %if.end38, %if.then4
   %inc60 = add nuw nsw i32 %i.013, 1
   %.b = load i1, ptr @max, align 4
   %1 = select i1 %.b, i32 1000000, i32 1000
-  %cmp20.not.not = icmp ult i32 %i.013, %1
+  %cmp20.not.not = icmp samesign ult i32 %i.013, %1
   br i1 %cmp20.not.not, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %if.end55, %if.end28, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false13, %if.then53

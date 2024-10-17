@@ -259,7 +259,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr nocapture 
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, 4095
   %84 = lshr i64 %83, 12
-  %85 = icmp ugt i64 %84, %68
+  %85 = icmp samesign ugt i64 %84, %68
   br i1 %85, label %.thread17, label %86
 
 86:                                               ; preds = %77

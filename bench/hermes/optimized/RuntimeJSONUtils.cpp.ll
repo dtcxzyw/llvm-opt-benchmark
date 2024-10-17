@@ -1284,7 +1284,7 @@ if.then88.i.i:                                    ; preds = %_ZN6hermes2vm6Handl
   %lengthAndUniquedFlag_.i.i.i = getelementptr inbounds i8, ptr %126, i64 4
   %127 = load i32, ptr %lengthAndUniquedFlag_.i.i.i, align 4
   %and.i.i27.i = and i32 %127, 2147483647
-  %cmp91.i.i = icmp ugt i32 %and.i.i27.i, 10
+  %cmp91.i.i = icmp samesign ugt i32 %and.i.i27.i, 10
   br i1 %cmp91.i.i, label %if.then92.i.i, label %if.else107.i.i
 
 if.then92.i.i:                                    ; preds = %if.then88.i.i
@@ -1337,7 +1337,7 @@ if.end:                                           ; preds = %if.end118.sink.spli
   br i1 %cmp.i.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %bf.cast.i.not.i = icmp ult i32 %call31.i, 256
+  %bf.cast.i.not.i = icmp samesign ult i32 %call31.i, 256
   br i1 %bf.cast.i.not.i, label %cleanup, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end.i
@@ -3168,7 +3168,7 @@ if.then346:                                       ; preds = %_ZN6hermes2vm5vmisa
   br i1 %cmp.i134, label %cleanup, label %if.end355
 
 if.end355:                                        ; preds = %if.then346
-  %bf.cast.i.i139.not = icmp ult i32 %call352, 256
+  %bf.cast.i.i139.not = icmp samesign ult i32 %call352, 256
   br i1 %bf.cast.i.i139.not, label %if.then357, label %if.end361
 
 if.then357:                                       ; preds = %if.end355
@@ -3594,7 +3594,7 @@ if.end35:                                         ; preds = %for.body.i41, %_ZN4
   br i1 %cmp.i67, label %cleanup, label %if.end56
 
 if.end56:                                         ; preds = %if.end35
-  %bf.cast.i.not = icmp ult i32 %call53, 256
+  %bf.cast.i.not = icmp samesign ult i32 %call53, 256
   br i1 %bf.cast.i.not, label %if.then58, label %for.inc
 
 if.then58:                                        ; preds = %if.end56
@@ -4257,7 +4257,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.ex
   br i1 %cmp.i144, label %cleanup, label %if.end181
 
 if.end181:                                        ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
-  %bf.cast.i.not = icmp ult i32 %call167, 256
+  %bf.cast.i.not = icmp samesign ult i32 %call167, 256
   br i1 %bf.cast.i.not, label %if.then184, label %for.inc
 
 if.then184:                                       ; preds = %if.end181
@@ -4959,7 +4959,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit194: ; preds = %_ZN
   %add.i193 = add i32 %84, 1
   store i32 %add.i193, ptr %Size.i.i, align 8
   %85 = and i16 %retval.0.i, 15
-  %cmp32 = icmp ult i16 %85, 10
+  %cmp32 = icmp samesign ult i16 %85, 10
   %86 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i197 = icmp ult i32 %add.i193, %86
   br i1 %cmp32, label %if.then33, label %if.else

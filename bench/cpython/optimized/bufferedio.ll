@@ -5620,7 +5620,7 @@ land.lhs.true39.i:                                ; preds = %if.end36.i
 if.end43.i:                                       ; preds = %land.lhs.true39.i, %if.end36.i
   %cmp44.i = icmp eq i32 %whence.0912, 0
   %cmp46.i = icmp eq i32 %whence.0912, 1
-  %or.cond3.i = icmp ult i32 %whence.0912, 2
+  %or.cond3.i = icmp samesign ult i32 %whence.0912, 2
   br i1 %or.cond3.i, label %land.lhs.true47.i, label %if.end111.i
 
 land.lhs.true47.i:                                ; preds = %if.end43.i

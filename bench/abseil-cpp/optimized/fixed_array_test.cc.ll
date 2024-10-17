@@ -8563,7 +8563,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN4absl10FixedArrayIiLm5ESaIiEED2Ev.exit455
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZN4absl10FixedArrayIiLm5ESaIiEED2Ev.exit455 ]
   store i64 %indvars.iv, ptr %size_alloc_.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %indvars.iv, 6
+  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp.i.i.i.i, label %invoke.cont4, label %invoke.cont4.thread
 
 invoke.cont4.thread:                              ; preds = %for.body
@@ -10366,7 +10366,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN4absl10FixedArrayIiLm5ESaIiEED2Ev.exit458
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %_ZN4absl10FixedArrayIiLm5ESaIiEED2Ev.exit458 ]
   store i64 %indvars.iv, ptr %size_alloc_.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %indvars.iv, 6
+  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp.i.i.i.i, label %invoke.cont4, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body
@@ -21294,7 +21294,7 @@ for.inc7:                                         ; preds = %_ZNSt6vectorIiSaIiE
   %sizes.sroa.0.4 = phi ptr [ %cond.i10.i.i29, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i37 ], [ %sizes.sroa.0.21682, %if.then.i12 ]
   %sizes.sroa.8.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i33.pn, i64 4
   %add = add nuw nsw i32 %storemerge51683, 100
-  %cmp4 = icmp ult i32 %storemerge51683, 901
+  %cmp4 = icmp samesign ult i32 %storemerge51683, 901
   br i1 %cmp4, label %for.body5, label %for.cond11.preheader, !llvm.loop !345
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.inc19

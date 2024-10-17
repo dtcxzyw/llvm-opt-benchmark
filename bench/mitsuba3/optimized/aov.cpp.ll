@@ -6036,7 +6036,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19com
 
 410:                                              ; preds = %393
   %411 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %409)
-  %.not.i.i349 = icmp ult i64 %411, 2
+  %.not.i.i349 = icmp samesign ult i64 %411, 2
   br i1 %.not.i.i349, label %412, label %415
 
 412:                                              ; preds = %410
@@ -16306,7 +16306,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_valu
 
 22:                                               ; preds = %5
   %23 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %21)
-  %.not.i = icmp ult i64 %23, 2
+  %.not.i = icmp samesign ult i64 %23, 2
   br i1 %.not.i, label %24, label %27
 
 24:                                               ; preds = %22
@@ -16421,7 +16421,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
   %73 = shl i64 %21, 1
   %74 = icmp ult i64 %21, 3
   %75 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %21)
-  %.not.i56 = icmp ugt i64 %75, 1
+  %.not.i56 = icmp samesign ugt i64 %75, 1
   %.not84 = select i1 %74, i1 true, i1 %.not.i56
   %76 = zext i1 %.not84 to i64
   %77 = or disjoint i64 %73, %76
@@ -16434,7 +16434,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
 
 82:                                               ; preds = %72
   %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %83, 2
+  %.not.i.i = icmp samesign ult i64 %83, 2
   br i1 %.not.i.i, label %.noexc, label %84
 
 84:                                               ; preds = %82
@@ -16458,7 +16458,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
 90:                                               ; preds = %88
   %91 = icmp ugt i64 %86, 2
   %92 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %86)
-  %.not.i.i.i = icmp ult i64 %92, 2
+  %.not.i.i.i = icmp samesign ult i64 %92, 2
   %93 = select i1 %91, i1 %.not.i.i.i, i1 false
   %94 = load i64, ptr %63, align 8
   %95 = uitofp i64 %94 to float
@@ -16495,7 +16495,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
 _ZNSt3__112__hash_tableINS_17__hash_value_typeIPKN7mitsuba5ShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEjEENS_22__unordered_map_hasherISB_SC_NS_4hashISB_EENS_8equal_toISB_EELb1EEENS_21__unordered_map_equalISB_SC_SH_SF_Lb1EEENS_9allocatorISC_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc57, %88, %.sink.split.i.i
   %111 = load i64, ptr %20, align 8
   %112 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %111)
-  %.not.i59 = icmp ult i64 %112, 2
+  %.not.i59 = icmp samesign ult i64 %112, 2
   br i1 %.not.i59, label %113, label %116
 
 113:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeIPKN7mitsuba5ShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEjEENS_22__unordered_map_hasherISB_SC_NS_4hashISB_EENS_8equal_toISB_EELb1EEENS_21__unordered_map_equalISB_SC_SH_SF_Lb1EEENS_9allocatorISC_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -16540,7 +16540,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %118, %116, %113, %.
   %130 = getelementptr inbounds i8, ptr %128, i64 8
   %131 = load i64, ptr %130, align 8
   %132 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i62 = icmp ult i64 %132, 2
+  %.not.i62 = icmp samesign ult i64 %132, 2
   br i1 %.not.i62, label %133, label %136
 
 133:                                              ; preds = %129
@@ -16634,7 +16634,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18

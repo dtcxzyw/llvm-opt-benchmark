@@ -277,7 +277,7 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
   %.1 = getelementptr inbounds i8, ptr %.05264, i64 3
   store i8 %storemerge, ptr %52, align 1
   %65 = and i8 %46, 15
-  %66 = icmp ult i8 %65, 10
+  %66 = icmp samesign ult i8 %65, 10
   %67 = getelementptr inbounds i8, ptr %.05264, i64 4
   br i1 %66, label %68, label %70
 

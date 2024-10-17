@@ -4431,7 +4431,7 @@ if.end129:                                        ; preds = %if.end129.sink.spli
 lor.lhs.false153:                                 ; preds = %if.end129
   %71 = lshr i8 %conv141, 1
   %72 = and i8 %71, 7
-  %cmp158 = icmp ult i8 %72, 5
+  %cmp158 = icmp samesign ult i8 %72, 5
   br i1 %cmp158, label %if.then171, label %lor.lhs.false160
 
 lor.lhs.false160:                                 ; preds = %lor.lhs.false153

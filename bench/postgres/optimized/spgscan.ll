@@ -1051,7 +1051,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %165, %163, %140
   %203 = lshr i32 %202, 3
   %204 = and i32 %203, 8191
   %205 = zext nneg i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next71.i, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next71.i, %205
   br i1 %206, label %.lr.ph63.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph63.i, %186

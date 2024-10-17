@@ -1447,11 +1447,11 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !274
   store i32 0, ptr %9, align 4, !noalias !274
-  %25 = icmp ult i32 %2, 2048
+  %25 = icmp samesign ult i32 %2, 2048
   br i1 %25, label %.thread.i, label %26
 
 26:                                               ; preds = %21
-  %27 = icmp ult i32 %2, 65536
+  %27 = icmp samesign ult i32 %2, 65536
   %28 = getelementptr inbounds i8, ptr %9, i64 1
   br i1 %27, label %29, label %34
 
@@ -1843,15 +1843,15 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.exit.thread.i.i.i
   br i1 %216, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i", label %217
 
 217:                                              ; preds = %215
-  %218 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %218 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %218, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i", label %219
 
 219:                                              ; preds = %217
-  %220 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %220 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %220, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i", label %221
 
 221:                                              ; preds = %219
-  %222 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %222 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %222, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i"
 
@@ -2097,7 +2097,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %307, %303, %"_ZN55_
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !376
-  %314 = icmp ult i32 %2, 128
+  %314 = icmp samesign ult i32 %2, 128
   br i1 %314, label %319, label %315
 
 .sink.split:                                      ; preds = %18, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit.i"
@@ -2106,11 +2106,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %307, %303, %"_ZN55_
   br label %315
 
 315:                                              ; preds = %.sink.split, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread"
-  %316 = icmp ult i32 %2, 2048
+  %316 = icmp samesign ult i32 %2, 2048
   br i1 %316, label %321, label %317
 
 317:                                              ; preds = %315
-  %318 = icmp ult i32 %2, 65536
+  %318 = icmp samesign ult i32 %2, 65536
   br i1 %318, label %328, label %339
 
 319:                                              ; preds = %.thread19, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread"

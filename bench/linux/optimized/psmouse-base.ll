@@ -351,7 +351,7 @@ define dso_local noundef range(i32 1, 3) i32 @psmouse_process_byte(ptr nocapture
   %35 = load i8, ptr @psmouse_a4tech_2wheels, align 1, !range !5, !noundef !6
   %36 = icmp ne i8 %35, 0
   %37 = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %38 = icmp ugt i32 %37, 1
+  %38 = icmp samesign ugt i32 %37, 1
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %40, label %42
 
@@ -3845,7 +3845,7 @@ define internal void @psmouse_resync(ptr noundef %0) #2 align 16 {
   %73 = add nuw nsw i32 %78, 1
   %74 = load i8, ptr %67, align 2
   %75 = zext i8 %74 to i32
-  %76 = icmp ult i32 %73, %75
+  %76 = icmp samesign ult i32 %73, %75
   br i1 %76, label %77, label %.thread6, !llvm.loop !27
 
 77:                                               ; preds = %72, %70

@@ -1006,7 +1006,7 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %82 = getelementptr i8, ptr %45, i64 %48
   %83 = load i16, ptr %29, align 2
   %84 = zext i16 %83 to i32
-  %85 = icmp ult i32 %.pre57, %84
+  %85 = icmp samesign ult i32 %.pre57, %84
   br i1 %85, label %32, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %FilterByOrigin.exit.thread, %FilterByOrigin.exit, %13, %2

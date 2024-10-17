@@ -197,7 +197,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %3, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %nrvo.skipdtor
 
 for.body:                                         ; preds = %_ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit
@@ -228,11 +228,11 @@ while.body.i.i:                                   ; preds = %invoke.cont14, %whi
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.028.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i.i, align 4
   %9 = zext i32 %8 to i64
-  %cmp.i.i.i.i = icmp ult i64 %indvars.iv, %9
+  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv, %9
   br i1 %cmp.i.i.i.i, label %cond.end.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i.i
-  %cmp4.i.i.i.i = icmp ugt i64 %indvars.iv, %9
+  %cmp4.i.i.i.i = icmp samesign ugt i64 %indvars.iv, %9
   br i1 %cmp4.i.i.i.i, label %cond.end.i.thread.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i:     ; preds = %lor.rhs.i.i.i.i
@@ -274,11 +274,11 @@ if.end12.i.i:                                     ; preds = %cond.end.i.thread.i
   %.pre-phi = phi i64 [ %.pre, %if.else.i.i ], [ %9, %cond.end.i.thread.i ]
   %__y.0.lcssa32.i.i = phi ptr [ %__y.0.lcssa33.i.i, %if.else.i.i ], [ %__x.028.i.i, %cond.end.i.thread.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.028.i.i, %cond.end.i.thread.i ]
-  %cmp.i.i4.i.i = icmp ult i64 %.pre-phi, %indvars.iv
+  %cmp.i.i4.i.i = icmp samesign ult i64 %.pre-phi, %indvars.iv
   br i1 %cmp.i.i4.i.i, label %if.then.i, label %lor.rhs.i.i5.i.i
 
 lor.rhs.i.i5.i.i:                                 ; preds = %if.end12.i.i
-  %cmp4.i.i6.i.i = icmp ult i64 %indvars.iv, %.pre-phi
+  %cmp4.i.i6.i.i = icmp samesign ult i64 %indvars.iv, %.pre-phi
   br i1 %cmp4.i.i6.i.i, label %invoke.cont16, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit11.i.i
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit11.i.i:   ; preds = %lor.rhs.i.i5.i.i
@@ -296,11 +296,11 @@ lor.rhs.i.i:                                      ; preds = %if.then.i
   %_M_storage.i.i.i.i6.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i, i64 32
   %13 = load i32, ptr %_M_storage.i.i.i.i6.i, align 4
   %14 = zext i32 %13 to i64
-  %cmp.i.i.i7.i = icmp ult i64 %indvars.iv, %14
+  %cmp.i.i.i7.i = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp.i.i.i7.i, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %lor.rhs.i.i.i8.i
 
 lor.rhs.i.i.i8.i:                                 ; preds = %lor.rhs.i.i
-  %cmp4.i.i.i9.i = icmp ugt i64 %indvars.iv, %14
+  %cmp4.i.i.i9.i = icmp samesign ugt i64 %indvars.iv, %14
   br i1 %cmp4.i.i.i9.i, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i8.i
@@ -394,7 +394,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %3, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %nrvo.skipdtor
 
 for.body:                                         ; preds = %_ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit
@@ -425,11 +425,11 @@ while.body.i.i:                                   ; preds = %invoke.cont14, %whi
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.028.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i.i, align 4
   %9 = zext i32 %8 to i64
-  %cmp.i.i.i.i = icmp ult i64 %indvars.iv, %9
+  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv, %9
   br i1 %cmp.i.i.i.i, label %cond.end.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i.i
-  %cmp4.i.i.i.i = icmp ugt i64 %indvars.iv, %9
+  %cmp4.i.i.i.i = icmp samesign ugt i64 %indvars.iv, %9
   br i1 %cmp4.i.i.i.i, label %cond.end.i.thread.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i:     ; preds = %lor.rhs.i.i.i.i
@@ -471,11 +471,11 @@ if.end12.i.i:                                     ; preds = %cond.end.i.thread.i
   %.pre-phi = phi i64 [ %.pre, %if.else.i.i ], [ %9, %cond.end.i.thread.i ]
   %__y.0.lcssa32.i.i = phi ptr [ %__y.0.lcssa33.i.i, %if.else.i.i ], [ %__x.028.i.i, %cond.end.i.thread.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.028.i.i, %cond.end.i.thread.i ]
-  %cmp.i.i4.i.i = icmp ult i64 %.pre-phi, %indvars.iv
+  %cmp.i.i4.i.i = icmp samesign ult i64 %.pre-phi, %indvars.iv
   br i1 %cmp.i.i4.i.i, label %if.then.i, label %lor.rhs.i.i5.i.i
 
 lor.rhs.i.i5.i.i:                                 ; preds = %if.end12.i.i
-  %cmp4.i.i6.i.i = icmp ult i64 %indvars.iv, %.pre-phi
+  %cmp4.i.i6.i.i = icmp samesign ult i64 %indvars.iv, %.pre-phi
   br i1 %cmp4.i.i6.i.i, label %invoke.cont16, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit11.i.i
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit11.i.i:   ; preds = %lor.rhs.i.i5.i.i
@@ -493,11 +493,11 @@ lor.rhs.i.i:                                      ; preds = %if.then.i
   %_M_storage.i.i.i.i6.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i, i64 32
   %13 = load i32, ptr %_M_storage.i.i.i.i6.i, align 4
   %14 = zext i32 %13 to i64
-  %cmp.i.i.i7.i = icmp ult i64 %indvars.iv, %14
+  %cmp.i.i.i7.i = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp.i.i.i7.i, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %lor.rhs.i.i.i8.i
 
 lor.rhs.i.i.i8.i:                                 ; preds = %lor.rhs.i.i
-  %cmp4.i.i.i9.i = icmp ugt i64 %indvars.iv, %14
+  %cmp4.i.i.i9.i = icmp samesign ugt i64 %indvars.iv, %14
   br i1 %cmp4.i.i.i9.i, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i8.i
@@ -4151,7 +4151,7 @@ _ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit.i.thread: ; preds = %inv
   %arrayidx.i.i29 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i29, align 4
   %10 = zext i32 %9 to i64
-  %cmp.i66 = icmp ult i64 %indvars.iv.i74, %10
+  %cmp.i66 = icmp samesign ult i64 %indvars.iv.i74, %10
   br i1 %cmp.i66, label %for.body.i, label %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit.i.thread
@@ -4846,7 +4846,7 @@ _ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit.i.thread: ; preds = %inv
   %arrayidx.i.i29 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i29, align 4
   %10 = zext i32 %9 to i64
-  %cmp.i66 = icmp ult i64 %indvars.iv.i74, %10
+  %cmp.i66 = icmp samesign ult i64 %indvars.iv.i74, %10
   br i1 %cmp.i66, label %for.body.i, label %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit.i.thread

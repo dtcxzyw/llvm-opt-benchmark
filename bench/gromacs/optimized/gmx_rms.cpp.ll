@@ -2683,8 +2683,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit916:       ; preds = %1063
   br i1 %.0788, label %1090, label %1112
 
 1090:                                             ; preds = %1089
-  %1091 = icmp ult i64 %indvars.iv1654, %indvars.iv1649
-  %or.cond865 = or i1 %.1786.shrunk, %1091
+  %1091 = icmp samesign ult i64 %indvars.iv1654, %indvars.iv1649
+  %or.cond865 = select i1 %.1786.shrunk, i1 true, i1 %1091
   br i1 %or.cond865, label %1092, label %1105
 
 1092:                                             ; preds = %1090
@@ -2724,8 +2724,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit916:       ; preds = %1063
   br i1 %.0787.shrunk, label %1113, label %1193
 
 1113:                                             ; preds = %1112
-  %.not848 = icmp ule i64 %indvars.iv1654, %indvars.iv1649
-  %or.cond866.not = or i1 %.1786.shrunk, %.not848
+  %.not848 = icmp samesign ule i64 %indvars.iv1654, %indvars.iv1649
+  %or.cond866.not = select i1 %.1786.shrunk, i1 true, i1 %.not848
   br i1 %or.cond866.not, label %.preheader1224, label %1186
 
 .preheader1224:                                   ; preds = %1113
@@ -3219,7 +3219,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit919.loopexit: ; preds = %1362
 1323:                                             ; preds = %.lr.ph1469, %1362
   %indvars.iv1675 = phi i64 [ %indvars.iv1673, %.lr.ph1469 ], [ %indvars.iv.next1676, %1362 ]
   %1324 = sub nuw nsw i64 %indvars.iv1675, %indvars.iv1680
-  %1325 = icmp ult i64 %1324, %1321
+  %1325 = icmp samesign ult i64 %1324, %1321
   br i1 %1325, label %1326, label %1362
 
 1326:                                             ; preds = %1323

@@ -1172,7 +1172,7 @@ H5HL__remove_free.exit128:                        ; preds = %114, %115
   %152 = add nuw nsw i64 %149, 7
   %153 = add nuw nsw i64 %152, %151
   %154 = and i64 %153, 1016
-  %155 = icmp ult i64 %6, %154
+  %155 = icmp samesign ult i64 %6, %154
   br i1 %155, label %184, label %156
 
 156:                                              ; preds = %._crit_edge

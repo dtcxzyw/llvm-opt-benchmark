@@ -208,7 +208,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %87, label %handle_mime.exit.thread, label %88
 
 88:                                               ; preds = %85
-  %.not7.i = icmp ult i32 %6, 1024
+  %.not7.i = icmp samesign ult i32 %6, 1024
   br i1 %.not7.i, label %handle_mime.exit.thread96, label %89
 
 89:                                               ; preds = %88
@@ -217,7 +217,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %91, label %handle_mime.exit.thread, label %.thread10.i
 
 92:                                               ; preds = %83
-  %.not8.i = icmp ult i32 %6, 1024
+  %.not8.i = icmp samesign ult i32 %6, 1024
   br i1 %.not8.i, label %handle_mime.exit.thread96, label %.thread10.i
 
 .thread10.i:                                      ; preds = %92, %89
@@ -323,7 +323,7 @@ define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 nou
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %.not7 = icmp ult i32 %1, 1024
+  %.not7 = icmp samesign ult i32 %1, 1024
   br i1 %.not7, label %.thread, label %9
 
 9:                                                ; preds = %8
@@ -332,7 +332,7 @@ define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 nou
   br i1 %11, label %15, label %.thread10
 
 12:                                               ; preds = %3
-  %.not8 = icmp ult i32 %1, 1024
+  %.not8 = icmp samesign ult i32 %1, 1024
   br i1 %.not8, label %.thread, label %.thread10
 
 .thread10:                                        ; preds = %9, %12

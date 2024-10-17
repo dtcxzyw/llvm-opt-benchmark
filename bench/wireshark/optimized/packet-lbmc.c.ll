@@ -4110,7 +4110,7 @@ proto_item_set_generated.exit826:                 ; preds = %283, %280, %277, %p
   %292 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %291, ptr noundef %236, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %293 = load i32, ptr @hf_lbmc_msglen, align 4
   %294 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %293, ptr noundef %236, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %295 = icmp ult i8 %235, 11
+  %295 = icmp samesign ult i8 %235, 11
   br i1 %295, label %switch.hole_check, label %296
 
 296:                                              ; preds = %switch.hole_check, %proto_item_set_generated.exit826
@@ -5439,7 +5439,7 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1117, %1124, %1138,
   %1257 = call ptr @proto_tree_add_item(ptr noundef %1252, i32 noundef %1255, ptr noundef %327, i32 noundef %1256, i32 noundef 8, i32 noundef 0) #9
   %1258 = add nuw nsw i32 %.06467.i, 16
   %1259 = add nuw nsw i8 %.06566.i, 1
-  %1260 = icmp ult i8 %1259, %1245
+  %1260 = icmp samesign ult i8 %1259, %1245
   %1261 = icmp slt i32 %1258, %1244
   %1262 = select i1 %1260, i1 %1261, i1 false
   br i1 %1262, label %.lr.ph.i836, label %._crit_edge.i834, !llvm.loop !8

@@ -81,7 +81,7 @@ define hidden void @_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30Co
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -139,7 +139,7 @@ define hidden void @_ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -331,7 +331,7 @@ define hidden void @_ZN7GCTimer23register_gc_phase_startEPKcRK11TimeInstantI30Co
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -398,7 +398,7 @@ define hidden void @_ZN14TimePartitions31report_gc_phase_start_sub_phaseEPKcRK11
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -524,7 +524,7 @@ define hidden void @_ZN10STWGCTimer17register_gc_startERK11TimeInstantI30Composi
   %14 = add nsw i32 %9, 1
   %15 = icmp sgt i32 %9, -1
   %16 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %15, i1 %17, i1 false
   %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %19 = sub nuw nsw i32 32, %18
@@ -647,7 +647,7 @@ define hidden void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -893,7 +893,7 @@ define hidden void @_ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstan
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17

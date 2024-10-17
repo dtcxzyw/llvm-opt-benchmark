@@ -764,7 +764,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = icmp ult i64 %indvars.iv46, 6
+  %37 = icmp samesign ult i64 %indvars.iv46, 6
   %38 = trunc i64 %indvars.iv46 to i32
   %39 = add i32 %38, -6
   %40 = shl nuw i32 1, %39

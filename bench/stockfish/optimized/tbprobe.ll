@@ -452,7 +452,7 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit: ; preds = %.lr.ph.i.i.i1.i, %
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = lshr i32 %58, 3
   %60 = and i32 %58, 7
-  %61 = icmp ult i32 %59, %60
+  %61 = icmp samesign ult i32 %59, %60
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %.preheader330
@@ -480,11 +480,11 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit: ; preds = %.lr.ph.i.i.i1.i, %
   %66 = trunc nuw nsw i64 %indvars.iv410 to i32
   %67 = lshr i32 %66, 3
   %68 = and i32 %66, 7
-  %69 = icmp ult i32 %67, %68
+  %69 = icmp samesign ult i32 %67, %68
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %.preheader329
-  %71 = icmp ult i32 %68, 4
+  %71 = icmp samesign ult i32 %68, 4
   br i1 %71, label %72, label %_ZNSt6vectorIN9Stockfish6SquareESaIS1_EE9push_backERKS1_.exit
 
 72:                                               ; preds = %70
@@ -495,7 +495,7 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit: ; preds = %.lr.ph.i.i.i1.i, %
 
 75:                                               ; preds = %.preheader329
   %.not89 = icmp eq i32 %67, %68
-  %76 = icmp ult i32 %68, 4
+  %76 = icmp samesign ult i32 %68, 4
   %or.cond312 = and i1 %.not89, %76
   br i1 %or.cond312, label %77, label %_ZNSt6vectorIN9Stockfish6SquareESaIS1_EE9push_backERKS1_.exit
 
@@ -645,7 +645,7 @@ _ZNSt6vectorIN9Stockfish6SquareESaIS1_EE9push_backERKS1_.exit: ; preds = %70, %_
   %127 = trunc nuw nsw i64 %indvars.iv418 to i32
   %128 = lshr i32 %127, 3
   %129 = and i32 %127, 7
-  %130 = icmp ugt i32 %128, %129
+  %130 = icmp samesign ugt i32 %128, %129
   br i1 %130, label %_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE12emplace_backIJRiRS2_EEERS3_DpOT_.exit.us, label %131
 
 131:                                              ; preds = %126
@@ -814,7 +814,7 @@ _ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE12emplace_backIJRiRS2_EEERS3_D
 
 180:                                              ; preds = %175, %176
   %181 = phi i32 [ %179, %176 ], [ 0, %175 ]
-  %182 = icmp ult i64 %indvars.iv430, %indvars.iv434
+  %182 = icmp samesign ult i64 %indvars.iv430, %indvars.iv434
   br i1 %182, label %183, label %186
 
 183:                                              ; preds = %180
@@ -3221,7 +3221,7 @@ _ZN9Stockfish12_GLOBAL__N_113check_dtz_stmEPNS0_7TBTableILNS0_6TBTypeE1EEEiNS_4F
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN9Stockfish6SquareES1_EC2ES2_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !98
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i, %567
@@ -3475,7 +3475,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i: ; preds = %
   br i1 %.not.i.i.i.i153.i.i, label %select.unfold.i.i.i.i155.i.i, label %_ZNSt17_Temporary_bufferIPN9Stockfish6SquareES1_EC2ES2_l.exit.i.i154.i.i
 
 select.unfold.i.i.i.i155.i.i:                     ; preds = %.lr.ph.i.i.i.i149.i.i
-  %.not10.i.i.i.i156.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i150.i.i, 3
+  %.not10.i.i.i.i156.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i150.i.i, 3
   br i1 %.not10.i.i.i.i156.i.i, label %.loopexit.i.i148.i.i, label %.lr.ph.i.i.i.i149.i.i, !llvm.loop !98
 
 .loopexit.i.i148.i.i:                             ; preds = %select.unfold.i.i.i.i155.i.i, %.lr.ph232.i.i
@@ -4405,7 +4405,7 @@ _ZN9Stockfish6OptionD2Ev.exit27:                  ; preds = %79, %86
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %115
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !106
 
 115:                                              ; preds = %.lr.ph.i.i.i.i
@@ -6403,7 +6403,7 @@ _ZSt11max_elementIPN9Stockfish6SquareEPFbS1_S1_EET_S5_S5_T0_.exit.i: ; preds = %
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN9Stockfish6SquareES1_EC2ES2_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !98
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %511
@@ -6657,7 +6657,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i: ; preds = %_Z
   br i1 %.not.i.i.i.i153.i, label %select.unfold.i.i.i.i155.i, label %_ZNSt17_Temporary_bufferIPN9Stockfish6SquareES1_EC2ES2_l.exit.i.i154.i
 
 select.unfold.i.i.i.i155.i:                       ; preds = %.lr.ph.i.i.i.i149.i
-  %.not10.i.i.i.i156.i = icmp ult i64 %storemerge26.i.i.in.in.i.i150.i, 3
+  %.not10.i.i.i.i156.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i150.i, 3
   br i1 %.not10.i.i.i.i156.i, label %.loopexit.i.i148.i, label %.lr.ph.i.i.i.i149.i, !llvm.loop !98
 
 .loopexit.i.i148.i:                               ; preds = %select.unfold.i.i.i.i155.i, %.lr.ph71.i
@@ -7644,7 +7644,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader132_crit_edge: ; p
   %.pre-phi = phi i64 [ %.pre160, %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader132_crit_edge ], [ %30, %.lr.ph ]
   %.082.lcssa = phi i32 [ %24, %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader132_crit_edge ], [ %35, %.lr.ph ]
   %.080.lcssa = phi i32 [ %.sroa.0.0.insert.insert.i, %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader132_crit_edge ], [ %29, %.lr.ph ]
-  %28 = icmp ugt i32 %.082.lcssa, %.pre-phi170
+  %28 = icmp samesign ugt i32 %.082.lcssa, %.pre-phi170
   br i1 %28, label %.lr.ph143, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit, %.lr.ph

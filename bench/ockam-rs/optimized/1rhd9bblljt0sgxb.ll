@@ -6334,7 +6334,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$minicbor..decode..error..Err
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2195)
   %3 = load i8, ptr %2, align 8, !range !2198, !alias.scope !2195, !noundef !4
-  %switch.i = icmp ult i8 %3, 9
+  %switch.i = icmp samesign ult i8 %3, 9
   br i1 %switch.i, label %"_ZN4core3ptr55drop_in_place$LT$minicbor..decode..error..ErrorImpl$GT$17h66d4663644b3370cE.llvm.6783306594713324768.exit", label %4
 
 4:                                                ; preds = %1
@@ -6756,7 +6756,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$opentelemetry..common..OtelS
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$minicbor..decode..error..ErrorImpl$GT$17h66d4663644b3370cE.llvm.6783306594713324768"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !2198, !noundef !4
-  %switch = icmp ult i8 %2, 9
+  %switch = icmp samesign ult i8 %2, 9
   br i1 %switch, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd2d749e277a12ba0E.llvm.6783306594713324768.exit", label %3
 
 3:                                                ; preds = %1
@@ -15295,7 +15295,7 @@ define hidden void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.llvm.678330659
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %.0, %17
+  %19 = icmp samesign ugt i64 %.0, %17
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %13, %31, %5

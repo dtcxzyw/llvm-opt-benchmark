@@ -4732,7 +4732,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !655
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %34 = icmp ugt i64 %.0.i7, %32
+  %34 = icmp samesign ugt i64 %.0.i7, %32
   br i1 %34, label %.noexc5, label %.critedge.i8
 
 .critedge.i8:                                     ; preds = %.noexc11
@@ -6012,7 +6012,7 @@ common.resume.i:                                  ; preds = %69, %46, %38, %25
   %62 = xor i64 %52, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i.i, i8 0, i64 %62, i1 false), !alias.scope !938, !noalias !949
   %63 = xor i64 %52, 56
-  %64 = icmp ult i64 %63, 8
+  %64 = icmp samesign ult i64 %63, 8
   br i1 %64, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1572bd2a18041a5aE.exit.thread.thread.i.i.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h412c5207925ca8a6E.exit.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h412c5207925ca8a6E.exit.i.i.i.i.i": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1572bd2a18041a5aE.exit.thread.i.i.i.i.i"
@@ -6165,7 +6165,7 @@ define internal fastcc void @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6219,7 +6219,7 @@ define internal fastcc void @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6435,7 +6435,7 @@ define internal fastcc void @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6543,7 +6543,7 @@ define internal fastcc void @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6910,7 +6910,7 @@ common.ret:                                       ; preds = %818, %"_ZN4core3ptr
   %130 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !999
   %131 = icmp ult i64 %130, 6
   tail call void @llvm.assume(i1 %131)
-  %switch.selectcmp.i188.i = icmp ugt i64 %130, 4
+  %switch.selectcmp.i188.i = icmp samesign ugt i64 %130, 4
   br i1 %switch.selectcmp.i188.i, label %132, label %181
 
 132:                                              ; preds = %129
@@ -7138,7 +7138,7 @@ common.ret:                                       ; preds = %818, %"_ZN4core3ptr
   %207 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1047
   %208 = icmp ult i64 %207, 6
   call void @llvm.assume(i1 %208)
-  %209 = icmp ult i64 %207, 5
+  %209 = icmp samesign ult i64 %207, 5
   br i1 %209, label %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h124269ac19510d3cE.exit.i", label %.critedge9.i.i
 
 .critedge9.i.i:                                   ; preds = %206
@@ -8375,7 +8375,7 @@ common.ret:                                       ; preds = %818, %"_ZN4core3ptr
   %524 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !999
   %525 = icmp ult i64 %524, 6
   call void @llvm.assume(i1 %525)
-  %switch.selectcmp.i216.i = icmp ugt i64 %524, 3
+  %switch.selectcmp.i216.i = icmp samesign ugt i64 %524, 3
   br i1 %switch.selectcmp.i216.i, label %526, label %608
 
 526:                                              ; preds = %523
@@ -9772,7 +9772,7 @@ common.ret:                                       ; preds = %967, %968
   %163 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1379
   %164 = icmp ult i64 %163, 6
   tail call void @llvm.assume(i1 %164)
-  %switch.selectcmp.i305.i = icmp ugt i64 %163, 4
+  %switch.selectcmp.i305.i = icmp samesign ugt i64 %163, 4
   br i1 %switch.selectcmp.i305.i, label %165, label %220
 
 165:                                              ; preds = %162
@@ -10076,7 +10076,7 @@ common.ret:                                       ; preds = %967, %968
   %249 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1444
   %250 = icmp ult i64 %249, 6
   call void @llvm.assume(i1 %250), !noalias !1383
-  %251 = icmp ult i64 %249, 5
+  %251 = icmp samesign ult i64 %249, 5
   br i1 %251, label %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h82cbcdbaf0fbb9b9E.exit", label %.critedge9.i26
 
 .critedge9.i26:                                   ; preds = %248
@@ -11257,7 +11257,7 @@ common.ret:                                       ; preds = %967, %968
   br i1 %533, label %539, label %534
 
 534:                                              ; preds = %531
-  %535 = icmp ult i64 %532, 3
+  %535 = icmp samesign ult i64 %532, 3
   %536 = getelementptr inbounds i8, ptr %98, i64 208
   %537 = load i64, ptr %536, align 8, !range !348, !noalias !1379
   %538 = icmp eq i64 %537, 4
@@ -11313,7 +11313,7 @@ common.ret:                                       ; preds = %967, %968
   %557 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1379
   %558 = icmp ult i64 %557, 6
   call void @llvm.assume(i1 %558)
-  %switch.selectcmp.i343.i = icmp ugt i64 %557, 3
+  %switch.selectcmp.i343.i = icmp samesign ugt i64 %557, 3
   br i1 %switch.selectcmp.i343.i, label %559, label %666
 
 559:                                              ; preds = %556
@@ -11624,7 +11624,7 @@ common.ret:                                       ; preds = %967, %968
   %646 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1667
   %647 = icmp ult i64 %646, 6
   call void @llvm.assume(i1 %647), !noalias !1383
-  %648 = icmp ult i64 %646, 4
+  %648 = icmp samesign ult i64 %646, 4
   br i1 %648, label %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %645
@@ -11776,7 +11776,7 @@ common.ret:                                       ; preds = %967, %968
   %696 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1379
   %697 = icmp ult i64 %696, 6
   call void @llvm.assume(i1 %697)
-  %switch.selectcmp.i389.i = icmp ugt i64 %696, 3
+  %switch.selectcmp.i389.i = icmp samesign ugt i64 %696, 3
   br i1 %switch.selectcmp.i389.i, label %698, label %754
 
 698:                                              ; preds = %695
@@ -12677,7 +12677,7 @@ common.ret:                                       ; preds = %967, %968
   br i1 %.not256.i, label %935, label %933
 
 933:                                              ; preds = %931
-  %934 = icmp ult i64 %932, 3
+  %934 = icmp samesign ult i64 %932, 3
   br i1 %934, label %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i", label %936
 
 935:                                              ; preds = %931
@@ -12777,7 +12777,7 @@ common.ret:                                       ; preds = %967, %968
           to label %285 unwind label %283, !noalias !1383
 
 960:                                              ; preds = %958
-  %961 = icmp ult i64 %928, 3
+  %961 = icmp samesign ult i64 %928, 3
   br i1 %961, label %962, label %963
 
 962:                                              ; preds = %960
@@ -14214,7 +14214,7 @@ common.ret:                                       ; preds = %318, %65
           to label %.body43 unwind label %413, !noalias !1995
 
 327:                                              ; preds = %323
-  %328 = icmp ult i64 %324, 5
+  %328 = icmp samesign ult i64 %324, 5
   call void @llvm.assume(i1 %328)
   %329 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$u20$as$u20$ockam_vault_aws..aws_kms_client..KmsClient$GT$9list_keys28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8ab08c860c05a646E", i64 16) monotonic, align 8, !noalias !1991
   switch i8 %329, label %330 [
@@ -15165,7 +15165,7 @@ common.ret:                                       ; preds = %1212, %1213
   %199 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2030
   %200 = icmp ult i64 %199, 6
   tail call void @llvm.assume(i1 %200)
-  %switch.selectcmp.i376.i = icmp ugt i64 %199, 4
+  %switch.selectcmp.i376.i = icmp samesign ugt i64 %199, 4
   br i1 %switch.selectcmp.i376.i, label %201, label %256
 
 201:                                              ; preds = %198
@@ -15476,7 +15476,7 @@ common.ret:                                       ; preds = %1212, %1213
   %288 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2095
   %289 = icmp ult i64 %288, 6
   call void @llvm.assume(i1 %289), !noalias !2034
-  %290 = icmp ult i64 %288, 5
+  %290 = icmp samesign ult i64 %288, 5
   br i1 %290, label %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fe1ec43dabca87eE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %287
@@ -16672,7 +16672,7 @@ common.ret:                                       ; preds = %1212, %1213
   br label %569
 
 572:                                              ; preds = %567
-  %573 = icmp ult i64 %568, 5
+  %573 = icmp samesign ult i64 %568, 5
   call void @llvm.assume(i1 %573)
   %574 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he93cae2247863102E", i64 16) monotonic, align 8, !noalias !2267
   switch i8 %574, label %575 [
@@ -17230,7 +17230,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %691
   %716 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2030
   %717 = icmp ult i64 %716, 6
   call void @llvm.assume(i1 %717)
-  %switch.selectcmp.i426.i = icmp ugt i64 %716, 3
+  %switch.selectcmp.i426.i = icmp samesign ugt i64 %716, 3
   br i1 %switch.selectcmp.i426.i, label %718, label %773
 
 718:                                              ; preds = %715
@@ -19435,7 +19435,7 @@ common.ret:                                       ; preds = %995, %996
   %183 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2573
   %184 = icmp ult i64 %183, 6
   tail call void @llvm.assume(i1 %184)
-  %switch.selectcmp.i238.i = icmp ugt i64 %183, 4
+  %switch.selectcmp.i238.i = icmp samesign ugt i64 %183, 4
   br i1 %switch.selectcmp.i238.i, label %185, label %240
 
 185:                                              ; preds = %182
@@ -19744,7 +19744,7 @@ common.ret:                                       ; preds = %995, %996
   %272 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2638
   %273 = icmp ult i64 %272, 6
   call void @llvm.assume(i1 %273), !noalias !2577
-  %274 = icmp ult i64 %272, 5
+  %274 = icmp samesign ult i64 %272, 5
   br i1 %274, label %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h81373f5c72e4de51E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %271
@@ -20969,7 +20969,7 @@ common.ret:                                       ; preds = %995, %996
   br label %571
 
 574:                                              ; preds = %569
-  %575 = icmp ult i64 %570, 5
+  %575 = icmp samesign ult i64 %570, 5
   call void @llvm.assume(i1 %575)
   %576 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h489b8d2120d44d98E", i64 16) monotonic, align 8, !noalias !2811
   switch i8 %576, label %577 [
@@ -21484,7 +21484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %706 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2573
   %707 = icmp ult i64 %706, 6
   call void @llvm.assume(i1 %707)
-  %switch.selectcmp.i286.i = icmp ugt i64 %706, 3
+  %switch.selectcmp.i286.i = icmp samesign ugt i64 %706, 3
   br i1 %switch.selectcmp.i286.i, label %708, label %763
 
 708:                                              ; preds = %705

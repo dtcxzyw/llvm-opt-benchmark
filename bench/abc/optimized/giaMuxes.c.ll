@@ -1796,8 +1796,8 @@ Abc_UtilStrsav.exit61:                            ; preds = %Abc_UtilStrsav.exit
   %27 = getelementptr i8, ptr %0, i64 40
   br label %28
 
-28:                                               ; preds = %.lr.ph, %144
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %144 ]
+28:                                               ; preds = %.lr.ph, %143
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %143 ]
   %.val = load ptr, ptr %20, align 8
   %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.val54 = load i64, ptr %29, align 4
@@ -1809,7 +1809,7 @@ Abc_UtilStrsav.exit61:                            ; preds = %Abc_UtilStrsav.exit
   %32 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %3)
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %32, ptr %33, align 4
-  br label %144
+  br label %143
 
 34:                                               ; preds = %28
   %35 = and i64 %.val54, 2147483648
@@ -1830,7 +1830,7 @@ Abc_UtilStrsav.exit61:                            ; preds = %Abc_UtilStrsav.exit
   %46 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %45)
   %47 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %46, ptr %47, align 4
-  br label %144
+  br label %143
 
 48:                                               ; preds = %34
   %49 = trunc i64 %.val54 to i32
@@ -1897,7 +1897,7 @@ Abc_UtilStrsav.exit61:                            ; preds = %Abc_UtilStrsav.exit
   %95 = phi i32 [ %62, %60 ], [ %93, %63 ]
   %96 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %95, ptr %96, align 4
-  br label %144
+  br label %143
 
 97:                                               ; preds = %48
   %.val58 = load ptr, ptr %27, align 8
@@ -1937,55 +1937,55 @@ Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjIsMuxId.exit
   %122 = tail call i32 @Gia_ManHashMux(ptr noundef nonnull %3, i32 noundef %107, i32 noundef %115, i32 noundef %121) #26
   %123 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %122, ptr %123, align 4
-  br label %144
+  br label %143
 
 Gia_ObjIsMuxId.exit.thread:                       ; preds = %97, %Gia_ObjIsMuxId.exit
   %124 = icmp eq i64 %36, 536870911
-  %.not71 = icmp uge i32 %50, %53
-  %125 = or i1 %124, %.not71
-  %or.cond.not = or i1 %125, %.not.i62
-  %126 = sub nsw i64 0, %36
-  %127 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %29, i64 %126, i32 1
-  %128 = load i32, ptr %127, align 4
-  %129 = lshr i32 %49, 29
-  %130 = and i32 %129, 1
-  %131 = xor i32 %128, %130
-  %132 = and i64 %51, 536870911
-  %133 = sub nsw i64 0, %132
-  %134 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %29, i64 %133, i32 1
-  %135 = load i32, ptr %134, align 4
-  %136 = lshr i64 %.val54, 61
-  %137 = trunc nuw nsw i64 %136 to i32
-  %138 = and i32 %137, 1
-  %139 = xor i32 %135, %138
-  %140 = getelementptr inbounds i8, ptr %29, i64 8
-  br i1 %or.cond.not, label %Gia_ObjIsXor.exit.thread, label %141
+  %narrow.i.not.i = or i1 %.not.i62, %124
+  %.not71 = icmp samesign uge i32 %50, %53
+  %or.cond.not = select i1 %narrow.i.not.i, i1 true, i1 %.not71
+  %125 = sub nsw i64 0, %36
+  %126 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %29, i64 %125, i32 1
+  %127 = load i32, ptr %126, align 4
+  %128 = lshr i32 %49, 29
+  %129 = and i32 %128, 1
+  %130 = xor i32 %127, %129
+  %131 = and i64 %51, 536870911
+  %132 = sub nsw i64 0, %131
+  %133 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %29, i64 %132, i32 1
+  %134 = load i32, ptr %133, align 4
+  %135 = lshr i64 %.val54, 61
+  %136 = trunc nuw nsw i64 %135 to i32
+  %137 = and i32 %136, 1
+  %138 = xor i32 %134, %137
+  %139 = getelementptr inbounds i8, ptr %29, i64 8
+  br i1 %or.cond.not, label %Gia_ObjIsXor.exit.thread, label %140
 
-141:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
-  %142 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %3, i32 noundef %131, i32 noundef %139) #26
-  store i32 %142, ptr %140, align 4
-  br label %144
+140:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
+  %141 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %3, i32 noundef %130, i32 noundef %138) #26
+  store i32 %141, ptr %139, align 4
+  br label %143
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit.thread
-  %143 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %3, i32 noundef %131, i32 noundef %139) #26
-  store i32 %143, ptr %140, align 4
-  br label %144
+  %142 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %3, i32 noundef %130, i32 noundef %138) #26
+  store i32 %142, ptr %139, align 4
+  br label %143
 
-144:                                              ; preds = %31, %94, %141, %Gia_ObjIsXor.exit.thread, %Gia_ObjFanin2Copy.exit, %38
+143:                                              ; preds = %31, %94, %140, %Gia_ObjIsXor.exit.thread, %Gia_ObjFanin2Copy.exit, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %145 = load i32, ptr %22, align 8
-  %146 = sext i32 %145 to i64
-  %147 = icmp slt i64 %indvars.iv.next, %146
-  br i1 %147, label %28, label %.critedge, !llvm.loop !12
+  %144 = load i32, ptr %22, align 8
+  %145 = sext i32 %144 to i64
+  %146 = icmp slt i64 %indvars.iv.next, %145
+  br i1 %146, label %28, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %144, %Abc_UtilStrsav.exit61
+.critedge:                                        ; preds = %143, %Abc_UtilStrsav.exit61
   tail call void @Gia_ManHashStop(ptr noundef nonnull %3) #26
-  %148 = getelementptr i8, ptr %0, i64 16
-  %.val57 = load i32, ptr %148, align 8
+  %147 = getelementptr i8, ptr %0, i64 16
+  %.val57 = load i32, ptr %147, align 8
   tail call void @Gia_ManSetRegNum(ptr noundef nonnull %3, i32 noundef %.val57) #26
-  %149 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %3) #26
+  %148 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %3) #26
   tail call void @Gia_ManStop(ptr noundef nonnull %3) #26
-  ret ptr %149
+  ret ptr %148
 }
 
 declare i32 @Gia_ManHashMux(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2092,8 +2092,8 @@ Abc_UtilStrsav.exit141:                           ; preds = %Abc_UtilStrsav.exit
   %45 = getelementptr i8, ptr %0, i64 40
   br label %46
 
-46:                                               ; preds = %.lr.ph, %278
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %278 ]
+46:                                               ; preds = %.lr.ph, %277
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %277 ]
   %.val = load ptr, ptr %39, align 8
   %47 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.val116 = load i64, ptr %47, align 4
@@ -2105,7 +2105,7 @@ Abc_UtilStrsav.exit141:                           ; preds = %Abc_UtilStrsav.exit
   %50 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %17)
   %51 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %50, ptr %51, align 4
-  br label %278
+  br label %277
 
 52:                                               ; preds = %46
   %53 = and i64 %.val116, 2147483648
@@ -2126,7 +2126,7 @@ Abc_UtilStrsav.exit141:                           ; preds = %Abc_UtilStrsav.exit
   %64 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %17, i32 noundef %63)
   %65 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %64, ptr %65, align 4
-  br label %278
+  br label %277
 
 66:                                               ; preds = %52
   %67 = trunc i64 %.val116 to i32
@@ -2181,7 +2181,7 @@ Abc_UtilStrsav.exit141:                           ; preds = %Abc_UtilStrsav.exit
   %107 = shl i32 %106, 1
   %108 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %107, ptr %108, align 4
-  br label %278
+  br label %277
 
 109:                                              ; preds = %66
   %.val131 = load ptr, ptr %45, align 8
@@ -2350,7 +2350,7 @@ Gia_ObjFanin2Copy.exit166:                        ; preds = %Gia_ObjFanin2Copy.e
   %232 = load i32, ptr %231, align 4
   %233 = or i32 %232, %228
   store i32 %233, ptr %231, align 4
-  br label %278
+  br label %277
 
 Gia_ObjFanin2Copy.exit173:                        ; preds = %Gia_ObjIsMuxId.exit148, %117, %Gia_ObjIsMuxId.exit150, %129
   %sext.i.i171 = shl nuw nsw i64 %indvars.iv, 2
@@ -2379,63 +2379,63 @@ Gia_ObjFanin2Copy.exit173:                        ; preds = %Gia_ObjIsMuxId.exit
   %256 = tail call i32 @Gia_ManHashMux(ptr noundef nonnull %17, i32 noundef %241, i32 noundef %249, i32 noundef %255) #26
   %257 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %256, ptr %257, align 4
-  br label %278
+  br label %277
 
 Gia_ObjIsMuxId.exit168.thread:                    ; preds = %Gia_ObjIsMuxId.exit, %109
   %258 = icmp eq i64 %54, 536870911
-  %.not185 = icmp uge i32 %68, %71
-  %259 = or i1 %258, %.not185
-  %or.cond.not = or i1 %259, %.not.i142
-  %260 = sub nsw i64 0, %54
-  %261 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %47, i64 %260, i32 1
-  %262 = load i32, ptr %261, align 4
-  %263 = lshr i32 %67, 29
-  %264 = and i32 %263, 1
-  %265 = xor i32 %262, %264
-  %266 = and i64 %69, 536870911
-  %267 = sub nsw i64 0, %266
-  %268 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %47, i64 %267, i32 1
-  %269 = load i32, ptr %268, align 4
-  %270 = lshr i64 %.val116, 61
-  %271 = trunc nuw nsw i64 %270 to i32
-  %272 = and i32 %271, 1
-  %273 = xor i32 %269, %272
-  %274 = getelementptr inbounds i8, ptr %47, i64 8
-  br i1 %or.cond.not, label %Gia_ObjIsXor.exit.thread, label %275
+  %narrow.i.not.i = or i1 %.not.i142, %258
+  %.not185 = icmp samesign uge i32 %68, %71
+  %or.cond.not = select i1 %narrow.i.not.i, i1 true, i1 %.not185
+  %259 = sub nsw i64 0, %54
+  %260 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %47, i64 %259, i32 1
+  %261 = load i32, ptr %260, align 4
+  %262 = lshr i32 %67, 29
+  %263 = and i32 %262, 1
+  %264 = xor i32 %261, %263
+  %265 = and i64 %69, 536870911
+  %266 = sub nsw i64 0, %265
+  %267 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %47, i64 %266, i32 1
+  %268 = load i32, ptr %267, align 4
+  %269 = lshr i64 %.val116, 61
+  %270 = trunc nuw nsw i64 %269 to i32
+  %271 = and i32 %270, 1
+  %272 = xor i32 %268, %271
+  %273 = getelementptr inbounds i8, ptr %47, i64 8
+  br i1 %or.cond.not, label %Gia_ObjIsXor.exit.thread, label %274
 
-275:                                              ; preds = %Gia_ObjIsMuxId.exit168.thread
-  %276 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %17, i32 noundef %265, i32 noundef %273) #26
-  store i32 %276, ptr %274, align 4
-  br label %278
+274:                                              ; preds = %Gia_ObjIsMuxId.exit168.thread
+  %275 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %17, i32 noundef %264, i32 noundef %272) #26
+  store i32 %275, ptr %273, align 4
+  br label %277
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit168.thread
-  %277 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %17, i32 noundef %265, i32 noundef %273) #26
-  store i32 %277, ptr %274, align 4
-  br label %278
+  %276 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %17, i32 noundef %264, i32 noundef %272) #26
+  store i32 %276, ptr %273, align 4
+  br label %277
 
-278:                                              ; preds = %49, %73, %Gia_ObjFanin2Copy.exit173, %Gia_ObjIsXor.exit.thread, %275, %Gia_ObjFanin2Copy.exit166, %56
+277:                                              ; preds = %49, %73, %Gia_ObjFanin2Copy.exit173, %Gia_ObjIsXor.exit.thread, %274, %Gia_ObjFanin2Copy.exit166, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %279 = load i32, ptr %2, align 8
-  %280 = sext i32 %279 to i64
-  %281 = icmp slt i64 %indvars.iv.next, %280
-  br i1 %281, label %46, label %.critedge, !llvm.loop !13
+  %278 = load i32, ptr %2, align 8
+  %279 = sext i32 %278 to i64
+  %280 = icmp slt i64 %indvars.iv.next, %279
+  br i1 %280, label %46, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %278, %Abc_UtilStrsav.exit141
+.critedge:                                        ; preds = %277, %Abc_UtilStrsav.exit141
   %.not.i175 = icmp eq ptr %12, null
-  br i1 %.not.i175, label %Vec_BitFree.exit, label %282
+  br i1 %.not.i175, label %Vec_BitFree.exit, label %281
 
-282:                                              ; preds = %.critedge
+281:                                              ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %12) #26
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge, %282
+Vec_BitFree.exit:                                 ; preds = %.critedge, %281
   tail call void @Gia_ManHashStop(ptr noundef nonnull %17) #26
-  %283 = getelementptr i8, ptr %0, i64 16
-  %.val127 = load i32, ptr %283, align 8
+  %282 = getelementptr i8, ptr %0, i64 16
+  %.val127 = load i32, ptr %282, align 8
   tail call void @Gia_ManSetRegNum(ptr noundef nonnull %17, i32 noundef %.val127) #26
-  %284 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %17) #26
+  %283 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %17) #26
   tail call void @Gia_ManStop(ptr noundef nonnull %17) #26
-  ret ptr %284
+  ret ptr %283
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5070,7 +5070,7 @@ Gia_ObjIsXor.exit:                                ; preds = %26
   %29 = lshr i64 %.val18, 32
   %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 536870911
-  %.not37 = icmp ult i32 %28, %31
+  %.not37 = icmp samesign ult i32 %28, %31
   br i1 %.not37, label %36, label %Gia_ObjIsXor.exit.thread
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %26, %Gia_ObjIsXor.exit
@@ -5141,7 +5141,7 @@ Gia_ObjIsXor.exit:                                ; preds = %17
   %23 = lshr i64 %.val15, 32
   %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 536870911
-  %.not = icmp ult i32 %22, %25
+  %.not = icmp samesign ult i32 %22, %25
   br i1 %.not, label %30, label %Gia_ObjIsXor.exit.thread
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %17, %Gia_ObjIsXor.exit
@@ -5206,7 +5206,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   %18 = lshr i64 %.val11, 32
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
-  %.not20 = icmp ult i32 %17, %20
+  %.not20 = icmp samesign ult i32 %17, %20
   br i1 %.not20, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsXor.exit.thread
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %15, %Gia_ObjIsXor.exit
@@ -6673,7 +6673,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %101
   %104 = lshr i64 %.val18.i, 32
   %105 = trunc nuw i64 %104 to i32
   %106 = and i32 %105, 536870911
-  %.not37.i = icmp ult i32 %103, %106
+  %.not37.i = icmp samesign ult i32 %103, %106
   br i1 %.not37.i, label %Gia_ManEncodeObj.exit, label %Gia_ObjIsXor.exit.thread.i
 
 Gia_ObjIsXor.exit.thread.i:                       ; preds = %Gia_ObjIsXor.exit.i, %101
@@ -6821,7 +6821,7 @@ Gia_ObjIsXor.exit.i247:                           ; preds = %159
   %165 = lshr i64 %.val15.i, 32
   %166 = trunc nuw i64 %165 to i32
   %167 = and i32 %166, 536870911
-  %.not.i248 = icmp ult i32 %164, %167
+  %.not.i248 = icmp samesign ult i32 %164, %167
   br i1 %.not.i248, label %Gia_ManEncodeFanin.exit, label %Gia_ObjIsXor.exit.thread.i249
 
 Gia_ObjIsXor.exit.thread.i249:                    ; preds = %Gia_ObjIsXor.exit.i247, %159
@@ -6954,7 +6954,7 @@ Gia_ObjIsXor.exit.i273:                           ; preds = %216
   %222 = lshr i64 %.val15.i268, 32
   %223 = trunc nuw i64 %222 to i32
   %224 = and i32 %223, 536870911
-  %.not.i274 = icmp ult i32 %221, %224
+  %.not.i274 = icmp samesign ult i32 %221, %224
   br i1 %.not.i274, label %Gia_ManEncodeFanin.exit289, label %Gia_ObjIsXor.exit.thread.i275
 
 Gia_ObjIsXor.exit.thread.i275:                    ; preds = %Gia_ObjIsXor.exit.i273, %216
@@ -7085,7 +7085,7 @@ Gia_ObjIsXor.exit.i304:                           ; preds = %272
   %278 = lshr i64 %.val15.i299, 32
   %279 = trunc nuw i64 %278 to i32
   %280 = and i32 %279, 536870911
-  %.not.i305 = icmp ult i32 %277, %280
+  %.not.i305 = icmp samesign ult i32 %277, %280
   br i1 %.not.i305, label %Gia_ManEncodeFanin.exit320, label %Gia_ObjIsXor.exit.thread.i306
 
 Gia_ObjIsXor.exit.thread.i306:                    ; preds = %Gia_ObjIsXor.exit.i304, %272
@@ -7204,7 +7204,7 @@ Gia_ObjIsXor.exit.i335:                           ; preds = %321
   %327 = lshr i64 %.val15.i330, 32
   %328 = trunc nuw i64 %327 to i32
   %329 = and i32 %328, 536870911
-  %.not.i336 = icmp ult i32 %326, %329
+  %.not.i336 = icmp samesign ult i32 %326, %329
   br i1 %.not.i336, label %Gia_ManEncodeFanin.exit351, label %Gia_ObjIsXor.exit.thread.i337
 
 Gia_ObjIsXor.exit.thread.i337:                    ; preds = %Gia_ObjIsXor.exit.i335, %321
@@ -7334,7 +7334,7 @@ Gia_ObjIsXor.exit.i366:                           ; preds = %376
   %382 = lshr i64 %.val15.i361, 32
   %383 = trunc nuw i64 %382 to i32
   %384 = and i32 %383, 536870911
-  %.not.i367 = icmp ult i32 %381, %384
+  %.not.i367 = icmp samesign ult i32 %381, %384
   br i1 %.not.i367, label %Gia_ManEncodeFanin.exit382, label %Gia_ObjIsXor.exit.thread.i368
 
 Gia_ObjIsXor.exit.thread.i368:                    ; preds = %Gia_ObjIsXor.exit.i366, %376
@@ -7457,7 +7457,7 @@ Gia_ObjIsXor.exit.i397:                           ; preds = %427
   %433 = lshr i64 %.val15.i392, 32
   %434 = trunc nuw i64 %433 to i32
   %435 = and i32 %434, 536870911
-  %.not.i398 = icmp ult i32 %432, %435
+  %.not.i398 = icmp samesign ult i32 %432, %435
   br i1 %.not.i398, label %Gia_ManEncodeFanin.exit413, label %Gia_ObjIsXor.exit.thread.i399
 
 Gia_ObjIsXor.exit.thread.i399:                    ; preds = %Gia_ObjIsXor.exit.i397, %427
@@ -7521,7 +7521,7 @@ Gia_ObjIsXor.exit.i421:                           ; preds = %452
   %458 = lshr i64 %.val15.i416, 32
   %459 = trunc nuw i64 %458 to i32
   %460 = and i32 %459, 536870911
-  %.not.i422 = icmp ult i32 %457, %460
+  %.not.i422 = icmp samesign ult i32 %457, %460
   br i1 %.not.i422, label %Gia_ManEncodeFanin.exit437, label %Gia_ObjIsXor.exit.thread.i423
 
 Gia_ObjIsXor.exit.thread.i423:                    ; preds = %Gia_ObjIsXor.exit.i421, %452
@@ -7708,7 +7708,7 @@ Gia_ObjIsXor.exit.i459:                           ; preds = %533
   %539 = lshr i64 %.val15.i454, 32
   %540 = trunc nuw i64 %539 to i32
   %541 = and i32 %540, 536870911
-  %.not.i460 = icmp ult i32 %538, %541
+  %.not.i460 = icmp samesign ult i32 %538, %541
   br i1 %.not.i460, label %Gia_ManEncodeFanin.exit475, label %Gia_ObjIsXor.exit.thread.i461
 
 Gia_ObjIsXor.exit.thread.i461:                    ; preds = %Gia_ObjIsXor.exit.i459, %533
@@ -7856,7 +7856,7 @@ Gia_ObjIsXor.exit.i497:                           ; preds = %596
   %602 = lshr i64 %.val15.i492, 32
   %603 = trunc nuw i64 %602 to i32
   %604 = and i32 %603, 536870911
-  %.not.i498 = icmp ult i32 %601, %604
+  %.not.i498 = icmp samesign ult i32 %601, %604
   br i1 %.not.i498, label %Gia_ManEncodeFanin.exit513, label %Gia_ObjIsXor.exit.thread.i499
 
 Gia_ObjIsXor.exit.thread.i499:                    ; preds = %Gia_ObjIsXor.exit.i497, %596
@@ -8044,7 +8044,7 @@ Gia_ObjIsXor.exit.i538:                           ; preds = %684
   %687 = lshr i64 %653, 32
   %688 = trunc nuw i64 %687 to i32
   %689 = and i32 %688, 536870911
-  %.not20.i = icmp ult i32 %686, %689
+  %.not20.i = icmp samesign ult i32 %686, %689
   br i1 %.not20.i, label %Gia_ManEncodeFanout.exit, label %Gia_ObjIsXor.exit.thread.i539
 
 Gia_ObjIsXor.exit.thread.i539:                    ; preds = %Gia_ObjIsXor.exit.i538, %684
@@ -10325,7 +10325,7 @@ Vec_WecFreeP.exit.thread:                         ; preds = %1, %4
 
 41:                                               ; preds = %40, %37
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %42 = icmp ult i64 %indvars.iv.next.i.i.i, %36
+  %42 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %36
   br i1 %42, label %37, label %._crit_edge.i.i.i.thread, !llvm.loop !19
 
 ._crit_edge.i.i.i:                                ; preds = %31

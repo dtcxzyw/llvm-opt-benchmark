@@ -1664,12 +1664,12 @@ if.end.i9.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %while.body.i.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !26
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 66
+  %cmp1.i.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 66
   br i1 %cmp1.i.i.i.i, label %_ZN5folly16to_ascii_decimalEPcPKcm.exit, label %while.cond.i.preheader.i.i.i
 
 while.cond.i.preheader.i.i.i:                     ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
   %add.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.019.i.i.i, i64 1)
-  %cmp.i1320.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 2
+  %cmp.i1320.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 2
   br i1 %cmp.i1320.i.i.i, label %while.body.i.preheader.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %if.end.i9.i.i.i, %while.cond.i.preheader.i.i.i
@@ -2980,7 +2980,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i3.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i3.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i3.i16.i.i.i.i, label %while.body.i.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i.i
 
 while.body.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i

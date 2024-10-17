@@ -5918,7 +5918,7 @@ if.else:                                          ; preds = %if.then8
   %m_window_size27 = getelementptr inbounds i8, ptr %this, i64 432
   %12 = load i16, ptr %m_window_size27, align 8, !tbaa !188
   %conv28 = zext i16 %12 to i32
-  %cmp29 = icmp ugt i32 %add, %conv28
+  %cmp29 = icmp samesign ugt i32 %add, %conv28
   br i1 %cmp29, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then11, %invoke.cont6
@@ -8932,7 +8932,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %cond.i.i, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i42, label %if.else.i.i.i
 
 if.then.i.i.i42:                                  ; preds = %while.end.i.i.i
@@ -9197,12 +9197,12 @@ while.body.i.i.i102:                              ; preds = %while.body.i.i.i102
   %arrayidx7.i.i.i117 = getelementptr inbounds i8, ptr %40, i64 %idxprom6.i.i.i116
   store i8 %42, ptr %arrayidx7.i.i.i117, align 1, !tbaa !13
   %sub8.i.i.i118 = add i32 %__pos.035.i.i.i104, -2
-  %cmp.i18.i.i119 = icmp ugt i32 %__val.addr.036.i.i.i103, 9999
+  %cmp.i18.i.i119 = icmp samesign ugt i32 %__val.addr.036.i.i.i103, 9999
   br i1 %cmp.i18.i.i119, label %while.body.i.i.i102, label %while.end.i.i.i86, !llvm.loop !292
 
 while.end.i.i.i86:                                ; preds = %while.body.i.i.i102, %invoke.cont.i.i82
   %__val.addr.0.lcssa.i.i.i87 = phi i32 [ %conv, %invoke.cont.i.i82 ], [ %div.i.i.i107, %while.body.i.i.i102 ]
-  %cmp9.i.i.i88 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i87, 9
+  %cmp9.i.i.i88 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i87, 9
   br i1 %cmp9.i.i.i88, label %if.then.i.i.i92, label %if.else.i.i.i89
 
 if.then.i.i.i92:                                  ; preds = %while.end.i.i.i86

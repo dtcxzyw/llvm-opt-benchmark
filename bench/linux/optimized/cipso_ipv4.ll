@@ -332,7 +332,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define internal fastcc i32 @cipso_v4_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #3 align 16 {
   %3 = add nuw nsw i32 %1, -559038737
-  %4 = icmp ugt i32 %1, 12
+  %4 = icmp samesign ugt i32 %1, 12
   br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -1025,7 +1025,7 @@ define dso_local noundef ptr @cipso_v4_optptr(ptr nocapture noundef readonly %0)
   %8 = load i8, ptr %7, align 4
   %9 = shl i8 %8, 2
   %10 = and i8 %9, 60
-  %11 = icmp ugt i8 %10, 21
+  %11 = icmp samesign ugt i8 %10, 21
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %1
@@ -1282,7 +1282,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
 
 129:                                              ; preds = %132
   %130 = add nuw nsw i64 %133, 2
-  %131 = icmp ult i64 %130, %128
+  %131 = icmp samesign ult i64 %130, %128
   br i1 %131, label %132, label %.loopexit17, !llvm.loop !24
 
 132:                                              ; preds = %129, %127
@@ -1358,7 +1358,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
   br label %178
 
 176:                                              ; preds = %192
-  %177 = icmp ult i64 %184, %175
+  %177 = icmp samesign ult i64 %184, %175
   br i1 %177, label %178, label %.loopexit17, !llvm.loop !25
 
 178:                                              ; preds = %176, %174
@@ -1368,7 +1368,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
   %182 = load i16, ptr %181, align 1
   %183 = tail call i16 @llvm.bswap.i16(i16 %182)
   %184 = add nuw nsw i64 %179, 4
-  %185 = icmp ugt i64 %184, %175
+  %185 = icmp samesign ugt i64 %184, %175
   br i1 %185, label %192, label %186
 
 186:                                              ; preds = %178
@@ -1382,7 +1382,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
 192:                                              ; preds = %186, %178
   %193 = phi i32 [ %191, %186 ], [ 0, %178 ]
   %194 = zext i16 %183 to i32
-  %195 = icmp ult i32 %180, %194
+  %195 = icmp samesign ult i32 %180, %194
   br i1 %195, label %.loopexit18, label %176
 
 .loopexit18:                                      ; preds = %165, %192
@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef %0, ptr
   %84 = add nuw nsw i32 %82, %83
   %85 = load volatile i32, ptr @cipso_v4_rbm_optfmt, align 4
   %86 = icmp ne i32 %85, 0
-  %87 = icmp ult i32 %84, 11
+  %87 = icmp samesign ult i32 %84, 11
   %88 = and i1 %86, %87
   %89 = add nuw nsw i32 %84, 4
   %90 = select i1 %88, i32 14, i32 %89
@@ -1829,7 +1829,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef %0, ptr
 .preheader57:                                     ; preds = %117, %124
   %121 = phi i64 [ %125, %124 ], [ 0, %117 ]
   %122 = phi i32 [ %131, %124 ], [ %119, %117 ]
-  %123 = icmp ugt i64 %121, 28
+  %123 = icmp samesign ugt i64 %121, 28
   br i1 %123, label %.thread, label %124
 
 124:                                              ; preds = %.preheader57
@@ -2634,7 +2634,7 @@ select.unfold:                                    ; preds = %165, %167, %172, %1
 
 216:                                              ; preds = %219
   %217 = add nuw nsw i64 %220, 2
-  %218 = icmp ult i64 %217, %215
+  %218 = icmp samesign ult i64 %217, %215
   br i1 %218, label %219, label %.thread42, !llvm.loop !41
 
 219:                                              ; preds = %216, %211
@@ -2709,7 +2709,7 @@ select.unfold:                                    ; preds = %165, %167, %172, %1
 
 265:                                              ; preds = %280, %260
   %266 = phi i64 [ %272, %280 ], [ 0, %260 ]
-  %267 = icmp ult i64 %266, %264
+  %267 = icmp samesign ult i64 %266, %264
   br i1 %267, label %268, label %292
 
 268:                                              ; preds = %265
@@ -2717,7 +2717,7 @@ select.unfold:                                    ; preds = %165, %167, %172, %1
   %270 = load i16, ptr %269, align 1
   %271 = tail call i16 @llvm.bswap.i16(i16 %270)
   %272 = add nuw nsw i64 %266, 4
-  %273 = icmp ugt i64 %272, %264
+  %273 = icmp samesign ugt i64 %272, %264
   br i1 %273, label %280, label %274
 
 274:                                              ; preds = %268

@@ -6145,7 +6145,7 @@ invoke.cont77:                                    ; preds = %if.then70
   %30 = load i64, ptr %batch_size76, align 8, !tbaa !213
   %sub.i = sub nsw i64 %29, %30
   %cond.i.i = call noundef i64 @llvm.abs.i64(i64 %sub.i, i1 true)
-  %cmp.i332 = icmp ult i64 %cond.i.i, 2048
+  %cmp.i332 = icmp samesign ult i64 %cond.i.i, 2048
   br i1 %cmp.i332, label %if.then79, label %if.else
 
 if.then79:                                        ; preds = %invoke.cont77
@@ -7049,7 +7049,7 @@ invoke.cont231:                                   ; preds = %lor.lhs.false
   %128 = load i64, ptr %batch_size76, align 8, !tbaa !213
   %sub.i528 = sub nsw i64 %127, %128
   %cond.i.i529 = call noundef i64 @llvm.abs.i64(i64 %sub.i528, i1 true)
-  %cmp.i530 = icmp ult i64 %cond.i.i529, 2048
+  %cmp.i530 = icmp samesign ult i64 %cond.i.i529, 2048
   br i1 %cmp.i530, label %if.then233, label %if.else247
 
 if.then233:                                       ; preds = %invoke.cont231, %if.then224

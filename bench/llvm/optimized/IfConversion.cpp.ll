@@ -3596,7 +3596,7 @@ _ZN12_GLOBAL__N_111IfConverter12AnalyzeBlockERN4llvm17MachineBasicBlockERSt6vect
   br i1 %.not.i.i.i.i.i8.i, label %select.unfold.i.i.i.i.i.i, label %1394
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not12.i.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
+  %.not12.i.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
   br i1 %.not12.i.i.i.i.i.i, label %.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !78
 
 1394:                                             ; preds = %.lr.ph.i.i.i.i.i.i
@@ -4051,7 +4051,7 @@ _ZNK12_GLOBAL__N_111IfConverter22reverseBranchConditionERNS0_6BBInfoE.exit.i: ; 
   %1622 = zext i32 %.sroa.0111.0.i to i64
   %1623 = and i64 %1620, 4294967295
   %1624 = add nuw nsw i64 %1623, %1622
-  %1625 = icmp ugt i64 %1624, 2147483648
+  %1625 = icmp samesign ugt i64 %1624, 2147483648
   %1626 = add i32 %.sroa.0111.0.i, %1621
   %spec.select.i.i.i = select i1 %1625, i32 -2147483648, i32 %1626
   %1627 = getelementptr inbounds nuw i8, ptr %1611, i64 112
@@ -10445,7 +10445,7 @@ _ZN4llvm4findINS_14iterator_rangeIPPNS_17MachineBasicBlockEEES3_EEDaOT_RKT0_.exi
   %244 = zext i32 %243 to i64
   %245 = zext i32 %.sroa.0155.0 to i64
   %246 = add nuw nsw i64 %244, %245
-  %247 = icmp ugt i64 %246, 2147483648
+  %247 = icmp samesign ugt i64 %246, 2147483648
   %248 = add i32 %243, %.sroa.0155.0
   %spec.select.i.i = select i1 %247, i32 -2147483648, i32 %248
   call void @_ZN4llvm17MachineBasicBlock18setSuccProbabilityEPPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %197, ptr noundef %.028.i.i.i.i, i32 %spec.select.i.i) #22

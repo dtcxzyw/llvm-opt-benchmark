@@ -1570,7 +1570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i

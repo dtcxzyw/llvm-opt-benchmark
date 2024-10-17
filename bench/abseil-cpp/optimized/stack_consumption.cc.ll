@@ -114,7 +114,7 @@ for.body.i:                                       ; preds = %do.end55, %if.end9.
   br i1 %cmp1.not.i, label %if.end9.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %cmp2.i = icmp ugt i32 %usage_count.06.i, 65504
+  %cmp2.i = icmp samesign ugt i32 %usage_count.06.i, 65504
   br i1 %cmp2.i, label %do.body5.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit
 
 do.body5.i:                                       ; preds = %do.body.i
@@ -149,7 +149,7 @@ for.body.i9:                                      ; preds = %_ZN4absl18debugging
   br i1 %cmp1.not.i12, label %if.end9.i16, label %do.body.i13
 
 do.body.i13:                                      ; preds = %for.body.i9
-  %cmp2.i14 = icmp ugt i32 %usage_count.06.i11, 65504
+  %cmp2.i14 = icmp samesign ugt i32 %usage_count.06.i11, 65504
   br i1 %cmp2.i14, label %do.body5.i15, label %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit21
 
 do.body5.i15:                                     ; preds = %do.body.i13

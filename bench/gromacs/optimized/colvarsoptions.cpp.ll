@@ -6978,7 +6978,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZN
   %373 = sub i64 %371, %372
   %374 = ashr exact i64 %373, 3
   %375 = udiv i64 %374, 3
-  %376 = icmp ult i64 %368, %375
+  %376 = icmp samesign ult i64 %368, %375
   br i1 %376, label %.preheader, label %._crit_edge361, !llvm.loop !164
 
 ._crit_edge361:                                   ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE9push_backERKS2_.exit, %.preheader349

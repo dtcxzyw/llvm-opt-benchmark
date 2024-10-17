@@ -402,7 +402,7 @@ write_perfmap_entry.exit:                         ; preds = %if.then.i.i, %if.en
   %inc34 = add nuw nsw i64 %insn.174, 1
   %21 = load i16, ptr %icount, align 2
   %conv28 = zext i16 %21 to i64
-  %cmp29 = icmp ult i64 %inc34, %conv28
+  %cmp29 = icmp samesign ult i64 %inc34, %conv28
   br i1 %cmp29, label %for.body31, label %for.end35, !llvm.loop !7
 
 for.end35:                                        ; preds = %write_perfmap_entry.exit, %if.then25

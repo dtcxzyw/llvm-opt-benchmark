@@ -8925,7 +8925,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainXMLTag(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = icmp ult i32 %1, 4
+  %4 = icmp samesign ult i32 %1, 4
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3

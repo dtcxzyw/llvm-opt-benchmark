@@ -217,7 +217,7 @@ if.then64.i.i.i:                                  ; preds = %if.then21.i.i.i
 
 if.then78.i.i.i:                                  ; preds = %while.body.i.i.i
   %13 = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp80.i.i.i = icmp ult i64 %13, %8
+  %cmp80.i.i.i = icmp samesign ult i64 %13, %8
   br i1 %cmp80.i.i.i, label %if.then81.i.i.i, label %if.else108.i.i.i
 
 if.then81.i.i.i:                                  ; preds = %if.then78.i.i.i
@@ -491,7 +491,7 @@ if.end86.i.i:                                     ; preds = %cond.end.i.i, %whil
   %add14.2.i.i = phi i32 [ %add85.i.i, %cond.end.i.i ], [ %add14.176.i.i, %while.body56.i.i ]
   %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
   %31 = zext i32 %add14.2.i.i to i64
-  %cmp55.i.i = icmp ult i64 %indvars.iv.next82.i.i, %31
+  %cmp55.i.i = icmp samesign ult i64 %indvars.iv.next82.i.i, %31
   br i1 %cmp55.i.i, label %while.body56.i.i, label %while.end87.i.i, !llvm.loop !11
 
 while.end87.i.i:                                  ; preds = %if.end86.i.i, %while.cond54.preheader.i.i

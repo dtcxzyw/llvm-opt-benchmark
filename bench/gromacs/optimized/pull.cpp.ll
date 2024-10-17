@@ -680,7 +680,7 @@ define noundef float @_Z18max_pull_distance2RK17pull_coord_work_tRK5t_pbc(ptr no
   %18 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %indvars.iv71, i64 %indvars.iv71
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, %19
-  %21 = icmp ult i64 %indvars.iv71, 2
+  %21 = icmp samesign ult i64 %indvars.iv71, 2
   br i1 %21, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %17, %.lr.ph58
@@ -840,7 +840,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
   %37 = getelementptr inbounds [3 x [3 x float]], ptr %29, i64 0, i64 %indvars.iv71.i.i, i64 %indvars.iv71.i.i
   %38 = load float, ptr %37, align 4
   %39 = fmul float %38, %38
-  %40 = icmp ult i64 %indvars.iv71.i.i, 2
+  %40 = icmp samesign ult i64 %indvars.iv71.i.i, 2
   br i1 %40, label %.lr.ph58.i.i, label %._crit_edge59.i.i
 
 .lr.ph58.i.i:                                     ; preds = %36, %.lr.ph58.i.i
@@ -5007,13 +5007,13 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
 
 ._crit_edge.i:                                    ; preds = %800
   %802 = add nuw nsw i32 %.0243502.i, 1
-  %803 = icmp ugt i32 %.0243502.i, 98
+  %803 = icmp samesign ugt i32 %.0243502.i, 98
   %.not269.i = select i1 %.2.i, i1 true, i1 %803
   br i1 %.not269.i, label %.loopexit611.i, label %.preheader440.i, !llvm.loop !44
 
 .loopexit611.i:                                   ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %804 = phi i32 [ %206, %._crit_edge.thread.i ], [ %802, %._crit_edge.i ]
-  %805 = icmp ugt i32 %.0243502.i, 99
+  %805 = icmp samesign ugt i32 %.0243502.i, 99
   br i1 %805, label %806, label %810
 
 806:                                              ; preds = %.loopexit611.i

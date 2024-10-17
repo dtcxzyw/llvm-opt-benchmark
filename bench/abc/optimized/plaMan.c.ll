@@ -1755,7 +1755,7 @@ define i32 @Pla_ManDist1Num(ptr nocapture noundef readonly %0) local_unnamed_add
   %8 = mul nuw nsw i64 %indvars.iv36, %wide.trip.count.i
   %9 = getelementptr inbounds i64, ptr %.val24, i64 %8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %10 = icmp ult i64 %indvars.iv.next37, %7
+  %10 = icmp samesign ult i64 %indvars.iv.next37, %7
   br i1 %10, label %.lr.ph.preheader.i.us.us, label %.critedge2.loopexit.us
 
 .critedge2.loopexit.us:                           ; preds = %Pla_CubesAreDistance1.exit.loopexit.us.us, %.lr.ph29.split.us
@@ -1859,7 +1859,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %16 = mul nuw nsw i64 %indvars.iv36.i, %wide.trip.count.i.i
   %17 = getelementptr inbounds i64, ptr %.val24.i, i64 %16
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %18 = icmp ult i64 %indvars.iv.next37.i, %15
+  %18 = icmp samesign ult i64 %indvars.iv.next37.i, %15
   br i1 %18, label %.lr.ph.preheader.i.us.us.i, label %.critedge2.loopexit.us.i
 
 .critedge2.loopexit.us.i:                         ; preds = %Pla_CubesAreDistance1.exit.loopexit.us.us.i, %.lr.ph29.split.us.i

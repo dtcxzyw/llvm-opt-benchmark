@@ -135,7 +135,7 @@ define void @dsymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %66 = getelementptr inbounds double, ptr %5, i64 %65
   %67 = load double, ptr %66, align 8
   %68 = fmul double %18, %67
-  %69 = icmp ugt i64 %indvars.iv435, 1
+  %69 = icmp samesign ugt i64 %indvars.iv435, 1
   br i1 %69, label %.lr.ph336, label %._crit_edge337
 
 .lr.ph336:                                        ; preds = %64
@@ -189,7 +189,7 @@ define void @dsymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %gep325 = getelementptr double, ptr %invariant.gep324, i64 %indvars.iv421
   %96 = load double, ptr %gep325, align 8
   %97 = fmul double %18, %96
-  %98 = icmp ugt i64 %indvars.iv417, 1
+  %98 = icmp samesign ugt i64 %indvars.iv417, 1
   %99 = add nsw i64 %indvars.iv417, -1
   br i1 %98, label %.lr.ph321, label %._crit_edge322
 
@@ -282,7 +282,7 @@ define void @dsymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %144, ptr %142, align 8
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
   %invariant.op = add i64 %138, 4294967295
-  %.not246302.not = icmp ult i64 %indvars.iv399, %133
+  %.not246302.not = icmp samesign ult i64 %indvars.iv399, %133
   br i1 %.not246302.not, label %.lr.ph306.preheader, label %._crit_edge307
 
 .lr.ph306.preheader:                              ; preds = %.lr.ph311
@@ -342,7 +342,7 @@ define void @dsymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %168 = tail call double @llvm.fmuladd.f64(double %161, double %166, double %167)
   store double %168, ptr %gep296, align 8
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
-  %.not244287.not = icmp ult i64 %indvars.iv383, %130
+  %.not244287.not = icmp samesign ult i64 %indvars.iv383, %130
   br i1 %.not244287.not, label %.lr.ph292, label %._crit_edge
 
 .lr.ph292:                                        ; preds = %159

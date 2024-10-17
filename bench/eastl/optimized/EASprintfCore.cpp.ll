@@ -4240,7 +4240,7 @@ entry:
   %pBufferCvt = alloca [350 x i8], align 16
   %0 = tail call double @llvm.fabs.f64(double %dValue)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ugt i64 %and.i, 9218868437227405312
+  %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
   br i1 %cmp.i, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4356,7 +4356,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr60.ptr = getelementptr inbounds i8, ptr %pBufferEnd, i64 %pCurrent.0.add
   store i8 %conv59, ptr %incdec.ptr60.ptr, align 1
   %div = udiv i32 %nExponentAbs.0146, 10
-  %cmp57.not = icmp ult i32 %nExponentAbs.0146, 10
+  %cmp57.not = icmp samesign ult i32 %nExponentAbs.0146, 10
   br i1 %cmp57.not, label %while.end, label %while.body, !llvm.loop !77
 
 while.end:                                        ; preds = %while.body
@@ -4925,7 +4925,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %10 = trunc nuw nsw i64 %and to i8
   %conv29 = or disjoint i8 %10, 48
   %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %10
@@ -5163,7 +5163,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %10 = trunc nuw nsw i64 %and to i8
   %conv29 = or disjoint i8 %10, 48
   %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %10
@@ -6277,7 +6277,7 @@ entry:
   %pBufferCvt = alloca [350 x i16], align 16
   %0 = tail call double @llvm.fabs.f64(double %dValue)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ugt i64 %and.i, 9218868437227405312
+  %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
   br i1 %cmp.i, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -6398,11 +6398,11 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr65.ptr = getelementptr inbounds i8, ptr %pBufferEnd, i64 %pCurrent.0.add
   store i16 %conv64, ptr %incdec.ptr65.ptr, align 2
   %div = udiv i32 %nExponentAbs.0147, 10
-  %cmp62.not = icmp ult i32 %nExponentAbs.0147, 10
+  %cmp62.not = icmp samesign ult i32 %nExponentAbs.0147, 10
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !111
 
 while.end:                                        ; preds = %while.body
-  %cmp66.not = icmp ult i64 %pCurrent.0.add, -4
+  %cmp66.not = icmp samesign ult i64 %pCurrent.0.add, -4
   br i1 %cmp66.not, label %if.end69, label %if.then67
 
 if.then67:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
@@ -6968,7 +6968,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %10 = trunc nuw nsw i64 %and to i16
   %conv29 = or disjoint i16 %10, 48
   %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %10
@@ -7205,7 +7205,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %10 = trunc nuw nsw i64 %and to i16
   %conv29 = or disjoint i16 %10, 48
   %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %10
@@ -8308,7 +8308,7 @@ entry:
   %pBufferCvt = alloca [350 x i32], align 16
   %0 = tail call double @llvm.fabs.f64(double %dValue)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ugt i64 %and.i, 9218868437227405312
+  %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
   br i1 %cmp.i, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -8428,11 +8428,11 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr64.ptr = getelementptr inbounds i8, ptr %pBufferEnd, i64 %pCurrent.0.add
   store i32 %add63, ptr %incdec.ptr64.ptr, align 4
   %div = udiv i32 %nExponentAbs.0147, 10
-  %cmp62.not = icmp ult i32 %nExponentAbs.0147, 10
+  %cmp62.not = icmp samesign ult i32 %nExponentAbs.0147, 10
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !147
 
 while.end:                                        ; preds = %while.body
-  %cmp65.not = icmp ult i64 %pCurrent.0.add, -8
+  %cmp65.not = icmp samesign ult i64 %pCurrent.0.add, -8
   br i1 %cmp65.not, label %if.end68, label %if.then66
 
 if.then66:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
@@ -8993,7 +8993,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
   %nDigit.0 = trunc nuw nsw i64 %and to i32
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %add = or disjoint i32 %nDigit.0, 48
   %nDigit.1.ph = add nuw nsw i32 %nDigit.1.ph.v, %nDigit.0
   %add.sink = select i1 %cmp17, i32 %add, i32 %nDigit.1.ph
@@ -9228,7 +9228,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
   %nDigit.0 = trunc nuw nsw i64 %and to i32
-  %cmp17 = icmp ult i64 %and, 10
+  %cmp17 = icmp samesign ult i64 %and, 10
   %add = or disjoint i32 %nDigit.0, 48
   %nDigit.1.ph = add nuw nsw i32 %nDigit.1.ph.v, %nDigit.0
   %add.sink = select i1 %cmp17, i32 %add, i32 %nDigit.1.ph

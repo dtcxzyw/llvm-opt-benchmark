@@ -117,7 +117,7 @@ init_matrices.exit:                               ; preds = %11, %40
   %.05.i = phi i32 [ 15, %._crit_edge ], [ %52, %51 ]
   tail call fastcc void @add_color(i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef 1)
   %52 = add nuw nsw i32 %.05.i, 16
-  %53 = icmp ult i32 %.05.i, 239
+  %53 = icmp samesign ult i32 %.05.i, 239
   br i1 %53, label %51, label %init_grays.exit, !llvm.loop !9
 
 init_grays.exit:                                  ; preds = %51
@@ -326,21 +326,21 @@ add_color.exit.i:                                 ; preds = %147, %.loopexit.i.i
   %.not19.i = icmp eq i32 %.021.i, 0
   %164 = select i1 %.not19.i, i32 127, i32 128
   %165 = add nuw nsw i32 %164, %.021.i
-  %166 = icmp ult i32 %165, 256
+  %166 = icmp samesign ult i32 %165, 256
   br i1 %166, label %74, label %167, !llvm.loop !12
 
 167:                                              ; preds = %add_color.exit.i
   %.not18.i = icmp eq i32 %.01622.i, 0
   %168 = select i1 %.not18.i, i32 127, i32 128
   %169 = add nuw nsw i32 %168, %.01622.i
-  %170 = icmp ult i32 %169, 256
+  %170 = icmp samesign ult i32 %169, 256
   br i1 %170, label %.preheader.i119, label %171, !llvm.loop !13
 
 171:                                              ; preds = %167
   %.not.i120 = icmp eq i32 %.01723.i, 0
   %172 = select i1 %.not.i120, i32 127, i32 128
   %173 = add nuw nsw i32 %172, %.01723.i
-  %174 = icmp ult i32 %173, 256
+  %174 = icmp samesign ult i32 %173, 256
   br i1 %174, label %.preheader20.i, label %init_primaries.exit, !llvm.loop !14
 
 init_primaries.exit:                              ; preds = %171
@@ -1565,7 +1565,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
   %.not108.us.us = icmp eq i32 %824, 0
   %.in109.us.us = select i1 %.not108.us.us, ptr %806, ptr %805
   %825 = load i32, ptr %.in109.us.us, align 4
-  %.not110.us.us = icmp ult i32 %.295194.us.us, 4
+  %.not110.us.us = icmp samesign ult i32 %.295194.us.us, 4
   %.in111.us.us = select i1 %.not110.us.us, ptr %819, ptr %818
   %826 = load i32, ptr %.in111.us.us, align 4
   %827 = mul nsw i32 %823, %2

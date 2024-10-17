@@ -766,7 +766,7 @@ define internal fastcc noundef zeroext i1 @l4proto_manip_pkt(ptr noundef %0, i32
   %11 = zext i32 %10 to i64
   %12 = zext nneg i32 %2 to i64
   %13 = add nuw nsw i64 %12, 20
-  %14 = icmp ugt i64 %13, %11
+  %14 = icmp samesign ugt i64 %13, %11
   %15 = select i1 %14, i32 8, i32 20
   %16 = add nuw i32 %15, %2
   %17 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %16) #8
@@ -1149,7 +1149,7 @@ define internal i32 @nf_nat_ipv4_out(ptr noundef %0, ptr noundef %1, ptr noundef
 39:                                               ; preds = %35
   %40 = inttoptr i64 %37 to ptr
   %41 = and i64 %36, 7
-  %42 = icmp ult i64 %41, 3
+  %42 = icmp samesign ult i64 %41, 3
   %43 = getelementptr inbounds i8, ptr %40, i64 16
   %.offs = select i1 %42, i64 16, i64 72
   %44 = getelementptr i8, ptr %43, i64 %.offs
@@ -1241,7 +1241,7 @@ define internal i32 @nf_nat_ipv4_local_fn(ptr noundef %0, ptr noundef %1, ptr no
 32:                                               ; preds = %.thread
   %33 = inttoptr i64 %.pre3 to ptr
   %34 = and i64 %.pre, 7
-  %35 = icmp ult i64 %34, 3
+  %35 = icmp samesign ult i64 %34, 3
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   %.offs2 = select i1 %35, i64 36, i64 92
   %37 = getelementptr i8, ptr %36, i64 %.offs2
@@ -1406,7 +1406,7 @@ define internal i32 @nf_nat_ipv4_local_in(ptr noundef %0, ptr noundef %1, ptr no
 
 70:                                               ; preds = %67, %67
   %71 = and i64 %63, 7
-  %72 = icmp ugt i64 %71, 2
+  %72 = icmp samesign ugt i64 %71, 2
   br i1 %72, label %86, label %73
 
 73:                                               ; preds = %70
@@ -1771,7 +1771,7 @@ nf_nat_ipv6_fn.exit:                              ; preds = %28, %32
 45:                                               ; preds = %41
   %46 = inttoptr i64 %43 to ptr
   %47 = and i64 %42, 7
-  %48 = icmp ult i64 %47, 3
+  %48 = icmp samesign ult i64 %47, 3
   %49 = getelementptr inbounds i8, ptr %46, i64 16
   %.offs = select i1 %48, i64 16, i64 72
   %50 = getelementptr i8, ptr %49, i64 %.offs
@@ -1887,7 +1887,7 @@ nf_nat_ipv6_fn.exit:                              ; preds = %28, %32
 38:                                               ; preds = %36
   %39 = inttoptr i64 %.pre3 to ptr
   %40 = and i64 %.pre, 7
-  %41 = icmp ult i64 %40, 3
+  %41 = icmp samesign ult i64 %40, 3
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   %.offs2 = select i1 %41, i64 36, i64 92
   %43 = getelementptr i8, ptr %42, i64 %.offs2
@@ -2073,7 +2073,7 @@ nf_nat_ipv6_fn.exit:                              ; preds = %3, %32, %36
 
 75:                                               ; preds = %72, %72
   %76 = and i64 %68, 7
-  %77 = icmp ugt i64 %76, 2
+  %77 = icmp samesign ugt i64 %76, 2
   br i1 %77, label %91, label %78
 
 78:                                               ; preds = %75

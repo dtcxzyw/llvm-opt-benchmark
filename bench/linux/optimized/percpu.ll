@@ -1185,7 +1185,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %44 = icmp ugt i64 %37, 4096
   %45 = or i1 %43, %44
   %46 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %37), !range !22
-  %47 = icmp ugt i64 %46, 1
+  %47 = icmp samesign ugt i64 %46, 1
   %48 = select i1 %45, i1 true, i1 %47
   br i1 %48, label %49, label %51, !prof !23
 
@@ -1669,7 +1669,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   tail call void @llvm.memset.p0.i64(ptr align 1 %327, i8 0, i64 %39, i1 false)
   %328 = add nuw nsw i64 %315, 1
   %329 = and i64 %328, 127
-  %330 = icmp ult i64 %329, 64
+  %330 = icmp samesign ult i64 %329, 64
   br i1 %330, label %308, label %..thread22_crit_edge, !prof !40, !llvm.loop !41
 
 ..thread22_crit_edge:                             ; preds = %318
@@ -2714,7 +2714,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
 5:                                                ; preds = %17, %2
   %6 = phi i64 [ 0, %2 ], [ %27, %17 ]
   %7 = and i64 %6, 4294967295
-  %8 = icmp ult i64 %7, 64
+  %8 = icmp samesign ult i64 %7, 64
   br i1 %8, label %9, label %.thread, !prof !13
 
 9:                                                ; preds = %5
@@ -2772,7 +2772,7 @@ define dso_local noundef zeroext i1 @is_kernel_percpu_address(i64 noundef %0) lo
 4:                                                ; preds = %16, %1
   %5 = phi i64 [ 0, %1 ], [ %26, %16 ]
   %6 = and i64 %5, 4294967295
-  %7 = icmp ult i64 %6, 64
+  %7 = icmp samesign ult i64 %6, 64
   br i1 %7, label %8, label %.thread, !prof !13
 
 8:                                                ; preds = %4
@@ -2839,7 +2839,7 @@ define dso_local i64 @per_cpu_ptr_to_phys(ptr noundef %0) local_unnamed_addr #1 
 27:                                               ; preds = %39, %23
   %28 = phi i64 [ %49, %39 ], [ 0, %23 ]
   %29 = and i64 %28, 4294967295
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp samesign ult i64 %29, 64
   br i1 %30, label %31, label %.thread, !prof !13
 
 31:                                               ; preds = %27
@@ -3179,7 +3179,7 @@ define dso_local void @pcpu_setup_first_chunk(ptr nocapture noundef readonly %0,
   %110 = add nuw nsw i64 %108, 1
   %111 = load i32, ptr @nr_cpu_ids, align 4
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %110, %112
+  %113 = icmp samesign ult i64 %110, %112
   br i1 %113, label %.preheader, label %.loopexit23, !llvm.loop !85
 
 .loopexit23:                                      ; preds = %.preheader, %104
@@ -3339,7 +3339,7 @@ define dso_local void @pcpu_setup_first_chunk(ptr nocapture noundef readonly %0,
 205:                                              ; preds = %217, %.loopexit22
   %206 = phi i64 [ 0, %.loopexit22 ], [ %222, %217 ]
   %207 = and i64 %206, 4294967295
-  %208 = icmp ult i64 %207, 64
+  %208 = icmp samesign ult i64 %207, 64
   br i1 %208, label %209, label %.thread, !prof !13
 
 209:                                              ; preds = %205
@@ -4050,7 +4050,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %47 = getelementptr i32, ptr %44, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = icmp ult i64 %indvars.iv.next, %45
+  %49 = icmp samesign ult i64 %indvars.iv.next, %45
   %50 = icmp eq i32 %48, 64
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %46, label %52, !llvm.loop !114
@@ -4391,7 +4391,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 70:                                               ; preds = %65, %62, %59
   %71 = add nuw nsw i64 %55, 1
   %72 = and i64 %71, 127
-  %73 = icmp ult i64 %72, 64
+  %73 = icmp samesign ult i64 %72, 64
   br i1 %73, label %48, label %..threadthread-pre-split_crit_edge, !prof !40, !llvm.loop !126
 
 ..threadthread-pre-split_crit_edge:               ; preds = %70
@@ -4636,7 +4636,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   %227 = phi i64 [ %.pre, %220 ], [ %205, %214 ]
   %228 = add nuw nsw i64 %211, 1
   %229 = and i64 %228, 127
-  %230 = icmp ult i64 %229, 64
+  %230 = icmp samesign ult i64 %229, 64
   br i1 %230, label %204, label %.thread22, !prof !40, !llvm.loop !134
 
 .thread22:                                        ; preds = %204, %226, %210
@@ -6339,7 +6339,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 .loopexit39.us:                                   ; preds = %59
   %62 = add nuw nsw i64 %32, 1
   %63 = and i64 %62, 127
-  %64 = icmp ult i64 %63, 64
+  %64 = icmp samesign ult i64 %63, 64
   br i1 %64, label %.thread.split.us, label %.thread25, !prof !40, !llvm.loop !155
 
 .thread.split:                                    ; preds = %.thread
@@ -6362,7 +6362,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 74:                                               ; preds = %71
   %75 = add nuw nsw i64 %72, 1
   %76 = and i64 %75, 127
-  %77 = icmp ult i64 %76, 64
+  %77 = icmp samesign ult i64 %76, 64
   br i1 %77, label %66, label %.thread25, !prof !40, !llvm.loop !155
 
 .split.us:                                        ; preds = %55
@@ -6428,7 +6428,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 118:                                              ; preds = %105
   %119 = add nuw nsw i64 %98, 1
   %120 = and i64 %119, 127
-  %121 = icmp ult i64 %120, 64
+  %121 = icmp samesign ult i64 %120, 64
   br i1 %121, label %.loopexit38, label %.thread27, !prof !40, !llvm.loop !158
 
 .thread25:                                        ; preds = %71, %74, %66, %.thread.split.us, %31, %.loopexit39.us
@@ -6505,7 +6505,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 .loopexit34:                                      ; preds = %166, %161
   %177 = add nuw nsw i64 %136, 1
   %178 = and i64 %177, 127
-  %179 = icmp ult i64 %178, 64
+  %179 = icmp samesign ult i64 %178, 64
   br i1 %179, label %129, label %.thread27, !prof !40, !llvm.loop !160
 
 .preheader:                                       ; preds = %139, %191
@@ -6537,7 +6537,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
   tail call void @vunmap_range_noflush(i64 noundef %199, i64 noundef %200) #23
   %201 = add nuw nsw i64 %186, 1
   %202 = and i64 %201, 127
-  %203 = icmp ult i64 %202, 64
+  %203 = icmp samesign ult i64 %202, 64
   br i1 %203, label %.preheader, label %.thread31, !prof !40, !llvm.loop !161
 
 .thread31:                                        ; preds = %.preheader, %191, %185
@@ -6611,7 +6611,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 .loopexit.us:                                     ; preds = %245
   %250 = add nuw nsw i64 %227, 1
   %251 = and i64 %250, 127
-  %252 = icmp ult i64 %251, 64
+  %252 = icmp samesign ult i64 %251, 64
   br i1 %252, label %.thread31.split.us, label %.thread27, !prof !40, !llvm.loop !163
 
 .thread31.split:                                  ; preds = %.thread31
@@ -6634,7 +6634,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 263:                                              ; preds = %259
   %264 = add nuw nsw i64 %260, 1
   %265 = and i64 %264, 127
-  %266 = icmp ult i64 %265, 64
+  %266 = icmp samesign ult i64 %265, 64
   br i1 %266, label %254, label %.thread27, !prof !40, !llvm.loop !163
 
 .thread27:                                        ; preds = %.loopexit38, %118, %97, %129, %.loopexit34, %135, %259, %263, %254, %.loopexit.us, %226, %.thread31.split.us, %.thread24, %20
@@ -8273,7 +8273,7 @@ define internal fastcc void @pcpu_depopulate_chunk(ptr nocapture noundef readonl
   tail call void @vunmap_range_noflush(i64 noundef %82, i64 noundef %83) #23
   %84 = add nuw nsw i64 %40, 1
   %85 = and i64 %84, 127
-  %86 = icmp ult i64 %85, 64
+  %86 = icmp samesign ult i64 %85, 64
   br i1 %86, label %.thread.split.us.preheader, label %.preheader, !prof !40, !llvm.loop !195
 
 .thread.split.preheader:                          ; preds = %.thread, %.thread.split
@@ -8343,7 +8343,7 @@ define internal fastcc void @pcpu_depopulate_chunk(ptr nocapture noundef readonl
 .loopexit.us:                                     ; preds = %120
   %125 = add nuw nsw i64 %102, 1
   %126 = and i64 %125, 127
-  %127 = icmp ult i64 %126, 64
+  %127 = icmp samesign ult i64 %126, 64
   br i1 %127, label %.preheader.split14.us, label %.thread12, !prof !40, !llvm.loop !163
 
 .preheader.split14:                               ; preds = %.preheader
@@ -8363,7 +8363,7 @@ define internal fastcc void @pcpu_depopulate_chunk(ptr nocapture noundef readonl
   tail call void @vunmap_range_noflush(i64 noundef %136, i64 noundef %137) #23
   %138 = add nuw nsw i64 %93, 1
   %139 = and i64 %138, 127
-  %140 = icmp ult i64 %139, 64
+  %140 = icmp samesign ult i64 %139, 64
   br i1 %140, label %.thread.split.preheader, label %.preheader, !prof !40, !llvm.loop !195
 
 141:                                              ; preds = %.preheader.split14, %150
@@ -8382,7 +8382,7 @@ define internal fastcc void @pcpu_depopulate_chunk(ptr nocapture noundef readonl
 150:                                              ; preds = %146
   %151 = add nuw nsw i64 %147, 1
   %152 = and i64 %151, 127
-  %153 = icmp ult i64 %152, 64
+  %153 = icmp samesign ult i64 %152, 64
   br i1 %153, label %141, label %.thread12, !prof !40, !llvm.loop !163
 
 .thread12:                                        ; preds = %146, %150, %141, %.preheader.split14.us, %101, %.loopexit.us

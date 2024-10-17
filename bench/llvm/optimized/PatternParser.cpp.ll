@@ -309,7 +309,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread121:      ; preds = %29, %_ZN4llvmneENS_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %38, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %62, label %.loopexit, !llvm.loop !15
 
 62:                                               ; preds = %.lr.ph, %58
@@ -1031,7 +1031,7 @@ _ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = load i32, ptr %239, align 8
   %272 = zext i32 %271 to i64
-  %273 = icmp ult i64 %indvars.iv.next, %272
+  %273 = icmp samesign ult i64 %indvars.iv.next, %272
   br i1 %273, label %242, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %270, %238
@@ -1942,7 +1942,7 @@ _ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92: ; 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = load i32, ptr %35, align 8
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %indvars.iv.next, %136
+  %137 = icmp samesign ult i64 %indvars.iv.next, %136
   br i1 %137, label %38, label %.loopexit, !llvm.loop !143
 
 .loopexit:                                        ; preds = %_ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit.thread92, %33, %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit81", %"_ZZN4llvm2gi13PatternParser30parseInstructionPatternMIFlagsERNS0_18InstructionPatternEPKNS_7DagInitEENK3$_0clEPKNS_6RecordE.exit", %_ZN4llvmplERKNS_5TwineES2_.exit71, %29, %22
@@ -2855,7 +2855,7 @@ _ZN4llvm13isSpecificDefERKNS_4InitENS_9StringRefE.exit.thread: ; preds = %28, %_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %12, align 8
   %57 = zext i32 %56 to i64
-  %.not63 = icmp ult i64 %indvars.iv.next, %57
+  %.not63 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %.not63, label %16, label %.loopexit, !llvm.loop !220
 
 .loopexit:                                        ; preds = %55, %4, %.thread56, %24

@@ -829,7 +829,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %278, %275
   %.pre-phi2.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i, %275 ], [ %280, %278 ]
   %.idx56.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
   %284 = getelementptr inbounds i8, ptr %283, i64 %.idx56.i.i
-  %.not55.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i, 4
+  %.not55.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i, 4
   br i1 %.not55.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i

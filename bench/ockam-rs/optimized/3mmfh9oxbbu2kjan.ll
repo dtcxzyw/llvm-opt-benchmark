@@ -2209,13 +2209,13 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   %16 = phi i64 [ %.pre14.i.i, %19 ], [ %.pre.i.i, %125 ], [ %.pre14.i.i, %2 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 464
   %18 = load i64, ptr %17, align 8, !range !339, !noalias !387, !noundef !13
-  %.not38.i.i = icmp ult i64 %16, %18
+  %.not38.i.i = icmp samesign ult i64 %16, %18
   br i1 %.not38.i.i, label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17hd9017f4b9bf4ed82E.exit.thread2", label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17hd9017f4b9bf4ed82E.exit"
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 1128
   %21 = load i64, ptr %20, align 8, !range !339, !noalias !387, !noundef !13
-  %.not.i.i = icmp ult i64 %.pre14.i.i, %21
+  %.not.i.i = icmp samesign ult i64 %.pre14.i.i, %21
   br i1 %.not.i.i, label %15, label %22
 
 22:                                               ; preds = %19
@@ -2482,7 +2482,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %.sroa.04.0.i.i, i64 8
   %128 = load i64, ptr %.sroa.04.0.i.i, align 8, !range !339, !noundef !13
-  %.not37.i.i = icmp ult i64 %122, %128
+  %.not37.i.i = icmp samesign ult i64 %122, %128
   br i1 %.not37.i.i, label %123, label %129
 
 129:                                              ; preds = %126

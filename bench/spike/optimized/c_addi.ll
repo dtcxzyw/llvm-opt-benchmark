@@ -415,7 +415,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_c_addiP11p
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -480,7 +480,7 @@ define noundef i64 @_Z17fast_rv64e_c_addiP11processor_t6insn_tm(ptr nocapture no
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -541,7 +541,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_c_addiP1
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -663,7 +663,7 @@ define noundef i64 @_Z19logged_rv64e_c_addiP11processor_t6insn_tm(ptr noundef %0
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11

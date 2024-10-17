@@ -672,7 +672,7 @@ switch.early.test.i.i:                            ; preds = %201
   br label %ReadArrayStr.exit.thread
 
 266:                                              ; preds = %257
-  %267 = icmp ugt i32 %.0106.i, 5
+  %267 = icmp samesign ugt i32 %.0106.i, 5
   br i1 %267, label %268, label %273
 
 268:                                              ; preds = %266
@@ -721,7 +721,7 @@ switch.early.test.i.i:                            ; preds = %201
   br label %ReadArrayStr.exit.thread
 
 293:                                              ; preds = %285, %278
-  %294 = icmp ugt i32 %.0106.i, 1
+  %294 = icmp samesign ugt i32 %.0106.i, 1
   br i1 %294, label %295, label %301
 
 295:                                              ; preds = %293
@@ -12323,7 +12323,7 @@ define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1
   %66 = add i32 %44, 1
   %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 1024)
   %68 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
-  %69 = icmp ult i32 %68, 2
+  %69 = icmp samesign ult i32 %68, 2
   %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %71 = xor i32 %70, 31
   %72 = shl nuw i32 2, %71
@@ -12439,7 +12439,7 @@ define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1
   %130 = add i32 %129, %128
   %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 256)
   %132 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %131)
-  %133 = icmp ult i32 %132, 2
+  %133 = icmp samesign ult i32 %132, 2
   %134 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %131, i1 true)
   %135 = xor i32 %134, 31
   %136 = shl nuw i32 2, %135

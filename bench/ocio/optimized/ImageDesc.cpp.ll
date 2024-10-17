@@ -968,7 +968,7 @@ if.end8:                                          ; preds = %if.end
   %7 = load i32, ptr %m_bitDepth, align 4
   %call9 = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %7)
   %conv = zext i32 %call9 to i64
-  %cmp10 = icmp ult i64 %6, %conv
+  %cmp10 = icmp samesign ult i64 %6, %conv
   br i1 %cmp10, label %if.then14, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.end8
@@ -1017,7 +1017,7 @@ if.end27:                                         ; preds = %if.end18
   %m_xStrideBytes = getelementptr inbounds i8, ptr %this, i64 80
   %14 = load i64, ptr %m_xStrideBytes, align 8
   %15 = tail call noundef i64 @llvm.abs.i64(i64 %14, i1 true)
-  %cmp32 = icmp ugt i64 %13, %15
+  %cmp32 = icmp samesign ugt i64 %13, %15
   br i1 %cmp32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end27
@@ -1684,7 +1684,7 @@ if.end7:                                          ; preds = %if.end
   %mul = mul nsw i64 %4, %0
   %5 = tail call noundef i64 @llvm.abs.i64(i64 %mul, i1 true)
   %6 = tail call noundef i64 @llvm.abs.i64(i64 %2, i1 true)
-  %cmp11 = icmp ugt i64 %5, %6
+  %cmp11 = icmp samesign ugt i64 %5, %6
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end7

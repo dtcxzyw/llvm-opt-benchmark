@@ -44,7 +44,7 @@ land.rhs:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
   %4 = load i32, ptr %asize, align 8
   %5 = zext i32 %4 to i64
-  %cmp10 = icmp ult i64 %indvars.iv, %5
+  %cmp10 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp10, label %for.body, label %if.end28
 
 for.body:                                         ; preds = %land.rhs
@@ -129,7 +129,7 @@ land.rhs:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
   %4 = load i32, ptr %asize, align 8
   %5 = zext i32 %4 to i64
-  %cmp10 = icmp ult i64 %indvars.iv, %5
+  %cmp10 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp10, label %for.body, label %if.end29
 
 for.body:                                         ; preds = %land.rhs
@@ -1537,7 +1537,7 @@ if.then241:                                       ; preds = %cond.end233
   %idx.ext246 = zext i1 %cmp244 to i64
   %idx.ext250 = zext i32 %narray.0 to i64
   %add.ptr251 = getelementptr inbounds %union.TValue, ptr %51, i64 %idx.ext250
-  %cmp252303 = icmp ult i64 %idx.ext246, %idx.ext250
+  %cmp252303 = icmp samesign ult i64 %idx.ext246, %idx.ext250
   br i1 %cmp252303, label %while.body.preheader, label %if.end255
 
 while.body.preheader:                             ; preds = %if.then241

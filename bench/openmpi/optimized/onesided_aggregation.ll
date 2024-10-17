@@ -95,7 +95,7 @@ define void @ADIOI_OneSidedWriteAggregation(ptr noundef %0, ptr nocapture nounde
   %40 = load i64, ptr %39, align 8
   %41 = icmp sgt i64 %40, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp uge i64 %indvars.iv.next, %38
+  %42 = icmp samesign uge i64 %indvars.iv.next, %38
   %.not1132 = select i1 %42, i1 true, i1 %41
   br i1 %.not1132, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -2019,7 +2019,7 @@ nonContigSourceDataBufferAdvance.exit1253:        ; preds = %867, %845, %848
   %989 = add nsw i64 %.29991431, %.01019
   %990 = load i32, ptr @romio_onesided_always_rmw, align 4
   %.not1146 = icmp ne i32 %990, 0
-  %991 = icmp ult i64 %indvars.iv1542, %654
+  %991 = icmp samesign ult i64 %indvars.iv1542, %654
   %or.cond1207 = select i1 %.not1146, i1 %991, i1 false
   br i1 %or.cond1207, label %992, label %.thread1257
 
@@ -2054,7 +2054,7 @@ nonContigSourceDataBufferAdvance.exit1253:        ; preds = %867, %845, %848
 .thread1257:                                      ; preds = %939, %936, %988, %1000, %987
   %.39951260 = phi i64 [ %.4996, %1000 ], [ %.4996, %988 ], [ %.4996, %987 ], [ %.29941432, %936 ], [ %.29941432, %939 ]
   %.31000 = phi i64 [ %989, %1000 ], [ %989, %988 ], [ %.29991431, %987 ], [ %.29991431, %936 ], [ %.29991431, %939 ]
-  %1007 = icmp ult i64 %indvars.iv1542, %654
+  %1007 = icmp samesign ult i64 %indvars.iv1542, %654
   br i1 %1007, label %1008, label %1011
 
 1008:                                             ; preds = %.thread1257
@@ -2151,7 +2151,7 @@ define void @ADIOI_OneSidedReadAggregation(ptr noundef %0, ptr nocapture noundef
   %24 = load i64, ptr %23, align 8
   %25 = icmp sgt i64 %24, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp uge i64 %indvars.iv.next, %22
+  %26 = icmp samesign uge i64 %indvars.iv.next, %22
   %.not938 = select i1 %26, i1 true, i1 %25
   br i1 %.not938, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 

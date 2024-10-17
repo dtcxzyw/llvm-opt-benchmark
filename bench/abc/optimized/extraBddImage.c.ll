@@ -402,7 +402,7 @@ Extra_CreateVars.exit:                            ; preds = %.lr.ph87.split.i, %
   %181 = tail call i32 @Cudd_DagSize(ptr noundef %180) #10
   %182 = getelementptr inbounds i8, ptr %.pre, i64 16
   store i32 %181, ptr %182, align 8
-  %183 = icmp ult i64 %indvars.iv115.i, %133
+  %183 = icmp samesign ult i64 %indvars.iv115.i, %133
   br i1 %183, label %184, label %._crit_edge
 
 184:                                              ; preds = %169

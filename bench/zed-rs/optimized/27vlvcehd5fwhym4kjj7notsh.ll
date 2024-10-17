@@ -8742,7 +8742,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %112 = load i32, ptr %55, align 8, !noundef !10
   %113 = zext i32 %112 to i64
   %114 = add nuw nsw i64 %113, %111
-  %115 = icmp ugt i64 %114, 12
+  %115 = icmp samesign ugt i64 %114, 12
   br i1 %115, label %224, label %220
 
 116:                                              ; preds = %177, %159, %150, %103
@@ -9516,7 +9516,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %359 = load i32, ptr %358, align 8, !noundef !10
   %360 = zext i32 %359 to i64
   %361 = add nuw nsw i64 %360, %357
-  %362 = icmp ugt i64 %361, 12
+  %362 = icmp samesign ugt i64 %361, 12
   br i1 %362, label %388, label %368
 
 "_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h3a3adb770d2fd39dE.exit262": ; preds = %.thread451.thread485.thread, %456, %470, %482, %484, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h3a3adb770d2fd39dE.exit259", %476, %366
@@ -10200,7 +10200,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %100 = load i32, ptr %45, align 8, !noundef !10
   %101 = zext i32 %100 to i64
   %102 = add nuw nsw i64 %101, %99
-  %103 = icmp ugt i64 %102, 12
+  %103 = icmp samesign ugt i64 %102, 12
   br i1 %103, label %169, label %166
 
 104:                                              ; preds = %126, %118, %109, %91
@@ -10796,7 +10796,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %271 = load i32, ptr %270, align 8, !noundef !10
   %272 = zext i32 %271 to i64
   %273 = add nuw nsw i64 %272, %269
-  %274 = icmp ugt i64 %273, 12
+  %274 = icmp samesign ugt i64 %273, 12
   br i1 %274, label %294, label %277
 
 "_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17hb49828c79e10b619E.exit265": ; preds = %.thread458, %357, %306, %303, %.thread458.thread.thread, %372, %"_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17hb49828c79e10b619E.exit262", %275

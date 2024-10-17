@@ -2702,7 +2702,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %51, %_ZNK7oopDesc4i
   %69 = add nsw i32 %65, 1
   %70 = icmp sgt i32 %65, -1
   %71 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %69)
-  %72 = icmp ult i32 %71, 2
+  %72 = icmp samesign ult i32 %71, 2
   %or.cond.i.i.i.i = select i1 %70, i1 %72, i1 false
   %73 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %69, i1 true)
   %74 = sub nuw nsw i32 32, %73
@@ -5688,7 +5688,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

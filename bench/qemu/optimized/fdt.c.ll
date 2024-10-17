@@ -303,7 +303,7 @@ fdt_header_size.exit:                             ; preds = %if.else.i.i, %if.el
   %20 = or disjoint i32 %19, %shl6.i84
   %or10.i88 = or disjoint i32 %20, %shl.i77
   %conv = zext i32 %or10.i88 to i64
-  %cmp23 = icmp ugt i64 %retval.0.i.i, %conv
+  %cmp23 = icmp samesign ugt i64 %retval.0.i.i, %conv
   %cmp28 = icmp slt i32 %shl.i77, 0
   %or.cond267 = or i1 %cmp28, %cmp23
   br i1 %or.cond267, label %return, label %if.end31
@@ -1044,7 +1044,7 @@ do.body.i5:                                       ; preds = %do.body.i5.preheade
   %add.i21 = add i32 %or10.i.i40, %22
   %cmp.i22 = icmp sgt i32 %22, -1
   %23 = zext i32 %add.i21 to i64
-  %cmp3.i = icmp ule i64 %indvars.iv, %23
+  %cmp3.i = icmp samesign ule i64 %indvars.iv, %23
   %or.cond.i23.not162 = and i1 %cmp.i22, %cmp3.i
   %cmp9.i.not = icmp ult i32 %add.i21, %or10.i29.i62
   %or.cond160 = and i1 %or.cond.i23.not162, %cmp9.i.not
@@ -1068,7 +1068,7 @@ lor.lhs.false20.i:                                ; preds = %if.end12.i
   %27 = load i8, ptr %arrayidx8.i53.i110, align 1
   %conv9.i54.i = zext i8 %27 to i64
   %or10.i55.i = or disjoint i64 %or7.i52.i, %conv9.i54.i
-  %cmp23.i.not = icmp ult i64 %indvars.iv, %or10.i55.i
+  %cmp23.i.not = icmp samesign ult i64 %indvars.iv, %or10.i55.i
   br i1 %cmp23.i.not, label %fdt_offset_ptr.exit, label %return
 
 fdt_offset_ptr.exit:                              ; preds = %if.end12.i, %lor.lhs.false20.i

@@ -401,7 +401,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %132 = add nuw nsw i64 %101, 1
   %133 = load i32, ptr %8, align 4
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %132, %134
+  %135 = icmp samesign ult i64 %132, %134
   br i1 %135, label %100, label %.loopexit21.loopexit, !llvm.loop !9
 
 .loopexit21.loopexit:                             ; preds = %125
@@ -1156,7 +1156,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
   %66 = add nuw nsw i64 %27, 1
   %67 = load i32, ptr %21, align 8
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %66, %68
+  %69 = icmp samesign ult i64 %66, %68
   br i1 %69, label %26, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %63, %19
@@ -1251,7 +1251,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
   %138 = add i32 %137, %121
   %139 = add nuw nsw i64 %120, 1
   %140 = zext i32 %136 to i64
-  %141 = icmp ult i64 %139, %140
+  %141 = icmp samesign ult i64 %139, %140
   br i1 %141, label %118, label %.loopexit23, !llvm.loop !19
 
 .loopexit23:                                      ; preds = %135, %110
@@ -1444,7 +1444,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
   %274 = add nuw nsw i64 %224, 1
   %275 = load i32, ptr %218, align 8
   %276 = zext i32 %275 to i64
-  %277 = icmp ult i64 %274, %276
+  %277 = icmp samesign ult i64 %274, %276
   br i1 %277, label %223, label %.loopexit24, !llvm.loop !20
 
 .loopexit24:                                      ; preds = %271, %215
@@ -1540,7 +1540,7 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr nocapture nounde
   %12 = add nuw nsw i64 %16, 1
   %13 = load i32, ptr %6, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %3, %11
@@ -1710,7 +1710,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %93 = phi ptr [ %73, %.preheader53 ], [ %90, %77 ]
   %94 = add nuw nsw i64 %72, 1
   %95 = zext i32 %92 to i64
-  %96 = icmp ult i64 %94, %95
+  %96 = icmp samesign ult i64 %94, %95
   br i1 %96, label %.preheader53, label %.loopexit54.loopexit, !llvm.loop !22
 
 .loopexit54.loopexit:                             ; preds = %91
@@ -2606,7 +2606,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr nocapture noundef
   %24 = add nuw nsw i64 %17, 1
   %25 = getelementptr i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %26 = icmp ult i64 %24, %16
+  %26 = icmp samesign ult i64 %24, %16
   br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !42
 
 .loopexit3:                                       ; preds = %.preheader2, %1
@@ -2638,7 +2638,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr nocapture noundef
   %40 = add nuw nsw i64 %33, 1
   %41 = load i32, ptr %13, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %39, %30, %.loopexit3
@@ -3251,7 +3251,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   %29 = add nuw nsw i64 %22, 1
   %30 = load i32, ptr %14, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %29, %31
+  %32 = icmp samesign ult i64 %29, %31
   br i1 %32, label %21, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %28, %13

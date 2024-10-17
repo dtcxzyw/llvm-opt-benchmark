@@ -380,7 +380,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %m_num_chunks = getelementptr inbounds i8, ptr %6, i64 44
   %7 = load i32, ptr %m_num_chunks, align 4
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
@@ -529,7 +529,7 @@ for.body.i:                                       ; preds = %land.lhs.true, %for
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr %m_num_chunks4.i, align 4
   %20 = zext i32 %19 to i64
-  %cmp.i32 = icmp ult i64 %indvars.iv.next.i, %20
+  %cmp.i32 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %cmp.i32, label %for.body.i, label %for.inc.loopexit, !llvm.loop !7
 
 for.inc.loopexit:                                 ; preds = %for.body.i
@@ -547,7 +547,7 @@ _ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i:             ; preds = %for.inc
   %arrayidx.i.i.i36 = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i.i.i36, align 4
   %24 = zext i32 %23 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next, %24
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp.i.i, label %if.then.i.i37, label %_ZN10bit_matrix12row_iteratorppEv.exit
 
 if.then.i.i37:                                    ; preds = %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i
@@ -572,7 +572,7 @@ _ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i42:           ; preds = %for.inc28.thread, %
   %arrayidx.i.i.i43 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i.i43, align 4
   %29 = zext i32 %28 to i64
-  %cmp.i.i44 = icmp ult i64 %indvars.iv.next6873, %29
+  %cmp.i.i44 = icmp samesign ult i64 %indvars.iv.next6873, %29
   br i1 %cmp.i.i44, label %if.then.i.i45, label %_ZN10bit_matrix12row_iteratorppEv.exit49
 
 if.then.i.i45:                                    ; preds = %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i42
@@ -796,7 +796,7 @@ _ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i:             ; preds = %_ZlsRSoRKN10bit_mat
   %arrayidx.i.i.i9 = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i9, align 4
   %9 = zext i32 %8 to i64
-  %cmp.i.i10 = icmp ult i64 %indvars.iv.next, %9
+  %cmp.i.i10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp.i.i10, label %if.then.i.i, label %_ZN10bit_matrix12row_iteratorppEv.exit
 
 if.then.i.i:                                      ; preds = %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i
@@ -1031,7 +1031,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %.noexc40, %lor.lhs.
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i315364, 1
   %35 = load i32, ptr %arrayidx.i.i34, align 4
   %36 = zext i32 %35 to i64
-  %cmp.i3747 = icmp ult i64 %indvars.iv.next.i39, %36
+  %cmp.i3747 = icmp samesign ult i64 %indvars.iv.next.i39, %36
   br i1 %cmp.i3747, label %for.body.i38, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i35.thread.preheader

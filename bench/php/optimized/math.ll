@@ -57,7 +57,7 @@ define double @_php_math_round(double noundef %0, i32 noundef %1, i32 noundef %2
 5:                                                ; preds = %3
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 -2147483647)
   %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
-  %8 = icmp ugt i32 %7, 22
+  %8 = icmp samesign ugt i32 %7, 22
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
@@ -248,7 +248,7 @@ php_intpow10.exit:                                ; preds = %9, %12
 
 php_round_helper.exit:                            ; preds = %32, %34, %42, %45, %53, %56, %63, %65, %72, %74, %80, %91, %94, %98, %109, %112, %116
   %.0.i40 = phi double [ %111, %109 ], [ %118, %116 ], [ %93, %91 ], [ %100, %98 ], [ %82, %80 ], [ %73, %72 ], [ %64, %63 ], [ %55, %53 ], [ %44, %42 ], [ %.038, %34 ], [ %.038, %45 ], [ %.038, %56 ], [ %.038, %65 ], [ %.038, %32 ], [ %.038, %74 ], [ %.038, %94 ], [ %.038, %112 ]
-  %120 = icmp ult i32 %7, 23
+  %120 = icmp samesign ult i32 %7, 23
   br i1 %120, label %121, label %127
 
 121:                                              ; preds = %php_round_helper.exit

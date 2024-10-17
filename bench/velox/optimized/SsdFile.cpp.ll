@@ -3541,7 +3541,7 @@ for.cond.i:                                       ; preds = %_ZNSt6vectorI5iovec
   %sub.ptr.sub.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i31.i, %sub.ptr.rhs.cast.i.i32.i
   %sub.ptr.div.i.i34.i = lshr exact i64 %sub.ptr.sub.i.i33.i, 3
   %31 = and i64 %sub.ptr.div.i.i34.i, 4294967295
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %31
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %cmp11.i, label %for.body.i, label %invoke.cont42, !llvm.loop !27
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
@@ -3974,7 +3974,7 @@ if.else11.i.i.i:                                  ; preds = %if.then.i140
   %shr.i.i.i.i143 = lshr i64 %sub.i.i.i.i, 12
   %add.i7.i.i.i = add nuw nsw i64 %shr.i.i.i.i143, 1
   %mul.i.i.i.i = mul nuw nsw i64 %add.i7.i.i.i, %conv26.i.i.i
-  %cmp32.i.i.i = icmp ugt i64 %mul.i.i.i.i, 4294967295
+  %cmp32.i.i.i = icmp samesign ugt i64 %mul.i.i.i.i, 4294967295
   br i1 %cmp32.i.i.i, label %if.then33.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i
 
 if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i
@@ -8408,7 +8408,7 @@ if.then:                                          ; preds = %_ZNSt16allocator_tr
 for.cond.i:                                       ; preds = %while.end.i, %if.then
   %tries.i.0 = phi i64 [ 0, %if.then ], [ %inc.i, %while.end.i ]
   %index.i.0 = phi i64 [ %add.i22, %if.then ], [ %add.i, %while.end.i ]
-  %cmp.i.not = icmp ule i64 %tries.i.0, %conv.i
+  %cmp.i.not = icmp samesign ule i64 %tries.i.0, %conv.i
   call void @llvm.assume(i1 %cmp.i.not)
   %and.i = and i64 %index.i.0, %conv.i
   %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and.i
@@ -10769,7 +10769,7 @@ for.body:                                         ; preds = %if.then12, %for.bod
   %inc = add nuw nsw i64 %ci.027, 1
   %16 = load i32, ptr %chunkMask_, align 8
   %conv16 = zext i32 %16 to i64
-  %cmp17.not.not = icmp ult i64 %ci.027, %conv16
+  %cmp17.not.not = icmp samesign ult i64 %ci.027, %conv16
   br i1 %cmp17.not.not, label %for.body, label %for.end, !llvm.loop !109
 
 for.end:                                          ; preds = %for.body

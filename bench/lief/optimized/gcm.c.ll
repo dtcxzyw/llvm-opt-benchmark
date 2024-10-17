@@ -176,7 +176,7 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   %108 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 %106
   store i64 %105, ptr %108, align 8
   %109 = lshr i32 %.04655.i, 1
-  %.not52.i = icmp ult i32 %.04655.i, 2
+  %.not52.i = icmp samesign ult i32 %.04655.i, 2
   br i1 %.not52.i, label %.lr.ph.preheader.i, label %100, !llvm.loop !4
 
 .lr.ph.preheader.i:                               ; preds = %100, %._crit_edge.i
@@ -1452,7 +1452,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %.not162, label %82, label %.thread
 
 82:                                               ; preds = %80
-  %83 = icmp ugt i64 %indvars.iv, 1
+  %83 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %83, label %84, label %95
 
 84:                                               ; preds = %82

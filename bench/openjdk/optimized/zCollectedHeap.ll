@@ -618,7 +618,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
   %13 = add nsw i32 %9, 1
   %14 = icmp sgt i32 %9, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i2 = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -646,7 +646,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
   %30 = add nsw i32 %26, 1
   %31 = icmp sgt i32 %26, -1
   %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   %or.cond.i.i.i.i6 = select i1 %31, i1 %33, i1 false
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %35 = sub nuw nsw i32 32, %34
@@ -674,7 +674,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
   %47 = add nsw i32 %43, 1
   %48 = icmp sgt i32 %43, -1
   %49 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %47)
-  %50 = icmp ult i32 %49, 2
+  %50 = icmp samesign ult i32 %49, 2
   %or.cond.i.i.i.i10 = select i1 %48, i1 %50, i1 false
   %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
   %52 = sub nuw nsw i32 32, %51
@@ -724,7 +724,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %13 = add nsw i32 %9, 1
   %14 = icmp sgt i32 %9, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i2 = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17

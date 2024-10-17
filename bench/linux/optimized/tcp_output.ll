@@ -488,7 +488,7 @@ define dso_local void @tcp_tasklet_init() local_unnamed_addr #4 section ".init.t
   tail call void @tasklet_setup(ptr noundef %16, ptr noundef nonnull @tcp_tasklet_func) #18
   %19 = add nuw nsw i64 %8, 1
   %20 = and i64 %19, 127
-  %21 = icmp ugt i64 %20, 63
+  %21 = icmp samesign ugt i64 %20, 63
   br i1 %21, label %.thread, label %1, !prof !19, !llvm.loop !20
 
 .thread:                                          ; preds = %1, %11, %7
@@ -1510,7 +1510,7 @@ define internal fastcc noundef i32 @__pskb_trim_head(ptr nocapture noundef %0, i
   %83 = add nuw nsw i64 %15, 1
   %84 = load i8, ptr %9, align 2
   %85 = zext i8 %84 to i64
-  %86 = icmp ult i64 %83, %85
+  %86 = icmp samesign ult i64 %83, %85
   br i1 %86, label %14, label %87, !llvm.loop !49
 
 87:                                               ; preds = %80
@@ -3101,7 +3101,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1
 483:                                              ; preds = %482
   %484 = load i8, ptr %319, align 8
   %485 = and i8 %484, 31
-  %486 = icmp ugt i8 %485, 2
+  %486 = icmp samesign ugt i8 %485, 2
   br i1 %486, label %566, label %487
 
 487:                                              ; preds = %483
@@ -3616,7 +3616,7 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
 .thread68.thread:                                 ; preds = %555, %445
   %833 = load i8, ptr %303, align 1
   %834 = and i8 %833, 3
-  %835 = icmp ult i8 %834, 2
+  %835 = icmp samesign ult i8 %834, 2
   br i1 %835, label %836, label %895
 
 836:                                              ; preds = %.thread68.thread
@@ -6972,7 +6972,7 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr nocapture nou
   %93 = add nuw nsw i64 %83, 1
   %94 = load i8, ptr %66, align 1
   %95 = zext i8 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %.preheader, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %.preheader, %69
@@ -8277,7 +8277,7 @@ define dso_local void @tcp_send_delayed_ack(ptr noundef %0) local_unnamed_addr #
   %3 = getelementptr inbounds i8, ptr %0, i64 1220
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
-  %6 = icmp ugt i32 %5, 40
+  %6 = icmp samesign ugt i32 %5, 40
   br i1 %6, label %7, label %35
 
 7:                                                ; preds = %1
@@ -10423,7 +10423,7 @@ define internal fastcc range(i32 -22, 1) i32 @tcp_clone_payload(ptr noundef %0, 
   %103 = getelementptr inbounds i8, ptr %102, i64 2
   %104 = load i8, ptr %103, align 2
   %105 = zext i8 %104 to i32
-  %106 = icmp ult i32 %97, %105
+  %106 = icmp samesign ult i32 %97, %105
   br i1 %106, label %53, label %.loopexit14, !llvm.loop !138
 
 .loopexit14:                                      ; preds = %93, %43

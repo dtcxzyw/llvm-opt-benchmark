@@ -305,11 +305,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %126 = add <8 x i64> %125, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>
   %127 = add nuw nsw i64 %119, 7
   %128 = and i64 %127, 4294967288
-  %129 = icmp uge <8 x i64> %122, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>
+  %129 = icmp samesign uge <8 x i64> %122, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>
   %130 = mul nsw <8 x i64> %126, %126
   %131 = icmp eq i64 %128, 8
   %132 = add <8 x i64> %125, <i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
-  %133 = icmp ugt <8 x i64> %122, <i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14>
+  %133 = icmp samesign ugt <8 x i64> %122, <i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14>
   %134 = mul nsw <8 x i64> %132, %132
   %135 = fdiv reassoc nsz arcp contract afn <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, %123
   br label %136

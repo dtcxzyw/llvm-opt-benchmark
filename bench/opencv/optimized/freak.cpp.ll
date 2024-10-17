@@ -1754,7 +1754,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIhEEvPT_PPv.exit, !llvm.loop !30
 
@@ -2703,7 +2703,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIcEEvPT_PPv.exit, !llvm.loop !53
 
@@ -3652,7 +3652,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIhEEvPT_PPv.exit, !llvm.loop !30
 
@@ -4601,7 +4601,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIcEEvPT_PPv.exit, !llvm.loop !53
 
@@ -5550,7 +5550,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorItEEvPT_PPv.exit, !llvm.loop !116
 
@@ -6499,7 +6499,7 @@ _ZNSt6bitsetILm512EE3setEmb.exit.i:               ; preds = %334, %329
 
 340:                                              ; preds = %.loopexit.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 128
-  %341 = icmp ult i64 %indvars.iv44.i, 384
+  %341 = icmp samesign ult i64 %indvars.iv44.i, 384
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 128
   br i1 %341, label %.preheader.i, label %_ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIsEEvPT_PPv.exit, !llvm.loop !139
 

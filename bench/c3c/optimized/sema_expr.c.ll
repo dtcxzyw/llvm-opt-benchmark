@@ -3394,8 +3394,8 @@ sema_call_find_index_of_named_parameter.exit.thread658: ; preds = %205, %sema_ca
   br label %.critedge596
 
 264:                                              ; preds = %255
-  %.not558 = icmp uge i64 %indvars.iv1011, %142
-  %or.cond592.not = and i1 %113, %.not558
+  %.not558 = icmp samesign uge i64 %indvars.iv1011, %142
+  %or.cond592.not = select i1 %113, i1 %.not558, i1 false
   br i1 %or.cond592.not, label %265, label %269
 
 265:                                              ; preds = %264
@@ -3409,7 +3409,7 @@ sema_call_find_index_of_named_parameter.exit.thread658: ; preds = %205, %sema_ca
   br label %.critedge596
 
 269:                                              ; preds = %264
-  %.not560 = icmp ult i64 %indvars.iv1011, %150
+  %.not560 = icmp samesign ult i64 %indvars.iv1011, %150
   %or.cond593 = select i1 %113, i1 true, i1 %.not560
   br i1 %or.cond593, label %325, label %270
 
@@ -3420,7 +3420,7 @@ sema_call_find_index_of_named_parameter.exit.thread658: ; preds = %205, %sema_ca
   br i1 %.not561, label %279, label %273
 
 273:                                              ; preds = %270
-  %274 = icmp ult i64 %indvars.iv1011, %151
+  %274 = icmp samesign ult i64 %indvars.iv1011, %151
   br i1 %274, label %275, label %327
 
 275:                                              ; preds = %273
@@ -11356,7 +11356,7 @@ sema_find_cached_lambda.exit:                     ; preds = %144, %sema_may_reus
   %431 = getelementptr inbounds i8, ptr %430, i64 24
   %432 = load i16, ptr %431, align 8
   %433 = and i16 %432, 1984
-  %434 = icmp ult i16 %433, 320
+  %434 = icmp samesign ult i16 %433, 320
   br i1 %434, label %435, label %451
 
 435:                                              ; preds = %429

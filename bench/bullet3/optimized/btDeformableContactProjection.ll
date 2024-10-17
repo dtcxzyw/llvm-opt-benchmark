@@ -9530,7 +9530,7 @@ lpad3:                                            ; preds = %lpad3.loopexit.spli
 
 for.inc:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit, %invoke.cont15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %invoke.cont15, label %if.then3.i.i.i176, !llvm.loop !96
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit

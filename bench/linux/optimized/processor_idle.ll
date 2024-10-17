@@ -514,7 +514,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %212 = getelementptr i8, ptr %207, i64 %.idx
   store i8 %211, ptr %212, align 8
   %213 = add nuw nsw i64 %210, 1
-  %214 = icmp ult i64 %213, %208
+  %214 = icmp samesign ult i64 %213, %208
   br i1 %214, label %209, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %209, %.loopexit28
@@ -777,7 +777,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %363 = icmp eq i32 %344, 0
   %364 = select i1 %363, i32 2, i32 3
   %365 = select i1 %362, i32 %364, i32 1
-  %366 = icmp ugt i32 %365, %339
+  %366 = icmp samesign ugt i32 %365, %339
   br i1 %366, label %369, label %367
 
 367:                                              ; preds = %360
@@ -823,10 +823,10 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %386 = phi i32 [ %339, %381 ], [ %279, %336 ]
   %387 = phi i8 [ %343, %381 ], [ %278, %336 ]
   %388 = add nuw nsw i64 %277, 1
-  %389 = icmp ult i64 %277, 7
+  %389 = icmp samesign ult i64 %277, 7
   %390 = load i32, ptr @max_cstate, align 4
   %391 = zext i32 %390 to i64
-  %392 = icmp ult i64 %277, %391
+  %392 = icmp samesign ult i64 %277, %391
   %393 = select i1 %389, i1 %392, i1 false
   br i1 %393, label %276, label %394, !llvm.loop !15
 
@@ -1071,7 +1071,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_power_state_has_c
   %46 = phi i64 [ %.pre, %41 ], [ %19, %36 ], [ %19, %28 ]
   %47 = add nuw nsw i64 %25, 1
   %48 = and i64 %47, 127
-  %49 = icmp ugt i64 %48, 63
+  %49 = icmp samesign ugt i64 %48, 63
   br i1 %49, label %.thread, label %18, !prof !19, !llvm.loop !20
 
 .thread:                                          ; preds = %18, %45, %24
@@ -1129,7 +1129,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_power_state_has_c
 85:                                               ; preds = %79, %74, %69, %61
   %86 = add nuw nsw i64 %58, 1
   %87 = and i64 %86, 127
-  %88 = icmp ugt i64 %87, 63
+  %88 = icmp samesign ugt i64 %87, 63
   br i1 %88, label %.thread7, label %51, !prof !19, !llvm.loop !21
 
 .thread7:                                         ; preds = %51, %85, %57
@@ -1226,7 +1226,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   %49 = load i32, ptr %18, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %48, %50
-  %52 = icmp ult i64 %24, 9
+  %52 = icmp samesign ult i64 %24, 9
   %53 = and i1 %52, %51
   br i1 %53, label %23, label %54, !llvm.loop !23
 
@@ -1329,9 +1329,9 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   %111 = phi i32 [ %.pre, %._crit_edge ], [ %66, %65 ]
   %112 = phi i32 [ %108, %._crit_edge ], [ %68, %65 ]
   %113 = add nuw nsw i64 %67, 1
-  %114 = icmp ult i64 %67, 7
+  %114 = icmp samesign ult i64 %67, 7
   %115 = zext i32 %111 to i64
-  %116 = icmp ult i64 %67, %115
+  %116 = icmp samesign ult i64 %67, %115
   %117 = select i1 %114, i1 %116, i1 false
   br i1 %117, label %65, label %.loopexit, !llvm.loop !24
 

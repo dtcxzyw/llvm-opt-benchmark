@@ -3316,7 +3316,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !77
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18
@@ -4879,7 +4879,7 @@ land.lhs.true15.i:                                ; preds = %if.end.i32
   %sub19.i = add nsw i64 %conv18.i, 4294967248
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
-  %cmp22.i = icmp ugt i64 %add21.i, 2147483647
+  %cmp22.i = icmp samesign ugt i64 %add21.i, 2147483647
   %cmp4.not = icmp eq i32 %add.i, -1
   %or.cond40 = select i1 %cmp22.i, i1 true, i1 %cmp4.not
   br i1 %or.cond40, label %if.else, label %if.then5
@@ -5025,7 +5025,7 @@ land.lhs.true15.i:                                ; preds = %if.end.i37
   %sub19.i = add nsw i64 %conv18.i, 4294967248
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
-  %cmp22.i = icmp ugt i64 %add21.i, 2147483647
+  %cmp22.i = icmp samesign ugt i64 %add21.i, 2147483647
   %cmp4.not = icmp eq i32 %add.i, -1
   %or.cond52 = select i1 %cmp22.i, i1 true, i1 %cmp4.not
   br i1 %or.cond52, label %if.else, label %if.then5
@@ -5192,7 +5192,7 @@ land.lhs.true15.i:                                ; preds = %if.end.i
   %sub19.i = add nsw i64 %conv18.i, 4294967248
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
-  %cmp22.i = icmp ult i64 %add21.i, 2147483648
+  %cmp22.i = icmp samesign ult i64 %add21.i, 2147483648
   br i1 %cmp22.i, label %if.end, label %cond.false.i
 
 cond.false.i:                                     ; preds = %land.lhs.true15.i, %if.end.i
@@ -5353,7 +5353,7 @@ land.lhs.true15.i:                                ; preds = %if.end.i
   %sub19.i = add nsw i64 %conv18.i, 4294967248
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
-  %cmp22.i = icmp ult i64 %add21.i, 2147483648
+  %cmp22.i = icmp samesign ult i64 %add21.i, 2147483648
   br i1 %cmp22.i, label %if.end, label %cond.false.i
 
 cond.false.i:                                     ; preds = %land.lhs.true15.i, %if.end.i
@@ -6018,7 +6018,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %shr25.mask.i.i62 = and i32 %shr.i.i58, 2147481600
   %cmp26.i.i63 = icmp eq i32 %shr25.mask.i.i62, 55296
   %shl28.i.i64 = select i1 %cmp26.i.i63, i32 128, i32 0
-  %cmp30.i.i65 = icmp ugt i32 %shr.i.i58, 1114111
+  %cmp30.i.i65 = icmp samesign ugt i32 %shr.i.i58, 1114111
   %shl32.i.i66 = select i1 %cmp30.i.i65, i32 256, i32 0
   %14 = lshr i8 %6, 2
   %15 = and i8 %14, 48
@@ -6129,7 +6129,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt2v96detail1
   %shr25.mask.i.i = and i32 %shr.i.i, 2147481600
   %cmp26.i.i = icmp eq i32 %shr25.mask.i.i, 55296
   %shl28.i.i = select i1 %cmp26.i.i, i32 128, i32 0
-  %cmp30.i.i = icmp ugt i32 %shr.i.i, 1114111
+  %cmp30.i.i = icmp samesign ugt i32 %shr.i.i, 1114111
   %shl32.i.i = select i1 %cmp30.i.i, i32 256, i32 0
   %34 = lshr i8 %26, 2
   %35 = and i8 %34, 48
@@ -6672,7 +6672,7 @@ do.body.i.i120.prol:                              ; preds = %do.body.i.i120.prol
   %incdec.ptr.i.i126.prol = getelementptr inbounds i8, ptr %buffer.addr.0.i.i122.prol, i64 -1
   store i8 %16, ptr %incdec.ptr.i.i126.prol, align 1, !tbaa !25
   %shr.i.i127.prol = lshr i32 %value.addr.0.i.i121.prol, 4
-  %cmp.not.i.i128.prol = icmp ult i32 %value.addr.0.i.i121.prol, 16
+  %cmp.not.i.i128.prol = icmp samesign ult i32 %value.addr.0.i.i121.prol, 16
   br i1 %cmp.not.i.i128.prol, label %_ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132.prol, label %do.body.i.i120.prol, !llvm.loop !223
 
 _ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132.prol: ; preds = %do.body.i.i120.prol
@@ -6707,7 +6707,7 @@ do.body.i.i120:                                   ; preds = %do.body.i.i120, %fo
   %incdec.ptr.i.i126 = getelementptr inbounds i8, ptr %buffer.addr.0.i.i122, i64 -1
   store i8 %21, ptr %incdec.ptr.i.i126, align 1, !tbaa !25
   %shr.i.i127 = lshr i32 %value.addr.0.i.i121, 4
-  %cmp.not.i.i128 = icmp ult i32 %value.addr.0.i.i121, 16
+  %cmp.not.i.i128 = icmp samesign ult i32 %value.addr.0.i.i121, 16
   br i1 %cmp.not.i.i128, label %_ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132, label %do.body.i.i120, !llvm.loop !223
 
 _ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132: ; preds = %do.body.i.i120
@@ -6728,7 +6728,7 @@ do.body.i.i120.1:                                 ; preds = %do.body.i.i120.1, %
   %incdec.ptr.i.i126.1 = getelementptr inbounds i8, ptr %buffer.addr.0.i.i122.1, i64 -1
   store i8 %23, ptr %incdec.ptr.i.i126.1, align 1, !tbaa !25
   %shr.i.i127.1 = lshr i32 %value.addr.0.i.i121.1, 4
-  %cmp.not.i.i128.1 = icmp ult i32 %value.addr.0.i.i121.1, 16
+  %cmp.not.i.i128.1 = icmp samesign ult i32 %value.addr.0.i.i121.1, 16
   br i1 %cmp.not.i.i128.1, label %_ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132.1, label %do.body.i.i120.1, !llvm.loop !223
 
 _ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit132.1: ; preds = %do.body.i.i120.1
@@ -6790,7 +6790,7 @@ entry:
   %shr25.mask.i = and i32 %shr.i, 2147481600
   %cmp26.i = icmp eq i32 %shr25.mask.i, 55296
   %shl28.i = select i1 %cmp26.i, i32 128, i32 0
-  %cmp30.i = icmp ugt i32 %shr.i, 1114111
+  %cmp30.i = icmp samesign ugt i32 %shr.i, 1114111
   %shl32.i = select i1 %cmp30.i, i32 256, i32 0
   %12 = lshr i8 %4, 2
   %13 = and i8 %12, 48
@@ -6954,7 +6954,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %shr25.mask.i.i92 = and i32 %shr.i.i88, 2147481600
   %cmp26.i.i93 = icmp eq i32 %shr25.mask.i.i92, 55296
   %shl28.i.i94 = select i1 %cmp26.i.i93, i32 128, i32 0
-  %cmp30.i.i95 = icmp ugt i32 %shr.i.i88, 1114111
+  %cmp30.i.i95 = icmp samesign ugt i32 %shr.i.i88, 1114111
   %shl32.i.i96 = select i1 %cmp30.i.i95, i32 256, i32 0
   %19 = lshr i8 %11, 2
   %20 = and i8 %19, 48
@@ -7065,7 +7065,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt2v96detail1
   %shr25.mask.i.i = and i32 %shr.i.i, 2147481600
   %cmp26.i.i = icmp eq i32 %shr25.mask.i.i, 55296
   %shl28.i.i = select i1 %cmp26.i.i, i32 128, i32 0
-  %cmp30.i.i = icmp ugt i32 %shr.i.i, 1114111
+  %cmp30.i.i = icmp samesign ugt i32 %shr.i.i, 1114111
   %shl32.i.i = select i1 %cmp30.i.i, i32 256, i32 0
   %39 = lshr i8 %31, 2
   %40 = and i8 %39, 48
@@ -9552,7 +9552,7 @@ for.inc.7:
   %2 = and i16 %rev.i, 4095
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str, i64 1
   %div.146.i = lshr i16 %2, 8
-  %cmp11.1.i = icmp ult i16 %2, 2560
+  %cmp11.1.i = icmp samesign ult i16 %2, 2560
   %3 = or disjoint i16 %div.146.i, 48
   %add16.1.i = add nuw nsw i16 %div.146.i, 87
   %value.0.1.i = select i1 %cmp11.1.i, i16 %3, i16 %add16.1.i
@@ -9561,7 +9561,7 @@ for.inc.7:
   %4 = and i16 %rev.i, 255
   %incdec.ptr.1.i = getelementptr inbounds i8, ptr %str, i64 2
   %div.247.i = lshr i16 %4, 4
-  %cmp11.2.i = icmp ult i16 %4, 160
+  %cmp11.2.i = icmp samesign ult i16 %4, 160
   %5 = or disjoint i16 %div.247.i, 48
   %add16.2.i = add nuw nsw i16 %div.247.i, 87
   %value.0.2.i = select i1 %cmp11.2.i, i16 %5, i16 %add16.2.i
@@ -9569,7 +9569,7 @@ for.inc.7:
   store i8 %conv18.2.i, ptr %incdec.ptr.1.i, align 1, !tbaa !25
   %6 = and i16 %rev.i, 15
   %incdec.ptr.2.i = getelementptr inbounds i8, ptr %str, i64 3
-  %cmp11.3.i = icmp ult i16 %6, 10
+  %cmp11.3.i = icmp samesign ult i16 %6, 10
   %7 = or disjoint i16 %6, 48
   %add16.3.i = add nuw nsw i16 %6, 87
   %value.0.3.i = select i1 %cmp11.3.i, i16 %7, i16 %add16.3.i
@@ -9591,7 +9591,7 @@ for.inc.7:
   %10 = and i16 %rev.i.1, 4095
   %incdec.ptr.i.1 = getelementptr inbounds i8, ptr %str, i64 6
   %div.146.i.1 = lshr i16 %10, 8
-  %cmp11.1.i.1 = icmp ult i16 %10, 2560
+  %cmp11.1.i.1 = icmp samesign ult i16 %10, 2560
   %11 = or disjoint i16 %div.146.i.1, 48
   %add16.1.i.1 = add nuw nsw i16 %div.146.i.1, 87
   %value.0.1.i.1 = select i1 %cmp11.1.i.1, i16 %11, i16 %add16.1.i.1
@@ -9600,7 +9600,7 @@ for.inc.7:
   %12 = and i16 %rev.i.1, 255
   %incdec.ptr.1.i.1 = getelementptr inbounds i8, ptr %str, i64 7
   %div.247.i.1 = lshr i16 %12, 4
-  %cmp11.2.i.1 = icmp ult i16 %12, 160
+  %cmp11.2.i.1 = icmp samesign ult i16 %12, 160
   %13 = or disjoint i16 %div.247.i.1, 48
   %add16.2.i.1 = add nuw nsw i16 %div.247.i.1, 87
   %value.0.2.i.1 = select i1 %cmp11.2.i.1, i16 %13, i16 %add16.2.i.1
@@ -9608,7 +9608,7 @@ for.inc.7:
   store i8 %conv18.2.i.1, ptr %incdec.ptr.1.i.1, align 1, !tbaa !25
   %14 = and i16 %rev.i.1, 15
   %incdec.ptr.2.i.1 = getelementptr inbounds i8, ptr %str, i64 8
-  %cmp11.3.i.1 = icmp ult i16 %14, 10
+  %cmp11.3.i.1 = icmp samesign ult i16 %14, 10
   %15 = or disjoint i16 %14, 48
   %add16.3.i.1 = add nuw nsw i16 %14, 87
   %value.0.3.i.1 = select i1 %cmp11.3.i.1, i16 %15, i16 %add16.3.i.1
@@ -9630,7 +9630,7 @@ for.inc.7:
   %18 = and i16 %rev.i.2, 4095
   %incdec.ptr.i.2 = getelementptr inbounds i8, ptr %str, i64 11
   %div.146.i.2 = lshr i16 %18, 8
-  %cmp11.1.i.2 = icmp ult i16 %18, 2560
+  %cmp11.1.i.2 = icmp samesign ult i16 %18, 2560
   %19 = or disjoint i16 %div.146.i.2, 48
   %add16.1.i.2 = add nuw nsw i16 %div.146.i.2, 87
   %value.0.1.i.2 = select i1 %cmp11.1.i.2, i16 %19, i16 %add16.1.i.2
@@ -9639,7 +9639,7 @@ for.inc.7:
   %20 = and i16 %rev.i.2, 255
   %incdec.ptr.1.i.2 = getelementptr inbounds i8, ptr %str, i64 12
   %div.247.i.2 = lshr i16 %20, 4
-  %cmp11.2.i.2 = icmp ult i16 %20, 160
+  %cmp11.2.i.2 = icmp samesign ult i16 %20, 160
   %21 = or disjoint i16 %div.247.i.2, 48
   %add16.2.i.2 = add nuw nsw i16 %div.247.i.2, 87
   %value.0.2.i.2 = select i1 %cmp11.2.i.2, i16 %21, i16 %add16.2.i.2
@@ -9647,7 +9647,7 @@ for.inc.7:
   store i8 %conv18.2.i.2, ptr %incdec.ptr.1.i.2, align 1, !tbaa !25
   %22 = and i16 %rev.i.2, 15
   %incdec.ptr.2.i.2 = getelementptr inbounds i8, ptr %str, i64 13
-  %cmp11.3.i.2 = icmp ult i16 %22, 10
+  %cmp11.3.i.2 = icmp samesign ult i16 %22, 10
   %23 = or disjoint i16 %22, 48
   %add16.3.i.2 = add nuw nsw i16 %22, 87
   %value.0.3.i.2 = select i1 %cmp11.3.i.2, i16 %23, i16 %add16.3.i.2
@@ -9669,7 +9669,7 @@ for.inc.7:
   %26 = and i16 %rev.i.3, 4095
   %incdec.ptr.i.3 = getelementptr inbounds i8, ptr %str, i64 16
   %div.146.i.3 = lshr i16 %26, 8
-  %cmp11.1.i.3 = icmp ult i16 %26, 2560
+  %cmp11.1.i.3 = icmp samesign ult i16 %26, 2560
   %27 = or disjoint i16 %div.146.i.3, 48
   %add16.1.i.3 = add nuw nsw i16 %div.146.i.3, 87
   %value.0.1.i.3 = select i1 %cmp11.1.i.3, i16 %27, i16 %add16.1.i.3
@@ -9678,7 +9678,7 @@ for.inc.7:
   %28 = and i16 %rev.i.3, 255
   %incdec.ptr.1.i.3 = getelementptr inbounds i8, ptr %str, i64 17
   %div.247.i.3 = lshr i16 %28, 4
-  %cmp11.2.i.3 = icmp ult i16 %28, 160
+  %cmp11.2.i.3 = icmp samesign ult i16 %28, 160
   %29 = or disjoint i16 %div.247.i.3, 48
   %add16.2.i.3 = add nuw nsw i16 %div.247.i.3, 87
   %value.0.2.i.3 = select i1 %cmp11.2.i.3, i16 %29, i16 %add16.2.i.3
@@ -9686,7 +9686,7 @@ for.inc.7:
   store i8 %conv18.2.i.3, ptr %incdec.ptr.1.i.3, align 1, !tbaa !25
   %30 = and i16 %rev.i.3, 15
   %incdec.ptr.2.i.3 = getelementptr inbounds i8, ptr %str, i64 18
-  %cmp11.3.i.3 = icmp ult i16 %30, 10
+  %cmp11.3.i.3 = icmp samesign ult i16 %30, 10
   %31 = or disjoint i16 %30, 48
   %add16.3.i.3 = add nuw nsw i16 %30, 87
   %value.0.3.i.3 = select i1 %cmp11.3.i.3, i16 %31, i16 %add16.3.i.3
@@ -9708,7 +9708,7 @@ for.inc.7:
   %34 = and i16 %rev.i.4, 4095
   %incdec.ptr.i.4 = getelementptr inbounds i8, ptr %str, i64 21
   %div.146.i.4 = lshr i16 %34, 8
-  %cmp11.1.i.4 = icmp ult i16 %34, 2560
+  %cmp11.1.i.4 = icmp samesign ult i16 %34, 2560
   %35 = or disjoint i16 %div.146.i.4, 48
   %add16.1.i.4 = add nuw nsw i16 %div.146.i.4, 87
   %value.0.1.i.4 = select i1 %cmp11.1.i.4, i16 %35, i16 %add16.1.i.4
@@ -9717,7 +9717,7 @@ for.inc.7:
   %36 = and i16 %rev.i.4, 255
   %incdec.ptr.1.i.4 = getelementptr inbounds i8, ptr %str, i64 22
   %div.247.i.4 = lshr i16 %36, 4
-  %cmp11.2.i.4 = icmp ult i16 %36, 160
+  %cmp11.2.i.4 = icmp samesign ult i16 %36, 160
   %37 = or disjoint i16 %div.247.i.4, 48
   %add16.2.i.4 = add nuw nsw i16 %div.247.i.4, 87
   %value.0.2.i.4 = select i1 %cmp11.2.i.4, i16 %37, i16 %add16.2.i.4
@@ -9725,7 +9725,7 @@ for.inc.7:
   store i8 %conv18.2.i.4, ptr %incdec.ptr.1.i.4, align 1, !tbaa !25
   %38 = and i16 %rev.i.4, 15
   %incdec.ptr.2.i.4 = getelementptr inbounds i8, ptr %str, i64 23
-  %cmp11.3.i.4 = icmp ult i16 %38, 10
+  %cmp11.3.i.4 = icmp samesign ult i16 %38, 10
   %39 = or disjoint i16 %38, 48
   %add16.3.i.4 = add nuw nsw i16 %38, 87
   %value.0.3.i.4 = select i1 %cmp11.3.i.4, i16 %39, i16 %add16.3.i.4
@@ -9747,7 +9747,7 @@ for.inc.7:
   %42 = and i16 %rev.i.5, 4095
   %incdec.ptr.i.5 = getelementptr inbounds i8, ptr %str, i64 26
   %div.146.i.5 = lshr i16 %42, 8
-  %cmp11.1.i.5 = icmp ult i16 %42, 2560
+  %cmp11.1.i.5 = icmp samesign ult i16 %42, 2560
   %43 = or disjoint i16 %div.146.i.5, 48
   %add16.1.i.5 = add nuw nsw i16 %div.146.i.5, 87
   %value.0.1.i.5 = select i1 %cmp11.1.i.5, i16 %43, i16 %add16.1.i.5
@@ -9756,7 +9756,7 @@ for.inc.7:
   %44 = and i16 %rev.i.5, 255
   %incdec.ptr.1.i.5 = getelementptr inbounds i8, ptr %str, i64 27
   %div.247.i.5 = lshr i16 %44, 4
-  %cmp11.2.i.5 = icmp ult i16 %44, 160
+  %cmp11.2.i.5 = icmp samesign ult i16 %44, 160
   %45 = or disjoint i16 %div.247.i.5, 48
   %add16.2.i.5 = add nuw nsw i16 %div.247.i.5, 87
   %value.0.2.i.5 = select i1 %cmp11.2.i.5, i16 %45, i16 %add16.2.i.5
@@ -9764,7 +9764,7 @@ for.inc.7:
   store i8 %conv18.2.i.5, ptr %incdec.ptr.1.i.5, align 1, !tbaa !25
   %46 = and i16 %rev.i.5, 15
   %incdec.ptr.2.i.5 = getelementptr inbounds i8, ptr %str, i64 28
-  %cmp11.3.i.5 = icmp ult i16 %46, 10
+  %cmp11.3.i.5 = icmp samesign ult i16 %46, 10
   %47 = or disjoint i16 %46, 48
   %add16.3.i.5 = add nuw nsw i16 %46, 87
   %value.0.3.i.5 = select i1 %cmp11.3.i.5, i16 %47, i16 %add16.3.i.5
@@ -9786,7 +9786,7 @@ for.inc.7:
   %50 = and i16 %rev.i.6, 4095
   %incdec.ptr.i.6 = getelementptr inbounds i8, ptr %str, i64 31
   %div.146.i.6 = lshr i16 %50, 8
-  %cmp11.1.i.6 = icmp ult i16 %50, 2560
+  %cmp11.1.i.6 = icmp samesign ult i16 %50, 2560
   %51 = or disjoint i16 %div.146.i.6, 48
   %add16.1.i.6 = add nuw nsw i16 %div.146.i.6, 87
   %value.0.1.i.6 = select i1 %cmp11.1.i.6, i16 %51, i16 %add16.1.i.6
@@ -9795,7 +9795,7 @@ for.inc.7:
   %52 = and i16 %rev.i.6, 255
   %incdec.ptr.1.i.6 = getelementptr inbounds i8, ptr %str, i64 32
   %div.247.i.6 = lshr i16 %52, 4
-  %cmp11.2.i.6 = icmp ult i16 %52, 160
+  %cmp11.2.i.6 = icmp samesign ult i16 %52, 160
   %53 = or disjoint i16 %div.247.i.6, 48
   %add16.2.i.6 = add nuw nsw i16 %div.247.i.6, 87
   %value.0.2.i.6 = select i1 %cmp11.2.i.6, i16 %53, i16 %add16.2.i.6
@@ -9803,7 +9803,7 @@ for.inc.7:
   store i8 %conv18.2.i.6, ptr %incdec.ptr.1.i.6, align 1, !tbaa !25
   %54 = and i16 %rev.i.6, 15
   %incdec.ptr.2.i.6 = getelementptr inbounds i8, ptr %str, i64 33
-  %cmp11.3.i.6 = icmp ult i16 %54, 10
+  %cmp11.3.i.6 = icmp samesign ult i16 %54, 10
   %55 = or disjoint i16 %54, 48
   %add16.3.i.6 = add nuw nsw i16 %54, 87
   %value.0.3.i.6 = select i1 %cmp11.3.i.6, i16 %55, i16 %add16.3.i.6
@@ -9825,7 +9825,7 @@ for.inc.7:
   %58 = and i16 %rev.i.7, 4095
   %incdec.ptr.i.7 = getelementptr inbounds i8, ptr %str, i64 36
   %div.146.i.7 = lshr i16 %58, 8
-  %cmp11.1.i.7 = icmp ult i16 %58, 2560
+  %cmp11.1.i.7 = icmp samesign ult i16 %58, 2560
   %59 = or disjoint i16 %div.146.i.7, 48
   %add16.1.i.7 = add nuw nsw i16 %div.146.i.7, 87
   %value.0.1.i.7 = select i1 %cmp11.1.i.7, i16 %59, i16 %add16.1.i.7
@@ -9834,7 +9834,7 @@ for.inc.7:
   %60 = and i16 %rev.i.7, 255
   %incdec.ptr.1.i.7 = getelementptr inbounds i8, ptr %str, i64 37
   %div.247.i.7 = lshr i16 %60, 4
-  %cmp11.2.i.7 = icmp ult i16 %60, 160
+  %cmp11.2.i.7 = icmp samesign ult i16 %60, 160
   %61 = or disjoint i16 %div.247.i.7, 48
   %add16.2.i.7 = add nuw nsw i16 %div.247.i.7, 87
   %value.0.2.i.7 = select i1 %cmp11.2.i.7, i16 %61, i16 %add16.2.i.7
@@ -9842,7 +9842,7 @@ for.inc.7:
   store i8 %conv18.2.i.7, ptr %incdec.ptr.1.i.7, align 1, !tbaa !25
   %62 = and i16 %rev.i.7, 15
   %incdec.ptr.2.i.7 = getelementptr inbounds i8, ptr %str, i64 38
-  %cmp11.3.i.7 = icmp ult i16 %62, 10
+  %cmp11.3.i.7 = icmp samesign ult i16 %62, 10
   %63 = or disjoint i16 %62, 48
   %add16.3.i.7 = add nuw nsw i16 %62, 87
   %value.0.3.i.7 = select i1 %cmp11.3.i.7, i16 %63, i16 %add16.3.i.7
@@ -10543,7 +10543,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %inc = add i8 %byteIndex.0130141, 1
   %conv9 = zext i8 %inc to i32
   %mul = shl nuw nsw i32 %conv9, 3
-  %cmp11 = icmp ult i32 %mul, %conv10
+  %cmp11 = icmp samesign ult i32 %mul, %conv10
   br i1 %cmp11, label %land.rhs, label %while.end, !llvm.loop !321
 
 while.end:                                        ; preds = %land.rhs, %while.body

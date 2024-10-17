@@ -976,7 +976,7 @@ _ZN2cv16CvCaptureCAM_V4L12releaseFrameEv.exit:    ; preds = %1, %7, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i8, ptr %26, align 8
   %80 = zext i8 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %32, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %78, %.preheader
@@ -3451,7 +3451,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L13createBuffersEv(ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i8, ptr %17, align 8
   %80 = zext i8 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %82, label %._crit_edge, !llvm.loop !13
 
 82:                                               ; preds = %.lr.ph, %78
@@ -3586,7 +3586,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L13createBuffersEv(ptr 
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %144 = load i32, ptr %10, align 8
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next87, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next87, %145
   br i1 %146, label %21, label %._crit_edge80, !llvm.loop !14
 
 ._crit_edge80:                                    ; preds = %._crit_edge
@@ -5037,7 +5037,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L12convertToRgbERKNS_6BufferE(ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %99 = load i8, ptr %80, align 8
   %100 = zext i8 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next, %100
   br i1 %101, label %83, label %._crit_edge, !llvm.loop !20
 
 102:                                              ; preds = %2
@@ -5858,7 +5858,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L12convertToRgbERKNS_6BufferE(ptr nou
 
 .preheader:                                       ; preds = %248, %481
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %481 ], [ 0, %248 ]
-  %463 = icmp ult i64 %indvars.iv.i, 128
+  %463 = icmp samesign ult i64 %indvars.iv.i, 128
   br i1 %463, label %481, label %464
 
 464:                                              ; preds = %.preheader
@@ -5939,7 +5939,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L12convertToRgbERKNS_6BufferE(ptr nou
   %.067.i = phi i32 [ 0, %.lr.ph68.i ], [ %.2.lcssa.i, %._crit_edge.i188 ]
   %.05466.i = phi i32 [ 0, %.lr.ph68.i ], [ %577, %._crit_edge.i188 ]
   %.05565.i = phi ptr [ %.pre355, %.lr.ph68.i ], [ %.257.lcssa.i, %._crit_edge.i188 ]
-  %491 = icmp ult i32 %.05466.i, 2
+  %491 = icmp samesign ult i32 %.05466.i, 2
   br i1 %491, label %492, label %.thread.i
 
 492:                                              ; preds = %490
@@ -6034,7 +6034,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L12convertToRgbERKNS_6BufferE(ptr nou
   br i1 %.not.i, label %554, label %571
 
 554:                                              ; preds = %.lr.ph.split.i
-  %555 = icmp ult i32 %.15361.i, 2
+  %555 = icmp samesign ult i32 %.15361.i, 2
   br i1 %555, label %556, label %561
 
 556:                                              ; preds = %554
@@ -8024,7 +8024,7 @@ define hidden noundef nonnull ptr @_ZN2cv16CvCaptureCAM_V4L13retrieveFrameEi(ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load i8, ptr %66, align 8
   %87 = zext i8 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %88, label %69, label %.loopexit, !llvm.loop !29
 
 89:                                               ; preds = %60

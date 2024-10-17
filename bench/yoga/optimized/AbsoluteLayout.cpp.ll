@@ -43,14 +43,14 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
-  %0 = icmp ult i8 %bf.clear.i, 2
+  %0 = icmp samesign ult i8 %bf.clear.i, 2
   %spec.select = select i1 %0, i8 2, i8 0
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread: ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit, %if.then.i, %if.then4.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread170
   %retval.0.i169 = phi i8 [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread170 ], [ 3, %if.then.i ], [ 2, %if.then4.i ], [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
   %1 = phi i8 [ 3, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread170 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ %spec.select, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
-  %2 = icmp ult i8 %retval.0.i169, 2
+  %2 = icmp samesign ult i8 %retval.0.i169, 2
   %call5 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
   %call6 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, float noundef %containingBlockWidth)
   %call7 = tail call noundef zeroext i1 @_ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
@@ -1115,7 +1115,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
-  %0 = icmp ult i8 %bf.clear.i, 2
+  %0 = icmp samesign ult i8 %bf.clear.i, 2
   %spec.select = select i1 %0, i8 2, i8 0
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
@@ -1133,7 +1133,7 @@ for.body.lr.ph:                                   ; preds = %_ZN8facebook4yoga16
   %add83 = add i32 %currentDepth, 1
   %measuredDimensions_.i = getelementptr inbounds i8, ptr %containingNode, i64 500
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %containingNode, i64 504
-  %.not = icmp ult i8 %retval.0.i181, 2
+  %.not = icmp samesign ult i8 %retval.0.i181, 2
   %4 = and i8 %retval.0.i181, 1
   %.not253 = icmp eq i8 %4, 0
   %arrayidx.i.i.i.i.i218 = getelementptr inbounds i8, ptr %currentNode, i64 500

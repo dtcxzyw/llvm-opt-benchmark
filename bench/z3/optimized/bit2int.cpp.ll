@@ -4157,7 +4157,7 @@ land.rhs.i.i.i.i142:                              ; preds = %land.rhs.i.i138
 invoke.cont:                                      ; preds = %land.rhs.i.i.i.i142, %land.rhs.i.i138, %for.body23
   %42 = phi i1 [ false, %for.body23 ], [ false, %land.rhs.i.i138 ], [ %41, %land.rhs.i.i.i.i142 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp22 = icmp uge i64 %indvars.iv.next, %35
+  %cmp22 = icmp samesign uge i64 %indvars.iv.next, %35
   %.not = select i1 %42, i1 true, i1 %cmp22
   br i1 %.not, label %for.end27, label %for.body23, !llvm.loop !22
 

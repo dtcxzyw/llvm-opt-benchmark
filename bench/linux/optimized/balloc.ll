@@ -2177,7 +2177,7 @@ define dso_local i64 @ext4_count_free_clusters(ptr noundef %0) local_unnamed_add
   %21 = getelementptr inbounds i8, ptr %16, i64 64
   %22 = load i32, ptr %21, align 64
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %10, %23
+  %24 = icmp samesign ult i64 %10, %23
   br i1 %24, label %25, label %.thread, !prof !9
 
 25:                                               ; preds = %20
@@ -2347,7 +2347,7 @@ define dso_local i64 @ext4_bg_num_gdb(ptr nocapture noundef readonly %0, i32 nou
   %17 = udiv i64 %16, %10
   %18 = urem i64 %16, %10
   %19 = zext i32 %8 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %21, label %78
 
 21:                                               ; preds = %15, %2

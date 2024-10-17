@@ -4044,7 +4044,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %for.cond.i
   %retval.0.i.i.i = phi i64 [ %36, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.i32 = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i
+  %cmp.i32 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i
   br i1 %cmp.i32, label %for.body.i, label %invoke.cont23
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
@@ -7909,7 +7909,7 @@ _ZN6vectorI14dependent_exprLb1EjED2Ev.exit:       ; preds = %invoke.cont13, %_ZN
   %inc = add nuw nsw i32 %rounds.018, 1
   %18 = load i8, ptr %m_created_compound, align 8
   %tobool = trunc i8 %18 to i1
-  %cmp = icmp ult i32 %rounds.018, 2
+  %cmp = icmp samesign ult i32 %rounds.018, 2
   %19 = select i1 %tobool, i1 %cmp, i1 false
   br i1 %19, label %for.body, label %for.end, !llvm.loop !27
 

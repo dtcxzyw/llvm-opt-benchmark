@@ -11,74 +11,74 @@ define range(i64 -2147483648, 2147483648) i64 @f64_to_i32_r_minMag(i64 %0, i1 no
   %4 = and i64 %3, 2047
   %5 = and i64 %0, 4503599627370495
   %6 = sub nsw i64 1075, %4
-  %7 = icmp ult i64 %4, 1023
+  %7 = icmp samesign ult i64 %4, 1023
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
   %9 = or i64 %4, %5
   %.not38 = icmp ne i64 %9, 0
-  %or.cond.not = and i1 %1, %.not38
-  br i1 %or.cond.not, label %10, label %40
+  %or.cond40.not = and i1 %1, %.not38
+  br i1 %or.cond40.not, label %10, label %39
 
 10:                                               ; preds = %8
   %11 = load i8, ptr @softfloat_exceptionFlags, align 1
   %12 = or i8 %11, 1
   store i8 %12, ptr @softfloat_exceptionFlags, align 1
-  br label %40
+  br label %39
 
 13:                                               ; preds = %2
   %14 = icmp slt i64 %0, 0
-  %15 = icmp ugt i64 %4, 1053
-  br i1 %15, label %16, label %30
+  %15 = icmp samesign ugt i64 %4, 1053
+  br i1 %15, label %16, label %29
 
 16:                                               ; preds = %13
   %17 = icmp eq i64 %4, 1054
-  %18 = icmp ult i64 %5, 2097152
-  %19 = and i1 %18, %17
-  %or.cond3 = and i1 %14, %19
-  br i1 %or.cond3, label %20, label %25
+  %or.cond = and i1 %14, %17
+  %18 = icmp samesign ult i64 %5, 2097152
+  %or.cond3 = select i1 %or.cond, i1 %18, i1 false
+  br i1 %or.cond3, label %19, label %24
 
-20:                                               ; preds = %16
-  %21 = icmp ne i64 %5, 0
-  %or.cond5 = and i1 %1, %21
-  br i1 %or.cond5, label %22, label %40
+19:                                               ; preds = %16
+  %20 = icmp ne i64 %5, 0
+  %or.cond5 = and i1 %1, %20
+  br i1 %or.cond5, label %21, label %39
 
-22:                                               ; preds = %20
-  %23 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %24 = or i8 %23, 1
-  store i8 %24, ptr @softfloat_exceptionFlags, align 1
-  br label %40
+21:                                               ; preds = %19
+  %22 = load i8, ptr @softfloat_exceptionFlags, align 1
+  %23 = or i8 %22, 1
+  store i8 %23, ptr @softfloat_exceptionFlags, align 1
+  br label %39
 
-25:                                               ; preds = %16
+24:                                               ; preds = %16
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
-  %26 = icmp eq i64 %4, 2047
-  %27 = icmp ne i64 %5, 0
-  %or.cond7 = and i1 %27, %26
-  %28 = select i1 %14, i64 -2147483648, i64 2147483647
-  %29 = select i1 %or.cond7, i64 2147483647, i64 %28
-  br label %40
+  %25 = icmp eq i64 %4, 2047
+  %26 = icmp ne i64 %5, 0
+  %or.cond7 = and i1 %26, %25
+  %27 = select i1 %14, i64 -2147483648, i64 2147483647
+  %28 = select i1 %or.cond7, i64 2147483647, i64 %27
+  br label %39
 
-30:                                               ; preds = %13
-  %31 = or disjoint i64 %5, 4503599627370496
-  %32 = lshr i64 %31, %6
-  %33 = shl i64 %32, %6
-  %.not = icmp ne i64 %33, %31
-  %or.cond41.not = select i1 %1, i1 %.not, i1 false
-  br i1 %or.cond41.not, label %34, label %37
+29:                                               ; preds = %13
+  %30 = or disjoint i64 %5, 4503599627370496
+  %31 = lshr i64 %30, %6
+  %32 = shl i64 %31, %6
+  %.not = icmp ne i64 %32, %30
+  %or.cond42.not = select i1 %1, i1 %.not, i1 false
+  br i1 %or.cond42.not, label %33, label %36
 
-34:                                               ; preds = %30
-  %35 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %36 = or i8 %35, 1
-  store i8 %36, ptr @softfloat_exceptionFlags, align 1
-  br label %37
+33:                                               ; preds = %29
+  %34 = load i8, ptr @softfloat_exceptionFlags, align 1
+  %35 = or i8 %34, 1
+  store i8 %35, ptr @softfloat_exceptionFlags, align 1
+  br label %36
 
-37:                                               ; preds = %34, %30
-  %38 = sub nsw i64 0, %32
-  %39 = select i1 %14, i64 %38, i64 %32
-  br label %40
+36:                                               ; preds = %33, %29
+  %37 = sub nsw i64 0, %31
+  %38 = select i1 %14, i64 %37, i64 %31
+  br label %39
 
-40:                                               ; preds = %20, %22, %8, %10, %37, %25
-  %.0 = phi i64 [ %29, %25 ], [ %39, %37 ], [ 0, %10 ], [ 0, %8 ], [ -2147483648, %22 ], [ -2147483648, %20 ]
+39:                                               ; preds = %19, %21, %8, %10, %36, %24
+  %.0 = phi i64 [ %28, %24 ], [ %38, %36 ], [ 0, %10 ], [ 0, %8 ], [ -2147483648, %21 ], [ -2147483648, %19 ]
   ret i64 %.0
 }
 

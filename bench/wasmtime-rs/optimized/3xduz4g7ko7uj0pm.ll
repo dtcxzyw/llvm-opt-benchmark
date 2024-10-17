@@ -3931,7 +3931,7 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg11core_expo
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ugt i64 %11, 4
+  %13 = icmp samesign ugt i64 %11, 4
   br i1 %13, label %50, label %14
 
 14:                                               ; preds = %3, %50
@@ -4180,7 +4180,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %49 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1042
   %50 = icmp ult i64 %49, 6
   call void @llvm.assume(i1 %50)
-  %51 = icmp ugt i64 %49, 3
+  %51 = icmp samesign ugt i64 %49, 3
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %61, %select.unfold
@@ -4684,7 +4684,7 @@ select.unfold:                                    ; preds = %53, %2
   %83 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1244
   %84 = icmp ult i64 %83, 6
   call void @llvm.assume(i1 %84)
-  %85 = icmp ugt i64 %83, 4
+  %85 = icmp samesign ugt i64 %83, 4
   br i1 %85, label %122, label %86
 
 86:                                               ; preds = %122, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc983905d5e0cfc18E.exit.i"

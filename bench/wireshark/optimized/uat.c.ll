@@ -530,7 +530,7 @@ define noundef ptr @uat_get_table_by_name(ptr noundef %0) local_unnamed_addr #0 
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %1, %5
@@ -611,7 +611,7 @@ define ptr @uat_fld_tostr(ptr noundef %0, ptr nocapture noundef readonly %1) loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %3, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
@@ -738,7 +738,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %44, %.lr.ph, %.thread79
@@ -817,7 +817,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next107, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next107, %101
   br i1 %102, label %62, label %._crit_edge88, !llvm.loop !12
 
 ._crit_edge88:                                    ; preds = %97, %._crit_edge
@@ -920,7 +920,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %147 = load i32, ptr %3, align 4
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next32.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next32.i, %148
   br i1 %149, label %.lr.ph27.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %146, %129
@@ -937,7 +937,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %156 = load i32, ptr %3, align 4
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next.i, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next.i, %157
   br i1 %158, label %.lr.ph.i, label %putfld.exit, !llvm.loop !14
 
 159:                                              ; preds = %.lr.ph91
@@ -963,7 +963,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %168 = load i32, ptr %109, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next110, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next110, %169
   br i1 %170, label %.lr.ph91, label %._crit_edge92.loopexit, !llvm.loop !15
 
 ._crit_edge92.loopexit:                           ; preds = %putfld.exit
@@ -977,7 +977,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   %173 = getelementptr inbounds i8, ptr %171, i64 8
   %174 = load i32, ptr %173, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next113, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next113, %175
   br i1 %176, label %.lr.ph95.split, label %._crit_edge96, !llvm.loop !16
 
 ._crit_edge96:                                    ; preds = %._crit_edge92, %.lr.ph95, %._crit_edge88
@@ -1111,7 +1111,7 @@ define void @uat_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !18
 
 .lr.ph30.splitthread-pre-split:                   ; preds = %38
@@ -1140,7 +1140,7 @@ define void @uat_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next38, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next38, %42
   br i1 %43, label %.lr.ph30.splitthread-pre-split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %38, %.lr.ph30, %.preheader
@@ -1202,7 +1202,7 @@ define hidden void @uat_unload_all() local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %13, %0
@@ -1229,7 +1229,7 @@ define hidden void @uat_cleanup() local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -1317,7 +1317,7 @@ define void @uat_foreach_table(ptr nocapture noundef readonly %0, ptr noundef %1
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1363,7 +1363,7 @@ define hidden void @uat_load_all() local_unnamed_addr #0 {
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %18, %0

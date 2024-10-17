@@ -119,7 +119,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr nocapture noundef
   %8 = lshr i32 %2, 3
   %9 = and i32 %8, 511
   %10 = add nuw nsw i32 %9, 1
-  %11 = icmp ult i32 %9, 4
+  %11 = icmp samesign ult i32 %9, 4
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %4
@@ -406,16 +406,16 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr nocapture noundef
   %119 = fptrunc double %118 to float
   %120 = call float @llvm.fabs.f32(float %119)
   %121 = bitcast float %120 to i32
-  %122 = icmp ugt i32 %121, 1199570943
+  %122 = icmp samesign ugt i32 %121, 1199570943
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %.preheader156
-  %124 = icmp ugt i32 %121, 2139095040
+  %124 = icmp samesign ugt i32 %121, 2139095040
   %125 = select i1 %124, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
 
 126:                                              ; preds = %.preheader156
-  %127 = icmp ult i32 %121, 947912704
+  %127 = icmp samesign ult i32 %121, 947912704
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %126
@@ -606,7 +606,7 @@ define hidden void @_ZN2cv22convertAndUnrollScalarERKNS_3MatEiPhm(ptr noundef no
 
 42:                                               ; preds = %33
   %43 = zext nneg i32 %17 to i64
-  %44 = icmp ult i32 %17, %18
+  %44 = icmp samesign ult i32 %17, %18
   br i1 %44, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42, %.lr.ph
@@ -2404,7 +2404,7 @@ _ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.thread: ; preds = %
   %.03366 = phi i64 [ %106, %103 ], [ 0, %85 ]
   %92 = sub nuw i64 %27, %.03366
   %93 = call i64 @llvm.umin.i64(i64 %91, i64 %92)
-  %94 = icmp ult i64 %93, 97
+  %94 = icmp samesign ult i64 %93, 97
   br i1 %94, label %103, label %95
 
 95:                                               ; preds = %.lr.ph
@@ -2606,8 +2606,8 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %29, %32
 _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit: ; preds = %60
   %63 = and i32 %40, 4095
   %64 = icmp eq i32 %63, 6
-  %65 = icmp ult i32 %52, 4
-  %spec.select.i = and i1 %65, %64
+  %65 = icmp samesign ult i32 %52, 4
+  %spec.select.i = select i1 %64, i1 %65, i1 false
   br i1 %spec.select.i, label %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread69, label %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread
 
 66:                                               ; preds = %32, %29, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -4111,7 +4111,7 @@ _ZN12_GLOBAL__N_117copyMakeBorder_8uEPKhmN2cv5Size_IiEEPhmS4_iiii.exit: ; preds 
   %302 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %302, ptr %19, align 8
   %303 = getelementptr inbounds i8, ptr %19, i64 8
-  %.not.i.i = icmp ugt i32 %299, 135
+  %.not.i.i = icmp samesign ugt i32 %299, 135
   store i64 %301, ptr %303, align 8
   br i1 %.not.i.i, label %304, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -4125,7 +4125,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.thread:      ; preds = %304
   br label %308
 
 _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %296
-  %307 = icmp ugt i32 %299, 3
+  %307 = icmp samesign ugt i32 %299, 3
   br i1 %307, label %308, label %330
 
 308:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EEC2Em.exit.thread, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit

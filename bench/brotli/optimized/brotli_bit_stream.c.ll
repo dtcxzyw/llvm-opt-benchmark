@@ -89,7 +89,7 @@ for.end16:                                        ; preds = %if.then, %for.inc14
   %num_codes.1 = phi i32 [ 2, %if.then ], [ %num_codes.2, %for.inc14 ]
   call void @BrotliCreateHuffmanTree(ptr noundef nonnull %huffman_tree_histogram, i64 noundef 18, i32 noundef 5, ptr noundef %tree, ptr noundef nonnull %code_length_bitdepth) #12
   call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %code_length_bitdepth, i64 noundef 18, ptr noundef nonnull %code_length_bitdepth_symbols) #12
-  %cmp.i = icmp ugt i32 %num_codes.1, 1
+  %cmp.i = icmp samesign ugt i32 %num_codes.1, 1
   br i1 %cmp.i, label %for.body.i, label %if.end6.i
 
 for.body.i:                                       ; preds = %for.end16, %for.inc.i
@@ -894,7 +894,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i32.i = sub nuw nsw i32 32, %9
   %10 = zext nneg i32 %add.i32.i to i64
   %cond.i.i = select i1 %cmp.i.i, i64 1, i64 %10
-  %cmp3.i.i = icmp ult i64 %cond.i.i, 16
+  %cmp3.i.i = icmp samesign ult i64 %cond.i.i, 16
   %add7.i.i = add nuw nsw i64 %cond.i.i, 3
   %11 = lshr i64 %add7.i.i, 2
   %div.i.i = select i1 %cmp3.i.i, i64 4, i64 %11
@@ -1829,8 +1829,8 @@ if.else118:                                       ; preds = %if.then106
   %or.cond1 = or i1 %cmp4.i, %cmp7.i
   %cmp10.i = icmp eq i32 %shr.i182, 7
   %or.cond2 = or i1 %cmp10.i, %or.cond1
-  %cmp12.i = icmp ult i32 %and.i184, 3
-  %or.cond3 = and i1 %cmp12.i, %or.cond2
+  %cmp12.i = icmp samesign ult i32 %and.i184, 3
+  %or.cond3 = select i1 %or.cond2, i1 %cmp12.i, i1 false
   %163 = zext nneg i32 %and.i184 to i64
   %retval.i.0 = select i1 %or.cond3, i64 %163, i64 3
   %164 = load ptr, ptr %distance_context_map122, align 8
@@ -3115,7 +3115,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i32.i = sub nuw nsw i32 32, %8
   %9 = zext nneg i32 %add.i32.i to i64
   %cond.i.i = select i1 %cmp.i.i, i64 1, i64 %9
-  %cmp3.i.i = icmp ult i64 %cond.i.i, 16
+  %cmp3.i.i = icmp samesign ult i64 %cond.i.i, 16
   %add7.i.i = add nuw nsw i64 %cond.i.i, 3
   %10 = lshr i64 %add7.i.i, 2
   %div.i.i = select i1 %cmp3.i.i, i64 4, i64 %10
@@ -3409,7 +3409,7 @@ for.cond.loopexit.i:                              ; preds = %for.inc.i, %for.bod
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %if.then20
   %i.0111.i = phi i64 [ 0, %if.then20 ], [ %add.i39, %for.cond.loopexit.i ]
   %add.i39 = add nuw nsw i64 %i.0111.i, 1
-  %cmp2109.i = icmp ult i64 %add.i39, %count.0.lcssa
+  %cmp2109.i = icmp samesign ult i64 %add.i39, %count.0.lcssa
   br i1 %cmp2109.i, label %for.body3.lr.ph.i, label %for.cond.loopexit.i
 
 for.body3.lr.ph.i:                                ; preds = %for.body.i
@@ -3829,7 +3829,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i32.i = sub nuw nsw i32 32, %8
   %9 = zext nneg i32 %add.i32.i to i64
   %cond.i.i = select i1 %cmp.i.i, i64 1, i64 %9
-  %cmp3.i.i = icmp ult i64 %cond.i.i, 16
+  %cmp3.i.i = icmp samesign ult i64 %cond.i.i, 16
   %add7.i.i = add nuw nsw i64 %cond.i.i, 3
   %10 = lshr i64 %add7.i.i, 2
   %div.i.i = select i1 %cmp3.i.i, i64 4, i64 %10
@@ -4114,7 +4114,7 @@ entry:
   %add.i24.i = sub nuw nsw i32 32, %3
   %4 = zext nneg i32 %add.i24.i to i64
   %cond.i.i = select i1 %cmp.i.i, i64 1, i64 %4
-  %cmp3.i.i = icmp ult i64 %cond.i.i, 16
+  %cmp3.i.i = icmp samesign ult i64 %cond.i.i, 16
   %add7.i.i = add nuw nsw i64 %cond.i.i, 3
   %5 = lshr i64 %add7.i.i, 2
   %div.i.i = select i1 %cmp3.i.i, i64 4, i64 %5

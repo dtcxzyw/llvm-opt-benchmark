@@ -332,7 +332,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %161, %.loopexit22, %37
-  %164 = icmp ult i64 %31, 32
+  %164 = icmp samesign ult i64 %31, 32
   br i1 %164, label %.preheader171, label %165
 
 165:                                              ; preds = %.loopexit24

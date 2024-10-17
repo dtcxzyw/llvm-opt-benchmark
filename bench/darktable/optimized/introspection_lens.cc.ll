@@ -2935,7 +2935,7 @@ define noundef range(i32 0, 2) i32 @distort_transform(ptr nocapture noundef read
   %173 = shufflevector <2 x i1> %172, <2 x i1> poison, <2 x i32> zeroinitializer
   %174 = select <2 x i1> %173, <2 x float> %171, <2 x float> %124
   %175 = add nuw nsw i32 %123, 1
-  %176 = icmp ult i32 %123, 9
+  %176 = icmp samesign ult i32 %123, 9
   %177 = select i1 %170, i1 %176, i1 false
   br i1 %177, label %122, label %180, !llvm.loop !203
 
@@ -2984,7 +2984,7 @@ define noundef range(i32 0, 2) i32 @distort_transform(ptr nocapture noundef read
   %212 = shufflevector <2 x i1> %211, <2 x i1> poison, <2 x i32> zeroinitializer
   %213 = select <2 x i1> %212, <2 x float> %210, <2 x float> %188
   %214 = add nuw nsw i32 %187, 1
-  %215 = icmp ult i32 %187, 9
+  %215 = icmp samesign ult i32 %187, 9
   %216 = select i1 %209, i1 %215, i1 false
   br i1 %216, label %186, label %217, !llvm.loop !205
 
@@ -11586,7 +11586,7 @@ define internal fastcc void @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8lfCamer
   %155 = add nuw nsw i64 %142, 1
   %156 = load i32, ptr %139, align 8, !tbaa !519
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %155, %157
+  %158 = icmp samesign ult i64 %155, %157
   br i1 %158, label %.preheader, label %.loopexit, !llvm.loop !522
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit17
@@ -11875,7 +11875,7 @@ define internal fastcc void @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6lfLens(p
   %145 = add nuw nsw i64 %132, 1
   %146 = load i32, ptr %129, align 8, !tbaa !519
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %145, %147
+  %148 = icmp samesign ult i64 %145, %147
   br i1 %148, label %.preheader, label %.loopexit, !llvm.loop !525
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit16

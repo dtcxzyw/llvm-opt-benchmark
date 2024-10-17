@@ -4323,7 +4323,7 @@ define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
-  %12 = icmp ugt i64 %.0.sroa.speculated.i.i, 3
+  %12 = icmp samesign ugt i64 %.0.sroa.speculated.i.i, 3
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
@@ -4335,7 +4335,7 @@ define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$
   %.017.i.i = phi i64 [ %14, %13 ], [ 0, %10 ]
   %.0.i.i = phi i64 [ 4, %13 ], [ 0, %10 ]
   %16 = or disjoint i64 %.0.i.i, 1
-  %17 = icmp ult i64 %16, %.0.sroa.speculated.i.i
+  %17 = icmp samesign ult i64 %16, %.0.sroa.speculated.i.i
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
@@ -4437,7 +4437,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
 
 76:                                               ; preds = %._crit_edge.i, %42
   %.09.lcssa.i = phi i64 [ %127, %._crit_edge.i ], [ %.0.i, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -4450,7 +4450,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %.017.i13.i = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14.i = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14.i, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -10520,7 +10520,7 @@ default.unreachable4.i.i230.i206:                 ; preds = %1450
   %1862 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !1164
   %1863 = icmp ult i64 %1862, 6
   tail call void @llvm.assume(i1 %1863)
-  %switch.selectcmp.i111.i = icmp ugt i64 %1862, 4
+  %switch.selectcmp.i111.i = icmp samesign ugt i64 %1862, 4
   br i1 %switch.selectcmp.i111.i, label %1864, label %1846
 
 1864:                                             ; preds = %1848
@@ -10832,7 +10832,7 @@ default.unreachable4.i.i116.i:                    ; preds = %1908
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14.i.i)
   %1974 = getelementptr inbounds i8, ptr %1, i64 1304
   %1975 = load i8, ptr %1974, align 8, !range !1175, !alias.scope !1204, !noalias !1164, !noundef !7
-  %switch.i.i.i = icmp ult i8 %1975, 10
+  %switch.i.i.i = icmp samesign ult i8 %1975, 10
   br i1 %switch.i.i.i, label %1978, label %1976
 
 1976:                                             ; preds = %1973

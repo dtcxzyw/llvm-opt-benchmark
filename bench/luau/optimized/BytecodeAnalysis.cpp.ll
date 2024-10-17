@@ -1244,7 +1244,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = load i8, ptr %138, align 2
   %163 = zext i8 %162 to i64
-  %164 = icmp ult i64 %indvars.iv.next, %163
+  %164 = icmp samesign ult i64 %indvars.iv.next, %163
   br i1 %164, label %.lr.ph870, label %._crit_edge871, !llvm.loop !31
 
 ._crit_edge871:                                   ; preds = %.lr.ph870, %._crit_edge

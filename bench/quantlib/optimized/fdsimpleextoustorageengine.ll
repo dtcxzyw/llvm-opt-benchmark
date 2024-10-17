@@ -11275,7 +11275,7 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIdEENSt15iterator_traitsIT_E15differenc
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIdEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then

@@ -524,7 +524,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIhEEvRPT_mt(pt
 
 40:                                               ; preds = %32
   %41 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %3)
-  %42 = icmp ult i16 %41, 2
+  %42 = icmp samesign ult i16 %41, 2
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40
@@ -1494,7 +1494,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %.1297560 = phi i32 [ 0, %.loopexit ], [ %476, %._crit_edge557 ]
   %.0298559 = phi ptr [ %44, %.loopexit ], [ %477, %._crit_edge557 ]
   %.0299558 = phi ptr [ %48, %.loopexit ], [ %478, %._crit_edge557 ]
-  %.not = icmp ugt i32 %.1297560, %15
+  %.not = icmp samesign ugt i32 %.1297560, %15
   %401 = select i1 %.not, i32 2, i32 0
   br i1 %390, label %.lr.ph551, label %.preheader
 
@@ -2158,7 +2158,7 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb1EEEvRKNS_14BufferSGBM3WayEi
   %335 = trunc i64 %indvars.iv220 to i32
   %336 = sub i32 %335, %328
   %337 = call i32 @llvm.abs.i32(i32 %336, i1 true)
-  %338 = icmp ugt i32 %337, 1
+  %338 = icmp samesign ugt i32 %337, 1
   br i1 %338, label %.thread, label %339
 
 339:                                              ; preds = %329, %334
@@ -2853,7 +2853,7 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb0EEEvRKNS_14BufferSGBM3WayEi
   %335 = trunc i64 %indvars.iv220 to i32
   %336 = sub i32 %335, %328
   %337 = call i32 @llvm.abs.i32(i32 %336, i1 true)
-  %338 = icmp ugt i32 %337, 1
+  %338 = icmp samesign ugt i32 %337, 1
   br i1 %338, label %.thread, label %339
 
 339:                                              ; preds = %329, %334
@@ -6599,7 +6599,7 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
   %941 = trunc i64 %indvars.iv1206.i to i32
   %942 = sub i32 %933, %941
   %943 = call i32 @llvm.abs.i32(i32 %942, i1 true)
-  %944 = icmp ugt i32 %943, 1
+  %944 = icmp samesign ugt i32 %943, 1
   br i1 %944, label %.loopexit.i58, label %945
 
 945:                                              ; preds = %940, %934
@@ -6713,7 +6713,7 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
 1010:                                             ; preds = %1004
   %1011 = sub nsw i32 %1009, %996
   %1012 = call i32 @llvm.abs.i32(i32 %1011, i1 true)
-  %1013 = icmp ugt i32 %1012, %327
+  %1013 = icmp samesign ugt i32 %1012, %327
   %1014 = icmp sgt i32 %1001, -1
   %1015 = icmp slt i32 %1001, %338
   %1016 = and i1 %1014, %1015
@@ -6731,7 +6731,7 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
 1022:                                             ; preds = %1017
   %1023 = sub nsw i32 %1021, %998
   %1024 = call i32 @llvm.abs.i32(i32 %1023, i1 true)
-  %1025 = icmp ugt i32 %1024, %327
+  %1025 = icmp samesign ugt i32 %1024, %327
   br i1 %1025, label %1026, label %1027
 
 1026:                                             ; preds = %1022
@@ -7530,7 +7530,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIsEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 16) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -8949,7 +8949,7 @@ _ZNK2cv10BufferSGBM7getSBufEi.exit:               ; preds = %44
   %266 = trunc i64 %indvars.iv352 to i32
   %267 = sub i32 %225, %266
   %268 = call i32 @llvm.abs.i32(i32 %267, i1 true)
-  %269 = icmp ugt i32 %268, 1
+  %269 = icmp samesign ugt i32 %268, 1
   br i1 %269, label %.thread, label %270
 
 270:                                              ; preds = %259, %265

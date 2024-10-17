@@ -289,7 +289,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   store ptr %11, ptr %5, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %12 = icmp ult i32 %10, 128
+  %12 = icmp samesign ult i32 %10, 128
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -362,7 +362,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   store ptr %11, ptr %5, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %12 = icmp ult i32 %10, 128
+  %12 = icmp samesign ult i32 %10, 128
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -585,7 +585,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   store ptr %11, ptr %5, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  %12 = icmp ult i32 %10, 128
+  %12 = icmp samesign ult i32 %10, 128
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -4448,9 +4448,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.val.i.i = load ptr, ptr %15, align 8, !noalias !1390, !nonnull !9, !align !35, !noundef !9
   %.val1.i.i = load ptr, ptr %16, align 8, !noalias !1390, !nonnull !9, !noundef !9
   %28 = load i8, ptr %.val.i.i, align 1, !range !39, !noalias !1391, !noundef !9
-  %switch.i.i.i.i = icmp ugt i8 %28, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %28, 2
   %29 = load i8, ptr %.val1.i.i, align 1, !range !39, !noalias !1391, !noundef !9
-  %switch.i4.i.i.i = icmp ugt i8 %29, 2
+  %switch.i4.i.i.i = icmp samesign ugt i8 %29, 2
   %30 = bitcast i32 %.sroa.716.0.copyload to float
   br i1 %switch.i.i.i.i, label %31, label %38
 
@@ -9243,15 +9243,15 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 107:                                              ; preds = %105
   %108 = load i64, ptr %45, align 8, !alias.scope !2522, !noalias !2427, !noundef !9
-  %109 = icmp ult i32 %102, 128
+  %109 = icmp samesign ult i32 %102, 128
   br i1 %109, label %124, label %110
 
 110:                                              ; preds = %107
-  %111 = icmp ult i32 %102, 2048
+  %111 = icmp samesign ult i32 %102, 2048
   br i1 %111, label %124, label %112
 
 112:                                              ; preds = %110
-  %113 = icmp ult i32 %102, 65536
+  %113 = icmp samesign ult i32 %102, 65536
   %..i.i.i.i.i = select i1 %113, i64 3, i64 4
   br label %124
 
@@ -12608,15 +12608,15 @@ _ZN3vim6motion6Motion16expand_selection17h95876c19a4b3c42eE.exit.i.i.i: ; preds 
 
 139:                                              ; preds = %137
   %140 = load i64, ptr %33, align 8, !alias.scope !3295, !noalias !3264, !noundef !9
-  %141 = icmp ult i32 %134, 128
+  %141 = icmp samesign ult i32 %134, 128
   br i1 %141, label %154, label %142
 
 142:                                              ; preds = %139
-  %143 = icmp ult i32 %134, 2048
+  %143 = icmp samesign ult i32 %134, 2048
   br i1 %143, label %154, label %144
 
 144:                                              ; preds = %142
-  %145 = icmp ult i32 %134, 65536
+  %145 = icmp samesign ult i32 %134, 65536
   %..i.i.i.i.i.i.i = select i1 %145, i64 3, i64 4
   br label %154
 
@@ -12801,15 +12801,15 @@ _ZN3vim6motion6Motion16expand_selection17h95876c19a4b3c42eE.exit.i.i.i: ; preds 
 
 198:                                              ; preds = %188
   %199 = load i64, ptr %36, align 8, !alias.scope !3395, !noalias !3264, !noundef !9
-  %200 = icmp ult i32 %174, 128
+  %200 = icmp samesign ult i32 %174, 128
   br i1 %200, label %206, label %201
 
 201:                                              ; preds = %198
-  %202 = icmp ult i32 %174, 2048
+  %202 = icmp samesign ult i32 %174, 2048
   br i1 %202, label %206, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp ult i32 %174, 65536
+  %204 = icmp samesign ult i32 %174, 65536
   %..i.i.i.i.i.i = select i1 %204, i64 3, i64 4
   br label %206
 
@@ -12967,12 +12967,12 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.e
 
 251:                                              ; preds = %249
   %252 = load i64, ptr %61, align 8, !alias.scope !3455, !noalias !3248, !noundef !9
-  %253 = icmp ult i32 %246, 128
+  %253 = icmp samesign ult i32 %246, 128
   br i1 %253, label %265, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %251
-  %254 = icmp ult i32 %246, 2048
-  %255 = icmp ult i32 %246, 65536
+  %254 = icmp samesign ult i32 %246, 2048
+  %255 = icmp samesign ult i32 %246, 65536
   %..i.i.i.i.i = select i1 %255, i64 3, i64 4
   %.sroa.0.0.i.i30.ph.i.i.i = select i1 %254, i64 2, i64 %..i.i.i.i.i
   %256 = add i64 %252, %.sroa.0.0.i.i30.ph.i.i.i
@@ -13051,11 +13051,11 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.e
   br label %.noexc12.i
 
 283:                                              ; preds = %271
-  %284 = icmp ult i32 %246, 2048
+  %284 = icmp samesign ult i32 %246, 2048
   br i1 %284, label %287, label %285
 
 285:                                              ; preds = %283
-  %286 = icmp ult i32 %246, 65536
+  %286 = icmp samesign ult i32 %246, 65536
   %..i.i.i = select i1 %286, i64 3, i64 4
   br label %287
 
@@ -19685,7 +19685,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h4158f6c9c
 49:                                               ; preds = %"_ZN3vim6object16around_next_word28_$u7b$$u7b$closure$u7d$$u7d$17hec411dc5d409f6a6E.exit", %38
   %50 = phi i8 [ %52, %"_ZN3vim6object16around_next_word28_$u7b$$u7b$closure$u7d$$u7d$17hec411dc5d409f6a6E.exit" ], [ %20, %38 ]
   store i64 %19, ptr %11, align 8
-  %51 = icmp ult i32 %21, 128
+  %51 = icmp samesign ult i32 %21, 128
   br i1 %51, label %74, label %70
 
 "_ZN3vim6object16around_next_word28_$u7b$$u7b$closure$u7d$$u7d$17hec411dc5d409f6a6E.exit": ; preds = %48, %47
@@ -19739,11 +19739,11 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h4158f6c9c
   br label %56
 
 70:                                               ; preds = %49
-  %71 = icmp ult i32 %21, 2048
+  %71 = icmp samesign ult i32 %21, 2048
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp ult i32 %21, 65536
+  %73 = icmp samesign ult i32 %21, 65536
   %. = select i1 %73, i64 3, i64 4
   br label %74
 
@@ -19887,7 +19887,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br i1 %or.cond3.i.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", label %53
 
 53:                                               ; preds = %50
-  %54 = icmp ugt i32 %24, 127
+  %54 = icmp samesign ugt i32 %24, 127
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -19935,7 +19935,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   ]
 
 66:                                               ; preds = %64
-  %67 = icmp ugt i32 %.sroa.05.0, 127
+  %67 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %67, label %68, label %.noexc15
 
 68:                                               ; preds = %66
@@ -19951,7 +19951,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br i1 %or.cond2.i, label %.noexc15, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp ugt i32 %24, 127
+  %73 = icmp samesign ugt i32 %24, 127
   br i1 %73, label %74, label %.noexc15
 
 74:                                               ; preds = %72
@@ -19959,7 +19959,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
           to label %.noexc15 unwind label %.loopexit
 
 76:                                               ; preds = %.noexc15
-  %77 = icmp ugt i32 %.sroa.05.0, 127
+  %77 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %77, label %78, label %98
 
 78:                                               ; preds = %76
@@ -20012,7 +20012,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
 
 99:                                               ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20", %41
   store i64 %23, ptr %10, align 8
-  %100 = icmp ult i32 %24, 128
+  %100 = icmp samesign ult i32 %24, 128
   br i1 %100, label %131, label %127
 
 "_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20": ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %98
@@ -20081,11 +20081,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br label %113
 
 127:                                              ; preds = %99
-  %128 = icmp ult i32 %24, 2048
+  %128 = icmp samesign ult i32 %24, 2048
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ult i32 %24, 65536
+  %130 = icmp samesign ult i32 %24, 65536
   %. = select i1 %130, i64 3, i64 4
   br label %131
 
@@ -20211,7 +20211,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h64f3fafc3
   br i1 %or.cond10.not.i.i, label %48, label %57
 
 48:                                               ; preds = %43
-  %49 = icmp ugt i32 %44, 127
+  %49 = icmp samesign ugt i32 %44, 127
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
@@ -20230,7 +20230,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h64f3fafc3
 
 55:                                               ; preds = %57, %41
   store i64 %23, ptr %10, align 8
-  %56 = icmp ult i32 %24, 128
+  %56 = icmp samesign ult i32 %24, 128
   br i1 %56, label %80, label %76
 
 57:                                               ; preds = %52, %.noexc, %43
@@ -20287,11 +20287,11 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h64f3fafc3
   br label %62
 
 76:                                               ; preds = %55
-  %77 = icmp ult i32 %24, 2048
+  %77 = icmp samesign ult i32 %24, 2048
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %24, 65536
+  %79 = icmp samesign ult i32 %24, 65536
   %. = select i1 %79, i64 3, i64 4
   br label %80
 
@@ -20430,7 +20430,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17ha5791faf3
 48:                                               ; preds = %51, %38
   %49 = phi i8 [ %53, %51 ], [ %20, %38 ]
   store i64 %19, ptr %11, align 8
-  %50 = icmp ult i32 %21, 128
+  %50 = icmp samesign ult i32 %21, 128
   br i1 %50, label %75, label %71
 
 .thread:                                          ; preds = %46
@@ -20490,11 +20490,11 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17ha5791faf3
   br label %57
 
 71:                                               ; preds = %48
-  %72 = icmp ult i32 %21, 2048
+  %72 = icmp samesign ult i32 %21, 2048
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %21, 65536
+  %74 = icmp samesign ult i32 %21, 65536
   %. = select i1 %74, i64 3, i64 4
   br label %75
 
@@ -20616,7 +20616,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hb1e396565
 
 41:                                               ; preds = %43, %36
   store i64 %18, ptr %10, align 8
-  %42 = icmp ult i32 %19, 128
+  %42 = icmp samesign ult i32 %19, 128
   br i1 %42, label %65, label %61
 
 43:                                               ; preds = %.noexc
@@ -20670,11 +20670,11 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hb1e396565
   br label %47
 
 61:                                               ; preds = %41
-  %62 = icmp ult i32 %19, 2048
+  %62 = icmp samesign ult i32 %19, 2048
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = icmp ult i32 %19, 65536
+  %64 = icmp samesign ult i32 %19, 65536
   %. = select i1 %64, i64 3, i64 4
   br label %65
 
@@ -20811,7 +20811,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hdd2e7c3fb
 
 48:                                               ; preds = %"_ZN3vim6motion13next_word_end28_$u7b$$u7b$closure$u7d$$u7d$17h14fc4253ce616e17E.exit", %39
   store i64 %21, ptr %10, align 8
-  %49 = icmp ult i32 %22, 128
+  %49 = icmp samesign ult i32 %22, 128
   br i1 %49, label %71, label %67
 
 "_ZN3vim6motion13next_word_end28_$u7b$$u7b$closure$u7d$$u7d$17h14fc4253ce616e17E.exit": ; preds = %.noexc11
@@ -20867,11 +20867,11 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hdd2e7c3fb
   br label %53
 
 67:                                               ; preds = %48
-  %68 = icmp ult i32 %22, 2048
+  %68 = icmp samesign ult i32 %22, 2048
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %22, 65536
+  %70 = icmp samesign ult i32 %22, 65536
   %. = select i1 %70, i64 3, i64 4
   br label %71
 
@@ -21004,7 +21004,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   br i1 %or.cond3.i.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", label %47
 
 47:                                               ; preds = %44
-  %48 = icmp ugt i32 %.sroa.05.0, 127
+  %48 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
@@ -21052,7 +21052,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   ]
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %.sroa.05.0, 127
+  %61 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %61, label %62, label %.noexc16
 
 62:                                               ; preds = %60
@@ -21068,7 +21068,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   br i1 %or.cond2.i, label %.noexc16, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ugt i32 %21, 127
+  %67 = icmp samesign ugt i32 %21, 127
   br i1 %67, label %68, label %.noexc16
 
 68:                                               ; preds = %66
@@ -21076,7 +21076,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
           to label %.noexc16 unwind label %.loopexit
 
 70:                                               ; preds = %.noexc16
-  %71 = icmp ugt i32 %21, 127
+  %71 = icmp samesign ugt i32 %21, 127
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70
@@ -21151,7 +21151,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
 
 100:                                              ; preds = %38
   store i64 %19, ptr %11, align 8
-  %101 = icmp ult i32 %21, 128
+  %101 = icmp samesign ult i32 %21, 128
   br i1 %101, label %128, label %123
 
 .thread21:                                        ; preds = %95
@@ -21217,11 +21217,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
 
 123:                                              ; preds = %.thread24, %100
   %124 = phi i8 [ %20, %100 ], [ %92, %.thread24 ]
-  %125 = icmp ult i32 %21, 2048
+  %125 = icmp samesign ult i32 %21, 2048
   br i1 %125, label %128, label %126
 
 126:                                              ; preds = %123
-  %127 = icmp ult i32 %21, 65536
+  %127 = icmp samesign ult i32 %21, 65536
   %. = select i1 %127, i64 3, i64 4
   br label %128
 
@@ -21281,15 +21281,15 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %.not, label %21, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit11"
 
 21:                                               ; preds = %.noexc, %17
-  %22 = icmp ult i32 %13, 128
+  %22 = icmp samesign ult i32 %13, 128
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %13, 2048
+  %24 = icmp samesign ult i32 %13, 2048
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %13, 65536
+  %26 = icmp samesign ult i32 %13, 65536
   %. = select i1 %26, i64 -3, i64 -4
   br label %27
 
@@ -21352,15 +21352,15 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %.sroa.08.0.in.i.i.us.us, label %.split16.us, label %26
 
 26:                                               ; preds = %.noexc.us.us, %21
-  %27 = icmp ult i32 %18, 128
+  %27 = icmp samesign ult i32 %18, 128
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ult i32 %18, 2048
+  %29 = icmp samesign ult i32 %18, 2048
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %18, 65536
+  %31 = icmp samesign ult i32 %18, 65536
   %..us.us = select i1 %31, i64 -3, i64 -4
   br label %32
 
@@ -21393,15 +21393,15 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %.sroa.08.0.in.i.i.us, label %.split16.us, label %43
 
 43:                                               ; preds = %40, %38
-  %44 = icmp ult i32 %35, 128
+  %44 = icmp samesign ult i32 %35, 128
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i32 %35, 2048
+  %46 = icmp samesign ult i32 %35, 2048
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %35, 65536
+  %48 = icmp samesign ult i32 %35, 65536
   %..us = select i1 %48, i64 -3, i64 -4
   br label %49
 
@@ -21434,15 +21434,15 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond18, label %.split16.us, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %52, 128
+  %59 = icmp samesign ult i32 %52, 128
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %52, 2048
+  %61 = icmp samesign ult i32 %52, 2048
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %52, 65536
+  %63 = icmp samesign ult i32 %52, 65536
   %. = select i1 %63, i64 -3, i64 -4
   br label %64
 
@@ -21505,7 +21505,7 @@ switch.early.test.i:                              ; preds = %.noexc
   ]
 
 22:                                               ; preds = %switch.early.test.i
-  %23 = icmp ugt i32 %.sroa.04.0, 127
+  %23 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %23, label %24, label %"_ZN3vim6motion19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h15c897c6eb5df56cE.exit.thread"
 
 24:                                               ; preds = %22
@@ -21549,7 +21549,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %or.cond14.not, label %44, label %"_ZN3vim6motion19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h15c897c6eb5df56cE.exit.thread"
 
 44:                                               ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %"_ZN3vim6motion19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h15c897c6eb5df56cE.exit", %17
-  %45 = icmp ult i32 %13, 128
+  %45 = icmp samesign ult i32 %13, 128
   br i1 %45, label %50, label %46
 
 "_ZN3vim6motion19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h15c897c6eb5df56cE.exit": ; preds = %.noexc, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
@@ -21557,11 +21557,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %.old, label %"_ZN3vim6motion19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h15c897c6eb5df56cE.exit.thread", label %44
 
 46:                                               ; preds = %44
-  %47 = icmp ult i32 %13, 2048
+  %47 = icmp samesign ult i32 %13, 2048
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i32 %13, 65536
+  %49 = icmp samesign ult i32 %13, 65536
   %. = select i1 %49, i64 -3, i64 -4
   br label %50
 
@@ -21624,11 +21624,11 @@ default.unreachable1.i:                           ; preds = %.noexc
   br i1 %switch.i, label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread", label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread14"
 
 22:                                               ; preds = %.noexc
-  %switch5.i = icmp ult i8 %20, 2
+  %switch5.i = icmp samesign ult i8 %20, 2
   br i1 %switch5.i, label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread14", label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread"
 
 "_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread": ; preds = %21, %22, %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit", %17
-  %23 = icmp ult i32 %13, 128
+  %23 = icmp samesign ult i32 %13, 128
   br i1 %23, label %31, label %27
 
 "_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit": ; preds = %.noexc
@@ -21640,11 +21640,11 @@ default.unreachable1.i:                           ; preds = %.noexc
   br i1 %spec.select.i, label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread14", label %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread"
 
 27:                                               ; preds = %"_ZN3vim6motion17previous_word_end28_$u7b$$u7b$closure$u7d$$u7d$17hb2f2a9d3b7ca3eceE.exit.thread"
-  %28 = icmp ult i32 %13, 2048
+  %28 = icmp samesign ult i32 %13, 2048
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %13, 65536
+  %30 = icmp samesign ult i32 %13, 65536
   %. = select i1 %30, i64 -3, i64 -4
   br label %31
 
@@ -21706,7 +21706,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond3.i.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", label %27
 
 27:                                               ; preds = %24
-  %28 = icmp ugt i32 %15, 127
+  %28 = icmp samesign ugt i32 %15, 127
   br i1 %28, label %.noexc14, label %30
 
 .noexc14:                                         ; preds = %27
@@ -21751,7 +21751,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   ]
 
 39:                                               ; preds = %37
-  %40 = icmp ugt i32 %15, 127
+  %40 = icmp samesign ugt i32 %15, 127
   br i1 %40, label %.noexc16, label %.noexc17
 
 .noexc16:                                         ; preds = %39
@@ -21764,7 +21764,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond2.i, label %.noexc17, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %.sroa.04.0, 127
+  %45 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %45, label %46, label %.noexc17
 
 46:                                               ; preds = %44
@@ -21772,7 +21772,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br label %.noexc17
 
 48:                                               ; preds = %.noexc17
-  %49 = icmp ugt i32 %.sroa.04.0, 127
+  %49 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %49, label %50, label %71
 
 50:                                               ; preds = %48
@@ -21839,7 +21839,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
 
 .thread:                                          ; preds = %72, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %73, %80, %19
   %78 = phi i8 [ %14, %72 ], [ %70, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i ], [ %77, %73 ], [ %83, %80 ], [ %14, %19 ]
-  %79 = icmp ult i32 %15, 128
+  %79 = icmp samesign ult i32 %15, 128
   br i1 %79, label %88, label %84
 
 80:                                               ; preds = %71
@@ -21850,11 +21850,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %brmerge.old.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
 
 84:                                               ; preds = %.thread
-  %85 = icmp ult i32 %15, 2048
+  %85 = icmp samesign ult i32 %15, 2048
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ult i32 %15, 65536
+  %87 = icmp samesign ult i32 %15, 65536
   %. = select i1 %87, i64 -3, i64 -4
   br label %88
 
@@ -21907,15 +21907,15 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %.not, label %21, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit11"
 
 21:                                               ; preds = %.noexc, %17
-  %22 = icmp ult i32 %13, 128
+  %22 = icmp samesign ult i32 %13, 128
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %13, 2048
+  %24 = icmp samesign ult i32 %13, 2048
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %13, 65536
+  %26 = icmp samesign ult i32 %13, 65536
   %. = select i1 %26, i64 -3, i64 -4
   br label %27
 
@@ -21975,7 +21975,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond1.i, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i32 %13, 127
+  %26 = icmp samesign ugt i32 %13, 127
   br i1 %26, label %.noexc13, label %30
 
 .noexc13:                                         ; preds = %25
@@ -21995,7 +21995,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   ]
 
 31:                                               ; preds = %28
-  %32 = icmp ugt i32 %.sroa.04.0, 127
+  %32 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %32, label %.noexc14, label %30
 
 .noexc14:                                         ; preds = %31
@@ -22006,11 +22006,11 @@ default.unreachable1.i:                           ; preds = %30
   unreachable
 
 34:                                               ; preds = %30
-  %switch.i = icmp ult i8 %20, 2
+  %switch.i = icmp samesign ult i8 %20, 2
   br i1 %switch.i, label %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread", label %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread16"
 
 "_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread16": ; preds = %30, %34, %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit", %17
-  %35 = icmp ult i32 %13, 128
+  %35 = icmp samesign ult i32 %13, 128
   br i1 %35, label %43, label %39
 
 "_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit": ; preds = %30
@@ -22022,11 +22022,11 @@ default.unreachable1.i:                           ; preds = %30
   br i1 %spec.select9.i, label %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread", label %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread16"
 
 39:                                               ; preds = %"_ZN3vim6motion20previous_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h375afe2744e18a7bE.exit.thread16"
-  %40 = icmp ult i32 %13, 2048
+  %40 = icmp samesign ult i32 %13, 2048
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %39
-  %42 = icmp ult i32 %13, 65536
+  %42 = icmp samesign ult i32 %13, 65536
   %. = select i1 %42, i64 -3, i64 -4
   br label %43
 

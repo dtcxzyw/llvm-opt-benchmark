@@ -2492,7 +2492,7 @@ sender_id_tlv_chassis_id.exit:                    ; preds = %1075, %1079, %1083,
   %.0437 = phi i32 [ %1119, %sender_id_tlv_chassis_id.exit ], [ %1067, %1063 ]
   %1121 = add nuw nsw i32 %1068, 2
   %1122 = select i1 %.not452, i32 1, i32 %1121
-  %1123 = icmp ult i32 %1122, %1048
+  %1123 = icmp samesign ult i32 %1122, %1048
   br i1 %1123, label %1124, label %1343
 
 1124:                                             ; preds = %1120
@@ -2518,7 +2518,7 @@ sender_id_tlv_chassis_id.exit:                    ; preds = %1075, %1079, %1083,
   %.0435 = phi ptr [ %1135, %1130 ], [ null, %1124 ]
   %1138 = add nuw nsw i32 %1122, 1
   %1139 = add nuw nsw i32 %1138, %1129
-  %1140 = icmp ult i32 %1139, %1048
+  %1140 = icmp samesign ult i32 %1139, %1048
   br i1 %1140, label %1141, label %1343
 
 1141:                                             ; preds = %1137

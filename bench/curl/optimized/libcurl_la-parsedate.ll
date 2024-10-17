@@ -116,12 +116,12 @@ lor.lhs.false23:                                  ; preds = %while.cond15
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false23
   %cmp29 = icmp ult i8 %14, 91
-  %cmp32 = icmp ult i64 %len.0, 12
+  %cmp32 = icmp samesign ult i64 %len.0, 12
   %or.cond18 = select i1 %cmp29, i1 %cmp32, i1 false
   br i1 %or.cond18, label %while.body35, label %while.end
 
 land.rhs31:                                       ; preds = %while.cond15
-  %cmp32.old = icmp ult i64 %len.0, 12
+  %cmp32.old = icmp samesign ult i64 %len.0, 12
   br i1 %cmp32.old, label %while.body35, label %while.end
 
 while.body35:                                     ; preds = %land.lhs.true27, %land.rhs31
@@ -139,7 +139,7 @@ if.then38:                                        ; preds = %while.end
   br i1 %cmp39, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.then38
-  %cmp.i = icmp ugt i64 %len.0, 3
+  %cmp.i = icmp samesign ugt i64 %len.0, 3
   br i1 %cmp.i, label %for.body.i.preheader, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then41
@@ -195,7 +195,7 @@ if.end3.i:                                        ; preds = %for.body.i99
 if.end56:                                         ; preds = %if.end3.i, %if.then50, %if.end45
   %monnum.2 = phi i32 [ %monnum.0220, %if.end45 ], [ -1, %if.then50 ], [ -1, %if.end3.i ]
   %cmp59.not = icmp ne i32 %tzoff.0216, -1
-  %cmp.i105 = icmp ugt i64 %len.0, 4
+  %cmp.i105 = icmp samesign ugt i64 %len.0, 4
   %or.cond190 = select i1 %cmp59.not, i1 true, i1 %cmp.i105
   br i1 %or.cond190, label %return, label %for.body.i106
 
@@ -472,7 +472,7 @@ if.end201:                                        ; preds = %if.end195, %if.end1
   %inc202 = add nuw nsw i32 %part.0219, 1
   %39 = load i8, ptr %date.addr.1, align 1
   %tobool = icmp ne i8 %39, 0
-  %cmp = icmp ult i32 %part.0219, 5
+  %cmp = icmp samesign ult i32 %part.0219, 5
   %40 = select i1 %tobool, i1 %cmp, i1 false
   br i1 %40, label %while.body, label %while.end203, !llvm.loop !10
 

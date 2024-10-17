@@ -127,7 +127,7 @@ for.body.tail:                                    ; preds = %for.body, %sub_1, %
   %tobool11.not = phi i32 [ %doubledash.038, %for.body ], [ %doubledash.038, %sub_1 ], [ %12, %sub_2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp8 = icmp slt i32 %tobool11.not, 0
-  %cmp9 = icmp ult i64 %indvars.iv.next, %3
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %3
   %13 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %13, label %for.body, label %for.end, !llvm.loop !5
 

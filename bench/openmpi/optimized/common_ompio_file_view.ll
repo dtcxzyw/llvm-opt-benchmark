@@ -1196,7 +1196,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_fview_duplicate(ptr nocapture noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %12, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %20, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %.preheader

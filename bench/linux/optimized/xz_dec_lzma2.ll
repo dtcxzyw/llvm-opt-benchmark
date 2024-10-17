@@ -241,7 +241,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %140 = shl nsw i32 -1, %138
   %141 = xor i32 %140, -1
   store i32 %141, ptr %20, align 4
-  %142 = icmp ugt i8 %139, 8
+  %142 = icmp samesign ugt i8 %139, 8
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %137
@@ -259,7 +259,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %152 = zext nneg i8 %151 to i32
   store i32 %152, ptr %22, align 4
   %153 = add nuw nsw i32 %150, %152
-  %154 = icmp ugt i32 %153, 4
+  %154 = icmp samesign ugt i32 %153, 4
   br i1 %154, label %.loopexit, label %155
 
 155:                                              ; preds = %149

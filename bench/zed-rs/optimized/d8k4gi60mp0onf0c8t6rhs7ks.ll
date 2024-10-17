@@ -6396,7 +6396,7 @@ define hidden noundef align 8 ptr @_ZN5proto22create_buffer_for_peer7Variant5mer
 
 40:                                               ; preds = %5
   %41 = load i64, ptr %0, align 8, !range !79, !noundef !14
-  %switch.not = icmp ult i64 %41, 2
+  %switch.not = icmp samesign ult i64 %41, 2
   br i1 %switch.not, label %58, label %44
 
 42:                                               ; preds = %5
@@ -9257,7 +9257,7 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17heb9a1a1439d406daE"(ptr d
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %12 to i64
-  %.not.i.i.i = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i = icmp samesign ugt ptr %12, inttoptr (i64 -4096 to ptr)
   %16 = icmp slt ptr %12, null
   call void @llvm.assume(i1 %.not.i.i.i)
   call void @llvm.assume(i1 %16)

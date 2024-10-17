@@ -48,7 +48,7 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !4
 
 .loopexit:                                        ; preds = %3, %15, %12
-  %19 = icmp ugt i32 %.0, 126
+  %19 = icmp samesign ugt i32 %.0, 126
   br i1 %19, label %.thread, label %21
 
 .thread:                                          ; preds = %18, %.loopexit

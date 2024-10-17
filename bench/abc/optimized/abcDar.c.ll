@@ -4084,7 +4084,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %245 = lshr i64 %.val337, 32
   %246 = trunc nuw i64 %245 to i32
   %247 = and i32 %246, 536870911
-  %.not366 = icmp ult i32 %244, %247
+  %.not366 = icmp samesign ult i32 %244, %247
   br i1 %.not366, label %248, label %Gia_ObjIsXor.exit.thread
 
 248:                                              ; preds = %Gia_ObjIsXor.exit

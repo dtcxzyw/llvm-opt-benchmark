@@ -278,7 +278,7 @@ define hidden void @avifCodecDecodeInputDestroy(ptr noundef %0) local_unnamed_ad
   %11 = phi i32 [ %4, %.lr.ph ], [ %.pre, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %10, %1
@@ -1221,7 +1221,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
   %.2.i = phi i32 [ %286, %avifDecoderItemIsAlphaAux.exit104.thread113.i ], [ %.1126.i, %avifDecoderItemIsAlphaAux.exit104.i ], [ %.1126.i, %.lr.ph127.i ], [ %.1126.i, %avifPropertyArrayFind.exit.i100.i ], [ %.1126.i, %274 ], [ %.1126.i, %279 ]
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
   %292 = zext i32 %291 to i64
-  %293 = icmp ult i64 %indvars.iv.next150.i, %292
+  %293 = icmp samesign ult i64 %indvars.iv.next150.i, %292
   br i1 %293, label %.lr.ph127.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %avifDecoderItemIsAlphaAux.exit104.thread.i, %.preheader.i, %.lr.ph131.i
@@ -1229,7 +1229,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
   %.3.i = phi i32 [ %.072130.i, %.lr.ph131.i ], [ %.072130.i, %.preheader.i ], [ %.2.i, %avifDecoderItemIsAlphaAux.exit104.thread.i ]
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %295 = zext i32 %294 to i64
-  %296 = icmp ult i64 %indvars.iv.next153.i, %295
+  %296 = icmp samesign ult i64 %indvars.iv.next153.i, %295
   br i1 %296, label %.lr.ph131.i, label %._crit_edge132.loopexit.i, !llvm.loop !15
 
 ._crit_edge132.loopexit.i:                        ; preds = %.loopexit.i
@@ -1579,7 +1579,7 @@ avifPropertyArrayFind.exit.thread.i.i:            ; preds = %avifPropertyArrayFi
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 12
   %443 = load i32, ptr %442, align 4
   %444 = zext i32 %443 to i64
-  %445 = icmp ult i64 %indvars.iv.next.i.i, %444
+  %445 = icmp samesign ult i64 %indvars.iv.next.i.i, %444
   br i1 %445, label %375, label %._crit_edge.i.loopexit.i, !llvm.loop !17
 
 ._crit_edge.i.loopexit.i:                         ; preds = %440
@@ -2153,7 +2153,7 @@ avifDecoderItemValidateProperties.exit:           ; preds = %593, %.loopexit.i48
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 12
   %684 = load i32, ptr %683, align 4
   %685 = zext i32 %684 to i64
-  %686 = icmp ult i64 %indvars.iv.next767, %685
+  %686 = icmp samesign ult i64 %indvars.iv.next767, %685
   br i1 %686, label %.lr.ph644, label %._crit_edge645.loopexit, !llvm.loop !22
 
 ._crit_edge645.loopexit:                          ; preds = %681
@@ -2164,7 +2164,7 @@ avifDecoderItemValidateProperties.exit:           ; preds = %593, %.loopexit.i48
   %687 = phi i32 [ %.pre776, %._crit_edge645.loopexit ], [ %662, %661 ]
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %688 = zext i32 %687 to i64
-  %689 = icmp ult i64 %indvars.iv.next770, %688
+  %689 = icmp samesign ult i64 %indvars.iv.next770, %688
   br i1 %689, label %661, label %.preheader, !llvm.loop !23
 
 690:                                              ; preds = %.lr.ph652, %732
@@ -2248,7 +2248,7 @@ avifDecoderItemValidateProperties.exit:           ; preds = %593, %.loopexit.i48
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
   %733 = load i32, ptr %657, align 4
   %734 = zext i32 %733 to i64
-  %735 = icmp ult i64 %indvars.iv.next773, %734
+  %735 = icmp samesign ult i64 %indvars.iv.next773, %734
   br i1 %735, label %690, label %._crit_edge653, !llvm.loop !24
 
 ._crit_edge653:                                   ; preds = %732, %.preheader
@@ -4831,7 +4831,7 @@ avifPropertyArrayFind.exit93.thread:              ; preds = %674, %isAlphaURN.ex
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 12
   %725 = load i32, ptr %724, align 4
   %726 = zext i32 %725 to i64
-  %727 = icmp ult i64 %indvars.iv.next, %726
+  %727 = icmp samesign ult i64 %indvars.iv.next, %726
   br i1 %727, label %662, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %722, %select.unfold
@@ -4924,7 +4924,7 @@ define internal fastcc void @avifDecoderDataClearTiles(ptr nocapture noundef non
   %21 = phi i32 [ %14, %.lr.ph.i ], [ %.pre.i, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %.lr.ph.i, label %avifCodecDecodeInputDestroy.exit, !llvm.loop !4
 
 avifCodecDecodeInputDestroy.exit:                 ; preds = %20, %11
@@ -4972,7 +4972,7 @@ avifCodecDecodeInputDestroy.exit:                 ; preds = %20, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %2, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %7, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %37, %1
@@ -5141,7 +5141,7 @@ define internal fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %18, align 4
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %25, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %41, %44, %48, %58, %61, %65, %15, %12
@@ -5224,7 +5224,7 @@ define internal fastcc ptr @avifDecoderDataCreateTile(ptr noundef %0, i32 nounde
   %34 = phi i32 [ %27, %.lr.ph.i ], [ %.pre.i, %32 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %avifCodecDecodeInputDestroy.exit, !llvm.loop !4
 
 avifCodecDecodeInputDestroy.exit:                 ; preds = %33, %24
@@ -5347,7 +5347,7 @@ avifGetSampleCountOfChunk.exit.thread:            ; preds = %avifGetSampleCountO
   %44 = getelementptr inbounds %struct.avifSampleTableSampleToChunk, ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
-  %.not.i91.us = icmp ult i64 %indvars.iv.next, %46
+  %.not.i91.us = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %.not.i91.us, label %38, label %avifGetSampleCountOfChunk.exit92.us, !llvm.loop !49
 
 avifGetSampleCountOfChunk.exit92.us:              ; preds = %41
@@ -5414,7 +5414,7 @@ avifGetSampleCountOfChunk.exit92.us:              ; preds = %41
 .loopexit.split.us131:                            ; preds = %76
   %78 = load i32, ptr %29, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %80, label %.lr.ph124.split.us, label %.preheader, !llvm.loop !51
 
 .preheader:                                       ; preds = %.loopexit.split.us131, %.loopexit.split.us, %.preheader97, %.loopexit98
@@ -5450,7 +5450,7 @@ avifGetSampleCountOfChunk.exit92.us:              ; preds = %41
   %94 = getelementptr inbounds %struct.avifSampleTableSampleToChunk, ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
-  %.not.i91 = icmp ult i64 %indvars.iv.next173, %96
+  %.not.i91 = icmp samesign ult i64 %indvars.iv.next173, %96
   br i1 %.not.i91, label %88, label %avifGetSampleCountOfChunk.exit92, !llvm.loop !49
 
 avifGetSampleCountOfChunk.exit92:                 ; preds = %91
@@ -5517,7 +5517,7 @@ avifGetSampleCountOfChunk.exit92.thread:          ; preds = %avifGetSampleCountO
 .loopexit.split.us:                               ; preds = %123
   %126 = load i32, ptr %29, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next173, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next173, %127
   br i1 %128, label %.lr.ph124.split, label %.preheader, !llvm.loop !51
 
 .split117.us:                                     ; preds = %56, %106
@@ -5557,7 +5557,7 @@ avifGetSampleCountOfChunk.exit92.thread:          ; preds = %avifGetSampleCountO
   %142 = phi i32 [ %130, %129 ], [ %.pre178, %137 ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next176, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next176, %143
   br i1 %144, label %129, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %141, %.preheader
@@ -6233,7 +6233,7 @@ avifDecoderDataFrameFullyDecoded.exit.thread:     ; preds = %23, %avifDecoderDat
 
 112:                                              ; preds = %105
   %113 = icmp ne i32 %.125.i.i, 0
-  %114 = icmp ugt i32 %spec.select.i.i, 1
+  %114 = icmp samesign ugt i32 %spec.select.i.i, 1
   %or.cond.i.i = select i1 %113, i1 %114, i1 false
   br i1 %or.cond.i.i, label %.critedge57.i, label %115
 
@@ -6322,7 +6322,7 @@ avifCodecCreateInternal.exit67.i:                 ; preds = %136
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 44
   %157 = load i32, ptr %156, align 4
   %158 = zext i32 %157 to i64
-  %159 = icmp ult i64 %indvars.iv.next94.i, %158
+  %159 = icmp samesign ult i64 %indvars.iv.next94.i, %158
   br i1 %159, label %.lr.ph88.i, label %avifDecoderCreateCodecs.exit, !llvm.loop !57
 
 .critedge57.i:                                    ; preds = %126, %.lr.ph.i.i, %112, %99
@@ -6368,7 +6368,7 @@ avifCodecCreateInternal.exit67.i:                 ; preds = %136
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 44
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next.i, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next.i, %186
   br i1 %187, label %.lr.ph.i, label %avifDecoderCreateCodecs.exit, !llvm.loop !58
 
 avifDecoderCreateCodecs.exit:                     ; preds = %172, %.lr.ph88.i, %.critedge57.i, %avifCodecCreateInternal.exit67.i, %81, %54, %avifDecoderDataFrameFullyDecoded.exit.thread
@@ -6591,7 +6591,7 @@ avifDecoderPrepareTiles.exit:                     ; preds = %224
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %322 = load i32, ptr %285, align 8
   %323 = zext i32 %322 to i64
-  %324 = icmp ult i64 %indvars.iv.next78.i.i, %323
+  %324 = icmp samesign ult i64 %indvars.iv.next78.i.i, %323
   br i1 %324, label %.lr.ph60.i.i, label %._crit_edge61.loopexit.i.i, !llvm.loop !61
 
 ._crit_edge61.loopexit.i.i:                       ; preds = %.lr.ph60.i.i
@@ -6603,7 +6603,7 @@ avifDecoderPrepareTiles.exit:                     ; preds = %224
   %326 = phi i32 [ %322, %._crit_edge61.loopexit.i.i ], [ 0, %.lr.ph63.split.i.i ]
   %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
   %327 = zext i32 %325 to i64
-  %328 = icmp ult i64 %indvars.iv.next81.i.i, %327
+  %328 = icmp samesign ult i64 %indvars.iv.next81.i.i, %327
   br i1 %328, label %.lr.ph63.split.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, !llvm.loop !62
 
 .lr.ph57.split.i.i:                               ; preds = %.lr.ph57.i.i, %._crit_edge.i.i
@@ -6635,7 +6635,7 @@ avifDecoderPrepareTiles.exit:                     ; preds = %224
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i85, 1
   %347 = load i32, ptr %285, align 8
   %348 = zext i32 %347 to i64
-  %349 = icmp ult i64 %indvars.iv.next.i.i, %348
+  %349 = icmp samesign ult i64 %indvars.iv.next.i.i, %348
   br i1 %349, label %.lr.ph.i.i84, label %._crit_edge.loopexit.i.i, !llvm.loop !63
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i84
@@ -6647,7 +6647,7 @@ avifDecoderPrepareTiles.exit:                     ; preds = %224
   %351 = phi i32 [ %347, %._crit_edge.loopexit.i.i ], [ 0, %.lr.ph57.split.i.i ]
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %352 = zext i32 %350 to i64
-  %353 = icmp ult i64 %indvars.iv.next75.i.i, %352
+  %353 = icmp samesign ult i64 %indvars.iv.next75.i.i, %352
   br i1 %353, label %.lr.ph57.split.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, !llvm.loop !64
 
 avifImageLimitedToFullAlpha.exit.i:               ; preds = %288, %284
@@ -7497,7 +7497,7 @@ define internal fastcc void @avifDecoderDataResetCodec(ptr nocapture noundef %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %2, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %9, label %.preheader, !llvm.loop !69
 
 28:                                               ; preds = %.preheader
@@ -7761,7 +7761,7 @@ define internal fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %0) unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %15, %1
@@ -7802,7 +7802,7 @@ define internal fastcc void @avifMetaDestroy(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %2, align 4
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %12, %1
@@ -7832,7 +7832,7 @@ define internal fastcc void @avifSampleTableDestroy(ptr noundef nonnull %0) unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %3, align 4
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv.next, %8
+  %9 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -8363,7 +8363,7 @@ avifCheckItemID.exit.i:                           ; preds = %176
   %244 = add nuw nsw i32 %.04083.i, 1
   %245 = load i16, ptr %67, align 2
   %246 = zext i16 %245 to i32
-  %247 = icmp ult i32 %244, %246
+  %247 = icmp samesign ult i32 %244, %246
   br i1 %247, label %216, label %._crit_edge.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %242, %.preheader.i80
@@ -9319,7 +9319,7 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %508, %502
   %indvars.iv.next.i128 = add nuw nsw i32 %indvars.iv.i126, 1
   %543 = load i16, ptr %12, align 2
   %544 = zext i16 %543 to i32
-  %545 = icmp ult i32 %indvars.iv.next.i128, %544
+  %545 = icmp samesign ult i32 %indvars.iv.next.i128, %544
   br i1 %545, label %.lr.ph.i125, label %._crit_edge.i129, !llvm.loop !84
 
 ._crit_edge.i129:                                 ; preds = %542, %.lr.ph.i125, %.preheader.i124
@@ -10001,7 +10001,7 @@ define internal fastcc range(i32 0, 2) i32 @avifParsePixelInformationProperty(pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i8, ptr %11, align 1
   %20 = zext i8 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !88
 
 .lr.ph:                                           ; preds = %.preheader, %18
@@ -10409,7 +10409,7 @@ define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %78 = load i32, ptr %25, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next236, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next236, %79
   br i1 %80, label %.lr.ph.split.us.split.us, label %._crit_edge.thread, !llvm.loop !91
 
 81:                                               ; preds = %.lr.ph.split.us.split.us
@@ -10452,7 +10452,7 @@ define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, 
   %97 = getelementptr inbounds i8, ptr %.0114167.us, i64 %spec.select.us
   %98 = load i32, ptr %25, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next233, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next233, %99
   br i1 %100, label %.lr.ph.split.us.split, label %._crit_edge.thread, !llvm.loop !91
 
 101:                                              ; preds = %.lr.ph.split.us.split
@@ -10510,7 +10510,7 @@ define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, 
   %129 = getelementptr inbounds i8, ptr %.0114167, i64 %spec.select
   %130 = load i32, ptr %25, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next, %131
   br i1 %132, label %.lr.ph.split.split, label %._crit_edge.thread, !llvm.loop !91
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.thread, %128
@@ -10750,7 +10750,7 @@ avifPropertyArrayFind.exit134.thread:             ; preds = %40
 58:                                               ; preds = %55
   %59 = load i16, ptr %53, align 8
   %60 = zext i16 %59 to i32
-  %.not120 = icmp ult i32 %60, %57
+  %.not120 = icmp samesign ult i32 %60, %57
   br i1 %.not120, label %.preheader, label %61
 
 61:                                               ; preds = %58

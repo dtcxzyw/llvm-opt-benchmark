@@ -7725,7 +7725,7 @@ define internal fastcc i32 @is_not_included(ptr nocapture noundef nonnull readon
   br i1 %.not154, label %68, label %61
 
 61:                                               ; preds = %59
-  %62 = icmp ult i32 %.0124190, 128
+  %62 = icmp samesign ult i32 %.0124190, 128
   br i1 %62, label %63, label %73
 
 63:                                               ; preds = %61
@@ -7766,7 +7766,7 @@ define internal fastcc i32 @is_not_included(ptr nocapture noundef nonnull readon
   br i1 %.not147, label %91, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.1189, 128
+  %83 = icmp samesign ult i32 %.1189, 128
   br i1 %83, label %84, label %.thread
 
 84:                                               ; preds = %82
@@ -9095,7 +9095,7 @@ alt_merge_mml.exit.i.i:                           ; preds = %334, %331
   br i1 %340, label %353, label %341
 
 341:                                              ; preds = %339, %.thread.i.i
-  %342 = icmp ult i64 %indvars.iv.i.i, 128
+  %342 = icmp samesign ult i64 %indvars.iv.i.i, 128
   br i1 %342, label %343, label %map_position_value.exit.i.i
 
 343:                                              ; preds = %341
@@ -9464,7 +9464,7 @@ concat_opt_exact_info_str.exit341:                ; preds = %.loopexit.i334, %46
 
 534:                                              ; preds = %529
   store i8 1, ptr %531, align 1
-  %535 = icmp ult i64 %indvars.iv655, 128
+  %535 = icmp samesign ult i64 %indvars.iv655, 128
   br i1 %535, label %536, label %map_position_value.exit.i342
 
 536:                                              ; preds = %534
@@ -9539,7 +9539,7 @@ add_char_opt_map_info.exit344:                    ; preds = %map_position_value.
   %572 = trunc nuw nsw i64 %indvars.iv651 to i32
   %573 = tail call i32 %571(i32 noundef %572, i32 noundef 12, ptr noundef %569) #20
   %.not305 = icmp ne i32 %573, 0
-  %.not306 = icmp ult i64 %indvars.iv651, %567
+  %.not306 = icmp samesign ult i64 %indvars.iv651, %567
   %or.cond324 = select i1 %.not305, i1 %.not306, i1 false
   br i1 %or.cond324, label %add_char_opt_map_info.exit347, label %574
 
@@ -9552,7 +9552,7 @@ add_char_opt_map_info.exit344:                    ; preds = %map_position_value.
 
 579:                                              ; preds = %574
   store i8 1, ptr %576, align 1
-  %580 = icmp ult i64 %indvars.iv651, 128
+  %580 = icmp samesign ult i64 %indvars.iv651, 128
   br i1 %580, label %581, label %map_position_value.exit.i345
 
 581:                                              ; preds = %579

@@ -2434,7 +2434,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -2442,7 +2442,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -2614,7 +2614,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -2622,7 +2622,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -2794,7 +2794,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -2802,7 +2802,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -2974,7 +2974,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -2982,7 +2982,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -3154,7 +3154,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -3162,7 +3162,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -3334,7 +3334,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -3342,7 +3342,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -3514,7 +3514,7 @@ default.unreachable12:                            ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -3522,7 +3522,7 @@ default.unreachable12:                            ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -13400,7 +13400,7 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$flycheck..Message$GT$17he11b
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$vfs..loader..Message$GT$17h36c94a16b89a5177E.llvm.17769526770162137697"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !1359, !noundef !5
-  %.not = icmp ult i64 %3, 2
+  %.not = icmp samesign ult i64 %3, 2
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
   switch i64 %5, label %6 [
@@ -14108,7 +14108,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..err..Send
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1526)
   %8 = load i64, ptr %6, align 8, !range !1359, !alias.scope !1526, !noundef !5
-  %.not.i = icmp ult i64 %8, 2
+  %.not.i = icmp samesign ult i64 %8, 2
   %9 = add nsw i64 %8, -1
   %10 = select i1 %.not.i, i64 0, i64 %9
   switch i64 %10, label %11 [
@@ -14159,7 +14159,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..err..Send
 28:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   %29 = load i64, ptr %6, align 8, !range !1359, !alias.scope !1550, !noundef !5
-  %.not.i1 = icmp ult i64 %29, 2
+  %.not.i1 = icmp samesign ult i64 %29, 2
   %30 = add nsw i64 %29, -1
   %31 = select i1 %.not.i1, i64 0, i64 %30
   switch i64 %31, label %32 [

@@ -4145,7 +4145,7 @@ define void @Gia_ManPrintNpnClasses(ptr noundef %0) local_unnamed_addr #2 {
 
 .critedge.preheader:                              ; preds = %Vec_IntPush.exit
   %39 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %40 = icmp ult i64 %indvars.iv, 3
+  %40 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %40, label %.lr.ph331.preheader, label %.critedge._crit_edge
 
 .lr.ph331.preheader:                              ; preds = %32, %.critedge.preheader
@@ -4522,9 +4522,9 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFreeP.exit.p
   br i1 %exitcond406.not, label %.critedge2.loopexit, label %182, !llvm.loop !26
 
 .critedge2.loopexit:                              ; preds = %196
-  %199 = icmp ugt i32 %190, 1
+  %199 = icmp samesign ugt i32 %190, 1
   %200 = zext i1 %199 to i32
-  %201 = icmp ugt i32 %198, 1
+  %201 = icmp samesign ugt i32 %198, 1
   %202 = zext i1 %201 to i32
   br label %.critedge2
 
@@ -11528,7 +11528,7 @@ Gia_ManPrintOneName.exit.us:                      ; preds = %.lr.ph.i.us, %20
 Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %46 = or disjoint i64 %indvars.iv.next, 1
-  %47 = icmp ult i64 %46, %16
+  %47 = icmp samesign ult i64 %46, %16
   br i1 %47, label %.lr.ph.split, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %Gia_ManPrintOneName.exit, %Gia_ManPrintOneName.exit.us, %10
@@ -11597,7 +11597,7 @@ define void @Gia_ManDumpIoRanges(ptr nocapture noundef readonly %0, ptr nocaptur
   %30 = getelementptr inbounds i32, ptr %.val56, i64 %27
   %31 = load i32, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %32 = icmp ult i64 %indvars.iv.next, %25
+  %32 = icmp samesign ult i64 %indvars.iv.next, %25
   %33 = getelementptr inbounds i32, ptr %.val56, i64 %indvars.iv.next
   %.in61 = select i1 %32, ptr %33, ptr %22
   %34 = load i32, ptr %.in61, align 4
@@ -11665,7 +11665,7 @@ Gia_ManReadRangeNum.exit60:                       ; preds = %Gia_ManReadRangeNum
 Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %59
   %64 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %1)
   %65 = or disjoint i64 %indvars.iv.next, 1
-  %66 = icmp ult i64 %65, %25
+  %66 = icmp samesign ult i64 %65, %25
   br i1 %66, label %26, label %.critedge, !llvm.loop !94
 
 .critedge:                                        ; preds = %Gia_ManPrintOneName.exit, %17

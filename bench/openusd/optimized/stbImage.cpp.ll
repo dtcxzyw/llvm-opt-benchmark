@@ -1602,7 +1602,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i.i:        ; preds = %143, %149
           to label %.noexc23 unwind label %211
 
 .noexc23:                                         ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i.i
-  %153 = icmp ugt i32 %152, 16
+  %153 = icmp samesign ugt i32 %152, 16
   br i1 %153, label %166, label %154
 
 154:                                              ; preds = %.noexc23
@@ -4385,7 +4385,7 @@ _ZL18stbiw__zlib_countmPhS_i.exit282.i.i.i:       ; preds = %637, %._crit_edge.l
   %646 = ptrtoint ptr %520 to i64
   %647 = sub i64 %646, %645
   %648 = trunc i64 %647 to i32
-  %649 = icmp ult i64 %indvars.iv840.i.i.i, 23
+  %649 = icmp samesign ult i64 %indvars.iv840.i.i.i, 23
   br i1 %649, label %.preheader708.preheader.i.i.i, label %689
 
 .preheader708.preheader.i.i.i:                    ; preds = %644
@@ -4736,7 +4736,7 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit337.i.i.i:      ; preds = %_ZL14stbiw__sbgrowf
   %.19676.i.i.i = phi i32 [ %786, %_ZL18stbiw__zlib_bitrevii.exit326.i.i.i ], [ %815, %_ZL14stbiw__sbgrowfPPvii.exit.i335.i.i.i ]
   %.19647.i.i.i = phi i32 [ %787, %_ZL18stbiw__zlib_bitrevii.exit326.i.i.i ], [ %816, %_ZL14stbiw__sbgrowfPPvii.exit.i335.i.i.i ]
   %.0.lcssa.i328.i.i.i = phi ptr [ %.4626.i.i.i, %_ZL18stbiw__zlib_bitrevii.exit326.i.i.i ], [ %.1.i336.i.i.i, %_ZL14stbiw__sbgrowfPPvii.exit.i335.i.i.i ]
-  %.not243.i.i.i = icmp ult i64 %indvars.iv843.i.i.i, 4
+  %.not243.i.i.i = icmp samesign ult i64 %indvars.iv843.i.i.i, 4
   br i1 %.not243.i.i.i, label %_ZL18stbiw__zlib_flushfPhPjPi.exit348.i.i.i, label %818
 
 818:                                              ; preds = %_ZL18stbiw__zlib_flushfPhPjPi.exit337.i.i.i
@@ -6168,7 +6168,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %1545 = add nuw nsw i32 %.1106146.us.i.i, 1
   %indvars.iv.next.i.i130 = add nsw i64 %indvars.iv.i.i129, 1
   %1546 = icmp slt i64 %indvars.iv.next.i.i130, %1521
-  %1547 = icmp ult i32 %.1106146.us.i.i, 127
+  %1547 = icmp samesign ult i32 %.1106146.us.i.i, 127
   %1548 = select i1 %1546, i1 %1547, i1 false
   br i1 %1548, label %.lr.ph.us.i.i128, label %.loopexit143.us.i.i, !llvm.loop !53
 
@@ -6454,7 +6454,7 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit137.us.i.i: ; preds = %_
   %1685 = add nuw nsw i32 %.2151.us.i.i, 1
   %indvars.iv.next173.i.i = add nsw i64 %indvars.iv172.i.i, 1
   %1686 = icmp slt i64 %indvars.iv.next173.i.i, %1521
-  %1687 = icmp ult i32 %.2151.us.i.i, 127
+  %1687 = icmp samesign ult i32 %.2151.us.i.i, 127
   %1688 = select i1 %1686, i1 %1687, i1 false
   br i1 %1688, label %.lr.ph152.us.i.i, label %._crit_edge.us.i.i131, !llvm.loop !56
 
@@ -18672,8 +18672,8 @@ define internal void @_ZL31stbir__decode_half_float_linearPfiPKv(ptr noundef %0,
   %11 = shufflevector <8 x i16> %.044.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -18690,8 +18690,8 @@ define internal void @_ZL31stbir__decode_half_float_linearPfiPKv(ptr noundef %0,
   %28 = shufflevector <8 x i16> %.044.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19078,8 +19078,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_BGRAPfiPKv(ptr nounde
   %11 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19095,8 +19095,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_BGRAPfiPKv(ptr nounde
   %28 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19416,8 +19416,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_ARGBPfiPKv(ptr nounde
   %11 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19433,8 +19433,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_ARGBPfiPKv(ptr nounde
   %28 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19754,8 +19754,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_ABGRPfiPKv(ptr nounde
   %11 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -19771,8 +19771,8 @@ define internal void @_ZL36stbir__decode_half_float_linear_ABGRPfiPKv(ptr nounde
   %28 = shufflevector <8 x i16> %.054.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -20226,8 +20226,8 @@ define internal void @_ZL34stbir__decode_half_float_linear_ARPfiPKv(ptr noundef 
   %11 = shufflevector <8 x i16> %.065.val, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
   %13 = and <4 x i32> %12, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %14 = icmp ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %15 = icmp ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %14 = icmp samesign ugt <4 x i32> %13, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %15 = icmp samesign ugt <4 x i32> %13, <i32 1023, i32 1023, i32 1023, i32 1023>
   %16 = shl nuw nsw <4 x i32> %13, <i32 13, i32 13, i32 13, i32 13>
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -20243,8 +20243,8 @@ define internal void @_ZL34stbir__decode_half_float_linear_ARPfiPKv(ptr noundef 
   %28 = shufflevector <8 x i16> %.065.val, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %29 = bitcast <8 x i16> %28 to <4 x i32>
   %30 = and <4 x i32> %29, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %31 = icmp ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %32 = icmp ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
+  %31 = icmp samesign ugt <4 x i32> %30, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %32 = icmp samesign ugt <4 x i32> %30, <i32 1023, i32 1023, i32 1023, i32 1023>
   %33 = shl nuw nsw <4 x i32> %30, <i32 13, i32 13, i32 13, i32 13>
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
@@ -22983,11 +22983,11 @@ define internal void @_ZL31stbir__encode_half_float_linearPviPKf(ptr noundef %0,
   %13 = bitcast <4 x i32> %12 to <4 x float>
   %14 = fcmp uno <4 x float> %13, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = icmp ugt <4 x i32> %12, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %16 = icmp samesign ugt <4 x i32> %12, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %17 = bitcast <4 x i32> %15 to <2 x i64>
   %18 = and <2 x i64> %17, <i64 2199023256064, i64 2199023256064>
   %19 = or disjoint <2 x i64> %18, <i64 136339441875968, i64 136339441875968>
-  %20 = icmp ugt <4 x i32> %12, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %20 = icmp samesign ugt <4 x i32> %12, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %21 = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %22 = bitcast <4 x float> %21 to <4 x i32>
   %23 = add <4 x i32> %22, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -23011,11 +23011,11 @@ define internal void @_ZL31stbir__encode_half_float_linearPviPKf(ptr noundef %0,
   %40 = bitcast <4 x i32> %39 to <4 x float>
   %41 = fcmp uno <4 x float> %40, zeroinitializer
   %42 = sext <4 x i1> %41 to <4 x i32>
-  %43 = icmp ugt <4 x i32> %39, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %43 = icmp samesign ugt <4 x i32> %39, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %44 = bitcast <4 x i32> %42 to <2 x i64>
   %45 = and <2 x i64> %44, <i64 2199023256064, i64 2199023256064>
   %46 = or disjoint <2 x i64> %45, <i64 136339441875968, i64 136339441875968>
-  %47 = icmp ugt <4 x i32> %39, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %47 = icmp samesign ugt <4 x i32> %39, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %48 = fadd <4 x float> %40, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %49 = bitcast <4 x float> %48 to <4 x i32>
   %50 = add <4 x i32> %49, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -23067,16 +23067,16 @@ define internal void @_ZL31stbir__encode_half_float_linearPviPKf(ptr noundef %0,
   %74 = load float, ptr %.164, align 4
   %75 = tail call float @llvm.fabs.f32(float %74)
   %76 = bitcast float %75 to i32
-  %77 = icmp ugt i32 %76, 1199570943
+  %77 = icmp samesign ugt i32 %76, 1199570943
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %.lr.ph
-  %79 = icmp ugt i32 %76, 2139095040
+  %79 = icmp samesign ugt i32 %76, 2139095040
   %80 = select i1 %79, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit
 
 81:                                               ; preds = %.lr.ph
-  %82 = icmp ult i32 %76, 947912704
+  %82 = icmp samesign ult i32 %76, 947912704
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
@@ -23104,16 +23104,16 @@ _ZL20stbir__float_to_halff.exit:                  ; preds = %78, %83, %86
   %98 = load float, ptr %97, align 4
   %99 = tail call float @llvm.fabs.f32(float %98)
   %100 = bitcast float %99 to i32
-  %101 = icmp ugt i32 %100, 1199570943
+  %101 = icmp samesign ugt i32 %100, 1199570943
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %103 = icmp ugt i32 %100, 2139095040
+  %103 = icmp samesign ugt i32 %100, 2139095040
   %104 = select i1 %103, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit52
 
 105:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %106 = icmp ult i32 %100, 947912704
+  %106 = icmp samesign ult i32 %100, 947912704
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %105
@@ -23142,16 +23142,16 @@ _ZL20stbir__float_to_halff.exit52:                ; preds = %102, %107, %110
   %123 = load float, ptr %122, align 4
   %124 = tail call float @llvm.fabs.f32(float %123)
   %125 = bitcast float %124 to i32
-  %126 = icmp ugt i32 %125, 1199570943
+  %126 = icmp samesign ugt i32 %125, 1199570943
   br i1 %126, label %127, label %130
 
 127:                                              ; preds = %_ZL20stbir__float_to_halff.exit52
-  %128 = icmp ugt i32 %125, 2139095040
+  %128 = icmp samesign ugt i32 %125, 2139095040
   %129 = select i1 %128, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit54
 
 130:                                              ; preds = %_ZL20stbir__float_to_halff.exit52
-  %131 = icmp ult i32 %125, 947912704
+  %131 = icmp samesign ult i32 %125, 947912704
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %130
@@ -23180,16 +23180,16 @@ _ZL20stbir__float_to_halff.exit54:                ; preds = %127, %132, %135
   %148 = load float, ptr %147, align 4
   %149 = tail call float @llvm.fabs.f32(float %148)
   %150 = bitcast float %149 to i32
-  %151 = icmp ugt i32 %150, 1199570943
+  %151 = icmp samesign ugt i32 %150, 1199570943
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %_ZL20stbir__float_to_halff.exit54
-  %153 = icmp ugt i32 %150, 2139095040
+  %153 = icmp samesign ugt i32 %150, 2139095040
   %154 = select i1 %153, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit56
 
 155:                                              ; preds = %_ZL20stbir__float_to_halff.exit54
-  %156 = icmp ult i32 %150, 947912704
+  %156 = icmp samesign ult i32 %150, 947912704
   br i1 %156, label %157, label %160
 
 157:                                              ; preds = %155
@@ -23226,16 +23226,16 @@ _ZL20stbir__float_to_halff.exit56:                ; preds = %152, %157, %160
   %173 = load float, ptr %.268, align 4
   %174 = tail call float @llvm.fabs.f32(float %173)
   %175 = bitcast float %174 to i32
-  %176 = icmp ugt i32 %175, 1199570943
+  %176 = icmp samesign ugt i32 %175, 1199570943
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %.lr.ph69
-  %178 = icmp ugt i32 %175, 2139095040
+  %178 = icmp samesign ugt i32 %175, 2139095040
   %179 = select i1 %178, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit58
 
 180:                                              ; preds = %.lr.ph69
-  %181 = icmp ult i32 %175, 947912704
+  %181 = icmp samesign ult i32 %175, 947912704
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %180
@@ -24224,11 +24224,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_BGRAPviPKf(ptr nounde
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -24252,11 +24252,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_BGRAPviPKf(ptr nounde
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -24303,16 +24303,16 @@ define internal void @_ZL36stbir__encode_half_float_linear_BGRAPviPKf(ptr nounde
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -24340,16 +24340,16 @@ _ZL20stbir__float_to_halff.exit:                  ; preds = %82, %87, %90
   %102 = load float, ptr %101, align 4
   %103 = tail call float @llvm.fabs.f32(float %102)
   %104 = bitcast float %103 to i32
-  %105 = icmp ugt i32 %104, 1199570943
+  %105 = icmp samesign ugt i32 %104, 1199570943
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %107 = icmp ugt i32 %104, 2139095040
+  %107 = icmp samesign ugt i32 %104, 2139095040
   %108 = select i1 %107, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit49
 
 109:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %110 = icmp ult i32 %104, 947912704
+  %110 = icmp samesign ult i32 %104, 947912704
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %109
@@ -24377,16 +24377,16 @@ _ZL20stbir__float_to_halff.exit49:                ; preds = %106, %111, %114
   %126 = load float, ptr %.162, align 4
   %127 = tail call float @llvm.fabs.f32(float %126)
   %128 = bitcast float %127 to i32
-  %129 = icmp ugt i32 %128, 1199570943
+  %129 = icmp samesign ugt i32 %128, 1199570943
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %131 = icmp ugt i32 %128, 2139095040
+  %131 = icmp samesign ugt i32 %128, 2139095040
   %132 = select i1 %131, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit51
 
 133:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %134 = icmp ult i32 %128, 947912704
+  %134 = icmp samesign ult i32 %128, 947912704
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %133
@@ -24415,16 +24415,16 @@ _ZL20stbir__float_to_halff.exit51:                ; preds = %130, %135, %138
   %151 = load float, ptr %150, align 4
   %152 = tail call float @llvm.fabs.f32(float %151)
   %153 = bitcast float %152 to i32
-  %154 = icmp ugt i32 %153, 1199570943
+  %154 = icmp samesign ugt i32 %153, 1199570943
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %156 = icmp ugt i32 %153, 2139095040
+  %156 = icmp samesign ugt i32 %153, 2139095040
   %157 = select i1 %156, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit53
 
 158:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %159 = icmp ult i32 %153, 947912704
+  %159 = icmp samesign ult i32 %153, 947912704
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %158
@@ -25147,11 +25147,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_ARGBPviPKf(ptr nounde
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -25175,11 +25175,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_ARGBPviPKf(ptr nounde
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -25226,16 +25226,16 @@ define internal void @_ZL36stbir__encode_half_float_linear_ARGBPviPKf(ptr nounde
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -25262,16 +25262,16 @@ _ZL20stbir__float_to_halff.exit:                  ; preds = %82, %87, %90
   %101 = load float, ptr %.162, align 4
   %102 = tail call float @llvm.fabs.f32(float %101)
   %103 = bitcast float %102 to i32
-  %104 = icmp ugt i32 %103, 1199570943
+  %104 = icmp samesign ugt i32 %103, 1199570943
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %106 = icmp ugt i32 %103, 2139095040
+  %106 = icmp samesign ugt i32 %103, 2139095040
   %107 = select i1 %106, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit49
 
 108:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %109 = icmp ult i32 %103, 947912704
+  %109 = icmp samesign ult i32 %103, 947912704
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %108
@@ -25300,16 +25300,16 @@ _ZL20stbir__float_to_halff.exit49:                ; preds = %105, %110, %113
   %126 = load float, ptr %125, align 4
   %127 = tail call float @llvm.fabs.f32(float %126)
   %128 = bitcast float %127 to i32
-  %129 = icmp ugt i32 %128, 1199570943
+  %129 = icmp samesign ugt i32 %128, 1199570943
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %131 = icmp ugt i32 %128, 2139095040
+  %131 = icmp samesign ugt i32 %128, 2139095040
   %132 = select i1 %131, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit51
 
 133:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %134 = icmp ult i32 %128, 947912704
+  %134 = icmp samesign ult i32 %128, 947912704
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %133
@@ -25338,16 +25338,16 @@ _ZL20stbir__float_to_halff.exit51:                ; preds = %130, %135, %138
   %151 = load float, ptr %150, align 4
   %152 = tail call float @llvm.fabs.f32(float %151)
   %153 = bitcast float %152 to i32
-  %154 = icmp ugt i32 %153, 1199570943
+  %154 = icmp samesign ugt i32 %153, 1199570943
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %156 = icmp ugt i32 %153, 2139095040
+  %156 = icmp samesign ugt i32 %153, 2139095040
   %157 = select i1 %156, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit53
 
 158:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %159 = icmp ult i32 %153, 947912704
+  %159 = icmp samesign ult i32 %153, 947912704
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %158
@@ -26070,11 +26070,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_ABGRPviPKf(ptr nounde
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -26098,11 +26098,11 @@ define internal void @_ZL36stbir__encode_half_float_linear_ABGRPviPKf(ptr nounde
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -26149,16 +26149,16 @@ define internal void @_ZL36stbir__encode_half_float_linear_ABGRPviPKf(ptr nounde
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
   %80 = bitcast float %79 to i32
-  %81 = icmp ugt i32 %80, 1199570943
+  %81 = icmp samesign ugt i32 %80, 1199570943
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = icmp ugt i32 %80, 2139095040
+  %83 = icmp samesign ugt i32 %80, 2139095040
   %84 = select i1 %83, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = icmp ult i32 %80, 947912704
+  %86 = icmp samesign ult i32 %80, 947912704
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
@@ -26186,16 +26186,16 @@ _ZL20stbir__float_to_halff.exit:                  ; preds = %82, %87, %90
   %102 = load float, ptr %101, align 4
   %103 = tail call float @llvm.fabs.f32(float %102)
   %104 = bitcast float %103 to i32
-  %105 = icmp ugt i32 %104, 1199570943
+  %105 = icmp samesign ugt i32 %104, 1199570943
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %107 = icmp ugt i32 %104, 2139095040
+  %107 = icmp samesign ugt i32 %104, 2139095040
   %108 = select i1 %107, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit49
 
 109:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %110 = icmp ult i32 %104, 947912704
+  %110 = icmp samesign ult i32 %104, 947912704
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %109
@@ -26224,16 +26224,16 @@ _ZL20stbir__float_to_halff.exit49:                ; preds = %106, %111, %114
   %127 = load float, ptr %126, align 4
   %128 = tail call float @llvm.fabs.f32(float %127)
   %129 = bitcast float %128 to i32
-  %130 = icmp ugt i32 %129, 1199570943
+  %130 = icmp samesign ugt i32 %129, 1199570943
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %132 = icmp ugt i32 %129, 2139095040
+  %132 = icmp samesign ugt i32 %129, 2139095040
   %133 = select i1 %132, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit51
 
 134:                                              ; preds = %_ZL20stbir__float_to_halff.exit49
-  %135 = icmp ult i32 %129, 947912704
+  %135 = icmp samesign ult i32 %129, 947912704
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134
@@ -26261,16 +26261,16 @@ _ZL20stbir__float_to_halff.exit51:                ; preds = %131, %136, %139
   %151 = load float, ptr %.162, align 4
   %152 = tail call float @llvm.fabs.f32(float %151)
   %153 = bitcast float %152 to i32
-  %154 = icmp ugt i32 %153, 1199570943
+  %154 = icmp samesign ugt i32 %153, 1199570943
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %156 = icmp ugt i32 %153, 2139095040
+  %156 = icmp samesign ugt i32 %153, 2139095040
   %157 = select i1 %156, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit53
 
 158:                                              ; preds = %_ZL20stbir__float_to_halff.exit51
-  %159 = icmp ult i32 %153, 947912704
+  %159 = icmp samesign ult i32 %153, 947912704
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %158
@@ -27180,11 +27180,11 @@ define internal void @_ZL34stbir__encode_half_float_linear_ARPviPKf(ptr noundef 
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
   %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %20 = icmp samesign ugt <4 x i32> %16, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %21 = bitcast <4 x i32> %19 to <2 x i64>
   %22 = and <2 x i64> %21, <i64 2199023256064, i64 2199023256064>
   %23 = or disjoint <2 x i64> %22, <i64 136339441875968, i64 136339441875968>
-  %24 = icmp ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %24 = icmp samesign ugt <4 x i32> %16, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %25 = fadd <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %26 = bitcast <4 x float> %25 to <4 x i32>
   %27 = add <4 x i32> %26, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -27208,11 +27208,11 @@ define internal void @_ZL34stbir__encode_half_float_linear_ARPviPKf(ptr noundef 
   %44 = bitcast <4 x i32> %43 to <4 x float>
   %45 = fcmp uno <4 x float> %44, zeroinitializer
   %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
+  %47 = icmp samesign ugt <4 x i32> %43, <i32 1199570943, i32 1199570943, i32 1199570943, i32 1199570943>
   %48 = bitcast <4 x i32> %46 to <2 x i64>
   %49 = and <2 x i64> %48, <i64 2199023256064, i64 2199023256064>
   %50 = or disjoint <2 x i64> %49, <i64 136339441875968, i64 136339441875968>
-  %51 = icmp ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
+  %51 = icmp samesign ugt <4 x i32> %43, <i32 947912703, i32 947912703, i32 947912703, i32 947912703>
   %52 = fadd <4 x float> %44, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %53 = bitcast <4 x float> %52 to <4 x i32>
   %54 = add <4 x i32> %53, <i32 -1056964608, i32 -1056964608, i32 -1056964608, i32 -1056964608>
@@ -27265,16 +27265,16 @@ define internal void @_ZL34stbir__encode_half_float_linear_ARPviPKf(ptr noundef 
   %79 = load float, ptr %78, align 4
   %80 = tail call float @llvm.fabs.f32(float %79)
   %81 = bitcast float %80 to i32
-  %82 = icmp ugt i32 %81, 1199570943
+  %82 = icmp samesign ugt i32 %81, 1199570943
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.lr.ph
-  %84 = icmp ugt i32 %81, 2139095040
+  %84 = icmp samesign ugt i32 %81, 2139095040
   %85 = select i1 %84, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit
 
 86:                                               ; preds = %.lr.ph
-  %87 = icmp ult i32 %81, 947912704
+  %87 = icmp samesign ult i32 %81, 947912704
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86
@@ -27301,16 +27301,16 @@ _ZL20stbir__float_to_halff.exit:                  ; preds = %83, %88, %91
   %102 = load float, ptr %.180, align 4
   %103 = tail call float @llvm.fabs.f32(float %102)
   %104 = bitcast float %103 to i32
-  %105 = icmp ugt i32 %104, 1199570943
+  %105 = icmp samesign ugt i32 %104, 1199570943
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %107 = icmp ugt i32 %104, 2139095040
+  %107 = icmp samesign ugt i32 %104, 2139095040
   %108 = select i1 %107, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit62
 
 109:                                              ; preds = %_ZL20stbir__float_to_halff.exit
-  %110 = icmp ult i32 %104, 947912704
+  %110 = icmp samesign ult i32 %104, 947912704
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %109
@@ -27339,16 +27339,16 @@ _ZL20stbir__float_to_halff.exit62:                ; preds = %106, %111, %114
   %127 = load float, ptr %126, align 4
   %128 = tail call float @llvm.fabs.f32(float %127)
   %129 = bitcast float %128 to i32
-  %130 = icmp ugt i32 %129, 1199570943
+  %130 = icmp samesign ugt i32 %129, 1199570943
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %_ZL20stbir__float_to_halff.exit62
-  %132 = icmp ugt i32 %129, 2139095040
+  %132 = icmp samesign ugt i32 %129, 2139095040
   %133 = select i1 %132, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit64
 
 134:                                              ; preds = %_ZL20stbir__float_to_halff.exit62
-  %135 = icmp ult i32 %129, 947912704
+  %135 = icmp samesign ult i32 %129, 947912704
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134
@@ -27377,16 +27377,16 @@ _ZL20stbir__float_to_halff.exit64:                ; preds = %131, %136, %139
   %152 = load float, ptr %151, align 4
   %153 = tail call float @llvm.fabs.f32(float %152)
   %154 = bitcast float %153 to i32
-  %155 = icmp ugt i32 %154, 1199570943
+  %155 = icmp samesign ugt i32 %154, 1199570943
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %_ZL20stbir__float_to_halff.exit64
-  %157 = icmp ugt i32 %154, 2139095040
+  %157 = icmp samesign ugt i32 %154, 2139095040
   %158 = select i1 %157, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit66
 
 159:                                              ; preds = %_ZL20stbir__float_to_halff.exit64
-  %160 = icmp ult i32 %154, 947912704
+  %160 = icmp samesign ult i32 %154, 947912704
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
@@ -27424,16 +27424,16 @@ _ZL20stbir__float_to_halff.exit66:                ; preds = %156, %161, %164
   %178 = load float, ptr %177, align 4
   %179 = tail call float @llvm.fabs.f32(float %178)
   %180 = bitcast float %179 to i32
-  %181 = icmp ugt i32 %180, 1199570943
+  %181 = icmp samesign ugt i32 %180, 1199570943
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %.lr.ph85
-  %183 = icmp ugt i32 %180, 2139095040
+  %183 = icmp samesign ugt i32 %180, 2139095040
   %184 = select i1 %183, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit68
 
 185:                                              ; preds = %.lr.ph85
-  %186 = icmp ult i32 %180, 947912704
+  %186 = icmp samesign ult i32 %180, 947912704
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %185
@@ -27460,16 +27460,16 @@ _ZL20stbir__float_to_halff.exit68:                ; preds = %182, %187, %190
   %201 = load float, ptr %.284, align 4
   %202 = tail call float @llvm.fabs.f32(float %201)
   %203 = bitcast float %202 to i32
-  %204 = icmp ugt i32 %203, 1199570943
+  %204 = icmp samesign ugt i32 %203, 1199570943
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %_ZL20stbir__float_to_halff.exit68
-  %206 = icmp ugt i32 %203, 2139095040
+  %206 = icmp samesign ugt i32 %203, 2139095040
   %207 = select i1 %206, i32 32256, i32 31744
   br label %_ZL20stbir__float_to_halff.exit70
 
 208:                                              ; preds = %_ZL20stbir__float_to_halff.exit68
-  %209 = icmp ult i32 %203, 947912704
+  %209 = icmp samesign ult i32 %203, 947912704
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %208
@@ -29581,7 +29581,7 @@ _ZL16stbir__edge_wrap10stbir_edgeii.exit:         ; preds = %3, %21
 
 81:                                               ; preds = %80, %74
   %.0.add = add nuw nsw i64 %.0.idx, 12
-  %.not86 = icmp ugt i64 %.0.idx, 384
+  %.not86 = icmp samesign ugt i64 %.0.idx, 384
   br i1 %.not86, label %82, label %46, !llvm.loop !774
 
 82:                                               ; preds = %46, %81
@@ -38924,7 +38924,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__process_markerP10
   %16 = load ptr, ptr %0, align 8
   %17 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %16)
   %18 = add nsw i32 %17, -2
-  %19 = icmp ugt i32 %17, 2
+  %19 = icmp samesign ugt i32 %17, 2
   br i1 %19, label %.lr.ph192, label %._crit_edge193
 
 .lr.ph192:                                        ; preds = %15
@@ -39012,7 +39012,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %28, %_ZL19stbi__ref
   br label %_ZL10stbi__skipP13stbi__contexti.exit
 
 _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %_ZL10stbi__get8P13stbi__context.exit
-  %67 = icmp ugt i32 %63, 3
+  %67 = icmp samesign ugt i32 %63, 3
   br i1 %67, label %77, label %.preheader175
 
 .preheader175:                                    ; preds = %_ZL10stbi__get8P13stbi__context.exit.thread
@@ -39134,7 +39134,7 @@ _ZL10stbi__get8P13stbi__context.exit137:          ; preds = %85, %88, %_ZL19stbi
   %127 = load ptr, ptr %0, align 8
   %128 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %127)
   %129 = add nsw i32 %128, -2
-  %130 = icmp ugt i32 %128, 2
+  %130 = icmp samesign ugt i32 %128, 2
   br i1 %130, label %.lr.ph187, label %._crit_edge188
 
 .lr.ph187:                                        ; preds = %126
@@ -39212,8 +39212,8 @@ _ZL10stbi__get8P13stbi__context.exit143:          ; preds = %141, %144, %_ZL19st
   %.0.i142 = phi i8 [ %143, %141 ], [ %172, %_ZL19stbi__refill_bufferP13stbi__context.exit.i140 ], [ 0, %144 ]
   %174 = and i8 %.0.i142, 15
   %175 = icmp ugt i8 %.0.i142, 31
-  %176 = icmp ugt i8 %174, 3
-  %or.cond3 = or i1 %175, %176
+  %176 = icmp samesign ugt i8 %174, 3
+  %or.cond3 = select i1 %175, i1 true, i1 %176
   br i1 %or.cond3, label %177, label %.preheader176
 
 177:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit143
@@ -39298,7 +39298,7 @@ _ZL10stbi__get8P13stbi__context.exit149:          ; preds = %185, %188, %_ZL19st
   br i1 %exitcond.not, label %221, label %.preheader176, !llvm.loop !976
 
 221:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit149
-  %222 = icmp ugt i32 %220, 256
+  %222 = icmp samesign ugt i32 %220, 256
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %221
@@ -39445,7 +39445,7 @@ _ZL10stbi__get8P13stbi__context.exit155:          ; preds = %245, %248, %_ZL19st
 
 299:                                              ; preds = %289
   %300 = add nuw nsw i32 %295, %298
-  %301 = icmp ult i32 %300, 10
+  %301 = icmp samesign ult i32 %300, 10
   br i1 %301, label %302, label %318
 
 302:                                              ; preds = %299
@@ -39454,7 +39454,7 @@ _ZL10stbi__get8P13stbi__context.exit155:          ; preds = %245, %248, %_ZL19st
   %305 = and i32 %304, 511
   %306 = sub nsw i32 9, %295
   %307 = lshr i32 %305, %306
-  %308 = icmp ult i32 %305, 256
+  %308 = icmp samesign ult i32 %305, 256
   %309 = shl nsw i32 -1, %295
   %310 = or disjoint i32 %309, 1
   %311 = select i1 %308, i32 %310, i32 0
@@ -39496,7 +39496,7 @@ _ZL19stbi__build_fast_acPsP13stbi__huffman.exit:  ; preds = %318, %._crit_edge
 325:                                              ; preds = %322
   %326 = load ptr, ptr %0, align 8
   %327 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %326)
-  %328 = icmp ult i32 %327, 2
+  %328 = icmp samesign ult i32 %327, 2
   br i1 %328, label %329, label %333
 
 329:                                              ; preds = %325
@@ -39513,8 +39513,8 @@ _ZL19stbi__build_fast_acPsP13stbi__huffman.exit:  ; preds = %318, %._crit_edge
 
 333:                                              ; preds = %325
   %334 = icmp eq i32 %1, 224
-  %335 = icmp ugt i32 %327, 6
-  %or.cond9 = and i1 %334, %335
+  %335 = icmp samesign ugt i32 %327, 6
+  %or.cond9 = select i1 %334, i1 %335, i1 false
   br i1 %or.cond9, label %.preheader, label %381
 
 .preheader:                                       ; preds = %333, %_ZL10stbi__get8P13stbi__context.exit162
@@ -39606,8 +39606,8 @@ _ZL10stbi__get8P13stbi__context.exit162:          ; preds = %342, %345, %_ZL19st
 381:                                              ; preds = %333
   %382 = add nsw i32 %327, -2
   %383 = icmp eq i32 %1, 238
-  %384 = icmp ugt i32 %327, 13
-  %or.cond11 = and i1 %383, %384
+  %384 = icmp samesign ugt i32 %327, 13
+  %or.cond11 = select i1 %383, i1 %384, i1 false
   br i1 %or.cond11, label %.preheader174, label %440
 
 .preheader174:                                    ; preds = %381, %_ZL10stbi__get8P13stbi__context.exit168
@@ -39779,7 +39779,7 @@ _ZL10stbi__skipP13stbi__contexti.exit:            ; preds = %232, %229, %468, %4
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__process_frame_headerP10stbi__jpegi(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %3)
-  %5 = icmp ult i32 %4, 11
+  %5 = icmp samesign ult i32 %4, 11
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
@@ -41727,7 +41727,7 @@ _ZL10stbi__get8P13stbi__context.exit299.thread:   ; preds = %261, %_ZL10stbi__ge
   br i1 %.not250, label %.preheader, label %319
 
 .preheader:                                       ; preds = %316
-  %.not755 = icmp ult i32 %65, 3
+  %.not755 = icmp samesign ult i32 %65, 3
   br i1 %.not755, label %_ZL10stbi__skipP13stbi__contexti.exit, label %.lr.ph753.preheader
 
 .lr.ph753.preheader:                              ; preds = %.preheader
@@ -42884,7 +42884,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i.i.i:     ; preds = %_ZL11stbi__zget8P10
   br i1 %140, label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i.i, label %.lr.ph49.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %135
-  %141 = icmp ult i64 %indvars.iv.i.i.i, 3
+  %141 = icmp samesign ult i64 %indvars.iv.i.i.i, 3
   br i1 %141, label %.lr.ph49.i.i.i, label %._crit_edge50.i.i.i
 
 .lr.ph49.i.i.i:                                   ; preds = %.preheader.i.i.i, %.thread.i.i.i
@@ -43344,7 +43344,7 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit.i:         ; preds = %_ZL11stbi__zget8P10
 
 340:                                              ; preds = %336
   %341 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %342 = icmp ugt i64 %indvars.iv.i.i, 15
+  %342 = icmp samesign ugt i64 %indvars.iv.i.i, 15
   br i1 %342, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i.i, label %343
 
 343:                                              ; preds = %340
@@ -43383,11 +43383,11 @@ _ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit: ; preds = %328, %
   %366 = phi i32 [ %331, %328 ], [ %361, %360 ]
   %367 = phi i32 [ %332, %328 ], [ %362, %360 ]
   %.0.i = phi i32 [ %333, %328 ], [ %365, %360 ]
-  %or.cond.i.i.i = icmp ugt i32 %.0.i, 18
+  %or.cond.i.i.i = icmp samesign ugt i32 %.0.i, 18
   br i1 %or.cond.i.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i.i, label %368
 
 368:                                              ; preds = %_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit
-  %369 = icmp ult i32 %.0.i, 16
+  %369 = icmp samesign ult i32 %.0.i, 16
   br i1 %369, label %370, label %375
 
 370:                                              ; preds = %368
@@ -44132,12 +44132,12 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
   %87 = getelementptr inbounds i8, ptr %69, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %87, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = icmp ult i64 %indvars.iv.next, %72
+  %88 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %88, label %80, label %._crit_edge.us, !llvm.loop !1011
 
 ._crit_edge.us:                                   ; preds = %80
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %89 = icmp ult i64 %indvars.iv.next98, %73
+  %89 = icmp samesign ult i64 %indvars.iv.next98, %73
   br i1 %89, label %.preheader.us, label %._crit_edge91, !llvm.loop !1012
 
 90:                                               ; preds = %56
@@ -44567,7 +44567,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %70 = zext i16 %rev.i.i to i32
   %71 = sub nuw nsw i32 16, %47
   %72 = lshr i32 %70, %71
-  %73 = icmp ult i32 %72, 512
+  %73 = icmp samesign ult i32 %72, 512
   br i1 %73, label %.lr.ph78, label %.loopexit
 
 .lr.ph78:                                         ; preds = %69
@@ -44581,7 +44581,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %78 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv91
   store i16 %63, ptr %78, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
-  %79 = icmp ult i64 %indvars.iv.next92, 512
+  %79 = icmp samesign ult i64 %indvars.iv.next92, 512
   br i1 %79, label %77, label %.loopexit, !llvm.loop !1023
 
 .loopexit:                                        ; preds = %77, %69, %48
@@ -44708,7 +44708,7 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit:           ; preds = %_ZL11stbi__zget8P10
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %51 = icmp ugt i64 %indvars.iv.i, 15
+  %51 = icmp samesign ugt i64 %indvars.iv.i, 15
   br i1 %51, label %_ZL30stbi__zhuffman_decode_slowpathP10stbi__zbufP14stbi__zhuffman.exit, label %52
 
 52:                                               ; preds = %49
@@ -44859,7 +44859,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %41, %_ZL21stbi__mul
 
 _ZL21stbi__mul2sizes_validii.exit.i294:           ; preds = %49
   %50 = udiv i32 2147483647, %5
-  %.not10.i = icmp ugt i32 %48, %50
+  %.not10.i = icmp samesign ugt i32 %48, %50
   br i1 %.not10.i, label %_ZL21stbi__mad2sizes_validiii.exit.thread, label %_ZL21stbi__mad2sizes_validiii.exit
 
 _ZL21stbi__mad2sizes_validiii.exit:               ; preds = %49, %_ZL21stbi__mul2sizes_validii.exit.i294
@@ -48655,7 +48655,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
   %175 = icmp sgt i32 %174, 0
   %176 = tail call i32 @llvm.abs.i32(i32 %174, i1 true)
   store i32 %176, ptr %173, align 4
-  %177 = icmp ugt i32 %176, 16777216
+  %177 = icmp samesign ugt i32 %176, 16777216
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %172
@@ -48793,7 +48793,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i:          ; preds = %255
   %257 = udiv i32 2147483647, %253
-  %.not23.i.i.i = icmp ugt i32 %.sink.i.i, %257
+  %.not23.i.i.i = icmp samesign ugt i32 %.sink.i.i, %257
   br i1 %.not23.i.i.i, label %263, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i, %255
@@ -48820,7 +48820,7 @@ _ZL21stbi__mad3sizes_validiiii.exit.i.i:          ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i.i:        ; preds = %_ZL21stbi__mad3sizes_validiiii.exit.i.i
   %264 = udiv i32 2147483647, %253
-  %.not23.i.i.i.i = icmp ugt i32 %.sink.i.i, %264
+  %.not23.i.i.i.i = icmp samesign ugt i32 %.sink.i.i, %264
   br i1 %.not23.i.i.i.i, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i, %_ZL21stbi__mad3sizes_validiiii.exit.i.i
@@ -49746,13 +49746,13 @@ _ZL10stbi__skipP13stbi__contexti.exit414.i.i:     ; preds = %702, %697, %685, %6
   %729 = tail call fastcc noundef i32 @_ZL14stbi__high_bitj(i32 noundef %191)
   %730 = add nsw i32 %729, -7
   %731 = tail call fastcc noundef i32 @_ZL14stbi__bitcountj(i32 noundef %191)
-  %732 = icmp ugt i32 %722, 8
-  %733 = icmp ugt i32 %725, 8
-  %or.cond17.i.i = or i1 %732, %733
-  %734 = icmp ugt i32 %728, 8
-  %or.cond19.i.i = or i1 %or.cond17.i.i, %734
-  %735 = icmp ugt i32 %731, 8
-  %or.cond21.i.i = or i1 %or.cond19.i.i, %735
+  %732 = icmp samesign ugt i32 %722, 8
+  %733 = icmp samesign ugt i32 %725, 8
+  %or.cond17.i.i = select i1 %732, i1 true, i1 %733
+  %734 = icmp samesign ugt i32 %728, 8
+  %or.cond19.i.i = select i1 %or.cond17.i.i, i1 true, i1 %734
+  %735 = icmp samesign ugt i32 %731, 8
+  %or.cond21.i.i = select i1 %or.cond19.i.i, i1 true, i1 %735
   br i1 %or.cond21.i.i, label %736, label %.thread18.i.i
 
 736:                                              ; preds = %719
@@ -50688,7 +50688,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i: ; preds = %1195
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i.i108.i:   ; preds = %1200
   %1202 = udiv i32 2147483647, %1198
-  %.not.i.i.i109.i = icmp ugt i32 %1199, %1202
+  %.not.i.i.i109.i = icmp samesign ugt i32 %1199, %1202
   br i1 %.not.i.i.i109.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i, label %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i
 
 _ZL21stbi__mad3sizes_validiiii.exit.i.i.i:        ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i108.i, %1200
@@ -51964,7 +51964,7 @@ _ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i: ; preds
 
 _ZL10stbi__skipP13stbi__contexti.exit.i122.i:     ; preds = %1807, %1802
   %1810 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %1811 = icmp ugt i32 %1810, 16
+  %1811 = icmp samesign ugt i32 %1810, 16
   br i1 %1811, label %1812, label %1813
 
 1812:                                             ; preds = %_ZL10stbi__skipP13stbi__contexti.exit.i122.i
@@ -52024,7 +52024,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i122.i:     ; preds = %1807, %1802
   %1836 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %0, i32 noundef %1836)
   %1837 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
-  %1838 = icmp ugt i32 %1837, 1
+  %1838 = icmp samesign ugt i32 %1837, 1
   br i1 %1838, label %1839, label %1840
 
 1839:                                             ; preds = %1833
@@ -52075,7 +52075,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i122.i:     ; preds = %1807, %1802
 .split.us.i.i:                                    ; preds = %1854, %..loopexit227_crit_edge.us.i.i
   %indvars.iv261.i.i = phi i64 [ %indvars.iv.next262.i.i, %..loopexit227_crit_edge.us.i.i ], [ 0, %1854 ]
   %1859 = getelementptr inbounds i8, ptr %1848, i64 %indvars.iv261.i.i
-  %.not212.us.i.i = icmp ult i64 %indvars.iv261.i.i, %1858
+  %.not212.us.i.i = icmp samesign ult i64 %indvars.iv261.i.i, %1858
   br i1 %.not212.us.i.i, label %1863, label %.preheader226.us.i.i
 
 1860:                                             ; preds = %.preheader226.us.i.i, %1860
@@ -52104,7 +52104,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i122.i:     ; preds = %1807, %1802
 
 .split.i.i:                                       ; preds = %1854, %.preheader226.i.i
   %indvars.iv.i123.i = phi i64 [ %indvars.iv.next.i124.i, %.preheader226.i.i ], [ 0, %1854 ]
-  %.not212.i.i = icmp ult i64 %indvars.iv.i123.i, %1858
+  %.not212.i.i = icmp samesign ult i64 %indvars.iv.i123.i, %1858
   br i1 %.not212.i.i, label %1867, label %.preheader226.i.i
 
 1867:                                             ; preds = %.split.i.i
@@ -52125,7 +52125,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i122.i:     ; preds = %1807, %1802
 
 1870:                                             ; preds = %.loopexit218.i.i, %.preheader224.i.i
   %indvars.iv269.i.i = phi i64 [ 0, %.preheader224.i.i ], [ %indvars.iv.next270.i.i, %.loopexit218.i.i ]
-  %.not207.i.i = icmp ult i64 %indvars.iv269.i.i, %1853
+  %.not207.i.i = icmp samesign ult i64 %indvars.iv269.i.i, %1853
   br i1 %.not207.i.i, label %1877, label %1871
 
 1871:                                             ; preds = %1870
@@ -52243,7 +52243,7 @@ _ZL10stbi__get8P13stbi__context.exit.i134.i:      ; preds = %_ZL19stbi__refill_b
   br i1 %exitcond272.not.i.i, label %.loopexit225.i.i, label %1870, !llvm.loop !1082
 
 .loopexit225.i.i:                                 ; preds = %.preheader226.i.i, %..loopexit227_crit_edge.us.i.i, %.loopexit218.i.i
-  %1915 = icmp ugt i32 %1810, 3
+  %1915 = icmp samesign ugt i32 %1810, 3
   %1916 = icmp sgt i32 %.fr251.i.i, 0
   %or.cond = and i1 %1915, %1916
   br i1 %or.cond, label %.lr.ph248.preheader.i.i, label %.loopexit.i126.i
@@ -52604,9 +52604,9 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %_ZL12stbi__at_eofP1
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.thread.i
   %2085 = udiv i32 2147483647, %2072
-  %.not23.i.i = icmp ugt i32 %2071, %2085
+  %.not23.i.i = icmp samesign ugt i32 %2071, %2085
   %2086 = mul nuw nsw i32 %2072, %2071
-  %.not.i51.i = icmp ugt i32 %2086, 536870911
+  %.not.i51.i = icmp samesign ugt i32 %2086, 536870911
   %or.cond.i79 = select i1 %.not23.i.i, i1 true, i1 %.not.i51.i
   br i1 %or.cond.i79, label %2087, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i
 
@@ -53168,7 +53168,7 @@ _ZL12stbi__at_eofP13stbi__context.exit144.i.i:    ; preds = %._ZL12stbi__at_eofP
 
 _ZL12stbi__at_eofP13stbi__context.exit144.thread.i.i: ; preds = %_ZL12stbi__at_eofP13stbi__context.exit144.i.i, %2325
   %2334 = zext i8 %.0.i139.i.i to i32
-  %2335 = icmp ult i32 %.087296.i.i, %2334
+  %2335 = icmp samesign ult i32 %.087296.i.i, %2334
   %2336 = trunc nuw i32 %.087296.i.i to i8
   %spec.select.i.i107 = select i1 %2335, i8 %2336, i8 %.0.i139.i.i
   %2337 = load i8, ptr %2244, align 1
@@ -53568,7 +53568,7 @@ _ZL13stbi__copyvaliPhPKh.exit208.i.i:             ; preds = %2502
 
 2506:                                             ; preds = %_ZL12stbi__at_eofP13stbi__context.exit180.thread.i.i
   %2507 = add nuw nsw i32 %2427, 1
-  %.not106.i.i = icmp ugt i32 %.084288.i.i, %2427
+  %.not106.i.i = icmp samesign ugt i32 %.084288.i.i, %2427
   br i1 %.not106.i.i, label %.preheader.i.i102, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread.i
 
 .preheader.i.i102:                                ; preds = %2506, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i
@@ -54498,7 +54498,7 @@ _ZL10stbi__get8P13stbi__context.exit78.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
   %2919 = and i32 %2900, 15
   %2920 = getelementptr inbounds nuw i8, ptr %2914, i64 20
   store i32 %2919, ptr %2920, align 4
-  %2921 = icmp ugt i32 %2919, 3
+  %2921 = icmp samesign ugt i32 %2919, 3
   br i1 %2921, label %2922, label %2923
 
 2922:                                             ; preds = %2918
@@ -54736,8 +54736,8 @@ _ZL10stbi__get8P13stbi__context.exit96.i.i.i.i:   ; preds = %_ZL19stbi__refill_b
 
 3057:                                             ; preds = %3053
   %3058 = icmp ugt i8 %.0.i95.i.i.i.i, -33
-  %3059 = icmp ugt i32 %3048, 13
-  %or.cond65.i.i.i.i = or i1 %3058, %3059
+  %3059 = icmp samesign ugt i32 %3048, 13
+  %or.cond65.i.i.i.i = select i1 %3058, i1 true, i1 %3059
   br i1 %or.cond65.i.i.i.i, label %3060, label %_ZL25stbi__process_scan_headerP10stbi__jpeg.exit.i.i.i
 
 3060:                                             ; preds = %3057, %3053, %3051
@@ -56535,7 +56535,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit308.i.i: ; preds = %3888, %3870
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i.i58:      ; preds = %3920
   %3922 = udiv i32 2147483647, %3917
-  %.not23.i.i.i.i59 = icmp ugt i32 %3844, %3922
+  %.not23.i.i.i.i59 = icmp samesign ugt i32 %3844, %3922
   br i1 %.not23.i.i.i.i59, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i57, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i60
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i60: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i58, %3920
@@ -56749,7 +56749,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next504.i.i = add nuw nsw i64 %indvars.iv503.i.i, 1
   %4016 = load i32, ptr %3998, align 8
   %4017 = zext i32 %4016 to i64
-  %4018 = icmp ult i64 %indvars.iv.next504.i.i, %4017
+  %4018 = icmp samesign ult i64 %indvars.iv.next504.i.i, %4017
   br i1 %4018, label %4006, label %.loopexit.i.i66, !llvm.loop !1142
 
 4019:                                             ; preds = %3996
@@ -56813,7 +56813,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next501.i.i = add nuw nsw i64 %indvars.iv500.i.i, 1
   %4059 = load i32, ptr %3998, align 8
   %4060 = zext i32 %4059 to i64
-  %4061 = icmp ult i64 %indvars.iv.next501.i.i, %4060
+  %4061 = icmp samesign ult i64 %indvars.iv.next501.i.i, %4060
   br i1 %4061, label %4025, label %.loopexit.i.i66, !llvm.loop !1143
 
 4062:                                             ; preds = %4019
@@ -56873,7 +56873,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next498.i.i = add nuw nsw i64 %indvars.iv497.i.i, 1
   %4104 = load i32, ptr %4067, align 8
   %4105 = zext i32 %4104 to i64
-  %4106 = icmp ult i64 %indvars.iv.next498.i.i, %4105
+  %4106 = icmp samesign ult i64 %indvars.iv.next498.i.i, %4105
   br i1 %4106, label %4070, label %.loopexit.i.i66, !llvm.loop !1144
 
 .lr.ph420.i.i:                                    ; preds = %.preheader.i.i67, %.lr.ph420.i.i
@@ -56891,7 +56891,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next507.i.i = add nuw nsw i64 %indvars.iv506.i.i, 1
   %4112 = load i32, ptr %3998, align 8
   %4113 = zext i32 %4112 to i64
-  %4114 = icmp ult i64 %indvars.iv.next507.i.i, %4113
+  %4114 = icmp samesign ult i64 %indvars.iv.next507.i.i, %4113
   br i1 %4114, label %.lr.ph420.i.i, label %.loopexit.i.i66, !llvm.loop !1145
 
 4115:                                             ; preds = %._crit_edge395.i.i
@@ -56933,7 +56933,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next495.i.i = add nuw nsw i64 %indvars.iv494.i.i, 1
   %4139 = load i32, ptr %4116, align 8
   %4140 = zext i32 %4139 to i64
-  %4141 = icmp ult i64 %indvars.iv.next495.i.i, %4140
+  %4141 = icmp samesign ult i64 %indvars.iv.next495.i.i, %4140
   br i1 %4141, label %4121, label %.loopexit.i.i66, !llvm.loop !1146
 
 4142:                                             ; preds = %4115
@@ -57005,7 +57005,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next492.i.i = add nuw nsw i64 %indvars.iv491.i.i, 1
   %4190 = load i32, ptr %4116, align 8
   %4191 = zext i32 %4190 to i64
-  %4192 = icmp ult i64 %indvars.iv.next492.i.i, %4191
+  %4192 = icmp samesign ult i64 %indvars.iv.next492.i.i, %4191
   br i1 %4192, label %4153, label %.loopexit.i.i66, !llvm.loop !1147
 
 .preheader347.i.i:                                ; preds = %4146
@@ -57041,7 +57041,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next489.i.i = add nuw nsw i64 %indvars.iv488.i.i, 1
   %4212 = load i32, ptr %4116, align 8
   %4213 = zext i32 %4212 to i64
-  %4214 = icmp ult i64 %indvars.iv.next489.i.i, %4213
+  %4214 = icmp samesign ult i64 %indvars.iv.next489.i.i, %4213
   br i1 %4214, label %4196, label %.loopexit.i.i66, !llvm.loop !1148
 
 4215:                                             ; preds = %4146, %4142
@@ -57059,7 +57059,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit319.i.i: ; preds = %3954, %_ZL17stbi__m
   %indvars.iv.next486.i.i = add nuw nsw i64 %indvars.iv485.i.i, 1
   %4221 = load i32, ptr %4116, align 8
   %4222 = zext i32 %4221 to i64
-  %4223 = icmp ult i64 %indvars.iv.next486.i.i, %4222
+  %4223 = icmp samesign ult i64 %indvars.iv.next486.i.i, %4222
   br i1 %4223, label %.lr.ph398.i.i, label %.loopexit.i.i66, !llvm.loop !1149
 
 .loopexit.sink.split.i.i:                         ; preds = %4019, %4002
@@ -58767,24 +58767,24 @@ _ZL10stbi__get8P13stbi__context.exit246:          ; preds = %199, %202, %_ZL19st
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %247
   %250 = udiv i32 2147483647, %159
-  %.not23.i = icmp ugt i32 %158, %250
+  %.not23.i = icmp samesign ugt i32 %158, %250
   br i1 %.not23.i, label %.loopexit.sink.split, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i:     ; preds = %247
   %251 = mul nuw nsw i32 %159, %158
   %252 = udiv i32 2147483647, %.0194.ph
-  %.not.i252 = icmp ugt i32 %251, %252
+  %.not.i252 = icmp samesign ugt i32 %251, %252
   br i1 %.not.i252, label %.loopexit.sink.split, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.thread: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i
   %253 = mul nuw nsw i32 %159, %158
   %254 = udiv i32 2147483647, %.0194.ph
-  %.not.i252108 = icmp ugt i32 %253, %254
+  %.not.i252108 = icmp samesign ugt i32 %253, %254
   br i1 %.not.i252108, label %.loopexit.sink.split, label %_ZL21stbi__mul2sizes_validii.exit.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.thread
   %255 = udiv i32 2147483647, %159
-  %.not23.i.i = icmp ugt i32 %158, %255
+  %.not23.i.i = icmp samesign ugt i32 %158, %255
   br i1 %.not23.i.i, label %.loopexit.sink.split, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i
@@ -59242,7 +59242,7 @@ _ZL10stbi__get8P13stbi__context.exit280:          ; preds = %443, %446, %_ZL19st
 
 .loopexit27.loopexit:                             ; preds = %468, %_ZL10stbi__get8P13stbi__context.exit280
   %470 = phi i32 [ %467, %_ZL10stbi__get8P13stbi__context.exit280 ], [ %469, %468 ]
-  %.not215 = icmp ult i32 %470, %119
+  %.not215 = icmp samesign ult i32 %470, %119
   %spec.store.select = select i1 %.not215, i32 %470, i32 0
   %471 = zext nneg i32 %spec.store.select to i64
   %472 = mul nuw nsw i64 %398, %471
@@ -59410,7 +59410,7 @@ _ZL10stbi__get8P13stbi__context.exit289:          ; preds = %491, %494, %_ZL19st
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %_ZL10stbi__getnP13stbi__contextPhi.exit, %_ZL10stbi__getnP13stbi__contextPhi.exit.us, %_ZL10stbi__getnP13stbi__contextPhi.exit.us.us, %.preheader32, %.loopexit26, %535
-  %536 = icmp ult i8 %.0194.ph.shrunk, 3
+  %536 = icmp samesign ult i8 %.0194.ph.shrunk, 3
   %.not60 = icmp eq i32 %256, 0
   %537 = or i1 %536, %.not60
   %or.cond112 = or i1 %537, %248
@@ -59463,22 +59463,22 @@ define internal fastcc noundef range(i32 -1, 33) i32 @_ZL14stbi__high_bitj(i32 n
   %5 = lshr i32 %0, 16
   %spec.select = select i1 %4, i32 %5, i32 %0
   %spec.select23 = select i1 %4, i32 16, i32 0
-  %6 = icmp ugt i32 %spec.select, 255
+  %6 = icmp samesign ugt i32 %spec.select, 255
   %7 = or disjoint i32 %spec.select23, 8
   %8 = lshr i32 %spec.select, 8
   %.118 = select i1 %6, i32 %8, i32 %spec.select
   %.1 = select i1 %6, i32 %7, i32 %spec.select23
-  %9 = icmp ugt i32 %.118, 15
+  %9 = icmp samesign ugt i32 %.118, 15
   %10 = or disjoint i32 %.1, 4
   %11 = lshr i32 %.118, 4
   %.219 = select i1 %9, i32 %11, i32 %.118
   %.2 = select i1 %9, i32 %10, i32 %.1
-  %12 = icmp ugt i32 %.219, 3
+  %12 = icmp samesign ugt i32 %.219, 3
   %13 = or disjoint i32 %.2, 2
   %14 = lshr i32 %.219, 2
   %.320 = select i1 %12, i32 %14, i32 %.219
   %.3 = select i1 %12, i32 %13, i32 %.2
-  %15 = icmp ugt i32 %.320, 1
+  %15 = icmp samesign ugt i32 %.320, 1
   %16 = zext i1 %15 to i32
   %.4 = add nuw nsw i32 %.3, %16
   br label %17
@@ -60230,7 +60230,7 @@ define internal void @_ZL23stbi__YCbCr_to_RGB_simdPhPKhS1_S1_ii(ptr nocapture no
   %51 = getelementptr inbounds i8, ptr %.1312, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %52 = or disjoint i64 %indvars.iv.next, 7
-  %53 = icmp ult i64 %52, %9
+  %53 = icmp samesign ult i64 %52, %9
   br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !1166
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -60391,7 +60391,7 @@ define internal noundef ptr @_ZL28stbi__resample_row_hv_2_simdPhS_S_ii(ptr nound
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %72, %75
-  %77 = icmp ult i64 %indvars.iv.next, %26
+  %77 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1168
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -61742,7 +61742,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   store float %70, ptr %42, align 4
   store float %74, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %91 = icmp ult i64 %indvars.iv, 56
+  %91 = icmp samesign ult i64 %indvars.iv, 56
   br i1 %91, label %33, label %.preheader237, !llvm.loop !1177
 
 .preheader237:                                    ; preds = %33, %.preheader237
@@ -61909,7 +61909,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
 188:                                              ; preds = %163
   %189 = sub nsw i32 %164, %5
   %190 = tail call i32 @llvm.abs.i32(i32 %189, i1 true)
-  %.not13.i = icmp ult i32 %190, 2
+  %.not13.i = icmp samesign ult i32 %190, 2
   %191 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %190, i1 true)
   %192 = trunc nuw nsw i32 %191 to i16
   %193 = sub nuw nsw i16 32, %192
@@ -62185,7 +62185,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188: ; preds = %297,
   %307 = sub nuw nsw i32 32, %306
   %.lobit.i191 = ashr i32 %276, 31
   %308 = add nsw i32 %.lobit.i191, %276
-  %.not13.i189.inv = icmp ugt i32 %305, 1
+  %.not13.i189.inv = icmp samesign ugt i32 %305, 1
   %309 = select i1 %.not13.i189.inv, i32 %307, i32 1
   %notmask.i192 = shl nsw i32 -1, %309
   %310 = xor i32 %notmask.i192, -1
@@ -62601,10 +62601,10 @@ define internal fastcc void @_ZL22stbiw__encode_png_linePhiiiiiiPa(ptr nocapture
   %129 = tail call i32 @llvm.abs.i32(i32 %128, i1 true)
   %130 = sub nsw i32 %125, %123
   %131 = tail call i32 @llvm.abs.i32(i32 %130, i1 true)
-  %.not.i138 = icmp ugt i32 %127, %129
-  %.not20.i139 = icmp ugt i32 %127, %131
+  %.not.i138 = icmp samesign ugt i32 %127, %129
+  %.not20.i139 = icmp samesign ugt i32 %127, %131
   %or.cond.i140 = select i1 %.not.i138, i1 true, i1 %.not20.i139
-  %.not21.i = icmp ugt i32 %129, %131
+  %.not21.i = icmp samesign ugt i32 %129, %131
   %..i = select i1 %.not21.i, i8 %122, i8 %118
   %.0.in.i141 = select i1 %or.cond.i140, i8 %..i, i8 %114
   %132 = sub i8 %111, %.0.in.i141

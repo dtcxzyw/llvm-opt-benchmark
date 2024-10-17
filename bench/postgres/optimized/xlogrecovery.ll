@@ -2131,7 +2131,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   %.043124.i.i = phi ptr [ %166, %164 ], [ %163, %158 ]
   %167 = getelementptr inbounds i8, ptr %.043124.i.i, i64 4
   %168 = getelementptr inbounds i8, ptr %.043124.i.i, i64 16
-  %or.cond.i.i = icmp ult i32 %162, 2
+  %or.cond.i.i = icmp samesign ult i32 %162, 2
   %169 = and i32 %162, 1
   %or.cond3.i.i = icmp eq i32 %169, 0
   br i1 %or.cond.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
@@ -2814,7 +2814,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = and i64 %1, 8184
-  %5 = icmp ugt i64 %4, 23
+  %5 = icmp samesign ugt i64 %4, 23
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3

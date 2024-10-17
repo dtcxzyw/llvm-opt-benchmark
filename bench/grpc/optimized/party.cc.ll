@@ -739,7 +739,7 @@ for.inc.i:                                        ; preds = %release.i32.i, %cal
   %prev_state.1.i = phi i64 [ %prev_state.050.i, %for.body.i ], [ %and17.i, %release.i32.i ], [ %prev_state.050.i, %if.end12.i ], [ %prev_state.050.i, %call2.i.i.noexc ]
   %inc.i = add nuw nsw i64 %i.052.i, 1
   %shr.i = lshr i64 %wakeups.051.i, 1
-  %cmp.not.i = icmp ult i64 %wakeups.051.i, 2
+  %cmp.not.i = icmp samesign ult i64 %wakeups.051.i, 2
   br i1 %cmp.not.i, label %do.cond.i, label %for.body.i, !llvm.loop !16
 
 do.cond.i:                                        ; preds = %for.inc.i, %if.end6.i
@@ -839,8 +839,8 @@ for.inc.us.i:                                     ; preds = %if.end.us.i, %for.b
   %n.1.us.i = phi i64 [ %n.052.us.i, %for.body.us.i ], [ %inc.us.i, %if.end.us.i ]
   %inc12.us.i = add nuw nsw i64 %bit.053.us.i, 1
   %cmp.us.i = icmp ult i64 %n.1.us.i, %count
-  %cmp2.us.i = icmp ult i64 %bit.053.us.i, 15
-  %5 = and i1 %cmp2.us.i, %cmp.us.i
+  %cmp2.us.i = icmp samesign ult i64 %bit.053.us.i, 15
+  %5 = select i1 %cmp.us.i, i1 %cmp2.us.i, i1 false
   br i1 %5, label %for.body.us.i, label %for.cond.do.body13_crit_edge.us.i, !llvm.loop !19
 
 for.cond.do.body13_crit_edge.us.i:                ; preds = %for.inc.us.i

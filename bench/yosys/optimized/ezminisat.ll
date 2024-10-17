@@ -928,7 +928,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit:         ; preds = %._crit_edge427
   %215 = and i32 %214, 1073741822
   %216 = add nuw nsw i32 %215, 2
   %217 = xor i32 %213, 2147483647
-  %218 = icmp ugt i32 %216, %217
+  %218 = icmp samesign ugt i32 %216, %217
   br i1 %218, label %.loopexit273, label %219
 
 219:                                              ; preds = %212
@@ -997,7 +997,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit:         ; preds = %._crit_edge427
   %244 = and i32 %243, 1073741822
   %245 = add nuw nsw i32 %244, 2
   %246 = xor i32 %242, 2147483647
-  %247 = icmp ugt i32 %245, %246
+  %247 = icmp samesign ugt i32 %245, %246
   br i1 %247, label %.loopexit272, label %248
 
 248:                                              ; preds = %241
@@ -1189,7 +1189,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit125:           ; preds = %_ZN7Minisat10SimpSo
   %322 = add nuw nsw i32 %321, 2
   %323 = trunc i64 %indvars.iv545 to i32
   %324 = sub i32 2147483647, %323
-  %325 = icmp ugt i32 %322, %324
+  %325 = icmp samesign ugt i32 %322, %324
   br i1 %325, label %.loopexit271, label %326
 
 326:                                              ; preds = %318
@@ -1264,7 +1264,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit125:           ; preds = %_ZN7Minisat10SimpSo
   %353 = add nuw nsw i32 %352, 2
   %354 = trunc i64 %indvars.iv545 to i32
   %355 = sub i32 2147483647, %354
-  %356 = icmp ugt i32 %353, %355
+  %356 = icmp samesign ugt i32 %353, %355
   br i1 %356, label %.loopexit270, label %357
 
 357:                                              ; preds = %349

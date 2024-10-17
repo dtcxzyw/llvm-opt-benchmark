@@ -742,7 +742,7 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   %115 = phi i32 [ %.pre, %113 ], [ %104, %110 ], [ %104, %103 ]
   %116 = add nuw nsw i64 %105, 1
   %117 = zext i32 %115 to i64
-  %118 = icmp ult i64 %116, %117
+  %118 = icmp samesign ult i64 %116, %117
   br i1 %118, label %103, label %.loopexit.loopexit, !llvm.loop !37
 
 .loopexit.loopexit:                               ; preds = %114

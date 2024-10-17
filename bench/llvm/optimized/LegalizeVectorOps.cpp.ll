@@ -18231,7 +18231,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i: ; preds 
   %83 = add nuw nsw i32 %.065226.i, 1
   %84 = load i16, ptr %70, align 8
   %85 = zext i16 %84 to i32
-  %86 = icmp ult i32 %83, %85
+  %86 = icmp samesign ult i32 %83, %85
   br i1 %86, label %73, label %._crit_edge.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i

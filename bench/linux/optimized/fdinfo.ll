@@ -306,7 +306,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %164 = add nuw nsw i64 %136, 1
   %165 = load i32, ptr %129, align 32
   %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %164, %166
+  %167 = icmp samesign ult i64 %164, %166
   br i1 %167, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %163, %133
@@ -333,7 +333,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %182 = add nuw nsw i64 %172, 1
   %183 = load i32, ptr %168, align 4
   %184 = zext i32 %183 to i64
-  %185 = icmp ult i64 %182, %184
+  %185 = icmp samesign ult i64 %182, %184
   br i1 %185, label %.lr.ph24, label %._crit_edge25
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge

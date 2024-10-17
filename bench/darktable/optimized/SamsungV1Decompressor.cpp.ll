@@ -407,7 +407,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   tail call void @llvm.assume(i1 %88)
   %89 = icmp sgt i32 %84, -1
   tail call void @llvm.assume(i1 %89)
-  %90 = icmp uge i32 %84, %79
+  %90 = icmp samesign uge i32 %84, %79
   tail call void @llvm.assume(i1 %90)
   %91 = icmp eq i32 %79, 0
   %92 = icmp ne i32 %81, 0
@@ -424,7 +424,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %99 = load i32, ptr %98, align 8, !tbaa !98
   %100 = getelementptr inbounds i8, ptr %0, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !103
-  %102 = icmp uge i32 %101, %99
+  %102 = icmp samesign uge i32 %101, %99
   tail call void @llvm.assume(i1 %102)
   %103 = icmp sgt i32 %101, -1
   tail call void @llvm.assume(i1 %103)
@@ -435,7 +435,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %107 = zext i32 %105 to i64
   %108 = add nuw nsw i64 %107, %106
   %109 = zext nneg i32 %101 to i64
-  %110 = icmp ugt i64 %108, %109
+  %110 = icmp samesign ugt i64 %108, %109
   br i1 %110, label %234, label %111
 
 111:                                              ; preds = %32
@@ -445,7 +445,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   tail call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds i8, ptr %113, i64 %106
   store i32 0, ptr %2, align 4
-  %116 = icmp ult i32 %105, 4
+  %116 = icmp samesign ult i32 %105, 4
   br i1 %116, label %234, label %117
 
 117:                                              ; preds = %111
@@ -474,7 +474,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %131 = phi i32 [ %185, %231 ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8
-  %132 = icmp ugt i64 %128, 1
+  %132 = icmp samesign ugt i64 %128, 1
   br i1 %132, label %133, label %144
 
 133:                                              ; preds = %127
@@ -508,7 +508,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %154 = phi i32 [ %131, %144 ], [ %185, %226 ]
   %155 = icmp ult i32 %153, 65
   tail call void @llvm.assume(i1 %155)
-  %156 = icmp ult i32 %153, 23
+  %156 = icmp samesign ult i32 %153, 23
   br i1 %156, label %157, label %184
 
 157:                                              ; preds = %150
@@ -577,7 +577,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   tail call void @llvm.assume(i1 %202)
   %203 = icmp ult i8 %198, 33
   tail call void @llvm.assume(i1 %203)
-  %204 = icmp uge i32 %194, %201
+  %204 = icmp samesign uge i32 %194, %201
   tail call void @llvm.assume(i1 %204)
   %205 = sub nuw nsw i32 64, %201
   %206 = zext nneg i32 %205 to i64

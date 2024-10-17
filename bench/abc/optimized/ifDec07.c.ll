@@ -480,7 +480,7 @@ define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3
   %.036125 = phi i64 [ %0, %.preheader97 ], [ %.1.lcssa, %.loopexit96 ]
   %.037124 = phi i64 [ 0, %.preheader97 ], [ %.138.lcssa, %.loopexit96 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %13 = icmp ult i64 %indvars.iv153, 5
+  %13 = icmp samesign ult i64 %indvars.iv153, 5
   br i1 %13, label %.lr.ph, label %.loopexit96
 
 .lr.ph:                                           ; preds = %12
@@ -1005,7 +1005,7 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr nocapture nound
   %indvars.iv96 = phi i64 [ 2, %.preheader ], [ %indvars.iv.next97, %.loopexit44 ]
   %.promoted648385 = phi i64 [ %9, %.preheader ], [ %.promoted6476, %.loopexit44 ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %18 = icmp ult i64 %indvars.iv110, 6
+  %18 = icmp samesign ult i64 %indvars.iv110, 6
   br i1 %18, label %.lr.ph74, label %.loopexit44
 
 .lr.ph74:                                         ; preds = %16
@@ -1031,7 +1031,7 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr nocapture nound
   %.promoted6482 = phi i64 [ %.promoted648385, %.lr.ph74 ], [ %.promoted6477, %.loopexit ]
   %.promoted577072 = phi i64 [ %.promoted648385, %.lr.ph74 ], [ %.promoted5765, %.loopexit ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %23 = icmp ult i64 %indvars.iv106, 6
+  %23 = icmp samesign ult i64 %indvars.iv106, 6
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %21
@@ -1865,8 +1865,8 @@ If_Dec6SuppSize.exit:                             ; preds = %14
   br i1 %exitcond.not.i32, label %If_Dec6SuppSize.exit33, label %31, !llvm.loop !40
 
 If_Dec6SuppSize.exit33:                           ; preds = %31
-  %45 = icmp ult i32 %spec.select.i, 5
-  %46 = icmp ult i32 %spec.select.i30, 5
+  %45 = icmp samesign ult i32 %spec.select.i, 5
+  %46 = icmp samesign ult i32 %spec.select.i30, 5
   %or.cond = select i1 %45, i1 %46, i1 false
   br i1 %or.cond, label %47, label %51
 
@@ -2022,8 +2022,8 @@ If_Dec7Cofactor.exit9.i31:                        ; preds = %55, %If_Dec7SuppSiz
   br i1 %exitcond.not.i41, label %If_Dec7SuppSize.exit42, label %If_Dec7SuppSize.exit, !llvm.loop !42
 
 If_Dec7SuppSize.exit42:                           ; preds = %If_Dec7Cofactor.exit9.i31
-  %75 = icmp ult i32 %.1.i, 5
-  %76 = icmp ult i32 %.1.i39, 5
+  %75 = icmp samesign ult i32 %.1.i, 5
+  %76 = icmp samesign ult i32 %.1.i39, 5
   %or.cond = select i1 %75, i1 %76, i1 false
   br i1 %or.cond, label %77, label %82
 
@@ -2134,7 +2134,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 49:                                               ; preds = %If_Dec6MoveTo.exit, %.loopexit
   %.136 = phi i32 [ 0, %If_Dec6MoveTo.exit ], [ %50, %.loopexit ]
   %50 = add nuw nsw i32 %.136, 1
-  %51 = icmp ult i32 %.136, 3
+  %51 = icmp samesign ult i32 %.136, 3
   br i1 %51, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %49, %446
@@ -2949,7 +2949,7 @@ Abc_TtHasVar.exit.thread44.us:                    ; preds = %Abc_TtHasVar.exit.u
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %Abc_TtHasVar.exit.thread44
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %Abc_TtHasVar.exit.thread44 ]
-  %22 = icmp ult i64 %indvars.iv, 6
+  %22 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %22, label %.lr.ph.i, label %.preheader.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split.split

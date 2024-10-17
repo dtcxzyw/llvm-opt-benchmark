@@ -1431,7 +1431,7 @@ cff_index_done.exit57.i:                          ; preds = %57, %cff_index_done
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i32, ptr %60, align 8
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next.i, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next.i, %67
   br i1 %68, label %63, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %63
@@ -4133,7 +4133,7 @@ cff_index_get_string.exit.thread:                 ; preds = %34, %46, %cff_index
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %22, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %28, label %.loopexit, !llvm.loop !21
 
 .loopexit.loopexit.split.loop.exit47:             ; preds = %46
@@ -6396,7 +6396,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   br i1 %18, label %.outer308, label %19
 
 19:                                               ; preds = %12
-  %20 = icmp ugt i32 %16, 9
+  %20 = icmp samesign ugt i32 %16, 9
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %19
@@ -6470,7 +6470,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   %45 = lshr i32 %44, %.2169
   %46 = and i32 %45, 15
   %47 = sub nuw nsw i32 4, %.2169
-  %48 = icmp ugt i32 %46, 9
+  %48 = icmp samesign ugt i32 %46, 9
   br i1 %48, label %.loopexit222, label %49
 
 49:                                               ; preds = %42
@@ -6532,7 +6532,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   %69 = zext i8 %68 to i32
   %70 = lshr i32 %69, %.3170
   %71 = and i32 %70, 15
-  %72 = icmp ugt i32 %71, 9
+  %72 = icmp samesign ugt i32 %71, 9
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %67
@@ -7821,7 +7821,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %165 = load i32, ptr %149, align 4
   %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %indvars.iv.next202, %166
+  %167 = icmp samesign ult i64 %indvars.iv.next202, %166
   br i1 %167, label %168, label %._crit_edge.loopexit, !llvm.loop !44
 
 168:                                              ; preds = %.lr.ph196, %164
@@ -8545,7 +8545,7 @@ cff_index_load_offsets.exit:                      ; preds = %18, %27, %35, %.loo
   %127 = add nuw nsw i64 %.078105.us, 1
   %128 = load i32, ptr %97, align 4
   %129 = zext i32 %128 to i64
-  %.not91.us.not = icmp ult i64 %.078105.us, %129
+  %.not91.us.not = icmp samesign ult i64 %.078105.us, %129
   br i1 %.not91.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.thread113, %154
@@ -8598,7 +8598,7 @@ cff_index_load_offsets.exit:                      ; preds = %18, %27, %35, %.loo
   %155 = add nuw nsw i64 %.078105, 1
   %156 = load i32, ptr %97, align 4
   %157 = zext i32 %156 to i64
-  %.not91.not = icmp ult i64 %.078105, %157
+  %.not91.not = icmp samesign ult i64 %.078105, %157
   br i1 %.not91.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %154, %124, %110
@@ -9090,7 +9090,7 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %84 = load i16, ptr %39, align 8
   %85 = zext i16 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next153, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next153, %85
   br i1 %86, label %.lr.ph131, label %._crit_edge132, !llvm.loop !55
 
 ._crit_edge132:                                   ; preds = %71, %56
@@ -9162,7 +9162,7 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %113 = load i32, ptr %92, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next161, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next161, %114
   br i1 %115, label %.lr.ph138, label %._crit_edge139, !llvm.loop !57
 
 .lr.ph138:                                        ; preds = %108, %112
@@ -9403,7 +9403,7 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef %0, i32 nound
   %.075 = phi i32 [ %47, %45 ], [ %51, %49 ]
   %54 = xor i32 %.075, 65535
   %55 = zext i16 %40 to i32
-  %56 = icmp ult i32 %54, %55
+  %56 = icmp samesign ult i32 %54, %55
   %57 = xor i16 %40, -1
   %58 = zext i16 %57 to i32
   %.1 = select i1 %56, i32 %58, i32 %.075
@@ -9424,8 +9424,8 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef %0, i32 nound
   %63 = add nuw nsw i32 %.0100, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = add i16 %.07898, 1
-  %65 = icmp ult i64 %indvars.iv.next, %21
-  %66 = icmp ult i32 %.0100, %.1
+  %65 = icmp samesign ult i64 %indvars.iv.next, %21
+  %66 = icmp samesign ult i32 %.0100, %.1
   %67 = select i1 %65, i1 %66, i1 false
   br i1 %67, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !61
 
@@ -9673,7 +9673,7 @@ define internal fastcc i32 @cff_encoding_load(ptr nocapture noundef %0, ptr noca
   %indvars.iv177 = phi i64 [ 1, %.lr.ph156.preheader ], [ %indvars.iv.next178, %50 ]
   %.0111154 = phi ptr [ %37, %.lr.ph156.preheader ], [ %39, %50 ]
   %39 = getelementptr inbounds i8, ptr %.0111154, i64 1
-  %40 = icmp ult i64 %indvars.iv177, %38
+  %40 = icmp samesign ult i64 %indvars.iv177, %38
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %.lr.ph156
@@ -9748,7 +9748,7 @@ define internal fastcc i32 @cff_encoding_load(ptr nocapture noundef %0, ptr noca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %80
   %indvars.iv172 = phi i64 [ %69, %.lr.ph.preheader ], [ %indvars.iv.next173, %80 ]
   %.0112145 = phi i32 [ %55, %.lr.ph.preheader ], [ %81, %80 ]
-  %70 = icmp ult i64 %indvars.iv172, %53
+  %70 = icmp samesign ult i64 %indvars.iv172, %53
   %71 = icmp ult i32 %.0112145, 256
   %or.cond = select i1 %70, i1 %71, i1 false
   br i1 %or.cond, label %72, label %80
@@ -10037,7 +10037,7 @@ define internal fastcc void @cff_vstore_done(ptr nocapture noundef %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %5, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %.loopexit25.loopexit, !llvm.loop !70
 
 .loopexit25.loopexit:                             ; preds = %.lr.ph
@@ -10070,7 +10070,7 @@ define internal fastcc void @cff_vstore_done(ptr nocapture noundef %0, ptr nound
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %24 = load i32, ptr %0, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next33, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next33, %25
   br i1 %26, label %.lr.ph28, label %.loopexit.loopexit, !llvm.loop !71
 
 .loopexit.loopexit:                               ; preds = %.lr.ph28

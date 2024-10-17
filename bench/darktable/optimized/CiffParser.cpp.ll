@@ -126,7 +126,7 @@ define hidden void @_ZN8rawspeed10CiffParser9parseDataEv(ptr nocapture noundef n
   unreachable
 
 15:                                               ; preds = %9
-  %16 = icmp ult i32 %6, 6
+  %16 = icmp samesign ult i32 %6, 6
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15

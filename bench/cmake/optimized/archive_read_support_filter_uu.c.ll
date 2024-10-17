@@ -172,7 +172,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr nocapture readnone
   %68 = getelementptr inbounds i8, ptr %62, i64 1
   %69 = and i8 %63, 63
   %70 = xor i8 %69, 32
-  %71 = icmp ugt i8 %70, 45
+  %71 = icmp samesign ugt i8 %70, 45
   br i1 %71, label %.loopexit83, label %72
 
 72:                                               ; preds = %67
@@ -1193,7 +1193,7 @@ ensure_in_buff_size.exit286:                      ; preds = %107
   %323 = trunc i32 %322 to i8
   %324 = getelementptr inbounds i8, ptr %.5229500, i64 1
   store i8 %323, ptr %.5229500, align 1
-  %325 = icmp ugt i64 %.5503, 2
+  %325 = icmp samesign ugt i64 %.5503, 2
   br i1 %325, label %326, label %._crit_edge.loopexit.split.loop.exit806
 
 326:                                              ; preds = %313

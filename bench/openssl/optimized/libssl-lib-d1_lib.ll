@@ -1139,7 +1139,7 @@ if.end84:                                         ; preds = %if.end74
 
 lor.lhs.false88:                                  ; preds = %if.end84
   %12 = load i8, ptr %add.ptr.i2.i.i, align 1
-  %cmp.i.i.i121 = icmp ult i64 %or.i.i.i, 4
+  %cmp.i.i.i121 = icmp samesign ult i64 %or.i.i.i, 4
   br i1 %cmp.i.i.i121, label %if.then107, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %lor.lhs.false88
@@ -1215,7 +1215,7 @@ if.then111:                                       ; preds = %if.end108
   br label %end
 
 if.end112:                                        ; preds = %if.end108
-  %cmp113 = icmp ugt i32 %or.i.i, 2
+  %cmp113 = icmp samesign ugt i32 %or.i.i, 2
   br i1 %cmp113, label %if.then115, label %if.end116
 
 if.then115:                                       ; preds = %if.end112
@@ -1226,7 +1226,7 @@ if.then115:                                       ; preds = %if.end112
 
 if.end116:                                        ; preds = %if.end112
   %cmp117.not = icmp ne i64 %or7.i.i.i148, 0
-  %cmp120 = icmp ugt i64 %or7.i.i.i165, %or7.i.i.i
+  %cmp120 = icmp samesign ugt i64 %or7.i.i.i165, %or7.i.i.i
   %or.cond332 = select i1 %cmp117.not, i1 true, i1 %cmp120
   br i1 %or.cond332, label %if.then122, label %if.end123
 
@@ -1249,7 +1249,7 @@ if.then126:                                       ; preds = %if.end123
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then126, %if.end123
-  %cmp.i.i179 = icmp ult i64 %or7.i.i.i165, 2
+  %cmp.i.i179 = icmp samesign ult i64 %or7.i.i.i165, 2
   br i1 %cmp.i.i179, label %if.then133, label %if.end134
 
 if.then133:                                       ; preds = %if.end130

@@ -92,7 +92,7 @@ if.else16:                                        ; preds = %if.end
   %2 = load i8, ptr %incdec.ptr, align 1
   %conv18 = zext i8 %2 to i64
   %xor = xor i64 %sign.0, %conv18
-  %cmp20 = icmp ult i64 %xor, 128
+  %cmp20 = icmp samesign ult i64 %xor, 128
   br i1 %cmp20, label %if.then22, label %for.body.preheader
 
 if.then22:                                        ; preds = %if.else16

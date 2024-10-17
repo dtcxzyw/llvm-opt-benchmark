@@ -2013,7 +2013,7 @@ lor.lhs.false70:                                  ; preds = %lor.lhs.false67
 if.end75:                                         ; preds = %lor.lhs.false70
   %conv = trunc i64 %call to i32
   %conv7690 = and i64 %call, 4294967295
-  %cmp7791 = icmp ugt i64 %conv7690, 16
+  %cmp7791 = icmp samesign ugt i64 %conv7690, 16
   br i1 %cmp7791, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end75, %for.inc
@@ -2025,7 +2025,7 @@ for.body:                                         ; preds = %if.end75, %for.inc
 for.inc:                                          ; preds = %for.body
   %sub = add nuw nsw i64 %conv7692, 4294967280
   %conv76 = and i64 %sub, 4294967295
-  %cmp77 = icmp ugt i64 %conv76, 16
+  %cmp77 = icmp samesign ugt i64 %conv76, 16
   br i1 %cmp77, label %for.body, label %for.end, !llvm.loop !50
 
 for.end:                                          ; preds = %for.inc, %if.end75
@@ -2188,7 +2188,7 @@ for.body189:                                      ; preds = %for.end180, %for.bo
   %incdec.ptr231 = getelementptr inbounds i8, ptr %output.099, i64 4
   store i8 %22, ptr %incdec.ptr224, align 1
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 3
-  %cmp187 = icmp ult i64 %indvars.iv105, 12
+  %cmp187 = icmp samesign ult i64 %indvars.iv105, 12
   br i1 %cmp187, label %for.body189, label %for.end234, !llvm.loop !54
 
 for.end234:                                       ; preds = %for.body189

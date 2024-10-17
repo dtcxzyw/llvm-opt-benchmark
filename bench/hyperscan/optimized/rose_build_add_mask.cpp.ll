@@ -4786,7 +4786,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.body.i.i31.i
   %i.0.in.i.i.i = phi i64 [ %i.0.i.i.i, %for.body.i.i31.i ], [ %div1.i.i.i26.i, %for.cond.i.i.i.preheader ]
-  %cmp14.i.i.i = icmp ult i64 %i.0.in.i.i.i, 3
+  %cmp14.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i, 3
   br i1 %cmp14.i.i.i, label %for.body.i.i31.i, label %invoke.cont
 
 for.body.i.i31.i:                                 ; preds = %for.cond.i.i.i
@@ -5091,7 +5091,7 @@ if.then7.i.i.i39:                                 ; preds = %if.then5.i.i.i37
 
 for.cond.i.i.i43:                                 ; preds = %for.cond.i.i.i43.preheader, %for.body.i.i44.i
   %i.0.in.i.i.i44 = phi i64 [ %i.0.i.i.i46, %for.body.i.i44.i ], [ %div1.i.i.i38.i, %for.cond.i.i.i43.preheader ]
-  %cmp14.i.i.i45 = icmp ult i64 %i.0.in.i.i.i44, 3
+  %cmp14.i.i.i45 = icmp samesign ult i64 %i.0.in.i.i.i44, 3
   br i1 %cmp14.i.i.i45, label %for.body.i.i44.i, label %for.end28.loopexit.i
 
 for.body.i.i44.i:                                 ; preds = %for.cond.i.i.i43
@@ -9027,7 +9027,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.th
   %46 = load i64, ptr %arrayidx.i.i46.i.i80, align 8
   %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
   %add21.i.i81 = add nuw nsw i64 %add15.i.i79, %47
-  %cmp75 = icmp ugt i64 %add21.i.i81, 1
+  %cmp75 = icmp samesign ugt i64 %add21.i.i81, 1
   tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %lit, i8 noundef signext %retval.0.i.i, i1 noundef zeroext %cmp75)
   %inc77 = add nuw i64 %i66.0113, 1
   %exitcond.not = icmp eq i64 %inc77, %34

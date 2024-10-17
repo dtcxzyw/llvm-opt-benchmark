@@ -966,15 +966,15 @@ define hidden range(i32 0, 2) i32 @_cmsReadHeader(ptr noundef %0) local_unnamed_
   %59 = getelementptr inbounds i8, ptr %3, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 254
-  %62 = icmp ugt i32 %61, 9
+  %62 = icmp samesign ugt i32 %61, 9
   %63 = and i32 %60, 255
   %.sroa.4.0.extract.shift.i = lshr i32 %60, 8
   %64 = and i32 %.sroa.4.0.extract.shift.i, 240
   %65 = and i32 %.sroa.4.0.extract.shift.i, 15
   %66 = and i32 %60, 61440
-  %67 = icmp ugt i32 %66, 36864
+  %67 = icmp samesign ugt i32 %66, 36864
   %68 = and i32 %60, 3584
-  %69 = icmp ugt i32 %68, 2304
+  %69 = icmp samesign ugt i32 %68, 2304
   %70 = select i1 %67, i32 144, i32 %64
   %71 = select i1 %69, i32 9, i32 %65
   %72 = or disjoint i32 %70, %71
@@ -1188,7 +1188,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %171 = load i32, ptr %101, align 4
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next, %172
   br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %CompatibleTypes.exit.thread
@@ -1433,7 +1433,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
   %113 = phi i32 [ %.pre, %._crit_edge59 ], [ %96, %95 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next57, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next57, %114
   br i1 %115, label %95, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %100, %112, %.preheader, %._crit_edge, %2
@@ -1624,8 +1624,8 @@ define hidden void @cmsSetProfileVersion(ptr nocapture noundef writeonly %0, dou
   %10 = udiv i32 %.01718.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = icmp ugt i32 %.01718.i, 9
-  %12 = icmp ult i64 %indvars.iv.i, 99
-  %13 = and i1 %12, %11
+  %12 = icmp samesign ult i64 %indvars.iv.i, 99
+  %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !17
 
 .lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
@@ -1680,7 +1680,7 @@ define hidden double @cmsGetProfileVersion(ptr nocapture noundef readonly %0) lo
   store i8 %7, ptr %8, align 1
   %9 = lshr i32 %.01718.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = icmp ugt i32 %.01718.i, 15
+  %10 = icmp samesign ugt i32 %.01718.i, 15
   br i1 %10, label %.lr.ph.i, label %.lr.ph22.i, !llvm.loop !17
 
 .lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
@@ -1842,7 +1842,7 @@ freeOneTag.exit:                                  ; preds = %31, %37, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %22, align 4
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %31, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %freeOneTag.exit, %cmsSaveProfileToFile.exit
@@ -2343,7 +2343,7 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr nocapture noundef %0, p
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %.01718.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %14 = icmp ugt i32 %.01718.i.i, 15
+  %14 = icmp samesign ugt i32 %.01718.i.i, 15
   br i1 %14, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !17
 
 .lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph22.i.i
@@ -2546,7 +2546,7 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = load i32, ptr %23, align 4
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next, %125
   br i1 %126, label %39, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %54, %62, %66, %71, %74, %83, %107, %118, %123, %cmsGetProfileVersion.exit, %116
@@ -3239,7 +3239,7 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
   store i8 %97, ptr %98, align 1
   %99 = lshr i32 %.01718.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %100 = icmp ugt i32 %.01718.i.i, 15
+  %100 = icmp samesign ugt i32 %.01718.i.i, 15
   br i1 %100, label %.lr.ph.i.i, label %.lr.ph22.i.i, !llvm.loop !17
 
 .lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph22.i.i

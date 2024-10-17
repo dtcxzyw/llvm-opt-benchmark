@@ -3607,7 +3607,7 @@ for.body149:                                      ; preds = %if.end143, %if.end1
 if.end154:                                        ; preds = %for.body149
   %inc = add nuw i64 %num_ack_blocks_written.1148, 1
   %inc155 = add nuw nsw i64 %i.0149, 1
-  %cmp145 = icmp ult i64 %inc155, %div129
+  %cmp145 = icmp samesign ult i64 %inc155, %div129
   %25 = load i64, ptr %num_ack_blocks81, align 8
   %cmp147 = icmp ult i64 %inc, %25
   %26 = select i1 %cmp145, i1 %cmp147, i1 false
@@ -7411,7 +7411,7 @@ land.rhs:                                         ; preds = %if.end, %invoke.con
   %previous_start.019 = phi i64 [ %8, %invoke.cont39 ], [ %2, %if.end ]
   %5 = phi i64 [ %add31, %invoke.cont39 ], [ 0, %if.end ]
   %6 = phi i64 [ %.sroa.speculated, %invoke.cont39 ], [ %sub.i, %if.end ]
-  %cmp = icmp ult i64 %5, 255
+  %cmp = icmp samesign ult i64 %5, 255
   br i1 %cmp, label %invoke.cont39, label %nrvo.skipdtor
 
 invoke.cont39:                                    ; preds = %land.rhs
@@ -7702,7 +7702,7 @@ if.end49:                                         ; preds = %if.end46
   %inc = add nuw nsw i64 %i.054, 1
   %15 = load i8, ptr %num_missing_ranges, align 1
   %conv41 = zext i8 %15 to i64
-  %cmp42 = icmp ult i64 %inc, %conv41
+  %cmp42 = icmp samesign ult i64 %inc, %conv41
   br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %if.end49, %if.end39
@@ -7729,7 +7729,7 @@ for.cond60:                                       ; preds = %for.body63
   %inc69 = add nuw nsw i64 %i59.057, 1
   %18 = load i8, ptr %num_revived_packets, align 1
   %conv61 = zext i8 %18 to i64
-  %cmp62 = icmp ult i64 %inc69, %conv61
+  %cmp62 = icmp samesign ult i64 %inc69, %conv61
   br i1 %cmp62, label %for.body63, label %return, !llvm.loop !33
 
 for.body63:                                       ; preds = %for.cond60.preheader, %for.cond60
@@ -7865,7 +7865,7 @@ for.inc:                                          ; preds = %if.end48, %if.then5
   %inc = add nuw nsw i64 %i.049, 1
   %14 = load i8, ptr %num_ack_blocks, align 1
   %conv40 = zext i8 %14 to i64
-  %cmp41 = icmp ult i64 %inc, %conv40
+  %cmp41 = icmp samesign ult i64 %inc, %conv40
   br i1 %cmp41, label %for.body, label %if.end56, !llvm.loop !34
 
 if.end56:                                         ; preds = %for.inc, %if.end33

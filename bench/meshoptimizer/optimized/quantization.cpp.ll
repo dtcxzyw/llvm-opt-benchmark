@@ -13,11 +13,11 @@ entry:
   %and1 = bitcast float %1 to i32
   %add = add nsw i32 %and1, -939520000
   %shr2 = lshr i32 %add, 13
-  %cmp = icmp ult i32 %and1, 947912704
+  %cmp = icmp samesign ult i32 %and1, 947912704
   %cond = select i1 %cmp, i32 947912704, i32 %shr2
-  %cmp3 = icmp ugt i32 %and1, 1199570943
+  %cmp3 = icmp samesign ugt i32 %and1, 1199570943
   %cond7 = select i1 %cmp3, i32 31744, i32 %cond
-  %cmp8 = icmp ugt i32 %and1, 2139095040
+  %cmp8 = icmp samesign ugt i32 %and1, 2139095040
   %cond12 = select i1 %cmp8, i32 32256, i32 %cond7
   %or = or i32 %cond12, %and
   %conv = trunc i32 %or to i16
@@ -52,9 +52,9 @@ entry:
   %and2 = zext nneg i16 %0 to i32
   %add = shl nuw nsw i32 %and2, 13
   %shl3 = add nuw nsw i32 %add, 939524096
-  %cmp = icmp ult i16 %0, 1024
+  %cmp = icmp samesign ult i16 %0, 1024
   %cond = select i1 %cmp, i32 0, i32 %shl3
-  %cmp4 = icmp ugt i16 %0, 31743
+  %cmp4 = icmp samesign ugt i16 %0, 31743
   %cond5 = select i1 %cmp4, i32 939524096, i32 0
   %add6 = add nuw nsw i32 %cond, %cond5
   %or = or disjoint i32 %add6, %shl

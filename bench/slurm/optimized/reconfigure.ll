@@ -182,7 +182,7 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %12, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12, %0

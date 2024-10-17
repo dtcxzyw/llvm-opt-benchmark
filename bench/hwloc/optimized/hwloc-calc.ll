@@ -3559,7 +3559,7 @@ hwloc_calc_get_next_obj_covering_set_by_depth.exit153.thread: ; preds = %93, %hw
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = load i32, ptr %6, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %indvars.iv.next, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next, %167
   br i1 %168, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %164, %.thread, %150, %138

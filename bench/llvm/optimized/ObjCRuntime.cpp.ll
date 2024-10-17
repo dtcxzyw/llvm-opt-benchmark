@@ -368,13 +368,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %30 = and i32 %29, 2147483647
   %31 = and i64 %27, 4294967295
   %32 = icmp ne i64 %31, 0
-  %33 = icmp ugt i32 %30, 8
+  %33 = icmp samesign ugt i32 %30, 8
   %or.cond126 = select i1 %32, i1 true, i1 %33
   br i1 %or.cond126, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %34
 
 34:                                               ; preds = %.thread124
   %35 = load i64, ptr %.sroa.290.0..sroa_idx, align 4
-  %36 = icmp ult i32 %30, 8
+  %36 = icmp samesign ult i32 %30, 8
   %37 = and i64 %35, 9223372034707292159
   %or.cond127.not = icmp eq i64 %37, 0
   %or.cond128 = select i1 %36, i1 true, i1 %or.cond127.not

@@ -2219,7 +2219,7 @@ thread-pre-split:                                 ; preds = %84
   %97 = mul nsw i64 %96, %95
   %98 = lshr i64 %97, 1
   %99 = zext nneg i32 %94 to i64
-  %100 = icmp ult i64 %98, %99
+  %100 = icmp samesign ult i64 %98, %99
   br i1 %100, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %101
 
 101:                                              ; preds = %93
@@ -6415,8 +6415,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %41, %_ZNSt6vectorIi
 
 76:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %77 = udiv i32 %.sroa.0.0.in.sroa.speculate.load..i, 3
-  %78 = icmp ugt i32 %19, %77
-  %79 = or i1 %6, %78
+  %78 = icmp samesign ugt i32 %19, %77
+  %79 = select i1 %6, i1 true, i1 %78
   br i1 %79, label %.loopexit, label %.preheader43
 
 .preheader43:                                     ; preds = %76
@@ -6777,7 +6777,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 12
   %79 = and i64 %78, 4294967295
-  %80 = icmp ult i64 %indvars.iv.next316, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next316, %79
   br i1 %80, label %.lr.ph283, label %._crit_edge284, !llvm.loop !81
 
 ._crit_edge284:                                   ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %.preheader
@@ -7343,7 +7343,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %331 = sub i64 %329, %330
   %332 = sdiv exact i64 %331, 12
   %333 = and i64 %332, 4294967295
-  %334 = icmp ult i64 %indvars.iv.next309, %333
+  %334 = icmp samesign ult i64 %indvars.iv.next309, %333
   br i1 %334, label %.lr.ph279, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i106, %.preheader220
@@ -9045,7 +9045,7 @@ thread-pre-split:                                 ; preds = %84
   %97 = mul nsw i64 %96, %95
   %98 = lshr i64 %97, 1
   %99 = zext nneg i32 %94 to i64
-  %100 = icmp ult i64 %98, %99
+  %100 = icmp samesign ult i64 %98, %99
   br i1 %100, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %101
 
 101:                                              ; preds = %93
@@ -13129,8 +13129,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %41, %_ZNSt6vectorIi
 
 76:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %77 = udiv i32 %.sroa.0.0.in.sroa.speculate.load..i, 3
-  %78 = icmp ugt i32 %19, %77
-  %79 = or i1 %6, %78
+  %78 = icmp samesign ugt i32 %19, %77
+  %79 = select i1 %6, i1 true, i1 %78
   br i1 %79, label %.loopexit, label %.preheader43
 
 .preheader43:                                     ; preds = %76
@@ -13365,7 +13365,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 12
   %79 = and i64 %78, 4294967295
-  %80 = icmp ult i64 %indvars.iv.next316, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next316, %79
   br i1 %80, label %.lr.ph283, label %._crit_edge284, !llvm.loop !156
 
 ._crit_edge284:                                   ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %.preheader
@@ -13931,7 +13931,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %331 = sub i64 %329, %330
   %332 = sdiv exact i64 %331, 12
   %333 = and i64 %332, 4294967295
-  %334 = icmp ult i64 %indvars.iv.next309, %333
+  %334 = icmp samesign ult i64 %indvars.iv.next309, %333
   br i1 %334, label %.lr.ph279, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i106, %.preheader220
@@ -15694,7 +15694,7 @@ thread-pre-split:                                 ; preds = %84
   %97 = mul nsw i64 %96, %95
   %98 = lshr i64 %97, 1
   %99 = zext nneg i32 %94 to i64
-  %100 = icmp ult i64 %98, %99
+  %100 = icmp samesign ult i64 %98, %99
   br i1 %100, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %101
 
 101:                                              ; preds = %93
@@ -20026,8 +20026,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %41, %_ZNSt6vectorIi
 
 76:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %77 = udiv i32 %.sroa.0.0.in.sroa.speculate.load..i, 3
-  %78 = icmp ugt i32 %19, %77
-  %79 = or i1 %6, %78
+  %78 = icmp samesign ugt i32 %19, %77
+  %79 = select i1 %6, i1 true, i1 %78
   br i1 %79, label %.loopexit, label %.preheader43
 
 .preheader43:                                     ; preds = %76
@@ -20262,7 +20262,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %77 = sub i64 %75, %76
   %78 = sdiv exact i64 %77, 12
   %79 = and i64 %78, 4294967295
-  %80 = icmp ult i64 %indvars.iv.next316, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next316, %79
   br i1 %80, label %.lr.ph283, label %._crit_edge284, !llvm.loop !228
 
 ._crit_edge284:                                   ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %.preheader
@@ -20828,7 +20828,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %331 = sub i64 %329, %330
   %332 = sdiv exact i64 %331, 12
   %333 = and i64 %332, 4294967295
-  %334 = icmp ult i64 %indvars.iv.next309, %333
+  %334 = icmp samesign ult i64 %indvars.iv.next309, %333
   br i1 %334, label %.lr.ph279, label %._crit_edge, !llvm.loop !235
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i106, %.preheader220
@@ -23794,7 +23794,7 @@ _ZN5draco31MeshEdgebreakerTraversalDecoderD2Ev.exit: ; preds = %_ZN5draco15Index
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #12 {
-  %4 = icmp ugt i32 %0, 5
+  %4 = icmp samesign ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
 5:                                                ; preds = %3

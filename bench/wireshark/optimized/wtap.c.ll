@@ -745,7 +745,7 @@ define hidden ptr @wtap_file_get_shb_for_new_file(ptr noundef readonly %0) local
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1, %4, %8
@@ -1439,7 +1439,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly %0) local
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1, %4, %8
@@ -1500,7 +1500,7 @@ define void @wtap_dump_params_init(ptr nocapture noundef writeonly %0, ptr nound
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !4
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
@@ -1594,7 +1594,7 @@ define void @wtap_dump_params_init_no_idbs(ptr nocapture noundef writeonly %0, p
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !4
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
@@ -2026,7 +2026,7 @@ wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %wtapng_process_nrb_ipv4.exit, %.preheader, %3, %2
@@ -2086,7 +2086,7 @@ wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %wtapng_process_nrb_ipv6.exit, %.preheader, %3, %2
@@ -2191,7 +2191,7 @@ wtapng_process_dsb.exit:                          ; preds = %.lr.ph, %16
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %wtapng_process_dsb.exit, %6, %2, %3

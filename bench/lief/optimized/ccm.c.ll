@@ -173,7 +173,7 @@ define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   %51 = lshr i64 %.037.i, 8
   %52 = load i8, ptr %12, align 8
   %53 = zext i8 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next.i, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next.i, %53
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %34
@@ -282,7 +282,7 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   %40 = lshr i64 %.037.i, 8
   %41 = load i8, ptr %31, align 8
   %42 = zext i8 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i, %42
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge39.i
@@ -693,7 +693,7 @@ mbedtls_ccm_crypt.exit114:                        ; preds = %.preheader.i111
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %114 = load i8, ptr %34, align 8
   %115 = zext i8 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next141, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next141, %115
   br i1 %116, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %111, %113
@@ -772,7 +772,7 @@ define hidden i32 @mbedtls_ccm_finish(ptr noundef %0, ptr noundef writeonly %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i8, ptr %20, align 8
   %27 = zext i8 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %23, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %19

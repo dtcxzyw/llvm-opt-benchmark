@@ -2233,7 +2233,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %286 = add i16 %282, 8
   %287 = add nuw nsw i32 %281, 8
   %288 = and i32 %287, 65535
-  %289 = icmp ult i32 %288, %280
+  %289 = icmp samesign ult i32 %288, %280
   br i1 %289, label %.lr.ph, label %cdma2k_message_ADDR_FIELDS.exit.loopexit, !llvm.loop !6
 
 cdma2k_message_ADDR_FIELDS.exit.loopexit:         ; preds = %.lr.ph, %272
@@ -2785,7 +2785,7 @@ cdma2k_message_ORDER_IND.exit:                    ; preds = %421, %451, %460, %4
   %665 = zext i16 %.0756.i to i32
   %666 = shl nuw nsw i32 %665, 5
   %667 = zext i8 %661 to i32
-  %668 = icmp ult i32 %666, %667
+  %668 = icmp samesign ult i32 %666, %667
   %669 = add nuw nsw i32 %667, 1
   %.073.i = select i1 %668, i32 32, i32 %669
   %670 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
@@ -2822,7 +2822,7 @@ cdma2k_message_ORDER_IND.exit:                    ; preds = %421, %451, %460, %4
 685:                                              ; preds = %682
   %686 = zext i16 %.1762.i to i32
   %687 = shl nuw nsw i32 %686, 5
-  %688 = icmp ult i32 %687, %667
+  %688 = icmp samesign ult i32 %687, %667
   %689 = sub nsw i32 %667, %687
   %690 = and i32 %689, 65535
   %.174.i = select i1 %688, i32 32, i32 %690
@@ -4597,7 +4597,7 @@ cdma2k_message_ORDER_CMD.exit:                    ; preds = %1518, %1545, %1558,
   %1968 = zext i16 %.0756.i214 to i32
   %1969 = shl nuw nsw i32 %1968, 5
   %1970 = zext i8 %1964 to i32
-  %1971 = icmp ult i32 %1969, %1970
+  %1971 = icmp samesign ult i32 %1969, %1970
   %1972 = add nuw nsw i32 %1970, 1
   %.073.i216 = select i1 %1971, i32 32, i32 %1972
   %1973 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
@@ -4634,7 +4634,7 @@ cdma2k_message_ORDER_CMD.exit:                    ; preds = %1518, %1545, %1558,
 1988:                                             ; preds = %1985
   %1989 = zext i16 %.1762.i221 to i32
   %1990 = shl nuw nsw i32 %1989, 5
-  %1991 = icmp ult i32 %1990, %1970
+  %1991 = icmp samesign ult i32 %1990, %1970
   %1992 = sub nsw i32 %1970, %1990
   %1993 = and i32 %1992, 65535
   %.174.i231 = select i1 %1991, i32 32, i32 %1993
@@ -6241,7 +6241,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.1.i = phi i16 [ %.046621.i, %537 ], [ 0, %538 ], [ %543, %575 ]
   %577 = add i16 %.4.i, 1
   %578 = zext i16 %577 to i32
-  %.not488.i = icmp ugt i32 %578, %462
+  %.not488.i = icmp samesign ugt i32 %578, %462
   br i1 %.not488.i, label %._crit_edge.i, label %466, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.loopexit7.i, %.loopexit10.i
@@ -6284,7 +6284,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.0464.i = phi i1 [ %596, %590 ], [ false, %588 ]
   %or.cond20.i = select i1 %.0465.i, i1 true, i1 %.0464.i
   %.not48929.i = icmp ne i8 %455, 0
-  %or.cond44.not.i = and i1 %.not48929.i, %or.cond20.i
+  %or.cond44.not.i = select i1 %or.cond20.i, i1 %.not48929.i, i1 false
   br i1 %or.cond44.not.i, label %.lr.ph31.i, label %.loopexit6.i
 
 .lr.ph31.i:                                       ; preds = %597
@@ -6471,7 +6471,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.7.i = phi i16 [ %.530.i, %672 ], [ %.530.mux.i, %673 ], [ %723, %722 ]
   %724 = add i16 %.7.i, 1
   %725 = zext i16 %724 to i32
-  %.not489.i = icmp ugt i32 %725, %462
+  %.not489.i = icmp samesign ugt i32 %725, %462
   br i1 %.not489.i, label %.loopexit6.i, label %599, !llvm.loop !37
 
 .loopexit6.i:                                     ; preds = %.loopexit4.i, %597
@@ -6547,7 +6547,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
 ._crit_edge36.i:                                  ; preds = %._crit_edge36.loopexit.i, %746
   %.44 = phi i16 [ %.42, %746 ], [ %764, %._crit_edge36.loopexit.i ]
   %.9.lcssa.i = phi i32 [ 2, %746 ], [ %767, %._crit_edge36.loopexit.i ]
-  %.not490.i = icmp ugt i32 %.9.lcssa.i, %462
+  %.not490.i = icmp samesign ugt i32 %.9.lcssa.i, %462
   br i1 %.not490.i, label %.loopexit2.i, label %746, !llvm.loop !39
 
 .loopexit2.i:                                     ; preds = %._crit_edge36.i, %745, %.loopexit6.i
@@ -6609,7 +6609,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %or.cond35.i = select i1 %or.cond14.i, i1 %774, i1 false
   %or.cond38.i = select i1 %580, i1 %.0.i, i1 false
   %or.cond.i = select i1 %or.cond35.i, i1 true, i1 %or.cond38.i
-  %or.cond46.not.i = and i1 %.not48929.i, %or.cond.i
+  %or.cond46.not.i = select i1 %or.cond.i, i1 %.not48929.i, i1 false
   br i1 %or.cond46.not.i, label %.lr.ph43.i, label %.loopexit.i
 
 .lr.ph43.i:                                       ; preds = %805, %.lr.ph43.i
@@ -6732,7 +6732,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %876 = icmp eq i16 %.0561, 1
   %877 = icmp eq i16 %.0560, 1
   %or.cond11 = or i1 %876, %877
-  %878 = icmp ugt i32 %.0554, 10
+  %878 = icmp samesign ugt i32 %.0554, 10
   %or.cond14 = select i1 %or.cond11, i1 true, i1 %878
   br i1 %or.cond14, label %879, label %.loopexit364
 
@@ -6915,7 +6915,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   br label %.thread347
 
 980:                                              ; preds = %.loopexit
-  %981 = icmp ugt i32 %.0554, 7
+  %981 = icmp samesign ugt i32 %.0554, 7
   %or.cond50 = and i1 %5, %981
   br i1 %or.cond50, label %982, label %.thread351
 
@@ -7102,11 +7102,11 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %1120 = zext i16 %.68 to i32
   %1121 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %1119, ptr noundef %0, i32 noundef %1120, i32 noundef 1, i32 noundef 0) #4
   %1122 = add i16 %.68, 1
-  %1123 = icmp ugt i32 %.0554, 9
+  %1123 = icmp samesign ugt i32 %.0554, 9
   br i1 %1123, label %1125, label %.thread347
 
 .thread351:                                       ; preds = %980
-  %1124 = icmp ugt i32 %.0554, 9
+  %1124 = icmp samesign ugt i32 %.0554, 9
   %or.cond53354 = and i1 %5, %1124
   br i1 %or.cond53354, label %.thread357, label %.thread347
 
@@ -7266,7 +7266,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %.75 = phi i16 [ %1230, %1222 ], [ %1220, %1204 ]
   %1232 = add i16 %.3408, 1
   %1233 = zext i16 %1232 to i32
-  %.not581 = icmp ugt i16 %1232, %1203
+  %.not581 = icmp samesign ugt i16 %1232, %1203
   br i1 %.not581, label %.critedge584, label %1204, !llvm.loop !43
 
 .critedge584:                                     ; preds = %1231, %1201, %1173, %1175

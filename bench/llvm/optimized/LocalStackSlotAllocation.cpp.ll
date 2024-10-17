@@ -948,7 +948,7 @@ _ZN4llvm4sortIRNS_11SmallVectorIN12_GLOBAL__N_18FrameRefELj64EEEEEvOT_.exit.i: ;
   %416 = add nsw i64 %403, %.val101.i
   %417 = add nsw i64 %416, %415
   %418 = add nuw nsw i64 %indvars.iv154.i, 1
-  %.not95.i = icmp ult i64 %418, %374
+  %.not95.i = icmp samesign ult i64 %418, %374
   br i1 %.not95.i, label %419, label %.critedge.i
 
 419:                                              ; preds = %411

@@ -709,17 +709,17 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h8aa89f49444377
 7:                                                ; preds = %.lr.ph, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h357fccd2bcb6826eE.exit"
   %8 = phi i32 [ %3, %.lr.ph ], [ %61, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h357fccd2bcb6826eE.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %9 = icmp ult i32 %8, 128
+  %9 = icmp samesign ult i32 %8, 128
   br i1 %9, label %52, label %10
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i, align 4, !noalias !244
-  %11 = icmp ult i32 %8, 2048
+  %11 = icmp samesign ult i32 %8, 2048
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %8, 65536
+  %13 = icmp samesign ult i32 %8, 65536
   br i1 %13, label %18, label %26
 
 14:                                               ; preds = %10
@@ -1847,7 +1847,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -1860,7 +1860,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

@@ -20275,7 +20275,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
   %.sroa.23.0.copyload17.i.i.i = load double, ptr %.sroa.23.0..sroa_idx16.i.i.i, align 8
   %16 = add nsw i64 %12, -1
   %17 = lshr i64 %16, 1
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp samesign ult i64 %14, %17
   br i1 %18, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

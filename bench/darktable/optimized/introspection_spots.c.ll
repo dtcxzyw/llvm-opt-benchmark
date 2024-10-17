@@ -1503,7 +1503,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %770 = add nuw nsw i64 %71, 1
   %771 = getelementptr inbounds i8, ptr %72, i64 8
   %772 = load ptr, ptr %771, align 8, !tbaa !20
-  %773 = icmp ult i64 %71, 63
+  %773 = icmp samesign ult i64 %71, 63
   %774 = icmp ne ptr %772, null
   %775 = select i1 %773, i1 %774, i1 false
   br i1 %775, label %70, label %.loopexit49
@@ -2155,7 +2155,7 @@ define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   %289 = add nuw nsw i64 %88, 1
   %290 = getelementptr inbounds i8, ptr %89, i64 8
   %291 = load ptr, ptr %290, align 8, !tbaa !20
-  %292 = icmp ult i64 %88, 63
+  %292 = icmp samesign ult i64 %88, 63
   %293 = icmp ne ptr %291, null
   %294 = select i1 %292, i1 %293, i1 false
   br i1 %294, label %87, label %295

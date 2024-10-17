@@ -289,7 +289,7 @@ Vec_IntStart.exit147:                             ; preds = %Vec_IntAlloc.exit.t
   %110 = getelementptr inbounds i32, ptr %.val119, i64 %109
   store i32 1, ptr %110, align 4
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %111 = icmp ult i64 %indvars.iv.next203, %105
+  %111 = icmp samesign ult i64 %indvars.iv.next203, %105
   br i1 %111, label %106, label %.critedge4, !llvm.loop !8
 
 .critedge4:                                       ; preds = %106, %Vec_IntStart.exit147
@@ -320,7 +320,7 @@ Vec_IntStart.exit147:                             ; preds = %Vec_IntAlloc.exit.t
   %123 = getelementptr inbounds i32, ptr %.val119, i64 %122
   store i32 1, ptr %123, align 4
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %124 = icmp ult i64 %indvars.iv.next206, %117
+  %124 = icmp samesign ult i64 %indvars.iv.next206, %117
   br i1 %124, label %118, label %.critedge6, !llvm.loop !9
 
 .critedge6:                                       ; preds = %118, %.preheader173, %.critedge4

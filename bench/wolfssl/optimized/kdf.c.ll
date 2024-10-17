@@ -213,7 +213,7 @@ if.then22:                                        ; preds = %if.then15
 
 while.end.i:                                      ; preds = %if.then22
   %div15.i = lshr i32 %digLen, 3
-  %cmp2.not.i.i = icmp ult i32 %digLen, 8
+  %cmp2.not.i.i = icmp samesign ult i32 %digLen, 8
   br i1 %cmp2.not.i.i, label %XorWords.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i, %for.body.i.i

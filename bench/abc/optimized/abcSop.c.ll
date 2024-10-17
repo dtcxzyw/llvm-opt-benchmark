@@ -2698,7 +2698,7 @@ define noundef ptr @Abc_SopEncoderLog(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %9 = icmp ugt i32 %7, 1
+  %9 = icmp samesign ugt i32 %7, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -3674,7 +3674,7 @@ Vec_StrPush.exit.us:                              ; preds = %Vec_StrGrow.exit.i.
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
   store i8 32, ptr %64, align 1
   %65 = add nuw nsw i32 %.01835.us, 1
-  %66 = icmp ugt i32 %6, %65
+  %66 = icmp samesign ugt i32 %6, %65
   %67 = select i1 %3, i1 %66, i1 false
   br i1 %67, label %36, label %._crit_edge.us, !llvm.loop !49
 

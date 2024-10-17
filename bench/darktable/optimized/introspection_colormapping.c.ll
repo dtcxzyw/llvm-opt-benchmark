@@ -3052,7 +3052,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   %118 = icmp eq i64 %117, %8
   %119 = and i64 %8, 1
   %120 = icmp eq i64 %119, 0
-  %121 = icmp ult i64 %86, 32
+  %121 = icmp samesign ult i64 %86, 32
   %122 = and i64 %86, 4294967264
   %123 = icmp eq i64 %86, %122
   %124 = select i1 %102, i1 true, i1 %116
@@ -3107,7 +3107,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   br i1 %45, label %163, label %.loopexit23
 
 163:                                              ; preds = %162
-  %164 = icmp ult i64 %86, 9
+  %164 = icmp samesign ult i64 %86, 9
   br i1 %164, label %.loopexit26, label %190
 
 .loopexit26:                                      ; preds = %211, %190, %163

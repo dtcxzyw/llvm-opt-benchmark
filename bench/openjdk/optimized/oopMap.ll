@@ -1840,7 +1840,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
   %10 = load i32, ptr %9, align 2
   %.sroa.0.0.extract.trunc = trunc i32 %10 to i16
   %11 = and i32 %10, 3
-  %switch = icmp ult i32 %11, 2
+  %switch = icmp samesign ult i32 %11, 2
   br i1 %switch, label %12, label %30
 
 12:                                               ; preds = %7
@@ -2203,7 +2203,7 @@ define hidden noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnu
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %or.cond.i.i.i.i.i = select i1 %10, i1 %12, i1 false
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %14 = sub nuw nsw i32 32, %13
@@ -5795,7 +5795,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
   %.sroa.26.2201 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit73 ], [ %310, %_ZN20CompressedReadStream8read_intEv.exit13.i118 ], [ %310, %_ZN20CompressedReadStream8read_intEv.exit.i106 ]
   %330 = and i16 %.sroa.26.2201, 3
   %.not28 = icmp eq i16 %330, 0
-  %switch = icmp ult i16 %330, 2
+  %switch = icmp samesign ult i16 %330, 2
   br i1 %switch, label %331, label %_ZN13SkipNullValue11should_skipEPv.exit70.thread
 
 331:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit55.thread

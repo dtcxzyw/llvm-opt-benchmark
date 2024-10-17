@@ -923,11 +923,11 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
   %4 = and i8 %3, 1
   %5 = load i8, ptr %1, align 8
   %6 = and i8 %5, 1
-  %7 = icmp ult i8 %4, %6
+  %7 = icmp samesign ult i8 %4, %6
   br i1 %7, label %42, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i8 %4, %6
+  %9 = icmp samesign ugt i8 %4, %6
   br i1 %9, label %42, label %10
 
 10:                                               ; preds = %8
@@ -937,11 +937,11 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
   %14 = getelementptr inbounds i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
-  %17 = icmp ult i8 %13, %16
+  %17 = icmp samesign ult i8 %13, %16
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %10
-  %19 = icmp ugt i8 %13, %16
+  %19 = icmp samesign ugt i8 %13, %16
   br i1 %19, label %42, label %20
 
 20:                                               ; preds = %18
@@ -951,11 +951,11 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
   %24 = getelementptr inbounds i8, ptr %1, i64 2
   %25 = load i8, ptr %24, align 2
   %26 = and i8 %25, 1
-  %27 = icmp ult i8 %23, %26
+  %27 = icmp samesign ult i8 %23, %26
   br i1 %27, label %42, label %28
 
 28:                                               ; preds = %20
-  %29 = icmp ugt i8 %23, %26
+  %29 = icmp samesign ugt i8 %23, %26
   br i1 %29, label %42, label %30
 
 30:                                               ; preds = %28

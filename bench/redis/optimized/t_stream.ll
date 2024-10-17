@@ -9395,7 +9395,7 @@ if.end167:                                        ; preds = %if.then159, %stream
   %call168 = call i64 @commandTimeSnapshot() #16
   store i64 %call168, ptr %consumer.0, align 8
   %call169 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #16
-  %cmp172.not.not201 = icmp ugt i32 %j.0.lcssa, 5
+  %cmp172.not.not201 = icmp samesign ugt i32 %j.0.lcssa, 5
   br i1 %cmp172.not.not201, label %for.body174.lr.ph, label %for.end287
 
 for.body174.lr.ph:                                ; preds = %if.end167

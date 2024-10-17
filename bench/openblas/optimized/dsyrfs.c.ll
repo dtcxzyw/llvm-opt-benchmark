@@ -199,7 +199,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %138 = fcmp oge double %137, 0.000000e+00
   %139 = fneg double %137
   %140 = select i1 %138, double %137, double %139
-  %141 = icmp ugt i64 %135, 1
+  %141 = icmp samesign ugt i64 %135, 1
   br i1 %141, label %142, label %.loopexit29
 
 142:                                              ; preds = %.preheader
@@ -274,7 +274,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %202 = call double @llvm.fmuladd.f64(double %199, double %191, double %201)
   store double %202, ptr %200, align 8, !tbaa !7
   %203 = add nuw nsw i64 %184, 1
-  %204 = icmp ult i64 %184, %134
+  %204 = icmp samesign ult i64 %184, %134
   br i1 %204, label %205, label %.loopexit28
 
 205:                                              ; preds = %183
@@ -362,7 +362,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 258:                                              ; preds = %.critedge
   %259 = fmul double %256, 2.000000e+00
   %260 = fcmp ole double %259, %110
-  %261 = icmp ult i32 %109, 6
+  %261 = icmp samesign ult i32 %109, 6
   %262 = select i1 %260, i1 %261, i1 false
   br i1 %262, label %263, label %271
 
@@ -524,7 +524,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .thread27:                                        ; preds = %340, %360, %358
   %363 = add nuw nsw i64 %100, 1
-  %364 = icmp ult i64 %100, %98
+  %364 = icmp samesign ult i64 %100, %98
   br i1 %364, label %99, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.thread27, %75, %70, %81, %71, %63

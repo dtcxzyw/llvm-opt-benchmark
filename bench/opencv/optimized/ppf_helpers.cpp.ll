@@ -11541,8 +11541,8 @@ _ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit.thread44.i
 17:                                               ; preds = %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit.thread44.i
   %.sroa.3.0.extract.shift.i.i26.i = lshr i64 %.sroa.0.0.copyload.i24.i, 32
   %18 = fcmp oeq float %5, %15
-  %19 = icmp ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i26.i
-  %or.cond.i = and i1 %19, %18
+  %19 = icmp samesign ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i26.i
+  %or.cond.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i, label %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit.thread.i, label %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit28.thread45.i
 
 _ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit28.thread45.i: ; preds = %17
@@ -11600,8 +11600,8 @@ _ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIfE9DistIndexES3_St9_IdentityIS3_ESt4le
 36:                                               ; preds = %.lr.ph.i29.i
   %.sroa.3.0.extract.shift.i.i.i32.i = lshr i64 %.sroa.0.0.copyload.i.i30.i, 32
   %37 = fcmp oeq float %5, %34
-  %38 = icmp ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i.i32.i
-  %or.cond.i.i = and i1 %38, %37
+  %38 = icmp samesign ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i.i32.i
+  %or.cond.i.i = select i1 %37, i1 %38, i1 false
   %spec.select.i.i = select i1 %or.cond.i.i, i64 16, i64 24
   %spec.select16.i.i = select i1 %or.cond.i.i, ptr %.015.i.i, ptr %.0814.i.i
   br label %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit.thread.i34.i
@@ -22034,7 +22034,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
   %36 = icmp ult ptr %32, %35
-  %37 = icmp ugt i64 %indvars.iv163, 1
+  %37 = icmp samesign ugt i64 %indvars.iv163, 1
   br i1 %37, label %.lr.ph69.split.us.us, label %.lr.ph69.split.us124
 
 38:                                               ; preds = %._crit_edge70.us
@@ -25171,7 +25171,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -28132,15 +28132,15 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %59 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   %60 = load float, ptr %59, align 4
   %61 = fcmp olt float %60, %.0.i
-  %62 = icmp ult i64 %indvars.iv, %indvars.iv54
-  %63 = and i1 %62, %61
+  %62 = icmp samesign ult i64 %indvars.iv, %indvars.iv54
+  %63 = select i1 %61, i1 %62, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %63, label %58, label %.preheader, !llvm.loop !370
 
 .preheader:                                       ; preds = %58
   %64 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   %65 = and i64 %indvars.iv, 4294967295
-  %66 = icmp ugt i64 %indvars.iv54, %65
+  %66 = icmp samesign ugt i64 %indvars.iv54, %65
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -31380,7 +31380,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %_ZSt6fill_nI
   %26 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %26, ptr %25, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %27 = icmp ult i64 %indvars.iv.next.i.i, %24
+  %27 = icmp samesign ult i64 %indvars.iv.next.i.i, %24
   br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !289
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.thread.i
@@ -35053,7 +35053,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
   %36 = icmp ult ptr %32, %35
-  %37 = icmp ugt i64 %indvars.iv163, 1
+  %37 = icmp samesign ugt i64 %indvars.iv163, 1
   br i1 %37, label %.lr.ph69.split.us.us, label %.lr.ph69.split.us124
 
 38:                                               ; preds = %._crit_edge70.us

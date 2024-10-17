@@ -61,7 +61,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr @nthreads, align 4
   %5 = zext i32 %4 to i64
-  %cmp1 = icmp ult i64 %indvars.iv.next, %5
+  %cmp1 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %post.exit, %for.cond
@@ -259,7 +259,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr @nthreads, align 4
   %4 = zext i32 %3 to i64
-  %cmp29.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp29.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp29.i, label %for.body.i, label %for.cond35.preheader.i
 
 for.cond35.preheader.i:                           ; preds = %for.cond.i

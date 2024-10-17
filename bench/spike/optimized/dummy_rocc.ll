@@ -170,7 +170,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ugt i32 %9, 3
+  %13 = icmp samesign ugt i32 %9, 3
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4

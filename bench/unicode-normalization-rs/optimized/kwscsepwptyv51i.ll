@@ -137,7 +137,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   %.sroa.58.0.extract.shift.i.i.i = lshr i48 %55, 32
   %.sroa.58.0.extract.trunc.i.i.i = zext nneg i48 %.sroa.58.0.extract.shift.i.i.i to i64
   %60 = sub nuw nsw i64 5735, %57
-  %61 = icmp ult i64 %60, %.sroa.58.0.extract.trunc.i.i.i
+  %61 = icmp samesign ult i64 %60, %.sroa.58.0.extract.trunc.i.i.i
   br i1 %61, label %62, label %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit.i.i.i.i.i"
 
 62:                                               ; preds = %59
@@ -166,7 +166,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   %.sroa.58.0.extract.shift.i.i.i.i.i = lshr i48 %65, 32
   %.sroa.58.0.extract.trunc.i.i.i.i.i = zext nneg i48 %.sroa.58.0.extract.shift.i.i.i.i.i to i64
   %70 = sub nuw nsw i64 3406, %67
-  %71 = icmp ult i64 %70, %.sroa.58.0.extract.trunc.i.i.i.i.i
+  %71 = icmp samesign ult i64 %70, %.sroa.58.0.extract.trunc.i.i.i.i.i
   br i1 %71, label %72, label %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit.i.i.i.i.i"
 
 72:                                               ; preds = %69

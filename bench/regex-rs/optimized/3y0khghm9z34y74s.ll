@@ -385,7 +385,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5), !noalias !48
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8, !range !51, !alias.scope !52, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %8, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %switch.not.i.i.i, label %9, label %_ZN5regex8builders7Builder15line_terminator17hbb6a80754365dfc4E.exit
 
 9:                                                ; preds = %2
@@ -470,7 +470,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !66
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !range !51, !alias.scope !69, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %6, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.not.i.i.i, label %7, label %_ZN5regex8builders7Builder10size_limit17h1b10e847e0bcd6a6E.exit
 
 7:                                                ; preds = %2
@@ -502,7 +502,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !74
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !range !51, !alias.scope !77, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %6, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.not.i.i.i, label %7, label %_ZN5regex8builders7Builder14dfa_size_limit17h163d5f3c4bdc4ae0E.exit
 
 7:                                                ; preds = %2
@@ -632,7 +632,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5), !noalias !100
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8, !range !51, !alias.scope !103, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %8, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %switch.not.i.i.i, label %9, label %_ZN5regex8builders7Builder15line_terminator17hbb6a80754365dfc4E.exit
 
 9:                                                ; preds = %2
@@ -717,7 +717,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !117
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !range !51, !alias.scope !120, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %6, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.not.i.i.i, label %7, label %_ZN5regex8builders7Builder10size_limit17h1b10e847e0bcd6a6E.exit
 
 7:                                                ; preds = %2
@@ -749,7 +749,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !125
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !range !51, !alias.scope !128, !noundef !9
-  %switch.not.i.i.i = icmp ult i8 %6, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.not.i.i.i, label %7, label %_ZN5regex8builders7Builder14dfa_size_limit17h163d5f3c4bdc4ae0E.exit
 
 7:                                                ; preds = %2

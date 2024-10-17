@@ -1321,7 +1321,7 @@ define dso_local void @hid_dump_field(ptr nocapture noundef readonly %0, i32 nou
 
 68:                                               ; preds = %64
   %69 = and i32 %66, 15
-  %70 = icmp ugt i32 %69, 4
+  %70 = icmp samesign ugt i32 %69, 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.490, i32 noundef %1, ptr noundef nonnull @.str.40) #9
   br i1 %70, label %.loopexit, label %71
 
@@ -1498,7 +1498,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly %0, ptr noundef %1) 
   %36 = add nuw nsw i64 %32, 1
   %37 = load i32, ptr %26, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %36, %38
+  %39 = icmp samesign ult i64 %36, %38
   br i1 %39, label %31, label %.loopexit, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %.loopexit, %4

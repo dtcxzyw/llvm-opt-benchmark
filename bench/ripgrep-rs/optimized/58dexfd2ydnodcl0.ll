@@ -4533,15 +4533,15 @@ _ZN4core3str11validations15next_code_point17h3577cbb96977ec4bE.exit.thread.i.i.i
   br i1 %456, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hb439849e2ef65cffE.exit.thread.i.i", label %457
 
 457:                                              ; preds = %455
-  %458 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
+  %458 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 128
   br i1 %458, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i", label %459
 
 459:                                              ; preds = %457
-  %460 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
+  %460 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 2048
   br i1 %460, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i", label %461
 
 461:                                              ; preds = %459
-  %462 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
+  %462 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 65536
   %..i.i.i.i.i = select i1 %462, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i"
 

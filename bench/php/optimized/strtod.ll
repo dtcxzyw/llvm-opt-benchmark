@@ -238,7 +238,7 @@ lexbor_diyfp_normalize.exit104.i:                 ; preds = %.lr.ph.i.i101.i, %.
   %spec.select.i105.i = select i1 %129, i32 0, i32 %130
   %.0.i106.i = select i1 %128, i32 53, i32 %spec.select.i105.i
   %131 = sub nuw nsw i32 64, %.0.i106.i
-  %132 = icmp ult i32 %.0.i106.i, 4
+  %132 = icmp samesign ult i32 %.0.i106.i, 4
   br i1 %132, label %133, label %140
 
 133:                                              ; preds = %lexbor_diyfp_normalize.exit104.i

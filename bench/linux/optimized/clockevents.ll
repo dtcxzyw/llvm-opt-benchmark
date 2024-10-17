@@ -1215,7 +1215,7 @@ define internal fastcc i32 @tick_init_sysfs() unnamed_addr #4 section ".init.tex
 1:                                                ; preds = %27, %0
   %2 = phi i64 [ 0, %0 ], [ %30, %27 ]
   %3 = and i64 %2, 4294967295
-  %4 = icmp ugt i64 %3, 63
+  %4 = icmp samesign ugt i64 %3, 63
   br i1 %4, label %.thread, label %5, !prof !5
 
 5:                                                ; preds = %1

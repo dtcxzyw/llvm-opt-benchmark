@@ -291,7 +291,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %31, align 8
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %67, %35

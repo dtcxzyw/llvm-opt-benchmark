@@ -5127,7 +5127,7 @@ for.end179:                                       ; preds = %for.cond82, %land.r
   %vfn.i213 = getelementptr inbounds i8, ptr %vtable.i212, i64 32
   %128 = load ptr, ptr %vfn.i213, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(8) %127, i32 noundef %call.i210)
-  %cmp = icmp ult i32 %n.0246, 9
+  %cmp = icmp samesign ult i32 %n.0246, 9
   %129 = select i1 %change.3.ph, i1 %cmp, i1 false
   br i1 %129, label %while.body, label %while.end, !llvm.loop !38
 

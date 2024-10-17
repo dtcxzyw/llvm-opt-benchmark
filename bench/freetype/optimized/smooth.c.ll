@@ -1386,7 +1386,7 @@ define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, pt
   %36 = tail call i64 @llvm.abs.i64(i64 %33, i1 true)
   %37 = tail call i64 @llvm.abs.i64(i64 %35, i1 true)
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %36, i64 %37)
-  %38 = icmp ult i64 %spec.select.i, 65
+  %38 = icmp samesign ult i64 %spec.select.i, 65
   br i1 %38, label %39, label %.preheader.i
 
 39:                                               ; preds = %29
@@ -1398,7 +1398,7 @@ define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, pt
   %.077.i = phi i32 [ %41, %.preheader.i ], [ 16, %29 ]
   %40 = lshr i64 %.1.i, 2
   %41 = add nsw i32 %.077.i, -1
-  %42 = icmp ugt i64 %.1.i, 259
+  %42 = icmp samesign ugt i64 %.1.i, 259
   br i1 %42, label %.preheader.i, label %43, !llvm.loop !12
 
 43:                                               ; preds = %.preheader.i
@@ -1534,7 +1534,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
   %49 = add i64 %.neg.i, %43
   %50 = add i64 %49, %46
   %51 = call i64 @llvm.abs.i64(i64 %50, i1 true)
-  %52 = icmp ugt i64 %51, 128
+  %52 = icmp samesign ugt i64 %51, 128
   br i1 %52, label %.preheader._crit_edge.i, label %53
 
 .preheader._crit_edge.i:                          ; preds = %.preheader.i
@@ -1558,7 +1558,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
   %61 = load i64, ptr %60, align 8
   %62 = add nsw i64 %59, %61
   %63 = call i64 @llvm.abs.i64(i64 %62, i1 true)
-  %64 = icmp ugt i64 %63, 128
+  %64 = icmp samesign ugt i64 %63, 128
   br i1 %64, label %85, label %65
 
 65:                                               ; preds = %53
@@ -1569,7 +1569,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
   %69 = add i64 %45, %68
   %70 = add i64 %69, %.neg92.i
   %71 = call i64 @llvm.abs.i64(i64 %70, i1 true)
-  %72 = icmp ugt i64 %71, 128
+  %72 = icmp samesign ugt i64 %71, 128
   br i1 %72, label %85, label %73
 
 73:                                               ; preds = %65
@@ -1580,7 +1580,7 @@ define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, pt
   %77 = add i64 %76, %55
   %78 = add i64 %77, %.neg93.i
   %79 = call i64 @llvm.abs.i64(i64 %78, i1 true)
-  %80 = icmp ugt i64 %79, 128
+  %80 = icmp samesign ugt i64 %79, 128
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %73
@@ -2641,7 +2641,7 @@ define internal void @ft_smooth_overlap_spans(i32 noundef %0, i32 noundef %1, pt
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %33 = load i16, ptr %19, align 2
   %34 = zext i16 %33 to i32
-  %35 = icmp ult i32 %indvars.iv.next, %34
+  %35 = icmp samesign ult i32 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph25

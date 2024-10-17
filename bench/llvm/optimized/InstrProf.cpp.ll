@@ -2734,7 +2734,7 @@ define internal fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8fu
 
 37:                                               ; preds = %32
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %34, 1
+  %.not.i = icmp samesign ugt i8 %34, 1
   %38 = icmp ne i8 %34, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %38
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %39
@@ -2776,7 +2776,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %37, %30, %39
 
 59:                                               ; preds = %54
   %.not37.i55 = icmp eq i32 %.026.i51, 63
-  %.not.i56 = icmp ugt i8 %56, 1
+  %.not.i56 = icmp samesign ugt i8 %56, 1
   %60 = icmp ne i8 %56, 0
   %or.cond36.i57 = select i1 %.not37.i55, i1 %.not.i56, i1 %60
   br i1 %or.cond36.i57, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit58, label %61
@@ -4781,7 +4781,7 @@ _ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backERKS0_.exit: ; preds = %64, %
   %100 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %97, i1 false)
   %101 = trunc nuw nsw i64 %100 to i32
   %102 = add nuw nsw i32 %101, %52
-  %103 = icmp ugt i32 %102, 63
+  %103 = icmp samesign ugt i32 %102, 63
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %95
@@ -5039,7 +5039,7 @@ define dso_local void @_ZN4llvm24InstrProfValueSiteRecord5scaleEmmNS_12function_
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = add nuw nsw i32 %15, %10
-  %17 = icmp ugt i32 %16, 63
+  %17 = icmp samesign ugt i32 %16, 63
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %11
@@ -5269,7 +5269,7 @@ define dso_local void @_ZN4llvm15InstrProfRecord5mergeERS0_mNS_12function_refIFv
   %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 false)
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = add nuw nsw i32 %41, %25
-  %43 = icmp ugt i32 %42, 63
+  %43 = icmp samesign ugt i32 %42, 63
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %33
@@ -5499,7 +5499,7 @@ _ZN4llvm15InstrProfRecord20getValueSitesForKindEj.exit: ; preds = %6
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 false)
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = add nuw nsw i32 %23, %15
-  %25 = icmp ugt i32 %24, 63
+  %25 = icmp samesign ugt i32 %24, 63
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
@@ -5581,7 +5581,7 @@ define dso_local void @_ZN4llvm15InstrProfRecord5scaleEmmNS_12function_refIFvNS_
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = add nuw nsw i32 %14, %.pre25
-  %16 = icmp ugt i32 %15, 63
+  %16 = icmp samesign ugt i32 %15, 63
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
@@ -5667,7 +5667,7 @@ _ZN4llvm15InstrProfRecord20getValueSitesForKindEj.exit.i: ; preds = %.preheader.
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 false)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = add nuw nsw i32 %.pre25, %46
-  %48 = icmp ugt i32 %47, 63
+  %48 = icmp samesign ugt i32 %47, 63
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph.i.i
@@ -9348,7 +9348,7 @@ define dso_local void @_ZN4llvm15ValueProfRecord13deserializeToERNS_15InstrProfR
   %19 = add nuw nsw i64 %.01112, 1
   %20 = load i32, ptr %5, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %19, %21
+  %22 = icmp samesign ult i64 %19, %21
   br i1 %22, label %13, label %._crit_edge, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %13, %3
@@ -9572,7 +9572,7 @@ define dso_local void @_ZN4llvm13ValueProfData13deserializeToERNS_15InstrProfRec
   %22 = add nuw nsw i64 %.01112.i, 1
   %23 = load i32, ptr %8, align 4
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %22, %24
+  %25 = icmp samesign ult i64 %22, %24
   br i1 %25, label %16, label %_ZN4llvm15ValueProfRecord13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE.exit, !llvm.loop !148
 
 _ZN4llvm15ValueProfRecord13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE.exit: ; preds = %16
@@ -12611,7 +12611,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i1 = load i64, ptr %14, align 1
   %15 = and i64 %.0.copyload.i.i.i1, 4294967295
-  %16 = icmp ugt i64 %15, 12
+  %16 = icmp samesign ugt i64 %15, 12
   br i1 %16, label %_ZN4llvm5ErrorD2Ev.exit2, label %25
 
 _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %13
@@ -12641,7 +12641,7 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %13
   %27 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i4 = load i64, ptr %27, align 1
-  %28 = icmp ugt i64 %15, 7
+  %28 = icmp samesign ugt i64 %15, 7
   br i1 %28, label %29, label %.thread42
 
 29:                                               ; preds = %25
@@ -12655,7 +12655,7 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %13
   %32 = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   %.0.copyload.i.i.i6 = load i64, ptr %32, align 1
-  %33 = icmp ugt i64 %15, 9
+  %33 = icmp samesign ugt i64 %15, 9
   br i1 %33, label %34, label %.thread42
 
 34:                                               ; preds = %31

@@ -1895,7 +1895,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i238:     ; preds = %645, %642
   br label %.preheader100.us.i
 
 ._crit_edge.us121.i:                              ; preds = %.lr.ph118.us.i, %..preheader_crit_edge.us.i
-  %654 = icmp ult i64 %indvars.iv169.i, %653
+  %654 = icmp samesign ult i64 %indvars.iv169.i, %653
   br i1 %654, label %655, label %659
 
 655:                                              ; preds = %._crit_edge.us121.i
@@ -3483,7 +3483,7 @@ _ZL22optimal_error_estimatedPKdf.exit357.i:       ; preds = %1363, %1360, %1348
           to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit.i:         ; preds = %._crit_edge453.i, %._crit_edge434.i
-  %1389 = icmp ult i64 %indvars.iv514.i, %952
+  %1389 = icmp samesign ult i64 %indvars.iv514.i, %952
   br i1 %1389, label %1390, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit340.i
 
 1390:                                             ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit.i

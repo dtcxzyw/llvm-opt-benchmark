@@ -4800,15 +4800,15 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br i1 %182, label %.loopexit.i.i, label %234
 
 234:                                              ; preds = %232
-  %235 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %235 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %235, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %236
 
 236:                                              ; preds = %234
-  %237 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %237 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %237, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %238
 
 238:                                              ; preds = %236
-  %239 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %239 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %239, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 

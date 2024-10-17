@@ -871,7 +871,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
 
 579:                                              ; preds = %573, %572
   %580 = add nuw nsw i64 %544, 1
-  %581 = icmp ult i64 %544, %542
+  %581 = icmp samesign ult i64 %544, %542
   br i1 %581, label %543, label %.loopexit.loopexit, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %579

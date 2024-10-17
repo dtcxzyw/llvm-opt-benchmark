@@ -461,7 +461,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %.loopexit.us ], [ 0, %.lr.ph305 ]
   %indvars.iv382 = phi i64 [ %indvars.iv.next383, %.loopexit.us ], [ 1, %.lr.ph305 ]
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
-  %39 = icmp ult i64 %indvars.iv.next390, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next390, %38
   br i1 %39, label %.lr.ph299.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.thread251.us.us, %.lr.ph305.split.us
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv377 = phi i64 [ %indvars.iv.next378, %.loopexit.us309 ], [ 0, %.lr.ph305 ]
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %.loopexit.us309 ], [ 1, %.lr.ph305 ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
-  %64 = icmp ult i64 %indvars.iv.next378, %38
+  %64 = icmp samesign ult i64 %indvars.iv.next378, %38
   br i1 %64, label %.lr.ph299.us310, label %.loopexit.us309
 
 .loopexit.us309:                                  ; preds = %.thread251.us303.us, %.lr.ph305.split.us307
@@ -582,7 +582,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv337 = phi i32 [ 3, %.lr.ph296 ], [ %indvars.iv.next338, %.loopexit278 ]
   %.087295 = phi i32 [ 0, %.lr.ph296 ], [ %.1.lcssa, %.loopexit278 ]
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %97 = icmp ult i64 %indvars.iv.next366, %32
+  %97 = icmp samesign ult i64 %indvars.iv.next366, %32
   br i1 %97, label %.lr.ph292, label %.loopexit278
 
 .lr.ph292:                                        ; preds = %96
@@ -768,7 +768,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %179 = getelementptr inbounds i64, ptr %.03850.i, i64 %170
   store i64 %178, ptr %179, align 8
   %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 2
-  %180 = icmp ult i64 %indvars.iv.next165.i.i, %22
+  %180 = icmp samesign ult i64 %indvars.iv.next165.i.i, %22
   br i1 %180, label %.lr.ph.i.i, label %If_Dec10SwapAdjacent.exit.i, !llvm.loop !25
 
 If_Dec10SwapAdjacent.exit.i:                      ; preds = %.lr.ph.us.preheader.i.i, %.lr.ph.i.i, %132, %.preheader87.lr.ph.i.i, %144, %.preheader.i.i, %122
@@ -934,7 +934,7 @@ If_Dec10MoveTo.exit:                              ; preds = %.lr.ph.i43.i, %._cr
   %260 = getelementptr inbounds i64, ptr %.03850.i103, i64 %251
   store i64 %259, ptr %260, align 8
   %indvars.iv.next165.i.i135 = add nuw nsw i64 %indvars.iv164.i.i134, 2
-  %261 = icmp ult i64 %indvars.iv.next165.i.i135, %22
+  %261 = icmp samesign ult i64 %indvars.iv.next165.i.i135, %22
   br i1 %261, label %.lr.ph.i.i133, label %If_Dec10SwapAdjacent.exit.i105, !llvm.loop !25
 
 If_Dec10SwapAdjacent.exit.i105:                   ; preds = %.lr.ph.us.preheader.i.i120, %.lr.ph.i.i133, %213, %.preheader87.lr.ph.i.i115, %225, %.preheader.i.i132, %203
@@ -1100,7 +1100,7 @@ If_Dec10MoveTo.exit140:                           ; preds = %.lr.ph.i43.i111, %.
   %341 = getelementptr inbounds i64, ptr %.03850.i145, i64 %332
   store i64 %340, ptr %341, align 8
   %indvars.iv.next165.i.i177 = add nuw nsw i64 %indvars.iv164.i.i176, 2
-  %342 = icmp ult i64 %indvars.iv.next165.i.i177, %22
+  %342 = icmp samesign ult i64 %indvars.iv.next165.i.i177, %22
   br i1 %342, label %.lr.ph.i.i175, label %If_Dec10SwapAdjacent.exit.i147, !llvm.loop !25
 
 If_Dec10SwapAdjacent.exit.i147:                   ; preds = %.lr.ph.us.preheader.i.i162, %.lr.ph.i.i175, %294, %.preheader87.lr.ph.i.i157, %306, %.preheader.i.i174, %284
@@ -1267,7 +1267,7 @@ If_Dec10MoveTo.exit182:                           ; preds = %.lr.ph.i43.i153, %.
   %423 = getelementptr inbounds i64, ptr %.03850.i187, i64 %414
   store i64 %422, ptr %423, align 8
   %indvars.iv.next165.i.i219 = add nuw nsw i64 %indvars.iv164.i.i218, 2
-  %424 = icmp ult i64 %indvars.iv.next165.i.i219, %22
+  %424 = icmp samesign ult i64 %indvars.iv.next165.i.i219, %22
   br i1 %424, label %.lr.ph.i.i217, label %If_Dec10SwapAdjacent.exit.i189, !llvm.loop !25
 
 If_Dec10SwapAdjacent.exit.i189:                   ; preds = %.lr.ph.us.preheader.i.i204, %.lr.ph.i.i217, %376, %.preheader87.lr.ph.i.i199, %388, %.preheader.i.i216, %366
@@ -1566,7 +1566,7 @@ If_Dec10CofCount2.exit.thread:                    ; preds = %532, %550
   %indvars.iv401 = phi i64 [ %indvars.iv.next402, %.loopexit ], [ 0, %.lr.ph305 ]
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %.loopexit ], [ 1, %.lr.ph305 ]
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
-  %554 = icmp ult i64 %indvars.iv.next402, %38
+  %554 = icmp samesign ult i64 %indvars.iv.next402, %38
   br i1 %554, label %.lr.ph299, label %.loopexit
 
 .lr.ph299:                                        ; preds = %.lr.ph305.split
@@ -1664,7 +1664,7 @@ If_Dec10Copy.exit:                                ; preds = %.lr.ph.preheader.i,
 .split.split.i:                                   ; preds = %If_Dec10HasVar.exit.thread.i, %.split.split.preheader.i
   %indvars.iv.i13 = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next.i14, %If_Dec10HasVar.exit.thread.i ]
   %.021.i = phi i32 [ 0, %.split.split.preheader.i ], [ %52, %If_Dec10HasVar.exit.thread.i ]
-  %17 = icmp ult i64 %indvars.iv.i13, 6
+  %17 = icmp samesign ult i64 %indvars.iv.i13, 6
   br i1 %17, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.split.i

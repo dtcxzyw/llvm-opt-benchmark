@@ -172,7 +172,7 @@ define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 secti
 1:                                                ; preds = %15, %0
   %2 = phi i64 [ 0, %0 ], [ %20, %15 ]
   %3 = and i64 %2, 4294967295
-  %4 = icmp ult i64 %3, 16
+  %4 = icmp samesign ult i64 %3, 16
   br i1 %4, label %5, label %.thread5, !prof !6
 
 5:                                                ; preds = %1
@@ -224,7 +224,7 @@ define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 secti
   tail call void @free_percpu(ptr noundef %37) #12
   %38 = add nuw nsw i64 %31, 1
   %39 = and i64 %38, 31
-  %40 = icmp ult i64 %39, 16
+  %40 = icmp samesign ult i64 %39, 16
   br i1 %40, label %23, label %.thread5, !prof !11, !llvm.loop !12
 
 .thread5:                                         ; preds = %5, %1, %11, %23, %34, %30
@@ -1386,7 +1386,7 @@ define internal fastcc void @dma_channel_rebalance() unnamed_addr #1 align 16 {
   store ptr null, ptr %35, align 8
   %36 = add nuw nsw i64 %25, 1
   %37 = and i64 %36, 127
-  %38 = icmp ult i64 %37, 64
+  %38 = icmp samesign ult i64 %37, 64
   br i1 %38, label %18, label %.thread20, !prof !11, !llvm.loop !41
 
 .thread20:                                        ; preds = %18, %28, %24
@@ -1594,7 +1594,7 @@ define internal fastcc void @dma_channel_rebalance() unnamed_addr #1 align 16 {
   store ptr %156, ptr %169, align 8
   %170 = add nuw nsw i64 %81, 1
   %171 = and i64 %170, 127
-  %172 = icmp ult i64 %171, 64
+  %172 = icmp samesign ult i64 %171, 64
   br i1 %172, label %74, label %.thread24, !prof !11, !llvm.loop !48
 
 .thread24:                                        ; preds = %74, %162, %80
@@ -2419,7 +2419,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   %33 = load i8, ptr %32, align 2
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, %15
-  %36 = icmp ult i32 %31, %35
+  %36 = icmp samesign ult i32 %31, %35
   br i1 %36, label %37, label %.loopexit14
 
 37:                                               ; preds = %30
@@ -2469,7 +2469,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
 
 67:                                               ; preds = %65, %60
   %68 = add nuw nsw i64 %61, 1
-  %69 = icmp ult i64 %68, %59
+  %69 = icmp samesign ult i64 %68, %59
   br i1 %69, label %60, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %67, %.loopexit14
@@ -2909,7 +2909,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @memcpy_count_show(ptr no
   %29 = add i64 %28, %12
   %30 = add nuw nsw i64 %17, 1
   %31 = and i64 %30, 127
-  %32 = icmp ult i64 %31, 64
+  %32 = icmp samesign ult i64 %31, 64
   br i1 %32, label %10, label %.thread, !prof !11, !llvm.loop !73
 
 .thread:                                          ; preds = %10, %20, %16
@@ -2967,7 +2967,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bytes_transferred_show(p
   %30 = add i64 %29, %12
   %31 = add nuw nsw i64 %17, 1
   %32 = and i64 %31, 127
-  %33 = icmp ult i64 %32, 64
+  %33 = icmp samesign ult i64 %32, 64
   br i1 %33, label %10, label %.thread, !prof !11, !llvm.loop !74
 
 .thread:                                          ; preds = %10, %20, %16

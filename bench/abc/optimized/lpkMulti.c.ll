@@ -164,7 +164,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
   %57 = phi i16 [ %.pre, %._crit_edge57.loopexit ], [ %10, %.preheader46 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %58 = zext i16 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next77, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next77, %58
   br i1 %59, label %9, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %9, %._crit_edge57, %2
@@ -467,7 +467,7 @@ define i32 @Lpk_FindHighest(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.val110 = load i16, ptr %15, align 8
   %16 = lshr i32 %11, 1
   %17 = zext i16 %.val110 to i32
-  %.not117 = icmp ult i32 %16, %17
+  %.not117 = icmp samesign ult i32 %16, %17
   br i1 %.not117, label %Kit_DsdLitSupport.exit, label %Kit_DsdNtkObj.exit
 
 Kit_DsdLitSupport.exit:                           ; preds = %13

@@ -667,7 +667,7 @@ _ZN4ncnnL39innerproduct_transform_kernel_fp16s_sseERKNS_3MatERS0_iiRKNS_6OptionE
 ._crit_edge.i:                                    ; preds = %.lr.ph69.i, %.preheader.i
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 8
   %225 = or disjoint i64 %indvars.iv.next97.i, 7
-  %226 = icmp ult i64 %225, %91
+  %226 = icmp samesign ult i64 %225, %91
   br i1 %226, label %92, label %._crit_edge72.i, !llvm.loop !7
 
 ._crit_edge72.i:                                  ; preds = %._crit_edge.i, %.preheader6.i
@@ -765,7 +765,7 @@ _ZN4ncnnL39innerproduct_transform_kernel_fp16s_sseERKNS_3MatERS0_iiRKNS_6OptionE
 ._crit_edge.us.i:                                 ; preds = %.lr.ph26.us.i, %..preheader7_crit_edge.us.i
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 4
   %279 = or disjoint i64 %indvars.iv.next93.i, 3
-  %280 = icmp ult i64 %279, %254
+  %280 = icmp samesign ult i64 %279, %254
   br i1 %280, label %.lr.ph.us.i, label %._crit_edge29.i, !llvm.loop !8
 
 .lr.ph26.us.i:                                    ; preds = %..preheader7_crit_edge.us.i, %.lr.ph26.us.i
@@ -900,7 +900,7 @@ _ZN4ncnnL39innerproduct_transform_kernel_fp16s_sseERKNS_3MatERS0_iiRKNS_6OptionE
 ._crit_edge.us39.i:                               ; preds = %344
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %358 = or disjoint i64 %indvars.iv.next.i, 3
-  %359 = icmp ult i64 %358, %319
+  %359 = icmp samesign ult i64 %358, %319
   br i1 %359, label %.preheader7.us30.i, label %._crit_edge29.i, !llvm.loop !8
 
 360:                                              ; preds = %245

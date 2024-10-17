@@ -647,7 +647,7 @@ guc_mmio_reg_add.exit14:                          ; preds = %.lr.ph53, %.prehead
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = or disjoint i32 %218, %221
-  %223 = icmp ugt i32 %222, 3121
+  %223 = icmp samesign ugt i32 %222, 3121
   %224 = shl nuw nsw i32 %212, 2
   %225 = add nuw nsw i32 %224, 45088
   br i1 %223, label %226, label %284
@@ -1089,7 +1089,7 @@ define internal fastcc i32 @guc_prep_golden_context(ptr noundef %0) unnamed_addr
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
-  %60 = icmp ugt i32 %59, 3121
+  %60 = icmp samesign ugt i32 %59, 3121
   %61 = select i1 %60, i32 -4480, i32 -4416
   %62 = add i32 %61, %44
   %63 = load i8, ptr %29, align 8, !range !6, !noundef !7
@@ -1166,7 +1166,7 @@ define internal fastcc i32 @guc_prep_golden_context(ptr noundef %0) unnamed_addr
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = or disjoint i32 %107, %110
-  %112 = icmp ugt i32 %111, 3121
+  %112 = icmp samesign ugt i32 %111, 3121
   %113 = select i1 %112, i32 -4480, i32 -4416
   %114 = add i32 %113, %96
   %115 = load i8, ptr %28, align 8, !range !6, !noundef !7

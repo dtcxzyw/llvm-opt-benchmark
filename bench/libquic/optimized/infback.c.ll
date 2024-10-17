@@ -309,7 +309,7 @@ do.end73:                                         ; preds = %do.body63, %if.then
   %shl78 = shl nuw nsw i64 %conv76, %indvars.iv1008
   %add79 = add i64 %shl78, %hold.4834
   %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 8
-  %cmp59 = icmp ult i64 %indvars.iv1008, 24
+  %cmp59 = icmp samesign ult i64 %indvars.iv1008, 24
   br i1 %cmp59, label %do.body63, label %do.end83.loopexit, !llvm.loop !5
 
 do.end83.loopexit:                                ; preds = %do.end73
@@ -422,7 +422,7 @@ do.end160:                                        ; preds = %do.body150, %if.the
   %shl165 = shl nuw nsw i64 %conv163, %indvars.iv
   %add166 = add i64 %shl165, %hold.5649
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp146 = icmp ult i64 %indvars.iv, 6
+  %cmp146 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp146, label %do.body150, label %do.end170.loopexit, !llvm.loop !8
 
 do.end170.loopexit:                               ; preds = %do.end160
@@ -447,9 +447,9 @@ do.end170:                                        ; preds = %do.end170.loopexit,
   store i32 %add187, ptr %ncode, align 8
   %shr189 = lshr i64 %hold.5.lcssa, 14
   %sub190 = add i32 %bits.5.lcssa, -14
-  %cmp193 = icmp ugt i32 %and172, 29
-  %cmp197 = icmp ugt i32 %and179, 29
-  %or.cond512 = or i1 %cmp193, %cmp197
+  %cmp193 = icmp samesign ugt i32 %and172, 29
+  %cmp197 = icmp samesign ugt i32 %and179, 29
+  %or.cond512 = select i1 %cmp193, i1 true, i1 %cmp197
   br i1 %or.cond512, label %if.then199, label %while.cond211.preheader.preheader
 
 if.then199:                                       ; preds = %do.end170
@@ -639,7 +639,7 @@ do.end309:                                        ; preds = %if.then302.do.end30
   %here.sroa.16.0.arrayidx291.sroa_idx = getelementptr inbounds i8, ptr %arrayidx291, i64 1
   %here.sroa.16.0.copyload = load i8, ptr %here.sroa.16.0.arrayidx291.sroa_idx, align 1
   %48 = zext i8 %here.sroa.16.0.copyload to i64
-  %cmp294.not = icmp ult i64 %indvars.iv.next985, %48
+  %cmp294.not = icmp samesign ult i64 %indvars.iv.next985, %48
   br i1 %cmp294.not, label %do.body299, label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %do.end309
@@ -737,7 +737,7 @@ do.end361:                                        ; preds = %do.body351, %if.the
   %shl366 = shl i64 %conv364, %indvars.iv990
   %add367 = add i64 %shl366, %hold.12711
   %indvars.iv.next991 = add nuw nsw i64 %indvars.iv990, 8
-  %cmp347 = icmp ult i64 %indvars.iv.next991, %54
+  %cmp347 = icmp samesign ult i64 %indvars.iv.next991, %54
   br i1 %cmp347, label %do.body351, label %do.body372.loopexit, !llvm.loop !11
 
 do.body372.loopexit:                              ; preds = %do.end361
@@ -807,7 +807,7 @@ do.end426:                                        ; preds = %do.body416, %if.the
   %shl431 = shl i64 %conv429, %indvars.iv987
   %add432 = add i64 %shl431, %hold.14704
   %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 8
-  %cmp412 = icmp ult i64 %indvars.iv.next988, %52
+  %cmp412 = icmp samesign ult i64 %indvars.iv.next988, %52
   br i1 %cmp412, label %do.body416, label %do.body437.loopexit, !llvm.loop !12
 
 do.body437.loopexit:                              ; preds = %do.end426
@@ -855,7 +855,7 @@ do.end473:                                        ; preds = %do.body463, %if.the
   %shl478 = shl i64 %conv476, %indvars.iv993
   %add479 = add i64 %shl478, %hold.15718
   %indvars.iv.next994 = add nuw nsw i64 %indvars.iv993, 8
-  %cmp459 = icmp ult i64 %indvars.iv.next994, %56
+  %cmp459 = icmp samesign ult i64 %indvars.iv.next994, %56
   br i1 %cmp459, label %do.body463, label %do.body484.loopexit, !llvm.loop !13
 
 do.body484.loopexit:                              ; preds = %do.end473
@@ -1075,7 +1075,7 @@ do.end634:                                        ; preds = %if.then627.do.end63
   %here.sroa.16.0.arrayidx616.sroa_idx = getelementptr inbounds i8, ptr %arrayidx616, i64 1
   %here.sroa.16.0.copyload32 = load i8, ptr %here.sroa.16.0.arrayidx616.sroa_idx, align 1
   %96 = zext i8 %here.sroa.16.0.copyload32 to i64
-  %cmp619.not = icmp ult i64 %indvars.iv.next997, %96
+  %cmp619.not = icmp samesign ult i64 %indvars.iv.next997, %96
   br i1 %cmp619.not, label %do.body624, label %for.end643.loopexit
 
 for.end643.loopexit:                              ; preds = %do.end634
@@ -1165,7 +1165,7 @@ do.end692:                                        ; preds = %if.then685.do.end69
   %conv675 = zext i8 %here.sroa.16.0.copyload33 to i32
   %add676 = add nuw nsw i32 %conv618.lcssa, %conv675
   %105 = zext nneg i32 %add676 to i64
-  %cmp677.not = icmp ult i64 %indvars.iv.next1000, %105
+  %cmp677.not = icmp samesign ult i64 %indvars.iv.next1000, %105
   br i1 %cmp677.not, label %do.body682, label %do.body702.loopexit
 
 do.body702.loopexit:                              ; preds = %do.end692
@@ -1384,7 +1384,7 @@ do.end839:                                        ; preds = %if.then832.do.end83
   %here.sroa.16.0.arrayidx821.sroa_idx = getelementptr inbounds i8, ptr %arrayidx821, i64 1
   %here.sroa.16.0.copyload34 = load i8, ptr %here.sroa.16.0.arrayidx821.sroa_idx, align 1
   %124 = zext i8 %here.sroa.16.0.copyload34 to i64
-  %cmp824.not = icmp ult i64 %indvars.iv.next1003, %124
+  %cmp824.not = icmp samesign ult i64 %indvars.iv.next1003, %124
   br i1 %cmp824.not, label %do.body829, label %for.end848.loopexit
 
 for.end848.loopexit:                              ; preds = %do.end839
@@ -1473,7 +1473,7 @@ do.end894:                                        ; preds = %if.then887.do.end89
   %conv877 = zext i8 %here.sroa.16.0.copyload35 to i32
   %add878 = add nuw nsw i32 %conv823.lcssa, %conv877
   %132 = zext nneg i32 %add878 to i64
-  %cmp879.not = icmp ult i64 %indvars.iv.next1006, %132
+  %cmp879.not = icmp samesign ult i64 %indvars.iv.next1006, %132
   br i1 %cmp879.not, label %do.body884, label %do.body904.loopexit
 
 do.body904.loopexit:                              ; preds = %do.end894

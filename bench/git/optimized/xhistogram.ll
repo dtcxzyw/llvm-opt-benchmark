@@ -486,8 +486,8 @@ if.then115.i.i:                                   ; preds = %while.body112.i.i
 
 if.end133.i.i:                                    ; preds = %if.then115.i.i, %while.body112.i.i
   %rc.3.i.i = phi i32 [ %rc.2..i.i, %if.then115.i.i ], [ %rc.2122.i.i, %while.body112.i.i ]
-  %cmp89.i.i = icmp ult i64 %indvars.iv.next145.i.i, %28
-  %cmp93.i.i = icmp ult i64 %indvars.iv.next143.i.i, %27
+  %cmp89.i.i = icmp samesign ult i64 %indvars.iv.next145.i.i, %28
+  %cmp93.i.i = icmp samesign ult i64 %indvars.iv.next143.i.i, %27
   %or.cond102.i.i = select i1 %cmp89.i.i, i1 %cmp93.i.i, i1 false
   br i1 %or.cond102.i.i, label %land.rhs94.i.i, label %while.end134.loopexit.i.i, !llvm.loop !11
 

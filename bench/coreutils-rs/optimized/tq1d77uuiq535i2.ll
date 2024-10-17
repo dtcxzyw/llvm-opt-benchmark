@@ -6119,7 +6119,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr no
   br i1 %or.cond, label %.critedge, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %56 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %56, label %57, label %.critedge8
 
 57:                                               ; preds = %55
@@ -6294,7 +6294,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr no
   br i1 %or.cond, label %.critedge, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %59 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %59, label %60, label %.critedge12
 
 60:                                               ; preds = %58
@@ -6361,15 +6361,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %87 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %89 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %89, label %92, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
 90:                                               ; preds = %86
-  %91 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %91 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %91 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
@@ -6528,15 +6528,15 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
   ret void
 
 50:                                               ; preds = %44
-  %51 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %51 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %53 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %53, label %56, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
 54:                                               ; preds = %50
-  %55 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %55 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %55 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
@@ -6713,7 +6713,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr no
   br i1 %or.cond, label %.critedge, label %59
 
 59:                                               ; preds = %57
-  %60 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %60 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %60, label %61, label %.critedge12
 
 61:                                               ; preds = %59
@@ -6780,15 +6780,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 87:                                               ; preds = %84
-  %88 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %88 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %87
-  %90 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %90 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %90, label %93, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
 91:                                               ; preds = %87
-  %92 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %92 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %92 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
@@ -6970,15 +6970,15 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
   ret void
 
 52:                                               ; preds = %46
-  %53 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %53 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %55 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %55, label %58, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
 56:                                               ; preds = %52
-  %57 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %57 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %57 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
@@ -7154,7 +7154,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr no
   br i1 %or.cond, label %.critedge, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %54, label %55, label %.critedge8
 
 55:                                               ; preds = %53
@@ -7311,7 +7311,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr no
   br i1 %or.cond, label %.critedge, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %56 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %56, label %57, label %.critedge8
 
 57:                                               ; preds = %55
@@ -7473,15 +7473,15 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
   ret void
 
 53:                                               ; preds = %47
-  %54 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %56 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %56, label %59, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
 57:                                               ; preds = %53
-  %58 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %58 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %58 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
@@ -7652,7 +7652,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr no
   br i1 %or.cond, label %.critedge, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %58, label %59, label %.critedge8
 
 59:                                               ; preds = %57
@@ -7827,15 +7827,15 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
   ret void
 
 54:                                               ; preds = %48
-  %55 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %57 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %57, label %60, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
 58:                                               ; preds = %54
-  %59 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %59 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %59 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10
 
@@ -8030,7 +8030,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr no
   br i1 %or.cond, label %.critedge, label %61
 
 61:                                               ; preds = %59
-  %62 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %62 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %62, label %63, label %.critedge12
 
 63:                                               ; preds = %61
@@ -8097,15 +8097,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 89:                                               ; preds = %86
-  %90 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %90 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %89
-  %92 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %92 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %92, label %95, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
 93:                                               ; preds = %89
-  %94 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %94 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %94 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
@@ -8297,7 +8297,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr no
   br i1 %or.cond, label %.critedge, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %61 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %61, label %62, label %.critedge12
 
 62:                                               ; preds = %60
@@ -8364,15 +8364,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ]
 
 88:                                               ; preds = %85
-  %89 = icmp ult i32 %.sroa.4.0.i.ph, 127
+  %89 = icmp samesign ult i32 %.sroa.4.0.i.ph, 127
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ugt i32 %.sroa.4.0.i.ph, 159
+  %91 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159
   br i1 %91, label %94, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 
 92:                                               ; preds = %88
-  %93 = icmp ugt i32 %.sroa.4.0.i.ph, 31
+  %93 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 31
   %spec.select = zext i1 %93 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27
 

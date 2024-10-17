@@ -460,7 +460,7 @@ define internal fastcc void @dissect_mpls_pm_loss(ptr noundef %0, ptr nocapture 
   br label %59
 
 59:                                               ; preds = %56, %12
-  %60 = icmp ult i8 %49, 4
+  %60 = icmp samesign ult i8 %49, 4
   br i1 %60, label %switch.lookup, label %63
 
 switch.lookup:                                    ; preds = %59
@@ -650,11 +650,11 @@ define internal fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr nound
   ]
 
 9:                                                ; preds = %8
-  %10 = icmp ult i8 %3, 4
+  %10 = icmp samesign ult i8 %3, 4
   br i1 %10, label %switch.lookup, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ult i8 %3, 4
+  %12 = icmp samesign ult i8 %3, 4
   br i1 %12, label %switch.lookup107, label %.sink.split
 
 13:                                               ; preds = %8
@@ -669,19 +669,19 @@ define internal fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr nound
   ]
 
 15:                                               ; preds = %14
-  %16 = icmp ult i8 %4, 4
+  %16 = icmp samesign ult i8 %4, 4
   br i1 %16, label %switch.lookup112, label %.sink.split
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %4, 4
+  %18 = icmp samesign ult i8 %4, 4
   br i1 %18, label %switch.lookup117, label %.sink.split
 
 19:                                               ; preds = %14
-  %20 = icmp ult i8 %4, 4
+  %20 = icmp samesign ult i8 %4, 4
   br i1 %20, label %switch.lookup122, label %.sink.split
 
 21:                                               ; preds = %14
-  %22 = icmp ult i8 %4, 4
+  %22 = icmp samesign ult i8 %4, 4
   br i1 %22, label %switch.lookup127, label %.sink.split
 
 switch.lookup:                                    ; preds = %9

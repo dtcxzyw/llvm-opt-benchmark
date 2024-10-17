@@ -731,7 +731,7 @@ define dso_local i32 @snd_hda_get_devices(ptr noundef %0, i16 noundef zeroext %1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %52 = icmp slt i64 %indvars.iv.next, %39
   %53 = add nuw nsw i32 %47, 1
-  %54 = icmp ult i32 %47, 7
+  %54 = icmp samesign ult i32 %47, 7
   %55 = select i1 %52, i1 %54, i1 false
   br i1 %55, label %46, label %56, !llvm.loop !14
 
@@ -2271,7 +2271,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %14 = phi i32 [ %11, %7 ], [ %42, %40 ]
   %15 = load i16, ptr %2, align 4
   %16 = zext i16 %15 to i32
-  %17 = icmp ult i32 %14, %16
+  %17 = icmp samesign ult i32 %14, %16
   br i1 %17, label %40, label %18
 
 18:                                               ; preds = %12
@@ -2312,7 +2312,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %41 = phi i16 [ %.pre, %33 ], [ %13, %22 ], [ %13, %12 ], [ %13, %18 ]
   %42 = add nuw nsw i32 %14, 1
   %43 = zext i16 %41 to i32
-  %44 = icmp ult i32 %42, %43
+  %44 = icmp samesign ult i32 %42, %43
   br i1 %44, label %12, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %30, %40, %1
@@ -2415,7 +2415,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef rang
   %54 = phi i32 [ %52, %.split.us13 ], [ %76, %.critedge.us11 ]
   %55 = load i16, ptr %33, align 4
   %56 = zext i16 %55 to i32
-  %57 = icmp ult i32 %54, %56
+  %57 = icmp samesign ult i32 %54, %56
   br i1 %57, label %.critedge.us11, label %58
 
 58:                                               ; preds = %53
@@ -2453,7 +2453,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef rang
   %76 = add nuw nsw i32 %54, 1
   %77 = load i16, ptr %34, align 2
   %78 = zext i16 %77 to i32
-  %79 = icmp ult i32 %76, %78
+  %79 = icmp samesign ult i32 %76, %78
   br i1 %79, label %53, label %.loopexit.split.us12, !llvm.loop !31
 
 .loopexit.split.us12:                             ; preds = %.critedge.us11, %48, %40
@@ -2501,7 +2501,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef rang
   %104 = phi i32 [ %101, %.split.us ], [ %128, %.critedge.us ]
   %105 = load i16, ptr %27, align 4
   %106 = zext i16 %105 to i32
-  %107 = icmp ult i32 %104, %106
+  %107 = icmp samesign ult i32 %104, %106
   br i1 %107, label %.critedge.us, label %108
 
 108:                                              ; preds = %102
@@ -2540,7 +2540,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef rang
   %127 = phi i16 [ %.pre, %._crit_edge18 ], [ %103, %112 ], [ %103, %108 ], [ %103, %102 ]
   %128 = add nuw nsw i32 %104, 1
   %129 = zext i16 %127 to i32
-  %130 = icmp ult i32 %128, %129
+  %130 = icmp samesign ult i32 %128, %129
   br i1 %130, label %102, label %.loopexit.split.us, !llvm.loop !31
 
 .loopexit.split.us:                               ; preds = %.critedge.us, %95, %89
@@ -3613,7 +3613,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_mixer_amp_volume_info(pt
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
   %49 = and i32 %48, 127
   %50 = select i1 %47, i32 %49, i32 127
-  %51 = icmp ugt i32 %50, %11
+  %51 = icmp samesign ugt i32 %50, %11
   %52 = select i1 %51, i32 %11, i32 0
   %53 = sub nsw i32 %50, %52
   %54 = zext i32 %53 to i64
@@ -5920,7 +5920,7 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %16 = phi i32 [ %40, %.critedge.us ], [ %14, %9 ]
   %17 = load i16, ptr %4, align 4
   %18 = zext i16 %17 to i32
-  %19 = icmp ult i32 %16, %18
+  %19 = icmp samesign ult i32 %16, %18
   br i1 %19, label %.critedge.us, label %20
 
 20:                                               ; preds = %.split.us
@@ -5959,14 +5959,14 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %39 = phi i16 [ %.pre, %._crit_edge ], [ %15, %24 ], [ %15, %20 ], [ %15, %.split.us ]
   %40 = add nuw nsw i32 %16, 1
   %41 = zext i16 %39 to i32
-  %42 = icmp ult i32 %40, %41
+  %42 = icmp samesign ult i32 %40, %41
   br i1 %42, label %.split.us, label %.loopexit, !llvm.loop !31
 
 .split:                                           ; preds = %9, %.critedge
   %43 = phi i32 [ %65, %.critedge ], [ %14, %9 ]
   %44 = load i16, ptr %4, align 4
   %45 = zext i16 %44 to i32
-  %46 = icmp ult i32 %43, %45
+  %46 = icmp samesign ult i32 %43, %45
   br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %.split
@@ -6004,7 +6004,7 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %65 = add nuw nsw i32 %43, 1
   %66 = load i16, ptr %6, align 2
   %67 = zext i16 %66 to i32
-  %68 = icmp ult i32 %65, %67
+  %68 = icmp samesign ult i32 %65, %67
   br i1 %68, label %.split, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.critedge.us, %.critedge, %3
@@ -6527,7 +6527,7 @@ hda_jackpoll_work.exit:                           ; preds = %67, %63, %70
   %85 = phi i32 [ %83, %80 ], [ %110, %.critedge ]
   %86 = load i16, ptr %75, align 4
   %87 = zext i16 %86 to i32
-  %88 = icmp ult i32 %85, %87
+  %88 = icmp samesign ult i32 %85, %87
   br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %84
@@ -6565,7 +6565,7 @@ hda_jackpoll_work.exit:                           ; preds = %67, %63, %70
   %110 = add nuw nsw i32 %85, 1
   %111 = load i16, ptr %77, align 2
   %112 = zext i16 %111 to i32
-  %113 = icmp ult i32 %110, %112
+  %113 = icmp samesign ult i32 %110, %112
   br i1 %113, label %84, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.critedge, %53, %74, %hda_jackpoll_work.exit, %14

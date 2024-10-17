@@ -669,7 +669,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %.thread56, %50, %_Z
   %79 = add nsw i32 %75, 1
   %80 = icmp sgt i32 %75, -1
   %81 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
-  %82 = icmp ult i32 %81, 2
+  %82 = icmp samesign ult i32 %81, 2
   %or.cond.i.i.i.i.i = select i1 %80, i1 %82, i1 false
   %83 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
   %84 = sub nuw nsw i32 32, %83
@@ -707,7 +707,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
   %102 = add nsw i32 %98, 1
   %103 = icmp sgt i32 %98, -1
   %104 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %102)
-  %105 = icmp ult i32 %104, 2
+  %105 = icmp samesign ult i32 %104, 2
   %or.cond.i.i.i.i.i24 = select i1 %103, i1 %105, i1 false
   %106 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %102, i1 true)
   %107 = sub nuw nsw i32 32, %106
@@ -960,7 +960,7 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds
   %.0 = phi i1 [ false, %30 ], [ %18, %15 ]
   %23 = load i32, ptr %20, align 4
   %24 = zext i32 %23 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %24
+  %.not.i = icmp samesign ult i64 %indvars.iv, %24
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %22

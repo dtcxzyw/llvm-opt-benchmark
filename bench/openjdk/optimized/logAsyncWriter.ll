@@ -554,8 +554,8 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %47, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i" ]
   %.0.add.i = add nuw nsw i64 %.0.idx18.i, 8
   %48 = icmp sgt i32 %.1.lcssa.i, 0
-  %49 = icmp ult i64 %.0.idx18.i, 128
-  %or.cond.i = and i1 %49, %48
+  %49 = icmp samesign ult i64 %.0.idx18.i, 128
+  %or.cond.i = select i1 %48, i1 %49, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit", !llvm.loop !11
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit": ; preds = %._crit_edge.i, %._crit_edge
@@ -723,8 +723,8 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %79, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ]
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
   %80 = icmp sgt i32 %.1.lcssa.i, 0
-  %81 = icmp ult i64 %.0.idx20.i, 128
-  %or.cond.i = and i1 %81, %80
+  %81 = icmp samesign ult i64 %.0.idx20.i, 128
+  %or.cond.i = select i1 %80, i1 %81, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit", !llvm.loop !15
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit": ; preds = %._crit_edge.i
@@ -828,8 +828,8 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %124, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 8
   %125 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %126 = icmp ult i64 %.0.idx18.i.i, 128
-  %or.cond.i.i = and i1 %126, %125
+  %126 = icmp samesign ult i64 %.0.idx18.i.i, 128
+  %or.cond.i.i = select i1 %125, i1 %126, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i", !llvm.loop !11
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i": ; preds = %._crit_edge.i.i, %._crit_edge.i4
@@ -1149,7 +1149,7 @@ define linkonce_odr hidden void @_ZN14AsyncLogWriterD2Ev(ptr noundef nonnull ali
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %3
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
-  %7 = icmp ult i64 %.0.idx11.i.i, 128
+  %7 = icmp samesign ult i64 %.0.idx11.i.i, 128
   br i1 %7, label %3, label %_ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit, !llvm.loop !20
 
 _ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit: ; preds = %._crit_edge.i.i
@@ -1184,7 +1184,7 @@ define linkonce_odr hidden void @_ZN14AsyncLogWriterD0Ev(ptr noundef nonnull ali
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %3
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 8
-  %7 = icmp ult i64 %.0.idx11.i.i.i, 128
+  %7 = icmp samesign ult i64 %.0.idx11.i.i.i, 128
   br i1 %7, label %3, label %_ZN14AsyncLogWriterD2Ev.exit, !llvm.loop !20
 
 _ZN14AsyncLogWriterD2Ev.exit:                     ; preds = %._crit_edge.i.i.i

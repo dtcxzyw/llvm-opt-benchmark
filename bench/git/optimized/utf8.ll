@@ -102,7 +102,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %call, 32
+  %cmp1.i = icmp samesign ult i32 %call, 32
   %1 = add nsw i32 %call, -127
   %or.cond.i = icmp ult i32 %1, 33
   %or.cond6.i = select i1 %cmp1.i, i1 true, i1 %or.cond.i
@@ -454,7 +454,7 @@ while.end:                                        ; preds = %while.body6, %if.en
   br i1 %or.cond.i4, label %utf8_width.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
-  %cmp1.i.i = icmp ult i32 %call.i, 32
+  %cmp1.i.i = icmp samesign ult i32 %call.i, 32
   %8 = add nsw i32 %call.i, -127
   %or.cond.i.i = icmp ult i32 %8, 33
   %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
@@ -969,7 +969,7 @@ if.end62:                                         ; preds = %lor.lhs.false
   br i1 %or.cond.i73, label %utf8_width.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end62
-  %cmp1.i.i = icmp ult i32 %call.i71, 32
+  %cmp1.i.i = icmp samesign ult i32 %call.i71, 32
   %47 = add nsw i32 %call.i71, -127
   %or.cond.i.i = icmp ult i32 %47, 33
   %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
@@ -1187,7 +1187,7 @@ if.end:                                           ; preds = %while.end
   br i1 %or.cond.i15, label %utf8_width.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %cmp1.i.i = icmp ult i32 %call.i, 32
+  %cmp1.i.i = icmp samesign ult i32 %call.i, 32
   %9 = add nsw i32 %call.i, -127
   %or.cond.i.i = icmp ult i32 %9, 33
   %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
@@ -1894,7 +1894,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 3, %entry ]
   %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.9, %entry ]
   %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
-  %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
+  %cmp3.i.i = icmp samesign ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
@@ -1944,7 +1944,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 10, %entry ]
   %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.10, %entry ]
   %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
-  %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
+  %cmp3.i.i = icmp samesign ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
@@ -1994,7 +1994,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 9, %entry ]
   %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.11, %entry ]
   %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
-  %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
+  %cmp3.i.i = icmp samesign ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
@@ -2044,7 +2044,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 13, %entry ]
   %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.12, %entry ]
   %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
-  %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
+  %cmp3.i.i = icmp samesign ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
@@ -2094,7 +2094,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 7, %entry ]
   %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.13, %entry ]
   %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
-  %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
+  %cmp3.i.i = icmp samesign ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i

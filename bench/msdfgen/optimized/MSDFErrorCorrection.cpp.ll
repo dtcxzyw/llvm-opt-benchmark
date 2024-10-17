@@ -207,7 +207,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond363, label %if.then.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
-  %tobool8.not.i = icmp ugt i32 %call19, 3
+  %tobool8.not.i = icmp samesign ugt i32 %call19, 3
   %cmp11.i = fcmp une float %12, %cond.i8.i
   %or.cond364 = select i1 %tobool8.not.i, i1 %cmp11.i, i1 false
   br i1 %or.cond364, label %if.then.i, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit
@@ -246,7 +246,7 @@ land.lhs.true3.i129:                              ; preds = %lor.lhs.false.i126
   br i1 %cmp5.i131, label %if.then.i137, label %lor.lhs.false6.i132
 
 lor.lhs.false6.i132:                              ; preds = %land.lhs.true3.i129, %lor.lhs.false.i126
-  %tobool8.not.i133 = icmp ult i32 %call19, 4
+  %tobool8.not.i133 = icmp samesign ult i32 %call19, 4
   br i1 %tobool8.not.i133, label %if.end, label %land.lhs.true9.i134
 
 land.lhs.true9.i134:                              ; preds = %lor.lhs.false6.i132
@@ -395,7 +395,7 @@ lor.lhs.false.i180:                               ; preds = %if.then62
   br i1 %or.cond366, label %if.then.i191, label %lor.lhs.false6.i186
 
 lor.lhs.false6.i186:                              ; preds = %lor.lhs.false.i180
-  %tobool8.not.i187 = icmp ugt i32 %call64, 3
+  %tobool8.not.i187 = icmp samesign ugt i32 %call64, 3
   %cmp11.i190 = fcmp une float %45, %cond.i8.i162
   %or.cond367 = select i1 %tobool8.not.i187, i1 %cmp11.i190, i1 false
   br i1 %or.cond367, label %if.then.i191, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit192
@@ -433,7 +433,7 @@ land.lhs.true3.i205:                              ; preds = %lor.lhs.false.i202
   br i1 %cmp5.i207, label %if.then.i213, label %lor.lhs.false6.i208
 
 lor.lhs.false6.i208:                              ; preds = %land.lhs.true3.i205, %lor.lhs.false.i202
-  %tobool8.not.i209 = icmp ult i32 %call64, 4
+  %tobool8.not.i209 = icmp samesign ult i32 %call64, 4
   br i1 %tobool8.not.i209, label %if.end70, label %land.lhs.true9.i210
 
 land.lhs.true9.i210:                              ; preds = %lor.lhs.false6.i208
@@ -604,7 +604,7 @@ lor.lhs.false.i284:                               ; preds = %if.then125
   br i1 %or.cond369, label %if.then.i295, label %lor.lhs.false6.i290
 
 lor.lhs.false6.i290:                              ; preds = %lor.lhs.false.i284
-  %tobool8.not.i291 = icmp ugt i32 %call127, 3
+  %tobool8.not.i291 = icmp samesign ugt i32 %call127, 3
   %cmp11.i294 = fcmp une float %77, %cond.i8.i250
   %or.cond370 = select i1 %tobool8.not.i291, i1 %cmp11.i294, i1 false
   br i1 %or.cond370, label %if.then.i295, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit296
@@ -643,7 +643,7 @@ land.lhs.true3.i309:                              ; preds = %lor.lhs.false.i306
   br i1 %cmp5.i311, label %if.then.i317, label %lor.lhs.false6.i312
 
 lor.lhs.false6.i312:                              ; preds = %land.lhs.true3.i309, %lor.lhs.false.i306
-  %tobool8.not.i313 = icmp ult i32 %call127, 4
+  %tobool8.not.i313 = icmp samesign ult i32 %call127, 4
   br i1 %tobool8.not.i313, label %if.end134, label %land.lhs.true9.i314
 
 land.lhs.true9.i314:                              ; preds = %lor.lhs.false6.i312
@@ -699,7 +699,7 @@ land.lhs.true3.i331:                              ; preds = %lor.lhs.false.i328
   br i1 %cmp5.i333, label %if.then.i339, label %lor.lhs.false6.i334
 
 lor.lhs.false6.i334:                              ; preds = %land.lhs.true3.i331, %lor.lhs.false.i328
-  %tobool8.not.i335 = icmp ult i32 %call141, 4
+  %tobool8.not.i335 = icmp samesign ult i32 %call141, 4
   br i1 %tobool8.not.i335, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit340, label %land.lhs.true9.i336
 
 land.lhs.true9.i336:                              ; preds = %lor.lhs.false6.i334
@@ -740,7 +740,7 @@ land.lhs.true3.i353:                              ; preds = %lor.lhs.false.i350
   br i1 %cmp5.i355, label %if.then.i361, label %lor.lhs.false6.i356
 
 lor.lhs.false6.i356:                              ; preds = %land.lhs.true3.i353, %lor.lhs.false.i350
-  %tobool8.not.i357 = icmp ult i32 %call141, 4
+  %tobool8.not.i357 = icmp samesign ult i32 %call141, 4
   br i1 %tobool8.not.i357, label %if.end148, label %land.lhs.true9.i358
 
 land.lhs.true9.i358:                              ; preds = %lor.lhs.false6.i356
@@ -1049,7 +1049,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond363, label %if.then.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
-  %tobool8.not.i = icmp ugt i32 %call19, 3
+  %tobool8.not.i = icmp samesign ugt i32 %call19, 3
   %cmp11.i = fcmp une float %12, %cond.i8.i
   %or.cond364 = select i1 %tobool8.not.i, i1 %cmp11.i, i1 false
   br i1 %or.cond364, label %if.then.i, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit
@@ -1088,7 +1088,7 @@ land.lhs.true3.i129:                              ; preds = %lor.lhs.false.i126
   br i1 %cmp5.i131, label %if.then.i137, label %lor.lhs.false6.i132
 
 lor.lhs.false6.i132:                              ; preds = %land.lhs.true3.i129, %lor.lhs.false.i126
-  %tobool8.not.i133 = icmp ult i32 %call19, 4
+  %tobool8.not.i133 = icmp samesign ult i32 %call19, 4
   br i1 %tobool8.not.i133, label %if.end, label %land.lhs.true9.i134
 
 land.lhs.true9.i134:                              ; preds = %lor.lhs.false6.i132
@@ -1237,7 +1237,7 @@ lor.lhs.false.i180:                               ; preds = %if.then62
   br i1 %or.cond366, label %if.then.i191, label %lor.lhs.false6.i186
 
 lor.lhs.false6.i186:                              ; preds = %lor.lhs.false.i180
-  %tobool8.not.i187 = icmp ugt i32 %call64, 3
+  %tobool8.not.i187 = icmp samesign ugt i32 %call64, 3
   %cmp11.i190 = fcmp une float %45, %cond.i8.i162
   %or.cond367 = select i1 %tobool8.not.i187, i1 %cmp11.i190, i1 false
   br i1 %or.cond367, label %if.then.i191, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit192
@@ -1275,7 +1275,7 @@ land.lhs.true3.i205:                              ; preds = %lor.lhs.false.i202
   br i1 %cmp5.i207, label %if.then.i213, label %lor.lhs.false6.i208
 
 lor.lhs.false6.i208:                              ; preds = %land.lhs.true3.i205, %lor.lhs.false.i202
-  %tobool8.not.i209 = icmp ult i32 %call64, 4
+  %tobool8.not.i209 = icmp samesign ult i32 %call64, 4
   br i1 %tobool8.not.i209, label %if.end70, label %land.lhs.true9.i210
 
 land.lhs.true9.i210:                              ; preds = %lor.lhs.false6.i208
@@ -1446,7 +1446,7 @@ lor.lhs.false.i284:                               ; preds = %if.then125
   br i1 %or.cond369, label %if.then.i295, label %lor.lhs.false6.i290
 
 lor.lhs.false6.i290:                              ; preds = %lor.lhs.false.i284
-  %tobool8.not.i291 = icmp ugt i32 %call127, 3
+  %tobool8.not.i291 = icmp samesign ugt i32 %call127, 3
   %cmp11.i294 = fcmp une float %77, %cond.i8.i250
   %or.cond370 = select i1 %tobool8.not.i291, i1 %cmp11.i294, i1 false
   br i1 %or.cond370, label %if.then.i295, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit296
@@ -1485,7 +1485,7 @@ land.lhs.true3.i309:                              ; preds = %lor.lhs.false.i306
   br i1 %cmp5.i311, label %if.then.i317, label %lor.lhs.false6.i312
 
 lor.lhs.false6.i312:                              ; preds = %land.lhs.true3.i309, %lor.lhs.false.i306
-  %tobool8.not.i313 = icmp ult i32 %call127, 4
+  %tobool8.not.i313 = icmp samesign ult i32 %call127, 4
   br i1 %tobool8.not.i313, label %if.end134, label %land.lhs.true9.i314
 
 land.lhs.true9.i314:                              ; preds = %lor.lhs.false6.i312
@@ -1541,7 +1541,7 @@ land.lhs.true3.i331:                              ; preds = %lor.lhs.false.i328
   br i1 %cmp5.i333, label %if.then.i339, label %lor.lhs.false6.i334
 
 lor.lhs.false6.i334:                              ; preds = %land.lhs.true3.i331, %lor.lhs.false.i328
-  %tobool8.not.i335 = icmp ult i32 %call141, 4
+  %tobool8.not.i335 = icmp samesign ult i32 %call141, 4
   br i1 %tobool8.not.i335, label %_ZN7msdfgenL22protectExtremeChannelsEPhPKffi.exit340, label %land.lhs.true9.i336
 
 land.lhs.true9.i336:                              ; preds = %lor.lhs.false6.i334
@@ -1582,7 +1582,7 @@ land.lhs.true3.i353:                              ; preds = %lor.lhs.false.i350
   br i1 %cmp5.i355, label %if.then.i361, label %lor.lhs.false6.i356
 
 lor.lhs.false6.i356:                              ; preds = %land.lhs.true3.i353, %lor.lhs.false.i350
-  %tobool8.not.i357 = icmp ult i32 %call141, 4
+  %tobool8.not.i357 = icmp samesign ult i32 %call141, 4
   br i1 %tobool8.not.i357, label %if.end148, label %land.lhs.true9.i358
 
 land.lhs.true9.i358:                              ; preds = %lor.lhs.false6.i356
@@ -9148,7 +9148,7 @@ for.body23:                                       ; preds = %if.then, %if.end101
   %8 = load i32, ptr %color26, align 8
   %and = and i32 %8, %7
   %9 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and)
-  %tobool.not = icmp ult i32 %9, 2
+  %tobool.not = icmp samesign ult i32 %9, 2
   br i1 %tobool.not, label %if.then28, label %if.end101
 
 if.then28:                                        ; preds = %for.body23

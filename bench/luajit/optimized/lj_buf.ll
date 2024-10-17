@@ -661,7 +661,7 @@ if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %rep to i64
   %conv2 = zext i32 %0 to i64
   %mul = mul nuw nsw i64 %conv2, %conv
-  %cmp3 = icmp ugt i64 %mul, 2147483392
+  %cmp3 = icmp samesign ugt i64 %mul, 2147483392
   br i1 %cmp3, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %if.then

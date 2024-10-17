@@ -46,7 +46,7 @@ define void @Mpm_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %12 = load i32, ptr %2, align 4
   %13 = lshr i32 %12, 27
   %14 = zext nneg i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %8, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %8, %1
@@ -227,7 +227,7 @@ Mpm_CutGetArea.exit.i:                            ; preds = %47, %44, %33, %19
   %113 = load i32, ptr %58, align 4
   %114 = lshr i32 %113, 27
   %115 = zext nneg i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next.i, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next.i, %115
   br i1 %116, label %69, label %.critedge.loopexit.i, !llvm.loop !6
 
 .critedge.loopexit.i:                             ; preds = %105
@@ -317,7 +317,7 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
   %165 = getelementptr inbounds i8, ptr %164, i64 32
   %166 = load i32, ptr %165, align 4
   %167 = lshr i32 %166, 27
-  %.not90 = icmp ult i32 %160, %167
+  %.not90 = icmp samesign ult i32 %160, %167
   br i1 %.not90, label %Mpm_CutIsContained.exit.thread, label %168
 
 168:                                              ; preds = %162
@@ -447,7 +447,7 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexi
   %218 = getelementptr inbounds i8, ptr %215, i64 32
   %219 = load i32, ptr %218, align 4
   %220 = lshr i32 %219, 27
-  %.not88 = icmp ugt i32 %217, %220
+  %.not88 = icmp samesign ugt i32 %217, %220
   br i1 %.not88, label %Mpm_CutIsContained.exit114.thread, label %221
 
 221:                                              ; preds = %213
@@ -919,7 +919,7 @@ Mpm_CutFindLeaf.exit.thread:                      ; preds = %52, %Mpm_CutFindLea
   %81 = load i32, ptr %40, align 4
   %82 = lshr i32 %81, 27
   %83 = zext nneg i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %43, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %80, %37
@@ -1007,7 +1007,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_e
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %121 = lshr i32 %119, 27
   %122 = zext nneg i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next134, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next134, %122
   br i1 %123, label %94, label %._crit_edge120, !llvm.loop !17
 
 ._crit_edge120:                                   ; preds = %118, %.preheader
@@ -2169,7 +2169,7 @@ define internal fastcc void @Mpm_ManExploreNewCut(ptr noundef %0, ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 27
-  %.not = icmp ult i32 %9, %12
+  %.not = icmp samesign ult i32 %9, %12
   br i1 %.not, label %50, label %13
 
 13:                                               ; preds = %6
@@ -2202,11 +2202,11 @@ define internal fastcc void @Mpm_ManExploreNewCut(ptr noundef %0, ptr nocapture 
 Mig_ObjIsAnd.exit.i:                              ; preds = %21
   %29 = lshr i32 %.val70, 1
   %30 = lshr i32 %.val74, 1
-  %.not.i = icmp ult i32 %29, %30
+  %.not.i = icmp samesign ult i32 %29, %30
   br i1 %.not.i, label %Mig_ObjNodeType.exit, label %Mig_ObjIsXor.exit.i
 
 Mig_ObjIsXor.exit.i:                              ; preds = %Mig_ObjIsAnd.exit.i
-  %31 = icmp ule i32 %29, %30
+  %31 = icmp samesign ule i32 %29, %30
   %cond.fr.i = freeze i1 %31
   br i1 %cond.fr.i, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjNodeType.exit
 
@@ -2241,11 +2241,11 @@ Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsAnd.exit.i
 Mig_ObjIsAnd.exit.i84:                            ; preds = %37
   %45 = lshr i32 %.val71, 1
   %46 = lshr i32 %.val75, 1
-  %.not.i85 = icmp ult i32 %45, %46
+  %.not.i85 = icmp samesign ult i32 %45, %46
   br i1 %.not.i85, label %Mig_ObjNodeType.exit89, label %Mig_ObjIsXor.exit.i86
 
 Mig_ObjIsXor.exit.i86:                            ; preds = %Mig_ObjIsAnd.exit.i84
-  %47 = icmp ule i32 %45, %46
+  %47 = icmp samesign ule i32 %45, %46
   %cond.fr.i87 = freeze i1 %47
   br i1 %cond.fr.i87, label %Mig_ObjIsXor.exit.thread.i88, label %Mig_ObjNodeType.exit89
 
@@ -2289,11 +2289,11 @@ Mig_ObjNodeType.exit89:                           ; preds = %Mig_ObjIsAnd.exit.i
 Mig_ObjIsAnd.exit.i92:                            ; preds = %58
   %67 = lshr i32 %.val72, 1
   %68 = lshr i32 %.val76, 1
-  %.not.i93 = icmp ult i32 %67, %68
+  %.not.i93 = icmp samesign ult i32 %67, %68
   br i1 %.not.i93, label %Mig_ObjNodeType.exit97, label %Mig_ObjIsXor.exit.i94
 
 Mig_ObjIsXor.exit.i94:                            ; preds = %Mig_ObjIsAnd.exit.i92
-  %69 = icmp ule i32 %67, %68
+  %69 = icmp samesign ule i32 %67, %68
   %cond.fr.i95 = freeze i1 %69
   br i1 %cond.fr.i95, label %Mig_ObjIsXor.exit.thread.i96, label %Mig_ObjNodeType.exit97
 
@@ -2329,11 +2329,11 @@ Mig_ObjNodeType.exit97:                           ; preds = %Mig_ObjIsAnd.exit.i
 Mig_ObjIsAnd.exit.i100:                           ; preds = %75
   %84 = lshr i32 %.val73, 1
   %85 = lshr i32 %.val77, 1
-  %.not.i101 = icmp ult i32 %84, %85
+  %.not.i101 = icmp samesign ult i32 %84, %85
   br i1 %.not.i101, label %Mig_ObjNodeType.exit105, label %Mig_ObjIsXor.exit.i102
 
 Mig_ObjIsXor.exit.i102:                           ; preds = %Mig_ObjIsAnd.exit.i100
-  %86 = icmp ule i32 %84, %85
+  %86 = icmp samesign ule i32 %84, %85
   %cond.fr.i103 = freeze i1 %86
   br i1 %cond.fr.i103, label %Mig_ObjIsXor.exit.thread.i104, label %Mig_ObjNodeType.exit105
 
@@ -3413,7 +3413,7 @@ Mig_ObjIsCo.exit.i:                               ; preds = %Mig_ObjIsTerm.exit.
   %285 = load i32, ptr %265, align 4
   %286 = lshr i32 %285, 27
   %287 = zext nneg i32 %286 to i64
-  %288 = icmp ult i64 %indvars.iv.next.i, %287
+  %288 = icmp samesign ult i64 %indvars.iv.next.i, %287
   br i1 %288, label %271, label %.critedge2.i, !llvm.loop !40
 
 .critedge2.i:                                     ; preds = %271, %241

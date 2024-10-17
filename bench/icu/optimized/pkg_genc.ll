@@ -1406,7 +1406,7 @@ if.end.thread.i:                                  ; preds = %for.body78
   br label %if.then8.i
 
 if.end.i:                                         ; preds = %for.body78
-  %cmp7.i = icmp ugt i8 %11, 9
+  %cmp7.i = icmp samesign ugt i8 %11, 9
   br i1 %cmp7.i, label %if.then8.i, label %if.end19.i
 
 if.then8.i:                                       ; preds = %if.end.i, %if.end.thread.i

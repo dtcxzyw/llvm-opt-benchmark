@@ -870,7 +870,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   ]
 
 48:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.15991208680112502686.exit.thread11.i.i"
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i, 127
   br i1 %49, label %50, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h21ee807ab1114587E.exit"
 
 50:                                               ; preds = %48

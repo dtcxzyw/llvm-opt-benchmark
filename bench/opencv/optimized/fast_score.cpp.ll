@@ -67,7 +67,7 @@ define hidden void @_ZN2cv11makeOffsetsEPiii(ptr noundef %0, i32 noundef %1, i32
   resume { ptr, i32 } %.pn
 
 .preheader:                                       ; preds = %.lr.ph
-  %23 = icmp ult i32 %2, 25
+  %23 = icmp samesign ult i32 %2, 25
   br i1 %23, label %.lr.ph33.preheader, label %._crit_edge
 
 .lr.ph33.preheader:                               ; preds = %.preheader30, %.preheader
@@ -197,7 +197,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 55:                                               ; preds = %.preheader, %26
   %.1182 = phi i32 [ %.sroa.speculated171, %26 ], [ %.0181192, %.preheader ]
-  %56 = icmp ult i64 %indvars.iv201, 14
+  %56 = icmp samesign ult i64 %indvars.iv201, 14
   br i1 %56, label %.preheader, label %57, !llvm.loop !8
 
 57:                                               ; preds = %55
@@ -259,7 +259,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 96:                                               ; preds = %59, %75
   %.1184 = phi i32 [ %.sroa.speculated102, %75 ], [ %.0183197, %59 ]
-  %97 = icmp ult i64 %indvars.iv204, 14
+  %97 = icmp samesign ult i64 %indvars.iv204, 14
   br i1 %97, label %59, label %98, !llvm.loop !9
 
 98:                                               ; preds = %96
@@ -335,7 +335,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 47:                                               ; preds = %.preheader, %22
   %.1148 = phi i32 [ %.sroa.speculated137, %22 ], [ %.0147158, %.preheader ]
-  %48 = icmp ult i64 %indvars.iv167, 10
+  %48 = icmp samesign ult i64 %indvars.iv167, 10
   br i1 %48, label %.preheader, label %49, !llvm.loop !11
 
 49:                                               ; preds = %47
@@ -389,7 +389,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 82:                                               ; preds = %51, %65
   %.1150 = phi i32 [ %.sroa.speculated82, %65 ], [ %.0149163, %51 ]
-  %83 = icmp ult i64 %indvars.iv170, 10
+  %83 = icmp samesign ult i64 %indvars.iv170, 10
   br i1 %83, label %51, label %84, !llvm.loop !12
 
 84:                                               ; preds = %82
@@ -457,7 +457,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
 
 39:                                               ; preds = %.preheader, %22
   %.1114 = phi i32 [ %.sroa.speculated103, %22 ], [ %.0113124, %.preheader ]
-  %40 = icmp ult i64 %indvars.iv133, 6
+  %40 = icmp samesign ult i64 %indvars.iv133, 6
   br i1 %40, label %.preheader, label %41, !llvm.loop !14
 
 41:                                               ; preds = %39
@@ -502,7 +502,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
 
 67:                                               ; preds = %43, %54
   %.1116 = phi i32 [ %.sroa.speculated62, %54 ], [ %.0115129, %43 ]
-  %68 = icmp ult i64 %indvars.iv136, 6
+  %68 = icmp samesign ult i64 %indvars.iv136, 6
   br i1 %68, label %43, label %69, !llvm.loop !15
 
 69:                                               ; preds = %67

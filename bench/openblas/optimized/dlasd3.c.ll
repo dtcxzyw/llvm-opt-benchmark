@@ -265,7 +265,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %177 = fmul double %171, %176
   %178 = getelementptr inbounds double, ptr %53, i64 %165
   store double %177, ptr %178, align 8, !tbaa !7
-  %179 = icmp ugt i64 %165, 1
+  %179 = icmp samesign ugt i64 %165, 1
   br i1 %179, label %180, label %.loopexit58
 
 180:                                              ; preds = %164
@@ -347,7 +347,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %241 = select i1 %240, double %234, double %239
   store double %241, ptr %178, align 8, !tbaa !7
   %242 = add nuw nsw i64 %165, 1
-  %243 = icmp ult i64 %165, %163
+  %243 = icmp samesign ult i64 %165, %163
   br i1 %243, label %164, label %244, !llvm.loop !16
 
 244:                                              ; preds = %.loopexit31
@@ -441,7 +441,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %306 = phi i32 [ 2, %.loopexit53 ], [ %291, %295 ]
   store i32 %306, ptr %22, align 4, !tbaa !3
   %307 = add nuw nsw i64 %251, 1
-  %308 = icmp ult i64 %251, %248
+  %308 = icmp samesign ult i64 %251, %248
   br i1 %308, label %249, label %309, !llvm.loop !19
 
 309:                                              ; preds = %.loopexit52
@@ -591,7 +591,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %411 = phi i32 [ 2, %384 ], [ %395, %399 ]
   store i32 %411, ptr %22, align 4, !tbaa !3
   %412 = add nuw nsw i64 %385, 1
-  %413 = icmp ult i64 %385, %383
+  %413 = icmp samesign ult i64 %385, %383
   br i1 %413, label %384, label %414, !llvm.loop !21
 
 414:                                              ; preds = %.loopexit51

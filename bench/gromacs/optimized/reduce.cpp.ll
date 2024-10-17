@@ -216,7 +216,7 @@ _Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pred
   %106 = shl nsw i32 %.090108, 1
   %107 = shl nsw i32 %.089109, 1
   %108 = add nuw nsw i32 %.088110, 1
-  %109 = icmp ugt i32 %105, 1
+  %109 = icmp samesign ugt i32 %105, 1
   br i1 %109, label %45, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %_Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit, %102, %33, %84, %7, %31, %22, %18

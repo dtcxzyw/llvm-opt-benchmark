@@ -107,14 +107,14 @@ if.end22:                                         ; preds = %if.else19
 
 if.then24:                                        ; preds = %if.end22
   %and.i15 = bitcast float %6 to i32
-  %cmp.i = icmp ult i32 %and.i15, 8388608
+  %cmp.i = icmp samesign ult i32 %and.i15, 8388608
   %add.i = add nuw i32 %0, 2139095041
   %sub.i = sub nuw i32 -2139095041, %and.i15
   %cond.i = select i1 %cmp14.i, i32 %sub.i, i32 %add.i
   %retval.0.i = select i1 %cmp.i, i32 -2147483648, i32 %cond.i
   %7 = tail call float @llvm.fabs.f32(float %actual)
   %and.i16 = bitcast float %7 to i32
-  %cmp.i17 = icmp ult i32 %and.i16, 8388608
+  %cmp.i17 = icmp samesign ult i32 %and.i16, 8388608
   %add.i18 = add nuw i32 %1, 2139095041
   %sub.i19 = sub nuw i32 -2139095041, %and.i16
   %cmp14.i20 = icmp slt i32 %1, 0
@@ -795,12 +795,12 @@ entry:
   %shr.i.i = and i32 %0, 268427264
   %h.signext.i.i = sext i16 %val to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i

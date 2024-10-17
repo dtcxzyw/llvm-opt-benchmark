@@ -110,7 +110,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 
 58:                                               ; preds = %78
   %59 = add i16 %.03871, 1
-  %.not61 = icmp ugt i16 %59, %47
+  %.not61 = icmp samesign ugt i16 %59, %47
   br i1 %.not61, label %._crit_edge, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %56, %58
@@ -161,12 +161,12 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 ._crit_edge:                                      ; preds = %58, %.preheader
   %80 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1) #2
   %.not67 = icmp eq i32 %80, 0
-  %81 = icmp ult i16 %.0397387, 53
+  %81 = icmp samesign ult i16 %.0397387, 53
   %or.cond78 = and i1 %.not67, %81
   br i1 %or.cond78, label %.split.backedge, label %.loopexit
 
 82:                                               ; preds = %54
-  %.old77 = icmp ult i16 %.0397387, 53
+  %.old77 = icmp samesign ult i16 %.0397387, 53
   br i1 %.old77, label %.split.backedge, label %.loopexit
 
 .split.backedge:                                  ; preds = %82, %._crit_edge

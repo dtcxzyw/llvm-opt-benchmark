@@ -6061,7 +6061,7 @@ define internal i32 @trace_raw_output_xhci_log_ctrl_ctx(ptr noundef %0, i32 %1, 
   %40 = add i32 %39, %22
   %41 = add nuw nsw i64 %29, 1
   %42 = and i64 %41, 63
-  %43 = icmp ugt i64 %42, 31
+  %43 = icmp samesign ugt i64 %42, 31
   br i1 %43, label %.thread, label %20, !prof !77, !llvm.loop !78
 
 .loopexit:                                        ; preds = %28, %.thread
@@ -6115,7 +6115,7 @@ define internal i32 @trace_raw_output_xhci_log_ctrl_ctx(ptr noundef %0, i32 %1, 
   %80 = add i32 %79, %64
   %81 = add nuw nsw i64 %69, 1
   %82 = and i64 %81, 63
-  %83 = icmp ugt i64 %82, 31
+  %83 = icmp samesign ugt i64 %82, 31
   br i1 %83, label %.thread9, label %62, !prof !77, !llvm.loop !79
 
 .thread9:                                         ; preds = %62, %72, %68, %47
@@ -6514,7 +6514,7 @@ define internal i32 @trace_raw_output_xhci_log_doorbell(ptr noundef %0, i32 %1, 
   br label %41
 
 33:                                               ; preds = %20
-  %34 = icmp ult i32 %22, 248
+  %34 = icmp samesign ult i32 %22, 248
   %35 = sext i32 %21 to i64
   %36 = getelementptr i8, ptr %11, i64 %35
   br i1 %34, label %37, label %39

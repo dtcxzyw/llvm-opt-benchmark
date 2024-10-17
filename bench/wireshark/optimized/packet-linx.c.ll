@@ -397,7 +397,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .lr.ph:                                           ; preds = %51
   %52 = icmp eq i32 %30, 2
   %53 = icmp eq i32 %30, 1
-  %54 = icmp ugt i32 %30, 2
+  %54 = icmp samesign ugt i32 %30, 2
   br label %55
 
 55:                                               ; preds = %.lr.ph, %245

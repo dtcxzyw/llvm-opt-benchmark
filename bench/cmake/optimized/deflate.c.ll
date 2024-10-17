@@ -3296,7 +3296,7 @@ define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef 
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = add nuw nsw i64 %37, %40
-  %42 = icmp ult i64 %41, 65535
+  %42 = icmp samesign ult i64 %41, 65535
   %43 = add i32 %36, %39
   %spec.select = select i1 %42, i32 %43, i32 65535
   %.1223 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %32)
@@ -4306,8 +4306,8 @@ define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noun
   %.ptr = getelementptr inbounds i8, ptr %30, i64 %.0120.add
   %73 = load i8, ptr %.ptr, align 1
   %74 = icmp eq i8 %32, %73
-  %75 = icmp ult i64 %.0120.idx, 250
-  %or.cond133 = and i1 %75, %74
+  %75 = icmp samesign ult i64 %.0120.idx, 250
+  %or.cond133 = select i1 %74, i1 %75, i1 false
   br i1 %or.cond133, label %44, label %thread-pre-split138.split.loop.exit, !llvm.loop !19
 
 thread-pre-split138.split.loop.exit:              ; preds = %72
@@ -6218,8 +6218,8 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %98 = getelementptr inbounds i8, ptr %.092, i64 8
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %97, %99
-  %101 = icmp ult i64 %.2.idx, 250
-  %or.cond = and i1 %101, %100
+  %101 = icmp samesign ult i64 %.2.idx, 250
+  %or.cond = select i1 %100, i1 %101, i1 false
   br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !22
 
 .critedge.split.loop.exit:                        ; preds = %54

@@ -56016,7 +56016,7 @@ invoke.cont1892:                                  ; preds = %if.else.i.i.i.i5845
   store i8 0, ptr %cond.i.i.i.i5854, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %tobool.not1.i = icmp ult i64 %conv.i5829, 429496730
+  %tobool.not1.i = icmp samesign ult i64 %conv.i5829, 429496730
   br i1 %tobool.not1.i, label %invoke.cont1894, label %while.body.i5866
 
 while.body.i5866:                                 ; preds = %invoke.cont1892, %.noexc5869
@@ -56192,7 +56192,7 @@ invoke.cont1956:                                  ; preds = %invoke.cont1941.inv
   %add.ptr1963 = getelementptr inbounds %"class.eastl::basic_string.128", ptr %stringArray1907, i64 %shr.i5975
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i5979)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i5980)
-  %cmp.not4.i = icmp ult i64 %conv.i5973, 429496730
+  %cmp.not4.i = icmp samesign ult i64 %conv.i5973, 429496730
   br i1 %cmp.not4.i, label %invoke.cont1964, label %for.body.i5985
 
 for.body.i5985:                                   ; preds = %invoke.cont1956, %.noexc5991
@@ -56403,7 +56403,7 @@ invoke.cont2026:                                  ; preds = %if.then2019
   %conv2.i6102 = and i64 %div2025163, 1073741823
   %mul.i6103 = mul nuw nsw i64 %conv2.i6102, %conv.i6101
   %shr.i6104 = lshr i64 %mul.i6103, 32
-  %cmp1.i.i.i.i6106.not = icmp ult i64 %mul.i6103, 4294967296
+  %cmp1.i.i.i.i6106.not = icmp samesign ult i64 %mul.i6103, 4294967296
   %.pre8840 = load ptr, ptr %rbListString, align 8
   br i1 %cmp1.i.i.i.i6106.not, label %for.body.lr.ph.i6125, label %while.body.i.i.i.i6110
 
@@ -56447,7 +56447,7 @@ invoke.cont2042:                                  ; preds = %invoke.cont2032
   %conv.i6147 = and i64 %shr.i.i6145, 4294967295
   %mul.i6149 = mul nuw nsw i64 %conv2.i6102, %conv.i6147
   %shr.i6150 = lshr i64 %mul.i6149, 32
-  %cmp1.i.i.i.i6152.not = icmp ult i64 %mul.i6149, 4294967296
+  %cmp1.i.i.i.i6152.not = icmp samesign ult i64 %mul.i6149, 4294967296
   br i1 %cmp1.i.i.i.i6152.not, label %invoke.cont2045, label %while.body.i.i.i.i6156.preheader
 
 while.body.i.i.i.i6156.preheader:                 ; preds = %invoke.cont2042
@@ -73781,7 +73781,7 @@ _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.the
   %inc3.i32 = add nsw i64 %20, 1
   store i64 %inc3.i32, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %p34.0.add = add nuw nsw i64 %p34.0.idx70, 24
-  %cmp37 = icmp ult i64 %p34.0.idx70, 168
+  %cmp37 = icmp samesign ult i64 %p34.0.idx70, 168
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !4015
 
 for.end41:                                        ; preds = %_ZN10TestObjectD2Ev.exit33

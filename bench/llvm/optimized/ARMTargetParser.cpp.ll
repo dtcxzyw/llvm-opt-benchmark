@@ -3850,7 +3850,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit24:              ; preds = %_ZN4llvmeqENS_9Stri
 
 18:                                               ; preds = %9
   %19 = tail call noundef i32 @_ZN4llvm3ARM16parseArchVersionENS_9StringRefE(ptr %11, i64 %12)
-  %20 = icmp ult i32 %19, 8
+  %20 = icmp samesign ult i32 %19, 8
   br i1 %20, label %.thread59, label %_ZN4llvmeqENS_9StringRefES0_.exit28.thread55
 
 21:                                               ; preds = %9, %9, %9, %9, %9, %9

@@ -1925,7 +1925,7 @@ os_target_alignment_of_int.exit.thread224:        ; preds = %441
   unreachable
 
 os_is_apple.exit.i:                               ; preds = %441, %441, %441, %441
-  %447 = icmp ugt i64 %indvars.iv, 3
+  %447 = icmp samesign ugt i64 %indvars.iv, 3
   %or.cond3.i = and i1 %447, %or.cond.i
   %448 = call i32 @llvm.umin.i32(i32 %443, i32 64)
   %..i90 = select i1 %or.cond3.i, i32 32, i32 %448
@@ -1936,7 +1936,7 @@ os_is_apple.exit.i:                               ; preds = %441, %441, %441, %4
   br label %os_target_alignment_of_int.exit
 
 451:                                              ; preds = %441, %441
-  %452 = icmp ult i64 %indvars.iv, 3
+  %452 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %452, label %453, label %os_is_apple.exit57.thread.i
 
 453:                                              ; preds = %451
@@ -1952,7 +1952,7 @@ os_is_apple.exit57.thread.i:                      ; preds = %453, %453, %453, %4
   br label %os_target_alignment_of_int.exit
 
 454:                                              ; preds = %441
-  %455 = icmp ult i64 %indvars.iv, 3
+  %455 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %455, label %os_target_alignment_of_int.exit.thread, label %456
 
 456:                                              ; preds = %454
@@ -2049,7 +2049,7 @@ os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i,
 
 462:                                              ; preds = %os_target_alignment_of_int.exit.thread, %os_target_alignment_of_int.exit
   %463 = phi ptr [ %459, %os_target_alignment_of_int.exit.thread ], [ %460, %os_target_alignment_of_int.exit ]
-  %464 = icmp ugt i64 %indvars.iv, 2
+  %464 = icmp samesign ugt i64 %indvars.iv, 2
   %or.cond.i96 = and i1 %436, %464
   br i1 %or.cond.i96, label %os_target_alignment_of_float.exit, label %465
 
@@ -2809,7 +2809,7 @@ default.unreachable.i:                            ; preds = %673
   br i1 %or.cond.i.i, label %703, label %685
 
 685:                                              ; preds = %682
-  %686 = icmp ult i64 %indvars.iv.i.i, 64
+  %686 = icmp samesign ult i64 %indvars.iv.i.i, 64
   br i1 %686, label %687, label %690
 
 687:                                              ; preds = %685
@@ -3713,7 +3713,7 @@ x86feature_from_string.exit.thread:               ; preds = %._crit_edge.i
   br label %70
 
 x86feature_from_string.exit:                      ; preds = %.lr.ph.i
-  %36 = icmp ult i64 %indvars.iv21.i, 64
+  %36 = icmp samesign ult i64 %indvars.iv21.i, 64
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %x86feature_from_string.exit
@@ -3815,7 +3815,7 @@ define internal fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i3
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
   %.tr28 = phi i32 [ %1, %2 ], [ %.tr28.be, %tailrecurse.backedge ]
-  %5 = icmp ult i32 %.tr28, 64
+  %5 = icmp samesign ult i32 %.tr28, 64
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %tailrecurse

@@ -3588,7 +3588,7 @@ define dso_local zeroext i1 @time_overflows(i32 noundef %0, i32 noundef %1, i32 
   %14 = zext nneg i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 1000000
   %16 = add nuw nsw i64 %15, %9
-  %17 = icmp ugt i64 %16, 86400000000
+  %17 = icmp samesign ugt i64 %16, 86400000000
   br label %18
 
 18:                                               ; preds = %8, %4

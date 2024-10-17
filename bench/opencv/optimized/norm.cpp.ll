@@ -837,9 +837,9 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
   unreachable
 
 234:                                              ; preds = %228
-  %235 = icmp ult i32 %64, 4
+  %235 = icmp samesign ult i32 %64, 4
   %or.cond11 = and i1 %29, %235
-  %236 = icmp ult i32 %64, 2
+  %236 = icmp samesign ult i32 %64, 2
   %or.cond15 = and i1 %34, %236
   %or.cond246 = or i1 %or.cond11, %or.cond15
   br i1 %or.cond246, label %237, label %290
@@ -1002,7 +1002,7 @@ _ZNK2cv3Mat8elemSizeEv.exit205:                   ; preds = %293, %297
   %310 = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %310, ptr %26, align 8
   %311 = getelementptr inbounds i8, ptr %26, i64 8
-  %.not.i.i = icmp ugt i32 %308, 1026
+  %.not.i.i = icmp samesign ugt i32 %308, 1026
   store i64 %309, ptr %311, align 8
   br i1 %.not.i.i, label %312, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit
 
@@ -2216,9 +2216,9 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
   unreachable
 
 302:                                              ; preds = %296
-  %303 = icmp ult i32 %88, 4
+  %303 = icmp samesign ult i32 %88, 4
   %or.cond11 = and i1 %94, %303
-  %304 = icmp ult i32 %88, 2
+  %304 = icmp samesign ult i32 %88, 2
   %or.cond15 = and i1 %99, %304
   %or.cond277 = or i1 %or.cond11, %or.cond15
   br i1 %or.cond277, label %305, label %362
@@ -2389,7 +2389,7 @@ _ZNK2cv3Mat8elemSizeEv.exit231:                   ; preds = %366, %370
   %384 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %384, ptr %33, align 8
   %385 = getelementptr inbounds i8, ptr %33, i64 8
-  %.not.i.i = icmp ugt i32 %381, 513
+  %.not.i.i = icmp samesign ugt i32 %381, 513
   store i64 %383, ptr %385, align 8
   br i1 %.not.i.i, label %386, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit
 

@@ -4244,7 +4244,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   %44 = getelementptr inbounds i8, ptr %43, i64 152
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next67, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next67, %46
   br i1 %47, label %.lr.ph58, label %.critedge3.loopexit, !llvm.loop !25
 
 .critedge3.loopexit:                              ; preds = %41, %.lr.ph58

@@ -1035,7 +1035,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, %76
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %80 = icmp ult i64 %indvars.iv.next79, %65
+  %80 = icmp samesign ult i64 %indvars.iv.next79, %65
   %81 = select i1 %79, i1 %80, i1 false
   br i1 %81, label %66, label %.loopexit, !llvm.loop !21
 
@@ -1123,7 +1123,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44: ; preds = %_ZNK7GaelMls
   %143 = call float @llvm.fmuladd.f32(float %142, float %134, float %141)
   %144 = fcmp ogt float %143, %139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %145 = icmp ult i64 %indvars.iv.next, %108
+  %145 = icmp samesign ult i64 %indvars.iv.next, %108
   %146 = select i1 %144, i1 %145, i1 false
   br i1 %146, label %109, label %.loopexit, !llvm.loop !22
 

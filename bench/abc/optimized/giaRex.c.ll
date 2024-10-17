@@ -1241,7 +1241,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 189:                                              ; preds = %169, %136, %180, %Vec_IntPush.exit
   %.0172 = phi i32 [ %139, %Vec_IntPush.exit ], [ %184, %180 ], [ %139, %136 ], [ %175, %169 ]
-  %190 = icmp ult i64 %indvars.iv333, %135
+  %190 = icmp samesign ult i64 %indvars.iv333, %135
   %191 = add nuw nsw i64 %indvars.iv333, 1
   br i1 %190, label %192, label %._crit_edge366
 
@@ -2041,7 +2041,7 @@ define void @Gia_ManAutomTranspose64(ptr nocapture noundef %0) local_unnamed_add
   %22 = zext nneg i32 %21 to i64
   %23 = shl i64 %.032, %22
   %24 = xor i64 %23, %.032
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %25, label %.preheader, !llvm.loop !26
 
 25:                                               ; preds = %20
@@ -2249,7 +2249,7 @@ define i64 @Gia_ManAutomStep(ptr nocapture noundef readonly %0, i64 noundef %1, 
 
 .critedge6:                                       ; preds = %70, %.critedge6.split.loop.exit153
   %.3.lcssa = phi i32 [ %indvars.le, %.critedge6.split.loop.exit153 ], [ %71, %70 ]
-  %92 = icmp ult i32 %.3.lcssa, 64
+  %92 = icmp samesign ult i32 %.3.lcssa, 64
   br i1 %92, label %.lr.ph130.preheader, label %.preheader.i.preheader
 
 .lr.ph130.preheader:                              ; preds = %.critedge4, %.critedge6
@@ -2301,7 +2301,7 @@ define i64 @Gia_ManAutomStep(ptr nocapture noundef readonly %0, i64 noundef %1, 
   %117 = zext nneg i32 %116 to i64
   %118 = shl i64 %.032.i, %117
   %119 = xor i64 %118, %.032.i
-  %.not.i101 = icmp ult i32 %.02831.i, 2
+  %.not.i101 = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i101, label %Gia_ManAutomTranspose64.exit, label %.preheader.i, !llvm.loop !26
 
 Gia_ManAutomTranspose64.exit:                     ; preds = %115

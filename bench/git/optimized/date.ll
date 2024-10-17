@@ -1748,10 +1748,10 @@ return.sink.split.i.i:                            ; preds = %if.then25.then.i.i,
 
 land.lhs.true42.i:                                ; preds = %if.then29.i
   %conv43.i = and i64 %div.i49, 4294967295
-  %or.cond.i74.i = icmp ult i64 %conv43.i, 25
-  %93 = icmp ult i64 %rem.i50, 6000
+  %or.cond.i74.i = icmp samesign ult i64 %conv43.i, 25
+  %93 = icmp samesign ult i64 %rem.i50, 6000
   %or.cond2.i75.i = and i1 %93, %or.cond.i74.i
-  %94 = icmp ult i64 %rem33.i, 61
+  %94 = icmp samesign ult i64 %rem33.i, 61
   %or.cond4.i76.i = and i1 %94, %or.cond2.i75.i
   br i1 %or.cond4.i76.i, label %land.lhs.true49.i, label %if.end64.i
 
@@ -1815,8 +1815,8 @@ land.lhs.true92.i:                                ; preds = %if.end83.thread.i, 
   %num275.0111.i = phi i64 [ %rem81.i, %if.end83.thread.i ], [ 0, %if.then72.i ]
   %num173.0.in110.i = phi i64 [ %div79.i, %if.end83.thread.i ], [ %call.i43, %if.then72.i ]
   %conv93.i = and i64 %num173.0.in110.i, 4294967295
-  %or.cond.i94.i = icmp ult i64 %conv93.i, 25
-  %104 = icmp ult i64 %num275.0111.i, 60
+  %or.cond.i94.i = icmp samesign ult i64 %conv93.i, 25
+  %104 = icmp samesign ult i64 %num275.0111.i, 60
   %or.cond2.i95.i = and i1 %104, %or.cond.i94.i
   br i1 %or.cond2.i95.i, label %set_time.exit103.thread.i, label %if.end99.i
 
@@ -1884,7 +1884,7 @@ if.then120.i:                                     ; preds = %if.else114.i
   br label %match_digit.exit
 
 if.end124.i:                                      ; preds = %if.end100.i
-  %cmp125.i = icmp ugt i64 %indvars.iv.i47, 1
+  %cmp125.i = icmp samesign ugt i64 %indvars.iv.i47, 1
   br i1 %cmp125.i, label %match_digit.exit, label %if.end128.i
 
 if.end128.i:                                      ; preds = %if.end124.i

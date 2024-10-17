@@ -2504,7 +2504,7 @@ if.then24:                                        ; preds = %land.lhs.true
 if.end26:                                         ; preds = %if.then19, %land.lhs.true, %if.then24, %while.body17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %shr = lshr i32 %bits.030, 1
-  %tobool16.not = icmp ult i32 %bits.030, 2
+  %tobool16.not = icmp samesign ult i32 %bits.030, 2
   br i1 %tobool16.not, label %if.end28, label %while.body17, !llvm.loop !13
 
 if.end28:                                         ; preds = %if.end26, %if.end9
@@ -11489,7 +11489,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp3 = icmp ult i64 %and.i, 3
+  %cmp3 = icmp samesign ult i64 %and.i, 3
   br i1 %cmp3, label %if.end8, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end

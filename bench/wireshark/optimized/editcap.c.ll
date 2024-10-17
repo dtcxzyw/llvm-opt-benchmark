@@ -1468,7 +1468,7 @@ set_rel_time.exit:                                ; preds = %371, %390, %._crit_
   %539 = getelementptr inbounds i8, ptr %538, i64 8
   %540 = load i32, ptr %539, align 8
   %541 = zext i32 %540 to i64
-  %542 = icmp ult i64 %indvars.iv.next, %541
+  %542 = icmp samesign ult i64 %indvars.iv.next, %541
   br i1 %542, label %.lr.ph, label %.loopexit665, !llvm.loop !16
 
 .loopexit665:                                     ; preds = %537, %.preheader664, %525
@@ -1515,7 +1515,7 @@ set_rel_time.exit:                                ; preds = %371, %390, %._crit_
   %564 = getelementptr inbounds i8, ptr %563, i64 8
   %565 = load i32, ptr %564, align 8
   %566 = zext i32 %565 to i64
-  %567 = icmp ult i64 %indvars.iv.next1577, %566
+  %567 = icmp samesign ult i64 %indvars.iv.next1577, %566
   br i1 %567, label %.lr.ph1094, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph1094
@@ -1529,7 +1529,7 @@ set_rel_time.exit:                                ; preds = %371, %390, %._crit_
   %570 = getelementptr inbounds i8, ptr %568, i64 8
   %571 = load i32, ptr %570, align 8
   %572 = zext i32 %571 to i64
-  %573 = icmp ult i64 %indvars.iv.next1580, %572
+  %573 = icmp samesign ult i64 %indvars.iv.next1580, %572
   br i1 %573, label %.lr.ph1096.split, label %.loopexit663, !llvm.loop !18
 
 .loopexit663:                                     ; preds = %._crit_edge, %.lr.ph1096, %.preheader662, %.loopexit665
@@ -1641,7 +1641,7 @@ validate_secrets_file.exit:                       ; preds = %604, %609, %612
   %indvars.iv.next1583 = add nuw nsw i64 %indvars.iv1582, 1
   %630 = load i32, ptr %574, align 8
   %631 = zext i32 %630 to i64
-  %632 = icmp ult i64 %indvars.iv.next1583, %631
+  %632 = icmp samesign ult i64 %indvars.iv.next1583, %631
   br i1 %632, label %577, label %.loopexit661, !llvm.loop !20
 
 .loopexit661:                                     ; preds = %629, %.preheader660, %.loopexit663
@@ -3046,7 +3046,7 @@ list_secrets_types.exit.thread:                   ; preds = %71, %set_rel_time.e
   %indvars.iv.next1610 = add nuw nsw i64 %indvars.iv1609, 1
   %1266 = load i32, ptr %1261, align 8
   %1267 = zext i32 %1266 to i64
-  %1268 = icmp ult i64 %indvars.iv.next1610, %1267
+  %1268 = icmp samesign ult i64 %indvars.iv.next1610, %1267
   br i1 %1268, label %.lr.ph1170, label %._crit_edge1171, !llvm.loop !33
 
 ._crit_edge1171:                                  ; preds = %.lr.ph1170, %.preheader
@@ -3224,7 +3224,7 @@ define internal fastcc void @list_capture_types(ptr nocapture noundef %0) unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -3590,7 +3590,7 @@ sub_0:
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %21, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %36, %.preheader, %18, %16, %33

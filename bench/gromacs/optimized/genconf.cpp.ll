@@ -1022,7 +1022,7 @@ _ZL8rand_rotiPA3_fS0_PA4_fS2_PN3gmx16ThreeFry2x64FastILj64EEEPKf.exit.us.us.us: 
 459:                                              ; preds = %458
   %460 = add nuw nsw i64 %indvars.iv324, 1
   %461 = mul nuw nsw i64 %326, %460
-  %462 = icmp ult i64 %461, %309
+  %462 = icmp samesign ult i64 %461, %309
   br i1 %462, label %.split261.us, label %463
 
 463:                                              ; preds = %459, %458, %._crit_edge.us.us.us

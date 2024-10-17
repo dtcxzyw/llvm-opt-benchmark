@@ -1130,7 +1130,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   %85 = add nuw nsw i32 %.085, 1
   %86 = load i32, ptr %84, align 4
   %87 = icmp ne i32 %86, 0
-  %88 = icmp ult i32 %85, %2
+  %88 = icmp samesign ult i32 %85, %2
   %89 = select i1 %87, i1 %88, i1 false
   br i1 %89, label %10, label %._crit_edge, !llvm.loop !14
 
@@ -1268,7 +1268,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   %67 = zext i32 %4 to i64
   %68 = zext i32 %.1 to i64
   %69 = add nuw nsw i64 %68, 4
-  %70 = icmp ugt i64 %69, %67
+  %70 = icmp samesign ugt i64 %69, %67
   %71 = add i32 %4, -4
   %spec.select = select i1 %70, i32 %71, i32 %.1
   %72 = zext i32 %spec.select to i64
@@ -1751,7 +1751,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %33 = load i32, ptr %25, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next44, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next44, %34
   br i1 %35, label %.lr.ph.split.us, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %24
@@ -1782,7 +1782,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %25, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph.split, label %.preheader, !llvm.loop !17
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
@@ -2110,7 +2110,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %28, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 34:                                               ; preds = %.lr.ph22, %34
@@ -2126,7 +2126,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %42 = load i32, ptr %21, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next28, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next28, %43
   br i1 %44, label %34, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %25, %.preheader
@@ -2376,7 +2376,7 @@ cmsMLUfree.exit34:                                ; preds = %45, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %0, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %51
@@ -2489,7 +2489,7 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly %0) loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %0, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %19, label %.loopexit, !llvm.loop !24
 
 65:                                               ; preds = %8

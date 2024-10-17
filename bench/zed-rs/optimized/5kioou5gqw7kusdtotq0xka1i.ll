@@ -851,15 +851,15 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7.i.i.i.i.i"
 
 103:                                              ; preds = %100
-  %104 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
+  %104 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
   br i1 %104, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i.i", label %105
 
 105:                                              ; preds = %103
-  %106 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
+  %106 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
   br i1 %106, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i.i", label %107
 
 107:                                              ; preds = %105
-  %108 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
+  %108 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i = select i1 %108, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i.i"
 

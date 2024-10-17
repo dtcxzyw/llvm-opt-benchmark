@@ -5243,7 +5243,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = icmp ult i16 %.val1, 13
+  %21 = icmp samesign ult i16 %.val1, 13
   br i1 %21, label %switch.lookup, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.i.i.i
 
 switch.lookup:                                    ; preds = %12
@@ -5379,7 +5379,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = icmp ult i16 %.val1, 13
+  %19 = icmp samesign ult i16 %.val1, 13
   br i1 %19, label %switch.lookup, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.i.i.i
 
 switch.lookup:                                    ; preds = %11
@@ -5614,7 +5614,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa56
   %20 = load ptr, ptr %19, align 8, !noalias !1293, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !1293, !noundef !4
-  %23 = icmp ult i16 %.val1.i, 13
+  %23 = icmp samesign ult i16 %.val1.i, 13
   br i1 %23, label %switch.lookup, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.i.i.i.i
 
 switch.lookup:                                    ; preds = %15
@@ -11978,7 +11978,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 2
   %29 = load ptr, ptr %18, align 8, !nonnull !4, !align !20, !noundef !4
   %30 = load i8, ptr %.sroa.0.0, align 1, !range !2586, !alias.scope !2587, !noalias !2590, !noundef !4
-  %switch = icmp ult i8 %30, 2
+  %switch = icmp samesign ult i8 %30, 2
   br i1 %switch, label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i", label %31
 
 31:                                               ; preds = %27
@@ -12536,7 +12536,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   br label %56
 
 .lr.ph:                                           ; preds = %70
-  %41 = icmp ugt i64 %43, %invariant.op
+  %41 = icmp samesign ugt i64 %43, %invariant.op
   br i1 %41, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h2057134db49fb8eeE.exit", label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %.lr.ph
@@ -12649,7 +12649,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %75 = load i64, ptr %36, align 8, !alias.scope !2697, !noundef !4
   %76 = add i64 %75, 1
   store i64 %76, ptr %36, align 8
-  %77 = icmp ult i64 %43, %21
+  %77 = icmp samesign ult i64 %43, %21
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 78:                                               ; preds = %39
@@ -13663,7 +13663,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   br label %49
 
 .lr.ph:                                           ; preds = %66
-  %43 = icmp ugt i64 %44, %invariant.op
+  %43 = icmp samesign ugt i64 %44, %invariant.op
   br i1 %43, label %"_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17ha4077eedfa258889E.exit", label %.lr.ph233
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph
@@ -13741,7 +13741,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %71 = load i64, ptr %37, align 8, !alias.scope !2920, !noundef !4
   %72 = add i64 %71, 1
   store i64 %72, ptr %37, align 8
-  %73 = icmp ult i64 %44, %23
+  %73 = icmp samesign ult i64 %44, %23
   br i1 %73, label %.lr.ph, label %._crit_edge
 
 74:                                               ; preds = %41
@@ -13869,7 +13869,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   br label %59
 
 .lr.ph:                                           ; preds = %73
-  %43 = icmp ugt i64 %45, %invariant.op
+  %43 = icmp samesign ugt i64 %45, %invariant.op
   br i1 %43, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hf929e4331e538626E.exit", label %.lr.ph233
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph
@@ -13986,7 +13986,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %78 = load i64, ptr %37, align 8, !alias.scope !2962, !noundef !4
   %79 = add i64 %78, 1
   store i64 %79, ptr %37, align 8
-  %80 = icmp ult i64 %45, %23
+  %80 = icmp samesign ult i64 %45, %23
   br i1 %80, label %.lr.ph, label %._crit_edge
 
 81:                                               ; preds = %41

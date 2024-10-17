@@ -1900,7 +1900,7 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = icmp ult i64 %21, 3
+  %26 = icmp samesign ult i64 %21, 3
   br i1 %26, label %27, label %common.resume
 
 27:                                               ; preds = %24
@@ -2020,7 +2020,7 @@ define hidden { i64, ptr } @"_ZN107_$LT$futures_util..future..try_join..TryJoin$
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = icmp ult i64 %21, 3
+  %26 = icmp samesign ult i64 %21, 3
   br i1 %26, label %27, label %common.resume
 
 27:                                               ; preds = %24
@@ -6365,7 +6365,7 @@ define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$futures_util..futu
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %0, align 8, !range !82, !noundef !4
-  %8 = icmp ult i64 %7, 3
+  %8 = icmp samesign ult i64 %7, 3
   br i1 %8, label %9, label %"_ZN4core3ptr116drop_in_place$LT$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$17h632fd2e1e2298b8eE.exit"
 
 "_ZN4core3ptr116drop_in_place$LT$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$17h632fd2e1e2298b8eE.exit": ; preds = %157, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6e5501ac0b30c38dE.exit.i39.i", %118, %114, %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hdf2aa8eb5c622cc4E.exit38.i", %9, %1
@@ -6866,7 +6866,7 @@ define internal fastcc void @"_ZN4core3ptr182drop_in_place$LT$futures_util..futu
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %0, align 8, !range !82, !noundef !4
-  %8 = icmp ult i64 %7, 3
+  %8 = icmp samesign ult i64 %7, 3
   br i1 %8, label %9, label %"_ZN4core3ptr124drop_in_place$LT$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d6abd963724c90dE.exit"
 
 "_ZN4core3ptr124drop_in_place$LT$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d6abd963724c90dE.exit": ; preds = %157, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6e5501ac0b30c38dE.exit.i39.i", %118, %114, %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hdf2aa8eb5c622cc4E.exit38.i", %9, %1
@@ -10925,7 +10925,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui3app10AppContext18subscribe_internal2
   %101 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3235
   %102 = icmp ult i64 %101, 6
   call void @llvm.assume(i1 %102)
-  %switch.i.i.i.i.i = icmp ult i64 %101, 4
+  %switch.i.i.i.i.i = icmp samesign ult i64 %101, 4
   br i1 %switch.i.i.i.i.i, label %115, label %103
 
 103:                                              ; preds = %100
@@ -15660,7 +15660,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %179, ptr %177, align 8, !noalias !4188
   %.pr = load i64, ptr %18, align 8, !alias.scope !4194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %180, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h681e1a049951369fE.exit"
 
 180:                                              ; preds = %168
@@ -16081,7 +16081,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %156, ptr %154, align 8, !noalias !4242
   %.pr = load i64, ptr %14, align 8, !alias.scope !4248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %157, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h681e1a049951369fE.exit"
 
 157:                                              ; preds = %145
@@ -16516,7 +16516,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %156, ptr %154, align 8, !noalias !4296
   %.pr = load i64, ptr %14, align 8, !alias.scope !4302
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %157, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h681e1a049951369fE.exit"
 
 157:                                              ; preds = %145
@@ -24298,7 +24298,7 @@ common.ret:                                       ; preds = %205, %149
   %250 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %251 = icmp ult i64 %250, 6
   call void @llvm.assume(i1 %251)
-  %switch.i87 = icmp ugt i64 %250, 1
+  %switch.i87 = icmp samesign ugt i64 %250, 1
   br i1 %switch.i87, label %252, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %249, %_ZN3log13__private_api3log17hf134ab4124020517E.exit
@@ -25588,7 +25588,7 @@ common.ret:                                       ; preds = %297, %241
   %271 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %272 = icmp ult i64 %271, 6
   tail call void @llvm.assume(i1 %272)
-  %switch.i67 = icmp ugt i64 %271, 2
+  %switch.i67 = icmp samesign ugt i64 %271, 2
   br i1 %switch.i67, label %273, label %297
 
 273:                                              ; preds = %270

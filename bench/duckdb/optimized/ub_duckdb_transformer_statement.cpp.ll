@@ -32308,7 +32308,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %.noexc438
   %__val.addr.0.lcssa.i.i = phi i64 [ %sub.ptr.div.i.i, %.noexc438 ], [ %div.i9.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i436, label %if.else.i.i435
 
 if.then.i.i436:                                   ; preds = %while.end.i.i
@@ -32490,7 +32490,7 @@ while.body.i.i493:                                ; preds = %while.body.i.i493, 
 
 while.end.i.i477:                                 ; preds = %while.body.i.i493, %.noexc515
   %__val.addr.0.lcssa.i.i478 = phi i64 [ %c.01216, %.noexc515 ], [ %div.i9.i498, %while.body.i.i493 ]
-  %cmp7.i.i479 = icmp ugt i64 %__val.addr.0.lcssa.i.i478, 9
+  %cmp7.i.i479 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i478, 9
   br i1 %cmp7.i.i479, label %if.then.i.i483, label %if.else.i.i480
 
 if.then.i.i483:                                   ; preds = %while.end.i.i477
@@ -43770,7 +43770,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %.noexc177
   %__val.addr.0.lcssa.i.i = phi i64 [ %add, %.noexc177 ], [ %div.i9.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i174, label %if.else.i.i
 
 if.then.i.i174:                                   ; preds = %while.end.i.i

@@ -1380,7 +1380,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 
 161:                                              ; preds = %158, %153
   %162 = phi i64 [ %160, %158 ], [ 1, %153 ]
-  %163 = icmp ugt i64 %162, %154
+  %163 = icmp samesign ugt i64 %162, %154
   %164 = add nuw nsw i64 %154, 1
   br i1 %163, label %153, label %.loopexit14, !llvm.loop !50
 

@@ -646,7 +646,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   %20 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %21 = icmp ult i64 %20, 6
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ugt i64 %20, 4
+  %22 = icmp samesign ugt i64 %20, 4
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, %25
@@ -752,7 +752,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   %20 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %21 = icmp ult i64 %20, 6
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ugt i64 %20, 4
+  %22 = icmp samesign ugt i64 %20, 4
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.exit, %27
@@ -856,7 +856,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !78
   %29 = icmp ult i64 %15, 4785074604081152
   call void @llvm.assume(i1 %29)
-  %30 = icmp ult i64 %15, 281474976710656
+  %30 = icmp samesign ult i64 %15, 281474976710656
   %..i = select i1 %30, i64 1, i64 2
   store i64 %..i, ptr %7, align 8, !noalias !78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !78
@@ -957,7 +957,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i64 %18, 4
+  %20 = icmp samesign ugt i64 %18, 4
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, %22
@@ -1041,7 +1041,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 4
+  %28 = icmp samesign ugt i64 %26, 4
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfc417f82fc20b80dE.exit.thread", %30
@@ -1117,7 +1117,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 4
+  %28 = icmp samesign ugt i64 %26, 4
   br i1 %28, label %34, label %31
 
 29:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit
@@ -1394,7 +1394,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   %39 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %40 = icmp ult i64 %39, 6
   call void @llvm.assume(i1 %40)
-  %41 = icmp ugt i64 %39, 4
+  %41 = icmp samesign ugt i64 %39, 4
   br i1 %41, label %134, label %129
 
 42:                                               ; preds = %34
@@ -1666,7 +1666,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 4
+  %28 = icmp samesign ugt i64 %26, 4
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, %34
@@ -1813,7 +1813,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   %47 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %48 = icmp ult i64 %47, 6
   tail call void @llvm.assume(i1 %48)
-  %49 = icmp ugt i64 %47, 4
+  %49 = icmp samesign ugt i64 %47, 4
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %46, %54
@@ -1904,7 +1904,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   %69 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %70 = icmp ult i64 %69, 6
   tail call void @llvm.assume(i1 %70)
-  %71 = icmp ugt i64 %69, 4
+  %71 = icmp samesign ugt i64 %69, 4
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %._crit_edge, %75
@@ -2034,7 +2034,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   %25 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %26 = icmp ult i64 %25, 6
   tail call void @llvm.assume(i1 %26)
-  %27 = icmp ugt i64 %25, 4
+  %27 = icmp samesign ugt i64 %25, 4
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0a27911ba6b5d26fE.exit", %33
@@ -2136,7 +2136,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 4
+  %28 = icmp samesign ugt i64 %26, 4
   br i1 %28, label %37, label %33
 
 29:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h0b55db8eceb0849fE.exit"
@@ -2239,7 +2239,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %34 = icmp ult i64 %33, 6
   tail call void @llvm.assume(i1 %34)
-  %35 = icmp ugt i64 %33, 4
+  %35 = icmp samesign ugt i64 %33, 4
   br i1 %35, label %43, label %38
 
 36:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit
@@ -2351,7 +2351,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   %34 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %35 = icmp ult i64 %34, 6
   tail call void @llvm.assume(i1 %35)
-  %36 = icmp ugt i64 %34, 4
+  %36 = icmp samesign ugt i64 %34, 4
   br i1 %36, label %44, label %39
 
 37:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.exit

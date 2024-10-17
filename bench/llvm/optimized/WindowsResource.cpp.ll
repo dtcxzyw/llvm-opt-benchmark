@@ -3048,7 +3048,7 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser11addChildrenERNS1_
   %.0.copyload.i.i.i65 = load i16, ptr %22, align 1
   %54 = zext i16 %.0.copyload.i.i.i65 to i32
   %55 = add nuw nsw i32 %54, %53
-  %56 = icmp ult i32 %52, %55
+  %56 = icmp samesign ult i32 %52, %55
   br i1 %56, label %57, label %_ZN4llvm12ErrorSuccessD2Ev.exit, !llvm.loop !94
 
 57:                                               ; preds = %.lr.ph, %51
@@ -3079,7 +3079,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 66:                                               ; preds = %62
   %67 = zext i16 %.0.copyload.i.i.i66 to i32
-  %68 = icmp ult i32 %.0185, %67
+  %68 = icmp samesign ult i32 %.0185, %67
   br i1 %68, label %69, label %110
 
 69:                                               ; preds = %66

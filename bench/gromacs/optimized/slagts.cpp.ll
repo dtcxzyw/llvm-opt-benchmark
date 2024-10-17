@@ -14,7 +14,7 @@ define void @slagts_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store i32 0, ptr %9, align 4
   %17 = load i32, ptr %0, align 4
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %19 = icmp ugt i32 %18, 2
+  %19 = icmp samesign ugt i32 %18, 2
   %20 = icmp eq i32 %17, 0
   %or.cond = or i1 %20, %19
   br i1 %or.cond, label %.thread.sink.split, label %21
@@ -388,7 +388,7 @@ thread-pre-split357:                              ; preds = %47, %31, %36
 
 227:                                              ; preds = %.lr.ph385, %281
   %indvars.iv421 = phi i64 [ 1, %.lr.ph385 ], [ %indvars.iv.next422, %281 ]
-  %228 = icmp ugt i64 %indvars.iv421, 2
+  %228 = icmp samesign ugt i64 %indvars.iv421, 2
   br i1 %228, label %229, label %246
 
 229:                                              ; preds = %227
@@ -489,7 +489,7 @@ thread-pre-split357:                              ; preds = %47, %31, %36
 
 287:                                              ; preds = %.lr.ph382, %.loopexit362
   %indvars.iv416 = phi i64 [ 1, %.lr.ph382 ], [ %indvars.iv.next417, %.loopexit362 ]
-  %288 = icmp ugt i64 %indvars.iv416, 2
+  %288 = icmp samesign ugt i64 %indvars.iv416, 2
   br i1 %288, label %289, label %306
 
 289:                                              ; preds = %287

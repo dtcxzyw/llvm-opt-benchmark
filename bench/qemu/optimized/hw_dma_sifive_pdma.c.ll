@@ -104,7 +104,7 @@ entry:
   %0 = trunc i64 %offset to i32
   %1 = lshr i32 %0, 12
   %conv = and i32 %1, 255
-  %cmp = icmp ugt i32 %conv, 3
+  %cmp = icmp samesign ugt i32 %conv, 3
   br i1 %cmp, label %do.body, label %if.end5
 
 do.body:                                          ; preds = %entry
@@ -405,7 +405,7 @@ entry:
   %0 = trunc i64 %offset to i32
   %1 = lshr i32 %0, 12
   %conv = and i32 %1, 255
-  %cmp = icmp ugt i32 %conv, 3
+  %cmp = icmp samesign ugt i32 %conv, 3
   br i1 %cmp, label %do.body, label %if.end5
 
 do.body:                                          ; preds = %entry

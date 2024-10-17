@@ -514,7 +514,7 @@ entry:
   br i1 %cmp16, label %while.body, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %entry
-  %cmp320 = icmp ugt i32 %month, 12
+  %cmp320 = icmp samesign ugt i32 %month, 12
   br i1 %cmp320, label %while.body4, label %while.end6
 
 while.body:                                       ; preds = %entry, %while.body
@@ -748,8 +748,8 @@ if.end:                                           ; preds = %while.end22
   store i32 1, ptr %arrayidx3.i44, align 8
   %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 127
   store i8 1, ptr %arrayidx5.i46, align 1
-  %cmp42 = icmp ugt i32 %.us-phi, 6
-  %or.cond1 = and i1 %cmp1.i.not.fr, %cmp42
+  %cmp42 = icmp samesign ugt i32 %.us-phi, 6
+  %or.cond1 = select i1 %cmp1.i.not.fr, i1 %cmp42, i1 false
   %dec44 = add nsw i32 %.us-phi, -2
   %ordinal_month.0 = select i1 %or.cond1, i32 %dec44, i32 %dec25
   %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 104
@@ -830,7 +830,7 @@ entry:
   br i1 %cmp36, label %while.body, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %entry
-  %cmp340 = icmp ugt i32 %month, 12
+  %cmp340 = icmp samesign ugt i32 %month, 12
   br i1 %cmp340, label %while.body4, label %while.end6
 
 while.body:                                       ; preds = %entry, %while.body

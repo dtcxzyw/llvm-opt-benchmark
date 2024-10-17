@@ -996,7 +996,7 @@ default.unreachable:                              ; preds = %112
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !13
   %131 = load i64, ptr %1, align 8, !range !24, !noalias !25, !noundef !4
-  %switch.i = icmp ult i64 %131, 2
+  %switch.i = icmp samesign ult i64 %131, 2
   br i1 %switch.i, label %138, label %132
 
 132:                                              ; preds = %126

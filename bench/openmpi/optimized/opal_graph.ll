@@ -1320,7 +1320,7 @@ define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef r
   %.05166 = phi ptr [ %11, %.lr.ph69.preheader ], [ %32, %._crit_edge65 ]
   %32 = getelementptr inbounds i8, ptr %.05166, i64 16
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  %33 = icmp ugt i64 %indvars.iv79, 1
+  %33 = icmp samesign ugt i64 %indvars.iv79, 1
   br i1 %33, label %.lr.ph64, label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %.lr.ph69

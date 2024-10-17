@@ -213,7 +213,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph77, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %48, %41
@@ -547,7 +547,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %.lr.ph, label %.backedge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.backedge, %12

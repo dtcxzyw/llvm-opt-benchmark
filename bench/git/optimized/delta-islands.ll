@@ -632,7 +632,7 @@ for.inc:                                          ; preds = %for.body, %oe_tree_
   %nr.1 = phi i32 [ %inc, %oe_tree_depth.exit ], [ %nr.0108, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
@@ -1260,7 +1260,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 for.cond10.loopexit.i:                            ; preds = %for.inc37.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = zext i32 %dst.1.i to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %15
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %15
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   br i1 %cmp11.i, label %for.cond15.preheader.i, label %for.end42.i, !llvm.loop !15
 
@@ -1301,7 +1301,7 @@ if.end35.i:                                       ; preds = %if.then30.i, %if.en
 for.inc37.i:                                      ; preds = %if.end35.i, %for.body18.i
   %dst.1.i = phi i32 [ %dst.092.i, %for.body18.i ], [ %inc36.i, %if.end35.i ]
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
-  %cmp16.i = icmp ult i64 %indvars.iv.next117.i, %16
+  %cmp16.i = icmp samesign ult i64 %indvars.iv.next117.i, %16
   br i1 %cmp16.i, label %for.body18.i, label %for.cond10.loopexit.i, !llvm.loop !16
 
 for.end42.i:                                      ; preds = %for.cond10.loopexit.i, %for.cond10.preheader.i
@@ -3257,7 +3257,7 @@ for.inc:                                          ; preds = %oe_set_layer.exit, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %nr_objects, align 8
   %34 = zext i32 %33 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %34
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %cmp, label %for.body, label %return, !llvm.loop !29
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %entry

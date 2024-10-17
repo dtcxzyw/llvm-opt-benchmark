@@ -621,7 +621,7 @@ av1_get_skip_txfm_context.exit.i.i:               ; preds = %94, %92
   %119 = select i1 %118, i32 0, i32 32768
   %120 = load i16, ptr %102, align 2
   %121 = zext i16 %120 to i32
-  %122 = icmp ult i32 %119, %121
+  %122 = icmp samesign ult i32 %119, %121
   br i1 %122, label %123, label %128
 
 123:                                              ; preds = %107
@@ -817,7 +817,7 @@ av1_allow_intrabc.exit.i:                         ; preds = %212
   %240 = select i1 %239, i32 0, i32 32768
   %241 = load i16, ptr %223, align 2
   %242 = zext i16 %241 to i32
-  %243 = icmp ult i32 %240, %242
+  %243 = icmp samesign ult i32 %240, %242
   br i1 %243, label %244, label %249
 
 244:                                              ; preds = %228
@@ -1732,7 +1732,7 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   %88 = select i1 %87, i32 0, i32 32768
   %89 = load i16, ptr %71, align 2
   %90 = zext i16 %89 to i32
-  %91 = icmp ult i32 %88, %90
+  %91 = icmp samesign ult i32 %88, %90
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %76
@@ -1842,7 +1842,7 @@ av1_get_skip_txfm_context.exit.i:                 ; preds = %129, %127
   %155 = select i1 %154, i32 0, i32 32768
   %156 = load i16, ptr %138, align 2
   %157 = zext i16 %156 to i32
-  %158 = icmp ult i32 %155, %157
+  %158 = icmp samesign ult i32 %155, %157
   br i1 %158, label %159, label %164
 
 159:                                              ; preds = %143
@@ -1962,7 +1962,7 @@ segfeature_active.exit16.thread.i:                ; preds = %segfeature_active.e
   %226 = select i1 %225, i32 0, i32 32768
   %227 = load i16, ptr %209, align 2
   %228 = zext i16 %227 to i32
-  %229 = icmp ult i32 %226, %228
+  %229 = icmp samesign ult i32 %226, %228
   br i1 %229, label %230, label %235
 
 230:                                              ; preds = %214
@@ -2223,7 +2223,7 @@ segfeature_active.exit101.thread.i.i:             ; preds = %segfeature_active.e
   %390 = select i1 %389, i32 0, i32 32768
   %391 = load i16, ptr %373, align 2
   %392 = zext i16 %391 to i32
-  %393 = icmp ult i32 %390, %392
+  %393 = icmp samesign ult i32 %390, %392
   br i1 %393, label %394, label %399
 
 394:                                              ; preds = %378
@@ -2295,7 +2295,7 @@ read_block_reference_mode.exit.i.read_ref_frames.exit_crit_edge.i: ; preds = %re
   %430 = select i1 %429, i32 0, i32 32768
   %431 = load i16, ptr %413, align 2
   %432 = zext i16 %431 to i32
-  %433 = icmp ult i32 %430, %432
+  %433 = icmp samesign ult i32 %430, %432
   br i1 %433, label %434, label %439
 
 434:                                              ; preds = %418
@@ -2407,7 +2407,7 @@ read_comp_reference_type.exit.i:                  ; preds = %._crit_edge.loopexi
   %497 = select i1 %496, i32 0, i32 32768
   %498 = load i16, ptr %482, align 2
   %499 = zext i16 %498 to i32
-  %500 = icmp ult i32 %497, %499
+  %500 = icmp samesign ult i32 %497, %499
   br i1 %500, label %501, label %506
 
 501:                                              ; preds = %485
@@ -2490,7 +2490,7 @@ aom_read_symbol_.exit565.i:                       ; preds = %._crit_edge.loopexi
   %550 = select i1 %549, i32 0, i32 32768
   %551 = load i16, ptr %535, align 2
   %552 = zext i16 %551 to i32
-  %553 = icmp ult i32 %550, %552
+  %553 = icmp samesign ult i32 %550, %552
   br i1 %553, label %554, label %559
 
 554:                                              ; preds = %538
@@ -2568,7 +2568,7 @@ read_block_reference_mode.exit.thread.i.i:        ; preds = %read_block_referenc
   %599 = select i1 %598, i32 0, i32 32768
   %600 = load i16, ptr %582, align 2
   %601 = zext i16 %600 to i32
-  %602 = icmp ult i32 %599, %601
+  %602 = icmp samesign ult i32 %599, %601
   br i1 %602, label %603, label %608
 
 603:                                              ; preds = %587
@@ -2626,7 +2626,7 @@ aom_read_symbol_.exit545.i:                       ; preds = %._crit_edge.loopexi
   %636 = select i1 %635, i32 0, i32 32768
   %637 = load i16, ptr %621, align 2
   %638 = zext i16 %637 to i32
-  %639 = icmp ult i32 %636, %638
+  %639 = icmp samesign ult i32 %636, %638
   br i1 %639, label %640, label %645
 
 640:                                              ; preds = %624
@@ -2684,7 +2684,7 @@ aom_read_symbol_.exit535.i:                       ; preds = %._crit_edge.loopexi
   %673 = select i1 %672, i32 0, i32 32768
   %674 = load i16, ptr %658, align 2
   %675 = zext i16 %674 to i32
-  %676 = icmp ult i32 %673, %675
+  %676 = icmp samesign ult i32 %673, %675
   br i1 %676, label %677, label %682
 
 677:                                              ; preds = %661
@@ -2742,7 +2742,7 @@ aom_read_symbol_.exit525.i:                       ; preds = %._crit_edge.loopexi
   %710 = select i1 %709, i32 0, i32 32768
   %711 = load i16, ptr %695, align 2
   %712 = zext i16 %711 to i32
-  %713 = icmp ult i32 %710, %712
+  %713 = icmp samesign ult i32 %710, %712
   br i1 %713, label %714, label %719
 
 714:                                              ; preds = %698
@@ -2800,7 +2800,7 @@ aom_read_symbol_.exit515.i:                       ; preds = %._crit_edge.loopexi
   %747 = select i1 %746, i32 0, i32 32768
   %748 = load i16, ptr %732, align 2
   %749 = zext i16 %748 to i32
-  %750 = icmp ult i32 %747, %749
+  %750 = icmp samesign ult i32 %747, %749
   br i1 %750, label %751, label %756
 
 751:                                              ; preds = %735
@@ -2858,7 +2858,7 @@ aom_read_symbol_.exit505.i:                       ; preds = %._crit_edge.loopexi
   %784 = select i1 %783, i32 0, i32 32768
   %785 = load i16, ptr %769, align 2
   %786 = zext i16 %785 to i32
-  %787 = icmp ult i32 %784, %786
+  %787 = icmp samesign ult i32 %784, %786
   br i1 %787, label %788, label %793
 
 788:                                              ; preds = %772
@@ -3135,7 +3135,7 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   %931 = select i1 %930, i32 0, i32 32768
   %932 = load i16, ptr %916, align 2
   %933 = zext i16 %932 to i32
-  %934 = icmp ult i32 %931, %933
+  %934 = icmp samesign ult i32 %931, %933
   br i1 %934, label %935, label %940
 
 935:                                              ; preds = %919
@@ -3192,7 +3192,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %969 = select i1 %968, i32 0, i32 32768
   %970 = load i16, ptr %954, align 2
   %971 = zext i16 %970 to i32
-  %972 = icmp ult i32 %969, %971
+  %972 = icmp samesign ult i32 %969, %971
   br i1 %972, label %973, label %978
 
 973:                                              ; preds = %957
@@ -3249,7 +3249,7 @@ aom_read_symbol_.exit24.i.i:                      ; preds = %._crit_edge.loopexi
   %1007 = select i1 %1006, i32 0, i32 32768
   %1008 = load i16, ptr %992, align 2
   %1009 = zext i16 %1008 to i32
-  %1010 = icmp ult i32 %1007, %1009
+  %1010 = icmp samesign ult i32 %1007, %1009
   br i1 %1010, label %1011, label %1016
 
 1011:                                             ; preds = %995
@@ -3365,7 +3365,7 @@ av1_ref_frame_type.exit.i298.i:                   ; preds = %get_uni_comp_ref_id
   %1058 = load i8, ptr %1053, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1059 = zext i8 %1058 to i64
-  %1060 = icmp ult i64 %indvars.iv.next.i.i, %1059
+  %1060 = icmp samesign ult i64 %indvars.iv.next.i.i, %1059
   br i1 %1060, label %1061, label %1108
 
 1061:                                             ; preds = %1056
@@ -3400,7 +3400,7 @@ av1_ref_frame_type.exit.i298.i:                   ; preds = %get_uni_comp_ref_id
   %1083 = select i1 %1082, i32 0, i32 32768
   %1084 = load i16, ptr %1068, align 2
   %1085 = zext i16 %1084 to i32
-  %1086 = icmp ult i32 %1083, %1085
+  %1086 = icmp samesign ult i32 %1083, %1085
   br i1 %1086, label %1087, label %1092
 
 1087:                                             ; preds = %1071
@@ -3467,7 +3467,7 @@ thread-pre-split.i.i:                             ; preds = %1108
   %1115 = load i8, ptr %1112, align 1
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %1116 = zext i8 %1115 to i64
-  %1117 = icmp ult i64 %indvars.iv.next64.i.i, %1116
+  %1117 = icmp samesign ult i64 %indvars.iv.next64.i.i, %1116
   br i1 %1117, label %1118, label %1167
 
 1118:                                             ; preds = %.backedge.i.i
@@ -3502,7 +3502,7 @@ thread-pre-split.i.i:                             ; preds = %1108
   %1140 = select i1 %1139, i32 0, i32 32768
   %1141 = load i16, ptr %1125, align 2
   %1142 = zext i16 %1141 to i32
-  %1143 = icmp ult i32 %1140, %1142
+  %1143 = icmp samesign ult i32 %1140, %1142
   br i1 %1143, label %1144, label %1149
 
 1144:                                             ; preds = %1128
@@ -3540,12 +3540,12 @@ aom_read_symbol_.exit55.i.i:                      ; preds = %._crit_edge.loopexi
   %1165 = or disjoint i16 %1164, %1163
   store i16 %1165, ptr %19, align 1
   %.not37.i.i = icmp ne i32 %1126, 0
-  %1166 = icmp ult i64 %indvars.iv63.i.i, 2
+  %1166 = icmp samesign ult i64 %indvars.iv63.i.i, 2
   %or.cond.i300.i = and i1 %1166, %.not37.i.i
   br i1 %or.cond.i300.i, label %.backedge.i.i.backedge, label %read_drl_idx.exit.i
 
 1167:                                             ; preds = %.backedge.i.i
-  %.old.i.i = icmp ult i64 %indvars.iv63.i.i, 2
+  %.old.i.i = icmp samesign ult i64 %indvars.iv63.i.i, 2
   br i1 %.old.i.i, label %.backedge.i.i.backedge, label %read_drl_idx.exit.i
 
 .backedge.i.i.backedge:                           ; preds = %1167, %aom_read_symbol_.exit55.i.i
@@ -3647,7 +3647,7 @@ read_drl_idx.exit.i:                              ; preds = %aom_read_symbol_.ex
   %1221 = sub i16 %1206, %1219
   store i16 %1221, ptr %4, align 4
   %1222 = call i16 @llvm.abs.i16(i16 %1219, i1 true)
-  %1223 = icmp ugt i16 %1222, 4
+  %1223 = icmp samesign ugt i16 %1222, 4
   br i1 %1223, label %.sink.split.i.i.i, label %1226
 
 .sink.split.i.i.i:                                ; preds = %1220
@@ -3667,7 +3667,7 @@ read_drl_idx.exit.i:                              ; preds = %aom_read_symbol_.ex
   %1230 = sub i16 %1208, %1228
   store i16 %1230, ptr %1227, align 2
   %1231 = call i16 @llvm.abs.i16(i16 %1228, i1 true)
-  %1232 = icmp ugt i16 %1231, 4
+  %1232 = icmp samesign ugt i16 %1231, 4
   br i1 %1232, label %.sink.split20.i.i.i, label %lower_mv_precision.exit.i
 
 .sink.split20.i.i.i:                              ; preds = %1229
@@ -3715,7 +3715,7 @@ lower_mv_precision.exit.i:                        ; preds = %.sink.split20.i.i.i
   %1249 = sub i16 %1209, %1247
   store i16 %1249, ptr %1194, align 4
   %1250 = call i16 @llvm.abs.i16(i16 %1247, i1 true)
-  %1251 = icmp ugt i16 %1250, 4
+  %1251 = icmp samesign ugt i16 %1250, 4
   br i1 %1251, label %.sink.split.i.i320.i, label %1254
 
 .sink.split.i.i320.i:                             ; preds = %1248
@@ -3735,7 +3735,7 @@ lower_mv_precision.exit.i:                        ; preds = %.sink.split20.i.i.i
   %1258 = sub i16 %1211, %1256
   store i16 %1258, ptr %1255, align 2
   %1259 = call i16 @llvm.abs.i16(i16 %1256, i1 true)
-  %1260 = icmp ugt i16 %1259, 4
+  %1260 = icmp samesign ugt i16 %1259, 4
   br i1 %1260, label %.sink.split20.i.i318.i, label %lower_mv_precision.exit327.i
 
 .sink.split20.i.i318.i:                           ; preds = %1257
@@ -3779,7 +3779,7 @@ lower_mv_precision.exit327.i:                     ; preds = %.sink.split20.i.i31
   %1276 = sub i16 %1212, %1274
   store i16 %1276, ptr %5, align 4
   %1277 = call i16 @llvm.abs.i16(i16 %1274, i1 true)
-  %1278 = icmp ugt i16 %1277, 4
+  %1278 = icmp samesign ugt i16 %1277, 4
   br i1 %1278, label %.sink.split.i.i333.i, label %1281
 
 .sink.split.i.i333.i:                             ; preds = %1275
@@ -3799,7 +3799,7 @@ lower_mv_precision.exit327.i:                     ; preds = %.sink.split20.i.i31
   %1285 = sub i16 %1214, %1283
   store i16 %1285, ptr %1282, align 2
   %1286 = call i16 @llvm.abs.i16(i16 %1283, i1 true)
-  %1287 = icmp ugt i16 %1286, 4
+  %1287 = icmp samesign ugt i16 %1286, 4
   br i1 %1287, label %.sink.split20.i.i331.i, label %lower_mv_precision.exit340.i
 
 .sink.split20.i.i331.i:                           ; preds = %1284
@@ -3843,7 +3843,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
   %1303 = sub i16 %1215, %1301
   store i16 %1303, ptr %1200, align 4
   %1304 = call i16 @llvm.abs.i16(i16 %1301, i1 true)
-  %1305 = icmp ugt i16 %1304, 4
+  %1305 = icmp samesign ugt i16 %1304, 4
   br i1 %1305, label %.sink.split.i.i346.i, label %1308
 
 .sink.split.i.i346.i:                             ; preds = %1302
@@ -3863,7 +3863,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
   %1312 = sub i16 %1217, %1310
   store i16 %1312, ptr %1309, align 2
   %1313 = call i16 @llvm.abs.i16(i16 %1310, i1 true)
-  %1314 = icmp ugt i16 %1313, 4
+  %1314 = icmp samesign ugt i16 %1313, 4
   br i1 %1314, label %.sink.split20.i.i344.i, label %1356
 
 .sink.split20.i.i344.i:                           ; preds = %1311
@@ -4279,7 +4279,7 @@ is_interintra_allowed.exit.i:                     ; preds = %1511
   %1539 = select i1 %1538, i32 0, i32 32768
   %1540 = load i16, ptr %1522, align 2
   %1541 = zext i16 %1540 to i32
-  %1542 = icmp ult i32 %1539, %1541
+  %1542 = icmp samesign ult i32 %1539, %1541
   br i1 %1542, label %1543, label %1548
 
 1543:                                             ; preds = %1527
@@ -4412,7 +4412,7 @@ read_interintra_mode.exit.i:                      ; preds = %._crit_edge.loopexi
   %1618 = select i1 %1617, i32 0, i32 32768
   %1619 = load i16, ptr %1603, align 2
   %1620 = zext i16 %1619 to i32
-  %1621 = icmp ult i32 %1618, %1620
+  %1621 = icmp samesign ult i32 %1618, %1620
   br i1 %1621, label %1622, label %1627
 
 1622:                                             ; preds = %1606
@@ -4718,7 +4718,7 @@ motion_mode_allowed.exit.i.i:                     ; preds = %1765, %1755
   %1786 = select i1 %1785, i32 0, i32 32768
   %1787 = load i16, ptr %1769, align 2
   %1788 = zext i16 %1787 to i32
-  %1789 = icmp ult i32 %1786, %1788
+  %1789 = icmp samesign ult i32 %1786, %1788
   br i1 %1789, label %1790, label %1795
 
 1790:                                             ; preds = %1774
@@ -4854,7 +4854,7 @@ read_motion_mode.exit.i:                          ; preds = %aom_read_symbol_.ex
 
 1861:                                             ; preds = %is_interinter_compound_used.exit.thread.i.i, %.preheader.i407.i
   %.014.i.i = phi i32 [ 0, %.preheader.i407.i ], [ %1866, %is_interinter_compound_used.exit.thread.i.i ]
-  %1862 = icmp ult i32 %.014.i.i, 2
+  %1862 = icmp samesign ult i32 %.014.i.i, 2
   br i1 %1862, label %is_interinter_compound_used.exit.thread.i.i, label %1863
 
 1863:                                             ; preds = %1861
@@ -4959,7 +4959,7 @@ get_comp_group_idx_context.exit.i:                ; preds = %1894, %1888, %1884
   %1919 = select i1 %1918, i32 0, i32 32768
   %1920 = load i16, ptr %1902, align 2
   %1921 = zext i16 %1920 to i32
-  %1922 = icmp ult i32 %1919, %1921
+  %1922 = icmp samesign ult i32 %1919, %1921
   br i1 %1922, label %1923, label %1928
 
 1923:                                             ; preds = %1907
@@ -5191,7 +5191,7 @@ get_comp_index_context.exit.i:                    ; preds = %2031, %2025, %2021
   %2059 = select i1 %2058, i32 0, i32 32768
   %2060 = load i16, ptr %2042, align 2
   %2061 = zext i16 %2060 to i32
-  %2062 = icmp ult i32 %2059, %2061
+  %2062 = icmp samesign ult i32 %2059, %2061
   br i1 %2062, label %2063, label %2068
 
 2063:                                             ; preds = %2047
@@ -5268,7 +5268,7 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
   %2108 = select i1 %2107, i32 0, i32 32768
   %2109 = load i16, ptr %2091, align 2
   %2110 = zext i16 %2109 to i32
-  %2111 = icmp ult i32 %2108, %2110
+  %2111 = icmp samesign ult i32 %2108, %2110
   br i1 %2111, label %2112, label %2117
 
 2112:                                             ; preds = %2096
@@ -6839,7 +6839,7 @@ av1_get_palette_mode_ctx.exit:                    ; preds = %30, %31
   %59 = select i1 %58, i32 0, i32 32768
   %60 = load i16, ptr %42, align 2
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %59, %61
+  %62 = icmp samesign ult i32 %59, %61
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %47
@@ -6972,7 +6972,7 @@ aom_read_symbol_.exit49:                          ; preds = %76, %._crit_edge.lo
 134:                                              ; preds = %128, %126
   %.1.i54 = phi i32 [ %131, %128 ], [ %.089.i, %126 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %135 = icmp ult i64 %indvars.iv.next.i, %125
+  %135 = icmp samesign ult i64 %indvars.iv.next.i, %125
   %136 = icmp slt i32 %.1.i54, %121
   %137 = select i1 %135, i1 %136, i1 false
   br i1 %137, label %126, label %._crit_edge.i, !llvm.loop !17
@@ -7223,7 +7223,7 @@ read_palette_colors_y.exit:                       ; preds = %203, %.loopexit.i, 
   %242 = select i1 %241, i32 0, i32 32768
   %243 = load i16, ptr %225, align 2
   %244 = zext i16 %243 to i32
-  %245 = icmp ult i32 %242, %244
+  %245 = icmp samesign ult i32 %242, %244
   br i1 %245, label %246, label %251
 
 246:                                              ; preds = %230
@@ -7356,7 +7356,7 @@ aom_read_symbol_.exit76:                          ; preds = %259, %._crit_edge.l
 317:                                              ; preds = %311, %309
   %.190.i = phi i32 [ %314, %311 ], [ %.089179.i, %309 ]
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
-  %318 = icmp ult i64 %indvars.iv.next.i117, %308
+  %318 = icmp samesign ult i64 %indvars.iv.next.i117, %308
   %319 = icmp slt i32 %.190.i, %303
   %320 = select i1 %318, i1 %319, i1 false
   br i1 %320, label %309, label %._crit_edge.i77, !llvm.loop !21
@@ -7763,7 +7763,7 @@ define internal fastcc void @read_filter_intra_mode_info(ptr nocapture noundef r
   %46 = select i1 %45, i32 0, i32 32768
   %47 = load i16, ptr %29, align 2
   %48 = zext i16 %47 to i32
-  %49 = icmp ult i32 %46, %48
+  %49 = icmp samesign ult i32 %46, %48
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %34
@@ -8443,7 +8443,7 @@ define internal fastcc i32 @read_mv_component(ptr noundef %0, ptr noundef %1, i3
   %22 = select i1 %21, i32 0, i32 32768
   %23 = load i16, ptr %5, align 2
   %24 = zext i16 %23 to i32
-  %25 = icmp ult i32 %22, %24
+  %25 = icmp samesign ult i32 %22, %24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %10
@@ -8565,7 +8565,7 @@ aom_read_symbol_.exit51:                          ; preds = %aom_read_symbol_.ex
   %92 = select i1 %91, i32 0, i32 32768
   %93 = load i16, ptr %77, align 2
   %94 = zext i16 %93 to i32
-  %95 = icmp ult i32 %92, %94
+  %95 = icmp samesign ult i32 %92, %94
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %80
@@ -8616,7 +8616,7 @@ aom_read_symbol_.exit51:                          ; preds = %aom_read_symbol_.ex
   %125 = select i1 %124, i32 0, i32 32768
   %126 = load i16, ptr %110, align 2
   %127 = zext i16 %126 to i32
-  %128 = icmp ult i32 %125, %127
+  %128 = icmp samesign ult i32 %125, %127
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %113
@@ -8756,7 +8756,7 @@ aom_read_symbol_.exit81:                          ; preds = %148, %._crit_edge.l
   %204 = select i1 %203, i32 0, i32 32768
   %205 = load i16, ptr %189, align 2
   %206 = zext i16 %205 to i32
-  %207 = icmp ult i32 %204, %206
+  %207 = icmp samesign ult i32 %204, %206
   br i1 %207, label %208, label %213
 
 208:                                              ; preds = %192
@@ -9076,7 +9076,7 @@ av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
   %148 = select i1 %147, i32 0, i32 32768
   %149 = load i16, ptr %131, align 2
   %150 = zext i16 %149 to i32
-  %151 = icmp ult i32 %148, %150
+  %151 = icmp samesign ult i32 %148, %150
   br i1 %151, label %152, label %157
 
 152:                                              ; preds = %136
@@ -9278,7 +9278,7 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
 19:                                               ; preds = %17
   %20 = sub i16 %12, %18
   %21 = tail call i16 @llvm.abs.i16(i16 %18, i1 true)
-  %22 = icmp ugt i16 %21, 4
+  %22 = icmp samesign ugt i16 %21, 4
   br i1 %22, label %.sink.split.i, label %25
 
 .sink.split.i:                                    ; preds = %19
@@ -9296,7 +9296,7 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
 27:                                               ; preds = %25
   %28 = sub i16 %16, %26
   %29 = tail call i16 @llvm.abs.i16(i16 %26, i1 true)
-  %30 = icmp ugt i16 %29, 4
+  %30 = icmp samesign ugt i16 %29, 4
   br i1 %30, label %.sink.split20.i, label %integer_mv_precision.exit
 
 .sink.split20.i:                                  ; preds = %27
@@ -9428,7 +9428,7 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
 114:                                              ; preds = %112
   %115 = sub i16 %110, %113
   %116 = tail call i16 @llvm.abs.i16(i16 %113, i1 true)
-  %117 = icmp ugt i16 %116, 4
+  %117 = icmp samesign ugt i16 %116, 4
   br i1 %117, label %.sink.split.i36, label %120
 
 .sink.split.i36:                                  ; preds = %114
@@ -9446,7 +9446,7 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
 122:                                              ; preds = %120
   %123 = sub i16 %111, %121
   %124 = tail call i16 @llvm.abs.i16(i16 %121, i1 true)
-  %125 = icmp ugt i16 %124, 4
+  %125 = icmp samesign ugt i16 %124, 4
   br i1 %125, label %.sink.split20.i34, label %integer_mv_precision.exit
 
 .sink.split20.i34:                                ; preds = %122

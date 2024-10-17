@@ -3259,7 +3259,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit206: ; preds = %_ZSt27__uninit
 432:                                              ; preds = %386, %425
   %.1 = phi i32 [ %431, %425 ], [ %.0337, %386 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
-  %433 = icmp ult i64 %indvars.iv.next363, %385
+  %433 = icmp samesign ult i64 %indvars.iv.next363, %385
   %434 = icmp slt i32 %.1, %.0103.lcssa
   %435 = select i1 %433, i1 %434, i1 false
   br i1 %435, label %386, label %._crit_edge339, !llvm.loop !79

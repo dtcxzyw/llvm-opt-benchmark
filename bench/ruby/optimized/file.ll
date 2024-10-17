@@ -6117,7 +6117,7 @@ define internal i64 @rb_file_s_realpath(i32 noundef %0, ptr nocapture noundef re
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %9 = icmp ugt i32 %0, 1
+  %9 = icmp samesign ugt i32 %0, 1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %rb_check_arity.exit
@@ -6190,7 +6190,7 @@ define internal i64 @rb_file_s_realdirpath(i32 noundef %0, ptr nocapture noundef
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %9 = icmp ugt i32 %0, 1
+  %9 = icmp samesign ugt i32 %0, 1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %rb_check_arity.exit
@@ -6535,7 +6535,7 @@ define internal i64 @rb_file_s_dirname(i32 noundef %0, ptr nocapture noundef rea
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %6 = icmp ugt i32 %0, 1
+  %6 = icmp samesign ugt i32 %0, 1
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %rb_check_arity.exit
@@ -7911,7 +7911,7 @@ rb_file_identical_p.exit:                         ; preds = %268, %275, %278, %2
 286:                                              ; preds = %253, %266
   %287 = and i32 %54, 255
   %288 = zext nneg i32 %287 to i64
-  %memchr.bounds = icmp ugt i32 %287, 63
+  %memchr.bounds = icmp samesign ugt i32 %287, 63
   %289 = shl nuw i64 1, %288
   %290 = and i64 %289, 8070450532247928833
   %memchr.bits = icmp eq i64 %290, 0
@@ -10139,7 +10139,7 @@ rb_array_len.exit72:                              ; preds = %18
 rb_array_len.exit72.thread:                       ; preds = %18
   %22 = lshr i64 %.pre121, 15
   %23 = and i64 %22, 127
-  %24 = icmp ult i64 %.061, %23
+  %24 = icmp samesign ult i64 %.061, %23
   br i1 %24, label %RARRAY_AREF.exit, label %48
 
 25:                                               ; preds = %rb_array_len.exit72

@@ -3587,7 +3587,7 @@ _ZN10QByteArray4dataEv.exit.i:                    ; preds = %.noexc20, %22
   br label %6, !llvm.loop !39
 
 94:                                               ; preds = %11
-  %95 = icmp ult i32 %.019, 2
+  %95 = icmp samesign ult i32 %.019, 2
   %. = select i1 %95, i32 13, i32 0
   br label %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit
 

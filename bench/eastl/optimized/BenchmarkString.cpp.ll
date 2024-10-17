@@ -2033,7 +2033,7 @@ for.body.i477:                                    ; preds = %call11.i.i.noexc, %
   %add.ptr9.i.i486 = getelementptr inbounds i8, ptr %add.ptr.i.i485, i64 %cond.i4.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr9.i.i486 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i485 to i64
-  %cmp.not.i = icmp ult i64 %cond.i4.i.i, 8
+  %cmp.not.i = icmp samesign ult i64 %cond.i4.i.i, 8
   br i1 %cmp.not.i, label %if.else15.i, label %if.end.i2549
 
 if.end.i2549:                                     ; preds = %for.body.i477
@@ -2234,7 +2234,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2598: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc.exit.i
   %cmp3.i.i.i2618 = icmp ult i64 %197, 8
   call void @llvm.assume(i1 %cmp3.i.i.i2618)
-  %cmp.not.i2600 = icmp ugt i64 %sub.i2596, 7
+  %cmp.not.i2600 = icmp samesign ugt i64 %sub.i2596, 7
   br i1 %cmp.not.i2600, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2835, label %if.then.i2601
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2598.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc.exit.i
@@ -2285,8 +2285,8 @@ if.end.i2614:                                     ; preds = %if.end.i.i.i2615, %
   br label %call3.i.i.noexc
 
 if.else.i2604:                                    ; preds = %if.then.i2601
-  %cmp17.not.i = icmp ult i64 %spec.select.i.i.i516, 8
-  %or.cond65.not.i = icmp ugt i64 %spec.select.i.i.i516, 7
+  %cmp17.not.i = icmp samesign ult i64 %spec.select.i.i.i516, 8
+  %or.cond65.not.i = icmp samesign ugt i64 %spec.select.i.i.i516, 7
   br i1 %or.cond65.not.i, label %if.then18.i, label %if.end19.i2605
 
 if.then18.i:                                      ; preds = %if.else.i2604
@@ -2528,7 +2528,7 @@ for.body.i546:                                    ; preds = %call11.i.i.noexc567
   %add.ptr9.i.i560 = getelementptr inbounds i8, ptr %add.ptr.i.i559, i64 %add.ptr9.i.i560.idx2898
   %sub.ptr.lhs.cast.i2622 = ptrtoint ptr %add.ptr9.i.i560 to i64
   %sub.ptr.rhs.cast.i2623 = ptrtoint ptr %add.ptr.i.i559 to i64
-  %cmp.not.i2627 = icmp ult i64 %cond.i4.i.i557, 8
+  %cmp.not.i2627 = icmp samesign ult i64 %cond.i4.i.i557, 8
   br i1 %cmp.not.i2627, label %if.else18.i, label %if.then.i2628
 
 if.then.i2628:                                    ; preds = %for.body.i546

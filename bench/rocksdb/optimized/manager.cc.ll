@@ -1305,7 +1305,7 @@ if.else.i.i10:                                    ; preds = %for.body
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i: ; preds = %for.body
   %9 = load i32, ptr %num_values.i.i, align 4
   %10 = zext i32 %9 to i64
-  %cmp.not.i = icmp ult i64 %indvars.iv, %10
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp.not.i, label %if.then2.i, label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE5fetchEjPS2_.exit
 
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.i.i10
@@ -1314,7 +1314,7 @@ _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i: ; preds = %if.else.
   %weight.i.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %idxprom.i.i.i, i32 1
   %12 = load i32, ptr %weight.i.i.i, align 8
   %13 = zext i32 %12 to i64
-  %cmp.not15.i = icmp ult i64 %indvars.iv, %13
+  %cmp.not15.i = icmp samesign ult i64 %indvars.iv, %13
   br i1 %cmp.not15.i, label %tailrecurse.outer.i.i.preheader, label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE5fetchEjPS2_.exit
 
 tailrecurse.outer.i.i.preheader:                  ; preds = %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i
@@ -3002,7 +3002,7 @@ if.else:                                          ; preds = %entry
   %sub = sub i32 %8, %9
   %conv5 = zext i32 %sub to i64
   %mul6 = mul nuw nsw i64 %conv5, 24
-  %cmp7.not = icmp ugt i64 %mul, %mul6
+  %cmp7.not = icmp samesign ugt i64 %mul, %mul6
   br i1 %cmp7.not, label %if.else15, label %if.then8
 
 if.then8:                                         ; preds = %if.else

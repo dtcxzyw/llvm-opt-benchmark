@@ -1048,7 +1048,7 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit57: ; preds = %_ZN2cv3dnn14dn
 93:                                               ; preds = %90
   %94 = lshr exact i64 %28, 2
   %95 = trunc i64 %94 to i32
-  %.not.i58 = icmp ugt i32 %63, %91
+  %.not.i58 = icmp samesign ugt i32 %63, %91
   br i1 %.not.i58, label %96, label %97
 
 96:                                               ; preds = %93
@@ -1286,7 +1286,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %175 = phi ptr [ %170, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %147, %145 ]
   %176 = zext nneg i32 %91 to i64
   %177 = and i64 %54, 4294967295
-  %178 = icmp ugt i64 %177, %176
+  %178 = icmp samesign ugt i64 %177, %176
   br i1 %178, label %.lr.ph91, label %._crit_edge92
 
 .lr.ph91:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit74

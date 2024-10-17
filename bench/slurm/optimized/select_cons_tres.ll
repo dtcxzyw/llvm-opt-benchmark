@@ -405,7 +405,7 @@ thread-pre-split:                                 ; preds = %32
   %.0.i = phi i32 [ 0, %83 ], [ %104, %102 ]
   %99 = load i16, ptr %97, align 2
   %100 = zext i16 %99 to i32
-  %101 = icmp ult i32 %.0.i, %100
+  %101 = icmp samesign ult i32 %.0.i, %100
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %98
@@ -1378,7 +1378,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %145 = add nuw nsw i32 %144, 1
   store i32 %145, ptr %4, align 4
   %146 = zext i16 %143 to i32
-  %147 = icmp ult i32 %145, %146
+  %147 = icmp samesign ult i32 %145, %146
   br i1 %147, label %.preheader.outer, label %._crit_edge.thread124, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit
@@ -1802,7 +1802,7 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %17, align 8
   %30 = zext i16 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %27, %.preheader53, %.lr.ph65

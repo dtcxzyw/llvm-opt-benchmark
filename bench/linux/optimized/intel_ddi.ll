@@ -3500,7 +3500,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %512 = shl nuw nsw i64 1, %509
   %513 = and i64 %512, %511
   %514 = icmp eq i64 %513, 0
-  %515 = icmp ugt i64 %509, 3
+  %515 = icmp samesign ugt i64 %509, 3
   %516 = or i1 %515, %514
   br i1 %516, label %564, label %517
 

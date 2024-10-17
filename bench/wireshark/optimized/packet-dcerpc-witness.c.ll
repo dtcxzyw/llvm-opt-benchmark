@@ -534,7 +534,7 @@ define hidden i32 @witness_dissect_struct_interfaceInfo(ptr noundef %0, i32 noun
   br i1 %26, label %witness_dissect_element_interfaceInfo_group_name.exit, label %27
 
 27:                                               ; preds = %22
-  %28 = icmp ult i32 %.02.i, 518
+  %28 = icmp samesign ult i32 %.02.i, 518
   br i1 %28, label %22, label %witness_dissect_element_interfaceInfo_group_name.exit, !llvm.loop !6
 
 witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27

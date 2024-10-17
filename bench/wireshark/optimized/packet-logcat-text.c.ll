@@ -611,7 +611,7 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   %36 = tail call i32 %33(ptr noundef %8, ptr noundef %35, ptr noundef %0, ptr noundef %12, i32 noundef %.046, ptr noundef %2) #5
   %37 = load i32, ptr %24, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %30, label %.sink.split, !llvm.loop !4
 
 40:                                               ; preds = %4

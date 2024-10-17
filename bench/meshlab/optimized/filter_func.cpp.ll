@@ -40572,7 +40572,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit165:    ; preds = %451, %457
 
 .loopexit374:                                     ; preds = %415
   %492 = add nuw nsw i32 %.1399, 1
-  %493 = icmp ult i32 %.1399, 2
+  %493 = icmp samesign ult i32 %.1399, 2
   br i1 %493, label %414, label %.loopexit375.loopexit, !llvm.loop !167
 
 .loopexit375.loopexit:                            ; preds = %.loopexit374, %491

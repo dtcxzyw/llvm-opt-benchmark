@@ -475,7 +475,7 @@ if.then30.i:                                      ; preds = %land.lhs.true.i
 if.end36.i:                                       ; preds = %if.then30.i, %land.lhs.true.i, %if.end24.i
   %cur.1.i = phi ptr [ %cur.02.i, %land.lhs.true.i ], [ %cur.02.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
   %dupctx.2.i = phi ptr [ null, %land.lhs.true.i ], [ %dupctx.13.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
-  %cmp12.i = icmp ult i64 %add25.i, 1000
+  %cmp12.i = icmp samesign ult i64 %add25.i, 1000
   br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end36.i

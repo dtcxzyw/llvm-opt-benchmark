@@ -1535,7 +1535,7 @@ computeCRC.exit.i:                                ; preds = %while.body.i.i, %wh
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %171 = load i32, ptr %fLength.i, align 8
   %172 = zext i32 %171 to i64
-  %cmp98.i = icmp ult i64 %indvars.iv.next.i, %172
+  %cmp98.i = icmp samesign ult i64 %indvars.iv.next.i, %172
   br i1 %cmp98.i, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 lpad88.i:                                         ; preds = %_ZL10write_tabsP11_FileStream.exit80.i
@@ -1584,7 +1584,7 @@ invoke.cont125.i:                                 ; preds = %while.body115.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %180 = load i32, ptr %fLength.i, align 8
   %181 = zext i32 %180 to i64
-  %cmp114.i = icmp ult i64 %indvars.iv.next8.i, %181
+  %cmp114.i = icmp samesign ult i64 %indvars.iv.next8.i, %181
   br i1 %cmp114.i, label %while.body115.i, label %while.end128.i, !llvm.loop !13
 
 lpad109.i:                                        ; preds = %while.end.i

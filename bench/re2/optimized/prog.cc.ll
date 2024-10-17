@@ -2244,7 +2244,7 @@ invoke.cont11:                                    ; preds = %_ZNSt6vectorISt4pai
 if.then17:                                        ; preds = %invoke.cont11
   %spec.store.select = call i32 @llvm.smax.i32(i32 %conv.i, i32 97)
   %14 = call i32 @llvm.umin.i32(i32 %conv.i36, i32 122)
-  %cmp23.not = icmp ugt i32 %spec.store.select, %14
+  %cmp23.not = icmp samesign ugt i32 %spec.store.select, %14
   br i1 %cmp23.not, label %if.end28, label %if.end.i42
 
 lpad.loopexit:                                    ; preds = %while.body.i217, %call.i.noexc
@@ -5534,7 +5534,7 @@ if.end6:                                          ; preds = %lor.lhs.false
 if.then16:                                        ; preds = %if.end6
   %11 = call i32 @llvm.umax.i32(i32 %conv.i, i32 97)
   %12 = call i32 @llvm.umin.i32(i32 %conv.i22, i32 122)
-  %cmp23.not = icmp ugt i32 %11, %12
+  %cmp23.not = icmp samesign ugt i32 %11, %12
   br i1 %cmp23.not, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %if.then16
@@ -7284,7 +7284,7 @@ if.end.split:                                     ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload11 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6365 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div15, %div.i6365
+  %cmp24.i = icmp samesign ult i64 %div15, %div.i6365
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

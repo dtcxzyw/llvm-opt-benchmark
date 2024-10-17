@@ -1367,7 +1367,7 @@ switch.early.test:                                ; preds = %226
   %298 = load i32, ptr %297, align 4
   %299 = and i32 %298, 1073741823
   %300 = icmp ne i32 %299, %275
-  %301 = icmp ult i64 %indvars.iv.i, 14
+  %301 = icmp samesign ult i64 %indvars.iv.i, 14
   %or.cond.i = and i1 %301, %300
   br i1 %or.cond.i, label %293, label %302, !llvm.loop !11
 
@@ -1450,7 +1450,7 @@ _ZL19icvTraceContour_32sPiiS_i.exit:              ; preds = %306, %290
   %335 = getelementptr inbounds i8, ptr %.04069.i, i64 %334
   %336 = load i8, ptr %335, align 1
   %337 = icmp eq i8 %336, 0
-  %338 = icmp ult i64 %indvars.iv.i325, 14
+  %338 = icmp samesign ult i64 %indvars.iv.i325, 14
   %or.cond.i327 = and i1 %338, %337
   br i1 %or.cond.i327, label %331, label %339, !llvm.loop !14
 
@@ -1720,7 +1720,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   %449 = getelementptr inbounds i8, ptr %.087.us.i, i64 %448
   %450 = load i8, ptr %449, align 1
   %451 = icmp eq i8 %450, 0
-  %452 = icmp ult i64 %indvars.iv114.i, 14
+  %452 = icmp samesign ult i64 %indvars.iv114.i, 14
   %or.cond3.us.i = and i1 %452, %451
   br i1 %or.cond3.us.i, label %445, label %453, !llvm.loop !18
 
@@ -1791,7 +1791,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   %481 = getelementptr inbounds i8, ptr %.087.us93.i, i64 %480
   %482 = load i8, ptr %481, align 1
   %483 = icmp eq i8 %482, 0
-  %484 = icmp ult i64 %indvars.iv111.i, 14
+  %484 = icmp samesign ult i64 %indvars.iv111.i, 14
   %or.cond3.us97.i = and i1 %484, %483
   br i1 %or.cond3.us97.i, label %477, label %485, !llvm.loop !18
 
@@ -1863,7 +1863,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   %517 = getelementptr inbounds i8, ptr %.087.i, i64 %516
   %518 = load i8, ptr %517, align 1
   %519 = icmp eq i8 %518, 0
-  %520 = icmp ult i64 %indvars.iv.i331, 14
+  %520 = icmp samesign ult i64 %indvars.iv.i331, 14
   %or.cond3.i = and i1 %520, %519
   br i1 %or.cond3.i, label %513, label %521, !llvm.loop !18
 
@@ -2100,8 +2100,8 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   %624 = load i32, ptr %623, align 4
   %625 = and i32 %624, 1073741823
   %626 = icmp ne i32 %625, %582
-  %627 = icmp ult i64 %indvars.iv.i340, 14
-  %628 = and i1 %627, %626
+  %627 = icmp samesign ult i64 %indvars.iv.i340, 14
+  %628 = select i1 %626, i1 %627, i1 false
   br i1 %628, label %619, label %629, !llvm.loop !20
 
 629:                                              ; preds = %619
@@ -2401,7 +2401,7 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   %747 = getelementptr inbounds i8, ptr %.0158.i, i64 %746
   %748 = load i8, ptr %747, align 1
   %749 = icmp eq i8 %748, 0
-  %750 = icmp ult i64 %indvars.iv.i353, 14
+  %750 = icmp samesign ult i64 %indvars.iv.i353, 14
   %or.cond3.i355 = and i1 %750, %749
   br i1 %or.cond3.i355, label %743, label %751, !llvm.loop !23
 

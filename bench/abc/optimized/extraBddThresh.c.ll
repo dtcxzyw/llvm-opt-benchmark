@@ -186,7 +186,7 @@ define void @Extra_ThreshSortByChow(ptr noundef %0, i32 noundef %1, ptr nocaptur
 17:                                               ; preds = %.lr.ph.us
   store i32 %16, ptr %13, align 4
   store i32 %14, ptr %15, align 4
-  %18 = icmp ult i64 %indvars.iv, 5
+  %18 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %18, label %49, label %19
 
 19:                                               ; preds = %17
@@ -194,7 +194,7 @@ define void @Extra_ThreshSortByChow(ptr noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i64 %indvars.iv, 7
+  %22 = icmp samesign ult i64 %indvars.iv, 7
   %23 = trunc i64 %indvars.iv to i32
   %24 = add i32 %23, -6
   %25 = shl nuw i32 1, %24
@@ -332,7 +332,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef %0, i32 noundef %1, ptr 
 17:                                               ; preds = %.lr.ph.us
   store i32 %16, ptr %13, align 4
   store i32 %14, ptr %15, align 4
-  %18 = icmp ult i64 %indvars.iv, 5
+  %18 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %18, label %49, label %19
 
 19:                                               ; preds = %17
@@ -340,7 +340,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i64 %indvars.iv, 7
+  %22 = icmp samesign ult i64 %indvars.iv, 7
   %23 = trunc i64 %indvars.iv to i32
   %24 = add i32 %23, -6
   %25 = shl nuw i32 1, %24
@@ -1864,7 +1864,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds =
 .split.us.us.split.us.us.us.us.us.us.us.us.i:     ; preds = %39
   %42 = add nuw nsw i32 %storemerge4288.us.us.us.us.us.us.us.us.i, 1
   store i32 %42, ptr %2, align 4
-  %.not43.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge4288.us.us.us.us.us.us.us.us.i, 3
+  %.not43.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge4288.us.us.us.us.us.us.us.us.i, 3
   br i1 %.not43.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.i, label %.split90.us.split.us.us.us.us.us.us.us.i, !llvm.loop !18
 
 .split90.us.split.us.us.us.us.us.us.us.i:         ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.i
@@ -1983,13 +1983,13 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %74
   %77 = add nuw nsw i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %77, ptr %2, align 4
-  %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i, 4
+  %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i, 4
   br i1 %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.i, label %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !22
 
 .split98.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i
   %78 = add nuw nsw i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %78, ptr %48, align 4
-  %.not49.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, 4
+  %.not49.us.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, 4
   br i1 %.not49.us.us.us.us.us.us.us.us.us.not.i, label %.preheader66.us.us.us.us.us.us.us.us.us.i, label %.split122.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !23
 
 .split122.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i
@@ -2114,19 +2114,19 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %111
   %114 = add nuw nsw i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %114, ptr %2, align 4
-  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
+  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
   br i1 %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !27
 
 .split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %115 = add nuw nsw i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %115, ptr %85, align 4
-  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
+  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
   br i1 %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !28
 
 .split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %116 = add nuw nsw i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %116, ptr %84, align 4
-  %.not56.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, 5
+  %.not56.us.us.us.us.us.us.us.us.us.not.i = icmp samesign ult i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, 5
   br i1 %.not56.us.us.us.us.us.us.us.us.us.not.i, label %.split.us.us.us.us.us.us.us.us.us.us.i, label %.split164.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !29
 
 .split164.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i
@@ -2310,7 +2310,7 @@ define void @Extra_ThreshCreateInequalities(ptr nocapture noundef readonly %0, p
 
 ._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %29 = icmp ult i64 %indvars.iv.next112, %21
+  %29 = icmp samesign ult i64 %indvars.iv.next112, %21
   br i1 %29, label %.preheader73.us, label %.preheader72, !llvm.loop !62
 
 .preheader72:                                     ; preds = %._crit_edge.us, %9
@@ -2864,7 +2864,7 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %77
 130:                                              ; preds = %122, %.lr.ph.i177.us
   %.1.i.us = phi i32 [ %129, %122 ], [ %.014.i.us, %.lr.ph.i177.us ]
   %indvars.iv.next.i179.us = add nuw nsw i64 %indvars.iv.i178.us, 1
-  %131 = icmp ult i64 %indvars.iv.next.i179.us, %118
+  %131 = icmp samesign ult i64 %indvars.iv.next.i179.us, %118
   br i1 %131, label %.lr.ph.i177.us, label %Extra_ThreshCubeWeightedSum1.exit.loopexit.us, !llvm.loop !80
 
 Extra_ThreshCubeWeightedSum1.exit.loopexit.us:    ; preds = %130
@@ -2917,7 +2917,7 @@ Extra_ThreshCubeWeightedSum1.exit.loopexit.us:    ; preds = %130
 153:                                              ; preds = %145, %.lr.ph.i182.us
   %.1.i185.us = phi i32 [ %152, %145 ], [ %.014.i184.us, %.lr.ph.i182.us ]
   %indvars.iv.next.i186.us = add nuw nsw i64 %indvars.iv.i183.us, 1
-  %154 = icmp ult i64 %indvars.iv.next.i186.us, %141
+  %154 = icmp samesign ult i64 %indvars.iv.next.i186.us, %141
   br i1 %154, label %.lr.ph.i182.us, label %Extra_ThreshCubeWeightedSum2.exit.loopexit.us, !llvm.loop !82
 
 Extra_ThreshCubeWeightedSum2.exit.loopexit.us:    ; preds = %153
@@ -3170,7 +3170,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Abc_TtNegVar.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Abc_TtNegVar.exit.thread ]
-  %25 = icmp ult i64 %indvars.iv, 6
+  %25 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %.lr.ph.split
@@ -3354,7 +3354,7 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef %0, i32 noundef %1) 
   br i1 %3, label %Abc_TtNegVar.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = icmp ult i64 %indvars.iv, 6
+  %16 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %15
@@ -3460,7 +3460,7 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   br label %Abc_TtFlip.exit
 
 71:                                               ; preds = %Abc_TtNegVar.exit.thread
-  %72 = icmp ult i64 %indvars.iv, 6
+  %72 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %72, label %73, label %.thread
 
 73:                                               ; preds = %71
@@ -3678,7 +3678,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   %54 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #18
   tail call void @Cudd_Ref(ptr noundef %54) #18
   %55 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %54, ptr noundef %54, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #18
-  %56 = icmp ult i32 %1, 6
+  %56 = icmp samesign ult i32 %1, 6
   %57 = add nsw i32 %1, -5
   %58 = shl nuw i32 1, %57
   %59 = select i1 %56, i32 1, i32 %58
@@ -3715,7 +3715,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i77, %._crit
   %.183 = phi i32 [ %70, %.lr.ph84.split ], [ 2, %Abc_TtNot.exit ]
   %69 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef %.183)
   %70 = add nuw nsw i32 %.183, 1
-  %71 = icmp ult i32 %.183, 3
+  %71 = icmp samesign ult i32 %.183, 3
   %72 = icmp eq i32 %69, 0
   %or.cond = select i1 %71, i1 %72, i1 false
   br i1 %or.cond, label %.lr.ph84.split, label %.critedge, !llvm.loop !99

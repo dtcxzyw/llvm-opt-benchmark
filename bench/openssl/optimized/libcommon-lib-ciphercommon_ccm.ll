@@ -174,7 +174,7 @@ if.end.i:                                         ; preds = %if.end51
   %13 = load i8, ptr %arrayidx4.i, align 1
   %conv5.i = zext i8 %13 to i64
   %or.i = or disjoint i64 %shl.i, %conv5.i
-  %cmp7.i = icmp ult i64 %or.i, 8
+  %cmp7.i = icmp samesign ult i64 %or.i, 8
   br i1 %cmp7.i, label %ccm_tls_init.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i

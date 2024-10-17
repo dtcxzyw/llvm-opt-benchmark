@@ -436,7 +436,7 @@ define dso_local i64 @get_last_heartbeat(ptr noundef writeonly %0) local_unnamed
 14:                                               ; preds = %12, %7
   %15 = tail call i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 0) #9
   %16 = add nuw nsw i32 %.017, 1
-  %17 = icmp ult i32 %.017, 2
+  %17 = icmp samesign ult i32 %.017, 2
   %18 = icmp slt i32 %15, 0
   %19 = and i1 %18, %17
   br i1 %19, label %7, label %20, !llvm.loop !9

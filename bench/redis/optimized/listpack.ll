@@ -498,7 +498,7 @@ do.body.i:                                        ; preds = %cond.end, %if.end.i
 
 if.end.i:                                         ; preds = %do.body.i
   %add.i = add nuw nsw i64 %shift.0.i, 7
-  %cmp.i = icmp ugt i64 %shift.0.i, 21
+  %cmp.i = icmp samesign ugt i64 %shift.0.i, 21
   br i1 %cmp.i, label %lpEncodeBacklen.exit, label %do.body.i
 
 lpDecodeBacklen.exit:                             ; preds = %do.body.i
@@ -606,7 +606,7 @@ do.body.i.i:                                      ; preds = %entry, %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body.i.i
   %add.i.i = add nuw nsw i64 %shift.0.i.i, 7
-  %cmp.i.i = icmp ugt i64 %shift.0.i.i, 21
+  %cmp.i.i = icmp samesign ugt i64 %shift.0.i.i, 21
   br i1 %cmp.i.i, label %lpEncodeBacklen.exit.i, label %do.body.i.i
 
 lpDecodeBacklen.exit.i:                           ; preds = %do.body.i.i
@@ -902,7 +902,7 @@ if.then148:                                       ; preds = %if.else142
 
 if.then158:                                       ; preds = %if.then148
   %add159 = add nuw nsw i64 %conv156, 2
-  %cmp.i75 = icmp ult i32 %or155, 126
+  %cmp.i75 = icmp samesign ult i32 %or155, 126
   %spec.select = select i1 %cmp.i75, i64 1, i64 2
   %add162 = add nuw nsw i64 %add159, %spec.select
   store i64 %add162, ptr %entry_size, align 8
@@ -936,19 +936,19 @@ if.then171:                                       ; preds = %if.else165
 
 if.then189:                                       ; preds = %if.then171
   %add190 = add nuw nsw i64 %or186, 5
-  %cmp.i89 = icmp ult i64 %or186, 123
+  %cmp.i89 = icmp samesign ult i64 %or186, 123
   br i1 %cmp.i89, label %lpEncodeBacklen.exit102, label %if.else.i90
 
 if.else.i90:                                      ; preds = %if.then189
-  %cmp2.i91 = icmp ult i64 %or186, 16378
+  %cmp2.i91 = icmp samesign ult i64 %or186, 16378
   br i1 %cmp2.i91, label %lpEncodeBacklen.exit102, label %if.else12.i92
 
 if.else12.i92:                                    ; preds = %if.else.i90
-  %cmp13.i93 = icmp ult i64 %or186, 2097146
+  %cmp13.i93 = icmp samesign ult i64 %or186, 2097146
   br i1 %cmp13.i93, label %lpEncodeBacklen.exit102, label %if.else31.i94
 
 if.else31.i94:                                    ; preds = %if.else12.i92
-  %cmp32.i95 = icmp ult i64 %or186, 268435450
+  %cmp32.i95 = icmp samesign ult i64 %or186, 268435450
   %spec.select103 = select i1 %cmp32.i95, i64 4, i64 5
   br label %lpEncodeBacklen.exit102
 
@@ -1129,7 +1129,7 @@ if.else81.thread.i:                               ; preds = %if.end20.thread.i
 if.then30.i:                                      ; preds = %if.end20.i
   %narrow.i = add nsw i8 %8, -48
   %sub.i = zext nneg i8 %narrow.i to i64
-  %cmp3745.i = icmp ult i64 %plen.0.i, %conv24
+  %cmp3745.i = icmp samesign ult i64 %plen.0.i, %conv24
   br i1 %cmp3745.i, label %land.lhs.true39.i, label %if.end70.i
 
 land.lhs.true39.i:                                ; preds = %if.then30.i, %if.end60.i
@@ -1490,7 +1490,7 @@ if.else81.thread.i.i:                             ; preds = %if.end20.thread.i.i
 if.then30.i.i:                                    ; preds = %if.end20.i.i
   %narrow.i.i = add nsw i8 %11, -48
   %sub.i.i = zext nneg i8 %narrow.i.i to i64
-  %cmp3745.i.i = icmp ult i64 %plen.0.i.i, %conv.i
+  %cmp3745.i.i = icmp samesign ult i64 %plen.0.i.i, %conv.i
   br i1 %cmp3745.i.i, label %land.lhs.true39.i.i, label %if.end70.i.i
 
 land.lhs.true39.i.i:                              ; preds = %if.then30.i.i, %if.end60.i.i
@@ -2730,7 +2730,7 @@ do.body.i.i.i:                                    ; preds = %if.else34, %if.end.
 
 if.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %add.i.i.i = add nuw nsw i64 %shift.0.i.i.i, 7
-  %cmp.i.i.i = icmp ugt i64 %shift.0.i.i.i, 21
+  %cmp.i.i.i = icmp samesign ugt i64 %shift.0.i.i.i, 21
   br i1 %cmp.i.i.i, label %lpEncodeBacklen.exit.i.i, label %do.body.i.i.i
 
 lpDecodeBacklen.exit.i.i:                         ; preds = %do.body.i.i.i
@@ -2796,7 +2796,7 @@ do.body.i.i:                                      ; preds = %cond.end.i, %if.end
 
 if.end.i.i:                                       ; preds = %do.body.i.i
   %add.i.i = add nuw nsw i64 %shift.0.i.i, 7
-  %cmp.i.i31 = icmp ugt i64 %shift.0.i.i, 21
+  %cmp.i.i31 = icmp samesign ugt i64 %shift.0.i.i, 21
   br i1 %cmp.i.i31, label %lpEncodeBacklen.exit.i, label %do.body.i.i
 
 lpDecodeBacklen.exit.i:                           ; preds = %do.body.i.i
@@ -3493,7 +3493,7 @@ do.body.i:                                        ; preds = %lpEncodeBacklen.exi
 
 if.end.i40:                                       ; preds = %do.body.i
   %add.i41 = add nuw nsw i64 %shift.0.i, 7
-  %cmp.i42 = icmp ugt i64 %shift.0.i, 21
+  %cmp.i42 = icmp samesign ugt i64 %shift.0.i, 21
   br i1 %cmp.i42, label %return, label %do.body.i
 
 lpDecodeBacklen.exit:                             ; preds = %do.body.i
@@ -3687,7 +3687,7 @@ if.else81.thread.i:                               ; preds = %if.end20.thread.i
 if.then30.i:                                      ; preds = %if.end20.i
   %narrow.i = add nsw i8 %4, -48
   %sub.i = zext nneg i8 %narrow.i to i64
-  %cmp3745.i = icmp ult i64 %plen.0.i, %conv10
+  %cmp3745.i = icmp samesign ult i64 %plen.0.i, %conv10
   br i1 %cmp3745.i, label %land.lhs.true39.i, label %if.end70.i
 
 land.lhs.true39.i:                                ; preds = %if.then30.i, %if.end60.i
@@ -4215,7 +4215,7 @@ do.body.i.i:                                      ; preds = %lpEncodeBacklen.exi
 
 if.end.i40.i:                                     ; preds = %do.body.i.i
   %add.i41.i = add nuw nsw i64 %shift.0.i.i, 7
-  %cmp.i42.i = icmp ugt i64 %shift.0.i.i, 21
+  %cmp.i42.i = icmp samesign ugt i64 %shift.0.i.i, 21
   br i1 %cmp.i42.i, label %cond.false.i.i32, label %do.body.i.i
 
 lpDecodeBacklen.exit.i:                           ; preds = %do.body.i.i
@@ -4666,7 +4666,7 @@ cond.end21.us:                                    ; preds = %cond.end.us
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %inc30.us = add i32 %11, 2
   store i32 %inc30.us, ptr %index, align 4
-  %cmp3.us = icmp ult i64 %indvars.iv.next57, %9
+  %cmp3.us = icmp samesign ult i64 %indvars.iv.next57, %9
   %tobool.us = icmp ne ptr %call28.us, null
   %12 = and i1 %tobool.us, %cmp3.us
   br i1 %12, label %while.body.us, label %while.end.loopexit, !llvm.loop !20
@@ -4731,7 +4731,7 @@ cond.end21:                                       ; preds = %cond.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc30 = add i32 %14, 2
   store i32 %inc30, ptr %index, align 4
-  %cmp3 = icmp ult i64 %indvars.iv.next, %9
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %9
   %tobool = icmp ne ptr %call28, null
   %16 = and i1 %tobool, %cmp3
   br i1 %16, label %while.body, label %while.end.loopexit54, !llvm.loop !20
@@ -5113,7 +5113,7 @@ for.body:                                         ; preds = %lpEncodeBacklen.exi
   %call15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %conv14)
   %inc = add i32 %i.050, 1
   %conv10 = zext i32 %inc to i64
-  %cmp = icmp ugt i64 %add, %conv10
+  %cmp = icmp samesign ugt i64 %add, %conv10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body

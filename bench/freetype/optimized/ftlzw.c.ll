@@ -472,7 +472,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   %34 = add i32 %33, -256
   %35 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %34, ptr %35, align 8
-  %36 = icmp ugt i8 %27, 16
+  %36 = icmp samesign ugt i8 %27, 16
   br i1 %36, label %.loopexit168, label %37
 
 37:                                               ; preds = %25
@@ -482,7 +482,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   %39 = zext nneg i8 %.lobit to i32
   %40 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %39, ptr %40, align 8
-  %41 = icmp ugt i8 %27, 9
+  %41 = icmp samesign ugt i8 %27, 9
   %42 = add i32 %33, -255
   %spec.select = select i1 %41, i32 256, i32 %42
   %43 = getelementptr inbounds i8, ptr %0, i64 68

@@ -2279,7 +2279,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i.i.i.i.i263, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i262
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i262, !llvm.loop !33
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %821
@@ -4394,7 +4394,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RecordEPSt4pairINS_9StringRefElENS_12De
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %94
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
 
 94:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -12753,7 +12753,7 @@ _ZNSt6vectorISt4pairIPN4llvm6RecordEjESaIS4_EE12emplace_backIJRKS3_RjEEERS4_DpOT
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %207
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm6RecordEjESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !222
 
 207:                                              ; preds = %.lr.ph.i.i.i.i.i

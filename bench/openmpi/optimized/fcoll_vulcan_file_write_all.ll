@@ -2620,7 +2620,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
 
 566:                                              ; preds = %565, %550
   %.0104.i = phi i32 [ %.0108132.i, %565 ], [ %551, %550 ]
-  %.not127.not.i = icmp ult i32 %549, %.2507.lcssa
+  %.not127.not.i = icmp samesign ult i32 %549, %.2507.lcssa
   br i1 %.not127.not.i, label %567, label %581
 
 567:                                              ; preds = %566

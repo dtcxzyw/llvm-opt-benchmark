@@ -1789,7 +1789,7 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = and i16 %.val, 4095
   %68 = zext nneg i16 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %44, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %66, %41

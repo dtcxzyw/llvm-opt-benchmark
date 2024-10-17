@@ -2180,7 +2180,7 @@ cond.end1160:                                     ; preds = %cond.false1156, %co
   %add1185 = add i64 %xor1175, %or1184
   %add1187 = add i64 %add1185, %add1164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %cmp = icmp ult i64 %indvars.iv, 64
+  %cmp = icmp samesign ult i64 %indvars.iv, 64
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %cond.end1160

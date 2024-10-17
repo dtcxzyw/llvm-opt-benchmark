@@ -4227,7 +4227,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %435 = load i32, ptr %393, align 4
   %436 = zext i32 %435 to i64
-  %437 = icmp ult i64 %indvars.iv.next.i.i.i, %436
+  %437 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %436
   br i1 %437, label %431, label %_ZN22contour_point_vector_taSERKS_.exitthread-pre-split, !llvm.loop !43
 
 _ZN22contour_point_vector_taSERKS_.exitthread-pre-split: ; preds = %431, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i.i
@@ -4431,7 +4431,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit251: ; preds = %515, 
   %.0.i.i250 = phi ptr [ @_hb_CrapPool, %514 ], [ %517, %515 ]
   %518 = load i32, ptr %191, align 8
   %519 = zext i32 %518 to i64
-  %.not.i.i252 = icmp ult i64 %indvars.iv, %519
+  %.not.i.i252 = icmp samesign ult i64 %indvars.iv, %519
   br i1 %.not.i.i252, label %521, label %520
 
 520:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit251
@@ -6450,7 +6450,7 @@ _ZL9hb_memsetPvij.exit333.thread:                 ; preds = %_ZN2OT18TupleVariat
 
 .lr.ph819:                                        ; preds = %.lr.ph819.preheader, %424
   %indvars.iv961 = phi i64 [ 0, %.lr.ph819.preheader ], [ %indvars.iv.next962, %424 ]
-  %.not.i.i334 = icmp ult i64 %indvars.iv961, %390
+  %.not.i.i334 = icmp samesign ult i64 %indvars.iv961, %390
   br i1 %.not.i.i334, label %405, label %404
 
 404:                                              ; preds = %.lr.ph819
@@ -6520,7 +6520,7 @@ _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit:       ; preds = %405, %404
 
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %457
   %indvars.iv956 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next957, %457 ]
-  %.not.i.i335 = icmp ult i64 %indvars.iv956, %389
+  %.not.i.i335 = icmp samesign ult i64 %indvars.iv956, %389
   br i1 %.not.i.i335, label %438, label %437
 
 437:                                              ; preds = %.lr.ph817
@@ -6925,7 +6925,7 @@ _ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3
   %611 = zext i8 %610 to i32
   %.masked.i.i.i357 = and i32 %609, 3840
   %612 = or disjoint i32 %.masked.i.i.i357, %611
-  %613 = icmp uge i32 %606, %612
+  %613 = icmp samesign uge i32 %606, %612
   %.not.i.i.i358 = icmp ugt ptr %22, %605
   %or.cond700 = select i1 %613, i1 true, i1 %.not.i.i.i358
   br i1 %or.cond700, label %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread, label %614
@@ -8672,7 +8672,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %notmask = shl nsw i32 -1, %.0.i
   %32 = xor i32 %notmask, -1
   store i32 %32, ptr %26, align 8
-  %33 = icmp ugt i32 %.0.i, 31
+  %33 = icmp samesign ugt i32 %.0.i, 31
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
@@ -9319,7 +9319,7 @@ define linkonce_odr hidden void @_ZN2OT18glyf_accelerator_tC2EP9hb_face_t(ptr no
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   br i1 %31, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit.thread
 
 _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %2
@@ -9331,7 +9331,7 @@ _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %2
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   br i1 %40, label %41, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit.thread
 
 41:                                               ; preds = %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit
@@ -11339,7 +11339,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %70 = load i8, ptr %44, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp ugt i32 %66, %72
+  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
   br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %58

@@ -526,7 +526,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %65 = load i16, ptr @converterCount, align 2
   %66 = zext i16 %65 to i64
-  %cmp3.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %66
+  %cmp3.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %66
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %addConverter.exit.i.i, !llvm.loop !10
 
 for.body.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -1252,7 +1252,7 @@ for.inc.i.i:                                      ; preds = %if.then125.i.i, %if
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %164 = load i16, ptr @knownAliasesCount, align 2
   %165 = zext i16 %164 to i64
-  %cmp9.i.i51 = icmp ult i64 %indvars.iv.next.i.i, %165
+  %cmp9.i.i51 = icmp samesign ult i64 %indvars.iv.next.i.i, %165
   br i1 %cmp9.i.i51, label %for.body.i.i, label %resolveAliases.exit.i, !llvm.loop !22
 
 resolveAliases.exit.i:                            ; preds = %for.inc.i.i, %resolveAliasToConverter.exit.i.i, %if.end56
@@ -1389,7 +1389,7 @@ for.cond.i.i:                                     ; preds = %if.end45.i.i
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
   %187 = load i16, ptr %arrayidx3.i.i35, align 8
   %188 = zext i16 %187 to i64
-  %cmp18.i53.i = icmp ult i64 %indvars.iv.next.i52.i, %188
+  %cmp18.i53.i = icmp samesign ult i64 %indvars.iv.next.i52.i, %188
   br i1 %cmp18.i53.i, label %for.body.i50.i, label %createOneAliasList.exit.loopexit.i, !llvm.loop !23
 
 for.body.i50.i:                                   ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
@@ -1453,7 +1453,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %201 = phi i16 [ %inc46.i.i, %createOneAliasList.exit.loopexit.i ], [ %179, %if.then.i59.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %202 = zext i16 %200 to i64
-  %cmp18.i = icmp ult i64 %indvars.iv.next.i, %202
+  %cmp18.i = icmp samesign ult i64 %indvars.iv.next.i, %202
   br i1 %cmp18.i, label %for.body20.i, label %for.inc21.loopexit124.i, !llvm.loop !24
 
 for.inc21.loopexit124.i:                          ; preds = %createOneAliasList.exit.i
@@ -1469,7 +1469,7 @@ for.inc21.i:                                      ; preds = %createOneAliasList.
   %207 = phi i16 [ %200, %for.inc21.loopexit124.i ], [ 0, %for.cond16.preheader.i ], [ %168, %createOneAliasList.exit.us.i ]
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %208 = zext i16 %203 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next139.i, %208
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next139.i, %208
   br i1 %cmp.i, label %for.cond16.preheader.i, label %for.end23.i, !llvm.loop !25
 
 for.end23.i:                                      ; preds = %for.inc21.i, %resolveAliases.exit.i
@@ -1532,7 +1532,7 @@ for.body50.i:                                     ; preds = %if.end45.i, %for.bo
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %225 = load i16, ptr @converterCount, align 2
   %226 = zext i16 %225 to i64
-  %cmp48.i = icmp ult i64 %indvars.iv.next144.i, %226
+  %cmp48.i = icmp samesign ult i64 %indvars.iv.next144.i, %226
   br i1 %cmp48.i, label %for.body50.i, label %for.cond58.preheader.i, !llvm.loop !26
 
 for.body62.i:                                     ; preds = %for.cond58.preheader.i, %for.body62.i
@@ -1543,7 +1543,7 @@ for.body62.i:                                     ; preds = %for.cond58.preheade
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
   %228 = load i16, ptr @tagCount, align 2
   %229 = zext i16 %228 to i64
-  %cmp60.i = icmp ult i64 %indvars.iv.next147.i, %229
+  %cmp60.i = icmp samesign ult i64 %indvars.iv.next147.i, %229
   br i1 %cmp60.i, label %for.body62.i, label %for.end67.i, !llvm.loop !27
 
 for.end67.i:                                      ; preds = %for.body62.i, %for.cond58.preheader.i
@@ -1840,7 +1840,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %.pr = phi i16 [ %.pr.pre, %land.lhs.true.for.inc_crit_edge ], [ %.pr22, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = zext i16 %.pr to i64
-  %cmp14 = icmp ult i64 %indvars.iv.next, %7
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
@@ -2184,14 +2184,14 @@ for.inc:                                          ; preds = %land.lhs.true77.for
   %36 = phi i16 [ %.pre, %land.lhs.true77.for.inc_crit_edge ], [ %22, %for.body67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = zext i16 %36 to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next, %37
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %cmp65, label %for.body67, label %for.inc138, !llvm.loop !32
 
 for.inc138:                                       ; preds = %for.inc, %for.cond57.preheader, %lor.lhs.false, %if.then97, %if.else
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %38 = load i16, ptr @converterCount, align 2
   %39 = zext i16 %38 to i64
-  %cmp55 = icmp ult i64 %indvars.iv.next64, %39
+  %cmp55 = icmp samesign ult i64 %indvars.iv.next64, %39
   br i1 %cmp55, label %for.cond57.preheader, label %if.end141, !llvm.loop !33
 
 if.end141:                                        ; preds = %for.inc138, %for.cond.preheader, %land.lhs.true, %if.then46, %if.end42

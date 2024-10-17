@@ -200,7 +200,7 @@ _ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread: ; preds = %31
 73:                                               ; preds = %70
   %74 = add nuw nsw i32 %56, %.01523.us.i
   %75 = zext nneg i32 %74 to i64
-  %.not.i.i.i.i.i.us.i = icmp ult i32 %74, 990
+  %.not.i.i.i.i.i.us.i = icmp samesign ult i32 %74, 990
   br i1 %.not.i.i.i.i.i.us.i, label %_ZN5ZXing9BitMatrix3setEiib.exit.us.i, label %.split25.us.invoke.i
 
 _ZN5ZXing9BitMatrix3setEiib.exit.us.i:            ; preds = %73
@@ -240,7 +240,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.us.i:            ; preds = %73
 95:                                               ; preds = %92
   %96 = add nuw nsw i32 %56, %.01523.i
   %97 = zext nneg i32 %96 to i64
-  %.not.i.i.i.i.i.i = icmp ult i32 %96, 990
+  %.not.i.i.i.i.i.i = icmp samesign ult i32 %96, 990
   br i1 %.not.i.i.i.i.i.i, label %_ZN5ZXing9BitMatrix3setEiib.exit.i, label %.split25.us.invoke.i
 
 .split25.us.invoke.i:                             ; preds = %95, %.split.i, %73, %.split.us.i

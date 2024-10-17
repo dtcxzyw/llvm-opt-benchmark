@@ -2329,7 +2329,7 @@ _ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit.i: ; preds = %for.cond.i, 
   %17 = load i8, ptr %vecsemantics4.i.i.i, align 2, !noalias !22
   %arraylen5.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %18 = load i32, ptr %arraylen5.i.i.i, align 4, !noalias !22
-  %cmp2.i9.i = icmp ult i64 %indvars.iv.i, %14
+  %cmp2.i9.i = icmp samesign ult i64 %indvars.iv.i, %14
   br i1 %cmp2.i9.i, label %cond.true.i15.i, label %_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit21.i
 
 cond.true.i15.i:                                  ; preds = %_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit.i
@@ -4992,7 +4992,7 @@ _ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit: ; preds = %_ZNK18OpenImag
   %10 = load i8, ptr %vecsemantics4.i.i, align 2, !noalias !54
   %arraylen5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %11 = load i32, ptr %arraylen5.i.i, align 4, !noalias !54
-  %cmp2.i9 = icmp ult i64 %indvars.iv, %7
+  %cmp2.i9 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %cmp2.i9, label %cond.true.i15, label %_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit21
 
 cond.true.i15:                                    ; preds = %_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi.exit
@@ -5627,7 +5627,7 @@ while.body.i.i.i.i:                               ; preds = %_ZSt4iotaIPiiEvT_S1
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !64
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i

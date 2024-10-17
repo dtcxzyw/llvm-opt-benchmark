@@ -554,7 +554,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_l_qP11processor_t6insn_tm(ptr nocapture 
   %54 = tail call i64 @f128_to_i64(i64 %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, i8 noundef zeroext %53, i1 noundef zeroext true)
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
-  %57 = icmp ugt i64 %56, 15
+  %57 = icmp samesign ugt i64 %56, 15
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %52
@@ -769,7 +769,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %54, ptr %.0.i.i39, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %82 = icmp ugt i64 %57, 15
+  %82 = icmp samesign ugt i64 %57, 15
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

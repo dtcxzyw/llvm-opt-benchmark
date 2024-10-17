@@ -606,7 +606,7 @@ for.cond:                                         ; preds = %invoke.cont13, %ent
 
 invoke.cont:                                      ; preds = %for.cond
   %conv = zext i32 %call to i64
-  %cmp = icmp ult i64 %i.0, %conv
+  %cmp = icmp samesign ult i64 %i.0, %conv
   br i1 %cmp, label %for.body, label %nrvo.skipdtor
 
 for.body:                                         ; preds = %invoke.cont
@@ -681,7 +681,7 @@ for.cond:                                         ; preds = %invoke.cont20, %ent
 
 invoke.cont:                                      ; preds = %for.cond
   %conv = zext i32 %call to i64
-  %cmp = icmp ult i64 %i.0, %conv
+  %cmp = icmp samesign ult i64 %i.0, %conv
   br i1 %cmp, label %for.body, label %nrvo.skipdtor
 
 for.body:                                         ; preds = %invoke.cont

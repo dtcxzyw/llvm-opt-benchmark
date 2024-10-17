@@ -51,7 +51,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp ult i64 %indvars.iv.next, %4
+  %13 = icmp samesign ult i64 %indvars.iv.next, %4
   %14 = select i1 %.158, i1 %13, i1 false
   br i1 %14, label %.lr.ph, label %._crit_edge
 

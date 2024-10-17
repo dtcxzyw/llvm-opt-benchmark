@@ -1104,8 +1104,8 @@ for.body14.i.i.i.i:                               ; preds = %for.inc67.i.i.i.i, 
   %indvars.iv.i.i.i.i = phi i64 [ 0, %for.body14.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.inc67.i.i.i.i ]
   %72 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %rem.urem.i.i.i.i = urem i32 %72, 26
-  %cmp15.i.i.i.i = icmp ult i32 %rem.urem.i.i.i.i, 10
-  %cmp19.i.i.i.i = icmp ult i32 %rem.urem.i.i.i.i, 22
+  %cmp15.i.i.i.i = icmp samesign ult i32 %rem.urem.i.i.i.i, 10
+  %cmp19.i.i.i.i = icmp samesign ult i32 %rem.urem.i.i.i.i, 22
   %..i.i.i.i = select i1 %cmp19.i.i.i.i, i32 4, i32 6
   %.sink.i.i.i.i = select i1 %cmp15.i.i.i.i, i32 1, i32 %..i.i.i.i
   %sub23.i.i.i.i = add nuw nsw i32 %.sink.i.i.i.i, %rem.urem.i.i.i.i
@@ -8171,7 +8171,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.inc28:                                        ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp22 = icmp ult i64 %indvars.iv.next, %33
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %cmp22, label %land.rhs, label %for.end30, !llvm.loop !53
 
 for.end30:                                        ; preds = %land.rhs, %for.inc28

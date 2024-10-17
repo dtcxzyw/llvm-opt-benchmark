@@ -561,7 +561,7 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %1 to i32
-  %cmp = icmp ult i32 %shr, %conv
+  %cmp = icmp samesign ult i32 %shr, %conv
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -572,7 +572,7 @@ lor.lhs.false:                                    ; preds = %entry
   %arrayidx3 = getelementptr i8, ptr %4, i64 -2
   %5 = load i16, ptr %arrayidx3, align 2
   %conv4 = zext i16 %5 to i32
-  %cmp5.not = icmp ult i32 %shr, %conv4
+  %cmp5.not = icmp samesign ult i32 %shr, %conv4
   br i1 %cmp5.not, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
@@ -584,7 +584,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx8 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.next
   %7 = load i16, ptr %arrayidx8, align 2
-  %cmp10.not = icmp ugt i16 %7, %6
+  %cmp10.not = icmp samesign ugt i16 %7, %6
   br i1 %cmp10.not, label %for.cond.preheader, label %while.cond, !llvm.loop !6
 
 for.cond.preheader:                               ; preds = %while.cond
@@ -884,7 +884,7 @@ if.then55:                                        ; preds = %land.lhs.true52
   %conv.i75 = zext i16 %20 to i32
   %and.i = and i32 %conv.i75, 255
   %and2.i = and i32 %lowStart.0196, 255
-  %cmp.i76 = icmp ult i32 %and.i, %and2.i
+  %cmp.i76 = icmp samesign ult i32 %and.i, %and2.i
   %add.i = add nsw i32 %lowStart.0196, 256
   %spec.select.i = select i1 %cmp.i76, i32 %add.i, i32 %lowStart.0196
   %shr.i = lshr i32 %spec.select.i, 8
@@ -1031,7 +1031,7 @@ if.end106:                                        ; preds = %if.end100
   %conv.i84 = zext i16 %36 to i32
   %and.i85 = and i32 %conv.i84, 255
   %and2.i86 = and i32 %highLimit.1.ph, 255
-  %cmp.i87 = icmp ugt i32 %and.i85, %and2.i86
+  %cmp.i87 = icmp samesign ugt i32 %and.i85, %and2.i86
   %sub.i88 = add nsw i32 %highLimit.1.ph, 65280
   %spec.select.i89 = select i1 %cmp.i87, i32 %sub.i88, i32 %highLimit.1.ph
   %37 = load i16, ptr %35, align 2
@@ -1095,7 +1095,7 @@ if.end123:                                        ; preds = %if.end117
   %conv.i115 = zext i16 %42 to i32
   %and.i116 = and i32 %conv.i115, 255
   %and2.i117 = and i32 %lowStart.3.ph, 255
-  %cmp.i118 = icmp ult i32 %and.i116, %and2.i117
+  %cmp.i118 = icmp samesign ult i32 %and.i116, %and2.i117
   %add.i119 = add nsw i32 %lowStart.3.ph, 256
   %spec.select.i120 = select i1 %cmp.i118, i32 %add.i119, i32 %lowStart.3.ph
   %shr.i121 = lshr i32 %spec.select.i120, 8
@@ -1140,7 +1140,7 @@ if.end138:                                        ; preds = %for.body132
   %lowStart.6 = select i1 %cmp81.not.not251, i32 %lowStart.4199, i32 %46
   %and.i137 = and i32 %conv143, 255
   %and2.i138 = and i32 %lowStart.6, 255
-  %cmp.i139 = icmp ult i32 %and.i137, %and2.i138
+  %cmp.i139 = icmp samesign ult i32 %and.i137, %and2.i138
   %add.i140 = add nsw i32 %lowStart.6, 256
   %spec.select.i141 = select i1 %cmp.i139, i32 %add.i140, i32 %lowStart.6
   %shr.i142 = lshr i32 %spec.select.i141, 8
@@ -1305,7 +1305,7 @@ entry:
   %conv = zext i16 %1 to i32
   %and = and i32 %conv, 255
   %and2 = and i32 %lowStart, 255
-  %cmp = icmp ult i32 %and, %and2
+  %cmp = icmp samesign ult i32 %and, %and2
   %add = add nsw i32 %lowStart, 256
   %spec.select = select i1 %cmp, i32 %add, i32 %lowStart
   %shr = lshr i32 %spec.select, 8
@@ -1339,7 +1339,7 @@ entry:
   %conv = zext i16 %3 to i32
   %and = and i32 %conv, 255
   %and2 = and i32 %highLimit, 255
-  %cmp = icmp ugt i32 %and, %and2
+  %cmp = icmp samesign ugt i32 %and, %and2
   %sub = add i32 %highLimit, 65280
   %spec.select = select i1 %cmp, i32 %sub, i32 %highLimit
   %4 = load i16, ptr %2, align 2

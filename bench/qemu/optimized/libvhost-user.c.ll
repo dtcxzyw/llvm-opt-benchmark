@@ -1004,7 +1004,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %14 = load i16, ptr %max_queues.i.i.i, align 2
   %15 = zext i16 %14 to i64
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %15
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %15
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %vu_process_message.exit
 
 sw.bb32.i:                                        ; preds = %if.end20.i
@@ -1348,7 +1348,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %6 = phi i32 [ %1, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -1419,7 +1419,7 @@ if.end35:                                         ; preds = %if.then32, %if.end3
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %16 = load i16, ptr %max_queues, align 2
   %17 = zext i16 %16 to i64
-  %cmp4 = icmp ult i64 %indvars.iv.next59, %17
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next59, %17
   br i1 %cmp4, label %for.body6, label %for.end38
 
 for.end38:                                        ; preds = %if.end35, %for.end
@@ -3294,7 +3294,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load i16, ptr %max_queues.i, align 2
   %3 = zext i16 %2 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %3
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %3
   br i1 %cmp.i, label %for.body.i, label %if.end3
 
 if.end3:                                          ; preds = %for.body.i, %if.then2, %if.end
@@ -3455,7 +3455,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %6 = phi i32 [ %1, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3538,7 +3538,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %nregions, align 4
   %22 = zext i32 %21 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %22
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %cmp.i, label %for.body.i, label %for.end.i
 
 for.end.i:                                        ; preds = %if.end.i, %if.then4
@@ -3694,7 +3694,7 @@ for.inc.i.i:                                      ; preds = %do.end.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %62 = load i32, ptr %nregions, align 4
   %63 = zext i32 %62 to i64
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %63
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %63
   br i1 %cmp.not.i.i, label %for.body.i.i, label %generate_faults.exit.i
 
 generate_faults.exit.i:                           ; preds = %for.inc.i.i, %if.then39.i.i, %if.then31.i.i, %if.then22.i.i, %if.end46.i
@@ -3759,7 +3759,7 @@ if.end44:                                         ; preds = %if.else, %if.then38
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %73 = load i32, ptr %nregions, align 4
   %74 = zext i32 %73 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next76, %74
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next76, %74
   br i1 %cmp9, label %for.body10, label %for.cond52.preheader
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.inc67
@@ -3784,7 +3784,7 @@ for.inc67:                                        ; preds = %for.body55, %if.the
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %78 = load i16, ptr %max_queues, align 2
   %79 = zext i16 %78 to i64
-  %cmp53 = icmp ult i64 %indvars.iv.next79, %79
+  %cmp53 = icmp samesign ult i64 %indvars.iv.next79, %79
   br i1 %cmp53, label %for.body55, label %return
 
 return:                                           ; preds = %for.inc67, %for.cond52.preheader, %vu_set_mem_table_exec_postcopy.exit
@@ -4192,7 +4192,7 @@ for.inc.i:                                        ; preds = %if.then53.i, %for.b
   %34 = phi i16 [ %31, %for.body.i ], [ %.pre12.i, %if.then53.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = zext i16 %34 to i64
-  %cmp43.i = icmp ult i64 %indvars.iv.next.i, %35
+  %cmp43.i = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %cmp43.i, label %for.body.i, label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end40.i
@@ -4257,7 +4257,7 @@ for.inc103.i:                                     ; preds = %if.then84.i, %for.b
   %desc_num73.i = getelementptr inbounds i8, ptr %49, i64 10
   %50 = load i16, ptr %desc_num73.i, align 2
   %51 = zext i16 %50 to i64
-  %cmp75.i = icmp ult i64 %indvars.iv.next10.i, %51
+  %cmp75.i = icmp samesign ult i64 %indvars.iv.next10.i, %51
   br i1 %cmp75.i, label %for.body77.i, label %for.end105.loopexit.i
 
 for.end105.loopexit.i:                            ; preds = %for.inc103.i
@@ -4889,7 +4889,7 @@ for.inc:                                          ; preds = %for.body, %if.then8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i16, ptr %max_queues, align 2
   %21 = zext i16 %20 to i64
-  %cmp76 = icmp ult i64 %indvars.iv.next, %21
+  %cmp76 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp76, label %for.body, label %do.end91
 
 do.end91:                                         ; preds = %for.inc, %for.cond.preheader
@@ -5266,7 +5266,7 @@ entry:
   %max_queues = getelementptr inbounds i8, ptr %dev, i64 1410
   %2 = load i16, ptr %max_queues, align 2
   %conv3 = zext i16 %2 to i32
-  %cmp.not = icmp ult i32 %conv, %conv3
+  %cmp.not = icmp samesign ult i32 %conv, %conv3
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

@@ -5471,7 +5471,7 @@ reset_someip_parameter_base_type_list_cb.exit:    ; preds = %0, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @someip_parameter_base_type_list_num, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %reset_someip_parameter_base_type_list_cb.exit
@@ -5655,7 +5655,7 @@ define internal void @post_update_someip_parameter_string_list_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr @someip_parameter_strings_num, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %3
@@ -5782,7 +5782,7 @@ reset_someip_parameter_typedef_list_cb.exit:      ; preds = %0, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @someip_parameter_typedefs_num, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %reset_someip_parameter_typedef_list_cb.exit
@@ -6021,7 +6021,7 @@ define internal fastcc void @update_dynamic_hf_entries_someip_parameter_list() u
   %19 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %18, %.preheader.i
@@ -6095,7 +6095,7 @@ define internal fastcc void @update_dynamic_hf_entries_someip_parameter_arrays()
   %19 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %18, %.preheader.i
@@ -6169,7 +6169,7 @@ define internal fastcc void @update_dynamic_hf_entries_someip_parameter_structs(
   %19 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %18, %.preheader.i
@@ -6243,7 +6243,7 @@ define internal fastcc void @update_dynamic_hf_entries_someip_parameter_unions()
   %19 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %18, %.preheader.i
@@ -9221,7 +9221,7 @@ define internal void @update_dynamic_param_hf_entry(ptr nocapture readnone %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %7, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %27, %7, %3
@@ -9621,7 +9621,7 @@ define internal void @update_dynamic_struct_hf_entry(ptr nocapture readnone %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %7, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %27, %7, %3
@@ -9674,7 +9674,7 @@ define internal void @update_dynamic_union_hf_entry(ptr nocapture readnone %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %7, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %27, %7, %3

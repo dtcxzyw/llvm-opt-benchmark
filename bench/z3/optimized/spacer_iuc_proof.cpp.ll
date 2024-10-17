@@ -605,7 +605,7 @@ invoke.cont22:                                    ; preds = %call3.i.i.noexc37, 
   %sub.i35 = phi i32 [ 0, %for.cond ], [ %25, %call3.i.i.noexc37 ]
   %cond.i36 = add i32 %sub.i35, %22
   %26 = zext i32 %cond.i36 to i64
-  %cmp24 = icmp ult i64 %indvars.iv, %26
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %26
   br i1 %cmp24, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont22
@@ -1200,7 +1200,7 @@ invoke.cont9:                                     ; preds = %call3.i.i.noexc, %f
   %sub.i = phi i32 [ 0, %for.cond ], [ %7, %call3.i.i.noexc ]
   %cond.i = add i32 %sub.i, %4
   %8 = zext i32 %cond.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %8
+  %cmp = icmp samesign ult i64 %indvars.iv, %8
   br i1 %cmp, label %for.body, label %while.cond.outer41, !llvm.loop !10
 
 for.body:                                         ; preds = %invoke.cont9

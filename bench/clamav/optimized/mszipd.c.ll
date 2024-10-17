@@ -579,7 +579,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   br i1 %.not714, label %.lr.ph726.preheader, label %.lr.ph719
 
 .preheader465:                                    ; preds = %109
-  %106 = icmp ult i64 %indvars.iv, 3
+  %106 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %106, label %.lr.ph726.preheader, label %._crit_edge727
 
 .lr.ph726.preheader:                              ; preds = %102, %.preheader465
@@ -1668,7 +1668,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %581 = zext i8 %580 to i32
   %582 = lshr i32 %.6351.lcssa, %581
   %583 = sub nsw i32 %.6339.lcssa, %581
-  %584 = icmp ult i16 %.0327, 256
+  %584 = icmp samesign ult i16 %.0327, 256
   br i1 %584, label %585, label %596
 
 585:                                              ; preds = %.loopexit461
@@ -1898,7 +1898,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
 .loopexit457:                                     ; preds = %689, %._crit_edge687
   %.2329 = phi i16 [ %687, %._crit_edge687 ], [ %698, %689 ]
   %700 = zext nneg i16 %.2329 to i64
-  %701 = icmp ugt i16 %.2329, 29
+  %701 = icmp samesign ugt i16 %.2329, 29
   br i1 %701, label %.loopexit450, label %.preheader454
 
 .preheader454:                                    ; preds = %.loopexit457
@@ -2002,7 +2002,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %757 = select i1 %756, i32 32768, i32 0
   %758 = sub i32 %755, %754
   %759 = add i32 %758, %757
-  %760 = icmp ult i32 %649, 12
+  %760 = icmp samesign ult i32 %649, 12
   br i1 %760, label %.preheader, label %.preheader451
 
 .preheader:                                       ; preds = %._crit_edge697
@@ -2578,14 +2578,14 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 .loopexit143:                                     ; preds = %.preheader178, %14
   %.2 = phi i32 [ %.199154, %14 ], [ %27, %.preheader178 ]
   %33 = add nuw nsw i16 %.0121153, 1
-  %34 = icmp ult i16 %33, %8
+  %34 = icmp samesign ult i16 %33, %8
   br i1 %34, label %14, label %35
 
 35:                                               ; preds = %.loopexit143
   %36 = lshr i32 %.0157, 1
   %37 = add nuw nsw i8 %.0100155, 1
   %38 = zext nneg i8 %37 to i32
-  %.not.not = icmp ult i8 %.0100155, %7
+  %.not.not = icmp samesign ult i8 %.0100155, %7
   br i1 %.not.not, label %.preheader144, label %39
 
 39:                                               ; preds = %35
@@ -2594,7 +2594,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 41:                                               ; preds = %39
   %42 = and i32 %.2, 65535
-  %43 = icmp ugt i32 %5, %42
+  %43 = icmp samesign ugt i32 %5, %42
   br i1 %43, label %.preheader142.preheader, label %.preheader141.preheader
 
 .preheader142.preheader:                          ; preds = %41
@@ -2624,7 +2624,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   store i16 -1, ptr %54, align 2
   %55 = add nuw i16 %.1122158, 1
   %56 = zext i16 %55 to i32
-  %57 = icmp ugt i32 %5, %56
+  %57 = icmp samesign ugt i32 %5, %56
   br i1 %57, label %.preheader142, label %.preheader141.preheader
 
 .preheader141.preheader:                          ; preds = %52, %41
@@ -2678,7 +2678,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.2118.us = phi i16 [ %.1117165.us, %.preheader141.split.us ], [ %.4120.us, %._crit_edge162.us ]
   %.5.us = phi i32 [ %.4166.us, %.preheader141.split.us ], [ %99, %._crit_edge162.us ]
   %77 = add nuw nsw i16 %.2123164.us, 1
-  %78 = icmp ult i16 %77, %8
+  %78 = icmp samesign ult i16 %77, %8
   br i1 %78, label %.preheader141.split.us, label %.split.us
 
 .preheader.us:                                    ; preds = %70, %92

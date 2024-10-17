@@ -512,7 +512,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr nocapture noundef %0, ptr nounde
   %316 = getelementptr inbounds i8, ptr %315, i64 8
   %317 = load i32, ptr %316, align 8
   %318 = zext i32 %317 to i64
-  %319 = icmp ult i64 %indvars.iv.next, %318
+  %319 = icmp samesign ult i64 %indvars.iv.next, %318
   br i1 %319, label %.lr.ph644, label %._crit_edge645
 
 ._crit_edge645:                                   ; preds = %._crit_edge, %256
@@ -2075,7 +2075,7 @@ define noundef i32 @H5C_retag_entries(ptr nocapture noundef %0, i64 noundef %1, 
   %381 = getelementptr inbounds i8, ptr %380, i64 8
   %382 = load i32, ptr %381, align 8
   %383 = zext i32 %382 to i64
-  %384 = icmp ult i64 %indvars.iv.next, %383
+  %384 = icmp samesign ult i64 %indvars.iv.next, %383
   br i1 %384, label %.lr.ph673, label %._crit_edge674
 
 ._crit_edge674:                                   ; preds = %._crit_edge, %317

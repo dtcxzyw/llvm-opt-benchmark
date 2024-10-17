@@ -2794,7 +2794,7 @@ _ZN4llvm6CFGMSTIN12_GLOBAL__N_14EdgeENS1_6BBInfoEE10buildEdgesEv.exit.i: ; preds
   br i1 %.not.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i, label %443
 
 select.unfold.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not12.i.i.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i.i.i, 3
+  %.not12.i.i.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i.i.i, 3
   br i1 %.not12.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !55
 
 443:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -4382,7 +4382,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EES5_Ev
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i17.i.i
   %1082 = add nuw nsw i64 %storemerge28.i.i.i.i, 1
   %1083 = lshr i64 %1082, 1
-  %.not12.i.i.i.i = icmp ult i64 %storemerge28.i.i.i.i, 2
+  %.not12.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.i.i, 2
   br i1 %.not12.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i, label %.lr.ph.i.i17.i.i, !llvm.loop !55
 
 1084:                                             ; preds = %.lr.ph.i.i17.i.i
@@ -4647,7 +4647,7 @@ _ZN12_GLOBAL__N_112GCOVFunction8getBlockEPKN4llvm10BasicBlockE.exit285: ; preds 
   br i1 %.not.i.i.i.i289, label %select.unfold.i.i.i.i305, label %1196
 
 select.unfold.i.i.i.i305:                         ; preds = %.lr.ph.i.i.i.i287
-  %.not12.i.i.i.i306 = icmp ult i64 %storemerge28.i.i.in.in.i.i, 3
+  %.not12.i.i.i.i306 = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i, 3
   br i1 %.not12.i.i.i.i306, label %.thread.i.i, label %.lr.ph.i.i.i.i287, !llvm.loop !55
 
 1196:                                             ; preds = %.lr.ph.i.i.i.i287
@@ -14468,8 +14468,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIN9__gn
   store i8 %47, ptr %.2.ptr55, align 1
   %48 = getelementptr inbounds i8, ptr %.sroa.029.254, i64 1
   %.not45 = icmp eq ptr %48, %1
-  %.not46 = icmp ugt i64 %.2.idx53, 62
-  %or.cond47 = or i1 %.not45, %.not46
+  %.not46 = icmp samesign ugt i64 %.2.idx53, 62
+  %or.cond47 = select i1 %.not45, i1 true, i1 %.not46
   br i1 %or.cond47, label %.critedge2, label %46, !llvm.loop !165
 
 .critedge2:                                       ; preds = %46

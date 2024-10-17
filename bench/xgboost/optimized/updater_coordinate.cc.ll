@@ -10730,7 +10730,7 @@ _ZN7xgboost6linear15CoordinateDeltaEddddd.exit:   ; preds = %280, %309, %314
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %322 = load i32, ptr %11, align 4
   %323 = zext i32 %322 to i64
-  %324 = icmp ult i64 %indvars.iv.next, %323
+  %324 = icmp samesign ult i64 %indvars.iv.next, %323
   br i1 %324, label %280, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %_ZN7xgboost6linear15CoordinateDeltaEddddd.exit
@@ -10759,7 +10759,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6linear2
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %338 = load i32, ptr %10, align 4
   %339 = zext i32 %338 to i64
-  %340 = icmp ult i64 %indvars.iv.next78, %339
+  %340 = icmp samesign ult i64 %indvars.iv.next78, %339
   br i1 %340, label %.preheader, label %._crit_edge73, !llvm.loop !129
 
 ._crit_edge73:                                    ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS7_7ContextERKNS7_3gbm13GBLinearModelERKS3_INS7_6detail20GradientPairInternalIfEESaISJ_EEPNS7_7DMatrixEffiEUlmmE_EvT_SR_T0_.exit, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit

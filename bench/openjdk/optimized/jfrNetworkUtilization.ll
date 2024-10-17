@@ -322,7 +322,7 @@ _ZL14get_interfacesv.exit.i:                      ; preds = %50, %39
   %84 = add nsw i32 %79, 1
   %85 = icmp sgt i32 %79, -1
   %86 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %84)
-  %87 = icmp ult i32 %86, 2
+  %87 = icmp samesign ult i32 %86, 2
   %or.cond.i.i.i.i.i.i = select i1 %85, i1 %87, i1 false
   %88 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %84, i1 true)
   %89 = sub nuw nsw i32 32, %88
@@ -2058,7 +2058,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

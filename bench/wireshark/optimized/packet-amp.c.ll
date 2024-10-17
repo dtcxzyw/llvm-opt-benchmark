@@ -558,7 +558,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonn
   ]
 
 12:                                               ; preds = %3
-  %13 = icmp ult i32 %11, 24
+  %13 = icmp samesign ult i32 %11, 24
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
@@ -602,7 +602,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonn
   br label %.sink.split
 
 28:                                               ; preds = %3
-  %29 = icmp ult i32 %11, 24
+  %29 = icmp samesign ult i32 %11, 24
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -652,7 +652,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonn
   br label %.sink.split
 
 48:                                               ; preds = %3
-  %49 = icmp ult i32 %11, 24
+  %49 = icmp samesign ult i32 %11, 24
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
@@ -702,7 +702,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonn
   br label %.sink.split
 
 68:                                               ; preds = %3
-  %69 = icmp ult i32 %11, 24
+  %69 = icmp samesign ult i32 %11, 24
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -746,7 +746,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonn
   br label %.sink.split
 
 84:                                               ; preds = %3
-  %85 = icmp ult i32 %11, 24
+  %85 = icmp samesign ult i32 %11, 24
   br i1 %85, label %86, label %.sink.split
 
 86:                                               ; preds = %84

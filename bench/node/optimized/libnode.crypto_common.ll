@@ -612,7 +612,7 @@ lor.lhs.false8:                                   ; preds = %if.end
 if.end13:                                         ; preds = %lor.lhs.false8
   %dec = add nsw i64 %or, -1
   store i64 %dec, ptr %rem, align 8
-  %cmp14 = icmp ult i64 %or, 4
+  %cmp14 = icmp samesign ult i64 %or, 4
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end13

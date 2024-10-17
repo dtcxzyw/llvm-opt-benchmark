@@ -1762,7 +1762,7 @@ switch.early.test.i:                              ; preds = %20
 
 allowed_chars_len.exit:                           ; preds = %switch.early.test.i
   %28 = icmp slt i32 %.01518.i, %17
-  %29 = icmp ugt i32 %.01518.i, 4
+  %29 = icmp samesign ugt i32 %.01518.i, 4
   %or.cond = and i1 %28, %29
   br i1 %or.cond, label %.lr.ph.i28, label %34
 

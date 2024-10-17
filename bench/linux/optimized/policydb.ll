@@ -587,7 +587,7 @@ ocontext_destroy.exit:                            ; preds = %37, %ocontext_destr
   %148 = add nuw nsw i64 %145, 1
   %149 = load i32, ptr %142, align 8
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %148, %150
+  %151 = icmp samesign ult i64 %148, %150
   br i1 %151, label %.preheader, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %.preheader
@@ -1293,7 +1293,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %160 = getelementptr inbounds i8, ptr %126, i64 16
   store i32 %121, ptr %160, align 8
   %161 = add nuw nsw i64 %116, 1
-  %162 = icmp ult i64 %161, %113
+  %162 = icmp samesign ult i64 %161, %113
   br i1 %162, label %115, label %.loopexit103, !llvm.loop !20
 
 .loopexit103:                                     ; preds = %.loopexit100, %107
@@ -1597,14 +1597,14 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %336 = add nuw nsw i64 %333, 1
   %337 = load i32, ptr %321, align 8
   %338 = zext i32 %337 to i64
-  %339 = icmp ult i64 %336, %338
+  %339 = icmp samesign ult i64 %336, %338
   br i1 %339, label %.preheader91, label %331, !llvm.loop !23
 
 340:                                              ; preds = %353
   %341 = add nuw nsw i64 %345, 1
   %342 = load i32, ptr %321, align 8
   %343 = zext i32 %342 to i64
-  %344 = icmp ult i64 %341, %343
+  %344 = icmp samesign ult i64 %341, %343
   br i1 %344, label %.preheader, label %.thread85, !llvm.loop !24
 
 .preheader:                                       ; preds = %331, %340
@@ -2638,7 +2638,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef 
   %227 = add nuw nsw i64 %12, 1
   %228 = load i32, ptr %5, align 4
   %229 = zext i32 %228 to i64
-  %230 = icmp ult i64 %227, %229
+  %230 = icmp samesign ult i64 %227, %229
   br i1 %230, label %11, label %.thread44, !llvm.loop !35
 
 .thread44.sink.split:                             ; preds = %207, %136, %61
@@ -3450,7 +3450,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   %133 = add nuw nsw i64 %137, 1
   %134 = load i32, ptr %129, align 8
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %133, %135
+  %136 = icmp samesign ult i64 %133, %135
   br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !43
 
 .preheader:                                       ; preds = %127, %132
@@ -4789,7 +4789,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %618 = add nuw nsw i64 %21, 1
   %619 = load i32, ptr %14, align 4
   %620 = zext i32 %619 to i64
-  %621 = icmp ult i64 %618, %620
+  %621 = icmp samesign ult i64 %618, %620
   br i1 %621, label %20, label %.thread115, !llvm.loop !48
 
 .thread115:                                       ; preds = %.loopexit168, %.loopexit, %561, %549, %485, %418, %365, %354, %295, %229, %176, %124, %116, %56, %544, %476, %473, %46, %349, %292, %226, %111, %53, %.thread167, %.thread160, %.thread153, %.thread147, %.thread140, %.thread134, %.thread128, %.thread123, %.thread116, %3
@@ -7090,7 +7090,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = tail call i64 @_find_first_bit(ptr noundef %27, i64 noundef 384) #22
   %29 = and i64 %28, 4294967168
-  %30 = icmp ult i64 %29, 384
+  %30 = icmp samesign ult i64 %29, 384
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.preheader8
@@ -7146,7 +7146,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %70 = zext i32 %69 to i64
   %71 = tail call i64 @_find_next_bit(ptr noundef %65, i64 noundef 384, i64 noundef %70) #22
   %72 = and i64 %71, 4294967168
-  %73 = icmp ult i64 %72, 384
+  %73 = icmp samesign ult i64 %72, 384
   br i1 %73, label %74, label %.preheader
 
 74:                                               ; preds = %64
@@ -7165,7 +7165,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %82 = getelementptr inbounds i8, ptr %79, i64 8
   %83 = tail call i64 @_find_first_bit(ptr noundef %82, i64 noundef 384) #22
   %84 = and i64 %83, 4294967168
-  %85 = icmp ult i64 %84, 384
+  %85 = icmp samesign ult i64 %84, 384
   br i1 %85, label %86, label %.preheader, !llvm.loop !63
 
 86:                                               ; preds = %81
@@ -7235,7 +7235,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = tail call i64 @_find_first_bit(ptr noundef %27, i64 noundef 384) #22
   %29 = and i64 %28, 4294967168
-  %30 = icmp ult i64 %29, 384
+  %30 = icmp samesign ult i64 %29, 384
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.preheader8
@@ -7291,7 +7291,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %70 = zext i32 %69 to i64
   %71 = tail call i64 @_find_next_bit(ptr noundef %65, i64 noundef 384, i64 noundef %70) #22
   %72 = and i64 %71, 4294967168
-  %73 = icmp ult i64 %72, 384
+  %73 = icmp samesign ult i64 %72, 384
   br i1 %73, label %74, label %.preheader
 
 74:                                               ; preds = %64
@@ -7310,7 +7310,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %82 = getelementptr inbounds i8, ptr %79, i64 8
   %83 = tail call i64 @_find_first_bit(ptr noundef %82, i64 noundef 384) #22
   %84 = and i64 %83, 4294967168
-  %85 = icmp ult i64 %84, 384
+  %85 = icmp samesign ult i64 %84, 384
   br i1 %85, label %86, label %.preheader, !llvm.loop !63
 
 86:                                               ; preds = %81
@@ -8327,7 +8327,7 @@ define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr 
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = tail call i64 @_find_first_bit(ptr noundef %16, i64 noundef 384) #22
   %18 = and i64 %17, 4294967168
-  %19 = icmp ult i64 %18, 384
+  %19 = icmp samesign ult i64 %18, 384
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %.preheader11
@@ -8407,7 +8407,7 @@ define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr 
   %68 = zext i32 %67 to i64
   %69 = tail call i64 @_find_next_bit(ptr noundef %64, i64 noundef 384, i64 noundef %68) #22
   %70 = and i64 %69, 4294967168
-  %71 = icmp ult i64 %70, 384
+  %71 = icmp samesign ult i64 %70, 384
   br i1 %71, label %72, label %.preheader
 
 72:                                               ; preds = %51
@@ -8426,7 +8426,7 @@ define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr 
   %80 = getelementptr inbounds i8, ptr %77, i64 8
   %81 = tail call i64 @_find_first_bit(ptr noundef %80, i64 noundef 384) #22
   %82 = and i64 %81, 4294967168
-  %83 = icmp ult i64 %82, 384
+  %83 = icmp samesign ult i64 %82, 384
   br i1 %83, label %84, label %.preheader, !llvm.loop !63
 
 84:                                               ; preds = %79

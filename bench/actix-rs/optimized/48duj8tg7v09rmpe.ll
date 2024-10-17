@@ -129,7 +129,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc09d51b4cc5f645
   br i1 %34, label %67, label %35
 
 35:                                               ; preds = %28
-  %36 = icmp ugt i64 %31, 1
+  %36 = icmp samesign ugt i64 %31, 1
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %35
@@ -137,7 +137,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc09d51b4cc5f645
   br i1 %38, label %41, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
 
 39:                                               ; preds = %35
-  %40 = icmp ugt i64 %31, 3
+  %40 = icmp samesign ugt i64 %31, 3
   br i1 %40, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i.i"
 
 41:                                               ; preds = %37
@@ -355,7 +355,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %11, label %49, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i64 %6, 1
+  %13 = icmp samesign ugt i64 %6, 1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -363,7 +363,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %15, label %18, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %6, 3
+  %17 = icmp samesign ugt i64 %6, 3
   br i1 %17, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 18:                                               ; preds = %14

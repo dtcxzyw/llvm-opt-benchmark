@@ -1354,7 +1354,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer14set_sample_endEb(ptr nocapture 
   br label %16
 
 16:                                               ; preds = %14, %2
-  %17 = icmp ugt i64 %10, %13
+  %17 = icmp samesign ugt i64 %10, %13
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16

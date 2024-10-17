@@ -677,7 +677,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 28:                                               ; preds = %27, %25, %25
   %29 = phi i64 [ 524288, %27 ], [ 33554432, %25 ], [ 33554432, %25 ]
-  %30 = icmp ult i64 %26, %29
+  %30 = icmp samesign ult i64 %26, %29
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
@@ -690,7 +690,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 34:                                               ; preds = %33, %31, %31
   %35 = phi i64 [ 2048, %33 ], [ 131072, %31 ], [ 131072, %31 ]
-  %36 = icmp ult i64 %32, %35
+  %36 = icmp samesign ult i64 %32, %35
   br i1 %36, label %37, label %47, !prof !6
 
 37:                                               ; preds = %34
@@ -1006,7 +1006,7 @@ define internal i64 @kpageflags_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 28:                                               ; preds = %27, %25, %25
   %29 = phi i64 [ 524288, %27 ], [ 33554432, %25 ], [ 33554432, %25 ]
-  %30 = icmp ult i64 %26, %29
+  %30 = icmp samesign ult i64 %26, %29
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
@@ -1019,7 +1019,7 @@ define internal i64 @kpageflags_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 34:                                               ; preds = %33, %31, %31
   %35 = phi i64 [ 2048, %33 ], [ 131072, %31 ], [ 131072, %31 ]
-  %36 = icmp ult i64 %32, %35
+  %36 = icmp samesign ult i64 %32, %35
   br i1 %36, label %37, label %47, !prof !6
 
 37:                                               ; preds = %34

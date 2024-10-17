@@ -750,7 +750,7 @@ define range(i32 -1, 1) i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_
   %5 = lshr i32 %4, 4
   %6 = load i32, ptr %1, align 8
   %7 = lshr i32 %6, 4
-  %8 = icmp ugt i32 %5, %7
+  %8 = icmp samesign ugt i32 %5, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %2

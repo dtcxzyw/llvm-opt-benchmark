@@ -46786,7 +46786,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i25.i
   %__val.addr.0.lcssa.i.i.i = phi i64 [ %value, %if.end.i25.i ], [ %div.i8.i.i, %while.body.i.i.i ]
-  %cmp7.i.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp7.i.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -46925,7 +46925,7 @@ while.body.i.i.i53:                               ; preds = %while.body.i.i.i53,
 
 while.end.i.i.i32:                                ; preds = %while.body.i.i.i53, %if.end.i25.i30
   %__val.addr.0.lcssa.i.i.i33 = phi i64 [ %value, %if.end.i25.i30 ], [ %div.i8.i.i58, %while.body.i.i.i53 ]
-  %cmp7.i.i.i34 = icmp ugt i64 %__val.addr.0.lcssa.i.i.i33, 9
+  %cmp7.i.i.i34 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i33, 9
   br i1 %cmp7.i.i.i34, label %if.then.i.i.i45, label %if.else.i.i.i35
 
 if.then.i.i.i45:                                  ; preds = %while.end.i.i.i32
@@ -48424,7 +48424,7 @@ if.end146:                                        ; preds = %if.then134
   br i1 %cmp151.not, label %do.end, label %if.then152
 
 if.then152:                                       ; preds = %if.end146
-  %cmp154 = icmp ugt i32 %add148, 429496729
+  %cmp154 = icmp samesign ugt i32 %add148, 429496729
   br i1 %cmp154, label %return, label %if.end159
 
 if.end159:                                        ; preds = %if.then152
@@ -62314,7 +62314,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i, %if.end.i14.i.i.i.i.i, %call3.i.i12.i.i.i.i.i.noexc, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i"
   %retval.0.i9.i.i.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.i.i.i.noexc ], [ 2, %if.end.i14.i.i.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i" ], [ %46, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i ]
-  %cmp.i.i.i.i.i33 = icmp ult i32 %retval.0.i.i.i.i.i.i, %retval.0.i9.i.i.i.i.i
+  %cmp.i.i.i.i.i33 = icmp samesign ult i32 %retval.0.i.i.i.i.i.i, %retval.0.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i33, label %invoke.cont19, label %for.cond.i.i.i, !llvm.loop !958
 
 invoke.cont19:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i", %land.lhs.true
@@ -62517,7 +62517,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %add.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i, 1
   %div5.i.i.i.i = lshr i64 %add.i.i.i.i, 1
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i, 2
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i.i, 2
   br i1 %cmp1.not.i.i.i.i, label %if.then5.i.i, label %while.body.i.i.i.i, !llvm.loop !960
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i
@@ -65664,7 +65664,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   br i1 %cmp.i.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
@@ -65928,7 +65928,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 invoke.cont.i:                                    ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %call3.i.i12.i.i.noexc.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
   %retval.0.i9.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.noexc.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i" ], [ %43, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
-  %cmp.i.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
+  %cmp.i.i.i = icmp samesign ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %invoke.cont.i
@@ -66263,7 +66263,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   br i1 %cmp.i.i, label %if.then9, label %return
 
 if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
@@ -66387,7 +66387,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i5 = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i5 = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = xor i64 %shr, -1
   %sub9 = add nsw i64 %__len.09, %8
@@ -66476,7 +66476,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i5 = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i5 = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = xor i64 %shr, -1
   %sub9 = add nsw i64 %__len.09, %8
@@ -67173,7 +67173,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %if.then.i.i10.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
   %retval.0.i9.i.i.i = phi i32 [ 0, %if.then.i.i10.i.i.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i" ], [ %20, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
-  %cmp.i.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
+  %cmp.i.i.i = icmp samesign ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.051.i, i64 8
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
@@ -67736,7 +67736,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139, %if.end.i14.i.i.i136, %if.then.i.i10.i.i.i132, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91"
   %retval.0.i9.i.i.i97 = phi i32 [ 0, %if.then.i.i10.i.i.i132 ], [ 2, %if.end.i14.i.i.i136 ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91" ], [ %93, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139 ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94 ]
-  %cmp.i.i.i98 = icmp ult i32 %retval.0.i.i.i.i92, %retval.0.i9.i.i.i97
+  %cmp.i.i.i98 = icmp samesign ult i32 %retval.0.i.i.i.i92, %retval.0.i9.i.i.i97
   %incdec.ptr.i11.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   %_M_refcount3.i.i.i.i.i99 = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -8
   br i1 %cmp.i.i.i98, label %if.then12.i, label %if.else27.i
@@ -68123,7 +68123,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.096, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
@@ -68579,7 +68579,7 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
   %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %8, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
-  %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
+  %cmp.i.i = icmp samesign ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0100, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
@@ -70130,7 +70130,7 @@ switch.lookup76:                                  ; preds = %_ZN5arrowL9bit_widt
 
 _ZN5arrowL9bit_widthENS_4Type4typeE.exit59:       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %switch.lookup76
   %retval.0.i46 = phi i32 [ %switch.load79, %switch.lookup76 ], [ 0, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ]
-  %cmp.not = icmp ult i32 %retval.0.i44, %retval.0.i46
+  %cmp.not = icmp samesign ult i32 %retval.0.i44, %retval.0.i46
   br i1 %cmp.not, label %return, label %tailrecurse.backedge
 
 if.end26:                                         ; preds = %if.end17
@@ -70145,7 +70145,7 @@ if.end26:                                         ; preds = %if.end17
 land.lhs.true30:                                  ; preds = %if.end26
   %call31 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %9)
   %call32 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %6)
-  %cmp33.not = icmp ult i32 %call31, %call32
+  %cmp33.not = icmp samesign ult i32 %call31, %call32
   br i1 %cmp33.not, label %return, label %tailrecurse.backedge
 
 return:                                           ; preds = %if.end, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit59, %if.then19, %land.lhs.true30, %if.end26, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i, %tailrecurse.backedge, %if.then11, %entry

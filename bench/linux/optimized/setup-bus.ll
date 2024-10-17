@@ -2496,7 +2496,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   br i1 %53, label %61, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp ult i64 %1, 1048576
+  %55 = icmp samesign ult i64 %1, 1048576
   %.phi.trans.insert = getelementptr i8, ptr %39, i64 1520
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %56 = and i64 %.pre, 1048576
@@ -3837,8 +3837,8 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef %0, ptr nound
 185:                                              ; preds = %182
   %186 = and i64 %179, 8960
   %187 = and i64 %179, 256
-  %188 = icmp ult i64 %186, 8192
-  %189 = icmp ult i64 %186, 512
+  %188 = icmp samesign ult i64 %186, 8192
+  %189 = icmp samesign ult i64 %186, 512
   %190 = and i64 %179, 512
   br label %191
 

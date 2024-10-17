@@ -299,7 +299,7 @@ for.inc128:                                       ; preds = %for.inc125
   %inc129 = add nuw nsw i64 %i55.0105, 1
   %16 = load i64, ptr %slot_count60, align 8
   %shr61 = lshr i64 %16, 3
-  %cmp62 = icmp ult i64 %inc129, %shr61
+  %cmp62 = icmp samesign ult i64 %inc129, %shr61
   br i1 %cmp62, label %for.body63, label %if.end131, !llvm.loop !10
 
 if.end131:                                        ; preds = %for.inc128, %if.then54, %for.end52

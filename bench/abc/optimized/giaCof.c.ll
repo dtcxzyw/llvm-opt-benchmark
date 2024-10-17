@@ -654,7 +654,7 @@ define i32 @Cof_ManTfoSize_rec(ptr nocapture noundef readonly %0, ptr nocapture 
   %21 = add nuw nsw i32 %.01422, 1
   %22 = load i32, ptr %1, align 4
   %23 = lshr i32 %22, 8
-  %24 = icmp ult i32 %21, %23
+  %24 = icmp samesign ult i32 %21, %23
   br i1 %24, label %8, label %.critedge.loopexit, !llvm.loop !7
 
 .critedge.loopexit:                               ; preds = %8
@@ -737,7 +737,7 @@ define i32 @Cof_ManTfiSize_rec(ptr nocapture noundef readonly %0, ptr nocapture 
   %19 = lshr i32 %18, 4
   %20 = and i32 %19, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %9, label %.critedge.loopexit, !llvm.loop !9
 
 .critedge.loopexit:                               ; preds = %9
@@ -835,7 +835,7 @@ define i32 @Cof_ManSuppSize_rec(ptr nocapture noundef readonly %0, ptr nocapture
   %19 = lshr i32 %18, 4
   %20 = and i32 %19, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %9, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %9, %.preheader, %5, %2
@@ -968,7 +968,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %14, %12
   %24 = lshr i32 %.val20, 8
   %.val21 = load i32, ptr %1, align 4
   %25 = lshr i32 %.val21, 8
-  %26 = icmp ult i32 %24, %25
+  %26 = icmp samesign ult i32 %24, %25
   br i1 %26, label %27, label %54
 
 27:                                               ; preds = %17
@@ -1507,7 +1507,7 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
   %161 = add nuw nsw i32 %.071107, 1
   %162 = load i32, ptr %29, align 4
   %163 = lshr i32 %162, 8
-  %164 = icmp ult i32 %161, %163
+  %164 = icmp samesign ult i32 %161, %163
   br i1 %164, label %32, label %.critedge2, !llvm.loop !16
 
 .critedge2:                                       ; preds = %160, %.lr.ph113
@@ -2142,7 +2142,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
 
 127:                                              ; preds = %113, %118
   %128 = phi i32 [ %122, %118 ], [ 0, %113 ]
-  %129 = icmp ult i32 %115, 10
+  %129 = icmp samesign ult i32 %115, 10
   br i1 %129, label %130, label %135
 
 130:                                              ; preds = %127
@@ -2431,7 +2431,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %289, label %337, label %290
 
 290:                                              ; preds = %285, %280, %276
-  %291 = icmp ult i64 %indvars.iv, 10
+  %291 = icmp samesign ult i64 %indvars.iv, 10
   %292 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %291, label %293, label %295
 

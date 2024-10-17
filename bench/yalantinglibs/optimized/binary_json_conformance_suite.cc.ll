@@ -6059,13 +6059,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %110 = trunc i64 %val.addr.012.i.i to i8
   %conv.i.i = and i8 %110, 127
   %shr.i.i = lshr i64 %val.addr.012.i.i, 7
-  %tobool1.i.i = icmp ugt i64 %val.addr.012.i.i, 127
+  %tobool1.i.i = icmp samesign ugt i64 %val.addr.012.i.i, 127
   %spec.select.i.i = select i1 %tobool1.i.i, i8 -128, i8 0
   %byte.0.i.i = or disjoint i8 %spec.select.i.i, %conv.i.i
   %inc.i.i = add nuw nsw i64 %i.013.i.i, 1
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %buf.i, i64 %i.013.i.i
   store i8 %byte.0.i.i, ptr %arrayidx7.i.i, align 1, !noalias !35
-  %tobool.not.i.i = icmp ult i64 %val.addr.012.i.i, 128
+  %tobool.not.i.i = icmp samesign ult i64 %val.addr.012.i.i, 128
   br i1 %tobool.not.i.i, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i, label %while.body.i.i, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i:          ; preds = %while.body.i.i, %if.then.i.i1427
@@ -6700,13 +6700,13 @@ while.body.i.i1512:                               ; preds = %while.body.i.i1512.
   %163 = trunc i64 %val.addr.012.i.i1514 to i8
   %conv.i.i1515 = and i8 %163, 127
   %shr.i.i1516 = lshr i64 %val.addr.012.i.i1514, 7
-  %tobool1.i.i1517 = icmp ugt i64 %val.addr.012.i.i1514, 127
+  %tobool1.i.i1517 = icmp samesign ugt i64 %val.addr.012.i.i1514, 127
   %spec.select.i.i1518 = select i1 %tobool1.i.i1517, i8 -128, i8 0
   %byte.0.i.i1519 = or disjoint i8 %spec.select.i.i1518, %conv.i.i1515
   %inc.i.i1520 = add nuw nsw i64 %i.013.i.i1513, 1
   %arrayidx7.i.i1521 = getelementptr inbounds i8, ptr %buf.i1509, i64 %i.013.i.i1513
   store i8 %byte.0.i.i1519, ptr %arrayidx7.i.i1521, align 1, !noalias !75
-  %tobool.not.i.i1522 = icmp ult i64 %val.addr.012.i.i1514, 128
+  %tobool.not.i.i1522 = icmp samesign ult i64 %val.addr.012.i.i1514, 128
   br i1 %tobool.not.i.i1522, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1523, label %while.body.i.i1512, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1523:      ; preds = %while.body.i.i1512, %if.then.i.i1541
@@ -8850,13 +8850,13 @@ while.body.i.i1724:                               ; preds = %while.body.i.i1724.
   %331 = trunc i64 %val.addr.012.i.i1726 to i8
   %conv.i.i1727 = and i8 %331, 127
   %shr.i.i1728 = lshr i64 %val.addr.012.i.i1726, 7
-  %tobool1.i.i1729 = icmp ugt i64 %val.addr.012.i.i1726, 127
+  %tobool1.i.i1729 = icmp samesign ugt i64 %val.addr.012.i.i1726, 127
   %spec.select.i.i1730 = select i1 %tobool1.i.i1729, i8 -128, i8 0
   %byte.0.i.i1731 = or disjoint i8 %spec.select.i.i1730, %conv.i.i1727
   %inc.i.i1732 = add nuw nsw i64 %i.013.i.i1725, 1
   %arrayidx7.i.i1733 = getelementptr inbounds i8, ptr %buf.i1721, i64 %i.013.i.i1725
   store i8 %byte.0.i.i1731, ptr %arrayidx7.i.i1733, align 1, !noalias !114
-  %tobool.not.i.i1734 = icmp ult i64 %val.addr.012.i.i1726, 128
+  %tobool.not.i.i1734 = icmp samesign ult i64 %val.addr.012.i.i1726, 128
   br i1 %tobool.not.i.i1734, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1735, label %while.body.i.i1724, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1735:      ; preds = %while.body.i.i1724, %if.then.i.i1753
@@ -9482,13 +9482,13 @@ while.body.i.i1780:                               ; preds = %while.body.i.i1780.
   %388 = trunc i64 %val.addr.012.i.i1782 to i8
   %conv.i.i1783 = and i8 %388, 127
   %shr.i.i1784 = lshr i64 %val.addr.012.i.i1782, 7
-  %tobool1.i.i1785 = icmp ugt i64 %val.addr.012.i.i1782, 127
+  %tobool1.i.i1785 = icmp samesign ugt i64 %val.addr.012.i.i1782, 127
   %spec.select.i.i1786 = select i1 %tobool1.i.i1785, i8 -128, i8 0
   %byte.0.i.i1787 = or disjoint i8 %spec.select.i.i1786, %conv.i.i1783
   %inc.i.i1788 = add nuw nsw i64 %i.013.i.i1781, 1
   %arrayidx7.i.i1789 = getelementptr inbounds i8, ptr %buf.i1777, i64 %i.013.i.i1781
   store i8 %byte.0.i.i1787, ptr %arrayidx7.i.i1789, align 1, !noalias !121
-  %tobool.not.i.i1790 = icmp ult i64 %val.addr.012.i.i1782, 128
+  %tobool.not.i.i1790 = icmp samesign ult i64 %val.addr.012.i.i1782, 128
   br i1 %tobool.not.i.i1790, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1791, label %while.body.i.i1780, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1791:      ; preds = %while.body.i.i1780, %if.then.i.i1809
@@ -9752,13 +9752,13 @@ while.body.i.i1868:                               ; preds = %while.body.i.i1868.
   %407 = trunc i64 %val.addr.012.i.i1870 to i8
   %conv.i.i1871 = and i8 %407, 127
   %shr.i.i1872 = lshr i64 %val.addr.012.i.i1870, 7
-  %tobool1.i.i1873 = icmp ugt i64 %val.addr.012.i.i1870, 127
+  %tobool1.i.i1873 = icmp samesign ugt i64 %val.addr.012.i.i1870, 127
   %spec.select.i.i1874 = select i1 %tobool1.i.i1873, i8 -128, i8 0
   %byte.0.i.i1875 = or disjoint i8 %spec.select.i.i1874, %conv.i.i1871
   %inc.i.i1876 = add nuw nsw i64 %i.013.i.i1869, 1
   %arrayidx7.i.i1877 = getelementptr inbounds i8, ptr %buf.i1865, i64 %i.013.i.i1869
   store i8 %byte.0.i.i1875, ptr %arrayidx7.i.i1877, align 1, !noalias !124
-  %tobool.not.i.i1878 = icmp ult i64 %val.addr.012.i.i1870, 128
+  %tobool.not.i.i1878 = icmp samesign ult i64 %val.addr.012.i.i1870, 128
   br i1 %tobool.not.i.i1878, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1879, label %while.body.i.i1868, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i1879:      ; preds = %while.body.i.i1868, %if.then.i.i1897
@@ -10262,13 +10262,13 @@ while.body.i.i2060:                               ; preds = %while.body.i.i2060.
   %446 = trunc i64 %val.addr.012.i.i2062 to i8
   %conv.i.i2063 = and i8 %446, 127
   %shr.i.i2064 = lshr i64 %val.addr.012.i.i2062, 7
-  %tobool1.i.i2065 = icmp ugt i64 %val.addr.012.i.i2062, 127
+  %tobool1.i.i2065 = icmp samesign ugt i64 %val.addr.012.i.i2062, 127
   %spec.select.i.i2066 = select i1 %tobool1.i.i2065, i8 -128, i8 0
   %byte.0.i.i2067 = or disjoint i8 %spec.select.i.i2066, %conv.i.i2063
   %inc.i.i2068 = add nuw nsw i64 %i.013.i.i2061, 1
   %arrayidx7.i.i2069 = getelementptr inbounds i8, ptr %buf.i2057, i64 %i.013.i.i2061
   store i8 %byte.0.i.i2067, ptr %arrayidx7.i.i2069, align 1, !noalias !127
-  %tobool.not.i.i2070 = icmp ult i64 %val.addr.012.i.i2062, 128
+  %tobool.not.i.i2070 = icmp samesign ult i64 %val.addr.012.i.i2062, 128
   br i1 %tobool.not.i.i2070, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2071, label %while.body.i.i2060, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2071:      ; preds = %while.body.i.i2060, %if.then.i.i2089
@@ -10772,13 +10772,13 @@ while.body.i.i2252:                               ; preds = %while.body.i.i2252.
   %485 = trunc i64 %val.addr.012.i.i2254 to i8
   %conv.i.i2255 = and i8 %485, 127
   %shr.i.i2256 = lshr i64 %val.addr.012.i.i2254, 7
-  %tobool1.i.i2257 = icmp ugt i64 %val.addr.012.i.i2254, 127
+  %tobool1.i.i2257 = icmp samesign ugt i64 %val.addr.012.i.i2254, 127
   %spec.select.i.i2258 = select i1 %tobool1.i.i2257, i8 -128, i8 0
   %byte.0.i.i2259 = or disjoint i8 %spec.select.i.i2258, %conv.i.i2255
   %inc.i.i2260 = add nuw nsw i64 %i.013.i.i2253, 1
   %arrayidx7.i.i2261 = getelementptr inbounds i8, ptr %buf.i2249, i64 %i.013.i.i2253
   store i8 %byte.0.i.i2259, ptr %arrayidx7.i.i2261, align 1, !noalias !130
-  %tobool.not.i.i2262 = icmp ult i64 %val.addr.012.i.i2254, 128
+  %tobool.not.i.i2262 = icmp samesign ult i64 %val.addr.012.i.i2254, 128
   br i1 %tobool.not.i.i2262, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2263, label %while.body.i.i2252, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2263:      ; preds = %while.body.i.i2252, %if.then.i.i2281
@@ -11177,13 +11177,13 @@ while.body.i.i2392:                               ; preds = %while.body.i.i2392.
   %515 = trunc i64 %val.addr.012.i.i2394 to i8
   %conv.i.i2395 = and i8 %515, 127
   %shr.i.i2396 = lshr i64 %val.addr.012.i.i2394, 7
-  %tobool1.i.i2397 = icmp ugt i64 %val.addr.012.i.i2394, 127
+  %tobool1.i.i2397 = icmp samesign ugt i64 %val.addr.012.i.i2394, 127
   %spec.select.i.i2398 = select i1 %tobool1.i.i2397, i8 -128, i8 0
   %byte.0.i.i2399 = or disjoint i8 %spec.select.i.i2398, %conv.i.i2395
   %inc.i.i2400 = add nuw nsw i64 %i.013.i.i2393, 1
   %arrayidx7.i.i2401 = getelementptr inbounds i8, ptr %buf.i2389, i64 %i.013.i.i2393
   store i8 %byte.0.i.i2399, ptr %arrayidx7.i.i2401, align 1, !noalias !133
-  %tobool.not.i.i2402 = icmp ult i64 %val.addr.012.i.i2394, 128
+  %tobool.not.i.i2402 = icmp samesign ult i64 %val.addr.012.i.i2394, 128
   br i1 %tobool.not.i.i2402, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2403, label %while.body.i.i2392, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2403:      ; preds = %while.body.i.i2392, %if.then.i.i2421
@@ -13102,13 +13102,13 @@ while.body.i.i2480:                               ; preds = %while.body.i.i2480.
   %742 = trunc i64 %val.addr.012.i.i2482 to i8
   %conv.i.i2483 = and i8 %742, 127
   %shr.i.i2484 = lshr i64 %val.addr.012.i.i2482, 7
-  %tobool1.i.i2485 = icmp ugt i64 %val.addr.012.i.i2482, 127
+  %tobool1.i.i2485 = icmp samesign ugt i64 %val.addr.012.i.i2482, 127
   %spec.select.i.i2486 = select i1 %tobool1.i.i2485, i8 -128, i8 0
   %byte.0.i.i2487 = or disjoint i8 %spec.select.i.i2486, %conv.i.i2483
   %inc.i.i2488 = add nuw nsw i64 %i.013.i.i2481, 1
   %arrayidx7.i.i2489 = getelementptr inbounds i8, ptr %buf.i2477, i64 %i.013.i.i2481
   store i8 %byte.0.i.i2487, ptr %arrayidx7.i.i2489, align 1, !noalias !155
-  %tobool.not.i.i2490 = icmp ult i64 %val.addr.012.i.i2482, 128
+  %tobool.not.i.i2490 = icmp samesign ult i64 %val.addr.012.i.i2482, 128
   br i1 %tobool.not.i.i2490, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2491, label %while.body.i.i2480, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2491:      ; preds = %while.body.i.i2480, %if.then.i.i2509
@@ -13372,13 +13372,13 @@ while.body.i.i2568:                               ; preds = %while.body.i.i2568.
   %761 = trunc i64 %val.addr.012.i.i2570 to i8
   %conv.i.i2571 = and i8 %761, 127
   %shr.i.i2572 = lshr i64 %val.addr.012.i.i2570, 7
-  %tobool1.i.i2573 = icmp ugt i64 %val.addr.012.i.i2570, 127
+  %tobool1.i.i2573 = icmp samesign ugt i64 %val.addr.012.i.i2570, 127
   %spec.select.i.i2574 = select i1 %tobool1.i.i2573, i8 -128, i8 0
   %byte.0.i.i2575 = or disjoint i8 %spec.select.i.i2574, %conv.i.i2571
   %inc.i.i2576 = add nuw nsw i64 %i.013.i.i2569, 1
   %arrayidx7.i.i2577 = getelementptr inbounds i8, ptr %buf.i2565, i64 %i.013.i.i2569
   store i8 %byte.0.i.i2575, ptr %arrayidx7.i.i2577, align 1, !noalias !158
-  %tobool.not.i.i2578 = icmp ult i64 %val.addr.012.i.i2570, 128
+  %tobool.not.i.i2578 = icmp samesign ult i64 %val.addr.012.i.i2570, 128
   br i1 %tobool.not.i.i2578, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2579, label %while.body.i.i2568, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i2579:      ; preds = %while.body.i.i2568, %if.then.i.i2597
@@ -15450,20 +15450,20 @@ while.body.i.i:                                   ; preds = %for.body107, %while
   %100 = trunc i64 %val.addr.012.i.i to i8
   %conv.i.i = and i8 %100, 127
   %shr.i.i = lshr i64 %val.addr.012.i.i, 7
-  %tobool1.i.i = icmp ugt i64 %val.addr.012.i.i, 127
+  %tobool1.i.i = icmp samesign ugt i64 %val.addr.012.i.i, 127
   %spec.select.i.i = select i1 %tobool1.i.i, i8 -128, i8 0
   %byte.0.i.i = or disjoint i8 %spec.select.i.i, %conv.i.i
   %inc.i.i = add nuw nsw i64 %i.013.i.i, 1
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %buf.i, i64 %i.013.i.i
   store i8 %byte.0.i.i, ptr %arrayidx7.i.i, align 1, !noalias !203
-  %tobool.not.i.i = icmp ult i64 %val.addr.012.i.i, 128
+  %tobool.not.i.i = icmp samesign ult i64 %val.addr.012.i.i, 128
   br i1 %tobool.not.i.i, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit.i, label %while.body.i.i, !llvm.loop !31
 
 _ZN12_GLOBAL__N_19vencode64EmiPc.exit.i:          ; preds = %while.body.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i297) #23, !noalias !203
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp109, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i297) #23
   store ptr %91, ptr %ref.tmp109, align 8, !alias.scope !203
-  %cmp.i.i.i298 = icmp ugt i64 %i.013.i.i, 14
+  %cmp.i.i.i298 = icmp samesign ugt i64 %i.013.i.i, 14
   br i1 %cmp.i.i.i298, label %if.then.i.i.i302, label %if.end.i.i.i
 
 lpad.i.i.loopexit:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
@@ -44251,7 +44251,7 @@ _ZN12_GLOBAL__N_19vencode64EmiPc.exit:            ; preds = %while.body10.i
   %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   store ptr %1, ptr %agg.result, align 8
-  %cmp.i.i = icmp ugt i64 %i.116.i, 14
+  %cmp.i.i = icmp samesign ugt i64 %i.116.i, 14
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
 
 lpad.i:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, %if.end.i.i.i.i.i
@@ -45311,7 +45311,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107
   %cmp3.i.i.i.i.i122 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i122)
-  %cmp.not.i.i.i112 = icmp ugt i64 %add.i.i.i108, 15
+  %cmp.not.i.i.i112 = icmp samesign ugt i64 %add.i.i.i108, 15
   br i1 %cmp.not.i.i.i112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247, label %if.then.i.i.i.i119
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107
@@ -47825,7 +47825,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

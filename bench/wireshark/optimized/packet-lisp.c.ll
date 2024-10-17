@@ -1218,7 +1218,7 @@ dissect_lcaf_asn.exit:                            ; preds = %166, %167, %171, %1
   %199 = zext nneg i16 %198 to i32
   %200 = and i16 %197, 32767
   %201 = zext nneg i16 %200 to i32
-  %202 = icmp ugt i16 %200, 90
+  %202 = icmp samesign ugt i16 %200, 90
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %188
@@ -1270,7 +1270,7 @@ dissect_lcaf_asn.exit:                            ; preds = %166, %167, %171, %1
   %237 = zext nneg i16 %236 to i32
   %238 = and i16 %235, 32767
   %239 = zext nneg i16 %238 to i32
-  %240 = icmp ugt i16 %238, 180
+  %240 = icmp samesign ugt i16 %238, 180
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %223

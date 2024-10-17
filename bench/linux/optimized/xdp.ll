@@ -985,7 +985,7 @@ define dso_local void @xdp_return_frame(ptr nocapture noundef readonly %0) #0 al
   %34 = add nuw nsw i64 %24, 1
   %35 = load i8, ptr %17, align 2
   %36 = zext i8 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %23, label %.loopexit.loopexit, !llvm.loop !58
 
 .loopexit.loopexit:                               ; preds = %23
@@ -1044,7 +1044,7 @@ define dso_local void @xdp_return_frame_rx_napi(ptr nocapture noundef readonly %
   %34 = add nuw nsw i64 %24, 1
   %35 = load i8, ptr %17, align 2
   %36 = zext i8 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %23, label %.loopexit.loopexit, !llvm.loop !59
 
 .loopexit.loopexit:                               ; preds = %23
@@ -1128,7 +1128,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr nocapture nound
   %38 = add nuw nsw i64 %28, 1
   %39 = load i8, ptr %22, align 2
   %40 = zext i8 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %27, label %.loopexit2.loopexit, !llvm.loop !58
 
 .loopexit2.loopexit:                              ; preds = %27
@@ -1262,7 +1262,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr nocapture nound
   %117 = add nuw nsw i64 %92, 1
   %118 = load i8, ptr %84, align 2
   %119 = zext i8 %118 to i64
-  %120 = icmp ult i64 %117, %119
+  %120 = icmp samesign ult i64 %117, %119
   br i1 %120, label %90, label %.loopexit.loopexit, !llvm.loop !61
 
 .loopexit.loopexit:                               ; preds = %115
@@ -1326,7 +1326,7 @@ define dso_local void @xdp_return_buff(ptr nocapture noundef readonly %0) #0 ali
   %32 = add nuw nsw i64 %20, 1
   %33 = load i8, ptr %13, align 2
   %34 = zext i8 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %19, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %19, %6, %1
@@ -1624,7 +1624,7 @@ define dso_local noundef ptr @xdpf_clone(ptr nocapture noundef readonly %0) loca
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %5, %8
   %10 = zext nneg i32 %9 to i64
-  %11 = icmp ugt i32 %9, 4096
+  %11 = icmp samesign ugt i32 %9, 4096
   br i1 %11, label %29, label %12, !prof !33
 
 12:                                               ; preds = %1

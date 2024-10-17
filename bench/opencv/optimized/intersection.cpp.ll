@@ -687,7 +687,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit336.i: ; preds = %_ZNSt
   %303 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %303, ptr %9, align 8
   %304 = getelementptr inbounds i8, ptr %9, i64 8
-  %.not.i.i337.i = icmp ugt i64 %302, 100
+  %.not.i.i337.i = icmp samesign ugt i64 %302, 100
   store i64 %302, ptr %304, align 8
   br i1 %.not.i.i337.i, label %305, label %_ZN2cv10AutoBufferIfLm100EEC2Em.exit.i
 
@@ -969,7 +969,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc340.i, %_ZN2c
   %indvars.iv548.i = phi i64 [ 2, %.lr.ph468.preheader.i ], [ %indvars.iv.next549.i, %.loopexit.i ]
   %indvars.iv.next555.i = add nuw nsw i64 %indvars.iv554.i, 1
   %412 = add nuw nsw i64 %indvars.iv554.i, 2
-  %413 = icmp ult i64 %412, %361
+  %413 = icmp samesign ult i64 %412, %361
   br i1 %413, label %.lr.ph466.preheader.i, label %.loopexit.i
 
 .lr.ph466.preheader.i:                            ; preds = %.lr.ph468.i

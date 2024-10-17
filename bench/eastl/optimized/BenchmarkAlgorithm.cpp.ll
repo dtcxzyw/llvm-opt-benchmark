@@ -20448,7 +20448,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   store i32 %20, ptr %add.ptr.i.i14, align 4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 2
   %sub.i.i15 = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp22.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i, 12
+  %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i, 12
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i20, label %for.end.i.i.i.i
 
 for.body.i.i.i.i20:                               ; preds = %for.body.i, %for.body.i.i.i.i20

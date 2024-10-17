@@ -1928,7 +1928,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   br i1 %84, label %.preheader, label %85, !llvm.loop !80
 
 85:                                               ; preds = %79, %.preheader
-  %86 = icmp ugt i64 %76, 14
+  %86 = icmp samesign ugt i64 %76, 14
   br label %87
 
 87:                                               ; preds = %85, %71

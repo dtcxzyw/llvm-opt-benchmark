@@ -1800,7 +1800,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit220.us.us.us.us.us: ; preds = %.lr.ph.i216.us
   %216 = getelementptr inbounds double, ptr %168, i64 %indvars.iv288
   store double %215, ptr %216, align 8
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %217 = icmp ult i64 %indvars.iv.next289, %245
+  %217 = icmp samesign ult i64 %indvars.iv.next289, %245
   br i1 %217, label %.lr.ph257.us.us.us.us.us, label %.loopexit.us.us.us.us.us, !llvm.loop !52
 
 .loopexit.us.us.us.us.us:                         ; preds = %.lr.ph257.us.us.us.us.us, %.lr.ph259.us.us.us.us.us, %.preheader239.us.us.us.us.us, %.preheader.us.us.us.us.us
@@ -1843,7 +1843,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit220.us.us.us.us.us: ; preds = %.lr.ph.i216.us
   %237 = getelementptr inbounds double, ptr %168, i64 %indvars.iv291
   store double %236, ptr %237, align 8
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %238 = icmp ult i64 %indvars.iv.next292, %244
+  %238 = icmp samesign ult i64 %indvars.iv.next292, %244
   br i1 %238, label %.lr.ph259.us.us.us.us.us, label %.loopexit.us.us.us.us.us, !llvm.loop !54
 
 .lr.ph254.us.us.us.us.us:                         ; preds = %.lr.ph254.us.us.us.us.us.preheader, %.lr.ph254.us.us.us.us.us
@@ -1854,7 +1854,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit220.us.us.us.us.us: ; preds = %.lr.ph.i216.us
   %242 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %indvars.iv285
   store float %241, ptr %242, align 4
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
-  %243 = icmp ult i64 %indvars.iv.next286, %174
+  %243 = icmp samesign ult i64 %indvars.iv.next286, %174
   br i1 %243, label %.lr.ph254.us.us.us.us.us, label %.lr.ph.preheader.i214.us.us.us.us.us, !llvm.loop !55
 
 .preheader.us.us.us.us.us:                        ; preds = %_ZN2cvL10SinCos_32fEPKfPfS2_ii.exit220.us.us.us.us.us
@@ -1970,7 +1970,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit211.us.us.us:  ; preds = %.lr.ph.i207.us.us.u
   %296 = getelementptr inbounds float, ptr %250, i64 %indvars.iv282
   store float %295, ptr %296, align 4
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
-  %297 = icmp ult i64 %indvars.iv.next283, %317
+  %297 = icmp samesign ult i64 %indvars.iv.next283, %317
   br i1 %297, label %.lr.ph251.us.us.us, label %.loopexit242.us.us.us, !llvm.loop !57
 
 298:                                              ; preds = %_ZN2cvL10SinCos_32fEPKfPfS2_ii.exit211.us.us.us
@@ -1987,7 +1987,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit211.us.us.us:  ; preds = %.lr.ph.i207.us.us.u
   %303 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %indvars.iv279
   store float %302, ptr %303, align 4
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
-  %304 = icmp ult i64 %indvars.iv.next280, %256
+  %304 = icmp samesign ult i64 %indvars.iv.next280, %256
   br i1 %304, label %.lr.ph249.us.us.us, label %.lr.ph.preheader.i205.us.us.us, !llvm.loop !58
 
 .loopexit242.us.us.us:                            ; preds = %.lr.ph251.us.us.us, %.preheader241.us.us.us, %298
@@ -2122,7 +2122,7 @@ _ZN2cvL10SinCos_32fEPKfPfS2_ii.exit.us:           ; preds = %.lr.ph.i.us
   %367 = fmul float %361, %366
   store float %367, ptr %365, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %368 = icmp ult i64 %indvars.iv.next, %359
+  %368 = icmp samesign ult i64 %indvars.iv.next, %359
   br i1 %368, label %.lr.ph.us, label %.loopexit244.us, !llvm.loop !59
 
 .loopexit244.us:                                  ; preds = %.lr.ph.us, %.preheader245.us, %_ZN2cvL10SinCos_32fEPKfPfS2_ii.exit.us
@@ -3106,7 +3106,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
 
 173:                                              ; preds = %171, %.lr.ph217.us.split.us230.us
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
-  %174 = icmp ult i64 %indvars.iv.next258, %190
+  %174 = icmp samesign ult i64 %indvars.iv.next258, %190
   br i1 %174, label %.lr.ph217.us.split.us230.us, label %.loopexit197.us.us.us, !llvm.loop !86
 
 .lr.ph214.us.us.us:                               ; preds = %.lr.ph214.us.us.us.preheader, %.lr.ph214.us.us.us
@@ -3118,7 +3118,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
   %179 = fptrunc double %178 to float
   store float %179, ptr %175, align 4
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
-  %180 = icmp ult i64 %indvars.iv.next255, %189
+  %180 = icmp samesign ult i64 %indvars.iv.next255, %189
   br i1 %180, label %.lr.ph214.us.us.us, label %._crit_edge215.us.us.us, !llvm.loop !87
 
 .preheader196.us.us.us:                           ; preds = %._crit_edge215.us.us.us
@@ -3174,7 +3174,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
 
 198:                                              ; preds = %.sink.split, %.lr.ph217.us.split.us.us.us
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %199 = icmp ult i64 %indvars.iv.next261, %190
+  %199 = icmp samesign ult i64 %indvars.iv.next261, %190
   br i1 %199, label %.lr.ph217.us.split.us.us.us, label %.loopexit197.us.us.us, !llvm.loop !86
 
 .loopexit.split-lp204.loopexit.split.us.split.us: ; preds = %._crit_edge220.split.us.us.us
@@ -3236,7 +3236,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
 
 214:                                              ; preds = %212, %.lr.ph212.split.us225
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %215 = icmp ult i64 %indvars.iv.next249, %229
+  %215 = icmp samesign ult i64 %indvars.iv.next249, %229
   br i1 %215, label %.lr.ph212.split.us225, label %.loopexit200.us, !llvm.loop !90
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
@@ -3246,7 +3246,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
   %218 = fmul double %1, %217
   store double %218, ptr %216, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %219 = icmp ult i64 %indvars.iv.next, %228
+  %219 = icmp samesign ult i64 %indvars.iv.next, %228
   br i1 %219, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !91
 
 .preheader199.us:                                 ; preds = %._crit_edge.us
@@ -3297,7 +3297,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %144, %.noexc170, %1
 
 235:                                              ; preds = %.sink.split274, %.lr.ph212.split.us.us
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
-  %236 = icmp ult i64 %indvars.iv.next252, %229
+  %236 = icmp samesign ult i64 %indvars.iv.next252, %229
   br i1 %236, label %.lr.ph212.split.us.us, label %.loopexit200.us, !llvm.loop !90
 
 ._crit_edge220.split.us226:                       ; preds = %.loopexit200.us
@@ -4034,7 +4034,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %23, %26
   store i32 -1, ptr %16, align 8
   %63 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 -1, ptr %63, align 4
-  %64 = icmp ult i32 %62, 5
+  %64 = icmp samesign ult i32 %62, 5
   br i1 %64, label %65, label %88
 
 65:                                               ; preds = %60
@@ -4732,7 +4732,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %26, %29
   %47 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 2147483647
-  %50 = icmp ugt i32 %49, 2139095040
+  %50 = icmp samesign ugt i32 %49, 2139095040
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %46
@@ -6662,7 +6662,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %22, %25
 
 27:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %28 = and i32 %26, 7
-  %29 = icmp ugt i32 %28, 4
+  %29 = icmp samesign ugt i32 %28, 4
   %30 = and i32 %26, 4080
   %31 = icmp eq i32 %30, 0
   %or.cond156 = and i1 %29, %31
@@ -7294,7 +7294,7 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
 ._crit_edge308.us:                                ; preds = %276
   %332 = fcmp ugt double %.sroa.speculated.us, 0.000000e+00
   %333 = add nuw nsw i32 %.0310.us, 1
-  %334 = icmp ult i32 %333, %135
+  %334 = icmp samesign ult i32 %333, %135
   %or.cond326 = select i1 %332, i1 %334, i1 false
   br i1 %or.cond326, label %.preheader263.us, label %.split312.us, !llvm.loop !137
 
@@ -8276,7 +8276,7 @@ define internal void @_ZN2cvL7iPow32sEPKiPiii(ptr nocapture noundef readonly %0,
   %30 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv57.i
   %31 = load i32, ptr %30, align 4
   %32 = tail call noundef i32 @llvm.abs.i32(i32 %31, i1 true)
-  %33 = icmp ult i32 %32, 3
+  %33 = icmp samesign ult i32 %32, 3
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %.lr.ph.i
@@ -8317,7 +8317,7 @@ define internal void @_ZN2cvL7iPow32fEPKfPfii(ptr nocapture noundef readonly %0,
 
 .lr.ph34.i:                                       ; preds = %4
   %7 = icmp slt i32 %3, 0
-  %8 = icmp ugt i32 %5, 1
+  %8 = icmp samesign ugt i32 %5, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph34.split.us.i, label %.lr.ph34.split.i
 
@@ -8341,7 +8341,7 @@ define internal void @_ZN2cvL7iPow32fEPKfPfii(ptr nocapture noundef readonly %0,
   %.126.us.us.i = select i1 %.not.us.us.i, float %.02528.us.us.i, float %14
   %15 = fmul float %.129.us.us.i, %.129.us.us.i
   %16 = lshr i32 %.030.us.us.i, 1
-  %17 = icmp ugt i32 %.030.us.us.i, 3
+  %17 = icmp samesign ugt i32 %.030.us.us.i, 3
   br i1 %17, label %12, label %._crit_edge.us.us.i, !llvm.loop !157
 
 ._crit_edge.us.us.i:                              ; preds = %12
@@ -8368,7 +8368,7 @@ define internal void @_ZN2cvL7iPow32fEPKfPfii(ptr nocapture noundef readonly %0,
   %.126.us.i = select i1 %.not.us.i, float %.02528.us.i, float %24
   %25 = fmul float %.129.us.i, %.129.us.i
   %26 = lshr i32 %.030.us.i, 1
-  %27 = icmp ugt i32 %.030.us.i, 3
+  %27 = icmp samesign ugt i32 %.030.us.i, 3
   br i1 %27, label %22, label %._crit_edge.us.i, !llvm.loop !157
 
 ._crit_edge.us.i:                                 ; preds = %22
@@ -8415,7 +8415,7 @@ define internal void @_ZN2cvL7iPow64fEPKdPdii(ptr nocapture noundef readonly %0,
 
 .lr.ph34.i:                                       ; preds = %4
   %7 = icmp slt i32 %3, 0
-  %8 = icmp ugt i32 %5, 1
+  %8 = icmp samesign ugt i32 %5, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph34.split.us.i, label %.lr.ph34.split.i
 
@@ -8439,7 +8439,7 @@ define internal void @_ZN2cvL7iPow64fEPKdPdii(ptr nocapture noundef readonly %0,
   %.126.us.us.i = select i1 %.not.us.us.i, double %.02528.us.us.i, double %14
   %15 = fmul double %.129.us.us.i, %.129.us.us.i
   %16 = lshr i32 %.030.us.us.i, 1
-  %17 = icmp ugt i32 %.030.us.us.i, 3
+  %17 = icmp samesign ugt i32 %.030.us.us.i, 3
   br i1 %17, label %12, label %._crit_edge.us.us.i, !llvm.loop !159
 
 ._crit_edge.us.us.i:                              ; preds = %12
@@ -8466,7 +8466,7 @@ define internal void @_ZN2cvL7iPow64fEPKdPdii(ptr nocapture noundef readonly %0,
   %.126.us.i = select i1 %.not.us.i, double %.02528.us.i, double %24
   %25 = fmul double %.129.us.i, %.129.us.i
   %26 = lshr i32 %.030.us.i, 1
-  %27 = icmp ugt i32 %.030.us.i, 3
+  %27 = icmp samesign ugt i32 %.030.us.i, 3
   br i1 %27, label %22, label %._crit_edge.us.i, !llvm.loop !159
 
 ._crit_edge.us.i:                                 ; preds = %22

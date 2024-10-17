@@ -106,7 +106,7 @@ define noundef range(i32 -2147483648, 2139095041) i32 @"_ZN89_$LT$softposit..qui
 2:                                                ; preds = %1
   %spec.select.i = tail call i8 @llvm.abs.i8(i8 %0, i1 true)
   %3 = shl i8 %spec.select.i, 2
-  %4 = icmp ult i8 %spec.select.i, 64
+  %4 = icmp samesign ult i8 %spec.select.i, 64
   %5 = icmp sgt i8 %3, -1
   br i1 %4, label %.preheader.i.i, label %.preheader12.i.i
 

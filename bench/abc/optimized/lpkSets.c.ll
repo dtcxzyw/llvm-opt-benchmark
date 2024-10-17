@@ -91,14 +91,14 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   %32 = load i32, ptr %14, align 4
   %33 = lshr i32 %32, 26
   %34 = zext nneg i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next86, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next86, %34
   br i1 %35, label %25, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %25, %.preheader62
   %.050.lcssa = phi i32 [ 0, %.preheader62 ], [ %31, %25 ]
   %.lcssa = phi i32 [ %23, %.preheader62 ], [ %33, %25 ]
   %notmask = shl nsw i32 -1, %.lcssa
-  %36 = icmp ult i32 %notmask, -2
+  %36 = icmp samesign ult i32 %notmask, -2
   br i1 %36, label %.preheader.lr.ph, label %.critedge2
 
 .preheader.lr.ph:                                 ; preds = %.critedge
@@ -281,7 +281,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   %112 = load i32, ptr %14, align 4
   %113 = lshr i32 %112, 26
   %114 = zext nneg i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next, %114
   br i1 %115, label %78, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit61, %Vec_IntPush.exit, %.preheader63, %.critedge, %Kit_DsdNtkObj.exit.thread
@@ -561,7 +561,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %23 = and i32 %.fr128, 65535
   %24 = icmp eq i32 %23, 0
   %25 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ugt i32 %25, 1
+  %26 = icmp samesign ugt i32 %25, 1
   br i1 %24, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121.preheader
 
 .lr.ph.split.us121.preheader:                     ; preds = %.lr.ph.us
@@ -583,7 +583,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 34:                                               ; preds = %.lr.ph.split.us121
   %35 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %29)
-  %36 = icmp ugt i32 %35, 1
+  %36 = icmp samesign ugt i32 %35, 1
   %or.cond111.us = select i1 %26, i1 true, i1 %36
   br i1 %or.cond111.us, label %37, label %101
 

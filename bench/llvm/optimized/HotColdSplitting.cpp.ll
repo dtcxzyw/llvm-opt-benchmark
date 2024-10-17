@@ -4484,7 +4484,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %933, %931, %927, %9
 
 ._crit_edge.i.i109:                               ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %.0.lcssa.i.i = phi i32 [ %.4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %946, %.lr.ph.i2.i ]
-  %961 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %961 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %961, label %962, label %972
 
 962:                                              ; preds = %._crit_edge.i.i109

@@ -835,7 +835,7 @@ getv4.exit.thread114.thread297:                   ; preds = %.outer131, %getv4.e
   store i8 %130, ptr %132, align 1
   store i8 0, ptr %129, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not87.not = icmp ult i64 %indvars.iv, %126
+  %.not87.not = icmp samesign ult i64 %indvars.iv, %126
   br i1 %.not87.not, label %.lr.ph213, label %.thread120, !llvm.loop !15
 
 133:                                              ; preds = %getv4.exit.thread114.thread297

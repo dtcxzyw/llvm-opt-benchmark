@@ -5728,7 +5728,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 188:                                              ; preds = %182, %173
   %189 = load i8, ptr %11, align 1
   %190 = zext i8 %189 to i32
-  %191 = icmp ult i32 %153, %190
+  %191 = icmp samesign ult i32 %153, %190
   br i1 %191, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %188
@@ -5777,7 +5777,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   %.3.lcssa.i.i = phi i32 [ %203, %.lr.ph97.i.i ], [ %212, %.lr.ph92.i.i ]
   %215 = load i8, ptr %11, align 1
   %216 = zext i8 %215 to i32
-  %217 = icmp ult i32 %199, %216
+  %217 = icmp samesign ult i32 %199, %216
   br i1 %217, label %.lr.ph97.i.i, label %dissect_ProfiDriveParameterRequest.exit.i, !llvm.loop !12
 
 dissect_ProfiDriveParameterRequest.exit.i:        ; preds = %._crit_edge93.i.i, %._crit_edge.i.i, %115
@@ -9556,7 +9556,7 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
 217:                                              ; preds = %195
   %218 = and i32 %183, 255
   %219 = call ptr @try_val_to_str(i32 noundef %218, ptr noundef nonnull @pn_io_pa_profile_function_block_class_vals) #11
-  %220 = icmp ult i32 %218, 3
+  %220 = icmp samesign ult i32 %218, 3
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %217
@@ -9565,7 +9565,7 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   br label %227
 
 224:                                              ; preds = %217
-  %225 = icmp ult i32 %218, 5
+  %225 = icmp samesign ult i32 %218, 5
   %226 = select i1 %225, ptr @.str.1397, ptr @.str.1338
   br label %227
 
@@ -18220,7 +18220,7 @@ define internal i32 @dissect_IPNIO_Read_resp(ptr noundef %0, i32 noundef %1, ptr
   %.2.lcssa.i.i = phi i32 [ %73, %.lr.ph149.i.i ], [ %82, %.lr.ph.i.i ]
   %85 = load i8, ptr %12, align 1
   %86 = zext i8 %85 to i32
-  %87 = icmp ult i32 %69, %86
+  %87 = icmp samesign ult i32 %69, %86
   br i1 %87, label %.lr.ph149.i.i, label %thread-pre-split.loopexit.i.i, !llvm.loop !100
 
 thread-pre-split.loopexit.i.i:                    ; preds = %._crit_edge.i.i

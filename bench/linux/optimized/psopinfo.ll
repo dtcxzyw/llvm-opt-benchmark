@@ -21,7 +21,7 @@ define dso_local nonnull ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %0) lo
 
 3:                                                ; preds = %1
   %4 = and i16 %0, 255
-  %5 = icmp ult i16 %4, 137
+  %5 = icmp samesign ult i16 %4, 137
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %3, %1

@@ -2881,7 +2881,7 @@ entry:
   %shr.i = lshr i64 %0, 1
   %1 = load i64, ptr %other, align 8
   %shr.i7 = lshr i64 %1, 1
-  %cmp = icmp ugt i64 %shr.i, %shr.i7
+  %cmp = icmp samesign ugt i64 %shr.i, %shr.i7
   %2 = select i1 %cmp, i64 %0, i64 %1
   %spec.select = select i1 %cmp, ptr %this, ptr %other
   %3 = select i1 %cmp, i64 %1, i64 %0

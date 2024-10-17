@@ -215,7 +215,7 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = load i32, ptr %24, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next.i, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next.i, %101
   br i1 %102, label %.lr.ph.i, label %_ZN11hb_buffer_t17clear_glyph_flagsEj.exit, !llvm.loop !8
 
 _ZN11hb_buffer_t17clear_glyph_flagsEj.exit:       ; preds = %.lr.ph.i, %94

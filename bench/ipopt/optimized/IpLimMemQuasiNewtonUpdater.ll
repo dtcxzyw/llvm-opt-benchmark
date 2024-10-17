@@ -13577,7 +13577,7 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit41:        ; preds = %19
   %38 = load double, ptr %gep, align 8
   %gep98 = getelementptr inbounds double, ptr %invariant.gep97, i64 %indvars.iv86
   store double %38, ptr %gep98, align 8
-  %39 = icmp ult i64 %indvars.iv.next87, %28
+  %39 = icmp samesign ult i64 %indvars.iv.next87, %28
   br i1 %39, label %37, label %42, !llvm.loop !188
 
 40:                                               ; preds = %19, %_ZNK5Ipopt14DenseSymMatrix21MakeNewDenseSymMatrixEv.exit
@@ -14348,7 +14348,7 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit41:        ; preds = %20
   %41 = load double, ptr %gep, align 8
   %gep98 = getelementptr inbounds double, ptr %invariant.gep97, i64 %indvars.iv86
   store double %41, ptr %gep98, align 8
-  %42 = icmp ult i64 %indvars.iv.next87, %29
+  %42 = icmp samesign ult i64 %indvars.iv.next87, %29
   br i1 %42, label %40, label %45, !llvm.loop !209
 
 43:                                               ; preds = %20, %_ZNK5Ipopt14DenseSymMatrix21MakeNewDenseSymMatrixEv.exit
@@ -15215,7 +15215,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit:          ; preds = %35
   %51 = add nuw nsw i64 %50, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %51, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %52 = icmp ult i64 %indvar.next, %48
+  %52 = icmp samesign ult i64 %indvar.next, %48
   br i1 %52, label %.lr.ph, label %.loopexit
 
 53:                                               ; preds = %4

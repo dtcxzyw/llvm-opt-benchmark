@@ -2071,7 +2071,7 @@ dissect_request_parameters.exit:                  ; preds = %99
   %329 = add nuw nsw i32 %.0158219, 1
   %330 = load i16, ptr %8, align 2
   %331 = zext i16 %330 to i32
-  %332 = icmp ult i32 %329, %331
+  %332 = icmp samesign ult i32 %329, %331
   br i1 %332, label %327, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %327, %319
@@ -3067,7 +3067,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %72 = add nuw nsw i32 %.090.us, 1
   %73 = load i16, ptr %10, align 2
   %74 = zext i16 %73 to i32
-  %75 = icmp ult i32 %72, %74
+  %75 = icmp samesign ult i32 %72, %74
   br i1 %75, label %.lr.ph91.us, label %.loopexit.us, !llvm.loop !13
 
 .loopexit.us:                                     ; preds = %.lr.ph91.us, %63
@@ -3106,7 +3106,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %88 = add nuw nsw i32 %.090, 1
   %89 = load i16, ptr %10, align 2
   %90 = zext i16 %89 to i32
-  %91 = icmp ult i32 %88, %90
+  %91 = icmp samesign ult i32 %88, %90
   br i1 %91, label %.lr.ph91, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph91, %.lr.ph96.split

@@ -754,7 +754,7 @@ define hidden void @_ZN23G1FullGCCompactionPoint3addEP12G1HeapRegion(ptr nocaptu
   %10 = add nsw i32 %5, 1
   %11 = icmp sgt i32 %5, -1
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %15 = sub nuw nsw i32 32, %14
@@ -872,7 +872,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %41 = add nsw i32 %36, 1
   %42 = icmp sgt i32 %36, -1
   %43 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
-  %44 = icmp ult i32 %43, 2
+  %44 = icmp samesign ult i32 %43, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %42, i1 %44, i1 false
   %45 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %46 = sub nuw nsw i32 32, %45
@@ -1406,7 +1406,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP12G1Hea
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -7343,7 +7343,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7592,7 +7592,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

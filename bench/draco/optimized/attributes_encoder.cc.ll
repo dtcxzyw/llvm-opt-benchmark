@@ -366,7 +366,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit18:  ; preds = %_ZN5draco13EncoderB
   %96 = sub i64 %94, %95
   %97 = lshr exact i64 %96, 2
   %98 = and i64 %97, 4294967295
-  %99 = icmp ult i64 %indvars.iv.next, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %99, label %30, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit18, %2

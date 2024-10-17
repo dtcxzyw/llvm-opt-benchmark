@@ -1646,7 +1646,7 @@ do.body:                                          ; preds = %if.end, %entry
   %add = add nuw nsw i64 %conv.i, 16384
   %1 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %conv.i.i = zext i32 %1 to i64
-  %cmp.i = icmp ugt i64 %add, %conv.i.i
+  %cmp.i = icmp samesign ugt i64 %add, %conv.i.i
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
 
 if.then.i:                                        ; preds = %do.body

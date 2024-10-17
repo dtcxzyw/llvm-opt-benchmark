@@ -9684,7 +9684,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1412)
   %8 = load i64, ptr %6, align 8, !range !675, !alias.scope !1412, !noundef !9
-  %switch.i = icmp ult i64 %8, 6
+  %switch.i = icmp samesign ult i64 %8, 6
   br i1 %switch.i, label %"_ZN4core3ptr55drop_in_place$LT$cpp_demangle..ast..UnqualifiedName$GT$17h43bd73568b288766E.exit", label %9
 
 9:                                                ; preds = %7
@@ -9714,7 +9714,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..
 19:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1426)
   %20 = load i64, ptr %6, align 8, !range !675, !alias.scope !1426, !noundef !9
-  %switch.i1 = icmp ult i64 %20, 6
+  %switch.i1 = icmp samesign ult i64 %20, 6
   br i1 %switch.i1, label %"_ZN4core3ptr55drop_in_place$LT$cpp_demangle..ast..UnqualifiedName$GT$17h43bd73568b288766E.exit", label %21
 
 21:                                               ; preds = %19
@@ -20524,7 +20524,7 @@ default.unreachable:                              ; preds = %426
   call void @llvm.experimental.noalias.scope.decl(metadata !2619)
   call void @llvm.experimental.noalias.scope.decl(metadata !2622)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
-  %522 = icmp ult i64 %72, 11
+  %522 = icmp samesign ult i64 %72, 11
   br i1 %522, label %523, label %527
 
 523:                                              ; preds = %518
@@ -20744,7 +20744,7 @@ define internal noundef zeroext i1 @"_ZN85_$LT$cpp_demangle..ast..ArrayType$u20$
   %28 = add i64 %27, 1
   store i64 %28, ptr %14, align 8, !alias.scope !2650, !noalias !2653
   %29 = load i64, ptr %0, align 8, !range !763, !noundef !9
-  %30 = icmp ult i64 %29, 59
+  %30 = icmp samesign ult i64 %29, 59
   %switch37 = icmp eq i64 %29, 60
   %switch = or i1 %30, %switch37
   %spec.select = select i1 %switch, i64 120, i64 8
@@ -26892,7 +26892,7 @@ default.unreachable93:                            ; preds = %"_ZN4core6option15O
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 1
   %27 = load i8, ptr %26, align 1, !range !614, !noundef !9
-  %switch = icmp ult i8 %27, 4
+  %switch = icmp samesign ult i8 %27, 4
   br i1 %switch, label %40, label %38
 
 28:                                               ; preds = %23
@@ -30703,7 +30703,7 @@ define internal noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..Encoding$u20$a
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = load i64, ptr %0, align 8, !range !1118, !noundef !9
-  %8 = icmp ult i64 %7, 11
+  %8 = icmp samesign ult i64 %7, 11
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
@@ -30851,7 +30851,7 @@ default.unreachable43:                            ; preds = %21
   %39 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %37, ptr %39, align 8, !noalias !3650
   %40 = load i64, ptr %30, align 8, !range !534, !alias.scope !3640, !noalias !3655, !noundef !9
-  %switch.i = icmp ult i64 %40, 4
+  %switch.i = icmp samesign ult i64 %40, 4
   br i1 %switch.i, label %47, label %41
 
 41:                                               ; preds = %38
@@ -35473,7 +35473,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit
 
 17:                                               ; preds = %2
-  %18 = icmp ult i64 %6, 7
+  %18 = icmp samesign ult i64 %6, 7
   br i1 %18, label %19, label %_ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit
 
 _ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit: ; preds = %40, %24, %26, %28, %29, %30, %32, %34, %35, %36, %17, %15, %13, %11, %9, %7
@@ -35592,7 +35592,7 @@ default.unreachable:                              ; preds = %_ZN8wasmtime7runtim
   br i1 %16, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread11, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit9
 
 17:                                               ; preds = %2
-  %18 = icmp ult i64 %6, 7
+  %18 = icmp samesign ult i64 %6, 7
   br i1 %18, label %19, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit9
 
 19:                                               ; preds = %17
@@ -35697,7 +35697,7 @@ _ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread11: ; 
   br label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit9
 
 54:                                               ; preds = %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread11
-  %55 = icmp ult i64 %3, 7
+  %55 = icmp samesign ult i64 %3, 7
   br i1 %55, label %56, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit9
 
 56:                                               ; preds = %54
@@ -35885,7 +35885,7 @@ default.unreachable:                              ; preds = %_ZN8wasmtime7runtim
   br i1 %39, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread10, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread
 
 40:                                               ; preds = %_ZN8wasmtime7runtime5types7ValType22comes_from_same_engine17h64bd51793ef5779fE.exit6.thread
-  %41 = icmp ult i64 %16, 7
+  %41 = icmp samesign ult i64 %16, 7
   br i1 %41, label %42, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread
 
 42:                                               ; preds = %40
@@ -38679,7 +38679,7 @@ define hidden void @_ZN8wasmtime7runtime5types8FuncType3new17h1efeb6c704e2d023E(
 define hidden void @"_ZN8wasmtime7runtime5types8FuncType3new28_$u7b$$u7b$closure$u7d$$u7d$17hfd2427c2579db125E.llvm.14851531119274094909"(ptr noalias nocapture noundef writeonly sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr, ptr, i32, [1 x i32] }, align 8
   %5 = load i64, ptr %2, align 8, !range !1440, !noundef !9
-  %6 = icmp ugt i64 %5, 6
+  %6 = icmp samesign ugt i64 %5, 6
   br i1 %6, label %thread-pre-split, label %30
 
 thread-pre-split:                                 ; preds = %30, %63, %3
@@ -39683,7 +39683,7 @@ common.resume:                                    ; preds = %358, %"_ZN4core3ptr
   br label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit
 
 178:                                              ; preds = %165
-  %179 = icmp ult i64 %.sroa.033.i.i.sroa.0.0.copyload, 7
+  %179 = icmp samesign ult i64 %.sroa.033.i.i.sroa.0.0.copyload, 7
   br i1 %179, label %180, label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit
 
 180:                                              ; preds = %178

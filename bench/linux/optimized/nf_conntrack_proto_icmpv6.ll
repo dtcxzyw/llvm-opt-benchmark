@@ -497,7 +497,7 @@ define internal noundef range(i32 -22, 1) i32 @icmpv6_nlattr_to_tuple(ptr nocapt
 
 15:                                               ; preds = %10
   %16 = and i8 %12, 127
-  %17 = icmp ugt i8 %16, 12
+  %17 = icmp samesign ugt i8 %16, 12
   br i1 %17, label %44, label %18
 
 18:                                               ; preds = %15

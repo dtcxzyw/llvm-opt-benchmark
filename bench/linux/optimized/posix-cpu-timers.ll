@@ -889,7 +889,7 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
   br i1 %37, label %.preheader3, label %38, !llvm.loop !23
 
 38:                                               ; preds = %32
-  %39 = icmp ult i64 %29, 2
+  %39 = icmp samesign ult i64 %29, 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #11
   br i1 %39, label %85, label %40
 
@@ -945,7 +945,7 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
   br i1 %71, label %.preheader, label %72, !llvm.loop !23
 
 72:                                               ; preds = %66
-  %73 = icmp ult i64 %63, 2
+  %73 = icmp samesign ult i64 %63, 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
   br i1 %73, label %85, label %74
 

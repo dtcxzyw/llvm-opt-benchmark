@@ -18391,7 +18391,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -30306,13 +30306,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 1377:                                             ; preds = %1376
   %1378 = add nuw nsw i32 %.013919252163, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %227)
-  %1379 = icmp ult i32 %.013919252163, 10
+  %1379 = icmp samesign ult i32 %.013919252163, 10
   br i1 %1379, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i281
 
 .lr.ph.i.i281:                                    ; preds = %1377, %1391
   %.02230.i.i = phi i32 [ %1392, %1391 ], [ %.013919252163, %1377 ]
   %.02329.i.i = phi i32 [ %1393, %1391 ], [ 1, %1377 ]
-  %1380 = icmp ult i32 %.02230.i.i, 100
+  %1380 = icmp samesign ult i32 %.02230.i.i, 100
   br i1 %1380, label %1381, label %1383
 
 1381:                                             ; preds = %.lr.ph.i.i281
@@ -30320,7 +30320,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 1383:                                             ; preds = %.lr.ph.i.i281
-  %1384 = icmp ult i32 %.02230.i.i, 1000
+  %1384 = icmp samesign ult i32 %.02230.i.i, 1000
   br i1 %1384, label %1385, label %1387
 
 1385:                                             ; preds = %1383
@@ -30328,7 +30328,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 1387:                                             ; preds = %1383
-  %1388 = icmp ult i32 %.02230.i.i, 10000
+  %1388 = icmp samesign ult i32 %.02230.i.i, 10000
   br i1 %1388, label %1389, label %1391
 
 1389:                                             ; preds = %1387
@@ -30338,7 +30338,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 1391:                                             ; preds = %1387
   %1392 = udiv i32 %.02230.i.i, 10000
   %1393 = add i32 %.02329.i.i, 4
-  %1394 = icmp ult i32 %.02230.i.i, 100000
+  %1394 = icmp samesign ult i32 %.02230.i.i, 100000
   br i1 %1394, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i281, !llvm.loop !592
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1391, %1389, %1385, %1381, %1377
@@ -30354,7 +30354,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1391, %1389, %1385,
           to label %1398 unwind label %1432
 
 1398:                                             ; preds = %1396
-  %1399 = icmp ugt i32 %.013919252163, 99
+  %1399 = icmp samesign ugt i32 %.013919252163, 99
   br i1 %1399, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1398
@@ -30382,12 +30382,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1391, %1389, %1385,
   %1415 = getelementptr inbounds i8, ptr %1397, i64 %1414
   store i8 %1412, ptr %1415, align 1
   %1416 = add i32 %.01819.i.i, -2
-  %1417 = icmp ugt i32 %.020.i.i, 9999
+  %1417 = icmp samesign ugt i32 %.020.i.i, 9999
   br i1 %1417, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !593
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %1398
   %.0.lcssa.i.i = phi i32 [ %.013919252163, %1398 ], [ %1403, %.lr.ph.i11.i ]
-  %1418 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %1418 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %1418, label %1419, label %1429
 
 1419:                                             ; preds = %._crit_edge.i.i
@@ -51676,7 +51676,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %164, %162, %158, %1
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i6.i.i, %171
   %.0.lcssa.i.i.i = phi i64 [ %.020.i, %171 ], [ %177, %.lr.ph.i6.i.i ]
-  %190 = icmp ugt i64 %.0.lcssa.i.i.i, 9
+  %190 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
   br i1 %190, label %191, label %199
 
 191:                                              ; preds = %._crit_edge.i.i.i
@@ -52092,7 +52092,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i55: ; preds = %323, %321, %317, %
 
 ._crit_edge.i.i.i57:                              ; preds = %.lr.ph.i6.i.i85, %330
   %.0.lcssa.i.i.i58 = phi i64 [ %.020.i29, %330 ], [ %336, %.lr.ph.i6.i.i85 ]
-  %349 = icmp ugt i64 %.0.lcssa.i.i.i58, 9
+  %349 = icmp samesign ugt i64 %.0.lcssa.i.i.i58, 9
   br i1 %349, label %350, label %358
 
 350:                                              ; preds = %._crit_edge.i.i.i57
@@ -52508,7 +52508,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i118: ; preds = %482, %480, %476, 
 
 ._crit_edge.i.i.i120:                             ; preds = %.lr.ph.i6.i.i148, %489
   %.0.lcssa.i.i.i121 = phi i64 [ %.020.i92, %489 ], [ %495, %.lr.ph.i6.i.i148 ]
-  %508 = icmp ugt i64 %.0.lcssa.i.i.i121, 9
+  %508 = icmp samesign ugt i64 %.0.lcssa.i.i.i121, 9
   br i1 %508, label %509, label %517
 
 509:                                              ; preds = %._crit_edge.i.i.i120
@@ -54412,7 +54412,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -65032,7 +65032,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8nlohmann6detail9dtoa_impl13format
   %.0.i = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
   %.023.i = getelementptr i8, ptr %.pn, i64 3
   store i8 %storemerge.i, ptr %50, align 1
-  %52 = icmp ult i32 %.0.i, 10
+  %52 = icmp samesign ult i32 %.0.i, 10
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %49
@@ -65045,7 +65045,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8nlohmann6detail9dtoa_impl13format
   br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
 58:                                               ; preds = %49
-  %59 = icmp ult i32 %.0.i, 100
+  %59 = icmp samesign ult i32 %.0.i, 100
   %60 = getelementptr i8, ptr %.pn, i64 4
   br i1 %59, label %61, label %67
 

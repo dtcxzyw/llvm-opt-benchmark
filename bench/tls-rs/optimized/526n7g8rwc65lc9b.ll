@@ -703,7 +703,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %34 = load i64, ptr %33, align 8, !range !65, !alias.scope !62, !noundef !4
-  %switch.i = icmp ult i64 %34, 11
+  %switch.i = icmp samesign ult i64 %34, 11
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %35
 
 35:                                               ; preds = %32
@@ -7559,7 +7559,7 @@ define hidden void @"_ZN6rustls6client11client_conn103_$LT$impl$u20$rustls..conn
   %124 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1539
   %125 = icmp ult i64 %124, 6
   call void @llvm.assume(i1 %125)
-  %switch.selectcmp12.i.i.i.i.i = icmp ugt i64 %124, 3
+  %switch.selectcmp12.i.i.i.i.i = icmp samesign ugt i64 %124, 3
   br i1 %switch.selectcmp12.i.i.i.i.i, label %128, label %"_ZN6rustls6client2hs12find_session28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h20ca5a033a16d5aeE.exit.i.i.i.i"
 
 126:                                              ; preds = %128
@@ -7662,7 +7662,7 @@ define hidden void @"_ZN6rustls6client11client_conn103_$LT$impl$u20$rustls..conn
   %150 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1555
   %151 = icmp ult i64 %150, 6
   call void @llvm.assume(i1 %151)
-  %152 = icmp ult i64 %150, 4
+  %152 = icmp samesign ult i64 %150, 4
   br i1 %152, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h1ff595b56dc4e3a7E.exit.thread.i.i", label %.critedge10.i.i.i.i
 
 .critedge10.i.i.i.i:                              ; preds = %149
@@ -8039,7 +8039,7 @@ _ZN6rustls6client5tls1317initial_key_share17hb1d16466ca3a8390E.exit.i: ; preds =
   %286 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1492
   %287 = icmp ult i64 %286, 6
   call void @llvm.assume(i1 %287)
-  %switch.selectcmp120.i = icmp ugt i64 %286, 3
+  %switch.selectcmp120.i = icmp samesign ugt i64 %286, 3
   br i1 %switch.selectcmp120.i, label %288, label %294
 
 288:                                              ; preds = %285
@@ -8067,7 +8067,7 @@ _ZN6rustls6client5tls1317initial_key_share17hb1d16466ca3a8390E.exit.i: ; preds =
   %296 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !1492
   %297 = icmp ult i64 %296, 6
   call void @llvm.assume(i1 %297)
-  %switch.selectcmp126.i = icmp ugt i64 %296, 3
+  %switch.selectcmp126.i = icmp samesign ugt i64 %296, 3
   br i1 %switch.selectcmp126.i, label %298, label %304
 
 298:                                              ; preds = %295
@@ -10087,7 +10087,7 @@ _ZN4core5slice4sort9quicksort17hdb1cfa62c10589f9E.exit.i: ; preds = %.noexc304
   %.042.in.i = getelementptr inbounds [0 x { i32, i32 }], ptr %.val54.i, i64 0, i64 %587, i32 1
   %.042.i = load i32, ptr %.042.in.i, align 4, !noundef !4
   %588 = zext i32 %.042.i to i64
-  %589 = icmp ugt i64 %.sroa.05.0101.i, %588
+  %589 = icmp samesign ugt i64 %.sroa.05.0101.i, %588
   br i1 %589, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h8e743870d05b98c0E.exit.i", label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h962c3518d43fc0b4E.exit.i"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h962c3518d43fc0b4E.exit.i": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h8e743870d05b98c0E.exit.i"
@@ -10408,7 +10408,7 @@ _ZN6rustls6client5tls1313emit_fake_ccs17h6700d8066eeb8abfE.exit: ; preds = %673,
   %696 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %697 = icmp ult i64 %696, 6
   call void @llvm.assume(i1 %697)
-  %switch.selectcmp217 = icmp ugt i64 %696, 4
+  %switch.selectcmp217 = icmp samesign ugt i64 %696, 4
   br i1 %switch.selectcmp217, label %698, label %676
 
 698:                                              ; preds = %695
@@ -10920,7 +10920,7 @@ _ZN6rustls12common_state11CommonState16send_fatal_alert17heb7ffc154d6725d6E.exit
   %77 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %78 = icmp ult i64 %77, 6
   call void @llvm.assume(i1 %78)
-  %79 = icmp ult i64 %77, 4
+  %79 = icmp samesign ult i64 %77, 4
   br i1 %79, label %80, label %.critedge41
 
 80:                                               ; preds = %.critedge, %87
@@ -11133,7 +11133,7 @@ define void @"_ZN142_$LT$rustls..client..hs..ExpectServerHello$u20$as$u20$rustls
   %75 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %76 = icmp ult i64 %75, 6
   tail call void @llvm.assume(i1 %76)
-  %switch.selectcmp298 = icmp ugt i64 %75, 4
+  %switch.selectcmp298 = icmp samesign ugt i64 %75, 4
   br i1 %switch.selectcmp298, label %77, label %55
 
 77:                                               ; preds = %73
@@ -11676,7 +11676,7 @@ _ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension17h6fb1cf
   %287 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %288 = icmp ult i64 %287, 6
   call void @llvm.assume(i1 %288)
-  %switch.selectcmp302 = icmp ugt i64 %287, 3
+  %switch.selectcmp302 = icmp samesign ugt i64 %287, 3
   br i1 %switch.selectcmp302, label %289, label %298
 
 289:                                              ; preds = %"_ZN77_$LT$rustls..suites..SupportedCipherSuite$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8bf8e1eba6049babE.exit.thread479"
@@ -12407,7 +12407,7 @@ define void @"_ZN161_$LT$rustls..client..hs..ExpectServerHelloOrHelloRetryReques
   %91 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !2334
   %92 = icmp ult i64 %91, 6
   call void @llvm.assume(i1 %92)
-  %switch.selectcmp224.i = icmp ugt i64 %91, 4
+  %switch.selectcmp224.i = icmp samesign ugt i64 %91, 4
   br i1 %switch.selectcmp224.i, label %93, label %80
 
 93:                                               ; preds = %89

@@ -1394,7 +1394,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
 
 159:                                              ; preds = %.lr.ph
   %160 = call i32 @llvm.smin.i32(i32 %153, i32 %108)
-  %161 = icmp ugt i32 %153, %108
+  %161 = icmp samesign ugt i32 %153, %108
   %162 = and i64 %154, -536870913
   %163 = select i1 %161, i64 %154, i64 %162
   %164 = load i64, ptr %9, align 8
@@ -3861,7 +3861,7 @@ uhci_free_td.exit:                                ; preds = %350, %363
   %420 = lshr i32 %398, 21
   %421 = add nuw nsw i32 %420, 1
   %422 = and i32 %421, 2047
-  %423 = icmp ult i32 %393, %422
+  %423 = icmp samesign ult i32 %393, %422
   br i1 %423, label %424, label %440
 
 424:                                              ; preds = %419
@@ -6526,7 +6526,7 @@ define internal fastcc void @uhci_check_ports(ptr noundef %0) unnamed_addr #2 al
   %83 = add nuw nsw i64 %12, 1
   %84 = load i32, ptr %2, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %83, %85
+  %86 = icmp samesign ult i64 %83, %85
   br i1 %86, label %11, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %82, %1
@@ -6805,7 +6805,7 @@ define internal fastcc void @wait_for_HP(ptr nocapture noundef readonly %0, i64 
 11:                                               ; preds = %3
   tail call void @__const_udelay(i64 noundef 42950) #12
   %12 = add nuw nsw i32 %4, 10
-  %13 = icmp ult i32 %4, 240
+  %13 = icmp samesign ult i32 %4, 240
   br i1 %13, label %3, label %14, !llvm.loop !112
 
 14:                                               ; preds = %11, %3

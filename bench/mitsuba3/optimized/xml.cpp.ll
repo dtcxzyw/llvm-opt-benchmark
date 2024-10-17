@@ -23191,7 +23191,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i = icmp ult i64 %22, 2
+  %.not.i = icmp samesign ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %21
@@ -26007,7 +26007,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i = icmp ult i64 %22, 2
+  %.not.i = icmp samesign ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %21
@@ -26458,7 +26458,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 25:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp samesign ult i64 %26, 2
   br i1 %.not.i, label %27, label %30
 
 27:                                               ; preds = %25
@@ -26692,7 +26692,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
   %120 = shl i64 %24, 1
   %121 = icmp ult i64 %24, 3
   %122 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i57 = icmp ugt i64 %122, 1
+  %.not.i57 = icmp samesign ugt i64 %122, 1
   %.not76 = select i1 %121, i1 true, i1 %.not.i57
   %123 = zext i1 %.not76 to i64
   %124 = or disjoint i64 %120, %123
@@ -26705,7 +26705,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 129:                                              ; preds = %119
   %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %130, 2
+  %.not.i.i = icmp samesign ult i64 %130, 2
   br i1 %.not.i.i, label %.noexc, label %131
 
 131:                                              ; preds = %129
@@ -26725,7 +26725,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 137:                                              ; preds = %135
   %138 = icmp ugt i64 %133, 2
   %139 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %133)
-  %.not.i.i.i58 = icmp ult i64 %139, 2
+  %.not.i.i.i58 = icmp samesign ult i64 %139, 2
   %140 = select i1 %138, i1 %.not.i.i.i58, i1 false
   %141 = load i64, ptr %110, align 8
   %142 = uitofp i64 %141 to float
@@ -26762,7 +26762,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml6detail9XMLObjectEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc59, %135, %.sink.split.i.i
   %158 = load i64, ptr %23, align 8
   %159 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %158)
-  %.not.i61 = icmp ult i64 %159, 2
+  %.not.i61 = icmp samesign ult i64 %159, 2
   br i1 %.not.i61, label %160, label %163
 
 160:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml6detail9XMLObjectEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -26810,7 +26810,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %165, %163, %160, %_
   %182 = getelementptr inbounds i8, ptr %180, i64 8
   %183 = load i64, ptr %182, align 8
   %184 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i63 = icmp ult i64 %184, 2
+  %.not.i63 = icmp samesign ult i64 %184, 2
   br i1 %.not.i63, label %185, label %188
 
 185:                                              ; preds = %181
@@ -26909,7 +26909,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18
@@ -27390,7 +27390,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 25:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp samesign ult i64 %26, 2
   br i1 %.not.i, label %27, label %30
 
 27:                                               ; preds = %25
@@ -27617,7 +27617,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
   %117 = shl i64 %24, 1
   %118 = icmp ult i64 %24, 3
   %119 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i57 = icmp ugt i64 %119, 1
+  %.not.i57 = icmp samesign ugt i64 %119, 1
   %.not76 = select i1 %118, i1 true, i1 %.not.i57
   %120 = zext i1 %.not76 to i64
   %121 = or disjoint i64 %117, %120
@@ -27630,7 +27630,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 126:                                              ; preds = %116
   %127 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %127, 2
+  %.not.i.i = icmp samesign ult i64 %127, 2
   br i1 %.not.i.i, label %.noexc, label %128
 
 128:                                              ; preds = %126
@@ -27650,7 +27650,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 134:                                              ; preds = %132
   %135 = icmp ugt i64 %130, 2
   %136 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %130)
-  %.not.i.i.i58 = icmp ult i64 %136, 2
+  %.not.i.i.i58 = icmp samesign ult i64 %136, 2
   %137 = select i1 %135, i1 %.not.i.i.i58, i1 false
   %138 = load i64, ptr %107, align 8
   %139 = uitofp i64 %138 to float
@@ -27687,7 +27687,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml6detail9XMLObjectEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc59, %132, %.sink.split.i.i
   %155 = load i64, ptr %23, align 8
   %156 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %155)
-  %.not.i61 = icmp ult i64 %156, 2
+  %.not.i61 = icmp samesign ult i64 %156, 2
   br i1 %.not.i61, label %157, label %160
 
 157:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml6detail9XMLObjectEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -27735,7 +27735,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %162, %160, %157, %_
   %179 = getelementptr inbounds i8, ptr %177, i64 8
   %180 = load i64, ptr %179, align 8
   %181 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i63 = icmp ult i64 %181, 2
+  %.not.i63 = icmp samesign ult i64 %181, 2
   br i1 %.not.i63, label %182, label %185
 
 182:                                              ; preds = %178
@@ -30481,7 +30481,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i = icmp ult i64 %22, 2
+  %.not.i = icmp samesign ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %21
@@ -30692,7 +30692,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 23:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %24 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
-  %.not.i = icmp ult i64 %24, 2
+  %.not.i = icmp samesign ult i64 %24, 2
   br i1 %.not.i, label %25, label %28
 
 25:                                               ; preds = %23
@@ -30911,7 +30911,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
   %115 = shl i64 %22, 1
   %116 = icmp ult i64 %22, 3
   %117 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
-  %.not.i55 = icmp ugt i64 %117, 1
+  %.not.i55 = icmp samesign ugt i64 %117, 1
   %.not75 = select i1 %116, i1 true, i1 %.not.i55
   %118 = zext i1 %.not75 to i64
   %119 = or disjoint i64 %115, %118
@@ -30924,7 +30924,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 124:                                              ; preds = %114
   %125 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %125, 2
+  %.not.i.i = icmp samesign ult i64 %125, 2
   br i1 %.not.i.i, label %.noexc, label %126
 
 126:                                              ; preds = %124
@@ -30944,7 +30944,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 132:                                              ; preds = %130
   %133 = icmp ugt i64 %128, 2
   %134 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %128)
-  %.not.i.i.i56 = icmp ult i64 %134, 2
+  %.not.i.i.i56 = icmp samesign ult i64 %134, 2
   %135 = select i1 %133, i1 %.not.i.i.i56, i1 false
   %136 = load i64, ptr %105, align 8
   %137 = uitofp i64 %136 to float
@@ -30981,7 +30981,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP4TaskEENS_22__unordered_map_hasherIS7_SA_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SA_SF_SD_Lb1EEENS5_ISA_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc57, %130, %.sink.split.i.i
   %153 = load i64, ptr %21, align 8
   %154 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %153)
-  %.not.i59 = icmp ult i64 %154, 2
+  %.not.i59 = icmp samesign ult i64 %154, 2
   br i1 %.not.i59, label %155, label %158
 
 155:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP4TaskEENS_22__unordered_map_hasherIS7_SA_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SA_SF_SD_Lb1EEENS5_ISA_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -31029,7 +31029,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %160, %158, %155, %_
   %177 = getelementptr inbounds i8, ptr %175, i64 8
   %178 = load i64, ptr %177, align 8
   %179 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i61 = icmp ult i64 %179, 2
+  %.not.i61 = icmp samesign ult i64 %179, 2
   br i1 %.not.i61, label %180, label %183
 
 180:                                              ; preds = %176
@@ -31150,7 +31150,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18
@@ -32031,7 +32031,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 25:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp samesign ult i64 %26, 2
   br i1 %.not.i, label %27, label %30
 
 27:                                               ; preds = %25
@@ -32236,7 +32236,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   %113 = shl i64 %24, 1
   %114 = icmp ult i64 %24, 3
   %115 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i57 = icmp ugt i64 %115, 1
+  %.not.i57 = icmp samesign ugt i64 %115, 1
   %.not77 = select i1 %114, i1 true, i1 %.not.i57
   %116 = zext i1 %.not77 to i64
   %117 = or disjoint i64 %113, %116
@@ -32249,7 +32249,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 
 122:                                              ; preds = %112
   %123 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %123, 2
+  %.not.i.i = icmp samesign ult i64 %123, 2
   br i1 %.not.i.i, label %.noexc, label %124
 
 124:                                              ; preds = %122
@@ -32269,7 +32269,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 130:                                              ; preds = %128
   %131 = icmp ugt i64 %126, 2
   %132 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %126)
-  %.not.i.i.i58 = icmp ult i64 %132, 2
+  %.not.i.i.i58 = icmp samesign ult i64 %132, 2
   %133 = select i1 %131, i1 %.not.i.i.i58, i1 false
   %134 = load i64, ptr %103, align 8
   %135 = uitofp i64 %134 to float
@@ -32306,7 +32306,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml3TagEEENS_22__unordered_map_hasherIS7_SB_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SB_SG_SE_Lb1EEENS5_ISB_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc59, %128, %.sink.split.i.i
   %151 = load i64, ptr %23, align 8
   %152 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %151)
-  %.not.i61 = icmp ult i64 %152, 2
+  %.not.i61 = icmp samesign ult i64 %152, 2
   br i1 %.not.i61, label %153, label %156
 
 153:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml3TagEEENS_22__unordered_map_hasherIS7_SB_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SB_SG_SE_Lb1EEENS5_ISB_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -32350,7 +32350,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %158, %156, %153, %.
   %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load i64, ptr %170, align 8
   %172 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i63 = icmp ult i64 %172, 2
+  %.not.i63 = icmp samesign ult i64 %172, 2
   br i1 %.not.i63, label %173, label %176
 
 173:                                              ; preds = %169
@@ -32468,7 +32468,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18
@@ -32648,7 +32648,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 21:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %.not.i = icmp ult i64 %22, 2
+  %.not.i = icmp samesign ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %21
@@ -32859,7 +32859,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 25:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp samesign ult i64 %26, 2
   br i1 %.not.i, label %27, label %30
 
 27:                                               ; preds = %25
@@ -33077,7 +33077,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
   %115 = shl i64 %24, 1
   %116 = icmp ult i64 %24, 3
   %117 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i57 = icmp ugt i64 %117, 1
+  %.not.i57 = icmp samesign ugt i64 %117, 1
   %.not77 = select i1 %116, i1 true, i1 %.not.i57
   %118 = zext i1 %.not77 to i64
   %119 = or disjoint i64 %115, %118
@@ -33090,7 +33090,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 
 124:                                              ; preds = %114
   %125 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %125, 2
+  %.not.i.i = icmp samesign ult i64 %125, 2
   br i1 %.not.i.i, label %.noexc, label %126
 
 126:                                              ; preds = %124
@@ -33110,7 +33110,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 132:                                              ; preds = %130
   %133 = icmp ugt i64 %128, 2
   %134 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %128)
-  %.not.i.i.i58 = icmp ult i64 %134, 2
+  %.not.i.i.i58 = icmp samesign ult i64 %134, 2
   %135 = select i1 %133, i1 %.not.i.i.i58, i1 false
   %136 = load i64, ptr %105, align 8
   %137 = uitofp i64 %136 to float
@@ -33147,7 +33147,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_trai
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml3TagEEENS_22__unordered_map_hasherIS7_SB_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SB_SG_SE_Lb1EEENS5_ISB_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc59, %130, %.sink.split.i.i
   %153 = load i64, ptr %23, align 8
   %154 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %153)
-  %.not.i61 = icmp ult i64 %154, 2
+  %.not.i61 = icmp samesign ult i64 %154, 2
   br i1 %.not.i61, label %155, label %158
 
 155:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3xml3TagEEENS_22__unordered_map_hasherIS7_SB_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SB_SG_SE_Lb1EEENS5_ISB_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -33195,7 +33195,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %160, %158, %155, %_
   %177 = getelementptr inbounds i8, ptr %175, i64 8
   %178 = load i64, ptr %177, align 8
   %179 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i63 = icmp ult i64 %179, 2
+  %.not.i63 = icmp samesign ult i64 %179, 2
   br i1 %.not.i63, label %180, label %183
 
 180:                                              ; preds = %176
@@ -33277,7 +33277,7 @@ _ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 25:                                               ; preds = %_ZNKSt3__122__unordered_map_hasherINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_4hashIS6_EENS_8equal_toIS6_EELb1EEclB8ne190000ERKS6_.exit
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp samesign ult i64 %26, 2
   br i1 %.not.i, label %27, label %30
 
 27:                                               ; preds = %25
@@ -33482,7 +33482,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   %113 = shl i64 %24, 1
   %114 = icmp ult i64 %24, 3
   %115 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %.not.i57 = icmp ugt i64 %115, 1
+  %.not.i57 = icmp samesign ugt i64 %115, 1
   %.not77 = select i1 %114, i1 true, i1 %.not.i57
   %116 = zext i1 %.not77 to i64
   %117 = or disjoint i64 %113, %116
@@ -33495,7 +33495,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 
 122:                                              ; preds = %112
   %123 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %123, 2
+  %.not.i.i = icmp samesign ult i64 %123, 2
   br i1 %.not.i.i, label %.noexc, label %124
 
 124:                                              ; preds = %122
@@ -33515,7 +33515,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 130:                                              ; preds = %128
   %131 = icmp ugt i64 %126, 2
   %132 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %126)
-  %.not.i.i.i58 = icmp ult i64 %132, 2
+  %.not.i.i.i58 = icmp samesign ult i64 %132, 2
   %133 = select i1 %131, i1 %.not.i.i.i58, i1 false
   %134 = load i64, ptr %103, align 8
   %135 = uitofp i64 %134 to float
@@ -33552,7 +33552,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
 _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba5ClassEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc59, %128, %.sink.split.i.i
   %151 = load i64, ptr %23, align 8
   %152 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %151)
-  %.not.i61 = icmp ult i64 %152, 2
+  %.not.i61 = icmp samesign ult i64 %152, 2
   br i1 %.not.i61, label %153, label %156
 
 153:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba5ClassEEENS_22__unordered_map_hasherIS7_SC_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SC_SH_SF_Lb1EEENS5_ISC_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -33596,7 +33596,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %158, %156, %153, %.
   %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load i64, ptr %170, align 8
   %172 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i63 = icmp ult i64 %172, 2
+  %.not.i63 = icmp samesign ult i64 %172, 2
   br i1 %.not.i63, label %173, label %176
 
 173:                                              ; preds = %169
@@ -33714,7 +33714,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18

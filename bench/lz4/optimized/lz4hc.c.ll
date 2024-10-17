@@ -2918,7 +2918,7 @@ for.body35.i.preheader.i:                         ; preds = %if.then28.i.i
 for.end40.i.i:                                    ; preds = %for.body35.i.preheader.i, %if.then28.i.i
   %op.i.6.lcssa.i = phi ptr [ %add.ptr14.i.i, %if.then28.i.i ], [ %scevgep3316.i, %for.body35.i.preheader.i ]
   %length.i.0.lcssa.i = phi i64 [ %sub31.i.i, %if.then28.i.i ], [ %179, %for.body35.i.preheader.i ]
-  %cmp41.i.i = icmp ugt i64 %length.i.0.lcssa.i, 254
+  %cmp41.i.i = icmp samesign ugt i64 %length.i.0.lcssa.i, 254
   br i1 %cmp41.i.i, label %if.then43.i.i, label %if.end46.i.i
 
 if.then43.i.i:                                    ; preds = %for.end40.i.i
@@ -4507,7 +4507,7 @@ for.body35.i1314.preheader.i:                     ; preds = %if.then28.i1299.i
 for.end40.i1306.i:                                ; preds = %for.body35.i1314.preheader.i, %if.then28.i1299.i
   %op.i.13.lcssa.i = phi ptr [ %add.ptr14.i1284.i, %if.then28.i1299.i ], [ %scevgep3321.i, %for.body35.i1314.preheader.i ]
   %length.i1267.0.lcssa.i = phi i64 [ %sub31.i1303.i, %if.then28.i1299.i ], [ %277, %for.body35.i1314.preheader.i ]
-  %cmp41.i1307.i = icmp ugt i64 %length.i1267.0.lcssa.i, 254
+  %cmp41.i1307.i = icmp samesign ugt i64 %length.i1267.0.lcssa.i, 254
   br i1 %cmp41.i1307.i, label %if.then43.i1311.i, label %if.end46.i1308.i
 
 if.then43.i1311.i:                                ; preds = %for.end40.i1306.i
@@ -4637,7 +4637,7 @@ for.body35.i1231.preheader.i:                     ; preds = %if.then28.i1216.i
 for.end40.i1223.i:                                ; preds = %for.body35.i1231.preheader.i, %if.then28.i1216.i
   %op.i.19.lcssa.i = phi ptr [ %add.ptr14.i1201.i, %if.then28.i1216.i ], [ %scevgep3326.i, %for.body35.i1231.preheader.i ]
   %length.i1184.0.lcssa.i = phi i64 [ %sub31.i1220.i, %if.then28.i1216.i ], [ %291, %for.body35.i1231.preheader.i ]
-  %cmp41.i1224.i = icmp ugt i64 %length.i1184.0.lcssa.i, 254
+  %cmp41.i1224.i = icmp samesign ugt i64 %length.i1184.0.lcssa.i, 254
   br i1 %cmp41.i1224.i, label %if.then43.i1228.i, label %if.end46.i1225.i
 
 if.then43.i1228.i:                                ; preds = %for.end40.i1223.i
@@ -4793,7 +4793,7 @@ for.body35.i1397.preheader.i:                     ; preds = %if.then28.i1382.i
 for.end40.i1389.i:                                ; preds = %for.body35.i1397.preheader.i, %if.then28.i1382.i
   %op.i.25.lcssa.i = phi ptr [ %add.ptr14.i1367.i, %if.then28.i1382.i ], [ %scevgep3311.i, %for.body35.i1397.preheader.i ]
   %length.i1350.0.lcssa.i = phi i64 [ %sub31.i1386.i, %if.then28.i1382.i ], [ %304, %for.body35.i1397.preheader.i ]
-  %cmp41.i1390.i = icmp ugt i64 %length.i1350.0.lcssa.i, 254
+  %cmp41.i1390.i = icmp samesign ugt i64 %length.i1350.0.lcssa.i, 254
   br i1 %cmp41.i1390.i, label %if.then43.i1394.i, label %if.end46.i1391.i
 
 if.then43.i1394.i:                                ; preds = %for.end40.i1389.i
@@ -4972,7 +4972,7 @@ for.body35.i1563.preheader.i:                     ; preds = %if.then28.i1548.i
 for.end40.i1555.i:                                ; preds = %for.body35.i1563.preheader.i, %if.then28.i1548.i
   %op.i.31.lcssa.i = phi ptr [ %add.ptr14.i1533.i, %if.then28.i1548.i ], [ %scevgep3307.i, %for.body35.i1563.preheader.i ]
   %length.i1516.0.lcssa.i = phi i64 [ %sub31.i1552.i, %if.then28.i1548.i ], [ %317, %for.body35.i1563.preheader.i ]
-  %cmp41.i1556.i = icmp ugt i64 %length.i1516.0.lcssa.i, 254
+  %cmp41.i1556.i = icmp samesign ugt i64 %length.i1516.0.lcssa.i, 254
   br i1 %cmp41.i1556.i, label %if.then43.i1560.i, label %if.end46.i1557.i
 
 if.then43.i1560.i:                                ; preds = %for.end40.i1555.i
@@ -5209,7 +5209,7 @@ for.body35.i1480.preheader.i:                     ; preds = %if.then28.i1465.i
 for.end40.i1472.i:                                ; preds = %for.body35.i1480.preheader.i, %if.then28.i1465.i
   %op.i.38.lcssa.i = phi ptr [ %add.ptr14.i1450.i, %if.then28.i1465.i ], [ %scevgep3328.i, %for.body35.i1480.preheader.i ]
   %length.i1433.0.lcssa.i = phi i64 [ %sub31.i1469.i, %if.then28.i1465.i ], [ %340, %for.body35.i1480.preheader.i ]
-  %cmp41.i1473.i = icmp ugt i64 %length.i1433.0.lcssa.i, 254
+  %cmp41.i1473.i = icmp samesign ugt i64 %length.i1433.0.lcssa.i, 254
   br i1 %cmp41.i1473.i, label %if.then43.i1477.i, label %if.end46.i1474.i
 
 if.then43.i1477.i:                                ; preds = %for.end40.i1472.i
@@ -6704,7 +6704,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   store i16 %conv10.i.i, ptr %arrayidx13.i.i, align 2
   store i32 %12, ptr %arrayidx.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i = icmp ult i64 %indvars.iv.next, %10
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp.i.i, label %while.body.i.i, label %LZ4HC_Insert.exit.i, !llvm.loop !4
 
 LZ4HC_Insert.exit.i:                              ; preds = %while.body.i.i, %while.body.i
@@ -7652,7 +7652,7 @@ while.body.i.i580:                                ; preds = %while.body.i.i580.l
   store i16 %conv10.i.i593, ptr %arrayidx13.i.i596, align 2
   store i32 %63, ptr %arrayidx.i.i588, align 4
   %indvars.iv.next3099 = add nuw nsw i64 %indvars.iv3098, 1
-  %cmp.i.i188 = icmp ult i64 %indvars.iv.next3099, %61
+  %cmp.i.i188 = icmp samesign ult i64 %indvars.iv.next3099, %61
   br i1 %cmp.i.i188, label %while.body.i.i580, label %LZ4HC_Insert.exit.i189, !llvm.loop !4
 
 LZ4HC_Insert.exit.i189:                           ; preds = %while.body.i.i580, %if.then23.i
@@ -8806,7 +8806,7 @@ for.body35.i.preheader:                           ; preds = %if.then28.i
 for.end40.i:                                      ; preds = %for.body35.i.preheader, %if.then28.i
   %op.i.6.lcssa = phi ptr [ %add.ptr14.i, %if.then28.i ], [ %scevgep3146, %for.body35.i.preheader ]
   %length.i.0.lcssa = phi i64 [ %sub31.i, %if.then28.i ], [ %135, %for.body35.i.preheader ]
-  %cmp41.i = icmp ugt i64 %length.i.0.lcssa, 254
+  %cmp41.i = icmp samesign ugt i64 %length.i.0.lcssa, 254
   br i1 %cmp41.i, label %if.then43.i, label %if.end46.i
 
 if.then43.i:                                      ; preds = %for.end40.i
@@ -8962,7 +8962,7 @@ while.body.i.i1112:                               ; preds = %while.body.i.i1112.
   store i16 %conv10.i.i1125, ptr %arrayidx13.i.i1128, align 2
   store i32 %145, ptr %arrayidx.i.i1120, align 4
   %indvars.iv.next3117 = add nuw nsw i64 %indvars.iv3116, 1
-  %cmp.i.i720 = icmp ult i64 %indvars.iv.next3117, %143
+  %cmp.i.i720 = icmp samesign ult i64 %indvars.iv.next3117, %143
   br i1 %cmp.i.i720, label %while.body.i.i1112, label %LZ4HC_Insert.exit.i721, !llvm.loop !4
 
 LZ4HC_Insert.exit.i721:                           ; preds = %while.body.i.i1112, %if.then103.i
@@ -10119,7 +10119,7 @@ for.body35.i1303.preheader:                       ; preds = %if.then28.i1288
 for.end40.i1295:                                  ; preds = %for.body35.i1303.preheader, %if.then28.i1288
   %op.i.13.lcssa = phi ptr [ %add.ptr14.i1273, %if.then28.i1288 ], [ %scevgep3151, %for.body35.i1303.preheader ]
   %length.i1256.0.lcssa = phi i64 [ %sub31.i1292, %if.then28.i1288 ], [ %216, %for.body35.i1303.preheader ]
-  %cmp41.i1296 = icmp ugt i64 %length.i1256.0.lcssa, 254
+  %cmp41.i1296 = icmp samesign ugt i64 %length.i1256.0.lcssa, 254
   br i1 %cmp41.i1296, label %if.then43.i1300, label %if.end46.i1297
 
 if.then43.i1300:                                  ; preds = %for.end40.i1295
@@ -10250,7 +10250,7 @@ for.body35.i1220.preheader:                       ; preds = %if.then28.i1205
 for.end40.i1212:                                  ; preds = %for.body35.i1220.preheader, %if.then28.i1205
   %op.i.19.lcssa = phi ptr [ %add.ptr14.i1190, %if.then28.i1205 ], [ %scevgep3156, %for.body35.i1220.preheader ]
   %length.i1173.0.lcssa = phi i64 [ %sub31.i1209, %if.then28.i1205 ], [ %230, %for.body35.i1220.preheader ]
-  %cmp41.i1213 = icmp ugt i64 %length.i1173.0.lcssa, 254
+  %cmp41.i1213 = icmp samesign ugt i64 %length.i1173.0.lcssa, 254
   br i1 %cmp41.i1213, label %if.then43.i1217, label %if.end46.i1214
 
 if.then43.i1217:                                  ; preds = %for.end40.i1212
@@ -10408,7 +10408,7 @@ for.body35.i1386.preheader:                       ; preds = %if.then28.i1371
 for.end40.i1378:                                  ; preds = %for.body35.i1386.preheader, %if.then28.i1371
   %op.i.25.lcssa = phi ptr [ %add.ptr14.i1356, %if.then28.i1371 ], [ %scevgep3141, %for.body35.i1386.preheader ]
   %length.i1339.0.lcssa = phi i64 [ %sub31.i1375, %if.then28.i1371 ], [ %245, %for.body35.i1386.preheader ]
-  %cmp41.i1379 = icmp ugt i64 %length.i1339.0.lcssa, 254
+  %cmp41.i1379 = icmp samesign ugt i64 %length.i1339.0.lcssa, 254
   br i1 %cmp41.i1379, label %if.then43.i1383, label %if.end46.i1380
 
 if.then43.i1383:                                  ; preds = %for.end40.i1378
@@ -10589,7 +10589,7 @@ for.body35.i1552.preheader:                       ; preds = %if.then28.i1537
 for.end40.i1544:                                  ; preds = %for.body35.i1552.preheader, %if.then28.i1537
   %op.i.31.lcssa = phi ptr [ %add.ptr14.i1522, %if.then28.i1537 ], [ %scevgep3137, %for.body35.i1552.preheader ]
   %length.i1505.0.lcssa = phi i64 [ %sub31.i1541, %if.then28.i1537 ], [ %260, %for.body35.i1552.preheader ]
-  %cmp41.i1545 = icmp ugt i64 %length.i1505.0.lcssa, 254
+  %cmp41.i1545 = icmp samesign ugt i64 %length.i1505.0.lcssa, 254
   br i1 %cmp41.i1545, label %if.then43.i1549, label %if.end46.i1546
 
 if.then43.i1549:                                  ; preds = %for.end40.i1544
@@ -10828,7 +10828,7 @@ for.body35.i1469.preheader:                       ; preds = %if.then28.i1454
 for.end40.i1461:                                  ; preds = %for.body35.i1469.preheader, %if.then28.i1454
   %op.i.38.lcssa = phi ptr [ %add.ptr14.i1439, %if.then28.i1454 ], [ %scevgep3158, %for.body35.i1469.preheader ]
   %length.i1422.0.lcssa = phi i64 [ %sub31.i1458, %if.then28.i1454 ], [ %285, %for.body35.i1469.preheader ]
-  %cmp41.i1462 = icmp ugt i64 %length.i1422.0.lcssa, 254
+  %cmp41.i1462 = icmp samesign ugt i64 %length.i1422.0.lcssa, 254
   br i1 %cmp41.i1462, label %if.then43.i1466, label %if.end46.i1463
 
 if.then43.i1466:                                  ; preds = %for.end40.i1461
@@ -11017,7 +11017,7 @@ while.body.i.i.i2822:                             ; preds = %while.body.i.i.i282
   store i16 %conv10.i.i.i2835, ptr %arrayidx13.i.i.i2838, align 2
   store i32 %14, ptr %arrayidx.i.i.i2830, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.i.i.i1939 = icmp ult i64 %indvars.iv.next, %12
+  %cmp.i.i.i1939 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp.i.i.i1939, label %while.body.i.i.i2822, label %LZ4HC_Insert.exit.i.i1940, !llvm.loop !4
 
 LZ4HC_Insert.exit.i.i1940:                        ; preds = %while.body.i.i.i2822, %while.body
@@ -12174,7 +12174,7 @@ LZ4HC_FindLongerMatch.exit2845:                   ; preds = %LZ4HC_InsertAndGetW
   %73 = zext nneg i32 %longest.addr.i.i1828.5 to i64
   %74 = select i1 %or.cond1879, i64 18, i64 %73
   %firstMatch.sroa.4.0.extract.trunc = trunc nuw nsw i64 %74 to i32
-  %cmp21 = icmp ugt i64 %74, %spec.store.select
+  %cmp21 = icmp samesign ugt i64 %74, %spec.store.select
   br i1 %cmp21, label %if.then23, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %LZ4HC_FindLongerMatch.exit2845
@@ -12289,7 +12289,7 @@ for.body35.i601.preheader:                        ; preds = %if.then28.i586
 for.end40.i593:                                   ; preds = %for.body35.i601.preheader, %if.then28.i586
   %op.4.lcssa = phi ptr [ %add.ptr14.i571, %if.then28.i586 ], [ %scevgep3150, %for.body35.i601.preheader ]
   %length.i554.0.lcssa = phi i64 [ %sub31.i590, %if.then28.i586 ], [ %87, %for.body35.i601.preheader ]
-  %cmp41.i594 = icmp ugt i64 %length.i554.0.lcssa, 254
+  %cmp41.i594 = icmp samesign ugt i64 %length.i554.0.lcssa, 254
   br i1 %cmp41.i594, label %if.then43.i598, label %if.end46.i595
 
 if.then43.i598:                                   ; preds = %for.end40.i593
@@ -12326,7 +12326,7 @@ while.cond.outer.backedge:                        ; preds = %LZ4HC_encodeSequenc
   br i1 %cmp13.not2738, label %_last_literals, label %while.body.lr.ph, !llvm.loop !18
 
 for.cond44.preheader:                             ; preds = %LZ4HC_literalsPrice.exit2891
-  %cmp45.not2745 = icmp ult i64 %74, 4
+  %cmp45.not2745 = icmp samesign ult i64 %74, 4
   br i1 %cmp45.not2745, label %for.cond66.preheader, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %for.cond44.preheader
@@ -12377,7 +12377,7 @@ for.cond66.preheader:                             ; preds = %LZ4HC_sequencePrice
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %LZ4HC_sequencePrice.exit2946
   %indvars.iv3082 = phi i64 [ 4, %for.body47.lr.ph ], [ %indvars.iv.next3083, %LZ4HC_sequencePrice.exit2946 ]
-  %cmp.i2934 = icmp ugt i64 %indvars.iv3082, 18
+  %cmp.i2934 = icmp samesign ugt i64 %indvars.iv3082, 18
   br i1 %cmp.i2934, label %if.then.i2936, label %LZ4HC_sequencePrice.exit2946
 
 if.then.i2936:                                    ; preds = %for.body47
@@ -12403,7 +12403,7 @@ LZ4HC_sequencePrice.exit2946:                     ; preds = %if.then.i2936, %for
   br i1 %exitcond3086.not, label %for.cond66.preheader, label %for.body47, !llvm.loop !20
 
 for.cond94.preheader:                             ; preds = %for.body69
-  %cmp952903 = icmp ugt i64 %74, 1
+  %cmp952903 = icmp samesign ugt i64 %74, 1
   br i1 %cmp952903, label %for.body97, label %for.end304
 
 for.body69:                                       ; preds = %for.cond66.preheader, %for.body69
@@ -12487,7 +12487,7 @@ while.body.i.i.i1731:                             ; preds = %while.body.i.i.i173
   store i16 %conv10.i.i.i1744, ptr %arrayidx13.i.i.i1747, align 2
   store i32 %108, ptr %arrayidx.i.i.i1739, align 4
   %indvars.iv.next3093 = add nuw nsw i64 %indvars.iv3092, 1
-  %cmp.i.i.i848 = icmp ult i64 %indvars.iv.next3093, %106
+  %cmp.i.i.i848 = icmp samesign ult i64 %indvars.iv.next3093, %106
   br i1 %cmp.i.i.i848, label %while.body.i.i.i1731, label %LZ4HC_Insert.exit.i.i849, !llvm.loop !4
 
 LZ4HC_Insert.exit.i.i849:                         ; preds = %while.body.i.i.i1731, %if.then140
@@ -13683,7 +13683,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   store i16 %conv10.i.i.i, ptr %arrayidx13.i.i.i, align 2
   store i32 %174, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next3096 = add nuw nsw i64 %indvars.iv3095, 1
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next3096, %172
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next3096, %172
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %LZ4HC_Insert.exit.i.i, !llvm.loop !4
 
 LZ4HC_Insert.exit.i.i:                            ; preds = %while.body.i.i.i, %if.else142
@@ -14956,7 +14956,7 @@ cond.true:                                        ; preds = %if.then220
 
 cond.end:                                         ; preds = %if.then220, %cond.true
   %cond = phi i32 [ %249, %cond.true ], [ 0, %if.then220 ]
-  %cmp.i2913 = icmp ugt i64 %indvars.iv3106, 18
+  %cmp.i2913 = icmp samesign ugt i64 %indvars.iv3106, 18
   br i1 %cmp.i2913, label %if.then.i2915, label %LZ4HC_sequencePrice.exit2925
 
 if.then.i2915:                                    ; preds = %cond.end
@@ -14972,7 +14972,7 @@ LZ4HC_sequencePrice.exit2925:                     ; preds = %if.then.i2915, %con
   br label %if.end238
 
 if.else232:                                       ; preds = %for.body209
-  %cmp.i2896 = icmp ugt i64 %indvars.iv3106, 18
+  %cmp.i2896 = icmp samesign ugt i64 %indvars.iv3106, 18
   br i1 %cmp.i2896, label %if.then.i2898, label %LZ4HC_sequencePrice.exit
 
 if.then.i2898:                                    ; preds = %if.else232
@@ -15221,7 +15221,7 @@ for.body35.i518.preheader:                        ; preds = %if.then28.i503
 for.end40.i510:                                   ; preds = %for.body35.i518.preheader, %if.then28.i503
   %op.11.lcssa = phi ptr [ %add.ptr14.i488, %if.then28.i503 ], [ %scevgep3135, %for.body35.i518.preheader ]
   %length.i471.0.lcssa = phi i64 [ %sub31.i507, %if.then28.i503 ], [ %281, %for.body35.i518.preheader ]
-  %cmp41.i511 = icmp ugt i64 %length.i471.0.lcssa, 254
+  %cmp41.i511 = icmp samesign ugt i64 %length.i471.0.lcssa, 254
   br i1 %cmp41.i511, label %if.then43.i515, label %if.end46.i512
 
 if.then43.i515:                                   ; preds = %for.end40.i510
@@ -15475,7 +15475,7 @@ for.body35.i.preheader:                           ; preds = %if.then28.i
 for.end40.i:                                      ; preds = %for.body35.i.preheader, %if.then28.i
   %op.19.lcssa = phi ptr [ %add.ptr14.i, %if.then28.i ], [ %scevgep3152, %for.body35.i.preheader ]
   %length.i.0.lcssa = phi i64 [ %sub31.i, %if.then28.i ], [ %311, %for.body35.i.preheader ]
-  %cmp41.i = icmp ugt i64 %length.i.0.lcssa, 254
+  %cmp41.i = icmp samesign ugt i64 %length.i.0.lcssa, 254
   br i1 %cmp41.i, label %if.then43.i, label %if.end46.i
 
 if.then43.i:                                      ; preds = %for.end40.i

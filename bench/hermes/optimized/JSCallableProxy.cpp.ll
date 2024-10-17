@@ -517,7 +517,7 @@ if.then26:                                        ; preds = %if.end
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i38 to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then39, label %if.end41

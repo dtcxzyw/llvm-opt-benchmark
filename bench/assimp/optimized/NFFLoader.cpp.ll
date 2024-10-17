@@ -11235,7 +11235,7 @@ invoke.cont2312:                                  ; preds = %if.end.i3449, %invo
   %incdec.ptr2321 = getelementptr inbounds i8, ptr %ppcChildren.34610, i64 8
   %823 = load i32, ptr %mNumLights, align 8
   %824 = zext i32 %823 to i64
-  %cmp2285 = icmp ult i64 %indvars.iv.next5020, %824
+  %cmp2285 = icmp samesign ult i64 %indvars.iv.next5020, %824
   br i1 %cmp2285, label %for.body2286, label %if.end2323, !llvm.loop !86
 
 lpad2292:                                         ; preds = %invoke.cont2290
@@ -11676,7 +11676,7 @@ for.body2542:                                     ; preds = %invoke.cont2537, %f
   %indvars.iv.next5023 = add nuw nsw i64 %indvars.iv5022, 1
   %894 = load i32, ptr %pFace.04620, align 8
   %895 = zext i32 %894 to i64
-  %cmp2541 = icmp ult i64 %indvars.iv.next5023, %895
+  %cmp2541 = icmp samesign ult i64 %indvars.iv.next5023, %895
   br i1 %cmp2541, label %for.body2542, label %for.inc2550, !llvm.loop !87
 
 for.inc2550:                                      ; preds = %for.body2542, %invoke.cont2537

@@ -204,15 +204,15 @@ define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$
   %.sroa.0 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %2 = icmp ult i32 %.0.val, 128
+  %2 = icmp samesign ult i32 %.0.val, 128
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %.0.val, 2048
+  %4 = icmp samesign ult i32 %.0.val, 2048
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %.0.val, 65536
+  %6 = icmp samesign ult i32 %.0.val, 65536
   br i1 %6, label %16, label %27
 
 7:                                                ; preds = %1

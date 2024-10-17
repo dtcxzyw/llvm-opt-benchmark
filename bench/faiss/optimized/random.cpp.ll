@@ -614,7 +614,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %106 = uitofp i64 %105 to double
   %107 = fdiv double %106, 0x41EFFFFFFFE00000
   %108 = call double @llvm.fmuladd.f64(double %107, double 2.000000e+00, double -1.000000e+00)
-  %109 = icmp ugt i64 %91, 622
+  %109 = icmp samesign ugt i64 %91, 622
   br i1 %109, label %110, label %155
 
 110:                                              ; preds = %90

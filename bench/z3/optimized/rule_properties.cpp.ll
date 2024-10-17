@@ -933,7 +933,7 @@ land.rhs:                                         ; preds = %for.cond16, %_ZNK6v
   %m_arity.i = getelementptr inbounds i8, ptr %23, i64 32
   %24 = load i32, ptr %m_arity.i, align 8
   %25 = zext i32 %24 to i64
-  %cmp20 = icmp ult i64 %indvars.iv35, %25
+  %cmp20 = icmp samesign ult i64 %indvars.iv35, %25
   br i1 %cmp20, label %for.body21, label %for.inc27
 
 for.body21:                                       ; preds = %land.rhs

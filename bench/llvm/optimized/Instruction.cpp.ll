@@ -1254,7 +1254,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %5 ], [ %10, %8 ]
   %14 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %.pre-phi2.i.i
   %15 = ptrtoint ptr %14 to i64
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZN4llvm4User8operandsEv.exit

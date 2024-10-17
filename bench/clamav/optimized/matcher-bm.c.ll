@@ -531,7 +531,7 @@ define i32 @cli_bm_initoff(ptr nocapture noundef readonly %0, ptr nocapture noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %4, align 8
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next, %100
   br i1 %101, label %25, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %98
@@ -1002,7 +1002,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 182:                                              ; preds = %.lr.ph343
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %183 = add nuw i32 %.1210340, 1
-  %184 = icmp ult i64 %indvars.iv.next403, %177
+  %184 = icmp samesign ult i64 %indvars.iv.next403, %177
   %185 = icmp ult i32 %183, %1
   %186 = select i1 %184, i1 %185, i1 false
   br i1 %186, label %.lr.ph343, label %.critedge281.loopexit

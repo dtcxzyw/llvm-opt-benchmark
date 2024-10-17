@@ -2615,7 +2615,7 @@ define void @_Z9pr_symtabP8_IO_FILEiPKcP8t_symtab(ptr noundef %0, i32 noundef %1
   %27 = load i32, ptr %.03145, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  %30 = icmp ult i64 %indvars.iv.next, %19
+  %30 = icmp samesign ult i64 %indvars.iv.next, %19
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %20, label %._crit_edge.loopexit, !llvm.loop !27
 

@@ -393,7 +393,7 @@ define hidden void @_ZN25G1CollectionCandidateList3setEP28G1CollectionSetCandida
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %9, -1
   %14 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.pre.i)
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   %or.cond.i.i.i.i.i = select i1 %13, i1 %15, i1 false
   %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre.i, i1 true)
   %17 = sub nuw nsw i32 32, %16
@@ -445,7 +445,7 @@ define hidden void @_ZN25G1CollectionCandidateList15append_unsortedEP12G1HeapReg
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %14 = sub nuw nsw i32 32, %13
@@ -587,7 +587,7 @@ _ZN13GrowableArrayI28G1CollectionSetCandidateInfoEC2Ei8MEMFLAGS.exit: ; preds = 
   %37 = add nsw i32 %33, 1
   %38 = icmp sgt i32 %33, -1
   %39 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %37)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %or.cond.i.i.i.i = select i1 %38, i1 %40, i1 false
   %41 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
   %42 = sub nuw nsw i32 32, %41
@@ -756,7 +756,7 @@ define hidden void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -945,7 +945,7 @@ define hidden void @_ZN25G1CollectionSetCandidates10initializeEj(ptr nocapture n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr %3, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next.i, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
   br i1 %14, label %.lr.ph.i, label %_ZN25G1CollectionSetCandidates5clearEv.exit, !llvm.loop !12
 
 _ZN25G1CollectionSetCandidates5clearEv.exit:      ; preds = %.lr.ph.i, %2
@@ -979,7 +979,7 @@ define hidden void @_ZN25G1CollectionSetCandidates5clearEv(ptr nocapture noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %7, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -1057,7 +1057,7 @@ define hidden void @_ZN25G1CollectionSetCandidates27set_candidates_from_markingE
 13:                                               ; preds = %9
   %14 = icmp sgt i32 %10, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.pre.i.i)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre.i.i, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -1160,7 +1160,7 @@ define hidden void @_ZN25G1CollectionSetCandidates28add_retained_region_unsorted
   %16 = add nsw i32 %11, 1
   %17 = icmp sgt i32 %11, -1
   %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %or.cond.i.i.i.i.i = select i1 %17, i1 %19, i1 false
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -1246,7 +1246,7 @@ define hidden void @_ZN25G1CollectionSetCandidates6removeEP31G1CollectionCandida
 _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i: ; preds = %32
   %35 = icmp sgt i32 %20, -1
   %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %or.cond.i.i.i.i.i = select i1 %35, i1 %37, i1 false
   %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %39 = sub nuw nsw i32 32, %38
@@ -1299,7 +1299,7 @@ _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i: ; preds = %32
 _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25: ; preds = %55
   %58 = icmp sgt i32 %18, -1
   %59 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %57)
-  %60 = icmp ult i32 %59, 2
+  %60 = icmp samesign ult i32 %59, 2
   %or.cond.i.i.i.i.i13 = select i1 %58, i1 %60, i1 false
   %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
   %62 = sub nuw nsw i32 32, %61
@@ -7491,7 +7491,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7740,7 +7740,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

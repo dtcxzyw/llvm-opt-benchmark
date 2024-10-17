@@ -1071,7 +1071,7 @@ define void @cli_ac_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %2, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %1
@@ -1119,7 +1119,7 @@ define void @cli_ac_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %55 = load i32, ptr %46, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next77, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next77, %56
   br i1 %57, label %50, label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %50, %45
@@ -1155,7 +1155,7 @@ define void @cli_ac_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %73 = load i32, ptr %64, align 4
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next80, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next80, %74
   br i1 %75, label %68, label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %68, %63
@@ -1273,7 +1273,7 @@ define internal fastcc void @ac_free_special(ptr noundef %0, ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i16, ptr %12, align 4
   %18 = zext i16 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph38, label %.loopexit.sink.split
 
 20:                                               ; preds = %6
@@ -1301,7 +1301,7 @@ define internal fastcc void @ac_free_special(ptr noundef %0, ptr nocapture nound
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %26 = load i16, ptr %3, align 4
   %27 = zext i16 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next46, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next46, %27
   br i1 %28, label %6, label %._crit_edge41
 
 ._crit_edge41:                                    ; preds = %.loopexit
@@ -1835,7 +1835,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
   %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   store i32 -2, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %18 = icmp ult i64 %indvars.iv.next, %11
+  %18 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %18, label %.lr.ph, label %.loopexit152
 
 .loopexit152:                                     ; preds = %.lr.ph, %.preheader151, %7
@@ -2228,7 +2228,7 @@ define i32 @cli_ac_caloff(ptr nocapture noundef readonly %0, ptr nocapture nound
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %23 = load i32, ptr %5, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next43, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next43, %24
   br i1 %25, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %59
@@ -2284,7 +2284,7 @@ define i32 @cli_ac_caloff(ptr nocapture noundef readonly %0, ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %9, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %.lr.ph.split, label %.loopexit
 
 .loopexit:                                        ; preds = %59, %.lr.ph.split.us, %.thread, %4, %41
@@ -2328,7 +2328,7 @@ define void @cli_ac_freedata(ptr noundef %0) local_unnamed_addr #0 {
   %15 = phi i32 [ %5, %.lr.ph ], [ %.pre, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
@@ -2386,7 +2386,7 @@ define void @cli_ac_freedata(ptr noundef %0) local_unnamed_addr #0 {
   %37 = phi i32 [ %32, %31 ], [ %.pre77, %35 ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next72, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next72, %38
   br i1 %39, label %31, label %._crit_edge63.loopexit
 
 ._crit_edge63.loopexit:                           ; preds = %36
@@ -2408,7 +2408,7 @@ define void @cli_ac_freedata(ptr noundef %0) local_unnamed_addr #0 {
   %44 = phi i32 [ %25, %.lr.ph65 ], [ %.pre80, %._crit_edge63 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next75, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next75, %45
   br i1 %46, label %.lr.ph65, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %43
@@ -3262,7 +3262,7 @@ ac_findmatch.exit:                                ; preds = %121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %280 = load i16, ptr %214, align 8
   %281 = zext i16 %280 to i64
-  %282 = icmp ult i64 %indvars.iv.next, %281
+  %282 = icmp samesign ult i64 %indvars.iv.next, %281
   br i1 %282, label %.lr.ph665, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph665, %250, %206
@@ -3612,7 +3612,7 @@ ac_addtype.exit:                                  ; preds = %442
   %indvars.iv.next737 = add nuw nsw i64 %indvars.iv736, 1
   %464 = load i16, ptr %341, align 8
   %465 = zext i16 %464 to i64
-  %466 = icmp ult i64 %indvars.iv.next737, %465
+  %466 = icmp samesign ult i64 %indvars.iv.next737, %465
   br i1 %466, label %.lr.ph671, label %.critedge536
 
 467:                                              ; preds = %380
@@ -4006,7 +4006,7 @@ define i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 nou
   %21 = getelementptr inbounds i8, ptr %0, i64 312
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i64
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %18
@@ -4667,7 +4667,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %300 = zext nneg i16 %298 to i32
   %301 = load i8, ptr %21, align 8
   %302 = zext i8 %301 to i32
-  %303 = icmp ult i32 %300, %302
+  %303 = icmp samesign ult i32 %300, %302
   br i1 %303, label %308, label %.preheader648
 
 .preheader648:                                    ; preds = %295
@@ -4742,7 +4742,7 @@ sub_0636:                                         ; preds = %.tail631.thread
 342:                                              ; preds = %322, %337
   %.1460 = phi i16 [ %336, %322 ], [ %.0459688, %337 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %343 = icmp ult i64 %indvars.iv.next, %307
+  %343 = icmp samesign ult i64 %indvars.iv.next, %307
   br i1 %343, label %317, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %342, %.preheader648
@@ -4784,7 +4784,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %361 = phi i16 [ %347, %.lr.ph692 ], [ %.pre804, %352 ]
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %362 = zext i16 %361 to i64
-  %363 = icmp ult i64 %indvars.iv.next783, %362
+  %363 = icmp samesign ult i64 %indvars.iv.next783, %362
   br i1 %363, label %.lr.ph692, label %.loopexit
 
 .loopexit:                                        ; preds = %360, %.preheader647, %._crit_edge
@@ -4884,7 +4884,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %.0455724 = phi i16 [ 0, %.preheader.lr.ph ], [ %.2457.lcssa, %435 ]
   %.0464723 = phi i16 [ 0, %.preheader.lr.ph ], [ %.3467, %435 ]
   %395 = add nuw nsw i32 %indvars.iv793, %391
-  %396 = icmp ult i32 %indvars.iv793, %392
+  %396 = icmp samesign ult i32 %indvars.iv793, %392
   %or.cond625702 = and i1 %396, %394
   br i1 %or.cond625702, label %.lr.ph708, label %.critedge6
 
@@ -4923,7 +4923,7 @@ sub_0636:                                         ; preds = %.tail631.thread
 412:                                              ; preds = %404
   %413 = zext i16 %spec.select to i32
   %414 = add nuw nsw i32 %413, 1
-  %415 = icmp ult i32 %414, %392
+  %415 = icmp samesign ult i32 %414, %392
   br i1 %415, label %416, label %423
 
 416:                                              ; preds = %412
@@ -4950,8 +4950,8 @@ sub_0636:                                         ; preds = %.tail631.thread
   %.3445 = phi i8 [ %.2444707, %416 ], [ %.2444707, %412 ], [ %spec.select587, %421 ]
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 1
   %424 = trunc nuw i64 %indvars.iv.next792 to i32
-  %425 = icmp ugt i32 %395, %424
-  %426 = icmp ult i64 %indvars.iv.next792, %393
+  %425 = icmp samesign ugt i32 %395, %424
+  %426 = icmp samesign ult i64 %indvars.iv.next792, %393
   %or.cond625 = and i1 %426, %425
   br i1 %or.cond625, label %399, label %.critedge6
 
@@ -4991,7 +4991,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %437 = zext i16 %386 to i32
   %438 = zext i16 %.3467 to i32
   %439 = add nuw nsw i32 %438, 1
-  %440 = icmp ult i32 %439, %437
+  %440 = icmp samesign ult i32 %439, %437
   br i1 %440, label %441, label %452
 
 441:                                              ; preds = %436
@@ -5121,7 +5121,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %508 = phi i16 [ %494, %486 ], [ %503, %501 ]
   %.4463 = phi i16 [ %500, %486 ], [ %.3462743, %501 ]
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
-  %509 = icmp ult i64 %indvars.iv.next798, %473
+  %509 = icmp samesign ult i64 %indvars.iv.next798, %473
   br i1 %509, label %474, label %._crit_edge747
 
 ._crit_edge747:                                   ; preds = %506, %.._crit_edge747_crit_edge
@@ -5153,7 +5153,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   %527 = getelementptr inbounds i8, ptr %0, i64 328
   %528 = load i16, ptr %527, align 8
   %529 = zext i16 %528 to i32
-  %530 = icmp ugt i32 %526, %529
+  %530 = icmp samesign ugt i32 %526, %529
   br i1 %530, label %531, label %533
 
 531:                                              ; preds = %521
@@ -6284,7 +6284,7 @@ select.unfold:                                    ; preds = %52, %45, %30, %25, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = trunc nuw i64 %indvars.iv.next to i32
   %64 = zext i16 %61 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   %66 = icmp ult i32 %62, %4
   %67 = select i1 %65, i1 %66, i1 false
   br i1 %67, label %.lr.ph, label %._crit_edge
@@ -7678,7 +7678,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   %35 = phi i16 [ %21, %.lr.ph ], [ %.pre, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i16 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %14

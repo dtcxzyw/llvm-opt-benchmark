@@ -5363,11 +5363,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h7
   br i1 %10, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %8
-  %13 = icmp ugt i64 %1, 12
+  %13 = icmp samesign ugt i64 %1, 12
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.split.us
-  %15 = icmp ugt i64 %1, 8
+  %15 = icmp samesign ugt i64 %1, 8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
@@ -5381,7 +5381,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h7
 18:                                               ; preds = %17, %16, %14
   %.sroa.09.0.us = phi i64 [ 13, %17 ], [ 9, %16 ], [ 1, %14 ]
   %19 = add nsw i64 %.sroa.09.0.us, -1
-  %or.cond.not.i.us = icmp ult i64 %19, %1
+  %or.cond.not.i.us = icmp samesign ult i64 %19, %1
   br i1 %or.cond.not.i.us, label %20, label %.split18.us
 
 20:                                               ; preds = %18
@@ -6762,7 +6762,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 169:                                              ; preds = %121, %.loopexit
   %170 = phi i64 [ 0, %121 ], [ %171, %.loopexit ]
   %171 = add nuw nsw i64 %170, 1
-  %172 = icmp ult i64 %170, 2
+  %172 = icmp samesign ult i64 %170, 2
   tail call void @llvm.assume(i1 %172)
   %173 = getelementptr inbounds i64, ptr %6, i64 %170
   %174 = load i64, ptr %173, align 8, !alias.scope !1772, !noundef !5
@@ -7086,7 +7086,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !1820, !noundef !5
@@ -7371,7 +7371,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !1844, !noundef !5
@@ -7577,7 +7577,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 68:                                               ; preds = %19, %.loopexit
   %69 = phi i64 [ 0, %19 ], [ %70, %.loopexit ]
   %70 = add nuw nsw i64 %69, 1
-  %71 = icmp ult i64 %69, 2
+  %71 = icmp samesign ult i64 %69, 2
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds i64, ptr %6, i64 %69
   %73 = load i64, ptr %72, align 8, !alias.scope !1882, !noundef !5
@@ -7841,7 +7841,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 75:                                               ; preds = %27, %.loopexit37
   %76 = phi i64 [ 0, %27 ], [ %77, %.loopexit37 ]
   %77 = add nuw nsw i64 %76, 1
-  %78 = icmp ult i64 %76, 2
+  %78 = icmp samesign ult i64 %76, 2
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds i64, ptr %14, i64 %76
   %80 = load i64, ptr %79, align 8, !alias.scope !1920, !noundef !5
@@ -8159,7 +8159,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %99 = phi i64 [ 0, %62 ], [ %100, %.loopexit39 ]
   %100 = add nuw nsw i64 %99, 1
   store i64 %100, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1946
-  %101 = icmp ult i64 %99, 2
+  %101 = icmp samesign ult i64 %99, 2
   tail call void @llvm.assume(i1 %101)
   %102 = getelementptr inbounds i64, ptr %7, i64 %99
   %103 = load i64, ptr %102, align 8, !alias.scope !1951, !noundef !5
@@ -8782,7 +8782,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !2077, !noundef !5
@@ -8925,7 +8925,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 37:                                               ; preds = %34, %.loopexit
   %38 = phi i64 [ 0, %34 ], [ %39, %.loopexit ]
   %39 = add nuw nsw i64 %38, 1
-  %40 = icmp ult i64 %38, 2
+  %40 = icmp samesign ult i64 %38, 2
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i64, ptr %10, i64 %38
   %42 = load i64, ptr %41, align 8, !alias.scope !2090, !noundef !5
@@ -9259,7 +9259,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !2144, !noundef !5

@@ -382,7 +382,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %219 = load i32, ptr %102, align 4
   %220 = zext i32 %219 to i64
-  %221 = icmp ult i64 %indvars.iv.next, %220
+  %221 = icmp samesign ult i64 %indvars.iv.next, %220
   br i1 %221, label %165, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %215
@@ -524,7 +524,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %24, align 4
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52

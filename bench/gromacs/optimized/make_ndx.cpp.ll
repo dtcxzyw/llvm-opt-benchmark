@@ -1813,7 +1813,7 @@ sub_2144.i.i:                                     ; preds = %sub_1143.i.i
   br i1 %exitcond.not.i291.i, label %._crit_edge187.i.i, label %.lr.ph186.i.i, !llvm.loop !21
 
 ._crit_edge187.i.i:                               ; preds = %.lr.ph186.i.i
-  %582 = icmp ugt i32 %.080.lcssa.i.i, 1
+  %582 = icmp samesign ugt i32 %.080.lcssa.i.i, 1
   br i1 %582, label %.preheader.i292.i, label %_ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i
 
 .preheader.i292.i:                                ; preds = %._crit_edge187.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i

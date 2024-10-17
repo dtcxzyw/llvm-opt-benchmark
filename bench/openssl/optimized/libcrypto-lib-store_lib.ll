@@ -237,7 +237,7 @@ for.inc:                                          ; preds = %if.else, %if.then31
   %loader.2 = phi ptr [ %fetched_loader.2, %if.end62 ], [ null, %land.lhs.true40 ], [ %call26, %if.then31 ], [ %call26, %if.else ]
   %inc64 = add nuw nsw i64 %i.094, 1
   %cmp22 = icmp eq ptr %loader_ctx.4, null
-  %cmp23 = icmp ult i64 %inc64, %schemes_n.0
+  %cmp23 = icmp samesign ult i64 %inc64, %schemes_n.0
   %14 = select i1 %cmp22, i1 %cmp23, i1 false
   br i1 %14, label %for.body, label %for.end, !llvm.loop !4
 

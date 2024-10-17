@@ -1503,7 +1503,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %752 = load i8, ptr %751, align 1
   %753 = zext i8 %752 to i32
   %754 = add nuw nsw i32 %750, %753
-  %755 = icmp ult i32 %754, 65535
+  %755 = icmp samesign ult i32 %754, 65535
   %756 = add nuw nsw i32 %754, 1
   %757 = and i32 %756, 65535
   %758 = select i1 %755, i32 %754, i32 %757
@@ -1544,7 +1544,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %784 = load i8, ptr %783, align 1
   %785 = add i8 %784, 1
   %786 = and i8 %785, 3
-  %787 = icmp ult i8 %786, 2
+  %787 = icmp samesign ult i8 %786, 2
   br i1 %787, label %799, label %788
 
 788:                                              ; preds = %782
@@ -2495,7 +2495,7 @@ define dso_local void @xfrm_input_init() local_unnamed_addr #7 section ".init.te
   store ptr @xfrm_trans_reinject, ptr %27, align 8
   %28 = add nuw nsw i64 %12, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %5, !prof !43, !llvm.loop !44
 
 .thread:                                          ; preds = %5, %15, %11

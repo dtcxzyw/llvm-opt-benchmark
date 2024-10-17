@@ -1117,7 +1117,7 @@ _ZL10match_descP6PcDescib.exit17.thread.i.i:      ; preds = %38
 52:                                               ; preds = %49, %46
   %.242.i = phi ptr [ %.14169.i, %46 ], [ %47, %49 ]
   %53 = lshr i32 %.071.i, 4
-  %54 = icmp ugt i32 %.071.i, 31
+  %54 = icmp samesign ugt i32 %.071.i, 31
   br i1 %54, label %.preheader60.i, label %.preheader.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %52, %.preheader.i
@@ -2184,7 +2184,7 @@ _ZN7nmethod25attached_method_before_pcEPh.exit.thread: ; preds = %23, %_ZN7nmeth
   %55 = add nsw i32 %50, 1
   %56 = icmp sgt i32 %50, -1
   %57 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %55)
-  %58 = icmp ult i32 %57, 2
+  %58 = icmp samesign ult i32 %57, 2
   %or.cond.i.i.i.i.i.i = select i1 %56, i1 %58, i1 false
   %59 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %55, i1 true)
   %60 = sub nuw nsw i32 32, %59
@@ -2478,7 +2478,7 @@ define linkonce_odr hidden void @_ZN12methodHandleC2EP6ThreadP6Method(ptr nounde
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -4609,7 +4609,7 @@ _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13Relo
   %45 = add nsw i32 %.sroa.9.2, 1
   %46 = icmp sgt i32 %.sroa.9.2, -1
   %47 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %45)
-  %48 = icmp ult i32 %47, 2
+  %48 = icmp samesign ult i32 %47, 2
   %or.cond.i.i.i.i = select i1 %46, i1 %48, i1 false
   %49 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %50 = sub nuw nsw i32 32, %49
@@ -9028,7 +9028,7 @@ _ZL10match_descP6PcDescib.exit17.thread.i:        ; preds = %34
 48:                                               ; preds = %45, %42
   %.242 = phi ptr [ %.14169, %42 ], [ %43, %45 ]
   %49 = lshr i32 %.071, 4
-  %50 = icmp ugt i32 %.071, 31
+  %50 = icmp samesign ugt i32 %.071, 31
   br i1 %50, label %.preheader60, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %48, %.preheader

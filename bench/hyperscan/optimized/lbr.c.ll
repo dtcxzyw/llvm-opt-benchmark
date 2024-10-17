@@ -3505,7 +3505,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv899, 1
   %81 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %81, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %72
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !12
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -4567,7 +4567,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv907, 1
   %81 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %81, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %72
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !12
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -5690,7 +5690,7 @@ if.end.i335:                                      ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %94, ptr %cur, align 8
-  %cmp.i333 = icmp ult i64 %indvars.iv.next, %87
+  %cmp.i333 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %cmp.i333, label %land.rhs.i, label %return, !llvm.loop !12
 
 if.then40.i:                                      ; preds = %if.then.i336
@@ -7270,7 +7270,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv899, 1
   %84 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %84, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %75
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !18
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -8338,7 +8338,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv907, 1
   %84 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %84, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %75
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !18
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -9470,7 +9470,7 @@ if.end.i335:                                      ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %100, ptr %cur, align 8
-  %cmp.i333 = icmp ult i64 %indvars.iv.next, %93
+  %cmp.i333 = icmp samesign ult i64 %indvars.iv.next, %93
   br i1 %cmp.i333, label %land.rhs.i, label %return, !llvm.loop !18
 
 if.then40.i:                                      ; preds = %if.then.i336
@@ -10940,7 +10940,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv597, 1
   %66 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %66, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %57
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !22
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -11806,7 +11806,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv605, 1
   %66 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %66, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %57
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !22
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -12610,7 +12610,7 @@ if.end.i335:                                      ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %62, ptr %cur, align 8
-  %cmp.i333 = icmp ult i64 %indvars.iv.next, %55
+  %cmp.i333 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %cmp.i333, label %land.rhs.i, label %return, !llvm.loop !22
 
 if.then40.i:                                      ; preds = %if.then.i336
@@ -13991,7 +13991,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv597, 1
   %66 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %66, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %57
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !25
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -14857,7 +14857,7 @@ if.end.i36:                                       ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv605, 1
   %66 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %66, ptr %cur.i, align 8
-  %cmp.i33 = icmp ult i64 %indvars.iv.next, %57
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %cmp.i33, label %land.rhs.i, label %if.then99.i, !llvm.loop !25
 
 if.then40.i:                                      ; preds = %if.then.i39
@@ -15661,7 +15661,7 @@ if.end.i335:                                      ; preds = %for.body.i, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %62, ptr %cur, align 8
-  %cmp.i333 = icmp ult i64 %indvars.iv.next, %55
+  %cmp.i333 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %cmp.i333, label %land.rhs.i, label %return, !llvm.loop !25
 
 if.then40.i:                                      ; preds = %if.then.i336

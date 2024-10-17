@@ -2270,7 +2270,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %124, %102
   br i1 %151, label %152, label %185
 
 152:                                              ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
-  %153 = icmp ugt i32 %146, 1
+  %153 = icmp samesign ugt i32 %146, 1
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %152
@@ -3306,7 +3306,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2
 
 .lr.ph418:                                        ; preds = %595
   %601 = getelementptr inbounds i8, ptr %34, i64 48
-  %602 = icmp ugt i32 %146, 1
+  %602 = icmp samesign ugt i32 %146, 1
   %603 = getelementptr inbounds i8, ptr %62, i64 16
   %604 = getelementptr inbounds i8, ptr %62, i64 72
   %605 = getelementptr inbounds i8, ptr %75, i64 8
@@ -3959,7 +3959,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %126, %104
   br i1 %153, label %154, label %187
 
 154:                                              ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
-  %155 = icmp ugt i32 %148, 1
+  %155 = icmp samesign ugt i32 %148, 1
   br i1 %155, label %156, label %163
 
 156:                                              ; preds = %154
@@ -5041,7 +5041,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
 
 .lr.ph424:                                        ; preds = %617
   %623 = getelementptr inbounds i8, ptr %36, i64 64
-  %624 = icmp ugt i32 %148, 1
+  %624 = icmp samesign ugt i32 %148, 1
   %625 = getelementptr inbounds i8, ptr %64, i64 16
   %626 = getelementptr inbounds i8, ptr %64, i64 72
   %627 = getelementptr inbounds i8, ptr %77, i64 8

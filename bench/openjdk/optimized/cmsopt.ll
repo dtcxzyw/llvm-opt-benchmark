@@ -980,7 +980,7 @@ define internal void @FastIdentity16(ptr nocapture noundef readonly %0, ptr noca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %4, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1130,7 +1130,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph16, %22, %24
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %31 = load i32, ptr %14, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next21, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next21, %32
   br i1 %33, label %.lr.ph16, label %._crit_edge17, !llvm.loop !21
 
 ._crit_edge17:                                    ; preds = %_cmsQuickSaturateWord.exit, %._crit_edge
@@ -1286,7 +1286,7 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %6, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %10, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %10, %3
@@ -1319,7 +1319,7 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr nocapture
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %37 = load i32, ptr %24, align 4
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next30, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next30, %38
   br i1 %39, label %28, label %._crit_edge26, !llvm.loop !25
 
 ._crit_edge26:                                    ; preds = %28, %._crit_edge
@@ -1431,7 +1431,7 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef non
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %32, %35
   %37 = call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %38 = icmp ugt i32 %37, 61440
+  %38 = icmp samesign ugt i32 %37, 61440
   br i1 %38, label %PatchLUT.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
@@ -1494,7 +1494,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %10, align 4
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph, label %.loopexit59, !llvm.loop !27
 
 .loopexit59:                                      ; preds = %.lr.ph, %.lr.ph65, %53, %.preheader58
@@ -1543,7 +1543,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %85 = load i32, ptr %9, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next83, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next83, %86
   br i1 %87, label %.lr.ph67, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %83, %.lr.ph69, %71, %.preheader
@@ -1852,7 +1852,7 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %.lr.ph138, label %.preheader131.preheader, !llvm.loop !31
 
 .lr.ph138:                                        ; preds = %.preheader133, %33
@@ -1883,7 +1883,7 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr nocapture nound
   %48 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %indvars.iv160
   store float %45, ptr %48, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %49 = icmp ult i64 %indvars.iv.next161, %46
+  %49 = icmp samesign ult i64 %indvars.iv.next161, %46
   br i1 %49, label %47, label %._crit_edge141, !llvm.loop !32
 
 ._crit_edge141:                                   ; preds = %47, %.preheader131
@@ -1925,7 +1925,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph144, %57, %59
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %70 = load i32, ptr %21, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next164, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next164, %71
   br i1 %72, label %.lr.ph144, label %._crit_edge145, !llvm.loop !33
 
 ._crit_edge145:                                   ; preds = %_cmsQuickSaturateWord.exit, %._crit_edge141
@@ -1954,7 +1954,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph144, %57, %59
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %81 = load i32, ptr %21, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next170, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next170, %82
   br i1 %83, label %.lr.ph148, label %._crit_edge149, !llvm.loop !35
 
 ._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader
@@ -2053,7 +2053,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph144, %57, %59
   %126 = phi i32 [ %121, %.lr.ph152 ], [ %.pre, %124 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next173, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next173, %127
   br i1 %128, label %.lr.ph152, label %._crit_edge153, !llvm.loop !36
 
 ._crit_edge153:                                   ; preds = %125, %.loopexit
@@ -2397,7 +2397,7 @@ IsDegenerated.exit.thread210:                     ; preds = %67, %._crit_edge.i,
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %74 = load i32, ptr %70, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next260, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next260, %75
   br i1 %76, label %77, label %.preheader221.preheader, !llvm.loop !39
 
 77:                                               ; preds = %.lr.ph227, %73
@@ -2430,7 +2430,7 @@ IsDegenerated.exit.thread210:                     ; preds = %67, %._crit_edge.i,
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %88 = load i32, ptr %70, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next263, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next263, %89
   br i1 %90, label %.lr.ph229, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph229, %.preheader221
@@ -2481,7 +2481,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
   %114 = phi i32 [ %92, %.lr.ph232 ], [ %.pre, %_cmsQuickSaturateWord.exit ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next266, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next266, %115
   br i1 %116, label %.lr.ph232, label %._crit_edge233, !llvm.loop !41
 
 ._crit_edge233:                                   ; preds = %113
@@ -2623,7 +2623,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %186 = load i32, ptr %70, align 8
   %187 = zext i32 %186 to i64
-  %188 = icmp ult i64 %indvars.iv.next273, %187
+  %188 = icmp samesign ult i64 %indvars.iv.next273, %187
   br i1 %188, label %.lr.ph236, label %.preheader218, !llvm.loop !45
 
 .backedge:                                        ; preds = %.lr.ph311, %215
@@ -2637,7 +2637,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %indvars.iv275.be = add nuw nsw i64 %indvars.iv275310, 1
   %192 = load i32, ptr %70, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv275.be, %193
+  %194 = icmp samesign ult i64 %indvars.iv275.be, %193
   br i1 %194, label %.lr.ph311, label %..critedge.preheader_crit_edge, !llvm.loop !46
 
 ..critedge.preheader_crit_edge:                   ; preds = %.backedge295
@@ -2698,7 +2698,7 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %218 = load i32, ptr %70, align 8
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %indvars.iv.next279, %219
+  %220 = icmp samesign ult i64 %indvars.iv.next279, %219
   br i1 %220, label %.lr.ph240, label %.critedge._crit_edge, !llvm.loop !47
 
 .lr.ph240:                                        ; preds = %..critedge.preheader_crit_edge, %.critedge
@@ -2786,7 +2786,7 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %263 = load i32, ptr %70, align 8
   %264 = zext i32 %263 to i64
-  %265 = icmp ult i64 %indvars.iv.next282, %264
+  %265 = icmp samesign ult i64 %indvars.iv.next282, %264
   br i1 %265, label %.lr.ph242, label %._crit_edge243, !llvm.loop !48
 
 ._crit_edge243:                                   ; preds = %262, %.preheader
@@ -2880,7 +2880,7 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %303 = load i32, ptr %293, align 8
   %304 = zext i32 %303 to i64
-  %305 = icmp ult i64 %indvars.iv.next285, %304
+  %305 = icmp samesign ult i64 %indvars.iv.next285, %304
   br i1 %305, label %.lr.ph245, label %._crit_edge246, !llvm.loop !49
 
 ._crit_edge246:                                   ; preds = %302, %.critedge176
@@ -3077,7 +3077,7 @@ define internal void @FastEvaluateCurves8(ptr nocapture noundef readonly %0, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %4, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %7, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %7, %3
@@ -3104,7 +3104,7 @@ define internal void @CurvesFree(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %3, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %6, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %6, %2
@@ -3151,7 +3151,7 @@ define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %8, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %14, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %14, %5, %2
@@ -3184,7 +3184,7 @@ define internal void @FastEvaluateCurves16(ptr nocapture noundef readonly %0, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %4, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %7, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %7, %3

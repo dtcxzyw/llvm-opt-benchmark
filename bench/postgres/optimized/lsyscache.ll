@@ -577,7 +577,7 @@ define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %
 
 36:                                               ; preds = %30, %26, %.lr.ph.split.us.split.us
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %37 = icmp ult i64 %indvars.iv.next88, %14
+  %37 = icmp samesign ult i64 %indvars.iv.next88, %14
   br i1 %37, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !9
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %72

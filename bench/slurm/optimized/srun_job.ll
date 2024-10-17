@@ -557,7 +557,7 @@ _set_ntasks.exit:                                 ; preds = %11, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr %118, align 8
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next, %139
   br i1 %140, label %127, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %127, %.preheader, %121
@@ -1080,7 +1080,7 @@ define dso_local ptr @job_step_create_allocation(ptr nocapture noundef readonly 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %213 = load i32, ptr %138, align 8
   %214 = zext i32 %213 to i64
-  %215 = icmp ult i64 %indvars.iv.next.i, %214
+  %215 = icmp samesign ult i64 %indvars.iv.next.i, %214
   br i1 %215, label %146, label %_set_min_node_count.exit, !llvm.loop !14
 
 .critedge.sink.split.i:                           ; preds = %132, %._crit_edge68.i
@@ -3432,7 +3432,7 @@ define internal fastcc void @_print_job_information(ptr nocapture noundef nonnul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %11, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %15, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %15, %4
@@ -3553,7 +3553,7 @@ _build_key.exit:                                  ; preds = %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %30, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %33, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %43, %29
@@ -3708,7 +3708,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   %.096130 = phi ptr [ %40, %36 ], [ %32, %26 ]
   %33 = load i32, ptr %21, align 8
   %34 = zext i32 %33 to i64
-  %.not121 = icmp ult i64 %indvars.iv, %34
+  %.not121 = icmp samesign ult i64 %indvars.iv, %34
   br i1 %.not121, label %36, label %35
 
 35:                                               ; preds = %.lr.ph
@@ -3757,7 +3757,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %55 = load i32, ptr %50, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next169, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next169, %56
   br i1 %57, label %58, label %.critedge, !llvm.loop !34
 
 58:                                               ; preds = %.lr.ph141, %54
@@ -5231,7 +5231,7 @@ define internal void @_het_job_struct_del(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %4, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

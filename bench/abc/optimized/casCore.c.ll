@@ -766,8 +766,8 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %22 = zext nneg i32 %21 to i64
   %.not70 = icmp sgt i64 %.064.lcssa, %22
   %23 = add nuw nsw i32 %.076, 4
-  %24 = icmp ult i32 %.076, 60
-  %or.cond = and i1 %.not70, %24
+  %24 = icmp samesign ult i32 %.076, 60
+  %or.cond = select i1 %.not70, i1 %24, i1 false
   br i1 %or.cond, label %20, label %25, !llvm.loop !23
 
 25:                                               ; preds = %20
@@ -940,8 +940,8 @@ Abc_Clock.exit:                                   ; preds = %11, %6
   %38 = zext nneg i32 %37 to i64
   %.not74 = icmp sgt i64 %.069.lcssa, %38
   %39 = add nuw nsw i32 %.079, 4
-  %40 = icmp ult i32 %.079, 60
-  %or.cond = and i1 %.not74, %40
+  %40 = icmp samesign ult i32 %.079, 60
+  %or.cond = select i1 %.not74, i1 %40, i1 false
   br i1 %or.cond, label %36, label %41, !llvm.loop !26
 
 41:                                               ; preds = %36

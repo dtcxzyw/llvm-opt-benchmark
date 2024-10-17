@@ -25624,7 +25624,7 @@ while.body.i:                                     ; preds = %if.end.i15, %while.
   store ptr %add.ptr.i.i, ptr %this, align 8
   store i64 %word.0.copyload.i.i, ptr %current_word_.i14, align 8
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false)
-  %cmp5.i = icmp ult i64 %8, 64
+  %cmp5.i = icmp samesign ult i64 %8, 64
   br i1 %cmp5.i, label %if.then.i17, label %if.end.i15
 
 if.then.i17:                                      ; preds = %while.body.i
@@ -25816,7 +25816,7 @@ while.body:                                       ; preds = %while.cond
   %add = add nuw nsw i64 %7, %len.1
   %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
-  %cmp30 = icmp ult i64 %7, 64
+  %cmp30 = icmp samesign ult i64 %7, 64
   br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !707
 
 if.then31:                                        ; preds = %while.body

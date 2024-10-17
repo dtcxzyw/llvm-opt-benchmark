@@ -14517,7 +14517,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE2atEm.exit151:     ; preds = %_ZNSt6vectorIS_IfSa
 
 ._crit_edge346:                                   ; preds = %._crit_edge340
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
-  %.not128.not = icmp ult i64 %indvars.iv554, %127
+  %.not128.not = icmp samesign ult i64 %indvars.iv554, %127
   br i1 %.not128.not, label %.lr.ph345, label %._crit_edge352.loopexit361, !llvm.loop !110
 
 ._crit_edge352.loopexit361:                       ; preds = %._crit_edge346
@@ -15087,7 +15087,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 ._crit_edge131:                                   ; preds = %305
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %.not120.not = icmp ult i64 %indvars.iv147, %57
+  %.not120.not = icmp samesign ult i64 %indvars.iv147, %57
   br i1 %.not120.not, label %.lr.ph130, label %._crit_edge136, !llvm.loop !115
 
 ._crit_edge136:                                   ; preds = %._crit_edge131, %.lr.ph135.split.us, %32

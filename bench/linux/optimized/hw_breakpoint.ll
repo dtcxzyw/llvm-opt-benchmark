@@ -428,7 +428,7 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr nocapture n
 25:                                               ; preds = %58, %23
   %26 = phi i64 [ %64, %58 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %29, !prof !40
 
 29:                                               ; preds = %25
@@ -532,7 +532,7 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr nocapture n
 
 85:                                               ; preds = %80
   %86 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83), !range !43
-  %87 = icmp ult i64 %86, 2
+  %87 = icmp samesign ult i64 %86, 2
   br i1 %87, label %88, label %.thread5
 
 88:                                               ; preds = %85

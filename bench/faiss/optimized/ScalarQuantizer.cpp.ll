@@ -2948,7 +2948,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   %8 = bitcast float %7 to i32
   %9 = tail call float @llvm.fabs.f32(float %7)
   %10 = bitcast float %9 to i32
-  %11 = icmp ugt i32 %10, 2139095040
+  %11 = icmp samesign ugt i32 %10, 2139095040
   %12 = select i1 %11, i32 32256, i32 31744
   %13 = and i32 %8, 2147479552
   %14 = bitcast i32 %13 to float
@@ -2956,7 +2956,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   %16 = fcmp ogt float %15, 0x39EFFE0000000000
   %.sroa.speculated.i = select i1 %16, float 0x39EFFE0000000000, float %15
   %17 = bitcast float %.sroa.speculated.i to i32
-  %18 = icmp ult i32 %10, 2139095040
+  %18 = icmp samesign ult i32 %10, 2139095040
   %19 = add i32 %17, 4096
   %20 = lshr i32 %19, 13
   %.0.i = select i1 %18, i32 %20, i32 %12

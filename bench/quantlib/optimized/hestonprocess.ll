@@ -5316,7 +5316,7 @@ if.end74.i:                                       ; preds = %if.end69.i
           to label %call.i.i.i.noexc unwind label %lpad639.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %if.end74.i
-  %cmp10.not106.i.i = icmp ugt i64 %ref.tmp632.sroa.78.0, 99
+  %cmp10.not106.i.i = icmp samesign ugt i64 %ref.tmp632.sroa.78.0, 99
   br i1 %cmp10.not106.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %call.i.i.i.noexc

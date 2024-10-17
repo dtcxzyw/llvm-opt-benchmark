@@ -687,7 +687,7 @@ for.inc:                                          ; preds = %.noexc65, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %m_num_args.i, align 8
   %42 = zext i32 %41 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %42
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %cmp, label %for.body, label %while.cond.backedge, !llvm.loop !8
 
 if.then44:                                        ; preds = %invoke.cont11
@@ -2297,7 +2297,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv36 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next37, %for.cond.loopexit ]
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.cond.loopexit ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %cmp229 = icmp ult i64 %indvars.iv.next37, %1
+  %cmp229 = icmp samesign ult i64 %indvars.iv.next37, %1
   br i1 %cmp229, label %for.body3.lr.ph, label %for.cond.loopexit
 
 for.body3.lr.ph:                                  ; preds = %for.body

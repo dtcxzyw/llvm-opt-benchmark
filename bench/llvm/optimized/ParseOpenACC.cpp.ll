@@ -2386,7 +2386,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN12_GLOBAL__
   %183 = load i64, ptr %182, align 8
   %184 = lshr i64 %183, 32
   %185 = zext i16 %177 to i64
-  %186 = icmp ugt i64 %184, %185
+  %186 = icmp samesign ugt i64 %184, %185
   br i1 %186, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread131, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread131: ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -5745,7 +5745,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN12_GLOBAL__
   %370 = load i64, ptr %369, align 8
   %371 = lshr i64 %370, 32
   %372 = zext i16 %365 to i64
-  %373 = icmp ugt i64 %371, %372
+  %373 = icmp samesign ugt i64 %371, %372
   br i1 %373, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i

@@ -4134,7 +4134,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AssignmentTracking
 _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i
   %72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL12MaxNumBlocks, i64 128), align 8
   %73 = zext i32 %72 to i64
-  %.not1181 = icmp ult i64 %.06.i.i.i.i, %73
+  %.not1181 = icmp samesign ult i64 %.06.i.i.i.i, %73
   br i1 %.not1181, label %_ZNK4llvm8Function4sizeEv.exit.thread, label %74
 
 74:                                               ; preds = %_ZNK4llvm8Function4sizeEv.exit
@@ -19258,7 +19258,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11IntervalMapIjjLj16ENS_23IntervalMapHal
   %2378 = add nuw nsw i64 %.013.i.i301, 1
   %2379 = load i32, ptr %231, align 8
   %2380 = zext i32 %2379 to i64
-  %2381 = icmp ult i64 %2378, %2380
+  %2381 = icmp samesign ult i64 %2378, %2380
   br i1 %2381, label %.lr.ph.i4.i300, label %_ZN4llvm8DenseMapIjNS_11IntervalMapIjjLj16ENS_23IntervalMapHalfOpenInfoIjEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE8copyFromERKSA_.exit304, !llvm.loop !218
 
 2382:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11IntervalMapIjjLj16ENS_23IntervalMapHalfOpenInfoIjEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E10destroyAllEv.exit.i297
@@ -22310,7 +22310,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i.i:                  ; preds = %242, %_ZN4llvm12Den
   %269 = lshr i32 %265, 6
   %270 = add i32 %266, -1
   %271 = lshr i32 %270, 6
-  %.not32.i.i.i.i = icmp ugt i32 %269, %271
+  %.not32.i.i.i.i = icmp samesign ugt i32 %269, %271
   br i1 %.not32.i.i.i.i, label %_ZNK4llvm9BitVector19find_first_unset_inEjj.exit.thread.i.i, label %.lr.ph.i.i.i24.i
 
 .lr.ph.i.i.i24.i:                                 ; preds = %268
@@ -23013,7 +23013,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i47.i:                ; preds = %587, %_ZN4llvm12Den
   %614 = lshr i32 %610, 6
   %615 = add i32 %611, -1
   %616 = lshr i32 %615, 6
-  %.not32.i.i.i53.i = icmp ugt i32 %614, %616
+  %.not32.i.i.i53.i = icmp samesign ugt i32 %614, %616
   br i1 %.not32.i.i.i53.i, label %_ZNK4llvm9BitVector19find_first_unset_inEjj.exit.thread.i71.i, label %.lr.ph.i.i.i54.i
 
 .lr.ph.i.i.i54.i:                                 ; preds = %613
@@ -41641,7 +41641,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %50
   %86 = lshr i32 %82, 6
   %87 = add i32 %83, -1
   %88 = lshr i32 %87, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %86, %88
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %86, %88
   br i1 %.not32.i.i.i.i.i, label %._crit_edge.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %85
@@ -46548,7 +46548,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %15
 
 36:                                               ; preds = %33
   %37 = lshr i32 %34, 6
-  %.not32.i.i.i.i.i.i.i.i.i = icmp ugt i32 %37, %7
+  %.not32.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %37, %7
   br i1 %.not32.i.i.i.i.i.i.i.i.i, label %_ZN4llvm6all_ofINS_14iterator_rangeINS_28const_set_bits_iterator_implINS_9BitVectorEEEEEZN12_GLOBAL__N_126AssignmentTrackingLowering12mapsAreEqualERKS3_RKNS_11SmallVectorINS7_10AssignmentELj2EEESE_EUljE_EEbOT_T0_.exit.loopexit13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %36

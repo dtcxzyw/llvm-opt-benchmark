@@ -1600,7 +1600,7 @@ define void @php_var_export_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %78 = getelementptr inbounds i8, ptr %.0893, i64 -1
   store i8 %77, ptr %78, align 1
   %79 = udiv i64 %.0894, 10
-  %.not1061 = icmp ult i64 %.0894, 10
+  %.not1061 = icmp samesign ult i64 %.0894, 10
   br i1 %.not1061, label %80, label %74
 
 80:                                               ; preds = %74
@@ -4944,7 +4944,7 @@ php_var_serialize_string.exit:                    ; preds = %325, %331
   %555 = getelementptr inbounds i8, ptr %.01171, i64 -1
   store i8 %554, ptr %555, align 1
   %556 = udiv i64 %.01172, 10
-  %.not1389 = icmp ult i64 %.01172, 10
+  %.not1389 = icmp samesign ult i64 %.01172, 10
   br i1 %.not1389, label %557, label %551
 
 557:                                              ; preds = %551
@@ -5674,7 +5674,7 @@ php_var_serialize_string.exit1472:                ; preds = %646, %651
   %919 = getelementptr inbounds i8, ptr %.01167, i64 -1
   store i8 %918, ptr %919, align 1
   %920 = udiv i64 %.01168, 10
-  %.not1365 = icmp ult i64 %.01168, 10
+  %.not1365 = icmp samesign ult i64 %.01168, 10
   br i1 %.not1365, label %921, label %915
 
 921:                                              ; preds = %915
@@ -8205,7 +8205,7 @@ define internal fastcc void @php_var_serialize_nested_data(ptr noundef %0, ptr n
   %17 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %16, ptr %17, align 1
   %18 = udiv i64 %.0175, 10
-  %.not = icmp ult i64 %.0175, 10
+  %.not = icmp samesign ult i64 %.0175, 10
   br i1 %.not, label %19, label %13
 
 19:                                               ; preds = %13

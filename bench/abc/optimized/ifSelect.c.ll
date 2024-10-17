@@ -204,7 +204,7 @@ define void @If_ObjConePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %35 = load i64, ptr %20, align 4
   %36 = lshr i64 %35, 24
   %37 = and i64 %36, 255
-  %38 = icmp ult i64 %indvars.iv.next30, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next30, %37
   br i1 %38, label %24, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %24, %31, %.critedge
@@ -494,7 +494,7 @@ define range(i32 0, 2) i32 @If_ManNodeShapeMap(ptr noundef %0, ptr noundef %1, p
   %18 = load i64, ptr %5, align 4
   %19 = lshr i64 %18, 24
   %20 = and i64 %19, 255
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %9, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %9, %16, %3
@@ -543,7 +543,7 @@ define range(i32 0, 2) i32 @If_ManNodeShapeMap(ptr noundef %0, ptr noundef %1, p
   %42 = load i64, ptr %5, align 4
   %43 = lshr i64 %42, 24
   %44 = and i64 %43, 255
-  %45 = icmp ult i64 %indvars.iv.next51, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next51, %44
   br i1 %45, label %33, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %33, %40, %.preheader
@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @If_ManNodeShapeMap2(ptr noundef %0, ptr noundef %1, 
   %20 = load i64, ptr %5, align 4
   %21 = lshr i64 %20, 24
   %22 = and i64 %21, 255
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %9, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %9, %16, %3
@@ -970,7 +970,7 @@ define range(i32 0, 2) i32 @If_ManNodeShapeMap2(ptr noundef %0, ptr noundef %1, 
   %44 = load i64, ptr %5, align 4
   %45 = lshr i64 %44, 24
   %46 = and i64 %45, 255
-  %47 = icmp ult i64 %indvars.iv.next52, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next52, %46
   br i1 %47, label %35, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %35, %42, %.preheader
@@ -1296,7 +1296,7 @@ define noundef ptr @If_ManConeCollect(ptr noundef %0, ptr noundef %1, ptr nocapt
   %18 = load i64, ptr %5, align 4
   %19 = lshr i64 %18, 24
   %20 = and i64 %19, 255
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %9, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %9, %16, %3
@@ -1342,7 +1342,7 @@ define noundef ptr @If_ManConeCollect(ptr noundef %0, ptr noundef %1, ptr nocapt
   %43 = load i64, ptr %5, align 4
   %44 = lshr i64 %43, 24
   %45 = and i64 %44, 255
-  %46 = icmp ult i64 %indvars.iv.next47, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next47, %45
   br i1 %46, label %34, label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %34, %41, %.critedge
@@ -1594,7 +1594,7 @@ define noundef i32 @If_ManNodeShapeSat(ptr noundef %0, ptr noundef %1, ptr nound
   %24 = load i64, ptr %10, align 4
   %25 = lshr i64 %24, 24
   %26 = and i64 %25, 255
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %14, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %14, %21, %3
@@ -1943,7 +1943,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %155
   %171 = load i64, ptr %10, align 4
   %172 = lshr i64 %171, 24
   %173 = and i64 %172, 255
-  %174 = icmp ult i64 %indvars.iv.next168, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next168, %173
   br i1 %174, label %160, label %.critedge6, !llvm.loop !29
 
 .critedge6:                                       ; preds = %160, %167, %Vec_IntFree.exit
@@ -1983,7 +1983,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %155
   %192 = load i64, ptr %10, align 4
   %193 = lshr i64 %192, 24
   %194 = and i64 %193, 255
-  %195 = icmp ult i64 %indvars.iv.next171, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next171, %194
   br i1 %195, label %182, label %.critedge8, !llvm.loop !30
 
 .critedge8:                                       ; preds = %182, %189, %.critedge6
@@ -2023,7 +2023,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %155
   %211 = load i64, ptr %10, align 4
   %212 = lshr i64 %211, 24
   %213 = and i64 %212, 255
-  %214 = icmp ult i64 %indvars.iv.next174, %213
+  %214 = icmp samesign ult i64 %indvars.iv.next174, %213
   br i1 %214, label %200, label %.critedge10, !llvm.loop !31
 
 .critedge10:                                      ; preds = %200, %207, %.critedge8
@@ -2164,7 +2164,7 @@ define range(i32 0, 2) i32 @If_ManCheckShape(ptr nocapture noundef readonly %0, 
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %46 = lshr i64 %45, 24
   %47 = and i64 %46, 255
-  %48 = icmp ult i64 %indvars.iv.next76, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next76, %47
   br i1 %48, label %31, label %.critedge4.loopexit, !llvm.loop !34
 
 .critedge4.loopexit:                              ; preds = %.critedge2, %31

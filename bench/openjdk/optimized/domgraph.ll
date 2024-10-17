@@ -180,7 +180,7 @@ _ZN6Tarjan4EVALEv.exit:                           ; preds = %78, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %57, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %100, label %62, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %96, %_ZNK5Block4headEv.exit.._crit_edge_crit_edge
@@ -941,7 +941,7 @@ _ZNK5Block8get_nodeEj.exit21:                     ; preds = %_ZNK5Block8get_node
 _ZNK5Block8get_nodeEj.exit22:                     ; preds = %_ZNK5Block8get_nodeEj.exit22.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %_ZNK5Block8get_nodeEj.exit22.lr.ph ], [ %indvars.iv.next, %63 ]
   %56 = add nuw nsw i64 %indvars.iv, %38
-  %57 = icmp ult i64 %56, %39
+  %57 = icmp samesign ult i64 %56, %39
   tail call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds ptr, ptr %37, i64 %56
   %59 = load ptr, ptr %58, align 8
@@ -1257,7 +1257,7 @@ _ZN7NTarjan4EVALEv.exit:                          ; preds = %84, %87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %103 = load i32, ptr %55, align 8
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next170, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next170, %104
   br i1 %105, label %59, label %._crit_edge142, !llvm.loop !21
 
 ._crit_edge142:                                   ; preds = %102, %52
@@ -2045,7 +2045,7 @@ _ZNK9VectorSet4testEj.exit.thread:                ; preds = %94, %_ZNK9VectorSet
 _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i39:   ; preds = %_ZNK9VectorSet4testEj.exit.thread
   %107 = icmp sgt i32 %.sroa.0.2106, -1
   %108 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %106)
-  %109 = icmp ult i32 %108, 2
+  %109 = icmp samesign ult i32 %108, 2
   %or.cond.i.i.i.i.i32 = select i1 %107, i1 %109, i1 false
   %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %106, i1 true)
   %111 = sub nuw nsw i32 32, %110

@@ -1561,7 +1561,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
   br i1 %523, label %.lr.ph145.us.i.i, label %._crit_edge146.us.i.i
 
 .preheader98.us.i.i:                              ; preds = %521
-  %522 = icmp ult i32 %471, 4
+  %522 = icmp samesign ult i32 %471, 4
   br i1 %522, label %.lr.ph143.us.i.i.preheader, label %._crit_edge.us.i.i
 
 .lr.ph143.us.i.i.preheader:                       ; preds = %.preheader102.us.i.i, %.preheader98.us.i.i

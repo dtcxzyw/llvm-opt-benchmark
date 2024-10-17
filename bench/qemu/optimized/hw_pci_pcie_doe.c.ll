@@ -202,7 +202,7 @@ entry:
   %cmp.not.i = icmp ule i32 %add, %addr
   %1 = zext i16 %0 to i64
   %sub.i.i = add nuw nsw i64 %1, 23
-  %cmp1.i = icmp uge i64 %sub.i.i, %conv2
+  %cmp1.i = icmp samesign uge i64 %sub.i.i, %conv2
   %narrow.i = select i1 %cmp.not.i, i1 %cmp1.i, i1 false
   br i1 %narrow.i, label %if.end, label %return
 
@@ -337,7 +337,7 @@ entry:
   %cmp.not.i = icmp ugt i32 %add, %addr
   %1 = zext i16 %0 to i64
   %sub.i.i = add nuw nsw i64 %1, 23
-  %cmp1.i = icmp ult i64 %sub.i.i, %conv2
+  %cmp1.i = icmp samesign ult i64 %sub.i.i, %conv2
   %narrow.i.not = select i1 %cmp.not.i, i1 true, i1 %cmp1.i
   br i1 %narrow.i.not, label %sw.epilog, label %if.end
 

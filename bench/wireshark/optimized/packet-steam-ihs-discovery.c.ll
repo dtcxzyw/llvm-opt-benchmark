@@ -390,7 +390,7 @@ protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
   %67 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %7)
   %68 = load ptr, ptr %7, align 8
   %69 = zext nneg i8 %60 to i32
-  %70 = icmp ult i8 %60, 6
+  %70 = icmp samesign ult i8 %60, 6
   br i1 %70, label %71, label %protobuf_verify_wiretype.exit.i
 
 71:                                               ; preds = %66
@@ -456,7 +456,7 @@ protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
   %94 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6)
   %95 = load ptr, ptr %6, align 8
   %96 = zext nneg i8 %60 to i32
-  %97 = icmp ult i8 %60, 6
+  %97 = icmp samesign ult i8 %60, 6
   br i1 %97, label %98, label %protobuf_verify_wiretype.exit27.i
 
 98:                                               ; preds = %93
@@ -522,7 +522,7 @@ protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
   %121 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
   %122 = load ptr, ptr %5, align 8
   %123 = zext nneg i8 %60 to i32
-  %124 = icmp ult i8 %60, 6
+  %124 = icmp samesign ult i8 %60, 6
   br i1 %124, label %125, label %protobuf_verify_wiretype.exit34.i
 
 125:                                              ; preds = %120
@@ -794,7 +794,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %38
   %41 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %42 = load ptr, ptr %7, align 8
   %43 = zext nneg i8 %34 to i32
-  %44 = icmp ult i8 %34, 6
+  %44 = icmp samesign ult i8 %34, 6
   br i1 %44, label %45, label %protobuf_verify_wiretype.exit
 
 45:                                               ; preds = %40
@@ -864,7 +864,7 @@ protobuf_verify_wiretype.exit22.thread:           ; preds = %68
   %71 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %72 = load ptr, ptr %6, align 8
   %73 = zext nneg i8 %34 to i32
-  %74 = icmp ult i8 %34, 6
+  %74 = icmp samesign ult i8 %34, 6
   br i1 %74, label %75, label %protobuf_verify_wiretype.exit22
 
 75:                                               ; preds = %70
@@ -1051,7 +1051,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %55
   %58 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17)
   %59 = load ptr, ptr %17, align 8
   %60 = zext nneg i8 %51 to i32
-  %61 = icmp ult i8 %51, 6
+  %61 = icmp samesign ult i8 %51, 6
   br i1 %61, label %62, label %protobuf_verify_wiretype.exit
 
 62:                                               ; preds = %57
@@ -1118,7 +1118,7 @@ protobuf_verify_wiretype.exit103.thread:          ; preds = %83
   %86 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
   %87 = load ptr, ptr %16, align 8
   %88 = zext nneg i8 %51 to i32
-  %89 = icmp ult i8 %51, 6
+  %89 = icmp samesign ult i8 %51, 6
   br i1 %89, label %90, label %protobuf_verify_wiretype.exit103
 
 90:                                               ; preds = %85
@@ -1185,7 +1185,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %111
   %114 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
   %115 = load ptr, ptr %15, align 8
   %116 = zext nneg i8 %51 to i32
-  %117 = icmp ult i8 %51, 6
+  %117 = icmp samesign ult i8 %51, 6
   br i1 %117, label %118, label %protobuf_verify_wiretype.exit110
 
 118:                                              ; preds = %113
@@ -1312,7 +1312,7 @@ protobuf_verify_wiretype.exit120.thread:          ; preds = %165
   %168 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
   %169 = load ptr, ptr %14, align 8
   %170 = zext nneg i8 %51 to i32
-  %171 = icmp ult i8 %51, 6
+  %171 = icmp samesign ult i8 %51, 6
   br i1 %171, label %172, label %protobuf_verify_wiretype.exit120
 
 172:                                              ; preds = %167
@@ -1379,7 +1379,7 @@ protobuf_verify_wiretype.exit127.thread:          ; preds = %193
   %196 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %197 = load ptr, ptr %13, align 8
   %198 = zext nneg i8 %51 to i32
-  %199 = icmp ult i8 %51, 6
+  %199 = icmp samesign ult i8 %51, 6
   br i1 %199, label %200, label %protobuf_verify_wiretype.exit127
 
 200:                                              ; preds = %195
@@ -1446,7 +1446,7 @@ protobuf_verify_wiretype.exit134.thread:          ; preds = %221
   %224 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %225 = load ptr, ptr %12, align 8
   %226 = zext nneg i8 %51 to i32
-  %227 = icmp ult i8 %51, 6
+  %227 = icmp samesign ult i8 %51, 6
   br i1 %227, label %228, label %protobuf_verify_wiretype.exit134
 
 228:                                              ; preds = %223
@@ -1617,7 +1617,7 @@ protobuf_verify_wiretype.exit156.thread:          ; preds = %292
   %295 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %19, ptr noundef readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %11)
   %296 = load ptr, ptr %11, align 8
   %297 = zext nneg i8 %288 to i32
-  %298 = icmp ult i8 %288, 6
+  %298 = icmp samesign ult i8 %288, 6
   br i1 %298, label %299, label %protobuf_verify_wiretype.exit156
 
 299:                                              ; preds = %294
@@ -1655,7 +1655,7 @@ protobuf_verify_wiretype.exit160.thread:          ; preds = %309
   %312 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %19, ptr noundef readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %10)
   %313 = load ptr, ptr %10, align 8
   %314 = zext nneg i8 %288 to i32
-  %315 = icmp ult i8 %288, 6
+  %315 = icmp samesign ult i8 %288, 6
   br i1 %315, label %316, label %protobuf_verify_wiretype.exit160
 
 316:                                              ; preds = %311
@@ -1738,7 +1738,7 @@ protobuf_verify_wiretype.exit167.thread:          ; preds = %345
   %348 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %349 = load ptr, ptr %9, align 8
   %350 = zext nneg i8 %51 to i32
-  %351 = icmp ult i8 %51, 6
+  %351 = icmp samesign ult i8 %51, 6
   br i1 %351, label %352, label %protobuf_verify_wiretype.exit167
 
 352:                                              ; preds = %347
@@ -1805,7 +1805,7 @@ protobuf_verify_wiretype.exit174.thread:          ; preds = %373
   %376 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %377 = load ptr, ptr %8, align 8
   %378 = zext nneg i8 %51 to i32
-  %379 = icmp ult i8 %51, 6
+  %379 = icmp samesign ult i8 %51, 6
   br i1 %379, label %380, label %protobuf_verify_wiretype.exit174
 
 380:                                              ; preds = %375
@@ -1873,7 +1873,7 @@ protobuf_verify_wiretype.exit181.thread:          ; preds = %400
   %403 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %404 = load ptr, ptr %7, align 8
   %405 = zext nneg i8 %51 to i32
-  %406 = icmp ult i8 %51, 6
+  %406 = icmp samesign ult i8 %51, 6
   br i1 %406, label %407, label %protobuf_verify_wiretype.exit181
 
 407:                                              ; preds = %402
@@ -1941,7 +1941,7 @@ protobuf_verify_wiretype.exit188.thread:          ; preds = %428
   %431 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %432 = load ptr, ptr %6, align 8
   %433 = zext nneg i8 %51 to i32
-  %434 = icmp ult i8 %51, 6
+  %434 = icmp samesign ult i8 %51, 6
   br i1 %434, label %435, label %protobuf_verify_wiretype.exit188
 
 435:                                              ; preds = %430
@@ -2379,7 +2379,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
-  %43 = icmp ult i8 %33, 6
+  %43 = icmp samesign ult i8 %33, 6
   br i1 %43, label %44, label %protobuf_verify_wiretype.exit
 
 44:                                               ; preds = %39
@@ -2553,7 +2553,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %44
   %47 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %48 = load ptr, ptr %13, align 8
   %49 = zext nneg i8 %40 to i32
-  %50 = icmp ult i8 %40, 6
+  %50 = icmp samesign ult i8 %40, 6
   br i1 %50, label %51, label %protobuf_verify_wiretype.exit
 
 51:                                               ; preds = %46
@@ -2623,7 +2623,7 @@ protobuf_verify_wiretype.exit73.thread:           ; preds = %74
   %77 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %78 = load ptr, ptr %12, align 8
   %79 = zext nneg i8 %40 to i32
-  %80 = icmp ult i8 %40, 6
+  %80 = icmp samesign ult i8 %40, 6
   br i1 %80, label %81, label %protobuf_verify_wiretype.exit73
 
 81:                                               ; preds = %76
@@ -2691,7 +2691,7 @@ protobuf_verify_wiretype.exit80.thread:           ; preds = %103
   %106 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
   %107 = load ptr, ptr %11, align 8
   %108 = zext nneg i8 %40 to i32
-  %109 = icmp ult i8 %40, 6
+  %109 = icmp samesign ult i8 %40, 6
   br i1 %109, label %110, label %protobuf_verify_wiretype.exit80
 
 110:                                              ; preds = %105
@@ -2759,7 +2759,7 @@ protobuf_verify_wiretype.exit87.thread:           ; preds = %132
   %135 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
   %136 = load ptr, ptr %10, align 8
   %137 = zext nneg i8 %40 to i32
-  %138 = icmp ult i8 %40, 6
+  %138 = icmp samesign ult i8 %40, 6
   br i1 %138, label %139, label %protobuf_verify_wiretype.exit87
 
 139:                                              ; preds = %134
@@ -2872,7 +2872,7 @@ protobuf_verify_wiretype.exit97.thread:           ; preds = %181
   %184 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %185 = load ptr, ptr %9, align 8
   %186 = zext nneg i8 %40 to i32
-  %187 = icmp ult i8 %40, 6
+  %187 = icmp samesign ult i8 %40, 6
   br i1 %187, label %188, label %protobuf_verify_wiretype.exit97
 
 188:                                              ; preds = %183
@@ -3031,7 +3031,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %250
   %253 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %254 = load ptr, ptr %8, align 8
   %255 = zext nneg i8 %40 to i32
-  %256 = icmp ult i8 %40, 6
+  %256 = icmp samesign ult i8 %40, 6
   br i1 %256, label %257, label %protobuf_verify_wiretype.exit110
 
 257:                                              ; preds = %252
@@ -3100,7 +3100,7 @@ protobuf_verify_wiretype.exit117.thread:          ; preds = %279
   %282 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %283 = load ptr, ptr %7, align 8
   %284 = zext nneg i8 %40 to i32
-  %285 = icmp ult i8 %40, 6
+  %285 = icmp samesign ult i8 %40, 6
   br i1 %285, label %286, label %protobuf_verify_wiretype.exit117
 
 286:                                              ; preds = %281
@@ -3169,7 +3169,7 @@ protobuf_verify_wiretype.exit124.thread:          ; preds = %308
   %311 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %312 = load ptr, ptr %6, align 8
   %313 = zext nneg i8 %40 to i32
-  %314 = icmp ult i8 %40, 6
+  %314 = icmp samesign ult i8 %40, 6
   br i1 %314, label %315, label %protobuf_verify_wiretype.exit124
 
 315:                                              ; preds = %310
@@ -3324,7 +3324,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
-  %43 = icmp ult i8 %33, 6
+  %43 = icmp samesign ult i8 %33, 6
   br i1 %43, label %44, label %protobuf_verify_wiretype.exit
 
 44:                                               ; preds = %39
@@ -3488,7 +3488,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %40
   %43 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %44 = load ptr, ptr %9, align 8
   %45 = zext nneg i8 %36 to i32
-  %46 = icmp ult i8 %36, 6
+  %46 = icmp samesign ult i8 %36, 6
   br i1 %46, label %47, label %protobuf_verify_wiretype.exit
 
 47:                                               ; preds = %42
@@ -3558,7 +3558,7 @@ protobuf_verify_wiretype.exit43.thread:           ; preds = %70
   %73 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %74 = load ptr, ptr %8, align 8
   %75 = zext nneg i8 %36 to i32
-  %76 = icmp ult i8 %36, 6
+  %76 = icmp samesign ult i8 %36, 6
   br i1 %76, label %77, label %protobuf_verify_wiretype.exit43
 
 77:                                               ; preds = %72
@@ -3628,7 +3628,7 @@ protobuf_verify_wiretype.exit50.thread:           ; preds = %100
   %103 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %104 = load ptr, ptr %7, align 8
   %105 = zext nneg i8 %36 to i32
-  %106 = icmp ult i8 %36, 6
+  %106 = icmp samesign ult i8 %36, 6
   br i1 %106, label %107, label %protobuf_verify_wiretype.exit50
 
 107:                                              ; preds = %102
@@ -3743,7 +3743,7 @@ protobuf_verify_wiretype.exit60.thread:           ; preds = %150
   %153 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %154 = load ptr, ptr %6, align 8
   %155 = zext nneg i8 %36 to i32
-  %156 = icmp ult i8 %36, 6
+  %156 = icmp samesign ult i8 %36, 6
   br i1 %156, label %157, label %protobuf_verify_wiretype.exit60
 
 157:                                              ; preds = %152

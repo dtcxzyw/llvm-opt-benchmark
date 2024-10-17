@@ -139,7 +139,7 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 2
   %34 = and i16 %33, 60
-  %35 = icmp ult i16 %34, 20
+  %35 = icmp samesign ult i16 %34, 20
   %36 = lshr i16 %32, 8
   %37 = trunc nuw i16 %36 to i8
   br i1 %35, label %43, label %38
@@ -890,7 +890,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   br i1 %527, label %.thread41, label %.preheader
 
 528:                                              ; preds = %.thread42
-  %529 = icmp ugt i16 %485, 20
+  %529 = icmp samesign ugt i16 %485, 20
   br i1 %529, label %.preheader, label %.thread41
 
 .preheader:                                       ; preds = %528, %525
@@ -952,7 +952,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %566 = select i1 %565, i32 %563, i32 %558
   %567 = select i1 %565, i32 %563, i32 %560
   %568 = add nuw nsw i64 %559, 8
-  %569 = icmp ult i64 %568, %556
+  %569 = icmp samesign ult i64 %568, %556
   br i1 %569, label %557, label %.thread41, !llvm.loop !10
 
 570:                                              ; preds = %550, %546
@@ -1627,7 +1627,7 @@ define internal fastcc void @tcp_options(ptr noundef %0, i32 noundef %1, i16 %.1
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 8
   store i8 %35, ptr %33, align 1
-  %36 = icmp ugt i16 %6, 20
+  %36 = icmp samesign ugt i16 %6, 20
   br i1 %36, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %.thread1, %73

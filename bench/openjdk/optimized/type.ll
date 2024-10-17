@@ -10942,7 +10942,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %18, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %36, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %36, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
@@ -11054,7 +11054,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %10, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %27, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
@@ -11199,7 +11199,7 @@ define hidden noundef zeroext i1 @_ZNK9TypeTuple5emptyEv(ptr nocapture noundef n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %2, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %._crit_edge, !llvm.loop !14
 
 9:                                                ; preds = %.lr.ph, %5
@@ -14338,7 +14338,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassEC2EP5ArenaiiRKS1_.exit: ; preds = %2, %.lr
   %54 = add nsw i32 %35, 1
   %55 = icmp sgt i32 %35, -1
   %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i.i.i = select i1 %55, i1 %57, i1 false
   %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %59 = sub nuw nsw i32 32, %58
@@ -14453,7 +14453,7 @@ define hidden void @_ZN14TypeInterfaces3addEP15ciInstanceKlass(ptr noundef nonnu
   %25 = add nsw i32 %4, 1
   %26 = icmp sgt i32 %4, -1
   %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
-  %28 = icmp ult i32 %27, 2
+  %28 = icmp samesign ult i32 %27, 2
   %or.cond.i.i.i.i.i = select i1 %26, i1 %28, i1 false
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
   %30 = sub nuw nsw i32 32, %29
@@ -14924,7 +14924,7 @@ _ZN17GrowableArrayViewIP15ciInstanceKlassE4sortEPFiPS1_S3_E.exit.thread: ; preds
 _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit.i: ; preds = %23
   %27 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %31 = sub nuw nsw i32 32, %30
   %32 = shl nuw i32 1, %31
@@ -15115,7 +15115,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit.i: ; preds = %.critedge4
   %35 = icmp sgt i64 %indvars.iv138, -1
   %36 = trunc i64 %34 to i32
   %37 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   %or.cond.i.i.i.i.i = select i1 %35, i1 %38, i1 false
   %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %40 = sub nuw nsw i32 32, %39
@@ -15227,7 +15227,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit.i54: ; preds = %.critedge
   %83 = icmp sgt i64 %indvars.iv148, -1
   %84 = trunc nsw i64 %82 to i32
   %85 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %84)
-  %86 = icmp ult i32 %85, 2
+  %86 = icmp samesign ult i32 %85, 2
   %or.cond.i.i.i.i.i44 = select i1 %83, i1 %86, i1 false
   %87 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %84, i1 true)
   %88 = sub nuw nsw i32 32, %87
@@ -15301,7 +15301,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit.i71: ; preds = %117
   %119 = add nsw i32 %68, 1
   %120 = icmp sgt i32 %68, -1
   %121 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %119)
-  %122 = icmp ult i32 %121, 2
+  %122 = icmp samesign ult i32 %121, 2
   %or.cond.i.i.i.i.i48 = select i1 %120, i1 %122, i1 false
   %123 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %119, i1 true)
   %124 = sub nuw nsw i32 32, %123
@@ -15542,7 +15542,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit.i: ; preds = %51
   %53 = add nsw i32 %.0.i.i.i.i.i68, 1
   %54 = icmp sgt i32 %.0.i.i.i.i.i68, -1
   %55 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %53)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   %or.cond.i.i.i.i.i = select i1 %54, i1 %56, i1 false
   %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %58 = sub nuw nsw i32 32, %57

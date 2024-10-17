@@ -236,7 +236,7 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
 .thread:                                          ; preds = %30, %23, %27, %54, %51, %43, %38, %35, %24
   %.sroa.02.1.i11 = phi i64 [ %25, %51 ], [ %25, %24 ], [ %.sroa.02.0.i8274, %38 ], [ %.sroa.02.0.i8274, %35 ], [ %spec.select.i13, %43 ], [ %spec.select25.i14, %54 ], [ %.sroa.02.0.i8274, %27 ], [ %.sroa.02.0.i8274, %23 ], [ %spec.select, %30 ]
   %48 = add nuw nsw i64 %.sroa.08.0.i9275, 1
-  %49 = icmp ult i64 %48, %.sroa.0.0.sroa.speculated.i32
+  %49 = icmp samesign ult i64 %48, %.sroa.0.0.sroa.speculated.i32
   %50 = icmp ult i64 %.sroa.02.1.i11, %.sroa.01.0.lcssa303
   %or.cond.i10 = select i1 %49, i1 %50, i1 false
   br i1 %or.cond.i10, label %.lr.ph276, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15
@@ -961,7 +961,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread:                                          ; preds = %151, %144, %148, %175, %172, %164, %159, %156, %145
   %.sroa.02.1.i6 = phi i64 [ %146, %172 ], [ %146, %145 ], [ %.sroa.02.0.i3497, %159 ], [ %.sroa.02.0.i3497, %156 ], [ %spec.select.i8, %164 ], [ %spec.select25.i9, %175 ], [ %.sroa.02.0.i3497, %148 ], [ %.sroa.02.0.i3497, %144 ], [ %spec.select, %151 ]
   %169 = add nuw nsw i64 %.sroa.08.0.i4498, 1
-  %170 = icmp ult i64 %169, %.sroa.0.0.sroa.speculated.i
+  %170 = icmp samesign ult i64 %169, %.sroa.0.0.sroa.speculated.i
   %171 = icmp ult i64 %.sroa.02.1.i6, %2
   %or.cond.i5 = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i5, label %.lr.ph500, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10
@@ -1611,7 +1611,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread:                                          ; preds = %151, %144, %148, %175, %172, %164, %159, %156, %145
   %.sroa.02.1.i6 = phi i64 [ %146, %172 ], [ %146, %145 ], [ %.sroa.02.0.i3492, %159 ], [ %.sroa.02.0.i3492, %156 ], [ %spec.select.i8, %164 ], [ %spec.select25.i9, %175 ], [ %.sroa.02.0.i3492, %148 ], [ %.sroa.02.0.i3492, %144 ], [ %spec.select, %151 ]
   %169 = add nuw nsw i64 %.sroa.08.0.i4493, 1
-  %170 = icmp ult i64 %169, %.sroa.0.0.sroa.speculated.i
+  %170 = icmp samesign ult i64 %169, %.sroa.0.0.sroa.speculated.i
   %171 = icmp ult i64 %.sroa.02.1.i6, %2
   %or.cond.i5 = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i5, label %.lr.ph495, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10
@@ -3965,7 +3965,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 .thread430:                                       ; preds = %92, %85, %89, %116, %113, %105, %100, %97, %86
   %.sroa.02.1.i36 = phi i64 [ %87, %113 ], [ %87, %86 ], [ %.sroa.02.0.i33512, %100 ], [ %.sroa.02.0.i33512, %97 ], [ %spec.select.i38, %105 ], [ %spec.select25.i39, %116 ], [ %.sroa.02.0.i33512, %89 ], [ %.sroa.02.0.i33512, %85 ], [ %spec.select, %92 ]
   %110 = add nuw nsw i64 %.sroa.08.0.i34513, 1
-  %111 = icmp ult i64 %110, %.sroa.0.0.sroa.speculated.i
+  %111 = icmp samesign ult i64 %110, %.sroa.0.0.sroa.speculated.i
   %112 = icmp ult i64 %.sroa.02.1.i36, %.sroa.0408.0.lcssa
   %or.cond.i35 = select i1 %111, i1 %112, i1 false
   br i1 %or.cond.i35, label %.noexc40, label %.noexc22
@@ -4621,7 +4621,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 .thread:                                          ; preds = %22, %15, %19, %46, %43, %35, %30, %27, %16
   %.sroa.02.1.i16 = phi i64 [ %17, %43 ], [ %17, %16 ], [ %.sroa.02.0.i13361, %30 ], [ %.sroa.02.0.i13361, %27 ], [ %spec.select.i18, %35 ], [ %spec.select25.i19, %46 ], [ %.sroa.02.0.i13361, %19 ], [ %.sroa.02.0.i13361, %15 ], [ %spec.select, %22 ]
   %40 = add nuw nsw i64 %.sroa.08.0.i14362, 1
-  %41 = icmp ult i64 %40, %.sroa.0.0.sroa.speculated.i
+  %41 = icmp samesign ult i64 %40, %.sroa.0.0.sroa.speculated.i
   %42 = icmp ult i64 %.sroa.02.1.i16, %3
   %or.cond.i15 = select i1 %41, i1 %42, i1 false
   br i1 %or.cond.i15, label %.noexc20, label %.noexc2
@@ -6714,7 +6714,7 @@ define void @_ZN5ropey4iter5Lines9next_impl17h24995c215970aeddE(ptr dead_on_unwi
 .thread:                                          ; preds = %72, %66, %69, %94, %84, %79, %76
   %.sroa.02.1.i183.shrunk = phi i1 [ false, %79 ], [ false, %76 ], [ %87, %84 ], [ %97, %94 ], [ false, %69 ], [ false, %66 ], [ %75, %72 ]
   %89 = add nuw nsw i64 %.sroa.08.0.i1811692, 1
-  %90 = icmp uge i64 %89, %.sroa.0.0.sroa.speculated.i
+  %90 = icmp samesign uge i64 %89, %.sroa.0.0.sroa.speculated.i
   %or.cond.i182.not = or i1 %90, %.sroa.02.1.i183.shrunk
   br i1 %or.cond.i182.not, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187.loopexit, label %.preheader2509
 
@@ -8124,7 +8124,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread1433:                                      ; preds = %743, %737, %740, %765, %755, %750, %747
   %.sroa.02.1.i199.shrunk = phi i1 [ false, %750 ], [ false, %747 ], [ %758, %755 ], [ %768, %765 ], [ false, %740 ], [ false, %737 ], [ %746, %743 ]
   %760 = add nuw nsw i64 %.sroa.08.0.i1971938, 1
-  %761 = icmp uge i64 %760, %.sroa.0.0.sroa.speculated.i397
+  %761 = icmp samesign uge i64 %760, %.sroa.0.0.sroa.speculated.i397
   %or.cond.i198.not = or i1 %761, %.sroa.02.1.i199.shrunk
   br i1 %or.cond.i198.not, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203.loopexit, label %.preheader2508
 
@@ -8661,7 +8661,7 @@ _ZN11str_indices5lines16to_byte_idx_impl17h385babf254751b31E.exit163: ; preds = 
 .thread1443:                                      ; preds = %987, %981, %984, %1009, %999, %994, %991
   %.sroa.02.1.i215.shrunk = phi i1 [ false, %994 ], [ false, %991 ], [ %1002, %999 ], [ %1012, %1009 ], [ false, %984 ], [ false, %981 ], [ %990, %987 ]
   %1004 = add nuw nsw i64 %.sroa.08.0.i2132002, 1
-  %1005 = icmp uge i64 %1004, %.sroa.0.0.sroa.speculated.i416
+  %1005 = icmp samesign uge i64 %1004, %.sroa.0.0.sroa.speculated.i416
   %or.cond.i214.not = or i1 %1005, %.sroa.02.1.i215.shrunk
   br i1 %or.cond.i214.not, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219.loopexit, label %.preheader2507
 

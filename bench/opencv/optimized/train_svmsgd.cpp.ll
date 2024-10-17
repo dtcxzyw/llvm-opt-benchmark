@@ -1184,7 +1184,7 @@ define hidden noundef zeroext i1 @_Z17findPointsForLineRKN2cv3MatEfPNS_6Point_Ii
 21:                                               ; preds = %.lr.ph
   %22 = zext i1 %20 to i32
   %spec.select = add nuw nsw i32 %.01520, %22
-  %23 = icmp ult i32 %spec.select, 2
+  %23 = icmp samesign ult i32 %spec.select, 2
   %24 = add i32 %.021, 1
   %25 = zext i32 %24 to i64
   %26 = icmp ugt i64 %15, %25

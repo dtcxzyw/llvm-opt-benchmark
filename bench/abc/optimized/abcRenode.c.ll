@@ -1695,7 +1695,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %.val27 = load i64, ptr %4, align 4
   %68 = lshr i64 %.val27, 24
   %69 = and i64 %68, 255
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %60, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %60, %54

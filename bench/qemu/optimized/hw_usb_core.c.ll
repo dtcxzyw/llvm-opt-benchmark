@@ -993,7 +993,7 @@ for.end.i:                                        ; preds = %for.body.i
   %16 = load i8, ptr %arrayidx28.i, align 2
   %conv29.i = zext i8 %16 to i32
   %or30.i = or disjoint i32 %shl26.i, %conv29.i
-  %cmp32.i = icmp ugt i32 %or30.i, 4096
+  %cmp32.i = icmp samesign ugt i32 %or30.i, 4096
   br i1 %cmp32.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end.i
@@ -1084,7 +1084,7 @@ if.end.i19:                                       ; preds = %sw.bb
   %28 = load i8, ptr %arrayidx5.i26, align 2
   %conv6.i27 = zext i8 %28 to i32
   %or.i28 = or disjoint i32 %shl.i25, %conv6.i27
-  %cmp8.i = icmp ugt i32 %or.i28, 4096
+  %cmp8.i = icmp samesign ugt i32 %or.i28, 4096
   br i1 %cmp8.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end.i19

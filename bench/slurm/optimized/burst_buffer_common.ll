@@ -301,7 +301,7 @@ bb_free_alloc_buf.exit:                           ; preds = %.preheader42, %bb_f
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %32, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next.i, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
   br i1 %46, label %35, label %_bb_job_del2.exit, !llvm.loop !9
 
 _bb_job_del2.exit:                                ; preds = %35, %31
@@ -465,7 +465,7 @@ define void @bb_clear_config(ptr noundef %0, i1 noundef zeroext %1) local_unname
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %22 = load i32, ptr %15, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next40, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next40, %23
   br i1 %24, label %19, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %19, %.preheader
@@ -482,7 +482,7 @@ define void @bb_clear_config(ptr noundef %0, i1 noundef zeroext %1) local_unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %15, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %26, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %26, %.preheader33, %._crit_edge
@@ -1577,7 +1577,7 @@ _print_users.exit163:                             ; preds = %175, %.preheader.i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %241 = load i32, ptr %226, align 8
   %242 = zext i32 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next, %242
   br i1 %243, label %229, label %._crit_edge169, !llvm.loop !25
 
 ._crit_edge169:                                   ; preds = %240, %225
@@ -2287,7 +2287,7 @@ define void @bb_pack_state(ptr nocapture noundef readonly %0, ptr noundef %1, i1
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %84 = load i32, ptr %59, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next281, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next281, %85
   br i1 %86, label %63, label %._crit_edge276, !llvm.loop !29
 
 ._crit_edge276:                                   ; preds = %71, %56
@@ -2511,7 +2511,7 @@ define void @bb_pack_state(ptr nocapture noundef readonly %0, ptr noundef %1, i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = load i32, ptr %175, align 8
   %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next, %201
   br i1 %202, label %179, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %187, %172
@@ -3648,7 +3648,7 @@ define void @bb_job_del(ptr nocapture noundef readonly %0, i32 noundef %1) local
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %24, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %38, label %27, label %_bb_job_del2.exit, !llvm.loop !9
 
 _bb_job_del2.exit:                                ; preds = %27, %23

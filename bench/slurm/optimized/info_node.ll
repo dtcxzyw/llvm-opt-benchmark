@@ -245,7 +245,7 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr nocapture noundef
   %.2.us = phi i32 [ %12, %11 ], [ %.033.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %35
@@ -543,7 +543,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %93, align 8
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next, %103
   br i1 %104, label %.lr.ph, label %.loopexit94, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader93, %101
@@ -868,7 +868,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr nocapture no
   %.2.us = phi i32 [ %12, %11 ], [ %.034.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %34
@@ -1054,7 +1054,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   %.2.us.i = phi i32 [ %45, %44 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next.i, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next.i, %51
   br i1 %52, label %.lr.ph.split.us.split.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %49

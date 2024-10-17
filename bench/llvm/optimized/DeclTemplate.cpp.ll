@@ -713,7 +713,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread:
   %164 = load i32, ptr %11, align 4
   %165 = and i32 %164, 536870911
   %166 = zext nneg i32 %165 to i64
-  %167 = icmp ult i64 %indvars.iv.next, %166
+  %167 = icmp samesign ult i64 %indvars.iv.next, %166
   br i1 %167, label %17, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread, %8

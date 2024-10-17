@@ -4184,7 +4184,7 @@ if.end:                                           ; preds = %entry
 if.then18:                                        ; preds = %if.end
   %call19 = tail call i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr noundef nonnull align 8 dereferenceable(1128) %this, i1 noundef zeroext true)
   %cp.sroa.0.0.extract.trunc = trunc i64 %call19 to i32
-  %tobool.i.not = icmp ult i64 %call19, 4294967296
+  %tobool.i.not = icmp samesign ult i64 %call19, 4294967296
   %spec.select = select i1 %tobool.i.not, i32 65533, i32 %cp.sroa.0.0.extract.trunc
   br label %return
 
@@ -6024,7 +6024,7 @@ if.else:                                          ; preds = %for.cond18
 if.then28:                                        ; preds = %if.else
   %call30 = call i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   %codePoint.sroa.0.0.extract.trunc = trunc i64 %call30 to i32
-  %tobool.i.not = icmp ult i64 %call30, 4294967296
+  %tobool.i.not = icmp samesign ult i64 %call30, 4294967296
   br i1 %tobool.i.not, label %if.end60, label %if.then32
 
 if.then32:                                        ; preds = %if.then28
@@ -8085,7 +8085,7 @@ if.end:                                           ; preds = %for.inc.i
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond37.not39 = and i1 %tobool.not.i, %cmp
   %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %radix)
-  %tobool1.not.i = icmp ult i32 %4, 2
+  %tobool1.not.i = icmp samesign ult i32 %4, 2
   %or.cond38 = select i1 %or.cond37.not39, i1 %tobool1.not.i, i1 false
   br i1 %or.cond38, label %for.cond.preheader, label %return
 
@@ -16449,7 +16449,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then1
 if.then22:                                        ; preds = %if.else
   %call = call i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   %codePoint.sroa.0.0.extract.trunc = trunc i64 %call to i32
-  %tobool.i.not = icmp ult i64 %call, 4294967296
+  %tobool.i.not = icmp samesign ult i64 %call, 4294967296
   br i1 %tobool.i.not, label %if.else26, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
@@ -17872,7 +17872,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv3117, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %shl, 128
+  %cmp11 = icmp samesign ult i32 %shl, 128
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end
@@ -17971,7 +17971,7 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv33118, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or50, 2048
+  %cmp53 = icmp samesign ult i32 %or50, 2048
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end44
@@ -17996,9 +17996,9 @@ if.end.i.i74:                                     ; preds = %if.then55
   br label %return
 
 if.end57:                                         ; preds = %if.end44
-  %cmp58 = icmp ugt i32 %or50, 55295
-  %cmp59 = icmp ult i32 %shl47, 57344
-  %or.cond = and i1 %cmp59, %cmp58
+  %cmp58 = icmp samesign ugt i32 %or50, 55295
+  %cmp59 = icmp samesign ult i32 %shl47, 57344
+  %or.cond = select i1 %cmp58, i1 %cmp59, i1 false
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18116,7 +18116,7 @@ if.end112:                                        ; preds = %if.end99
   %and122 = and i32 %conv101119, 63
   %42 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %42, %or118
-  %cmp124 = icmp ult i32 %or118, 65536
+  %cmp124 = icmp samesign ult i32 %or118, 65536
   br i1 %cmp124, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end112
@@ -18129,7 +18129,7 @@ if.then126:                                       ; preds = %if.end112
   br label %return
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128
@@ -18376,7 +18376,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv3117, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %shl, 128
+  %cmp11 = icmp samesign ult i32 %shl, 128
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end
@@ -18475,7 +18475,7 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv33118, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or50, 2048
+  %cmp53 = icmp samesign ult i32 %or50, 2048
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end44
@@ -18500,9 +18500,9 @@ if.end.i.i74:                                     ; preds = %if.then55
   br label %return
 
 if.end57:                                         ; preds = %if.end44
-  %cmp58 = icmp ugt i32 %or50, 55295
-  %cmp59 = icmp ult i32 %shl47, 57344
-  %or.cond = and i1 %cmp59, %cmp58
+  %cmp58 = icmp samesign ugt i32 %or50, 55295
+  %cmp59 = icmp samesign ult i32 %shl47, 57344
+  %or.cond = select i1 %cmp58, i1 %cmp59, i1 false
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18620,7 +18620,7 @@ if.end112:                                        ; preds = %if.end99
   %and122 = and i32 %conv101119, 63
   %42 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %42, %or118
-  %cmp124 = icmp ult i32 %or118, 65536
+  %cmp124 = icmp samesign ult i32 %or118, 65536
   br i1 %cmp124, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end112
@@ -18633,7 +18633,7 @@ if.then126:                                       ; preds = %if.end112
   br label %return
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128
@@ -18750,7 +18750,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv378, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %shl, 128
+  %cmp11 = icmp samesign ult i32 %shl, 128
   %spec.select = select i1 %cmp11, i32 65533, i32 %or
   br label %return
 
@@ -18793,13 +18793,13 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv3379, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or50, 2048
+  %cmp53 = icmp samesign ult i32 %or50, 2048
   br i1 %cmp53, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end44
-  %cmp58 = icmp ugt i32 %or50, 55295
-  %cmp59 = icmp ult i32 %shl47, 57344
-  %or.cond = and i1 %cmp59, %cmp58
+  %cmp58 = icmp samesign ugt i32 %or50, 55295
+  %cmp59 = icmp samesign ult i32 %shl47, 57344
+  %or.cond = select i1 %cmp58, i1 %cmp59, i1 false
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18874,11 +18874,11 @@ if.end112:                                        ; preds = %if.end99
   %and122 = and i32 %conv10180, 63
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
-  %cmp124 = icmp ult i32 %or118, 65536
+  %cmp124 = icmp samesign ult i32 %or118, 65536
   br i1 %cmp124, label %return, label %if.end128
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128

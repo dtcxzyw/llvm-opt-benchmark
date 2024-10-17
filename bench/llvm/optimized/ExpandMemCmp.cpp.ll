@@ -1577,7 +1577,7 @@ _ZN12_GLOBAL__N_115MemCmpExpansion12getNumBlocksEv.exit19.i.i.i: ; preds = %_ZN4
 _ZN12_GLOBAL__N_115MemCmpExpansion12getNumBlocksEv.exit.i20.i.i.i: ; preds = %589, %585
   %.0.in.i.i21.i.i.i = phi i64 [ %596, %589 ], [ %588, %585 ]
   %597 = and i64 %.0.in.i.i21.i.i.i, 4294967295
-  %598 = icmp ult i64 %indvars.iv.i.i.i.i, %597
+  %598 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %597
   br i1 %598, label %599, label %_ZN12_GLOBAL__N_115MemCmpExpansion26getMemCmpExpansionZeroCaseEv.exit.i.i.i
 
 599:                                              ; preds = %_ZN12_GLOBAL__N_115MemCmpExpansion12getNumBlocksEv.exit.i20.i.i.i

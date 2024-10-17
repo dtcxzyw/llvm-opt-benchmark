@@ -1780,7 +1780,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i, %if.e
 invoke.cont5:                                     ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %13, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %14 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %14
+  %cmp = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont5
@@ -1953,7 +1953,7 @@ sw.bb7.i.i.i64:                                   ; preds = %while.body.i.i.i60
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %sw.bb7.i.i.i64, %sw.bb5.i.i.i87, %sw.bb3.i.i.i89
   %retval.0.i.i.i65 = phi i32 [ %44, %sw.bb7.i.i.i64 ], [ %sub.i.i.i88, %sw.bb5.i.i.i87 ], [ %add.i.i.i90, %sw.bb3.i.i.i89 ]
   %45 = zext i32 %retval.0.i.i.i65 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %45
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %45
   br i1 %cmp.i, label %cond.true.i67, label %invoke.cont11
 
 cond.true.i67:                                    ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
@@ -2142,7 +2142,7 @@ if.end.i.i:                                       ; preds = %for.cond34
 
 _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond34, %if.end.i.i
   %retval.0.i.i = phi i64 [ %65, %if.end.i.i ], [ 0, %for.cond34 ]
-  %cmp37 = icmp ult i64 %indvars.iv163, %retval.0.i.i
+  %cmp37 = icmp samesign ult i64 %indvars.iv163, %retval.0.i.i
   br i1 %cmp37, label %invoke.cont45, label %for.cond52.preheader
 
 for.cond52.preheader:                             ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -2181,7 +2181,7 @@ if.end.i.i.i112:                                  ; preds = %for.cond52
 
 _ZNK12bv2real_util13num_aux_declsEv.exit:         ; preds = %for.cond52, %if.end.i.i.i112
   %retval.0.i.i.i114 = phi i64 [ %72, %if.end.i.i.i112 ], [ 0, %for.cond52 ]
-  %cmp55 = icmp ult i64 %indvars.iv166, %retval.0.i.i.i114
+  %cmp55 = icmp samesign ult i64 %indvars.iv166, %retval.0.i.i.i114
   br i1 %cmp55, label %invoke.cont61, label %for.end66
 
 invoke.cont61:                                    ; preds = %_ZNK12bv2real_util13num_aux_declsEv.exit
@@ -3696,7 +3696,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %3, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit
@@ -3873,7 +3873,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 invoke.cont7:                                     ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %11, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %12 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %12
+  %cmp = icmp samesign ult i64 %indvars.iv, %12
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont7
@@ -4095,7 +4095,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 invoke.cont4:                                     ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %11, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %12 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %12
+  %cmp = icmp samesign ult i64 %indvars.iv, %12
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont4
@@ -4335,7 +4335,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 invoke.cont4:                                     ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %11, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %12 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %12
+  %cmp = icmp samesign ult i64 %indvars.iv, %12
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont4
@@ -4666,7 +4666,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !23
 
@@ -5571,7 +5571,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !32
 
@@ -6922,7 +6922,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 invoke.cont:                                      ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %8, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %9 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %9
+  %cmp = icmp samesign ult i64 %indvars.iv, %9
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont

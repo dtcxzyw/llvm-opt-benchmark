@@ -5815,7 +5815,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx.i835.3 = getelementptr inbounds i8, ptr %storemerge.i, i64 %idxprom.i.3
   store i8 %79, ptr %arrayidx.i835.3, align 1, !tbaa !74
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 4
-  %cmp104.3 = icmp ult i64 %78, 4095
+  %cmp104.3 = icmp samesign ult i64 %78, 4095
   br i1 %cmp104.3, label %for.body, label %for.cond.cleanup, !llvm.loop !193
 
 invoke.cont119:                                   ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
@@ -6126,7 +6126,7 @@ for.body156:                                      ; preds = %for.body156.prehead
   %arrayidx.i900.3 = getelementptr inbounds i8, ptr %storemerge.i, i64 %idxprom.i899.3
   store i8 %133, ptr %arrayidx.i900.3, align 1, !tbaa !74
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 4
-  %cmp154.3 = icmp ult i64 %132, 4095
+  %cmp154.3 = icmp samesign ult i64 %132, 4095
   br i1 %cmp154.3, label %for.body156, label %for.cond.cleanup155, !llvm.loop !202
 
 if.then174:                                       ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit897
@@ -6440,7 +6440,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   %arrayidx.i965.3 = getelementptr inbounds i8, ptr %storemerge.i, i64 %idxprom.i964.3
   store i8 %187, ptr %arrayidx.i965.3, align 1, !tbaa !74
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 4
-  %cmp212.3 = icmp ult i64 %186, 4095
+  %cmp212.3 = icmp samesign ult i64 %186, 4095
   br i1 %cmp212.3, label %for.body214, label %for.cond.cleanup213, !llvm.loop !211
 
 ehcleanup227:                                     ; preds = %cleanup.action205, %ehcleanup199, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i940
@@ -9190,12 +9190,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %6, i64 %idxprom6.i.i.i
   store i8 %8, ptr %arrayidx7.i.i.i, align 1, !tbaa !74
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !268
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %conv.i, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i

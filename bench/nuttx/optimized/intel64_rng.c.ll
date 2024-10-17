@@ -34,7 +34,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
 .preheader23:                                     ; preds = %._crit_edge, %3
   %.017.lcssa = phi i64 [ %2, %3 ], [ %16, %._crit_edge ]
   %.0.lcssa = phi ptr [ %1, %3 ], [ %15, %._crit_edge ]
-  %9 = icmp ugt i64 %.017.lcssa, 4
+  %9 = icmp samesign ugt i64 %.017.lcssa, 4
   br i1 %9, label %.preheader22, label %.preheader21
 
 .lr.ph:                                           ; preds = %.preheader24, %.lr.ph
@@ -65,7 +65,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
 .preheader21:                                     ; preds = %._crit_edge29, %.preheader23
   %.118.lcssa = phi i64 [ %.017.lcssa, %.preheader23 ], [ %29, %._crit_edge29 ]
   %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader23 ], [ %28, %._crit_edge29 ]
-  %22 = icmp ugt i64 %.118.lcssa, 2
+  %22 = icmp samesign ugt i64 %.118.lcssa, 2
   br i1 %22, label %.preheader20, label %._crit_edge38
 
 .lr.ph28:                                         ; preds = %.preheader22, %.lr.ph28

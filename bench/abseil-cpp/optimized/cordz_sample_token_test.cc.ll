@@ -8011,9 +8011,9 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i.i, i64 %7
   %8 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv1.i.i.i.i.i.i.i.i.i.i = and i64 %8, 2147483648
-  %cmp4.i.i.i.i.i.not.not.i.i.i.i.i = icmp eq i64 %conv1.i.i.i.i.i.i.i.i.i.i, 0
+  %or.cond.not.not.i.i.i.i.i = icmp eq i64 %conv1.i.i.i.i.i.i.i.i.i.i, 0
   %idxprom.i.i.i.i.i = sext i32 %add.i.i.i.i.i.i.i.i.i.i to i64
-  br i1 %cmp4.i.i.i.i.i.not.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else27.i.i.i.i.i
+  br i1 %or.cond.not.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else27.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i.i.i.i
   %data.i.i.i.i.i = getelementptr inbounds [3 x %"struct.absl::TestCordData"], ptr %cords.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i, i32 1
@@ -8113,7 +8113,7 @@ if.end.i.i.i.i.i43.i.i.i.i.i:                     ; preds = %_ZN4absl15random_in
   br label %if.else75.i.i.i.i.i
 
 invoke.cont32.i.i.i.i.i:                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35.i.i.i.i.i
-  %cmp4.i.i.i.i.i41.i.i.i.i.i = icmp ult i64 %conv1.i.i.i.i.i38.i.i.i.i.i, 2147483648
+  %cmp4.i.i.i.i.i41.i.i.i.i.i = icmp samesign ult i64 %conv1.i.i.i.i.i38.i.i.i.i.i, 2147483648
   %.pre116.i.i.i.i.i = load ptr, ptr %arrayidx29.i.i.i.i.i, align 8
   br i1 %cmp4.i.i.i.i.i41.i.i.i.i.i, label %if.then34.i.i.i.i.i, label %if.else75.i.i.i.i.i
 

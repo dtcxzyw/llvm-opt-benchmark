@@ -352,7 +352,7 @@ truncate_cleanup_folio.exit:                      ; preds = %80, %84
 
 125:                                              ; preds = %122, %116
   %126 = phi i64 [ %124, %122 ], [ 1, %116 ]
-  %127 = icmp ugt i64 %126, %118
+  %127 = icmp samesign ugt i64 %126, %118
   %128 = add i32 %117, 1
   br i1 %127, label %116, label %129, !llvm.loop !10
 
@@ -664,7 +664,7 @@ truncate_cleanup_folio.exit:                      ; preds = %67, %71
   %73 = add nuw nsw i64 %28, 1
   %74 = load i8, ptr %4, align 8
   %75 = zext i8 %74 to i64
-  %76 = icmp ult i64 %73, %75
+  %76 = icmp samesign ult i64 %73, %75
   br i1 %76, label %.preheader10, label %.loopexit11, !llvm.loop !14
 
 .loopexit11:                                      ; preds = %truncate_cleanup_folio.exit, %25
@@ -681,7 +681,7 @@ truncate_cleanup_folio.exit:                      ; preds = %67, %71
   %82 = add nuw nsw i64 %79, 1
   %83 = load i8, ptr %4, align 8
   %84 = zext i8 %83 to i64
-  %85 = icmp ult i64 %82, %84
+  %85 = icmp samesign ult i64 %82, %84
   br i1 %85, label %.preheader9, label %86, !llvm.loop !15
 
 86:                                               ; preds = %.preheader9
@@ -906,7 +906,7 @@ truncate_cleanup_folio.exit7:                     ; preds = %201, %205
   %209 = phi i8 [ %.pre, %207 ], [ %148, %.preheader ]
   %210 = add nuw nsw i64 %149, 1
   %211 = zext i8 %209 to i64
-  %212 = icmp ult i64 %210, %211
+  %212 = icmp samesign ult i64 %210, %211
   br i1 %212, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %208, %138
@@ -1038,7 +1038,7 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
   %66 = add nuw nsw i64 %45, 1
   %67 = load i8, ptr %1, align 8
   %68 = zext i8 %67 to i64
-  %69 = icmp ult i64 %66, %68
+  %69 = icmp samesign ult i64 %66, %68
   br i1 %69, label %44, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %64, %30
@@ -1297,7 +1297,7 @@ clear_shadow_entry.exit:                          ; preds = %50, %59
   %106 = add nuw nsw i64 %28, 1
   %107 = load i8, ptr %7, align 8
   %108 = zext i8 %107 to i64
-  %109 = icmp ult i64 %106, %108
+  %109 = icmp samesign ult i64 %106, %108
   br i1 %109, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %104, %24
@@ -1657,7 +1657,7 @@ clear_shadow_entry.exit:                          ; preds = %53, %62
   %176 = add nuw nsw i64 %30, 1
   %177 = load i8, ptr %6, align 8
   %178 = zext i8 %177 to i64
-  %179 = icmp ult i64 %176, %178
+  %179 = icmp samesign ult i64 %176, %178
   br i1 %179, label %.preheader, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %173, %25

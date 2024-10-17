@@ -520,7 +520,7 @@ if.end7:                                          ; preds = %lor.lhs.false.if.th
   %5 = load ptr, ptr %vfn, align 8
   %call8 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %and = and i32 %call8, 255
-  %cmp9 = icmp ult i32 %and, 192
+  %cmp9 = icmp samesign ult i32 %and, 192
   br i1 %cmp9, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.end7
@@ -647,7 +647,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.true.i, %cond.
   %arrayidx52.i = getelementptr inbounds i32, ptr %14, i64 %idxprom51.i
   %26 = load i32, ptr %arrayidx52.i, align 4
   %and33 = and i32 %26, 255
-  %cmp34 = icmp ult i32 %and33, 192
+  %cmp34 = icmp samesign ult i32 %and33, 192
   br i1 %cmp34, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit

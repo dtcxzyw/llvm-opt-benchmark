@@ -1795,7 +1795,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i
@@ -4547,7 +4547,7 @@ define void @_ZN5rfb_t4tickEv(ptr noundef nonnull align 8 dereferenceable(168) %
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i64
   %13 = mul nuw nsw i64 %9, %12
-  %14 = icmp ult i64 %13, 8
+  %14 = icmp samesign ult i64 %13, 8
   br i1 %14, label %53, label %15
 
 15:                                               ; preds = %1

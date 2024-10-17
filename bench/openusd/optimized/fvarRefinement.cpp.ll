@@ -1591,8 +1591,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %161 = load i8, ptr %160, align 1
   %162 = lshr i8 %161, 3
   %163 = trunc i8 %162 to i1
-  %164 = icmp uge i64 %indvars.iv.next197, %155
-  %.not112 = or i1 %164, %163
+  %164 = icmp samesign uge i64 %indvars.iv.next197, %155
+  %.not112 = select i1 %163, i1 true, i1 %164
   br i1 %.not112, label %.loopexit, label %156, !llvm.loop !33
 
 165:                                              ; preds = %144
@@ -1633,7 +1633,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %183 = lshr i8 %182, 3
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %184 = trunc i8 %183 to i1
-  %185 = icmp uge i64 %indvars.iv.next191, %sext
+  %185 = icmp samesign uge i64 %indvars.iv.next191, %sext
   %or.cond161.not = select i1 %184, i1 true, i1 %185
   br i1 %or.cond161.not, label %.critedge.preheader, label %177, !llvm.loop !34
 
@@ -1647,8 +1647,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %191 = lshr i8 %190, 3
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %192 = trunc i8 %191 to i1
-  %193 = icmp uge i64 %indvars.iv193, %176
-  %.not109 = or i1 %193, %192
+  %193 = icmp samesign uge i64 %indvars.iv193, %176
+  %.not109 = select i1 %192, i1 true, i1 %193
   br i1 %.not109, label %.loopexit, label %.critedge, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.critedge, %156, %.critedge.preheader

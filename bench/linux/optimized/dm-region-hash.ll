@@ -320,7 +320,7 @@ define dso_local void @dm_region_hash_destroy(ptr noundef %0) #2 align 16 {
   %32 = phi ptr [ %28, %.loopexit.loopexit ], [ %15, %13 ]
   %33 = add nuw nsw i64 %16, 1
   %34 = zext i32 %31 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %13, label %.loopexit4, !llvm.loop !16
 
 .loopexit4:                                       ; preds = %.loopexit, %5

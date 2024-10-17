@@ -62503,7 +62503,7 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   br i1 %or.cond, label %.split86.us, label %110
 
 110:                                              ; preds = %107
-  %111 = icmp ult i32 %.sroa.032.0, 128
+  %111 = icmp samesign ult i32 %.sroa.032.0, 128
   br i1 %111, label %166, label %162
 
 "_ZN4core3ptr413drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h07d6885e182b3856E.exit57.split.us": ; preds = %.split86.us
@@ -62591,7 +62591,7 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   br i1 %or.cond1, label %.split92.us, label %142
 
 142:                                              ; preds = %139
-  %143 = icmp ult i32 %.sroa.036.0, 128
+  %143 = icmp samesign ult i32 %.sroa.036.0, 128
   br i1 %143, label %158, label %154
 
 "_ZN4core3ptr391drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h24f73f20037e52a6E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit.i.i.i.i.i.i.i.i59", %.split92.us, %136
@@ -62629,11 +62629,11 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   ret void
 
 154:                                              ; preds = %142
-  %155 = icmp ult i32 %.sroa.036.0, 2048
+  %155 = icmp samesign ult i32 %.sroa.036.0, 2048
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %.sroa.036.0, 65536
+  %157 = icmp samesign ult i32 %.sroa.036.0, 65536
   %.47 = select i1 %157, i64 3, i64 4
   br label %158
 
@@ -62649,11 +62649,11 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   unreachable
 
 162:                                              ; preds = %110
-  %163 = icmp ult i32 %.sroa.032.0, 2048
+  %163 = icmp samesign ult i32 %.sroa.032.0, 2048
   br i1 %163, label %166, label %164
 
 164:                                              ; preds = %162
-  %165 = icmp ult i32 %.sroa.032.0, 65536
+  %165 = icmp samesign ult i32 %.sroa.032.0, 65536
   %.48 = select i1 %165, i64 -3, i64 -4
   br label %166
 
@@ -62998,7 +62998,7 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   br i1 %or.cond, label %.split86.us, label %109
 
 109:                                              ; preds = %106
-  %110 = icmp ult i32 %.sroa.032.0, 128
+  %110 = icmp samesign ult i32 %.sroa.032.0, 128
   br i1 %110, label %165, label %161
 
 "_ZN4core3ptr413drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h07d6885e182b3856E.exit57.split.us": ; preds = %.split86.us
@@ -63086,7 +63086,7 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   br i1 %or.cond1, label %.split92.us, label %141
 
 141:                                              ; preds = %138
-  %142 = icmp ult i32 %.sroa.036.0, 128
+  %142 = icmp samesign ult i32 %.sroa.036.0, 128
   br i1 %142, label %157, label %153
 
 "_ZN4core3ptr391drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h24f73f20037e52a6E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit.i.i.i.i.i.i.i.i59", %.split92.us, %135
@@ -63124,11 +63124,11 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   ret void
 
 153:                                              ; preds = %141
-  %154 = icmp ult i32 %.sroa.036.0, 2048
+  %154 = icmp samesign ult i32 %.sroa.036.0, 2048
   br i1 %154, label %157, label %155
 
 155:                                              ; preds = %153
-  %156 = icmp ult i32 %.sroa.036.0, 65536
+  %156 = icmp samesign ult i32 %.sroa.036.0, 65536
   %.47 = select i1 %156, i64 3, i64 4
   br label %157
 
@@ -63144,11 +63144,11 @@ _ZN4core3cmp6max_by17h9efbce75c23c51edE.exit.split: ; preds = %_ZN4core3cmp6max_
   unreachable
 
 161:                                              ; preds = %109
-  %162 = icmp ult i32 %.sroa.032.0, 2048
+  %162 = icmp samesign ult i32 %.sroa.032.0, 2048
   br i1 %162, label %165, label %163
 
 163:                                              ; preds = %161
-  %164 = icmp ult i32 %.sroa.032.0, 65536
+  %164 = icmp samesign ult i32 %.sroa.032.0, 65536
   %.48 = select i1 %164, i64 -3, i64 -4
   br label %165
 

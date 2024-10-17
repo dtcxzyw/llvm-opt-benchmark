@@ -7332,7 +7332,7 @@ _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %26, %27
   %37 = getelementptr inbounds %"class.llvm::MCOperand", ptr %36, i64 %indvars.iv95, i32 1
   %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 3
-  %.not.i.i.us = icmp ult i32 %39, %33
+  %.not.i.i.us = icmp samesign ult i32 %39, %33
   br i1 %.not.i.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us, label %_ZN4llvm5APInt6setBitEj.exit.us
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us: ; preds = %.lr.ph.split.us
@@ -7403,7 +7403,7 @@ _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %.lr.ph.split.us, %_
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
   %76 = lshr i32 %75, 3
-  %.not.i.i40.us = icmp ult i32 %76, %61
+  %.not.i.i40.us = icmp samesign ult i32 %76, %61
   br i1 %.not.i.i40.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48.us, label %_ZN4llvm5APInt6setBitEj.exit51.us
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48.us: ; preds = %.lr.ph88.split.us
@@ -7452,7 +7452,7 @@ _ZN4llvm5APInt6setBitEj.exit51.us:                ; preds = %.lr.ph88.split.us, 
   %100 = getelementptr inbounds %"class.llvm::MCOperand", ptr %99, i64 %indvars.iv, i32 1
   %101 = load i32, ptr %100, align 8
   %102 = lshr i32 %101, 3
-  %.not.i.i = icmp ult i32 %102, %33
+  %.not.i.i = icmp samesign ult i32 %102, %33
   br i1 %.not.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %.lr.ph.split
@@ -7467,7 +7467,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %.lr.ph.s
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %.lr.ph.split
-  %.not.i4.i = icmp ult i32 %102, %34
+  %.not.i4.i = icmp samesign ult i32 %102, %34
   br i1 %.not.i4.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
@@ -7482,7 +7482,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i: ; preds = %_ZNK4ll
   br i1 %.not14.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
-  %.not.i7.i = icmp ult i32 %102, %35
+  %.not.i7.i = icmp samesign ult i32 %102, %35
   br i1 %.not.i7.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit", label %_ZN4llvm5APInt6setBitEj.exit
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i
@@ -7539,7 +7539,7 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZNK4llvm15MCRegist
   %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
   %149 = lshr i32 %148, 3
-  %.not.i.i40 = icmp ult i32 %149, %61
+  %.not.i.i40 = icmp samesign ult i32 %149, %61
   br i1 %.not.i.i40, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48: ; preds = %.lr.ph88.split
@@ -7554,7 +7554,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48: ; preds = %.lr.ph
   br i1 %.not.i49, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48, %.lr.ph88.split
-  %.not.i4.i43 = icmp ult i32 %149, %62
+  %.not.i4.i43 = icmp samesign ult i32 %149, %62
   br i1 %.not.i4.i43, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
@@ -7569,7 +7569,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46: ; preds = %_ZNK4
   br i1 %.not14.i47, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
-  %.not.i7.i45 = icmp ult i32 %149, %63
+  %.not.i7.i45 = icmp samesign ult i32 %149, %63
   br i1 %.not.i7.i45, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50", label %_ZN4llvm5APInt6setBitEj.exit51
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44

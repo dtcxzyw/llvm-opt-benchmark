@@ -222,7 +222,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %13 = zext nneg i8 %7 to i64
   %14 = add nsw i64 %13, -5
   %15 = select i1 %12, i64 %14, i64 0
-  %16 = icmp ult i8 %8, 6
+  %16 = icmp samesign ult i8 %8, 6
   %17 = zext nneg i8 %8 to i64
   %18 = add nsw i64 %17, -5
   %19 = select i1 %16, i64 0, i64 %18
@@ -1014,7 +1014,7 @@ define noundef zeroext i1 @"_ZN57_$LT$vfs..loader..Message$u20$as$u20$core..fmt.
   %6 = alloca i64, align 8
   %7 = alloca { ptr, i8, i8, [6 x i8] }, align 8
   %8 = load i64, ptr %0, align 8, !range !121, !noundef !4
-  %.not = icmp ult i64 %8, 2
+  %.not = icmp samesign ult i64 %8, 2
   %9 = add nsw i64 %8, -1
   %10 = select i1 %.not, i64 0, i64 %9
   switch i64 %10, label %11 [

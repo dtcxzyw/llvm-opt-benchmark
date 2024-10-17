@@ -593,7 +593,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %145, %_ZN4llvm10MIM
   %163 = zext i24 %162 to i64
   %164 = add nuw nsw i64 %163, 4294967295
   %165 = and i64 %164, 4294967295
-  %166 = icmp ult i64 %160, %165
+  %166 = icmp samesign ult i64 %160, %165
   br i1 %166, label %132, label %._crit_edge136.i.i, !llvm.loop !13
 
 ._crit_edge136.i.i:                               ; preds = %156, %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_S3_.exit.i.i
@@ -4051,7 +4051,7 @@ _ZN4llvm5X86II7needSIBEjjb.exit:                  ; preds = %1229
   %1234 = lshr i32 %1208, 3
   %1235 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
   %1236 = zext i16 %1235 to i32
-  %.not.i554 = icmp ult i32 %1234, %1236
+  %.not.i554 = icmp samesign ult i32 %1234, %1236
   br i1 %.not.i554, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %1232
@@ -4068,7 +4068,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %1232
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %1232, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
   %1245 = lshr i32 %1222, 3
-  %.not.i556 = icmp ult i32 %1245, %1236
+  %.not.i556 = icmp samesign ult i32 %1245, %1236
   br i1 %.not.i556, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread

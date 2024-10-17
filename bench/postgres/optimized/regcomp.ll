@@ -22712,7 +22712,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
 125:                                              ; preds = %newarc.exit, %92
   %.0.i149 = phi i16 [ %.0.i150153, %92 ], [ %.0.i, %newarc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not95.not = icmp ult i64 %indvars.iv, %41
+  %.not95.not = icmp samesign ult i64 %indvars.iv, %41
   br i1 %.not95.not, label %.lr.ph157, label %.loopexit135.loopexit, !llvm.loop !111
 
 .loopexit135.loopexit:                            ; preds = %125
@@ -24203,7 +24203,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc noundef zeroext i1 @store_match(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #7 {
-  %4 = icmp ugt i32 %2, 1
+  %4 = icmp samesign ugt i32 %2, 1
   br i1 %4, label %5, label %36
 
 5:                                                ; preds = %3
@@ -28121,7 +28121,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .critedge:                                        ; preds = %15, %8, %.critedge.sink.split
   %.02437 = phi i32 [ %.02441, %.critedge.sink.split ], [ %.02441, %8 ], [ %3, %15 ]
   %.034 = phi i32 [ %.042, %.critedge.sink.split ], [ %.042, %8 ], [ %17, %15 ]
-  %19 = icmp ult i32 %.02437, %2
+  %19 = icmp samesign ult i32 %.02437, %2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.critedge
@@ -29615,7 +29615,7 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr nocapture n
   br i1 %exitcond85.not, label %.thread, label %.preheader, !llvm.loop !159
 
 69:                                               ; preds = %.preheader
-  %70 = icmp ult i64 %indvars.iv82, 257
+  %70 = icmp samesign ult i64 %indvars.iv82, 257
   br i1 %70, label %.lr.ph79.preheader, label %.thread
 
 .lr.ph79.preheader:                               ; preds = %69

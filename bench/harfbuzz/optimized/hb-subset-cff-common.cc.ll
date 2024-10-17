@@ -286,7 +286,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK13hb_bit_page_t
   %pop.07.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %_ZNK13hb_bit_page_t14get_populationEv.exit.i.i.i ]
   %17 = load i32, ptr %length.i.i.i, align 4
   %18 = zext i32 %17 to i64
-  %cmp.not.i.i.i.i = icmp ult i64 %indvars.iv.i.i.i, %18
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i, %18
   %19 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %19, i64 %indvars.iv.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.not.i.i.i.i, ptr %arrayidx.i.i.i.i, ptr @_hb_NullPool
@@ -347,7 +347,7 @@ for.body.i10.i.i:                                 ; preds = %_ZNK13hb_bit_page_t
   %pop.07.i12.i.i = phi i32 [ 0, %for.body.lr.ph.i7.i.i ], [ %add.i19.i.i, %_ZNK13hb_bit_page_t14get_populationEv.exit.i17.i.i ]
   %24 = load i32, ptr %length.i5.i.i, align 4
   %25 = zext i32 %24 to i64
-  %cmp.not.i.i13.i.i = icmp ult i64 %indvars.iv.i11.i.i, %25
+  %cmp.not.i.i13.i.i = icmp samesign ult i64 %indvars.iv.i11.i.i, %25
   %26 = load ptr, ptr %arrayZ.i.i8.i.i, align 8
   %arrayidx.i.i14.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %26, i64 %indvars.iv.i11.i.i
   %retval.0.i.i15.i.i = select i1 %cmp.not.i.i13.i.i, ptr %arrayidx.i.i14.i.i, ptr @_hb_NullPool
@@ -570,7 +570,7 @@ _ZNK14hb_inc_bimap_tixEj.exit:                    ; preds = %if.end.i.i.i.i.i, %
   %retval.0.i.i.i76 = phi ptr [ @minus_1, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EEixEi.exit ], [ @minus_1, %if.end.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then.i.i.i.i.i ], [ @minus_1, %if.end.i.i.i.i.i ]
   %62 = load i32, ptr %retval.0.i.i.i76, align 4
   %63 = zext i32 %51 to i64
-  %cmp.not.i78 = icmp ult i64 %indvars.iv, %63
+  %cmp.not.i78 = icmp samesign ult i64 %indvars.iv, %63
   br i1 %cmp.not.i78, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EEixEi.exit85, label %if.then.i79
 
 if.then.i79:                                      ; preds = %_ZNK14hb_inc_bimap_tixEj.exit
@@ -583,7 +583,7 @@ _ZN11hb_vector_tIN3CFF11code_pair_tELb0EEixEi.exit85: ; preds = %_ZNK14hb_inc_bi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %length.i, align 4
   %65 = zext i32 %64 to i64
-  %cmp44 = icmp ult i64 %indvars.iv.next, %65
+  %cmp44 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %cmp44, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EEixEi.exit, label %cleanup.cont, !llvm.loop !13
 
 cleanup:                                          ; preds = %while.end
@@ -883,7 +883,7 @@ for.body.i:                                       ; preds = %_ZN2OT7ArrayOfIN3CF
   %15 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %15 to i64
   %add.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i14.i = icmp ult i64 %indvars.iv.i, %add.i.i.i.i
+  %cmp.not.i14.i = icmp samesign ult i64 %indvars.iv.i, %add.i.i.i.i
   br i1 %cmp.not.i14.i, label %if.end.i16.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
@@ -901,7 +901,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixE
   store i16 %ref.tmp.sroa.0.0.insert.insert.i20.i, ptr %retval.0.i15.i, align 1
   %16 = load i32, ptr %length.i, align 4
   %17 = zext i32 %16 to i64
-  %cmp.not.i22.i = icmp ult i64 %indvars.iv.i, %17
+  %cmp.not.i22.i = icmp samesign ult i64 %indvars.iv.i, %17
   %18 = load ptr, ptr %arrayZ.i.i, align 8
   %arrayidx.i25.i = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %18, i64 %indvars.iv.i
   %retval.0.i26.i = select i1 %cmp.not.i22.i, ptr %arrayidx.i25.i, ptr @_hb_NullPool
@@ -913,7 +913,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixE
   %21 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i30.i = zext i8 %21 to i64
   %add.i.i.i31.i = or disjoint i64 %shl.i.i.i28.i, %conv4.i.i.i30.i
-  %cmp.not.i32.i = icmp ult i64 %indvars.iv.i, %add.i.i.i31.i
+  %cmp.not.i32.i = icmp samesign ult i64 %indvars.iv.i, %add.i.i.i31.i
   br i1 %cmp.not.i32.i, label %if.end.i35.i, label %if.then.i33.i
 
 if.then.i33.i:                                    ; preds = %_ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
@@ -932,7 +932,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %length.i, align 4
   %23 = zext i32 %22 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %23
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %_ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit39.i
@@ -1052,7 +1052,7 @@ for.body.i50:                                     ; preds = %_ZN2OT7ArrayOfIN3CF
   %44 = load i8, ptr %arrayidx12.i.i.i.i, align 1
   %conv13.i.i.i.i = zext i8 %44 to i64
   %add14.i.i.i.i = or disjoint i64 %add10.i.i.i.i, %conv13.i.i.i.i
-  %cmp.not.i14.i57 = icmp ult i64 %indvars.iv.i51, %add14.i.i.i.i
+  %cmp.not.i14.i57 = icmp samesign ult i64 %indvars.iv.i51, %add14.i.i.i.i
   br i1 %cmp.not.i14.i57, label %if.end.i16.i82, label %if.then.i.i58
 
 if.then.i.i58:                                    ; preds = %for.body.i50
@@ -1070,7 +1070,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixE
   store i32 %ref.tmp.sroa.0.0.insert.insert.i20.i60, ptr %retval.0.i15.i59, align 1
   %45 = load i32, ptr %length.i43, align 4
   %46 = zext i32 %45 to i64
-  %cmp.not.i22.i61 = icmp ult i64 %indvars.iv.i51, %46
+  %cmp.not.i22.i61 = icmp samesign ult i64 %indvars.iv.i51, %46
   %47 = load ptr, ptr %arrayZ.i.i47, align 8
   %arrayidx.i25.i62 = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %47, i64 %indvars.iv.i51
   %retval.0.i26.i63 = select i1 %cmp.not.i22.i61, ptr %arrayidx.i25.i62, ptr @_hb_NullPool
@@ -1090,7 +1090,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixE
   %52 = load i8, ptr %arrayidx12.i.i.i.i, align 1
   %conv13.i.i.i38.i = zext i8 %52 to i64
   %add14.i.i.i39.i = or disjoint i64 %add10.i.i.i36.i, %conv13.i.i.i38.i
-  %cmp.not.i40.i = icmp ult i64 %indvars.iv.i51, %add14.i.i.i39.i
+  %cmp.not.i40.i = icmp samesign ult i64 %indvars.iv.i51, %add14.i.i.i39.i
   br i1 %cmp.not.i40.i, label %if.end.i43.i, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %_ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
@@ -1110,7 +1110,7 @@ _ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixE
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i51, 1
   %53 = load i32, ptr %length.i43, align 4
   %54 = zext i32 %53 to i64
-  %cmp.i69 = icmp ult i64 %indvars.iv.next.i68, %54
+  %cmp.i69 = icmp samesign ult i64 %indvars.iv.next.i68, %54
   br i1 %cmp.i69, label %for.body.i50, label %for.end.loopexit.i70, !llvm.loop !17
 
 for.end.loopexit.i70:                             ; preds = %_ZN2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit47.i
@@ -1506,7 +1506,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
   %notmask = shl nsw i32 -1, %retval.0.i
   %sub = xor i32 %notmask, -1
   store i32 %sub, ptr %mask.i, align 4
-  %cmp.i = icmp ugt i32 %retval.0.i, 31
+  %cmp.i = icmp samesign ugt i32 %retval.0.i, 31
   br i1 %cmp.i, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %_ZL9hb_memsetPvij.exit
@@ -2440,7 +2440,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.i, %5
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.i, %5
   %arrayidx.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %3, i64 %indvars.iv.i
   %retval.0.i.i = select i1 %cmp.not.i.i, ptr %arrayidx.i.i, ptr @_hb_NullPool
   %index.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4

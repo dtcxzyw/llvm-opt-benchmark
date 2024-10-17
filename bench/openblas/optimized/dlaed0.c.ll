@@ -230,7 +230,7 @@ thread-pre-split:                                 ; preds = %33
   %153 = icmp eq i64 %152, 0
   %154 = select i1 %153, i32 1, i32 %151
   %155 = mul nuw nsw i32 %154, %147
-  %156 = icmp ult i64 %148, 4
+  %156 = icmp samesign ult i64 %148, 4
   br i1 %156, label %.loopexit29, label %.preheader28, !llvm.loop !14
 
 .loopexit29:                                      ; preds = %.preheader28, %141, %133
@@ -262,7 +262,7 @@ thread-pre-split:                                 ; preds = %33
   %177 = icmp eq i64 %176, 0
   %178 = select i1 %177, i32 1, i32 %175
   %179 = mul nuw nsw i32 %178, %171
-  %180 = icmp ult i64 %172, 4
+  %180 = icmp samesign ult i64 %172, 4
   br i1 %180, label %.loopexit27, label %.preheader, !llvm.loop !14
 
 .loopexit27:                                      ; preds = %.preheader, %165, %.loopexit29
@@ -594,7 +594,7 @@ thread-pre-split:                                 ; preds = %33
   %401 = getelementptr double, ptr %224, i64 %400
   call void @dcopy_(ptr noundef %1, ptr noundef %399, ptr noundef nonnull @c__1, ptr noundef %401, ptr noundef nonnull @c__1) #6
   %402 = add nuw nsw i64 %390, 1
-  %403 = icmp ult i64 %390, %388
+  %403 = icmp samesign ult i64 %390, %388
   br i1 %403, label %389, label %.loopexit18, !llvm.loop !19
 
 .loopexit18:                                      ; preds = %389, %383
@@ -628,7 +628,7 @@ thread-pre-split:                                 ; preds = %33
   %423 = getelementptr double, ptr %9, i64 %422
   call void @dcopy_(ptr noundef nonnull %2, ptr noundef %419, ptr noundef nonnull @c__1, ptr noundef %423, ptr noundef nonnull @c__1) #6
   %424 = add nuw nsw i64 %410, 1
-  %425 = icmp ult i64 %410, %408
+  %425 = icmp samesign ult i64 %410, %408
   br i1 %425, label %409, label %.loopexit19, !llvm.loop !20
 
 .loopexit19:                                      ; preds = %409, %404

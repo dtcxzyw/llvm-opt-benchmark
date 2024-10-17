@@ -26985,7 +26985,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v2
           to label %.noexc863 unwind label %.loopexit1140
 
 .noexc863:                                        ; preds = %1635
-  %1640 = icmp ult i64 %indvars.iv.i, %1634
+  %1640 = icmp samesign ult i64 %indvars.iv.i, %1634
   br i1 %1640, label %1641, label %.noexc864
 
 1641:                                             ; preds = %.noexc863
@@ -30512,7 +30512,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L18dumpTensorToStringERNS
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
   %9 = load i32, ptr %1, align 8
   %10 = and i32 %9, 4095
-  %11 = icmp ult i32 %10, 8
+  %11 = icmp samesign ult i32 %10, 8
   br i1 %11, label %switch.lookup, label %14
 
 12:                                               ; preds = %2
@@ -35178,7 +35178,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %55, %64, %68, %_ZN2
   %109 = load double, ptr %108, align 8
   %110 = fcmp oeq double %109, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %111 = icmp ult i64 %indvars.iv.next, %106
+  %111 = icmp samesign ult i64 %indvars.iv.next, %106
   %112 = select i1 %111, i1 %110, i1 false
   br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !320
 

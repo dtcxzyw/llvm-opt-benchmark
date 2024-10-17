@@ -40243,7 +40243,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hfcda9fab09a272d8E.exit: ; preds
   %.0105 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h16d7cf7e025fcb09E.exit" ], [ %.0.i, %._crit_edge ]
   %48 = sub nuw i64 %1, %.0105
   %49 = getelementptr inbounds { i64, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.0105
-  %50 = icmp ult i64 %48, 2
+  %50 = icmp samesign ult i64 %48, 2
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %45
@@ -40890,7 +40890,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h6596031d336ccbecE(ptr noal
   %49 = sub nuw i64 %1, %.0108
   %50 = getelementptr inbounds ptr, ptr %0, i64 %.0108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6154)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -41496,7 +41496,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h87cbbad37fa37c1fE(ptr noal
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { { ptr, i64 }, { { { ptr, ptr } }, {}, {} } }, ptr %0, i64 %.0109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6241)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -42098,7 +42098,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5e0eef4e6777627fE.exit: ; preds
   %.0105 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17he8b9dc219f4d6db8E.exit" ], [ %.0.i, %._crit_edge ]
   %48 = sub nuw i64 %1, %.0105
   %49 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %0, i64 %.0105
-  %50 = icmp ult i64 %48, 2
+  %50 = icmp samesign ult i64 %48, 2
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %45
@@ -44273,7 +44273,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h83ad36b3718daef4E.llvm.5127572
 .outer._crit_edge:                                ; preds = %.outer, %264, %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %265, %264 ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %266, %264 ], [ %.sroa.0.1, %.outer ]
-  %28 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %28 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %28, label %272, label %.loopexit
 
 29:                                               ; preds = %26
@@ -44984,7 +44984,7 @@ define hidden void @_ZN4core5slice4sort7recurse17hdd6cb72db8853e0cE.llvm.5127572
 .outer._crit_edge:                                ; preds = %.outer, %261, %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %262, %261 ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %263, %261 ], [ %.sroa.0.1, %.outer ]
-  %28 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %28 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %28, label %269, label %.loopexit
 
 29:                                               ; preds = %26
@@ -45680,7 +45680,7 @@ define hidden void @_ZN4core5slice4sort7recurse17hf81655a2a6ebe2beE.llvm.5127572
 .outer._crit_edge:                                ; preds = %.outer, %264, %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %265, %264 ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %266, %264 ], [ %.sroa.0.1, %.outer ]
-  %28 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %28 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %28, label %272, label %.loopexit
 
 29:                                               ; preds = %26
@@ -88211,7 +88211,7 @@ define hidden void @_ZN14deltalake_core12data_catalog6client13ClientOptions6clie
 
 68:                                               ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9c4e90459307c9f8E.exit.i"
   %69 = load i64, ptr %25, align 8, !range !1256, !alias.scope !10616, !noalias !10613, !noundef !9
-  %switch.i = icmp ult i64 %69, 2
+  %switch.i = icmp samesign ult i64 %69, 2
   %70 = getelementptr inbounds i8, ptr %1, i64 24
   %71 = load i64, ptr %70, align 8, !alias.scope !10616, !noalias !10613
   %72 = getelementptr inbounds i8, ptr %1, i64 32

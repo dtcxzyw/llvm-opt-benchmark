@@ -2127,7 +2127,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %.026.lcssa.i.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %2 ], [ %10, %.lr.ph.i.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -2171,7 +2171,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
 33:                                               ; preds = %24, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %24 ], [ %7, %._crit_edge.i.i.i ]
-  %34 = icmp ult i64 %.025.i.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -5385,7 +5385,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %.026.lcssa.i.i = phi i64 [ 11, %34 ], [ %47, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %34 ], [ %40, %.lr.ph.i.i ]
   %37 = zext nneg i32 %.1.lcssa.i.i to i64
-  %38 = icmp ugt i32 %.1.lcssa.i.i, 99
+  %38 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %38, label %54, label %63
 
 .lr.ph.i.i:                                       ; preds = %34, %.lr.ph.i.i
@@ -5429,7 +5429,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 63:                                               ; preds = %54, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %59, %54 ], [ %.026.lcssa.i.i, %._crit_edge.i.i ]
   %.025.i.i = phi i64 [ %.zext37.i.i, %54 ], [ %37, %._crit_edge.i.i ]
-  %64 = icmp ult i64 %.025.i.i, 10
+  %64 = icmp samesign ult i64 %.025.i.i, 10
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %63
@@ -5507,7 +5507,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %.026.lcssa.i.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %2 ], [ %9, %.lr.ph.i.i ]
   %6 = zext nneg i32 %.1.lcssa.i.i to i64
-  %7 = icmp ugt i32 %.1.lcssa.i.i, 99
+  %7 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %7, label %23, label %32
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -5551,7 +5551,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
 32:                                               ; preds = %23, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %28, %23 ], [ %.026.lcssa.i.i, %._crit_edge.i.i ]
   %.025.i.i = phi i64 [ %.zext37.i.i, %23 ], [ %6, %._crit_edge.i.i ]
-  %33 = icmp ult i64 %.025.i.i, 10
+  %33 = icmp samesign ult i64 %.025.i.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -6581,7 +6581,7 @@ default.unreachable207:                           ; preds = %75
   %101 = phi i64 [ 0, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfefa7d32a5ea238cE.exit124.lr.ph" ], [ %107, %106 ]
   %102 = phi float [ 0.000000e+00, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfefa7d32a5ea238cE.exit124.lr.ph" ], [ %112, %106 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1635)
-  %103 = icmp ult i64 %101, 2
+  %103 = icmp samesign ult i64 %101, 2
   call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds { [4 x i64] }, ptr %15, i64 %101
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 8
@@ -6912,7 +6912,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
 
 44:                                               ; preds = %.critedge.i
   %45 = and i8 %42, 127
-  %46 = icmp ugt i8 %45, 14
+  %46 = icmp samesign ugt i8 %45, 14
   br i1 %46, label %63, label %_ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i
 
 _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
@@ -7904,7 +7904,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %.026.lcssa.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %.0.i, %2 ], [ %9, %.lr.ph.i ]
   %6 = zext nneg i32 %.1.lcssa.i to i64
-  %7 = icmp ugt i32 %.1.lcssa.i, 99
+  %7 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %7, label %23, label %32
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
@@ -7948,7 +7948,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 32:                                               ; preds = %23, %._crit_edge.i
   %.127.i = phi i64 [ %28, %23 ], [ %.026.lcssa.i, %._crit_edge.i ]
   %.025.i = phi i64 [ %.zext37.i, %23 ], [ %6, %._crit_edge.i ]
-  %33 = icmp ult i64 %.025.i, 10
+  %33 = icmp samesign ult i64 %.025.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -8644,7 +8644,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -8657,7 +8657,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -8866,7 +8866,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %.026.lcssa.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %2 ], [ %10, %.lr.ph.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -8910,7 +8910,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 33:                                               ; preds = %24, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i, %._crit_edge.i.i ]
   %.025.i.i = phi i64 [ %.zext37.i.i, %24 ], [ %7, %._crit_edge.i.i ]
-  %34 = icmp ult i64 %.025.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -9115,7 +9115,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.1.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -9128,7 +9128,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %.017.i11 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %.0.i12 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.017.i11, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

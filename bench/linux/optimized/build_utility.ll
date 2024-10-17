@@ -1496,7 +1496,7 @@ define internal noundef i32 @sugov_start(ptr nocapture noundef readonly %0) #0 a
 63:                                               ; preds = %59, %58, %51
   %64 = add nuw nsw i64 %39, 1
   %65 = and i64 %64, 127
-  %66 = icmp ult i64 %65, 64
+  %66 = icmp samesign ult i64 %65, 64
   br i1 %66, label %32, label %.thread, !prof !51, !llvm.loop !52
 
 .thread:                                          ; preds = %32, %63, %38
@@ -1532,7 +1532,7 @@ define internal void @sugov_stop(ptr nocapture noundef readonly %0) #0 align 16 
   store volatile ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %11, 1
   %21 = and i64 %20, 127
-  %22 = icmp ult i64 %21, 64
+  %22 = icmp samesign ult i64 %21, 64
   br i1 %22, label %4, label %.thread, !prof !51, !llvm.loop !53
 
 .thread:                                          ; preds = %4, %14, %10
@@ -5059,7 +5059,7 @@ define dso_local noundef range(i32 0, 2) i32 @cpupri_find_fitness(ptr noundef %0
 49:                                               ; preds = %47, %45
   %50 = add nuw nsw i64 %42, 1
   %51 = and i64 %50, 127
-  %52 = icmp ult i64 %51, 64
+  %52 = icmp samesign ult i64 %51, 64
   br i1 %52, label %.preheader.us, label %..thread14thread-pre-split.us_crit_edge, !prof !51, !llvm.loop !108
 
 ..thread14thread-pre-split.us_crit_edge:          ; preds = %49
@@ -5360,7 +5360,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cpupri_init(ptr noundef %0) loca
   store i32 -1, ptr %27, align 4
   %28 = add nuw nsw i64 %21, 1
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp samesign ult i64 %29, 64
   br i1 %30, label %.preheader, label %.thread, !prof !51, !llvm.loop !114
 
 .thread:                                          ; preds = %.preheader, %24, %20, %8
@@ -5773,7 +5773,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @init_rootdomain(ptr nounde
   store i32 -1, ptr %45, align 4
   %46 = add nuw nsw i64 %39, 1
   %47 = and i64 %46, 127
-  %48 = icmp ult i64 %47, 64
+  %48 = icmp samesign ult i64 %47, 64
   br i1 %48, label %.preheader, label %.thread, !prof !51, !llvm.loop !114
 
 49:                                               ; preds = %26
@@ -7139,7 +7139,7 @@ define internal fastcc void @asym_cpu_capacity_scan() unnamed_addr #0 align 16 {
 13:                                               ; preds = %8, %.loopexit12
   %14 = phi ptr [ %12, %8 ], [ @__cpu_possible_mask, %.loopexit12 ]
   %15 = and i64 %7, 4294967295
-  %16 = icmp ugt i64 %15, 63
+  %16 = icmp samesign ugt i64 %15, 63
   br i1 %16, label %.thread, label %17, !prof !12
 
 17:                                               ; preds = %13
@@ -7416,7 +7416,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   store ptr %81, ptr %88, align 8
   %89 = add nuw nsw i64 %31, 1
   %90 = and i64 %89, 127
-  %91 = icmp ult i64 %90, 64
+  %91 = icmp samesign ult i64 %90, 64
   br i1 %91, label %.preheader156, label %.thread, !prof !51, !llvm.loop !166
 
 .thread:                                          ; preds = %.preheader156, %83, %30
@@ -7535,7 +7535,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 166:                                              ; preds = %157, %149, %147
   %167 = add nuw nsw i64 %144, 1
   %168 = and i64 %167, 127
-  %169 = icmp ult i64 %168, 64
+  %169 = icmp samesign ult i64 %168, 64
   br i1 %169, label %.preheader154, label %.thread96.loopexit, !prof !51, !llvm.loop !169
 
 .thread96.loopexit:                               ; preds = %143, %166, %.preheader154
@@ -7916,7 +7916,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %.ph = phi i8 [ %109, %118 ], [ %360, %374 ], [ %360, %125 ]
   %379 = add nuw nsw i64 %115, 1
   %380 = and i64 %379, 127
-  %381 = icmp ult i64 %380, 64
+  %381 = icmp samesign ult i64 %380, 64
   br i1 %381, label %107, label %.preheader152, !prof !51, !llvm.loop !188
 
 382:                                              ; preds = %.preheader152, %.loopexit151
@@ -8146,7 +8146,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 534:                                              ; preds = %533, %529, %517
   %535 = add nuw nsw i64 %514, 1
   %536 = and i64 %535, 127
-  %537 = icmp ult i64 %536, 64
+  %537 = icmp samesign ult i64 %536, 64
   br i1 %537, label %507, label %.thread104, !prof !51, !llvm.loop !191
 
 .thread104:                                       ; preds = %507, %534, %513
@@ -8236,11 +8236,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %.ph109 = phi ptr [ %428, %435 ], [ %428, %.preheader149 ], [ %580, %583 ]
   %585 = add nuw nsw i64 %430, 1
   %586 = and i64 %585, 127
-  %587 = icmp ugt i64 %586, %393
+  %587 = icmp samesign ugt i64 %586, %393
   br i1 %587, label %588, label %.thread112
 
 588:                                              ; preds = %584
-  %589 = icmp ult i64 %586, 64
+  %589 = icmp samesign ult i64 %586, 64
   br i1 %589, label %590, label %.thread112, !prof !18
 
 590:                                              ; preds = %588
@@ -8451,11 +8451,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %723 = phi ptr [ %634, %631 ], [ %667, %720 ], [ %667, %712 ]
   %724 = add i64 %633, 1
   %725 = and i64 %724, 4294967295
-  %726 = icmp ugt i64 %725, %393
+  %726 = icmp samesign ugt i64 %725, %393
   br i1 %726, label %727, label %.thread115
 
 727:                                              ; preds = %721
-  %728 = icmp ult i64 %725, 64
+  %728 = icmp samesign ult i64 %725, 64
   br i1 %728, label %729, label %.thread115, !prof !18
 
 729:                                              ; preds = %727
@@ -8500,7 +8500,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 .loopexit151:                                     ; preds = %.loopexit150, %392
   %751 = add nuw nsw i64 %389, 1
   %752 = and i64 %751, 127
-  %753 = icmp ult i64 %752, 64
+  %753 = icmp samesign ult i64 %752, 64
   br i1 %753, label %382, label %.preheader145.preheader, !prof !51, !llvm.loop !206
 
 .preheader145.preheader:                          ; preds = %382, %.loopexit151, %388
@@ -8604,7 +8604,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 .loopexit144:                                     ; preds = %.loopexit142, %763
   %821 = add nuw nsw i64 %760, 1
   %822 = and i64 %821, 127
-  %823 = icmp ult i64 %822, 64
+  %823 = icmp samesign ult i64 %822, 64
   br i1 %823, label %.preheader145, label %.thread117, !prof !51, !llvm.loop !209
 
 .thread117:                                       ; preds = %.preheader145, %.loopexit144, %759
@@ -8770,7 +8770,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   store i64 %923, ptr @sched_domains_tmpmask2, align 8
   %924 = add nuw nsw i64 %911, 1
   %925 = and i64 %924, 127
-  %926 = icmp ult i64 %925, 64
+  %926 = icmp samesign ult i64 %925, 64
   br i1 %926, label %903, label %.thread119, !prof !51, !llvm.loop !216
 
 .thread119:                                       ; preds = %903, %914, %910
@@ -8812,7 +8812,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %949 = phi i32 [ %939, %941 ], [ %947, %943 ]
   %950 = add nuw nsw i64 %938, 1
   %951 = and i64 %950, 127
-  %952 = icmp ult i64 %951, 64
+  %952 = icmp samesign ult i64 %951, 64
   br i1 %952, label %.preheader139, label %.thread121, !prof !51, !llvm.loop !217
 
 .thread121:                                       ; preds = %.preheader139, %948, %937
@@ -8921,7 +8921,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %1013 = phi i8 [ %979, %998 ], [ 1, %.preheader136 ], [ %979, %1010 ]
   %1014 = add nuw nsw i64 %985, 1
   %1015 = and i64 %1014, 127
-  %1016 = icmp ult i64 %1015, 64
+  %1016 = icmp samesign ult i64 %1015, 64
   br i1 %1016, label %977, label %.thread123, !prof !51, !llvm.loop !222
 
 .thread123:                                       ; preds = %977, %.loopexit137, %984
@@ -9113,7 +9113,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 1117:                                             ; preds = %1109, %1106
   %1118 = add nuw nsw i64 %1050, 1
   %1119 = and i64 %1118, 127
-  %1120 = icmp ult i64 %1119, 64
+  %1120 = icmp samesign ult i64 %1119, 64
   br i1 %1120, label %1042, label %.thread130, !prof !51, !llvm.loop !223
 
 .loopexit131:                                     ; preds = %1049, %.thread130
@@ -9278,7 +9278,7 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   tail call fastcc void @cpu_attach_domain(ptr noundef null, ptr noundef nonnull @def_root_domain, i32 noundef %77)
   %80 = add nuw nsw i64 %76, 1
   %81 = and i64 %80, 127
-  %82 = icmp ult i64 %81, 64
+  %82 = icmp samesign ult i64 %81, 64
   br i1 %82, label %69, label %.thread.us, !prof !51, !llvm.loop !229
 
 .thread.us:                                       ; preds = %79, %75, %69
@@ -9417,7 +9417,7 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   tail call fastcc void @cpu_attach_domain(ptr noundef null, ptr noundef nonnull @def_root_domain, i32 noundef %146)
   %149 = add nuw nsw i64 %145, 1
   %150 = and i64 %149, 127
-  %151 = icmp ult i64 %150, 64
+  %151 = icmp samesign ult i64 %150, 64
   br i1 %151, label %138, label %.thread, !prof !51, !llvm.loop !229
 
 .thread:                                          ; preds = %138, %148, %144
@@ -9768,7 +9768,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_membarri
 57:                                               ; preds = %56, %50, %40, %37
   %58 = add nuw nsw i64 %34, 1
   %59 = and i64 %58, 127
-  %60 = icmp ult i64 %59, 64
+  %60 = icmp samesign ult i64 %59, 64
   br i1 %60, label %27, label %.thread4, !prof !51, !llvm.loop !239
 
 .thread4:                                         ; preds = %27, %57, %33
@@ -10149,7 +10149,7 @@ define dso_local void @housekeeping_init() local_unnamed_addr #3 section ".init.
   %22 = phi i64 [ %.pre, %20 ], [ %5, %15 ]
   %23 = add nuw nsw i64 %12, 1
   %24 = and i64 %23, 31
-  %25 = icmp ult i64 %24, 9
+  %25 = icmp samesign ult i64 %24, 9
   br i1 %25, label %4, label %.thread, !prof !51, !llvm.loop !254
 
 .thread:                                          ; preds = %4, %21, %11, %0
@@ -10331,7 +10331,7 @@ define internal void @__sched_clock_work(ptr nocapture readnone %0) #0 align 16 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %32, ptr noundef align 8 dereferenceable(24) %3, i64 24, i1 false)
   %33 = add nuw nsw i64 %24, 1
   %34 = and i64 %33, 127
-  %35 = icmp ult i64 %34, 64
+  %35 = icmp samesign ult i64 %34, 64
   br i1 %35, label %17, label %.thread, !prof !51, !llvm.loop !260
 
 .thread:                                          ; preds = %17, %27, %23
@@ -10395,7 +10395,7 @@ define internal i64 @cpuusage_read(ptr nocapture noundef readonly %0, ptr nocapt
   %24 = add i64 %23, %7
   %25 = add nuw nsw i64 %12, 1
   %26 = and i64 %25, 127
-  %27 = icmp ult i64 %26, 64
+  %27 = icmp samesign ult i64 %26, 64
   br i1 %27, label %5, label %.thread, !prof !51, !llvm.loop !261
 
 .thread:                                          ; preds = %5, %15, %11
@@ -10434,7 +10434,7 @@ define internal noundef range(i32 -22, 1) i32 @cpuusage_write(ptr noundef readon
 19:                                               ; preds = %15
   %20 = add nuw nsw i64 %16, 1
   %21 = and i64 %20, 127
-  %22 = icmp ult i64 %21, 64
+  %22 = icmp samesign ult i64 %21, 64
   br i1 %22, label %10, label %.thread, !prof !51, !llvm.loop !262
 
 .split:                                           ; preds = %5, %32
@@ -10467,7 +10467,7 @@ define internal noundef range(i32 -22, 1) i32 @cpuusage_write(ptr noundef readon
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   %44 = add nuw nsw i64 %29, 1
   %45 = and i64 %44, 127
-  %46 = icmp ult i64 %45, 64
+  %46 = icmp samesign ult i64 %45, 64
   br i1 %46, label %.split, label %.thread, !prof !51, !llvm.loop !262
 
 .thread:                                          ; preds = %28, %32, %.split, %19, %15, %10, %3
@@ -10510,7 +10510,7 @@ define internal i64 @cpuusage_user_read(ptr nocapture noundef readonly %0, ptr n
   %27 = add i64 %26, %25
   %28 = add nuw nsw i64 %12, 1
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp samesign ult i64 %29, 64
   br i1 %30, label %5, label %.thread, !prof !51, !llvm.loop !261
 
 .thread:                                          ; preds = %5, %15, %11
@@ -10557,7 +10557,7 @@ define internal i64 @cpuusage_sys_read(ptr nocapture noundef readonly %0, ptr no
   %31 = add i64 %30, %28
   %32 = add nuw nsw i64 %12, 1
   %33 = and i64 %32, 127
-  %34 = icmp ult i64 %33, 64
+  %34 = icmp samesign ult i64 %33, 64
   br i1 %34, label %5, label %.thread, !prof !51, !llvm.loop !261
 
 .thread:                                          ; preds = %5, %15, %11
@@ -10599,7 +10599,7 @@ define internal noundef i32 @cpuacct_percpu_seq_show(ptr noundef %0, ptr nocaptu
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %25) #42
   %26 = add nuw nsw i64 %14, 1
   %27 = and i64 %26, 127
-  %28 = icmp ult i64 %27, 64
+  %28 = icmp samesign ult i64 %27, 64
   br i1 %28, label %7, label %.thread, !prof !51, !llvm.loop !263
 
 .thread:                                          ; preds = %7, %17, %13
@@ -10644,7 +10644,7 @@ define internal noundef i32 @cpuacct_percpu_user_seq_show(ptr noundef %0, ptr no
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %28) #42
   %29 = add nuw nsw i64 %14, 1
   %30 = and i64 %29, 127
-  %31 = icmp ult i64 %30, 64
+  %31 = icmp samesign ult i64 %30, 64
   br i1 %31, label %7, label %.thread, !prof !51, !llvm.loop !263
 
 .thread:                                          ; preds = %7, %17, %13
@@ -10693,7 +10693,7 @@ define internal noundef i32 @cpuacct_percpu_sys_seq_show(ptr noundef %0, ptr noc
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %32) #42
   %33 = add nuw nsw i64 %14, 1
   %34 = and i64 %33, 127
-  %35 = icmp ult i64 %34, 64
+  %35 = icmp samesign ult i64 %34, 64
   br i1 %35, label %7, label %.thread, !prof !51, !llvm.loop !263
 
 .thread:                                          ; preds = %7, %17, %13
@@ -10759,7 +10759,7 @@ define internal noundef i32 @cpuacct_all_seq_show(ptr noundef %0, ptr nocapture 
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.15) #42
   %41 = add nuw nsw i64 %13, 1
   %42 = and i64 %41, 127
-  %43 = icmp ult i64 %42, 64
+  %43 = icmp samesign ult i64 %42, 64
   br i1 %43, label %6, label %.thread, !prof !51, !llvm.loop !264
 
 .thread:                                          ; preds = %6, %16, %12
@@ -10833,7 +10833,7 @@ define internal noundef i32 @cpuacct_stats_show(ptr noundef %0, ptr nocapture re
   store i64 %52, ptr %12, align 8
   %53 = add nuw nsw i64 %22, 1
   %54 = and i64 %53, 127
-  %55 = icmp ult i64 %54, 64
+  %55 = icmp samesign ult i64 %54, 64
   br i1 %55, label %13, label %.thread, !prof !51, !llvm.loop !265
 
 .thread:                                          ; preds = %13, %25, %21
@@ -11251,7 +11251,7 @@ define internal void @sugov_update_shared(ptr nocapture noundef %0, i64 noundef 
   %137 = call i64 @llvm.umax.i64(i64 %135, i64 %85)
   %138 = add nuw nsw i64 %91, 1
   %139 = and i64 %138, 127
-  %140 = icmp ult i64 %139, 64
+  %140 = icmp samesign ult i64 %139, 64
   br i1 %140, label %83, label %.thread3, !prof !51, !llvm.loop !267
 
 .thread3:                                         ; preds = %83, %121, %90
@@ -12837,7 +12837,7 @@ default.unreachable13:                            ; preds = %2
   %80 = phi i64 [ %.pre, %78 ], [ %56, %74 ], [ %56, %65 ]
   %81 = add nuw nsw i64 %62, 1
   %82 = and i64 %81, 127
-  %83 = icmp ult i64 %82, 64
+  %83 = icmp samesign ult i64 %82, 64
   br i1 %83, label %55, label %.thread10, !prof !51, !llvm.loop !281
 
 .thread10:                                        ; preds = %55, %79, %61
@@ -12962,7 +12962,7 @@ define internal fastcc void @sync_runqueues_membarrier_state(ptr noundef %0) unn
   %38 = phi i64 [ %.pre, %36 ], [ %14, %32 ], [ %14, %23 ]
   %39 = add nuw nsw i64 %20, 1
   %40 = and i64 %39, 127
-  %41 = icmp ult i64 %40, 64
+  %41 = icmp samesign ult i64 %40, 64
   br i1 %41, label %13, label %.thread, !prof !51, !llvm.loop !289
 
 .thread:                                          ; preds = %13, %37, %19
@@ -13141,13 +13141,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   store i64 %40, ptr %53, align 8
   %54 = add nuw nsw i64 %48, 1
   %55 = and i64 %54, 31
-  %56 = icmp ult i64 %55, 9
+  %56 = icmp samesign ult i64 %55, 9
   br i1 %56, label %.preheader, label %.thread, !prof !51, !llvm.loop !301
 
 57:                                               ; preds = %.preheader12, %68
   %58 = phi i64 [ %73, %68 ], [ 0, %.preheader12 ]
   %59 = and i64 %58, 4294967295
-  %60 = icmp ult i64 %59, 9
+  %60 = icmp samesign ult i64 %59, 9
   br i1 %60, label %61, label %.thread7, !prof !18
 
 61:                                               ; preds = %57
@@ -13198,7 +13198,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   store i64 %41, ptr %86, align 8
   %87 = add nuw nsw i64 %81, 1
   %88 = and i64 %87, 31
-  %89 = icmp ult i64 %88, 9
+  %89 = icmp samesign ult i64 %88, 9
   br i1 %89, label %76, label %.thread, !prof !51, !llvm.loop !303
 
 .thread:                                          ; preds = %80, %76, %84, %.preheader, %51, %47

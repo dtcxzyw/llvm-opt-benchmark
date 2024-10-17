@@ -81,7 +81,7 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %57 = mul nuw nsw i64 %56, 2939745
   %58 = add nuw nsw i64 %57, 8819235
   %59 = lshr i64 %58, 32
-  %60 = icmp ult i64 %56, 1458
+  %60 = icmp samesign ult i64 %56, 1458
   %61 = and i64 %58, 12884901888
   %62 = and i64 %55, 3
   %.v = select i1 %60, i64 %62, i64 %61

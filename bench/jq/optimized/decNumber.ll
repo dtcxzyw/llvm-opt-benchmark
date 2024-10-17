@@ -304,7 +304,7 @@ define i32 @decNumberToInt32(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %26 = add i32 %25, %.03345
   %27 = getelementptr inbounds i8, ptr %.03444, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %28 = icmp ult i64 %indvars.iv.next, %19
+  %28 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -313,7 +313,7 @@ define i32 @decNumberToInt32(ptr nocapture noundef readonly %0, ptr noundef %1) 
 
 30:                                               ; preds = %._crit_edge
   %31 = icmp eq i32 %26, 214748364
-  %32 = icmp ugt i16 %16, 7
+  %32 = icmp samesign ugt i16 %16, 7
   %or.cond = select i1 %31, i1 %32, i1 false
   br i1 %or.cond, label %33, label %.thread49
 
@@ -399,7 +399,7 @@ define i32 @decNumberToUInt32(ptr nocapture noundef readonly %0, ptr noundef %1)
   %28 = add i32 %27, %.039
   %29 = getelementptr inbounds i8, ptr %.02738, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %30 = icmp ult i64 %indvars.iv.next, %21
+  %30 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -408,7 +408,7 @@ define i32 @decNumberToUInt32(ptr nocapture noundef readonly %0, ptr noundef %1)
 
 32:                                               ; preds = %._crit_edge
   %33 = icmp eq i32 %28, 429496729
-  %34 = icmp ugt i16 %18, 5
+  %34 = icmp samesign ugt i16 %18, 5
   %or.cond = select i1 %33, i1 %34, i1 false
   br i1 %or.cond, label %37, label %.thread49
 
@@ -1408,7 +1408,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   br i1 %.not225, label %112, label %.thread
 
 112:                                              ; preds = %._crit_edge
-  %.not226 = icmp ult i64 %.5.idx.lcssa, 10
+  %.not226 = icmp samesign ult i64 %.5.idx.lcssa, 10
   %.not227 = icmp ne i64 %.5.idx.lcssa, 10
   %113 = icmp sgt i8 %98, 49
   %or.cond279 = or i1 %113, %.not227
@@ -1816,11 +1816,11 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
   %59 = load i16, ptr %.2.lcssa, align 2
   %60 = zext i16 %59 to i32
   %61 = and i32 %58, 32767
-  %.not141 = icmp ugt i32 %61, %60
+  %.not141 = icmp samesign ugt i32 %61, %60
   br i1 %.not141, label %65, label %62
 
 62:                                               ; preds = %56
-  %63 = icmp ult i32 %61, %60
+  %63 = icmp samesign ult i32 %61, %60
   %64 = add nsw i32 %54, 5
   %spec.select185 = select i1 %63, i32 7, i32 %64
   br label %.sink.split
@@ -2419,7 +2419,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 
 155:                                              ; preds = %152
   %156 = add nuw nsw i32 %154, %153
-  %157 = icmp ult i32 %156, 1000
+  %157 = icmp samesign ult i32 %156, 1000
   br i1 %157, label %158, label %.thread
 
 158:                                              ; preds = %155
@@ -2618,7 +2618,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 
 261:                                              ; preds = %258, %253
   %262 = phi i32 [ %257, %253 ], [ %260, %258 ]
-  %263 = icmp ugt i32 %262, 30
+  %263 = icmp samesign ugt i32 %262, 30
   br i1 %263, label %264, label %273
 
 264:                                              ; preds = %261
@@ -3102,7 +3102,7 @@ define noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef readonly %
   %93 = urem i16 %.1102.us, 10
   %94 = udiv i16 %.1102.us, 10
   %95 = or i16 %93, %91
-  %96 = icmp ugt i16 %95, 1
+  %96 = icmp samesign ugt i16 %95, 1
   br i1 %96, label %.split105.us, label %97
 
 97:                                               ; preds = %89
@@ -3135,7 +3135,7 @@ define noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef readonly %
   %110 = urem i16 %.1102, 10
   %111 = udiv i16 %.1102, 10
   %112 = or i16 %110, %108
-  %113 = icmp ugt i16 %112, 1
+  %113 = icmp samesign ugt i16 %112, 1
   br i1 %113, label %.split105.us, label %117
 
 .split105.us:                                     ; preds = %89, %106
@@ -3366,11 +3366,11 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 
 62:                                               ; preds = %59, %54
   %63 = phi i32 [ %58, %54 ], [ %61, %59 ]
-  %64 = icmp ugt i32 %50, %63
+  %64 = icmp samesign ugt i32 %50, %63
   br i1 %64, label %decUnitCompare.exit, label %65
 
 65:                                               ; preds = %62
-  %66 = icmp ult i32 %50, %63
+  %66 = icmp samesign ult i32 %50, %63
   br i1 %66, label %decUnitCompare.exit, label %67
 
 67:                                               ; preds = %65
@@ -4389,7 +4389,7 @@ thread-pre-split:                                 ; preds = %93, %98
 163:                                              ; preds = %160, %154
   %164 = phi i32 [ %159, %154 ], [ %162, %160 ]
   %165 = zext nneg i32 %164 to i64
-  %166 = icmp ugt i32 %164, 17
+  %166 = icmp samesign ugt i32 %164, 17
   br i1 %166, label %167, label %174
 
 167:                                              ; preds = %163
@@ -4432,7 +4432,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %.not528 = icmp sgt i8 %4, -1
   %189 = add nuw nsw i32 %187, 3
   %spec.select573 = select i1 %.not528, i32 %189, i32 %188
-  %190 = icmp ugt i32 %spec.select573, 24
+  %190 = icmp samesign ugt i32 %spec.select573, 24
   br i1 %190, label %191, label %200
 
 191:                                              ; preds = %186
@@ -4537,7 +4537,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %.ptr543 = getelementptr inbounds i8, ptr %2, i64 %.add540
   %244 = load i16, ptr %.ptr543, align 2
   %245 = zext i16 %244 to i32
-  %246 = icmp ugt i32 %242, 1
+  %246 = icmp samesign ugt i32 %242, 1
   %247 = zext i1 %246 to i32
   %spec.select574 = add nuw nsw i32 %245, %247
   %248 = mul nuw nsw i32 %245, 1000
@@ -4744,7 +4744,7 @@ thread-pre-split:                                 ; preds = %93, %98
   br label %.preheader599
 
 343:                                              ; preds = %337
-  %344 = icmp ugt i32 %.0448, %339
+  %344 = icmp samesign ugt i32 %.0448, %339
   br i1 %344, label %.loopexit601, label %345
 
 345:                                              ; preds = %343
@@ -5528,7 +5528,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 129:                                              ; preds = %126, %121
   %130 = phi i32 [ %125, %121 ], [ %128, %126 ]
-  %131 = icmp ugt i32 %130, 25
+  %131 = icmp samesign ugt i32 %130, 25
   br i1 %131, label %132, label %141
 
 132:                                              ; preds = %129
@@ -5580,7 +5580,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 159:                                              ; preds = %156, %151
   %160 = phi i32 [ %155, %151 ], [ %158, %156 ]
-  %161 = icmp ugt i32 %160, 55
+  %161 = icmp samesign ugt i32 %160, 55
   br i1 %161, label %162, label %171
 
 162:                                              ; preds = %159
@@ -5618,7 +5618,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 182:                                              ; preds = %179, %173
   %183 = phi i32 [ %178, %173 ], [ %181, %179 ]
-  %184 = icmp ugt i32 %183, 31
+  %184 = icmp samesign ugt i32 %183, 31
   br i1 %184, label %185, label %194
 
 185:                                              ; preds = %182
@@ -6012,7 +6012,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
 
 105:                                              ; preds = %102, %97
   %106 = phi i32 [ %101, %97 ], [ %104, %102 ]
-  %107 = icmp ugt i32 %106, 25
+  %107 = icmp samesign ugt i32 %106, 25
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %105
@@ -6296,7 +6296,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 3
   %106 = getelementptr inbounds i8, ptr %.1228326, i64 2
   %107 = add nsw i32 %.1232325, -3
-  %108 = icmp ult i64 %indvars.iv387, 6
+  %108 = icmp samesign ult i64 %indvars.iv387, 6
   %109 = icmp ugt i32 %.1232325, 3
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %98, label %111, !llvm.loop !29
@@ -6333,7 +6333,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 3
   %123 = getelementptr inbounds i8, ptr %.3230334, i64 2
   %124 = add nsw i32 %.3234333, -3
-  %125 = icmp ult i64 %indvars.iv390, 6
+  %125 = icmp samesign ult i64 %indvars.iv390, 6
   %126 = icmp sgt i32 %.3234333, 3
   %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %115, label %128, !llvm.loop !31
@@ -6474,7 +6474,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   store i16 %185, ptr %.1226359, align 2
   %186 = add nuw nsw i32 %.2360, 3
   %187 = getelementptr inbounds i8, ptr %.1226359, i64 2
-  %188 = icmp ult i32 %.2360, 3
+  %188 = icmp samesign ult i32 %.2360, 3
   br i1 %188, label %182, label %189, !llvm.loop !36
 
 189:                                              ; preds = %182
@@ -6519,7 +6519,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   %213 = add nuw nsw i32 %208, %212
-  %214 = icmp ugt i32 %213, 49
+  %214 = icmp samesign ugt i32 %213, 49
   br i1 %214, label %215, label %222
 
 215:                                              ; preds = %207
@@ -6829,7 +6829,7 @@ define noundef ptr @decNumberInvert(ptr noundef returned %0, ptr noundef readonl
   %60 = phi i16 [ %58, %54 ], [ %52, %.split.us ]
   %61 = urem i16 %.170.us, 10
   %62 = udiv i16 %.170.us, 10
-  %63 = icmp ugt i16 %61, 1
+  %63 = icmp samesign ugt i16 %61, 1
   br i1 %63, label %.split75.us, label %64
 
 64:                                               ; preds = %59
@@ -6857,7 +6857,7 @@ define noundef ptr @decNumberInvert(ptr noundef returned %0, ptr noundef readonl
   %73 = phi i16 [ %71, %67 ], [ %65, %.split ]
   %74 = urem i16 %.170, 10
   %75 = udiv i16 %.170, 10
-  %76 = icmp ugt i16 %74, 1
+  %76 = icmp samesign ugt i16 %74, 1
   br i1 %76, label %.split75.us, label %80
 
 .split75.us:                                      ; preds = %59, %72
@@ -7181,7 +7181,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 
 101:                                              ; preds = %98, %93
   %102 = phi i32 [ %97, %93 ], [ %100, %98 ]
-  %103 = icmp ugt i32 %102, 19
+  %103 = icmp samesign ugt i32 %102, 19
   br i1 %103, label %104, label %113
 
 104:                                              ; preds = %101
@@ -7220,7 +7220,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 
 125:                                              ; preds = %122, %117
   %126 = phi i32 [ %121, %117 ], [ %124, %122 ]
-  %127 = icmp ugt i32 %126, 25
+  %127 = icmp samesign ugt i32 %126, 25
   br i1 %127, label %128, label %137
 
 128:                                              ; preds = %125
@@ -7344,7 +7344,7 @@ decNumberFromInt32.exit:                          ; preds = %137, %decNumberFrom
   store i16 %173, ptr %.022.i.i185, align 2
   %174 = udiv i32 %.01421.i.i186, 1000
   %175 = getelementptr inbounds i8, ptr %.022.i.i185, i64 2
-  %.not.i.i187 = icmp ult i32 %.01421.i.i186, 1000
+  %.not.i.i187 = icmp samesign ult i32 %.01421.i.i186, 1000
   br i1 %.not.i.i187, label %176, label %.preheader.i.i184, !llvm.loop !4
 
 176:                                              ; preds = %.preheader.i.i184
@@ -7434,7 +7434,7 @@ decNumberFromInt32.exit206:                       ; preds = %.lr.ph.i200, %176, 
   store i16 %210, ptr %.022.i.i211, align 2
   %211 = udiv i32 %.01421.i.i212, 1000
   %212 = getelementptr inbounds i8, ptr %.022.i.i211, i64 2
-  %.not.i.i213 = icmp ult i32 %.01421.i.i212, 1000
+  %.not.i.i213 = icmp samesign ult i32 %.01421.i.i212, 1000
   br i1 %.not.i.i213, label %213, label %.preheader.i.i210, !llvm.loop !4
 
 213:                                              ; preds = %.preheader.i.i210
@@ -10028,7 +10028,7 @@ define noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef readonly %1
   %92 = urem i16 %.1101.us, 10
   %93 = udiv i16 %.1101.us, 10
   %94 = or i16 %92, %90
-  %95 = icmp ugt i16 %94, 1
+  %95 = icmp samesign ugt i16 %94, 1
   br i1 %95, label %.split.us, label %96
 
 96:                                               ; preds = %88
@@ -10061,7 +10061,7 @@ define noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef readonly %1
   %109 = urem i16 %.1101, 10
   %110 = udiv i16 %.1101, 10
   %111 = or i16 %109, %107
-  %112 = icmp ugt i16 %111, 1
+  %112 = icmp samesign ugt i16 %111, 1
   br i1 %112, label %.split.us, label %116
 
 .split.us:                                        ; preds = %88, %105
@@ -10463,7 +10463,7 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
   %165 = shl nuw nsw i32 %164, 1
   %166 = add nuw nsw i32 %165, 10
   %167 = zext nneg i32 %166 to i64
-  %168 = icmp ugt i32 %164, 19
+  %168 = icmp samesign ugt i32 %164, 19
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %163
@@ -12003,7 +12003,7 @@ decReverse.exit:                                  ; preds = %.lr.ph.i, %157
   br i1 %171, label %.lr.ph.i130, label %decReverse.exit133, !llvm.loop !50
 
 decReverse.exit133:                               ; preds = %.lr.ph.i130, %decReverse.exit
-  %172 = icmp ugt i32 %64, 1
+  %172 = icmp samesign ugt i32 %64, 1
   br i1 %172, label %.lr.ph.i134, label %decReverse.exit137
 
 .lr.ph.i134:                                      ; preds = %decReverse.exit133, %.lr.ph.i134
@@ -12911,7 +12911,7 @@ decNumberCopy.exit248:                            ; preds = %.lr.ph.i245, %63, %
 
 124:                                              ; preds = %121, %116
   %125 = phi i32 [ %120, %116 ], [ %123, %121 ]
-  %126 = icmp ugt i32 %125, 13
+  %126 = icmp samesign ugt i32 %125, 13
   br i1 %126, label %127, label %136
 
 127:                                              ; preds = %124
@@ -14146,7 +14146,7 @@ define noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef readonly %
   %92 = urem i16 %.1101.us, 10
   %93 = udiv i16 %.1101.us, 10
   %94 = or i16 %92, %90
-  %95 = icmp ugt i16 %94, 1
+  %95 = icmp samesign ugt i16 %94, 1
   br i1 %95, label %.split.us, label %96
 
 96:                                               ; preds = %88
@@ -14179,7 +14179,7 @@ define noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef readonly %
   %109 = urem i16 %.1101, 10
   %110 = udiv i16 %.1101, 10
   %111 = or i16 %109, %107
-  %112 = icmp ugt i16 %111, 1
+  %112 = icmp samesign ugt i16 %111, 1
   br i1 %112, label %.split.us, label %116
 
 .split.us:                                        ; preds = %88, %105
@@ -14651,7 +14651,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   %50 = trunc i32 %49 to i16
   store i16 %50, ptr %.2143174, align 2
   %51 = and i32 %49, 65528
-  %52 = icmp ult i32 %51, 1000
+  %52 = icmp samesign ult i32 %51, 1000
   br i1 %52, label %69, label %53
 
 53:                                               ; preds = %45
@@ -14670,7 +14670,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   store i16 %62, ptr %.2143174, align 2
   %63 = add nsw i32 %60, -1000
   %64 = and i32 %61, 65528
-  %65 = icmp ult i32 %64, 1000
+  %65 = icmp samesign ult i32 %64, 1000
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %56
@@ -14748,7 +14748,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   %96 = trunc i32 %95 to i16
   store i16 %96, ptr %.4145183, align 2
   %97 = and i32 %95, 65528
-  %98 = icmp ult i32 %97, 1000
+  %98 = icmp samesign ult i32 %97, 1000
   br i1 %98, label %115, label %99
 
 99:                                               ; preds = %91
@@ -14767,7 +14767,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   store i16 %108, ptr %.4145183, align 2
   %109 = add nsw i32 %106, -1000
   %110 = and i32 %107, 65528
-  %111 = icmp ult i32 %110, 1000
+  %111 = icmp samesign ult i32 %110, 1000
   br i1 %111, label %115, label %112
 
 112:                                              ; preds = %102
@@ -14918,7 +14918,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 
 .thread79:                                        ; preds = %.thread78, %36
   %.pre-phi = phi i32 [ %30, %36 ], [ %34, %.thread78 ]
-  %41 = icmp ugt i32 %.pre-phi, 23
+  %41 = icmp samesign ugt i32 %.pre-phi, 23
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.thread79

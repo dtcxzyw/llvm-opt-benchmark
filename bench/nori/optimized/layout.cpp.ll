@@ -1081,7 +1081,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58:          ; preds = %71, %73, %75, %77
 
 ._crit_edge82.us:                                 ; preds = %93
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %111 = icmp ult i64 %indvars.iv.next92, %83
+  %111 = icmp samesign ult i64 %indvars.iv.next92, %83
   br i1 %111, label %.preheader73.us, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge82.us, %84, %.preheader73.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58
@@ -1289,7 +1289,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
   %98 = add nsw i32 %.099163, -1
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %99 = icmp ugt i32 %.099163, 1
-  %100 = icmp ult i64 %indvars.iv.next184, %89
+  %100 = icmp samesign ult i64 %indvars.iv.next184, %89
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %.lr.ph164, label %.critedge, !llvm.loop !11
 
@@ -2207,7 +2207,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   %120 = zext i8 %109 to i32
   %121 = add nuw nsw i32 %120, %119
   %122 = zext nneg i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next, %122
   br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %108
@@ -2266,7 +2266,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   %139 = zext i8 %110 to i32
   %140 = zext i8 %109 to i32
   %141 = add nuw nsw i32 %140, %139
-  %142 = icmp ugt i32 %141, %119
+  %142 = icmp samesign ugt i32 %141, %119
   br i1 %142, label %.lr.ph188.preheader, label %.loopexit
 
 .lr.ph188.preheader:                              ; preds = %135
@@ -2292,7 +2292,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   %156 = load i8, ptr %47, align 1
   %157 = zext i8 %156 to i64
   %158 = add nuw nsw i64 %157, %155
-  %159 = icmp ult i64 %indvars.iv.next210, %158
+  %159 = icmp samesign ult i64 %indvars.iv.next210, %158
   br i1 %159, label %.lr.ph188, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph188, %._crit_edge.thread, %135, %._crit_edge, %60, %.lr.ph193, %58

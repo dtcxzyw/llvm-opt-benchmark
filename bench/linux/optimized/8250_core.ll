@@ -408,9 +408,9 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %72 = phi ptr [ %.pre4, %67 ], [ null, %.preheader ]
   %73 = add nuw nsw i64 %35, 1
   %74 = getelementptr i8, ptr %36, i64 784
-  %75 = icmp ult i64 %35, 3
+  %75 = icmp samesign ult i64 %35, 3
   %76 = zext i32 %71 to i64
-  %77 = icmp ult i64 %73, %76
+  %77 = icmp samesign ult i64 %73, %76
   %78 = select i1 %75, i1 %77, i1 false
   br i1 %78, label %.preheader, label %.loopexit, !llvm.loop !8
 

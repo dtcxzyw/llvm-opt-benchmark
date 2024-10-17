@@ -985,7 +985,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %80, %78, %76, %74
 
 103:                                              ; preds = %95
   %104 = add nuw nsw i32 %.01320.i, %.012
-  %105 = icmp ult i32 %104, 241
+  %105 = icmp samesign ult i32 %104, 241
   br i1 %105, label %.preheader.i, label %106, !llvm.loop !14
 
 106:                                              ; preds = %103

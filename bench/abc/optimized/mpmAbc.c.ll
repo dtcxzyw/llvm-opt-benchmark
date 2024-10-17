@@ -310,7 +310,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %63 = lshr i64 %.val49, 32
   %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
-  %.not74 = icmp ult i32 %62, %65
+  %.not74 = icmp samesign ult i32 %62, %65
   br i1 %.not74, label %66, label %Gia_ObjIsXor.exit.thread
 
 66:                                               ; preds = %Gia_ObjIsXor.exit
@@ -836,7 +836,7 @@ Mig_ObjIsMux.exit:                                ; preds = %153
 Mig_ObjIsXor.exit:                                ; preds = %Mig_ObjIsMux.exit
   %159 = lshr i32 %.071.val91, 1
   %160 = lshr i32 %.071.val92, 1
-  %.not114 = icmp ugt i32 %159, %160
+  %.not114 = icmp samesign ugt i32 %159, %160
   br i1 %.not114, label %161, label %Mig_ObjIsXor.exit.thread
 
 161:                                              ; preds = %Mig_ObjIsXor.exit
@@ -863,7 +863,7 @@ Mig_ObjIsMux.exit102:                             ; preds = %164
 Mig_ObjIsXor.exit105:                             ; preds = %Mig_ObjIsMux.exit102
   %170 = lshr i32 %.071.val91, 1
   %171 = lshr i32 %.071.val92, 1
-  %.not115 = icmp ugt i32 %170, %171
+  %.not115 = icmp samesign ugt i32 %170, %171
   br i1 %.not115, label %172, label %Mig_ObjIsXor.exit105.thread
 
 172:                                              ; preds = %Mig_ObjIsXor.exit105
@@ -1254,7 +1254,7 @@ define i32 @Mpm_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %75 = load i32, ptr %32, align 4
   %76 = lshr i32 %75, 27
   %77 = zext nneg i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %36, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %36, %45, %5
@@ -1331,7 +1331,7 @@ define i32 @Mpm_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %125 = load i32, ptr %32, align 4
   %126 = lshr i32 %125, 27
   %127 = zext nneg i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next70, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next70, %127
   br i1 %128, label %88, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %88, %97, %.preheader
@@ -1766,7 +1766,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %189 = load i32, ptr %120, align 4
   %190 = lshr i32 %189, 27
   %191 = zext nneg i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next, %191
   br i1 %192, label %130, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit, %130, %.lr.ph, %96

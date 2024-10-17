@@ -2564,7 +2564,7 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZN4llvmlsERNS_11ra
   %57 = lshr i32 %53, 6
   %58 = add i32 %54, -1
   %59 = lshr i32 %58, 6
-  %.not32.i.i.i.i = icmp ugt i32 %57, %59
+  %.not32.i.i.i.i = icmp samesign ugt i32 %57, %59
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %56
@@ -3802,7 +3802,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %28, %37
   %46 = lshr i32 %42, 6
   %47 = add i32 %43, -1
   %48 = lshr i32 %47, 6
-  %.not32.i.i = icmp ugt i32 %46, %48
+  %.not32.i.i = icmp samesign ugt i32 %46, %48
   br i1 %.not32.i.i, label %._crit_edge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %45
@@ -3911,7 +3911,7 @@ _ZN4llvm9BitVectoraNERKS0_.exit:                  ; preds = %.lr.ph18.i, %.prehe
   %103 = lshr i32 %99, 6
   %104 = add i32 %100, -1
   %105 = lshr i32 %104, 6
-  %.not32.i.i20 = icmp ugt i32 %103, %105
+  %.not32.i.i20 = icmp samesign ugt i32 %103, %105
   br i1 %.not32.i.i20, label %._crit_edge.loopexit, label %.lr.ph.i.i21
 
 .lr.ph.i.i21:                                     ; preds = %102
@@ -4060,7 +4060,7 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit:         ; preds = %_ZN4llvm21MCRegUnit
 
 ._crit_edge65:                                    ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit, %159
   %.sroa.042.0.lcssa = phi i64 [ 0, %159 ], [ %spec.select, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
-  %195 = icmp ult i64 %indvars.iv.i.i32, 16777216
+  %195 = icmp samesign ult i64 %indvars.iv.i.i32, 16777216
   %spec.select.i = select i1 %195, i64 %.sroa.042.0.lcssa, i64 0
   br label %_ZNK4llvm9BitVector10find_firstEv.exit38.thread
 
@@ -4303,7 +4303,7 @@ _ZNK4llvm9BitVector10find_firstEv.exit:           ; preds = %24
   %55 = lshr i32 %51, 6
   %56 = add i32 %52, -1
   %57 = lshr i32 %56, 6
-  %.not32.i.i = icmp ugt i32 %55, %57
+  %.not32.i.i = icmp samesign ugt i32 %55, %57
   br i1 %.not32.i.i, label %._crit_edge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %54

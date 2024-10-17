@@ -428,7 +428,7 @@ dissect_extension.exit:                           ; preds = %119, %101
   br i1 %.not159, label %159, label %122
 
 122:                                              ; preds = %120
-  %123 = icmp ult i32 %.0149, 1501
+  %123 = icmp samesign ult i32 %.0149, 1501
   br i1 %123, label %124, label %143
 
 124:                                              ; preds = %122
@@ -469,7 +469,7 @@ dissect_extension.exit:                           ; preds = %119, %101
   br label %162
 
 143:                                              ; preds = %122
-  %144 = icmp ult i32 %.0149, 1536
+  %144 = icmp samesign ult i32 %.0149, 1536
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %143
@@ -660,7 +660,7 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
   %60 = load i32, ptr @hf_btbnep_network_type_end, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0) #2
   %62 = add i32 %.1109115, 4
-  %63 = icmp ult i32 %56, %55
+  %63 = icmp samesign ult i32 %56, %55
   br i1 %63, label %.lr.ph117, label %.loopexit, !llvm.loop !4
 
 64:                                               ; preds = %4
@@ -693,7 +693,7 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
   %82 = load i32, ptr @hf_btbnep_multicast_address_end, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 6, i32 noundef 0) #2
   %84 = add i32 %.2113, 12
-  %85 = icmp ult i32 %78, %77
+  %85 = icmp samesign ult i32 %78, %77
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 86:                                               ; preds = %4

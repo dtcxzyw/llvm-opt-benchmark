@@ -969,7 +969,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexD
   %17 = call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = add nuw nsw i32 %17, 2
   %19 = sub nsw i32 2147483647, %7
-  %20 = icmp ugt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %14
@@ -1143,7 +1143,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %._ZN7Minisat3vecINS
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %14 = add nuw nsw i32 %13, 2
   %15 = sub nsw i32 2147483647, %5
-  %16 = icmp ugt i32 %14, %15
+  %16 = icmp samesign ugt i32 %14, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %10
@@ -1232,7 +1232,7 @@ define i8 @_ZN7Minisat10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefer
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = add nuw nsw i32 %26, 2
   %28 = sub nsw i32 2147483647, %.sroa.15.051
-  %29 = icmp ugt i32 %27, %28
+  %29 = icmp samesign ugt i32 %27, %28
   br i1 %29, label %.loopexit43, label %30
 
 30:                                               ; preds = %23
@@ -2099,7 +2099,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver10addClause_ERNS_3vecINS_3LitE
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
   %56 = add nuw nsw i32 %55, 2
   %57 = sub nsw i32 2147483647, %48
-  %58 = icmp ugt i32 %56, %57
+  %58 = icmp samesign ugt i32 %56, %57
   br i1 %58, label %.loopexit28, label %59
 
 59:                                               ; preds = %52
@@ -2176,7 +2176,7 @@ _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
   %96 = load i32, ptr %30, align 4
   %97 = lshr i32 %96, 5
   %98 = zext nneg i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %99, label %41, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread, %21, %13, %17, %11, %9
@@ -2206,7 +2206,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver7impliedERKNS_3vecINS_3LitEiEE
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %15 = add nuw nsw i32 %14, 2
   %16 = sub nsw i32 2147483647, %7
-  %17 = icmp ugt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %11
@@ -2542,7 +2542,7 @@ _ZN7Minisat10SimpSolver14updateElimHeapEi.exit:   ; preds = %_ZNK7Minisat4HeapIi
   %66 = tail call i32 @llvm.smax.i32(i32 %65, i32 0)
   %67 = add nuw nsw i32 %66, 2
   %68 = sub nsw i32 2147483647, %60
-  %69 = icmp ugt i32 %67, %68
+  %69 = icmp samesign ugt i32 %67, %68
   br i1 %69, label %.loopexit18, label %70
 
 70:                                               ; preds = %63
@@ -2587,7 +2587,7 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   %87 = load i32, ptr %6, align 4
   %88 = lshr i32 %87, 5
   %89 = zext nneg i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %23, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6smudgeERKi.exit, %.preheader, %2
@@ -3010,7 +3010,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %5, %.preheader.i
   %12 = lshr i32 %11, 5
   %13 = load i32, ptr %2, align 4
   %14 = lshr i32 %13, 5
-  %15 = icmp ult i32 %12, %14
+  %15 = icmp samesign ult i32 %12, %14
   %16 = select i1 %15, i32 %13, i32 %11
   %17 = select i1 %15, ptr %2, ptr %1
   %18 = select i1 %15, i32 %11, i32 %13
@@ -3093,7 +3093,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %5, %.preheader.i
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   %49 = add nuw nsw i32 %48, 2
   %50 = sub nsw i32 2147483647, %42
-  %51 = icmp ugt i32 %49, %50
+  %51 = icmp samesign ugt i32 %49, %50
   br i1 %51, label %.loopexit62, label %52
 
 52:                                               ; preds = %45
@@ -3139,7 +3139,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %71 = lshr i32 %70, 5
   %72 = zext nneg i32 %71 to i64
-  %.not73 = icmp ult i64 %indvars.iv.next79, %72
+  %.not73 = icmp samesign ult i64 %indvars.iv.next79, %72
   br i1 %.not73, label %29, label %.preheader.loopexit, !llvm.loop !28
 
 73:                                               ; preds = %.lr.ph71, %105
@@ -3167,7 +3167,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
   %85 = add nuw nsw i32 %84, 2
   %86 = sub nsw i32 2147483647, %78
-  %87 = icmp ugt i32 %85, %86
+  %87 = icmp samesign ugt i32 %85, %86
   br i1 %87, label %.loopexit60, label %88
 
 88:                                               ; preds = %81
@@ -3213,7 +3213,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit57:     ; preds = %._ZN7Minisat3vecINS
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %107 = lshr i32 %106, 5
   %108 = zext nneg i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next82, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next82, %108
   br i1 %109, label %73, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %39, %105, %.preheader
@@ -3231,7 +3231,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr
   %10 = lshr i32 %9, 5
   %11 = load i32, ptr %2, align 4
   %12 = lshr i32 %11, 5
-  %13 = icmp ult i32 %10, %12
+  %13 = icmp samesign ult i32 %10, %12
   %14 = select i1 %13, i32 %11, i32 %9
   %15 = select i1 %13, ptr %2, ptr %1
   %16 = select i1 %13, ptr %1, ptr %2
@@ -3294,7 +3294,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %40 = lshr i32 %38, 5
   %41 = zext nneg i32 %40 to i64
-  %.not45 = icmp ult i64 %indvars.iv.next49, %41
+  %.not45 = icmp samesign ult i64 %indvars.iv.next49, %41
   br i1 %.not45, label %.lr.ph40, label %._crit_edge41, !llvm.loop !31
 
 ._crit_edge41:                                    ; preds = %33, %37, %5
@@ -4031,7 +4031,7 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
 
 167:                                              ; preds = %162
   %168 = lshr i32 %151, 5
-  %169 = icmp ult i32 %165, %168
+  %169 = icmp samesign ult i32 %165, %168
   br i1 %169, label %.thread, label %170
 
 170:                                              ; preds = %167
@@ -4178,7 +4178,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver5asymmEij(ptr noundef nonnull 
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %25 = add nuw nsw i32 %24, 2
   %26 = sub nsw i32 2147483647, %17
-  %27 = icmp ugt i32 %25, %26
+  %27 = icmp samesign ugt i32 %25, %26
   br i1 %27, label %39, label %28
 
 28:                                               ; preds = %21
@@ -4260,7 +4260,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = lshr i32 %63, 5
   %65 = zext nneg i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %66, label %49, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.critedge, %_ZN7Minisat3vecIiiE4pushERKi.exit
@@ -4543,7 +4543,7 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   %70 = lshr i32 %69, 5
   %71 = load i32, ptr %67, align 4
   %72 = lshr i32 %71, 5
-  %73 = icmp ult i32 %70, %72
+  %73 = icmp samesign ult i32 %70, %72
   %74 = select i1 %73, i32 %71, i32 %69
   %75 = select i1 %73, ptr %67, ptr %63
   %76 = select i1 %73, i32 %69, i32 %71
@@ -4681,7 +4681,7 @@ _ZN7MinisatL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %.lr.ph.i, %114
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = add nuw nsw i32 %123, 2
   %125 = sub nsw i32 2147483647, %117
-  %126 = icmp ugt i32 %124, %125
+  %126 = icmp samesign ugt i32 %124, %125
   br i1 %126, label %.loopexit191, label %127
 
 127:                                              ; preds = %120
@@ -5125,7 +5125,7 @@ define internal fastcc void @_ZL12mkElimClauseRN7Minisat3vecIjiEEiRNS_6ClauseE(p
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = add nuw nsw i32 %17, 2
   %19 = sub nsw i32 2147483647, %11
-  %20 = icmp ugt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %14
@@ -5173,7 +5173,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   %42 = load i32, ptr %2, align 4
   %43 = lshr i32 %42, 5
   %44 = zext nneg i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %9, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %_ZN7Minisat3vecIjiE4pushERKj.exit
@@ -5209,7 +5209,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = add nuw nsw i32 %62, 2
   %64 = sub nsw i32 2147483647, %55
-  %65 = icmp ugt i32 %63, %64
+  %65 = icmp samesign ugt i32 %63, %64
   br i1 %65, label %77, label %66
 
 66:                                               ; preds = %59
@@ -5270,7 +5270,7 @@ define internal fastcc void @_ZL12mkElimClauseRN7Minisat3vecIjiEENS_3LitE(ptr no
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
   %12 = add nuw nsw i32 %11, 2
   %13 = sub nsw i32 2147483647, %4
-  %14 = icmp ugt i32 %12, %13
+  %14 = icmp samesign ugt i32 %12, %13
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %8
@@ -5323,7 +5323,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
   %40 = add nuw nsw i32 %39, 2
   %41 = sub nsw i32 2147483647, %33
-  %42 = icmp ugt i32 %40, %41
+  %42 = icmp samesign ugt i32 %40, %41
   br i1 %42, label %54, label %43
 
 43:                                               ; preds = %36
@@ -5559,7 +5559,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %84, %.preheader.i
   %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
   %107 = add nuw nsw i32 %106, 2
   %108 = sub nsw i32 2147483647, %100
-  %109 = icmp ugt i32 %107, %108
+  %109 = icmp samesign ugt i32 %107, %108
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %103
@@ -5601,7 +5601,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %127 = load i32, ptr %90, align 4
   %128 = lshr i32 %127, 5
   %129 = zext nneg i32 %128 to i64
-  %130 = icmp ult i64 %indvars.iv.next, %129
+  %130 = icmp samesign ult i64 %indvars.iv.next, %129
   br i1 %130, label %94, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit, %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit
@@ -5945,7 +5945,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
   %117 = load i32, ptr %57, align 4
   %118 = lshr i32 %117, 5
   %119 = zext nneg i32 %118 to i64
-  %120 = icmp ult i64 %indvars.iv.next.i.i, %119
+  %120 = icmp samesign ult i64 %indvars.iv.next.i.i, %119
   br i1 %120, label %114, label %._crit_edge.i.i, !llvm.loop !57
 
 ._crit_edge.i.i:                                  ; preds = %114, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
@@ -6219,7 +6219,7 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %5, %12, %14
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
   %23 = add nuw nsw i32 %22, 2
   %24 = sub nsw i32 2147483647, %16
-  %25 = icmp ugt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %19
@@ -7057,7 +7057,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexD
   %17 = call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = add nuw nsw i32 %17, 2
   %19 = sub nsw i32 2147483647, %7
-  %20 = icmp ugt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %14
@@ -7294,7 +7294,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
   %36 = load i32, ptr %1, align 4
   %37 = lshr i32 %36, 5
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next.i, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %38
   br i1 %39, label %33, label %._crit_edge.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %33, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit

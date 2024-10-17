@@ -1419,7 +1419,7 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
 
 33:                                               ; preds = %30
   %34 = add i32 %.04366, 1
-  %35 = icmp ult i32 %.04863, 247
+  %35 = icmp samesign ult i32 %.04863, 247
   br i1 %35, label %14, label %36, !llvm.loop !7
 
 36:                                               ; preds = %33

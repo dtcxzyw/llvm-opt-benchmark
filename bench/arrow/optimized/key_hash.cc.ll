@@ -161,7 +161,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
-  %cmp25.i = icmp ugt i64 %add14, 1
+  %cmp25.i = icmp samesign ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
@@ -310,7 +310,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %ret.0.copyload.i6.i81 = load i32, ptr %add.ptr11.i80, align 1
   %idx.ext65 = zext i32 %9 to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext65
-  %cmp25.i82 = icmp ugt i64 %add51, 1
+  %cmp25.i82 = icmp samesign ugt i64 %add51, 1
   br i1 %cmp25.i82, label %for.body.preheader.i87, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
 
 for.body.preheader.i87:                           ; preds = %for.body35
@@ -512,7 +512,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
-  %cmp25.i = icmp ugt i64 %add14, 1
+  %cmp25.i = icmp samesign ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
@@ -654,7 +654,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %ret.0.copyload.i6.i74 = load i32, ptr %add.ptr11.i73, align 1
   %idx.ext62 = zext i32 %8 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext62
-  %cmp25.i75 = icmp ugt i64 %add48, 1
+  %cmp25.i75 = icmp samesign ugt i64 %add48, 1
   br i1 %cmp25.i75, label %for.body.preheader.i80, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
 
 for.body.preheader.i80:                           ; preds = %for.body32
@@ -3264,7 +3264,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %ret.0.copyload.i6.i = load i64, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
-  %cmp25.i = icmp ugt i64 %add14, 1
+  %cmp25.i = icmp samesign ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
@@ -3437,7 +3437,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %ret.0.copyload.i6.i88 = load i64, ptr %add.ptr11.i87, align 1
   %idx.ext65 = zext i32 %9 to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext65
-  %cmp25.i89 = icmp ugt i64 %add51, 1
+  %cmp25.i89 = icmp samesign ugt i64 %add51, 1
   br i1 %cmp25.i89, label %for.body.preheader.i94, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit128
 
 for.body.preheader.i94:                           ; preds = %for.body35
@@ -3663,7 +3663,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %ret.0.copyload.i6.i = load i64, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
-  %cmp25.i = icmp ugt i64 %add14, 1
+  %cmp25.i = icmp samesign ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
@@ -3829,7 +3829,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %ret.0.copyload.i6.i81 = load i64, ptr %add.ptr11.i80, align 1
   %idx.ext62 = zext i32 %8 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext62
-  %cmp25.i82 = icmp ugt i64 %add48, 1
+  %cmp25.i82 = icmp samesign ugt i64 %add48, 1
   br i1 %cmp25.i82, label %for.body.preheader.i87, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit121
 
 for.body.preheader.i87:                           ; preds = %for.body32

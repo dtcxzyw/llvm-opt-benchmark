@@ -2256,7 +2256,7 @@ for.body10:                                       ; preds = %for.body, %for.body
   %add = add nsw i32 %src_x.0140, %conv
   %19 = load i32, ptr %width, align 8, !tbaa !75
   %20 = zext i32 %19 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next157, %20
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next157, %20
   br i1 %cmp8, label %for.body10, label %for.cond.cleanup9.loopexit, !llvm.loop !79
 
 if.then22:                                        ; preds = %if.then
@@ -3505,7 +3505,7 @@ for.body42:                                       ; preds = %for.cond38.preheade
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %23 = load i32, ptr %width, align 8, !tbaa !75
   %24 = zext i32 %23 to i64
-  %cmp40 = icmp ult i64 %indvars.iv.next119, %24
+  %cmp40 = icmp samesign ult i64 %indvars.iv.next119, %24
   br i1 %cmp40, label %for.body42, label %for.cond.cleanup41.loopexit, !llvm.loop !110
 
 if.end:                                           ; preds = %for.cond7.for.cond.cleanup9_crit_edge.us, %for.cond.cleanup41, %for.cond38.preheader.lr.ph, %if.else, %for.body.lr.ph, %if.then
@@ -4345,7 +4345,7 @@ _ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %if.end.
   %add = add nsw i32 %src_x.035, %conv
   %19 = load i32, ptr %width, align 8, !tbaa !75
   %20 = zext i32 %19 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %20
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp5, label %for.body7, label %for.cond.cleanup6.loopexit, !llvm.loop !128
 }
 
@@ -4582,7 +4582,7 @@ _ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %for.bod
   %add = add nsw i32 %src_x.042, %conv
   %20 = load i32, ptr %width, align 8, !tbaa !75
   %21 = zext i32 %20 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %21
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp5, label %for.body7, label %for.cond.cleanup6.loopexit, !llvm.loop !132
 }
 
@@ -5145,7 +5145,7 @@ entry:
   %shr1.i = lshr i32 %0, 31
   %add.i = add nuw nsw i32 %shr.i, %shr1.i
   %shr = lshr i32 %add.i, 3
-  %cmp = icmp ult i32 %add.i, 8
+  %cmp = icmp samesign ult i32 %add.i, 8
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -5364,7 +5364,7 @@ for.body6:                                        ; preds = %for.cond3.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %width, align 8, !tbaa !75
   %12 = zext i32 %11 to i64
-  %cmp4 = icmp ult i64 %indvars.iv.next, %12
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp4, label %for.body6, label %for.cond.cleanup5.loopexit, !llvm.loop !144
 
 cleanup:                                          ; preds = %for.cond.cleanup5, %for.cond3.preheader.lr.ph, %if.end, %entry

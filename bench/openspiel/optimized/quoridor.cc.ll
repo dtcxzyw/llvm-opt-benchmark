@@ -4529,7 +4529,7 @@ _ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361: ; preds = %152
 _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread: ; preds = %159, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361, %152, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335
   %165 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread ], [ %164, %159 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361 ], [ 1, %152 ]
   %166 = add nuw nsw i32 %141, %165
-  %167 = icmp ult i32 %166, 2
+  %167 = icmp samesign ult i32 %166, 2
   br i1 %167, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
@@ -6005,7 +6005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ;
 216:                                              ; preds = %213
   %217 = lshr exact i32 %.051159, 1
   %218 = add nuw nsw i32 %217, 1
-  %219 = icmp ult i32 %.051159, 18
+  %219 = icmp samesign ult i32 %.051159, 18
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %216
@@ -6144,7 +6144,7 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit: ; preds = %2
 277:                                              ; preds = %._crit_edge158
   %278 = lshr exact i32 %.051159, 1
   %279 = add nuw nsw i32 %278, 1
-  %280 = icmp ult i32 %.051159, 18
+  %280 = icmp samesign ult i32 %.051159, 18
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %277

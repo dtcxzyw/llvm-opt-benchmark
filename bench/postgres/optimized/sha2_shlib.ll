@@ -308,7 +308,7 @@ define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr [64 x i8], ptr %10, i64 0, i64 %13
   store i8 -128, ptr %14, align 1
-  %15 = icmp ult i32 %8, 56
+  %15 = icmp samesign ult i32 %8, 56
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
@@ -717,7 +717,7 @@ define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr [128 x i8], ptr %13, i64 0, i64 %16
   store i8 -128, ptr %17, align 1
-  %18 = icmp ult i32 %8, 112
+  %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
@@ -826,7 +826,7 @@ define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr [128 x i8], ptr %13, i64 0, i64 %16
   store i8 -128, ptr %17, align 1
-  %18 = icmp ult i32 %8, 112
+  %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
@@ -1001,7 +1001,7 @@ define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr [64 x i8], ptr %10, i64 0, i64 %13
   store i8 -128, ptr %14, align 1
-  %15 = icmp ult i32 %8, 56
+  %15 = icmp samesign ult i32 %8, 56
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11

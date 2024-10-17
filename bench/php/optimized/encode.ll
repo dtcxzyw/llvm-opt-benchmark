@@ -356,7 +356,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %26
   %61 = getelementptr inbounds i8, ptr %59, i64 %49
   store i8 %58, ptr %61, align 1
   %62 = urem i32 %55, 157
-  %63 = icmp ult i32 %62, 63
+  %63 = icmp samesign ult i32 %62, 63
   %64 = trunc nuw i32 %62 to i8
   %65 = load ptr, ptr %10, align 8
   %66 = load i64, ptr %5, align 8
@@ -825,7 +825,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %50
   %79 = load i32, ptr %78, align 4
   %.fr = freeze i32 %79
   %80 = and i32 %.fr, 254
-  %.cmp = icmp ugt i32 %80, 189
+  %.cmp = icmp samesign ugt i32 %80, 189
   %81 = select i1 %.cmp, i8 -126, i8 -127
   %82 = load ptr, ptr %9, align 8
   %83 = add i64 %73, 1
@@ -834,9 +834,9 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %50
   store i8 %81, ptr %84, align 1
   %85 = and i32 %.fr, 255
   %.urem = add nsw i32 %85, -190
-  %.cmp60 = icmp ult i32 %85, 190
+  %.cmp60 = icmp samesign ult i32 %85, 190
   %86 = select i1 %.cmp60, i32 %85, i32 %.urem
-  %87 = icmp ult i32 %86, 63
+  %87 = icmp samesign ult i32 %86, 63
   %88 = trunc nuw i32 %86 to i8
   %89 = load ptr, ptr %9, align 8
   %90 = load i64, ptr %4, align 8
@@ -3161,7 +3161,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %61
   store i64 %96, ptr %4, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 %84
   store i8 %94, ptr %97, align 1
-  %98 = icmp ult i32 %90, 63
+  %98 = icmp samesign ult i32 %90, 63
   %99 = select i1 %98, i32 64, i32 65
   %100 = add nuw nsw i32 %99, %90
   %101 = trunc nuw i32 %100 to i8
@@ -3466,7 +3466,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %43
   %63 = getelementptr inbounds i8, ptr %61, i64 %51
   store i8 %60, ptr %63, align 1
   %64 = urem i32 %57, 190
-  %65 = icmp ult i32 %64, 63
+  %65 = icmp samesign ult i32 %64, 63
   %66 = trunc nuw i32 %64 to i8
   %67 = load ptr, ptr %9, align 8
   %68 = load i64, ptr %4, align 8
@@ -5305,7 +5305,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %14
   store ptr %31, ptr %1, align 8
   store i8 %30, ptr %22, align 1
   %32 = urem i32 %27, 157
-  %33 = icmp ult i32 %32, 63
+  %33 = icmp samesign ult i32 %32, 63
   %34 = trunc nuw i32 %32 to i8
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1
@@ -5549,16 +5549,16 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %18
   %31 = load i32, ptr %30, align 4
   %.fr = freeze i32 %31
   %32 = and i32 %.fr, 254
-  %.cmp = icmp ugt i32 %32, 189
+  %.cmp = icmp samesign ugt i32 %32, 189
   %33 = select i1 %.cmp, i8 -126, i8 -127
   %34 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %34, ptr %1, align 8
   store i8 %33, ptr %26, align 1
   %35 = and i32 %.fr, 255
   %.urem = add nsw i32 %35, -190
-  %.cmp23 = icmp ult i32 %35, 190
+  %.cmp23 = icmp samesign ult i32 %35, 190
   %36 = select i1 %.cmp23, i32 %35, i32 %.urem
-  %37 = icmp ult i32 %36, 63
+  %37 = icmp samesign ult i32 %36, 63
   %38 = trunc nuw i32 %36 to i8
   %39 = load ptr, ptr %1, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 1
@@ -6674,7 +6674,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %23
   %41 = getelementptr inbounds i8, ptr %31, i64 1
   store ptr %41, ptr %1, align 8
   store i8 %40, ptr %31, align 1
-  %42 = icmp ult i32 %36, 63
+  %42 = icmp samesign ult i32 %36, 63
   %43 = select i1 %42, i32 64, i32 65
   %44 = add nuw nsw i32 %43, %36
   %45 = trunc nuw i32 %44 to i8
@@ -6897,7 +6897,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   store ptr %33, ptr %1, align 8
   store i8 %32, ptr %24, align 1
   %34 = urem i32 %29, 190
-  %35 = icmp ult i32 %34, 63
+  %35 = icmp samesign ult i32 %34, 63
   %36 = trunc nuw i32 %34 to i8
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1

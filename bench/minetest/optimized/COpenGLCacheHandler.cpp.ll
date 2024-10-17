@@ -265,7 +265,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %FrameBufferCount, align 8, !tbaa !29
   %39 = zext i32 %38 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %39
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !72
 }
 

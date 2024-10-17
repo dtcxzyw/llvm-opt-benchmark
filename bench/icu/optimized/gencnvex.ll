@@ -219,7 +219,7 @@ for.body.i.i12:                                   ; preds = %for.inc65.i.i, %for
 if.end.i.i:                                       ; preds = %for.body.i.i12
   %17 = and i8 %16, 15
   store i8 %17, ptr %f.i.i13, align 2
-  %or.cond.i.i = icmp ult i8 %17, 2
+  %or.cond.i.i = icmp samesign ult i8 %17, 2
   br i1 %or.cond.i.i, label %if.then24.i.i14, label %lor.lhs.false13.i.i
 
 lor.lhs.false13.i.i:                              ; preds = %if.end.i.i, %for.body.i.i12
@@ -898,7 +898,7 @@ if.end44.thread:                                  ; preds = %land.lhs.true, %lor
   br label %if.end49
 
 if.end44:                                         ; preds = %for.end
-  %cmp45 = icmp ugt i32 %spec.select, 255
+  %cmp45 = icmp samesign ugt i32 %spec.select, 255
   br i1 %cmp45, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end44
@@ -1082,7 +1082,7 @@ for.body107:                                      ; preds = %for.body107.lr.ph, 
   %indvars.iv154 = phi i64 [ 0, %for.body107.lr.ph ], [ %indvars.iv.next155, %for.inc175 ]
   %subLimit.0132 = phi i32 [ %and, %for.body107.lr.ph ], [ %cond118, %for.inc175 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %cmp109 = icmp ult i64 %indvars.iv.next155, %30
+  %cmp109 = icmp samesign ult i64 %indvars.iv.next155, %30
   br i1 %cmp109, label %cond.true111, label %cond.end117
 
 cond.true111:                                     ; preds = %for.body107

@@ -914,7 +914,7 @@ land.lhs.true:                                    ; preds = %entry
   %4 = load i32, ptr %LastClick, align 4, !tbaa !60
   %sub7 = sub nsw i32 %4, %mouseX
   %cond.i = tail call noundef i32 @llvm.abs.i32(i32 %sub7, i1 true)
-  %cmp9 = icmp ult i32 %cond.i, 4
+  %cmp9 = icmp samesign ult i32 %cond.i, 4
   br i1 %cmp9, label %land.lhs.true10, label %if.else
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
@@ -922,7 +922,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true
   %5 = load i32, ptr %Y, align 8, !tbaa !61
   %sub14 = sub nsw i32 %5, %mouseY
   %cond.i42 = tail call noundef i32 @llvm.abs.i32(i32 %sub14, i1 true)
-  %cmp16 = icmp ult i32 %cond.i42, 4
+  %cmp16 = icmp samesign ult i32 %cond.i42, 4
   br i1 %cmp16, label %land.lhs.true17, label %if.else
 
 land.lhs.true17:                                  ; preds = %land.lhs.true10

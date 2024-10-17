@@ -170,7 +170,7 @@ entry:
 while.cond:                                       ; preds = %while.cond, %entry
   %size.0 = phi i32 [ 64, %entry ], [ %shl, %while.cond ]
   %conv3 = zext i32 %size.0 to i64
-  %cmp = icmp ugt i64 %conv2, %conv3
+  %cmp = icmp samesign ugt i64 %conv2, %conv3
   %shl = shl i32 %size.0, 2
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !11
 

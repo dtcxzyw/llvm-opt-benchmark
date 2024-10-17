@@ -4702,7 +4702,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit70
   %2193 = load i32, ptr %64, align 8
   %2194 = sext i32 %2193 to i64
   %2195 = icmp slt i64 %indvars.iv.next6422, %2194
-  %2196 = icmp ult i64 %indvars.iv.next6422, %1782
+  %2196 = icmp samesign ult i64 %indvars.iv.next6422, %1782
   %or.cond3401 = and i1 %2196, %2195
   br i1 %or.cond3401, label %.lr.ph5405, label %.critedge, !llvm.loop !85
 

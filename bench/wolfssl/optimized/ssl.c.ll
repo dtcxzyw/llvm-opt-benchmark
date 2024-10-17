@@ -1405,7 +1405,7 @@ if.then7:                                         ; preds = %for.body
   %sext = shl i64 %call4, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %buf.addr.018, i64 %idx.ext
-  %cmp13 = icmp ult i64 %indvars.iv, %0
+  %cmp13 = icmp samesign ult i64 %indvars.iv, %0
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.then7
@@ -1478,7 +1478,7 @@ if.then12:                                        ; preds = %if.end5
   %sext = shl i64 %call8, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %buf.addr.020, i64 %idx.ext
-  %cmp18 = icmp ult i64 %indvars.iv, %0
+  %cmp18 = icmp samesign ult i64 %indvars.iv, %0
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then12
@@ -2272,7 +2272,7 @@ sw.bb95:                                          ; preds = %if.end90, %if.end80
   %serverState = getelementptr inbounds i8, ptr %ssl, i64 1021
   %12 = load i8, ptr %serverState, align 1
   %conv10497 = zext i8 %12 to i32
-  %cmp10598 = icmp ugt i32 %cond, %conv10497
+  %cmp10598 = icmp samesign ugt i32 %cond, %conv10497
   br i1 %cmp10598, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %sw.bb95
@@ -2691,14 +2691,14 @@ if.end:                                           ; preds = %entry
   %minDhKeySz = getelementptr inbounds i8, ptr %ssl, i64 1032
   %0 = load i16, ptr %minDhKeySz, align 8
   %conv5 = zext i16 %0 to i32
-  %cmp6 = icmp ult i32 %conv4, %conv5
+  %cmp6 = icmp samesign ult i32 %conv4, %conv5
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %maxDhKeySz = getelementptr inbounds i8, ptr %ssl, i64 1034
   %1 = load i16, ptr %maxDhKeySz, align 2
   %conv13 = zext i16 %1 to i32
-  %cmp14 = icmp ugt i32 %conv4, %conv13
+  %cmp14 = icmp samesign ugt i32 %conv4, %conv13
   br i1 %cmp14, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end9
@@ -2877,14 +2877,14 @@ if.end:                                           ; preds = %entry
   %minDhKeySz = getelementptr inbounds i8, ptr %ctx, i64 174
   %0 = load i16, ptr %minDhKeySz, align 2
   %conv5 = zext i16 %0 to i32
-  %cmp6 = icmp ult i32 %conv4, %conv5
+  %cmp6 = icmp samesign ult i32 %conv4, %conv5
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %maxDhKeySz = getelementptr inbounds i8, ptr %ctx, i64 176
   %1 = load i16, ptr %maxDhKeySz, align 8
   %conv12 = zext i16 %1 to i32
-  %cmp13 = icmp ugt i32 %conv4, %conv12
+  %cmp13 = icmp samesign ugt i32 %conv4, %conv12
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
@@ -4391,7 +4391,7 @@ while.body:                                       ; preds = %for.body, %while.bo
 for.inc:                                          ; preds = %while.body, %for.body
   %ret.1.lcssa = phi ptr [ null, %for.body ], [ %spec.select, %while.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp4 = icmp ult i64 %indvars.iv, 10
+  %cmp4 = icmp samesign ult i64 %indvars.iv, 10
   %cmp5 = icmp eq ptr %ret.1.lcssa, null
   %1 = and i1 %cmp5, %cmp4
   br i1 %1, label %for.body, label %for.end, !llvm.loop !16

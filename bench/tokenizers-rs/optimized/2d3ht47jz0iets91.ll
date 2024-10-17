@@ -2390,7 +2390,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   %12 = load ptr, ptr %1, align 8, !alias.scope !481, !noalias !472, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
-  %13 = icmp ult i32 %11, 128
+  %13 = icmp samesign ult i32 %11, 128
   br i1 %13, label %30, label %14
 
 14:                                               ; preds = %.lr.ph.split.us.i
@@ -2573,22 +2573,22 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %90 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !513
   %91 = icmp ult i64 %90, 6
   tail call void @llvm.assume(i1 %91)
-  %switch75.i.i.i = icmp ult i64 %90, 5
+  %switch75.i.i.i = icmp samesign ult i64 %90, 5
   br i1 %switch75.i.i.i, label %._crit_edge.i.i.i, label %92
 
 92:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28), !noalias !513
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27), !noalias !513
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !513
-  %93 = icmp ult i32 %34, 128
+  %93 = icmp samesign ult i32 %34, 128
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i32 %34, 2048
+  %95 = icmp samesign ult i32 %34, 2048
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i32 %34, 65536
+  %97 = icmp samesign ult i32 %34, 65536
   %.167.i.i.i = select i1 %97, i64 3, i64 4
   br label %98
 
@@ -2819,15 +2819,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   store ptr %164, ptr %61, align 8, !alias.scope !564, !noalias !513
   %165 = load i32, ptr %161, align 4, !range !471, !noalias !567, !noundef !4
   store i32 %165, ptr %20, align 4, !noalias !513
-  %166 = icmp ult i32 %165, 128
+  %166 = icmp samesign ult i32 %165, 128
   br i1 %166, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i", label %167
 
 167:                                              ; preds = %163
-  %168 = icmp ult i32 %165, 2048
+  %168 = icmp samesign ult i32 %165, 2048
   br i1 %168, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i", label %169
 
 169:                                              ; preds = %167
-  %170 = icmp ult i32 %165, 65536
+  %170 = icmp samesign ult i32 %165, 65536
   %..i.i.i.i.i = select i1 %170, i64 3, i64 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i"
 
@@ -2836,15 +2836,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   %.0.i129.i.i.i = phi i64 [ 1, %163 ], [ %..i.i.i.i.i, %169 ], [ 2, %167 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he14575b1c7dc8773E.exit.thread.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !513
   %172 = load i32, ptr %29, align 4, !range !471, !noalias !513, !noundef !4
-  %173 = icmp ult i32 %172, 128
+  %173 = icmp samesign ult i32 %172, 128
   br i1 %173, label %178, label %174
 
 174:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb97dede7fe02e585E.exit.i.i.i"
-  %175 = icmp ult i32 %172, 2048
+  %175 = icmp samesign ult i32 %172, 2048
   br i1 %175, label %178, label %176
 
 176:                                              ; preds = %174
-  %177 = icmp ult i32 %172, 65536
+  %177 = icmp samesign ult i32 %172, 65536
   %..i.i.i = select i1 %177, i64 3, i64 4
   br label %178
 
@@ -2864,7 +2864,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !513
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch80.i.i.i = icmp ult i64 %182, 5
+  %switch80.i.i.i = icmp samesign ult i64 %182, 5
   br i1 %switch80.i.i.i, label %185, label %184
 
 184:                                              ; preds = %181
@@ -2908,15 +2908,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   store ptr %193, ptr %61, align 8, !alias.scope !574, !noalias !577
   %194 = load i32, ptr %190, align 4, !range !471, !noalias !588, !noundef !4
   %195 = add i64 %189, -1
-  %196 = icmp ult i32 %194, 128
+  %196 = icmp samesign ult i32 %194, 128
   br i1 %196, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i.i.i.i.i.i.i", label %197
 
 197:                                              ; preds = %192
-  %198 = icmp ult i32 %194, 2048
+  %198 = icmp samesign ult i32 %194, 2048
   br i1 %198, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i.i.i.i.i.i.i", label %199
 
 199:                                              ; preds = %197
-  %200 = icmp ult i32 %194, 65536
+  %200 = icmp samesign ult i32 %194, 65536
   %..i.i.i.i.i.i.i.i.i.i.i.i = select i1 %200, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i.i.i.i.i.i.i"
 
@@ -2932,7 +2932,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   %203 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !513
   %204 = icmp ult i64 %203, 6
   call void @llvm.assume(i1 %204)
-  %switch86.i.i.i = icmp ult i64 %203, 5
+  %switch86.i.i.i = icmp samesign ult i64 %203, 5
   br i1 %switch86.i.i.i, label %206, label %205
 
 205:                                              ; preds = %.loopexit.i.i.i
@@ -2960,7 +2960,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   %211 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !513
   %212 = icmp ult i64 %211, 6
   call void @llvm.assume(i1 %212)
-  %switch92.i.i.i = icmp ult i64 %211, 5
+  %switch92.i.i.i = icmp samesign ult i64 %211, 5
   br i1 %switch92.i.i.i, label %214, label %213
 
 213:                                              ; preds = %206
@@ -2982,7 +2982,7 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   %215 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8, !noalias !513
   %216 = icmp ult i64 %215, 6
   call void @llvm.assume(i1 %216)
-  %switch98.i.i.i = icmp ult i64 %215, 5
+  %switch98.i.i.i = icmp samesign ult i64 %215, 5
   %.pre165.i.i.i = load i32, ptr %29, align 4, !range !471, !noalias !513
   br i1 %switch98.i.i.i, label %224, label %217
 
@@ -2990,15 +2990,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !513
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !513
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !513
-  %218 = icmp ult i32 %.pre165.i.i.i, 128
+  %218 = icmp samesign ult i32 %.pre165.i.i.i, 128
   br i1 %218, label %223, label %219
 
 219:                                              ; preds = %217
-  %220 = icmp ult i32 %.pre165.i.i.i, 2048
+  %220 = icmp samesign ult i32 %.pre165.i.i.i, 2048
   br i1 %220, label %223, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp ult i32 %.pre165.i.i.i, 65536
+  %222 = icmp samesign ult i32 %.pre165.i.i.i, 65536
   %.168.i.i.i = select i1 %222, i64 3, i64 4
   br label %223
 
@@ -3023,15 +3023,15 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.llvm.14140520316429159617.exit.i.i.i: ;
 
 224:                                              ; preds = %223, %214
   %225 = phi i32 [ %.pre165.i.i.i, %214 ], [ %.pre164.i.i.i, %223 ]
-  %226 = icmp ult i32 %225, 128
+  %226 = icmp samesign ult i32 %225, 128
   br i1 %226, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe1ff87979f4d6fdE.exit.i", label %227
 
 227:                                              ; preds = %224
-  %228 = icmp ult i32 %225, 2048
+  %228 = icmp samesign ult i32 %225, 2048
   br i1 %228, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe1ff87979f4d6fdE.exit.i", label %229
 
 229:                                              ; preds = %227
-  %230 = icmp ult i32 %225, 65536
+  %230 = icmp samesign ult i32 %225, 65536
   %.73.i.i.i = select i1 %230, i64 3, i64 4
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe1ff87979f4d6fdE.exit.i"
 
@@ -4396,7 +4396,7 @@ select.unfold:                                    ; preds = %"_ZN94_$LT$tokenize
   ]
 
 144:                                              ; preds = %143
-  %145 = icmp ugt i32 %79, 127
+  %145 = icmp samesign ugt i32 %79, 127
   br i1 %145, label %146, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 146:                                              ; preds = %144
@@ -4666,7 +4666,7 @@ select.unfold40:                                  ; preds = %"_ZN94_$LT$tokenize
   ]
 
 273:                                              ; preds = %272
-  %274 = icmp ugt i32 %208, 127
+  %274 = icmp samesign ugt i32 %208, 127
   br i1 %274, label %275, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h247453782dc2e405E.exit.i.i.i"
 
 275:                                              ; preds = %273
@@ -7778,7 +7778,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   ]
 
 49:                                               ; preds = %46
-  %50 = icmp ugt i32 %48, 127
+  %50 = icmp samesign ugt i32 %48, 127
   br i1 %50, label %51, label %73
 
 51:                                               ; preds = %49
@@ -8077,15 +8077,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1a
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1829, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit"
 
@@ -8126,15 +8126,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2d
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1832, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit"
 
@@ -8175,15 +8175,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h33
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1835, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit"
 
@@ -8224,15 +8224,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h36
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1838, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit"
 
@@ -8317,15 +8317,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1857, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit"
 
@@ -8366,15 +8366,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h43
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1860, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit"
 
@@ -8415,15 +8415,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h56
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1863, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit"
 
@@ -8464,15 +8464,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h73
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1866, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit"
 
@@ -8657,15 +8657,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h80
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1918, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit"
 
@@ -8706,15 +8706,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h92
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1921, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit"
 
@@ -8755,15 +8755,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1924, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit"
 
@@ -8804,15 +8804,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1927, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit"
 
@@ -8901,15 +8901,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd0
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1950, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit"
 
@@ -8950,15 +8950,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd3
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1953, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit"
 
@@ -8999,15 +8999,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1956, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit"
 
@@ -9048,15 +9048,15 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfb
   %13 = load i32, ptr %9, align 4, !range !471, !noalias !1959, !noundef !4
   %14 = add i64 %8, -1
   store i64 %14, ptr %2, align 8
-  %15 = icmp ult i32 %13, 128
+  %15 = icmp samesign ult i32 %13, 128
   br i1 %15, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit", label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ult i32 %13, 2048
+  %17 = icmp samesign ult i32 %13, 2048
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %13, 65536
+  %19 = icmp samesign ult i32 %13, 65536
   %..i.i.i.i = select i1 %19, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit"
 
@@ -13977,7 +13977,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   store i8 %712, ptr %713, align 1, !alias.scope !2817, !noalias !2922
   %714 = add nuw i64 %.51457.i.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %715 = icmp ult i64 %indvars.iv.next.i, %.0143.i.i
+  %715 = icmp samesign ult i64 %indvars.iv.next.i, %.0143.i.i
   br i1 %715, label %.lr.ph1459.i.i, label %.loopexit.i
 
 716:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.i.i"
@@ -14282,15 +14282,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3043, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3040, !noalias !3041
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i.i"
 
@@ -14336,15 +14336,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3061, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3058, !noalias !3059
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i.i"
 
@@ -14390,15 +14390,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3079, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3076, !noalias !3077
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i.i"
 
@@ -14444,15 +14444,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3097, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3094, !noalias !3095
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i.i"
 
@@ -14498,15 +14498,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3115, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3112, !noalias !3113
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i.i"
 
@@ -14552,15 +14552,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3133, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3130, !noalias !3131
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i.i"
 
@@ -14606,15 +14606,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3151, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3148, !noalias !3149
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i.i"
 
@@ -14660,15 +14660,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3169, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3166, !noalias !3167
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i.i"
 
@@ -14714,15 +14714,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3187, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3184, !noalias !3185
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i.i"
 
@@ -14768,15 +14768,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3205, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3202, !noalias !3203
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i.i"
 
@@ -14822,15 +14822,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3223, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3220, !noalias !3221
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i.i"
 
@@ -14876,15 +14876,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3241, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3238, !noalias !3239
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i.i"
 
@@ -14930,15 +14930,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3259, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3256, !noalias !3257
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i.i"
 
@@ -14984,15 +14984,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3277, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3274, !noalias !3275
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i.i"
 
@@ -15038,15 +15038,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3295, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3292, !noalias !3293
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i.i"
 
@@ -15100,15 +15100,15 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3319, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3316, !noalias !3317
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i.i"
 
@@ -15316,15 +15316,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3351, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3345, !noalias !3342
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0515de333aaee5e0E.exit.i"
 
@@ -15368,15 +15368,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3361, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3355, !noalias !3352
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73b057deb8106e48E.exit.i"
 
@@ -15420,15 +15420,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3371, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3365, !noalias !3362
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb428cfa8f09bf61cE.exit.i"
 
@@ -15472,15 +15472,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3381, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3375, !noalias !3372
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he7ba027a0fbea801E.exit.i"
 
@@ -15524,15 +15524,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3391, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3385, !noalias !3382
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h525b11549ffc467fE.exit.i"
 
@@ -15576,15 +15576,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3401, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3395, !noalias !3392
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4533633ee4027113E.exit.i"
 
@@ -15628,15 +15628,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3411, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3405, !noalias !3402
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h361d1152b8646dc0E.exit.i"
 
@@ -15680,15 +15680,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3421, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3415, !noalias !3412
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6895a1ef67f7d42fE.exit.i"
 
@@ -15732,15 +15732,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3431, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3425, !noalias !3422
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5003d916835bcca4E.exit.i"
 
@@ -15784,15 +15784,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3441, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3435, !noalias !3432
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h9bcd390b81553023E.exit.i"
 
@@ -15836,15 +15836,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3451, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3445, !noalias !3442
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf0bbf972564a3c1E.exit.i"
 
@@ -15895,15 +15895,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3461, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3455, !noalias !3452
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8dfc0ebe4bdfe47E.exit.i"
 
@@ -15947,15 +15947,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3471, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3465, !noalias !3462
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h60ce483352698ac6E.exit.i"
 
@@ -15999,15 +15999,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3481, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3475, !noalias !3472
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbca0c10400d6b845E.exit.i"
 
@@ -16051,15 +16051,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3491, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3485, !noalias !3482
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h73c861668de38bccE.exit.i"
 
@@ -16103,15 +16103,15 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %14 = load i32, ptr %10, align 4, !range !471, !noalias !3501, !noundef !4
   %15 = add i64 %9, -1
   store i64 %15, ptr %2, align 8, !alias.scope !3495, !noalias !3492
-  %16 = icmp ult i32 %14, 128
+  %16 = icmp samesign ult i32 %14, 128
   br i1 %16, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i", label %17
 
 17:                                               ; preds = %12
-  %18 = icmp ult i32 %14, 2048
+  %18 = icmp samesign ult i32 %14, 2048
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i", label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %14, 65536
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i.i.i.i = select i1 %20, i64 3, i64 4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbb7ddf60ad01ea8fE.exit.i"
 
@@ -16947,7 +16947,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   ]
 
 49:                                               ; preds = %46
-  %50 = icmp ugt i32 %48, 127
+  %50 = icmp samesign ugt i32 %48, 127
   br i1 %50, label %51, label %73
 
 51:                                               ; preds = %49

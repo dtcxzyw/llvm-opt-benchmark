@@ -1053,7 +1053,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %mNumChannels.i, align 8
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.cond13.preheader.loopexit, !llvm.loop !6
 
 for.body16:                                       ; preds = %for.cond13.preheader, %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit
@@ -1757,7 +1757,7 @@ invoke.cont216:                                   ; preds = %if.else73.i, %if.th
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %131 = load i32, ptr %mAnimNumFrames, align 4
   %132 = zext i32 %131 to i64
-  %cmp143 = icmp ult i64 %indvars.iv.next440, %132
+  %cmp143 = icmp samesign ult i64 %indvars.iv.next440, %132
   br i1 %cmp143, label %for.cond146.preheader, label %for.end221, !llvm.loop !11
 
 for.end221:                                       ; preds = %invoke.cont216, %arrayctor.cont138.thread
@@ -1790,7 +1790,7 @@ _ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.e
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442459, 1
   %.pre = load i32, ptr %mNumChannels.i, align 8
   %136 = zext i32 %.pre to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next443, %136
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next443, %136
   br i1 %cmp15, label %for.body16, label %for.end240, !llvm.loop !12
 
 ehcleanup:                                        ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp.loopexit.split-lp, %lpad37.loopexit.split-lp.loopexit, %_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_Auto_nodeD2Ev.exit.i.i, %lpad68

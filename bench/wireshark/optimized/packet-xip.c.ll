@@ -558,7 +558,7 @@ add_type_to_buf.exit.us.i:                        ; preds = %91, %90, %83
 106:                                              ; preds = %105, %.split.us.i.us.i
   %107 = phi i8 [ %.pre21.i.us.i, %105 ], [ %104, %.split.us.i.us.i ]
   %108 = and i8 %107, 127
-  %109 = icmp ult i8 %108, 36
+  %109 = icmp samesign ult i8 %108, 36
   br i1 %109, label %111, label %110
 
 110:                                              ; preds = %106
@@ -655,7 +655,7 @@ add_type_to_buf.exit.i:                           ; preds = %127, %126, %119
 144:                                              ; preds = %143, %142
   %145 = phi i8 [ %.pre.i.i, %143 ], [ %140, %142 ]
   %146 = and i8 %145, 127
-  %147 = icmp ult i8 %146, 36
+  %147 = icmp samesign ult i8 %146, 36
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %144

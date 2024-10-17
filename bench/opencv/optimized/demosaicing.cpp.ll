@@ -1499,7 +1499,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.inv.i = icmp ugt i32 %.sroa.speculated708.i, 1
   %648 = select i1 %.inv.i, i32 %647, i32 1
   %649 = add nuw nsw i32 %648, %.sroa.speculated711.i
-  %650 = icmp ult i32 %609, %649
+  %650 = icmp samesign ult i32 %609, %649
   %.pre.pre.pre.pre.pre.pre.pre.pre.i = load i8, ptr %.2569860.i, align 1
   br i1 %650, label %651, label %668
 
@@ -1527,7 +1527,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.0536.i = phi i32 [ %660, %651 ], [ 0, %624 ]
   %.0528.i = phi i32 [ %667, %651 ], [ 0, %624 ]
   %.0520.i = phi i32 [ 1, %651 ], [ 0, %624 ]
-  %669 = icmp ult i32 %612, %649
+  %669 = icmp samesign ult i32 %612, %649
   br i1 %669, label %670, label %691
 
 670:                                              ; preds = %668
@@ -1558,7 +1558,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.1537.i = phi i32 [ %681, %670 ], [ %.0536.i, %668 ]
   %.1529.i = phi i32 [ %689, %670 ], [ %.0528.i, %668 ]
   %.1521.i = phi i32 [ %690, %670 ], [ %.0520.i, %668 ]
-  %692 = icmp ult i32 %619, %649
+  %692 = icmp samesign ult i32 %619, %649
   br i1 %692, label %693, label %714
 
 693:                                              ; preds = %691
@@ -1589,7 +1589,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.2538.i = phi i32 [ %704, %693 ], [ %.1537.i, %691 ]
   %.2530.i = phi i32 [ %712, %693 ], [ %.1529.i, %691 ]
   %.2522.i = phi i32 [ %713, %693 ], [ %.1521.i, %691 ]
-  %715 = icmp ult i32 %623, %649
+  %715 = icmp samesign ult i32 %623, %649
   br i1 %715, label %716, label %737
 
 716:                                              ; preds = %714
@@ -1620,7 +1620,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.3539.i = phi i32 [ %727, %716 ], [ %.2538.i, %714 ]
   %.3531.i = phi i32 [ %735, %716 ], [ %.2530.i, %714 ]
   %.3523.i = phi i32 [ %736, %716 ], [ %.2522.i, %714 ]
-  %738 = icmp ult i32 %631, %649
+  %738 = icmp samesign ult i32 %631, %649
   br i1 %738, label %739, label %756
 
 739:                                              ; preds = %737
@@ -1647,7 +1647,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.4540.i = phi i32 [ %749, %739 ], [ %.3539.i, %737 ]
   %.4532.i = phi i32 [ %754, %739 ], [ %.3531.i, %737 ]
   %.4524.i = phi i32 [ %755, %739 ], [ %.3523.i, %737 ]
-  %757 = icmp ult i32 %635, %649
+  %757 = icmp samesign ult i32 %635, %649
   br i1 %757, label %758, label %775
 
 758:                                              ; preds = %756
@@ -1674,7 +1674,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.5541.i = phi i32 [ %768, %758 ], [ %.4540.i, %756 ]
   %.5533.i = phi i32 [ %773, %758 ], [ %.4532.i, %756 ]
   %.5525.i = phi i32 [ %774, %758 ], [ %.4524.i, %756 ]
-  %776 = icmp ult i32 %642, %649
+  %776 = icmp samesign ult i32 %642, %649
   br i1 %776, label %777, label %794
 
 777:                                              ; preds = %775
@@ -1701,7 +1701,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.6542.i = phi i32 [ %787, %777 ], [ %.5541.i, %775 ]
   %.6534.i = phi i32 [ %792, %777 ], [ %.5533.i, %775 ]
   %.6526.i = phi i32 [ %793, %777 ], [ %.5525.i, %775 ]
-  %795 = icmp ult i32 %646, %649
+  %795 = icmp samesign ult i32 %646, %649
   br i1 %795, label %796, label %._crit_edge912.i
 
 ._crit_edge912.i:                                 ; preds = %794
@@ -1817,7 +1817,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.inv846.i = icmp ugt i32 %.sroa.speculated.i, 1
   %885 = select i1 %.inv846.i, i32 %884, i32 1
   %886 = add nuw nsw i32 %885, %.sroa.speculated652.i
-  %887 = icmp ult i32 %609, %886
+  %887 = icmp samesign ult i32 %609, %886
   br i1 %887, label %888, label %906
 
 888:                                              ; preds = %829
@@ -1845,7 +1845,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.0504.i = phi i32 [ %901, %888 ], [ 0, %829 ]
   %.0496.i = phi i32 [ %905, %888 ], [ 0, %829 ]
   %.0.i = phi i32 [ 1, %888 ], [ 0, %829 ]
-  %907 = icmp ult i32 %612, %886
+  %907 = icmp samesign ult i32 %612, %886
   br i1 %907, label %908, label %930
 
 908:                                              ; preds = %906
@@ -1877,7 +1877,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.1505.i = phi i32 [ %923, %908 ], [ %.0504.i, %906 ]
   %.1497.i = phi i32 [ %928, %908 ], [ %.0496.i, %906 ]
   %.1.i = phi i32 [ %929, %908 ], [ %.0.i, %906 ]
-  %931 = icmp ult i32 %619, %886
+  %931 = icmp samesign ult i32 %619, %886
   br i1 %931, label %932, label %954
 
 932:                                              ; preds = %930
@@ -1909,7 +1909,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.2506.i = phi i32 [ %944, %932 ], [ %.1505.i, %930 ]
   %.2498.i = phi i32 [ %952, %932 ], [ %.1497.i, %930 ]
   %.2.i = phi i32 [ %953, %932 ], [ %.1.i, %930 ]
-  %955 = icmp ult i32 %623, %886
+  %955 = icmp samesign ult i32 %623, %886
   br i1 %955, label %956, label %978
 
 956:                                              ; preds = %954
@@ -1941,7 +1941,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.3507.i = phi i32 [ %968, %956 ], [ %.2506.i, %954 ]
   %.3499.i = phi i32 [ %976, %956 ], [ %.2498.i, %954 ]
   %.3.i = phi i32 [ %977, %956 ], [ %.2.i, %954 ]
-  %979 = icmp ult i32 %844, %886
+  %979 = icmp samesign ult i32 %844, %886
   br i1 %979, label %980, label %1003
 
 980:                                              ; preds = %978
@@ -1974,7 +1974,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.4508.i = phi i32 [ %993, %980 ], [ %.3507.i, %978 ]
   %.4500.i = phi i32 [ %1001, %980 ], [ %.3499.i, %978 ]
   %.4.i = phi i32 [ %1002, %980 ], [ %.3.i, %978 ]
-  %1004 = icmp ult i32 %856, %886
+  %1004 = icmp samesign ult i32 %856, %886
   br i1 %1004, label %1005, label %1028
 
 1005:                                             ; preds = %1003
@@ -2007,7 +2007,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.5509.i = phi i32 [ %1018, %1005 ], [ %.4508.i, %1003 ]
   %.5501.i = phi i32 [ %1026, %1005 ], [ %.4500.i, %1003 ]
   %.5.i = phi i32 [ %1027, %1005 ], [ %.4.i, %1003 ]
-  %1029 = icmp ult i32 %871, %886
+  %1029 = icmp samesign ult i32 %871, %886
   br i1 %1029, label %1030, label %1053
 
 1030:                                             ; preds = %1028
@@ -2040,7 +2040,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit.i:           ; preds = %.noexc192, %383
   %.6510.i = phi i32 [ %1043, %1030 ], [ %.5509.i, %1028 ]
   %.6502.i = phi i32 [ %1051, %1030 ], [ %.5501.i, %1028 ]
   %.6.i = phi i32 [ %1052, %1030 ], [ %.5.i, %1028 ]
-  %1054 = icmp ult i32 %883, %886
+  %1054 = icmp samesign ult i32 %883, %886
   br i1 %1054, label %1055, label %1078
 
 1055:                                             ; preds = %1053
@@ -5159,7 +5159,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   %115 = zext i8 %114 to i32
   %116 = sub nsw i32 %112, %115
   %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
-  %118 = icmp ugt i32 %109, %117
+  %118 = icmp samesign ugt i32 %109, %117
   %119 = add nuw nsw i32 %115, %112
   %120 = add nuw nsw i32 %107, %104
   %.in204 = select i1 %118, i32 %119, i32 %120
@@ -5257,7 +5257,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   %200 = zext i8 %199 to i32
   %201 = sub nsw i32 %197, %200
   %202 = tail call i32 @llvm.abs.i32(i32 %201, i1 true)
-  %203 = icmp ugt i32 %194, %202
+  %203 = icmp samesign ugt i32 %194, %202
   %204 = add nuw nsw i32 %200, %197
   %205 = add nuw nsw i32 %192, %189
   %.in = select i1 %203, i32 %204, i32 %205
@@ -5346,7 +5346,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   %273 = zext i8 %272 to i32
   %274 = sub nsw i32 %270, %273
   %275 = tail call i32 @llvm.abs.i32(i32 %274, i1 true)
-  %276 = icmp ugt i32 %267, %275
+  %276 = icmp samesign ugt i32 %267, %275
   %277 = add nuw nsw i32 %273, %270
   %278 = add nuw nsw i32 %265, %262
   %.in203 = select i1 %276, i32 %277, i32 %278
@@ -5582,7 +5582,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   %115 = zext i16 %114 to i32
   %116 = sub nsw i32 %112, %115
   %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
-  %118 = icmp ugt i32 %109, %117
+  %118 = icmp samesign ugt i32 %109, %117
   %119 = add nuw nsw i32 %115, %112
   %120 = add nuw nsw i32 %107, %104
   %.in204 = select i1 %118, i32 %119, i32 %120
@@ -5680,7 +5680,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   %200 = zext i16 %199 to i32
   %201 = sub nsw i32 %197, %200
   %202 = tail call i32 @llvm.abs.i32(i32 %201, i1 true)
-  %203 = icmp ugt i32 %194, %202
+  %203 = icmp samesign ugt i32 %194, %202
   %204 = add nuw nsw i32 %200, %197
   %205 = add nuw nsw i32 %192, %189
   %.in = select i1 %203, i32 %204, i32 %205
@@ -5769,7 +5769,7 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   %273 = zext i16 %272 to i32
   %274 = sub nsw i32 %270, %273
   %275 = tail call i32 @llvm.abs.i32(i32 %274, i1 true)
-  %276 = icmp ugt i32 %267, %275
+  %276 = icmp samesign ugt i32 %267, %275
   %277 = add nuw nsw i32 %273, %270
   %278 = add nuw nsw i32 %265, %262
   %.in203 = select i1 %276, i32 %277, i32 %278

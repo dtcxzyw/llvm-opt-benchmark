@@ -2316,7 +2316,7 @@ default.unreachable.i:                            ; preds = %833
   br i1 %.not216257.i, label %.loopexit.i99, label %.lr.ph262.i
 
 .lr.ph262.i:                                      ; preds = %839
-  %842 = icmp ult i32 %.0146265.i, 2
+  %842 = icmp samesign ult i32 %.0146265.i, 2
   %843 = select i1 %842, ptr @.str.20, ptr @.str.21
   br label %844
 
@@ -2800,7 +2800,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %.noexc1
 
 _ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit: ; preds = %.noexc145, %1036, %986
   %.4213.i406419 = phi i32 [ %.2.i, %986 ], [ 3, %1036 ], [ 3, %.noexc145 ]
-  %.not64 = icmp ult i32 %.4213.i406419, 2
+  %.not64 = icmp samesign ult i32 %.4213.i406419, 2
   br i1 %.not64, label %1037, label %275, !llvm.loop !63
 
 1037:                                             ; preds = %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit

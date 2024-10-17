@@ -1239,7 +1239,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
   %458 = fadd float %450, %457
   store float %458, ptr %456, align 4
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
-  %459 = icmp ult i64 %indvars.iv.next109.i, %443
+  %459 = icmp samesign ult i64 %indvars.iv.next109.i, %443
   br i1 %459, label %.lr.ph55.us.us.us.i, label %._crit_edge.us.us.us.i, !llvm.loop !19
 
 460:                                              ; preds = %460, %.lr.ph.us.us.us.i
@@ -1257,7 +1257,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
   %470 = fadd <4 x float> %467, %469
   store <4 x float> %470, ptr %466, align 1
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 4
-  %471 = icmp ult i64 %indvars.iv.next102.i, %443
+  %471 = icmp samesign ult i64 %indvars.iv.next102.i, %443
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 4
   br i1 %471, label %460, label %..preheader_crit_edge.us.us.us.i, !llvm.loop !20
 
@@ -1795,7 +1795,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr
   %57 = call float @llvm.fmuladd.f32(float %53, float %54, float %56)
   store float %57, ptr %55, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %58 = icmp ult i64 %indvars.iv.next76, %48
+  %58 = icmp samesign ult i64 %indvars.iv.next76, %48
   br i1 %58, label %.lr.ph50.us, label %._crit_edge.us, !llvm.loop !23
 
 59:                                               ; preds = %.lr.ph.us, %59
@@ -1809,7 +1809,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr
   %64 = fadd <4 x float> %62, %63
   store <4 x float> %64, ptr %61, align 1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 4
-  %65 = icmp ult i64 %indvars.iv.next69, %48
+  %65 = icmp samesign ult i64 %indvars.iv.next69, %48
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 4
   br i1 %65, label %59, label %..preheader_crit_edge.us
 

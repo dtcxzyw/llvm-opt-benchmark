@@ -266,7 +266,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
 145:                                              ; preds = %140, %128
   %.2 = phi i8 [ 1, %140 ], [ %.1, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %146 = icmp ult i64 %indvars.iv.next.i, %127
+  %146 = icmp samesign ult i64 %indvars.iv.next.i, %127
   br i1 %146, label %128, label %bloom_add_value.exit, !llvm.loop !5
 
 bloom_add_value.exit:                             ; preds = %145, %bloom_get_procinfo.exit

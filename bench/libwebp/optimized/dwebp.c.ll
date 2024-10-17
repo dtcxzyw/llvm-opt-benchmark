@@ -746,7 +746,7 @@ sub_1306:                                         ; preds = %sub_0305
   %.087.in.i = phi ptr [ %260, %259 ], [ %267, %266 ], [ %4, %262 ]
   %.087.i = load i32, ptr %.087.in.i, align 4
   %.089.i = load i32, ptr %.089.in.i, align 4
-  %270 = icmp ult i32 %.0190336, 19
+  %270 = icmp samesign ult i32 %.0190336, 19
   br i1 %270, label %271, label %289
 
 271:                                              ; preds = %269

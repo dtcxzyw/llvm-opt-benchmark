@@ -450,7 +450,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %4 = load i32, ptr %quote_style, align 8
   %5 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %4)
-  %tobool.not = icmp ult i32 %5, 2
+  %tobool.not = icmp samesign ult i32 %5, 2
   br i1 %tobool.not, label %if.end254, label %if.then250
 
 if.then250:                                       ; preds = %if.end

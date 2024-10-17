@@ -636,7 +636,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %173 = load i32, ptr %155, align 8
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %indvars.iv.next, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next, %174
   br i1 %175, label %160, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %171, %4

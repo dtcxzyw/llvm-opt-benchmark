@@ -165,7 +165,7 @@ define hidden void @"_ZN103_$LT$tokio_tungstenite..handshake..MidHandshake$LT$Ro
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %switch.selectcmp28 = icmp ugt i64 %18, 4
+  %switch.selectcmp28 = icmp samesign ugt i64 %18, 4
   br i1 %switch.selectcmp28, label %20, label %10
 
 20:                                               ; preds = %17
@@ -280,7 +280,7 @@ define hidden void @"_ZN103_$LT$tokio_tungstenite..handshake..MidHandshake$LT$Ro
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %switch.selectcmp33 = icmp ugt i64 %18, 4
+  %switch.selectcmp33 = icmp samesign ugt i64 %18, 4
   br i1 %switch.selectcmp33, label %20, label %10
 
 20:                                               ; preds = %17
@@ -659,7 +659,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   %73 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %74 = icmp ult i64 %73, 6
   tail call void @llvm.assume(i1 %74)
-  %switch.selectcmp33 = icmp ugt i64 %73, 4
+  %switch.selectcmp33 = icmp samesign ugt i64 %73, 4
   br i1 %switch.selectcmp33, label %75, label %23
 
 75:                                               ; preds = %72
@@ -984,7 +984,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %86 = icmp ult i64 %85, 6
   tail call void @llvm.assume(i1 %86)
-  %switch.selectcmp34 = icmp ugt i64 %85, 4
+  %switch.selectcmp34 = icmp samesign ugt i64 %85, 4
   br i1 %switch.selectcmp34, label %87, label %35
 
 87:                                               ; preds = %84
@@ -1052,7 +1052,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
 102:                                              ; preds = %99
   %103 = getelementptr inbounds i8, ptr %14, i64 216
   %104 = load i8, ptr %103, align 8, !range !83, !alias.scope !75, !noalias !79, !noundef !4
-  %105 = icmp ult i8 %104, 2
+  %105 = icmp samesign ult i8 %104, 2
   br i1 %105, label %.critedge.i.i, label %106
 
 106:                                              ; preds = %102
@@ -1191,7 +1191,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   %141 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !84
   %142 = icmp ult i64 %141, 6
   call void @llvm.assume(i1 %142)
-  %switch.selectcmp80.i.i = icmp ugt i64 %141, 4
+  %switch.selectcmp80.i.i = icmp samesign ugt i64 %141, 4
   br i1 %switch.selectcmp80.i.i, label %143, label %.noexc.i.i37
 
 143:                                              ; preds = %138
@@ -1500,7 +1500,7 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
   %48 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %49 = icmp ult i64 %48, 6
   tail call void @llvm.assume(i1 %49)
-  %switch.selectcmp29 = icmp ugt i64 %48, 3
+  %switch.selectcmp29 = icmp samesign ugt i64 %48, 3
   br i1 %switch.selectcmp29, label %50, label %42
 
 50:                                               ; preds = %47
@@ -2429,7 +2429,7 @@ define hidden void @"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !196
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %switch.selectcmp14.i = icmp ugt i64 %13, 4
+  %switch.selectcmp14.i = icmp samesign ugt i64 %13, 4
   br i1 %switch.selectcmp14.i, label %15, label %"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17hf3c4c1160ea5f369E.exit"
 
 15:                                               ; preds = %3
@@ -2589,7 +2589,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread: ; preds = %33, %_ZN
   %55 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %56 = icmp ult i64 %55, 6
   call void @llvm.assume(i1 %56)
-  %switch.selectcmp31 = icmp ugt i64 %55, 3
+  %switch.selectcmp31 = icmp samesign ugt i64 %55, 3
   br i1 %switch.selectcmp31, label %57, label %28
 
 57:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
@@ -2659,7 +2659,7 @@ define hidden void @"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !230
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %switch.selectcmp14.i = icmp ugt i64 %13, 4
+  %switch.selectcmp14.i = icmp samesign ugt i64 %13, 4
   br i1 %switch.selectcmp14.i, label %15, label %"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17he0143b49ae4d4441E.exit"
 
 15:                                               ; preds = %3
@@ -2819,7 +2819,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread: ; preds = %33, %_ZN
   %55 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %56 = icmp ult i64 %55, 6
   call void @llvm.assume(i1 %56)
-  %switch.selectcmp31 = icmp ugt i64 %55, 3
+  %switch.selectcmp31 = icmp samesign ugt i64 %55, 3
   br i1 %switch.selectcmp31, label %57, label %28
 
 57:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
@@ -3036,7 +3036,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge12
 
 13:                                               ; preds = %.critedge, %.critedge12
@@ -3147,7 +3147,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge12
 
 13:                                               ; preds = %.critedge, %.critedge12
@@ -3258,7 +3258,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge12
 
 13:                                               ; preds = %.critedge, %.critedge12
@@ -3369,7 +3369,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge12
 
 13:                                               ; preds = %.critedge, %.critedge12
@@ -3523,7 +3523,7 @@ define hidden { i64, ptr } @"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12w
   %5 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %6 = icmp ult i64 %5, 6
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %5, 5
+  %7 = icmp samesign ult i64 %5, 5
   br i1 %7, label %12, label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge
@@ -3546,7 +3546,7 @@ define hidden { i64, ptr } @"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12w
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %14 = icmp ult i64 %13, 6
   call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %13, 5
+  %15 = icmp samesign ult i64 %13, 5
   br i1 %15, label %"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$std..io..Write$GT$5flush28_$u7b$$u7b$closure$u7d$$u7d$17h1dbda444e716ae37E.exit", label %.critedge8.i
 
 .critedge8.i:                                     ; preds = %12
@@ -3578,7 +3578,7 @@ define hidden { i64, ptr } @"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12w
   %5 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %6 = icmp ult i64 %5, 6
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %5, 5
+  %7 = icmp samesign ult i64 %5, 5
   br i1 %7, label %12, label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge
@@ -3601,7 +3601,7 @@ define hidden { i64, ptr } @"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12w
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %14 = icmp ult i64 %13, 6
   call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %13, 5
+  %15 = icmp samesign ult i64 %13, 5
   br i1 %15, label %"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$std..io..Write$GT$5flush28_$u7b$$u7b$closure$u7d$$u7d$17h3f05108fe11314fcE.exit", label %.critedge8.i
 
 .critedge8.i:                                     ; preds = %12
@@ -3704,7 +3704,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread29: ; preds = %12, %_
   %27 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %28 = icmp ult i64 %27, 6
   tail call void @llvm.assume(i1 %28)
-  %switch.selectcmp18 = icmp ugt i64 %27, 4
+  %switch.selectcmp18 = icmp samesign ugt i64 %27, 4
   br i1 %switch.selectcmp18, label %29, label %6
 
 29:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread29
@@ -3823,7 +3823,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread29: ; preds = %11, %_
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %switch.selectcmp18 = icmp ugt i64 %26, 4
+  %switch.selectcmp18 = icmp samesign ugt i64 %26, 4
   br i1 %switch.selectcmp18, label %28, label %5
 
 28:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread29
@@ -10569,7 +10569,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %11, 5
+  %13 = icmp samesign ult i64 %11, 5
   br i1 %13, label %14, label %.critedge13
 
 14:                                               ; preds = %.critedge, %.critedge13
@@ -10588,7 +10588,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %21 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1543
   %22 = icmp ult i64 %21, 6
   call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %21, 5
+  %23 = icmp samesign ult i64 %21, 5
   br i1 %23, label %24, label %.critedge25.i
 
 24:                                               ; preds = %.critedge25.i, %14
@@ -10605,7 +10605,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %29 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1546
   %30 = icmp ult i64 %29, 6
   call void @llvm.assume(i1 %30)
-  %31 = icmp ult i64 %29, 5
+  %31 = icmp samesign ult i64 %29, 5
   br i1 %31, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17hfd198b3c90f10d95E.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %24
@@ -10715,7 +10715,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %11, 5
+  %13 = icmp samesign ult i64 %11, 5
   br i1 %13, label %14, label %.critedge13
 
 14:                                               ; preds = %.critedge, %.critedge13
@@ -10734,7 +10734,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %21 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1575
   %22 = icmp ult i64 %21, 6
   call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %21, 5
+  %23 = icmp samesign ult i64 %21, 5
   br i1 %23, label %24, label %.critedge25.i
 
 24:                                               ; preds = %.critedge25.i, %14
@@ -10751,7 +10751,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %29 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1578
   %30 = icmp ult i64 %29, 6
   call void @llvm.assume(i1 %30)
-  %31 = icmp ult i64 %29, 5
+  %31 = icmp samesign ult i64 %29, 5
   br i1 %31, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h903c939a7ba79482E.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %24
@@ -10858,14 +10858,14 @@ define hidden noalias noundef ptr @"_ZN79_$LT$tokio_tungstenite..compat..AllowSt
   %5 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %6 = icmp ult i64 %5, 6
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %5, 5
+  %7 = icmp samesign ult i64 %5, 5
   br i1 %7, label %8, label %.critedge11
 
 8:                                                ; preds = %.critedge, %.critedge11
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %10 = icmp ult i64 %9, 6
   call void @llvm.assume(i1 %10)
-  %11 = icmp ult i64 %9, 5
+  %11 = icmp samesign ult i64 %9, 5
   br i1 %11, label %16, label %.critedge25.i
 
 .critedge25.i:                                    ; preds = %8
@@ -10888,7 +10888,7 @@ define hidden noalias noundef ptr @"_ZN79_$LT$tokio_tungstenite..compat..AllowSt
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %17, 5
+  %19 = icmp samesign ult i64 %17, 5
   br i1 %19, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h2cc3581e3deeb2dfE.llvm.7653731377883981346.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %16
@@ -10936,14 +10936,14 @@ define hidden noalias noundef ptr @"_ZN79_$LT$tokio_tungstenite..compat..AllowSt
   %5 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %6 = icmp ult i64 %5, 6
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %5, 5
+  %7 = icmp samesign ult i64 %5, 5
   br i1 %7, label %8, label %.critedge11
 
 8:                                                ; preds = %.critedge, %.critedge11
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %10 = icmp ult i64 %9, 6
   call void @llvm.assume(i1 %10)
-  %11 = icmp ult i64 %9, 5
+  %11 = icmp samesign ult i64 %9, 5
   br i1 %11, label %16, label %.critedge25.i
 
 .critedge25.i:                                    ; preds = %8
@@ -10966,7 +10966,7 @@ define hidden noalias noundef ptr @"_ZN79_$LT$tokio_tungstenite..compat..AllowSt
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %17, 5
+  %19 = icmp samesign ult i64 %17, 5
   br i1 %19, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17hb517e796082e5f80E.llvm.7653731377883981346.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %16
@@ -11017,7 +11017,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %11, 5
+  %13 = icmp samesign ult i64 %11, 5
   br i1 %13, label %14, label %.critedge8
 
 14:                                               ; preds = %.critedge, %.critedge8
@@ -11026,7 +11026,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %15 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1643
   %16 = icmp ult i64 %15, 6
   call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %15, 5
+  %17 = icmp samesign ult i64 %15, 5
   br i1 %17, label %18, label %.critedge25.i
 
 18:                                               ; preds = %.critedge25.i, %14
@@ -11043,7 +11043,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %23 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1646
   %24 = icmp ult i64 %23, 6
   call void @llvm.assume(i1 %24)
-  %25 = icmp ult i64 %23, 5
+  %25 = icmp samesign ult i64 %23, 5
   br i1 %25, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17hd575d99f820a0466E.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %18
@@ -11128,7 +11128,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %11, 5
+  %13 = icmp samesign ult i64 %11, 5
   br i1 %13, label %14, label %.critedge8
 
 14:                                               ; preds = %.critedge, %.critedge8
@@ -11137,7 +11137,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %15 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1672
   %16 = icmp ult i64 %15, 6
   call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %15, 5
+  %17 = icmp samesign ult i64 %15, 5
   br i1 %17, label %18, label %.critedge25.i
 
 18:                                               ; preds = %.critedge25.i, %14
@@ -11154,7 +11154,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   %23 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1675
   %24 = icmp ult i64 %23, 6
   call void @llvm.assume(i1 %24)
-  %25 = icmp ult i64 %23, 5
+  %25 = icmp samesign ult i64 %23, 5
   br i1 %25, label %"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h817ba9b8e54e1e36E.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %18
@@ -11362,7 +11362,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge38
 
 13:                                               ; preds = %.critedge, %.critedge38
@@ -11393,7 +11393,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1707
   %23 = icmp ult i64 %22, 6
   call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %22, 5
+  %24 = icmp samesign ult i64 %22, 5
   br i1 %24, label %25, label %.critedge12.i
 
 25:                                               ; preds = %.critedge12.i, %21
@@ -11413,7 +11413,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1710
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %34 = icmp ult i64 %32, 5
+  %34 = icmp samesign ult i64 %32, 5
   br i1 %34, label %"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17h3ca123f9040b008eE.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %25
@@ -11524,7 +11524,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %10 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %11 = icmp ult i64 %10, 6
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %10, 5
+  %12 = icmp samesign ult i64 %10, 5
   br i1 %12, label %13, label %.critedge38
 
 13:                                               ; preds = %.critedge, %.critedge38
@@ -11555,7 +11555,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1736
   %23 = icmp ult i64 %22, 6
   call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %22, 5
+  %24 = icmp samesign ult i64 %22, 5
   br i1 %24, label %25, label %.critedge12.i
 
 25:                                               ; preds = %.critedge12.i, %21
@@ -11575,7 +11575,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1739
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %34 = icmp ult i64 %32, 5
+  %34 = icmp samesign ult i64 %32, 5
   br i1 %34, label %"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17h49f75dcae2fe9cdbE.exit", label %.critedge8.i.i
 
 .critedge8.i.i:                                   ; preds = %25

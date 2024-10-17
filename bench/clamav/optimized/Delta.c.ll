@@ -41,7 +41,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   store i8 %8, ptr %9, align 1
   %12 = add nuw i64 %.12846.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp ult i64 %indvars.iv.next, %6
+  %13 = icmp samesign ult i64 %indvars.iv.next, %6
   %14 = icmp ult i64 %12, %3
   %15 = and i1 %13, %14
   %indvars.iv.next.mux = select i1 %15, i64 %indvars.iv.next, i64 0
@@ -117,7 +117,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   store i8 %11, ptr %7, align 1
   %12 = add nuw i64 %.145.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp ult i64 %indvars.iv.next, %6
+  %13 = icmp samesign ult i64 %indvars.iv.next, %6
   %14 = icmp ult i64 %12, %3
   %15 = and i1 %13, %14
   %indvars.iv.next.mux = select i1 %15, i64 %indvars.iv.next, i64 0

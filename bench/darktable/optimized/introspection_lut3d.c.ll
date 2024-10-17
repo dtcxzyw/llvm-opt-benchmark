@@ -2403,7 +2403,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr nocapture readnone %0, pt
 53:                                               ; preds = %43
   %54 = trunc i32 %39 to i16
   %55 = and i32 %39, 65535
-  %56 = icmp ugt i32 %55, 256
+  %56 = icmp samesign ugt i32 %55, 256
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %53
@@ -3490,7 +3490,7 @@ define hidden zeroext i16 @calculate_clut_cube(ptr noundef %0, ptr nocapture nou
   %99 = trunc i64 %98 to i16
   %100 = trunc i64 %98 to i32
   %101 = and i32 %100, 65535
-  %102 = icmp ugt i32 %101, 256
+  %102 = icmp samesign ugt i32 %101, 256
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %97
@@ -4200,7 +4200,7 @@ define hidden void @filepath_set_unix_separator(ptr nocapture noundef %0) local_
 
 5:                                                ; preds = %1
   %6 = and i64 %2, 2147483647
-  %7 = icmp ult i64 %6, 16
+  %7 = icmp samesign ult i64 %6, 16
   br i1 %7, label %.preheader, label %8
 
 .preheader:                                       ; preds = %44, %31, %5
@@ -4208,7 +4208,7 @@ define hidden void @filepath_set_unix_separator(ptr nocapture noundef %0) local_
   br label %46
 
 8:                                                ; preds = %5
-  %9 = icmp ult i64 %6, 128
+  %9 = icmp samesign ult i64 %6, 128
   br i1 %9, label %33, label %10
 
 10:                                               ; preds = %8
@@ -4243,7 +4243,7 @@ define hidden void @filepath_set_unix_separator(ptr nocapture noundef %0) local_
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i64 %11, 16
+  %32 = icmp samesign ult i64 %11, 16
   br i1 %32, label %.preheader, label %33
 
 33:                                               ; preds = %31, %8
@@ -4734,11 +4734,11 @@ sub_0:                                            ; preds = %.loopexit, %19
 
 39:                                               ; preds = %34
   %40 = and i64 %36, 2147483647
-  %41 = icmp ult i64 %40, 16
+  %41 = icmp samesign ult i64 %40, 16
   br i1 %41, label %.preheader, label %42
 
 42:                                               ; preds = %39
-  %43 = icmp ult i64 %40, 128
+  %43 = icmp samesign ult i64 %40, 128
   br i1 %43, label %67, label %44
 
 44:                                               ; preds = %42
@@ -4773,7 +4773,7 @@ sub_0:                                            ; preds = %.loopexit, %19
   br i1 %64, label %.loopexit, label %65
 
 65:                                               ; preds = %63
-  %66 = icmp ult i64 %45, 16
+  %66 = icmp samesign ult i64 %45, 16
   br i1 %66, label %.preheader, label %67
 
 67:                                               ; preds = %65, %42
@@ -5355,11 +5355,11 @@ define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture no
 
 79:                                               ; preds = %73
   %80 = and i64 %76, 2147483647
-  %81 = icmp ult i64 %80, 16
+  %81 = icmp samesign ult i64 %80, 16
   br i1 %81, label %.preheader6, label %82
 
 82:                                               ; preds = %79
-  %83 = icmp ult i64 %80, 128
+  %83 = icmp samesign ult i64 %80, 128
   br i1 %83, label %107, label %84
 
 84:                                               ; preds = %82
@@ -5394,7 +5394,7 @@ define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture no
   br i1 %104, label %.loopexit, label %105
 
 105:                                              ; preds = %103
-  %106 = icmp ult i64 %85, 16
+  %106 = icmp samesign ult i64 %85, 16
   br i1 %106, label %.preheader6, label %107
 
 107:                                              ; preds = %105, %82
@@ -5501,11 +5501,11 @@ define internal void @filepath_callback(ptr noundef %0, ptr noundef %1) #1 {
 
 19:                                               ; preds = %15
   %20 = and i64 %16, 2147483647
-  %21 = icmp ult i64 %20, 16
+  %21 = icmp samesign ult i64 %20, 16
   br i1 %21, label %.preheader, label %22
 
 22:                                               ; preds = %19
-  %23 = icmp ult i64 %20, 128
+  %23 = icmp samesign ult i64 %20, 128
   br i1 %23, label %47, label %24
 
 24:                                               ; preds = %22
@@ -5540,7 +5540,7 @@ define internal void @filepath_callback(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i64 %25, 16
+  %46 = icmp samesign ult i64 %25, 16
   br i1 %46, label %.preheader, label %47
 
 47:                                               ; preds = %45, %22

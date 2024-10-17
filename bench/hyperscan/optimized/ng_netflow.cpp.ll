@@ -1240,7 +1240,7 @@ if.end.i.i.i.i.i.i213.i:                          ; preds = %if.then.i.i.i.i210.
   br label %_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i
 
 if.else.i217.i:                                   ; preds = %if.then.i.i105.i
-  %cmp.i.i218.i = icmp ult i64 %sub.i207.i, %sub.i.i106.i
+  %cmp.i.i218.i = icmp samesign ult i64 %sub.i207.i, %sub.i.i106.i
   br i1 %cmp.i.i218.i, label %if.then.i.i236.i, label %_ZNKSt6vectorIySaIyEE12_M_check_lenEmPKc.exit.i219.i
 
 if.then.i.i236.i:                                 ; preds = %if.else.i217.i

@@ -1570,7 +1570,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23G1RebuildRSAndScrubTask32G1R
   %47 = sub i64 %6, %19
   %48 = lshr i64 %47, 3
   %49 = lshr i64 %48, %24
-  %50 = icmp ult i64 %46, %49
+  %50 = icmp samesign ult i64 %46, %49
   br i1 %50, label %51, label %.loopexit.i.i.i.i
 
 51:                                               ; preds = %36
@@ -1595,7 +1595,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23G1RebuildRSAndScrubTask32G1R
 63:                                               ; preds = %66, %60
   %.025.i.i.i.i = phi i64 [ %52, %60 ], [ %64, %66 ]
   %64 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %65 = icmp ult i64 %64, %62
+  %65 = icmp samesign ult i64 %64, %62
   br i1 %65, label %66, label %.loopexit.i.i.i.i
 
 66:                                               ; preds = %63
@@ -7775,7 +7775,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -8018,7 +8018,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -15441,7 +15441,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader
@@ -15843,7 +15843,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader

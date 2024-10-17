@@ -1349,7 +1349,7 @@ _ZN9SpinYield4waitEv.exit.i:                      ; preds = %28, %25
 _ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit: ; preds = %_ZN9SpinYield4waitEv.exit.i, %._crit_edge
   %.0.lcssa.i = phi i32 [ %.08.i, %._crit_edge ], [ %.0.i, %_ZN9SpinYield4waitEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %32 = icmp ult i32 %6, %.0.lcssa.i
+  %32 = icmp samesign ult i32 %6, %.0.lcssa.i
   br i1 %32, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %_ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit
@@ -1649,7 +1649,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i:       ; preds = %30, %19
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i: ; preds = %33, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %24
   %.123.i.i = phi i32 [ %.1.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ %23, %24 ], [ %23, %33 ]
-  %.not20.i.i = icmp ult i32 %23, %14
+  %.not20.i.i = icmp samesign ult i32 %23, %14
   br i1 %.not20.i.i, label %37, label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit
 
 37:                                               ; preds = %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i
@@ -2161,7 +2161,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %24, %13
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i:  ; preds = %27, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, %18
   %.123.i = phi i32 [ %.1.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ %17, %18 ], [ %17, %27 ]
-  %.not20.i = icmp ult i32 %17, %8
+  %.not20.i = icmp samesign ult i32 %17, %8
   br i1 %.not20.i, label %31, label %_ZN18G1CardSetInlinePtr3addEjjj.exit
 
 31:                                               ; preds = %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i
@@ -2322,7 +2322,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i:       ; preds = %72, %61
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i: ; preds = %75, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %66
   %.123.i.i = phi i32 [ %.1.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ %65, %66 ], [ %65, %75 ]
-  %.not20.i.i = icmp ult i32 %65, %57
+  %.not20.i.i = icmp samesign ult i32 %65, %57
   br i1 %.not20.i.i, label %79, label %_ZN18G1CardSetInlinePtr3addEjjj.exit.i
 
 79:                                               ; preds = %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i
@@ -3136,7 +3136,7 @@ _ZN9G1CardSet13get_containerEj.exit.thread:       ; preds = %55, %_ZNK19Concurre
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
   %.016.i.i = phi i32 [ %68, %81 ], [ %.019.i.i, %78 ]
-  %84 = icmp ult i32 %.016.i.i, %68
+  %84 = icmp samesign ult i32 %.016.i.i, %68
   br label %_ZN18G1CardSetInlinePtr8containsEjj.exit
 
 85:                                               ; preds = %62
@@ -3276,7 +3276,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i:       ; preds = %162, %159
   %.016.i.i.i = phi i32 [ %151, %162 ], [ %.019.i.i.i, %159 ]
-  %165 = icmp ult i32 %.016.i.i.i, %151
+  %165 = icmp samesign ult i32 %.016.i.i.i, %151
   br label %_ZN18G1CardSetInlinePtr8containsEjj.exit
 
 default.unreachable28:                            ; preds = %108, %62
@@ -10655,7 +10655,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -10898,7 +10898,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -15791,7 +15791,7 @@ define linkonce_odr hidden void @_ZN9G1CardSet36iterate_cards_or_ranges_in_conta
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %71 = load i32, ptr %64, align 8
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next.i24, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next.i24, %72
   br i1 %73, label %67, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit, !llvm.loop !100
 
 default.unreachable31:                            ; preds = %3
@@ -15910,7 +15910,7 @@ define linkonce_odr hidden void @_ZN13G1CardSetHowl15iterate_cardsetI23G1Contain
 .preheader.i.i.i:                                 ; preds = %62, %66
   %.025.i.i.i.i.i = phi i64 [ %64, %66 ], [ %56, %62 ]
   %64 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %65 = icmp ult i64 %64, %53
+  %65 = icmp samesign ult i64 %64, %53
   br i1 %65, label %66, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit
 
 66:                                               ; preds = %.preheader.i.i.i

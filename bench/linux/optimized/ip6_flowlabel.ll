@@ -1301,11 +1301,11 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef range(i64 0, 65536) %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 align 16 {
-  %4 = icmp ult i64 %1, 6
+  %4 = icmp samesign ult i64 %1, 6
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i64 %1, 150
+  %6 = icmp samesign ugt i64 %1, 150
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -1318,11 +1318,11 @@ define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture nou
 
 11:                                               ; preds = %9, %3
   %.ph = phi i64 [ 6000, %3 ], [ %10, %9 ]
-  %12 = icmp ult i64 %2, 6
+  %12 = icmp samesign ult i64 %2, 6
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i64 %2, 150
+  %14 = icmp samesign ugt i64 %2, 150
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

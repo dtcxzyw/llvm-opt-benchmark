@@ -1572,7 +1572,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
   store i32 %53, ptr %54, align 4
   %55 = mul nuw nsw i64 %indvars.iv, 3
   %56 = add nuw nsw i64 %55, %indvars.iv115
-  %57 = icmp ult i64 %56, %43
+  %57 = icmp samesign ult i64 %56, %43
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %45
@@ -1863,7 +1863,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
   %312 = fsub <4 x float> %311, %271
   store <4 x float> %312, ptr %310, align 16
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 24
-  %313 = icmp ult i64 %indvars.iv.next116, %43
+  %313 = icmp samesign ult i64 %indvars.iv.next116, %43
   br i1 %313, label %.preheader, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %74, %14
@@ -3061,7 +3061,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
   store i32 %64, ptr %65, align 4
   %66 = shl nuw nsw i64 %indvars.iv, 2
   %67 = add nuw nsw i64 %66, %indvars.iv319
-  %68 = icmp ult i64 %67, %51
+  %68 = icmp samesign ult i64 %67, %51
   br i1 %68, label %69, label %80
 
 69:                                               ; preds = %53
@@ -3601,7 +3601,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
   %564 = fadd <4 x float> %563, %562
   store <4 x float> %564, ptr %561, align 16
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 32
-  %565 = icmp ult i64 %indvars.iv.next320, %51
+  %565 = icmp samesign ult i64 %indvars.iv.next320, %51
   br i1 %565, label %.preheader, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %85, %14
@@ -4537,7 +4537,7 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   store i32 %66, ptr %67, align 4
   %68 = shl nuw nsw i64 %indvars.iv, 2
   %69 = add nuw nsw i64 %68, %indvars.iv367
-  %70 = icmp ult i64 %69, %53
+  %70 = icmp samesign ult i64 %69, %53
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %55
@@ -5131,7 +5131,7 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   %614 = fadd <4 x float> %613, %612
   store <4 x float> %614, ptr %611, align 16
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 32
-  %615 = icmp ult i64 %indvars.iv.next368, %53
+  %615 = icmp samesign ult i64 %indvars.iv.next368, %53
   br i1 %615, label %.preheader, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %99, %14
@@ -5462,7 +5462,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   store i32 %51, ptr %52, align 4
   %53 = mul nuw nsw i64 %indvars.iv, 5
   %54 = add nuw nsw i64 %53, %indvars.iv118
-  %55 = icmp ult i64 %54, %35
+  %55 = icmp samesign ult i64 %54, %35
   br i1 %55, label %56, label %67
 
 56:                                               ; preds = %37
@@ -5554,7 +5554,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   %.sroa.06.0.copyload = load <8 x float>, ptr %21, align 32
   call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %102, <8 x float> %103, <8 x float> %104, <8 x float> %105, <8 x float> %106, <8 x float> %107, ptr noundef %4)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 40
-  %108 = icmp ult i64 %indvars.iv.next119, %35
+  %108 = icmp samesign ult i64 %indvars.iv.next119, %35
   br i1 %108, label %.preheader, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %71, %14
@@ -5617,7 +5617,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   store i32 %49, ptr %50, align 4
   %51 = mul nuw nsw i64 %indvars.iv134, 5
   %52 = add nuw nsw i64 %51, %indvars.iv142
-  %53 = icmp ult i64 %52, %33
+  %53 = icmp samesign ult i64 %52, %33
   br i1 %53, label %.preheader, label %.preheader118
 
 .preheader:                                       ; preds = %35
@@ -5740,7 +5740,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   %.sroa.06.0.copyload = load <8 x float>, ptr %21, align 32
   call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %110, <8 x float> %111, <8 x float> %112, <8 x float> %113, <8 x float> %114, <8 x float> %115, ptr noundef %4)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 40
-  %116 = icmp ult i64 %indvars.iv.next143, %33
+  %116 = icmp samesign ult i64 %indvars.iv.next143, %33
   br i1 %116, label %.preheader119, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %103, %14

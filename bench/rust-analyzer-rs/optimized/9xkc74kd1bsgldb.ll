@@ -99594,7 +99594,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$hir_def..body..BodyDiagnostic$u20$a
   %9 = select i1 %6, i64 %8, i64 0
   %10 = getelementptr inbounds i8, ptr %1, i64 92
   %11 = load i16, ptr %10, align 4, !range !20001, !noundef !4
-  %12 = icmp ult i16 %11, 273
+  %12 = icmp samesign ult i16 %11, 273
   %13 = zext nneg i16 %11 to i64
   %14 = add nsw i64 %13, -272
   %15 = select i1 %12, i64 0, i64 %14

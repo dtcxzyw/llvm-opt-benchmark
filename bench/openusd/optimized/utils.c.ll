@@ -207,7 +207,7 @@ define hidden void @avifFractionSimplify(ptr nocapture noundef %0) local_unnamed
 
 calcGCD.exit:                                     ; preds = %.lr.ph.i, %1
   %.1.lcssa.i = phi i64 [ %spec.select.i, %1 ], [ %.11117.i, %.lr.ph.i ]
-  %8 = icmp ugt i64 %.1.lcssa.i, 1
+  %8 = icmp samesign ugt i64 %.1.lcssa.i, 1
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %calcGCD.exit
@@ -247,7 +247,7 @@ define hidden range(i32 0, 2) i32 @avifFractionCD(ptr nocapture noundef %0, ptr 
 
 calcGCD.exit.i:                                   ; preds = %.lr.ph.i.i, %2
   %.1.lcssa.i.i = phi i64 [ %spec.select.i.i, %2 ], [ %.11117.i.i, %.lr.ph.i.i ]
-  %9 = icmp ugt i64 %.1.lcssa.i.i, 1
+  %9 = icmp samesign ugt i64 %.1.lcssa.i.i, 1
   br i1 %9, label %10, label %avifFractionSimplify.exit
 
 10:                                               ; preds = %calcGCD.exit.i
@@ -283,7 +283,7 @@ avifFractionSimplify.exit:                        ; preds = %calcGCD.exit.i, %10
 
 calcGCD.exit.i40:                                 ; preds = %.lr.ph.i.i36, %avifFractionSimplify.exit
   %.1.lcssa.i.i41 = phi i64 [ %spec.select.i.i32, %avifFractionSimplify.exit ], [ %.11117.i.i38, %.lr.ph.i.i36 ]
-  %22 = icmp ugt i64 %.1.lcssa.i.i41, 1
+  %22 = icmp samesign ugt i64 %.1.lcssa.i.i41, 1
   br i1 %22, label %23, label %avifFractionSimplify.exit42
 
 23:                                               ; preds = %calcGCD.exit.i40
@@ -361,7 +361,7 @@ define hidden range(i32 0, 2) i32 @avifFractionAdd(i64 %0, i64 %1, ptr nocapture
 
 calcGCD.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %3
   %.1.lcssa.i.i.i = phi i64 [ %spec.select.i.i.i, %3 ], [ %.11117.i.i.i, %.lr.ph.i.i.i ]
-  %7 = icmp ugt i64 %.1.lcssa.i.i.i, 1
+  %7 = icmp samesign ugt i64 %.1.lcssa.i.i.i, 1
   br i1 %7, label %8, label %avifFractionSimplify.exit.i
 
 8:                                                ; preds = %calcGCD.exit.i.i
@@ -393,7 +393,7 @@ avifFractionSimplify.exit.i:                      ; preds = %8, %calcGCD.exit.i.
 
 calcGCD.exit.i40.i:                               ; preds = %.lr.ph.i.i36.i, %avifFractionSimplify.exit.i
   %.1.lcssa.i.i41.i = phi i64 [ %spec.select.i.i32.i, %avifFractionSimplify.exit.i ], [ %.11117.i.i38.i, %.lr.ph.i.i36.i ]
-  %14 = icmp ugt i64 %.1.lcssa.i.i41.i, 1
+  %14 = icmp samesign ugt i64 %.1.lcssa.i.i41.i, 1
   br i1 %14, label %15, label %avifFractionSimplify.exit42.i
 
 15:                                               ; preds = %calcGCD.exit.i40.i
@@ -470,7 +470,7 @@ avifFractionSimplify.exit42.i:                    ; preds = %15, %calcGCD.exit.i
 
 calcGCD.exit.i:                                   ; preds = %.lr.ph.i.i, %41
   %.1.lcssa.i.i = phi i64 [ %spec.select.i.i, %41 ], [ %.11117.i.i, %.lr.ph.i.i ]
-  %46 = icmp ugt i64 %.1.lcssa.i.i, 1
+  %46 = icmp samesign ugt i64 %.1.lcssa.i.i, 1
   br i1 %46, label %47, label %avifFractionCD.exit
 
 47:                                               ; preds = %calcGCD.exit.i
@@ -511,7 +511,7 @@ define hidden range(i32 0, 2) i32 @avifFractionSub(i64 %0, i64 %1, ptr nocapture
 
 calcGCD.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %3
   %.1.lcssa.i.i.i = phi i64 [ %spec.select.i.i.i, %3 ], [ %.11117.i.i.i, %.lr.ph.i.i.i ]
-  %7 = icmp ugt i64 %.1.lcssa.i.i.i, 1
+  %7 = icmp samesign ugt i64 %.1.lcssa.i.i.i, 1
   br i1 %7, label %8, label %avifFractionSimplify.exit.i
 
 8:                                                ; preds = %calcGCD.exit.i.i
@@ -543,7 +543,7 @@ avifFractionSimplify.exit.i:                      ; preds = %8, %calcGCD.exit.i.
 
 calcGCD.exit.i40.i:                               ; preds = %.lr.ph.i.i36.i, %avifFractionSimplify.exit.i
   %.1.lcssa.i.i41.i = phi i64 [ %spec.select.i.i32.i, %avifFractionSimplify.exit.i ], [ %.11117.i.i38.i, %.lr.ph.i.i36.i ]
-  %14 = icmp ugt i64 %.1.lcssa.i.i41.i, 1
+  %14 = icmp samesign ugt i64 %.1.lcssa.i.i41.i, 1
   br i1 %14, label %15, label %avifFractionSimplify.exit42.i
 
 15:                                               ; preds = %calcGCD.exit.i40.i
@@ -620,7 +620,7 @@ avifFractionSimplify.exit42.i:                    ; preds = %15, %calcGCD.exit.i
 
 calcGCD.exit.i:                                   ; preds = %.lr.ph.i.i, %41
   %.1.lcssa.i.i = phi i64 [ %spec.select.i.i, %41 ], [ %.11117.i.i, %.lr.ph.i.i ]
-  %46 = icmp ugt i64 %.1.lcssa.i.i, 1
+  %46 = icmp samesign ugt i64 %.1.lcssa.i.i, 1
   br i1 %46, label %47, label %avifFractionCD.exit
 
 47:                                               ; preds = %calcGCD.exit.i

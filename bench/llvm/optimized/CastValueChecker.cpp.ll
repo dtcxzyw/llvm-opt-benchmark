@@ -4109,7 +4109,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit106: 
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, -1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph232, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.loopexit, %6

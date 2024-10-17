@@ -390,7 +390,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = load i32, ptr %57, align 8
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next.i, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next.i, %78
   br i1 %79, label %63, label %.preheader.i, !llvm.loop !8
 
 80:                                               ; preds = %92, %.lr.ph49.i
@@ -418,7 +418,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %93 = load i32, ptr %60, align 4
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next59.i, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next59.i, %94
   br i1 %95, label %80, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %92, %.preheader.i
@@ -523,7 +523,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %147 = load i32, ptr %131, align 4
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next62.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next62.i, %148
   br i1 %149, label %134, label %._crit_edge53.i, !llvm.loop !10
 
 ._crit_edge53.i:                                  ; preds = %146, %130
@@ -1001,14 +1001,14 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   %115 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv46.i
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next.i, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next.i, %117
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %113, %96
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %119 = load i32, ptr %80, align 8
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %indvars.iv.next47.i, %120
+  %121 = icmp samesign ult i64 %indvars.iv.next47.i, %120
   br i1 %121, label %84, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %79, %44

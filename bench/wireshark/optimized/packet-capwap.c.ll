@@ -3388,7 +3388,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %569 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %567, ptr noundef %0, i32 noundef %568, i32 noundef 1, i32 noundef 0) #2
   %570 = add nuw nsw i32 %566, 1
   %571 = and i32 %570, 255
-  %572 = icmp ult i32 %571, %563
+  %572 = icmp samesign ult i32 %571, %563
   br i1 %572, label %565, label %.loopexit, !llvm.loop !13
 
 573:                                              ; preds = %4
@@ -3753,7 +3753,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %817 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %814, ptr noundef %0, i32 noundef %816, i32 noundef 2, i32 noundef 0) #2
   %818 = add nuw nsw i32 %813, 1
   %819 = and i32 %818, 255
-  %820 = icmp ult i32 %819, %810
+  %820 = icmp samesign ult i32 %819, %810
   br i1 %820, label %812, label %.loopexit, !llvm.loop !18
 
 821:                                              ; preds = %4

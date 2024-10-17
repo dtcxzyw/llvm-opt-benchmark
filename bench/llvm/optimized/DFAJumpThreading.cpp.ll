@@ -1756,7 +1756,7 @@ _ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit.i.i: ; preds = %634, %631
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %639 = and i32 %638, 134217727
   %640 = zext nneg i32 %639 to i64
-  %641 = icmp ult i64 %indvars.iv.next.i.i, %640
+  %641 = icmp samesign ult i64 %indvars.iv.next.i.i, %640
   br i1 %641, label %611, label %._crit_edge488.i.i, !llvm.loop !28
 
 ._crit_edge488.i.i:                               ; preds = %637, %_ZNSt6vectorIN12_GLOBAL__N_118SelectInstToUnfoldESaIS1_EE9push_backEOS1_.exit191.i.i
@@ -14480,7 +14480,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %302, %300, %296, %2
 
 ._crit_edge.i.i225:                               ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %.0.lcssa.i.i = phi i64 [ %306, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %316, %.lr.ph.i2.i ]
-  %329 = icmp ugt i64 %.0.lcssa.i.i, 9
+  %329 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
   br i1 %329, label %330, label %338
 
 330:                                              ; preds = %._crit_edge.i.i225

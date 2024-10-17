@@ -2284,7 +2284,7 @@ invoke.cont62:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 for.body68.lr.ph:                                 ; preds = %invoke.cont62
   %44 = load ptr, ptr %exprs, align 8
-  %min.iters.check = icmp ult i64 %conv59, 17
+  %min.iters.check = icmp samesign ult i64 %conv59, 17
   br i1 %min.iters.check, label %for.body68.preheader, label %vector.memcheck
 
 for.body68.preheader:                             ; preds = %vector.body, %vector.memcheck, %for.body68.lr.ph
@@ -2409,7 +2409,7 @@ invoke.cont80:                                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp66678.not, label %invoke.cont97, label %for.body87.preheader
 
 for.body87.preheader:                             ; preds = %invoke.cont80
-  %min.iters.check762 = icmp ult i64 %conv59, 4
+  %min.iters.check762 = icmp samesign ult i64 %conv59, 4
   br i1 %min.iters.check762, label %for.body87.preheader106, label %vector.ph763
 
 for.body87.preheader106:                          ; preds = %middle.block760, %for.body87.preheader
@@ -4161,7 +4161,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %shr.i.i.i = lshr i32 %conv240.i.i.i, 1
   %shl22.i.i.i = shl nuw nsw i32 %conv341.i.i.i, 1
   %conv3.i.i.i = and i32 %shl22.i.i.i, 65534
-  %cmp.i.i.i = icmp ugt i32 %shr.i.i.i, %conv3.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i32 %shr.i.i.i, %conv3.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.body.i.preheader, !llvm.loop !64
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i
@@ -4277,7 +4277,7 @@ for.body.i.i14:                                   ; preds = %for.body.i.i14, %co
   %shr.i.i18 = lshr i32 %conv240.i.i, 1
   %shl22.i.i = shl nuw nsw i32 %conv341.i.i, 1
   %conv3.i.i = and i32 %shl22.i.i, 65534
-  %cmp.i.i19 = icmp ugt i32 %shr.i.i18, %conv3.i.i
+  %cmp.i.i19 = icmp samesign ugt i32 %shr.i.i18, %conv3.i.i
   br i1 %cmp.i.i19, label %for.body.i.i14, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit, !llvm.loop !64
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit: ; preds = %for.body.i.i14, %for.body.i.preheader

@@ -848,7 +848,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %or18.i27.i75, ptr %add.ptr.i18, align 4, !tbaa !27
   %inc27 = add nuw nsw i64 %g.0113, 1
   %inc28 = add nuw i64 %i.1111, 1
-  %cmp = icmp ult i64 %g.0113, 3
+  %cmp = icmp samesign ult i64 %g.0113, 3
   %29 = load i64, ptr %this, align 8
   %cmp19 = icmp ult i64 %inc28, %29
   %or.cond = select i1 %cmp, i1 %cmp19, i1 false

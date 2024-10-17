@@ -1481,7 +1481,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i16, ptr %nframe, align 8
   %10 = zext i16 %9 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %10
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end3
@@ -2192,7 +2192,7 @@ if.end18:                                         ; preds = %_Py_NewRef.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i16, ptr %nframe, align 8
   %11 = zext i16 %10 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next, %11
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end18, %for.cond.preheader

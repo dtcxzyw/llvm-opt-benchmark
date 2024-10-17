@@ -1126,7 +1126,7 @@ _ZNSt6vectorISt4pairIPKN4llvm14ComplexPatternEjESaIS5_EEC2IPS5_vEET_SA_RKS6_.exi
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %296
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm14ComplexPatternEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
 296:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1292,7 +1292,7 @@ _ZNSt6vectorIPKN4llvm14ComplexPatternESaIS3_EE9push_backERKS3_.exit.i: ; preds =
   br i1 %.not.i.i.i.i.i51.i, label %select.unfold.i.i.i.i.i59.i, label %352
 
 select.unfold.i.i.i.i.i59.i:                      ; preds = %.lr.ph.i.i.i.i.i47.i
-  %.not10.i.i.i.i.i60.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i48.i, 3
+  %.not10.i.i.i.i.i60.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i48.i, 3
   br i1 %.not10.i.i.i.i.i60.i, label %.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i47.i, !llvm.loop !7
 
 352:                                              ; preds = %.lr.ph.i.i.i.i.i47.i
@@ -1469,7 +1469,7 @@ _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_11TreePatternEEEEEDTclsr10adl_detailE8e
   br i1 %.not.i.i.i.i.i69.i, label %select.unfold.i.i.i.i.i70.i, label %_ZNSt17_Temporary_bufferIPPN4llvm11TreePatternES2_EC2ES3_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i70.i:                      ; preds = %.lr.ph.i.i.i.i.i65.i
-  %.not10.i.i.i.i.i71.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i66.i, 3
+  %.not10.i.i.i.i.i71.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i66.i, 3
   br i1 %.not10.i.i.i.i.i71.i, label %.loopexit.i.i.i62.i, label %.lr.ph.i.i.i.i.i65.i, !llvm.loop !10
 
 .loopexit.i.i.i62.i:                              ; preds = %select.unfold.i.i.i.i.i70.i, %404
@@ -2132,7 +2132,7 @@ _ZNSt6vectorISt4pairIPN4llvm11TreePatternEjESaIS4_EE9push_backEOS4_.exit.i: ; pr
   br i1 %.not.i.i.i.i.i91.i, label %select.unfold.i.i.i.i.i102.i, label %716
 
 select.unfold.i.i.i.i.i102.i:                     ; preds = %.lr.ph.i.i.i.i.i87.i
-  %.not10.i.i.i.i.i103.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i88.i, 3
+  %.not10.i.i.i.i.i103.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i88.i, 3
   br i1 %.not10.i.i.i.i.i103.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm11TreePatternEjESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i87.i, !llvm.loop !24
 
 716:                                              ; preds = %.lr.ph.i.i.i.i.i87.i
@@ -5576,7 +5576,7 @@ _ZL10GetVBRSizej.exit17:                          ; preds = %.lr.ph29, %32
   %.069.i9 = phi i32 [ %57, %.preheader.i7 ], [ %56, %.preheader.i7.preheader ]
   %57 = lshr i32 %.069.i9, 7
   %58 = add nuw nsw i32 %.010.i8, 1
-  %59 = icmp ugt i32 %.069.i9, 16383
+  %59 = icmp samesign ugt i32 %.069.i9, 16383
   br i1 %59, label %.preheader.i7, label %60, !llvm.loop !38
 
 60:                                               ; preds = %.preheader.i7
@@ -6235,7 +6235,7 @@ _ZNKSt8functionIFvPKN4llvm7MatcherEEEclES3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %indvars.iv.next91.i.i.i = add nuw nsw i64 %indvars.iv90.i.i.i, 1
   %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   %32 = and i64 %31, 4294967295
-  %33 = icmp ult i64 %indvars.iv.next91.i.i.i, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next91.i.i.i, %32
   br i1 %33, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !58
 
 .preheader66.i.i.i:                               ; preds = %16
@@ -6270,7 +6270,7 @@ _ZNKSt8functionIFvPKN4llvm7MatcherEEEclES3_.exit49.i.i.i: ; preds = %.lr.ph72.i.
   %indvars.iv.next88.i.i.i = add nuw nsw i64 %indvars.iv87.i.i.i, 1
   %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #19
   %47 = and i64 %46, 4294967295
-  %48 = icmp ult i64 %indvars.iv.next88.i.i.i, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next88.i.i.i, %47
   br i1 %48, label %.lr.ph72.i.i.i, label %.loopexit.i.i.i, !llvm.loop !59
 
 .preheader.i.i.i:                                 ; preds = %16
@@ -6305,7 +6305,7 @@ _ZNKSt8functionIFvPKN4llvm7MatcherEEEclES3_.exit52.i.i.i: ; preds = %.lr.ph74.i.
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #19
   %62 = and i64 %61, 4294967295
-  %63 = icmp ult i64 %indvars.iv.next.i.i.i, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %62
   br i1 %63, label %.lr.ph74.i.i.i, label %.loopexit.i.i.i, !llvm.loop !60
 
 64:                                               ; preds = %16
@@ -15425,7 +15425,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit674:              ; preds = %841, %843
   %.069.i = phi i32 [ %870, %.preheader.i ], [ %869, %.preheader.i.preheader ]
   %870 = lshr i32 %.069.i, 7
   %871 = add nuw nsw i32 %.010.i, 1
-  %872 = icmp ugt i32 %.069.i, 16383
+  %872 = icmp samesign ugt i32 %.069.i, 16383
   br i1 %872, label %.preheader.i, label %873, !llvm.loop !38
 
 873:                                              ; preds = %.preheader.i

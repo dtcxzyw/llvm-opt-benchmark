@@ -832,7 +832,7 @@ define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17h398b6c5c2
   %36 = xor i64 %26, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i, i8 0, i64 %36, i1 false), !alias.scope !259, !noalias !270
   %37 = xor i64 %26, 56
-  %38 = icmp ult i64 %37, 8
+  %38 = icmp samesign ult i64 %37, 8
   br i1 %38, label %._crit_edge.thread.i.i.i, label %43
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %2

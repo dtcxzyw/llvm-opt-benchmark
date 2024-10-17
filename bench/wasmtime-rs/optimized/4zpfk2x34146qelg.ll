@@ -101,7 +101,7 @@ define noundef i32 @_ZN14cranelift_wasm5state17ControlStackFrame14following_code
 switch.lookup:
   %1 = getelementptr inbounds i8, ptr %0, i64 36
   %2 = load i32, ptr %1, align 4, !range !5, !noundef !4
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp samesign ult i32 %2, 2
   %3 = zext nneg i32 %2 to i64
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
@@ -117,7 +117,7 @@ define noundef i32 @_ZN14cranelift_wasm5state17ControlStackFrame14br_destination
 switch.lookup:
   %1 = getelementptr inbounds i8, ptr %0, i64 36
   %2 = load i32, ptr %1, align 4, !range !5, !noundef !4
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp samesign ult i32 %2, 2
   %3 = zext nneg i32 %2 to i64
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
@@ -132,7 +132,7 @@ switch.lookup:
 define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame7is_loop17hc035f5d79f77e6f8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !range !5, !noundef !4
-  %.not = icmp ugt i32 %3, 1
+  %.not = icmp samesign ugt i32 %3, 1
   %4 = zext nneg i32 %3 to i64
   %5 = add nsw i64 %4, -3
   %switch1 = icmp ult i64 %5, -2
@@ -144,7 +144,7 @@ define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame7is_loop1
 define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame19exit_is_branched_to17hc07de2ff0f700416E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !range !5, !noundef !4
-  %.not = icmp ult i32 %3, 2
+  %.not = icmp samesign ult i32 %3, 2
   %4 = zext nneg i32 %3 to i64
   %5 = add nsw i64 %4, -1
   %6 = select i1 %.not, i64 0, i64 %5
@@ -177,7 +177,7 @@ define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame19exit_is
 define void @_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE(ptr noalias nocapture noundef align 8 dereferenceable(56) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !range !5, !noundef !4
-  %.not = icmp ult i32 %3, 2
+  %.not = icmp samesign ult i32 %3, 2
   %4 = zext nneg i32 %3 to i64
   %5 = add nsw i64 %4, -1
   %6 = select i1 %.not, i64 0, i64 %5
@@ -224,7 +224,7 @@ define void @_ZN14cranelift_wasm5state17ControlStackFrame35truncate_value_stack_
 define void @_ZN14cranelift_wasm5state17ControlStackFrame37truncate_value_stack_to_original_size17he98e02ce209c63d7E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !range !5, !noundef !4
-  %.not = icmp ult i32 %4, 2
+  %.not = icmp samesign ult i32 %4, 2
   %5 = load i64, ptr %0, align 8
   %.0 = select i1 %.not, i64 %5, i64 0
   %6 = getelementptr inbounds i8, ptr %0, i64 16

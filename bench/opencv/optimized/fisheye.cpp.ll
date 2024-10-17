@@ -18778,7 +18778,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit941:                 ; preds = %.loopexit1121, %.lo
 
 2110:                                             ; preds = %2108
   %2111 = lshr i64 %2109, 1
-  %2112 = icmp ult i64 %.0271, %2111
+  %2112 = icmp samesign ult i64 %.0271, %2111
   br i1 %2112, label %2113, label %2122
 
 2113:                                             ; preds = %2110

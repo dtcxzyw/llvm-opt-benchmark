@@ -468,7 +468,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   %and = and i32 %cond, %conv8
   %cmp10 = icmp eq i32 %and, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %3
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %3
   %7 = select i1 %cmp, i1 %cmp10, i1 false
   br i1 %7, label %for.body, label %return.loopexit, !llvm.loop !10
 

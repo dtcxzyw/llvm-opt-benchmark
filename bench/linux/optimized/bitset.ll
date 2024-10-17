@@ -686,7 +686,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   %95 = load i16, ptr %93, align 2
   %96 = icmp ult i16 %95, 4
   %97 = zext i16 %95 to i32
-  %.not = icmp ult i32 %94, %97
+  %.not = icmp samesign ult i32 %94, %97
   %or.cond = or i1 %96, %.not
   br i1 %or.cond, label %.critedge, label %98
 
@@ -1364,7 +1364,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   %98 = load i16, ptr %96, align 2
   %99 = icmp ult i16 %98, 4
   %100 = zext i16 %98 to i32
-  %.not.us = icmp ult i32 %97, %100
+  %.not.us = icmp samesign ult i32 %97, %100
   %or.cond.us = or i1 %99, %.not.us
   br i1 %or.cond.us, label %.critedge, label %101
 
@@ -1407,7 +1407,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   %121 = load i16, ptr %119, align 2
   %122 = icmp ult i16 %121, 4
   %123 = zext i16 %121 to i32
-  %.not = icmp ult i32 %120, %123
+  %.not = icmp samesign ult i32 %120, %123
   %or.cond = or i1 %122, %.not
   br i1 %or.cond, label %.critedge, label %124
 

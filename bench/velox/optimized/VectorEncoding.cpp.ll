@@ -324,7 +324,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   %inc.i.i = add nuw nsw i64 %tries.i.i.056, 1
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox14VectorEncoding15mapNameToSimpleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10vecNameMapB5cxx11, i64 16), align 8
   %conv.i.i = zext i32 %18 to i64
-  %cmp.i.i.not.not = icmp ult i64 %tries.i.i.056, %conv.i.i
+  %cmp.i.i.not.not = icmp samesign ult i64 %tries.i.i.056, %conv.i.i
   br i1 %cmp.i.i.not.not, label %for.body.i.i, label %if.then, !llvm.loop !7
 
 if.then:                                          ; preds = %while.end.i.i, %if.end20.i.i
@@ -1879,7 +1879,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end7, !llvm.loop !7
 
 if.then6:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -2258,7 +2258,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end9, !llvm.loop !7
 
 if.then8:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i

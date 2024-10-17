@@ -1262,8 +1262,8 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
   %24 = phi i8 [ %.pre, %18 ], [ %13, %12 ]
   %25 = add nuw nsw i64 %14, 1
   %26 = zext i8 %24 to i64
-  %27 = icmp ult i64 %25, %26
-  %28 = icmp ult i64 %14, 15
+  %27 = icmp samesign ult i64 %25, %26
+  %28 = icmp samesign ult i64 %14, 15
   %29 = and i1 %28, %27
   br i1 %29, label %12, label %.sink.split, !llvm.loop !17
 
@@ -1300,8 +1300,8 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
   %49 = phi i8 [ %.pre4, %44 ], [ %39, %38 ]
   %50 = add nuw nsw i64 %40, 1
   %51 = zext i8 %49 to i64
-  %52 = icmp ult i64 %50, %51
-  %53 = icmp ult i64 %40, 15
+  %52 = icmp samesign ult i64 %50, %51
+  %53 = icmp samesign ult i64 %40, 15
   %54 = and i1 %53, %52
   br i1 %54, label %38, label %.sink.split, !llvm.loop !18
 

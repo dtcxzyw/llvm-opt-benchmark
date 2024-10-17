@@ -2084,7 +2084,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %316 = sext i8 %315 to i32
   %317 = ashr i32 %316, %.09341170
   %318 = and i32 %317, 15
-  %319 = icmp ult i32 %318, 10
+  %319 = icmp samesign ult i32 %318, 10
   %320 = trunc nuw nsw i32 %318 to i8
   %321 = or disjoint i8 %320, 48
   %322 = add nuw nsw i8 %320, 87

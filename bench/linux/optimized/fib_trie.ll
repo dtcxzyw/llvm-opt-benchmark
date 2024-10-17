@@ -1020,7 +1020,7 @@ define internal fastcc range(i32 -12, 1) i32 @fib_insert_alias(ptr noundef %0, p
   %61 = getelementptr inbounds i8, ptr %42, i64 40
   %62 = getelementptr [0 x ptr], ptr %61, i64 0, i64 %60
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp ult i64 %59, 2
+  %64 = icmp samesign ult i64 %59, 2
   br i1 %64, label %66, label %65, !prof !24
 
 65:                                               ; preds = %44
@@ -2601,12 +2601,12 @@ define internal fastcc ptr @nexthop_get_nhc_lookup(ptr noundef nonnull %0, i32 n
 
 38:                                               ; preds = %34, %.split.us
   %39 = add nuw nsw i64 %18, 1
-  %40 = icmp ult i64 %39, %17
+  %40 = icmp samesign ult i64 %39, %17
   br i1 %40, label %.split.us, label %.thread9, !llvm.loop !56
 
 41:                                               ; preds = %68, %78, %74, %.split
   %42 = add nuw nsw i64 %44, 1
-  %43 = icmp ult i64 %42, %17
+  %43 = icmp samesign ult i64 %42, %17
   br i1 %43, label %.split, label %.thread9, !llvm.loop !56
 
 .split:                                           ; preds = %13, %41
@@ -3936,7 +3936,7 @@ define internal fastcc ptr @resize(ptr noundef %0) unnamed_addr #0 align 16 {
   %54 = zext i8 %38 to i32
   %55 = add nuw nsw i32 %54, 1
   %56 = add nuw nsw i32 %52, %54
-  %57 = icmp ugt i32 %56, 32
+  %57 = icmp samesign ugt i32 %56, 32
   br i1 %57, label %58, label %59, !prof !10
 
 58:                                               ; preds = %50
@@ -5155,7 +5155,7 @@ put_child.exit56:                                 ; preds = %711, %715
   %803 = zext i8 %783 to i32
   %804 = add nsw i32 %803, -1
   %805 = add nuw nsw i32 %801, %803
-  %806 = icmp ugt i32 %805, 32
+  %806 = icmp samesign ugt i32 %805, 32
   br i1 %806, label %807, label %808, !prof !10
 
 807:                                              ; preds = %797

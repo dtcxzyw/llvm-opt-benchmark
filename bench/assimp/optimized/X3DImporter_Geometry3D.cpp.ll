@@ -4256,7 +4256,7 @@ if.then.i:                                        ; preds = %if.else
   %sub.ptr.div.i11.i = sdiv exact i64 %sub.ptr.sub.i10.i, 12
   %cmp6.i.i = icmp ult i64 %sub.ptr.div.i11.i, 768614336404564651
   call void @llvm.assume(i1 %cmp6.i.i)
-  %cmp8.not.i.i = icmp ult i64 %sub.ptr.div.i11.i, 2
+  %cmp8.not.i.i = icmp samesign ult i64 %sub.ptr.div.i11.i, 2
   br i1 %cmp8.not.i.i, label %if.else.i.i, label %_ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i.i: ; preds = %if.then.i

@@ -926,7 +926,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   %438 = mul nuw nsw i32 %437, %47
   %439 = load i16, ptr %6, align 2
   %440 = zext i16 %439 to i32
-  %441 = icmp ult i32 %438, %440
+  %441 = icmp samesign ult i32 %438, %440
   br i1 %441, label %442, label %444
 
 442:                                              ; preds = %431
@@ -1304,7 +1304,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   %615 = mul nuw nsw i32 %614, %47
   %616 = load i16, ptr %6, align 2
   %617 = zext i16 %616 to i32
-  %618 = icmp ult i32 %615, %617
+  %618 = icmp samesign ult i32 %615, %617
   br i1 %618, label %619, label %621
 
 619:                                              ; preds = %608
@@ -1324,7 +1324,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 .loopexit690:                                     ; preds = %621, %623, %.lr.ph793
   %.8 = phi i16 [ %.7791, %.lr.ph793 ], [ %609, %621 ], [ %.10, %623 ]
   %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
-  %625 = icmp uge i64 %indvars.iv.next882, %.pre-phi905
+  %625 = icmp samesign uge i64 %indvars.iv.next882, %.pre-phi905
   %626 = zext i16 %.8 to i32
   %627 = icmp eq i32 %.3504, %626
   %or.cond654 = select i1 %625, i1 true, i1 %627
@@ -1422,7 +1422,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   %667 = mul nuw nsw i32 %666, %47
   %668 = load i16, ptr %6, align 2
   %669 = zext i16 %668 to i32
-  %670 = icmp ult i32 %667, %669
+  %670 = icmp samesign ult i32 %667, %669
   br i1 %670, label %671, label %.loopexit
 
 671:                                              ; preds = %659

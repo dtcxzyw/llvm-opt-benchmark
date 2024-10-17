@@ -8237,7 +8237,7 @@ log_base2.exit.thread.i.i:                        ; preds = %69
   %.045.i.i.i = phi i32 [ %76, %.lr.ph.i.i.i ], [ %73, %69 ]
   %75 = add nuw nsw i32 %.06.i.i.i, 1
   %76 = lshr i32 %.045.i.i.i, 1
-  %77 = icmp ugt i32 %.045.i.i.i, 3
+  %77 = icmp samesign ugt i32 %.045.i.i.i, 3
   br i1 %77, label %.lr.ph.i.i.i, label %log_base2.exit.i.i, !llvm.loop !103
 
 log_base2.exit.i.i:                               ; preds = %.lr.ph.i.i.i
@@ -8704,7 +8704,7 @@ log_base2.exit.thread.i.i:                        ; preds = %97
   %.045.i.i.i = phi i32 [ %104, %.lr.ph.i.i.i ], [ %101, %97 ]
   %103 = add nuw nsw i32 %.06.i.i.i, 1
   %104 = lshr i32 %.045.i.i.i, 1
-  %105 = icmp ugt i32 %.045.i.i.i, 3
+  %105 = icmp samesign ugt i32 %.045.i.i.i, 3
   br i1 %105, label %.lr.ph.i.i.i, label %log_base2.exit.i.i, !llvm.loop !103
 
 log_base2.exit.i.i:                               ; preds = %.lr.ph.i.i.i

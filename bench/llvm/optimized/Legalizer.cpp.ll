@@ -7122,7 +7122,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit156: ; pr
   %313 = load ptr, ptr %19, align 8
   %314 = getelementptr inbounds %"class.llvm::Register", ptr %313, i64 %indvars.iv
   store i32 %312, ptr %314, align 4
-  %315 = icmp ult i64 %indvars.iv.next, %309
+  %315 = icmp samesign ult i64 %indvars.iv.next, %309
   br i1 %315, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -9620,7 +9620,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
 
 .lr.ph:                                           ; preds = %260, %270
   %indvars.iv = phi i64 [ %indvars.iv.next, %270 ], [ 0, %260 ]
-  %262 = icmp ult i64 %indvars.iv, %60
+  %262 = icmp samesign ult i64 %indvars.iv, %60
   br i1 %262, label %263, label %267
 
 263:                                              ; preds = %.lr.ph
@@ -9640,7 +9640,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %272 = getelementptr inbounds %"class.llvm::Register", ptr %271, i64 %indvars.iv
   store i32 %.sink, ptr %272, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %273 = icmp ult i64 %indvars.iv.next, %261
+  %273 = icmp samesign ult i64 %indvars.iv.next, %261
   br i1 %273, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %270, %260
@@ -10374,7 +10374,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %119 = add i64 %118, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %119) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = icmp ult i64 %indvars.iv.next, %107
+  %120 = icmp samesign ult i64 %indvars.iv.next, %107
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %102

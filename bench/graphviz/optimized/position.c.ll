@@ -3731,7 +3731,7 @@ define internal fastcc void @rec_bb(ptr noundef %0, ptr nocapture noundef readon
   %55 = getelementptr inbounds i8, ptr %54, i64 216
   %56 = load i8, ptr %55, align 8
   %57 = icmp ne i8 %56, 0
-  %58 = icmp ult i64 %indvars.iv.next.i, %49
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %49
   %59 = select i1 %57, i1 %58, i1 false
   br i1 %59, label %50, label %._crit_edge.i
 

@@ -123,7 +123,7 @@ define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %4, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %7

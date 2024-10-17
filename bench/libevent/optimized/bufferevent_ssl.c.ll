@@ -1694,7 +1694,7 @@ while.cond:                                       ; preds = %while.body, %entry
 
 while.body:                                       ; preds = %while.cond
   %call = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
-  %tobool1.not = icmp ult i32 %call, 2
+  %tobool1.not = icmp samesign ult i32 %call, 2
   br i1 %tobool1.not, label %while.cond, label %while.body.while.end_crit_edge, !llvm.loop !5
 
 while.body.while.end_crit_edge:                   ; preds = %while.body
@@ -1769,7 +1769,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %n_to_read.055 = phi i32 [ %result.1.i, %while.body13.lr.ph ], [ %n_to_read.1, %if.end27 ]
   %call14 = tail call fastcc i32 @do_read(ptr noundef nonnull %bev_ssl, i32 noundef %n_to_read.055)
   %or = or i32 %call14, %all_result_flags.056
-  %tobool16.not = icmp ult i32 %call14, 2
+  %tobool16.not = icmp samesign ult i32 %call14, 2
   br i1 %tobool16.not, label %if.end18, label %while.end28
 
 if.end18:                                         ; preds = %while.body13
@@ -2682,7 +2682,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %while.body
-  %tobool8.not = icmp ult i32 %call, 2
+  %tobool8.not = icmp samesign ult i32 %call, 2
   br i1 %tobool8.not, label %while.cond, label %if.end.while.end_crit_edge, !llvm.loop !10
 
 if.end.while.end_crit_edge:                       ; preds = %if.end
@@ -2745,7 +2745,7 @@ land.lhs.true31.us.us:                            ; preds = %land.lhs.true.us.us
 
 land.rhs.us.us:                                   ; preds = %land.lhs.true31.us.us
   %call51.us.us = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
-  %tobool53.not.us.us = icmp ult i32 %call51.us.us, 2
+  %tobool53.not.us.us = icmp samesign ult i32 %call51.us.us, 2
   br i1 %tobool53.not.us.us, label %while.cond24.us.us, label %while.end56, !llvm.loop !11
 
 while.cond24.us:                                  ; preds = %if.end23.split.us, %if.end50.us
@@ -2775,7 +2775,7 @@ if.then46.us:                                     ; preds = %land.rhs.us
 
 if.end50.us:                                      ; preds = %if.then46.us, %land.rhs.us
   %call51.us = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
-  %tobool53.not.us = icmp ult i32 %call51.us, 2
+  %tobool53.not.us = icmp samesign ult i32 %call51.us, 2
   br i1 %tobool53.not.us, label %while.cond24.us, label %while.end56, !llvm.loop !11
 
 while.cond24:                                     ; preds = %if.end23, %if.end50
@@ -2811,7 +2811,7 @@ if.then46:                                        ; preds = %lor.rhs36
 
 if.end50:                                         ; preds = %land.rhs, %if.then46
   %call51 = tail call fastcc i32 @do_write(ptr noundef nonnull %bev_ssl)
-  %tobool53.not = icmp ult i32 %call51, 2
+  %tobool53.not = icmp samesign ult i32 %call51, 2
   br i1 %tobool53.not, label %while.cond24, label %while.end56, !llvm.loop !11
 
 while.end56:                                      ; preds = %lor.rhs36, %if.end50, %while.cond24, %land.lhs.true, %land.lhs.true31, %if.end50.us, %land.lhs.true31.us, %land.lhs.true.us, %while.cond24.us, %land.rhs.us.us, %land.lhs.true31.us.us, %land.lhs.true.us.us, %while.cond24.us.us

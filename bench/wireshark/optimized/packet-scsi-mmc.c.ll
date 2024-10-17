@@ -932,7 +932,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 12
   store i16 %20, ptr %23, align 4
-  %switch = icmp ult i8 %19, 2
+  %switch = icmp samesign ult i8 %19, 2
   br i1 %switch, label %24, label %34
 
 24:                                               ; preds = %16

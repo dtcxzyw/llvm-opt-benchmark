@@ -599,7 +599,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
   %63 = load i64, ptr %16, align 4
   %64 = lshr i64 %63, 24
   %65 = and i64 %64, 255
-  %66 = icmp ult i64 %indvars.iv.next49, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next49, %65
   br i1 %66, label %.lr.ph.split.us, label %.critedge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
@@ -631,7 +631,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
   %83 = load i64, ptr %16, align 4
   %84 = lshr i64 %83, 24
   %85 = and i64 %84, 255
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %73, %.lr.ph.split, %58, %.lr.ph.split.us, %If_CutLutArea.exit, %13, %9
@@ -1526,7 +1526,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %49 = load i64, ptr %7, align 4
   %50 = lshr i64 %49, 24
   %51 = and i64 %50, 255
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %11, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %11, %Vec_PtrPush.exit, %4

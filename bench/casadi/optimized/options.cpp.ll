@@ -3331,7 +3331,7 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_itera
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %17 = add nuw nsw i64 %storemerge26.i.i, 1
   %18 = lshr i64 %17, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !34
 
 19:                                               ; preds = %.lr.ph.i.i

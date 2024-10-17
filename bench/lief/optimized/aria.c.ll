@@ -276,7 +276,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %218 = xor i32 %217, %191
   %219 = getelementptr inbounds i8, ptr %4, i64 44
   store i32 %218, ptr %219, align 4
-  %220 = icmp ult i32 %41, 2
+  %220 = icmp samesign ult i32 %41, 2
   %221 = add nuw nsw i32 %41, 1
   %222 = select i1 %220, i32 %221, i32 0
   %223 = getelementptr inbounds i8, ptr %4, i64 48
@@ -1047,7 +1047,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr nocapture noundef readonly
   %295 = or disjoint i32 %288, %294
   %296 = load i8, ptr %0, align 4
   %297 = zext i8 %296 to i64
-  %.not = icmp ult i64 %indvars.iv.next, %297
+  %.not = icmp samesign ult i64 %indvars.iv.next, %297
   br i1 %.not, label %298, label %333
 
 298:                                              ; preds = %12

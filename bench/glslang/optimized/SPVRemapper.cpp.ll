@@ -1653,7 +1653,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -1809,7 +1809,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_
   %27 = getelementptr inbounds i8, ptr %.sroa.016.129, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %.not = icmp ult i64 %indvars.iv, %29
+  %.not = icmp samesign ult i64 %indvars.iv, %29
   br i1 %.not, label %.critedge, label %30
 
 30:                                               ; preds = %.lr.ph
@@ -1825,14 +1825,14 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_
 33:                                               ; preds = %.critedge
   %34 = load i32, ptr %.sroa.016.1.lcssa, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv, %35
+  %36 = icmp samesign ult i64 %indvars.iv, %35
   br i1 %36, label %.critedge2, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %.sroa.016.1.lcssa, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %.not12 = icmp ult i64 %indvars.iv, %40
+  %.not12 = icmp samesign ult i64 %indvars.iv, %40
   br i1 %.not12, label %46, label %.critedge2
 
 .critedge2:                                       ; preds = %33, %.critedge, %37
@@ -1856,7 +1856,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 2
   %53 = and i64 %52, 4294967295
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %.preheader, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %46
@@ -2905,7 +2905,7 @@ _ZN3spv10spirvbin_t12asOpCodeHashEj.exit:         ; preds = %88, %90
 ._crit_edge:                                      ; preds = %_ZN3spv10spirvbin_t12asOpCodeHashEj.exit, %.lr.ph, %71
   %.029.lcssa = phi i32 [ %78, %71 ], [ %.02951, %.lr.ph ], [ %97, %_ZN3spv10spirvbin_t12asOpCodeHashEj.exit ]
   %98 = add i32 %indvars69, 2
-  %.not3255 = icmp ugt i64 %indvars.iv, 4294967293
+  %.not3255 = icmp samesign ugt i64 %indvars.iv, 4294967293
   br i1 %.not3255, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %._crit_edge, %_ZN3spv10spirvbin_t12asOpCodeHashEj.exit36
@@ -3005,7 +3005,7 @@ _ZN3spv10spirvbin_t12nextUnusedIdEj.exit._crit_edge: ; preds = %_ZN3spv10spirvbi
   %154 = sub i64 %152, %153
   %155 = lshr exact i64 %154, 2
   %156 = and i64 %155, 4294967295
-  %157 = icmp ult i64 %indvars.iv.next, %156
+  %157 = icmp samesign ult i64 %indvars.iv.next, %156
   br i1 %157, label %51, label %._crit_edge67, !llvm.loop !66
 
 ._crit_edge67:                                    ; preds = %149, %.preheader

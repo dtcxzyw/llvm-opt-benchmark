@@ -958,7 +958,7 @@ define internal fastcc void @print_hwloc_obj(ptr nocapture noundef nonnull %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %13, align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %77, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %77, %67

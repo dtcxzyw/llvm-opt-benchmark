@@ -659,7 +659,7 @@ gv_alloc.exit:                                    ; preds = %2
 
 ._crit_edge175.i:                                 ; preds = %.loopexit.i, %.loopexit.us.i
   tail call void @free(ptr noundef %42) #13
-  %172 = icmp ugt i32 %spec.select.i, 1
+  %172 = icmp samesign ugt i32 %spec.select.i, 1
   br i1 %172, label %173, label %get_mq.exit
 
 173:                                              ; preds = %._crit_edge175.i

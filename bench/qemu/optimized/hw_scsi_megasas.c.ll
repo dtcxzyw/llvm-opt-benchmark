@@ -6609,7 +6609,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %add = zext i16 %3 to i32
   %add11 = add nuw nsw i32 %conv8, %add
   store i32 %add11, ptr %data, align 16
-  %cmp14 = icmp ugt i32 %add11, 4096
+  %cmp14 = icmp samesign ugt i32 %add11, 4096
   br i1 %cmp14, label %return, label %if.end17
 
 if.end17:                                         ; preds = %for.end

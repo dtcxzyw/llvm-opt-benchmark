@@ -171,7 +171,7 @@ define dso_local ptr @i915_gem_stolen_lmem_setup(ptr noundef %0, i16 noundef zer
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
-  %28 = icmp ugt i32 %27, 3141
+  %28 = icmp samesign ugt i32 %27, 3141
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %19, %12
@@ -223,7 +223,7 @@ define dso_local ptr @i915_gem_stolen_lmem_setup(ptr noundef %0, i16 noundef zer
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  %65 = icmp ugt i32 %64, 3141
+  %65 = icmp samesign ugt i32 %64, 3141
   br i1 %65, label %66, label %95
 
 66:                                               ; preds = %56
@@ -869,7 +869,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr n
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %58 = icmp ugt i32 %57, 3141
+  %58 = icmp samesign ugt i32 %57, 3141
   br i1 %58, label %59, label %534
 
 59:                                               ; preds = %49, %30
@@ -996,7 +996,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr n
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   %138 = or disjoint i32 %134, %137
-  %139 = icmp ugt i32 %138, 3141
+  %139 = icmp samesign ugt i32 %138, 3141
   br i1 %139, label %140, label %534
 
 140:                                              ; preds = %131, %121
@@ -1021,7 +1021,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr n
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = or disjoint i32 %152, %155
-  %157 = icmp ugt i32 %156, 3141
+  %157 = icmp samesign ugt i32 %156, 3141
   br i1 %157, label %181, label %158
 
 158:                                              ; preds = %150
@@ -1140,7 +1140,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr n
   %235 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %234) #11, !srcloc !28
   %236 = icmp ne i32 %235, %223
   %237 = add nuw nsw i32 %222, 1
-  %238 = icmp ult i32 %222, 2
+  %238 = icmp samesign ult i32 %222, 2
   %239 = select i1 %236, i1 %238, i1 false
   br i1 %239, label %221, label %240, !llvm.loop !29
 
@@ -1207,7 +1207,7 @@ default.unreachable29:                            ; preds = %381, %300, %252
   %269 = load i8, ptr %268, align 1
   %270 = zext i8 %269 to i32
   %271 = or disjoint i32 %267, %270
-  %272 = icmp ugt i32 %271, 3141
+  %272 = icmp samesign ugt i32 %271, 3141
   br i1 %272, label %273, label %276
 
 273:                                              ; preds = %264

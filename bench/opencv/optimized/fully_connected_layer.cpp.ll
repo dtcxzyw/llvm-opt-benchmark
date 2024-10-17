@@ -3192,7 +3192,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %73, %70
   store i32 %.sroa.speculated.us, ptr %138, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %139 = getelementptr inbounds i8, ptr %.073110.us, i64 %36
-  %140 = icmp ult i64 %indvars.iv.next124, %118
+  %140 = icmp samesign ult i64 %indvars.iv.next124, %118
   br i1 %140, label %.lr.ph109.us, label %._crit_edge114, !llvm.loop !29
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113.split.preheader, %.lr.ph113.split
@@ -3212,7 +3212,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %73, %70
   %151 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv
   store i32 %.sroa.speculated, ptr %151, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = icmp ult i64 %indvars.iv.next, %115
+  %152 = icmp samesign ult i64 %indvars.iv.next, %115
   br i1 %152, label %.lr.ph113.split, label %._crit_edge114, !llvm.loop !29
 
 ._crit_edge114:                                   ; preds = %.lr.ph113.split, %._crit_edge.us, %74

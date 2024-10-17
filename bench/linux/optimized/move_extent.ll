@@ -1015,7 +1015,7 @@ define internal fastcc i32 @move_extent_per_page(ptr %.168.val, ptr noundef %0, 
 
 330:                                              ; preds = %327, %322
   %331 = phi i64 [ %329, %327 ], [ 1, %322 ]
-  %332 = icmp ugt i64 %331, %323
+  %332 = icmp samesign ugt i64 %331, %323
   %333 = add nuw nsw i64 %323, 1
   br i1 %332, label %322, label %334, !llvm.loop !26
 

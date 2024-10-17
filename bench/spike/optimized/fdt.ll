@@ -246,7 +246,7 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   %83 = or disjoint i32 %82, %78
   %84 = or disjoint i32 %83, %70
   %85 = zext i32 %84 to i64
-  %86 = icmp ugt i64 %.0.i.i.ph, %85
+  %86 = icmp samesign ugt i64 %.0.i.i.ph, %85
   %87 = icmp slt i32 %70, 0
   %or.cond38 = or i1 %87, %86
   br i1 %or.cond38, label %check_block_.exit.thread, label %88

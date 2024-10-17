@@ -755,9 +755,9 @@ common.resume:                                    ; preds = %42, %32
   br i1 %47, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ult i64 %46, 5
+  %49 = icmp samesign ult i64 %46, 5
   tail call void @llvm.assume(i1 %49)
-  %50 = icmp ult i64 %46, 2
+  %50 = icmp samesign ult i64 %46, 2
   br i1 %50, label %51, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.thread89
 
 51:                                               ; preds = %48
@@ -810,7 +810,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   %72 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %73 = icmp ult i64 %72, 6
   tail call void @llvm.assume(i1 %73)
-  %74 = icmp ugt i64 %72, 3
+  %74 = icmp samesign ugt i64 %72, 3
   br i1 %74, label %75, label %111
 
 75:                                               ; preds = %71
@@ -21426,7 +21426,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %10 = icmp ult i64 %9, 6
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp ugt i64 %9, 3
+  %11 = icmp samesign ugt i64 %9, 3
   br i1 %11, label %12, label %7
 
 12:                                               ; preds = %8

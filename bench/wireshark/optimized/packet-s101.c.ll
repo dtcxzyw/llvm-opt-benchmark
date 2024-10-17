@@ -215,7 +215,7 @@ define internal i32 @dissect_S101(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #4
   %31 = and i8 %30, 7
   %32 = add i32 %.0231, 2
-  %33 = icmp ugt i8 %31, 1
+  %33 = icmp samesign ugt i8 %31, 1
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %29

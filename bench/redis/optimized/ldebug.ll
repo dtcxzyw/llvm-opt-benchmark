@@ -880,7 +880,7 @@ if.end.i:                                         ; preds = %entry
   %conv3.i = zext i8 %3 to i32
   %and.i = and i32 %conv3.i, 1
   %add.i = add nuw nsw i32 %and.i, %conv2.i
-  %cmp6.not.i = icmp ugt i32 %add.i, %conv.i
+  %cmp6.not.i = icmp samesign ugt i32 %add.i, %conv.i
   %4 = and i32 %conv3.i, 5
   %or.cond.i = icmp eq i32 %4, 4
   %or.cond57.i = or i1 %or.cond.i, %cmp6.not.i
@@ -940,8 +940,8 @@ for.body:                                         ; preds = %for.inc417, %for.bo
   %and = and i32 %13, 63
   %shr1 = lshr i32 %13, 6
   %and2 = and i32 %shr1, 255
-  %cmp3 = icmp ult i32 %and, 38
-  %cmp6 = icmp ult i32 %and2, %conv.i
+  %cmp3 = icmp samesign ult i32 %and, 38
+  %cmp6 = icmp samesign ult i32 %and2, %conv.i
   %or.cond646 = and i1 %cmp3, %cmp6
   br i1 %or.cond646, label %if.end9, label %cleanup423
 
@@ -974,7 +974,7 @@ sw.bb.i:                                          ; preds = %sw.bb
   br i1 %cmp.i582, label %if.end26, label %cleanup423
 
 sw.bb1.i:                                         ; preds = %sw.bb
-  %cmp2.i = icmp ult i32 %shr14, %conv.i
+  %cmp2.i = icmp samesign ult i32 %shr14, %conv.i
   br i1 %cmp2.i, label %if.end26, label %cleanup423
 
 sw.bb6.i:                                         ; preds = %sw.bb
@@ -988,7 +988,7 @@ cond.true.i:                                      ; preds = %sw.bb6.i
   br i1 %cmp8.i, label %if.end26, label %cleanup423
 
 cond.false.i:                                     ; preds = %sw.bb6.i
-  %cmp12.i = icmp ult i32 %shr14, %conv.i
+  %cmp12.i = icmp samesign ult i32 %shr14, %conv.i
   br i1 %cmp12.i, label %if.end26, label %cleanup423
 
 if.end26:                                         ; preds = %sw.bb, %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i
@@ -1008,7 +1008,7 @@ sw.bb.i600:                                       ; preds = %if.end26
   br i1 %cmp.i601, label %sw.epilog, label %cleanup423
 
 sw.bb1.i583:                                      ; preds = %if.end26
-  %cmp2.i586 = icmp ult i32 %and17, %conv.i
+  %cmp2.i586 = icmp samesign ult i32 %and17, %conv.i
   br i1 %cmp2.i586, label %sw.epilog, label %cleanup423
 
 sw.bb6.i589:                                      ; preds = %if.end26
@@ -1023,7 +1023,7 @@ cond.true.i592:                                   ; preds = %sw.bb6.i589
   br i1 %cmp8.i595, label %sw.epilog, label %cleanup423
 
 cond.false.i596:                                  ; preds = %sw.bb6.i589
-  %cmp12.i599 = icmp ult i32 %and17, %conv.i
+  %cmp12.i599 = icmp samesign ult i32 %and17, %conv.i
   br i1 %cmp12.i599, label %sw.epilog, label %cleanup423
 
 sw.bb36:                                          ; preds = %if.end9
@@ -1168,7 +1168,7 @@ sw.bb185:                                         ; preds = %if.end141, %if.end1
 
 sw.bb192:                                         ; preds = %if.end141
   %add193 = add nuw nsw i32 %and2, 1
-  %cmp196 = icmp ult i32 %add193, %conv.i
+  %cmp196 = icmp samesign ult i32 %add193, %conv.i
   br i1 %cmp196, label %if.end199, label %cleanup423
 
 if.end199:                                        ; preds = %sw.bb192
@@ -1187,7 +1187,7 @@ sw.bb210:                                         ; preds = %if.end141
 if.end214:                                        ; preds = %sw.bb210
   %add215 = add nuw nsw i32 %and2, 2
   %add216 = add nuw nsw i32 %c.0, %add215
-  %cmp219 = icmp ult i32 %add216, %conv.i
+  %cmp219 = icmp samesign ult i32 %add216, %conv.i
   br i1 %cmp219, label %if.end222, label %cleanup423
 
 if.end222:                                        ; preds = %if.end214
@@ -1197,7 +1197,7 @@ if.end222:                                        ; preds = %if.end214
 
 sw.bb228:                                         ; preds = %if.end141, %if.end141
   %add229 = add nuw nsw i32 %and2, 3
-  %cmp232 = icmp ult i32 %add229, %conv.i
+  %cmp232 = icmp samesign ult i32 %add229, %conv.i
   br i1 %cmp232, label %sw.bb236, label %cleanup423
 
 sw.bb236:                                         ; preds = %sw.bb228, %if.end141
@@ -1507,7 +1507,7 @@ sw.bb12:                                          ; preds = %if.end
   %shr13 = lshr i32 %call8, 6
   %and14 = and i32 %shr13, 255
   %shr15 = lshr i32 %call8, 23
-  %cmp17.not = icmp ult i32 %shr15, %and14
+  %cmp17.not = icmp samesign ult i32 %shr15, %and14
   br i1 %cmp17.not, label %tailrecurse, label %return
 
 sw.bb22:                                          ; preds = %if.end

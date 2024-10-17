@@ -30861,7 +30861,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -31034,7 +31034,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.b
 if.end4.i:                                        ; preds = %while.body.i
   %add.i = add nuw nsw i64 %storemerge27.i, 1
   %div5.i = lshr i64 %add.i, 1
-  %cmp1.not.i = icmp ult i64 %storemerge27.i, 2
+  %cmp1.not.i = icmp samesign ult i64 %storemerge27.i, 2
   br i1 %cmp1.not.i, label %if.end, label %while.body.i, !llvm.loop !141
 
 if.then:                                          ; preds = %while.body.i
@@ -49485,7 +49485,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont7
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %invoke.cont7 ], [ %div.i11, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -58794,7 +58794,7 @@ for.inc553:                                       ; preds = %for.inc553.sink.spl
 for.inc556:                                       ; preds = %for.inc553, %for.body494
   %210 = phi ptr [ %164, %for.body494 ], [ %incdec.ptr.i.i, %for.inc553 ]
   %div127 = lshr i64 %size.0914, 1
-  %tobool493.not = icmp ult i64 %size.0914, 2
+  %tobool493.not = icmp samesign ult i64 %size.0914, 2
   br i1 %tobool493.not, label %for.end557, label %for.body494, !llvm.loop !363
 
 for.end557:                                       ; preds = %for.inc556, %invoke.cont488

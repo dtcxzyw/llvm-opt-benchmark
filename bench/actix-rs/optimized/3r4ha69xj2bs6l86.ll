@@ -383,7 +383,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %152 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !23
   %153 = icmp ult i64 %152, 6
   call void @llvm.assume(i1 %153)
-  %switch.selectcmp54.i.i = icmp ugt i64 %152, 4
+  %switch.selectcmp54.i.i = icmp samesign ugt i64 %152, 4
   br i1 %switch.selectcmp54.i.i, label %154, label %557
 
 154:                                              ; preds = %151
@@ -524,7 +524,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !26
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %197 = icmp ult i64 %195, 5
+  %197 = icmp samesign ult i64 %195, 5
   br i1 %197, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h70db08114646c5d4E.exit.i.i", label %.critedge9.i.i.i
 
 .critedge9.i.i.i:                                 ; preds = %194
@@ -633,7 +633,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %237 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %238 = icmp ult i64 %237, 6
   call void @llvm.assume(i1 %238)
-  %239 = icmp ult i64 %237, 5
+  %239 = icmp samesign ult i64 %237, 5
   br i1 %239, label %263, label %.critedge239
 
 .critedge239:                                     ; preds = %236
@@ -782,7 +782,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %292 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !43
   %293 = icmp ult i64 %292, 6
   call void @llvm.assume(i1 %293)
-  %switch.selectcmp54.i.i278 = icmp ugt i64 %292, 4
+  %switch.selectcmp54.i.i278 = icmp samesign ugt i64 %292, 4
   br i1 %switch.selectcmp54.i.i278, label %294, label %376
 
 294:                                              ; preds = %291
@@ -923,7 +923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %335 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !44
   %336 = icmp ult i64 %335, 6
   call void @llvm.assume(i1 %336)
-  %337 = icmp ult i64 %335, 5
+  %337 = icmp samesign ult i64 %335, 5
   br i1 %337, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc58afa6ffbd42ad6E.exit.i.i", label %.critedge9.i.i.i302
 
 .critedge9.i.i.i302:                              ; preds = %334
@@ -1010,7 +1010,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %359 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !47
   %360 = icmp ult i64 %359, 6
   call void @llvm.assume(i1 %360)
-  %361 = icmp ult i64 %359, 5
+  %361 = icmp samesign ult i64 %359, 5
   br i1 %361, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17ha4722b9e76bd1e77E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %358
@@ -1137,7 +1137,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309
   %404 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %405 = icmp ult i64 %404, 6
   call void @llvm.assume(i1 %405)
-  %switch.selectcmp248 = icmp ugt i64 %404, 4
+  %switch.selectcmp248 = icmp samesign ugt i64 %404, 4
   br i1 %switch.selectcmp248, label %406, label %440
 
 406:                                              ; preds = %403
@@ -1377,7 +1377,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %479 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !64
   %480 = icmp ult i64 %479, 6
   call void @llvm.assume(i1 %480)
-  %switch.selectcmp54.i.i327 = icmp ugt i64 %479, 4
+  %switch.selectcmp54.i.i327 = icmp samesign ugt i64 %479, 4
   br i1 %switch.selectcmp54.i.i327, label %481, label %542
 
 481:                                              ; preds = %478
@@ -1518,7 +1518,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %522 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !65
   %523 = icmp ult i64 %522, 6
   call void @llvm.assume(i1 %523)
-  %524 = icmp ult i64 %522, 5
+  %524 = icmp samesign ult i64 %522, 5
   br i1 %524, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h89236154fc338aafE.exit.i.i", label %.critedge9.i.i.i351
 
 .critedge9.i.i.i351:                              ; preds = %521
@@ -1702,7 +1702,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit359
   %582 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %583 = icmp ult i64 %582, 6
   call void @llvm.assume(i1 %583)
-  %584 = icmp ult i64 %582, 5
+  %584 = icmp samesign ult i64 %582, 5
   br i1 %584, label %616, label %.critedge262
 
 .critedge262:                                     ; preds = %581
@@ -1839,7 +1839,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit359
   %626 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !73
   %627 = icmp ult i64 %626, 6
   call void @llvm.assume(i1 %627)
-  %628 = icmp ult i64 %626, 5
+  %628 = icmp samesign ult i64 %626, 5
   br i1 %628, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17h2549c89cbd5c8d16E.exit", label %.critedge9.i376
 
 .critedge9.i376:                                  ; preds = %625
@@ -2125,7 +2125,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %152 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !92
   %153 = icmp ult i64 %152, 6
   call void @llvm.assume(i1 %153)
-  %switch.selectcmp54.i.i = icmp ugt i64 %152, 4
+  %switch.selectcmp54.i.i = icmp samesign ugt i64 %152, 4
   br i1 %switch.selectcmp54.i.i, label %154, label %557
 
 154:                                              ; preds = %151
@@ -2266,7 +2266,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %195 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !93
   %196 = icmp ult i64 %195, 6
   call void @llvm.assume(i1 %196)
-  %197 = icmp ult i64 %195, 5
+  %197 = icmp samesign ult i64 %195, 5
   br i1 %197, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3184540f1d331923E.exit.i.i", label %.critedge9.i.i.i
 
 .critedge9.i.i.i:                                 ; preds = %194
@@ -2375,7 +2375,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %237 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %238 = icmp ult i64 %237, 6
   call void @llvm.assume(i1 %238)
-  %239 = icmp ult i64 %237, 5
+  %239 = icmp samesign ult i64 %237, 5
   br i1 %239, label %263, label %.critedge239
 
 .critedge239:                                     ; preds = %236
@@ -2524,7 +2524,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %292 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !109
   %293 = icmp ult i64 %292, 6
   call void @llvm.assume(i1 %293)
-  %switch.selectcmp54.i.i278 = icmp ugt i64 %292, 4
+  %switch.selectcmp54.i.i278 = icmp samesign ugt i64 %292, 4
   br i1 %switch.selectcmp54.i.i278, label %294, label %376
 
 294:                                              ; preds = %291
@@ -2665,7 +2665,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %335 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !110
   %336 = icmp ult i64 %335, 6
   call void @llvm.assume(i1 %336)
-  %337 = icmp ult i64 %335, 5
+  %337 = icmp samesign ult i64 %335, 5
   br i1 %337, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h461d7d4503a62e95E.exit.i.i", label %.critedge9.i.i.i302
 
 .critedge9.i.i.i302:                              ; preds = %334
@@ -2752,7 +2752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %359 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !113
   %360 = icmp ult i64 %359, 6
   call void @llvm.assume(i1 %360)
-  %361 = icmp ult i64 %359, 5
+  %361 = icmp samesign ult i64 %359, 5
   br i1 %361, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17h63d17f54863682b6E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %358
@@ -2879,7 +2879,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309
   %404 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %405 = icmp ult i64 %404, 6
   call void @llvm.assume(i1 %405)
-  %switch.selectcmp248 = icmp ugt i64 %404, 4
+  %switch.selectcmp248 = icmp samesign ugt i64 %404, 4
   br i1 %switch.selectcmp248, label %406, label %440
 
 406:                                              ; preds = %403
@@ -3119,7 +3119,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %479 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !129
   %480 = icmp ult i64 %479, 6
   call void @llvm.assume(i1 %480)
-  %switch.selectcmp54.i.i327 = icmp ugt i64 %479, 4
+  %switch.selectcmp54.i.i327 = icmp samesign ugt i64 %479, 4
   br i1 %switch.selectcmp54.i.i327, label %481, label %542
 
 481:                                              ; preds = %478
@@ -3260,7 +3260,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %522 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !130
   %523 = icmp ult i64 %522, 6
   call void @llvm.assume(i1 %523)
-  %524 = icmp ult i64 %522, 5
+  %524 = icmp samesign ult i64 %522, 5
   br i1 %524, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he0466e827cdcff5eE.exit.i.i", label %.critedge9.i.i.i351
 
 .critedge9.i.i.i351:                              ; preds = %521
@@ -3444,7 +3444,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit359
   %582 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %583 = icmp ult i64 %582, 6
   call void @llvm.assume(i1 %583)
-  %584 = icmp ult i64 %582, 5
+  %584 = icmp samesign ult i64 %582, 5
   br i1 %584, label %616, label %.critedge262
 
 .critedge262:                                     ; preds = %581
@@ -3581,7 +3581,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit359
   %626 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !138
   %627 = icmp ult i64 %626, 6
   call void @llvm.assume(i1 %627)
-  %628 = icmp ult i64 %626, 5
+  %628 = icmp samesign ult i64 %626, 5
   br i1 %628, label %"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$C$U$C$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hea41f437ee9ad30dE.exit", label %.critedge9.i376
 
 .critedge9.i376:                                  ; preds = %625
@@ -3641,7 +3641,7 @@ define internal fastcc void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedI
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 5
+  %10 = icmp samesign ult i64 %8, 5
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -3694,7 +3694,7 @@ define internal fastcc void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedI
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 5
+  %10 = icmp samesign ult i64 %8, 5
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -3845,7 +3845,7 @@ define hidden void @_ZN2h25frame4ping4Ping6encode17h7b861ae831458102E(ptr noalia
   br i1 %22, label %.critedge63, label %23
 
 23:                                               ; preds = %2
-  %24 = icmp ult i64 %21, 5
+  %24 = icmp samesign ult i64 %21, 5
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i64 %21, 0
   br i1 %25, label %26, label %.critedge63
@@ -3894,7 +3894,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %45 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %46 = icmp ult i64 %45, 6
   tail call void @llvm.assume(i1 %46)
-  %47 = icmp ult i64 %45, 5
+  %47 = icmp samesign ult i64 %45, 5
   br i1 %47, label %82, label %.critedge65
 
 .critedge65:                                      ; preds = %44
@@ -4062,7 +4062,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %97 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !167
   %98 = icmp ult i64 %97, 6
   call void @llvm.assume(i1 %98)
-  %99 = icmp ult i64 %97, 5
+  %99 = icmp samesign ult i64 %97, 5
   br i1 %99, label %"_ZN2h25frame4ping4Ping6encode28_$u7b$$u7b$closure$u7d$$u7d$17ha6a20fda3a21d970E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %96
@@ -4496,7 +4496,7 @@ define hidden noundef ptr @_ZN3mio4poll8Registry10deregister17h1892b733405e5921E
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ult i64 %3, 5
+  %5 = icmp samesign ult i64 %3, 5
   br i1 %5, label %6, label %.critedge8
 
 6:                                                ; preds = %.critedge, %.critedge8
@@ -5548,8 +5548,8 @@ define internal fastcc void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..r
   %19 = getelementptr inbounds i8, ptr %0, i64 432
   %20 = load i8, ptr %19, align 8, !range !377, !alias.scope !378, !noundef !5
   %21 = icmp eq i8 %20, 11
-  %switch.i.i.i = icmp ult i8 %20, 10
-  %or.cond.i = or i1 %21, %switch.i.i.i
+  %switch.i.i.i = icmp samesign ult i8 %20, 10
+  %or.cond.i = select i1 %21, i1 true, i1 %switch.i.i.i
   br i1 %or.cond.i, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit"
@@ -5566,8 +5566,8 @@ define internal fastcc void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..r
   %26 = getelementptr inbounds i8, ptr %0, i64 432
   %27 = load i8, ptr %26, align 8, !range !377, !alias.scope !381, !noundef !5
   %28 = icmp eq i8 %27, 11
-  %switch.i.i.i12 = icmp ult i8 %27, 10
-  %or.cond.i13 = or i1 %28, %switch.i.i.i12
+  %switch.i.i.i12 = icmp samesign ult i8 %27, 10
+  %or.cond.i13 = select i1 %28, i1 true, i1 %switch.i.i.i12
   br i1 %or.cond.i13, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit15", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit10"
@@ -8341,7 +8341,7 @@ default.unreachable:                              ; preds = %112, %60
 
 .body:                                            ; preds = %99, %103
   %eh.lpad-body = phi { ptr, i32 } [ %104, %103 ], [ %100, %99 ]
-  %switch.i.i = icmp ult i8 %62, 10
+  %switch.i.i = icmp samesign ult i8 %62, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit", label %105
 
 105:                                              ; preds = %.body
@@ -8534,7 +8534,7 @@ default.unreachable:                              ; preds = %112, %60
 
 .body37:                                          ; preds = %153, %157
   %eh.lpad-body38 = phi { ptr, i32 } [ %158, %157 ], [ %154, %153 ]
-  %switch.i.i40 = icmp ult i8 %115, 10
+  %switch.i.i40 = icmp samesign ult i8 %115, 10
   br i1 %switch.i.i40, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit42", label %159
 
 159:                                              ; preds = %.body37
@@ -8646,7 +8646,7 @@ default.unreachable:                              ; preds = %112, %60
 
 200:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h3fca006b7ca6bafcE.llvm.8996713715750268326.exit"
   %201 = load i8, ptr %20, align 8, !range !848, !alias.scope !920, !noundef !5
-  %switch.i.i44 = icmp ult i8 %201, 10
+  %switch.i.i44 = icmp samesign ult i8 %201, 10
   br i1 %switch.i.i44, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit46", label %202
 
 202:                                              ; preds = %200
@@ -8973,7 +8973,7 @@ define hidden void @"_ZN106_$LT$awc..middleware..redirect..RedirectServiceFuture
 
 .critedge:                                        ; preds = %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 1, i64 24, i1 false)
-  %switch.i.i = icmp ult i8 %.sroa.030.0.copyload, 10
+  %switch.i.i = icmp samesign ult i8 %.sroa.030.0.copyload, 10
   br i1 %switch.i.i, label %108, label %105
 
 105:                                              ; preds = %.critedge
@@ -9210,7 +9210,7 @@ default.unreachable:                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14191)
   %169 = getelementptr inbounds i8, ptr %18, i64 120
   %170 = load i8, ptr %169, align 8, !range !848, !alias.scope !959, !noundef !5
-  %switch.i.i167 = icmp ult i8 %170, 10
+  %switch.i.i167 = icmp samesign ult i8 %170, 10
   br i1 %switch.i.i167, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit169", label %171
 
 171:                                              ; preds = %"_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit"
@@ -9423,7 +9423,7 @@ default.unreachable:                              ; preds = %150
   %.pn.ph = phi { ptr, i32 } [ %149, %148 ], [ %174, %173 ], [ %202, %201 ], [ %145, %144 ], [ %191, %190 ]
   %220 = getelementptr inbounds i8, ptr %18, i64 120
   %221 = load i8, ptr %220, align 8, !range !848, !alias.scope !1002, !noundef !5
-  %switch.i.i177 = icmp ult i8 %221, 10
+  %switch.i.i177 = icmp samesign ult i8 %221, 10
   br i1 %switch.i.i177, label %.noexc178, label %222
 
 222:                                              ; preds = %219
@@ -9475,7 +9475,7 @@ default.unreachable:                              ; preds = %150
 .thread272:                                       ; preds = %.thread231.thread, %228, %.thread231
   %.pn145.pn236275 = phi { ptr, i32 } [ %.pn145.pn237.ph, %.thread231 ], [ %.pn145.pn237.ph, %228 ], [ %121, %.thread231.thread ]
   %236 = load i8, ptr %24, align 8, !range !848, !alias.scope !1017, !noundef !5
-  %switch.i.i182 = icmp ult i8 %236, 10
+  %switch.i.i182 = icmp samesign ult i8 %236, 10
   br i1 %switch.i.i182, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit184", label %237
 
 237:                                              ; preds = %.thread272

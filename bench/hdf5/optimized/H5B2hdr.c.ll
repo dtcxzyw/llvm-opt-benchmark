@@ -207,7 +207,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr nocapture nounde
   %92 = load ptr, ptr %35, align 8
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -640,7 +640,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_free(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i16, ptr %29, align 4
   %54 = zext i16 %53 to i64
-  %.not50.not = icmp ult i64 %indvars.iv, %54
+  %.not50.not = icmp samesign ult i64 %indvars.iv, %54
   br i1 %.not50.not, label %30, label %55
 
 55:                                               ; preds = %52

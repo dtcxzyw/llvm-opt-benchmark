@@ -5026,7 +5026,7 @@ _ZN7testing15AssertionResultD2Ev.exit688:         ; preds = %_ZNSt7__cxx1112basi
 
 for.cond:                                         ; preds = %cleanup393
   %mul401 = shl nuw nsw i64 %storemerge1264, 1
-  %cmp89 = icmp ugt i64 %storemerge1264, 4
+  %cmp89 = icmp samesign ugt i64 %storemerge1264, 4
   br i1 %cmp89, label %for.end, label %for.body, !llvm.loop !47
 
 for.body:                                         ; preds = %for.cond, %_ZN7testing15AssertionResultD2Ev.exit688

@@ -471,7 +471,7 @@ define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr 
   br label %26
 
 23:                                               ; preds = %.preheader75
-  %24 = icmp ugt i32 %.041, 59
+  %24 = icmp samesign ugt i32 %.041, 59
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %23
@@ -5102,7 +5102,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %126 = load i32, ptr %5, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next88, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next88, %127
   br i1 %128, label %17, label %.loopexit78, !llvm.loop !56
 
 .loopexit79:                                      ; preds = %119, %113, %107, %100, %94, %88, %81, %75, %70, %55, %27, %25, %20, %17, %2

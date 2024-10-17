@@ -48,7 +48,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx17 = getelementptr inbounds i8, ptr %call6, i64 %3
   store i8 %2, ptr %arrayidx17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp11 = icmp ult i64 %indvars.iv.next, %0
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %0
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -132,7 +132,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx17 = getelementptr inbounds i8, ptr %call, i64 %6
   store i8 %5, ptr %arrayidx17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp12 = icmp ult i64 %indvars.iv.next, %4
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -198,7 +198,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx17.i = getelementptr inbounds i8, ptr %call6.i, i64 %3
   store i8 %2, ptr %arrayidx17.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %0
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %0
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
@@ -424,7 +424,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx17.i40 = getelementptr inbounds i8, ptr %call.i398690, i64 %11
   store i8 %10, ptr %arrayidx17.i40, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp12.i41 = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp12.i41 = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %cmp12.i41, label %for.body.i, label %for.end.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i

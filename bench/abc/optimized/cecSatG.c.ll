@@ -1837,7 +1837,7 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
   %spec.select = add i32 %139, %.14784
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 3
   %140 = add nuw nsw i64 %indvars.iv96, 5
-  %141 = icmp ult i64 %140, %114
+  %141 = icmp samesign ult i64 %140, %114
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 3
   br i1 %141, label %115, label %.critedge2, !llvm.loop !28
 

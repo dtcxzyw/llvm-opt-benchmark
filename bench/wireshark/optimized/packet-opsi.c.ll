@@ -430,7 +430,7 @@ define internal i32 @dissect_opsi_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = add i32 %.059.i, 2
   %49 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %48) #3
   %50 = zext i16 %49 to i32
-  %51 = icmp ult i32 %.04158.i, %50
+  %51 = icmp samesign ult i32 %.04158.i, %50
   br i1 %51, label %.thread.i, label %52
 
 52:                                               ; preds = %.lr.ph61.i
@@ -455,7 +455,7 @@ tailrecurse.outer.i.i:                            ; preds = %._crit_edge.i
   %.tr24.ph38.i.i = phi i32 [ %.tr2431.i.lcssa.i, %tailrecurse.outer.i.i ], [ 52, %52 ]
   %.tr.ph37.i.i = phi i32 [ %54, %tailrecurse.outer.i.i ], [ 0, %52 ]
   %invariant.op.i.i = add nuw nsw i32 %.tr.ph37.i.i, 255
-  %63 = icmp ult i32 %62, %47
+  %63 = icmp samesign ult i32 %62, %47
   br i1 %63, label %._crit_edge.i, label %.lr.ph.i
 
 64:                                               ; preds = %tailrecurse.i.i

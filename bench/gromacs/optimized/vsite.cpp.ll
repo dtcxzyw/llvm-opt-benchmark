@@ -1810,7 +1810,7 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %627 = fpext float %626 to double
   %628 = fadd double %.sroa.7.015.us.i, %627
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 3
-  %629 = icmp ult i64 %indvars.iv.next33.i, %601
+  %629 = icmp samesign ult i64 %indvars.iv.next33.i, %601
   br i1 %629, label %602, label %_ZN3gmxL13constr_vsitenILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVelocityE1EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_INS_11BasicVectorIfEEEEPK5t_pbcSB_.exit, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -3149,7 +3149,7 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVe
   %895 = fpext float %894 to double
   %896 = fadd double %.sroa.7.08.i, %895
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %897 = icmp ult i64 %indvars.iv.next.i, %870
+  %897 = icmp samesign ult i64 %indvars.iv.next.i, %870
   br i1 %897, label %.lr.ph.i, label %_ZN3gmxL13constr_vsitenILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVelocityE0EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_INS_11BasicVectorIfEEEEPK5t_pbcSB_.exit, !llvm.loop !13
 
 _ZN3gmxL13constr_vsitenILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVelocityE0EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_INS_11BasicVectorIfEEEEPK5t_pbcSB_.exit: ; preds = %.lr.ph.i, %854
@@ -4715,7 +4715,7 @@ _ZN3gmxL16constr_vsite4FDNILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   %1070 = fpext float %1069 to double
   %1071 = fadd double %.sroa.7.022.us.i, %1070
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 3
-  %1072 = icmp ult i64 %indvars.iv.next50.i, %1026
+  %1072 = icmp samesign ult i64 %indvars.iv.next50.i, %1026
   br i1 %1072, label %1027, label %_ZN3gmxL13constr_vsitenILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVelocityE0EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_INS_11BasicVectorIfEEEEPK5t_pbcSB_.exit, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -7120,7 +7120,7 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifff
   store float %1152, ptr %1150, align 4
   store float %1155, ptr %1153, align 4
   %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 3
-  %1156 = icmp ult i64 %indvars.iv.next10.i.i, %1132
+  %1156 = icmp samesign ult i64 %indvars.iv.next10.i.i, %1132
   br i1 %1156, label %.lr.ph.split.us.i.i, label %_ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE0EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_IKNS_11BasicVectorIfEEEENS5_ISA_EESD_PK5t_pbc.exit.i, !llvm.loop !34
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
@@ -9193,7 +9193,7 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifff
   store float %2626, ptr %2624, align 4
   store float %2629, ptr %2627, align 4
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 3
-  %2630 = icmp ult i64 %indvars.iv.next18.i.i, %2606
+  %2630 = icmp samesign ult i64 %indvars.iv.next18.i.i, %2606
   br i1 %2630, label %.lr.ph.split.us.i.i33, label %_ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE1EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_IKNS_11BasicVectorIfEEEENS5_ISA_EESD_PK5t_pbc.exit.i, !llvm.loop !42
 
 .lr.ph.split.i.i31:                               ; preds = %.lr.ph.i.i30, %2673
@@ -11202,7 +11202,7 @@ _ZN3gmxL16spread_vsite4FDNILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifff
   store float %4008, ptr %4006, align 4
   store float %4011, ptr %4009, align 4
   %indvars.iv.next10.i.i91 = add nuw nsw i64 %indvars.iv9.i.i90, 3
-  %4012 = icmp ult i64 %indvars.iv.next10.i.i91, %3988
+  %4012 = icmp samesign ult i64 %indvars.iv.next10.i.i91, %3988
   br i1 %4012, label %.lr.ph.split.us.i.i89, label %_ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE2EEEiPKiNS_8ArrayRefIK9t_iparamsEENS5_IKNS_11BasicVectorIfEEEENS5_ISA_EESD_PK5t_pbc.exit.i, !llvm.loop !61
 
 .lr.ph.split.i.i87:                               ; preds = %.lr.ph.i.i86, %.lr.ph.split.i.i87

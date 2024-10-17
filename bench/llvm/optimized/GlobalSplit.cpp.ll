@@ -842,7 +842,7 @@ _ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.
   %376 = getelementptr inbounds i8, ptr %.111.i.i.i, i64 -1
   store i8 %375, ptr %376, align 1, !noalias !13
   %377 = udiv i64 %.0810.i.i.i, 10
-  %.not.i154.i.i = icmp ult i64 %.0810.i.i.i, 10
+  %.not.i154.i.i = icmp samesign ult i64 %.0810.i.i.i, 10
   br i1 %.not.i154.i.i, label %_ZN4llvm6utostrB5cxx11Emb.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.thread.i.i.i

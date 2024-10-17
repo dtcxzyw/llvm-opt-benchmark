@@ -1353,7 +1353,7 @@ switch.early.test:                                ; preds = %57
 .critedge137:                                     ; preds = %.critedge137.backedge, %.critedge137.preheader
   %.1 = phi i1 [ true, %.critedge137.preheader ], [ %.1.be, %.critedge137.backedge ]
   %.0108 = phi i32 [ 0, %.critedge137.preheader ], [ %.0108.be, %.critedge137.backedge ]
-  %92 = icmp ult i32 %.0108, %15
+  %92 = icmp samesign ult i32 %.0108, %15
   br i1 %92, label %93, label %91
 
 93:                                               ; preds = %.critedge137
@@ -26857,7 +26857,7 @@ define internal fastcc void @zend_mark_cv_references(ptr nocapture noundef reado
 .critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
   %.1182 = phi i1 [ true, %.critedge.preheader ], [ %.1182.be, %.critedge.backedge ]
   %.0179 = phi i32 [ 0, %.critedge.preheader ], [ %.0179.be, %.critedge.backedge ]
-  %117 = icmp ult i32 %.0179, %8
+  %117 = icmp samesign ult i32 %.0179, %8
   br i1 %117, label %118, label %116
 
 118:                                              ; preds = %.critedge
@@ -27378,7 +27378,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
 .critedge:                                        ; preds = %147, %.critedge.backedge
   %.1930 = phi i1 [ %.1930.be, %.critedge.backedge ], [ true, %147 ]
   %.0927 = phi i32 [ %.0927.be, %.critedge.backedge ], [ 0, %147 ]
-  %153 = icmp ult i32 %.0927, %13
+  %153 = icmp samesign ult i32 %.0927, %13
   br i1 %153, label %154, label %151
 
 154:                                              ; preds = %.critedge
@@ -28458,7 +28458,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
 .critedge1067:                                    ; preds = %.critedge1067.backedge, %.critedge1067.preheader
   %.1917 = phi i1 [ true, %.critedge1067.preheader ], [ %.1917.be, %.critedge1067.backedge ]
   %.0914 = phi i32 [ 0, %.critedge1067.preheader ], [ %.0914.be, %.critedge1067.backedge ]
-  %832 = icmp ult i32 %.0914, %13
+  %832 = icmp samesign ult i32 %.0914, %13
   br i1 %832, label %833, label %830
 
 833:                                              ; preds = %.critedge1067
@@ -29211,7 +29211,7 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1214, %1270, %zend_
 .critedge1069:                                    ; preds = %.critedge1069.backedge, %.critedge1069.preheader
   %.1 = phi i1 [ true, %.critedge1069.preheader ], [ %.1.be, %.critedge1069.backedge ]
   %.0907 = phi i32 [ 0, %.critedge1069.preheader ], [ %.0907.be, %.critedge1069.backedge ]
-  %1289 = icmp ult i32 %.0907, %13
+  %1289 = icmp samesign ult i32 %.0907, %13
   br i1 %1289, label %1290, label %1288
 
 1290:                                             ; preds = %.critedge1069
@@ -34814,7 +34814,7 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
 .backedge:                                        ; preds = %.backedge.backedge, %.critedge
   %.1 = phi i1 [ true, %.critedge ], [ %.1.be, %.backedge.backedge ]
   %.0270 = phi i32 [ 0, %.critedge ], [ %.0270.be, %.backedge.backedge ]
-  %60 = icmp ult i32 %.0270, %12
+  %60 = icmp samesign ult i32 %.0270, %12
   br i1 %60, label %61, label %59
 
 61:                                               ; preds = %.backedge

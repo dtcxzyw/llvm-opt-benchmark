@@ -4240,7 +4240,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 266:                                              ; preds = %265
   %267 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %268 = and i32 %267, 1073741823
-  %269 = icmp ult i32 %268, 1000000000
+  %269 = icmp samesign ult i32 %268, 1000000000
   br i1 %269, label %270, label %272
 
 270:                                              ; preds = %266
@@ -4254,7 +4254,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 273:                                              ; preds = %272
   %274 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %275 = and i32 %274, 1073741823
-  %276 = icmp ult i32 %275, 1000000000
+  %276 = icmp samesign ult i32 %275, 1000000000
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %273
@@ -4268,7 +4268,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 280:                                              ; preds = %279
   %281 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %282 = and i32 %281, 1073741823
-  %283 = icmp ult i32 %282, 1000000000
+  %283 = icmp samesign ult i32 %282, 1000000000
   br i1 %283, label %284, label %.thread255
 
 284:                                              ; preds = %280

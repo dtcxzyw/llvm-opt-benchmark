@@ -1588,7 +1588,7 @@ thread-pre-split:                                 ; preds = %18
 71:                                               ; preds = %69
   %72 = icmp sgt i64 %28, -1
   call void @llvm.assume(i1 %72)
-  %73 = icmp ult i64 %28, 3
+  %73 = icmp samesign ult i64 %28, 3
   br i1 %73, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71

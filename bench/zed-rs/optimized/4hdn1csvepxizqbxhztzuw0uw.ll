@@ -570,7 +570,7 @@ _ZN11time_format20format_relative_time17he3ebb24f8c462b51E.exit: ; preds = %_ZN1
   %153 = ashr i32 %115, 9
   %154 = call noundef i8 @_ZN4time16offset_date_time14OffsetDateTime5month17h04e2f8b86241ef52E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %37), !range !166, !noalias !167
   %155 = call noundef i8 @_ZN4time16offset_date_time14OffsetDateTime5month17h04e2f8b86241ef52E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %36), !range !166, !noalias !170
-  %.not.i.i = icmp ult i8 %155, %154
+  %.not.i.i = icmp samesign ult i8 %155, %154
   %narrow.i.i = sub nsw i8 %155, %154
   %narrow9.i.i = add nsw i8 %narrow.i.i, 12
   %.sroa.03.0.in.i.i = select i1 %.not.i.i, i8 %narrow9.i.i, i8 %narrow.i.i
@@ -782,10 +782,10 @@ define void @_ZN11time_format22format_timestamp_naive17h6176d2f3829a3c0eE(ptr de
   br i1 %3, label %46, label %57
 
 46:                                               ; preds = %4
-  %47 = icmp ugt i8 %39, 11
+  %47 = icmp samesign ugt i8 %39, 11
   %anon.e896182705188a4dada155022999bb21.29.anon.e896182705188a4dada155022999bb21.28 = select i1 %47, ptr @anon.e896182705188a4dada155022999bb21.29, ptr @anon.e896182705188a4dada155022999bb21.28
   %48 = icmp eq i8 %39, 0
-  %49 = icmp ugt i8 %39, 12
+  %49 = icmp samesign ugt i8 %39, 12
   %50 = add nsw i8 %39, -12
   %spec.select = select i1 %49, i8 %50, i8 %39
   %.sroa.0170.0.ph = select i1 %48, i8 12, i8 %spec.select

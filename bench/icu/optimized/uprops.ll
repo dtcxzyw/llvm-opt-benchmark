@@ -1549,7 +1549,7 @@ entry:
 
 for.cond:                                         ; preds = %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.body:                                         ; preds = %entry, %for.cond
@@ -1798,7 +1798,7 @@ entry:
   %call = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef 2)
   %and = lshr i32 %call, 5
   %shr = and i32 %and, 31
-  %cmp = icmp ult i32 %shr, 10
+  %cmp = icmp samesign ult i32 %shr, 10
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

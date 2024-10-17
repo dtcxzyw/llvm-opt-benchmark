@@ -1111,7 +1111,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   %76 = add nuw nsw i32 %68, 44
   %77 = add nuw nsw i32 %76, %70
   %78 = add nuw nsw i32 %77, %72
-  %79 = icmp ult i32 %66, %78
+  %79 = icmp samesign ult i32 %66, %78
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %75, %63
@@ -1267,7 +1267,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %15 = icmp slt i32 %14, %12
   %.pre = zext i16 %13 to i32
   %16 = add nuw nsw i32 %.pre, 44
-  %17 = icmp ult i32 %12, %16
+  %17 = icmp samesign ult i32 %12, %16
   %or.cond = select i1 %15, i1 true, i1 %17
   br i1 %or.cond, label %._crit_edge, label %20
 
@@ -1359,7 +1359,7 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
   %18 = add nuw nsw i32 %.pre, 8
   %19 = zext i16 %14 to i32
   %20 = add nuw nsw i32 %18, %19
-  %21 = icmp ult i32 %12, %20
+  %21 = icmp samesign ult i32 %12, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %._crit_edge, %17
@@ -1642,7 +1642,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %21 = add nuw nsw i32 %.pre, 28
   %22 = zext nneg i16 %17 to i32
   %23 = add nuw nsw i32 %21, %22
-  %24 = icmp ult i32 %12, %23
+  %24 = icmp samesign ult i32 %12, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %._crit_edge, %20
@@ -2365,7 +2365,7 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
   %18 = add nuw nsw i32 %.pre, 12
   %19 = zext i16 %14 to i32
   %20 = add nuw nsw i32 %18, %19
-  %21 = icmp ult i32 %12, %20
+  %21 = icmp samesign ult i32 %12, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %._crit_edge, %17
@@ -2555,7 +2555,7 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
   %21 = add nuw nsw i32 %19, %20
   %22 = zext i16 %15 to i32
   %23 = add nuw nsw i32 %21, %22
-  %24 = icmp ult i32 %12, %23
+  %24 = icmp samesign ult i32 %12, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %._crit_edge, %18

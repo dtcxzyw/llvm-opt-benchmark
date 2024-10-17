@@ -2355,7 +2355,7 @@ invoke.cont12:                                    ; preds = %land.lhs.true11
   br i1 %call.i62, label %if.end15, label %for.inc
 
 if.end15:                                         ; preds = %for.body, %invoke.cont12
-  %cmp16 = icmp ugt i32 %indvars.iv, 1
+  %cmp16 = icmp samesign ugt i32 %indvars.iv, 1
   %or.cond57 = or i1 %cmp19.not, %cmp16
   br i1 %or.cond57, label %if.end21, label %for.inc
 

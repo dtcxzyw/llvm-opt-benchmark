@@ -12858,11 +12858,11 @@ define void @_ZN24DecorateRasterProjPlugin28updateShadowProjectionMatrixEv(ptr n
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %14, float %.sroa.0.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %20 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %21 = sitofp i32 %20 to float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %15, float %.sroa.2.0.copyload)
-  %23 = icmp ugt i32 %.02339.i, 3
+  %23 = icmp samesign ugt i32 %.02339.i, 3
   %24 = uitofp i1 %23 to float
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %16, float %.sroa.3.0.copyload)
   %26 = fmul float %.sroa.4.0.copyload.i, %22

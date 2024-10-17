@@ -895,7 +895,7 @@ define dso_local range(i32 0, 2) i32 @job_fail_qos(ptr noundef %0, ptr noundef %
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
-  %7 = icmp ugt i32 %6, 2
+  %7 = icmp samesign ugt i32 %6, 2
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -5466,7 +5466,7 @@ find_job_record.exit899:                          ; preds = %.lr.ph.i894, %find_
 906:                                              ; preds = %898
   %907 = load i32, ptr %28, align 4
   %908 = and i32 %907, 252
-  %909 = icmp ugt i32 %908, 11
+  %909 = icmp samesign ugt i32 %908, 11
   br i1 %909, label %910, label %913
 
 910:                                              ; preds = %906
@@ -6127,7 +6127,7 @@ find_job_record.exit899:                          ; preds = %.lr.ph.i894, %find_
 1267:                                             ; preds = %1257, %1260, %1264, %1251
   %1268 = load i32, ptr %1159, align 8
   %1269 = and i32 %1268, 255
-  %1270 = icmp ugt i32 %1269, 2
+  %1270 = icmp samesign ugt i32 %1269, 2
   br i1 %1270, label %1271, label %.critedge
 
 1271:                                             ; preds = %1267
@@ -6324,7 +6324,7 @@ free_job_fed_details.exit:                        ; preds = %1331, %1333
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1342 = load i32, ptr %20, align 4
   %1343 = zext i32 %1342 to i64
-  %1344 = icmp ult i64 %indvars.iv.next, %1343
+  %1344 = icmp samesign ult i64 %indvars.iv.next, %1343
   br i1 %1344, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1338
@@ -7244,7 +7244,7 @@ define internal fastcc range(i32 -1, 1) i32 @_load_job_details(ptr noundef %0, p
   %241 = getelementptr inbounds i8, ptr %240, i64 32
   %242 = load i32, ptr %241, align 8
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next, %243
+  %244 = icmp samesign ult i64 %indvars.iv.next, %243
   br i1 %244, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %227
@@ -7299,7 +7299,7 @@ define internal fastcc range(i32 -1, 1) i32 @_load_job_details(ptr noundef %0, p
   %271 = getelementptr inbounds i8, ptr %270, i64 144
   %272 = load i16, ptr %271, align 8
   %273 = zext i16 %272 to i64
-  %274 = icmp ult i64 %indvars.iv.next242, %273
+  %274 = icmp samesign ult i64 %indvars.iv.next242, %273
   br i1 %274, label %.lr.ph233, label %._crit_edge234, !llvm.loop !16
 
 ._crit_edge234:                                   ; preds = %.lr.ph233, %252
@@ -7832,7 +7832,7 @@ define internal fastcc range(i32 0, 2) i32 @_job_fail_account(ptr noundef %0, pt
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
-  %7 = icmp ugt i32 %6, 2
+  %7 = icmp samesign ugt i32 %6, 2
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
@@ -8371,7 +8371,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.09.i, i64 448
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 255
-  %15 = icmp ugt i32 %14, 2
+  %15 = icmp samesign ugt i32 %14, 2
   %16 = and i32 %13, 32768
   %17 = icmp eq i32 %16, 0
   %or.cond = and i1 %15, %17
@@ -8396,7 +8396,7 @@ find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_r
   %25 = getelementptr inbounds i8, ptr %.01223, i64 448
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 255
-  %28 = icmp ugt i32 %27, 2
+  %28 = icmp samesign ugt i32 %27, 2
   %29 = and i32 %26, 32768
   %30 = icmp eq i32 %29, 0
   %or.cond17 = and i1 %28, %30
@@ -8441,7 +8441,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.09.i, i64 448
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 255
-  %15 = icmp ugt i32 %14, 2
+  %15 = icmp samesign ugt i32 %14, 2
   br i1 %15, label %find_job_record.exit.thread, label %.loopexit
 
 find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_record.exit
@@ -8463,7 +8463,7 @@ find_job_record.exit.thread:                      ; preds = %10, %1, %find_job_r
   %23 = getelementptr inbounds i8, ptr %.01018, i64 448
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 255
-  %26 = icmp ugt i32 %25, 2
+  %26 = icmp samesign ugt i32 %25, 2
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %22, %.lr.ph
@@ -8676,7 +8676,7 @@ find_job_record.exit61.thread:                    ; preds = %22, %14, %26, %find
   %37 = getelementptr inbounds i8, ptr %.03983, i64 448
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 255
-  %40 = icmp ugt i32 %39, 2
+  %40 = icmp samesign ugt i32 %39, 2
   br i1 %40, label %41, label %find_job_record.exit
 
 41:                                               ; preds = %36, %.lr.ph
@@ -9847,7 +9847,7 @@ find_job_record.exit.i98:                         ; preds = %.lr.ph.i.i93
   %115 = getelementptr inbounds i8, ptr %.09.i.i94, i64 448
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 255
-  %118 = icmp ugt i32 %117, 2
+  %118 = icmp samesign ugt i32 %117, 2
   br i1 %118, label %find_job_record.exit.thread.i, label %test_job_array_finished.exit
 
 find_job_record.exit.thread.i:                    ; preds = %113, %find_job_record.exit.i98, %102
@@ -9869,7 +9869,7 @@ find_job_record.exit.thread.i:                    ; preds = %113, %find_job_reco
   %126 = getelementptr inbounds i8, ptr %.01018.i, i64 448
   %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, 255
-  %129 = icmp ugt i32 %128, 2
+  %129 = icmp samesign ugt i32 %128, 2
   br i1 %129, label %130, label %test_job_array_finished.exit
 
 130:                                              ; preds = %125, %.lr.ph.i
@@ -9992,7 +9992,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i99
   %184 = load i16, ptr %183, align 8
   %185 = and i16 %184, 4
   %186 = icmp eq i16 %185, 0
-  %187 = icmp ult i32 %182, 5
+  %187 = icmp samesign ult i32 %182, 5
   %.not77 = icmp eq i32 %182, 8
   %brmerge90.not = and i1 %1, %.not77
   %188 = or i1 %187, %brmerge90.not
@@ -10002,7 +10002,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i99
 189:                                              ; preds = %180
   %190 = and i16 %184, 2
   %191 = icmp ne i16 %190, 0
-  %192 = icmp ugt i32 %182, 2
+  %192 = icmp samesign ugt i32 %182, 2
   %or.cond3 = select i1 %191, i1 %192, i1 false
   br i1 %or.cond3, label %.sink.split, label %193
 
@@ -10100,7 +10100,7 @@ define dso_local zeroext i1 @partition_in_use(ptr noundef %0) local_unnamed_addr
   %13 = getelementptr inbounds i8, ptr %8, i64 448
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 255
-  %16 = icmp ugt i32 %15, 2
+  %16 = icmp samesign ugt i32 %15, 2
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12
@@ -12019,7 +12019,7 @@ define dso_local void @job_mgr_list_delete_job(ptr noundef %0) #0 {
   %17 = getelementptr inbounds i8, ptr %0, i64 448
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
-  %20 = icmp ugt i32 %19, 2
+  %20 = icmp samesign ugt i32 %19, 2
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16
@@ -12054,7 +12054,7 @@ define dso_local void @job_mgr_list_delete_job(ptr noundef %0) #0 {
   %37 = getelementptr inbounds i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %26
@@ -12110,7 +12110,7 @@ define dso_local void @job_mgr_list_delete_job(ptr noundef %0) #0 {
   %68 = getelementptr inbounds i8, ptr %67, i64 144
   %69 = load i16, ptr %68, align 8
   %70 = zext i16 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next80.i, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next80.i, %70
   br i1 %71, label %.lr.ph71.i, label %._crit_edge72.i, !llvm.loop !35
 
 ._crit_edge72.i:                                  ; preds = %.lr.ph71.i, %51
@@ -12370,7 +12370,7 @@ free_job_fed_details.exit:                        ; preds = %free_null_array_rec
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %192 = load i32, ptr %186, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next.i43, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next.i43, %193
   br i1 %194, label %189, label %_clear_job_gres_details.exit, !llvm.loop !36
 
 _clear_job_gres_details.exit:                     ; preds = %189, %free_job_fed_details.exit
@@ -12572,7 +12572,7 @@ _clear_job_gres_details.exit:                     ; preds = %189, %free_job_fed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %274 = load i32, ptr %269, align 8
   %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %indvars.iv.next, %275
+  %276 = icmp samesign ult i64 %indvars.iv.next, %275
   br i1 %276, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %266
@@ -13155,7 +13155,7 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %287 = load i32, ptr %271, align 8
   %288 = zext i32 %287 to i64
-  %289 = icmp ult i64 %indvars.iv.next, %288
+  %289 = icmp samesign ult i64 %indvars.iv.next, %288
   br i1 %289, label %280, label %.loopexit345, !llvm.loop !39
 
 .loopexit345:                                     ; preds = %280, %273, %265
@@ -13286,7 +13286,7 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %381 = load i32, ptr %365, align 8
   %382 = zext i32 %381 to i64
-  %383 = icmp ult i64 %indvars.iv.next355, %382
+  %383 = icmp samesign ult i64 %indvars.iv.next355, %382
   br i1 %383, label %374, label %.loopexit344, !llvm.loop !40
 
 .loopexit344:                                     ; preds = %374, %367, %.loopexit345
@@ -13357,7 +13357,7 @@ _add_job_array_hash.exit:                         ; preds = %_dup_job_fed_detail
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %428 = load i16, ptr %412, align 8
   %429 = zext i16 %428 to i64
-  %430 = icmp ult i64 %indvars.iv.next358, %429
+  %430 = icmp samesign ult i64 %indvars.iv.next358, %429
   br i1 %430, label %421, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %421, %414, %.loopexit344
@@ -14881,7 +14881,7 @@ _job_create.exit.thread:                          ; preds = %528, %_job_create.e
   %559 = getelementptr inbounds i8, ptr %392, i64 448
   %560 = load i32, ptr %559, align 8
   %561 = and i32 %560, 255
-  %562 = icmp ugt i32 %561, 2
+  %562 = icmp samesign ugt i32 %561, 2
   br i1 %562, label %set_job_prio.exit, label %563
 
 563:                                              ; preds = %558
@@ -15910,7 +15910,7 @@ define dso_local void @set_job_prio(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
-  %5 = icmp ugt i32 %4, 2
+  %5 = icmp samesign ugt i32 %4, 2
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %1
@@ -16173,7 +16173,7 @@ define dso_local i32 @job_signal(ptr noundef %0, i16 noundef zeroext %1, i16 nou
 
 23:                                               ; preds = %13
   %24 = and i32 %15, 255
-  %25 = icmp ugt i32 %24, 2
+  %25 = icmp samesign ugt i32 %24, 2
   br i1 %25, label %237, label %26
 
 26:                                               ; preds = %23
@@ -18244,7 +18244,7 @@ define internal fastcc range(i32 0, 2022) i32 @_job_complete(ptr noundef nonnull
   %7 = getelementptr inbounds i8, ptr %0, i64 448
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 255
-  %10 = icmp ugt i32 %9, 2
+  %10 = icmp samesign ugt i32 %9, 2
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
@@ -19432,7 +19432,7 @@ define internal fastcc noundef zeroext i1 @_valid_pn_min_mem(ptr nocapture nound
 
 14:                                               ; preds = %12
   %15 = and i64 %4, 9223372036854775807
-  %.not162 = icmp ugt i64 %15, %11
+  %.not162 = icmp samesign ugt i64 %15, %11
   br i1 %.not162, label %16, label %.thread188
 
 16:                                               ; preds = %14
@@ -20824,7 +20824,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
   store i8 0, ptr %43, align 1
-  %44 = icmp ult i32 %39, 16384
+  %44 = icmp samesign ult i32 %39, 16384
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %.lr.ph.i
@@ -20901,7 +20901,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %88 = add i32 %.2126.i, 1
   %89 = add i32 %88, %87
   %90 = icmp sgt i32 %89, %.089121.i
-  %91 = icmp ult i64 %indvars.iv151.i, %78
+  %91 = icmp samesign ult i64 %indvars.iv151.i, %78
   %or.cond.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i, label %92, label %95
 
@@ -21042,7 +21042,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %163 = getelementptr inbounds i8, ptr %162, i64 144
   %164 = load i16, ptr %163, align 8
   %165 = zext i16 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next162.i, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next162.i, %165
   br i1 %166, label %.lr.ph134.i, label %_read_data_array_from_file.exit, !llvm.loop !58
 
 _read_data_array_from_file.exit:                  ; preds = %160, %.loopexit110.i, %31
@@ -25668,7 +25668,7 @@ define dso_local void @purge_old_job() local_unnamed_addr #0 {
   %18 = getelementptr inbounds i8, ptr %14, i64 448
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 255
-  %21 = icmp ugt i32 %20, 2
+  %21 = icmp samesign ugt i32 %20, 2
   br i1 %21, label %22, label %59
 
 22:                                               ; preds = %17
@@ -25986,7 +25986,7 @@ define internal range(i32 0, 2) i32 @_list_find_job_old(ptr noundef %0, ptr noun
 69:                                               ; preds = %62
   %70 = load i32, ptr %16, align 8
   %71 = and i32 %70, 255
-  %72 = icmp ugt i32 %71, 2
+  %72 = icmp samesign ugt i32 %71, 2
   %73 = and i32 %70, 32768
   %74 = icmp eq i32 %73, 0
   %or.cond = and i1 %72, %74
@@ -26527,7 +26527,7 @@ define internal fastcc i32 @_update_job(ptr noundef nonnull %0, ptr noundef %1, 
   %69 = getelementptr inbounds i8, ptr %0, i64 448
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 255
-  %72 = icmp ugt i32 %71, 2
+  %72 = icmp samesign ugt i32 %71, 2
   %73 = and i32 %70, 32768
   %74 = icmp eq i32 %73, 0
   %or.cond1758.not2072.not2075 = and i1 %72, %74
@@ -26597,14 +26597,14 @@ define internal fastcc i32 @_update_job(ptr noundef nonnull %0, ptr noundef %1, 
   %101 = getelementptr inbounds i8, ptr %0, i64 448
   %102 = load i32, ptr %101, align 8
   %103 = and i32 %102, 255
-  %104 = icmp ugt i32 %103, 2
+  %104 = icmp samesign ugt i32 %103, 2
   br i1 %104, label %.thread1803, label %105
 
 105:                                              ; preds = %100, %83, %80
   %106 = getelementptr inbounds i8, ptr %0, i64 448
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 255
-  %109 = icmp ugt i32 %108, 2
+  %109 = icmp samesign ugt i32 %108, 2
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %105
@@ -29920,7 +29920,7 @@ thread-pre-split1835:                             ; preds = %402
   %1719 = getelementptr inbounds i8, ptr %1718, i64 448
   %1720 = load i32, ptr %1719, align 8
   %1721 = and i32 %1720, 255
-  %1722 = icmp ugt i32 %1721, 2
+  %1722 = icmp samesign ugt i32 %1721, 2
   br i1 %1722, label %1726, label %1723
 
 1723:                                             ; preds = %1717
@@ -30304,7 +30304,7 @@ thread-pre-split1835:                             ; preds = %402
   %1906 = getelementptr inbounds i8, ptr %1904, i64 448
   %1907 = load i32, ptr %1906, align 8
   %1908 = and i32 %1907, 255
-  %1909 = icmp ugt i32 %1908, 2
+  %1909 = icmp samesign ugt i32 %1908, 2
   br i1 %1909, label %1910, label %1911
 
 1910:                                             ; preds = %1905
@@ -30567,7 +30567,7 @@ thread-pre-split1835:                             ; preds = %402
   %2018 = getelementptr inbounds i8, ptr %2017, i64 448
   %2019 = load i32, ptr %2018, align 8
   %2020 = and i32 %2019, 255
-  %2021 = icmp ugt i32 %2020, 2
+  %2021 = icmp samesign ugt i32 %2020, 2
   br i1 %2021, label %2026, label %2022
 
 2022:                                             ; preds = %2016
@@ -31513,7 +31513,7 @@ thread-pre-split1971:                             ; preds = %2309
   %2456 = getelementptr inbounds i8, ptr %2455, i64 448
   %2457 = load i32, ptr %2456, align 8
   %2458 = and i32 %2457, 255
-  %2459 = icmp ugt i32 %2458, 2
+  %2459 = icmp samesign ugt i32 %2458, 2
   br i1 %2459, label %2460, label %2461
 
 2460:                                             ; preds = %2454
@@ -33432,7 +33432,7 @@ switch.early.test:                                ; preds = %3022
   %3351 = getelementptr inbounds i8, ptr %3350, i64 448
   %3352 = load i32, ptr %3351, align 8
   %3353 = and i32 %3352, 255
-  %3354 = icmp ugt i32 %3353, 2
+  %3354 = icmp samesign ugt i32 %3353, 2
   br i1 %3354, label %set_job_prio.exit, label %3355
 
 3355:                                             ; preds = %3349
@@ -35083,7 +35083,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %164 = load i32, ptr %50, align 8
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next, %165
   br i1 %166, label %55, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %163, %.preheader
@@ -35676,7 +35676,7 @@ define dso_local range(i32 0, 2025) i32 @job_alloc_info_ptr(i32 noundef %0, ptr 
   br i1 %29, label %_job_all_finished.exit.thread, label %30
 
 30:                                               ; preds = %25
-  %31 = icmp ugt i32 %28, 2
+  %31 = icmp samesign ugt i32 %28, 2
   br i1 %31, label %32, label %_job_all_finished.exit.thread30
 
 32:                                               ; preds = %30
@@ -35702,7 +35702,7 @@ _job_all_finished.exit.thread32:                  ; preds = %37
   %40 = getelementptr inbounds i8, ptr %38, i64 448
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 255
-  %43 = icmp ugt i32 %42, 2
+  %43 = icmp samesign ugt i32 %42, 2
   br i1 %43, label %37, label %_job_all_finished.exit, !llvm.loop !93
 
 _job_all_finished.exit:                           ; preds = %39
@@ -38392,7 +38392,7 @@ define dso_local noundef i32 @send_jobs_to_accounting() local_unnamed_addr #0 {
   %41 = getelementptr inbounds i8, ptr %10, i64 448
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
-  %44 = icmp ugt i32 %43, 2
+  %44 = icmp samesign ugt i32 %43, 2
   br i1 %44, label %.backedge, label %45
 
 45:                                               ; preds = %40
@@ -38473,7 +38473,7 @@ define dso_local ptr @copy_job_record_to_job_desc(ptr noundef %0) local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %27, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %27, %1
@@ -38804,7 +38804,7 @@ get_job_script.exit:                              ; preds = %191, %222
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %253 = load i32, ptr %240, align 8
   %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next233, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next233, %254
   br i1 %255, label %246, label %._crit_edge228, !llvm.loop !116
 
 ._crit_edge228:                                   ; preds = %246, %237
@@ -39770,7 +39770,7 @@ define dso_local ptr @build_job_info_resp(ptr noundef %0) local_unnamed_addr #0 
   %81 = getelementptr inbounds i8, ptr %80, i64 88
   %82 = load i32, ptr %81, align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !118
 
 ._crit_edge.loopexit:                             ; preds = %79
@@ -39929,7 +39929,7 @@ define dso_local ptr @build_job_info_resp(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %177 = load i32, ptr %163, align 8
   %178 = zext i32 %177 to i64
-  %179 = icmp ult i64 %indvars.iv.next127, %178
+  %179 = icmp samesign ult i64 %indvars.iv.next127, %178
   br i1 %179, label %.lr.ph120, label %._crit_edge121.loopexit, !llvm.loop !119
 
 ._crit_edge121.loopexit:                          ; preds = %.lr.ph120
@@ -40244,7 +40244,7 @@ define dso_local ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1)
   %78 = getelementptr inbounds i8, ptr %77, i64 144
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !121
 
 .loopexit:                                        ; preds = %76, %42, %50, %53, %39
@@ -41075,7 +41075,7 @@ define dso_local zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef readon
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
   %27 = mul nuw nsw i32 %26, %22
-  %28 = icmp ugt i32 %27, %23
+  %28 = icmp samesign ugt i32 %27, %23
   %29 = trunc nuw i32 %27 to i16
   %30 = select i1 %28, i16 %8, i16 %29
   br label %31
@@ -44480,7 +44480,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.09.i, i64 448
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 255
-  %15 = icmp ugt i32 %14, 2
+  %15 = icmp samesign ugt i32 %14, 2
   %16 = and i32 %13, 32768
   %17 = icmp eq i32 %16, 0
   %or.cond = and i1 %15, %17
@@ -45137,7 +45137,7 @@ define internal fastcc void @_release_job_rec(ptr noundef %0, i32 noundef %1) un
   %13 = getelementptr inbounds i8, ptr %0, i64 448
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 255
-  %16 = icmp ugt i32 %15, 2
+  %16 = icmp samesign ugt i32 %15, 2
   br i1 %16, label %set_job_prio.exit, label %17
 
 17:                                               ; preds = %11
@@ -45352,7 +45352,7 @@ define internal fastcc i32 @_job_suspend_op(ptr noundef nonnull %0, i16 noundef 
   br i1 %11, label %262, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i32 %10, 2
+  %13 = icmp samesign ugt i32 %10, 2
   br i1 %13, label %262, label %14
 
 14:                                               ; preds = %12
@@ -46186,7 +46186,7 @@ define internal fastcc i32 @_job_requeue_op(i32 noundef %0, ptr noundef nonnull 
   br i1 %switch152, label %106, label %102
 
 102:                                              ; preds = %100
-  %103 = icmp ugt i32 %.pre-phi, 2
+  %103 = icmp samesign ugt i32 %.pre-phi, 2
   %104 = and i32 %101, 32768
   %105 = icmp eq i32 %104, 0
   %or.cond = and i1 %103, %105
@@ -46437,7 +46437,7 @@ define internal fastcc void @_job_fail(ptr noundef nonnull %0) unnamed_addr #0 {
   %4 = load i32, ptr %3, align 8
   %.fr46 = freeze i32 %4
   %5 = and i32 %.fr46, 255
-  %6 = icmp ugt i32 %5, 2
+  %6 = icmp samesign ugt i32 %5, 2
   br i1 %6, label %51, label %7
 
 7:                                                ; preds = %1

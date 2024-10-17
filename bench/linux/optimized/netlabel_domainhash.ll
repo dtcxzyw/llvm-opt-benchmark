@@ -61,7 +61,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_init(i32 noundef %
   %19 = add nuw nsw i64 %15, 1
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %19, %21
+  %22 = icmp samesign ult i64 %19, %21
   br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader
@@ -2207,7 +2207,7 @@ define dso_local i32 @netlbl_domhsh_walk(ptr nocapture noundef %0, ptr nocapture
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %40, %44
+  %45 = icmp samesign ult i64 %40, %44
   br i1 %45, label %12, label %48, !llvm.loop !39
 
 46:                                               ; preds = %31

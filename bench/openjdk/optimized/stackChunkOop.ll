@@ -2370,7 +2370,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %73
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %76 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %76, 2
+  %switch = icmp samesign ult i32 %76, 2
   br i1 %switch, label %77, label %112
 
 77:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -2847,7 +2847,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %73
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %76 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %76, 2
+  %switch = icmp samesign ult i32 %76, 2
   br i1 %switch, label %77, label %113
 
 77:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -3296,7 +3296,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %42
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %45 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %45, 2
+  %switch = icmp samesign ult i32 %45, 2
   br i1 %switch, label %46, label %81
 
 46:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -3626,7 +3626,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %42
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %45 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %45, 2
+  %switch = icmp samesign ult i32 %45, 2
   br i1 %switch, label %46, label %82
 
 46:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4086,7 +4086,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %72
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %72, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %75 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %75, 2
+  %switch = icmp samesign ult i32 %75, 2
   br i1 %switch, label %76, label %99
 
 76:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4527,7 +4527,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %72
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %72, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %75 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %75, 2
+  %switch = icmp samesign ult i32 %75, 2
   br i1 %switch, label %76, label %100
 
 76:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4812,7 +4812,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %41
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %41, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %44 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %44, 2
+  %switch = icmp samesign ult i32 %44, 2
   br i1 %switch, label %.sink.split, label %62
 
 .sink.split:                                      ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -5084,7 +5084,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %41
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %41, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %44 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %44, 2
+  %switch = icmp samesign ult i32 %44, 2
   br i1 %switch, label %.sink.split, label %63
 
 .sink.split:                                      ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -11654,7 +11654,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
   %.sroa.0.0.copyload.i53 = load i32, ptr %148, align 2
   %158 = and i32 %.sroa.0.0.copyload.i53, 3
   %.not28 = icmp eq i32 %158, 0
-  %switch = icmp ult i32 %158, 2
+  %switch = icmp samesign ult i32 %158, 2
   br i1 %switch, label %159, label %221
 
 159:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
@@ -12092,7 +12092,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
   %.sroa.0.0.copyload.i53 = load i32, ptr %148, align 2
   %158 = and i32 %.sroa.0.0.copyload.i53, 3
   %.not28 = icmp eq i32 %158, 0
-  %switch = icmp ult i32 %158, 2
+  %switch = icmp samesign ult i32 %158, 2
   br i1 %switch, label %159, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread
 
 159:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
@@ -12496,7 +12496,7 @@ _ZN12OopMapStream7is_doneEv.exit42.thread:        ; preds = %74, %_ZN12OopMapStr
   %.sroa.0.0.copyload.i43 = load i32, ptr %71, align 2
   %77 = and i32 %.sroa.0.0.copyload.i43, 3
   %.not28 = icmp eq i32 %77, 0
-  %switch = icmp ult i32 %77, 2
+  %switch = icmp samesign ult i32 %77, 2
   br i1 %switch, label %78, label %103
 
 78:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread
@@ -12716,7 +12716,7 @@ _ZN12OopMapStream7is_doneEv.exit42.thread:        ; preds = %74, %_ZN12OopMapStr
   %.sroa.0.0.copyload.i43 = load i32, ptr %71, align 2
   %77 = and i32 %.sroa.0.0.copyload.i43, 3
   %.not28 = icmp eq i32 %77, 0
-  %switch = icmp ult i32 %77, 2
+  %switch = icmp samesign ult i32 %77, 2
   br i1 %switch, label %78, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
 78:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread

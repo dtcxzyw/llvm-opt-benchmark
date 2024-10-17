@@ -899,7 +899,7 @@ Ssw_ObjIsConst1Cand.exit195:                      ; preds = %226, %228
 281:                                              ; preds = %277
   %282 = load ptr, ptr %13, align 8
   %283 = call i32 @Ssw_ClassesCand1Num(ptr noundef %282) #13
-  %284 = icmp ugt i32 %.1209, 4
+  %284 = icmp samesign ugt i32 %.1209, 4
   %.pre226 = load ptr, ptr %0, align 8
   br i1 %284, label %285, label %302
 

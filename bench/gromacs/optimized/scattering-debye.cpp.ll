@@ -827,7 +827,7 @@ define void @_ZN3gmx22ComputeDebyeScattering35computeDirectPairDistancesHistogra
   %indvars.iv68 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next69, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %21 = icmp ult i64 %indvars.iv.next69, %19
+  %21 = icmp samesign ult i64 %indvars.iv.next69, %19
   br i1 %21, label %_ZNK3gmx17SelectionPosition11atomIndicesEv.exit32, label %.loopexit
 
 _ZNK3gmx17SelectionPosition11atomIndicesEv.exit32: ; preds = %20, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit

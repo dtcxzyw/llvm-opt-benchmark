@@ -2578,7 +2578,7 @@ define weak_odr void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisMa
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp ult i64 %indvars.iv.next, %15
+  %23 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %23, label %24, label %_ZN4llvm11raw_ostreamlsEc.exit
 
 24:                                               ; preds = %16

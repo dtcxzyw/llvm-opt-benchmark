@@ -19916,7 +19916,7 @@ default.unreachable130:                           ; preds = %75, %3
   %113 = trunc nuw i8 %112 to i1
   %114 = getelementptr inbounds i8, ptr %15, i64 16
   %115 = load i8, ptr %114, align 8, !range !3039, !noalias !3035
-  %or.cond.i.i.i.i.i = icmp ult i8 %115, 5
+  %or.cond.i.i.i.i.i = icmp samesign ult i8 %115, 5
   %.0.i.i.i.i.i = select i1 %113, i1 true, i1 %or.cond.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !3035
   br i1 %.0.i.i.i.i.i, label %116, label %.noexc.i._crit_edge.i
@@ -22274,7 +22274,7 @@ default.unreachable88:                            ; preds = %80, %2
   %115 = trunc nuw i8 %114 to i1
   %116 = getelementptr inbounds i8, ptr %9, i64 16
   %117 = load i8, ptr %116, align 8, !range !3039, !noalias !3396
-  %or.cond.i.i.i.i = icmp ult i8 %117, 5
+  %or.cond.i.i.i.i = icmp samesign ult i8 %117, 5
   %.0.i.i.i.i = select i1 %115, i1 true, i1 %or.cond.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !3396
   br i1 %.0.i.i.i.i, label %120, label %118
@@ -28423,7 +28423,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %.sroa.9.0192 = phi i64 [ 0, %.lr.ph ], [ %170, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93480bed8ce73381E.exit" ]
   %169 = getelementptr inbounds i8, ptr %.sroa.089.0193, i64 16
   %170 = add nuw nsw i64 %.sroa.9.0192, 1
-  %171 = icmp ugt i64 %.sroa.9.0192, 4294967295
+  %171 = icmp samesign ugt i64 %.sroa.9.0192, 4294967295
   %172 = trunc nuw i64 %.sroa.9.0192 to i32
   %.sroa.3.0.i.i = select i1 %171, i32 undef, i32 %172
   %exitcond = icmp eq i64 %.sroa.9.0192, 4294967296

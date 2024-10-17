@@ -634,7 +634,7 @@ define internal void @user_data_post_update_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr @dynamic_hf_size, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next.i, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -844,7 +844,7 @@ get_ett_for_user_data.exit:                       ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = load i32, ptr @dynamic_hf_size, align 4
   %132 = zext i32 %131 to i64
-  %133 = icmp ult i64 %indvars.iv.next, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next, %132
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %130, %31
@@ -884,7 +884,7 @@ define internal void @user_data_reset_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr @dynamic_hf_size, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1124,7 +1124,7 @@ get_ett_for_user_data.exit:                       ; preds = %get_hf_for_user_dat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr @num_user_data_fields, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %97, %53

@@ -1109,7 +1109,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetW
   br i1 %.not1427, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %3
-  %.not38 = icmp ult i16 %2, 256
+  %.not38 = icmp samesign ult i16 %2, 256
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = trunc i16 %2 to i1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8

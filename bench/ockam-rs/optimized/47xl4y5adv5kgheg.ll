@@ -852,7 +852,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get
 
 19:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_smithy_types..blob..Blob$GT$$GT$17h8e6146d297b72e2fE.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  %switch.i.i = icmp ult i64 %17, 13
+  %switch.i.i = icmp samesign ult i64 %17, 13
   br i1 %switch.i.i, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit", label %20
 
 20:                                               ; preds = %19
@@ -881,7 +881,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get
 
 29:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
-  %switch.i.i13 = icmp ult i64 %27, 13
+  %switch.i.i13 = icmp samesign ult i64 %27, 13
   br i1 %switch.i.i13, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit", label %30
 
 30:                                               ; preds = %29
@@ -950,7 +950,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get
   %52 = add nuw i64 %.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %53 = load i64, ptr %51, align 8, !range !510, !alias.scope !548, !noalias !541, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %53, 4
+  %switch.i.i.i.i.i = icmp samesign ult i64 %53, 4
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..types.._encryption_algorithm_spec..EncryptionAlgorithmSpec$GT$17h8fd8b1d70a650ebeE.exit.i.i.i.i", label %54
 
 54:                                               ; preds = %.lr.ph.i.i.i.i
@@ -1006,7 +1006,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get
   %72 = add nuw i64 %.07.i.i.i.i18, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   %73 = load i64, ptr %71, align 8, !range !588, !alias.scope !589, !noalias !581, !noundef !4
-  %switch.i.i.i.i.i19 = icmp ult i64 %73, 10
+  %switch.i.i.i.i.i19 = icmp samesign ult i64 %73, 10
   br i1 %switch.i.i.i.i.i19, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$17h15d79cdf6cb149baE.llvm.9405825265181994393.exit.i.i.i.i", label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i17
@@ -2109,7 +2109,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1186)
-  %switch.i = icmp ult i64 %2, 10
+  %switch.i = icmp samesign ult i64 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$17h15d79cdf6cb149baE.llvm.9405825265181994393.exit", label %5
 
 5:                                                ; preds = %4
@@ -2919,7 +2919,7 @@ define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Opti
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1607)
-  %switch.i.i.i = icmp ult i64 %6, 2
+  %switch.i.i.i = icmp samesign ult i64 %6, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._multi_region_key_type..MultiRegionKeyType$GT$$GT$17h12abbb9750b4814bE.exit.i", label %9
 
 9:                                                ; preds = %8
@@ -3111,7 +3111,7 @@ define hidden void @"_ZN4core3ptr124drop_in_place$LT$aws_sdk_kms..operation..sch
 
 12:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1776)
-  %switch.i.i = icmp ult i64 %10, 8
+  %switch.i.i = icmp samesign ult i64 %10, 8
   br i1 %switch.i.i, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_state..KeyState$GT$$GT$17hab815f01015f7c53E.llvm.9405825265181994393.exit", label %13
 
 13:                                               ; preds = %12
@@ -9065,7 +9065,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hc486355
   %.val = load i8, ptr %0, align 8, !range !991, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8
-  %switch.i.i = icmp ult i8 %.val, 2
+  %switch.i.i = icmp samesign ult i8 %.val, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17hc30ed0d70622a6f8E.exit", label %3
 
 3:                                                ; preds = %1
@@ -9155,7 +9155,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hf671b4e
   %.val = load i8, ptr %0, align 8, !range !991, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8
-  %switch.i.i = icmp ult i8 %.val, 2
+  %switch.i.i = icmp samesign ult i8 %.val, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h0d62c697d21e6622E.exit", label %3
 
 3:                                                ; preds = %1
@@ -9312,7 +9312,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h5e
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h9ee66ef831a3c5d5E.llvm.9405825265181994393"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !3300, !noundef !4
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17h232ce137c0be3137E.llvm.9405825265181994393.exit", label %3
 
 3:                                                ; preds = %1
@@ -9445,7 +9445,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h88
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17ha71d463315382993E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3339)
   %2 = load i8, ptr %0, align 8, !range !3300, !alias.scope !3339, !noundef !4
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h9ee66ef831a3c5d5E.llvm.9405825265181994393.exit", label %3
 
 3:                                                ; preds = %1
@@ -12339,7 +12339,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_smithy_types..config_bag
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr61drop_in_place$LT$aws_sdk_kms..types.._key_state..KeyState$GT$17h79c73f37ca1925b3E.llvm.9405825265181994393"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4959, !noundef !4
-  %switch = icmp ult i64 %2, 8
+  %switch = icmp samesign ult i64 %2, 8
   br i1 %switch, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h280307485c31fb77E.llvm.9405825265181994393.exit", label %3
 
 3:                                                ; preds = %1
@@ -12957,7 +12957,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 41:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_usage_type..KeyUsageType$GT$$GT$17hbfde5dfe431598bfE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5307)
-  %switch.i.i = icmp ult i64 %39, 8
+  %switch.i.i = icmp samesign ult i64 %39, 8
   br i1 %switch.i.i, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_state..KeyState$GT$$GT$17hab815f01015f7c53E.llvm.9405825265181994393.exit", label %42
 
 42:                                               ; preds = %41
@@ -12986,7 +12986,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 51:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_state..KeyState$GT$$GT$17hab815f01015f7c53E.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5334)
-  %switch.i.i37 = icmp ult i64 %49, 4
+  %switch.i.i37 = icmp samesign ult i64 %49, 4
   br i1 %switch.i.i37, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._origin_type..OriginType$GT$$GT$17h209522f561745dd7E.exit", label %52
 
 52:                                               ; preds = %51
@@ -13057,7 +13057,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 75:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit42"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5403)
-  %switch.i.i43 = icmp ult i64 %73, 2
+  %switch.i.i43 = icmp samesign ult i64 %73, 2
   br i1 %switch.i.i43, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._expiration_model_type..ExpirationModelType$GT$$GT$17h0ea1187fd0e47a08E.exit", label %76
 
 76:                                               ; preds = %75
@@ -13086,7 +13086,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 85:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._expiration_model_type..ExpirationModelType$GT$$GT$17h0ea1187fd0e47a08E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5430)
-  %switch.i.i45 = icmp ult i64 %83, 2
+  %switch.i.i45 = icmp samesign ult i64 %83, 2
   br i1 %switch.i.i45, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_manager_type..KeyManagerType$GT$$GT$17h16331458194a69f5E.exit", label %86
 
 86:                                               ; preds = %85
@@ -13115,7 +13115,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 95:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_manager_type..KeyManagerType$GT$$GT$17h16331458194a69f5E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5457)
-  %switch.i.i47 = icmp ult i64 %93, 13
+  %switch.i.i47 = icmp samesign ult i64 %93, 13
   br i1 %switch.i.i47, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit", label %96
 
 96:                                               ; preds = %95
@@ -13144,7 +13144,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 105:                                              ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5484)
-  %switch.i.i49 = icmp ult i64 %103, 13
+  %switch.i.i49 = icmp samesign ult i64 %103, 13
   br i1 %switch.i.i49, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit", label %106
 
 106:                                              ; preds = %105
@@ -13185,7 +13185,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
   %119 = add nuw i64 %.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5518)
   %120 = load i64, ptr %118, align 8, !range !510, !alias.scope !5521, !noalias !5514, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i64 %120, 4
+  %switch.i.i.i.i.i = icmp samesign ult i64 %120, 4
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..types.._encryption_algorithm_spec..EncryptionAlgorithmSpec$GT$17h8fd8b1d70a650ebeE.exit.i.i.i.i", label %121
 
 121:                                              ; preds = %.lr.ph.i.i.i.i
@@ -13241,7 +13241,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
   %139 = add nuw i64 %.07.i.i.i.i53, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5558)
   %140 = load i64, ptr %138, align 8, !range !588, !alias.scope !5561, !noalias !5554, !noundef !4
-  %switch.i.i.i.i.i54 = icmp ult i64 %140, 10
+  %switch.i.i.i.i.i54 = icmp samesign ult i64 %140, 10
   br i1 %switch.i.i.i.i.i54, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$17h15d79cdf6cb149baE.llvm.9405825265181994393.exit.i.i.i.i", label %141
 
 141:                                              ; preds = %.lr.ph.i.i.i.i52
@@ -13299,7 +13299,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
   %160 = add nuw i64 %.07.i.i.i.i59, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5598)
   %161 = load i64, ptr %159, align 8, !range !510, !alias.scope !5601, !noalias !5594, !noundef !4
-  %switch.i.i.i.i.i60 = icmp ult i64 %161, 4
+  %switch.i.i.i.i.i60 = icmp samesign ult i64 %161, 4
   br i1 %switch.i.i.i.i.i60, label %"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..types.._mac_algorithm_spec..MacAlgorithmSpec$GT$17hfaff3b3e2f0f0eabE.exit.i.i.i.i", label %162
 
 162:                                              ; preds = %.lr.ph.i.i.i.i58
@@ -13362,7 +13362,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._message_type..MessageType$GT$17h9a8d09eb1c227a6aE.llvm.9405825265181994393"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1598, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h280307485c31fb77E.llvm.9405825265181994393.exit", label %3
 
 3:                                                ; preds = %1
@@ -13453,7 +13453,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5690)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5693)
   %22 = load i8, ptr %21, align 8, !range !3300, !alias.scope !5696, !noundef !4
-  %switch.i.i = icmp ult i8 %22, 10
+  %switch.i.i = icmp samesign ult i8 %22, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17ha71d463315382993E.exit", label %23
 
 23:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$aws_smithy_runtime_api..http..request..Uri$GT$17h890fab691b9e3404E.exit"
@@ -15639,7 +15639,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$aws_sdk_kms..operation..sign
 
 18:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_smithy_types..blob..Blob$GT$$GT$17h8e6146d297b72e2fE.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7273)
-  %switch.i.i = icmp ult i64 %16, 2
+  %switch.i.i = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._message_type..MessageType$GT$$GT$17h8f98478a345ddd34E.llvm.9405825265181994393.exit", label %19
 
 19:                                               ; preds = %18
@@ -15719,7 +15719,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$aws_sdk_kms..operation..sign
 
 47:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hf4f0caef36fa03f4E.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7343)
-  %switch.i.i7 = icmp ult i64 %45, 10
+  %switch.i.i7 = icmp samesign ult i64 %45, 10
   br i1 %switch.i.i7, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$$GT$17hcee0398c1f204d2cE.llvm.9405825265181994393.exit", label %48
 
 48:                                               ; preds = %47
@@ -15988,7 +15988,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$aws_sdk_kms..operation..sign
 
 18:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_smithy_types..blob..Blob$GT$$GT$17h8e6146d297b72e2fE.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7469)
-  %switch.i.i = icmp ult i64 %16, 10
+  %switch.i.i = icmp samesign ult i64 %16, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$$GT$17hcee0398c1f204d2cE.llvm.9405825265181994393.exit", label %19
 
 19:                                               ; preds = %18
@@ -17476,7 +17476,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$aws_sdk_kms..operation..sign
 
 18:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_smithy_types..blob..Blob$GT$$GT$17h8e6146d297b72e2fE.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8624)
-  %switch.i.i = icmp ult i64 %16, 2
+  %switch.i.i = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._message_type..MessageType$GT$$GT$17h8f98478a345ddd34E.llvm.9405825265181994393.exit", label %19
 
 19:                                               ; preds = %18
@@ -17556,7 +17556,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$aws_sdk_kms..operation..sign
 
 47:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hf4f0caef36fa03f4E.llvm.9405825265181994393.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8694)
-  %switch.i.i7 = icmp ult i64 %45, 10
+  %switch.i.i7 = icmp samesign ult i64 %45, 10
   br i1 %switch.i.i7, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$$GT$17hcee0398c1f204d2cE.llvm.9405825265181994393.exit", label %48
 
 48:                                               ; preds = %47
@@ -18103,7 +18103,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..primitives..sea
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$17h15d79cdf6cb149baE.llvm.9405825265181994393"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !588, !noundef !4
-  %switch = icmp ult i64 %2, 10
+  %switch = icmp samesign ult i64 %2, 10
   br i1 %switch, label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h280307485c31fb77E.llvm.9405825265181994393.exit", label %3
 
 3:                                                ; preds = %1
@@ -18725,7 +18725,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9295)
-  %switch.i = icmp ult i64 %2, 8
+  %switch.i = icmp samesign ult i64 %2, 8
   br i1 %switch.i, label %"_ZN4core3ptr61drop_in_place$LT$aws_sdk_kms..types.._key_state..KeyState$GT$17h79c73f37ca1925b3E.llvm.9405825265181994393.exit", label %5
 
 5:                                                ; preds = %4
@@ -18846,7 +18846,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_sdk_kms..operation..crea
 
 28:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_usage_type..KeyUsageType$GT$$GT$17hbfde5dfe431598bfE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9398)
-  %switch.i.i = icmp ult i64 %26, 13
+  %switch.i.i = icmp samesign ult i64 %26, 13
   br i1 %switch.i.i, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit", label %29
 
 29:                                               ; preds = %28
@@ -18875,7 +18875,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_sdk_kms..operation..crea
 
 38:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9425)
-  %switch.i.i17 = icmp ult i64 %36, 13
+  %switch.i.i17 = icmp samesign ult i64 %36, 13
   br i1 %switch.i.i17, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit", label %39
 
 39:                                               ; preds = %38
@@ -18904,7 +18904,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_sdk_kms..operation..crea
 
 48:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9452)
-  %switch.i.i19 = icmp ult i64 %46, 4
+  %switch.i.i19 = icmp samesign ult i64 %46, 4
   br i1 %switch.i.i19, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._origin_type..OriginType$GT$$GT$17h209522f561745dd7E.exit", label %49
 
 49:                                               ; preds = %48
@@ -20399,7 +20399,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10443)
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._message_type..MessageType$GT$17h9a8d09eb1c227a6aE.llvm.9405825265181994393.exit", label %5
 
 5:                                                ; preds = %4
@@ -20633,7 +20633,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..operation..crea
 
 28:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_usage_type..KeyUsageType$GT$$GT$17hbfde5dfe431598bfE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10618)
-  %switch.i.i = icmp ult i64 %26, 13
+  %switch.i.i = icmp samesign ult i64 %26, 13
   br i1 %switch.i.i, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit", label %29
 
 29:                                               ; preds = %28
@@ -20662,7 +20662,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..operation..crea
 
 38:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._customer_master_key_spec..CustomerMasterKeySpec$GT$$GT$17h107498fb781f81c4E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10645)
-  %switch.i.i17 = icmp ult i64 %36, 13
+  %switch.i.i17 = icmp samesign ult i64 %36, 13
   br i1 %switch.i.i17, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit", label %39
 
 39:                                               ; preds = %38
@@ -20691,7 +20691,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..operation..crea
 
 48:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_spec..KeySpec$GT$$GT$17hf765f3e9877d2809E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10672)
-  %switch.i.i19 = icmp ult i64 %46, 4
+  %switch.i.i19 = icmp samesign ult i64 %46, 4
   br i1 %switch.i.i19, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._origin_type..OriginType$GT$$GT$17h209522f561745dd7E.exit", label %49
 
 49:                                               ; preds = %48
@@ -24652,7 +24652,7 @@ define hidden void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.llvm.940582526
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %.0, %17
+  %19 = icmp samesign ugt i64 %.0, %17
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %13, %31, %5

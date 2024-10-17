@@ -5228,7 +5228,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   %87 = add nuw nsw i64 %.090129, 1
   %88 = load i32, ptr @number_of_nat64_prefix, align 4
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %87, %89
+  %90 = icmp samesign ult i64 %87, %89
   br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit115, !llvm.loop !19
 
 91:                                               ; preds = %10, %81
@@ -5255,11 +5255,11 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %91, %94, %97
-  %101 = icmp ugt i32 %.093.ph, 55
+  %101 = icmp samesign ugt i32 %.093.ph, 55
   br i1 %101, label %102, label %118
 
 102:                                              ; preds = %proto_item_set_generated.exit
-  %103 = icmp ult i32 %.093.ph, 96
+  %103 = icmp samesign ult i32 %.093.ph, 96
   br i1 %103, label %104, label %.proto_item_set_generated.exit103_crit_edge
 
 .proto_item_set_generated.exit103_crit_edge:      ; preds = %102
@@ -5341,7 +5341,7 @@ proto_item_set_generated.exit106:                 ; preds = %118, %126, %129
   br label %proto_item_set_generated.exit109
 
 proto_item_set_generated.exit109:                 ; preds = %proto_item_set_generated.exit106, %135, %138
-  %142 = icmp ult i32 %.093.ph, 56
+  %142 = icmp samesign ult i32 %.093.ph, 56
   br i1 %142, label %143, label %157
 
 143:                                              ; preds = %proto_item_set_generated.exit109
@@ -5374,7 +5374,7 @@ proto_item_set_generated.exit112:                 ; preds = %143, %147, %150
   br label %.thread124
 
 157:                                              ; preds = %proto_item_set_generated.exit109
-  %158 = icmp ult i32 %.093.ph, 96
+  %158 = icmp samesign ult i32 %.093.ph, 96
   br i1 %158, label %.thread124, label %proto_item_set_generated.exit115
 
 .thread124:                                       ; preds = %155, %proto_item_set_generated.exit112, %157
@@ -6655,7 +6655,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   %352 = shl nuw nsw i32 %351, 2
   %353 = and i32 %349, 65535
   %354 = icmp ne i32 %322, %321
-  %355 = icmp ule i32 %352, %353
+  %355 = icmp samesign ule i32 %352, %353
   %356 = select i1 %354, i1 %355, i1 false
   br i1 %356, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -6986,7 +6986,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   %530 = add i32 %.21.i.i.i, 4
   %531 = add i16 %514, -4
   %532 = zext i16 %531 to i32
-  %533 = icmp ugt i32 %522, %532
+  %533 = icmp samesign ugt i32 %522, %532
   br i1 %533, label %534, label %536
 
 534:                                              ; preds = %519
@@ -7010,7 +7010,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   %.2.i.i = phi i32 [ %542, %537 ], [ %530, %536 ], [ %.21.i.i.i, %513 ]
   %544 = zext i16 %.1121.i.i to i32
   %545 = icmp ne i16 %.1121.i.i, 0
-  %546 = icmp ule i32 %352, %544
+  %546 = icmp samesign ule i32 %352, %544
   %547 = select i1 %545, i1 %546, i1 false
   br i1 %547, label %381, label %._crit_edge.i.i, !llvm.loop !22
 

@@ -47,7 +47,7 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17had86ed48f0b2ede2E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %11, 2
+  %13 = icmp samesign ult i64 %11, 2
   br i1 %13, label %14, label %.critedge11
 
 14:                                               ; preds = %.critedge, %.critedge11

@@ -1915,7 +1915,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %indvars.iv = phi i64 [ 1, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.body ]
   %38 = load i32, ptr %m_num_args.i, align 8
   %39 = zext i32 %38 to i64
-  %cmp24 = icmp ult i64 %indvars.iv, %39
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %39
   br i1 %cmp24, label %for.body, label %if.then32
 
 for.body:                                         ; preds = %land.rhs
@@ -2829,7 +2829,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !35
 

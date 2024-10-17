@@ -111,7 +111,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
   %38 = lshr i16 %.01217.i, 1
   %39 = lshr i32 %.01316.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp ult i32 %.01316.i, 2
+  %.not.i = icmp samesign ult i32 %.01316.i, 2
   br i1 %.not.i, label %VariableLevelCost.exit, label %.lr.ph.i, !llvm.loop !4
 
 VariableLevelCost.exit:                           ; preds = %37, %21
@@ -539,7 +539,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 95:                                               ; preds = %80, %83
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %.not43 = icmp ult i32 %.03657, 4
+  %.not43 = icmp samesign ult i32 %.03657, 4
   br i1 %.not43, label %._crit_edge61, label %80, !llvm.loop !18
 
 ._crit_edge61:                                    ; preds = %95, %69, %._crit_edge

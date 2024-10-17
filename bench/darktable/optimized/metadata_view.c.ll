@@ -1542,7 +1542,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %770 = add nuw nsw i32 %763, 1
   %771 = load i8, ptr %769, align 1, !tbaa !64
   %772 = icmp ne i8 %771, 0
-  %773 = icmp ult i32 %763, 4095
+  %773 = icmp samesign ult i32 %763, 4095
   %774 = select i1 %772, i1 %773, i1 false
   br i1 %774, label %.preheader, label %.loopexit35
 

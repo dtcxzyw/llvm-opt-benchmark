@@ -148,7 +148,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0181206 = phi i32 [ 0, %.lr.ph ], [ %132, %131 ]
   %.0184205 = phi i32 [ 1, %.lr.ph ], [ %.1185, %131 ]
   %23 = sub nuw nsw i32 %19, %.0181206
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22

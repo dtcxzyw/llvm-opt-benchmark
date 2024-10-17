@@ -1047,8 +1047,8 @@ _ZN4UTF826is_supplementary_characterEPKh.exit.thread: ; preds = %39
   %82 = or disjoint i32 %81, %70
   %83 = icmp eq i32 %82, 0
   %or.cond = select i1 %2, i1 true, i1 %83
-  %84 = icmp ugt i8 %68, 1
-  %or.cond5 = or i1 %84, %or.cond
+  %84 = icmp samesign ugt i8 %68, 1
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %84
   br i1 %or.cond5, label %105, label %._crit_edge91
 
 .thread:                                          ; preds = %57, %53, %48, %43, %_ZN4UTF826is_supplementary_characterEPKh.exit, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread

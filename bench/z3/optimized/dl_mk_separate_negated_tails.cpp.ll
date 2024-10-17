@@ -244,7 +244,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %8 = phi i32 [ %4, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %_ZN6vectorIP4exprLb0EjE5resetEv.exit.for.end_crit_edge
@@ -334,7 +334,7 @@ for.inc25:                                        ; preds = %for.body12, %_ZN6ve
   %27 = phi i32 [ %14, %for.body12 ], [ %.pre31, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %14, %_ZNK14expr_free_vars8containsEj.exit ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %28 = zext i32 %27 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next29, %28
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next29, %28
   br i1 %cmp11, label %for.body12, label %for.end27, !llvm.loop !6
 
 for.end27:                                        ; preds = %for.inc25, %for.end
@@ -524,7 +524,7 @@ for.inc:                                          ; preds = %for.body.i, %_ZN15r
   %25 = phi i32 [ %.pre, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %3, %for.body.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = zext i32 %25 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %26
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -1779,7 +1779,7 @@ for.inc.i:                                        ; preds = %.noexc19, %for.body
   %16 = phi i32 [ %12, %for.body.i ], [ %.pre.i, %.noexc19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = zext i32 %16 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %17
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %.noexc18
@@ -1939,7 +1939,7 @@ for.inc25.i:                                      ; preds = %_ZN6vectorIP4exprLb
   %37 = phi i32 [ %22, %for.body12.i ], [ %.pre31.i, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ], [ %22, %_ZNK14expr_free_vars8containsEj.exit.i ]
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %38 = zext i32 %37 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next29.i, %38
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next29.i, %38
   br i1 %cmp11.i, label %for.body12.i, label %.noexc, !llvm.loop !6
 
 .noexc:                                           ; preds = %for.inc25.i, %for.end.i

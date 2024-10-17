@@ -6687,7 +6687,7 @@ _ZL8spline1ddPKdiPdS1_.exit203.us.i:              ; preds = %.lr.ph40.i193.us.i
   %2017 = getelementptr inbounds float, ptr %2016, i64 %2015
   store float %2012, ptr %2017, align 4
   %indvars.iv.next383.i = add nuw nsw i64 %indvars.iv382.i, 1
-  %2018 = icmp ult i64 %indvars.iv.next383.i, %1771
+  %2018 = icmp samesign ult i64 %indvars.iv.next383.i, %1771
   br i1 %2018, label %.lr.ph349.us.i, label %._crit_edge354.us.i, !llvm.loop !36
 
 2019:                                             ; preds = %.lr.ph349.us.i, %2019
@@ -6760,7 +6760,7 @@ _ZL8spline1ddPKdiPdS1_.exit203.us.i:              ; preds = %.lr.ph40.i193.us.i
 
 ._crit_edge354.us.i:                              ; preds = %_ZL8spline1ddPKdiPdS1_.exit203.us.i
   %indvars.iv.next385.i = add nuw nsw i64 %indvars.iv384.i, 1
-  %2076 = icmp ult i64 %indvars.iv.next385.i, %1771
+  %2076 = icmp samesign ult i64 %indvars.iv.next385.i, %1771
   br i1 %2076, label %.lr.ph353.us.i, label %._crit_edge358.split.us.i, !llvm.loop !38
 
 ._crit_edge358.split.us.i:                        ; preds = %._crit_edge354.us.i, %1784
@@ -7857,7 +7857,7 @@ _ZL20checkForUnboundAtomsPK10gmx_mtop_tbP14WarningHandlerRKN3gmx8MDLoggerE.exit:
 2473:                                             ; preds = %2472, %2469, %2467
   %.1143.i = phi i1 [ true, %2472 ], [ %.0142168.i, %2469 ], [ %.0142168.i, %2467 ]
   %indvars.iv.next.i543 = add nuw nsw i64 %indvars.iv.i541, 3
-  %2474 = icmp ult i64 %indvars.iv.next.i543, %2452
+  %2474 = icmp samesign ult i64 %indvars.iv.next.i543, %2452
   br i1 %2474, label %.lr.ph.i540, label %.preheader.i537, !llvm.loop !45
 
 .lr.ph174.i:                                      ; preds = %2502, %.lr.ph174.preheader.i
@@ -7907,7 +7907,7 @@ _ZL20checkForUnboundAtomsPK10gmx_mtop_tbP14WarningHandlerRKN3gmx8MDLoggerE.exit:
 2502:                                             ; preds = %2501, %2496, %2484
   %.3145.i = phi i1 [ true, %2501 ], [ %.2144171.i, %2496 ], [ %.2144171.i, %2484 ]
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 4
-  %2503 = icmp ult i64 %indvars.iv.next206.i, %2461
+  %2503 = icmp samesign ult i64 %indvars.iv.next206.i, %2461
   br i1 %2503, label %.lr.ph174.i, label %._crit_edge.i538, !llvm.loop !46
 
 ._crit_edge.i538:                                 ; preds = %2502, %.preheader.i537
@@ -16578,7 +16578,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %294
   %340 = fmul float %335, %339
   store float %340, ptr %338, align 4
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
-  %341 = icmp ult i64 %indvars.iv.next400, %308
+  %341 = icmp samesign ult i64 %indvars.iv.next400, %308
   br i1 %341, label %.lr.ph305.us.us.us.us, label %.loopexit237.us.us.us.us
 
 .lr.ph305.us.us.us.us:                            ; preds = %333, %.lr.ph305.us.us.us.us
@@ -16655,7 +16655,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %294
   %365 = fmul float %362, %364
   store float %365, ptr %363, align 4
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
-  %366 = icmp ult i64 %indvars.iv.next417, %360
+  %366 = icmp samesign ult i64 %indvars.iv.next417, %360
   br i1 %366, label %.lr.ph331, label %.loopexit
 
 .lr.ph331:                                        ; preds = %.lr.ph333, %.lr.ph331

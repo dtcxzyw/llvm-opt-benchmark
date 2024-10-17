@@ -1318,7 +1318,7 @@ define hidden void @"_ZN10image_webp7decoder20WebPDecoder$LT$R$GT$10read_image17
 59:                                               ; preds = %4
   %60 = getelementptr inbounds i8, ptr %1, i64 144
   %61 = load i8, ptr %60, align 8, !range !331, !noundef !4
-  %switch337.not = icmp ult i8 %61, 2
+  %switch337.not = icmp samesign ult i8 %61, 2
   br i1 %switch337.not, label %62, label %64
 
 62:                                               ; preds = %59
@@ -2366,7 +2366,7 @@ select.unfold635:                                 ; preds = %._crit_edge.i.us.i3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   %438 = load i8, ptr %60, align 8, !range !331, !alias.scope !724, !noalias !727, !noundef !4
-  %switch.not.i = icmp ult i8 %438, 2
+  %switch.not.i = icmp samesign ult i8 %438, 2
   br i1 %switch.not.i, label %439, label %441
 
 439:                                              ; preds = %434
@@ -13650,7 +13650,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -32079,7 +32079,7 @@ default.unreachable:                              ; preds = %.noexc221, %.noexc2
   ]
 
 201:                                              ; preds = %195
-  %202 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
+  %202 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
   br i1 %202, label %203, label %223
 
 203:                                              ; preds = %201
@@ -36786,15 +36786,15 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
   %786 = trunc nuw nsw i64 %785 to i16
   %787 = and i16 %786, 2047
   %788 = add nuw nsw i64 %785, 1
-  %789 = icmp ult i16 %787, 992
+  %789 = icmp samesign ult i16 %787, 992
   br i1 %789, label %.thread.i, label %790
 
 790:                                              ; preds = %781
-  %791 = icmp ult i16 %787, 1023
+  %791 = icmp samesign ult i16 %787, 1023
   br i1 %791, label %794, label %792
 
 792:                                              ; preds = %790
-  %793 = icmp ult i16 %787, 1075
+  %793 = icmp samesign ult i16 %787, 1075
   br i1 %793, label %812, label %810
 
 794:                                              ; preds = %790
@@ -36822,7 +36822,7 @@ _ZN4rand3rng3Rng9gen_range17he59a14bed96378efE.exit.i: ; preds = %761
   br label %.thread.i
 
 810:                                              ; preds = %792
-  %811 = icmp ult i16 %787, 1087
+  %811 = icmp samesign ult i16 %787, 1087
   br i1 %811, label %831, label %.thread20.i.i
 
 812:                                              ; preds = %792
@@ -39668,7 +39668,7 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h1b435c04f799d0eeE"(ptr d
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %12 to i64
-  %.not.i.i.i = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i = icmp samesign ugt ptr %12, inttoptr (i64 -4096 to ptr)
   %16 = icmp slt ptr %12, null
   call void @llvm.assume(i1 %.not.i.i.i)
   call void @llvm.assume(i1 %16)
@@ -39764,7 +39764,7 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h1bc3713c7525163cE.llvm.3
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %12 to i64
-  %.not.i.i.i = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i = icmp samesign ugt ptr %12, inttoptr (i64 -4096 to ptr)
   %16 = icmp slt ptr %12, null
   call void @llvm.assume(i1 %.not.i.i.i)
   call void @llvm.assume(i1 %16)

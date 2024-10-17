@@ -469,7 +469,7 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %i.08 = phi i32 [ %inc, %if.end ], [ 1, %entry ]
   %call1 = call ptr @luaL_tolstring(ptr noundef %L, i32 noundef %i.08, ptr noundef nonnull %l) #9
-  %cmp2 = icmp ugt i32 %i.08, 1
+  %cmp2 = icmp samesign ugt i32 %i.08, 1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body

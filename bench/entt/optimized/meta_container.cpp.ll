@@ -122782,7 +122782,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = tail call ptr @__cxa_begin_catch(ptr %10) #25
-  %cmp935 = icmp ugt i64 %__i.034, 1
+  %cmp935 = icmp samesign ugt i64 %__i.034, 1
   br i1 %cmp935, label %for.body10, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body10, %lpad
@@ -123021,7 +123021,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #25
-  %cmp934 = icmp ugt i64 %__i.033, 1
+  %cmp934 = icmp samesign ugt i64 %__i.033, 1
   br i1 %cmp934, label %for.body10, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body10, %lpad

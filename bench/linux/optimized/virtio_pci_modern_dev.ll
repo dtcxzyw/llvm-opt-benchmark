@@ -465,7 +465,7 @@ virtio_pci_find_capability.exit19:                ; preds = %203, %170, %198
   %230 = and i32 %229, 4095
   %231 = zext nneg i32 %230 to i64
   %232 = add nuw nsw i64 %231, %228
-  %233 = icmp ult i64 %232, 4097
+  %233 = icmp samesign ult i64 %232, 4097
   br i1 %233, label %234, label %240
 
 234:                                              ; preds = %219
@@ -590,7 +590,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr nocapture noundef reado
 33:                                               ; preds = %28
   %34 = sub nuw i32 %29, %4
   %35 = zext i32 %34 to i64
-  %36 = icmp ugt i64 %2, %35
+  %36 = icmp samesign ugt i64 %2, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33

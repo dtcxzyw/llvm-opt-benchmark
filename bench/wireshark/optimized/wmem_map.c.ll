@@ -184,7 +184,7 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   store i64 %51, ptr %19, align 8
   %52 = load ptr, ptr %40, align 8
   %53 = lshr i64 9223372036854775807, %51
-  %54 = icmp ult i64 %53, 8
+  %54 = icmp samesign ult i64 %53, 8
   %55 = shl i64 8, %51
   %56 = select i1 %54, i64 0, i64 %55
   %57 = tail call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef %56) #7

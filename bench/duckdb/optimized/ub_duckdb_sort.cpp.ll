@@ -30584,7 +30584,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
   %conv83 = zext i32 %call82 to i64
   %add = add nuw nsw i64 %conv83, %conv
   store i64 %add, ptr %col_size, align 8, !tbaa !13
-  %cmp84 = icmp ugt i64 %add, 12
+  %cmp84 = icmp samesign ugt i64 %add, 12
   br i1 %cmp84, label %if.then85, label %if.else86
 
 if.then85:                                        ; preds = %invoke.cont81
@@ -43329,7 +43329,7 @@ for.body:                                         ; preds = %while.body29, %for.
   %add110 = add i64 %add101, %conv109
   %29 = load i64, ptr %3, align 8, !tbaa !13
   %add.ptr.i515 = getelementptr inbounds i8, ptr %add.ptr.i509, i64 %29
-  %cmp43 = icmp ult i64 %i.0754, 56
+  %cmp43 = icmp samesign ult i64 %i.0754, 56
   br i1 %cmp43, label %for.body, label %if.end128, !llvm.loop !1268
 
 for.body117:                                      ; preds = %for.cond114.preheader, %for.body117
@@ -43490,7 +43490,7 @@ for.body135:                                      ; preds = %if.end128, %for.bod
   %call.i576.lobit = lshr i32 %call.i576, 31
   %conv198 = zext nneg i32 %call.i576.lobit to i64
   %add199 = add i64 %add191, %conv198
-  %cmp133 = icmp ult i64 %i131.0763, 56
+  %cmp133 = icmp samesign ult i64 %i131.0763, 56
   br i1 %cmp133, label %for.body135, label %if.end216, !llvm.loop !1270
 
 for.body206:                                      ; preds = %for.cond203.preheader, %for.body206
@@ -48883,7 +48883,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -49062,7 +49062,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161

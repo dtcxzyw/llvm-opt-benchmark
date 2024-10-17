@@ -256,13 +256,13 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
   %.0108.i.us.us = phi ptr [ %.159.us.us, %.lr.ph109.i.us.us ], [ %.3.i.us.us, %.loopexit.i.us.us ]
   %indvars.iv.next120.i.us.us = add nuw nsw i64 %indvars.iv119.i.us.us, 12
   %81 = add nuw nsw i64 %indvars.iv119.i.us.us, 11
-  %82 = icmp ult i64 %81, %61
+  %82 = icmp samesign ult i64 %81, %61
   br i1 %82, label %128, label %.preheader99.i.us.us
 
 .preheader99.i.us.us:                             ; preds = %80, %.preheader99.i.us.us
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %.preheader99.i.us.us ], [ 0, %80 ]
   %83 = add nuw nsw i64 %indvars.iv.i.us.us, %indvars.iv119.i.us.us
-  %84 = icmp ult i64 %83, %61
+  %84 = icmp samesign ult i64 %83, %61
   %.v.i.us.us = select i1 %84, i64 %83, i64 %indvars.iv119.i.us.us
   %85 = trunc i64 %.v.i.us.us to i32
   %86 = mul nsw i32 %5, %85
@@ -420,7 +420,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
 
 .loopexit.i.us.us:                                ; preds = %.lr.ph.i.us.us, %.lr.ph105.i.us.us, %128, %.preheader.i.us.us
   %.3.i.us.us = phi ptr [ %.0108.i.us.us, %128 ], [ %.0108.i.us.us, %.preheader.i.us.us ], [ %144, %.lr.ph105.i.us.us ], [ %126, %.lr.ph.i.us.us ]
-  %146 = icmp ult i64 %indvars.iv.next120.i.us.us, %61
+  %146 = icmp samesign ult i64 %indvars.iv.next120.i.us.us, %61
   br i1 %146, label %80, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us, !llvm.loop !10
 
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us: ; preds = %.loopexit.i.us.us
@@ -429,7 +429,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us: ;
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.159.us.us, i64 %148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %52
-  %150 = icmp ult i64 %indvars.iv.next, %51
+  %150 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %150, label %.lr.ph109.i.us.us, label %._crit_edge.us, !llvm.loop !4
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us, %.lr.ph63, %7
@@ -1008,7 +1008,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %.088.i = phi ptr [ %17, %.lr.ph89.i ], [ %.3.i, %.loopexit.i ]
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 8
   %163 = or disjoint i64 %indvars.iv99.i, 7
-  %164 = icmp ult i64 %163, %124
+  %164 = icmp samesign ult i64 %163, %124
   br i1 %164, label %165, label %.preheader79.i
 
 165:                                              ; preds = %162
@@ -1071,7 +1071,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
 .preheader79.i:                                   ; preds = %162, %.preheader79.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader79.i ], [ 0, %162 ]
   %179 = or disjoint i64 %indvars.iv.i, %indvars.iv99.i
-  %180 = icmp ult i64 %179, %124
+  %180 = icmp samesign ult i64 %179, %124
   %.v.i = select i1 %180, i64 %179, i64 %indvars.iv99.i
   %181 = trunc i64 %.v.i to i32
   %182 = mul nsw i32 %134, %181
@@ -1132,7 +1132,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph85.i, %.preheader.i, %165
   %.3.i = phi ptr [ %.088.i, %165 ], [ %.088.i, %.preheader.i ], [ %177, %.lr.ph85.i ], [ %210, %.lr.ph.i ]
-  %212 = icmp ult i64 %indvars.iv.next100.i, %124
+  %212 = icmp samesign ult i64 %indvars.iv.next100.i, %124
   br i1 %212, label %162, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit, !llvm.loop !17
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit: ; preds = %.loopexit.i
@@ -1191,7 +1191,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
   %.0108.i = phi ptr [ %30, %.lr.ph109.i ], [ %.3.i74, %.loopexit.i73 ]
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 12
   %252 = add nuw nsw i64 %indvars.iv119.i, 11
-  %253 = icmp ult i64 %252, %126
+  %253 = icmp samesign ult i64 %252, %126
   br i1 %253, label %254, label %.preheader99.i
 
 254:                                              ; preds = %251
@@ -1274,7 +1274,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 .preheader99.i:                                   ; preds = %251, %.preheader99.i
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i70, %.preheader99.i ], [ 0, %251 ]
   %272 = add nuw nsw i64 %indvars.iv.i68, %indvars.iv119.i
-  %273 = icmp ult i64 %272, %126
+  %273 = icmp samesign ult i64 %272, %126
   %.v.i69 = select i1 %273, i64 %272, i64 %indvars.iv119.i
   %274 = trunc i64 %.v.i69 to i32
   %275 = mul nsw i32 %220, %274
@@ -1355,7 +1355,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 
 .loopexit.i73:                                    ; preds = %.lr.ph.i75, %.lr.ph105.i, %.preheader.i72, %254
   %.3.i74 = phi ptr [ %.0108.i, %254 ], [ %.0108.i, %.preheader.i72 ], [ %270, %.lr.ph105.i ], [ %315, %.lr.ph.i75 ]
-  %317 = icmp ult i64 %indvars.iv.next120.i, %126
+  %317 = icmp samesign ult i64 %indvars.iv.next120.i, %126
   br i1 %317, label %251, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit, !llvm.loop !10
 
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit: ; preds = %.loopexit.i73
@@ -1502,7 +1502,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %369
 
 .loopexit.us.i:                                   ; preds = %371, %_ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 12
-  %370 = icmp ult i64 %indvars.iv.next89.i, %126
+  %370 = icmp samesign ult i64 %indvars.iv.next89.i, %126
   br i1 %370, label %337, label %._crit_edge.us.i, !llvm.loop !23
 
 371:                                              ; preds = %.lr.ph73.us.i, %371
@@ -1539,7 +1539,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %369
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 8
-  %385 = icmp ult i64 %indvars.iv.next92.i, %124
+  %385 = icmp samesign ult i64 %indvars.iv.next92.i, %124
   %indvars.iv.next33 = add i32 %indvars.iv32, -8
   br i1 %385, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 
@@ -1982,7 +1982,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
   %.088.i = phi ptr [ %16, %.lr.ph89.i ], [ %.3.i, %.loopexit.i ]
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 8
   %156 = or disjoint i64 %indvars.iv99.i, 7
-  %157 = icmp ult i64 %156, %117
+  %157 = icmp samesign ult i64 %156, %117
   br i1 %157, label %158, label %.preheader79.i
 
 158:                                              ; preds = %155
@@ -2045,7 +2045,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
 .preheader79.i:                                   ; preds = %155, %.preheader79.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader79.i ], [ 0, %155 ]
   %172 = or disjoint i64 %indvars.iv.i, %indvars.iv99.i
-  %173 = icmp ult i64 %172, %117
+  %173 = icmp samesign ult i64 %172, %117
   %.v.i = select i1 %173, i64 %172, i64 %indvars.iv99.i
   %174 = trunc i64 %.v.i to i32
   %175 = mul nsw i32 %127, %174
@@ -2106,7 +2106,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph85.i, %.preheader.i, %158
   %.3.i = phi ptr [ %.088.i, %158 ], [ %.088.i, %.preheader.i ], [ %170, %.lr.ph85.i ], [ %203, %.lr.ph.i ]
-  %205 = icmp ult i64 %indvars.iv.next100.i, %117
+  %205 = icmp samesign ult i64 %indvars.iv.next100.i, %117
   br i1 %205, label %155, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, !llvm.loop !17
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loopexit.i
@@ -2248,7 +2248,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %258
 
 .loopexit.us.i:                                   ; preds = %260, %_ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 12
-  %259 = icmp ult i64 %indvars.iv.next89.i, %119
+  %259 = icmp samesign ult i64 %indvars.iv.next89.i, %119
   br i1 %259, label %226, label %._crit_edge.us.i, !llvm.loop !23
 
 260:                                              ; preds = %.lr.ph73.us.i, %260
@@ -2285,7 +2285,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %258
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 8
-  %274 = icmp ult i64 %indvars.iv.next92.i, %117
+  %274 = icmp samesign ult i64 %indvars.iv.next92.i, %117
   %indvars.iv.next29 = add i32 %indvars.iv28, -8
   br i1 %274, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 
@@ -5718,7 +5718,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %.088.i = phi ptr [ %17, %.lr.ph89.i ], [ %.3.i, %.loopexit.i ]
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 8
   %193 = or disjoint i64 %indvars.iv99.i, 7
-  %194 = icmp ult i64 %193, %156
+  %194 = icmp samesign ult i64 %193, %156
   br i1 %194, label %195, label %.preheader79.i
 
 195:                                              ; preds = %192
@@ -5781,7 +5781,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
 .preheader79.i:                                   ; preds = %192, %.preheader79.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader79.i ], [ 0, %192 ]
   %209 = or disjoint i64 %indvars.iv.i, %indvars.iv99.i
-  %210 = icmp ult i64 %209, %156
+  %210 = icmp samesign ult i64 %209, %156
   %.v.i = select i1 %210, i64 %209, i64 %indvars.iv99.i
   %211 = trunc i64 %.v.i to i32
   %212 = mul nsw i32 %164, %211
@@ -5842,7 +5842,7 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph85.i, %.preheader.i, %195
   %.3.i = phi ptr [ %.088.i, %195 ], [ %.088.i, %.preheader.i ], [ %207, %.lr.ph85.i ], [ %240, %.lr.ph.i ]
-  %242 = icmp ult i64 %indvars.iv.next100.i, %156
+  %242 = icmp samesign ult i64 %indvars.iv.next100.i, %156
   br i1 %242, label %192, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit, !llvm.loop !17
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit: ; preds = %.loopexit.i
@@ -5899,7 +5899,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
   %.0108.i = phi ptr [ %30, %.lr.ph109.i ], [ %.3.i83, %.loopexit.i82 ]
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 12
   %280 = add nuw nsw i64 %indvars.iv119.i, 11
-  %281 = icmp ult i64 %280, %158
+  %281 = icmp samesign ult i64 %280, %158
   br i1 %281, label %282, label %.preheader99.i
 
 282:                                              ; preds = %279
@@ -5982,7 +5982,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 .preheader99.i:                                   ; preds = %279, %.preheader99.i
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %.preheader99.i ], [ 0, %279 ]
   %300 = add nuw nsw i64 %indvars.iv.i77, %indvars.iv119.i
-  %301 = icmp ult i64 %300, %158
+  %301 = icmp samesign ult i64 %300, %158
   %.v.i78 = select i1 %301, i64 %300, i64 %indvars.iv119.i
   %302 = trunc i64 %.v.i78 to i32
   %303 = mul nsw i32 %248, %302
@@ -6063,7 +6063,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %_ZN2cv
 
 .loopexit.i82:                                    ; preds = %.lr.ph.i84, %.lr.ph105.i, %.preheader.i81, %282
   %.3.i83 = phi ptr [ %.0108.i, %282 ], [ %.0108.i, %.preheader.i81 ], [ %298, %.lr.ph105.i ], [ %343, %.lr.ph.i84 ]
-  %345 = icmp ult i64 %indvars.iv.next120.i, %158
+  %345 = icmp samesign ult i64 %indvars.iv.next120.i, %158
   br i1 %345, label %279, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit, !llvm.loop !10
 
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit: ; preds = %.loopexit.i82
@@ -6210,7 +6210,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %397
 
 .loopexit.us.i:                                   ; preds = %399, %_ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 12
-  %398 = icmp ult i64 %indvars.iv.next89.i, %158
+  %398 = icmp samesign ult i64 %indvars.iv.next89.i, %158
   br i1 %398, label %365, label %._crit_edge.us.i, !llvm.loop !23
 
 399:                                              ; preds = %.lr.ph73.us.i, %399
@@ -6247,7 +6247,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %397
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 8
-  %413 = icmp ult i64 %indvars.iv.next92.i, %156
+  %413 = icmp samesign ult i64 %indvars.iv.next92.i, %156
   %indvars.iv.next33 = add i32 %indvars.iv32, -8
   br i1 %413, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 
@@ -6594,7 +6594,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
   %.088.i = phi ptr [ %16, %.lr.ph89.i ], [ %.3.i, %.loopexit.i ]
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 8
   %184 = or disjoint i64 %indvars.iv99.i, 7
-  %185 = icmp ult i64 %184, %147
+  %185 = icmp samesign ult i64 %184, %147
   br i1 %185, label %186, label %.preheader79.i
 
 186:                                              ; preds = %183
@@ -6657,7 +6657,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
 .preheader79.i:                                   ; preds = %183, %.preheader79.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader79.i ], [ 0, %183 ]
   %200 = or disjoint i64 %indvars.iv.i, %indvars.iv99.i
-  %201 = icmp ult i64 %200, %147
+  %201 = icmp samesign ult i64 %200, %147
   %.v.i = select i1 %201, i64 %200, i64 %indvars.iv99.i
   %202 = trunc i64 %.v.i to i32
   %203 = mul nsw i32 %155, %202
@@ -6718,7 +6718,7 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.thread: ; preds = 
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph85.i, %.preheader.i, %186
   %.3.i = phi ptr [ %.088.i, %186 ], [ %.088.i, %.preheader.i ], [ %198, %.lr.ph85.i ], [ %231, %.lr.ph.i ]
-  %233 = icmp ult i64 %indvars.iv.next100.i, %147
+  %233 = icmp samesign ult i64 %indvars.iv.next100.i, %147
   br i1 %233, label %183, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, !llvm.loop !17
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loopexit.i
@@ -6860,7 +6860,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %286
 
 .loopexit.us.i:                                   ; preds = %288, %_ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 12
-  %287 = icmp ult i64 %indvars.iv.next89.i, %149
+  %287 = icmp samesign ult i64 %indvars.iv.next89.i, %149
   br i1 %287, label %254, label %._crit_edge.us.i, !llvm.loop !23
 
 288:                                              ; preds = %.lr.ph73.us.i, %288
@@ -6897,7 +6897,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %286
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 8
-  %302 = icmp ult i64 %indvars.iv.next92.i, %147
+  %302 = icmp samesign ult i64 %indvars.iv.next92.i, %147
   %indvars.iv.next29 = add i32 %indvars.iv28, -8
   br i1 %302, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 

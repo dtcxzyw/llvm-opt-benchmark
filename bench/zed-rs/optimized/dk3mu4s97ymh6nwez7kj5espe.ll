@@ -62992,7 +62992,7 @@ define hidden { ptr, ptr } @_ZN9workspace9Workspace22focus_or_unfocus_panel17h1c
 
 18:                                               ; preds = %16
   %19 = add nuw nsw i64 %17, 1
-  %20 = icmp ult i64 %17, 3
+  %20 = icmp samesign ult i64 %17, 3
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds ptr, ptr %.sroa.6.0..sroa_idx, i64 %17
   %22 = load ptr, ptr %21, align 8, !alias.scope !14914, !nonnull !5, !align !106, !noundef !5
@@ -63884,7 +63884,7 @@ define hidden { ptr, ptr } @_ZN9workspace9Workspace22focus_or_unfocus_panel17he2
 
 18:                                               ; preds = %16
   %19 = add nuw nsw i64 %17, 1
-  %20 = icmp ult i64 %17, 3
+  %20 = icmp samesign ult i64 %17, 3
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds ptr, ptr %.sroa.6.0..sroa_idx, i64 %17
   %22 = load ptr, ptr %21, align 8, !alias.scope !15103, !nonnull !5, !align !106, !noundef !5

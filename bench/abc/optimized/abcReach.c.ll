@@ -403,7 +403,7 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
 
 38:                                               ; preds = %29, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = icmp ult i64 %indvars.iv.next, %23
+  %39 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %39, label %24, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %38, %10

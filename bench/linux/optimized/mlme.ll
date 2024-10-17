@@ -2326,7 +2326,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   %27 = select i1 %26, i64 18, i64 15
   %28 = select i1 %24, i64 %27, i64 36
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
-  %30 = icmp ugt i64 %28, %2
+  %30 = icmp samesign ugt i64 %28, %2
   br i1 %30, label %487, label %31
 
 31:                                               ; preds = %4
@@ -9833,7 +9833,7 @@ define internal fastcc i32 @ieee80211_setup_assoc_link(ptr noundef %0, ptr nocap
   %219 = and i32 %216, 2
   %220 = or disjoint i32 %219, 8
   %221 = select i1 %218, i32 5, i32 %220
-  %222 = icmp ule i32 %221, %214
+  %222 = icmp samesign ule i32 %221, %214
   %223 = and i8 %215, 3
   %224 = icmp eq i8 %223, 3
   %or.cond = and i1 %224, %222
@@ -10293,7 +10293,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %227 = phi i8 [ %211, %208 ], [ %224, %215 ]
   %228 = add nuw nsw i64 %210, 1
   %229 = zext i8 %226 to i64
-  %230 = icmp ult i64 %228, %229
+  %230 = icmp samesign ult i64 %228, %229
   br i1 %230, label %208, label %.loopexit98, !llvm.loop !211
 
 .loopexit98:                                      ; preds = %225, %199, %185
@@ -10385,9 +10385,9 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %288 = icmp eq i32 %285, 3
   %289 = icmp eq i32 %287, 3
   %290 = select i1 %288, i1 true, i1 %289
-  %291 = icmp ult i32 %285, %281
+  %291 = icmp samesign ult i32 %285, %281
   %292 = or i1 %291, %290
-  %293 = icmp ult i32 %287, %281
+  %293 = icmp samesign ult i32 %287, %281
   %294 = select i1 %292, i1 true, i1 %293
   br i1 %294, label %295, label %297
 
@@ -10514,9 +10514,9 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %371 = icmp eq i32 %370, 3
   %372 = icmp eq i32 %368, 3
   %373 = select i1 %371, i1 true, i1 %372
-  %374 = icmp ugt i32 %364, %370
+  %374 = icmp samesign ugt i32 %364, %370
   %375 = or i1 %374, %373
-  %376 = icmp ugt i32 %364, %368
+  %376 = icmp samesign ugt i32 %364, %368
   %377 = select i1 %375, i1 true, i1 %376
   %378 = select i1 %377, i8 0, i8 %360
   br label %379
@@ -10760,8 +10760,8 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %525 = load i8, ptr %524, align 1
   %526 = and i8 %525, 15
   %527 = lshr i8 %525, 4
-  %528 = icmp ugt i8 %516, %526
-  %529 = icmp ugt i8 %517, %527
+  %528 = icmp samesign ugt i8 %516, %526
+  %529 = icmp samesign ugt i8 %517, %527
   %530 = or i1 %528, %529
   br i1 %530, label %.thread80, label %.split123.us
 
@@ -10788,8 +10788,8 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %537 = phi i8 [ -1, %532 ], [ %535, %533 ], [ -1, %.split.split.us ]
   %538 = and i8 %537, 15
   %539 = lshr i8 %537, 4
-  %540 = icmp ugt i8 %516, %538
-  %541 = icmp ugt i8 %517, %539
+  %540 = icmp samesign ugt i8 %516, %538
+  %541 = icmp samesign ugt i8 %517, %539
   %542 = or i1 %540, %541
   br i1 %542, label %.thread80, label %543
 
@@ -10821,8 +10821,8 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %552 = phi i8 [ %550, %548 ], [ -1, %.split.split.split.us ]
   %553 = and i8 %552, 15
   %554 = lshr i8 %552, 4
-  %555 = icmp ugt i8 %516, %553
-  %556 = icmp ugt i8 %517, %554
+  %555 = icmp samesign ugt i8 %516, %553
+  %556 = icmp samesign ugt i8 %517, %554
   %557 = or i1 %555, %556
   br i1 %557, label %.thread80, label %558
 
@@ -10858,8 +10858,8 @@ default.unreachable:                              ; preds = %.split.split.split,
   %569 = load i8, ptr %568, align 1
   %570 = and i8 %569, 15
   %571 = lshr i8 %569, 4
-  %572 = icmp ugt i8 %516, %570
-  %573 = icmp ugt i8 %517, %571
+  %572 = icmp samesign ugt i8 %516, %570
+  %573 = icmp samesign ugt i8 %517, %571
   %574 = or i1 %572, %573
   br i1 %574, label %.thread80, label %561
 
@@ -12543,14 +12543,14 @@ define internal fastcc zeroext i1 @ieee80211_check_tim(ptr noundef readonly %0, 
   %14 = and i8 %13, -2
   %15 = and i16 %8, 255
   %16 = zext i8 %14 to i16
-  %17 = icmp ult i16 %15, %16
+  %17 = icmp samesign ult i16 %15, %16
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %7
   %19 = add i8 %1, -4
   %20 = add i8 %19, %14
   %21 = zext i8 %20 to i16
-  %22 = icmp ugt i16 %15, %21
+  %22 = icmp samesign ugt i16 %15, %21
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %18
@@ -12792,7 +12792,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocaptur
   %16 = icmp ult i16 %15, 4
   %17 = icmp eq ptr %2, null
   %18 = or i1 %17, %16
-  %19 = icmp ult i64 %3, 8
+  %19 = icmp samesign ult i64 %3, 8
   %20 = or i1 %19, %18
   br i1 %20, label %232, label %21
 
@@ -12976,7 +12976,7 @@ default.unreachable24:                            ; preds = %78
   %119 = getelementptr [4 x %struct.ieee80211_tx_queue_params], ptr %6, i64 0, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 6
   store i8 %117, ptr %120, align 2
-  %121 = icmp ult i8 %117, 2
+  %121 = icmp samesign ult i8 %117, 2
   br i1 %121, label %122, label %136
 
 122:                                              ; preds = %112
@@ -13026,7 +13026,7 @@ default.unreachable24:                            ; preds = %78
   %153 = getelementptr inbounds i8, ptr %119, i64 8
   store i8 %115, ptr %153, align 2
   %154 = icmp eq i8 %144, 0
-  %155 = icmp ult i16 %146, %141
+  %155 = icmp samesign ult i16 %146, %141
   %156 = select i1 %154, i1 true, i1 %155
   br i1 %156, label %157, label %172
 
@@ -14190,7 +14190,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   br i1 %.not13, label %.loopexit, label %70
 
 70:                                               ; preds = %.thread, %67
-  %switch = icmp ult i16 %34, 4
+  %switch = icmp samesign ult i16 %34, 4
   br i1 %switch, label %76, label %71
 
 71:                                               ; preds = %70
@@ -14393,7 +14393,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   %179 = icmp uge i8 %178, %176
   %180 = zext i8 %178 to i64
   %181 = add nuw nsw i64 %180, 2
-  %182 = icmp ule i64 %181, %155
+  %182 = icmp samesign ule i64 %181, %155
   %183 = select i1 %179, i1 %182, i1 false
   br i1 %183, label %184, label %.loopexit14
 
@@ -14463,7 +14463,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
 226:                                              ; preds = %218
   %227 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %224) #21, !srcloc !286
   %228 = and i64 %227, 255
-  %229 = icmp ult i64 %228, 15
+  %229 = icmp samesign ult i64 %228, 15
   br i1 %229, label %230, label %.thread11
 
 230:                                              ; preds = %226
@@ -14496,7 +14496,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   %251 = phi i32 [ %220, %234 ], [ %248, %238 ]
   %252 = add i64 %227, 1
   %253 = and i64 %252, 255
-  %254 = icmp ugt i64 %253, 14
+  %254 = icmp samesign ugt i64 %253, 14
   br i1 %254, label %.thread11, label %218, !prof !287, !llvm.loop !288
 
 .thread11:                                        ; preds = %218, %249, %226
@@ -14580,7 +14580,7 @@ define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr noca
 
 37:                                               ; preds = %40
   %38 = add nuw nsw i64 %41, 1
-  %39 = icmp ult i64 %38, %14
+  %39 = icmp samesign ult i64 %38, %14
   br i1 %39, label %40, label %.loopexit, !llvm.loop !289
 
 40:                                               ; preds = %37, %11
@@ -14702,7 +14702,7 @@ define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr noca
   %109 = shl nuw nsw i32 %108, 10
   %110 = tail call i64 @__usecs_to_jiffies(i32 noundef %109) #18
   %111 = and i64 %110, 4294967295
-  %112 = icmp ugt i64 %111, 100
+  %112 = icmp samesign ugt i64 %111, 100
   %113 = add i64 %110, 4294967196
   %114 = and i64 %113, 4294967295
   %115 = getelementptr inbounds i8, ptr %0, i64 2752
@@ -17574,7 +17574,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_s
   %41 = and i8 %40, 127
   %42 = zext nneg i8 %41 to i32
   %43 = mul nuw nsw i32 %42, 5
-  %44 = icmp ugt i8 %41, 22
+  %44 = icmp samesign ugt i8 %41, 22
   %45 = select i1 %44, i8 1, i8 %34
   switch i8 %40, label %46 [
     i8 -1, label %.loopexit
@@ -18597,7 +18597,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %414 = phi i32 [ %398, %397 ], [ %412, %411 ], [ %398, %403 ]
   %415 = and i32 %387, 57344
   %416 = and i32 %414, 57344
-  %417 = icmp ult i32 %415, %416
+  %417 = icmp samesign ult i32 %415, %416
   %418 = and i32 %414, -57345
   %419 = or disjoint i32 %418, %415
   %420 = select i1 %417, i32 %419, i32 %414

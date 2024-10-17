@@ -4000,12 +4000,12 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %138, i64 %idxprom6.i.i
   store i8 %140, ptr %arrayidx7.i.i, align 1, !tbaa !13
   %sub8.i.i = add i32 %__pos.035.i.i, -2
-  %cmp.i18.i = icmp ugt i32 %__val.addr.036.i.i, 9999
+  %cmp.i18.i = icmp samesign ugt i32 %__val.addr.036.i.i, 9999
   br i1 %cmp.i18.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !171
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont6.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %conv95, %invoke.cont6.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i331, label %if.else.i.i330
 
 if.then.i.i331:                                   ; preds = %while.end.i.i

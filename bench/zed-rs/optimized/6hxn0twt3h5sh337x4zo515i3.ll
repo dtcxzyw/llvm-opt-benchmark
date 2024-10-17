@@ -792,7 +792,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.exit.i.i17: ; pr
   br i1 %exitcond.not.i.i14, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h8415523f8d6fd6ceE.exit.sink.split.i", label %106
 
 117:                                              ; preds = %100
-  %118 = icmp ult i64 %22, 29
+  %118 = icmp samesign ult i64 %22, 29
   br i1 %118, label %.lr.ph.i5.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h8415523f8d6fd6ceE.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %117

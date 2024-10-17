@@ -985,7 +985,7 @@ for.body60.i:                                     ; preds = %for.body60.lr.ph.i,
 
 if.end72.i:                                       ; preds = %for.body60.i, %for.body60.us.i, %if.then50.i, %for.end47.i
   %shr73.i = lshr i32 %p.1130.i, 1
-  %cmp9.not.i = icmp ult i32 %p.1130.i, 2
+  %cmp9.not.i = icmp samesign ult i32 %p.1130.i, 2
   br i1 %cmp9.not.i, label %wav_2D_decode.exit, label %while.body11.i, !llvm.loop !22
 
 wav_2D_decode.exit:                               ; preds = %if.end72.i, %while.end.i

@@ -532,7 +532,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %27 = load ptr, ptr %ph, align 8
   store ptr %27, ptr %add.ptr.i64.i, align 8
   %inc26.i = add nuw nsw i32 %i.i.0124, 1
-  %cmp24.i = icmp uge i32 %inc26.i, %12
+  %cmp24.i = icmp samesign uge i32 %inc26.i, %12
   %.not = or i1 %cmp8.i.not, %cmp24.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !6
 
@@ -2554,7 +2554,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %33 = load ptr, ptr %ph, align 8
   store ptr %33, ptr %add.ptr.i64.i, align 8
   %inc26.i = add nuw nsw i32 %i.i.0121, 1
-  %cmp24.i = icmp uge i32 %inc26.i, %15
+  %cmp24.i = icmp samesign uge i32 %inc26.i, %15
   %.not = or i1 %cmp8.i.not, %cmp24.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !8
 

@@ -1234,7 +1234,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.us.i.i: ; preds = %.lr.ph50.
   %480 = load i16, ptr %479, align 4
   %481 = add i16 %480, -1
   %spec.select.i.us.i.i = icmp ult i16 %481, 2
-  %482 = icmp ugt i32 %.049.us.i.i, 5
+  %482 = icmp samesign ugt i32 %.049.us.i.i, 5
   %or.cond.us.i.i = select i1 %spec.select.i.us.i.i, i1 true, i1 %482
   br i1 %or.cond.us.i.i, label %_ZNK12_GLOBAL__N_112FixupLEAPass13optTwoAddrLEAERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockEbb.exit.thread187, label %483
 
@@ -1340,7 +1340,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %.lr.ph50.spl
   %530 = load i16, ptr %529, align 4
   %531 = add i16 %530, -1
   %spec.select.i.i.i = icmp ult i16 %531, 2
-  %532 = icmp ugt i32 %.049.i.i, 5
+  %532 = icmp samesign ugt i32 %.049.i.i, 5
   %or.cond.i.i91 = select i1 %spec.select.i.i.i, i1 true, i1 %532
   br i1 %or.cond.i.i91, label %_ZNK12_GLOBAL__N_112FixupLEAPass13optTwoAddrLEAERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockEbb.exit.thread187, label %533
 

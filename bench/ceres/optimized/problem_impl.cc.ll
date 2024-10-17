@@ -4411,7 +4411,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
   br i1 %.not.i.i.i.i30, label %_ZSt8distanceINSt8__detail14_Node_iteratorIPN5ceres8internal13ResidualBlockELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i, label %.lr.ph.i.i.i.i29, !llvm.loop !50
 
 _ZSt8distanceINSt8__detail14_Node_iteratorIPN5ceres8internal13ResidualBlockELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i29
-  %40 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %40 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %40, label %.noexc.i, label %_ZNSt12_Vector_baseIPN5ceres8internal13ResidualBlockESaIS3_EE11_M_allocateEm.exit.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIPN5ceres8internal13ResidualBlockELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
@@ -15321,7 +15321,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %141 = fadd double %.sroa.40.1.lcssa.i.us, %140
   store double %141, ptr %139, align 8
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 4
-  %142 = icmp ult i64 %indvars.iv.next120, %54
+  %142 = icmp samesign ult i64 %indvars.iv.next120, %54
   br i1 %142, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !161
 
 .preheader.i.loopexit.us:                         ; preds = %56
@@ -15350,7 +15350,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %155 = fadd double %154, 0.000000e+00
   store double %155, ptr %153, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 4
-  %156 = icmp ult i64 %indvars.iv.next117, %54
+  %156 = icmp samesign ult i64 %indvars.iv.next117, %54
   br i1 %156, label %.preheader.i.us89, label %.loopexit, !llvm.loop !161
 
 .preheader.i:                                     ; preds = %.lr.ph88.split, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit
@@ -15402,7 +15402,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %158
   %186 = fadd double %170, %185
   store double %186, ptr %184, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %187 = icmp ult i64 %indvars.iv.next, %54
+  %187 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %187, label %.preheader.i, label %.loopexit, !llvm.loop !161
 
 .loopexit:                                        ; preds = %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, %.preheader.i.us89, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, %._crit_edge122, %._crit_edge83, %._crit_edge

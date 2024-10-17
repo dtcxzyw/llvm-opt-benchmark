@@ -114,7 +114,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 2
   %50 = add nuw nsw i64 %49, %46
-  %51 = icmp ugt i64 %50, 8160
+  %51 = icmp samesign ugt i64 %50, 8160
   br i1 %51, label %68, label %52
 
 52:                                               ; preds = %BufferGetPage.exit
@@ -134,7 +134,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   %63 = getelementptr i8, ptr %.0.i.i, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ugt i64 %62, %65
+  %66 = icmp samesign ugt i64 %62, %65
   br i1 %66, label %67, label %146
 
 67:                                               ; preds = %56, %52
@@ -1192,7 +1192,7 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
 23:                                               ; preds = %20
   %24 = call i32 @llvm.umax.i32(i32 %10, i32 16)
   %25 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %27 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %28 = xor i32 %27, 31
   %29 = shl nuw i32 2, %28
@@ -1212,7 +1212,7 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
 
 38:                                               ; preds = %34
   %39 = call range(i32 1, 28) i32 @llvm.ctpop.i32(i32 %15)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %41 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %42 = xor i32 %41, 31
   %43 = shl nuw nsw i32 2, %42

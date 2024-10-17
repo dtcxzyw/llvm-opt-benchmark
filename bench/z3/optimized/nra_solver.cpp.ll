@@ -4139,7 +4139,7 @@ if.end.i210:                                      ; preds = %for.cond142
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %for.cond142, %if.end.i210
   %retval.0.i212 = phi i64 [ %120, %if.end.i210 ], [ 0, %for.cond142 ]
-  %cmp145 = icmp ult i64 %indvars.iv1103, %retval.0.i212
+  %cmp145 = icmp samesign ult i64 %indvars.iv1103, %retval.0.i212
   br i1 %cmp145, label %for.body146, label %for.end354
 
 for.body146:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -14455,7 +14455,7 @@ _ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dep
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp44 = icmp ult i64 %indvars.iv56, %3
+  %cmp44 = icmp samesign ult i64 %indvars.iv56, %3
   br i1 %cmp44, label %while.body, label %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit
 
 while.body:                                       ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE4sizeEv.exit.thread

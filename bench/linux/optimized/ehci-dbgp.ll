@@ -504,8 +504,8 @@ define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture 
   %96 = shl i32 %92, %95
   %97 = or i32 %96, %89
   %98 = add nuw nsw i64 %88, 1
-  %99 = icmp ult i64 %88, 7
-  %100 = icmp ult i64 %98, %74
+  %99 = icmp samesign ult i64 %88, 7
+  %100 = icmp samesign ult i64 %98, %74
   %101 = and i1 %99, %100
   br i1 %101, label %87, label %.loopexit, !llvm.loop !19
 
@@ -676,7 +676,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %72 = and i32 %71, 256
   %73 = icmp ne i32 %72, 0
   %74 = add nuw nsw i32 %57, 50
-  %75 = icmp ult i32 %57, 450
+  %75 = icmp samesign ult i32 %57, 450
   %76 = select i1 %73, i1 %75, i1 false
   br i1 %76, label %56, label %77, !llvm.loop !27
 
@@ -931,7 +931,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
 
 dbgp_control_msg.exit:                            ; preds = %243
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  %252 = icmp ugt i32 %176, 127
+  %252 = icmp samesign ugt i32 %176, 127
   br i1 %252, label %.thread6, label %255
 
 .sink.split:                                      ; preds = %233, %217, %203
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 0, 253) i32 @find_cap(i32 noundef %0, i32 nound
   %19 = or disjoint i8 %15, 1
   %20 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %19) #7
   %21 = add nuw nsw i32 %13, 1
-  %22 = icmp ult i32 %13, 47
+  %22 = icmp samesign ult i32 %13, 47
   %23 = icmp ugt i8 %20, 63
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !32
@@ -1319,7 +1319,7 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   %8 = lshr i32 %1, 4
   %9 = and i32 %8, 8
-  %10 = icmp ult i32 %9, %5
+  %10 = icmp samesign ult i32 %9, %5
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %6
@@ -1462,8 +1462,8 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef 
   %113 = getelementptr i8, ptr %4, i64 %107
   store i8 %112, ptr %113, align 1
   %114 = add nuw nsw i64 %107, 1
-  %115 = icmp ult i64 %107, 7
-  %116 = icmp ult i64 %114, %96
+  %115 = icmp samesign ult i64 %107, 7
+  %116 = icmp samesign ult i64 %114, %96
   %117 = and i1 %115, %116
   br i1 %117, label %106, label %.loopexit, !llvm.loop !37
 

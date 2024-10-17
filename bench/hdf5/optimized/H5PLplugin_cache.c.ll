@@ -85,7 +85,7 @@ define noundef i32 @H5PL__close_plugin_cache(ptr nocapture noundef writeonly %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @H5PL_num_plugins_g, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

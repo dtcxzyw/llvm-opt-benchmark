@@ -12119,7 +12119,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2dd9ee62c8353fa6E.exit.threa
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h534e7d81cd9d24adE.exit.i.i": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6756e9d798c32550E.exit.thread9.i.i"
   %72 = or disjoint i64 %spec.store.select.i10.i.i28.i.i, -4
-  %narrow63.i.i.i.i = icmp ult i64 %72, -2
+  %narrow63.i.i.i.i = icmp samesign ult i64 %72, -2
   %73 = select i1 %narrow63.i.i.i.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h39bd939a688143fcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %69, i64 noundef %73)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6cfd8f48759669cbE.exit.i.i" unwind label %.loopexit.split-lp
@@ -39742,7 +39742,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !5
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %66
 
 18:                                               ; preds = %9
@@ -50099,7 +50099,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$parquet..record..ap
 
 9:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13027)
-  %switch.i = icmp ult i8 %4, 2
+  %switch.i = icmp samesign ult i8 %4, 2
   br i1 %switch.i, label %"_ZN4core3ptr48drop_in_place$LT$parquet..data_type..Decimal$GT$17h434e75da5dbcc586E.exit", label %10
 
 10:                                               ; preds = %9
@@ -94809,9 +94809,9 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha21f91eaab365b96E.exit.i.i.i": ; preds = %33
   %42 = load i128, ptr %26, align 16, !range !2244, !alias.scope !20623, !noalias !20628, !noundef !5
-  %narrow64.i.i.i.i.i = icmp ult i128 %42, 38
+  %narrow64.i.i.i.i.i = icmp samesign ult i128 %42, 38
   %43 = load i128, ptr %5, align 16, !range !2244, !alias.scope !20623, !noalias !20628, !noundef !5
-  %narrow.i.i.i.i.i = icmp ult i128 %43, 38
+  %narrow.i.i.i.i.i = icmp samesign ult i128 %43, 38
   %.sroa.7.0.i.i.i.i.i = zext i1 %narrow.i.i.i.i.i to i64
   %44 = select i1 %narrow64.i.i.i.i.i, i64 2, i64 1
   %45 = add nuw nsw i64 %44, %.sroa.7.0.i.i.i.i.i
@@ -101840,9 +101840,9 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc62263cf1c962aa9E.exit.i.i.i": ; preds = %33
   %42 = load i128, ptr %26, align 16, !range !2244, !alias.scope !22200, !noalias !22205, !noundef !5
-  %narrow64.i.i.i.i.i = icmp ult i128 %42, 38
+  %narrow64.i.i.i.i.i = icmp samesign ult i128 %42, 38
   %43 = load i128, ptr %5, align 16, !range !2244, !alias.scope !22200, !noalias !22205, !noundef !5
-  %narrow.i.i.i.i.i = icmp ult i128 %43, 38
+  %narrow.i.i.i.i.i = icmp samesign ult i128 %43, 38
   %.sroa.7.0.i.i.i.i.i = zext i1 %narrow.i.i.i.i.i to i64
   %44 = select i1 %narrow64.i.i.i.i.i, i64 2, i64 1
   %45 = add nuw nsw i64 %44, %.sroa.7.0.i.i.i.i.i

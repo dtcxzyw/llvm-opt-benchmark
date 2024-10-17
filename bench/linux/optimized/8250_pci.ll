@@ -2041,7 +2041,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_timedia_probe(ptr noundef %0)
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
   %5 = and i32 %4, 240
-  %6 = icmp ugt i32 %5, 111
+  %6 = icmp samesign ugt i32 %5, 111
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
@@ -3362,7 +3362,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noca
   %40 = mul nuw nsw i32 %39, %38
   %41 = urem i32 %9, %40
   %42 = lshr i32 %40, 1
-  %43 = icmp ugt i32 %41, %42
+  %43 = icmp samesign ugt i32 %41, %42
   %44 = sub nsw i32 %40, %41
   %45 = select i1 %43, i32 %44, i32 %41
   %46 = shl i32 %45, 16
@@ -3451,7 +3451,7 @@ define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr noca
   %100 = phi i8 [ %89, %87 ], [ %85, %92 ], [ %85, %95 ]
   %101 = phi i16 [ %84, %87 ], [ %94, %92 ], [ 511, %95 ]
   %102 = phi i32 [ %88, %87 ], [ %93, %92 ], [ %98, %95 ]
-  %103 = icmp ugt i32 %102, 65535
+  %103 = icmp samesign ugt i32 %102, 65535
   br i1 %103, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %99, %.loopexit12, %16
@@ -3893,7 +3893,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocaptu
 
 6:                                                ; preds = %2, %2, %2
   %7 = and i32 %4, 255
-  %8 = icmp ugt i32 %7, 6
+  %8 = icmp samesign ugt i32 %7, 6
   %9 = and i32 %4, -256
   %10 = icmp eq i32 %9, 459264
   %or.cond = or i1 %8, %10

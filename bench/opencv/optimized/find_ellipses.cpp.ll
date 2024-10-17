@@ -675,7 +675,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   %187 = phi ptr [ %184, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %163, %161 ]
   %188 = add i32 %.0207, 1
   %189 = zext i32 %188 to i64
-  %190 = icmp ugt i64 %11, %189
+  %190 = icmp samesign ugt i64 %11, %189
   br i1 %190, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 .thread:                                          ; preds = %14, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i59, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i52, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
@@ -3583,7 +3583,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.us: ; preds = %140, %._crit_edge.us
   %141 = add nuw i16 %.0480.us, 1
   %142 = zext i16 %141 to i32
-  %143 = icmp ult i16 %141, %108
+  %143 = icmp samesign ult i16 %141, %108
   br i1 %143, label %.lr.ph482.split.us, label %._crit_edge483, !llvm.loop !47
 
 144:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.us, %.loopexit365.us
@@ -5048,7 +5048,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %796 = load float, ptr %795, align 4
   %797 = add nsw i64 %791, -1
   %798 = lshr i64 %797, 1
-  %799 = icmp ult i64 %794, %798
+  %799 = icmp samesign ult i64 %794, %798
   br i1 %799, label %.lr.ph.i.i317.us, label %._crit_edge.i.i.us
 
 .lr.ph.i.i317.us:                                 ; preds = %.split.i.us, %.lr.ph.i.i317.us
@@ -5459,13 +5459,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i165.us:            ; preds = %961, %_ZN2cv8ximgpr
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit167.us:      ; preds = %963, %_ZNSt6vectorIfSaIfEED2Ev.exit.i165.us, %202
   %964 = add nuw i16 %.083477.us, 1
   %965 = zext i16 %964 to i32
-  %966 = icmp ult i16 %964, %110
+  %966 = icmp samesign ult i16 %964, %110
   br i1 %966, label %202, label %.loopexit365.us, !llvm.loop !63
 
 .loopexit365.us:                                  ; preds = %_ZN2cv8ximgproc11EllipseDataD2Ev.exit167.us, %200, %196, %144
   %967 = add nuw i16 %.082478.us, 1
   %968 = zext i16 %967 to i32
-  %969 = icmp ult i16 %967, %109
+  %969 = icmp samesign ult i16 %967, %109
   br i1 %969, label %144, label %._crit_edge.us, !llvm.loop !64
 
 .lr.ph.us:                                        ; preds = %200
@@ -5785,7 +5785,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i173:               ; preds = %1021, %_ZN2cv8ximgp
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.loopexit
   %1024 = add nuw i16 %.0480, 1
-  %1025 = icmp ult i16 %1024, %108
+  %1025 = icmp samesign ult i16 %1024, %108
   br i1 %1025, label %.lr.ph482.split, label %._crit_edge483, !llvm.loop !47
 
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit175:         ; preds = %1023, %_ZNSt6vectorIfSaIfEED2Ev.exit.i173, %.split.us
@@ -7709,7 +7709,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit233.us: ; preds = %146, %._crit_edge557.us
   %147 = add nuw i16 %.0558.us, 1
   %148 = zext i16 %147 to i32
-  %149 = icmp ult i16 %147, %114
+  %149 = icmp samesign ult i16 %147, %114
   br i1 %149, label %.lr.ph560.split.us, label %._crit_edge561, !llvm.loop !81
 
 150:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.us, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit229.us
@@ -9270,7 +9270,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %824 = load float, ptr %823, align 4
   %825 = add nsw i64 %819, -1
   %826 = lshr i64 %825, 1
-  %827 = icmp ult i64 %822, %826
+  %827 = icmp samesign ult i64 %822, %826
   br i1 %827, label %.lr.ph.i.i374.us, label %._crit_edge.i.i.us
 
 .lr.ph.i.i374.us:                                 ; preds = %.split.i.us, %.lr.ph.i.i374.us
@@ -9681,13 +9681,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i217.us:            ; preds = %989, %_ZN2cv8ximgpr
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit219.us:      ; preds = %991, %_ZNSt6vectorIfSaIfEED2Ev.exit.i217.us, %222
   %992 = add nuw i16 %.095554.us, 1
   %993 = zext i16 %992 to i32
-  %994 = icmp ult i16 %992, %116
+  %994 = icmp samesign ult i16 %992, %116
   br i1 %994, label %222, label %._crit_edge.us, !llvm.loop !82
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit229.us: ; preds = %221, %._crit_edge.us, %202, %150
   %995 = add nuw i16 %.094555.us, 1
   %996 = zext i16 %995 to i32
-  %997 = icmp ult i16 %995, %115
+  %997 = icmp samesign ult i16 %995, %115
   br i1 %997, label %150, label %._crit_edge557.us, !llvm.loop !83
 
 .lr.ph.us:                                        ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit133.us
@@ -10083,7 +10083,7 @@ _ZN2cv8ximgproc11EllipseDataD2Ev.exit227:         ; preds = %1053, %_ZNSt6vector
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit233: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.loopexit
   %1056 = add nuw i16 %.0558, 1
-  %1057 = icmp ult i16 %1056, %114
+  %1057 = icmp samesign ult i16 %1056, %114
   br i1 %1057, label %.lr.ph560.split, label %._crit_edge561, !llvm.loop !81
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit231: ; preds = %.loopexit455.split.us, %.loopexit.split-lp456, %1055, %_ZN2cv8ximgproc11EllipseDataD2Ev.exit227, %.split.us
@@ -10295,7 +10295,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit233.us: ; preds = %147, %._crit_edge557.us
   %148 = add nuw i16 %.0558.us, 1
   %149 = zext i16 %148 to i32
-  %150 = icmp ult i16 %148, %114
+  %150 = icmp samesign ult i16 %148, %114
   br i1 %150, label %.lr.ph560.split.us, label %._crit_edge561, !llvm.loop !84
 
 151:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.us, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit229.us
@@ -11857,7 +11857,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %826 = load float, ptr %825, align 4
   %827 = add nsw i64 %821, -1
   %828 = lshr i64 %827, 1
-  %829 = icmp ult i64 %824, %828
+  %829 = icmp samesign ult i64 %824, %828
   br i1 %829, label %.lr.ph.i.i374.us, label %._crit_edge.i.i.us
 
 .lr.ph.i.i374.us:                                 ; preds = %.split.i.us, %.lr.ph.i.i374.us
@@ -12268,13 +12268,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i217.us:            ; preds = %991, %_ZN2cv8ximgpr
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit219.us:      ; preds = %993, %_ZNSt6vectorIfSaIfEED2Ev.exit.i217.us, %223
   %994 = add nuw i16 %.095554.us, 1
   %995 = zext i16 %994 to i32
-  %996 = icmp ult i16 %994, %116
+  %996 = icmp samesign ult i16 %994, %116
   br i1 %996, label %223, label %._crit_edge.us, !llvm.loop !85
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit229.us: ; preds = %222, %._crit_edge.us, %203, %151
   %997 = add nuw i16 %.094555.us, 1
   %998 = zext i16 %997 to i32
-  %999 = icmp ult i16 %997, %115
+  %999 = icmp samesign ult i16 %997, %115
   br i1 %999, label %151, label %._crit_edge557.us, !llvm.loop !86
 
 .lr.ph.us:                                        ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit133.us
@@ -12670,7 +12670,7 @@ _ZN2cv8ximgproc11EllipseDataD2Ev.exit227:         ; preds = %1055, %_ZNSt6vector
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit233: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.loopexit
   %1058 = add nuw i16 %.0558, 1
-  %1059 = icmp ult i16 %1058, %114
+  %1059 = icmp samesign ult i16 %1058, %114
   br i1 %1059, label %.lr.ph560.split, label %._crit_edge561, !llvm.loop !84
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit231: ; preds = %.loopexit455.split.us, %.loopexit.split-lp456, %1057, %_ZN2cv8ximgproc11EllipseDataD2Ev.exit227, %.split.us
@@ -12875,7 +12875,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.us: ; preds = %140, %._crit_edge.us
   %141 = add nuw i16 %.0480.us, 1
   %142 = zext i16 %141 to i32
-  %143 = icmp ult i16 %141, %108
+  %143 = icmp samesign ult i16 %141, %108
   br i1 %143, label %.lr.ph482.split.us, label %._crit_edge483, !llvm.loop !87
 
 144:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.us, %.loopexit365.us
@@ -14342,7 +14342,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %798 = load float, ptr %797, align 4
   %799 = add nsw i64 %793, -1
   %800 = lshr i64 %799, 1
-  %801 = icmp ult i64 %796, %800
+  %801 = icmp samesign ult i64 %796, %800
   br i1 %801, label %.lr.ph.i.i317.us, label %._crit_edge.i.i.us
 
 .lr.ph.i.i317.us:                                 ; preds = %.split.i.us, %.lr.ph.i.i317.us
@@ -14753,13 +14753,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i165.us:            ; preds = %963, %_ZN2cv8ximgpr
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit167.us:      ; preds = %965, %_ZNSt6vectorIfSaIfEED2Ev.exit.i165.us, %203
   %966 = add nuw i16 %.083477.us, 1
   %967 = zext i16 %966 to i32
-  %968 = icmp ult i16 %966, %110
+  %968 = icmp samesign ult i16 %966, %110
   br i1 %968, label %203, label %.loopexit365.us, !llvm.loop !88
 
 .loopexit365.us:                                  ; preds = %_ZN2cv8ximgproc11EllipseDataD2Ev.exit167.us, %200, %196, %144
   %969 = add nuw i16 %.082478.us, 1
   %970 = zext i16 %969 to i32
-  %971 = icmp ult i16 %969, %109
+  %971 = icmp samesign ult i16 %969, %109
   br i1 %971, label %144, label %._crit_edge.us, !llvm.loop !89
 
 .lr.ph.us:                                        ; preds = %200
@@ -15079,7 +15079,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i173:               ; preds = %1023, %_ZN2cv8ximgp
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.loopexit
   %1026 = add nuw i16 %.0480, 1
-  %1027 = icmp ult i16 %1026, %108
+  %1027 = icmp samesign ult i16 %1026, %108
   br i1 %1027, label %.lr.ph482.split, label %._crit_edge483, !llvm.loop !87
 
 _ZN2cv8ximgproc11EllipseDataD2Ev.exit175:         ; preds = %1025, %_ZNSt6vectorIfSaIfEED2Ev.exit.i173, %.split.us
@@ -15490,7 +15490,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %.noexc394, %_ZN2cv1
   %191 = load i64, ptr %190, align 8
   %192 = mul i64 %191, %indvars.iv598
   %193 = getelementptr inbounds i8, ptr %189, i64 %192
-  %194 = icmp ult i64 %indvars.iv598, %177
+  %194 = icmp samesign ult i64 %indvars.iv598, %177
   br i1 %194, label %195, label %208
 
 195:                                              ; preds = %183
@@ -15703,7 +15703,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit397:         ; preds = %279, %_ZNSt12_Vecto
   %300 = call i32 @llvm.abs.i32(i32 %290, i1 true)
   %301 = mul nuw nsw i32 %300, 13573
   %302 = shl nuw nsw i32 %299, 15
-  %303 = icmp ult i32 %302, %301
+  %303 = icmp samesign ult i32 %302, %301
   br i1 %303, label %304, label %323
 
 304:                                              ; preds = %298
@@ -18676,7 +18676,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

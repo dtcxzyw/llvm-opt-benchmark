@@ -8642,7 +8642,7 @@ land.rhs:                                         ; preds = %if.end, %if.end29
   %group.015 = phi i8 [ %group.1, %if.end29 ], [ 0, %if.end ]
   %i.014 = phi i8 [ %inc36, %if.end29 ], [ 0, %if.end ]
   %cmp15 = icmp ne i32 %input.addr.117, 0
-  %cmp18 = icmp ugt i8 %narrow, %i.014
+  %cmp18 = icmp samesign ugt i8 %narrow, %i.014
   %6 = select i1 %cmp15, i1 true, i1 %cmp18
   br i1 %6, label %for.body, label %for.end
 

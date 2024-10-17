@@ -636,7 +636,7 @@ define dso_local range(i32 0, 2) i32 @ww_mutex_trylock(ptr noundef %0, ptr nound
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp ugt i64 %9, 3
+  %13 = icmp samesign ugt i64 %9, 3
   %14 = icmp eq i64 %10, %5
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %16, label %.thread3
@@ -683,7 +683,7 @@ define dso_local range(i32 0, 2) i32 @ww_mutex_trylock(ptr noundef %0, ptr nound
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp ugt i64 %38, 3
+  %42 = icmp samesign ugt i64 %38, 3
   %43 = icmp eq i64 %39, %34
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %45, label %.thread3
@@ -744,7 +744,7 @@ define dso_local range(i32 0, 2) i32 @mutex_trylock(ptr noundef %0) #1 section "
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %6, 3
+  %10 = icmp samesign ugt i64 %6, 3
   %11 = icmp eq i64 %7, %2
   %12 = select i1 %10, i1 %11, i1 false
   br i1 %12, label %13, label %.thread1
@@ -1241,7 +1241,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %28
-  %34 = icmp ugt i64 %30, 3
+  %34 = icmp samesign ugt i64 %30, 3
   %35 = icmp eq i64 %31, %26
   %36 = select i1 %34, i1 %35, i1 false
   br i1 %36, label %37, label %48
@@ -1306,7 +1306,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %71, label %78, label %72
 
 72:                                               ; preds = %67
-  %73 = icmp ugt i64 %69, 3
+  %73 = icmp samesign ugt i64 %69, 3
   %74 = icmp eq i64 %70, %26
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %76, label %87
@@ -1455,7 +1455,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %145, label %152, label %146
 
 146:                                              ; preds = %141
-  %147 = icmp ugt i64 %143, 3
+  %147 = icmp samesign ugt i64 %143, 3
   %148 = icmp eq i64 %144, %26
   %149 = select i1 %147, i1 %148, i1 false
   br i1 %149, label %150, label %182
@@ -1598,7 +1598,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %226, label %233, label %227
 
 227:                                              ; preds = %222
-  %228 = icmp ugt i64 %224, 3
+  %228 = icmp samesign ugt i64 %224, 3
   %229 = icmp eq i64 %225, %26
   %230 = select i1 %228, i1 %229, i1 false
   br i1 %230, label %231, label %242
@@ -1666,7 +1666,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %266, label %278, label %267
 
 267:                                              ; preds = %262
-  %268 = icmp ult i64 %264, 4
+  %268 = icmp samesign ult i64 %264, 4
   br i1 %268, label %273, label %269
 
 269:                                              ; preds = %267
@@ -1678,7 +1678,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br label %278
 
 273:                                              ; preds = %267
-  %274 = icmp ult i64 %264, 2
+  %274 = icmp samesign ult i64 %264, 2
   %275 = and i1 %259, %274
   br i1 %275, label %276, label %.thread45
 
@@ -1765,7 +1765,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   br i1 %318, label %325, label %319
 
 319:                                              ; preds = %314
-  %320 = icmp ugt i64 %316, 3
+  %320 = icmp samesign ugt i64 %316, 3
   %321 = icmp eq i64 %317, %26
   %322 = select i1 %320, i1 %321, i1 false
   br i1 %322, label %323, label %334
@@ -2185,7 +2185,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %41
-  %47 = icmp ugt i64 %43, 3
+  %47 = icmp samesign ugt i64 %43, 3
   %48 = icmp eq i64 %44, %39
   %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %50, label %61
@@ -2255,7 +2255,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %83
-  %89 = icmp ugt i64 %85, 3
+  %89 = icmp samesign ugt i64 %85, 3
   %90 = icmp eq i64 %86, %39
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %92, label %103
@@ -2466,7 +2466,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %193, label %200, label %194
 
 194:                                              ; preds = %189
-  %195 = icmp ugt i64 %191, 3
+  %195 = icmp samesign ugt i64 %191, 3
   %196 = icmp eq i64 %192, %39
   %197 = select i1 %195, i1 %196, i1 false
   br i1 %197, label %198, label %265
@@ -2815,7 +2815,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %408, label %415, label %409
 
 409:                                              ; preds = %404
-  %410 = icmp ugt i64 %406, 3
+  %410 = icmp samesign ugt i64 %406, 3
   %411 = icmp eq i64 %407, %39
   %412 = select i1 %410, i1 %411, i1 false
   br i1 %412, label %413, label %424
@@ -2923,7 +2923,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %474, label %486, label %475
 
 475:                                              ; preds = %470
-  %476 = icmp ult i64 %472, 4
+  %476 = icmp samesign ult i64 %472, 4
   br i1 %476, label %481, label %477
 
 477:                                              ; preds = %475
@@ -2935,7 +2935,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br label %486
 
 481:                                              ; preds = %475
-  %482 = icmp ult i64 %472, 2
+  %482 = icmp samesign ult i64 %472, 2
   %483 = and i1 %467, %482
   br i1 %483, label %484, label %.thread63
 
@@ -2983,7 +2983,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   br i1 %506, label %513, label %507
 
 507:                                              ; preds = %502
-  %508 = icmp ugt i64 %504, 3
+  %508 = icmp samesign ugt i64 %504, 3
   %509 = icmp eq i64 %505, %39
   %510 = select i1 %508, i1 %509, i1 false
   br i1 %510, label %511, label %522

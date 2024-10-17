@@ -215,7 +215,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", label %.lr.ph.i34
 
 80:                                               ; preds = %66
-  %81 = icmp ult i64 %10, 29
+  %81 = icmp samesign ult i64 %10, 29
   br i1 %81, label %.lr.ph.i36, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split"
 
 .lr.ph.i36:                                       ; preds = %80, %91

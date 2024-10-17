@@ -834,7 +834,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont32:                                    ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %24, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp34 = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp34 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp34, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont32
@@ -2462,7 +2462,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.t
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %4 = zext i32 %3 to i64
-  %cmp162 = icmp ult i64 %indvars.iv, %4
+  %cmp162 = icmp samesign ult i64 %indvars.iv, %4
   br i1 %cmp162, label %invoke.cont8, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i
 
 invoke.cont8:                                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
@@ -3274,7 +3274,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i64 [ %5, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

@@ -1114,7 +1114,7 @@ define hidden void @_ZN2cv7barcode6Detect12barcodeErodeEv(ptr noundef nonnull al
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = add nuw nsw i32 %144, %147
-  %149 = icmp ugt i32 %148, 600
+  %149 = icmp samesign ugt i32 %148, 600
   %150 = sext i1 %149 to i8
   store i8 %150, ptr %131, align 1
   %.pre = load i32, ptr %98, align 4
@@ -3061,7 +3061,7 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not.i.i, label %select.unfold.i.i, label %13
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !73
 
 13:                                               ; preds = %.lr.ph.i.i

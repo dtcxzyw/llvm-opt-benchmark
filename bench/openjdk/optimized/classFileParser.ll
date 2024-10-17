@@ -1199,7 +1199,7 @@ _ZNK15ClassFileParser17verify_legal_utf8EPKhiP10JavaThread.exit: ; preds = %364,
   %391 = add nsw i32 %386, 1
   %392 = icmp sgt i32 %386, -1
   %393 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %391)
-  %394 = icmp ult i32 %393, 2
+  %394 = icmp samesign ult i32 %393, 2
   %or.cond.i.i.i.i.i.i = select i1 %392, i1 %394, i1 false
   %395 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %391, i1 true)
   %396 = sub nuw nsw i32 32, %395
@@ -1308,7 +1308,7 @@ _ZN15ClassFileParser27set_class_bad_constant_seenEs.exit: ; preds = %426, %421, 
   %445 = add nsw i32 %440, 1
   %446 = icmp sgt i32 %440, -1
   %447 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %445)
-  %448 = icmp ult i32 %447, 2
+  %448 = icmp samesign ult i32 %447, 2
   %or.cond.i.i.i.i.i.i236 = select i1 %446, i1 %448, i1 false
   %449 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %445, i1 true)
   %450 = sub nuw nsw i32 32, %449
@@ -4369,8 +4369,8 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
   %gep = getelementptr i8, ptr %invariant.gep, i64 %23
   %.0.i.i.i.i = load i16, ptr %gep, align 1
   %24 = icmp ne i16 %.0.i.i.i.i, 0
-  %25 = icmp ult i32 %22, %2
-  %26 = and i1 %25, %24
+  %25 = icmp samesign ult i32 %22, %2
+  %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph.preheader.i, label %_ZL15skip_annotationPKhii.exit
 
 .lr.ph.preheader.i:                               ; preds = %21
@@ -4389,8 +4389,8 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
   %31 = add nuw nsw i32 %.01723.i, 2
   %32 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %31)
   %33 = icmp sgt i32 %.in.i, 1
-  %34 = icmp ult i32 %32, %2
-  %35 = and i1 %33, %34
+  %34 = icmp samesign ult i32 %32, %2
+  %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %.lr.ph.i, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
 
 _ZL15skip_annotationPKhii.exit:                   ; preds = %.lr.ph.i, %29, %._ZL15skip_annotationPKhii.exit_crit_edge, %21
@@ -5152,7 +5152,7 @@ _ZN15ClassFileParser20FieldAllocationCount6updateEb9BasicType.exit: ; preds = %1
   %230 = add nsw i32 %225, 1
   %231 = icmp sgt i32 %225, -1
   %232 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %230)
-  %233 = icmp ult i32 %232, 2
+  %233 = icmp samesign ult i32 %232, 2
   %or.cond.i.i.i.i = select i1 %231, i1 %233, i1 false
   %234 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %230, i1 true)
   %235 = sub nuw nsw i32 32, %234
@@ -5325,7 +5325,7 @@ _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit.i160: ; 
   %315 = add nsw i32 %310, 1
   %316 = icmp sgt i32 %310, -1
   %317 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %315)
-  %318 = icmp ult i32 %317, 2
+  %318 = icmp samesign ult i32 %317, 2
   %or.cond.i.i.i.i165 = select i1 %316, i1 %318, i1 false
   %319 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %315, i1 true)
   %320 = sub nuw nsw i32 32, %319
@@ -6169,7 +6169,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciS1_P10JavaThread.exit84.thread: ;
   %64 = add nuw nsw i32 %.07397, 1
   %65 = load i16, ptr %5, align 2
   %66 = zext i16 %65 to i32
-  %67 = icmp ult i32 %64, %66
+  %67 = icmp samesign ult i32 %64, %66
   br i1 %67, label %68, label %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread, !llvm.loop !30
 
 68:                                               ; preds = %.lr.ph, %_ZNK15ClassFileParser18guarantee_propertyEbPKciS1_P10JavaThread.exit84.thread
@@ -6328,7 +6328,7 @@ _ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.ex
   %.0 = phi i32 [ 0, %123 ], [ %spec.select, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread117 ]
   %146 = zext i16 %77 to i32
   %147 = add nuw nsw i32 %.0, %146
-  %148 = icmp ult i32 %147, %63
+  %148 = icmp samesign ult i32 %147, %63
   br i1 %148, label %_ZNK15ClassFileParser18guarantee_propertyEbPKciS1_P10JavaThread.exit84.thread, label %_ZNK15ClassFileParser18guarantee_propertyEbPKciS1_P10JavaThread.exit84
 
 _ZNK15ClassFileParser18guarantee_propertyEbPKciS1_P10JavaThread.exit84: ; preds = %145
@@ -7223,7 +7223,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256E25LocalVariable
   %98 = getelementptr inbounds i8, ptr %.170, i64 12
   %99 = load i16, ptr %31, align 2
   %100 = zext i16 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next, %100
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %97, %28
@@ -7339,7 +7339,7 @@ _ZN8LVT_Hash6equalsERK25LocalVariableTableElementS2_.exit.thread.i.i.i: ; preds 
   %164 = phi i16 [ %.pre, %162 ], [ %107, %.loopexit ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %165 = zext i16 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next97, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next97, %165
   br i1 %166, label %.lr.ph79, label %._crit_edge80, !llvm.loop !39
 
 ._crit_edge80:                                    ; preds = %163, %102
@@ -9533,7 +9533,7 @@ define linkonce_odr hidden void @_ZN12methodHandleC2EP6ThreadP6Method(ptr nounde
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -15114,7 +15114,7 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   %.fr71 = freeze i8 %22
   %23 = sext i8 %.fr71 to i32
   %24 = and i32 %23, 65535
-  %25 = icmp ult i32 %24, 128
+  %25 = icmp samesign ult i32 %24, 128
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %19
@@ -15131,9 +15131,10 @@ switch.early.test:                                ; preds = %26
   ]
 
 30:                                               ; preds = %switch.early.test
-  %31 = add nsw i32 %24, -48
-  %32 = icmp ult i32 %31, 10
-  %or.cond17 = and i1 %20, %32
+  %31 = icmp samesign ugt i32 %24, 47
+  %or.cond14 = select i1 %20, i1 %31, i1 false
+  %32 = icmp samesign ult i32 %24, 58
+  %or.cond17 = select i1 %or.cond14, i1 %32, i1 false
   br i1 %or.cond17, label %48, label %33
 
 33:                                               ; preds = %30
@@ -17530,7 +17531,7 @@ _ZN13GrowableArrayIP13InstanceKlassEC2Ei.exit.i:  ; preds = %.lr.ph.preheader.i.
   %160 = add nsw i32 %149, 1
   %161 = icmp sgt i32 %149, -1
   %162 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %160)
-  %163 = icmp ult i32 %162, 2
+  %163 = icmp samesign ult i32 %162, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %161, i1 %163, i1 false
   %164 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %160, i1 true)
   %165 = sub nuw nsw i32 32, %164
@@ -17615,7 +17616,7 @@ _ZL17append_interfacesP13GrowableArrayIP13InstanceKlassEPK5ArrayIS1_E.exit.i: ; 
   %199 = add nsw i32 %188, 1
   %200 = icmp sgt i32 %188, -1
   %201 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %199)
-  %202 = icmp ult i32 %201, 2
+  %202 = icmp samesign ult i32 %201, 2
   %or.cond.i.i.i.i.i.i64.i = select i1 %200, i1 %202, i1 false
   %203 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %204 = sub nuw nsw i32 32, %203
@@ -17692,7 +17693,7 @@ _ZL17append_interfacesP13GrowableArrayIP13InstanceKlassEPK5ArrayIS1_E.exit72.i: 
   %232 = add nsw i32 %221, 1
   %233 = icmp sgt i32 %221, -1
   %234 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %232)
-  %235 = icmp ult i32 %234, 2
+  %235 = icmp samesign ult i32 %234, 2
   %or.cond.i.i.i.i.i.i80.i = select i1 %233, i1 %235, i1 false
   %236 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %232, i1 true)
   %237 = sub nuw nsw i32 32, %236
@@ -19263,8 +19264,8 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %22 = getelementptr inbounds i8, ptr %21, i64 -2
   %.0.i.i.i = load i16, ptr %22, align 1
   %23 = icmp ne i16 %.0.i.i.i, 0
-  %24 = icmp ult i32 %19, %1
-  %25 = and i1 %24, %23
+  %24 = icmp samesign ult i32 %19, %1
+  %25 = select i1 %23, i1 %24, i1 false
   br i1 %25, label %.lr.ph49.preheader, label %_ZL15skip_annotationPKhii.exit
 
 .lr.ph49.preheader:                               ; preds = %18
@@ -19278,8 +19279,8 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %28 = add nsw i32 %.048, -1
   %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.147)
   %30 = icmp ugt i32 %.048, 1
-  %31 = icmp ult i32 %29, %1
-  %32 = and i1 %31, %30
+  %31 = icmp samesign ult i32 %29, %1
+  %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph49, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !84
 
 33:                                               ; preds = %5
@@ -19295,8 +19296,8 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %.0.i.i.i.i = load i16, ptr %39, align 1
   %40 = add nsw i32 %1, -2
   %41 = icmp ne i16 %.0.i.i.i.i, 0
-  %42 = icmp ult i32 %36, %1
-  %43 = and i1 %42, %41
+  %42 = icmp samesign ult i32 %36, %1
+  %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph.preheader, label %_ZL15skip_annotationPKhii.exit
 
 .lr.ph.preheader:                                 ; preds = %35
@@ -19315,8 +19316,8 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %48 = add nuw nsw i32 %.017.i44, 2
   %49 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %48)
   %50 = icmp sgt i32 %.in, 1
-  %51 = icmp ult i32 %49, %1
-  %52 = and i1 %51, %50
+  %51 = icmp samesign ult i32 %49, %1
+  %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %.lr.ph, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
 
 _ZL15skip_annotationPKhii.exit:                   ; preds = %46, %.lr.ph, %.lr.ph49, %35, %18, %33, %13, %10, %5, %16, %3

@@ -3128,7 +3128,7 @@ define hidden noundef i32 @PIDL_dissect_cvstring(ptr noundef %0, i32 noundef %1,
 
 43:                                               ; preds = %41
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, ptr noundef nonnull %39) #16
-  %44 = icmp ugt i32 %11, 1
+  %44 = icmp samesign ugt i32 %11, 1
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %43

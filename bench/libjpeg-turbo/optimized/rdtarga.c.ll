@@ -392,7 +392,7 @@ read_byte.exit:                                   ; preds = %191, %196
   br i1 %.not141, label %277, label %203
 
 203:                                              ; preds = %._crit_edge
-  %204 = icmp ult i32 %31, 257
+  %204 = icmp samesign ult i32 %31, 257
   %205 = getelementptr inbounds i8, ptr %3, i64 3
   %206 = load i16, ptr %205, align 1
   %.not143 = icmp eq i16 %206, 0
@@ -945,7 +945,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %5, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %2

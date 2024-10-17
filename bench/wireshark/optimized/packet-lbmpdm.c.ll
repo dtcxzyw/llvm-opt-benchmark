@@ -567,7 +567,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %154 = load i32, ptr %.sroa.8.0105, align 8
   %155 = zext i32 %154 to i64
-  %156 = icmp ult i64 %indvars.iv.next.i, %155
+  %156 = icmp samesign ult i64 %indvars.iv.next.i, %155
   br i1 %156, label %143, label %dissect_segment_data.exit, !llvm.loop !6
 
 157:                                              ; preds = %107

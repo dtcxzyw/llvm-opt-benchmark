@@ -2750,7 +2750,7 @@ get_orlov_stats.exit:                             ; preds = %97
   %109 = icmp uge i32 %105, %.ph34
   %110 = icmp ult i32 %103, %30
   %111 = select i1 %109, i1 true, i1 %110
-  %112 = icmp ugt i64 %35, %108
+  %112 = icmp samesign ugt i64 %35, %108
   %113 = select i1 %111, i1 true, i1 %112
   br i1 %113, label %get_orlov_stats.exit.thread, label %.thread.split
 

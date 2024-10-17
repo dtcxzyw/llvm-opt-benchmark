@@ -817,7 +817,7 @@ if.else.i:                                        ; preds = %sw.bb9.i
   br i1 %cmp.i37.i, label %host_to_target_signal.exit45.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.else.i
-  %cmp1.i39.i = icmp ugt i32 %and.i, 64
+  %cmp1.i39.i = icmp samesign ugt i32 %and.i, 64
   br i1 %cmp1.i39.i, label %host_to_target_signal.exit45.i, label %if.end3.i40.i
 
 if.end3.i40.i:                                    ; preds = %if.end.i38.i
@@ -978,7 +978,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %hsig.0.i = add i32 %hsig.026.i, 1
   %call1.i = tail call i32 @__libc_current_sigrtmax() #16
   %cmp.i = icmp sle i32 %hsig.0.i, %call1.i
-  %cmp2.i = icmp ult i32 %tsig.025.i, 64
+  %cmp2.i = icmp samesign ult i32 %tsig.025.i, 64
   %3 = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %3, label %for.body.i, label %for.body10.i.preheader, !llvm.loop !9
 
@@ -1429,7 +1429,7 @@ if.else.i45:                                      ; preds = %sw.bb9.i
   br i1 %cmp.i37.i, label %host_to_target_signal.exit45.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.else.i45
-  %cmp1.i39.i = icmp ugt i32 %and.i46, 64
+  %cmp1.i39.i = icmp samesign ugt i32 %and.i46, 64
   br i1 %cmp1.i39.i, label %host_to_target_signal.exit45.i, label %if.end3.i40.i
 
 if.end3.i40.i:                                    ; preds = %if.end.i38.i

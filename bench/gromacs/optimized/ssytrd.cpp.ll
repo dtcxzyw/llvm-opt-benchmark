@@ -259,7 +259,7 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %136 = load float, ptr %135, align 4
   %137 = getelementptr inbounds float, ptr %22, i64 %indvars.iv196
   store float %136, ptr %137, align 4
-  %.not.not = icmp ult i64 %indvars.iv.next197, %126
+  %.not.not = icmp samesign ult i64 %indvars.iv.next197, %126
   br i1 %.not.not, label %.lr.ph184, label %._crit_edge185, !llvm.loop !7
 
 ._crit_edge185:                                   ; preds = %.lr.ph184, %100

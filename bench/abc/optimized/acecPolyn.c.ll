@@ -1975,7 +1975,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   br label %108
 
 108:                                              ; preds = %Vec_IntAppend.exit, %105
-  %or.cond3.not = icmp ult i64 %indvars.iv, 2
+  %or.cond3.not = icmp samesign ult i64 %indvars.iv, 2
   br i1 %or.cond3.not, label %112, label %109
 
 109:                                              ; preds = %108
@@ -2029,7 +2029,7 @@ Gia_ObjIsXor.exit:                                ; preds = %113
   %138 = lshr i64 %.val127, 32
   %139 = trunc nuw i64 %138 to i32
   %140 = and i32 %139, 536870911
-  %.not166 = icmp ult i32 %137, %140
+  %.not166 = icmp samesign ult i32 %137, %140
   br i1 %.not166, label %.loopexit, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %Gia_ObjIsXor.exit, %113
@@ -2058,7 +2058,7 @@ Gia_ObjIsXor.exit140:                             ; preds = %.loopexit
   %149 = lshr i64 %.val128, 32
   %150 = trunc nuw i64 %149 to i32
   %151 = and i32 %150, 536870911
-  %.not = icmp ult i32 %148, %151
+  %.not = icmp samesign ult i32 %148, %151
   br i1 %.not, label %152, label %Gia_ObjIsXor.exit140.thread
 
 152:                                              ; preds = %Gia_ObjIsXor.exit140
@@ -2893,7 +2893,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %144, %140
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds i32, ptr %151, i64 %155
   store i32 %.02732.i.i, ptr %156, align 4
-  %157 = icmp ugt i32 %.02732.i.i, 3
+  %157 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %157, label %.lr.ph.i.i, label %Vec_QuePush.exit, !llvm.loop !23
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %148, %Vec_QuePrio.exit.i.i

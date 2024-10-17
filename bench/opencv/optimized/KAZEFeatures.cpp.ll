@@ -2840,7 +2840,7 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   %.1105159 = phi i32 [ %.0104161, %.preheader157 ], [ %.2106, %101 ]
   %33 = mul nsw i32 %.091160, %.091160
   %34 = add nuw nsw i32 %33, %26
-  %35 = icmp ult i32 %34, 36
+  %35 = icmp samesign ult i32 %34, 36
   br i1 %35, label %36, label %101
 
 36:                                               ; preds = %32

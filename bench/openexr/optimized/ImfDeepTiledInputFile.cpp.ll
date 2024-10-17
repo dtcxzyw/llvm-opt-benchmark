@@ -7205,14 +7205,14 @@ for.body:                                         ; preds = %sw.bb, %for.body
 for.body13.lr.ph:                                 ; preds = %for.inc21, %for.cond10.preheader.preheader
   %indvars.iv60 = phi i64 [ 0, %for.cond10.preheader.preheader ], [ %indvars.iv.next61, %for.inc21 ]
   %numAllTiles.250 = phi i32 [ 0, %for.cond10.preheader.preheader ], [ %add17, %for.inc21 ]
-  %cmp2.not.i17 = icmp ult i64 %indvars.iv60, %6
+  %cmp2.not.i17 = icmp samesign ult i64 %indvars.iv60, %6
   br label %for.body13
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %_ZNK7Imf_3_218DeepTiledInputFile9numYTilesEi.exit
   %indvars.iv = phi i64 [ 0, %for.body13.lr.ph ], [ %indvars.iv.next, %_ZNK7Imf_3_218DeepTiledInputFile9numYTilesEi.exit ]
   %numAllTiles.347 = phi i32 [ %numAllTiles.250, %for.body13.lr.ph ], [ %add17, %_ZNK7Imf_3_218DeepTiledInputFile9numYTilesEi.exit ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %_iex_throw_s.i)
-  %cmp2.not.i = icmp ult i64 %indvars.iv, %5
+  %cmp2.not.i = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp2.not.i, label %_ZNK7Imf_3_218DeepTiledInputFile9numXTilesEi.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body13
@@ -7339,12 +7339,12 @@ _ZNK7Imf_3_218DeepTiledInputFile9numYTilesEi.exit: ; preds = %_ZNK7Imf_3_218Deep
   %mul16 = mul nsw i32 %21, %14
   %add17 = add nsw i32 %mul16, %numAllTiles.347
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp12 = icmp ult i64 %indvars.iv.next, %7
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp12, label %for.body13, label %for.inc21, !llvm.loop !28
 
 for.inc21:                                        ; preds = %_ZNK7Imf_3_218DeepTiledInputFile9numYTilesEi.exit
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %cmp8 = icmp ult i64 %indvars.iv.next61, %6
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next61, %6
   br i1 %cmp8, label %for.body13.lr.ph, label %sw.epilog, !llvm.loop !29
 
 sw.default:                                       ; preds = %entry

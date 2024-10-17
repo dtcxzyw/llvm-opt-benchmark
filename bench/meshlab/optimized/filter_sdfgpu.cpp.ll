@@ -7548,7 +7548,7 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
   br i1 %65, label %66, label %112
 
 66:                                               ; preds = %60
-  %67 = icmp ugt i32 %.04753, 1
+  %67 = icmp samesign ugt i32 %.04753, 1
   br i1 %67, label %68, label %94
 
 68:                                               ; preds = %66
@@ -7612,7 +7612,7 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
   br i1 %117, label %118, label %140
 
 118:                                              ; preds = %112
-  %119 = icmp ugt i32 %.04753, 1
+  %119 = icmp samesign ugt i32 %.04753, 1
   br i1 %119, label %120, label %134
 
 120:                                              ; preds = %118

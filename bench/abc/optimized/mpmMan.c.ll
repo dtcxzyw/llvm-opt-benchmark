@@ -1436,7 +1436,7 @@ define void @Mpm_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %44 = lshr i64 %42, %43
   %45 = trunc i64 %44 to i32
   %46 = and i32 %45, 15
-  %47 = icmp ult i32 %46, 10
+  %47 = icmp samesign ult i32 %46, 10
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %41

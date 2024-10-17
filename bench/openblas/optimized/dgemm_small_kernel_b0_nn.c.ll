@@ -1320,7 +1320,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
 
 835:                                              ; preds = %833, %802
   %836 = add nuw nsw i64 %803, 4
-  %837 = icmp ult i64 %836, %769
+  %837 = icmp samesign ult i64 %836, %769
   br i1 %837, label %802, label %.loopexit155, !llvm.loop !39
 
 .loopexit154:                                     ; preds = %.loopexit153.us, %784, %.loopexit155
@@ -1471,7 +1471,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %959 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %934, <8 x double> %944, <8 x double> %927)
   %960 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %936, <8 x double> %944, <8 x double> %928)
   %961 = add nuw nsw i64 %912, 8
-  %962 = icmp ult i64 %961, %768
+  %962 = icmp samesign ult i64 %961, %768
   br i1 %962, label %911, label %.loopexit149, !llvm.loop !40
 
 .loopexit149:                                     ; preds = %911, %897
@@ -1711,7 +1711,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1168 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1155, <8 x double> %1161, <8 x double> %1148)
   %1169 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1157, <8 x double> %1161, <8 x double> %1149)
   %1170 = add nuw nsw i64 %1141, 8
-  %1171 = icmp ult i64 %1170, %768
+  %1171 = icmp samesign ult i64 %1170, %768
   br i1 %1171, label %1140, label %.loopexit148, !llvm.loop !42
 
 .loopexit148:                                     ; preds = %1140, %1132
@@ -1845,7 +1845,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1282 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1275, <8 x double> %1279, <8 x double> %1268)
   %1283 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1277, <8 x double> %1279, <8 x double> %1269)
   %1284 = add nuw nsw i64 %1265, 8
-  %1285 = icmp ult i64 %1284, %768
+  %1285 = icmp samesign ult i64 %1284, %768
   br i1 %1285, label %1264, label %.loopexit147, !llvm.loop !44
 
 .loopexit147:                                     ; preds = %1264, %1259
@@ -2012,7 +2012,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1417 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1400, <8 x double> %1410, <8 x double> %1392)
   %1418 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1402, <8 x double> %1410, <8 x double> %1391)
   %1419 = add nuw nsw i64 %1390, 8
-  %1420 = icmp ult i64 %1419, %768
+  %1420 = icmp samesign ult i64 %1419, %768
   br i1 %1420, label %1389, label %.loopexit143, !llvm.loop !47
 
 .loopexit143:                                     ; preds = %1389, %1375
@@ -2163,7 +2163,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1548 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1539, <8 x double> %1545, <8 x double> %1535)
   %1549 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1541, <8 x double> %1545, <8 x double> %1534)
   %1550 = add nuw nsw i64 %1533, 8
-  %1551 = icmp ult i64 %1550, %768
+  %1551 = icmp samesign ult i64 %1550, %768
   br i1 %1551, label %1532, label %.loopexit142, !llvm.loop !49
 
 .loopexit142:                                     ; preds = %1532, %1524
@@ -2257,7 +2257,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1620 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1615, <8 x double> %1619, <8 x double> %1613)
   %1621 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1617, <8 x double> %1619, <8 x double> %1612)
   %1622 = add nuw nsw i64 %1611, 8
-  %1623 = icmp ult i64 %1622, %768
+  %1623 = icmp samesign ult i64 %1622, %768
   br i1 %1623, label %1610, label %.loopexit141, !llvm.loop !51
 
 .loopexit141:                                     ; preds = %1610, %1605
@@ -2368,7 +2368,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1704 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1693, <8 x double> %1699, <8 x double> %1689)
   %1705 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1693, <8 x double> %1701, <8 x double> %1688)
   %1706 = add nuw nsw i64 %1687, 8
-  %1707 = icmp ult i64 %1706, %768
+  %1707 = icmp samesign ult i64 %1706, %768
   br i1 %1707, label %1686, label %.loopexit136, !llvm.loop !54
 
 .loopexit136:                                     ; preds = %1686, %1672
@@ -2476,7 +2476,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1793 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1788, <8 x double> %1790, <8 x double> %1786)
   %1794 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1788, <8 x double> %1792, <8 x double> %1785)
   %1795 = add nuw nsw i64 %1784, 8
-  %1796 = icmp ult i64 %1795, %768
+  %1796 = icmp samesign ult i64 %1795, %768
   br i1 %1796, label %1783, label %.loopexit135, !llvm.loop !56
 
 .loopexit135:                                     ; preds = %1783, %1775
@@ -2548,7 +2548,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1845 = load <8 x double>, ptr %1844, align 1, !tbaa !3
   %1846 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1843, <8 x double> %1845, <8 x double> %1841)
   %1847 = add nuw nsw i64 %1840, 8
-  %1848 = icmp ult i64 %1847, %768
+  %1848 = icmp samesign ult i64 %1847, %768
   br i1 %1848, label %1839, label %.loopexit134, !llvm.loop !58
 
 .loopexit134:                                     ; preds = %1839, %1834

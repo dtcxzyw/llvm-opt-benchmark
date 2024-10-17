@@ -4080,7 +4080,7 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
 68:                                               ; preds = %36, %45, %56
   %69 = load i8, ptr %18, align 1
   %70 = zext i8 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %68, %3

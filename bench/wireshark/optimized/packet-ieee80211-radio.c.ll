@@ -1263,7 +1263,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %455 = lshr i16 %454, 4
   %456 = and i16 %455, 15
   %457 = zext nneg i16 %456 to i64
-  %458 = icmp ult i16 %456, 4
+  %458 = icmp samesign ult i16 %456, 4
   %459 = lshr i8 %450, 3
   %460 = and i8 %459, 15
   %461 = zext nneg i8 %460 to i32
@@ -1272,8 +1272,8 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %464 = and i16 %463, 3
   %465 = add nsw i32 %461, -1
   %466 = icmp ult i32 %465, 8
-  %467 = icmp ult i16 %462, 12
-  %or.cond.i = and i1 %466, %467
+  %467 = icmp samesign ult i16 %462, 12
+  %or.cond.i = select i1 %466, i1 %467, i1 false
   br i1 %458, label %468, label %475
 
 468:                                              ; preds = %452
@@ -1292,7 +1292,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %or.cond.i, label %476, label %ieee80211_he_ofdm_rate.exit.thread
 
 476:                                              ; preds = %475
-  %477 = icmp ult i16 %456, 10
+  %477 = icmp samesign ult i16 %456, 10
   %478 = icmp ne i16 %464, 3
   %or.cond3.i = and i1 %477, %478
   br i1 %or.cond3.i, label %479, label %ieee80211_he_ofdm_rate.exit.thread

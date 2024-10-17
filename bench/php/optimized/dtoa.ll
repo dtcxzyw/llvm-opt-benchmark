@@ -574,7 +574,7 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
   %312 = getelementptr inbounds i8, ptr %.018.i.i, i64 -1
   store i8 %311, ptr %312, align 1
   %313 = udiv i32 %.0.i.i25, 10
-  %.not22.i.i = icmp ult i32 %.0.i.i25, 10
+  %.not22.i.i = icmp samesign ult i32 %.0.i.i25, 10
   br i1 %.not22.i.i, label %314, label %308
 
 314:                                              ; preds = %308
@@ -637,7 +637,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
   %340 = getelementptr inbounds i8, ptr %.018.i122.i, i64 -1
   store i8 %339, ptr %340, align 1
   %341 = udiv i32 %.0.i123.i, 10
-  %.not22.i124.i = icmp ult i32 %.0.i123.i, 10
+  %.not22.i124.i = icmp samesign ult i32 %.0.i123.i, 10
   br i1 %.not22.i124.i, label %342, label %336
 
 342:                                              ; preds = %336

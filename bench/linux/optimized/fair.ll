@@ -956,7 +956,7 @@ define dso_local void @__update_idle_core(ptr nocapture noundef readonly %0) loc
   %34 = phi i64 [ %.pre, %._crit_edge ], [ %16, %28 ]
   %35 = add nuw nsw i64 %25, 1
   %36 = and i64 %35, 127
-  %37 = icmp ult i64 %36, 64
+  %37 = icmp samesign ult i64 %36, 64
   br i1 %37, label %15, label %.thread, !prof !20, !llvm.loop !21
 
 .thread:                                          ; preds = %15, %33, %24
@@ -2199,7 +2199,7 @@ define dso_local void @update_group_capacity(ptr nocapture noundef readonly %0, 
   %91 = tail call i64 @llvm.umax.i64(i64 %88, i64 %73)
   %92 = add nuw nsw i64 %78, 1
   %93 = and i64 %92, 127
-  %94 = icmp ult i64 %93, 64
+  %94 = icmp samesign ult i64 %93, 64
   br i1 %94, label %69, label %.thread, !prof !20, !llvm.loop !40
 
 95:                                               ; preds = %61
@@ -2619,7 +2619,7 @@ define internal fastcc void @_nohz_idle_balance(ptr nocapture noundef readonly %
   br i1 %111, label %112, label %.thread8
 
 112:                                              ; preds = %105
-  %113 = icmp ult i64 %110, 64
+  %113 = icmp samesign ult i64 %110, 64
   br i1 %113, label %114, label %.thread8, !prof !15
 
 114:                                              ; preds = %112
@@ -2827,7 +2827,7 @@ define dso_local void @trigger_load_balance(ptr noundef %0) local_unnamed_addr #
 97:                                               ; preds = %93, %91
   %98 = add nuw nsw i64 %88, 1
   %99 = and i64 %98, 127
-  %100 = icmp ugt i64 %99, 63
+  %100 = icmp samesign ugt i64 %99, 63
   br i1 %100, label %.thread.loopexit, label %79, !prof !49, !llvm.loop !61
 
 .thread.loopexit:                                 ; preds = %87, %97, %79
@@ -2967,7 +2967,7 @@ define dso_local void @free_fair_sched_group(ptr nocapture noundef readonly %0) 
 28:                                               ; preds = %24, %21
   %29 = add nuw nsw i64 %11, 1
   %30 = and i64 %29, 127
-  %31 = icmp ult i64 %30, 64
+  %31 = icmp samesign ult i64 %30, 64
   br i1 %31, label %4, label %.thread, !prof !20, !llvm.loop !62
 
 .thread:                                          ; preds = %4, %28, %10
@@ -3101,7 +3101,7 @@ define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef align 64 dereferenceable(64) %80, i8 0, i64 64, i1 false)
   %81 = add nuw nsw i64 %26, 1
   %82 = and i64 %81, 127
-  %83 = icmp ult i64 %82, 64
+  %83 = icmp samesign ult i64 %82, 64
   br i1 %83, label %19, label %.thread, !prof !20, !llvm.loop !63
 
 84:                                               ; preds = %39
@@ -3208,7 +3208,7 @@ define dso_local void @online_fair_sched_group(ptr nocapture noundef readonly %0
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !58
   %22 = add nuw nsw i64 %10, 1
   %23 = and i64 %22, 127
-  %24 = icmp ult i64 %23, 64
+  %24 = icmp samesign ult i64 %23, 64
   br i1 %24, label %3, label %.thread, !prof !20, !llvm.loop !64
 
 .thread:                                          ; preds = %3, %13, %9
@@ -3406,7 +3406,7 @@ define dso_local void @unregister_fair_sched_group(ptr nocapture noundef readonl
 83:                                               ; preds = %82, %79, %47
   %84 = add nuw nsw i64 %12, 1
   %85 = and i64 %84, 127
-  %86 = icmp ult i64 %85, 64
+  %86 = icmp samesign ult i64 %85, 64
   br i1 %86, label %5, label %.thread, !prof !20, !llvm.loop !65
 
 .thread:                                          ; preds = %5, %83, %11
@@ -3559,7 +3559,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__sched_group_set_shares(p
 81:                                               ; preds = %80, %.loopexit
   %82 = add nuw nsw i64 %22, 1
   %83 = and i64 %82, 127
-  %84 = icmp ult i64 %83, 64
+  %84 = icmp samesign ult i64 %83, 64
   br i1 %84, label %15, label %.thread, !prof !20, !llvm.loop !68
 
 .thread:                                          ; preds = %15, %81, %21, %8, %2
@@ -3708,7 +3708,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef
 87:                                               ; preds = %86, %.critedge
   %88 = add nuw nsw i64 %25, 1
   %89 = and i64 %88, 127
-  %90 = icmp ult i64 %89, 64
+  %90 = icmp samesign ult i64 %89, 64
   br i1 %90, label %18, label %.thread, !prof !20, !llvm.loop !73
 
 .thread:                                          ; preds = %18, %87, %24
@@ -5015,7 +5015,7 @@ define internal void @dequeue_task_fair(ptr noundef %0, ptr noundef %1, i32 noun
 
 418:                                              ; preds = %415
   %419 = and i64 %412, 4294967295
-  %420 = icmp ugt i64 %419, 1024
+  %420 = icmp samesign ugt i64 %419, 1024
   br i1 %420, label %453, label %421
 
 421:                                              ; preds = %418
@@ -6448,7 +6448,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %596, label %597, label %.thread92
 
 597:                                              ; preds = %593
-  %598 = icmp ult i64 %595, 64
+  %598 = icmp samesign ult i64 %595, 64
   br i1 %598, label %599, label %.thread92, !prof !15
 
 599:                                              ; preds = %597
@@ -6568,7 +6568,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
 675:                                              ; preds = %662, %657
   %676 = add nuw nsw i64 %654, 1
   %677 = and i64 %676, 127
-  %678 = icmp ugt i64 %677, 63
+  %678 = icmp samesign ugt i64 %677, 63
   br i1 %678, label %.thread96, label %641, !prof !49, !llvm.loop !111
 
 679:                                              ; preds = %662, %659
@@ -6735,7 +6735,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   %786 = phi i8 [ 0, %760 ], [ 0, %773 ], [ %743, %778 ], [ %743, %779 ]
   %787 = add nuw nsw i64 %752, 1
   %788 = and i64 %787, 127
-  %789 = icmp ult i64 %788, 64
+  %789 = icmp samesign ult i64 %788, 64
   br i1 %789, label %741, label %.thread.i, !prof !20, !llvm.loop !113
 
 .thread.i:                                        ; preds = %785, %751, %741
@@ -6804,7 +6804,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br i1 %826, label %827, label %.thread102
 
 827:                                              ; preds = %.thread100
-  %828 = icmp ult i64 %825, 64
+  %828 = icmp samesign ult i64 %825, 64
   br i1 %828, label %829, label %.thread102, !prof !15
 
 829:                                              ; preds = %827
@@ -6955,7 +6955,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   %921 = phi i8 [ 0, %895 ], [ 0, %908 ], [ %878, %913 ], [ %878, %914 ]
   %922 = add nuw nsw i64 %887, 1
   %923 = and i64 %922, 127
-  %924 = icmp ult i64 %923, 64
+  %924 = icmp samesign ult i64 %923, 64
   br i1 %924, label %876, label %.thread.i72, !prof !20, !llvm.loop !113
 
 .thread.i72:                                      ; preds = %920, %886, %876
@@ -7021,7 +7021,7 @@ select_idle_core.exit75:                          ; preds = %.thread.i72
   br i1 %961, label %962, label %.thread113
 
 962:                                              ; preds = %.thread111
-  %963 = icmp ult i64 %960, 64
+  %963 = icmp samesign ult i64 %960, 64
   br i1 %963, label %964, label %.thread113, !prof !15
 
 964:                                              ; preds = %962
@@ -7772,7 +7772,7 @@ define dso_local void @init_sched_fair_class() local_unnamed_addr #0 section ".i
   store i64 0, ptr %22, align 8
   %23 = add nuw nsw i64 %8, 1
   %24 = and i64 %23, 127
-  %25 = icmp ult i64 %24, 64
+  %25 = icmp samesign ult i64 %24, 64
   br i1 %25, label %1, label %.thread, !prof !20, !llvm.loop !121
 
 .thread:                                          ; preds = %1, %11, %7
@@ -9176,7 +9176,7 @@ define internal fastcc void @update_load_avg(ptr noundef %0, ptr noundef %1, i32
   br label %415
 
 322:                                              ; preds = %280
-  %323 = icmp ult i32 %2, 8
+  %323 = icmp samesign ult i32 %2, 8
   br i1 %323, label %358, label %324
 
 324:                                              ; preds = %322
@@ -10482,7 +10482,7 @@ define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr nou
 141:                                              ; preds = %138, %136
   %142 = add nuw nsw i64 %133, 1
   %143 = and i64 %142, 127
-  %144 = icmp ult i64 %143, 64
+  %144 = icmp samesign ult i64 %143, 64
   br i1 %144, label %123, label %.thread69, !prof !20, !llvm.loop !138
 
 145:                                              ; preds = %138
@@ -10507,7 +10507,7 @@ define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr nou
   %158 = phi i32 [ %147, %145 ], [ %99, %111 ]
   %159 = add nuw nsw i64 %108, 1
   %160 = and i64 %159, 127
-  %161 = icmp ugt i64 %160, 63
+  %161 = icmp samesign ugt i64 %160, 63
   br i1 %161, label %.thread, label %97, !prof !49, !llvm.loop !139
 
 .thread:                                          ; preds = %97, %157, %107
@@ -10735,7 +10735,7 @@ define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr nou
   %312 = phi i32 [ %272, %280 ], [ %272, %294 ], [ %272, %310 ], [ %272, %307 ], [ %272, %300 ], [ %272, %297 ], [ %293, %292 ], [ %272, %287 ], [ %272, %277 ]
   %313 = add nuw nsw i64 %224, 1
   %314 = and i64 %313, 127
-  %315 = icmp ugt i64 %314, 63
+  %315 = icmp samesign ugt i64 %314, 63
   br i1 %315, label %.thread71, label %213, !prof !49, !llvm.loop !140
 
 .thread71:                                        ; preds = %213, %311, %223
@@ -10813,7 +10813,7 @@ define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr nou
 363:                                              ; preds = %360, %358
   %364 = add nuw nsw i64 %355, 1
   %365 = and i64 %364, 127
-  %366 = icmp ult i64 %365, 64
+  %366 = icmp samesign ult i64 %365, 64
   br i1 %366, label %345, label %.thread73, !prof !20, !llvm.loop !138
 
 .thread73:                                        ; preds = %345, %363, %354, %338, %336
@@ -11871,7 +11871,7 @@ select.unfold:                                    ; preds = %953, %956
 1038:                                             ; preds = %1035, %1033
   %1039 = add nuw nsw i64 %1030, 1
   %1040 = and i64 %1039, 127
-  %1041 = icmp ult i64 %1040, 64
+  %1041 = icmp samesign ult i64 %1040, 64
   br i1 %1041, label %.preheader111, label %.thread87, !prof !20, !llvm.loop !138
 
 .thread87:                                        ; preds = %.preheader111, %1038, %1029, %1017, %1016
@@ -11965,7 +11965,7 @@ select.unfold:                                    ; preds = %953, %956
   %1103 = phi ptr [ %966, %982 ], [ %966, %999 ], [ %966, %.thread87 ], [ %966, %1069 ], [ %966, %.loopexit112 ], [ %987, %1068 ], [ %966, %1064 ], [ %966, %1056 ], [ %1087, %1080 ], [ %1091, %1088 ], [ %1097, %1092 ]
   %1104 = add nuw nsw i64 %979, 1
   %1105 = and i64 %1104, 127
-  %1106 = icmp ugt i64 %1105, 63
+  %1106 = icmp samesign ugt i64 %1105, 63
   br i1 %1106, label %.thread85, label %964, !prof !49, !llvm.loop !142
 
 .thread85:                                        ; preds = %964, %1098, %978
@@ -12145,7 +12145,7 @@ select.unfold:                                    ; preds = %953, %956
 .preheader:                                       ; preds = %1194, %1218
   %1202 = phi i64 [ %1224, %1218 ], [ 0, %1194 ]
   %1203 = and i64 %1202, 4294967295
-  %1204 = icmp ugt i64 %1203, 63
+  %1204 = icmp samesign ugt i64 %1203, 63
   br i1 %1204, label %can_migrate_task.exit.thread, label %1205, !prof !7
 
 1205:                                             ; preds = %.preheader
@@ -12978,7 +12978,7 @@ define internal fastcc range(i32 0, 2) i32 @need_active_balance(ptr nocapture no
 39:                                               ; preds = %36, %34
   %40 = add nuw nsw i64 %31, 1
   %41 = and i64 %40, 127
-  %42 = icmp ult i64 %41, 64
+  %42 = icmp samesign ult i64 %41, 64
   br i1 %42, label %21, label %.thread, !prof !20, !llvm.loop !138
 
 .thread:                                          ; preds = %21, %39, %30, %14, %11
@@ -13037,7 +13037,7 @@ define internal fastcc range(i32 0, 2) i32 @need_active_balance(ptr nocapture no
 78:                                               ; preds = %75, %73
   %79 = add nuw nsw i64 %70, 1
   %80 = and i64 %79, 127
-  %81 = icmp ult i64 %80, 64
+  %81 = icmp samesign ult i64 %80, 64
   br i1 %81, label %60, label %.thread7, !prof !20, !llvm.loop !138
 
 .thread7:                                         ; preds = %36, %60, %78, %69, %52, %49, %6, %1
@@ -13404,7 +13404,7 @@ define internal fastcc noundef zeroext i1 @sched_use_asym_prio(ptr nocapture nou
 29:                                               ; preds = %26, %24
   %30 = add nuw nsw i64 %21, 1
   %31 = and i64 %30, 127
-  %32 = icmp ult i64 %31, 64
+  %32 = icmp samesign ult i64 %31, 64
   br i1 %32, label %11, label %.thread, !prof !20, !llvm.loop !138
 
 .thread:                                          ; preds = %11, %29, %26, %20, %3, %2
@@ -13484,7 +13484,7 @@ define internal fastcc void @kick_ilb(i32 noundef range(i32 1, 12) %0) unnamed_a
   %28 = phi i64 [ %.pre, %24 ], [ %10, %21 ]
   %29 = add nuw nsw i64 %18, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread5, label %9, !prof !49, !llvm.loop !165
 
 32:                                               ; preds = %24
@@ -14344,7 +14344,7 @@ define internal fastcc i32 @find_idlest_cpu(ptr nocapture noundef nonnull readon
 312:                                              ; preds = %311, %300, %.critedge
   %313 = add nuw nsw i64 %83, 1
   %314 = and i64 %313, 127
-  %315 = icmp ult i64 %314, 64
+  %315 = icmp samesign ult i64 %314, 64
   br i1 %315, label %76, label %.thread, !prof !20, !llvm.loop !172
 
 .thread:                                          ; preds = %76, %312, %82
@@ -14750,7 +14750,7 @@ define internal fastcc i32 @find_idlest_cpu(ptr nocapture noundef nonnull readon
   %569 = phi i64 [ %502, %542 ], [ %502, %545 ], [ %502, %547 ], [ %502, %553 ], [ %563, %555 ]
   %570 = add nuw nsw i64 %515, 1
   %571 = and i64 %570, 127
-  %572 = icmp ugt i64 %571, 63
+  %572 = icmp samesign ugt i64 %571, 63
   br i1 %572, label %.thread112, label %.preheader121, !prof !49
 
 .thread112:                                       ; preds = %.preheader121, %564, %514

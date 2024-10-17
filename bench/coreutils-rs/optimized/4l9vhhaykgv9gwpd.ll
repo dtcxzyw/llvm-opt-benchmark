@@ -1197,7 +1197,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit150.
   %or.cond = and i1 %.not126217, %158
   %spec.select = select i1 %or.cond, i8 0, i8 %.2117
   %159 = load i64, ptr %2, align 8, !range !326, !noundef !14
-  %160 = icmp ult i64 %159, 6
+  %160 = icmp samesign ult i64 %159, 6
   br i1 %160, label %switch.lookup, label %172
 
 switch.lookup:                                    ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit150.thread

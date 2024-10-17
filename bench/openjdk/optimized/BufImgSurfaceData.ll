@@ -318,21 +318,21 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %70 = lshr i32 %69, 16
   %71 = and i32 %70, 255
   %72 = and i32 %69, 254
-  %73 = icmp ugt i32 %72, 5
+  %73 = icmp samesign ugt i32 %72, 5
   %74 = and i32 %69, 65024
-  %75 = icmp ugt i32 %74, 1280
-  %or.cond.i.i = or i1 %73, %75
+  %75 = icmp samesign ugt i32 %74, 1280
+  %or.cond.i.i = select i1 %73, i1 true, i1 %75
   br i1 %or.cond.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %76
 
 76:                                               ; preds = %.preheader.split.us.us.split.us.i.i
   br i1 %64, label %79, label %77
 
 77:                                               ; preds = %76
-  %78 = icmp ult i32 %71, 250
+  %78 = icmp samesign ult i32 %71, 250
   br i1 %78, label %calculatePrimaryColorsApproximation.exit.i, label %.split.us.us.i.i
 
 79:                                               ; preds = %76
-  %80 = icmp ugt i32 %71, 5
+  %80 = icmp samesign ugt i32 %71, 5
   br i1 %80, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.us.us.split.us.i.i, !llvm.loop !6
 
 .preheader.split.us.us.split.i.i:                 ; preds = %.preheader.us.i.i, %97
@@ -347,21 +347,21 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %88 = lshr i32 %87, 16
   %89 = and i32 %88, 255
   %90 = and i32 %87, 254
-  %91 = icmp ugt i32 %90, 5
+  %91 = icmp samesign ugt i32 %90, 5
   %92 = and i32 %87, 65024
-  %93 = icmp ult i32 %92, 64000
-  %or.cond53.i.i = or i1 %91, %93
+  %93 = icmp samesign ult i32 %92, 64000
+  %or.cond53.i.i = select i1 %91, i1 true, i1 %93
   br i1 %or.cond53.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %94
 
 94:                                               ; preds = %.preheader.split.us.us.split.i.i
   br i1 %81, label %97, label %95
 
 95:                                               ; preds = %94
-  %96 = icmp ult i32 %89, 250
+  %96 = icmp samesign ult i32 %89, 250
   br i1 %96, label %calculatePrimaryColorsApproximation.exit.i, label %.split.us.us.i.i
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i32 %89, 5
+  %98 = icmp samesign ugt i32 %89, 5
   br i1 %98, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.us.us.split.i.i, !llvm.loop !6
 
 .split.us.us.i.i:                                 ; preds = %95, %77
@@ -385,21 +385,21 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %106 = lshr i32 %105, 16
   %107 = and i32 %106, 255
   %108 = and i32 %105, 254
-  %109 = icmp ult i32 %108, 250
+  %109 = icmp samesign ult i32 %108, 250
   %110 = and i32 %105, 65024
-  %111 = icmp ugt i32 %110, 1280
-  %or.cond54.i.i = or i1 %109, %111
+  %111 = icmp samesign ugt i32 %110, 1280
+  %or.cond54.i.i = select i1 %109, i1 true, i1 %111
   br i1 %or.cond54.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %112
 
 112:                                              ; preds = %.preheader.split.split.us.i.i
   br i1 %101, label %115, label %113
 
 113:                                              ; preds = %112
-  %114 = icmp ult i32 %107, 250
+  %114 = icmp samesign ult i32 %107, 250
   br i1 %114, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
 
 115:                                              ; preds = %112
-  %116 = icmp ugt i32 %107, 5
+  %116 = icmp samesign ugt i32 %107, 5
   br i1 %116, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.us.i.i, !llvm.loop !6
 
 .preheader.split.split.i.i:                       ; preds = %.preheader.i.i, %129
@@ -413,21 +413,21 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %122 = lshr i32 %121, 16
   %123 = and i32 %122, 255
   %124 = and i32 %121, 254
-  %125 = icmp ult i32 %124, 250
+  %125 = icmp samesign ult i32 %124, 250
   %126 = and i32 %121, 65024
-  %127 = icmp ult i32 %126, 64000
-  %or.cond55.i.i = or i1 %125, %127
+  %127 = icmp samesign ult i32 %126, 64000
+  %or.cond55.i.i = select i1 %125, i1 true, i1 %127
   br i1 %or.cond55.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %128
 
 128:                                              ; preds = %.preheader.split.split.i.i
   br i1 %117, label %129, label %131
 
 129:                                              ; preds = %128
-  %130 = icmp ugt i32 %123, 5
+  %130 = icmp samesign ugt i32 %123, 5
   br i1 %130, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.i.i, !llvm.loop !6
 
 131:                                              ; preds = %128
-  %132 = icmp ult i32 %123, 250
+  %132 = icmp samesign ult i32 %123, 250
   br i1 %132, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %131, %113

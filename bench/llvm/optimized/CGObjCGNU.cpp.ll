@@ -1259,7 +1259,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunction4initIJN4llvm11PointerTypeEEEEvPN5clang7Co
 
 191:                                              ; preds = %187
   %192 = and i64 %189, 9223372032559808512
-  %193 = icmp ult i64 %192, 30064771072
+  %193 = icmp samesign ult i64 %192, 30064771072
   br i1 %193, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %194
 
 194:                                              ; preds = %191, %187
@@ -5598,7 +5598,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZN5clang7CodeGen28
   %533 = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %534 = lshr i32 %533, 6
   %535 = and i32 %534, 7
-  %536 = icmp ult i32 %535, 5
+  %536 = icmp samesign ult i32 %535, 5
   br i1 %536, label %switch.lookup, label %_ZN12_GLOBAL__N_114CGObjCGNUstep217FlagsForOwnershipEN5clang10Qualifiers12ObjCLifetimeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit
@@ -19644,8 +19644,8 @@ _ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_20ConstantArrayBuild
 _ZN12_GLOBAL__N_19CGObjCGNU9isRuntimeEN5clang11ObjCRuntime4KindEjj.exit.i: ; preds = %47
   %52 = icmp ne i32 %50, 1
   %53 = and i64 %49, 9223372028264841216
-  %54 = icmp ugt i64 %53, 21474836480
-  %spec.select.i.i = or i1 %52, %54
+  %54 = icmp samesign ugt i64 %53, 21474836480
+  %spec.select.i.i = select i1 %52, i1 true, i1 %54
   br i1 %spec.select.i.i, label %55, label %_ZN12_GLOBAL__N_19CGObjCGNU9isRuntimeEN5clang11ObjCRuntime4KindEjj.exit.thread.i
 
 55:                                               ; preds = %_ZN12_GLOBAL__N_19CGObjCGNU9isRuntimeEN5clang11ObjCRuntime4KindEjj.exit.i
@@ -25246,7 +25246,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU12MakeBitFieldEN4
   %.136 = or i32 %39, %.03544
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %40 = add nuw nsw i32 %.03743, 1
-  %41 = icmp ult i32 %.03743, 31
+  %41 = icmp samesign ult i32 %.03743, 31
   %42 = icmp slt i64 %indvars.iv.next, %32
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %34, label %44, !llvm.loop !500

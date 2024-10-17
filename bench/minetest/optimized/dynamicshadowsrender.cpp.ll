@@ -5071,7 +5071,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont6.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %cond.i.i, %invoke.cont6.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -5526,7 +5526,7 @@ while.body.i.i.i465:                              ; preds = %while.body.i.i.i465
 
 while.end.i.i.i449:                               ; preds = %while.body.i.i.i465, %invoke.cont6.i.i445
   %__val.addr.0.lcssa.i.i.i450 = phi i32 [ %cond.i.i426, %invoke.cont6.i.i445 ], [ %div.i.i.i470, %while.body.i.i.i465 ]
-  %cmp9.i.i.i451 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i450, 9
+  %cmp9.i.i.i451 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i450, 9
   br i1 %cmp9.i.i.i451, label %if.then.i.i.i455, label %if.else.i.i.i452
 
 if.then.i.i.i455:                                 ; preds = %while.end.i.i.i449
@@ -5995,7 +5995,7 @@ while.body.i.i.i656:                              ; preds = %while.body.i.i.i656
 
 while.end.i.i.i640:                               ; preds = %while.body.i.i.i656, %invoke.cont6.i.i636
   %__val.addr.0.lcssa.i.i.i641 = phi i32 [ %cond.i.i617, %invoke.cont6.i.i636 ], [ %div.i.i.i661, %while.body.i.i.i656 ]
-  %cmp9.i.i.i642 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i641, 9
+  %cmp9.i.i.i642 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i641, 9
   br i1 %cmp9.i.i.i642, label %if.then.i.i.i646, label %if.else.i.i.i643
 
 if.then.i.i.i646:                                 ; preds = %while.end.i.i.i640
@@ -6455,7 +6455,7 @@ while.body.i.i.i847:                              ; preds = %while.body.i.i.i847
 
 while.end.i.i.i831:                               ; preds = %while.body.i.i.i847, %invoke.cont6.i.i827
   %__val.addr.0.lcssa.i.i.i832 = phi i32 [ %cond.i.i808, %invoke.cont6.i.i827 ], [ %div.i.i.i852, %while.body.i.i.i847 ]
-  %cmp9.i.i.i833 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i832, 9
+  %cmp9.i.i.i833 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i832, 9
   br i1 %cmp9.i.i.i833, label %if.then.i.i.i837, label %if.else.i.i.i834
 
 if.then.i.i.i837:                                 ; preds = %while.end.i.i.i831
@@ -6921,7 +6921,7 @@ while.body.i.i.i1038:                             ; preds = %while.body.i.i.i103
 
 while.end.i.i.i1022:                              ; preds = %while.body.i.i.i1038, %invoke.cont6.i.i1018
   %__val.addr.0.lcssa.i.i.i1023 = phi i32 [ %cond.i.i999, %invoke.cont6.i.i1018 ], [ %div.i.i.i1043, %while.body.i.i.i1038 ]
-  %cmp9.i.i.i1024 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i1023, 9
+  %cmp9.i.i.i1024 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i1023, 9
   br i1 %cmp9.i.i.i1024, label %if.then.i.i.i1028, label %if.else.i.i.i1025
 
 if.then.i.i.i1028:                                ; preds = %while.end.i.i.i1022
@@ -8791,7 +8791,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %.noexc
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

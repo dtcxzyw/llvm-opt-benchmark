@@ -2433,7 +2433,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %680 = getelementptr inbounds i8, ptr %672, i64 20
   %681 = load i32, ptr %680, align 4
   %682 = zext i32 %681 to i64
-  %683 = icmp ugt i64 %679, %682
+  %683 = icmp samesign ugt i64 %679, %682
   br i1 %683, label %684, label %.thread77
 
 684:                                              ; preds = %673
@@ -6156,7 +6156,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 507:                                              ; preds = %496
   %508 = zext nneg i32 %406 to i64
   %509 = sub nuw nsw i64 32768, %508
-  %510 = icmp ugt i64 %509, %480
+  %510 = icmp samesign ugt i64 %509, %480
   br i1 %510, label %511, label %.thread103.thread
 
 511:                                              ; preds = %507
@@ -6301,7 +6301,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 602:                                              ; preds = %587
   %603 = zext nneg i32 %406 to i64
   %604 = sub nuw nsw i64 32768, %603
-  %605 = icmp ugt i64 %604, %574
+  %605 = icmp samesign ugt i64 %604, %574
   br i1 %605, label %606, label %.thread103
 
 606:                                              ; preds = %602
@@ -11191,7 +11191,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
 161:                                              ; preds = %182, %152
   %162 = phi i64 [ 0, %152 ], [ %189, %182 ]
   %163 = phi i32 [ %111, %152 ], [ %188, %182 ]
-  %164 = icmp ugt i64 %162, %159
+  %164 = icmp samesign ugt i64 %162, %159
   br i1 %164, label %172, label %165
 
 165:                                              ; preds = %161
@@ -11207,7 +11207,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
 
 172:                                              ; preds = %169, %165, %161
   %173 = phi i64 [ 0, %161 ], [ %171, %169 ], [ 0, %165 ]
-  %174 = icmp ugt i64 %162, %158
+  %174 = icmp samesign ugt i64 %162, %158
   br i1 %174, label %182, label %175
 
 175:                                              ; preds = %172
@@ -11463,7 +11463,7 @@ define dso_local i32 @ext4_ext_clear_bb(ptr noundef %0) local_unnamed_addr #0 al
   %90 = add nuw nsw i64 %81, 1
   %91 = load i16, ptr %78, align 8
   %92 = zext i16 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.preheader, label %.loopexit10.loopexit, !llvm.loop !187
 
 .loopexit10.loopexit:                             ; preds = %.preheader

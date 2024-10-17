@@ -2718,7 +2718,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN110_$LT$core..i
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 368
-  %22 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph.i, 12
+  %22 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph.i, 12
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds ptr, ptr %21, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %24 = load ptr, ptr %23, align 8, !noalias !713, !nonnull !79, !noundef !79
@@ -2800,7 +2800,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN110_$LT$core..i
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 368
-  %23 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph.i.i, 12
+  %23 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph.i.i, 12
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %25 = load ptr, ptr %24, align 8, !noalias !724, !nonnull !79, !noundef !79
@@ -3467,13 +3467,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %227 = getelementptr inbounds ptr, ptr %225, i64 %205
   store ptr %185, ptr %227, align 8, !alias.scope !887, !noalias !890
   store i16 %204, ptr %194, align 2, !noalias !890
-  %228 = icmp ult i64 %205, %226
+  %228 = icmp samesign ult i64 %205, %226
   br i1 %228, label %.lr.ph.i.i.i.i, label %.thread34.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %224, %.lr.ph.i.i.i.i
   %.sroa.0.06.i.i.i.i = phi i64 [ %229, %.lr.ph.i.i.i.i ], [ %205, %224 ]
   %229 = add nuw nsw i64 %.sroa.0.06.i.i.i.i, 1
-  %230 = icmp ult i64 %.sroa.0.06.i.i.i.i, 12
+  %230 = icmp samesign ult i64 %.sroa.0.06.i.i.i.i, 12
   tail call void @llvm.assume(i1 %230)
   %231 = getelementptr inbounds ptr, ptr %225, i64 %.sroa.0.06.i.i.i.i
   %232 = load ptr, ptr %231, align 8, !noalias !890, !nonnull !79, !noundef !79
@@ -3640,10 +3640,10 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 
 299:                                              ; preds = %299, %297
   %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %297 ], [ %spec.select7.i.i.i.i.i, %299 ]
-  %300 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, %289
+  %300 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, %289
   %301 = zext i1 %300 to i64
   %spec.select7.i.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i.i, %301
-  %302 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, 12
+  %302 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, 12
   tail call void @llvm.assume(i1 %302)
   %303 = getelementptr inbounds ptr, ptr %290, i64 %.sroa.0.011.i.i.i.i.i
   %304 = load ptr, ptr %303, align 8, !alias.scope !929, !noalias !932, !nonnull !79, !noundef !79
@@ -3652,7 +3652,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %306 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i.i to i16
   %307 = getelementptr inbounds i8, ptr %304, i64 360
   store i16 %306, ptr %307, align 8, !noalias !932
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i.i, %289
+  %.not.i.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i.i, %289
   %or.cond.i.not.i.i.i.i = select i1 %300, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i.i, label %299, label %311
 
@@ -4716,7 +4716,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 33:                                               ; preds = %.lr.ph166, %56
   %34 = phi i64 [ 0, %.lr.ph166 ], [ %62, %56 ]
   %.sroa.6.0164 = phi i64 [ 0, %.lr.ph166 ], [ %38, %56 ]
-  %35 = icmp ult i64 %.sroa.6.0164, 11
+  %35 = icmp samesign ult i64 %.sroa.6.0164, 11
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds i128, ptr %1, i64 %.sroa.6.0164
   %37 = getelementptr inbounds { ptr, ptr }, ptr %30, i64 %.sroa.6.0164
@@ -4783,7 +4783,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %62, ptr %27, align 8
   %63 = load i16, ptr %28, align 2, !noundef !79
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %38, %64
+  %65 = icmp samesign ult i64 %38, %64
   br i1 %65, label %33, label %._crit_edge167
 
 66:                                               ; preds = %._crit_edge, %._crit_edge167
@@ -4875,7 +4875,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 96:                                               ; preds = %.lr.ph, %134
   %.sroa.7.0163 = phi i64 [ 0, %.lr.ph ], [ %100, %134 ]
-  %97 = icmp ult i64 %.sroa.7.0163, 11
+  %97 = icmp samesign ult i64 %.sroa.7.0163, 11
   tail call void @llvm.assume(i1 %97)
   %98 = getelementptr inbounds i128, ptr %1, i64 %.sroa.7.0163
   %99 = getelementptr inbounds { ptr, ptr }, ptr %91, i64 %.sroa.7.0163
@@ -5002,7 +5002,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %148 = load i16, ptr %89, align 2, !noundef !79
   %149 = zext i16 %148 to i64
-  %150 = icmp ult i64 %100, %149
+  %150 = icmp samesign ult i64 %100, %149
   br i1 %150, label %96, label %._crit_edge
 
 151:                                              ; preds = %115

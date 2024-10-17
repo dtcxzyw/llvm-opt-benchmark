@@ -1555,12 +1555,12 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE27hint_common_parent_positionERKNS
   %9 = load i32, ptr %8, align 4
   %10 = tail call noundef i32 @_ZN9Stockfish4Eval11simple_evalERKNS_8PositionENS_5ColorE(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %9) #15
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %12 = icmp ugt i32 %11, 1050
+  %12 = icmp samesign ugt i32 %11, 1050
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE23featureTransformerSmallE, align 8
-  %15 = icmp ugt i32 %11, 2500
+  %15 = icmp samesign ugt i32 %11, 2500
   tail call void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE18hint_common_accessERKNS_8PositionEb(ptr noundef nonnull align 64 dereferenceable(6488320) %14, ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext %15)
   br label %159
 
@@ -2784,7 +2784,7 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
   store i8 %271, ptr %268, align 2
   %272 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %.047) #15
   %273 = call i32 @llvm.abs.i32(i32 %272, i1 true)
-  %274 = icmp ugt i32 %273, 9999
+  %274 = icmp samesign ugt i32 %273, 9999
   br i1 %274, label %275, label %290
 
 275:                                              ; preds = %266
@@ -2809,7 +2809,7 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
   br label %_ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i
 
 290:                                              ; preds = %266
-  %291 = icmp ugt i32 %273, 999
+  %291 = icmp samesign ugt i32 %273, 999
   %.lhs.trunc36.i.i = trunc nuw i32 %273 to i16
   %292 = getelementptr inbounds i8, ptr %268, i64 1
   br i1 %291, label %293, label %306
@@ -4477,7 +4477,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %27
-  %42 = icmp ugt i64 %.020, 8
+  %42 = icmp samesign ugt i64 %.020, 8
   %43 = icmp ult i8 %31, 64
   %or.cond = or i1 %42, %43
   %44 = trunc nuw nsw i64 %39 to i32
@@ -4490,7 +4490,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br label %.loopexit
 
 49:                                               ; preds = %27
-  %50 = icmp ult i64 %.020, 9
+  %50 = icmp samesign ult i64 %.020, 9
   br i1 %50, label %22, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %49, %41
@@ -4580,7 +4580,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %27
-  %41 = icmp ugt i64 %.020, 24
+  %41 = icmp samesign ugt i64 %.020, 24
   %42 = icmp ult i8 %31, 64
   %or.cond = or i1 %41, %42
   %43 = trunc nuw nsw i64 %38 to i32
@@ -4592,7 +4592,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br label %.loopexit
 
 47:                                               ; preds = %27
-  %48 = icmp ult i64 %.020, 25
+  %48 = icmp samesign ult i64 %.020, 25
   br i1 %48, label %22, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %47, %40
@@ -5109,7 +5109,7 @@ _ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32: ; preds
   %31 = trunc i16 %.026 to i8
   %32 = and i8 %31, 127
   %33 = ashr i16 %.026, 7
-  %34 = icmp ult i8 %32, 64
+  %34 = icmp samesign ult i8 %32, 64
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32

@@ -2604,7 +2604,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   %.pre.i.i.i.i.i.i = phi i64 [ %700, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h853874d7d9b44592E.exit.i.i.i.i.i" ], [ 0, %._crit_edge809.i ]
   %693 = phi ptr [ %694, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h853874d7d9b44592E.exit.i.i.i.i.i" ], [ %688, %._crit_edge809.i ]
   %694 = getelementptr inbounds i8, ptr %693, i64 144
-  %695 = icmp ult i64 %.pre.i.i.i.i.i.i, 2
+  %695 = icmp samesign ult i64 %.pre.i.i.i.i.i.i, 2
   br i1 %695, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h853874d7d9b44592E.exit.i.i.i.i.i", label %"_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17h3405b450d29a56d6E.exit.i.i.i.i.i.i.i"
 
 "_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17h3405b450d29a56d6E.exit.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
@@ -4051,7 +4051,7 @@ select.unfold594.i:                               ; preds = %1128
   %.0146.val189.i = load i8, ptr %1179, align 1, !range !132, !noundef !5
   %1180 = icmp eq i8 %.val188.i, %.0146.val189.i
   %1181 = icmp ult i64 %.val187.i, %.0146.val.i
-  %1182 = icmp ult i8 %.val188.i, %.0146.val189.i
+  %1182 = icmp samesign ult i8 %.val188.i, %.0146.val189.i
   %1183 = select i1 %1180, i1 %1181, i1 %1182
   br i1 %1183, label %1184, label %.critedge.i
 
@@ -34451,7 +34451,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit: ; preds = %168, %.noexc72
   br i1 %177, label %.thread22, label %35
 
 .thread30:                                        ; preds = %82
-  %178 = icmp ugt i32 %.sroa.4.0.i.ph29, 65535
+  %178 = icmp samesign ugt i32 %.sroa.4.0.i.ph29, 65535
   br i1 %178, label %180, label %.thread30.thread
 
 179:                                              ; preds = %82
@@ -35120,7 +35120,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit unwind label %83
 
 214:                                              ; preds = %211
-  %215 = icmp ugt i32 %.sroa.4.0.i.ph, 65535
+  %215 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 65535
   br i1 %215, label %218, label %217
 
 216:                                              ; preds = %211

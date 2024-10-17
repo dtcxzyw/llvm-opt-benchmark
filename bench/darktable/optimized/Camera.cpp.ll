@@ -9690,7 +9690,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
   %37 = add i64 %2, 2305843009213693951
   %38 = and i64 %37, 2305843009213693951
   %39 = add nuw nsw i64 %38, 1
-  %40 = icmp ult i64 %38, 15
+  %40 = icmp samesign ult i64 %38, 15
   br i1 %40, label %.preheader22, label %41
 
 41:                                               ; preds = %35
@@ -9880,7 +9880,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
   %150 = add nuw nsw i64 %2, 2305843009213693951
   %151 = and i64 %150, 2305843009213693951
   %152 = add nuw nsw i64 %151, 1
-  %153 = icmp ult i64 %151, 35
+  %153 = icmp samesign ult i64 %151, 35
   br i1 %153, label %.preheader, label %154
 
 154:                                              ; preds = %146

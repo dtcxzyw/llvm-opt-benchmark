@@ -11337,7 +11337,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %174, %_ZN4llv
   %180 = icmp ult i32 %179, 65473
   %or.cond5.not139 = and i1 %178, %180
   %181 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %177)
-  %182 = icmp ult i32 %181, 2
+  %182 = icmp samesign ult i32 %181, 2
   %or.cond135 = select i1 %or.cond5.not139, i1 %182, i1 false
   br i1 %or.cond135, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %237
 
@@ -20354,7 +20354,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i2615:   ; preds = %2363, %_ZNK5clang17
 
 2382:                                             ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
   %2383 = call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %2318)
-  %.not2028 = icmp ult i32 %2383, 2
+  %.not2028 = icmp samesign ult i32 %2383, 2
   br i1 %.not2028, label %_ZN5clang17DiagnosticBuilderD2Ev.exit2620, label %2384
 
 2384:                                             ; preds = %2382
@@ -39255,12 +39255,12 @@ _ZN4llvm9StringRefC2EPKc.exit4615.thread:         ; preds = %10490, %_ZN4llvm9St
   %.not7632 = icmp slt i64 %10502, 0
   %10503 = icmp slt i64 %10500, 0
   %10504 = and i64 %10502, 9223372019674906624
-  %10505 = icmp ugt i64 %10504, 425201762304
-  %10506 = and i1 %.not7632, %10505
+  %10505 = icmp samesign ugt i64 %10504, 425201762304
+  %10506 = select i1 %.not7632, i1 %10505, i1 false
   %or.cond36 = or i1 %10503, %10506
   %.sroa.06384.0.extract.trunc7634 = and i64 %10500, 2147483644
-  %10507 = icmp ugt i64 %.sroa.06384.0.extract.trunc7634, 99
-  %10508 = and i1 %.not7633, %10507
+  %10507 = icmp samesign ugt i64 %.sroa.06384.0.extract.trunc7634, 99
+  %10508 = select i1 %.not7633, i1 %10507, i1 false
   %or.cond49 = or i1 %10508, %or.cond36
   br i1 %or.cond49, label %.critedge, label %_ZN5clang17DiagnosticBuilderD2Ev.exit4643
 
@@ -41787,7 +41787,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit4835: ; preds = %11
 
 11581:                                            ; preds = %11577
   %11582 = and i64 %11579, 9223372028264841216
-  %11583 = icmp ult i64 %11582, 25769803776
+  %11583 = icmp samesign ult i64 %11582, 25769803776
   br label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit.fold.split.i.i: ; preds = %11577
@@ -41804,7 +41804,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.fold.split.i.i: ; preds = %11577
 
 11588:                                            ; preds = %11584
   %11589 = and i64 %11586, 9223372032559808512
-  %11590 = icmp ult i64 %11589, 38654705664
+  %11590 = icmp samesign ult i64 %11589, 38654705664
   br label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit4.fold.split.i.i: ; preds = %11584
@@ -41844,7 +41844,7 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i: ; preds = %11572
 
 11610:                                            ; preds = %11607
   %.not.i.i4856 = icmp eq i32 %11602, 10
-  %11611 = icmp ult i32 %11605, 6
+  %11611 = icmp samesign ult i32 %11605, 6
   %or.cond27.i.i = select i1 %.not.i.i4856, i1 %11611, i1 false
   br i1 %or.cond27.i.i, label %.thread17.i.i, label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
 
@@ -42108,8 +42108,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
 11734:                                            ; preds = %11729
   %.not17.i.i.i.i = icmp ne i32 %11732, 10
   %11735 = and i64 %11731, 9223372032559808512
-  %11736 = icmp ugt i64 %11735, 30064771071
-  %or.cond83.i = or i1 %.not17.i.i.i.i, %11736
+  %11736 = icmp samesign ugt i64 %11735, 30064771071
+  %or.cond83.i = select i1 %.not17.i.i.i.i, i1 true, i1 %11736
   br i1 %or.cond83.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
 
 11737:                                            ; preds = %11727
@@ -42122,8 +42122,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
 11742:                                            ; preds = %11737
   %.not15.i.i.i.i = icmp ne i32 %11740, 10
   %11743 = and i64 %11739, 9223372032559808512
-  %11744 = icmp ugt i64 %11743, 30064771071
-  %or.cond85.i = or i1 %.not15.i.i.i.i, %11744
+  %11744 = icmp samesign ugt i64 %11743, 30064771071
+  %or.cond85.i = select i1 %.not15.i.i.i.i, i1 true, i1 %11744
   br i1 %or.cond85.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
 
 11745:                                            ; preds = %11727
@@ -42147,7 +42147,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
 
 _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i:     ; preds = %11750
   %11755 = and i64 %11752, 9223372028264841216
-  %11756 = icmp ugt i64 %11755, 25769803775
+  %11756 = icmp samesign ugt i64 %11755, 25769803775
   br i1 %11756, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
 
 _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i: ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i, %11750, %11745, %11742, %11737, %11734, %11729, %11727
@@ -58031,7 +58031,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

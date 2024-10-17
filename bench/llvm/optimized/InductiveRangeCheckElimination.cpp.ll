@@ -926,7 +926,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17.i.i:           ; preds = %279, %277
   %347 = getelementptr inbounds nuw i8, ptr %spec.select.i.i60.i.i, i64 8
   %348 = load i32, ptr %347, align 8, !noalias !21
   %349 = lshr i32 %348, 8
-  %350 = icmp ugt i32 %346, %349
+  %350 = icmp samesign ugt i32 %346, %349
   br i1 %350, label %_ZNK12_GLOBAL__N_119InductiveRangeCheck25computeSafeIterationSpaceERN4llvm15ScalarEvolutionEPKNS1_14SCEVAddRecExprEb.exit.thread.i, label %351
 
 351:                                              ; preds = %343
@@ -1109,7 +1109,7 @@ _ZN4llvm5APIntD2Ev.exit66.i.i:                    ; preds = %438, %435, %_ZN4llv
   %445 = lshr i32 %444, 8
   %446 = load i32, ptr %347, align 8, !noalias !21
   %447 = lshr i32 %446, 8
-  %448 = icmp ugt i32 %445, %447
+  %448 = icmp samesign ugt i32 %445, %447
   br i1 %448, label %449, label %524
 
 449:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit66.i.i
@@ -1405,7 +1405,7 @@ _ZNSt8optionalIN12_GLOBAL__N_119InductiveRangeCheck5RangeEEaSIRS2_EENSt9enable_i
   %573 = getelementptr inbounds nuw i8, ptr %568, i64 8
   %574 = load i32, ptr %573, align 8, !noalias !34
   %575 = lshr i32 %574, 8
-  %576 = icmp ult i32 %572, %575
+  %576 = icmp samesign ult i32 %572, %575
   br i1 %576, label %_ZL18calculateSubRangesRN4llvm15ScalarEvolutionERKNS_4LoopERN12_GLOBAL__N_119InductiveRangeCheck5RangeERKNS_13LoopStructureE.exit.thread, label %577
 
 577:                                              ; preds = %569

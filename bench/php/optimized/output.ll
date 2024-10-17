@@ -1145,7 +1145,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %.not16 = icmp ult i32 %0, 16
+  %.not16 = icmp samesign ult i32 %0, 16
   %5 = select i1 %.not16, ptr @.str.19, ptr @.str.18
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef nonnull @.str, i32 noundef 8, ptr noundef nonnull @.str.17, ptr noundef nonnull %5, ptr noundef nonnull %5) #21
   br label %php_output_context_dtor.exit
@@ -1161,7 +1161,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
   br i1 %or.cond31, label %11, label %._crit_edge
 
 11:                                               ; preds = %6
-  %.not19 = icmp ult i32 %0, 16
+  %.not19 = icmp samesign ult i32 %0, 16
   %12 = select i1 %.not19, ptr @.str.19, ptr @.str.18
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -1180,7 +1180,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
 18:                                               ; preds = %._crit_edge
   %19 = and i32 %9, 4096
   %.not21.not = icmp eq i32 %19, 0
-  %.not22 = icmp ugt i32 %0, 15
+  %.not22 = icmp samesign ugt i32 %0, 15
   %20 = or i1 %.not21.not, %.not22
   br i1 %20, label %21, label %23
 
@@ -1214,8 +1214,8 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
   %34 = load i64, ptr %33, align 8
   %35 = icmp ne i64 %34, 0
   %or.cond = select i1 %32, i1 %35, i1 false
-  %.not24 = icmp ult i32 %0, 16
-  %or.cond25 = and i1 %.not24, %or.cond
+  %.not24 = icmp samesign ult i32 %0, 16
+  %or.cond25 = select i1 %or.cond, i1 %.not24, i1 false
   br i1 %or.cond25, label %36, label %php_output_handler_free.exit
 
 36:                                               ; preds = %29

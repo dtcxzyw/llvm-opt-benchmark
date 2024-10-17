@@ -1770,7 +1770,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h9b87fa7fb22304c
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %.sroa.0.0.sroa.speculated.i)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %8 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 103
+  %8 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 103
   br i1 %8, label %20, label %.noexc
 
 .noexc:                                           ; preds = %3

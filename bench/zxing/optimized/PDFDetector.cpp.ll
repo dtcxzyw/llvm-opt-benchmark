@@ -2080,14 +2080,14 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %63 = load i32, ptr %11, align 4
   %64 = sub nsw i32 %.05392, %63
   %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = icmp ult i32 %65, 5
+  %66 = icmp samesign ult i32 %65, 5
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %62
   %68 = load i32, ptr %12, align 4
   %69 = sub nsw i32 %.093, %68
   %70 = tail call i32 @llvm.abs.i32(i32 %69, i1 true)
-  %71 = icmp ult i32 %70, 5
+  %71 = icmp samesign ult i32 %70, 5
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %67, %62, %61
@@ -2224,7 +2224,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatri
   %41 = icmp ne i8 %40, 0
   %42 = icmp sgt i64 %indvars.iv, 0
   %or.cond = and i1 %42, %41
-  %43 = icmp ult i32 %.062122, 3
+  %43 = icmp samesign ult i32 %.062122, 3
   %or.cond68 = select i1 %or.cond, i1 %43, i1 false
   br i1 %or.cond68, label %51, label %.critedge.preheader
 

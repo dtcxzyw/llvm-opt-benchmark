@@ -8692,7 +8692,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %22 = add i64 %21, 1
   store i64 %22, ptr %.phi.trans.insert, align 8, !alias.scope !1079, !noalias !1090
   %23 = lshr i64 %.sroa.01.07, 7
-  %24 = icmp ult i64 %.sroa.01.07, 16384
+  %24 = icmp samesign ult i64 %.sroa.01.07, 16384
   br i1 %24, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit, %.._crit_edge_crit_edge
@@ -41227,7 +41227,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !5854, !noalias !5865
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -41365,7 +41365,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !5918, !noalias !5929
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -41487,7 +41487,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !5976, !noalias !5987
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -41650,7 +41650,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6037, !noalias !6048
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -41819,7 +41819,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6095, !noalias !6106
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -41990,7 +41990,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6153, !noalias !6164
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -42163,7 +42163,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6211, !noalias !6222
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -42359,7 +42359,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6272, !noalias !6283
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -42469,7 +42469,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6316, !noalias !6327
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -42684,7 +42684,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6377, !noalias !6388
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -42811,7 +42811,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6438, !noalias !6449
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43007,7 +43007,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6496, !noalias !6507
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43176,7 +43176,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6554, !noalias !6565
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43342,7 +43342,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6617, !noalias !6628
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43452,7 +43452,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6661, !noalias !6672
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43590,7 +43590,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6725, !noalias !6736
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43730,7 +43730,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6783, !noalias !6794
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -43914,7 +43914,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6882, !noalias !6893
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44083,7 +44083,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !6940, !noalias !6951
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44252,7 +44252,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7007, !noalias !7018
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44421,7 +44421,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7065, !noalias !7076
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44559,7 +44559,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7129, !noalias !7140
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44754,7 +44754,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7192, !noalias !7203
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -44925,7 +44925,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7250, !noalias !7261
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45066,7 +45066,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7308, !noalias !7319
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45303,7 +45303,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7372, !noalias !7383
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45329,7 +45329,7 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   %33 = add i64 %32, 1
   store i64 %33, ptr %.phi.trans.insert.i, align 8, !alias.scope !7356, !noalias !7369
   %34 = tail call noundef i64 @"_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11encoded_len17h23ad742da1ac1df5E.llvm.12582631992428692812"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
-  %35 = icmp ult i64 %34, 128
+  %35 = icmp samesign ult i64 %34, 128
   %.pre = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !8
   br i1 %35, label %._crit_edge, label %.lr.ph.preheader
 
@@ -45421,7 +45421,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7430, !noalias !7441
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45570,7 +45570,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7493, !noalias !7504
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45762,7 +45762,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7547, !noalias !7558
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -45960,7 +45960,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7610, !noalias !7621
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46122,7 +46122,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7674, !noalias !7685
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46260,7 +46260,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7738, !noalias !7749
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46398,7 +46398,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7802, !noalias !7813
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46618,7 +46618,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7865, !noalias !7876
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46728,7 +46728,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7909, !noalias !7920
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -46814,7 +46814,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !7953, !noalias !7964
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47026,7 +47026,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8031, !noalias !8042
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47227,7 +47227,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8100, !noalias !8111
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47363,7 +47363,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8144, !noalias !8155
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47591,7 +47591,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8208, !noalias !8219
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47755,7 +47755,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8269, !noalias !8280
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -47912,7 +47912,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8333, !noalias !8344
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48022,7 +48022,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8377, !noalias !8388
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48228,7 +48228,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8436, !noalias !8447
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48444,7 +48444,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8503, !noalias !8514
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48593,7 +48593,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8566, !noalias !8577
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48764,7 +48764,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8624, !noalias !8635
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -48952,7 +48952,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8685, !noalias !8696
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49116,7 +49116,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8740, !noalias !8751
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49362,7 +49362,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8820, !noalias !8831
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49519,7 +49519,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8884, !noalias !8895
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49688,7 +49688,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8942, !noalias !8953
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49798,7 +49798,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !8986, !noalias !8997
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -49906,7 +49906,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9035, !noalias !9046
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50044,7 +50044,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9099, !noalias !9110
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50226,7 +50226,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9160, !noalias !9171
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50383,7 +50383,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9224, !noalias !9235
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50493,7 +50493,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9268, !noalias !9279
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50689,7 +50689,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9326, !noalias !9337
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50830,7 +50830,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9384, !noalias !9395
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -50916,7 +50916,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9428, !noalias !9439
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51125,7 +51125,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9489, !noalias !9500
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51235,7 +51235,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9533, !noalias !9544
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51404,7 +51404,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9598, !noalias !9609
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51490,7 +51490,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9642, !noalias !9653
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51626,7 +51626,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9686, !noalias !9697
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51795,7 +51795,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9744, !noalias !9755
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -51960,7 +51960,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9792, !noalias !9803
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -52140,7 +52140,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9853, !noalias !9864
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -52383,7 +52383,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9920, !noalias !9931
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -52523,7 +52523,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !9975, !noalias !9986
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -52711,7 +52711,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10036, !noalias !10047
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -52880,7 +52880,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10103, !noalias !10114
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53002,7 +53002,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10161, !noalias !10172
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53185,7 +53185,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10222, !noalias !10233
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53406,7 +53406,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10280, !noalias !10291
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53593,7 +53593,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10345, !noalias !10356
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53734,7 +53734,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10410, !noalias !10421
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -53897,7 +53897,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10481, !noalias !10492
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54019,7 +54019,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10539, !noalias !10550
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54209,7 +54209,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10616, !noalias !10627
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54331,7 +54331,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10674, !noalias !10685
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54441,7 +54441,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10718, !noalias !10729
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54672,7 +54672,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10788, !noalias !10799
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54794,7 +54794,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10846, !noalias !10857
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -54916,7 +54916,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10904, !noalias !10915
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55026,7 +55026,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10948, !noalias !10959
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55112,7 +55112,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !10992, !noalias !11003
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55275,7 +55275,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11053, !noalias !11064
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55424,7 +55424,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11111, !noalias !11122
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55539,7 +55539,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11162, !noalias !11173
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55625,7 +55625,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11206, !noalias !11217
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55735,7 +55735,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11250, !noalias !11261
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -55898,7 +55898,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11299, !noalias !11310
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56120,7 +56120,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11361, !noalias !11372
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56275,7 +56275,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11424, !noalias !11435
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56396,7 +56396,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11482, !noalias !11493
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56517,7 +56517,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11540, !noalias !11551
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56603,7 +56603,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11584, !noalias !11595
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56689,7 +56689,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11628, !noalias !11639
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -56860,7 +56860,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11686, !noalias !11697
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57042,7 +57042,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11747, !noalias !11758
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57212,7 +57212,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11805, !noalias !11816
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57383,7 +57383,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11863, !noalias !11874
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57548,7 +57548,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11910, !noalias !11921
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57722,7 +57722,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !11987, !noalias !11998
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -57832,7 +57832,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12031, !noalias !12042
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58013,7 +58013,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12101, !noalias !12112
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58210,7 +58210,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12175, !noalias !12186
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58318,7 +58318,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12224, !noalias !12235
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58445,7 +58445,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12285, !noalias !12296
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58597,7 +58597,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12352, !noalias !12363
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58760,7 +58760,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12413, !noalias !12424
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -58922,7 +58922,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12474, !noalias !12485
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59032,7 +59032,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12518, !noalias !12529
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59142,7 +59142,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12562, !noalias !12573
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59291,7 +59291,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12625, !noalias !12636
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59426,7 +59426,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12669, !noalias !12680
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59591,7 +59591,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12716, !noalias !12727
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59729,7 +59729,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12780, !noalias !12791
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59864,7 +59864,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12824, !noalias !12835
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -59950,7 +59950,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12868, !noalias !12879
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60116,7 +60116,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12923, !noalias !12934
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60202,7 +60202,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !12967, !noalias !12978
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60359,7 +60359,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13031, !noalias !13042
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60445,7 +60445,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13075, !noalias !13086
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60591,7 +60591,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13141, !noalias !13152
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60788,7 +60788,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13204, !noalias !13215
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -60910,7 +60910,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13262, !noalias !13273
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61040,7 +61040,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13323, !noalias !13334
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61126,7 +61126,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13367, !noalias !13378
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61264,7 +61264,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13431, !noalias !13442
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61350,7 +61350,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13475, !noalias !13486
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61460,7 +61460,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13519, !noalias !13530
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61623,7 +61623,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13580, !noalias !13591
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -61775,7 +61775,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13647, !noalias !13658
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62002,7 +62002,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13717, !noalias !13728
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62112,7 +62112,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13761, !noalias !13772
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62274,7 +62274,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13805, !noalias !13816
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62412,7 +62412,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13869, !noalias !13880
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62498,7 +62498,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13913, !noalias !13924
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62679,7 +62679,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !13977, !noalias !13988
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -62835,7 +62835,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14040, !noalias !14051
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63001,7 +63001,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14103, !noalias !14114
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63195,7 +63195,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14163, !noalias !14174
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63335,7 +63335,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14221, !noalias !14232
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63493,7 +63493,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14284, !noalias !14295
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63603,7 +63603,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14328, !noalias !14339
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63725,7 +63725,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14385, !noalias !14396
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -63907,7 +63907,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14446, !noalias !14457
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64073,7 +64073,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14509, !noalias !14520
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64249,7 +64249,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14576, !noalias !14587
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64430,7 +64430,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14646, !noalias !14657
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64552,7 +64552,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14704, !noalias !14715
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64742,7 +64742,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14781, !noalias !14792
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64855,7 +64855,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14832, !noalias !14843
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -64993,7 +64993,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14896, !noalias !14907
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65162,7 +65162,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !14954, !noalias !14965
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65331,7 +65331,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15012, !noalias !15023
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65494,7 +65494,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15073, !noalias !15084
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65666,7 +65666,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15138, !noalias !15149
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65830,7 +65830,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15202, !noalias !15213
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -65996,7 +65996,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15265, !noalias !15276
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66128,7 +66128,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15330, !noalias !15341
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66249,7 +66249,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15388, !noalias !15399
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66398,7 +66398,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15451, !noalias !15462
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66564,7 +66564,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15514, !noalias !15525
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66674,7 +66674,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15558, !noalias !15569
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -66903,7 +66903,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15627, !noalias !15638
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67069,7 +67069,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15690, !noalias !15701
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67234,7 +67234,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15755, !noalias !15766
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67344,7 +67344,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15799, !noalias !15810
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67540,7 +67540,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15857, !noalias !15868
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67762,7 +67762,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15919, !noalias !15930
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -67952,7 +67952,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !15996, !noalias !16007
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68131,7 +68131,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16057, !noalias !16068
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68271,7 +68271,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16115, !noalias !16126
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68406,7 +68406,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16159, !noalias !16170
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68595,7 +68595,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16254, !noalias !16265
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68759,7 +68759,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16315, !noalias !16326
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -68940,7 +68940,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16385, !noalias !16396
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69103,7 +69103,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16434, !noalias !16445
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69297,7 +69297,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16492, !noalias !16503
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69419,7 +69419,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16550, !noalias !16561
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69643,7 +69643,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16611, !noalias !16622
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69765,7 +69765,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16669, !noalias !16680
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -69903,7 +69903,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16733, !noalias !16744
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70055,7 +70055,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16807, !noalias !16818
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70190,7 +70190,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16851, !noalias !16862
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70276,7 +70276,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16895, !noalias !16906
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70409,7 +70409,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !16953, !noalias !16964
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70531,7 +70531,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17011, !noalias !17022
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70666,7 +70666,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17055, !noalias !17066
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -70871,7 +70871,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17122, !noalias !17133
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71055,7 +71055,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17221, !noalias !17232
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71165,7 +71165,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17265, !noalias !17276
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71287,7 +71287,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17323, !noalias !17334
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71470,7 +71470,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17389, !noalias !17400
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71605,7 +71605,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17433, !noalias !17444
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71732,7 +71732,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17480, !noalias !17491
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -71926,7 +71926,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17538, !noalias !17549
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72036,7 +72036,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17582, !noalias !17593
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72205,7 +72205,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17640, !noalias !17651
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72399,7 +72399,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17698, !noalias !17709
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72521,7 +72521,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17756, !noalias !17767
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72704,7 +72704,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17817, !noalias !17828
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -72896,7 +72896,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17879, !noalias !17890
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73026,7 +73026,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17937, !noalias !17948
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73112,7 +73112,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !17981, !noalias !17992
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73320,7 +73320,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18064, !noalias !18075
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73492,7 +73492,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18129, !noalias !18140
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73632,7 +73632,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18176, !noalias !18187
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73718,7 +73718,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18220, !noalias !18231
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -73887,7 +73887,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18278, !noalias !18289
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74088,7 +74088,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18344, !noalias !18355
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74277,7 +74277,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18439, !noalias !18450
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74409,7 +74409,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18483, !noalias !18494
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74618,7 +74618,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18544, !noalias !18555
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74775,7 +74775,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18602, !noalias !18613
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -74927,7 +74927,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18665, !noalias !18676
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75037,7 +75037,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18709, !noalias !18720
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75123,7 +75123,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18753, !noalias !18764
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75326,7 +75326,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18814, !noalias !18825
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75489,7 +75489,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18875, !noalias !18886
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75711,7 +75711,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18939, !noalias !18950
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -75851,7 +75851,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !18997, !noalias !19008
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76020,7 +76020,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19044, !noalias !19055
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76158,7 +76158,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19108, !noalias !19119
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76321,7 +76321,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19169, !noalias !19180
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76461,7 +76461,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19227, !noalias !19238
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76583,7 +76583,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19285, !noalias !19296
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76669,7 +76669,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19329, !noalias !19340
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76883,7 +76883,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19399, !noalias !19410
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -76993,7 +76993,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19443, !noalias !19454
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77103,7 +77103,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19487, !noalias !19498
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77189,7 +77189,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19531, !noalias !19542
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77373,7 +77373,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19630, !noalias !19641
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77495,7 +77495,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19688, !noalias !19699
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77717,7 +77717,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19751, !noalias !19762
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -77880,7 +77880,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19812, !noalias !19823
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78018,7 +78018,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19876, !noalias !19887
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78170,7 +78170,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19937, !noalias !19948
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78290,7 +78290,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !19987, !noalias !19998
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78428,7 +78428,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20051, !noalias !20062
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78585,7 +78585,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20115, !noalias !20126
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78766,7 +78766,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20179, !noalias !20190
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -78876,7 +78876,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20223, !noalias !20234
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79072,7 +79072,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20281, !noalias !20292
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79244,7 +79244,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20346, !noalias !20357
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79366,7 +79366,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20404, !noalias !20415
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79527,7 +79527,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20467, !noalias !20478
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79637,7 +79637,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20511, !noalias !20522
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79819,7 +79819,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20572, !noalias !20583
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -79957,7 +79957,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20636, !noalias !20647
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80165,7 +80165,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20719, !noalias !20730
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80287,7 +80287,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20777, !noalias !20788
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80409,7 +80409,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20835, !noalias !20846
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80575,7 +80575,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20898, !noalias !20909
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80685,7 +80685,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !20942, !noalias !20953
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -80851,7 +80851,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21005, !noalias !21016
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81061,7 +81061,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21079, !noalias !21090
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81183,7 +81183,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21137, !noalias !21148
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81339,7 +81339,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21220, !noalias !21231
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81474,7 +81474,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21264, !noalias !21275
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81612,7 +81612,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21328, !noalias !21339
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81722,7 +81722,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21372, !noalias !21383
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -81860,7 +81860,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21436, !noalias !21447
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82054,7 +82054,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21496, !noalias !21507
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82224,7 +82224,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21561, !noalias !21572
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82398,7 +82398,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21626, !noalias !21637
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82574,7 +82574,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21690, !noalias !21701
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82757,7 +82757,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21751, !noalias !21762
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82867,7 +82867,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21795, !noalias !21806
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -82981,7 +82981,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21842, !noalias !21853
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83192,7 +83192,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21906, !noalias !21917
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83386,7 +83386,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !21990, !noalias !22001
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83522,7 +83522,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22034, !noalias !22045
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83640,7 +83640,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22083, !noalias !22094
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83778,7 +83778,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22147, !noalias !22158
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83864,7 +83864,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22191, !noalias !22202
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -83999,7 +83999,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22235, !noalias !22246
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84209,7 +84209,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22298, !noalias !22309
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84330,7 +84330,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22356, !noalias !22367
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84506,7 +84506,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22417, !noalias !22428
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84663,7 +84663,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22481, !noalias !22492
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84834,7 +84834,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22539, !noalias !22550
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -84980,7 +84980,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22602, !noalias !22613
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85116,7 +85116,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22646, !noalias !22657
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85297,7 +85297,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22710, !noalias !22721
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85432,7 +85432,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22754, !noalias !22765
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85598,7 +85598,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22820, !noalias !22831
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85734,7 +85734,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22864, !noalias !22875
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -85900,7 +85900,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !22927, !noalias !22938
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -86084,7 +86084,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23001, !noalias !23012
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -86214,7 +86214,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23062, !noalias !23073
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -86366,7 +86366,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23129, !noalias !23140
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -86529,7 +86529,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23190, !noalias !23201
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -86750,7 +86750,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23248, !noalias !23259
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87001,7 +87001,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23315, !noalias !23326
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87136,7 +87136,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23359, !noalias !23370
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87355,7 +87355,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23417, !noalias !23428
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87465,7 +87465,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23461, !noalias !23472
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87633,7 +87633,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23529, !noalias !23540
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87769,7 +87769,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23573, !noalias !23584
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -87879,7 +87879,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23617, !noalias !23628
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88017,7 +88017,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23681, !noalias !23692
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88222,7 +88222,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23750, !noalias !23761
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88362,7 +88362,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23797, !noalias !23808
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88528,7 +88528,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23860, !noalias !23871
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88699,7 +88699,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23924, !noalias !23935
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88832,7 +88832,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !23982, !noalias !23993
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -88995,7 +88995,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24043, !noalias !24054
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89179,7 +89179,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24093, !noalias !24104
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89317,7 +89317,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24157, !noalias !24168
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89468,7 +89468,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24222, !noalias !24233
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89634,7 +89634,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24285, !noalias !24296
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89825,7 +89825,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24349, !noalias !24360
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -89982,7 +89982,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24413, !noalias !24424
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90151,7 +90151,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24471, !noalias !24482
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90291,7 +90291,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24529, !noalias !24540
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90429,7 +90429,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24593, !noalias !24604
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90551,7 +90551,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24651, !noalias !24662
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90673,7 +90673,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24709, !noalias !24720
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90783,7 +90783,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24753, !noalias !24764
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -90918,7 +90918,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24797, !noalias !24808
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91081,7 +91081,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24858, !noalias !24869
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91216,7 +91216,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24902, !noalias !24913
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91404,7 +91404,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !24963, !noalias !24974
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91544,7 +91544,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25010, !noalias !25021
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91740,7 +91740,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25068, !noalias !25079
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -91894,7 +91894,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25126, !noalias !25137
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92016,7 +92016,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25184, !noalias !25195
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92138,7 +92138,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25242, !noalias !25253
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92371,7 +92371,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25316, !noalias !25327
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92506,7 +92506,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25360, !noalias !25371
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92728,7 +92728,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25424, !noalias !25435
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -92908,7 +92908,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25497, !noalias !25508
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93046,7 +93046,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25561, !noalias !25572
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93279,7 +93279,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25631, !noalias !25642
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93389,7 +93389,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25675, !noalias !25686
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93527,7 +93527,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25739, !noalias !25750
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93667,7 +93667,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25797, !noalias !25808
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93753,7 +93753,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25841, !noalias !25852
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -93871,7 +93871,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25890, !noalias !25901
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94075,7 +94075,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !25959, !noalias !25970
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94197,7 +94197,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26017, !noalias !26028
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94368,7 +94368,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26075, !noalias !26086
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94556,7 +94556,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26136, !noalias !26147
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94746,7 +94746,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26213, !noalias !26224
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -94886,7 +94886,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26271, !noalias !26282
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95038,7 +95038,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26334, !noalias !26345
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95251,7 +95251,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26395, !noalias !26406
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95386,7 +95386,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26439, !noalias !26450
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95549,7 +95549,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26500, !noalias !26511
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95659,7 +95659,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26544, !noalias !26555
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -95825,7 +95825,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26607, !noalias !26618
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -96054,7 +96054,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26674, !noalias !26685
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i
@@ -96220,7 +96220,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %20 = add i64 %19, 1
   store i64 %20, ptr %.phi.trans.insert.i, align 8, !alias.scope !26729, !noalias !26740
   %21 = lshr i64 %.sroa.01.07.i, 7
-  %22 = icmp ult i64 %.sroa.01.07.i, 16384
+  %22 = icmp samesign ult i64 %.sroa.01.07.i, 16384
   br i1 %22, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit.i, %.._crit_edge_crit_edge.i

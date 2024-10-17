@@ -2449,7 +2449,7 @@ define hidden void @_ZNK5frame19oops_interpreted_doEP10OopClosurePK11RegisterMap
   %25 = add nsw i32 %20, 1
   %26 = icmp sgt i32 %20, -1
   %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
-  %28 = icmp ult i32 %27, 2
+  %28 = icmp samesign ult i32 %27, 2
   %or.cond.i.i.i.i.i.i = select i1 %26, i1 %28, i1 false
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
   %30 = sub nuw nsw i32 32, %29
@@ -3223,7 +3223,7 @@ define hidden void @_ZNK5frame13oops_entry_doEP10OopClosurePK11RegisterMap(ptr n
   %28 = add nsw i32 %23, 1
   %29 = icmp sgt i32 %23, -1
   %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   %or.cond.i.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %33 = sub nuw nsw i32 32, %32

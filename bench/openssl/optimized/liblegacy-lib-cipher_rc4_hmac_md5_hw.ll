@@ -258,7 +258,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then4, label %if.end16
 
 if.then4:                                         ; preds = %if.end
-  %cmp5 = icmp ult i32 %or, 16
+  %cmp5 = icmp samesign ult i32 %or, 16
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then4

@@ -8626,7 +8626,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %403 = load i32, ptr %31, align 4
   %404 = zext i32 %403 to i64
-  %405 = icmp ult i64 %indvars.iv.next, %404
+  %405 = icmp samesign ult i64 %indvars.iv.next, %404
   br i1 %405, label %239, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.critedge2, %_ZN5clang4Decl14getDeclContextEv.exit
@@ -13052,7 +13052,7 @@ define dso_local i64 @_ZN5clang8SemaObjC20BuildInstanceMessageEPNS_4ExprENS_8Qua
   %.not.i.i = icmp eq i8 %117, 13
   %118 = load i32, ptr %116, align 16
   %119 = and i32 %118, 267911168
-  %120 = icmp ugt i32 %119, 256901120
+  %120 = icmp samesign ugt i32 %119, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %120, i1 false
   br i1 %.0.i.i, label %121, label %142
 

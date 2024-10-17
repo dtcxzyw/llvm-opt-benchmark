@@ -1322,7 +1322,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.ptr = getelementptr i8, ptr %call, i64 %mul
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 8 @_Py_trampoline_func_start, i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), i1 false)
   %inc = add nuw nsw i64 %i.027, 1
-  %cmp = icmp ult i64 %inc, %div
+  %cmp = icmp samesign ult i64 %inc, %div
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end

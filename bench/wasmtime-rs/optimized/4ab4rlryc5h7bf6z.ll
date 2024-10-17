@@ -1194,7 +1194,7 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT
 
 _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.i: ; preds = %82, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit.i"
   %51 = add nuw nsw i64 %44, 1
-  %52 = icmp ult i64 %51, %32
+  %52 = icmp samesign ult i64 %51, %32
   br i1 %52, label %54, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ce7f2c369c148f5E.exit.i"
 
 _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.thread.i: ; preds = %41
@@ -1242,7 +1242,7 @@ _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.thread.i: ; preds =
 68:                                               ; preds = %41
   %69 = getelementptr inbounds i8, ptr %38, i64 4
   %70 = tail call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %71 = icmp ugt i64 %70, %44
+  %71 = icmp samesign ugt i64 %70, %44
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %68
@@ -1423,7 +1423,7 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT
   %60 = zext i8 %59 to i64
   %61 = add nuw nsw i64 %60, 1
   %62 = add nuw nsw i64 %61, %57
-  %63 = icmp ult i64 %62, 9
+  %63 = icmp samesign ult i64 %62, 9
   br i1 %63, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit72.i", label %64
 
 64:                                               ; preds = %53
@@ -1602,7 +1602,7 @@ _ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit.i: ; preds = %124
   %141 = getelementptr inbounds i8, ptr %9, i64 4
   %142 = getelementptr inbounds i8, ptr %9, i64 32
   %143 = add nuw nsw i64 %140, %135
-  %144 = icmp ult i64 %143, 8
+  %144 = icmp samesign ult i64 %143, 8
   br i1 %144, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit104.i", label %145
 
 145:                                              ; preds = %132
@@ -1945,7 +1945,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
 
 "_ZN17cranelift_bforest4node17NodeData$LT$F$GT$7entries17h9759724f52c2a95aE.exit": ; preds = %270, %273
   %.0.i3 = phi i64 [ %274, %273 ], [ %272, %270 ]
-  %.not3.i = icmp ugt i64 %.0.i3, %258
+  %.not3.i = icmp samesign ugt i64 %.0.i3, %258
   br i1 %.not3.i, label %"_ZN17cranelift_bforest4path13Path$LT$F$GT$16underflowed_node17h841e53864186bc36E.exit", label %281
 
 280:                                              ; preds = %32
@@ -4149,7 +4149,7 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$4next17h4
 
 "_ZN17cranelift_bforest4node17NodeData$LT$F$GT$11unwrap_leaf17h5d39ab09920ca057E.exit": ; preds = %28
   %39 = add nuw nsw i64 %17, 1
-  %40 = icmp ult i64 %39, %31
+  %40 = icmp samesign ult i64 %39, %31
   br i1 %40, label %123, label %41
 
 41:                                               ; preds = %"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$11unwrap_leaf17h5d39ab09920ca057E.exit"
@@ -4431,7 +4431,7 @@ define hidden void @"_ZN17cranelift_bforest4path13Path$LT$F$GT$4next17h92adfb33b
 
 "_ZN17cranelift_bforest4node17NodeData$LT$F$GT$11unwrap_leaf17h708f21a1fa8790a6E.exit": ; preds = %27
   %38 = add nuw nsw i64 %16, 1
-  %39 = icmp ult i64 %38, %30
+  %39 = icmp samesign ult i64 %38, %30
   br i1 %39, label %67, label %40
 
 40:                                               ; preds = %"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$11unwrap_leaf17h708f21a1fa8790a6E.exit"
@@ -13303,7 +13303,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17h86e2a65e36278b42E.l
   %14 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %10, i1 false)
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %13, i1 false)
   %narrow = add nuw nsw i16 %15, %14
-  %16 = icmp ugt i16 %narrow, 15
+  %16 = icmp samesign ugt i16 %narrow, 15
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
@@ -16724,7 +16724,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h17
   %46 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %42, i1 false)
   %47 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %45, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %47, %46
-  %48 = icmp ugt i16 %narrow.i.i.i, 15
+  %48 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %48, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17ha71f1e70dc5fa66aE.llvm.1710812290736639100.exit", label %49
 
 49:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h85d875b4c5881d19E.llvm.1710812290736639100.exit"
@@ -16826,7 +16826,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_en
   %40 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %36, i1 false)
   %41 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %39, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %41, %40
-  %42 = icmp ugt i16 %narrow.i.i.i, 15
+  %42 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %42, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h186be16eb042abf2E.llvm.1710812290736639100.exit", label %43
 
 43:                                               ; preds = %29
@@ -17669,7 +17669,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h4
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h86e2a65e36278b42E.llvm.1710812290736639100.exit, label %22
 
 22:                                               ; preds = %2
@@ -17715,7 +17715,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17he
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h86e2a65e36278b42E.llvm.1710812290736639100.exit, label %22
 
 22:                                               ; preds = %2
@@ -38261,7 +38261,7 @@ define hidden { i32, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h1
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17he24e8a6d536293c3E.llvm.1710812290736639100.exit", label %21
 
 21:                                               ; preds = %2
@@ -38311,7 +38311,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17ha71f1e70d
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h401ff1edc6c22df8E.llvm.1710812290736639100.exit", label %22
 
 22:                                               ; preds = %3
@@ -41745,7 +41745,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen10data_value21write_data_value_
   %37 = ptrtoint ptr %.sroa.0.0 to i64
   %38 = sub nuw i64 %27, %37
   %39 = lshr exact i64 %38, 5
-  %.not.i.i.not = icmp ult i64 %.sroa.10.0, %39
+  %.not.i.i.not = icmp samesign ult i64 %.sroa.10.0, %39
   %40 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23dfb8bad1aebae7E.exit.thread24", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23dfb8bad1aebae7E.exit.thread"
 

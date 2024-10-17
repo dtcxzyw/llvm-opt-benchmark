@@ -7198,7 +7198,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit261:                ; preds = %_ZN5Yosys5RTLIL5Con
   %indvars.iv.next1137 = add nuw nsw i64 %indvars.iv1136, 1
   %314 = load i32, ptr %79, align 4
   %315 = zext i32 %314 to i64
-  %316 = icmp ult i64 %indvars.iv.next1137, %315
+  %316 = icmp samesign ult i64 %indvars.iv.next1137, %315
   br i1 %316, label %226, label %._crit_edge960, !llvm.loop !41
 
 317:                                              ; preds = %226

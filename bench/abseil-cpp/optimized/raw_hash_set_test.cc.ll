@@ -26595,7 +26595,7 @@ for.body:                                         ; preds = %invoke.cont13, %for
   %1 = load i8, ptr %add.ptr.i17, align 1
   %add.ptr.i18 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i16, i64 %i.0122
   store i8 %1, ptr %add.ptr.i18, align 1
-  %cmp17 = icmp ult i64 %i.0122, 15
+  %cmp17 = icmp samesign ult i64 %i.0122, 15
   br i1 %cmp17, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
@@ -33319,7 +33319,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %if.end90, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i110
   store ptr null, ptr %message_.i.i92, align 8
-  %cmp94344 = icmp ult i64 %storemerge1346, 36
+  %cmp94344 = icmp samesign ult i64 %storemerge1346, 36
   %storemerge8343 = add nuw nsw i64 %storemerge1346, 1
   br i1 %cmp94344, label %invoke.cont98.lr.ph, label %for.inc210
 
@@ -69988,7 +69988,7 @@ invoke.cont86:                                    ; preds = %for.end.i.i186, %if
   %73 = call noundef i64 @llvm.abs.i64(i64 %sub, i1 true)
   store i64 %73, ptr %ref.tmp89, align 8
   store i64 120, ptr %ref.tmp92, align 8
-  %cmp.i200 = icmp ult i64 %73, 120
+  %cmp.i200 = icmp samesign ult i64 %73, 120
   br i1 %cmp.i200, label %if.then.i, label %if.else.i201
 
 if.then.i:                                        ; preds = %invoke.cont86
@@ -118010,7 +118010,7 @@ while.end.i.i.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i2.i.i.i.i.i, label %_ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !4565
 
 _ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i.i: ; preds = %while.end.i.i.i.i.i.i.i.i
-  %cmp.i.i.i3.i = icmp ugt i64 %__n.06.i.i.i.i.i, 2305843009213693950
+  %cmp.i.i.i3.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i, 2305843009213693950
   br i1 %cmp.i.i.i3.i, label %if.then.i.i.i.i20, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
 
 if.then.i.i.i.i20:                                ; preds = %_ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i.i
@@ -118090,7 +118090,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont16, %if.
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %invoke.cont16.thread, %if.then.i.i.i
   %lnot.i121 = phi i1 [ %lnot.i, %if.then.i.i.i ], [ %cmp.i.i100, %invoke.cont16.thread ]
   %inc = add nuw nsw i32 %i.0143, 1
-  %cmp7 = icmp ugt i32 %i.0143, 4998
+  %cmp7 = icmp samesign ugt i32 %i.0143, 4998
   %.not = select i1 %lnot.i121, i1 true, i1 %cmp7
   br i1 %.not, label %for.end, label %for.body8, !llvm.loop !4567
 
@@ -118487,7 +118487,7 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i2.i.i.i.i, label %_ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !4565
 
 _ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i: ; preds = %while.end.i.i.i.i.i.i.i
-  %cmp.i.i.i3 = icmp ugt i64 %__n.06.i.i.i.i, 2305843009213693950
+  %cmp.i.i.i3 = icmp samesign ugt i64 %__n.06.i.i.i.i, 2305843009213693950
   br i1 %cmp.i.i.i3, label %if.then.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8distanceIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePolicyIlLb0EEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE14const_iteratorEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i
@@ -141056,7 +141056,7 @@ _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %if.end76, %_ZNKSt14
   store ptr null, ptr %message_.i.i99, align 8
   %inc = add nuw nsw i32 %inc155, 1
   %48 = zext nneg i32 %inc155 to i64
-  %cmp19.not.not = icmp ugt i64 %indvars.iv, %48
+  %cmp19.not.not = icmp samesign ugt i64 %indvars.iv, %48
   br i1 %cmp19.not.not, label %for.body20, label %for.cond.loopexit, !llvm.loop !5483
 
 ehcleanup77:                                      ; preds = %_ZN7testing7MessageD2Ev.exit114, %lpad65
@@ -141584,7 +141584,7 @@ _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %if.end76, %_ZNKSt14
   store ptr null, ptr %message_.i.i99, align 8
   %inc = add nuw nsw i32 %inc146, 1
   %41 = zext nneg i32 %inc146 to i64
-  %cmp19.not.not = icmp ugt i64 %indvars.iv, %41
+  %cmp19.not.not = icmp samesign ugt i64 %indvars.iv, %41
   br i1 %cmp19.not.not, label %for.body20, label %for.inc78, !llvm.loop !5501
 
 ehcleanup77:                                      ; preds = %_ZN7testing7MessageD2Ev.exit114, %lpad65
@@ -142527,7 +142527,7 @@ if.then.i.i86:                                    ; preds = %for.body.i.i69
   %cmp.i.i12.i.i89 = icmp ne ptr %this.val.i47, null
   call void @llvm.assume(i1 %cmp.i.i12.i.i89)
   store i32 %conv24, ptr %ref.tmp61, align 4
-  %cmp.i.i94 = icmp ult i64 %i17.0172, 2147483648
+  %cmp.i.i94 = icmp samesign ult i64 %i17.0172, 2147483648
   br i1 %cmp.i.i94, label %if.then.i.i95, label %if.end.i.i
 
 for.inc.i.i77:                                    ; preds = %for.body.i.i69
@@ -142833,7 +142833,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %div1.i.i211 = and i64 %add.i.i206, 9223372036854775800
   %and.i.i.i209 = and i64 %sub.i.i.i204, -8
   %div2.i.i.i214 = lshr i64 2305843009213693951, %2
-  %cmp.i.i.i219 = icmp ult i64 %shr.i.i33, 17
+  %cmp.i.i.i219 = icmp samesign ult i64 %shr.i.i33, 17
   %add1.i.i224 = add nuw i64 %shr.i.i33, 16
   %cmp.i = icmp eq i64 %target_size.0276, 0
   br label %for.body9
@@ -143460,7 +143460,7 @@ if.then.i.i82:                                    ; preds = %for.body.i.i65
   %cmp.i.i12.i.i85 = icmp ne ptr %this.val.i43, null
   call void @llvm.assume(i1 %cmp.i.i12.i.i85)
   store i32 %conv24, ptr %ref.tmp61, align 4
-  %cmp.i.i90 = icmp ult i64 %i17.0274, 2147483648
+  %cmp.i.i90 = icmp samesign ult i64 %i17.0274, 2147483648
   br i1 %cmp.i.i90, label %if.then.i.i91, label %if.end.i.i
 
 for.inc.i.i73:                                    ; preds = %for.body.i.i65

@@ -5469,7 +5469,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %88 = phi i64 [ %49, %.preheader52 ], [ %86, %81 ]
   %89 = phi i64 [ 0, %.preheader52 ], [ %86, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %90 = icmp ult i64 %indvars.iv.next, %44
+  %90 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %90, label %48, label %.preheader, !llvm.loop !38
 
 91:                                               ; preds = %.lr.ph59, %91

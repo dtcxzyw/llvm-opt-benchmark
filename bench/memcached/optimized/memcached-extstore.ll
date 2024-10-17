@@ -78,7 +78,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %io_threadcount, align 8
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
@@ -341,7 +341,7 @@ if.then71:                                        ; preds = %if.end69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %page_count47, align 4
   %21 = zext i32 %20 to i64
-  %cmp58 = icmp ult i64 %indvars.iv.next, %21
+  %cmp58 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp58, label %while.body.preheader, label %for.end101, !llvm.loop !8
 
 for.end101:                                       ; preds = %if.then71, %for.cond56.preheader
@@ -513,7 +513,7 @@ for.body191:                                      ; preds = %for.end180, %for.bo
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %51 = load i32, ptr %io_threadcount, align 4
   %52 = zext i32 %51 to i64
-  %cmp189 = icmp ult i64 %indvars.iv.next172, %52
+  %cmp189 = icmp samesign ult i64 %indvars.iv.next172, %52
   br i1 %cmp189, label %for.body191, label %for.end211, !llvm.loop !11
 
 for.end211:                                       ; preds = %for.body191, %for.end180
@@ -743,7 +743,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %iovcnt.i, align 8
   %33 = zext i32 %32 to i64
-  %cmp7.i = icmp ult i64 %indvars.iv.next.i, %33
+  %cmp7.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %cmp7.i, label %for.body.i, label %_read_from_wbuf.exit, !llvm.loop !13
 
 _read_from_wbuf.exit:                             ; preds = %for.body.i, %if.then.i, %if.else.i
@@ -1086,7 +1086,7 @@ for.inc:                                          ; preds = %land.lhs.true67, %_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %page_count, align 4
   %33 = zext i32 %32 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next, %33
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc

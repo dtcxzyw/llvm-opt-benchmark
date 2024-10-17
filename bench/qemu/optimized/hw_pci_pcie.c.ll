@@ -1348,7 +1348,7 @@ entry:
   %add.i.i = add nsw i64 %conv3, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv4
   %sub.i4.i = add nuw nsw i64 %conv5, 1
-  %cmp.i = icmp ult i64 %sub.i4.i, %conv3
+  %cmp.i = icmp samesign ult i64 %sub.i4.i, %conv3
   %cmp2.i = icmp ult i64 %sub.i.i, %conv5
   %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end17, label %if.then
@@ -1419,7 +1419,7 @@ if.end17:                                         ; preds = %if.then.i, %land.lh
   %add20 = add nuw nsw i32 %conv, 24
   %conv21 = zext nneg i32 %add20 to i64
   %sub.i4.i22 = add nuw nsw i64 %conv21, 1
-  %cmp.i23 = icmp ult i64 %sub.i4.i22, %conv3
+  %cmp.i23 = icmp samesign ult i64 %sub.i4.i22, %conv3
   %cmp2.i24 = icmp ult i64 %sub.i.i, %conv21
   %.not.i25.not = select i1 %cmp.i23, i1 true, i1 %cmp2.i24
   br i1 %.not.i25.not, label %return, label %if.end25
@@ -1732,7 +1732,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %next.14.i = phi i16 [ %conv20.i, %for.inc.i ], [ 256, %entry ]
-  %cmp.i = icmp ugt i16 %next.14.i, 255
+  %cmp.i = icmp samesign ugt i16 %next.14.i, 255
   br i1 %cmp.i, label %if.end4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -1740,7 +1740,7 @@ if.else.i:                                        ; preds = %for.body.i
   unreachable
 
 if.end4.i:                                        ; preds = %for.body.i
-  %cmp6.i = icmp ult i16 %next.14.i, 4089
+  %cmp6.i = icmp samesign ult i16 %next.14.i, 4089
   br i1 %cmp6.i, label %if.end10.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end4.i
@@ -1827,7 +1827,7 @@ if.then34:                                        ; preds = %if.end30
 
 for.body.i:                                       ; preds = %if.then34, %if.end10.i
   %next.14.i = phi i16 [ %conv20.i, %if.end10.i ], [ 256, %if.then34 ]
-  %cmp.i = icmp ugt i16 %next.14.i, 255
+  %cmp.i = icmp samesign ugt i16 %next.14.i, 255
   br i1 %cmp.i, label %if.end4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -1835,7 +1835,7 @@ if.else.i:                                        ; preds = %for.body.i
   unreachable
 
 if.end4.i:                                        ; preds = %for.body.i
-  %cmp6.i = icmp ult i16 %next.14.i, 4089
+  %cmp6.i = icmp samesign ult i16 %next.14.i, 4089
   br i1 %cmp6.i, label %if.end10.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end4.i
@@ -1936,7 +1936,7 @@ if.else:                                          ; preds = %lor.lhs.false
   %and = and i32 %call11, 1008
   %conv14 = zext i16 %add.ptr3.val to i32
   %and15 = and i32 %conv14, 1008
-  %cmp = icmp ugt i32 %and, %and15
+  %cmp = icmp samesign ugt i32 %and, %and15
   br i1 %cmp, label %if.then17, label %if.else25
 
 if.then17:                                        ; preds = %if.else
@@ -1954,7 +1954,7 @@ if.end34:                                         ; preds = %if.else25, %if.then
   %lnksta.1.in = phi i32 [ %or, %if.then17 ], [ %spec.select, %if.else25 ]
   %and36 = and i32 %lnksta.1.in, 15
   %and38 = and i32 %conv14, 15
-  %cmp39 = icmp ugt i32 %and36, %and38
+  %cmp39 = icmp samesign ugt i32 %and36, %and38
   br i1 %cmp39, label %if.then41, label %if.else50
 
 if.then41:                                        ; preds = %if.end34

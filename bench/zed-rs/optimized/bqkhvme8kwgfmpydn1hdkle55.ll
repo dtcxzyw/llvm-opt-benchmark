@@ -13598,8 +13598,8 @@ define noundef zeroext i1 @_ZN7channel13channel_store12ChannelStore18channel_cap
   %6 = call noundef i32 @"_ZN7channel13channel_store12ChannelStore12channel_role28_$u7b$$u7b$closure$u7d$$u7d$17h5701ddd3744b617cE.llvm.14403522797051115383"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !range !2776
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2798
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch2 = icmp ugt i32 %6, 1
-  ret i1 %switch2
+  %switch = icmp samesign ugt i32 %6, 1
+  ret i1 %switch
 }
 
 ; Function Attrs: nonlazybind uwtable

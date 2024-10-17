@@ -2539,16 +2539,16 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %cmp14.not.i = icmp ugt i32 %and11.i, %reg.tr
+  %cmp14.not.i = icmp samesign ugt i32 %and11.i, %reg.tr
   br i1 %cmp14.not.i, label %for.inc.i, label %sw.epilog.i
 
 sw.bb18.i:                                        ; preds = %for.body.i
   %add19.i = add nuw nsw i32 %and11.i, 2
-  %cmp20.not.i = icmp ult i32 %reg.tr, %add19.i
+  %cmp20.not.i = icmp samesign ult i32 %reg.tr, %add19.i
   br i1 %cmp20.not.i, label %for.inc.i, label %if.then48.i
 
 sw.bb22.i:                                        ; preds = %for.body.i, %for.body.i
-  %cmp23.not.i = icmp ult i32 %reg.tr, %and11.i
+  %cmp23.not.i = icmp samesign ult i32 %reg.tr, %and11.i
   br i1 %cmp23.not.i, label %for.inc.i, label %if.then48.i
 
 sw.bb25.i:                                        ; preds = %for.body.i
@@ -2574,7 +2574,7 @@ sw.epilog.i:                                      ; preds = %sw.bb.i
   %shr12.i = lshr i32 %4, 16
   %and13.i = and i32 %shr12.i, 255
   %add.i = add nuw nsw i32 %and11.i, %and13.i
-  %cmp16.not.i = icmp ugt i32 %reg.tr, %add.i
+  %cmp16.not.i = icmp samesign ugt i32 %reg.tr, %add.i
   br i1 %cmp16.not.i, label %for.inc.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %sw.epilog.i, %sw.default.i, %sw.bb22.i, %sw.bb18.i
@@ -2614,7 +2614,7 @@ sw.bb:                                            ; preds = %if.then2
   %and4 = and i32 %shr3, 255
   %shr5 = lshr i32 %14, 7
   %and6 = and i32 %shr5, 255
-  %cmp7 = icmp ult i32 %and4, %and6
+  %cmp7 = icmp samesign ult i32 %and4, %and6
   br i1 %cmp7, label %tailrecurse, label %return
 
 sw.bb11:                                          ; preds = %if.then2

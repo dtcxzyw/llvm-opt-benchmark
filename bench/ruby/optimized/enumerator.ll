@@ -2206,7 +2206,7 @@ rb_array_len.exit:                                ; preds = %20
 rb_array_len.exit.thread:                         ; preds = %20
   %28 = lshr i64 %23, 15
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %.033, %29
+  %30 = icmp samesign ult i64 %.033, %29
   br i1 %30, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
@@ -3537,7 +3537,7 @@ rb_array_len.exit.i:                              ; preds = %11
 rb_array_len.exit.thread.i:                       ; preds = %11
   %16 = lshr i64 %12, 15
   %17 = and i64 %16, 127
-  %18 = icmp ult i64 %.014.i, %17
+  %18 = icmp samesign ult i64 %.014.i, %17
   br i1 %18, label %RARRAY_AREF.exit.i, label %enum_chain_total_size.exit
 
 19:                                               ; preds = %rb_array_len.exit.i
@@ -3882,7 +3882,7 @@ rb_array_len.exit.i:                              ; preds = %11
 rb_array_len.exit.thread.i:                       ; preds = %11
   %16 = lshr i64 %12, 15
   %17 = and i64 %16, 127
-  %18 = icmp ult i64 %.031.i, %17
+  %18 = icmp samesign ult i64 %.031.i, %17
   br i1 %18, label %RARRAY_AREF.exit.i, label %enum_product_total_size.exit
 
 19:                                               ; preds = %rb_array_len.exit.i
@@ -3990,7 +3990,7 @@ rb_array_len.exit:                                ; preds = %enum_product_ptr.ex
 rb_array_len.exit.thread:                         ; preds = %enum_product_ptr.exit
   %15 = lshr i64 %11, 15
   %16 = and i64 %15, 127
-  %17 = icmp ult i64 %.0, %16
+  %17 = icmp samesign ult i64 %.0, %16
   br i1 %17, label %RARRAY_AREF.exit, label %25
 
 18:                                               ; preds = %rb_array_len.exit
@@ -6278,7 +6278,7 @@ rb_array_len.exit:                                ; preds = %31
 rb_array_len.exit.thread:                         ; preds = %31
   %36 = lshr i64 %32, 15
   %37 = and i64 %36, 127
-  %38 = icmp ult i64 %.09, %37
+  %38 = icmp samesign ult i64 %.09, %37
   br i1 %38, label %RARRAY_AREF.exit, label %.loopexit
 
 39:                                               ; preds = %rb_array_len.exit
@@ -6863,7 +6863,7 @@ rb_array_len.exit.i:                              ; preds = %29
 rb_array_len.exit.thread.i:                       ; preds = %29
   %34 = lshr i64 %30, 15
   %35 = and i64 %34, 127
-  %36 = icmp ult i64 %.0.i, %35
+  %36 = icmp samesign ult i64 %.0.i, %35
   br i1 %36, label %RARRAY_AREF.exit.i, label %.critedge.i
 
 37:                                               ; preds = %rb_array_len.exit.i
@@ -7108,7 +7108,7 @@ rb_array_len.exit:                                ; preds = %65
 rb_array_len.exit.thread:                         ; preds = %65
   %71 = lshr i64 %67, 15
   %72 = and i64 %71, 127
-  %73 = icmp ult i64 %66, %72
+  %73 = icmp samesign ult i64 %66, %72
   br i1 %73, label %RARRAY_AREF.exit, label %79
 
 74:                                               ; preds = %rb_array_len.exit
@@ -7148,7 +7148,7 @@ rb_array_len.exit66:                              ; preds = %83
 rb_array_len.exit66.thread:                       ; preds = %83
   %87 = lshr i64 %84, 15
   %88 = and i64 %87, 127
-  %.not6175 = icmp ult i64 %.0, %88
+  %.not6175 = icmp samesign ult i64 %.0, %88
   br i1 %.not6175, label %RARRAY_AREF.exit69, label %102
 
 89:                                               ; preds = %rb_array_len.exit66
@@ -7564,7 +7564,7 @@ rb_array_len.exit31:                              ; preds = %23
 rb_array_len.exit31.thread:                       ; preds = %23
   %28 = lshr i64 %24, 15
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %.0, %29
+  %30 = icmp samesign ult i64 %.0, %29
   br i1 %30, label %RARRAY_AREF.exit, label %39
 
 31:                                               ; preds = %rb_array_len.exit31
@@ -7629,7 +7629,7 @@ rb_array_len.exit37:                              ; preds = %57
 rb_array_len.exit37.thread:                       ; preds = %57
   %62 = lshr i64 %58, 15
   %63 = and i64 %62, 127
-  %64 = icmp ult i64 %.1, %63
+  %64 = icmp samesign ult i64 %.1, %63
   br i1 %64, label %RARRAY_AREF.exit40, label %73
 
 65:                                               ; preds = %rb_array_len.exit37
@@ -7733,7 +7733,7 @@ rb_array_len.exit25:                              ; preds = %33
 rb_array_len.exit25.thread:                       ; preds = %33
   %38 = lshr i64 %34, 15
   %39 = and i64 %38, 127
-  %40 = icmp ult i64 %.0, %39
+  %40 = icmp samesign ult i64 %.0, %39
   br i1 %40, label %RARRAY_AREF.exit, label %48
 
 41:                                               ; preds = %rb_array_len.exit25

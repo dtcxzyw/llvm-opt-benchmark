@@ -13006,7 +13006,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 2
-  %cmp = icmp ult i64 %it.0.idx15, 254
+  %cmp = icmp samesign ult i64 %it.0.idx15, 254
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !301
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7
@@ -13493,7 +13493,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 4
-  %cmp = icmp ult i64 %it.0.idx15, 252
+  %cmp = icmp samesign ult i64 %it.0.idx15, 252
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !305
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7
@@ -13980,7 +13980,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 8
-  %cmp = icmp ult i64 %it.0.idx15, 248
+  %cmp = icmp samesign ult i64 %it.0.idx15, 248
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !309
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7
@@ -15479,7 +15479,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 2
-  %cmp = icmp ult i64 %it.0.idx15, 254
+  %cmp = icmp samesign ult i64 %it.0.idx15, 254
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !332
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7
@@ -16274,7 +16274,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 4
-  %cmp = icmp ult i64 %it.0.idx15, 252
+  %cmp = icmp samesign ult i64 %it.0.idx15, 252
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !344
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7
@@ -16934,7 +16934,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont7
   %it.0.add = add nuw nsw i64 %it.0.idx15, 8
-  %cmp = icmp ult i64 %it.0.idx15, 248
+  %cmp = icmp samesign ult i64 %it.0.idx15, 248
   br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !355
 
 lpad.loopexit:                                    ; preds = %invoke.cont, %invoke.cont4, %invoke.cont7

@@ -321,7 +321,7 @@ define range(i32 0, 2) i32 @assoc_mgr_post_tres_list(ptr noundef %0) local_unnam
   %.not189 = icmp ne ptr %19, null
   %20 = load i32, ptr @g_tres_count, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv, %21
+  %22 = icmp samesign ult i64 %indvars.iv, %21
   %or.cond193 = select i1 %.not189, i1 %22, i1 false
   br i1 %or.cond193, label %23, label %31
 
@@ -442,7 +442,7 @@ _get_old_tres_pos.exit.thread:                    ; preds = %61, %51, %.lr.ph207
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %68 = load i32, ptr @g_tres_count, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next245, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next245, %69
   br i1 %70, label %.lr.ph209, label %._crit_edge210, !llvm.loop !10
 
 ._crit_edge210:                                   ; preds = %.lr.ph209, %.preheader
@@ -1598,7 +1598,7 @@ define noundef i32 @assoc_mgr_fini(i1 noundef zeroext %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr @g_tres_count, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -2074,7 +2074,7 @@ define i32 @dump_assoc_mgr_state() local_unnamed_addr #0 {
   %223 = phi ptr [ %209, %.lr.ph.i ], [ %209, %212 ], [ %.pre.i, %216 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %224 = zext i32 %222 to i64
-  %225 = icmp ult i64 %indvars.iv.next.i, %224
+  %225 = icmp samesign ult i64 %indvars.iv.next.i, %224
   br i1 %225, label %.lr.ph.i, label %_make_usage_tres_raw_str.exit, !llvm.loop !22
 
 _make_usage_tres_raw_str.exit.thread:             ; preds = %198, %.preheader.i
@@ -2315,7 +2315,7 @@ _make_usage_tres_raw_str.exit:                    ; preds = %221
   %340 = phi ptr [ %326, %.lr.ph.i189 ], [ %326, %329 ], [ %.pre.i197, %333 ]
   %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i190, 1
   %341 = zext i32 %339 to i64
-  %342 = icmp ult i64 %indvars.iv.next.i192, %341
+  %342 = icmp samesign ult i64 %indvars.iv.next.i192, %341
   br i1 %342, label %.lr.ph.i189, label %_make_usage_tres_raw_str.exit199, !llvm.loop !22
 
 _make_usage_tres_raw_str.exit199.thread:          ; preds = %.lr.ph225, %.preheader.i185
@@ -8543,7 +8543,7 @@ _delete_assoc_hash.exit:                          ; preds = %_delete_assoc_hash.
   %596 = getelementptr inbounds i8, ptr %595, i64 104
   %597 = load i32, ptr %596, align 8
   %598 = zext i32 %597 to i64
-  %599 = icmp ult i64 %indvars.iv.next.i, %598
+  %599 = icmp samesign ult i64 %indvars.iv.next.i, %598
   br i1 %599, label %.lr.ph.i477, label %._crit_edge.i478, !llvm.loop !64
 
 ._crit_edge.i478:                                 ; preds = %.lr.ph.i477, %.preheader.i476
@@ -8603,7 +8603,7 @@ _clear_used_assoc_info.exit:                      ; preds = %608, %612
   %626 = getelementptr inbounds i8, ptr %625, i64 104
   %627 = load i32, ptr %626, align 8
   %628 = zext i32 %627 to i64
-  %629 = icmp ult i64 %indvars.iv.next, %628
+  %629 = icmp samesign ult i64 %indvars.iv.next, %628
   br i1 %629, label %.lr.ph612, label %._crit_edge613, !llvm.loop !65
 
 ._crit_edge613:                                   ; preds = %.lr.ph612, %_clear_used_assoc_info.exit
@@ -8911,7 +8911,7 @@ _set_children_level_shares.exit:                  ; preds = %._crit_edge.i503, %
   %indvars.iv.next.i509 = add nuw nsw i64 %indvars.iv.i508, 1
   %761 = load i32, ptr %731, align 8
   %762 = zext i32 %761 to i64
-  %763 = icmp ult i64 %indvars.iv.next.i509, %762
+  %763 = icmp samesign ult i64 %indvars.iv.next.i509, %762
   br i1 %763, label %739, label %._crit_edge.i510, !llvm.loop !69
 
 ._crit_edge.i510:                                 ; preds = %739, %.preheader.i505
@@ -11143,7 +11143,7 @@ define internal fastcc void @_addto_used_info(ptr noundef %0, ptr noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %13, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %13, %.preheader
@@ -12217,7 +12217,7 @@ define void @assoc_mgr_update_qos_usage(ptr nocapture noundef readonly %0, x86_f
   %46 = getelementptr inbounds i8, ptr %45, i64 80
   %47 = load i32, ptr %46, align 16
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %44, %22, %14
@@ -12790,7 +12790,7 @@ _refresh_assoc_mgr_user_list.exit:                ; preds = %44, %46
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %142 = load i32, ptr %112, align 8
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next.i.i, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next.i.i, %143
   br i1 %144, label %120, label %._crit_edge.i.i, !llvm.loop !69
 
 ._crit_edge.i.i:                                  ; preds = %120, %.preheader.i.i
@@ -13113,7 +13113,7 @@ define void @assoc_mgr_clear_used_info() local_unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %18, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next.i, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next.i, %21
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -13235,7 +13235,7 @@ _clear_used_assoc_info.exit:                      ; preds = %.lr.ph, %31, %35
   %78 = getelementptr inbounds i8, ptr %77, i64 80
   %79 = load i32, ptr %78, align 16
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next.i17, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next.i17, %80
   br i1 %81, label %.lr.ph.i15, label %._crit_edge.i18, !llvm.loop !103
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i15, %65
@@ -13311,7 +13311,7 @@ define internal fastcc void @_reset_children_usages(ptr noundef %0) unnamed_addr
   %21 = getelementptr inbounds i8, ptr %20, i64 104
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph23
@@ -13778,7 +13778,7 @@ define internal fastcc void @_set_usage_tres_raw(ptr nocapture noundef writeonly
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr @g_tres_count, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %38, label %.lr.ph.i, label %.loopexit, !llvm.loop !111
 
 assoc_mgr_find_tres_pos.exit:                     ; preds = %.lr.ph.i, %28
@@ -15580,7 +15580,7 @@ define i32 @assoc_mgr_find_tres_pos(ptr nocapture noundef readonly %0, i1 nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr @g_tres_count, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %14, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %24
@@ -15669,7 +15669,7 @@ define i32 @assoc_mgr_find_tres_pos2(ptr nocapture noundef readonly %0, i1 nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr @g_tres_count, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %13, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %29
@@ -15757,7 +15757,7 @@ define ptr @assoc_mgr_find_tres_rec(ptr nocapture noundef readonly %0) local_unn
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr @g_tres_count, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %11, label %assoc_mgr_find_tres_pos.exit.thread, !llvm.loop !111
 
 assoc_mgr_find_tres_pos.exit:                     ; preds = %13, %.assoc_mgr_find_tres_pos.exit_crit_edge
@@ -16135,7 +16135,7 @@ define ptr @assoc_mgr_make_tres_str_from_array(ptr noundef readonly %0, i32 noun
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %66 = load i32, ptr @g_tres_count, align 4
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next61, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next61, %67
   br i1 %68, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !122
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -16175,7 +16175,7 @@ define ptr @assoc_mgr_make_tres_str_from_array(ptr noundef readonly %0, i32 noun
   %84 = phi ptr [ %.pre65, %76 ], [ %70, %73 ], [ %70, %.lr.ph.split.split.us ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %85 = zext i32 %83 to i64
-  %86 = icmp ult i64 %indvars.iv.next58, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next58, %85
   br i1 %86, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !122
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %100
@@ -16211,7 +16211,7 @@ define ptr @assoc_mgr_make_tres_str_from_array(ptr noundef readonly %0, i32 noun
   %102 = phi ptr [ %88, %91 ], [ %.pre, %94 ], [ %88, %.lr.ph.split.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = zext i32 %101 to i64
-  %104 = icmp ult i64 %indvars.iv.next, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next, %103
   br i1 %104, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %100, %82, %65, %9
@@ -16402,7 +16402,7 @@ define double @assoc_mgr_tres_weighted(ptr noundef readonly %0, ptr noundef read
   %.1.us = phi double [ %.04253.us, %.lr.ph.split.us ], [ %31, %30 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next62, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next62, %34
   br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !123
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
@@ -16470,7 +16470,7 @@ define double @assoc_mgr_tres_weighted(ptr noundef readonly %0, ptr noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr @g_tres_count, align 4
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %65, %32, %11

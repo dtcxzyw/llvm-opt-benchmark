@@ -837,7 +837,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit27:       ; preds = %if.then12, %cond.tr
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %13 = and i64 %sub.ptr.sub.i.i.i.i.i, 34359738360
-  %cmp.i.i.i.i = icmp ult i64 %13, 312
+  %cmp.i.i.i.i = icmp samesign ult i64 %13, 312
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
   br i1 %.not.i.i, label %if.then18, label %if.end20
@@ -1013,7 +1013,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end, %cond.true.
   %conv.i.i.i.i = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
   %conv2.i.i.i.i = zext i32 %cond.i.i.i to i64
   %add.i.i.i.i = add nuw nsw i64 %conv2.i.i.i.i, 32
-  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ugt i64 %add.i.i.i.i, %conv.i.i.i.i
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
   br i1 %.not.i.i, label %if.then10, label %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit

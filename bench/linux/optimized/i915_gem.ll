@@ -1894,7 +1894,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   %108 = zext i32 %107 to i64
   %109 = load i64, ptr %38, align 8
   %110 = lshr i64 %109, 1
-  %111 = icmp ult i64 %110, %108
+  %111 = icmp samesign ult i64 %110, %108
   br i1 %111, label %.loopexit10, label %112
 
 112:                                              ; preds = %105

@@ -3181,7 +3181,7 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %61 = load i16, ptr %31, align 8
   %62 = zext i16 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next92, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next92, %62
   br i1 %63, label %46, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %46, %.preheader, %27
@@ -3276,7 +3276,7 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i16, ptr %72, align 8
   %118 = zext i16 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next, %118
   br i1 %119, label %102, label %.loopexit75, !llvm.loop !28
 
 120:                                              ; preds = %95, %68

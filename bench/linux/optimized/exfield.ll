@@ -93,7 +93,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   %30 = zext nneg i32 %29 to i64
   %31 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %32 = zext i8 %31 to i32
-  %33 = icmp ugt i32 %29, %32
+  %33 = icmp samesign ugt i32 %29, %32
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %25

@@ -932,7 +932,7 @@ define dso_local zeroext i8 @intel_dp_dsc_get_slice_count(ptr noundef %0, i32 no
 
 46:                                               ; preds = %.split.us
   %47 = zext i8 %43 to i32
-  %.not.us = icmp ugt i32 %38, %47
+  %.not.us = icmp samesign ugt i32 %38, %47
   br i1 %.not.us, label %.thread.us, label %.loopexit
 
 .thread.us:                                       ; preds = %46
@@ -952,7 +952,7 @@ define dso_local zeroext i8 @intel_dp_dsc_get_slice_count(ptr noundef %0, i32 no
 56:                                               ; preds = %.split
   %57 = zext i8 %53 to i32
   %58 = icmp ult i8 %53, 4
-  %.not = icmp ugt i32 %38, %57
+  %.not = icmp samesign ugt i32 %38, %57
   %or.cond = select i1 %58, i1 true, i1 %.not
   br i1 %or.cond, label %.thread, label %.loopexit
 
@@ -1680,7 +1680,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   %65 = lshr i8 %64, 4
   %66 = zext nneg i8 %65 to i32
   %67 = tail call i32 @llvm.umin.i32(i32 %62, i32 %66)
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   br i1 %68, label %428, label %69
 
 69:                                               ; preds = %57, %56, %53
@@ -1781,9 +1781,9 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   %139 = load i32, ptr %135, align 4
   %140 = call i32 @llvm.smax.i32(i32 %139, i32 %138)
   %141 = and i32 %140, 255
-  %142 = icmp ule i32 %141, %121
+  %142 = icmp samesign ule i32 %141, %121
   %143 = and i32 %137, 255
-  %144 = icmp uge i32 %143, %121
+  %144 = icmp samesign uge i32 %143, %121
   %145 = select i1 %142, i1 %144, i1 false
   br i1 %145, label %152, label %146
 
@@ -1968,11 +1968,11 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = mul nuw nsw i32 %260, 3
-  %262 = icmp ult i32 %261, %253
+  %262 = icmp samesign ult i32 %261, %253
   br i1 %262, label %.thread30, label %263
 
 263:                                              ; preds = %256
-  %264 = icmp ugt i32 %261, %254
+  %264 = icmp samesign ugt i32 %261, %254
   br i1 %264, label %268, label %265
 
 265:                                              ; preds = %263
@@ -2104,7 +2104,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
 
 334:                                              ; preds = %.preheader
   %335 = add nuw nsw i32 %331, 2
-  %336 = icmp ugt i32 %335, %329
+  %336 = icmp samesign ugt i32 %335, %329
   br i1 %336, label %337, label %.preheader, !llvm.loop !46
 
 337:                                              ; preds = %334, %.preheader
@@ -7293,7 +7293,7 @@ define dso_local noundef range(i32 0, 2) i32 @intel_dp_hpd_pulse(ptr noundef %0,
   br i1 %157, label %158, label %.preheader, !llvm.loop !134
 
 158:                                              ; preds = %155
-  %159 = icmp ult i32 %152, 2
+  %159 = icmp samesign ult i32 %152, 2
   br i1 %159, label %164, label %.thread
 
 .thread:                                          ; preds = %.preheader, %158
@@ -8269,7 +8269,7 @@ define dso_local noundef zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr
 436:                                              ; preds = %431
   %437 = load i8, ptr %258, align 1
   %438 = and i8 %437, 31
-  %439 = icmp ugt i8 %433, %438
+  %439 = icmp samesign ugt i8 %433, %438
   br i1 %439, label %440, label %447
 
 440:                                              ; preds = %436, %431
@@ -9451,7 +9451,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
   %109 = tail call i32 @llvm.smin.i32(i32 %106, i32 %108)
   %110 = shl nuw nsw i32 %22, 4
   %111 = and i32 %109, 65535
-  %112 = icmp ult i32 %111, %110
+  %112 = icmp samesign ult i32 %111, %110
   br i1 %112, label %.loopexit14, label %113
 
 113:                                              ; preds = %104

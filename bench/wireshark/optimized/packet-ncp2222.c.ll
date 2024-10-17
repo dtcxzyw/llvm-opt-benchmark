@@ -15193,7 +15193,7 @@ ncp_hash_lookup.exit:                             ; preds = %.lr.ph.i, %291, %27
   %336 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %335) #13
   %337 = icmp sgt i32 %336, 3
   %338 = add nuw nsw i32 %.038.us.i, 1
-  %339 = icmp ult i32 %338, %326
+  %339 = icmp samesign ult i32 %338, %326
   %or.cond.i227 = select i1 %337, i1 %339, i1 false
   br i1 %or.cond.i227, label %.lr.ph.split.us.i, label %dissect_ncp_89_6_request.exit, !llvm.loop !19
 
@@ -15210,7 +15210,7 @@ ncp_hash_lookup.exit:                             ; preds = %.lr.ph.i, %291, %27
   %346 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %345) #13
   %347 = icmp sgt i32 %346, 3
   %348 = add nuw nsw i32 %.038.i, 1
-  %349 = icmp ult i32 %348, %326
+  %349 = icmp samesign ult i32 %348, %326
   %or.cond40.i = select i1 %347, i1 %349, i1 false
   br i1 %or.cond40.i, label %.lr.ph.split.i, label %dissect_ncp_89_6_request.exit, !llvm.loop !19
 

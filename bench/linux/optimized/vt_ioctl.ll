@@ -839,7 +839,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 306:                                              ; preds = %302
   %307 = add nuw nsw i64 %287, 1
-  %308 = icmp ult i64 %287, 62
+  %308 = icmp samesign ult i64 %287, 62
   %309 = icmp eq i64 %307, 63
   br i1 %309, label %.loopexit, label %286, !llvm.loop !24
 

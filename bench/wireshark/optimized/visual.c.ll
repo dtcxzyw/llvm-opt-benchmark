@@ -285,7 +285,7 @@ define internal fastcc range(i32 0, 2) i32 @visual_read_packet(ptr nocapture nou
   ]
 
 44:                                               ; preds = %12
-  %45 = icmp ult i32 %37, 4
+  %45 = icmp samesign ult i32 %37, 4
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %44
@@ -303,7 +303,7 @@ define internal fastcc range(i32 0, 2) i32 @visual_read_packet(ptr nocapture nou
   br label %.thread
 
 52:                                               ; preds = %12
-  %53 = icmp ult i32 %37, 2
+  %53 = icmp samesign ult i32 %37, 2
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %52
@@ -330,7 +330,7 @@ define internal fastcc range(i32 0, 2) i32 @visual_read_packet(ptr nocapture nou
   br label %.thread
 
 64:                                               ; preds = %12
-  %65 = icmp ult i32 %37, 2
+  %65 = icmp samesign ult i32 %37, 2
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
@@ -352,7 +352,7 @@ define internal fastcc range(i32 0, 2) i32 @visual_read_packet(ptr nocapture nou
   br label %.thread
 
 75:                                               ; preds = %12
-  %76 = icmp ult i32 %37, 2
+  %76 = icmp samesign ult i32 %37, 2
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75

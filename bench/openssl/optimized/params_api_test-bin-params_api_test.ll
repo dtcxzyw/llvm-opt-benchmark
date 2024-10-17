@@ -1854,7 +1854,7 @@ if.then74:                                        ; preds = %if.end70
   br i1 %tobool84.not, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then74, %if.end70
-  %cmp88 = icmp ult i64 %width, 8
+  %cmp88 = icmp samesign ult i64 %width, 8
   br i1 %cmp88, label %if.then90, label %if.end134
 
 if.then90:                                        ; preds = %if.end87

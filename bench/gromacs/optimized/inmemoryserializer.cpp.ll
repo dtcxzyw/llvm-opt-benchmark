@@ -202,7 +202,7 @@ define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr nocapture noundef nonnu
   %.sroa.0.0.i.i = phi i8 [ %.sroa.0.0.extract.trunc.i.i, %11 ], [ %.sroa.4.0.i.i, %12 ]
   %.06.i.i = phi i32 [ 1, %11 ], [ 0, %12 ]
   %.0.i.i = phi i32 [ 0, %11 ], [ 1, %12 ]
-  %13 = icmp ugt i32 %.06.i.i, %.0.i.i
+  %13 = icmp samesign ugt i32 %.06.i.i, %.0.i.i
   br i1 %13, label %12, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, !llvm.loop !5
 
 _ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i: ; preds = %12
@@ -830,7 +830,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doUShortEPt(ptr nocapture noundef non
   %.sroa.0.0.i.i = phi i8 [ %.sroa.0.0.extract.trunc.i.i, %14 ], [ %.sroa.4.0.i.i, %15 ]
   %.06.i.i = phi i32 [ 1, %14 ], [ 0, %15 ]
   %.0.i.i = phi i32 [ 0, %14 ], [ 1, %15 ]
-  %16 = icmp ugt i32 %.06.i.i, %.0.i.i
+  %16 = icmp samesign ugt i32 %.06.i.i, %.0.i.i
   br i1 %16, label %15, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, !llvm.loop !5
 
 _ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i: ; preds = %15

@@ -753,7 +753,7 @@ entry:
   %2 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %2 to i64
   %or = or disjoint i64 %shl, %conv2
-  %cmp = icmp ugt i64 %or, 4096
+  %cmp = icmp samesign ugt i64 %or, 4096
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -761,7 +761,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp5 = icmp ult i64 %or, 3
+  %cmp5 = icmp samesign ult i64 %or, 3
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -3052,7 +3052,7 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   %or.i.i = or disjoint i8 %and1.i.i, %and.i1.i
   store i8 %or.i.i, ptr %arrayidx164, align 1
   %inc168 = add nuw nsw i64 %i.187, 1
-  %cmp159 = icmp ult i64 %i.187, 47
+  %cmp159 = icmp samesign ult i64 %i.187, 47
   br i1 %cmp159, label %for.body161, label %for.end169, !llvm.loop !13
 
 for.end169:                                       ; preds = %for.body161

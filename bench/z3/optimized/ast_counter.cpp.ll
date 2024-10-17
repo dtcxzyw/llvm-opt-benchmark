@@ -692,7 +692,7 @@ if.end.i.i:                                       ; preds = %for.cond3
 
 _ZNK14expr_free_vars4sizeEv.exit:                 ; preds = %for.cond3, %if.end.i.i
   %retval.0.i.i = phi i64 [ %4, %if.end.i.i ], [ 0, %for.cond3 ]
-  %cmp6 = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp6 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp6, label %for.body7, label %for.inc10
 
 for.body7:                                        ; preds = %_ZNK14expr_free_vars4sizeEv.exit
@@ -1259,7 +1259,7 @@ for.inc:                                          ; preds = %.noexc40, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %m_num_args.i, align 8
   %34 = zext i32 %33 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %34
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %cmp33, label %for.body, label %sw.epilog, !llvm.loop !17
 
 sw.default:                                       ; preds = %invoke.cont10

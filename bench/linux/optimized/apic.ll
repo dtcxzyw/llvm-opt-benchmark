@@ -1205,7 +1205,7 @@ define dso_local void @clear_local_APIC() local_unnamed_addr #1 align 16 {
   %4 = tail call i32 @__SCT__apic_call_read(i32 noundef 48) #17
   %5 = lshr i32 %4, 16
   %6 = and i32 %5, 255
-  %7 = icmp ugt i32 %6, 2
+  %7 = icmp samesign ugt i32 %6, 2
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
@@ -1222,7 +1222,7 @@ define dso_local void @clear_local_APIC() local_unnamed_addr #1 align 16 {
   %14 = tail call i32 @__SCT__apic_call_read(i32 noundef 864) #17
   %15 = or i32 %14, 65536
   tail call void @__SCT__apic_call_write(i32 noundef 864, i32 noundef %15) #17
-  %16 = icmp ugt i32 %6, 3
+  %16 = icmp samesign ugt i32 %6, 3
   br i1 %16, label %17, label %.thread1
 
 17:                                               ; preds = %9
@@ -1236,7 +1236,7 @@ define dso_local void @clear_local_APIC() local_unnamed_addr #1 align 16 {
   %21 = tail call i32 @__SCT__apic_call_read(i32 noundef 816) #17
   %22 = or i32 %21, 65536
   tail call void @__SCT__apic_call_write(i32 noundef 816, i32 noundef %22) #17
-  %23 = icmp ugt i32 %6, 5
+  %23 = icmp samesign ugt i32 %6, 5
   br i1 %23, label %24, label %.thread1
 
 24:                                               ; preds = %20
@@ -1360,7 +1360,7 @@ define dso_local void @sync_Arb_IDs() local_unnamed_addr #0 section ".init.text"
 8:                                                ; preds = %0
   %9 = tail call i32 @__SCT__apic_call_read(i32 noundef 48) #17
   %10 = and i32 %9, 252
-  %11 = icmp ugt i32 %10, 19
+  %11 = icmp samesign ugt i32 %10, 19
   %12 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %13 = icmp eq i8 %12, 2
   %14 = select i1 %11, i1 true, i1 %13
@@ -2171,7 +2171,7 @@ define internal void @__sysvec_error_interrupt(ptr nocapture readnone %0) #1 ali
   %49 = phi i32 [ %.pre, %44 ], [ %37, %.preheader ]
   %50 = add nuw nsw i64 %38, 1
   %51 = lshr i32 %39, 1
-  %52 = icmp ult i32 %39, 2
+  %52 = icmp samesign ult i32 %39, 2
   br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !95
 
 .loopexit:                                        ; preds = %48, %34
@@ -2300,7 +2300,7 @@ define internal noundef i32 @smp_init_primary_thread_mask() #0 section ".init.te
   %18 = phi i32 [ %.pre, %15 ], [ %4, %8 ]
   %19 = add nuw nsw i64 %5, 1
   %20 = zext i32 %17 to i64
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %16, %0
@@ -3350,7 +3350,7 @@ define internal noundef i32 @lapic_suspend() #1 align 16 {
   store i32 %11, ptr @apic_pm_state.5, align 4
   %12 = tail call i32 @__SCT__apic_call_read(i32 noundef 800) #17
   store i32 %12, ptr @apic_pm_state.6, align 4
-  %13 = icmp ugt i32 %6, 3
+  %13 = icmp samesign ugt i32 %6, 3
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -3369,7 +3369,7 @@ define internal noundef i32 @lapic_suspend() #1 align 16 {
   store i32 %20, ptr @apic_pm_state.11, align 4
   %21 = tail call i32 @__SCT__apic_call_read(i32 noundef 992) #17
   store i32 %21, ptr @apic_pm_state.12, align 4
-  %22 = icmp ugt i32 %6, 4
+  %22 = icmp samesign ugt i32 %6, 4
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %16
@@ -3488,7 +3488,7 @@ define internal void @lapic_resume() #1 align 16 {
   call void @__SCT__apic_call_write(i32 noundef 848, i32 noundef %38) #17
   %39 = load i32, ptr @apic_pm_state.9, align 4
   call void @__SCT__apic_call_write(i32 noundef 864, i32 noundef %39) #17
-  %40 = icmp ugt i32 %32, 4
+  %40 = icmp samesign ugt i32 %32, 4
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %29

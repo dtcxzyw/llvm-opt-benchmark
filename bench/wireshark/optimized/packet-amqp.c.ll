@@ -11921,7 +11921,7 @@ define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 n
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1472, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %17) #12
   %18 = add i32 %.025, 8
   %19 = add nuw nsw i32 %.02024, 2
-  %20 = icmp ult i32 %19, %8
+  %20 = icmp samesign ult i32 %19, %8
   br i1 %20, label %12, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %12, %10
@@ -12391,7 +12391,7 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
 
 57:                                               ; preds = %.lr.ph
   store i32 0, ptr %14, align 4
-  %58 = icmp ult i64 %indvars.iv, %52
+  %58 = icmp samesign ult i64 %indvars.iv, %52
   br i1 %58, label %59, label %get_amqp_1_0_type_value_formatter.exit
 
 59:                                               ; preds = %57
@@ -13110,7 +13110,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
 
 231:                                              ; preds = %228
   store i32 0, ptr %12, align 4
-  %232 = icmp ult i64 %indvars.iv, %224
+  %232 = icmp samesign ult i64 %indvars.iv, %224
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %231
@@ -13684,7 +13684,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %107 = phi ptr [ %105, %..thread.i_crit_edge ], [ %60, %95 ], [ %60, %84 ], [ %60, %75 ], [ %60, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = zext i32 %106 to i64
-  %109 = icmp ult i64 %indvars.iv.next.i, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next.i, %108
   br i1 %109, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !24
 
 find_data_dissector.exit.thread.sink.split:       ; preds = %30, %51, %26

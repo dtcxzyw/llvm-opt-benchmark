@@ -738,7 +738,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %for.b
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %17 = load i32, ptr %num_matches.i.i, align 8
   %18 = zext i32 %17 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %18
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %18
   br i1 %cmp.i.i, label %for.body.i.i, label %attr_stack_free.exit.i, !llvm.loop !13
 
 attr_stack_free.exit.i:                           ; preds = %for.end.i.i, %while.body.i.i
@@ -1953,7 +1953,7 @@ for.end:                                          ; preds = %for.inc, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %num_matches, align 8
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end14, !llvm.loop !13
 
 for.end14:                                        ; preds = %for.end, %entry
@@ -2049,7 +2049,7 @@ entry:
   %buf = alloca %struct.strbuf, align 8
   %st = alloca %struct.stat, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_attr_from_file.buf, i64 24, i1 false)
-  %tobool.not = icmp ult i32 %flags, 2
+  %tobool.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

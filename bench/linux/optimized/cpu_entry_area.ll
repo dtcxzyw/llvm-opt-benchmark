@@ -116,7 +116,7 @@ define dso_local void @setup_cpu_entry_areas() local_unnamed_addr #3 section ".i
   tail call fastcc void @setup_cpu_entry_area(i32 noundef %9) #5
   %12 = add nuw nsw i64 %8, 1
   %13 = and i64 %12, 127
-  %14 = icmp ugt i64 %13, 63
+  %14 = icmp samesign ugt i64 %13, 63
   br i1 %14, label %.thread, label %1, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %1, %11, %7
@@ -153,7 +153,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
   store i64 %14, ptr %18, align 8
   %19 = add nuw nsw i64 %10, 1
   %20 = and i64 %19, 127
-  %21 = icmp ugt i64 %20, 63
+  %21 = icmp samesign ugt i64 %20, 63
   br i1 %21, label %.thread, label %.preheader, !prof !6, !llvm.loop !10
 
 .preheader12:                                     ; preds = %0, %.thread10
@@ -192,7 +192,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
 42:                                               ; preds = %63, %40
   %43 = phi i64 [ %65, %63 ], [ 0, %40 ]
   %44 = and i64 %43, 4294967295
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread10, label %46, !prof !11
 
 46:                                               ; preds = %42
@@ -233,7 +233,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
   store i64 %66, ptr %71, align 8
   %72 = add nuw nsw i64 %28, 1
   %73 = and i64 %72, 127
-  %74 = icmp ugt i64 %73, 63
+  %74 = icmp samesign ugt i64 %73, 63
   br i1 %74, label %.thread, label %.preheader12, !prof !6, !llvm.loop !13
 
 .thread:                                          ; preds = %.preheader12, %.thread10, %27, %.preheader, %13, %9

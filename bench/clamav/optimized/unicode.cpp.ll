@@ -765,7 +765,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr nocapture noundef readonly %0) 
   %.01328.i = phi i32 [ %6, %.lr.ph.i ], [ 0, %.lr.ph34.i ]
   %6 = add nuw nsw i32 %.01328.i, 1
   %7 = lshr i32 %5, 1
-  %8 = icmp ugt i32 %5, 1
+  %8 = icmp samesign ugt i32 %5, 1
   %9 = and i32 %7, %4
   %10 = icmp ne i32 %9, 0
   %11 = and i1 %8, %10
@@ -824,7 +824,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr nocapture noundef readonly %0,
   %.01328 = phi i32 [ %6, %.lr.ph ], [ 0, %.lr.ph34 ]
   %6 = add nuw nsw i32 %.01328, 1
   %7 = lshr i32 %5, 1
-  %8 = icmp ugt i32 %5, 1
+  %8 = icmp samesign ugt i32 %5, 1
   %9 = and i32 %7, %4
   %10 = icmp ne i32 %9, 0
   %11 = and i1 %8, %10

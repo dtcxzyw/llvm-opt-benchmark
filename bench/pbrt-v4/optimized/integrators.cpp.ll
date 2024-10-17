@@ -35225,7 +35225,7 @@ for.body22:                                       ; preds = %for.cond20.preheade
   %add23 = add nuw nsw i32 %s.0108, %t.0112
   %cmp24 = icmp eq i32 %s.0108, 1
   %or.cond = and i1 %cmp25, %cmp24
-  %cmp26 = icmp ult i32 %add23, 2
+  %cmp26 = icmp samesign ult i32 %add23, 2
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp26
   br i1 %or.cond1, label %for.inc, label %lor.lhs.false27
 
@@ -42866,16 +42866,16 @@ sw.default.i.i.i:                                 ; preds = %sw.bb
 sw.bb7:                                           ; preds = %if.end
   %13 = call float @llvm.fabs.f32(float %4)
   %xor.i = bitcast float %13 to i32
-  %cmp.i = icmp ugt i32 %xor.i, 1199570943
+  %cmp.i = icmp samesign ugt i32 %xor.i, 1199570943
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb7
-  %cmp2.i = icmp ugt i32 %xor.i, 2139095040
+  %cmp2.i = icmp samesign ugt i32 %xor.i, 2139095040
   %conv.i3 = select i1 %cmp2.i, i32 32256, i32 31744
   br label %_ZN4pbrt4HalfC2Ef.exit
 
 if.else.i:                                        ; preds = %sw.bb7
-  %cmp3.i = icmp ult i32 %xor.i, 947912704
+  %cmp3.i = icmp samesign ult i32 %xor.i, 947912704
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -51729,7 +51729,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %v.1.i = phi i32 [ %xor.i, %if.then.i ], [ %v.08.i, %for.body.i ]
   %shr.i = lshr i64 %a.addr.07.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
+  %cmp.not.i = icmp samesign ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !675
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
@@ -51764,7 +51764,7 @@ for.inc.i21:                                      ; preds = %if.then.i18, %for.b
   %v.1.i22 = phi i32 [ %xor.i20, %if.then.i18 ], [ %v.08.i14, %for.body.i12 ]
   %shr.i23 = lshr i64 %a.addr.07.i15, 1
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i13, 1
-  %cmp.not.i25 = icmp ult i64 %a.addr.07.i15, 2
+  %cmp.not.i25 = icmp samesign ult i64 %a.addr.07.i15, 2
   br i1 %cmp.not.i25, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i12, !llvm.loop !676
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %for.inc.i21, %if.then4
@@ -51801,7 +51801,7 @@ for.inc.i41:                                      ; preds = %if.then.i38, %for.b
   %v.1.i42 = phi i32 [ %xor.i40, %if.then.i38 ], [ %v.08.i34, %for.body.i32 ]
   %shr.i43 = lshr i64 %a.addr.07.i35, 1
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i33, 1
-  %cmp.not.i45 = icmp ult i64 %a.addr.07.i35, 2
+  %cmp.not.i45 = icmp samesign ult i64 %a.addr.07.i35, 2
   br i1 %cmp.not.i45, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i32, !llvm.loop !677
 
 _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %for.inc.i41, %if.then11
@@ -51849,7 +51849,7 @@ for.inc.i64:                                      ; preds = %if.then.i61, %for.b
   %v.1.i65 = phi i32 [ %xor.i63, %if.then.i61 ], [ %v.08.i57, %for.body.i55 ]
   %shr.i66 = lshr i64 %a.addr.07.i58, 1
   %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i56, 1
-  %cmp.not.i68 = icmp ult i64 %a.addr.07.i58, 2
+  %cmp.not.i68 = icmp samesign ult i64 %a.addr.07.i58, 2
   br i1 %cmp.not.i68, label %for.end.i, label %for.body.i55, !llvm.loop !678
 
 for.end.i:                                        ; preds = %for.inc.i64, %if.else16

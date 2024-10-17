@@ -174,7 +174,7 @@ define dso_local noundef ptr @ata_timing_find_mode(i8 noundef zeroext %0) #2 ali
   %4 = phi ptr [ @ata_timing, %1 ], [ %8, %3 ]
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = icmp ugt i32 %2, %6
+  %7 = icmp samesign ugt i32 %2, %6
   %8 = getelementptr i8, ptr %4, i64 20
   br i1 %7, label %3, label %9, !llvm.loop !5
 
@@ -546,7 +546,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   %229 = zext i16 %226 to i32
   %230 = add nuw nsw i32 %229, %228
   %231 = zext i16 %225 to i32
-  %232 = icmp ult i32 %230, %231
+  %232 = icmp samesign ult i32 %230, %231
   br i1 %232, label %233, label %239
 
 233:                                              ; preds = %221
@@ -564,7 +564,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   %241 = zext i16 %223 to i32
   %242 = add nuw nsw i32 %241, %240
   %243 = zext i16 %222 to i32
-  %244 = icmp ult i32 %242, %243
+  %244 = icmp samesign ult i32 %242, %243
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %239
@@ -582,7 +582,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 
 251:                                              ; preds = %245, %239
   %.pre-phi23 = phi i32 [ %.pre22, %245 ], [ %242, %239 ]
-  %252 = icmp ugt i32 %.pre-phi23, %243
+  %252 = icmp samesign ugt i32 %.pre-phi23, %243
   br i1 %252, label %253, label %.thread
 
 253:                                              ; preds = %251

@@ -2863,7 +2863,7 @@ _ZL16isMemoryLocationN4llvm18DIExpressionCursorE.exit: ; preds = %_ZN4llvm18DIEx
   %196 = trunc i64 %195 to i8
   %197 = load i16, ptr %13, align 4
   %198 = and i16 %197, 7680
-  %199 = icmp ugt i16 %198, 2048
+  %199 = icmp samesign ugt i16 %198, 2048
   br i1 %199, label %200, label %243
 
 200:                                              ; preds = %190

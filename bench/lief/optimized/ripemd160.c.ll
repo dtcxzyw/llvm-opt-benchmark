@@ -1995,7 +1995,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   %29 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %28, ptr %29, align 1
   %30 = and i32 %4, 63
-  %31 = icmp ult i32 %30, 56
+  %31 = icmp samesign ult i32 %30, 56
   %.v = select i1 %31, i32 56, i32 120
   %32 = sub nsw i32 %.v, %30
   %33 = zext i32 %32 to i64
@@ -2081,7 +2081,7 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
   br i1 %.not.i64, label %._crit_edge.thread.i72, label %68
 
 68:                                               ; preds = %67
-  %.not44.i65 = icmp ult i32 %59, 56
+  %.not44.i65 = icmp samesign ult i32 %59, 56
   br i1 %.not44.i65, label %._crit_edge.thread.i72, label %._crit_edge.i68
 
 ._crit_edge.i68:                                  ; preds = %68

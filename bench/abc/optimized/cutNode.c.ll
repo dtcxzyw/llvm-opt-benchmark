@@ -474,7 +474,7 @@ Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.ex
   %225 = lshr i32 %224, 28
   %226 = load i32, ptr %.060.i, align 8
   %227 = lshr i32 %226, 28
-  %228 = icmp ult i32 %225, %227
+  %228 = icmp samesign ult i32 %225, %227
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %223
@@ -957,7 +957,7 @@ define range(i32 -2147483647, -2147483648) i32 @Cut_ManMappingArea_rec(ptr nocap
   %21 = load i32, ptr %10, align 8
   %22 = lshr i32 %21, 28
   %23 = zext nneg i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %16, label %._crit_edge.loopexit, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %16
@@ -987,7 +987,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutProcessTwo(ptr noundef %0, pt
   %6 = lshr i32 %5, 28
   %7 = load i32, ptr %2, align 8
   %8 = lshr i32 %7, 28
-  %.not = icmp ult i32 %6, %8
+  %.not = icmp samesign ult i32 %6, %8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %4
@@ -1684,7 +1684,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr
 .preheader:                                       ; preds = %._crit_edge.split, %3
   %9 = lshr i32 %4, 24
   %10 = and i32 %9, 15
-  %.not62.not113 = icmp ult i32 %5, %10
+  %.not62.not113 = icmp samesign ult i32 %5, %10
   br i1 %.not62.not113, label %.lr.ph115, label %.loopexit93
 
 .lr.ph115:                                        ; preds = %.preheader
@@ -1783,7 +1783,7 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %
   %43 = lshr i32 %42, 24
   %44 = and i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %.not62.not = icmp ult i64 %indvars.iv.next125, %45
+  %.not62.not = icmp samesign ult i64 %indvars.iv.next125, %45
   br i1 %.not62.not, label %46, label %.loopexit93, !llvm.loop !38
 
 46:                                               ; preds = %.lr.ph115, %.loopexit92
@@ -2525,7 +2525,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr
   %wide.trip.count.i = zext nneg i32 %5 to i64
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 28
-  %10 = icmp ugt i32 %9, %5
+  %10 = icmp samesign ugt i32 %9, %5
   br i1 %.not25.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3
@@ -2538,7 +2538,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr
 12:                                               ; preds = %Cut_CutCheckDominance.exit.thread.us
   %13 = load i32, ptr %22, align 8
   %14 = lshr i32 %13, 28
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.lr.ph97, label %16, !llvm.loop !51
 
 16:                                               ; preds = %.lr.ph90, %12
@@ -2568,7 +2568,7 @@ Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
 24:                                               ; preds = %Cut_CutCheckDominance.exit.thread
   %25 = load i32, ptr %50, align 8
   %26 = lshr i32 %25, 28
-  %27 = icmp ugt i32 %26, %5
+  %27 = icmp samesign ugt i32 %26, %5
   br i1 %27, label %.lr.ph97, label %28, !llvm.loop !51
 
 28:                                               ; preds = %.lr.ph, %24

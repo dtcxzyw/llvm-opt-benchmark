@@ -135,7 +135,7 @@ define void @slurm_print_node_info_msg(ptr nocapture noundef %0, ptr noundef %1,
   %19 = phi i32 [ %12, %.lr.ph ], [ %.pre, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %18, %3
@@ -1778,7 +1778,7 @@ define internal noalias noundef ptr @_load_node_thread(ptr noundef %0) #0 {
   %35 = phi i32 [ %25, %24 ], [ %.pre, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %24, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %34, %.preheader

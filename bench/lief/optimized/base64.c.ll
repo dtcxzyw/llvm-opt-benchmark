@@ -25,7 +25,7 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
   %13 = add nuw nsw i64 %9, %12
-  %14 = icmp ugt i64 %13, 4611686018427387903
+  %14 = icmp samesign ugt i64 %13, 4611686018427387903
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %8

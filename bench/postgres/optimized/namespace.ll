@@ -6136,7 +6136,7 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
   %56 = load ptr, ptr %42, align 8
   %57 = tail call i64 @llvm.umax.i64(i64 %55, i64 2)
   %58 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %57)
-  %59 = icmp ult i64 %58, 2
+  %59 = icmp samesign ult i64 %58, 2
   %60 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %57, i1 true)
   %61 = sub nuw nsw i64 64, %60
   %62 = shl nuw i64 1, %61
@@ -6157,7 +6157,7 @@ nsphash_compute_size.exit.i.i.i:                  ; preds = %54
   %68 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %63, i32 noundef 5) #18
   store ptr %68, ptr %42, align 8
   %69 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
-  %70 = icmp ult i64 %69, 2
+  %70 = icmp samesign ult i64 %69, 2
   %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i, i1 true)
   %72 = sub nuw nsw i64 64, %71
   %73 = shl nuw i64 1, %72

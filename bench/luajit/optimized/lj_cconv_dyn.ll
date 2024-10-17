@@ -1005,7 +1005,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw
   %and8 = and i32 %shr7, 127
   %add = add nuw nsw i32 %and8, %and6
   %mul = shl nuw nsw i32 %and, 3
-  %cmp = icmp ugt i32 %add, %mul
+  %cmp = icmp samesign ugt i32 %add, %mul
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.epilog
@@ -1254,7 +1254,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %ctype_r
   %ofs.0.i = phi i32 [ %ofs.1.i, %for.inc.i ], [ 0, %ctype_rawchild.exit.i ]
   %25 = load i32, ptr %asize.i, align 8
   %26 = zext i32 %25 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %26
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %26
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.cond.i
@@ -1542,7 +1542,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %shr8 = lshr i32 %0, 16
   %and9 = and i32 %shr8, 127
   %mul = shl nuw nsw i32 %and9, 3
-  %cmp = icmp ugt i32 %add, %mul
+  %cmp = icmp samesign ugt i32 %add, %mul
   br i1 %cmp, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end

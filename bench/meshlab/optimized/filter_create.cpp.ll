@@ -26411,7 +26411,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22
 
 44:                                               ; preds = %35
   %45 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i = icmp ult i64 %.01012.i.i.i.i.i.i.i, 2
+  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !311
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit: ; preds = %44
@@ -26664,7 +26664,7 @@ _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions
   %.pn = phi float [ %44, %43 ], [ %66, %64 ], [ %68, %67 ]
   %70 = getelementptr inbounds float, ptr %1, i64 %.171.lcssa
   %71 = load float, ptr %70, align 4
-  %72 = icmp ult i64 %.171.lcssa, %.1
+  %72 = icmp samesign ult i64 %.171.lcssa, %.1
   %73 = fcmp une float %71, 0.000000e+00
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %.lr.ph.i, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit
@@ -26760,7 +26760,7 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %101, %92, %
   %133 = fmul float %.sroa.14.0.i, %132
   %134 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %115, float %133)
   store float %134, ptr %112, align 4
-  %135 = icmp ugt i64 %.074110.i, %.171.lcssa
+  %135 = icmp samesign ugt i64 %.074110.i, %.171.lcssa
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %_ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i
@@ -26822,7 +26822,7 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %101, %92, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIfEEvllRKNS_14JacobiRotationIT_EE.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !318
 
 _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIfEEvllRKNS_14JacobiRotationIT_EE.exit.i: ; preds = %.lr.ph.i.i.i.i, %151, %150
-  %166 = icmp ult i64 %116, %.1
+  %166 = icmp samesign ult i64 %116, %.1
   %167 = fcmp une float %.1.i, 0.000000e+00
   %168 = select i1 %166, i1 %167, i1 false
   br i1 %168, label %78, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit, !llvm.loop !319
@@ -27234,7 +27234,7 @@ _ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions
   %.pn = phi double [ %44, %43 ], [ %66, %64 ], [ %68, %67 ]
   %70 = getelementptr inbounds double, ptr %1, i64 %.171.lcssa
   %71 = load double, ptr %70, align 8
-  %72 = icmp ult i64 %.171.lcssa, %.1
+  %72 = icmp samesign ult i64 %.171.lcssa, %.1
   %73 = fcmp une double %71, 0.000000e+00
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %.lr.ph.i, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit
@@ -27330,7 +27330,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %101, %92, %
   %133 = fmul double %.sroa.14.0.i, %132
   %134 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %115, double %133)
   store double %134, ptr %112, align 8
-  %135 = icmp ugt i64 %.074110.i, %.171.lcssa
+  %135 = icmp samesign ugt i64 %.074110.i, %.171.lcssa
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
@@ -27392,7 +27392,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %101, %92, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !330
 
 _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i: ; preds = %.lr.ph.i.i.i.i, %151, %150
-  %166 = icmp ult i64 %116, %.1
+  %166 = icmp samesign ult i64 %116, %.1
   %167 = fcmp une double %.1.i, 0.000000e+00
   %168 = select i1 %166, i1 %167, i1 false
   br i1 %168, label %78, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit, !llvm.loop !331
@@ -31973,7 +31973,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !383
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -36010,7 +36010,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit165:    ; preds = %268, %274
 
 .loopexit275:                                     ; preds = %232
   %309 = add nuw nsw i32 %.1300, 1
-  %310 = icmp ult i32 %.1300, 2
+  %310 = icmp samesign ult i32 %.1300, 2
   br i1 %310, label %231, label %.loopexit276.loopexit, !llvm.loop !440
 
 .loopexit276.loopexit:                            ; preds = %.loopexit275, %308

@@ -156,7 +156,7 @@ common.resume:                                    ; preds = %43, %39, %34, %14, 
           cleanup
   %36 = getelementptr inbounds i8, ptr %5, i64 16
   %37 = load i8, ptr %36, align 4, !range !34, !alias.scope !35, !noalias !29, !noundef !7
-  %38 = icmp ult i8 %37, 4
+  %38 = icmp samesign ult i8 %37, 4
   br i1 %38, label %39, label %common.resume
 
 39:                                               ; preds = %34
@@ -883,7 +883,7 @@ define hidden void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hda2fae
 define hidden void @"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17h8f492a78ec57f2c1E.llvm.11864023271123110445"(ptr noalias noundef align 4 dereferenceable(20) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 4, !range !34, !noundef !7
-  %4 = icmp ult i8 %3, 4
+  %4 = icmp samesign ult i8 %3, 4
   br i1 %4, label %5, label %"_ZN4core3ptr38drop_in_place$LT$proc_macro..Group$GT$17hb4158f92008343b2E.exit"
 
 "_ZN4core3ptr38drop_in_place$LT$proc_macro..Group$GT$17hb4158f92008343b2E.exit": ; preds = %9, %5, %1
@@ -1571,7 +1571,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h0810
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load i32, ptr %4, align 8, !range !235, !alias.scope !236, !noundef !7
-  %switch.i.i.i.i = icmp ult i32 %11, 2
+  %switch.i.i.i.i = icmp samesign ult i32 %11, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr91drop_in_place$LT$alloc..rc..RcBox$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17hd890e6e6fcc0c853E.exit", label %12
 
 12:                                               ; preds = %9
@@ -1669,7 +1669,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc0c56fc3c45d06c0E.ll
           cleanup
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i8, ptr %17, align 4, !range !34, !alias.scope !245, !noundef !7
-  %19 = icmp ult i8 %18, 4
+  %19 = icmp samesign ult i8 %18, 4
   br i1 %19, label %20, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17h8f492a78ec57f2c1E.llvm.11864023271123110445.exit"
 
 20:                                               ; preds = %15
@@ -1779,7 +1779,7 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !range !235, !alias.scope !255, !noundef !7
-  %switch.i.i.i.i = icmp ult i32 %9, 2
+  %switch.i.i.i.i = icmp samesign ult i32 %9, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr91drop_in_place$LT$alloc..rc..RcBox$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17hd890e6e6fcc0c853E.exit", label %10
 
 10:                                               ; preds = %6

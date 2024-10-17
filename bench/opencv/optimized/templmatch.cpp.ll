@@ -353,7 +353,7 @@ define hidden void @_ZN2cv9crossCorrERKNS_3MatES2_RS0_NS_6Point_IiEEdi(ptr nound
   br label %.thread583
 
 162:                                              ; preds = %151
-  %163 = icmp ugt i32 %77, 1
+  %163 = icmp samesign ugt i32 %77, 1
   br i1 %163, label %165, label %164
 
 164:                                              ; preds = %162
@@ -3617,7 +3617,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %302, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %_ZNK2cv11_InputArray6getMatEi.exit232
   %309 = icmp eq i32 %3, 1
-  %or.cond = icmp ult i32 %3, 2
+  %or.cond = icmp samesign ult i32 %3, 2
   br i1 %or.cond, label %310, label %432
 
 310:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit

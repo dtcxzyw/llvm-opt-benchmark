@@ -4608,7 +4608,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i124, %Vec_V
   %.val113 = load ptr, ptr %50, align 8
   %51 = getelementptr inbounds i32, ptr %.val113, i64 %indvars.iv208
   %52 = load i32, ptr %51, align 4
-  %53 = icmp ult i64 %indvars.iv208, 2
+  %53 = icmp samesign ult i64 %indvars.iv208, 2
   br i1 %53, label %198, label %54
 
 54:                                               ; preds = %48
@@ -4981,7 +4981,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val101 = load ptr, ptr %30, align 8
   %205 = getelementptr inbounds i32, ptr %.val101, i64 %indvars.iv214
   %206 = load i32, ptr %205, align 4
-  %207 = icmp ult i64 %indvars.iv214, 2
+  %207 = icmp samesign ult i64 %indvars.iv214, 2
   br i1 %207, label %.critedge6, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph201

@@ -20363,12 +20363,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %cleanup, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
-  %cmp = icmp ult i32 %i.066, 262143
+  %cmp = icmp samesign ult i32 %i.066, 262143
   %or.cond = select i1 %tobool.i, i1 %cmp, i1 false
   br i1 %or.cond, label %for.body.backedge, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %cmp.old = icmp ult i32 %i.066, 262143
+  %cmp.old = icmp samesign ult i32 %i.066, 262143
   br i1 %cmp.old, label %for.body.backedge, label %for.end
 
 for.body.backedge:                                ; preds = %for.inc, %_ZN7testing15AssertionResultD2Ev.exit

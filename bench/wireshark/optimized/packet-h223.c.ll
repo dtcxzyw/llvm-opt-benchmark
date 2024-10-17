@@ -1669,7 +1669,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %27 = add nuw nsw i32 %.05868, 1
   %28 = load i16, ptr %15, align 2
   %29 = zext i16 %28 to i32
-  %30 = icmp ult i32 %27, %29
+  %30 = icmp samesign ult i32 %27, %29
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 31:                                               ; preds = %13

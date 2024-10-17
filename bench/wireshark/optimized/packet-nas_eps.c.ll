@@ -3770,7 +3770,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   %17 = and i8 %14, 31
   %18 = load i32, ptr @hf_nas_eps_emm_tai_n_elem, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %.0109145, i32 noundef 1, i32 noundef 0) #10
-  %20 = icmp ult i8 %17, 15
+  %20 = icmp samesign ult i8 %17, 15
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph146
@@ -3824,7 +3824,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   %42 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
   %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #10
   %44 = add i32 %41, 2
-  %45 = icmp ugt i32 %.0108, 1
+  %45 = icmp samesign ugt i32 %.0108, 1
   br i1 %45, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %40, %proto_item_set_generated.exit

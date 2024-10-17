@@ -194,11 +194,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
 61:                                               ; preds = %53
   %62 = add nsw i32 %56, -1075
   %63 = or disjoint i64 %57, 4503599627370496
-  %64 = icmp ugt i32 %56, 1138
+  %64 = icmp samesign ugt i32 %56, 1138
   br i1 %64, label %81, label %65
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %56, 1074
+  %66 = icmp samesign ugt i32 %56, 1074
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
@@ -207,7 +207,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
   br label %81
 
 70:                                               ; preds = %65
-  %71 = icmp ugt i32 %56, 1011
+  %71 = icmp samesign ugt i32 %56, 1011
   br i1 %71, label %72, label %81
 
 72:                                               ; preds = %70
@@ -224,7 +224,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
 81:                                               ; preds = %70, %61, %67, %72
   %.161 = phi i64 [ %69, %67 ], [ %80, %72 ], [ 0, %61 ], [ 0, %70 ]
   %.159 = phi i64 [ 0, %67 ], [ %77, %72 ], [ 0, %61 ], [ 1, %70 ]
-  %82 = icmp ugt i32 %56, 1054
+  %82 = icmp samesign ugt i32 %56, 1054
   %83 = select i1 %.not64, i64 2147483647, i64 2147483648
   %84 = icmp ugt i64 %.161, %83
   %or.cond = select i1 %82, i1 true, i1 %84
@@ -372,11 +372,11 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 44:                                               ; preds = %36
   %45 = add nsw i32 %39, -1075
   %46 = or disjoint i64 %40, 4503599627370496
-  %47 = icmp ugt i32 %39, 1138
+  %47 = icmp samesign ugt i32 %39, 1138
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %39, 1074
+  %49 = icmp samesign ugt i32 %39, 1074
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -385,7 +385,7 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   br label %64
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %39, 1011
+  %54 = icmp samesign ugt i32 %39, 1011
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %53
@@ -402,7 +402,7 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 64:                                               ; preds = %53, %44, %50, %55
   %.157 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
   %.155 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
-  %65 = icmp ugt i32 %39, 1054
+  %65 = icmp samesign ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
   %67 = icmp ugt i64 %.157, %66
   %or.cond = select i1 %65, i1 true, i1 %67
@@ -558,11 +558,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_fcvtmod_
 61:                                               ; preds = %53
   %62 = add nsw i32 %56, -1075
   %63 = or disjoint i64 %57, 4503599627370496
-  %64 = icmp ugt i32 %56, 1138
+  %64 = icmp samesign ugt i32 %56, 1138
   br i1 %64, label %81, label %65
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %56, 1074
+  %66 = icmp samesign ugt i32 %56, 1074
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
@@ -571,7 +571,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_fcvtmod_
   br label %81
 
 70:                                               ; preds = %65
-  %71 = icmp ugt i32 %56, 1011
+  %71 = icmp samesign ugt i32 %56, 1011
   br i1 %71, label %72, label %81
 
 72:                                               ; preds = %70
@@ -588,7 +588,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_fcvtmod_
 81:                                               ; preds = %70, %61, %67, %72
   %.165 = phi i64 [ %69, %67 ], [ %80, %72 ], [ 0, %61 ], [ 0, %70 ]
   %.163 = phi i64 [ 0, %67 ], [ %77, %72 ], [ 0, %61 ], [ 1, %70 ]
-  %82 = icmp ugt i32 %56, 1054
+  %82 = icmp samesign ugt i32 %56, 1054
   %83 = select i1 %.not68, i64 2147483647, i64 2147483648
   %84 = icmp ugt i64 %.165, %83
   %or.cond = select i1 %82, i1 true, i1 %84
@@ -774,11 +774,11 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
 44:                                               ; preds = %36
   %45 = add nsw i32 %39, -1075
   %46 = or disjoint i64 %40, 4503599627370496
-  %47 = icmp ugt i32 %39, 1138
+  %47 = icmp samesign ugt i32 %39, 1138
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %39, 1074
+  %49 = icmp samesign ugt i32 %39, 1074
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -787,7 +787,7 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %64
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %39, 1011
+  %54 = icmp samesign ugt i32 %39, 1011
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %53
@@ -804,7 +804,7 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
 64:                                               ; preds = %53, %44, %50, %55
   %.161 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %.1 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
-  %65 = icmp ugt i32 %39, 1054
+  %65 = icmp samesign ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
   %67 = icmp ugt i64 %.1, %66
   %or.cond = select i1 %65, i1 true, i1 %67
@@ -1035,11 +1035,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
 69:                                               ; preds = %61
   %70 = add nsw i32 %64, -1075
   %71 = or disjoint i64 %65, 4503599627370496
-  %72 = icmp ugt i32 %64, 1138
+  %72 = icmp samesign ugt i32 %64, 1138
   br i1 %72, label %89, label %73
 
 73:                                               ; preds = %69
-  %74 = icmp ugt i32 %64, 1074
+  %74 = icmp samesign ugt i32 %64, 1074
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %73
@@ -1048,7 +1048,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
   br label %89
 
 78:                                               ; preds = %73
-  %79 = icmp ugt i32 %64, 1011
+  %79 = icmp samesign ugt i32 %64, 1011
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %78
@@ -1065,7 +1065,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
 89:                                               ; preds = %78, %69, %75, %80
   %.167 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
   %.165 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
-  %90 = icmp ugt i32 %64, 1054
+  %90 = icmp samesign ugt i32 %64, 1054
   %91 = select i1 %.not70, i64 2147483647, i64 2147483648
   %92 = icmp ugt i64 %.167, %91
   %or.cond = select i1 %90, i1 true, i1 %92
@@ -1083,7 +1083,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
   %.063 = phi i64 [ 0, %.thread ], [ 16, %61 ], [ %96, %89 ]
   %98 = lshr i64 %1, 7
   %99 = and i64 %98, 31
-  %100 = icmp ugt i64 %99, 15
+  %100 = icmp samesign ugt i64 %99, 15
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %97
@@ -1209,11 +1209,11 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 44:                                               ; preds = %36
   %45 = add nsw i32 %39, -1075
   %46 = or disjoint i64 %40, 4503599627370496
-  %47 = icmp ugt i32 %39, 1138
+  %47 = icmp samesign ugt i32 %39, 1138
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %39, 1074
+  %49 = icmp samesign ugt i32 %39, 1074
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -1222,7 +1222,7 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   br label %64
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %39, 1011
+  %54 = icmp samesign ugt i32 %39, 1011
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %53
@@ -1239,7 +1239,7 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 64:                                               ; preds = %53, %44, %50, %55
   %.159 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
   %.157 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
-  %65 = icmp ugt i32 %39, 1054
+  %65 = icmp samesign ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
   %67 = icmp ugt i64 %.159, %66
   %or.cond = select i1 %65, i1 true, i1 %67
@@ -1257,7 +1257,7 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   %.055 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
   %73 = lshr i64 %1, 7
   %74 = and i64 %73, 31
-  %75 = icmp ugt i64 %74, 15
+  %75 = icmp samesign ugt i64 %74, 15
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %72
@@ -1428,11 +1428,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_
 69:                                               ; preds = %61
   %70 = add nsw i32 %64, -1075
   %71 = or disjoint i64 %65, 4503599627370496
-  %72 = icmp ugt i32 %64, 1138
+  %72 = icmp samesign ugt i32 %64, 1138
   br i1 %72, label %89, label %73
 
 73:                                               ; preds = %69
-  %74 = icmp ugt i32 %64, 1074
+  %74 = icmp samesign ugt i32 %64, 1074
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %73
@@ -1441,7 +1441,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_
   br label %89
 
 78:                                               ; preds = %73
-  %79 = icmp ugt i32 %64, 1011
+  %79 = icmp samesign ugt i32 %64, 1011
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %78
@@ -1458,7 +1458,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_
 89:                                               ; preds = %78, %69, %75, %80
   %.171 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
   %.169 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
-  %90 = icmp ugt i32 %64, 1054
+  %90 = icmp samesign ugt i32 %64, 1054
   %91 = select i1 %.not74, i64 2147483647, i64 2147483648
   %92 = icmp ugt i64 %.171, %91
   %or.cond = select i1 %90, i1 true, i1 %92
@@ -1533,7 +1533,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.070, ptr %.0.i.i79, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %125 = icmp ugt i64 %100, 15
+  %125 = icmp samesign ugt i64 %100, 15
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -1660,11 +1660,11 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
 44:                                               ; preds = %36
   %45 = add nsw i32 %39, -1075
   %46 = or disjoint i64 %40, 4503599627370496
-  %47 = icmp ugt i32 %39, 1138
+  %47 = icmp samesign ugt i32 %39, 1138
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %39, 1074
+  %49 = icmp samesign ugt i32 %39, 1074
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -1673,7 +1673,7 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %64
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %39, 1011
+  %54 = icmp samesign ugt i32 %39, 1011
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %53
@@ -1690,7 +1690,7 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
 64:                                               ; preds = %53, %44, %50, %55
   %.161 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %.1 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
-  %65 = icmp ugt i32 %39, 1054
+  %65 = icmp samesign ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
   %67 = icmp ugt i64 %.1, %66
   %or.cond = select i1 %65, i1 true, i1 %67
@@ -1765,7 +1765,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.059, ptr %.0.i.i70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %100 = icmp ugt i64 %75, 15
+  %100 = icmp samesign ugt i64 %75, 15
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

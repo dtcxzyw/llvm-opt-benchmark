@@ -17651,7 +17651,7 @@ define linkonce_odr noundef double @_Z24localCombinatorialEnergyI6CMeshOEdNT_13V
   %.03039.i = phi double [ %.1.lcssa.i, %.loopexit.i ], [ 0.000000e+00, %.lr.ph41.i.preheader ]
   %51 = add nuw nsw i32 %.040.i, 1
   %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %48, %52
+  %53 = icmp samesign ugt i64 %48, %52
   br i1 %53, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph41.i

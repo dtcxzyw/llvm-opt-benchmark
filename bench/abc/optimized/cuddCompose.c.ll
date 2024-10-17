@@ -1190,7 +1190,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %28 = getelementptr inbounds i32, ptr %9, i64 %27
   store i32 %21, ptr %28, align 4
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 3
-  %29 = icmp ult i64 %indvars.iv.next36, %16
+  %29 = icmp samesign ult i64 %indvars.iv.next36, %16
   br i1 %29, label %.lr.ph33, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader

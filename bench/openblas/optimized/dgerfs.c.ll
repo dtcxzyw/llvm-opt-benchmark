@@ -296,7 +296,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 208:                                              ; preds = %.critedge
   %209 = fmul double %206, 2.000000e+00
   %210 = fcmp ole double %209, %114
-  %211 = icmp ult i32 %113, 6
+  %211 = icmp samesign ult i32 %113, 6
   %212 = select i1 %210, i1 %211, i1 false
   br i1 %212, label %213, label %222
 
@@ -456,7 +456,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .thread28:                                        ; preds = %291, %310, %308
   %313 = add nuw nsw i64 %104, 1
-  %314 = icmp ult i64 %104, %102
+  %314 = icmp samesign ult i64 %104, %102
   br i1 %314, label %103, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread28, %79, %74, %85, %75, %67

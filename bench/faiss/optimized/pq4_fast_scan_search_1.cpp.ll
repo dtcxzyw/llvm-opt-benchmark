@@ -1081,7 +1081,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   %233 = getelementptr inbounds i8, ptr %232, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %233, ptr noundef nonnull align 4 dereferenceable(32) %221, i64 32, i1 false)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %234 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %234 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %234, label %218, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !9
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %218
@@ -1146,7 +1146,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   %266 = getelementptr inbounds i8, ptr %265, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %266, ptr noundef nonnull align 4 dereferenceable(32) %254, i64 32, i1 false)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %267 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %267 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %267, label %251, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !11
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %251
@@ -1211,7 +1211,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   %299 = getelementptr inbounds i8, ptr %298, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %299, ptr noundef nonnull align 4 dereferenceable(32) %287, i64 32, i1 false)
   %indvars.iv.next.i.i107.i.i.i = add nuw nsw i64 %indvars.iv.i.i106.i.i.i, 2
-  %300 = icmp ult i64 %indvars.iv.i.i106.i.i.i, 8
+  %300 = icmp samesign ult i64 %indvars.iv.i.i106.i.i.i, 8
   br i1 %300, label %284, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !13
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %284
@@ -1881,7 +1881,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   %602 = getelementptr inbounds i8, ptr %601, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %602, ptr noundef nonnull align 4 dereferenceable(32) %590, i64 32, i1 false)
   %indvars.iv.next.i.i.i61.i.i = add nuw nsw i64 %indvars.iv.i.i95.i60.i.i, 2
-  %603 = icmp ult i64 %indvars.iv.i.i95.i60.i.i, 4
+  %603 = icmp samesign ult i64 %indvars.iv.i.i95.i60.i.i, 4
   br i1 %603, label %587, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i62.i.i, !llvm.loop !9
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i62.i.i: ; preds = %587
@@ -1946,7 +1946,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   %635 = getelementptr inbounds i8, ptr %634, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %635, ptr noundef nonnull align 4 dereferenceable(32) %623, i64 32, i1 false)
   %indvars.iv.next.i.i101.i56.i.i = add nuw nsw i64 %indvars.iv.i.i100.i55.i.i, 2
-  %636 = icmp ult i64 %indvars.iv.i.i100.i55.i.i, 6
+  %636 = icmp samesign ult i64 %indvars.iv.i.i100.i55.i.i, 6
   br i1 %636, label %620, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i57.i.i, !llvm.loop !11
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i57.i.i: ; preds = %620
@@ -2011,7 +2011,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   %668 = getelementptr inbounds i8, ptr %667, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %668, ptr noundef nonnull align 4 dereferenceable(32) %656, i64 32, i1 false)
   %indvars.iv.next.i.i107.i51.i.i = add nuw nsw i64 %indvars.iv.i.i106.i50.i.i, 2
-  %669 = icmp ult i64 %indvars.iv.i.i106.i50.i.i, 8
+  %669 = icmp samesign ult i64 %indvars.iv.i.i106.i50.i.i, 8
   br i1 %669, label %653, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i52.i.i, !llvm.loop !13
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18StoreResultHandlerEEEvRT_.exit.i.i52.i.i: ; preds = %653
@@ -2672,7 +2672,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   %960 = add i64 %959, %957
   %961 = add i64 %960, %958
   %indvars.iv.next.i.i.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i100.i.i.i102, 2
-  %962 = icmp ult i64 %indvars.iv.i.i100.i.i.i102, 4
+  %962 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i102, 4
   br i1 %962, label %950, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !36
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %950
@@ -2731,7 +2731,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   %986 = add i64 %985, %983
   %987 = add i64 %986, %984
   %indvars.iv.next.i.i112.i.i.i = add nuw nsw i64 %indvars.iv.i.i109.i.i.i, 2
-  %988 = icmp ult i64 %indvars.iv.i.i109.i.i.i, 6
+  %988 = icmp samesign ult i64 %indvars.iv.i.i109.i.i.i, 6
   br i1 %988, label %976, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !38
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %976
@@ -2790,7 +2790,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   %1012 = add i64 %1011, %1009
   %1013 = add i64 %1012, %1010
   %indvars.iv.next.i.i122.i.i.i = add nuw nsw i64 %indvars.iv.i.i119.i.i.i, 2
-  %1014 = icmp ult i64 %indvars.iv.i.i119.i.i.i, 8
+  %1014 = icmp samesign ult i64 %indvars.iv.i.i119.i.i.i, 8
   br i1 %1014, label %1002, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i, !llvm.loop !40
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i.i.i: ; preds = %1002
@@ -3418,7 +3418,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   %1272 = add i64 %1271, %1269
   %1273 = add i64 %1272, %1270
   %indvars.iv.next.i.i.i83.i.i = add nuw nsw i64 %indvars.iv.i.i100.i80.i.i, 2
-  %1274 = icmp ult i64 %indvars.iv.i.i100.i80.i.i, 4
+  %1274 = icmp samesign ult i64 %indvars.iv.i.i100.i80.i.i, 4
   br i1 %1274, label %1262, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i84.i.i, !llvm.loop !36
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i84.i.i: ; preds = %1262
@@ -3477,7 +3477,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   %1298 = add i64 %1297, %1295
   %1299 = add i64 %1298, %1296
   %indvars.iv.next.i.i112.i75.i.i = add nuw nsw i64 %indvars.iv.i.i109.i72.i.i, 2
-  %1300 = icmp ult i64 %indvars.iv.i.i109.i72.i.i, 6
+  %1300 = icmp samesign ult i64 %indvars.iv.i.i109.i72.i.i, 6
   br i1 %1300, label %1288, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i76.i.i, !llvm.loop !38
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i76.i.i: ; preds = %1288
@@ -3536,7 +3536,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   %1324 = add i64 %1323, %1321
   %1325 = add i64 %1324, %1322
   %indvars.iv.next.i.i122.i67.i.i = add nuw nsw i64 %indvars.iv.i.i119.i64.i.i, 2
-  %1326 = icmp ult i64 %indvars.iv.i.i119.i64.i.i, 8
+  %1326 = icmp samesign ult i64 %indvars.iv.i.i119.i64.i.i, 8
   br i1 %1326, label %1314, label %_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i68.i.i, !llvm.loop !40
 
 _ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EE16to_other_handlerINS0_18DummyResultHandlerEEEvRT_.exit.i.i68.i.i: ; preds = %1314
@@ -4441,7 +4441,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_17SIMDResultHandlerE
   %208 = load ptr, ptr %207, align 8
   tail call void %208(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %203, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %59, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %60)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 2
-  %209 = icmp ult i64 %indvars.iv.i.i.i.i, 4
+  %209 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 4
   br i1 %209, label %.noexc.i94.i.i, label %210, !llvm.loop !62
 
 210:                                              ; preds = %.noexc.i94.i.i
@@ -4500,7 +4500,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_17SIMDResultHandlerE
   %231 = load ptr, ptr %230, align 8
   tail call void %231(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %226, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %56, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %57)
   %indvars.iv.next.i.i101.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i, 2
-  %232 = icmp ult i64 %indvars.iv.i.i100.i.i, 6
+  %232 = icmp samesign ult i64 %indvars.iv.i.i100.i.i, 6
   br i1 %232, label %.noexc.i99.i.i, label %233, !llvm.loop !64
 
 233:                                              ; preds = %.noexc.i99.i.i
@@ -4559,7 +4559,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_17SIMDResultHandlerE
   %254 = load ptr, ptr %253, align 8
   tail call void %254(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %249, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %53, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %54)
   %indvars.iv.next.i.i108.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i, 2
-  %255 = icmp ult i64 %indvars.iv.i.i107.i.i, 8
+  %255 = icmp samesign ult i64 %indvars.iv.i.i107.i.i, 8
   br i1 %255, label %.noexc.i106.i.i, label %256, !llvm.loop !66
 
 256:                                              ; preds = %.noexc.i106.i.i
@@ -5186,7 +5186,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_17SIMDResultHandlerE
   %494 = load ptr, ptr %493, align 8
   tail call void %494(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %489, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %27, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %28)
   %indvars.iv.next.i.i.i56.i = add nuw nsw i64 %indvars.iv.i.i.i55.i, 2
-  %495 = icmp ult i64 %indvars.iv.i.i.i55.i, 4
+  %495 = icmp samesign ult i64 %indvars.iv.i.i.i55.i, 4
   br i1 %495, label %.noexc.i94.i54.i, label %496, !llvm.loop !62
 
 496:                                              ; preds = %.noexc.i94.i54.i
@@ -5245,7 +5245,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_17SIMDResultHandlerE
   %517 = load ptr, ptr %516, align 8
   tail call void %517(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %512, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %24, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %25)
   %indvars.iv.next.i.i101.i51.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i, 2
-  %518 = icmp ult i64 %indvars.iv.i.i100.i50.i, 6
+  %518 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i, 6
   br i1 %518, label %.noexc.i99.i49.i, label %519, !llvm.loop !64
 
 519:                                              ; preds = %.noexc.i99.i49.i
@@ -5304,7 +5304,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_17SIMDResultHandlerE
   %540 = load ptr, ptr %539, align 8
   tail call void %540(ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef 0, i64 noundef %535, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %21, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %22)
   %indvars.iv.next.i.i108.i46.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i, 2
-  %541 = icmp ult i64 %indvars.iv.i.i107.i45.i, 8
+  %541 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i, 8
   br i1 %541, label %.noexc.i106.i44.i, label %542, !llvm.loop !66
 
 542:                                              ; preds = %.noexc.i106.i44.i
@@ -5759,7 +5759,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -5788,7 +5788,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -5999,7 +5999,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %156
 
 .sink.split.i.i:                                  ; preds = %163
   %166 = and i8 %165, 15
-  %167 = icmp ult i64 %indvars.iv.i.i155, 16
+  %167 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %168 = or disjoint i8 %166, 16
   %.sink17.i.i = select i1 %167, i8 %166, i8 %168
   %169 = zext nneg i8 %.sink17.i.i to i64
@@ -6134,7 +6134,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %201
 
 .sink.split.i.i177:                               ; preds = %208
   %211 = and i8 %210, 15
-  %212 = icmp ult i64 %indvars.iv.i.i172, 16
+  %212 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %213 = or disjoint i8 %211, 16
   %.sink17.i.i178 = select i1 %212, i8 %211, i8 %213
   %214 = zext nneg i8 %.sink17.i.i178 to i64
@@ -6591,7 +6591,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %75
 
 .sink.split.i:                                    ; preds = %82
   %85 = and i8 %84, 15
-  %86 = icmp ult i64 %indvars.iv.i, 16
+  %86 = icmp samesign ult i64 %indvars.iv.i, 16
   %87 = or disjoint i8 %85, 16
   %.sink17.i = select i1 %86, i8 %85, i8 %87
   %88 = zext nneg i8 %.sink17.i to i64
@@ -6620,7 +6620,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %91
 
 .sink.split.i120:                                 ; preds = %93
   %96 = and i8 %95, 15
-  %97 = icmp ult i64 %indvars.iv.i115, 16
+  %97 = icmp samesign ult i64 %indvars.iv.i115, 16
   %98 = or disjoint i8 %96, 16
   %.sink17.i121 = select i1 %97, i8 %96, i8 %98
   %99 = zext nneg i8 %.sink17.i121 to i64
@@ -6853,7 +6853,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %164
 
 .sink.split.i.i:                                  ; preds = %171
   %174 = and i8 %173, 15
-  %175 = icmp ult i64 %indvars.iv.i.i155, 16
+  %175 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %176 = or disjoint i8 %174, 16
   %.sink17.i.i = select i1 %175, i8 %174, i8 %176
   %177 = zext nneg i8 %.sink17.i.i to i64
@@ -6988,7 +6988,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -7460,7 +7460,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -7489,7 +7489,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -7724,7 +7724,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -7860,7 +7860,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -8336,7 +8336,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -8365,7 +8365,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -8600,7 +8600,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -8736,7 +8736,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -9212,7 +9212,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
 
 .sink.split.i:                                    ; preds = %81
   %84 = and i8 %83, 15
-  %85 = icmp ult i64 %indvars.iv.i, 16
+  %85 = icmp samesign ult i64 %indvars.iv.i, 16
   %86 = or disjoint i8 %84, 16
   %.sink17.i = select i1 %85, i8 %84, i8 %86
   %87 = zext nneg i8 %.sink17.i to i64
@@ -9241,7 +9241,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
 
 .sink.split.i120:                                 ; preds = %92
   %95 = and i8 %94, 15
-  %96 = icmp ult i64 %indvars.iv.i115, 16
+  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
   %97 = or disjoint i8 %95, 16
   %.sink17.i121 = select i1 %96, i8 %95, i8 %97
   %98 = zext nneg i8 %.sink17.i121 to i64
@@ -9476,7 +9476,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %163
 
 .sink.split.i.i:                                  ; preds = %170
   %173 = and i8 %172, 15
-  %174 = icmp ult i64 %indvars.iv.i.i155, 16
+  %174 = icmp samesign ult i64 %indvars.iv.i.i155, 16
   %175 = or disjoint i8 %173, 16
   %.sink17.i.i = select i1 %174, i8 %173, i8 %175
   %176 = zext nneg i8 %.sink17.i.i to i64
@@ -9612,7 +9612,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit171:          ; preds = %209
 
 .sink.split.i.i177:                               ; preds = %216
   %219 = and i8 %218, 15
-  %220 = icmp ult i64 %indvars.iv.i.i172, 16
+  %220 = icmp samesign ult i64 %indvars.iv.i.i172, 16
   %221 = or disjoint i8 %219, 16
   %.sink17.i.i178 = select i1 %220, i8 %219, i8 %221
   %222 = zext nneg i8 %.sink17.i.i178 to i64
@@ -10104,7 +10104,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -10133,7 +10133,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -10371,7 +10371,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %168
 
 .sink.split.i.i:                                  ; preds = %178
   %181 = and i8 %180, 15
-  %182 = icmp ult i64 %indvars.iv.i.i159, 16
+  %182 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %183 = or disjoint i8 %181, 16
   %.sink17.i.i = select i1 %182, i8 %181, i8 %183
   %184 = zext nneg i8 %.sink17.i.i to i64
@@ -10506,7 +10506,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %216
 
 .sink.split.i.i181:                               ; preds = %223
   %226 = and i8 %225, 15
-  %227 = icmp ult i64 %indvars.iv.i.i176, 16
+  %227 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %228 = or disjoint i8 %226, 16
   %.sink17.i.i182 = select i1 %227, i8 %226, i8 %228
   %229 = zext nneg i8 %.sink17.i.i182 to i64
@@ -10994,7 +10994,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -11023,7 +11023,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i122:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i117, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i117, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i123 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i123 to i64
@@ -11277,7 +11277,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156: ; preds = %176
 
 .sink.split.i.i:                                  ; preds = %185
   %188 = and i8 %187, 15
-  %189 = icmp ult i64 %indvars.iv.i.i157, 16
+  %189 = icmp samesign ult i64 %indvars.iv.i.i157, 16
   %190 = or disjoint i8 %188, 16
   %.sink17.i.i = select i1 %189, i8 %188, i8 %190
   %191 = zext nneg i8 %.sink17.i.i to i64
@@ -11413,7 +11413,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit173:          ; preds = %224
 
 .sink.split.i.i179:                               ; preds = %231
   %234 = and i8 %233, 15
-  %235 = icmp ult i64 %indvars.iv.i.i174, 16
+  %235 = icmp samesign ult i64 %indvars.iv.i.i174, 16
   %236 = or disjoint i8 %234, 16
   %.sink17.i.i180 = select i1 %235, i8 %234, i8 %236
   %237 = zext nneg i8 %.sink17.i.i180 to i64
@@ -11917,7 +11917,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -11946,7 +11946,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -12188,7 +12188,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %169
 
 .sink.split.i.i:                                  ; preds = %179
   %182 = and i8 %181, 15
-  %183 = icmp ult i64 %indvars.iv.i.i159, 16
+  %183 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %184 = or disjoint i8 %182, 16
   %.sink17.i.i = select i1 %183, i8 %182, i8 %184
   %185 = zext nneg i8 %.sink17.i.i to i64
@@ -12324,7 +12324,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %218
 
 .sink.split.i.i181:                               ; preds = %225
   %228 = and i8 %227, 15
-  %229 = icmp ult i64 %indvars.iv.i.i176, 16
+  %229 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %230 = or disjoint i8 %228, 16
   %.sink17.i.i182 = select i1 %229, i8 %228, i8 %230
   %231 = zext nneg i8 %.sink17.i.i182 to i64
@@ -12819,7 +12819,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit118: ; preds = %80
 
 .sink.split.i:                                    ; preds = %89
   %92 = and i8 %91, 15
-  %93 = icmp ult i64 %indvars.iv.i, 16
+  %93 = icmp samesign ult i64 %indvars.iv.i, 16
   %94 = or disjoint i8 %92, 16
   %.sink17.i = select i1 %93, i8 %92, i8 %94
   %95 = zext nneg i8 %.sink17.i to i64
@@ -12848,7 +12848,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %98
 
 .sink.split.i124:                                 ; preds = %100
   %103 = and i8 %102, 15
-  %104 = icmp ult i64 %indvars.iv.i119, 16
+  %104 = icmp samesign ult i64 %indvars.iv.i119, 16
   %105 = or disjoint i8 %103, 16
   %.sink17.i125 = select i1 %104, i8 %103, i8 %105
   %106 = zext nneg i8 %.sink17.i125 to i64
@@ -13090,7 +13090,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %169
 
 .sink.split.i.i:                                  ; preds = %179
   %182 = and i8 %181, 15
-  %183 = icmp ult i64 %indvars.iv.i.i159, 16
+  %183 = icmp samesign ult i64 %indvars.iv.i.i159, 16
   %184 = or disjoint i8 %182, 16
   %.sink17.i.i = select i1 %183, i8 %182, i8 %184
   %185 = zext nneg i8 %.sink17.i.i to i64
@@ -13226,7 +13226,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit175:          ; preds = %218
 
 .sink.split.i.i181:                               ; preds = %225
   %228 = and i8 %227, 15
-  %229 = icmp ult i64 %indvars.iv.i.i176, 16
+  %229 = icmp samesign ult i64 %indvars.iv.i.i176, 16
   %230 = or disjoint i8 %228, 16
   %.sink17.i.i182 = select i1 %229, i8 %228, i8 %230
   %231 = zext nneg i8 %.sink17.i.i182 to i64
@@ -13658,7 +13658,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %49
 
 .sink.split.i:                                    ; preds = %56
   %59 = and i8 %58, 15
-  %60 = icmp ult i64 %indvars.iv.i, 16
+  %60 = icmp samesign ult i64 %indvars.iv.i, 16
   %61 = or disjoint i8 %59, 16
   %.sink17.i = select i1 %60, i8 %59, i8 %61
   %62 = zext nneg i8 %.sink17.i to i64
@@ -13687,7 +13687,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %65
 
 .sink.split.i118:                                 ; preds = %67
   %70 = and i8 %69, 15
-  %71 = icmp ult i64 %indvars.iv.i113, 16
+  %71 = icmp samesign ult i64 %indvars.iv.i113, 16
   %72 = or disjoint i8 %70, 16
   %.sink17.i119 = select i1 %71, i8 %70, i8 %72
   %73 = zext nneg i8 %.sink17.i119 to i64
@@ -14097,7 +14097,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %49
 
 .sink.split.i:                                    ; preds = %56
   %59 = and i8 %58, 15
-  %60 = icmp ult i64 %indvars.iv.i, 16
+  %60 = icmp samesign ult i64 %indvars.iv.i, 16
   %61 = or disjoint i8 %59, 16
   %.sink17.i = select i1 %60, i8 %59, i8 %61
   %62 = zext nneg i8 %.sink17.i to i64
@@ -14126,7 +14126,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %65
 
 .sink.split.i118:                                 ; preds = %67
   %70 = and i8 %69, 15
-  %71 = icmp ult i64 %indvars.iv.i113, 16
+  %71 = icmp samesign ult i64 %indvars.iv.i113, 16
   %72 = or disjoint i8 %70, 16
   %.sink17.i119 = select i1 %71, i8 %70, i8 %72
   %73 = zext nneg i8 %.sink17.i119 to i64
@@ -14554,7 +14554,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -14583,7 +14583,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15016,7 +15016,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -15045,7 +15045,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15478,7 +15478,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
 
 .sink.split.i:                                    ; preds = %55
   %58 = and i8 %57, 15
-  %59 = icmp ult i64 %indvars.iv.i, 16
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
   %60 = or disjoint i8 %58, 16
   %.sink17.i = select i1 %59, i8 %58, i8 %60
   %61 = zext nneg i8 %.sink17.i to i64
@@ -15507,7 +15507,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
 
 .sink.split.i118:                                 ; preds = %66
   %69 = and i8 %68, 15
-  %70 = icmp ult i64 %indvars.iv.i113, 16
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
   %71 = or disjoint i8 %69, 16
   %.sink17.i119 = select i1 %70, i8 %69, i8 %71
   %72 = zext nneg i8 %.sink17.i119 to i64
@@ -15955,7 +15955,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -15984,7 +15984,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64
@@ -16422,7 +16422,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -16451,7 +16451,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i118:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i113, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i113, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i119 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i119 to i64
@@ -16913,7 +16913,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -16942,7 +16942,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64
@@ -17390,7 +17390,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %54
 
 .sink.split.i:                                    ; preds = %63
   %66 = and i8 %65, 15
-  %67 = icmp ult i64 %indvars.iv.i, 16
+  %67 = icmp samesign ult i64 %indvars.iv.i, 16
   %68 = or disjoint i8 %66, 16
   %.sink17.i = select i1 %67, i8 %66, i8 %68
   %69 = zext nneg i8 %.sink17.i to i64
@@ -17419,7 +17419,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %72
 
 .sink.split.i120:                                 ; preds = %74
   %77 = and i8 %76, 15
-  %78 = icmp ult i64 %indvars.iv.i115, 16
+  %78 = icmp samesign ult i64 %indvars.iv.i115, 16
   %79 = or disjoint i8 %77, 16
   %.sink17.i121 = select i1 %78, i8 %77, i8 %79
   %80 = zext nneg i8 %.sink17.i121 to i64
@@ -18767,7 +18767,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %600 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %600 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %600, label %.split.i94.i.i.i, label %.split16.us.i130.i.i.i, !llvm.loop !3728
 
 .split16.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -19045,7 +19045,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i179.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, 2
-  %713 = icmp ult i64 %indvars.iv.i.i144.i.i.i, 6
+  %713 = icmp samesign ult i64 %indvars.iv.i.i144.i.i.i, 6
   br i1 %713, label %.split.i143.i.i.i, label %.split16.us.i180.i.i.i, !llvm.loop !3753
 
 .split16.us.i180.i.i.i:                           ; preds = %.noexc.i178.i.i.i, %.lr.ph.split.i140.i.i.i
@@ -19323,7 +19323,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i235.i.i.i = add nuw nsw i64 %indvars.iv.i.i200.i.i.i, 2
-  %826 = icmp ult i64 %indvars.iv.i.i200.i.i.i, 8
+  %826 = icmp samesign ult i64 %indvars.iv.i.i200.i.i.i, 8
   br i1 %826, label %.split.i199.i.i.i, label %.split16.us.i236.i.i.i, !llvm.loop !3778
 
 .split16.us.i236.i.i.i:                           ; preds = %.noexc.i234.i.i.i, %.lr.ph.split.i196.i.i.i
@@ -20299,7 +20299,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i152.i.i = add nuw nsw i64 %indvars.iv.i.i95.i117.i.i, 2
-  %1211 = icmp ult i64 %indvars.iv.i.i95.i117.i.i, 4
+  %1211 = icmp samesign ult i64 %indvars.iv.i.i95.i117.i.i, 4
   br i1 %1211, label %.split.i94.i116.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !3833
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i151.i.i, %.lr.ph.split.i91.i115.i.i
@@ -20577,7 +20577,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i179.i108.i.i = add nuw nsw i64 %indvars.iv.i.i144.i73.i.i, 2
-  %1324 = icmp ult i64 %indvars.iv.i.i144.i73.i.i, 6
+  %1324 = icmp samesign ult i64 %indvars.iv.i.i144.i73.i.i, 6
   br i1 %1324, label %.split.i143.i72.i.i, label %.split3.us.i180.i.i.i, !llvm.loop !3858
 
 .split3.us.i180.i.i.i:                            ; preds = %.noexc.i178.i107.i.i, %.lr.ph.split.i140.i71.i.i
@@ -20855,7 +20855,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i235.i64.i.i = add nuw nsw i64 %indvars.iv.i.i200.i29.i.i, 2
-  %1437 = icmp ult i64 %indvars.iv.i.i200.i29.i.i, 8
+  %1437 = icmp samesign ult i64 %indvars.iv.i.i200.i29.i.i, 8
   br i1 %1437, label %.split.i199.i28.i.i, label %.split3.us.i236.i.i.i, !llvm.loop !3883
 
 .split3.us.i236.i.i.i:                            ; preds = %.noexc.i234.i63.i.i, %.lr.ph.split.i196.i27.i.i
@@ -21387,7 +21387,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1636, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1633, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1637 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1637 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1637, label %.noexc.i94.i.i.i, label %1638, !llvm.loop !3891
 
 1638:                                             ; preds = %.noexc.i94.i.i.i
@@ -21444,7 +21444,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1656, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1653, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1657 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1657 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1657, label %.noexc.i99.i.i.i, label %1658, !llvm.loop !3893
 
 1658:                                             ; preds = %.noexc.i99.i.i.i
@@ -21501,7 +21501,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1676, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1673, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1677 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1677 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1677, label %.noexc.i106.i.i.i, label %1678, !llvm.loop !3895
 
 1678:                                             ; preds = %.noexc.i106.i.i.i
@@ -22102,7 +22102,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1889, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1886, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1890 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1890 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1890, label %.noexc.i94.i54.i.i, label %1891, !llvm.loop !3891
 
 1891:                                             ; preds = %.noexc.i94.i54.i.i
@@ -22159,7 +22159,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1909, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1906, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1910 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1910 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1910, label %.noexc.i99.i49.i.i, label %1911, !llvm.loop !3893
 
 1911:                                             ; preds = %.noexc.i99.i49.i.i
@@ -22216,7 +22216,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1929, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1926, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1930 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1930 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1930, label %.noexc.i106.i44.i.i, label %1931, !llvm.loop !3895
 
 1931:                                             ; preds = %.noexc.i106.i44.i.i
@@ -23335,7 +23335,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i128.i.i.i: ; preds = %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2378 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2378 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2378, label %.split.i94.i.i.i74, label %.split17.us.i131.i.i.i, !llvm.loop !3963
 
 .split17.us.i131.i.i.i:                           ; preds = %.noexc.i130.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -23641,7 +23641,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i180.i.i.i: ; preds = %250
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i183.i.i.i = add nuw nsw i64 %indvars.iv.i.i147.i.i.i, 2
-  %2510 = icmp ult i64 %indvars.iv.i.i147.i.i.i, 6
+  %2510 = icmp samesign ult i64 %indvars.iv.i.i147.i.i.i, 6
   br i1 %2510, label %.split.i146.i.i.i, label %.split17.us.i184.i.i.i, !llvm.loop !3988
 
 .split17.us.i184.i.i.i:                           ; preds = %.noexc.i182.i.i.i, %.lr.ph.split.i143.i.i.i
@@ -23947,7 +23947,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i239.i.i.i: ; preds = %263
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i242.i.i.i = add nuw nsw i64 %indvars.iv.i.i206.i.i.i, 2
-  %2642 = icmp ult i64 %indvars.iv.i.i206.i.i.i, 8
+  %2642 = icmp samesign ult i64 %indvars.iv.i.i206.i.i.i, 8
   br i1 %2642, label %.split.i205.i.i.i, label %.split17.us.i243.i.i.i, !llvm.loop !4013
 
 .split17.us.i243.i.i.i:                           ; preds = %.noexc.i241.i.i.i, %.lr.ph.split.i202.i.i.i
@@ -24973,7 +24973,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i128.i156.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i159.i.i = add nuw nsw i64 %indvars.iv.i.i95.i123.i.i, 2
-  %3065 = icmp ult i64 %indvars.iv.i.i95.i123.i.i, 4
+  %3065 = icmp samesign ult i64 %indvars.iv.i.i95.i123.i.i, 4
   br i1 %3065, label %.split.i94.i122.i.i, label %.split3.us.i131.i.i.i, !llvm.loop !4068
 
 .split3.us.i131.i.i.i:                            ; preds = %.noexc.i130.i158.i.i, %.lr.ph.split.i91.i121.i.i
@@ -25279,7 +25279,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i180.i109.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i183.i112.i.i = add nuw nsw i64 %indvars.iv.i.i147.i76.i.i, 2
-  %3197 = icmp ult i64 %indvars.iv.i.i147.i76.i.i, 6
+  %3197 = icmp samesign ult i64 %indvars.iv.i.i147.i76.i.i, 6
   br i1 %3197, label %.split.i146.i75.i.i, label %.split3.us.i184.i.i.i, !llvm.loop !4093
 
 .split3.us.i184.i.i.i:                            ; preds = %.noexc.i182.i111.i.i, %.lr.ph.split.i143.i74.i.i
@@ -25585,7 +25585,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i239.i62.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i242.i65.i.i = add nuw nsw i64 %indvars.iv.i.i206.i29.i.i, 2
-  %3329 = icmp ult i64 %indvars.iv.i.i206.i29.i.i, 8
+  %3329 = icmp samesign ult i64 %indvars.iv.i.i206.i29.i.i, 8
   br i1 %3329, label %.split.i205.i28.i.i, label %.split3.us.i243.i.i.i, !llvm.loop !4118
 
 .split3.us.i243.i.i.i:                            ; preds = %.noexc.i241.i64.i.i, %.lr.ph.split.i202.i27.i.i
@@ -26889,7 +26889,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %582 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %582 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %582, label %.split.i94.i.i.i, label %.split16.us.i129.i.i.i, !llvm.loop !4174
 
 .split16.us.i129.i.i.i:                           ; preds = %.noexc.i128.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -27157,7 +27157,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i177.i.i.i = add nuw nsw i64 %indvars.iv.i.i143.i.i.i, 2
-  %686 = icmp ult i64 %indvars.iv.i.i143.i.i.i, 6
+  %686 = icmp samesign ult i64 %indvars.iv.i.i143.i.i.i, 6
   br i1 %686, label %.split.i142.i.i.i, label %.split16.us.i178.i.i.i, !llvm.loop !4199
 
 .split16.us.i178.i.i.i:                           ; preds = %.noexc.i176.i.i.i, %.lr.ph.split.i139.i.i.i
@@ -27425,7 +27425,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i232.i.i.i = add nuw nsw i64 %indvars.iv.i.i198.i.i.i, 2
-  %790 = icmp ult i64 %indvars.iv.i.i198.i.i.i, 8
+  %790 = icmp samesign ult i64 %indvars.iv.i.i198.i.i.i, 8
   br i1 %790, label %.split.i197.i.i.i, label %.split16.us.i233.i.i.i, !llvm.loop !4224
 
 .split16.us.i233.i.i.i:                           ; preds = %.noexc.i231.i.i.i, %.lr.ph.split.i194.i.i.i
@@ -28381,7 +28381,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i149.i.i = add nuw nsw i64 %indvars.iv.i.i95.i115.i.i, 2
-  %1157 = icmp ult i64 %indvars.iv.i.i95.i115.i.i, 4
+  %1157 = icmp samesign ult i64 %indvars.iv.i.i95.i115.i.i, 4
   br i1 %1157, label %.split.i94.i114.i.i, label %.split3.us.i129.i.i.i, !llvm.loop !4279
 
 .split3.us.i129.i.i.i:                            ; preds = %.noexc.i128.i148.i.i, %.lr.ph.split.i91.i113.i.i
@@ -28649,7 +28649,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i177.i106.i.i = add nuw nsw i64 %indvars.iv.i.i143.i72.i.i, 2
-  %1261 = icmp ult i64 %indvars.iv.i.i143.i72.i.i, 6
+  %1261 = icmp samesign ult i64 %indvars.iv.i.i143.i72.i.i, 6
   br i1 %1261, label %.split.i142.i71.i.i, label %.split3.us.i178.i.i.i, !llvm.loop !4304
 
 .split3.us.i178.i.i.i:                            ; preds = %.noexc.i176.i105.i.i, %.lr.ph.split.i139.i70.i.i
@@ -28917,7 +28917,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i232.i63.i.i = add nuw nsw i64 %indvars.iv.i.i198.i29.i.i, 2
-  %1365 = icmp ult i64 %indvars.iv.i.i198.i29.i.i, 8
+  %1365 = icmp samesign ult i64 %indvars.iv.i.i198.i29.i.i, 8
   br i1 %1365, label %.split.i197.i28.i.i, label %.split3.us.i233.i.i.i, !llvm.loop !4329
 
 .split3.us.i233.i.i.i:                            ; preds = %.noexc.i231.i62.i.i, %.lr.ph.split.i194.i27.i.i
@@ -29449,7 +29449,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1564, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1561, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1565 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1565 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1565, label %.noexc.i94.i.i.i, label %1566, !llvm.loop !4337
 
 1566:                                             ; preds = %.noexc.i94.i.i.i
@@ -29506,7 +29506,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1584, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1581, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1585 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1585 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1585, label %.noexc.i99.i.i.i, label %1586, !llvm.loop !4339
 
 1586:                                             ; preds = %.noexc.i99.i.i.i
@@ -29563,7 +29563,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1604, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1601, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1605 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1605 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1605, label %.noexc.i106.i.i.i, label %1606, !llvm.loop !4341
 
 1606:                                             ; preds = %.noexc.i106.i.i.i
@@ -30164,7 +30164,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1817, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1814, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1818 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1818 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1818, label %.noexc.i94.i54.i.i, label %1819, !llvm.loop !4337
 
 1819:                                             ; preds = %.noexc.i94.i54.i.i
@@ -30221,7 +30221,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1837, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1834, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1838 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1838 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1838, label %.noexc.i99.i49.i.i, label %1839, !llvm.loop !4339
 
 1839:                                             ; preds = %.noexc.i99.i49.i.i
@@ -30278,7 +30278,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1857, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1854, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1858 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1858 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1858, label %.noexc.i106.i44.i.i, label %1859, !llvm.loop !4341
 
 1859:                                             ; preds = %.noexc.i106.i44.i.i
@@ -31377,7 +31377,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i127.i.i.i: ; preds = %227
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i102 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2288 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2288 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2288, label %.split.i94.i.i.i74, label %.split17.us.i130.i.i.i, !llvm.loop !4409
 
 .split17.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -31673,7 +31673,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i178.i.i.i: ; preds = %240
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i181.i.i.i = add nuw nsw i64 %indvars.iv.i.i146.i.i.i, 2
-  %2411 = icmp ult i64 %indvars.iv.i.i146.i.i.i, 6
+  %2411 = icmp samesign ult i64 %indvars.iv.i.i146.i.i.i, 6
   br i1 %2411, label %.split.i145.i.i.i, label %.split17.us.i182.i.i.i, !llvm.loop !4434
 
 .split17.us.i182.i.i.i:                           ; preds = %.noexc.i180.i.i.i, %.lr.ph.split.i142.i.i.i
@@ -31969,7 +31969,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i236.i.i.i: ; preds = %252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i239.i.i.i = add nuw nsw i64 %indvars.iv.i.i204.i.i.i, 2
-  %2534 = icmp ult i64 %indvars.iv.i.i204.i.i.i, 8
+  %2534 = icmp samesign ult i64 %indvars.iv.i.i204.i.i.i, 8
   br i1 %2534, label %.split.i203.i.i.i, label %.split17.us.i240.i.i.i, !llvm.loop !4459
 
 .split17.us.i240.i.i.i:                           ; preds = %.noexc.i238.i.i.i, %.lr.ph.split.i200.i.i.i
@@ -32975,7 +32975,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i127.i153.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i156.i.i = add nuw nsw i64 %indvars.iv.i.i95.i121.i.i, 2
-  %2939 = icmp ult i64 %indvars.iv.i.i95.i121.i.i, 4
+  %2939 = icmp samesign ult i64 %indvars.iv.i.i95.i121.i.i, 4
   br i1 %2939, label %.split.i94.i120.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !4514
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i155.i.i, %.lr.ph.split.i91.i119.i.i
@@ -33271,7 +33271,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i178.i107.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i181.i110.i.i = add nuw nsw i64 %indvars.iv.i.i146.i75.i.i, 2
-  %3062 = icmp ult i64 %indvars.iv.i.i146.i75.i.i, 6
+  %3062 = icmp samesign ult i64 %indvars.iv.i.i146.i75.i.i, 6
   br i1 %3062, label %.split.i145.i74.i.i, label %.split3.us.i182.i.i.i, !llvm.loop !4539
 
 .split3.us.i182.i.i.i:                            ; preds = %.noexc.i180.i109.i.i, %.lr.ph.split.i142.i73.i.i
@@ -33567,7 +33567,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i.i236.i61.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i239.i64.i.i = add nuw nsw i64 %indvars.iv.i.i204.i29.i.i, 2
-  %3185 = icmp ult i64 %indvars.iv.i.i204.i29.i.i, 8
+  %3185 = icmp samesign ult i64 %indvars.iv.i.i204.i29.i.i, 8
   br i1 %3185, label %.split.i203.i28.i.i, label %.split3.us.i240.i.i.i, !llvm.loop !4564
 
 .split3.us.i240.i.i.i:                            ; preds = %.noexc.i238.i63.i.i, %.lr.ph.split.i200.i27.i.i
@@ -40540,7 +40540,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %600 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %600 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %600, label %.split.i94.i.i.i, label %.split16.us.i130.i.i.i, !llvm.loop !5129
 
 .split16.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -40818,7 +40818,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i179.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, 2
-  %713 = icmp ult i64 %indvars.iv.i.i144.i.i.i, 6
+  %713 = icmp samesign ult i64 %indvars.iv.i.i144.i.i.i, 6
   br i1 %713, label %.split.i143.i.i.i, label %.split16.us.i180.i.i.i, !llvm.loop !5154
 
 .split16.us.i180.i.i.i:                           ; preds = %.noexc.i178.i.i.i, %.lr.ph.split.i140.i.i.i
@@ -41096,7 +41096,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i235.i.i.i = add nuw nsw i64 %indvars.iv.i.i200.i.i.i, 2
-  %826 = icmp ult i64 %indvars.iv.i.i200.i.i.i, 8
+  %826 = icmp samesign ult i64 %indvars.iv.i.i200.i.i.i, 8
   br i1 %826, label %.split.i199.i.i.i, label %.split16.us.i236.i.i.i, !llvm.loop !5179
 
 .split16.us.i236.i.i.i:                           ; preds = %.noexc.i234.i.i.i, %.lr.ph.split.i196.i.i.i
@@ -42072,7 +42072,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i152.i.i = add nuw nsw i64 %indvars.iv.i.i95.i117.i.i, 2
-  %1211 = icmp ult i64 %indvars.iv.i.i95.i117.i.i, 4
+  %1211 = icmp samesign ult i64 %indvars.iv.i.i95.i117.i.i, 4
   br i1 %1211, label %.split.i94.i116.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !5234
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i151.i.i, %.lr.ph.split.i91.i115.i.i
@@ -42350,7 +42350,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i179.i108.i.i = add nuw nsw i64 %indvars.iv.i.i144.i73.i.i, 2
-  %1324 = icmp ult i64 %indvars.iv.i.i144.i73.i.i, 6
+  %1324 = icmp samesign ult i64 %indvars.iv.i.i144.i73.i.i, 6
   br i1 %1324, label %.split.i143.i72.i.i, label %.split3.us.i180.i.i.i, !llvm.loop !5259
 
 .split3.us.i180.i.i.i:                            ; preds = %.noexc.i178.i107.i.i, %.lr.ph.split.i140.i71.i.i
@@ -42628,7 +42628,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i235.i64.i.i = add nuw nsw i64 %indvars.iv.i.i200.i29.i.i, 2
-  %1437 = icmp ult i64 %indvars.iv.i.i200.i29.i.i, 8
+  %1437 = icmp samesign ult i64 %indvars.iv.i.i200.i29.i.i, 8
   br i1 %1437, label %.split.i199.i28.i.i, label %.split3.us.i236.i.i.i, !llvm.loop !5284
 
 .split3.us.i236.i.i.i:                            ; preds = %.noexc.i234.i63.i.i, %.lr.ph.split.i196.i27.i.i
@@ -43160,7 +43160,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1636, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1633, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1637 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1637 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1637, label %.noexc.i94.i.i.i, label %1638, !llvm.loop !5292
 
 1638:                                             ; preds = %.noexc.i94.i.i.i
@@ -43217,7 +43217,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1656, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1653, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1657 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1657 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1657, label %.noexc.i99.i.i.i, label %1658, !llvm.loop !5294
 
 1658:                                             ; preds = %.noexc.i99.i.i.i
@@ -43274,7 +43274,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1676, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1673, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1677 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1677 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1677, label %.noexc.i106.i.i.i, label %1678, !llvm.loop !5296
 
 1678:                                             ; preds = %.noexc.i106.i.i.i
@@ -43875,7 +43875,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1889, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1886, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1890 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1890 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1890, label %.noexc.i94.i54.i.i, label %1891, !llvm.loop !5292
 
 1891:                                             ; preds = %.noexc.i94.i54.i.i
@@ -43932,7 +43932,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1909, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1906, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1910 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1910 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1910, label %.noexc.i99.i49.i.i, label %1911, !llvm.loop !5294
 
 1911:                                             ; preds = %.noexc.i99.i49.i.i
@@ -43989,7 +43989,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1929, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1926, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1930 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1930 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1930, label %.noexc.i106.i44.i.i, label %1931, !llvm.loop !5296
 
 1931:                                             ; preds = %.noexc.i106.i44.i.i
@@ -45108,7 +45108,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i128.i.i.i: ; preds = %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2378 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2378 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2378, label %.split.i94.i.i.i74, label %.split17.us.i131.i.i.i, !llvm.loop !5364
 
 .split17.us.i131.i.i.i:                           ; preds = %.noexc.i130.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -45414,7 +45414,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i180.i.i.i: ; preds = %250
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i183.i.i.i = add nuw nsw i64 %indvars.iv.i.i147.i.i.i, 2
-  %2510 = icmp ult i64 %indvars.iv.i.i147.i.i.i, 6
+  %2510 = icmp samesign ult i64 %indvars.iv.i.i147.i.i.i, 6
   br i1 %2510, label %.split.i146.i.i.i, label %.split17.us.i184.i.i.i, !llvm.loop !5389
 
 .split17.us.i184.i.i.i:                           ; preds = %.noexc.i182.i.i.i, %.lr.ph.split.i143.i.i.i
@@ -45720,7 +45720,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i239.i.i.i: ; preds = %263
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i242.i.i.i = add nuw nsw i64 %indvars.iv.i.i206.i.i.i, 2
-  %2642 = icmp ult i64 %indvars.iv.i.i206.i.i.i, 8
+  %2642 = icmp samesign ult i64 %indvars.iv.i.i206.i.i.i, 8
   br i1 %2642, label %.split.i205.i.i.i, label %.split17.us.i243.i.i.i, !llvm.loop !5414
 
 .split17.us.i243.i.i.i:                           ; preds = %.noexc.i241.i.i.i, %.lr.ph.split.i202.i.i.i
@@ -46746,7 +46746,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i128.i156.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i159.i.i = add nuw nsw i64 %indvars.iv.i.i95.i123.i.i, 2
-  %3065 = icmp ult i64 %indvars.iv.i.i95.i123.i.i, 4
+  %3065 = icmp samesign ult i64 %indvars.iv.i.i95.i123.i.i, 4
   br i1 %3065, label %.split.i94.i122.i.i, label %.split3.us.i131.i.i.i, !llvm.loop !5469
 
 .split3.us.i131.i.i.i:                            ; preds = %.noexc.i130.i158.i.i, %.lr.ph.split.i91.i121.i.i
@@ -47052,7 +47052,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i180.i109.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i183.i112.i.i = add nuw nsw i64 %indvars.iv.i.i147.i76.i.i, 2
-  %3197 = icmp ult i64 %indvars.iv.i.i147.i76.i.i, 6
+  %3197 = icmp samesign ult i64 %indvars.iv.i.i147.i76.i.i, 6
   br i1 %3197, label %.split.i146.i75.i.i, label %.split3.us.i184.i.i.i, !llvm.loop !5494
 
 .split3.us.i184.i.i.i:                            ; preds = %.noexc.i182.i111.i.i, %.lr.ph.split.i143.i74.i.i
@@ -47358,7 +47358,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i239.i62.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i242.i65.i.i = add nuw nsw i64 %indvars.iv.i.i206.i29.i.i, 2
-  %3329 = icmp ult i64 %indvars.iv.i.i206.i29.i.i, 8
+  %3329 = icmp samesign ult i64 %indvars.iv.i.i206.i29.i.i, 8
   br i1 %3329, label %.split.i205.i28.i.i, label %.split3.us.i243.i.i.i, !llvm.loop !5519
 
 .split3.us.i243.i.i.i:                            ; preds = %.noexc.i241.i64.i.i, %.lr.ph.split.i202.i27.i.i
@@ -48662,7 +48662,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %582 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %582 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %582, label %.split.i94.i.i.i, label %.split16.us.i129.i.i.i, !llvm.loop !5575
 
 .split16.us.i129.i.i.i:                           ; preds = %.noexc.i128.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -48930,7 +48930,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i177.i.i.i = add nuw nsw i64 %indvars.iv.i.i143.i.i.i, 2
-  %686 = icmp ult i64 %indvars.iv.i.i143.i.i.i, 6
+  %686 = icmp samesign ult i64 %indvars.iv.i.i143.i.i.i, 6
   br i1 %686, label %.split.i142.i.i.i, label %.split16.us.i178.i.i.i, !llvm.loop !5600
 
 .split16.us.i178.i.i.i:                           ; preds = %.noexc.i176.i.i.i, %.lr.ph.split.i139.i.i.i
@@ -49198,7 +49198,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i232.i.i.i = add nuw nsw i64 %indvars.iv.i.i198.i.i.i, 2
-  %790 = icmp ult i64 %indvars.iv.i.i198.i.i.i, 8
+  %790 = icmp samesign ult i64 %indvars.iv.i.i198.i.i.i, 8
   br i1 %790, label %.split.i197.i.i.i, label %.split16.us.i233.i.i.i, !llvm.loop !5625
 
 .split16.us.i233.i.i.i:                           ; preds = %.noexc.i231.i.i.i, %.lr.ph.split.i194.i.i.i
@@ -50154,7 +50154,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i149.i.i = add nuw nsw i64 %indvars.iv.i.i95.i115.i.i, 2
-  %1157 = icmp ult i64 %indvars.iv.i.i95.i115.i.i, 4
+  %1157 = icmp samesign ult i64 %indvars.iv.i.i95.i115.i.i, 4
   br i1 %1157, label %.split.i94.i114.i.i, label %.split3.us.i129.i.i.i, !llvm.loop !5680
 
 .split3.us.i129.i.i.i:                            ; preds = %.noexc.i128.i148.i.i, %.lr.ph.split.i91.i113.i.i
@@ -50422,7 +50422,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i177.i106.i.i = add nuw nsw i64 %indvars.iv.i.i143.i72.i.i, 2
-  %1261 = icmp ult i64 %indvars.iv.i.i143.i72.i.i, 6
+  %1261 = icmp samesign ult i64 %indvars.iv.i.i143.i72.i.i, 6
   br i1 %1261, label %.split.i142.i71.i.i, label %.split3.us.i178.i.i.i, !llvm.loop !5705
 
 .split3.us.i178.i.i.i:                            ; preds = %.noexc.i176.i105.i.i, %.lr.ph.split.i139.i70.i.i
@@ -50690,7 +50690,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i232.i63.i.i = add nuw nsw i64 %indvars.iv.i.i198.i29.i.i, 2
-  %1365 = icmp ult i64 %indvars.iv.i.i198.i29.i.i, 8
+  %1365 = icmp samesign ult i64 %indvars.iv.i.i198.i29.i.i, 8
   br i1 %1365, label %.split.i197.i28.i.i, label %.split3.us.i233.i.i.i, !llvm.loop !5730
 
 .split3.us.i233.i.i.i:                            ; preds = %.noexc.i231.i62.i.i, %.lr.ph.split.i194.i27.i.i
@@ -51222,7 +51222,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1564, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1561, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1565 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1565 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1565, label %.noexc.i94.i.i.i, label %1566, !llvm.loop !5738
 
 1566:                                             ; preds = %.noexc.i94.i.i.i
@@ -51279,7 +51279,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1584, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1581, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1585 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1585 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1585, label %.noexc.i99.i.i.i, label %1586, !llvm.loop !5740
 
 1586:                                             ; preds = %.noexc.i99.i.i.i
@@ -51336,7 +51336,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1604, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1601, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1605 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1605 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1605, label %.noexc.i106.i.i.i, label %1606, !llvm.loop !5742
 
 1606:                                             ; preds = %.noexc.i106.i.i.i
@@ -51937,7 +51937,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1817, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1814, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1818 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1818 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1818, label %.noexc.i94.i54.i.i, label %1819, !llvm.loop !5738
 
 1819:                                             ; preds = %.noexc.i94.i54.i.i
@@ -51994,7 +51994,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1837, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1834, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1838 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1838 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1838, label %.noexc.i99.i49.i.i, label %1839, !llvm.loop !5740
 
 1839:                                             ; preds = %.noexc.i99.i49.i.i
@@ -52051,7 +52051,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1857, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1854, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1858 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1858 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1858, label %.noexc.i106.i44.i.i, label %1859, !llvm.loop !5742
 
 1859:                                             ; preds = %.noexc.i106.i44.i.i
@@ -53150,7 +53150,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i127.i.i.i: ; preds = %227
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i102 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2288 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2288 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2288, label %.split.i94.i.i.i74, label %.split17.us.i130.i.i.i, !llvm.loop !5810
 
 .split17.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -53446,7 +53446,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i178.i.i.i: ; preds = %240
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i181.i.i.i = add nuw nsw i64 %indvars.iv.i.i146.i.i.i, 2
-  %2411 = icmp ult i64 %indvars.iv.i.i146.i.i.i, 6
+  %2411 = icmp samesign ult i64 %indvars.iv.i.i146.i.i.i, 6
   br i1 %2411, label %.split.i145.i.i.i, label %.split17.us.i182.i.i.i, !llvm.loop !5835
 
 .split17.us.i182.i.i.i:                           ; preds = %.noexc.i180.i.i.i, %.lr.ph.split.i142.i.i.i
@@ -53742,7 +53742,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i236.i.i.i: ; preds = %252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i239.i.i.i = add nuw nsw i64 %indvars.iv.i.i204.i.i.i, 2
-  %2534 = icmp ult i64 %indvars.iv.i.i204.i.i.i, 8
+  %2534 = icmp samesign ult i64 %indvars.iv.i.i204.i.i.i, 8
   br i1 %2534, label %.split.i203.i.i.i, label %.split17.us.i240.i.i.i, !llvm.loop !5860
 
 .split17.us.i240.i.i.i:                           ; preds = %.noexc.i238.i.i.i, %.lr.ph.split.i200.i.i.i
@@ -54748,7 +54748,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i127.i153.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i156.i.i = add nuw nsw i64 %indvars.iv.i.i95.i121.i.i, 2
-  %2939 = icmp ult i64 %indvars.iv.i.i95.i121.i.i, 4
+  %2939 = icmp samesign ult i64 %indvars.iv.i.i95.i121.i.i, 4
   br i1 %2939, label %.split.i94.i120.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !5915
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i155.i.i, %.lr.ph.split.i91.i119.i.i
@@ -55044,7 +55044,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i178.i107.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i181.i110.i.i = add nuw nsw i64 %indvars.iv.i.i146.i75.i.i, 2
-  %3062 = icmp ult i64 %indvars.iv.i.i146.i75.i.i, 6
+  %3062 = icmp samesign ult i64 %indvars.iv.i.i146.i75.i.i, 6
   br i1 %3062, label %.split.i145.i74.i.i, label %.split3.us.i182.i.i.i, !llvm.loop !5940
 
 .split3.us.i182.i.i.i:                            ; preds = %.noexc.i180.i109.i.i, %.lr.ph.split.i142.i73.i.i
@@ -55340,7 +55340,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i.i236.i61.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i239.i64.i.i = add nuw nsw i64 %indvars.iv.i.i204.i29.i.i, 2
-  %3185 = icmp ult i64 %indvars.iv.i.i204.i29.i.i, 8
+  %3185 = icmp samesign ult i64 %indvars.iv.i.i204.i29.i.i, 8
   br i1 %3185, label %.split.i203.i28.i.i, label %.split3.us.i240.i.i.i, !llvm.loop !5965
 
 .split3.us.i240.i.i.i:                            ; preds = %.noexc.i238.i63.i.i, %.lr.ph.split.i200.i27.i.i
@@ -62310,7 +62310,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %600 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %600 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %600, label %.split.i94.i.i.i, label %.split16.us.i130.i.i.i, !llvm.loop !6529
 
 .split16.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -62588,7 +62588,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i179.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, 2
-  %713 = icmp ult i64 %indvars.iv.i.i144.i.i.i, 6
+  %713 = icmp samesign ult i64 %indvars.iv.i.i144.i.i.i, 6
   br i1 %713, label %.split.i143.i.i.i, label %.split16.us.i180.i.i.i, !llvm.loop !6554
 
 .split16.us.i180.i.i.i:                           ; preds = %.noexc.i178.i.i.i, %.lr.ph.split.i140.i.i.i
@@ -62866,7 +62866,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i235.i.i.i = add nuw nsw i64 %indvars.iv.i.i200.i.i.i, 2
-  %826 = icmp ult i64 %indvars.iv.i.i200.i.i.i, 8
+  %826 = icmp samesign ult i64 %indvars.iv.i.i200.i.i.i, 8
   br i1 %826, label %.split.i199.i.i.i, label %.split16.us.i236.i.i.i, !llvm.loop !6579
 
 .split16.us.i236.i.i.i:                           ; preds = %.noexc.i234.i.i.i, %.lr.ph.split.i196.i.i.i
@@ -63842,7 +63842,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i152.i.i = add nuw nsw i64 %indvars.iv.i.i95.i117.i.i, 2
-  %1211 = icmp ult i64 %indvars.iv.i.i95.i117.i.i, 4
+  %1211 = icmp samesign ult i64 %indvars.iv.i.i95.i117.i.i, 4
   br i1 %1211, label %.split.i94.i116.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !6634
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i151.i.i, %.lr.ph.split.i91.i115.i.i
@@ -64120,7 +64120,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i179.i108.i.i = add nuw nsw i64 %indvars.iv.i.i144.i73.i.i, 2
-  %1324 = icmp ult i64 %indvars.iv.i.i144.i73.i.i, 6
+  %1324 = icmp samesign ult i64 %indvars.iv.i.i144.i73.i.i, 6
   br i1 %1324, label %.split.i143.i72.i.i, label %.split3.us.i180.i.i.i, !llvm.loop !6659
 
 .split3.us.i180.i.i.i:                            ; preds = %.noexc.i178.i107.i.i, %.lr.ph.split.i140.i71.i.i
@@ -64398,7 +64398,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i235.i64.i.i = add nuw nsw i64 %indvars.iv.i.i200.i29.i.i, 2
-  %1437 = icmp ult i64 %indvars.iv.i.i200.i29.i.i, 8
+  %1437 = icmp samesign ult i64 %indvars.iv.i.i200.i29.i.i, 8
   br i1 %1437, label %.split.i199.i28.i.i, label %.split3.us.i236.i.i.i, !llvm.loop !6684
 
 .split3.us.i236.i.i.i:                            ; preds = %.noexc.i234.i63.i.i, %.lr.ph.split.i196.i27.i.i
@@ -64930,7 +64930,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1636, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1633, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1637 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1637 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1637, label %.noexc.i94.i.i.i, label %1638, !llvm.loop !6692
 
 1638:                                             ; preds = %.noexc.i94.i.i.i
@@ -64987,7 +64987,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1656, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1653, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1657 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1657 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1657, label %.noexc.i99.i.i.i, label %1658, !llvm.loop !6694
 
 1658:                                             ; preds = %.noexc.i99.i.i.i
@@ -65044,7 +65044,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1676, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1673, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1677 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1677 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1677, label %.noexc.i106.i.i.i, label %1678, !llvm.loop !6696
 
 1678:                                             ; preds = %.noexc.i106.i.i.i
@@ -65645,7 +65645,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1889, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1886, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1890 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1890 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1890, label %.noexc.i94.i54.i.i, label %1891, !llvm.loop !6692
 
 1891:                                             ; preds = %.noexc.i94.i54.i.i
@@ -65702,7 +65702,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1909, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1906, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1910 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1910 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1910, label %.noexc.i99.i49.i.i, label %1911, !llvm.loop !6694
 
 1911:                                             ; preds = %.noexc.i99.i49.i.i
@@ -65759,7 +65759,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1929, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1926, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1930 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1930 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1930, label %.noexc.i106.i44.i.i, label %1931, !llvm.loop !6696
 
 1931:                                             ; preds = %.noexc.i106.i44.i.i
@@ -66876,7 +66876,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i128.i.i.i: ; preds = %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2376 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2376 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2376, label %.split.i94.i.i.i74, label %.split17.us.i131.i.i.i, !llvm.loop !6764
 
 .split17.us.i131.i.i.i:                           ; preds = %.noexc.i130.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -67181,7 +67181,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i180.i.i.i: ; preds = %249
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i183.i.i.i = add nuw nsw i64 %indvars.iv.i.i147.i.i.i, 2
-  %2507 = icmp ult i64 %indvars.iv.i.i147.i.i.i, 6
+  %2507 = icmp samesign ult i64 %indvars.iv.i.i147.i.i.i, 6
   br i1 %2507, label %.split.i146.i.i.i, label %.split17.us.i184.i.i.i, !llvm.loop !6789
 
 .split17.us.i184.i.i.i:                           ; preds = %.noexc.i182.i.i.i, %.lr.ph.split.i143.i.i.i
@@ -67486,7 +67486,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i239.i.i.i: ; preds = %262
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i242.i.i.i = add nuw nsw i64 %indvars.iv.i.i206.i.i.i, 2
-  %2638 = icmp ult i64 %indvars.iv.i.i206.i.i.i, 8
+  %2638 = icmp samesign ult i64 %indvars.iv.i.i206.i.i.i, 8
   br i1 %2638, label %.split.i205.i.i.i, label %.split17.us.i243.i.i.i, !llvm.loop !6814
 
 .split17.us.i243.i.i.i:                           ; preds = %.noexc.i241.i.i.i, %.lr.ph.split.i202.i.i.i
@@ -68510,7 +68510,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i128.i156.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i159.i.i = add nuw nsw i64 %indvars.iv.i.i95.i123.i.i, 2
-  %3059 = icmp ult i64 %indvars.iv.i.i95.i123.i.i, 4
+  %3059 = icmp samesign ult i64 %indvars.iv.i.i95.i123.i.i, 4
   br i1 %3059, label %.split.i94.i122.i.i, label %.split3.us.i131.i.i.i, !llvm.loop !6869
 
 .split3.us.i131.i.i.i:                            ; preds = %.noexc.i130.i158.i.i, %.lr.ph.split.i91.i121.i.i
@@ -68815,7 +68815,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i180.i109.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i183.i112.i.i = add nuw nsw i64 %indvars.iv.i.i147.i76.i.i, 2
-  %3190 = icmp ult i64 %indvars.iv.i.i147.i76.i.i, 6
+  %3190 = icmp samesign ult i64 %indvars.iv.i.i147.i76.i.i, 6
   br i1 %3190, label %.split.i146.i75.i.i, label %.split3.us.i184.i.i.i, !llvm.loop !6894
 
 .split3.us.i184.i.i.i:                            ; preds = %.noexc.i182.i111.i.i, %.lr.ph.split.i143.i74.i.i
@@ -69120,7 +69120,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i239.i62.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i242.i65.i.i = add nuw nsw i64 %indvars.iv.i.i206.i29.i.i, 2
-  %3321 = icmp ult i64 %indvars.iv.i.i206.i29.i.i, 8
+  %3321 = icmp samesign ult i64 %indvars.iv.i.i206.i29.i.i, 8
   br i1 %3321, label %.split.i205.i28.i.i, label %.split3.us.i243.i.i.i, !llvm.loop !6919
 
 .split3.us.i243.i.i.i:                            ; preds = %.noexc.i241.i64.i.i, %.lr.ph.split.i202.i27.i.i
@@ -70424,7 +70424,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %582 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %582 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %582, label %.split.i94.i.i.i, label %.split16.us.i129.i.i.i, !llvm.loop !6975
 
 .split16.us.i129.i.i.i:                           ; preds = %.noexc.i128.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -70692,7 +70692,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i177.i.i.i = add nuw nsw i64 %indvars.iv.i.i143.i.i.i, 2
-  %686 = icmp ult i64 %indvars.iv.i.i143.i.i.i, 6
+  %686 = icmp samesign ult i64 %indvars.iv.i.i143.i.i.i, 6
   br i1 %686, label %.split.i142.i.i.i, label %.split16.us.i178.i.i.i, !llvm.loop !7000
 
 .split16.us.i178.i.i.i:                           ; preds = %.noexc.i176.i.i.i, %.lr.ph.split.i139.i.i.i
@@ -70960,7 +70960,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i232.i.i.i = add nuw nsw i64 %indvars.iv.i.i198.i.i.i, 2
-  %790 = icmp ult i64 %indvars.iv.i.i198.i.i.i, 8
+  %790 = icmp samesign ult i64 %indvars.iv.i.i198.i.i.i, 8
   br i1 %790, label %.split.i197.i.i.i, label %.split16.us.i233.i.i.i, !llvm.loop !7025
 
 .split16.us.i233.i.i.i:                           ; preds = %.noexc.i231.i.i.i, %.lr.ph.split.i194.i.i.i
@@ -71916,7 +71916,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i149.i.i = add nuw nsw i64 %indvars.iv.i.i95.i115.i.i, 2
-  %1157 = icmp ult i64 %indvars.iv.i.i95.i115.i.i, 4
+  %1157 = icmp samesign ult i64 %indvars.iv.i.i95.i115.i.i, 4
   br i1 %1157, label %.split.i94.i114.i.i, label %.split3.us.i129.i.i.i, !llvm.loop !7080
 
 .split3.us.i129.i.i.i:                            ; preds = %.noexc.i128.i148.i.i, %.lr.ph.split.i91.i113.i.i
@@ -72184,7 +72184,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i177.i106.i.i = add nuw nsw i64 %indvars.iv.i.i143.i72.i.i, 2
-  %1261 = icmp ult i64 %indvars.iv.i.i143.i72.i.i, 6
+  %1261 = icmp samesign ult i64 %indvars.iv.i.i143.i72.i.i, 6
   br i1 %1261, label %.split.i142.i71.i.i, label %.split3.us.i178.i.i.i, !llvm.loop !7105
 
 .split3.us.i178.i.i.i:                            ; preds = %.noexc.i176.i105.i.i, %.lr.ph.split.i139.i70.i.i
@@ -72452,7 +72452,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i232.i63.i.i = add nuw nsw i64 %indvars.iv.i.i198.i29.i.i, 2
-  %1365 = icmp ult i64 %indvars.iv.i.i198.i29.i.i, 8
+  %1365 = icmp samesign ult i64 %indvars.iv.i.i198.i29.i.i, 8
   br i1 %1365, label %.split.i197.i28.i.i, label %.split3.us.i233.i.i.i, !llvm.loop !7130
 
 .split3.us.i233.i.i.i:                            ; preds = %.noexc.i231.i62.i.i, %.lr.ph.split.i194.i27.i.i
@@ -72984,7 +72984,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1564, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1561, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1565 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1565 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1565, label %.noexc.i94.i.i.i, label %1566, !llvm.loop !7138
 
 1566:                                             ; preds = %.noexc.i94.i.i.i
@@ -73041,7 +73041,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1584, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1581, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1585 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1585 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1585, label %.noexc.i99.i.i.i, label %1586, !llvm.loop !7140
 
 1586:                                             ; preds = %.noexc.i99.i.i.i
@@ -73098,7 +73098,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1604, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1601, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1605 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1605 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1605, label %.noexc.i106.i.i.i, label %1606, !llvm.loop !7142
 
 1606:                                             ; preds = %.noexc.i106.i.i.i
@@ -73699,7 +73699,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1817, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1814, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1818 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1818 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1818, label %.noexc.i94.i54.i.i, label %1819, !llvm.loop !7138
 
 1819:                                             ; preds = %.noexc.i94.i54.i.i
@@ -73756,7 +73756,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1837, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1834, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1838 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1838 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1838, label %.noexc.i99.i49.i.i, label %1839, !llvm.loop !7140
 
 1839:                                             ; preds = %.noexc.i99.i49.i.i
@@ -73813,7 +73813,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1857, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1854, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1858 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1858 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1858, label %.noexc.i106.i44.i.i, label %1859, !llvm.loop !7142
 
 1859:                                             ; preds = %.noexc.i106.i44.i.i
@@ -74910,7 +74910,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i127.i.i.i: ; preds = %227
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i102 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2286 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2286 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2286, label %.split.i94.i.i.i74, label %.split17.us.i130.i.i.i, !llvm.loop !7210
 
 .split17.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -75205,7 +75205,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i178.i.i.i: ; preds = %239
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i181.i.i.i = add nuw nsw i64 %indvars.iv.i.i146.i.i.i, 2
-  %2408 = icmp ult i64 %indvars.iv.i.i146.i.i.i, 6
+  %2408 = icmp samesign ult i64 %indvars.iv.i.i146.i.i.i, 6
   br i1 %2408, label %.split.i145.i.i.i, label %.split17.us.i182.i.i.i, !llvm.loop !7235
 
 .split17.us.i182.i.i.i:                           ; preds = %.noexc.i180.i.i.i, %.lr.ph.split.i142.i.i.i
@@ -75500,7 +75500,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i236.i.i.i: ; preds = %252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i239.i.i.i = add nuw nsw i64 %indvars.iv.i.i204.i.i.i, 2
-  %2530 = icmp ult i64 %indvars.iv.i.i204.i.i.i, 8
+  %2530 = icmp samesign ult i64 %indvars.iv.i.i204.i.i.i, 8
   br i1 %2530, label %.split.i203.i.i.i, label %.split17.us.i240.i.i.i, !llvm.loop !7260
 
 .split17.us.i240.i.i.i:                           ; preds = %.noexc.i238.i.i.i, %.lr.ph.split.i200.i.i.i
@@ -76504,7 +76504,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i127.i153.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i156.i.i = add nuw nsw i64 %indvars.iv.i.i95.i121.i.i, 2
-  %2933 = icmp ult i64 %indvars.iv.i.i95.i121.i.i, 4
+  %2933 = icmp samesign ult i64 %indvars.iv.i.i95.i121.i.i, 4
   br i1 %2933, label %.split.i94.i120.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !7315
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i155.i.i, %.lr.ph.split.i91.i119.i.i
@@ -76799,7 +76799,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i178.i107.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i181.i110.i.i = add nuw nsw i64 %indvars.iv.i.i146.i75.i.i, 2
-  %3055 = icmp ult i64 %indvars.iv.i.i146.i75.i.i, 6
+  %3055 = icmp samesign ult i64 %indvars.iv.i.i146.i75.i.i, 6
   br i1 %3055, label %.split.i145.i74.i.i, label %.split3.us.i182.i.i.i, !llvm.loop !7340
 
 .split3.us.i182.i.i.i:                            ; preds = %.noexc.i180.i109.i.i, %.lr.ph.split.i142.i73.i.i
@@ -77094,7 +77094,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i.i236.i61.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i239.i64.i.i = add nuw nsw i64 %indvars.iv.i.i204.i29.i.i, 2
-  %3177 = icmp ult i64 %indvars.iv.i.i204.i29.i.i, 8
+  %3177 = icmp samesign ult i64 %indvars.iv.i.i204.i29.i.i, 8
   br i1 %3177, label %.split.i203.i28.i.i, label %.split3.us.i240.i.i.i, !llvm.loop !7365
 
 .split3.us.i240.i.i.i:                            ; preds = %.noexc.i238.i63.i.i, %.lr.ph.split.i200.i27.i.i
@@ -84052,7 +84052,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %600 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %600 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %600, label %.split.i94.i.i.i, label %.split16.us.i130.i.i.i, !llvm.loop !7929
 
 .split16.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -84330,7 +84330,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i179.i.i.i = add nuw nsw i64 %indvars.iv.i.i144.i.i.i, 2
-  %713 = icmp ult i64 %indvars.iv.i.i144.i.i.i, 6
+  %713 = icmp samesign ult i64 %indvars.iv.i.i144.i.i.i, 6
   br i1 %713, label %.split.i143.i.i.i, label %.split16.us.i180.i.i.i, !llvm.loop !7954
 
 .split16.us.i180.i.i.i:                           ; preds = %.noexc.i178.i.i.i, %.lr.ph.split.i140.i.i.i
@@ -84608,7 +84608,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i235.i.i.i = add nuw nsw i64 %indvars.iv.i.i200.i.i.i, 2
-  %826 = icmp ult i64 %indvars.iv.i.i200.i.i.i, 8
+  %826 = icmp samesign ult i64 %indvars.iv.i.i200.i.i.i, 8
   br i1 %826, label %.split.i199.i.i.i, label %.split16.us.i236.i.i.i, !llvm.loop !7979
 
 .split16.us.i236.i.i.i:                           ; preds = %.noexc.i234.i.i.i, %.lr.ph.split.i196.i.i.i
@@ -85584,7 +85584,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i152.i.i = add nuw nsw i64 %indvars.iv.i.i95.i117.i.i, 2
-  %1211 = icmp ult i64 %indvars.iv.i.i95.i117.i.i, 4
+  %1211 = icmp samesign ult i64 %indvars.iv.i.i95.i117.i.i, 4
   br i1 %1211, label %.split.i94.i116.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !8034
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i151.i.i, %.lr.ph.split.i91.i115.i.i
@@ -85862,7 +85862,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i179.i108.i.i = add nuw nsw i64 %indvars.iv.i.i144.i73.i.i, 2
-  %1324 = icmp ult i64 %indvars.iv.i.i144.i73.i.i, 6
+  %1324 = icmp samesign ult i64 %indvars.iv.i.i144.i73.i.i, 6
   br i1 %1324, label %.split.i143.i72.i.i, label %.split3.us.i180.i.i.i, !llvm.loop !8059
 
 .split3.us.i180.i.i.i:                            ; preds = %.noexc.i178.i107.i.i, %.lr.ph.split.i140.i71.i.i
@@ -86140,7 +86140,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i235.i64.i.i = add nuw nsw i64 %indvars.iv.i.i200.i29.i.i, 2
-  %1437 = icmp ult i64 %indvars.iv.i.i200.i29.i.i, 8
+  %1437 = icmp samesign ult i64 %indvars.iv.i.i200.i29.i.i, 8
   br i1 %1437, label %.split.i199.i28.i.i, label %.split3.us.i236.i.i.i, !llvm.loop !8084
 
 .split3.us.i236.i.i.i:                            ; preds = %.noexc.i234.i63.i.i, %.lr.ph.split.i196.i27.i.i
@@ -86672,7 +86672,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1636, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1633, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1637 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1637 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1637, label %.noexc.i94.i.i.i, label %1638, !llvm.loop !8092
 
 1638:                                             ; preds = %.noexc.i94.i.i.i
@@ -86729,7 +86729,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1656, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1653, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1657 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1657 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1657, label %.noexc.i99.i.i.i, label %1658, !llvm.loop !8094
 
 1658:                                             ; preds = %.noexc.i99.i.i.i
@@ -86786,7 +86786,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1676, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1673, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1677 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1677 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1677, label %.noexc.i106.i.i.i, label %1678, !llvm.loop !8096
 
 1678:                                             ; preds = %.noexc.i106.i.i.i
@@ -87387,7 +87387,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1889, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1886, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1890 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1890 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1890, label %.noexc.i94.i54.i.i, label %1891, !llvm.loop !8092
 
 1891:                                             ; preds = %.noexc.i94.i54.i.i
@@ -87444,7 +87444,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1909, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1906, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1910 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1910 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1910, label %.noexc.i99.i49.i.i, label %1911, !llvm.loop !8094
 
 1911:                                             ; preds = %.noexc.i99.i49.i.i
@@ -87501,7 +87501,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1929, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1510, i64 noundef 0, i64 noundef %1926, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1930 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1930 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1930, label %.noexc.i106.i44.i.i, label %1931, !llvm.loop !8096
 
 1931:                                             ; preds = %.noexc.i106.i44.i.i
@@ -88618,7 +88618,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i128.i.i.i: ; preds = %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2376 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2376 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2376, label %.split.i94.i.i.i74, label %.split17.us.i131.i.i.i, !llvm.loop !8164
 
 .split17.us.i131.i.i.i:                           ; preds = %.noexc.i130.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -88923,7 +88923,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i180.i.i.i: ; preds = %249
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i183.i.i.i = add nuw nsw i64 %indvars.iv.i.i147.i.i.i, 2
-  %2507 = icmp ult i64 %indvars.iv.i.i147.i.i.i, 6
+  %2507 = icmp samesign ult i64 %indvars.iv.i.i147.i.i.i, 6
   br i1 %2507, label %.split.i146.i.i.i, label %.split17.us.i184.i.i.i, !llvm.loop !8189
 
 .split17.us.i184.i.i.i:                           ; preds = %.noexc.i182.i.i.i, %.lr.ph.split.i143.i.i.i
@@ -89228,7 +89228,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i239.i.i.i: ; preds = %262
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i242.i.i.i = add nuw nsw i64 %indvars.iv.i.i206.i.i.i, 2
-  %2638 = icmp ult i64 %indvars.iv.i.i206.i.i.i, 8
+  %2638 = icmp samesign ult i64 %indvars.iv.i.i206.i.i.i, 8
   br i1 %2638, label %.split.i205.i.i.i, label %.split17.us.i243.i.i.i, !llvm.loop !8214
 
 .split17.us.i243.i.i.i:                           ; preds = %.noexc.i241.i.i.i, %.lr.ph.split.i202.i.i.i
@@ -90252,7 +90252,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i128.i156.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i159.i.i = add nuw nsw i64 %indvars.iv.i.i95.i123.i.i, 2
-  %3059 = icmp ult i64 %indvars.iv.i.i95.i123.i.i, 4
+  %3059 = icmp samesign ult i64 %indvars.iv.i.i95.i123.i.i, 4
   br i1 %3059, label %.split.i94.i122.i.i, label %.split3.us.i131.i.i.i, !llvm.loop !8269
 
 .split3.us.i131.i.i.i:                            ; preds = %.noexc.i130.i158.i.i, %.lr.ph.split.i91.i121.i.i
@@ -90557,7 +90557,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i180.i109.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i183.i112.i.i = add nuw nsw i64 %indvars.iv.i.i147.i76.i.i, 2
-  %3190 = icmp ult i64 %indvars.iv.i.i147.i76.i.i, 6
+  %3190 = icmp samesign ult i64 %indvars.iv.i.i147.i76.i.i, 6
   br i1 %3190, label %.split.i146.i75.i.i, label %.split3.us.i184.i.i.i, !llvm.loop !8294
 
 .split3.us.i184.i.i.i:                            ; preds = %.noexc.i182.i111.i.i, %.lr.ph.split.i143.i74.i.i
@@ -90862,7 +90862,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i239.i62.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i242.i65.i.i = add nuw nsw i64 %indvars.iv.i.i206.i29.i.i, 2
-  %3321 = icmp ult i64 %indvars.iv.i.i206.i29.i.i, 8
+  %3321 = icmp samesign ult i64 %indvars.iv.i.i206.i29.i.i, 8
   br i1 %3321, label %.split.i205.i28.i.i, label %.split3.us.i243.i.i.i, !llvm.loop !8319
 
 .split3.us.i243.i.i.i:                            ; preds = %.noexc.i241.i64.i.i, %.lr.ph.split.i202.i27.i.i
@@ -92166,7 +92166,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %259)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i95.i.i.i, 2
-  %582 = icmp ult i64 %indvars.iv.i.i95.i.i.i, 4
+  %582 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i, 4
   br i1 %582, label %.split.i94.i.i.i, label %.split16.us.i129.i.i.i, !llvm.loop !8375
 
 .split16.us.i129.i.i.i:                           ; preds = %.noexc.i128.i.i.i, %.lr.ph.split.i91.i.i.i
@@ -92434,7 +92434,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %249)
   %indvars.iv.next.i.i177.i.i.i = add nuw nsw i64 %indvars.iv.i.i143.i.i.i, 2
-  %686 = icmp ult i64 %indvars.iv.i.i143.i.i.i, 6
+  %686 = icmp samesign ult i64 %indvars.iv.i.i143.i.i.i, 6
   br i1 %686, label %.split.i142.i.i.i, label %.split16.us.i178.i.i.i, !llvm.loop !8400
 
 .split16.us.i178.i.i.i:                           ; preds = %.noexc.i176.i.i.i, %.lr.ph.split.i139.i.i.i
@@ -92702,7 +92702,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %239)
   %indvars.iv.next.i.i232.i.i.i = add nuw nsw i64 %indvars.iv.i.i198.i.i.i, 2
-  %790 = icmp ult i64 %indvars.iv.i.i198.i.i.i, 8
+  %790 = icmp samesign ult i64 %indvars.iv.i.i198.i.i.i, 8
   br i1 %790, label %.split.i197.i.i.i, label %.split16.us.i233.i.i.i, !llvm.loop !8425
 
 .split16.us.i233.i.i.i:                           ; preds = %.noexc.i231.i.i.i, %.lr.ph.split.i194.i.i.i
@@ -93658,7 +93658,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %207)
   %indvars.iv.next.i.i.i149.i.i = add nuw nsw i64 %indvars.iv.i.i95.i115.i.i, 2
-  %1157 = icmp ult i64 %indvars.iv.i.i95.i115.i.i, 4
+  %1157 = icmp samesign ult i64 %indvars.iv.i.i95.i115.i.i, 4
   br i1 %1157, label %.split.i94.i114.i.i, label %.split3.us.i129.i.i.i, !llvm.loop !8480
 
 .split3.us.i129.i.i.i:                            ; preds = %.noexc.i128.i148.i.i, %.lr.ph.split.i91.i113.i.i
@@ -93926,7 +93926,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %197)
   %indvars.iv.next.i.i177.i106.i.i = add nuw nsw i64 %indvars.iv.i.i143.i72.i.i, 2
-  %1261 = icmp ult i64 %indvars.iv.i.i143.i72.i.i, 6
+  %1261 = icmp samesign ult i64 %indvars.iv.i.i143.i72.i.i, 6
   br i1 %1261, label %.split.i142.i71.i.i, label %.split3.us.i178.i.i.i, !llvm.loop !8505
 
 .split3.us.i178.i.i.i:                            ; preds = %.noexc.i176.i105.i.i, %.lr.ph.split.i139.i70.i.i
@@ -94194,7 +94194,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %187)
   %indvars.iv.next.i.i232.i63.i.i = add nuw nsw i64 %indvars.iv.i.i198.i29.i.i, 2
-  %1365 = icmp ult i64 %indvars.iv.i.i198.i29.i.i, 8
+  %1365 = icmp samesign ult i64 %indvars.iv.i.i198.i29.i.i, 8
   br i1 %1365, label %.split.i197.i28.i.i, label %.split3.us.i233.i.i.i, !llvm.loop !8530
 
 .split3.us.i233.i.i.i:                            ; preds = %.noexc.i231.i62.i.i, %.lr.ph.split.i194.i27.i.i
@@ -94726,7 +94726,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %1564, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1561, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %163, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %164)
   %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i57, 2
-  %1565 = icmp ult i64 %indvars.iv.i.i.i.i.i57, 4
+  %1565 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i57, 4
   br i1 %1565, label %.noexc.i94.i.i.i, label %1566, !llvm.loop !8538
 
 1566:                                             ; preds = %.noexc.i94.i.i.i
@@ -94783,7 +94783,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 4 dereferenceable(32) %1584, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1581, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %160, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %161)
   %indvars.iv.next.i.i101.i.i.i = add nuw nsw i64 %indvars.iv.i.i100.i.i.i, 2
-  %1585 = icmp ult i64 %indvars.iv.i.i100.i.i.i, 6
+  %1585 = icmp samesign ult i64 %indvars.iv.i.i100.i.i.i, 6
   br i1 %1585, label %.noexc.i99.i.i.i, label %1586, !llvm.loop !8540
 
 1586:                                             ; preds = %.noexc.i99.i.i.i
@@ -94840,7 +94840,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 4 dereferenceable(32) %1604, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1601, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %157, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %158)
   %indvars.iv.next.i.i108.i.i.i = add nuw nsw i64 %indvars.iv.i.i107.i.i.i, 2
-  %1605 = icmp ult i64 %indvars.iv.i.i107.i.i.i, 8
+  %1605 = icmp samesign ult i64 %indvars.iv.i.i107.i.i.i, 8
   br i1 %1605, label %.noexc.i106.i.i.i, label %1606, !llvm.loop !8542
 
 1606:                                             ; preds = %.noexc.i106.i.i.i
@@ -95441,7 +95441,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %1817, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1814, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %131, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %132)
   %indvars.iv.next.i.i.i56.i.i = add nuw nsw i64 %indvars.iv.i.i.i55.i.i, 2
-  %1818 = icmp ult i64 %indvars.iv.i.i.i55.i.i, 4
+  %1818 = icmp samesign ult i64 %indvars.iv.i.i.i55.i.i, 4
   br i1 %1818, label %.noexc.i94.i54.i.i, label %1819, !llvm.loop !8538
 
 1819:                                             ; preds = %.noexc.i94.i54.i.i
@@ -95498,7 +95498,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 4 dereferenceable(32) %1837, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1834, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %128, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %129)
   %indvars.iv.next.i.i101.i51.i.i = add nuw nsw i64 %indvars.iv.i.i100.i50.i.i, 2
-  %1838 = icmp ult i64 %indvars.iv.i.i100.i50.i.i, 6
+  %1838 = icmp samesign ult i64 %indvars.iv.i.i100.i50.i.i, 6
   br i1 %1838, label %.noexc.i99.i49.i.i, label %1839, !llvm.loop !8540
 
 1839:                                             ; preds = %.noexc.i99.i49.i.i
@@ -95555,7 +95555,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 4 dereferenceable(32) %1857, i64 32, i1 false)
   tail call void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_(ptr noundef nonnull align 8 dereferenceable(160) %1438, i64 noundef 0, i64 noundef %1854, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %125, ptr noundef nonnull byval(%"struct.faiss::simd16uint16") align 8 %126)
   %indvars.iv.next.i.i108.i46.i.i = add nuw nsw i64 %indvars.iv.i.i107.i45.i.i, 2
-  %1858 = icmp ult i64 %indvars.iv.i.i107.i45.i.i, 8
+  %1858 = icmp samesign ult i64 %indvars.iv.i.i107.i45.i.i, 8
   br i1 %1858, label %.noexc.i106.i44.i.i, label %1859, !llvm.loop !8542
 
 1859:                                             ; preds = %.noexc.i106.i44.i.i
@@ -96652,7 +96652,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i127.i.i.i: ; preds = %227
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91)
   %indvars.iv.next.i.i.i.i.i102 = add nuw nsw i64 %indvars.iv.i.i95.i.i.i75, 2
-  %2286 = icmp ult i64 %indvars.iv.i.i95.i.i.i75, 4
+  %2286 = icmp samesign ult i64 %indvars.iv.i.i95.i.i.i75, 4
   br i1 %2286, label %.split.i94.i.i.i74, label %.split17.us.i130.i.i.i, !llvm.loop !8610
 
 .split17.us.i130.i.i.i:                           ; preds = %.noexc.i129.i.i.i, %.lr.ph.split.i91.i.i.i73
@@ -96947,7 +96947,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i178.i.i.i: ; preds = %239
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81)
   %indvars.iv.next.i.i181.i.i.i = add nuw nsw i64 %indvars.iv.i.i146.i.i.i, 2
-  %2408 = icmp ult i64 %indvars.iv.i.i146.i.i.i, 6
+  %2408 = icmp samesign ult i64 %indvars.iv.i.i146.i.i.i, 6
   br i1 %2408, label %.split.i145.i.i.i, label %.split17.us.i182.i.i.i, !llvm.loop !8635
 
 .split17.us.i182.i.i.i:                           ; preds = %.noexc.i180.i.i.i, %.lr.ph.split.i142.i.i.i
@@ -97242,7 +97242,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i236.i.i.i: ; preds = %252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   %indvars.iv.next.i.i239.i.i.i = add nuw nsw i64 %indvars.iv.i.i204.i.i.i, 2
-  %2530 = icmp ult i64 %indvars.iv.i.i204.i.i.i, 8
+  %2530 = icmp samesign ult i64 %indvars.iv.i.i204.i.i.i, 8
   br i1 %2530, label %.split.i203.i.i.i, label %.split17.us.i240.i.i.i, !llvm.loop !8660
 
 .split17.us.i240.i.i.i:                           ; preds = %.noexc.i238.i.i.i, %.lr.ph.split.i200.i.i.i
@@ -98246,7 +98246,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i127.i153.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   %indvars.iv.next.i.i.i156.i.i = add nuw nsw i64 %indvars.iv.i.i95.i121.i.i, 2
-  %2933 = icmp ult i64 %indvars.iv.i.i95.i121.i.i, 4
+  %2933 = icmp samesign ult i64 %indvars.iv.i.i95.i121.i.i, 4
   br i1 %2933, label %.split.i94.i120.i.i, label %.split3.us.i130.i.i.i, !llvm.loop !8715
 
 .split3.us.i130.i.i.i:                            ; preds = %.noexc.i129.i155.i.i, %.lr.ph.split.i91.i119.i.i
@@ -98541,7 +98541,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i178.i107.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   %indvars.iv.next.i.i181.i110.i.i = add nuw nsw i64 %indvars.iv.i.i146.i75.i.i, 2
-  %3055 = icmp ult i64 %indvars.iv.i.i146.i75.i.i, 6
+  %3055 = icmp samesign ult i64 %indvars.iv.i.i146.i75.i.i, 6
   br i1 %3055, label %.split.i145.i74.i.i, label %.split3.us.i182.i.i.i, !llvm.loop !8740
 
 .split3.us.i182.i.i.i:                            ; preds = %.noexc.i180.i109.i.i, %.lr.ph.split.i142.i73.i.i
@@ -98836,7 +98836,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i.i236.i61.i.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %indvars.iv.next.i.i239.i64.i.i = add nuw nsw i64 %indvars.iv.i.i204.i29.i.i, 2
-  %3177 = icmp ult i64 %indvars.iv.i.i204.i29.i.i, 8
+  %3177 = icmp samesign ult i64 %indvars.iv.i.i204.i29.i.i, 8
   br i1 %3177, label %.split.i203.i28.i.i, label %.split3.us.i240.i.i.i, !llvm.loop !8765
 
 .split3.us.i240.i.i.i:                            ; preds = %.noexc.i238.i63.i.i, %.lr.ph.split.i200.i27.i.i

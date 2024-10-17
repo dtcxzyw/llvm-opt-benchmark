@@ -72,8 +72,8 @@ do.body:                                          ; preds = %entry, %do.body
   store i64 %inc, ptr %arrayidx7, align 8
   %cmp10 = icmp eq i64 %inc, 0
   %inc12 = add nuw nsw i64 %n.0, 1
-  %cmp13 = icmp ult i64 %n.0, 3
-  %or.cond111 = and i1 %cmp13, %cmp10
+  %cmp13 = icmp samesign ult i64 %n.0, 3
+  %or.cond111 = select i1 %cmp10, i1 %cmp13, i1 false
   br i1 %or.cond111, label %do.body, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %do.body, %entry

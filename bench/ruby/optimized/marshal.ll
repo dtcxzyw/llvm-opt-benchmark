@@ -726,7 +726,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %19, %26
   %44 = tail call fastcc i32 @r_byte(ptr noundef nonnull %28)
   %45 = tail call fastcc i32 @r_byte(ptr noundef nonnull %28)
   %46 = icmp ne i32 %44, 4
-  %47 = icmp ugt i32 %45, 8
+  %47 = icmp samesign ugt i32 %45, 8
   %or.cond = select i1 %46, i1 true, i1 %47
   br i1 %or.cond, label %48, label %50
 
@@ -1412,7 +1412,7 @@ w_byte.exit25.i:                                  ; preds = %107, %102, %w_byte.
   %.02127.i = phi i64 [ %111, %.lr.ph.i ], [ %spec.select.i, %w_byte.exit25.i ]
   %110 = add nuw nsw i32 %.01928.i, 1
   %111 = lshr i64 %.02127.i, 16
-  %.not.i = icmp ult i64 %.02127.i, 65536
+  %.not.i = icmp samesign ult i64 %.02127.i, 65536
   br i1 %.not.i, label %.lr.ph32.preheader.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph32.preheader.i:                             ; preds = %.lr.ph.i
@@ -2037,7 +2037,7 @@ rb_array_len.exit223:                             ; preds = %386
 rb_array_len.exit223.thread:                      ; preds = %386
   %391 = lshr i64 %387, 15
   %392 = and i64 %391, 127
-  %393 = icmp ult i64 %.0151, %392
+  %393 = icmp samesign ult i64 %.0151, %392
   br i1 %393, label %RARRAY_AREF.exit, label %.loopexit
 
 394:                                              ; preds = %rb_array_len.exit223

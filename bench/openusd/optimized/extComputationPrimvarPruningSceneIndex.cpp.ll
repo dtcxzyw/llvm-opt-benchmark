@@ -20244,7 +20244,7 @@ _ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE16_M_allo
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #26
-  %51 = icmp ugt i64 %.01422, 1
+  %51 = icmp samesign ugt i64 %.01422, 1
   br i1 %51, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %47, %.lr.ph25
@@ -20485,7 +20485,7 @@ _ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE16_M_allo
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = tail call ptr @__cxa_begin_catch(ptr %50) #26
-  %52 = icmp ugt i64 %.01423, 1
+  %52 = icmp samesign ugt i64 %.01423, 1
   br i1 %52, label %.lr.ph26, label %._crit_edge27
 
 .lr.ph26:                                         ; preds = %48, %.lr.ph26

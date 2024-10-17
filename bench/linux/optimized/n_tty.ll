@@ -4261,7 +4261,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noca
   %598 = sub i64 %597, %593
   %599 = and i64 %594, 255
   %600 = and i64 %598, 255
-  %601 = icmp ugt i64 %599, %600
+  %601 = icmp samesign ugt i64 %599, %600
   br i1 %601, label %602, label %603
 
 602:                                              ; preds = %596, %585
@@ -4576,7 +4576,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noca
   %799 = sub i64 %798, %794
   %800 = and i64 %795, 255
   %801 = and i64 %799, 255
-  %802 = icmp ugt i64 %800, %801
+  %802 = icmp samesign ugt i64 %800, %801
   br i1 %802, label %803, label %804
 
 803:                                              ; preds = %797, %.loopexit37
@@ -4641,7 +4641,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noca
   %839 = sub i64 %838, %834
   %840 = and i64 %835, 255
   %841 = and i64 %839, 255
-  %842 = icmp ugt i64 %840, %841
+  %842 = icmp samesign ugt i64 %840, %841
   br i1 %842, label %843, label %844
 
 843:                                              ; preds = %837, %819
@@ -4945,7 +4945,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noca
   %1021 = sub i64 %1020, %1016
   %1022 = and i64 %1017, 255
   %1023 = and i64 %1021, 255
-  %1024 = icmp ugt i64 %1022, %1023
+  %1024 = icmp samesign ugt i64 %1022, %1023
   br i1 %1024, label %1025, label %1026
 
 1025:                                             ; preds = %1019, %1005
@@ -5531,7 +5531,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %130 = sub i64 %129, %125
   %131 = and i64 %126, 255
   %132 = and i64 %130, 255
-  %133 = icmp ugt i64 %131, %132
+  %133 = icmp samesign ugt i64 %131, %132
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %128, %114
@@ -5696,7 +5696,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
   %69 = sub i64 %68, %64
   %70 = and i64 %65, 255
   %71 = and i64 %69, 255
-  %72 = icmp ugt i64 %70, %71
+  %72 = icmp samesign ugt i64 %70, %71
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %67, %53
@@ -5851,7 +5851,7 @@ define internal fastcc void @commit_echoes(ptr noundef %0) unnamed_addr #4 align
   %15 = sub i64 %14, %10
   %16 = and i64 %11, 255
   %17 = and i64 %15, 255
-  %18 = icmp ugt i64 %16, %17
+  %18 = icmp samesign ugt i64 %16, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %13, %1

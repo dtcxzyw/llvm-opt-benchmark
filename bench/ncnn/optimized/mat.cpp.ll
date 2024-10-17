@@ -3791,7 +3791,7 @@ define hidden noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef 
   br label %34
 
 16:                                               ; preds = %1
-  %17 = icmp ugt i32 %5, 142
+  %17 = icmp samesign ugt i32 %5, 142
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
@@ -3801,7 +3801,7 @@ define hidden noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef 
   br label %34
 
 22:                                               ; preds = %16
-  %23 = icmp ult i32 %5, 113
+  %23 = icmp samesign ult i32 %5, 113
   %24 = shl nuw nsw i32 %3, 15
   br i1 %23, label %25, label %27
 

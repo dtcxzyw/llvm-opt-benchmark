@@ -192,7 +192,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr nocapture readn
   store i64 %86, ptr %81, align 8
   %87 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %87, ptr %7, align 8
-  %88 = icmp ugt i64 %86, %61
+  %88 = icmp samesign ugt i64 %86, %61
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %78

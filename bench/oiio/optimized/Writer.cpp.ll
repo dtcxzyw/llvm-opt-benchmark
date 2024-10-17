@@ -1541,7 +1541,7 @@ for.body.i:                                       ; preds = %if.then25, %for.inc
   %and8.i = shl i32 %shr.i, %rem4.i
   %or.i = or i32 %and8.i, %and.i
   store i32 %or.i, ptr %arrayidx6.i, align 4
-  %cmp12.i = icmp ugt i32 %rem4.i, 22
+  %cmp12.i = icmp samesign ugt i32 %rem4.i, 22
   br i1 %cmp12.i, label %if.then.i51, label %for.inc.i
 
 if.then.i51:                                      ; preds = %for.body.i
@@ -1881,7 +1881,7 @@ for.body.i:                                       ; preds = %if.then24, %for.inc
   %and8.i = shl i32 %shr.i, %rem4.i
   %or.i = or i32 %and8.i, %and.i
   store i32 %or.i, ptr %arrayidx6.i, align 4
-  %cmp12.i = icmp ugt i32 %rem4.i, 22
+  %cmp12.i = icmp samesign ugt i32 %rem4.i, 22
   br i1 %cmp12.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -2279,7 +2279,7 @@ for.body.i:                                       ; preds = %if.then25, %for.inc
   %and8.i = shl i32 %shr.i, %rem4.i
   %or.i = or i32 %and8.i, %and.i
   store i32 %or.i, ptr %arrayidx6.i, align 4
-  %cmp12.i = icmp ugt i32 %rem4.i, 20
+  %cmp12.i = icmp samesign ugt i32 %rem4.i, 20
   br i1 %cmp12.i, label %if.then.i45, label %for.inc.i
 
 if.then.i45:                                      ; preds = %for.body.i
@@ -2494,7 +2494,7 @@ for.body.i:                                       ; preds = %if.then24, %for.inc
   %and8.i = shl i32 %shr.i, %rem4.i
   %or.i = or i32 %and8.i, %and.i
   store i32 %or.i, ptr %arrayidx6.i, align 4
-  %cmp12.i = icmp ugt i32 %rem4.i, 20
+  %cmp12.i = icmp samesign ugt i32 %rem4.i, 20
   br i1 %cmp12.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i

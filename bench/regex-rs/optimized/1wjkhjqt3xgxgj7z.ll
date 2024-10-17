@@ -1500,7 +1500,7 @@ default.unreachable10.i.i.i:                      ; preds = %110
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %116 = getelementptr inbounds i8, ptr %.sroa.697.0.copyload.i.i, i64 152
   %117 = load i32, ptr %116, align 8, !range !76, !alias.scope !241, !noalias !244, !noundef !4
-  %switch.i.i62.i.i = icmp ult i32 %117, 1114118
+  %switch.i.i62.i.i = icmp samesign ult i32 %117, 1114118
   br i1 %switch.i.i62.i.i, label %135, label %118
 
 118:                                              ; preds = %115
@@ -1678,7 +1678,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
   %167 = load i64, ptr %.0, align 8, !range !50, !alias.scope !275, !noalias !277, !noundef !4
-  %switch.i = icmp ult i64 %167, 7
+  %switch.i = icmp samesign ult i64 %167, 7
   br i1 %switch.i, label %172, label %168
 
 168:                                              ; preds = %.loopexit
@@ -1745,7 +1745,7 @@ _ZN12regex_syntax3ast7visitor5Frame5child17he33c5bf3d47a2baaE.exit: ; preds = %.
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %189 = load i64, ptr %.sroa.0133.0.copyload, align 8, !range !50, !alias.scope !298, !noalias !300, !noundef !4
-  %switch.i104 = icmp ult i64 %189, 7
+  %switch.i104 = icmp samesign ult i64 %189, 7
   br i1 %switch.i104, label %204, label %190
 
 190:                                              ; preds = %188

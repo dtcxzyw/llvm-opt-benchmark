@@ -470,7 +470,7 @@ land.rhs.us46:                                    ; preds = %land.lhs.true.us43
 
 while.body.us54:                                  ; preds = %land.rhs.us46
   %conv5.us = and i32 %call.us44, 255
-  %cmp6.us = icmp ult i32 %conv5.us, 128
+  %cmp6.us = icmp samesign ult i32 %conv5.us, 128
   br i1 %cmp6.us, label %if.then.us, label %if.else11.us
 
 if.else11.us:                                     ; preds = %while.body.us54

@@ -237,7 +237,7 @@ Vec_PtrAlloc.exit:                                ; preds = %Vec_WrdStart.exit, 
   %53 = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
   %54 = add nuw i32 %53, 1
   %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %or.cond.i139 = icmp ult i32 %53, 7
+  %or.cond.i139 = icmp samesign ult i32 %53, 7
   %spec.store.select.i140 = select i1 %or.cond.i139, i32 8, i32 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 4
   store i32 0, ptr %56, align 4
@@ -822,7 +822,7 @@ Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i169, %.lr.p
 
 .split205:                                        ; preds = %.loopexit182
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %327 = icmp ult i64 %indvars.iv.next257, %142
+  %327 = icmp samesign ult i64 %indvars.iv.next257, %142
   br i1 %327, label %.split.split, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.split205, %.split205.us.us, %.critedge2.preheader

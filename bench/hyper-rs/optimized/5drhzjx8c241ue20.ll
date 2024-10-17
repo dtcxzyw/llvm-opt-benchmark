@@ -152,7 +152,7 @@ define noundef zeroext i1 @_ZN5hyper5error5Error8is_parse17hd2c1366ab7c61d6eE(pt
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i8, ptr %3, align 8, !range !8, !noundef !4
-  %5 = icmp ult i8 %4, 3
+  %5 = icmp samesign ult i8 %4, 3
   ret i1 %5
 }
 

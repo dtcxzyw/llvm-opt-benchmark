@@ -2301,7 +2301,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %1, 15
   %85 = and i64 %84, 31
-  %86 = icmp ugt i64 %85, 15
+  %86 = icmp samesign ugt i64 %85, 15
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %81
@@ -2824,7 +2824,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %1, 15
   %85 = and i64 %84, 31
-  %86 = icmp ugt i64 %85, 15
+  %86 = icmp samesign ugt i64 %85, 15
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %81
@@ -3345,7 +3345,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %1, 15
   %85 = and i64 %84, 31
-  %86 = icmp ugt i64 %85, 15
+  %86 = icmp samesign ugt i64 %85, 15
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %81
@@ -3868,7 +3868,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %1, 15
   %85 = and i64 %84, 31
-  %86 = icmp ugt i64 %85, 15
+  %86 = icmp samesign ugt i64 %85, 15
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %81

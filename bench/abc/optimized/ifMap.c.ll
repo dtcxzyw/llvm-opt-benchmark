@@ -239,7 +239,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %58 = load i64, ptr %8, align 4
   %59 = lshr i64 %58, 24
   %60 = and i64 %59, 255
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %12, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %12, %Vec_PtrPush.exit, %3
@@ -353,7 +353,7 @@ define nonnull ptr @If_CutArrTimeProfile(ptr noundef %0, ptr nocapture noundef r
   %.val = load i64, ptr %3, align 4
   %19 = lshr i64 %.val, 24
   %20 = and i64 %19, 255
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %9, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %9, %2
@@ -918,7 +918,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
 353:                                              ; preds = %329
   %354 = lshr i32 %332, 24
   %355 = lshr i32 %344, 24
-  %356 = icmp ugt i32 %354, %355
+  %356 = icmp samesign ugt i32 %354, %355
   br i1 %356, label %361, label %357
 
 357:                                              ; preds = %353
@@ -1344,7 +1344,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %570 = trunc i64 %569 to i32
   %571 = lshr i32 %570, 24
   %572 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %571, i32 6)
-  %573 = icmp ult i32 %568, %572
+  %573 = icmp samesign ult i32 %568, %572
   br i1 %573, label %532, label %.loopexit, !llvm.loop !10
 
 ._crit_edge850.loopexit:                          ; preds = %.loopexit
@@ -2019,7 +2019,7 @@ If_CutTruth.exit728:                              ; preds = %.lr.ph.i.i.i717, %.
 
 942:                                              ; preds = %If_CutTruth.exit728
   %943 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %940)
-  %944 = icmp ult i32 %943, 2
+  %944 = icmp samesign ult i32 %943, 2
   br i1 %944, label %Abc_Tt4Check.exit.thread, label %945
 
 945:                                              ; preds = %942
@@ -2545,7 +2545,7 @@ Abc_TtCofactor0p.exit.thread86.i:                 ; preds = %1225
   br label %Abc_TtCofactor1p.exit.i
 
 1240:                                             ; preds = %1225
-  %1241 = icmp ult i64 %indvars.iv117.i, 6
+  %1241 = icmp samesign ult i64 %indvars.iv117.i, 6
   br i1 %1241, label %1242, label %1255
 
 1242:                                             ; preds = %1240
@@ -2718,7 +2718,7 @@ Abc_TtHasVar.exit.thread88.i:                     ; preds = %1305
   br label %Abc_TtHasVar.exit85.i
 
 1322:                                             ; preds = %1305
-  %1323 = icmp ult i64 %indvars.iv.i, 6
+  %1323 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %1323, label %1324, label %1337
 
 1324:                                             ; preds = %1322
@@ -3169,7 +3169,7 @@ If_CutTruthW.exit782:                             ; preds = %.lr.ph.i.i771, %.lr
   %.val.i787 = load i64, ptr %417, align 4
   %1547 = lshr i64 %.val.i787, 24
   %1548 = and i64 %1547, 255
-  %1549 = icmp ult i64 %indvars.iv.next.i786, %1548
+  %1549 = icmp samesign ult i64 %indvars.iv.next.i786, %1548
   br i1 %1549, label %1537, label %If_CutArrTimeProfile.exit, !llvm.loop !8
 
 If_CutArrTimeProfile.exit:                        ; preds = %1537, %If_CutTruthW.exit782
@@ -3204,7 +3204,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1537, %If_CutTruthW
   %1564 = getelementptr inbounds i8, ptr %1561, i64 %indvars.iv
   store i8 120, ptr %1564, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1565 = icmp ult i64 %indvars.iv.next, %1563
+  %1565 = icmp samesign ult i64 %indvars.iv.next, %1563
   br i1 %1565, label %.lr.ph872, label %._crit_edge873, !llvm.loop !26
 
 ._crit_edge873:                                   ; preds = %.lr.ph872, %.preheader826
@@ -4527,7 +4527,7 @@ Abc_TtCheckBiDecSimple.exit.thread160:            ; preds = %3
   br label %.loopexit112
 
 .lr.ph.i:                                         ; preds = %3
-  %16 = icmp ult i32 %1, 7
+  %16 = icmp samesign ult i32 %1, 7
   %17 = add nsw i32 %1, -6
   %18 = shl nuw i32 1, %17
   %19 = select i1 %16, i32 1, i32 %18
@@ -4588,7 +4588,7 @@ Abc_TtIsConst0.exit54.us.i:                       ; preds = %Abc_TtIsConst0.exit
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtIsConst0.exit54.i ]
   %.02172.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.1.i, %Abc_TtIsConst0.exit54.i ]
   %.02271.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.123.i, %Abc_TtIsConst0.exit54.i ]
-  %42 = icmp ult i64 %indvars.iv.i, 6
+  %42 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %.lr.ph.split.i
@@ -4787,17 +4787,17 @@ Abc_TtIsConst0.exit54.i:                          ; preds = %.lr.ph.i49.i, %Abc_
 Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit54.i, %Abc_TtIsConst0.exit54.us.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14)
-  %119 = icmp ult i32 %1, 7
+  %119 = icmp samesign ult i32 %1, 7
   %120 = add nsw i32 %1, -6
   %121 = shl nuw i32 1, %120
-  %.fr.i = freeze i32 %121
-  %122 = select i1 %119, i32 1, i32 %.fr.i
+  %122 = select i1 %119, i32 1, i32 %121
+  %.fr55.i = freeze i32 %122
   %123 = add nsw i32 %1, -1
-  %124 = icmp eq i32 %122, 1
-  %125 = sext i32 %122 to i64
+  %124 = icmp eq i32 %.fr55.i, 1
+  %125 = sext i32 %.fr55.i to i64
   %126 = getelementptr inbounds i64, ptr %0, i64 %125
-  %127 = icmp sgt i32 %122, 0
-  %wide.trip.count59.i.i79 = zext i32 %122 to i64
+  %127 = icmp sgt i32 %.fr55.i, 0
+  %wide.trip.count59.i.i79 = zext i32 %.fr55.i to i64
   %128 = getelementptr inbounds i64, ptr %0, i64 %wide.trip.count59.i.i79
   %129 = getelementptr inbounds i64, ptr %7, i64 %125
   %130 = getelementptr inbounds i64, ptr %7, i64 %wide.trip.count59.i.i79
@@ -4852,7 +4852,7 @@ Abc_TtCofactor0p.exit.thread136.i:                ; preds = %147
   br label %Abc_TtCofactor1p.exit.i54
 
 160:                                              ; preds = %147
-  %161 = icmp ult i64 %indvars.iv151, 6
+  %161 = icmp samesign ult i64 %indvars.iv151, 6
   br i1 %161, label %162, label %173
 
 162:                                              ; preds = %160
@@ -4988,7 +4988,7 @@ Abc_TtCofactor0p.exit.thread.thread.i72:          ; preds = %Abc_TtCofactor0p.ex
 
 Abc_TtCofactor1p.exit.i54:                        ; preds = %._crit_edge.us.i62.i, %194, %.preheader.lr.ph.i53.i, %Abc_TtCofactor0p.exit.thread.thread.i72, %190, %.preheader.lr.ph.i.i60, %173, %162, %Abc_TtCofactor0p.exit.thread136.i
   %217 = add nuw nsw i64 %indvars.iv151, 1
-  %218 = icmp ult i64 %217, %wide.trip.count180.i
+  %218 = icmp samesign ult i64 %217, %wide.trip.count180.i
   br i1 %218, label %.lr.ph169.i, label %Abc_TtComputeGraph.exit
 
 .lr.ph169.i:                                      ; preds = %Abc_TtCofactor1p.exit.i54
@@ -5527,7 +5527,7 @@ Abc_TtCopy.exit.us.i:                             ; preds = %.lr.ph18.i.us.prehe
 445:                                              ; preds = %441
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  %446 = icmp ult i64 %indvars.iv.i85, 6
+  %446 = icmp samesign ult i64 %indvars.iv.i85, 6
   br i1 %446, label %464, label %447
 
 447:                                              ; preds = %445

@@ -209,7 +209,7 @@ _ZN8QuantLib6MatrixD2Ev.exit492.thread:           ; preds = %_ZN8QuantLib6Matrix
 
 cond.true.i480:                                   ; preds = %_ZN8QuantLib6MatrixD2Ev.exit477
   %mul.i478 = mul nsw i64 %conv32, %conv32
-  %21 = icmp ugt i64 %mul.i478, 2305843009213693951
+  %21 = icmp samesign ugt i64 %mul.i478, 2305843009213693951
   %22 = shl nuw i64 %mul.i478, 3
   %23 = select i1 %21, i64 -1, i64 %22
   %call.i485 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
@@ -480,7 +480,7 @@ invoke.cont227:                                   ; preds = %invoke.cont227.lr.p
   br i1 %exitcond1238.not, label %if.end234, label %invoke.cont227, !llvm.loop !37
 
 if.end234:                                        ; preds = %invoke.cont227, %for.end213
-  %cmp235 = icmp ult i64 %indvars.iv, %34
+  %cmp235 = icmp samesign ult i64 %indvars.iv, %34
   br i1 %cmp235, label %if.then236, label %for.inc407
 
 if.then236:                                       ; preds = %if.end234
@@ -1735,7 +1735,7 @@ _ZN8QuantLib6MatrixC2Emm.exit.thread:             ; preds = %entry
 
 for.cond6.preheader.lr.ph:                        ; preds = %entry
   %mul.i = mul nsw i64 %conv, %conv
-  %1 = icmp ugt i64 %mul.i, 2305843009213693951
+  %1 = icmp samesign ugt i64 %mul.i, 2305843009213693951
   %2 = shl nuw i64 %mul.i, 3
   %3 = select i1 %1, i64 -1, i64 %2
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #23
@@ -1850,7 +1850,7 @@ cond.end.thread.i:                                ; preds = %entry
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry
   %mul.i = mul nsw i64 %conv, %conv
-  %1 = icmp ugt i64 %mul.i, 2305843009213693951
+  %1 = icmp samesign ugt i64 %mul.i, 2305843009213693951
   %2 = shl i64 %mul.i, 3
   %3 = select i1 %1, i64 -1, i64 %2
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #23

@@ -2018,7 +2018,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$lock_api..rwlock..
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
-  %switch.i.i.i.i = icmp ult i64 %3, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr92drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$quanta..Clock$GT$$GT$$GT$17hae948353ed89776cE.exit", label %6
 
 6:                                                ; preds = %5
@@ -4859,7 +4859,7 @@ define hidden void @"_ZN4core3ptr174drop_in_place$LT$moka..sync_base..base_cache
 74:                                               ; preds = %70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1290)
-  %switch.i.i.i.i.i = icmp ult i64 %72, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %72, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr131drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$quanta..Clock$GT$$GT$$GT$17h93ba243f3af09bcbE.exit", label %75
 
 75:                                               ; preds = %74
@@ -7950,7 +7950,7 @@ _ZN15crossbeam_epoch7default11with_handle17h06423d516ede64c9E.exit.i: ; preds = 
   call void @llvm.experimental.noalias.scope.decl(metadata !1907)
   call void @llvm.experimental.noalias.scope.decl(metadata !1910)
   %109 = load i64, ptr %0, align 8, !range !1326, !alias.scope !1913, !noundef !4
-  %switch.i.i = icmp ult i64 %109, 2
+  %switch.i.i = icmp samesign ult i64 %109, 2
   br i1 %switch.i.i, label %.sink.split.i.i.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4014d0ad07d76152E.exit.i.i"
 
 .sink.split.i.i.i:                                ; preds = %108
@@ -7972,7 +7972,7 @@ _ZN15crossbeam_epoch7default11with_handle17h06423d516ede64c9E.exit.i: ; preds = 
   %119 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !1914)
   %120 = load i64, ptr %119, align 8, !range !1326, !alias.scope !1917, !noundef !4
-  %switch10.i.i = icmp ult i64 %120, 2
+  %switch10.i.i = icmp samesign ult i64 %120, 2
   br i1 %switch10.i.i, label %.sink.split.i1.i.i, label %common.resume
 
 .sink.split.i1.i.i:                               ; preds = %117
@@ -7992,7 +7992,7 @@ _ZN15crossbeam_epoch7default11with_handle17h06423d516ede64c9E.exit.i: ; preds = 
   %128 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !1918)
   %129 = load i64, ptr %128, align 8, !range !1326, !alias.scope !1921, !noundef !4
-  %switch11.i.i = icmp ult i64 %129, 2
+  %switch11.i.i = icmp samesign ult i64 %129, 2
   br i1 %switch11.i.i, label %.sink.split.i6.i.i, label %"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist..base..RefRange$LT$bytes..bytes..Bytes$C$$LP$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$C$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$RP$$C$bytes..bytes..Bytes$C$bytes..bytes..Bytes$GT$$GT$17h29070a15684cef33E.exit"
 
 .sink.split.i6.i.i:                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4014d0ad07d76152E.exit.i.i"
@@ -8055,7 +8055,7 @@ define internal fastcc void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1925)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1928)
   %2 = load i64, ptr %0, align 8, !range !1326, !alias.scope !1931, !noundef !4
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4014d0ad07d76152E.exit.i"
 
 .sink.split.i.i:                                  ; preds = %1
@@ -8077,7 +8077,7 @@ define internal fastcc void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1932)
   %13 = load i64, ptr %12, align 8, !range !1326, !alias.scope !1935, !noundef !4
-  %switch10.i = icmp ult i64 %13, 2
+  %switch10.i = icmp samesign ult i64 %13, 2
   br i1 %switch10.i, label %.sink.split.i1.i, label %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4014d0ad07d76152E.exit5.i"
 
 .sink.split.i1.i:                                 ; preds = %10
@@ -8097,7 +8097,7 @@ define internal fastcc void @"_ZN4core3ptr240drop_in_place$LT$crossbeam_skiplist
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1936)
   %22 = load i64, ptr %21, align 8, !range !1326, !alias.scope !1939, !noundef !4
-  %switch11.i = icmp ult i64 %22, 2
+  %switch11.i = icmp samesign ult i64 %22, 2
   br i1 %switch11.i, label %.sink.split.i6.i, label %"_ZN4core3ptr132drop_in_place$LT$$LP$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$C$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$RP$$GT$17hc19d27340e4ab5d5E.exit"
 
 .sink.split.i6.i:                                 ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..ops..range..Bound$LT$bytes..bytes..Bytes$GT$$GT$17h4014d0ad07d76152E.exit.i"

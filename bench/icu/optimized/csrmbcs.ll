@@ -292,7 +292,7 @@ while.end:                                        ; preds = %while.cond.us38, %w
 
 if.then22:                                        ; preds = %while.end
   %cmp23 = icmp eq i32 %.us-phi37, 0
-  %cmp25 = icmp ult i32 %.us-phi36, 10
+  %cmp25 = icmp samesign ult i32 %.us-phi36, 10
   %or.cond1 = select i1 %cmp23, i1 %cmp25, i1 false
   %. = select i1 %or.cond1, i32 0, i32 10
   br label %return

@@ -234,7 +234,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %95, %98
-  %100 = icmp ugt i32 %99, 17
+  %100 = icmp samesign ugt i32 %99, 17
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -752,7 +752,7 @@ define hidden void @_ZN20hb_aat_map_builder_t7compileER12hb_aat_map_t(ptr nounde
   %.sroa.17.0265 = phi i32 [ 0, %.lr.ph ], [ %.sroa.17.1, %96 ]
   %.sroa.0207.0264 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0207.1, %96 ]
   %8 = zext i32 %7 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %8
+  %.not.i = icmp samesign ult i64 %indvars.iv, %8
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %6
@@ -863,7 +863,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit: ; p
   %.0.i73 = phi ptr [ @_hb_CrapPool, %44 ], [ %48, %45 ]
   %49 = load i32, ptr %3, align 4
   %50 = zext i32 %49 to i64
-  %.not.i74 = icmp ult i64 %indvars.iv, %50
+  %.not.i74 = icmp samesign ult i64 %indvars.iv, %50
   br i1 %.not.i74, label %52, label %51
 
 51:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit
@@ -965,7 +965,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94: ;
   %.0.i79 = phi ptr [ @_hb_CrapPool, %81 ], [ %85, %82 ]
   %86 = load i32, ptr %3, align 4
   %87 = zext i32 %86 to i64
-  %.not.i95 = icmp ult i64 %indvars.iv, %87
+  %.not.i95 = icmp samesign ult i64 %indvars.iv, %87
   br i1 %.not.i95, label %89, label %88
 
 88:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94
@@ -997,7 +997,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97: ; pr
   %.sroa.17.1 = phi i32 [ %.sroa.17.0265, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.17.4, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
   %.sroa.31.1 = phi ptr [ %.sroa.31.0267, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.31.6, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = icmp ult i64 %indvars.iv.next, %.pre-phi316
+  %98 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi316
   br i1 %98, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %96
@@ -1231,7 +1231,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thre
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %170 = load i32, ptr %137, align 4
   %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next.i.i, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next.i.i, %171
   br i1 %172, label %.lr.ph.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit, !llvm.loop !11
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit: ; preds = %.lr.ph.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge
@@ -1259,7 +1259,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %226 ], [ 1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
   %.056273 = phi i32 [ %.1, %226 ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
   %180 = zext i32 %179 to i64
-  %.not.i122 = icmp ult i64 %indvars.iv302, %180
+  %.not.i122 = icmp samesign ult i64 %indvars.iv302, %180
   br i1 %.not.i122, label %182, label %181
 
 181:                                              ; preds = %.lr.ph276
@@ -1388,7 +1388,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141: ; pr
   %227 = phi i32 [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135 ], [ %.pre313, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
   %.1 = phi i32 [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129 ], [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135 ], [ %217, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141 ], [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %228 = icmp ult i64 %indvars.iv.next303, %.pre-phi
+  %228 = icmp samesign ult i64 %indvars.iv.next303, %.pre-phi
   br i1 %228, label %.lr.ph276, label %._crit_edge277, !llvm.loop !12
 
 ._crit_edge277:                                   ; preds = %226, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit
@@ -1408,7 +1408,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141: ; pr
 235:                                              ; preds = %232
   %.not19.i.i145 = icmp sgt i32 %230, %233
   %236 = lshr i32 %233, 2
-  %.not20.i.i146 = icmp ult i32 %231, %236
+  %.not20.i.i146 = icmp samesign ult i32 %231, %236
   %or.cond22.i.i147 = or i1 %.not19.i.i145, %.not20.i.i146
   br i1 %or.cond22.i.i147, label %.thread.i.i148, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
 
@@ -1680,11 +1680,11 @@ define linkonce_odr hidden noundef i32 @_ZN20hb_aat_map_builder_t15feature_event
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, 1
-  %15 = icmp ult i8 %11, %14
+  %15 = icmp samesign ult i8 %11, %14
   br i1 %15, label %_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_.exit, label %16
 
 16:                                               ; preds = %8
-  %17 = icmp ugt i8 %11, %14
+  %17 = icmp samesign ugt i8 %11, %14
   br i1 %17, label %_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_.exit, label %18
 
 18:                                               ; preds = %16

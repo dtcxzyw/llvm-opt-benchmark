@@ -245,7 +245,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %89, %opal_obj_run_c
   %.180142.i = phi ptr [ %.079117.i, %.lr.ph.i ], [ %spec.select.i, %158 ]
   %.085141.i = phi i64 [ 0, %.lr.ph.i ], [ %.388.i, %158 ]
   %.091139.i = phi i64 [ 0, %.lr.ph.i ], [ %.193122.i, %158 ]
-  %119 = icmp uge i64 %indvars.iv.i, %116
+  %119 = icmp samesign uge i64 %indvars.iv.i, %116
   br i1 %119, label %143, label %120
 
 120:                                              ; preds = %118

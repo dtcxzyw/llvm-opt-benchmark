@@ -1685,7 +1685,7 @@ define internal void @attribute_types_post_update_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr @dynamic_hf_size, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1769,7 +1769,7 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr @dynamic_hf_size, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1813,7 +1813,7 @@ define internal void @attribute_types_reset_cb() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr @dynamic_hf_size, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -2132,7 +2132,7 @@ define internal i32 @dissect_NetLogon_PDU(ptr noundef %0, ptr nocapture noundef 
   store ptr null, ptr @ldm_tree, align 8
   %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %29 = and i32 %28, 65535
-  %30 = icmp ult i32 %29, 10
+  %30 = icmp samesign ult i32 %29, 10
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4

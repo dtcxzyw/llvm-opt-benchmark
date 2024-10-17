@@ -249,7 +249,7 @@ define noundef i64 @_Z16fast_rv32e_sraiwP11processor_t6insn_tm(ptr nocapture nou
 define noundef i64 @_Z16fast_rv64e_sraiwP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -268,7 +268,7 @@ define noundef i64 @_Z16fast_rv64e_sraiwP11processor_t6insn_tm(ptr nocapture nou
   %13 = getelementptr inbounds i8, ptr %0, i64 120
   %14 = lshr i64 %1, 7
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
@@ -323,7 +323,7 @@ define noundef i64 @_Z18logged_rv32e_sraiwP11processor_t6insn_tm(ptr nocapture n
 define noundef i64 @_Z18logged_rv64e_sraiwP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -407,7 +407,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %21, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %49 = icmp ugt i64 %24, 15
+  %49 = icmp samesign ugt i64 %24, 15
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

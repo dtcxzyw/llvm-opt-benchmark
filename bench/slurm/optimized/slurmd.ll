@@ -5806,7 +5806,7 @@ define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
   %100 = getelementptr inbounds i8, ptr %99, i64 4158
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
-  %103 = icmp ult i32 %98, %102
+  %103 = icmp samesign ult i32 %98, %102
   br i1 %103, label %.lr.ph23.i.i, label %.loopexit.i.i, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %.lr.ph23.i.i, %.preheader.i.i, %.lr.ph26.i.i
@@ -5994,7 +5994,7 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %181 = getelementptr inbounds i8, ptr %180, i64 4158
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
-  %184 = icmp ult i64 %indvars.iv.next.i34.i, %183
+  %184 = icmp samesign ult i64 %indvars.iv.next.i34.i, %183
   br i1 %184, label %.lr.ph.us.i.i, label %._crit_edge.us.loopexit.i.i, !llvm.loop !21
 
 ._crit_edge37.us.i.i:                             ; preds = %._crit_edge.us.i.i
@@ -6173,8 +6173,8 @@ _resource_spec_fini.exit45.i:                     ; preds = %239, %237
   %254 = icmp ne i32 %253, 0
   %255 = zext i1 %254 to i32
   %.not23.i = icmp ne i32 %.lobit.i, %255
-  %256 = icmp ult i64 %indvars.iv.i, 1024
-  %or.cond.i = and i1 %256, %.not23.i
+  %256 = icmp samesign ult i64 %indvars.iv.i, 1024
+  %or.cond.i = select i1 %.not23.i, i1 %256, i1 false
   br i1 %or.cond.i, label %257, label %264
 
 257:                                              ; preds = %252
@@ -6582,7 +6582,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %141 = getelementptr inbounds i8, ptr %140, i64 4232
   %142 = load i16, ptr %141, align 8
   %143 = zext i16 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next, %143
   br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
@@ -6620,7 +6620,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %162 = getelementptr inbounds i8, ptr %161, i64 4232
   %163 = load i16, ptr %162, align 8
   %164 = zext i16 %163 to i64
-  %165 = icmp ult i64 %indvars.iv.next26, %164
+  %165 = icmp samesign ult i64 %indvars.iv.next26, %164
   br i1 %165, label %.lr.ph20, label %._crit_edge21, !llvm.loop !25
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %149

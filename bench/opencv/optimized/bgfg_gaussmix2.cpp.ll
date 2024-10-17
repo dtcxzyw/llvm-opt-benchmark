@@ -2953,7 +2953,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %297 = fcmp ule float %296, %276
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %298 = getelementptr inbounds float, ptr %.04869.us.i, i64 %55
-  %299 = icmp ult i64 %indvars.iv.next128.i, %279
+  %299 = icmp samesign ult i64 %indvars.iv.next128.i, %279
   %or.cond.i = select i1 %297, i1 %299, i1 false
   br i1 %or.cond.i, label %.lr.ph.us.preheader.i, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread, !llvm.loop !56
 

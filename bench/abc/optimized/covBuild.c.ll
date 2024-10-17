@@ -259,7 +259,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 48:                                               ; preds = %14, %Vec_IntPush.exit
   %49 = add nuw nsw i32 %.01415, 2
-  %50 = icmp ult i32 %.01415, 30
+  %50 = icmp samesign ult i32 %.01415, 30
   br i1 %50, label %14, label %51, !llvm.loop !6
 
 51:                                               ; preds = %48
@@ -268,7 +268,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %53 = lshr i32 %52, 10
   %54 = and i32 %53, 4095
   %55 = zext nneg i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %8, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %51, %2
@@ -912,7 +912,7 @@ define ptr @Abc_NtkCovDerive_rec(ptr nocapture noundef readnone %0, ptr noundef 
   br i1 %.not.i120, label %Min_CoverCountCubes.exit122, label %.lr.ph.i117, !llvm.loop !9
 
 Min_CoverCountCubes.exit122:                      ; preds = %.lr.ph.i117
-  %.not94 = icmp ugt i32 %.07.i, %.07.i118
+  %.not94 = icmp samesign ugt i32 %.07.i, %.07.i118
   br i1 %.not94, label %31, label %26
 
 26:                                               ; preds = %Min_CoverCountCubes.exit122, %21
@@ -936,7 +936,7 @@ Min_CoverCountCubes.exit122:                      ; preds = %.lr.ph.i117
   br i1 %.not.i134, label %Min_CoverCountCubes.exit136, label %.lr.ph.i131, !llvm.loop !9
 
 Min_CoverCountCubes.exit136:                      ; preds = %.lr.ph.i131
-  %.not96 = icmp ugt i32 %.07.i125, %.07.i132
+  %.not96 = icmp samesign ugt i32 %.07.i125, %.07.i132
   br i1 %.not96, label %31, label %53
 
 31:                                               ; preds = %Min_CoverCountCubes.exit136, %Min_CoverCountCubes.exit122
@@ -962,7 +962,7 @@ Min_CoverCountCubes.exit136:                      ; preds = %.lr.ph.i131
   br i1 %.not.i148, label %Min_CoverCountCubes.exit150, label %.lr.ph.i145, !llvm.loop !9
 
 Min_CoverCountCubes.exit150:                      ; preds = %.lr.ph.i145
-  %.not98 = icmp ugt i32 %.07.i139, %.07.i146
+  %.not98 = icmp samesign ugt i32 %.07.i139, %.07.i146
   br i1 %.not98, label %40, label %.thread204
 
 .thread204:                                       ; preds = %.thread, %Min_CoverCountCubes.exit150
@@ -986,7 +986,7 @@ Min_CoverCountCubes.exit150:                      ; preds = %.lr.ph.i145
   br i1 %.not.i162, label %Min_CoverCountCubes.exit164, label %.lr.ph.i159, !llvm.loop !9
 
 Min_CoverCountCubes.exit164:                      ; preds = %.lr.ph.i159
-  %.not100 = icmp ugt i32 %.07.i153, %.07.i160
+  %.not100 = icmp samesign ugt i32 %.07.i153, %.07.i160
   br i1 %.not100, label %40, label %53
 
 40:                                               ; preds = %Min_CoverCountCubes.exit164, %Min_CoverCountCubes.exit150, %31
@@ -1018,7 +1018,7 @@ Min_CoverCountCubes.exit164:                      ; preds = %.lr.ph.i159
   br i1 %.not.i176, label %Min_CoverCountCubes.exit178, label %.lr.ph.i173, !llvm.loop !9
 
 Min_CoverCountCubes.exit178:                      ; preds = %.lr.ph.i173
-  %46 = icmp ult i32 %.07.i167, %.07.i174
+  %46 = icmp samesign ult i32 %.07.i167, %.07.i174
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %Min_CoverCountCubes.exit178, %41
@@ -1041,7 +1041,7 @@ Min_CoverCountCubes.exit178:                      ; preds = %.lr.ph.i173
   br i1 %.not.i190, label %Min_CoverCountCubes.exit192, label %.lr.ph.i187, !llvm.loop !9
 
 Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
-  %52 = icmp ult i32 %.07.i181, %.07.i188
+  %52 = icmp samesign ult i32 %.07.i181, %.07.i188
   br i1 %52, label %.thread214, label %53
 
 .thread214:                                       ; preds = %.thread207, %Min_CoverCountCubes.exit192, %47

@@ -3272,8 +3272,8 @@ define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef nonnull %0, 
   %.ptr = getelementptr inbounds i8, ptr %31, i64 %.0115.add
   %74 = load i8, ptr %.ptr, align 1
   %75 = icmp eq i8 %33, %74
-  %76 = icmp ult i64 %.0115.idx, 250
-  %or.cond128 = and i1 %76, %75
+  %76 = icmp samesign ult i64 %.0115.idx, 250
+  %or.cond128 = select i1 %75, i1 %76, i1 false
   br i1 %or.cond128, label %45, label %thread-pre-split133.split.loop.exit, !llvm.loop !17
 
 thread-pre-split133.split.loop.exit:              ; preds = %73
@@ -5454,8 +5454,8 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   %98 = getelementptr inbounds i8, ptr %.092, i64 8
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %97, %99
-  %101 = icmp ult i64 %.2.idx, 250
-  %or.cond = and i1 %101, %100
+  %101 = icmp samesign ult i64 %.2.idx, 250
+  %or.cond = select i1 %100, i1 %101, i1 false
   br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !20
 
 .critedge.split.loop.exit:                        ; preds = %54

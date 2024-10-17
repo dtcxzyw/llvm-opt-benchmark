@@ -1541,7 +1541,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %25 = getelementptr inbounds i32, ptr %13, i64 %24
   store i32 %23, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv.next, %18
+  %26 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %26, label %19, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %19, %Vec_IntStartFull.exit

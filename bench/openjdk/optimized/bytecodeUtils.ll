@@ -219,7 +219,7 @@ _ZN13GrowableArrayI21StackSlotAnalysisDataEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   %22 = add nsw i32 %18, 1
   %23 = icmp sgt i32 %18, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -278,7 +278,7 @@ define hidden void @_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData(
   %11 = add nsw i32 %6, 1
   %12 = icmp sgt i32 %6, -1
   %13 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %or.cond.i.i.i.i.i = select i1 %12, i1 %14, i1 false
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %16 = sub nuw nsw i32 32, %15
@@ -329,7 +329,7 @@ define hidden void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr 
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -357,7 +357,7 @@ define hidden void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr 
   %36 = add nsw i32 %32, 1
   %37 = icmp sgt i32 %32, -1
   %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   %or.cond.i.i.i.i.i.i4 = select i1 %37, i1 %39, i1 false
   %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %41 = sub nuw nsw i32 32, %40
@@ -387,7 +387,7 @@ _ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pus
   %52 = add nsw i32 %47, 1
   %53 = icmp sgt i32 %47, -1
   %54 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
-  %55 = icmp ult i32 %54, 2
+  %55 = icmp samesign ult i32 %54, 2
   %or.cond.i.i.i.i.i.i9 = select i1 %53, i1 %55, i1 false
   %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %57 = sub nuw nsw i32 32, %56
@@ -604,7 +604,7 @@ define hidden void @_ZN23ExceptionMessageBuilderC2EP6Methodi(ptr nocapture nound
   %28 = add nsw i32 %23, 1
   %29 = icmp sgt i32 %23, -1
   %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   %or.cond.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %33 = sub nuw nsw i32 32, %32
@@ -715,7 +715,7 @@ _ZN21SimulatedOperandStackC2Ev.exit40:            ; preds = %.lr.ph.i.i.i.i36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %9) #12
   %85 = zext i16 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph, label %.loopexit45, !llvm.loop !11
 
 .loopexit45:                                      ; preds = %83, %55, %_ZN21SimulatedOperandStackC2Ev.exit
@@ -1251,7 +1251,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
 
 158:                                              ; preds = %154, %150
   %.0334 = phi i32 [ %153, %150 ], [ %157, %154 ]
-  %159 = icmp ugt i32 %.0334, 63
+  %159 = icmp samesign ugt i32 %.0334, 63
   br i1 %159, label %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit, label %160
 
 160:                                              ; preds = %158
@@ -1717,7 +1717,7 @@ _ZN21SimulatedOperandStack3popEi.exit404:         ; preds = %367, %.lr.ph.prehea
 _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %409
   %418 = trunc nuw i64 %417 to i32
   %419 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %418)
-  %420 = icmp ult i32 %419, 2
+  %420 = icmp samesign ult i32 %419, 2
   %421 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %418, i1 true)
   %422 = sub nuw nsw i32 32, %421
   %423 = shl nuw i32 1, %422
@@ -1805,7 +1805,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %4
 _ZN13GrowableArrayIiE8allocateEv.exit.i464:       ; preds = %451
   %459 = trunc nuw nsw i64 %458 to i32
   %460 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %459)
-  %461 = icmp ult i32 %460, 2
+  %461 = icmp samesign ult i32 %460, 2
   %462 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %459, i1 true)
   %463 = sub nuw nsw i32 32, %462
   %464 = shl nuw i32 1, %463
@@ -2765,7 +2765,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
 93:                                               ; preds = %89, %85
   %.0106 = phi i32 [ %88, %85 ], [ %92, %89 ]
   %94 = load ptr, ptr %27, align 8
-  %95 = icmp ult i32 %.0106, 64
+  %95 = icmp samesign ult i32 %.0106, 64
   %96 = getelementptr inbounds i8, ptr %15, i64 24
   %97 = load i64, ptr %96, align 8
   %98 = zext nneg i32 %.0106 to i64
@@ -2934,7 +2934,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
   %16 = getelementptr inbounds %class.LocalVariableTableElement, ptr %15, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
-  %.not48 = icmp ult i32 %1, %18
+  %.not48 = icmp samesign ult i32 %1, %18
   br i1 %.not48, label %41, label %19
 
 19:                                               ; preds = %.lr.ph
@@ -2942,7 +2942,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, %18
-  %24 = icmp ult i32 %1, %23
+  %24 = icmp samesign ult i32 %1, %23
   br i1 %24, label %25, label %41
 
 25:                                               ; preds = %19
@@ -2971,7 +2971,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
   %42 = load ptr, ptr %8, align 8
   %43 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %42) #12
   %44 = zext i16 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %41, %.preheader, %5

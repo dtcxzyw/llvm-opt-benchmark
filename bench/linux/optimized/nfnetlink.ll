@@ -725,7 +725,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %189 = and i16 %170, 255
   %190 = load i8, ptr %118, align 1
   %191 = zext i8 %190 to i16
-  %192 = icmp ult i16 %189, %191
+  %192 = icmp samesign ult i16 %189, %191
   br i1 %192, label %193, label %.thread34
 
 193:                                              ; preds = %188
@@ -1138,7 +1138,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %40 = phi ptr [ %34, %.split ], [ %37, %.thread ]
   %41 = getelementptr inbounds i8, ptr %40, i64 9
   %42 = load i8, ptr %41, align 1
-  %43 = icmp ugt i8 %42, %31
+  %43 = icmp samesign ugt i8 %42, %31
   br i1 %43, label %44, label %.thread6
 
 44:                                               ; preds = %39
@@ -1214,7 +1214,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 83:                                               ; preds = %80
   %84 = load i8, ptr %41, align 1
   %85 = zext i8 %84 to i16
-  %86 = icmp ult i16 %21, %85
+  %86 = icmp samesign ult i16 %21, %85
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %83

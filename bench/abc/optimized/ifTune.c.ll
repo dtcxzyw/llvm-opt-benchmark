@@ -201,7 +201,7 @@ define void @Ifn_NtkPrint(ptr noundef readonly %0) local_unnamed_addr #3 {
   %30 = lshr i32 %29, 3
   %31 = and i32 %30, 31
   %32 = zext nneg i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %25, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %25, %10
@@ -490,7 +490,7 @@ Inf_ManOpenSymb.exit:                             ; preds = %4
 Ifn_NtkParseFindClosingParenthesis.exit:          ; preds = %.lr.ph.i
   %.01114.i.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.01114.i.idx
   store ptr null, ptr %2, align 8
-  %26 = icmp ugt i64 %.01114.i.idx, 1
+  %26 = icmp samesign ugt i64 %.01114.i.idx, 1
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .loopexit36:                                      ; preds = %24
@@ -1297,7 +1297,7 @@ Ifn_NtkParseConstraints.exit:                     ; preds = %._crit_edge.loopexi
   %66 = shl i32 %65, %62
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i64, ptr %63, i64 %67
-  %69 = icmp ult i64 %indvars.iv65.i, 6
+  %69 = icmp samesign ult i64 %indvars.iv65.i, 6
   br i1 %69, label %.preheader.us.us.i, label %.preheader21.us.us.i
 
 70:                                               ; preds = %.preheader21.us.us.i, %70
@@ -3291,12 +3291,12 @@ define i32 @If_ManSatDeriveGiaFromBits(ptr noundef %0, ptr nocapture noundef rea
   %110 = trunc i64 %108 to i1
   %111 = select i1 %110, i64 3, i64 0
   %.025.i = select i1 %109, i64 %111, i64 %108
-  %112 = icmp ult i32 %62, 2
+  %112 = icmp samesign ult i32 %62, 2
   %113 = and i64 %.025.i, 3
   %114 = mul nuw nsw i64 %113, 5
   %.126.i = select i1 %112, i64 %114, i64 %108
   %.1.i = call i32 @llvm.umax.i32(i32 %62, i32 2)
-  %115 = icmp ult i32 %62, 3
+  %115 = icmp samesign ult i32 %62, 3
   %116 = and i64 %.126.i, 15
   %117 = mul nuw nsw i64 %116, 17
   %.227.i = select i1 %115, i64 %117, i64 %108

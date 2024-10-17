@@ -176,7 +176,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   %40 = icmp sgt i32 %1, 0
   %41 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %43 = select i1 %40, i1 %42, i1 false
   br i1 %43, label %48, label %44
 
@@ -241,7 +241,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %65 = add nsw i32 %.03849.i, 1
   %66 = icmp eq i32 %65, 3
   %spec.store.select.i = select i1 %66, i32 0, i32 %65
-  %67 = icmp ugt i32 %.03750.i, 3
+  %67 = icmp samesign ugt i32 %.03750.i, 3
   br i1 %67, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i

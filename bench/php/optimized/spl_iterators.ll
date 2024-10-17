@@ -3483,7 +3483,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %54 = lshr i64 %46, 3
   %55 = and i64 %54, 1
   %56 = add nuw nsw i64 %53, %55
-  %57 = icmp ult i64 %56, 2
+  %57 = icmp samesign ult i64 %56, 2
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %45
@@ -7720,7 +7720,7 @@ define hidden void @zim_CachingIterator_setFlags(ptr nocapture noundef readonly 
   %29 = lshr i64 %21, 3
   %30 = and i64 %29, 1
   %31 = add nuw nsw i64 %28, %30
-  %32 = icmp ult i64 %31, 2
+  %32 = icmp samesign ult i64 %31, 2
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %20

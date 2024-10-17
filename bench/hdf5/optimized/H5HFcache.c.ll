@@ -3137,7 +3137,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %120 = or disjoint i64 %116, %119
   store i64 %120, ptr %109, align 8
   %121 = add nuw nsw i64 %.0139167, 1
-  %122 = icmp ult i64 %121, %112
+  %122 = icmp samesign ult i64 %121, %112
   br i1 %122, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %107
@@ -3213,7 +3213,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %163 = load i32, ptr %39, align 8
   %164 = mul i32 %163, %162
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv, %165
+  %166 = icmp samesign ult i64 %indvars.iv, %165
   br i1 %166, label %167, label %260
 
 167:                                              ; preds = %161
@@ -3381,7 +3381,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %270 = load i32, ptr %39, align 8
   %271 = mul i32 %270, %269
   %272 = zext i32 %271 to i64
-  %273 = icmp ult i64 %indvars.iv.next, %272
+  %273 = icmp samesign ult i64 %indvars.iv.next, %272
   br i1 %273, label %156, label %._crit_edge172
 
 ._crit_edge172:                                   ; preds = %268, %151
@@ -3561,7 +3561,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %21 = lshr i64 %.06870, 8
   %22 = load i8, ptr %14, align 1
   %23 = zext i8 %22 to i64
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3603,7 +3603,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %42 = load i32, ptr %34, align 8
   %43 = mul i32 %.pre86, %42
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %.06976, %44
+  %45 = icmp samesign ult i64 %.06976, %44
   br i1 %45, label %46, label %134
 
 46:                                               ; preds = %41
@@ -3749,7 +3749,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %137 = load i32, ptr %27, align 8
   %138 = mul i32 %135, %137
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %136, %139
+  %140 = icmp samesign ult i64 %136, %139
   br i1 %140, label %36, label %._crit_edge79.loopexit
 
 ._crit_edge79.loopexit:                           ; preds = %134
@@ -4272,7 +4272,7 @@ define internal ptr @H5HF__cache_dblock_deserialize(ptr noundef %0, i64 noundef 
   %131 = or disjoint i64 %127, %130
   store i64 %131, ptr %119, align 8
   %132 = add nuw nsw i64 %.083, 1
-  %133 = icmp ult i64 %132, %123
+  %133 = icmp samesign ult i64 %132, %123
   br i1 %133, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %118
@@ -4430,7 +4430,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   %39 = lshr i64 %.0114147, 8
   %40 = load i8, ptr %32, align 1
   %41 = zext i8 %40 to i64
-  %42 = icmp ult i64 %38, %41
+  %42 = icmp samesign ult i64 %38, %41
   br i1 %42, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

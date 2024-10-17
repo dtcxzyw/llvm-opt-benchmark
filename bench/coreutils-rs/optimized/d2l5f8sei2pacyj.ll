@@ -1247,7 +1247,7 @@ common.resume:                                    ; preds = %31, %18
   br i1 %86, label %.loopexit, label %82
 
 87:                                               ; preds = %82
-  %88 = icmp ult i64 %.012.i.i, 6
+  %88 = icmp samesign ult i64 %.012.i.i, 6
   call void @llvm.assume(i1 %88)
   switch i64 %37, label %.loopexit [
     i64 1, label %.loopexit.sink.split.i

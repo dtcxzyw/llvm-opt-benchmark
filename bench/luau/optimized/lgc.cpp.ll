@@ -499,7 +499,7 @@ _ZL12isobjclearedP8GCObject.exit.i.i:             ; preds = %122
   %142 = getelementptr inbounds i8, ptr %137, i64 28
   %143 = load i32, ptr %142, align 4
   %144 = and i32 %143, 15
-  %145 = icmp ugt i32 %144, 4
+  %145 = icmp samesign ugt i32 %144, 4
   br i1 %145, label %146, label %155
 
 146:                                              ; preds = %141
@@ -553,7 +553,7 @@ _ZL12isobjclearedP8GCObject.exit49.i.i:           ; preds = %158
   %.pre72.i.i = load i32, ptr %142, align 4
   %.pre74.i.i = and i32 %.pre72.i.i, 15
   store i32 0, ptr %138, align 4
-  %167 = icmp ugt i32 %.pre74.i.i, 4
+  %167 = icmp samesign ugt i32 %.pre74.i.i, 4
   br i1 %167, label %168, label %_ZL11removeentryP7LuaNode.exit.i.i
 
 168:                                              ; preds = %166, %.thread.i.i
@@ -1553,7 +1553,7 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
   %76 = getelementptr inbounds i8, ptr %71, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 15
-  %79 = icmp ugt i32 %78, 4
+  %79 = icmp samesign ugt i32 %78, 4
   br i1 %79, label %80, label %_ZL11removeentryP7LuaNode.exit.us.us.i
 
 80:                                               ; preds = %75
@@ -1596,7 +1596,7 @@ _ZL11removeentryP7LuaNode.exit.us.us.i:           ; preds = %80, %75, %.split.us
   %98 = getelementptr inbounds i8, ptr %85, i64 28
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 15
-  %101 = icmp ugt i32 %100, 4
+  %101 = icmp samesign ugt i32 %100, 4
   br i1 %101, label %102, label %_ZL11removeentryP7LuaNode.exit.us.i
 
 102:                                              ; preds = %97
@@ -1620,7 +1620,7 @@ _ZL11removeentryP7LuaNode.exit.us.i:              ; preds = %102, %97, %96, %91,
   %111 = getelementptr inbounds i8, ptr %107, i64 28
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 15
-  %114 = icmp ugt i32 %113, 4
+  %114 = icmp samesign ugt i32 %113, 4
   br i1 %110, label %123, label %115
 
 115:                                              ; preds = %.split.split.us.i
@@ -1663,7 +1663,7 @@ _ZL11removeentryP7LuaNode.exit.us79.i:            ; preds = %124, %123, %122, %1
   %133 = getelementptr inbounds i8, ptr %129, i64 28
   %134 = load i32, ptr %133, align 4
   %135 = and i32 %134, 15
-  %136 = icmp ugt i32 %135, 4
+  %136 = icmp samesign ugt i32 %135, 4
   br i1 %132, label %137, label %141
 
 137:                                              ; preds = %.split.split.i
@@ -1800,7 +1800,7 @@ _ZL13traversetableP12global_StateP5Table.exit.thread: ; preds = %37, %_ZL13trave
   %203 = phi i8 [ %191, %190 ], [ %191, %196 ], [ %.pre.i60, %201 ]
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %204 = zext i8 %203 to i64
-  %205 = icmp ult i64 %indvars.iv.next.i58, %204
+  %205 = icmp samesign ult i64 %indvars.iv.next.i58, %204
   br i1 %205, label %190, label %_ZL15traverseclosureP12global_StateP7Closure.exit, !llvm.loop !23
 
 206:                                              ; preds = %184
@@ -1852,7 +1852,7 @@ _ZL13traversetableP12global_StateP5Table.exit.thread: ; preds = %37, %_ZL13trave
   %230 = phi i8 [ %218, %217 ], [ %218, %223 ], [ %.pre42.i, %228 ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %231 = zext i8 %230 to i64
-  %232 = icmp ult i64 %indvars.iv.next40.i, %231
+  %232 = icmp samesign ult i64 %indvars.iv.next40.i, %231
   br i1 %232, label %217, label %_ZL15traverseclosureP12global_StateP7Closure.exit, !llvm.loop !24
 
 _ZL15traverseclosureP12global_StateP7Closure.exit: ; preds = %202, %229, %.preheader.i, %213

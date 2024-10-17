@@ -567,7 +567,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 349:                                              ; preds = %298
   %350 = and i32 %89, 248
-  %351 = icmp ugt i32 %350, 8
+  %351 = icmp samesign ugt i32 %350, 8
   br i1 %351, label %352, label %429
 
 352:                                              ; preds = %349
@@ -680,7 +680,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 429:                                              ; preds = %428, %352, %349, %348
   %430 = load i32, ptr %87, align 4, !tbaa !37
   %431 = and i32 %430, 7936
-  %432 = icmp ugt i32 %431, 256
+  %432 = icmp samesign ugt i32 %431, 256
   br i1 %432, label %433, label %534
 
 433:                                              ; preds = %429
@@ -1155,7 +1155,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %749 = load i32, ptr %19, align 4, !tbaa !37
   %750 = lshr i32 %749, 24
   %751 = icmp ult i32 %749, 67108864
-  %752 = icmp ult i32 %750, %748
+  %752 = icmp samesign ult i32 %750, %748
   %753 = select i1 %751, i1 %752, i1 false
   br i1 %753, label %765, label %754
 
@@ -3138,7 +3138,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
 
 196:                                              ; preds = %193
   %197 = add nuw nsw i64 %19, 1
-  %198 = icmp ult i64 %197, %17
+  %198 = icmp samesign ult i64 %197, %17
   %199 = icmp eq i64 %197, %17
   br i1 %199, label %.loopexit, label %18, !llvm.loop !206
 

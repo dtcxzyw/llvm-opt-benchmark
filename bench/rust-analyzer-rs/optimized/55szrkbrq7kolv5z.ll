@@ -447,7 +447,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !70, !noalias !75, !noundef !25
-  %switch.not.i.i.i = icmp ult i8 %4, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %4, 2
   br i1 %switch.not.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e25f1527b38f882E.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
@@ -711,7 +711,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !169, !noalias !166, !noundef !25
-  %switch.not.i = icmp ult i8 %4, 2
+  %switch.not.i = icmp samesign ult i8 %4, 2
   br i1 %switch.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4921eb4f16702385E.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
@@ -1000,7 +1000,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
 define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e25f1527b38f882E.llvm.15956212377945586164"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !224, !noalias !229, !noundef !25
-  %switch.not.i.i = icmp ult i8 %4, 2
+  %switch.not.i.i = icmp samesign ult i8 %4, 2
   br i1 %switch.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c0e8a05f662722aE.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
@@ -1062,7 +1062,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc38138d3c571543aE.exit":
   %2 = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i8, ptr %2, align 8, !range !69, !noundef !25
-  %switch.not = icmp ult i8 %3, 2
+  %switch.not = icmp samesign ult i8 %3, 2
   br i1 %switch.not, label %23, label %4
 
 4:                                                ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc38138d3c571543aE.exit"
@@ -4062,7 +4062,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %14 = zext nneg i32 %.val4.i.i to i64
   %15 = add nsw i64 %14, -16
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i32 %.val2.i.i.i, 17
+  %17 = icmp samesign ult i32 %.val2.i.i.i, 17
   %18 = zext nneg i32 %.val2.i.i.i to i64
   %19 = add nsw i64 %18, -16
   %20 = select i1 %17, i64 0, i64 %19
@@ -44252,7 +44252,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %14 = zext nneg i32 %.val4 to i64
   %15 = add nsw i64 %14, -16
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i32 %.val2.i, 17
+  %17 = icmp samesign ult i32 %.val2.i, 17
   %18 = zext nneg i32 %.val2.i to i64
   %19 = add nsw i64 %18, -16
   %20 = select i1 %17, i64 0, i64 %19
@@ -52419,7 +52419,7 @@ define hidden void @_ZN7hir_def10item_scope9ItemScope13shrink_to_fit17hd8d873ae2
 define void @_ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #8 {
   %3 = alloca { i8, [15 x i8] }, align 4
   %4 = load i32, ptr %1, align 4, !range !209, !noundef !25
-  %switch = icmp ult i32 %4, 2
+  %switch = icmp samesign ult i32 %4, 2
   br i1 %switch, label %6, label %5
 
 5:                                                ; preds = %2
@@ -52443,7 +52443,7 @@ define { i32, i32 } @_ZN7hir_def10item_scope8ItemInNs5krate17h183b83fd25d17dc3E(
   %6 = alloca { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, align 4
   %7 = alloca { i32, [3 x i32] }, align 4
   %8 = load i32, ptr %0, align 4, !range !209, !noundef !25
-  %switch1 = icmp ult i32 %8, 2
+  %switch1 = icmp samesign ult i32 %8, 2
   %.0 = getelementptr inbounds i8, ptr %0, i64 4
   br i1 %switch1, label %23, label %9
 
@@ -52517,7 +52517,7 @@ define void @_ZN7hir_def10item_scope8ItemInNs6module17h9a208fe2f403f268E(ptr noa
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, align 4
   %7 = alloca { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, align 4
   %8 = load i32, ptr %1, align 4, !range !209, !noundef !25
-  %switch = icmp ult i32 %8, 2
+  %switch = icmp samesign ult i32 %8, 2
   %.0 = getelementptr inbounds i8, ptr %1, i64 4
   br i1 %switch, label %24, label %9
 
@@ -58896,7 +58896,7 @@ define hidden void @_ZN7hir_def4body6pretty7Printer10print_stmt17hb0405ceb4f6a25
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !range !14254, !noundef !25
-  %.not3 = icmp ult i32 %12, 2
+  %.not3 = icmp samesign ult i32 %12, 2
   %13 = zext nneg i32 %12 to i64
   %14 = add nsw i64 %13, -1
   %15 = select i1 %.not3, i64 0, i64 %14

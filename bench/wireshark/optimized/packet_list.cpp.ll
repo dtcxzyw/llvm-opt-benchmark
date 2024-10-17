@@ -6144,7 +6144,7 @@ _ZN7QStringD2Ev.exit183:                          ; preds = %186, %_ZN17QArrayDa
   %209 = getelementptr inbounds i8, ptr %208, i64 8
   %210 = load i32, ptr %209, align 8
   %211 = zext i32 %210 to i64
-  %212 = icmp ult i64 %indvars.iv.next, %211
+  %212 = icmp samesign ult i64 %indvars.iv.next, %211
   br i1 %212, label %112, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit183
@@ -18790,7 +18790,7 @@ _ZN6QCacheIj5QListI7QStringEE4NodeD2Ev.exit:      ; preds = %9, %_ZN5QListI7QStr
   %45 = add nuw nsw i64 %.01417, 1
   %46 = load i8, ptr %2, align 8
   %47 = zext i8 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %9, label %.preheader.loopexit, !llvm.loop !202
 
 49:                                               ; preds = %.preheader, %49

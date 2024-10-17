@@ -932,7 +932,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 142:                                              ; preds = %138
   %143 = call range(i64 1, 31) i64 @llvm.ctpop.i64(i64 %118)
-  %144 = icmp ult i64 %143, 2
+  %144 = icmp samesign ult i64 %143, 2
   %145 = call range(i64 34, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
   %146 = sub nuw nsw i64 64, %145
   %147 = shl nuw nsw i64 1, %146

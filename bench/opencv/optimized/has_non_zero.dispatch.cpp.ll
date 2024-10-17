@@ -337,7 +337,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   %87 = or i8 %.04087, %86
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %88 = trunc nuw i8 %87 to i1
-  %89 = icmp uge i64 %indvars.iv.next95, %75
+  %89 = icmp samesign uge i64 %indvars.iv.next95, %75
   %.not56 = select i1 %88, i1 true, i1 %89
   br i1 %.not56, label %.loopexit, label %76, !llvm.loop !13
 
@@ -440,7 +440,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   %130 = or i8 %.34384, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = trunc i8 %130 to i1
-  %132 = icmp uge i64 %indvars.iv.next, %118
+  %132 = icmp samesign uge i64 %indvars.iv.next, %118
   %.not53 = select i1 %131, i1 true, i1 %132
   br i1 %.not53, label %.loopexit69, label %119, !llvm.loop !14
 

@@ -385,7 +385,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %5, %11
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %5, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZL10_Py_DECREFP7_object.exit, %1
@@ -2177,7 +2177,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2241,7 +2241,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = tail call noundef i64 @llvm.abs.i64(i64 %35, i1 true)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %33
@@ -2334,7 +2334,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2400,7 +2400,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = tail call noundef i64 @llvm.abs.i64(i64 %36, i1 true)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
@@ -2495,7 +2495,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2559,7 +2559,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = tail call noundef i64 @llvm.abs.i64(i64 %35, i1 true)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %33
@@ -2652,7 +2652,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2718,7 +2718,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = tail call noundef i64 @llvm.abs.i64(i64 %36, i1 true)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
@@ -2813,7 +2813,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2877,7 +2877,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = tail call noundef i64 @llvm.abs.i64(i64 %35, i1 true)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %33
@@ -2970,7 +2970,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -3036,7 +3036,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = tail call noundef i64 @llvm.abs.i64(i64 %36, i1 true)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
@@ -3131,7 +3131,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -3191,7 +3191,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %25
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = tail call noundef i64 @llvm.abs.i64(i64 %34, i1 true)
-  %36 = icmp ult i64 %35, 2
+  %36 = icmp samesign ult i64 %35, 2
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %32
@@ -3278,7 +3278,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @llvm.abs.i64(i64 %7, i1 true)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
@@ -3337,7 +3337,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %24
   %32 = getelementptr inbounds i8, ptr %27, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = tail call noundef i64 @llvm.abs.i64(i64 %33, i1 true)
-  %35 = icmp ult i64 %34, 2
+  %35 = icmp samesign ult i64 %34, 2
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %31
@@ -3775,7 +3775,7 @@ _ZN8nanobind3strD2Ev.exit113:                     ; preds = %_ZN8nanobind6object
 
 _ZN8nanobind6detail8accessorINS0_8num_itemEED2Ev.exit: ; preds = %_ZN8nanobind3strD2Ev.exit113, %55, %58
   %62 = add nuw i64 %.072176, 1
-  %63 = icmp ult i64 %62, %26
+  %63 = icmp samesign ult i64 %62, %26
   br i1 %63, label %64, label %_ZN8nanobind3strD2Ev.exit132
 
 64:                                               ; preds = %_ZN8nanobind6detail8accessorINS0_8num_itemEED2Ev.exit

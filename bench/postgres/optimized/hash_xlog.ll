@@ -2173,7 +2173,7 @@ define dso_local void @hash_mask(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %14
 
 12:                                               ; preds = %2
-  %or.cond = icmp ult i16 %9, 3
+  %or.cond = icmp samesign ult i16 %9, 3
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %12

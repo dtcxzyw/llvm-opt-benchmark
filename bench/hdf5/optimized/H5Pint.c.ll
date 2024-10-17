@@ -3524,11 +3524,11 @@ define i32 @H5P__cmp_class(ptr nocapture noundef readonly %0, ptr nocapture noun
   %58 = getelementptr inbounds i8, ptr %1, i64 44
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 1
-  %61 = icmp ult i8 %57, %60
+  %61 = icmp samesign ult i8 %57, %60
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %54
-  %63 = icmp ugt i8 %57, %60
+  %63 = icmp samesign ugt i8 %57, %60
   br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %62
@@ -3890,7 +3890,7 @@ define range(i32 -1, 1) i32 @H5P__cmp_plist(ptr noundef %0, ptr noundef %1, ptr 
   %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 1
-  %22 = icmp ult i8 %18, %21
+  %22 = icmp samesign ult i8 %18, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %15
@@ -3898,7 +3898,7 @@ define range(i32 -1, 1) i32 @H5P__cmp_plist(ptr noundef %0, ptr noundef %1, ptr 
   br label %42
 
 24:                                               ; preds = %15
-  %25 = icmp ugt i8 %18, %21
+  %25 = icmp samesign ugt i8 %18, %21
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24

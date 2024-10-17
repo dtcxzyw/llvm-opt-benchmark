@@ -11514,7 +11514,7 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !175
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -16717,7 +16717,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !204
 
 .critedge:                                        ; preds = %27

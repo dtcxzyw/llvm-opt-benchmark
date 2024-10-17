@@ -316,7 +316,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %50 = fdiv double %.01828.i, 1.000000e+308
   %51 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %52 = icmp ugt i32 %.017.i, 308
+  %52 = icmp samesign ugt i32 %.017.i, 308
   br i1 %52, label %.lr.ph.i, label %._crit_edge.i
 
 53:                                               ; preds = %47
@@ -807,7 +807,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %60 = fdiv double %.01828.i, 1.000000e+308
   %61 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %61, i1 true)
-  %62 = icmp ugt i32 %.017.i, 308
+  %62 = icmp samesign ugt i32 %.017.i, 308
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 63:                                               ; preds = %57
@@ -1296,7 +1296,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %32 = fdiv double %.01828.i, 1.000000e+308
   %33 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %34 = icmp ugt i32 %.017.i, 308
+  %34 = icmp samesign ugt i32 %.017.i, 308
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 35:                                               ; preds = %29
@@ -1478,7 +1478,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %28 = fdiv double %.01828.i, 1.000000e+308
   %29 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
-  %30 = icmp ugt i32 %.017.i, 308
+  %30 = icmp samesign ugt i32 %.017.i, 308
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
 31:                                               ; preds = %25

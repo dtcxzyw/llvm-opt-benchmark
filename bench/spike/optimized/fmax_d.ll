@@ -3277,7 +3277,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_fmax_dP11p
   unreachable
 
 329:                                              ; preds = %322
-  %330 = icmp ugt i64 %321, 15
+  %330 = icmp samesign ugt i64 %321, 15
   br i1 %330, label %331, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 331:                                              ; preds = %329
@@ -3481,7 +3481,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %329
   unreachable
 
 430:                                              ; preds = %423
-  %431 = icmp ugt i64 %422, 15
+  %431 = icmp samesign ugt i64 %422, 15
   br i1 %431, label %432, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit351
 
 432:                                              ; preds = %430
@@ -3791,7 +3791,7 @@ define noundef i64 @_Z17fast_rv64e_fmax_dP11processor_t6insn_tm(ptr nocapture no
 118:                                              ; preds = %101
   %119 = lshr i64 %1, 7
   %120 = and i64 %119, 31
-  %121 = icmp ugt i64 %120, 15
+  %121 = icmp samesign ugt i64 %120, 15
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %118
@@ -3847,7 +3847,7 @@ define noundef i64 @_Z17fast_rv64e_fmax_dP11processor_t6insn_tm(ptr nocapture no
   %.sroa.026.0 = phi i64 [ %89, %.critedge ], [ %spec.select, %135 ]
   %144 = lshr i64 %1, 7
   %145 = and i64 %144, 31
-  %146 = icmp ugt i64 %145, 15
+  %146 = icmp samesign ugt i64 %145, 15
   br i1 %146, label %147, label %152
 
 147:                                              ; preds = %143
@@ -4612,7 +4612,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %343, %338, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %339, %338 ], [ %353, %.loopexit.i.i ], [ %345, %343 ]
   %.0.i.i356 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  %355 = icmp ugt i64 %321, 15
+  %355 = icmp samesign ugt i64 %321, 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i356, i8 0, i64 16, i1 false)
   br i1 %355, label %356, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -4986,7 +4986,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %505, ptr %.0.i.i396, align 8
   %.sroa.249.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i395, i64 24
   store i64 0, ptr %.sroa.249.0..sroa_idx, align 8
-  %531 = icmp ugt i64 %496, 15
+  %531 = icmp samesign ugt i64 %496, 15
   br i1 %531, label %532, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit399
 
 532:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit397
@@ -5467,7 +5467,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 9221120237041090560, ptr %.0.i.i174, align 8
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.237.0..sroa_idx, align 8
-  %146 = icmp ugt i64 %121, 15
+  %146 = icmp samesign ugt i64 %121, 15
   br i1 %146, label %147, label %152
 
 147:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -5636,7 +5636,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.sroa.027.0, ptr %.0.i.i203, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i202, i64 24
   store i64 0, ptr %.sroa.216.0..sroa_idx, align 8
-  %222 = icmp ugt i64 %197, 15
+  %222 = icmp samesign ugt i64 %197, 15
   br i1 %222, label %223, label %228
 
 223:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit204

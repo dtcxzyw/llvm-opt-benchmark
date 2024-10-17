@@ -1529,7 +1529,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.051 = phi i64 [ -1, %102 ], [ %.05070.us, %119 ], [ -1, %123 ], [ %.05070, %.lr.ph.split ], [ -1, %132 ]
   %134 = lshr i64 %1, 7
   %135 = and i64 %134, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %._crit_edge
@@ -1812,7 +1812,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.051 = phi i64 [ -1, %102 ], [ %.05070.us, %119 ], [ -1, %123 ], [ %.05070, %.lr.ph.split ], [ -1, %132 ]
   %134 = lshr i64 %1, 7
   %135 = and i64 %134, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %._crit_edge
@@ -2152,7 +2152,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.054, ptr %.0.i.i70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i69, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %159 = icmp ugt i64 %135, 15
+  %159 = icmp samesign ugt i64 %135, 15
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit71
@@ -2494,7 +2494,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.054, ptr %.0.i.i70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i69, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %159 = icmp ugt i64 %135, 15
+  %159 = icmp samesign ugt i64 %135, 15
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit71

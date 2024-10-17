@@ -71,7 +71,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %39, label %.preheader312, label %54
 
 .preheader312:                                    ; preds = %35
-  %.not301.not325 = icmp ugt i64 %indvars.iv415, 1
+  %.not301.not325 = icmp samesign ugt i64 %indvars.iv415, 1
   br i1 %.not301.not325, label %.lr.ph327, label %._crit_edge328
 
 .lr.ph327:                                        ; preds = %.preheader312
@@ -123,7 +123,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %59, label %.preheader315, label %74
 
 .preheader315:                                    ; preds = %55
-  %.not299.not318 = icmp ugt i64 %indvars.iv404, 1
+  %.not299.not318 = icmp samesign ugt i64 %indvars.iv404, 1
   br i1 %.not299.not318, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader315
@@ -488,7 +488,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 211:                                              ; preds = %200, %204
   %.4 = phi double [ %210, %204 ], [ %203, %200 ]
   %indvars.iv.next470 = add nuw nsw i64 %indvars.iv469, 1
-  %.not295377.not = icmp ult i64 %indvars.iv469, %199
+  %.not295377.not = icmp samesign ult i64 %indvars.iv469, %199
   br i1 %.not295377.not, label %.lr.ph381, label %._crit_edge382
 
 .lr.ph381:                                        ; preds = %211
@@ -540,7 +540,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 229:                                              ; preds = %218, %222
   %.6 = phi double [ %228, %222 ], [ %221, %218 ]
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
-  %.not293365.not = icmp ult i64 %indvars.iv456, %195
+  %.not293365.not = icmp samesign ult i64 %indvars.iv456, %195
   br i1 %.not293365.not, label %.lr.ph370, label %._crit_edge371
 
 .lr.ph370:                                        ; preds = %229

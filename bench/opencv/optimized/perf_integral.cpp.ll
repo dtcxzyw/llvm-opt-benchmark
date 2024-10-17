@@ -5065,7 +5065,7 @@ define hidden void @_ZN11opencv_test46Size_MatType_OutMatDepth_integral_sqsum_ti
   store ptr %5, ptr %90, align 8
   %91 = load i32, ptr %5, align 8
   %92 = and i32 %91, 7
-  %93 = icmp ugt i32 %92, 4
+  %93 = icmp samesign ugt i32 %92, 4
   %94 = zext i1 %93 to i32
   %95 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %22, double noundef 0x3EB0C6F7A0B5ED8D, i32 noundef %94)
           to label %96 unwind label %109

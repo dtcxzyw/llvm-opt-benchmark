@@ -1111,7 +1111,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %253 = load i16, ptr %20, align 8
   %254 = zext i16 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next.i, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next.i, %254
   br i1 %255, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %252

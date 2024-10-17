@@ -2568,7 +2568,7 @@ lpad144:                                          ; preds = %if.then151
 
 invoke.cont148:                                   ; preds = %invoke.cont148.lr.ph, %if.end219
   %__begin1138.sroa.2.0441 = phi i64 [ 0, %invoke.cont148.lr.ph ], [ %inc.i382, %if.end219 ]
-  %cmp.i.i290 = icmp ult i64 %__begin1138.sroa.2.0441, 16
+  %cmp.i.i290 = icmp samesign ult i64 %__begin1138.sroa.2.0441, 16
   %121 = load ptr, ptr %values_.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %121, i64 %__begin1138.sroa.2.0441
   %122 = load ptr, ptr %vect_.i, align 8
@@ -3286,7 +3286,7 @@ for.cond:                                         ; preds = %invoke.cont97
 
 invoke.cont97:                                    ; preds = %invoke.cont97.preheader, %for.cond
   %indvars.iv = phi i64 [ 1, %invoke.cont97.preheader ], [ %indvars.iv.next, %for.cond ]
-  %cmp.i.i = icmp ult i64 %indvars.iv, 8
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv, 8
   %retval.0.i.i.v = select i1 %cmp.i.i, ptr %30, ptr %invariant.gep
   %retval.0.i.i = getelementptr %"struct.rocksdb::LevelFilesBrief", ptr %retval.0.i.i.v, i64 %indvars.iv
   %33 = load i64, ptr %retval.0.i.i, align 8

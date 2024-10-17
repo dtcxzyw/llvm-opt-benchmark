@@ -1702,7 +1702,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %77 = getelementptr inbounds [3 x i32], ptr %53, i64 0, i64 %indvars.iv211
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, 1
-  %80 = icmp ult i64 %indvars.iv211, 2
+  %80 = icmp samesign ult i64 %indvars.iv211, 2
   %or.cond = and i1 %79, %80
   br i1 %or.cond, label %.lr.ph153, label %.loopexit138
 

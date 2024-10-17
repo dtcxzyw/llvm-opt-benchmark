@@ -827,7 +827,7 @@ if.end42:                                         ; preds = %if.end42.sink.split
   store i64 %conv45, ptr %msg_iovlen, align 8
   %inc = add nuw nsw i64 %pkts.077, 1
   %q.0 = load ptr, ptr %q.078, align 8
-  %cmp = icmp ult i64 %pkts.077, 19
+  %cmp = icmp samesign ult i64 %pkts.077, 19
   %cmp4 = icmp ne ptr %q.0, %write_queue
   %5 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %5, label %for.body, label %do.body.preheader

@@ -3968,7 +3968,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i68.i: 
   %344 = load i32, ptr %9, align 8
   %345 = sext i32 %344 to i64
   %346 = icmp slt i64 %indvars.iv.next.i, %345
-  %347 = icmp ult i64 %indvars.iv.next.i, %130
+  %347 = icmp samesign ult i64 %indvars.iv.next.i, %130
   %or.cond.i = and i1 %347, %346
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !37
 

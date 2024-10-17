@@ -2661,7 +2661,7 @@ if.end66:                                         ; preds = %_Z14maxdirfilteredI
 
 if.end67:                                         ; preds = %if.end66, %if.end30
   %add69.int = add nuw nsw i32 %x.0241.int, 45
-  %cmp6 = icmp ugt i32 %x.0241.int, 315
+  %cmp6 = icmp samesign ugt i32 %x.0241.int, 315
   br i1 %cmp6, label %for.end70, label %for.body, !llvm.loop !20
 
 for.end70:                                        ; preds = %if.end67
@@ -4013,7 +4013,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %arrayidx.i67 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv128
   store i32 %40, ptr %arrayidx.i67, align 4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %cmp33 = icmp ult i64 %indvars.iv.next129, %39
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next129, %39
   br i1 %cmp33, label %for.body34, label %for.end41, !llvm.loop !33
 
 for.end41:                                        ; preds = %for.body34, %_ZN20btAlignedObjectArrayIjE6resizeEiRKj.exit

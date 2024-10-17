@@ -4399,7 +4399,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %14 = extractvalue { i64, i32 } %12, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = icmp eq i64 %10, %13
-  %16 = icmp ugt i32 %11, %14
+  %16 = icmp samesign ugt i32 %11, %14
   %17 = icmp sgt i64 %10, %13
   %.sroa.0.0.i.i.i.us = select i1 %15, i1 %16, i1 %17
   %.sroa.3.0.i.us = select i1 %.sroa.0.0.i.i.i.us, i32 %11, i32 %14
@@ -4438,7 +4438,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %37 = phi i64 [ %60, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %26, %.split ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %38 = icmp eq i64 %37, %35
-  %39 = icmp ugt i32 %36, %34
+  %39 = icmp samesign ugt i32 %36, %34
   %40 = icmp sgt i64 %37, %35
   %.sroa.0.0.i.i.i = select i1 %38, i1 %39, i1 %40
   %.sroa.3.0.i = select i1 %.sroa.0.0.i.i.i, i32 %36, i32 %34
@@ -4919,7 +4919,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   br i1 %.not.i, label %.thread85.i, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ult i64 %57, 5
+  %59 = icmp samesign ult i64 %57, 5
   call void @llvm.assume(i1 %59)
   %60 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", i64 16) monotonic, align 8, !noalias !1630
   switch i8 %60, label %61 [
@@ -30024,7 +30024,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$milli..error..InternalError$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10197)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10200)
   %43 = load i64, ptr %42, align 8, !range !1495, !alias.scope !10203, !noundef !4
-  %switch.i.i = icmp ult i64 %43, 2
+  %switch.i.i = icmp samesign ult i64 %43, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr57drop_in_place$LT$milli..error..FieldIdMapMissingEntry$GT$17h01327a36405bd69eE.llvm.5336188084572713014.exit", label %44
 
 44:                                               ; preds = %41

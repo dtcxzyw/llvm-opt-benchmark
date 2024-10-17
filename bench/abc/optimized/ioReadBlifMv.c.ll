@@ -2605,7 +2605,7 @@ Abc_ObjSetMvVar.exit.i.i:                         ; preds = %1072, %1058, %.crit
   %indvars.iv174.i.i = phi i64 [ 0, %.lr.ph156.preheader.i.i ], [ %indvars.iv.next175.i.i, %.loopexit.i.i171 ]
   %indvars.iv167.i.i = phi i64 [ 1, %.lr.ph156.preheader.i.i ], [ %indvars.iv.next168.i.i, %.loopexit.i.i171 ]
   %indvars.iv.next175.i.i = add nuw nsw i64 %indvars.iv174.i.i, 1
-  %1088 = icmp ult i64 %indvars.iv.next175.i.i, %1087
+  %1088 = icmp samesign ult i64 %indvars.iv.next175.i.i, %1087
   br i1 %1088, label %.lr.ph154.i.i, label %.loopexit.i.i171
 
 .lr.ph154.i.i:                                    ; preds = %.lr.ph156.i.i

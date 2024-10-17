@@ -1378,7 +1378,7 @@ _ZN9parameterC2EOS_.exit.i.i:                     ; preds = %if.else.i.i.i.i, %f
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_pos.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %_ZN9parameterC2EOS_.exit.i.i, %call.i.i.noexc
@@ -2085,7 +2085,7 @@ _ZN9parameterC2EOS_.exit.i.i45:                   ; preds = %if.else.i.i.i.i44, 
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i39, 1
   %9 = load i32, ptr %m_pos.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp.i.i48 = icmp ult i64 %indvars.iv.next.i.i47, %10
+  %cmp.i.i48 = icmp samesign ult i64 %indvars.iv.next.i.i47, %10
   br i1 %cmp.i.i48, label %for.body.i.i38, label %for.end.i.i49, !llvm.loop !10
 
 for.end.i.i49:                                    ; preds = %_ZN9parameterC2EOS_.exit.i.i45, %call.i.i.noexc68
@@ -2400,7 +2400,7 @@ _ZN9parameterC2EOS_.exit.i.i:                     ; preds = %if.else.i.i.i.i, %f
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_pos.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %_ZN9parameterC2EOS_.exit.i.i, %call.i.i.noexc
@@ -2602,7 +2602,7 @@ _ZN9parameterC2EOS_.exit.i.i:                     ; preds = %if.else.i.i.i.i, %f
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_pos.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %_ZN9parameterC2EOS_.exit.i.i, %call.i.i.noexc
@@ -5596,7 +5596,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %m_num_params, align 4
   %14 = zext i32 %13 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %14
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38
 
 lpad:                                             ; preds = %if.then.i.i, %for.body
@@ -6570,7 +6570,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and.i = and i64 %11, 7
   %cmp.i = icmp eq i64 %and.i, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp5 = icmp uge i64 %indvars.iv.next, %8
+  %cmp5 = icmp samesign uge i64 %indvars.iv.next, %8
   %.not = select i1 %cmp.i, i1 true, i1 %cmp5
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !45
 
@@ -7096,7 +7096,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %m_num_params.i, align 4
   %20 = zext i32 %19 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next, %20
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp11, label %for.body12, label %if.end.i.i25, !llvm.loop !48
 
 lpad8.loopexit:                                   ; preds = %for.body12, %if.then.i101, %if.end.i100
@@ -7369,7 +7369,7 @@ if.end.i61:                                       ; preds = %for.cond60
 
 _ZNK6vectorIP14pdatatype_declLb0EjE4sizeEv.exit64: ; preds = %for.cond60, %if.end.i61
   %retval.0.i63 = phi i64 [ %57, %if.end.i61 ], [ 0, %for.cond60 ]
-  %cmp64 = icmp ult i64 %indvars.iv116, %retval.0.i63
+  %cmp64 = icmp samesign ult i64 %indvars.iv116, %retval.0.i63
   br i1 %cmp64, label %for.body65, label %if.end80
 
 for.body65:                                       ; preds = %_ZNK6vectorIP14pdatatype_declLb0EjE4sizeEv.exit64

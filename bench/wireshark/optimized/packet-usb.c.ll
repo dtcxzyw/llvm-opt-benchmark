@@ -6166,7 +6166,7 @@ define internal noundef i32 @dissect_usb_setup_clear_feature_request(ptr nocaptu
   %9 = getelementptr inbounds i8, ptr %8, i64 28
   %10 = load i8, ptr %9, align 4
   %11 = and i8 %10, 31
-  %12 = icmp ult i8 %11, 3
+  %12 = icmp samesign ult i8 %11, 3
   br i1 %12, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %6
@@ -6204,7 +6204,7 @@ define internal noundef i32 @dissect_usb_setup_set_feature_request(ptr nocapture
   %9 = getelementptr inbounds i8, ptr %8, i64 28
   %10 = load i8, ptr %9, align 4
   %11 = and i8 %10, 31
-  %12 = icmp ult i8 %11, 3
+  %12 = icmp samesign ult i8 %11, 3
   br i1 %12, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %6

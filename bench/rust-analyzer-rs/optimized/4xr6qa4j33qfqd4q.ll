@@ -3154,7 +3154,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.1
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ugt i64 %13, 16
+  %15 = icmp samesign ugt i64 %13, 16
   br i1 %15, label %16, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread
 
 16:                                               ; preds = %9
@@ -3186,7 +3186,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.1
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ugt i64 %13, 16
+  %15 = icmp samesign ugt i64 %13, 16
   br i1 %15, label %16, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread
 
 16:                                               ; preds = %9
@@ -3290,7 +3290,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.1
   %12 = sub i64 %10, %11
   %13 = icmp sgt i64 %12, -1
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ugt i64 %12, 16
+  %14 = icmp samesign ugt i64 %12, 16
   br i1 %14, label %15, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread
 
 15:                                               ; preds = %8
@@ -3321,7 +3321,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.1
   %12 = sub i64 %10, %11
   %13 = icmp sgt i64 %12, -1
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ugt i64 %12, 16
+  %14 = icmp samesign ugt i64 %12, 16
   br i1 %14, label %15, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread
 
 15:                                               ; preds = %8

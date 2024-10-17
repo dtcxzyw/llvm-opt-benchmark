@@ -53271,7 +53271,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !12241, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -53280,14 +53280,14 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !12241, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h79199f677a722fe6E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h79199f677a722fe6E.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h79199f677a722fe6E.exit"
 
@@ -106147,7 +106147,7 @@ define noundef float @"_ZN85_$LT$assistant..assistant_panel..AssistantPanel$u20$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !21540
   %11 = getelementptr inbounds i8, ptr %10, i64 83
   %12 = load i8, ptr %11, align 1, !range !6736, !noundef !4
-  %switch = icmp ult i8 %12, 2
+  %switch = icmp samesign ult i8 %12, 2
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8, !range !11909
   %15 = getelementptr inbounds i8, ptr %7, i64 76
@@ -106176,7 +106176,7 @@ define void @"_ZN85_$LT$assistant..assistant_panel..AssistantPanel$u20$as$u20$wo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !21543
   %9 = getelementptr inbounds i8, ptr %8, i64 83
   %10 = load i8, ptr %9, align 1, !range !6736, !noundef !4
-  %switch = icmp ult i8 %10, 2
+  %switch = icmp samesign ult i8 %10, 2
   %. = select i1 %switch, i64 88, i64 96
   %.6 = select i1 %switch, i64 92, i64 100
   %11 = getelementptr inbounds i8, ptr %0, i64 %.
@@ -129909,7 +129909,7 @@ define void @"_ZN93_$LT$assistant..assistant_panel..ContextEditor$u20$as$u20$wor
   br label %24
 
 22:                                               ; preds = %5
-  %23 = icmp ult i64 %19, 5
+  %23 = icmp samesign ult i64 %19, 5
   br i1 %23, label %38, label %40
 
 24:                                               ; preds = %72, %40, %21
@@ -139232,7 +139232,7 @@ _ZN4gpui3app10AppContext17observe_new_views17hd1acfa7c89e1f656E.exit: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN9assistant16inline_assistant12AssistStatus7is_done17h7b80721800cc9781E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #16 {
   %2 = load i8, ptr %0, align 1, !range !8671, !noundef !4
-  %switch = icmp ugt i8 %2, 1
+  %switch = icmp samesign ugt i8 %2, 1
   ret i1 %switch
 }
 
@@ -148529,7 +148529,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hb5a1ffacf7a07cabE.exit: ; preds = %.no
 
 832:                                              ; preds = %830
   %833 = load i64, ptr %831, align 8, !range !3303, !noundef !4
-  %switch30.not = icmp ult i64 %833, 2
+  %switch30.not = icmp samesign ult i64 %833, 2
   br i1 %switch30.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9ea9001a6db53595E.exit", label %834
 
 834:                                              ; preds = %832

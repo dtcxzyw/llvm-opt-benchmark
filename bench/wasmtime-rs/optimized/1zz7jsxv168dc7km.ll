@@ -2778,7 +2778,7 @@ define void @_ZN16wasmtime_runtime2gc7GcStore15alloc_externref17h08133d6793e31de
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !154
   %23 = icmp ult i64 %22, 6
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ugt i64 %22, 4
+  %24 = icmp samesign ugt i64 %22, 4
   br i1 %24, label %25, label %_ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable5alloc17h2160b52c3024bcd7E.exit
 
 25:                                               ; preds = %21
@@ -2837,7 +2837,7 @@ _ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable5alloc17h2160b52c3024b
   %48 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !164
   %49 = icmp ult i64 %48, 6
   call void @llvm.assume(i1 %49)
-  %50 = icmp ugt i64 %48, 4
+  %50 = icmp samesign ugt i64 %48, 4
   br i1 %50, label %51, label %_ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable7dealloc17h9a63c6dda0ade75cE.exit
 
 51:                                               ; preds = %47
@@ -4073,7 +4073,7 @@ define i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_n
   %24 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %25 = icmp ult i64 %24, 6
   tail call void @llvm.assume(i1 %25)
-  %26 = icmp ugt i64 %24, 4
+  %26 = icmp samesign ugt i64 %24, 4
   br i1 %26, label %105, label %27
 
 27:                                               ; preds = %21, %105
@@ -4387,7 +4387,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13a
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %34 = icmp ult i64 %33, 6
   tail call void @llvm.assume(i1 %34)
-  %35 = icmp ugt i64 %33, 4
+  %35 = icmp samesign ugt i64 %33, 4
   br i1 %35, label %252, label %36
 
 36:                                               ; preds = %30, %252
@@ -5158,7 +5158,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13a
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %34 = icmp ult i64 %33, 6
   tail call void @llvm.assume(i1 %34)
-  %35 = icmp ugt i64 %33, 4
+  %35 = icmp samesign ugt i64 %33, 4
   br i1 %35, label %252, label %36
 
 36:                                               ; preds = %30, %252

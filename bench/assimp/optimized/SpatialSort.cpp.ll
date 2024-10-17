@@ -526,7 +526,7 @@ while.body:                                       ; preds = %while.body.preheade
   %index.1.p = select i1 %cmp25, i32 %binaryStepSize.056, i32 %20
   %index.1 = add i32 %index.1.p, %index.057
   %div3025 = lshr i32 %binaryStepSize.056, 1
-  %cmp20 = icmp ugt i32 %binaryStepSize.056, 3
+  %cmp20 = icmp samesign ugt i32 %binaryStepSize.056, 3
   br i1 %cmp20, label %while.body, label %while.cond31.preheader, !llvm.loop !17
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body38
@@ -760,7 +760,7 @@ while.body:                                       ; preds = %while.body.preheade
   %index.1.p = select i1 %cmp12, i32 %binaryStepSize.062, i32 %17
   %index.1 = add i32 %index.1.p, %index.063
   %div1520 = lshr i32 %binaryStepSize.062, 1
-  %cmp = icmp ugt i32 %binaryStepSize.062, 3
+  %cmp = icmp samesign ugt i32 %binaryStepSize.062, 3
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !21
 
 land.rhs:                                         ; preds = %while.cond16.preheader, %while.body24

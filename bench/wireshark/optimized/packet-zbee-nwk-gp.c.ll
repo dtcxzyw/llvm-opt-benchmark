@@ -769,7 +769,7 @@ define internal void @uat_key_record_post_update_cb() #2 {
   %15 = phi ptr [ %3, %.lr.ph ], [ %.pre, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %14 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %13, %0
@@ -815,7 +815,7 @@ define internal void @gp_init_zbee_security() #1 {
   %20 = icmp ne ptr %19, null
   %21 = load i32, ptr @num_uat_key_records, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   %24 = select i1 %20, i1 %23, i1 false
   br i1 %24, label %9, label %._crit_edge, !llvm.loop !8
 
@@ -1875,7 +1875,7 @@ dissect_zbee_nwk_gp_cmd_commissioning.exit:       ; preds = %.lr.ph184.i, %227, 
   call void @dissect_zcl_attr_id(ptr noundef %0, ptr noundef %321, ptr noundef nonnull %9, i16 noundef zeroext %323, i16 noundef zeroext %.023.i, i32 noundef 1) #11
   %337 = add nuw nsw i32 %336, 2
   %338 = and i32 %337, 255
-  %339 = icmp ult i32 %338, %335
+  %339 = icmp samesign ult i32 %338, %335
   br i1 %339, label %.lr.ph.i112, label %.loopexit.loopexit.i, !llvm.loop !17
 
 dissect_zbee_nwk_gp_cmd_read_attributes.exit:     ; preds = %.loopexit.i113, %313

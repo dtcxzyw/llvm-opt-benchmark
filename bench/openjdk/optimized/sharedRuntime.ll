@@ -675,7 +675,7 @@ define hidden noundef ptr @_ZN13SharedRuntime28handle_wrong_method_abstractEP10J
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -768,7 +768,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZN15Bytecode_invok
   %67 = add nsw i32 %62, 1
   %68 = icmp sgt i32 %62, -1
   %69 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
-  %70 = icmp ult i32 %69, 2
+  %70 = icmp samesign ult i32 %69, 2
   %or.cond.i.i.i.i.i.i26 = select i1 %68, i1 %70, i1 false
   %71 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %72 = sub nuw nsw i32 32, %71
@@ -2109,7 +2109,7 @@ define hidden void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaTh
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -2180,7 +2180,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN12methodHandleC2
   %59 = add nsw i32 %54, 1
   %60 = icmp sgt i32 %54, -1
   %61 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i.i.i20 = select i1 %60, i1 %62, i1 false
   %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -3022,7 +3022,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %61, %71
   %81 = add nsw i32 %76, 1
   %82 = icmp sgt i32 %76, -1
   %83 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %81)
-  %84 = icmp ult i32 %83, 2
+  %84 = icmp samesign ult i32 %83, 2
   %or.cond.i.i.i.i.i.i = select i1 %82, i1 %84, i1 false
   %85 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %81, i1 true)
   %86 = sub nuw nsw i32 32, %85
@@ -4991,7 +4991,7 @@ define hidden ptr @_ZN13SharedRuntime23find_callee_info_helperER12vframeStreamRN
   %25 = add nsw i32 %20, 1
   %26 = icmp sgt i32 %20, -1
   %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
-  %28 = icmp ult i32 %27, 2
+  %28 = icmp samesign ult i32 %27, 2
   %or.cond.i.i.i.i.i.i = select i1 %26, i1 %28, i1 false
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
   %30 = sub nuw nsw i32 32, %29
@@ -5086,7 +5086,7 @@ _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %_ZN15Bytecode_invok
   %75 = add nsw i32 %70, 1
   %76 = icmp sgt i32 %70, -1
   %77 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %75)
-  %78 = icmp ult i32 %77, 2
+  %78 = icmp samesign ult i32 %77, 2
   %or.cond.i.i.i.i.i.i51 = select i1 %76, i1 %78, i1 false
   %79 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %75, i1 true)
   %80 = sub nuw nsw i32 32, %79
@@ -5336,7 +5336,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %170, %172
   %198 = add nsw i32 %193, 1
   %199 = icmp sgt i32 %193, -1
   %200 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %198)
-  %201 = icmp ult i32 %200, 2
+  %201 = icmp samesign ult i32 %200, 2
   %or.cond.i.i.i.i.i.i59 = select i1 %199, i1 %201, i1 false
   %202 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %198, i1 true)
   %203 = sub nuw nsw i32 32, %202
@@ -5504,7 +5504,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %25, %_ZNK11Register
   %52 = add nsw i32 %47, 1
   %53 = icmp sgt i32 %47, -1
   %54 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
-  %55 = icmp ult i32 %54, 2
+  %55 = icmp samesign ult i32 %54, 2
   %or.cond.i.i.i.i.i.i = select i1 %53, i1 %55, i1 false
   %56 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %57 = sub nuw nsw i32 32, %56
@@ -5566,7 +5566,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK5frame6senderEP
   %84 = add nsw i32 %79, 1
   %85 = icmp sgt i32 %79, -1
   %86 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %84)
-  %87 = icmp ult i32 %86, 2
+  %87 = icmp samesign ult i32 %86, 2
   %or.cond.i.i.i.i.i.i12 = select i1 %85, i1 %87, i1 false
   %88 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %84, i1 true)
   %89 = sub nuw nsw i32 32, %88
@@ -5768,7 +5768,7 @@ _ZN13SharedRuntime16find_callee_infoERN9Bytecodes4CodeER8CallInfoP10JavaThread.e
   %73 = add nsw i32 %68, 1
   %74 = icmp sgt i32 %68, -1
   %75 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %73)
-  %76 = icmp ult i32 %75, 2
+  %76 = icmp samesign ult i32 %75, 2
   %or.cond.i.i.i.i.i.i = select i1 %74, i1 %76, i1 false
   %77 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
   %78 = sub nuw nsw i32 32, %77
@@ -5950,7 +5950,7 @@ _ZN13SharedRuntime16find_callee_infoERN9Bytecodes4CodeER8CallInfoP10JavaThread.e
   %43 = add nsw i32 %38, 1
   %44 = icmp sgt i32 %38, -1
   %45 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   %or.cond.i.i.i.i.i.i = select i1 %44, i1 %46, i1 false
   %47 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %48 = sub nuw nsw i32 32, %47
@@ -6664,7 +6664,7 @@ _ZN18Bytecode_checkcastC2EP6MethodPh.exit:        ; preds = %2, %11
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
   %29 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -7211,7 +7211,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %58 = or i32 %switch.load, %57
   %59 = add nuw nsw i32 %.01828.i, 1
   %60 = icmp slt i64 %indvars.iv.next.i, %48
-  %61 = icmp ult i32 %.01828.i, 7
+  %61 = icmp samesign ult i32 %.01828.i, 7
   %62 = select i1 %60, i1 %61, i1 false
   br i1 %62, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !72
 
@@ -7351,7 +7351,7 @@ define internal fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19Adapte
   %20 = load i32, ptr %13, align 8
   %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %20, i1 true)
   %21 = zext nneg i32 %.0.i.i to i64
-  %22 = icmp ult i64 %indvars.iv.next.i, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next.i, %21
   br i1 %22, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %9
@@ -7765,7 +7765,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %117 = or i32 %switch.load, %116
   %118 = add nuw nsw i32 %.01828.i.i, 1
   %119 = icmp slt i64 %indvars.iv.next.i.i, %106
-  %120 = icmp ult i32 %.01828.i.i, 7
+  %120 = icmp samesign ult i32 %.01828.i.i, 7
   %121 = select i1 %119, i1 %120, i1 false
   br i1 %121, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !72
 
@@ -8919,8 +8919,8 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   %.1.lcssa.i = phi i32 [ %.01221.i, %.preheader.i ], [ %13, %11 ]
   %.0.add.i = add nuw nsw i64 %.0.idx22.i, 8
   %14 = icmp sgt i32 %.1.lcssa.i, 0
-  %15 = icmp ult i64 %.0.idx22.i, 2336
-  %or.cond.i = and i1 %15, %14
+  %15 = icmp samesign ult i64 %.0.idx22.i, 2336
+  %or.cond.i = select i1 %14, i1 %15, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !89
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %1
@@ -8968,8 +8968,8 @@ define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStream
   %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %15, %13 ]
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
   %16 = icmp sgt i32 %.1.lcssa.i, 0
-  %17 = icmp ult i64 %.0.idx20.i, 2336
-  %or.cond.i = and i1 %17, %16
+  %17 = icmp samesign ult i64 %.0.idx20.i, 2336
+  %or.cond.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !91
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %2
@@ -9003,7 +9003,7 @@ define hidden void @_ZNK19AdapterHandlerEntry16print_adapter_onEP12outputStream(
   %13 = load i32, ptr %6, align 8
   %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %14 = zext nneg i32 %.0.i.i to i64
-  %15 = icmp ult i64 %indvars.iv.next.i, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %15, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %2
@@ -11901,7 +11901,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

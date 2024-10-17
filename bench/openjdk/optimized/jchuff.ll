@@ -820,11 +820,11 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
   %.13747.i = phi i32 [ %55, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.preheader.i ]
   %54 = add nuw nsw i32 %.03448.i, 1
   %55 = lshr i32 %.13747.i, 1
-  %.not.i = icmp ult i32 %.13747.i, 2
+  %.not.i = icmp samesign ult i32 %.13747.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %56 = icmp ugt i32 %.03448.i, 10
+  %56 = icmp samesign ugt i32 %.03448.i, 10
   br i1 %56, label %57, label %._crit_edge.thread.i
 
 57:                                               ; preds = %._crit_edge.i
@@ -890,11 +890,11 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
   %.354.i = phi i32 [ %84, %.lr.ph57.i ], [ %spec.select45.i, %.lr.ph57.preheader.i ]
   %84 = lshr i32 %.354.i, 1
   %85 = add nuw nsw i32 %.13555.i, 1
-  %.not44.i = icmp ult i32 %.354.i, 4
+  %.not44.i = icmp samesign ult i32 %.354.i, 4
   br i1 %.not44.i, label %._crit_edge58.i, label %.lr.ph57.i, !llvm.loop !26
 
 ._crit_edge58.i:                                  ; preds = %.lr.ph57.i
-  %86 = icmp ugt i32 %.13555.i, 9
+  %86 = icmp samesign ugt i32 %.13555.i, 9
   br i1 %86, label %87, label %.thread.i
 
 87:                                               ; preds = %._crit_edge58.i
@@ -1308,11 +1308,11 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %.16283.i = phi i32 [ %150, %.lr.ph.i40 ], [ %.061.i, %.lr.ph.preheader.i ]
   %149 = add nuw nsw i32 %.05784.i, 1
   %150 = lshr i32 %.16283.i, 1
-  %.not.i = icmp ult i32 %.16283.i, 2
+  %.not.i = icmp samesign ult i32 %.16283.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i40, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i40
-  %151 = icmp ugt i32 %.05784.i, 10
+  %151 = icmp samesign ugt i32 %.05784.i, 10
   br i1 %151, label %152, label %._crit_edge.thread.i
 
 152:                                              ; preds = %._crit_edge.i
@@ -1561,7 +1561,7 @@ emit_bits.exit100:                                ; preds = %270, %226
 
 .preheader.i:                                     ; preds = %.backedge.i
   %286 = sext i16 %284 to i32
-  %287 = icmp ugt i32 %.05597.i, 15
+  %287 = icmp samesign ugt i32 %.05597.i, 15
   br i1 %287, label %.lr.ph86.i, label %._crit_edge87.i
 
 .lr.ph86.i:                                       ; preds = %.preheader.i, %.loopexit
@@ -1686,13 +1686,13 @@ dump_buffer.exit35.i84:                           ; preds = %335
   %.lobit77.i = ashr i16 %284, 15
   %353 = sext i16 %.lobit77.i to i32
   %.160.i = add nsw i32 %353, %286
-  %.not7389.i = icmp ult i32 %.263.i, 2
+  %.not7389.i = icmp samesign ult i32 %.263.i, 2
   br i1 %.not7389.i, label %._crit_edge94.thread.i, label %._crit_edge94.i
 
 ._crit_edge94.i:                                  ; preds = %._crit_edge87.i
   %354 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %.263.i, i1 true)
   %355 = sub nuw nsw i32 32, %354
-  %356 = icmp ugt i32 %.263.i, 1023
+  %356 = icmp samesign ugt i32 %.263.i, 1023
   br i1 %356, label %357, label %._crit_edge94.thread.i
 
 357:                                              ; preds = %._crit_edge94.i

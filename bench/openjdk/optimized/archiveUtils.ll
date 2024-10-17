@@ -304,7 +304,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
 .preheader.i.i.i:                                 ; preds = %25, %29
   %.025.i.i.i.i.i = phi i64 [ %27, %29 ], [ %18, %25 ]
   %27 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %28 = icmp ult i64 %27, %16
+  %28 = icmp samesign ult i64 %27, %16
   br i1 %28, label %29, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit
 
 29:                                               ; preds = %.preheader.i.i.i

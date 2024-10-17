@@ -3033,7 +3033,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %675, %665, %.lr.ph4
   %750 = phi float [ %705, %702 ], [ %743, %742 ]
   %.1349 = phi float [ %.0348473, %702 ], [ %746, %742 ]
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
-  %751 = icmp ult i64 %indvars.iv.next537, %701
+  %751 = icmp samesign ult i64 %indvars.iv.next537, %701
   br i1 %751, label %702, label %._crit_edge477, !llvm.loop !32
 
 ._crit_edge477:                                   ; preds = %747

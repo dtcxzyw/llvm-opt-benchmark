@@ -176,7 +176,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %2, i64 %indvars.iv137
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %cmp3121 = icmp ult i64 %indvars.iv.next138, %1
+  %cmp3121 = icmp samesign ult i64 %indvars.iv.next138, %1
   br i1 %cmp3121, label %for.body4.lr.ph, label %for.cond.loopexit
 
 for.body4.lr.ph:                                  ; preds = %for.body
@@ -454,7 +454,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %2, i64 %indvars.iv193
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %cmp3178 = icmp ult i64 %indvars.iv.next194, %1
+  %cmp3178 = icmp samesign ult i64 %indvars.iv.next194, %1
   br i1 %cmp3178, label %for.body4.lr.ph, label %for.cond.loopexit
 
 for.body4.lr.ph:                                  ; preds = %for.body

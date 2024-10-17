@@ -4275,7 +4275,7 @@ while.body.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp2.not.i.i.i.i.i.i.i.i.i.i, label %if.end4.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.i.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i.i.i.i.i.i, 3
+  %cmp1.not.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i.i.i.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !47
 
 if.then5.i.i.i.i.i.i.i.i:                         ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i

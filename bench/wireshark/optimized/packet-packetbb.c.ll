@@ -619,7 +619,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   %.4147.i = phi i32 [ %153, %.lr.ph.i ], [ %.0264.i.i, %dissect_pbb_addressblock.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %160 = sub nuw nsw i32 %149, %.4147.i
-  %161 = icmp ult i32 %160, 2
+  %161 = icmp samesign ult i32 %160, 2
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %159

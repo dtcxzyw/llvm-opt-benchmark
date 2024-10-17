@@ -47,7 +47,7 @@ do.end.preheader:                                 ; preds = %_ZNK3ue29CharReach1
   %6 = trunc nuw i32 %shl40 to i8
   %conv642 = or i8 %5, %6
   store i8 %conv642, ptr %arrayidx41, align 1
-  %cmp.not.i.i43 = icmp ult i64 %i.06.i.i, 4
+  %cmp.not.i.i43 = icmp samesign ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i43, label %if.end.i.i, label %for.end
 
 if.end.i.i:                                       ; preds = %do.end.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -74,7 +74,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i12
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i12 ], [ %div1.i.i.i, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i12, label %for.end
 
 for.body.i.i12:                                   ; preds = %for.cond.i.i
@@ -106,7 +106,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.t
   %13 = trunc nuw i32 %shl to i8
   %conv6 = or i8 %12, %13
   store i8 %conv6, ptr %arrayidx, align 1
-  %cmp.not.i.i = icmp ult i64 %mul.i.i11.sink, 256
+  %cmp.not.i.i = icmp samesign ult i64 %mul.i.i11.sink, 256
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %do.end.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

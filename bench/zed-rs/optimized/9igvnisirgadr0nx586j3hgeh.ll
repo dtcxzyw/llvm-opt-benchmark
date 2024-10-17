@@ -1469,7 +1469,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit.i.i: ; 
   %notmask.i = shl nsw i16 -1, %531
   %532 = trunc i16 %notmask.i to i8
   %533 = xor i8 %532, -1
-  %534 = icmp ugt i64 %spec.store.select.i, 1
+  %534 = icmp samesign ugt i64 %spec.store.select.i, 1
   %535 = icmp ugt i64 %522, 15
   %536 = getelementptr inbounds i8, ptr %530, i64 1
   %537 = trunc nuw nsw i64 %spec.store.select.i to i8
@@ -1967,11 +1967,11 @@ _ZN14num_bigint_dig7biguint7BigUint13from_bytes_be17hbb6c888aca4cc4ccE.exit.i: ;
   br i1 %689, label %.split190.us.split.us.i, label %681
 
 .loopexit.split.us.us.i:                          ; preds = %684
-  %690 = icmp ult i64 %.sroa.079.0191.us.i, 1048574
+  %690 = icmp samesign ult i64 %.sroa.079.0191.us.i, 1048574
   br i1 %690, label %.split.us.us.i, label %"_ZN80_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hce1c936e0a55d065E.exit.i"
 
 .loopexit.split.i:                                ; preds = %919
-  %691 = icmp ult i64 %.sroa.079.0191.i, 1048574
+  %691 = icmp samesign ult i64 %.sroa.079.0191.i, 1048574
   br i1 %691, label %.split.i, label %"_ZN80_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hce1c936e0a55d065E.exit.i"
 
 "_ZN80_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hce1c936e0a55d065E.exit.i": ; preds = %.loopexit.split.i, %.loopexit.split.us.us.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i48.i", %.noexc52.i, %.split190.us.split.us.i
@@ -2109,7 +2109,7 @@ _ZN14num_bigint_dig7biguint7BigUint13from_bytes_be17hbb6c888aca4cc4ccE.exit.i: ;
   br i1 %.not36.i.i.i.i, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %.lr.ph.i.i.i46.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i46.i
-  %746 = icmp ult i128 %755, 18446744073709551616
+  %746 = icmp samesign ult i128 %755, 18446744073709551616
   br i1 %746, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %758
 
 .lr.ph.i.i.i46.i:                                 ; preds = %744, %.lr.ph.i.i.i46.i
@@ -2195,7 +2195,7 @@ _ZN14num_bigint_dig7biguint7BigUint13from_bytes_be17hbb6c888aca4cc4ccE.exit.i: ;
   br i1 %.not36.i6.i.i.i, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %.lr.ph.i7.i.i.i
 
 ._crit_edge.i11.i.i.i:                            ; preds = %.lr.ph.i7.i.i.i
-  %776 = icmp ult i128 %785, 18446744073709551616
+  %776 = icmp samesign ult i128 %785, 18446744073709551616
   br i1 %776, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %788
 
 .lr.ph.i7.i.i.i:                                  ; preds = %774, %.lr.ph.i7.i.i.i
@@ -2338,7 +2338,7 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit.i.i.i.i: ; preds = %.noexc9.i.
   %832 = add nuw nsw i128 %831, %829
   %833 = trunc i128 %832 to i64
   store i64 %833, ptr %828, align 8, !alias.scope !614, !noalias !617
-  %834 = icmp ult i128 %832, 18446744073709551616
+  %834 = icmp samesign ult i128 %832, 18446744073709551616
   br i1 %834, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %836
 
 835:                                              ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hb632189aa97c5997E.exit.i.i.i"

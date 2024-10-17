@@ -894,7 +894,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
   %305 = load i32, ptr %298, align 8
   %306 = zext i32 %305 to i64
-  %307 = icmp ult i64 %indvars.iv.next209.i, %306
+  %307 = icmp samesign ult i64 %indvars.iv.next209.i, %306
   br i1 %307, label %301, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %301, %297

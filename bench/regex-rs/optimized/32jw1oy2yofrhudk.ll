@@ -8250,7 +8250,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %407 = zext i32 %406 to i64
   %408 = sub nsw i64 %405, %407
   %409 = lshr i64 %408, 1
-  %.not.not.i = icmp ult i64 %409, %396
+  %.not.not.i = icmp samesign ult i64 %409, %396
   br i1 %.not.not.i, label %.invoke, label %410
 
 410:                                              ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i
@@ -8335,7 +8335,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %449 = zext i32 %448 to i64
   %450 = sub nsw i64 %447, %449
   %451 = lshr i64 %450, 1
-  %.not.not.i236 = icmp ult i64 %451, %438
+  %.not.not.i236 = icmp samesign ult i64 %451, %438
   br i1 %.not.not.i236, label %.invoke, label %452
 
 452:                                              ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i235

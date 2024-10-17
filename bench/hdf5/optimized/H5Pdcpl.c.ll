@@ -4586,7 +4586,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   %48 = add nuw nsw i64 %.0103116, 1
   %49 = load i32, ptr %15, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %24, label %.loopexit
 
 52:                                               ; preds = %7

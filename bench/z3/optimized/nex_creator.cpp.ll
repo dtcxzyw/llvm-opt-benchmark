@@ -3550,7 +3550,7 @@ for.cond:                                         ; preds = %for.body, %entry
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(48) %e)
   %sub = add i32 %call, -1
   %1 = zext i32 %sub to i64
-  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %1
+  %cmp.not.not.not.not.not = icmp samesign uge i64 %indvars.iv, %1
   br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
@@ -3824,7 +3824,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 call.i.noexc:                                     ; preds = %for.cond.i
   %sub.i = add i32 %call.i48, -1
   %35 = zext i32 %sub.i to i64
-  %cmp.not.not.not.i.not.not.not.not = icmp uge i64 %indvars.iv.i, %35
+  %cmp.not.not.not.i.not.not.not.not = icmp samesign uge i64 %indvars.iv.i, %35
   br i1 %cmp.not.not.not.i.not.not.not.not, label %cleanup, label %for.body.i
 
 for.body.i:                                       ; preds = %call.i.noexc
@@ -4072,7 +4072,7 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 invoke.cont:                                      ; preds = %for.cond
   %1 = zext i32 %call to i64
-  %cmp = icmp ult i64 %indvars.iv, %1
+  %cmp = icmp samesign ult i64 %indvars.iv, %1
   %2 = load ptr, ptr %m_children.i, align 8
   br i1 %cmp, label %invoke.cont2, label %for.end
 
@@ -7135,7 +7135,7 @@ for.inc:                                          ; preds = %for.body
   %4 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(48) %a)
   %5 = zext i32 %call to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %return, !llvm.loop !46
 
 return.loopexit.split.loop.exit11:                ; preds = %for.body
@@ -7179,7 +7179,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %4 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(48) %a)
   %5 = zext i32 %call.i to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %5
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %5
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !46
 
 _ZNK3nla11nex_creator15find_sum_in_mulEPKNS_7nex_mulE.exit: ; preds = %for.body.i
@@ -7336,7 +7336,7 @@ for.cond23:                                       ; preds = %_ZN3nla11nex_creato
 
 invoke.cont24:                                    ; preds = %for.cond23
   %23 = zext i32 %call25 to i64
-  %cmp26 = icmp ult i64 %indvars.iv, %23
+  %cmp26 = icmp samesign ult i64 %indvars.iv, %23
   br i1 %cmp26, label %for.body27, label %for.end
 
 for.body27:                                       ; preds = %invoke.cont24
@@ -7755,7 +7755,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %vtable, align 8
   %call8 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(16) %es.0.i)
   %10 = zext i32 %call8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !48
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -11720,7 +11720,7 @@ if.then:                                          ; preds = %while.body
   %__value.sroa.2.0.copyload12.i.i.i = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx11.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i6971.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ult i64 %div21.i.i.i, %div.i6971.i.i.i
+  %cmp24.i.i.i.i = icmp samesign ult i64 %div21.i.i.i, %div.i6971.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i

@@ -3243,7 +3243,7 @@ default.unreachable:                              ; preds = %"_ZN4core6result19R
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h69d5aa96fc1c4711E.exit.thread"
-  %53 = icmp ult i8 %40, 24
+  %53 = icmp samesign ult i8 %40, 24
   tail call void @llvm.assume(i1 %53)
   %54 = zext nneg i8 %40 to i64
   %55 = getelementptr inbounds i8, ptr %.sroa.5143.0153, i64 1
@@ -3294,7 +3294,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit: ; pr
   %62 = getelementptr inbounds i8, ptr %.sroa.5143.0153, i64 24
   %63 = load i32, ptr %62, align 8, !range !579, !noundef !4
   %64 = tail call fastcc noundef i8 @"_ZN10hir_expand11declarative24DeclarativeMacroExpander8expander28_$u7b$$u7b$closure$u7d$$u7d$17h3e8ae99f11abbe2cE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %63), !range !722
-  %switch = icmp ult i8 %64, 2
+  %switch = icmp samesign ult i8 %64, 2
   %. = select i1 %switch, i8 3, i8 2
   br label %77
 
@@ -5275,7 +5275,7 @@ default.unreachable:                              ; preds = %17
   br label %33
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i.i.i.i": ; preds = %17
-  %30 = icmp ult i8 %15, 24
+  %30 = icmp samesign ult i8 %15, 24
   call void @llvm.assume(i1 %30)
   %31 = zext nneg i8 %15 to i64
   %32 = getelementptr inbounds i8, ptr %4, i64 1
@@ -8503,7 +8503,7 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit": ; preds = %1
-  %15 = icmp ult i8 %2, 24
+  %15 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i8 %2 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 1
@@ -10419,7 +10419,7 @@ default.unreachable:                              ; preds = %30, %12
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %12
-  %25 = icmp ult i8 %11, 24
+  %25 = icmp samesign ult i8 %11, 24
   tail call void @llvm.assume(i1 %25)
   %26 = zext nneg i8 %11 to i64
   %27 = getelementptr inbounds i8, ptr %7, i64 9
@@ -10461,7 +10461,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit: ; pr
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit19
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i15": ; preds = %30
-  %42 = icmp ult i8 %11, 24
+  %42 = icmp samesign ult i8 %11, 24
   tail call void @llvm.assume(i1 %42)
   %43 = zext nneg i8 %11 to i64
   %44 = getelementptr inbounds i8, ptr %7, i64 9
@@ -10628,7 +10628,7 @@ default.unreachable:                              ; preds = %37, %18
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %18
-  %31 = icmp ult i8 %17, 24
+  %31 = icmp samesign ult i8 %17, 24
   tail call void @llvm.assume(i1 %31)
   %32 = zext nneg i8 %17 to i64
   %33 = getelementptr inbounds i8, ptr %13, i64 9
@@ -10674,7 +10674,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit: ; pr
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i27": ; preds = %37
-  %49 = icmp ult i8 %17, 24
+  %49 = icmp samesign ult i8 %17, 24
   tail call void @llvm.assume(i1 %49)
   %50 = zext nneg i8 %17 to i64
   %51 = getelementptr inbounds i8, ptr %13, i64 9
@@ -15152,7 +15152,7 @@ default.unreachable:                              ; preds = %87
   br label %64
 
 .thread9.i.i:                                     ; preds = %54
-  %63 = icmp ult i8 %53, 24
+  %63 = icmp samesign ult i8 %53, 24
   call void @llvm.assume(i1 %63)
   br label %"_ZN10hir_expand11declarative24DeclarativeMacroExpander8expander28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf161e0c9a9483f23E.exit.thread.i"
 
@@ -15232,7 +15232,7 @@ default.unreachable:                              ; preds = %87
   br label %105
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %87
-  %102 = icmp ult i8 %89, 24
+  %102 = icmp samesign ult i8 %89, 24
   call void @llvm.assume(i1 %102)
   %103 = zext nneg i8 %89 to i64
   %104 = getelementptr inbounds i8, ptr %77, i64 9
@@ -15806,7 +15806,7 @@ define internal fastcc noundef range(i32 1, 0) i32 @_ZN10hir_expand7hygiene19app
   store i32 %20, ptr %13, align 4
   %21 = getelementptr inbounds i8, ptr %14, i64 8
   %22 = load i32, ptr %21, align 4, !range !579, !noundef !4
-  %23 = icmp ult i8 %4, 2
+  %23 = icmp samesign ult i8 %4, 2
   br i1 %23, label %35, label %.critedge
 
 .critedge:                                        ; preds = %5
@@ -16337,7 +16337,7 @@ switch.lookup:                                    ; preds = %76
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   %143 = load i8, ptr %23, align 8, !range !1441, !noundef !4
-  %switch.i = icmp ult i8 %143, 2
+  %switch.i = icmp samesign ult i8 %143, 2
   %spec.select.i.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
   %spec.select.i.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %23, i64 %spec.select.i.sroa.sel.v.sroa.sel.v
   %.0.i = load i32, ptr %spec.select.i.sroa.sel.v.sroa.sel, align 4, !alias.scope !3613, !noundef !4
@@ -16810,7 +16810,7 @@ default.unreachable:                              ; preds = %66, %13
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %13
-  %26 = icmp ult i8 %11, 24
+  %26 = icmp samesign ult i8 %11, 24
   tail call void @llvm.assume(i1 %26)
   %27 = zext nneg i8 %11 to i64
   %28 = getelementptr inbounds i8, ptr %10, i64 1
@@ -17545,7 +17545,7 @@ default.unreachable:                              ; preds = %3
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %3
-  %16 = icmp ult i8 %2, 24
+  %16 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %16)
   %17 = zext nneg i8 %2 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 1
@@ -17732,7 +17732,7 @@ default.unreachable:                              ; preds = %4
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %4
-  %17 = icmp ult i8 %2, 24
+  %17 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %17)
   %18 = zext nneg i8 %2 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 1
@@ -17816,7 +17816,7 @@ default.unreachable:                              ; preds = %"_ZN55_$LT$$RF$str$
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i": ; preds = %7
-  %20 = icmp ult i8 %5, 24
+  %20 = icmp samesign ult i8 %5, 24
   tail call void @llvm.assume(i1 %20)
   %21 = zext nneg i8 %5 to i64
   %22 = getelementptr inbounds i8, ptr %4, i64 1
@@ -17863,7 +17863,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit: ; pr
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
-  %40 = icmp ult i8 %5, 24
+  %40 = icmp samesign ult i8 %5, 24
   tail call void @llvm.assume(i1 %40)
   %41 = zext nneg i8 %5 to i64
   %42 = getelementptr inbounds i8, ptr %4, i64 1

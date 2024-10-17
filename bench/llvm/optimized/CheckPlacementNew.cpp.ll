@@ -1580,7 +1580,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i: ; preds = %302, %289
   %396 = extractvalue { i64, i64 } %395, 0
   %397 = udiv i64 %383, %396
   %.0.i.i35.i.i = trunc nuw i64 %397 to i32
-  %398 = icmp ugt i64 %331, %397
+  %398 = icmp samesign ugt i64 %331, %397
   br i1 %398, label %"_ZZNK12_GLOBAL__N_119PlacementNewChecker23checkElementRegionAlignEPKN5clang4ento13ElementRegionERNS2_14CheckerContextEPKNS1_4ExprEjENK3$_1clEv.exit.sink.split.i.i.i", label %"_ZZNK12_GLOBAL__N_119PlacementNewChecker23checkElementRegionAlignEPKN5clang4ento13ElementRegionERNS2_14CheckerContextEPKNS1_4ExprEjENK3$_0clEv.exit.i.i.i"
 
 "_ZZNK12_GLOBAL__N_119PlacementNewChecker23checkElementRegionAlignEPKN5clang4ento13ElementRegionERNS2_14CheckerContextEPKNS1_4ExprEjENK3$_0clEv.exit.i.i.i": ; preds = %359

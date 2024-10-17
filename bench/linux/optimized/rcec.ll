@@ -109,7 +109,7 @@ define internal noundef i32 @link_rcec_helper(ptr nocapture noundef %0, ptr noca
 25:                                               ; preds = %37, %23
   %26 = phi i64 [ %42, %37 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
-  %28 = icmp ugt i64 %27, 31
+  %28 = icmp samesign ugt i64 %27, 31
   br i1 %28, label %.thread, label %29, !prof !8
 
 29:                                               ; preds = %25
@@ -242,7 +242,7 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr nocapture noun
 25:                                               ; preds = %37, %23
   %26 = phi i64 [ %42, %37 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
-  %28 = icmp ugt i64 %27, 31
+  %28 = icmp samesign ugt i64 %27, 31
   br i1 %28, label %.thread, label %29, !prof !8
 
 29:                                               ; preds = %25

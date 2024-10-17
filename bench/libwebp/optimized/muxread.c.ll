@@ -204,7 +204,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
   %69 = add nuw nsw i64 %68, 1
   %70 = and i64 %69, 4294967294
   %71 = add nuw nsw i64 %70, 8
-  %72 = icmp ugt i64 %70, %41
+  %72 = icmp samesign ugt i64 %70, %41
   %73 = icmp ugt i64 %71, %.1116
   %or.cond113 = select i1 %72, i1 true, i1 %73
   br i1 %or.cond113, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
@@ -314,7 +314,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
   br i1 %113, label %114, label %133
 
 114:                                              ; preds = %112
-  %115 = icmp ult i64 %78, 10
+  %115 = icmp samesign ult i64 %78, 10
   br i1 %115, label %.loopexit, label %116
 
 116:                                              ; preds = %114

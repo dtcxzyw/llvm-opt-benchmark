@@ -1651,7 +1651,7 @@ for.body:                                         ; preds = %_ZNK3ue29CharReach1
 
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i203)
-  %cmp.not.i.i = icmp ult i64 %conv266217, 256
+  %cmp.not.i.i = icmp samesign ult i64 %conv266217, 256
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %for.inc
@@ -1677,7 +1677,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i210
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i210 ], [ %div1.i.i.i, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i210, label %return
 
 for.body.i.i210:                                  ; preds = %for.cond.i.i
@@ -3710,7 +3710,7 @@ if.end20.i.i.i:                                   ; preds = %if.then10.i.i.i, %i
   %i.0.i.i.i = phi i64 [ %and19.i.i.i, %if.then10.i.i.i ], [ %conv, %if.end8.i.i.i ]
   %add22.i.i.i = add nuw nsw i64 %conv2.i.i, 1
   %add2128.i.i.i = add nuw nsw i64 %i.0.i.i.i, 64
-  %cmp23.not29.i.i.i = icmp ugt i64 %add2128.i.i.i, %add22.i.i.i
+  %cmp23.not29.i.i.i = icmp samesign ugt i64 %add2128.i.i.i, %add22.i.i.i
   br i1 %cmp23.not29.i.i.i, label %for.end.i.i.i, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end20.i.i.i

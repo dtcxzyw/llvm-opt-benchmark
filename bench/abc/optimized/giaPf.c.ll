@@ -1237,7 +1237,7 @@ Abc_TtSupportSize.exit:                           ; preds = %27
   %66 = add nuw nsw i32 %.021, 1
   %67 = load i32, ptr %47, align 8
   %68 = lshr i32 %67, 28
-  %69 = icmp ult i32 %66, %68
+  %69 = icmp samesign ult i32 %66, %68
   br i1 %69, label %57, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %57, %Abc_TtSupportSize.exit
@@ -1305,7 +1305,7 @@ define void @Pf_StoPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   br i1 %19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph39.split
-  %20 = icmp ult i64 %indvars.iv53, 10
+  %20 = icmp samesign ult i64 %indvars.iv53, 10
   %21 = getelementptr i8, ptr %17, i64 8
   br i1 %20, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
@@ -2350,7 +2350,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.exi
   %231 = getelementptr inbounds i8, ptr %230, i64 16
   %232 = load i32, ptr %231, align 8
   %233 = lshr i32 %232, 27
-  %.not.i194.us.us.us = icmp ugt i32 %233, %228
+  %.not.i194.us.us.us = icmp samesign ugt i32 %233, %228
   br i1 %.not.i194.us.us.us, label %Pf_SetCutIsContainedOrder.exit.thread.i.us.us.us, label %234
 
 234:                                              ; preds = %.lr.ph.split.split.i.us.us.us
@@ -2427,7 +2427,7 @@ Pf_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %243, %255, %257, %2
   %265 = getelementptr inbounds i8, ptr %264, i64 16
   %266 = load i32, ptr %265, align 8
   %267 = lshr i32 %266, 27
-  %.not.us.us.i.us.us.us = icmp ugt i32 %267, %228
+  %.not.us.us.i.us.us.us = icmp samesign ugt i32 %267, %228
   br i1 %.not.us.us.i.us.us.us, label %Pf_SetCutIsContainedOrder.exit.thread.us.us.i.us.us.us, label %268
 
 268:                                              ; preds = %.lr.ph.split.us.split.us.i.us.us.us
@@ -2806,7 +2806,7 @@ Pf_CutComputeTruthMux6.exit.us.us.us:             ; preds = %480, %._crit_edge.i
   %497 = or disjoint i32 %495, %496
   store i32 %497, ptr %215, align 8
   %498 = lshr i32 %490, 27
-  %.not413.us.us.us = icmp ult i32 %498, %328
+  %.not413.us.us.us = icmp samesign ult i32 %498, %328
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %.not413.us.us.us, label %499, label %506
 
@@ -2922,7 +2922,7 @@ Pf_CutParams.exit225.us.us.us:                    ; preds = %526, %._crit_edge.i
   %548 = getelementptr inbounds i8, ptr %547, i64 16
   %549 = load i32, ptr %548, align 8
   %550 = lshr i32 %549, 27
-  %551 = icmp ult i32 %543, %550
+  %551 = icmp samesign ult i32 %543, %550
   br i1 %551, label %552, label %Pf_SetCutIsContainedOrder.exit.thread.i.i.us.us.us
 
 552:                                              ; preds = %.outer.i.split.i.us.us.us
@@ -2979,7 +2979,7 @@ Pf_SetCutIsContainedOrder.exit.thread.i.i.us.us.us: ; preds = %558, %570, %.preh
   %573 = getelementptr inbounds i8, ptr %572, i64 16
   %574 = load i32, ptr %573, align 8
   %575 = lshr i32 %574, 27
-  %576 = icmp ult i32 %543, %575
+  %576 = icmp samesign ult i32 %543, %575
   br i1 %576, label %577, label %Pf_SetCutIsContainedOrder.exit.thread.i.us.i.us.us.us
 
 577:                                              ; preds = %.outer.i.split.us.i.us.us.us
@@ -3072,11 +3072,11 @@ Pf_SetLastCutContainsArea.exit.i.us.us.us:        ; preds = %._crit_edge56.loope
   %612 = load i32, ptr %611, align 8
   %613 = lshr i32 %612, 26
   %614 = and i32 %613, 1
-  %615 = icmp ult i32 %610, %614
+  %615 = icmp samesign ult i32 %610, %614
   br i1 %615, label %Pf_SetSortByArea.exit.i.us.us.us, label %616
 
 616:                                              ; preds = %.lr.ph.i8.i.us.us.us
-  %617 = icmp ugt i32 %610, %614
+  %617 = icmp samesign ugt i32 %610, %614
   br i1 %617, label %Pf_CutCompareArea.exit.i.i.us.us.us, label %618
 
 618:                                              ; preds = %616
@@ -3106,7 +3106,7 @@ Pf_SetLastCutContainsArea.exit.i.us.us.us:        ; preds = %._crit_edge56.loope
 634:                                              ; preds = %632
   %635 = lshr i32 %608, 27
   %636 = lshr i32 %612, 27
-  %637 = icmp ult i32 %635, %636
+  %637 = icmp samesign ult i32 %635, %636
   br i1 %637, label %Pf_SetSortByArea.exit.i.us.us.us, label %Pf_CutCompareArea.exit.i.i.us.us.us
 
 Pf_CutCompareArea.exit.i.i.us.us.us:              ; preds = %634, %632, %624, %616
@@ -3153,7 +3153,7 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit436, %Gia_
   %653 = lshr i64 %.val178, 32
   %654 = trunc nuw i64 %653 to i32
   %655 = and i32 %654, 536870911
-  %656 = icmp uge i32 %652, %655
+  %656 = icmp samesign uge i32 %652, %655
   br label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit.thread, %650
@@ -3411,7 +3411,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %766 = getelementptr inbounds i8, ptr %765, i64 16
   %767 = load i32, ptr %766, align 8
   %768 = lshr i32 %767, 27
-  %.not.i250.us = icmp ugt i32 %768, %763
+  %.not.i250.us = icmp samesign ugt i32 %768, %763
   br i1 %.not.i250.us, label %Pf_SetCutIsContainedOrder.exit.thread.i251.us, label %769
 
 769:                                              ; preds = %.lr.ph.split.split.i248.us
@@ -3488,7 +3488,7 @@ Pf_SetCutIsContainedOrder.exit.thread.i251.us:    ; preds = %778, %790, %792, %7
   %800 = getelementptr inbounds i8, ptr %799, i64 16
   %801 = load i32, ptr %800, align 8
   %802 = lshr i32 %801, 27
-  %.not.us.us.i267.us = icmp ugt i32 %802, %763
+  %.not.us.us.i267.us = icmp samesign ugt i32 %802, %763
   br i1 %.not.us.us.i267.us, label %Pf_SetCutIsContainedOrder.exit.thread.us.us.i268.us, label %803
 
 803:                                              ; preds = %.lr.ph.split.us.split.us.i265.us
@@ -3787,7 +3787,7 @@ Pf_CutComputeTruth6.exit.us:                      ; preds = %963, %._crit_edge.i
   %980 = or disjoint i32 %978, %979
   store i32 %980, ptr %752, align 8
   %981 = lshr i32 %973, 27
-  %.not414.us = icmp ult i32 %981, %849
+  %.not414.us = icmp samesign ult i32 %981, %849
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %.not414.us, label %982, label %989
 
@@ -3903,7 +3903,7 @@ Pf_CutParams.exit328.us:                          ; preds = %1009, %._crit_edge.
   %1031 = getelementptr inbounds i8, ptr %1030, i64 16
   %1032 = load i32, ptr %1031, align 8
   %1033 = lshr i32 %1032, 27
-  %1034 = icmp ult i32 %1026, %1033
+  %1034 = icmp samesign ult i32 %1026, %1033
   br i1 %1034, label %1035, label %Pf_SetCutIsContainedOrder.exit.thread.i.i338.us
 
 1035:                                             ; preds = %.outer.i.split.i336.us
@@ -3960,7 +3960,7 @@ Pf_SetCutIsContainedOrder.exit.thread.i.i338.us:  ; preds = %1041, %1053, %.preh
   %1056 = getelementptr inbounds i8, ptr %1055, i64 16
   %1057 = load i32, ptr %1056, align 8
   %1058 = lshr i32 %1057, 27
-  %1059 = icmp ult i32 %1026, %1058
+  %1059 = icmp samesign ult i32 %1026, %1058
   br i1 %1059, label %1060, label %Pf_SetCutIsContainedOrder.exit.thread.i.us.i372.us
 
 1060:                                             ; preds = %.outer.i.split.us.i370.us
@@ -4053,11 +4053,11 @@ Pf_SetLastCutContainsArea.exit.i351.us:           ; preds = %._crit_edge56.loope
   %1095 = load i32, ptr %1094, align 8
   %1096 = lshr i32 %1095, 26
   %1097 = and i32 %1096, 1
-  %1098 = icmp ult i32 %1093, %1097
+  %1098 = icmp samesign ult i32 %1093, %1097
   br i1 %1098, label %Pf_SetSortByArea.exit.i329.us, label %1099
 
 1099:                                             ; preds = %.lr.ph.i8.i353.us
-  %1100 = icmp ugt i32 %1093, %1097
+  %1100 = icmp samesign ugt i32 %1093, %1097
   br i1 %1100, label %Pf_CutCompareArea.exit.i.i355.us, label %1101
 
 1101:                                             ; preds = %1099
@@ -4087,7 +4087,7 @@ Pf_SetLastCutContainsArea.exit.i351.us:           ; preds = %._crit_edge56.loope
 1117:                                             ; preds = %1115
   %1118 = lshr i32 %1091, 27
   %1119 = lshr i32 %1095, 27
-  %1120 = icmp ult i32 %1118, %1119
+  %1120 = icmp samesign ult i32 %1118, %1119
   br i1 %1120, label %Pf_SetSortByArea.exit.i329.us, label %Pf_CutCompareArea.exit.i.i355.us
 
 Pf_CutCompareArea.exit.i.i355.us:                 ; preds = %1117, %1115, %1107, %1099
@@ -4157,7 +4157,7 @@ Pf_SetAddCut.exit375.us:                          ; preds = %722, %.lr.ph134.i.u
   %1146 = load i32, ptr %1145, align 8
   %1147 = and i32 %1146, 65535
   %1148 = add nuw nsw i32 %1147, %.043.lcssa.i
-  %1149 = icmp ugt i32 %1148, 65535
+  %1149 = icmp samesign ugt i32 %1148, 65535
   br i1 %1149, label %1150, label %1153
 
 1150:                                             ; preds = %._crit_edge.i376
@@ -4587,7 +4587,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @Pf_SetAddCut(ptr 
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 27
-  %21 = icmp ult i32 %13, %20
+  %21 = icmp samesign ult i32 %13, %20
   br i1 %21, label %22, label %Pf_SetCutIsContainedOrder.exit.thread.i.us
 
 22:                                               ; preds = %.outer.i.split.us
@@ -4609,7 +4609,7 @@ Pf_SetCutIsContainedOrder.exit.thread.i.us:       ; preds = %22, %.outer.i.split
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 27
-  %32 = icmp ult i32 %13, %31
+  %32 = icmp samesign ult i32 %13, %31
   br i1 %32, label %33, label %Pf_SetCutIsContainedOrder.exit.thread.i
 
 33:                                               ; preds = %.outer.i.split
@@ -4734,11 +4734,11 @@ Pf_SetLastCutContainsArea.exit:                   ; preds = %._crit_edge.i, %._c
   %82 = load i32, ptr %81, align 8
   %83 = lshr i32 %82, 26
   %84 = and i32 %83, 1
-  %85 = icmp ult i32 %80, %84
+  %85 = icmp samesign ult i32 %80, %84
   br i1 %85, label %Pf_SetSortByArea.exit, label %86
 
 86:                                               ; preds = %.lr.ph.i8
-  %87 = icmp ugt i32 %80, %84
+  %87 = icmp samesign ugt i32 %80, %84
   br i1 %87, label %Pf_CutCompareArea.exit.i, label %88
 
 88:                                               ; preds = %86
@@ -4768,7 +4768,7 @@ Pf_SetLastCutContainsArea.exit:                   ; preds = %._crit_edge.i, %._c
 104:                                              ; preds = %102
   %105 = lshr i32 %78, 27
   %106 = lshr i32 %82, 27
-  %107 = icmp ult i32 %105, %106
+  %107 = icmp samesign ult i32 %105, %106
   br i1 %107, label %Pf_SetSortByArea.exit, label %Pf_CutCompareArea.exit.i
 
 Pf_CutCompareArea.exit.i:                         ; preds = %104, %102, %94, %86
@@ -5358,7 +5358,7 @@ define ptr @Pf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %22, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph39.split.i
-  %23 = icmp ult i64 %indvars.iv53.i, 10
+  %23 = icmp samesign ult i64 %indvars.iv53.i, 10
   %24 = getelementptr i8, ptr %20, i64 8
   br i1 %23, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
 

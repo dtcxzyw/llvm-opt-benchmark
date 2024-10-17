@@ -384,7 +384,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   store double %226, ptr %223, align 8, !tbaa !7
   store double %224, ptr %225, align 8, !tbaa !7
   %227 = add nuw nsw i64 %213, 4
-  %228 = icmp ugt i64 %227, %211
+  %228 = icmp samesign ugt i64 %227, %211
   br i1 %228, label %.loopexit57, label %212, !llvm.loop !14
 
 .loopexit57:                                      ; preds = %212, %207, %.loopexit58
@@ -506,7 +506,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 308:                                              ; preds = %302, %298, %287
   %309 = phi double [ %289, %287 ], [ %301, %298 ], [ %307, %302 ]
   %310 = add nuw nsw i64 %275, 4
-  %311 = icmp ugt i64 %310, %246
+  %311 = icmp samesign ugt i64 %310, %246
   br i1 %311, label %.loopexit56, label %274, !llvm.loop !16
 
 .loopexit56:                                      ; preds = %308, %.thread
@@ -537,7 +537,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %331 = fcmp oge double %328, %330
   %332 = select i1 %331, double %328, double %330
   %333 = add nuw nsw i64 %327, 4
-  %334 = icmp ugt i64 %333, %325
+  %334 = icmp samesign ugt i64 %333, %325
   br i1 %334, label %.loopexit55, label %326, !llvm.loop !17
 
 .loopexit55:                                      ; preds = %326, %.loopexit56
@@ -762,7 +762,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   store double %468, ptr %451, align 8, !tbaa !7
   store double %466, ptr %467, align 8, !tbaa !7
   %469 = add nuw nsw i64 %450, 4
-  %470 = icmp ugt i64 %469, %448
+  %470 = icmp samesign ugt i64 %469, %448
   br i1 %470, label %.loopexit50, label %449, !llvm.loop !21
 
 .loopexit50:                                      ; preds = %449, %440, %.loopexit51, %.loopexit52

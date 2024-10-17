@@ -3410,7 +3410,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter6importINS_18DesignatedInitExpr
   %27 = lshr i32 %26, 9
   %28 = and i32 %27, 65535
   %29 = icmp eq i32 %28, 65534
-  %30 = icmp ult i32 %28, 37
+  %30 = icmp samesign ult i32 %28, 37
   %.not10.i = or i1 %30, %29
   br i1 %.not10.i, label %31, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -3419,7 +3419,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter6importINS_18DesignatedInitExpr
   %33 = trunc i64 %32 to i32
   %34 = lshr i32 %33, 9
   %35 = and i32 %34, 65535
-  %36 = icmp ult i32 %35, 36
+  %36 = icmp samesign ult i32 %35, 36
   %37 = icmp eq i32 %35, 65534
   %or.cond.i12.not.i = or i1 %36, %37
   %38 = add nsw i32 %35, -36
@@ -3632,7 +3632,7 @@ define dso_local noundef ptr @_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInf
   %16 = lshr i32 %15, 9
   %17 = and i32 %16, 65535
   %18 = icmp eq i32 %17, 65534
-  %19 = icmp ult i32 %17, 37
+  %19 = icmp samesign ult i32 %17, 37
   %.not10 = or i1 %19, %18
   br i1 %.not10, label %20, label %35
 
@@ -3641,7 +3641,7 @@ define dso_local noundef ptr @_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInf
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 %22, 9
   %24 = and i32 %23, 65535
-  %25 = icmp ult i32 %24, 36
+  %25 = icmp samesign ult i32 %24, 36
   %26 = icmp eq i32 %24, 65534
   %or.cond.i12.not = or i1 %25, %26
   %27 = add nsw i32 %24, -36
@@ -11346,7 +11346,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %_ZNK5clang17Constan
   %75 = load i64, ptr %74, align 8, !noalias !490
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %73, ptr %76, align 8, !alias.scope !490
-  %77 = icmp ult i32 %73, 65
+  %77 = icmp samesign ult i32 %73, 65
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %71
@@ -15595,7 +15595,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter40VisitDependentTemplateSpecial
   %31 = lshr i32 %30, 9
   %32 = and i32 %31, 65535
   %33 = icmp eq i32 %32, 65534
-  %34 = icmp ult i32 %32, 37
+  %34 = icmp samesign ult i32 %32, 37
   %.not10.i = or i1 %34, %33
   br i1 %.not10.i, label %35, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -15604,7 +15604,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter40VisitDependentTemplateSpecial
   %37 = trunc i64 %36 to i32
   %38 = lshr i32 %37, 9
   %39 = and i32 %38, 65535
-  %40 = icmp ult i32 %39, 36
+  %40 = icmp samesign ult i32 %39, 36
   %41 = icmp eq i32 %39, 65534
   %or.cond.i12.not.i = or i1 %40, %41
   %42 = add nsw i32 %39, -36
@@ -15801,7 +15801,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter22VisitDependentNameTypeEPKNS_1
   %30 = lshr i32 %29, 9
   %31 = and i32 %30, 65535
   %32 = icmp eq i32 %31, 65534
-  %33 = icmp ult i32 %31, 37
+  %33 = icmp samesign ult i32 %31, 37
   %.not10.i = or i1 %33, %32
   br i1 %.not10.i, label %34, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -15810,7 +15810,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter22VisitDependentNameTypeEPKNS_1
   %36 = trunc i64 %35 to i32
   %37 = lshr i32 %36, 9
   %38 = and i32 %37, 65535
-  %39 = icmp ult i32 %38, 36
+  %39 = icmp samesign ult i32 %38, 36
   %40 = icmp eq i32 %38, 65534
   %or.cond.i12.not.i = or i1 %39, %40
   %41 = add nsw i32 %38, -36
@@ -16436,7 +16436,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %14
   %48 = lshr i32 %47, 9
   %49 = and i32 %48, 65535
   %50 = icmp eq i32 %49, 65534
-  %51 = icmp ult i32 %49, 37
+  %51 = icmp samesign ult i32 %49, 37
   %.not10.i = or i1 %51, %50
   br i1 %.not10.i, label %52, label %67
 
@@ -16445,7 +16445,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %14
   %54 = trunc i64 %53 to i32
   %55 = lshr i32 %54, 9
   %56 = and i32 %55, 65535
-  %57 = icmp ult i32 %56, 36
+  %57 = icmp samesign ult i32 %56, 36
   %58 = icmp eq i32 %56, 65534
   %or.cond.i12.not.i = or i1 %57, %58
   %59 = add nsw i32 %56, -36
@@ -23459,7 +23459,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_13NamespaceDeclEEET_RN4llvm5ErrorE
   %107 = lshr i32 %106, 9
   %108 = and i32 %107, 65535
   %109 = icmp eq i32 %108, 65534
-  %110 = icmp ult i32 %108, 37
+  %110 = icmp samesign ult i32 %108, 37
   %.not10.i = or i1 %110, %109
   br i1 %.not10.i, label %111, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -23468,7 +23468,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_13NamespaceDeclEEET_RN4llvm5ErrorE
   %113 = trunc i64 %112 to i32
   %114 = lshr i32 %113, 9
   %115 = and i32 %114, 65535
-  %116 = icmp ult i32 %115, 36
+  %116 = icmp samesign ult i32 %115, 36
   %117 = icmp eq i32 %115, 65534
   %or.cond.i12.not.i = or i1 %116, %117
   %118 = add nsw i32 %115, -36
@@ -28703,7 +28703,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127IsTypeDeclaredInsi
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
   %6 = tail call fastcc i16 @_ZN5clang11TypeVisitorIN12_GLOBAL__N_127IsTypeDeclaredInsideVisitorESt8optionalIbEE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %5)
-  %.not = icmp ult i16 %6, 256
+  %.not = icmp samesign ult i16 %6, 256
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
@@ -28724,7 +28724,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127IsTypeDeclaredInsi
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %15, align 16
   %17 = tail call fastcc i16 @_ZN5clang11TypeVisitorIN12_GLOBAL__N_127IsTypeDeclaredInsideVisitorESt8optionalIbEE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %16)
-  %.not15 = icmp ult i16 %17, 256
+  %.not15 = icmp samesign ult i16 %17, 256
   br i1 %.not15, label %20, label %18
 
 18:                                               ; preds = %.lr.ph
@@ -32806,7 +32806,7 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   br i1 %109, label %.split.us, label %110
 
 110:                                              ; preds = %.critedge.us
-  %111 = icmp ult i64 %indvars.iv, %37
+  %111 = icmp samesign ult i64 %indvars.iv, %37
   br i1 %111, label %112, label %.split140.us
 
 112:                                              ; preds = %110, %106, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.us, %.lr.ph.split.us
@@ -33694,7 +33694,7 @@ _ZN4llvm8ExpectedIPN5clang14TypeSourceInfoEED2Ev.exit: ; preds = %168
   %195 = load i32, ptr %182, align 8
   %196 = lshr i32 %195, 1
   %197 = zext nneg i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next, %197
   br i1 %198, label %199, label %._crit_edge161, !llvm.loop !2315
 
 199:                                              ; preds = %.lr.ph160, %191
@@ -44445,7 +44445,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %110 = lshr i32 %109, 9
   %111 = and i32 %110, 65535
   %112 = icmp eq i32 %111, 65534
-  %113 = icmp ult i32 %111, 37
+  %113 = icmp samesign ult i32 %111, 37
   %.not10.i = or i1 %113, %112
   br i1 %.not10.i, label %114, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -44454,7 +44454,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %116 = trunc i64 %115 to i32
   %117 = lshr i32 %116, 9
   %118 = and i32 %117, 65535
-  %119 = icmp ult i32 %118, 36
+  %119 = icmp samesign ult i32 %118, 36
   %120 = icmp eq i32 %118, 65534
   %or.cond.i12.not.i = or i1 %119, %120
   %121 = add nsw i32 %118, -36
@@ -46704,7 +46704,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   %70 = lshr i32 %69, 9
   %71 = and i32 %70, 65535
   %72 = icmp eq i32 %71, 65534
-  %73 = icmp ult i32 %71, 37
+  %73 = icmp samesign ult i32 %71, 37
   %.not10.i = or i1 %73, %72
   br i1 %.not10.i, label %74, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -46713,7 +46713,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   %76 = trunc i64 %75 to i32
   %77 = lshr i32 %76, 9
   %78 = and i32 %77, 65535
-  %79 = icmp ult i32 %78, 36
+  %79 = icmp samesign ult i32 %78, 36
   %80 = icmp eq i32 %78, 65534
   %or.cond.i12.not.i = or i1 %79, %80
   %81 = add nsw i32 %78, -36
@@ -49662,7 +49662,7 @@ _ZN4llvm8ExpectedIPN5clang38ClassTemplatePartialSpecializationDeclEED2Ev.exit296
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %507 = load i32, ptr %.0.i301, align 8
   %508 = zext i32 %507 to i64
-  %.not476 = icmp ult i64 %indvars.iv.next, %508
+  %.not476 = icmp samesign ult i64 %indvars.iv.next, %508
   br i1 %.not476, label %509, label %_ZN4llvm8ExpectedIPN5clang38ClassTemplatePartialSpecializationDeclEED2Ev.exit312.thread, !llvm.loop !3659
 
 509:                                              ; preds = %.lr.ph, %504
@@ -52311,7 +52311,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %51 = lshr i32 %50, 9
   %52 = and i32 %51, 65535
   %53 = icmp eq i32 %52, 65534
-  %54 = icmp ult i32 %52, 37
+  %54 = icmp samesign ult i32 %52, 37
   %.not10.i = or i1 %54, %53
   br i1 %.not10.i, label %55, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -52320,7 +52320,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %57 = trunc i64 %56 to i32
   %58 = lshr i32 %57, 9
   %59 = and i32 %58, 65535
-  %60 = icmp ult i32 %59, 36
+  %60 = icmp samesign ult i32 %59, 36
   %61 = icmp eq i32 %59, 65534
   %or.cond.i12.not.i = or i1 %60, %61
   %62 = add nsw i32 %59, -36
@@ -52401,7 +52401,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %104 = lshr i32 %103, 9
   %105 = and i32 %104, 65535
   %106 = icmp eq i32 %105, 65534
-  %107 = icmp ult i32 %105, 37
+  %107 = icmp samesign ult i32 %105, 37
   %.not10.i76 = or i1 %107, %106
   br i1 %.not10.i76, label %108, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit81
 
@@ -52410,7 +52410,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %110 = trunc i64 %109 to i32
   %111 = lshr i32 %110, 9
   %112 = and i32 %111, 65535
-  %113 = icmp ult i32 %112, 36
+  %113 = icmp samesign ult i32 %112, 36
   %114 = icmp eq i32 %112, 65534
   %or.cond.i12.not.i78 = or i1 %113, %114
   %115 = add nsw i32 %112, -36
@@ -65611,7 +65611,7 @@ _ZN5clang15ASTNodeImporter6importINS_9FieldDeclEEENSt11conditionalIXsr3stdE12is_
   %91 = lshr i32 %90, 9
   %92 = and i32 %91, 65535
   %93 = icmp eq i32 %92, 65534
-  %94 = icmp ult i32 %92, 37
+  %94 = icmp samesign ult i32 %92, 37
   %.not10.i = or i1 %94, %93
   br i1 %.not10.i, label %95, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -65620,7 +65620,7 @@ _ZN5clang15ASTNodeImporter6importINS_9FieldDeclEEENSt11conditionalIXsr3stdE12is_
   %97 = trunc i64 %96 to i32
   %98 = lshr i32 %97, 9
   %99 = and i32 %98, 65535
-  %100 = icmp ult i32 %99, 36
+  %100 = icmp samesign ult i32 %99, 36
   %101 = icmp eq i32 %99, 65534
   %or.cond.i12.not.i = or i1 %100, %101
   %102 = add nsw i32 %99, -36
@@ -70297,7 +70297,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %85 = lshr i32 %84, 9
   %86 = and i32 %85, 65535
   %87 = icmp eq i32 %86, 65534
-  %88 = icmp ult i32 %86, 37
+  %88 = icmp samesign ult i32 %86, 37
   %.not10.i = or i1 %88, %87
   br i1 %.not10.i, label %89, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -70306,7 +70306,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %91 = trunc i64 %90 to i32
   %92 = lshr i32 %91, 9
   %93 = and i32 %92, 65535
-  %94 = icmp ult i32 %93, 36
+  %94 = icmp samesign ult i32 %93, 36
   %95 = icmp eq i32 %93, 65534
   %or.cond.i12.not.i = or i1 %94, %95
   %96 = add nsw i32 %93, -36
@@ -77494,7 +77494,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %147 = lshr i32 %146, 9
   %148 = and i32 %147, 65535
   %149 = icmp eq i32 %148, 65534
-  %150 = icmp ult i32 %148, 37
+  %150 = icmp samesign ult i32 %148, 37
   %.not10.i.i = or i1 %150, %149
   br i1 %.not10.i.i, label %151, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i
 
@@ -77503,7 +77503,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %153 = trunc i64 %152 to i32
   %154 = lshr i32 %153, 9
   %155 = and i32 %154, 65535
-  %156 = icmp ult i32 %155, 36
+  %156 = icmp samesign ult i32 %155, 36
   %157 = icmp eq i32 %155, 65534
   %or.cond.i12.not.i.i = or i1 %156, %157
   %158 = add nsw i32 %155, -36
@@ -77544,7 +77544,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i: ; preds = %159, %15
   %181 = lshr i32 %180, 9
   %182 = and i32 %181, 65535
   %183 = icmp eq i32 %182, 65534
-  %184 = icmp ult i32 %182, 37
+  %184 = icmp samesign ult i32 %182, 37
   %.not10.i21.i = or i1 %184, %183
   br i1 %.not10.i21.i, label %185, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i
 
@@ -77553,7 +77553,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i: ; preds = %159, %15
   %187 = trunc i64 %186 to i32
   %188 = lshr i32 %187, 9
   %189 = and i32 %188, 65535
-  %190 = icmp ult i32 %189, 36
+  %190 = icmp samesign ult i32 %189, 36
   %191 = icmp eq i32 %189, 65534
   %or.cond.i12.not.i23.i = or i1 %190, %191
   %192 = add nsw i32 %189, -36
@@ -77737,7 +77737,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_14TypeSourceInfoEEET_RN4llvm5Error
   %275 = lshr i32 %274, 9
   %276 = and i32 %275, 65535
   %277 = icmp eq i32 %276, 65534
-  %278 = icmp ult i32 %276, 37
+  %278 = icmp samesign ult i32 %276, 37
   %.not10.i.i137 = or i1 %278, %277
   br i1 %.not10.i.i137, label %279, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i138
 
@@ -77746,7 +77746,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_14TypeSourceInfoEEET_RN4llvm5Error
   %281 = trunc i64 %280 to i32
   %282 = lshr i32 %281, 9
   %283 = and i32 %282, 65535
-  %284 = icmp ult i32 %283, 36
+  %284 = icmp samesign ult i32 %283, 36
   %285 = icmp eq i32 %283, 65534
   %or.cond.i12.not.i.i176 = or i1 %284, %285
   %286 = add nsw i32 %283, -36
@@ -77787,7 +77787,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i138: ; preds = %287, 
   %309 = lshr i32 %308, 9
   %310 = and i32 %309, 65535
   %311 = icmp eq i32 %310, 65534
-  %312 = icmp ult i32 %310, 37
+  %312 = icmp samesign ult i32 %310, 37
   %.not10.i21.i141 = or i1 %312, %311
   br i1 %.not10.i21.i141, label %313, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i142
 
@@ -77796,7 +77796,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i138: ; preds = %287, 
   %315 = trunc i64 %314 to i32
   %316 = lshr i32 %315, 9
   %317 = and i32 %316, 65535
-  %318 = icmp ult i32 %317, 36
+  %318 = icmp samesign ult i32 %317, 36
   %319 = icmp eq i32 %317, 65534
   %or.cond.i12.not.i23.i173 = or i1 %318, %319
   %320 = add nsw i32 %317, -36
@@ -77982,7 +77982,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %404 = lshr i32 %403, 9
   %405 = and i32 %404, 65535
   %406 = icmp eq i32 %405, 65534
-  %407 = icmp ult i32 %405, 37
+  %407 = icmp samesign ult i32 %405, 37
   %.not10.i.i180 = or i1 %407, %406
   br i1 %.not10.i.i180, label %408, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i181
 
@@ -77991,7 +77991,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %410 = trunc i64 %409 to i32
   %411 = lshr i32 %410, 9
   %412 = and i32 %411, 65535
-  %413 = icmp ult i32 %412, 36
+  %413 = icmp samesign ult i32 %412, 36
   %414 = icmp eq i32 %412, 65534
   %or.cond.i12.not.i.i206 = or i1 %413, %414
   %415 = add nsw i32 %412, -36
@@ -78032,7 +78032,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i181: ; preds = %416, 
   %438 = lshr i32 %437, 9
   %439 = and i32 %438, 65535
   %440 = icmp eq i32 %439, 65534
-  %441 = icmp ult i32 %439, 37
+  %441 = icmp samesign ult i32 %439, 37
   %.not10.i20.i = or i1 %441, %440
   br i1 %.not10.i20.i, label %442, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit25.i
 
@@ -78041,7 +78041,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i181: ; preds = %416, 
   %444 = trunc i64 %443 to i32
   %445 = lshr i32 %444, 9
   %446 = and i32 %445, 65535
-  %447 = icmp ult i32 %446, 36
+  %447 = icmp samesign ult i32 %446, 36
   %448 = icmp eq i32 %446, 65534
   %or.cond.i12.not.i22.i = or i1 %447, %448
   %449 = add nsw i32 %446, -36
@@ -78214,7 +78214,7 @@ _ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang14AlignValueAttrEJRKPNS2_4Exp
   %528 = lshr i32 %527, 9
   %529 = and i32 %528, 65535
   %530 = icmp eq i32 %529, 65534
-  %531 = icmp ult i32 %529, 37
+  %531 = icmp samesign ult i32 %529, 37
   %.not10.i = or i1 %531, %530
   br i1 %.not10.i, label %532, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -78223,7 +78223,7 @@ _ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang14AlignValueAttrEJRKPNS2_4Exp
   %534 = trunc i64 %533 to i32
   %535 = lshr i32 %534, 9
   %536 = and i32 %535, 65535
-  %537 = icmp ult i32 %536, 36
+  %537 = icmp samesign ult i32 %536, 36
   %538 = icmp eq i32 %536, 65534
   %or.cond.i12.not.i = or i1 %537, %538
   %539 = add nsw i32 %536, -36
@@ -78268,7 +78268,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %512, %515,
   %565 = lshr i32 %564, 9
   %566 = and i32 %565, 65535
   %567 = icmp eq i32 %566, 65534
-  %568 = icmp ult i32 %566, 37
+  %568 = icmp samesign ult i32 %566, 37
   %.not10.i.i211 = or i1 %568, %567
   br i1 %.not10.i.i211, label %569, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i212
 
@@ -78277,7 +78277,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %512, %515,
   %571 = trunc i64 %570 to i32
   %572 = lshr i32 %571, 9
   %573 = and i32 %572, 65535
-  %574 = icmp ult i32 %573, 36
+  %574 = icmp samesign ult i32 %573, 36
   %575 = icmp eq i32 %573, 65534
   %or.cond.i12.not.i.i238 = or i1 %574, %575
   %576 = add nsw i32 %573, -36
@@ -78318,7 +78318,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i212: ; preds = %577, 
   %599 = lshr i32 %598, 9
   %600 = and i32 %599, 65535
   %601 = icmp eq i32 %600, 65534
-  %602 = icmp ult i32 %600, 37
+  %602 = icmp samesign ult i32 %600, 37
   %.not10.i22.i = or i1 %602, %601
   br i1 %.not10.i22.i, label %603, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit27.i
 
@@ -78327,7 +78327,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i212: ; preds = %577, 
   %605 = trunc i64 %604 to i32
   %606 = lshr i32 %605, 9
   %607 = and i32 %606, 65535
-  %608 = icmp ult i32 %607, 36
+  %608 = icmp samesign ult i32 %607, 36
   %609 = icmp eq i32 %607, 65534
   %or.cond.i12.not.i24.i = or i1 %608, %609
   %610 = add nsw i32 %607, -36
@@ -78514,7 +78514,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %698 = lshr i32 %697, 9
   %699 = and i32 %698, 65535
   %700 = icmp eq i32 %699, 65534
-  %701 = icmp ult i32 %699, 37
+  %701 = icmp samesign ult i32 %699, 37
   %.not10.i.i242 = or i1 %701, %700
   br i1 %.not10.i.i242, label %702, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i243
 
@@ -78523,7 +78523,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %704 = trunc i64 %703 to i32
   %705 = lshr i32 %704, 9
   %706 = and i32 %705, 65535
-  %707 = icmp ult i32 %706, 36
+  %707 = icmp samesign ult i32 %706, 36
   %708 = icmp eq i32 %706, 65534
   %or.cond.i12.not.i.i272 = or i1 %707, %708
   %709 = add nsw i32 %706, -36
@@ -78564,7 +78564,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i243: ; preds = %710, 
   %732 = lshr i32 %731, 9
   %733 = and i32 %732, 65535
   %734 = icmp eq i32 %733, 65534
-  %735 = icmp ult i32 %733, 37
+  %735 = icmp samesign ult i32 %733, 37
   %.not10.i23.i = or i1 %735, %734
   br i1 %.not10.i23.i, label %736, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit28.i
 
@@ -78573,7 +78573,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i243: ; preds = %710, 
   %738 = trunc i64 %737 to i32
   %739 = lshr i32 %738, 9
   %740 = and i32 %739, 65535
-  %741 = icmp ult i32 %740, 36
+  %741 = icmp samesign ult i32 %740, 36
   %742 = icmp eq i32 %740, 65534
   %or.cond.i12.not.i25.i = or i1 %741, %742
   %743 = add nsw i32 %740, -36
@@ -78800,7 +78800,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %844 = lshr i32 %843, 9
   %845 = and i32 %844, 65535
   %846 = icmp eq i32 %845, 65534
-  %847 = icmp ult i32 %845, 37
+  %847 = icmp samesign ult i32 %845, 37
   %.not10.i.i276 = or i1 %847, %846
   br i1 %.not10.i.i276, label %848, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i277
 
@@ -78809,7 +78809,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %850 = trunc i64 %849 to i32
   %851 = lshr i32 %850, 9
   %852 = and i32 %851, 65535
-  %853 = icmp ult i32 %852, 36
+  %853 = icmp samesign ult i32 %852, 36
   %854 = icmp eq i32 %852, 65534
   %or.cond.i12.not.i.i313 = or i1 %853, %854
   %855 = add nsw i32 %852, -36
@@ -78850,7 +78850,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i277: ; preds = %856, 
   %878 = lshr i32 %877, 9
   %879 = and i32 %878, 65535
   %880 = icmp eq i32 %879, 65534
-  %881 = icmp ult i32 %879, 37
+  %881 = icmp samesign ult i32 %879, 37
   %.not10.i21.i280 = or i1 %881, %880
   br i1 %.not10.i21.i280, label %882, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i281
 
@@ -78859,7 +78859,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i277: ; preds = %856, 
   %884 = trunc i64 %883 to i32
   %885 = lshr i32 %884, 9
   %886 = and i32 %885, 65535
-  %887 = icmp ult i32 %886, 36
+  %887 = icmp samesign ult i32 %886, 36
   %888 = icmp eq i32 %886, 65534
   %or.cond.i12.not.i23.i310 = or i1 %887, %888
   %889 = add nsw i32 %886, -36
@@ -79093,7 +79093,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %994 = lshr i32 %993, 9
   %995 = and i32 %994, 65535
   %996 = icmp eq i32 %995, 65534
-  %997 = icmp ult i32 %995, 37
+  %997 = icmp samesign ult i32 %995, 37
   %.not10.i.i319 = or i1 %997, %996
   br i1 %.not10.i.i319, label %998, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i320
 
@@ -79102,7 +79102,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1000 = trunc i64 %999 to i32
   %1001 = lshr i32 %1000, 9
   %1002 = and i32 %1001, 65535
-  %1003 = icmp ult i32 %1002, 36
+  %1003 = icmp samesign ult i32 %1002, 36
   %1004 = icmp eq i32 %1002, 65534
   %or.cond.i12.not.i.i358 = or i1 %1003, %1004
   %1005 = add nsw i32 %1002, -36
@@ -79143,7 +79143,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i320: ; preds = %1006,
   %1028 = lshr i32 %1027, 9
   %1029 = and i32 %1028, 65535
   %1030 = icmp eq i32 %1029, 65534
-  %1031 = icmp ult i32 %1029, 37
+  %1031 = icmp samesign ult i32 %1029, 37
   %.not10.i21.i323 = or i1 %1031, %1030
   br i1 %.not10.i21.i323, label %1032, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i324
 
@@ -79152,7 +79152,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i320: ; preds = %1006,
   %1034 = trunc i64 %1033 to i32
   %1035 = lshr i32 %1034, 9
   %1036 = and i32 %1035, 65535
-  %1037 = icmp ult i32 %1036, 36
+  %1037 = icmp samesign ult i32 %1036, 36
   %1038 = icmp eq i32 %1036, 65534
   %or.cond.i12.not.i23.i355 = or i1 %1037, %1038
   %1039 = add nsw i32 %1036, -36
@@ -79403,7 +79403,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1151 = lshr i32 %1150, 9
   %1152 = and i32 %1151, 65535
   %1153 = icmp eq i32 %1152, 65534
-  %1154 = icmp ult i32 %1152, 37
+  %1154 = icmp samesign ult i32 %1152, 37
   %.not10.i.i365 = or i1 %1154, %1153
   br i1 %.not10.i.i365, label %1155, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i366
 
@@ -79412,7 +79412,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1157 = trunc i64 %1156 to i32
   %1158 = lshr i32 %1157, 9
   %1159 = and i32 %1158, 65535
-  %1160 = icmp ult i32 %1159, 36
+  %1160 = icmp samesign ult i32 %1159, 36
   %1161 = icmp eq i32 %1159, 65534
   %or.cond.i12.not.i.i404 = or i1 %1160, %1161
   %1162 = add nsw i32 %1159, -36
@@ -79453,7 +79453,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i366: ; preds = %1163,
   %1185 = lshr i32 %1184, 9
   %1186 = and i32 %1185, 65535
   %1187 = icmp eq i32 %1186, 65534
-  %1188 = icmp ult i32 %1186, 37
+  %1188 = icmp samesign ult i32 %1186, 37
   %.not10.i22.i369 = or i1 %1188, %1187
   br i1 %.not10.i22.i369, label %1189, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit27.i370
 
@@ -79462,7 +79462,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i366: ; preds = %1163,
   %1191 = trunc i64 %1190 to i32
   %1192 = lshr i32 %1191, 9
   %1193 = and i32 %1192, 65535
-  %1194 = icmp ult i32 %1193, 36
+  %1194 = icmp samesign ult i32 %1193, 36
   %1195 = icmp eq i32 %1193, 65534
   %or.cond.i12.not.i24.i401 = or i1 %1194, %1195
   %1196 = add nsw i32 %1193, -36
@@ -79696,7 +79696,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1301 = lshr i32 %1300, 9
   %1302 = and i32 %1301, 65535
   %1303 = icmp eq i32 %1302, 65534
-  %1304 = icmp ult i32 %1302, 37
+  %1304 = icmp samesign ult i32 %1302, 37
   %.not10.i.i411 = or i1 %1304, %1303
   br i1 %.not10.i.i411, label %1305, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i412
 
@@ -79705,7 +79705,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1307 = trunc i64 %1306 to i32
   %1308 = lshr i32 %1307, 9
   %1309 = and i32 %1308, 65535
-  %1310 = icmp ult i32 %1309, 36
+  %1310 = icmp samesign ult i32 %1309, 36
   %1311 = icmp eq i32 %1309, 65534
   %or.cond.i12.not.i.i450 = or i1 %1310, %1311
   %1312 = add nsw i32 %1309, -36
@@ -79746,7 +79746,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i412: ; preds = %1313,
   %1335 = lshr i32 %1334, 9
   %1336 = and i32 %1335, 65535
   %1337 = icmp eq i32 %1336, 65534
-  %1338 = icmp ult i32 %1336, 37
+  %1338 = icmp samesign ult i32 %1336, 37
   %.not10.i21.i415 = or i1 %1338, %1337
   br i1 %.not10.i21.i415, label %1339, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i416
 
@@ -79755,7 +79755,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i412: ; preds = %1313,
   %1341 = trunc i64 %1340 to i32
   %1342 = lshr i32 %1341, 9
   %1343 = and i32 %1342, 65535
-  %1344 = icmp ult i32 %1343, 36
+  %1344 = icmp samesign ult i32 %1343, 36
   %1345 = icmp eq i32 %1343, 65534
   %or.cond.i12.not.i23.i447 = or i1 %1344, %1345
   %1346 = add nsw i32 %1343, -36
@@ -79989,7 +79989,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1451 = lshr i32 %1450, 9
   %1452 = and i32 %1451, 65535
   %1453 = icmp eq i32 %1452, 65534
-  %1454 = icmp ult i32 %1452, 37
+  %1454 = icmp samesign ult i32 %1452, 37
   %.not10.i.i457 = or i1 %1454, %1453
   br i1 %.not10.i.i457, label %1455, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i458
 
@@ -79998,7 +79998,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1457 = trunc i64 %1456 to i32
   %1458 = lshr i32 %1457, 9
   %1459 = and i32 %1458, 65535
-  %1460 = icmp ult i32 %1459, 36
+  %1460 = icmp samesign ult i32 %1459, 36
   %1461 = icmp eq i32 %1459, 65534
   %or.cond.i12.not.i.i496 = or i1 %1460, %1461
   %1462 = add nsw i32 %1459, -36
@@ -80039,7 +80039,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i458: ; preds = %1463,
   %1485 = lshr i32 %1484, 9
   %1486 = and i32 %1485, 65535
   %1487 = icmp eq i32 %1486, 65534
-  %1488 = icmp ult i32 %1486, 37
+  %1488 = icmp samesign ult i32 %1486, 37
   %.not10.i21.i461 = or i1 %1488, %1487
   br i1 %.not10.i21.i461, label %1489, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i462
 
@@ -80048,7 +80048,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i458: ; preds = %1463,
   %1491 = trunc i64 %1490 to i32
   %1492 = lshr i32 %1491, 9
   %1493 = and i32 %1492, 65535
-  %1494 = icmp ult i32 %1493, 36
+  %1494 = icmp samesign ult i32 %1493, 36
   %1495 = icmp eq i32 %1493, 65534
   %or.cond.i12.not.i23.i493 = or i1 %1494, %1495
   %1496 = add nsw i32 %1493, -36
@@ -80241,7 +80241,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %1584 = lshr i32 %1583, 9
   %1585 = and i32 %1584, 65535
   %1586 = icmp eq i32 %1585, 65534
-  %1587 = icmp ult i32 %1585, 37
+  %1587 = icmp samesign ult i32 %1585, 37
   %.not10.i.i501 = or i1 %1587, %1586
   br i1 %.not10.i.i501, label %1588, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i502
 
@@ -80250,7 +80250,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %1590 = trunc i64 %1589 to i32
   %1591 = lshr i32 %1590, 9
   %1592 = and i32 %1591, 65535
-  %1593 = icmp ult i32 %1592, 36
+  %1593 = icmp samesign ult i32 %1592, 36
   %1594 = icmp eq i32 %1592, 65534
   %or.cond.i12.not.i.i540 = or i1 %1593, %1594
   %1595 = add nsw i32 %1592, -36
@@ -80291,7 +80291,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i502: ; preds = %1596,
   %1618 = lshr i32 %1617, 9
   %1619 = and i32 %1618, 65535
   %1620 = icmp eq i32 %1619, 65534
-  %1621 = icmp ult i32 %1619, 37
+  %1621 = icmp samesign ult i32 %1619, 37
   %.not10.i20.i505 = or i1 %1621, %1620
   br i1 %.not10.i20.i505, label %1622, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit25.i506
 
@@ -80300,7 +80300,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i502: ; preds = %1596,
   %1624 = trunc i64 %1623 to i32
   %1625 = lshr i32 %1624, 9
   %1626 = and i32 %1625, 65535
-  %1627 = icmp ult i32 %1626, 36
+  %1627 = icmp samesign ult i32 %1626, 36
   %1628 = icmp eq i32 %1626, 65534
   %or.cond.i12.not.i22.i537 = or i1 %1627, %1628
   %1629 = add nsw i32 %1626, -36
@@ -80486,7 +80486,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %1713 = lshr i32 %1712, 9
   %1714 = and i32 %1713, 65535
   %1715 = icmp eq i32 %1714, 65534
-  %1716 = icmp ult i32 %1714, 37
+  %1716 = icmp samesign ult i32 %1714, 37
   %.not10.i.i544 = or i1 %1716, %1715
   br i1 %.not10.i.i544, label %1717, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i545
 
@@ -80495,7 +80495,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %1719 = trunc i64 %1718 to i32
   %1720 = lshr i32 %1719, 9
   %1721 = and i32 %1720, 65535
-  %1722 = icmp ult i32 %1721, 36
+  %1722 = icmp samesign ult i32 %1721, 36
   %1723 = icmp eq i32 %1721, 65534
   %or.cond.i12.not.i.i583 = or i1 %1722, %1723
   %1724 = add nsw i32 %1721, -36
@@ -80536,7 +80536,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i545: ; preds = %1725,
   %1747 = lshr i32 %1746, 9
   %1748 = and i32 %1747, 65535
   %1749 = icmp eq i32 %1748, 65534
-  %1750 = icmp ult i32 %1748, 37
+  %1750 = icmp samesign ult i32 %1748, 37
   %.not10.i20.i548 = or i1 %1750, %1749
   br i1 %.not10.i20.i548, label %1751, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit25.i549
 
@@ -80545,7 +80545,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i545: ; preds = %1725,
   %1753 = trunc i64 %1752 to i32
   %1754 = lshr i32 %1753, 9
   %1755 = and i32 %1754, 65535
-  %1756 = icmp ult i32 %1755, 36
+  %1756 = icmp samesign ult i32 %1755, 36
   %1757 = icmp eq i32 %1755, 65534
   %or.cond.i12.not.i22.i580 = or i1 %1756, %1757
   %1758 = add nsw i32 %1755, -36
@@ -80772,7 +80772,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1859 = lshr i32 %1858, 9
   %1860 = and i32 %1859, 65535
   %1861 = icmp eq i32 %1860, 65534
-  %1862 = icmp ult i32 %1860, 37
+  %1862 = icmp samesign ult i32 %1860, 37
   %.not10.i.i589 = or i1 %1862, %1861
   br i1 %.not10.i.i589, label %1863, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i590
 
@@ -80781,7 +80781,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %1865 = trunc i64 %1864 to i32
   %1866 = lshr i32 %1865, 9
   %1867 = and i32 %1866, 65535
-  %1868 = icmp ult i32 %1867, 36
+  %1868 = icmp samesign ult i32 %1867, 36
   %1869 = icmp eq i32 %1867, 65534
   %or.cond.i12.not.i.i628 = or i1 %1868, %1869
   %1870 = add nsw i32 %1867, -36
@@ -80822,7 +80822,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i590: ; preds = %1871,
   %1893 = lshr i32 %1892, 9
   %1894 = and i32 %1893, 65535
   %1895 = icmp eq i32 %1894, 65534
-  %1896 = icmp ult i32 %1894, 37
+  %1896 = icmp samesign ult i32 %1894, 37
   %.not10.i21.i593 = or i1 %1896, %1895
   br i1 %.not10.i21.i593, label %1897, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i594
 
@@ -80831,7 +80831,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i590: ; preds = %1871,
   %1899 = trunc i64 %1898 to i32
   %1900 = lshr i32 %1899, 9
   %1901 = and i32 %1900, 65535
-  %1902 = icmp ult i32 %1901, 36
+  %1902 = icmp samesign ult i32 %1901, 36
   %1903 = icmp eq i32 %1901, 65534
   %or.cond.i12.not.i23.i625 = or i1 %1902, %1903
   %1904 = add nsw i32 %1901, -36
@@ -81065,7 +81065,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2009 = lshr i32 %2008, 9
   %2010 = and i32 %2009, 65535
   %2011 = icmp eq i32 %2010, 65534
-  %2012 = icmp ult i32 %2010, 37
+  %2012 = icmp samesign ult i32 %2010, 37
   %.not10.i.i635 = or i1 %2012, %2011
   br i1 %.not10.i.i635, label %2013, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i636
 
@@ -81074,7 +81074,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2015 = trunc i64 %2014 to i32
   %2016 = lshr i32 %2015, 9
   %2017 = and i32 %2016, 65535
-  %2018 = icmp ult i32 %2017, 36
+  %2018 = icmp samesign ult i32 %2017, 36
   %2019 = icmp eq i32 %2017, 65534
   %or.cond.i12.not.i.i674 = or i1 %2018, %2019
   %2020 = add nsw i32 %2017, -36
@@ -81115,7 +81115,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i636: ; preds = %2021,
   %2043 = lshr i32 %2042, 9
   %2044 = and i32 %2043, 65535
   %2045 = icmp eq i32 %2044, 65534
-  %2046 = icmp ult i32 %2044, 37
+  %2046 = icmp samesign ult i32 %2044, 37
   %.not10.i21.i639 = or i1 %2046, %2045
   br i1 %.not10.i21.i639, label %2047, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i640
 
@@ -81124,7 +81124,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i636: ; preds = %2021,
   %2049 = trunc i64 %2048 to i32
   %2050 = lshr i32 %2049, 9
   %2051 = and i32 %2050, 65535
-  %2052 = icmp ult i32 %2051, 36
+  %2052 = icmp samesign ult i32 %2051, 36
   %2053 = icmp eq i32 %2051, 65534
   %or.cond.i12.not.i23.i671 = or i1 %2052, %2053
   %2054 = add nsw i32 %2051, -36
@@ -81358,7 +81358,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2159 = lshr i32 %2158, 9
   %2160 = and i32 %2159, 65535
   %2161 = icmp eq i32 %2160, 65534
-  %2162 = icmp ult i32 %2160, 37
+  %2162 = icmp samesign ult i32 %2160, 37
   %.not10.i.i681 = or i1 %2162, %2161
   br i1 %.not10.i.i681, label %2163, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i682
 
@@ -81367,7 +81367,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2165 = trunc i64 %2164 to i32
   %2166 = lshr i32 %2165, 9
   %2167 = and i32 %2166, 65535
-  %2168 = icmp ult i32 %2167, 36
+  %2168 = icmp samesign ult i32 %2167, 36
   %2169 = icmp eq i32 %2167, 65534
   %or.cond.i12.not.i.i720 = or i1 %2168, %2169
   %2170 = add nsw i32 %2167, -36
@@ -81408,7 +81408,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i682: ; preds = %2171,
   %2193 = lshr i32 %2192, 9
   %2194 = and i32 %2193, 65535
   %2195 = icmp eq i32 %2194, 65534
-  %2196 = icmp ult i32 %2194, 37
+  %2196 = icmp samesign ult i32 %2194, 37
   %.not10.i21.i685 = or i1 %2196, %2195
   br i1 %.not10.i21.i685, label %2197, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i686
 
@@ -81417,7 +81417,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i682: ; preds = %2171,
   %2199 = trunc i64 %2198 to i32
   %2200 = lshr i32 %2199, 9
   %2201 = and i32 %2200, 65535
-  %2202 = icmp ult i32 %2201, 36
+  %2202 = icmp samesign ult i32 %2201, 36
   %2203 = icmp eq i32 %2201, 65534
   %or.cond.i12.not.i23.i717 = or i1 %2202, %2203
   %2204 = add nsw i32 %2201, -36
@@ -81651,7 +81651,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2309 = lshr i32 %2308, 9
   %2310 = and i32 %2309, 65535
   %2311 = icmp eq i32 %2310, 65534
-  %2312 = icmp ult i32 %2310, 37
+  %2312 = icmp samesign ult i32 %2310, 37
   %.not10.i.i727 = or i1 %2312, %2311
   br i1 %.not10.i.i727, label %2313, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i728
 
@@ -81660,7 +81660,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2315 = trunc i64 %2314 to i32
   %2316 = lshr i32 %2315, 9
   %2317 = and i32 %2316, 65535
-  %2318 = icmp ult i32 %2317, 36
+  %2318 = icmp samesign ult i32 %2317, 36
   %2319 = icmp eq i32 %2317, 65534
   %or.cond.i12.not.i.i766 = or i1 %2318, %2319
   %2320 = add nsw i32 %2317, -36
@@ -81701,7 +81701,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i728: ; preds = %2321,
   %2343 = lshr i32 %2342, 9
   %2344 = and i32 %2343, 65535
   %2345 = icmp eq i32 %2344, 65534
-  %2346 = icmp ult i32 %2344, 37
+  %2346 = icmp samesign ult i32 %2344, 37
   %.not10.i21.i731 = or i1 %2346, %2345
   br i1 %.not10.i21.i731, label %2347, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i732
 
@@ -81710,7 +81710,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i728: ; preds = %2321,
   %2349 = trunc i64 %2348 to i32
   %2350 = lshr i32 %2349, 9
   %2351 = and i32 %2350, 65535
-  %2352 = icmp ult i32 %2351, 36
+  %2352 = icmp samesign ult i32 %2351, 36
   %2353 = icmp eq i32 %2351, 65534
   %or.cond.i12.not.i23.i763 = or i1 %2352, %2353
   %2354 = add nsw i32 %2351, -36
@@ -81961,7 +81961,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2466 = lshr i32 %2465, 9
   %2467 = and i32 %2466, 65535
   %2468 = icmp eq i32 %2467, 65534
-  %2469 = icmp ult i32 %2467, 37
+  %2469 = icmp samesign ult i32 %2467, 37
   %.not10.i.i773 = or i1 %2469, %2468
   br i1 %.not10.i.i773, label %2470, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i774
 
@@ -81970,7 +81970,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2472 = trunc i64 %2471 to i32
   %2473 = lshr i32 %2472, 9
   %2474 = and i32 %2473, 65535
-  %2475 = icmp ult i32 %2474, 36
+  %2475 = icmp samesign ult i32 %2474, 36
   %2476 = icmp eq i32 %2474, 65534
   %or.cond.i12.not.i.i812 = or i1 %2475, %2476
   %2477 = add nsw i32 %2474, -36
@@ -82011,7 +82011,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i774: ; preds = %2478,
   %2500 = lshr i32 %2499, 9
   %2501 = and i32 %2500, 65535
   %2502 = icmp eq i32 %2501, 65534
-  %2503 = icmp ult i32 %2501, 37
+  %2503 = icmp samesign ult i32 %2501, 37
   %.not10.i22.i777 = or i1 %2503, %2502
   br i1 %.not10.i22.i777, label %2504, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit27.i778
 
@@ -82020,7 +82020,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i774: ; preds = %2478,
   %2506 = trunc i64 %2505 to i32
   %2507 = lshr i32 %2506, 9
   %2508 = and i32 %2507, 65535
-  %2509 = icmp ult i32 %2508, 36
+  %2509 = icmp samesign ult i32 %2508, 36
   %2510 = icmp eq i32 %2508, 65534
   %or.cond.i12.not.i24.i809 = or i1 %2509, %2510
   %2511 = add nsw i32 %2508, -36
@@ -82271,7 +82271,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2623 = lshr i32 %2622, 9
   %2624 = and i32 %2623, 65535
   %2625 = icmp eq i32 %2624, 65534
-  %2626 = icmp ult i32 %2624, 37
+  %2626 = icmp samesign ult i32 %2624, 37
   %.not10.i.i819 = or i1 %2626, %2625
   br i1 %.not10.i.i819, label %2627, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i820
 
@@ -82280,7 +82280,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2629 = trunc i64 %2628 to i32
   %2630 = lshr i32 %2629, 9
   %2631 = and i32 %2630, 65535
-  %2632 = icmp ult i32 %2631, 36
+  %2632 = icmp samesign ult i32 %2631, 36
   %2633 = icmp eq i32 %2631, 65534
   %or.cond.i12.not.i.i858 = or i1 %2632, %2633
   %2634 = add nsw i32 %2631, -36
@@ -82321,7 +82321,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i820: ; preds = %2635,
   %2657 = lshr i32 %2656, 9
   %2658 = and i32 %2657, 65535
   %2659 = icmp eq i32 %2658, 65534
-  %2660 = icmp ult i32 %2658, 37
+  %2660 = icmp samesign ult i32 %2658, 37
   %.not10.i22.i823 = or i1 %2660, %2659
   br i1 %.not10.i22.i823, label %2661, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit27.i824
 
@@ -82330,7 +82330,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i820: ; preds = %2635,
   %2663 = trunc i64 %2662 to i32
   %2664 = lshr i32 %2663, 9
   %2665 = and i32 %2664, 65535
-  %2666 = icmp ult i32 %2665, 36
+  %2666 = icmp samesign ult i32 %2665, 36
   %2667 = icmp eq i32 %2665, 65534
   %or.cond.i12.not.i24.i855 = or i1 %2666, %2667
   %2668 = add nsw i32 %2665, -36
@@ -82523,7 +82523,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %2756 = lshr i32 %2755, 9
   %2757 = and i32 %2756, 65535
   %2758 = icmp eq i32 %2757, 65534
-  %2759 = icmp ult i32 %2757, 37
+  %2759 = icmp samesign ult i32 %2757, 37
   %.not10.i.i863 = or i1 %2759, %2758
   br i1 %.not10.i.i863, label %2760, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i864
 
@@ -82532,7 +82532,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %2762 = trunc i64 %2761 to i32
   %2763 = lshr i32 %2762, 9
   %2764 = and i32 %2763, 65535
-  %2765 = icmp ult i32 %2764, 36
+  %2765 = icmp samesign ult i32 %2764, 36
   %2766 = icmp eq i32 %2764, 65534
   %or.cond.i12.not.i.i902 = or i1 %2765, %2766
   %2767 = add nsw i32 %2764, -36
@@ -82573,7 +82573,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i864: ; preds = %2768,
   %2790 = lshr i32 %2789, 9
   %2791 = and i32 %2790, 65535
   %2792 = icmp eq i32 %2791, 65534
-  %2793 = icmp ult i32 %2791, 37
+  %2793 = icmp samesign ult i32 %2791, 37
   %.not10.i20.i867 = or i1 %2793, %2792
   br i1 %.not10.i20.i867, label %2794, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit25.i868
 
@@ -82582,7 +82582,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i864: ; preds = %2768,
   %2796 = trunc i64 %2795 to i32
   %2797 = lshr i32 %2796, 9
   %2798 = and i32 %2797, 65535
-  %2799 = icmp ult i32 %2798, 36
+  %2799 = icmp samesign ult i32 %2798, 36
   %2800 = icmp eq i32 %2798, 65534
   %or.cond.i12.not.i22.i899 = or i1 %2799, %2800
   %2801 = add nsw i32 %2798, -36
@@ -82809,7 +82809,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2902 = lshr i32 %2901, 9
   %2903 = and i32 %2902, 65535
   %2904 = icmp eq i32 %2903, 65534
-  %2905 = icmp ult i32 %2903, 37
+  %2905 = icmp samesign ult i32 %2903, 37
   %.not10.i.i908 = or i1 %2905, %2904
   br i1 %.not10.i.i908, label %2906, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i909
 
@@ -82818,7 +82818,7 @@ _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporter
   %2908 = trunc i64 %2907 to i32
   %2909 = lshr i32 %2908, 9
   %2910 = and i32 %2909, 65535
-  %2911 = icmp ult i32 %2910, 36
+  %2911 = icmp samesign ult i32 %2910, 36
   %2912 = icmp eq i32 %2910, 65534
   %or.cond.i12.not.i.i947 = or i1 %2911, %2912
   %2913 = add nsw i32 %2910, -36
@@ -82859,7 +82859,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i909: ; preds = %2914,
   %2936 = lshr i32 %2935, 9
   %2937 = and i32 %2936, 65535
   %2938 = icmp eq i32 %2937, 65534
-  %2939 = icmp ult i32 %2937, 37
+  %2939 = icmp samesign ult i32 %2937, 37
   %.not10.i21.i912 = or i1 %2939, %2938
   br i1 %.not10.i21.i912, label %2940, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit26.i913
 
@@ -82868,7 +82868,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i909: ; preds = %2914,
   %2942 = trunc i64 %2941 to i32
   %2943 = lshr i32 %2942, 9
   %2944 = and i32 %2943, 65535
-  %2945 = icmp ult i32 %2944, 36
+  %2945 = icmp samesign ult i32 %2944, 36
   %2946 = icmp eq i32 %2944, 65534
   %or.cond.i12.not.i23.i944 = or i1 %2945, %2946
   %2947 = add nsw i32 %2944, -36
@@ -83105,7 +83105,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_11SourceRangeEEET_RN4llvm5ErrorERKS
   %3048 = lshr i32 %3047, 9
   %3049 = and i32 %3048, 65535
   %3050 = icmp eq i32 %3049, 65534
-  %3051 = icmp ult i32 %3049, 37
+  %3051 = icmp samesign ult i32 %3049, 37
   %.not10.i.i965 = or i1 %3051, %3050
   br i1 %.not10.i.i965, label %3052, label %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit.thread
 
@@ -83114,7 +83114,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_11SourceRangeEEET_RN4llvm5ErrorERKS
   %3054 = trunc i64 %3053 to i32
   %3055 = lshr i32 %3054, 9
   %3056 = and i32 %3055, 65535
-  %3057 = icmp ult i32 %3056, 36
+  %3057 = icmp samesign ult i32 %3056, 36
   %3058 = icmp eq i32 %3056, 65534
   %or.cond.i12.not.i.i968 = or i1 %3057, %3058
   %3059 = add nsw i32 %3056, -36
@@ -85352,7 +85352,7 @@ _ZN5clang11ASTImporter10importIntoIPNS_19NestedNameSpecifierEEEN4llvm5ErrorERT_R
   %43 = lshr i32 %42, 9
   %44 = and i32 %43, 65535
   %45 = icmp eq i32 %44, 65534
-  %46 = icmp ult i32 %44, 37
+  %46 = icmp samesign ult i32 %44, 37
   %.not10.i = or i1 %46, %45
   br i1 %.not10.i, label %47, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -85361,7 +85361,7 @@ _ZN5clang11ASTImporter10importIntoIPNS_19NestedNameSpecifierEEEN4llvm5ErrorERT_R
   %49 = trunc i64 %48 to i32
   %50 = lshr i32 %49, 9
   %51 = and i32 %50, 65535
-  %52 = icmp ult i32 %51, 36
+  %52 = icmp samesign ult i32 %51, 36
   %53 = icmp eq i32 %51, 65534
   %or.cond.i12.not.i = or i1 %52, %53
   %54 = add nsw i32 %51, -36
@@ -86307,7 +86307,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i59: ;
   %161 = lshr i32 %160, 9
   %162 = and i32 %161, 65535
   %163 = icmp eq i32 %162, 65534
-  %164 = icmp ult i32 %162, 37
+  %164 = icmp samesign ult i32 %162, 37
   %.not10.i = or i1 %164, %163
   br i1 %.not10.i, label %165, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -86316,7 +86316,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i59: ;
   %167 = trunc i64 %166 to i32
   %168 = lshr i32 %167, 9
   %169 = and i32 %168, 65535
-  %170 = icmp ult i32 %169, 36
+  %170 = icmp samesign ult i32 %169, 36
   %171 = icmp eq i32 %169, 65534
   %or.cond.i12.not.i = or i1 %170, %171
   %172 = add nsw i32 %169, -36
@@ -86620,7 +86620,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %13, %16
   %39 = lshr i32 %38, 9
   %40 = and i32 %39, 65535
   %41 = icmp eq i32 %40, 65534
-  %42 = icmp ult i32 %40, 37
+  %42 = icmp samesign ult i32 %40, 37
   %.not10.i = or i1 %42, %41
   br i1 %.not10.i, label %43, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -86629,7 +86629,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %13, %16
   %45 = trunc i64 %44 to i32
   %46 = lshr i32 %45, 9
   %47 = and i32 %46, 65535
-  %48 = icmp ult i32 %47, 36
+  %48 = icmp samesign ult i32 %47, 36
   %49 = icmp eq i32 %47, 65534
   %or.cond.i12.not.i = or i1 %48, %49
   %50 = add nsw i32 %47, -36
@@ -87064,7 +87064,7 @@ _ZNK5clang15DeclarationName23getCXXLiteralIdentifierEv.exit: ; preds = %_ZNK5cla
   %277 = lshr i32 %276, 9
   %278 = and i32 %277, 65535
   %279 = icmp eq i32 %278, 65534
-  %280 = icmp ult i32 %278, 37
+  %280 = icmp samesign ult i32 %278, 37
   %.not10.i58 = or i1 %280, %279
   br i1 %.not10.i58, label %281, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit63
 
@@ -87073,7 +87073,7 @@ _ZNK5clang15DeclarationName23getCXXLiteralIdentifierEv.exit: ; preds = %_ZNK5cla
   %283 = trunc i64 %282 to i32
   %284 = lshr i32 %283, 9
   %285 = and i32 %284, 65535
-  %286 = icmp ult i32 %285, 36
+  %286 = icmp samesign ult i32 %285, 36
   %287 = icmp eq i32 %285, 65534
   %or.cond.i12.not.i60 = or i1 %286, %287
   %288 = add nsw i32 %285, -36
@@ -87185,7 +87185,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -87209,7 +87209,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -87431,7 +87431,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %96,
   %.0.i.i.i.i.i = phi ptr [ %95, %93 ], [ %97, %96 ]
   %98 = load i32, ptr %.0.i.i.i.i.i, align 8
   %99 = and i32 %98, 2147483647
-  %100 = icmp ult i32 %90, %99
+  %100 = icmp samesign ult i32 %90, %99
   br i1 %100, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %101
 
 101:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -87455,7 +87455,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %10
   %112 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %45, i32 noundef %92, ptr noundef null)
   %113 = load i32, ptr %112, align 8
   %114 = and i32 %113, 2147483647
-  %115 = icmp ult i32 %90, %114
+  %115 = icmp samesign ult i32 %90, %114
   br i1 %115, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %108, %101
@@ -89838,7 +89838,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportENS_8SelectorE(ptr dead_on_u
   %27 = lshr i32 %26, 9
   %28 = and i32 %27, 65535
   %29 = icmp eq i32 %28, 65534
-  %30 = icmp ult i32 %28, 37
+  %30 = icmp samesign ult i32 %28, 37
   %.not10.i = or i1 %30, %29
   br i1 %.not10.i, label %31, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
@@ -89847,7 +89847,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportENS_8SelectorE(ptr dead_on_u
   %33 = trunc i64 %32 to i32
   %34 = lshr i32 %33, 9
   %35 = and i32 %34, 65535
-  %36 = icmp ult i32 %35, 36
+  %36 = icmp samesign ult i32 %35, 36
   %37 = icmp eq i32 %35, 65534
   %or.cond.i12.not.i = or i1 %36, %37
   %38 = add nsw i32 %35, -36
@@ -89915,7 +89915,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   %73 = lshr i32 %72, 9
   %74 = and i32 %73, 65535
   %75 = icmp eq i32 %74, 65534
-  %76 = icmp ult i32 %74, 37
+  %76 = icmp samesign ult i32 %74, 37
   %.not10.i5 = or i1 %76, %75
   br i1 %.not10.i5, label %77, label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit10
 
@@ -89924,7 +89924,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   %79 = trunc i64 %78 to i32
   %80 = lshr i32 %79, 9
   %81 = and i32 %80, 65535
-  %82 = icmp ult i32 %81, 36
+  %82 = icmp samesign ult i32 %81, 36
   %83 = icmp eq i32 %81, 65534
   %or.cond.i12.not.i7 = or i1 %82, %83
   %84 = add nsw i32 %81, -36

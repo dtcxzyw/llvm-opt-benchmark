@@ -1061,7 +1061,7 @@ define void @Llb_Nonlin4CreateOrder_rec(ptr noundef %0, ptr nocapture noundef %1
   %26 = lshr i64 %25, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 16777215
-  %29 = icmp ugt i32 %23, %28
+  %29 = icmp samesign ugt i32 %23, %28
   %. = select i1 %29, ptr %14, ptr %18
   %.52 = select i1 %29, ptr %18, ptr %14
   tail call void @Llb_Nonlin4CreateOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef %2, ptr noundef %3)

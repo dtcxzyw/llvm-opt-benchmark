@@ -846,7 +846,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   %arrayidx = getelementptr inbounds i32, ptr %out, i64 %indvars.iv
   store i32 %retval.0.i, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %3
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %3
   %cmp1 = icmp slt i32 %operands.sroa.2.7, %operands.sroa.10.8.extract.trunc
   %18 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %18, label %stbtt__buf_get8.exit.i, label %for.end, !llvm.loop !9
@@ -6570,7 +6570,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @stbtt__csctx_rline_to(ptr noundef %c, float noundef %13, float noundef %14)
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 2
   %15 = or disjoint i64 %indvars.iv.next599, 1
-  %cmp38 = icmp ult i64 %15, %11
+  %cmp38 = icmp samesign ult i64 %15, %11
   br i1 %cmp38, label %for.body, label %sw.epilog447, !llvm.loop !21
 
 sw.bb46:                                          ; preds = %stbtt__buf_get8.exit
@@ -6853,7 +6853,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   tail call void @stbtt__csctx_rline_to(ptr noundef %c, float noundef %66, float noundef %67)
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 2
   %68 = or disjoint i64 %indvars.iv.next573, 1
-  %cmp212 = icmp ult i64 %68, %64
+  %cmp212 = icmp samesign ult i64 %68, %64
   br i1 %cmp212, label %for.body214, label %for.end222, !llvm.loop !24
 
 for.end222:                                       ; preds = %for.body214
@@ -16784,7 +16784,7 @@ if.else261:                                       ; preds = %lor.lhs.false
   %cond281 = select i1 %cmp279, i32 -1, i32 1
   %add282 = select i1 %or.cond, i32 %cond281, i32 0
   %winding.2 = add nsw i32 %add282, %winding.0148
-  %cmp285 = icmp ugt i32 %call268, 1
+  %cmp285 = icmp samesign ugt i32 %call268, 1
   %16 = load float, ptr %arrayidx288, align 8
   %cmp290 = fcmp olt float %16, 0.000000e+00
   %or.cond1 = select i1 %cmp285, i1 %cmp290, i1 false
@@ -17751,7 +17751,7 @@ while.body:                                       ; preds = %entry, %if.end165
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %add = or disjoint i32 %mul, %conv2
-  %cmp = icmp ult i32 %add, 128
+  %cmp = icmp samesign ult i32 %add, 128
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
@@ -18226,7 +18226,7 @@ if.then44:                                        ; preds = %lor.lhs.false, %if.
 
 if.then62:                                        ; preds = %if.then44
   %20 = add nuw nsw i64 %indvars.iv, 1
-  %cmp64 = icmp ult i64 %20, %4
+  %cmp64 = icmp samesign ult i64 %20, %4
   br i1 %cmp64, label %land.lhs.true66, label %if.else138
 
 land.lhs.true66:                                  ; preds = %if.then62

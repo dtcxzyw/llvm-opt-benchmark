@@ -165,7 +165,7 @@ for.body.preheader:                               ; preds = %if.end14
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %cmp22 = icmp ult i64 %indvars.iv, %1
+  %cmp22 = icmp samesign ult i64 %indvars.iv, %1
   %add = zext i1 %cmp22 to i32
   %cond = add nuw nsw i32 %div, %add
   %arrayidx = getelementptr inbounds [5 x i32], ptr %bitsr, i64 0, i64 %indvars.iv

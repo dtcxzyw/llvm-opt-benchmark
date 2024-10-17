@@ -2743,7 +2743,7 @@ define internal zeroext i16 @de_bssgp_pfcs_to_be_set_up_list(ptr noundef %0, ptr
   %20 = add i32 %4, -1
   %21 = udiv i32 %20, %9
   %22 = and i32 %21, 255
-  %23 = icmp ugt i32 %22, 17
+  %23 = icmp samesign ugt i32 %22, 17
   %.not = icmp eq i32 %22, 18
   br label %24
 

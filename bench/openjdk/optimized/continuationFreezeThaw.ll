@@ -2155,7 +2155,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_fr
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %45, %47
   %.0.i = phi i32 [ %46, %45 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %49 = icmp ugt i32 %.0.i, 1
+  %49 = icmp samesign ugt i32 %.0.i, 1
   br i1 %49, label %152, label %50
 
 50:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
@@ -2446,7 +2446,7 @@ _ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit: ; preds = %39, %_ZNK5
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper16InterpretedFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %63, %65
   %.0.i = phi i32 [ %64, %63 ], [ %72, %65 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %73 = icmp ugt i32 %.0.i, 1
+  %73 = icmp samesign ugt i32 %.0.i, 1
   br i1 %73, label %171, label %74
 
 74:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper16InterpretedFrameEEE13freeze_resultRK5frameRS4_ii.exit
@@ -2763,7 +2763,7 @@ _ZNK5frame7oop_mapEv.exit24:                      ; preds = %68, %72
 
 _ZNK5frame7oop_mapEv.exit24.thread:               ; preds = %_ZNK5frame7oop_mapEv.exit, %_ZNK5frame7oop_mapEv.exit24.thread28, %_ZNK5frame7oop_mapEv.exit24
   %89 = call noundef i32 @_ZN10FreezeBase29recurse_freeze_compiled_frameER5frameS1_ib(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 0, i1 noundef zeroext false)
-  %90 = icmp ugt i32 %89, 1
+  %90 = icmp samesign ugt i32 %89, 1
   br i1 %90, label %_ZNK5frame7oop_mapEv.exit24.thread26, label %91
 
 91:                                               ; preds = %_ZNK5frame7oop_mapEv.exit24.thread

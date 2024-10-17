@@ -167,7 +167,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %40 = load i16, ptr %37, align 2
   %41 = icmp ult i16 %40, 4
   %42 = zext i16 %40 to i32
-  %.not = icmp ult i32 %38, %42
+  %.not = icmp samesign ult i32 %38, %42
   %or.cond = or i1 %41, %.not
   br i1 %or.cond, label %.critedge.loopexit, label %43
 
@@ -183,7 +183,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %50 = load i16, ptr %22, align 2
   %51 = zext i16 %50 to i32
   %52 = zext i16 %50 to i64
-  %53 = icmp ult i64 %39, %52
+  %53 = icmp samesign ult i64 %39, %52
   br i1 %53, label %54, label %.thread27
 
 54:                                               ; preds = %49
@@ -223,7 +223,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %80 = load i32, ptr %63, align 4
   %81 = icmp ult i32 %80, %51
   %82 = zext i32 %80 to i64
-  %83 = icmp ult i64 %39, %82
+  %83 = icmp samesign ult i64 %39, %82
   %84 = and i1 %81, %83
   br i1 %84, label %85, label %.thread27
 
@@ -469,7 +469,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %215 = phi i16 [ %.pre, %210 ], [ %190, %.preheader ]
   %216 = add nuw nsw i64 %191, 1
   %217 = zext i16 %215 to i64
-  %218 = icmp ult i64 %216, %217
+  %218 = icmp samesign ult i64 %216, %217
   br i1 %218, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %214
@@ -549,7 +549,7 @@ define dso_local void @tcf_em_tree_destroy(ptr nocapture noundef %0) #0 align 16
   %33 = phi i16 [ %.pre, %28 ], [ %8, %.preheader ]
   %34 = add nuw nsw i64 %9, 1
   %35 = zext i16 %33 to i64
-  %36 = icmp ult i64 %34, %35
+  %36 = icmp samesign ult i64 %34, %35
   br i1 %36, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %32
@@ -715,7 +715,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %94 = load i16, ptr %1, align 8
   %95 = zext i16 %94 to i64
-  %96 = icmp ult i64 %53, %95
+  %96 = icmp samesign ult i64 %53, %95
   br i1 %96, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %85

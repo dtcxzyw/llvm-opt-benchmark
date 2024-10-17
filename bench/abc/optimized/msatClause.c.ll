@@ -530,13 +530,13 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
   %20 = getelementptr inbounds i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 131064
-  %23 = icmp ugt i32 %22, 16
+  %23 = icmp samesign ugt i32 %22, 16
   br i1 %23, label %.preheader, label %.sink.split
 
 .preheader:                                       ; preds = %19
   %24 = lshr i32 %21, 3
   %25 = and i32 %24, 16383
-  %26 = icmp ugt i32 %25, 2
+  %26 = icmp samesign ugt i32 %25, 2
   br i1 %26, label %.lr.ph.preheader, label %.sink.split
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -624,7 +624,7 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr nocapture noundef %0, ptr no
   %24 = lshr i32 %23, 3
   %25 = and i32 %24, 16383
   %26 = zext nneg i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %22
@@ -661,7 +661,7 @@ define void @Msat_ClauseCalcReason(ptr noundef %0, ptr noundef %1, i32 noundef %
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 3
   %10 = and i32 %9, 16383
-  %11 = icmp ugt i32 %10, %6
+  %11 = icmp samesign ugt i32 %10, %6
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -680,7 +680,7 @@ define void @Msat_ClauseCalcReason(ptr noundef %0, ptr noundef %1, i32 noundef %
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16383
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14, %4
@@ -760,7 +760,7 @@ define void @Msat_ClausePrint(ptr noundef readonly %0) local_unnamed_addr #8 {
   %30 = lshr i32 %29, 3
   %31 = and i32 %30, 16383
   %32 = zext nneg i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %21, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %21, %17, %3
@@ -800,7 +800,7 @@ define void @Msat_ClauseWriteDimacs(ptr nocapture noundef %0, ptr nocapture noun
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16383
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %3
@@ -854,7 +854,7 @@ define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr
   %18 = lshr i32 %17, 3
   %19 = and i32 %18, 16383
   %20 = zext nneg i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %9, %.preheader, %7

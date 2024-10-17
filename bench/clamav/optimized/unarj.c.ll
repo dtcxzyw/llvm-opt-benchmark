@@ -1420,7 +1420,7 @@ fill_buf.exit184.thread.i:                        ; preds = %fmap_need_off_once_
 302:                                              ; preds = %305, %.preheader84.i.i.i
   %.1.i.i.i = phi i16 [ %.2.i.i.i, %305 ], [ %299, %.preheader84.i.i.i ]
   %.0.i.i.i = phi i32 [ %310, %305 ], [ 128, %.preheader84.i.i.i ]
-  %303 = icmp ugt i16 %.1.i.i.i, 1018
+  %303 = icmp samesign ugt i16 %.1.i.i.i, 1018
   br i1 %303, label %304, label %305
 
 304:                                              ; preds = %302
@@ -2018,7 +2018,7 @@ fmap_need_off_once_len.exit.i102.i:               ; preds = %544
 decode_c.exit.i:                                  ; preds = %._crit_edge.i87.i, %.loopexit.i101.i, %501, %.loopexit.i.i
   %571 = phi i1 [ false, %._crit_edge.i87.i ], [ true, %.loopexit.i101.i ], [ false, %501 ], [ true, %.loopexit.i.i ]
   %572 = phi i16 [ %570, %._crit_edge.i87.i ], [ %540, %.loopexit.i101.i ], [ %477, %501 ], [ %477, %.loopexit.i.i ]
-  %573 = icmp ult i16 %.024.i.i, 256
+  %573 = icmp samesign ult i16 %.024.i.i, 256
   br i1 %573, label %574, label %588
 
 574:                                              ; preds = %decode_c.exit.i, %decode_c.exit.thread.i
@@ -2452,7 +2452,7 @@ decode_p.exit.i:                                  ; preds = %fill_buf.exit259.i,
   %783 = trunc nuw i64 %indvars.iv.i to i16
   %784 = icmp slt i16 %783, 26623
   %or.cond7.i = and i1 %784, %782
-  %785 = icmp ult i64 %indvars.iv493.i, 26623
+  %785 = icmp samesign ult i64 %indvars.iv493.i, 26623
   %or.cond9.i = and i1 %785, %or.cond7.i
   br i1 %or.cond9.i, label %.lr.ph432.i, label %.critedge.loopexit.i
 
@@ -2890,7 +2890,7 @@ fill_buf.exit159:                                 ; preds = %93, %fmap_need_off_
   %.03950.i = phi i16 [ %.03954.i, %122 ], [ 7, %118 ]
   %.03847.i = phi i16 [ %.03855.i, %122 ], [ %119, %118 ]
   %123 = zext nneg i16 %.03950.i to i32
-  %.not68.i = icmp ugt i16 %113, %.03950.i
+  %.not68.i = icmp samesign ugt i16 %113, %.03950.i
   br i1 %.not68.i, label %.lr.ph.i, label %124
 
 124:                                              ; preds = %.thread.i
@@ -2905,13 +2905,13 @@ fill_buf.exit159:                                 ; preds = %93, %fmap_need_off_
 
 132:                                              ; preds = %124
   %133 = zext i16 %.sroa.83242.4 to i64
-  %134 = icmp ult i16 %113, 17
+  %134 = icmp samesign ult i16 %113, 17
   %135 = sub nsw i32 15, %126
   %136 = shl nuw nsw i32 2, %135
   %137 = zext nneg i32 %136 to i64
   %138 = select i1 %134, i64 %137, i64 0
   %139 = mul nuw nsw i64 %138, %133
-  %140 = icmp ugt i64 %139, 4294967295
+  %140 = icmp samesign ugt i64 %139, 4294967295
   br i1 %140, label %.lr.ph.i, label %141
 
 141:                                              ; preds = %132
@@ -3394,7 +3394,7 @@ fill_buf.exit209:                                 ; preds = %322, %fmap_need_off
   %.039.lcssa43.i = phi i16 [ 13, %347 ], [ %.03944.i, %fill_buf.exit209 ]
   %.038.lcssa.i = phi i16 [ %348, %347 ], [ %.03845.i, %fill_buf.exit209 ]
   %352 = zext nneg i16 %.039.lcssa43.i to i32
-  %.not.i80 = icmp ugt i16 %342, %.039.lcssa43.i
+  %.not.i80 = icmp samesign ugt i16 %342, %.039.lcssa43.i
   br i1 %.not.i80, label %fill_buf.exit184, label %353
 
 353:                                              ; preds = %351
@@ -3409,13 +3409,13 @@ fill_buf.exit209:                                 ; preds = %322, %fmap_need_off
 
 361:                                              ; preds = %353
   %362 = zext i16 %.sroa.83242.10 to i64
-  %363 = icmp ult i16 %342, 17
+  %363 = icmp samesign ult i16 %342, 17
   %364 = sub nsw i32 15, %355
   %365 = shl nuw nsw i32 2, %364
   %366 = zext nneg i32 %365 to i64
   %367 = select i1 %363, i64 %366, i64 0
   %368 = mul nuw nsw i64 %367, %362
-  %369 = icmp ugt i64 %368, 4294967295
+  %369 = icmp samesign ugt i64 %368, 4294967295
   br i1 %369, label %fill_buf.exit184, label %370
 
 370:                                              ; preds = %361
@@ -4040,7 +4040,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr nocapture noundef non
   br label %38
 
 .preheader123:                                    ; preds = %38
-  %37 = icmp ult i64 %indvars.iv158, 16
+  %37 = icmp samesign ult i64 %indvars.iv158, 16
   br i1 %37, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader123
@@ -4142,11 +4142,11 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr nocapture noundef non
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %82, %79
-  %.not115 = icmp ult i32 %3, %71
+  %.not115 = icmp samesign ult i32 %3, %71
   br i1 %.not115, label %92, label %84
 
 84:                                               ; preds = %75
-  %85 = icmp ugt i32 %83, %5
+  %85 = icmp samesign ugt i32 %83, %5
   br i1 %85, label %.loopexit121.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %84
@@ -4164,7 +4164,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr nocapture noundef non
   %90 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv177
   store i16 %86, ptr %90, align 2
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %91 = icmp ult i64 %indvars.iv.next178, %88
+  %91 = icmp samesign ult i64 %indvars.iv.next178, %88
   br i1 %91, label %89, label %.loopexit
 
 92:                                               ; preds = %75

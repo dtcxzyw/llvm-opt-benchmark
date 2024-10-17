@@ -2055,8 +2055,8 @@ default.unreachable749:                           ; preds = %126
 
 506:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1eb4d19ea78d153aE.exit30.i"
   %507 = icmp ne i64 %493, %504
-  %508 = icmp ugt i32 %484, %495
-  %spec.select.i = or i1 %508, %507
+  %508 = icmp samesign ugt i32 %484, %495
+  %spec.select.i = select i1 %507, i1 true, i1 %508
   br label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.i"
 
 509:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h00b4b67aa8ad6772E.exit60.i"
@@ -2137,8 +2137,8 @@ default.unreachable749:                           ; preds = %126
 
 533:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1eb4d19ea78d153aE.exit.i"
   %534 = icmp eq i64 %520, %531
-  %535 = icmp ult i32 %511, %522
-  %spec.select104.i = and i1 %535, %534
+  %535 = icmp samesign ult i32 %511, %522
+  %spec.select104.i = select i1 %534, i1 %535, i1 false
   br label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.i"
 
 "_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.i": ; preds = %537, %533, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1eb4d19ea78d153aE.exit.i", %506, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1eb4d19ea78d153aE.exit30.i", %475
@@ -3495,8 +3495,8 @@ default.unreachable:                              ; preds = %26
 
 119:                                              ; preds = %116
   %120 = icmp eq i64 %104, %117
-  %121 = icmp ult i32 %94, %107
-  %spec.select = and i1 %120, %121
+  %121 = icmp samesign ult i32 %94, %107
+  %spec.select = select i1 %120, i1 %121, i1 false
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h86adc38f47584a19E.exit"
 
 122:                                              ; preds = %45

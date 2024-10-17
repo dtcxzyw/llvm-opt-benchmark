@@ -4787,7 +4787,7 @@ for.cond2.preheader:                              ; preds = %ForceZero.exit, %fo
   %indvars.iv57 = phi i64 [ 0, %ForceZero.exit ], [ %indvars.iv.next58, %for.inc88 ]
   %indvars.iv54 = phi i64 [ 32, %ForceZero.exit ], [ %indvars.iv.next55, %for.inc88 ]
   %_ret.043 = phi i32 [ -7777, %ForceZero.exit ], [ %_ret.1.lcssa, %for.inc88 ]
-  %cmp539 = icmp ult i64 %indvars.iv57, 31
+  %cmp539 = icmp samesign ult i64 %indvars.iv57, 31
   br i1 %cmp539, label %for.cond8.preheader.lr.ph, label %for.inc88
 
 for.cond8.preheader.lr.ph:                        ; preds = %for.cond2.preheader
@@ -4864,8 +4864,8 @@ ForceZero.exit34:                                 ; preds = %while.body12.i28, %
 for.body19:                                       ; preds = %ForceZero.exit34, %for.inc82
   %indvars.iv46 = phi i64 [ 0, %ForceZero.exit34 ], [ %indvars.iv.next47, %for.inc82 ]
   %_ret.237 = phi i32 [ %_ret.141, %ForceZero.exit34 ], [ %_ret.3, %for.inc82 ]
-  %cmp20 = icmp uge i64 %indvars.iv46, %indvars.iv57
-  %cmp23.not = icmp ult i64 %indvars.iv46, %5
+  %cmp20 = icmp samesign uge i64 %indvars.iv46, %indvars.iv57
+  %cmp23.not = icmp samesign ult i64 %indvars.iv46, %5
   %or.cond = and i1 %cmp20, %cmp23.not
   %cmp51.not = icmp eq i32 %_ret.237, 0
   br i1 %or.cond, label %do.body50, label %do.body
@@ -32064,7 +32064,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %numDirs, align 4
   %6 = zext i32 %5 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %6
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp10, label %for.body, label %if.end24, !llvm.loop !47
 
 for.body:                                         ; preds = %if.then4, %for.cond

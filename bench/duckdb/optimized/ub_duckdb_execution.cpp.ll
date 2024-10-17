@@ -9589,7 +9589,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %.noexc106
   %__val.addr.0.lcssa.i.i = phi i64 [ %16, %.noexc106 ], [ %div.i10.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -9743,7 +9743,7 @@ while.body.i.i151:                                ; preds = %while.body.i.i151, 
 
 while.end.i.i135:                                 ; preds = %while.body.i.i151, %.noexc173
   %__val.addr.0.lcssa.i.i136 = phi i64 [ %30, %.noexc173 ], [ %div.i10.i156, %while.body.i.i151 ]
-  %cmp7.i.i137 = icmp ugt i64 %__val.addr.0.lcssa.i.i136, 9
+  %cmp7.i.i137 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i136, 9
   br i1 %cmp7.i.i137, label %if.then.i.i141, label %if.else.i.i138
 
 if.then.i.i141:                                   ; preds = %while.end.i.i135
@@ -48179,7 +48179,7 @@ for.body.i490:                                    ; preds = %for.cond.preheader.
 for.inc.i496:                                     ; preds = %for.body.i490
   %inc.i = add nuw nsw i64 %shift.011.i, 1
   %inc18.i = add nuw i64 %l.addr.112.i, 1
-  %cmp10.i = icmp ult i64 %shift.011.i, 63
+  %cmp10.i = icmp samesign ult i64 %shift.011.i, 63
   %cmp11.i = icmp ult i64 %inc18.i, %16
   %19 = select i1 %cmp10.i, i1 %cmp11.i, i1 false
   br i1 %19, label %for.body.i490, label %cleanup.i488, !llvm.loop !1517
@@ -48282,7 +48282,7 @@ for.body.i522:                                    ; preds = %for.cond.preheader.
 for.inc.i532:                                     ; preds = %for.body.i522
   %inc.i534 = add nuw nsw i64 %shift.011.i525, 1
   %inc18.i535 = add nuw i64 %l.addr.112.i524, 1
-  %cmp10.i536 = icmp ult i64 %shift.011.i525, 63
+  %cmp10.i536 = icmp samesign ult i64 %shift.011.i525, 63
   %cmp11.i537 = icmp ult i64 %inc18.i535, %.pre845
   %29 = select i1 %cmp10.i536, i1 %cmp11.i537, i1 false
   br i1 %29, label %for.body.i522, label %cleanup.i518, !llvm.loop !1517
@@ -48478,7 +48478,7 @@ for.body.i630:                                    ; preds = %for.cond.preheader.
 for.inc.i640:                                     ; preds = %for.body.i630
   %inc.i642 = add nuw nsw i64 %shift.011.i633, 1
   %inc18.i643 = add nuw i64 %l.addr.112.i632, 1
-  %cmp10.i644 = icmp ult i64 %shift.011.i633, 63
+  %cmp10.i644 = icmp samesign ult i64 %shift.011.i633, 63
   %cmp11.i645 = icmp ult i64 %inc18.i643, %41
   %46 = select i1 %cmp10.i644, i1 %cmp11.i645, i1 false
   br i1 %46, label %for.body.i630, label %cleanup.i626, !llvm.loop !1517
@@ -60686,7 +60686,7 @@ entry:
   %div2.i = lshr i64 %begin, 6
   %sub = add i64 %end, -1
   %div2.i7 = lshr i64 %sub, 6
-  %cmp.not9 = icmp ugt i64 %div2.i, %div2.i7
+  %cmp.not9 = icmp samesign ugt i64 %div2.i, %div2.i7
   br i1 %cmp.not9, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -60704,7 +60704,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.preheader:                               ; preds = %for.body.lr.ph
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %0 to i64
-  %min.iters.check = icmp ult i64 %4, 6
+  %min.iters.check = icmp samesign ult i64 %4, 6
   %7 = sub i64 %6, %5
   %diff.check = icmp ult i64 %7, 32
   %or.cond = select i1 %min.iters.check, i1 true, i1 %diff.check
@@ -61119,7 +61119,7 @@ if.then:                                          ; preds = %sw.bb4
   %div2.i.i = lshr i64 %16, 6
   %sub.i = add i64 %15, -1
   %div2.i7.i = lshr i64 %sub.i, 6
-  %cmp.not9.i = icmp ugt i64 %div2.i.i, %div2.i7.i
+  %cmp.not9.i = icmp samesign ugt i64 %div2.i.i, %div2.i7.i
   br i1 %cmp.not9.i, label %sw.epilog, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
@@ -61137,7 +61137,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 for.body.i.preheader:                             ; preds = %for.body.lr.ph.i
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %17 to i64
-  %min.iters.check = icmp ult i64 %21, 6
+  %min.iters.check = icmp samesign ult i64 %21, 6
   %24 = sub i64 %23, %22
   %diff.check = icmp ult i64 %24, 32
   %or.cond = select i1 %min.iters.check, i1 true, i1 %diff.check
@@ -63994,12 +63994,12 @@ if.end.i:                                         ; preds = %if.then
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %if.end.i, %if.then
   %retval.0.i = phi i64 [ %9, %if.end.i ], [ -1, %if.then ]
-  %cmp17121 = icmp ult i64 %rem.i, %rem.i85
+  %cmp17121 = icmp samesign ult i64 %rem.i, %rem.i85
   br i1 %cmp17121, label %for.body.preheader, label %if.end46
 
 for.body.preheader:                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
   %10 = sub nuw nsw i64 %rem.i85, %rem.i
-  %min.iters.check162 = icmp ult i64 %10, 4
+  %min.iters.check162 = icmp samesign ult i64 %10, 4
   br i1 %min.iters.check162, label %for.body.preheader47, label %vector.ph163
 
 vector.ph163:                                     ; preds = %for.body.preheader
@@ -64068,7 +64068,7 @@ if.end.i87:                                       ; preds = %if.then22
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit90: ; preds = %if.end.i87, %if.then22
   %retval.0.i89 = phi i64 [ %20, %if.end.i87 ], [ -1, %if.then22 ]
   %21 = sub nuw nsw i64 64, %rem.i
-  %min.iters.check = icmp ugt i64 %rem.i, 60
+  %min.iters.check = icmp samesign ugt i64 %rem.i, 60
   br i1 %min.iters.check, label %for.body29.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit90
@@ -64262,7 +64262,7 @@ cleanup.i.epil:                                   ; preds = %while.body.i.epil, 
 for.body12.i.preheader:                           ; preds = %cleanup.i.epil, %for.body12.i.preheader.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader
   %valid.050.i.lcssa = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %valid.3.i.1, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %valid.3.i.epil, %cleanup.i.epil ]
   %.lcssa = phi i64 [ %34, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %53, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %40, %cleanup.i.epil ]
-  %min.iters.check141 = icmp ult i64 %rem.i95, 4
+  %min.iters.check141 = icmp samesign ult i64 %rem.i95, 4
   br i1 %min.iters.check141, label %for.body12.i.preheader50, label %vector.ph142
 
 vector.ph142:                                     ; preds = %for.body12.i.preheader
@@ -65948,7 +65948,7 @@ for.inc.i84:                                      ; preds = %land.lhs.true13.i, 
   %18 = phi i64 [ %17, %for.body.i78 ], [ %dec.i83, %land.lhs.true13.i ]
   %inc.i = add nuw nsw i64 %shift.011.i, 1
   %inc18.i = add nuw i64 %l.addr.112.i, 1
-  %cmp10.i = icmp ult i64 %shift.011.i, 63
+  %cmp10.i = icmp samesign ult i64 %shift.011.i, 63
   %cmp11.i = icmp ult i64 %inc18.i, %14
   %19 = select i1 %cmp10.i, i1 %cmp11.i, i1 false
   br i1 %19, label %for.body.i78, label %cleanup.i75, !llvm.loop !1517
@@ -66449,7 +66449,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %shift.011.i, 1
   %inc18.i = add nuw i64 %l.addr.112.i, 1
-  %cmp10.i = icmp ult i64 %shift.011.i, 63
+  %cmp10.i = icmp samesign ult i64 %shift.011.i, 63
   %cmp11.i = icmp ult i64 %inc18.i, %4
   %8 = select i1 %cmp10.i, i1 %cmp11.i, i1 false
   br i1 %8, label %for.body.i, label %cleanup.i, !llvm.loop !1517
@@ -66854,7 +66854,7 @@ for.inc.i:                                        ; preds = %land.lhs.true13.i, 
   %15 = phi i64 [ %14, %for.body.i ], [ %dec.i, %land.lhs.true13.i ]
   %inc.i = add nuw nsw i64 %shift.011.i, 1
   %inc18.i = add nuw i64 %l.addr.112.i, 1
-  %cmp10.i = icmp ult i64 %shift.011.i, 63
+  %cmp10.i = icmp samesign ult i64 %shift.011.i, 63
   %cmp11.i = icmp ult i64 %inc18.i, %11
   %16 = select i1 %cmp10.i, i1 %cmp11.i, i1 false
   br i1 %16, label %for.body.i, label %cleanup.i, !llvm.loop !1517
@@ -67916,7 +67916,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPm
 for.inc:                                          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i111, %for.body44
   %inc = add nuw nsw i64 %shift.0221, 1
   %inc51 = add nuw i64 %start.1220, 1
-  %cmp42 = icmp ult i64 %shift.0221, 63
+  %cmp42 = icmp samesign ult i64 %shift.0221, 63
   %cmp43 = icmp ult i64 %inc51, %count
   %37 = select i1 %cmp42, i1 %cmp43, i1 false
   br i1 %37, label %for.body44, label %cleanup, !llvm.loop !1715
@@ -93240,7 +93240,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i64 [ %cond.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %div.i21.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -94559,7 +94559,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -94738,7 +94738,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161

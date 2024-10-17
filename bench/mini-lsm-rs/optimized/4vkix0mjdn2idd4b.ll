@@ -6327,7 +6327,7 @@ _ZN4moka3cht3map6bucket4hash17h12f95d64d018f8fdE.exit: ; preds = %.noexc56
   %.016.i.i = select i1 %146, i64 %147, i64 0
   %.0.i.i = select i1 %146, i64 4, i64 0
   %148 = or disjoint i64 %.0.i.i, 1
-  %149 = icmp ult i64 %148, %.0.sroa.speculated.i.i
+  %149 = icmp samesign ult i64 %148, %.0.sroa.speculated.i.i
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %143
@@ -6434,14 +6434,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %158, %156
 
 216:                                              ; preds = %._crit_edge.i, %172
   %.09.lcssa.i = phi i64 [ %198, %._crit_edge.i ], [ %.0.i91, %172 ]
-  %217 = icmp ugt i64 %174, 3
+  %217 = icmp samesign ugt i64 %174, 3
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %221, %216
   %.016.i13.i = phi i64 [ %223, %221 ], [ 0, %216 ]
   %.0.i14.i = phi i64 [ 4, %221 ], [ 0, %216 ]
   %219 = or disjoint i64 %.0.i14.i, 1
-  %220 = icmp ult i64 %219, %174
+  %220 = icmp samesign ult i64 %219, %174
   br i1 %220, label %224, label %232
 
 221:                                              ; preds = %216
@@ -10477,14 +10477,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76

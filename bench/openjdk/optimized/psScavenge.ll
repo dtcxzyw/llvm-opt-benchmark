@@ -5545,7 +5545,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %82
 
@@ -9695,7 +9695,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 54:                                               ; preds = %.preheader.i.i.i
@@ -10211,7 +10211,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
 .preheader.i.i:                                   ; preds = %39, %43
   %.025.i.i.i.i = phi i64 [ %41, %43 ], [ %33, %39 ]
   %41 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %42 = icmp ult i64 %41, %28
+  %42 = icmp samesign ult i64 %41, %28
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
 
 43:                                               ; preds = %.preheader.i.i
@@ -12687,7 +12687,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %55, %59
   %.025.i.i.i.i.i = phi i64 [ %57, %59 ], [ %49, %55 ]
   %57 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %58 = icmp ult i64 %57, %46
+  %58 = icmp samesign ult i64 %57, %46
   br i1 %58, label %59, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 59:                                               ; preds = %.preheader.i.i.i

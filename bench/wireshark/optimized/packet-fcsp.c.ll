@@ -267,8 +267,8 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %60, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #2
   %62 = and i32 %59, 65535
   %cond.i = icmp eq i32 %62, 1
-  %63 = icmp ugt i32 %56, 4
-  %or.cond.i = and i1 %63, %cond.i
+  %63 = icmp samesign ugt i32 %56, 4
+  %or.cond.i = select i1 %cond.i, i1 %63, i1 false
   br i1 %or.cond.i, label %.lr.ph50.preheader.i.i, label %dissect_fcsp_dhchap_auth_param.exit.i
 
 .lr.ph50.preheader.i.i:                           ; preds = %58
@@ -307,7 +307,7 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %80 = add nuw nsw i32 %77, 4
   %.135.i.i = add i32 %.13545.i.i, 4
   %81 = and i32 %80, 65535
-  %82 = icmp ult i32 %81, %76
+  %82 = icmp samesign ult i32 %81, %76
   br i1 %82, label %.lr.ph46.i.i, label %.loopexit.i.i, !llvm.loop !4
 
 83:                                               ; preds = %.lr.ph50.i.i
@@ -325,7 +325,7 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = add nuw nsw i32 %86, 4
   %.3.i.i = add i32 %.343.i.i, 4
   %90 = and i32 %89, 65535
-  %91 = icmp ult i32 %90, %85
+  %91 = icmp samesign ult i32 %90, %85
   br i1 %91, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
 
 92:                                               ; preds = %.lr.ph50.i.i

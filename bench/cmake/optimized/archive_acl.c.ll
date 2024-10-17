@@ -1458,7 +1458,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %.071101 = phi i32 [ %94, %.lr.ph ], [ 1, %88 ]
   %93 = udiv i32 %.070102, 10
   %94 = add nuw nsw i32 %.071101, 1
-  %95 = icmp ugt i32 %.070102, 99
+  %95 = icmp samesign ugt i32 %.070102, 99
   br i1 %95, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2227,7 +2227,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
   %.not52.i = icmp eq i32 %24, 0
   %spec.select305.idx = select i1 %.not52.i, i64 0, i64 4
   %spec.select305 = getelementptr inbounds i8, ptr %.4, i64 %spec.select305.idx
-  %25 = icmp ult i64 %indvars.iv, %10
+  %25 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %.critedge6.i
@@ -2245,7 +2245,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
 .preheader318:                                    ; preds = %29
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = trunc nuw i64 %indvars.iv.next to i32
-  %33 = icmp ugt i32 %.0117, %32
+  %33 = icmp samesign ugt i32 %.0117, %32
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader318
@@ -2351,7 +2351,7 @@ isint_w.exit:                                     ; preds = %79
 
 isint_w.exit.thread:                              ; preds = %.preheader.i154, %.thread, %isint_w.exit
   %83 = add nuw nsw i32 %.1114, 3
-  %.not140 = icmp ugt i32 %83, %31
+  %.not140 = icmp samesign ugt i32 %83, %31
   br i1 %.not140, label %isint_w.exit164, label %84
 
 84:                                               ; preds = %isint_w.exit.thread
@@ -3117,7 +3117,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
   %.not52.i = icmp ne i8 %25, 0
   %spec.select331.idx = zext i1 %.not52.i to i64
   %spec.select331 = getelementptr inbounds i8, ptr %.4, i64 %spec.select331.idx
-  %26 = icmp ult i64 %indvars.iv, %11
+  %26 = icmp samesign ult i64 %indvars.iv, %11
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.critedge6.i
@@ -3135,7 +3135,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
 .preheader344:                                    ; preds = %30
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = trunc nuw i64 %indvars.iv.next to i32
-  %34 = icmp ugt i32 %.0118, %33
+  %34 = icmp samesign ugt i32 %.0118, %33
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader344
@@ -3242,7 +3242,7 @@ isint.exit:                                       ; preds = %80
 
 isint.exit.thread:                                ; preds = %.preheader.i164, %.thread, %isint.exit
   %83 = add nuw nsw i32 %.1115, 3
-  %.not146 = icmp ugt i32 %83, %32
+  %.not146 = icmp samesign ugt i32 %83, %32
   br i1 %.not146, label %isint.exit175, label %84
 
 84:                                               ; preds = %isint.exit.thread

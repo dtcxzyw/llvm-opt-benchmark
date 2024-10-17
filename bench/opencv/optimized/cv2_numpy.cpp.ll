@@ -124,7 +124,7 @@ define hidden noundef ptr @_ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFl
   %21 = lshr i32 %3, 3
   %22 = and i32 %21, 511
   %23 = add nuw nsw i32 %22, 1
-  %24 = icmp ult i32 %20, 6
+  %24 = icmp samesign ult i32 %20, 6
   br i1 %24, label %switch.lookup, label %25
 
 25:                                               ; preds = %18

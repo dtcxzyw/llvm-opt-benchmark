@@ -1812,7 +1812,7 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %254 = icmp ult i64 %indvars.iv.next31.i, %230
+  %254 = icmp samesign ult i64 %indvars.iv.next31.i, %230
   br i1 %254, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23.i, %.lr.ph.i
@@ -2803,7 +2803,7 @@ _ZL6indexniPKiS0_.exit.thread.i:                  ; preds = %703
   %706 = load i32, ptr %705, align 4
   %707 = sext i32 %706 to i64
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
-  %708 = icmp ult i64 %indvars.iv.next31.i.i, %695
+  %708 = icmp samesign ult i64 %indvars.iv.next31.i.i, %695
   br i1 %708, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph23.i.i, %.lr.ph.i.i
@@ -2845,7 +2845,7 @@ _ZL6indexniPKiS0_.exit.i:                         ; preds = %._crit_edge.i.i
   %720 = load i32, ptr %719, align 4
   %721 = zext i32 %720 to i64
   %indvars.iv.next31.i217.i = add nuw nsw i64 %indvars.iv30.i214.i, 1
-  %722 = icmp ult i64 %indvars.iv.next31.i217.i, %695
+  %722 = icmp samesign ult i64 %indvars.iv.next31.i217.i, %695
   br i1 %722, label %.lr.ph.i222.i, label %._crit_edge.i218.i
 
 .lr.ph.i222.i:                                    ; preds = %.lr.ph23.i213.i, %.lr.ph.i222.i
@@ -2906,7 +2906,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.i: ; preds = %729
   %740 = load i32, ptr %739, align 4
   %741 = zext i32 %740 to i64
   %indvars.iv.next31.i236.i = add nuw nsw i64 %indvars.iv30.i233.i, 1
-  %742 = icmp ult i64 %indvars.iv.next31.i236.i, %695
+  %742 = icmp samesign ult i64 %indvars.iv.next31.i236.i, %695
   br i1 %742, label %.lr.ph.i241.i, label %._crit_edge.i237.i
 
 .lr.ph.i241.i:                                    ; preds = %.lr.ph23.i232.i, %.lr.ph.i241.i

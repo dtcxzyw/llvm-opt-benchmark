@@ -323,7 +323,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   store double %170, ptr %167, align 8
   store double %168, ptr %169, align 8
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 4
-  %.not566 = icmp ugt i64 %indvars.iv.next723, %157
+  %.not566 = icmp samesign ugt i64 %indvars.iv.next723, %157
   br i1 %.not566, label %.loopexit582, label %.lr.ph603, !llvm.loop !8
 
 .loopexit582:                                     ; preds = %.lr.ph603, %154, %._crit_edge599
@@ -448,7 +448,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 232:                                              ; preds = %222, %226, %212
   %.4 = phi double [ %214, %212 ], [ %225, %222 ], [ %231, %226 ]
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 4
-  %.not574 = icmp ugt i64 %indvars.iv.next729, %200
+  %.not574 = icmp samesign ugt i64 %indvars.iv.next729, %200
   br i1 %.not574, label %._crit_edge616, label %201, !llvm.loop !10
 
 ._crit_edge616:                                   ; preds = %232, %._crit_edge609.thread
@@ -479,7 +479,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %245 = fcmp ogt double %242, %244
   %246 = select i1 %245, double %242, double %244
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 4
-  %.not575 = icmp ugt i64 %indvars.iv.next732, %241
+  %.not575 = icmp samesign ugt i64 %indvars.iv.next732, %241
   br i1 %.not575, label %._crit_edge623, label %.lr.ph622, !llvm.loop !11
 
 ._crit_edge623:                                   ; preds = %.lr.ph622, %._crit_edge616

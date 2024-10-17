@@ -11415,7 +11415,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 97:                                               ; preds = %.lr.ph78.i
   %98 = zext nneg i16 %95 to i32
   %99 = tail call range(i32 1, 16) i32 @llvm.ctpop.i32(i32 %98)
-  %100 = icmp ult i32 %99, 2
+  %100 = icmp samesign ult i32 %99, 2
   %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
   %102 = xor i32 %101, 31
   %103 = shl nuw nsw i32 2, %102
@@ -11585,7 +11585,7 @@ bottomup_sort_and_shrink.exit:                    ; preds = %._crit_edge.i142, %
   %.122.i = phi i32 [ %168, %.lr.ph._crit_edge.i ], [ %.02128.i, %.lr.ph.i152 ]
   %.1.i156 = phi i32 [ %.pre37.i, %.lr.ph._crit_edge.i ], [ %.029.i, %.lr.ph.i152 ]
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i153, 1
-  %170 = icmp ult i64 %indvars.iv.next.i157, %164
+  %170 = icmp samesign ult i64 %indvars.iv.next.i157, %164
   %171 = icmp slt i32 %.122.i, %.1117
   %172 = select i1 %170, i1 %171, i1 false
   br i1 %172, label %.lr.ph.i152, label %._crit_edge.loopexit.i, !llvm.loop !41
@@ -12377,7 +12377,7 @@ BufferGetPage.exit72.i:                           ; preds = %76, %70
   %89 = select i1 %83, i32 1, i32 %88
   %90 = load i16, ptr %29, align 2
   %91 = zext i16 %90 to i32
-  %92 = icmp ult i32 %89, %91
+  %92 = icmp samesign ult i32 %89, %91
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %BufferGetPage.exit72.i
@@ -13529,7 +13529,7 @@ BufferGetPage.exit190:                            ; preds = %187, %193
   %206 = add nuw nsw i32 %205, 1
   %207 = select i1 %201, i32 1, i32 %206
   %208 = zext i16 %199 to i32
-  %209 = icmp ult i32 %207, %208
+  %209 = icmp samesign ult i32 %207, %208
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %BufferGetPage.exit190
@@ -13955,7 +13955,7 @@ BufferGetPage.exit.i12:                           ; preds = %122, %116
   %137 = add nuw nsw i32 %.01922.i, 1
   %138 = load i16, ptr %110, align 2
   %139 = zext i16 %138 to i32
-  %140 = icmp ult i32 %137, %139
+  %140 = icmp samesign ult i32 %137, %139
   br i1 %140, label %131, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %131, %BufferGetPage.exit.i12
@@ -14128,7 +14128,7 @@ heap_execute_freeze_tuple.exit.us.us.i:           ; preds = %.lr.ph.split.us.i, 
   %228 = add nuw nsw i32 %.03335.us.us.i, 1
   %229 = load i16, ptr %209, align 2
   %230 = zext i16 %229 to i32
-  %231 = icmp ult i32 %228, %230
+  %231 = icmp samesign ult i32 %228, %230
   br i1 %231, label %heap_execute_freeze_tuple.exit.us.us.i, label %._crit_edge.i18, !llvm.loop !44
 
 heap_execute_freeze_tuple.exit.us.i:              ; preds = %.lr.ph.split.us.i, %heap_execute_freeze_tuple.exit.us.i
@@ -14156,7 +14156,7 @@ heap_execute_freeze_tuple.exit.us.i:              ; preds = %.lr.ph.split.us.i, 
   %246 = add nuw nsw i32 %.03335.us.i, 1
   %247 = load i16, ptr %209, align 2
   %248 = zext i16 %247 to i32
-  %249 = icmp ult i32 %246, %248
+  %249 = icmp samesign ult i32 %246, %248
   br i1 %249, label %heap_execute_freeze_tuple.exit.us.i, label %._crit_edge.i18, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i17
@@ -14187,7 +14187,7 @@ heap_execute_freeze_tuple.exit.us40.i:            ; preds = %.lr.ph.split.i, %he
   %264 = add nuw nsw i32 %.03335.us38.i, 1
   %265 = load i16, ptr %209, align 2
   %266 = zext i16 %265 to i32
-  %267 = icmp ult i32 %264, %266
+  %267 = icmp samesign ult i32 %264, %266
   br i1 %267, label %heap_execute_freeze_tuple.exit.us40.i, label %._crit_edge.i18, !llvm.loop !44
 
 heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %heap_execute_freeze_tuple.exit.i
@@ -14215,7 +14215,7 @@ heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %he
   %282 = add nuw nsw i32 %.03335.i, 1
   %283 = load i16, ptr %209, align 2
   %284 = zext i16 %283 to i32
-  %285 = icmp ult i32 %282, %284
+  %285 = icmp samesign ult i32 %282, %284
   br i1 %285, label %heap_execute_freeze_tuple.exit.i, label %._crit_edge.i18, !llvm.loop !44
 
 ._crit_edge.i18:                                  ; preds = %heap_execute_freeze_tuple.exit.i, %heap_execute_freeze_tuple.exit.us40.i, %heap_execute_freeze_tuple.exit.us.i, %heap_execute_freeze_tuple.exit.us.us.i, %202
@@ -14223,7 +14223,7 @@ heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %he
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %286 = load i16, ptr %196, align 4
   %287 = zext i16 %286 to i64
-  %288 = icmp ult i64 %indvars.iv.next.i, %287
+  %288 = icmp samesign ult i64 %indvars.iv.next.i, %287
   br i1 %288, label %202, label %._crit_edge47.i, !llvm.loop !45
 
 ._crit_edge47.i:                                  ; preds = %._crit_edge.i18, %BufferGetPage.exit.i15
@@ -14577,7 +14577,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %469 = add nuw nsw i32 %468, 1
   %470 = select i1 %464, i32 1, i32 %469
   %471 = zext i16 %463 to i32
-  %472 = icmp ult i32 %470, %471
+  %472 = icmp samesign ult i32 %470, %471
   br i1 %472, label %.split.us.i, label %473
 
 473:                                              ; preds = %.lr.ph.split.us.i39
@@ -14623,7 +14623,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %500 = load i16, ptr %450, align 2
   %501 = zext i16 %500 to i64
-  %502 = icmp ult i64 %indvars.iv.next.i42, %501
+  %502 = icmp samesign ult i64 %indvars.iv.next.i42, %501
   br i1 %502, label %.lr.ph.split.us.i39, label %._crit_edge.i34, !llvm.loop !46
 
 .lr.ph.split.i32:                                 ; preds = %.lr.ph.i31, %543
@@ -14640,7 +14640,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %510 = add nuw nsw i32 %509, 1
   %511 = select i1 %505, i32 1, i32 %510
   %512 = zext i16 %504 to i32
-  %513 = icmp ult i32 %511, %512
+  %513 = icmp samesign ult i32 %511, %512
   br i1 %513, label %.split.us.i, label %516
 
 .split.us.i:                                      ; preds = %.lr.ph.split.i32, %.lr.ph.split.us.i39
@@ -14700,7 +14700,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %545 = add nuw nsw i32 %.084101.i, 1
   %546 = load i16, ptr %450, align 2
   %547 = zext i16 %546 to i32
-  %548 = icmp ult i32 %545, %547
+  %548 = icmp samesign ult i32 %545, %547
   br i1 %548, label %.lr.ph.split.i32, label %._crit_edge.i34, !llvm.loop !46
 
 ._crit_edge.i34:                                  ; preds = %543, %498, %BufferGetPage.exit93.i
@@ -15645,14 +15645,14 @@ define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr nocapture
 13:                                               ; preds = %8
   %14 = sext i16 %10 to i32
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %18 = xor i32 %17, 31
   %19 = shl nuw i32 2, %18
   %.0.i = select i1 %16, i32 %14, i32 %19
   %20 = sext i16 %12 to i32
   %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %24 = xor i32 %23, 31
   %25 = shl nuw i32 2, %24

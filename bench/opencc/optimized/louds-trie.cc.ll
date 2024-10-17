@@ -9144,7 +9144,7 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
   %245 = load i32, ptr %244, align 8
   %246 = zext i32 %245 to i64
   %.081455 = add nuw nsw i64 %239, 1
-  %247 = icmp ult i64 %.081455, %246
+  %247 = icmp samesign ult i64 %.081455, %246
   br i1 %247, label %.preheader.lr.ph, label %.thread288
 
 .preheader.lr.ph:                                 ; preds = %235
@@ -9167,7 +9167,7 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
 252:                                              ; preds = %.preheader, %254
   %.080.in = phi i64 [ %.080, %254 ], [ %241, %.preheader ]
   %.080 = add nuw nsw i64 %.080.in, 1
-  %253 = icmp ult i64 %.080, %250
+  %253 = icmp samesign ult i64 %.080, %250
   br i1 %253, label %254, label %.loopexit
 
 254:                                              ; preds = %252
@@ -11228,7 +11228,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPN6marisa8grimoire4trie13WeightedR
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !64
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -13308,7 +13308,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter
   %.sroa.01.0.copyload12 = load i64, ptr %11, align 4
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i
@@ -14248,7 +14248,7 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
   %246 = load i32, ptr %245, align 8
   %247 = zext i32 %246 to i64
   %.081453 = add nuw nsw i64 %241, 1
-  %248 = icmp ult i64 %.081453, %247
+  %248 = icmp samesign ult i64 %.081453, %247
   br i1 %248, label %.preheader.lr.ph, label %.thread288
 
 .preheader.lr.ph:                                 ; preds = %237
@@ -14272,7 +14272,7 @@ _ZSt11stable_sortIPN6marisa8grimoire4trie13WeightedRangeESt7greaterIS3_EEvT_S7_T
 254:                                              ; preds = %.preheader, %256
   %.080.in = phi i64 [ %.080, %256 ], [ %243, %.preheader ]
   %.080 = add nuw nsw i64 %.080.in, 1
-  %255 = icmp ult i64 %.080, %251
+  %255 = icmp samesign ult i64 %.080, %251
   br i1 %255, label %256, label %.loopexit
 
 256:                                              ; preds = %254

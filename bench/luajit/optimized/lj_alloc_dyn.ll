@@ -121,7 +121,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %tobool.not, label %do.body.preheader, label %if.then17
 
 if.then17:                                        ; preds = %if.end16
-  %cmp18 = icmp ult i32 %retry.017, 5
+  %cmp18 = icmp samesign ult i32 %retry.017, 5
   br i1 %cmp18, label %if.then19, label %if.else26
 
 if.then19:                                        ; preds = %if.then17
@@ -142,7 +142,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %call32 = tail call i64 @lj_prng_u64(ptr noundef %rs) #10
   %and = and i64 %call32, 140737488351232
   store i64 %and, ptr @mmap_probe.hint_addr, align 8
-  %cmp33 = icmp ult i64 %and, 16384
+  %cmp33 = icmp samesign ult i64 %and, 16384
   br i1 %cmp33, label %do.body, label %for.inc, !llvm.loop !5
 
 for.inc.sink.split:                               ; preds = %if.else26, %if.then19

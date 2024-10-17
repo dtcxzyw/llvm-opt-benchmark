@@ -715,7 +715,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr nocapture noundef %0, i32 nound
   %62 = or disjoint i64 %61, %55
   store i64 %62, ptr %56, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %63 = icmp ult i64 %indvars.iv.next, %33
+  %63 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %63, label %.lr.ph62, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %47, %.lr.ph62, %21, %.preheader, %34, %10
@@ -846,7 +846,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %64 = select i1 %.not68.us, i32 0, i32 %63
   %.6.us = xor i32 %.495.us, %64
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  %65 = icmp ult i64 %indvars.iv103, 5
+  %65 = icmp samesign ult i64 %indvars.iv103, 5
   br i1 %65, label %98, label %66
 
 66:                                               ; preds = %50
@@ -903,7 +903,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %96 = or disjoint i64 %95, %89
   store i64 %96, ptr %90, align 8
   %indvars.iv.next.i80.us = add nuw nsw i64 %indvars.iv.i79.us, 2
-  %97 = icmp ult i64 %indvars.iv.next.i80.us, %wide.trip.count.i
+  %97 = icmp samesign ult i64 %indvars.iv.next.i80.us, %wide.trip.count.i
   br i1 %97, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !14
 
 98:                                               ; preds = %50
@@ -965,7 +965,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   %125 = or i32 %.192, %124
   store i32 %121, ptr %119, align 4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
-  %126 = icmp ult i64 %indvars.iv, 6
+  %126 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %126, label %.preheader.i, label %139
 
 .preheader.i:                                     ; preds = %122
@@ -1163,7 +1163,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %71 = xor i32 %70, %65
   %.6.us = select i1 %.not89.us, i32 %.4118.us, i32 %71
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5)
-  %72 = icmp ult i64 %indvars.iv126, 5
+  %72 = icmp samesign ult i64 %indvars.iv126, 5
   br i1 %72, label %105, label %73
 
 73:                                               ; preds = %56
@@ -1220,7 +1220,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %103 = or disjoint i64 %102, %96
   store i64 %103, ptr %97, align 8
   %indvars.iv.next.i100.us = add nuw nsw i64 %indvars.iv.i99.us, 2
-  %104 = icmp ult i64 %indvars.iv.next.i100.us, %wide.trip.count.i
+  %104 = icmp samesign ult i64 %indvars.iv.next.i100.us, %wide.trip.count.i
   br i1 %104, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !14
 
 105:                                              ; preds = %56
@@ -1295,7 +1295,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   %137 = or i32 %.1115, %136
   store i32 %132, ptr %125, align 4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
-  %138 = icmp ult i64 %indvars.iv, 6
+  %138 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %138, label %.preheader.i, label %151
 
 .preheader.i:                                     ; preds = %134
@@ -1461,7 +1461,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   store i32 %47, ptr %44, align 4
   store i32 %45, ptr %46, align 4
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  %49 = icmp ult i64 %indvars.iv87, 5
+  %49 = icmp samesign ult i64 %indvars.iv87, 5
   br i1 %49, label %82, label %50
 
 50:                                               ; preds = %48
@@ -1518,7 +1518,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %80 = or disjoint i64 %79, %73
   store i64 %80, ptr %74, align 8
   %indvars.iv.next.i68.us = add nuw nsw i64 %indvars.iv.i67.us, 2
-  %81 = icmp ult i64 %indvars.iv.next.i68.us, %wide.trip.count.i
+  %81 = icmp samesign ult i64 %indvars.iv.next.i68.us, %wide.trip.count.i
   br i1 %81, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !14
 
 82:                                               ; preds = %48
@@ -1581,7 +1581,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
 107:                                              ; preds = %103
   store i32 %106, ptr %104, align 4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
-  %108 = icmp ult i64 %indvars.iv, 6
+  %108 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %108, label %.preheader.i, label %123
 
 .preheader.i:                                     ; preds = %107

@@ -916,7 +916,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %30, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %5, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %8, label %.loopexit, !llvm.loop !13
 
 36:                                               ; preds = %2
@@ -1794,7 +1794,7 @@ _ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit35: ; preds = %.lr.ph.i.
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i36, %.preheader.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 8
-  %111 = icmp ult i64 %.0.idx11.i.i.i, 8240
+  %111 = icmp samesign ult i64 %.0.idx11.i.i.i, 8240
   br i1 %111, label %.preheader.i, label %_ZN17ResourceHashtableIPviLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SA_EEED2Ev.exit.i, !llvm.loop !24
 
 _ZN17ResourceHashtableIPviLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SA_EEED2Ev.exit.i: ; preds = %._crit_edge.i.i.i
@@ -2076,7 +2076,7 @@ _ZN19ThreadScanHashtable9has_entryEPv.exit:       ; preds = %90, %93
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i14, %.preheader.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 8
-  %103 = icmp ult i64 %.0.idx11.i.i.i, 8240
+  %103 = icmp samesign ult i64 %.0.idx11.i.i.i, 8240
   br i1 %103, label %.preheader.i, label %_ZN17ResourceHashtableIPviLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SA_EEED2Ev.exit.i, !llvm.loop !24
 
 _ZN17ResourceHashtableIPviLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SA_EEED2Ev.exit.i: ; preds = %._crit_edge.i.i.i

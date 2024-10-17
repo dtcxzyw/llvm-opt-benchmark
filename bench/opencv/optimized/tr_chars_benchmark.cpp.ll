@@ -541,7 +541,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   %218 = sub i64 %216, %217
   %219 = lshr exact i64 %218, 4
   %220 = and i64 %219, 4294967295
-  %221 = icmp ult i64 %indvars.iv.next, %220
+  %221 = icmp samesign ult i64 %indvars.iv.next, %220
   br i1 %221, label %117, label %._crit_edge.loopexit, !llvm.loop !8
 
 222:                                              ; preds = %196, %194

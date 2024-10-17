@@ -1042,7 +1042,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br i1 %.not45.i.i, label %._crit_edge.i.i, label %173
 
 ._crit_edge.i.i:                                  ; preds = %232
-  %234 = icmp ugt i64 %indvars.iv.i.i, 7
+  %234 = icmp samesign ugt i64 %indvars.iv.i.i, 7
   br i1 %234, label %235, label %parse_mask_list.exit.i
 
 235:                                              ; preds = %._crit_edge.i.i

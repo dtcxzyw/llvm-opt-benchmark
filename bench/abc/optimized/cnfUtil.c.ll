@@ -681,7 +681,7 @@ Aig_ManObj.exit:                                  ; preds = %94, %97
   %107 = load i32, ptr %81, align 4
   %108 = lshr i32 %107, 29
   %109 = zext nneg i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next68, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next68, %109
   br i1 %110, label %94, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %Dar_ObjBestCut.exit, %11, %Vec_PtrFree.exit, %3

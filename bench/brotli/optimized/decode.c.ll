@@ -265,7 +265,7 @@ for.inc:                                          ; preds = %if.end7.i
   %15 = load ptr, ptr %dictionary, align 8
   %16 = load i32, ptr %15, align 8
   %conv8 = zext i32 %16 to i64
-  %cmp9 = icmp ult i64 %inc, %conv8
+  %cmp9 = icmp samesign ult i64 %inc, %conv8
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.inc, %for.body, %if.then2.i, %if.end7.i, %for.cond.preheader, %if.end, %entry
@@ -1129,7 +1129,7 @@ sw.bb45.i:                                        ; preds = %sw.bb45.loopexit.i,
 
 while.cond.i222.preheader.i.preheader:            ; preds = %sw.bb45.i
   %bit_pos_.i.i562.promoted1749 = load i64, ptr %bit_pos_.i693, align 8
-  %cmp69.i = icmp ugt i32 %bf.clear50307.i, 4
+  %cmp69.i = icmp samesign ugt i32 %bf.clear50307.i, 4
   br label %while.cond.i222.preheader.i
 
 while.cond.i222.preheader.i:                      ; preds = %while.cond.i222.preheader.i.preheader, %if.end75.i
@@ -1174,7 +1174,7 @@ if.end57.i:                                       ; preds = %if.end.i472.i, %whi
   %add58.i = add nsw i32 %i.0309.i, 1
   %cmp63.i = icmp eq i32 %add58.i, %bf.clear50307.i
   %cmp72.i = icmp eq i64 %and.i326.i, 0
-  %94 = and i1 %cmp63.i, %cmp69.i
+  %94 = select i1 %cmp63.i, i1 %cmp69.i, i1 false
   %or.cond2169 = select i1 %94, i1 %cmp72.i, i1 false
   br i1 %or.cond2169, label %for.cond.backedge, label %if.end75.i
 
@@ -1338,7 +1338,7 @@ sw.bb130.i:                                       ; preds = %sw.bb130.loopexit.i
 
 while.cond.i.preheader.i.preheader:               ; preds = %sw.bb130.i
   %bit_pos_.i.i562.promoted = load i64, ptr %bit_pos_.i693, align 8
-  %cmp157.i = icmp ugt i32 %bf.clear136299.i, 1
+  %cmp157.i = icmp samesign ugt i32 %bf.clear136299.i, 1
   br label %while.cond.i.preheader.i
 
 while.cond.i.preheader.i:                         ; preds = %while.cond.i.preheader.i.preheader, %if.end163.i
@@ -1383,7 +1383,7 @@ if.end144.i:                                      ; preds = %if.end.i536.i, %whi
   %add145.i = add nsw i32 %i.1301.i, 1
   %cmp150.i = icmp eq i32 %add145.i, %bf.clear136299.i
   %cmp160.i = icmp eq i64 %and.i378.i, 0
-  %116 = and i1 %cmp150.i, %cmp157.i
+  %116 = select i1 %cmp150.i, i1 %cmp157.i, i1 false
   %or.cond2170 = select i1 %116, i1 %cmp160.i, i1 false
   br i1 %or.cond2170, label %for.cond.backedge, label %if.end163.i
 
@@ -2416,7 +2416,7 @@ for.body9.i:                                      ; preds = %for.body4.i, %for.b
   %274 = or i8 %272, %xor33.i536
   %275 = zext i8 %274 to i64
   %or34.i = or i64 %error.i.01737, %275
-  %cmp7.i = icmp ult i64 %j.i.01736, 60
+  %cmp7.i = icmp samesign ult i64 %j.i.01736, 60
   br i1 %cmp7.i, label %for.body9.i, label %for.end35.i, !llvm.loop !14
 
 for.end35.i:                                      ; preds = %for.body9.i
@@ -4920,7 +4920,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i77.i.
   store i64 %add.i.i.i.i.i.i, ptr %bit_pos_.i693, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %714, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_in30, align 8
-  %cmp.i.i71.i.i.i = icmp ult i64 %716, 7
+  %cmp.i.i71.i.i.i = icmp samesign ult i64 %716, 7
   br i1 %cmp.i.i71.i.i.i, label %while.body.i.i77.i.i.i, label %if.then.i76.i.i.i, !llvm.loop !10
 
 if.then.i76.i.i.i:                                ; preds = %if.end.i.i.i.i.i.i, %while.cond.i.i70.ithread-pre-split.i.i
@@ -4988,11 +4988,11 @@ if.end5.i285.i.i:                                 ; preds = %if.end.i75.i.i.i
 
 if.then11.i320.i.i:                               ; preds = %if.end5.i285.i.i
   %conv13.i321.i.i = zext nneg i8 %729 to i64
-  %cmp14.not.i322.i.i = icmp ult i64 %716, %conv13.i321.i.i
+  %cmp14.not.i322.i.i = icmp samesign ult i64 %716, %conv13.i321.i.i
   br i1 %cmp14.not.i322.i.i, label %SafeDecodeCommandBlockSwitch.exit.thread1848.loopexit.i, label %return.sink.split.sink.split.i307.i.i
 
 if.end21.i289.i.i:                                ; preds = %if.end5.i285.i.i
-  %cmp22.i290.i.i = icmp ult i64 %716, 9
+  %cmp22.i290.i.i = icmp samesign ult i64 %716, 9
   br i1 %cmp22.i290.i.i, label %SafeDecodeCommandBlockSwitch.exit.thread1848.loopexit.i, label %BitMask.exit.i295.i.i
 
 BitMask.exit.i295.i.i:                            ; preds = %if.end21.i289.i.i
@@ -6070,7 +6070,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i77.i.
   store i64 %add.i.i.i.i.i.i.i, ptr %bit_pos_.i693, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.i349.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_in30, align 8
-  %cmp.i.i71.i.i.i.i = icmp ult i64 %890, 7
+  %cmp.i.i71.i.i.i.i = icmp samesign ult i64 %890, 7
   br i1 %cmp.i.i71.i.i.i.i, label %while.body.i.i77.i.i.i.i, label %if.then.i76.i.i.i.i, !llvm.loop !10
 
 if.then.i76.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i.i, %while.cond.i.i70.i.ithread-pre-split.i.i
@@ -6138,11 +6138,11 @@ if.end5.i287.i.i:                                 ; preds = %if.end.i75.i.i.i.i
 
 if.then11.i322.i.i:                               ; preds = %if.end5.i287.i.i
   %conv13.i323.i.i = zext nneg i8 %902 to i64
-  %cmp14.not.i324.i.i = icmp ult i64 %890, %conv13.i323.i.i
+  %cmp14.not.i324.i.i = icmp samesign ult i64 %890, %conv13.i323.i.i
   br i1 %cmp14.not.i324.i.i, label %if.then23.i.i.i.i, label %return.sink.split.sink.split.i309.i.i
 
 if.end21.i291.i.i:                                ; preds = %if.end5.i287.i.i
-  %cmp22.i292.i.i = icmp ult i64 %890, 9
+  %cmp22.i292.i.i = icmp samesign ult i64 %890, 9
   br i1 %cmp22.i292.i.i, label %if.then23.i.i.i.i, label %BitMask.exit.i297.i.i
 
 BitMask.exit.i297.i.i:                            ; preds = %if.end21.i291.i.i
@@ -7297,7 +7297,7 @@ if.end.i.i.i.i.i.i1774.i:                         ; preds = %while.body.i.i77.i.
   store i64 %add.i.i.i.i.i.i1778.i, ptr %bit_pos_.i693, align 8
   %incdec.ptr.i.i.i.i.i.i1779.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.i356.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i1779.i, ptr %next_in30, align 8
-  %cmp.i.i71.i.i.i1780.i = icmp ult i64 %1080, 7
+  %cmp.i.i71.i.i.i1780.i = icmp samesign ult i64 %1080, 7
   br i1 %cmp.i.i71.i.i.i1780.i, label %while.body.i.i77.i.i.i1772.i, label %if.then.i76.i.i.i1742.i, !llvm.loop !10
 
 if.then.i76.i.i.i1742.i:                          ; preds = %if.end.i.i.i.i.i.i1774.i, %while.cond.i.i70.i.ithread-pre-split.i1741.i
@@ -7365,11 +7365,11 @@ if.end5.i294.i.i:                                 ; preds = %if.end.i75.i.i.i178
 
 if.then11.i329.i.i:                               ; preds = %if.end5.i294.i.i
   %conv13.i330.i.i = zext nneg i8 %1092 to i64
-  %cmp14.not.i331.i.i = icmp ult i64 %1080, %conv13.i330.i.i
+  %cmp14.not.i331.i.i = icmp samesign ult i64 %1080, %conv13.i330.i.i
   br i1 %cmp14.not.i331.i.i, label %SafeDecodeLiteralBlockSwitch.exit.thread1901.loopexit.i, label %return.sink.split.sink.split.i316.i.i
 
 if.end21.i298.i.i:                                ; preds = %if.end5.i294.i.i
-  %cmp22.i299.i.i = icmp ult i64 %1080, 9
+  %cmp22.i299.i.i = icmp samesign ult i64 %1080, 9
   br i1 %cmp22.i299.i.i, label %SafeDecodeLiteralBlockSwitch.exit.thread1901.loopexit.i, label %BitMask.exit.i304.i.i
 
 BitMask.exit.i304.i.i:                            ; preds = %if.end21.i298.i.i

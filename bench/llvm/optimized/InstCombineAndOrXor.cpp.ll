@@ -3502,7 +3502,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -17370,7 +17370,7 @@ _ZN4llvm12PatternMatch17specific_intval64ILb0EE5matchINS_5ValueEEEbPT_.exit.thre
   %.not.i.i104 = icmp ne i32 %3, 0
   %or.cond.not203 = and i1 %.not.i.i104, %.not
   %272 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
-  %273 = icmp ult i32 %272, 2
+  %273 = icmp samesign ult i32 %272, 2
   %or.cond202 = select i1 %or.cond.not203, i1 %273, i1 false
   br i1 %or.cond202, label %274, label %_ZN4llvm9KnownBitsD2Ev.exit
 
@@ -37137,7 +37137,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit74: ; p
 
 57:                                               ; preds = %55
   %58 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %56)
-  %59 = icmp ult i64 %58, 2
+  %59 = icmp samesign ult i64 %58, 2
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit
 
 60:                                               ; preds = %51
@@ -37163,7 +37163,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit:               ; preds = %60, %57, %55, %_ZN4
 
 70:                                               ; preds = %68
   %71 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %69)
-  %72 = icmp ult i64 %71, 2
+  %72 = icmp samesign ult i64 %71, 2
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit77
 
 73:                                               ; preds = %64
@@ -43031,7 +43031,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -43075,7 +43075,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 35:                                               ; preds = %33
   %36 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 38:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit

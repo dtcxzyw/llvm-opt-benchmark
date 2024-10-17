@@ -2827,9 +2827,9 @@ _ZNSt8functionIFvPN2cv8obsensor5FrameEEEaSERKS5_.exit: ; preds = %_ZNSt8function
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %303 = load i32, ptr %17, align 4
   %304 = zext i32 %303 to i64
-  %305 = icmp ult i64 %indvars.iv.next, %304
-  %306 = icmp ult i64 %indvars.iv, 3
-  %307 = and i1 %306, %305
+  %305 = icmp samesign ult i64 %indvars.iv.next, %304
+  %306 = icmp samesign ult i64 %indvars.iv, 3
+  %307 = select i1 %305, i1 %306, i1 false
   br i1 %307, label %262, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %293, %.preheader

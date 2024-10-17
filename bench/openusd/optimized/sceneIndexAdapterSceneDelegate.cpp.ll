@@ -63096,7 +63096,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -87805,7 +87805,7 @@ _ZSt8distanceIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseIN
   br i1 %.not51, label %49, label %24
 
 24:                                               ; preds = %_ZSt8distanceIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit
-  %25 = icmp ugt i64 %.03.i.i, 1152921504606846974
+  %25 = icmp samesign ugt i64 %.03.i.i, 1152921504606846974
   br i1 %25, label %26, label %_ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESaIS2_EE11_M_allocateEm.exit.i
 
 26:                                               ; preds = %24

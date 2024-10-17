@@ -2127,7 +2127,7 @@ sub_1:                                            ; preds = %sub_0
 155:                                              ; preds = %151
   %156 = getelementptr inbounds i8, ptr %30, i64 2
   %157 = call fastcc i64 @_ZL16getCompileFormatPKc(ptr noundef nonnull %156)
-  %.not220 = icmp ult i64 %157, 4294967296
+  %.not220 = icmp samesign ult i64 %157, 4294967296
   br i1 %.not220, label %159, label %158
 
 158:                                              ; preds = %155

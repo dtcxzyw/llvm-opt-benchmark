@@ -756,7 +756,7 @@ define internal fastcc void @free_ext_block(ptr noundef %0, ptr noundef %1) unna
   %14 = getelementptr i8, ptr %19, i64 12
   %15 = load i16, ptr %7, align 2
   %16 = zext i16 %15 to i32
-  %17 = icmp ult i32 %13, %16
+  %17 = icmp samesign ult i32 %13, %16
   br i1 %17, label %18, label %.loopexit, !llvm.loop !15
 
 18:                                               ; preds = %12, %10
@@ -1268,7 +1268,7 @@ define internal fastcc i32 @free_ext_idx(ptr noundef %0, ptr noundef %1, i32 %.4
   %26 = add nuw nsw i32 %31, 1
   %27 = load i16, ptr %21, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ult i32 %26, %28
+  %29 = icmp samesign ult i32 %26, %28
   br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %20, %24

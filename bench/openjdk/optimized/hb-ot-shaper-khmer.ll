@@ -1268,7 +1268,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit.thread.thr
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next157, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next157, %101
   br i1 %102, label %95, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %95, %.preheader

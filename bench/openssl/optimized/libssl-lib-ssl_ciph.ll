@@ -1010,7 +1010,7 @@ declare void @ssl_evp_md_free(ptr noundef) local_unnamed_addr #1
 define ptr @ssl_md(ptr nocapture noundef readonly %ctx, i32 noundef %idx) local_unnamed_addr #3 {
 entry:
   %and = and i32 %idx, 255
-  %cmp1 = icmp ugt i32 %and, 13
+  %cmp1 = icmp samesign ugt i32 %and, 13
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1032,7 +1032,7 @@ entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i64 @ssl_get_algorithm2(ptr noundef %s) #15
   %and.i2 = and i64 %call, 254
-  %cmp1.i = icmp ugt i64 %and.i2, 13
+  %cmp1.i = icmp samesign ugt i64 %and.i2, 13
   br i1 %cmp1.i, label %ssl_md.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1058,7 +1058,7 @@ entry:
   %1 = trunc i64 %call to i32
   %2 = lshr i32 %1, 8
   %and.i = and i32 %2, 255
-  %cmp1.i = icmp ugt i32 %and.i, 13
+  %cmp1.i = icmp samesign ugt i32 %and.i, 13
   br i1 %cmp1.i, label %ssl_md.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -3039,7 +3039,7 @@ if.end9.lr.ph:                                    ; preds = %entry
   %tobool55.not = icmp eq i32 %min_tls, 0
   %and61 = and i32 %algo_strength, 31
   %tobool62.not = icmp eq i32 %and61, 0
-  %tobool71.not = icmp ult i32 %algo_strength, 32
+  %tobool71.not = icmp samesign ult i32 %algo_strength, 32
   %cmp113 = icmp eq i32 %rule, 2
   %switch.selectcmp.case1 = icmp eq i32 %rule, 6
   %switch.selectcmp.case2 = icmp eq i32 %rule, 3
@@ -4767,7 +4767,7 @@ entry:
   %algorithm2 = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load i32, ptr %algorithm2, align 8
   %and = and i32 %0, 255
-  %cmp1 = icmp ugt i32 %and, 13
+  %cmp1 = icmp samesign ugt i32 %and, 13
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -1861,7 +1861,7 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
 22:                                               ; preds = %.lr.ph, %20
   %.1 = phi i32 [ %19, %20 ], [ %.01824, %.lr.ph ]
   %23 = add nuw nsw i32 %.025, 1
-  %24 = icmp ult i32 %.025, 31
+  %24 = icmp samesign ult i32 %.025, 31
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16, %22

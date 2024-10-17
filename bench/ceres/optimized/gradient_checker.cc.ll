@@ -4998,7 +4998,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(pt
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !88
 
@@ -5112,7 +5112,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !88
 
@@ -8107,7 +8107,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %30 = load <2 x double>, ptr %29, align 1
   store <2 x double> %30, ptr %28, align 16
   %31 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %32 = icmp ult i64 %31, %27
+  %32 = icmp samesign ult i64 %31, %27
   br i1 %32, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !219
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.sink.split.i.thread, %.sink.split.i
@@ -8176,7 +8176,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %58 = fmul <2 x double> %52, %57
   store <2 x double> %58, ptr %53, align 16
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i46, 2
-  %60 = icmp ult i64 %59, %51
+  %60 = icmp samesign ult i64 %59, %51
   br i1 %60, label %.lr.ph.i.i.i.i.i.i.i45, label %._crit_edge.i.i.i.i.i.i.i41, !llvm.loop !221
 
 ._crit_edge.i.i.i.i.i.i.i41:                      ; preds = %.lr.ph.i.i.i.i.i.i.i45, %.thread, %50

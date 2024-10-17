@@ -4973,7 +4973,7 @@ land.lhs.true16.i:                                ; preds = %invoke.cont.i
   %sub20.i = add nsw i64 %conv19.i, 4294967248
   %conv21.i = and i64 %sub20.i, 4294967294
   %add22.i = add nuw nsw i64 %conv21.i, %mul18.i
-  %cmp24.not.i = icmp ugt i64 %add22.i, 2147483647
+  %cmp24.not.i = icmp samesign ugt i64 %add22.i, 2147483647
   br i1 %cmp24.not.i, label %cond.false.i, label %if.end
 
 cond.false.i:                                     ; preds = %land.lhs.true16.i, %invoke.cont.i
@@ -5493,7 +5493,7 @@ land.lhs.true16.i:                                ; preds = %invoke.cont.i
   %sub20.i = add nsw i64 %conv19.i, 4294967248
   %conv21.i = and i64 %sub20.i, 4294967294
   %add22.i = add nuw nsw i64 %conv21.i, %mul18.i
-  %cmp24.not.i = icmp ugt i64 %add22.i, 2147483647
+  %cmp24.not.i = icmp samesign ugt i64 %add22.i, 2147483647
   %cmp4.not = icmp eq i32 %add.i, -1
   %or.cond = select i1 %cmp24.not.i, i1 true, i1 %cmp4.not
   br i1 %or.cond, label %if.else, label %if.then5
@@ -5672,7 +5672,7 @@ land.lhs.true16.i:                                ; preds = %invoke.cont.i
   %sub20.i = add nsw i64 %conv19.i, 4294967248
   %conv21.i = and i64 %sub20.i, 4294967294
   %add22.i = add nuw nsw i64 %conv21.i, %mul18.i
-  %cmp24.not.i = icmp ugt i64 %add22.i, 2147483647
+  %cmp24.not.i = icmp samesign ugt i64 %add22.i, 2147483647
   %cmp4.not = icmp eq i32 %add.i, -1
   %or.cond31 = select i1 %cmp24.not.i, i1 true, i1 %cmp4.not
   br i1 %or.cond31, label %if.else, label %if.then5
@@ -5869,7 +5869,7 @@ land.lhs.true16.i:                                ; preds = %invoke.cont.i
   %sub20.i = add nsw i64 %conv19.i, 4294967248
   %conv21.i = and i64 %sub20.i, 4294967294
   %add22.i = add nuw nsw i64 %conv21.i, %mul18.i
-  %cmp24.not.i = icmp ugt i64 %add22.i, 2147483647
+  %cmp24.not.i = icmp samesign ugt i64 %add22.i, 2147483647
   br i1 %cmp24.not.i, label %cond.false.i, label %if.end
 
 cond.false.i:                                     ; preds = %land.lhs.true16.i, %invoke.cont.i
@@ -6065,7 +6065,7 @@ land.lhs.true16.i:                                ; preds = %invoke.cont.i
   %sub20.i = add nsw i64 %conv19.i, 4294967248
   %conv21.i = and i64 %sub20.i, 4294967294
   %add22.i = add nuw nsw i64 %conv21.i, %mul18.i
-  %cmp24.not.i = icmp ugt i64 %add22.i, 2147483647
+  %cmp24.not.i = icmp samesign ugt i64 %add22.i, 2147483647
   br i1 %cmp24.not.i, label %cond.false.i, label %if.end
 
 cond.false.i:                                     ; preds = %land.lhs.true16.i, %invoke.cont.i

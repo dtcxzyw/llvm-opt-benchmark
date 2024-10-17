@@ -748,7 +748,7 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %14, %10
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp ugt i32 %28, 1
+  %33 = icmp samesign ugt i32 %28, 1
   br i1 %33, label %.lr.ph.i, label %_ZNK4llvm18ConstantDataVector13getSplatValueEv.exit
 
 .lr.ph.i:                                         ; preds = %25
@@ -3598,7 +3598,7 @@ _ZNK4llvm8Constant11isNullValueEv.exit.thread:    ; preds = %27, %16, %7, %7, %7
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
-  %switch.i = icmp ult i32 %43, 4
+  %switch.i = icmp samesign ult i32 %43, 4
   br i1 %switch.i, label %49, label %44
 
 44:                                               ; preds = %.thread.thread
@@ -9350,7 +9350,7 @@ _ZL17rangeOnlyContainsIPKPN4llvm8ConstantES2_EbT_S5_T0_.exit25: ; preds = %.lr.p
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 255
-  %switch.i = icmp ult i32 %52, 4
+  %switch.i = icmp samesign ult i32 %52, 4
   br i1 %switch.i, label %58, label %53
 
 53:                                               ; preds = %_ZL17rangeOnlyContainsIPKPN4llvm8ConstantES2_EbT_S5_T0_.exit25
@@ -10099,7 +10099,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22ConstantDataSequential23isElement
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
-  %switch = icmp ult i32 %4, 4
+  %switch = icmp samesign ult i32 %4, 4
   br i1 %switch, label %11, label %5
 
 5:                                                ; preds = %1
@@ -10800,7 +10800,7 @@ _ZNK4llvm8Constant11isNullValueEv.exit:           ; preds = %2, %2, %2, %2, %15,
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 255
-  %switch.i = icmp ult i32 %73, 4
+  %switch.i = icmp samesign ult i32 %73, 4
   br i1 %switch.i, label %79, label %74
 
 74:                                               ; preds = %.thread76
@@ -13024,7 +13024,7 @@ define dso_local noundef ptr @_ZNK4llvm14ConstantVector13getSplatValueEb(ptr noc
   %7 = sub nsw i64 0, %6
   %8 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ugt i32 %5, 1
+  %10 = icmp samesign ugt i32 %5, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -33175,7 +33175,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i:       ; preds = %36, %32
   br label %_ZN4llvm16CastConstantExprC2EjPNS_8ConstantEPNS_4TypeE.exit
 
 39:                                               ; preds = %6
-  %40 = icmp ugt i8 %5, 12
+  %40 = icmp samesign ugt i8 %5, 12
   tail call void @llvm.assume(i1 %40)
   %41 = icmp ult i8 %5, 31
   tail call void @llvm.assume(i1 %41)

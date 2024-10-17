@@ -1190,7 +1190,7 @@ COVER_selectSegment.exit.thread:                  ; preds = %38, %COVER_selectSe
   %201 = sub i32 %200, %.067.lcssa40.i
   %202 = zext i32 %201 to i64
   %..0 = tail call i64 @llvm.umin.i64(i64 %.017, i64 %202)
-  %203 = icmp ult i64 %..0, %37
+  %203 = icmp samesign ult i64 %..0, %37
   br i1 %203, label %._crit_edge, label %204
 
 204:                                              ; preds = %199

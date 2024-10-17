@@ -1197,7 +1197,7 @@ if.else:                                          ; preds = %for.body
 
 if.end24:                                         ; preds = %if.else, %_ZNK9parameter7get_astEv.exit
   %11 = load ptr, ptr %this, align 8
-  %cmp26 = icmp ult i64 %indvars.iv, %7
+  %cmp26 = icmp samesign ult i64 %indvars.iv, %7
   %cond = select i1 %cmp26, ptr @.str.3, ptr @.str.4
   %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %cond)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

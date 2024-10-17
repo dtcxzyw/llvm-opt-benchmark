@@ -729,11 +729,11 @@ define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evalua
   %29 = add i32 %19, %25
   %30 = sub i32 %29, %28
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %32 = icmp ugt i32 %31, 1050
+  %32 = icmp samesign ugt i32 %31, 1050
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %2
-  %34 = icmp ugt i32 %31, 2500
+  %34 = icmp samesign ugt i32 %31, 2500
   %35 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE1EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %0, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext %34) #18
   br label %38
 

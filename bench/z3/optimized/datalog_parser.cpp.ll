@@ -7864,7 +7864,7 @@ while.cond:                                       ; preds = %if.end, %while.cond
 while.body:                                       ; preds = %while.cond
   %41 = load i32, ptr %m_arity.i, align 8
   %42 = zext i32 %41 to i64
-  %cmp45.not = icmp ult i64 %indvars.iv, %42
+  %cmp45.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %cmp45.not, label %if.end48, label %if.then46
 
 if.then6:                                         ; preds = %while.cond.us

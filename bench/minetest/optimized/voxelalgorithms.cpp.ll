@@ -1982,7 +1982,7 @@ invoke.cont97:                                    ; preds = %invoke.cont92
   %retval.0.i.i520 = select i1 %bf.cast.not.i.i515, i8 0, i8 %cond.in.i.i519
   %bf.clear.i521 = and i8 %retval.sroa.0.0.copyload.i.i514, 15
   %cond.i522 = call noundef i8 @llvm.umax.i8(i8 %bf.clear.i521, i8 %retval.0.i.i520)
-  %cmp104 = icmp ule i8 %cond.i522, %bf.clear82
+  %cmp104 = icmp samesign ule i8 %cond.i522, %bf.clear82
   %cmp108.not = icmp ult i8 %cond.i522, %spec.select
   %or.cond471 = select i1 %cmp104, i1 true, i1 %cmp108.not
   %sub = add nsw i8 %cond.i522, -1
@@ -5498,7 +5498,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8v
 if.end69:                                         ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i.i195, %cond.end
   %cond.i.1 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i, i8 %8)
   %cond.1 = select i1 %bf.cast.not, i8 %bf.clear.i, i8 %cond.i.1
-  %cmp64.1 = icmp ugt i8 %cond.1, 1
+  %cmp64.1 = icmp samesign ugt i8 %cond.1, 1
   br i1 %cmp64.1, label %if.then65.1, label %if.end69.1
 
 if.then65.1:                                      ; preds = %if.end69
@@ -6771,7 +6771,7 @@ if.end227:                                        ; preds = %_ZNSt6vectorIN7voxa
   %cond.1 = select i1 %bf.cast.not, i8 15, i8 %cond.i.1
   %cond.i472.1 = call i8 @llvm.umax.i8(i8 %bf.clear.i471, i8 %110)
   %cond217.1 = select i1 %bf.cast208.not, i8 %bf.clear.i471, i8 %cond.i472.1
-  %cmp220.1 = icmp ugt i8 %cond.1, %cond217.1
+  %cmp220.1 = icmp samesign ugt i8 %cond.1, %cond217.1
   br i1 %cmp220.1, label %if.then221.1, label %if.end227.1
 
 if.then221.1:                                     ; preds = %if.end227

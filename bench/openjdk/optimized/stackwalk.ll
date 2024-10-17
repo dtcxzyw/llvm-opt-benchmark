@@ -932,7 +932,7 @@ _ZN15BaseFrameStream12continuationEv.exit39:      ; preds = %59
   %88 = add nsw i32 %83, 1
   %89 = icmp sgt i32 %83, -1
   %90 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %88)
-  %91 = icmp ult i32 %90, 2
+  %91 = icmp samesign ult i32 %90, 2
   %or.cond.i.i.i.i.i.i = select i1 %89, i1 %91, i1 false
   %92 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %88, i1 true)
   %93 = sub nuw nsw i32 32, %92
@@ -2096,7 +2096,7 @@ define hidden noundef ptr @_ZN9StackWalk15fetchFirstBatchER15BaseFrameStream6Han
   %25 = add nsw i32 %20, 1
   %26 = icmp sgt i32 %20, -1
   %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
-  %28 = icmp ult i32 %27, 2
+  %28 = icmp samesign ult i32 %27, 2
   %or.cond.i.i.i.i.i.i = select i1 %26, i1 %28, i1 false
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
   %30 = sub nuw nsw i32 32, %29

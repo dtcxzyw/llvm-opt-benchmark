@@ -1621,7 +1621,7 @@ sw.bb7.i.i.i46:                                   ; preds = %while.body.i.i.i42
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %sw.bb7.i.i.i46, %sw.bb5.i.i.i69, %sw.bb3.i.i.i71
   %retval.0.i.i.i47 = phi i32 [ %43, %sw.bb7.i.i.i46 ], [ %sub.i.i.i70, %sw.bb5.i.i.i69 ], [ %add.i.i.i72, %sw.bb3.i.i.i71 ]
   %44 = zext i32 %retval.0.i.i.i47 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %44
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %44
   br i1 %cmp.i, label %cond.true.i49, label %invoke.cont49
 
 cond.true.i49:                                    ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
@@ -2276,7 +2276,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !11
 
@@ -3181,7 +3181,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !20
 

@@ -10337,7 +10337,7 @@ _ZNK12_GLOBAL__N_17SVEType17isScalarPredicateEv.exit20.thread: ; preds = %.threa
   %94 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %93, ptr %94, align 1, !noalias !40
   %95 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !43
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -10381,7 +10381,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %109 = getelementptr inbounds i8, ptr %.111.i22, i64 -1
   store i8 %108, ptr %109, align 1, !noalias !47
   %110 = udiv i64 %.0810.i23, 10
-  %.not.i24 = icmp ult i64 %.0810.i23, 10
+  %.not.i24 = icmp samesign ult i64 %.0810.i23, 10
   br i1 %.not.i24, label %_ZN4llvm6utostrB5cxx11Emb.exit27, label %.lr.ph.i21, !llvm.loop !43
 
 _ZN4llvm6utostrB5cxx11Emb.exit27:                 ; preds = %.lr.ph.i21
@@ -10494,7 +10494,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntr
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %25
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not12.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i, 3
+  %.not12.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i, 3
   br i1 %.not12.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !53
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
@@ -11868,7 +11868,7 @@ _ZNK12_GLOBAL__N_19Intrinsic12getNumParamsEv.exit.i: ; preds = %_ZN4llvm5countIR
   %80 = add i64 %.0.lcssa.i.i.i.i.i, %71
   %81 = add i64 %80, 1
   %82 = and i64 %81, 4294967295
-  %83 = icmp ult i64 %indvars.iv, %82
+  %83 = icmp samesign ult i64 %indvars.iv, %82
   br i1 %83, label %.preheader.i, label %167
 
 .preheader.i:                                     ; preds = %_ZNK12_GLOBAL__N_19Intrinsic12getNumParamsEv.exit.i, %100
@@ -15824,7 +15824,7 @@ _ZNK12_GLOBAL__N_17SVEType9isIntegerEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_1
   %79 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %78, ptr %79, align 1, !noalias !130
   %80 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !43
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -15901,7 +15901,7 @@ _ZNK12_GLOBAL__N_19Intrinsic12getNumParamsEv.exit: ; preds = %8, %_ZN4llvm5count
   %.0.lcssa.i.i.i.i = phi i64 [ -1, %8 ], [ %17, %_ZN4llvm5countIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.i ]
   %18 = add i64 %.0.lcssa.i.i.i.i, %9
   %19 = and i64 %18, 4294967295
-  %20 = icmp ult i64 %indvars.iv, %19
+  %20 = icmp samesign ult i64 %indvars.iv, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %_ZNK12_GLOBAL__N_19Intrinsic12getNumParamsEv.exit
@@ -16388,7 +16388,7 @@ _ZNK12_GLOBAL__N_17SVEType17isScalarPredicateEv.exit.thread: ; preds = %28, %33
   %130 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %129, ptr %130, align 1, !noalias !141
   %131 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !43
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -16435,7 +16435,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %143 = getelementptr inbounds i8, ptr %.111.i28, i64 -1
   store i8 %142, ptr %143, align 1, !noalias !150
   %144 = udiv i64 %.0810.i29, 10
-  %.not.i30 = icmp ult i64 %.0810.i29, 10
+  %.not.i30 = icmp samesign ult i64 %.0810.i29, 10
   br i1 %.not.i30, label %_ZN4llvm6utostrB5cxx11Emb.exit33, label %.lr.ph.i27, !llvm.loop !43
 
 _ZN4llvm6utostrB5cxx11Emb.exit33:                 ; preds = %.lr.ph.i27, %.thread.i32
@@ -17186,7 +17186,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i

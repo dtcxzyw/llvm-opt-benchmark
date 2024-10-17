@@ -973,7 +973,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.i:        ; preds = %delete.notnull.i.i,
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %16 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %16
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %cmp.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !91
 
 _ZN3irr3gui15CGUIEnvironment18clearDeletionQueueEv.exit: ; preds = %_ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit.i, %entry
@@ -1190,7 +1190,7 @@ for.inc:                                          ; preds = %delete.notnull.i169
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %45 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp59 = icmp ult i64 %indvars.iv.next, %45
+  %cmp59 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp59, label %for.body, label %for.cond73.preheader, !llvm.loop !102
 
 for.body76:                                       ; preds = %for.cond73.preheader, %_ZNK3irr17IReferenceCounted4dropEv.exit187
@@ -1228,7 +1228,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit187:       ; preds = %delete.notnull.i184
   %sub.ptr.sub.i.i176 = sub i64 %sub.ptr.lhs.cast.i.i174, %sub.ptr.rhs.cast.i.i175
   %sub.ptr.div.i.i177 = sdiv exact i64 %sub.ptr.sub.i.i176, 72
   %53 = and i64 %sub.ptr.div.i.i177, 4294967295
-  %cmp75 = icmp ult i64 %indvars.iv.next249, %53
+  %cmp75 = icmp samesign ult i64 %indvars.iv.next249, %53
   br i1 %cmp75, label %for.body76, label %for.end86, !llvm.loop !103
 
 for.end86:                                        ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit187, %for.cond73.preheader
@@ -1526,7 +1526,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %11 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !91
 
 return:                                           ; preds = %_ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit, %entry
@@ -2543,7 +2543,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.i:        ; preds = %delete.notnull.i.i,
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %29 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %cmp.i43 = icmp ult i64 %indvars.iv.next.i, %29
+  %cmp.i43 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %cmp.i43, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !91
 
 _ZN3irr3gui15CGUIEnvironment18clearDeletionQueueEv.exit: ; preds = %_ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit.i, %if.end32
@@ -6533,7 +6533,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %Text, align 8, !tbaa !106
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -6669,7 +6669,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %ToolTipText, align 8, !tbaa !106
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -6985,7 +6985,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %3 = icmp ult i64 %conv.i, 4
+  %3 = icmp samesign ult i64 %conv.i, 4
   br i1 %3, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

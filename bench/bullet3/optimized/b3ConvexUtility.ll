@@ -1454,7 +1454,7 @@ for.inc266:                                       ; preds = %for.body251, %_ZN20
 for.inc269:                                       ; preds = %for.inc266, %invoke.cont228
   %165 = phi i32 [ %136, %invoke.cont228 ], [ %163, %for.inc266 ]
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
-  %cmp215 = icmp ult i64 %indvars.iv.next1005, %135
+  %cmp215 = icmp samesign ult i64 %indvars.iv.next1005, %135
   br i1 %cmp215, label %invoke.cont228, label %for.end271, !llvm.loop !19
 
 for.end271:                                       ; preds = %for.inc269

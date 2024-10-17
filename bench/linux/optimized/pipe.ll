@@ -626,7 +626,7 @@ define dso_local void @free_pipe_info(ptr noundef %0) local_unnamed_addr #0 alig
   %28 = phi i32 [ %.pre, %24 ], [ %17, %16 ]
   %29 = add nuw nsw i64 %18, 1
   %30 = zext i32 %28 to i64
-  %31 = icmp ult i64 %29, %30
+  %31 = icmp samesign ult i64 %29, %30
   br i1 %31, label %16, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %27, %1

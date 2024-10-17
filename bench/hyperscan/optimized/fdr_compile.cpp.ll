@@ -905,7 +905,7 @@ for.body71.i.i:                                   ; preds = %invoke.cont119.i.i,
   %indvars.iv487.i.i = phi i64 [ 0, %for.body71.lr.ph.i.i ], [ %indvars.iv.next488.i.i, %invoke.cont119.i.i ]
   %indvars.iv476.i.i = phi i64 [ 1, %for.body71.lr.ph.i.i ], [ %indvars.iv.next477.i.i, %invoke.cont119.i.i ]
   %indvars.iv.next488.i.i = add nuw nsw i64 %indvars.iv487.i.i, 1
-  %cmp82421.i.i = icmp ult i64 %indvars.iv.next488.i.i, %conv132.i.i
+  %cmp82421.i.i = icmp samesign ult i64 %indvars.iv.next488.i.i, %conv132.i.i
   br i1 %cmp82421.i.i, label %for.body83.lr.ph.i.i, label %invoke.cont119.i.i
 
 for.body83.lr.ph.i.i:                             ; preds = %for.body71.i.i
@@ -6105,7 +6105,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.b
 if.end4.i:                                        ; preds = %while.body.i
   %add.i = add nuw nsw i64 %storemerge27.i, 1
   %div5.i = lshr i64 %add.i, 1
-  %cmp1.not.i = icmp ult i64 %storemerge27.i, 2
+  %cmp1.not.i = icmp samesign ult i64 %storemerge27.i, 2
   br i1 %cmp1.not.i, label %if.end, label %while.body.i, !llvm.loop !132
 
 if.then:                                          ; preds = %while.body.i
@@ -6793,7 +6793,7 @@ if.then16.i:                                      ; preds = %_ZSt8mismatchISt16r
   %nocase24.i = getelementptr inbounds i8, ptr %__next.sroa.0.040.i, i64 -68
   %62 = load i8, ptr %nocase24.i, align 4
   %63 = and i8 %62, 1
-  %cmp27.i = icmp ugt i8 %61, %63
+  %cmp27.i = icmp samesign ugt i8 %61, %63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp10.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp12.i)
@@ -7082,7 +7082,7 @@ if.end22:                                         ; preds = %_ZSt8mismatchISt16r
   %nocase24 = getelementptr inbounds i8, ptr %b, i64 36
   %25 = load i8, ptr %nocase24, align 4
   %26 = and i8 %25, 1
-  %cmp27 = icmp ugt i8 %24, %26
+  %cmp27 = icmp samesign ugt i8 %24, %26
   br label %return
 
 return:                                           ; preds = %if.end22, %if.then16, %if.then

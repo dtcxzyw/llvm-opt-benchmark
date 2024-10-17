@@ -306,7 +306,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %32, %34
-  %.not5662 = icmp ult i32 %28, %8
+  %.not5662 = icmp samesign ult i32 %28, %8
   br i1 %.not5662, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %up_irq_restore.exit
@@ -461,7 +461,7 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
 .split.us.us.split.us.us:                         ; preds = %37
   %38 = load i8, ptr %7, align 1
   %39 = zext i8 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next68, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next68, %39
   br i1 %40, label %.preheader.us.us, label %.loopexit, !llvm.loop !18
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %.split.us.us.split
@@ -540,7 +540,7 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
 .split.us.us.split:                               ; preds = %72
   %73 = load i8, ptr %7, align 1
   %74 = zext i8 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next61, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next61, %74
   br i1 %75, label %.preheader.us, label %.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
@@ -619,7 +619,7 @@ files_fget_by_index.exit34:                       ; preds = %94, %100
 .split:                                           ; preds = %104
   %105 = load i8, ptr %7, align 1
   %106 = zext i8 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next54, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next54, %106
   br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.split, %.thread36, %files_fget_by_index.exit34, %.split.us.us.split, %files_fget_by_index.exit34.us.us, %.thread36.us.us, %.split.us.us.split.us.us, %.thread36.us.us.us.us, %files_fget_by_index.exit34.us.us.us.us, %4
@@ -1091,7 +1091,7 @@ files_fget_by_index.exit:                         ; preds = %9, %15
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %23 = load i8, ptr %6, align 1
   %24 = zext i8 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next16, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next16, %24
   br i1 %25, label %.preheader, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %22, %2

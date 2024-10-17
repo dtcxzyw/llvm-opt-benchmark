@@ -101,7 +101,7 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   %shl6.i = shl i64 2, %sh_prom.i.i
   %not.i = xor i64 %shl6.i, -1
   %and7.i = and i64 %shl.i.i, %not.i
-  %tobool.not.i = icmp ugt i64 %and7.i, %and.i
+  %tobool.not.i = icmp samesign ugt i64 %and7.i, %and.i
   br i1 %tobool.not.i, label %if.end15, label %return
 
 if.end15:                                         ; preds = %land.lhs.true.i
@@ -482,7 +482,7 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   %shl6.i = shl nuw nsw i64 2, %sh_prom.i.i
   %not.i = xor i64 %shl6.i, -1
   %and7.i = and i64 %shl.i.i, %not.i
-  %tobool.not.i = icmp ugt i64 %and7.i, %and.i
+  %tobool.not.i = icmp samesign ugt i64 %and7.i, %and.i
   br i1 %tobool.not.i, label %if.end6, label %if.end31
 
 if.end6:                                          ; preds = %land.lhs.true.i

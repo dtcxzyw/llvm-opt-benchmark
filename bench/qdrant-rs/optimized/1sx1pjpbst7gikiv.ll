@@ -407,17 +407,17 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %40 = getelementptr inbounds i32, ptr %16, i64 %38
   %41 = load i32, ptr %40, align 4, !range !55, !alias.scope !56, !noalias !53, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %42 = icmp ult i32 %41, 128
+  %42 = icmp samesign ult i32 %41, 128
   br i1 %42, label %332, label %43
 
 43:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !62
   store i32 0, ptr %8, align 4, !noalias !62
-  %44 = icmp ult i32 %41, 2048
+  %44 = icmp samesign ult i32 %41, 2048
   br i1 %44, label %.thread.i.i.i.i, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i32 %41, 65536
+  %46 = icmp samesign ult i32 %41, 65536
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -793,15 +793,15 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
   br i1 %219, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h39dd9c4a3b4b9ae9E.exit.i.i.i.i.i", label %220
 
 220:                                              ; preds = %218
-  %221 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 128
+  %221 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 128
   br i1 %221, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i.i.i", label %222
 
 222:                                              ; preds = %220
-  %223 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 2048
+  %223 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 2048
   br i1 %223, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i.i.i", label %224
 
 224:                                              ; preds = %222
-  %225 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 65536
+  %225 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i.i = select i1 %225, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.i.i.i.i.i.i"
 

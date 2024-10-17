@@ -687,7 +687,7 @@ land.rhs:                                         ; preds = %do.cond
 
 do.end:                                           ; preds = %do.cond, %land.rhs
   %retry.1 = phi i32 [ 10, %land.rhs ], [ %retry.0, %do.cond ]
-  %cmp5 = icmp ult i32 %retry.1, 10
+  %cmp5 = icmp samesign ult i32 %retry.1, 10
   %. = zext i1 %cmp5 to i32
   br label %return
 

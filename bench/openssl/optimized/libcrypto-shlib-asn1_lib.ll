@@ -154,7 +154,7 @@ if.then8.i:                                       ; preds = %if.else.i
   %and.i = zext nneg i8 %5 to i32
   %add.i = add nuw nsw i32 %and.i, 1
   %conv9.i = zext nneg i32 %add.i to i64
-  %cmp10.not.i = icmp ugt i64 %max.1, %conv9.i
+  %cmp10.not.i = icmp samesign ugt i64 %max.1, %conv9.i
   br i1 %cmp10.not.i, label %while.cond.preheader.i, label %err
 
 while.cond.preheader.i:                           ; preds = %if.then8.i
@@ -353,7 +353,7 @@ for.body.i:                                       ; preds = %if.else26, %for.bod
   %i.016.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.else26 ]
   %shr.i = lshr i32 %len.017.i, 8
   %inc.i = add nuw nsw i32 %i.016.i, 1
-  %cmp1.not.i = icmp ult i32 %len.017.i, 256
+  %cmp1.not.i = icmp samesign ult i32 %len.017.i, 256
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
@@ -413,7 +413,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %ret.1 = phi i32 [ %inc, %while.body ], [ 1, %if.end ]
   %shr = lshr i32 %tag.addr.0, 7
   %inc = add nuw nsw i32 %ret.1, 1
-  %cmp3.old.not = icmp ult i32 %tag.addr.0, 128
+  %cmp3.old.not = icmp samesign ult i32 %tag.addr.0, 128
   br i1 %cmp3.old.not, label %if.end4, label %while.body
 
 if.end4:                                          ; preds = %while.body, %if.end
@@ -435,7 +435,7 @@ while.body12:                                     ; preds = %if.else, %while.bod
   %ret.314 = phi i32 [ %inc14, %while.body12 ], [ %inc7, %if.else ]
   %shr13 = lshr i32 %tmplen.015, 8
   %inc14 = add nuw nsw i32 %ret.314, 1
-  %cmp11.not = icmp ult i32 %tmplen.015, 256
+  %cmp11.not = icmp samesign ult i32 %tmplen.015, 256
   br i1 %cmp11.not, label %if.end17, label %while.body12, !llvm.loop !12
 
 if.end17:                                         ; preds = %while.body12, %if.else, %if.then6

@@ -1660,7 +1660,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %_ZN6pars
 44:                                               ; preds = %.noexc10
   %45 = zext nneg i16 %43 to i64
   %46 = lshr i64 %45, 6
-  %47 = icmp ult i16 %43, 192
+  %47 = icmp samesign ult i16 %43, 192
   br i1 %47, label %_ZN6parser7grammar14generic_params16opt_where_clause18is_where_predicate17h2797a205f6753eacE.llvm.759494324143416988.exit, label %48, !prof !328
 
 48:                                               ; preds = %44
@@ -1887,7 +1887,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit: ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
   %18 = zext nneg i16 %16 to i64
   %19 = lshr i64 %18, 6
-  %20 = icmp ult i16 %16, 192
+  %20 = icmp samesign ult i16 %16, 192
   br i1 %20, label %_ZN6parser9token_set8TokenSet8contains17h30a4f636c2a0b788E.exit, label %21, !prof !328
 
 21:                                               ; preds = %17

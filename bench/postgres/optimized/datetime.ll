@@ -708,8 +708,8 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   store i8 %149, ptr %150, align 1
   %.not224 = icmp ne i8 %149, 0
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %151 = icmp ult i64 %indvars.iv263, 19
-  %or.cond258 = and i1 %.not224, %151
+  %151 = icmp samesign ult i64 %indvars.iv263, 19
+  %or.cond258 = select i1 %.not224, i1 %151, i1 false
   br i1 %or.cond258, label %145, label %152, !llvm.loop !10
 
 152:                                              ; preds = %145

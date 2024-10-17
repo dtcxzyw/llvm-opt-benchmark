@@ -3368,7 +3368,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %61, %64
 
 111:                                              ; preds = %106
   store i8 0, ptr %5, align 16
-  %112 = icmp ugt i32 %spec.select.i, 1
+  %112 = icmp samesign ugt i32 %spec.select.i, 1
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %111
@@ -3453,7 +3453,7 @@ _ZL19print_lambda_vectorP8t_lambdaibbPc.exit:     ; preds = %_ZL19print_lambda_v
 
 143:                                              ; preds = %_ZL19print_lambda_vectorP8t_lambdaibbPc.exit
   store i8 0, ptr %6, align 16
-  %144 = icmp ugt i32 %spec.select.i152, 1
+  %144 = icmp samesign ugt i32 %spec.select.i152, 1
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %143
@@ -3919,7 +3919,7 @@ _ZL18haveFepLambdaMovesRK10t_inputrec.exit167.thread: ; preds = %321, %323, %_ZL
 
 347:                                              ; preds = %342
   store i8 0, ptr %5, align 16
-  %348 = icmp ugt i32 %spec.select.i170, 1
+  %348 = icmp samesign ugt i32 %spec.select.i170, 1
   br i1 %348, label %349, label %350
 
 349:                                              ; preds = %347
@@ -4583,7 +4583,7 @@ define void @_ZN3gmx12EnergyOutput19addDataAtEnergyStepEbbdfPK14gmx_enerdata_tPK
   %indvars.iv278 = phi i64 [ %237, %.lr.ph.preheader ], [ %indvars.iv.next279, %259 ]
   %238 = phi i32 [ %235, %.lr.ph.preheader ], [ %266, %259 ]
   %.0236 = phi i32 [ %.0180237, %.lr.ph.preheader ], [ %265, %259 ]
-  %239 = icmp ult i32 %.0180237, %.0236
+  %239 = icmp samesign ult i32 %.0180237, %.0236
   %240 = mul nsw i32 %238, %.0180237
   %241 = add nsw i32 %240, %.0236
   %242 = mul nsw i32 %238, %.0236

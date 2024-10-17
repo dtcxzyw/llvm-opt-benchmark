@@ -1667,7 +1667,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %exitcond.not.i.i15, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h404cd6b530ba00f0E.exit.sink.split.i", label %102
 
 113:                                              ; preds = %96
-  %114 = icmp ult i64 %22, 29
+  %114 = icmp samesign ult i64 %22, 29
   br i1 %114, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h404cd6b530ba00f0E.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %113
@@ -2175,7 +2175,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %exitcond.not.i.i15, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hcfedde6b197fcfcaE.exit.sink.split.i", label %.lr.ph.i4.i
 
 111:                                              ; preds = %97
-  %112 = icmp ult i64 %22, 29
+  %112 = icmp samesign ult i64 %22, 29
   br i1 %112, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hcfedde6b197fcfcaE.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %111, %122
@@ -2677,7 +2677,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19: ; pr
   br i1 %exitcond.not.i.i16, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h260f4543353eb387E.exit.sink.split.i", label %.lr.ph.i3.i
 
 113:                                              ; preds = %99
-  %114 = icmp ult i64 %22, 29
+  %114 = icmp samesign ult i64 %22, 29
   br i1 %114, label %.lr.ph.i5.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h260f4543353eb387E.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %113, %124

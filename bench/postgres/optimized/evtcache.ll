@@ -149,7 +149,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %67 = getelementptr inbounds i8, ptr %66, i64 18
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 2047
-  %70 = icmp ult i16 %69, 7
+  %70 = icmp samesign ult i16 %69, 7
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %59

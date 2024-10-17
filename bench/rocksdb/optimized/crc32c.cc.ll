@@ -3110,7 +3110,7 @@ if.end997:                                        ; preds = %if.end910, %sw.bb99
   %crc0.0 = phi i64 [ %crc0.1, %if.end910 ], [ %831, %sw.bb992 ], [ %conv, %entry ]
   %len.addr.0 = phi i64 [ %and912, %if.end910 ], [ %and912, %sw.bb992 ], [ %len, %entry ]
   %conv.i662 = trunc i64 %crc0.0 to i32
-  %tobool.not.i664 = icmp ult i64 %len.addr.0, 4
+  %tobool.not.i664 = icmp samesign ult i64 %len.addr.0, 4
   br i1 %tobool.not.i664, label %if.end.i667, label %if.then.i665
 
 if.then.i665:                                     ; preds = %if.end997
@@ -3212,7 +3212,7 @@ _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %cond.false.i.i.i
   %shr.i = lshr i64 %len_bits.03.i, %0
   %shr3.i = lshr i64 %shr.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  %tobool.not.i = icmp ult i64 %shr.i, 2
+  %tobool.not.i = icmp samesign ult i64 %shr.i, 2
   br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !7
 
 _ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, %if.end

@@ -10669,7 +10669,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -11563,7 +11563,7 @@ for.body.i.preheader.i.i.i.i:                     ; preds = %invoke.cont52
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.preheader.i.i.i.i
   %agg.tmp.sroa.2.0.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %for.body.i.preheader.i.i.i.i ]
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %agg.tmp.sroa.2.0.i.i.i.i, 8
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i64 %agg.tmp.sroa.2.0.i.i.i.i, 8
   %18 = load ptr, ptr %values_.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %18, i64 %agg.tmp.sroa.2.0.i.i.i.i
   %19 = load ptr, ptr %vect_.i.i.i.i.i.i.i, align 8

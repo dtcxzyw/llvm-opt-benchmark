@@ -891,7 +891,7 @@ for.inc:                                          ; preds = %sw.bb, %exec_inline
   %inc = add nuw nsw i64 %i.013, 1
   %13 = load i32, ptr %len, align 8
   %conv = zext i32 %13 to i64
-  %cmp1 = icmp ult i64 %inc, %conv
+  %cmp1 = icmp samesign ult i64 %inc, %conv
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %for.body, %for.cond.preheader, %entry

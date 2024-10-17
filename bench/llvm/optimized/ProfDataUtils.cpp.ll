@@ -931,7 +931,7 @@ _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZN4llvmeqENS_9St
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %46, %49
   %.0.i.i = phi i64 [ %51, %49 ], [ %48, %46 ]
-  %52 = icmp ult i64 %indvars.iv, %.0.i.i
+  %52 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %52, label %53, label %_ZN4llvmeqENS_9StringRefES0_.exit35.thread54
 
 53:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit

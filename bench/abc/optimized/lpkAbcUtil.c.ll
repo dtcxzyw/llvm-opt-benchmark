@@ -74,7 +74,7 @@ Kit_TruthCopy.exit.preheader:
   %30 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 %29, ptr %30, align 4
   %31 = and i32 %.val, 31
-  %32 = icmp ult i32 %31, 6
+  %32 = icmp samesign ult i32 %31, 6
   %33 = add nsw i32 %31, -5
   %34 = shl nuw nsw i32 1, %33
   %spec.select.i = select i1 %32, i32 1, i32 %34
@@ -187,7 +187,7 @@ Kit_TruthCopy.exit:
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 7
   %5 = and i32 %4, 31
-  %6 = icmp ult i32 %5, 6
+  %6 = icmp samesign ult i32 %5, 6
   %7 = add nsw i32 %5, -5
   %8 = select i1 %6, i32 0, i32 %7
   %9 = zext nneg i32 %8 to i64
@@ -215,7 +215,7 @@ Kit_TruthCopy.exit:
   %25 = load i32, ptr %2, align 8
   %26 = lshr i32 %25, 7
   %27 = and i32 %26, 31
-  %28 = icmp ult i32 %27, 6
+  %28 = icmp samesign ult i32 %27, 6
   %29 = add nsw i32 %27, -5
   %30 = shl nuw nsw i32 1, %29
   %spec.select.i = select i1 %28, i32 1, i32 %30
@@ -338,7 +338,7 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %30 = lshr i32 %28, 16
   %31 = add nuw nsw i32 %29, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 228
-  %33 = icmp ult i32 %7, 6
+  %33 = icmp samesign ult i32 %7, 6
   %34 = add nsw i32 %7, -5
   %35 = shl nuw nsw i32 1, %34
   %36 = select i1 %33, i32 1, i32 %35
@@ -405,7 +405,7 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 7
   %6 = and i32 %5, 31
-  %7 = icmp ult i32 %6, 6
+  %7 = icmp samesign ult i32 %6, 6
   %8 = add nsw i32 %6, -5
   %9 = select i1 %7, i32 0, i32 %8
   %10 = shl nuw nsw i32 1, %9
@@ -449,7 +449,7 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %36 = lshr i32 %35, 7
   %37 = and i32 %36, 31
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %17, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %17, %1

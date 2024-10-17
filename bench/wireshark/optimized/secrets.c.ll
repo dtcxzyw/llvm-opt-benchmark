@@ -258,7 +258,7 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = load i32, ptr %6, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next.i, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next.i, %21
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -650,7 +650,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr @uat_num_pkcs11_libs, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %11
@@ -927,7 +927,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %2, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next.i, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next.i, %83
   br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %74
@@ -1011,7 +1011,7 @@ g_string_append_c_inline.exit:                    ; preds = %104, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr @uat_num_rsa_privkeys, align 4
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next, %117
   br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %115

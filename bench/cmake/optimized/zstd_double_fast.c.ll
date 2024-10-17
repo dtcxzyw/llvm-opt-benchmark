@@ -129,7 +129,7 @@ define dso_local void @ZSTD_fillDoubleHashTable(ptr nocapture noundef readonly %
 
 77:                                               ; preds = %69, %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %78 = icmp ult i64 %indvars.iv.i, 2
+  %78 = icmp samesign ult i64 %indvars.iv.i, 2
   %or.cond.i = select i1 %31, i1 %78, i1 false
   br i1 %or.cond.i, label %37, label %79, !llvm.loop !5
 

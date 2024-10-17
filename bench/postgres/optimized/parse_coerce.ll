@@ -2207,7 +2207,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   br i1 %.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %11 = icmp ugt i32 %0, 1
+  %11 = icmp samesign ugt i32 %0, 1
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -2240,7 +2240,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   %18 = tail call i32 @getBaseType(i32 noundef %10) #5
   store i32 %18, ptr %4, align 4
   call void @get_type_category_preferred(i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %19 = icmp ult i32 %.0, %0
+  %19 = icmp samesign ult i32 %.0, %0
   br i1 %19, label %.lr.ph25.preheader, label %._crit_edge26
 
 .lr.ph25.preheader:                               ; preds = %17

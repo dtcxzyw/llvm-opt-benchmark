@@ -26943,7 +26943,7 @@ _ZN15tree_sitter_cli8generate10node_types13ChildQuantity5union17h2bdfecdd0baef79
 656:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i425", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i423", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i421"
   %.0.i413.in = phi ptr [ %641, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i421" ], [ %635, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i423" ], [ %632, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i425" ]
   %.0.i413 = load i8, ptr %.0.i413.in, align 8, !range !6743, !noalias !6744, !noundef !17
-  %switch.i = icmp ugt i8 %.0.i413, 1
+  %switch.i = icmp samesign ugt i8 %.0.i413, 1
   br i1 %switch.i, label %.thread595, label %.thread599
 
 .thread599:                                       ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb5247bb4b2da42ddE.exit12.thread.i419", %629, %656
@@ -30541,7 +30541,7 @@ thread-pre-split949:                              ; preds = %938, %1092
 
 938:                                              ; preds = %931
   %939 = load i8, ptr %897, align 8, !range !6743, !noundef !17
-  %.0.i444.not = icmp ult i8 %939, 2
+  %.0.i444.not = icmp samesign ult i8 %939, 2
   br i1 %.0.i444.not, label %thread-pre-split949, label %940
 
 940:                                              ; preds = %938

@@ -552,7 +552,7 @@ for.body:                                         ; preds = %if.then, %for.inc
   %4 = load i32, ptr %arrayidx, align 4
   %and10 = and i32 %4, 65535
   %conv11 = zext nneg i32 %and10 to i64
-  %cmp13 = icmp ult i64 %shr, %conv11
+  %cmp13 = icmp samesign ult i64 %shr, %conv11
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %for.body
@@ -668,7 +668,7 @@ for.body42:                                       ; preds = %if.else26, %for.inc
   %18 = load i32, ptr %arrayidx46, align 4
   %and47 = and i32 %18, 65535
   %conv48 = zext nneg i32 %and47 to i64
-  %cmp49.not = icmp ult i64 %shr37, %conv48
+  %cmp49.not = icmp samesign ult i64 %shr37, %conv48
   br i1 %cmp49.not, label %if.else57, label %if.then51
 
 if.then51:                                        ; preds = %for.body42
@@ -924,7 +924,7 @@ land.lhs.true16:                                  ; preds = %if.end14.land.lhs.t
   %and17 = and i64 %conv3.i.i, 2147483647
   %tick_offset18 = getelementptr inbounds i8, ptr %s, i64 1280
   %and19 = and i64 %13, 2147483647
-  %cmp20 = icmp ult i64 %and17, %and19
+  %cmp20 = icmp samesign ult i64 %and17, %and19
   br i1 %cmp20, label %if.then21, label %land.lhs.true26
 
 if.then21:                                        ; preds = %land.lhs.true16

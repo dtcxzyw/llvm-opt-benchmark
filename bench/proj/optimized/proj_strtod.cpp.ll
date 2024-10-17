@@ -519,7 +519,7 @@ thread-pre-split:                                 ; preds = %68
 
 153:                                              ; preds = %151
   %154 = tail call i32 @llvm.abs.i32(i32 %.1174, i1 true)
-  %155 = icmp ult i32 %154, 20
+  %155 = icmp samesign ult i32 %154, 20
   br i1 %155, label %.preheader487, label %163
 
 .preheader487:                                    ; preds = %153, %.preheader487

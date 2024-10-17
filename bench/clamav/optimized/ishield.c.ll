@@ -855,7 +855,7 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
   %177 = load i8, ptr %176, align 1
   %178 = and i8 %177, 15
   %179 = lshr i8 %177, 4
-  %180 = icmp ugt i8 %178, 9
+  %180 = icmp samesign ugt i8 %178, 9
   %181 = select i1 %180, i8 87, i8 48
   %182 = add nuw nsw i8 %181, %178
   %183 = icmp ugt i8 %177, -97
@@ -1218,7 +1218,7 @@ is_parse_hdr.exit:                                ; preds = %320
   %349 = load i64, ptr %348, align 8
   %350 = call fastcc i32 @is_dump_and_scan(ptr noundef %0, i64 noundef %347, i64 noundef %349)
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %351 = icmp ult i64 %indvars.iv.next291, %343
+  %351 = icmp samesign ult i64 %indvars.iv.next291, %343
   %352 = icmp eq i32 %350, 0
   %353 = select i1 %351, i1 %352, i1 false
   br i1 %353, label %.lr.ph258, label %.loopexit.thread

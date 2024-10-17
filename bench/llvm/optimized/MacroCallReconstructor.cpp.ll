@@ -2261,7 +2261,7 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor17endReconstructi
   %27 = add nuw nsw i64 %.06, 1
   %28 = load i32, ptr %3, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %27, %29
+  %30 = icmp samesign ult i64 %27, %29
   br i1 %30, label %6, label %._crit_edge9, !llvm.loop !44
 
 ._crit_edge9:                                     ; preds = %._crit_edge, %2

@@ -3746,7 +3746,7 @@ thread-pre-split.i:                               ; preds = %135, %thread-pre-sp
 .preheader193.i:                                  ; preds = %.lr.ph226.i, %.critedge4.i
   %.1132.lcssa.i = phi double [ 1.000000e+00, %.critedge4.i ], [ %182, %.lr.ph226.i ]
   %.1126.lcssa.i = phi i32 [ %spec.store.select.i, %.critedge4.i ], [ %183, %.lr.ph226.i ]
-  %181 = icmp ugt i32 %.1126.lcssa.i, 7
+  %181 = icmp samesign ugt i32 %.1126.lcssa.i, 7
   br i1 %181, label %.lr.ph231.i, label %.preheader.i
 
 .lr.ph226.i:                                      ; preds = %.critedge4.i, %.lr.ph226.i

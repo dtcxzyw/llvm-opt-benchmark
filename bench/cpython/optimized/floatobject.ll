@@ -2209,7 +2209,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp3 = icmp ult i64 %and.i, 2
+  %cmp3 = icmp samesign ult i64 %and.i, 2
   br i1 %cmp3, label %if.end8, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end
@@ -5459,7 +5459,7 @@ for.body.i:                                       ; preds = %if.end9.i, %for.bod
   %mul.i = fmul double %float_part.091.i, 2.000000e+00
   %dec.i = add i32 %dec8789.i, -1
   %inc.i = add nuw nsw i32 %i.090.i, 1
-  %cmp11.i = icmp ult i32 %i.090.i, 299
+  %cmp11.i = icmp samesign ult i32 %i.090.i, 299
   %11 = tail call double @llvm.floor.f64(double %mul.i)
   %cmp12.i = fcmp une double %mul.i, %11
   %or.cond.i = select i1 %cmp11.i, i1 %cmp12.i, i1 false

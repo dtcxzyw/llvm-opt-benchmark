@@ -445,7 +445,7 @@ define dso_local void @_ZN4llvm14AccelTableBase8finalizeEPNS_10AsmPrinterENS_9St
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %13
@@ -716,7 +716,7 @@ _ZNSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS3_EE9push_backEOS3_.exit: ; pr
   br i1 %.not.i.i.i.i.i42, label %select.unfold.i.i.i.i.i43, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i43:                        ; preds = %.lr.ph.i.i.i.i.i38
-  %.not10.i.i.i.i.i44 = icmp ult i64 %storemerge26.i.i.in.in.i.i.i39, 3
+  %.not10.i.i.i.i.i44 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i39, 3
   br i1 %.not10.i.i.i.i.i44, label %.loopexit.i.i.i35, label %.lr.ph.i.i.i.i.i38, !llvm.loop !11
 
 .loopexit.i.i.i35:                                ; preds = %select.unfold.i.i.i.i.i43, %121
@@ -3383,7 +3383,7 @@ _ZN4llvm16DebugNamesAbbrev12addAttributeERKNS0_17AttributeEncodingE.exit42.i: ; 
   %599 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %503) #18
   %600 = add i64 %599, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %503, i64 noundef %600) #18
-  %.not92.i = icmp ult i32 %.sroa.0.0.insert.insert.i.i, 65536
+  %.not92.i = icmp samesign ult i32 %.sroa.0.0.insert.insert.i.i, 65536
   br i1 %.not92.i, label %612, label %601
 
 601:                                              ; preds = %_ZN4llvm16DebugNamesAbbrev12addAttributeERKNS0_17AttributeEncodingE.exit42.i

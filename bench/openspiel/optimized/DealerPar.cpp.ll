@@ -595,7 +595,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 
 100:                                              ; preds = %._crit_edge, %.loopexit142
   %.0119 = phi i32 [ 5, %.loopexit142 ], [ %.1, %._crit_edge ]
-  %101 = icmp ugt i32 %.0119, 1
+  %101 = icmp samesign ugt i32 %.0119, 1
   br i1 %101, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %100
@@ -1420,7 +1420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

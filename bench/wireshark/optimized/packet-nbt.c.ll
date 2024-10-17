@@ -1857,7 +1857,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
 .outer:                                           ; preds = %25, %6
   %.077.ph = phi i64 [ %28, %25 ], [ 0, %6 ]
   %.076.ph = phi ptr [ %24, %25 ], [ %12, %6 ]
-  %13 = icmp ult i64 %.077.ph, 16
+  %13 = icmp samesign ult i64 %.077.ph, 16
   br label %14
 
 14:                                               ; preds = %.outer, %23

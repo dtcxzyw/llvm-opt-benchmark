@@ -2355,7 +2355,7 @@ for.body:                                         ; preds = %for.cond, %for.body
   %inc = add nuw nsw i32 %i.053, 1
   %6 = load i8, ptr %more_count, align 1, !tbaa !20
   %conv20 = zext i8 %6 to i32
-  %cmp21.not.not = icmp ult i32 %i.053, %conv20
+  %cmp21.not.not = icmp samesign ult i32 %i.053, %conv20
   br i1 %cmp21.not.not, label %for.body, label %for.cond.cleanup, !llvm.loop !64
 
 for.end33:                                        ; preds = %for.cond.cleanup

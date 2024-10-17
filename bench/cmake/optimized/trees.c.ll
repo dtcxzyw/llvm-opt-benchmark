@@ -774,7 +774,7 @@ build_bl_tree.exit:                               ; preds = %143, %150
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, 10
   %164 = lshr i64 %163, 3
-  %.not = icmp ugt i64 %164, %160
+  %.not = icmp samesign ugt i64 %164, %160
   br i1 %.not, label %165, label %169
 
 165:                                              ; preds = %build_bl_tree.exit
@@ -2193,7 +2193,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   %146 = phi i16 [ %107, %106 ], [ %.ph, %.sink.split ]
   %147 = phi i32 [ %storemerge, %106 ], [ %.sink, %.sink.split ]
   %148 = add nsw i32 %24, -1
-  %149 = icmp ult i32 %24, 257
+  %149 = icmp samesign ult i32 %24, 257
   %150 = lshr i32 %148, 7
   %151 = add nuw nsw i32 %150, 256
   %.pn.in = select i1 %149, i32 %148, i32 %151

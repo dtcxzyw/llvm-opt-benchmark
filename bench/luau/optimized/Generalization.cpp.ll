@@ -6107,7 +6107,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %79, %83
 103:                                              ; preds = %.lr.ph.i
   %104 = add nuw nsw i64 %.01726.i8.i, 1
   %105 = add nuw nsw i64 %104, %.01827.i9.i
-  %.not.i3.i = icmp ult i64 %.01726.i8.i, 15
+  %.not.i3.i = icmp samesign ult i64 %.01726.i8.i, 15
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.01827.i.i = and i64 %105, 15
   %106 = getelementptr inbounds ptr, ptr %92, i64 %.01827.i.i

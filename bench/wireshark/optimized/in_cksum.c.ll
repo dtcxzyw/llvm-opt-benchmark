@@ -28,7 +28,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.10.0.extract.shift = lshr i32 %.0143201, 16
   %8 = and i32 %.0143201, 65535
   %9 = add nuw nsw i32 %8, %.sroa.10.0.extract.shift
-  %10 = icmp ugt i32 %9, 65535
+  %10 = icmp samesign ugt i32 %9, 65535
   %11 = add nsw i32 %9, -65535
   %spec.select = select i1 %10, i32 %11, i32 %9
   %12 = trunc nuw i32 %spec.select to i16
@@ -73,7 +73,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.10.0.extract.shift14 = lshr i32 %.4147, 16
   %31 = and i32 %.4147, 65535
   %32 = add nuw nsw i32 %31, %.sroa.10.0.extract.shift14
-  %33 = icmp ugt i32 %32, 65535
+  %33 = icmp samesign ugt i32 %32, 65535
   %34 = shl nuw nsw i32 %32, 8
   %35 = add nsw i32 %34, -16776960
   %36 = select i1 %33, i32 %35, i32 %34
@@ -206,7 +206,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.10.0.extract.shift16 = lshr i32 %.8.lcssa, 16
   %131 = and i32 %.8.lcssa, 65535
   %132 = add nuw nsw i32 %131, %.sroa.10.0.extract.shift16
-  %133 = icmp ugt i32 %132, 65535
+  %133 = icmp samesign ugt i32 %132, 65535
   %134 = add nsw i32 %132, -65535
   %spec.select177 = select i1 %133, i32 %134, i32 %132
   %135 = add nsw i32 %.5.lcssa, -2
@@ -244,7 +244,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.10.0.extract.shift18 = lshr i32 %.10.lcssa, 16
   %148 = and i32 %.10.lcssa, 65535
   %149 = add nuw nsw i32 %148, %.sroa.10.0.extract.shift18
-  %150 = icmp ugt i32 %149, 65535
+  %150 = icmp samesign ugt i32 %149, 65535
   %151 = shl nuw nsw i32 %149, 8
   %152 = add nsw i32 %151, -16776960
   %153 = select i1 %150, i32 %152, i32 %151
@@ -289,7 +289,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.10.0.extract.shift20 = lshr i32 %.12, 16
   %169 = and i32 %.12, 65535
   %170 = add nuw nsw i32 %169, %.sroa.10.0.extract.shift20
-  %171 = icmp ugt i32 %170, 65535
+  %171 = icmp samesign ugt i32 %170, 65535
   %172 = zext i1 %171 to i32
   %.13 = add nuw nsw i32 %170, %172
   %173 = and i32 %.13, 65535

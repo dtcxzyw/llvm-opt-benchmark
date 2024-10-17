@@ -2344,7 +2344,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 while.body.preheader.i:                           ; preds = %for.body
   %3 = trunc nuw nsw i32 %rem.i.i to i16
-  %.cmp = icmp ult i32 %rem.i.i, 5
+  %.cmp = icmp samesign ult i32 %rem.i.i, 5
   %.v = select i1 %.cmp, i16 1, i16 -5
   %4 = add nsw i16 %.v, %3
   br label %while.body.i
@@ -5930,7 +5930,7 @@ invoke.cont31:                                    ; preds = %for.body
   %xor = xor i8 %15, -128
   store i8 %xor, ptr %call32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp28 = icmp ult i64 %indvars.iv.next, %13
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp28, label %for.body, label %for.end, !llvm.loop !28
 
 lpad22.loopexit:                                  ; preds = %for.body
@@ -11539,7 +11539,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

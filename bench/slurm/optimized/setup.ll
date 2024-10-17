@@ -185,7 +185,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %38, label %.loopexit.i, !llvm.loop !6
 
 51:                                               ; preds = %11
@@ -225,7 +225,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %72 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next82.i, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next82.i, %73
   br i1 %74, label %64, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %38, %64, %51, %21
@@ -544,7 +544,7 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %242 = load i32, ptr %232, align 8
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next.i30, %243
+  %244 = icmp samesign ult i64 %indvars.iv.next.i30, %243
   br i1 %244, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !9
 
 _setup_stepd_sockets.exit.thread:                 ; preds = %185, %201, %214, %221, %228

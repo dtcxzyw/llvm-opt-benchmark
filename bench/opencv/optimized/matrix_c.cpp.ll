@@ -970,7 +970,7 @@ _ZN2cvL13iplImageToMatEPK9_IplImageb.exit:        ; preds = %299, %326
 _ZN2cv10AutoBufferIdLm136EE10deallocateEv.exit.i: ; preds = %385, %379
   %386 = phi ptr [ %381, %385 ], [ %380, %379 ]
   store i64 %375, ptr %376, align 8
-  %387 = icmp ugt i64 %373, 1088
+  %387 = icmp samesign ugt i64 %373, 1088
   br i1 %387, label %388, label %_ZN2cv10AutoBufferIdLm136EE8allocateEm.exit
 
 388:                                              ; preds = %_ZN2cv10AutoBufferIdLm136EE10deallocateEv.exit.i

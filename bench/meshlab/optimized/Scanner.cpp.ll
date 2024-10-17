@@ -244,7 +244,7 @@ define noundef range(i32 0, 2097152) i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv
 
 2:                                                ; preds = %5, %1
   %3 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %4 = icmp ugt i32 %3, 127
+  %4 = icmp samesign ugt i32 %3, 127
   br i1 %4, label %5, label %.critedge.thread
 
 5:                                                ; preds = %2

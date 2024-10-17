@@ -366,7 +366,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 4
   store i8 %14, ptr %incdec.ptr30.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 3
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, 15
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 15
   br i1 %cmp.i.i, label %for.body.i.i, label %ws_gen_accept_key.exit, !llvm.loop !4
 
 ws_gen_accept_key.exit:                           ; preds = %for.body.i.i
@@ -600,7 +600,7 @@ if.end.i:                                         ; preds = %while.body
   %arrayidx6.i = getelementptr inbounds i8, ptr %call4, i64 1
   %3 = load i8, ptr %arrayidx6.i, align 1
   %4 = and i8 %3, 127
-  %cmp14.i = icmp ult i8 %4, 126
+  %cmp14.i = icmp samesign ult i8 %4, 126
   br i1 %cmp14.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end.i
@@ -689,8 +689,8 @@ if.end73.i:                                       ; preds = %for.body63.i, %if.t
   %add.ptr74.i = getelementptr inbounds i8, ptr %call4, i64 %pos.2.i
   %10 = add nsw i8 %and.i, -3
   %or.cond.i = icmp ult i8 %10, 5
-  %cmp82.i = icmp ugt i8 %and.i, 10
-  %or.cond1.i = or i1 %cmp82.i, %or.cond.i
+  %cmp82.i = icmp samesign ugt i8 %and.i, 10
+  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp82.i
   br i1 %or.cond1.i, label %if.end8.thread, label %if.end8
 
 if.end8.thread:                                   ; preds = %if.then40.i, %if.end73.i
@@ -705,7 +705,7 @@ if.end8.thread:                                   ; preds = %if.then40.i, %if.en
 
 if.end8:                                          ; preds = %if.end73.i
   %conv75.i = zext nneg i8 %and.i to i32
-  %cmp87.i = icmp ugt i8 %and.i, 3
+  %cmp87.i = icmp samesign ugt i8 %and.i, 3
   %tobool90.i = icmp slt i8 %2, 0
   %or.cond2.i = or i1 %tobool90.i, %cmp87.i
   %conv75..i = select i1 %or.cond2.i, i32 %conv75.i, i32 129

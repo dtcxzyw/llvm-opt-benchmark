@@ -379,7 +379,7 @@ define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %11, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph31, label %._crit_edge32, !llvm.loop !8
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge28

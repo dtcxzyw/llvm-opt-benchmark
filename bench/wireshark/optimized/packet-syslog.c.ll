@@ -188,8 +188,8 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %19 = icmp ne i16 %18, 0
-  %20 = icmp ult i32 %.191109, 4
-  %or.cond = and i1 %20, %19
+  %20 = icmp samesign ult i32 %.191109, 4
+  %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %21, label %.critedge
 
 21:                                               ; preds = %13

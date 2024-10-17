@@ -943,7 +943,7 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
 
 109:                                              ; preds = %108
   %110 = call fastcc i32 @remote_cvdhead(ptr noundef %15, i32 noundef %.0263, ptr noundef %2, i32 noundef %6, ptr noundef %16)
-  %or.cond9.i.i = icmp ult i32 %110, 2
+  %or.cond9.i.i = icmp samesign ult i32 %110, 2
   br i1 %or.cond9.i.i, label %112, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %109, %108, %104, %102, %.thread119.i.i, %95, %86, %81

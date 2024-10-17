@@ -5306,7 +5306,7 @@ for.body:                                         ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp174) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %cmp39.i.i = icmp ult i64 %indvars.iv, 9
+  %cmp39.i.i = icmp samesign ult i64 %indvars.iv, 9
   br i1 %cmp39.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end.i.i1802.preheader
 
 if.end.i.i1802.preheader:                         ; preds = %for.body
@@ -5354,7 +5354,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %if.end14.i.i, %if.t
 
 invoke.cont.i:                                    ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %974 = load ptr, ptr %ref.tmp174, align 8, !tbaa !4, !alias.scope !16
-  %cmp9.i.i = icmp ugt i64 %indvars.iv, 8
+  %cmp9.i.i = icmp samesign ugt i64 %indvars.iv, 8
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i

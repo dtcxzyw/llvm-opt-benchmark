@@ -3796,7 +3796,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr nocapture no
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   %276 = add nuw nsw i64 %243, 1
   %277 = zext i32 %274 to i64
-  %278 = icmp ult i64 %276, %277
+  %278 = icmp samesign ult i64 %276, %277
   br i1 %278, label %240, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %273, %233

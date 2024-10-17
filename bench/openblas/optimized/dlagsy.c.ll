@@ -411,7 +411,7 @@ define void @dlagsy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %281 = phi i64 [ 1, %273 ], [ %283, %.loopexit ]
   %282 = phi i32 [ 2, %273 ], [ %278, %.loopexit ]
   %283 = add nuw nsw i64 %281, 1
-  %284 = icmp ult i64 %281, %276
+  %284 = icmp samesign ult i64 %281, %276
   br i1 %284, label %285, label %.loopexit
 
 285:                                              ; preds = %280

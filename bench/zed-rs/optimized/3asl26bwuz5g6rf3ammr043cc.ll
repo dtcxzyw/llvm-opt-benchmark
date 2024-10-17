@@ -288,7 +288,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %0, align 8, !range !4, !noalias !15, !noundef !5
-  %19 = icmp ult i64 %18, 3
+  %19 = icmp samesign ult i64 %18, 3
   br i1 %19, label %20, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbaaa89e0576e08efE.llvm.11111619368960553376.exit"
 
 20:                                               ; preds = %17
@@ -320,7 +320,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %13, ptr %3, align 8
   %25 = load i64, ptr %0, align 8, !range !4, !noalias !18, !noundef !5
-  %26 = icmp ult i64 %25, 3
+  %26 = icmp samesign ult i64 %25, 3
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -380,7 +380,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %0, align 8, !range !4, !noalias !21, !noundef !5
-  %19 = icmp ult i64 %18, 3
+  %19 = icmp samesign ult i64 %18, 3
   br i1 %19, label %20, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0bf0837d79f8255fE.llvm.11111619368960553376.exit"
 
 20:                                               ; preds = %17
@@ -412,7 +412,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %13, ptr %3, align 8
   %25 = load i64, ptr %0, align 8, !range !4, !noalias !24, !noundef !5
-  %26 = icmp ult i64 %25, 3
+  %26 = icmp samesign ult i64 %25, 3
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -472,7 +472,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %0, align 8, !range !4, !noalias !27, !noundef !5
-  %19 = icmp ult i64 %18, 3
+  %19 = icmp samesign ult i64 %18, 3
   br i1 %19, label %20, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha0d810f6bc1d2dfeE.llvm.11111619368960553376.exit"
 
 20:                                               ; preds = %17
@@ -504,7 +504,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %13, ptr %3, align 8
   %25 = load i64, ptr %0, align 8, !range !4, !noalias !30, !noundef !5
-  %26 = icmp ult i64 %25, 3
+  %26 = icmp samesign ult i64 %25, 3
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -564,7 +564,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$futures_util..future..try_maybe_done..Tr
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %0, align 8, !range !4, !noalias !33, !noundef !5
-  %19 = icmp ult i64 %18, 3
+  %19 = icmp samesign ult i64 %18, 3
   br i1 %19, label %20, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hfea2c6d9104df611E.llvm.11111619368960553376.exit"
 
 20:                                               ; preds = %17
@@ -596,7 +596,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %13, ptr %3, align 8
   %25 = load i64, ptr %0, align 8, !range !4, !noalias !36, !noundef !5
-  %26 = icmp ult i64 %25, 3
+  %26 = icmp samesign ult i64 %25, 3
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -1272,7 +1272,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0bf0837d79f8255fE.llvm.11111619368960553376"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !139, !nonnull !5, !align !66, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr174drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6d7b94d006f55218E.llvm.11111619368960553376.exit"
 
 6:                                                ; preds = %2
@@ -1366,7 +1366,7 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h235793cd073f3e12E.llvm.1
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha0d810f6bc1d2dfeE.llvm.11111619368960553376"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !157, !nonnull !5, !align !66, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.11111619368960553376.exit"
 
 6:                                                ; preds = %2
@@ -1388,7 +1388,7 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha0d810f6bc1d2dfeE.llvm.1
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbaaa89e0576e08efE.llvm.11111619368960553376"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !160, !nonnull !5, !align !66, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr182drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3580a1f72b35ebb1E.llvm.11111619368960553376.exit"
 
 6:                                                ; preds = %2
@@ -1410,7 +1410,7 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbaaa89e0576e08efE.llvm.1
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hfea2c6d9104df611E.llvm.11111619368960553376"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !163, !nonnull !5, !align !66, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.11111619368960553376.exit"
 
 6:                                                ; preds = %2
@@ -1532,7 +1532,7 @@ common.ret:                                       ; preds = %68, %100, %1
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load i64, ptr %9, align 8, !range !4, !noundef !5
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i"
 
 12:                                               ; preds = %8
@@ -1544,7 +1544,7 @@ common.ret:                                       ; preds = %68, %100, %1
           cleanup
   %15 = getelementptr inbounds i8, ptr %0, i64 384
   %16 = load i64, ptr %15, align 8, !range !4, !noundef !5
-  %17 = icmp ult i64 %16, 3
+  %17 = icmp samesign ult i64 %16, 3
   br i1 %17, label %18, label %.body
 
 18:                                               ; preds = %13
@@ -1554,7 +1554,7 @@ common.ret:                                       ; preds = %68, %100, %1
 "_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i": ; preds = %12, %8
   %19 = getelementptr inbounds i8, ptr %0, i64 384
   %20 = load i64, ptr %19, align 8, !range !4, !noundef !5
-  %21 = icmp ult i64 %20, 3
+  %21 = icmp samesign ult i64 %20, 3
   br i1 %21, label %22, label %"_ZN4core3ptr281drop_in_place$LT$futures_util..future..try_join..TryJoin$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$C$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6f6d60a83268d978E.exit"
 
 22:                                               ; preds = %"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i"
@@ -1614,7 +1614,7 @@ common.ret:                                       ; preds = %68, %100, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %0, i64 224
   %45 = load i64, ptr %44, align 8, !range !4, !noundef !5
-  %46 = icmp ult i64 %45, 3
+  %46 = icmp samesign ult i64 %45, 3
   br i1 %46, label %47, label %"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i"
 
 47:                                               ; preds = %43
@@ -1626,7 +1626,7 @@ common.ret:                                       ; preds = %68, %100, %1
           cleanup
   %50 = getelementptr inbounds i8, ptr %0, i64 392
   %51 = load i64, ptr %50, align 8, !range !4, !noundef !5
-  %52 = icmp ult i64 %51, 3
+  %52 = icmp samesign ult i64 %51, 3
   br i1 %52, label %53, label %.body17
 
 53:                                               ; preds = %48
@@ -1636,7 +1636,7 @@ common.ret:                                       ; preds = %68, %100, %1
 "_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i": ; preds = %47, %43
   %54 = getelementptr inbounds i8, ptr %0, i64 392
   %55 = load i64, ptr %54, align 8, !range !4, !noundef !5
-  %56 = icmp ult i64 %55, 3
+  %56 = icmp samesign ult i64 %55, 3
   br i1 %56, label %57, label %"_ZN4core3ptr265drop_in_place$LT$futures_util..future..try_join..TryJoin$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$C$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd278caa31ddc3346E.exit"
 
 57:                                               ; preds = %"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i"
@@ -7623,7 +7623,7 @@ define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr174drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6d7b94d006f55218E.llvm.11111619368960553376"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1, %5
@@ -8112,7 +8112,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.11111619368960553376"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1, %5
@@ -8126,7 +8126,7 @@ define hidden void @"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_m
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr182drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3580a1f72b35ebb1E.llvm.11111619368960553376"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1, %5
@@ -8140,7 +8140,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$futures_util..future..try_m
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.11111619368960553376"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1, %5
@@ -18403,7 +18403,7 @@ define hidden void @_ZN6client6Client16request_envelope17h4a5fb2af0340300eE.llvm
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %switch = icmp ult i64 %17, 4
+  %switch = icmp samesign ult i64 %17, 4
   br i1 %switch, label %32, label %19
 
 19:                                               ; preds = %16
@@ -18597,7 +18597,7 @@ define hidden void @_ZN6client6Client16request_envelope17hc608f6fbd00673afE.llvm
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %switch = icmp ult i64 %16, 4
+  %switch = icmp samesign ult i64 %16, 4
   br i1 %switch, label %31, label %18
 
 18:                                               ; preds = %15
@@ -22137,7 +22137,7 @@ default.unreachable182:                           ; preds = %231, %3
   %31 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %32 = icmp ult i64 %31, 6
   tail call void @llvm.assume(i1 %32)
-  %switch.i64 = icmp ugt i64 %31, 2
+  %switch.i64 = icmp samesign ugt i64 %31, 2
   br i1 %switch.i64, label %33, label %49
 
 33:                                               ; preds = %29
@@ -27516,7 +27516,7 @@ common.ret:                                       ; preds = %98, %38
   %72 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %73 = icmp ult i64 %72, 6
   tail call void @llvm.assume(i1 %73)
-  %switch.i38 = icmp ugt i64 %72, 2
+  %switch.i38 = icmp samesign ugt i64 %72, 2
   br i1 %switch.i38, label %74, label %98
 
 74:                                               ; preds = %71
@@ -27827,7 +27827,7 @@ common.ret:                                       ; preds = %94, %38
   %68 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %69 = icmp ult i64 %68, 6
   tail call void @llvm.assume(i1 %69)
-  %switch.i38 = icmp ugt i64 %68, 2
+  %switch.i38 = icmp samesign ugt i64 %68, 2
   br i1 %switch.i38, label %70, label %94
 
 70:                                               ; preds = %67
@@ -28974,7 +28974,7 @@ common.ret:                                       ; preds = %272, %168, %103, %3
   %109 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %110 = icmp ult i64 %109, 6
   call void @llvm.assume(i1 %110)
-  %switch.i52 = icmp ugt i64 %109, 3
+  %switch.i52 = icmp samesign ugt i64 %109, 3
   br i1 %switch.i52, label %111, label %104
 
 111:                                              ; preds = %107
@@ -29214,7 +29214,7 @@ _ZN3log13__private_api3log17hf134ab4124020517E.exit: ; preds = %119
   %175 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !4976
   %176 = icmp ult i64 %175, 6
   call void @llvm.assume(i1 %176)
-  %switch.i.i = icmp ult i64 %175, 2
+  %switch.i.i = icmp samesign ult i64 %175, 2
   br i1 %switch.i.i, label %"_ZN14semantic_index13summary_index12SummaryIndex15summarize_files28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd83ad841c82498a0E.exit.i", label %179
 
 177:                                              ; preds = %191, %179
@@ -30384,7 +30384,7 @@ common.ret:                                       ; preds = %100, %68, %60
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %105 = icmp ult i64 %104, 6
   tail call void @llvm.assume(i1 %105)
-  %switch.i42 = icmp ugt i64 %104, 2
+  %switch.i42 = icmp samesign ugt i64 %104, 2
   br i1 %switch.i42, label %106, label %132
 
 106:                                              ; preds = %103
@@ -30474,7 +30474,7 @@ _ZN3log13__private_api3log17hf134ab4124020517E.exit: ; preds = %123
   %133 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %134 = icmp ult i64 %133, 6
   call void @llvm.assume(i1 %134)
-  %switch.i44 = icmp ugt i64 %133, 3
+  %switch.i44 = icmp samesign ugt i64 %133, 3
   br i1 %switch.i44, label %135, label %131
 
 135:                                              ; preds = %132
@@ -32972,7 +32972,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
 
 85:                                               ; preds = %82
   %86 = load i64, ptr %78, align 8, !range !4, !noundef !5
-  %87 = icmp ult i64 %86, 3
+  %87 = icmp samesign ult i64 %86, 3
   br i1 %87, label %88, label %"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i"
 
 88:                                               ; preds = %85
@@ -32984,7 +32984,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
           cleanup
   %91 = getelementptr inbounds i8, ptr %0, i64 384
   %92 = load i64, ptr %91, align 8, !range !4, !noundef !5
-  %93 = icmp ult i64 %92, 3
+  %93 = icmp samesign ult i64 %92, 3
   br i1 %93, label %94, label %.body70
 
 94:                                               ; preds = %89
@@ -32994,7 +32994,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
 "_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i": ; preds = %88, %85
   %95 = getelementptr inbounds i8, ptr %0, i64 384
   %96 = load i64, ptr %95, align 8, !range !4, !noundef !5
-  %97 = icmp ult i64 %96, 3
+  %97 = icmp samesign ult i64 %96, 3
   br i1 %97, label %98, label %"_ZN4core3ptr281drop_in_place$LT$futures_util..future..try_join..TryJoin$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$C$semantic_index..summary_index..SummaryIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6f6d60a83268d978E.exit"
 
 98:                                               ; preds = %"_ZN4core3ptr186drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_entries_changed_on_disk..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h18097705a9840325E.llvm.5026109878215741006.exit.i"
@@ -33057,7 +33057,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
 
 117:                                              ; preds = %114
   %118 = load i64, ptr %110, align 8, !range !4, !noundef !5
-  %119 = icmp ult i64 %118, 3
+  %119 = icmp samesign ult i64 %118, 3
   br i1 %119, label %120, label %"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i"
 
 120:                                              ; preds = %117
@@ -33069,7 +33069,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
           cleanup
   %123 = getelementptr inbounds i8, ptr %0, i64 392
   %124 = load i64, ptr %123, align 8, !range !4, !noundef !5
-  %125 = icmp ult i64 %124, 3
+  %125 = icmp samesign ult i64 %124, 3
   br i1 %125, label %126, label %.body64
 
 126:                                              ; preds = %121
@@ -33079,7 +33079,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr106dro
 "_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i": ; preds = %120, %117
   %127 = getelementptr inbounds i8, ptr %0, i64 392
   %128 = load i64, ptr %127, align 8, !range !4, !noundef !5
-  %129 = icmp ult i64 %128, 3
+  %129 = icmp samesign ult i64 %128, 3
   br i1 %129, label %130, label %"_ZN4core3ptr265drop_in_place$LT$futures_util..future..try_join..TryJoin$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$C$semantic_index..summary_index..SummaryIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd278caa31ddc3346E.exit"
 
 130:                                              ; preds = %"_ZN4core3ptr178drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$semantic_index..embedding_index..EmbeddingIndex..index_updated_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6124a4fe9bc43bbE.llvm.5026109878215741006.exit.i"

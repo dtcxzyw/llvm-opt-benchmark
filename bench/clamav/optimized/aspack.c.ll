@@ -987,7 +987,7 @@ getbits.exit78.thread:                            ; preds = %37
 
 .preheader:                                       ; preds = %.loopexit.i80, %.loopexit.i88
   %.0.ph = phi i32 [ %113, %.loopexit.i88 ], [ %91, %.loopexit.i80 ]
-  %114 = icmp ugt i32 %.155132, 756
+  %114 = icmp samesign ugt i32 %.155132, 756
   br i1 %114, label %.loopexit110.thread, label %.lr.ph130.preheader
 
 .lr.ph130.preheader:                              ; preds = %.preheader
@@ -1007,7 +1007,7 @@ getbits.exit78.thread:                            ; preds = %37
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %120 = add nsw i32 %.1129, -1
   %121 = icmp eq i32 %120, 0
-  %122 = icmp ugt i64 %indvars.iv147, 755
+  %122 = icmp samesign ugt i64 %indvars.iv147, 755
   %or.cond = or i1 %122, %121
   br i1 %or.cond, label %.loopexit110.loopexit, label %.lr.ph130
 
@@ -1050,7 +1050,7 @@ getbits.exit78.thread:                            ; preds = %37
   store i32 0, ptr %2, align 4
   %138 = add nsw i32 %128, -6
   store i32 %138, ptr %0, align 8
-  %139 = icmp ugt i32 %.155132, 756
+  %139 = icmp samesign ugt i32 %.155132, 756
   br i1 %139, label %.loopexit110.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader111.thread, %.preheader111
@@ -1074,7 +1074,7 @@ getbits.exit78.thread:                            ; preds = %37
   store i8 %.pre158, ptr %148, align 1
   %149 = add nsw i32 %.2127, -1
   %150 = icmp eq i32 %149, 0
-  %151 = icmp ugt i64 %indvars.iv143, 755
+  %151 = icmp samesign ugt i64 %indvars.iv143, 755
   %or.cond3 = or i1 %151, %150
   br i1 %or.cond3, label %.loopexit110.loopexit134, label %.lr.ph
 
@@ -1311,7 +1311,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapt
   %82 = phi i32 [ %62, %.lr.ph125 ], [ %.pre, %71 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next142, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next142, %83
   br i1 %84, label %.lr.ph125, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %42, %46, %24, %65, %67, %81, %.preheader, %60

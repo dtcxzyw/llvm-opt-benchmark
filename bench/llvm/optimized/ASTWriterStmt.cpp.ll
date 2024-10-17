@@ -12337,7 +12337,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %51, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %33, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next, %65
   br i1 %66, label %51, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit, %_ZN5clang15ASTRecordWriter9push_backEm.exit
@@ -12560,7 +12560,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit20:    ; preds = %103, %112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = and i32 %120, 2147483647
   %122 = zext nneg i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next, %122
   br i1 %123, label %67, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %119, %_ZN5clang15ASTRecordWriter9push_backEm.exit15
@@ -27628,7 +27628,7 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit55:    ; preds = %64, %74
   %84 = lshr i64 %83, 32
   %85 = trunc nuw i64 %84 to i32
   %86 = and i32 %85, 2147483647
-  %87 = icmp ult i32 %86, 65
+  %87 = icmp samesign ult i32 %86, 65
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %82

@@ -13,7 +13,7 @@ define hidden void @_ZN23PartialArrayTaskStepperC2Ej(ptr nocapture noundef nonnu
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %5 = xor i32 %4, 31
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %7 = sub nuw nsw i32 32, %4
   %spec.select.i = select i1 %6, i32 %7, i32 %5
   store i32 %spec.select.i, ptr %3, align 4

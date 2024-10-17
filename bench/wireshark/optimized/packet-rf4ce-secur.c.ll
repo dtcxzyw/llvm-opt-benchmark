@@ -196,7 +196,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %61 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
   %62 = zext i8 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next13.i, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next13.i, %62
   br i1 %63, label %.preheader.i, label %keypair_context_calc_key.exit, !llvm.loop !9
 
 keypair_context_calc_key.exit:                    ; preds = %60, %48

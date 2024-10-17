@@ -1578,7 +1578,7 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
 if.end12.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   %cmp13.i = icmp ugt i64 %call.i, 1
   %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call.i)
-  %tobool14.not.i = icmp ult i64 %26, 2
+  %tobool14.not.i = icmp samesign ult i64 %26, 2
   %or.cond30.i = select i1 %cmp13.i, i1 %tobool14.not.i, i1 false
   br i1 %or.cond30.i, label %if.end16.i, label %if.then15.i
 
@@ -3025,7 +3025,7 @@ while.body.i.preheader:                           ; preds = %if.then45
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end5.i
   %cp.09.i = phi ptr [ %add.ptr.i, %if.end5.i ], [ %15, %while.body.i.preheader ]
   %len.addr.08.i = phi i64 [ %sub.i, %if.end5.i ], [ %14, %while.body.i.preheader ]
-  %cmp1.i = icmp ugt i64 %len.addr.08.i, 2147483647
+  %cmp1.i = icmp samesign ugt i64 %len.addr.08.i, 2147483647
   %16 = and i64 %len.addr.08.i, 4294967295
   %process.0.i = select i1 %cmp1.i, i64 2147483647, i64 %16
   %17 = load ptr, ptr %ctx.i, align 8
@@ -3046,7 +3046,7 @@ if.else50:                                        ; preds = %if.then42
 while.body.i39:                                   ; preds = %if.else50, %if.end5.i46
   %cp.09.i40 = phi ptr [ %add.ptr.i48, %if.end5.i46 ], [ %12, %if.else50 ]
   %len.addr.08.i41 = phi i64 [ %sub.i47, %if.end5.i46 ], [ %13, %if.else50 ]
-  %cmp1.i42 = icmp ugt i64 %len.addr.08.i41, 2147483647
+  %cmp1.i42 = icmp samesign ugt i64 %len.addr.08.i41, 2147483647
   %18 = and i64 %len.addr.08.i41, 4294967295
   %process.0.i43 = select i1 %cmp1.i42, i64 2147483647, i64 %18
   %19 = load ptr, ptr %ctx.i, align 8

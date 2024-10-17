@@ -2339,7 +2339,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.assume(i1 true) [ "align"(ptr %339, i64 1) ]
   %.0.copyload.i.i.i72 = load i16, ptr %339, align 1
   %340 = zext i16 %.0.copyload.i.i.i72 to i64
-  %341 = icmp ult i64 %338, %340
+  %341 = icmp samesign ult i64 %338, %340
   br i1 %341, label %312, label %_ZN4llvm12ErrorSuccessD2Ev.exit76, !llvm.loop !31
 
 _ZN4llvm12ErrorSuccessD2Ev.exit76:                ; preds = %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEixEj.exit, %_ZN4llvm5ErrorD2Ev.exit69

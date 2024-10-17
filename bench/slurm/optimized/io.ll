@@ -739,7 +739,7 @@ _send_connection_okay_response.exit:              ; preds = %72
   %205 = getelementptr inbounds i8, ptr %204, i64 144
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next104, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next104, %207
   br i1 %208, label %.lr.ph94, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph94, %.preheader
@@ -2072,7 +2072,7 @@ _spawn_window_manager.exit.i:                     ; preds = %140, %138, %110, %7
   %190 = tail call ptr @__errno_location() #11
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, 4
-  %193 = icmp ult i32 %.0143.i, 9
+  %193 = icmp samesign ult i32 %.0143.i, 9
   %or.cond.i = select i1 %192, i1 %193, i1 false
   br i1 %or.cond.i, label %184, label %194, !llvm.loop !14
 
@@ -2276,7 +2276,7 @@ thread-pre-split.i:                               ; preds = %291, %287, %284
   %298 = tail call ptr @__errno_location() #11
   %299 = load i32, ptr %298, align 4
   %300 = icmp eq i32 %299, 4
-  %301 = icmp ult i32 %.0142.i, 9
+  %301 = icmp samesign ult i32 %.0142.i, 9
   %or.cond7.i = select i1 %300, i1 %301, i1 false
   br i1 %or.cond7.i, label %284, label %302, !llvm.loop !15
 
@@ -2516,7 +2516,7 @@ thread-pre-split163.i:                            ; preds = %422, %418, %415
   %429 = tail call ptr @__errno_location() #11
   %430 = load i32, ptr %429, align 4
   %431 = icmp eq i32 %430, 4
-  %432 = icmp ult i32 %.0.i, 9
+  %432 = icmp samesign ult i32 %.0.i, 9
   %or.cond9.i = select i1 %431, i1 %432, i1 false
   br i1 %or.cond9.i, label %415, label %433, !llvm.loop !16
 
@@ -2611,7 +2611,7 @@ _init_task_stdio_fds.exit.thread:                 ; preds = %387, %393, %.crited
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %478 = load i32, ptr %10, align 8
   %479 = zext i32 %478 to i64
-  %480 = icmp ult i64 %indvars.iv.next, %479
+  %480 = icmp samesign ult i64 %indvars.iv.next, %479
   br i1 %480, label %24, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_init_task_stdio_fds.exit.thread, %1
@@ -2905,7 +2905,7 @@ define internal fastcc void @_free_outgoing_msg(ptr noundef %0, ptr nocapture no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %12, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %27, %19, %25, %.preheader
@@ -2952,7 +2952,7 @@ define dso_local void @io_close_task_fds(ptr nocapture noundef readonly %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %2, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %5, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -3115,7 +3115,7 @@ define dso_local range(i32 0, 4022) i32 @io_create_local_client(ptr nocapture no
   %.028 = phi i32 [ %26, %.lr.ph ], [ %23, %10 ]
   %26 = udiv i32 %.028, 10
   %27 = add nuw nsw i32 %25, 1
-  %28 = icmp ugt i32 %.028, 99
+  %28 = icmp samesign ugt i32 %.028, 99
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -3580,7 +3580,7 @@ define dso_local void @io_find_filename_pattern(ptr nocapture noundef readonly %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %8, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %34
@@ -3753,7 +3753,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %104 = load i32, ptr %5, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next226, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next226, %105
   br i1 %106, label %77, label %._crit_edge198, !llvm.loop !25
 
 ._crit_edge198:                                   ; preds = %103
@@ -3838,7 +3838,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   %.1.lcssa = phi i1 [ %.0211, %.lr.ph213 ], [ %.2, %171 ]
   %136 = add i32 %135, -1
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %indvars.iv.next232, %137
+  %138 = icmp samesign ult i64 %indvars.iv.next232, %137
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   br i1 %138, label %.lr.ph213, label %._crit_edge214, !llvm.loop !26
 
@@ -3850,7 +3850,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   %.0113210 = phi i1 [ %.1114.lcssa, %.loopexit ], [ true, %133 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next232, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next232, %140
   br i1 %141, label %.lr.ph206, label %.loopexit
 
 .lr.ph206:                                        ; preds = %.lr.ph213, %171
@@ -3912,7 +3912,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %172 = load i32, ptr %5, align 8
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next230, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next230, %173
   br i1 %174, label %.lr.ph206, label %.loopexit, !llvm.loop !27
 
 ._crit_edge214:                                   ; preds = %.loopexit
@@ -3970,7 +3970,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   %192 = phi i32 [ %.pre240, %._crit_edge239 ], [ %179, %.lr.ph219 ], [ %179, %185 ]
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next234, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next234, %193
   br i1 %194, label %.lr.ph219, label %.thread172, !llvm.loop !28
 
 .thread172:                                       ; preds = %191, %176, %._crit_edge214.thread, %177, %175, %190, %131, %.thread.thread
@@ -4519,7 +4519,7 @@ _outgoing_buf_free.exit.thread:                   ; preds = %197, %204, %_outgoi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %215 = load i32, ptr %157, align 8
   %216 = zext i32 %215 to i64
-  %217 = icmp ult i64 %indvars.iv.next, %216
+  %217 = icmp samesign ult i64 %indvars.iv.next, %216
   br i1 %217, label %.lr.ph50, label %_outgoing_buf_free.exit41, !llvm.loop !19
 
 _outgoing_buf_free.exit41:                        ; preds = %_outgoing_buf_free.exit.thread, %178, %201, %.preheader

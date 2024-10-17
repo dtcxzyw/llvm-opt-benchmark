@@ -4262,7 +4262,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i: ; preds = %3
   %.0.i.i.i.i.i.i = phi ptr [ %345, %343 ], [ %347, %346 ]
   %348 = load i32, ptr %.0.i.i.i.i.i.i, align 8
   %349 = and i32 %348, 2147483647
-  %350 = icmp ult i32 %340, %349
+  %350 = icmp samesign ult i32 %340, %349
   br i1 %350, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i, label %351
 
 351:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i
@@ -4286,7 +4286,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i: ; preds = %
   %362 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %339, i32 noundef %342, ptr noundef null)
   %363 = load i32, ptr %362, align 8
   %364 = and i32 %363, 2147483647
-  %365 = icmp ult i32 %340, %364
+  %365 = icmp samesign ult i32 %340, %364
   br i1 %365, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i, %358, %351
@@ -5764,7 +5764,7 @@ _ZL19scanForProtocolRefsPKcS0_RS0_S1_.exit110.thread: ; preds = %.preheader, %.p
   %123 = load i64, ptr %82, align 16
   %124 = lshr i64 %123, 38
   %125 = and i64 %124, 65535
-  %126 = icmp ult i64 %indvars.iv.next, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next, %125
   br i1 %126, label %88, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %_ZL19scanForProtocolRefsPKcS0_RS0_S1_.exit110.thread, %78, %_ZL19scanForProtocolRefsPKcS0_RS0_S1_.exit.thread, %41, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit
@@ -8012,7 +8012,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC27getConstantStringStructTypeEv.exit.i: ; pr
   %1051 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %1050, ptr %1051, align 1, !noalias !68
   %1052 = udiv i64 %.0810.i.i, 10
-  %.not.i22.i = icmp ult i64 %.0810.i.i, 10
+  %.not.i22.i = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i22.i, label %_ZN4llvm6utostrB5cxx11Emb.exit.i, label %.lr.ph.i.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i, %.thread.i.i
@@ -8150,7 +8150,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i, %.threa
   %1128 = getelementptr inbounds i8, ptr %.111.i25.i, i64 -1
   store i8 %1127, ptr %1128, align 1, !noalias !75
   %1129 = udiv i64 %.0810.i26.i, 10
-  %.not.i27.i = icmp ult i64 %.0810.i26.i, 10
+  %.not.i27.i = icmp samesign ult i64 %.0810.i26.i, 10
   br i1 %.not.i27.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC24RewriteObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit, label %.lr.ph.i24.i, !llvm.loop !71
 
 _ZN12_GLOBAL__N_117RewriteModernObjC24RewriteObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit: ; preds = %.lr.ph.i24.i, %.thread.i29.i
@@ -8674,7 +8674,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteLineDi
   %29 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %28, ptr %29, align 1, !noalias !82
   %30 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -10473,7 +10473,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %486, %487
   %494 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %493, ptr %494, align 1, !noalias !116
   %495 = udiv i64 %.0810.i, 10
-  %.not.i133 = icmp ult i64 %.0810.i, 10
+  %.not.i133 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i133, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -10550,7 +10550,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit136:         ; preds = %508, %509
   %515 = getelementptr inbounds i8, ptr %.111.i138, i64 -1
   store i8 %514, ptr %515, align 1, !noalias !131
   %516 = udiv i64 %.0810.i139, 10
-  %.not.i140 = icmp ult i64 %.0810.i139, 10
+  %.not.i140 = icmp samesign ult i64 %.0810.i139, 10
   br i1 %.not.i140, label %_ZN4llvm6utostrB5cxx11Emb.exit143, label %.lr.ph.i137, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit143:                ; preds = %.lr.ph.i137, %.thread.i142
@@ -19585,7 +19585,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %133, %126, %130, %1
   %163 = getelementptr inbounds i8, ptr %.111.i105, i64 -1
   store i8 %162, ptr %163, align 1, !noalias !476
   %164 = udiv i64 %.0810.i106, 10
-  %.not.i107 = icmp ult i64 %.0810.i106, 10
+  %.not.i107 = icmp samesign ult i64 %.0810.i106, 10
   br i1 %.not.i107, label %_ZN4llvm6utostrB5cxx11Emb.exit110, label %.lr.ph.i104, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit110:                ; preds = %.lr.ph.i104, %.thread.i109
@@ -19631,7 +19631,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit110:                ; preds = %.lr.ph.i104, %.thre
   %180 = getelementptr inbounds i8, ptr %.111.i112, i64 -1
   store i8 %179, ptr %180, align 1, !noalias !479
   %181 = udiv i64 %.0810.i113, 10
-  %.not.i114 = icmp ult i64 %.0810.i113, 10
+  %.not.i114 = icmp samesign ult i64 %.0810.i113, 10
   br i1 %.not.i114, label %_ZN4llvm6utostrB5cxx11Emb.exit117, label %.lr.ph.i111, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit117:                ; preds = %.lr.ph.i111, %.thread.i116
@@ -19668,7 +19668,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit117:                ; preds = %.lr.ph.i111, %.thre
   %191 = getelementptr inbounds i8, ptr %.111.i119, i64 -1
   store i8 %190, ptr %191, align 1, !noalias !482
   %192 = udiv i64 %.0810.i120, 10
-  %.not.i121 = icmp ult i64 %.0810.i120, 10
+  %.not.i121 = icmp samesign ult i64 %.0810.i120, 10
   br i1 %.not.i121, label %_ZN4llvm6utostrB5cxx11Emb.exit124, label %.lr.ph.i118, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit124:                ; preds = %.lr.ph.i118, %.thread.i123
@@ -23024,7 +23024,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit393: ; p
   %1181 = load i32, ptr %423, align 8
   %1182 = and i32 %1181, 65535
   %1183 = zext nneg i32 %1182 to i64
-  %1184 = icmp ult i64 %indvars.iv.next, %1183
+  %1184 = icmp samesign ult i64 %indvars.iv.next, %1183
   br i1 %1184, label %1021, label %._crit_edge571, !llvm.loop !496
 
 ._crit_edge571:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit393, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit352
@@ -23507,7 +23507,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZN5clang9Pare
   %1426 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %1425, ptr %1426, align 1, !noalias !497
   %1427 = udiv i64 %.0810.i.i, 10
-  %.not.i.i455 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i455 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i455, label %_ZN4llvm6utostrB5cxx11Emb.exit.i, label %.lr.ph.i.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i, %.thread.i.i
@@ -23584,7 +23584,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i, %.threa
   %1456 = getelementptr inbounds i8, ptr %.111.i68.i, i64 -1
   store i8 %1455, ptr %1456, align 1, !noalias !500
   %1457 = udiv i64 %.0810.i69.i, 10
-  %.not.i70.i = icmp ult i64 %.0810.i69.i, 10
+  %.not.i70.i = icmp samesign ult i64 %.0810.i69.i, 10
   br i1 %.not.i70.i, label %_ZN4llvm6utostrB5cxx11Emb.exit73.i, label %.lr.ph.i67.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit73.i:               ; preds = %.lr.ph.i67.i, %.thread.i72.i
@@ -23657,7 +23657,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit73.i:               ; preds = %.lr.ph.i67.i, %.thr
   %1487 = getelementptr inbounds i8, ptr %.111.i75.i, i64 -1
   store i8 %1486, ptr %1487, align 1, !noalias !504
   %1488 = udiv i64 %.0810.i76.i, 10
-  %.not.i77.i = icmp ult i64 %.0810.i76.i, 10
+  %.not.i77.i = icmp samesign ult i64 %.0810.i76.i, 10
   br i1 %.not.i77.i, label %_ZN4llvm6utostrB5cxx11Emb.exit80.i, label %.lr.ph.i74.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit80.i:               ; preds = %.lr.ph.i74.i, %.thread.i79.i
@@ -23740,7 +23740,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit80.i:               ; preds = %.lr.ph.i74.i, %.thr
   %1527 = getelementptr inbounds i8, ptr %.111.i82.i, i64 -1
   store i8 %1526, ptr %1527, align 1, !noalias !508
   %1528 = udiv i64 %.0810.i83.i, 10
-  %.not.i84.i = icmp ult i64 %.0810.i83.i, 10
+  %.not.i84.i = icmp samesign ult i64 %.0810.i83.i, 10
   br i1 %.not.i84.i, label %_ZN4llvm6utostrB5cxx11Emb.exit87.i, label %.lr.ph.i81.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit87.i:               ; preds = %.lr.ph.i81.i, %.thread.i86.i
@@ -23798,7 +23798,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit87.i:               ; preds = %.lr.ph.i81.i, %.thr
   %1550 = getelementptr inbounds i8, ptr %.111.i89.i, i64 -1
   store i8 %1549, ptr %1550, align 1, !noalias !512
   %1551 = udiv i64 %.0810.i90.i, 10
-  %.not.i91.i = icmp ult i64 %.0810.i90.i, 10
+  %.not.i91.i = icmp samesign ult i64 %.0810.i90.i, 10
   br i1 %.not.i91.i, label %_ZN4llvm6utostrB5cxx11Emb.exit94.i, label %.lr.ph.i88.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit94.i:               ; preds = %.lr.ph.i88.i, %.thread.i93.i
@@ -23864,7 +23864,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit94.i:               ; preds = %.lr.ph.i88.i, %.thr
   %1579 = getelementptr inbounds i8, ptr %.111.i96.i, i64 -1
   store i8 %1578, ptr %1579, align 1, !noalias !516
   %1580 = udiv i64 %.0810.i97.i, 10
-  %.not.i98.i = icmp ult i64 %.0810.i97.i, 10
+  %.not.i98.i = icmp samesign ult i64 %.0810.i97.i, 10
   br i1 %.not.i98.i, label %_ZN4llvm6utostrB5cxx11Emb.exit101.i, label %.lr.ph.i95.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit101.i:              ; preds = %.lr.ph.i95.i, %.thread.i100.i
@@ -23922,7 +23922,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit101.i:              ; preds = %.lr.ph.i95.i, %.thr
   %1602 = getelementptr inbounds i8, ptr %.111.i103.i, i64 -1
   store i8 %1601, ptr %1602, align 1, !noalias !520
   %1603 = udiv i64 %.0810.i104.i, 10
-  %.not.i105.i = icmp ult i64 %.0810.i104.i, 10
+  %.not.i105.i = icmp samesign ult i64 %.0810.i104.i, 10
   br i1 %.not.i105.i, label %_ZN4llvm6utostrB5cxx11Emb.exit108.i, label %.lr.ph.i102.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit108.i:              ; preds = %.lr.ph.i102.i, %.thread.i107.i
@@ -25971,7 +25971,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = icmp ult i64 %indvars.iv.next.i, %72
+  %86 = icmp samesign ult i64 %indvars.iv.next.i, %72
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
@@ -27136,7 +27136,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %3, %13
   %30 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %29, ptr %30, align 1, !noalias !548
   %31 = udiv i64 %.0810.i, 10
-  %.not.i7 = icmp ult i64 %.0810.i, 10
+  %.not.i7 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i7, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -29776,7 +29776,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %3, %13
   %30 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %29, ptr %30, align 1, !noalias !575
   %31 = udiv i64 %.0810.i, 10
-  %.not.i7 = icmp ult i64 %.0810.i, 10
+  %.not.i7 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i7, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -31136,7 +31136,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9ValueDeclEjNS_12DenseMapInfoIS4_vEE
   %65 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %64, ptr %65, align 1, !noalias !602
   %66 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -31396,7 +31396,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC36ConvertSource
   %27 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %26, ptr %27, align 1, !noalias !608
   %28 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -32051,7 +32051,7 @@ _ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapIn
   %73 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %72, ptr %73, align 1, !noalias !623
   %74 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
@@ -32188,7 +32188,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit26:                 ; preds = %.lr.ph.i20, %.threa
   %133 = getelementptr inbounds i8, ptr %.111.i28, i64 -1
   store i8 %132, ptr %133, align 1, !noalias !632
   %134 = udiv i64 %.0810.i29, 10
-  %.not.i30 = icmp ult i64 %.0810.i29, 10
+  %.not.i30 = icmp samesign ult i64 %.0810.i29, 10
   br i1 %.not.i30, label %_ZN4llvm6utostrB5cxx11Emb.exit33, label %.lr.ph.i27, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit33:                 ; preds = %.lr.ph.i27
@@ -32220,7 +32220,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit33:                 ; preds = %.lr.ph.i27
   %144 = getelementptr inbounds i8, ptr %.111.i35, i64 -1
   store i8 %143, ptr %144, align 1, !noalias !635
   %145 = udiv i64 %.0810.i36, 10
-  %.not.i37 = icmp ult i64 %.0810.i36, 10
+  %.not.i37 = icmp samesign ult i64 %.0810.i36, 10
   br i1 %.not.i37, label %_ZN4llvm6utostrB5cxx11Emb.exit40, label %.lr.ph.i34, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit40:                 ; preds = %.lr.ph.i34
@@ -32289,7 +32289,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit47:                 ; preds = %.lr.ph.i41, %.threa
   %166 = getelementptr inbounds i8, ptr %.111.i49, i64 -1
   store i8 %165, ptr %166, align 1, !noalias !641
   %167 = udiv i64 %.0810.i50, 10
-  %.not.i51 = icmp ult i64 %.0810.i50, 10
+  %.not.i51 = icmp samesign ult i64 %.0810.i50, 10
   br i1 %.not.i51, label %_ZN4llvm6utostrB5cxx11Emb.exit54, label %.lr.ph.i48, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit54:                 ; preds = %.lr.ph.i48
@@ -36327,7 +36327,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i166:         ; preds = %200, %193
   %215 = getelementptr inbounds i8, ptr %.111.i.i171, i64 -1
   store i8 %214, ptr %215, align 1, !noalias !675
   %216 = udiv i64 %.0810.i.i172, 10
-  %.not.i7.i173 = icmp ult i64 %.0810.i.i172, 10
+  %.not.i7.i173 = icmp samesign ult i64 %.0810.i.i172, 10
   br i1 %.not.i7.i173, label %_ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176, label %.lr.ph.i.i170, !llvm.loop !71
 
 _ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176: ; preds = %.lr.ph.i.i170, %.thread.i.i175
@@ -36494,7 +36494,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i181:         ; preds = %280, %273
   %295 = getelementptr inbounds i8, ptr %.111.i.i186, i64 -1
   store i8 %294, ptr %295, align 1, !noalias !678
   %296 = udiv i64 %.0810.i.i187, 10
-  %.not.i7.i188 = icmp ult i64 %.0810.i.i187, 10
+  %.not.i7.i188 = icmp samesign ult i64 %.0810.i.i187, 10
   br i1 %.not.i7.i188, label %_ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit191, label %.lr.ph.i.i185, !llvm.loop !71
 
 _ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit191: ; preds = %.lr.ph.i.i185, %.thread.i.i190
@@ -36705,7 +36705,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12ObjCIvarDeclELb1EE9push_backES3_.exi
   %377 = getelementptr inbounds i8, ptr %.111.i.i.i.i, i64 -1
   store i8 %376, ptr %377, align 1, !noalias !685
   %378 = udiv i64 %.0810.i.i.i.i, 10
-  %.not.i.i.i124.i = icmp ult i64 %.0810.i.i.i.i, 10
+  %.not.i.i.i124.i = icmp samesign ult i64 %.0810.i.i.i.i, 10
   br i1 %.not.i.i.i124.i, label %_ZL27Write__ivar_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !71
 
 _ZL27Write__ivar_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.thread.i.i.i.i
@@ -36849,7 +36849,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i152:         ; preds = %427, %420
   %442 = getelementptr inbounds i8, ptr %.111.i.i157, i64 -1
   store i8 %441, ptr %442, align 1, !noalias !691
   %443 = udiv i64 %.0810.i.i158, 10
-  %.not.i7.i159 = icmp ult i64 %.0810.i.i158, 10
+  %.not.i7.i159 = icmp samesign ult i64 %.0810.i.i158, 10
   br i1 %.not.i7.i159, label %_ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit162, label %.lr.ph.i.i156, !llvm.loop !71
 
 _ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit162: ; preds = %.lr.ph.i.i156, %.thread.i.i161
@@ -36999,7 +36999,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i145:         ; preds = %499, %492
   %514 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %513, ptr %514, align 1, !noalias !694
   %515 = udiv i64 %.0810.i.i, 10
-  %.not.i7.i = icmp ult i64 %.0810.i.i, 10
+  %.not.i7.i = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i7.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i148, !llvm.loop !71
 
 _ZN12_GLOBAL__N_117RewriteModernObjC25ObjCIvarBitfieldGroupDeclEPN5clang12ObjCIvarDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i.i148, %.thread.i.i
@@ -37149,7 +37149,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stri
   %583 = getelementptr inbounds i8, ptr %.111.i102.i.i, i64 -1
   store i8 %582, ptr %583, align 1, !noalias !697
   %584 = udiv i64 %.0810.i103.i.i, 10
-  %.not.i104.i.i = icmp ult i64 %.0810.i103.i.i, 10
+  %.not.i104.i.i = icmp samesign ult i64 %.0810.i103.i.i, 10
   br i1 %.not.i104.i.i, label %_ZN4llvm6utostrB5cxx11Emb.exit108.i.i, label %.lr.ph.i101.i.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit108.i.i:            ; preds = %.lr.ph.i101.i.i, %.thread.i107.i.i
@@ -38758,7 +38758,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC28RewriteCategorySetupInitHookERNSt7__cxx111
   %1330 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %1329, ptr %1330, align 1, !noalias !720
   %1331 = udiv i64 %.0810.i, 10
-  %.not.i130 = icmp ult i64 %.0810.i, 10
+  %.not.i130 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i130, label %.lr.ph219, label %.lr.ph.i129, !llvm.loop !71
 
 .lr.ph219:                                        ; preds = %.lr.ph.i129, %.thread.i
@@ -38907,7 +38907,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC28RewriteCategorySetupInitHookERNSt7__cxx111
   %1401 = getelementptr inbounds i8, ptr %.111.i134, i64 -1
   store i8 %1400, ptr %1401, align 1, !noalias !728
   %1402 = udiv i64 %.0810.i135, 10
-  %.not.i136 = icmp ult i64 %.0810.i135, 10
+  %.not.i136 = icmp samesign ult i64 %.0810.i135, 10
   br i1 %.not.i136, label %.lr.ph226.preheader, label %.lr.ph.i133, !llvm.loop !71
 
 .lr.ph226.preheader:                              ; preds = %.lr.ph.i133, %.thread.i140
@@ -39273,7 +39273,7 @@ define internal fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_
   %32 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %31, ptr %32, align 1, !noalias !740
   %33 = udiv i64 %.0810.i.i, 10
-  %.not.i.i = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i, label %_ZL28Write_method_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, label %.lr.ph.i.i, !llvm.loop !71
 
 _ZL28Write_method_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.lr.ph.i.i, %.thread.i.i
@@ -39499,7 +39499,7 @@ define internal fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_11
   %29 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %28, ptr %29, align 1, !noalias !748
   %30 = udiv i64 %.0810.i.i, 10
-  %.not.i.i = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i, label %_ZL27Write__prop_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, label %.lr.ph.i.i, !llvm.loop !71
 
 _ZL27Write__prop_list_t_TypeDeclRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.lr.ph.i.i, %.thread.i.i
@@ -43363,7 +43363,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteObjCFi
   %37 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %36, ptr %37, align 1, !noalias !780
   %38 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -43453,7 +43453,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %82 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %83 = load i64, ptr %82, align 8, !noalias !783
   store i32 %81, ptr %58, align 8, !alias.scope !783
-  %84 = icmp ult i32 %81, 65
+  %84 = icmp samesign ult i32 %81, 65
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %79
@@ -43681,7 +43681,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i:    ; preds = %23, %22
 _ZSt8distanceIN4llvm22RopePieceBTreeIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit: ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   store i64 %26, ptr %6, align 8
-  %29 = icmp ugt i64 %.03.i.i, 14
+  %29 = icmp samesign ugt i64 %.03.i.i, 14
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZSt8distanceIN4llvm22RopePieceBTreeIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit
@@ -43792,7 +43792,7 @@ define internal fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTCont
   %21 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %20, ptr %21, align 1, !noalias !795
   %22 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i

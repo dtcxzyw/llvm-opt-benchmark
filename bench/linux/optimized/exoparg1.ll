@@ -228,7 +228,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %28 = lshr i64 %27, 1
   %29 = add nuw nsw i32 %26, 1
   %30 = icmp ugt i64 %27, 1
-  %31 = icmp ult i32 %26, 63
+  %31 = icmp samesign ult i32 %26, 63
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.preheader, label %.loopexit57, !llvm.loop !6
 
@@ -253,7 +253,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %43 = shl i64 %42, 1
   %44 = add nuw nsw i32 %41, 1
   %45 = icmp ne i64 %43, 0
-  %46 = icmp ult i32 %41, 63
+  %46 = icmp samesign ult i32 %41, 63
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.preheader24, label %48, !llvm.loop !9
 
@@ -292,7 +292,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %67 = phi i64 [ %76, %72 ], [ %58, %54 ]
   %68 = trunc i64 %67 to i32
   %69 = and i32 %68, 15
-  %70 = icmp ugt i32 %69, 9
+  %70 = icmp samesign ugt i32 %69, 9
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %.preheader25
@@ -309,7 +309,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %76 = lshr i64 %67, 4
   %77 = mul i64 %65, 10
   %78 = add nuw nsw i32 %66, 1
-  %79 = icmp ult i32 %78, %60
+  %79 = icmp samesign ult i32 %78, %60
   %80 = icmp ugt i64 %67, 15
   %81 = and i1 %79, %80
   br i1 %81, label %.preheader25, label %.loopexit, !llvm.loop !10
@@ -355,7 +355,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %108 = add nuw nsw i64 %97, 1
   %109 = load i8, ptr @acpi_gbl_integer_nybble_width, align 1
   %110 = zext i8 %109 to i64
-  %111 = icmp ult i64 %108, %110
+  %111 = icmp samesign ult i64 %108, %110
   %112 = load i64, ptr %5, align 8
   %113 = icmp ne i64 %112, 0
   %114 = select i1 %111, i1 %113, i1 false

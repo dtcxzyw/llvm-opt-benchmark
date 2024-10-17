@@ -86,7 +86,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %conv15.i = zext i8 %9 to i32
   %call16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %conv.i, i32 noundef %conv7.i, i32 noundef %conv11.i, i32 noundef %conv15.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp4.i = icmp ult i64 %indvars.iv.i, 16
+  %cmp4.i = icmp samesign ult i64 %indvars.iv.i, 16
   br i1 %cmp4.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i

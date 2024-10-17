@@ -483,37 +483,38 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   %18 = select i1 %13, i16 0, i16 %16
   %19 = select i1 %13, i32 0, i32 %17
   %20 = icmp eq i16 %18, 0
-  %21 = add nsw i32 %19, -255
-  %22 = icmp ult i32 %21, -254
-  %23 = select i1 %20, i1 true, i1 %22
-  br i1 %23, label %24, label %27
+  %21 = icmp eq i32 %19, 0
+  %22 = select i1 %20, i1 true, i1 %21
+  %23 = icmp samesign ugt i32 %19, 254
+  %24 = select i1 %22, i1 true, i1 %23
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %1
-  %25 = load i16, ptr %4, align 8
-  %26 = zext i16 %25 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %26) #10
-  br label %36
+25:                                               ; preds = %1
+  %26 = load i16, ptr %4, align 8
+  %27 = zext i16 %26 to i32
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %27) #10
+  br label %37
 
-27:                                               ; preds = %1
-  %28 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #9
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %36, label %30
+28:                                               ; preds = %1
+  %29 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #9
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %37, label %31
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 824
-  store i32 %19, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 828
-  store i16 %18, ptr %32, align 4
-  %33 = trunc nuw nsw i32 %19 to i16
-  %34 = add nuw i16 %18, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 830
-  store i16 %34, ptr %35, align 2
-  br label %36
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 824
+  store i32 %19, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 828
+  store i16 %18, ptr %33, align 4
+  %34 = trunc nuw nsw i32 %19 to i16
+  %35 = add nuw i16 %18, %34
+  %36 = getelementptr inbounds i8, ptr %0, i64 830
+  store i16 %35, ptr %36, align 2
+  br label %37
 
-36:                                               ; preds = %30, %27, %24
-  %37 = phi i32 [ -22, %24 ], [ %28, %27 ], [ %28, %30 ]
+37:                                               ; preds = %31, %28, %25
+  %38 = phi i32 [ -22, %25 ], [ %29, %28 ], [ %29, %31 ]
   call void @mutex_unlock(ptr noundef %3) #9
-  ret i32 %37
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1025,7 +1026,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 118:                                              ; preds = %115
   %119 = icmp ne i16 %78, 0
   %120 = zext nneg i16 %78 to i32
-  %121 = icmp ugt i32 %.reass, %120
+  %121 = icmp samesign ugt i32 %.reass, %120
   %122 = select i1 %119, i1 %121, i1 false
   br i1 %122, label %.preheader, label %131
 
@@ -1045,7 +1046,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %127 = add i32 %126, 1
   %128 = add i16 %125, 1
   %129 = zext i16 %128 to i32
-  %130 = icmp ult i32 %.reass, %129
+  %130 = icmp samesign ult i32 %.reass, %129
   br i1 %130, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 131:                                              ; preds = %118
@@ -1064,7 +1065,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %135 = add i16 %132, 1
   %136 = zext i16 %135 to i32
-  %137 = icmp ult i32 %.reass, %136
+  %137 = icmp samesign ult i32 %.reass, %136
   br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !16
 
 138:                                              ; preds = %115

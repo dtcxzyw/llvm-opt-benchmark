@@ -1802,7 +1802,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i231.us: ; preds = %.lr.
   br label %304
 
 193:                                              ; preds = %186
-  %194 = icmp ult i64 %indvars.iv324, %169
+  %194 = icmp samesign ult i64 %indvars.iv324, %169
   br i1 %194, label %195, label %282
 
 195:                                              ; preds = %193
@@ -2104,7 +2104,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i217.us: ; preds = %.lr.
   %323 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.i
   %324 = load i16, ptr %323, align 2
   %325 = zext i16 %324 to i64
-  %326 = icmp ugt i64 %indvars.iv.i, %325
+  %326 = icmp samesign ugt i64 %indvars.iv.i, %325
   br i1 %326, label %327, label %330
 
 327:                                              ; preds = %.lr.ph.i
@@ -2591,7 +2591,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i231.us: ; preds = %.lr.
   br label %305
 
 194:                                              ; preds = %187
-  %195 = icmp ult i64 %indvars.iv327, %170
+  %195 = icmp samesign ult i64 %indvars.iv327, %170
   br i1 %195, label %196, label %283
 
 196:                                              ; preds = %194
@@ -3702,7 +3702,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
   %invariant.gep.us = getelementptr i8, ptr %84, i64 -4
   %.not2016.us = icmp eq i64 %indvars.iv3492, 0
   %85 = or disjoint i64 %indvars.iv3492, 1
-  %86 = icmp ult i64 %85, %67
+  %86 = icmp samesign ult i64 %85, %67
   br label %87
 
 87:                                               ; preds = %.lr.ph.us, %3427
@@ -3726,7 +3726,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
 
 95:                                               ; preds = %92
   %96 = or disjoint i64 %indvars.iv, 1
-  %97 = icmp uge i64 %96, %66
+  %97 = icmp samesign uge i64 %96, %66
   %or.cond.us = or i1 %.not2016.us, %97
   br i1 %or.cond.us, label %237, label %98
 
@@ -4024,7 +4024,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2081.us: ; preds = %.lr
 
 241:                                              ; preds = %238
   %242 = add nuw nsw i64 %indvars.iv, 2
-  %243 = icmp uge i64 %242, %66
+  %243 = icmp samesign uge i64 %242, %66
   %or.cond2035.us = or i1 %.not2016.us, %243
   br i1 %or.cond2035.us, label %422, label %244
 
@@ -4417,7 +4417,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2137.us: ; preds = %.lr
 
 434:                                              ; preds = %431
   %435 = or disjoint i64 %indvars.iv, 1
-  %436 = icmp uge i64 %435, %66
+  %436 = icmp samesign uge i64 %435, %66
   %or.cond2039.us = or i1 %.not2016.us, %436
   br i1 %or.cond2039.us, label %810, label %437
 
@@ -5201,7 +5201,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2263.us: ; preds = %.lr
 
 814:                                              ; preds = %811
   %815 = add nuw nsw i64 %indvars.iv, 2
-  %816 = icmp uge i64 %815, %66
+  %816 = icmp samesign uge i64 %815, %66
   %or.cond2040.us = or i1 %.not2016.us, %816
   br i1 %or.cond2040.us, label %1589, label %817
 
@@ -7536,7 +7536,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2655.us: ; preds = %.lr
 
 .critedge.us:                                     ; preds = %431, %430, %90
   %1943 = or disjoint i64 %indvars.iv, 1
-  %1944 = icmp uge i64 %1943, %66
+  %1944 = icmp samesign uge i64 %1943, %66
   %or.cond2042.us = or i1 %.not2016.us, %1944
   br i1 %or.cond2042.us, label %2005, label %1945
 
@@ -7673,7 +7673,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2669.us: ; preds = %.lr
 
 2009:                                             ; preds = %2006
   %2010 = add nuw nsw i64 %indvars.iv, 2
-  %2011 = icmp uge i64 %2010, %66
+  %2011 = icmp samesign uge i64 %2010, %66
   %or.cond2043.us = or i1 %.not2016.us, %2011
   br i1 %or.cond2043.us, label %2149, label %2012
 
@@ -8056,7 +8056,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2711.us: ; preds = %.lr
 
 2190:                                             ; preds = %2187
   %2191 = or disjoint i64 %indvars.iv, 1
-  %2192 = icmp ult i64 %2191, %66
+  %2192 = icmp samesign ult i64 %2191, %66
   br i1 %2192, label %2193, label %3316
 
 2193:                                             ; preds = %2190
@@ -8364,7 +8364,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2753.us: ; preds = %.lr
 
 2341:                                             ; preds = %2202
   %2342 = add nuw nsw i64 %indvars.iv, 2
-  %.not3081.us = icmp ult i64 %2342, %66
+  %.not3081.us = icmp samesign ult i64 %2342, %66
   br i1 %.not3081.us, label %2343, label %.thread3065.us
 
 2343:                                             ; preds = %2341
@@ -9142,7 +9142,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i2865.us: ; preds = %.lr
 
 2723:                                             ; preds = %2528
   %2724 = add nuw nsw i64 %indvars.iv, 2
-  %.not3082.us = icmp ult i64 %2724, %66
+  %.not3082.us = icmp samesign ult i64 %2724, %66
   br i1 %.not3082.us, label %2725, label %3106
 
 2725:                                             ; preds = %2723
@@ -10199,7 +10199,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3019.us: ; preds = %.lr
 
 3249:                                             ; preds = %3242
   %3250 = add nuw nsw i64 %indvars.iv, 2
-  %.not3083.us = icmp ult i64 %3250, %66
+  %.not3083.us = icmp samesign ult i64 %3250, %66
   br i1 %.not3083.us, label %3251, label %3304
 
 3251:                                             ; preds = %3249
@@ -10373,7 +10373,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3033.us: ; preds = %.lr
 
 3336:                                             ; preds = %2187, %2186
   %3337 = or disjoint i64 %indvars.iv, 1
-  %3338 = icmp ult i64 %3337, %66
+  %3338 = icmp samesign ult i64 %3337, %66
   br i1 %3338, label %3339, label %.critedge2054.us
 
 3339:                                             ; preds = %3336
@@ -10400,7 +10400,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3033.us: ; preds = %.lr
 
 3350:                                             ; preds = %3343
   %3351 = add nuw nsw i64 %indvars.iv, 2
-  %.not3084.us = icmp ult i64 %3351, %66
+  %.not3084.us = icmp samesign ult i64 %3351, %66
   br i1 %.not3084.us, label %3352, label %3405
 
 3352:                                             ; preds = %3350
@@ -10558,7 +10558,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3047.us: ; preds = %.lr
 3427:                                             ; preds = %.critedge2054.us, %3421, %3412, %3408, %3401, %.loopexit3095.us, %3361, %3346, %.critedge2051.us, %3328, %3321, %3311, %3307, %3300, %.loopexit3096.us, %3260, %3245, %3238, %.loopexit3097.us, %.loopexit3098.us, %.loopexit3099.us, %3126, %3116, %.loopexit3100.us, %.loopexit3101.us, %2992, %2982, %2975, %.loopexit3103.us, %.loopexit3104.us, %.loopexit3105.us, %.loopexit3106.us, %2808, %2804, %2797, %.loopexit3107.us, %2748, %2741, %.loopexit3108.us, %.loopexit3109.us, %.loopexit3110.us, %2608, %2604, %2597, %.loopexit3111.us, %2548, %2541, %.thread3065.us, %.loopexit3112.us, %.loopexit3113.us, %.loopexit3114.us, %.loopexit3115.us, %2373, %2362, %2352, %.loopexit3116.us, %.loopexit3117.us, %.loopexit3118.us, %2229, %2218, %2208, %.thread3063.us, %2179, %2171, %.thread3061.us, %2160, %2152, %2145, %.loopexit3119.us, %.loopexit3120.us, %2071, %.loopexit3121.us, %2021, %2001, %.loopexit3122.us, %1963, %1951, %1939, %.loopexit3123.us, %.loopexit3124.us, %.loopexit3125.us, %1827, %.loopexit3126.us, %1774, %1762, %.loopexit3127.us, %.loopexit3128.us, %.loopexit3129.us, %1650, %.loopexit3130.us, %1597, %.loopexit3131.us, %.loopexit3132.us, %.loopexit3134.us, %.loopexit3136.us, %.loopexit3137.us, %.loopexit3139.us, %.loopexit3140.us, %.loopexit3141.us, %.loopexit3143.us, %.loopexit3145.us, %.loopexit3146.us, %.loopexit3147.us, %.loopexit3148.us, %933, %926, %.loopexit3149.us, %.loopexit3150.us, %840, %833, %.loopexit3151.us, %.loopexit3152.us, %.loopexit3154.us, %.loopexit3155.us, %.loopexit3156.us, %.loopexit3157.us, %.loopexit3158.us, %513, %506, %.loopexit3159.us, %457, %450, %426, %422, %.loopexit3160.us, %.loopexit3161.us, %.loopexit3162.us, %.loopexit3163.us, %274, %263, %253, %.loopexit3164.us, %.loopexit3165.us, %.loopexit3166.us, %125, %114, %104
   %.21782.us = phi i16 [ %.117813318.us, %104 ], [ %.117813318.us, %114 ], [ %.117813318.us, %125 ], [ %.117813318.us, %.loopexit3166.us ], [ %.117813318.us, %.loopexit3165.us ], [ %.117813318.us, %.loopexit3164.us ], [ %.117813318.us, %253 ], [ %.117813318.us, %263 ], [ %.117813318.us, %274 ], [ %.117813318.us, %.loopexit3163.us ], [ %.117813318.us, %.loopexit3162.us ], [ %.117813318.us, %.loopexit3161.us ], [ %.117813318.us, %.loopexit3160.us ], [ %.117813318.us, %422 ], [ %.117813318.us, %426 ], [ %.117813318.us, %450 ], [ %.117813318.us, %457 ], [ %.117813318.us, %.loopexit3159.us ], [ %.117813318.us, %506 ], [ %.117813318.us, %513 ], [ %.117813318.us, %.loopexit3158.us ], [ %.117813318.us, %.loopexit3157.us ], [ %.117813318.us, %.loopexit3156.us ], [ %.117813318.us, %.loopexit3155.us ], [ %.117813318.us, %.loopexit3154.us ], [ %.117813318.us, %.loopexit3152.us ], [ %.117813318.us, %.loopexit3151.us ], [ %.117813318.us, %833 ], [ %.117813318.us, %840 ], [ %.117813318.us, %.loopexit3150.us ], [ %.117813318.us, %.loopexit3149.us ], [ %.117813318.us, %926 ], [ %.117813318.us, %933 ], [ %.117813318.us, %.loopexit3148.us ], [ %.117813318.us, %.loopexit3147.us ], [ %.117813318.us, %.loopexit3146.us ], [ %.117813318.us, %.loopexit3145.us ], [ %.117813318.us, %.loopexit3143.us ], [ %.117813318.us, %.loopexit3141.us ], [ %.117813318.us, %.loopexit3140.us ], [ %.117813318.us, %.loopexit3139.us ], [ %.117813318.us, %.loopexit3137.us ], [ %.117813318.us, %.loopexit3136.us ], [ %.117813318.us, %.loopexit3134.us ], [ %.117813318.us, %.loopexit3132.us ], [ %.117813318.us, %.loopexit3131.us ], [ %.117813318.us, %1597 ], [ %.117813318.us, %.loopexit3130.us ], [ %.117813318.us, %1650 ], [ %.117813318.us, %.loopexit3129.us ], [ %.117813318.us, %.loopexit3128.us ], [ %.117813318.us, %.loopexit3127.us ], [ %.117813318.us, %1762 ], [ %.117813318.us, %1774 ], [ %.117813318.us, %.loopexit3126.us ], [ %.117813318.us, %1827 ], [ %.117813318.us, %.loopexit3125.us ], [ %.117813318.us, %.loopexit3124.us ], [ %.117813318.us, %.loopexit3123.us ], [ %.117813318.us, %1939 ], [ %.117813318.us, %1951 ], [ %.117813318.us, %1963 ], [ %.117813318.us, %.loopexit3122.us ], [ %.117813318.us, %2001 ], [ %.117813318.us, %2021 ], [ %.117813318.us, %.loopexit3121.us ], [ %.117813318.us, %2071 ], [ %.117813318.us, %.loopexit3120.us ], [ %.117813318.us, %.loopexit3119.us ], [ %.117813318.us, %2145 ], [ %.117813318.us, %2152 ], [ %.117813318.us, %2160 ], [ %2166, %.thread3061.us ], [ %.117813318.us, %2171 ], [ %.117813318.us, %2179 ], [ %2185, %.thread3063.us ], [ %.117813318.us, %2208 ], [ %.117813318.us, %2218 ], [ %.117813318.us, %2229 ], [ %.117813318.us, %.loopexit3118.us ], [ %.117813318.us, %.loopexit3117.us ], [ %.117813318.us, %.loopexit3116.us ], [ %.117813318.us, %2352 ], [ %.117813318.us, %2362 ], [ %.117813318.us, %2373 ], [ %.117813318.us, %.loopexit3115.us ], [ %.117813318.us, %.loopexit3114.us ], [ %.117813318.us, %.loopexit3113.us ], [ %.117813318.us, %.loopexit3112.us ], [ %.117813318.us, %.thread3065.us ], [ %.117813318.us, %2541 ], [ %.117813318.us, %2548 ], [ %.117813318.us, %.loopexit3111.us ], [ %.117813318.us, %2597 ], [ %.117813318.us, %2604 ], [ %.117813318.us, %2608 ], [ %.117813318.us, %.loopexit3110.us ], [ %.117813318.us, %.loopexit3109.us ], [ %.117813318.us, %.loopexit3108.us ], [ %.117813318.us, %2741 ], [ %.117813318.us, %2748 ], [ %.117813318.us, %.loopexit3107.us ], [ %.117813318.us, %2797 ], [ %.117813318.us, %2804 ], [ %.117813318.us, %2808 ], [ %.117813318.us, %.loopexit3106.us ], [ %.117813318.us, %.loopexit3105.us ], [ %.117813318.us, %.loopexit3104.us ], [ %.117813318.us, %.loopexit3103.us ], [ %.117813318.us, %2975 ], [ %.117813318.us, %2982 ], [ %.117813318.us, %2992 ], [ %.117813318.us, %.loopexit3101.us ], [ %.117813318.us, %.loopexit3100.us ], [ %.117813318.us, %3116 ], [ %.117813318.us, %3126 ], [ %.117813318.us, %.loopexit3099.us ], [ %.117813318.us, %.loopexit3098.us ], [ %.117813318.us, %.loopexit3097.us ], [ %.117813318.us, %3238 ], [ %.117813318.us, %3245 ], [ %.117813318.us, %3260 ], [ %.117813318.us, %.loopexit3096.us ], [ %.117813318.us, %3300 ], [ %.117813318.us, %3307 ], [ %3315, %3311 ], [ %.117813318.us, %3321 ], [ %.117813318.us, %3328 ], [ %3335, %.critedge2051.us ], [ %.117813318.us, %3346 ], [ %.117813318.us, %3361 ], [ %.117813318.us, %.loopexit3095.us ], [ %.117813318.us, %3401 ], [ %.117813318.us, %3408 ], [ %3416, %3412 ], [ %3425, %3421 ], [ %.117813318.us, %.critedge2054.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %3428 = icmp ult i64 %indvars.iv.next, %66
+  %3428 = icmp samesign ult i64 %indvars.iv.next, %66
   br i1 %3428, label %87, label %._crit_edge.us, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %3427
@@ -10581,7 +10581,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3047.us: ; preds = %.lr
   %3432 = getelementptr inbounds i16, ptr %.sroa.0.0, i64 %indvars.iv.i
   %3433 = load i16, ptr %3432, align 2
   %3434 = zext i16 %3433 to i64
-  %3435 = icmp ugt i64 %indvars.iv.i, %3434
+  %3435 = icmp samesign ugt i64 %indvars.iv.i, %3434
   br i1 %3435, label %3436, label %3439
 
 3436:                                             ; preds = %.lr.ph.i
@@ -11281,7 +11281,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
   %invariant.gep.us = getelementptr i8, ptr %84, i64 -8
   %.not2016.us = icmp eq i64 %indvars.iv3493, 0
   %85 = or disjoint i64 %indvars.iv3493, 1
-  %86 = icmp ult i64 %85, %67
+  %86 = icmp samesign ult i64 %85, %67
   br label %87
 
 87:                                               ; preds = %.lr.ph.us, %3427
@@ -11305,7 +11305,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
 
 95:                                               ; preds = %92
   %96 = or disjoint i64 %indvars.iv, 1
-  %97 = icmp uge i64 %96, %66
+  %97 = icmp samesign uge i64 %96, %66
   %or.cond.us = or i1 %.not2016.us, %97
   br i1 %or.cond.us, label %237, label %98
 
@@ -11603,7 +11603,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2081.us: ; preds = %.lr
 
 241:                                              ; preds = %238
   %242 = add nuw nsw i64 %indvars.iv, 2
-  %243 = icmp uge i64 %242, %66
+  %243 = icmp samesign uge i64 %242, %66
   %or.cond2035.us = or i1 %.not2016.us, %243
   br i1 %or.cond2035.us, label %422, label %244
 
@@ -11996,7 +11996,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2137.us: ; preds = %.lr
 
 434:                                              ; preds = %431
   %435 = or disjoint i64 %indvars.iv, 1
-  %436 = icmp uge i64 %435, %66
+  %436 = icmp samesign uge i64 %435, %66
   %or.cond2039.us = or i1 %.not2016.us, %436
   br i1 %or.cond2039.us, label %810, label %437
 
@@ -12780,7 +12780,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2263.us: ; preds = %.lr
 
 814:                                              ; preds = %811
   %815 = add nuw nsw i64 %indvars.iv, 2
-  %816 = icmp uge i64 %815, %66
+  %816 = icmp samesign uge i64 %815, %66
   %or.cond2040.us = or i1 %.not2016.us, %816
   br i1 %or.cond2040.us, label %1589, label %817
 
@@ -15115,7 +15115,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2655.us: ; preds = %.lr
 
 .critedge.us:                                     ; preds = %431, %430, %90
   %1943 = or disjoint i64 %indvars.iv, 1
-  %1944 = icmp uge i64 %1943, %66
+  %1944 = icmp samesign uge i64 %1943, %66
   %or.cond2042.us = or i1 %.not2016.us, %1944
   br i1 %or.cond2042.us, label %2005, label %1945
 
@@ -15252,7 +15252,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2669.us: ; preds = %.lr
 
 2009:                                             ; preds = %2006
   %2010 = add nuw nsw i64 %indvars.iv, 2
-  %2011 = icmp uge i64 %2010, %66
+  %2011 = icmp samesign uge i64 %2010, %66
   %or.cond2043.us = or i1 %.not2016.us, %2011
   br i1 %or.cond2043.us, label %2149, label %2012
 
@@ -15635,7 +15635,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2711.us: ; preds = %.lr
 
 2190:                                             ; preds = %2187
   %2191 = or disjoint i64 %indvars.iv, 1
-  %2192 = icmp ult i64 %2191, %66
+  %2192 = icmp samesign ult i64 %2191, %66
   br i1 %2192, label %2193, label %3316
 
 2193:                                             ; preds = %2190
@@ -15943,7 +15943,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2753.us: ; preds = %.lr
 
 2341:                                             ; preds = %2202
   %2342 = add nuw nsw i64 %indvars.iv, 2
-  %.not3081.us = icmp ult i64 %2342, %66
+  %.not3081.us = icmp samesign ult i64 %2342, %66
   br i1 %.not3081.us, label %2343, label %.thread3065.us
 
 2343:                                             ; preds = %2341
@@ -16721,7 +16721,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i2865.us: ; preds = %.lr
 
 2723:                                             ; preds = %2528
   %2724 = add nuw nsw i64 %indvars.iv, 2
-  %.not3082.us = icmp ult i64 %2724, %66
+  %.not3082.us = icmp samesign ult i64 %2724, %66
   br i1 %.not3082.us, label %2725, label %3106
 
 2725:                                             ; preds = %2723
@@ -17778,7 +17778,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3019.us: ; preds = %.lr
 
 3249:                                             ; preds = %3242
   %3250 = add nuw nsw i64 %indvars.iv, 2
-  %.not3083.us = icmp ult i64 %3250, %66
+  %.not3083.us = icmp samesign ult i64 %3250, %66
   br i1 %.not3083.us, label %3251, label %3304
 
 3251:                                             ; preds = %3249
@@ -17952,7 +17952,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3033.us: ; preds = %.lr
 
 3336:                                             ; preds = %2187, %2186
   %3337 = or disjoint i64 %indvars.iv, 1
-  %3338 = icmp ult i64 %3337, %66
+  %3338 = icmp samesign ult i64 %3337, %66
   br i1 %3338, label %3339, label %.critedge2054.us
 
 3339:                                             ; preds = %3336
@@ -17979,7 +17979,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3033.us: ; preds = %.lr
 
 3350:                                             ; preds = %3343
   %3351 = add nuw nsw i64 %indvars.iv, 2
-  %.not3084.us = icmp ult i64 %3351, %66
+  %.not3084.us = icmp samesign ult i64 %3351, %66
   br i1 %.not3084.us, label %3352, label %3405
 
 3352:                                             ; preds = %3350
@@ -18137,7 +18137,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3047.us: ; preds = %.lr
 3427:                                             ; preds = %.critedge2054.us, %3421, %3412, %3408, %3401, %.loopexit3095.us, %3361, %3346, %.critedge2051.us, %3328, %3321, %3311, %3307, %3300, %.loopexit3096.us, %3260, %3245, %3238, %.loopexit3097.us, %.loopexit3098.us, %.loopexit3099.us, %3126, %3116, %.loopexit3100.us, %.loopexit3101.us, %2992, %2982, %2975, %.loopexit3103.us, %.loopexit3104.us, %.loopexit3105.us, %.loopexit3106.us, %2808, %2804, %2797, %.loopexit3107.us, %2748, %2741, %.loopexit3108.us, %.loopexit3109.us, %.loopexit3110.us, %2608, %2604, %2597, %.loopexit3111.us, %2548, %2541, %.thread3065.us, %.loopexit3112.us, %.loopexit3113.us, %.loopexit3114.us, %.loopexit3115.us, %2373, %2362, %2352, %.loopexit3116.us, %.loopexit3117.us, %.loopexit3118.us, %2229, %2218, %2208, %.thread3063.us, %2179, %2171, %.thread3061.us, %2160, %2152, %2145, %.loopexit3119.us, %.loopexit3120.us, %2071, %.loopexit3121.us, %2021, %2001, %.loopexit3122.us, %1963, %1951, %1939, %.loopexit3123.us, %.loopexit3124.us, %.loopexit3125.us, %1827, %.loopexit3126.us, %1774, %1762, %.loopexit3127.us, %.loopexit3128.us, %.loopexit3129.us, %1650, %.loopexit3130.us, %1597, %.loopexit3131.us, %.loopexit3132.us, %.loopexit3134.us, %.loopexit3136.us, %.loopexit3137.us, %.loopexit3139.us, %.loopexit3140.us, %.loopexit3141.us, %.loopexit3143.us, %.loopexit3145.us, %.loopexit3146.us, %.loopexit3147.us, %.loopexit3148.us, %933, %926, %.loopexit3149.us, %.loopexit3150.us, %840, %833, %.loopexit3151.us, %.loopexit3152.us, %.loopexit3154.us, %.loopexit3155.us, %.loopexit3156.us, %.loopexit3157.us, %.loopexit3158.us, %513, %506, %.loopexit3159.us, %457, %450, %426, %422, %.loopexit3160.us, %.loopexit3161.us, %.loopexit3162.us, %.loopexit3163.us, %274, %263, %253, %.loopexit3164.us, %.loopexit3165.us, %.loopexit3166.us, %125, %114, %104
   %.21782.us = phi i32 [ %.117813318.us, %104 ], [ %.117813318.us, %114 ], [ %.117813318.us, %125 ], [ %.117813318.us, %.loopexit3166.us ], [ %.117813318.us, %.loopexit3165.us ], [ %.117813318.us, %.loopexit3164.us ], [ %.117813318.us, %253 ], [ %.117813318.us, %263 ], [ %.117813318.us, %274 ], [ %.117813318.us, %.loopexit3163.us ], [ %.117813318.us, %.loopexit3162.us ], [ %.117813318.us, %.loopexit3161.us ], [ %.117813318.us, %.loopexit3160.us ], [ %.117813318.us, %422 ], [ %.117813318.us, %426 ], [ %.117813318.us, %450 ], [ %.117813318.us, %457 ], [ %.117813318.us, %.loopexit3159.us ], [ %.117813318.us, %506 ], [ %.117813318.us, %513 ], [ %.117813318.us, %.loopexit3158.us ], [ %.117813318.us, %.loopexit3157.us ], [ %.117813318.us, %.loopexit3156.us ], [ %.117813318.us, %.loopexit3155.us ], [ %.117813318.us, %.loopexit3154.us ], [ %.117813318.us, %.loopexit3152.us ], [ %.117813318.us, %.loopexit3151.us ], [ %.117813318.us, %833 ], [ %.117813318.us, %840 ], [ %.117813318.us, %.loopexit3150.us ], [ %.117813318.us, %.loopexit3149.us ], [ %.117813318.us, %926 ], [ %.117813318.us, %933 ], [ %.117813318.us, %.loopexit3148.us ], [ %.117813318.us, %.loopexit3147.us ], [ %.117813318.us, %.loopexit3146.us ], [ %.117813318.us, %.loopexit3145.us ], [ %.117813318.us, %.loopexit3143.us ], [ %.117813318.us, %.loopexit3141.us ], [ %.117813318.us, %.loopexit3140.us ], [ %.117813318.us, %.loopexit3139.us ], [ %.117813318.us, %.loopexit3137.us ], [ %.117813318.us, %.loopexit3136.us ], [ %.117813318.us, %.loopexit3134.us ], [ %.117813318.us, %.loopexit3132.us ], [ %.117813318.us, %.loopexit3131.us ], [ %.117813318.us, %1597 ], [ %.117813318.us, %.loopexit3130.us ], [ %.117813318.us, %1650 ], [ %.117813318.us, %.loopexit3129.us ], [ %.117813318.us, %.loopexit3128.us ], [ %.117813318.us, %.loopexit3127.us ], [ %.117813318.us, %1762 ], [ %.117813318.us, %1774 ], [ %.117813318.us, %.loopexit3126.us ], [ %.117813318.us, %1827 ], [ %.117813318.us, %.loopexit3125.us ], [ %.117813318.us, %.loopexit3124.us ], [ %.117813318.us, %.loopexit3123.us ], [ %.117813318.us, %1939 ], [ %.117813318.us, %1951 ], [ %.117813318.us, %1963 ], [ %.117813318.us, %.loopexit3122.us ], [ %.117813318.us, %2001 ], [ %.117813318.us, %2021 ], [ %.117813318.us, %.loopexit3121.us ], [ %.117813318.us, %2071 ], [ %.117813318.us, %.loopexit3120.us ], [ %.117813318.us, %.loopexit3119.us ], [ %.117813318.us, %2145 ], [ %.117813318.us, %2152 ], [ %.117813318.us, %2160 ], [ %2166, %.thread3061.us ], [ %.117813318.us, %2171 ], [ %.117813318.us, %2179 ], [ %2185, %.thread3063.us ], [ %.117813318.us, %2208 ], [ %.117813318.us, %2218 ], [ %.117813318.us, %2229 ], [ %.117813318.us, %.loopexit3118.us ], [ %.117813318.us, %.loopexit3117.us ], [ %.117813318.us, %.loopexit3116.us ], [ %.117813318.us, %2352 ], [ %.117813318.us, %2362 ], [ %.117813318.us, %2373 ], [ %.117813318.us, %.loopexit3115.us ], [ %.117813318.us, %.loopexit3114.us ], [ %.117813318.us, %.loopexit3113.us ], [ %.117813318.us, %.loopexit3112.us ], [ %.117813318.us, %.thread3065.us ], [ %.117813318.us, %2541 ], [ %.117813318.us, %2548 ], [ %.117813318.us, %.loopexit3111.us ], [ %.117813318.us, %2597 ], [ %.117813318.us, %2604 ], [ %.117813318.us, %2608 ], [ %.117813318.us, %.loopexit3110.us ], [ %.117813318.us, %.loopexit3109.us ], [ %.117813318.us, %.loopexit3108.us ], [ %.117813318.us, %2741 ], [ %.117813318.us, %2748 ], [ %.117813318.us, %.loopexit3107.us ], [ %.117813318.us, %2797 ], [ %.117813318.us, %2804 ], [ %.117813318.us, %2808 ], [ %.117813318.us, %.loopexit3106.us ], [ %.117813318.us, %.loopexit3105.us ], [ %.117813318.us, %.loopexit3104.us ], [ %.117813318.us, %.loopexit3103.us ], [ %.117813318.us, %2975 ], [ %.117813318.us, %2982 ], [ %.117813318.us, %2992 ], [ %.117813318.us, %.loopexit3101.us ], [ %.117813318.us, %.loopexit3100.us ], [ %.117813318.us, %3116 ], [ %.117813318.us, %3126 ], [ %.117813318.us, %.loopexit3099.us ], [ %.117813318.us, %.loopexit3098.us ], [ %.117813318.us, %.loopexit3097.us ], [ %.117813318.us, %3238 ], [ %.117813318.us, %3245 ], [ %.117813318.us, %3260 ], [ %.117813318.us, %.loopexit3096.us ], [ %.117813318.us, %3300 ], [ %.117813318.us, %3307 ], [ %3315, %3311 ], [ %.117813318.us, %3321 ], [ %.117813318.us, %3328 ], [ %3335, %.critedge2051.us ], [ %.117813318.us, %3346 ], [ %.117813318.us, %3361 ], [ %.117813318.us, %.loopexit3095.us ], [ %.117813318.us, %3401 ], [ %.117813318.us, %3408 ], [ %3416, %3412 ], [ %3425, %3421 ], [ %.117813318.us, %.critedge2054.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %3428 = icmp ult i64 %indvars.iv.next, %66
+  %3428 = icmp samesign ult i64 %indvars.iv.next, %66
   br i1 %3428, label %87, label %._crit_edge.us, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %3427
@@ -28033,7 +28033,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4633: ; preds = %.lr.ph
 4404:                                             ; preds = %4314, %4340, %4344, %4232, %4220, %.loopexit4827, %4151, %4095, %.loopexit4810, %4105, %4139, %4063, %4060, %4079, %4074, %4047, %4035, %.loopexit4834, %3954, %.loopexit4840, %3983, %3979, %3966, %.loopexit4858, %.loopexit4857, %3812, %.loopexit4856, %.loopexit4855, %3907, %3702, %3713, %3716, %3722, %3661, %3693, %3689, %3673, %.loopexit4817, %3650, %3551, %3563, %3559, %3543, %3576, %3591, %3585, %3597, %3532, %.loopexit4818, %3498, %3466, %3469, %3473, %.loopexit4853, %3431, %.loopexit4854, %3442, %3439, %3338, %3343, %3331, %3311, %3307, %3325, %3321, %.loopexit4819, %.loopexit4820, %3447
   %.63 = phi i16 [ %.61, %3307 ], [ %3315, %3311 ], [ %3324, %3321 ], [ %.62, %3325 ], [ %.72, %3661 ], [ %3677, %3673 ], [ %3692, %3689 ], [ %.75, %3693 ], [ %.17.ph, %3543 ], [ %.17.ph, %3551 ], [ %.17.ph, %3559 ], [ %.17.ph, %3563 ], [ %.17.ph, %3576 ], [ %.17.ph, %3585 ], [ %3596, %3591 ], [ %.17.ph, %3597 ], [ %.82, %4095 ], [ %.82, %4105 ], [ %.82, %.loopexit4810 ], [ %.81, %4139 ], [ %.17.ph, %4314 ], [ %.77, %3713 ], [ %.77, %3716 ], [ %.17.ph, %4340 ], [ %.17.ph, %4344 ], [ %.41, %3447 ], [ %.67, %3439 ], [ %.67, %3442 ], [ %.20.ph, %4060 ], [ %.20.ph, %4063 ], [ %.20.ph, %4074 ], [ %.20.ph, %4079 ], [ %.70, %3498 ], [ %.70, %.loopexit4818 ], [ %.71, %.loopexit4817 ], [ %.35.ph, %.loopexit4827 ], [ %.35.ph, %4220 ], [ %.35.ph, %4232 ], [ %.80, %3979 ], [ %3987, %3983 ], [ %.37, %3650 ], [ %.69, %3466 ], [ %3472, %3469 ], [ %.68, %3473 ], [ %.85, %.loopexit4820 ], [ %.37, %.loopexit4819 ], [ %.21, %.loopexit4834 ], [ %.21, %4035 ], [ %.21, %4047 ], [ %.27, %4151 ], [ %.65, %.loopexit4854 ], [ %.66, %.loopexit4853 ], [ %.66, %3431 ], [ %.64, %3331 ], [ %.64, %3338 ], [ %3347, %3343 ], [ %.78, %.loopexit4858 ], [ %.78, %.loopexit4857 ], [ %.78, %3812 ], [ %.78, %.loopexit4856 ], [ %.76, %3702 ], [ %.76, %3722 ], [ %.79, %.loopexit4855 ], [ %.22, %.loopexit4840 ], [ %.22, %3954 ], [ %.22, %3966 ], [ %531, %3907 ], [ %.23, %3532 ]
   %indvars.iv.next5702 = add nuw nsw i64 %indvars.iv5701, 2
-  %4405 = icmp ult i64 %indvars.iv.next5702, %379
+  %4405 = icmp samesign ult i64 %indvars.iv.next5702, %379
   br i1 %4405, label %380, label %._crit_edge5234, !llvm.loop !61
 
 ._crit_edge5234:                                  ; preds = %4404, %375
@@ -30477,7 +30477,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4759: ; preds = %.lr.ph
   %5626 = getelementptr inbounds i16, ptr %.sroa.0.0, i64 %indvars.iv.i
   %5627 = load i16, ptr %5626, align 2
   %5628 = zext i16 %5627 to i64
-  %5629 = icmp ugt i64 %indvars.iv.i, %5628
+  %5629 = icmp samesign ugt i64 %indvars.iv.i, %5628
   br i1 %5629, label %5630, label %5633
 
 5630:                                             ; preds = %.lr.ph.i
@@ -30624,7 +30624,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
 
 5698:                                             ; preds = %._crit_edge5333, %5694, %5695, %5696
   %indvars.iv.next5735 = add nuw nsw i64 %indvars.iv5734, 2
-  %5699 = icmp ult i64 %indvars.iv.next5735, %5643
+  %5699 = icmp samesign ult i64 %indvars.iv.next5735, %5643
   br i1 %5699, label %5644, label %._crit_edge5337.loopexit, !llvm.loop !63
 
 ._crit_edge5337.loopexit:                         ; preds = %5698
@@ -30696,7 +30696,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
 
 5735:                                             ; preds = %5732, %5731, %5730
   %indvars.iv.next5738 = add nuw nsw i64 %indvars.iv5737, 2
-  %5736 = icmp ult i64 %indvars.iv.next5738, %5717
+  %5736 = icmp samesign ult i64 %indvars.iv.next5738, %5717
   br i1 %5736, label %.lr.ph5341, label %._crit_edge5342.loopexit, !llvm.loop !64
 
 ._crit_edge5342.loopexit:                         ; preds = %5735
@@ -39710,7 +39710,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4633: ; preds = %.lr.ph
 4409:                                             ; preds = %4319, %4345, %4349, %4237, %4225, %.loopexit4827, %4156, %4100, %.loopexit4810, %4110, %4144, %4068, %4065, %4084, %4079, %4052, %4040, %.loopexit4834, %3959, %.loopexit4840, %3988, %3984, %3971, %.loopexit4858, %.loopexit4857, %3817, %.loopexit4856, %.loopexit4855, %3912, %3707, %3718, %3721, %3727, %3666, %3698, %3694, %3678, %.loopexit4817, %3655, %3556, %3568, %3564, %3548, %3581, %3596, %3590, %3602, %3537, %.loopexit4818, %3503, %3471, %3474, %3478, %.loopexit4853, %3436, %.loopexit4854, %3447, %3444, %3343, %3348, %3336, %3316, %3312, %3330, %3326, %.loopexit4819, %.loopexit4820, %3452
   %.63 = phi i32 [ %.61, %3312 ], [ %3320, %3316 ], [ %3329, %3326 ], [ %.62, %3330 ], [ %.72, %3666 ], [ %3682, %3678 ], [ %3697, %3694 ], [ %.75, %3698 ], [ %.17.ph, %3548 ], [ %.17.ph, %3556 ], [ %.17.ph, %3564 ], [ %.17.ph, %3568 ], [ %.17.ph, %3581 ], [ %.17.ph, %3590 ], [ %3601, %3596 ], [ %.17.ph, %3602 ], [ %.82, %4100 ], [ %.82, %4110 ], [ %.82, %.loopexit4810 ], [ %.81, %4144 ], [ %.17.ph, %4319 ], [ %.77, %3718 ], [ %.77, %3721 ], [ %.17.ph, %4345 ], [ %.17.ph, %4349 ], [ %.41, %3452 ], [ %.67, %3444 ], [ %.67, %3447 ], [ %.20.ph, %4065 ], [ %.20.ph, %4068 ], [ %.20.ph, %4079 ], [ %.20.ph, %4084 ], [ %.70, %3503 ], [ %.70, %.loopexit4818 ], [ %.71, %.loopexit4817 ], [ %.35.ph, %.loopexit4827 ], [ %.35.ph, %4225 ], [ %.35.ph, %4237 ], [ %.80, %3984 ], [ %3992, %3988 ], [ %.37, %3655 ], [ %.69, %3471 ], [ %3477, %3474 ], [ %.68, %3478 ], [ %.85, %.loopexit4820 ], [ %.37, %.loopexit4819 ], [ %.21, %.loopexit4834 ], [ %.21, %4040 ], [ %.21, %4052 ], [ %.27, %4156 ], [ %.65, %.loopexit4854 ], [ %.66, %.loopexit4853 ], [ %.66, %3436 ], [ %.64, %3336 ], [ %.64, %3343 ], [ %3352, %3348 ], [ %.78, %.loopexit4858 ], [ %.78, %.loopexit4857 ], [ %.78, %3817 ], [ %.78, %.loopexit4856 ], [ %.76, %3707 ], [ %.76, %3727 ], [ %.79, %.loopexit4855 ], [ %.22, %.loopexit4840 ], [ %.22, %3959 ], [ %.22, %3971 ], [ %536, %3912 ], [ %.23, %3537 ]
   %indvars.iv.next5705 = add nuw nsw i64 %indvars.iv5704, 2
-  %4410 = icmp ult i64 %indvars.iv.next5705, %384
+  %4410 = icmp samesign ult i64 %indvars.iv.next5705, %384
   br i1 %4410, label %385, label %._crit_edge5234, !llvm.loop !65
 
 ._crit_edge5234:                                  ; preds = %4409, %380
@@ -42303,7 +42303,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
 
 5705:                                             ; preds = %._crit_edge5333, %5701, %5702, %5703
   %indvars.iv.next5739 = add nuw nsw i64 %indvars.iv5738, 2
-  %5706 = icmp ult i64 %indvars.iv.next5739, %5648
+  %5706 = icmp samesign ult i64 %indvars.iv.next5739, %5648
   br i1 %5706, label %5649, label %._crit_edge5337.loopexit, !llvm.loop !67
 
 ._crit_edge5337.loopexit:                         ; preds = %5705
@@ -42376,7 +42376,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
 
 5743:                                             ; preds = %5740, %5739, %5738
   %indvars.iv.next5742 = add nuw nsw i64 %indvars.iv5741, 2
-  %5744 = icmp ult i64 %indvars.iv.next5742, %5724
+  %5744 = icmp samesign ult i64 %indvars.iv.next5742, %5724
   br i1 %5744, label %.lr.ph5341, label %._crit_edge5342.loopexit, !llvm.loop !68
 
 ._crit_edge5342.loopexit:                         ; preds = %5743
@@ -43220,7 +43220,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i.us: ; preds = %.lr.ph.
   %176 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.i
   %177 = load i16, ptr %176, align 2
   %178 = zext i16 %177 to i64
-  %179 = icmp ugt i64 %indvars.iv.i, %178
+  %179 = icmp samesign ugt i64 %indvars.iv.i, %178
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %.lr.ph.i
@@ -44514,7 +44514,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
 
 59:                                               ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us, %27, %26
   %60 = phi i32 [ %.0.i.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us ], [ %24, %27 ], [ %24, %26 ]
-  %61 = icmp ult i64 %indvars.iv, %13
+  %61 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %61, label %62, label %94
 
 62:                                               ; preds = %59
@@ -44844,7 +44844,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents18LabelingWuParalle
   br label %193
 
 80:                                               ; preds = %73
-  %.not124.us.us = icmp ult i64 %indvars.iv158, %30
+  %.not124.us.us = icmp samesign ult i64 %indvars.iv158, %30
   br i1 %.not124.us.us, label %81, label %170
 
 81:                                               ; preds = %80
@@ -45650,7 +45650,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   br i1 %82, label %83, label %169
 
 83:                                               ; preds = %78
-  %84 = icmp ult i64 %indvars.iv, %17
+  %84 = icmp samesign ult i64 %indvars.iv, %17
   %85 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1
   %.not97.us = icmp eq i8 %86, 0
@@ -45939,7 +45939,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us: ; preds = %.l
 
 213:                                              ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us, %181, %177, %172, %169, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %214 = icmp ult i64 %indvars.iv.next, %19
+  %214 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %214, label %36, label %._crit_edge.us, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %213
@@ -46065,7 +46065,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 
 72:                                               ; preds = %69
   %73 = or disjoint i64 %indvars.iv, 1
-  %74 = icmp ult i64 %73, %33
+  %74 = icmp samesign ult i64 %73, %33
   %or.cond.us = and i1 %60, %74
   br i1 %or.cond.us, label %75, label %218
 
@@ -46369,7 +46369,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us: ; preds = %.
 
 222:                                              ; preds = %219
   %223 = add nuw nsw i64 %indvars.iv, 2
-  %224 = icmp ult i64 %223, %33
+  %224 = icmp samesign ult i64 %223, %33
   %or.cond1543.us = and i1 %60, %224
   br i1 %or.cond1543.us, label %225, label %408
 
@@ -46769,7 +46769,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us: ; preds = %.
 
 420:                                              ; preds = %417
   %421 = or disjoint i64 %indvars.iv, 1
-  %422 = icmp ult i64 %421, %33
+  %422 = icmp samesign ult i64 %421, %33
   %or.cond1546.us = and i1 %60, %422
   br i1 %or.cond1546.us, label %423, label %807
 
@@ -47570,7 +47570,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us: ; preds = %.
 
 811:                                              ; preds = %808
   %812 = add nuw nsw i64 %indvars.iv, 2
-  %813 = icmp ult i64 %812, %33
+  %813 = icmp samesign ult i64 %812, %33
   %or.cond1547.us = and i1 %60, %813
   br i1 %or.cond1547.us, label %814, label %1578
 
@@ -49886,7 +49886,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us: ; preds = %.
 
 .critedge.us:                                     ; preds = %417, %416, %67
   %1942 = or disjoint i64 %indvars.iv, 1
-  %1943 = icmp ult i64 %1942, %33
+  %1943 = icmp samesign ult i64 %1942, %33
   %or.cond1548.us = and i1 %60, %1943
   br i1 %or.cond1548.us, label %1944, label %2007
 
@@ -50028,7 +50028,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us: ; preds = %.
 
 2011:                                             ; preds = %2008
   %2012 = add nuw nsw i64 %indvars.iv, 2
-  %2013 = icmp ult i64 %2012, %33
+  %2013 = icmp samesign ult i64 %2012, %33
   %or.cond1549.us = and i1 %60, %2013
   br i1 %or.cond1549.us, label %2014, label %2156
 
@@ -50421,7 +50421,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us: ; preds = %.
 
 2200:                                             ; preds = %2197
   %2201 = or disjoint i64 %indvars.iv, 1
-  %2202 = icmp ult i64 %2201, %33
+  %2202 = icmp samesign ult i64 %2201, %33
   br i1 %2202, label %2203, label %3365
 
 2203:                                             ; preds = %2200
@@ -50735,7 +50735,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us: ; preds = %.
 
 2355:                                             ; preds = %2212
   %2356 = add nuw nsw i64 %indvars.iv, 2
-  %2357 = icmp ult i64 %2356, %33
+  %2357 = icmp samesign ult i64 %2356, %33
   br i1 %2357, label %2358, label %.thread2555.us
 
 2358:                                             ; preds = %2355
@@ -51466,7 +51466,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us: ; preds = %.
 
 2721:                                             ; preds = %2519
   %2722 = add nuw nsw i64 %indvars.iv, 2
-  %2723 = icmp ult i64 %2722, %33
+  %2723 = icmp samesign ult i64 %2722, %33
   br i1 %2723, label %2724, label %3147
 
 2724:                                             ; preds = %2721
@@ -52611,7 +52611,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us: ; preds = %.
 
 3294:                                             ; preds = %3287
   %3295 = add nuw nsw i64 %indvars.iv, 2
-  %3296 = icmp ult i64 %3295, %33
+  %3296 = icmp samesign ult i64 %3295, %33
   br i1 %3296, label %3297, label %3352
 
 3297:                                             ; preds = %3294
@@ -52791,7 +52791,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us: ; preds = %.
 
 3386:                                             ; preds = %2197, %2196
   %3387 = or disjoint i64 %indvars.iv, 1
-  %3388 = icmp ult i64 %3387, %33
+  %3388 = icmp samesign ult i64 %3387, %33
   br i1 %3388, label %3389, label %.critedge1562.us
 
 3389:                                             ; preds = %3386
@@ -52818,7 +52818,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us: ; preds = %.
 
 3400:                                             ; preds = %3393
   %3401 = add nuw nsw i64 %indvars.iv, 2
-  %3402 = icmp ult i64 %3401, %33
+  %3402 = icmp samesign ult i64 %3401, %33
   br i1 %3402, label %3403, label %3458
 
 3403:                                             ; preds = %3400
@@ -52982,7 +52982,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us: ; preds = %.
 3482:                                             ; preds = %.critedge1562.us, %3475, %3465, %3461, %3454, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us, %3413, %3396, %.critedge1559.us, %3377, %3370, %3359, %3355, %3348, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us, %3307, %3290, %3283, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2503.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2489.us, %3168, %3157, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2475.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2461.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2433.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2405.us, %2895, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2377.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2363.us, %2796, %2788, %2780, %2776, %2769, %2752, %2748, %2741, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2335.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2321.us, %2602, %2598, %2591, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2307.us, %2540, %2532, %.thread2555.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2293.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2279.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2265.us, %2393, %2389, %2378, %2368, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2237.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2223.us, %2240, %2229, %2218, %.thread2552.us, %2188, %2180, %.thread2549.us, %2168, %2160, %2152, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2195.us, %2076, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2181.us, %2024, %2003, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us, %1962, %1950, %1938, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2139.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2125.us, %1823, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2111.us, %1768, %1756, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2097.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2083.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2069.us, %1641, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2055.us, %1586, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2041.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2027.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1999.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1971.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1957.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1929.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1915.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1901.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1873.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1845.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1831.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1817.us, %940, %936, %929, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1803.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1789.us, %838, %831, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1761.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1733.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1719.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1705.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1691.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1677.us, %502, %495, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1663.us, %444, %436, %412, %408, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1635.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1621.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1607.us, %256, %245, %235, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1579.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us, %103, %92, %81
   %.2.us = phi i32 [ %.12716.us, %81 ], [ %.12716.us, %92 ], [ %.12716.us, %103 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1579.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us ], [ %.12716.us, %235 ], [ %.12716.us, %245 ], [ %.12716.us, %256 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1607.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1621.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1635.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us ], [ %.12716.us, %408 ], [ %.12716.us, %412 ], [ %.12716.us, %436 ], [ %.12716.us, %444 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1663.us ], [ %.12716.us, %495 ], [ %.12716.us, %502 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1677.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1691.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1705.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1719.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1733.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1761.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us ], [ %.12716.us, %831 ], [ %.12716.us, %838 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1789.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1803.us ], [ %.12716.us, %929 ], [ %.12716.us, %936 ], [ %.12716.us, %940 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1817.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1831.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1845.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1873.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1901.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1915.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1929.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1957.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1971.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1999.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2027.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2041.us ], [ %.12716.us, %1586 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2055.us ], [ %.12716.us, %1641 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2069.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2083.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2097.us ], [ %.12716.us, %1756 ], [ %.12716.us, %1768 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2111.us ], [ %.12716.us, %1823 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2125.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2139.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us ], [ %.12716.us, %1938 ], [ %.12716.us, %1950 ], [ %.12716.us, %1962 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us ], [ %.12716.us, %2003 ], [ %.12716.us, %2024 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2181.us ], [ %.12716.us, %2076 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2195.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us ], [ %.12716.us, %2152 ], [ %.12716.us, %2160 ], [ %.12716.us, %2168 ], [ %2175, %.thread2549.us ], [ %.12716.us, %2180 ], [ %.12716.us, %2188 ], [ %2195, %.thread2552.us ], [ %.12716.us, %2218 ], [ %.12716.us, %2229 ], [ %.12716.us, %2240 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2223.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2237.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us ], [ %.12716.us, %2368 ], [ %.12716.us, %2378 ], [ %.12716.us, %2389 ], [ %.12716.us, %2393 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2265.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2279.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2293.us ], [ %.12716.us, %.thread2555.us ], [ %.12716.us, %2532 ], [ %.12716.us, %2540 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2307.us ], [ %.12716.us, %2591 ], [ %.12716.us, %2598 ], [ %.12716.us, %2602 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2321.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2335.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us ], [ %.12716.us, %2741 ], [ %.12716.us, %2748 ], [ %.12716.us, %2752 ], [ %.12716.us, %2769 ], [ %.12716.us, %2776 ], [ %.12716.us, %2780 ], [ %.12716.us, %2788 ], [ %.12716.us, %2796 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2363.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2377.us ], [ %.12716.us, %2895 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2405.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2433.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2461.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2475.us ], [ %.12716.us, %3157 ], [ %.12716.us, %3168 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2489.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2503.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us ], [ %.12716.us, %3283 ], [ %.12716.us, %3290 ], [ %.12716.us, %3307 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us ], [ %.12716.us, %3348 ], [ %.12716.us, %3355 ], [ %3364, %3359 ], [ %.12716.us, %3370 ], [ %.12716.us, %3377 ], [ %3385, %.critedge1559.us ], [ %.12716.us, %3396 ], [ %.12716.us, %3413 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us ], [ %.12716.us, %3454 ], [ %.12716.us, %3461 ], [ %3470, %3465 ], [ %3480, %3475 ], [ %.12716.us, %.critedge1562.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %3483 = icmp ult i64 %indvars.iv.next, %33
+  %3483 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %3483, label %64, label %._crit_edge.us, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %3482
@@ -54233,7 +54233,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   br i1 %82, label %83, label %169
 
 83:                                               ; preds = %78
-  %84 = icmp ult i64 %indvars.iv, %17
+  %84 = icmp samesign ult i64 %indvars.iv, %17
   %85 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1
   %.not97.us = icmp eq i8 %86, 0
@@ -54522,7 +54522,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us: ; preds = %.l
 
 213:                                              ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us, %181, %177, %172, %169, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %214 = icmp ult i64 %indvars.iv.next, %19
+  %214 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %214, label %36, label %._crit_edge.us, !llvm.loop !109
 
 ._crit_edge.us:                                   ; preds = %213
@@ -68071,7 +68071,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i231.us: ; preds = %.lr.
   br label %307
 
 196:                                              ; preds = %189
-  %197 = icmp ult i64 %indvars.iv332, %172
+  %197 = icmp samesign ult i64 %indvars.iv332, %172
   br i1 %197, label %198, label %285
 
 198:                                              ; preds = %196
@@ -68379,7 +68379,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN2cv19connectedco
   %327 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv.i
   %328 = load i16, ptr %327, align 2
   %329 = zext i16 %328 to i64
-  %330 = icmp ugt i64 %indvars.iv.i, %329
+  %330 = icmp samesign ugt i64 %indvars.iv.i, %329
   br i1 %330, label %331, label %334
 
 331:                                              ; preds = %.lr.ph.i
@@ -69003,7 +69003,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i231.us: ; preds = %.lr.
   br label %308
 
 197:                                              ; preds = %190
-  %198 = icmp ult i64 %indvars.iv335, %173
+  %198 = icmp samesign ult i64 %indvars.iv335, %173
   br i1 %198, label %199, label %286
 
 199:                                              ; preds = %197
@@ -70413,7 +70413,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
 .lr.ph:                                           ; preds = %71
   %.not2016 = icmp eq i64 %indvars.iv3546, 0
   %89 = or disjoint i64 %indvars.iv3546, 1
-  %90 = icmp ult i64 %89, %70
+  %90 = icmp samesign ult i64 %89, %70
   br label %91
 
 91:                                               ; preds = %.lr.ph, %3434
@@ -77303,7 +77303,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3047: ; preds = %.lr.ph
   %3439 = getelementptr inbounds i16, ptr %.sroa.0.0, i64 %indvars.iv.i
   %3440 = load i16, ptr %3439, align 2
   %3441 = zext i16 %3440 to i64
-  %3442 = icmp ugt i64 %indvars.iv.i, %3441
+  %3442 = icmp samesign ugt i64 %indvars.iv.i, %3441
   br i1 %3442, label %3443, label %3446
 
 3443:                                             ; preds = %.lr.ph.i
@@ -79786,7 +79786,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc2059, %_ZNSt6
 .lr.ph:                                           ; preds = %71
   %.not2016 = icmp eq i64 %indvars.iv3547, 0
   %89 = or disjoint i64 %indvars.iv3547, 1
-  %90 = icmp ult i64 %89, %70
+  %90 = icmp samesign ult i64 %89, %70
   br label %91
 
 91:                                               ; preds = %.lr.ph, %3434
@@ -98498,7 +98498,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4633: ; preds = %.lr.ph
 4410:                                             ; preds = %4320, %4346, %4350, %4238, %4226, %.loopexit4854, %4157, %4101, %.loopexit4837, %4111, %4145, %4069, %4066, %4085, %4080, %4053, %4041, %.loopexit4861, %3960, %.loopexit4867, %3989, %3985, %3972, %.loopexit4885, %.loopexit4884, %3818, %.loopexit4883, %.loopexit4882, %3913, %3708, %3719, %3722, %3728, %3667, %3699, %3695, %3679, %.loopexit4844, %3656, %3557, %3569, %3565, %3549, %3582, %3597, %3591, %3603, %3538, %.loopexit4845, %3504, %3472, %3475, %3479, %.loopexit4880, %3437, %.loopexit4881, %3448, %3445, %3344, %3349, %3337, %3317, %3313, %3331, %3327, %.loopexit4846, %.loopexit4847, %3453
   %.63 = phi i16 [ %.61, %3313 ], [ %3321, %3317 ], [ %3330, %3327 ], [ %.62, %3331 ], [ %.72, %3667 ], [ %3683, %3679 ], [ %3698, %3695 ], [ %.75, %3699 ], [ %.17.ph, %3549 ], [ %.17.ph, %3557 ], [ %.17.ph, %3565 ], [ %.17.ph, %3569 ], [ %.17.ph, %3582 ], [ %.17.ph, %3591 ], [ %3602, %3597 ], [ %.17.ph, %3603 ], [ %.82, %4101 ], [ %.82, %4111 ], [ %.82, %.loopexit4837 ], [ %.81, %4145 ], [ %.17.ph, %4320 ], [ %.77, %3719 ], [ %.77, %3722 ], [ %.17.ph, %4346 ], [ %.17.ph, %4350 ], [ %.41, %3453 ], [ %.67, %3445 ], [ %.67, %3448 ], [ %.20.ph, %4066 ], [ %.20.ph, %4069 ], [ %.20.ph, %4080 ], [ %.20.ph, %4085 ], [ %.70, %3504 ], [ %.70, %.loopexit4845 ], [ %.71, %.loopexit4844 ], [ %.35.ph, %.loopexit4854 ], [ %.35.ph, %4226 ], [ %.35.ph, %4238 ], [ %.80, %3985 ], [ %3993, %3989 ], [ %.37, %3656 ], [ %.69, %3472 ], [ %3478, %3475 ], [ %.68, %3479 ], [ %.85, %.loopexit4847 ], [ %.37, %.loopexit4846 ], [ %.21, %.loopexit4861 ], [ %.21, %4041 ], [ %.21, %4053 ], [ %.27, %4157 ], [ %.65, %.loopexit4881 ], [ %.66, %.loopexit4880 ], [ %.66, %3437 ], [ %.64, %3337 ], [ %.64, %3344 ], [ %3353, %3349 ], [ %.78, %.loopexit4885 ], [ %.78, %.loopexit4884 ], [ %.78, %3818 ], [ %.78, %.loopexit4883 ], [ %.76, %3708 ], [ %.76, %3728 ], [ %.79, %.loopexit4882 ], [ %.22, %.loopexit4867 ], [ %.22, %3960 ], [ %.22, %3972 ], [ %537, %3913 ], [ %.23, %3538 ]
   %indvars.iv.next5730 = add nuw nsw i64 %indvars.iv5729, 2
-  %4411 = icmp ult i64 %indvars.iv.next5730, %382
+  %4411 = icmp samesign ult i64 %indvars.iv.next5730, %382
   br i1 %4411, label %383, label %._crit_edge5261, !llvm.loop !173
 
 ._crit_edge5261:                                  ; preds = %4410, %378
@@ -100942,7 +100942,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4759: ; preds = %.lr.ph
   %5632 = getelementptr inbounds i16, ptr %.sroa.0.0, i64 %indvars.iv.i
   %5633 = load i16, ptr %5632, align 2
   %5634 = zext i16 %5633 to i64
-  %5635 = icmp ugt i64 %indvars.iv.i, %5634
+  %5635 = icmp samesign ugt i64 %indvars.iv.i, %5634
   br i1 %5635, label %5636, label %5639
 
 5636:                                             ; preds = %.lr.ph.i
@@ -101690,7 +101690,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5641, %5630
 
 6126:                                             ; preds = %.sink.split, %._crit_edge5361
   %indvars.iv.next5763 = add nuw nsw i64 %indvars.iv5762, 2
-  %6127 = icmp ult i64 %indvars.iv.next5763, %5653
+  %6127 = icmp samesign ult i64 %indvars.iv.next5763, %5653
   br i1 %6127, label %5654, label %._crit_edge5365.loopexit, !llvm.loop !175
 
 ._crit_edge5365.loopexit:                         ; preds = %6126
@@ -101951,7 +101951,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5641, %5630
   %6300 = add i64 %6299, %6135
   store i64 %6300, ptr %6298, align 8
   %indvars.iv.next5766 = add nuw nsw i64 %indvars.iv5765, 2
-  %6301 = icmp ult i64 %indvars.iv.next5766, %6149
+  %6301 = icmp samesign ult i64 %indvars.iv.next5766, %6149
   br i1 %6301, label %6150, label %._crit_edge5370.loopexit, !llvm.loop !176
 
 ._crit_edge5370.loopexit:                         ; preds = %6297
@@ -111162,7 +111162,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4633: ; preds = %.lr.ph
 4415:                                             ; preds = %4325, %4351, %4355, %4243, %4231, %.loopexit4854, %4162, %4106, %.loopexit4837, %4116, %4150, %4074, %4071, %4090, %4085, %4058, %4046, %.loopexit4861, %3965, %.loopexit4867, %3994, %3990, %3977, %.loopexit4885, %.loopexit4884, %3823, %.loopexit4883, %.loopexit4882, %3918, %3713, %3724, %3727, %3733, %3672, %3704, %3700, %3684, %.loopexit4844, %3661, %3562, %3574, %3570, %3554, %3587, %3602, %3596, %3608, %3543, %.loopexit4845, %3509, %3477, %3480, %3484, %.loopexit4880, %3442, %.loopexit4881, %3453, %3450, %3349, %3354, %3342, %3322, %3318, %3336, %3332, %.loopexit4846, %.loopexit4847, %3458
   %.63 = phi i32 [ %.61, %3318 ], [ %3326, %3322 ], [ %3335, %3332 ], [ %.62, %3336 ], [ %.72, %3672 ], [ %3688, %3684 ], [ %3703, %3700 ], [ %.75, %3704 ], [ %.17.ph, %3554 ], [ %.17.ph, %3562 ], [ %.17.ph, %3570 ], [ %.17.ph, %3574 ], [ %.17.ph, %3587 ], [ %.17.ph, %3596 ], [ %3607, %3602 ], [ %.17.ph, %3608 ], [ %.82, %4106 ], [ %.82, %4116 ], [ %.82, %.loopexit4837 ], [ %.81, %4150 ], [ %.17.ph, %4325 ], [ %.77, %3724 ], [ %.77, %3727 ], [ %.17.ph, %4351 ], [ %.17.ph, %4355 ], [ %.41, %3458 ], [ %.67, %3450 ], [ %.67, %3453 ], [ %.20.ph, %4071 ], [ %.20.ph, %4074 ], [ %.20.ph, %4085 ], [ %.20.ph, %4090 ], [ %.70, %3509 ], [ %.70, %.loopexit4845 ], [ %.71, %.loopexit4844 ], [ %.35.ph, %.loopexit4854 ], [ %.35.ph, %4231 ], [ %.35.ph, %4243 ], [ %.80, %3990 ], [ %3998, %3994 ], [ %.37, %3661 ], [ %.69, %3477 ], [ %3483, %3480 ], [ %.68, %3484 ], [ %.85, %.loopexit4847 ], [ %.37, %.loopexit4846 ], [ %.21, %.loopexit4861 ], [ %.21, %4046 ], [ %.21, %4058 ], [ %.27, %4162 ], [ %.65, %.loopexit4881 ], [ %.66, %.loopexit4880 ], [ %.66, %3442 ], [ %.64, %3342 ], [ %.64, %3349 ], [ %3358, %3354 ], [ %.78, %.loopexit4885 ], [ %.78, %.loopexit4884 ], [ %.78, %3823 ], [ %.78, %.loopexit4883 ], [ %.76, %3713 ], [ %.76, %3733 ], [ %.79, %.loopexit4882 ], [ %.22, %.loopexit4867 ], [ %.22, %3965 ], [ %.22, %3977 ], [ %542, %3918 ], [ %.23, %3543 ]
   %indvars.iv.next5733 = add nuw nsw i64 %indvars.iv5732, 2
-  %4416 = icmp ult i64 %indvars.iv.next5733, %387
+  %4416 = icmp samesign ult i64 %indvars.iv.next5733, %387
   br i1 %4416, label %388, label %._crit_edge5261, !llvm.loop !177
 
 ._crit_edge5261:                                  ; preds = %4415, %383
@@ -114355,7 +114355,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5646, %5635
 
 6132:                                             ; preds = %.sink.split, %._crit_edge5361
   %indvars.iv.next5767 = add nuw nsw i64 %indvars.iv5766, 2
-  %6133 = icmp ult i64 %indvars.iv.next5767, %5657
+  %6133 = icmp samesign ult i64 %indvars.iv.next5767, %5657
   br i1 %6133, label %5658, label %._crit_edge5365.loopexit, !llvm.loop !179
 
 ._crit_edge5365.loopexit:                         ; preds = %6132
@@ -114617,7 +114617,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5646, %5635
   %6307 = add i64 %6306, %6141
   store i64 %6307, ptr %6305, align 8
   %indvars.iv.next5770 = add nuw nsw i64 %indvars.iv5769, 2
-  %6308 = icmp ult i64 %indvars.iv.next5770, %6155
+  %6308 = icmp samesign ult i64 %indvars.iv.next5770, %6155
   br i1 %6308, label %6156, label %._crit_edge5370.loopexit, !llvm.loop !180
 
 ._crit_edge5370.loopexit:                         ; preds = %6304
@@ -115819,7 +115819,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN2cv19connectedco
   %181 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv.i
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
-  %184 = icmp ugt i64 %indvars.iv.i, %183
+  %184 = icmp samesign ugt i64 %indvars.iv.i, %183
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %.lr.ph.i
@@ -117758,7 +117758,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
 
 59:                                               ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us, %27, %26
   %60 = phi i32 [ %.0.i.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us ], [ %24, %27 ], [ %24, %26 ]
-  %61 = icmp ult i64 %indvars.iv, %13
+  %61 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %61, label %62, label %94
 
 62:                                               ; preds = %59
@@ -118249,7 +118249,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents18LabelingWuParalle
   br label %193
 
 80:                                               ; preds = %73
-  %.not124.us.us = icmp ult i64 %indvars.iv158, %30
+  %.not124.us.us = icmp samesign ult i64 %indvars.iv158, %30
   br i1 %.not124.us.us, label %81, label %170
 
 81:                                               ; preds = %80
@@ -119242,7 +119242,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   br i1 %82, label %83, label %169
 
 83:                                               ; preds = %78
-  %84 = icmp ult i64 %indvars.iv, %17
+  %84 = icmp samesign ult i64 %indvars.iv, %17
   %85 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1
   %.not97.us = icmp eq i8 %86, 0
@@ -119531,7 +119531,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us: ; preds = %.l
 
 213:                                              ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us, %181, %177, %172, %169, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %214 = icmp ult i64 %indvars.iv.next, %19
+  %214 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %214, label %36, label %._crit_edge.us, !llvm.loop !215
 
 ._crit_edge.us:                                   ; preds = %213
@@ -119657,7 +119657,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 
 72:                                               ; preds = %69
   %73 = or disjoint i64 %indvars.iv, 1
-  %74 = icmp ult i64 %73, %33
+  %74 = icmp samesign ult i64 %73, %33
   %or.cond.us = and i1 %60, %74
   br i1 %or.cond.us, label %75, label %218
 
@@ -119961,7 +119961,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us: ; preds = %.
 
 222:                                              ; preds = %219
   %223 = add nuw nsw i64 %indvars.iv, 2
-  %224 = icmp ult i64 %223, %33
+  %224 = icmp samesign ult i64 %223, %33
   %or.cond1543.us = and i1 %60, %224
   br i1 %or.cond1543.us, label %225, label %408
 
@@ -120361,7 +120361,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us: ; preds = %.
 
 420:                                              ; preds = %417
   %421 = or disjoint i64 %indvars.iv, 1
-  %422 = icmp ult i64 %421, %33
+  %422 = icmp samesign ult i64 %421, %33
   %or.cond1546.us = and i1 %60, %422
   br i1 %or.cond1546.us, label %423, label %807
 
@@ -121162,7 +121162,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us: ; preds = %.
 
 811:                                              ; preds = %808
   %812 = add nuw nsw i64 %indvars.iv, 2
-  %813 = icmp ult i64 %812, %33
+  %813 = icmp samesign ult i64 %812, %33
   %or.cond1547.us = and i1 %60, %813
   br i1 %or.cond1547.us, label %814, label %1578
 
@@ -123478,7 +123478,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us: ; preds = %.
 
 .critedge.us:                                     ; preds = %417, %416, %67
   %1942 = or disjoint i64 %indvars.iv, 1
-  %1943 = icmp ult i64 %1942, %33
+  %1943 = icmp samesign ult i64 %1942, %33
   %or.cond1548.us = and i1 %60, %1943
   br i1 %or.cond1548.us, label %1944, label %2007
 
@@ -123620,7 +123620,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us: ; preds = %.
 
 2011:                                             ; preds = %2008
   %2012 = add nuw nsw i64 %indvars.iv, 2
-  %2013 = icmp ult i64 %2012, %33
+  %2013 = icmp samesign ult i64 %2012, %33
   %or.cond1549.us = and i1 %60, %2013
   br i1 %or.cond1549.us, label %2014, label %2156
 
@@ -124013,7 +124013,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us: ; preds = %.
 
 2200:                                             ; preds = %2197
   %2201 = or disjoint i64 %indvars.iv, 1
-  %2202 = icmp ult i64 %2201, %33
+  %2202 = icmp samesign ult i64 %2201, %33
   br i1 %2202, label %2203, label %3365
 
 2203:                                             ; preds = %2200
@@ -124327,7 +124327,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us: ; preds = %.
 
 2355:                                             ; preds = %2212
   %2356 = add nuw nsw i64 %indvars.iv, 2
-  %2357 = icmp ult i64 %2356, %33
+  %2357 = icmp samesign ult i64 %2356, %33
   br i1 %2357, label %2358, label %.thread2555.us
 
 2358:                                             ; preds = %2355
@@ -125058,7 +125058,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us: ; preds = %.
 
 2721:                                             ; preds = %2519
   %2722 = add nuw nsw i64 %indvars.iv, 2
-  %2723 = icmp ult i64 %2722, %33
+  %2723 = icmp samesign ult i64 %2722, %33
   br i1 %2723, label %2724, label %3147
 
 2724:                                             ; preds = %2721
@@ -126203,7 +126203,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us: ; preds = %.
 
 3294:                                             ; preds = %3287
   %3295 = add nuw nsw i64 %indvars.iv, 2
-  %3296 = icmp ult i64 %3295, %33
+  %3296 = icmp samesign ult i64 %3295, %33
   br i1 %3296, label %3297, label %3352
 
 3297:                                             ; preds = %3294
@@ -126383,7 +126383,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us: ; preds = %.
 
 3386:                                             ; preds = %2197, %2196
   %3387 = or disjoint i64 %indvars.iv, 1
-  %3388 = icmp ult i64 %3387, %33
+  %3388 = icmp samesign ult i64 %3387, %33
   br i1 %3388, label %3389, label %.critedge1562.us
 
 3389:                                             ; preds = %3386
@@ -126410,7 +126410,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us: ; preds = %.
 
 3400:                                             ; preds = %3393
   %3401 = add nuw nsw i64 %indvars.iv, 2
-  %3402 = icmp ult i64 %3401, %33
+  %3402 = icmp samesign ult i64 %3401, %33
   br i1 %3402, label %3403, label %3458
 
 3403:                                             ; preds = %3400
@@ -126574,7 +126574,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us: ; preds = %.
 3482:                                             ; preds = %.critedge1562.us, %3475, %3465, %3461, %3454, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us, %3413, %3396, %.critedge1559.us, %3377, %3370, %3359, %3355, %3348, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us, %3307, %3290, %3283, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2503.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2489.us, %3168, %3157, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2475.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2461.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2433.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2405.us, %2895, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2377.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2363.us, %2796, %2788, %2780, %2776, %2769, %2752, %2748, %2741, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2335.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2321.us, %2602, %2598, %2591, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2307.us, %2540, %2532, %.thread2555.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2293.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2279.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2265.us, %2393, %2389, %2378, %2368, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2237.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2223.us, %2240, %2229, %2218, %.thread2552.us, %2188, %2180, %.thread2549.us, %2168, %2160, %2152, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2195.us, %2076, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2181.us, %2024, %2003, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us, %1962, %1950, %1938, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2139.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2125.us, %1823, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2111.us, %1768, %1756, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2097.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2083.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2069.us, %1641, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2055.us, %1586, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2041.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2027.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1999.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1971.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1957.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1929.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1915.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1901.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1873.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1845.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1831.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1817.us, %940, %936, %929, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1803.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1789.us, %838, %831, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1761.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1733.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1719.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1705.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1691.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1677.us, %502, %495, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1663.us, %444, %436, %412, %408, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1635.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1621.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1607.us, %256, %245, %235, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1579.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us, %103, %92, %81
   %.2.us = phi i32 [ %.12716.us, %81 ], [ %.12716.us, %92 ], [ %.12716.us, %103 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1579.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1593.us ], [ %.12716.us, %235 ], [ %.12716.us, %245 ], [ %.12716.us, %256 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1607.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1621.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1635.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1649.us ], [ %.12716.us, %408 ], [ %.12716.us, %412 ], [ %.12716.us, %436 ], [ %.12716.us, %444 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1663.us ], [ %.12716.us, %495 ], [ %.12716.us, %502 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1677.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1691.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1705.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1719.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1733.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1761.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1775.us ], [ %.12716.us, %831 ], [ %.12716.us, %838 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1789.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1803.us ], [ %.12716.us, %929 ], [ %.12716.us, %936 ], [ %.12716.us, %940 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1817.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1831.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1845.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1873.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1901.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1915.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1929.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1957.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1971.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit1999.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2027.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2041.us ], [ %.12716.us, %1586 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2055.us ], [ %.12716.us, %1641 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2069.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2083.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2097.us ], [ %.12716.us, %1756 ], [ %.12716.us, %1768 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2111.us ], [ %.12716.us, %1823 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2125.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2139.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2153.us ], [ %.12716.us, %1938 ], [ %.12716.us, %1950 ], [ %.12716.us, %1962 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2167.us ], [ %.12716.us, %2003 ], [ %.12716.us, %2024 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2181.us ], [ %.12716.us, %2076 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2195.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2209.us ], [ %.12716.us, %2152 ], [ %.12716.us, %2160 ], [ %.12716.us, %2168 ], [ %2175, %.thread2549.us ], [ %.12716.us, %2180 ], [ %.12716.us, %2188 ], [ %2195, %.thread2552.us ], [ %.12716.us, %2218 ], [ %.12716.us, %2229 ], [ %.12716.us, %2240 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2223.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2237.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2251.us ], [ %.12716.us, %2368 ], [ %.12716.us, %2378 ], [ %.12716.us, %2389 ], [ %.12716.us, %2393 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2265.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2279.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2293.us ], [ %.12716.us, %.thread2555.us ], [ %.12716.us, %2532 ], [ %.12716.us, %2540 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2307.us ], [ %.12716.us, %2591 ], [ %.12716.us, %2598 ], [ %.12716.us, %2602 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2321.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2335.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2349.us ], [ %.12716.us, %2741 ], [ %.12716.us, %2748 ], [ %.12716.us, %2752 ], [ %.12716.us, %2769 ], [ %.12716.us, %2776 ], [ %.12716.us, %2780 ], [ %.12716.us, %2788 ], [ %.12716.us, %2796 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2363.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2377.us ], [ %.12716.us, %2895 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2405.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2433.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2461.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2475.us ], [ %.12716.us, %3157 ], [ %.12716.us, %3168 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2489.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2503.us ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2517.us ], [ %.12716.us, %3283 ], [ %.12716.us, %3290 ], [ %.12716.us, %3307 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2531.us ], [ %.12716.us, %3348 ], [ %.12716.us, %3355 ], [ %3364, %3359 ], [ %.12716.us, %3370 ], [ %.12716.us, %3377 ], [ %3385, %.critedge1559.us ], [ %.12716.us, %3396 ], [ %.12716.us, %3413 ], [ %.12716.us, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit2545.us ], [ %.12716.us, %3454 ], [ %.12716.us, %3461 ], [ %3470, %3465 ], [ %3480, %3475 ], [ %.12716.us, %.critedge1562.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %3483 = icmp ult i64 %indvars.iv.next, %33
+  %3483 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %3483, label %64, label %._crit_edge.us, !llvm.loop !217
 
 ._crit_edge.us:                                   ; preds = %3482
@@ -131577,7 +131577,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   br i1 %82, label %83, label %169
 
 83:                                               ; preds = %78
-  %84 = icmp ult i64 %indvars.iv, %17
+  %84 = icmp samesign ult i64 %indvars.iv, %17
   %85 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1
   %.not97.us = icmp eq i8 %86, 0
@@ -131866,7 +131866,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us: ; preds = %.l
 
 213:                                              ; preds = %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit148.us, %181, %177, %172, %169, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %214 = icmp ult i64 %indvars.iv.next, %19
+  %214 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %214, label %36, label %._crit_edge.us, !llvm.loop !235
 
 ._crit_edge.us:                                   ; preds = %213

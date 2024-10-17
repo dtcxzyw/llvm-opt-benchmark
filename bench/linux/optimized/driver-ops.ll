@@ -3671,7 +3671,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   %53 = load volatile ptr, ptr %52, align 8
   %54 = add nuw nsw i64 %47, 1
   %55 = and i64 %54, 31
-  %56 = icmp ugt i64 %55, 14
+  %56 = icmp samesign ugt i64 %55, 14
   br i1 %56, label %.thread10, label %41, !prof !259, !llvm.loop !260
 
 .thread10:                                        ; preds = %41, %50, %46
@@ -3809,7 +3809,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   %134 = load volatile ptr, ptr %133, align 8
   %135 = add nuw nsw i64 %128, 1
   %136 = and i64 %135, 31
-  %137 = icmp ugt i64 %136, 14
+  %137 = icmp samesign ugt i64 %136, 14
   br i1 %137, label %.thread12, label %122, !prof !259, !llvm.loop !265
 
 .thread12:                                        ; preds = %122, %131, %127, %114, %110, %108, %31, %.thread
@@ -3882,7 +3882,7 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
 46:                                               ; preds = %54, %38
   %47 = phi i64 [ 0, %38 ], [ %58, %54 ]
   %48 = and i64 %47, 4294967295
-  %49 = icmp ugt i64 %48, 14
+  %49 = icmp samesign ugt i64 %48, 14
   br i1 %49, label %.thread10, label %50, !prof !25
 
 50:                                               ; preds = %46
@@ -4015,7 +4015,7 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
 122:                                              ; preds = %130, %119
   %123 = phi i64 [ %134, %130 ], [ 0, %119 ]
   %124 = and i64 %123, 4294967295
-  %125 = icmp ugt i64 %124, 14
+  %125 = icmp samesign ugt i64 %124, 14
   br i1 %125, label %.thread12, label %126, !prof !25
 
 126:                                              ; preds = %122

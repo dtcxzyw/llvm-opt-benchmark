@@ -3721,7 +3721,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
 240:                                              ; preds = %249, %238
   %241 = phi i64 [ 0, %238 ], [ %255, %249 ]
   %242 = and i64 %241, 4294967295
-  %243 = icmp ugt i64 %242, 63
+  %243 = icmp samesign ugt i64 %242, 63
   br i1 %243, label %.thread20, label %244, !prof !10
 
 244:                                              ; preds = %240
@@ -4748,7 +4748,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 199:                                              ; preds = %208, %197
   %200 = phi i64 [ 0, %197 ], [ %214, %208 ]
   %201 = and i64 %200, 4294967295
-  %202 = icmp ugt i64 %201, 63
+  %202 = icmp samesign ugt i64 %201, 63
   br i1 %202, label %.thread18, label %203, !prof !10
 
 203:                                              ; preds = %199

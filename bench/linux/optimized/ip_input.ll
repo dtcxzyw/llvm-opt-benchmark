@@ -765,7 +765,7 @@ define internal fastcc ptr @ip_rcv_core(ptr noundef %0, ptr nocapture noundef re
   %49 = getelementptr i8, ptr %45, i64 %48
   %50 = load i8, ptr %49, align 4
   %51 = and i8 %50, 15
-  %52 = icmp ugt i8 %51, 4
+  %52 = icmp samesign ugt i8 %51, 4
   %53 = and i8 %50, -16
   %54 = icmp eq i8 %53, 64
   %55 = and i1 %52, %54
@@ -1514,7 +1514,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
 119:                                              ; preds = %115, %111, %98, %89
   %120 = load i8, ptr %78, align 4
   %121 = and i8 %120, 14
-  %122 = icmp ugt i8 %121, 5
+  %122 = icmp samesign ugt i8 %121, 5
   br i1 %122, label %123, label %205
 
 123:                                              ; preds = %119

@@ -1610,7 +1610,7 @@ if.end17:                                         ; preds = %if.else.if.end17_cr
   %and3.i = and i32 %shr2.i, 2047
   %conv.i55 = zext i16 %50 to i32
   %add.i = add nuw nsw i32 %and.i54, %conv.i55
-  %cmp.i56 = icmp ugt i32 %add.i, 2048
+  %cmp.i56 = icmp samesign ugt i32 %add.i, 2048
   br i1 %cmp.i56, label %do.body.i, label %if.end11.i
 
 do.body.i:                                        ; preds = %if.end17
@@ -1647,7 +1647,7 @@ if.end23.i:                                       ; preds = %if.then13.i, %if.en
   %conv25.pre-phi.i = phi i32 [ %.pre.i, %if.then13.i ], [ %conv.i55, %if.end11.i ]
   %55 = phi i16 [ %conv22.i, %if.then13.i ], [ %50, %if.end11.i ]
   %add26.i = add nuw nsw i32 %conv25.pre-phi.i, %and3.i
-  %cmp28.i = icmp ugt i32 %add26.i, 2048
+  %cmp28.i = icmp samesign ugt i32 %add26.i, 2048
   br i1 %cmp28.i, label %do.body31.i, label %if.end44.i
 
 do.body31.i:                                      ; preds = %if.end23.i
@@ -2019,7 +2019,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %tobool3.not.i = icmp eq i32 %bcmp12.i, 0
   %spec.select.i = select i1 %tobool3.not.i, i8 1, i8 %ret.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i38 = icmp ult i64 %indvars.iv.i, 15
+  %cmp.i38 = icmp samesign ult i64 %indvars.iv.i, 15
   %10 = and i8 %spec.select.i, 1
   %cmp1.i = icmp eq i8 %10, 0
   %11 = select i1 %cmp.i38, i1 %cmp1.i, i1 false

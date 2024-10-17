@@ -951,7 +951,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %in
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %mNumChannels113, align 8
   %48 = zext i32 %47 to i64
-  %cmp125 = icmp ult i64 %indvars.iv.next, %48
+  %cmp125 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %cmp125, label %for.body, label %while.cond132.preheader, !llvm.loop !10
 
 while.cond132.preheader:                          ; preds = %arrayctor.cont, %if.end120
@@ -1231,7 +1231,7 @@ for.inc228:                                       ; preds = %invoke.cont223, %in
   %mNumChannels154 = getelementptr inbounds i8, ptr %76, i64 1048
   %77 = load i32, ptr %mNumChannels154, align 8
   %78 = zext i32 %77 to i64
-  %cmp155 = icmp ult i64 %indvars.iv.next502, %78
+  %cmp155 = icmp samesign ult i64 %indvars.iv.next502, %78
   br i1 %cmp155, label %for.body156, label %for.end230, !llvm.loop !11
 
 for.end230:                                       ; preds = %for.inc228, %_ZN6Assimp9strtoul10EPKcPS1_.exit
@@ -1437,7 +1437,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %invoke.cont303, %if
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %104 = load i32, ptr %mNumChannels282, align 8
   %105 = zext i32 %104 to i64
-  %cmp294 = icmp ult i64 %indvars.iv.next508, %105
+  %cmp294 = icmp samesign ult i64 %indvars.iv.next508, %105
   br i1 %cmp294, label %for.body295, label %for.end325, !llvm.loop !17
 
 lpad276:                                          ; preds = %invoke.cont274
@@ -2466,7 +2466,7 @@ for.inc:                                          ; preds = %for.body, %_ZN10aiN
   %8 = phi i32 [ %2, %for.body ], [ %.pre, %_ZN10aiNodeAnimD2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc
@@ -2518,7 +2518,7 @@ for.inc24:                                        ; preds = %for.body17, %_ZN10a
   %16 = phi i32 [ %12, %for.body17 ], [ %.pre33, %_ZN10aiMeshAnimD2Ev.exit ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %17 = zext i32 %16 to i64
-  %cmp16 = icmp ult i64 %indvars.iv.next27, %17
+  %cmp16 = icmp samesign ult i64 %indvars.iv.next27, %17
   br i1 %cmp16, label %for.body17, label %for.end26, !llvm.loop !19
 
 for.end26:                                        ; preds = %for.inc24
@@ -2614,7 +2614,7 @@ for.inc47:                                        ; preds = %for.body40, %_ZN15a
   %30 = phi i32 [ %20, %for.body40 ], [ %.pre35, %_ZN15aiMeshMorphAnimD2Ev.exit ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %31 = zext i32 %30 to i64
-  %cmp39 = icmp ult i64 %indvars.iv.next30, %31
+  %cmp39 = icmp samesign ult i64 %indvars.iv.next30, %31
   br i1 %cmp39, label %for.body40, label %for.end49, !llvm.loop !20
 
 for.end49:                                        ; preds = %for.inc47

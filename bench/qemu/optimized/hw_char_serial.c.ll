@@ -815,7 +815,7 @@ if.else50:                                        ; preds = %sw.bb36
   %conv53 = and i8 %20, 15
   %conv55 = and i8 %conv2, 15
   store i8 %conv55, ptr %ier, align 1
-  %tobool59.not = icmp ult i8 %conv53, 8
+  %tobool59.not = icmp samesign ult i8 %conv53, 8
   br i1 %tobool59.not, label %if.end73, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %if.else50

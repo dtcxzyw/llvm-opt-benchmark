@@ -2495,7 +2495,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .thread:                                          ; preds = %151, %144, %148, %175, %172, %164, %159, %156, %145
   %.sroa.02.1.i6 = phi i64 [ %146, %172 ], [ %146, %145 ], [ %.sroa.02.0.i3492, %159 ], [ %.sroa.02.0.i3492, %156 ], [ %spec.select.i8, %164 ], [ %spec.select25.i9, %175 ], [ %.sroa.02.0.i3492, %148 ], [ %.sroa.02.0.i3492, %144 ], [ %spec.select, %151 ]
   %169 = add nuw nsw i64 %.sroa.08.0.i4493, 1
-  %170 = icmp ult i64 %169, %.sroa.0.0.sroa.speculated.i
+  %170 = icmp samesign ult i64 %169, %.sroa.0.0.sroa.speculated.i
   %171 = icmp ult i64 %.sroa.02.1.i6, %2
   %or.cond.i5 = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i5, label %.lr.ph495, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10

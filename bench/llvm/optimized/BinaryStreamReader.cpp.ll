@@ -254,7 +254,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %_ZN4llvm5E
 
 38:                                               ; preds = %33
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i4 = icmp ugt i8 %35, 1
+  %.not.i4 = icmp samesign ugt i8 %35, 1
   %39 = icmp ne i8 %35, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i4, i1 %39
   br i1 %or.cond36.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %40

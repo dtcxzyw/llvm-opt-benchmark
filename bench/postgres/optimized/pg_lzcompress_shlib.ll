@@ -184,7 +184,7 @@ define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %98 = load i8, ptr %.1662.us.i, align 1
   %99 = load i8, ptr %.1643.us.i, align 1
   %100 = icmp eq i8 %98, %99
-  %101 = icmp ult i32 %.24.us.i, 273
+  %101 = icmp samesign ult i32 %.24.us.i, 273
   %or.cond5.us.i = select i1 %100, i1 %101, i1 false
   br i1 %or.cond5.us.i, label %102, label %.critedge.us.i
 
@@ -661,7 +661,7 @@ define i32 @pglz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr noundef
   %.3 = phi ptr [ %65, %._crit_edge ], [ %69, %66 ]
   %71 = lshr i8 %.068104, 1
   %72 = add nuw nsw i32 %.067105, 1
-  %73 = icmp ult i32 %.067105, 7
+  %73 = icmp samesign ult i32 %.067105, 7
   %74 = icmp ult ptr %.375, %7
   %or.cond83 = select i1 %73, i1 %74, i1 false
   %75 = icmp ult ptr %.3, %9

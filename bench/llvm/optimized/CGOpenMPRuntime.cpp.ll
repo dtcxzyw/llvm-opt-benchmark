@@ -14527,7 +14527,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime12emitTaskInitERNS0_15C
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %289
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEES5_EC2ES6_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !268
 
 289:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -31815,7 +31815,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %4, %41, %49
   %68 = load i64, ptr %67, align 8, !noalias !754
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %66, ptr %69, align 8, !alias.scope !754
-  %70 = icmp ult i32 %66, 65
+  %70 = icmp samesign ult i32 %66, 65
   br i1 %70, label %71, label %79
 
 71:                                               ; preds = %64
@@ -45776,7 +45776,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i, %12
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %149
   %152 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2)
-  %153 = icmp ult i32 %152, 2
+  %153 = icmp samesign ult i32 %152, 2
   br i1 %153, label %.thread.thread, label %154
 
 154:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
@@ -88899,7 +88899,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_12OMPMapClauseEEp
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %656
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEESG_EC2ESH_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1771
 
 656:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -89625,7 +89625,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKSt5tupleIJNS_8ArrayRefIN5clang27OMPC
   br i1 %.not.i.i.i.i.i274.i, label %select.unfold.i.i.i.i.i281.i, label %1012
 
 select.unfold.i.i.i.i.i281.i:                     ; preds = %.lr.ph.i.i.i.i.i270.i
-  %.not10.i.i.i.i.i282.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i271.i, 3
+  %.not10.i.i.i.i.i282.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i271.i, 3
   br i1 %.not10.i.i.i.i.i282.i, label %_ZNSt17_Temporary_bufferIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_EC2ES6_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i270.i, !llvm.loop !1778
 
 1012:                                             ; preds = %.lr.ph.i.i.i.i.i270.i

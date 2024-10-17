@@ -796,7 +796,7 @@ for.inc:                                          ; preds = %for.body, %if.then7
   %conv = zext i16 %inc to i32
   %conv3 = zext i16 %10 to i32
   %mul = shl nuw nsw i32 %conv3, 1
-  %cmp.not = icmp ult i32 %mul, %conv
+  %cmp.not = icmp samesign ult i32 %mul, %conv
   br i1 %cmp.not, label %if.end17, label %for.body, !llvm.loop !12
 
 if.end17:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
@@ -914,7 +914,7 @@ for.inc:                                          ; preds = %lor.lhs.false21.i, 
   %conv = zext i16 %inc to i32
   %conv3 = zext i16 %23 to i32
   %mul = shl nuw nsw i32 %conv3, 1
-  %cmp.not = icmp ult i32 %mul, %conv
+  %cmp.not = icmp samesign ult i32 %mul, %conv
   br i1 %cmp.not, label %if.end20, label %for.body, !llvm.loop !13
 
 if.end20:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
@@ -1267,7 +1267,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i16 %4, ptr %m_minEdges.i, align 4
   %5 = load i16, ptr %m_maxHandles, align 2
   %6 = zext i16 %5 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %6
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.then.for.end_crit_edge
@@ -1457,7 +1457,7 @@ for.inc:                                          ; preds = %for.body, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %mul = shl i32 %9, 1
   %10 = zext i32 %mul to i64
-  %cmp.not.not = icmp ult i64 %indvars.iv, %10
+  %cmp.not.not = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp.not.not, label %for.body, label %if.end16, !llvm.loop !19
 
 if.end16:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
@@ -1574,7 +1574,7 @@ for.inc:                                          ; preds = %lor.lhs.false21.i, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %mul = shl i32 %22, 1
   %23 = zext i32 %mul to i64
-  %cmp.not.not = icmp ult i64 %indvars.iv, %23
+  %cmp.not.not = icmp samesign ult i64 %indvars.iv, %23
   br i1 %cmp.not.not, label %for.body, label %if.end19, !llvm.loop !20
 
 if.end19:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
@@ -1923,7 +1923,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %4, ptr %m_minEdges.i, align 4
   %5 = load i32, ptr %m_maxHandles, align 4
   %6 = zext i32 %5 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %6
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %if.then

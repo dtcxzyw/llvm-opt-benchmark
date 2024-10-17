@@ -2852,7 +2852,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %arrayidx18.i = getelementptr inbounds [33 x i8], ptr %hex.i, i64 0, i64 %4
   store i8 %cond.i.i, ptr %arrayidx18.i, align 2
   %5 = and i8 %2, 15
-  %cmp.i16.i = icmp ult i8 %5, 10
+  %cmp.i16.i = icmp samesign ult i8 %5, 10
   %add.i17.i = or disjoint i8 %5, 48
   %add1.i18.i = add nuw nsw i8 %5, 87
   %cond.i19.i = select i1 %cmp.i16.i, i8 %add.i17.i, i8 %add1.i18.i

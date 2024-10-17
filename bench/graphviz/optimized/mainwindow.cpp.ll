@@ -8693,7 +8693,7 @@ define void @_ZN11CMainWindow16updateWindowMenuEv(ptr nocapture noundef nonnull 
 
 _Z12qobject_castIP8MdiChildET_P7QObject.exit:     ; preds = %72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %74 = icmp ult i64 %indvars.iv, 9
+  %74 = icmp samesign ult i64 %indvars.iv, 9
   br i1 %74, label %75, label %118
 
 75:                                               ; preds = %_Z12qobject_castIP8MdiChildET_P7QObject.exit

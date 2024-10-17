@@ -1208,17 +1208,17 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %14 = getelementptr inbounds i32, ptr %0, i64 %.0
   %.val15 = load i32, ptr %14, align 4, !range !211, !alias.scope !212, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %15 = icmp ult i32 %.val15, 128
+  %15 = icmp samesign ult i32 %.val15, 128
   br i1 %15, label %.critedge.i.i.i.i, label %16
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i.i, align 4, !noalias !215
-  %17 = icmp ult i32 %.val15, 2048
+  %17 = icmp samesign ult i32 %.val15, 2048
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %.val15, 65536
+  %19 = icmp samesign ult i32 %.val15, 65536
   br i1 %19, label %27, label %38
 
 20:                                               ; preds = %16

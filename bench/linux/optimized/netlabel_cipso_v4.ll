@@ -140,7 +140,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %67 = load i16, ptr %65, align 2
   %68 = icmp ult i16 %67, 4
   %69 = zext i16 %67 to i32
-  %.not = icmp ult i32 %66, %69
+  %.not = icmp samesign ult i32 %66, %69
   %or.cond = or i1 %68, %.not
   br i1 %or.cond, label %.critedge, label %70
 
@@ -175,7 +175,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %88 = load i16, ptr %86, align 2
   %89 = icmp ult i16 %88, 4
   %90 = zext i16 %88 to i32
-  %.not32 = icmp ult i32 %87, %90
+  %.not32 = icmp samesign ult i32 %87, %90
   %or.cond47 = or i1 %89, %.not32
   br i1 %or.cond47, label %.critedge38.loopexit, label %91
 
@@ -304,7 +304,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %171 = getelementptr inbounds i8, ptr %170, i64 20
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %169, %173
+  %174 = icmp samesign ult i64 %169, %173
   br i1 %174, label %.preheader73, label %.loopexit74, !llvm.loop !12
 
 .preheader71:                                     ; preds = %.loopexit74, %.preheader71
@@ -318,7 +318,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %179, %183
+  %184 = icmp samesign ult i64 %179, %183
   br i1 %184, label %.preheader71, label %.loopexit72, !llvm.loop !13
 
 .loopexit72:                                      ; preds = %.preheader71, %.loopexit74
@@ -341,7 +341,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %195 = load i16, ptr %193, align 2
   %196 = icmp ult i16 %195, 4
   %197 = zext i16 %195 to i32
-  %.not33 = icmp ult i32 %194, %197
+  %.not33 = icmp samesign ult i32 %194, %197
   %or.cond48 = or i1 %196, %.not33
   br i1 %or.cond48, label %.critedge40.loopexit, label %198
 
@@ -437,7 +437,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %259 = load i16, ptr %257, align 2
   %260 = icmp ult i16 %259, 4
   %261 = zext i16 %259 to i32
-  %.not34 = icmp ult i32 %258, %261
+  %.not34 = icmp samesign ult i32 %258, %261
   %or.cond49 = or i1 %260, %.not34
   br i1 %or.cond49, label %.critedge42, label %262
 
@@ -472,7 +472,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %280 = load i16, ptr %278, align 2
   %281 = icmp ult i16 %280, 4
   %282 = zext i16 %280 to i32
-  %.not35 = icmp ult i32 %279, %282
+  %.not35 = icmp samesign ult i32 %279, %282
   %or.cond50 = or i1 %281, %.not35
   br i1 %or.cond50, label %.critedge44.loopexit, label %283
 
@@ -603,7 +603,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %365 = getelementptr inbounds i8, ptr %364, i64 44
   %366 = load i32, ptr %365, align 4
   %367 = zext i32 %366 to i64
-  %368 = icmp ult i64 %363, %367
+  %368 = icmp samesign ult i64 %363, %367
   br i1 %368, label %.preheader66, label %.loopexit67, !llvm.loop !17
 
 .preheader:                                       ; preds = %.loopexit67, %.preheader
@@ -618,7 +618,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %376 = getelementptr inbounds i8, ptr %375, i64 40
   %377 = load i32, ptr %376, align 8
   %378 = zext i32 %377 to i64
-  %379 = icmp ult i64 %374, %378
+  %379 = icmp samesign ult i64 %374, %378
   br i1 %379, label %.preheader, label %.loopexit65, !llvm.loop !18
 
 .loopexit65:                                      ; preds = %.preheader, %.loopexit67
@@ -641,7 +641,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %390 = load i16, ptr %388, align 2
   %391 = icmp ult i16 %390, 4
   %392 = zext i16 %390 to i32
-  %.not36 = icmp ult i32 %389, %392
+  %.not36 = icmp samesign ult i32 %389, %392
   %or.cond51 = or i1 %391, %.not36
   br i1 %or.cond51, label %.critedge46, label %393
 
@@ -761,7 +761,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %472 = load i16, ptr %470, align 2
   %473 = icmp ult i16 %472, 4
   %474 = zext i16 %472 to i32
-  %.not.i = icmp ult i32 %471, %474
+  %.not.i = icmp samesign ult i32 %471, %474
   %or.cond.i = or i1 %473, %.not.i
   br i1 %or.cond.i, label %.critedge.i, label %479
 
@@ -875,7 +875,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %540 = load i16, ptr %538, align 2
   %541 = icmp ult i16 %540, 4
   %542 = zext i16 %540 to i32
-  %.not.i57 = icmp ult i32 %539, %542
+  %.not.i57 = icmp samesign ult i32 %539, %542
   %or.cond.i58 = or i1 %541, %.not.i57
   br i1 %or.cond.i58, label %.critedge.i60, label %547
 
@@ -1199,7 +1199,7 @@ define internal i32 @netlbl_cipsov4_list(ptr nocapture readnone %0, ptr nocaptur
   %129 = getelementptr inbounds i8, ptr %127, i64 20
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %128, %131
+  %132 = icmp samesign ult i64 %128, %131
   br i1 %132, label %.preheader21, label %.loopexit24, !llvm.loop !24
 
 .loopexit24:                                      ; preds = %126, %83
@@ -1291,7 +1291,7 @@ define internal i32 @netlbl_cipsov4_list(ptr nocapture readnone %0, ptr nocaptur
   %194 = getelementptr inbounds i8, ptr %192, i64 44
   %195 = load i32, ptr %194, align 4
   %196 = zext i32 %195 to i64
-  %197 = icmp ult i64 %193, %196
+  %197 = icmp samesign ult i64 %193, %196
   br i1 %197, label %.preheader, label %.loopexit20, !llvm.loop !25
 
 .loopexit20:                                      ; preds = %149, %191
@@ -1330,7 +1330,7 @@ define internal i32 @netlbl_cipsov4_list(ptr nocapture readnone %0, ptr nocaptur
 
 .loopexit:                                        ; preds = %109, %105, %96, %174, %170, %161, %.loopexit24
   %222 = phi i32 [ -12, %.loopexit24 ], [ -12, %161 ], [ %180, %174 ], [ %172, %170 ], [ -12, %96 ], [ %115, %109 ], [ %107, %105 ]
-  %223 = icmp ult i32 %21, 4
+  %223 = icmp samesign ult i32 %21, 4
   br i1 %223, label %224, label %.loopexit25
 
 224:                                              ; preds = %.loopexit
@@ -1450,7 +1450,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %31 = load i16, ptr %29, align 2
   %32 = icmp ult i16 %31, 4
   %33 = zext i16 %31 to i32
-  %.not = icmp ult i32 %30, %33
+  %.not = icmp samesign ult i32 %30, %33
   %or.cond = or i1 %32, %.not
   br i1 %or.cond, label %.critedge, label %38
 

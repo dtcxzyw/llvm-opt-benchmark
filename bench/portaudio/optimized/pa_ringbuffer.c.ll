@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define range(i64 -1, 1) i64 @PaUtil_InitializeRingBuffer(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %.not = icmp ult i64 %5, 2
+  %.not = icmp samesign ult i64 %5, 2
   br i1 %.not, label %6, label %16
 
 6:                                                ; preds = %4

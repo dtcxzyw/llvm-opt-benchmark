@@ -1122,7 +1122,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %16
   %45 = add nuw nsw i64 %44, 33554432
   %46 = or i64 %45, %43
   store i64 %46, ptr %5, align 8
-  %47 = icmp ult i64 %32, 126
+  %47 = icmp samesign ult i64 %32, 126
   br i1 %47, label %hash_iter_lev_inc.exit, label %48
 
 48:                                               ; preds = %42, %34
@@ -1798,11 +1798,11 @@ ensure_ar_table.exit:                             ; preds = %.thread
   %49 = and i32 %48, 15
   %50 = lshr i32 %47, 16
   %51 = and i32 %50, 15
-  %52 = icmp ugt i32 %51, 7
+  %52 = icmp samesign ugt i32 %51, 7
   br i1 %52, label %ar_add_direct_with_hash.exit, label %53
 
 53:                                               ; preds = %44
-  %54 = icmp ugt i32 %49, 7
+  %54 = icmp samesign ugt i32 %49, 7
   %55 = add i64 %0, 24
   %56 = inttoptr i64 %55 to ptr
   br i1 %54, label %.lr.ph53.preheader.i.i, label %.ar_compact_table.exit_crit_edge.i
@@ -1832,7 +1832,7 @@ ar_cleared_entry.exit.i.i:                        ; preds = %.lr.ph53.i.i
 
 63:                                               ; preds = %ar_cleared_entry.exit.i.i
   %64 = zext i32 %.03352.i.i to i64
-  %.not36.i.i = icmp ult i64 %indvars.iv59.i.i, %64
+  %.not36.i.i = icmp samesign ult i64 %indvars.iv59.i.i, %64
   %65 = trunc i64 %indvars.iv59.i.i to i32
   %66 = add i32 %65, 1
   %spec.select.i.i = select i1 %.not36.i.i, i32 %.03352.i.i, i32 %66
@@ -3388,7 +3388,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %30
 37:                                               ; preds = %ar_cleared_entry.exit.thread.i, %30
   %.1.i = phi ptr [ %36, %ar_cleared_entry.exit.thread.i ], [ %.020.i, %30 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = icmp uge i64 %indvars.iv.next.i, %29
+  %38 = icmp samesign uge i64 %indvars.iv.next.i, %29
   %39 = icmp eq ptr %.1.i, %23
   %or.cond.i = select i1 %38, i1 true, i1 %39
   br i1 %or.cond.i, label %ar_keys.exit, label %30, !llvm.loop !17
@@ -3509,7 +3509,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
 41:                                               ; preds = %ar_cleared_entry.exit.thread.i, %ar_cleared_entry.exit.i
   %.1.i = phi ptr [ %.020.i, %ar_cleared_entry.exit.i ], [ %40, %ar_cleared_entry.exit.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = icmp uge i64 %indvars.iv.next.i, %31
+  %42 = icmp samesign uge i64 %indvars.iv.next.i, %31
   %43 = icmp eq ptr %.1.i, %24
   %or.cond.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i, label %ar_values.exit, label %32, !llvm.loop !18
@@ -3909,7 +3909,7 @@ define dso_local void @rb_hash_bulk_insert(i64 noundef %0, ptr noundef %1, i64 n
   %11 = lshr i64 %7, 16
   %12 = and i64 %11, 15
   %13 = add nuw nsw i64 %12, %10
-  %14 = icmp ult i64 %13, 9
+  %14 = icmp samesign ult i64 %13, 9
   br i1 %14, label %.preheader, label %58
 
 .preheader:                                       ; preds = %9, %rb_obj_written.exit12.i
@@ -4147,7 +4147,7 @@ rb_array_len.exit:                                ; preds = %9
 rb_array_len.exit.thread:                         ; preds = %9
   %14 = lshr i64 %10, 15
   %15 = and i64 %14, 127
-  %16 = icmp ult i64 %.0, %15
+  %16 = icmp samesign ult i64 %.0, %15
   br i1 %16, label %RARRAY_AREF.exit, label %36
 
 17:                                               ; preds = %rb_array_len.exit
@@ -4963,7 +4963,7 @@ rb_array_len.exit:                                ; preds = %.split
 rb_array_len.exit.thread:                         ; preds = %.split
   %85 = lshr i64 %81, 15
   %86 = and i64 %85, 127
-  %87 = icmp ult i64 %.039, %86
+  %87 = icmp samesign ult i64 %.039, %86
   br i1 %87, label %RARRAY_AREF.exit, label %.loopexit
 
 88:                                               ; preds = %rb_array_len.exit
@@ -7711,7 +7711,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %33, %21
   %55 = add nuw nsw i64 %54, 33554432
   %56 = or i64 %55, %53
   store i64 %56, ptr %8, align 8
-  %57 = icmp ult i64 %42, 126
+  %57 = icmp samesign ult i64 %42, 126
   br i1 %57, label %hash_iter_lev_inc.exit, label %58
 
 58:                                               ; preds = %52, %44
@@ -8746,7 +8746,7 @@ rb_array_len.exit:                                ; preds = %12
 rb_array_len.exit.thread:                         ; preds = %12
   %17 = lshr i64 %13, 15
   %18 = and i64 %17, 127
-  %19 = icmp ult i64 %.09, %18
+  %19 = icmp samesign ult i64 %.09, %18
   br i1 %19, label %RARRAY_AREF.exit, label %.loopexit
 
 20:                                               ; preds = %rb_array_len.exit
@@ -8800,7 +8800,7 @@ rb_array_len.exit:                                ; preds = %12
 rb_array_len.exit.thread:                         ; preds = %12
   %17 = lshr i64 %13, 15
   %18 = and i64 %17, 127
-  %19 = icmp ult i64 %.09, %18
+  %19 = icmp samesign ult i64 %.09, %18
   br i1 %19, label %RARRAY_AREF.exit, label %.loopexit
 
 20:                                               ; preds = %rb_array_len.exit
@@ -9113,7 +9113,7 @@ rb_array_len.exit:                                ; preds = %23
 rb_array_len.exit.thread:                         ; preds = %23
   %28 = lshr i64 %24, 15
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %.012, %29
+  %30 = icmp samesign ult i64 %.012, %29
   br i1 %30, label %RARRAY_AREF.exit, label %60
 
 31:                                               ; preds = %rb_array_len.exit
@@ -9240,7 +9240,7 @@ define internal i64 @env_select(i64 noundef %0) #0 {
 rb_array_len.exit.thread.us:                      ; preds = %.split.us
   %31 = lshr i64 %29, 15
   %32 = and i64 %31, 127
-  %33 = icmp ult i64 %.014.us, %32
+  %33 = icmp samesign ult i64 %.014.us, %32
   br i1 %33, label %RARRAY_AREF.exit.us, label %.split20.us
 
 rb_array_len.exit.us:                             ; preds = %.split.us
@@ -9291,7 +9291,7 @@ rb_array_len.exit:                                ; preds = %.split
 rb_array_len.exit.thread:                         ; preds = %.split
   %54 = lshr i64 %50, 15
   %55 = and i64 %54, 127
-  %56 = icmp ult i64 %.014, %55
+  %56 = icmp samesign ult i64 %.014, %55
   br i1 %56, label %RARRAY_AREF.exit, label %.split20.us
 
 57:                                               ; preds = %rb_array_len.exit
@@ -9426,7 +9426,7 @@ rb_array_len.exit:                                ; preds = %23
 rb_array_len.exit.thread:                         ; preds = %23
   %28 = lshr i64 %24, 15
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %.012, %29
+  %30 = icmp samesign ult i64 %.012, %29
   br i1 %30, label %RARRAY_AREF.exit, label %60
 
 31:                                               ; preds = %rb_array_len.exit
@@ -9672,7 +9672,7 @@ rb_array_len.exit:                                ; preds = %12
 rb_array_len.exit.thread:                         ; preds = %12
   %17 = lshr i64 %13, 15
   %18 = and i64 %17, 127
-  %19 = icmp ult i64 %.010, %18
+  %19 = icmp samesign ult i64 %.010, %18
   br i1 %19, label %RARRAY_AREF.exit, label %26
 
 20:                                               ; preds = %rb_array_len.exit
@@ -10431,7 +10431,7 @@ define internal noundef i64 @hash_foreach_ensure_rollback(i64 noundef %0) #0 {
   %18 = add nuw nsw i64 %17, 33554432
   %19 = or i64 %18, %16
   store i64 %19, ptr %2, align 8
-  %20 = icmp ult i64 %5, 126
+  %20 = icmp samesign ult i64 %5, 126
   br i1 %20, label %hash_iter_lev_inc.exit, label %21
 
 21:                                               ; preds = %15, %7
@@ -10718,7 +10718,7 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   %26 = trunc i64 %25 to i32
   %27 = lshr i32 %26, 16
   %28 = and i32 %27, 15
-  %29 = icmp ugt i32 %28, 7
+  %29 = icmp samesign ugt i32 %28, 7
   br i1 %29, label %78, label %30
 
 30:                                               ; preds = %ar_find_entry.exit.thread
@@ -10755,7 +10755,7 @@ ar_cleared_entry.exit.i:                          ; preds = %.lr.ph53.i
 
 40:                                               ; preds = %ar_cleared_entry.exit.i
   %41 = zext i32 %.03352.i to i64
-  %.not36.i = icmp ult i64 %indvars.iv59.i, %41
+  %.not36.i = icmp samesign ult i64 %indvars.iv59.i, %41
   %42 = trunc i64 %indvars.iv59.i to i32
   %43 = add i32 %42, 1
   %spec.select.i = select i1 %.not36.i, i32 %.03352.i, i32 %43

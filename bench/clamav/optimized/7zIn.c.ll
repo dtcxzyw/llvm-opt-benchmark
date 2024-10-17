@@ -62,7 +62,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %4, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -317,7 +317,7 @@ define void @SzAr_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = load i32, ptr %12, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next.i, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %18, label %.lr.ph.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
@@ -344,7 +344,7 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %5, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %SzFolder_Free.exit, %.preheader, %2
@@ -2765,7 +2765,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %176 = load i32, ptr %23, align 4
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next.i, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next.i, %177
   br i1 %178, label %.lr.ph176.i, label %thread-pre-split.i.preheader
 
 thread-pre-split.i.preheader:                     ; preds = %.loopexit117.i, %.thread, %141
@@ -2983,7 +2983,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %indvars.iv.next237.i = add nuw nsw i64 %indvars.iv236.i, 1
   %280 = load i32, ptr %23, align 4
   %281 = zext i32 %280 to i64
-  %282 = icmp ult i64 %indvars.iv.next237.i, %281
+  %282 = icmp samesign ult i64 %indvars.iv.next237.i, %281
   br i1 %282, label %.lr.ph188.i, label %SzReadPackInfo.exit
 
 283:                                              ; preds = %61
@@ -3088,7 +3088,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %331 = load i32, ptr %20, align 4
   %332 = zext i32 %331 to i64
-  %333 = icmp ult i64 %indvars.iv.next.i55, %332
+  %333 = icmp samesign ult i64 %indvars.iv.next.i55, %332
   br i1 %333, label %.lr.ph.i53, label %._crit_edge.i56
 
 ._crit_edge.i56:                                  ; preds = %.lr.ph.i53, %.thread488.i
@@ -3253,7 +3253,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   br i1 %exitcond.not.i.i103.i, label %.loopexit336.i.i, label %.lr.ph.i.i.i
 
 .loopexit336.i.i:                                 ; preds = %405
-  %411 = icmp ugt i8 %400, 8
+  %411 = icmp samesign ugt i8 %400, 8
   br i1 %411, label %SzGetNextFolderItem.exit.thread.i, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit336.i.i, %.preheader
@@ -4007,7 +4007,7 @@ SzReadSwitch.exit.i:                              ; preds = %791, %790, %775
   %indvars.iv.next476.i = add nuw nsw i64 %indvars.iv475.i, 1
   %795 = load i32, ptr %20, align 4
   %796 = zext i32 %795 to i64
-  %797 = icmp ult i64 %indvars.iv.next476.i, %796
+  %797 = icmp samesign ult i64 %indvars.iv.next476.i, %796
   br i1 %797, label %.lr.ph294.i, label %SzReadSwitch.exit._crit_edge.i
 
 SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i, %SzReadSwitch.exit.preheader.i
@@ -4155,7 +4155,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   %indvars.iv.next482.i = add nuw nsw i64 %indvars.iv481.i, 1
   %857 = load i32, ptr %20, align 4
   %858 = zext i32 %857 to i64
-  %859 = icmp ult i64 %indvars.iv.next482.i, %858
+  %859 = icmp samesign ult i64 %indvars.iv.next482.i, %858
   br i1 %859, label %.lr.ph307.i, label %.preheader136.i
 
 .lr.ph312.i:                                      ; preds = %.preheader136.i, %.backedge.i
@@ -4197,7 +4197,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   %indvars.iv.next485.i = add nuw nsw i64 %indvars.iv484.i, 1
   %876 = load i32, ptr %20, align 4
   %877 = zext i32 %876 to i64
-  %878 = icmp ult i64 %indvars.iv.next485.i, %877
+  %878 = icmp samesign ult i64 %indvars.iv.next485.i, %877
   br i1 %878, label %.lr.ph309.i, label %._crit_edge310.i
 
 ._crit_edge310.i:                                 ; preds = %.lr.ph309.i, %.preheader.i
@@ -4780,7 +4780,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %1104, %1093, %SzFol
   %indvars.iv.next395.i = add nuw nsw i64 %indvars.iv394.i, 1
   %1134 = load i32, ptr %3, align 4
   %1135 = zext i32 %1134 to i64
-  %1136 = icmp ult i64 %indvars.iv.next395.i, %1135
+  %1136 = icmp samesign ult i64 %indvars.iv.next395.i, %1135
   br i1 %1136, label %.lr.ph307.i81, label %.preheader214.i
 
 .preheader213.loopexit.i:                         ; preds = %1146
@@ -5760,7 +5760,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %3, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %.thread, %14
@@ -5806,7 +5806,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %49 = load i32, ptr %28, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next113, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next113, %50
   br i1 %51, label %42, label %._crit_edge97
 
 ._crit_edge97:                                    ; preds = %42, %.thread127, %39
@@ -5908,7 +5908,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %99 = load i32, ptr %3, align 4
   %100 = zext i32 %99 to i64
-  %.not84 = icmp ult i64 %indvars.iv.next116, %100
+  %.not84 = icmp samesign ult i64 %indvars.iv.next116, %100
   br i1 %.not84, label %.lr.ph100, label %.loopexit
 
 .loopexit88.loopexit:                             ; preds = %.lr.ph100
@@ -5940,7 +5940,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %112 = load i32, ptr %64, align 8
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next119, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next119, %113
   br i1 %114, label %81, label %.loopexit
 
 .loopexit:                                        ; preds = %111, %.preheader, %98, %.thread129, %75, %68, %56, %32, %7

@@ -1723,11 +1723,11 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr nocapture readnone %0, p
   %11 = lshr i32 %10, 4
   %12 = load i32, ptr %8, align 8
   %13 = lshr i32 %12, 4
-  %14 = icmp ult i32 %11, %13
+  %14 = icmp samesign ult i32 %11, %13
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %9
-  %16 = icmp ugt i32 %11, %13
+  %16 = icmp samesign ugt i32 %11, %13
   br i1 %16, label %26, label %25
 
 17:                                               ; preds = %4
@@ -1735,11 +1735,11 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr nocapture readnone %0, p
   %19 = lshr i32 %18, 4
   %20 = load i32, ptr %2, align 8
   %21 = lshr i32 %20, 4
-  %22 = icmp ult i32 %19, %21
+  %22 = icmp samesign ult i32 %19, %21
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %17
-  %24 = icmp ugt i32 %19, %21
+  %24 = icmp samesign ugt i32 %19, %21
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %23, %15

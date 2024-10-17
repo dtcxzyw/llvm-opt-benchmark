@@ -165,7 +165,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   unreachable
 
 15:                                               ; preds = %9
-  %16 = icmp ult i32 %6, 8
+  %16 = icmp samesign ult i32 %6, 8
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
@@ -179,7 +179,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   %23 = zext i32 %22 to i64
   %24 = add nuw nsw i64 %23, 8
-  %25 = icmp ugt i64 %24, %19
+  %25 = icmp samesign ugt i64 %24, %19
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %18
@@ -188,7 +188,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
 
 27:                                               ; preds = %18
   %28 = add nuw nsw i32 %22, 8
-  %29 = icmp ule i32 %28, %6
+  %29 = icmp samesign ule i32 %28, %6
   tail call void @llvm.assume(i1 %29)
   %30 = icmp sgt i32 %22, -1
   tail call void @llvm.assume(i1 %30)
@@ -215,7 +215,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %45 = phi i32 [ 8, %33 ], [ %71, %280 ]
   %46 = zext nneg i32 %45 to i64
   %47 = add nuw nsw i64 %46, 4
-  %48 = icmp ugt i64 %47, %31
+  %48 = icmp samesign ugt i64 %47, %31
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
@@ -230,7 +230,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %54 = load i32, ptr %53, align 1
   %55 = call i32 @llvm.bswap.i32(i32 %54)
   %56 = zext nneg i32 %51 to i64
-  %57 = icmp ult i64 %invariant.op, %56
+  %57 = icmp samesign ult i64 %invariant.op, %56
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %50
@@ -247,7 +247,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %65 = zext nneg i32 %60 to i64
   %66 = zext i32 %64 to i64
   %67 = add nuw nsw i64 %66, %65
-  %68 = icmp ugt i64 %67, %31
+  %68 = icmp samesign ugt i64 %67, %31
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %59
@@ -276,7 +276,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
 
 77:                                               ; preds = %76
   %78 = add nuw nsw i64 %65, 8
-  %79 = icmp ugt i64 %78, %31
+  %79 = icmp samesign ugt i64 %78, %31
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %77
@@ -288,7 +288,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %83 = icmp ule i32 %82, %28
   call void @llvm.assume(i1 %83)
   %84 = zext nneg i32 %82 to i64
-  %85 = icmp ult i64 %invariant.op53, %84
+  %85 = icmp samesign ult i64 %invariant.op53, %84
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %81
@@ -306,7 +306,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   store i32 %93, ptr %36, align 4, !tbaa !44
   %94 = zext nneg i32 %88 to i64
   %95 = add nuw nsw i64 %94, 2
-  %96 = icmp ugt i64 %95, %31
+  %96 = icmp samesign ugt i64 %95, %31
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %87
@@ -610,7 +610,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
 
 243:                                              ; preds = %76
   %244 = add nuw nsw i64 %65, 4
-  %245 = icmp ugt i64 %244, %31
+  %245 = icmp samesign ugt i64 %244, %31
   br i1 %245, label %246, label %247
 
 246:                                              ; preds = %243
@@ -623,7 +623,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   call void @llvm.assume(i1 %249)
   %250 = zext nneg i32 %248 to i64
   %251 = add nuw nsw i64 %250, 2
-  %252 = icmp ugt i64 %251, %31
+  %252 = icmp samesign ugt i64 %251, %31
   br i1 %252, label %253, label %254
 
 253:                                              ; preds = %268, %261, %254, %247
@@ -637,7 +637,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %258 = uitofp i16 %257 to float
   store float %258, ptr %34, align 8, !tbaa !40
   %259 = add nuw nsw i64 %250, 4
-  %260 = icmp ugt i64 %259, %31
+  %260 = icmp samesign ugt i64 %259, %31
   br i1 %260, label %253, label %261
 
 261:                                              ; preds = %254
@@ -647,7 +647,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %265 = uitofp i16 %264 to float
   store float %265, ptr %40, align 4, !tbaa !40
   %266 = add nuw nsw i64 %250, 6
-  %267 = icmp ugt i64 %266, %31
+  %267 = icmp samesign ugt i64 %266, %31
   br i1 %267, label %253, label %268
 
 268:                                              ; preds = %261
@@ -657,7 +657,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder11parseHeaderEv(ptr nocapture nounde
   %272 = uitofp i16 %271 to float
   store float %272, ptr %41, align 8, !tbaa !40
   %273 = add nuw nsw i64 %250, 8
-  %274 = icmp ugt i64 %273, %31
+  %274 = icmp samesign ugt i64 %273, %31
   br i1 %274, label %253, label %275
 
 275:                                              ; preds = %268

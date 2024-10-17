@@ -1506,7 +1506,7 @@ for.body.i:                                       ; preds = %if.end31, %for.body
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr %slab_count.i.i, align 8
   %13 = zext i32 %12 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %13
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %13
   br i1 %cmp.i, label %for.body.i, label %clear_contains_cache.exit, !llvm.loop !16
 
 clear_contains_cache.exit:                        ; preds = %for.body.i, %if.end31
@@ -1527,7 +1527,7 @@ for.body.i28:                                     ; preds = %clear_contains_cach
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i29, 1
   %18 = load i32, ptr %slab_count.i.i22, align 8
   %19 = zext i32 %18 to i64
-  %cmp.i32 = icmp ult i64 %indvars.iv.next.i31, %19
+  %cmp.i32 = icmp samesign ult i64 %indvars.iv.next.i31, %19
   br i1 %cmp.i32, label %for.body.i28, label %clear_contains_cache.exit34, !llvm.loop !16
 
 clear_contains_cache.exit34:                      ; preds = %for.body.i28, %clear_contains_cache.exit

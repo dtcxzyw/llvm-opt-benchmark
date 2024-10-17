@@ -1356,7 +1356,7 @@ define hidden range(i32 0, 256) i32 @_cmsReasonableGridpointsByColorspace(i32 no
   br i1 %.not13, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i32 %..i, 4
+  %12 = icmp samesign ugt i32 %..i, 4
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %11
@@ -1367,7 +1367,7 @@ define hidden range(i32 0, 256) i32 @_cmsReasonableGridpointsByColorspace(i32 no
 15:                                               ; preds = %7
   %16 = and i32 %1, 2048
   %.not14 = icmp eq i32 %16, 0
-  %17 = icmp ugt i32 %..i, 4
+  %17 = icmp samesign ugt i32 %..i, 4
   br i1 %.not14, label %21, label %18
 
 18:                                               ; preds = %15

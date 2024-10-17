@@ -521,7 +521,7 @@ for.inc41:                                        ; preds = %for.inc41.sink.spli
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
   %58 = load i32, ptr %m_num_args.i, align 8
   %59 = zext i32 %58 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next400, %59
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next400, %59
   br i1 %cmp25, label %for.body26, label %for.end43, !llvm.loop !9
 
 for.end43:                                        ; preds = %for.inc41
@@ -904,7 +904,7 @@ for.inc85:                                        ; preds = %_ZN6bufferIP4exprLb
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %120 = load i32, ptr %m_num_patterns.i, align 8
   %121 = zext i32 %120 to i64
-  %cmp74 = icmp ult i64 %indvars.iv.next397, %121
+  %cmp74 = icmp samesign ult i64 %indvars.iv.next397, %121
   br i1 %cmp74, label %invoke.cont78, label %for.end87.loopexit, !llvm.loop !12
 
 lpad66.loopexit:                                  ; preds = %if.then.i.i160, %if.end.i.i.i.i.i

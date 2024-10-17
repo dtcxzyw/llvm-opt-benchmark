@@ -362,7 +362,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_bgeP11proc
   %5 = add i64 %4, 17179869184
   %6 = lshr i64 %1, 15
   %7 = and i64 %6, 31
-  %8 = icmp ugt i64 %7, 15
+  %8 = icmp samesign ugt i64 %7, 15
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
@@ -380,7 +380,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_bgeP11proc
 14:                                               ; preds = %3
   %15 = lshr i64 %1, 20
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
@@ -469,7 +469,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 define noundef i64 @_Z14fast_rv64e_bgeP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -487,7 +487,7 @@ define noundef i64 @_Z14fast_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nound
 12:                                               ; preds = %3
   %13 = lshr i64 %1, 20
   %14 = and i64 %13, 31
-  %15 = icmp ugt i64 %14, 15
+  %15 = icmp samesign ugt i64 %14, 15
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
@@ -562,7 +562,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_bgeP11pr
   %5 = add i64 %4, 17179869184
   %6 = lshr i64 %1, 15
   %7 = and i64 %6, 31
-  %8 = icmp ugt i64 %7, 15
+  %8 = icmp samesign ugt i64 %7, 15
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
@@ -580,7 +580,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_bgeP11pr
 14:                                               ; preds = %3
   %15 = lshr i64 %1, 20
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
@@ -657,7 +657,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %29
 define noundef i64 @_Z16logged_rv64e_bgeP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -675,7 +675,7 @@ define noundef i64 @_Z16logged_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nou
 12:                                               ; preds = %3
   %13 = lshr i64 %1, 20
   %14 = and i64 %13, 31
-  %15 = icmp ugt i64 %14, 15
+  %15 = icmp samesign ugt i64 %14, 15
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12

@@ -832,7 +832,7 @@ define dso_local void @netif_tx_lock(ptr noundef %0) #0 align 16 {
   %16 = add nuw nsw i64 %10, 1
   %17 = load i32, ptr %4, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %16, %18
+  %19 = icmp samesign ult i64 %16, %18
   br i1 %19, label %9, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %9, %1
@@ -866,7 +866,7 @@ define internal fastcc void @netif_freeze_queues(ptr nocapture noundef readonly 
   %15 = add nuw nsw i64 %9, 1
   %16 = load i32, ptr %3, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %15, %17
+  %18 = icmp samesign ult i64 %15, %17
   br i1 %18, label %8, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %8, %1
@@ -894,7 +894,7 @@ define dso_local void @netif_tx_unlock(ptr noundef %0) #0 align 16 {
   %12 = add nuw nsw i64 %8, 1
   %13 = load i32, ptr %2, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %7, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %7, %1
@@ -924,7 +924,7 @@ define internal fastcc void @netif_unfreeze_queues(ptr nocapture noundef readonl
   %12 = add nuw nsw i64 %8, 1
   %13 = load i32, ptr %2, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %7, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %7, %1
@@ -1303,7 +1303,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
 49:                                               ; preds = %47, %21, %12, %6
   %50 = phi ptr [ null, %12 ], [ null, %21 ], [ %22, %47 ], [ null, %6 ]
   %51 = add nuw nsw i64 %7, 1
-  %52 = icmp ult i64 %7, 2
+  %52 = icmp samesign ult i64 %7, 2
   %53 = icmp eq ptr %50, null
   %54 = and i1 %52, %53
   br i1 %54, label %6, label %55, !llvm.loop !46
@@ -1438,7 +1438,7 @@ define internal ptr @pfifo_fast_peek(ptr nocapture noundef readonly %0) #4 align
 17:                                               ; preds = %9, %3
   %18 = phi ptr [ %16, %9 ], [ null, %3 ]
   %19 = add nuw nsw i64 %4, 1
-  %20 = icmp ult i64 %4, 2
+  %20 = icmp samesign ult i64 %4, 2
   %21 = icmp eq ptr %18, null
   %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %3, label %23, !llvm.loop !49
@@ -1636,7 +1636,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %74, align 4
   %76 = add nuw nsw i64 %64, 1
   %77 = and i64 %76, 127
-  %78 = icmp ugt i64 %77, 63
+  %78 = icmp samesign ugt i64 %77, 63
   br i1 %78, label %.thread6, label %57, !prof !54, !llvm.loop !55
 
 .thread6:                                         ; preds = %57, %67, %63, %50
@@ -2014,7 +2014,7 @@ define dso_local ptr @qdisc_alloc(ptr noundef %0, ptr noundef %1, ptr noundef wr
 37:                                               ; preds = %45, %35
   %38 = phi i64 [ %49, %45 ], [ 0, %35 ]
   %39 = and i64 %38, 4294967295
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread, label %41, !prof !6
 
 41:                                               ; preds = %37
@@ -2633,7 +2633,7 @@ define dso_local void @dev_activate(ptr noundef %0) #0 align 16 {
   %44 = add nuw nsw i64 %19, 1
   %45 = load i32, ptr %8, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %18, label %.loopexit20, !llvm.loop !85
 
 .loopexit20:                                      ; preds = %43, %15
@@ -2749,7 +2749,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
   %102 = add nuw nsw i64 %82, 1
   %103 = load i32, ptr %8, align 8
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %102, %104
+  %105 = icmp samesign ult i64 %102, %104
   br i1 %105, label %.preheader, label %106, !llvm.loop !85
 
 106:                                              ; preds = %.thread16
@@ -2807,7 +2807,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
   %138 = add nuw nsw i64 %113, 1
   %139 = load i32, ptr %8, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %138, %140
+  %141 = icmp samesign ult i64 %138, %140
   br i1 %141, label %112, label %.loopexit19, !llvm.loop !85
 
 .loopexit19:                                      ; preds = %137, %.thread17, %106
@@ -2893,7 +2893,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
   %189 = add nuw nsw i64 %175, 1
   %190 = load i32, ptr %169, align 8
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %189, %191
+  %192 = icmp samesign ult i64 %189, %191
   br i1 %192, label %174, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %186, %168
@@ -3028,7 +3028,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %27 = phi i32 [ %.pre, %25 ], [ %12, %11 ]
   %28 = add nuw nsw i64 %13, 1
   %29 = zext i32 %27 to i64
-  %30 = icmp ult i64 %28, %29
+  %30 = icmp samesign ult i64 %28, %29
   br i1 %30, label %11, label %.loopexit28, !llvm.loop !85
 
 .loopexit28:                                      ; preds = %26, %.preheader29
@@ -3090,7 +3090,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %61 = add nuw nsw i64 %55, 1
   %62 = load i32, ptr %6, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %54, label %.loopexit27, !llvm.loop !33
 
 .loopexit27:                                      ; preds = %54, %46
@@ -3126,7 +3126,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %83 = add nuw nsw i64 %79, 1
   %84 = load i32, ptr %6, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %83, %85
+  %86 = icmp samesign ult i64 %83, %85
   br i1 %86, label %78, label %.loopexit26, !llvm.loop !34
 
 .loopexit26:                                      ; preds = %78, %73
@@ -3440,7 +3440,7 @@ dev_reset_queue.exit:                             ; preds = %99, %252
   %254 = phi i32 [ %100, %99 ], [ %.pre37, %252 ]
   %255 = add nuw nsw i64 %101, 1
   %256 = zext i32 %254 to i64
-  %257 = icmp ult i64 %255, %256
+  %257 = icmp samesign ult i64 %255, %256
   br i1 %257, label %99, label %.loopexit23, !llvm.loop !85
 
 .loopexit23:                                      ; preds = %dev_reset_queue.exit, %.preheader24
@@ -3507,7 +3507,7 @@ dev_reset_queue.exit15:                           ; preds = %275, %261, %.loopex
   %286 = add nuw nsw i64 %290, 1
   %287 = load i32, ptr %282, align 8
   %288 = zext i32 %287 to i64
-  %289 = icmp ult i64 %286, %288
+  %289 = icmp samesign ult i64 %286, %288
   br i1 %289, label %.preheader.backedge, label %.loopexit
 
 .preheader.backedge:                              ; preds = %285, %.critedge
@@ -3661,7 +3661,7 @@ define dso_local void @mq_change_real_num_tx(ptr nocapture noundef readonly %0, 
   %31 = phi i32 [ %.pre, %29 ], [ %19, %25 ], [ %19, %18 ]
   %32 = add nuw nsw i64 %20, 1
   %33 = zext i32 %31 to i64
-  %34 = icmp ult i64 %32, %33
+  %34 = icmp samesign ult i64 %32, %33
   br i1 %34, label %18, label %.loopexit7, !llvm.loop !101
 
 35:                                               ; preds = %46, %14
@@ -3739,7 +3739,7 @@ define dso_local i32 @dev_qdisc_change_tx_queue_len(ptr noundef %0) local_unname
   %21 = phi i32 [ %.pre, %..thread_crit_edge ], [ %26, %25 ]
   %22 = add nuw nsw i64 %27, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp samesign ult i64 %22, %23
   br i1 %24, label %25, label %.loopexit, !llvm.loop !103
 
 25:                                               ; preds = %.thread, %18
@@ -3804,7 +3804,7 @@ define dso_local void @dev_init_scheduler(ptr noundef %0) local_unnamed_addr #0 
   %14 = add nuw nsw i64 %9, 1
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %14, %16
+  %17 = icmp samesign ult i64 %14, %16
   br i1 %17, label %8, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %8, %1
@@ -3866,7 +3866,7 @@ define internal void @dev_watchdog(ptr noundef %0) #0 align 16 {
   br i1 %22, label %15, label %23, !llvm.loop !107
 
 23:                                               ; preds = %19
-  %.not = icmp ult i64 %17, %14
+  %.not = icmp samesign ult i64 %17, %14
   br i1 %.not, label %24, label %.critedge
 
 24:                                               ; preds = %23, %7
@@ -3915,7 +3915,7 @@ define internal void @dev_watchdog(ptr noundef %0) #0 align 16 {
 
 56:                                               ; preds = %49, %40
   %57 = add nuw nsw i64 %41, 1
-  %58 = icmp ult i64 %57, %39
+  %58 = icmp samesign ult i64 %57, %39
   br i1 %58, label %40, label %.thread5, !llvm.loop !108
 
 59:                                               ; preds = %49
@@ -4024,7 +4024,7 @@ define dso_local void @dev_shutdown(ptr noundef %0) local_unnamed_addr #0 align 
   %28 = add nuw nsw i64 %8, 1
   %29 = load i32, ptr %2, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %7, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.thread, %1

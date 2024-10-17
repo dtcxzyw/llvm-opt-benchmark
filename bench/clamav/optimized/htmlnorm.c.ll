@@ -5000,7 +5000,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 27:                                               ; preds = %25, %23
   %.233 = phi ptr [ %.132, %23 ], [ %26, %25 ]
   %.3 = phi ptr [ %.2, %23 ], [ %26, %25 ]
-  %28 = icmp ult i64 %indvars.iv, 6
+  %28 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27

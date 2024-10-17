@@ -42,7 +42,7 @@ define hidden void @av1_calculate_segdata(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %8
-  %14 = icmp ugt i32 %.013, 4
+  %14 = icmp samesign ugt i32 %.013, 4
   %15 = zext i1 %14 to i8
   %16 = or i8 %9, %15
   store i8 %16, ptr %2, align 4

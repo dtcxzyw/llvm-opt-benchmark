@@ -1538,7 +1538,7 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   %425 = sub i64 %407, %423
   %426 = add i64 %425, %424
   %427 = urem i64 %426, %407
-  %428 = icmp ugt i64 %427, %409
+  %428 = icmp samesign ugt i64 %427, %409
   br i1 %428, label %429, label %431
 
 429:                                              ; preds = %422

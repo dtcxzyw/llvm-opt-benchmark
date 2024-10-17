@@ -360,7 +360,7 @@ if.then.i.i:                                      ; preds = %invoke.cont5
   %bf.lshr.i.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i.i, 40
   %5 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i.i = and i32 %5, 1048575
-  %cmp.i.i.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i.i.i, 1048574
+  %cmp.i.i.i.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
@@ -452,7 +452,7 @@ if.then.i.i98:                                    ; preds = %invoke.cont12
   %bf.lshr.i.i.i.i.i.i100 = lshr i64 %bf.load.i.i.i.i.i.i99, 40
   %17 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i100 to i32
   %bf.cast.i.i.i.i.i.i101 = and i32 %17, 1048575
-  %cmp.i.i.i.i.i.i102 = icmp ult i32 %bf.cast.i.i.i.i.i.i101, 1048574
+  %cmp.i.i.i.i.i.i102 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i101, 1048574
   br i1 %cmp.i.i.i.i.i.i102, label %if.then.i.i.i.i.i.i109, label %if.else.i.i.i.i.i.i103
 
 if.then.i.i.i.i.i.i109:                           ; preds = %if.then.i.i98
@@ -606,7 +606,7 @@ if.then.i.i139:                                   ; preds = %invoke.cont24
   %bf.lshr.i.i.i.i.i.i141 = lshr i64 %bf.load.i.i.i.i.i.i140, 40
   %38 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i141 to i32
   %bf.cast.i.i.i.i.i.i142 = and i32 %38, 1048575
-  %cmp.i.i.i.i.i.i143 = icmp ult i32 %bf.cast.i.i.i.i.i.i142, 1048574
+  %cmp.i.i.i.i.i.i143 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i142, 1048574
   br i1 %cmp.i.i.i.i.i.i143, label %if.then.i.i.i.i.i.i150, label %if.else.i.i.i.i.i.i144
 
 if.then.i.i.i.i.i.i150:                           ; preds = %if.then.i.i139
@@ -698,7 +698,7 @@ if.then.i.i175:                                   ; preds = %invoke.cont33
   %bf.lshr.i.i.i.i.i.i177 = lshr i64 %bf.load.i.i.i.i.i.i176, 40
   %50 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i177 to i32
   %bf.cast.i.i.i.i.i.i178 = and i32 %50, 1048575
-  %cmp.i.i.i.i.i.i179 = icmp ult i32 %bf.cast.i.i.i.i.i.i178, 1048574
+  %cmp.i.i.i.i.i.i179 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i178, 1048574
   br i1 %cmp.i.i.i.i.i.i179, label %if.then.i.i.i.i.i.i186, label %if.else.i.i.i.i.i.i180
 
 if.then.i.i.i.i.i.i186:                           ; preds = %if.then.i.i175
@@ -842,7 +842,7 @@ if.then.i.i216:                                   ; preds = %invoke.cont45
   %bf.lshr.i.i.i.i.i.i218 = lshr i64 %bf.load.i.i.i.i.i.i217, 40
   %71 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i218 to i32
   %bf.cast.i.i.i.i.i.i219 = and i32 %71, 1048575
-  %cmp.i.i.i.i.i.i220 = icmp ult i32 %bf.cast.i.i.i.i.i.i219, 1048574
+  %cmp.i.i.i.i.i.i220 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i219, 1048574
   br i1 %cmp.i.i.i.i.i.i220, label %if.then.i.i.i.i.i.i227, label %if.else.i.i.i.i.i.i221
 
 if.then.i.i.i.i.i.i227:                           ; preds = %if.then.i.i216
@@ -963,7 +963,7 @@ if.then.i.i255:                                   ; preds = %invoke.cont57
   %bf.lshr.i.i.i.i.i.i257 = lshr i64 %bf.load.i.i.i.i.i.i256, 40
   %88 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i257 to i32
   %bf.cast.i.i.i.i.i.i258 = and i32 %88, 1048575
-  %cmp.i.i.i.i.i.i259 = icmp ult i32 %bf.cast.i.i.i.i.i.i258, 1048574
+  %cmp.i.i.i.i.i.i259 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i258, 1048574
   br i1 %cmp.i.i.i.i.i.i259, label %if.then.i.i.i.i.i.i266, label %if.else.i.i.i.i.i.i260
 
 if.then.i.i.i.i.i.i266:                           ; preds = %if.then.i.i255
@@ -1084,7 +1084,7 @@ if.then.i.i294:                                   ; preds = %invoke.cont69
   %bf.lshr.i.i.i.i.i.i296 = lshr i64 %bf.load.i.i.i.i.i.i295, 40
   %105 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i296 to i32
   %bf.cast.i.i.i.i.i.i297 = and i32 %105, 1048575
-  %cmp.i.i.i.i.i.i298 = icmp ult i32 %bf.cast.i.i.i.i.i.i297, 1048574
+  %cmp.i.i.i.i.i.i298 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i297, 1048574
   br i1 %cmp.i.i.i.i.i.i298, label %if.then.i.i.i.i.i.i305, label %if.else.i.i.i.i.i.i299
 
 if.then.i.i.i.i.i.i305:                           ; preds = %if.then.i.i294
@@ -1205,7 +1205,7 @@ if.then.i.i333:                                   ; preds = %invoke.cont81
   %bf.lshr.i.i.i.i.i.i335 = lshr i64 %bf.load.i.i.i.i.i.i334, 40
   %122 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i335 to i32
   %bf.cast.i.i.i.i.i.i336 = and i32 %122, 1048575
-  %cmp.i.i.i.i.i.i337 = icmp ult i32 %bf.cast.i.i.i.i.i.i336, 1048574
+  %cmp.i.i.i.i.i.i337 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i336, 1048574
   br i1 %cmp.i.i.i.i.i.i337, label %if.then.i.i.i.i.i.i344, label %if.else.i.i.i.i.i.i338
 
 if.then.i.i.i.i.i.i344:                           ; preds = %if.then.i.i333
@@ -1326,7 +1326,7 @@ if.then.i.i372:                                   ; preds = %invoke.cont93
   %bf.lshr.i.i.i.i.i.i374 = lshr i64 %bf.load.i.i.i.i.i.i373, 40
   %139 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i374 to i32
   %bf.cast.i.i.i.i.i.i375 = and i32 %139, 1048575
-  %cmp.i.i.i.i.i.i376 = icmp ult i32 %bf.cast.i.i.i.i.i.i375, 1048574
+  %cmp.i.i.i.i.i.i376 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i375, 1048574
   br i1 %cmp.i.i.i.i.i.i376, label %if.then.i.i.i.i.i.i383, label %if.else.i.i.i.i.i.i377
 
 if.then.i.i.i.i.i.i383:                           ; preds = %if.then.i.i372
@@ -1447,7 +1447,7 @@ if.then.i.i411:                                   ; preds = %invoke.cont105
   %bf.lshr.i.i.i.i.i.i413 = lshr i64 %bf.load.i.i.i.i.i.i412, 40
   %156 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i413 to i32
   %bf.cast.i.i.i.i.i.i414 = and i32 %156, 1048575
-  %cmp.i.i.i.i.i.i415 = icmp ult i32 %bf.cast.i.i.i.i.i.i414, 1048574
+  %cmp.i.i.i.i.i.i415 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i414, 1048574
   br i1 %cmp.i.i.i.i.i.i415, label %if.then.i.i.i.i.i.i422, label %if.else.i.i.i.i.i.i416
 
 if.then.i.i.i.i.i.i422:                           ; preds = %if.then.i.i411
@@ -1568,7 +1568,7 @@ if.then.i.i450:                                   ; preds = %invoke.cont117
   %bf.lshr.i.i.i.i.i.i452 = lshr i64 %bf.load.i.i.i.i.i.i451, 40
   %173 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i452 to i32
   %bf.cast.i.i.i.i.i.i453 = and i32 %173, 1048575
-  %cmp.i.i.i.i.i.i454 = icmp ult i32 %bf.cast.i.i.i.i.i.i453, 1048574
+  %cmp.i.i.i.i.i.i454 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i453, 1048574
   br i1 %cmp.i.i.i.i.i.i454, label %if.then.i.i.i.i.i.i461, label %if.else.i.i.i.i.i.i455
 
 if.then.i.i.i.i.i.i461:                           ; preds = %if.then.i.i450
@@ -1689,7 +1689,7 @@ if.then.i.i489:                                   ; preds = %invoke.cont130
   %bf.lshr.i.i.i.i.i.i491 = lshr i64 %bf.load.i.i.i.i.i.i490, 40
   %190 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i491 to i32
   %bf.cast.i.i.i.i.i.i492 = and i32 %190, 1048575
-  %cmp.i.i.i.i.i.i493 = icmp ult i32 %bf.cast.i.i.i.i.i.i492, 1048574
+  %cmp.i.i.i.i.i.i493 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i492, 1048574
   br i1 %cmp.i.i.i.i.i.i493, label %if.then.i.i.i.i.i.i500, label %if.else.i.i.i.i.i.i494
 
 if.then.i.i.i.i.i.i500:                           ; preds = %if.then.i.i489
@@ -1814,7 +1814,7 @@ if.then.i.i529:                                   ; preds = %invoke.cont146
   %bf.lshr.i.i.i.i.i.i531 = lshr i64 %bf.load.i.i.i.i.i.i530, 40
   %207 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i531 to i32
   %bf.cast.i.i.i.i.i.i532 = and i32 %207, 1048575
-  %cmp.i.i.i.i.i.i533 = icmp ult i32 %bf.cast.i.i.i.i.i.i532, 1048574
+  %cmp.i.i.i.i.i.i533 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i532, 1048574
   br i1 %cmp.i.i.i.i.i.i533, label %if.then.i.i.i.i.i.i540, label %if.else.i.i.i.i.i.i534
 
 if.then.i.i.i.i.i.i540:                           ; preds = %if.then.i.i529
@@ -1910,7 +1910,7 @@ if.then.i.i567:                                   ; preds = %invoke.cont159
   %bf.lshr.i.i.i.i.i.i569 = lshr i64 %bf.load.i.i.i.i.i.i568, 40
   %219 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i569 to i32
   %bf.cast.i.i.i.i.i.i570 = and i32 %219, 1048575
-  %cmp.i.i.i.i.i.i571 = icmp ult i32 %bf.cast.i.i.i.i.i.i570, 1048574
+  %cmp.i.i.i.i.i.i571 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i570, 1048574
   br i1 %cmp.i.i.i.i.i.i571, label %if.then.i.i.i.i.i.i578, label %if.else.i.i.i.i.i.i572
 
 if.then.i.i.i.i.i.i578:                           ; preds = %if.then.i.i567
@@ -2058,7 +2058,7 @@ if.then.i.i610:                                   ; preds = %invoke.cont175
   %bf.lshr.i.i.i.i.i.i612 = lshr i64 %bf.load.i.i.i.i.i.i611, 40
   %240 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i612 to i32
   %bf.cast.i.i.i.i.i.i613 = and i32 %240, 1048575
-  %cmp.i.i.i.i.i.i614 = icmp ult i32 %bf.cast.i.i.i.i.i.i613, 1048574
+  %cmp.i.i.i.i.i.i614 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i613, 1048574
   br i1 %cmp.i.i.i.i.i.i614, label %if.then.i.i.i.i.i.i621, label %if.else.i.i.i.i.i.i615
 
 if.then.i.i.i.i.i.i621:                           ; preds = %if.then.i.i610
@@ -2154,7 +2154,7 @@ if.then.i.i649:                                   ; preds = %invoke.cont188
   %bf.lshr.i.i.i.i.i.i651 = lshr i64 %bf.load.i.i.i.i.i.i650, 40
   %252 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i651 to i32
   %bf.cast.i.i.i.i.i.i652 = and i32 %252, 1048575
-  %cmp.i.i.i.i.i.i653 = icmp ult i32 %bf.cast.i.i.i.i.i.i652, 1048574
+  %cmp.i.i.i.i.i.i653 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i652, 1048574
   br i1 %cmp.i.i.i.i.i.i653, label %if.then.i.i.i.i.i.i660, label %if.else.i.i.i.i.i.i654
 
 if.then.i.i.i.i.i.i660:                           ; preds = %if.then.i.i649
@@ -2302,7 +2302,7 @@ if.then.i.i692:                                   ; preds = %invoke.cont204
   %bf.lshr.i.i.i.i.i.i694 = lshr i64 %bf.load.i.i.i.i.i.i693, 40
   %273 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i694 to i32
   %bf.cast.i.i.i.i.i.i695 = and i32 %273, 1048575
-  %cmp.i.i.i.i.i.i696 = icmp ult i32 %bf.cast.i.i.i.i.i.i695, 1048574
+  %cmp.i.i.i.i.i.i696 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i695, 1048574
   br i1 %cmp.i.i.i.i.i.i696, label %if.then.i.i.i.i.i.i703, label %if.else.i.i.i.i.i.i697
 
 if.then.i.i.i.i.i.i703:                           ; preds = %if.then.i.i692
@@ -2398,7 +2398,7 @@ if.then.i.i731:                                   ; preds = %invoke.cont217
   %bf.lshr.i.i.i.i.i.i733 = lshr i64 %bf.load.i.i.i.i.i.i732, 40
   %285 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i733 to i32
   %bf.cast.i.i.i.i.i.i734 = and i32 %285, 1048575
-  %cmp.i.i.i.i.i.i735 = icmp ult i32 %bf.cast.i.i.i.i.i.i734, 1048574
+  %cmp.i.i.i.i.i.i735 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i734, 1048574
   br i1 %cmp.i.i.i.i.i.i735, label %if.then.i.i.i.i.i.i742, label %if.else.i.i.i.i.i.i736
 
 if.then.i.i.i.i.i.i742:                           ; preds = %if.then.i.i731
@@ -2546,7 +2546,7 @@ if.then.i.i774:                                   ; preds = %invoke.cont233
   %bf.lshr.i.i.i.i.i.i776 = lshr i64 %bf.load.i.i.i.i.i.i775, 40
   %306 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i776 to i32
   %bf.cast.i.i.i.i.i.i777 = and i32 %306, 1048575
-  %cmp.i.i.i.i.i.i778 = icmp ult i32 %bf.cast.i.i.i.i.i.i777, 1048574
+  %cmp.i.i.i.i.i.i778 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i777, 1048574
   br i1 %cmp.i.i.i.i.i.i778, label %if.then.i.i.i.i.i.i785, label %if.else.i.i.i.i.i.i779
 
 if.then.i.i.i.i.i.i785:                           ; preds = %if.then.i.i774
@@ -2642,7 +2642,7 @@ if.then.i.i813:                                   ; preds = %invoke.cont246
   %bf.lshr.i.i.i.i.i.i815 = lshr i64 %bf.load.i.i.i.i.i.i814, 40
   %318 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i815 to i32
   %bf.cast.i.i.i.i.i.i816 = and i32 %318, 1048575
-  %cmp.i.i.i.i.i.i817 = icmp ult i32 %bf.cast.i.i.i.i.i.i816, 1048574
+  %cmp.i.i.i.i.i.i817 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i816, 1048574
   br i1 %cmp.i.i.i.i.i.i817, label %if.then.i.i.i.i.i.i824, label %if.else.i.i.i.i.i.i818
 
 if.then.i.i.i.i.i.i824:                           ; preds = %if.then.i.i813
@@ -2790,7 +2790,7 @@ if.then.i.i856:                                   ; preds = %invoke.cont262
   %bf.lshr.i.i.i.i.i.i858 = lshr i64 %bf.load.i.i.i.i.i.i857, 40
   %339 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i858 to i32
   %bf.cast.i.i.i.i.i.i859 = and i32 %339, 1048575
-  %cmp.i.i.i.i.i.i860 = icmp ult i32 %bf.cast.i.i.i.i.i.i859, 1048574
+  %cmp.i.i.i.i.i.i860 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i859, 1048574
   br i1 %cmp.i.i.i.i.i.i860, label %if.then.i.i.i.i.i.i867, label %if.else.i.i.i.i.i.i861
 
 if.then.i.i.i.i.i.i867:                           ; preds = %if.then.i.i856
@@ -2886,7 +2886,7 @@ if.then.i.i895:                                   ; preds = %invoke.cont275
   %bf.lshr.i.i.i.i.i.i897 = lshr i64 %bf.load.i.i.i.i.i.i896, 40
   %351 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i897 to i32
   %bf.cast.i.i.i.i.i.i898 = and i32 %351, 1048575
-  %cmp.i.i.i.i.i.i899 = icmp ult i32 %bf.cast.i.i.i.i.i.i898, 1048574
+  %cmp.i.i.i.i.i.i899 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i898, 1048574
   br i1 %cmp.i.i.i.i.i.i899, label %if.then.i.i.i.i.i.i906, label %if.else.i.i.i.i.i.i900
 
 if.then.i.i.i.i.i.i906:                           ; preds = %if.then.i.i895
@@ -3030,7 +3030,7 @@ if.then.i.i936:                                   ; preds = %invoke.cont290
   %bf.lshr.i.i.i.i.i.i938 = lshr i64 %bf.load.i.i.i.i.i.i937, 40
   %372 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i938 to i32
   %bf.cast.i.i.i.i.i.i939 = and i32 %372, 1048575
-  %cmp.i.i.i.i.i.i940 = icmp ult i32 %bf.cast.i.i.i.i.i.i939, 1048574
+  %cmp.i.i.i.i.i.i940 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i939, 1048574
   br i1 %cmp.i.i.i.i.i.i940, label %if.then.i.i.i.i.i.i947, label %if.else.i.i.i.i.i.i941
 
 if.then.i.i.i.i.i.i947:                           ; preds = %if.then.i.i936
@@ -3151,7 +3151,7 @@ if.then.i.i975:                                   ; preds = %invoke.cont305
   %bf.lshr.i.i.i.i.i.i977 = lshr i64 %bf.load.i.i.i.i.i.i976, 40
   %389 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i977 to i32
   %bf.cast.i.i.i.i.i.i978 = and i32 %389, 1048575
-  %cmp.i.i.i.i.i.i979 = icmp ult i32 %bf.cast.i.i.i.i.i.i978, 1048574
+  %cmp.i.i.i.i.i.i979 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i978, 1048574
   br i1 %cmp.i.i.i.i.i.i979, label %if.then.i.i.i.i.i.i986, label %if.else.i.i.i.i.i.i980
 
 if.then.i.i.i.i.i.i986:                           ; preds = %if.then.i.i975
@@ -3272,7 +3272,7 @@ if.then.i.i1014:                                  ; preds = %invoke.cont320
   %bf.lshr.i.i.i.i.i.i1016 = lshr i64 %bf.load.i.i.i.i.i.i1015, 40
   %406 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i1016 to i32
   %bf.cast.i.i.i.i.i.i1017 = and i32 %406, 1048575
-  %cmp.i.i.i.i.i.i1018 = icmp ult i32 %bf.cast.i.i.i.i.i.i1017, 1048574
+  %cmp.i.i.i.i.i.i1018 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i1017, 1048574
   br i1 %cmp.i.i.i.i.i.i1018, label %if.then.i.i.i.i.i.i1025, label %if.else.i.i.i.i.i.i1019
 
 if.then.i.i.i.i.i.i1025:                          ; preds = %if.then.i.i1014
@@ -3393,7 +3393,7 @@ if.then.i.i1053:                                  ; preds = %invoke.cont335
   %bf.lshr.i.i.i.i.i.i1055 = lshr i64 %bf.load.i.i.i.i.i.i1054, 40
   %423 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i1055 to i32
   %bf.cast.i.i.i.i.i.i1056 = and i32 %423, 1048575
-  %cmp.i.i.i.i.i.i1057 = icmp ult i32 %bf.cast.i.i.i.i.i.i1056, 1048574
+  %cmp.i.i.i.i.i.i1057 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i1056, 1048574
   br i1 %cmp.i.i.i.i.i.i1057, label %if.then.i.i.i.i.i.i1064, label %if.else.i.i.i.i.i.i1058
 
 if.then.i.i.i.i.i.i1064:                          ; preds = %if.then.i.i1053
@@ -3529,7 +3529,7 @@ if.then.i.i1092:                                  ; preds = %invoke.cont355
   %bf.lshr.i.i.i.i.i.i1094 = lshr i64 %bf.load.i.i.i.i.i.i1093, 40
   %442 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i1094 to i32
   %bf.cast.i.i.i.i.i.i1095 = and i32 %442, 1048575
-  %cmp.i.i.i.i.i.i1096 = icmp ult i32 %bf.cast.i.i.i.i.i.i1095, 1048574
+  %cmp.i.i.i.i.i.i1096 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i1095, 1048574
   br i1 %cmp.i.i.i.i.i.i1096, label %if.then.i.i.i.i.i.i1103, label %if.else.i.i.i.i.i.i1097
 
 if.then.i.i.i.i.i.i1103:                          ; preds = %if.then.i.i1092
@@ -3633,7 +3633,7 @@ sw.bb361:                                         ; preds = %entry
   %bf.lshr.i.i = lshr i64 %bf.load.i.i1127, 40
   %455 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %455, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i1131, label %if.else.i.i1128
 
 if.then.i.i1131:                                  ; preds = %sw.bb361
@@ -3692,7 +3692,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1147: ; preds = %invoke.cont364, %
   %bf.lshr.i.i1149 = lshr i64 %bf.load.i.i1148, 40
   %461 = trunc nuw nsw i64 %bf.lshr.i.i1149 to i32
   %bf.cast.i.i1150 = and i32 %461, 1048575
-  %cmp.i.i1151 = icmp ult i32 %bf.cast.i.i1150, 1048574
+  %cmp.i.i1151 = icmp samesign ult i32 %bf.cast.i.i1150, 1048574
   br i1 %cmp.i.i1151, label %if.then.i.i1156, label %if.else.i.i1152
 
 if.then.i.i1156:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1147
@@ -3768,7 +3768,7 @@ if.then.i.i1177:                                  ; preds = %invoke.cont377
   %bf.lshr.i.i.i.i.i.i1179 = lshr i64 %bf.load.i.i.i.i.i.i1178, 40
   %469 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i1179 to i32
   %bf.cast.i.i.i.i.i.i1180 = and i32 %469, 1048575
-  %cmp.i.i.i.i.i.i1181 = icmp ult i32 %bf.cast.i.i.i.i.i.i1180, 1048574
+  %cmp.i.i.i.i.i.i1181 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i1180, 1048574
   br i1 %cmp.i.i.i.i.i.i1181, label %if.then.i.i.i.i.i.i1188, label %if.else.i.i.i.i.i.i1182
 
 if.then.i.i.i.i.i.i1188:                          ; preds = %if.then.i.i1177
@@ -3851,7 +3851,7 @@ sw.bb381:                                         ; preds = %entry
   %bf.lshr.i.i1209 = lshr i64 %bf.load.i.i1208, 40
   %479 = trunc nuw nsw i64 %bf.lshr.i.i1209 to i32
   %bf.cast.i.i1210 = and i32 %479, 1048575
-  %cmp.i.i1211 = icmp ult i32 %bf.cast.i.i1210, 1048574
+  %cmp.i.i1211 = icmp samesign ult i32 %bf.cast.i.i1210, 1048574
   br i1 %cmp.i.i1211, label %if.then.i.i1216, label %if.else.i.i1212
 
 if.then.i.i1216:                                  ; preds = %sw.bb381
@@ -3910,7 +3910,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1233: ; preds = %invoke.cont386, %
   %bf.lshr.i.i1235 = lshr i64 %bf.load.i.i1234, 40
   %485 = trunc nuw nsw i64 %bf.lshr.i.i1235 to i32
   %bf.cast.i.i1236 = and i32 %485, 1048575
-  %cmp.i.i1237 = icmp ult i32 %bf.cast.i.i1236, 1048574
+  %cmp.i.i1237 = icmp samesign ult i32 %bf.cast.i.i1236, 1048574
   br i1 %cmp.i.i1237, label %if.then.i.i1242, label %if.else.i.i1238
 
 if.then.i.i1242:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1233
@@ -3969,7 +3969,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1259: ; preds = %invoke.cont394, %
   %bf.lshr.i.i1261 = lshr i64 %bf.load.i.i1260, 40
   %491 = trunc nuw nsw i64 %bf.lshr.i.i1261 to i32
   %bf.cast.i.i1262 = and i32 %491, 1048575
-  %cmp.i.i1263 = icmp ult i32 %bf.cast.i.i1262, 1048574
+  %cmp.i.i1263 = icmp samesign ult i32 %bf.cast.i.i1262, 1048574
   br i1 %cmp.i.i1263, label %if.then.i.i1268, label %if.else.i.i1264
 
 if.then.i.i1268:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1259
@@ -4050,7 +4050,7 @@ if.then.i.i1289:                                  ; preds = %invoke.cont411
   %bf.lshr.i.i.i.i.i.i1291 = lshr i64 %bf.load.i.i.i.i.i.i1290, 40
   %499 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i1291 to i32
   %bf.cast.i.i.i.i.i.i1292 = and i32 %499, 1048575
-  %cmp.i.i.i.i.i.i1293 = icmp ult i32 %bf.cast.i.i.i.i.i.i1292, 1048574
+  %cmp.i.i.i.i.i.i1293 = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i1292, 1048574
   br i1 %cmp.i.i.i.i.i.i1293, label %if.then.i.i.i.i.i.i1300, label %if.else.i.i.i.i.i.i1294
 
 if.then.i.i.i.i.i.i1300:                          ; preds = %if.then.i.i1289
@@ -4611,7 +4611,7 @@ if.then3:                                         ; preds = %invoke.cont
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
-  %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
+  %cmp.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3
@@ -5268,7 +5268,7 @@ sw.bb174:                                         ; preds = %if.else
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %90 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %90, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb174
@@ -5328,7 +5328,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont178, %if
   %bf.lshr.i.i170 = lshr i64 %bf.load.i.i169, 40
   %97 = trunc nuw nsw i64 %bf.lshr.i.i170 to i32
   %bf.cast.i.i171 = and i32 %97, 1048575
-  %cmp.i.i172 = icmp ult i32 %bf.cast.i.i171, 1048574
+  %cmp.i.i172 = icmp samesign ult i32 %bf.cast.i.i171, 1048574
   br i1 %cmp.i.i172, label %if.then.i.i177, label %if.else.i.i173
 
 if.then.i.i177:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -5406,7 +5406,7 @@ sw.bb189:                                         ; preds = %if.else
   %bf.lshr.i.i196 = lshr i64 %bf.load.i.i195, 40
   %106 = trunc nuw nsw i64 %bf.lshr.i.i196 to i32
   %bf.cast.i.i197 = and i32 %106, 1048575
-  %cmp.i.i198 = icmp ult i32 %bf.cast.i.i197, 1048574
+  %cmp.i.i198 = icmp samesign ult i32 %bf.cast.i.i197, 1048574
   br i1 %cmp.i.i198, label %if.then.i.i203, label %if.else.i.i199
 
 if.then.i.i203:                                   ; preds = %sw.bb189
@@ -5466,7 +5466,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit219: ; preds = %invoke.cont194, %i
   %bf.lshr.i.i222 = lshr i64 %bf.load.i.i221, 40
   %113 = trunc nuw nsw i64 %bf.lshr.i.i222 to i32
   %bf.cast.i.i223 = and i32 %113, 1048575
-  %cmp.i.i224 = icmp ult i32 %bf.cast.i.i223, 1048574
+  %cmp.i.i224 = icmp samesign ult i32 %bf.cast.i.i223, 1048574
   br i1 %cmp.i.i224, label %if.then.i.i229, label %if.else.i.i225
 
 if.then.i.i229:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit219
@@ -5526,7 +5526,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245: ; preds = %invoke.cont202, %i
   %bf.lshr.i.i248 = lshr i64 %bf.load.i.i247, 40
   %120 = trunc nuw nsw i64 %bf.lshr.i.i248 to i32
   %bf.cast.i.i249 = and i32 %120, 1048575
-  %cmp.i.i250 = icmp ult i32 %bf.cast.i.i249, 1048574
+  %cmp.i.i250 = icmp samesign ult i32 %bf.cast.i.i249, 1048574
   br i1 %cmp.i.i250, label %if.then.i.i255, label %if.else.i.i251
 
 if.then.i.i255:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245
@@ -5890,7 +5890,7 @@ if.then:                                          ; preds = %invoke.cont24
   %bf.lshr.i.i = lshr i64 %bf.load.i.i59, 40
   %14 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %14, 1048575
-  %cmp.i.i60 = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i60 = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i60, label %if.then.i.i63, label %if.else.i.i
 
 if.then.i.i63:                                    ; preds = %if.then
@@ -6084,7 +6084,7 @@ if.then60:                                        ; preds = %_ZN4cvc58internal8T
   %bf.lshr.i.i120 = lshr i64 %bf.load.i.i119, 40
   %33 = trunc nuw nsw i64 %bf.lshr.i.i120 to i32
   %bf.cast.i.i121 = and i32 %33, 1048575
-  %cmp.i.i122 = icmp ult i32 %bf.cast.i.i121, 1048574
+  %cmp.i.i122 = icmp samesign ult i32 %bf.cast.i.i121, 1048574
   br i1 %cmp.i.i122, label %cleanup.sink.split, label %if.else.i.i123
 
 if.else.i.i123:                                   ; preds = %if.then60
@@ -6108,7 +6108,7 @@ if.end62:                                         ; preds = %_ZN4cvc58internal8T
   %bf.lshr.i.i135 = lshr i64 %bf.load.i.i134, 40
   %37 = trunc nuw nsw i64 %bf.lshr.i.i135 to i32
   %bf.cast.i.i136 = and i32 %37, 1048575
-  %cmp.i.i137 = icmp ult i32 %bf.cast.i.i136, 1048574
+  %cmp.i.i137 = icmp samesign ult i32 %bf.cast.i.i136, 1048574
   br i1 %cmp.i.i137, label %cleanup.sink.split, label %if.else.i.i138
 
 if.else.i.i138:                                   ; preds = %if.end62
@@ -6341,7 +6341,7 @@ if.then:                                          ; preds = %entry
   %bf.lshr.i.i = lshr i64 %bf.load.i.i1, 40
   %3 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i2 = and i32 %3, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i2, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i2, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -6371,7 +6371,7 @@ if.end:                                           ; preds = %entry
   %bf.lshr.i.i4 = lshr i64 %bf.load.i.i3, 40
   %6 = trunc nuw nsw i64 %bf.lshr.i.i4 to i32
   %bf.cast.i.i5 = and i32 %6, 1048575
-  %cmp.i.i6 = icmp ult i32 %bf.cast.i.i5, 1048574
+  %cmp.i.i6 = icmp samesign ult i32 %bf.cast.i.i5, 1048574
   br i1 %cmp.i.i6, label %if.then.i.i11, label %if.else.i.i7
 
 if.then.i.i11:                                    ; preds = %if.end
@@ -6476,7 +6476,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.c
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %5 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %5, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
@@ -6667,7 +6667,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
   %4 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %4, 1048575
-  %cmp.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i, 1048574
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
@@ -6853,7 +6853,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
-  %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
+  %cmp.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -6993,7 +6993,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc58in
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
-  %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
+  %cmp.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -7020,7 +7020,7 @@ invoke.cont2:                                     ; preds = %if.else.i.i.i, %if.
   %bf.lshr.i.i.i6 = lshr i64 %bf.load.i.i.i5, 40
   %2 = trunc nuw nsw i64 %bf.lshr.i.i.i6 to i32
   %bf.cast.i.i.i7 = and i32 %2, 1048575
-  %cmp.i.i.i8 = icmp ult i32 %bf.cast.i.i.i7, 1048574
+  %cmp.i.i.i8 = icmp samesign ult i32 %bf.cast.i.i.i7, 1048574
   br i1 %cmp.i.i.i8, label %if.then.i.i.i13, label %if.else.i.i.i9
 
 if.then.i.i.i13:                                  ; preds = %invoke.cont2
@@ -7166,7 +7166,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
   %4 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %4, 1048575
-  %cmp.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i, 1048574
+  %cmp.i.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
@@ -7369,7 +7369,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i.i.i.i.i.i: ; preds = %if.then13.i.
   %bf.lshr.i.i.i.i.i.i.i = lshr i64 %bf.load.i2.i.i.i.i.i.i, 40
   %7 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i.i.i = and i32 %7, 1048575
-  %cmp.i.i.i.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i.i.i.i, 1048574
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i5.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i5.i.i.i.i.i.i:                           ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i.i.i.i.i.i
@@ -7564,7 +7564,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
-  %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
+  %cmp.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -7649,7 +7649,7 @@ for.body:                                         ; preds = %entry, %_ZN4cvc58in
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
   %1 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %1, 1048575
-  %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
+  %cmp.i.i.i = icmp samesign ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -7700,7 +7700,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
   %4 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %4, 1048575
-  %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i5.i, label %if.else.i.i
 
 if.then.i5.i:                                     ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i

@@ -20110,7 +20110,7 @@ if.end27.i.i.i.i.i.i.i.i.i.i:                     ; preds = %do.end.i.i.i.i.i.i.
   %input.addr.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr17.i.i.i.i.i.i.i.i.i.i, %do.end.i.i.i.i.i.i.i.i.i.i ], [ %58, %if.end22.i.i.i.i.i.i.i.i ]
   %add28.i.i.i.i.i.i.i.i.i.i = add i64 %h64.0.i.i.i.i.i.i.i.i.i.i, %59
   %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %59, 31
-  %cmp121.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %and.i.i.i.i.i.i.i.i.i.i.i, 7
+  %cmp121.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %and.i.i.i.i.i.i.i.i.i.i.i, 7
   br i1 %cmp121.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end27.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i
@@ -20134,7 +20134,7 @@ while.end.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i.
   %len.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i.i.i.i.i.i, %if.end27.i.i.i.i.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i ]
   %ptr.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %input.addr.1.i.i.i.i.i.i.i.i.i.i, %if.end27.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i ]
   %h64.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %add28.i.i.i.i.i.i.i.i.i.i, %if.end27.i.i.i.i.i.i.i.i.i.i ], [ %add.i66.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i ]
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %len.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, 3
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %len.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, 3
   br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i

@@ -59585,7 +59585,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -59954,7 +59954,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -60018,7 +60018,7 @@ for.body.i.i.i.i128:                              ; preds = %for.cond.i.i.i.i124
   br i1 %tobool.not.i.i.i.i130, label %for.cond.i.i.i.i124, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131: ; preds = %for.body.i.i.i.i128
-  %cmp.i.not.le.i.i.i132 = icmp ult i64 %inc.i.i.i.i126, %conv.i.i.i.i113
+  %cmp.i.not.le.i.i.i132 = icmp samesign ult i64 %inc.i.i.i.i126, %conv.i.i.i.i113
   br i1 %cmp.i.not.le.i.i.i132, label %if.end.i.i.i117, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit133
 
 if.end.i.i.i117:                                  ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131, %for.body.i.preheader.i.i.i115
@@ -60105,7 +60105,7 @@ for.body.i.i.i.i155:                              ; preds = %for.cond.i.i.i.i151
   br i1 %tobool.not.i.i.i.i157, label %for.cond.i.i.i.i151, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158: ; preds = %for.body.i.i.i.i155
-  %cmp.i.not.le.i.i.i159 = icmp ult i64 %inc.i.i.i.i153, %conv.i.i.i.i140
+  %cmp.i.not.le.i.i.i159 = icmp samesign ult i64 %inc.i.i.i.i153, %conv.i.i.i.i140
   br i1 %cmp.i.not.le.i.i.i159, label %if.end.i.i.i144, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit160
 
 if.end.i.i.i144:                                  ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158, %for.body.i.preheader.i.i.i142
@@ -60227,7 +60227,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -60331,7 +60331,7 @@ for.body.i.i.i.i82.us:                            ; preds = %for.cond.i.i.i.i78.
   br i1 %tobool.not.i.i.i.i84.us, label %for.cond.i.i.i.i78.us, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us: ; preds = %for.body.i.i.i.i82.us
-  %cmp.i.not.le.i.i.i86.us = icmp ult i64 %inc.i.i.i.i80.us, %conv.i.i.i.i67.us
+  %cmp.i.not.le.i.i.i86.us = icmp samesign ult i64 %inc.i.i.i.i80.us, %conv.i.i.i.i67.us
   br i1 %cmp.i.not.le.i.i.i86.us, label %if.end.i.i.i71.us, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit87.us
 
 if.end.i.i.i71.us:                                ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us, %for.body.i.preheader.i.i.i69.us
@@ -60391,7 +60391,7 @@ for.body.i.i.i.i82:                               ; preds = %for.cond.i.i.i.i78
   br i1 %tobool.not.i.i.i.i84, label %for.cond.i.i.i.i78, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85: ; preds = %for.body.i.i.i.i82
-  %cmp.i.not.le.i.i.i86 = icmp ult i64 %inc.i.i.i.i80, %conv.i.i.i.i67
+  %cmp.i.not.le.i.i.i86 = icmp samesign ult i64 %inc.i.i.i.i80, %conv.i.i.i.i67
   br i1 %cmp.i.not.le.i.i.i86, label %if.end.i.i.i71, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20NFCNormalizeOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit87
 
 if.end.i.i.i71:                                   ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85, %for.body.i.preheader.i.i.i69
@@ -66843,7 +66843,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -67212,7 +67212,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -67276,7 +67276,7 @@ for.body.i.i.i.i128:                              ; preds = %for.cond.i.i.i.i124
   br i1 %tobool.not.i.i.i.i130, label %for.cond.i.i.i.i124, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131: ; preds = %for.body.i.i.i.i128
-  %cmp.i.not.le.i.i.i132 = icmp ult i64 %inc.i.i.i.i126, %conv.i.i.i.i113
+  %cmp.i.not.le.i.i.i132 = icmp samesign ult i64 %inc.i.i.i.i126, %conv.i.i.i.i113
   br i1 %cmp.i.not.le.i.i.i132, label %if.end.i.i.i117, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit133
 
 if.end.i.i.i117:                                  ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i131, %for.body.i.preheader.i.i.i115
@@ -67363,7 +67363,7 @@ for.body.i.i.i.i155:                              ; preds = %for.cond.i.i.i.i151
   br i1 %tobool.not.i.i.i.i157, label %for.cond.i.i.i.i151, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158: ; preds = %for.body.i.i.i.i155
-  %cmp.i.not.le.i.i.i159 = icmp ult i64 %inc.i.i.i.i153, %conv.i.i.i.i140
+  %cmp.i.not.le.i.i.i159 = icmp samesign ult i64 %inc.i.i.i.i153, %conv.i.i.i.i140
   br i1 %cmp.i.not.le.i.i.i159, label %if.end.i.i.i144, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit160
 
 if.end.i.i.i144:                                  ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i158, %for.body.i.preheader.i.i.i142
@@ -67485,7 +67485,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.not.le.i.i.i = icmp ult i64 %inc.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.not.le.i.i.i = icmp samesign ult i64 %inc.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.not.le.i.i.i, label %if.end.i.i.i, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i, %for.body.i.preheader.i.i.i
@@ -67589,7 +67589,7 @@ for.body.i.i.i.i82.us:                            ; preds = %for.cond.i.i.i.i78.
   br i1 %tobool.not.i.i.i.i84.us, label %for.cond.i.i.i.i78.us, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us: ; preds = %for.body.i.i.i.i82.us
-  %cmp.i.not.le.i.i.i86.us = icmp ult i64 %inc.i.i.i.i80.us, %conv.i.i.i.i67.us
+  %cmp.i.not.le.i.i.i86.us = icmp samesign ult i64 %inc.i.i.i.i80.us, %conv.i.i.i.i67.us
   br i1 %cmp.i.not.le.i.i.i86.us, label %if.end.i.i.i71.us, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit87.us
 
 if.end.i.i.i71.us:                                ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85.us, %for.body.i.preheader.i.i.i69.us
@@ -67649,7 +67649,7 @@ for.body.i.i.i.i82:                               ; preds = %for.cond.i.i.i.i78
   br i1 %tobool.not.i.i.i.i84, label %for.cond.i.i.i.i78, label %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85, !llvm.loop !925
 
 _ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85: ; preds = %for.body.i.i.i.i82
-  %cmp.i.not.le.i.i.i86 = icmp ult i64 %inc.i.i.i.i80, %conv.i.i.i.i67
+  %cmp.i.not.le.i.i.i86 = icmp samesign ult i64 %inc.i.i.i.i80, %conv.i.i.i.i67
   br i1 %cmp.i.not.le.i.i.i86, label %if.end.i.i.i71, label %_ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20StripAccentsOperatorEEENS_8string_tES5_EET1_T0_RNS_12ValidityMaskEmPv.exit87
 
 if.end.i.i.i71:                                   ; preds = %_ZN6duckdb15StripAccentsFun7IsAsciiEPKcm.exit.i.i.i85, %for.body.i.preheader.i.i.i69
@@ -73187,7 +73187,7 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   br i1 %cmp6.not.i.i.i, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.else
-  %min.iters.check = icmp ult i64 %conv.i.i.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %conv.i.i.i.i, 4
   br i1 %min.iters.check, label %for.body.i.i.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
@@ -73577,7 +73577,7 @@ for.body10:                                       ; preds = %for.cond8.preheader
   br i1 %cmp6.not.i.i.i, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %for.body10
-  %min.iters.check = icmp ult i64 %conv.i.i.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %conv.i.i.i.i, 4
   br i1 %min.iters.check, label %for.body.i.i.i.preheader35, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
@@ -73662,7 +73662,7 @@ if.then21:                                        ; preds = %for.body19
   br i1 %cmp6.not.i.i.i106, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit117, label %for.body.i.i.i107.preheader
 
 for.body.i.i.i107.preheader:                      ; preds = %if.then21
-  %min.iters.check168 = icmp ult i64 %conv.i.i.i.i105, 4
+  %min.iters.check168 = icmp samesign ult i64 %conv.i.i.i.i105, 4
   br i1 %min.iters.check168, label %for.body.i.i.i107.preheader36, label %vector.ph169
 
 vector.ph169:                                     ; preds = %for.body.i.i.i107.preheader
@@ -73770,7 +73770,7 @@ for.body44:                                       ; preds = %_ZN6duckdb20UnaryOp
   br i1 %cmp6.not.i.i.i125, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit136, label %for.body.i.i.i126.preheader
 
 for.body.i.i.i126.preheader:                      ; preds = %for.body44
-  %min.iters.check185 = icmp ult i64 %conv.i.i.i.i124, 4
+  %min.iters.check185 = icmp samesign ult i64 %conv.i.i.i.i124, 4
   br i1 %min.iters.check185, label %for.body.i.i.i126.preheader33, label %vector.ph186
 
 vector.ph186:                                     ; preds = %for.body.i.i.i126.preheader
@@ -73913,7 +73913,7 @@ if.then3:                                         ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp6.not.i.i.i, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then3
-  %min.iters.check = icmp ult i64 %conv.i.i.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %conv.i.i.i.i, 4
   br i1 %min.iters.check, label %for.body.i.i.i.preheader37, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
@@ -74038,7 +74038,7 @@ for.body13.us:                                    ; preds = %for.body13.lr.ph, %
   br i1 %cmp6.not.i.i.i65.us, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit76.us, label %for.body.i.i.i66.us.preheader
 
 for.body.i.i.i66.us.preheader:                    ; preds = %for.body13.us
-  %min.iters.check111 = icmp ult i64 %conv.i.i.i.i64.us, 4
+  %min.iters.check111 = icmp samesign ult i64 %conv.i.i.i.i64.us, 4
   br i1 %min.iters.check111, label %for.body.i.i.i66.us.preheader31, label %vector.ph112
 
 vector.ph112:                                     ; preds = %for.body.i.i.i66.us.preheader
@@ -74119,7 +74119,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   br i1 %cmp6.not.i.i.i65, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_20StringLengthOperatorENS_8string_tElEET1_T0_RNS_12ValidityMaskEmPv.exit76, label %for.body.i.i.i66.preheader
 
 for.body.i.i.i66.preheader:                       ; preds = %for.body13
-  %min.iters.check94 = icmp ult i64 %conv.i.i.i.i64, 4
+  %min.iters.check94 = icmp samesign ult i64 %conv.i.i.i.i64, 4
   br i1 %min.iters.check94, label %for.body.i.i.i66.preheader33, label %vector.ph95
 
 vector.ph95:                                      ; preds = %for.body.i.i.i66.preheader
@@ -89457,7 +89457,7 @@ entry:
   %escape.sroa.4.0.extract.shift = lshr i64 %escape.coerce0, 32
   %escape.sroa.4.0.extract.trunc = trunc i64 %escape.sroa.4.0.extract.shift to i8
   %conv.i = and i64 %escape.coerce0, 4294967295
-  %cmp = icmp ugt i64 %conv.i, 1
+  %cmp = icmp samesign ugt i64 %conv.i, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

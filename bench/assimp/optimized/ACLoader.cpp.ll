@@ -3685,7 +3685,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr32 = getelementptr inbounds i8, ptr %verts.0774, i64 12
   %26 = load i32, ptr %mNumVertices, align 4
   %27 = zext i32 %26 to i64
-  %cmp = icmp ult i64 %indvars.iv.next800, %27
+  %cmp = icmp samesign ult i64 %indvars.iv.next800, %27
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
 
 lpad:                                             ; preds = %entry
@@ -4560,7 +4560,7 @@ for.inc373:                                       ; preds = %invoke.cont363, %if
   %incdec.ptr375 = getelementptr inbounds i8, ptr %vertices275.1747, i64 12
   %138 = load i32, ptr %faces242.0767, align 8
   %139 = zext i32 %138 to i64
-  %cmp340 = icmp ult i64 %indvars.iv.next797, %139
+  %cmp340 = icmp samesign ult i64 %indvars.iv.next797, %139
   br i1 %cmp340, label %for.body341, label %for.inc672, !llvm.loop !56
 
 for.body389:                                      ; preds = %for.cond383.preheader, %for.inc573
@@ -4881,7 +4881,7 @@ for.inc573:                                       ; preds = %invoke.cont559, %if
   %sub.ptr.div.i430 = sdiv exact i64 %sub.ptr.sub.i429, 12
   %sub387 = add nsw i64 %sub.ptr.div.i430, 4294967294
   %213 = and i64 %sub387, 4294967295
-  %cmp388 = icmp ult i64 %indvars.iv.next, %213
+  %cmp388 = icmp samesign ult i64 %indvars.iv.next, %213
   br i1 %cmp388, label %for.body389, label %for.inc672, !llvm.loop !57
 
 if.else576:                                       ; preds = %if.then316
@@ -5357,7 +5357,7 @@ for.body796:                                      ; preds = %if.then785, %for.bo
   %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
   %270 = load i32, ptr %mNumChildren, align 8
   %271 = zext i32 %270 to i64
-  %cmp795 = icmp ult i64 %indvars.iv.next803, %271
+  %cmp795 = icmp samesign ult i64 %indvars.iv.next803, %271
   br i1 %cmp795, label %for.body796, label %if.end807, !llvm.loop !61
 
 if.end807:                                        ; preds = %for.body796, %if.then785, %if.end782

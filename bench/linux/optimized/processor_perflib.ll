@@ -333,7 +333,7 @@ define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_add
 29:                                               ; preds = %27, %22, %14
   %30 = add nuw nsw i64 %11, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %4, !prof !8, !llvm.loop !9
 
 .thread:                                          ; preds = %4, %29, %10
@@ -383,7 +383,7 @@ define dso_local void @acpi_processor_ppc_exit(ptr nocapture noundef readonly %0
 24:                                               ; preds = %21, %13
   %25 = add nuw nsw i64 %10, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %3, !prof !8, !llvm.loop !12
 
 .thread:                                          ; preds = %3, %24, %9
@@ -1022,7 +1022,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 31:                                               ; preds = %28, %16
   %32 = add nuw nsw i64 %13, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.preheader33.preheader, label %7, !prof !8, !llvm.loop !18
 
 .preheader33.preheader:                           ; preds = %7, %31, %12
@@ -1071,7 +1071,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   %64 = phi i32 [ %37, %45 ], [ %61, %53 ]
   %65 = add nuw nsw i64 %42, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %.preheader33, !prof !8, !llvm.loop !20
 
 .thread:                                          ; preds = %.preheader33, %62, %41
@@ -1217,7 +1217,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   %151 = phi i64 [ %.pre38, %147 ], [ %111, %131 ], [ %111, %123 ], [ %111, %121 ]
   %152 = add nuw nsw i64 %117, 1
   %153 = and i64 %152, 127
-  %154 = icmp ugt i64 %153, 63
+  %154 = icmp samesign ugt i64 %153, 63
   br i1 %154, label %.thread27, label %110, !prof !8, !llvm.loop !23
 
 155:                                              ; preds = %.thread27, %191
@@ -1273,13 +1273,13 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 191:                                              ; preds = %181, %174, %166, %164
   %192 = add nuw nsw i64 %161, 1
   %193 = and i64 %192, 127
-  %194 = icmp ugt i64 %193, 63
+  %194 = icmp samesign ugt i64 %193, 63
   br i1 %194, label %.thread29, label %155, !prof !8, !llvm.loop !24
 
 .thread29:                                        ; preds = %155, %191, %160, %90, %86, %78
   %195 = add nuw nsw i64 %75, 1
   %196 = and i64 %195, 127
-  %197 = icmp ugt i64 %196, 63
+  %197 = icmp samesign ugt i64 %196, 63
   br i1 %197, label %.thread29..thread25.loopexit35_crit_edge, label %.preheader, !prof !8, !llvm.loop !25
 
 .thread29..thread25.loopexit35_crit_edge:         ; preds = %.thread29
@@ -1346,7 +1346,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   %232 = phi i64 [ %230, %229 ], [ %201, %218 ], [ %201, %210 ]
   %233 = add nuw nsw i64 %207, 1
   %234 = and i64 %233, 127
-  %235 = icmp ugt i64 %234, 63
+  %235 = icmp samesign ugt i64 %234, 63
   br i1 %235, label %.thread31, label %200, !prof !8, !llvm.loop !26
 
 .thread31:                                        ; preds = %28, %24, %200, %231, %206

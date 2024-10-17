@@ -502,7 +502,7 @@ define internal void @nhmex_mbox_msr_enable_event(ptr noundef %0, ptr nocapture 
   %9 = getelementptr inbounds i8, ptr %1, i64 416
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 65535
-  %12 = icmp ult i32 %6, 7
+  %12 = icmp samesign ult i32 %6, 7
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %8
@@ -546,7 +546,7 @@ define internal void @nhmex_mbox_msr_enable_event(ptr noundef %0, ptr nocapture 
   %36 = getelementptr inbounds i8, ptr %1, i64 416
   %37 = load i32, ptr %36, align 8
   %38 = lshr i32 %37, 16
-  %39 = icmp ult i32 %33, 7
+  %39 = icmp samesign ult i32 %33, 7
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %35
@@ -1223,7 +1223,7 @@ nhmex_mbox_get_shared_reg.exit11:                 ; preds = %162
   %252 = shl i64 7, %251
   %253 = and i64 %252, %246
   %254 = zext nneg i32 %241 to i64
-  %255 = icmp ult i32 %242, %241
+  %255 = icmp samesign ult i32 %242, %241
   br i1 %255, label %256, label %260
 
 256:                                              ; preds = %244
@@ -1321,7 +1321,7 @@ define internal void @nhmex_mbox_put_constraint(ptr noundef %0, ptr nocapture no
   %11 = getelementptr inbounds i8, ptr %1, i64 424
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
-  %14 = icmp ult i32 %13, 7
+  %14 = icmp samesign ult i32 %13, 7
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
@@ -1352,7 +1352,7 @@ define internal void @nhmex_mbox_put_constraint(ptr noundef %0, ptr nocapture no
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 8
   %33 = and i32 %32, 255
-  %34 = icmp ult i32 %33, 7
+  %34 = icmp samesign ult i32 %33, 7
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %29
@@ -1688,13 +1688,13 @@ define internal noundef i32 @nhmex_bbox_hw_config(ptr nocapture noundef readonly
   %10 = lshr i32 %7, 1
   %11 = and i32 %10, 31
   %12 = icmp eq i32 %9, 0
-  %13 = icmp ugt i32 %11, 3
+  %13 = icmp samesign ugt i32 %11, 3
   %14 = and i1 %12, %13
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %9, 1
-  %17 = icmp ugt i32 %11, 6
+  %17 = icmp samesign ugt i32 %11, 6
   %18 = and i1 %16, %17
   br i1 %18, label %38, label %19
 
@@ -2062,7 +2062,7 @@ define internal noundef range(i32 -22, 1) i32 @nhmex_rbox_hw_config(ptr nocaptur
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 1
   %8 = and i32 %7, 31
-  %9 = icmp ugt i32 %8, 23
+  %9 = icmp samesign ugt i32 %8, 23
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %2

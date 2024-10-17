@@ -993,7 +993,7 @@ _ZN24ZGenerationPagesIterator4nextEPP5ZPage.exit: ; preds = %35
   %79 = add nsw i32 %75, 1
   %80 = icmp sgt i32 %75, -1
   %81 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
-  %82 = icmp ult i32 %81, 2
+  %82 = icmp samesign ult i32 %81, 2
   %or.cond.i.i.i.i = select i1 %80, i1 %82, i1 false
   %83 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
   %84 = sub nuw nsw i32 32, %83
@@ -1181,7 +1181,7 @@ _ZN11ZGeneration14flip_age_pagesEPK22ZRelocationSetSelector.exit: ; preds = %_ZN
   %161 = getelementptr inbounds ptr, ptr %160, i64 %.09.i.i
   store volatile ptr %152, ptr %161, align 8
   %162 = add nuw nsw i64 %.09.i.i, 1
-  %163 = icmp ult i64 %162, %159
+  %163 = icmp samesign ult i64 %162, %159
   br i1 %163, label %.lr.ph.i.i6, label %_ZN16ZForwardingTable6insertEP11ZForwarding.exit, !llvm.loop !14
 
 _ZN16ZForwardingTable6insertEP11ZForwarding.exit: ; preds = %.lr.ph.i.i6, %149
@@ -1632,7 +1632,7 @@ define hidden void @_ZN11ZGeneration20reset_relocation_setEv(ptr noundef nonnull
   %19 = getelementptr inbounds ptr, ptr %18, i64 %.09.i.i
   store volatile ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %.09.i.i, 1
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp samesign ult i64 %20, %17
   br i1 %21, label %.lr.ph.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit, !llvm.loop !14
 
 _ZN16ZForwardingTable6removeEP11ZForwarding.exit: ; preds = %.lr.ph.i.i, %7
@@ -2565,7 +2565,7 @@ define hidden void @_ZN16ZGenerationYoung31concurrent_reset_relocation_setEv(ptr
   %21 = getelementptr inbounds ptr, ptr %20, i64 %.09.i.i.i
   store volatile ptr null, ptr %21, align 8
   %22 = add nuw nsw i64 %.09.i.i.i, 1
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp samesign ult i64 %22, %19
   br i1 %23, label %.lr.ph.i.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit.i, !llvm.loop !14
 
 _ZN16ZForwardingTable6removeEP11ZForwarding.exit.i: ; preds = %.lr.ph.i.i.i, %9
@@ -3806,7 +3806,7 @@ define hidden void @_ZN14ZGenerationOld31concurrent_reset_relocation_setEv(ptr n
   %21 = getelementptr inbounds ptr, ptr %20, i64 %.09.i.i.i
   store volatile ptr null, ptr %21, align 8
   %22 = add nuw nsw i64 %.09.i.i.i, 1
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp samesign ult i64 %22, %19
   br i1 %23, label %.lr.ph.i.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit.i, !llvm.loop !14
 
 _ZN16ZForwardingTable6removeEP11ZForwarding.exit.i: ; preds = %.lr.ph.i.i.i, %9
@@ -4848,7 +4848,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -6325,7 +6325,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8
 .preheader.i.i.i.i.i.i.i:                         ; preds = %41, %45
   %.025.i.i.i.i.i.i.i.i.i = phi i64 [ %43, %45 ], [ %34, %41 ]
   %43 = add nuw nsw i64 %.025.i.i.i.i.i.i.i.i.i, 1
-  %44 = icmp ult i64 %43, %32
+  %44 = icmp samesign ult i64 %43, %32
   br i1 %44, label %45, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit
 
 45:                                               ; preds = %.preheader.i.i.i.i.i.i.i

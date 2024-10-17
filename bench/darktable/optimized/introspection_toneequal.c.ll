@@ -4354,7 +4354,7 @@ define internal fastcc i32 @set_new_params_interactive(float noundef %0, float n
   %78 = insertelement <2 x i64> poison, i64 %77, i64 0
   %79 = shufflevector <2 x i64> %78, <2 x i64> poison, <2 x i32> zeroinitializer
   %80 = or disjoint <2 x i64> %79, <i64 0, i64 1>
-  %81 = icmp ult <2 x i64> %80, <i64 9, i64 9>
+  %81 = icmp samesign ult <2 x i64> %80, <i64 9, i64 9>
   %82 = getelementptr inbounds [9 x float], ptr @centers_params, i64 0, i64 %77
   %83 = tail call <2 x float> @llvm.masked.load.v2f32.p0(ptr nonnull %82, i32 4, <2 x i1> %81, <2 x float> poison), !tbaa !6
   %84 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %83, <2 x float> zeroinitializer)

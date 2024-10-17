@@ -892,7 +892,7 @@ define internal fastcc i32 @dissect_stun_message(ptr noundef %0, ptr noundef %1,
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
   %62 = icmp eq i16 %31, -240
   %63 = icmp ugt i16 %33, 7
-  %or.cond.i = and i1 %62, %63
+  %or.cond.i = select i1 %62, i1 %63, i1 false
   br i1 %or.cond.i, label %64, label %._crit_edge.i
 
 64:                                               ; preds = %53
@@ -903,7 +903,7 @@ define internal fastcc i32 @dissect_stun_message(ptr noundef %0, ptr noundef %1,
 ._crit_edge.i:                                    ; preds = %49, %64, %53
   %67 = icmp eq i16 %31, -240
   %68 = icmp ugt i16 %33, 7
-  %or.cond3.i = and i1 %67, %68
+  %or.cond3.i = select i1 %67, i1 %68, i1 false
   %69 = add nsw i32 %34, -8
   %spec.select.i = select i1 %or.cond3.i, i32 12, i32 4
   %spec.select35.i = select i1 %or.cond3.i, i32 %69, i32 %34
@@ -941,7 +941,7 @@ dissect_stun_message_channel_data.exit:           ; preds = %._crit_edge.i, %73
   %90 = and i16 %89, 3968
   %91 = or disjoint i16 %88, %90
   %92 = zext nneg i16 %91 to i32
-  %93 = icmp ugt i16 %90, 255
+  %93 = icmp samesign ugt i16 %90, 255
   br i1 %93, label %854, label %94
 
 94:                                               ; preds = %79
@@ -978,7 +978,7 @@ dissect_stun_message_channel_data.exit:           ; preds = %._crit_edge.i, %73
   store i32 0, ptr %112, align 16
   %113 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr null, ptr %113, align 8
-  %114 = icmp ult i16 %91, 13
+  %114 = icmp samesign ult i16 %91, 13
   %115 = trunc nuw nsw i16 %91 to i13
   %switch.downshift = lshr i13 -40, %115
   %switch.masked = trunc i13 %switch.downshift to i1
@@ -1251,7 +1251,7 @@ proto_item_set_generated.exit857:                 ; preds = %proto_item_set_gene
   %260 = load i32, ptr @stun_network_version, align 4
   %.not830 = icmp eq i32 %260, 0
   %261 = select i1 %.not830, i32 3, i32 %260
-  %262 = icmp ult i32 %.0783, %34
+  %262 = icmp samesign ult i32 %.0783, %34
   %or.cond849 = select i1 %.not830, i1 %262, i1 false
   br i1 %or.cond849, label %263, label %266
 
@@ -1676,7 +1676,7 @@ proto_item_set_generated.exit869:                 ; preds = %266, %269, %272
   %470 = add nuw nsw i32 %.0782908, %.pre-phi
   %471 = call ptr @proto_tree_add_item(ptr noundef %.0778, i32 noundef %469, ptr noundef %0, i32 noundef %470, i32 noundef 2, i32 noundef 0) #6
   %472 = add nuw nsw i32 %.0782908, 2
-  %473 = icmp ult i32 %472, %335
+  %473 = icmp samesign ult i32 %472, %335
   br i1 %473, label %.lr.ph909, label %.thread882, !llvm.loop !4
 
 474:                                              ; preds = %333

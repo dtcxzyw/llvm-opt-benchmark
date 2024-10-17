@@ -117,7 +117,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %inc47 = add nuw nsw i64 %i.148, 1
   %30 = load i32, ptr %hmac_maxkeylen, align 4
   %conv38 = zext i32 %30 to i64
-  %cmp39 = icmp ult i64 %inc47, %conv38
+  %cmp39 = icmp samesign ult i64 %inc47, %conv38
   br i1 %cmp39, label %for.body41, label %return, !llvm.loop !6
 
 return:                                           ; preds = %for.body41, %for.cond36.preheader, %entry

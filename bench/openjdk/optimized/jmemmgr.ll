@@ -471,7 +471,7 @@ define internal nonnull ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 no
   %18 = phi i64 [ %11, %8 ], [ %.ph, %.sink.split ]
   %19 = phi i64 [ %9, %8 ], [ %.ph53, %.sink.split ]
   %20 = zext i32 %3 to i64
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   %22 = trunc nuw nsw i64 %18 to i32
   %.041 = select i1 %21, i32 %22, i32 %3
   %23 = getelementptr inbounds i8, ptr %6, i64 160
@@ -1038,7 +1038,7 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
   %81 = add nuw nsw i64 %.056.i, %80
   %82 = load i32, ptr %47, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %.lr.ph.split.i, label %do_sarray_io.exit, !llvm.loop !16
 
 do_sarray_io.exit:                                ; preds = %.lr.ph.split.i, %72, %42
@@ -1121,7 +1121,7 @@ do_sarray_io.exit:                                ; preds = %.lr.ph.split.i, %72
   %132 = add nuw nsw i64 %.056.us.i, %131
   %133 = load i32, ptr %101, align 4
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %132, %134
+  %135 = icmp samesign ult i64 %132, %134
   br i1 %135, label %.lr.ph.split.us.i, label %do_sarray_io.exit80, !llvm.loop !16
 
 do_sarray_io.exit80:                              ; preds = %123, %.lr.ph.split.us.i, %95, %26
@@ -1342,7 +1342,7 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
   %82 = add nuw nsw i64 %.056.i, %81
   %83 = load i32, ptr %48, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %82, %84
+  %85 = icmp samesign ult i64 %82, %84
   br i1 %85, label %.lr.ph.split.i, label %do_barray_io.exit, !llvm.loop !18
 
 do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73, %42
@@ -1426,7 +1426,7 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
   %134 = add nuw nsw i64 %.056.us.i, %133
   %135 = load i32, ptr %103, align 4
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %134, %136
+  %137 = icmp samesign ult i64 %134, %136
   br i1 %137, label %.lr.ph.split.us.i, label %do_barray_io.exit80, !llvm.loop !18
 
 do_barray_io.exit80:                              ; preds = %125, %.lr.ph.split.us.i, %96, %26

@@ -1068,7 +1068,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   store i32 %172, ptr %170, align 8, !noalias !302
   %.pr.i.i.i = load i64, ptr %15, align 8, !alias.scope !303, !noalias !197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !197
-  %switch.not.i.i.i.i = icmp ult i64 %.pr.i.i.i, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %.pr.i.i.i, 2
   br i1 %switch.not.i.i.i.i, label %173, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i"
 
 173:                                              ; preds = %161
@@ -5663,7 +5663,7 @@ define internal noundef zeroext i1 @"_ZN4gpui6window20ViewContext$LT$V$GT$9subsc
   store i32 %167, ptr %165, align 8, !noalias !1591
   %.pr.i.i = load i64, ptr %18, align 8, !alias.scope !1592, !noalias !1524
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1524
-  %switch.not.i.i.i = icmp ult i64 %.pr.i.i, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %.pr.i.i, 2
   br i1 %switch.not.i.i.i, label %168, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i"
 
 168:                                              ; preds = %156
@@ -6192,7 +6192,7 @@ define internal noundef zeroext i1 @"_ZN4gpui6window20ViewContext$LT$V$GT$9subsc
   store i32 %167, ptr %165, align 8, !noalias !1675
   %.pr.i.i = load i64, ptr %18, align 8, !alias.scope !1676, !noalias !1608
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1608
-  %switch.not.i.i.i = icmp ult i64 %.pr.i.i, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %.pr.i.i, 2
   br i1 %switch.not.i.i.i, label %168, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i"
 
 168:                                              ; preds = %156
@@ -6815,7 +6815,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h1ae1b0dd0667fa14E.exit.i.i: ; preds =
   store i32 %191, ptr %189, align 8, !noalias !1770
   %.pr = load i64, ptr %18, align 8, !alias.scope !1786
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %192, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit"
 
 192:                                              ; preds = %180
@@ -7283,7 +7283,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h1ae1b0dd0667fa14E.exit.i.i: ; preds =
   store i32 %165, ptr %163, align 8, !noalias !1841
   %.pr = load i64, ptr %16, align 8, !alias.scope !1857
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %166, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit"
 
 166:                                              ; preds = %154

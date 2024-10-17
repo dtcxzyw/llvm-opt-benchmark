@@ -4522,7 +4522,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %71 = icmp ult i64 %70, 6
   tail call void @llvm.assume(i1 %71)
-  %switch.selectcmp75 = icmp ugt i64 %70, 3
+  %switch.selectcmp75 = icmp samesign ugt i64 %70, 3
   br i1 %switch.selectcmp75, label %72, label %68
 
 72:                                               ; preds = %69

@@ -1120,7 +1120,7 @@ Vec_IntGrow.exit.thread:                          ; preds = %163, %165
   br label %Vec_IntPush.exit89
 
 182:                                              ; preds = %Vec_IntGrow.exit
-  %183 = icmp ult i32 %159, 16
+  %183 = icmp samesign ult i32 %159, 16
   br i1 %183, label %.thread, label %193
 
 .thread:                                          ; preds = %Vec_IntGrow.exit.thread, %182

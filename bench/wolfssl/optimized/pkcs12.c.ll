@@ -2598,7 +2598,7 @@ if.end42:                                         ; preds = %if.end35
   %add50 = add nuw nsw i64 %conv49, 9
   %2 = load i32, ptr %outSz, align 4
   %conv51 = zext i32 %2 to i64
-  %cmp52 = icmp ugt i64 %add50, %conv51
+  %cmp52 = icmp samesign ugt i64 %add50, %conv51
   br i1 %cmp52, label %return, label %if.end55
 
 if.end55:                                         ; preds = %if.end42
@@ -2655,7 +2655,7 @@ if.end90:                                         ; preds = %if.end83
   %add101 = add nuw nsw i64 %conv100, 9
   %5 = load i32, ptr %outSz, align 4
   %conv102 = zext i32 %5 to i64
-  %cmp103 = icmp ugt i64 %add101, %conv102
+  %cmp103 = icmp samesign ugt i64 %add101, %conv102
   br i1 %cmp103, label %if.then110, label %if.end112
 
 if.then110:                                       ; preds = %if.end90
@@ -2719,7 +2719,7 @@ if.end165:                                        ; preds = %if.end158
   %add173 = add nuw nsw i64 %conv172, 9
   %10 = load i32, ptr %outSz, align 4
   %conv174 = zext i32 %10 to i64
-  %cmp175 = icmp ugt i64 %add173, %conv174
+  %cmp175 = icmp samesign ugt i64 %add173, %conv174
   br i1 %cmp175, label %return, label %if.end180
 
 if.end180:                                        ; preds = %if.end165

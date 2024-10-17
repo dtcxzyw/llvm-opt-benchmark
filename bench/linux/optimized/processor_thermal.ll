@@ -73,7 +73,7 @@ define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_a
 31:                                               ; preds = %28, %26, %14
   %32 = add nuw nsw i64 %11, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %4, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %4, %31, %10
@@ -129,7 +129,7 @@ define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly 
 26:                                               ; preds = %21, %13
   %27 = add nuw nsw i64 %10, 1
   %28 = and i64 %27, 127
-  %29 = icmp ugt i64 %28, 63
+  %29 = icmp samesign ugt i64 %28, 63
   br i1 %29, label %.thread, label %3, !prof !6, !llvm.loop !10
 
 .thread:                                          ; preds = %3, %26, %9
@@ -234,7 +234,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
 27:                                               ; preds = %39, %18
   %28 = phi i64 [ 0, %18 ], [ %48, %39 ]
   %29 = and i64 %28, 4294967295
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %31, !prof !13
 
 31:                                               ; preds = %27
@@ -520,7 +520,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
 17:                                               ; preds = %29, %8
   %18 = phi i64 [ 0, %8 ], [ %38, %29 ]
   %19 = and i64 %18, 4294967295
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %.thread, label %21, !prof !13
 
 21:                                               ; preds = %17
@@ -620,7 +620,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
 93:                                               ; preds = %105, %84
   %94 = phi i64 [ 0, %84 ], [ %114, %105 ]
   %95 = and i64 %94, 4294967295
-  %96 = icmp ugt i64 %95, 63
+  %96 = icmp samesign ugt i64 %95, 63
   br i1 %96, label %.thread13, label %97, !prof !13
 
 97:                                               ; preds = %93
@@ -673,7 +673,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
 132:                                              ; preds = %128, %.thread13, %71, %57
   %133 = add nuw nsw i64 %54, 1
   %134 = and i64 %133, 127
-  %135 = icmp ugt i64 %134, 63
+  %135 = icmp samesign ugt i64 %134, 63
   br i1 %135, label %.thread11, label %47, !prof !6, !llvm.loop !15
 
 .thread11:                                        ; preds = %47, %132, %81, %53, %5, %2

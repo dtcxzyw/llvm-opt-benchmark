@@ -66,7 +66,7 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
 16:                                               ; preds = %2
   %17 = lshr i64 %8, 4
   %18 = and i64 %17, 15
-  %19 = icmp ugt i64 %18, 7
+  %19 = icmp samesign ugt i64 %18, 7
   br i1 %19, label %20, label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit"
 
 20:                                               ; preds = %16

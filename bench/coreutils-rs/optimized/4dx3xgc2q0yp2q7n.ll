@@ -475,7 +475,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %13 = zext nneg i8 %7 to i64
   %14 = add nsw i64 %13, -5
   %15 = select i1 %12, i64 %14, i64 0
-  %16 = icmp ult i8 %8, 6
+  %16 = icmp samesign ult i8 %8, 6
   %17 = zext nneg i8 %8 to i64
   %18 = add nsw i64 %17, -5
   %19 = select i1 %16, i64 0, i64 %18
@@ -695,17 +695,17 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
   %6 = alloca { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca [4 x i8], align 4
-  %9 = icmp ult i32 %0, 128
+  %9 = icmp samesign ult i32 %0, 128
   br i1 %9, label %282, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %11 = icmp ult i32 %0, 2048
+  %11 = icmp samesign ult i32 %0, 2048
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %0, 65536
+  %13 = icmp samesign ult i32 %0, 65536
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12
@@ -1097,15 +1097,15 @@ _ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i.i.i
   br i1 %201, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i", label %202
 
 202:                                              ; preds = %200
-  %203 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %203 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %203, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %204
 
 204:                                              ; preds = %202
-  %205 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %205 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %205, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %206
 
 206:                                              ; preds = %204
-  %207 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %207 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %207, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 
@@ -1925,7 +1925,7 @@ define void @_ZN6uucore8features13quoting_style11escape_name17h4890402e462819dcE
   %27 = alloca { i64, [2 x i64] }, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 2
   %29 = load i8, ptr %28, align 1, !range !240, !noundef !9
-  %.not = icmp ult i8 %29, 2
+  %.not = icmp samesign ult i8 %29, 2
   %30 = zext nneg i8 %29 to i64
   %31 = add nsw i64 %30, -1
   %32 = select i1 %.not, i64 0, i64 %31
@@ -2204,7 +2204,7 @@ _ZN4core3str7pattern7Pattern15is_contained_in17heaedaeb60b37a2aaE.exit: ; preds 
   br i1 %146, label %switch.lookup, label %147
 
 147:                                              ; preds = %145
-  %148 = icmp ult i32 %.sroa.4.0.i.ph61.i, 32
+  %148 = icmp samesign ult i32 %.sroa.4.0.i.ph61.i, 32
   br i1 %148, label %_ZN6uucore8features13quoting_style11EscapedChar12hide_control17hede41a3ab876770bE.exit.i, label %149
 
 149:                                              ; preds = %147
@@ -2683,7 +2683,7 @@ _ZN6uucore8features13quoting_style20shell_without_escape17hb3d0ea86aaf2be9aE.exi
   br i1 %336, label %switch.lookup223, label %337
 
 337:                                              ; preds = %.thread64.i
-  %338 = icmp ult i32 %.sroa.4.0.i.ph68.i, 32
+  %338 = icmp samesign ult i32 %.sroa.4.0.i.ph68.i, 32
   br i1 %338, label %_ZN6uucore8features13quoting_style11EscapedChar9new_shell17h77ff203a41fcf448E.exit.i96, label %339
 
 339:                                              ; preds = %337
@@ -3505,7 +3505,7 @@ define noundef zeroext i1 @"_ZN84_$LT$uucore..features..quoting_style..QuotingSt
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2
   %6 = load i8, ptr %5, align 1, !range !240, !noundef !9
-  %.not = icmp ult i8 %6, 2
+  %.not = icmp samesign ult i8 %6, 2
   %7 = zext nneg i8 %6 to i64
   %8 = add nsw i64 %7, -1
   %9 = select i1 %.not, i64 0, i64 %8
@@ -4073,7 +4073,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core3str21_$LT
   br i1 %or.cond3.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit.thread", label %81
 
 81:                                               ; preds = %78
-  %82 = icmp ugt i32 %.sroa.4.1.i.ph, 127
+  %82 = icmp samesign ugt i32 %.sroa.4.1.i.ph, 127
   br i1 %82, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit", label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit.thread113"
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit": ; preds = %81

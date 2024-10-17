@@ -29070,7 +29070,7 @@ define linkonce_odr void @_ZN5Yosys8HelpPass9write_rstENSt7__cxx1112basic_string
   %spec.select.not83 = or i1 %.not86, %116
   %brmerge = or i1 %spec.select.not83, %115
   %brmerge.not = xor i1 %brmerge, true
-  %119 = icmp ugt i32 %.us-phi94, 1
+  %119 = icmp samesign ugt i32 %.us-phi94, 1
   %brmerge114 = or i1 %119, %41
   %or.cond = select i1 %brmerge.not, i1 %brmerge114, i1 false
   br i1 %or.cond, label %120, label %123

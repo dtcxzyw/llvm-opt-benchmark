@@ -2288,7 +2288,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit35.i.i:           ; preds = %830
   %.1166.ph.i = phi i1 [ true, %767 ], [ %861, %904 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #20
   %905 = add nuw nsw i32 %.0175.ph798.i, 1
-  %906 = icmp ugt i32 %.0175.ph798.i, 9
+  %906 = icmp samesign ugt i32 %.0175.ph798.i, 9
   %907 = trunc nuw i8 %.1171.ph.i to i1
   %908 = or i1 %906, %.1166.ph.i
   %or.cond393783.i = select i1 %908, i1 true, i1 %907

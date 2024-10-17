@@ -37,8 +37,8 @@ define i32 @softfloat_addMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %18 = add nuw nsw i64 %17, %8
   %19 = and i64 %18, 1
   %20 = icmp eq i64 %19, 0
-  %21 = icmp ult i64 %4, 254
-  %or.cond = and i1 %21, %20
+  %21 = icmp samesign ult i64 %4, 254
+  %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %22, label %27
 
 22:                                               ; preds = %15
@@ -76,7 +76,7 @@ define i32 @softfloat_addMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %40 = select i1 %.not76, i64 %31, i64 536870912
   %41 = add nuw nsw i64 %40, %31
   %42 = sub nsw i64 0, %9
-  %43 = icmp ult i64 %42, 31
+  %43 = icmp samesign ult i64 %42, 31
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %39
@@ -113,7 +113,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %44, %54
   %.not74 = icmp eq i64 %7, 0
   %63 = select i1 %.not74, i64 %32, i64 536870912
   %64 = add nuw nsw i64 %63, %32
-  %65 = icmp ult i64 %9, 31
+  %65 = icmp samesign ult i64 %9, 31
   br i1 %65, label %66, label %76
 
 66:                                               ; preds = %62
@@ -144,7 +144,7 @@ softfloat_shiftRightJam32.exit79:                 ; preds = %66, %76
   %.1 = phi i64 [ %7, %softfloat_shiftRightJam32.exit ], [ %4, %softfloat_shiftRightJam32.exit79 ]
   %82 = add nuw nsw i64 %.063, 536870912
   %83 = add nuw nsw i64 %82, %.062
-  %84 = icmp ult i64 %83, 1073741824
+  %84 = icmp samesign ult i64 %83, 1073741824
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %81

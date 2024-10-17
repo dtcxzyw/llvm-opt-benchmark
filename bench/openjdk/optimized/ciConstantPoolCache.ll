@@ -211,7 +211,7 @@ _ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCac
   %27 = add nsw i32 %5, 1
   %28 = icmp sgt i32 %5, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -272,7 +272,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit: ;
   %56 = add nsw i32 %51, 1
   %57 = icmp sgt i32 %51, -1
   %58 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %56)
-  %59 = icmp ult i32 %58, 2
+  %59 = icmp samesign ult i32 %58, 2
   %or.cond.i.i.i.i13 = select i1 %57, i1 %59, i1 false
   %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
   %61 = sub nuw nsw i32 32, %60

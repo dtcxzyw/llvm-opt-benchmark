@@ -374,7 +374,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 83:                                               ; preds = %79, %74
   %.2.us = phi i32 [ %82, %79 ], [ %.183101.us, %74 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 2
-  %84 = icmp ult i64 %indvars.iv119, 43
+  %84 = icmp samesign ult i64 %indvars.iv119, 43
   br i1 %84, label %74, label %.loopexit.us, !llvm.loop !9
 
 85:                                               ; preds = %.loopexit.us, %54
@@ -432,7 +432,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 112:                                              ; preds = %103, %108
   %.2 = phi i32 [ %111, %108 ], [ %.183101, %103 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 2
-  %113 = icmp ult i64 %indvars.iv112, 43
+  %113 = icmp samesign ult i64 %indvars.iv112, 43
   br i1 %113, label %103, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %112, %95

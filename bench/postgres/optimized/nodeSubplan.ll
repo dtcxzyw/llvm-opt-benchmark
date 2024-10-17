@@ -903,7 +903,7 @@ ExecProcNode.exit.i:                              ; preds = %431, %.thread.i
   %500 = load i16, ptr %499, align 2
   %501 = and i16 %500, 2047
   %502 = zext nneg i16 %501 to i64
-  %503 = icmp ugt i64 %indvars.iv236.i56, %502
+  %503 = icmp samesign ugt i64 %indvars.iv236.i56, %502
   br i1 %503, label %504, label %506
 
 504:                                              ; preds = %496
@@ -1865,7 +1865,7 @@ ExecProcNode.exit118.us:                          ; preds = %88, %slot_getattr.e
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2047
   %134 = zext nneg i16 %133 to i64
-  %135 = icmp ugt i64 %indvars.iv191, %134
+  %135 = icmp samesign ugt i64 %indvars.iv191, %134
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %128

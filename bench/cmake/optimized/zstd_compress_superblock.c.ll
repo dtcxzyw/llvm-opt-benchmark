@@ -522,7 +522,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
   %256 = icmp ugt i64 %248, 16383
   %257 = zext i1 %256 to i64
   %258 = add nuw nsw i64 %255, %257
-  %259 = icmp ult i64 %224, %258
+  %259 = icmp samesign ult i64 %224, %258
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %253

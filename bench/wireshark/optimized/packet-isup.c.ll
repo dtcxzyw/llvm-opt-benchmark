@@ -2649,7 +2649,7 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   %.073109151 = phi i32 [ %23, %.lr.ph ], [ %1, %17 ]
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.073109151) #5
   %26 = and i8 %25, 15
-  %27 = icmp ult i8 %26, 10
+  %27 = icmp samesign ult i8 %26, 10
   %28 = or disjoint i8 %26, 48
   %29 = add nuw nsw i8 %26, 55
   %.0.i = select i1 %27, i8 %28, i8 %29
@@ -6298,7 +6298,7 @@ define internal fastcc void @dissect_isup_closed_user_group_interlock_code_param
   %.0.i = select i1 %7, i8 %8, i8 %9
   store i8 %.0.i, ptr %4, align 1
   %10 = and i8 %5, 15
-  %11 = icmp ult i8 %10, 10
+  %11 = icmp samesign ult i8 %10, 10
   %12 = or disjoint i8 %10, 48
   %13 = add nuw nsw i8 %10, 55
   %.0.i12 = select i1 %11, i8 %12, i8 %13
@@ -6313,7 +6313,7 @@ define internal fastcc void @dissect_isup_closed_user_group_interlock_code_param
   %20 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %.0.i13, ptr %20, align 1
   %21 = and i8 %15, 15
-  %22 = icmp ult i8 %21, 10
+  %22 = icmp samesign ult i8 %21, 10
   %23 = or disjoint i8 %21, 48
   %24 = add nuw nsw i8 %21, 55
   %.0.i14 = select i1 %22, i8 %23, i8 %24
@@ -6399,7 +6399,7 @@ define internal fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef 
   %.0.i = select i1 %11, i8 %12, i8 %13
   store i8 %.0.i, ptr %4, align 1
   %14 = and i8 %9, 15
-  %15 = icmp ult i8 %14, 10
+  %15 = icmp samesign ult i8 %14, 10
   %16 = or disjoint i8 %14, 48
   %17 = add nuw nsw i8 %14, 55
   %.0.i17 = select i1 %15, i8 %16, i8 %17
@@ -6414,7 +6414,7 @@ define internal fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef 
   %24 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %.0.i18, ptr %24, align 1
   %25 = and i8 %19, 15
-  %26 = icmp ult i8 %25, 10
+  %26 = icmp samesign ult i8 %25, 10
   %27 = or disjoint i8 %25, 48
   %28 = add nuw nsw i8 %25, 55
   %.0.i19 = select i1 %26, i8 %27, i8 %28
@@ -8560,7 +8560,7 @@ define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, 
   %31 = zext i8 %26 to i32
   %32 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %31) #5
   %33 = and i32 %31, 15
-  %34 = icmp ult i32 %33, 10
+  %34 = icmp samesign ult i32 %33, 10
   %35 = trunc nuw nsw i32 %33 to i8
   %36 = or disjoint i8 %35, 48
   %37 = add nuw nsw i8 %35, 55
@@ -8715,7 +8715,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %68 = zext i8 %66 to i32
   %69 = call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %68) #5
   %70 = and i32 %68, 15
-  %71 = icmp ult i32 %70, 10
+  %71 = icmp samesign ult i32 %70, 10
   %72 = trunc nuw nsw i32 %70 to i8
   %73 = or disjoint i8 %72, 48
   %74 = add nuw nsw i8 %72, 55
@@ -8817,7 +8817,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %130 = zext i8 %128 to i32
   %131 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %129, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %130) #5
   %132 = and i32 %130, 15
-  %133 = icmp ult i32 %132, 10
+  %133 = icmp samesign ult i32 %132, 10
   %134 = trunc nuw nsw i32 %132 to i8
   %135 = or disjoint i8 %134, 48
   %136 = add nuw nsw i8 %134, 55
@@ -9011,7 +9011,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %31 = zext i8 %29 to i32
   %32 = call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %31) #5
   %33 = and i32 %31, 15
-  %34 = icmp ult i32 %33, 10
+  %34 = icmp samesign ult i32 %33, 10
   %35 = trunc nuw nsw i32 %33 to i8
   %36 = or disjoint i8 %35, 48
   %37 = add nuw nsw i8 %35, 55

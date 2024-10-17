@@ -2483,7 +2483,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   %9 = sub i64 %3, %7
   %10 = lshr i64 %9, 5
   %11 = and i64 %1, 31
-  %12 = icmp ugt i64 %10, %11
+  %12 = icmp samesign ugt i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   br label %14
 
@@ -2588,7 +2588,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$5close17h731c18c520033
   %10 = sub i64 %4, %8
   %11 = lshr i64 %10, 5
   %12 = and i64 %3, 31
-  %13 = icmp ugt i64 %11, %12
+  %13 = icmp samesign ugt i64 %11, %12
   br label %14
 
 14:                                               ; preds = %26, %.lr.ph.i

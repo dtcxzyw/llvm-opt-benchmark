@@ -4921,7 +4921,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 22:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !1716)
   call void @llvm.experimental.noalias.scope.decl(metadata !1719)
-  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %20, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i8 %20, 2
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr725drop_in_place$LT$core..iter..adapters..GenericShunt$LT$chalk_ir..cast..Casted$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$C$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$..from_iter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$C$core..option..Option$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$C$$LP$$RP$$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$$LP$$RP$$GT$$GT$$GT$17h9d52f06144fc904cE.exit", label %23
 
 23:                                               ; preds = %22
@@ -5097,7 +5097,7 @@ common.resume:                                    ; preds = %90, %.body, %29
 69:                                               ; preds = %.loopexit.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1787)
   call void @llvm.experimental.noalias.scope.decl(metadata !1790)
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %67, 2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %67, 2
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h7d8cfc70a2d40502E.exit", label %70
 
 70:                                               ; preds = %69

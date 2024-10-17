@@ -1543,7 +1543,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4llvm9StringRefESaIS2_EEEaSEOS2_.exit.i.i
   %388 = shl nsw i64 -1, %387
   %389 = and i64 %388, %.pre-phi218.i
   %390 = icmp ne i64 %389, 0
-  %.not.i.i.i2.i.i.i = icmp ugt i64 %.pre-phi212.i, %387
+  %.not.i.i.i2.i.i.i = icmp samesign ugt i64 %.pre-phi212.i, %387
   %or.cond.i.i.i.i.i.i = and i1 %.not.i.i.i2.i.i.i, %390
   br i1 %or.cond.i.i.i.i.i.i, label %391, label %_ZL36collectHwModesReferencedForEncodingsRKN4llvm14CodeGenHwModesERSt6vectorINS_9StringRefESaIS4_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS4_St4lessIS4_ES5_ESG_ISE_ESaISt4pairIKSE_SI_EEE.exit
 
@@ -1561,7 +1561,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4llvm9StringRefESaIS2_EEEaSEOS2_.exit.i.i
   %398 = lshr i32 %385, 6
   %399 = add i32 %395, -1
   %400 = lshr i32 %399, 6
-  %.not32.i.i.i.i.i.i.i.i = icmp ugt i32 %398, %400
+  %.not32.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %398, %400
   br i1 %.not32.i.i.i.i.i.i.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeINS_28const_set_bits_iterator_implINS_14SmallBitVectorEEEEESt20back_insert_iteratorISt6vectorINS_9StringRefESaIS8_EEEZL36collectHwModesReferencedForEncodingsRKNS_14CodeGenHwModesERSA_RSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS8_St4lessIS8_ES9_ESO_ISM_ESaISt4pairIKSM_SQ_EEEE3$_0EET0_OT_SZ_T1_.exit.thread.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %397
@@ -5916,7 +5916,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit137.i:            ; preds = %2199, %2197
 
 2212:                                             ; preds = %2207
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i139.i = icmp ugt i8 %2209, 1
+  %.not.i139.i = icmp samesign ugt i8 %2209, 1
   %2213 = icmp ne i8 %2209, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i139.i, i1 %2213
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i, label %2214
@@ -6632,7 +6632,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit175.i:            ; preds = %2603, %2601
 
 2635:                                             ; preds = %2630
   %.not37.i185.i = icmp eq i32 %.026.i181.i, 63
-  %.not.i186.i = icmp ugt i8 %2632, 1
+  %.not.i186.i = icmp samesign ugt i8 %2632, 1
   %2636 = icmp ne i8 %2632, 0
   %or.cond36.i187.i = select i1 %.not37.i185.i, i1 %.not.i186.i, i1 %2636
   br i1 %or.cond36.i187.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit191.i, label %2637
@@ -9490,7 +9490,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit115:        ; preds = %88, %_ZNSt6vectorIh
 122:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i104, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit115
   %.019.i100 = phi i64 [ %119, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit115 ], [ %123, %_ZN4llvm11raw_ostreamlsEc.exit.i104 ]
   %123 = lshr i64 %.019.i100, 7
-  %.not.i101 = icmp ugt i64 %.019.i100, 127
+  %.not.i101 = icmp samesign ugt i64 %.019.i100, 127
   %124 = trunc i64 %.019.i100 to i8
   %125 = or i8 %124, -128
   %.0.i102 = select i1 %.not.i101, i8 %125, i8 %124
@@ -11529,7 +11529,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit: ; preds = 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %34, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %37, label %.loopexit, !llvm.loop !203
 
 53:                                               ; preds = %.lr.ph55
@@ -12516,7 +12516,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit:    ; preds = %.lr.ph.i.i
   %46 = phi i32 [ %31, %30 ], [ %.pre, %41 ], [ %31, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %30, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread, !llvm.loop !220
 
 _ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread: ; preds = %19, %45, %.preheader109, %6, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit
@@ -14209,7 +14209,7 @@ _ZNSt6vectorI9bitAttr_tSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI9bi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %178 = load i32, ptr %121, align 4
   %179 = zext i32 %178 to i64
-  %180 = icmp ult i64 %indvars.iv.next, %179
+  %180 = icmp samesign ult i64 %indvars.iv.next, %179
   br i1 %180, label %124, label %._crit_edge.loopexit, !llvm.loop !253
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorI9bitAttr_tSaIS0_EE9push_backEOS0_.exit
@@ -14290,7 +14290,7 @@ _ZNSt6vectorI9bitAttr_tSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI9bi
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %207 = load i32, ptr %121, align 4
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next262, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next262, %208
   br i1 %209, label %.lr.ph235, label %._crit_edge236, !llvm.loop !254
 
 ._crit_edge236:                                   ; preds = %206, %187
@@ -14417,7 +14417,7 @@ _ZN12_GLOBAL__N_113FilterChooser12reportRegionE9bitAttr_tjjb.exit: ; preds = %.s
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %240 = load i32, ptr %121, align 4
   %241 = zext i32 %240 to i64
-  %242 = icmp ult i64 %indvars.iv.next265, %241
+  %242 = icmp samesign ult i64 %indvars.iv.next265, %241
   br i1 %242, label %.lr.ph244, label %._crit_edge245, !llvm.loop !255
 
 ._crit_edge245:                                   ; preds = %_ZN12_GLOBAL__N_113FilterChooser12reportRegionE9bitAttr_tjjb.exit
@@ -14617,7 +14617,7 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit26.us:    ; preds = %54, %_ZL11bitFromBi
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %62 = load i32, ptr %10, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next40, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next40, %63
   br i1 %64, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread.us, label %._crit_edge, !llvm.loop !256
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit26
@@ -14664,7 +14664,7 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit26:       ; preds = %78, %_ZL11bitFromBi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load i32, ptr %10, align 8
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !256
 
 ._crit_edge:                                      ; preds = %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit26, %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit26.us, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread
@@ -14943,7 +14943,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = load i32, ptr %6, align 4
   %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next, %126
   br i1 %127, label %15, label %._crit_edge, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -15252,7 +15252,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_113FilterChooserESt14default_deleteIS1_EED2Ev.ex
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %71 = load i32, ptr %53, align 4
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next50, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next50, %72
   br i1 %73, label %61, label %._crit_edge41, !llvm.loop !262
 
 ._crit_edge41:                                    ; preds = %61, %57
@@ -17089,7 +17089,7 @@ _ZNK12_GLOBAL__N_113FilterChooser17getPredicateIndexERNS_16DecoderTableInfoEN4ll
 170:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i, %_ZNK12_GLOBAL__N_113FilterChooser17getPredicateIndexERNS_16DecoderTableInfoEN4llvm9StringRefE.exit.i
   %.019.i.i = phi i64 [ %167, %_ZNK12_GLOBAL__N_113FilterChooser17getPredicateIndexERNS_16DecoderTableInfoEN4llvm9StringRefE.exit.i ], [ %171, %_ZN4llvm11raw_ostreamlsEc.exit.i.i ]
   %171 = lshr i64 %.019.i.i, 7
-  %.not.i26.i = icmp ugt i64 %.019.i.i, 127
+  %.not.i26.i = icmp samesign ugt i64 %.019.i.i, 127
   %172 = trunc i64 %.019.i.i to i8
   %173 = or i8 %172, -128
   %.0.i.i = select i1 %.not.i26.i, i8 %173, i8 %172
@@ -17658,7 +17658,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %374, %_ZNSt6vectorI
   %.021.i = phi ptr [ %404, %400 ], [ %23, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ]
   %.020.i = phi i64 [ %401, %400 ], [ %399, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ]
   %401 = lshr i64 %.020.i, 7
-  %.not.i59 = icmp ugt i64 %.020.i, 127
+  %.not.i59 = icmp samesign ugt i64 %.020.i, 127
   %402 = trunc i64 %.020.i to i8
   %403 = or i8 %402, -128
   %.0.i = select i1 %.not.i59, i8 %403, i8 %402
@@ -18648,7 +18648,7 @@ _ZN4llvm5APInt6setBitEj.exit.i:                   ; preds = %749, %746, %735, %7
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i146, 1
   %839 = load i32, ptr %689, align 4
   %840 = zext i32 %839 to i64
-  %841 = icmp ult i64 %indvars.iv.next.i149, %840
+  %841 = icmp samesign ult i64 %indvars.iv.next.i149, %840
   br i1 %841, label %704, label %._crit_edge.i150, !llvm.loop !296
 
 ._crit_edge.i150:                                 ; preds = %_ZN4llvm5APInt6setBitEj.exit.i, %_ZN4llvm5APIntC2Ejmbb.exit46.i
@@ -19970,7 +19970,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit179:        ; preds = %1430, %_ZNSt6vector
   %.021.i183 = phi ptr [ %1458, %1454 ], [ %24, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit179 ]
   %.020.i184 = phi i64 [ %1455, %1454 ], [ %.sroa.5.0.extract.shift, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit179 ]
   %1455 = lshr i64 %.020.i184, 7
-  %.not.i186 = icmp ugt i64 %.020.i184, 127
+  %.not.i186 = icmp samesign ugt i64 %.020.i184, 127
   %1456 = trunc i64 %.020.i184 to i8
   %1457 = or i8 %1456, -128
   %.0.i187 = select i1 %.not.i186, i8 %1457, i8 %1456
@@ -20146,7 +20146,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit209:       ; preds = %1493, %_ZNSt6vector
 1525:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit209
   %.019.i210 = phi i64 [ %1522, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit209 ], [ %1526, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %1526 = lshr i64 %.019.i210, 7
-  %.not.i211 = icmp ugt i64 %.019.i210, 127
+  %.not.i211 = icmp samesign ugt i64 %.019.i210, 127
   %1527 = trunc i64 %.019.i210 to i8
   %1528 = or i8 %1527, -128
   %.0.i212 = select i1 %.not.i211, i8 %1528, i8 %1527
@@ -22761,7 +22761,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %35, %37
   %48 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %47, ptr %48, align 1, !noalias !312
   %49 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !247
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i

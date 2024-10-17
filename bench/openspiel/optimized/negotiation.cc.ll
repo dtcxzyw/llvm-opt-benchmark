@@ -1971,7 +1971,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i27: ; preds = %_ZNSt6vectorIdS
   %75 = fadd double %56, %74
   store double %75, ptr %51, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = icmp ult i64 %indvars.iv.next, %54
+  %76 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %76, label %55, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %55, %.loopexit32, %.loopexit33
@@ -14962,7 +14962,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %72 = lshr i64 %71, 18
   %73 = xor i64 %72, %71
   %74 = shl i64 %73, 32
-  %75 = icmp ugt i64 %59, 622
+  %75 = icmp samesign ugt i64 %59, 622
   br i1 %75, label %76, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
 
 76:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit50

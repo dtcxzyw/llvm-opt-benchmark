@@ -12537,7 +12537,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2827.thread: ; preds = %_ZNK4llvm9Strin
   %2614 = load ptr, ptr %157, align 8
   %2615 = getelementptr inbounds i32, ptr %2614, i64 %indvars.iv4820
   store i32 %2613, ptr %2615, align 4
-  %.not1917 = icmp ult i32 %2612, %2607
+  %.not1917 = icmp samesign ult i32 %2612, %2607
   br i1 %.not1917, label %2621, label %2616
 
 2616:                                             ; preds = %2610
@@ -16040,7 +16040,7 @@ _ZN4llvm12StringSwitchINS_13AtomicRMWInst5BinOpES2_E10StartsWithENS_13StringLite
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 134217727
-  %17 = icmp ult i32 %16, 3
+  %17 = icmp samesign ult i32 %16, 3
   br i1 %17, label %111, label %18
 
 18:                                               ; preds = %_ZN4llvm12StringSwitchINS_13AtomicRMWInst5BinOpES2_E10StartsWithENS_13StringLiteralES2_.exit102
@@ -16078,7 +16078,7 @@ _ZN4llvm12StringSwitchINS_13AtomicRMWInst5BinOpES2_E10StartsWithENS_13StringLite
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 17
   %spec.select.i.i103 = select i1 %41, ptr %39, ptr null
-  %42 = icmp ugt i32 %16, 5
+  %42 = icmp samesign ugt i32 %16, 5
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %37
@@ -18520,7 +18520,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %87 = load i32, ptr %77, align 4
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv, %89
+  %90 = icmp samesign ult i64 %indvars.iv, %89
   br i1 %90, label %91, label %104
 
 91:                                               ; preds = %79
@@ -29179,7 +29179,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 
 .split.us.us:                                     ; preds = %34
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 16
-  %38 = icmp ult i64 %indvars.iv.next57, %32
+  %38 = icmp samesign ult i64 %indvars.iv.next57, %32
   br i1 %38, label %.preheader.us, label %._crit_edge, !llvm.loop !137
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
@@ -29205,7 +29205,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 
 .split:                                           ; preds = %40
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 16
-  %46 = icmp ult i64 %indvars.iv.next51, %32
+  %46 = icmp samesign ult i64 %indvars.iv.next51, %32
   br i1 %46, label %.preheader, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %.split, %.split.us.us, %30

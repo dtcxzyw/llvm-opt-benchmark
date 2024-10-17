@@ -4264,7 +4264,7 @@ invoke.cont59:                                    ; preds = %.noexc, %lor.lhs.fa
   %91 = load i32, ptr %arrayidx10.i120, align 4
   %inc.i121 = add i32 %91, 1
   store i32 %inc.i121, ptr %arrayidx10.i120, align 4
-  %cmp61.not = icmp ult i64 %indvars.iv405, %80
+  %cmp61.not = icmp samesign ult i64 %indvars.iv405, %80
   br i1 %cmp61.not, label %if.end71, label %if.then62
 
 if.then62:                                        ; preds = %invoke.cont59
@@ -4311,7 +4311,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br label %common.resume
 
 if.end71:                                         ; preds = %_ZN8psort_nwIN3opt7sortmaxEE10add_clauseEP4exprS4_.exit, %invoke.cont59
-  %cmp72.not = icmp ult i64 %indvars.iv405, %81
+  %cmp72.not = icmp samesign ult i64 %indvars.iv405, %81
   br i1 %cmp72.not, label %if.end82, label %if.then73
 
 if.then73:                                        ; preds = %if.end71

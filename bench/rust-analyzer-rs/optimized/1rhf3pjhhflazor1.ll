@@ -2594,9 +2594,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h315b4d5e1f1d1878E.exit.i.i": ; preds = %46
   %56 = load i32, ptr %37, align 8, !range !783, !alias.scope !784, !noalias !789, !noundef !15
-  %narrow63.i.i.i.i = icmp ult i32 %56, 17
+  %narrow63.i.i.i.i = icmp samesign ult i32 %56, 17
   %57 = load i32, ptr %3, align 8, !range !783, !alias.scope !784, !noalias !789, !noundef !15
-  %narrow.i.i.i.i = icmp ult i32 %57, 17
+  %narrow.i.i.i.i = icmp samesign ult i32 %57, 17
   %.sroa.7.0.i.i.i.i = zext i1 %narrow.i.i.i.i to i64
   %58 = select i1 %narrow63.i.i.i.i, i64 2, i64 1
   %59 = add nuw nsw i64 %58, %.sroa.7.0.i.i.i.i
@@ -11875,9 +11875,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f2f3622f65799d2E.exit.i.i": ; preds = %34
   %43 = load i8, ptr %26, align 8, !range !3940, !alias.scope !4230, !noalias !4235, !noundef !15
-  %narrow63.i.i.i.i = icmp ult i8 %43, 27
+  %narrow63.i.i.i.i = icmp samesign ult i8 %43, 27
   %44 = load i8, ptr %27, align 8, !range !3940, !alias.scope !4230, !noalias !4235, !noundef !15
-  %narrow.i.i.i.i = icmp ult i8 %44, 27
+  %narrow.i.i.i.i = icmp samesign ult i8 %44, 27
   %.sroa.7.0.i.i.i.i = zext i1 %narrow.i.i.i.i to i64
   %45 = select i1 %narrow63.i.i.i.i, i64 2, i64 1
   %46 = add nuw nsw i64 %45, %.sroa.7.0.i.i.i.i
@@ -15902,7 +15902,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !15
   %19 = lshr i64 %18, 1
-  %.not4 = icmp ult i64 %16, %19
+  %.not4 = icmp samesign ult i64 %16, %19
   br i1 %.not4, label %20, label %47
 
 20:                                               ; preds = %10

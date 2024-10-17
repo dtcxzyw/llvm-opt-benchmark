@@ -14639,7 +14639,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %746 = icmp ult i64 %indvars.iv.next.i, %725
+  %746 = icmp samesign ult i64 %indvars.iv.next.i, %725
   br i1 %746, label %747, label %749
 
 747:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit.i
@@ -14905,7 +14905,7 @@ _ZN4llvm6itostrB5cxx11El.exit273:                 ; preds = %_ZNSt7__cxx1112basi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #20
   %834 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull @.str.174) #20
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %835 = icmp ult i64 %indvars.iv.next19.i, %670
+  %835 = icmp samesign ult i64 %indvars.iv.next19.i, %670
   br i1 %835, label %836, label %838
 
 836:                                              ; preds = %_ZN4llvm6itostrB5cxx11El.exit273
@@ -15379,7 +15379,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %994 = getelementptr inbounds i8, ptr %.111.i4.i, i64 -1
   store i8 %993, ptr %994, align 1, !noalias !207
   %995 = udiv i64 %.0810.i5.i, 10
-  %.not.i6.i = icmp ult i64 %.0810.i5.i, 10
+  %.not.i6.i = icmp samesign ult i64 %.0810.i5.i, 10
   br i1 %.not.i6.i, label %_ZN4llvm6itostrB5cxx11El.exit, label %.lr.ph.i3.i, !llvm.loop !131
 
 _ZN4llvm6itostrB5cxx11El.exit:                    ; preds = %.lr.ph.i3.i, %.thread.i8.i
@@ -15662,7 +15662,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %1104 = getelementptr inbounds i8, ptr %.111.i4.i243, i64 -1
   store i8 %1103, ptr %1104, align 1, !noalias !220
   %1105 = udiv i64 %.0810.i5.i244, 10
-  %.not.i6.i245 = icmp ult i64 %.0810.i5.i244, 10
+  %.not.i6.i245 = icmp samesign ult i64 %.0810.i5.i244, 10
   br i1 %.not.i6.i245, label %_ZN4llvm6itostrB5cxx11El.exit250, label %.lr.ph.i3.i242, !llvm.loop !131
 
 _ZN4llvm6itostrB5cxx11El.exit250:                 ; preds = %.lr.ph.i3.i242, %.thread.i8.i247

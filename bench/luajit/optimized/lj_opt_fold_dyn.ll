@@ -384,7 +384,7 @@ if.end189:                                        ; preds = %if.end184
   br label %for.cond
 
 for.end:                                          ; preds = %if.then173
-  %cmp192 = icmp ugt i32 %conv179, 4
+  %cmp192 = icmp samesign ugt i32 %conv179, 4
   br i1 %cmp192, label %if.then200, label %if.end208
 
 if.then200:                                       ; preds = %for.end
@@ -3479,7 +3479,7 @@ if.then3.i:                                       ; preds = %if.then
 
 if.else7.i:                                       ; preds = %if.then
   %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp8.i = icmp ult i32 %3, 2
+  %cmp8.i = icmp samesign ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
@@ -3530,7 +3530,7 @@ if.then3.i:                                       ; preds = %if.then
 
 if.else7.i:                                       ; preds = %if.then
   %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %conv)
-  %cmp8.i = icmp ult i32 %3, 2
+  %cmp8.i = icmp samesign ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
@@ -3561,7 +3561,7 @@ entry:
   %0 = load i32, ptr %right, align 8
   %cmp = icmp sgt i32 %0, 0
   %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp1 = icmp ult i32 %1, 2
+  %cmp1 = icmp samesign ult i32 %1, 2
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %return
 
@@ -5093,7 +5093,7 @@ if.then6:                                         ; preds = %if.end
   %10 = load i32, ptr %right, align 8
   %and17 = and i32 %cond, %10
   %add = add nuw nsw i32 %and14, %and17
-  %cmp18 = icmp ugt i32 %add, %cond
+  %cmp18 = icmp samesign ugt i32 %add, %cond
   br i1 %cmp18, label %if.then20, label %if.end50
 
 if.then20:                                        ; preds = %if.then6
@@ -6783,7 +6783,7 @@ lj_opt_cse.exit:                                  ; preds = %if.then32.i, %lj_ir
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 424
   %15 = load i16, ptr %arrayidx, align 2
   %conv3 = zext i16 %15 to i32
-  %cmp = icmp ult i32 %conv2, %conv3
+  %cmp = icmp samesign ult i32 %conv2, %conv3
   br i1 %cmp, label %cond.true, label %return
 
 cond.true:                                        ; preds = %lj_opt_cse.exit
@@ -7024,7 +7024,7 @@ lj_opt_cse.exit:                                  ; preds = %if.then32.i, %lj_ir
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
   %14 = load i16, ptr %arrayidx, align 2
   %conv2 = zext i16 %14 to i32
-  %cmp = icmp ult i32 %conv1, %conv2
+  %cmp = icmp samesign ult i32 %conv1, %conv2
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lj_opt_cse.exit

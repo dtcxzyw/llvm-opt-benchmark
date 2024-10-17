@@ -220,7 +220,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   ]
 
 61:                                               ; preds = %60
-  %62 = icmp ugt i32 %58, 127
+  %62 = icmp samesign ugt i32 %58, 127
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %61
@@ -492,7 +492,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   ]
 
 61:                                               ; preds = %60
-  %62 = icmp ugt i32 %58, 127
+  %62 = icmp samesign ugt i32 %58, 127
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %61
@@ -764,7 +764,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   ]
 
 61:                                               ; preds = %60
-  %62 = icmp ugt i32 %58, 127
+  %62 = icmp samesign ugt i32 %58, 127
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %61
@@ -934,7 +934,7 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   ]
 
 2:                                                ; preds = %1
-  %3 = icmp ugt i32 %0, 127
+  %3 = icmp samesign ugt i32 %0, 127
   br i1 %3, label %4, label %69
 
 4:                                                ; preds = %2
@@ -989,11 +989,11 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %.sroa.0.i.i.i.i.3.i.i.i.i.3.i.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i.i, align 4, !noalias !265
-  %26 = icmp ult i32 %0, 2048
+  %26 = icmp samesign ult i32 %0, 2048
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hf5df068ac2d74cc6E.exit.thread11"
-  %28 = icmp ult i32 %0, 65536
+  %28 = icmp samesign ult i32 %0, 65536
   br i1 %28, label %33, label %41
 
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hf5df068ac2d74cc6E.exit.thread11"
@@ -1109,7 +1109,7 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   ]
 
 2:                                                ; preds = %1
-  %3 = icmp ugt i32 %0, 127
+  %3 = icmp samesign ugt i32 %0, 127
   br i1 %3, label %4, label %69
 
 4:                                                ; preds = %2
@@ -1164,11 +1164,11 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %.sroa.0.i.i.i.i.3.i.i.i.i.3.i.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i.i, align 4, !noalias !277
-  %26 = icmp ult i32 %0, 2048
+  %26 = icmp samesign ult i32 %0, 2048
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hb79444b5912e301cE.exit.thread11"
-  %28 = icmp ult i32 %0, 65536
+  %28 = icmp samesign ult i32 %0, 65536
   br i1 %28, label %33, label %41
 
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hb79444b5912e301cE.exit.thread11"
@@ -1284,7 +1284,7 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   ]
 
 2:                                                ; preds = %1
-  %3 = icmp ugt i32 %0, 127
+  %3 = icmp samesign ugt i32 %0, 127
   br i1 %3, label %4, label %69
 
 4:                                                ; preds = %2
@@ -1339,11 +1339,11 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
   %.sroa.0.i.i.i.i.3.i.i.i.i.3.i.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i.i, align 4, !noalias !289
-  %26 = icmp ult i32 %0, 2048
+  %26 = icmp samesign ult i32 %0, 2048
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h3d3f3eeb1ca8ecd4E.exit.thread11"
-  %28 = icmp ult i32 %0, 65536
+  %28 = icmp samesign ult i32 %0, 65536
   br i1 %28, label %33, label %41
 
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h3d3f3eeb1ca8ecd4E.exit.thread11"

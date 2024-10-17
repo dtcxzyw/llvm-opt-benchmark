@@ -746,7 +746,7 @@ define hidden noundef ptr @_ZN11FileMapInfo35create_dumptime_app_classpath_array
   %16 = add nsw i32 %12, 1
   %17 = icmp sgt i32 %12, -1
   %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %or.cond.i.i.i.i = select i1 %17, i1 %19, i1 false
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -2513,7 +2513,7 @@ define hidden void @_ZN11FileMapInfo36record_non_existent_class_path_entryEPKc(p
   %24 = add nsw i32 %19, 1
   %25 = icmp sgt i32 %19, -1
   %26 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
-  %27 = icmp ult i32 %26, 2
+  %27 = icmp samesign ult i32 %26, 2
   %or.cond.i.i.i.i = select i1 %25, i1 %27, i1 false
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %29 = sub nuw nsw i32 32, %28
@@ -2895,7 +2895,7 @@ define hidden noundef ptr @_ZN11FileMapInfo17create_path_arrayEPKc(ptr nocapture
   %36 = add nsw i32 %32, 1
   %37 = icmp sgt i32 %32, -1
   %38 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   %or.cond.i.i.i.i11.us = select i1 %37, i1 %39, i1 false
   %40 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %41 = sub nuw nsw i32 32, %40
@@ -2937,7 +2937,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us:
   %60 = add nsw i32 %56, 1
   %61 = icmp sgt i32 %56, -1
   %62 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %60)
-  %63 = icmp ult i32 %62, 2
+  %63 = icmp samesign ult i32 %62, 2
   %or.cond.i.i.i.i = select i1 %61, i1 %63, i1 false
   %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 true)
   %65 = sub nuw nsw i32 32, %64
@@ -6671,7 +6671,7 @@ _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11p
 .preheader.i.i.i:                                 ; preds = %97, %101
   %.025.i.i.i.i.i = phi i64 [ %99, %101 ], [ %91, %97 ]
   %99 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %100 = icmp ult i64 %99, %89
+  %100 = icmp samesign ult i64 %99, %89
   br i1 %100, label %101, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit
 
 101:                                              ; preds = %.preheader.i.i.i
@@ -6733,7 +6733,7 @@ _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitM
 .preheader.i.i.i38:                               ; preds = %125, %129
   %.025.i.i.i.i.i39 = phi i64 [ %127, %129 ], [ %119, %125 ]
   %127 = add nuw nsw i64 %.025.i.i.i.i.i39, 1
-  %128 = icmp ult i64 %127, %117
+  %128 = icmp samesign ult i64 %127, %117
   br i1 %128, label %129, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41
 
 129:                                              ; preds = %.preheader.i.i.i38

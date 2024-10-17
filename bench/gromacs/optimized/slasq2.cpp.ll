@@ -332,7 +332,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   store float %181, ptr %178, align 4
   store float %179, ptr %180, align 4
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 4
-  %.not562 = icmp ugt i64 %indvars.iv.next716, %168
+  %.not562 = icmp samesign ugt i64 %indvars.iv.next716, %168
   br i1 %.not562, label %.loopexit575, label %.lr.ph596, !llvm.loop !8
 
 .loopexit575:                                     ; preds = %.lr.ph596, %165, %._crit_edge592
@@ -457,7 +457,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 243:                                              ; preds = %233, %237, %223
   %.4 = phi float [ %225, %223 ], [ %236, %233 ], [ %242, %237 ]
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 4
-  %.not570 = icmp ugt i64 %indvars.iv.next722, %211
+  %.not570 = icmp samesign ugt i64 %indvars.iv.next722, %211
   br i1 %.not570, label %._crit_edge609, label %212, !llvm.loop !10
 
 ._crit_edge609:                                   ; preds = %243, %._crit_edge602.thread
@@ -488,7 +488,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %256 = fcmp ogt float %253, %255
   %257 = select i1 %256, float %253, float %255
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 4
-  %.not571 = icmp ugt i64 %indvars.iv.next725, %252
+  %.not571 = icmp samesign ugt i64 %indvars.iv.next725, %252
   br i1 %.not571, label %._crit_edge616, label %.lr.ph615, !llvm.loop !11
 
 ._crit_edge616:                                   ; preds = %.lr.ph615, %._crit_edge609

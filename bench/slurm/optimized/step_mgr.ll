@@ -802,7 +802,7 @@ define dso_local i32 @job_step_signal(ptr nocapture noundef readonly %0, i16 nou
   %25 = getelementptr inbounds i8, ptr %12, i64 448
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 255
-  %28 = icmp ugt i32 %27, 2
+  %28 = icmp samesign ugt i32 %27, 2
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
@@ -1254,7 +1254,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 51:                                               ; preds = %46, %49
   %.0385.in = phi i16 [ %50, %49 ], [ %48, %46 ]
-  %52 = icmp ugt i32 %41, 2
+  %52 = icmp samesign ugt i32 %41, 2
   br i1 %52, label %528, label %53
 
 53:                                               ; preds = %51
@@ -2072,7 +2072,7 @@ switch.lookup:                                    ; preds = %444, %451
   %492 = getelementptr inbounds i8, ptr %491, i64 40
   %493 = load i32, ptr %492, align 8
   %494 = zext i32 %493 to i64
-  %495 = icmp ult i64 %indvars.iv.next, %494
+  %495 = icmp samesign ult i64 %indvars.iv.next, %494
   br i1 %495, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2795,7 +2795,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_calc_cpus_per_task(ptr no
   %23 = getelementptr inbounds i16, ptr %20, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %26 = icmp ugt i32 %spec.store.select, %25
+  %26 = icmp samesign ugt i32 %spec.store.select, %25
   br i1 %26, label %._crit_edge, label %27
 
 27:                                               ; preds = %22
@@ -7198,7 +7198,7 @@ _pick_step_cores.exit.thread:                     ; preds = %541, %451, %_pick_s
   %653 = getelementptr inbounds i16, ptr %652, i64 %indvars.iv58.i
   %654 = load i16, ptr %653, align 2
   %655 = zext i16 %654 to i32
-  %656 = icmp ult i32 %651, %655
+  %656 = icmp samesign ult i32 %651, %655
   br i1 %656, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !17
 
 ._crit_edge.loopexit.i:                           ; preds = %650
@@ -7214,7 +7214,7 @@ _pick_step_cores.exit.thread:                     ; preds = %541, %451, %_pick_s
   %661 = getelementptr inbounds i16, ptr %658, i64 %indvars.iv58.i
   %662 = load i16, ptr %661, align 2
   %663 = zext i16 %662 to i32
-  %664 = icmp ult i32 %660, %663
+  %664 = icmp samesign ult i32 %660, %663
   br i1 %664, label %.preheader.i, label %._crit_edge40.loopexit.i, !llvm.loop !18
 
 ._crit_edge40.loopexit.i:                         ; preds = %._crit_edge.i
@@ -10734,7 +10734,7 @@ define internal noundef i32 @_rebuild_bitmaps(ptr nocapture noundef %0, ptr noun
   %102 = getelementptr inbounds i8, ptr %101, i64 496
   %103 = load i16, ptr %102, align 8
   %104 = zext i16 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next91, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next91, %104
   br i1 %105, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !25
 
 .lr.ph81.split:                                   ; preds = %.lr.ph81, %149
@@ -10790,7 +10790,7 @@ define internal noundef i32 @_rebuild_bitmaps(ptr nocapture noundef %0, ptr noun
   %129 = getelementptr inbounds i8, ptr %128, i64 496
   %130 = load i16, ptr %129, align 8
   %131 = zext i16 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next, %131
   br i1 %132, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %125, %112
@@ -11060,7 +11060,7 @@ define internal fastcc void @_internal_step_complete(ptr noundef %0, i32 noundef
   %32 = getelementptr inbounds i8, ptr %6, i64 448
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 255
-  %35 = icmp ugt i32 %34, 2
+  %35 = icmp samesign ugt i32 %34, 2
   br i1 %35, label %36, label %48
 
 36:                                               ; preds = %31
@@ -12393,7 +12393,7 @@ define internal noundef i32 @_gres_filter_avail_cores(ptr noundef %0, ptr nocapt
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %85 = load i16, ptr %24, align 8
   %86 = zext i16 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next59, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next59, %86
   br i1 %87, label %36, label %._crit_edge55, !llvm.loop !36
 
 ._crit_edge55:                                    ; preds = %84, %26

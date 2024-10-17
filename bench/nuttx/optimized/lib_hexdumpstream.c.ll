@@ -41,7 +41,7 @@ define internal void @hexdumpstream_putc(ptr noundef %0, i32 noundef %1) #1 {
   %14 = add nuw nsw i8 %11, 55
   %.0.i.i = select i1 %12, i8 %13, i8 %14
   %15 = and i8 %10, 15
-  %16 = icmp ult i8 %15, 10
+  %16 = icmp samesign ult i8 %15, 10
   %17 = or disjoint i8 %15, 48
   %18 = add nuw nsw i8 %15, 55
   %.0.i17.i = select i1 %16, i8 %17, i8 %18
@@ -129,7 +129,7 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
   store i8 %.0.i.i, ptr %26, align 1
   %27 = load i8, ptr %19, align 1
   %28 = and i8 %27, 15
-  %29 = icmp ult i8 %28, 10
+  %29 = icmp samesign ult i8 %28, 10
   %30 = or disjoint i8 %28, 48
   %31 = add nuw nsw i8 %28, 55
   %.0.i17.i = select i1 %29, i8 %30, i8 %31

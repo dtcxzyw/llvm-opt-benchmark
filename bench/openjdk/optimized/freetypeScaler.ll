@@ -513,7 +513,7 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   %40 = fdiv double %39, %.1
   %41 = fptosi double %40 to i32
   %42 = call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %43 = icmp ugt i32 %42, 32766
+  %43 = icmp samesign ugt i32 %42, 32766
   br i1 %43, label %61, label %44
 
 44:                                               ; preds = %euclidianDistance.exit
@@ -522,21 +522,21 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   %47 = fdiv double %46, %.1
   %48 = fptosi double %47 to i32
   %49 = call i32 @llvm.abs.i32(i32 %48, i1 true)
-  %50 = icmp ugt i32 %49, 32766
+  %50 = icmp samesign ugt i32 %49, 32766
   br i1 %50, label %61, label %51
 
 51:                                               ; preds = %44
   %52 = fdiv double %21, %.1
   %53 = fptosi double %52 to i32
   %54 = call i32 @llvm.abs.i32(i32 %53, i1 true)
-  %55 = icmp ugt i32 %54, 32766
+  %55 = icmp samesign ugt i32 %54, 32766
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %51
   %57 = fdiv double %23, %.1
   %58 = fptosi double %57 to i32
   %59 = call i32 @llvm.abs.i32(i32 %58, i1 true)
-  %60 = icmp ugt i32 %59, 32766
+  %60 = icmp samesign ugt i32 %59, 32766
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %56, %51, %44, %euclidianDistance.exit
@@ -1075,9 +1075,9 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %90 = load i32, ptr %82, align 8
   %91 = trunc i32 %90 to i16
   %92 = and i32 %84, 65535
-  %93 = icmp ugt i32 %92, 1024
+  %93 = icmp samesign ugt i32 %92, 1024
   %94 = and i32 %90, 65535
-  %95 = icmp ugt i32 %94, 1024
+  %95 = icmp samesign ugt i32 %94, 1024
   %or.cond6 = select i1 %93, i1 true, i1 %95
   br i1 %or.cond6, label %96, label %98
 
@@ -2351,7 +2351,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
 .lr.ph55:                                         ; preds = %6
   %10 = sext i32 %1 to i64
   %11 = zext nneg i32 %3 to i64
-  %.not60 = icmp ult i32 %4, 8
+  %.not60 = icmp samesign ult i32 %4, 8
   %.not37 = icmp eq i32 %8, 0
   br i1 %.not60, label %.lr.ph55.split, label %.lr.ph55.split.us
 

@@ -752,7 +752,7 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %indvars.iv, %64
+  %65 = icmp samesign ult i64 %indvars.iv, %64
   br i1 %65, label %69, label %.thread129
 
 .thread129:                                       ; preds = %60
@@ -1191,11 +1191,11 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i.i:  ; preds = %46
   %77 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 32
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ugt i64 %indvars.iv, %79
+  %80 = icmp samesign ugt i64 %indvars.iv, %79
   br i1 %80, label %96, label %81
 
 81:                                               ; preds = %.lr.ph.i.i
-  %82 = icmp ult i64 %indvars.iv, %79
+  %82 = icmp samesign ult i64 %indvars.iv, %79
   br i1 %82, label %96, label %83
 
 83:                                               ; preds = %81
@@ -1212,7 +1212,7 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i.i:  ; preds = %46
   %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ugt i64 %indvars.iv, %90
+  %91 = icmp samesign ugt i64 %indvars.iv, %90
   %.19.i.i.i = select i1 %91, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %91, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -1231,7 +1231,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjE
   %92 = getelementptr inbounds nuw i8, ptr %.012.i26.i.i, i64 32
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv, %94
+  %95 = icmp samesign ult i64 %indvars.iv, %94
   %.19.i28.i.i = select i1 %95, ptr %.012.i26.i.i, ptr %.0811.i27.i.i
   %.1.in.v.i29.i.i = select i1 %95, i64 16, i64 24
   %.1.in.i30.i.i = getelementptr inbounds nuw i8, ptr %.012.i26.i.i, i64 %.1.in.v.i29.i.i
@@ -1460,7 +1460,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit:            ; preds = %_ZN4llvm18MCSuperRe
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 2
   %205 = load i16, ptr %204, align 2
   %206 = zext i16 %205 to i64
-  %207 = icmp ult i64 %indvars.iv173, %206
+  %207 = icmp samesign ult i64 %indvars.iv173, %206
   br i1 %207, label %211, label %.thread122
 
 .thread122:                                       ; preds = %202

@@ -91,7 +91,7 @@ define hidden void @_ZN8rawspeed17SimpleTiffDecoder21prepareForRawDecodingEv(ptr
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !41
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %22, %25
+  %26 = icmp samesign ugt i64 %22, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %1

@@ -490,13 +490,13 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %284 = fptosi double %283 to i32
   %285 = sub nsw i32 %4, %282
   %286 = call i32 @llvm.abs.i32(i32 %285, i1 true)
-  %287 = icmp ult i32 %286, 40
+  %287 = icmp samesign ult i32 %286, 40
   br i1 %287, label %288, label %293
 
 288:                                              ; preds = %278
   %289 = sub nsw i32 %5, %284
   %290 = call i32 @llvm.abs.i32(i32 %289, i1 true)
-  %291 = icmp ult i32 %290, 40
+  %291 = icmp samesign ult i32 %290, 40
   %292 = select reassoc nsz arcp contract afn i1 %291, double 1.000000e+00, double 3.000000e-01
   br label %293
 
@@ -858,7 +858,7 @@ define internal fastcc void @_clear_snapshots(ptr nocapture %0) unnamed_addr #1 
   %22 = add nuw nsw i64 %14, 1
   %23 = load i32, ptr %6, align 4, !tbaa !107
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %22, %24
+  %25 = icmp samesign ult i64 %22, %24
   br i1 %25, label %13, label %.loopexit
 }
 
@@ -1179,7 +1179,7 @@ define internal void @_lib_snapshots_add_button_clicked_callback(ptr nocapture r
   %96 = add nuw nsw i64 %91, 1
   %97 = load i32, ptr %8, align 4, !tbaa !107
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %96, %98
+  %99 = icmp samesign ult i64 %96, %98
   br i1 %99, label %.preheader, label %89
 
 100:                                              ; preds = %89
@@ -1720,7 +1720,7 @@ define internal void @_lib_snapshots_toggled_callback(ptr noundef %0, ptr nocapt
   %58 = phi i32 [ %46, %45 ], [ %56, %51 ]
   %59 = add nuw nsw i64 %47, 1
   %60 = zext i32 %58 to i64
-  %61 = icmp ult i64 %59, %60
+  %61 = icmp samesign ult i64 %59, %60
   br i1 %61, label %45, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.loopexit6, %9

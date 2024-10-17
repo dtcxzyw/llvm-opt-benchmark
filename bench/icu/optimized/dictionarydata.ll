@@ -401,7 +401,7 @@ if.then16:                                        ; preds = %if.then
 
 cond.true.i:                                      ; preds = %if.then16
   %and2.i = and i32 %conv.i, 32767
-  %cmp.i.i = icmp ult i32 %and2.i, 16384
+  %cmp.i.i = icmp samesign ult i32 %and2.i, 16384
   br i1 %cmp.i.i, label %invoke.cont19, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.true.i

@@ -257,7 +257,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
   br i1 %85, label %.lr.ph58, label %._crit_edge59, !llvm.loop !9
 
 ._crit_edge59:                                    ; preds = %._crit_edge55, %._crit_edge

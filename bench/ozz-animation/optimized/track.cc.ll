@@ -753,7 +753,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   store i8 %83, ptr %82, align 1
   store i8 %84, ptr %80, align 1
   %85 = add nuw nsw i64 %.03940.i.i, 4
-  %86 = icmp ult i64 %85, %.idx.i.i
+  %86 = icmp samesign ult i64 %85, %.idx.i.i
   br i1 %86, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %25
@@ -1376,7 +1376,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   store i8 %83, ptr %82, align 1
   store i8 %84, ptr %80, align 1
   %85 = add nuw nsw i64 %.03940.i.i, 4
-  %86 = icmp ult i64 %85, %.idx.i12.i
+  %86 = icmp samesign ult i64 %85, %.idx.i12.i
   br i1 %86, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %25
@@ -1955,7 +1955,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   store i8 %83, ptr %82, align 1
   store i8 %84, ptr %80, align 1
   %85 = add nuw nsw i64 %.03940.i.i, 4
-  %86 = icmp ult i64 %85, %.idx.i12.i
+  %86 = icmp samesign ult i64 %85, %.idx.i12.i
   br i1 %86, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %25
@@ -2534,7 +2534,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   store i8 %83, ptr %82, align 1
   store i8 %84, ptr %80, align 1
   %85 = add nuw nsw i64 %.03940.i.i, 4
-  %86 = icmp ult i64 %85, %.idx.i12.i
+  %86 = icmp samesign ult i64 %85, %.idx.i12.i
   br i1 %86, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %25
@@ -3113,7 +3113,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   store i8 %83, ptr %82, align 1
   store i8 %84, ptr %80, align 1
   %85 = add nuw nsw i64 %.03940.i.i, 4
-  %86 = icmp ult i64 %85, %.idx.i12.i
+  %86 = icmp samesign ult i64 %85, %.idx.i12.i
   br i1 %86, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %25

@@ -1901,7 +1901,7 @@ while.body.i:                                     ; preds = %if.then36, %if.then
   %15 = phi i8 [ %16, %if.then.i30 ], [ %14, %if.then36 ]
   %p.012.i = phi ptr [ %incdec.ptr.i32, %if.then.i30 ], [ %type, %if.then36 ]
   %subtagLen.011.i = phi i32 [ %inc.i31, %if.then.i30 ], [ 0, %if.then36 ]
-  %cmp.i = icmp ult i32 %subtagLen.011.i, 2
+  %cmp.i = icmp samesign ult i32 %subtagLen.011.i, 2
   br i1 %cmp.i, label %land.lhs.true.i, label %land.lhs.true3.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
@@ -2100,7 +2100,7 @@ while.body.i:                                     ; preds = %if.then36, %if.then
   %15 = phi i8 [ %16, %if.then.i30 ], [ %14, %if.then36 ]
   %p.012.i = phi ptr [ %incdec.ptr.i32, %if.then.i30 ], [ %type, %if.then36 ]
   %subtagLen.011.i = phi i32 [ %inc.i31, %if.then.i30 ], [ 0, %if.then36 ]
-  %cmp.i = icmp ult i32 %subtagLen.011.i, 2
+  %cmp.i = icmp samesign ult i32 %subtagLen.011.i, 2
   br i1 %cmp.i, label %land.lhs.true.i, label %land.lhs.true3.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i

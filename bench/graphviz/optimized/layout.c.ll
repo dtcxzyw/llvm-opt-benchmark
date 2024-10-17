@@ -293,7 +293,7 @@ fdpLayout.exit:                                   ; preds = %fdp_init_graph.exit
 
 158:                                              ; preds = %.loopexit
   %159 = zext nneg i16 %157 to i32
-  %160 = icmp ugt i16 %157, 8
+  %160 = icmp samesign ugt i16 %157, 8
   br i1 %160, label %161, label %171
 
 161:                                              ; preds = %158

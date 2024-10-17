@@ -2881,7 +2881,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
 59:                                               ; preds = %67, %57
   %60 = phi i64 [ %71, %67 ], [ 0, %57 ]
   %61 = and i64 %60, 4294967295
-  %62 = icmp ugt i64 %61, 63
+  %62 = icmp samesign ugt i64 %61, 63
   br i1 %62, label %.thread, label %63, !prof !42
 
 63:                                               ; preds = %59
@@ -3286,7 +3286,7 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noca
 
 63:                                               ; preds = %74
   %64 = add nuw nsw i64 %67, 1
-  %65 = icmp ult i64 %64, %61
+  %65 = icmp samesign ult i64 %64, %61
   br i1 %65, label %66, label %.loopexit10, !llvm.loop !127
 
 66:                                               ; preds = %63, %58

@@ -3358,7 +3358,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.us.i: ; pr
 
 1304:                                             ; preds = %1302
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 2
-  %1305 = icmp ult i64 %indvars.iv.next67.i, %1301
+  %1305 = icmp samesign ult i64 %indvars.iv.next67.i, %1301
   br i1 %1305, label %1302, label %.loopexit.us.i, !llvm.loop !108
 
 .split.us.us.i:                                   ; preds = %1302
@@ -3409,7 +3409,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.us.i: ; pr
 
 1325:                                             ; preds = %1324, %1319
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i355, 2
-  %1326 = icmp ult i64 %indvars.iv.next.i356, %1318
+  %1326 = icmp samesign ult i64 %indvars.iv.next.i356, %1318
   br i1 %1326, label %1319, label %.loopexit.i353, !llvm.loop !108
 
 .loopexit.i353:                                   ; preds = %1325, %1313

@@ -2388,7 +2388,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = add nuw nsw i64 %30, %27
-  %32 = icmp ugt i64 %31, 4294967295
+  %32 = icmp samesign ugt i64 %31, 4294967295
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %25
@@ -2471,7 +2471,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %82 = load i32, ptr %58, align 4
   %83 = zext i32 %82 to i64
   %84 = add nuw nsw i64 %83, %81
-  %85 = icmp ugt i64 %84, 4294967295
+  %85 = icmp samesign ugt i64 %84, 4294967295
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %78
@@ -2564,7 +2564,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %138 = load i32, ptr %10, align 4
   %139 = zext i32 %138 to i64
   %140 = add nuw nsw i64 %139, %137
-  %141 = icmp ugt i64 %140, 4294967295
+  %141 = icmp samesign ugt i64 %140, 4294967295
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %136
@@ -2632,7 +2632,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
   %184 = add nuw nsw i64 %183, %180
-  %185 = icmp ugt i64 %184, 4294967295
+  %185 = icmp samesign ugt i64 %184, 4294967295
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %178

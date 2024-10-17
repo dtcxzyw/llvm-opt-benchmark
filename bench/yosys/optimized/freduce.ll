@@ -10456,7 +10456,7 @@ _ZNSt6vectorIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE9push_backERKS1_.exit.i608: ; 
   br i1 %.not15.i.i.us.i, label %3409, label %3407
 
 3407:                                             ; preds = %3403
-  %3408 = icmp ult i8 %3399, %3406
+  %3408 = icmp samesign ult i8 %3399, %3406
   br i1 %3408, label %3421, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 3409:                                             ; preds = %3403
@@ -10504,7 +10504,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_111equiv_bit_tENS_17__norma
   br i1 %.not15.i.i.i, label %3431, label %3429
 
 3429:                                             ; preds = %3425
-  %3430 = icmp ult i8 %3399, %3428
+  %3430 = icmp samesign ult i8 %3399, %3428
   br i1 %3430, label %3450, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 3431:                                             ; preds = %3425
@@ -57925,7 +57925,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tES
   br i1 %.not15.i.i.i.i, label %56, label %54
 
 54:                                               ; preds = %48
-  %55 = icmp ult i8 %50, %53
+  %55 = icmp samesign ult i8 %50, %53
   br i1 %55, label %86, label %176
 
 56:                                               ; preds = %48
@@ -58001,7 +58001,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i28.i.i, label %99, label %97
 
 97:                                               ; preds = %90
-  %98 = icmp ult i8 %93, %96
+  %98 = icmp samesign ult i8 %93, %96
   br i1 %98, label %132, label %133
 
 99:                                               ; preds = %90
@@ -58086,7 +58086,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i36.i.i, label %144, label %142
 
 142:                                              ; preds = %136
-  %143 = icmp ult i8 %138, %141
+  %143 = icmp samesign ult i8 %138, %141
   br i1 %143, label %174, label %175
 
 144:                                              ; preds = %136
@@ -58177,7 +58177,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i44.i.i, label %188, label %186
 
 186:                                              ; preds = %180
-  %187 = icmp ult i8 %182, %185
+  %187 = icmp samesign ult i8 %182, %185
   br i1 %187, label %218, label %219
 
 188:                                              ; preds = %180
@@ -58260,7 +58260,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i52.i.i, label %231, label %229
 
 229:                                              ; preds = %222
-  %230 = icmp ult i8 %225, %228
+  %230 = icmp samesign ult i8 %225, %228
   br i1 %230, label %264, label %265
 
 231:                                              ; preds = %222
@@ -58367,7 +58367,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111eq
   br i1 %.not15.i.i.i15.i, label %279, label %277
 
 277:                                              ; preds = %271
-  %278 = icmp ult i8 %274, %276
+  %278 = icmp samesign ult i8 %274, %276
   br i1 %278, label %309, label %.preheader
 
 279:                                              ; preds = %271
@@ -58448,7 +58448,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i11.i.i, label %323, label %321
 
 321:                                              ; preds = %315
-  %322 = icmp ult i8 %317, %320
+  %322 = icmp samesign ult i8 %317, %320
   br i1 %322, label %.backedge, label %353
 
 323:                                              ; preds = %315
@@ -58566,7 +58566,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not15.i.i, label %26, label %24
 
 24:                                               ; preds = %17
-  %25 = icmp ult i8 %20, %23
+  %25 = icmp samesign ult i8 %20, %23
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
 
 26:                                               ; preds = %17
@@ -58700,7 +58700,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   br i1 %.not15.i.i.us.us.i, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = icmp ult i8 %86, %76
+  %88 = icmp samesign ult i8 %86, %76
   br i1 %88, label %101, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
 
 89:                                               ; preds = %83
@@ -58753,7 +58753,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_111
   br i1 %.not15.i.i.i, label %114, label %112
 
 112:                                              ; preds = %108
-  %113 = icmp ult i8 %111, %76
+  %113 = icmp samesign ult i8 %111, %76
   br i1 %113, label %133, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
 
 114:                                              ; preds = %108
@@ -58861,7 +58861,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   br i1 %.not15.i.i, label %23, label %21
 
 21:                                               ; preds = %15
-  %22 = icmp ult i8 %18, %20
+  %22 = icmp samesign ult i8 %18, %20
   br i1 %22, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %58
 
 23:                                               ; preds = %15
@@ -58984,7 +58984,7 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
   br i1 %.not15.i.i.us, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ult i8 %3, %10
+  %12 = icmp samesign ult i8 %3, %10
   br i1 %12, label %25, label %.split24.us
 
 13:                                               ; preds = %7
@@ -59032,7 +59032,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_111equiv_bit_tENS_17__norma
   br i1 %.not15.i.i, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = icmp ult i8 %3, %32
+  %34 = icmp samesign ult i8 %3, %32
   br i1 %34, label %54, label %.split24.us
 
 35:                                               ; preds = %29

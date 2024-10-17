@@ -566,7 +566,7 @@ _ZN14DiscoveredList5clearEv.exit:                 ; preds = %38, %40
   %42 = load i32, ptr %19, align 4
   %43 = shl i32 %42, 2
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZN14DiscoveredList5clearEv.exit, %6
@@ -631,7 +631,7 @@ define hidden void @_ZN18ReferenceProcessor12weak_oops_doEP10OopClosure(ptr noca
   %19 = load i32, ptr %3, align 4
   %20 = shl i32 %19, 2
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %6, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %18, %2
@@ -2186,7 +2186,7 @@ _ZN18ReferenceProcessor27clear_discovered_referencesER14DiscoveredList.exit: ; p
   %36 = load i32, ptr %2, align 4
   %37 = shl i32 %36, 2
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %5, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN18ReferenceProcessor27clear_discovered_referencesER14DiscoveredList.exit, %1
@@ -2523,7 +2523,7 @@ define hidden void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(pt
   %.07294 = phi i32 [ %.1.lcssa, %._crit_edge91 ], [ 0, %._crit_edge ]
   %14 = load i32, ptr %8, align 8
   %15 = zext i32 %14 to i64
-  %.not = icmp uge i64 %indvars.iv105, %15
+  %.not = icmp samesign uge i64 %indvars.iv105, %15
   %.phi.trans.insert108 = getelementptr inbounds %class.DiscoveredList, ptr %1, i64 %indvars.iv105, i32 2
   %.pre = load i64, ptr %.phi.trans.insert108, align 8
   %16 = icmp ne i64 %.pre, 0
@@ -2726,7 +2726,7 @@ _ZN14DiscoveredList8set_headEP7oopDesc.exit77:    ; preds = %110, %99, %97, %96
   %.1.lcssa = phi i32 [ %.07294, %.lr.ph97 ], [ %.1.lcssa.ph, %._crit_edge91.loopexit ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next106, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next106, %123
   br i1 %124, label %.lr.ph97, label %._crit_edge98, !llvm.loop !18
 
 ._crit_edge98:                                    ; preds = %._crit_edge91, %2
@@ -3236,7 +3236,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0
 48:                                               ; preds = %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = zext i32 %57 to i64
-  %.not = icmp ult i64 %indvars.iv.next, %49
+  %.not = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %48
@@ -3411,7 +3411,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0
 121:                                              ; preds = %126
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %122 = zext i32 %130 to i64
-  %.not127 = icmp ult i64 %indvars.iv.next181, %122
+  %.not127 = icmp samesign ult i64 %indvars.iv.next181, %122
   br i1 %.not127, label %.lr.ph159, label %._crit_edge160, !llvm.loop !23
 
 .lr.ph159:                                        ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit61, %121
@@ -3586,7 +3586,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0
 194:                                              ; preds = %199
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %195 = zext i32 %203 to i64
-  %.not128 = icmp ult i64 %indvars.iv.next184, %195
+  %.not128 = icmp samesign ult i64 %indvars.iv.next184, %195
   br i1 %.not128, label %.lr.ph166, label %._crit_edge167, !llvm.loop !24
 
 .lr.ph166:                                        ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit87, %194
@@ -3761,7 +3761,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0
 267:                                              ; preds = %273
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %268 = zext i32 %277 to i64
-  %269 = icmp ult i64 %indvars.iv.next187, %268
+  %269 = icmp samesign ult i64 %indvars.iv.next187, %268
   br i1 %269, label %.lr.ph171, label %._crit_edge172, !llvm.loop !25
 
 .lr.ph171:                                        ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_126ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit113, %267

@@ -1508,7 +1508,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %125 = add nuw i32 %119, %122
   %126 = sub i32 %118, %125
   %127 = trunc i32 %126 to i16
-  %128 = icmp ugt i32 %124, %112
+  %128 = icmp samesign ugt i32 %124, %112
   br i1 %128, label %129, label %241
 
 129:                                              ; preds = %110
@@ -1681,7 +1681,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %.1469 = phi i32 [ 2, %.thread ], [ 0, %110 ]
   %.0447 = phi i16 [ %240, %.thread ], [ %113, %110 ]
   %243 = and i32 %126, 65535
-  %244 = icmp ugt i32 %243, %.pre-phi
+  %244 = icmp samesign ugt i32 %243, %.pre-phi
   br i1 %244, label %245, label %338
 
 245:                                              ; preds = %241
@@ -1717,7 +1717,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %274 = getelementptr inbounds i8, ptr %273, i64 16
   %275 = load i64, ptr %274, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %266, ptr align 1 %272, i64 %275, i1 false)
-  %276 = icmp ugt i32 %246, 1
+  %276 = icmp samesign ugt i32 %246, 1
   br i1 %276, label %277, label %._crit_edge666
 
 ._crit_edge666:                                   ; preds = %245
@@ -1834,7 +1834,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %.1448 = phi i16 [ %337, %.thread545 ], [ %.0447, %241 ]
   %339 = load i16, ptr %.0461, align 2
   %340 = zext i16 %339 to i32
-  %341 = icmp ult i32 %124, %340
+  %341 = icmp samesign ult i32 %124, %340
   br i1 %341, label %342, label %432
 
 342:                                              ; preds = %338
@@ -1871,7 +1871,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %372 = getelementptr inbounds i8, ptr %371, i64 16
   %373 = load i64, ptr %372, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %363, ptr align 1 %370, i64 %373, i1 false)
-  %374 = icmp ugt i32 %343, 1
+  %374 = icmp samesign ugt i32 %343, 1
   br i1 %374, label %375, label %._crit_edge665
 
 ._crit_edge665:                                   ; preds = %342
@@ -1984,7 +1984,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %.2 = phi i16 [ %431, %.thread552 ], [ %.1448, %338 ]
   %433 = load i16, ptr %.0462, align 2
   %434 = zext i16 %433 to i32
-  %435 = icmp ult i32 %243, %434
+  %435 = icmp samesign ult i32 %243, %434
   br i1 %435, label %436, label %..thread559_crit_edge
 
 ..thread559_crit_edge:                            ; preds = %432
@@ -2401,7 +2401,7 @@ define range(i32 -1, 1) i32 @H5B2__merge2(ptr noundef %0, i16 noundef zeroext %1
   %125 = zext i16 %124 to i32
   %126 = add nuw nsw i32 %122, 2
   %127 = add nuw nsw i32 %126, %125
-  %128 = icmp ult i32 %123, %127
+  %128 = icmp samesign ult i32 %123, %127
   br i1 %128, label %.lr.ph.i, label %H5B2__update_child_flush_depends.exit.thread
 
 .lr.ph.i:                                         ; preds = %120
@@ -2910,7 +2910,7 @@ H5B2__update_child_flush_depends.exit.thread:     ; preds = %204, %195, %.thread
   %262 = zext i16 %.pre355 to i32
   %263 = add nuw nsw i32 %260, 2
   %264 = add nuw nsw i32 %263, %262
-  %265 = icmp ult i32 %261, %264
+  %265 = icmp samesign ult i32 %261, %264
   br i1 %265, label %.lr.ph.i287, label %.thread297
 
 .lr.ph.i287:                                      ; preds = %259
@@ -3337,7 +3337,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %104 = load i16, ptr %63, align 8
   %105 = zext i16 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next139, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next139, %105
   %.not.us = icmp eq i32 %94, 0
   %107 = and i1 %.not.us, %106
   br i1 %107, label %.lr.ph.split.us, label %._crit_edge
@@ -3363,7 +3363,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = load i16, ptr %63, align 8
   %119 = zext i16 %118 to i64
-  %120 = icmp ult i64 %indvars.iv.next, %119
+  %120 = icmp samesign ult i64 %indvars.iv.next, %119
   %.not = icmp eq i32 %112, 0
   %121 = and i1 %.not, %120
   br i1 %121, label %.thread, label %._crit_edge
@@ -3466,7 +3466,7 @@ define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %17, align 8
   %22 = zext i16 %21 to i64
-  %.not53.not = icmp ult i64 %indvars.iv, %22
+  %.not53.not = icmp samesign ult i64 %indvars.iv, %22
   br i1 %.not53.not, label %23, label %.loopexit
 
 23:                                               ; preds = %14, %20
@@ -3520,7 +3520,7 @@ define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroe
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %46 = load i16, ptr %42, align 8
   %47 = zext i16 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next74, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next74, %47
   br i1 %48, label %49, label %.thread61
 
 49:                                               ; preds = %.lr.ph, %45
@@ -3585,7 +3585,7 @@ define range(i32 -1, 1) i32 @H5B2__node_size(ptr noundef %0, i16 noundef zeroext
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i16, ptr %10, align 8
   %15 = zext i16 %14 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %15
+  %.not.not = icmp samesign ult i64 %indvars.iv, %15
   br i1 %.not.not, label %16, label %.loopexit.loopexit
 
 16:                                               ; preds = %.preheader, %13

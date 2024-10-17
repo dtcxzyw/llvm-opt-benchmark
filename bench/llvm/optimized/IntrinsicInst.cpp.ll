@@ -802,7 +802,7 @@ _ZL13getAsMetadataPN4llvm5ValueE.exit:            ; preds = %46, %51
 
 _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit: ; preds = %55, %66
   %.0.i.i = phi i64 [ %69, %66 ], [ 1, %55 ]
-  %70 = icmp ult i64 %indvars.iv, %.0.i.i
+  %70 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %70, label %71, label %112
 
 71:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit
@@ -1683,7 +1683,7 @@ _ZSt7advanceIPKPKclEvRT_T0_.exit.i.i:             ; preds = %61, %_ZSt7advanceIP
   br i1 %34, label %61, label %35
 
 35:                                               ; preds = %32
-  %.not = icmp ult i64 %.031.i.i, 2
+  %.not = icmp samesign ult i64 %.031.i.i, 2
   br i1 %.not, label %"_ZSt13__lower_boundIPKPKcS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9Intrinsic25lookupLLVMIntrinsicByNameENS7_8ArrayRefIS1_EENS7_9StringRefEE3$_0EEET_SE_SE_RKT0_T1_.exit.i.i", label %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i:           ; preds = %35, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i
@@ -2443,7 +2443,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm11VPIntrinsic21getStatic
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %12)
-  %.not.i = icmp ult i64 %13, 4294967296
+  %.not.i = icmp samesign ult i64 %13, 4294967296
   br i1 %.not.i, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit:      ; preds = %1
@@ -2492,7 +2492,7 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic12getMaskParamEv(ptr nocaptu
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %12)
-  %.not = icmp ult i64 %13, 4294967296
+  %.not = icmp samesign ult i64 %13, 4294967296
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %1
@@ -2979,7 +2979,7 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv(ptr
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %12)
-  %.not = icmp ult i64 %13, 4294967296
+  %.not = icmp samesign ult i64 %13, 4294967296
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %1
@@ -4229,7 +4229,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11VPIntrinsic26canIgnoreVectorLeng
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %15)
-  %.not.i.i = icmp ult i64 %16, 4294967296
+  %.not.i.i = icmp samesign ult i64 %16, 4294967296
   br i1 %.not.i.i, label %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i:    ; preds = %1
@@ -4257,7 +4257,7 @@ _ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit: ; preds = %1, %_ZNK4llvm11
   %30 = and i32 %.val4.i, 255
   %31 = icmp eq i32 %30, 18
   %32 = tail call i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %15)
-  %.not.i12 = icmp ult i64 %32, 4294967296
+  %.not.i12 = icmp samesign ult i64 %32, 4294967296
   br i1 %.not.i12, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit
 
 _ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit: ; preds = %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit
@@ -4553,7 +4553,7 @@ declare noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRe
 define dso_local noundef zeroext i1 @_ZN4llvm15VPCastIntrinsic8isVPCastEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %0)
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
-  %3 = icmp ugt i64 %2, 4294967295
+  %3 = icmp samesign ugt i64 %2, 4294967295
   %4 = add i32 %.sroa.0.0.extract.trunc, -38
   %5 = icmp ult i32 %4, 13
   %.0 = and i1 %3, %5

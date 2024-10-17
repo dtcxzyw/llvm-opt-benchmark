@@ -693,7 +693,7 @@ tcache_bin_flush_impl.exit:                       ; preds = %malloc_mutex_lock.e
   %bin.val4.i.i = load i16, ptr %54, align 8
   %sub.i.i6.i.i = sub i16 %bin.val3.i.i, %bin.val4.i.i
   %55 = lshr i16 %sub.i.i6.i.i, 3
-  %cmp.i.i207 = icmp ult i16 %53, %55
+  %cmp.i.i207 = icmp samesign ult i16 %53, %55
   br i1 %cmp.i.i207, label %if.then.i.i208, label %cache_bin_finish_flush.exit
 
 if.then.i.i208:                                   ; preds = %tcache_bin_flush_impl.exit
@@ -968,7 +968,7 @@ tcache_bin_flush_impl.exit:                       ; preds = %if.else146.i, %for.
   %bin.val4.i.i = load i16, ptr %39, align 8
   %sub.i.i6.i.i = sub i16 %bin.val3.i.i, %bin.val4.i.i
   %40 = lshr i16 %sub.i.i6.i.i, 3
-  %cmp.i.i179 = icmp ult i16 %38, %40
+  %cmp.i.i179 = icmp samesign ult i16 %38, %40
   br i1 %cmp.i.i179, label %if.then.i.i180, label %cache_bin_finish_flush.exit
 
 if.then.i.i180:                                   ; preds = %tcache_bin_flush_impl.exit
@@ -2001,7 +2001,7 @@ for.body26.preheader:                             ; preds = %entry, %for.cond22.
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %cmp10 = icmp ult i64 %indvars.iv, 39
+  %cmp10 = icmp samesign ult i64 %indvars.iv, 39
   br i1 %cmp10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -2027,7 +2027,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @nhbins, align 4
   %10 = zext i32 %9 to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next, %10
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp7, label %for.body, label %for.cond22.preheader, !llvm.loop !10
 
 for.body26:                                       ; preds = %for.body26.preheader, %for.body26
@@ -2063,7 +2063,7 @@ entry:
   %add2 = add i64 %0, 2031
   %and = and i64 %add2, 4294967288
   %1 = load i64, ptr @tcache_bin_alloc_alignment, align 8
-  %cmp.i = icmp ult i64 %and, 14337
+  %cmp.i = icmp samesign ult i64 %and, 14337
   %cmp1.i = icmp ult i64 %1, 4097
   %or.cond = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.end5.i
@@ -2111,7 +2111,7 @@ if.end5.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %sz_sa2u.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp10.i = icmp ult i64 %and, 16385
+  %cmp10.i = icmp samesign ult i64 %and, 16385
   br i1 %cmp10.i, label %if.end18.i, label %if.end5.i99
 
 if.end5.i99:                                      ; preds = %if.end9.i
@@ -2123,7 +2123,7 @@ if.end5.i99:                                      ; preds = %if.end9.i
   %sub12.i = xor i64 %notmask61, -1
   %add.i102 = add nuw nsw i64 %and, %sub12.i
   %and.i104 = and i64 %add.i102, %notmask61
-  %cmp14.i = icmp ult i64 %and.i104, %and
+  %cmp14.i = icmp samesign ult i64 %and.i104, %and
   br i1 %cmp14.i, label %sz_sa2u.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %sz_s2u.exit, %if.end9.i, %if.end5.i99
@@ -2271,7 +2271,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %indvars.iv.i
-  %cmp2.i = icmp ult i64 %indvars.iv.i, 39
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.i, 39
   %1 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %cmp2.i, label %if.then.i, label %if.else.i
 
@@ -2287,7 +2287,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load i32, ptr @nhbins, align 4
   %3 = zext i32 %2 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %3
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %3
   br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !12
 
 tcache_flush_cache.exit:                          ; preds = %for.inc.i, %entry
@@ -2331,7 +2331,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %indvars.iv.i
-  %cmp2.i = icmp ult i64 %indvars.iv.i, 39
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.i, 39
   %2 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %cmp2.i, label %if.then.i, label %if.else.i
 
@@ -2347,7 +2347,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr @nhbins, align 4
   %4 = zext i32 %3 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %tcache_flush_cache.exit, !llvm.loop !12
 
 tcache_flush_cache.exit:                          ; preds = %for.inc.i, %entry
@@ -2471,7 +2471,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %if.end ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   %arrayidx = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins, i64 0, i64 %indvars.iv
-  %cmp1 = icmp ult i64 %indvars.iv, 39
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 39
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
@@ -2536,7 +2536,7 @@ if.end:                                           ; preds = %if.else, %malloc_mu
   store i64 0, ptr %tstats8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end, %entry
@@ -2887,7 +2887,7 @@ for.body21.preheader:                             ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond.preheader, %tcache_ncached_max_compute.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %tcache_ncached_max_compute.exit ], [ 0, %for.cond.preheader ]
-  %cmp.i23 = icmp ugt i64 %indvars.iv, 38
+  %cmp.i23 = icmp samesign ugt i64 %indvars.iv, 38
   br i1 %cmp.i23, label %do.end.i, label %if.end.i24
 
 do.end.i:                                         ; preds = %for.body
@@ -2932,7 +2932,7 @@ tcache_ncached_max_compute.exit:                  ; preds = %do.end.i, %if.end.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr @nhbins, align 4
   %21 = zext i32 %20 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %21
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp12, label %for.body, label %for.cond17.preheader, !llvm.loop !14
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.body21

@@ -632,8 +632,8 @@ sw.bb:                                            ; preds = %if.end4
 sw.bb8:                                           ; preds = %if.end4
   %3 = urem i32 12, %1
   %cmp9 = icmp eq i32 %3, 0
-  %cmp10 = icmp ult i32 %1, 13
-  %or.cond = and i1 %cmp10, %cmp9
+  %cmp10 = icmp samesign ult i32 %1, 13
+  %or.cond = select i1 %cmp9, i1 %cmp10, i1 false
   br i1 %or.cond, label %if.then11, label %cleanup
 
 if.then11:                                        ; preds = %sw.bb8
@@ -643,7 +643,7 @@ if.then11:                                        ; preds = %sw.bb8
   br label %cleanup
 
 sw.bb14:                                          ; preds = %if.end4
-  %4 = icmp ult i32 %1, 5
+  %4 = icmp samesign ult i32 %1, 5
   br i1 %4, label %switch.lookup, label %cleanup
 
 sw.bb24:                                          ; preds = %if.end4

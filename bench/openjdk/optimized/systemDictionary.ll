@@ -2996,7 +2996,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %15
   %33 = add nsw i32 %28, 1
   %34 = icmp sgt i32 %28, -1
   %35 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   %or.cond.i.i.i.i.i.i = select i1 %34, i1 %36, i1 false
   %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %38 = sub nuw nsw i32 32, %37
@@ -4647,7 +4647,7 @@ define linkonce_odr hidden void @_ZN12methodHandleC2EP6ThreadP6Method(ptr nounde
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -5388,8 +5388,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit4: ; preds = %_ZN11Mutex
   %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %13, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_ENKUlRS1_RS3_E_clESH_SI_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx20.i.i, 8
   %14 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %15 = icmp ult i64 %.0.idx20.i.i, 1104
-  %or.cond.i.i = and i1 %15, %14
+  %15 = icmp samesign ult i64 %.0.idx20.i.i, 1104
+  %or.cond.i.i = select i1 %14, i1 %15, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_.exit", !llvm.loop !17
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11iterate_allIZN16SystemDictionary10methods_doEPFvS3_EE3$_0EEvT_.exit": ; preds = %._crit_edge.i.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit4
@@ -7247,7 +7247,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %31, %29
   %42 = add nsw i32 %37, 1
   %43 = icmp sgt i32 %37, -1
   %44 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %42)
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp samesign ult i32 %44, 2
   %or.cond.i.i.i.i.i.i = select i1 %43, i1 %45, i1 false
   %46 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %47 = sub nuw nsw i32 32, %46
@@ -11408,7 +11408,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

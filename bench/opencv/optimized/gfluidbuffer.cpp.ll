@@ -588,7 +588,7 @@ common.resume.i:                                  ; preds = %35, %33, %25, %23
   %28 = and i32 %17, 7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %29 = icmp ult i32 %28, 6
+  %29 = icmp samesign ult i32 %28, 6
   br i1 %29, label %switch.hole_check, label %30
 
 30:                                               ; preds = %switch.hole_check, %27

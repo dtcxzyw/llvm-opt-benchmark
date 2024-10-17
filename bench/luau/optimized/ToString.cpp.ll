@@ -5565,7 +5565,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i, label %_ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_4TypeESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !21
 
 _ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_4TypeESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_IKS4_SB_ENS0_16ItemInterfaceMapIS4_SB_EENS_16DenseHashPointerESt8equal_toIS4_EE8iteratorppEv.exit.i.i.i
-  %25 = icmp ugt i64 %.06.i.i.i, 230584300921369394
+  %25 = icmp samesign ugt i64 %.06.i.i.i, 230584300921369394
   br i1 %25, label %26, label %_ZNSt16allocator_traitsISaISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERSC_m.exit.i.i
 
 26:                                               ; preds = %_ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_4TypeESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i
@@ -5661,7 +5661,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarESt4pairIS4_NSt7__cxx1112basic
   br i1 %.not.i.i.i, label %_ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_11TypePackVarESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !23
 
 _ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_11TypePackVarESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarESt4pairIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES5_IKS4_SB_ENS0_16ItemInterfaceMapIS4_SB_EENS_16DenseHashPointerESt8equal_toIS4_EE8iteratorppEv.exit.i.i.i
-  %25 = icmp ugt i64 %.06.i.i.i, 230584300921369394
+  %25 = icmp samesign ugt i64 %.06.i.i.i, 230584300921369394
   br i1 %25, label %26, label %_ZNSt16allocator_traitsISaISt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8allocateERSC_m.exit.i.i
 
 26:                                               ; preds = %_ZSt8distanceIN4Luau6detail14DenseHashTableIPKNS0_11TypePackVarESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEENSt15iterator_traitsIT_E15difference_typeESO_SO_.exit.i
@@ -8052,7 +8052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -8862,7 +8862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -10647,7 +10647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

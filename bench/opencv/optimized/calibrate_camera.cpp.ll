@@ -2336,7 +2336,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit198: ; preds = %.noexc196, %6
   %773 = and i32 %spec.select156, 4
   %.not12.i = icmp eq i32 %773, 0
   %774 = select i1 %.not12.i, ptr @.str.32, ptr @.str.34
-  %.not13.i = icmp ult i32 %spec.select156, 8
+  %.not13.i = icmp samesign ult i32 %spec.select156, 8
   %775 = select i1 %.not13.i, ptr @.str.32, ptr @.str.35
   %776 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %772, ptr noundef nonnull %770, ptr noundef nonnull %774, ptr noundef nonnull %775) #19
   br label %777

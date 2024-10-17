@@ -5421,7 +5421,7 @@ define internal range(i64 0, 21) i64 @rb_reg_match_m_p(i32 noundef %0, ptr nocap
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %6 = icmp ugt i32 %0, 1
+  %6 = icmp samesign ugt i32 %0, 1
   br i1 %6, label %7, label %rb_num2long_inline.exit
 
 7:                                                ; preds = %rb_check_arity.exit
@@ -7015,7 +7015,7 @@ rb_array_len.exit40:                              ; preds = %65
 rb_array_len.exit40.thread:                       ; preds = %65
   %70 = lshr i64 %66, 15
   %71 = and i64 %70, 127
-  %72 = icmp ult i64 %.034, %71
+  %72 = icmp samesign ult i64 %.034, %71
   br i1 %72, label %RARRAY_AREF.exit, label %name_to_backref_number.exit.thread52
 
 73:                                               ; preds = %rb_array_len.exit40
@@ -9057,7 +9057,7 @@ rbimpl_size_mul_or_raise.exit:
   br label %.loopexit
 
 34:                                               ; preds = %.critedge
-  %35 = icmp ugt i32 %.044.lcssa, 1
+  %35 = icmp samesign ugt i32 %.044.lcssa, 1
   br i1 %35, label %38, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %34

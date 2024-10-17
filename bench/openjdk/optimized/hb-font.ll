@@ -8752,7 +8752,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   br i1 %12, label %13, label %38
 
 13:                                               ; preds = %4
@@ -9587,7 +9587,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   %52 = shl nuw nsw i32 %50, 2
   %53 = or disjoint i32 %52, %51
   %54 = add nuw nsw i32 %53, 4
-  %.not13 = icmp ult i32 %44, %54
+  %.not13 = icmp samesign ult i32 %44, %54
   br i1 %.not13, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread, label %55
 
 55:                                               ; preds = %36
@@ -10032,7 +10032,7 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   %.pre-phi46 = phi i32 [ %.pre45, %._crit_edge.loopexit ], [ %19, %25 ]
   %.026.lcssa = phi ptr [ %64, %._crit_edge.loopexit ], [ %21, %25 ]
-  %66 = icmp ult i32 %.pre-phi46, 2
+  %66 = icmp samesign ult i32 %.pre-phi46, 2
   br i1 %66, label %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %67
 
 67:                                               ; preds = %._crit_edge
@@ -10532,7 +10532,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %70 = load i8, ptr %44, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp ugt i32 %66, %72
+  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
   br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %58

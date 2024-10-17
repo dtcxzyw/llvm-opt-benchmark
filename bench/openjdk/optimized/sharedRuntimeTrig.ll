@@ -44,12 +44,12 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %.sroa.0.4.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
   %4 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
-  %5 = icmp ult i32 %4, 1072243196
+  %5 = icmp samesign ult i32 %4, 1072243196
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %1
   %7 = and i64 %3, 9205357638345293824
-  %8 = icmp ult i64 %7, 4485585228861014016
+  %8 = icmp samesign ult i64 %7, 4485585228861014016
   %9 = fptosi double %0 to i32
   %10 = icmp eq i32 %9, 0
   %or.cond.i = select i1 %8, i1 %10, i1 false
@@ -73,7 +73,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   br label %_ZL12__kernel_sinddi.exit
 
 26:                                               ; preds = %1
-  %27 = icmp ugt i32 %4, 2146435071
+  %27 = icmp samesign ugt i32 %4, 2146435071
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -94,7 +94,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
 34:                                               ; preds = %30
   %35 = bitcast double %33 to i64
   %36 = and i64 %35, 9205357638345293824
-  %37 = icmp ult i64 %36, 4485585228861014016
+  %37 = icmp samesign ult i64 %36, 4485585228861014016
   %38 = fptosi double %33 to i32
   %39 = icmp eq i32 %38, 0
   %or.cond.i11 = select i1 %37, i1 %39, i1 false
@@ -130,7 +130,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %.sroa.0.4.extract.shift.i.i = lshr i64 %64, 32
   %.sroa.0.4.extract.trunc.i.i = trunc nuw i64 %.sroa.0.4.extract.shift.i.i to i32
   %65 = and i32 %.sroa.0.4.extract.trunc.i.i, 2147483647
-  %66 = icmp ult i32 %65, 1044381696
+  %66 = icmp samesign ult i32 %65, 1044381696
   %67 = fptosi double %33 to i32
   %68 = icmp eq i32 %67, 0
   %or.cond.i14 = select i1 %66, i1 %68, i1 false
@@ -149,7 +149,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %79 = fmul double %70, %78
   %80 = fadd double %79, 0x3FA555555555554C
   %81 = fmul double %70, %80
-  %82 = icmp ult i32 %65, 1070805811
+  %82 = icmp samesign ult i32 %65, 1070805811
   br i1 %82, label %83, label %90
 
 83:                                               ; preds = %69
@@ -162,7 +162,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   br label %_ZL12__kernel_sinddi.exit
 
 90:                                               ; preds = %69
-  %91 = icmp ugt i32 %65, 1072234496
+  %91 = icmp samesign ugt i32 %65, 1072234496
   %92 = add nsw i32 %65, -2097152
   %.sroa.0.4.insert.ext.i.i = zext nneg i32 %92 to i64
   %.sroa.0.4.insert.shift.i.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i, 32
@@ -181,7 +181,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
 102:                                              ; preds = %30
   %103 = bitcast double %33 to i64
   %104 = and i64 %103, 9205357638345293824
-  %105 = icmp ult i64 %104, 4485585228861014016
+  %105 = icmp samesign ult i64 %104, 4485585228861014016
   %106 = fptosi double %33 to i32
   %107 = icmp eq i32 %106, 0
   %or.cond.i16 = select i1 %105, i1 %107, i1 false
@@ -225,7 +225,7 @@ default.unreachable27:                            ; preds = %30
   %.sroa.0.4.extract.shift.i.i19 = lshr i64 %133, 32
   %.sroa.0.4.extract.trunc.i.i20 = trunc nuw i64 %.sroa.0.4.extract.shift.i.i19 to i32
   %134 = and i32 %.sroa.0.4.extract.trunc.i.i20, 2147483647
-  %135 = icmp ult i32 %134, 1044381696
+  %135 = icmp samesign ult i32 %134, 1044381696
   %136 = fptosi double %33 to i32
   %137 = icmp eq i32 %136, 0
   %or.cond.i21 = select i1 %135, i1 %137, i1 false
@@ -244,7 +244,7 @@ default.unreachable27:                            ; preds = %30
   %148 = fmul double %139, %147
   %149 = fadd double %148, 0x3FA555555555554C
   %150 = fmul double %139, %149
-  %151 = icmp ult i32 %134, 1070805811
+  %151 = icmp samesign ult i32 %134, 1070805811
   br i1 %151, label %152, label %159
 
 152:                                              ; preds = %138
@@ -257,7 +257,7 @@ default.unreachable27:                            ; preds = %30
   br label %_ZL12__kernel_cosdd.exit26
 
 159:                                              ; preds = %138
-  %160 = icmp ugt i32 %134, 1072234496
+  %160 = icmp samesign ugt i32 %134, 1072234496
   %161 = add nsw i32 %134, -2097152
   %.sroa.0.4.insert.ext.i.i22 = zext nneg i32 %161 to i64
   %.sroa.0.4.insert.shift.i.i23 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i22, 32
@@ -294,7 +294,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %.4.extract.shift = lshr i64 %8, 32
   %.4.extract.trunc = trunc nuw i64 %.4.extract.shift to i32
   %9 = and i32 %.4.extract.trunc, 2147483647
-  %10 = icmp ult i32 %9, 1072243196
+  %10 = icmp samesign ult i32 %9, 1072243196
   %indvars.iv.sroa.gep202 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %10, label %11, label %13
 
@@ -305,7 +305,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %413
 
 13:                                               ; preds = %2
-  %14 = icmp ult i32 %9, 1073928572
+  %14 = icmp samesign ult i32 %9, 1073928572
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %13
@@ -360,7 +360,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %413
 
 43:                                               ; preds = %13
-  %44 = icmp ult i32 %9, 1094263292
+  %44 = icmp samesign ult i32 %9, 1094263292
   br i1 %44, label %45, label %101
 
 45:                                               ; preds = %43
@@ -453,7 +453,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %413
 
 101:                                              ; preds = %43
-  %102 = icmp ugt i32 %9, 2146435071
+  %102 = icmp samesign ugt i32 %9, 2146435071
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %101
@@ -839,7 +839,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   br i1 %266, label %.preheader15.i, label %.critedge271.i
 
 .preheader15.i:                                   ; preds = %.thread6.i
-  %267 = icmp ugt i32 %.0231.i, 4
+  %267 = icmp samesign ugt i32 %.0231.i, 4
   br i1 %267, label %.lr.ph44.i, label %.preheader14.i.preheader
 
 .preheader14.i.preheader:                         ; preds = %._crit_edge45.i, %.preheader15.i
@@ -910,7 +910,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %294 = getelementptr inbounds [20 x double], ptr %6, i64 0, i64 %indvars.iv.next133.i
   store double %.1.lcssa.i, ptr %294, align 8
   %295 = trunc nsw i64 %indvars.iv.next133.i to i32
-  %.not266.not.i = icmp ugt i32 %279, %295
+  %.not266.not.i = icmp samesign ugt i32 %279, %295
   br i1 %.not266.not.i, label %281, label %.loopexit13.loopexit.i, !llvm.loop !12
 
 296:                                              ; preds = %296, %.preheader11.i
@@ -1199,11 +1199,11 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %.sroa.0.4.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
   %4 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
-  %5 = icmp ult i32 %4, 1072243196
+  %5 = icmp samesign ult i32 %4, 1072243196
   br i1 %5, label %6, label %43
 
 6:                                                ; preds = %1
-  %7 = icmp ult i32 %4, 1044381696
+  %7 = icmp samesign ult i32 %4, 1044381696
   %8 = fptosi double %0 to i32
   %9 = icmp eq i32 %8, 0
   %or.cond.i = select i1 %7, i1 %9, i1 false
@@ -1222,7 +1222,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %20 = fmul double %11, %19
   %21 = fadd double %20, 0x3FA555555555554C
   %22 = fmul double %11, %21
-  %23 = icmp ult i32 %4, 1070805811
+  %23 = icmp samesign ult i32 %4, 1070805811
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %10
@@ -1235,7 +1235,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   br label %_ZL12__kernel_cosdd.exit
 
 31:                                               ; preds = %10
-  %32 = icmp ugt i32 %4, 1072234496
+  %32 = icmp samesign ugt i32 %4, 1072234496
   %33 = add nsw i32 %4, -2097152
   %.sroa.0.4.insert.ext.i.i = zext nneg i32 %33 to i64
   %.sroa.0.4.insert.shift.i.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i, 32
@@ -1252,7 +1252,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   br label %_ZL12__kernel_cosdd.exit
 
 43:                                               ; preds = %1
-  %44 = icmp ugt i32 %4, 2146435071
+  %44 = icmp samesign ugt i32 %4, 2146435071
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -1277,7 +1277,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %.sroa.0.4.extract.shift.i.i11 = lshr i64 %54, 32
   %.sroa.0.4.extract.trunc.i.i12 = trunc nuw i64 %.sroa.0.4.extract.shift.i.i11 to i32
   %55 = and i32 %.sroa.0.4.extract.trunc.i.i12, 2147483647
-  %56 = icmp ult i32 %55, 1044381696
+  %56 = icmp samesign ult i32 %55, 1044381696
   %57 = fptosi double %50 to i32
   %58 = icmp eq i32 %57, 0
   %or.cond.i13 = select i1 %56, i1 %58, i1 false
@@ -1296,7 +1296,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %69 = fmul double %60, %68
   %70 = fadd double %69, 0x3FA555555555554C
   %71 = fmul double %60, %70
-  %72 = icmp ult i32 %55, 1070805811
+  %72 = icmp samesign ult i32 %55, 1070805811
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %59
@@ -1309,7 +1309,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   br label %_ZL12__kernel_cosdd.exit
 
 80:                                               ; preds = %59
-  %81 = icmp ugt i32 %55, 1072234496
+  %81 = icmp samesign ugt i32 %55, 1072234496
   %82 = add nsw i32 %55, -2097152
   %.sroa.0.4.insert.ext.i.i14 = zext nneg i32 %82 to i64
   %.sroa.0.4.insert.shift.i.i15 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i14, 32
@@ -1328,7 +1328,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
 92:                                               ; preds = %47
   %93 = bitcast double %50 to i64
   %94 = and i64 %93, 9205357638345293824
-  %95 = icmp ult i64 %94, 4485585228861014016
+  %95 = icmp samesign ult i64 %94, 4485585228861014016
   %96 = fptosi double %50 to i32
   %97 = icmp eq i32 %96, 0
   %or.cond.i19 = select i1 %95, i1 %97, i1 false
@@ -1369,7 +1369,7 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   %.sroa.0.4.extract.shift.i.i21 = lshr i64 %123, 32
   %.sroa.0.4.extract.trunc.i.i22 = trunc nuw i64 %.sroa.0.4.extract.shift.i.i21 to i32
   %124 = and i32 %.sroa.0.4.extract.trunc.i.i22, 2147483647
-  %125 = icmp ult i32 %124, 1044381696
+  %125 = icmp samesign ult i32 %124, 1044381696
   %126 = fptosi double %50 to i32
   %127 = icmp eq i32 %126, 0
   %or.cond.i23 = select i1 %125, i1 %127, i1 false
@@ -1388,7 +1388,7 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   %138 = fmul double %129, %137
   %139 = fadd double %138, 0x3FA555555555554C
   %140 = fmul double %129, %139
-  %141 = icmp ult i32 %124, 1070805811
+  %141 = icmp samesign ult i32 %124, 1070805811
   br i1 %141, label %142, label %149
 
 142:                                              ; preds = %128
@@ -1401,7 +1401,7 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   br label %_ZL12__kernel_cosdd.exit28
 
 149:                                              ; preds = %128
-  %150 = icmp ugt i32 %124, 1072234496
+  %150 = icmp samesign ugt i32 %124, 1072234496
   %151 = add nsw i32 %124, -2097152
   %.sroa.0.4.insert.ext.i.i24 = zext nneg i32 %151 to i64
   %.sroa.0.4.insert.shift.i.i25 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i24, 32
@@ -1428,7 +1428,7 @@ default.unreachable32:                            ; preds = %47
 162:                                              ; preds = %47
   %163 = bitcast double %50 to i64
   %164 = and i64 %163, 9205357638345293824
-  %165 = icmp ult i64 %164, 4485585228861014016
+  %165 = icmp samesign ult i64 %164, 4485585228861014016
   %166 = fptosi double %50 to i32
   %167 = icmp eq i32 %166, 0
   %or.cond.i29 = select i1 %165, i1 %167, i1 false
@@ -1469,7 +1469,7 @@ define hidden noundef double @_ZN13SharedRuntime4dtanEd(double noundef %0) local
   %.sroa.0.4.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
   %4 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
-  %5 = icmp ult i32 %4, 1072243196
+  %5 = icmp samesign ult i32 %4, 1072243196
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
@@ -1477,7 +1477,7 @@ define hidden noundef double @_ZN13SharedRuntime4dtanEd(double noundef %0) local
   br label %21
 
 8:                                                ; preds = %1
-  %9 = icmp ugt i32 %4, 2146435071
+  %9 = icmp samesign ugt i32 %4, 2146435071
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
@@ -1506,7 +1506,7 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   %.sroa.0.4.extract.shift.i = lshr i64 %4, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
   %5 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
-  %6 = icmp ult i32 %5, 1043333120
+  %6 = icmp samesign ult i32 %5, 1043333120
   %7 = fptosi double %0 to i32
   %8 = icmp eq i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
@@ -1549,7 +1549,7 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   br label %105
 
 34:                                               ; preds = %3
-  %35 = icmp ugt i32 %5, 1072010279
+  %35 = icmp samesign ugt i32 %5, 1072010279
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %34

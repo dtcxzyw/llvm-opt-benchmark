@@ -196,7 +196,7 @@ HUF_compressWeights.exit:                         ; preds = %72
   %gep = getelementptr inbounds i8, ptr %36, i64 %106
   store i8 %105, ptr %gep, align 1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
-  %107 = icmp ult i64 %indvars.iv.next81, %39
+  %107 = icmp samesign ult i64 %indvars.iv.next81, %39
   br i1 %107, label %.lr.ph72, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph72, %95, %HUF_compressWeights.exit.thread, %89, %87, %HUF_compressWeights.exit, %._crit_edge, %15, %7, %84
@@ -955,7 +955,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %253, %HUF_buildTree.exit, %.preheader106.i
   %.0.i31 = phi i32 [ %141, %HUF_buildTree.exit ], [ %spec.store.select, %.preheader106.i ], [ %spec.store.select, %253 ], [ %spec.store.select, %.outer.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  %260 = icmp ugt i32 %.0.i31, 12
+  %260 = icmp samesign ugt i32 %.0.i31, 12
   br i1 %260, label %297, label %261
 
 261:                                              ; preds = %HUF_setMaxHeight.exit
@@ -2963,7 +2963,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %51 = call i32 @HIST_count_simple(ptr noundef %.0.i, ptr noundef nonnull %15, ptr noundef nonnull %50, i64 noundef 4096) #13
   %52 = zext i32 %51 to i64
   %53 = add nuw nsw i64 %52, %47
-  %54 = icmp ult i64 %53, 69
+  %54 = icmp samesign ult i64 %53, 69
   br i1 %54, label %138, label %55
 
 55:                                               ; preds = %45, %41

@@ -1999,7 +1999,7 @@ _ZN12_GLOBAL__N_111SSACCmpConv14updateTailPHIsEv.exit.i.i: ; preds = %_ZN4llvm26
   %731 = zext i32 %721 to i64
   %732 = and i64 %729, 4294967295
   %733 = add nuw nsw i64 %732, %731
-  %734 = icmp ugt i64 %733, 2147483648
+  %734 = icmp samesign ugt i64 %733, 2147483648
   %735 = add i32 %721, %730
   %spec.select.i.i.i.i = select i1 %734, i32 -2147483648, i32 %735
   call void @_ZN4llvm17MachineBasicBlock18setSuccProbabilityEPPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %722, ptr noundef %724, i32 %spec.select.i.i.i.i) #17

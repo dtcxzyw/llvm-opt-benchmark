@@ -5366,7 +5366,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit22.t
 
 89:                                               ; preds = %77
   %90 = udiv i64 %86, 40
-  %91 = icmp ugt i64 %82, %90
+  %91 = icmp samesign ugt i64 %82, %90
   br i1 %91, label %.sink.split, label %92
 
 .sink.split:                                      ; preds = %89, %87
@@ -14744,7 +14744,7 @@ _ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit: ;
   %73 = load i32, ptr %11, align 8
   %74 = select i1 %.not.i.i, i32 %73, i32 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %72, %75
+  %76 = icmp samesign ult i64 %72, %75
   br i1 %76, label %15, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit, %2
@@ -29892,7 +29892,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN4llvm15DomTreeNodeBaseINS0
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

@@ -109,7 +109,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nr_vectors)
-  %tobool2.not = icmp ult i32 %1, 2
+  %tobool2.not = icmp samesign ult i32 %1, 2
   br i1 %tobool2.not, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %do.end
@@ -663,7 +663,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %11 = and i16 %10, 7
   %shr.i.i = zext nneg i16 %11 to i32
   %shl.i.i = shl nuw nsw i32 1, %shr.i.i
-  %cmp.i50 = icmp ult i32 %vector.0114, %shl.i.i
+  %cmp.i50 = icmp samesign ult i32 %vector.0114, %shl.i.i
   br i1 %cmp.i50, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
@@ -758,7 +758,7 @@ if.end27:                                         ; preds = %if.end22
   %shr = and i32 %and29, 7
   %and33 = lshr i32 %conv2, 1
   %shr35 = and i32 %and33, 7
-  %cmp39 = icmp ugt i32 %shr, %shr35
+  %cmp39 = icmp samesign ugt i32 %shr, %shr35
   br i1 %cmp39, label %if.then41, label %if.end54
 
 if.then41:                                        ; preds = %if.end27

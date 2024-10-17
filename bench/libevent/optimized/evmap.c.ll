@@ -144,7 +144,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %do.body10, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp4.i = icmp ugt i32 %fd, 1073741823
+  %cmp4.i = icmp samesign ugt i32 %fd, 1073741823
   br i1 %cmp4.i, label %return, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then.i
@@ -255,10 +255,10 @@ if.end27:                                         ; preds = %if.end23, %do.body1
   %inc85 = zext nneg i16 %.lobit67 to i32
   %nclose.0 = add nuw nsw i32 %inc85, %conv37
   %res.2 = select i1 %tobool83.not.not, i16 %res.1, i16 %spec.select62
-  %cmp94 = icmp ugt i32 %nread.0, 65535
-  %cmp96 = icmp ugt i32 %nwrite.0, 65535
+  %cmp94 = icmp samesign ugt i32 %nread.0, 65535
+  %cmp96 = icmp samesign ugt i32 %nwrite.0, 65535
   %or.cond = select i1 %cmp94, i1 true, i1 %cmp96
-  %cmp98 = icmp ugt i32 %nclose.0, 65535
+  %cmp98 = icmp samesign ugt i32 %nclose.0, 65535
   %spec.select63 = select i1 %or.cond, i1 true, i1 %cmp98
   br i1 %spec.select63, label %if.then106, label %if.end107
 

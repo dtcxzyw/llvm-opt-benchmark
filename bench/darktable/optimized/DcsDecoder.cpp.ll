@@ -354,7 +354,7 @@ define hidden void @_ZN8rawspeed10DcsDecoder17decodeRawInternalEv(ptr dead_on_un
   %57 = getelementptr inbounds i8, ptr %1, i64 40
   %58 = load i32, ptr %57, align 8, !tbaa !74
   %59 = zext i32 %58 to i64
-  %60 = icmp ugt i64 %56, %59
+  %60 = icmp samesign ugt i64 %56, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %49
@@ -370,7 +370,7 @@ define hidden void @_ZN8rawspeed10DcsDecoder17decodeRawInternalEv(ptr dead_on_un
   %66 = icmp sgt i32 %58, -1
   call void @llvm.assume(i1 %66)
   %67 = add nuw nsw i32 %53, %51
-  %68 = icmp ule i32 %67, %58
+  %68 = icmp samesign ule i32 %67, %58
   call void @llvm.assume(i1 %68)
   %69 = icmp sgt i32 %51, -1
   call void @llvm.assume(i1 %69)

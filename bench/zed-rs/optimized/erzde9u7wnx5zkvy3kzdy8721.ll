@@ -809,7 +809,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h28fe718e75dff75bE.exit.i"
 
 21:                                               ; preds = %16
@@ -896,7 +896,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
-  %15 = icmp ugt i64 %.val, %9
+  %15 = icmp samesign ugt i64 %.val, %9
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6c5608414c9f75c6E.exit.i"
 
 16:                                               ; preds = %11
@@ -995,7 +995,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h523fff922857452cE.exit.i"
 
 21:                                               ; preds = %16
@@ -2026,7 +2026,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 5
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hec82438a2433604bE.exit.i"
 
 30:                                               ; preds = %19
@@ -2149,7 +2149,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.59.0.copyload = load i64, ptr %.sroa.59.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !661)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !664)
-  %19 = icmp ugt i64 %10, %13
+  %19 = icmp samesign ugt i64 %10, %13
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb3fec202f24a6f39E.exit.i"
 
 20:                                               ; preds = %15
@@ -2401,7 +2401,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %39 = sub nuw i64 %37, %38
   %40 = lshr exact i64 %39, 4
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %40)
-  %41 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %23
+  %41 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %23
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h51393be0f4652679E.exit.i"
 
 42:                                               ; preds = %25
@@ -2545,7 +2545,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = udiv exact i64 %27, 88
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h712e444eac0ca66bE.exit.i"
 
 30:                                               ; preds = %19
@@ -3233,7 +3233,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 5
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9918fa7e0eb3e9e1E.exit.i"
 
 30:                                               ; preds = %19
@@ -19755,7 +19755,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 42:                                               ; preds = %.lr.ph143, %52
   %43 = phi i64 [ 0, %.lr.ph143 ], [ %53, %52 ]
   %.sroa.6.0141 = phi i64 [ 0, %.lr.ph143 ], [ %46, %52 ]
-  %44 = icmp ult i64 %.sroa.6.0141, 11
+  %44 = icmp samesign ult i64 %.sroa.6.0141, 11
   call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds { [3 x i64] }, ptr %41, i64 %.sroa.6.0141
   %46 = add nuw nsw i64 %.sroa.6.0141, 1
@@ -19787,7 +19787,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %53, ptr %37, align 8
   %54 = load i16, ptr %39, align 2, !noundef !11
   %55 = zext i16 %54 to i64
-  %.not132 = icmp ult i64 %46, %55
+  %.not132 = icmp samesign ult i64 %46, %55
   br i1 %.not132, label %42, label %._crit_edge144
 
 56:                                               ; preds = %47
@@ -19901,7 +19901,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 82:                                               ; preds = %.lr.ph, %103
   %.sroa.7.0139 = phi i64 [ 0, %.lr.ph ], [ %85, %103 ]
-  %83 = icmp ult i64 %.sroa.7.0139, 11
+  %83 = icmp samesign ult i64 %.sroa.7.0139, 11
   call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds { [3 x i64] }, ptr %80, i64 %.sroa.7.0139
   %85 = add nuw nsw i64 %.sroa.7.0139, 1
@@ -19981,7 +19981,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %107 = load i16, ptr %78, align 2, !noundef !11
   %108 = zext i16 %107 to i64
-  %.not = icmp ult i64 %85, %108
+  %.not = icmp samesign ult i64 %85, %108
   br i1 %.not, label %82, label %._crit_edge
 
 .loopexit133:                                     ; preds = %95
@@ -20110,7 +20110,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 38:                                               ; preds = %.lr.ph132, %46
   %39 = phi i64 [ 0, %.lr.ph132 ], [ %47, %46 ]
   %.sroa.6.0130 = phi i64 [ 0, %.lr.ph132 ], [ %42, %46 ]
-  %40 = icmp ult i64 %.sroa.6.0130, 11
+  %40 = icmp samesign ult i64 %.sroa.6.0130, 11
   call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds { [3 x i64] }, ptr %37, i64 %.sroa.6.0130
   %42 = add nuw nsw i64 %.sroa.6.0130, 1
@@ -20135,7 +20135,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %47, ptr %33, align 8
   %48 = load i16, ptr %35, align 2, !noundef !11
   %49 = zext i16 %48 to i64
-  %.not121 = icmp ult i64 %42, %49
+  %.not121 = icmp samesign ult i64 %42, %49
   br i1 %.not121, label %38, label %._crit_edge133
 
 50:                                               ; preds = %77, %98, %.body, %27
@@ -20242,7 +20242,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 73:                                               ; preds = %.lr.ph, %92
   %.sroa.7.0128 = phi i64 [ 0, %.lr.ph ], [ %76, %92 ]
-  %74 = icmp ult i64 %.sroa.7.0128, 11
+  %74 = icmp samesign ult i64 %.sroa.7.0128, 11
   call void @llvm.assume(i1 %74)
   %75 = getelementptr inbounds { [3 x i64] }, ptr %71, i64 %.sroa.7.0128
   %76 = add nuw nsw i64 %.sroa.7.0128, 1
@@ -20312,7 +20312,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %96 = load i16, ptr %69, align 2, !noundef !11
   %97 = zext i16 %96 to i64
-  %.not = icmp ult i64 %76, %97
+  %.not = icmp samesign ult i64 %76, %97
   br i1 %.not, label %73, label %._crit_edge
 
 .loopexit122:                                     ; preds = %85
@@ -20421,7 +20421,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 43:                                               ; preds = %.lr.ph155, %67
   %44 = phi i64 [ 0, %.lr.ph155 ], [ %68, %67 ]
   %.sroa.6.0153 = phi i64 [ 0, %.lr.ph155 ], [ %48, %67 ]
-  %45 = icmp ult i64 %.sroa.6.0153, 11
+  %45 = icmp samesign ult i64 %.sroa.6.0153, 11
   call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds { [3 x i64] }, ptr %40, i64 %.sroa.6.0153
   %47 = getelementptr inbounds { [9 x i64] }, ptr %41, i64 %.sroa.6.0153
@@ -20500,7 +20500,7 @@ default.unreachable:                              ; preds = %102, %49
   store i64 %68, ptr %36, align 8
   %69 = load i16, ptr %38, align 2, !noundef !11
   %70 = zext i16 %69 to i64
-  %.not144 = icmp ult i64 %48, %70
+  %.not144 = icmp samesign ult i64 %48, %70
   br i1 %.not144, label %43, label %._crit_edge156
 
 71:                                               ; preds = %58, %60, %65
@@ -20615,7 +20615,7 @@ default.unreachable:                              ; preds = %102, %49
 
 97:                                               ; preds = %.lr.ph, %133
   %.sroa.7.0151 = phi i64 [ 0, %.lr.ph ], [ %101, %133 ]
-  %98 = icmp ult i64 %.sroa.7.0151, 11
+  %98 = icmp samesign ult i64 %.sroa.7.0151, 11
   call void @llvm.assume(i1 %98)
   %99 = getelementptr inbounds { [3 x i64] }, ptr %93, i64 %.sroa.7.0151
   %100 = getelementptr inbounds { [9 x i64] }, ptr %94, i64 %.sroa.7.0151
@@ -20738,7 +20738,7 @@ default.unreachable:                              ; preds = %102, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %137 = load i16, ptr %91, align 2, !noundef !11
   %138 = zext i16 %137 to i64
-  %.not = icmp ult i64 %101, %138
+  %.not = icmp samesign ult i64 %101, %138
   br i1 %.not, label %97, label %._crit_edge
 
 .loopexit145:                                     ; preds = %126

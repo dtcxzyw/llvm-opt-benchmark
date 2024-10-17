@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   %65 = zext i16 %64 to i64
   %66 = mul nuw nsw i64 %65, 12
   %67 = add nuw nsw i64 %66, 24
-  %68 = icmp ugt i64 %67, %35
+  %68 = icmp samesign ugt i64 %67, %35
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %62
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br label %.loopexit
 
 110:                                              ; preds = %94
-  %111 = icmp ugt i64 %99, %35
+  %111 = icmp samesign ugt i64 %99, %35
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %110
@@ -286,7 +286,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   %138 = zext i32 %137 to i64
   %139 = mul nuw nsw i64 %138, 24
   %140 = add nuw nsw i64 %139, %99
-  %141 = icmp ugt i64 %140, %35
+  %141 = icmp samesign ugt i64 %140, %35
   br i1 %141, label %142, label %152
 
 142:                                              ; preds = %135

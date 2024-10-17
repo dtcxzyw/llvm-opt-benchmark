@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7Compil
   %.13248 = phi ptr [ %.03154, %.lr.ph50 ], [ %.233, %.loopexit ]
   %29 = load i32, ptr %26, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv62, %30
+  %31 = icmp samesign ult i64 %indvars.iv62, %30
   br i1 %31, label %32, label %_ZNK5Block8get_nodeEj.exit
 
 32:                                               ; preds = %28
@@ -191,7 +191,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %.5 = phi i32 [ %.446, %69 ], [ %80, %73 ], [ %.446, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %63, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %81, %.preheader, %41, %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread, %_ZNK5Block8get_nodeEj.exit
@@ -200,7 +200,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %85 = load i32, ptr %24, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next63, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next63, %86
   br i1 %87, label %28, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -213,7 +213,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %.1.lcssa = phi i32 [ %.055, %19 ], [ %.2, %._crit_edge.loopexit ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next66, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next66, %89
   br i1 %90, label %19, label %._crit_edge58, !llvm.loop !9
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %3

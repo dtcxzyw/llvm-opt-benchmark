@@ -2435,7 +2435,7 @@ ue_dup.exit.thread:                               ; preds = %38, %ue_dup.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr @num_ueas, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %61, %0
@@ -4776,7 +4776,7 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nocapt
   %16 = load ptr, ptr %7, align 8
   call void @gcry_md_write(ptr noundef %16, ptr noundef nonnull %8, i64 noundef 64) #11
   %17 = add nuw nsw i32 %.02332.us, 64
-  %18 = icmp ult i32 %.02332.us, 1048512
+  %18 = icmp samesign ult i32 %.02332.us, 1048512
   br i1 %18, label %.split.us, label %.split34.us, !llvm.loop !21
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
@@ -4801,7 +4801,7 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nocapt
   %26 = load ptr, ptr %7, align 8
   call void @gcry_md_write(ptr noundef %26, ptr noundef nonnull %8, i64 noundef 64) #11
   %27 = add nuw nsw i32 %.02332, 64
-  %28 = icmp ult i32 %.02332, 1048512
+  %28 = icmp samesign ult i32 %.02332, 1048512
   br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !21
 
 .split34.us:                                      ; preds = %.loopexit, %.split.us

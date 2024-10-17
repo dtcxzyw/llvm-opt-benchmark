@@ -671,7 +671,7 @@ read_models.exit:                                 ; preds = %32
   store i64 %115, ptr %.sroa.5.0..sroa_idx.i, align 8
   %118 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 1024, ptr noundef nonnull %15)
   %.not15.i = icmp ne ptr %118, null
-  %.not16.i = icmp ult i64 %116, %29
+  %.not16.i = icmp samesign ult i64 %116, %29
   %or.cond.i = select i1 %.not15.i, i1 %.not16.i, i1 false
   br i1 %or.cond.i, label %.lr.ph.i34, label %.thread, !llvm.loop !13
 

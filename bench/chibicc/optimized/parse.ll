@@ -723,7 +723,7 @@ land.lhs.true:                                    ; preds = %if.end26
   %27 = load i8, ptr %is_tls, align 4
   %28 = and i8 %27, 1
   %narrow30 = add nuw nsw i8 %narrow29, %28
-  %cmp = icmp ugt i8 %narrow30, 1
+  %cmp = icmp samesign ugt i8 %narrow30, 1
   br i1 %cmp, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %land.lhs.true

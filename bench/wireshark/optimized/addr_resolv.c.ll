@@ -1330,7 +1330,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %44 = load i32, ptr @ndnsservers, align 4
   %45 = add i32 %44, -1
   %46 = zext i32 %45 to i64
-  %.not = icmp ult i64 %indvars.iv.next, %46
+  %.not = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %35, %13
@@ -2648,7 +2648,7 @@ initialize_enterprises.exit:                      ; preds = %142, %146, %149
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next.i, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next.i, %207
   br i1 %208, label %.lr.ph.i5, label %.loopexit.i.preheader, !llvm.loop !22
 
 .loopexit.i.preheader:                            ; preds = %.lr.ph.i5, %.preheader.i, %195
@@ -5773,7 +5773,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
   %50 = getelementptr i8, ptr %43, i64 %49
   %51 = sub i32 64, %44
   %52 = sext i32 %51 to i64
-  %53 = icmp ugt i32 %42, 3
+  %53 = icmp samesign ugt i32 %42, 3
   %54 = select i1 %53, ptr @.str.68, ptr @.str.69
   %55 = zext nneg i32 %41 to i64
   %56 = getelementptr i8, ptr %3, i64 %55
@@ -5811,7 +5811,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
   %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %69, i64 noundef %71, ptr noundef nonnull @.str.70, i32 noundef %74) #20
   %76 = add i32 %75, %.146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = icmp ugt i64 %indvars.iv, 4
+  %77 = icmp samesign ugt i64 %indvars.iv, 4
   %78 = icmp sgt i32 %76, 63
   %or.cond = or i1 %77, %78
   br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !42

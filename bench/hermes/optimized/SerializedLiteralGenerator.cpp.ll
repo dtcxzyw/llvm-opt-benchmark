@@ -186,7 +186,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit132
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i.i = icmp ult i64 %sub.i.i, 4
+  %cmp.i.i.i = icmp samesign ult i64 %sub.i.i, 4
   br i1 %cmp.i.i.i, label %if.then.i.i.i131, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i131:                                 ; preds = %if.else.i.i
@@ -263,7 +263,7 @@ if.then.i.i.i.i.i153:                             ; preds = %if.then.i144
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit182
 
 if.else.i.i161:                                   ; preds = %if.then.i144
-  %cmp.i.i.i162 = icmp ult i64 %sub.i.i150, 8
+  %cmp.i.i.i162 = icmp samesign ult i64 %sub.i.i150, 8
   br i1 %cmp.i.i.i162, label %if.then.i.i.i181, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i163
 
 if.then.i.i.i181:                                 ; preds = %if.else.i.i161
@@ -362,7 +362,7 @@ if.then.i.i.i.i.i203:                             ; preds = %if.then.i194
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit232
 
 if.else.i.i211:                                   ; preds = %if.then.i194
-  %cmp.i.i.i212 = icmp ult i64 %sub.i.i200, 4
+  %cmp.i.i.i212 = icmp samesign ult i64 %sub.i.i200, 4
   br i1 %cmp.i.i.i212, label %if.then.i.i.i231, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i213
 
 if.then.i.i.i231:                                 ; preds = %if.else.i.i211
@@ -446,7 +446,7 @@ if.then.i.i.i.i.i253:                             ; preds = %if.then.i244
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit282
 
 if.else.i.i261:                                   ; preds = %if.then.i244
-  %cmp.i.i.i262 = icmp ult i64 %sub.i.i250, 2
+  %cmp.i.i.i262 = icmp samesign ult i64 %sub.i.i250, 2
   br i1 %cmp.i.i.i262, label %if.then.i.i.i281, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i263
 
 if.then.i.i.i281:                                 ; preds = %if.else.i.i261

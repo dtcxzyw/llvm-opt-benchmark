@@ -63,7 +63,7 @@ define hidden noundef i32 @encode_rs(ptr nocapture noundef readonly %0, ptr noca
   %24 = lshr i32 %23, 8
   %25 = and i32 %23, 255
   %26 = add nuw nsw i32 %24, %25
-  %27 = icmp ugt i32 %26, 254
+  %27 = icmp samesign ugt i32 %26, 254
   br i1 %27, label %.lr.ph.i, label %modnn.exit, !llvm.loop !4
 
 modnn.exit:                                       ; preds = %.lr.ph.i, %20
@@ -95,7 +95,7 @@ modnn.exit:                                       ; preds = %.lr.ph.i, %20
   %41 = lshr i32 %40, 8
   %42 = and i32 %40, 255
   %43 = add nuw nsw i32 %41, %42
-  %44 = icmp ugt i32 %43, 254
+  %44 = icmp samesign ugt i32 %43, 254
   br i1 %44, label %.lr.ph.i37, label %modnn.exit39, !llvm.loop !4
 
 modnn.exit39:                                     ; preds = %.lr.ph.i37, %37
@@ -229,7 +229,7 @@ generate_gf.exit:                                 ; preds = %26
   %46 = lshr i32 %45, 8
   %47 = and i32 %45, 255
   %48 = add nuw nsw i32 %46, %47
-  %49 = icmp ugt i32 %48, 254
+  %49 = icmp samesign ugt i32 %48, 254
   br i1 %49, label %.lr.ph.i.i, label %modnn.exit.i, !llvm.loop !4
 
 modnn.exit.i:                                     ; preds = %.lr.ph.i.i, %39
@@ -261,7 +261,7 @@ modnn.exit.i:                                     ; preds = %.lr.ph.i.i, %39
   %62 = lshr i32 %61, 8
   %63 = and i32 %61, 255
   %64 = add nuw nsw i32 %62, %63
-  %65 = icmp ugt i32 %64, 254
+  %65 = icmp samesign ugt i32 %64, 254
   br i1 %65, label %.lr.ph.i22.i, label %modnn.exit24.i, !llvm.loop !4
 
 modnn.exit24.i:                                   ; preds = %.lr.ph.i22.i, %._crit_edge.i
@@ -350,7 +350,7 @@ define hidden i32 @eras_dec_rs(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %33 = lshr i32 %32, 8
   %34 = and i32 %32, 255
   %35 = add nuw nsw i32 %33, %34
-  %36 = icmp ugt i32 %35, 254
+  %36 = icmp samesign ugt i32 %35, 254
   br i1 %36, label %.lr.ph.i, label %modnn.exit, !llvm.loop !4
 
 modnn.exit:                                       ; preds = %.lr.ph.i, %27
@@ -410,7 +410,7 @@ modnn.exit:                                       ; preds = %.lr.ph.i, %27
   %57 = lshr i32 %56, 8
   %58 = and i32 %56, 255
   %59 = add nuw nsw i32 %57, %58
-  %60 = icmp ugt i32 %59, 254
+  %60 = icmp samesign ugt i32 %59, 254
   br i1 %60, label %.lr.ph.i247, label %modnn.exit249, !llvm.loop !4
 
 modnn.exit249:                                    ; preds = %.lr.ph.i247, %52
@@ -448,7 +448,7 @@ modnn.exit249:                                    ; preds = %.lr.ph.i247, %52
   %69 = lshr i32 %68, 8
   %70 = and i32 %68, 255
   %71 = add nuw nsw i32 %69, %70
-  %72 = icmp ugt i32 %71, 254
+  %72 = icmp samesign ugt i32 %71, 254
   br i1 %72, label %.lr.ph.i251, label %modnn.exit253, !llvm.loop !4
 
 modnn.exit253:                                    ; preds = %.lr.ph.i251, %.lr.ph
@@ -477,7 +477,7 @@ modnn.exit253:                                    ; preds = %.lr.ph.i251, %.lr.p
   %83 = lshr i32 %82, 8
   %84 = and i32 %82, 255
   %85 = add nuw nsw i32 %83, %84
-  %86 = icmp ugt i32 %85, 254
+  %86 = icmp samesign ugt i32 %85, 254
   br i1 %86, label %.lr.ph.i255, label %modnn.exit257, !llvm.loop !4
 
 modnn.exit257:                                    ; preds = %.lr.ph.i255, %79
@@ -561,7 +561,7 @@ modnn.exit257:                                    ; preds = %.lr.ph.i255, %79
   %119 = lshr i32 %118, 8
   %120 = and i32 %118, 255
   %121 = add nuw nsw i32 %119, %120
-  %122 = icmp ugt i32 %121, 254
+  %122 = icmp samesign ugt i32 %121, 254
   br i1 %122, label %.lr.ph.i259, label %modnn.exit261, !llvm.loop !4
 
 modnn.exit261:                                    ; preds = %.lr.ph.i259, %112
@@ -620,7 +620,7 @@ modnn.exit261:                                    ; preds = %.lr.ph.i259, %112
   %144 = lshr i32 %143, 8
   %145 = and i32 %143, 255
   %146 = add nuw nsw i32 %144, %145
-  %147 = icmp ugt i32 %146, 254
+  %147 = icmp samesign ugt i32 %146, 254
   br i1 %147, label %.lr.ph.i263, label %modnn.exit265, !llvm.loop !4
 
 modnn.exit265:                                    ; preds = %.lr.ph.i263, %140
@@ -676,7 +676,7 @@ modnn.exit265:                                    ; preds = %.lr.ph.i263, %140
   %172 = lshr i32 %171, 8
   %173 = and i32 %171, 255
   %174 = add nuw nsw i32 %172, %173
-  %175 = icmp ugt i32 %174, 254
+  %175 = icmp samesign ugt i32 %174, 254
   br i1 %175, label %.lr.ph.i267, label %modnn.exit269, !llvm.loop !4
 
 modnn.exit269:                                    ; preds = %.lr.ph.i267, %164, %160
@@ -753,7 +753,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %164, 
   %197 = lshr i32 %196, 8
   %198 = and i32 %196, 255
   %199 = add nuw nsw i32 %197, %198
-  %200 = icmp ugt i32 %199, 254
+  %200 = icmp samesign ugt i32 %199, 254
   br i1 %200, label %.lr.ph.i271, label %modnn.exit273, !llvm.loop !4
 
 modnn.exit273:                                    ; preds = %.lr.ph.i271, %192
@@ -798,7 +798,7 @@ modnn.exit273:                                    ; preds = %.lr.ph.i271, %192
   %218 = lshr i32 %217, 8
   %219 = and i32 %217, 255
   %220 = add nuw nsw i32 %218, %219
-  %221 = icmp ugt i32 %220, 254
+  %221 = icmp samesign ugt i32 %220, 254
   br i1 %221, label %.lr.ph.i275, label %modnn.exit277, !llvm.loop !4
 
 modnn.exit277:                                    ; preds = %.lr.ph.i275, %._crit_edge355.thread
@@ -857,7 +857,7 @@ modnn.exit277:                                    ; preds = %.lr.ph.i275, %._cri
   %239 = lshr i32 %238, 8
   %240 = and i32 %238, 255
   %241 = add nuw nsw i32 %239, %240
-  %242 = icmp ugt i32 %241, 254
+  %242 = icmp samesign ugt i32 %241, 254
   br i1 %242, label %.lr.ph.i279, label %modnn.exit281, !llvm.loop !4
 
 modnn.exit281:                                    ; preds = %.lr.ph.i279, %235
@@ -942,7 +942,7 @@ modnn.exit281:                                    ; preds = %.lr.ph.i279, %235
   %280 = lshr i32 %279, 8
   %281 = and i32 %279, 255
   %282 = add nuw nsw i32 %280, %281
-  %283 = icmp ugt i32 %282, 254
+  %283 = icmp samesign ugt i32 %282, 254
   br i1 %283, label %.lr.ph.i283, label %modnn.exit285, !llvm.loop !4
 
 modnn.exit285:                                    ; preds = %.lr.ph.i283, %273
@@ -991,7 +991,7 @@ modnn.exit285:                                    ; preds = %.lr.ph.i283, %273
   %301 = lshr i32 %300, 8
   %302 = and i32 %300, 255
   %303 = add nuw nsw i32 %301, %302
-  %304 = icmp ugt i32 %303, 254
+  %304 = icmp samesign ugt i32 %303, 254
   br i1 %304, label %.lr.ph.i291, label %modnn.exit293, !llvm.loop !4
 
 modnn.exit293:                                    ; preds = %.lr.ph.i291, %294
@@ -1037,7 +1037,7 @@ modnn.exit293:                                    ; preds = %.lr.ph.i291, %294
   %326 = lshr i32 %325, 8
   %327 = and i32 %325, 255
   %328 = add nuw nsw i32 %326, %327
-  %329 = icmp ugt i32 %328, 254
+  %329 = icmp samesign ugt i32 %328, 254
   br i1 %329, label %.lr.ph.i295, label %modnn.exit297, !llvm.loop !4
 
 modnn.exit297:                                    ; preds = %.lr.ph.i295, %313

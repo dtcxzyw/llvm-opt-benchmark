@@ -89,7 +89,7 @@ if.end5:                                          ; preds = %entry
   %shr.i.i.i.i = lshr i64 %4, 12
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %and.i.i.i = and i64 %xor.i.i.i, %capacity
-  %cmp.i = icmp ult i64 %and.i.i.i, 16
+  %cmp.i = icmp samesign ult i64 %and.i.i.i, 16
   br label %return
 
 return:                                           ; preds = %entry, %if.end5, %if.then4
@@ -117,7 +117,7 @@ entry:
   %shr.i.i.i.i = lshr i64 %3, 12
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %and.i.i.i = and i64 %xor.i.i.i, %capacity
-  %cmp.i = icmp ult i64 %and.i.i.i, 16
+  %cmp.i = icmp samesign ult i64 %and.i.i.i, 16
   ret i1 %cmp.i
 }
 
@@ -136,7 +136,7 @@ entry:
   %xor.i = xor i64 %xor.i1, %shr.i.i
   %xor = xor i64 %xor.i, %inc.i
   %rem = urem i64 %xor, 13
-  %cmp = icmp ugt i64 %rem, 6
+  %cmp = icmp samesign ugt i64 %rem, 6
   ret i1 %cmp
 }
 

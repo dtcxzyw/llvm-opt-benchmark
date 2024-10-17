@@ -834,7 +834,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
@@ -5560,7 +5560,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont, %if.en
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -5777,7 +5777,7 @@ while.body.i.i.i.i86:                             ; preds = %invoke.cont19, %if.
   br i1 %cmp2.not.i.i.i.i92, label %if.end4.i.i.i.i94, label %if.else.i.i93
 
 if.end4.i.i.i.i94:                                ; preds = %while.body.i.i.i.i86
-  %cmp1.not.i.i.i.i95 = icmp ult i64 %storemerge27.i.i.in.in.i.i87, 3
+  %cmp1.not.i.i.i.i95 = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i87, 3
   br i1 %cmp1.not.i.i.i.i95, label %if.then2.i.i, label %while.body.i.i.i.i86, !llvm.loop !17
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i94
@@ -8523,7 +8523,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %cmp7 = icmp ult i32 %bf.clear.i, %bf.clear.i42
+  %cmp7 = icmp samesign ult i32 %bf.clear.i, %bf.clear.i42
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -8788,7 +8788,7 @@ if.end65:                                         ; preds = %if.end61
   br i1 %cmp68.not, label %if.end73, label %if.then69
 
 if.then69:                                        ; preds = %if.end65
-  %cmp72 = icmp ult i32 %bf.clear.i119, %bf.clear.i122
+  %cmp72 = icmp samesign ult i32 %bf.clear.i119, %bf.clear.i122
   br label %return
 
 if.end73:                                         ; preds = %if.end65
@@ -8824,7 +8824,7 @@ if.end77:                                         ; preds = %if.end73
   br i1 %cmp82.not, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.end77
-  %cmp84 = icmp ult i32 %bf.clear.i139, %bf.clear.i147
+  %cmp84 = icmp samesign ult i32 %bf.clear.i139, %bf.clear.i147
   br label %return
 
 if.end85:                                         ; preds = %if.end77

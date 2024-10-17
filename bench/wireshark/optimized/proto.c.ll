@@ -19217,7 +19217,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
   %207 = load i32, ptr %11, align 8
   %208 = icmp eq i32 %207, 35
   %spec.store.select.i300 = select i1 %208, i32 1, i32 %190
-  %209 = icmp ult i32 %spec.store.select.i300, 7
+  %209 = icmp samesign ult i32 %spec.store.select.i300, 7
   br i1 %209, label %switch.hole_check, label %hfinfo_numeric_value_format64.exit
 
 switch.hole_check:                                ; preds = %206
@@ -20051,7 +20051,7 @@ define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef re
   %11 = icmp eq i32 %spec.store.select, 17
   %spec.store.select6 = select i1 %11, i32 2, i32 %spec.store.select
   %.0 = select i1 %or.cond5, i32 1, i32 %spec.store.select6
-  %12 = icmp ult i32 %.0, 7
+  %12 = icmp samesign ult i32 %.0, 7
   br i1 %12, label %switch.hole_check, label %14
 
 switch.hole_check:                                ; preds = %3
@@ -24147,7 +24147,7 @@ hfinfo_remove_from_gpa_name_map.exit:             ; preds = %37, %.thread.i, %.t
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %hfinfo_remove_from_gpa_name_map.exit, %.preheader
@@ -28056,7 +28056,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ugt i64 %indvars.iv, %13
+  %14 = icmp samesign ugt i64 %indvars.iv, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -28077,7 +28077,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ult i64 %indvars.iv, %13
+  %20 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %20, label %21, label %.thread
 
 .thread:                                          ; preds = %19, %17
@@ -28428,7 +28428,7 @@ define range(i32 0, 2) i32 @proto_registrar_dump_fieldcount() local_unnamed_addr
   %.1 = phi i32 [ %.042, %7 ], [ %spec.select, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %20, %0
@@ -28720,7 +28720,7 @@ dot_to_underscore.exit:                           ; preds = %80, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr @gpa_hfinfo.0, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %10, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.critedge
@@ -28796,7 +28796,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %indvars.iv, %12
+  %13 = icmp samesign ugt i64 %indvars.iv, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -28817,7 +28817,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
   unreachable
 
 18:                                               ; preds = %10
-  %19 = icmp ult i64 %indvars.iv, %12
+  %19 = icmp samesign ult i64 %indvars.iv, %12
   br i1 %19, label %20, label %.thread
 
 .thread:                                          ; preds = %18, %16
@@ -29012,7 +29012,7 @@ define range(i32 0, 2) i32 @proto_registrar_dump_field_completions(ptr nocapture
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ugt i64 %indvars.iv, %13
+  %14 = icmp samesign ugt i64 %indvars.iv, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -29033,7 +29033,7 @@ define range(i32 0, 2) i32 @proto_registrar_dump_field_completions(ptr nocapture
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ult i64 %indvars.iv, %13
+  %20 = icmp samesign ult i64 %indvars.iv, %13
   br i1 %20, label %21, label %.thread
 
 .thread:                                          ; preds = %19, %17
@@ -31471,7 +31471,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %45 = load i8, ptr %38, align 4
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %.0142201, %46
-  %48 = icmp ult i32 %47, 65
+  %48 = icmp samesign ult i32 %47, 65
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %.lr.ph

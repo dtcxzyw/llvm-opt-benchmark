@@ -602,7 +602,7 @@ for.body5:                                        ; preds = %for.cond2.preheader
   %add = add nsw i64 %shl, %symbol.070
   %inc = add nuw i64 %i.171, 1
   %inc7 = add nuw nsw i64 %h.072, 1
-  %cmp3 = icmp ult i64 %h.072, 6
+  %cmp3 = icmp samesign ult i64 %h.072, 6
   %cmp4 = icmp ult i64 %inc, %6
   %15 = select i1 %cmp3, i1 %cmp4, i1 false
   br i1 %15, label %for.body5, label %for.end, !llvm.loop !10

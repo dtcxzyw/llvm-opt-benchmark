@@ -5093,7 +5093,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIhiEENSt7__cxx111
   %42 = lshr i32 %41, 3
   %43 = and i32 %42, 511
   %44 = zext nneg i32 %43 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %44
+  %.not.not = icmp samesign ult i64 %indvars.iv, %44
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %29
@@ -5185,7 +5185,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIaiEENSt7__cxx111
   %42 = lshr i32 %41, 3
   %43 = and i32 %42, 511
   %44 = zext nneg i32 %43 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %44
+  %.not.not = icmp samesign ult i64 %indvars.iv, %44
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph, %29
@@ -5277,7 +5277,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplItiEENSt7__cxx111
   %42 = lshr i32 %41, 3
   %43 = and i32 %42, 511
   %44 = zext nneg i32 %43 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %44
+  %.not.not = icmp samesign ult i64 %indvars.iv, %44
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %29
@@ -5369,7 +5369,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIsiEENSt7__cxx111
   %42 = lshr i32 %41, 3
   %43 = and i32 %42, 511
   %44 = zext nneg i32 %43 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %44
+  %.not.not = icmp samesign ult i64 %indvars.iv, %44
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph, %29
@@ -5459,7 +5459,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIiiEENSt7__cxx111
   %40 = lshr i32 %39, 3
   %41 = and i32 %40, 511
   %42 = zext nneg i32 %41 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %42
+  %.not.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph, %28
@@ -5549,7 +5549,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIffEENSt7__cxx111
   %40 = lshr i32 %39, 3
   %41 = and i32 %40, 511
   %42 = zext nneg i32 %41 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %42
+  %.not.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph, %28
@@ -5639,7 +5639,7 @@ define internal void @_ZN6cvtest12_GLOBAL__N_115printMatValImplIddEENSt7__cxx111
   %40 = lshr i32 %39, 3
   %41 = and i32 %40, 511
   %42 = zext nneg i32 %41 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %42
+  %.not.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %28

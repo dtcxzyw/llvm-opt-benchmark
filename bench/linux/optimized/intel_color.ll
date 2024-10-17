@@ -2358,7 +2358,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %41 = zext i16 %40 to i64
   %42 = sub nsw i64 %39, %41
   %43 = tail call i64 @llvm.abs.i64(i64 %42, i1 true)
-  %44 = icmp ugt i64 %43, %36
+  %44 = icmp samesign ugt i64 %43, %36
   br i1 %44, label %212, label %45
 
 45:                                               ; preds = %35
@@ -2370,7 +2370,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %51 = zext i16 %50 to i64
   %52 = sub nsw i64 %48, %51
   %53 = tail call i64 @llvm.abs.i64(i64 %52, i1 true)
-  %54 = icmp ugt i64 %53, %36
+  %54 = icmp samesign ugt i64 %53, %36
   br i1 %54, label %212, label %55
 
 55:                                               ; preds = %45
@@ -2382,7 +2382,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %61 = zext i16 %60 to i64
   %62 = sub nsw i64 %58, %61
   %63 = tail call i64 @llvm.abs.i64(i64 %62, i1 true)
-  %64 = icmp ugt i64 %63, %36
+  %64 = icmp samesign ugt i64 %63, %36
   br i1 %64, label %212, label %.preheader
 
 .preheader:                                       ; preds = %55, %88
@@ -2400,7 +2400,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %74 = zext i16 %73 to i64
   %75 = sub nsw i64 %72, %74
   %76 = tail call i64 @llvm.abs.i64(i64 %75, i1 true)
-  %77 = icmp ugt i64 %76, %36
+  %77 = icmp samesign ugt i64 %76, %36
   br i1 %77, label %208, label %78, !llvm.loop !74
 
 78:                                               ; preds = %68
@@ -2412,7 +2412,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %84 = zext i16 %83 to i64
   %85 = sub nsw i64 %81, %84
   %86 = tail call i64 @llvm.abs.i64(i64 %85, i1 true)
-  %87 = icmp ugt i64 %86, %36
+  %87 = icmp samesign ugt i64 %86, %36
   br i1 %87, label %208, label %88, !llvm.loop !74
 
 88:                                               ; preds = %78
@@ -2424,7 +2424,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %94 = zext i16 %93 to i64
   %95 = sub nsw i64 %91, %94
   %96 = tail call i64 @llvm.abs.i64(i64 %95, i1 true)
-  %97 = icmp ugt i64 %96, %36
+  %97 = icmp samesign ugt i64 %96, %36
   br i1 %97, label %208, label %.preheader, !llvm.loop !74
 
 98:                                               ; preds = %4
@@ -2510,7 +2510,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %151 = zext i16 %150 to i64
   %152 = sub nsw i64 %149, %151
   %153 = tail call i64 @llvm.abs.i64(i64 %152, i1 true)
-  %154 = icmp ugt i64 %153, %146
+  %154 = icmp samesign ugt i64 %153, %146
   br i1 %154, label %212, label %155
 
 155:                                              ; preds = %144
@@ -2522,7 +2522,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %161 = zext i16 %160 to i64
   %162 = sub nsw i64 %158, %161
   %163 = tail call i64 @llvm.abs.i64(i64 %162, i1 true)
-  %164 = icmp ugt i64 %163, %146
+  %164 = icmp samesign ugt i64 %163, %146
   br i1 %164, label %212, label %165
 
 165:                                              ; preds = %155
@@ -2534,7 +2534,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %171 = zext i16 %170 to i64
   %172 = sub nsw i64 %168, %171
   %173 = tail call i64 @llvm.abs.i64(i64 %172, i1 true)
-  %174 = icmp ugt i64 %173, %146
+  %174 = icmp samesign ugt i64 %173, %146
   br i1 %174, label %212, label %.preheader9
 
 .preheader9:                                      ; preds = %165, %198
@@ -2552,7 +2552,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %184 = zext i16 %183 to i64
   %185 = sub nsw i64 %182, %184
   %186 = tail call i64 @llvm.abs.i64(i64 %185, i1 true)
-  %187 = icmp ugt i64 %186, %146
+  %187 = icmp samesign ugt i64 %186, %146
   br i1 %187, label %210, label %188, !llvm.loop !74
 
 188:                                              ; preds = %178
@@ -2564,7 +2564,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %194 = zext i16 %193 to i64
   %195 = sub nsw i64 %191, %194
   %196 = tail call i64 @llvm.abs.i64(i64 %195, i1 true)
-  %197 = icmp ugt i64 %196, %146
+  %197 = icmp samesign ugt i64 %196, %146
   br i1 %197, label %210, label %198, !llvm.loop !74
 
 198:                                              ; preds = %188
@@ -2576,17 +2576,17 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
   %204 = zext i16 %203 to i64
   %205 = sub nsw i64 %201, %204
   %206 = tail call i64 @llvm.abs.i64(i64 %205, i1 true)
-  %207 = icmp ugt i64 %206, %146
+  %207 = icmp samesign ugt i64 %206, %146
   br i1 %207, label %210, label %.preheader9, !llvm.loop !74
 
 208:                                              ; preds = %88, %78, %68, %.preheader
   %.lcssa = phi i64 [ %66, %88 ], [ %66, %78 ], [ %66, %68 ], [ %37, %.preheader ]
-  %209 = icmp uge i64 %.lcssa, %37
+  %209 = icmp samesign uge i64 %.lcssa, %37
   br label %212
 
 210:                                              ; preds = %198, %188, %178, %.preheader9
   %.lcssa11 = phi i64 [ %176, %198 ], [ %176, %188 ], [ %176, %178 ], [ %147, %.preheader9 ]
-  %211 = icmp uge i64 %.lcssa11, %147
+  %211 = icmp samesign uge i64 %.lcssa11, %147
   br label %212
 
 212:                                              ; preds = %210, %208, %165, %155, %144, %138, %126, %116, %55, %45, %35, %29, %17, %7
@@ -5178,7 +5178,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %59 = zext i16 %58 to i64
   %60 = sub nsw i64 %57, %59
   %61 = tail call i64 @llvm.abs.i64(i64 %60, i1 true)
-  %62 = icmp ugt i64 %61, %54
+  %62 = icmp samesign ugt i64 %61, %54
   br i1 %62, label %118, label %63
 
 63:                                               ; preds = %52
@@ -5190,7 +5190,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %69 = zext i16 %68 to i64
   %70 = sub nsw i64 %66, %69
   %71 = tail call i64 @llvm.abs.i64(i64 %70, i1 true)
-  %72 = icmp ugt i64 %71, %54
+  %72 = icmp samesign ugt i64 %71, %54
   br i1 %72, label %118, label %73
 
 73:                                               ; preds = %63
@@ -5202,7 +5202,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %79 = zext i16 %78 to i64
   %80 = sub nsw i64 %76, %79
   %81 = tail call i64 @llvm.abs.i64(i64 %80, i1 true)
-  %82 = icmp ugt i64 %81, %54
+  %82 = icmp samesign ugt i64 %81, %54
   br i1 %82, label %118, label %.preheader
 
 .preheader:                                       ; preds = %73, %106
@@ -5220,7 +5220,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %92 = zext i16 %91 to i64
   %93 = sub nsw i64 %90, %92
   %94 = tail call i64 @llvm.abs.i64(i64 %93, i1 true)
-  %95 = icmp ugt i64 %94, %54
+  %95 = icmp samesign ugt i64 %94, %54
   br i1 %95, label %116, label %96, !llvm.loop !74
 
 96:                                               ; preds = %86
@@ -5232,7 +5232,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %102 = zext i16 %101 to i64
   %103 = sub nsw i64 %99, %102
   %104 = tail call i64 @llvm.abs.i64(i64 %103, i1 true)
-  %105 = icmp ugt i64 %104, %54
+  %105 = icmp samesign ugt i64 %104, %54
   br i1 %105, label %116, label %106, !llvm.loop !74
 
 106:                                              ; preds = %96
@@ -5244,12 +5244,12 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
   %112 = zext i16 %111 to i64
   %113 = sub nsw i64 %109, %112
   %114 = tail call i64 @llvm.abs.i64(i64 %113, i1 true)
-  %115 = icmp ugt i64 %114, %54
+  %115 = icmp samesign ugt i64 %114, %54
   br i1 %115, label %116, label %.preheader, !llvm.loop !74
 
 116:                                              ; preds = %106, %96, %86, %.preheader
   %.lcssa = phi i64 [ %84, %106 ], [ %84, %96 ], [ %84, %86 ], [ %55, %.preheader ]
-  %117 = icmp uge i64 %.lcssa, %55
+  %117 = icmp samesign uge i64 %.lcssa, %55
   br label %118
 
 118:                                              ; preds = %116, %73, %63, %52, %46, %34, %24, %5
@@ -6054,7 +6054,7 @@ define internal void @i9xx_load_luts(ptr nocapture noundef readonly %0) #0 align
   %116 = phi i32 [ %118, %.preheader8 ], [ 3, %90 ]
   %117 = lshr i32 %115, 1
   %118 = add nsw i32 %116, -1
-  %119 = icmp ugt i32 %115, 31
+  %119 = icmp samesign ugt i32 %115, 31
   br i1 %119, label %.preheader8, label %120, !llvm.loop !106
 
 120:                                              ; preds = %.preheader8
@@ -6086,7 +6086,7 @@ define internal void @i9xx_load_luts(ptr nocapture noundef readonly %0) #0 align
   %141 = phi i32 [ %143, %.preheader7 ], [ 3, %122 ]
   %142 = lshr i32 %140, 1
   %143 = add nsw i32 %141, -1
-  %144 = icmp ugt i32 %140, 31
+  %144 = icmp samesign ugt i32 %140, 31
   br i1 %144, label %.preheader7, label %145, !llvm.loop !106
 
 145:                                              ; preds = %.preheader7
@@ -6118,7 +6118,7 @@ define internal void @i9xx_load_luts(ptr nocapture noundef readonly %0) #0 align
   %166 = phi i32 [ %168, %.preheader ], [ 3, %147 ]
   %167 = lshr i32 %165, 1
   %168 = add nsw i32 %166, -1
-  %169 = icmp ugt i32 %165, 31
+  %169 = icmp samesign ugt i32 %165, 31
   br i1 %169, label %.preheader, label %170, !llvm.loop !106
 
 170:                                              ; preds = %.preheader
@@ -6618,7 +6618,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %62 = zext i16 %61 to i64
   %63 = sub nsw i64 %60, %62
   %64 = tail call i64 @llvm.abs.i64(i64 %63, i1 true)
-  %65 = icmp ugt i64 %64, %57
+  %65 = icmp samesign ugt i64 %64, %57
   br i1 %65, label %121, label %66
 
 66:                                               ; preds = %55
@@ -6630,7 +6630,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %72 = zext i16 %71 to i64
   %73 = sub nsw i64 %69, %72
   %74 = tail call i64 @llvm.abs.i64(i64 %73, i1 true)
-  %75 = icmp ugt i64 %74, %57
+  %75 = icmp samesign ugt i64 %74, %57
   br i1 %75, label %121, label %76
 
 76:                                               ; preds = %66
@@ -6642,7 +6642,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %82 = zext i16 %81 to i64
   %83 = sub nsw i64 %79, %82
   %84 = tail call i64 @llvm.abs.i64(i64 %83, i1 true)
-  %85 = icmp ugt i64 %84, %57
+  %85 = icmp samesign ugt i64 %84, %57
   br i1 %85, label %121, label %.preheader
 
 .preheader:                                       ; preds = %76, %109
@@ -6660,7 +6660,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %95 = zext i16 %94 to i64
   %96 = sub nsw i64 %93, %95
   %97 = tail call i64 @llvm.abs.i64(i64 %96, i1 true)
-  %98 = icmp ugt i64 %97, %57
+  %98 = icmp samesign ugt i64 %97, %57
   br i1 %98, label %119, label %99, !llvm.loop !74
 
 99:                                               ; preds = %89
@@ -6672,7 +6672,7 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %105 = zext i16 %104 to i64
   %106 = sub nsw i64 %102, %105
   %107 = tail call i64 @llvm.abs.i64(i64 %106, i1 true)
-  %108 = icmp ugt i64 %107, %57
+  %108 = icmp samesign ugt i64 %107, %57
   br i1 %108, label %119, label %109, !llvm.loop !74
 
 109:                                              ; preds = %99
@@ -6684,12 +6684,12 @@ define internal zeroext i1 @i9xx_lut_equal(ptr nocapture noundef readonly %0, pt
   %115 = zext i16 %114 to i64
   %116 = sub nsw i64 %112, %115
   %117 = tail call i64 @llvm.abs.i64(i64 %116, i1 true)
-  %118 = icmp ugt i64 %117, %57
+  %118 = icmp samesign ugt i64 %117, %57
   br i1 %118, label %119, label %.preheader, !llvm.loop !74
 
 119:                                              ; preds = %109, %99, %89, %.preheader
   %.lcssa = phi i64 [ %87, %109 ], [ %87, %99 ], [ %87, %89 ], [ %58, %.preheader ]
-  %120 = icmp uge i64 %.lcssa, %58
+  %120 = icmp samesign uge i64 %.lcssa, %58
   br label %121
 
 121:                                              ; preds = %119, %76, %66, %55, %48, %36, %26, %5
@@ -10474,7 +10474,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %43 = zext i16 %42 to i64
   %44 = sub nsw i64 %41, %43
   %45 = tail call i64 @llvm.abs.i64(i64 %44, i1 true)
-  %46 = icmp ugt i64 %45, %38
+  %46 = icmp samesign ugt i64 %45, %38
   br i1 %46, label %213, label %47
 
 47:                                               ; preds = %36
@@ -10486,7 +10486,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %53 = zext i16 %52 to i64
   %54 = sub nsw i64 %50, %53
   %55 = tail call i64 @llvm.abs.i64(i64 %54, i1 true)
-  %56 = icmp ugt i64 %55, %38
+  %56 = icmp samesign ugt i64 %55, %38
   br i1 %56, label %213, label %57
 
 57:                                               ; preds = %47
@@ -10498,7 +10498,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %63 = zext i16 %62 to i64
   %64 = sub nsw i64 %60, %63
   %65 = tail call i64 @llvm.abs.i64(i64 %64, i1 true)
-  %66 = icmp ugt i64 %65, %38
+  %66 = icmp samesign ugt i64 %65, %38
   br i1 %66, label %213, label %.preheader
 
 .preheader:                                       ; preds = %57, %90
@@ -10516,7 +10516,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %76 = zext i16 %75 to i64
   %77 = sub nsw i64 %74, %76
   %78 = tail call i64 @llvm.abs.i64(i64 %77, i1 true)
-  %79 = icmp ugt i64 %78, %38
+  %79 = icmp samesign ugt i64 %78, %38
   br i1 %79, label %209, label %80, !llvm.loop !74
 
 80:                                               ; preds = %70
@@ -10528,7 +10528,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %86 = zext i16 %85 to i64
   %87 = sub nsw i64 %83, %86
   %88 = tail call i64 @llvm.abs.i64(i64 %87, i1 true)
-  %89 = icmp ugt i64 %88, %38
+  %89 = icmp samesign ugt i64 %88, %38
   br i1 %89, label %209, label %90, !llvm.loop !74
 
 90:                                               ; preds = %80
@@ -10540,7 +10540,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   %96 = zext i16 %95 to i64
   %97 = sub nsw i64 %93, %96
   %98 = tail call i64 @llvm.abs.i64(i64 %97, i1 true)
-  %99 = icmp ugt i64 %98, %38
+  %99 = icmp samesign ugt i64 %98, %38
   br i1 %99, label %209, label %.preheader, !llvm.loop !74
 
 100:                                              ; preds = %4
@@ -10628,7 +10628,7 @@ default.unreachable13:                            ; preds = %110
   %152 = zext i16 %151 to i64
   %153 = sub nsw i64 %150, %152
   %154 = tail call i64 @llvm.abs.i64(i64 %153, i1 true)
-  %155 = icmp ugt i64 %154, %147
+  %155 = icmp samesign ugt i64 %154, %147
   br i1 %155, label %213, label %156
 
 156:                                              ; preds = %145
@@ -10640,7 +10640,7 @@ default.unreachable13:                            ; preds = %110
   %162 = zext i16 %161 to i64
   %163 = sub nsw i64 %159, %162
   %164 = tail call i64 @llvm.abs.i64(i64 %163, i1 true)
-  %165 = icmp ugt i64 %164, %147
+  %165 = icmp samesign ugt i64 %164, %147
   br i1 %165, label %213, label %166
 
 166:                                              ; preds = %156
@@ -10652,7 +10652,7 @@ default.unreachable13:                            ; preds = %110
   %172 = zext i16 %171 to i64
   %173 = sub nsw i64 %169, %172
   %174 = tail call i64 @llvm.abs.i64(i64 %173, i1 true)
-  %175 = icmp ugt i64 %174, %147
+  %175 = icmp samesign ugt i64 %174, %147
   br i1 %175, label %213, label %.preheader10
 
 .preheader10:                                     ; preds = %166, %199
@@ -10670,7 +10670,7 @@ default.unreachable13:                            ; preds = %110
   %185 = zext i16 %184 to i64
   %186 = sub nsw i64 %183, %185
   %187 = tail call i64 @llvm.abs.i64(i64 %186, i1 true)
-  %188 = icmp ugt i64 %187, %147
+  %188 = icmp samesign ugt i64 %187, %147
   br i1 %188, label %211, label %189, !llvm.loop !74
 
 189:                                              ; preds = %179
@@ -10682,7 +10682,7 @@ default.unreachable13:                            ; preds = %110
   %195 = zext i16 %194 to i64
   %196 = sub nsw i64 %192, %195
   %197 = tail call i64 @llvm.abs.i64(i64 %196, i1 true)
-  %198 = icmp ugt i64 %197, %147
+  %198 = icmp samesign ugt i64 %197, %147
   br i1 %198, label %211, label %199, !llvm.loop !74
 
 199:                                              ; preds = %189
@@ -10694,17 +10694,17 @@ default.unreachable13:                            ; preds = %110
   %205 = zext i16 %204 to i64
   %206 = sub nsw i64 %202, %205
   %207 = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
-  %208 = icmp ugt i64 %207, %147
+  %208 = icmp samesign ugt i64 %207, %147
   br i1 %208, label %211, label %.preheader10, !llvm.loop !74
 
 209:                                              ; preds = %90, %80, %70, %.preheader
   %.lcssa = phi i64 [ %68, %90 ], [ %68, %80 ], [ %68, %70 ], [ %39, %.preheader ]
-  %210 = icmp uge i64 %.lcssa, %39
+  %210 = icmp samesign uge i64 %.lcssa, %39
   br label %213
 
 211:                                              ; preds = %199, %189, %179, %.preheader10
   %.lcssa12 = phi i64 [ %177, %199 ], [ %177, %189 ], [ %177, %179 ], [ %148, %.preheader10 ]
-  %212 = icmp uge i64 %.lcssa12, %148
+  %212 = icmp samesign uge i64 %.lcssa12, %148
   br label %213
 
 213:                                              ; preds = %211, %209, %166, %156, %145, %138, %126, %116, %57, %47, %36, %30, %18, %7
@@ -11599,11 +11599,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   %36 = lshr i64 %35, 48
   %37 = trunc nuw i64 %36 to i16
   %38 = and i16 %37, -32768
-  %39 = icmp ult i64 %32, 536870912
+  %39 = icmp samesign ult i64 %32, 536870912
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %28
-  %41 = icmp ugt i64 %32, 536215551
+  %41 = icmp samesign ugt i64 %32, 536215551
   %42 = lshr i64 %33, 17
   %43 = trunc nuw i64 %42 to i16
   %44 = add nuw nsw i16 %43, 4
@@ -11614,11 +11614,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   br label %101
 
 49:                                               ; preds = %28
-  %50 = icmp ult i64 %32, 1073741824
+  %50 = icmp samesign ult i64 %32, 1073741824
   br i1 %50, label %51, label %60
 
 51:                                               ; preds = %49
-  %52 = icmp ugt i64 %32, 1072431103
+  %52 = icmp samesign ugt i64 %32, 1072431103
   %53 = lshr i64 %33, 18
   %54 = trunc nuw i64 %53 to i16
   %55 = add nuw nsw i16 %54, 4
@@ -11629,11 +11629,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   br label %101
 
 60:                                               ; preds = %49
-  %61 = icmp ult i64 %32, 2147483648
+  %61 = icmp samesign ult i64 %32, 2147483648
   br i1 %61, label %62, label %71
 
 62:                                               ; preds = %60
-  %63 = icmp ugt i64 %32, 2144862207
+  %63 = icmp samesign ugt i64 %32, 2144862207
   %64 = lshr i64 %33, 19
   %65 = trunc nuw nsw i64 %64 to i16
   %66 = add nuw nsw i16 %65, 4
@@ -11644,11 +11644,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   br label %101
 
 71:                                               ; preds = %60
-  %72 = icmp ult i64 %32, 4294967296
+  %72 = icmp samesign ult i64 %32, 4294967296
   br i1 %72, label %73, label %81
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i64 %32, 4289724415
+  %74 = icmp samesign ugt i64 %32, 4289724415
   %75 = lshr i64 %33, 20
   %76 = trunc nuw nsw i64 %75 to i16
   %77 = add nuw nsw i16 %76, 4
@@ -11658,11 +11658,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   br label %101
 
 81:                                               ; preds = %71
-  %82 = icmp ult i64 %32, 8589934592
+  %82 = icmp samesign ult i64 %32, 8589934592
   br i1 %82, label %83, label %92
 
 83:                                               ; preds = %81
-  %84 = icmp ugt i64 %32, 8579448831
+  %84 = icmp samesign ugt i64 %32, 8579448831
   %85 = lshr i64 %33, 21
   %86 = trunc nuw nsw i64 %85 to i16
   %87 = add nuw nsw i16 %86, 4
@@ -11673,7 +11673,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.
   br label %101
 
 92:                                               ; preds = %81
-  %93 = icmp ugt i64 %32, 17158897663
+  %93 = icmp samesign ugt i64 %32, 17158897663
   %94 = lshr i64 %33, 22
   %95 = trunc nuw nsw i64 %94 to i16
   %96 = add nuw nsw i16 %95, 4
@@ -16049,7 +16049,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %40 = zext i16 %39 to i64
   %41 = sub nsw i64 %38, %40
   %42 = tail call i64 @llvm.abs.i64(i64 %41, i1 true)
-  %43 = icmp ugt i64 %42, %35
+  %43 = icmp samesign ugt i64 %42, %35
   br i1 %43, label %207, label %44
 
 44:                                               ; preds = %34
@@ -16061,7 +16061,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %50 = zext i16 %49 to i64
   %51 = sub nsw i64 %47, %50
   %52 = tail call i64 @llvm.abs.i64(i64 %51, i1 true)
-  %53 = icmp ugt i64 %52, %35
+  %53 = icmp samesign ugt i64 %52, %35
   br i1 %53, label %207, label %54
 
 54:                                               ; preds = %44
@@ -16073,7 +16073,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %60 = zext i16 %59 to i64
   %61 = sub nsw i64 %57, %60
   %62 = tail call i64 @llvm.abs.i64(i64 %61, i1 true)
-  %63 = icmp ugt i64 %62, %35
+  %63 = icmp samesign ugt i64 %62, %35
   br i1 %63, label %207, label %.preheader
 
 .preheader:                                       ; preds = %54, %87
@@ -16091,7 +16091,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %73 = zext i16 %72 to i64
   %74 = sub nsw i64 %71, %73
   %75 = tail call i64 @llvm.abs.i64(i64 %74, i1 true)
-  %76 = icmp ugt i64 %75, %35
+  %76 = icmp samesign ugt i64 %75, %35
   br i1 %76, label %203, label %77, !llvm.loop !74
 
 77:                                               ; preds = %67
@@ -16103,7 +16103,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %83 = zext i16 %82 to i64
   %84 = sub nsw i64 %80, %83
   %85 = tail call i64 @llvm.abs.i64(i64 %84, i1 true)
-  %86 = icmp ugt i64 %85, %35
+  %86 = icmp samesign ugt i64 %85, %35
   br i1 %86, label %203, label %87, !llvm.loop !74
 
 87:                                               ; preds = %77
@@ -16115,7 +16115,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %93 = zext i16 %92 to i64
   %94 = sub nsw i64 %90, %93
   %95 = tail call i64 @llvm.abs.i64(i64 %94, i1 true)
-  %96 = icmp ugt i64 %95, %35
+  %96 = icmp samesign ugt i64 %95, %35
   br i1 %96, label %203, label %.preheader, !llvm.loop !74
 
 97:                                               ; preds = %4
@@ -16195,7 +16195,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %146 = zext i16 %145 to i64
   %147 = sub nsw i64 %144, %146
   %148 = tail call i64 @llvm.abs.i64(i64 %147, i1 true)
-  %149 = icmp ugt i64 %148, %141
+  %149 = icmp samesign ugt i64 %148, %141
   br i1 %149, label %207, label %150
 
 150:                                              ; preds = %139
@@ -16207,7 +16207,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %156 = zext i16 %155 to i64
   %157 = sub nsw i64 %153, %156
   %158 = tail call i64 @llvm.abs.i64(i64 %157, i1 true)
-  %159 = icmp ugt i64 %158, %141
+  %159 = icmp samesign ugt i64 %158, %141
   br i1 %159, label %207, label %160
 
 160:                                              ; preds = %150
@@ -16219,7 +16219,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %166 = zext i16 %165 to i64
   %167 = sub nsw i64 %163, %166
   %168 = tail call i64 @llvm.abs.i64(i64 %167, i1 true)
-  %169 = icmp ugt i64 %168, %141
+  %169 = icmp samesign ugt i64 %168, %141
   br i1 %169, label %207, label %.preheader9
 
 .preheader9:                                      ; preds = %160, %193
@@ -16237,7 +16237,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %179 = zext i16 %178 to i64
   %180 = sub nsw i64 %177, %179
   %181 = tail call i64 @llvm.abs.i64(i64 %180, i1 true)
-  %182 = icmp ugt i64 %181, %141
+  %182 = icmp samesign ugt i64 %181, %141
   br i1 %182, label %205, label %183, !llvm.loop !74
 
 183:                                              ; preds = %173
@@ -16249,7 +16249,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %189 = zext i16 %188 to i64
   %190 = sub nsw i64 %186, %189
   %191 = tail call i64 @llvm.abs.i64(i64 %190, i1 true)
-  %192 = icmp ugt i64 %191, %141
+  %192 = icmp samesign ugt i64 %191, %141
   br i1 %192, label %205, label %193, !llvm.loop !74
 
 193:                                              ; preds = %183
@@ -16261,17 +16261,17 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %199 = zext i16 %198 to i64
   %200 = sub nsw i64 %196, %199
   %201 = tail call i64 @llvm.abs.i64(i64 %200, i1 true)
-  %202 = icmp ugt i64 %201, %141
+  %202 = icmp samesign ugt i64 %201, %141
   br i1 %202, label %205, label %.preheader9, !llvm.loop !74
 
 203:                                              ; preds = %87, %77, %67, %.preheader
   %.lcssa = phi i64 [ %65, %87 ], [ %65, %77 ], [ %65, %67 ], [ %36, %.preheader ]
-  %204 = icmp uge i64 %.lcssa, %36
+  %204 = icmp samesign uge i64 %.lcssa, %36
   br label %207
 
 205:                                              ; preds = %193, %183, %173, %.preheader9
   %.lcssa11 = phi i64 [ %171, %193 ], [ %171, %183 ], [ %171, %173 ], [ %142, %.preheader9 ]
-  %206 = icmp uge i64 %.lcssa11, %142
+  %206 = icmp samesign uge i64 %.lcssa11, %142
   br label %207
 
 207:                                              ; preds = %205, %203, %160, %150, %139, %133, %121, %111, %54, %44, %34, %28, %16, %5
@@ -17803,7 +17803,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %57 = zext i16 %56 to i64
   %58 = sub nsw i64 %55, %57
   %59 = tail call i64 @llvm.abs.i64(i64 %58, i1 true)
-  %60 = icmp ugt i64 %59, %52
+  %60 = icmp samesign ugt i64 %59, %52
   br i1 %60, label %232, label %61
 
 61:                                               ; preds = %50
@@ -17815,7 +17815,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %67 = zext i16 %66 to i64
   %68 = sub nsw i64 %64, %67
   %69 = tail call i64 @llvm.abs.i64(i64 %68, i1 true)
-  %70 = icmp ugt i64 %69, %52
+  %70 = icmp samesign ugt i64 %69, %52
   br i1 %70, label %232, label %71
 
 71:                                               ; preds = %61
@@ -17827,7 +17827,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %77 = zext i16 %76 to i64
   %78 = sub nsw i64 %74, %77
   %79 = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
-  %80 = icmp ugt i64 %79, %52
+  %80 = icmp samesign ugt i64 %79, %52
   br i1 %80, label %232, label %.preheader
 
 .preheader:                                       ; preds = %71, %104
@@ -17845,7 +17845,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %90 = zext i16 %89 to i64
   %91 = sub nsw i64 %88, %90
   %92 = tail call i64 @llvm.abs.i64(i64 %91, i1 true)
-  %93 = icmp ugt i64 %92, %52
+  %93 = icmp samesign ugt i64 %92, %52
   br i1 %93, label %228, label %94, !llvm.loop !74
 
 94:                                               ; preds = %84
@@ -17857,7 +17857,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %100 = zext i16 %99 to i64
   %101 = sub nsw i64 %97, %100
   %102 = tail call i64 @llvm.abs.i64(i64 %101, i1 true)
-  %103 = icmp ugt i64 %102, %52
+  %103 = icmp samesign ugt i64 %102, %52
   br i1 %103, label %228, label %104, !llvm.loop !74
 
 104:                                              ; preds = %94
@@ -17869,7 +17869,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %110 = zext i16 %109 to i64
   %111 = sub nsw i64 %107, %110
   %112 = tail call i64 @llvm.abs.i64(i64 %111, i1 true)
-  %113 = icmp ugt i64 %112, %52
+  %113 = icmp samesign ugt i64 %112, %52
   br i1 %113, label %228, label %.preheader, !llvm.loop !74
 
 114:                                              ; preds = %4
@@ -17969,7 +17969,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %171 = zext i16 %170 to i64
   %172 = sub nsw i64 %169, %171
   %173 = tail call i64 @llvm.abs.i64(i64 %172, i1 true)
-  %174 = icmp ugt i64 %173, %166
+  %174 = icmp samesign ugt i64 %173, %166
   br i1 %174, label %232, label %175
 
 175:                                              ; preds = %164
@@ -17981,7 +17981,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %181 = zext i16 %180 to i64
   %182 = sub nsw i64 %178, %181
   %183 = tail call i64 @llvm.abs.i64(i64 %182, i1 true)
-  %184 = icmp ugt i64 %183, %166
+  %184 = icmp samesign ugt i64 %183, %166
   br i1 %184, label %232, label %185
 
 185:                                              ; preds = %175
@@ -17993,7 +17993,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %191 = zext i16 %190 to i64
   %192 = sub nsw i64 %188, %191
   %193 = tail call i64 @llvm.abs.i64(i64 %192, i1 true)
-  %194 = icmp ugt i64 %193, %166
+  %194 = icmp samesign ugt i64 %193, %166
   br i1 %194, label %232, label %.preheader11
 
 .preheader11:                                     ; preds = %185, %218
@@ -18011,7 +18011,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %204 = zext i16 %203 to i64
   %205 = sub nsw i64 %202, %204
   %206 = tail call i64 @llvm.abs.i64(i64 %205, i1 true)
-  %207 = icmp ugt i64 %206, %166
+  %207 = icmp samesign ugt i64 %206, %166
   br i1 %207, label %230, label %208, !llvm.loop !74
 
 208:                                              ; preds = %198
@@ -18023,7 +18023,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %214 = zext i16 %213 to i64
   %215 = sub nsw i64 %211, %214
   %216 = tail call i64 @llvm.abs.i64(i64 %215, i1 true)
-  %217 = icmp ugt i64 %216, %166
+  %217 = icmp samesign ugt i64 %216, %166
   br i1 %217, label %230, label %218, !llvm.loop !74
 
 218:                                              ; preds = %208
@@ -18035,17 +18035,17 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
   %224 = zext i16 %223 to i64
   %225 = sub nsw i64 %221, %224
   %226 = tail call i64 @llvm.abs.i64(i64 %225, i1 true)
-  %227 = icmp ugt i64 %226, %166
+  %227 = icmp samesign ugt i64 %226, %166
   br i1 %227, label %230, label %.preheader11, !llvm.loop !74
 
 228:                                              ; preds = %104, %94, %84, %.preheader
   %.lcssa = phi i64 [ %82, %104 ], [ %82, %94 ], [ %82, %84 ], [ %53, %.preheader ]
-  %229 = icmp uge i64 %.lcssa, %53
+  %229 = icmp samesign uge i64 %.lcssa, %53
   br label %232
 
 230:                                              ; preds = %218, %208, %198, %.preheader11
   %.lcssa13 = phi i64 [ %196, %218 ], [ %196, %208 ], [ %196, %198 ], [ %167, %.preheader11 ]
-  %231 = icmp uge i64 %.lcssa13, %167
+  %231 = icmp samesign uge i64 %.lcssa13, %167
   br label %232
 
 232:                                              ; preds = %230, %228, %185, %175, %164, %158, %146, %136, %71, %61, %50, %44, %32, %22
@@ -20288,7 +20288,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %55 = zext i16 %54 to i64
   %56 = sub nsw i64 %53, %55
   %57 = tail call i64 @llvm.abs.i64(i64 %56, i1 true)
-  %58 = icmp ugt i64 %57, %50
+  %58 = icmp samesign ugt i64 %57, %50
   br i1 %58, label %227, label %59
 
 59:                                               ; preds = %48
@@ -20300,7 +20300,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %65 = zext i16 %64 to i64
   %66 = sub nsw i64 %62, %65
   %67 = tail call i64 @llvm.abs.i64(i64 %66, i1 true)
-  %68 = icmp ugt i64 %67, %50
+  %68 = icmp samesign ugt i64 %67, %50
   br i1 %68, label %227, label %69
 
 69:                                               ; preds = %59
@@ -20312,7 +20312,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %75 = zext i16 %74 to i64
   %76 = sub nsw i64 %72, %75
   %77 = tail call i64 @llvm.abs.i64(i64 %76, i1 true)
-  %78 = icmp ugt i64 %77, %50
+  %78 = icmp samesign ugt i64 %77, %50
   br i1 %78, label %227, label %.preheader
 
 .preheader:                                       ; preds = %69, %102
@@ -20330,7 +20330,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %88 = zext i16 %87 to i64
   %89 = sub nsw i64 %86, %88
   %90 = tail call i64 @llvm.abs.i64(i64 %89, i1 true)
-  %91 = icmp ugt i64 %90, %50
+  %91 = icmp samesign ugt i64 %90, %50
   br i1 %91, label %223, label %92, !llvm.loop !74
 
 92:                                               ; preds = %82
@@ -20342,7 +20342,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %98 = zext i16 %97 to i64
   %99 = sub nsw i64 %95, %98
   %100 = tail call i64 @llvm.abs.i64(i64 %99, i1 true)
-  %101 = icmp ugt i64 %100, %50
+  %101 = icmp samesign ugt i64 %100, %50
   br i1 %101, label %223, label %102, !llvm.loop !74
 
 102:                                              ; preds = %92
@@ -20354,7 +20354,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %108 = zext i16 %107 to i64
   %109 = sub nsw i64 %105, %108
   %110 = tail call i64 @llvm.abs.i64(i64 %109, i1 true)
-  %111 = icmp ugt i64 %110, %50
+  %111 = icmp samesign ugt i64 %110, %50
   br i1 %111, label %223, label %.preheader, !llvm.loop !74
 
 112:                                              ; preds = %4
@@ -20441,7 +20441,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %166 = zext i16 %165 to i64
   %167 = sub nsw i64 %164, %166
   %168 = tail call i64 @llvm.abs.i64(i64 %167, i1 true)
-  %169 = icmp ugt i64 %168, %161
+  %169 = icmp samesign ugt i64 %168, %161
   br i1 %169, label %227, label %170
 
 170:                                              ; preds = %159
@@ -20453,7 +20453,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %176 = zext i16 %175 to i64
   %177 = sub nsw i64 %173, %176
   %178 = tail call i64 @llvm.abs.i64(i64 %177, i1 true)
-  %179 = icmp ugt i64 %178, %161
+  %179 = icmp samesign ugt i64 %178, %161
   br i1 %179, label %227, label %180
 
 180:                                              ; preds = %170
@@ -20465,7 +20465,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %186 = zext i16 %185 to i64
   %187 = sub nsw i64 %183, %186
   %188 = tail call i64 @llvm.abs.i64(i64 %187, i1 true)
-  %189 = icmp ugt i64 %188, %161
+  %189 = icmp samesign ugt i64 %188, %161
   br i1 %189, label %227, label %.preheader9
 
 .preheader9:                                      ; preds = %180, %213
@@ -20483,7 +20483,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %199 = zext i16 %198 to i64
   %200 = sub nsw i64 %197, %199
   %201 = tail call i64 @llvm.abs.i64(i64 %200, i1 true)
-  %202 = icmp ugt i64 %201, %161
+  %202 = icmp samesign ugt i64 %201, %161
   br i1 %202, label %225, label %203, !llvm.loop !74
 
 203:                                              ; preds = %193
@@ -20495,7 +20495,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %209 = zext i16 %208 to i64
   %210 = sub nsw i64 %206, %209
   %211 = tail call i64 @llvm.abs.i64(i64 %210, i1 true)
-  %212 = icmp ugt i64 %211, %161
+  %212 = icmp samesign ugt i64 %211, %161
   br i1 %212, label %225, label %213, !llvm.loop !74
 
 213:                                              ; preds = %203
@@ -20507,17 +20507,17 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
   %219 = zext i16 %218 to i64
   %220 = sub nsw i64 %216, %219
   %221 = tail call i64 @llvm.abs.i64(i64 %220, i1 true)
-  %222 = icmp ugt i64 %221, %161
+  %222 = icmp samesign ugt i64 %221, %161
   br i1 %222, label %225, label %.preheader9, !llvm.loop !74
 
 223:                                              ; preds = %102, %92, %82, %.preheader
   %.lcssa = phi i64 [ %80, %102 ], [ %80, %92 ], [ %80, %82 ], [ %51, %.preheader ]
-  %224 = icmp uge i64 %.lcssa, %51
+  %224 = icmp samesign uge i64 %.lcssa, %51
   br label %227
 
 225:                                              ; preds = %213, %203, %193, %.preheader9
   %.lcssa11 = phi i64 [ %191, %213 ], [ %191, %203 ], [ %191, %193 ], [ %162, %.preheader9 ]
-  %226 = icmp uge i64 %.lcssa11, %162
+  %226 = icmp samesign uge i64 %.lcssa11, %162
   br label %227
 
 227:                                              ; preds = %225, %223, %180, %170, %159, %153, %141, %131, %69, %59, %48, %42, %30, %20

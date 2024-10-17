@@ -1181,7 +1181,7 @@ common.ret:                                       ; preds = %438, %27
           to label %.noexc37.i.i unwind label %305, !noalias !188
 
 .noexc37.i.i:                                     ; preds = %295
-  %switch.i.i.i.i.i = icmp ult i8 %299, 2
+  %switch.i.i.i.i.i = icmp samesign ult i8 %299, 2
   br i1 %switch.i.i.i.i.i, label %307, label %300
 
 300:                                              ; preds = %.noexc37.i.i
@@ -10656,7 +10656,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr124dro
 64:                                               ; preds = %.noexc54
   %.sroa.8.0.copyload92 = load i64, ptr %.sroa.8.0..sroa_idx91, align 4, !noalias !3092
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !3088
-  %or.cond.not = icmp ult i32 %60, 2
+  %or.cond.not = icmp samesign ult i32 %60, 2
   br i1 %or.cond.not, label %77, label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.thread
@@ -19404,7 +19404,7 @@ _ZN10serde_json3ser6to_vec17hd1952d43db10605dE.exit.i.i: ; preds = %840
   %1030 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !4934
   %1031 = icmp ult i64 %1030, 6
   call void @llvm.assume(i1 %1031)
-  %switch.i104.i = icmp ugt i64 %1030, 2
+  %switch.i104.i = icmp samesign ugt i64 %1030, 2
   br i1 %switch.i104.i, label %1032, label %1027
 
 1032:                                             ; preds = %1029

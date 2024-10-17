@@ -30367,7 +30367,7 @@ if.end.i:                                         ; preds = %while.body5
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %if.end.i
   %shl.i = shl nsw i64 -1, %rem.i.i
   %entry_idx.023.i = add nuw nsw i64 %div2.i.i, 1
-  %cmp3.not24.i = icmp ult i64 %entry_idx.023.i, %div1.i.i65.i
+  %cmp3.not24.i = icmp samesign ult i64 %entry_idx.023.i, %div1.i.i65.i
   br i1 %cmp3.not24.i, label %for.body7.us.preheader.i, label %for.cond18.preheader.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread.i: ; preds = %if.end.i
@@ -30376,7 +30376,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread.i: ; preds
   %shl62.i = shl nsw i64 -1, %rem.i.i
   %and63.i = and i64 %5, %shl62.i
   %entry_idx.02366.i = add nuw nsw i64 %div2.i.i, 1
-  %cmp3.not2467.i = icmp ult i64 %entry_idx.02366.i, %div1.i.i65.i
+  %cmp3.not2467.i = icmp samesign ult i64 %entry_idx.02366.i, %div1.i.i65.i
   br i1 %cmp3.not2467.i, label %for.body.i, label %for.cond18.preheader.i
 
 for.body7.us.preheader.i:                         ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i, %if.end13.us.i
@@ -30405,7 +30405,7 @@ for.inc.us.i:                                     ; preds = %for.body7.us.i
 
 if.end13.us.i:                                    ; preds = %for.inc.us.i
   %entry_idx.0.us.i = add nuw nsw i64 %entry_idx.028.us.i, 1
-  %cmp3.not.us.i = icmp ult i64 %entry_idx.0.us.i, %div1.i.i65.i
+  %cmp3.not.us.i = icmp samesign ult i64 %entry_idx.0.us.i, %div1.i.i65.i
   %exitcond59.not.i = icmp eq i64 %entry_idx.0.us.i, %div1.i.i65.i
   br i1 %exitcond59.not.i, label %cleanup.i, label %for.body7.us.preheader.i, !llvm.loop !1103
 
@@ -30438,7 +30438,7 @@ if.end13.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i.i51.i = getelementptr inbounds i64, ptr %bloom_filter.val, i64 %entry_idx.028.i
   %8 = load i64, ptr %arrayidx.i.i51.i, align 8, !tbaa !92
   %entry_idx.0.i = add nuw nsw i64 %entry_idx.028.i, 1
-  %cmp3.not.i = icmp ult i64 %entry_idx.0.i, %div1.i.i65.i
+  %cmp3.not.i = icmp samesign ult i64 %entry_idx.0.i, %div1.i.i65.i
   %exitcond57.not.i = icmp eq i64 %entry_idx.0.i, %div1.i.i65.i
   br i1 %exitcond57.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !1103
 
@@ -30491,7 +30491,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i118: ; preds = %
   %add.i.i.i120 = add i64 %cond.i, 63
   %div1.i.i.i121 = lshr i64 %add.i.i.i120, 6
   %entry_idx.023.i122 = add nuw nsw i64 %div2.i.i59, 1
-  %cmp3.not24.i123 = icmp ult i64 %entry_idx.023.i122, %div1.i.i.i121
+  %cmp3.not24.i123 = icmp samesign ult i64 %entry_idx.023.i122, %div1.i.i.i121
   br i1 %cmp3.not24.i123, label %for.body7.us.preheader.i124, label %for.cond18.preheader.i70
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread.i62: ; preds = %if.end.i58
@@ -30502,7 +30502,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.thread.i62: ; pre
   %add.i.i64.i66 = add i64 %cond.i, 63
   %div1.i.i65.i67 = lshr i64 %add.i.i64.i66, 6
   %entry_idx.02366.i68 = add nuw nsw i64 %div2.i.i59, 1
-  %cmp3.not2467.i69 = icmp ult i64 %entry_idx.02366.i68, %div1.i.i65.i67
+  %cmp3.not2467.i69 = icmp samesign ult i64 %entry_idx.02366.i68, %div1.i.i65.i67
   br i1 %cmp3.not2467.i69, label %for.body.i85, label %for.cond18.preheader.i70
 
 for.body7.us.preheader.i124:                      ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i118, %if.end13.us.i140
@@ -30531,7 +30531,7 @@ for.inc.us.i136:                                  ; preds = %for.body7.us.i130
 
 if.end13.us.i140:                                 ; preds = %for.inc.us.i136
   %entry_idx.0.us.i141 = add nuw nsw i64 %entry_idx.028.us.i126, 1
-  %cmp3.not.us.i142 = icmp ult i64 %entry_idx.0.us.i141, %div1.i.i.i121
+  %cmp3.not.us.i142 = icmp samesign ult i64 %entry_idx.0.us.i141, %div1.i.i.i121
   %exitcond59.not.i143 = icmp eq i64 %entry_idx.0.us.i141, %div1.i.i.i121
   br i1 %exitcond59.not.i143, label %cleanup.i99, label %for.body7.us.preheader.i124, !llvm.loop !1103
 
@@ -30564,7 +30564,7 @@ if.end13.i109:                                    ; preds = %for.inc.i105, %for.
   %arrayidx.i.i51.i111 = getelementptr inbounds i64, ptr %bit_mask.val, i64 %entry_idx.028.i87
   %12 = load i64, ptr %arrayidx.i.i51.i111, align 8, !tbaa !92
   %entry_idx.0.i112 = add nuw nsw i64 %entry_idx.028.i87, 1
-  %cmp3.not.i113 = icmp ult i64 %entry_idx.0.i112, %div1.i.i65.i67
+  %cmp3.not.i113 = icmp samesign ult i64 %entry_idx.0.i112, %div1.i.i65.i67
   %exitcond57.not.i114 = icmp eq i64 %entry_idx.0.i112, %div1.i.i65.i67
   br i1 %exitcond57.not.i114, label %cleanup.i99, label %for.body.i85, !llvm.loop !1103
 
@@ -48730,7 +48730,7 @@ cleanup.i.epil:                                   ; preds = %while.body.i.epil, 
 for.body12.i.preheader:                           ; preds = %cleanup.i.epil, %for.body12.i.preheader.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader
   %valid.050.i.lcssa = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %valid.3.i.1, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %valid.3.i.epil, %cleanup.i.epil ]
   %.lcssa = phi i64 [ %68, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %87, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %74, %cleanup.i.epil ]
-  %min.iters.check285 = icmp ult i64 %rem.i225, 4
+  %min.iters.check285 = icmp samesign ult i64 %rem.i225, 4
   br i1 %min.iters.check285, label %for.body12.i.preheader47, label %vector.ph286
 
 vector.ph286:                                     ; preds = %for.body12.i.preheader
@@ -70306,7 +70306,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -70485,7 +70485,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161

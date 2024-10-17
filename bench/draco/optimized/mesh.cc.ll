@@ -215,7 +215,7 @@ define void @_ZN5draco4Mesh25ApplyPointIdDeduplicationERKNS_15IndexTypeVectorINS
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 12
   %29 = and i64 %28, 4294967295
-  %30 = icmp ult i64 %indvars.iv.next14, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next14, %29
   br i1 %30, label %.preheader, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %22, %3

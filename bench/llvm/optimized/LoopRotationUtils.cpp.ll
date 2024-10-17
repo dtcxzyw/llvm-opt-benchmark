@@ -6868,7 +6868,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_20l
 
 _ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %9
   %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
-  %.not42 = icmp ugt i64 %.037.idx49, 56
+  %.not42 = icmp samesign ugt i64 %.037.idx49, 56
   br i1 %.not42, label %.critedge, label %12
 
 12:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
@@ -6973,7 +6973,7 @@ _ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %9
 
 _ZN4llvm20location_op_iteratordeEv.exit14:        ; preds = %.lr.ph59, %56
   %58 = phi ptr [ %57, %56 ], [ %55, %.lr.ph59 ]
-  %.not45 = icmp ugt i64 %.2.idx56, 56
+  %.not45 = icmp samesign ugt i64 %.2.idx56, 56
   br i1 %.not45, label %.critedge2, label %59
 
 59:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14
@@ -7478,7 +7478,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_17D
 
 _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %9
   %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
-  %.not42 = icmp ugt i64 %.037.idx49, 56
+  %.not42 = icmp samesign ugt i64 %.037.idx49, 56
   br i1 %.not42, label %.critedge, label %12
 
 12:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
@@ -7583,7 +7583,7 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
 
 _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14: ; preds = %.lr.ph59, %56
   %58 = phi ptr [ %57, %56 ], [ %55, %.lr.ph59 ]
-  %.not45 = icmp ugt i64 %.2.idx56, 56
+  %.not45 = icmp samesign ugt i64 %.2.idx56, 56
   br i1 %.not45, label %.critedge2, label %59
 
 59:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14

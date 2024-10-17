@@ -871,7 +871,7 @@ sw.bb323:                                         ; preds = %if.end4
   %y_size = getelementptr inbounds i8, ptr %159, i64 4
   %163 = load i32, ptr %y_size, align 1
   %conv330 = zext nneg i8 %and to i32
-  %cmp332 = icmp ult i8 %and, 3
+  %cmp332 = icmp samesign ult i8 %and, 3
   br i1 %cmp332, label %cond.true334, label %cond.end338
 
 cond.true334:                                     ; preds = %sw.bb323

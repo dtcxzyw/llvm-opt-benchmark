@@ -160,7 +160,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %79 = load i16, ptr %78, align 4
   %80 = lshr i16 %79, 2
   %81 = and i16 %80, 60
-  %82 = icmp ult i16 %81, 20
+  %82 = icmp samesign ult i16 %81, 20
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
@@ -554,7 +554,7 @@ define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext ra
 47:                                               ; preds = %42, %40
   %48 = phi i32 [ %46, %42 ], [ 1, %40 ]
   %49 = add nuw nsw i32 %48, %33
-  %50 = icmp ult i32 %49, %3
+  %50 = icmp samesign ult i32 %49, %3
   br i1 %50, label %32, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %47, %38, %.thread, %6

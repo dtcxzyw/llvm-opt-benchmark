@@ -13484,7 +13484,7 @@ define linkonce_odr hidden void @_ZN10hypothesis9chi2_dumpEiiPKdS1_RKNSt7__cxx11
 
 20:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = icmp ult i64 %indvars.iv.next, %10
+  %21 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
@@ -13497,7 +13497,7 @@ define linkonce_odr hidden void @_ZN10hypothesis9chi2_dumpEiiPKdS1_RKNSt7__cxx11
 
 ._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %25 = icmp ult i64 %indvars.iv.next62, %11
+  %25 = icmp samesign ult i64 %indvars.iv.next62, %11
   br i1 %25, label %14, label %16
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %14
@@ -13593,7 +13593,7 @@ define linkonce_odr hidden void @_ZN10hypothesis9chi2_dumpEiiPKdS1_RKNSt7__cxx11
 
 47:                                               ; preds = %44
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %48 = icmp ult i64 %indvars.iv.next68, %37
+  %48 = icmp samesign ult i64 %indvars.iv.next68, %37
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
@@ -13606,7 +13606,7 @@ define linkonce_odr hidden void @_ZN10hypothesis9chi2_dumpEiiPKdS1_RKNSt7__cxx11
 
 ._crit_edge.us54:                                 ; preds = %51
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %52 = icmp ult i64 %indvars.iv.next73, %38
+  %52 = icmp samesign ult i64 %indvars.iv.next73, %38
   br i1 %52, label %41, label %43
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %41

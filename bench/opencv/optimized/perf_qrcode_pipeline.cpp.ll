@@ -3976,7 +3976,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %245 = load i32, ptr %244, align 4
   %246 = sub nsw i32 %245, %235
   %247 = call i32 @llvm.abs.i32(i32 %246, i1 true)
-  %.not = icmp ugt i32 %247, %5
+  %.not = icmp samesign ugt i32 %247, %5
   br i1 %.not, label %255, label %248
 
 248:                                              ; preds = %241
@@ -3984,7 +3984,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %250 = load i32, ptr %249, align 4
   %251 = sub nsw i32 %250, %240
   %252 = call i32 @llvm.abs.i32(i32 %251, i1 true)
-  %.not131 = icmp ule i32 %252, %5
+  %.not131 = icmp samesign ule i32 %252, %5
   %253 = zext i1 %.not131 to i32
   %spec.select = add nsw i32 %.096245, %253
   br label %255

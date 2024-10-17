@@ -154,7 +154,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %add.neg.i.i = xor i32 %list.0.i, -1
   %sub.i13.i = add i32 %0, %add.neg.i.i
   %6 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
-  %cmp.i14.i = icmp ugt i32 %6, 131071
+  %cmp.i14.i = icmp samesign ugt i32 %6, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -232,7 +232,7 @@ while.end:                                        ; preds = %while.cond
   %add.neg.i = xor i32 %list.0, -1
   %sub.i13 = add i32 %l2, %add.neg.i
   %4 = tail call i32 @llvm.abs.i32(i32 %sub.i13, i1 true)
-  %cmp.i14 = icmp ugt i32 %4, 131071
+  %cmp.i14 = icmp samesign ugt i32 %4, 131071
   br i1 %cmp.i14, label %if.then.i, label %fixjump.exit
 
 if.then.i:                                        ; preds = %while.end
@@ -330,7 +330,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
   %sub.i13.i.i = add i32 %list, %add.neg.i.i.i
   %5 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
-  %cmp.i14.i.i = icmp ugt i32 %5, 131071
+  %cmp.i14.i.i = icmp samesign ugt i32 %5, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i
@@ -402,14 +402,14 @@ if.end.i.i:                                       ; preds = %getjumpcontrol.exit
   %add.neg.i.i = xor i32 %list.addr.037.i, -1
   %sub.i11.i = add i32 %target, %add.neg.i.i
   %16 = tail call i32 @llvm.abs.i32(i32 %sub.i11.i, i1 true)
-  %cmp.i12.i = icmp ugt i32 %16, 131071
+  %cmp.i12.i = icmp samesign ugt i32 %16, 131071
   br i1 %cmp.i12.i, label %if.end.sink.split.sink.split.i, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %getjumpcontrol.exit.i.i
   %add.neg.i21.i = xor i32 %list.addr.037.i, -1
   %sub.i22.i = add i32 %target, %add.neg.i21.i
   %17 = tail call i32 @llvm.abs.i32(i32 %sub.i22.i, i1 true)
-  %cmp.i23.i = icmp ugt i32 %17, 131071
+  %cmp.i23.i = icmp samesign ugt i32 %17, 131071
   br i1 %cmp.i23.i, label %if.end.sink.split.sink.split.i, label %if.end.i
 
 if.end.sink.split.sink.split.i:                   ; preds = %if.else.i, %if.end.i.i
@@ -484,7 +484,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %add.neg.i.i = xor i32 %list.0.i, -1
   %sub.i13.i = add i32 %list, %add.neg.i.i
   %5 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
-  %cmp.i14.i = icmp ugt i32 %5, 131071
+  %cmp.i14.i = icmp samesign ugt i32 %5, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -571,14 +571,14 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
   %add.neg.i = xor i32 %list.addr.037, -1
   %sub.i11 = add i32 %vtarget, %add.neg.i
   %9 = tail call i32 @llvm.abs.i32(i32 %sub.i11, i1 true)
-  %cmp.i12 = icmp ugt i32 %9, 131071
+  %cmp.i12 = icmp samesign ugt i32 %9, 131071
   br i1 %cmp.i12, label %if.end.sink.split.sink.split, label %if.end.sink.split
 
 if.else:                                          ; preds = %getjumpcontrol.exit.i
   %add.neg.i21 = xor i32 %list.addr.037, -1
   %sub.i22 = add i32 %dtarget, %add.neg.i21
   %10 = tail call i32 @llvm.abs.i32(i32 %sub.i22, i1 true)
-  %cmp.i23 = icmp ugt i32 %10, 131071
+  %cmp.i23 = icmp samesign ugt i32 %10, 131071
   br i1 %cmp.i23, label %if.end.sink.split.sink.split, label %if.end
 
 if.end.sink.split.sink.split:                     ; preds = %if.else, %if.end.i
@@ -1229,7 +1229,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %add.neg.i.i = xor i32 %list.0.i, -1
   %sub.i13.i = add i32 %1, %add.neg.i.i
   %6 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
-  %cmp.i14.i = icmp ugt i32 %6, 131071
+  %cmp.i14.i = icmp samesign ugt i32 %6, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -1398,7 +1398,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
   %sub.i13.i.i = add i32 %24, %add.neg.i.i.i
   %30 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
-  %cmp.i14.i.i = icmp ugt i32 %30, 131071
+  %cmp.i14.i.i = icmp samesign ugt i32 %30, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i
@@ -1476,7 +1476,7 @@ while.end.i.i125:                                 ; preds = %while.cond.i.i114
   %add.neg.i.i.i127 = xor i32 %list.0.i.i115, -1
   %sub.i13.i.i128 = add i32 %cond, %add.neg.i.i.i127
   %44 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i128, i1 true)
-  %cmp.i14.i.i129 = icmp ugt i32 %44, 131071
+  %cmp.i14.i.i129 = icmp samesign ugt i32 %44, 131071
   br i1 %cmp.i14.i.i129, label %if.then.i.i.i135, label %fixjump.exit.i.i130
 
 if.then.i.i.i135:                                 ; preds = %while.end.i.i125
@@ -2606,7 +2606,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %add.neg.i.i = xor i32 %list.0.i, -1
   %sub.i13.i = add i32 %pc.0, %add.neg.i.i
   %13 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
-  %cmp.i14.i = icmp ugt i32 %13, 131071
+  %cmp.i14.i = icmp samesign ugt i32 %13, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -2670,7 +2670,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
   %sub.i13.i.i = add i32 %16, %add.neg.i.i.i
   %22 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
-  %cmp.i14.i.i = icmp ugt i32 %22, 131071
+  %cmp.i14.i.i = icmp samesign ugt i32 %22, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i
@@ -3609,7 +3609,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
   %sub.i13.i.i = add i32 %pc.0.i, %add.neg.i.i.i
   %6 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
-  %cmp.i14.i.i = icmp ugt i32 %6, 131071
+  %cmp.i14.i.i = icmp samesign ugt i32 %6, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i
@@ -3673,7 +3673,7 @@ while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %add.neg.i.i.i.i = xor i32 %list.0.i.i.i, -1
   %sub.i13.i.i.i = add i32 %9, %add.neg.i.i.i.i
   %15 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i.i, i1 true)
-  %cmp.i14.i.i.i = icmp ugt i32 %15, 131071
+  %cmp.i14.i.i.i = icmp samesign ugt i32 %15, 131071
   br i1 %cmp.i14.i.i.i, label %if.then.i.i.i.i, label %fixjump.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i
@@ -3854,7 +3854,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %add.neg.i.i = xor i32 %list.0.i, -1
   %sub.i13.i = add i32 %0, %add.neg.i.i
   %5 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
-  %cmp.i14.i = icmp ugt i32 %5, 131071
+  %cmp.i14.i = icmp samesign ugt i32 %5, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -3919,7 +3919,7 @@ while.end.i123:                                   ; preds = %while.cond.i112
   %add.neg.i.i125 = xor i32 %list.0.i113, -1
   %sub.i13.i126 = add i32 %8, %add.neg.i.i125
   %13 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i126, i1 true)
-  %cmp.i14.i127 = icmp ugt i32 %13, 131071
+  %cmp.i14.i127 = icmp samesign ugt i32 %13, 131071
   br i1 %cmp.i14.i127, label %if.then.i.i133, label %fixjump.exit.i128
 
 if.then.i.i133:                                   ; preds = %while.end.i123
@@ -4581,14 +4581,14 @@ if.end.i.i:                                       ; preds = %getjumpcontrol.exit
   %add.neg.i.i = xor i32 %list.addr.037.i, -1
   %sub.i11.i = add i32 %2, %add.neg.i.i
   %11 = tail call i32 @llvm.abs.i32(i32 %sub.i11.i, i1 true)
-  %cmp.i12.i = icmp ugt i32 %11, 131071
+  %cmp.i12.i = icmp samesign ugt i32 %11, 131071
   br i1 %cmp.i12.i, label %if.end.sink.split.sink.split.i, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %getjumpcontrol.exit.i.i
   %add.neg.i21.i = xor i32 %list.addr.037.i, -1
   %sub.i22.i = add i32 %2, %add.neg.i21.i
   %12 = tail call i32 @llvm.abs.i32(i32 %sub.i22.i, i1 true)
-  %cmp.i23.i = icmp ugt i32 %12, 131071
+  %cmp.i23.i = icmp samesign ugt i32 %12, 131071
   br i1 %cmp.i23.i, label %if.end.sink.split.sink.split.i, label %if.end.i
 
 if.end.sink.split.sink.split.i:                   ; preds = %if.else.i, %if.end.i.i
@@ -4956,7 +4956,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
   %sub.i13.i.i = add i32 %2, %add.neg.i.i.i
   %8 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
-  %cmp.i14.i.i = icmp ugt i32 %8, 131071
+  %cmp.i14.i.i = icmp samesign ugt i32 %8, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i

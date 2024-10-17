@@ -3941,7 +3941,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edg
   %882 = trunc i64 %881 to i32
   %883 = sub nsw i32 %879, %882
   %884 = call i32 @llvm.abs.i32(i32 %883, i1 true)
-  %885 = icmp ult i32 %884, 6
+  %885 = icmp samesign ult i32 %884, 6
   br i1 %885, label %886, label %.loopexit.i74.i
 
 886:                                              ; preds = %880

@@ -3986,7 +3986,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit654: ; pr
   %511 = zext i8 %510 to i32
   %512 = add i32 %507, %511
   %513 = zext i32 %512 to i64
-  %514 = icmp ult i64 %indvars.iv.next1074, %513
+  %514 = icmp samesign ult i64 %indvars.iv.next1074, %513
   br i1 %514, label %482, label %._crit_edge1042, !llvm.loop !14
 
 ._crit_edge1042:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit654, %463
@@ -4640,7 +4640,7 @@ _ZN4llvm15LegalizerHelper15narrowScalarDstERNS_12MachineInstrENS_3LLTEjj.exit: ;
   %indvars.iv.next1065 = add nuw nsw i64 %indvars.iv1064, 2
   %848 = load i24, ptr %821, align 8
   %849 = zext i24 %848 to i64
-  %850 = icmp ult i64 %indvars.iv.next1065, %849
+  %850 = icmp samesign ult i64 %indvars.iv.next1065, %849
   br i1 %850, label %.lr.ph1029, label %._crit_edge1030, !llvm.loop !17
 
 ._crit_edge1030:                                  ; preds = %.lr.ph1029, %817
@@ -4715,12 +4715,12 @@ _ZN4llvm15LegalizerHelper15narrowScalarDstERNS_12MachineInstrENS_3LLTEjj.exit: ;
   %indvars.iv.next1068 = add nuw nsw i64 %indvars.iv1067, 2
   %887 = load i24, ptr %821, align 8
   %888 = zext i24 %887 to i64
-  %889 = icmp ult i64 %indvars.iv.next1068, %888
+  %889 = icmp samesign ult i64 %indvars.iv.next1068, %888
   br i1 %889, label %.lr.ph1033, label %._crit_edge1034, !llvm.loop !24
 
 ._crit_edge1034:                                  ; preds = %.lr.ph1033, %863
   %indvars.iv.next1071 = add nuw nsw i64 %indvars.iv1070, 1
-  %890 = icmp ult i64 %indvars.iv.next1071, %862
+  %890 = icmp samesign ult i64 %indvars.iv.next1071, %862
   br i1 %890, label %863, label %._crit_edge1038, !llvm.loop !25
 
 ._crit_edge1038:                                  ; preds = %._crit_edge1034, %._crit_edge1030
@@ -5638,7 +5638,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit730:     ; preds = %1313, %1317, %1321
 1339:                                             ; preds = %1275, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit730, %1293, %1292
   %.sroa.0802.1 = phi i32 [ %1338, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit730 ], [ %.sroa.0802.01001, %1293 ], [ %.sroa.0802.01001, %1292 ], [ %1282, %1275 ]
   %.sroa.0803.1 = phi i32 [ %.sroa.0803.01002, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit730 ], [ %1308, %1293 ], [ %.sroa.0803.01002, %1292 ], [ %.sroa.0803.01002, %1275 ]
-  %1340 = icmp ult i64 %indvars.iv.next1059, %1257
+  %1340 = icmp samesign ult i64 %indvars.iv.next1059, %1257
   br i1 %1340, label %1258, label %._crit_edge1005, !llvm.loop !48
 
 ._crit_edge1005:                                  ; preds = %1339, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit708
@@ -5735,7 +5735,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit735: ; pr
   %1395 = add i64 %1394, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %120, i64 noundef %1395) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1396 = icmp ult i64 %indvars.iv.next, %1368
+  %1396 = icmp samesign ult i64 %indvars.iv.next, %1368
   br i1 %1396, label %1369, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit735, %1352
@@ -8131,7 +8131,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit665: ; preds = %986, %1
   %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 2
   %1167 = load i24, ptr %1138, align 8
   %1168 = zext i24 %1167 to i64
-  %1169 = icmp ult i64 %indvars.iv.next860, %1168
+  %1169 = icmp samesign ult i64 %indvars.iv.next860, %1168
   br i1 %1169, label %1144, label %._crit_edge847, !llvm.loop !50
 
 ._crit_edge847:                                   ; preds = %1144, %1132
@@ -15492,7 +15492,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   %96 = zext i24 %95 to i64
   %97 = add nuw nsw i64 %96, 4294967295
   %98 = and i64 %97, 4294967295
-  %99 = icmp ult i64 %indvars.iv.next, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %99, label %29, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit, %4
@@ -19458,7 +19458,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit126: ; preds = %155, %1
 
 197:                                              ; preds = %.sink.split, %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %198 = icmp ult i64 %indvars.iv.next, %148
+  %198 = icmp samesign ult i64 %indvars.iv.next, %148
   br i1 %198, label %149, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %197, %_ZNK4llvm3LLT13getSizeInBitsEv.exit124
@@ -25928,7 +25928,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit314:           ; preds = %362, %366, %369, %_
   %447 = getelementptr inbounds %"class.llvm::Register", ptr %446, i64 %443
   %448 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJRS1_EEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %447)
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
-  %449 = icmp ult i64 %indvars.iv.next418, %441
+  %449 = icmp samesign ult i64 %indvars.iv.next418, %441
   br i1 %449, label %444, label %._crit_edge392.us, !llvm.loop !144
 
 ._crit_edge392.us:                                ; preds = %444
@@ -29309,7 +29309,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit132:           ; preds = %140, %144, %147, %_
   store i8 %.sroa.3.0.i125, ptr %.sroa.2.0..sroa_idx, align 8
   %158 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #18
   %159 = trunc i64 %158 to i32
-  %160 = icmp ugt i32 %76, %83
+  %160 = icmp samesign ugt i32 %76, %83
   br i1 %160, label %161, label %224
 
 161:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit132
@@ -29424,7 +29424,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit132:           ; preds = %140, %144, %147, %_
   %206 = getelementptr inbounds %"class.llvm::Register", ptr %205, i64 %indvars.iv
   store i32 %204, ptr %206, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %207 = icmp ult i64 %indvars.iv.next, %185
+  %207 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %207, label %186, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %186, %164
@@ -29466,7 +29466,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit132:           ; preds = %140, %144, %147, %_
   br label %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit
 
 224:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit132
-  %225 = icmp ult i32 %76, %83
+  %225 = icmp samesign ult i32 %76, %83
   br i1 %225, label %226, label %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit
 
 226:                                              ; preds = %224
@@ -29478,7 +29478,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit132:           ; preds = %140, %144, %147, %_
 229:                                              ; preds = %226
   %.not.i.i133 = icmp ule i32 %159, %132
   %230 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %228)
-  %231 = icmp ult i32 %230, 2
+  %231 = icmp samesign ult i32 %230, 2
   %or.cond = select i1 %.not.i.i133, i1 %231, i1 false
   br i1 %or.cond, label %232, label %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit
 
@@ -30305,7 +30305,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit98:           ; preds = %147, %151
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 4
   %164 = load i32, ptr %163, align 4
-  %165 = icmp ult i32 %148, %154
+  %165 = icmp samesign ult i32 %148, %154
   br i1 %165, label %166, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 166:                                              ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit98
@@ -30317,7 +30317,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit98:           ; preds = %147, %151
 169:                                              ; preds = %166
   %.not.i.i99 = icmp ule i32 %138, %111
   %170 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %168)
-  %171 = icmp ult i32 %170, 2
+  %171 = icmp samesign ult i32 %170, 2
   %or.cond = select i1 %.not.i.i99, i1 %171, i1 false
   br i1 %or.cond, label %172, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -30982,7 +30982,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %87 = zext i24 %86 to i64
   %88 = add nuw nsw i64 %87, 4294967295
   %89 = and i64 %88, 4294967295
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %63, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %58
@@ -40973,7 +40973,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %185 = add i64 %184, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %185) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %186 = icmp ult i64 %indvars.iv.next, %172
+  %186 = icmp samesign ult i64 %indvars.iv.next, %172
   br i1 %186, label %173, label %._crit_edge, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %_ZNK4llvm3LLT14getElementTypeEv.exit144
@@ -42946,7 +42946,7 @@ _ZN4llvm5APIntD2Ev.exit69:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %.sroa.5.0163 = phi ptr [ null, %.lr.ph ], [ %.sroa.5.1, %169 ]
   %.062166 = add i32 %.062166.in, -1
   %124 = zext i32 %.062166 to i64
-  %125 = icmp ult i64 %indvars.iv, %124
+  %125 = icmp samesign ult i64 %indvars.iv, %124
   %126 = load ptr, ptr %0, align 8
   br i1 %125, label %127, label %137
 
@@ -47846,7 +47846,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %56, %60, %64
   %.not.i.i = icmp ne i32 %.0.i, 0
   %or.cond.not316 = and i1 %.not.i.i, %81
   %82 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
-  %83 = icmp ult i32 %82, 2
+  %83 = icmp samesign ult i32 %82, 2
   %or.cond309 = select i1 %or.cond.not316, i1 %83, i1 false
   br i1 %or.cond309, label %84, label %.critedge
 
@@ -48844,12 +48844,12 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit45:      ; preds = %82, %86, %90
   %.not.i.i46 = icmp ne i32 %.0.i, 0
   %or.cond141.not147.not149.not152 = select i1 %or.cond, i1 %.not.i.i46, i1 false
   %94 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
-  %95 = icmp ult i32 %94, 2
+  %95 = icmp samesign ult i32 %94, 2
   %or.cond143.not148.not151 = select i1 %or.cond141.not147.not149.not152, i1 %95, i1 false
   %.not.i.i48 = icmp ne i32 %.0.i41, 0
   %or.cond144.not150 = select i1 %or.cond143.not148.not151, i1 %.not.i.i48, i1 false
   %96 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i41)
-  %97 = icmp ult i32 %96, 2
+  %97 = icmp samesign ult i32 %96, 2
   %or.cond146 = select i1 %or.cond144.not150, i1 %97, i1 false
   br i1 %or.cond146, label %98, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -50781,7 +50781,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %175, %._crit_edge1
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %176 = load i24, ptr %41, align 8
   %177 = zext i24 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next187, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next187, %177
   br i1 %178, label %90, label %._crit_edge154, !llvm.loop !355
 
 ._crit_edge154:                                   ; preds = %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit, %._crit_edge
@@ -50968,7 +50968,7 @@ _ZN4llvm11SmallVectorINS_5SrcOpELj3EED2Ev.exit:   ; preds = %._crit_edge166, %26
 
 _ZN4llvm11SmallVectorINS_5DstOpELj2EED2Ev.exit:   ; preds = %_ZN4llvm11SmallVectorINS_5SrcOpELj3EED2Ev.exit, %265
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %266 = icmp ult i64 %indvars.iv.next207, %187
+  %266 = icmp samesign ult i64 %indvars.iv.next207, %187
   br i1 %266, label %188, label %._crit_edge170, !llvm.loop !359
 
 ._crit_edge170:                                   ; preds = %_ZN4llvm11SmallVectorINS_5DstOpELj2EED2Ev.exit, %._crit_edge154
@@ -51529,7 +51529,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit60: ; preds = %_ZNK4llv
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %90 = load i24, ptr %34, align 8
   %91 = zext i24 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next, %91
   br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !366
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit60
@@ -51666,7 +51666,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %158 = icmp ult i64 %indvars.iv.next97, %108
+  %158 = icmp samesign ult i64 %indvars.iv.next97, %108
   br i1 %158, label %109, label %._crit_edge85, !llvm.loop !374
 
 ._crit_edge85:                                    ; preds = %._crit_edge81, %._crit_edge
@@ -52487,14 +52487,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %165 = zext i8 %164 to i32
   %166 = add i32 %161, %165
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %indvars.iv.next281, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next281, %167
   br i1 %168, label %148, label %._crit_edge264, !llvm.loop !383
 
 ._crit_edge264:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %133
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %169 = load i24, ptr %129, align 8
   %170 = zext i24 %169 to i64
-  %171 = icmp ult i64 %indvars.iv.next284, %170
+  %171 = icmp samesign ult i64 %indvars.iv.next284, %170
   br i1 %171, label %133, label %._crit_edge267, !llvm.loop !384
 
 ._crit_edge267:                                   ; preds = %._crit_edge264, %_ZNK4llvm3LLT13getScalarTypeEv.exit
@@ -52569,7 +52569,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit127: ; pr
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %205) #18
   %206 = add nuw nsw i32 %.085269, 1
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, %186
-  %207 = icmp ult i32 %206, %183
+  %207 = icmp samesign ult i32 %206, %183
   br i1 %207, label %187, label %._crit_edge271, !llvm.loop !385
 
 ._crit_edge271:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit127, %_ZNK4llvm3LLT14getNumElementsEv.exit125
@@ -52956,7 +52956,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit223: ; pr
   %377 = add i64 %376, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %377) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %378 = icmp ult i64 %indvars.iv.next, %359
+  %378 = icmp samesign ult i64 %indvars.iv.next, %359
   br i1 %378, label %364, label %._crit_edge, !llvm.loop !386
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit223, %361
@@ -53000,7 +53000,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit225: ; pr
 
 _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit226: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit225, %400
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %401 = icmp ult i64 %indvars.iv.next278, %360
+  %401 = icmp samesign ult i64 %indvars.iv.next278, %360
   br i1 %401, label %361, label %._crit_edge260, !llvm.loop !387
 
 ._crit_edge260:                                   ; preds = %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit226, %_ZNK4llvm3LLT14getNumElementsEv.exit221
@@ -53973,7 +53973,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit109:          ; preds = %68, %69
 81:                                               ; preds = %79
   %.not.i.i111 = icmp ne i16 %.in, 0
   %82 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %74)
-  %83 = icmp ult i32 %82, 2
+  %83 = icmp samesign ult i32 %82, 2
   %or.cond = select i1 %.not.i.i111, i1 %83, i1 false
   %84 = icmp ugt i16 %.in, 1
   br i1 %or.cond, label %85, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
@@ -54028,7 +54028,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit109:          ; preds = %68, %69
   store i32 %107, ptr %8, align 4
   %108 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJS1_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 2
-  %109 = icmp ult i64 %indvars.iv.next245, %93
+  %109 = icmp samesign ult i64 %indvars.iv.next245, %93
   br i1 %109, label %.lr.ph228, label %._crit_edge229, !llvm.loop !392
 
 ._crit_edge229:                                   ; preds = %.lr.ph228, %.preheader
@@ -58421,7 +58421,7 @@ define dso_local void @_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallV
   %65 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %30)
   %66 = zext i32 %65 to i64
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %67 = icmp uge i64 %indvars.iv.next287, %62
+  %67 = icmp samesign uge i64 %indvars.iv.next287, %62
   %reass.sub = sub i32 %64, %30
   %68 = add i32 %reass.sub, 1
   %.sroa.speculated203 = call i32 @llvm.umin.i32(i32 %45, i32 %64)
@@ -58480,7 +58480,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %92 = add i64 %91, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %92) #18
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
-  %.not.not = icmp ult i64 %indvars.iv280, %71
+  %.not.not = icmp samesign ult i64 %indvars.iv280, %71
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !444
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %63
@@ -58542,7 +58542,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit98: ; pre
   %119 = add i64 %118, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %119) #18
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %.not93.not = icmp ult i64 %indvars.iv283, %96
+  %.not93.not = icmp samesign ult i64 %indvars.iv283, %96
   br i1 %.not93.not, label %.lr.ph250, label %._crit_edge251, !llvm.loop !445
 
 ._crit_edge251:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit98, %._crit_edge

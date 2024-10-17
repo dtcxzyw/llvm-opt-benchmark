@@ -83,7 +83,7 @@ while.body.preheader:                             ; preds = %for.end, %if.end
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %1 = phi i64 [ %mul, %while.body ], [ %.ph, %while.body.preheader ]
   %mul = shl nuw nsw i64 %1, 1
-  %cmp7 = icmp ult i64 %1, 2097152
+  %cmp7 = icmp samesign ult i64 %1, 2097152
   br i1 %cmp7, label %while.body, label %while.cond.while.end_crit_edge, !llvm.loop !7
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body

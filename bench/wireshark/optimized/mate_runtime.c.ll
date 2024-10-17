@@ -511,7 +511,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   %180 = getelementptr inbounds i8, ptr %179, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = zext i32 %181 to i64
-  %183 = icmp ult i64 %indvars.iv.next165.i, %182
+  %183 = icmp samesign ult i64 %indvars.iv.next165.i, %182
   br i1 %183, label %.lr.ph151.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %178, %138, %._crit_edge142.i
@@ -535,7 +535,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %194 = load i32, ptr %189, align 8
   %195 = zext i32 %194 to i64
-  %196 = icmp ult i64 %indvars.iv.next.i.i, %195
+  %196 = icmp samesign ult i64 %indvars.iv.next.i.i, %195
   br i1 %196, label %.lr.ph.i.i, label %new_pdu.exit, !llvm.loop !9
 
 new_pdu.exit:                                     ; preds = %.lr.ph.i.i, %.loopexit.i
@@ -1029,7 +1029,7 @@ apply_extras.exit124.i:                           ; preds = %399, %380
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i70, 1
   %454 = load i32, ptr %449, align 8
   %455 = zext i32 %454 to i64
-  %456 = icmp ult i64 %indvars.iv.next.i.i71, %455
+  %456 = icmp samesign ult i64 %indvars.iv.next.i.i71, %455
   br i1 %456, label %.lr.ph.i.i69, label %apply_transforms.exit.loopexit.i, !llvm.loop !9
 
 apply_transforms.exit.loopexit.i:                 ; preds = %.lr.ph.i.i69
@@ -1338,7 +1338,7 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %604 = load i32, ptr %42, align 8
   %605 = zext i32 %604 to i64
-  %606 = icmp ult i64 %indvars.iv.next, %605
+  %606 = icmp samesign ult i64 %indvars.iv.next, %605
   br i1 %606, label %53, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %603
@@ -1358,7 +1358,7 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   %612 = getelementptr inbounds i8, ptr %611, i64 8
   %613 = load i32, ptr %612, align 8
   %614 = zext i32 %613 to i64
-  %615 = icmp ult i64 %indvars.iv.next104, %614
+  %615 = icmp samesign ult i64 %indvars.iv.next104, %614
   br i1 %615, label %31, label %._crit_edge93.loopexit, !llvm.loop !14
 
 ._crit_edge93.loopexit:                           ; preds = %608, %._crit_edge.thread
@@ -1725,7 +1725,7 @@ add_avp.exit.thread:                              ; preds = %add_avp.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %8, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %11, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %add_avp.exit.thread, %.preheader, %3

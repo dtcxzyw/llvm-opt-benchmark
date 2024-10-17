@@ -512,7 +512,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %128 = and i64 %114, 511
   %129 = add nuw nsw i64 %128, 1
   %130 = add nuw nsw i64 %129, %124
-  %131 = icmp ult i64 %130, 513
+  %131 = icmp samesign ult i64 %130, 513
   %132 = xor i64 %120, %114
   %133 = icmp sgt i64 %132, -1
   %134 = and i1 %133, %131
@@ -754,7 +754,7 @@ default.unreachable87:                            ; preds = %195
   %298 = and i64 %284, 511
   %299 = add nuw nsw i64 %298, 1
   %300 = add nuw nsw i64 %299, %294
-  %301 = icmp ult i64 %300, 513
+  %301 = icmp samesign ult i64 %300, 513
   %302 = xor i64 %290, %284
   %303 = icmp sgt i64 %302, -1
   %304 = and i1 %303, %301
@@ -1018,7 +1018,7 @@ default.unreachable87:                            ; preds = %195
   %472 = and i64 %467, 511
   %473 = add nuw nsw i64 %472, 1
   %474 = add nuw nsw i64 %473, %463
-  %475 = icmp ult i64 %474, 513
+  %475 = icmp samesign ult i64 %474, 513
   %476 = xor i64 %467, %459
   %477 = icmp sgt i64 %476, -1
   %478 = and i1 %477, %475
@@ -1060,7 +1060,7 @@ default.unreachable87:                            ; preds = %195
   %500 = load i32, ptr %18, align 8
   %501 = icmp ult i32 %500, 512
   %502 = add nuw nsw i32 %25, 1
-  %503 = icmp ult i32 %25, 3
+  %503 = icmp samesign ult i32 %25, 3
   %504 = select i1 %501, i1 %503, i1 false
   br i1 %504, label %21, label %.loopexit44
 

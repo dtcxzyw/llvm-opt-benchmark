@@ -1129,7 +1129,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit138.i:     ; preds = %_ZNK4llvm3EVTneES0_
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 22
   %393 = load i16, ptr %392, align 2
   %394 = zext i16 %393 to i32
-  %.not.i.i140.i = icmp ult i32 %391, %394
+  %.not.i.i140.i = icmp samesign ult i32 %391, %394
   br i1 %.not.i.i140.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %.critedge19.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %380

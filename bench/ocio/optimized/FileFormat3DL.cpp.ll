@@ -1523,7 +1523,7 @@ if.then3.i:                                       ; preds = %exp2.i.noexc
 
 for.inc.i:                                        ; preds = %exp2.i.noexc
   %add.i = add nuw nsw i32 %bitDepth.08.i, 2
-  %cmp1.i = icmp ult i32 %bitDepth.08.i, 15
+  %cmp1.i = icmp samesign ult i32 %bitDepth.08.i, 15
   br i1 %cmp1.i, label %for.body.i, label %if.end312, !llvm.loop !8
 
 if.then288:                                       ; preds = %switch.hole_check, %if.then3.i
@@ -1890,7 +1890,7 @@ if.then3.i300:                                    ; preds = %exp2.i.noexc303
 
 for.inc.i296:                                     ; preds = %exp2.i.noexc303
   %add.i297 = add nuw nsw i32 %bitDepth.08.i291, 2
-  %cmp1.i298 = icmp ult i32 %bitDepth.08.i291, 15
+  %cmp1.i298 = icmp samesign ult i32 %bitDepth.08.i291, 15
   br i1 %cmp1.i298, label %for.body.i290, label %if.end429, !llvm.loop !8
 
 if.end429:                                        ; preds = %for.inc.i296, %if.then3.i300

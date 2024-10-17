@@ -150,7 +150,7 @@ define hidden void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..i
           cleanup
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load i8, ptr %35, align 4, !range !29, !alias.scope !30, !noalias !24, !noundef !7
-  %37 = icmp ult i8 %36, 4
+  %37 = icmp samesign ult i8 %36, 4
   br i1 %37, label %38, label %.body
 
 38:                                               ; preds = %33
@@ -282,7 +282,7 @@ define hidden void @"_ZN120_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$co
 define hidden void @"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17h61742943f4876eefE.llvm.7666567648687728228"(ptr noalias noundef align 4 dereferenceable(20) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 4, !range !29, !noundef !7
-  %4 = icmp ult i8 %3, 4
+  %4 = icmp samesign ult i8 %3, 4
   br i1 %4, label %5, label %"_ZN4core3ptr38drop_in_place$LT$proc_macro..Group$GT$17hfcf518b099267958E.exit"
 
 "_ZN4core3ptr38drop_in_place$LT$proc_macro..Group$GT$17hfcf518b099267958E.exit": ; preds = %9, %5, %1
@@ -627,7 +627,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53384ef6ca5af0bbE.ll
           cleanup
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i8, ptr %17, align 4, !range !29, !alias.scope !106, !noundef !7
-  %19 = icmp ult i8 %18, 4
+  %19 = icmp samesign ult i8 %18, 4
   br i1 %19, label %20, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17h61742943f4876eefE.llvm.7666567648687728228.exit"
 
 20:                                               ; preds = %15

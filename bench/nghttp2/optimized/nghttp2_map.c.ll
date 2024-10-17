@@ -70,7 +70,7 @@ for.inc:                                          ; preds = %for.body, %if.end
   %4 = phi i32 [ %1, %for.body ], [ %.pre, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -113,7 +113,7 @@ for.inc:                                          ; preds = %if.end4.for.inc_cri
   %5 = phi i32 [ %.pre, %if.end4.for.inc_crit_edge ], [ %2, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = zext i32 %5 to i64
-  %cmp1 = icmp ult i64 %indvars.iv.next, %6
+  %cmp1 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp1, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.end4, %for.inc, %for.cond.preheader, %entry
@@ -165,7 +165,7 @@ for.inc:                                          ; preds = %if.end, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %tablelen, align 8
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -409,7 +409,7 @@ for.inc:                                          ; preds = %insert.exit.thread,
   %11 = phi i32 [ %.pre, %insert.exit.thread ], [ %2, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next, %12
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -462,7 +462,7 @@ lor.lhs.false:                                    ; preds = %if.end12
   %conv.i.i = zext i32 %shr.i.i to i64
   %sub.i13 = sub nsw i64 %and, %conv.i.i
   %and.i = and i64 %sub.i13, %conv.i14
-  %cmp5.not = icmp ult i64 %d.01929, %and.i
+  %cmp5.not = icmp samesign ult i64 %d.01929, %and.i
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %lor.lhs.false.lr.ph, %lor.lhs.false
@@ -526,7 +526,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.lr.ph
   %conv.i.i = zext i32 %shr.i.i to i64
   %sub.i30 = sub nsw i64 %idx.048, %conv.i.i
   %and.i = and i64 %sub.i30, %conv.i31
-  %cmp5 = icmp ugt i64 %d.049, %and.i
+  %cmp5 = icmp samesign ugt i64 %d.049, %and.i
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false

@@ -469,7 +469,7 @@ if.then126:                                       ; preds = %if.end122
 
 if.end130:                                        ; preds = %if.end122
   %29 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %tobool132.not = icmp ult i32 %29, 2
+  %tobool132.not = icmp samesign ult i32 %29, 2
   br i1 %tobool132.not, label %if.end137, label %if.then133
 
 if.then133:                                       ; preds = %if.end130
@@ -1833,8 +1833,8 @@ if.else:                                          ; preds = %entry
 
 if.end34:                                         ; preds = %if.else, %for.end22
   %tobool35.not = icmp eq ptr %regex_, null
-  %tobool36.not = icmp ult i32 %flags, 2
-  %or.cond29 = or i1 %tobool35.not, %tobool36.not
+  %tobool36.not = icmp samesign ult i32 %flags, 2
+  %or.cond29 = select i1 %tobool35.not, i1 true, i1 %tobool36.not
   br i1 %or.cond29, label %if.else38, label %if.then37
 
 if.then37:                                        ; preds = %if.end34

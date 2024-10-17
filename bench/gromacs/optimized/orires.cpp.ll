@@ -2680,7 +2680,7 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.loopexit ], [ 0, %122 ]
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.loopexit ], [ 1, %122 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %126 = icmp ult i64 %indvars.iv114, 2
+  %126 = icmp samesign ult i64 %indvars.iv114, 2
   br i1 %126, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader88
@@ -3313,7 +3313,7 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 
 294:                                              ; preds = %293
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 3
-  %295 = icmp ult i64 %indvars.iv.next530, %234
+  %295 = icmp samesign ult i64 %indvars.iv.next530, %234
   br i1 %295, label %248, label %.preheader.loopexit, !llvm.loop !44
 
 296:                                              ; preds = %.lr.ph475, %374
@@ -3588,7 +3588,7 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
   %498 = call float @llvm.fmuladd.f32(float %496, float %497, float %.0328479)
   %499 = fadd float %.0329478, %496
   %indvars.iv.next548 = add nuw nsw i64 %indvars.iv547, 3
-  %500 = icmp ult i64 %indvars.iv.next548, %394
+  %500 = icmp samesign ult i64 %indvars.iv.next548, %394
   br i1 %500, label %395, label %._crit_edge482.loopexit, !llvm.loop !49
 
 ._crit_edge482.loopexit:                          ; preds = %487

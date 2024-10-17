@@ -131,7 +131,7 @@ define dso_local void @intel_gt_mcr_init(ptr nocapture noundef %0) local_unnamed
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = or disjoint i32 %50, %53
-  %55 = icmp ugt i32 %54, 3141
+  %55 = icmp samesign ugt i32 %54, 3141
   br i1 %55, label %56, label %161
 
 56:                                               ; preds = %47
@@ -348,7 +348,7 @@ define dso_local void @intel_gt_mcr_init(ptr nocapture noundef %0) local_unnamed
 
 182:                                              ; preds = %175
   %183 = icmp ugt i8 %48, 10
-  %184 = icmp ult i32 %54, 3122
+  %184 = icmp samesign ult i32 %54, 3122
   %185 = and i1 %183, %184
   br i1 %185, label %186, label %207
 
@@ -433,7 +433,7 @@ define dso_local void @intel_gt_mcr_lock(ptr noundef %0, ptr nocapture noundef w
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 3141
+  %13 = icmp samesign ugt i32 %12, 3141
   br i1 %13, label %14, label %64
 
 14:                                               ; preds = %2
@@ -553,7 +553,7 @@ define dso_local void @intel_gt_mcr_unlock(ptr noundef %0, i64 noundef %1) local
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 3141
+  %13 = icmp samesign ugt i32 %12, 3141
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
@@ -588,7 +588,7 @@ define dso_local void @intel_gt_mcr_lock_sanitize(ptr nocapture noundef readonly
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = or disjoint i32 %6, %9
-  %11 = icmp ugt i32 %10, 3141
+  %11 = icmp samesign ugt i32 %10, 3141
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %1
@@ -644,7 +644,7 @@ define internal fastcc i32 @rw_with_mcr_steering(ptr noundef %0, i32 %1, i8 noun
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
-  %27 = icmp ugt i32 %26, 3141
+  %27 = icmp samesign ugt i32 %26, 3141
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %6
@@ -686,7 +686,7 @@ define dso_local void @intel_gt_mcr_multicast_write(ptr noundef %0, i32 %1, i32 
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
-  %14 = icmp ugt i32 %13, 3141
+  %14 = icmp samesign ugt i32 %13, 3141
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %3
@@ -719,7 +719,7 @@ define dso_local void @intel_gt_mcr_multicast_write(ptr noundef %0, i32 %1, i32 
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %40 = icmp ugt i32 %39, 3141
+  %40 = icmp samesign ugt i32 %39, 3141
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %24
@@ -751,7 +751,7 @@ define dso_local void @intel_gt_mcr_multicast_write_fw(ptr nocapture noundef rea
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 3141
+  %13 = icmp samesign ugt i32 %12, 3141
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %3
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
-  %16 = icmp ugt i32 %15, 3141
+  %16 = icmp samesign ugt i32 %15, 3141
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %5
@@ -1367,7 +1367,7 @@ define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
   %109 = or disjoint i32 %105, %108
-  %110 = icmp ugt i32 %109, 3141
+  %110 = icmp samesign ugt i32 %109, 3141
   %111 = icmp eq i8 %1, 2
   %112 = and i1 %111, %110
   br i1 %112, label %113, label %120
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.
   br label %129
 
 120:                                              ; preds = %99
-  %121 = icmp ult i32 %109, 3142
+  %121 = icmp samesign ult i32 %109, 3142
   br i1 %121, label %122, label %129
 
 122:                                              ; preds = %120
@@ -1411,7 +1411,7 @@ define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr nocaptur
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ult i32 %12, 3142
+  %13 = icmp samesign ult i32 %12, 3142
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %3
@@ -1431,7 +1431,7 @@ define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr nocaptur
   %.pre6 = shl nuw nsw i32 %.pre5, 8
   %.pre8 = zext i8 %.pre4 to i32
   %.pre10 = or disjoint i32 %.pre6, %.pre8
-  %21 = icmp ugt i32 %.pre10, 3141
+  %21 = icmp samesign ugt i32 %.pre10, 3141
   br i1 %21, label %.thread, label %33
 
 .thread:                                          ; preds = %3, %14
@@ -1561,7 +1561,7 @@ define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readon
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
-  %19 = icmp ugt i32 %18, 3121
+  %19 = icmp samesign ugt i32 %18, 3121
   %20 = select i1 %19, i32 2, i32 3
   %21 = select i1 %19, i32 3, i32 7
   br label %22

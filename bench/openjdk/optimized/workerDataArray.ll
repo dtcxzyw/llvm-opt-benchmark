@@ -86,7 +86,7 @@ define hidden void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputSt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %3, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12, %2
@@ -124,7 +124,7 @@ define hidden void @_ZN15WorkerDataArrayImE10WDAPrinter7detailsEPKS0_P12outputSt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %3, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %2

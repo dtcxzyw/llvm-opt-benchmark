@@ -2183,7 +2183,7 @@ _ZN4llvmL13getAsMetadataEPNS_5ValueE.exit:        ; preds = %23, %28
 
 _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit: ; preds = %32, %36
   %.0.i = phi i64 [ %39, %36 ], [ 1, %32 ]
-  %40 = icmp ult i64 %indvars.iv, %.0.i
+  %40 = icmp samesign ult i64 %indvars.iv, %.0.i
   br i1 %40, label %41, label %76
 
 41:                                               ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit

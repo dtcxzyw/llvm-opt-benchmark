@@ -2123,7 +2123,7 @@ if.end142.i:                                      ; preds = %if.end127.i
   %and145.i = shl nuw nsw i32 %conv.i237.i, 2
   %shl.i = and i32 %and145.i, 60
   %conv146.i = zext nneg i32 %shl.i to i64
-  %cmp147.i = icmp ult i32 %shl.i, 20
+  %cmp147.i = icmp samesign ult i32 %shl.i, 20
   %cmp150.i = icmp ugt i32 %shl.i, %sub130.i
   %or.cond215.i = select i1 %cmp147.i, i1 true, i1 %cmp150.i
   br i1 %or.cond215.i, label %skip_offload.i, label %if.end153.i
@@ -2135,7 +2135,7 @@ if.end153.i:                                      ; preds = %if.end142.i
   %22 = load i16, ptr %ip_len.i, align 2
   %23 = call noundef i16 @llvm.bswap.i16(i16 %22)
   %conv155.i = zext i16 %23 to i32
-  %cmp156.i = icmp ugt i32 %shl.i, %conv155.i
+  %cmp156.i = icmp samesign ugt i32 %shl.i, %conv155.i
   %conv159.i = zext i16 %23 to i64
   %cmp160.i = icmp ugt i64 %conv159.i, %conv131.i
   %or.cond216.i = select i1 %cmp156.i, i1 true, i1 %cmp160.i
@@ -2215,7 +2215,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end221.i
 for.body.i:                                       ; preds = %if.end261.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end261.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %30
-  %cmp230.not.not.i = icmp ult i64 %indvars.iv.next.i, %31
+  %cmp230.not.not.i = icmp samesign ult i64 %indvars.iv.next.i, %31
   %32 = sub nuw nsw i64 %31, %indvars.iv.i
   %33 = trunc nuw nsw i64 %32 to i32
   %chunk_size.0.in.i = select i1 %cmp230.not.not.i, i32 %and193.i, i32 %33
@@ -2450,7 +2450,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %shr.i = lshr i32 %result.214.i, 16
   %and.i = and i32 %result.214.i, 65535
   %add5.i = add nuw nsw i32 %and.i, %shr.i
-  %tobool3.not.i = icmp ult i32 %add5.i, 65536
+  %tobool3.not.i = icmp samesign ult i32 %add5.i, 65536
   br i1 %tobool3.not.i, label %ones_complement_sum.exit, label %while.body.i, !llvm.loop !12
 
 ones_complement_sum.exit:                         ; preds = %while.body.i, %if.end.i

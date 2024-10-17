@@ -1254,7 +1254,7 @@ while.body.i35:                                   ; preds = %land.rhs.i33
   %inc.i = add nuw nsw i32 %height.05.i, 1
   %35 = load i16, ptr %this, align 8
   %conv.i = zext i16 %35 to i32
-  %cmp.i = icmp ult i32 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i32 %inc.i, %conv.i
   br i1 %cmp.i, label %land.rhs.i33, label %_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE12RandomHeightEv.exit, !llvm.loop !9
 
 _ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE12RandomHeightEv.exit: ; preds = %land.rhs.i33, %while.body.i35, %if.end
@@ -1404,7 +1404,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i16, ptr %skip_list3, align 16
   %9 = zext i16 %8 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %9
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %cmp11.i, label %for.body.i, label %_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEEC2ES5_PNS_9AllocatorEii.exit, !llvm.loop !12
 
 _ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEEC2ES5_PNS_9AllocatorEii.exit: ; preds = %for.body.i, %entry
@@ -1886,7 +1886,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2034,7 +2034,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i16, ptr %skip_list, align 16
   %10 = zext i16 %9 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %10
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %cmp11.i, label %for.body.i, label %invoke.cont8, !llvm.loop !12
 
 invoke.cont8:                                     ; preds = %for.body.i, %call8.i.noexc

@@ -125,7 +125,7 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %17 = load ptr, ptr %7, align 8, !alias.scope !33, !noalias !36, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds [0 x i8], ptr %17, i64 0, i64 %13
   %19 = load i8, ptr %18, align 1, !range !45, !noalias !44, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i8 %19, 2
+  %switch.i.i.i.i.i = icmp samesign ult i8 %19, 2
   br i1 %switch.i.i.i.i.i, label %20, label %8
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i"
@@ -785,7 +785,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd
   %18 = load ptr, ptr %8, align 8, !alias.scope !185, !noalias !188, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds [0 x i8], ptr %18, i64 0, i64 %14
   %20 = load i8, ptr %19, align 1, !range !45, !noalias !195, !noundef !4
-  %switch.i.i.i.i = icmp ult i8 %20, 2
+  %switch.i.i.i.i = icmp samesign ult i8 %20, 2
   br i1 %switch.i.i.i.i, label %21, label %9
 
 21:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit"
@@ -1065,15 +1065,15 @@ _ZN4core3str11validations15next_code_point17hc2744f6ef45f0174E.exit.thread: ; pr
   br label %90
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %85, i64 3, i64 4
   br label %86
 

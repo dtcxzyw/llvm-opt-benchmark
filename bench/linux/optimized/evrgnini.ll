@@ -301,7 +301,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(p
   %22 = load ptr, ptr %3, align 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .preheader:                                       ; preds = %16, %20

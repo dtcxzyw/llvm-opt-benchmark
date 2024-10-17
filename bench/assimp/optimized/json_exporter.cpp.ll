@@ -1011,7 +1011,7 @@ for.body:                                         ; preds = %invoke.cont25, %for
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %mNumMeshes.i, align 8
   %25 = zext i32 %24 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %25
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -1462,7 +1462,7 @@ for.inc.i:                                        ; preds = %if.end.i754
   %inc.i755 = add nuw nsw i64 %i.018.i, 1
   %68 = load i32, ptr %51, align 4
   %conv3.i = zext i32 %68 to i64
-  %cmp.i756 = icmp ult i64 %inc.i755, %conv3.i
+  %cmp.i756 = icmp samesign ult i64 %inc.i755, %conv3.i
   br i1 %cmp.i756, label %for.body.i751, label %for.end.i757, !llvm.loop !9
 
 for.end.i757:                                     ; preds = %for.inc.i, %for.cond.preheader.i
@@ -2175,7 +2175,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %if.else.i.i.i, %if.
   %128 = load i32, ptr %mDataLength.i, align 4
   %129 = lshr i32 %128, 2
   %130 = zext nneg i32 %129 to i64
-  %cmp51.i = icmp ult i64 %indvars.iv.next351.i, %130
+  %cmp51.i = icmp samesign ult i64 %indvars.iv.next351.i, %130
   br i1 %cmp51.i, label %for.body52.i, label %for.end.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i, %if.then.i
@@ -2260,7 +2260,7 @@ _ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i:   ; preds = %if.else.i.i214.i, %
   %142 = load i32, ptr %mDataLength57.i, align 4
   %143 = lshr i32 %142, 3
   %144 = zext nneg i32 %143 to i64
-  %cmp68.i = icmp ult i64 %indvars.iv.next348.i, %144
+  %cmp68.i = icmp samesign ult i64 %indvars.iv.next348.i, %144
   br i1 %cmp68.i, label %for.body69.i, label %for.end75.i, !llvm.loop !23
 
 for.end75.i:                                      ; preds = %_ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i, %if.then61.i
@@ -2344,7 +2344,7 @@ _ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i:   ; preds = %if.else.i.i259.i, %
   %156 = load i32, ptr %mDataLength80.i, align 4
   %157 = lshr i32 %156, 2
   %158 = zext nneg i32 %157 to i64
-  %cmp91.i = icmp ult i64 %indvars.iv.next.i, %158
+  %cmp91.i = icmp samesign ult i64 %indvars.iv.next.i, %158
   br i1 %cmp91.i, label %for.body92.i, label %for.end98.i, !llvm.loop !24
 
 for.end98.i:                                      ; preds = %_ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i, %if.then84.i
@@ -2415,7 +2415,7 @@ _ZN6Assimp10JSONWriter6EndObjEv.exit.i:           ; preds = %if.then.i.i303.i, %
   %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
   %169 = load i32, ptr %mNumProperties.i, align 8
   %170 = zext i32 %169 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next354.i, %170
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next354.i, %170
   br i1 %cmp.i, label %for.body.i, label %for.end112.i, !llvm.loop !25
 
 for.end112.i:                                     ; preds = %_ZN6Assimp10JSONWriter6EndObjEv.exit.i, %invoke.cont3.i160
@@ -2473,7 +2473,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit: ; preds = %_ZN6Assimp10
   %indvars.iv.next1471 = add nuw nsw i64 %indvars.iv1470, 1
   %175 = load i32, ptr %mNumMaterials.i, align 8
   %176 = zext i32 %175 to i64
-  %cmp40 = icmp ult i64 %indvars.iv.next1471, %176
+  %cmp40 = icmp samesign ult i64 %indvars.iv.next1471, %176
   br i1 %cmp40, label %for.body41, label %for.end46, !llvm.loop !26
 
 lpad32:                                           ; preds = %call.i125.noexc, %if.then29
@@ -3035,7 +3035,7 @@ for.inc.i1006:                                    ; preds = %if.end.i1005
   %inc.i1007 = add nuw nsw i64 %i.018.i998, 1
   %224 = load i32, ptr %207, align 4
   %conv3.i1008 = zext i32 %224 to i64
-  %cmp.i1009 = icmp ult i64 %inc.i1007, %conv3.i1008
+  %cmp.i1009 = icmp samesign ult i64 %inc.i1007, %conv3.i1008
   br i1 %cmp.i1009, label %for.body.i997, label %for.end.i1010, !llvm.loop !9
 
 for.end.i1010:                                    ; preds = %for.inc.i1006, %for.cond.preheader.i993
@@ -3554,7 +3554,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i:       ; preds = %if.then.i.i146.i.i,
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %266 = load i32, ptr %mNumPositionKeys.i.i, align 4
   %267 = zext i32 %266 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %267
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %267
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !39
 
 lpad.i74.i:                                       ; preds = %call.i61.noexc.i.i, %_ZN6Assimp10JSONWriter8StartObjEb.exit.i.i
@@ -4016,7 +4016,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit238.i.i:    ; preds = %if.then.i.i235.i.i,
   %indvars.iv.next364.i.i = add nuw nsw i64 %indvars.iv363.i.i, 1
   %320 = load i32, ptr %mNumRotationKeys.i.i, align 8
   %321 = zext i32 %320 to i64
-  %cmp43.i.i = icmp ult i64 %indvars.iv.next364.i.i, %321
+  %cmp43.i.i = icmp samesign ult i64 %indvars.iv.next364.i.i, %321
   br i1 %cmp43.i.i, label %for.body44.i.i, label %for.end51.i.i, !llvm.loop !43
 
 lpad34.i.i:                                       ; preds = %call.i165.noexc.i.i, %if.then31.i.i
@@ -4280,7 +4280,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit324.i.i:    ; preds = %if.then.i.i321.i.i,
   %indvars.iv.next367.i.i = add nuw nsw i64 %indvars.iv366.i.i, 1
   %347 = load i32, ptr %mNumScalingKeys.i.i, align 8
   %348 = zext i32 %347 to i64
-  %cmp66.i.i = icmp ult i64 %indvars.iv.next367.i.i, %348
+  %cmp66.i.i = icmp samesign ult i64 %indvars.iv.next367.i.i, %348
   br i1 %cmp66.i.i, label %for.body67.i.i, label %for.end74.i.i, !llvm.loop !47
 
 lpad57.i.i:                                       ; preds = %call.i255.noexc.i.i, %if.then54.i.i
@@ -4355,7 +4355,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiNodeAnimb.exit.i: ; preds = %if.then.i.
   %indvars.iv.next.i251 = add nuw nsw i64 %indvars.iv.i248, 1
   %355 = load i32, ptr %mNumChannels.i, align 8
   %356 = zext i32 %355 to i64
-  %cmp.i252 = icmp ult i64 %indvars.iv.next.i251, %356
+  %cmp.i252 = icmp samesign ult i64 %indvars.iv.next.i251, %356
   br i1 %cmp.i252, label %for.body.i247, label %for.end.i253, !llvm.loop !48
 
 lpad.i226:                                        ; preds = %call.i26.noexc.i, %_ZN6Assimp10JSONWriter8StartObjEb.exit.i219
@@ -4446,7 +4446,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit: ; preds = %_ZN6Assimp1
   %indvars.iv.next1474 = add nuw nsw i64 %indvars.iv1473, 1
   %369 = load i32, ptr %mNumAnimations.i, align 8
   %370 = zext i32 %369 to i64
-  %cmp60 = icmp ult i64 %indvars.iv.next1474, %370
+  %cmp60 = icmp samesign ult i64 %indvars.iv.next1474, %370
   br i1 %cmp60, label %for.body61, label %for.end66, !llvm.loop !49
 
 lpad52:                                           ; preds = %call.i188.noexc, %if.then49
@@ -5319,7 +5319,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK7aiLightb.exit: ; preds = %if.end102.i, %if
   %indvars.iv.next1477 = add nuw nsw i64 %indvars.iv1476, 1
   %449 = load i32, ptr %mNumLights.i, align 8
   %450 = zext i32 %449 to i64
-  %cmp80 = icmp ult i64 %indvars.iv.next1477, %450
+  %cmp80 = icmp samesign ult i64 %indvars.iv.next1477, %450
   br i1 %cmp80, label %for.body81, label %for.end86, !llvm.loop !50
 
 lpad72:                                           ; preds = %call.i278.noexc, %if.then69
@@ -5912,7 +5912,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK8aiCamerab.exit: ; preds = %invoke.cont49.i
   %indvars.iv.next1480 = add nuw nsw i64 %indvars.iv1479, 1
   %506 = load i32, ptr %mNumCameras.i, align 8
   %507 = zext i32 %506 to i64
-  %cmp100 = icmp ult i64 %indvars.iv.next1480, %507
+  %cmp100 = icmp samesign ult i64 %indvars.iv.next1480, %507
   br i1 %cmp100, label %for.body101, label %for.end106, !llvm.loop !51
 
 lpad92:                                           ; preds = %call.i351.noexc, %if.then89
@@ -6629,7 +6629,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit: ; preds = %if.end.i528, %
   %indvars.iv.next1483 = add nuw nsw i64 %indvars.iv1482, 1
   %587 = load i32, ptr %mNumTextures.i, align 8
   %588 = zext i32 %587 to i64
-  %cmp120 = icmp ult i64 %indvars.iv.next1483, %588
+  %cmp120 = icmp samesign ult i64 %indvars.iv.next1483, %588
   br i1 %cmp120, label %for.body121, label %for.end126, !llvm.loop !54
 
 lpad112:                                          ; preds = %call.i449.noexc, %if.then109
@@ -7109,7 +7109,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit:     ; preds = %if.then.i1.i, %if.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %mNumMeshes, align 8
   %14 = zext i32 %13 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %14
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
 
 lpad:                                             ; preds = %call.i33.noexc, %_ZN6Assimp10JSONWriter8StartObjEb.exit
@@ -7218,7 +7218,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %28 = load i32, ptr %mNumChildren, align 8
   %29 = zext i32 %28 to i64
-  %cmp35 = icmp ult i64 %indvars.iv.next138, %29
+  %cmp35 = icmp samesign ult i64 %indvars.iv.next138, %29
   br i1 %cmp35, label %for.body36, label %for.end41, !llvm.loop !56
 
 lpad26:                                           ; preds = %call.i86.noexc, %if.then23
@@ -7567,7 +7567,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit263:  ; preds = %if.then.i1.i249, %i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %mNumVertices, align 4
   %26 = zext i32 %25 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %26
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 lpad:                                             ; preds = %call.i163.noexc, %_ZN6Assimp10JSONWriter8StartObjEb.exit
@@ -7772,7 +7772,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit354:  ; preds = %if.then.i1.i340, %i
   %indvars.iv.next1070 = add nuw nsw i64 %indvars.iv1069, 1
   %57 = load i32, ptr %mNumVertices, align 4
   %58 = zext i32 %57 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next1070, %58
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next1070, %58
   br i1 %cmp45, label %for.body46, label %for.end60, !llvm.loop !58
 
 lpad36:                                           ; preds = %call.i277.noexc, %if.then
@@ -7952,7 +7952,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit450:  ; preds = %if.then.i1.i436, %i
   %indvars.iv.next1073 = add nuw nsw i64 %indvars.iv1072, 1
   %83 = load i32, ptr %mNumVertices, align 4
   %84 = zext i32 %83 to i64
-  %cmp74 = icmp ult i64 %indvars.iv.next1073, %84
+  %cmp74 = icmp samesign ult i64 %indvars.iv.next1073, %84
   br i1 %cmp74, label %for.body75, label %for.end89, !llvm.loop !59
 
 lpad65:                                           ; preds = %call.i373.noexc, %if.then62
@@ -8115,7 +8115,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit544:  ; preds = %if.then.i1.i530, %i
   %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
   %106 = load i32, ptr %mNumVertices, align 4
   %107 = zext i32 %106 to i64
-  %cmp101 = icmp ult i64 %indvars.iv.next1076, %107
+  %cmp101 = icmp samesign ult i64 %indvars.iv.next1076, %107
   br i1 %cmp101, label %for.body102, label %for.end116, !llvm.loop !60
 
 lpad92:                                           ; preds = %call.i467.noexc, %_ZN6Assimp10JSONWriter8EndArrayEv.exit466
@@ -8224,7 +8224,7 @@ while.end.split.loop.exit6.i586:                  ; preds = %land.rhs.i578
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit587:          ; preds = %while.body.i582, %while.end.split.loop.exit6.i586
   %n.0.lcssa.i585 = phi i64 [ %115, %while.end.split.loop.exit6.i586 ], [ 8, %while.body.i582 ]
-  %cmp131 = icmp ult i64 %indvars.iv1078, %n.0.lcssa.i585
+  %cmp131 = icmp samesign ult i64 %indvars.iv1078, %n.0.lcssa.i585
   br i1 %cmp131, label %for.body132, label %for.end137
 
 for.body132:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit587
@@ -8340,7 +8340,7 @@ while.end.split.loop.exit6.i645:                  ; preds = %land.rhs.i637
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit646:          ; preds = %while.body.i641, %while.end.split.loop.exit6.i645
   %n.0.lcssa.i644 = phi i64 [ %126, %while.end.split.loop.exit6.i645 ], [ 8, %while.body.i641 ]
-  %cmp149 = icmp ult i64 %indvars.iv1084, %n.0.lcssa.i644
+  %cmp149 = icmp samesign ult i64 %indvars.iv1084, %n.0.lcssa.i644
   br i1 %cmp149, label %for.body150, label %for.end179
 
 for.body150:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit646
@@ -8450,7 +8450,7 @@ for.inc174:                                       ; preds = %_ZN6Assimp10JSONWri
   %indvars.iv.next1082 = add nuw nsw i64 %indvars.iv1081, 1
   %140 = load i32, ptr %mNumVertices, align 4
   %141 = zext i32 %140 to i64
-  %cmp161 = icmp ult i64 %indvars.iv.next1082, %141
+  %cmp161 = icmp samesign ult i64 %indvars.iv.next1082, %141
   br i1 %cmp161, label %for.cond163.preheader, label %for.end176, !llvm.loop !64
 
 for.end176:                                       ; preds = %for.inc174, %_ZN6Assimp10JSONWriter10StartArrayEb.exit
@@ -8567,7 +8567,7 @@ while.end.split.loop.exit6.i752:                  ; preds = %land.rhs.i744
 
 _ZNK6aiMesh19GetNumColorChannelsEv.exit753:       ; preds = %while.body.i748, %while.end.split.loop.exit6.i752
   %n.0.lcssa.i751 = phi i64 [ %149, %while.end.split.loop.exit6.i752 ], [ 8, %while.body.i748 ]
-  %cmp195 = icmp ult i64 %indvars.iv1090, %n.0.lcssa.i751
+  %cmp195 = icmp samesign ult i64 %indvars.iv1090, %n.0.lcssa.i751
   br i1 %cmp195, label %for.body196, label %for.end226
 
 for.body196:                                      ; preds = %_ZNK6aiMesh19GetNumColorChannelsEv.exit753
@@ -8727,7 +8727,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit857:  ; preds = %if.then.i1.i843, %i
   %indvars.iv.next1088 = add nuw nsw i64 %indvars.iv1087, 1
   %174 = load i32, ptr %mNumVertices, align 4
   %175 = zext i32 %174 to i64
-  %cmp200 = icmp ult i64 %indvars.iv.next1088, %175
+  %cmp200 = icmp samesign ult i64 %indvars.iv.next1088, %175
   br i1 %cmp200, label %for.body201, label %for.end223, !llvm.loop !67
 
 lpad186:                                          ; preds = %call.i728.noexc, %if.then183
@@ -9118,7 +9118,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i:         ; preds = %if.then.i.i115.i, %
   %indvars.iv.next.i911 = add nuw nsw i64 %indvars.iv.i909, 1
   %215 = load i32, ptr %mNumWeights.i, align 4
   %216 = zext i32 %215 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i911, %216
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i911, %216
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !69
 
 lpad.i908:                                        ; preds = %call.i26.noexc.i, %_ZN6Assimp10JSONWriter8StartObjEb.exit.i
@@ -9202,7 +9202,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit: ; preds = %_ZN6Assimp10JSONW
   %indvars.iv.next1094 = add nuw nsw i64 %indvars.iv1093, 1
   %227 = load i32, ptr %mNumBones, align 8
   %228 = zext i32 %227 to i64
-  %cmp241 = icmp ult i64 %indvars.iv.next1094, %228
+  %cmp241 = icmp samesign ult i64 %indvars.iv.next1094, %228
   br i1 %cmp241, label %for.body242, label %for.end247, !llvm.loop !70
 
 lpad232:                                          ; preds = %call.i890.noexc, %if.then229
@@ -9344,7 +9344,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i966: ; preds = %if.else.i.i.i975, 
   %indvars.iv.next.i969 = add nuw nsw i64 %indvars.iv.i962, 1
   %245 = load i32, ptr %arrayidx262, align 8
   %246 = zext i32 %245 to i64
-  %cmp.i970 = icmp ult i64 %indvars.iv.next.i969, %246
+  %cmp.i970 = icmp samesign ult i64 %indvars.iv.next.i969, %246
   br i1 %cmp.i970, label %for.body.i961, label %for.end.i971, !llvm.loop !71
 
 for.end.i971:                                     ; preds = %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i966, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i952
@@ -9367,7 +9367,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit: ; preds = %for.end.i971, %if
   %indvars.iv.next1097 = add nuw nsw i64 %indvars.iv1096, 1
   %249 = load i32, ptr %mNumFaces, align 8
   %250 = zext i32 %249 to i64
-  %cmp259 = icmp ult i64 %indvars.iv.next1097, %250
+  %cmp259 = icmp samesign ult i64 %indvars.iv.next1097, %250
   br i1 %cmp259, label %for.body260, label %for.end265, !llvm.loop !72
 
 lpad251:                                          ; preds = %call.i929.noexc, %if.end248
@@ -9648,7 +9648,7 @@ for.inc:                                          ; preds = %if.end
   %inc = add nuw nsw i64 %i.018, 1
   %4 = load i32, ptr %s, align 4
   %conv3 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %inc, %conv3
+  %cmp = icmp samesign ult i64 %inc, %conv3
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

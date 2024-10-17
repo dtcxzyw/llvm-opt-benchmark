@@ -603,7 +603,7 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr nocapture noundef r
   %217 = add nuw nsw i64 %216, 40
   %218 = load i32, ptr %80, align 8
   %219 = zext i32 %218 to i64
-  %220 = icmp ugt i64 %217, %219
+  %220 = icmp samesign ugt i64 %217, %219
   br i1 %220, label %221, label %226
 
 221:                                              ; preds = %215

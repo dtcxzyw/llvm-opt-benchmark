@@ -197,7 +197,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.185.lcssa.i = phi i8 [ %.0846.i, %.preheader.i ], [ %59, %58 ]
   %.1.lcssa.i = phi i32 [ %.07.i, %.preheader.i ], [ %.2.i, %58 ]
   %60 = add nuw nsw i32 %.0875.i, 1
-  %61 = icmp ult i32 %60, %41
+  %61 = icmp samesign ult i32 %60, %41
   br i1 %61, label %.preheader.i, label %._crit_edge8.i, !llvm.loop !6
 
 ._crit_edge8.i:                                   ; preds = %._crit_edge.i, %32

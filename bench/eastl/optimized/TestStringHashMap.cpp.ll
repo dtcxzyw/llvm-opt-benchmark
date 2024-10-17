@@ -4500,7 +4500,7 @@ invoke.cont160:                                   ; preds = %_ZNK5eastl14hash_co
   %138 = phi i64 [ %136, %cond.false.i ], [ %123, %for.body.us.i.i ], [ %120, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %139 = phi ptr [ %135, %cond.false.i ], [ %124, %for.body.us.i.i ], [ %121, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
   %.sink.i = phi ptr [ %137, %cond.false.i ], [ %pNode.addr.05.us.i.i, %for.body.us.i.i ], [ %pNode.addr.05.i.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_iEENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS5_Lb0EEE.exit.loopexit.i.i ]
-  %cmp161 = icmp ult i64 %indvars.iv, 10
+  %cmp161 = icmp samesign ult i64 %indvars.iv, 10
   %add.ptr.i467 = getelementptr inbounds ptr, ptr %139, i64 %138
   %140 = load ptr, ptr %add.ptr.i467, align 8, !noalias !39
   br i1 %cmp161, label %if.then, label %if.else

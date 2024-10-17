@@ -1295,15 +1295,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %10, label %22, label %34
 
@@ -1951,14 +1951,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76

@@ -608,8 +608,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %65 = getelementptr inbounds ptr, ptr %62, i64 %64
   store ptr %38, ptr %65, align 8
   %66 = add nuw nsw i32 %.01920, 1
-  %67 = icmp ult i32 %.01920, 999
-  %68 = icmp ult i32 %spec.select, 5
+  %67 = icmp samesign ult i32 %.01920, 999
+  %68 = icmp samesign ult i32 %spec.select, 5
   %or.cond = select i1 %67, i1 %68, i1 false
   %69 = icmp sgt i32 %.014.i, 0
   %or.cond3 = and i1 %69, %or.cond
@@ -2545,7 +2545,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %24, %28
 
 .critedge:                                        ; preds = %66, %45, %41, %50
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %67 = icmp ult i64 %indvars.iv.next55, %23
+  %67 = icmp samesign ult i64 %indvars.iv.next55, %23
   br i1 %67, label %41, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
@@ -5301,7 +5301,7 @@ define range(i32 -1, 2) i32 @Aig_NodeCompareRefsIncrease(ptr nocapture noundef r
   %.val12 = load i64, ptr %8, align 8
   %9 = trunc i64 %.val12 to i32
   %10 = lshr i32 %9, 6
-  %11 = icmp ult i32 %6, %10
+  %11 = icmp samesign ult i32 %6, %10
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %2

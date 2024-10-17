@@ -5541,7 +5541,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   %53 = and i32 %52, 511
   %54 = lshr i32 %52, 9
   %55 = zext nneg i32 %53 to i64
-  %56 = icmp ult i32 %53, 272
+  %56 = icmp samesign ult i32 %53, 272
   br i1 %56, label %57, label %.invoke, !prof !88
 
 57:                                               ; preds = %50
@@ -5591,7 +5591,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   %78 = load i32, ptr %77, align 4, !noundef !62
   %79 = and i32 %78, 511
   %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i32 %79, 272
+  %81 = icmp samesign ult i32 %79, 272
   br i1 %81, label %83, label %.invoke, !prof !88
 
 .invoke52:                                        ; preds = %.lr.ph, %.lr.ph34
@@ -6707,13 +6707,13 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
           to label %405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 435:                                              ; preds = %430, %430, %430
-  %.old1 = icmp ult i32 %432, 3
+  %.old1 = icmp samesign ult i32 %432, 3
   br i1 %.old1, label %440, label %439
 
 436:                                              ; preds = %430
   %437 = icmp eq i32 %431, 7
-  %438 = icmp ult i32 %432, 3
-  %or.cond = and i1 %437, %438
+  %438 = icmp samesign ult i32 %432, 3
+  %or.cond = select i1 %437, i1 %438, i1 false
   br i1 %or.cond, label %440, label %439
 
 439:                                              ; preds = %436, %435
@@ -8030,13 +8030,13 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
           to label %405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 435:                                              ; preds = %430, %430, %430
-  %.old1 = icmp ult i32 %432, 3
+  %.old1 = icmp samesign ult i32 %432, 3
   br i1 %.old1, label %440, label %439
 
 436:                                              ; preds = %430
   %437 = icmp eq i32 %431, 7
-  %438 = icmp ult i32 %432, 3
-  %or.cond = and i1 %437, %438
+  %438 = icmp samesign ult i32 %432, 3
+  %or.cond = select i1 %437, i1 %438, i1 false
   br i1 %or.cond, label %440, label %439
 
 439:                                              ; preds = %436, %435

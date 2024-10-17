@@ -970,7 +970,7 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %2, %11
   %49 = add nsw i32 %45, 1
   %50 = icmp sgt i32 %45, -1
   %51 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %49)
-  %52 = icmp ult i32 %51, 2
+  %52 = icmp samesign ult i32 %51, 2
   %or.cond.i.i.i.i.i.i = select i1 %50, i1 %52, i1 false
   %53 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
   %54 = sub nuw nsw i32 32, %53
@@ -1004,7 +1004,7 @@ _ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_
   %68 = add nsw i32 %63, 1
   %69 = icmp sgt i32 %63, -1
   %70 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
-  %71 = icmp ult i32 %70, 2
+  %71 = icmp samesign ult i32 %70, 2
   %or.cond.i.i.i.i1.i.i = select i1 %69, i1 %71, i1 false
   %72 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
   %73 = sub nuw nsw i32 32, %72

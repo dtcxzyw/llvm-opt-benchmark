@@ -1510,7 +1510,7 @@ entry:
   %0 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl = shl nuw i32 1, %0
   %conv1 = zext i32 %shl to i64
-  %cmp.not = icmp ult i64 %mul, %conv1
+  %cmp.not = icmp samesign ult i64 %mul, %conv1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1706,7 +1706,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %data, align 8
   %sub = add i32 %3, -1
   %4 = zext i32 %sub to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %entry
@@ -1924,7 +1924,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add i32 %i.023, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add28 = add nuw nsw i64 %sample.025, %conv27
-  %cmp18 = icmp ugt i64 %num.1, %indvars.iv.next
+  %cmp18 = icmp samesign ugt i64 %num.1, %indvars.iv.next
   br i1 %cmp18, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %entry, %if.then
@@ -2155,7 +2155,7 @@ for.inc63:                                        ; preds = %for.body48, %if.the
   %10 = phi i32 [ %7, %for.body48 ], [ %.pre, %if.then56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = zext i32 %10 to i64
-  %cmp46 = icmp ult i64 %indvars.iv.next, %11
+  %cmp46 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp46, label %for.body48, label %if.end66, !llvm.loop !22
 
 if.end66:                                         ; preds = %for.inc63, %if.end36
@@ -3141,7 +3141,7 @@ if.else20:                                        ; preds = %if.end14
 if.end28:                                         ; preds = %if.else20, %if.then17
   %storemerge = phi ptr [ null, %if.then17 ], [ %call22, %if.else20 ]
   store ptr %storemerge, ptr %indices, align 8
-  %cmp29 = icmp ugt i64 %mul9, %mul
+  %cmp29 = icmp samesign ugt i64 %mul9, %mul
   br i1 %cmp29, label %if.then31, label %if.end36
 
 if.then31:                                        ; preds = %if.end28
@@ -3454,7 +3454,7 @@ for.body:                                         ; preds = %if.end16, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %num_tracks, align 4
   %5 = zext i32 %4 to i64
-  %cmp24 = icmp ult i64 %indvars.iv.next, %5
+  %cmp24 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp24, label %for.body, label %if.end28, !llvm.loop !29
 
 if.end28:                                         ; preds = %for.body, %if.end16
@@ -3474,7 +3474,7 @@ if.else36:                                        ; preds = %if.end28
 if.end46:                                         ; preds = %if.else36, %if.then31
   %storemerge = phi ptr [ null, %if.then31 ], [ %call39, %if.else36 ]
   store ptr %storemerge, ptr %tracks, align 8
-  %cmp47 = icmp ugt i64 %mul11, %mul
+  %cmp47 = icmp samesign ugt i64 %mul11, %mul
   br i1 %cmp47, label %if.then49, label %if.end55
 
 if.then49:                                        ; preds = %if.end46
@@ -3850,7 +3850,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %cddb_add_digits_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %cddb_add_digits_.exit ]
   %sum.045 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %cddb_add_digits_.exit ]
-  %cmp.not.i = icmp ult i64 %indvars.iv, %1
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv, %1
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %cddb_add_digits_.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body

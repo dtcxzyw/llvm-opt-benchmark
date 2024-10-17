@@ -359,7 +359,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
   %44 = getelementptr inbounds i8, ptr %.02234, i64 -1
   store i8 %43, ptr %44, align 1
   %45 = udiv i32 %.035, 10
-  %.not29 = icmp ult i32 %.035, 10
+  %.not29 = icmp samesign ult i32 %.035, 10
   br i1 %.not29, label %46, label %.preheader, !llvm.loop !7
 
 46:                                               ; preds = %.preheader

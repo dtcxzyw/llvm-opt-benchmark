@@ -92,7 +92,7 @@ define noundef i64 @_ZN10line_index12WideEncoding7measure17hb75bd5cdb7fd18cdE(pt
 .thread8.i.i:                                     ; preds = %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i"
   %47 = phi ptr [ %37, %35 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i" ]
   %.sroa.4.0.i.ph10.i.i = phi i32 [ %45, %35 ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i" ]
-  %48 = icmp ugt i32 %.sroa.4.0.i.ph10.i.i, 65535
+  %48 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i.i, 65535
   br i1 %48, label %49, label %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
 
 49:                                               ; preds = %.thread8.i.i
@@ -159,7 +159,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %18 = lshr i64 %2, 4
-  %.not.i.i.i = icmp ult i64 %2, 16
+  %.not.i.i.i = icmp samesign ult i64 %2, 16
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph169.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.backedge.i.i.i, %15
@@ -266,7 +266,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %65 = shl i32 %.tr.i.i.i, 4
   %66 = or disjoint i32 %65, 1
   %67 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %64, i1 true)
-  %68 = icmp ugt i32 %67, 15
+  %68 = icmp samesign ugt i32 %67, 15
   br i1 %68, label %.backedge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %62
@@ -301,7 +301,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %80 = shl nsw i32 -2, %70
   %81 = and i32 %80, %.023166.i.i.i
   %82 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %81, i1 true)
-  %83 = icmp ugt i32 %82, 15
+  %83 = icmp samesign ugt i32 %82, 15
   br i1 %83, label %.backedge.i.i.i, label %.lr.ph.i.i.i
 
 _ZN10line_index28analyze_source_file_dispatch17hc6f80359e4f7f36bE.exit.i: ; preds = %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit.i.i.i", %._crit_edge.i.i.i
@@ -1172,15 +1172,15 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 .thread70:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i", %72
   %.sroa.4.0.i.ph72 = phi i32 [ %82, %72 ], [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i" ], [ %60, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i" ]
-  %84 = icmp ult i32 %.sroa.4.0.i.ph72, 128
+  %84 = icmp samesign ult i32 %.sroa.4.0.i.ph72, 128
   br i1 %84, label %.thread70.thread, label %85
 
 85:                                               ; preds = %.thread70
-  %86 = icmp ult i32 %.sroa.4.0.i.ph72, 2048
+  %86 = icmp samesign ult i32 %.sroa.4.0.i.ph72, 2048
   br i1 %86, label %.thread70.thread, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ult i32 %.sroa.4.0.i.ph72, 65536
+  %88 = icmp samesign ult i32 %.sroa.4.0.i.ph72, 65536
   %. = select i1 %88, i64 3, i64 4
   br label %.thread70.thread
 
@@ -1195,7 +1195,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 92:                                               ; preds = %.thread70.thread, %95
   %.0.sroa.speculated = phi i32 [ 0, %.thread70.thread ], [ %.0.sroa.speculate.load.35, %95 ]
   %93 = sub i32 %90, %.0.sroa.speculated
-  %94 = icmp ugt i64 %.033, 1
+  %94 = icmp samesign ugt i64 %.033, 1
   br i1 %94, label %99, label %42
 
 95:                                               ; preds = %.thread70.thread

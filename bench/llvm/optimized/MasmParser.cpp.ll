@@ -4094,7 +4094,7 @@ _ZN4llvm15SmallVectorImplIjE5eraseEPKjS3_.exit:   ; preds = %_ZN4llvm6uniqueIRNS
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %387 = load i32, ptr %2, align 4
   %388 = zext i32 %387 to i64
-  %389 = icmp ult i64 %indvars.iv.next416, %388
+  %389 = icmp samesign ult i64 %indvars.iv.next416, %388
   br i1 %389, label %.lr.ph382, label %.preheader, !llvm.loop !69
 
 .lr.ph386:                                        ; preds = %.preheader, %.lr.ph386
@@ -4122,7 +4122,7 @@ _ZN4llvm15SmallVectorImplIjE5eraseEPKjS3_.exit:   ; preds = %_ZN4llvm6uniqueIRNS
   %406 = add i32 %.0159384, 1
   %407 = load i32, ptr %3, align 4
   %408 = zext i32 %407 to i64
-  %409 = icmp ult i64 %indvars.iv.next419, %408
+  %409 = icmp samesign ult i64 %indvars.iv.next419, %408
   br i1 %409, label %.lr.ph386, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph386, %.preheader, %._crit_edge379
@@ -16669,7 +16669,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser19parseD
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %40, %37
   %41 = phi i64 [ 1, %40 ], [ %38, %37 ]
   %42 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %41)
-  %43 = icmp ult i64 %42, 2
+  %43 = icmp samesign ult i64 %42, 2
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -18624,7 +18624,7 @@ _ZNK4llvm5APInt6isIntNEj.exit.thread.i:           ; preds = %_ZNK4llvm8AsmToken1
   br label %_ZN4llvm5APIntD2Ev.exit18.i
 
 _ZNK4llvm5APInt6isIntNEj.exit15.i:                ; preds = %_ZNK4llvm5APInt6isIntNEj.exit.thread.i
-  %156 = icmp ult i32 %152, 65
+  %156 = icmp samesign ult i32 %152, 65
   br i1 %156, label %_ZNK4llvm5APInt6isIntNEj.exit15.i.thread, label %157
 
 157:                                              ; preds = %_ZNK4llvm5APInt6isIntNEj.exit15.i
@@ -25035,7 +25035,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %33
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %_ZN4llvm8AsmTokenC2ERKS0_.exit, %_ZN4llvm8AsmTokenC2ERKS0_.exit, %45
   %46 = phi i64 [ %.pr, %45 ], [ 1, %_ZN4llvm8AsmTokenC2ERKS0_.exit ], [ 1, %_ZN4llvm8AsmTokenC2ERKS0_.exit ]
   %47 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %46)
-  %48 = icmp ult i64 %47, 2
+  %48 = icmp samesign ult i64 %47, 2
   br i1 %48, label %55, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
 _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %45, %_ZN4llvm13isPowerOf2_64Em.exit
@@ -30635,7 +30635,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -41561,7 +41561,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -44728,7 +44728,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -47352,7 +47352,7 @@ select.unfold:                                    ; preds = %_ZN4llvm12StringSwi
 _ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit: ; preds = %select.unfold, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106
   %.sink.i.i = phi i32 [ 1, %106 ], [ 19, %105 ], [ 13, %104 ], [ 18, %103 ], [ 0, %102 ], [ 5, %101 ], [ 9, %99 ], [ 8, %98 ], [ 12, %97 ], [ 3, %96 ], [ 7, %95 ], [ 6, %select.unfold ], [ 4, %100 ]
   %.0.ph.i.i = phi i32 [ 5, %106 ], [ 5, %105 ], [ 5, %104 ], [ 4, %103 ], [ 4, %102 ], [ 3, %101 ], [ 3, %99 ], [ 3, %98 ], [ 3, %97 ], [ 3, %96 ], [ 1, %95 ], [ 2, %select.unfold ], [ 3, %100 ]
-  %.not95 = icmp ult i32 %.0.ph.i.i, %1
+  %.not95 = icmp samesign ult i32 %.0.ph.i.i, %1
   br i1 %.not95, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90
 
 _ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90: ; preds = %select.unfold, %107, %108, %109, %111, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit
@@ -47453,7 +47453,7 @@ _ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1
 
 _ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58: ; preds = %122, %130, %141, %.sink.split.i.i55
   %.0.i.i54 = phi i32 [ 0, %122 ], [ 0, %130 ], [ 0, %141 ], [ %.0.ph.i.i57, %.sink.split.i.i55 ]
-  %142 = icmp ult i32 %.0.ph.i.i94, %.0.i.i54
+  %142 = icmp samesign ult i32 %.0.ph.i.i94, %.0.i.i54
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58

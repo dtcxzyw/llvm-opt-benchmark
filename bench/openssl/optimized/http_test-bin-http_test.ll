@@ -1043,7 +1043,7 @@ if.end33:                                         ; preds = %land.lhs.true23, %l
   %call34 = call i32 @BIO_free(ptr noundef %call9) #7
   %call35 = call i64 @BIO_ctrl(ptr noundef %call3, i32 noundef 1, i64 noundef 0, ptr noundef null) #7
   %inc = add nuw nsw i32 %i.021, 1
-  %cmp8 = icmp ult i32 %i.021, 2
+  %cmp8 = icmp samesign ult i32 %i.021, 2
   %2 = select i1 %res.2.shrunk, i1 %cmp8, i1 false
   br i1 %2, label %for.body, label %for.end, !llvm.loop !5
 

@@ -2695,7 +2695,7 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
   %29 = lshr i64 %28, 32
   %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 16777215
-  %32 = icmp ugt i32 %25, %31
+  %32 = icmp samesign ugt i32 %25, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %.lr.ph._crit_edge, %20

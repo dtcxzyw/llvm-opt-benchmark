@@ -1874,7 +1874,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.else36:                                        ; preds = %for.body
   %cmp37 = icmp ne i32 %call32, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp26 = icmp ult i64 %indvars.iv.next, %wide.trip.count
+  %cmp26 = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count
   %or.cond70 = and i1 %cmp37, %cmp26
   br i1 %or.cond70, label %for.body, label %for.end, !llvm.loop !8
 

@@ -181,7 +181,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -795,7 +795,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %reass.add = shl nuw nsw i32 %123, 1
   %124 = add nuw nsw i32 %reass.add, %121
   %125 = add nuw nsw i32 %124, %123
-  %126 = icmp ult i32 %125, 6
+  %126 = icmp samesign ult i32 %125, 6
   br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %91
@@ -849,7 +849,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 
 .split.loop.exit108:                              ; preds = %152, %.split.loop.exit
   %.1.lcssa = phi i32 [ %153, %.split.loop.exit ], [ %indvars.iv99, %152 ]
-  %.not51 = icmp ugt i32 %.1.lcssa, %84
+  %.not51 = icmp samesign ugt i32 %.1.lcssa, %84
   br i1 %.not51, label %154, label %91, !llvm.loop !25
 
 154:                                              ; preds = %.split.loop.exit108

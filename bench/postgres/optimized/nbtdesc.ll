@@ -272,12 +272,12 @@ define internal fastcc void @delvacuum_desc(ptr noundef %0, ptr noundef %1, i16 
   %.pre-phi = phi i32 [ %28, %23 ], [ %.pre48, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = zext nneg i32 %.pre-phi to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %23, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %33, %15
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.31) #3
-  %36 = icmp ult i64 %indvars.iv45, %14
+  %36 = icmp samesign ult i64 %indvars.iv45, %14
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %._crit_edge

@@ -2887,7 +2887,7 @@ _ZL20scalarizeMaskedStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdate
 _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %1382, %1361
   %.0.i.i.i = phi ptr [ %1385, %1382 ], [ %1377, %1361 ]
   %.sroa.0.0.extract.trunc.i.i.i = trunc i16 %.sroa.0.0.insert.insert.i.i.i to i8
-  %.not.i.i.i = icmp ult i16 %.sroa.0.0.insert.insert.i.i.i, 256
+  %.not.i.i.i = icmp samesign ult i16 %.sroa.0.0.insert.insert.i.i.i, 256
   br i1 %.not.i.i.i, label %1386, label %_ZNK4llvm10DataLayout26getValueOrABITypeAlignmentENS_10MaybeAlignEPNS_4TypeE.exit.i.i
 
 1386:                                             ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
@@ -3575,7 +3575,7 @@ _ZL21scalarizeMaskedGatherRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdat
 _ZNK4llvm4Type13getScalarTypeEv.exit98.i.i:       ; preds = %1678, %1655
   %.0.i97.i.i = phi ptr [ %1681, %1678 ], [ %1673, %1655 ]
   %.sroa.0.0.extract.trunc.i99.i.i = trunc i16 %.sroa.0.0.insert.insert.i95.i.i to i8
-  %.not.i100.i.i = icmp ult i16 %.sroa.0.0.insert.insert.i95.i.i, 256
+  %.not.i100.i.i = icmp samesign ult i16 %.sroa.0.0.insert.insert.i95.i.i, 256
   br i1 %.not.i100.i.i, label %1682, label %_ZNK4llvm10DataLayout26getValueOrABITypeAlignmentENS_10MaybeAlignEPNS_4TypeE.exit102.i.i
 
 1682:                                             ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit98.i.i

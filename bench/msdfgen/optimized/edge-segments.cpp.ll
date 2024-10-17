@@ -1693,7 +1693,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %nextDY.2 = phi i32 [ %sub106, %if.then102 ], [ %nextDY.163, %if.then77 ], [ %nextDY.163, %for.body ]
   %total.2 = phi i32 [ %inc103, %if.then102 ], [ %total.164, %if.then77 ], [ %total.164, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp68 = icmp ult i64 %indvars.iv.next, %7
+  %cmp68 = icmp samesign ult i64 %indvars.iv.next, %7
   %cmp69 = icmp slt i32 %total.2, 2
   %13 = select i1 %cmp68, i1 %cmp69, i1 false
   br i1 %13, label %for.body, label %for.end, !llvm.loop !9
@@ -1970,7 +1970,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %nextDY.2 = phi i32 [ %sub184, %if.then180 ], [ %nextDY.194, %if.then136 ], [ %nextDY.194, %for.body ]
   %total.2 = phi i32 [ %inc181, %if.then180 ], [ %total.195, %if.then136 ], [ %total.195, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp127 = icmp ult i64 %indvars.iv.next, %11
+  %cmp127 = icmp samesign ult i64 %indvars.iv.next, %11
   %cmp128 = icmp slt i32 %total.2, 3
   %19 = select i1 %cmp127, i1 %cmp128, i1 false
   br i1 %19, label %for.body, label %for.end, !llvm.loop !10

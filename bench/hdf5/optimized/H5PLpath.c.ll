@@ -209,7 +209,7 @@ define noundef i32 @H5PL__close_path_table() local_unnamed_addr #0 {
   %12 = phi ptr [ %3, %.lr.ph ], [ %8, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = zext i32 %11 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %0
@@ -685,7 +685,7 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = load i32, ptr @H5PL_num_paths_g, align 4
   %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
   %110 = icmp eq i32 %.5.i16, 0
   %111 = and i1 %110, %109
   br i1 %111, label %14, label %.loopexit
@@ -713,7 +713,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @H5PL_num_paths_g, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %12, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph, %8

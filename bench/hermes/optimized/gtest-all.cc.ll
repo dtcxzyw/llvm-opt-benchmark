@@ -34339,7 +34339,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %i.010.i = phi i32 [ %add.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %str.addr.09.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call4.i23, %for.cond.preheader.i ]
   %conv11.i = sext i8 %14 to i32
-  %cmp2.i = icmp ugt i32 %i.010.i, 249
+  %cmp2.i = icmp samesign ugt i32 %i.010.i, 249
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %for.body.i
@@ -34405,7 +34405,7 @@ for.body.i43:                                     ; preds = %for.cond.preheader.
   %i.010.i44 = phi i32 [ %add.i54, %for.inc.i52 ], [ 0, %for.cond.preheader.i41 ]
   %str.addr.09.i45 = phi ptr [ %incdec.ptr.i55, %for.inc.i52 ], [ %call4.i37, %for.cond.preheader.i41 ]
   %conv11.i46 = sext i8 %19 to i32
-  %cmp2.i47 = icmp ugt i32 %i.010.i44, 249
+  %cmp2.i47 = icmp samesign ugt i32 %i.010.i44, 249
   br i1 %cmp2.i47, label %if.then3.i59, label %if.end.i48
 
 if.then3.i59:                                     ; preds = %for.body.i43

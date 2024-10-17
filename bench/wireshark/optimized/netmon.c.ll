@@ -1260,7 +1260,7 @@ define internal fastcc range(i32 0, 3) i32 @netmon_process_record(ptr nocapture 
   br i1 %cond, label %34, label %52
 
 34:                                               ; preds = %.thread
-  %35 = icmp ult i32 %.0117151, 16
+  %35 = icmp samesign ult i32 %.0117151, 16
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34

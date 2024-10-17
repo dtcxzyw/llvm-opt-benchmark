@@ -2412,7 +2412,7 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit161.i: ; p
   br i1 %.not.i163.i, label %_ZL18readOpcodeRegisterPN4llvm15X86Disassembler19InternalInstructionEh.exit.i, label %1068
 
 1068:                                             ; preds = %1057
-  %1069 = icmp ugt i8 %1066, 3
+  %1069 = icmp samesign ugt i8 %1066, 3
   %1070 = icmp eq i8 %1063, 0
   %or.cond.i.i = and i1 %1070, %1069
   br i1 %or.cond.i.i, label %1071, label %_ZL18readOpcodeRegisterPN4llvm15X86Disassembler19InternalInstructionEh.exit.i
@@ -2492,7 +2492,7 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit161.i: ; p
   br i1 %.not.i180.i, label %_ZL18readOpcodeRegisterPN4llvm15X86Disassembler19InternalInstructionEh.exit.i, label %1119
 
 1119:                                             ; preds = %1108
-  %1120 = icmp ugt i8 %1117, 3
+  %1120 = icmp samesign ugt i8 %1117, 3
   %1121 = icmp eq i8 %1114, 0
   %or.cond.i181.i = and i1 %1121, %1120
   br i1 %or.cond.i181.i, label %1122, label %_ZL18readOpcodeRegisterPN4llvm15X86Disassembler19InternalInstructionEh.exit.i
@@ -4586,7 +4586,7 @@ define internal fastcc noundef zeroext i16 @_ZL13fixupRegValuePN4llvm15X86Disass
 
 46:                                               ; preds = %4
   %47 = and i8 %2, 15
-  %48 = icmp ugt i8 %47, 7
+  %48 = icmp samesign ugt i8 %47, 7
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46

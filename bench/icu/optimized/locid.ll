@@ -1218,8 +1218,8 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %la
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %call61.us = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.us, i32 noundef 95) #24
   %cmp62.us = icmp ne ptr %call61.us, null
-  %cmp64.us = icmp ult i64 %indvars.iv88, 3
-  %or.cond2.us = and i1 %cmp64.us, %cmp62.us
+  %cmp64.us = icmp samesign ult i64 %indvars.iv88, 3
+  %or.cond2.us = select i1 %cmp62.us, i1 %cmp64.us, i1 false
   br i1 %or.cond2.us, label %land.rhs.us, label %while.end, !llvm.loop !4
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -1243,8 +1243,8 @@ while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call61 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 95) #24
   %cmp62 = icmp ne ptr %call61, null
-  %cmp64 = icmp ult i64 %indvars.iv, 3
-  %or.cond2 = and i1 %cmp64, %cmp62
+  %cmp64 = icmp samesign ult i64 %indvars.iv, 3
+  %or.cond2 = select i1 %cmp62, i1 %cmp64, i1 false
   br i1 %or.cond2, label %land.rhs, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %land.rhs, %while.body, %land.rhs.us, %if.end55
@@ -1495,8 +1495,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %40 = load i32, ptr %err, align 4
   %cmp.i.i5.i = icmp slt i32 %40, 1
-  %cmp.i6.i = icmp ult i64 %indvars.iv.i.i, 177
-  %41 = and i1 %cmp.i6.i, %cmp.i.i5.i
+  %cmp.i6.i = icmp samesign ult i64 %indvars.iv.i.i, 177
+  %41 = select i1 %cmp.i.i5.i, i1 %cmp.i6.i, i1 false
   br i1 %41, label %for.body.i.i, label %for.end.i.i, !llvm.loop !6
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i
@@ -2968,7 +2968,7 @@ for.inc.i.i.i:                                    ; preds = %_ZNK6icu_7517Unique
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %31 = load i32, ptr %status, align 4
   %cmp.i78.i.i.i = icmp slt i32 %31, 1
-  %cmp.i.i2.i = icmp ult i64 %indvars.iv.next.i.i.i, %25
+  %cmp.i.i2.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %25
   %32 = select i1 %cmp.i78.i.i.i, i1 %cmp.i.i2.i, i1 false
   br i1 %32, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !9
 
@@ -3028,7 +3028,7 @@ for.inc113.i.i.i:                                 ; preds = %_ZNK6icu_7517Unique
   %indvars.iv.next70.i.i.i = add nuw nsw i64 %indvars.iv69.i.i.i, 1
   %44 = load i32, ptr %status, align 4
   %cmp.i89.i.i.i = icmp slt i32 %44, 1
-  %cmp101.i.i.i = icmp ult i64 %indvars.iv.next70.i.i.i, %38
+  %cmp101.i.i.i = icmp samesign ult i64 %indvars.iv.next70.i.i.i, %38
   %45 = select i1 %cmp.i89.i.i.i, i1 %cmp101.i.i.i, i1 false
   br i1 %45, label %for.body103.i.i.i, label %for.end115.i.i.i, !llvm.loop !10
 
@@ -3088,7 +3088,7 @@ for.inc136.i.i.i:                                 ; preds = %_ZNK6icu_7517Unique
   %indvars.iv.next73.i.i.i = add nuw nsw i64 %indvars.iv72.i.i.i, 1
   %57 = load i32, ptr %status, align 4
   %cmp.i109.i.i.i = icmp slt i32 %57, 1
-  %cmp124.i.i.i = icmp ult i64 %indvars.iv.next73.i.i.i, %51
+  %cmp124.i.i.i = icmp samesign ult i64 %indvars.iv.next73.i.i.i, %51
   %58 = select i1 %cmp.i109.i.i.i, i1 %cmp124.i.i.i, i1 false
   br i1 %58, label %for.body126.i.i.i, label %for.end138.i.i.i, !llvm.loop !11
 
@@ -3148,7 +3148,7 @@ for.inc159.i.i.i:                                 ; preds = %_ZNK6icu_7517Unique
   %indvars.iv.next76.i.i.i = add nuw nsw i64 %indvars.iv75.i.i.i, 1
   %70 = load i32, ptr %status, align 4
   %cmp.i129.i.i.i = icmp slt i32 %70, 1
-  %cmp147.i.i.i = icmp ult i64 %indvars.iv.next76.i.i.i, %64
+  %cmp147.i.i.i = icmp samesign ult i64 %indvars.iv.next76.i.i.i, %64
   %71 = select i1 %cmp.i129.i.i.i, i1 %cmp147.i.i.i, i1 false
   br i1 %71, label %for.body149.i.i.i, label %for.end161.i.i.i, !llvm.loop !12
 
@@ -3208,7 +3208,7 @@ for.inc182.i.i.i:                                 ; preds = %_ZNK6icu_7517Unique
   %indvars.iv.next79.i.i.i = add nuw nsw i64 %indvars.iv78.i.i.i, 1
   %83 = load i32, ptr %status, align 4
   %cmp.i149.i.i.i = icmp slt i32 %83, 1
-  %cmp170.i.i.i = icmp ult i64 %indvars.iv.next79.i.i.i, %77
+  %cmp170.i.i.i = icmp samesign ult i64 %indvars.iv.next79.i.i.i, %77
   %84 = select i1 %cmp.i149.i.i.i, i1 %cmp170.i.i.i, i1 false
   br i1 %84, label %for.body172.i.i.i, label %for.end184.i.i.i, !llvm.loop !13
 

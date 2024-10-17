@@ -1750,7 +1750,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont8, %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   %cmp.i23 = icmp eq i8 %1, 13
   store ptr null, ptr %state_.i5, align 8
-  %cmp = icmp ult i64 %retry.0, 4
+  %cmp = icmp samesign ult i64 %retry.0, 4
   %or.cond.not = select i1 %cmp.i23, i1 %cmp, i1 false
   br i1 %or.cond.not, label %if.end14, label %invoke.cont16
 

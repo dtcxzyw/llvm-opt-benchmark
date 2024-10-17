@@ -7160,7 +7160,7 @@ define internal fastcc range(i32 0, 524289) i32 @want_pages_array(ptr nocapture 
   %7 = lshr i64 %6, 12
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 %3)
-  %10 = icmp ult i64 %6, 4096
+  %10 = icmp samesign ult i64 %6, 4096
   br i1 %10, label %11, label %12, !prof !9
 
 11:                                               ; preds = %4

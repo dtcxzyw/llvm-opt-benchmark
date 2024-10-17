@@ -125,7 +125,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_lha_bid(ptr noundef %
 
 21:                                               ; preds = %.outer.split
   %22 = lshr i64 %.021, 1
-  %23 = icmp ult i64 %.021, 50
+  %23 = icmp samesign ult i64 %.021, 50
   br i1 %23, label %.loopexit, label %.outer.split, !llvm.loop !5
 
 24:                                               ; preds = %.outer.split
@@ -329,7 +329,7 @@ lha_crc16_init.exit:                              ; preds = %.preheader.i, %2
 
 ._crit_edge33.i:                                  ; preds = %._crit_edge.i, %.outer.i
   %71 = lshr i64 %.0.ph.i, 1
-  %72 = icmp ult i64 %.0.ph.i, 50
+  %72 = icmp samesign ult i64 %.0.ph.i, 50
   br i1 %72, label %lha_skip_sfx.exit.thread, label %.outer.i
 
 .lr.ph32.i:                                       ; preds = %.outer.i, %._crit_edge.i
@@ -876,7 +876,7 @@ lha_read_file_header_1.exit:                      ; preds = %251, %306, %lha_cal
   %354 = load i32, ptr %126, align 8
   %355 = or i32 %354, 8
   store i32 %355, ptr %126, align 8
-  %356 = icmp ult i64 %342, 24
+  %356 = icmp samesign ult i64 %342, 24
   br i1 %356, label %lha_read_file_header_2.exit.sink.split, label %357
 
 357:                                              ; preds = %337
@@ -2403,7 +2403,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_lha_read_data(ptr nou
 
 lzh_decode_huffman.exit.i.i.i:                    ; preds = %460, %431
   %.0.i265.i.i.i = phi i32 [ %450, %431 ], [ %.1.i.i.i.i.i, %460 ]
-  %466 = icmp ugt i32 %.0.i265.i.i.i, 2
+  %466 = icmp samesign ugt i32 %.0.i265.i.i.i, 2
   br i1 %466, label %467, label %484
 
 467:                                              ; preds = %lzh_decode_huffman.exit.i.i.i
@@ -2783,7 +2783,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
   %669 = phi i32 [ %667, %lzh_decode_huffman.exit223.i.i.i ], [ %629, %lzh_decode_huffman.exit.i34.i.i ]
   %.0160.i.i.i = phi i32 [ %.0.i217.i.i.i, %lzh_decode_huffman.exit223.i.i.i ], [ %.0.i.i.i.i, %lzh_decode_huffman.exit.i34.i.i ]
   %670 = add nsw i32 %.5.i.i.i, -1
-  %671 = icmp ugt i32 %.0160.i.i.i, 255
+  %671 = icmp samesign ugt i32 %.0160.i.i.i, 255
   br i1 %671, label %681, label %672
 
 672:                                              ; preds = %668
@@ -3064,7 +3064,7 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   %813 = getelementptr inbounds i8, ptr %798, i64 %810
   store i8 %812, ptr %813, align 1
   %indvars.iv.next312.i.i.i = add nuw nsw i64 %indvars.iv311.i.i.i, 2
-  %814 = icmp ult i64 %indvars.iv.next312.i.i.i, %806
+  %814 = icmp samesign ult i64 %indvars.iv.next312.i.i.i, %806
   br i1 %814, label %.lr.ph.i18.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i18.i.i
@@ -3784,8 +3784,8 @@ define internal fastcc range(i32 -30, 1) i32 @lha_read_file_extended_header(ptr 
   %56 = load i64, ptr %5, align 8
   %57 = add i64 %56, %.0199
   %58 = icmp ule i64 %57, %4
-  %.not = icmp ugt i64 %.0199, %8
-  %or.cond219 = and i1 %.not, %58
+  %.not = icmp samesign ugt i64 %.0199, %8
+  %or.cond219 = select i1 %58, i1 %.not, i1 false
   br i1 %or.cond219, label %59, label %295
 
 59:                                               ; preds = %55
@@ -4026,7 +4026,7 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   %165 = add i32 %.1269, 1
   %166 = zext i32 %165 to i64
   %167 = lshr i64 %164, 1
-  %168 = icmp ugt i64 %167, %166
+  %168 = icmp samesign ugt i64 %167, %166
   br i1 %168, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %163, %153

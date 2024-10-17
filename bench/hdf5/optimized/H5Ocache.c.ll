@@ -1421,7 +1421,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %128 = or disjoint i32 %127, %122
   store i32 %128, ptr %123, align 4
   %129 = getelementptr inbounds i8, ptr %.0268, i64 4
-  %130 = icmp ult i32 %119, %128
+  %130 = icmp samesign ult i32 %119, %128
   br i1 %130, label %131, label %138
 
 131:                                              ; preds = %111
@@ -1747,7 +1747,7 @@ default.unreachable333:                           ; preds = %138
   br i1 %.not294, label %339, label %337
 
 337:                                              ; preds = %317
-  %338 = icmp ult i64 %335, 8
+  %338 = icmp samesign ult i64 %335, 8
   br i1 %338, label %340, label %344
 
 339:                                              ; preds = %317
@@ -2376,7 +2376,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   store i64 %215, ptr %341, align 8
   %342 = getelementptr inbounds i8, ptr %334, i64 16
   store i32 %29, ptr %342, align 8
-  %343 = icmp ugt i32 %.0310, 24
+  %343 = icmp samesign ugt i32 %.0310, 24
   br i1 %343, label %349, label %344
 
 344:                                              ; preds = %331

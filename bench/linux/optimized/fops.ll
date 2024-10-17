@@ -917,7 +917,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @blkdev_direct_IO(
   br i1 %46, label %47, label %137
 
 47:                                               ; preds = %43
-  %48 = icmp ult i32 %14, 5
+  %48 = icmp samesign ult i32 %14, 5
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %47

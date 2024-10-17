@@ -2069,7 +2069,7 @@ _ZL19getBuiltinDiagClassj.exit.thread:            ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %17 = load i32, ptr %16, align 2
   %18 = and i32 %17, 56
-  %19 = icmp ult i32 %18, 40
+  %19 = icmp samesign ult i32 %18, 40
   %20 = and i32 %1, 16381
   %or.cond18 = icmp eq i32 %20, 4964
   %or.cond1019 = or i1 %or.cond18, %19
@@ -2078,7 +2078,7 @@ _ZL19getBuiltinDiagClassj.exit.thread:            ; preds = %13
 _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i: ; preds = %_ZL19getBuiltinDiagClassj.exit.thread
   %21 = lshr i32 %17, 8
   %22 = and i32 %21, 63
-  %23 = icmp ugt i32 %22, 39
+  %23 = icmp samesign ugt i32 %22, 39
   br i1 %23, label %_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit.thread, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
 
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i: ; preds = %_ZL19getBuiltinDiagClassj.exit, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
@@ -2104,7 +2104,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i12: ; preds = %_ZN5cl
   %.pre = load i32, ptr %.phi.trans.insert, align 2
   %.pre22 = lshr i32 %.pre, 8
   %.pre23 = and i32 %.pre22, 63
-  %29 = icmp ugt i32 %.pre23, 39
+  %29 = icmp samesign ugt i32 %.pre23, 39
   br i1 %29, label %_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit.thread, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i13
 
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i13: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i12, %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit.thread
@@ -2175,7 +2175,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
   %4 = load i32, ptr %3, align 2
   %5 = lshr i32 %4, 8
   %6 = and i32 %5, 63
-  %7 = icmp ugt i32 %6, 39
+  %7 = icmp samesign ugt i32 %6, 39
   br i1 %7, label %_ZNK4llvm9StringRef11starts_withES0_.exit, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit
 
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit, %1
@@ -2209,7 +2209,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
   %4 = load i32, ptr %3, align 2
   %5 = lshr i32 %4, 8
   %6 = and i32 %5, 63
-  %7 = icmp ugt i32 %6, 39
+  %7 = icmp samesign ugt i32 %6, 39
   br i1 %7, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit
 
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit, %1

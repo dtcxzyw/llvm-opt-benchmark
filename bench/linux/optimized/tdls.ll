@@ -3549,7 +3549,7 @@ define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noun
   %9 = getelementptr inbounds i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i16 %3 to i32
-  %12 = icmp ugt i16 %2, %3
+  %12 = icmp samesign ugt i16 %2, %3
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %5
@@ -3602,7 +3602,7 @@ define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noun
   %44 = phi i8 [ %34, %33 ], [ 0, %36 ], [ 0, %35 ]
   %45 = phi i8 [ %18, %33 ], [ %42, %36 ], [ %18, %35 ]
   %46 = add nuw nsw i32 %21, %16
-  %47 = icmp ugt i32 %46, %11
+  %47 = icmp samesign ugt i32 %46, %11
   br i1 %47, label %48, label %17, !llvm.loop !105
 
 48:                                               ; preds = %43

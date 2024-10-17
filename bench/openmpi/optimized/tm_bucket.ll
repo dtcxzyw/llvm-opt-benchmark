@@ -262,7 +262,7 @@ define hidden double @tm_bucket_grouping(ptr noundef %0, ptr noundef %1, ptr nou
   %.046.i.i = phi i32 [ %24, %.lr.ph.i.i ], [ %10, %16 ]
   %24 = lshr i32 %.046.i.i, 1
   %25 = add nuw nsw i32 %.07.i.i, 1
-  %.not.i.i = icmp ult i32 %.046.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.046.i.i, 2
   br i1 %.not.i.i, label %.lr.ph.i89.preheader.i, label %.lr.ph.i.i, !llvm.loop !4
 
 .lr.ph.i89.preheader.i:                           ; preds = %.lr.ph.i.i
@@ -406,7 +406,7 @@ is_power_of_2.exit.i:                             ; preds = %31
   %101 = add nsw i64 %100, -1
   %102 = tail call noalias ptr @malloc(i64 noundef %101) #17
   %invariant.gep.i = getelementptr i8, ptr %102, i64 -8
-  %103 = icmp ugt i32 %30, 1
+  %103 = icmp samesign ugt i32 %30, 1
   br i1 %103, label %.lr.ph111.i, label %._crit_edge112.i
 
 .lr.ph111.i:                                      ; preds = %.loopexit.i, %.lr.ph111.i
@@ -548,7 +548,7 @@ built_pivot_tree.exit.i:                          ; preds = %.lr.ph29.i.i, %._cr
   %indvars.iv22.i.i = phi i64 [ 0, %.lr.ph18.i.i ], [ %indvars.iv.next23.i.i, %.loopexit.i.i ]
   %indvars.iv.i97.i = phi i64 [ 1, %.lr.ph18.i.i ], [ %indvars.iv.next.i98.i, %.loopexit.i.i ]
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
-  %155 = icmp ult i64 %indvars.iv.next23.i.i, %153
+  %155 = icmp samesign ult i64 %indvars.iv.next23.i.i, %153
   br i1 %155, label %.lr.ph.i99.i, label %.loopexit.i.i
 
 .lr.ph.i99.i:                                     ; preds = %154

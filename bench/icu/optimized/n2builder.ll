@@ -2226,7 +2226,7 @@ invoke.cont32:                                    ; preds = %if.end29
 
 while.cond37:                                     ; preds = %invoke.cont32, %while.body39
   %c36.0 = phi i32 [ %add, %while.body39 ], [ 44032, %invoke.cont32 ]
-  %cmp38 = icmp ult i32 %c36.0, 55176
+  %cmp38 = icmp samesign ult i32 %c36.0, 55176
   br i1 %cmp38, label %while.body39, label %while.end43
 
 while.body39:                                     ; preds = %while.cond37

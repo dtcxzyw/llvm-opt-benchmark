@@ -1198,7 +1198,7 @@ ecp_pick_window_size.exit.i:                      ; preds = %.critedge.i.i, %104
   call void @mbedtls_mpi_init(ptr noundef nonnull %126) #19
   %127 = add i8 %.05526.i, 1
   %128 = zext i8 %127 to i32
-  %129 = icmp ugt i32 %110, %128
+  %129 = icmp samesign ugt i32 %110, %128
   br i1 %129, label %.preheader23.i, label %130, !llvm.loop !15
 
 130:                                              ; preds = %.preheader23.i
@@ -1247,7 +1247,7 @@ mbedtls_ecp_copy.exit.i.i:                        ; preds = %135
 
 .preheader8.i.i:                                  ; preds = %143, %.preheader9.i.i
   %145 = and i32 %110, 255
-  %146 = icmp ugt i32 %145, 1
+  %146 = icmp samesign ugt i32 %145, 1
   br i1 %146, label %.lr.ph14.i.i, label %._crit_edge.thread.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader9.i.i, %143
@@ -1299,7 +1299,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %160
   store ptr %171, ptr %173, align 8
   %174 = shl nuw nsw i32 %169, 1
   %175 = and i32 %174, 254
-  %176 = icmp ult i32 %175, %145
+  %176 = icmp samesign ult i32 %175, %145
   br i1 %176, label %.lr.ph14.i.i, label %._crit_edge.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph14.i.i
@@ -1338,7 +1338,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %160
 
 188:                                              ; preds = %182
   %189 = shl i8 %.116.i.i, 1
-  %190 = icmp ult i8 %189, %111
+  %190 = icmp samesign ult i8 %189, %111
   br i1 %190, label %.lr.ph17.i.i, label %.preheader5.i.i, !llvm.loop !19
 
 .lr.ph19.i.i:                                     ; preds = %.lr.ph19.i.i, %.preheader5.i.i

@@ -332,7 +332,7 @@ for.end.i.us:                                     ; preds = %for.end.loopexit.i.
   %mul.i.us = mul nuw nsw i32 %count.0.lcssa.i.us, 5
   %shl11.i.us = shl i32 %and10.i.us, %mul.i.us
   %or12.i.us = or i32 %shl11.i.us, %res.1.lcssa.i.us
-  %cmp13.i.us = icmp ugt i32 %count.0.lcssa.i.us, 5
+  %cmp13.i.us = icmp samesign ugt i32 %count.0.lcssa.i.us, 5
   %cmp15.i.us = icmp slt i32 %or12.i.us, 0
   %or.cond.i.us = select i1 %cmp13.i.us, i1 true, i1 %cmp15.i.us
   br i1 %or.cond.i.us, label %return.sink.split, label %lor.lhs.false17.i.us
@@ -411,7 +411,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.1.lcssa.i
-  %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5
+  %cmp13.i = icmp samesign ugt i32 %count.0.lcssa.i, 5
   %cmp15.i = icmp slt i32 %or12.i, 0
   %or.cond.i = select i1 %cmp13.i, i1 true, i1 %cmp15.i
   br i1 %or.cond.i, label %return.sink.split, label %lor.lhs.false17.i
@@ -617,7 +617,7 @@ for.end.i.us:                                     ; preds = %for.end.loopexit.i.
   %mul.i.us = mul nuw nsw i32 %count.0.lcssa.i.us, 5
   %shl11.i.us = shl i32 %and10.i.us, %mul.i.us
   %or12.i.us = or i32 %shl11.i.us, %res.1.lcssa.i.us
-  %cmp13.i.us = icmp ugt i32 %count.0.lcssa.i.us, 5
+  %cmp13.i.us = icmp samesign ugt i32 %count.0.lcssa.i.us, 5
   %cmp15.i.us = icmp slt i32 %or12.i.us, 0
   %or.cond.i.us = select i1 %cmp13.i.us, i1 true, i1 %cmp15.i.us
   br i1 %or.cond.i.us, label %if.then, label %lor.lhs.false17.i.us
@@ -697,7 +697,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.1.lcssa.i
-  %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5
+  %cmp13.i = icmp samesign ugt i32 %count.0.lcssa.i, 5
   %cmp15.i = icmp slt i32 %or12.i, 0
   %or.cond.i = select i1 %cmp13.i, i1 true, i1 %cmp15.i
   br i1 %or.cond.i, label %if.then, label %lor.lhs.false17.i
@@ -873,7 +873,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.1.lcssa.i
-  %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5
+  %cmp13.i = icmp samesign ugt i32 %count.0.lcssa.i, 5
   %cmp15.i = icmp slt i32 %or12.i, 0
   %or.cond.i = select i1 %cmp13.i, i1 true, i1 %cmp15.i
   br i1 %or.cond.i, label %if.then15, label %lor.lhs.false17.i

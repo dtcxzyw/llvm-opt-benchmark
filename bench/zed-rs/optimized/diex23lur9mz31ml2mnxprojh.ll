@@ -8480,15 +8480,15 @@ default.unreachable137:                           ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2351)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !2351
-  %72 = icmp ult i32 %71, 128
+  %72 = icmp samesign ult i32 %71, 128
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %69
-  %74 = icmp ult i32 %71, 2048
+  %74 = icmp samesign ult i32 %71, 2048
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %71, 65536
+  %76 = icmp samesign ult i32 %71, 65536
   br i1 %76, label %86, label %97
 
 77:                                               ; preds = %69
@@ -20902,15 +20902,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h127726f57b138fc8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -20997,15 +20997,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h38c53cb2efaaec01
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21093,15 +21093,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h4ce3fe34f6083e0c
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21189,15 +21189,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h626123f3cd29b019
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21285,15 +21285,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h628808d2be830b9c
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21381,15 +21381,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h7025fd12a133121f
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21479,15 +21479,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %10, label %22, label %34
 
@@ -21570,15 +21570,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbb0e57b5e4f15c55
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21666,15 +21666,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbc1f1739292f58fe
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21762,15 +21762,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hd5b01aee5e33bc09
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21860,15 +21860,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17he1a2088c885eddc3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -21957,15 +21957,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17heaa5a8258f8ceb8b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 

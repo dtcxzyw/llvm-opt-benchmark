@@ -567,11 +567,11 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %2, %10
 30:                                               ; preds = %12
   %31 = lshr exact i32 %16, 16
   %32 = lshr exact i32 %17, 20
-  %33 = icmp ugt i32 %17, 1088421888
+  %33 = icmp samesign ugt i32 %17, 1088421888
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %30
-  %35 = icmp ult i32 %17, 1058013184
+  %35 = icmp samesign ult i32 %17, 1058013184
   br i1 %35, label %51, label %39
 
 36:                                               ; preds = %30
@@ -596,7 +596,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %2, %10
   br label %_ZN4half8binary164arch19f64_to_f16_fallback17h3221fb29048be3b3E.exit
 
 51:                                               ; preds = %34
-  %52 = icmp ult i32 %17, 1045430272
+  %52 = icmp samesign ult i32 %17, 1045430272
   br i1 %52, label %63, label %53
 
 53:                                               ; preds = %51

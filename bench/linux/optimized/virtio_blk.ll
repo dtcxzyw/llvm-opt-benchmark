@@ -457,7 +457,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %181 = add nsw i64 %180, -512
   %182 = icmp ult i64 %181, 3585
   %183 = call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %180), !range !9
-  %184 = icmp ult i64 %183, 2
+  %184 = icmp samesign ult i64 %183, 2
   %or.cond = select i1 %182, i1 %184, i1 false
   br i1 %or.cond, label %187, label %185
 
@@ -1061,7 +1061,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %54
   %57 = phi i16 [ 0, %54 ], [ %56, %.loopexit11.loopexit ]
   %58 = zext i16 %57 to i32
-  %59 = icmp ugt i32 %29, %58
+  %59 = icmp samesign ugt i32 %29, %58
   br i1 %59, label %.preheader8.preheader, label %.loopexit9
 
 .preheader8.preheader:                            ; preds = %.loopexit11
@@ -1100,7 +1100,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   store ptr %77, ptr %78, align 8
   %indvars.iv.next13 = add nuw i64 %indvars.iv12, 1
   %79 = trunc nuw i64 %indvars.iv.next13 to i32
-  %80 = icmp ugt i32 %29, %79
+  %80 = icmp samesign ugt i32 %29, %79
   br i1 %80, label %.preheader8, label %.loopexit9, !llvm.loop !15
 
 .loopexit9:                                       ; preds = %.preheader8, %.loopexit11

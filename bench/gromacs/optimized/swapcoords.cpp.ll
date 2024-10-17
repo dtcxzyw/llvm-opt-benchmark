@@ -948,7 +948,7 @@ _ZL17check_swap_groupsP6t_swapib.exit:            ; preds = %._crit_edge34.threa
   %253 = call noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr noundef nonnull align 8 dereferenceable(8) %252)
   %254 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4, i32 noundef 1601, i64 noundef %253, i64 noundef 12)
   store ptr %254, ptr %251, align 8
-  %or.cond4 = icmp ult i64 %indvars.iv590, 2
+  %or.cond4 = icmp samesign ult i64 %indvars.iv590, 2
   br i1 %or.cond4, label %255, label %265
 
 255:                                              ; preds = %.lr.ph514
@@ -1727,7 +1727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %674 = load ptr, ptr %47, align 8
   %675 = getelementptr inbounds %struct.swap_group, ptr %674, i64 %indvars.iv605
   %676 = load ptr, ptr %659, align 8
-  %677 = icmp ult i64 %indvars.iv605, 3
+  %677 = icmp samesign ult i64 %indvars.iv605, 3
   br i1 %677, label %678, label %681
 
 678:                                              ; preds = %.lr.ph532
@@ -1745,7 +1745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %688 = icmp ugt i64 %687, 1
   %689 = select i1 %688, ptr @.str.26, ptr @.str.18
   %690 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %676, ptr noundef nonnull @.str.24, ptr noundef %682, ptr noundef %683, i32 noundef %686, ptr noundef nonnull %689) #22
-  %or.cond7 = icmp ult i64 %indvars.iv605, 2
+  %or.cond7 = icmp samesign ult i64 %indvars.iv605, 2
   br i1 %or.cond7, label %709, label %691
 
 691:                                              ; preds = %681

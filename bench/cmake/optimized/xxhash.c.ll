@@ -74,7 +74,7 @@ define dso_local i32 @ZSTD_XXH32(ptr noundef readonly %0, i64 noundef %1, i32 no
   %44 = trunc i64 %1 to i32
   %45 = add i32 %.041.i, %44
   %46 = and i64 %1, 15
-  %47 = icmp ugt i64 %46, 3
+  %47 = icmp samesign ugt i64 %46, 3
   br i1 %47, label %.lr.ph.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %43
@@ -367,7 +367,7 @@ define dso_local i32 @ZSTD_XXH32_digest(ptr nocapture noundef readonly %0) local
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 15
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp ugt i32 %30, 3
+  %32 = icmp samesign ugt i32 %30, 3
   br i1 %32, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %24
@@ -525,7 +525,7 @@ define dso_local i64 @ZSTD_XXH64(ptr noundef readonly %0, i64 noundef %1, i64 no
   %.1.i = phi ptr [ %31, %33 ], [ %0, %65 ]
   %68 = add i64 %.049.i, %1
   %69 = and i64 %1, 31
-  %70 = icmp ugt i64 %69, 7
+  %70 = icmp samesign ugt i64 %69, 7
   br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %67, %.lr.ph.i.i
@@ -549,7 +549,7 @@ define dso_local i64 @ZSTD_XXH64(ptr noundef readonly %0, i64 noundef %1, i64 no
   %.025.lcssa.i.i = phi i64 [ %69, %67 ], [ %79, %.lr.ph.i.i ]
   %.022.lcssa.i.i = phi ptr [ %.1.i, %67 ], [ %74, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %68, %67 ], [ %78, %.lr.ph.i.i ]
-  %81 = icmp ugt i64 %.025.lcssa.i.i, 3
+  %81 = icmp samesign ugt i64 %.025.lcssa.i.i, 3
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %._crit_edge.i.i
@@ -849,7 +849,7 @@ define dso_local i64 @ZSTD_XXH64_digest(ptr nocapture noundef readonly %0) local
   %49 = add i64 %.0, %2
   %50 = getelementptr inbounds i8, ptr %0, i64 40
   %51 = and i64 %2, 31
-  %52 = icmp ugt i64 %51, 7
+  %52 = icmp samesign ugt i64 %51, 7
   br i1 %52, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
@@ -873,7 +873,7 @@ define dso_local i64 @ZSTD_XXH64_digest(ptr nocapture noundef readonly %0) local
   %.025.lcssa.i = phi i64 [ %51, %48 ], [ %61, %.lr.ph.i ]
   %.022.lcssa.i = phi ptr [ %50, %48 ], [ %56, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %49, %48 ], [ %60, %.lr.ph.i ]
-  %63 = icmp ugt i64 %.025.lcssa.i, 3
+  %63 = icmp samesign ugt i64 %.025.lcssa.i, 3
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %._crit_edge.i

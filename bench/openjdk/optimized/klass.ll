@@ -2289,7 +2289,7 @@ define hidden void @_ZN5Klass17initialize_supersEPS_P5ArrayIP13InstanceKlassEP10
   br i1 %exitcond.not, label %32, label %28, !llvm.loop !23
 
 32:                                               ; preds = %28
-  %33 = icmp ult i32 %spec.select, 8
+  %33 = icmp samesign ult i32 %spec.select, 8
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -2424,7 +2424,7 @@ _ZN13GrowableArrayIP5KlassEC2Ei.exit:             ; preds = %72, %.lr.ph.prehead
   %97 = add nsw i32 %93, 1
   %98 = icmp sgt i32 %93, -1
   %99 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %97)
-  %100 = icmp ult i32 %99, 2
+  %100 = icmp samesign ult i32 %99, 2
   %or.cond.i.i.i.i.i = select i1 %98, i1 %100, i1 false
   %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %97, i1 true)
   %102 = sub nuw nsw i32 32, %101

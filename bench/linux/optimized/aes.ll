@@ -117,7 +117,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noun
   ]
 
 73:                                               ; preds = %19
-  %74 = icmp ugt i64 %20, 6
+  %74 = icmp samesign ugt i64 %20, 6
   br i1 %74, label %139, label %75
 
 75:                                               ; preds = %73
@@ -126,7 +126,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noun
   br label %119
 
 78:                                               ; preds = %19
-  %79 = icmp ugt i64 %20, 5
+  %79 = icmp samesign ugt i64 %20, 5
   br i1 %79, label %139, label %80
 
 80:                                               ; preds = %78

@@ -896,7 +896,7 @@ Vec_IntFill.exit92:                               ; preds = %124, %Vec_IntGrow.e
 
 .preheader:                                       ; preds = %137, %.loopexit.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.loopexit.i ], [ 0, %137 ]
-  %140 = icmp ult i64 %indvars.iv31.i, 6
+  %140 = icmp samesign ult i64 %indvars.iv31.i, 6
   br i1 %140, label %.preheader.i, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %.preheader

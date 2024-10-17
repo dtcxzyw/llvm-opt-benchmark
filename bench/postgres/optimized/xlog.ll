@@ -1758,7 +1758,7 @@ define dso_local void @assign_checkpoint_completion_target(double noundef %0, pt
 define dso_local noundef zeroext i1 @check_wal_segment_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %7 = add i32 %4, -1048576
   %8 = icmp ult i32 %7, 1072693249
   %or.cond9 = select i1 %8, i1 %6, i1 false
@@ -4426,7 +4426,7 @@ define internal fastcc void @ReadControlFile() unnamed_addr #0 {
 
 178:                                              ; preds = %174
   %179 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %176)
-  %180 = icmp ult i32 %179, 2
+  %180 = icmp samesign ult i32 %179, 2
   %181 = add nsw i32 %176, -1048576
   %182 = icmp ult i32 %181, 1072693249
   %or.cond3 = and i1 %180, %182
@@ -5159,7 +5159,7 @@ define dso_local void @StartupXLOG() local_unnamed_addr #0 {
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 8184
-  %35 = icmp ugt i64 %34, 23
+  %35 = icmp samesign ugt i64 %34, 23
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %0
@@ -10320,7 +10320,7 @@ WALInsertLockRelease.exit92:                      ; preds = %.preheader.i88
 
 157:                                              ; preds = %149
   %158 = and i64 %150, 2147483647
-  %159 = icmp ugt i64 %158, 1023
+  %159 = icmp samesign ugt i64 %158, 1023
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %157

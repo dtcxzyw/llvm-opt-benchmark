@@ -276,7 +276,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
 
 .critedge.i:                                      ; preds = %.preheader.i
   store i8 47, ptr %90, align 1
-  %93 = icmp ult i64 %.0871.i, 4095
+  %93 = icmp samesign ult i64 %.0871.i, 4095
   br i1 %93, label %.lr.ph.preheader.i, label %.critedge5.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge.i
@@ -1855,7 +1855,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
   %indvars.iv = phi i64 [ 1, %.lr.ph9 ], [ %indvars.iv.next, %._crit_edge ]
   %.0356 = phi i64 [ 0, %.lr.ph9 ], [ %37, %._crit_edge ]
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %27 = icmp ult i64 %indvars.iv.next18, %25
+  %27 = icmp samesign ult i64 %indvars.iv.next18, %25
   br i1 %27, label %.lr.ph5, label %._crit_edge
 
 .lr.ph5:                                          ; preds = %26, %.lr.ph5
@@ -2093,7 +2093,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %indvars.iv = phi i64 [ 1, %.lr.ph11 ], [ %indvars.iv.next, %._crit_edge ]
   %.0358 = phi i64 [ 0, %.lr.ph11 ], [ %38, %._crit_edge ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %28 = icmp ult i64 %indvars.iv.next21, %26
+  %28 = icmp samesign ult i64 %indvars.iv.next21, %26
   br i1 %28, label %.lr.ph6, label %._crit_edge
 
 .lr.ph6:                                          ; preds = %27, %.lr.ph6

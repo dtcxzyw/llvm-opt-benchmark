@@ -7542,8 +7542,8 @@ define noundef ptr @Abc_NtkMakeOnePo(ptr noundef %0, i32 noundef %1, i32 noundef
   %.val50.val = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds ptr, ptr %.val50.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp uge i64 %indvars.iv, %24
-  %.not44 = icmp ult i64 %indvars.iv, %23
+  %29 = icmp samesign uge i64 %indvars.iv, %24
+  %.not44 = icmp samesign ult i64 %indvars.iv, %23
   %or.cond = select i1 %29, i1 %.not44, i1 false
   br i1 %or.cond, label %31, label %30
 

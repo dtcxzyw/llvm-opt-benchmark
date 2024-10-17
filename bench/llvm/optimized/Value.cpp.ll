@@ -2163,7 +2163,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %14, %17
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %14 ], [ %19, %17 ]
   %.idx27 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %23 = getelementptr inbounds i8, ptr %22, i64 %.idx27
-  %.not26 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not26 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not26, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm4User8operandsEv.exit

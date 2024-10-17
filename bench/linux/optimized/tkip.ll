@@ -658,7 +658,7 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
   %47 = getelementptr inbounds i8, ptr %16, i64 24
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i32
-  %50 = icmp ult i32 %25, %49
+  %50 = icmp samesign ult i32 %25, %49
   br i1 %50, label %104, label %51
 
 51:                                               ; preds = %46

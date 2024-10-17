@@ -2076,7 +2076,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %709 = load i32, ptr %708, align 4
   %710 = icmp eq i32 %709, %706
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %711 = icmp uge i64 %indvars.iv.next.i.i, %620
+  %711 = icmp samesign uge i64 %indvars.iv.next.i.i, %620
   %.not8.i.i = select i1 %710, i1 true, i1 %711
   br i1 %.not8.i.i, label %_ZL7is_coreiiPKi.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !13
 
@@ -2386,7 +2386,7 @@ _ZL16dump_clust_statsP8_IO_FILERK12t_disresdataRK15InteractionListN3gmx8ArrayRef
   %866 = load i32, ptr %865, align 4
   %867 = icmp eq i32 %866, %862
   %indvars.iv.next.i.i263 = add nuw nsw i64 %indvars.iv.i.i262, 1
-  %868 = icmp uge i64 %indvars.iv.next.i.i263, %842
+  %868 = icmp samesign uge i64 %indvars.iv.next.i.i263, %842
   %.not8.i.i264 = select i1 %867, i1 true, i1 %868
   br i1 %.not8.i.i264, label %_ZL7is_coreiiPKi.exit.loopexit.i265, label %.lr.ph.i.i261, !llvm.loop !13
 
@@ -5486,7 +5486,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.sroa.02.0.copyload14.i.i.i = load i64, ptr %17, align 4
   %18 = add nsw i64 %14, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ult i64 %16, %19
+  %20 = icmp samesign ult i64 %16, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

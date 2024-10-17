@@ -5153,7 +5153,7 @@ define internal i32 @dissect_gsm_rlcmac_uplink(ptr noundef %0, ptr noundef %1, p
   %42 = load i32, ptr @ett_gsm_rlcmac, align 4
   %43 = tail call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42) #6
   %44 = and i32 %38, 65528
-  %45 = icmp ugt i32 %44, 8
+  %45 = icmp samesign ugt i32 %44, 8
   br i1 %45, label %46, label %.critedge.i
 
 46:                                               ; preds = %36
@@ -6562,7 +6562,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   %.1 = phi i8 [ %48, %40 ], [ %spec.select, %33 ], [ %spec.select, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = trunc nuw i64 %indvars.iv.next to i32
-  %51 = icmp ult i64 %indvars.iv.next, %15
+  %51 = icmp samesign ult i64 %indvars.iv.next, %15
   %52 = and i1 %51, %23
   br i1 %52, label %16, label %._crit_edge, !llvm.loop !7
 

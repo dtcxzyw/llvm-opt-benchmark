@@ -332,8 +332,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   %33 = fmul float %20, %32
   %34 = fmul float %22, %32
   %35 = icmp slt i64 %indvars.iv112, %invariant.op117
-  %36 = icmp ult i64 %indvars.iv112, 2
-  %37 = and i1 %36, %35
+  %36 = icmp samesign ult i64 %indvars.iv112, 2
+  %37 = select i1 %35, i1 %36, i1 false
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
@@ -349,8 +349,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   %44 = load float, ptr %43, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %41, float %.099103)
   %46 = icmp slt i64 %indvars.iv109, %invariant.op
-  %47 = icmp ult i64 %indvars.iv109, 2
-  %48 = and i1 %47, %46
+  %47 = icmp samesign ult i64 %indvars.iv109, 2
+  %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
@@ -761,8 +761,8 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   %112 = fmul float %100, %111
   %113 = fmul float %102, %111
   %114 = icmp slt i64 %indvars.iv112.i, %invariant.op117.i
-  %115 = icmp ult i64 %indvars.iv112.i, 2
-  %116 = and i1 %115, %114
+  %115 = icmp samesign ult i64 %indvars.iv112.i, 2
+  %116 = select i1 %114, i1 %115, i1 false
   br i1 %116, label %.lr.ph.i25, label %._crit_edge.i
 
 .lr.ph.i25:                                       ; preds = %109, %.lr.ph.i25
@@ -778,8 +778,8 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   %123 = load float, ptr %122, align 4
   %124 = call float @llvm.fmuladd.f32(float %123, float %120, float %.099103.i)
   %125 = icmp slt i64 %indvars.iv109.i, %invariant.op117.i
-  %126 = icmp ult i64 %indvars.iv109.i, 2
-  %127 = and i1 %126, %125
+  %126 = icmp samesign ult i64 %indvars.iv109.i, 2
+  %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %.lr.ph.i25, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i25, %109

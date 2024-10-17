@@ -263,7 +263,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN5clang6Pars
   %97 = load i64, ptr %96, align 8
   %98 = lshr i64 %97, 32
   %99 = zext i16 %92 to i64
-  %100 = icmp ugt i64 %98, %99
+  %100 = icmp samesign ugt i64 %98, %99
   br i1 %100, label %_ZN5clang6Parser12ConsumeBraceEv.exit, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang6Parser12ConsumeBraceEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -1649,7 +1649,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit88:     ; preds = %213
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit123
 
 270:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit88
-  %271 = icmp ult i64 %265, 2
+  %271 = icmp samesign ult i64 %265, 2
   br i1 %271, label %281, label %272
 
 272:                                              ; preds = %270

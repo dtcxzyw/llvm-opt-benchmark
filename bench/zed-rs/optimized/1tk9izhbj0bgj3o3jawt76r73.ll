@@ -13035,7 +13035,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -23446,7 +23446,7 @@ define hidden { ptr, ptr } @_ZN9workspace9Workspace22focus_or_unfocus_panel17hb5
 
 18:                                               ; preds = %16
   %19 = add nuw nsw i64 %17, 1
-  %20 = icmp ult i64 %17, 3
+  %20 = icmp samesign ult i64 %17, 3
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds ptr, ptr %.sroa.6.0..sroa_idx, i64 %17
   %22 = load ptr, ptr %21, align 8, !alias.scope !4205, !nonnull !4, !align !5, !noundef !4

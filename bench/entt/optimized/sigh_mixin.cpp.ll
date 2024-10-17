@@ -34553,7 +34553,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -34732,7 +34732,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -34904,7 +34904,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -35083,7 +35083,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -36963,7 +36963,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -37142,7 +37142,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -38160,7 +38160,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -38339,7 +38339,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -39534,7 +39534,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -39713,7 +39713,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -67032,7 +67032,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -67211,7 +67211,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -80836,7 +80836,7 @@ if.then13:                                        ; preds = %if.then5
   %3 = add i64 %__n, 2305843009213693951
   %4 = and i64 %3, 2305843009213693951
   %5 = add nuw nsw i64 %4, 1
-  %min.iters.check263 = icmp ult i64 %4, 7
+  %min.iters.check263 = icmp samesign ult i64 %4, 7
   %6 = and i64 %__n, 2305843009213693948
   %diff.check260 = icmp eq i64 %6, 0
   %or.cond = or i1 %diff.check260, %min.iters.check263
@@ -80901,7 +80901,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
 
 invoke.cont24:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont
   %add.ptr28 = getelementptr inbounds ptr, ptr %__position.coerce, i64 %__n
-  %min.iters.check285 = icmp ult i64 %4, 3
+  %min.iters.check285 = icmp samesign ult i64 %4, 3
   br i1 %min.iters.check285, label %for.body.i.i.i.preheader, label %vector.ph286
 
 vector.ph286:                                     ; preds = %invoke.cont24
@@ -83322,7 +83322,7 @@ if.then13:                                        ; preds = %if.then5
   %3 = add i64 %__n, 2305843009213693951
   %4 = and i64 %3, 2305843009213693951
   %5 = add nuw nsw i64 %4, 1
-  %min.iters.check265 = icmp ult i64 %4, 7
+  %min.iters.check265 = icmp samesign ult i64 %4, 7
   %6 = and i64 %__n, 2305843009213693948
   %diff.check262 = icmp eq i64 %6, 0
   %or.cond = or i1 %diff.check262, %min.iters.check265
@@ -83387,7 +83387,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
 
 invoke.cont24:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont
   %add.ptr28 = getelementptr inbounds ptr, ptr %__position.coerce, i64 %__n
-  %min.iters.check287 = icmp ult i64 %4, 3
+  %min.iters.check287 = icmp samesign ult i64 %4, 3
   br i1 %min.iters.check287, label %for.body.i.i.i.preheader, label %vector.ph288
 
 vector.ph288:                                     ; preds = %invoke.cont24
@@ -99451,7 +99451,7 @@ if.then13:                                        ; preds = %if.then5
   %3 = add i64 %__n, 2305843009213693951
   %4 = and i64 %3, 2305843009213693951
   %5 = add nuw nsw i64 %4, 1
-  %min.iters.check265 = icmp ult i64 %4, 7
+  %min.iters.check265 = icmp samesign ult i64 %4, 7
   %6 = and i64 %__n, 2305843009213693948
   %diff.check262 = icmp eq i64 %6, 0
   %or.cond = or i1 %diff.check262, %min.iters.check265
@@ -99516,7 +99516,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
 
 invoke.cont24:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont
   %add.ptr28 = getelementptr inbounds ptr, ptr %__position.coerce, i64 %__n
-  %min.iters.check287 = icmp ult i64 %4, 3
+  %min.iters.check287 = icmp samesign ult i64 %4, 3
   br i1 %min.iters.check287, label %for.body.i.i.i.preheader, label %vector.ph288
 
 vector.ph288:                                     ; preds = %invoke.cont24

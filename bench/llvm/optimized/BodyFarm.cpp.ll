@@ -195,7 +195,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZNSt8optionalIPN5c
   ]
 
 59:                                               ; preds = %57
-  %.not.i26 = icmp ult i64 %55, 22
+  %.not.i26 = icmp samesign ult i64 %55, 22
   br i1 %.not.i26, label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread74, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %59
@@ -204,7 +204,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %59
   br i1 %60, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread73
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread73: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %.not.i27 = icmp ult i64 %55, 25
+  %.not.i27 = icmp samesign ult i64 %55, 25
   br i1 %.not.i27, label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread74, label %_ZNK4llvm9StringRef11starts_withES0_.exit29
 
 _ZNK4llvm9StringRef11starts_withES0_.exit29:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread73
@@ -1250,7 +1250,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %293 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #10
   %294 = zext i32 %293 to i64
-  %295 = icmp ult i64 %indvars.iv.next, %294
+  %295 = icmp samesign ult i64 %indvars.iv.next, %294
   br i1 %295, label %161, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit, %.preheader

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = lshr i64 %0, 52
   %5 = and i64 %4, 2047
-  %6 = icmp ult i64 %5, 1023
+  %6 = icmp samesign ult i64 %5, 1023
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %3
@@ -61,7 +61,7 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %56
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %5, 1074
+  %25 = icmp samesign ugt i64 %5, 1074
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24

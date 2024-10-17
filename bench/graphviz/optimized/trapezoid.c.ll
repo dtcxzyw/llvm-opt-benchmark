@@ -261,11 +261,11 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %
   br i1 %127, label %math_logstar_n.exit, label %.lr.ph.i
 
 math_logstar_n.exit:                              ; preds = %.lr.ph.i
-  %.not40 = icmp ugt i32 %.03578, %.045.i
+  %.not40 = icmp samesign ugt i32 %.03578, %.045.i
   br i1 %.not40, label %.lr.ph.i53, label %128
 
 128:                                              ; preds = %math_logstar_n.exit
-  %129 = icmp ugt i32 %.03578, 1
+  %129 = icmp samesign ugt i32 %.03578, 1
   br i1 %129, label %.lr.ph.i45.preheader, label %math_N.exit
 
 .lr.ph.i45.preheader:                             ; preds = %128

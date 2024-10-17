@@ -1052,7 +1052,7 @@ if.end.i.i125:                                    ; preds = %land.rhs.i.i120
   %mul.i.i126 = mul nuw i16 %51, 10
   %conv7.i.i = zext i16 %mul.i.i126 to i32
   %sub11.i.i = sub nuw nsw i32 65583, %conv.i.i122
-  %cmp12.i.i = icmp ult i32 %sub11.i.i, %conv7.i.i
+  %cmp12.i.i = icmp samesign ult i32 %sub11.i.i, %conv7.i.i
   br i1 %cmp12.i.i, label %cleanup.thread, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i125

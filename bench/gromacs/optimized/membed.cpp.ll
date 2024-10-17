@@ -4100,7 +4100,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i170.i:             ; preds = %1595, %1591
   %1647 = icmp eq i32 %1639, %1646
   %spec.select.i347 = select i1 %1647, i8 1, i8 %.05374.i
   %indvars.iv.next.i348 = add nuw nsw i64 %indvars.iv.i346, 1
-  %1648 = icmp uge i64 %indvars.iv.next.i348, %1643
+  %1648 = icmp samesign uge i64 %indvars.iv.next.i348, %1643
   %1649 = trunc nuw i8 %spec.select.i347 to i1
   %.not60.i = select i1 %1648, i1 true, i1 %1649
   br i1 %.not60.i, label %._crit_edge.loopexit.i349, label %1644, !llvm.loop !55

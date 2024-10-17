@@ -16869,7 +16869,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16RemovedPrimEntryD2E
   br label %.body
 
 311:                                              ; preds = %.noexc93
-  %312 = icmp ugt i8 %22, 2
+  %312 = icmp samesign ugt i8 %22, 2
   br i1 %312, label %313, label %.thread131
 
 313:                                              ; preds = %311

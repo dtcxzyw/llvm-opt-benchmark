@@ -402,7 +402,7 @@ define hidden void @hwloc_pci_discovery_exit(ptr nocapture noundef %0) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %5, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -1583,7 +1583,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %.0.copyload = load i32, ptr %6, align 1
   %7 = and i32 %.0.copyload, 15
-  %8 = icmp ult i32 %7, 3
+  %8 = icmp samesign ult i32 %7, 3
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
@@ -1593,7 +1593,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   br label %25
 
 13:                                               ; preds = %3
-  %14 = icmp ult i32 %7, 6
+  %14 = icmp samesign ult i32 %7, 6
   %15 = add nsw i32 %7, -3
   %16 = shl nuw nsw i32 1, %15
   %17 = uitofp nneg i32 %16 to float

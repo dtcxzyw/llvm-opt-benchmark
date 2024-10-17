@@ -1009,7 +1009,7 @@ index_get_field_name.exit:                        ; preds = %137, %145
   %.25.i = phi i32 [ %171, %.lr.ph.i180 ], [ %193, %192 ]
   %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.25.i) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %187 = icmp ult i64 %indvars.iv.i, 16
+  %187 = icmp samesign ult i64 %indvars.iv.i, 16
   br i1 %187, label %188, label %192
 
 188:                                              ; preds = %185

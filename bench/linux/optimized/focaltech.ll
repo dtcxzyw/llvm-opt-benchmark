@@ -338,7 +338,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %80 = and i8 %79, 7
   %81 = zext nneg i8 %80 to i32
   %82 = add nsw i32 %81, -1
-  %83 = icmp ult i8 %80, 6
+  %83 = icmp samesign ult i8 %80, 6
   br i1 %83, label %84, label %99
 
 84:                                               ; preds = %73
@@ -372,7 +372,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %105 = load i8, ptr %104, align 1
   %106 = lshr i8 %105, 4
   %107 = and i8 %106, 7
-  %108 = icmp ult i8 %107, 6
+  %108 = icmp samesign ult i8 %107, 6
   br i1 %108, label %109, label %.loopexit
 
 109:                                              ; preds = %103

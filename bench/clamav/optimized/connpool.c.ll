@@ -397,7 +397,7 @@ define dso_local void @cpool_free() local_unnamed_addr #0 {
   %23 = load ptr, ptr @cp, align 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %22

@@ -3951,7 +3951,7 @@ _ZN4llvm9BitVector6resizeEjb.exit39:              ; preds = %_ZN4llvm9BitVector1
   %147 = phi i32 [ %131, %.lr.ph ], [ %.pre, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
   br i1 %149, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %146, %_ZN4llvm9BitVector6resizeEjb.exit39
@@ -4267,7 +4267,7 @@ _ZN4llvm13StackLifetime9LiveRange8addRangeEjj.exit64: ; preds = %.sink.split.i.i
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %331 = load i32, ptr %26, align 8
   %332 = zext i32 %331 to i64
-  %333 = icmp ult i64 %indvars.iv.next110, %332
+  %333 = icmp samesign ult i64 %indvars.iv.next110, %332
   br i1 %333, label %283, label %._crit_edge92, !llvm.loop !67
 
 ._crit_edge92:                                    ; preds = %_ZN4llvm13StackLifetime9LiveRange8addRangeEjj.exit64, %.preheader
@@ -4438,7 +4438,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEjNS_12DenseMapInfoIS4_vEEN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %12, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %24, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit, %5
@@ -4632,7 +4632,7 @@ _ZN4llvm13StackLifetime9LiveRangeD2Ev.exit8:      ; preds = %111, %_ZNK4llvm13St
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %59, align 8
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next, %113
   br i1 %114, label %78, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13StackLifetime9LiveRangeD2Ev.exit8, %_ZN4llvm13StackLifetime9LiveRangeD2Ev.exit5

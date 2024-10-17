@@ -3943,7 +3943,7 @@ define void @_ZN10open_spiel4skat9SkatState23ApplyDiscardCardsActionEi(ptr nocap
 _ZNK10open_spiel4skat9SkatState11CardsInSkatEv.exit: ; preds = %12
   store i32 %spec.select.i, ptr %3, align 4
   store i32 2, ptr %4, align 4
-  %17 = icmp ult i32 %spec.select.i, 2
+  %17 = icmp samesign ult i32 %spec.select.i, 2
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %_ZNK10open_spiel4skat9SkatState11CardsInSkatEv.exit
@@ -5695,7 +5695,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread67: ; preds = %97, %_ZNK10o
   br i1 %114, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36.thread, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36: ; preds = %105
-  %115 = icmp ult i64 %indvars.iv, 8
+  %115 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %115, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36.thread, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %105, %98, %91, %106, %109, %112, %99, %100, %101, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit

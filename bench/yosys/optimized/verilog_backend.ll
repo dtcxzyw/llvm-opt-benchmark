@@ -6352,7 +6352,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %778 = sext i32 %777 to i64
   %779 = icmp slt i64 %indvars.iv.next, %778
-  %780 = icmp ult i64 %indvars.iv.next, %581
+  %780 = icmp samesign ult i64 %indvars.iv.next, %581
   %or.cond827 = and i1 %780, %779
   br i1 %or.cond827, label %.lr.ph, label %.critedge, !llvm.loop !54
 

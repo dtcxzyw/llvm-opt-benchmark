@@ -267,7 +267,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %67 = load i32, ptr %41, align 8
   %68 = add i32 %67, -1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next263, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next263, %69
   br i1 %70, label %.lr.ph249, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph249, %.._crit_edge_crit_edge

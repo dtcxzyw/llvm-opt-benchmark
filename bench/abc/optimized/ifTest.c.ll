@@ -73,7 +73,7 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
 
 ._crit_edge.us:                                   ; preds = %19
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %24 = icmp ult i64 %indvars.iv.next28, %13
+  %24 = icmp samesign ult i64 %indvars.iv.next28, %13
   br i1 %24, label %.lr.ph.us, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph23.split, %.lr.ph23, %2
@@ -91,7 +91,7 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
   %29 = lshr i64 %27, %28
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 15
-  %32 = icmp ult i32 %31, 10
+  %32 = icmp samesign ult i32 %31, 10
   %33 = or disjoint i32 %31, 48
   %34 = add nuw nsw i32 %31, 55
   %.0.i.i = select i1 %32, i32 %33, i32 %34

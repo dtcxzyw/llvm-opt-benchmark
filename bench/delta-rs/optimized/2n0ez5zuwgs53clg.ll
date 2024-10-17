@@ -11949,7 +11949,7 @@ default.unreachable:                              ; preds = %524, %520
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
   %980 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch = icmp ult i8 %980, 2
+  %switch = icmp samesign ult i8 %980, 2
   br i1 %switch, label %1023, label %1022
 
 981:                                              ; preds = %977
@@ -12492,7 +12492,7 @@ default.unreachable:                              ; preds = %524, %520
   %.4173627692834 = phi i8 [ 0, %.thread2831 ], [ %.417362769, %1105 ], [ %.417362769, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1976" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
   %1104 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch1866 = icmp ult i8 %1104, 2
+  %switch1866 = icmp samesign ult i8 %1104, 2
   br i1 %switch1866, label %1110, label %1109
 
 1105:                                             ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1976"
@@ -12503,7 +12503,7 @@ default.unreachable:                              ; preds = %524, %520
   %.10 = phi i8 [ %.417362769, %1107 ], [ %.217342946, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978.thread2942" ], [ %.21734, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978" ], [ 0, %984 ], [ 0, %981 ], [ 0, %1041 ], [ 0, %1031 ], [ 0, %1050 ], [ 0, %1047 ]
   %.pn1831 = phi { ptr, i32 } [ %1108, %1107 ], [ %.pn18292947, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978.thread2942" ], [ %.pn1829, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978" ], [ %971, %984 ], [ %982, %981 ], [ %.pn1821, %1041 ], [ %.pn1824, %1031 ], [ %.pn1821.pn2823, %1050 ], [ %.pn1821.pn2823, %1047 ]
   %1106 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch1867 = icmp ult i8 %1106, 2
+  %switch1867 = icmp samesign ult i8 %1106, 2
   br i1 %switch1867, label %1024, label %1117
 
 1107:                                             ; preds = %1105
@@ -17282,7 +17282,7 @@ default.unreachable:                              ; preds = %524, %520
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
   %980 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch = icmp ult i8 %980, 2
+  %switch = icmp samesign ult i8 %980, 2
   br i1 %switch, label %1023, label %1022
 
 981:                                              ; preds = %977
@@ -17825,7 +17825,7 @@ default.unreachable:                              ; preds = %524, %520
   %.4173627692834 = phi i8 [ 0, %.thread2831 ], [ %.417362769, %1105 ], [ %.417362769, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1976" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
   %1104 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch1866 = icmp ult i8 %1104, 2
+  %switch1866 = icmp samesign ult i8 %1104, 2
   br i1 %switch1866, label %1110, label %1109
 
 1105:                                             ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1976"
@@ -17836,7 +17836,7 @@ default.unreachable:                              ; preds = %524, %520
   %.10 = phi i8 [ %.417362769, %1107 ], [ %.217342946, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978.thread2942" ], [ %.21734, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978" ], [ 0, %984 ], [ 0, %981 ], [ 0, %1041 ], [ 0, %1031 ], [ 0, %1050 ], [ 0, %1047 ]
   %.pn1831 = phi { ptr, i32 } [ %1108, %1107 ], [ %.pn18292947, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978.thread2942" ], [ %.pn1829, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$datafusion_expr..expr..Expr$GT$$GT$$GT$17hcb0caa4db9b2227fE.exit1978" ], [ %971, %984 ], [ %982, %981 ], [ %.pn1821, %1041 ], [ %.pn1824, %1031 ], [ %.pn1821.pn2823, %1050 ], [ %.pn1821.pn2823, %1047 ]
   %1106 = load i8, ptr %115, align 8, !range !65, !noundef !4
-  %switch1867 = icmp ult i8 %1106, 2
+  %switch1867 = icmp samesign ult i8 %1106, 2
   br i1 %switch1867, label %1024, label %1117
 
 1107:                                             ; preds = %1105
@@ -19959,7 +19959,7 @@ default.unreachable:                              ; preds = %248, %20
 96:                                               ; preds = %22
   %97 = getelementptr inbounds i8, ptr %1, i64 16
   %98 = load i64, ptr %97, align 16, !range !2670, !alias.scope !2652, !noalias !2655, !noundef !4
-  %switch = icmp ult i64 %98, 2
+  %switch = icmp samesign ult i64 %98, 2
   br i1 %switch, label %227, label %221
 
 99:                                               ; preds = %22, %95, %80, %79, %78, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40
@@ -62034,7 +62034,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -62059,7 +62059,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9586
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16
@@ -62156,7 +62156,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -62181,7 +62181,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9586
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16
@@ -62458,7 +62458,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -62483,7 +62483,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9586
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16
@@ -62762,7 +62762,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -62787,7 +62787,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h359632e1e4b52438E.llvm.7925137649769596059.exit", label %15, !prof !9586
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16
@@ -80515,7 +80515,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -80528,7 +80528,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -106776,7 +106776,7 @@ define noundef nonnull ptr @"_ZN14deltalake_core12data_catalog6client5retry134_$
   br i1 %14, label %_ZN14deltalake_core12data_catalog6client5retry10RetryError6status17h8460a73df7a77969E.exit, label %15
 
 15:                                               ; preds = %11
-  %switch = icmp ult i16 %13, 2
+  %switch = icmp samesign ult i16 %13, 2
   br i1 %switch, label %18, label %_ZN14deltalake_core12data_catalog6client5retry10RetryError6status17h8460a73df7a77969E.exit.thread
 
 _ZN14deltalake_core12data_catalog6client5retry10RetryError6status17h8460a73df7a77969E.exit: ; preds = %11
@@ -107828,7 +107828,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr40drop
   %115 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %116 = icmp ult i64 %115, 6
   call void @llvm.assume(i1 %116)
-  %switch.selectcmp.i48 = icmp ugt i64 %115, 3
+  %switch.selectcmp.i48 = icmp samesign ugt i64 %115, 3
   br i1 %switch.selectcmp.i48, label %117, label %83
 
 117:                                              ; preds = %104
@@ -108322,7 +108322,7 @@ switch.early.test:                                ; preds = %52
   %96 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %97 = icmp ult i64 %96, 6
   call void @llvm.assume(i1 %97)
-  %switch.selectcmp.i39 = icmp ugt i64 %96, 3
+  %switch.selectcmp.i39 = icmp samesign ugt i64 %96, 3
   br i1 %switch.selectcmp.i39, label %98, label %64
 
 98:                                               ; preds = %85

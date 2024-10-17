@@ -1724,7 +1724,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread73.i, %221
   %673 = and i8 %672, 2
   %674 = or disjoint i8 %673, 4
   %675 = zext nneg i8 %674 to i64
-  %676 = icmp ult i64 %670, %675
+  %676 = icmp samesign ult i64 %670, %675
   br i1 %676, label %685, label %.thread534
 
 .thread534.thread:                                ; preds = %.thread709
@@ -1742,7 +1742,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread73.i, %221
 .thread534:                                       ; preds = %669, %..thread534_crit_edge
   %677 = phi i64 [ %667, %..thread534_crit_edge ], [ %670, %669 ]
   %678 = phi i64 [ %.pre698, %..thread534_crit_edge ], [ %675, %669 ]
-  %.not761 = icmp ult i64 %677, %678
+  %.not761 = icmp samesign ult i64 %677, %678
   %.mux = select i1 %.not761, i64 8, i64 %677
   br i1 %.not761, label %679, label %685
 

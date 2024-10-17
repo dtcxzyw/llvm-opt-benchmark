@@ -535,7 +535,7 @@ _ZN2cv10AutoBufferI9_CvPtInfoLm50EEC2Em.exit:     ; preds = %4, %31
   %207 = call double @llvm.fmuladd.f64(double %201, double %202, double %206)
   %208 = fptrunc double %207 to float
   %209 = bitcast float %208 to i32
-  %210 = icmp ugt i32 %.0304419, 1
+  %210 = icmp samesign ugt i32 %.0304419, 1
   br i1 %210, label %211, label %218
 
 211:                                              ; preds = %175

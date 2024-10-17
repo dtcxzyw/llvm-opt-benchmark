@@ -74,7 +74,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %41 = load ptr, ptr %34, align 8
   %42 = load i16, ptr %41, align 8
   %43 = zext i16 %42 to i32
-  %44 = icmp ult i32 %40, %43
+  %44 = icmp samesign ult i32 %40, %43
   br i1 %44, label %.lr.ph194, label %.loopexit183, !llvm.loop !5
 
 45:                                               ; preds = %29
@@ -205,7 +205,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %110 = load ptr, ptr %57, align 8
   %111 = load i16, ptr %110, align 8
   %112 = zext i16 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next, %112
   br i1 %113, label %61, label %.loopexit183, !llvm.loop !7
 
 .loopexit183:                                     ; preds = %107, %.lr.ph194, %56, %.preheader182
@@ -279,7 +279,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %146 = load ptr, ptr %137, align 8
   %147 = load i16, ptr %146, align 8
   %148 = zext i16 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next.i, %148
   br i1 %149, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -354,7 +354,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %182 = load ptr, ptr %173, align 8
   %183 = load i16, ptr %182, align 8
   %184 = zext i16 %183 to i64
-  %185 = icmp ult i64 %indvars.iv.next.i170, %184
+  %185 = icmp samesign ult i64 %indvars.iv.next.i170, %184
   br i1 %185, label %.lr.ph.i167, label %._crit_edge.loopexit.i171, !llvm.loop !9
 
 ._crit_edge.loopexit.i171:                        ; preds = %.lr.ph.i167
@@ -1031,7 +1031,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %131 = load ptr, ptr %122, align 8
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next.i.i, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next.i.i, %133
   br i1 %134, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -1268,7 +1268,7 @@ fetch_att.exit.i:                                 ; preds = %211, %205, %202, %1
   %250 = load ptr, ptr %152, align 8
   %251 = load i16, ptr %250, align 8
   %252 = zext i16 %251 to i32
-  %253 = icmp ult i32 %249, %252
+  %253 = icmp samesign ult i32 %249, %252
   br i1 %253, label %.lr.ph97.i, label %.loopexit.loopexit.i, !llvm.loop !17
 
 .loopexit.loopexit.i:                             ; preds = %247
@@ -1353,7 +1353,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %297 = load ptr, ptr %272, align 8
   %298 = load i16, ptr %297, align 8
   %299 = zext i16 %298 to i64
-  %300 = icmp ult i64 %indvars.iv.next, %299
+  %300 = icmp samesign ult i64 %indvars.iv.next, %299
   br i1 %300, label %279, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %279, %.preheader

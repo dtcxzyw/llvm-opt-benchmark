@@ -112,7 +112,7 @@ entry:
   %blob = getelementptr inbounds i8, ptr %file, i64 8
   store ptr %file_blob, ptr %blob, align 8
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %alloc_align)
-  %tobool.not = icmp ult i32 %0, 2
+  %tobool.not = icmp samesign ult i32 %0, 2
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

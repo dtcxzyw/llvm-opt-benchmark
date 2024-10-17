@@ -13622,7 +13622,7 @@ invoke.cont13:                                    ; preds = %for.body
   %conv15 = zext i32 %call14 to i64
   %sub = sub nsw i64 %conv, %conv15
   %3 = call noundef i64 @llvm.abs.i64(i64 %sub, i1 true)
-  %cmp = icmp ugt i64 %3, 32
+  %cmp = icmp samesign ugt i64 %3, 32
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont13
@@ -13847,7 +13847,7 @@ cleanup.action96:                                 ; preds = %ehcleanup92, %_ZNKS
 
 for.inc99:                                        ; preds = %call4.i.noexc
   %add = add nuw nsw i32 %storemerge380, 277
-  %cmp77 = icmp ult i32 %storemerge380, 2139094764
+  %cmp77 = icmp samesign ult i32 %storemerge380, 2139094764
   br i1 %cmp77, label %for.body78, label %for.end100, !llvm.loop !232
 
 for.end100:                                       ; preds = %for.inc99

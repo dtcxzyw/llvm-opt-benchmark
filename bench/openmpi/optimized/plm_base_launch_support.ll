@@ -369,7 +369,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %9
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 240
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp ugt i32 %15, 1
+  %21 = icmp samesign ugt i32 %15, 1
   br i1 %21, label %pmix_pointer_array_get_item.exit56.lr.ph, label %.loopexit62
 
 pmix_pointer_array_get_item.exit56.lr.ph:         ; preds = %pmix_pointer_array_get_item.exit

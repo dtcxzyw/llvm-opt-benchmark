@@ -2566,7 +2566,7 @@ _ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i:        ; preds = %_ZNK3vcg4face3PosI6
 _ZNK3vcg4face3PosI6CFaceOE19NumberOfFacesOnEdgeEv.exit: ; preds = %_ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i
   %103 = getelementptr inbounds [3 x ptr], ptr %83, i64 0, i64 %indvars.iv317
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %101, i32 4)
-  %or.cond = icmp ult i32 %.0.i, 2
+  %or.cond = icmp samesign ult i32 %.0.i, 2
   br i1 %or.cond, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit181, label %105
 
 .loopexit282:                                     ; preds = %209, %238, %269, %298, %334, %_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, %_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i205
@@ -9864,14 +9864,14 @@ define void @_ZN23MLDefaultMeshDecorators7chooseXERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %46 = load float, ptr %14, align 4
   %.zext78 = lshr exact i32 %.04285, 1
   %.urem = add nsw i32 %.zext78, -2
-  %.cmp = icmp ult i32 %.04285, 4
+  %.cmp = icmp samesign ult i32 %.04285, 4
   %47 = select i1 %.cmp, i32 %.zext78, i32 %.urem
   %48 = sitofp i32 %47 to float
   %49 = load float, ptr %16, align 4
   %50 = fsub float %49, %46
   %51 = call float @llvm.fmuladd.f32(float %48, float %50, float %46)
   %52 = load float, ptr %19, align 4
-  %53 = icmp ugt i32 %.04285, 3
+  %53 = icmp samesign ugt i32 %.04285, 3
   %54 = uitofp i1 %53 to float
   %55 = load float, ptr %21, align 4
   %56 = fsub float %55, %52
@@ -9918,7 +9918,7 @@ define void @_ZN23MLDefaultMeshDecorators7chooseXERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
 84:                                               ; preds = %41, %83
   %.1 = phi float [ %81, %83 ], [ %.086, %41 ]
   %85 = add nuw nsw i32 %.04285, 2
-  %86 = icmp ult i32 %.04285, 6
+  %86 = icmp samesign ult i32 %.04285, 6
   br i1 %86, label %41, label %87, !llvm.loop !145
 
 87:                                               ; preds = %84
@@ -10653,14 +10653,14 @@ define void @_ZN23MLDefaultMeshDecorators7chooseZERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %.04280 = phi i32 [ 0, %6 ], [ %90, %89 ]
   %42 = load float, ptr %0, align 4
   %.urem = add nsw i32 %.04280, -2
-  %.cmp = icmp ult i32 %.04280, 2
+  %.cmp = icmp samesign ult i32 %.04280, 2
   %43 = select i1 %.cmp, i32 %.04280, i32 %.urem
   %44 = sitofp i32 %43 to float
   %45 = load float, ptr %10, align 4
   %46 = fsub float %45, %42
   %47 = call float @llvm.fmuladd.f32(float %44, float %46, float %42)
   %48 = load float, ptr %14, align 4
-  %.cmp77 = icmp ugt i32 %.04280, 1
+  %.cmp77 = icmp samesign ugt i32 %.04280, 1
   %49 = uitofp i1 %.cmp77 to float
   %50 = load float, ptr %16, align 4
   %51 = fsub float %50, %48
@@ -14101,7 +14101,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !237
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -14492,7 +14492,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI6CEdgeOSaIS2_EEbE7Re
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !238
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -14877,7 +14877,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !239
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -15259,7 +15259,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
   %18 = phi i64 [ %7, %.lr.ph ], [ %.pre, %11 ]
   %19 = add nuw nsw i64 %.07, 1
   %20 = and i64 %18, 4294967295
-  %21 = icmp ult i64 %19, %20
+  %21 = icmp samesign ult i64 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !240
 
 ._crit_edge:                                      ; preds = %17, %2

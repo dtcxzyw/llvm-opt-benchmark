@@ -3051,7 +3051,7 @@ define void @php_explode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i64 %7, 1024
+  %19 = icmp samesign ult i64 %7, 1024
   %20 = icmp ult i64 %10, 9
   %21 = or i1 %19, %20
   br i1 %21, label %22, label %44
@@ -3432,7 +3432,7 @@ define void @php_explode_negative_limit(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i64 %7, 1024
+  %19 = icmp samesign ult i64 %7, 1024
   %20 = icmp ult i64 %10, 9
   %21 = or i1 %19, %20
   br i1 %21, label %22, label %44
@@ -4113,7 +4113,7 @@ define void @php_implode(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %144 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %143, ptr %144, align 1
   %145 = udiv i64 %.0199, 10
-  %.not228 = icmp ult i64 %.0199, 10
+  %.not228 = icmp samesign ult i64 %.0199, 10
   br i1 %.not228, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %139
@@ -6722,7 +6722,7 @@ define internal fastcc void @_zend_strstr(ptr nocapture noundef writeonly %0, pt
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %9, 1024
+  %18 = icmp samesign ult i64 %9, 1024
   %19 = icmp ult i64 %7, 9
   %20 = or i1 %19, %18
   br i1 %20, label %21, label %43
@@ -7213,7 +7213,7 @@ define hidden void @zif_str_contains(ptr noundef %0, ptr nocapture noundef write
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i64 %30, 1024
+  %39 = icmp samesign ult i64 %30, 1024
   %40 = icmp ult i64 %28, 9
   %41 = or i1 %40, %39
   br i1 %41, label %42, label %64
@@ -7410,7 +7410,7 @@ define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr 
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i64 %54, 1024
+  %63 = icmp samesign ult i64 %54, 1024
   %64 = icmp ult i64 %52, 9
   %65 = or i1 %64, %63
   br i1 %65, label %66, label %88
@@ -15111,7 +15111,7 @@ define void @php_stripcslashes(ptr noundef %0) local_unnamed_addr #15 {
 
 61:                                               ; preds = %.lr.ph
   %62 = icmp ult i8 %59, 56
-  %63 = icmp ult i64 %.077, 3
+  %63 = icmp samesign ult i64 %.077, 3
   %or.cond = select i1 %62, i1 %63, i1 false
   br i1 %or.cond, label %64, label %.critedge
 

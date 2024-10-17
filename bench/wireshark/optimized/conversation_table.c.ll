@@ -411,7 +411,7 @@ free_address.exit19:                              ; preds = %free_address.exit, 
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %free_address.exit19, %.preheader
@@ -489,7 +489,7 @@ free_address.exit:                                ; preds = %.lr.ph, %11, %15, %
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %free_address.exit, %.preheader
@@ -563,7 +563,7 @@ free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %free_address.exit.i, %.preheader.i

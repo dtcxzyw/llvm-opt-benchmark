@@ -2526,7 +2526,7 @@ define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef
   br label %68
 
 68:                                               ; preds = %64, %61
-  %69 = icmp ult i32 %47, 32768
+  %69 = icmp samesign ult i32 %47, 32768
   br i1 %69, label %79, label %70
 
 70:                                               ; preds = %68

@@ -6374,7 +6374,7 @@ _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %41, %38
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %38 ], [ %43, %41 ]
   %.idx65.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %47 = getelementptr inbounds i8, ptr %46, i64 %.idx65.i
-  %.not64.i = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not64.i = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not64.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK4llvm4User8operandsEv.exit.i
@@ -15910,7 +15910,7 @@ define dso_local void @_ZN4llvm12KnownFPClass26propagateCanonicalizingSrcERKS0_R
   br i1 %17, label %.sink.split.i.i, label %18
 
 18:                                               ; preds = %15
-  %19 = icmp ult i32 %10, 64
+  %19 = icmp samesign ult i32 %10, 64
   br i1 %19, label %.sink.split.i.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit.i
 
 .sink.split.i.i:                                  ; preds = %18, %15
@@ -15950,7 +15950,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit.i: ; preds = %.sink.split
   br i1 %37, label %.sink.split.i4.i, label %38
 
 38:                                               ; preds = %35
-  %39 = icmp ult i32 %27, 64
+  %39 = icmp samesign ult i32 %27, 64
   br i1 %39, label %.sink.split.i4.i, label %_ZN4llvm12KnownFPClass12propagateNaNERKS0_b.exit
 
 .sink.split.i4.i:                                 ; preds = %38, %35
@@ -15985,7 +15985,7 @@ define linkonce_odr hidden void @_ZN4llvm12KnownFPClass12propagateNaNERKS0_b(ptr
   br i1 %16, label %.sink.split.i, label %17
 
 17:                                               ; preds = %14
-  %18 = icmp ult i32 %9, 64
+  %18 = icmp samesign ult i32 %9, 64
   br i1 %18, label %.sink.split.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit
 
 .sink.split.i:                                    ; preds = %17, %14
@@ -16028,7 +16028,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit: ; preds = %7, %17, %.sin
   br i1 %37, label %.sink.split.i4, label %38
 
 38:                                               ; preds = %35
-  %39 = icmp ult i32 %27, 64
+  %39 = icmp samesign ult i32 %27, 64
   br i1 %39, label %.sink.split.i4, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit6
 
 .sink.split.i4:                                   ; preds = %38, %35
@@ -18118,7 +18118,7 @@ _ZNK4llvm4User10getOperandEj.exit714:             ; preds = %351, %354
   br i1 %458, label %.sink.split.i, label %459
 
 459:                                              ; preds = %456
-  %460 = icmp ult i32 %448, 64
+  %460 = icmp samesign ult i32 %448, 64
   br i1 %460, label %.sink.split.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit
 
 .sink.split.i:                                    ; preds = %459, %456
@@ -18205,7 +18205,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit: ; preds = %446, %451, %4
   br i1 %510, label %.sink.split.i718, label %511
 
 511:                                              ; preds = %508
-  %512 = icmp ult i32 %500, 64
+  %512 = icmp samesign ult i32 %500, 64
   br i1 %512, label %.sink.split.i718, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit720
 
 .sink.split.i718:                                 ; preds = %511, %508
@@ -18238,7 +18238,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit720: ; preds = %.sink.spli
   br i1 %526, label %.sink.split.i721, label %527
 
 527:                                              ; preds = %524
-  %528 = icmp ult i32 %516, 64
+  %528 = icmp samesign ult i32 %516, 64
   br i1 %528, label %.sink.split.i721, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit723
 
 .sink.split.i721:                                 ; preds = %527, %524
@@ -18266,7 +18266,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit723: ; preds = %.sink.spli
   br i1 %538, label %.sink.split.i724, label %539
 
 539:                                              ; preds = %536
-  %540 = icmp ult i32 %531, 64
+  %540 = icmp samesign ult i32 %531, 64
   br i1 %540, label %.sink.split.i724, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit726
 
 .sink.split.i724:                                 ; preds = %539, %536
@@ -18295,7 +18295,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit726: ; preds = %.sink.spli
   br i1 %552, label %.sink.split.i727, label %553
 
 553:                                              ; preds = %550
-  %554 = icmp ult i32 %542, 64
+  %554 = icmp samesign ult i32 %542, 64
   br i1 %554, label %.sink.split.i727, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit729
 
 .sink.split.i727:                                 ; preds = %553, %550
@@ -18345,7 +18345,7 @@ _ZNK4llvm14InstrInfoQuery16hasNoSignedZerosINS_8CallInstEEEbPKT_.exit.thread: ; 
   br i1 %576, label %.sink.split.i731, label %577
 
 577:                                              ; preds = %574
-  %578 = icmp ult i32 %566, 64
+  %578 = icmp samesign ult i32 %566, 64
   br i1 %578, label %.sink.split.i731, label %.critedge16
 
 .sink.split.i731:                                 ; preds = %577, %574
@@ -18386,7 +18386,7 @@ _ZNK4llvm14InstrInfoQuery16hasNoSignedZerosINS_8CallInstEEEbPKT_.exit.thread: ; 
   br i1 %600, label %.sink.split.i734, label %601
 
 601:                                              ; preds = %598
-  %602 = icmp ult i32 %590, 64
+  %602 = icmp samesign ult i32 %590, 64
   br i1 %602, label %.sink.split.i734, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit736
 
 .sink.split.i734:                                 ; preds = %601, %598
@@ -18415,7 +18415,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit736: ; preds = %579, %593,
   br i1 %613, label %.sink.split.i737, label %614
 
 614:                                              ; preds = %611
-  %615 = icmp ult i32 %606, 64
+  %615 = icmp samesign ult i32 %606, 64
   br i1 %615, label %.sink.split.i737, label %.critedge16
 
 .sink.split.i737:                                 ; preds = %614, %611
@@ -18497,7 +18497,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit736: ; preds = %579, %593,
   br i1 %660, label %.sink.split.i740, label %661
 
 661:                                              ; preds = %658
-  %662 = icmp ult i32 %655, 64
+  %662 = icmp samesign ult i32 %655, 64
   br i1 %662, label %.sink.split.i740, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit742
 
 .sink.split.i740:                                 ; preds = %661, %658
@@ -18544,7 +18544,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit742: ; preds = %.sink.spli
   br i1 %680, label %.sink.split.i743, label %681
 
 681:                                              ; preds = %678
-  %682 = icmp ult i32 %672, 64
+  %682 = icmp samesign ult i32 %672, 64
   br i1 %682, label %.sink.split.i743, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit745
 
 .sink.split.i743:                                 ; preds = %681, %678
@@ -18584,7 +18584,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit742: ; preds = %.sink.spli
   br i1 %702, label %.sink.split.i746, label %703
 
 703:                                              ; preds = %700
-  %704 = icmp ult i32 %694, 64
+  %704 = icmp samesign ult i32 %694, 64
   br i1 %704, label %.sink.split.i746, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit745
 
 .sink.split.i746:                                 ; preds = %703, %700
@@ -18622,7 +18622,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit742: ; preds = %.sink.spli
   br i1 %720, label %.sink.split.i749, label %721
 
 721:                                              ; preds = %718
-  %722 = icmp ult i32 %712, 64
+  %722 = icmp samesign ult i32 %712, 64
   br i1 %722, label %.sink.split.i749, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit745
 
 .sink.split.i749:                                 ; preds = %721, %718
@@ -18662,7 +18662,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit742: ; preds = %.sink.spli
   br i1 %742, label %.sink.split.i752, label %743
 
 743:                                              ; preds = %740
-  %744 = icmp ult i32 %734, 64
+  %744 = icmp samesign ult i32 %734, 64
   br i1 %744, label %.sink.split.i752, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit745
 
 .sink.split.i752:                                 ; preds = %743, %740
@@ -18927,7 +18927,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit768:          ; preds = %844, %851
   br i1 %875, label %.sink.split.i769, label %876
 
 876:                                              ; preds = %873
-  %877 = icmp ult i32 %865, 64
+  %877 = icmp samesign ult i32 %865, 64
   br i1 %877, label %.sink.split.i769, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit771
 
 .sink.split.i769:                                 ; preds = %876, %873
@@ -18961,7 +18961,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit771: ; preds = %.sink.spli
   br i1 %892, label %.sink.split.i772, label %893
 
 893:                                              ; preds = %890
-  %894 = icmp ult i32 %882, 64
+  %894 = icmp samesign ult i32 %882, 64
   br i1 %894, label %.sink.split.i772, label %.critedge16
 
 .sink.split.i772:                                 ; preds = %893, %890
@@ -18999,7 +18999,7 @@ _ZNK4llvm12DenormalModeeqES0_.exit.thread:        ; preds = %_ZNK4llvm4Type13get
   br i1 %909, label %.sink.split.i776, label %910
 
 910:                                              ; preds = %907
-  %911 = icmp ult i32 %899, 64
+  %911 = icmp samesign ult i32 %899, 64
   br i1 %911, label %.sink.split.i776, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit778
 
 .sink.split.i776:                                 ; preds = %910, %907
@@ -19034,7 +19034,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit778: ; preds = %.sink.spli
   br i1 %925, label %.sink.split.i779, label %926
 
 926:                                              ; preds = %923
-  %927 = icmp ult i32 %915, 64
+  %927 = icmp samesign ult i32 %915, 64
   br i1 %927, label %.sink.split.i779, label %.critedge16
 
 .sink.split.i779:                                 ; preds = %926, %923
@@ -19136,7 +19136,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit778: ; preds = %.sink.spli
   br i1 %989, label %.sink.split.i782, label %990
 
 990:                                              ; preds = %987
-  %991 = icmp ult i32 %979, 64
+  %991 = icmp samesign ult i32 %979, 64
   br i1 %991, label %.sink.split.i782, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit784
 
 .sink.split.i782:                                 ; preds = %990, %987
@@ -19188,7 +19188,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit784: ; preds = %964, %982,
   br i1 %1015, label %.sink.split.i785, label %1016
 
 1016:                                             ; preds = %1013
-  %1017 = icmp ult i32 %1005, 64
+  %1017 = icmp samesign ult i32 %1005, 64
   br i1 %1017, label %.sink.split.i785, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit787
 
 .sink.split.i785:                                 ; preds = %1016, %1013
@@ -19222,7 +19222,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit787: ; preds = %.sink.spli
   br i1 %1032, label %.sink.split.i788, label %1033
 
 1033:                                             ; preds = %1030
-  %1034 = icmp ult i32 %1022, 64
+  %1034 = icmp samesign ult i32 %1022, 64
   br i1 %1034, label %.sink.split.i788, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit790
 
 .sink.split.i788:                                 ; preds = %1033, %1030
@@ -19257,7 +19257,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit790: ; preds = %._ZN4llvm1
   br i1 %1050, label %.sink.split.i791, label %1051
 
 1051:                                             ; preds = %1048
-  %1052 = icmp ult i32 %1040, 64
+  %1052 = icmp samesign ult i32 %1040, 64
   br i1 %1052, label %.sink.split.i791, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit793
 
 .sink.split.i791:                                 ; preds = %1051, %1048
@@ -19291,7 +19291,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit793: ; preds = %.sink.spli
   br i1 %1067, label %.sink.split.i794, label %1068
 
 1068:                                             ; preds = %1065
-  %1069 = icmp ult i32 %1057, 64
+  %1069 = icmp samesign ult i32 %1057, 64
   br i1 %1069, label %.sink.split.i794, label %.critedge16
 
 .sink.split.i794:                                 ; preds = %1068, %1065
@@ -19405,7 +19405,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit802: ; preds = %1083
   br i1 %1132, label %.sink.split.i803, label %1133
 
 1133:                                             ; preds = %1130
-  %1134 = icmp ult i32 %1122, 64
+  %1134 = icmp samesign ult i32 %1122, 64
   br i1 %1134, label %.sink.split.i803, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit805
 
 .sink.split.i803:                                 ; preds = %1133, %1130
@@ -19434,7 +19434,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit805: ; preds = %.sink.spli
   br i1 %1145, label %.sink.split.i806, label %1146
 
 1146:                                             ; preds = %1143
-  %1147 = icmp ult i32 %1138, 64
+  %1147 = icmp samesign ult i32 %1138, 64
   br i1 %1147, label %.sink.split.i806, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit808
 
 .sink.split.i806:                                 ; preds = %1146, %1143
@@ -19474,7 +19474,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit808: ; preds = %.sink.spli
   br i1 %1165, label %.sink.split.i809, label %1166
 
 1166:                                             ; preds = %1163
-  %1167 = icmp ult i32 %1155, 64
+  %1167 = icmp samesign ult i32 %1155, 64
   br i1 %1167, label %.sink.split.i809, label %.critedge16
 
 .sink.split.i809:                                 ; preds = %1166, %1163
@@ -19689,7 +19689,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit820: ; preds = %_ZN4llvm12
   br i1 %1286, label %.sink.split.i827, label %1287
 
 1287:                                             ; preds = %1284
-  %1288 = icmp ult i32 %1276, 64
+  %1288 = icmp samesign ult i32 %1276, 64
   br i1 %1288, label %.sink.split.i827, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit826
 
 .sink.split.i827:                                 ; preds = %1287, %1284
@@ -19750,7 +19750,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit826: ; preds = %.sink.spli
   br i1 %1318, label %.sink.split.i833, label %1319
 
 1319:                                             ; preds = %1316
-  %1320 = icmp ult i32 %1308, 64
+  %1320 = icmp samesign ult i32 %1308, 64
   br i1 %1320, label %.sink.split.i833, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit832
 
 .sink.split.i833:                                 ; preds = %1319, %1316
@@ -19844,7 +19844,7 @@ _ZN4llvm5APIntD2Ev.exit839:                       ; preds = %_ZNK4llvm4Type13get
   br i1 %1375, label %.sink.split.i840, label %1376
 
 1376:                                             ; preds = %1373
-  %1377 = icmp ult i32 %1365, 64
+  %1377 = icmp samesign ult i32 %1365, 64
   br i1 %1377, label %.sink.split.i840, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit842
 
 .sink.split.i840:                                 ; preds = %1376, %1373
@@ -19910,7 +19910,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %1380
   br i1 %1409, label %.sink.split.i844, label %1410
 
 1410:                                             ; preds = %1407
-  %1411 = icmp ult i32 %1399, 64
+  %1411 = icmp samesign ult i32 %1399, 64
   br i1 %1411, label %.sink.split.i844, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit846
 
 .sink.split.i844:                                 ; preds = %1410, %1407
@@ -19944,7 +19944,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit846: ; preds = %.sink.spli
   br i1 %1426, label %.sink.split.i847, label %1427
 
 1427:                                             ; preds = %1424
-  %1428 = icmp ult i32 %1416, 64
+  %1428 = icmp samesign ult i32 %1416, 64
   br i1 %1428, label %.sink.split.i847, label %.critedge680
 
 .sink.split.i847:                                 ; preds = %1427, %1424
@@ -19983,7 +19983,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit846: ; preds = %.sink.spli
   br i1 %1447, label %.sink.split.i850, label %1448
 
 1448:                                             ; preds = %1445
-  %1449 = icmp ult i32 %1437, 64
+  %1449 = icmp samesign ult i32 %1437, 64
   br i1 %1449, label %.sink.split.i850, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit852
 
 .sink.split.i850:                                 ; preds = %1448, %1445
@@ -20017,7 +20017,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit852: ; preds = %.sink.spli
   br i1 %1464, label %.sink.split.i853, label %1465
 
 1465:                                             ; preds = %1462
-  %1466 = icmp ult i32 %1454, 64
+  %1466 = icmp samesign ult i32 %1454, 64
   br i1 %1466, label %.sink.split.i853, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit855
 
 .sink.split.i853:                                 ; preds = %1465, %1462
@@ -20055,7 +20055,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit855: ; preds = %.sink.spli
   br i1 %1482, label %.sink.split.i856, label %1483
 
 1483:                                             ; preds = %1480
-  %1484 = icmp ult i32 %1472, 64
+  %1484 = icmp samesign ult i32 %1472, 64
   br i1 %1484, label %.sink.split.i856, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit858
 
 .sink.split.i856:                                 ; preds = %1483, %1480
@@ -20089,7 +20089,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit858: ; preds = %1467, %147
   br i1 %1499, label %.sink.split.i859, label %1500
 
 1500:                                             ; preds = %1497
-  %1501 = icmp ult i32 %1489, 64
+  %1501 = icmp samesign ult i32 %1489, 64
   br i1 %1501, label %.sink.split.i859, label %.critedge680
 
 .sink.split.i859:                                 ; preds = %1500, %1497
@@ -20164,7 +20164,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit858: ; preds = %1467, %147
   br i1 %1537, label %.sink.split.i868, label %1538
 
 1538:                                             ; preds = %1535
-  %1539 = icmp ult i32 %1533, 64
+  %1539 = icmp samesign ult i32 %1533, 64
   br i1 %1539, label %.sink.split.i868, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit870
 
 .sink.split.i868:                                 ; preds = %1538, %1535
@@ -20311,7 +20311,7 @@ _ZNK4llvm4User10getOperandEj.exit875:             ; preds = %1586, %1589
   br i1 %1617, label %.sink.split.i876, label %1618
 
 1618:                                             ; preds = %1615
-  %1619 = icmp ult i32 %1610, 64
+  %1619 = icmp samesign ult i32 %1610, 64
   br i1 %1619, label %.sink.split.i876, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit878
 
 .sink.split.i876:                                 ; preds = %1618, %1615
@@ -20364,7 +20364,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit878: ; preds = %1603, %.si
   br i1 %1648, label %.sink.split.i880, label %1649
 
 1649:                                             ; preds = %1646
-  %1650 = icmp ult i32 %1638, 64
+  %1650 = icmp samesign ult i32 %1638, 64
   br i1 %1650, label %.sink.split.i880, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit882
 
 .sink.split.i880:                                 ; preds = %1649, %1646
@@ -20413,7 +20413,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit882: ; preds = %.sink.spli
   br i1 %1673, label %.sink.split.i883, label %1674
 
 1674:                                             ; preds = %1671
-  %1675 = icmp ult i32 %1663, 64
+  %1675 = icmp samesign ult i32 %1663, 64
   br i1 %1675, label %.sink.split.i883, label %.critedge16
 
 .sink.split.i883:                                 ; preds = %1674, %1671
@@ -20462,7 +20462,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit882: ; preds = %.sink.spli
   br i1 %1699, label %.sink.split.i886, label %1700
 
 1700:                                             ; preds = %1697
-  %1701 = icmp ult i32 %1689, 64
+  %1701 = icmp samesign ult i32 %1689, 64
   br i1 %1701, label %.sink.split.i886, label %.critedge16
 
 .sink.split.i886:                                 ; preds = %1700, %1697
@@ -20637,7 +20637,7 @@ _ZNK4llvm4User10getOperandEj.exit899:             ; preds = %1753, %1756
   br i1 %1798, label %.sink.split.i900, label %1799
 
 1799:                                             ; preds = %1796
-  %1800 = icmp ult i32 %1791, 64
+  %1800 = icmp samesign ult i32 %1791, 64
   br i1 %1800, label %.sink.split.i900, label %.critedge16
 
 .sink.split.i900:                                 ; preds = %1799, %1796
@@ -20690,7 +20690,7 @@ _ZNK4llvm4User10getOperandEj.exit899:             ; preds = %1753, %1756
   br i1 %1828, label %.sink.split.i903, label %1829
 
 1829:                                             ; preds = %1826
-  %1830 = icmp ult i32 %1821, 64
+  %1830 = icmp samesign ult i32 %1821, 64
   br i1 %1830, label %.sink.split.i903, label %.critedge16
 
 .sink.split.i903:                                 ; preds = %1829, %1826
@@ -20739,7 +20739,7 @@ _ZNK4llvm4User10getOperandEj.exit909:             ; preds = %1835, %1838
 
 1851:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit909
   %1852 = icmp eq i32 %.0.i, 24
-  %1853 = icmp ugt i32 %322, 63
+  %1853 = icmp samesign ugt i32 %322, 63
   %1854 = select i1 %1852, i1 %1853, i1 false
   %1855 = and i32 %322, 63
   %brmerge683 = icmp ne i32 %1855, 0
@@ -20871,7 +20871,7 @@ _ZNK4llvm4User10getOperandEj.exit914:             ; preds = %1880, %1883
   br i1 %1929, label %.sink.split.i916, label %1930
 
 1930:                                             ; preds = %1927
-  %1931 = icmp ult i32 %1922, 64
+  %1931 = icmp samesign ult i32 %1922, 64
   br i1 %1931, label %.sink.split.i916, label %.critedge689
 
 .sink.split.i916:                                 ; preds = %1930, %1927
@@ -20948,7 +20948,7 @@ _ZNK4llvm4User10getOperandEj.exit914:             ; preds = %1880, %1883
   br i1 %1972, label %.sink.split.i922, label %1973
 
 1973:                                             ; preds = %1970
-  %1974 = icmp ult i32 %1965, 64
+  %1974 = icmp samesign ult i32 %1965, 64
   br i1 %1974, label %.sink.split.i922, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit924
 
 .sink.split.i922:                                 ; preds = %1973, %1970
@@ -20983,7 +20983,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit924: ; preds = %.sink.spli
   br i1 %1990, label %.sink.split.i925, label %1991
 
 1991:                                             ; preds = %1988
-  %1992 = icmp ult i32 %1980, 64
+  %1992 = icmp samesign ult i32 %1980, 64
   br i1 %1992, label %.sink.split.i925, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit927
 
 .sink.split.i925:                                 ; preds = %1991, %1988
@@ -21017,7 +21017,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit927: ; preds = %.sink.spli
   br i1 %2007, label %.sink.split.i928, label %2008
 
 2008:                                             ; preds = %2005
-  %2009 = icmp ult i32 %1997, 64
+  %2009 = icmp samesign ult i32 %1997, 64
   br i1 %2009, label %.sink.split.i928, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit930
 
 .sink.split.i928:                                 ; preds = %2008, %2005
@@ -21186,7 +21186,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit946:          ; preds = %_ZNK4llvm4User10get
   br i1 %2104, label %.sink.split.i947, label %2105
 
 2105:                                             ; preds = %2102
-  %2106 = icmp ult i32 %2094, 64
+  %2106 = icmp samesign ult i32 %2094, 64
   br i1 %2106, label %.sink.split.i947, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit949
 
 .sink.split.i947:                                 ; preds = %2105, %2102
@@ -21265,7 +21265,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit949: ; preds = %.sink.spli
   br i1 %2142, label %.sink.split.i956, label %2143
 
 2143:                                             ; preds = %2140
-  %2144 = icmp ult i32 %2138, 64
+  %2144 = icmp samesign ult i32 %2138, 64
   br i1 %2144, label %.sink.split.i956, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit958
 
 .sink.split.i956:                                 ; preds = %2143, %2140
@@ -21373,7 +21373,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit965:          ; preds = %_ZNK4llvm4User10get
   br i1 %2203, label %.sink.split.i966, label %2204
 
 2204:                                             ; preds = %2201
-  %2205 = icmp ult i32 %2195, 64
+  %2205 = icmp samesign ult i32 %2195, 64
   br i1 %2205, label %.sink.split.i966, label %.critedge16
 
 .sink.split.i966:                                 ; preds = %2204, %2201
@@ -21812,7 +21812,7 @@ _ZN4llvm5APIntD2Ev.exit999:                       ; preds = %2379, %2390, %.thre
   br i1 %2443, label %.sink.split.i1001, label %2444
 
 2444:                                             ; preds = %2441
-  %2445 = icmp ult i32 %2433, 64
+  %2445 = icmp samesign ult i32 %2433, 64
   br i1 %2445, label %.sink.split.i1001, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1003
 
 .sink.split.i1001:                                ; preds = %2444, %2441
@@ -21889,7 +21889,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1003: ; preds = %2431, %24
   br i1 %2487, label %.sink.split.i1007, label %2488
 
 2488:                                             ; preds = %2485
-  %2489 = icmp ult i32 %2477, 64
+  %2489 = icmp samesign ult i32 %2477, 64
   br i1 %2489, label %.sink.split.i1007, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1009
 
 .sink.split.i1007:                                ; preds = %2488, %2485
@@ -21924,7 +21924,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1009: ; preds = %.sink.spl
   br i1 %2505, label %.sink.split.i1010, label %2506
 
 2506:                                             ; preds = %2503
-  %2507 = icmp ult i32 %2495, 64
+  %2507 = icmp samesign ult i32 %2495, 64
   br i1 %2507, label %.sink.split.i1010, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1006
 
 .sink.split.i1010:                                ; preds = %2506, %2503
@@ -21991,7 +21991,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1006: ; preds = %.sink.spl
   br i1 %2540, label %.sink.split.i1016, label %2541
 
 2541:                                             ; preds = %2538
-  %2542 = icmp ult i32 %2530, 64
+  %2542 = icmp samesign ult i32 %2530, 64
   br i1 %2542, label %.sink.split.i1016, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1018
 
 .sink.split.i1016:                                ; preds = %2541, %2538
@@ -22026,7 +22026,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1018: ; preds = %.sink.spl
   br i1 %2558, label %.sink.split.i1019, label %2559
 
 2559:                                             ; preds = %2556
-  %2560 = icmp ult i32 %2548, 64
+  %2560 = icmp samesign ult i32 %2548, 64
   br i1 %2560, label %.sink.split.i1019, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1015
 
 .sink.split.i1019:                                ; preds = %2559, %2556
@@ -22367,7 +22367,7 @@ _ZN4llvm5APIntD2Ev.exit1039:                      ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %2732, label %.sink.split.i1040, label %2733
 
 2733:                                             ; preds = %2730
-  %2734 = icmp ult i32 %2725, 64
+  %2734 = icmp samesign ult i32 %2725, 64
   br i1 %2734, label %.sink.split.i1040, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1042
 
 .sink.split.i1040:                                ; preds = %2733, %2730
@@ -22449,7 +22449,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit:              ; preds = %2751, %2754
   br i1 %2775, label %.sink.split.i1044, label %2776
 
 2776:                                             ; preds = %2773
-  %2777 = icmp ult i32 %2765, 64
+  %2777 = icmp samesign ult i32 %2765, 64
   br i1 %2777, label %.sink.split.i1044, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1046
 
 .sink.split.i1044:                                ; preds = %2776, %2773
@@ -22539,7 +22539,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit1048:          ; preds = %2797, %2800
   br i1 %2821, label %.sink.split.i1049, label %2822
 
 2822:                                             ; preds = %2819
-  %2823 = icmp ult i32 %2811, 64
+  %2823 = icmp samesign ult i32 %2811, 64
   br i1 %2823, label %.sink.split.i1049, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit1051
 
 .sink.split.i1049:                                ; preds = %2822, %2819
@@ -22613,7 +22613,7 @@ _ZN4llvm5APIntD2Ev.exit1052:                      ; preds = %2353, %.critedge694
   br i1 %2850, label %.sink.split.i.i.i, label %2851
 
 2851:                                             ; preds = %2848
-  %2852 = icmp ult i32 %2840, 64
+  %2852 = icmp samesign ult i32 %2840, 64
   br i1 %2852, label %.sink.split.i.i.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit.i.i
 
 .sink.split.i.i.i:                                ; preds = %2851, %2848
@@ -23088,7 +23088,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %15, %18
   br i1 %41, label %.sink.split.i, label %42
 
 42:                                               ; preds = %39
-  %43 = icmp ult i32 %31, 64
+  %43 = icmp samesign ult i32 %31, 64
   br i1 %43, label %.sink.split.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit
 
 .sink.split.i:                                    ; preds = %42, %39
@@ -23137,7 +23137,7 @@ _ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit.i: ; preds = %_ZN4llvm12K
   br i1 %66, label %.sink.split.i4.i, label %67
 
 67:                                               ; preds = %64
-  %68 = icmp ult i32 %56, 64
+  %68 = icmp samesign ult i32 %56, 64
   br i1 %68, label %.sink.split.i4.i, label %_ZN4llvm12KnownFPClass12propagateNaNERKS0_b.exit
 
 .sink.split.i4.i:                                 ; preds = %67, %64
@@ -30922,7 +30922,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i:  ; preds = %58, %54
 _ZN4llvm23isImpliedByDomConditionENS_7CmpInst9PredicateEPKNS_5ValueES4_PKNS_11InstructionERKNS_10DataLayoutE.exit: ; preds = %76
   %80 = icmp eq ptr %75, %51
   %81 = tail call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef nonnull %72, i32 noundef 35, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %48, i1 noundef zeroext %80, i32 noundef 0)
-  %82 = icmp ugt i16 %81, 255
+  %82 = icmp samesign ugt i16 %81, 255
   %83 = trunc i16 %81 to i1
   %84 = select i1 %83, i32 3, i32 0
   br i1 %82, label %_ZN4llvm13ConstantRangeD2Ev.exit23, label %_ZN4llvm23isImpliedByDomConditionENS_7CmpInst9PredicateEPKNS_5ValueES4_PKNS_11InstructionERKNS_10DataLayoutE.exit.thread
@@ -32510,7 +32510,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %18, %21
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %18 ], [ %23, %21 ]
   %27 = getelementptr inbounds %"class.llvm::Use", ptr %26, i64 %.pre-phi2.i.i
   %28 = ptrtoint ptr %27 to i64
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm4User8operandsEv.exit
@@ -33173,7 +33173,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %38, %41
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %38 ], [ %43, %41 ]
   %47 = getelementptr inbounds %"class.llvm::Use", ptr %46, i64 %.pre-phi2.i.i
   %48 = ptrtoint ptr %47 to i64
-  %.not28 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not28 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not28, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNK4llvm4User8operandsEv.exit
@@ -34283,7 +34283,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13mustTriggerUBEPKNS_11InstructionE
   %233 = sub i64 %231, %232
   %234 = lshr exact i64 %233, 5
   %235 = and i64 %234, 4294967295
-  %236 = icmp ult i64 %indvars.iv.next.i.i, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next.i.i, %235
   br i1 %236, label %.lr.ph.i.i, label %"_ZL30handleGuaranteedWellDefinedOpsIZN4llvm13mustTriggerUBEPKNS0_11InstructionERKNS0_15SmallPtrSetImplIPKNS0_5ValueEEEE3$_0EbS3_RKT_.exitthread-pre-split.i", !llvm.loop !435
 
 237:                                              ; preds = %2
@@ -35516,7 +35516,7 @@ define dso_local void @_ZN4llvm27getGuaranteedWellDefinedOpsEPKNS_11InstructionE
   %91 = sub i64 %89, %90
   %92 = lshr exact i64 %91, 5
   %93 = and i64 %92, 4294967295
-  %94 = icmp ult i64 %indvars.iv.next.i, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next.i, %93
   br i1 %94, label %57, label %"_ZL30handleGuaranteedWellDefinedOpsIZN4llvm27getGuaranteedWellDefinedOpsEPKNS0_11InstructionERNS0_15SmallVectorImplIPKNS0_5ValueEEEE3$_0EbS3_RKT_.exit", !llvm.loop !445
 
 95:                                               ; preds = %2
@@ -35756,7 +35756,7 @@ define dso_local void @_ZN4llvm25getGuaranteedNonPoisonOpsEPKNS_11InstructionERN
   %90 = sub i64 %88, %89
   %91 = lshr exact i64 %90, 5
   %92 = and i64 %91, 4294967295
-  %93 = icmp ult i64 %indvars.iv.next.i.i, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next.i.i, %92
   br i1 %93, label %.lr.ph.i.i, label %"_ZL30handleGuaranteedWellDefinedOpsIZN4llvm25getGuaranteedNonPoisonOpsEPKNS0_11InstructionERNS0_15SmallVectorImplIPKNS0_5ValueEEEE3$_0EbS3_RKT_.exitthread-pre-split.i", !llvm.loop !446
 
 94:                                               ; preds = %2
@@ -36098,7 +36098,7 @@ _ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread: ; pred
   %108 = sub i64 %106, %107
   %109 = lshr exact i64 %108, 5
   %110 = and i64 %109, 4294967295
-  %111 = icmp ult i64 %indvars.iv.next.i, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next.i, %110
   br i1 %111, label %.lr.ph.i, label %"_ZL30handleGuaranteedWellDefinedOpsIZL31programUndefinedIfUndefOrPoisonPKN4llvm5ValueEbE3$_0EbPKNS0_11InstructionERKT_.exit", !llvm.loop !447
 
 112:                                              ; preds = %49
@@ -41091,7 +41091,7 @@ _ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RK
 341:                                              ; preds = %.critedge.i27
   %342 = load ptr, ptr %9, align 8
   %343 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %342, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(512) %4, i1 noundef zeroext %56, i32 noundef %338)
-  %.not46 = icmp ugt i16 %343, 255
+  %.not46 = icmp samesign ugt i16 %343, 255
   %spec.select = zext i1 %.not46 to i16
   br label %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit
 
@@ -41208,7 +41208,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
   %48 = getelementptr inbounds i8, ptr %39, i64 -32
   %49 = load ptr, ptr %48, align 8
   %50 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %0, i32 noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %4)
-  %.not61 = icmp ult i16 %50, 256
+  %.not61 = icmp samesign ult i16 %50, 256
   br i1 %.not61, label %91, label %51
 
 51:                                               ; preds = %41
@@ -41232,7 +41232,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
   %59 = load ptr, ptr %8, align 8
   %60 = add i32 %4, 1
   %61 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %60)
-  %.not62 = icmp ult i16 %61, 256
+  %.not62 = icmp samesign ult i16 %61, 256
   br i1 %.not62, label %66, label %62
 
 62:                                               ; preds = %58
@@ -41246,7 +41246,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
 66:                                               ; preds = %62, %58
   %67 = load ptr, ptr %9, align 8
   %68 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %60)
-  %.not63 = icmp ult i16 %68, 256
+  %.not63 = icmp samesign ult i16 %68, 256
   br i1 %.not63, label %73, label %69
 
 69:                                               ; preds = %66
@@ -41269,7 +41269,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
   %78 = load ptr, ptr %8, align 8
   %79 = add i32 %4, 1
   %80 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %79)
-  %81 = icmp ugt i16 %80, 255
+  %81 = icmp samesign ugt i16 %80, 255
   %82 = and i16 %80, 1
   %83 = icmp eq i16 %82, 0
   %or.cond = and i1 %81, %83
@@ -41278,7 +41278,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
 84:                                               ; preds = %77
   %85 = load ptr, ptr %9, align 8
   %86 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %79)
-  %87 = icmp ugt i16 %86, 255
+  %87 = icmp samesign ugt i16 %86, 255
   %88 = and i16 %86, 1
   %89 = icmp eq i16 %88, 0
   %or.cond57 = and i1 %87, %89
@@ -54857,7 +54857,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -65920,7 +65920,7 @@ _ZNK4llvm5APIntntEv.exit.i:                       ; preds = %4
 
 14:                                               ; preds = %9
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br label %_ZN4llvm12PatternMatch17is_power2_or_zero7isValueERKNS_5APIntE.exit
 
 17:                                               ; preds = %_ZNK4llvm5APIntntEv.exit.i
@@ -65971,7 +65971,7 @@ _ZNK4llvm5APIntntEv.exit.i39:                     ; preds = %_ZN4llvm16dyn_cast_
 
 42:                                               ; preds = %37
   %43 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %38)
-  %44 = icmp ult i64 %43, 2
+  %44 = icmp samesign ult i64 %43, 2
   br label %_ZN4llvm12PatternMatch17is_power2_or_zero7isValueERKNS_5APIntE.exit
 
 45:                                               ; preds = %_ZNK4llvm5APIntntEv.exit.i39
@@ -66015,7 +66015,7 @@ _ZNK4llvm5APIntntEv.exit.i39:                     ; preds = %_ZN4llvm16dyn_cast_
 62:                                               ; preds = %57
   %63 = load i64, ptr %58, align 8
   %64 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
-  %65 = icmp ult i64 %64, 2
+  %65 = icmp samesign ult i64 %64, 2
   br i1 %65, label %_ZN4llvm12PatternMatch17is_power2_or_zero7isValueERKNS_5APIntE.exit44.thread, label %_ZN4llvm12PatternMatch17is_power2_or_zero7isValueERKNS_5APIntE.exit
 
 _ZNK4llvm5APIntntEv.exit.i43:                     ; preds = %57
@@ -66059,7 +66059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -66105,7 +66105,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 36:                                               ; preds = %34
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 39:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
@@ -66709,7 +66709,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -66755,7 +66755,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 36:                                               ; preds = %34
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 39:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
@@ -71741,7 +71741,7 @@ define internal fastcc void @_ZL27computeKnownFPClassFromCondPKN4llvm5ValueEPS0_
   br i1 %63, label %.sink.split.i, label %64
 
 64:                                               ; preds = %61
-  %65 = icmp ult i32 %53, 64
+  %65 = icmp samesign ult i32 %53, 64
   br i1 %65, label %.sink.split.i, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit
 
 .sink.split.i:                                    ; preds = %64, %61
@@ -71844,7 +71844,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i:  ; preds = %94
   br i1 %120, label %.sink.split.i21, label %121
 
 121:                                              ; preds = %118
-  %122 = icmp ult i32 %110, 64
+  %122 = icmp samesign ult i32 %110, 64
   br i1 %122, label %.sink.split.i21, label %_ZN4llvm12KnownFPClass8knownNotENS_11FPClassTestE.exit
 
 .sink.split.i21:                                  ; preds = %121, %118
@@ -72905,7 +72905,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %14, %17
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %14 ], [ %19, %17 ]
   %23 = getelementptr inbounds %"class.llvm::Use", ptr %22, i64 %.pre-phi2.i.i
   %24 = ptrtoint ptr %23 to i64
-  %.not46 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not46 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm4User8operandsEv.exit

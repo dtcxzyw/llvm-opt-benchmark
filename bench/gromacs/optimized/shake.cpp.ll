@@ -1162,7 +1162,7 @@ define void @_ZN3gmx6cshakeEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEEP
   %.276.us = phi i32 [ %81, %126 ], [ %81, %87 ], [ %.17583.us, %65 ]
   %.2.us = phi i32 [ %128, %126 ], [ 0, %87 ], [ 0, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %130 = icmp ult i64 %indvars.iv.next, %33
+  %130 = icmp samesign ult i64 %indvars.iv.next, %33
   %131 = icmp eq i32 %.2.us, 0
   %132 = and i1 %130, %131
   br i1 %132, label %34, label %._crit_edge.us, !llvm.loop !14
@@ -1757,7 +1757,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit146.i:          ; preds = %150, %148, %146, %1
 
 ._crit_edge.us.i.i:                               ; preds = %328
   %329 = add nuw nsw i32 %.06715.us.i.i, 1
-  %330 = icmp ult i32 %.06715.us.i.i, 999
+  %330 = icmp samesign ult i32 %.06715.us.i.i, 999
   %331 = icmp ne i32 %.2.us.i.i, 0
   %or.cond.us.i.i = select i1 %330, i1 %331, i1 false
   br i1 %or.cond.us.i.i, label %.preheader.us.i.i, label %_ZN3gmxL7crattleEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEENS3_IKS7_EES5_fS5_S5_NS3_IfEES2_f.exit.i, !llvm.loop !19

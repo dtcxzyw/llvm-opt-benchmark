@@ -551,7 +551,7 @@ _ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable.exit: ; preds = %58, %62
   %64 = add nuw nsw i32 %.02038, 1
   %65 = load i16, ptr %30, align 4
   %66 = zext i16 %65 to i32
-  %67 = icmp ult i32 %64, %66
+  %67 = icmp samesign ult i32 %64, %66
   br i1 %67, label %37, label %_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread, !llvm.loop !6
 
 _ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread: ; preds = %37, %63, %42, %55, %.preheader, %8, %25, %1
@@ -1097,7 +1097,7 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_
   %35 = add nuw nsw i32 %.016, 1
   %36 = load i16, ptr %22, align 4
   %37 = zext i16 %36 to i32
-  %38 = icmp ult i32 %35, %37
+  %38 = icmp samesign ult i32 %35, %37
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %34, %12
@@ -2008,12 +2008,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_lin
   %24 = or i64 %.04, %23
   %25 = add nuw nsw i32 %21, 7
   %26 = icmp slt i8 %18, 0
-  %27 = icmp ult i8 %.0.i.i, 7
+  %27 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond5.i.i, label %10, label %28, !llvm.loop !15
 
 28:                                               ; preds = %16
-  %29 = icmp ugt i8 %.0.i.i, 7
+  %29 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %29, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %30
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %10, %28
@@ -2566,12 +2566,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_ule
   store i64 %22, ptr %1, align 8
   %23 = add nuw nsw i32 %18, 7
   %24 = icmp slt i8 %15, 0
-  %25 = icmp ult i8 %.0.i, 7
+  %25 = icmp samesign ult i8 %.0.i, 7
   %or.cond5.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond5.i, label %7, label %26, !llvm.loop !15
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i8 %.0.i, 7
+  %27 = icmp samesign ugt i8 %.0.i, 7
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit, label %28
 
 28:                                               ; preds = %26
@@ -2790,12 +2790,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationER
   store i64 %22, ptr %1, align 8
   %23 = add nuw nsw i32 %18, 7
   %24 = icmp slt i8 %15, 0
-  %25 = icmp ult i8 %.0.i.i, 7
+  %25 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond5.i.i, label %7, label %26, !llvm.loop !15
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i8 %.0.i.i, 7
+  %27 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7, %26
@@ -2837,12 +2837,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %26
   store i64 %46, ptr %30, align 8
   %47 = add nuw nsw i32 %42, 7
   %48 = icmp slt i8 %39, 0
-  %49 = icmp ult i8 %.0.i.i8, 7
+  %49 = icmp samesign ult i8 %.0.i.i8, 7
   %or.cond5.i.i10 = select i1 %48, i1 %49, i1 false
   br i1 %or.cond5.i.i10, label %31, label %50, !llvm.loop !15
 
 50:                                               ; preds = %37
-  %51 = icmp ugt i8 %.0.i.i8, 7
+  %51 = icmp samesign ugt i8 %.0.i.i8, 7
   br i1 %51, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread, label %52
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread: ; preds = %31, %50
@@ -2990,12 +2990,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_spe
   store i64 %22, ptr %1, align 8
   %23 = add nuw nsw i32 %18, 7
   %24 = icmp slt i8 %15, 0
-  %25 = icmp ult i8 %.0.i.i, 7
+  %25 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond5.i.i, label %7, label %26, !llvm.loop !15
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i8 %.0.i.i, 7
+  %27 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %28
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7, %26
@@ -3033,12 +3033,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7
   store i64 %45, ptr %29, align 8
   %46 = add nuw nsw i32 %41, 7
   %47 = icmp slt i8 %38, 0
-  %48 = icmp ult i8 %.0.i.i4, 7
+  %48 = icmp samesign ult i8 %.0.i.i4, 7
   %or.cond5.i.i6 = select i1 %47, i1 %48, i1 false
   br i1 %or.cond5.i.i6, label %30, label %49, !llvm.loop !15
 
 49:                                               ; preds = %36
-  %50 = icmp ult i8 %.0.i.i4, 8
+  %50 = icmp samesign ult i8 %.0.i.i4, 8
   br label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7: ; preds = %30, %49
@@ -3280,12 +3280,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit: ; preds = %102
   %121 = or i64 %.023, %120
   %122 = add nuw nsw i32 %118, 7
   %123 = icmp slt i8 %115, 0
-  %124 = icmp ult i8 %.0.i.i, 7
+  %124 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %123, i1 %124, i1 false
   br i1 %or.cond5.i.i, label %107, label %125, !llvm.loop !15
 
 125:                                              ; preds = %113
-  %126 = icmp ugt i8 %.0.i.i, 7
+  %126 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %126, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %127
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %107, %125
@@ -3357,12 +3357,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit13: ; preds = %141
   %166 = add nuw nsw i8 %.0.i.i16, 1
   %167 = load i8, ptr %4, align 1
   %168 = icmp slt i8 %167, 0
-  %169 = icmp ult i8 %.0.i.i16, 7
+  %169 = icmp samesign ult i8 %.0.i.i16, 7
   %or.cond5.i.i18 = select i1 %168, i1 %169, i1 false
   br i1 %or.cond5.i.i18, label %159, label %170, !llvm.loop !15
 
 170:                                              ; preds = %165
-  %171 = icmp ugt i8 %.0.i.i16, 7
+  %171 = icmp samesign ugt i8 %.0.i.i16, 7
   br i1 %171, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19.thread: ; preds = %159, %170
@@ -4298,7 +4298,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30
   %57 = add nuw nsw i8 %.0.i.i, 1
   %58 = load i8, ptr %7, align 1
   %59 = icmp slt i8 %58, 0
-  %60 = icmp ult i8 %.0.i.i, 7
+  %60 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %59, i1 %60, i1 false
   br i1 %or.cond5.i.i, label %50, label %61, !llvm.loop !15
 
@@ -4325,7 +4325,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds
   %69 = add nuw nsw i8 %.0.i.i8, 1
   %70 = load i8, ptr %6, align 1
   %71 = icmp slt i8 %70, 0
-  %72 = icmp ult i8 %.0.i.i8, 7
+  %72 = icmp samesign ult i8 %.0.i.i8, 7
   %or.cond5.i.i10 = select i1 %71, i1 %72, i1 false
   br i1 %or.cond5.i.i10, label %62, label %73, !llvm.loop !15
 
@@ -4352,7 +4352,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread: ; pre
   %81 = add nuw nsw i8 %.0.i.i12, 1
   %82 = load i8, ptr %5, align 1
   %83 = icmp slt i8 %82, 0
-  %84 = icmp ult i8 %.0.i.i12, 7
+  %84 = icmp samesign ult i8 %.0.i.i12, 7
   %or.cond5.i.i14 = select i1 %83, i1 %84, i1 false
   br i1 %or.cond5.i.i14, label %74, label %85, !llvm.loop !15
 
@@ -4436,12 +4436,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extend
   %18 = add nuw nsw i8 %.0.i.i, 1
   %19 = load i8, ptr %6, align 1
   %20 = icmp slt i8 %19, 0
-  %21 = icmp ult i8 %.0.i.i, 7
+  %21 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %20, i1 %21, i1 false
   br i1 %or.cond5.i.i, label %11, label %22, !llvm.loop !15
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i8 %.0.i.i, 7
+  %23 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %23, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %24
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %11, %22
@@ -4567,12 +4567,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.s
   %85 = add nuw nsw i8 %.0.i.i2, 1
   %86 = load i8, ptr %3, align 1
   %87 = icmp slt i8 %86, 0
-  %88 = icmp ult i8 %.0.i.i2, 7
+  %88 = icmp samesign ult i8 %.0.i.i2, 7
   %or.cond5.i.i4 = select i1 %87, i1 %88, i1 false
   br i1 %or.cond5.i.i4, label %78, label %89, !llvm.loop !15
 
 89:                                               ; preds = %84
-  %90 = icmp ugt i8 %.0.i.i2, 7
+  %90 = icmp samesign ugt i8 %.0.i.i2, 7
   br i1 %90, label %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread, label %91
 
 _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds = %78, %89
@@ -4614,12 +4614,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds
   %109 = or i32 %108, %.012
   %110 = add nuw nsw i32 %107, 7
   %111 = icmp slt i8 %104, 0
-  %112 = icmp ult i8 %.0.i.i6, 7
+  %112 = icmp samesign ult i8 %.0.i.i6, 7
   %or.cond5.i.i8 = select i1 %111, i1 %112, i1 false
   br i1 %or.cond5.i.i8, label %96, label %113, !llvm.loop !15
 
 113:                                              ; preds = %102
-  %114 = icmp ugt i8 %.0.i.i6, 7
+  %114 = icmp samesign ugt i8 %.0.i.i6, 7
   br i1 %114, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9.thread: ; preds = %96, %113
@@ -4627,7 +4627,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9.thread: ; preds = %
   br label %121
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9: ; preds = %113
-  %115 = icmp ult i8 %.0.i.i6, 4
+  %115 = icmp samesign ult i8 %.0.i.i6, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br i1 %115, label %116, label %121
 
@@ -4722,12 +4722,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standa
   %41 = or i32 %40, %.045
   %42 = add nuw nsw i32 %39, 7
   %43 = icmp slt i8 %36, 0
-  %44 = icmp ult i8 %.0.i.i, 7
+  %44 = icmp samesign ult i8 %.0.i.i, 7
   %or.cond5.i.i = select i1 %43, i1 %44, i1 false
   br i1 %or.cond5.i.i, label %28, label %45, !llvm.loop !15
 
 45:                                               ; preds = %34
-  %46 = icmp ugt i8 %.0.i.i, 7
+  %46 = icmp samesign ugt i8 %.0.i.i, 7
   br i1 %46, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %28, %45
@@ -4735,7 +4735,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %2
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %45
-  %47 = icmp ult i8 %.0.i.i, 4
+  %47 = icmp samesign ult i8 %.0.i.i, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br i1 %47, label %48, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
@@ -4823,17 +4823,17 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %99 = or i64 %.043, %98
   %100 = add nuw nsw i32 %96, 7
   %101 = icmp slt i8 %93, 0
-  %102 = icmp ult i8 %.0.i.i8, 7
+  %102 = icmp samesign ult i8 %.0.i.i8, 7
   %or.cond5.i.i10 = select i1 %101, i1 %102, i1 false
   br i1 %or.cond5.i.i10, label %85, label %103, !llvm.loop !15
 
 103:                                              ; preds = %91
-  %104 = icmp ugt i8 %.0.i.i8, 3
+  %104 = icmp samesign ugt i8 %.0.i.i8, 3
   br i1 %104, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread, label %105
 
 105:                                              ; preds = %103
   %106 = and i32 %100, 255
-  %107 = icmp ugt i32 %106, 63
+  %107 = icmp samesign ugt i32 %106, 63
   %108 = and i8 %93, 64
   %.not27.i.i = icmp eq i8 %108, 0
   %or.cond30.i.i = or i1 %107, %.not27.i.i
@@ -4883,12 +4883,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread: ; preds = %8
   %134 = or i32 %133, %.041
   %135 = add nuw nsw i32 %132, 7
   %136 = icmp slt i8 %129, 0
-  %137 = icmp ult i8 %.0.i.i12, 7
+  %137 = icmp samesign ult i8 %.0.i.i12, 7
   %or.cond5.i.i14 = select i1 %136, i1 %137, i1 false
   br i1 %or.cond5.i.i14, label %121, label %138, !llvm.loop !15
 
 138:                                              ; preds = %127
-  %139 = icmp ugt i8 %.0.i.i12, 7
+  %139 = icmp samesign ugt i8 %.0.i.i12, 7
   br i1 %139, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread: ; preds = %121, %138
@@ -4896,7 +4896,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread: ; preds = 
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %138
-  %140 = icmp ult i8 %.0.i.i12, 4
+  %140 = icmp samesign ult i8 %.0.i.i12, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br i1 %140, label %141, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
@@ -4935,12 +4935,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %138
   %161 = or i32 %160, %.039
   %162 = add nuw nsw i32 %159, 7
   %163 = icmp slt i8 %156, 0
-  %164 = icmp ult i8 %.0.i.i17, 7
+  %164 = icmp samesign ult i8 %.0.i.i17, 7
   %or.cond5.i.i19 = select i1 %163, i1 %164, i1 false
   br i1 %or.cond5.i.i19, label %148, label %165, !llvm.loop !15
 
 165:                                              ; preds = %154
-  %166 = icmp ugt i8 %.0.i.i17, 7
+  %166 = icmp samesign ugt i8 %.0.i.i17, 7
   br i1 %166, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread: ; preds = %148, %165
@@ -4948,7 +4948,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread: ; preds = 
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %165
-  %167 = icmp ult i8 %.0.i.i17, 4
+  %167 = icmp samesign ult i8 %.0.i.i17, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br i1 %167, label %168, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
@@ -5104,12 +5104,12 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %265 = or i32 %264, %.038
   %266 = add nuw nsw i32 %263, 7
   %267 = icmp slt i8 %260, 0
-  %268 = icmp ult i8 %.0.i.i25, 7
+  %268 = icmp samesign ult i8 %.0.i.i25, 7
   %or.cond5.i.i27 = select i1 %267, i1 %268, i1 false
   br i1 %or.cond5.i.i27, label %252, label %269, !llvm.loop !15
 
 269:                                              ; preds = %258
-  %270 = icmp ugt i8 %.0.i.i25, 7
+  %270 = icmp samesign ugt i8 %.0.i.i25, 7
   br i1 %270, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread: ; preds = %252, %269
@@ -5117,7 +5117,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread: ; preds = 
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28: ; preds = %269
-  %271 = icmp ult i8 %.0.i.i25, 4
+  %271 = icmp samesign ult i8 %.0.i.i25, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br i1 %271, label %272, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
@@ -5250,12 +5250,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_ule
   %13 = add nuw nsw i8 %.0.i, 1
   %14 = load i8, ptr %3, align 1
   %15 = icmp slt i8 %14, 0
-  %16 = icmp ult i8 %.0.i, 7
+  %16 = icmp samesign ult i8 %.0.i, 7
   %or.cond5.i = select i1 %15, i1 %16, i1 false
   br i1 %or.cond5.i, label %6, label %17, !llvm.loop !15
 
 17:                                               ; preds = %12
-  %18 = icmp ugt i8 %.0.i, 7
+  %18 = icmp samesign ugt i8 %.0.i, 7
   br i1 %18, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit, label %19
 
 19:                                               ; preds = %17
@@ -5359,12 +5359,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sle
   store i64 %22, ptr %1, align 8
   %23 = add nuw nsw i32 %18, 7
   %24 = icmp slt i8 %15, 0
-  %25 = icmp ult i8 %.0.i, 7
+  %25 = icmp samesign ult i8 %.0.i, 7
   %or.cond5.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond5.i, label %7, label %26, !llvm.loop !15
 
 26:                                               ; preds = %13
-  %27 = icmp ugt i8 %.0.i, 7
+  %27 = icmp samesign ugt i8 %.0.i, 7
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit, label %28
 
 28:                                               ; preds = %26
@@ -5375,7 +5375,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sle
 
 30:                                               ; preds = %28
   %31 = and i32 %23, 255
-  %32 = icmp ugt i32 %31, 63
+  %32 = icmp samesign ugt i32 %31, 63
   %33 = and i8 %15, 64
   %.not27.i = icmp eq i8 %33, 0
   %or.cond30.i = or i1 %32, %.not27.i
@@ -5577,12 +5577,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_leb
   store i64 %23, ptr %1, align 8
   %24 = add nuw nsw i32 %19, 7
   %25 = icmp slt i8 %16, 0
-  %26 = icmp ult i8 %.0, 7
+  %26 = icmp samesign ult i8 %.0, 7
   %or.cond5 = select i1 %25, i1 %26, i1 false
   br i1 %or.cond5, label %8, label %27, !llvm.loop !15
 
 27:                                               ; preds = %14
-  %28 = icmp ugt i8 %.0, 7
+  %28 = icmp samesign ugt i8 %.0, 7
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %27
@@ -5593,7 +5593,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_leb
 
 31:                                               ; preds = %29
   %32 = and i32 %24, 255
-  %33 = icmp ugt i32 %32, 63
+  %33 = icmp samesign ugt i32 %32, 63
   %not. = xor i1 %3, true
   %or.cond = select i1 %not., i1 true, i1 %33
   %34 = and i8 %16, 64

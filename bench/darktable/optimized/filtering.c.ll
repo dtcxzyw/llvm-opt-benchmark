@@ -1471,7 +1471,7 @@ define internal fastcc void @_filters_update_params(ptr %0) unnamed_addr #1 {
   %61 = add nuw nsw i64 %21, 1
   %62 = load i32, ptr %0, align 4, !tbaa !59
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %20, label %.loopexit2
 
 65:                                               ; preds = %.loopexit2
@@ -1521,7 +1521,7 @@ define internal fastcc void @_filters_update_params(ptr %0) unnamed_addr #1 {
   %93 = add nuw nsw i64 %78, 1
   %94 = load i32, ptr %75, align 4, !tbaa !58
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %77, label %.loopexit
 }
 
@@ -1616,7 +1616,7 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %59 = sub i32 0, %36
   %60 = load i32, ptr %1, align 4, !tbaa !59
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %58, %61
+  %62 = icmp samesign ult i64 %58, %61
   br i1 %62, label %27, label %.loopexit4
 
 63:                                               ; preds = %78, %34
@@ -1667,7 +1667,7 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %95 = add nuw nsw i64 %86, 1
   %96 = load i32, ptr %22, align 4, !tbaa !58
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %95, %97
+  %98 = icmp samesign ult i64 %95, %97
   br i1 %98, label %85, label %.loopexit
 
 99:                                               ; preds = %.loopexit, %.loopexit4
@@ -10439,7 +10439,7 @@ define internal noundef i32 @_filename_select_func(ptr noundef %0, ptr noundef %
   %11 = add nuw nsw i64 %15, 1
   %12 = call i32 @g_strv_length(ptr noundef nonnull %7) #21
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %11, %13
+  %14 = icmp samesign ult i64 %11, %13
   br i1 %14, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %10
@@ -12356,7 +12356,7 @@ define internal noundef i32 @_misc_select_func(ptr noundef %0, ptr noundef %1, p
   %11 = add nuw nsw i64 %15, 1
   %12 = call i32 @g_strv_length(ptr noundef nonnull %7) #21
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %11, %13
+  %14 = icmp samesign ult i64 %11, %13
   br i1 %14, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %10

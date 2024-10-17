@@ -5210,7 +5210,7 @@ define hidden void @_ZN11opencv_test33Size_MatType_BorderType_blur16x1612PerfTes
   %16 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110BorderTypeEEEE8GetParamEv()
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %15, 7
-  %19 = icmp ult i32 %18, 5
+  %19 = icmp samesign ult i32 %18, 5
   %20 = select i1 %19, double 1.000000e+00, double 1.000000e-03
   call void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %.sroa.07.0.copyload, i32 noundef %15)
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 %.sroa.07.0.copyload, i32 noundef %15)

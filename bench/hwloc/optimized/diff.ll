@@ -197,7 +197,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %68 = phi i32 [ %.pre, %._crit_edge321 ], [ %50, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph261, label %._crit_edge262, !llvm.loop !7
 
 ._crit_edge262:                                   ; preds = %67, %.preheader252
@@ -923,7 +923,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   %137 = phi i32 [ %.pre84, %._crit_edge83 ], [ %119, %127 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next, %138
   br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %136, %.preheader

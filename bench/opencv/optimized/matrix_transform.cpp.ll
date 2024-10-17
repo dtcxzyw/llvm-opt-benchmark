@@ -165,7 +165,7 @@ define void @_ZN2cv9transposeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr nounde
 
 28:                                               ; preds = %18
   %29 = icmp slt i32 %27, 3
-  %30 = icmp ult i32 %26, 33
+  %30 = icmp samesign ult i32 %26, 33
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %41, label %33
 
@@ -1446,7 +1446,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   %119 = getelementptr inbounds i8, ptr %.091105.us.i, i64 %indvars.iv127.i
   store i32 %115, ptr %119, align 4
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 4
-  %.not94.us.i = icmp ugt i64 %indvars.iv.next128.i, %91
+  %.not94.us.i = icmp samesign ugt i64 %indvars.iv.next128.i, %91
   br i1 %.not94.us.i, label %..loopexit_crit_edge.us.loopexit.i, label %.preheader95.us.i, !llvm.loop !31
 
 ..loopexit_crit_edge.us.loopexit.i:               ; preds = %.preheader95.us.i
@@ -1542,7 +1542,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   %167 = getelementptr inbounds i8, ptr %149, i64 12
   store i32 %163, ptr %167, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %87
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %87
   br i1 %.not.i, label %..preheader_crit_edge.i, label %.preheader95.i, !llvm.loop !32
 
 .lr.ph100.i:                                      ; preds = %..preheader_crit_edge.i, %.lr.ph100.i
@@ -1556,7 +1556,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   %173 = getelementptr inbounds i8, ptr %.091105.i, i64 %indvars.iv120.i
   store i32 %169, ptr %173, align 4
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 4
-  %.not94.i = icmp ugt i64 %indvars.iv.next121.i, %88
+  %.not94.i = icmp samesign ugt i64 %indvars.iv.next121.i, %88
   br i1 %.not94.i, label %.loopexit.loopexit.i, label %.lr.ph100.i, !llvm.loop !31
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph100.i
@@ -3803,7 +3803,7 @@ define internal void @_ZN2cvL13transposeI_8uEPhmi(ptr nocapture noundef %0, i64 
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv24.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %9 = icmp ult i64 %indvars.iv.next25.i, %5
+  %9 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %9, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -3845,7 +3845,7 @@ define internal void @_ZN2cvL14transposeI_16uEPhmi(ptr nocapture noundef %0, i64
   %8 = shl nuw nsw i64 %indvars.iv24.i, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -3888,7 +3888,7 @@ define internal void @_ZN2cvL15transposeI_8uC3EPhmi(ptr nocapture noundef %0, i6
   %8 = mul nuw nsw i64 %indvars.iv24.i, 3
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -3931,7 +3931,7 @@ define internal void @_ZN2cvL14transposeI_32sEPhmi(ptr nocapture noundef %0, i64
   %8 = shl nuw nsw i64 %indvars.iv24.i, 2
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -3974,7 +3974,7 @@ define internal void @_ZN2cvL16transposeI_16uC3EPhmi(ptr nocapture noundef %0, i
   %8 = mul nuw nsw i64 %indvars.iv24.i, 6
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -4017,7 +4017,7 @@ define internal void @_ZN2cvL16transposeI_32sC2EPhmi(ptr nocapture noundef %0, i
   %8 = shl nuw nsw i64 %indvars.iv24.i, 3
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -4060,7 +4060,7 @@ define internal void @_ZN2cvL16transposeI_32sC3EPhmi(ptr nocapture noundef %0, i
   %8 = mul nuw nsw i64 %indvars.iv24.i, 12
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -4104,7 +4104,7 @@ define internal void @_ZN2cvL16transposeI_32sC4EPhmi(ptr nocapture noundef %0, i
   %8 = shl nuw nsw i64 %indvars.iv24.i, 4
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -4148,7 +4148,7 @@ define internal void @_ZN2cvL16transposeI_32sC6EPhmi(ptr nocapture noundef %0, i
   %8 = mul nuw nsw i64 %indvars.iv24.i, 24
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
@@ -4192,7 +4192,7 @@ define internal void @_ZN2cvL16transposeI_32sC8EPhmi(ptr nocapture noundef %0, i
   %8 = shl nuw nsw i64 %indvars.iv24.i, 5
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %10 = icmp ult i64 %indvars.iv.next25.i, %5
+  %10 = icmp samesign ult i64 %indvars.iv.next25.i, %5
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i

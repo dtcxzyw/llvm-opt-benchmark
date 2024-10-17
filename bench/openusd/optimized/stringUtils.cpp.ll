@@ -2873,7 +2873,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryL
   %33 = and i32 %32, 31
   %34 = add nuw nsw i32 %22, 5
   %35 = and i32 %34, 31
-  %36 = icmp ult i32 %33, %35
+  %36 = icmp samesign ult i32 %33, %35
   br label %_ZStltIJRmRiEJS0_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit
 
 37:                                               ; preds = %25, %17

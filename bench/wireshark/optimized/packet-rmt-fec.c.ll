@@ -234,7 +234,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #2
   %16 = load i32, ptr @hf_encoding_id, align 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.088) #2
-  %18 = icmp ugt i32 %.088, 127
+  %18 = icmp samesign ugt i32 %.088, 127
   %19 = icmp ne ptr %7, null
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %20, label %25

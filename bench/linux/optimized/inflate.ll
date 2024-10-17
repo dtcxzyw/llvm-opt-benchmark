@@ -324,7 +324,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %101 = shl nuw nsw i64 %100, %91
   %102 = add i64 %101, %92
   %103 = add nuw nsw i64 %91, 8
-  %104 = icmp ult i64 %91, 8
+  %104 = icmp samesign ult i64 %91, 8
   br i1 %104, label %90, label %105, !llvm.loop !5
 
 105:                                              ; preds = %96
@@ -401,7 +401,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %148 = shl nuw nsw i64 %147, %138
   %149 = add i64 %148, %139
   %150 = add nuw nsw i64 %138, 8
-  %151 = icmp ult i64 %138, 24
+  %151 = icmp samesign ult i64 %138, 24
   br i1 %151, label %137, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %143, %78
@@ -554,7 +554,7 @@ default.unreachable978:                           ; preds = %199
   %234 = shl nuw nsw i64 %233, %224
   %235 = add i64 %234, %225
   %236 = add nuw nsw i64 %224, 8
-  %237 = icmp ult i64 %224, 24
+  %237 = icmp samesign ult i64 %224, 24
   br i1 %237, label %223, label %238, !llvm.loop !9
 
 238:                                              ; preds = %229
@@ -635,7 +635,7 @@ thread-pre-split:                                 ; preds = %64
   %284 = shl nuw nsw i64 %283, %274
   %285 = add i64 %284, %275
   %286 = add nuw nsw i64 %274, 8
-  %287 = icmp ult i64 %274, 6
+  %287 = icmp samesign ult i64 %274, 6
   br i1 %287, label %273, label %288, !llvm.loop !10
 
 288:                                              ; preds = %279
@@ -661,8 +661,8 @@ thread-pre-split:                                 ; preds = %64
   store i32 %303, ptr %43, align 8
   %304 = lshr i64 %293, 14
   %305 = add i32 %294, -14
-  %306 = icmp ugt i32 %296, 29
-  %307 = icmp ugt i32 %299, 29
+  %306 = icmp samesign ugt i32 %296, 29
+  %307 = icmp samesign ugt i32 %299, 29
   %308 = or i1 %306, %307
   br i1 %308, label %309, label %.thread979
 
@@ -747,7 +747,7 @@ thread-pre-split113:                              ; preds = %346, %310
   store i16 %352, ptr %358, align 2
   %359 = lshr i64 %349, 3
   %360 = add i32 %350, -3
-  %361 = icmp ult i64 %353, %320
+  %361 = icmp samesign ult i64 %353, %320
   br i1 %361, label %328, label %thread-pre-split113, !llvm.loop !11
 
 .preheader131:                                    ; preds = %.preheader131.preheader, %.preheader131
@@ -845,7 +845,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %417 = getelementptr %struct.code, ptr %.pre972, i64 %416, i32 1
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i64
-  %420 = icmp ult i64 %413, %419
+  %420 = icmp samesign ult i64 %413, %419
   br i1 %420, label %400, label %421, !llvm.loop !13
 
 421:                                              ; preds = %406
@@ -891,7 +891,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %451 = shl i64 %450, %441
   %452 = add i64 %451, %442
   %453 = add nuw nsw i64 %441, 8
-  %454 = icmp ult i64 %453, %439
+  %454 = icmp samesign ult i64 %453, %439
   br i1 %454, label %440, label %455, !llvm.loop !14
 
 455:                                              ; preds = %446
@@ -965,7 +965,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %498 = shl i64 %497, %488
   %499 = add i64 %498, %489
   %500 = add nuw nsw i64 %488, 8
-  %501 = icmp ult i64 %500, %480
+  %501 = icmp samesign ult i64 %500, %480
   br i1 %501, label %487, label %502, !llvm.loop !15
 
 502:                                              ; preds = %493
@@ -1011,7 +1011,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %534 = shl i64 %533, %524
   %535 = add i64 %534, %525
   %536 = add nuw nsw i64 %524, 8
-  %537 = icmp ult i64 %536, %474
+  %537 = icmp samesign ult i64 %536, %474
   br i1 %537, label %523, label %538, !llvm.loop !16
 
 538:                                              ; preds = %529
@@ -1049,7 +1049,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %563 = shl i64 %562, %553
   %564 = add i64 %563, %554
   %565 = add nuw nsw i64 %553, 8
-  %566 = icmp ult i64 %565, %486
+  %566 = icmp samesign ult i64 %565, %486
   br i1 %566, label %552, label %567, !llvm.loop !17
 
 567:                                              ; preds = %558
@@ -1226,7 +1226,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %675 = getelementptr inbounds i8, ptr %674, i64 1
   %676 = load i8, ptr %675, align 1
   %677 = zext i8 %676 to i64
-  %678 = icmp ult i64 %670, %677
+  %678 = icmp samesign ult i64 %670, %677
   br i1 %678, label %657, label %679, !llvm.loop !20
 
 679:                                              ; preds = %663
@@ -1299,7 +1299,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %736 = zext i8 %735 to i32
   %737 = add nuw nsw i32 %689, %736
   %738 = zext nneg i32 %737 to i64
-  %739 = icmp ult i64 %727, %738
+  %739 = icmp samesign ult i64 %727, %738
   br i1 %739, label %714, label %740, !llvm.loop !21
 
 740:                                              ; preds = %720
@@ -1478,7 +1478,7 @@ thread-pre-split120:                              ; preds = %64
   %862 = getelementptr inbounds i8, ptr %861, i64 1
   %863 = load i8, ptr %862, align 1
   %864 = zext i8 %863 to i64
-  %865 = icmp ult i64 %857, %864
+  %865 = icmp samesign ult i64 %857, %864
   br i1 %865, label %844, label %866, !llvm.loop !23
 
 866:                                              ; preds = %850
@@ -1550,7 +1550,7 @@ thread-pre-split120:                              ; preds = %64
   %922 = zext i8 %921 to i32
   %923 = add nuw nsw i32 %876, %922
   %924 = zext nneg i32 %923 to i64
-  %925 = icmp ult i64 %913, %924
+  %925 = icmp samesign ult i64 %913, %924
   br i1 %925, label %900, label %926, !llvm.loop !24
 
 926:                                              ; preds = %906
@@ -1815,7 +1815,7 @@ thread-pre-split122:                              ; preds = %64
   %1098 = shl nuw nsw i64 %1097, %1088
   %1099 = add i64 %1098, %1089
   %1100 = add nuw nsw i64 %1088, 8
-  %1101 = icmp ult i64 %1088, 24
+  %1101 = icmp samesign ult i64 %1088, 24
   br i1 %1101, label %1087, label %1102, !llvm.loop !28
 
 1102:                                             ; preds = %1093

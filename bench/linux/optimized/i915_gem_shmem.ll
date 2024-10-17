@@ -386,7 +386,7 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   %87 = load i32, ptr %29, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %29, align 8
-  %89 = icmp ugt i64 %71, 1048575
+  %89 = icmp samesign ugt i64 %71, 1048575
   br i1 %89, label %90, label %91, !prof !21
 
 90:                                               ; preds = %85
@@ -1787,7 +1787,7 @@ define internal i32 @shmem_object_init(ptr noundef %0, ptr noundef %1, i64 %2, i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = or disjoint i32 %50, %53
-  %55 = icmp ugt i32 %54, 3141
+  %55 = icmp samesign ugt i32 %54, 3141
   %56 = zext i1 %55 to i32
   br label %57
 

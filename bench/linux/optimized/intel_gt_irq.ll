@@ -147,9 +147,9 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
 89:                                               ; preds = %88, %83, %78, %77, %77, %70
   %90 = phi ptr [ %0, %88 ], [ %0, %70 ], [ %75, %77 ], [ %75, %77 ], [ %75, %78 ], [ %75, %83 ]
   %91 = zext nneg i8 %72 to i32
-  %92 = icmp ult i8 %72, 6
+  %92 = icmp samesign ult i8 %72, 6
   %93 = zext nneg i8 %67 to i32
-  %94 = icmp ult i8 %67, 9
+  %94 = icmp samesign ult i8 %67, 9
   %95 = and i1 %92, %94
   br i1 %95, label %96, label %106
 
@@ -283,7 +283,7 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
 158:                                              ; preds = %.thread11, %156, %154, %152, %150, %147, %145, %144, %141, %135, %131, %125, %119, %113, %103, %62
   %159 = add nuw nsw i64 %30, 1
   %160 = and i64 %159, 63
-  %161 = icmp ugt i64 %160, 31
+  %161 = icmp samesign ugt i64 %160, 31
   br i1 %161, label %.thread, label %24, !prof !26, !llvm.loop !27
 
 .thread:                                          ; preds = %24, %158, %29

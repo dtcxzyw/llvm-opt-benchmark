@@ -713,7 +713,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc6ADBodyclERKNS_5RangeE(ptr noun
   %88 = getelementptr inbounds i8, ptr %51, i64 %60
   store i8 %87, ptr %88, align 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 3
-  %89 = icmp ult i64 %indvars.iv.next80, %34
+  %89 = icmp samesign ult i64 %indvars.iv.next80, %34
   br i1 %89, label %52, label %._crit_edge.us, !llvm.loop !13
 
 90:                                               ; preds = %90, %52

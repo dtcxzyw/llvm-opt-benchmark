@@ -528,7 +528,7 @@ if.then15:                                        ; preds = %if.end13
 
 for.body.preheader:                               ; preds = %if.then15
   %11 = sub nuw nsw i64 %conv18, %10
-  %min.iters.check = icmp ult i64 %11, 8
+  %min.iters.check = icmp samesign ult i64 %11, 8
   br i1 %min.iters.check, label %for.body.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.preheader

@@ -441,7 +441,7 @@ define void @transpose32(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %20 = lshr i32 %.02831, 1
   %21 = shl i32 %.032, %20
   %22 = xor i32 %21, %.032
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %23, label %.preheader, !llvm.loop !12
 
 23:                                               ; preds = %19
@@ -487,7 +487,7 @@ define void @transpose64(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %22 = zext nneg i32 %21 to i64
   %23 = shl i64 %.032, %22
   %24 = xor i64 %23, %.032
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %25, label %.preheader, !llvm.loop !14
 
 25:                                               ; preds = %20
@@ -698,7 +698,7 @@ Abc_Clock.exit18:                                 ; preds = %Abc_Clock.exit16, %
   %71 = zext nneg i32 %70 to i64
   %72 = shl i64 %.032.i, %71
   %73 = xor i64 %72, %.032.i
-  %.not.i20 = icmp ult i32 %.02831.i, 2
+  %.not.i20 = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i20, label %transpose64.exit, label %.preheader.i19, !llvm.loop !14
 
 transpose64.exit:                                 ; preds = %69
@@ -867,7 +867,7 @@ define void @Ssw_RarTranspose(ptr nocapture noundef readonly %0) local_unnamed_a
   %64 = zext nneg i32 %63 to i64
   %65 = shl i64 %.032.i, %64
   %66 = xor i64 %65, %.032.i
-  %.not.i = icmp ult i32 %.02831.i, 2
+  %.not.i = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i, label %transpose64.exit, label %.preheader.i, !llvm.loop !14
 
 transpose64.exit:                                 ; preds = %62, %transpose64.exit

@@ -3057,7 +3057,7 @@ declare void @scontrol_top_job(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
-  %4 = icmp ugt i32 %0, 1
+  %4 = icmp samesign ugt i32 %0, 1
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -3141,7 +3141,7 @@ declare i32 @scontrol_job_ready(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = icmp ult i32 %0, 2
+  %5 = icmp samesign ult i32 %0, 2
   br i1 %5, label %6, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
@@ -3282,7 +3282,7 @@ declare i32 @slurm_set_fs_dampeningfactor(i16 noundef zeroext) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
-  %4 = icmp ugt i32 %0, 3
+  %4 = icmp samesign ugt i32 %0, 3
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
@@ -3298,7 +3298,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   br label %66
 
 11:                                               ; preds = %2
-  %12 = icmp ult i32 %0, 2
+  %12 = icmp samesign ult i32 %0, 2
   br i1 %12, label %14, label %.preheader
 
 .preheader:                                       ; preds = %11
@@ -3430,7 +3430,7 @@ declare i32 @slurm_set_schedlog_level(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, ptr noundef %1) unnamed_addr #7 {
-  %3 = icmp ult i32 %0, 2
+  %3 = icmp samesign ult i32 %0, 2
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
@@ -3462,8 +3462,8 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   %18 = load ptr, ptr %11, align 8
   %19 = tail call i32 @xstrncasecmp(ptr noundef %18, ptr noundef nonnull @.str.175, i64 noundef 2) #17
   %.not139 = icmp eq i32 %19, 0
-  %20 = icmp ult i32 %0, 4
-  %or.cond = or i1 %20, %.not139
+  %20 = icmp samesign ult i32 %0, 4
+  %or.cond = select i1 %.not139, i1 true, i1 %20
   br i1 %or.cond, label %.thread, label %21
 
 21:                                               ; preds = %17
@@ -4520,7 +4520,7 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv44, 1
   %30 = load i32, ptr %10, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %15, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %15, %._crit_edge, %.lr.ph38, %0, %29

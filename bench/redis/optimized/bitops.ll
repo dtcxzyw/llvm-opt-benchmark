@@ -662,7 +662,7 @@ for.body4:                                        ; preds = %for.body, %for.body
   %cond = select i1 %tobool.not, i32 48, i32 49
   %putchar6 = tail call i32 @putchar(i32 %cond)
   %div7 = lshr i64 %i.08, 1
-  %cmp2.not = icmp ult i64 %i.08, 2
+  %cmp2.not = icmp samesign ult i64 %i.08, 2
   br i1 %cmp2.not, label %for.end, label %for.body4, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body4

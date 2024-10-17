@@ -3539,7 +3539,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv56 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next57, %for.cond.loopexit ]
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond.loopexit ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %cmp449 = icmp ult i64 %indvars.iv.next57, %6
+  %cmp449 = icmp samesign ult i64 %indvars.iv.next57, %6
   br i1 %cmp449, label %for.body5.lr.ph, label %for.cond.loopexit
 
 for.body5.lr.ph:                                  ; preds = %for.body
@@ -5688,7 +5688,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %for.body
   %arrayidx.i.i20 = getelementptr inbounds i8, ptr %11, i64 -4
   %12 = load i32, ptr %arrayidx.i.i20, align 4
   %13 = zext i32 %12 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %13
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %13
   br i1 %cmp.i, label %invoke.cont13, label %for.inc
 
 invoke.cont13:                                    ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i

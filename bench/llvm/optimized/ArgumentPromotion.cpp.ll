@@ -758,7 +758,7 @@ _ZN4llvm13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6d
 
 256:                                              ; preds = %250, %244
   %.sroa.0188.1.in.i.i = phi i16 [ %255, %250 ], [ %247, %244 ]
-  %.not207.i.i = icmp ult i16 %.sroa.0188.1.in.i.i, 256
+  %.not207.i.i = icmp samesign ult i16 %.sroa.0188.1.in.i.i, 256
   br i1 %.not207.i.i, label %.thread.i.i, label %257
 
 257:                                              ; preds = %256

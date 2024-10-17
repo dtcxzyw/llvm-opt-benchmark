@@ -7162,7 +7162,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   br label %67
 
 67:                                               ; preds = %65, %59
-  %68 = icmp ugt i32 %1, %.051
+  %68 = icmp samesign ugt i32 %1, %.051
   br i1 %68, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67
@@ -7178,7 +7178,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   %72 = zext nneg i32 %.051 to i64
   %73 = getelementptr ptr, ptr %0, i64 %72
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp ugt i32 %1, %.050
+  %75 = icmp samesign ugt i32 %1, %.050
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %69
@@ -7189,7 +7189,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
 
 80:                                               ; preds = %69, %76
   %81 = phi ptr [ %79, %76 ], [ @.str.73, %69 ]
-  %82 = icmp ugt i32 %1, %.049
+  %82 = icmp samesign ugt i32 %1, %.049
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
@@ -7200,7 +7200,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
 
 87:                                               ; preds = %80, %83
   %88 = phi ptr [ %86, %83 ], [ @.str.74, %80 ]
-  %89 = icmp ugt i32 %1, %.048
+  %89 = icmp samesign ugt i32 %1, %.048
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %87
@@ -8549,7 +8549,7 @@ oadd.exit54:                                      ; preds = %111, %114
   %142 = zext nneg i32 %141 to i64
   %143 = icmp sgt i64 %.1.lcssa, -1
   %144 = sub nuw nsw i64 9223372036854775807, %.1.lcssa
-  %145 = icmp ult i64 %144, %142
+  %145 = icmp samesign ult i64 %144, %142
   %or.cond58 = select i1 %143, i1 %145, i1 false
   br i1 %or.cond58, label %146, label %oadd.exit55
 

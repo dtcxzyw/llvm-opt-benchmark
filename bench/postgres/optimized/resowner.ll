@@ -228,7 +228,7 @@ ResourceOwnerAddToHash.exit51:                    ; preds = %94
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %105 = load i8, ptr %9, align 1
   %106 = zext i8 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next67, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next67, %106
   br i1 %107, label %72, label %._crit_edge59, !llvm.loop !7
 
 ._crit_edge59:                                    ; preds = %ResourceOwnerAddToHash.exit51, %67
@@ -532,7 +532,7 @@ define internal fastcc void @ResourceOwnerReleaseInternal(ptr noundef %0, i32 no
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i8, ptr %27, align 1
   %55 = zext i8 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i, %55
   br i1 %56, label %48, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %48, %.preheader.i

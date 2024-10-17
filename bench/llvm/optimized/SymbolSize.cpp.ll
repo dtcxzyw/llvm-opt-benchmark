@@ -878,7 +878,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_6object8SymEntryESt6
 
 321:                                              ; preds = %.lr.ph369
   %322 = zext i32 %.063366 to i64
-  %.not70 = icmp ult i64 %indvars.iv, %322
+  %.not70 = icmp samesign ult i64 %indvars.iv, %322
   br i1 %.not70, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %321

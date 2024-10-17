@@ -692,7 +692,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i16, ptr %11, align 8
   %17 = zext i16 %16 to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next, %17
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp65, label %for.body, label %do.body117, !llvm.loop !7
 
 sw.bb71:                                          ; preds = %if.end
@@ -1007,7 +1007,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.inc.i.i, %land.
   %1 = load i16, ptr %len.i.i.i, align 4
   %cmp1.i.i.i = icmp ult i16 %1, 8
   %conv5.i.i.i = zext i16 %1 to i32
-  %cmp6.i.not.i.i = icmp ult i32 %rem.013.i.i, %conv5.i.i.i
+  %cmp6.i.not.i.i = icmp samesign ult i32 %rem.013.i.i, %conv5.i.i.i
   %or.cond.i.i = or i1 %cmp1.i.i.i, %cmp6.i.not.i.i
   br i1 %or.cond.i.i, label %rocker_tlv_parse_nested.exit, label %for.body.i.i
 
@@ -2087,7 +2087,7 @@ for.inc.i:                                        ; preds = %sw.bb2.i, %sw.bb.i,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i16, ptr %14, align 8
   %28 = zext i16 %27 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %28
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !10
 
 sw.bb21:                                          ; preds = %if.end17
@@ -3889,7 +3889,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.inc.i.i.i, %lan
   %27 = load i16, ptr %len.i.i.i.i, align 4
   %cmp1.i.i.i.i = icmp ult i16 %27, 8
   %conv5.i.i.i.i = zext i16 %27 to i32
-  %cmp6.i.not.i.i.i = icmp ult i32 %rem.013.i.i.i, %conv5.i.i.i.i
+  %cmp6.i.not.i.i.i = icmp samesign ult i32 %rem.013.i.i.i, %conv5.i.i.i.i
   %or.cond.i.i.i = or i1 %cmp1.i.i.i.i, %cmp6.i.not.i.i.i
   br i1 %or.cond.i.i.i, label %rocker_tlv_parse_nested.exit.i, label %for.body.i.i.i
 
@@ -3938,7 +3938,7 @@ for.body.i:                                       ; preds = %rocker_tlv_parse_ne
   store i32 %.val30.i, ptr %arrayidx22.i22, align 4
   %34 = load i16, ptr %20, align 8
   %35 = zext i16 %34 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %35
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %cmp.i, label %for.body.i, label %for.cond23.preheader.i, !llvm.loop !12
 
 for.body28.i:                                     ; preds = %for.inc53.i, %for.body28.lr.ph.i
@@ -3977,7 +3977,7 @@ for.inc53.i:                                      ; preds = %land.lhs.true.i, %i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %41 = load i16, ptr %20, align 8
   %42 = zext i16 %41 to i64
-  %cmp26.i = icmp ult i64 %indvars.iv.next39.i, %42
+  %cmp26.i = icmp samesign ult i64 %indvars.iv.next39.i, %42
   br i1 %cmp26.i, label %for.body28.i, label %return.sink.split.i, !llvm.loop !13
 
 return.sink.split.i:                              ; preds = %for.inc53.i, %if.then46.i, %for.cond23.preheader.i, %rocker_tlv_parse_nested.exit.i

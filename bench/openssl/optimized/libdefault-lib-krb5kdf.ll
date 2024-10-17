@@ -312,7 +312,7 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
   br label %for.body.i.i
 
 for.cond37.preheader.i.i:                         ; preds = %for.body.i.i
-  %7 = icmp ugt i32 %add30.i.i, 255
+  %7 = icmp samesign ugt i32 %add30.i.i, 255
   %b.050.i.i = add i32 %call14.i, -1
   %cmp3851.i.i = icmp sgt i32 %b.050.i.i, -1
   %8 = select i1 %cmp3851.i.i, i1 %7, i1 false

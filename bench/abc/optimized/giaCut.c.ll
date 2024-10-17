@@ -71,7 +71,7 @@ Gia_ObjIsXor.exit:
   %.pre337 = lshr i64 %.val90, 32
   %.pre339 = trunc nuw i64 %.pre337 to i32
   %.pre341 = and i32 %.pre339, 536870911
-  %14 = icmp uge i32 %.pre335, %.pre341
+  %14 = icmp samesign uge i32 %.pre335, %.pre341
   %spec.select = select i1 %narrow.i.not.i, i1 true, i1 %14
   %15 = load i32, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 4
@@ -369,7 +369,7 @@ Gia_StoInitResult.exit.._crit_edge272_crit_edge:  ; preds = %Gia_StoInitResult.e
   %150 = getelementptr inbounds i8, ptr %149, i64 20
   %151 = load i32, ptr %150, align 4
   %152 = lshr i32 %151, 28
-  %.not.i102.us = icmp ugt i32 %152, %146
+  %.not.i102.us = icmp samesign ugt i32 %152, %146
   br i1 %.not.i102.us, label %Gia_CutSetCutIsContainedOrder.exit.thread.i.us, label %153
 
 153:                                              ; preds = %.lr.ph.split.split.i.us
@@ -447,7 +447,7 @@ Gia_CutSetCutIsContainedOrder.exit.thread.i.us:   ; preds = %163, %175, %177, %1
   %185 = getelementptr inbounds i8, ptr %184, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = lshr i32 %186, 28
-  %.not.us.us.i.us = icmp ugt i32 %187, %146
+  %.not.us.us.i.us = icmp samesign ugt i32 %187, %146
   br i1 %.not.us.us.i.us, label %Gia_CutSetCutIsContainedOrder.exit.thread.us.us.i.us, label %188
 
 188:                                              ; preds = %.lr.ph.split.us.split.us.i.us
@@ -691,7 +691,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
 
 296:                                              ; preds = %289
   %indvars.iv.next138.i198.us = add nuw nsw i64 %indvars.iv137.i194.us, %284
-  %297 = icmp ult i64 %indvars.iv.next138.i198.us, %286
+  %297 = icmp samesign ult i64 %indvars.iv.next138.i198.us, %286
   br i1 %297, label %.preheader119.i193.us, label %298, !llvm.loop !15
 
 298:                                              ; preds = %296
@@ -880,7 +880,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %353, %Abc_TtCopy.ex
 
 400:                                              ; preds = %393
   %indvars.iv.next138.i171.us = add nuw nsw i64 %indvars.iv137.i167.us, %388
-  %401 = icmp ult i64 %indvars.iv.next138.i171.us, %390
+  %401 = icmp samesign ult i64 %indvars.iv.next138.i171.us, %390
   br i1 %401, label %.preheader119.i166.us, label %402, !llvm.loop !15
 
 402:                                              ; preds = %400
@@ -1105,7 +1105,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph.i84.i.us, %.
 .lr.ph.split.split.split.i.i.us:                  ; preds = %Abc_TtHasVar.exit.thread.i.i.us, %.lr.ph.split.split.i.i.us
   %indvars.iv.i106.i.us = phi i64 [ %indvars.iv.next.i110.i.us, %Abc_TtHasVar.exit.thread.i.i.us ], [ 0, %.lr.ph.split.split.i.i.us ]
   %.033.i.i.us = phi i32 [ %.1.i109.i.us, %Abc_TtHasVar.exit.thread.i.i.us ], [ 0, %.lr.ph.split.split.i.i.us ]
-  %501 = icmp ult i64 %indvars.iv.i106.i.us, 6
+  %501 = icmp samesign ult i64 %indvars.iv.i106.i.us, 6
   %502 = trunc i64 %indvars.iv.i106.i.us to i32
   br i1 %501, label %.lr.ph.i.i114.i.us, label %.preheader.lr.ph.i.i.i.us
 
@@ -1220,7 +1220,7 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %522, %508
 
 558:                                              ; preds = %551
   %indvars.iv.next138.i.us = add nuw nsw i64 %indvars.iv137.i.us, %546
-  %559 = icmp ult i64 %indvars.iv.next138.i.us, %548
+  %559 = icmp samesign ult i64 %indvars.iv.next138.i.us, %548
   br i1 %559, label %.preheader119.i.us, label %560, !llvm.loop !15
 
 560:                                              ; preds = %558
@@ -1608,7 +1608,7 @@ Gia_CutComputeTruth6.exit.i.us:                   ; preds = %Abc_Tt6MinBase.exit
   store i32 %780, ptr %781, align 8
   %782 = load i32, ptr %617, align 4
   %783 = lshr i32 %782, 28
-  %784 = icmp ult i32 %783, %653
+  %784 = icmp samesign ult i32 %783, %653
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -1624,7 +1624,7 @@ Gia_CutComputeTruth.exit.us:                      ; preds = %Abc_TtXor.exit.i.us
   store i32 %788, ptr %789, align 8
   %790 = load i32, ptr %204, align 4
   %791 = lshr i32 %790, 28
-  %792 = icmp ult i32 %791, %206
+  %792 = icmp samesign ult i32 %791, %206
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1731,7 +1731,7 @@ Gia_CutTreeLeaves.exit.us:                        ; preds = %Gia_CutTreeLeaves.e
   %839 = getelementptr inbounds i8, ptr %838, i64 20
   %840 = load i32, ptr %839, align 4
   %841 = lshr i32 %840, 28
-  %842 = icmp ult i32 %834, %841
+  %842 = icmp samesign ult i32 %834, %841
   br i1 %842, label %843, label %Gia_CutSetCutIsContainedOrder.exit.thread.i.i.us
 
 843:                                              ; preds = %.outer.i.split.i.us
@@ -1788,7 +1788,7 @@ Gia_CutSetCutIsContainedOrder.exit.thread.i.i.us: ; preds = %849, %861, %.prehea
   %864 = getelementptr inbounds i8, ptr %863, i64 20
   %865 = load i32, ptr %864, align 4
   %866 = lshr i32 %865, 28
-  %867 = icmp ult i32 %834, %866
+  %867 = icmp samesign ult i32 %834, %866
   br i1 %867, label %868, label %Gia_CutSetCutIsContainedOrder.exit.thread.i.us.i.us
 
 868:                                              ; preds = %.outer.i.split.us.i.us
@@ -1876,17 +1876,17 @@ Gia_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
   %.val15.i.i.us = load i32, ptr %899, align 4
   %900 = and i32 %.val.i.i138.us, 268435455
   %901 = and i32 %.val15.i.i.us, 268435455
-  %902 = icmp ult i32 %900, %901
+  %902 = icmp samesign ult i32 %900, %901
   br i1 %902, label %Gia_CutSetSortByCost.exit.i.us, label %903
 
 903:                                              ; preds = %.lr.ph.i8.i.us
-  %904 = icmp ugt i32 %900, %901
+  %904 = icmp samesign ugt i32 %900, %901
   br i1 %904, label %Gia_CutCompare.exit.i.i.us, label %905
 
 905:                                              ; preds = %903
   %906 = lshr i32 %.val.i.i138.us, 28
   %907 = lshr i32 %.val15.i.i.us, 28
-  %908 = icmp ult i32 %906, %907
+  %908 = icmp samesign ult i32 %906, %907
   br i1 %908, label %Gia_CutSetSortByCost.exit.i.us, label %Gia_CutCompare.exit.i.i.us
 
 Gia_CutCompare.exit.i.i.us:                       ; preds = %905, %903
@@ -2160,7 +2160,7 @@ Vec_IntPush.exit34.i:                             ; preds = %1024, %Vec_IntGrow.
   %1033 = load i32, ptr %1032, align 4
   %1034 = lshr i32 %1033, 28
   %1035 = zext nneg i32 %1034 to i64
-  %1036 = icmp ult i64 %indvars.iv.next.i149, %1035
+  %1036 = icmp samesign ult i64 %indvars.iv.next.i149, %1035
   br i1 %1036, label %.lr.ph.i147, label %._crit_edge.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %Vec_IntPush.exit34.i, %Vec_IntPush.exit27.i
@@ -6706,7 +6706,7 @@ Vec_WrdStart.exit.i:                              ; preds = %22, %Vec_WrdFreeP.e
   %35 = shl i32 %34, %18
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i64, ptr %26, i64 %36
-  %38 = icmp ult i64 %indvars.iv73.i, 5
+  %38 = icmp samesign ult i64 %indvars.iv73.i, 5
   br i1 %38, label %.preheader.us.us.i, label %.preheader27.us.us.i
 
 39:                                               ; preds = %.preheader27.us.us.i, %39

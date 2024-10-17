@@ -77,7 +77,7 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
 
 23:                                               ; preds = %17
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.val143.val)
-  %.not133 = icmp ugt i32 %24, 1
+  %.not133 = icmp samesign ugt i32 %24, 1
   %25 = icmp ne i32 %22, 2
   %or.cond3.not = select i1 %25, i1 true, i1 %.not133
   br label %26

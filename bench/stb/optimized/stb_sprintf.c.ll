@@ -944,7 +944,7 @@ if.end367:                                        ; preds = %if.else365, %if.the
   %idxprom388873 = zext nneg i32 %cond382 to i64
   %arrayidx389874 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 %idxprom388873
   store i8 %conv387872, ptr %arrayidx389874, align 1
-  %cmp390875 = icmp ult i32 %cond382, 4
+  %cmp390875 = icmp samesign ult i32 %cond382, 4
   br i1 %cmp390875, label %for.end, label %if.end393
 
 if.end393:                                        ; preds = %if.end367, %if.end393
@@ -1673,7 +1673,7 @@ while.body826:                                    ; preds = %while.body826.prehe
   %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
   %174 = load i32, ptr %l, align 4
   %175 = zext i32 %174 to i64
-  %cmp824 = icmp ult i64 %indvars.iv.next1076, %175
+  %cmp824 = icmp samesign ult i64 %indvars.iv.next1076, %175
   br i1 %cmp824, label %while.body826, label %while.end831.loopexit, !llvm.loop !16
 
 while.end831.loopexit:                            ; preds = %while.body826
@@ -3193,7 +3193,7 @@ while.end74:                                      ; preds = %while.cond63
 
 if.then77:                                        ; preds = %while.end74
   %sub78 = sub nuw nsw i32 %dg.0, %cond55
-  %cmp79 = icmp ugt i32 %sub78, 23
+  %cmp79 = icmp samesign ugt i32 %sub78, 23
   br i1 %cmp79, label %if.end96, label %if.end82
 
 if.end82:                                         ; preds = %if.then77
@@ -3226,7 +3226,7 @@ if.end103:                                        ; preds = %for.cond99thread-pr
   br i1 %tobool104.not, label %if.end106, label %if.end118
 
 if.end106:                                        ; preds = %if.end103
-  %cmp100 = icmp ult i64 %div1077881, 4294967296000
+  %cmp100 = icmp samesign ult i64 %div1077881, 4294967296000
   br i1 %cmp100, label %for.end108, label %if.end103
 
 for.end108:                                       ; preds = %if.end106, %for.cond99thread-pre-split
@@ -3489,7 +3489,7 @@ if.then17.i:                                      ; preds = %if.end14.i.thread, 
   br label %stbsp__clamp_callback.exit
 
 if.end18.i:                                       ; preds = %if.end14.i
-  %cmp20.i = icmp ugt i32 %count, 511
+  %cmp20.i = icmp samesign ugt i32 %count, 511
   %tmp22.i = getelementptr inbounds i8, ptr %c, i64 16
   %spec.select11 = select i1 %cmp20.i, ptr %buf, ptr %tmp22.i
   br label %stbsp__clamp_callback.exit
@@ -3562,7 +3562,7 @@ if.then17.i.i:                                    ; preds = %if.end14.i.i, %if.e
   br label %stbsp__clamp_callback.exit.i
 
 if.end18.i.i:                                     ; preds = %if.end14.i.i
-  %cmp20.i.i = icmp ugt i32 %count, 511
+  %cmp20.i.i = icmp samesign ugt i32 %count, 511
   %tmp22.i.i = getelementptr inbounds i8, ptr %c.i, i64 16
   %spec.select11.i = select i1 %cmp20.i.i, ptr %buf, ptr %tmp22.i.i
   br label %stbsp__clamp_callback.exit.i
@@ -3665,7 +3665,7 @@ if.then61:                                        ; preds = %if.then60
 if.end130:                                        ; preds = %if.then61, %if.then60
   %ph.1 = phi double [ %d, %if.then60 ], [ %mul69, %if.then61 ]
   %pl.1 = phi double [ 0.000000e+00, %if.then60 ], [ %19, %if.then61 ]
-  %tobool131.not = icmp ult i32 %spec.select, 23
+  %tobool131.not = icmp samesign ult i32 %spec.select, 23
   br i1 %tobool131.not, label %if.end438, label %if.then132
 
 if.then132:                                       ; preds = %if.end130
@@ -3750,7 +3750,7 @@ if.then282:                                       ; preds = %if.then211
 if.end356:                                        ; preds = %if.then211, %if.then282, %if.else209
   %ph.2 = phi double [ %d, %if.else209 ], [ %mul223, %if.then211 ], [ %mul294, %if.then282 ]
   %pl.2 = phi double [ 0.000000e+00, %if.else209 ], [ %39, %if.then211 ], [ %49, %if.then282 ]
-  %tobool357.not = icmp ult i32 %spec.select, 23
+  %tobool357.not = icmp samesign ult i32 %spec.select, 23
   br i1 %tobool357.not, label %if.end438, label %if.then358
 
 if.then358:                                       ; preds = %if.end356

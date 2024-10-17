@@ -259,7 +259,7 @@ define dso_local i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 nounde
   store i64 %.1., ptr %8, align 8
   %9 = sub i64 %.136, %.1.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = icmp ult i64 %indvars.iv, 31
+  %10 = icmp samesign ult i64 %indvars.iv, 31
   %11 = icmp ne i64 %9, 0
   %12 = select i1 %10, i1 %11, i1 false
   br i1 %12, label %6, label %.preheader.preheader.i, !llvm.loop !8

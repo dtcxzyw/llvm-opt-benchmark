@@ -1510,7 +1510,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser9resources19WasmModuleResource
 
 11:                                               ; preds = %4
   %12 = trunc i32 %.sroa.0.0.copyload to i8
-  %switch = icmp ult i8 %12, 5
+  %switch = icmp samesign ult i8 %12, 5
   br i1 %switch, label %23, label %13
 
 13:                                               ; preds = %11
@@ -6157,7 +6157,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h2498b9
   resume { ptr, i32 } %29
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h17d91b87b78ace60E.llvm.8882213390170994431.exit": ; preds = %25
-  %34 = icmp ugt i64 %.015.i, 9
+  %34 = icmp samesign ugt i64 %.015.i, 9
   br i1 %34, label %35, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.8882213390170994431.exit"
 
 35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h17d91b87b78ace60E.llvm.8882213390170994431.exit"

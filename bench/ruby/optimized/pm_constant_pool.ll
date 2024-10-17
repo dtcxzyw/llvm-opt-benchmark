@@ -499,7 +499,7 @@ define hidden void @pm_constant_pool_free(ptr nocapture noundef readonly %0) loc
   %19 = phi i32 [ %6, %5 ], [ %.pre, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %5, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %1

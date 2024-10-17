@@ -31,7 +31,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
   %10 = and i32 %3, 3
-  %11 = icmp ugt i32 %10, 1
+  %11 = icmp samesign ugt i32 %10, 1
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %._crit_edge

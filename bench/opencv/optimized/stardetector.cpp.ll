@@ -899,7 +899,7 @@ _ZNK2cv11_InputArray6getMatEi.exit22:             ; preds = %38, %41
 
 .critedge.i:                                      ; preds = %92, %.critedge.split.loop.exit494.i, %.critedge.split.loop.exit.i
   %.0169.lcssa.i = phi i32 [ %110, %.critedge.split.loop.exit.i ], [ %111, %.critedge.split.loop.exit494.i ], [ 12, %92 ]
-  %112 = icmp ult i32 %.0169.lcssa.i, 13
+  %112 = icmp samesign ult i32 %.0169.lcssa.i, 13
   %113 = zext i1 %112 to i32
   %spec.select.i = add nuw nsw i32 %.0169.lcssa.i, %113
   %114 = add nsw i32 %spec.select.i, -1
@@ -3059,7 +3059,7 @@ _ZN2cv11xfeatures2dL28StarDetectorComputeResponsesIiEEiRKNS_3MatERS2_S5_ii.exit:
 
 .critedge.i37:                                    ; preds = %1505, %.critedge.split.loop.exit433.i, %.critedge.split.loop.exit.i36
   %.0169.lcssa.i38 = phi i32 [ %1523, %.critedge.split.loop.exit.i36 ], [ %1524, %.critedge.split.loop.exit433.i ], [ 12, %1505 ]
-  %1525 = icmp ult i32 %.0169.lcssa.i38, 13
+  %1525 = icmp samesign ult i32 %.0169.lcssa.i38, 13
   %1526 = zext i1 %1525 to i32
   %spec.select.i39 = add nuw nsw i32 %.0169.lcssa.i38, %1526
   %1527 = add nsw i32 %spec.select.i39, -1

@@ -2033,7 +2033,7 @@ define internal range(i32 0, 2) i32 @test_aeron_packet(ptr noundef %0, ptr nound
   %14 = icmp ne i16 %10, 1
   %15 = icmp ne i32 %13, 0
   %or.cond.not26 = select i1 %14, i1 true, i1 %15
-  %16 = icmp ult i32 %13, 12
+  %16 = icmp samesign ult i32 %13, 12
   %or.cond3 = select i1 %or.cond.not26, i1 %16, i1 false
   br i1 %or.cond3, label %27, label %17
 

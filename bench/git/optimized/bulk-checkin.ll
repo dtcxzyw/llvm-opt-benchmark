@@ -561,7 +561,7 @@ for.body:                                         ; preds = %if.end20, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %15 = zext i32 %14 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next, %15
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp28, label %for.body, label %clear_exit, !llvm.loop !7
 
 clear_exit:                                       ; preds = %for.body, %if.end20, %if.then1

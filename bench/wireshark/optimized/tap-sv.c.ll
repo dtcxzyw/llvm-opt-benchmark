@@ -63,7 +63,7 @@ define internal noundef i32 @sv_packet(ptr nocapture readnone %0, ptr noundef %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i8, ptr %11, align 1
   %19 = zext i8 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %14, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %14, %5

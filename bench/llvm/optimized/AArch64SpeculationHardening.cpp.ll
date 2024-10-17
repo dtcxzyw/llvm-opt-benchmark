@@ -791,7 +791,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i: ; preds = %_ZNK4l
   %209 = lshr i32 %.029.val30.i.i.i.i.i.i, 3
   %210 = load i16, ptr %196, align 2
   %211 = zext i16 %210 to i32
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %209, %211
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %209, %211
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i, label %.thread2.i.i.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; preds = %208
@@ -809,7 +809,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; pr
 .thread2.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i, %208
   %220 = load i16, ptr %199, align 2
   %221 = zext i16 %220 to i32
-  %.not.i.i5.i.i.i.i.i.i.i.i = icmp ult i32 %209, %221
+  %.not.i.i5.i.i.i.i.i.i.i.i = icmp samesign ult i32 %209, %221
   br i1 %.not.i.i5.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %.thread2.i.i.i.i.i.i.i.i
@@ -838,7 +838,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; pr
 
 237:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread82.i.i.i.i.i.i"
   %238 = lshr i32 %.val31.i.i.i.i.i.i, 3
-  %.not.i.i.i.i41.i.i.i.i.i.i = icmp ult i32 %238, %211
+  %.not.i.i.i.i41.i.i.i.i.i.i = icmp samesign ult i32 %238, %211
   br i1 %.not.i.i.i.i41.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i44.i.i.i.i.i.i, label %.thread2.i.i42.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i44.i.i.i.i.i.i: ; preds = %237
@@ -856,7 +856,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i44.i.i.i.i.i.i: ; 
 .thread2.i.i42.i.i.i.i.i.i:                       ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i44.i.i.i.i.i.i, %237
   %247 = load i16, ptr %199, align 2
   %248 = zext i16 %247 to i32
-  %.not.i.i5.i.i43.i.i.i.i.i.i = icmp ult i32 %238, %248
+  %.not.i.i5.i.i43.i.i.i.i.i.i = icmp samesign ult i32 %238, %248
   br i1 %.not.i.i5.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit46.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit293"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit46.i.i.i.i.i.i": ; preds = %.thread2.i.i42.i.i.i.i.i.i
@@ -885,7 +885,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i44.i.i.i.i.i.i: ; 
 
 264:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit46.thread83.i.i.i.i.i.i"
   %265 = lshr i32 %.val33.i.i.i.i.i.i, 3
-  %.not.i.i.i.i48.i.i.i.i.i.i = icmp ult i32 %265, %211
+  %.not.i.i.i.i48.i.i.i.i.i.i = icmp samesign ult i32 %265, %211
   br i1 %.not.i.i.i.i48.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i51.i.i.i.i.i.i, label %.thread2.i.i49.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i51.i.i.i.i.i.i: ; preds = %264
@@ -903,7 +903,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i51.i.i.i.i.i.i: ; 
 .thread2.i.i49.i.i.i.i.i.i:                       ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i51.i.i.i.i.i.i, %264
   %274 = load i16, ptr %199, align 2
   %275 = zext i16 %274 to i32
-  %.not.i.i5.i.i50.i.i.i.i.i.i = icmp ult i32 %265, %275
+  %.not.i.i5.i.i50.i.i.i.i.i.i = icmp samesign ult i32 %265, %275
   br i1 %.not.i.i5.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit53.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit297"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit53.i.i.i.i.i.i": ; preds = %.thread2.i.i49.i.i.i.i.i.i
@@ -932,7 +932,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i51.i.i.i.i.i.i: ; 
 
 291:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit53.thread84.i.i.i.i.i.i"
   %292 = lshr i32 %.val35.i.i.i.i.i.i, 3
-  %.not.i.i.i.i55.i.i.i.i.i.i = icmp ult i32 %292, %211
+  %.not.i.i.i.i55.i.i.i.i.i.i = icmp samesign ult i32 %292, %211
   br i1 %.not.i.i.i.i55.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i58.i.i.i.i.i.i, label %.thread2.i.i56.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i58.i.i.i.i.i.i: ; preds = %291
@@ -950,7 +950,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i58.i.i.i.i.i.i: ; 
 .thread2.i.i56.i.i.i.i.i.i:                       ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i58.i.i.i.i.i.i, %291
   %301 = load i16, ptr %199, align 2
   %302 = zext i16 %301 to i32
-  %.not.i.i5.i.i57.i.i.i.i.i.i = icmp ult i32 %292, %302
+  %.not.i.i5.i.i57.i.i.i.i.i.i = icmp samesign ult i32 %292, %302
   br i1 %.not.i.i5.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit60.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit301"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit60.i.i.i.i.i.i": ; preds = %.thread2.i.i56.i.i.i.i.i.i
@@ -1002,7 +1002,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i58.i.i.i.i.i.i: ; 
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 22
   %326 = load i16, ptr %325, align 2
   %327 = zext i16 %326 to i32
-  %.not.i.i.i.i62.i.i.i.i.i.i = icmp ult i32 %324, %327
+  %.not.i.i.i.i62.i.i.i.i.i.i = icmp samesign ult i32 %324, %327
   br i1 %.not.i.i.i.i62.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i65.i.i.i.i.i.i, label %.thread2.i.i63.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i65.i.i.i.i.i.i: ; preds = %322
@@ -1023,7 +1023,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i65.i.i.i.i.i.i: ; 
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 22
   %339 = load i16, ptr %338, align 2
   %340 = zext i16 %339 to i32
-  %.not.i.i5.i.i64.i.i.i.i.i.i = icmp ult i32 %324, %340
+  %.not.i.i5.i.i64.i.i.i.i.i.i = icmp samesign ult i32 %324, %340
   br i1 %.not.i.i5.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit67.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit67.i.i.i.i.i.i": ; preds = %.thread2.i.i63.i.i.i.i.i.i
@@ -1061,7 +1061,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i65.i.i.i.i.i.i: ; 
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 22
   %362 = load i16, ptr %361, align 2
   %363 = zext i16 %362 to i32
-  %.not.i.i.i.i69.i.i.i.i.i.i = icmp ult i32 %360, %363
+  %.not.i.i.i.i69.i.i.i.i.i.i = icmp samesign ult i32 %360, %363
   br i1 %.not.i.i.i.i69.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i72.i.i.i.i.i.i, label %.thread2.i.i70.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i72.i.i.i.i.i.i: ; preds = %358
@@ -1082,7 +1082,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i72.i.i.i.i.i.i: ; 
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 22
   %375 = load i16, ptr %374, align 2
   %376 = zext i16 %375 to i32
-  %.not.i.i5.i.i71.i.i.i.i.i.i = icmp ult i32 %360, %376
+  %.not.i.i5.i.i71.i.i.i.i.i.i = icmp samesign ult i32 %360, %376
   br i1 %.not.i.i5.i.i71.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit74.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit74.i.i.i.i.i.i": ; preds = %.thread2.i.i70.i.i.i.i.i.i
@@ -1120,7 +1120,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i72.i.i.i.i.i.i: ; 
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 22
   %398 = load i16, ptr %397, align 2
   %399 = zext i16 %398 to i32
-  %.not.i.i.i.i76.i.i.i.i.i.i = icmp ult i32 %396, %399
+  %.not.i.i.i.i76.i.i.i.i.i.i = icmp samesign ult i32 %396, %399
   br i1 %.not.i.i.i.i76.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i, label %.thread2.i.i77.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i: ; preds = %394
@@ -1141,7 +1141,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i: ; 
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 22
   %411 = load i16, ptr %410, align 2
   %412 = zext i16 %411 to i32
-  %.not.i.i5.i.i78.i.i.i.i.i.i = icmp ult i32 %396, %412
+  %.not.i.i5.i.i78.i.i.i.i.i.i = icmp samesign ult i32 %396, %412
   br i1 %.not.i.i5.i.i78.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit81.i.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_127AArch64SpeculationHardening8slhLoadsERN4llvm17MachineBasicBlockEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit81.i.i.i.i.i.i": ; preds = %.thread2.i.i77.i.i.i.i.i.i
@@ -1318,7 +1318,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i: ; 
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 22
   %488 = load i16, ptr %487, align 2
   %489 = zext i16 %488 to i32
-  %.not.i.i.i43 = icmp ult i32 %486, %489
+  %.not.i.i.i43 = icmp samesign ult i32 %486, %489
   br i1 %.not.i.i.i43, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %.thread90.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %484
@@ -1339,7 +1339,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %484
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 22
   %501 = load i16, ptr %500, align 2
   %502 = zext i16 %501 to i32
-  %.not.i.i58.i = icmp ult i32 %486, %502
+  %.not.i.i58.i = icmp samesign ult i32 %486, %502
   br i1 %.not.i.i58.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit59.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit59.thread.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit59.i: ; preds = %.thread90.i
@@ -3086,7 +3086,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127AArch64Speculation
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 22
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %.not.i.i = icmp ult i32 %26, %29
+  %.not.i.i = icmp samesign ult i32 %26, %29
   br i1 %.not.i.i, label %30, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
 
 30:                                               ; preds = %24

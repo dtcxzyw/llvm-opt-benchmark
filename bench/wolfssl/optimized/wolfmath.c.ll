@@ -132,7 +132,7 @@ get_digit.exit:                                   ; preds = %for.body
   %7 = load i64, ptr %arrayidx.i, align 8
   %8 = load i32, ptr %b, align 8
   %9 = zext i32 %8 to i64
-  %cmp2.not.i31 = icmp ult i64 %indvars.iv, %9
+  %cmp2.not.i31 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %cmp2.not.i31, label %cond.false.i33, label %get_digit.exit37
 
 cond.false.i33:                                   ; preds = %get_digit.exit
@@ -152,7 +152,7 @@ get_digit.exit37:                                 ; preds = %for.body, %get_digi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %a, align 8
   %13 = zext i32 %12 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %13
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp12, label %for.body, label %for.cond17.preheader.loopexit72, !llvm.loop !6
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %get_digit.exit59
@@ -169,7 +169,7 @@ for.body21.get_digit.exit59_crit_edge:            ; preds = %for.body21
 lor.lhs.false.i41:                                ; preds = %for.body21
   %15 = load i32, ptr %a, align 8
   %16 = zext i32 %15 to i64
-  %cmp2.not.i42 = icmp ult i64 %indvars.iv77, %16
+  %cmp2.not.i42 = icmp samesign ult i64 %indvars.iv77, %16
   br i1 %cmp2.not.i42, label %cond.false.i44, label %cond.false.i55
 
 cond.false.i44:                                   ; preds = %lor.lhs.false.i41

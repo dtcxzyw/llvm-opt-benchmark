@@ -15076,7 +15076,7 @@ while.cond:                                       ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %while.cond
-  %cmp = icmp ult i64 %indvars.iv, 100
+  %cmp = icmp samesign ult i64 %indvars.iv, 100
   %11 = select i1 %call, i1 %cmp, i1 false
   br i1 %11, label %while.body, label %while.end
 
@@ -15169,7 +15169,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
 invoke.cont3:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  %cmp39.i.i = icmp ult i64 %indvars.iv, 10
+  %cmp39.i.i = icmp samesign ult i64 %indvars.iv, 10
   %spec.select = select i1 %cmp39.i.i, i64 1, i64 2
   store ptr %9, ptr %ref.tmp4, align 8, !tbaa !35, !alias.scope !275
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef %spec.select, i8 noundef signext 45)
@@ -15177,7 +15177,7 @@ invoke.cont3:                                     ; preds = %_ZNKSt7__cxx1112bas
 
 invoke.cont.i:                                    ; preds = %invoke.cont3
   %22 = load ptr, ptr %ref.tmp4, align 8, !tbaa !8, !alias.scope !275
-  %cmp9.i.i = icmp ugt i64 %indvars.iv, 9
+  %cmp9.i.i = icmp samesign ugt i64 %indvars.iv, 9
   br i1 %cmp9.i.i, label %if.then.i.i408, label %if.else.i.i
 
 if.then.i.i408:                                   ; preds = %invoke.cont.i

@@ -8621,7 +8621,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit.i.i:   ; preds = %1273, %1270, %1265
   br i1 %.not.i.i.i.i91.i, label %"_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZL31CalculateUnswitchCostMultiplierRS4_RKNS_4LoopERKNS_8LoopInfoERKNS_13DominatorTreeENS_8ArrayRefIN12_GLOBAL__N_127NonTrivialUnswitchCandidateEEEE3$_0EEDaOT_T0_.exit.i.i", label %.lr.ph.i.i.i.i89.i, !llvm.loop !165
 
 "_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZL31CalculateUnswitchCostMultiplierRS4_RKNS_4LoopERKNS_8LoopInfoERKNS_13DominatorTreeENS_8ArrayRefIN12_GLOBAL__N_127NonTrivialUnswitchCandidateEEEE3$_0EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i89.i
-  %1300 = icmp ult i32 %spec.select.i.i.i.i90.i, 2
+  %1300 = icmp samesign ult i32 %spec.select.i.i.i.i90.i, 2
   br i1 %1300, label %_ZL31CalculateUnswitchCostMultiplierRKN4llvm11InstructionERKNS_4LoopERKNS_8LoopInfoERKNS_13DominatorTreeENS_8ArrayRefIN12_GLOBAL__N_127NonTrivialUnswitchCandidateEEE.exit.i, label %.critedge.i84.i
 
 .critedge.i84.i:                                  ; preds = %"_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZL31CalculateUnswitchCostMultiplierRS4_RKNS_4LoopERKNS_8LoopInfoERKNS_13DominatorTreeENS_8ArrayRefIN12_GLOBAL__N_127NonTrivialUnswitchCandidateEEEE3$_0EEDaOT_T0_.exit.i.i", %1289, %1282
@@ -9095,7 +9095,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i92:   ; preds = %1486, %1480
   %1514 = getelementptr inbounds nuw i8, ptr %1509, i64 8
   %1515 = load i32, ptr %1514, align 8, !noalias !170
   %1516 = lshr i32 %1515, 8
-  %1517 = icmp ult i32 %1513, %1516
+  %1517 = icmp samesign ult i32 %1513, %1516
   br i1 %1517, label %1518, label %1527
 
 1518:                                             ; preds = %1510
@@ -25934,7 +25934,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5eraseES3_.exit190.i: ; preds = %50
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i12.i.i.i
   %5319 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %5320 = lshr i64 %5319, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm10BasicBlockESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i, label %.lr.ph.i.i12.i.i.i, !llvm.loop !432
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm10BasicBlockESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i12.i.i.i, %5312
@@ -26156,7 +26156,7 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not.i.i.i.i.i.i738, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm10BasicBlockES2_EC2ES3_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i214.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i214.i, !llvm.loop !432
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i, %5410
@@ -27133,7 +27133,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit278.i: ; preds = %.lr.p
 select.unfold.i.i.i.i300.i:                       ; preds = %.lr.ph.i.i12.i.i297.i
   %5826 = add nuw nsw i64 %storemerge26.i.i.i.i298.i, 1
   %5827 = lshr i64 %5826, 1
-  %.not10.i.i.i.i301.i = icmp ult i64 %storemerge26.i.i.i.i298.i, 2
+  %.not10.i.i.i.i301.i = icmp samesign ult i64 %storemerge26.i.i.i.i298.i, 2
   br i1 %.not10.i.i.i.i301.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i, label %.lr.ph.i.i12.i.i297.i, !llvm.loop !448
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i300.i, %.lr.ph.i.i12.i.i297.i, %5819
@@ -35526,7 +35526,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   store ptr %3, ptr %6, align 8
   %23 = add nsw i64 %18, -1
   %24 = lshr i64 %23, 1
-  %25 = icmp ult i64 %20, %24
+  %25 = icmp samesign ult i64 %20, %24
   %26 = ptrtoint ptr %3 to i64
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 

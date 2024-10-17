@@ -454,7 +454,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %21 = add nuw nsw i64 %12, 1
   %22 = load i16, ptr @amd_northbridges.0, align 8
   %23 = zext i16 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %.preheader5, label %10, !llvm.loop !11
 
 .preheader3:                                      ; preds = %10, %.loopexit
@@ -463,7 +463,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
   store i32 0, ptr %1, align 4, !annotation !10
   %27 = zext i16 %25 to i64
-  %28 = icmp ult i64 %26, %27
+  %28 = icmp samesign ult i64 %26, %27
   %29 = load ptr, ptr @amd_northbridges.2, align 8
   %30 = getelementptr %struct.amd_northbridge, ptr %29, i64 %26
   %31 = select i1 %28, ptr %30, ptr null
@@ -479,7 +479,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %38 = load i16, ptr @amd_northbridges.0, align 8
   %39 = zext i16 %38 to i64
-  %40 = icmp ult i64 %26, %39
+  %40 = icmp samesign ult i64 %26, %39
   %41 = load ptr, ptr @amd_northbridges.2, align 8
   %42 = getelementptr %struct.amd_northbridge, ptr %41, i64 %26
   %43 = select i1 %40, ptr %42, ptr null
@@ -496,7 +496,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %50 = add nuw nsw i64 %26, 1
   %51 = load i16, ptr @amd_northbridges.0, align 8
   %52 = zext i16 %51 to i64
-  %53 = icmp ult i64 %50, %52
+  %53 = icmp samesign ult i64 %50, %52
   br i1 %53, label %.preheader3, label %.loopexit4, !llvm.loop !14
 
 .loopexit4:                                       ; preds = %.loopexit, %10
@@ -624,7 +624,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 64:                                               ; preds = %61, %57
   %65 = load i16, ptr @amd_northbridges.0, align 8
   %66 = zext i16 %65 to i64
-  %67 = icmp ult i64 %53, %66
+  %67 = icmp samesign ult i64 %53, %66
   %68 = load ptr, ptr @amd_northbridges.2, align 8
   %69 = getelementptr %struct.amd_northbridge, ptr %68, i64 %53
   %70 = select i1 %67, ptr %69, ptr null
@@ -645,7 +645,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 78:                                               ; preds = %75, %71
   %79 = load i16, ptr @amd_northbridges.0, align 8
   %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %53, %80
+  %81 = icmp samesign ult i64 %53, %80
   %82 = load ptr, ptr @amd_northbridges.2, align 8
   %83 = getelementptr %struct.amd_northbridge, ptr %82, i64 %53
   %84 = select i1 %81, ptr %83, ptr null
@@ -667,7 +667,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 93:                                               ; preds = %90, %86
   %94 = load i16, ptr @amd_northbridges.0, align 8
   %95 = zext i16 %94 to i64
-  %96 = icmp ult i64 %53, %95
+  %96 = icmp samesign ult i64 %53, %95
   %97 = load ptr, ptr @amd_northbridges.2, align 8
   %98 = getelementptr %struct.amd_northbridge, ptr %97, i64 %53
   %99 = select i1 %96, ptr %98, ptr null
@@ -705,7 +705,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   %.pre-phi = phi i64 [ %.pre34, %.loopexit14.loopexit ], [ %95, %93 ]
   %113 = phi ptr [ %105, %.loopexit14.loopexit ], [ %59, %93 ]
   %114 = add nuw nsw i64 %53, 1
-  %115 = icmp ult i64 %114, %.pre-phi
+  %115 = icmp samesign ult i64 %114, %.pre-phi
   br i1 %115, label %52, label %116, !llvm.loop !19
 
 116:                                              ; preds = %.loopexit14

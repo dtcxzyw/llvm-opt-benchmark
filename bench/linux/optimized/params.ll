@@ -1575,7 +1575,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nocapt
   %96 = load ptr, ptr %9, align 8
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %95, %98
+  %99 = icmp samesign ult i64 %95, %98
   br i1 %99, label %.preheader, label %.loopexit.loopexit, !llvm.loop !26
 
 .loopexit.loopexit:                               ; preds = %.preheader

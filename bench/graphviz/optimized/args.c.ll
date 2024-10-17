@@ -119,7 +119,7 @@ neato_extra_args.exit:                            ; preds = %40
   br label %159
 
 44:                                               ; preds = %neato_extra_args.exit
-  %45 = icmp ugt i32 %.1.i, 1
+  %45 = icmp samesign ugt i32 %.1.i, 1
   br i1 %45, label %.lr.ph.preheader.i24, label %config_extra_args.exit.thread
 
 .lr.ph.preheader.i24:                             ; preds = %44
@@ -308,7 +308,7 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   br label %159
 
 115:                                              ; preds = %fdp_extra_args.exit
-  %116 = icmp ugt i32 %.1.i29, 1
+  %116 = icmp samesign ugt i32 %.1.i29, 1
   br i1 %116, label %.lr.ph.i35, label %config_extra_args.exit.thread
 
 .lr.ph.i35:                                       ; preds = %115

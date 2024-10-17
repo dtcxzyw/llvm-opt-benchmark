@@ -314,7 +314,7 @@ define hidden noundef i32 @_ZN8IndexSet9lrg_unionEjjjPK8PhaseIFGRK7RegMask(ptr n
   %48 = phi i32 [ %27, %26 ], [ %.pre.i, %31 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %26, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !8
 
 _ZN8IndexSet5clearEv.exit:                        ; preds = %47, %6
@@ -832,7 +832,7 @@ _ZN8IndexSet11alloc_blockEv.exit:                 ; preds = %47, %_ZN8IndexSet18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %9, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %42, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %77, %37
@@ -914,7 +914,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %6, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %37, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %37, %34
@@ -985,7 +985,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %7, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %30, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %30, %27
@@ -1183,7 +1183,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr nocaptu
   %88 = phi i32 [ %40, %39 ], [ %.pre, %67 ], [ %40, %65 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next55, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next55, %89
   br i1 %90, label %39, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %87, %._crit_edge, %48, %11

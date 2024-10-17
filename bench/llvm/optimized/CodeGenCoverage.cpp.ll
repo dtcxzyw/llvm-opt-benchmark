@@ -452,7 +452,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %70
   %88 = lshr i32 %84, 6
   %89 = add i32 %85, -1
   %90 = lshr i32 %89, 6
-  %.not32.i.i.i.i = icmp ugt i32 %88, %90
+  %.not32.i.i.i.i = icmp samesign ugt i32 %88, %90
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %87

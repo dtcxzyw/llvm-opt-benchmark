@@ -4432,7 +4432,7 @@ define internal fastcc i32 @ssl_connect(ptr noundef %0, ptr noundef %1) unnamed_
 
 12:                                               ; preds = %9
   %13 = lshr i32 %11, 16
-  %14 = icmp ult i32 %13, %7
+  %14 = icmp samesign ult i32 %13, %7
   br i1 %14, label %ssl_prefs_check.exit, label %15
 
 ssl_prefs_check.exit:                             ; preds = %2, %12
@@ -4471,7 +4471,7 @@ define internal fastcc i32 @ssl_connect_nonblocking(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %8
   %12 = lshr i32 %10, 16
-  %13 = icmp ult i32 %12, %6
+  %13 = icmp samesign ult i32 %12, %6
   br i1 %13, label %ssl_prefs_check.exit, label %14
 
 ssl_prefs_check.exit:                             ; preds = %3, %11

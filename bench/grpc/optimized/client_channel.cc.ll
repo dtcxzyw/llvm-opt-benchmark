@@ -16332,7 +16332,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.040, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !214
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -16511,7 +16511,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.020, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !215
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit

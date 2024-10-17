@@ -584,7 +584,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %11, i32 %shr.i.i.i.i
   %12 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i47 = icmp ult i64 %indvars.iv, %12
+  %cmp.i.i47 = icmp samesign ult i64 %indvars.iv, %12
   br i1 %cmp.i.i47, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %for.inc
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %for.body
@@ -618,7 +618,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %21 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i52 = select i1 %cmp.i.i.i.i49, i32 %21, i32 %shr.i.i.i.i50
   %22 = zext i32 %cond.i.i.i52 to i64
-  %cmp.i.i53 = icmp ult i64 %indvars.iv73, %22
+  %cmp.i.i53 = icmp samesign ult i64 %indvars.iv73, %22
   br i1 %cmp.i.i53, label %_ZNK6icu_7513UnicodeString6charAtEi.exit62, label %for.inc40
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit62:       ; preds = %for.body27

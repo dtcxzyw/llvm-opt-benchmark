@@ -7550,7 +7550,7 @@ _ZN7journal11journal_dir17h5cc80d3483fcb1b4E.exit: ; preds = %152, %"_ZN4core3pt
   %231 = lshr i32 %230, 3
   %232 = and i32 %231, 1023
   %233 = zext nneg i32 %232 to i64
-  %234 = icmp ult i32 %232, 733
+  %234 = icmp samesign ult i32 %232, 733
   br i1 %234, label %238, label %235
 
 235:                                              ; preds = %.noexc86
@@ -7699,7 +7699,7 @@ _ZN7journal11journal_dir17h5cc80d3483fcb1b4E.exit: ; preds = %152, %"_ZN4core3pt
   %282 = lshr i32 %281, 3
   %283 = and i32 %282, 1023
   %284 = zext nneg i32 %283 to i64
-  %285 = icmp ult i32 %283, 733
+  %285 = icmp samesign ult i32 %283, 733
   br i1 %285, label %287, label %286
 
 286:                                              ; preds = %.noexc96
@@ -8274,14 +8274,14 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa35faf444da5e76E.exit: ; preds = %.no
   br i1 %447, label %.thread.i.i, label %448
 
 448:                                              ; preds = %446
-  %switch.i.i.i.i = icmp ult i8 %.pre244, 3
+  %switch.i.i.i.i = icmp samesign ult i8 %.pre244, 3
   %449 = load i8, ptr %394, align 8, !range !1617, !alias.scope !1613, !noalias !1616, !noundef !5
   %450 = icmp eq i8 %449, 6
   br i1 %450, label %._crit_edge.i.i, label %455
 
 .thread.i.i:                                      ; preds = %446
   %451 = load i8, ptr %394, align 8, !range !1617, !alias.scope !1613, !noalias !1616, !noundef !5
-  %switch.i.i3453.i.i = icmp ult i8 %451, 3
+  %switch.i.i3453.i.i = icmp samesign ult i8 %451, 3
   br i1 %switch.i.i3453.i.i, label %.thread264.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec1f3f7d0c6c346fE.exit.i.i"
 
 .thread264.thread:                                ; preds = %.thread.i.i
@@ -8294,7 +8294,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfa35faf444da5e76E.exit: ; preds = %.no
   br i1 %switch.i.i.i.i, label %.thread263, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec1f3f7d0c6c346fE.exit.i.i"
 
 455:                                              ; preds = %448
-  %switch.i.i34.i.i = icmp ult i8 %449, 3
+  %switch.i.i34.i.i = icmp samesign ult i8 %449, 3
   %456 = xor i1 %switch.i.i.i.i, %switch.i.i34.i.i
   br i1 %456, label %.thread263, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec1f3f7d0c6c346fE.exit.i.i"
 

@@ -301,7 +301,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %.1.i.i = phi double [ %79, %77 ], [ %.0711.i.i, %75 ]
   %81 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
   %82 = lshr i32 %.0810.i.i, 1
-  %.not.i.i = icmp ult i32 %.0810.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.0810.i.i, 2
   br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !8
 
 _ZL6_pow10j.exit.i:                               ; preds = %80
@@ -356,7 +356,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
   %.1.i96.i = phi double [ %101, %99 ], [ %.0711.i93.i, %.preheader.i ]
   %103 = getelementptr inbounds i8, ptr %.012.i92.i, i64 8
   %104 = lshr i32 %.0810.i94.i, 1
-  %.not.i97.i = icmp ult i32 %.0810.i94.i, 2
+  %.not.i97.i = icmp samesign ult i32 %.0810.i94.i, 2
   br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !8
 
 _ZL6_pow10j.exit98.i:                             ; preds = %102
@@ -380,7 +380,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
   %.1.i103.i = phi double [ %109, %107 ], [ %.0711.i100.i, %.preheader133.i ]
   %111 = getelementptr inbounds i8, ptr %.012.i99.i, i64 8
   %112 = lshr i32 %.0810.i101.i, 1
-  %.not.i104.i = icmp ult i32 %.0810.i101.i, 2
+  %.not.i104.i = icmp samesign ult i32 %.0810.i101.i, 2
   br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !8
 
 _ZL6_pow10j.exit105.i:                            ; preds = %110

@@ -483,7 +483,7 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %3, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %6, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %6
@@ -579,7 +579,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i, label %.thread41.i, label %20, !llvm.loop !10
 
 31:                                               ; preds = %25
-  %32 = icmp ugt i64 %indvars.iv.i, 2
+  %32 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %32, label %pausewrite.exit, label %._crit_edge.i
 
 .thread41.i:                                      ; preds = %30
@@ -726,7 +726,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i108, label %.thread41.i109, label %89, !llvm.loop !10
 
 99:                                               ; preds = %94
-  %100 = icmp ugt i64 %indvars.iv.i106, 2
+  %100 = icmp samesign ugt i64 %indvars.iv.i106, 2
   br i1 %100, label %pausewrite.exit, label %._crit_edge.i114
 
 .thread41.i109:                                   ; preds = %98
@@ -854,7 +854,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not.i121, label %.thread41.i122, label %149, !llvm.loop !10
 
 159:                                              ; preds = %154
-  %160 = icmp ugt i64 %indvars.iv.i119, 2
+  %160 = icmp samesign ugt i64 %indvars.iv.i119, 2
   br i1 %160, label %pausewrite.exit, label %._crit_edge.i127
 
 .thread41.i122:                                   ; preds = %158
@@ -949,7 +949,7 @@ define dso_local void @Curl_client_cleanup(ptr noundef %0) local_unnamed_addr #0
   %14 = add nuw nsw i64 %.020, 1
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %14, %16
+  %17 = icmp samesign ult i64 %14, %16
   br i1 %17, label %12, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %.preheader

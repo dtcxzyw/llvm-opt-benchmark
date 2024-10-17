@@ -15847,7 +15847,7 @@ ehcleanup1851:                                    ; preds = %ehcleanup1839, %ehc
 for.inc1856:                                      ; preds = %if.end1850, %for.body1778
   %481 = phi ptr [ %456, %for.body1778 ], [ %incdec.ptr.i.i, %if.end1850 ]
   %div568 = lshr i64 %size.02921, 1
-  %tobool1777.not = icmp ult i64 %size.02921, 2
+  %tobool1777.not = icmp samesign ult i64 %size.02921, 2
   br i1 %tobool1777.not, label %for.end1857, label %for.body1778, !llvm.loop !235
 
 for.end1857:                                      ; preds = %for.inc1856, %invoke.cont1770

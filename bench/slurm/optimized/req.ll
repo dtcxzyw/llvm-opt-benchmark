@@ -2064,7 +2064,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_request(i32 noundef %0, ptr
   %354 = phi i32 [ %338, %343 ], [ %338, %347 ], [ %338, %337 ], [ %.pre841.i, %351 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %355 = zext i32 %354 to i64
-  %356 = icmp ult i64 %indvars.iv.next.i, %355
+  %356 = icmp samesign ult i64 %indvars.iv.next.i, %355
   br i1 %356, label %337, label %.loopexit271.i, !llvm.loop !17
 
 .loopexit271.i:                                   ; preds = %353, %333, %331
@@ -2251,7 +2251,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_request(i32 noundef %0, ptr
   %indvars.iv.next814.i = add nuw nsw i64 %indvars.iv813.i, 1
   %436 = load i32, ptr %427, align 8
   %437 = zext i32 %436 to i64
-  %438 = icmp ult i64 %indvars.iv.next814.i, %437
+  %438 = icmp samesign ult i64 %indvars.iv.next814.i, %437
   br i1 %438, label %430, label %._crit_edge614.i, !llvm.loop !18
 
 ._crit_edge614.i:                                 ; preds = %430, %.preheader270.i
@@ -3801,7 +3801,7 @@ thread-pre-split.i:                               ; preds = %996, %.outer317._cr
   %1030 = phi i32 [ %1012, %.lr.ph769.i ], [ %.pre.i, %1017 ]
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %1031 = zext i32 %1030 to i64
-  %1032 = icmp ult i64 %indvars.iv.next.i98, %1031
+  %1032 = icmp samesign ult i64 %indvars.iv.next.i98, %1031
   br i1 %1032, label %.lr.ph769.i, label %.lr.ph770.split.us.i.preheader, !llvm.loop !33
 
 .lr.ph770.split.us.i.preheader:                   ; preds = %1029, %.preheader.i, %1002
@@ -4209,7 +4209,7 @@ thread-pre-split.i:                               ; preds = %996, %.outer317._cr
   %indvars.iv.next1113.i = add nuw nsw i64 %indvars.iv1112.i, 1
   %1189 = load i32, ptr %1003, align 8
   %1190 = zext i32 %1189 to i64
-  %1191 = icmp ult i64 %indvars.iv.next1113.i, %1190
+  %1191 = icmp samesign ult i64 %indvars.iv.next1113.i, %1190
   br i1 %1191, label %.lr.ph886.i, label %.loopexit312.i, !llvm.loop !40
 
 .loopexit312.i:                                   ; preds = %.loopexit.i, %.outer313._crit_edge.i, %thread-pre-split.i
@@ -5159,7 +5159,7 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
   %1556 = phi i32 [ %1540, %1545 ], [ %1540, %1549 ], [ %1540, %1539 ], [ %.pre.i148, %1553 ]
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i147, 1
   %1557 = zext i32 %1556 to i64
-  %1558 = icmp ult i64 %indvars.iv.next.i149, %1557
+  %1558 = icmp samesign ult i64 %indvars.iv.next.i149, %1557
   br i1 %1558, label %1539, label %._crit_edge.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %1555, %.preheader72.i
@@ -6795,7 +6795,7 @@ _handle_completion.exit:                          ; preds = %.split347.i, %2002,
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i168, 1
   %2169 = load i32, ptr %2027, align 8
   %2170 = zext i32 %2169 to i64
-  %2171 = icmp ult i64 %indvars.iv.next.i170, %2170
+  %2171 = icmp samesign ult i64 %indvars.iv.next.i170, %2170
   br i1 %2171, label %2052, label %_handle_state.exit, !llvm.loop !66
 
 2172:                                             ; preds = %90
@@ -6974,7 +6974,7 @@ _handle_completion.exit:                          ; preds = %.split347.i, %2002,
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i178, 1
   %2255 = load i32, ptr %2213, align 8
   %2256 = zext i32 %2255 to i64
-  %2257 = icmp ult i64 %indvars.iv.next.i180, %2256
+  %2257 = icmp samesign ult i64 %indvars.iv.next.i180, %2256
   br i1 %2257, label %2243, label %.loopexit.i181, !llvm.loop !68
 
 .loopexit.i181:                                   ; preds = %2253, %.preheader.i176

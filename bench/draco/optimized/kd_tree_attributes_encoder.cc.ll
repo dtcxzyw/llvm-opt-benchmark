@@ -1115,7 +1115,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
   %272 = phi i8 [ %263, %.lr.ph263 ], [ %.pre302, %269 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %273 = zext i8 %272 to i64
-  %274 = icmp ult i64 %indvars.iv.next, %273
+  %274 = icmp samesign ult i64 %indvars.iv.next, %273
   br i1 %274, label %.lr.ph263, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge, !llvm.loop !13
 
 _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge: ; preds = %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader
@@ -1205,7 +1205,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %311 = load i8, ptr %243, align 8
   %312 = zext i8 %311 to i64
-  %313 = icmp ult i64 %indvars.iv.next299, %312
+  %313 = icmp samesign ult i64 %indvars.iv.next299, %312
   br i1 %313, label %.lr.ph267, label %._crit_edge268, !llvm.loop !15
 
 ._crit_edge268:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %.preheader
@@ -2114,7 +2114,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %184 = load i8, ptr %147, align 8
   %185 = zext i8 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %186, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge.loopexit, !llvm.loop !22
 
 187:                                              ; preds = %149
@@ -5947,7 +5947,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %32 = load i8, ptr %10, align 8
   %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %32)
   %33 = zext i8 %.sroa.speculated.i to i64
-  %.not.i = icmp ult i64 %indvars.iv.next.i, %33
+  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !89
 
 ._crit_edge.i:                                    ; preds = %27, %9
@@ -5994,7 +5994,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %58 = load i8, ptr %36, align 8
   %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %58)
   %59 = zext i8 %.sroa.speculated.i52 to i64
-  %.not.i53 = icmp ult i64 %indvars.iv.next.i51, %59
+  %.not.i53 = icmp samesign ult i64 %indvars.iv.next.i51, %59
   br i1 %.not.i53, label %.lr.ph.i48, label %._crit_edge.i54, !llvm.loop !90
 
 ._crit_edge.i54:                                  ; preds = %53, %35
@@ -6041,7 +6041,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %84 = load i8, ptr %62, align 8
   %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %84)
   %85 = zext i8 %.sroa.speculated.i64 to i64
-  %.not.i65 = icmp ult i64 %indvars.iv.next.i63, %85
+  %.not.i65 = icmp samesign ult i64 %indvars.iv.next.i63, %85
   br i1 %.not.i65, label %.lr.ph.i60, label %._crit_edge.i66, !llvm.loop !91
 
 ._crit_edge.i66:                                  ; preds = %79, %61
@@ -6088,7 +6088,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %110 = load i8, ptr %88, align 8
   %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %110)
   %111 = zext i8 %.sroa.speculated.i76 to i64
-  %.not.i77 = icmp ult i64 %indvars.iv.next.i75, %111
+  %.not.i77 = icmp samesign ult i64 %indvars.iv.next.i75, %111
   br i1 %.not.i77, label %.lr.ph.i72, label %._crit_edge.i78, !llvm.loop !92
 
 ._crit_edge.i78:                                  ; preds = %105, %87
@@ -6134,7 +6134,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %135 = load i8, ptr %114, align 8
   %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %135)
   %136 = zext i8 %.sroa.speculated.i88 to i64
-  %.not.i89 = icmp ult i64 %indvars.iv.next.i87, %136
+  %.not.i89 = icmp samesign ult i64 %indvars.iv.next.i87, %136
   br i1 %.not.i89, label %.lr.ph.i84, label %._crit_edge.i90, !llvm.loop !93
 
 ._crit_edge.i90:                                  ; preds = %131, %113
@@ -6184,7 +6184,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %162 = load i8, ptr %139, align 8
   %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %162)
   %163 = zext i8 %.sroa.speculated.i100 to i64
-  %.not.i101 = icmp ult i64 %indvars.iv.next.i99, %163
+  %.not.i101 = icmp samesign ult i64 %indvars.iv.next.i99, %163
   br i1 %.not.i101, label %.lr.ph.i96, label %._crit_edge.i102, !llvm.loop !94
 
 ._crit_edge.i102:                                 ; preds = %159, %138
@@ -6236,7 +6236,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %190 = load i8, ptr %166, align 8
   %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %190)
   %191 = zext i8 %.sroa.speculated.i112 to i64
-  %.not.i113 = icmp ult i64 %indvars.iv.next.i111, %191
+  %.not.i113 = icmp samesign ult i64 %indvars.iv.next.i111, %191
   br i1 %.not.i113, label %.lr.ph.i108, label %._crit_edge.i114, !llvm.loop !95
 
 ._crit_edge.i114:                                 ; preds = %186, %165
@@ -6287,7 +6287,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %218 = load i8, ptr %194, align 8
   %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %218)
   %219 = zext i8 %.sroa.speculated.i124 to i64
-  %.not.i125 = icmp ult i64 %indvars.iv.next.i123, %219
+  %.not.i125 = icmp samesign ult i64 %indvars.iv.next.i123, %219
   br i1 %.not.i125, label %.lr.ph.i120, label %._crit_edge.i126, !llvm.loop !96
 
 ._crit_edge.i126:                                 ; preds = %214, %193
@@ -6366,7 +6366,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %262 = load i8, ptr %222, align 8
   %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %2, i8 %262)
   %263 = zext i8 %.sroa.speculated.i133 to i64
-  %.not.i134 = icmp ult i64 %indvars.iv.next.i132, %263
+  %.not.i134 = icmp samesign ult i64 %indvars.iv.next.i132, %263
   br i1 %.not.i134, label %236, label %._crit_edge.i135, !llvm.loop !97
 
 ._crit_edge.i135:                                 ; preds = %260, %221
@@ -6440,7 +6440,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %302 = load i8, ptr %266, align 8
   %.sroa.speculated.i147 = tail call i8 @llvm.umin.i8(i8 %2, i8 %302)
   %303 = zext i8 %.sroa.speculated.i147 to i64
-  %.not.i148 = icmp ult i64 %indvars.iv.next.i146, %303
+  %.not.i148 = icmp samesign ult i64 %indvars.iv.next.i146, %303
   br i1 %.not.i148, label %280, label %._crit_edge.i149, !llvm.loop !98
 
 ._crit_edge.i149:                                 ; preds = %300, %265
@@ -6488,7 +6488,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %329 = load i8, ptr %306, align 8
   %.sroa.speculated.i160 = tail call i8 @llvm.umin.i8(i8 %2, i8 %329)
   %330 = zext i8 %.sroa.speculated.i160 to i64
-  %.not.i161 = icmp ult i64 %indvars.iv.next.i159, %330
+  %.not.i161 = icmp samesign ult i64 %indvars.iv.next.i159, %330
   br i1 %.not.i161, label %.lr.ph.i156, label %._crit_edge.i162, !llvm.loop !99
 
 ._crit_edge.i162:                                 ; preds = %323, %305
@@ -6843,7 +6843,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %32 = load i8, ptr %10, align 8
   %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %32)
   %33 = zext i8 %.sroa.speculated.i to i64
-  %.not.i = icmp ult i64 %indvars.iv.next.i, %33
+  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !101
 
 ._crit_edge.i:                                    ; preds = %27, %9
@@ -6890,7 +6890,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %58 = load i8, ptr %36, align 8
   %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %58)
   %59 = zext i8 %.sroa.speculated.i52 to i64
-  %.not.i53 = icmp ult i64 %indvars.iv.next.i51, %59
+  %.not.i53 = icmp samesign ult i64 %indvars.iv.next.i51, %59
   br i1 %.not.i53, label %.lr.ph.i48, label %._crit_edge.i54, !llvm.loop !102
 
 ._crit_edge.i54:                                  ; preds = %53, %35
@@ -6937,7 +6937,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %84 = load i8, ptr %62, align 8
   %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %84)
   %85 = zext i8 %.sroa.speculated.i64 to i64
-  %.not.i65 = icmp ult i64 %indvars.iv.next.i63, %85
+  %.not.i65 = icmp samesign ult i64 %indvars.iv.next.i63, %85
   br i1 %.not.i65, label %.lr.ph.i60, label %._crit_edge.i66, !llvm.loop !103
 
 ._crit_edge.i66:                                  ; preds = %79, %61
@@ -6984,7 +6984,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %110 = load i8, ptr %88, align 8
   %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %110)
   %111 = zext i8 %.sroa.speculated.i76 to i64
-  %.not.i77 = icmp ult i64 %indvars.iv.next.i75, %111
+  %.not.i77 = icmp samesign ult i64 %indvars.iv.next.i75, %111
   br i1 %.not.i77, label %.lr.ph.i72, label %._crit_edge.i78, !llvm.loop !104
 
 ._crit_edge.i78:                                  ; preds = %105, %87
@@ -7030,7 +7030,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %135 = load i8, ptr %114, align 8
   %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %135)
   %136 = zext i8 %.sroa.speculated.i88 to i64
-  %.not.i89 = icmp ult i64 %indvars.iv.next.i87, %136
+  %.not.i89 = icmp samesign ult i64 %indvars.iv.next.i87, %136
   br i1 %.not.i89, label %.lr.ph.i84, label %._crit_edge.i90, !llvm.loop !105
 
 ._crit_edge.i90:                                  ; preds = %131, %113
@@ -7076,7 +7076,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %160 = load i8, ptr %139, align 8
   %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %160)
   %161 = zext i8 %.sroa.speculated.i100 to i64
-  %.not.i101 = icmp ult i64 %indvars.iv.next.i99, %161
+  %.not.i101 = icmp samesign ult i64 %indvars.iv.next.i99, %161
   br i1 %.not.i101, label %.lr.ph.i96, label %._crit_edge.i102, !llvm.loop !106
 
 ._crit_edge.i102:                                 ; preds = %156, %138
@@ -7127,7 +7127,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %188 = load i8, ptr %164, align 8
   %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %188)
   %189 = zext i8 %.sroa.speculated.i112 to i64
-  %.not.i113 = icmp ult i64 %indvars.iv.next.i111, %189
+  %.not.i113 = icmp samesign ult i64 %indvars.iv.next.i111, %189
   br i1 %.not.i113, label %.lr.ph.i108, label %._crit_edge.i114, !llvm.loop !107
 
 ._crit_edge.i114:                                 ; preds = %184, %163
@@ -7178,7 +7178,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %216 = load i8, ptr %192, align 8
   %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %216)
   %217 = zext i8 %.sroa.speculated.i124 to i64
-  %.not.i125 = icmp ult i64 %indvars.iv.next.i123, %217
+  %.not.i125 = icmp samesign ult i64 %indvars.iv.next.i123, %217
   br i1 %.not.i125, label %.lr.ph.i120, label %._crit_edge.i126, !llvm.loop !108
 
 ._crit_edge.i126:                                 ; preds = %212, %191
@@ -7252,7 +7252,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %257 = load i8, ptr %220, align 8
   %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %2, i8 %257)
   %258 = zext i8 %.sroa.speculated.i133 to i64
-  %.not.i134 = icmp ult i64 %indvars.iv.next.i132, %258
+  %.not.i134 = icmp samesign ult i64 %indvars.iv.next.i132, %258
   br i1 %.not.i134, label %234, label %._crit_edge.i135, !llvm.loop !109
 
 ._crit_edge.i135:                                 ; preds = %255, %219
@@ -7321,7 +7321,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %294 = load i8, ptr %261, align 8
   %.sroa.speculated.i145 = tail call i8 @llvm.umin.i8(i8 %2, i8 %294)
   %295 = zext i8 %.sroa.speculated.i145 to i64
-  %.not.i146 = icmp ult i64 %indvars.iv.next.i144, %295
+  %.not.i146 = icmp samesign ult i64 %indvars.iv.next.i144, %295
   br i1 %.not.i146, label %275, label %._crit_edge.i147, !llvm.loop !110
 
 ._crit_edge.i147:                                 ; preds = %292, %260
@@ -7369,7 +7369,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %321 = load i8, ptr %298, align 8
   %.sroa.speculated.i157 = tail call i8 @llvm.umin.i8(i8 %2, i8 %321)
   %322 = zext i8 %.sroa.speculated.i157 to i64
-  %.not.i158 = icmp ult i64 %indvars.iv.next.i156, %322
+  %.not.i158 = icmp samesign ult i64 %indvars.iv.next.i156, %322
   br i1 %.not.i158, label %.lr.ph.i153, label %._crit_edge.i159, !llvm.loop !111
 
 ._crit_edge.i159:                                 ; preds = %315, %297
@@ -7670,7 +7670,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %9, align 8
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next, %118
   br i1 %119, label %.lr.ph, label %.preheader, !llvm.loop !116
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195.split.preheader, %._crit_edge
@@ -7715,7 +7715,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   %142 = phi i32 [ %.pre229, %._crit_edge228 ], [ %128, %.lr.ph193 ]
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next223, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next223, %143
   br i1 %144, label %.lr.ph193, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %141, %.lr.ph195.split
@@ -8101,7 +8101,7 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %49 = load i32, ptr %25, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next70, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next70, %50
   br i1 %51, label %.lr.ph52.split.us, label %.preheader47, !llvm.loop !137
 
 .preheader47:                                     ; preds = %91, %48
@@ -8176,7 +8176,7 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load i32, ptr %25, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next, %93
   br i1 %94, label %.lr.ph52.split, label %.preheader47, !llvm.loop !137
 
 95:                                               ; preds = %.lr.ph56, %103
@@ -9474,7 +9474,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %8, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !149
 
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %._crit_edge
@@ -9519,7 +9519,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre249, %._crit_edge248 ], [ %133, %.lr.ph214 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next243, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next243, %148
   br i1 %149, label %.lr.ph214, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph216
@@ -10565,7 +10565,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %9, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !173
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195.split.preheader, %._crit_edge
@@ -10610,7 +10610,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre229, %._crit_edge228 ], [ %133, %.lr.ph193 ]
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next223, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next223, %148
   br i1 %149, label %.lr.ph193, label %._crit_edge, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph195.split
@@ -11618,7 +11618,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %8, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !196
 
 .lr.ph200.split:                                  ; preds = %.lr.ph200.split.preheader, %._crit_edge
@@ -11663,7 +11663,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre234, %._crit_edge233 ], [ %133, %.lr.ph198 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next228, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next228, %148
   br i1 %149, label %.lr.ph198, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph200.split
@@ -12661,7 +12661,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %9, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !219
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195.split.preheader, %._crit_edge
@@ -12706,7 +12706,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre229, %._crit_edge228 ], [ %133, %.lr.ph193 ]
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next223, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next223, %148
   br i1 %149, label %.lr.ph193, label %._crit_edge, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph195.split
@@ -13714,7 +13714,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %8, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !242
 
 .lr.ph200.split:                                  ; preds = %.lr.ph200.split.preheader, %._crit_edge
@@ -13759,7 +13759,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre234, %._crit_edge233 ], [ %133, %.lr.ph198 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next228, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next228, %148
   br i1 %149, label %.lr.ph198, label %._crit_edge, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph200.split
@@ -14755,7 +14755,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %9, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next, %123
   br i1 %124, label %.lr.ph, label %.preheader, !llvm.loop !265
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195.split.preheader, %._crit_edge
@@ -14800,7 +14800,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   %147 = phi i32 [ %.pre229, %._crit_edge228 ], [ %133, %.lr.ph193 ]
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next223, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next223, %148
   br i1 %149, label %.lr.ph193, label %._crit_edge, !llvm.loop !272
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph195.split

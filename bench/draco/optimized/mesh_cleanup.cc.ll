@@ -350,7 +350,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   %71 = sdiv exact i64 %70, 12
   %72 = trunc i64 %71 to i32
   %73 = and i64 %71, 4294967295
-  %74 = icmp ult i64 %indvars.iv.next55, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next55, %73
   br i1 %74, label %19, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %65
@@ -663,7 +663,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   %108 = sub i64 %106, %107
   %109 = sdiv exact i64 %108, 12
   %110 = and i64 %109, 4294967295
-  %111 = icmp ult i64 %indvars.iv.next, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %111, label %.backedge.backedge, label %._crit_edge58
 
 .backedge.backedge:                               ; preds = %103, %.thread
@@ -680,7 +680,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   %114 = sub i64 %112, %113
   %115 = sdiv exact i64 %114, 12
   %116 = and i64 %115, 4294967295
-  %117 = icmp ult i64 %indvars.iv.next93, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next93, %116
   br i1 %117, label %.backedge.backedge, label %._crit_edge58.thread
 
 ._crit_edge58:                                    ; preds = %103
@@ -830,7 +830,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %38
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 12
   %45 = and i64 %44, 4294967295
-  %46 = icmp ult i64 %indvars.iv.next271, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next271, %45
   br i1 %46, label %.lr.ph, label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge, !llvm.loop !22
 
 _ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge:   ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader
@@ -914,7 +914,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %81 = sub i64 %79, %80
   %82 = sdiv exact i64 %81, 12
   %83 = and i64 %82, 4294967295
-  %84 = icmp ult i64 %indvars.iv.next287, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next287, %83
   br i1 %84, label %.lr.ph235, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %.preheader218
@@ -1096,7 +1096,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   %156 = ashr exact i64 %155, 2
   %157 = icmp ult i64 %156, 2305843009213693952
   call void @llvm.assume(i1 %157)
-  %.not28.i.i = icmp ult i64 %156, %150
+  %.not28.i.i = icmp samesign ult i64 %156, %150
   %158 = shl nuw nsw i64 %150, 2
   br i1 %.not28.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, label %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i
 
@@ -1147,7 +1147,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   %171 = getelementptr inbounds %"class.draco::IndexType", ptr %.sroa.0155.3, i64 %indvars.iv294
   store i32 %.3209241, ptr %171, align 4
   %172 = zext i32 %.3209241 to i64
-  %173 = icmp ugt i64 %indvars.iv294, %172
+  %173 = icmp samesign ugt i64 %indvars.iv294, %172
   br i1 %173, label %174, label %187
 
 174:                                              ; preds = %170
@@ -1176,7 +1176,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   %.4210 = phi i32 [ %.3209241, %166 ], [ %188, %187 ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next295, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next295, %191
   br i1 %192, label %166, label %._crit_edge244, !llvm.loop !28
 
 ._crit_edge244:                                   ; preds = %189, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit

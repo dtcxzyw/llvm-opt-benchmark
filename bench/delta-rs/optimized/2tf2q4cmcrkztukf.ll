@@ -4536,15 +4536,15 @@ _ZN4core3str11validations15next_code_point17h35aa9421c1b437a8E.exit.thread.i.i.i
   br i1 %202, label %.loopexit205.loopexit, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %204 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %204, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %205
 
 205:                                              ; preds = %203
-  %206 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %206 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %206, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %208 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %208, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 

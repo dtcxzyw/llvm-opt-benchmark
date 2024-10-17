@@ -370,7 +370,7 @@ write_to_file.exit:                               ; preds = %62, %64
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %73 = load i32, ptr %70, align 8
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next88, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next88, %74
   br i1 %75, label %.lr.ph83, label %.loopexit, !llvm.loop !6
 
 .lr.ph83:                                         ; preds = %.preheader, %72

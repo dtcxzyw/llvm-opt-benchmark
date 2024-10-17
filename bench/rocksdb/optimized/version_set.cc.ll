@@ -16231,7 +16231,7 @@ for.body73.lr.ph:                                 ; preds = %_ZNK7rocksdb15Multi
 for.body73:                                       ; preds = %for.body73.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit133
   %indvars.iv = phi i64 [ 0, %for.body73.lr.ph ], [ %indvars.iv.next, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit133 ]
   %iter66.sroa.4.0655 = phi i64 [ %iter66.sroa.4.2, %for.body73.lr.ph ], [ %inc.i124.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit133 ]
-  %cmp.i111 = icmp ult i64 %indvars.iv, 16
+  %cmp.i111 = icmp samesign ult i64 %indvars.iv, 16
   %46 = load ptr, ptr %values_.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.rocksdb::GetContext", ptr %46, i64 %indvars.iv
   %47 = load ptr, ptr %vect_.i, align 8
@@ -18379,7 +18379,7 @@ for.body.lr.ph:                                   ; preds = %_ZN7rocksdb10autove
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %cmp.i4 = icmp ult i64 %indvars.iv, 8
+  %cmp.i4 = icmp samesign ult i64 %indvars.iv, 8
   %12 = load ptr, ptr %values_.i5, align 8
   %arrayidx.i6 = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %vect_.i, align 16
@@ -18782,7 +18782,7 @@ if.then28:                                        ; preds = %for.body22
   br label %for.inc52
 
 if.else:                                          ; preds = %for.body22
-  %cmp32 = icmp ugt i64 %indvars.iv120, 1
+  %cmp32 = icmp samesign ugt i64 %indvars.iv120, 1
   br i1 %cmp32, label %if.then33, label %if.else45
 
 if.then33:                                        ; preds = %if.else
@@ -21319,7 +21319,7 @@ if.then.i.i:                                      ; preds = %for.inc.i.i.i.i.i.i
           to label %.noexc unwind label %_ZNSt6vectorIN7rocksdb14FdWithKeyRangeESaIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i
-  %cmp.i1.i.i = icmp ugt i64 %__cur.09.i.i.i.i.i.i.idx, 1200
+  %cmp.i1.i.i = icmp samesign ugt i64 %__cur.09.i.i.i.i.i.i.idx, 1200
   br i1 %cmp.i1.i.i, label %if.then.i.i.i14, label %if.else.i.i.i
 
 if.then.i.i.i14:                                  ; preds = %.noexc
@@ -29201,7 +29201,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -31985,7 +31985,7 @@ for.cond89:                                       ; preds = %for.body94
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.cond89
   %indvars.iv = phi i64 [ 0, %for.body94.lr.ph ], [ %indvars.iv.next, %for.cond89 ]
-  %cmp.i302 = icmp ult i64 %indvars.iv, 8
+  %cmp.i302 = icmp samesign ult i64 %indvars.iv, 8
   %retval.0.i307.v = select i1 %cmp.i302, ptr %70, ptr %invariant.gep2107
   %retval.0.i307 = getelementptr ptr, ptr %retval.0.i307.v, i64 %indvars.iv
   %85 = load ptr, ptr %retval.0.i307, align 8
@@ -32815,7 +32815,7 @@ for.body243:                                      ; preds = %for.body243.lr.ph, 
   %add.ptr.i633 = getelementptr inbounds %"class.std::unique_ptr.719", ptr %.pre2268, i64 %indvars.iv2254
   %198 = load ptr, ptr %add.ptr.i633, align 8
   %199 = load ptr, ptr %198, align 8
-  %cmp.i634 = icmp ult i64 %indvars.iv2254, 8
+  %cmp.i634 = icmp samesign ult i64 %indvars.iv2254, 8
   %200 = load ptr, ptr %values_.i168, align 8
   %arrayidx.i636 = getelementptr inbounds ptr, ptr %200, i64 %indvars.iv2254
   %201 = getelementptr ptr, ptr %197, i64 %indvars.iv2254
@@ -33396,7 +33396,7 @@ for.body410.lr.ph:                                ; preds = %for.cond405.prehead
 for.body410:                                      ; preds = %for.body410.lr.ph, %for.inc447
   %indvars.iv2257 = phi i64 [ 0, %for.body410.lr.ph ], [ %indvars.iv.next2258, %for.inc447 ]
   %282 = phi ptr [ %281, %for.body410.lr.ph ], [ %314, %for.inc447 ]
-  %cmp.i765 = icmp ult i64 %indvars.iv2257, 8
+  %cmp.i765 = icmp samesign ult i64 %indvars.iv2257, 8
   %283 = load ptr, ptr %values_.i168, align 8
   %arrayidx.i767 = getelementptr inbounds ptr, ptr %283, i64 %indvars.iv2257
   %284 = getelementptr ptr, ptr %282, i64 %indvars.iv2257
@@ -33953,7 +33953,7 @@ for.cond522.preheader:                            ; preds = %invoke.cont516
 for.body527:                                      ; preds = %for.cond522.preheader, %for.inc535
   %indvars.iv2260 = phi i64 [ %indvars.iv.next2261, %for.inc535 ], [ 0, %for.cond522.preheader ]
   %378 = phi ptr [ %389, %for.inc535 ], [ %377, %for.cond522.preheader ]
-  %cmp.i923 = icmp ult i64 %indvars.iv2260, 8
+  %cmp.i923 = icmp samesign ult i64 %indvars.iv2260, 8
   %379 = load ptr, ptr %values_.i168, align 8
   %arrayidx.i925 = getelementptr inbounds ptr, ptr %379, i64 %indvars.iv2260
   %380 = getelementptr ptr, ptr %378, i64 %indvars.iv2260
@@ -35699,7 +35699,7 @@ if.end886:                                        ; preds = %invoke.cont815, %if
 for.body893:                                      ; preds = %if.end886, %for.inc903
   %indvars.iv2263 = phi i64 [ %indvars.iv.next2264, %for.inc903 ], [ 0, %if.end886 ]
   %622 = phi ptr [ %636, %for.inc903 ], [ %621, %if.end886 ]
-  %cmp.i1559 = icmp ult i64 %indvars.iv2263, 8
+  %cmp.i1559 = icmp samesign ult i64 %indvars.iv2263, 8
   %623 = load ptr, ptr %values_.i168, align 8
   %arrayidx.i1561 = getelementptr inbounds ptr, ptr %623, i64 %indvars.iv2263
   %624 = getelementptr ptr, ptr %622, i64 %indvars.iv2263
@@ -39601,7 +39601,7 @@ cond.end.sink.split:                              ; preds = %cond.true, %invoke.
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.sink.split, %cond.false
-  %cmp.i = icmp ult i64 %indvars.iv, 8
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 8
   %20 = load ptr, ptr %values_.i49, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %vect_.i37, align 8
@@ -56828,7 +56828,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

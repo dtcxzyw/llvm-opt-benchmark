@@ -489,7 +489,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr %tempcount, align 8
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
@@ -586,7 +586,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %do.end.thread.i, label %for.body.i, !llvm.loop !9
 
 do.end.i:                                         ; preds = %land.lhs.true.i
-  %cmp17.i = icmp ugt i64 %indvars.iv.i, 2
+  %cmp17.i = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp17.i, label %return, label %if.end39.i
 
 do.end.thread.i:                                  ; preds = %for.inc.i
@@ -733,7 +733,7 @@ for.inc.i69:                                      ; preds = %land.lhs.true.i94, 
   br i1 %exitcond.not.i71, label %do.end.thread.i72, label %for.body.i64, !llvm.loop !9
 
 do.end.i97:                                       ; preds = %land.lhs.true.i94
-  %cmp17.i98 = icmp ugt i64 %indvars.iv.i65, 2
+  %cmp17.i98 = icmp samesign ugt i64 %indvars.iv.i65, 2
   br i1 %cmp17.i98, label %return, label %if.end39.i84
 
 do.end.thread.i72:                                ; preds = %for.inc.i69
@@ -861,7 +861,7 @@ for.inc.i112:                                     ; preds = %land.lhs.true.i137,
   br i1 %exitcond.not.i114, label %do.end.thread.i115, label %for.body.i107, !llvm.loop !9
 
 do.end.i140:                                      ; preds = %land.lhs.true.i137
-  %cmp17.i141 = icmp ugt i64 %indvars.iv.i108, 2
+  %cmp17.i141 = icmp samesign ugt i64 %indvars.iv.i108, 2
   br i1 %cmp17.i141, label %return, label %if.end39.i127
 
 do.end.thread.i115:                               ; preds = %for.inc.i112
@@ -957,7 +957,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw nsw i64 %i.020, 1
   %5 = load i32, ptr %tempcount, align 8
   %conv = zext i32 %5 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

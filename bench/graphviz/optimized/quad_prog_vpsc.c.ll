@@ -473,7 +473,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 ._crit_edge239:                                   ; preds = %54, %.preheader213
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %56 = icmp ult i64 %indvars.iv.next282, %40
+  %56 = icmp samesign ult i64 %indvars.iv.next282, %40
   br i1 %56, label %.preheader213, label %._crit_edge241
 
 ._crit_edge241:                                   ; preds = %._crit_edge239, %37

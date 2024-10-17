@@ -405,7 +405,7 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
   %60 = lshr i64 %59, 32
   %61 = trunc nuw i64 %60 to i32
   %62 = and i32 %61, 63
-  %63 = icmp ult i32 %62, 4
+  %63 = icmp samesign ult i32 %62, 4
   br i1 %63, label %switch.lookup, label %64
 
 64:                                               ; preds = %54

@@ -394,7 +394,7 @@ define internal fastcc void @json_dumper_bad(ptr nocapture noundef %0, ptr nound
   %19 = getelementptr [1100 x i8], ptr %17, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 7
-  %22 = icmp ult i8 %21, 5
+  %22 = icmp samesign ult i8 %21, 5
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %14
@@ -421,7 +421,7 @@ json_dumper_get_prev_state.exit:                  ; preds = %30
   %34 = getelementptr [1100 x i8], ptr %17, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 7
-  %37 = icmp ult i8 %36, 5
+  %37 = icmp samesign ult i8 %36, 5
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %json_dumper_get_prev_state.exit

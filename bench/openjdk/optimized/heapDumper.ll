@@ -4118,7 +4118,7 @@ _ZN23HierarchicalFieldStreamI15JavaFieldStreamEC2EP13InstanceKlass.exit: ; preds
   %117 = add nsw i32 %113, 1
   %118 = icmp sgt i32 %113, -1
   %119 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %117)
-  %120 = icmp ult i32 %119, 2
+  %120 = icmp samesign ult i32 %119, 2
   %or.cond.i.i.i.i.i = select i1 %118, i1 %120, i1 false
   %121 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %117, i1 true)
   %122 = sub nuw nsw i32 32, %121
@@ -4146,7 +4146,7 @@ _ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE4pushERKc.exit: ; preds = %1
   %134 = add nsw i32 %130, 1
   %135 = icmp sgt i32 %130, -1
   %136 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %134)
-  %137 = icmp ult i32 %136, 2
+  %137 = icmp samesign ult i32 %136, 2
   %or.cond.i.i.i.i.i10 = select i1 %135, i1 %137, i1 false
   %138 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %134, i1 true)
   %139 = sub nuw nsw i32 32, %138
@@ -7262,7 +7262,7 @@ define hidden void @_ZN12ThreadDumperC2ENS_10ThreadTypeEP10JavaThreadP7oopDesc(p
   %48 = add nsw i32 %43, 1
   %49 = icmp sgt i32 %43, -1
   %50 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %48)
-  %51 = icmp ult i32 %50, 2
+  %51 = icmp samesign ult i32 %50, 2
   %or.cond.i.i.i.i = select i1 %49, i1 %51, i1 false
   %52 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %53 = sub nuw nsw i32 32, %52
@@ -8999,7 +8999,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %88, %94
   %107 = add nsw i32 %99, 1
   %108 = icmp sgt i32 %99, -1
   %109 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %107)
-  %110 = icmp ult i32 %109, 2
+  %110 = icmp samesign ult i32 %109, 2
   %or.cond.i.i.i.i.i = select i1 %108, i1 %110, i1 false
   %111 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
   %112 = sub nuw nsw i32 32, %111
@@ -9726,7 +9726,7 @@ _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %183, %_ZN5Bytes1
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %215 = icmp ult i64 %.0.idx11.i.i.i.i, 8240
+  %215 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 8240
   br i1 %215, label %.preheader.i.i, label %_ZN17ResourceHashtableIP13InstanceKlassP26DumperClassCacheTableEntryLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS23EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSA_SA_EEED2Ev.exit.i.i, !llvm.loop !46
 
 _ZN17ResourceHashtableIP13InstanceKlassP26DumperClassCacheTableEntryLj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS23EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSA_SA_EEED2Ev.exit.i.i: ; preds = %._crit_edge.i.i.i.i
@@ -10387,7 +10387,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10HeapDumper4dumpEPKcP12outputStr
   %19 = tail call noundef i64 @_ZN2os11free_memoryEv() #19
   %20 = udiv i64 %19, 20971520
   %21 = zext i32 %5 to i64
-  %22 = icmp ult i64 %20, %21
+  %22 = icmp samesign ult i64 %20, %21
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %18
@@ -12193,7 +12193,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EPK5ArrayIhEP12ConstantPo
   %23 = add nsw i32 %18, 1
   %24 = icmp sgt i32 %18, -1
   %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %or.cond.i.i.i.i.i.i = select i1 %24, i1 %26, i1 false
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %28 = sub nuw nsw i32 32, %27
@@ -16940,7 +16940,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

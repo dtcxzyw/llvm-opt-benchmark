@@ -1319,7 +1319,7 @@ define hidden void @"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_inline1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %11 = load i64, ptr %10, align 8, !range !62, !alias.scope !103, !noundef !4
-  %switch.i.i = icmp ult i64 %11, 2
+  %switch.i.i = icmp samesign ult i64 %11, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17ha144c93a8433b2a9E.exit", label %12
 
 12:                                               ; preds = %"_ZN10rayon_core4join12join_context6call_b28_$u7b$$u7b$closure$u7d$$u7d$17hb4443dc66c28c9faE.llvm.14583280071648273458.exit"
@@ -1403,7 +1403,7 @@ define hidden void @"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_inline1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %13 = load i64, ptr %12, align 8, !range !62, !alias.scope !114, !noundef !4
-  %switch.i.i = icmp ult i64 %13, 2
+  %switch.i.i = icmp samesign ult i64 %13, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17ha144c93a8433b2a9E.exit", label %14
 
 14:                                               ; preds = %"_ZN10rayon_core4join12join_context6call_b28_$u7b$$u7b$closure$u7d$$u7d$17h519966c50acd63d1E.llvm.14583280071648273458.exit"
@@ -1494,7 +1494,7 @@ define hidden void @"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_inline1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %20 = load i64, ptr %1, align 8, !range !62, !alias.scope !132, !noundef !4
-  %switch.i.i = icmp ult i64 %20, 2
+  %switch.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr202drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$$GT$17h8f0faba68d1b4358E.exit", label %21
 
 21:                                               ; preds = %19
@@ -9128,7 +9128,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 1
-  %.not4 = icmp ult i64 %15, %18
+  %.not4 = icmp samesign ult i64 %15, %18
   br i1 %.not4, label %19, label %51
 
 19:                                               ; preds = %10
@@ -19767,9 +19767,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17hf298834eb0b62a1f
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -20805,7 +20805,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !4681)
   %18 = load i64, ptr %17, align 8, !range !62, !alias.scope !4681, !noundef !4
-  %switch.i = icmp ult i64 %18, 2
+  %switch.i = icmp samesign ult i64 %18, 2
   br i1 %switch.i, label %"_ZN4core3ptr63drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$17h94181574277d5436E.exit", label %19
 
 19:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h1ba04fcb2c0d2d39E.exit"
@@ -21006,7 +21006,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !4705)
   %17 = load i64, ptr %16, align 8, !range !62, !alias.scope !4705, !noundef !4
-  %switch.i = icmp ult i64 %17, 2
+  %switch.i = icmp samesign ult i64 %17, 2
   br i1 %switch.i, label %"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hc91d3bdaf33ddf85E.exit", label %18
 
 18:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h93d077143b4a3e65E.exit"
@@ -22022,7 +22022,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %18 = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.experimental.noalias.scope.decl(metadata !4842)
   %19 = load i64, ptr %18, align 8, !range !62, !alias.scope !4842, !noundef !4
-  %switch.i = icmp ult i64 %19, 2
+  %switch.i = icmp samesign ult i64 %19, 2
   br i1 %switch.i, label %"_ZN4core3ptr300drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$17h0a769d844df1093dE.exit", label %20
 
 20:                                               ; preds = %17
@@ -22801,7 +22801,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !4940)
   %17 = load i64, ptr %16, align 8, !range !62, !alias.scope !4940, !noundef !4
-  %switch.i = icmp ult i64 %17, 2
+  %switch.i = icmp samesign ult i64 %17, 2
   br i1 %switch.i, label %"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hc91d3bdaf33ddf85E.exit", label %18
 
 18:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17hdf2ffc19f37bf04fE.exit"
@@ -22931,7 +22931,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !4950)
   %17 = load i64, ptr %16, align 8, !range !62, !alias.scope !4950, !noundef !4
-  %switch.i = icmp ult i64 %17, 2
+  %switch.i = icmp samesign ult i64 %17, 2
   br i1 %switch.i, label %"_ZN4core3ptr63drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$17h94181574277d5436E.exit", label %18
 
 18:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h77967d27ea8c2a61E.exit"
@@ -23135,7 +23135,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %17 = getelementptr inbounds i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !4974)
   %18 = load i64, ptr %17, align 8, !range !62, !alias.scope !4974, !noundef !4
-  %switch.i = icmp ult i64 %18, 2
+  %switch.i = icmp samesign ult i64 %18, 2
   br i1 %switch.i, label %"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hc91d3bdaf33ddf85E.exit", label %19
 
 19:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17hd390d001dc57ab74E.exit"
@@ -23674,7 +23674,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %19 = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.experimental.noalias.scope.decl(metadata !5037)
   %20 = load i64, ptr %19, align 8, !range !62, !alias.scope !5037, !noundef !4
-  %switch.i = icmp ult i64 %20, 2
+  %switch.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i, label %"_ZN4core3ptr300drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$17h0a769d844df1093dE.exit", label %21
 
 21:                                               ; preds = %18
@@ -23916,7 +23916,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !5050
   call void @llvm.experimental.noalias.scope.decl(metadata !5059)
   %17 = load i64, ptr %0, align 8, !range !62, !alias.scope !5059, !noundef !4
-  %switch.i = icmp ult i64 %17, 2
+  %switch.i = icmp samesign ult i64 %17, 2
   br i1 %switch.i, label %"_ZN4core3ptr172drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h93ea1d1700fa95d7E.exit", label %18
 
 18:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h6e23bab64f694879E.exit"
@@ -24227,7 +24227,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   %17 = getelementptr inbounds i8, ptr %0, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !5093)
   %18 = load i64, ptr %17, align 8, !range !62, !alias.scope !5093, !noundef !4
-  %switch.i = icmp ult i64 %18, 2
+  %switch.i = icmp samesign ult i64 %18, 2
   br i1 %switch.i, label %"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hc91d3bdaf33ddf85E.exit", label %19
 
 19:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h76235049ae41df84E.exit"
@@ -27116,7 +27116,7 @@ define void @_ZN6ide_db16active_parameter20generic_def_for_node17h5d1dc8870fe3a7
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h0b20ca25cf8aa4a3E.exit83": ; preds = %67, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %81 = icmp ult i8 %65, 11
+  %81 = icmp samesign ult i8 %65, 11
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h0b20ca25cf8aa4a3E.exit83"
@@ -30178,9 +30178,9 @@ default.unreachable1193:                          ; preds = %"_ZN4core3ptr161dro
   unreachable
 
 77:                                               ; preds = %4
-  %78 = icmp ult i64 %73, 5
+  %78 = icmp samesign ult i64 %73, 5
   tail call void @llvm.assume(i1 %78)
-  %79 = icmp ult i64 %73, 3
+  %79 = icmp samesign ult i64 %73, 3
   br i1 %79, label %80, label %.thread1199
 
 80:                                               ; preds = %77

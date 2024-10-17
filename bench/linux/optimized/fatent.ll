@@ -456,7 +456,7 @@ define internal fastcc i32 @fat_mirror_bhs(ptr nocapture noundef readonly %0, pt
   %78 = add nuw nsw i64 %18, 1
   %79 = load i8, ptr %6, align 8
   %80 = zext i8 %79 to i64
-  %81 = icmp ult i64 %78, %80
+  %81 = icmp samesign ult i64 %78, %80
   br i1 %81, label %.preheader.us, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.thread.us, %75, %9, %3
@@ -2117,7 +2117,7 @@ define internal range(i32 0, 268435456) i32 @fat32_ent_get(ptr nocapture noundef
 
 9:                                                ; preds = %8, %1
   %10 = and i32 %4, 268435455
-  %11 = icmp ugt i32 %10, 268435446
+  %11 = icmp samesign ugt i32 %10, 268435446
   %12 = select i1 %11, i32 268435455, i32 %10
   ret i32 %12
 }
@@ -2555,7 +2555,7 @@ define internal range(i32 0, 268435456) i32 @fat12_ent_get(ptr nocapture noundef
   %28 = phi i32 [ %16, %6 ], [ %26, %17 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @fat12_entry_lock) #9
   %29 = and i32 %28, 4095
-  %30 = icmp ugt i32 %29, 4086
+  %30 = icmp samesign ugt i32 %29, 4086
   %31 = select i1 %30, i32 268435455, i32 %29
   ret i32 %31
 }

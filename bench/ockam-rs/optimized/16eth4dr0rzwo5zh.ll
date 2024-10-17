@@ -1017,7 +1017,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %210 = getelementptr inbounds ptr, ptr %208, i64 %184
   store ptr %168, ptr %210, align 8, !alias.scope !141, !noalias !144
   store i16 %183, ptr %176, align 2, !noalias !144
-  %211 = icmp ult i64 %184, %209
+  %211 = icmp samesign ult i64 %184, %209
   br i1 %211, label %.lr.ph.i.i.i.preheader, label %.thread80
 
 .lr.ph.i.i.i.preheader:                           ; preds = %207
@@ -1788,7 +1788,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %204 = getelementptr inbounds ptr, ptr %202, i64 %181
   store ptr %164, ptr %204, align 8, !alias.scope !312, !noalias !315
   store i16 %179, ptr %172, align 2, !noalias !315
-  %205 = icmp ult i64 %181, %203
+  %205 = icmp samesign ult i64 %181, %203
   br i1 %205, label %.lr.ph.i.i.i.preheader, label %.thread77
 
 .lr.ph.i.i.i.preheader:                           ; preds = %201

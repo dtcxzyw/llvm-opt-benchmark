@@ -3187,7 +3187,7 @@ _ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit: ; preds = %2, 
   %67 = load ptr, ptr %6, align 8
   %68 = load ptr, ptr %37, align 8
   %69 = call i16 @_ZNK4llvm16IndexedReference15hasSpacialReuseERKS0_jRNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(112) %67, ptr noundef nonnull align 8 dereferenceable(112) %61, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(56) %68)
-  %.not112 = icmp ult i16 %66, 256
+  %.not112 = icmp samesign ult i16 %66, 256
   br i1 %.not112, label %72, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -3195,7 +3195,7 @@ _ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit: ; preds = %2, 
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70, %.lr.ph
-  %.not113 = icmp ult i16 %69, 256
+  %.not113 = icmp samesign ult i16 %69, 256
   br i1 %.not113, label %127, label %73
 
 73:                                               ; preds = %72
@@ -4044,7 +4044,7 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIPSt4pairIPKN4llvm4LoopElEN9
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIPKN4llvm4LoopElES5_EC2ES6_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !83
 
 12:                                               ; preds = %.lr.ph.i.i

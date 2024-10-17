@@ -1453,7 +1453,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %103
   br i1 %441, label %.lr.ph501, label %._crit_edge502
 
 .lr.ph501:                                        ; preds = %.preheader
-  %.not = icmp ult i64 %indvars.iv541, %438
+  %.not = icmp samesign ult i64 %indvars.iv541, %438
   br i1 %.not, label %.lr.ph501.split.us, label %.lr.ph501.split
 
 .lr.ph501.split.us:                               ; preds = %.lr.ph501, %.lr.ph501.split.us
@@ -1483,7 +1483,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %103
   br i1 %457, label %458, label %462
 
 458:                                              ; preds = %.lr.ph501.split
-  %.not366 = icmp uge i64 %indvars.iv535, %437
+  %.not366 = icmp samesign uge i64 %indvars.iv535, %437
   %459 = sub nsw i32 %453, %434
   %460 = sext i32 %459 to i64
   %461 = icmp slt i64 %indvars.iv535, %460

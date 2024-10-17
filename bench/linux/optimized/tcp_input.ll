@@ -440,7 +440,7 @@ define dso_local void @tcp_enter_loss(ptr noundef %0) local_unnamed_addr #2 alig
   %4 = getelementptr inbounds i8, ptr %0, i64 1208
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 31
-  %7 = icmp ult i8 %6, 3
+  %7 = icmp samesign ult i8 %6, 3
   %8 = getelementptr inbounds i8, ptr %0, i64 352
   %9 = tail call ptr @rb_first(ptr noundef %8) #20
   %10 = icmp eq ptr %9, null
@@ -1406,7 +1406,7 @@ define internal fastcc noundef zeroext i1 @tcp_ack_update_rtt(ptr noundef %0, i3
   %52 = getelementptr inbounds i8, ptr %51, i64 720
   %53 = load volatile i32, ptr %52, align 16
   %54 = mul i32 %53, 1000
-  %55 = icmp ult i32 %1, 65536
+  %55 = icmp samesign ult i32 %1, 65536
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %47
@@ -1769,7 +1769,7 @@ define dso_local zeroext i16 @tcp_parse_mss_option(ptr nocapture noundef readonl
   %4 = load i16, ptr %3, align 4
   %5 = lshr i16 %4, 2
   %6 = and i16 %5, 60
-  %7 = icmp ugt i16 %6, 20
+  %7 = icmp samesign ugt i16 %6, 20
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
@@ -1915,7 +1915,7 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %17 = load i24, ptr %16, align 4
   %18 = and i24 %17, -65538
   store i24 %18, ptr %16, align 4
-  %19 = icmp ugt i16 %15, 20
+  %19 = icmp samesign ugt i16 %15, 20
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %5
@@ -4280,7 +4280,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   br i1 %41, label %42, label %1107
 
 42:                                               ; preds = %32
-  %43 = icmp ult i32 %2, 32768
+  %43 = icmp samesign ult i32 %2, 32768
   br i1 %43, label %44, label %tcp_send_challenge_ack.exit
 
 44:                                               ; preds = %42
@@ -6058,7 +6058,7 @@ define internal fastcc void @tcp_event_data_recv(ptr noundef %0, ptr nocapture n
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = udiv i64 %34, %37
-  %39 = icmp ult i64 %34, %37
+  %39 = icmp samesign ult i64 %34, %37
   %40 = trunc i64 %38 to i8
   %41 = select i1 %39, i8 1, i8 %40
   %42 = getelementptr inbounds i8, ptr %0, i64 1438
@@ -6179,7 +6179,7 @@ define internal fastcc void @tcp_event_data_recv(ptr noundef %0, ptr nocapture n
   %115 = shl i32 %110, 3
   %116 = shl nuw nsw i64 %113, 3
   %117 = zext i32 %112 to i64
-  %118 = icmp ult i64 %116, %117
+  %118 = icmp samesign ult i64 %116, %117
   %119 = trunc i64 %116 to i32
   %120 = select i1 %118, i32 %119, i32 %112
   %121 = select i1 %114, i32 %115, i32 %120
@@ -6218,7 +6218,7 @@ define internal fastcc void @tcp_event_data_recv(ptr noundef %0, ptr nocapture n
   %145 = getelementptr inbounds i8, ptr %0, i64 1217
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
-  %148 = icmp ugt i32 %144, %147
+  %148 = icmp samesign ugt i32 %144, %147
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %135
@@ -6286,7 +6286,7 @@ define internal fastcc void @tcp_event_data_recv(ptr noundef %0, ptr nocapture n
   %190 = getelementptr inbounds i8, ptr %0, i64 1217
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
-  %193 = icmp ugt i32 %189, %192
+  %193 = icmp samesign ugt i32 %189, %192
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %180
@@ -8058,7 +8058,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %521 = getelementptr inbounds i8, ptr %0, i64 1217
   %522 = load i8, ptr %521, align 1
   %523 = zext i8 %522 to i32
-  %524 = icmp ugt i32 %520, %523
+  %524 = icmp samesign ugt i32 %520, %523
   br i1 %524, label %525, label %527
 
 525:                                              ; preds = %509
@@ -8792,7 +8792,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   br label %1000
 
 1000:                                             ; preds = %999, %996
-  %1001 = icmp ugt i32 %981, 1
+  %1001 = icmp samesign ugt i32 %981, 1
   br i1 %1001, label %1002, label %1023
 
 1002:                                             ; preds = %1000
@@ -8913,7 +8913,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %1068 = add i8 %1049, -1
   store i8 %1068, ptr %974, align 1
   %1069 = zext i8 %1068 to i32
-  %1070 = icmp ult i32 %1043, %1069
+  %1070 = icmp samesign ult i32 %1043, %1069
   br i1 %1070, label %1071, label %.loopexit36
 
 1071:                                             ; preds = %1067
@@ -8927,14 +8927,14 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %1077 = getelementptr %struct.tcp_sack_block, ptr %973, i64 %1076
   %1078 = load i64, ptr %1077, align 4
   store i64 %1078, ptr %1075, align 4
-  %1079 = icmp ult i64 %1076, %1072
+  %1079 = icmp samesign ult i64 %1076, %1072
   br i1 %1079, label %1073, label %.loopexit36, !llvm.loop !137
 
 1080:                                             ; preds = %1055, %1048
   %1081 = add nuw nsw i32 %1043, 1
   %1082 = getelementptr i8, ptr %1042, i64 8
   %1083 = zext i8 %1049 to i32
-  %1084 = icmp ult i32 %1081, %1083
+  %1084 = icmp samesign ult i32 %1081, %1083
   %1085 = add nuw nsw i64 %1041, 1
   br i1 %1084, label %1040, label %.loopexit37, !llvm.loop !138
 
@@ -9798,7 +9798,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %242 = getelementptr inbounds i8, ptr %0, i64 1217
   %243 = load i8, ptr %242, align 1
   %244 = zext i8 %243 to i32
-  %245 = icmp ugt i32 %241, %244
+  %245 = icmp samesign ugt i32 %241, %244
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %231
@@ -10855,7 +10855,7 @@ define dso_local zeroext i16 @tcp_get_syncookie_mss(ptr nocapture noundef readon
   %35 = load i16, ptr %34, align 4
   %36 = lshr i16 %35, 2
   %37 = and i16 %36, 60
-  %38 = icmp ugt i16 %37, 20
+  %38 = icmp samesign ugt i16 %37, 20
   br i1 %38, label %39, label %.thread8
 
 39:                                               ; preds = %31
@@ -15632,7 +15632,7 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %285 = load i16, ptr %221, align 8
   %286 = zext i16 %285 to i32
   %287 = add nuw nsw i32 %286, %280
-  %288 = icmp ugt i32 %287, 65535
+  %288 = icmp samesign ugt i32 %287, 65535
   br i1 %288, label %294, label %289, !prof !16
 
 289:                                              ; preds = %284
@@ -16080,7 +16080,7 @@ define internal fastcc noundef zeroext i1 @tcp_shifted_skb(ptr noundef %0, ptr n
   %41 = getelementptr inbounds i8, ptr %2, i64 48
   %42 = load i16, ptr %41, align 8
   %43 = zext i16 %42 to i32
-  %44 = icmp ugt i32 %4, %43
+  %44 = icmp samesign ugt i32 %4, %43
   br i1 %44, label %45, label %46, !prof !16
 
 45:                                               ; preds = %31
@@ -17232,7 +17232,7 @@ define internal fastcc void @tcp_ecn_check_ce(ptr noundef %0, ptr nocapture noun
   %25 = getelementptr inbounds i8, ptr %0, i64 1217
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = icmp ugt i32 %24, %27
+  %28 = icmp samesign ugt i32 %24, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %14
@@ -17290,7 +17290,7 @@ define internal fastcc void @tcp_ecn_check_ce(ptr noundef %0, ptr nocapture noun
   %64 = getelementptr inbounds i8, ptr %0, i64 1217
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %67 = icmp ugt i32 %63, %66
+  %67 = icmp samesign ugt i32 %63, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %53
@@ -17589,7 +17589,7 @@ define internal fastcc void @tcp_send_dupack(ptr noundef %0, ptr nocapture nound
   %29 = getelementptr inbounds i8, ptr %0, i64 1217
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = icmp ugt i32 %28, %31
+  %32 = icmp samesign ugt i32 %28, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %13

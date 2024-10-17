@@ -1894,7 +1894,7 @@ define internal void @dtls_parse_uat() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr @ndtlsdecrypt, align 4
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph16, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %42, %25, %18

@@ -1656,7 +1656,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   %580 = add nuw i32 %.2102135.i.i, 1
   %581 = add nuw nsw i32 %.093138.i.i, 1
   %582 = icmp ult i32 %580, %spec.select.i.i
-  %583 = icmp ult i32 %.093138.i.i, 255
+  %583 = icmp samesign ult i32 %.093138.i.i, 255
   %or.cond.i.i = select i1 %582, i1 %583, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i83.i, label %.critedge.i.i, !llvm.loop !13
 

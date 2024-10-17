@@ -1854,7 +1854,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !100
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18
@@ -4568,7 +4568,7 @@ _ZN5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHash
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv.i.i.i
   store i64 %or.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !177
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %3 = ptrtoint ptr %pos.coerce0 to i64
@@ -4629,7 +4629,7 @@ if.end.i:                                         ; preds = %while.body.i.i.i, %
   %iter.sroa.0.1.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then31.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %iter.sroa.7.1.i = phi i64 [ 0, %if.then.i ], [ %conv33.i.i.i, %if.then31.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %conv2.i17.i = and i64 %iter.sroa.7.1.i, 255
-  %cmp.i.i18.i = icmp ult i64 %conv2.i17.i, 16
+  %cmp.i.i18.i = icmp samesign ult i64 %conv2.i17.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i18.i)
   %shr.i.i19.i = lshr i64 %conv2.i17.i, 1
   %12 = ptrtoint ptr %iter.sroa.0.1.i to i64
@@ -5303,7 +5303,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %0 = ptrtoint ptr %pos.coerce0 to i64
@@ -5558,7 +5558,7 @@ invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
-  %cmp.i.i197 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i197 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i197)
   %shr.i.i = lshr i64 %conv2.i, 1
   %9 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64

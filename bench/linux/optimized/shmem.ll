@@ -773,7 +773,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   %58 = phi i8 [ %42, %.preheader12.us ], [ %.pre, %56 ]
   %59 = add nuw nsw i64 %43, 1
   %60 = zext i8 %58 to i64
-  %61 = icmp ult i64 %59, %60
+  %61 = icmp samesign ult i64 %59, %60
   br i1 %61, label %.preheader12.us, label %.loopexit13.split.us.us, !llvm.loop !19
 
 .split:                                           ; preds = %27, %98
@@ -826,7 +826,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   %90 = add nuw nsw i64 %68, 1
   %91 = load i8, ptr %5, align 8
   %92 = zext i8 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.preheader12, label %.loopexit13.split, !llvm.loop !19
 
 .loopexit13.split:                                ; preds = %88, %65
@@ -1100,7 +1100,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   %244 = add nuw nsw i64 %190, 1
   %245 = load i8, ptr %5, align 8
   %246 = zext i8 %245 to i64
-  %247 = icmp ult i64 %244, %246
+  %247 = icmp samesign ult i64 %244, %246
   br i1 %247, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %207, %225, %240
@@ -1350,7 +1350,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %108 = add nuw nsw i64 %113, 1
   %109 = load i8, ptr %4, align 8
   %110 = zext i8 %109 to i64
-  %111 = icmp ult i64 %108, %110
+  %111 = icmp samesign ult i64 %108, %110
   br i1 %111, label %112, label %136, !llvm.loop !26
 
 112:                                              ; preds = %106, %103
@@ -2231,7 +2231,7 @@ define internal i32 @shmem_writepage(ptr noundef %0, ptr noundef %1) #1 align 16
 
 147:                                              ; preds = %143
   %148 = load volatile i64, ptr %86, align 8
-  %149 = icmp ugt i64 %126, 19
+  %149 = icmp samesign ugt i64 %126, 19
   br i1 %149, label %152, label %151
 
 150:                                              ; preds = %143
@@ -2261,7 +2261,7 @@ define internal i32 @shmem_writepage(ptr noundef %0, ptr noundef %1) #1 align 16
 
 162:                                              ; preds = %159, %154
   %163 = phi i64 [ %161, %159 ], [ 1, %154 ]
-  %164 = icmp ugt i64 %163, %155
+  %164 = icmp samesign ugt i64 %163, %155
   %165 = add nuw nsw i64 %155, 1
   br i1 %164, label %154, label %166, !llvm.loop !49
 
@@ -2717,7 +2717,7 @@ define internal noundef i32 @shmem_write_end(ptr nocapture readnone %0, ptr noca
 
 139:                                              ; preds = %136, %131
   %140 = phi i64 [ %138, %136 ], [ 1, %131 ]
-  %141 = icmp ugt i64 %140, %132
+  %141 = icmp samesign ugt i64 %140, %132
   %142 = add nuw nsw i64 %132, 1
   br i1 %141, label %131, label %.loopexit, !llvm.loop !49
 
@@ -3364,7 +3364,7 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
   %96 = and i32 %95, 30
   %97 = lshr i32 20054306, %96
   %98 = and i32 %97, 3
-  %99 = icmp ugt i32 %94, %98
+  %99 = icmp samesign ugt i32 %94, %98
   br i1 %99, label %100, label %._crit_edge
 
 100:                                              ; preds = %90
@@ -6921,7 +6921,7 @@ define internal i64 @shmem_file_read_iter(ptr nocapture noundef %0, ptr noundef 
   %25 = phi i64 [ %11, %.lr.ph ], [ %106, %112 ]
   %26 = icmp ne i64 %25, %21
   %27 = and i64 %22, 4095
-  %28 = icmp ugt i64 %27, %24
+  %28 = icmp samesign ugt i64 %27, %24
   %29 = select i1 %26, i1 true, i1 %28
   br i1 %29, label %30, label %.loopexit
 
@@ -6973,7 +6973,7 @@ define internal i64 @shmem_file_read_iter(ptr nocapture noundef %0, ptr noundef 
 
 61:                                               ; preds = %56
   %62 = and i64 %58, 4095
-  %63 = icmp ugt i64 %62, %24
+  %63 = icmp samesign ugt i64 %62, %24
   br i1 %63, label %71, label %64
 
 64:                                               ; preds = %61

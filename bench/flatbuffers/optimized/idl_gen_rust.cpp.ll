@@ -32846,7 +32846,7 @@ if.then6:                                         ; preds = %entry, %entry
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i16 %6, ptr %fixed_length.i.i, align 8, !alias.scope !127
   %call7 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp)
-  %7 = icmp ult i32 %call7, 9
+  %7 = icmp samesign ult i32 %call7, 9
   br i1 %7, label %switch.lookup, label %if.end66
 
 if.then17:                                        ; preds = %entry
@@ -32869,7 +32869,7 @@ if.then17:                                        ; preds = %entry
   %fixed_length.i.i24 = getelementptr inbounds i8, ptr %ref.tmp18, i64 24
   store i16 %11, ptr %fixed_length.i.i24, align 8, !alias.scope !130
   %call19 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp18)
-  %12 = icmp ult i32 %call19, 6
+  %12 = icmp samesign ult i32 %call19, 6
   br i1 %12, label %switch.lookup26, label %if.end66
 
 if.else25:                                        ; preds = %entry

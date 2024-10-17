@@ -340,7 +340,7 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
 
 125:                                              ; preds = %76, %124, %120
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 4
-  %126 = icmp ult i64 %indvars.iv.next206, %75
+  %126 = icmp samesign ult i64 %indvars.iv.next206, %75
   br i1 %126, label %76, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %125, %.preheader

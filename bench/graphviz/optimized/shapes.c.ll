@@ -9220,7 +9220,7 @@ define internal void @star_vertices(ptr nocapture noundef writeonly %0, ptr noca
   store double %31, ptr %32, align 8
   %33 = fadd double %25, 0x3FE41B2F769CF0E0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %34 = icmp ult i64 %indvars.iv, 8
+  %34 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %34, label %18, label %35
 
 35:                                               ; preds = %18

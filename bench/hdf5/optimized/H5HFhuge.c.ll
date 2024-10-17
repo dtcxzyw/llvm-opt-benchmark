@@ -788,7 +788,7 @@ H5HF__huge_new_id.exit:                           ; preds = %319, %326
   %361 = lshr i64 %.096125, 8
   %362 = load i8, ptr %356, align 8
   %363 = zext i8 %362 to i64
-  %364 = icmp ult i64 %360, %363
+  %364 = icmp samesign ult i64 %360, %363
   br i1 %364, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %354

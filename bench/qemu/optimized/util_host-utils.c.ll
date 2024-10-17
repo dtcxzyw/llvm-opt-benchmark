@@ -15,7 +15,7 @@ if.end:                                           ; preds = %entry
   %and1 = and i32 %shift, 63
   %sh_prom = zext nneg i32 %and1 to i64
   %shr = lshr i64 %0, %sh_prom
-  %cmp2 = icmp ugt i32 %and, 63
+  %cmp2 = icmp samesign ugt i32 %and, 63
   br i1 %cmp2, label %if.end9.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
@@ -52,7 +52,7 @@ if.end:                                           ; preds = %entry
   %and1.i = and i32 %sub, 63
   %sh_prom.i = zext nneg i32 %and1.i to i64
   %shr.i = lshr i64 %0, %sh_prom.i
-  %cmp2.i = icmp ult i32 %and, 65
+  %cmp2.i = icmp samesign ult i32 %and, 65
   %shr6.i = lshr i64 %1, %sh_prom.i
   %sub.i = sub nuw nsw i32 64, %and1.i
   %sh_prom8.i = zext nneg i32 %sub.i to i64
@@ -68,7 +68,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %cmp3 = icmp ugt i32 %and, 63
+  %cmp3 = icmp samesign ugt i32 %and, 63
   %3 = load i64, ptr %plow, align 8
   %and5 = and i32 %shift, 63
   br i1 %cmp3, label %if.then4, label %if.else

@@ -119,7 +119,7 @@ define dso_local void @dma_resv_fini(ptr nocapture noundef readonly %0) #0 align
   %27 = add nuw nsw i64 %12, 1
   %28 = load i32, ptr %6, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %27, %29
+  %30 = icmp samesign ult i64 %27, %29
   br i1 %30, label %11, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.thread, %5
@@ -256,7 +256,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
   %79 = add nuw nsw i64 %48, 1
   %80 = load i32, ptr %40, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %79, %81
+  %82 = icmp samesign ult i64 %79, %81
   br i1 %82, label %.lr.ph, label %.split14.us, !llvm.loop !13
 
 .split14.us:                                      ; preds = %72
@@ -560,7 +560,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
   %37 = add nuw nsw i64 %18, 1
   %38 = load i32, ptr %7, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
@@ -619,7 +619,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
   %69 = add nuw nsw i64 %41, 1
   %70 = load i32, ptr %7, align 8
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %.lr.ph.split, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %9, %4
@@ -1083,7 +1083,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   %59 = add nuw nsw i64 %44, 1
   %60 = load i32, ptr %38, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %43, label %.loopexit24, !llvm.loop !8
 
 .loopexit24:                                      ; preds = %.thread, %37
@@ -1257,7 +1257,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   %157 = add nuw nsw i64 %142, 1
   %158 = load i32, ptr %136, align 8
   %159 = zext i32 %158 to i64
-  %160 = icmp ult i64 %157, %159
+  %160 = icmp samesign ult i64 %157, %159
   br i1 %160, label %141, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.thread23, %135

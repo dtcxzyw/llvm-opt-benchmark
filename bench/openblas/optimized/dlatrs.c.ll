@@ -148,7 +148,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %88 = getelementptr inbounds double, ptr %23, i64 %82
   store double %87, ptr %88, align 8, !tbaa !7
   %89 = add nuw nsw i64 %82, 1
-  %90 = icmp ult i64 %82, %80
+  %90 = icmp samesign ult i64 %82, %80
   br i1 %90, label %81, label %.loopexit54, !llvm.loop !9
 
 91:                                               ; preds = %73

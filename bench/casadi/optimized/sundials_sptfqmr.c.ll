@@ -203,7 +203,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %spec.store.select = select i1 %or.cond3, i32 0, i32 %4
   %18 = and i32 %spec.store.select, 1
   %.not396 = icmp eq i32 %18, 0
-  %.not = icmp ult i32 %spec.store.select, 2
+  %.not = icmp samesign ult i32 %spec.store.select, 2
   %.not397 = icmp eq ptr %7, null
   %.not398 = icmp eq ptr %8, null
   %19 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #5

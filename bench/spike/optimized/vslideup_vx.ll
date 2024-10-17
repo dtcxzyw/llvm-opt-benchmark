@@ -1558,7 +1558,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_vslideup_v
 47:                                               ; preds = %41
   %48 = lshr i64 %1, 15
   %49 = and i64 %48, 31
-  %50 = icmp ugt i64 %49, 15
+  %50 = icmp samesign ugt i64 %49, 15
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
@@ -1916,7 +1916,7 @@ define noundef i64 @_Z22fast_rv64e_vslideup_vxP11processor_t6insn_tm(ptr noundef
 47:                                               ; preds = %41
   %48 = lshr i64 %1, 15
   %49 = and i64 %48, 31
-  %50 = icmp ugt i64 %49, 15
+  %50 = icmp samesign ugt i64 %49, 15
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
@@ -2272,7 +2272,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_vslideup
 47:                                               ; preds = %41
   %48 = lshr i64 %1, 15
   %49 = and i64 %48, 31
-  %50 = icmp ugt i64 %49, 15
+  %50 = icmp samesign ugt i64 %49, 15
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
@@ -2630,7 +2630,7 @@ define noundef i64 @_Z24logged_rv64e_vslideup_vxP11processor_t6insn_tm(ptr nound
 47:                                               ; preds = %41
   %48 = lshr i64 %1, 15
   %49 = and i64 %48, 31
-  %50 = icmp ugt i64 %49, 15
+  %50 = icmp samesign ugt i64 %49, 15
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47

@@ -77,7 +77,7 @@ define dso_local void @nghttp2_map_each_free(ptr nocapture noundef readonly %0, 
   %14 = phi i32 [ %6, %.lr.ph ], [ %.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %13, %3
@@ -113,7 +113,7 @@ define dso_local i32 @nghttp2_map_each(ptr nocapture noundef readonly %0, ptr no
   %14 = phi i32 [ %.pre, %._crit_edge19 ], [ %6, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %11, %13, %3
@@ -164,7 +164,7 @@ define dso_local void @nghttp2_map_print_distance(ptr nocapture noundef readonly
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %2, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %5, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %26, %1
@@ -294,7 +294,7 @@ insert.exit.i:                                    ; preds = %55, %._crit_edge.i.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %65 = load i32, ptr %8, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next.i, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next.i, %66
   br i1 %67, label %27, label %map_resize.exit.thread, !llvm.loop !9
 
 map_resize.exit.thread:                           ; preds = %insert.exit.i, %.preheader.i
@@ -416,7 +416,7 @@ define dso_local ptr @nghttp2_map_find(ptr nocapture noundef readonly %0, i32 no
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 %30, %20
   %22 = and i64 %21, %16
-  %.not = icmp ult i64 %.02026, %22
+  %.not = icmp samesign ult i64 %.02026, %22
   br i1 %.not, label %23, label %._crit_edge
 
 23:                                               ; preds = %.lr.ph, %17
@@ -473,7 +473,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture nounde
   %21 = zext i32 %20 to i64
   %22 = sub nsw i64 %.03646, %21
   %23 = and i64 %22, %17
-  %24 = icmp ugt i64 %.047, %23
+  %24 = icmp samesign ugt i64 %.047, %23
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %18

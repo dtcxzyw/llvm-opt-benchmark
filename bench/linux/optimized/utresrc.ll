@@ -217,7 +217,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
 40:                                               ; preds = %26
   %41 = zext i16 %29 to i32
   %42 = zext i8 %32 to i32
-  %43 = icmp ugt i32 %41, %42
+  %43 = icmp samesign ugt i32 %41, %42
   %44 = add nsw i32 %42, -1
   %45 = icmp sgt i32 %44, %41
   %46 = select i1 %43, i1 true, i1 %45
@@ -426,7 +426,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
 49:                                               ; preds = %36
   %50 = zext i16 %38 to i32
   %51 = zext i8 %41 to i32
-  %52 = icmp ugt i32 %50, %51
+  %52 = icmp samesign ugt i32 %50, %51
   %53 = add nsw i32 %51, -1
   %54 = icmp sgt i32 %53, %50
   %55 = select i1 %52, i1 true, i1 %54

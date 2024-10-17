@@ -501,7 +501,7 @@ define hidden void @dasm_setup(ptr nocapture noundef readonly %0, ptr noundef %1
   %33 = getelementptr inbounds i8, ptr %24, i64 32
   store i32 0, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = icmp ult i64 %indvars.iv.next, %21
+  %34 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
@@ -1153,7 +1153,7 @@ define hidden noundef i32 @dasm_link(ptr nocapture noundef readonly %0, ptr noca
   br i1 %73, label %.preheader, label %77
 
 .preheader:                                       ; preds = %65
-  %74 = icmp ult i64 %indvars.iv131, %67
+  %74 = icmp samesign ult i64 %indvars.iv131, %67
   br i1 %74, label %.lr.ph114, label %.loopexit
 
 .lr.ph114:                                        ; preds = %.preheader, %.lr.ph114
@@ -1359,7 +1359,7 @@ define hidden range(i32 0, 33554433) i32 @dasm_encode(ptr nocapture noundef read
   %.3.lcssa = phi ptr [ %.2, %29 ], [ %31, %.lr.ph ]
   %.1161.lcssa = phi ptr [ %.1161259, %29 ], [ %.1161, %.lr.ph ]
   %.0187.in.lcssa = phi i8 [ %.0187.in260, %29 ], [ %.0187.in, %.lr.ph ]
-  %33 = icmp ugt i8 %.0187.in.lcssa, -7
+  %33 = icmp samesign ugt i8 %.0187.in.lcssa, -7
   br i1 %33, label %34, label %53
 
 34:                                               ; preds = %._crit_edge
@@ -4142,7 +4142,7 @@ define hidden noundef ptr @ir_emit_code(ptr noundef %0, ptr nocapture noundef %1
   %375 = shl nuw nsw i32 %351, 1
   %376 = load i8, ptr %77, align 1
   %377 = zext i8 %376 to i64
-  %378 = icmp ult i64 %indvars.iv604.i, %377
+  %378 = icmp samesign ult i64 %indvars.iv604.i, %377
   br i1 %378, label %379, label %.thread575.i
 
 379:                                              ; preds = %374
@@ -4168,7 +4168,7 @@ define hidden noundef ptr @ir_emit_code(ptr noundef %0, ptr nocapture noundef %1
   br label %419
 
 .thread575.i:                                     ; preds = %382, %379, %374
-  %392 = icmp ugt i64 %indvars.iv604.i, 1
+  %392 = icmp samesign ugt i64 %indvars.iv604.i, 1
   br i1 %392, label %393, label %402
 
 393:                                              ; preds = %.thread575.i
@@ -33121,7 +33121,7 @@ define internal fastcc void @ir_emit_prologue(ptr nocapture noundef readonly %0)
   br i1 %.not90, label %44, label %34
 
 34:                                               ; preds = %31
-  %35 = icmp ult i32 %.07794, 16
+  %35 = icmp samesign ult i32 %.07794, 16
   %36 = add i32 %.17595, -8
   br i1 %35, label %37, label %38
 
@@ -44017,7 +44017,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
 
 476:                                              ; preds = %switch.hole_check, %474, %469
   %477 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %468)
-  %.not1129 = icmp ult i64 %477, 2
+  %.not1129 = icmp samesign ult i64 %477, 2
   br i1 %.not1129, label %ir_match_fuse_load_cmp_fp.exit, label %478
 
 478:                                              ; preds = %476
@@ -44142,7 +44142,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %542 = load i64, ptr %541, align 8
   %543 = icmp ne i64 %542, 1
   %544 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %542)
-  %.not1125 = icmp ult i64 %544, 2
+  %.not1125 = icmp samesign ult i64 %544, 2
   %or.cond1158 = select i1 %543, i1 %.not1125, i1 false
   br i1 %or.cond1158, label %545, label %._crit_edge1244
 
@@ -44184,7 +44184,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %561 = getelementptr inbounds i8, ptr %554, i64 8
   %562 = load i64, ptr %561, align 8
   %563 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %562)
-  %.not1123 = icmp ult i64 %563, 2
+  %.not1123 = icmp samesign ult i64 %563, 2
   br i1 %.not1123, label %564, label %._crit_edge1241
 
 564:                                              ; preds = %560
@@ -45900,7 +45900,7 @@ ir_match_fuse_load.exit1213:                      ; preds = %1606, %1403, %1617,
   %1651 = add i8 %1646, -7
   %1652 = icmp ult i8 %1651, 5
   %1653 = select i1 %1652, i32 2, i32 4
-  %1654 = icmp ult i32 %1653, %1650
+  %1654 = icmp samesign ult i32 %1653, %1650
   br i1 %1654, label %1655, label %ir_match_fuse_load_cmp_fp.exit
 
 1655:                                             ; preds = %1640
@@ -46521,7 +46521,7 @@ define internal fastcc void @ir_emit_store(ptr nocapture noundef readonly %0, i3
 ir_ref_spill_slot.exit:                           ; preds = %20, %42
   %.0.in.i.i = phi i64 [ %27, %20 ], [ %46, %42 ]
   %.0.i.i = or disjoint i64 %.0.in.i.i, 561850441793536
-  %47 = icmp ult i32 %1, 12
+  %47 = icmp samesign ult i32 %1, 12
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %ir_ref_spill_slot.exit
@@ -50094,8 +50094,8 @@ ir_fuse_imm.exit:                                 ; preds = %49, %ir_sym_val.exi
   %77 = icmp eq i32 %.0.i, 65280
   %or.cond9 = select i1 %or.cond3, i1 %77, i1 false
   %78 = zext nneg i8 %.0 to i32
-  %79 = icmp ult i8 %.0, 4
-  %or.cond12 = and i1 %79, %or.cond9
+  %79 = icmp samesign ult i8 %.0, 4
+  %or.cond12 = select i1 %or.cond9, i1 %79, i1 false
   br i1 %or.cond12, label %80, label %85
 
 80:                                               ; preds = %76
@@ -52451,7 +52451,7 @@ define internal fastcc void @ir_emit_epilogue(ptr nocapture noundef readonly %0)
   br i1 %.not43, label %37, label %23
 
 23:                                               ; preds = %20
-  %24 = icmp ult i32 %.03647, 16
+  %24 = icmp samesign ult i32 %.03647, 16
   %25 = load i32, ptr %9, align 8
   %26 = and i32 %25, 512
   %.not46 = icmp eq i32 %26, 0
@@ -54503,7 +54503,7 @@ define internal fastcc void @ir_emit_mov_ext(ptr nocapture readonly %.248.val, i
 
 15:                                               ; preds = %3
   %16 = icmp eq i8 %7, 2
-  %17 = icmp ugt i32 %0, 6
+  %17 = icmp samesign ugt i32 %0, 6
   %18 = sext i8 %1 to i32
   %19 = sext i8 %2 to i32
   br i1 %16, label %20, label %23

@@ -1073,7 +1073,7 @@ get_soi.exit:                                     ; preds = %91, %100
   tail call void %374(ptr noundef nonnull %0, i32 noundef 1) #7
   store ptr %360, ptr %334, align 8
   store i64 %359, ptr %335, align 8
-  %375 = icmp ugt i32 %363, 2
+  %375 = icmp samesign ugt i32 %363, 2
   br i1 %375, label %376, label %skip_variable.exit
 
 376:                                              ; preds = %358
@@ -1136,7 +1136,7 @@ get_soi.exit:                                     ; preds = %91, %100
   %410 = zext i8 %409 to i32
   %411 = or disjoint i32 %397, %410
   %412 = add nsw i32 %411, -2
-  %413 = icmp ugt i32 %411, 18
+  %413 = icmp samesign ugt i32 %411, 18
   br i1 %413, label %.lr.ph168.i, label %._crit_edge169.i
 
 .lr.ph168.i:                                      ; preds = %406
@@ -1296,7 +1296,7 @@ get_soi.exit:                                     ; preds = %91, %100
   %506 = getelementptr inbounds i8, ptr %505, i64 8
   %507 = load ptr, ptr %506, align 8
   tail call void %507(ptr noundef nonnull %0, i32 noundef 2) #7
-  %508 = icmp ugt i32 %445, 256
+  %508 = icmp samesign ugt i32 %445, 256
   %509 = icmp sgt i32 %445, %447
   %or.cond.i73 = select i1 %508, i1 true, i1 %509
   br i1 %or.cond.i73, label %510, label %515
@@ -1473,7 +1473,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %587 = zext i8 %586 to i32
   %588 = or disjoint i32 %574, %587
   %589 = add nsw i32 %588, -2
-  %590 = icmp ugt i32 %588, 2
+  %590 = icmp samesign ugt i32 %588, 2
   br i1 %590, label %.lr.ph.i83, label %._crit_edge.i80
 
 .lr.ph.i83:                                       ; preds = %583
@@ -1518,7 +1518,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %612 = getelementptr inbounds i8, ptr %611, i64 8
   %613 = load ptr, ptr %612, align 8
   tail call void %613(ptr noundef nonnull %0, i32 noundef 1) #7
-  %614 = icmp ugt i32 %604, 3
+  %614 = icmp samesign ugt i32 %604, 3
   br i1 %614, label %615, label %622
 
 615:                                              ; preds = %600
@@ -1710,7 +1710,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %721 = load ptr, ptr %720, align 8
   tail call void %721(ptr noundef nonnull %0, i32 noundef 2) #7
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 8
-  %722 = icmp ult i64 %indvars.iv178.i, 56
+  %722 = icmp samesign ult i64 %indvars.iv178.i, 56
   br i1 %722, label %.preheader.i, label %.loopexit.i92, !llvm.loop !16
 
 .loopexit.i92:                                    ; preds = %.preheader.i, %.split162.us.i
@@ -1962,7 +1962,7 @@ get_dri.exit:                                     ; preds = %774, %785
   tail call void %863(ptr noundef nonnull %0, i32 noundef 1) #7
   store ptr %849, ptr %823, align 8
   store i64 %848, ptr %824, align 8
-  %864 = icmp ugt i32 %852, 2
+  %864 = icmp samesign ugt i32 %852, 2
   br i1 %864, label %865, label %skip_variable.exit
 
 865:                                              ; preds = %847
@@ -2131,7 +2131,7 @@ define internal range(i32 0, 2) i32 @skip_variable(ptr noundef %0) #0 {
   tail call void %44(ptr noundef nonnull %0, i32 noundef 1) #7
   store ptr %29, ptr %3, align 8
   store i64 %28, ptr %4, align 8
-  %45 = icmp ugt i32 %32, 2
+  %45 = icmp samesign ugt i32 %32, 2
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %27
@@ -2198,7 +2198,7 @@ define internal range(i32 0, 2) i32 @get_interesting_appn(ptr noundef %0) #0 {
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %19, %30
   %32 = add nsw i32 %31, -2
-  %33 = icmp ugt i32 %31, 15
+  %33 = icmp samesign ugt i32 %31, 15
   %. = tail call i32 @llvm.usub.sat.i32(i32 %31, i32 2)
   %.060 = select i1 %33, i32 14, i32 %.
   %.25783 = getelementptr inbounds i8, ptr %.156, i64 1
@@ -2257,7 +2257,7 @@ define internal range(i32 0, 2) i32 @get_interesting_appn(ptr noundef %0) #0 {
   br label %examine_app14.exit
 
 50:                                               ; preds = %._crit_edge
-  %51 = icmp ugt i32 %.060, 11
+  %51 = icmp samesign ugt i32 %.060, 11
   %52 = load i8, ptr %2, align 1
   %53 = icmp eq i8 %52, 65
   %or.cond = select i1 %51, i1 %53, i1 false
@@ -2436,7 +2436,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %26, %39
   %41 = add nsw i32 %40, -2
-  %42 = icmp ugt i32 %40, 1
+  %42 = icmp samesign ugt i32 %40, 1
   br i1 %42, label %43, label %._crit_edge.thread
 
 43:                                               ; preds = %35

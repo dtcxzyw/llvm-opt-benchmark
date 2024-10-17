@@ -453,7 +453,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -477,7 +477,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -775,7 +775,7 @@ _ZL20isWhitespaceExceptNLh.exit:                  ; preds = %45
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8
   %66 = getelementptr inbounds i8, ptr %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %.sroa.06.0.copyload, ptr noundef %66)
-  %67 = icmp ult i64 %indvars.iv, %61
+  %67 = icmp samesign ult i64 %indvars.iv, %61
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %63
@@ -1007,7 +1007,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter19IncreaseIndentationENS_
 15:                                               ; preds = %8
   %.sroa.01.0.extract.trunc.i80 = trunc i64 %14 to i32
   %16 = icmp ne i32 %.sroa.01.0.extract.trunc.i, %.sroa.01.0.extract.trunc.i80
-  %17 = icmp ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i78
+  %17 = icmp samesign ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i78
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %.loopexit, label %18
 
@@ -1108,7 +1108,7 @@ _ZL20isWhitespaceExceptNLh.exit83:                ; preds = %60
   %71 = getelementptr inbounds i8, ptr %21, i64 %.sroa.speculated5.i84
   %72 = sub i64 %22, %.sroa.speculated5.i84
   %.sroa.speculated.i85 = tail call i64 @llvm.umin.i64(i64 %72, i64 %70)
-  %.not = icmp ult i64 %.sroa.speculated.i, %.sroa.speculated.i85
+  %.not = icmp samesign ult i64 %.sroa.speculated.i, %.sroa.speculated.i85
   br i1 %.not, label %73, label %.loopexit
 
 73:                                               ; preds = %_ZL20isWhitespaceExceptNLh.exit83
@@ -1160,7 +1160,7 @@ _ZL20isWhitespaceExceptNLh.exit92:                ; preds = %84
   %.sroa.speculated5.i93 = tail call i64 @llvm.umin.i64(i64 %22, i64 %90)
   %93 = sub i64 %22, %.sroa.speculated5.i93
   %.sroa.speculated.i94 = tail call i64 @llvm.umin.i64(i64 %93, i64 %92)
-  %.not.i97 = icmp ult i64 %.sroa.speculated.i94, %.sroa.speculated.i85
+  %.not.i97 = icmp samesign ult i64 %.sroa.speculated.i94, %.sroa.speculated.i85
   br i1 %.not.i97, label %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit99
 
 _ZNK4llvm9StringRef11starts_withES0_.exit99:      ; preds = %_ZL20isWhitespaceExceptNLh.exit92
@@ -1850,7 +1850,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i:    ; preds = %23, %22
 _ZSt8distanceIN4llvm22RopePieceBTreeIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit: ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   store i64 %26, ptr %6, align 8
-  %29 = icmp ugt i64 %.03.i.i, 14
+  %29 = icmp samesign ugt i64 %.03.i.i, 14
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZSt8distanceIN4llvm22RopePieceBTreeIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit

@@ -60,7 +60,7 @@ while.cond93.preheader:                           ; preds = %for.end91, %while.c
   %current.0.lcssa = phi ptr [ %current_char.0.lcssa, %while.cond.preheader ], [ %scevgep, %for.end91 ]
   %crc.1.lcssa = phi i32 [ %crc.0.lcssa, %while.cond.preheader ], [ %xor89, %for.end91 ]
   %length.addr.1.lcssa = phi i64 [ %length.addr.0.lcssa, %while.cond.preheader ], [ %sub92, %for.end91 ]
-  %cmp9468 = icmp ugt i64 %length.addr.1.lcssa, 7
+  %cmp9468 = icmp samesign ugt i64 %length.addr.1.lcssa, 7
   br i1 %cmp9468, label %while.body95, label %while.end139
 
 for.body9:                                        ; preds = %for.cond7.preheader, %for.body9
@@ -233,7 +233,7 @@ while.end139:                                     ; preds = %while.body95, %whil
   %current.2.lcssa = phi ptr [ %current.0.lcssa, %while.cond93.preheader ], [ %incdec.ptr100, %while.body95 ]
   %crc.3.lcssa = phi i32 [ %crc.1.lcssa, %while.cond93.preheader ], [ %xor137, %while.body95 ]
   %length.addr.2.lcssa = phi i64 [ %length.addr.1.lcssa, %while.cond93.preheader ], [ %sub138, %while.body95 ]
-  %cmp140 = icmp ugt i64 %length.addr.2.lcssa, 3
+  %cmp140 = icmp samesign ugt i64 %length.addr.2.lcssa, 3
   br i1 %cmp140, label %if.then141, label %if.end164
 
 if.then141:                                       ; preds = %while.end139

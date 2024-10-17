@@ -31297,8 +31297,8 @@ _ZN4llvm9StringRefC2EPKc.exit153:                 ; preds = %_ZNK4llvm3opt7ArgLi
 
 .lr.ph280:                                        ; preds = %204
   %208 = icmp ne ptr %.2, null
-  %209 = icmp ugt i32 %73, 1
-  %or.cond5 = and i1 %209, %208
+  %209 = icmp samesign ugt i32 %73, 1
+  %or.cond5 = select i1 %208, i1 %209, i1 false
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -51030,7 +51030,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %41, %42
   %59 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %58, ptr %59, align 1, !noalias !1702
   %60 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !1705
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread

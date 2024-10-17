@@ -10915,7 +10915,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
 if.end4.i.i:                                      ; preds = %while.body.i.i
   %add.i.i = add nuw nsw i64 %storemerge27.i.i, 1
   %div5.i.i = lshr i64 %add.i.i, 1
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i, 2
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i, 2
   br i1 %cmp1.not.i.i, label %if.then6, label %while.body.i.i, !llvm.loop !70
 
 if.then.i:                                        ; preds = %while.body.i.i

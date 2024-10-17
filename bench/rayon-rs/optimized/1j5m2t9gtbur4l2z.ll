@@ -11,7 +11,7 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   %2 = load i32, ptr %0, align 4, !range !4, !alias.scope !5, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !4, !alias.scope !5, !noundef !10
-  %.not.i.i = icmp ugt i32 %2, %4
+  %.not.i.i = icmp samesign ugt i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !5
   %.not.i.i.i = icmp ne i8 %6, 0
@@ -20,8 +20,8 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
 
 7:                                                ; preds = %1
   %8 = sub nuw nsw i32 %4, %2
-  %9 = icmp ult i32 %2, 55296
-  %10 = icmp ugt i32 %4, 57343
+  %9 = icmp samesign ult i32 %2, 55296
+  %10 = icmp samesign ugt i32 %4, 57343
   %or.cond.i = and i1 %9, %10
   %11 = add nsw i32 %8, -2048
   %spec.select.i = select i1 %or.cond.i, i32 %11, i32 %8
@@ -40,7 +40,7 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %2 = load i32, ptr %0, align 4, !range !4, !alias.scope !12, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !4, !alias.scope !12, !noundef !10
-  %.not.i = icmp ugt i32 %2, %4
+  %.not.i = icmp samesign ugt i32 %2, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !12
   %.not.i.i = icmp ne i8 %6, 0
@@ -49,8 +49,8 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
 
 7:                                                ; preds = %1
   %8 = sub nuw nsw i32 %4, %2
-  %9 = icmp ult i32 %2, 55296
-  %10 = icmp ugt i32 %4, 57343
+  %9 = icmp samesign ult i32 %2, 55296
+  %10 = icmp samesign ugt i32 %4, 57343
   %or.cond = and i1 %9, %10
   %11 = add nsw i32 %8, -2048
   %spec.select = select i1 %or.cond, i32 %11, i32 %8

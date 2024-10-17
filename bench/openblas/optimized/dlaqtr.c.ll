@@ -1265,7 +1265,7 @@ thread-pre-split:                                 ; preds = %69
   %853 = load double, ptr %852, align 8, !tbaa !7
   %854 = fsub double %853, %849
   store double %854, ptr %852, align 8, !tbaa !7
-  %855 = icmp ugt i64 %789, 1
+  %855 = icmp samesign ugt i64 %789, 1
   br i1 %855, label %856, label %868
 
 856:                                              ; preds = %837

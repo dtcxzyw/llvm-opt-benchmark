@@ -6078,14 +6078,14 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %392, %_ZNSt6vectorI
   %.039235 = phi i32 [ %.140, %790 ], [ 0, %.preheader ]
   %413 = load i32, ptr %1, align 8
   %414 = icmp eq i32 %413, 2
-  %415 = icmp ugt i64 %indvars.iv252, %indvars.iv
-  %or.cond = and i1 %415, %414
+  %415 = icmp samesign ugt i64 %indvars.iv252, %indvars.iv
+  %or.cond = select i1 %414, i1 %415, i1 false
   br i1 %or.cond, label %790, label %416
 
 416:                                              ; preds = %.lr.ph238
   %417 = icmp eq i32 %413, 1
-  %418 = icmp ult i64 %indvars.iv252, %indvars.iv
-  %or.cond49 = and i1 %418, %417
+  %418 = icmp samesign ult i64 %indvars.iv252, %indvars.iv
+  %or.cond49 = select i1 %417, i1 %418, i1 false
   br i1 %or.cond49, label %790, label %419
 
 419:                                              ; preds = %416

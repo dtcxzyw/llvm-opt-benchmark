@@ -3493,7 +3493,7 @@ _ZN5Noise13updateResultsEfPfPKfm.exit:            ; preds = %for.body.i, %for.bo
   %inc38 = add nuw nsw i64 %oct.097, 1
   %117 = load i16, ptr %octaves, align 8, !tbaa !55
   %conv13 = zext i16 %117 to i64
-  %cmp14 = icmp ult i64 %inc38, %conv13
+  %cmp14 = icmp samesign ult i64 %inc38, %conv13
   br i1 %cmp14, label %for.body16, label %for.cond.cleanup15, !llvm.loop !130
 
 lor.lhs.false:                                    ; preds = %for.cond.cleanup15
@@ -4533,7 +4533,7 @@ _ZN5Noise13updateResultsEfPfPKfm.exit:            ; preds = %for.body.i, %for.bo
   %inc47 = add nuw nsw i64 %oct.0109, 1
   %120 = load i16, ptr %octaves, align 8, !tbaa !55
   %conv17 = zext i16 %120 to i64
-  %cmp18 = icmp ult i64 %inc47, %conv17
+  %cmp18 = icmp samesign ult i64 %inc47, %conv17
   br i1 %cmp18, label %for.body20, label %for.cond.cleanup19, !llvm.loop !221
 
 lor.lhs.false:                                    ; preds = %for.cond.cleanup19

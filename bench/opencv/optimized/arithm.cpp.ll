@@ -2260,7 +2260,7 @@ _ZNK2cv11_InputArray6getMatEi.exit399:            ; preds = %105, %108
   br label %_ZN2cvL17actualScalarDepthEPKdi.exit.thread
 
 241:                                              ; preds = %.lr.ph.i
-  %242 = icmp ult i32 %.1658681, 4
+  %242 = icmp samesign ult i32 %.1658681, 4
   %243 = icmp eq i32 %.1658681, 5
   %or.cond15 = or i1 %242, %243
   %spec.store.select = select i1 %or.cond15, i32 5, i32 6
@@ -2355,7 +2355,7 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
 270:                                              ; preds = %269, %266, %263
   %271 = phi i32 [ 3, %263 ], [ %.sroa.speculated585, %269 ], [ 4, %266 ]
   %272 = call i32 @llvm.umax.i32(i32 %271, i32 %259)
-  %273 = icmp ult i32 %259, 5
+  %273 = icmp samesign ult i32 %259, 5
   br i1 %273, label %274, label %281
 
 274:                                              ; preds = %270
@@ -4202,7 +4202,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %233, %_ZNK2cv3Mat8e
 
 _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc189, %280
   %288 = phi ptr [ %287, %.noexc189 ], [ %284, %280 ]
-  %289 = icmp ugt i32 %139, 4
+  %289 = icmp samesign ugt i32 %139, 4
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
@@ -4600,8 +4600,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11checkScalarERKNS_11_Input
 29:                                               ; preds = %26
   %30 = tail call noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef -1)
   %31 = icmp eq i32 %30, 6
-  %32 = icmp ult i32 %15, 4
-  %spec.select = and i1 %32, %31
+  %32 = icmp samesign ult i32 %15, 4
+  %spec.select = select i1 %31, i1 %32, i1 false
   br label %33
 
 33:                                               ; preds = %29, %18, %26, %13, %9, %4, %7
@@ -4845,8 +4845,8 @@ _ZNK2cv11_InputArray6getMatEi.exit183._crit_edge: ; preds = %_ZNK2cv11_InputArra
 _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit: ; preds = %103
   %106 = and i32 %80, 4095
   %107 = icmp eq i32 %106, 6
-  %108 = icmp ult i32 %92, 4
-  %spec.select.i = and i1 %108, %107
+  %108 = icmp samesign ult i32 %92, 4
+  %spec.select.i = select i1 %107, i1 %108, i1 false
   br i1 %spec.select.i, label %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread215, label %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread
 
 _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread: ; preds = %103, %90, %82, %74, %79, %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit
@@ -4965,8 +4965,8 @@ _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit.thread215: ; p
 _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit191: ; preds = %161
   %164 = and i32 %138, 4095
   %165 = icmp eq i32 %164, 6
-  %166 = icmp ult i32 %150, 4
-  %spec.select.i190 = and i1 %166, %165
+  %166 = icmp samesign ult i32 %150, 4
+  %spec.select.i190 = select i1 %165, i1 %166, i1 false
   br i1 %spec.select.i190, label %.thr_comm, label %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit191.thread
 
 _ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit191.thread: ; preds = %161, %148, %140, %132, %137, %_ZN2cv11checkScalarERKNS_3MatEiNS_11_InputArray8KindFlagES4_.exit191
@@ -5197,7 +5197,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc197, %219
 262:                                              ; preds = %240
   %263 = and i32 %247, 7
   %264 = icmp ne i32 %263, %188
-  %265 = icmp ult i32 %188, 4
+  %265 = icmp samesign ult i32 %188, 4
   %or.cond5 = and i1 %265, %264
   br i1 %or.cond5, label %266, label %311
 
@@ -5316,7 +5316,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc197, %219
   %321 = and i32 %187, 3
   %.not.i198 = icmp eq i32 %321, 0
   %spec.select.i199 = select i1 %.not.i198, i32 4, i32 %321
-  %.not223 = icmp ugt i32 %spec.select.i199, %186
+  %.not223 = icmp samesign ugt i32 %spec.select.i199, %186
   %322 = zext nneg i32 %spec.select.i199 to i64
   br i1 %.not263, label %.split, label %.split.us
 
@@ -5656,7 +5656,7 @@ _ZN2cvL13inRangeReduceEPKhPhmi.exit.us.us.us:     ; preds = %367
 
 ._crit_edge.us.i.us:                              ; preds = %437
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
-  %454 = icmp ult i64 %indvars.iv.next.i.us, %223
+  %454 = icmp samesign ult i64 %indvars.iv.next.i.us, %223
   br i1 %454, label %.lr.ph99.us.i.us, label %_ZN2cvL13inRangeReduceEPKhPhmi.exit.us238, !llvm.loop !104
 
 _ZN2cvL13inRangeReduceEPKhPhmi.exit.us238:        ; preds = %._crit_edge.us.i.us, %.preheader84.i.us, %.preheader82.i.us, %.preheader80.i.us, %.preheader.i.us, %.loopexit.i.us

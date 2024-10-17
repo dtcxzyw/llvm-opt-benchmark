@@ -199,7 +199,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 31
   %95 = add i32 %.047.i.i.ph.ph, 1
-  %96 = icmp ugt i8 %94, 1
+  %96 = icmp samesign ugt i8 %94, 1
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %91

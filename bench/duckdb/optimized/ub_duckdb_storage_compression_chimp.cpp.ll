@@ -1757,7 +1757,7 @@ if.then:                                          ; preds = %entry
   %4 = trunc i64 %3 to i32
   %conv18 = xor i32 %in, %4
   %5 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
-  %cmp20 = icmp ugt i32 %5, 12
+  %cmp20 = icmp samesign ugt i32 %5, 12
   br i1 %cmp20, label %if.end44.thread, label %if.end44
 
 if.end44:                                         ; preds = %if.then, %entry
@@ -2660,7 +2660,7 @@ if.then:                                          ; preds = %entry
   %5 = trunc i64 %4 to i32
   %conv18 = xor i32 %in, %5
   %6 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
-  %cmp20 = icmp ugt i32 %6, 12
+  %cmp20 = icmp samesign ugt i32 %6, 12
   br i1 %cmp20, label %if.end44.thread, label %if.end44
 
 if.end44:                                         ; preds = %if.then, %entry
@@ -3127,7 +3127,7 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit60: ; preds = %if.then.
 if.end18:                                         ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit60, %if.end9
   %i.0 = phi i8 [ %sub14, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit60 ], [ %narrow, %if.end9 ]
   %value.addr.0 = phi i32 [ %shr17, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit60 ], [ %value, %if.end9 ]
-  %cmp.i61 = icmp ugt i8 %i.0, 31
+  %cmp.i61 = icmp samesign ugt i8 %i.0, 31
   br i1 %cmp.i61, label %if.end.thread.i, label %if.end.i
 
 if.end.thread.i:                                  ; preds = %if.end18
@@ -3143,7 +3143,7 @@ if.end.thread.i:                                  ; preds = %if.end18
   br label %if.end9.thread.i
 
 if.end.i:                                         ; preds = %if.end18
-  %cmp4.i = icmp ugt i8 %i.0, 23
+  %cmp4.i = icmp samesign ugt i8 %i.0, 23
   br i1 %cmp4.i, label %if.end9.thread.i, label %if.end9.i
 
 if.end9.thread.i:                                 ; preds = %if.end.i, %if.end.thread.i
@@ -3159,7 +3159,7 @@ if.end9.thread.i:                                 ; preds = %if.end.i, %if.end.t
   br label %if.end16.thread.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %cmp11.i = icmp ugt i8 %i.0, 15
+  %cmp11.i = icmp samesign ugt i8 %i.0, 15
   br i1 %cmp11.i, label %if.end16.thread.i, label %if.end16.i
 
 if.end16.thread.i:                                ; preds = %if.end9.i, %if.end9.thread.i
@@ -3175,7 +3175,7 @@ if.end16.thread.i:                                ; preds = %if.end9.i, %if.end9
   br label %if.then19.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %cmp18.i = icmp ugt i8 %i.0, 7
+  %cmp18.i = icmp samesign ugt i8 %i.0, 7
   br i1 %cmp18.i, label %if.then19.i, label %return
 
 if.then19.i:                                      ; preds = %if.end16.i, %if.end16.thread.i
@@ -4051,7 +4051,7 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %sub6.i.i.i81 = sub i8 0, %add.i.i.i
   %and.i.i.i82 = and i8 %sub6.i.i.i81, 7
   %add11.i.i.i = add nuw nsw i32 %conv10.i.pre-phi.i.i, %conv4.i.i
-  %cmp.i.i.i83 = icmp ugt i32 %add11.i.i.i, 7
+  %cmp.i.i.i83 = icmp samesign ugt i32 %add11.i.i.i, 7
   %34 = getelementptr i8, ptr %31, i64 %conv.i50.i.pre-phi.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %34, i64 %conv13.i.pre-phi.i.i
   %35 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
@@ -4195,7 +4195,7 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163:  ; preds = %for.body.i.i106.epi
   %add.i.i.i128.neg = sub i8 %42, %.pre-phi.i.i120
   %and.i.i.i130 = and i8 %add.i.i.i128.neg, 7
   %add11.i.i.i131 = add nuw nsw i32 %conv10.i.pre-phi.i.i119, %conv4.i.i123
-  %cmp.i.i.i132 = icmp ugt i32 %add11.i.i.i131, 7
+  %cmp.i.i.i132 = icmp samesign ugt i32 %add11.i.i.i131, 7
   %64 = getelementptr i8, ptr %61, i64 %conv.i50.i.pre-phi.i.i118
   %arrayidx.i.i.i133 = getelementptr i8, ptr %64, i64 %conv13.i.pre-phi.i.i121
   %65 = load i8, ptr %arrayidx.i.i.i133, align 1, !tbaa !63
@@ -4338,7 +4338,7 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229:  ; preds = %for.body.i.i172.epi
   %add.i.i.i194.neg = sub i8 %71, %.pre-phi.i.i186
   %and.i.i.i196 = and i8 %add.i.i.i194.neg, 7
   %add11.i.i.i197 = add nuw nsw i32 %conv10.i.pre-phi.i.i185, %conv4.i.i189
-  %cmp.i.i.i198 = icmp ugt i32 %add11.i.i.i197, 7
+  %cmp.i.i.i198 = icmp samesign ugt i32 %add11.i.i.i197, 7
   %93 = getelementptr i8, ptr %90, i64 %conv.i50.i.pre-phi.i.i184
   %arrayidx.i.i.i199 = getelementptr i8, ptr %93, i64 %conv13.i.pre-phi.i.i187
   %94 = load i8, ptr %arrayidx.i.i.i199, align 1, !tbaa !63
@@ -6021,7 +6021,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %3, %in
   %4 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cmp14 = icmp ugt i64 %4, 13
+  %cmp14 = icmp samesign ugt i64 %4, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
 if.end34:                                         ; preds = %if.then, %entry
@@ -6794,7 +6794,7 @@ if.then:                                          ; preds = %entry
   %4 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %4, %in
   %5 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cmp14 = icmp ugt i64 %5, 13
+  %cmp14 = icmp samesign ugt i64 %5, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
 if.end34:                                         ; preds = %if.then, %entry
@@ -8154,7 +8154,7 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %and.i.i.i78 = and i8 %sub6.i.i.i77, 7
   %conv8.i.i.i = zext nneg i8 %33 to i32
   %add11.i.i.i = add nuw nsw i32 %conv10.i.pre-phi.i.i, %conv8.i.i.i
-  %cmp.i.i.i79 = icmp ugt i32 %add11.i.i.i, 7
+  %cmp.i.i.i79 = icmp samesign ugt i32 %add11.i.i.i, 7
   %34 = getelementptr i8, ptr %31, i64 %conv.i50.i.pre-phi.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %34, i64 %conv13.i.pre-phi.i.i
   %35 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
@@ -8298,7 +8298,7 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161:  ; preds = %for.body.i.i103.epi
   %and.i.i.i127 = and i8 %add.i.i.i125.neg, 7
   %conv8.i.i.i128 = zext nneg i8 %62 to i32
   %add11.i.i.i129 = add nuw nsw i32 %conv10.i.pre-phi.i.i116, %conv8.i.i.i128
-  %cmp.i.i.i130 = icmp ugt i32 %add11.i.i.i129, 7
+  %cmp.i.i.i130 = icmp samesign ugt i32 %add11.i.i.i129, 7
   %63 = getelementptr i8, ptr %60, i64 %conv.i50.i.pre-phi.i.i115
   %arrayidx.i.i.i131 = getelementptr i8, ptr %63, i64 %conv13.i.pre-phi.i.i118
   %64 = load i8, ptr %arrayidx.i.i.i131, align 1, !tbaa !63
@@ -8442,7 +8442,7 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228:  ; preds = %for.body.i.i170.epi
   %and.i.i.i194 = and i8 %add.i.i.i192.neg, 7
   %conv8.i.i.i195 = zext nneg i8 %91 to i32
   %add11.i.i.i196 = add nuw nsw i32 %conv10.i.pre-phi.i.i183, %conv8.i.i.i195
-  %cmp.i.i.i197 = icmp ugt i32 %add11.i.i.i196, 7
+  %cmp.i.i.i197 = icmp samesign ugt i32 %add11.i.i.i196, 7
   %92 = getelementptr i8, ptr %89, i64 %conv.i50.i.pre-phi.i.i182
   %arrayidx.i.i.i198 = getelementptr i8, ptr %92, i64 %conv13.i.pre-phi.i.i185
   %93 = load i8, ptr %arrayidx.i.i.i198, align 1, !tbaa !63

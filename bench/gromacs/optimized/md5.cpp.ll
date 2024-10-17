@@ -63,7 +63,7 @@ define void @_Z14gmx_md5_appendP11md5_state_sPKhi(ptr noundef %0, ptr noundef %1
   %27 = zext nneg i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %27, i1 false)
   %28 = add nuw nsw i32 %23, %6
-  %29 = icmp ult i32 %28, 64
+  %29 = icmp samesign ult i32 %28, 64
   br i1 %29, label %41, label %30
 
 30:                                               ; preds = %19
@@ -732,7 +732,7 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
 
 29:                                               ; preds = %28
   %30 = add nuw nsw i32 %19, %20
-  %31 = icmp ugt i32 %30, 64
+  %31 = icmp samesign ugt i32 %30, 64
   %32 = sub nuw nsw i32 64, %20
   %33 = select i1 %31, i32 %32, i32 %19
   %34 = getelementptr inbounds i8, ptr %0, i64 24
@@ -741,7 +741,7 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %37 = zext nneg i32 %33 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 16 dereferenceable(1) @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37, i1 false)
   %38 = add nuw nsw i32 %33, %20
-  %39 = icmp ult i32 %38, 64
+  %39 = icmp samesign ult i32 %38, 64
   br i1 %39, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %._crit_edge.i
 
 40:                                               ; preds = %28
@@ -787,7 +787,7 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %._crit_edge.i.threa
   br i1 %.not.i15, label %._crit_edge.i18.thread, label %55
 
 55:                                               ; preds = %54
-  %56 = icmp ugt i32 %48, 56
+  %56 = icmp samesign ugt i32 %48, 56
   %57 = sub nuw nsw i32 64, %48
   %58 = select i1 %56, i32 %57, i32 8
   %59 = getelementptr inbounds i8, ptr %0, i64 24
@@ -796,7 +796,7 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %._crit_edge.i.threa
   %62 = zext nneg i32 %58 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %62, i1 false)
   %63 = add nuw nsw i32 %58, %48
-  %64 = icmp ult i32 %63, 64
+  %64 = icmp samesign ult i32 %63, 64
   br i1 %64, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18
 
 ._crit_edge.i18:                                  ; preds = %55

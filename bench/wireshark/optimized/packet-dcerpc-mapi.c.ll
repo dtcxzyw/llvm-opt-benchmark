@@ -8935,7 +8935,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %89 = add nuw nsw i32 %.0176, 1
   %90 = load i16, ptr %14, align 2
   %91 = zext i16 %90 to i32
-  %92 = icmp ult i32 %89, %91
+  %92 = icmp samesign ult i32 %89, %91
   br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph

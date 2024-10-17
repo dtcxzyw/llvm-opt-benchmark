@@ -314,7 +314,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 120:                                              ; preds = %118
   %121 = load i8, ptr %2, align 1
-  %122 = icmp ugt i64 %3, 1
+  %122 = icmp samesign ugt i64 %3, 1
   br i1 %122, label %.lr.ph.i, label %allBytesIdentical.exit.thread
 
 123:                                              ; preds = %.lr.ph.i

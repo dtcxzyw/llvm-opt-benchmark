@@ -3617,7 +3617,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %284 = load i64, ptr %254, align 8
   %285 = add i64 %284, -1
   store i64 %285, ptr %254, align 8
-  %286 = icmp ugt i32 %.22346.lcssa, 1
+  %286 = icmp samesign ugt i32 %.22346.lcssa, 1
   br i1 %286, label %287, label %405
 
 287:                                              ; preds = %283
@@ -4475,7 +4475,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %766 = load i64, ptr %736, align 8
   %767 = add i64 %766, -1
   store i64 %767, ptr %736, align 8
-  %768 = icmp ugt i32 %.22376.lcssa, 1
+  %768 = icmp samesign ugt i32 %.22376.lcssa, 1
   br i1 %768, label %769, label %887
 
 769:                                              ; preds = %765
@@ -5358,7 +5358,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1262 = load i64, ptr %1232, align 8
   %1263 = add i64 %1262, -1
   store i64 %1263, ptr %1232, align 8
-  %1264 = icmp ugt i32 %.22391.lcssa, 1
+  %1264 = icmp samesign ugt i32 %.22391.lcssa, 1
   br i1 %1264, label %1265, label %1383
 
 1265:                                             ; preds = %1261
@@ -6220,7 +6220,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1746 = load i64, ptr %1716, align 8
   %1747 = add i64 %1746, -1
   store i64 %1747, ptr %1716, align 8
-  %1748 = icmp ugt i32 %.22421.lcssa, 1
+  %1748 = icmp samesign ugt i32 %.22421.lcssa, 1
   br i1 %1748, label %1749, label %1867
 
 1749:                                             ; preds = %1745
@@ -7078,7 +7078,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2228 = load i64, ptr %2198, align 8
   %2229 = add i64 %2228, -1
   store i64 %2229, ptr %2198, align 8
-  %2230 = icmp ugt i32 %.22436.lcssa, 1
+  %2230 = icmp samesign ugt i32 %.22436.lcssa, 1
   br i1 %2230, label %2231, label %2349
 
 2231:                                             ; preds = %2227
@@ -7936,7 +7936,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2710 = load i64, ptr %2680, align 8
   %2711 = add i64 %2710, -1
   store i64 %2711, ptr %2680, align 8
-  %2712 = icmp ugt i32 %.22466.lcssa, 1
+  %2712 = icmp samesign ugt i32 %.22466.lcssa, 1
   br i1 %2712, label %2713, label %2831
 
 2713:                                             ; preds = %2709
@@ -8818,7 +8818,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3208 = load i64, ptr %3178, align 8
   %3209 = add i64 %3208, -1
   store i64 %3209, ptr %3178, align 8
-  %3210 = icmp ugt i32 %.22445.lcssa, 1
+  %3210 = icmp samesign ugt i32 %.22445.lcssa, 1
   br i1 %3210, label %3211, label %3329
 
 3211:                                             ; preds = %3207
@@ -9684,7 +9684,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3696 = load i64, ptr %3666, align 8
   %3697 = add i64 %3696, -1
   store i64 %3697, ptr %3666, align 8
-  %3698 = icmp ugt i32 %.22400.lcssa, 1
+  %3698 = icmp samesign ugt i32 %.22400.lcssa, 1
   br i1 %3698, label %3699, label %3817
 
 3699:                                             ; preds = %3695
@@ -10555,7 +10555,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4189 = load i64, ptr %4158, align 8
   %4190 = add i64 %4189, -1
   store i64 %4190, ptr %4158, align 8
-  %4191 = icmp ugt i32 %.22355.lcssa, 1
+  %4191 = icmp samesign ugt i32 %.22355.lcssa, 1
   br i1 %4191, label %4192, label %4310
 
 4192:                                             ; preds = %4188

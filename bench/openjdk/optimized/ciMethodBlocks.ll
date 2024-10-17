@@ -90,7 +90,7 @@ define hidden noundef ptr @_ZN14ciMethodBlocks14split_block_atEi(ptr nocapture n
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -236,7 +236,7 @@ define hidden noundef ptr @_ZN14ciMethodBlocks13make_block_atEi(ptr nocapture no
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -986,7 +986,7 @@ _ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit:   ; preds = %_ZN5Arena7AmallocEm
   %58 = add nsw i32 %53, 1
   %59 = icmp sgt i32 %53, -1
   %60 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %58)
-  %61 = icmp ult i32 %60, 2
+  %61 = icmp samesign ult i32 %60, 2
   %or.cond.i.i.i.i = select i1 %59, i1 %61, i1 false
   %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
   %63 = sub nuw nsw i32 32, %62

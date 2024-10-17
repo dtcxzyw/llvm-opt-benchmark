@@ -443,7 +443,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
 56:                                               ; preds = %52, %47, %44, %40, %32
   %57 = add nuw nsw i64 %29, 1
   %58 = and i64 %57, 127
-  %59 = icmp ugt i64 %58, 63
+  %59 = icmp samesign ugt i64 %58, 63
   br i1 %59, label %.thread, label %22, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %22, %56, %28, %1

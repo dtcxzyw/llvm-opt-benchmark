@@ -274,7 +274,7 @@ do.body.us.i:                                     ; preds = %do.body.us.i, %entr
 
 _ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit:        ; preds = %do.body.us.i
   %p25.i = ptrtoint ptr %arrayidx.i to i64
-  %tobool13.not.i = icmp ult i8 %0, 64
+  %tobool13.not.i = icmp samesign ult i8 %0, 64
   %sh_prom15.i = zext nneg i32 %add.us.i to i64
   %shl16.i = shl nsw i64 -1, %sh_prom15.i
   %or17.i = select i1 %tobool13.not.i, i64 0, i64 %shl16.i
@@ -306,7 +306,7 @@ if.then:                                          ; preds = %entry, %if.then
   %arrayidx = getelementptr inbounds [5 x i8], ptr %buf, i64 0, i64 %i.013
   store i8 %conv5, ptr %arrayidx, align 1
   %shr = ashr i32 %input.addr.014, 7
-  %cmp = icmp ult i64 %add15, 5
+  %cmp = icmp samesign ult i64 %add15, 5
   tail call void @llvm.assume(i1 %cmp)
   %2 = add nsw i32 %shr, -64
   %cmp2.not = icmp ult i32 %2, -128

@@ -1075,7 +1075,7 @@ for.inc.i.i35:                                    ; preds = %if.else.i.i, %if.th
   %inc.i.i = add nuw nsw i32 %i.018.i.i, 1
   %39 = load ptr, ptr %p.addr.1.i.i, align 8
   %cmp.i.i36 = icmp ne ptr %39, null
-  %cmp6.i.i = icmp ult i32 %i.018.i.i, 99
+  %cmp6.i.i = icmp samesign ult i32 %i.018.i.i, 99
   %40 = select i1 %cmp.i.i36, i1 %cmp6.i.i, i1 false
   br i1 %40, label %for.body.i.i32, label %sweeplist.exit.loopexit.i, !llvm.loop !7
 
@@ -1149,7 +1149,7 @@ for.inc.i.i53:                                    ; preds = %if.else.i.i67, %if.
   %inc.i.i55 = add nuw nsw i32 %i.018.i.i48, 1
   %56 = load ptr, ptr %p.addr.1.i.i54, align 8
   %cmp.i.i56 = icmp ne ptr %56, null
-  %cmp6.i.i57 = icmp ult i32 %i.018.i.i48, 99
+  %cmp6.i.i57 = icmp samesign ult i32 %i.018.i.i48, 99
   %57 = select i1 %cmp.i.i56, i1 %cmp6.i.i57, i1 false
   br i1 %57, label %for.body.i.i46, label %sweeplist.exit.loopexit.i58, !llvm.loop !7
 
@@ -1223,7 +1223,7 @@ for.inc.i.i87:                                    ; preds = %if.else.i.i101, %if
   %inc.i.i89 = add nuw nsw i32 %i.018.i.i82, 1
   %73 = load ptr, ptr %p.addr.1.i.i88, align 8
   %cmp.i.i90 = icmp ne ptr %73, null
-  %cmp6.i.i91 = icmp ult i32 %i.018.i.i82, 99
+  %cmp6.i.i91 = icmp samesign ult i32 %i.018.i.i82, 99
   %74 = select i1 %cmp.i.i90, i1 %cmp6.i.i91, i1 false
   br i1 %74, label %for.body.i.i80, label %sweeplist.exit.loopexit.i92, !llvm.loop !7
 
@@ -1551,7 +1551,7 @@ luaC_runtilstate.exit33.i.i:                      ; preds = %while.body.i27.i.i,
   %42 = load i64, ptr %GCestimate.i.i, align 8
   %div.i35.i.i = udiv i64 %42, 100
   %div2.i.i.i = udiv i64 9223372036854775807, %div.i35.i.i
-  %cmp.i.i.i = icmp ult i64 %mul.i.i.i, %div2.i.i.i
+  %cmp.i.i.i = icmp samesign ult i64 %mul.i.i.i, %div2.i.i.i
   %mul5.i.i.i = mul nuw nsw i64 %div.i35.i.i, %mul.i.i.i
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %mul5.i.i.i, i64 9223372036854775807
   %43 = load i64, ptr %totalbytes.i.i, align 8
@@ -1678,7 +1678,7 @@ if.else18.i:                                      ; preds = %fullgen.exit.i
   %66 = load i64, ptr %GCestimate.i, align 8
   %div.i.i = udiv i64 %66, 100
   %div2.i.i = udiv i64 9223372036854775807, %div.i.i
-  %cmp.i60.i = icmp ult i64 %mul.i.i, %div2.i.i
+  %cmp.i60.i = icmp samesign ult i64 %mul.i.i, %div2.i.i
   %mul5.i.i = mul nuw nsw i64 %div.i.i, %mul.i.i
   %cond.i.i = select i1 %cmp.i60.i, i64 %mul5.i.i, i64 9223372036854775807
   %sub.i.i = sub i64 %add12.i, %cond.i.i
@@ -1840,7 +1840,7 @@ if.else19.i.i.i:                                  ; preds = %if.else.i.i.i
   %91 = load i8, ptr %arrayidx.i.i.i, align 1
   %or27.i.i.i = or i8 %91, %and22.i.i.i
   store i8 %or27.i.i.i, ptr %marked.i73.i.i, align 1
-  %cmp33.i.i.i = icmp ult i32 %and8.i.i.i, 3
+  %cmp33.i.i.i = icmp samesign ult i32 %and8.i.i.i, 3
   br i1 %cmp33.i.i.i, label %land.lhs.true.i.i.i, label %if.end40.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.else19.i.i.i
@@ -1906,7 +1906,7 @@ if.else19.i94.i.i:                                ; preds = %if.else.i91.i.i
   %100 = load i8, ptr %arrayidx.i97.i.i, align 1
   %or27.i98.i.i = or i8 %100, %and22.i95.i.i
   store i8 %or27.i98.i.i, ptr %marked.i82.i.i, align 1
-  %cmp33.i99.i.i = icmp ult i32 %and8.i92.i.i, 3
+  %cmp33.i99.i.i = icmp samesign ult i32 %and8.i92.i.i, 3
   br i1 %cmp33.i99.i.i, label %land.lhs.true.i100.i.i, label %if.end40.i87.i.i
 
 land.lhs.true.i100.i.i:                           ; preds = %if.else19.i94.i.i
@@ -2171,7 +2171,7 @@ if.then.i13:                                      ; preds = %land.rhs.i, %do.end
   %140 = load i64, ptr %GCestimate.i.i17, align 8
   %div.i.i18 = udiv i64 %140, 100
   %div2.i.i19 = udiv i64 9223372036854775807, %div.i.i18
-  %cmp.i.i20 = icmp ult i64 %mul.i.i16, %div2.i.i19
+  %cmp.i.i20 = icmp samesign ult i64 %mul.i.i16, %div2.i.i19
   %mul5.i.i21 = mul nuw nsw i64 %div.i.i18, %mul.i.i16
   %cond.i.i22 = select i1 %cmp.i.i20, i64 %mul5.i.i21, i64 9223372036854775807
   %totalbytes.i.i23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2340,7 +2340,7 @@ fullinc.exit:                                     ; preds = %while.body.i41.i, %
   %25 = load i64, ptr %GCestimate.i.i, align 8
   %div.i.i = udiv i64 %25, 100
   %div2.i.i = udiv i64 9223372036854775807, %div.i.i
-  %cmp.i.i = icmp ult i64 %mul.i.i, %div2.i.i
+  %cmp.i.i = icmp samesign ult i64 %mul.i.i, %div2.i.i
   %mul5.i.i = mul nuw nsw i64 %div.i.i, %mul.i.i
   %cond.i.i = select i1 %cmp.i.i, i64 %mul5.i.i, i64 9223372036854775807
   %totalbytes.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -4023,7 +4023,7 @@ for.inc.i:                                        ; preds = %if.then18.i, %land.
   %81 = phi i16 [ %75, %for.body.i ], [ %75, %land.lhs.true.i23 ], [ %.pre.i, %if.then18.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = zext i16 %81 to i64
-  %cmp.i24 = icmp ult i64 %indvars.iv.next.i, %82
+  %cmp.i24 = icmp samesign ult i64 %indvars.iv.next.i, %82
   br i1 %cmp.i24, label %for.body.i, label %for.end.i, !llvm.loop !35
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end5.i
@@ -4143,7 +4143,7 @@ for.inc.i42:                                      ; preds = %if.then14.i, %if.th
   %98 = phi i8 [ %94, %for.body.i37 ], [ %.pre.i41, %if.then14.i ], [ %94, %if.then9.i ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 1
   %99 = zext i8 %98 to i64
-  %cmp.i44 = icmp ult i64 %indvars.iv.next.i43, %99
+  %cmp.i44 = icmp samesign ult i64 %indvars.iv.next.i43, %99
   br i1 %cmp.i44, label %for.body.i37, label %traverseLclosure.exit.loopexit, !llvm.loop !36
 
 traverseLclosure.exit.loopexit:                   ; preds = %for.inc.i42
@@ -4188,7 +4188,7 @@ for.inc.i59:                                      ; preds = %if.then.i57, %land.
   %109 = phi i8 [ %103, %for.body.i49 ], [ %103, %land.lhs.true.i54 ], [ %.pre.i58, %if.then.i57 ]
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i50, 1
   %110 = zext i8 %109 to i64
-  %cmp.i61 = icmp ult i64 %indvars.iv.next.i60, %110
+  %cmp.i61 = icmp samesign ult i64 %indvars.iv.next.i60, %110
   br i1 %cmp.i61, label %for.body.i49, label %traverseCclosure.exit.loopexit, !llvm.loop !37
 
 traverseCclosure.exit.loopexit:                   ; preds = %for.inc.i59

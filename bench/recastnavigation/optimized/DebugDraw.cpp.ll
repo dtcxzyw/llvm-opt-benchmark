@@ -345,7 +345,7 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %83, float noundef %5, float noundef %85, i32 noundef %7)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
-  %89 = icmp ult i64 %indvars.iv88, 12
+  %89 = icmp samesign ult i64 %indvars.iv88, 12
   br i1 %89, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %8

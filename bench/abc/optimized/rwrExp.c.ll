@@ -96,7 +96,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %13, ptr %1, align 4
-  %14 = icmp ult i64 %indvars.iv.next, %6
+  %14 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %14, label %7, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %7, %0
@@ -134,7 +134,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %34 = trunc nuw nsw i64 %indvars.iv67 to i32
   store i32 %34, ptr %33, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %35 = icmp ult i64 %indvars.iv.next68, %25
+  %35 = icmp samesign ult i64 %indvars.iv.next68, %25
   br i1 %35, label %26, label %._crit_edge52, !llvm.loop !6
 
 ._crit_edge52:                                    ; preds = %26, %._crit_edge

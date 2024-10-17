@@ -1370,28 +1370,28 @@ st_mult.exit:                                     ; preds = %cond.true, %entry
   %conv1 = zext nneg i32 %add to i64
   %mul.i = shl nuw nsw i64 %conv1, 3
   %call3 = tail call ptr @xmalloc(i64 noundef %mul.i) #11
-  %tobool7 = icmp ult i32 %flags, 2
+  %tobool7 = icmp samesign ult i32 %flags, 2
   %and21 = and i32 %flags, 1
   %tobool22.not = icmp eq i32 %and21, 0
-  %wide.trip.count73 = zext nneg i32 %count to i64
-  br i1 %tobool7, label %st_mult.exit.split, label %st_mult.exit.split.us
+  %wide.trip.count105 = zext nneg i32 %count to i64
+  br i1 %tobool7, label %st_mult.exit.split.split.us, label %st_mult.exit.split.us
 
 st_mult.exit.split.us:                            ; preds = %st_mult.exit
   br i1 %tobool22.not, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %st_mult.exit.split.us, %for.body.us.us
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %for.body.us.us ], [ 0, %st_mult.exit.split.us ]
-  %arrayidx.us.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv60
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %for.body.us.us ], [ 0, %st_mult.exit.split.us ]
+  %arrayidx.us.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv92
   %1 = load ptr, ptr %arrayidx.us.us, align 8
   %call5.us.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %sext55 = shl i64 %call5.us.us, 32
-  %conv19.us.us = ashr exact i64 %sext55, 32
+  %sext85 = shl i64 %call5.us.us, 32
+  %conv19.us.us = ashr exact i64 %sext85, 32
   %call20.us.us = tail call ptr @xmemdupz(ptr noundef %1, i64 noundef %conv19.us.us) #11
-  %arrayidx28.us.us = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv60
+  %arrayidx28.us.us = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv92
   store ptr %call20.us.us, ptr %arrayidx28.us.us, align 8
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count73
-  br i1 %exitcond64.not, label %for.end, label %for.body.us.us, !llvm.loop !10
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count105
+  br i1 %exitcond96.not, label %for.end, label %for.body.us.us, !llvm.loop !10
 
 for.body.us:                                      ; preds = %st_mult.exit.split.us, %for.body.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us ], [ 0, %st_mult.exit.split.us ]
@@ -1407,97 +1407,98 @@ for.body.us:                                      ; preds = %st_mult.exit.split.
   store ptr %call24.us, ptr %arrayidx26.us, align 8
   tail call void @free(ptr noundef %call20.us) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count105
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !10
 
-st_mult.exit.split:                               ; preds = %st_mult.exit
-  br i1 %tobool22.not, label %for.body.us38, label %for.body
+st_mult.exit.split.split.us:                      ; preds = %st_mult.exit
+  br i1 %tobool22.not, label %for.body.us39.us, label %for.body.us39
 
-for.body.us38:                                    ; preds = %st_mult.exit.split, %while.end.us45
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %while.end.us45 ], [ 0, %st_mult.exit.split ]
-  %arrayidx.us41 = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv70
-  %3 = load ptr, ptr %arrayidx.us41, align 8
-  %call5.us42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
-  %conv6.us43 = trunc i64 %call5.us42 to i32
-  %invariant.gep.us44 = getelementptr i8, ptr %3, i64 -1
-  %cmp832.us = icmp sgt i32 %conv6.us43, 0
-  br i1 %cmp832.us, label %land.rhs.us, label %while.end.us45
+for.body.us39.us:                                 ; preds = %st_mult.exit.split.split.us, %while.end.us48.us
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %while.end.us48.us ], [ 0, %st_mult.exit.split.split.us ]
+  %arrayidx.us42.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv102
+  %3 = load ptr, ptr %arrayidx.us42.us, align 8
+  %call5.us43.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
+  %conv6.us44.us = trunc i64 %call5.us43.us to i32
+  %invariant.gep.us45.us = getelementptr i8, ptr %3, i64 -1
+  %cmp832.us.us = icmp sgt i32 %conv6.us44.us, 0
+  br i1 %cmp832.us.us, label %land.rhs.us.us, label %while.end.us48.us
 
-land.rhs.us:                                      ; preds = %for.body.us38, %while.body.us
-  %to_copy.034.us = phi i32 [ %dec.us, %while.body.us ], [ %conv6.us43, %for.body.us38 ]
-  %4 = zext nneg i32 %to_copy.034.us to i64
-  %gep.us = getelementptr i8, ptr %invariant.gep.us44, i64 %4
-  %5 = load i8, ptr %gep.us, align 1
-  %cmp.i.not.us = icmp eq i8 %5, 47
-  br i1 %cmp.i.not.us, label %while.body.us, label %while.end.us45
+land.rhs.us.us:                                   ; preds = %for.body.us39.us, %while.body.us61.us
+  %to_copy.034.us.us = phi i32 [ %dec.us62.us, %while.body.us61.us ], [ %conv6.us44.us, %for.body.us39.us ]
+  %4 = zext nneg i32 %to_copy.034.us.us to i64
+  %gep.us46.us = getelementptr i8, ptr %invariant.gep.us45.us, i64 %4
+  %5 = load i8, ptr %gep.us46.us, align 1
+  %cmp.i.not.us47.us = icmp eq i8 %5, 47
+  br i1 %cmp.i.not.us47.us, label %while.body.us61.us, label %while.end.us48.us
 
-while.end.us45:                                   ; preds = %land.rhs.us, %while.body.us, %for.body.us38
-  %to_copy.0.lcssa.us46 = phi i32 [ %conv6.us43, %for.body.us38 ], [ 0, %while.body.us ], [ %to_copy.034.us, %land.rhs.us ]
-  %conv19.us47 = sext i32 %to_copy.0.lcssa.us46 to i64
-  %call20.us48 = tail call ptr @xmemdupz(ptr noundef %3, i64 noundef %conv19.us47) #11
-  %arrayidx28.us50 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv70
-  store ptr %call20.us48, ptr %arrayidx28.us50, align 8
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %for.end, label %for.body.us38, !llvm.loop !10
+while.end.us48.us:                                ; preds = %land.rhs.us.us, %while.body.us61.us, %for.body.us39.us
+  %to_copy.0.lcssa.us49.us = phi i32 [ %conv6.us44.us, %for.body.us39.us ], [ 0, %while.body.us61.us ], [ %to_copy.034.us.us, %land.rhs.us.us ]
+  %conv19.us50.us = sext i32 %to_copy.0.lcssa.us49.us to i64
+  %call20.us51.us = tail call ptr @xmemdupz(ptr noundef %3, i64 noundef %conv19.us50.us) #11
+  %arrayidx28.us57.us = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv102
+  store ptr %call20.us51.us, ptr %arrayidx28.us57.us, align 8
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %for.end, label %for.body.us39.us, !llvm.loop !10
 
-while.body.us:                                    ; preds = %land.rhs.us
-  %dec.us = add nsw i32 %to_copy.034.us, -1
+while.body.us61.us:                               ; preds = %land.rhs.us.us
+  %dec.us62.us = add nsw i32 %to_copy.034.us.us, -1
+  %cmp8.us.us = icmp sgt i32 %to_copy.034.us.us, 1
+  br i1 %cmp8.us.us, label %land.rhs.us.us, label %while.end.us48.us, !llvm.loop !11
+
+for.body.us39:                                    ; preds = %st_mult.exit.split.split.us, %while.end.us48
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %while.end.us48 ], [ 0, %st_mult.exit.split.split.us ]
+  %arrayidx.us42 = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv97
+  %6 = load ptr, ptr %arrayidx.us42, align 8
+  %call5.us43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
+  %conv6.us44 = trunc i64 %call5.us43 to i32
+  %invariant.gep.us45 = getelementptr i8, ptr %6, i64 -1
+  %cmp832.us = icmp sgt i32 %conv6.us44, 0
+  br i1 %cmp832.us, label %land.rhs.us, label %while.end.us48
+
+land.rhs.us:                                      ; preds = %for.body.us39, %while.body.us61
+  %to_copy.034.us = phi i32 [ %dec.us62, %while.body.us61 ], [ %conv6.us44, %for.body.us39 ]
+  %7 = zext nneg i32 %to_copy.034.us to i64
+  %gep.us46 = getelementptr i8, ptr %invariant.gep.us45, i64 %7
+  %8 = load i8, ptr %gep.us46, align 1
+  %cmp.i.not.us47 = icmp eq i8 %8, 47
+  br i1 %cmp.i.not.us47, label %while.body.us61, label %while.end.us48
+
+while.end.us48:                                   ; preds = %land.rhs.us, %while.body.us61, %for.body.us39
+  %to_copy.0.lcssa.us49 = phi i32 [ %conv6.us44, %for.body.us39 ], [ 0, %while.body.us61 ], [ %to_copy.034.us, %land.rhs.us ]
+  %conv19.us50 = sext i32 %to_copy.0.lcssa.us49 to i64
+  %call20.us51 = tail call ptr @xmemdupz(ptr noundef %6, i64 noundef %conv19.us50) #11
+  %call23.us53 = tail call ptr @__xpg_basename(ptr noundef %call20.us51) #11
+  %call24.us54 = tail call ptr @xstrdup(ptr noundef %call23.us53) #11
+  %arrayidx26.us55 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv97
+  store ptr %call24.us54, ptr %arrayidx26.us55, align 8
+  tail call void @free(ptr noundef %call20.us51) #11
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
+  br i1 %exitcond101.not, label %for.end, label %for.body.us39, !llvm.loop !10
+
+while.body.us61:                                  ; preds = %land.rhs.us
+  %dec.us62 = add nsw i32 %to_copy.034.us, -1
   %cmp8.us = icmp sgt i32 %to_copy.034.us, 1
-  br i1 %cmp8.us, label %land.rhs.us, label %while.end.us45, !llvm.loop !11
+  br i1 %cmp8.us, label %land.rhs.us, label %while.end.us48, !llvm.loop !11
 
-for.body:                                         ; preds = %st_mult.exit.split, %while.end
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %while.end ], [ 0, %st_mult.exit.split ]
-  %arrayidx = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv65
-  %6 = load ptr, ptr %arrayidx, align 8
-  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %conv6 = trunc i64 %call5 to i32
-  %invariant.gep = getelementptr i8, ptr %6, i64 -1
-  %cmp832 = icmp sgt i32 %conv6, 0
-  br i1 %cmp832, label %land.rhs, label %while.end
-
-land.rhs:                                         ; preds = %for.body, %while.body
-  %to_copy.034 = phi i32 [ %dec, %while.body ], [ %conv6, %for.body ]
-  %7 = zext nneg i32 %to_copy.034 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
-  %8 = load i8, ptr %gep, align 1
-  %cmp.i.not = icmp eq i8 %8, 47
-  br i1 %cmp.i.not, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.rhs
-  %dec = add nsw i32 %to_copy.034, -1
-  %cmp8 = icmp sgt i32 %to_copy.034, 1
-  br i1 %cmp8, label %land.rhs, label %while.end, !llvm.loop !11
-
-while.end:                                        ; preds = %land.rhs, %while.body, %for.body
-  %to_copy.0.lcssa = phi i32 [ %conv6, %for.body ], [ 0, %while.body ], [ %to_copy.034, %land.rhs ]
-  %conv19 = sext i32 %to_copy.0.lcssa to i64
-  %call20 = tail call ptr @xmemdupz(ptr noundef %6, i64 noundef %conv19) #11
-  %call23 = tail call ptr @__xpg_basename(ptr noundef %call20) #11
-  %call24 = tail call ptr @xstrdup(ptr noundef %call23) #11
-  %arrayidx26 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv65
-  store ptr %call24, ptr %arrayidx26, align 8
-  tail call void @free(ptr noundef %call20) #11
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count73
-  br i1 %exitcond69.not, label %for.end, label %for.body, !llvm.loop !10
-
-for.end:                                          ; preds = %for.body.us, %for.body.us.us, %while.end, %while.end.us45
-  %arrayidx30 = getelementptr inbounds ptr, ptr %call3, i64 %wide.trip.count73
+for.end:                                          ; preds = %for.body.us, %for.body.us.us, %while.end.us48, %while.end.us48.us
+  %idxprom29 = zext nneg i32 %count to i64
+  %arrayidx30 = getelementptr inbounds ptr, ptr %call3, i64 %idxprom29
   store ptr null, ptr %arrayidx30, align 8
   br label %for.body34
 
 for.body34:                                       ; preds = %for.end, %for.body34
-  %indvars.iv75 = phi i64 [ 0, %for.end ], [ %indvars.iv.next76, %for.body34 ]
-  %arrayidx36 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv75
+  %indvars.iv107 = phi i64 [ 0, %for.end ], [ %indvars.iv.next108, %for.body34 ]
+  %arrayidx36 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv107
   %9 = load ptr, ptr %arrayidx36, align 8
   %call37 = tail call ptr @prefix_path(ptr noundef %prefix, i32 noundef %cond, ptr noundef %9) #11
   %10 = load ptr, ptr %arrayidx36, align 8
   tail call void @free(ptr noundef %10) #11
   store ptr %call37, ptr %arrayidx36, align 8
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count73
-  br i1 %exitcond79.not, label %for.end44, label %for.body34, !llvm.loop !12
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %idxprom29
+  br i1 %exitcond111.not, label %for.end44, label %for.body34, !llvm.loop !12
 
 for.end44:                                        ; preds = %for.body34
   ret ptr %call3

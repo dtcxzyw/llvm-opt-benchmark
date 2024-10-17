@@ -585,7 +585,7 @@ for.cond75:                                       ; preds = %if.end69, %for.body
 
 for.body78:                                       ; preds = %for.cond75
   %call.i52 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.2) #4
-  %cmp80 = icmp ult i32 %i.2, 3
+  %cmp80 = icmp samesign ult i32 %i.2, 3
   %add82 = add nuw nsw i32 %i.2, 1
   %cond = select i1 %cmp80, i32 %i.2, i32 %add82
   %idxprom83 = zext nneg i32 %cond to i64

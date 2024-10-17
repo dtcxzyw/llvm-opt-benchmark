@@ -1329,7 +1329,7 @@ cleanup.i.epil:                                   ; preds = %while.body.i.epil, 
 for.body12.i.preheader:                           ; preds = %cleanup.i.epil, %for.body12.i.preheader.loopexit.unr-lcssa, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader
   %valid.050.i.lcssa = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %valid.3.i.1, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %valid.3.i.epil, %cleanup.i.epil ]
   %.lcssa = phi i64 [ %11, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader ], [ %30, %for.body12.i.preheader.loopexit.unr-lcssa ], [ %17, %cleanup.i.epil ]
-  %min.iters.check = icmp ult i64 %rem.i, 4
+  %min.iters.check = icmp samesign ult i64 %rem.i, 4
   br i1 %min.iters.check, label %for.body12.i.preheader41, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader

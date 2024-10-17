@@ -49,7 +49,7 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr nocapture noundef readonly %0, ptr
   store <8 x i16> %21, ptr %16, align 1
   %24 = add <4 x i32> %23, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %10
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %10
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 8
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -143,7 +143,7 @@ define internal void @SharpYuvUpdateRGB_SSE2(ptr nocapture noundef readonly %0, 
   %16 = add <8 x i16> %15, %14
   store <8 x i16> %16, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %5
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 8
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -241,7 +241,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   store <8 x i16> %51, ptr %53, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %13
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 8
   br i1 %.not.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
@@ -378,7 +378,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %156 = getelementptr inbounds i16, ptr %4, i64 %149
   store <8 x i16> %155, ptr %156, align 1
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 4
-  %.not.i17 = icmp ugt i64 %indvars.iv.next.i16, %101
+  %.not.i17 = icmp samesign ugt i64 %indvars.iv.next.i16, %101
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 4
   br i1 %.not.i17, label %.preheader.loopexit.i18, label %.lr.ph.i14, !llvm.loop !11
 

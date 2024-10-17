@@ -3354,7 +3354,7 @@ _ZN6IfNode10up_one_domEP4Nodeb.exit.thread:       ; preds = %116, %177, %175, %1
 _ZN6IfNode10up_one_domEP4Nodeb.exit:              ; preds = %113, %115, %124, %177
   %.027.i = phi ptr [ %128, %124 ], [ %114, %113 ], [ %112, %115 ], [ %.026.i, %177 ]
   %182 = add nuw nsw i32 %.070122, 1
-  %183 = icmp ugt i32 %.070122, 8
+  %183 = icmp samesign ugt i32 %.070122, 8
   %184 = icmp eq ptr %.027.i, null
   %or.cond.not108 = or i1 %183, %184
   %.not83 = icmp eq ptr %.027.i, %2
@@ -3406,7 +3406,7 @@ _ZN6IfNode10up_one_domEP4Nodeb.exit:              ; preds = %113, %115, %124, %1
   %212 = sub i64 %210, %211
   %213 = lshr i64 %212, 4
   %214 = and i64 %213, 4294967295
-  %215 = icmp ult i64 %indvars.iv.next, %214
+  %215 = icmp samesign ult i64 %indvars.iv.next, %214
   br i1 %215, label %.lr.ph127, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph127, %.preheader
@@ -3524,7 +3524,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN6IfNode10up_one_
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %276 = load i32, ptr %55, align 8
   %277 = zext i32 %276 to i64
-  %278 = icmp ult i64 %indvars.iv.next153, %277
+  %278 = icmp samesign ult i64 %indvars.iv.next153, %277
   br i1 %278, label %60, label %.loopexit.loopexit, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit
@@ -5929,7 +5929,7 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %.1 = phi i32 [ %522, %520 ], [ %.0306454, %514 ]
   %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
   %525 = zext i32 %524 to i64
-  %526 = icmp ult i64 %indvars.iv.next513, %525
+  %526 = icmp samesign ult i64 %indvars.iv.next513, %525
   br i1 %526, label %514, label %._crit_edge458.loopexit, !llvm.loop !22
 
 ._crit_edge458.loopexit:                          ; preds = %523
@@ -8135,7 +8135,7 @@ _ZN6IfNodeC2EP4NodeS1_ff.exit:                    ; preds = %_ZN4Node8init_reqEj
   %57 = add nsw i32 %52, 1
   %58 = icmp sgt i32 %52, -1
   %59 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %57)
-  %60 = icmp ult i32 %59, 2
+  %60 = icmp samesign ult i32 %59, 2
   %or.cond.i.i.i.i.i = select i1 %58, i1 %60, i1 false
   %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
   %62 = sub nuw nsw i32 32, %61

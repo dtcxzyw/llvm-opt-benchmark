@@ -320,7 +320,7 @@ define hidden void @_ZN14ClassPrelinker7disposeEv() local_unnamed_addr #1 align 
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader11
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
-  %6 = icmp ult i64 %.0.idx11.i.i, 127104
+  %6 = icmp samesign ult i64 %.0.idx11.i.i, 127104
   br i1 %6, label %.preheader11, label %_ZN17ResourceHashtableIP13InstanceKlassbLj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit, !llvm.loop !10
 
 _ZN17ResourceHashtableIP13InstanceKlassbLj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit: ; preds = %._crit_edge.i.i
@@ -349,7 +349,7 @@ _ZN17ResourceHashtableIP13InstanceKlassbLj15889ELN6AnyObj15allocation_typeE2EL8M
 
 ._crit_edge.i.i8:                                 ; preds = %.lr.ph.i.i5, %.preheader
   %.0.add.i.i9 = add nuw nsw i64 %.0.idx11.i.i2, 8
-  %13 = icmp ult i64 %.0.idx11.i.i2, 127104
+  %13 = icmp samesign ult i64 %.0.idx11.i.i2, 127104
   br i1 %13, label %.preheader, label %_ZN17ResourceHashtableIP13InstanceKlassbLj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit10, !llvm.loop !10
 
 _ZN17ResourceHashtableIP13InstanceKlassbLj15889ELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit10: ; preds = %._crit_edge.i.i8
@@ -709,7 +709,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKl
   %49 = add nsw i32 %44, 1
   %50 = icmp sgt i32 %44, -1
   %51 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %49)
-  %52 = icmp ult i32 %51, 2
+  %52 = icmp samesign ult i32 %51, 2
   %or.cond.i.i.i.i.i.i = select i1 %50, i1 %52, i1 false
   %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
   %54 = sub nuw nsw i32 32, %53
@@ -955,7 +955,7 @@ define hidden void @_ZN14ClassPrelinker27preresolve_class_cp_entriesEP10JavaThre
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -1050,7 +1050,7 @@ _ZN14ClassPrelinker17find_loaded_classEP6ThreadP12ConstantPooli.exit: ; preds = 
   %78 = add nsw i32 %73, 1
   %79 = icmp sgt i32 %73, -1
   %80 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %78)
-  %81 = icmp ult i32 %80, 2
+  %81 = icmp samesign ult i32 %80, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %79, i1 %81, i1 false
   %82 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %78, i1 true)
   %83 = sub nuw nsw i32 32, %82
@@ -1147,7 +1147,7 @@ define hidden void @_ZN14ClassPrelinker38preresolve_field_and_method_cp_entriesE
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -1217,7 +1217,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26Grow
   %60 = add nsw i32 %55, 1
   %61 = icmp sgt i32 %55, -1
   %62 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %60)
-  %63 = icmp ult i32 %62, 2
+  %63 = icmp samesign ult i32 %62, 2
   %or.cond.i.i.i.i.i.i26 = select i1 %61, i1 %63, i1 false
   %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 true)
   %65 = sub nuw nsw i32 32, %64
@@ -1482,7 +1482,7 @@ define hidden void @_ZN14ClassPrelinker21maybe_resolve_fmi_refEP13InstanceKlassP
   %19 = add nsw i32 %14, 1
   %20 = icmp sgt i32 %14, -1
   %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i.i.i.i.i = select i1 %20, i1 %22, i1 false
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %24 = sub nuw nsw i32 32, %23
@@ -1525,7 +1525,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %6, %_ZN26GrowableAr
   %43 = add nsw i32 %38, 1
   %44 = icmp sgt i32 %38, -1
   %45 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   %or.cond.i.i.i.i.i.i43 = select i1 %44, i1 %46, i1 false
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %48 = sub nuw nsw i32 32, %47

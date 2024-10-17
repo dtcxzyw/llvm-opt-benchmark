@@ -4873,7 +4873,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_leng
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
   %cmp3.i.i.i = icmp ult i64 %1, 8
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
-  %cmp.not.i = icmp ugt i64 %sub.i, 7
+  %cmp.not.i = icmp samesign ugt i64 %sub.i, 7
   br i1 %cmp.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i3, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i

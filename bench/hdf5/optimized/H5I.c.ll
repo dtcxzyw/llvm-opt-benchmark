@@ -136,7 +136,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   %spec.select = select i1 %31, i32 %32, i32 %.13166
   %spec.select36 = select i1 %31, i8 1, i8 %.02667
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = icmp ult i64 %indvars.iv, 126
+  %33 = icmp samesign ult i64 %indvars.iv, 126
   %34 = and i8 %spec.select36, 1
   %35 = icmp eq i8 %34, 0
   %36 = select i1 %33, i1 %35, i1 false

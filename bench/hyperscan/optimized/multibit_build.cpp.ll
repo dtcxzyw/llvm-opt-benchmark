@@ -151,7 +151,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   br i1 %cmp.i.not55, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end
-  %cmp23.i = icmp ugt i32 %cond, 5
+  %cmp23.i = icmp samesign ugt i32 %cond, 5
   br i1 %cmp23.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %invoke.cont7.loopexit.us
@@ -1198,7 +1198,7 @@ for.body:                                         ; preds = %_ZN3ue2L11add_scatt
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %dest.0355 = phi i32 [ 0, %for.body.lr.ph ], [ %add3, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %bits.0354 = phi i32 [ %total_bits, %for.body.lr.ph ], [ %sub, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %cmp.not.i242 = icmp ult i64 %indvars.iv, %1
+  %cmp.not.i242 = icmp samesign ult i64 %indvars.iv, %1
   br i1 %cmp.not.i242, label %if.end.i244, label %_ZL14get_flat_masksjjj.exit261
 
 if.end.i244:                                      ; preds = %for.body
@@ -1209,7 +1209,7 @@ if.end.i244:                                      ; preds = %for.body
   %notmask346 = shl nsw i64 -1, %sh_prom.i282
   %sub.i263 = xor i64 %notmask346, -1
   %cond.i248 = select i1 %cmp1.i246, i64 %sub.i263, i64 -1
-  %cmp2.not.i249 = icmp ugt i64 %indvars.iv, %0
+  %cmp2.not.i249 = icmp samesign ugt i64 %indvars.iv, %0
   br i1 %cmp2.not.i249, label %_ZL14get_flat_masksjjj.exit261, label %if.then3.i250
 
 if.then3.i250:                                    ; preds = %if.end.i244

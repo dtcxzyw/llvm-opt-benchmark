@@ -213,7 +213,7 @@ if.then30:                                        ; preds = %if.else28
   %shr = lshr i64 %retval.0.i, %sh_prom32
   %shl35 = shl i64 %shr, %sh_prom32
   %sub36 = sub i64 %retval.0.i, %shl35
-  %cmp37 = icmp ugt i64 %shr, 4294967295
+  %cmp37 = icmp samesign ugt i64 %shr, 4294967295
   br i1 %cmp37, label %if.then38, label %if.else40
 
 if.then38:                                        ; preds = %if.then30
@@ -653,7 +653,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %fractionals, i32 noundef range(i32 -128, 0) %exponent, i32 noundef range(i32 -2147483648, 21) %fractional_count, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 0, %exponent
-  %cmp = icmp ult i32 %sub, 65
+  %cmp = icmp samesign ult i32 %sub, 65
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -775,7 +775,7 @@ if.then7.i:                                       ; preds = %if.else
   br label %_ZN17double_conversion7UInt1285ShiftEi.exit
 
 if.else11.i:                                      ; preds = %if.else
-  %cmp12.i = icmp ugt i32 %exponent, -65
+  %cmp12.i = icmp samesign ugt i32 %exponent, -65
   br i1 %cmp12.i, label %if.then13.i, label %if.else23.i
 
 if.then13.i:                                      ; preds = %if.else11.i

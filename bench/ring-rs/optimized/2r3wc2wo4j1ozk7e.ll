@@ -2565,7 +2565,7 @@ define noundef range(i64 6, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_
   %15 = getelementptr inbounds i8, ptr %10, i64 %11
   %16 = tail call fastcc noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 1 %15, i64 noundef %14)
   %17 = add nuw nsw i64 %16, %11
-  %18 = icmp ult i64 %17, 128
+  %18 = icmp samesign ult i64 %17, 128
   br i1 %18, label %21, label %20
 
 19:                                               ; preds = %5

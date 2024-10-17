@@ -502,7 +502,7 @@ while.body.i:                                     ; preds = %if.then17, %while.b
   %block.addr.012.i.ptr = getelementptr inbounds i8, ptr %add.ptr22, i64 %block.addr.012.i.idx
   %block.addr.012.i.add = add nuw nsw i64 %block.addr.012.i.idx, 4
   store i32 %value, ptr %block.addr.012.i.ptr, align 4
-  %cmp.i69 = icmp ult i64 %block.addr.012.i.idx, 124
+  %cmp.i69 = icmp samesign ult i64 %block.addr.012.i.idx, 124
   br i1 %cmp.i69, label %while.body.i, label %if.end26, !llvm.loop !7
 
 while.body5.i:                                    ; preds = %if.then17, %if.end.i70
@@ -518,7 +518,7 @@ if.then7.i:                                       ; preds = %while.body5.i
 
 if.end.i70:                                       ; preds = %if.then7.i, %while.body5.i
   %block.addr.114.i.add = add nuw nsw i64 %block.addr.114.i.idx, 4
-  %cmp4.i = icmp ult i64 %block.addr.114.i.idx, 124
+  %cmp4.i = icmp samesign ult i64 %block.addr.114.i.idx, 124
   br i1 %cmp4.i, label %while.body5.i, label %if.end26, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end14
@@ -528,7 +528,7 @@ if.else:                                          ; preds = %if.end14
   %idx.ext1.i73 = zext nneg i32 %and to i64
   %add.ptr2.i74 = getelementptr inbounds i32, ptr %add.ptr22, i64 %idx.ext1.i73
   %tobool.not.i75 = icmp eq i8 %overwrite, 0
-  %cmp413.i = icmp ult i32 %and, %and24
+  %cmp413.i = icmp samesign ult i32 %and, %and24
   br i1 %tobool.not.i75, label %while.cond3.preheader.i81, label %while.cond.preheader.i76
 
 while.cond.preheader.i76:                         ; preds = %if.else
@@ -596,7 +596,7 @@ while.body.i94:                                   ; preds = %if.then36, %while.b
   %block.addr.012.i95.ptr = getelementptr inbounds i8, ptr %add.ptr39, i64 %block.addr.012.i95.idx
   %block.addr.012.i95.add = add nuw nsw i64 %block.addr.012.i95.idx, 4
   store i32 %value, ptr %block.addr.012.i95.ptr, align 4
-  %cmp.i97 = icmp ult i64 %block.addr.012.i95.idx, 124
+  %cmp.i97 = icmp samesign ult i64 %block.addr.012.i95.idx, 124
   br i1 %cmp.i97, label %while.body.i94, label %if.end71, !llvm.loop !7
 
 while.body5.i99:                                  ; preds = %if.then36, %if.end.i102
@@ -612,7 +612,7 @@ if.then7.i105:                                    ; preds = %while.body5.i99
 
 if.end.i102:                                      ; preds = %if.then7.i105, %while.body5.i99
   %block.addr.114.i100.add = add nuw nsw i64 %block.addr.114.i100.idx, 4
-  %cmp4.i104 = icmp ult i64 %block.addr.114.i100.idx, 124
+  %cmp4.i104 = icmp samesign ult i64 %block.addr.114.i100.idx, 124
   br i1 %cmp4.i104, label %while.body5.i99, label %if.end71, !llvm.loop !8
 
 if.else40:                                        ; preds = %while.body
@@ -667,7 +667,7 @@ while.body.i130:                                  ; preds = %while.body.i130, %i
   %block.addr.012.i131.ptr = getelementptr inbounds i8, ptr %add.ptr68, i64 %block.addr.012.i131.idx
   %block.addr.012.i131.add = add nuw nsw i64 %block.addr.012.i131.idx, 4
   store i32 %value, ptr %block.addr.012.i131.ptr, align 4
-  %cmp.i133 = icmp ult i64 %block.addr.012.i131.idx, 124
+  %cmp.i133 = icmp samesign ult i64 %block.addr.012.i131.idx, 124
   br i1 %cmp.i133, label %while.body.i130, label %if.end71, !llvm.loop !7
 
 if.end71:                                         ; preds = %while.body.i130, %while.body.i94, %if.end.i102, %if.else40, %if.then50
@@ -832,7 +832,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %block.addr.012.i.ptr.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 %block.addr.012.i.idx.i
   %block.addr.012.i.add.i = add nuw nsw i64 %block.addr.012.i.idx.i, 4
   store i32 %2, ptr %block.addr.012.i.ptr.i, align 4
-  %cmp.i46.i = icmp ult i64 %block.addr.012.i.idx.i, 124
+  %cmp.i46.i = icmp samesign ult i64 %block.addr.012.i.idx.i, 124
   br i1 %cmp.i46.i, label %while.body.i.i, label %_ZL15utrie_fillBlockPjiijja.exit.i, !llvm.loop !7
 
 _ZL15utrie_fillBlockPjiijja.exit.i:               ; preds = %while.body.i.i
@@ -903,7 +903,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
 
 for.inc11.i.i:                                    ; preds = %for.body3.i.i
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 32
-  %cmp.i48.i = icmp ult i64 %indvars.iv.next20.i.i, %9
+  %cmp.i48.i = icmp samesign ult i64 %indvars.iv.next20.i.i, %9
   br i1 %cmp.i48.i, label %for.cond1.preheader.i.i, label %_ZL19_findSameIndexBlockPKiii.exit.i, !llvm.loop !12
 
 _ZL19_findSameIndexBlockPKiii.exit.i:             ; preds = %for.inc11.i.i, %for.end.i.i, %if.then19.i

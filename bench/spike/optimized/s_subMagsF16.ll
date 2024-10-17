@@ -56,7 +56,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.098 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
   %.095 = select i1 %26, i8 %27, i8 %25
   %28 = trunc nuw nsw i64 %.098 to i16
-  %29 = icmp ugt i64 %.098, 255
+  %29 = icmp samesign ugt i64 %.098, 255
   %30 = lshr i16 %28, 8
   %spec.select.i = select i1 %29, i16 %30, i16 %28
   %31 = zext nneg i16 %spec.select.i to i64

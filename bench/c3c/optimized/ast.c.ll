@@ -942,7 +942,7 @@ define dso_local i32 @decl_count_elements(ptr nocapture noundef readonly %0) loc
 27:                                               ; preds = %25, %22
   %.1 = phi i32 [ %26, %25 ], [ %24, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = icmp ult i64 %indvars.iv.next, %13
+  %28 = icmp samesign ult i64 %indvars.iv.next, %13
   %29 = select i1 %12, i1 %28, i1 false
   br i1 %29, label %14, label %.thread, !llvm.loop !14
 

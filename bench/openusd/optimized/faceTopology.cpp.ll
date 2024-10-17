@@ -117,7 +117,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %3, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %24, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8destructEv.exit, !llvm.loop !5
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8destructEv.exit: ; preds = %.lr.ph.i, %2
@@ -194,7 +194,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %59 = load i32, ptr %3, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next.i7, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next.i7, %60
   br i1 %61, label %.lr.ph.i5, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE9constructEv.exit, !llvm.loop !7
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE9constructEv.exit: ; preds = %.lr.ph.i5, %.thread

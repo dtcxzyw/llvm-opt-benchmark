@@ -1128,7 +1128,7 @@ ipv4tonl.exit:                                    ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr @nrsakeys, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %57, %0, %29, %12
@@ -1456,7 +1456,7 @@ define internal void @xtea_parse_uat() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr @nxteakeys, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %4, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %0

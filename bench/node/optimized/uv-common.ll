@@ -2991,7 +2991,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load ptr, ptr %arrayidx, align 8
   tail call void @free(ptr noundef %5) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp4 = icmp ult i64 %indvars.iv.next, %4
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp4, label %for.body, label %if.end6
 
 if.end6:                                          ; preds = %for.body, %if.then, %entry

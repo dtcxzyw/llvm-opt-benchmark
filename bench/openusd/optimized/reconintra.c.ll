@@ -2264,7 +2264,7 @@ get_filt_type.exit.i:                             ; preds = %615, %is_inter_bloc
   %659 = add nsw i32 %.0257.i, -90
   %660 = call i32 @llvm.abs.i32(i32 %659, i1 true)
   %661 = icmp eq i32 %659, 0
-  %662 = icmp ugt i32 %660, 39
+  %662 = icmp samesign ugt i32 %660, 39
   %or.cond.i.i218 = select i1 %661, i1 true, i1 %662
   br i1 %or.cond.i.i218, label %av1_use_intra_edge_upsample.exit.thread.i, label %av1_use_intra_edge_upsample.exit.i
 
@@ -2288,7 +2288,7 @@ av1_use_intra_edge_upsample.exit.thread.i:        ; preds = %665, %av1_use_intra
   %669 = add nsw i32 %.0257.i, -180
   %670 = call i32 @llvm.abs.i32(i32 %669, i1 true)
   %671 = icmp eq i32 %669, 0
-  %672 = icmp ugt i32 %670, 39
+  %672 = icmp samesign ugt i32 %670, 39
   %or.cond.i286.i = select i1 %671, i1 true, i1 %672
   br i1 %or.cond.i286.i, label %av1_use_intra_edge_upsample.exit291.thread.i, label %av1_use_intra_edge_upsample.exit291.i
 
@@ -3070,7 +3070,7 @@ get_filt_type.exit.i288:                          ; preds = %1021, %is_inter_blo
   %1065 = add nsw i32 %.0243.i, -90
   %1066 = tail call i32 @llvm.abs.i32(i32 %1065, i1 true)
   %1067 = icmp eq i32 %1065, 0
-  %1068 = icmp ugt i32 %1066, 39
+  %1068 = icmp samesign ugt i32 %1066, 39
   %or.cond.i.i291 = select i1 %1067, i1 true, i1 %1068
   br i1 %or.cond.i.i291, label %av1_use_intra_edge_upsample.exit.thread.i296, label %av1_use_intra_edge_upsample.exit.i292
 
@@ -3159,7 +3159,7 @@ av1_use_intra_edge_upsample.exit.thread.i296:     ; preds = %av1_upsample_intra_
   %1109 = add nsw i32 %.0243.i, -180
   %1110 = tail call i32 @llvm.abs.i32(i32 %1109, i1 true)
   %1111 = icmp eq i32 %1109, 0
-  %1112 = icmp ugt i32 %1110, 39
+  %1112 = icmp samesign ugt i32 %1110, 39
   %or.cond.i270.i = select i1 %1111, i1 true, i1 %1112
   br i1 %or.cond.i270.i, label %av1_use_intra_edge_upsample.exit275.thread.i, label %av1_use_intra_edge_upsample.exit275.i
 
@@ -4099,7 +4099,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = icmp ugt i32 %5, 55
+  %11 = icmp samesign ugt i32 %5, 55
   %spec.select = zext i1 %11 to i32
   br label %46
 
@@ -4108,7 +4108,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i32 %5, 39
+  %15 = icmp samesign ugt i32 %5, 39
   %spec.select33 = zext i1 %15 to i32
   br label %46
 
@@ -4117,7 +4117,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i32 %5, 39
+  %19 = icmp samesign ugt i32 %5, 39
   %spec.select34 = zext i1 %19 to i32
   br label %46
 
@@ -4126,11 +4126,11 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i32 %5, 7
+  %23 = icmp samesign ugt i32 %5, 7
   %spec.select35 = zext i1 %23 to i32
-  %24 = icmp ugt i32 %5, 15
+  %24 = icmp samesign ugt i32 %5, 15
   %.1 = select i1 %24, i32 2, i32 %spec.select35
-  %25 = icmp ugt i32 %5, 31
+  %25 = icmp samesign ugt i32 %5, 31
   %spec.select44 = select i1 %25, i32 3, i32 %.1
   br label %46
 
@@ -4141,9 +4141,9 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
 28:                                               ; preds = %26
   %.not32 = icmp ne i32 %2, 0
   %spec.select36 = zext i1 %.not32 to i32
-  %29 = icmp ugt i32 %5, 3
+  %29 = icmp samesign ugt i32 %5, 3
   %.3 = select i1 %29, i32 2, i32 %spec.select36
-  %30 = icmp ugt i32 %5, 31
+  %30 = icmp samesign ugt i32 %5, 31
   %spec.select45 = select i1 %30, i32 3, i32 %.3
   br label %46
 
@@ -4156,9 +4156,9 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %8, label %33, label %36
 
 33:                                               ; preds = %32
-  %34 = icmp ugt i32 %5, 39
+  %34 = icmp samesign ugt i32 %5, 39
   %spec.select38 = zext i1 %34 to i32
-  %35 = icmp ugt i32 %5, 63
+  %35 = icmp samesign ugt i32 %5, 63
   %spec.select42 = select i1 %35, i32 2, i32 %spec.select38
   br label %46
 
@@ -4167,9 +4167,9 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i32 %5, 19
+  %39 = icmp samesign ugt i32 %5, 19
   %spec.select39 = zext i1 %39 to i32
-  %40 = icmp ugt i32 %5, 47
+  %40 = icmp samesign ugt i32 %5, 47
   %spec.select43 = select i1 %40, i32 2, i32 %spec.select39
   br label %46
 
@@ -4178,7 +4178,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %5, 3
+  %44 = icmp samesign ugt i32 %5, 3
   %spec.select40 = select i1 %44, i32 3, i32 0
   br label %46
 

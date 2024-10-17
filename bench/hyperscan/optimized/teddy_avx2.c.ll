@@ -2162,7 +2162,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2219, %if.end134.i ], [ %control.addr.452863, %for.body123.i ]
   %indvars.iv.next2983 = add nuw nsw i64 %indvars.iv2982, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next2983, %258
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next2983, %258
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -2293,7 +2293,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next2980 = add nuw nsw i64 %indvars.iv2979, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next2980, %257
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next2980, %257
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -2393,7 +2393,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %256
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %256
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -2492,7 +2492,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.712869, %for.body424.i ]
   %indvars.iv.next2986 = add nuw nsw i64 %indvars.iv2985, 1
   %322 = zext i16 %321 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next2986, %322
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next2986, %322
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -2589,13 +2589,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.772874, %for.body495.i ]
   %indvars.iv.next2989 = add nuw nsw i64 %indvars.iv2988, 1
   %341 = zext i16 %340 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next2989, %341
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next2989, %341
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next2992 = add nuw nsw i64 %indvars.iv2991, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next2992, %259
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next2992, %259
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -7644,7 +7644,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2219, %if.end134.i ], [ %control.addr.452863, %for.body123.i ]
   %indvars.iv.next2983 = add nuw nsw i64 %indvars.iv2982, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next2983, %258
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next2983, %258
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -7775,7 +7775,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next2980 = add nuw nsw i64 %indvars.iv2979, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next2980, %257
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next2980, %257
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -7875,7 +7875,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %256
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %256
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -7974,7 +7974,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.712869, %for.body424.i ]
   %indvars.iv.next2986 = add nuw nsw i64 %indvars.iv2985, 1
   %322 = zext i16 %321 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next2986, %322
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next2986, %322
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -8071,13 +8071,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.772874, %for.body495.i ]
   %indvars.iv.next2989 = add nuw nsw i64 %indvars.iv2988, 1
   %341 = zext i16 %340 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next2989, %341
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next2989, %341
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next2992 = add nuw nsw i64 %indvars.iv2991, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next2992, %259
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next2992, %259
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -13164,7 +13164,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2131, %if.end134.i ], [ %control.addr.453110, %for.body123.i ]
   %indvars.iv.next3232 = add nuw nsw i64 %indvars.iv3231, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3232, %272
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3232, %272
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -13295,7 +13295,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3229 = add nuw nsw i64 %indvars.iv3228, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3229, %271
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3229, %271
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -13395,7 +13395,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %270
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %270
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -13494,7 +13494,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713116, %for.body424.i ]
   %indvars.iv.next3235 = add nuw nsw i64 %indvars.iv3234, 1
   %336 = zext i16 %335 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3235, %336
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3235, %336
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -13591,13 +13591,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773121, %for.body495.i ]
   %indvars.iv.next3238 = add nuw nsw i64 %indvars.iv3237, 1
   %355 = zext i16 %354 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3238, %355
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3238, %355
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3241 = add nuw nsw i64 %indvars.iv3240, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3241, %273
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3241, %273
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -18718,7 +18718,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2131, %if.end134.i ], [ %control.addr.453110, %for.body123.i ]
   %indvars.iv.next3232 = add nuw nsw i64 %indvars.iv3231, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3232, %272
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3232, %272
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -18849,7 +18849,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3229 = add nuw nsw i64 %indvars.iv3228, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3229, %271
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3229, %271
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -18949,7 +18949,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %270
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %270
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -19048,7 +19048,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713116, %for.body424.i ]
   %indvars.iv.next3235 = add nuw nsw i64 %indvars.iv3234, 1
   %336 = zext i16 %335 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3235, %336
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3235, %336
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -19145,13 +19145,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773121, %for.body495.i ]
   %indvars.iv.next3238 = add nuw nsw i64 %indvars.iv3237, 1
   %355 = zext i16 %354 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3238, %355
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3238, %355
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3241 = add nuw nsw i64 %indvars.iv3240, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3241, %273
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3241, %273
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -24295,7 +24295,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2132, %if.end134.i ], [ %control.addr.453357, %for.body123.i ]
   %indvars.iv.next3480 = add nuw nsw i64 %indvars.iv3479, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3480, %283
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3480, %283
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -24426,7 +24426,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3477 = add nuw nsw i64 %indvars.iv3476, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3477, %282
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3477, %282
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -24526,7 +24526,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %281
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %281
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -24625,7 +24625,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713363, %for.body424.i ]
   %indvars.iv.next3483 = add nuw nsw i64 %indvars.iv3482, 1
   %347 = zext i16 %346 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3483, %347
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3483, %347
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -24722,13 +24722,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773368, %for.body495.i ]
   %indvars.iv.next3486 = add nuw nsw i64 %indvars.iv3485, 1
   %366 = zext i16 %365 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3486, %366
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3486, %366
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3489 = add nuw nsw i64 %indvars.iv3488, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3489, %284
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3489, %284
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -29906,7 +29906,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2132, %if.end134.i ], [ %control.addr.453357, %for.body123.i ]
   %indvars.iv.next3480 = add nuw nsw i64 %indvars.iv3479, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3480, %283
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3480, %283
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -30037,7 +30037,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3477 = add nuw nsw i64 %indvars.iv3476, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3477, %282
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3477, %282
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -30137,7 +30137,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %281
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %281
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -30236,7 +30236,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713363, %for.body424.i ]
   %indvars.iv.next3483 = add nuw nsw i64 %indvars.iv3482, 1
   %347 = zext i16 %346 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3483, %347
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3483, %347
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -30333,13 +30333,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773368, %for.body495.i ]
   %indvars.iv.next3486 = add nuw nsw i64 %indvars.iv3485, 1
   %366 = zext i16 %365 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3486, %366
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3486, %366
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3489 = add nuw nsw i64 %indvars.iv3488, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3489, %284
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3489, %284
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -35540,7 +35540,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2133, %if.end134.i ], [ %control.addr.453604, %for.body123.i ]
   %indvars.iv.next3728 = add nuw nsw i64 %indvars.iv3727, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3728, %294
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3728, %294
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -35671,7 +35671,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3725 = add nuw nsw i64 %indvars.iv3724, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3725, %293
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3725, %293
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -35771,7 +35771,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %292
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %292
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -35870,7 +35870,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713610, %for.body424.i ]
   %indvars.iv.next3731 = add nuw nsw i64 %indvars.iv3730, 1
   %358 = zext i16 %357 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3731, %358
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3731, %358
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -35967,13 +35967,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773615, %for.body495.i ]
   %indvars.iv.next3734 = add nuw nsw i64 %indvars.iv3733, 1
   %377 = zext i16 %376 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3734, %377
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3734, %377
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3737 = add nuw nsw i64 %indvars.iv3736, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3737, %295
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3737, %295
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i
@@ -41208,7 +41208,7 @@ if.then163.i:                                     ; preds = %if.end158.i
 if.end170.i:                                      ; preds = %for.body123.i, %if.end134.i, %if.end146.i, %if.then163.i, %if.end158.i
   %control.addr.49 = phi i64 [ %call169.i, %if.then163.i ], [ %call157.i, %if.end158.i ], [ %call145.i, %if.end146.i ], [ %call.i2133, %if.end134.i ], [ %control.addr.453604, %for.body123.i ]
   %indvars.iv.next3728 = add nuw nsw i64 %indvars.iv3727, 4
-  %cmp118.i = icmp ult i64 %indvars.iv.next3728, %294
+  %cmp118.i = icmp samesign ult i64 %indvars.iv.next3728, %294
   br i1 %cmp118.i, label %land.rhs.i, label %if.end516.i, !llvm.loop !13
 
 land.rhs179.i:                                    ; preds = %land.rhs179.i.lr.ph, %if.end278.i
@@ -41339,7 +41339,7 @@ if.then271.i:                                     ; preds = %if.end266.i
 if.end278.i:                                      ; preds = %if.then271.i, %if.end266.i
   %control.addr.58 = phi i64 [ %call277.i, %if.then271.i ], [ %control.addr.57, %if.end266.i ]
   %indvars.iv.next3725 = add nuw nsw i64 %indvars.iv3724, 4
-  %cmp177.i = icmp ult i64 %indvars.iv.next3725, %293
+  %cmp177.i = icmp samesign ult i64 %indvars.iv.next3725, %293
   br i1 %cmp177.i, label %land.rhs179.i, label %if.end516.i, !llvm.loop !14
 
 land.rhs287.i:                                    ; preds = %land.rhs287.i.lr.ph, %if.end361.i
@@ -41439,7 +41439,7 @@ if.then354.i:                                     ; preds = %if.end349.i
 if.end361.i:                                      ; preds = %if.then354.i, %if.end349.i
   %control.addr.65 = phi i64 [ %call360.i, %if.then354.i ], [ %control.addr.64, %if.end349.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i = icmp ult i64 %indvars.iv.next, %292
+  %cmp285.i = icmp samesign ult i64 %indvars.iv.next, %292
   br i1 %cmp285.i, label %land.rhs287.i, label %if.end516.i, !llvm.loop !15
 
 land.rhs369.i:                                    ; preds = %land.rhs369.i.lr.ph, %for.end512.i
@@ -41538,7 +41538,7 @@ if.end437.i:                                      ; preds = %if.then430.i, %for.
   %control.addr.72 = phi i64 [ %call436.i, %if.then430.i ], [ %control.addr.713610, %for.body424.i ]
   %indvars.iv.next3731 = add nuw nsw i64 %indvars.iv3730, 1
   %358 = zext i16 %357 to i64
-  %cmp422.i = icmp ult i64 %indvars.iv.next3731, %358
+  %cmp422.i = icmp samesign ult i64 %indvars.iv.next3731, %358
   br i1 %cmp422.i, label %for.body424.i, label %for.end440.i, !llvm.loop !16
 
 for.end440.i:                                     ; preds = %if.end437.i, %if.end418.i
@@ -41635,13 +41635,13 @@ if.end509.i:                                      ; preds = %if.then501.i, %for.
   %control.addr.78 = phi i64 [ %call508.i, %if.then501.i ], [ %control.addr.773615, %for.body495.i ]
   %indvars.iv.next3734 = add nuw nsw i64 %indvars.iv3733, 1
   %377 = zext i16 %376 to i64
-  %cmp493.i = icmp ult i64 %indvars.iv.next3734, %377
+  %cmp493.i = icmp samesign ult i64 %indvars.iv.next3734, %377
   br i1 %cmp493.i, label %for.body495.i, label %for.end512.i, !llvm.loop !17
 
 for.end512.i:                                     ; preds = %if.end509.i, %if.end488.i
   %control.addr.77.lcssa = phi i64 [ %control.addr.76, %if.end488.i ], [ %control.addr.78, %if.end509.i ]
   %indvars.iv.next3737 = add nuw nsw i64 %indvars.iv3736, 2
-  %cmp367.i = icmp ult i64 %indvars.iv.next3737, %295
+  %cmp367.i = icmp samesign ult i64 %indvars.iv.next3737, %295
   br i1 %cmp367.i, label %land.rhs369.i, label %if.end516.i, !llvm.loop !18
 
 if.end516.i:                                      ; preds = %land.rhs287.i, %if.end361.i, %land.rhs179.i, %if.end278.i, %land.rhs.i, %if.end170.i, %land.rhs369.i, %for.end512.i, %for.cond284.i.preheader, %for.cond176.i.preheader, %for.cond117.i.preheader, %for.cond366.i.preheader, %land.lhs.true.i, %if.then103.i

@@ -744,7 +744,7 @@ if.then85:                                        ; preds = %land.lhs.true82
 if.else86:                                        ; preds = %land.lhs.true82, %if.else79
   %c.0 = phi i32 [ %subchar, %land.lhs.true82 ], [ %call80, %if.else79 ]
   %numSubstitutions.3 = phi i32 [ %inc83, %land.lhs.true82 ], [ %numSubstitutions.0252, %if.else79 ]
-  %cmp87 = icmp ult i32 %c.0, 65536
+  %cmp87 = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp87, label %if.then88, label %if.else91
 
 if.then88:                                        ; preds = %if.else86
@@ -887,7 +887,7 @@ if.then170:                                       ; preds = %land.lhs.true167
 if.end171:                                        ; preds = %land.lhs.true167, %if.else164
   %c.1 = phi i32 [ %subchar, %land.lhs.true167 ], [ %call165, %if.else164 ]
   %numSubstitutions.6 = phi i32 [ %inc168, %land.lhs.true167 ], [ %numSubstitutions.4266, %if.else164 ]
-  %cmp172 = icmp ult i32 %c.1, 65536
+  %cmp172 = icmp samesign ult i32 %c.1, 65536
   %cond = select i1 %cmp172, i32 1, i32 2
   %add173 = add nsw i32 %cond, %reqLength.1267
   %.pre283 = load i32, ptr %i, align 4
@@ -908,7 +908,7 @@ if.else177:                                       ; preds = %if.end17
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %div225 = udiv i32 %srcLength, 3
   %35 = tail call i32 @llvm.umin.i32(i32 %div225, i32 %destCapacity)
-  %cmp186227 = icmp ult i32 %35, 3
+  %cmp186227 = icmp samesign ult i32 %35, 3
   br i1 %cmp186227, label %while.cond302.preheader, label %do.body.preheader.lr.ph
 
 do.body.preheader.lr.ph:                          ; preds = %if.else177
@@ -1058,7 +1058,7 @@ if.then279:                                       ; preds = %land.lhs.true276
 if.else280:                                       ; preds = %land.lhs.true276, %if.end273
   %c179.0 = phi i32 [ %subchar, %land.lhs.true276 ], [ %call274, %if.end273 ]
   %numSubstitutions.11 = phi i32 [ %inc277, %land.lhs.true276 ], [ %numSubstitutions.9, %if.end273 ]
-  %cmp281 = icmp ult i32 %c179.0, 65536
+  %cmp281 = icmp samesign ult i32 %c179.0, 65536
   br i1 %cmp281, label %if.then282, label %if.else285
 
 if.then282:                                       ; preds = %if.else280
@@ -1225,7 +1225,7 @@ if.then389:                                       ; preds = %land.lhs.true386
 if.else390:                                       ; preds = %land.lhs.true386, %if.else383
   %c179.1 = phi i32 [ %subchar, %land.lhs.true386 ], [ %call384, %if.else383 ]
   %numSubstitutions.16 = phi i32 [ %inc387, %land.lhs.true386 ], [ %numSubstitutions.13234, %if.else383 ]
-  %cmp391 = icmp ult i32 %c179.1, 65536
+  %cmp391 = icmp samesign ult i32 %c179.1, 65536
   br i1 %cmp391, label %if.then392, label %if.else395
 
 if.then392:                                       ; preds = %if.else390
@@ -1368,7 +1368,7 @@ if.then482:                                       ; preds = %land.lhs.true479
 if.end483:                                        ; preds = %land.lhs.true479, %if.else476
   %c179.2 = phi i32 [ %subchar, %land.lhs.true479 ], [ %call477, %if.else476 ]
   %numSubstitutions.19 = phi i32 [ %inc480, %land.lhs.true479 ], [ %numSubstitutions.17243, %if.else476 ]
-  %cmp484 = icmp ult i32 %c179.2, 65536
+  %cmp484 = icmp samesign ult i32 %c179.2, 65536
   %cond485 = select i1 %cmp484, i32 1, i32 2
   %add486 = add nsw i32 %cond485, %reqLength.5244
   %.pre280 = load i32, ptr %i178, align 4
@@ -2130,7 +2130,7 @@ if.then2.i:                                       ; preds = %cond.end104.thread4
   br label %if.end117
 
 if.else8.i:                                       ; preds = %cond.end104
-  %cmp9.i = icmp ult i32 %ch.0, 65536
+  %cmp9.i = icmp samesign ult i32 %ch.0, 65536
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %pDest.0364, i64 1
   %incdec.ptr19.i = getelementptr inbounds i8, ptr %pDest.0364, i64 2
   br i1 %cmp9.i, label %if.then10.i, label %if.else24.i
@@ -2292,9 +2292,9 @@ if.else181:                                       ; preds = %if.end18
 
 do.body.preheader.lr.ph:                          ; preds = %if.else181
   %cmp273 = icmp sgt i32 %subchar, -1
-  %cmp.i219 = icmp ult i32 %subchar, 128
-  %cmp1.i221 = icmp ult i32 %subchar, 2048
-  %cmp9.i223 = icmp ult i32 %subchar, 65536
+  %cmp.i219 = icmp samesign ult i32 %subchar, 128
+  %cmp1.i221 = icmp samesign ult i32 %subchar, 2048
+  %cmp9.i223 = icmp samesign ult i32 %subchar, 65536
   %shr25.i227 = lshr i32 %subchar, 18
   %34 = trunc nuw nsw i32 %shr25.i227 to i8
   %conv27.i228 = or disjoint i8 %34, -16
@@ -2672,7 +2672,7 @@ if.then2.i279:                                    ; preds = %cond.end385.thread4
   br label %if.end398
 
 if.else8.i257:                                    ; preds = %cond.end385
-  %cmp9.i258 = icmp ult i32 %ch.1, 65536
+  %cmp9.i258 = icmp samesign ult i32 %ch.1, 65536
   %incdec.ptr14.i259 = getelementptr inbounds i8, ptr %pDest.7329, i64 1
   %incdec.ptr19.i260 = getelementptr inbounds i8, ptr %pDest.7329, i64 2
   br i1 %cmp9.i258, label %if.then10.i272, label %if.else24.i261

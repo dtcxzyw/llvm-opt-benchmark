@@ -40922,7 +40922,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %switch.hole_check, 
 
 "_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i": ; preds = %60
   %70 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %69)
-  %71 = icmp ult i64 %70, 2
+  %71 = icmp samesign ult i64 %70, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1154
   br i1 %71, label %72, label %.critedge2.i
 
@@ -40987,7 +40987,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %switch.hole_check9,
 
 "_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52.i": ; preds = %83
   %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %92)
-  %94 = icmp ult i64 %93, 2
+  %94 = icmp samesign ult i64 %93, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1154
   br i1 %94, label %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit52._crit_edge.i", label %.critedge2.i
 

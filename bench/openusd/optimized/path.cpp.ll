@@ -20465,7 +20465,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %179 = load i8, ptr %178, align 1
   %180 = and i8 %179, 1
   %181 = xor i8 %180, 1
-  %182 = icmp ult i8 %177, %181
+  %182 = icmp samesign ult i8 %177, %181
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19Sdf_PathNodeCompareILi1ENS_12Sdf_PathNode8LessThanEEclERKS1_S5_.exit
 
 183:                                              ; preds = %10

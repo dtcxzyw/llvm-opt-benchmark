@@ -1416,7 +1416,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %.noexc
   %4 = load ptr, ptr %this, align 8, !tbaa !71
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %5 = ptrtoint ptr %4 to i64
   %6 = sub i64 %5, %c4
   %diff.check = icmp ult i64 %6, 32

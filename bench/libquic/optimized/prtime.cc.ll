@@ -1475,8 +1475,8 @@ while.cond825:                                    ; preds = %while.cond825, %if.
 while.end834:                                     ; preds = %while.cond825
   %end780.1.ptr.le = getelementptr inbounds i8, ptr %end780.0, i64 %end780.1.idx
   %cmp835 = icmp eq i64 %end780.1.idx, 1
-  %cmp841 = icmp ugt i64 %end780.1.idx, 3
-  %or.cond511 = or i1 %cmp835, %cmp841
+  %cmp841 = icmp samesign ugt i64 %end780.1.idx, 3
+  %or.cond511 = select i1 %cmp835, i1 true, i1 %cmp841
   br i1 %or.cond511, label %sw.epilog, label %if.else843
 
 if.else843:                                       ; preds = %while.end834

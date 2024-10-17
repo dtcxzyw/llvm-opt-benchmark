@@ -65,9 +65,9 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %50 = load i32, ptr %49, align 8
   %51 = lshr i32 %28, %50
   %52 = icmp sgt i32 %1, 0
-  %53 = icmp ult i32 %48, 4
+  %53 = icmp samesign ult i32 %48, 4
   %54 = select i1 %52, i1 %53, i1 false
-  %55 = icmp ult i32 %51, 4
+  %55 = icmp samesign ult i32 %51, 4
   %56 = select i1 %52, i1 %55, i1 false
   %57 = select i1 %54, i32 2, i32 0
   %58 = add nuw nsw i32 %57, %48
@@ -84,7 +84,7 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %67 = select i1 %.not.i.i.i, i32 0, i32 %66
   %68 = shl nuw nsw i32 1, %67
   %69 = sub nsw i32 %68, %23
-  %70 = icmp ugt i32 %67, 1
+  %70 = icmp samesign ugt i32 %67, 1
   br i1 %70, label %.lr.ph.i.i.i, label %aom_read_literal_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3

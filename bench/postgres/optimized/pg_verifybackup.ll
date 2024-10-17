@@ -402,7 +402,7 @@ sub_182:                                          ; preds = %.tail.thread, %.thr
   %129 = fptoui double %128 to i64
   %130 = call i64 @llvm.umax.i64(i64 %129, i64 2)
   %131 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %130)
-  %132 = icmp ult i64 %131, 2
+  %132 = icmp samesign ult i64 %131, 2
   %133 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %130, i1 true)
   %134 = sub nuw nsw i64 64, %133
   %135 = shl nuw i64 1, %134
@@ -421,7 +421,7 @@ manifest_files_compute_size.exit.i.i:             ; preds = %116
   %140 = getelementptr inbounds i8, ptr %123, i64 24
   store ptr %139, ptr %140, align 8
   %141 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i)
-  %142 = icmp ult i64 %141, 2
+  %142 = icmp samesign ult i64 %141, 2
   %143 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i, i1 true)
   %144 = sub nuw nsw i64 64, %143
   %145 = shl nuw i64 1, %144
@@ -1308,7 +1308,7 @@ define internal void @verifybackup_per_file_cb(ptr nocapture noundef readonly %0
   %25 = load ptr, ptr %14, align 8
   %26 = tail call i64 @llvm.umax.i64(i64 %24, i64 2)
   %27 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %26)
-  %28 = icmp ult i64 %27, 2
+  %28 = icmp samesign ult i64 %27, 2
   %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
   %30 = sub nuw nsw i64 64, %29
   %31 = shl nuw i64 1, %30
@@ -1326,7 +1326,7 @@ manifest_files_compute_size.exit.i.i.i:           ; preds = %23
   %35 = tail call ptr @pg_malloc0(i64 noundef %32) #16
   store ptr %35, ptr %14, align 8
   %36 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i, i1 true)
   %39 = sub nuw nsw i64 64, %38
   %40 = shl nuw i64 1, %39

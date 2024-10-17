@@ -265,7 +265,7 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next.i, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -309,7 +309,7 @@ define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %3, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -1117,7 +1117,7 @@ wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %3
   %453 = getelementptr inbounds i8, ptr %452, i64 8
   %454 = load i32, ptr %453, align 8
   %455 = zext i32 %454 to i64
-  %456 = icmp ult i64 %indvars.iv.next, %455
+  %456 = icmp samesign ult i64 %indvars.iv.next, %455
   br i1 %456, label %13, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %wtap_block_add_uint8_option.exit, %7
@@ -2393,7 +2393,7 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapt
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader, %9
@@ -5886,7 +5886,7 @@ define internal void @idb_free_mand(ptr nocapture noundef readonly %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i8, ptr %4, align 8
   %13 = zext i8 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %7, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -5977,7 +5977,7 @@ wtap_block_make_copy.exit:                        ; preds = %22, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i8, ptr %15, align 8
   %43 = zext i8 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %22, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %wtap_block_make_copy.exit, %17, %14

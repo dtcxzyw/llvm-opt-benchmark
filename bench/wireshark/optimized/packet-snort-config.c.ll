@@ -1844,7 +1844,7 @@ define internal noundef i32 @delete_rule(ptr nocapture readnone %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %13, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %19, label %.preheader, !llvm.loop !14
 
 28:                                               ; preds = %.lr.ph20, %28
@@ -1855,7 +1855,7 @@ define internal noundef i32 @delete_rule(ptr nocapture readnone %0, ptr noundef 
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %31 = load i32, ptr %16, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next24, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next24, %32
   br i1 %33, label %28, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %28, %.preheader

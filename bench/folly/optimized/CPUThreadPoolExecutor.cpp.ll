@@ -6507,7 +6507,7 @@ invoke.cont25:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
-  %cmp.i.i189 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i189 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i189)
   %shr.i.i = lshr i64 %conv2.i, 1
   %9 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
@@ -23305,7 +23305,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !507
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18
@@ -25647,7 +25647,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = sub i64 %capacity, %rem
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %rem)
-  %cmp7 = icmp ugt i64 %.sroa.speculated, 1
+  %cmp7 = icmp samesign ugt i64 %.sroa.speculated, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   %spec.select23 = select i1 %cmp7, i32 2, i32 1
   br label %cleanup
@@ -26080,7 +26080,7 @@ if.end8.us:                                       ; preds = %if.end.us
 cleanup.cont.us:                                  ; preds = %if.end8.us
   %and.i123.us = and i32 %3, 63
   %shr.us = lshr exact i32 %sub.us, 6
-  %cmp20.not.us = icmp ugt i32 %shr.us, %and.i123.us
+  %cmp20.not.us = icmp samesign ugt i32 %shr.us, %and.i123.us
   br i1 %cmp20.not.us, label %if.else.us, label %if.end28.us
 
 if.else.us:                                       ; preds = %cleanup.cont.us
@@ -26140,7 +26140,7 @@ cleanup:                                          ; preds = %if.end8
 cleanup.cont:                                     ; preds = %if.end8
   %and.i123 = and i32 %9, 63
   %shr = lshr exact i32 %sub, 6
-  %cmp20.not = icmp ugt i32 %shr, %and.i123
+  %cmp20.not = icmp samesign ugt i32 %shr, %and.i123
   br i1 %cmp20.not, label %if.else, label %if.end28
 
 if.else:                                          ; preds = %cleanup.cont

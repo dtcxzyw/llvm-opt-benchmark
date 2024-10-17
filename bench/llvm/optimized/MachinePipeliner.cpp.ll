@@ -10618,7 +10618,7 @@ define dso_local void @_ZN4llvm17SwingSchedulerDAG16colocateNodeSetsERNS_11Small
 20:                                               ; preds = %15
   %21 = call fastcc noundef zeroext i1 @_ZL6succ_LRN4llvm9SetVectorIPNS_5SUnitENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EEERNS_14SmallSetVectorIS2_Lj8EEEPKNS_7NodeSetE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef null)
   %22 = add nuw nsw i64 %indvars.iv37, 1
-  %23 = icmp ult i64 %22, %14
+  %23 = icmp samesign ult i64 %22, %14
   %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
@@ -16341,7 +16341,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm5SUnitEjESt6vectorIS
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.lcssa.i.i.i, i64 8
   %128 = load i32, ptr %127, align 4
   %129 = zext i32 %128 to i64
-  %130 = icmp ugt i64 %indvars.iv163, %129
+  %130 = icmp samesign ugt i64 %indvars.iv163, %129
   %131 = freeze i1 %130
   br i1 %131, label %switch.early.test, label %135
 
@@ -16401,7 +16401,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm5SUnitEjESt6vectorIS
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.lcssa.i.i.i70, i64 8
   %155 = load i32, ptr %154, align 4
   %156 = zext i32 %155 to i64
-  %157 = icmp ugt i64 %indvars.iv163, %156
+  %157 = icmp samesign ugt i64 %indvars.iv163, %156
   %158 = freeze i1 %157
   br i1 %158, label %switch.early.test115, label %162
 
@@ -17190,7 +17190,7 @@ _ZN12_GLOBAL__N_128HighRegisterPressureDetector13computeLiveInEv.exit.i: ; preds
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %255 = load i32, ptr %60, align 8
   %256 = zext i32 %255 to i64
-  %257 = icmp ult i64 %indvars.iv.next.i.i, %256
+  %257 = icmp samesign ult i64 %indvars.iv.next.i.i, %256
   br i1 %257, label %245, label %._crit_edge.i9.i, !llvm.loop !224
 
 ._crit_edge.i9.i:                                 ; preds = %245, %_ZN12_GLOBAL__N_128HighRegisterPressureDetector13computeLiveInEv.exit.i
@@ -23906,7 +23906,7 @@ define linkonce_odr hidden void @_ZN4llvm15ResourceManagerC2EPKNS_19TargetSubtar
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %76 = load i32, ptr %64, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next49.i, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next49.i, %77
   br i1 %78, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !329
 
 ._crit_edge40.i:                                  ; preds = %.lr.ph39.i, %59
@@ -32705,7 +32705,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %33
 
 56:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %57 = icmp ult i64 %indvars.iv.next, %44
+  %57 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %57, label %45, label %.loopexit, !llvm.loop !418
 
 .loopexit:                                        ; preds = %56, %37, %50
@@ -37254,7 +37254,7 @@ define dso_local void @_ZN4llvm15ResourceManager23initProcResourceVectorsERKNS_1
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %45 = load i32, ptr %33, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next49, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next49, %46
   br i1 %47, label %.lr.ph39, label %._crit_edge40, !llvm.loop !329
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %28
@@ -48685,7 +48685,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPN4llvm7NodeSetEN9__gnu_cxx5__ops1
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !639
 
 .thread:                                          ; preds = %select.unfold.i.i, %4

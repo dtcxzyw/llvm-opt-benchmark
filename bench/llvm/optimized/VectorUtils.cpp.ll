@@ -3882,7 +3882,7 @@ _ZN4llvm8bit_ceilImEET_S1_.exit:                  ; preds = %502, %._crit_edge53
   %701 = load ptr, ptr %700, align 8
   %702 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %701) #22
   %703 = zext i32 %702 to i64
-  %704 = icmp ult i64 %.0.i224, %703
+  %704 = icmp samesign ult i64 %.0.i224, %703
   br i1 %704, label %.loopexit, label %705
 
 705:                                              ; preds = %.lr.ph538, %699
@@ -3999,7 +3999,7 @@ _ZNK4llvm4User10getOperandEj.exit254:             ; preds = %748, %751
   %.084 = phi ptr [ %759, %_ZNK4llvm4User10getOperandEj.exit254 ], [ %717, %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit ]
   %761 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.084) #22
   %762 = zext i32 %761 to i64
-  %.not94 = icmp ult i64 %.0.i224, %762
+  %.not94 = icmp samesign ult i64 %.0.i224, %762
   br i1 %.not94, label %763, label %.critedge99
 
 763:                                              ; preds = %760
@@ -4032,7 +4032,7 @@ _ZN4llvm4User8operandsEv.exit261:                 ; preds = %768, %771
   store ptr %3, ptr %10, align 8
   store i64 %.0.i224, ptr %497, align 8
   %778 = ptrtoint ptr %777 to i64
-  %.not438 = icmp ult i64 %.pre-phi2.i.i258, 4
+  %.not438 = icmp samesign ult i64 %.pre-phi2.i.i258, 4
   br i1 %.not438, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZN4llvm4User8operandsEv.exit261
@@ -6972,7 +6972,7 @@ _ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %32, %29, %.lr.ph
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm21InterleavedAccessInfo9isStridedEi(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %2 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %3 = icmp ugt i32 %2, 1
+  %3 = icmp samesign ugt i32 %2, 1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24MaxInterleaveGroupFactor, i64 128), align 8
   %5 = icmp ule i32 %2, %4
   %6 = select i1 %3, i1 %5, i1 false
@@ -7860,7 +7860,7 @@ define dso_local void @_ZN4llvm21InterleavedAccessInfo19analyzeInterleavingEb(pt
   store ptr null, ptr %7, align 8
   %55 = trunc i64 %.sroa.044.0.copyload to i32
   %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = icmp ugt i32 %56, 1
+  %57 = icmp samesign ugt i32 %56, 1
   %58 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24MaxInterleaveGroupFactor, i64 128), align 8
   %59 = icmp ule i32 %56, %58
   %60 = select i1 %57, i1 %59, i1 false
@@ -8831,7 +8831,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_15InterleaveGroupINS_11InstructionEEEE8containsEP
 518:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_15InterleaveGroupINS_11InstructionEEEE8containsEPKS3_.exit
   %519 = trunc i64 %.sroa.041.0.copyload to i32
   %520 = call i32 @llvm.abs.i32(i32 %519, i1 true)
-  %521 = icmp ugt i32 %520, 1
+  %521 = icmp samesign ugt i32 %520, 1
   %522 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24MaxInterleaveGroupFactor, i64 128), align 8
   %523 = icmp ule i32 %520, %522
   %524 = icmp ule i32 %56, %522
@@ -10186,7 +10186,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm21InterleavedAccessInfo4
   %.sroa.02.0.copyload = load i64, ptr %10, align 8
   %11 = trunc i64 %.sroa.02.0.copyload to i32
   %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
-  %13 = icmp ugt i32 %12, 1
+  %13 = icmp samesign ugt i32 %12, 1
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24MaxInterleaveGroupFactor, i64 128), align 8
   %15 = icmp ule i32 %12, %14
   %16 = select i1 %13, i1 %15, i1 false
@@ -10195,7 +10195,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm21InterleavedAccessInfo4
 17:                                               ; preds = %9
   %18 = trunc i64 %.sroa.0.0.copyload to i32
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
-  %20 = icmp ugt i32 %19, 1
+  %20 = icmp samesign ugt i32 %19, 1
   %21 = icmp ule i32 %19, %14
   %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %23, label %_ZN4llvm11SmallPtrSetIPNS_11InstructionELj2EED2Ev.exit

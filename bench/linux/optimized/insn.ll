@@ -296,7 +296,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr nocapture 
   %149 = tail call i32 @inat_get_opcode_attribute(i8 noundef zeroext %148) #6
   %150 = and i32 %149, 15
   %151 = or i32 %149, -16
-  %152 = icmp ult i32 %151, -3
+  %152 = icmp samesign ult i32 %151, -3
   br i1 %152, label %.thread14, label %153
 
 153:                                              ; preds = %147

@@ -862,7 +862,7 @@ Mpm_ManGetAbcNode.exit:                           ; preds = %191, %196
   %207 = load i32, ptr %151, align 4
   %208 = lshr i32 %207, 27
   %209 = zext nneg i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next182, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next182, %209
   br i1 %210, label %177, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %Mpm_ManGetAbcNode.exit

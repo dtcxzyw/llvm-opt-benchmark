@@ -24323,7 +24323,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   %100 = mul nuw nsw i128 %99, 1000000000
   %101 = zext i32 %.sroa.840.0 to i128
   %102 = add nuw nsw i128 %100, %101
-  %103 = icmp ugt i128 %102, 18446744073709551615
+  %103 = icmp samesign ugt i128 %102, 18446744073709551615
   %104 = trunc nuw i128 %102 to i64
   br i1 %103, label %105, label %15
 
@@ -24544,7 +24544,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   %76 = mul nuw nsw i128 %75, 1000000000
   %77 = zext nneg i32 %74 to i128
   %78 = add nuw nsw i128 %76, %77
-  %79 = icmp ugt i128 %78, 18446744073709551615
+  %79 = icmp samesign ugt i128 %78, 18446744073709551615
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %70
@@ -24689,7 +24689,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   %136 = mul nuw nsw i128 %135, 1000000000
   %137 = zext i32 %134 to i128
   %138 = add nuw nsw i128 %136, %137
-  %139 = icmp ugt i128 %138, 18446744073709551615
+  %139 = icmp samesign ugt i128 %138, 18446744073709551615
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %132
@@ -26487,7 +26487,7 @@ common.ret:                                       ; preds = %87, %"_ZN118_$LT$wa
   %52 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %53 = icmp ult i64 %52, 6
   tail call void @llvm.assume(i1 %53)
-  %54 = icmp ugt i64 %52, 1
+  %54 = icmp samesign ugt i64 %52, 1
   br i1 %54, label %55, label %49
 
 55:                                               ; preds = %51

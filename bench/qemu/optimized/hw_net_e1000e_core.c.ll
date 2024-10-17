@@ -3809,7 +3809,7 @@ for.body.us:                                      ; preds = %e1000e_intrmgr_rese
   br i1 %or.cond1.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %cmp7.us = icmp ult i64 %indvars.iv29, 11663
+  %cmp7.us = icmp samesign ult i64 %indvars.iv29, 11663
   br i1 %cmp7.us, label %cond.true.us, label %cond.end.us
 
 cond.true.us:                                     ; preds = %if.end.us
@@ -3830,7 +3830,7 @@ for.inc.us:                                       ; preds = %cond.end.us, %for.b
 
 for.body:                                         ; preds = %e1000e_intrmgr_reset.exit, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %e1000e_intrmgr_reset.exit ]
-  %cmp7 = icmp ult i64 %indvars.iv, 11663
+  %cmp7 = icmp samesign ult i64 %indvars.iv, 11663
   br i1 %cmp7, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
@@ -5508,7 +5508,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and1 = and i32 %int_cfg, 7
-  %cmp = icmp ult i32 %and1, 5
+  %cmp = icmp samesign ult i32 %and1, 5
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
@@ -6040,7 +6040,7 @@ define internal void @e1000e_set_eerd(ptr nocapture noundef %core, i32 %index, i
 entry:
   %shr = lshr i32 %val, 2
   %0 = and i32 %shr, 16383
-  %cmp = icmp ugt i32 %0, 63
+  %cmp = icmp samesign ugt i32 %0, 63
   %1 = and i32 %val, 1
   %tobool.not = icmp eq i32 %1, 0
   %or.cond = or i1 %tobool.not, %cmp
@@ -6679,7 +6679,7 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %tobool23.not.i = icmp ult i32 %and, 16777216
+  %tobool23.not.i = icmp samesign ult i32 %and, 16777216
   br i1 %tobool23.not.i, label %if.end12, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end21.i
@@ -7140,7 +7140,7 @@ define internal void @e1000e_set_eewr(ptr nocapture noundef writeonly %core, i32
 entry:
   %shr = lshr i32 %val, 2
   %0 = and i32 %shr, 16383
-  %cmp = icmp ugt i32 %0, 63
+  %cmp = icmp samesign ugt i32 %0, 63
   %1 = and i32 %val, 1
   %tobool.not = icmp eq i32 %1, 0
   %or.cond = or i1 %tobool.not, %cmp
@@ -8198,7 +8198,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and1 = and i32 %int_cfg, 7
-  %cmp = icmp ult i32 %and1, 5
+  %cmp = icmp samesign ult i32 %and1, 5
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then

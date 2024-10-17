@@ -699,7 +699,7 @@ _ZNK14TravelSalesman6energyEv.exit:               ; preds = %197, %186
   %231 = zext i1 %230 to i32
   %spec.select = add nuw nsw i32 %.02976, %231
   %232 = add nuw nsw i32 %.03175, 1
-  %233 = icmp ult i32 %spec.select, 10
+  %233 = icmp samesign ult i32 %spec.select, 10
   br i1 %233, label %140, label %234, !llvm.loop !9
 
 234:                                              ; preds = %229

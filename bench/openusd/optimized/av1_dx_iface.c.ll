@@ -1588,7 +1588,7 @@ define internal range(i32 0, 9) i32 @ctrl_set_byte_alignment(ptr nocapture nound
   %19 = add i32 %17, -32
   %or.cond = icmp ult i32 %19, 993
   %20 = tail call range(i32 1, 12) i32 @llvm.ctpop.i32(i32 %17)
-  %.not17 = icmp ult i32 %20, 2
+  %.not17 = icmp samesign ult i32 %20, 2
   %or.cond19 = select i1 %or.cond, i1 %.not17, i1 false
   br i1 %or.cond19, label %21, label %30
 

@@ -440,7 +440,7 @@ _.exit:                                           ; preds = %if.then12, %if.end3
   %bf.load14 = load i32, ptr %obj, align 4
   %bf.lshr15 = lshr i32 %bf.load14, 1
   %bf.clear16 = and i32 %bf.lshr15, 7
-  %cmp.i = icmp ugt i32 %bf.clear16, 4
+  %cmp.i = icmp samesign ugt i32 %bf.clear16, 4
   br i1 %cmp.i, label %type_name.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_.exit
@@ -1176,7 +1176,7 @@ object_array_release_entry.exit:                  ; preds = %for.body, %if.then.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %array, align 8
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !13
 
 do.body:                                          ; preds = %object_array_release_entry.exit, %entry
@@ -1586,7 +1586,7 @@ for.inc:                                          ; preds = %if.end, %if.then2, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %obj_hash_size, align 4
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !19
 
 do.body:                                          ; preds = %for.inc, %entry

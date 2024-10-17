@@ -1551,7 +1551,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
 194:                                              ; preds = %155
   %195 = getelementptr inbounds i8, ptr %156, i64 5
   %196 = load i8, ptr %195, align 1, !range !50, !noalias !268, !noundef !4
-  %switch.not.i = icmp ult i8 %196, 2
+  %switch.not.i = icmp samesign ult i8 %196, 2
   br i1 %switch.not.i, label %198, label %197
 
 197:                                              ; preds = %206, %198, %194

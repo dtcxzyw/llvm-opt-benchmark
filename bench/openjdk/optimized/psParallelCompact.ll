@@ -1382,7 +1382,7 @@ define hidden void @_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWor
   %9 = ptrtoint ptr %2 to i64
   %10 = sub i64 %9, %6
   %11 = lshr i64 %10, 19
-  %12 = icmp ult i64 %8, %11
+  %12 = icmp samesign ult i64 %8, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -1456,7 +1456,7 @@ define hidden noundef ptr @_ZN19ParallelCompactData21summarize_split_spaceEmR9Sp
   %34 = ptrtoint ptr %4 to i64
   %35 = sub i64 %34, %20
   %36 = lshr i64 %35, 19
-  %37 = icmp ult i64 %33, %36
+  %37 = icmp samesign ult i64 %33, %36
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
@@ -1559,7 +1559,7 @@ define hidden noundef i64 @_ZN19ParallelCompactData19live_words_in_spaceEPK12Mut
   %16 = sub i64 %15, %8
   %17 = lshr i64 %16, 19
   %18 = icmp eq ptr %2, null
-  %19 = icmp ult i64 %10, %17
+  %19 = icmp samesign ult i64 %10, %17
   br i1 %18, label %.preheader, label %.preheader29
 
 .preheader29:                                     ; preds = %3
@@ -1609,7 +1609,7 @@ define hidden noundef i64 @_ZN19ParallelCompactData19live_words_in_spaceEPK12Mut
   %44 = zext nneg i32 %43 to i64
   %45 = add nuw nsw i64 %44, %40
   %46 = trunc nuw i8 %.02331 to i1
-  %47 = icmp ugt i64 %45, 65535
+  %47 = icmp samesign ugt i64 %45, 65535
   %or.cond.not = or i1 %47, %46
   br i1 %or.cond.not, label %51, label %48
 
@@ -1654,7 +1654,7 @@ define hidden noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfo
   %16 = and i64 %15, -524288
   %17 = sub i64 %16, %11
   %18 = lshr i64 %17, 19
-  %.not72 = icmp ult i64 %13, %18
+  %.not72 = icmp samesign ult i64 %13, %18
   br i1 %.not72, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
@@ -1714,7 +1714,7 @@ define hidden noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfo
   %60 = ptrtoint ptr %6 to i64
   %61 = sub i64 %60, %46
   %62 = lshr i64 %61, 19
-  %63 = icmp ult i64 %59, %62
+  %63 = icmp samesign ult i64 %59, %62
   br i1 %63, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
@@ -2708,7 +2708,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact34compute_dense_prefix_for_old_
   %13 = sub i64 %12, %5
   %14 = lshr i64 %13, 19
   %15 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %8, i64 %14
-  %16 = icmp ult i64 %7, %14
+  %16 = icmp samesign ult i64 %7, %14
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -3059,7 +3059,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %46 = and i64 %45, -524288
   %47 = sub i64 %46, %39
   %48 = lshr i64 %47, 19
-  %49 = icmp ult i64 %41, %48
+  %49 = icmp samesign ult i64 %41, %48
   %.pre.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
   br i1 %49, label %.lr.ph.i, label %._crit_edge.thread.i
 
@@ -3078,7 +3078,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %57 = zext nneg i32 %56 to i64
   %58 = add nuw nsw i64 %57, %53
   %59 = trunc nuw i8 %.02331.i to i1
-  %60 = icmp ugt i64 %58, 65535
+  %60 = icmp samesign ugt i64 %58, 65535
   %or.cond.not.i = or i1 %60, %59
   %.idx.i.i = shl i64 %.132.i, 19
   %61 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i
@@ -3120,7 +3120,7 @@ _ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.
   %78 = and i64 %77, -524288
   %79 = sub i64 %78, %39
   %80 = lshr i64 %79, 19
-  %81 = icmp ult i64 %73, %80
+  %81 = icmp samesign ult i64 %73, %80
   br i1 %81, label %.lr.ph36.i, label %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit75
 
 .lr.ph36.i:                                       ; preds = %66, %.lr.ph36.i
@@ -3208,7 +3208,7 @@ _ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImp
   %136 = sub i64 %135, %39
   %137 = lshr i64 %136, 19
   %138 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %.pre.pre, i64 %137
-  %139 = icmp ult i64 %132, %137
+  %139 = icmp samesign ult i64 %132, %137
   br i1 %139, label %.lr.ph.preheader.i, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
@@ -3268,7 +3268,7 @@ _ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12He
   %174 = ptrtoint ptr %166 to i64
   %175 = sub i64 %174, %171
   %176 = lshr i64 %175, 19
-  %177 = icmp ult i64 %173, %176
+  %177 = icmp samesign ult i64 %173, %176
   br i1 %177, label %.lr.ph.i79, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit
 
 .lr.ph.i79:                                       ; preds = %167, %.lr.ph.i79
@@ -3327,7 +3327,7 @@ _ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit: ; pre
   %215 = sub i64 %213, %214
   %216 = lshr i64 %215, 3
   %.not72 = icmp ult i64 %210, 8
-  %.not73 = icmp ugt i64 %211, %216
+  %.not73 = icmp samesign ugt i64 %211, %216
   %or.cond = or i1 %.not72, %.not73
   br i1 %or.cond, label %223, label %217
 
@@ -5834,7 +5834,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %57 = and i64 %56, -524288
   %58 = sub i64 %57, %51
   %59 = lshr i64 %58, 19
-  %60 = icmp ult i64 %53, %59
+  %60 = icmp samesign ult i64 %53, %59
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
@@ -6346,7 +6346,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %107 = lshr i64 %106, %103
   %108 = add nuw nsw i64 %107, 63
   %109 = and i64 %108, 4611686018427387840
-  %110 = icmp ult i64 %104, %109
+  %110 = icmp samesign ult i64 %104, %109
   br i1 %110, label %111, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
 
 111:                                              ; preds = %96
@@ -6371,7 +6371,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
 123:                                              ; preds = %126, %121
   %.023.i.i.i.i.i = phi i64 [ %112, %121 ], [ %124, %126 ]
   %124 = add nuw nsw i64 %.023.i.i.i.i.i, 1
-  %125 = icmp ult i64 %124, %122
+  %125 = icmp samesign ult i64 %124, %122
   br i1 %125, label %126, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
 
 126:                                              ; preds = %123
@@ -6545,7 +6545,7 @@ define hidden void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPV
   %30 = lshr i64 %29, %26
   %31 = add nuw nsw i64 %30, 63
   %32 = and i64 %31, 4611686018427387840
-  %33 = icmp ult i64 %27, %32
+  %33 = icmp samesign ult i64 %27, %32
   br i1 %33, label %34, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
 
 34:                                               ; preds = %19
@@ -6570,7 +6570,7 @@ define hidden void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPV
 46:                                               ; preds = %49, %44
   %.023.i.i.i.i.i = phi i64 [ %35, %44 ], [ %47, %49 ]
   %47 = add nuw nsw i64 %.023.i.i.i.i.i, 1
-  %48 = icmp ult i64 %47, %45
+  %48 = icmp samesign ult i64 %47, %45
   br i1 %48, label %49, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit.i.i
 
 49:                                               ; preds = %46
@@ -6940,7 +6940,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %55 = and i64 %54, -524288
   %56 = sub i64 %55, %50
   %57 = lshr i64 %56, 19
-  %58 = icmp ugt i64 %57, %52
+  %58 = icmp samesign ugt i64 %57, %52
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41, %_ZN19ParallelCompactData10RegionData12claim_unsafeEv.exit
@@ -7358,7 +7358,7 @@ define hidden void @_ZN17PSParallelCompact30fill_dead_objs_in_dense_prefixEjj(i3
   %19 = udiv i64 %17, %18
   %20 = urem i64 %17, %18
   %21 = zext i32 %0 to i64
-  %22 = icmp ugt i64 %20, %21
+  %22 = icmp samesign ugt i64 %20, %21
   %23 = zext i1 %22 to i64
   %24 = add i64 %19, %23
   %25 = icmp eq i64 %24, 0
@@ -7491,7 +7491,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %61, %64, %71, %91
   %110 = lshr i64 %109, %106
   %111 = add nuw nsw i64 %110, 63
   %112 = and i64 %111, 4611686018427387840
-  %113 = icmp ult i64 %107, %112
+  %113 = icmp samesign ult i64 %107, %112
   br i1 %113, label %114, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 114:                                              ; preds = %99
@@ -7516,7 +7516,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %61, %64, %71, %91
 126:                                              ; preds = %129, %124
   %.023.i.i.i = phi i64 [ %115, %124 ], [ %127, %129 ]
   %127 = add nuw nsw i64 %.023.i.i.i, 1
-  %128 = icmp ult i64 %127, %125
+  %128 = icmp samesign ult i64 %127, %125
   br i1 %128, label %129, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 129:                                              ; preds = %126
@@ -7671,7 +7671,7 @@ define hidden void @_ZN17PSParallelCompact25initialize_shadow_regionsEj(i32 noun
   %21 = and i64 %20, -524288
   %22 = sub i64 %21, %15
   %23 = lshr i64 %22, 19
-  %24 = icmp ult i64 %17, %23
+  %24 = icmp samesign ult i64 %17, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -7767,7 +7767,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact15skip_live_wordsEPP12HeapWordI
   %16 = lshr i64 %15, %12
   %17 = add nuw nsw i64 %16, 63
   %18 = and i64 %17, 4611686018427387840
-  %19 = icmp ult i64 %13, %18
+  %19 = icmp samesign ult i64 %13, %18
   br i1 %19, label %20, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 20:                                               ; preds = %5
@@ -7792,7 +7792,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact15skip_live_wordsEPP12HeapWordI
 32:                                               ; preds = %35, %30
   %.023.i.i.i = phi i64 [ %21, %30 ], [ %33, %35 ]
   %33 = add nuw nsw i64 %.023.i.i.i, 1
-  %34 = icmp ult i64 %33, %31
+  %34 = icmp samesign ult i64 %33, %31
   br i1 %34, label %35, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 35:                                               ; preds = %32
@@ -7957,7 +7957,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact14first_src_addrEPP12HeapWordIm
   %37 = lshr i64 %36, %32
   %38 = add nuw nsw i64 %37, 63
   %39 = and i64 %38, 4611686018427387840
-  %40 = icmp ult i64 %33, %39
+  %40 = icmp samesign ult i64 %33, %39
   br i1 %40, label %41, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 41:                                               ; preds = %25
@@ -7982,7 +7982,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact14first_src_addrEPP12HeapWordIm
 53:                                               ; preds = %56, %51
   %.023.i.i.i = phi i64 [ %42, %51 ], [ %54, %56 ]
   %54 = add nuw nsw i64 %.023.i.i.i, 1
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp samesign ult i64 %54, %52
   br i1 %55, label %56, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 56:                                               ; preds = %53
@@ -8037,7 +8037,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit: ; preds = %53, %25, 
   %87 = lshr i64 %86, %82
   %88 = add nuw nsw i64 %87, 63
   %89 = and i64 %88, 4611686018427387840
-  %90 = icmp ult i64 %83, %89
+  %90 = icmp samesign ult i64 %83, %89
   br i1 %90, label %91, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit55
 
 91:                                               ; preds = %75
@@ -8062,7 +8062,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit: ; preds = %53, %25, 
 103:                                              ; preds = %106, %101
   %.023.i.i.i53 = phi i64 [ %92, %101 ], [ %104, %106 ]
   %104 = add nuw nsw i64 %.023.i.i.i53, 1
-  %105 = icmp ult i64 %104, %102
+  %105 = icmp samesign ult i64 %104, %102
   br i1 %105, label %106, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit55
 
 106:                                              ; preds = %103
@@ -8307,7 +8307,7 @@ define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN17PSParallelCompa
   %17 = sub i64 %16, %9
   %18 = lshr i64 %17, 19
   %19 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %12, i64 %18
-  %20 = icmp ult i64 %11, %18
+  %20 = icmp samesign ult i64 %11, %18
   br i1 %20, label %.lr.ph.preheader, label %.critedge57
 
 .lr.ph.preheader:                                 ; preds = %4
@@ -8375,7 +8375,7 @@ define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN17PSParallelCompa
   %60 = sub i64 %59, %9
   %61 = lshr i64 %60, 19
   %62 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %12, i64 %61
-  %63 = icmp ult i64 %51, %61
+  %63 = icmp samesign ult i64 %51, %61
   br i1 %63, label %.lr.ph65, label %.loopexit
 
 .lr.ph65:                                         ; preds = %54, %78
@@ -8581,7 +8581,7 @@ _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit: ; preds = %21, %.split.lo
   %51 = sub i64 %49, %35
   %52 = lshr i64 %51, 3
   %53 = lshr i64 %52, %39
-  %54 = icmp ult i64 %53, %40
+  %54 = icmp samesign ult i64 %53, %40
   br i1 %54, label %55, label %_ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit
 
 55:                                               ; preds = %48
@@ -9022,7 +9022,7 @@ _ZN20MoveAndUpdateClosure16copy_partial_objEm.exit: ; preds = %236, %249
   %301 = lshr i64 %300, %297
   %302 = add nuw nsw i64 %301, 63
   %303 = and i64 %302, 4611686018427387840
-  %304 = icmp ult i64 %298, %303
+  %304 = icmp samesign ult i64 %298, %303
   br i1 %304, label %305, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 305:                                              ; preds = %289
@@ -9047,7 +9047,7 @@ _ZN20MoveAndUpdateClosure16copy_partial_objEm.exit: ; preds = %236, %249
 317:                                              ; preds = %320, %315
   %.023.i.i.i = phi i64 [ %306, %315 ], [ %318, %320 ]
   %318 = add nuw nsw i64 %.023.i.i.i, 1
-  %319 = icmp ult i64 %318, %316
+  %319 = icmp samesign ult i64 %318, %316
   br i1 %319, label %320, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 320:                                              ; preds = %317
@@ -10431,7 +10431,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 8191
   %62 = icmp ne i32 %61, 8191
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %81
 
@@ -11250,7 +11250,7 @@ _ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37: ; preds = %41, %49
   %.sink.i36 = phi i64 [ %34, %49 ], [ %42, %41 ]
   store i64 %.sink.i36, ptr %39, align 8
   %.038 = add nuw nsw i64 %8, 1
-  %50 = icmp ult i64 %.038, %13
+  %50 = icmp samesign ult i64 %.038, %13
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37, %.lr.ph
@@ -11694,7 +11694,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %82
 
@@ -12506,7 +12506,7 @@ define internal void @_ZZN17PSParallelCompact19forward_to_new_addrEvEN11ForwardT
   %33 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %30)
   %34 = add i64 %32, %33
   %35 = add i64 %34, %29
-  %36 = icmp ugt i64 %30, %5
+  %36 = icmp samesign ugt i64 %30, %5
   %37 = zext i1 %36 to i64
   %38 = add i64 %35, %37
   %39 = icmp ult i64 %34, %38
@@ -12553,7 +12553,7 @@ define internal void @_ZZN17PSParallelCompact19forward_to_new_addrEvEN11ForwardT
   %65 = lshr i64 %64, %61
   %66 = add nuw nsw i64 %65, 63
   %67 = and i64 %66, 4611686018427387840
-  %68 = icmp ult i64 %62, %67
+  %68 = icmp samesign ult i64 %62, %67
   br i1 %68, label %69, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 69:                                               ; preds = %54
@@ -12578,7 +12578,7 @@ define internal void @_ZZN17PSParallelCompact19forward_to_new_addrEvEN11ForwardT
 81:                                               ; preds = %84, %79
   %.023.i.i.i = phi i64 [ %70, %79 ], [ %82, %84 ]
   %82 = add nuw nsw i64 %.023.i.i.i, 1
-  %83 = icmp ult i64 %82, %80
+  %83 = icmp samesign ult i64 %82, %80
   br i1 %83, label %84, label %_ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit
 
 84:                                               ; preds = %81
@@ -13142,7 +13142,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %60 = sub i32 %57, %59
   %61 = and i32 %60, 131071
   %62 = icmp ne i32 %61, 131071
-  %63 = icmp ugt i32 %61, %52
+  %63 = icmp samesign ugt i32 %61, %52
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %65, label %82
 
@@ -15741,7 +15741,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %61, %65
   %.025.i.i.i.i.i = phi i64 [ %63, %65 ], [ %55, %61 ]
   %63 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %64 = icmp ult i64 %63, %52
+  %64 = icmp samesign ult i64 %63, %52
   br i1 %64, label %65, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop27PCIterateMarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 65:                                               ; preds = %.preheader.i.i.i
@@ -15952,7 +15952,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %61, %65
   %.025.i.i.i.i.i = phi i64 [ %63, %65 ], [ %55, %61 ]
   %63 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %64 = icmp ult i64 %63, %52
+  %64 = icmp samesign ult i64 %63, %52
   br i1 %64, label %65, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc27PCIterateMarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 65:                                               ; preds = %.preheader.i.i.i
@@ -18633,7 +18633,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 54:                                               ; preds = %.preheader.i.i.i
@@ -19147,7 +19147,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
 .preheader.i.i:                                   ; preds = %39, %43
   %.025.i.i.i.i = phi i64 [ %41, %43 ], [ %33, %39 ]
   %41 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %42 = icmp ult i64 %41, %28
+  %42 = icmp samesign ult i64 %41, %28
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
 
 43:                                               ; preds = %.preheader.i.i
@@ -21623,7 +21623,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %55, %59
   %.025.i.i.i.i.i = phi i64 [ %57, %59 ], [ %49, %55 ]
   %57 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %58 = icmp ult i64 %57, %46
+  %58 = icmp samesign ult i64 %57, %46
   br i1 %58, label %59, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 59:                                               ; preds = %.preheader.i.i.i
@@ -23839,7 +23839,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %54, %58
   %.025.i.i.i.i.i = phi i64 [ %56, %58 ], [ %48, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %46
+  %57 = icmp samesign ult i64 %56, %46
   br i1 %57, label %58, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22PCAdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 58:                                               ; preds = %.preheader.i.i.i
@@ -23984,7 +23984,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %54, %58
   %.025.i.i.i.i.i = phi i64 [ %56, %58 ], [ %48, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %46
+  %57 = icmp samesign ult i64 %56, %46
   br i1 %57, label %58, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22PCAdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 58:                                               ; preds = %.preheader.i.i.i
@@ -25503,7 +25503,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22PCAdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -25723,7 +25723,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22PCAdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 53:                                               ; preds = %.preheader.i.i.i

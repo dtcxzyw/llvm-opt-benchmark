@@ -1473,7 +1473,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
 567:                                              ; preds = %564
   %568 = call fastcc i32 @parseStyle(ptr noundef nonnull %565)
   %.sroa.0.4.i.i.i = or i32 %568, %.sroa.0.0175.i.i.i
-  %.not150.i.i51.i = icmp ult i32 %568, 256
+  %.not150.i.i51.i = icmp samesign ult i32 %568, 256
   %.sroa.1316.1.i.i.i = select i1 %.not150.i.i51.i, ptr %.sroa.1316.0176.i.i.i, ptr @.str.67
   br label %emitAttr.exit141.i
 

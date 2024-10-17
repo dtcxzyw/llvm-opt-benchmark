@@ -1823,7 +1823,7 @@ object_mapping_eq.exit.thread.i:                  ; preds = %object_mapping_eq.e
   %118 = load i16, ptr %69, align 2
   %119 = zext i16 %118 to i32
   %120 = add nuw nsw i32 %119, %117
-  %121 = icmp ugt i32 %120, %115
+  %121 = icmp samesign ugt i32 %120, %115
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %112
@@ -1831,7 +1831,7 @@ object_mapping_eq.exit.thread.i:                  ; preds = %object_mapping_eq.e
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   %126 = add nuw nsw i32 %125, %115
-  %127 = icmp ugt i32 %126, %117
+  %127 = icmp samesign ugt i32 %126, %117
   br i1 %127, label %144, label %128
 
 128:                                              ; preds = %122, %112
@@ -2336,7 +2336,7 @@ define internal void @device_profile_parse_uat() #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr @ndevice_profile_uat, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %54, %6
@@ -2565,7 +2565,7 @@ copy_address_wmem.exit:                           ; preds = %49, %38, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr @nnodeid_profile_uat, align 4
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %62, %7
@@ -2994,7 +2994,7 @@ define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef range(i32 
   br i1 %.not53, label %23, label %14
 
 14:                                               ; preds = %2
-  %.not54 = icmp ult i32 %1, 4
+  %.not54 = icmp samesign ult i32 %1, 4
   br i1 %.not54, label %18, label %15
 
 15:                                               ; preds = %14
@@ -4549,316 +4549,314 @@ define internal fastcc i32 @dissect_epl_asnd_sdo(ptr noundef %0, ptr noundef %1,
 epl_duplication_get.exit.i:                       ; preds = %29, %4
   %.05.i.i = phi i32 [ 0, %4 ], [ %31, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %32 = icmp ult i8 %13, 2
-  %33 = or i8 %16, %12
-  %34 = and i8 %33, 2
-  %or.cond.i = icmp eq i8 %34, 0
-  br i1 %or.cond.i, label %40, label %35
+  %32 = icmp samesign ult i8 %13, 2
+  %33 = icmp samesign ult i8 %17, 2
+  %or.cond.i = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond.i, label %38, label %34
 
-35:                                               ; preds = %epl_duplication_get.exit.i
-  %36 = icmp ult i8 %17, 2
-  %37 = icmp eq i8 %13, 2
-  %or.cond5.i = and i1 %37, %36
-  br i1 %or.cond5.i, label %40, label %38
+34:                                               ; preds = %epl_duplication_get.exit.i
+  %35 = icmp eq i8 %13, 2
+  %or.cond5.i = select i1 %35, i1 %33, i1 false
+  br i1 %or.cond5.i, label %38, label %36
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %17, 2
-  %or.cond8.i = and i1 %32, %39
-  br i1 %or.cond8.i, label %40, label %63
+36:                                               ; preds = %34
+  %37 = icmp eq i8 %17, 2
+  %or.cond8.i = and i1 %32, %37
+  br i1 %or.cond8.i, label %38, label %61
 
-40:                                               ; preds = %38, %35, %epl_duplication_get.exit.i
-  %41 = load ptr, ptr @epl_duplication_table, align 8
-  %42 = load i8, ptr @epl_segmentation.0, align 1
-  %43 = load i8, ptr @epl_segmentation.1, align 1
+38:                                               ; preds = %36, %34, %epl_duplication_get.exit.i
+  %39 = load ptr, ptr @epl_duplication_table, align 8
+  %40 = load i8, ptr @epl_segmentation.0, align 1
+  %41 = load i8, ptr @epl_segmentation.1, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %9, ptr noundef %41) #18
-  %44 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #18
-  %.not4.i.i = icmp eq i32 %44, 0
+  call void @g_hash_table_iter_init(ptr noundef nonnull %9, ptr noundef %39) #18
+  %42 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #18
+  %.not4.i.i = icmp eq i32 %42, 0
   br i1 %.not4.i.i, label %epl_duplication_remove.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %40, %53
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %42, %46
-  br i1 %47, label %48, label %53
+.lr.ph.i.i:                                       ; preds = %38, %51
+  %43 = load ptr, ptr %10, align 8
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %40, %44
+  br i1 %45, label %46, label %51
 
-48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %45, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %43, %50
-  br i1 %51, label %52, label %53
+46:                                               ; preds = %.lr.ph.i.i
+  %47 = getelementptr inbounds i8, ptr %43, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %41, %48
+  br i1 %49, label %50, label %51
 
-52:                                               ; preds = %48
+50:                                               ; preds = %46
   call void @g_hash_table_iter_remove(ptr noundef nonnull %9) #18
-  br label %53
+  br label %51
 
-53:                                               ; preds = %52, %48, %.lr.ph.i.i
-  %54 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #18
-  %.not.i142.i = icmp eq i32 %54, 0
+51:                                               ; preds = %50, %46, %.lr.ph.i.i
+  %52 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #18
+  %.not.i142.i = icmp eq i32 %52, 0
   br i1 %.not.i142.i, label %epl_duplication_remove.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
-epl_duplication_remove.exit.i:                    ; preds = %53, %40
+epl_duplication_remove.exit.i:                    ; preds = %51, %38
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %55 = call ptr @wmem_file_scope() #18
-  %56 = load i32, ptr @proto_epl, align 4
-  %57 = call ptr @p_get_proto_data(ptr noundef %55, ptr noundef %2, i32 noundef %56, i32 noundef 34987) #18
-  %.not.i143.i = icmp eq ptr %57, null
-  br i1 %.not.i143.i, label %epl_set_sequence_nr.exit.i, label %58
+  %53 = call ptr @wmem_file_scope() #18
+  %54 = load i32, ptr @proto_epl, align 4
+  %55 = call ptr @p_get_proto_data(ptr noundef %53, ptr noundef %2, i32 noundef %54, i32 noundef 34987) #18
+  %.not.i143.i = icmp eq ptr %55, null
+  br i1 %.not.i143.i, label %epl_set_sequence_nr.exit.i, label %56
 
-58:                                               ; preds = %epl_duplication_remove.exit.i
-  %59 = call ptr @wmem_file_scope() #18
-  %60 = load i32, ptr @proto_epl, align 4
-  call void @p_remove_proto_data(ptr noundef %59, ptr noundef %2, i32 noundef %60, i32 noundef 34987) #18
+56:                                               ; preds = %epl_duplication_remove.exit.i
+  %57 = call ptr @wmem_file_scope() #18
+  %58 = load i32, ptr @proto_epl, align 4
+  call void @p_remove_proto_data(ptr noundef %57, ptr noundef %2, i32 noundef %58, i32 noundef 34987) #18
   br label %epl_set_sequence_nr.exit.i
 
-epl_set_sequence_nr.exit.i:                       ; preds = %58, %epl_duplication_remove.exit.i
-  %61 = call ptr @wmem_file_scope() #18
-  %62 = load i32, ptr @proto_epl, align 4
-  call void @p_add_proto_data(ptr noundef %61, ptr noundef %2, i32 noundef %62, i32 noundef 34987, ptr noundef nonnull inttoptr (i64 2 to ptr)) #18
-  br label %99
+epl_set_sequence_nr.exit.i:                       ; preds = %56, %epl_duplication_remove.exit.i
+  %59 = call ptr @wmem_file_scope() #18
+  %60 = load i32, ptr @proto_epl, align 4
+  call void @p_add_proto_data(ptr noundef %59, ptr noundef %2, i32 noundef %60, i32 noundef 34987, ptr noundef nonnull inttoptr (i64 2 to ptr)) #18
+  br label %97
 
-63:                                               ; preds = %38
-  %64 = icmp eq i8 %17, 3
-  %or.cond20.i = and i1 %37, %64
-  %65 = icmp eq i8 %13, 3
-  %or.cond23.i = and i1 %65, %39
+61:                                               ; preds = %36
+  %62 = icmp eq i8 %17, 3
+  %or.cond20.i = and i1 %35, %62
+  %63 = icmp eq i8 %13, 3
+  %or.cond23.i = and i1 %63, %37
   %or.cond139.i = or i1 %or.cond20.i, %or.cond23.i
-  br i1 %or.cond139.i, label %66, label %77
+  br i1 %or.cond139.i, label %64, label %75
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr @epl_duplication_table, align 8
+64:                                               ; preds = %61
+  %65 = load ptr, ptr @epl_duplication_table, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %68 = call i32 @g_hash_table_lookup_extended(ptr noundef %67, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %8) #18
-  %.not.i144.i = icmp eq i32 %68, 0
-  br i1 %.not.i144.i, label %71, label %69
+  %66 = call i32 @g_hash_table_lookup_extended(ptr noundef %65, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %8) #18
+  %.not.i144.i = icmp eq i32 %66, 0
+  br i1 %.not.i144.i, label %69, label %67
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %8, align 8
-  store i32 %20, ptr %70, align 4
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %8, align 8
+  store i32 %20, ptr %68, align 4
   br label %epl_duplication_insert.exit.i
 
-71:                                               ; preds = %66
+69:                                               ; preds = %64
+  %70 = call ptr @wmem_file_scope() #18
+  %71 = call noalias ptr @wmem_memdup(ptr noundef %70, ptr noundef nonnull %23, i64 noundef 4) #18
   %72 = call ptr @wmem_file_scope() #18
-  %73 = call noalias ptr @wmem_memdup(ptr noundef %72, ptr noundef nonnull %23, i64 noundef 4) #18
-  %74 = call ptr @wmem_file_scope() #18
-  %75 = call noalias ptr @wmem_alloc0(ptr noundef %74, i64 noundef 4) #18
-  store i32 %20, ptr %75, align 4
-  %76 = call i32 @g_hash_table_insert(ptr noundef %67, ptr noundef %73, ptr noundef nonnull %75) #18
+  %73 = call noalias ptr @wmem_alloc0(ptr noundef %72, i64 noundef 4) #18
+  store i32 %20, ptr %73, align 4
+  %74 = call i32 @g_hash_table_insert(ptr noundef %65, ptr noundef %71, ptr noundef nonnull %73) #18
   br label %epl_duplication_insert.exit.i
 
-epl_duplication_insert.exit.i:                    ; preds = %71, %69
+epl_duplication_insert.exit.i:                    ; preds = %69, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %99
+  br label %97
 
-77:                                               ; preds = %63
-  %78 = icmp eq i32 %.05.i.i, 0
-  br i1 %78, label %79, label %90
+75:                                               ; preds = %61
+  %76 = icmp eq i32 %.05.i.i, 0
+  br i1 %76, label %77, label %88
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr @epl_duplication_table, align 8
+77:                                               ; preds = %75
+  %78 = load ptr, ptr @epl_duplication_table, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %81 = call i32 @g_hash_table_lookup_extended(ptr noundef %80, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %7) #18
-  %.not.i145.i = icmp eq i32 %81, 0
-  br i1 %.not.i145.i, label %84, label %82
+  %79 = call i32 @g_hash_table_lookup_extended(ptr noundef %78, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %7) #18
+  %.not.i145.i = icmp eq i32 %79, 0
+  br i1 %.not.i145.i, label %82, label %80
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %7, align 8
-  store i32 %20, ptr %83, align 4
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %7, align 8
+  store i32 %20, ptr %81, align 4
   br label %epl_duplication_insert.exit146.i
 
-84:                                               ; preds = %79
+82:                                               ; preds = %77
+  %83 = call ptr @wmem_file_scope() #18
+  %84 = call noalias ptr @wmem_memdup(ptr noundef %83, ptr noundef nonnull %23, i64 noundef 4) #18
   %85 = call ptr @wmem_file_scope() #18
-  %86 = call noalias ptr @wmem_memdup(ptr noundef %85, ptr noundef nonnull %23, i64 noundef 4) #18
-  %87 = call ptr @wmem_file_scope() #18
-  %88 = call noalias ptr @wmem_alloc0(ptr noundef %87, i64 noundef 4) #18
-  store i32 %20, ptr %88, align 4
-  %89 = call i32 @g_hash_table_insert(ptr noundef %80, ptr noundef %86, ptr noundef nonnull %88) #18
+  %86 = call noalias ptr @wmem_alloc0(ptr noundef %85, i64 noundef 4) #18
+  store i32 %20, ptr %86, align 4
+  %87 = call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef %84, ptr noundef nonnull %86) #18
   br label %epl_duplication_insert.exit146.i
 
-epl_duplication_insert.exit146.i:                 ; preds = %84, %82
+epl_duplication_insert.exit146.i:                 ; preds = %82, %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %99
+  br label %97
 
-90:                                               ; preds = %77
-  %91 = add i32 %.05.i.i, 100
-  %92 = icmp ugt i32 %20, %91
-  %93 = icmp ugt i32 %.05.i.i, %20
-  %or.cond140.i = or i1 %93, %92
-  br i1 %or.cond140.i, label %94, label %96
+88:                                               ; preds = %75
+  %89 = add i32 %.05.i.i, 100
+  %90 = icmp ugt i32 %20, %89
+  %91 = icmp ugt i32 %.05.i.i, %20
+  %or.cond140.i = or i1 %91, %90
+  br i1 %or.cond140.i, label %92, label %94
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr @epl_duplication_table, align 8
-  call fastcc void @epl_duplication_insert(ptr noundef %95, ptr noundef nonnull %23, i32 noundef %20)
-  br label %99
+92:                                               ; preds = %88
+  %93 = load ptr, ptr @epl_duplication_table, align 8
+  call fastcc void @epl_duplication_insert(ptr noundef %93, ptr noundef nonnull %23, i32 noundef %20)
+  br label %97
 
-96:                                               ; preds = %90
-  %97 = icmp ult i32 %20, %91
-  %98 = icmp ugt i32 %20, %.05.i.i
-  %or.cond141.i = and i1 %98, %97
-  br label %99
+94:                                               ; preds = %88
+  %95 = icmp ult i32 %20, %89
+  %96 = icmp ugt i32 %20, %.05.i.i
+  %or.cond141.i = and i1 %96, %95
+  br label %97
 
-99:                                               ; preds = %96, %94, %epl_duplication_insert.exit146.i, %epl_duplication_insert.exit.i, %epl_set_sequence_nr.exit.i
-  %100 = phi i1 [ false, %epl_set_sequence_nr.exit.i ], [ false, %epl_duplication_insert.exit.i ], [ false, %epl_duplication_insert.exit146.i ], [ false, %94 ], [ %or.cond141.i, %96 ]
-  %101 = call ptr @wmem_file_scope() #18
-  %102 = load i32, ptr @proto_epl, align 4
-  %103 = call ptr @p_get_proto_data(ptr noundef %101, ptr noundef %2, i32 noundef %102, i32 noundef 34987) #18
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %108
+97:                                               ; preds = %94, %92, %epl_duplication_insert.exit146.i, %epl_duplication_insert.exit.i, %epl_set_sequence_nr.exit.i
+  %98 = phi i1 [ false, %epl_set_sequence_nr.exit.i ], [ false, %epl_duplication_insert.exit.i ], [ false, %epl_duplication_insert.exit146.i ], [ false, %92 ], [ %or.cond141.i, %94 ]
+  %99 = call ptr @wmem_file_scope() #18
+  %100 = load i32, ptr @proto_epl, align 4
+  %101 = call ptr @p_get_proto_data(ptr noundef %99, ptr noundef %2, i32 noundef %100, i32 noundef 34987) #18
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %103, label %106
 
-105:                                              ; preds = %99
-  %106 = call ptr @wmem_file_scope() #18
-  %107 = load i32, ptr @proto_epl, align 4
-  call void @p_add_proto_data(ptr noundef %106, ptr noundef %2, i32 noundef %107, i32 noundef 34987, ptr noundef null) #18
+103:                                              ; preds = %97
+  %104 = call ptr @wmem_file_scope() #18
+  %105 = load i32, ptr @proto_epl, align 4
+  call void @p_add_proto_data(ptr noundef %104, ptr noundef %2, i32 noundef %105, i32 noundef 34987, ptr noundef null) #18
   br label %epl_get_sequence_nr.exit.i
 
-108:                                              ; preds = %99
-  %109 = ptrtoint ptr %103 to i64
-  %110 = trunc i64 %109 to i16
+106:                                              ; preds = %97
+  %107 = ptrtoint ptr %101 to i64
+  %108 = trunc i64 %107 to i16
   br label %epl_get_sequence_nr.exit.i
 
-epl_get_sequence_nr.exit.i:                       ; preds = %108, %105
-  %.0.i.i = phi i16 [ 0, %105 ], [ %110, %108 ]
-  %111 = icmp eq i16 %.0.i.i, 0
-  %or.cond26.i = and i1 %100, %111
-  %112 = icmp eq i16 %.0.i.i, 1
-  %or.cond29.i = or i1 %112, %or.cond26.i
-  br i1 %or.cond29.i, label %113, label %125
+epl_get_sequence_nr.exit.i:                       ; preds = %106, %103
+  %.0.i.i = phi i16 [ 0, %103 ], [ %108, %106 ]
+  %109 = icmp eq i16 %.0.i.i, 0
+  %or.cond26.i = and i1 %98, %109
+  %110 = icmp eq i16 %.0.i.i, 1
+  %or.cond29.i = or i1 %110, %or.cond26.i
+  br i1 %or.cond29.i, label %111, label %123
 
-113:                                              ; preds = %epl_get_sequence_nr.exit.i
-  %114 = call ptr @wmem_file_scope() #18
-  %115 = load i32, ptr @proto_epl, align 4
-  %116 = call ptr @p_get_proto_data(ptr noundef %114, ptr noundef %2, i32 noundef %115, i32 noundef 34987) #18
-  %.not.i147.i = icmp eq ptr %116, null
-  br i1 %.not.i147.i, label %epl_set_sequence_nr.exit148.i, label %117
+111:                                              ; preds = %epl_get_sequence_nr.exit.i
+  %112 = call ptr @wmem_file_scope() #18
+  %113 = load i32, ptr @proto_epl, align 4
+  %114 = call ptr @p_get_proto_data(ptr noundef %112, ptr noundef %2, i32 noundef %113, i32 noundef 34987) #18
+  %.not.i147.i = icmp eq ptr %114, null
+  br i1 %.not.i147.i, label %epl_set_sequence_nr.exit148.i, label %115
 
-117:                                              ; preds = %113
-  %118 = call ptr @wmem_file_scope() #18
-  %119 = load i32, ptr @proto_epl, align 4
-  call void @p_remove_proto_data(ptr noundef %118, ptr noundef %2, i32 noundef %119, i32 noundef 34987) #18
+115:                                              ; preds = %111
+  %116 = call ptr @wmem_file_scope() #18
+  %117 = load i32, ptr @proto_epl, align 4
+  call void @p_remove_proto_data(ptr noundef %116, ptr noundef %2, i32 noundef %117, i32 noundef 34987) #18
   br label %epl_set_sequence_nr.exit148.i
 
-epl_set_sequence_nr.exit148.i:                    ; preds = %117, %113
-  %120 = call ptr @wmem_file_scope() #18
-  %121 = load i32, ptr @proto_epl, align 4
-  call void @p_add_proto_data(ptr noundef %120, ptr noundef %2, i32 noundef %121, i32 noundef 34987, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  %122 = zext nneg i8 %14 to i32
-  %123 = zext nneg i8 %18 to i32
-  %124 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_duplicated_frame, ptr noundef nonnull @.str.731, i32 noundef %.05.i.i, i32 noundef %122, i32 noundef %123) #18
-  br label %125
+epl_set_sequence_nr.exit148.i:                    ; preds = %115, %111
+  %118 = call ptr @wmem_file_scope() #18
+  %119 = load i32, ptr @proto_epl, align 4
+  call void @p_add_proto_data(ptr noundef %118, ptr noundef %2, i32 noundef %119, i32 noundef 34987, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %120 = zext nneg i8 %14 to i32
+  %121 = zext nneg i8 %18 to i32
+  %122 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_duplicated_frame, ptr noundef nonnull @.str.731, i32 noundef %.05.i.i, i32 noundef %120, i32 noundef %121) #18
+  br label %123
 
-125:                                              ; preds = %epl_set_sequence_nr.exit148.i, %epl_get_sequence_nr.exit.i
-  %126 = icmp eq i8 %14, 63
-  br i1 %126, label %127, label %dissect_epl_sdo_sequence.exit
+123:                                              ; preds = %epl_set_sequence_nr.exit148.i, %epl_get_sequence_nr.exit.i
+  %124 = icmp eq i8 %14, 63
+  br i1 %124, label %125, label %dissect_epl_sdo_sequence.exit
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr @epl_duplication_table, align 8
-  %129 = load i8, ptr @epl_segmentation.0, align 1
-  %130 = load i8, ptr @epl_segmentation.1, align 1
+125:                                              ; preds = %123
+  %126 = load ptr, ptr @epl_duplication_table, align 8
+  %127 = load i8, ptr @epl_segmentation.0, align 1
+  %128 = load i8, ptr @epl_segmentation.1, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %128) #18
-  %131 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #18
-  %.not4.i149.i = icmp eq i32 %131, 0
+  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %126) #18
+  %129 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #18
+  %.not4.i149.i = icmp eq i32 %129, 0
   br i1 %.not4.i149.i, label %epl_duplication_remove.exit152.i, label %.lr.ph.i150.i
 
-.lr.ph.i150.i:                                    ; preds = %127, %140
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i8, ptr %132, align 1
-  %134 = icmp eq i8 %129, %133
-  br i1 %134, label %135, label %140
+.lr.ph.i150.i:                                    ; preds = %125, %138
+  %130 = load ptr, ptr %6, align 8
+  %131 = load i8, ptr %130, align 1
+  %132 = icmp eq i8 %127, %131
+  br i1 %132, label %133, label %138
 
-135:                                              ; preds = %.lr.ph.i150.i
-  %136 = getelementptr inbounds i8, ptr %132, i64 1
-  %137 = load i8, ptr %136, align 1
-  %138 = icmp eq i8 %130, %137
-  br i1 %138, label %139, label %140
+133:                                              ; preds = %.lr.ph.i150.i
+  %134 = getelementptr inbounds i8, ptr %130, i64 1
+  %135 = load i8, ptr %134, align 1
+  %136 = icmp eq i8 %128, %135
+  br i1 %136, label %137, label %138
 
-139:                                              ; preds = %135
+137:                                              ; preds = %133
   call void @g_hash_table_iter_remove(ptr noundef nonnull %5) #18
-  br label %140
+  br label %138
 
-140:                                              ; preds = %139, %135, %.lr.ph.i150.i
-  %141 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #18
-  %.not.i151.i = icmp eq i32 %141, 0
+138:                                              ; preds = %137, %133, %.lr.ph.i150.i
+  %139 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #18
+  %.not.i151.i = icmp eq i32 %139, 0
   br i1 %.not.i151.i, label %epl_duplication_remove.exit152.i, label %.lr.ph.i150.i, !llvm.loop !15
 
-epl_duplication_remove.exit152.i:                 ; preds = %140, %127
+epl_duplication_remove.exit152.i:                 ; preds = %138, %125
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_epl_sdo_sequence.exit
 
-dissect_epl_sdo_sequence.exit:                    ; preds = %125, %epl_duplication_remove.exit152.i
+dissect_epl_sdo_sequence.exit:                    ; preds = %123, %epl_duplication_remove.exit152.i
   call void @g_slice_free1(i64 noundef 4, ptr noundef nonnull %23) #18
-  %142 = load i32, ptr @hf_epl_asnd_sdo_seq, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %142, ptr noundef %1, i32 noundef %3, i32 noundef 5, i32 noundef 0) #18
-  %144 = load i32, ptr @ett_epl_sdo_sequence_layer, align 4
-  %145 = call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %144) #18
-  %146 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #18
-  %147 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_sequence_number, align 4
-  %148 = zext i8 %146 to i32
-  %149 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %147, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %148) #18
-  %150 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_con, align 4
-  %151 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %150, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %148) #18
-  %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %15) #18
-  %153 = load i32, ptr @hf_epl_asnd_sdo_seq_send_sequence_number, align 4
-  %154 = zext i8 %152 to i32
-  %155 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %153, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef %154) #18
-  %156 = load i32, ptr @hf_epl_asnd_sdo_seq_send_con, align 4
-  %157 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %156, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef %154) #18
-  %158 = add nuw nsw i32 %3, 4
-  %159 = getelementptr inbounds i8, ptr %2, i64 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = lshr i32 %148, 2
-  %162 = and i32 %148, 3
-  %163 = call ptr @val_to_str_const(i32 noundef %162, ptr noundef nonnull @epl_sdo_init_abbr_vals, ptr noundef nonnull @.str.733) #18
-  %164 = lshr i32 %154, 2
-  %165 = and i32 %154, 3
-  %166 = call ptr @val_to_str_const(i32 noundef %165, ptr noundef nonnull @epl_sdo_init_abbr_vals, ptr noundef nonnull @.str.733) #18
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.732, i32 noundef %161, ptr noundef %163, i32 noundef %164, ptr noundef %166) #18
-  %167 = load ptr, ptr %159, align 8
-  %168 = shl nuw nsw i32 %162, 8
-  %169 = or disjoint i32 %165, %168
-  %170 = call ptr @val_to_str_const(i32 noundef %169, ptr noundef nonnull @epl_sdo_init_con_vals, ptr noundef nonnull @.str.734) #18
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %170) #18
-  %171 = call ptr @wmem_file_scope() #18
-  %172 = load i32, ptr @proto_epl, align 4
-  %173 = call ptr @p_get_proto_data(ptr noundef %171, ptr noundef %2, i32 noundef %172, i32 noundef 34987) #18
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %epl_get_sequence_nr.exit.thread, label %epl_get_sequence_nr.exit
+  %140 = load i32, ptr @hf_epl_asnd_sdo_seq, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %140, ptr noundef %1, i32 noundef %3, i32 noundef 5, i32 noundef 0) #18
+  %142 = load i32, ptr @ett_epl_sdo_sequence_layer, align 4
+  %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142) #18
+  %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #18
+  %145 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_sequence_number, align 4
+  %146 = zext i8 %144 to i32
+  %147 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %145, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %146) #18
+  %148 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_con, align 4
+  %149 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %148, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %146) #18
+  %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %15) #18
+  %151 = load i32, ptr @hf_epl_asnd_sdo_seq_send_sequence_number, align 4
+  %152 = zext i8 %150 to i32
+  %153 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %151, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef %152) #18
+  %154 = load i32, ptr @hf_epl_asnd_sdo_seq_send_con, align 4
+  %155 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %154, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef %152) #18
+  %156 = add nuw nsw i32 %3, 4
+  %157 = getelementptr inbounds i8, ptr %2, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = lshr i32 %146, 2
+  %160 = and i32 %146, 3
+  %161 = call ptr @val_to_str_const(i32 noundef %160, ptr noundef nonnull @epl_sdo_init_abbr_vals, ptr noundef nonnull @.str.733) #18
+  %162 = lshr i32 %152, 2
+  %163 = and i32 %152, 3
+  %164 = call ptr @val_to_str_const(i32 noundef %163, ptr noundef nonnull @epl_sdo_init_abbr_vals, ptr noundef nonnull @.str.733) #18
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.732, i32 noundef %159, ptr noundef %161, i32 noundef %162, ptr noundef %164) #18
+  %165 = load ptr, ptr %157, align 8
+  %166 = shl nuw nsw i32 %160, 8
+  %167 = or disjoint i32 %163, %166
+  %168 = call ptr @val_to_str_const(i32 noundef %167, ptr noundef nonnull @epl_sdo_init_con_vals, ptr noundef nonnull @.str.734) #18
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %168) #18
+  %169 = call ptr @wmem_file_scope() #18
+  %170 = load i32, ptr @proto_epl, align 4
+  %171 = call ptr @p_get_proto_data(ptr noundef %169, ptr noundef %2, i32 noundef %170, i32 noundef 34987) #18
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %epl_get_sequence_nr.exit.thread, label %epl_get_sequence_nr.exit
 
 epl_get_sequence_nr.exit.thread:                  ; preds = %dissect_epl_sdo_sequence.exit
-  %175 = call ptr @wmem_file_scope() #18
-  %176 = load i32, ptr @proto_epl, align 4
-  call void @p_add_proto_data(ptr noundef %175, ptr noundef nonnull %2, i32 noundef %176, i32 noundef 34987, ptr noundef null) #18
-  br label %182
+  %173 = call ptr @wmem_file_scope() #18
+  %174 = load i32, ptr @proto_epl, align 4
+  call void @p_add_proto_data(ptr noundef %173, ptr noundef nonnull %2, i32 noundef %174, i32 noundef 34987, ptr noundef null) #18
+  br label %180
 
 epl_get_sequence_nr.exit:                         ; preds = %dissect_epl_sdo_sequence.exit
-  %177 = ptrtoint ptr %173 to i64
-  %178 = and i64 %177, 65535
-  %179 = icmp eq i64 %178, 0
-  %180 = load i32, ptr @show_cmd_layer_for_duplicated, align 4
-  %181 = icmp eq i32 %180, 1
-  %or.cond = select i1 %179, i1 true, i1 %181
-  br i1 %or.cond, label %182, label %189
+  %175 = ptrtoint ptr %171 to i64
+  %176 = and i64 %175, 65535
+  %177 = icmp eq i64 %176, 0
+  %178 = load i32, ptr @show_cmd_layer_for_duplicated, align 4
+  %179 = icmp eq i32 %178, 1
+  %or.cond = select i1 %177, i1 true, i1 %179
+  br i1 %or.cond, label %180, label %187
 
-182:                                              ; preds = %epl_get_sequence_nr.exit.thread, %epl_get_sequence_nr.exit
-  %183 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %158) #18
-  %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %185, label %187
+180:                                              ; preds = %epl_get_sequence_nr.exit.thread, %epl_get_sequence_nr.exit
+  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %156) #18
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %183, label %185
 
-185:                                              ; preds = %182
-  %186 = call fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %158, i8 noundef zeroext %152)
-  br label %189
+183:                                              ; preds = %180
+  %184 = call fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %156, i8 noundef zeroext %150)
+  br label %187
 
-187:                                              ; preds = %182
-  %188 = load ptr, ptr %159, align 8
-  call void @col_append_str(ptr noundef %188, i32 noundef 25, ptr noundef nonnull @.str.730) #18
-  br label %189
+185:                                              ; preds = %180
+  %186 = load ptr, ptr %157, align 8
+  call void @col_append_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.730) #18
+  br label %187
 
-189:                                              ; preds = %185, %187, %epl_get_sequence_nr.exit
-  %.0 = phi i32 [ %186, %185 ], [ %158, %187 ], [ %158, %epl_get_sequence_nr.exit ]
+187:                                              ; preds = %183, %185, %epl_get_sequence_nr.exit
+  %.0 = phi i32 [ %184, %183 ], [ %156, %185 ], [ %156, %epl_get_sequence_nr.exit ]
   ret i32 %.0
 }
 
@@ -5065,7 +5063,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %110, label %314
 
 110:                                              ; preds = %107
-  %111 = icmp ult i8 %27, 2
+  %111 = icmp samesign ult i8 %27, 2
   br i1 %111, label %112, label %222
 
 112:                                              ; preds = %110
@@ -5464,7 +5462,7 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %129, 
   br i1 %.not398.i, label %dissect_epl_sdo_command_write_multiple_by_index.exit, label %.lr.ph388.i
 
 .lr.ph388.i:                                      ; preds = %320
-  %322 = icmp ult i8 %27, 2
+  %322 = icmp samesign ult i8 %27, 2
   %323 = getelementptr inbounds i8, ptr %105, i64 40
   %324 = getelementptr inbounds i8, ptr %2, i64 20
   br label %325
@@ -5808,7 +5806,7 @@ proto_item_set_generated.exit.i:                  ; preds = %453, %450, %447
   br i1 %.not329370.i, label %dissect_epl_sdo_command_write_multiple_by_index.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %484
-  %486 = icmp ult i8 %27, 2
+  %486 = icmp samesign ult i8 %27, 2
   br i1 %486, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %525
@@ -5921,7 +5919,7 @@ dissect_epl_sdo_command_write_multiple_by_index.exit: ; preds = %.lr.ph.split.i,
   br i1 %.not446.i, label %dissect_epl_sdo_command_read_multiple_by_index.exit, label %.lr.ph.i178
 
 .lr.ph.i178:                                      ; preds = %539
-  %541 = icmp ult i8 %27, 2
+  %541 = icmp samesign ult i8 %27, 2
   %542 = getelementptr inbounds i8, ptr %105, i64 40
   br label %543
 
@@ -6264,7 +6262,7 @@ subobject_lookup.exit.i185:                       ; preds = %613, %610, %606
   br i1 %.not369435.i, label %dissect_epl_sdo_command_read_multiple_by_index.exit, label %.lr.ph441.i
 
 .lr.ph441.i:                                      ; preds = %719
-  %721 = icmp ult i8 %27, 2
+  %721 = icmp samesign ult i8 %27, 2
   %722 = getelementptr inbounds i8, ptr %105, i64 40
   br i1 %721, label %.lr.ph441.split.us.i, label %.lr.ph441.split.i
 
@@ -6558,7 +6556,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   br label %dissect_epl_sdo_command_write_by_index.exit
 
 862:                                              ; preds = %796
-  %863 = icmp ugt i8 %27, 1
+  %863 = icmp samesign ugt i8 %27, 1
   %864 = zext i16 %29 to i32
   %865 = icmp ne i16 %29, 0
   %or.cond.i192 = and i1 %865, %863

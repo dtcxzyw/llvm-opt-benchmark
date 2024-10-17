@@ -5811,7 +5811,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef nonnu
 
 24:                                               ; preds = %20
   %25 = icmp eq i32 %2, 2
-  %26 = icmp ult i32 %2, 3
+  %26 = icmp samesign ult i32 %2, 3
   %27 = icmp eq i32 %2, 4
   %28 = or i1 %25, %27
   %29 = icmp eq i32 %4, 0
@@ -6291,7 +6291,7 @@ define internal fastcc ptr @igmpv3_newpack(ptr noundef %0, i32 noundef range(i32
 
 26:                                               ; preds = %21
   %27 = lshr i32 %22, 1
-  %28 = icmp ult i32 %22, 512
+  %28 = icmp samesign ult i32 %22, 512
   br i1 %28, label %.loopexit9, label %21, !llvm.loop !155
 
 29:                                               ; preds = %21

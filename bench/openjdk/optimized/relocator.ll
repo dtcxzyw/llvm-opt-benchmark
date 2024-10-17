@@ -269,7 +269,7 @@ define hidden void @_ZN9Relocator15insert_space_atEiiPhP10JavaThread(ptr dead_on
   %25 = add nsw i32 %21, 1
   %26 = icmp sgt i32 %21, -1
   %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
-  %28 = icmp ult i32 %27, 2
+  %28 = icmp samesign ult i32 %27, 2
   %or.cond.i.i.i.i.i = select i1 %26, i1 %28, i1 false
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
   %30 = sub nuw nsw i32 32, %29
@@ -746,7 +746,7 @@ define hidden void @_ZN9Relocator15push_jump_widenEiii(ptr nocapture noundef non
   %31 = add nsw i32 %26, 1
   %32 = icmp sgt i32 %26, -1
   %33 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %31)
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   %or.cond.i.i.i.i.i = select i1 %32, i1 %34, i1 false
   %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
   %36 = sub nuw nsw i32 32, %35
@@ -853,7 +853,7 @@ define hidden void @_ZN9Relocator11change_jumpEiibii(ptr nocapture noundef nonnu
   %50 = add nsw i32 %45, 1
   %51 = icmp sgt i32 %45, -1
   %52 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %50)
-  %53 = icmp ult i32 %52, 2
+  %53 = icmp samesign ult i32 %52, 2
   %or.cond.i.i.i.i.i.i = select i1 %51, i1 %53, i1 false
   %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
   %55 = sub nuw nsw i32 32, %54
@@ -1081,7 +1081,7 @@ _ZN9Relocator19get_orig_switch_padEib.exit.thread: ; preds = %52, %29, %_ZN9Relo
   %81 = add nsw i32 %76, 1
   %82 = icmp sgt i32 %76, -1
   %83 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %81)
-  %84 = icmp ult i32 %83, 2
+  %84 = icmp samesign ult i32 %83, 2
   %or.cond.i.i.i.i.i = select i1 %82, i1 %84, i1 false
   %85 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %81, i1 true)
   %86 = sub nuw nsw i32 32, %85

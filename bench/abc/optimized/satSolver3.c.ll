@@ -854,7 +854,7 @@ clause_read.exit:                                 ; preds = %94, %95
   %narrow = add nuw nsw i32 %123, 4
   %.add = zext nneg i32 %narrow to i64
   %.ptr163 = getelementptr inbounds i8, ptr %103, i64 %.add
-  %124 = icmp ugt i32 %123, 8
+  %124 = icmp samesign ugt i32 %123, 8
   br i1 %124, label %.lr.ph148.preheader, label %._crit_edge149
 
 .lr.ph148.preheader:                              ; preds = %121
@@ -2655,7 +2655,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 .critedge:                                        ; preds = %58, %.preheader187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.not = icmp ugt i64 %indvars.iv.next, %31
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %31
   br i1 %.not, label %._crit_edge, label %.preheader187, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge, %Abc_Clock.exit
@@ -4405,11 +4405,11 @@ order_update.exit57.i.i:                          ; preds = %217, %.lr.ph.i51.i.
   %254 = lshr i64 %spec.select39.i.i.i, 48
   %255 = lshr i64 %spec.select.i.i.i, 48
   %256 = add nuw nsw i64 %254, %255
-  %.not.i58.i.i = icmp ugt i64 %253, 281474976710655
+  %.not.i58.i.i = icmp samesign ugt i64 %253, 281474976710655
   %257 = zext i1 %.not.i58.i.i to i64
   %.034.i.i.i = lshr i64 %253, %257
   %.033.i59.i.i = add nuw nsw i64 %256, %257
-  %.not38.i.i.i = icmp ult i64 %.033.i59.i.i, 65536
+  %.not38.i.i.i = icmp samesign ult i64 %.033.i59.i.i, 65536
   %258 = shl nuw i64 %.033.i59.i.i, 48
   %259 = or i64 %258, %.034.i.i.i
   %.0.i.i.i = select i1 %.not38.i.i.i, i64 %259, i64 -1
@@ -4422,11 +4422,11 @@ order_update.exit57.i.i:                          ; preds = %217, %.lr.ph.i51.i.
   %264 = sub nsw i64 %262, %263
   %265 = lshr i64 %261, %264
   %266 = add nuw nsw i64 %265, %260
-  %.not.i61.i.i = icmp ugt i64 %266, 281474976710655
+  %.not.i61.i.i = icmp samesign ugt i64 %266, 281474976710655
   %267 = zext i1 %.not.i61.i.i to i64
   %.020.i.i.i = add nuw nsw i64 %262, %267
   %.0.i62.i.i = lshr i64 %266, %267
-  %.not27.i.i.i = icmp ult i64 %.020.i.i.i, 65536
+  %.not27.i.i.i = icmp samesign ult i64 %.020.i.i.i, 65536
   %268 = shl nuw i64 %.020.i.i.i, 48
   %269 = or i64 %268, %.0.i62.i.i
   %.023.i.i.i = select i1 %.not27.i.i.i, i64 %269, i64 -1
@@ -4691,11 +4691,11 @@ order_update.exit54.i.i:                          ; preds = %379, %.lr.ph.i48.i.
   %406 = lshr i64 %spec.select39.i.i126.i, 48
   %407 = lshr i64 %spec.select.i.i125.i, 48
   %408 = add nuw nsw i64 %406, %407
-  %.not.i55.i.i = icmp ugt i64 %405, 281474976710655
+  %.not.i55.i.i = icmp samesign ugt i64 %405, 281474976710655
   %409 = zext i1 %.not.i55.i.i to i64
   %.034.i.i127.i = lshr i64 %405, %409
   %.033.i56.i.i = add nuw nsw i64 %408, %409
-  %.not38.i.i128.i = icmp ult i64 %.033.i56.i.i, 65536
+  %.not38.i.i128.i = icmp samesign ult i64 %.033.i56.i.i, 65536
   %410 = shl nuw i64 %.033.i56.i.i, 48
   %411 = or i64 %410, %.034.i.i127.i
   %.0.i.i129.i = select i1 %.not38.i.i128.i, i64 %411, i64 -1
@@ -4708,11 +4708,11 @@ order_update.exit54.i.i:                          ; preds = %379, %.lr.ph.i48.i.
   %416 = sub nsw i64 %414, %415
   %417 = lshr i64 %413, %416
   %418 = add nuw nsw i64 %417, %412
-  %.not.i58.i131.i = icmp ugt i64 %418, 281474976710655
+  %.not.i58.i131.i = icmp samesign ugt i64 %418, 281474976710655
   %419 = zext i1 %.not.i58.i131.i to i64
   %.020.i.i132.i = add nuw nsw i64 %414, %419
   %.0.i59.i.i = lshr i64 %418, %419
-  %.not27.i.i133.i = icmp ult i64 %.020.i.i132.i, 65536
+  %.not27.i.i133.i = icmp samesign ult i64 %.020.i.i132.i, 65536
   %420 = shl nuw i64 %.020.i.i132.i, 48
   %421 = or i64 %420, %.0.i59.i.i
   %.023.i.i134.i = select i1 %.not27.i.i133.i, i64 %421, i64 -1
@@ -5168,7 +5168,7 @@ act_clause_bump.exit.i.i:                         ; preds = %act_clause_rescale.
   %642 = zext i1 %641 to i32
   %.val139164.i.i = load i32, ptr %571, align 4
   %643 = lshr i32 %.val139164.i.i, 11
-  %644 = icmp ugt i32 %643, %642
+  %644 = icmp samesign ugt i32 %643, %642
   br i1 %644, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %act_clause_bump.exit.i.i
@@ -5328,7 +5328,7 @@ veci_push.exit216.i:                              ; preds = %711, %696
   %.val139.i.i = load i32, ptr %571, align 4
   %726 = lshr i32 %.val139.i.i, 11
   %727 = zext nneg i32 %726 to i64
-  %728 = icmp ult i64 %indvars.iv.next.i.i, %727
+  %728 = icmp samesign ult i64 %indvars.iv.next.i.i, %727
   br i1 %728, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !48
 
 .loopexit.i.i:                                    ; preds = %725, %act_clause_bump.exit.i.i, %veci_push.exit222.i, %532, %491, %484
@@ -5855,7 +5855,7 @@ var_set_tag.exit69.i.i.i:                         ; preds = %veci_push.exit.i, %
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %1004 = lshr i32 %.val65.i.i.i, 11
   %1005 = zext nneg i32 %1004 to i64
-  %1006 = icmp ult i64 %indvars.iv.next.i.i.i, %1005
+  %1006 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %1005
   br i1 %1006, label %.lr.ph.i.i149.i, label %.loopexit.i.i.i, !llvm.loop !53
 
 .loopexit.i.i.i:                                  ; preds = %1003, %clause_read.exit.i.i.i, %var_set_tag.exit.i.i.i, %804, %799
@@ -6084,11 +6084,11 @@ sat_solver3_record.exit.i:                        ; preds = %1076, %sat_solver3_
   %1112 = lshr i64 %spec.select39.i.i154.i, 48
   %1113 = lshr i64 %spec.select.i.i153.i, 48
   %1114 = add nuw nsw i64 %1112, %1113
-  %.not.i.i155.i = icmp ugt i64 %1111, 281474976710655
+  %.not.i.i155.i = icmp samesign ugt i64 %1111, 281474976710655
   %1115 = zext i1 %.not.i.i155.i to i64
   %.034.i.i156.i = lshr i64 %1111, %1115
   %.033.i.i157.i = add nuw nsw i64 %1114, %1115
-  %.not38.i.i158.i = icmp ult i64 %.033.i.i157.i, 65536
+  %.not38.i.i158.i = icmp samesign ult i64 %.033.i.i157.i, 65536
   %1116 = shl nuw i64 %.033.i.i157.i, 48
   %1117 = or i64 %1116, %.034.i.i156.i
   %.0.i.i159.i = select i1 %.not38.i.i158.i, i64 %1117, i64 -1
@@ -6952,7 +6952,7 @@ clause_read.exit:                                 ; preds = %3, %4
 .preheader:                                       ; preds = %clause_read.exit
   %.val6475 = load i32, ptr %15, align 4
   %21 = lshr i32 %.val6475, 11
-  %22 = icmp ult i32 %2, %21
+  %22 = icmp samesign ult i32 %2, %21
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -7000,7 +7000,7 @@ var_set_tag.exit:                                 ; preds = %36, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = lshr i32 %.val64, 11
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %28, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %44
@@ -7159,7 +7159,7 @@ var_set_tag.exit74:                               ; preds = %118, %123
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %127 = lshr i32 %.val63, 11
   %128 = zext nneg i32 %127 to i64
-  %129 = icmp ult i64 %indvars.iv.next88, %128
+  %129 = icmp samesign ult i64 %indvars.iv.next88, %128
   br i1 %129, label %.lr.ph79, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %126, %clause_read.exit72, %72, %var_set_tag.exit67, %89, %85
@@ -8368,11 +8368,11 @@ order_update.exit48:                              ; preds = %.lr.ph.i42, %77, %6
   %96 = sub nsw i64 %94, %95
   %97 = lshr i64 %93, %96
   %98 = add nuw nsw i64 %97, %92
-  %.not.i49 = icmp ugt i64 %98, 281474976710655
+  %.not.i49 = icmp samesign ugt i64 %98, 281474976710655
   %99 = zext i1 %.not.i49 to i64
   %.020.i = add nuw nsw i64 %94, %99
   %.0.i = lshr i64 %98, %99
-  %.not27.i = icmp ult i64 %.020.i, 65536
+  %.not27.i = icmp samesign ult i64 %.020.i, 65536
   %100 = shl nuw i64 %.020.i, 48
   %101 = or i64 %100, %.0.i
   %.023.i = select i1 %.not27.i, i64 %101, i64 -1

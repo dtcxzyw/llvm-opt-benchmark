@@ -3005,7 +3005,7 @@ entry:
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
   %div61922 = lshr i64 %0, 2
-  %cmp23 = icmp ugt i64 %div61922, %conv421
+  %cmp23 = icmp samesign ugt i64 %div61922, %conv421
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3054,7 +3054,7 @@ aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div619 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div619, %conv4
+  %cmp = icmp samesign ugt i64 %div619, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %aesenc_SB_SR_AK.exit, %entry
@@ -3093,7 +3093,7 @@ entry:
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
   %div61720 = lshr i64 %0, 2
-  %cmp21 = icmp ugt i64 %div61720, %conv419
+  %cmp21 = icmp samesign ugt i64 %div61720, %conv419
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3141,7 +3141,7 @@ aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div617 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div617, %conv4
+  %cmp = icmp samesign ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %aesenc_SB_SR_AK.exit, %entry
@@ -3180,7 +3180,7 @@ entry:
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
   %div61922 = lshr i64 %0, 2
-  %cmp23 = icmp ugt i64 %div61922, %conv421
+  %cmp23 = icmp samesign ugt i64 %div61922, %conv421
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3229,7 +3229,7 @@ aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div619 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div619, %conv4
+  %cmp = icmp samesign ugt i64 %div619, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %aesdec_ISB_ISR_AK.exit, %entry
@@ -3268,7 +3268,7 @@ entry:
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
   %div61720 = lshr i64 %0, 2
-  %cmp21 = icmp ugt i64 %div61720, %conv419
+  %cmp21 = icmp samesign ugt i64 %div61720, %conv419
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3316,7 +3316,7 @@ aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div617 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div617, %conv4
+  %cmp = icmp samesign ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %aesdec_ISB_ISR_AK.exit, %entry
@@ -3355,7 +3355,7 @@ entry:
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
   %div61922 = lshr i64 %0, 2
-  %cmp23 = icmp ugt i64 %div61922, %conv421
+  %cmp23 = icmp samesign ugt i64 %div61922, %conv421
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3404,7 +3404,7 @@ aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div619 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div619, %conv4
+  %cmp = icmp samesign ugt i64 %div619, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.exit, %entry
@@ -3443,7 +3443,7 @@ entry:
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
   %div61720 = lshr i64 %0, 2
-  %cmp21 = icmp ugt i64 %div61720, %conv419
+  %cmp21 = icmp samesign ugt i64 %div61720, %conv419
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3491,7 +3491,7 @@ aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div617 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div617, %conv4
+  %cmp = icmp samesign ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.exit, %entry
@@ -3530,7 +3530,7 @@ entry:
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
   %div61922 = lshr i64 %0, 2
-  %cmp23 = icmp ugt i64 %div61922, %conv421
+  %cmp23 = icmp samesign ugt i64 %div61922, %conv421
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3579,7 +3579,7 @@ aesdec_ISB_ISR_AK_IMC.exit:                       ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div619 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div619, %conv4
+  %cmp = icmp samesign ugt i64 %div619, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38
 
 for.end:                                          ; preds = %aesdec_ISB_ISR_AK_IMC.exit, %entry
@@ -3618,7 +3618,7 @@ entry:
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
   %div61720 = lshr i64 %0, 2
-  %cmp21 = icmp ugt i64 %div61720, %conv419
+  %cmp21 = icmp samesign ugt i64 %div61720, %conv419
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3666,7 +3666,7 @@ aesdec_ISB_ISR_AK_IMC.exit:                       ; preds = %if.then.i, %if.then
   %conv4 = zext i32 %inc to i64
   %10 = load i64, ptr %vl1, align 16
   %div617 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div617, %conv4
+  %cmp = icmp samesign ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %aesdec_ISB_ISR_AK_IMC.exit, %entry
@@ -3703,7 +3703,7 @@ entry:
   %div16 = lshr i64 %2, 2
   %conv425 = and i64 %div16, 4294967295
   %div61726 = lshr i64 %0, 2
-  %cmp27 = icmp ugt i64 %div61726, %conv425
+  %cmp27 = icmp samesign ugt i64 %div61726, %conv425
   br i1 %cmp27, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3736,7 +3736,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv4 = zext i32 %inc to i64
   %7 = load i64, ptr %vl1, align 16
   %div617 = lshr i64 %7, 2
-  %cmp = icmp ugt i64 %div617, %conv4
+  %cmp = icmp samesign ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body, %entry
@@ -3773,7 +3773,7 @@ entry:
   %div33 = lshr i64 %2, 2
   %conv736 = and i64 %div33, 4294967295
   %div93437 = lshr i64 %0, 2
-  %cmp1038 = icmp ugt i64 %div93437, %conv736
+  %cmp1038 = icmp samesign ugt i64 %div93437, %conv736
   br i1 %cmp1038, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3853,7 +3853,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv7 = zext i32 %inc to i64
   %13 = load i64, ptr %vl1, align 16
   %div934 = lshr i64 %13, 2
-  %cmp10 = icmp ugt i64 %div934, %conv7
+  %cmp10 = icmp samesign ugt i64 %div934, %conv7
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !41
 
 for.end:                                          ; preds = %for.body, %entry
@@ -3904,7 +3904,7 @@ if.end:                                           ; preds = %entry, %if.then
   %conv6 = trunc i64 %div46 to i32
   %conv750 = and i64 %div46, 4294967295
   %div94751 = lshr i64 %0, 2
-  %cmp1052 = icmp ugt i64 %div94751, %conv750
+  %cmp1052 = icmp samesign ugt i64 %div94751, %conv750
   br i1 %cmp1052, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -3982,7 +3982,7 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
   %conv7.us = zext i32 %inc.us to i64
   %14 = load i64, ptr %vl1, align 16
   %div947.us = lshr i64 %14, 2
-  %cmp10.us = icmp ugt i64 %div947.us, %conv7.us
+  %cmp10.us = icmp samesign ugt i64 %div947.us, %conv7.us
   br i1 %cmp10.us, label %for.body.us, label %for.end, !llvm.loop !42
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4045,7 +4045,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv7 = zext i32 %inc to i64
   %24 = load i64, ptr %vl1, align 16
   %div947 = lshr i64 %24, 2
-  %cmp10 = icmp ugt i64 %div947, %conv7
+  %cmp10 = icmp samesign ugt i64 %div947, %conv7
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body, %for.body.us, %if.end
@@ -4084,7 +4084,7 @@ entry:
   %conv485 = and i64 %div21, 4294967295
   %3 = load i64, ptr %vl, align 16
   %div52286 = lshr i64 %3, 2
-  %cmp687 = icmp ugt i64 %div52286, %conv485
+  %cmp687 = icmp samesign ugt i64 %div52286, %conv485
   br i1 %cmp687, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -4177,7 +4177,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %conv4.us = zext i32 %inc.us to i64
   %15 = load i64, ptr %vl, align 16
   %div522.us = lshr i64 %15, 2
-  %cmp6.us = icmp ugt i64 %div522.us, %conv4.us
+  %cmp6.us = icmp samesign ugt i64 %div522.us, %conv4.us
   br i1 %cmp6.us, label %for.body.us, label %for.end, !llvm.loop !43
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4266,7 +4266,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv4 = zext i32 %inc to i64
   %27 = load i64, ptr %vl, align 16
   %div522 = lshr i64 %27, 2
-  %cmp6 = icmp ugt i64 %div522, %conv4
+  %cmp6 = icmp samesign ugt i64 %div522, %conv4
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
@@ -4305,7 +4305,7 @@ entry:
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
-  %cmp18 = icmp ugt i64 %div21217, %conv116
+  %cmp18 = icmp samesign ugt i64 %div21217, %conv116
   br i1 %cmp18, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
@@ -4393,7 +4393,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv1 = zext i32 %inc to i64
   %11 = load i64, ptr %vl, align 16
   %div212 = lshr i64 %11, 2
-  %cmp = icmp ugt i64 %div212, %conv1
+  %cmp = icmp samesign ugt i64 %div212, %conv1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4431,7 +4431,7 @@ entry:
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
-  %cmp18 = icmp ugt i64 %div21217, %conv116
+  %cmp18 = icmp samesign ugt i64 %div21217, %conv116
   br i1 %cmp18, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
@@ -4519,7 +4519,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv1 = zext i32 %inc to i64
   %11 = load i64, ptr %vl, align 16
   %div212 = lshr i64 %11, 2
-  %cmp = icmp ugt i64 %div212, %conv1
+  %cmp = icmp samesign ugt i64 %div212, %conv1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4557,7 +4557,7 @@ entry:
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
-  %cmp18 = icmp ugt i64 %div21217, %conv116
+  %cmp18 = icmp samesign ugt i64 %div21217, %conv116
   br i1 %cmp18, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
@@ -4644,7 +4644,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv1 = zext i32 %inc to i64
   %11 = load i64, ptr %vl, align 16
   %div212 = lshr i64 %11, 2
-  %cmp = icmp ugt i64 %div212, %conv1
+  %cmp = icmp samesign ugt i64 %div212, %conv1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !46
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4682,7 +4682,7 @@ entry:
   %conv118 = and i64 %div13, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21419 = lshr i64 %1, 2
-  %cmp20 = icmp ugt i64 %div21419, %conv118
+  %cmp20 = icmp samesign ugt i64 %div21419, %conv118
   br i1 %cmp20, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
@@ -4769,7 +4769,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv1 = zext i32 %inc to i64
   %11 = load i64, ptr %vl, align 16
   %div214 = lshr i64 %11, 2
-  %cmp = icmp ugt i64 %div214, %conv1
+  %cmp = icmp samesign ugt i64 %div214, %conv1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !47
 
 for.end:                                          ; preds = %for.body, %entry
@@ -5166,7 +5166,7 @@ entry:
   %conv2117 = and i64 %div32, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div333118 = lshr i64 %2, 2
-  %cmp119 = icmp ugt i64 %div333118, %conv2117
+  %cmp119 = icmp samesign ugt i64 %div333118, %conv2117
   br i1 %cmp119, label %for.body.lr.ph, label %for.end83
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -5323,7 +5323,7 @@ for.end:                                          ; preds = %for.body43
   %conv2 = zext i32 %inc82 to i64
   %12 = load i64, ptr %vl, align 16
   %div333 = lshr i64 %12, 2
-  %cmp = icmp ugt i64 %div333, %conv2
+  %cmp = icmp samesign ugt i64 %div333, %conv2
   br i1 %cmp, label %for.body, label %for.end83, !llvm.loop !56
 
 for.end83:                                        ; preds = %for.end, %entry
@@ -5365,7 +5365,7 @@ entry:
   %conv2114 = and i64 %div29, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div330115 = lshr i64 %2, 2
-  %cmp116 = icmp ugt i64 %div330115, %conv2114
+  %cmp116 = icmp samesign ugt i64 %div330115, %conv2114
   br i1 %cmp116, label %for.body.lr.ph, label %for.end65
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -5516,7 +5516,7 @@ for.end:                                          ; preds = %for.body26
   %conv2 = zext i32 %inc64 to i64
   %10 = load i64, ptr %vl, align 16
   %div330 = lshr i64 %10, 2
-  %cmp = icmp ugt i64 %div330, %conv2
+  %cmp = icmp samesign ugt i64 %div330, %conv2
   br i1 %cmp, label %for.body, label %for.end65, !llvm.loop !58
 
 for.end65:                                        ; preds = %for.end, %entry

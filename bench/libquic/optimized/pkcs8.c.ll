@@ -1107,7 +1107,7 @@ entry:
   %in = alloca %struct.cbs_st, align 8
   %content_info = alloca %struct.cbs_st, align 8
   store ptr null, ptr %der_bytes, align 8
-  %cmp = icmp ugt i32 %depth, 3
+  %cmp = icmp samesign ugt i32 %depth, 3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

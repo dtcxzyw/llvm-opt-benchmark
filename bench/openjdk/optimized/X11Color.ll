@@ -731,7 +731,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.not409 = icmp eq i32 %199, 0
   %200 = select i1 %.not409, i32 0, i32 %.9
   %spec.select410 = add nuw nsw i32 %200, %.0380463
-  %.not398 = icmp ult i32 %.9.in464, 4
+  %.not398 = icmp samesign ult i32 %.9.in464, 4
   br i1 %.not398, label %.preheader427, label %.preheader428, !llvm.loop !19
 
 .lr.ph466:                                        ; preds = %.lr.ph466.preheader, %.lr.ph466
@@ -809,12 +809,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0363472 = phi i32 [ %.12475, %.lr.ph473 ], [ %243, %241 ]
   %242 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef %.0363472, i32 noundef %.0363472, i32 noundef %.0363472, i32 noundef -1, ptr noundef nonnull %0)
   %243 = add nuw nsw i32 %.0363472, %240
-  %244 = icmp ult i32 %243, 256
+  %244 = icmp samesign ult i32 %243, 256
   br i1 %244, label %241, label %._crit_edge474, !llvm.loop !22
 
 ._crit_edge474:                                   ; preds = %241
   %245 = lshr i32 %.12475, 1
-  %.not400 = icmp ult i32 %.12475, 2
+  %.not400 = icmp samesign ult i32 %.12475, 2
   br i1 %.not400, label %.loopexit426, label %.lr.ph473, !llvm.loop !23
 
 .loopexit426:                                     ; preds = %._crit_edge474, %238
@@ -1162,7 +1162,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 403:                                              ; preds = %400
   %404 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %401)
-  %405 = icmp ugt i32 %404, 1
+  %405 = icmp samesign ugt i32 %404, 1
   %406 = icmp sgt i32 %401, 32
   %or.cond13 = or i1 %406, %405
   br i1 %or.cond13, label %.thread417, label %407

@@ -12976,7 +12976,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   %27 = add nuw nsw i64 %17, 1
   %28 = load i32, ptr %6, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %27, %29
+  %30 = icmp samesign ult i64 %27, %29
   br i1 %30, label %16, label %.loopexit, !llvm.loop !178
 
 31:                                               ; preds = %40, %13
@@ -17034,7 +17034,7 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr nocapture readnone %0, ptr noca
   %25 = add i64 %6, 4095
   %26 = icmp eq i64 %6, 0
   %27 = and i64 %25, 17592186040320
-  %28 = icmp ugt i64 %27, 65536
+  %28 = icmp samesign ugt i64 %27, 65536
   %29 = getelementptr i8, ptr %11, i64 -8
   %30 = getelementptr inbounds i8, ptr %12, i64 8
   %31 = getelementptr inbounds i8, ptr %9, i64 8

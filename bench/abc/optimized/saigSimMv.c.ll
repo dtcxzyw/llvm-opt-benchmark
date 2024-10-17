@@ -864,7 +864,7 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %38, label %Saig_MvAnd.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = icmp ugt i32 %.0.i, 1
+  %40 = icmp samesign ugt i32 %.0.i, 1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %39
@@ -873,7 +873,7 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   br label %Saig_MvAnd.exit
 
 42:                                               ; preds = %39
-  %43 = icmp ugt i32 %.0.i39, 1
+  %43 = icmp samesign ugt i32 %.0.i39, 1
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
@@ -1725,7 +1725,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %28
 
 28:                                               ; preds = %.lr.ph, %26
-  %29 = icmp ult i64 %indvars.iv.next, %21
+  %29 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %28

@@ -619,8 +619,8 @@ end:                                              ; preds = %if.then45, %if.end3
   %cmp67 = icmp ne i32 %s.3, -1
   %tobool69 = icmp eq ptr %source_addr, null
   %or.cond.not44 = or i1 %tobool69, %cmp67
-  %tobool72.not = icmp ult i32 %flags, 2
-  %or.cond33 = or i1 %tobool72.not, %or.cond.not44
+  %tobool72.not = icmp samesign ult i32 %flags, 2
+  %or.cond33 = select i1 %or.cond.not44, i1 true, i1 %tobool72.not
   br i1 %or.cond33, label %return, label %if.then73
 
 if.then73:                                        ; preds = %end

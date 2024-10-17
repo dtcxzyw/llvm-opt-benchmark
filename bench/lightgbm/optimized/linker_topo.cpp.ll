@@ -856,7 +856,7 @@ define void @_ZN8LightGBM19RecursiveHalvingMap9ConstructEii(ptr dead_on_unwind n
 
 7:                                                ; preds = %4
   %8 = add nsw i32 %.0124, -1
-  %9 = icmp ugt i32 %.0124, 1
+  %9 = icmp samesign ugt i32 %.0124, 1
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7

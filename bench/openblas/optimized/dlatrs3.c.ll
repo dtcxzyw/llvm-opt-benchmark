@@ -247,7 +247,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 .loopexit26:                                      ; preds = %.split, %.split.us, %154
   %152 = phi double [ %156, %154 ], [ %194, %.split.us ], [ %212, %.split ]
-  %153 = icmp ult i64 %155, %151
+  %153 = icmp samesign ult i64 %155, %151
   br i1 %153, label %154, label %215, !llvm.loop !13
 
 154:                                              ; preds = %.loopexit26, %144
@@ -355,7 +355,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %229 = getelementptr inbounds double, ptr %38, i64 %226
   call void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %228, ptr noundef nonnull %229, ptr noundef %11, ptr noundef nonnull %14) #6
   %230 = add nuw nsw i64 %226, 1
-  %231 = icmp ult i64 %226, %224
+  %231 = icmp samesign ult i64 %226, %224
   br i1 %231, label %225, label %.loopexit, !llvm.loop !15
 
 232:                                              ; preds = %215
@@ -376,8 +376,8 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %245 = xor i1 %64, %69
   %246 = select i1 %245, i32 1, i32 -1
   %247 = select i1 %69, i32 %235, i32 %236
-  %248 = icmp uge i32 %247, %244
-  %249 = icmp ule i32 %247, %244
+  %248 = icmp samesign uge i32 %247, %244
+  %249 = icmp samesign ule i32 %247, %244
   %250 = select i1 %245, i1 %249, i1 %248
   %251 = zext nneg i32 %57 to i64
   %.str.5.sink = select i1 %69, ptr @.str.5, ptr @.str.1
@@ -863,7 +863,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 .loopexit22:                                      ; preds = %.loopexit19, %.critedge
   %548 = add nuw nsw i64 %253, 1
-  %549 = icmp ult i64 %253, %251
+  %549 = icmp samesign ult i64 %253, %251
   %indvars.iv.next = add i32 %indvars.iv, 32
   %indvars.iv.next37 = add i32 %indvars.iv36, -32
   br i1 %549, label %252, label %.loopexit, !llvm.loop !28

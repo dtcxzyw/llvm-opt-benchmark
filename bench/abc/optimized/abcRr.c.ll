@@ -1216,7 +1216,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i, label %.critedge.i, label %95, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %95
-  %.not.i81 = icmp ugt i32 %spec.select.i, %19
+  %.not.i81 = icmp samesign ugt i32 %spec.select.i, %19
   br i1 %.not.i81, label %.preheader88.i, label %Abc_NtkRRTfi_int.exit.thread
 
 .critedge2.preheader.i:                           ; preds = %.critedge4.i
@@ -2811,7 +2811,7 @@ Vec_StrStart.exit:                                ; preds = %1, %6
 
 41:                                               ; preds = %20, %17, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i64 %indvars.iv.next, %13
+  %42 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %41, %Vec_StrStart.exit

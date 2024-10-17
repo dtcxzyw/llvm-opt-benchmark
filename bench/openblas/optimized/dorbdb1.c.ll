@@ -262,7 +262,7 @@ define void @dorbdb1_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 188:                                              ; preds = %._crit_edge, %138
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %181, %138 ]
-  %189 = icmp ult i64 %84, %82
+  %189 = icmp samesign ult i64 %84, %82
   br i1 %189, label %83, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %188, %76, %.thread8

@@ -1080,8 +1080,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i50.i: ; preds = %404
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %405) #21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !20
-  %406 = icmp ult i64 %indvars.iv148.i, 10
-  %407 = icmp ult i64 %indvars.iv148.i, 100
+  %406 = icmp samesign ult i64 %indvars.iv148.i, 10
+  %407 = icmp samesign ult i64 %indvars.iv148.i, 100
   %408 = select i1 %407, i64 2, i64 3
   %409 = select i1 %406, i64 1, i64 %408
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21, !noalias !27
@@ -1108,7 +1108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i57.i:
           to label %414 unwind label %448
 
 414:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i57.i
-  %415 = icmp ugt i64 %indvars.iv148.i, 99
+  %415 = icmp samesign ugt i64 %indvars.iv148.i, 99
   %416 = trunc nuw nsw i64 %indvars.iv148.i to i32
   br i1 %415, label %.lr.ph.i12.i62.i, label %._crit_edge.i.i58.i
 
@@ -1133,12 +1133,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i57.i:
   %431 = getelementptr inbounds i8, ptr %413, i64 %430
   store i8 %428, ptr %431, align 1
   %432 = add i32 %.01819.i.i64.i, -2
-  %433 = icmp ugt i32 %.020.i.i63.i, 9999
+  %433 = icmp samesign ugt i32 %.020.i.i63.i, 9999
   br i1 %433, label %.lr.ph.i12.i62.i, label %._crit_edge.i.i58.i, !llvm.loop !31
 
 ._crit_edge.i.i58.i:                              ; preds = %.lr.ph.i12.i62.i, %414
   %.0.lcssa.i.i59.i = phi i32 [ %416, %414 ], [ %419, %.lr.ph.i12.i62.i ]
-  %434 = icmp ugt i32 %.0.lcssa.i.i59.i, 9
+  %434 = icmp samesign ugt i32 %.0.lcssa.i.i59.i, 9
   br i1 %434, label %435, label %445
 
 435:                                              ; preds = %._crit_edge.i.i58.i
@@ -2801,7 +2801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

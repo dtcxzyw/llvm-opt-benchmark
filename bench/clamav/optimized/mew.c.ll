@@ -1401,7 +1401,7 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   %724 = phi i32 [ %720, %714 ], [ %.sink1295, %708 ]
   %725 = phi ptr [ %719, %714 ], [ %684, %708 ]
   %726 = or disjoint i32 %.0.i622.us.us, %683
-  %727 = icmp ult i32 %683, 256
+  %727 = icmp samesign ult i32 %683, 256
   br i1 %727, label %675, label %.thread.loopexit.us.us
 
 .thread.us.us:                                    ; preds = %.thread.loopexit.us.us, %667

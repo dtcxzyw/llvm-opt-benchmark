@@ -184,7 +184,7 @@ define dso_local void @drm_gem_fb_destroy(ptr noundef %0) #0 align 16 {
   %23 = getelementptr inbounds i8, ptr %22, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = icmp ult i64 %21, %25
+  %26 = icmp samesign ult i64 %21, %25
   br i1 %26, label %9, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %1
@@ -391,7 +391,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %114 = add nuw nsw i64 %63, 1
   %115 = load i8, ptr %49, align 1
   %116 = zext i8 %115 to i64
-  %117 = icmp ult i64 %114, %116
+  %117 = icmp samesign ult i64 %114, %116
   br i1 %117, label %62, label %118, !llvm.loop !22
 
 118:                                              ; preds = %113
@@ -584,7 +584,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
   %20 = getelementptr inbounds i8, ptr %19, i64 5
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
-  %23 = icmp ult i64 %18, %22
+  %23 = icmp samesign ult i64 %18, %22
   br i1 %23, label %.preheader, label %.loopexit8, !llvm.loop !24
 
 .loopexit8:                                       ; preds = %17
@@ -620,7 +620,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
   %42 = getelementptr inbounds i8, ptr %41, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
-  %45 = icmp ult i64 %40, %44
+  %45 = icmp samesign ult i64 %40, %44
   br i1 %45, label %28, label %.loopexit, !llvm.loop !25
 
 46:                                               ; preds = %13, %.preheader
@@ -735,7 +735,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
   %22 = getelementptr inbounds i8, ptr %21, i64 5
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
-  %25 = icmp ult i32 %20, %24
+  %25 = icmp samesign ult i32 %20, %24
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !28
 
 26:                                               ; preds = %15, %.preheader

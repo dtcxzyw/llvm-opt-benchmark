@@ -853,7 +853,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   %n.addr.05.i.i = phi i64 [ %shr.i.i, %while.body.i.i ], [ %add.i, %if.then ]
   %shr.i.i = lshr i64 %n.addr.05.i.i, 1
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
-  %cmp.i.i = icmp ugt i64 %n.addr.05.i.i, 3
+  %cmp.i.i = icmp samesign ugt i64 %n.addr.05.i.i, 3
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !8
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i

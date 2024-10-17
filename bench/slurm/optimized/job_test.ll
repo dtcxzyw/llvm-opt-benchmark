@@ -4196,7 +4196,7 @@ _build_gres_mc_data.exit:                         ; preds = %472, %476, %479
   %1339 = add nuw nsw i32 %.4937, 1
   %1340 = load i16, ptr %.phi.trans.insert1025, align 2
   %1341 = zext i16 %1340 to i32
-  %1342 = icmp ult i32 %1339, %1341
+  %1342 = icmp samesign ult i32 %1339, %1341
   br i1 %1342, label %.lr.ph941, label %._crit_edge942.loopexit, !llvm.loop !35
 
 ._crit_edge942.loopexit:                          ; preds = %.lr.ph941
@@ -4212,7 +4212,7 @@ _build_gres_mc_data.exit:                         ; preds = %472, %476, %479
   %.1.lcssa = phi i32 [ %.0509947, %.preheader ], [ %.2, %._crit_edge942.loopexit ]
   %1347 = add nuw nsw i32 %.0512946, 1
   %1348 = zext i16 %1345 to i32
-  %1349 = icmp ult i32 %1347, %1348
+  %1349 = icmp samesign ult i32 %1347, %1348
   br i1 %1349, label %.preheader, label %._crit_edge948, !llvm.loop !36
 
 ._crit_edge948:                                   ; preds = %._crit_edge942, %.preheader838
@@ -5481,7 +5481,7 @@ _free_avail_res.exit209.i.i:                      ; preds = %278, %275
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %446 = load i16, ptr %416, align 4
   %447 = zext i16 %446 to i64
-  %448 = icmp ult i64 %indvars.iv.next.i.i.i, %447
+  %448 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %447
   br i1 %448, label %419, label %_avail_res_log.exit.i.i, !llvm.loop !41
 
 _avail_res_log.exit.i.i:                          ; preds = %445, %415, %373
@@ -5952,7 +5952,7 @@ define internal fastcc ptr @_allocate_sc(ptr nocapture noundef readonly %0, ptr 
   %69 = zext i16 %22 to i32
   %70 = zext i16 %20 to i32
   %71 = mul nuw nsw i32 %69, %70
-  %72 = icmp ult i32 %71, %68
+  %72 = icmp samesign ult i32 %71, %68
   %or.cond450 = select i1 %.not404, i1 %72, i1 false
   br i1 %or.cond450, label %.thread, label %73
 
@@ -6514,7 +6514,7 @@ _count_used_cpus.exit.us:                         ; preds = %302, %298
   %.8517.us = add i16 %.4505.pn.us, %.2511563.us
   %306 = load ptr, ptr %8, align 8
   call void @bit_set(ptr noundef %306, i64 noundef %296) #9
-  %307 = icmp ult i16 %.1332, %storemerge.i.us
+  %307 = icmp samesign ult i16 %.1332, %storemerge.i.us
   br i1 %307, label %.critedge.sink.split, label %308
 
 308:                                              ; preds = %_count_used_cpus.exit.us, %_check_ntasks_per_sock.exit.thread.us, %295
@@ -6583,7 +6583,7 @@ _count_used_cpus.exit:                            ; preds = %320, %323
   %.8517 = add i16 %.4505.pn, %.2511563
   %327 = load ptr, ptr %8, align 8
   call void @bit_set(ptr noundef %327, i64 noundef %312) #9
-  %328 = icmp ult i16 %.1332, %321
+  %328 = icmp samesign ult i16 %.1332, %321
   br i1 %328, label %.critedge.sink.split, label %329
 
 329:                                              ; preds = %_check_ntasks_per_sock.exit.thread, %_count_used_cpus.exit, %311
@@ -6608,7 +6608,7 @@ _count_used_cpus.exit:                            ; preds = %320, %323
   %.6507 = phi i16 [ %.3504593, %287 ], [ %.3504593, %.preheader528 ], [ %.6507.ph, %.critedge.sink.split ]
   %.3498 = phi i32 [ %.0594, %287 ], [ %.0594, %.preheader528 ], [ %.3498.ph, %.critedge.sink.split ]
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
-  %331 = icmp ult i64 %indvars.iv.next689, %23
+  %331 = icmp samesign ult i64 %indvars.iv.next689, %23
   %332 = icmp ne i16 %.6507, 0
   %333 = select i1 %331, i1 %332, i1 false
   br i1 %333, label %287, label %.preheader, !llvm.loop !52
@@ -6738,7 +6738,7 @@ _count_used_cpus.exit476:                         ; preds = %356, %361, %_check_
   %382 = getelementptr inbounds i8, ptr %16, i64 104
   %383 = load i16, ptr %382, align 8
   %384 = zext i16 %383 to i32
-  %.not441 = icmp ugt i32 %381, %384
+  %.not441 = icmp samesign ugt i32 %381, %384
   br i1 %.not441, label %385, label %386
 
 385:                                              ; preds = %377

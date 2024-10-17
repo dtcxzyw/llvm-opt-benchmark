@@ -404,7 +404,7 @@ define hidden void @_ZN8rawspeed10PefDecoder17decodeRawInternalEv(ptr dead_on_un
   %82 = getelementptr inbounds i8, ptr %1, i64 40
   %83 = load i32, ptr %82, align 8, !tbaa !96
   %84 = zext i32 %83 to i64
-  %85 = icmp ugt i64 %81, %84
+  %85 = icmp samesign ugt i64 %81, %84
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %76
@@ -417,7 +417,7 @@ define hidden void @_ZN8rawspeed10PefDecoder17decodeRawInternalEv(ptr dead_on_un
   %90 = icmp sgt i32 %83, -1
   tail call void @llvm.assume(i1 %90)
   %91 = add nuw nsw i32 %78, %77
-  %92 = icmp ule i32 %91, %83
+  %92 = icmp samesign ule i32 %91, %83
   tail call void @llvm.assume(i1 %92)
   %93 = icmp sgt i32 %77, -1
   tail call void @llvm.assume(i1 %93)
@@ -993,7 +993,7 @@ define hidden void @_ZN8rawspeed10PefDecoder22decodeMetaDataInternalEPKNS_14Came
   call void @llvm.assume(i1 %90)
   %91 = icmp sgt i32 %89, -1
   call void @llvm.assume(i1 %91)
-  %92 = icmp uge i32 %89, %83
+  %92 = icmp samesign uge i32 %89, %83
   call void @llvm.assume(i1 %92)
   %93 = icmp eq i32 %83, 0
   %94 = icmp ne i32 %86, 0
@@ -1012,17 +1012,17 @@ define hidden void @_ZN8rawspeed10PefDecoder22decodeMetaDataInternalEPKNS_14Came
   call void @llvm.assume(i1 %103)
   store i32 %102, ptr %78, align 4, !tbaa !16
   %104 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %54, i32 noundef 1)
-  %105 = icmp ugt i32 %101, 1
+  %105 = icmp samesign ugt i32 %101, 1
   call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds i8, ptr %78, i64 4
   store i32 %104, ptr %106, align 4, !tbaa !16
   %107 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %54, i32 noundef 2)
-  %108 = icmp ugt i32 %101, 2
+  %108 = icmp samesign ugt i32 %101, 2
   call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds i8, ptr %78, i64 8
   store i32 %107, ptr %109, align 4, !tbaa !16
   %110 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %54, i32 noundef 3)
-  %111 = icmp ugt i32 %101, 3
+  %111 = icmp samesign ugt i32 %101, 3
   call void @llvm.assume(i1 %111)
   %112 = getelementptr inbounds i8, ptr %78, i64 12
   store i32 %110, ptr %112, align 4, !tbaa !16

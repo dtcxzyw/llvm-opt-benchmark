@@ -20794,7 +20794,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -31288,7 +31288,7 @@ _ZN12_GLOBAL__N_120AAMemoryLocationImpl21getAccessKindFromInstEPKN4llvm11Instruc
 
 14:                                               ; preds = %_ZN12_GLOBAL__N_120AAMemoryLocationImpl21getAccessKindFromInstEPKN4llvm11InstructionE.exit.us, %.split.us
   %15 = shl nuw nsw i32 %.07.us, 1
-  %16 = icmp ult i32 %.07.us, 128
+  %16 = icmp samesign ult i32 %.07.us, 128
   br i1 %16, label %.split.us, label %.split9.us, !llvm.loop !230
 
 .split:                                           ; preds = %1, %27
@@ -31312,7 +31312,7 @@ _ZN12_GLOBAL__N_120AAMemoryLocationImpl21getAccessKindFromInstEPKN4llvm11Instruc
 
 27:                                               ; preds = %.split, %_ZN12_GLOBAL__N_120AAMemoryLocationImpl21getAccessKindFromInstEPKN4llvm11InstructionE.exit
   %28 = shl nuw nsw i32 %.07, 1
-  %29 = icmp ult i32 %.07, 128
+  %29 = icmp samesign ult i32 %.07, 128
   br i1 %29, label %.split, label %.split9.us, !llvm.loop !230
 
 .split9.us:                                       ; preds = %27, %14
@@ -32578,7 +32578,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i: ; preds = %2,
 
 50:                                               ; preds = %44, %42
   %51 = shl nuw nsw i32 %.04461.i.i, 1
-  %52 = icmp ult i32 %.04461.i.i, 128
+  %52 = icmp samesign ult i32 %.04461.i.i, 128
   br i1 %52, label %42, label %53, !llvm.loop !250
 
 53:                                               ; preds = %50
@@ -37328,7 +37328,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -45740,7 +45740,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %36, %39
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %18, ptr %.sroa.3.0..sroa_idx, align 8
   %46 = ptrtoint ptr %45 to i64
-  %.not123 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not123 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not123, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit
@@ -55812,7 +55812,7 @@ _ZN12_GLOBAL__N_125AANoAliasCallSiteArgument20mayAliasWithArgumentERN4llvm10Attr
   %245 = sub i64 %243, %244
   %246 = lshr exact i64 %245, 5
   %247 = and i64 %246, 4294967295
-  %248 = icmp ult i64 %indvars.iv.next.i, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next.i, %247
   br i1 %248, label %136, label %_ZN12_GLOBAL__N_125AANoAliasCallSiteArgument38isKnownNoAliasDueToNoAliasPreservationERN4llvm10AttributorERPNS1_9AAResultsERKNS1_16AAMemoryBehaviorE.exit, !llvm.loop !552
 
 _ZN12_GLOBAL__N_125AANoAliasCallSiteArgument38isKnownNoAliasDueToNoAliasPreservationERN4llvm10AttributorERPNS1_9AAResultsERKNS1_16AAMemoryBehaviorE.exit.thread: ; preds = %_ZN12_GLOBAL__N_125AANoAliasCallSiteArgument20mayAliasWithArgumentERN4llvm10AttributorERPNS1_9AAResultsERKNS1_16AAMemoryBehaviorERKNS1_8CallBaseEj.exit.i, %229, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.i.i, %_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE24ENS_11AANoCaptureEEEbRNS_10AttributorEPKNS_17AbstractAttributeERKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit.thread34.i
@@ -65371,7 +65371,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -86022,7 +86022,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %42, %40
   %43 = add nuw nsw i64 %.01316.i, 1
   %44 = load i32, ptr %3, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %43, %45
+  %46 = icmp samesign ult i64 %43, %45
   br i1 %46, label %.lr.ph.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_5APIntENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E8copyFromIS9_EEvRKNS0_IT_S2_S4_S6_S8_EE.exit, !llvm.loop !835
 
 47:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_5APIntENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E10destroyAllEv.exit
@@ -95990,7 +95990,7 @@ define linkonce_odr hidden void @_ZN4llvm9SetVectorISt4pairINS_2AA15ValueAndCont
   %21 = add nuw nsw i64 %.017.i.i.i.i.i, 1
   %22 = load i32, ptr %3, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %.critedge.i.i.i.i.i, label %_ZN4llvm8DenseSetISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEENS_12DenseMapInfoIS5_vEEEC2ERKS8_.exit, !llvm.loop !974
 
 25:                                               ; preds = %2
@@ -100990,7 +100990,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(257) ptr @_ZN
   %31 = add nuw nsw i64 %.017.i.i.i.i.i.i.i, 1
   %32 = load i32, ptr %10, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.critedge.i.i.i.i.i.i.i, label %_ZN4llvm14SmallSetVectorISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEELj8EEaSERKS6_.exit, !llvm.loop !974
 
 35:                                               ; preds = %8
@@ -154039,7 +154039,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i: ; preds = %.lr.
   %197 = sub i64 %195, %196
   %198 = lshr exact i64 %197, 5
   %199 = and i64 %198, 4294967295
-  %200 = icmp ult i64 %indvars.iv.next, %199
+  %200 = icmp samesign ult i64 %indvars.iv.next, %199
   br i1 %200, label %104, label %_ZZN12_GLOBAL__N_123AAUndefinedBehaviorImpl10updateImplERN4llvm10AttributorEENKUlRNS1_11InstructionEE1_clES5_.exit, !llvm.loop !1607
 
 _ZZN12_GLOBAL__N_123AAUndefinedBehaviorImpl10updateImplERN4llvm10AttributorEENKUlRNS1_11InstructionEE1_clES5_.exit: ; preds = %104, %153, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit43.i, %77, %80, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.preheader.i

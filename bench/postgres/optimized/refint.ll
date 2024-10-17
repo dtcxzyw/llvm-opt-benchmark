@@ -871,7 +871,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %208 = sub i64 8192, %206
   %209 = getelementptr ptr, ptr %.0184253, i64 %indvars.iv299
   %210 = load ptr, ptr %209, align 8
-  %211 = icmp ult i64 %indvars.iv299, %174
+  %211 = icmp samesign ult i64 %indvars.iv299, %174
   %212 = select i1 %211, ptr @.str.36, ptr @.str.11
   %213 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %207, i64 noundef %208, ptr noundef nonnull @.str.34, ptr noundef %210, ptr noundef nonnull %205, ptr noundef %184, ptr noundef nonnull %205, ptr noundef nonnull %212) #9
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
@@ -899,7 +899,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %219 = sub i64 8192, %217
   %220 = getelementptr ptr, ptr %.0184253, i64 %indvars.iv293
   %221 = load ptr, ptr %220, align 8
-  %222 = icmp ult i64 %indvars.iv293, %174
+  %222 = icmp samesign ult i64 %indvars.iv293, %174
   %223 = select i1 %222, ptr @.str.36, ptr @.str.11
   %224 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %218, i64 noundef %219, ptr noundef nonnull @.str.39, ptr noundef %221, ptr noundef nonnull %223) #9
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
@@ -922,7 +922,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %227 = sub i64 8192, %225
   %228 = getelementptr ptr, ptr %.0184253, i64 %indvars.iv305
   %229 = load ptr, ptr %228, align 8
-  %230 = icmp ult i64 %indvars.iv305, %174
+  %230 = icmp samesign ult i64 %indvars.iv305, %174
   %231 = select i1 %230, ptr @.str.10, ptr @.str.11
   %232 = trunc nuw nsw i64 %indvars.iv305 to i32
   %233 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %226, i64 noundef %227, ptr noundef nonnull @.str.9, ptr noundef %229, i32 noundef %232, ptr noundef nonnull %231) #9

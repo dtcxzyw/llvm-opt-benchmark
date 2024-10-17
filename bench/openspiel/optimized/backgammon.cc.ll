@@ -2883,7 +2883,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMo
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %39
-  %.not = icmp ult i32 %38, %40
+  %.not = icmp samesign ult i32 %38, %40
   %. = zext i1 %.not to i32
   %41 = invoke noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %.)
           to label %42 unwind label %.loopexit.split-lp
@@ -2897,7 +2897,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMo
           to label %.invoke113 unwind label %.loopexit.split-lp
 
 .invoke113:                                       ; preds = %44
-  %46 = icmp uge i32 %43, %45
+  %46 = icmp samesign uge i32 %43, %45
   %.114 = zext i1 %46 to i32
   %47 = invoke noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %.114)
           to label %48 unwind label %.loopexit.split-lp
@@ -7220,7 +7220,7 @@ define noundef range(i64 0, 1352) i64 @_ZNK10open_spiel10backgammon15BackgammonS
 27:                                               ; preds = %2
   %28 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 0)
   %29 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 1)
-  %.not = icmp ult i32 %28, %29
+  %.not = icmp samesign ult i32 %28, %29
   %. = zext i1 %.not to i32
   %30 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.)
   %31 = load ptr, ptr %1, align 8
@@ -8665,7 +8665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -11559,19 +11559,19 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %132, %126
-  %139 = icmp ult i64 %indvars.iv268, 12
+  %139 = icmp samesign ult i64 %indvars.iv268, 12
   %140 = select i1 %139, i32 11, i32 1
   %141 = trunc nuw nsw i64 %indvars.iv268 to i32
   br i1 %139, label %142, label %145
 
 142:                                              ; preds = %138
-  %143 = icmp ugt i64 %indvars.iv268, 5
+  %143 = icmp samesign ugt i64 %indvars.iv268, 5
   %.v133 = select i1 %143, i32 12, i32 13
   %144 = sub nuw nsw i32 %.v133, %141
   br label %148
 
 145:                                              ; preds = %138
-  %146 = icmp ult i64 %indvars.iv268, 18
+  %146 = icmp samesign ult i64 %indvars.iv268, 18
   %.v = select i1 %146, i32 -11, i32 -10
   %147 = add nsw i32 %.v, %141
   br label %148

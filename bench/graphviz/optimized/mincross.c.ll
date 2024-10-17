@@ -1257,7 +1257,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mincross(ptr noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
-  %3 = icmp ugt i32 %1, 1
+  %3 = icmp samesign ugt i32 %1, 1
   br i1 %3, label %4, label %save_best.exit
 
 4:                                                ; preds = %2

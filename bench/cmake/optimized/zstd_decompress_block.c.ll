@@ -140,12 +140,12 @@ define dso_local range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr nound
   br i1 %or.cond, label %272, label %49
 
 49:                                               ; preds = %46
-  %50 = icmp ugt i32 %.0199.in, 131072
+  %50 = icmp samesign ugt i32 %.0199.in, 131072
   br i1 %50, label %272, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i32 %.0199.in, 6
-  %or.cond9 = and i1 %.0204, %52
+  %52 = icmp samesign ult i32 %.0199.in, 6
+  %or.cond9 = select i1 %.0204, i1 %52, i1 false
   br i1 %or.cond9, label %272, label %53
 
 53:                                               ; preds = %51
@@ -154,7 +154,7 @@ define dso_local range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr nound
   br i1 %55, label %272, label %56
 
 56:                                               ; preds = %53
-  %57 = icmp ult i64 %21, %.0199
+  %57 = icmp samesign ult i64 %21, %.0199
   br i1 %57, label %272, label %58
 
 58:                                               ; preds = %56
@@ -172,7 +172,7 @@ define dso_local range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr nound
   br label %ZSTD_allocateLiteralsBuffer.exit
 
 66:                                               ; preds = %58
-  %67 = icmp ugt i32 %.0199.in, 65536
+  %67 = icmp samesign ugt i32 %.0199.in, 65536
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %66
@@ -201,8 +201,8 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   %80 = getelementptr inbounds i8, ptr %0, i64 30196
   %81 = load i32, ptr %80, align 4
   %82 = icmp ne i32 %81, 0
-  %83 = icmp ugt i32 %.0199.in, 768
-  %or.cond3 = and i1 %83, %82
+  %83 = icmp samesign ugt i32 %.0199.in, 768
+  %or.cond3 = select i1 %82, i1 %83, i1 false
   br i1 %or.cond3, label %84, label %.loopexit
 
 84:                                               ; preds = %ZSTD_allocateLiteralsBuffer.exit
@@ -215,7 +215,7 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   %88 = getelementptr inbounds i8, ptr %86, i64 %.0203233
   tail call void @llvm.prefetch.p0(ptr %88, i32 0, i32 2, i32 1)
   %89 = add nuw nsw i64 %.0203233, 64
-  %90 = icmp ult i64 %.0203233, 16324
+  %90 = icmp samesign ult i64 %.0203233, 16324
   br i1 %90, label %87, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %87, %ZSTD_allocateLiteralsBuffer.exit
@@ -337,8 +337,8 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   %155 = icmp ne i64 %.0202, 0
   %156 = icmp eq ptr %3, null
   %or.cond5 = and i1 %156, %155
-  %157 = icmp ult i64 %138, %.0202
-  %or.cond216 = or i1 %157, %or.cond5
+  %157 = icmp samesign ult i64 %138, %.0202
+  %or.cond216 = select i1 %or.cond5, i1 true, i1 %157
   br i1 %or.cond216, label %272, label %158
 
 158:                                              ; preds = %154
@@ -356,7 +356,7 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   br label %ZSTD_allocateLiteralsBuffer.exit226
 
 166:                                              ; preds = %158
-  %167 = icmp ugt i64 %.0202, 65536
+  %167 = icmp samesign ugt i64 %.0202, 65536
   br i1 %167, label %168, label %176
 
 168:                                              ; preds = %166
@@ -480,7 +480,7 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   br i1 %or.cond7, label %272, label %231
 
 231:                                              ; preds = %228
-  %232 = icmp ugt i64 %.0197, 131072
+  %232 = icmp samesign ugt i64 %.0197, 131072
   br i1 %232, label %272, label %233
 
 233:                                              ; preds = %231
@@ -499,7 +499,7 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   br label %260
 
 241:                                              ; preds = %235
-  %242 = icmp ugt i64 %.0197, 65536
+  %242 = icmp samesign ugt i64 %.0197, 65536
   br i1 %242, label %245, label %243
 
 243:                                              ; preds = %241
@@ -688,7 +688,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %49 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv183.i
   store i64 %.0122164.i, ptr %49, align 1
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 8
-  %50 = icmp ult i64 %indvars.iv.next184.i, %48
+  %50 = icmp samesign ult i64 %indvars.iv.next184.i, %48
   br i1 %50, label %.lr.ph161.i, label %._crit_edge162.i, !llvm.loop !8
 
 ._crit_edge162.i:                                 ; preds = %.lr.ph161.i, %.lr.ph167.i
@@ -724,7 +724,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %65 = add nuw nsw i64 %.0125170.i, %43
   %66 = and i64 %65, %40
   %67 = add nuw nsw i64 %.0126169.i, 2
-  %68 = icmp ult i64 %67, %42
+  %68 = icmp samesign ult i64 %67, %42
   br i1 %68, label %.preheader.i, label %.loopexit.i, !llvm.loop !11
 
 69:                                               ; preds = %._crit_edge.i
@@ -945,8 +945,8 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 
 71:                                               ; preds = %70
   %72 = icmp ne i32 %53, 0
-  %73 = icmp ugt i32 %.072, 24
-  %or.cond.i = and i1 %73, %72
+  %73 = icmp samesign ugt i32 %.072, 24
+  %or.cond.i = select i1 %72, i1 %73, i1 false
   br i1 %or.cond.i, label %74, label %.loopexit111
 
 74:                                               ; preds = %71
@@ -958,7 +958,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
   %77 = getelementptr inbounds i8, ptr %75, i64 %.04146.i
   tail call void @llvm.prefetch.p0(ptr %77, i32 0, i32 2, i32 1)
   %78 = add nuw nsw i64 %.04146.i, 64
-  %79 = icmp ult i64 %.04146.i, 4040
+  %79 = icmp samesign ult i64 %.04146.i, 4040
   br i1 %79, label %76, label %.loopexit111, !llvm.loop !16
 
 80:                                               ; preds = %42
@@ -1054,8 +1054,8 @@ ZSTD_buildSeqTable.exit.thread:                   ; preds = %55, %56, %70, %80, 
 
 113:                                              ; preds = %112
   %114 = icmp ne i32 %90, 0
-  %115 = icmp ugt i32 %.072, 24
-  %or.cond.i89 = and i1 %115, %114
+  %115 = icmp samesign ugt i32 %.072, 24
+  %or.cond.i89 = select i1 %114, i1 %115, i1 false
   br i1 %or.cond.i89, label %116, label %.loopexit110
 
 116:                                              ; preds = %113
@@ -1067,7 +1067,7 @@ ZSTD_buildSeqTable.exit.thread:                   ; preds = %55, %56, %70, %80, 
   %119 = getelementptr inbounds i8, ptr %117, i64 %.04146.i90
   call void @llvm.prefetch.p0(ptr %119, i32 0, i32 2, i32 1)
   %120 = add nuw nsw i64 %.04146.i90, 64
-  %121 = icmp ult i64 %.04146.i90, 1992
+  %121 = icmp samesign ult i64 %.04146.i90, 1992
   br i1 %121, label %118, label %.loopexit110, !llvm.loop !16
 
 122:                                              ; preds = %.loopexit111
@@ -1158,8 +1158,8 @@ ZSTD_buildSeqTable.exit93.thread:                 ; preds = %97, %98, %112, %122
 
 153:                                              ; preds = %152
   %154 = icmp ne i32 %133, 0
-  %155 = icmp ugt i32 %.072, 24
-  %or.cond.i99 = and i1 %155, %154
+  %155 = icmp samesign ugt i32 %.072, 24
+  %or.cond.i99 = select i1 %154, i1 %155, i1 false
   br i1 %or.cond.i99, label %156, label %.loopexit
 
 156:                                              ; preds = %153
@@ -1171,7 +1171,7 @@ ZSTD_buildSeqTable.exit93.thread:                 ; preds = %97, %98, %112, %122
   %159 = getelementptr inbounds i8, ptr %157, i64 %.04146.i100
   call void @llvm.prefetch.p0(ptr %159, i32 0, i32 2, i32 1)
   %160 = add nuw nsw i64 %.04146.i100, 64
-  %161 = icmp ult i64 %.04146.i100, 4040
+  %161 = icmp samesign ult i64 %.04146.i100, 4040
   br i1 %161, label %158, label %.loopexit, !llvm.loop !16
 
 162:                                              ; preds = %.loopexit110

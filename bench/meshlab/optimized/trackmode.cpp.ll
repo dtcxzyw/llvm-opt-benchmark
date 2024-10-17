@@ -408,7 +408,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i:      ; preds = %56, %_ZN3vcg10track
   %68 = getelementptr inbounds i8, ptr %13, i64 20
   store float %.sroa.15.0.i, ptr %68, align 4
   %69 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull readonly align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
-  %.not.i = icmp ult i64 %69, 4294967296
+  %.not.i = icmp samesign ult i64 %69, 4294967296
   br i1 %.not.i, label %70, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
 
 70:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i
@@ -562,7 +562,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45:    ; preds = %112, %_ZN3vcg10trac
   %124 = getelementptr inbounds i8, ptr %8, i64 20
   store float %.sroa.15.0.i48, ptr %124, align 4
   %125 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %.not.i49 = icmp ult i64 %125, 4294967296
+  %.not.i49 = icmp samesign ult i64 %125, 4294967296
   br i1 %.not.i49, label %126, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
 
 126:                                              ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45
@@ -5553,7 +5553,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit:        ; preds = %_ZN3vcg10trackutils
   %49 = getelementptr inbounds i8, ptr %8, i64 20
   store float %.sroa.15.0, ptr %49, align 4
   %50 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %.not = icmp ult i64 %50, 4294967296
+  %.not = icmp samesign ult i64 %50, 4294967296
   br i1 %.not, label %51, label %58
 
 51:                                               ; preds = %_ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit
@@ -7656,7 +7656,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   store float %117, ptr %.sroa.24.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %11)
   %118 = add nuw nsw i32 %.074218, 10
-  %119 = icmp ult i32 %.074218, 350
+  %119 = icmp samesign ult i32 %.074218, 350
   br i1 %119, label %95, label %120, !llvm.loop !126
 
 120:                                              ; preds = %95
@@ -7950,7 +7950,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit130:         ; preds = %_ZNK3vcg6Point3IfE1
   store float %135, ptr %.sroa.216.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %8)
   %136 = add nuw nsw i32 %.095267, 10
-  %137 = icmp ult i32 %.095267, 350
+  %137 = icmp samesign ult i32 %.095267, 350
   br i1 %137, label %114, label %138, !llvm.loop !134
 
 138:                                              ; preds = %114
@@ -8452,7 +8452,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit114:         ; preds = %_ZNK3vcg6Point3IfE1
   store float %137, ptr %.sroa.2.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %22)
   %138 = add nuw nsw i32 %.080232, 10
-  %139 = icmp ult i32 %.080232, 350
+  %139 = icmp samesign ult i32 %.080232, 350
   br i1 %139, label %115, label %140, !llvm.loop !151
 
 140:                                              ; preds = %115

@@ -283,15 +283,15 @@ _ZN4core3str11validations15next_code_point17hd8bbc18ea736ad00E.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i.i.i.i"
 
 89:                                               ; preds = %87
-  %90 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 128
+  %90 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 128
   br i1 %90, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i.i", label %91
 
 91:                                               ; preds = %89
-  %92 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 2048
+  %92 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 2048
   br i1 %92, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i.i", label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 65536
+  %94 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i.i = select i1 %94, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i.i"
 
@@ -10776,7 +10776,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store i64 %41, ptr %6, align 8, !alias.scope !3289
   %.val.i13 = load i64, ptr %5, align 8, !range !43, !alias.scope !3289, !noundef !7
   %.val1.i = load ptr, ptr %36, align 8, !alias.scope !3289
-  %switch.i.i.i = icmp ult i64 %.val.i13, 2
+  %switch.i.i.i = icmp samesign ult i64 %.val.i13, 2
   br i1 %switch.i.i.i, label %86, label %42
 
 42:                                               ; preds = %40
@@ -10815,7 +10815,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store i64 %54, ptr %47, align 8, !alias.scope !3298
   %.val.i16 = load i64, ptr %4, align 8, !range !43, !alias.scope !3298, !noundef !7
   %.val1.i17 = load ptr, ptr %50, align 8, !alias.scope !3298
-  %switch.i.i.i18 = icmp ult i64 %.val.i16, 2
+  %switch.i.i.i18 = icmp samesign ult i64 %.val.i16, 2
   br i1 %switch.i.i.i18, label %62, label %55
 
 55:                                               ; preds = %52
@@ -13634,7 +13634,7 @@ define hidden void @"_ZN4core3ptr358drop_in_place$LT$itertools..kmerge_impl..Hea
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h1eeea84467627230E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !43, !noundef !7
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit", label %3
 
 3:                                                ; preds = %1

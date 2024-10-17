@@ -284,7 +284,7 @@ trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit
   %s.val.i = load i16, ptr %8, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   %cmp7.i = icmp ult i64 %len, 4294967295
   %or.cond.i = and i1 %cmp7.i, %cmp.i
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
@@ -418,7 +418,7 @@ entry:
   %s.val.i = load i16, ptr %1, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   %cmp7.i = icmp ult i64 %add, 4294967295
   %or.cond.i = and i1 %cmp7.i, %cmp.i
   br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
@@ -535,7 +535,7 @@ entry:
   %s.val.i = load i16, ptr %1, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -643,7 +643,7 @@ entry:
   %s.val.i = load i16, ptr %1, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -751,7 +751,7 @@ entry:
   %s.val.i = load i16, ptr %1, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -1048,7 +1048,7 @@ for.end124:                                       ; preds = %for.inc123, %for.en
   %s.val.i = load i16, ptr %5, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i79 = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i79 = icmp samesign ugt i32 %add.i.i, %conv5.i
   %cmp7.i = icmp ult i64 %len, 4294967295
   %or.cond.i = and i1 %cmp7.i, %cmp.i79
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
@@ -1249,7 +1249,7 @@ if.then5:                                         ; preds = %for.body
   %s.val.i = load i16, ptr %6, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   %cmp7.i = icmp ult i64 %len, 4294967295
   %or.cond.i = and i1 %cmp7.i, %cmp.i
   br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
@@ -1800,7 +1800,7 @@ entry:
   %s.val = load i16, ptr %1, align 16
   %conv.i = zext i16 %s.val to i32
   %add.i = add nuw nsw i32 %conv.i, 32
-  %cmp.not = icmp ugt i32 %add.i, %and
+  %cmp.not = icmp samesign ugt i32 %add.i, %and
   %cur_entry2 = getelementptr inbounds i8, ptr %s, i64 856
   br i1 %cmp.not, label %if.else, label %if.then
 
@@ -1967,7 +1967,7 @@ if.then5:                                         ; preds = %for.body
   %s.val.i = load i16, ptr %3, align 16
   %conv.i.i = zext i16 %s.val.i to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 32
-  %cmp.i = icmp ugt i32 %add.i.i, %conv5.i
+  %cmp.i = icmp samesign ugt i32 %add.i.i, %conv5.i
   br i1 %cmp.i, label %fw_cfg_update_mr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then5
@@ -2002,7 +2002,7 @@ if.then15:                                        ; preds = %if.else6
   %s.val.i20 = load i16, ptr %3, align 16
   %conv.i.i21 = zext i16 %s.val.i20 to i32
   %add.i.i22 = add nuw nsw i32 %conv.i.i21, 32
-  %cmp.i23 = icmp ugt i32 %add.i.i22, %conv5.i19
+  %cmp.i23 = icmp samesign ugt i32 %add.i.i22, %conv5.i19
   br i1 %cmp.i23, label %fw_cfg_update_mr.exit32, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.then15
@@ -2037,7 +2037,7 @@ if.then27:                                        ; preds = %if.else18
   %s.val.i35 = load i16, ptr %3, align 16
   %conv.i.i36 = zext i16 %s.val.i35 to i32
   %add.i.i37 = add nuw nsw i32 %conv.i.i36, 32
-  %cmp.i38 = icmp ugt i32 %add.i.i37, %conv5.i34
+  %cmp.i38 = icmp samesign ugt i32 %add.i.i37, %conv5.i34
   br i1 %cmp.i38, label %fw_cfg_update_mr.exit47, label %if.else.i39
 
 if.else.i39:                                      ; preds = %if.then27

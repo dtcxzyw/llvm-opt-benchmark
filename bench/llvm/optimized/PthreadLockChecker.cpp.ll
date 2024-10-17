@@ -9019,7 +9019,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLO
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit ]
   %13 = add nuw nsw i32 %12, 2
-  %14 = icmp ugt i32 %8, %13
+  %14 = icmp samesign ugt i32 %8, %13
   br i1 %14, label %15, label %38
 
 15:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
@@ -9049,7 +9049,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLO
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60, %22
   %25 = phi i32 [ %24, %22 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit60 ]
-  %.not47 = icmp ult i32 %21, %25
+  %.not47 = icmp samesign ult i32 %21, %25
   br i1 %.not47, label %30, label %26
 
 26:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit63
@@ -9072,7 +9072,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLO
 
 38:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57
   %39 = add nuw nsw i32 %8, 2
-  %40 = icmp ugt i32 %12, %39
+  %40 = icmp samesign ugt i32 %12, %39
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %38
@@ -9102,7 +9102,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLO
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66, %48
   %51 = phi i32 [ %50, %48 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit66 ]
-  %.not = icmp ult i32 %47, %51
+  %.not = icmp samesign ult i32 %47, %51
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit69
@@ -10704,7 +10704,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit49: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit, %10
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
-  %16 = icmp ugt i32 %9, %15
+  %16 = icmp samesign ugt i32 %9, %15
   br i1 %16, label %17, label %46
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit49
@@ -10734,7 +10734,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit51, %27
   %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit51 ]
-  %.not47 = icmp ult i32 %26, %31
+  %.not47 = icmp samesign ult i32 %26, %31
   br i1 %.not47, label %36, label %32
 
 32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit53
@@ -10757,7 +10757,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7
 
 46:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit49
   %47 = add nuw nsw i32 %9, 2
-  %48 = icmp ugt i32 %14, %47
+  %48 = icmp samesign ugt i32 %14, %47
   br i1 %48, label %49, label %78
 
 49:                                               ; preds = %46
@@ -10787,7 +10787,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit55, %59
   %63 = phi i32 [ %62, %59 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit55 ]
-  %.not = icmp ult i32 %58, %63
+  %.not = icmp samesign ult i32 %58, %63
   br i1 %.not, label %68, label %64
 
 64:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEPKNS3_7SymExprEEEE9getHeightEPNS_11ImutAVLTreeISA_EE.exit57

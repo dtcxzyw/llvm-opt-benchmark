@@ -2224,8 +2224,8 @@ if.end19:                                         ; preds = %if.end
   %div1.i = lshr i64 %rem.i, 13
   %cmp22 = icmp ne i64 %div1.i.i, %div1.i
   %rem2.i.i = and i64 %rem.i.i, 8191
-  %cmp24.not = icmp ugt i64 %rem2.i.i, %rem2.i
-  %or.cond = or i1 %cmp22, %cmp24.not
+  %cmp24.not = icmp samesign ugt i64 %rem2.i.i, %rem2.i
+  %or.cond = select i1 %cmp22, i1 true, i1 %cmp24.not
   %blocks_34 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %blocks_34, align 8
   %arrayidx.i45 = getelementptr inbounds ptr, ptr %4, i64 %div1.i.i
@@ -2294,7 +2294,7 @@ if.end70:                                         ; preds = %if.end70.preheader,
   %19 = load i64, ptr %blocks_count_.i, align 8
   %rem84 = urem i64 %add82, %19
   %cmp59 = icmp ne i64 %rem84, %div1.i
-  %cmp60 = icmp ult i64 %indvars.iv.next, %14
+  %cmp60 = icmp samesign ult i64 %indvars.iv.next, %14
   %20 = and i1 %cmp59, %cmp60
   br i1 %20, label %if.end70, label %while.end.loopexit, !llvm.loop !58
 

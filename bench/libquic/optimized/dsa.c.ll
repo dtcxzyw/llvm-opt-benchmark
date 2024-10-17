@@ -1425,7 +1425,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %len.addr.04.i = phi i64 [ %shr.i, %while.body.i ], [ %add, %while.body.i.preheader ]
   %inc.i = add nuw nsw i64 %ret.05.i, 1
   %shr.i = lshr i64 %len.addr.04.i, 8
-  %cmp1.not.i = icmp ult i64 %len.addr.04.i, 256
+  %cmp1.not.i = icmp samesign ult i64 %len.addr.04.i, 256
   br i1 %cmp1.not.i, label %der_len_len.exit, label %while.body.i, !llvm.loop !14
 
 der_len_len.exit:                                 ; preds = %while.body.i, %entry

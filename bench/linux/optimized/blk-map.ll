@@ -240,7 +240,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %48 = getelementptr inbounds i8, ptr %40, i64 144
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ugt i64 %47, %50
+  %51 = icmp samesign ugt i64 %47, %50
   br i1 %51, label %.thread49, label %52
 
 52:                                               ; preds = %46
@@ -609,7 +609,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %283 = phi i32 [ 0, %277 ], [ %314, %302 ]
   %284 = load i16, ptr %278, align 8
   %285 = zext i16 %284 to i32
-  %286 = icmp ult i32 %282, %285
+  %286 = icmp samesign ult i32 %282, %285
   br i1 %286, label %287, label %.thread68.us
 
 287:                                              ; preds = %280
@@ -679,7 +679,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %332 = phi i32 [ 0, %326 ], [ %363, %351 ]
   %333 = load i16, ptr %327, align 8
   %334 = zext i16 %333 to i32
-  %335 = icmp ult i32 %331, %334
+  %335 = icmp samesign ult i32 %331, %334
   br i1 %335, label %336, label %.thread64.us
 
 336:                                              ; preds = %329
@@ -1169,7 +1169,7 @@ define dso_local range(i32 -14, 1) i32 @blk_rq_unmap_user(ptr noundef %0) #0 ali
   %34 = phi i32 [ 0, %27 ], [ %65, %53 ]
   %35 = load i16, ptr %29, align 8
   %36 = zext i16 %35 to i32
-  %37 = icmp ult i32 %33, %36
+  %37 = icmp samesign ult i32 %33, %36
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %31
@@ -1573,7 +1573,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %115 = add i64 %114, %113
   %116 = lshr i64 %115, 12
   %117 = lshr i64 %10, 12
-  %118 = icmp ult i64 %116, %117
+  %118 = icmp samesign ult i64 %116, %117
   br i1 %118, label %.thread20, label %119
 
 119:                                              ; preds = %112
@@ -1820,7 +1820,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %48 = getelementptr i8, ptr %7, i64 %39
   %49 = load i16, ptr %2, align 8
   %50 = zext i16 %49 to i32
-  %51 = icmp ult i32 %36, %50
+  %51 = icmp samesign ult i32 %36, %50
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %25, %1

@@ -364,7 +364,7 @@ select.unfold:                                    ; preds = %21, %2, %8, %10, %1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %61, %64
-  %66 = icmp ugt i32 %65, 3141
+  %66 = icmp samesign ugt i32 %65, 3141
   %67 = getelementptr inbounds i8, ptr %59, i64 36
   br label %68
 
@@ -448,7 +448,7 @@ select.unfold:                                    ; preds = %21, %2, %8, %10, %1
 125:                                              ; preds = %117, %115, %110, %97
   %126 = add nuw nsw i32 %30, 1
   %127 = icmp eq i32 %99, -110
-  %128 = icmp ult i32 %30, 2
+  %128 = icmp samesign ult i32 %30, 2
   %129 = and i1 %3, %127
   %130 = select i1 %129, i1 %128, i1 false
   br i1 %130, label %29, label %131, !llvm.loop !17
@@ -536,7 +536,7 @@ define dso_local i32 @intel_reset_guc(ptr nocapture noundef readonly %0) local_u
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
-  %16 = icmp ugt i32 %15, 3141
+  %16 = icmp samesign ugt i32 %15, 3141
   %17 = getelementptr inbounds i8, ptr %9, i64 36
   br label %18
 
@@ -1160,7 +1160,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
   tail call void @msleep(i32 noundef %146) #10
   %147 = tail call i32 @__intel_gt_reset(ptr noundef %0, i32 noundef -1)
   %148 = icmp ne i32 %147, 0
-  %149 = icmp ult i32 %144, 2
+  %149 = icmp samesign ult i32 %144, 2
   %150 = and i1 %149, %148
   br i1 %150, label %.preheader29, label %151, !llvm.loop !32
 
@@ -2420,7 +2420,7 @@ define dso_local zeroext i1 @intel_engine_reset_needs_wa_22011802037(ptr nocaptu
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
-  %49 = icmp ult i32 %48, 3142
+  %49 = icmp samesign ult i32 %48, 3142
   br label %50
 
 50:                                               ; preds = %42, %37, %1
@@ -2678,7 +2678,7 @@ define internal i32 @gen8_reset_engines(ptr nocapture noundef readonly %0, i32 n
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %136 = icmp ugt i32 %135, 3141
+  %136 = icmp samesign ugt i32 %135, 3141
   %137 = getelementptr inbounds i8, ptr %129, i64 36
   br label %138
 
@@ -2794,7 +2794,7 @@ define internal i32 @gen6_reset_engines(ptr nocapture noundef readonly %0, i32 n
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
-  %41 = icmp ugt i32 %40, 3141
+  %41 = icmp samesign ugt i32 %40, 3141
   %42 = getelementptr inbounds i8, ptr %31, i64 36
   br label %43
 
@@ -3535,7 +3535,7 @@ define internal fastcc i32 @__gen11_reset_engines(ptr nocapture noundef readonly
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = or disjoint i32 %194, %197
-  %199 = icmp ugt i32 %198, 3141
+  %199 = icmp samesign ugt i32 %198, 3141
   %200 = getelementptr inbounds i8, ptr %189, i64 36
   br label %201
 

@@ -184,7 +184,7 @@ HUF_rescaleStats.exit:                            ; preds = %16
 
 79:                                               ; preds = %68
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 4
-  %80 = icmp ult i64 %indvars.iv.next224, %57
+  %80 = icmp samesign ult i64 %indvars.iv.next224, %57
   br i1 %80, label %.preheader178, label %.preheader177.loopexit, !llvm.loop !10
 
 81:                                               ; preds = %.lr.ph186, %81
@@ -429,7 +429,7 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %13 = getelementptr inbounds i8, ptr %3, i64 676
   %14 = getelementptr inbounds i8, ptr %3, i64 680
   %15 = getelementptr inbounds i8, ptr %3, i64 624
-  %16 = icmp ugt i32 %9, 12
+  %16 = icmp samesign ugt i32 %9, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %15, i8 0, i64 112, i1 false)
   br i1 %16, label %274, label %17
 
@@ -680,7 +680,7 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %119 = getelementptr inbounds i8, ptr %116, i64 24
   store i64 %109, ptr %119, align 2
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 8
-  %120 = icmp ult i64 %indvars.iv.next.i.us.us.i, %115
+  %120 = icmp samesign ult i64 %indvars.iv.next.i.us.us.i, %115
   br i1 %120, label %.lr.ph.i.us.us.i, label %.loopexit.i.us.us.i, !llvm.loop !25
 
 .loopexit.i.us.us.i:                              ; preds = %.lr.ph.i.us.us.i, %.preheader.i.us.us.i, %113, %111
@@ -739,7 +739,7 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %141 = getelementptr inbounds i8, ptr %138, i64 24
   store i64 %131, ptr %141, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %142 = icmp ult i64 %indvars.iv.next.i.i, %134
+  %142 = icmp samesign ult i64 %indvars.iv.next.i.i, %134
   br i1 %142, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !25
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %136, %135, %.preheader.i.i, %.lr.ph.split.i
@@ -1250,7 +1250,7 @@ BIT_initDStream.exit:                             ; preds = %9
   %.sroa.0.9521620 = phi i64 [ %.sroa.0.8, %.thread611 ], [ %.val.i, %65 ]
   %.sroa.93433.8522.idx619 = phi i64 [ 0, %.thread611 ], [ %.add, %65 ]
   %83 = and i32 %.val625, 16515072
-  %84 = icmp ult i32 %83, 786432
+  %84 = icmp samesign ult i32 %83, 786432
   %85 = sub nsw i32 0, %.sroa.1.0.extract.shift626
   %86 = and i32 %85, 63
   %87 = zext nneg i32 %86 to i64
@@ -2278,7 +2278,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit.thread39: ; preds = %19
 56:                                               ; preds = %46
   %57 = mul nuw nsw i64 %55, 5
   %58 = getelementptr inbounds i8, ptr %41, i64 %57
-  %59 = icmp ult i64 %55, 2
+  %59 = icmp samesign ult i64 %55, 2
   br i1 %59, label %HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit, label %.preheader59.i
 
 60:                                               ; preds = %.preheader59.i
@@ -3515,7 +3515,7 @@ BIT_reloadDStreamFast.exit1973.i:                 ; preds = %814, %BIT_reloadDSt
   br i1 %831, label %832, label %1013
 
 832:                                              ; preds = %827
-  %833 = icmp ult i32 %344, 12
+  %833 = icmp samesign ult i32 %344, 12
   %834 = icmp ugt i32 %.sroa.342265.0.i, 64
   br i1 %833, label %.preheader2506.i, label %.preheader2507.i
 
@@ -3972,7 +3972,7 @@ BIT_reloadDStreamFast.exit1985.i:                 ; preds = %.lr.ph96
   br i1 %1125, label %1126, label %1307
 
 1126:                                             ; preds = %1121
-  %1127 = icmp ult i32 %344, 12
+  %1127 = icmp samesign ult i32 %344, 12
   %1128 = icmp ugt i32 %.sroa.342143.0.i, 64
   br i1 %1127, label %.preheader2497.i, label %.preheader2498.i
 
@@ -4428,7 +4428,7 @@ BIT_reloadDStreamFast.exit1997.i:                 ; preds = %.lr.ph115
   br i1 %1418, label %1419, label %1600
 
 1419:                                             ; preds = %1415
-  %1420 = icmp ult i32 %344, 12
+  %1420 = icmp samesign ult i32 %344, 12
   %1421 = icmp ugt i32 %.sroa.34.0.i, 64
   br i1 %1420, label %.preheader2488.i, label %.preheader2489.i
 
@@ -4884,7 +4884,7 @@ BIT_reloadDStreamFast.exit2009.i:                 ; preds = %.lr.ph134
   br i1 %1711, label %1712, label %1928
 
 1712:                                             ; preds = %1708
-  %1713 = icmp ult i32 %344, 12
+  %1713 = icmp samesign ult i32 %344, 12
   %1714 = getelementptr inbounds i8, ptr %11, i64 24
   %1715 = getelementptr inbounds i8, ptr %11, i64 8
   %1716 = load i32, ptr %1715, align 8

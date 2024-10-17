@@ -4241,7 +4241,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %.0503575 = phi i32 [ %608, %.lr.ph576 ], [ 1, %594 ]
   %603 = load ptr, ptr %83, align 8
   %604 = add nuw nsw i32 %.0503575, 5
-  %or.cond.i533 = icmp ult i32 %.0503575, 27
+  %or.cond.i533 = icmp samesign ult i32 %.0503575, 27
   %spec.select.i534 = select i1 %or.cond.i533, i32 %604, i32 -1
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %603, i32 0, i32 %spec.select.i534) #7
   %605 = load ptr, ptr %83, align 8
@@ -4268,7 +4268,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %.0504572 = phi i32 [ %618, %.lr.ph573 ], [ 1, %.lr.ph573.preheader ]
   %613 = load ptr, ptr %83, align 8
   %614 = add nuw nsw i32 %.0504572, 5
-  %or.cond.i541 = icmp ult i32 %.0504572, 27
+  %or.cond.i541 = icmp samesign ult i32 %.0504572, 27
   %spec.select.i542 = select i1 %or.cond.i541, i32 %614, i32 -1
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %613, i32 0, i32 %spec.select.i542) #7
   %615 = load ptr, ptr %83, align 8
@@ -4322,7 +4322,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %.0505570 = phi i32 [ %632, %.lr.ph ], [ 1, %625 ]
   %627 = load ptr, ptr %83, align 8
   %628 = add nuw nsw i32 %.0505570, 5
-  %or.cond.i549 = icmp ult i32 %.0505570, 27
+  %or.cond.i549 = icmp samesign ult i32 %.0505570, 27
   %spec.select.i550 = select i1 %or.cond.i549, i32 %628, i32 -1
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %627, i32 0, i32 %spec.select.i550) #7
   %629 = load ptr, ptr %83, align 8
@@ -14284,7 +14284,7 @@ define hidden void @_ZN13StubGenerator8roundEncE11XMMRegisteri(ptr nocapture nou
 5:                                                ; preds = %.lr.ph, %5
   %.011 = phi i32 [ 0, %.lr.ph ], [ %7, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %or.cond.i = icmp ult i32 %.011, 32
+  %or.cond.i = icmp samesign ult i32 %.011, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.011, i32 -1
   tail call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
@@ -14309,7 +14309,7 @@ define hidden void @_ZN13StubGenerator12lastroundEncE11XMMRegisteri(ptr nocaptur
 5:                                                ; preds = %.lr.ph, %5
   %.011 = phi i32 [ 0, %.lr.ph ], [ %7, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %or.cond.i = icmp ult i32 %.011, 32
+  %or.cond.i = icmp samesign ult i32 %.011, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.011, i32 -1
   tail call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
@@ -14334,7 +14334,7 @@ define hidden void @_ZN13StubGenerator8roundDecE11XMMRegisteri(ptr nocapture nou
 5:                                                ; preds = %.lr.ph, %5
   %.011 = phi i32 [ 0, %.lr.ph ], [ %7, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %or.cond.i = icmp ult i32 %.011, 32
+  %or.cond.i = icmp samesign ult i32 %.011, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.011, i32 -1
   tail call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
@@ -14357,7 +14357,7 @@ define hidden void @_ZN13StubGenerator12lastroundDecE11XMMRegisteri(ptr nocaptur
 5:                                                ; preds = %.lr.ph, %5
   %.011 = phi i32 [ 0, %.lr.ph ], [ %7, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %or.cond.i = icmp ult i32 %.011, 32
+  %or.cond.i = icmp samesign ult i32 %.011, 32
   %spec.select.i = select i1 %or.cond.i, i32 %.011, i32 -1
   tail call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1

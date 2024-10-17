@@ -4481,7 +4481,7 @@ define hidden { i64, i32 } @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$G
 
 .lr.ph.i:                                         ; preds = %13, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %13 ]
-  %17 = icmp ult i32 %.02.i, 7
+  %17 = icmp samesign ult i32 %.02.i, 7
   br i1 %17, label %.preheader.i.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
@@ -4489,7 +4489,7 @@ define hidden { i64, i32 } @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$G
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %18
-  %19 = icmp ult i32 %.02.i, 11
+  %19 = icmp samesign ult i32 %.02.i, 11
   %20 = zext i1 %19 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %20
   %21 = load atomic i8, ptr %14 acquire, align 1
@@ -4561,7 +4561,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$
 
 .lr.ph.i:                                         ; preds = %10, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %10 ]
-  %14 = icmp ult i32 %.02.i, 7
+  %14 = icmp samesign ult i32 %.02.i, 7
   br i1 %14, label %.preheader.i.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
@@ -4569,7 +4569,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4zero16Channel$
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %15
-  %16 = icmp ult i32 %.02.i, 11
+  %16 = icmp samesign ult i32 %.02.i, 11
   %17 = zext i1 %16 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %17
   %18 = load atomic i8, ptr %11 acquire, align 1
@@ -5217,7 +5217,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
   br label %.preheader.split.us.i
 
 70:                                               ; preds = %67
-  %71 = icmp ult i32 %.0.i, 7
+  %71 = icmp samesign ult i32 %.0.i, 7
   br i1 %71, label %.preheader.i.i, label %.thread.i.thread.i
 
 .thread.i.thread.i:                               ; preds = %70
@@ -5316,7 +5316,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h1b8daab6fecf9be5E.exit.thre
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.thread.i.i36
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i36 ], [ 0, %.loopexit ]
-  %99 = icmp ult i32 %.02.i, 7
+  %99 = icmp samesign ult i32 %.02.i, 7
   br i1 %99, label %.preheader.i.i37, label %100
 
 100:                                              ; preds = %.lr.ph.i
@@ -5324,7 +5324,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h1b8daab6fecf9be5E.exit.thre
   br label %.thread.i.i36
 
 .thread.i.i36:                                    ; preds = %.preheader.i.i37, %100
-  %101 = icmp ult i32 %.02.i, 11
+  %101 = icmp samesign ult i32 %.02.i, 11
   %102 = zext i1 %101 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %102
   %103 = load atomic i8, ptr %13 acquire, align 1
@@ -5867,7 +5867,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
 
 .lr.ph.i.i:                                       ; preds = %62, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i15, %.thread.i.i.i ], [ 0, %62 ]
-  %66 = icmp ult i32 %.02.i.i, 7
+  %66 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %66, label %.preheader.i.i.i, label %67
 
 67:                                               ; preds = %.lr.ph.i.i
@@ -5875,7 +5875,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %67
-  %68 = icmp ult i32 %.02.i.i, 11
+  %68 = icmp samesign ult i32 %.02.i.i, 11
   %69 = zext i1 %68 to i32
   %spec.select.i.i15 = add nuw nsw i32 %.02.i.i, %69
   %70 = load atomic i8, ptr %63 acquire, align 1, !noalias !1174
@@ -6269,7 +6269,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
 
 .lr.ph.i.i:                                       ; preds = %60, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i15, %.thread.i.i.i ], [ 0, %60 ]
-  %64 = icmp ult i32 %.02.i.i, 7
+  %64 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %64, label %.preheader.i.i.i, label %65
 
 65:                                               ; preds = %.lr.ph.i.i
@@ -6277,7 +6277,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %65
-  %66 = icmp ult i32 %.02.i.i, 11
+  %66 = icmp samesign ult i32 %.02.i.i, 11
   %67 = zext i1 %66 to i32
   %spec.select.i.i15 = add nuw nsw i32 %.02.i.i, %67
   %68 = load atomic i8, ptr %61 acquire, align 1, !noalias !1286
@@ -6599,7 +6599,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
 
 .lr.ph.i.i:                                       ; preds = %59, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i14, %.thread.i.i.i ], [ 0, %59 ]
-  %63 = icmp ult i32 %.02.i.i, 7
+  %63 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %63, label %.preheader.i.i.i, label %64
 
 64:                                               ; preds = %.lr.ph.i.i
@@ -6607,7 +6607,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.6717981035442482804.exit.
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %64
-  %65 = icmp ult i32 %.02.i.i, 11
+  %65 = icmp samesign ult i32 %.02.i.i, 11
   %66 = zext i1 %65 to i32
   %spec.select.i.i14 = add nuw nsw i32 %.02.i.i, %66
   %67 = load atomic i8, ptr %60 acquire, align 1, !noalias !1383
@@ -13013,7 +13013,7 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN13mini_lsm_mvcc9mem_table21map_key_bound_plus_ts17hf79c4f7bca22d517E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #17 {
   %4 = load i64, ptr %1, align 8, !range !2691, !noundef !4
-  %switch = icmp ult i64 %4, 2
+  %switch = icmp samesign ult i64 %4, 2
   br i1 %switch, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %3
@@ -13554,7 +13554,7 @@ define void @_ZN13mini_lsm_mvcc9mem_table8MemTable22for_testing_scan_slice17h83f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2835)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2838)
   %7 = load i64, ptr %2, align 8, !range !2691, !alias.scope !2838, !noalias !2835, !noundef !4
-  %switch = icmp ult i64 %7, 2
+  %switch = icmp samesign ult i64 %7, 2
   br i1 %switch, label %.sink.split.i, label %_ZN13mini_lsm_mvcc9mem_table21map_key_bound_plus_ts17hf79c4f7bca22d517E.exit
 
 .sink.split.i:                                    ; preds = %4
@@ -13576,7 +13576,7 @@ _ZN13mini_lsm_mvcc9mem_table21map_key_bound_plus_ts17hf79c4f7bca22d517E.exit: ; 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2840)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2843)
   %13 = load i64, ptr %3, align 8, !range !2691, !alias.scope !2843, !noalias !2840, !noundef !4
-  %switch7 = icmp ult i64 %13, 2
+  %switch7 = icmp samesign ult i64 %13, 2
   br i1 %switch7, label %.sink.split.i2, label %_ZN13mini_lsm_mvcc9mem_table21map_key_bound_plus_ts17hf79c4f7bca22d517E.exit6
 
 .sink.split.i2:                                   ; preds = %_ZN13mini_lsm_mvcc9mem_table21map_key_bound_plus_ts17hf79c4f7bca22d517E.exit
@@ -13728,7 +13728,7 @@ define void @_ZN13mini_lsm_mvcc9mem_table8MemTable4scan17h29fb3e6362ed6cfaE(ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2873)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2876)
   %13 = load i64, ptr %2, align 8, !range !2691, !alias.scope !2876, !noalias !2873, !noundef !4
-  %switch55 = icmp ult i64 %13, 2
+  %switch55 = icmp samesign ult i64 %13, 2
   br i1 %switch55, label %_ZN13mini_lsm_mvcc9mem_table13map_key_bound17ha80abcaee8ef0cb8E.exit.sink.split, label %_ZN13mini_lsm_mvcc9mem_table13map_key_bound17ha80abcaee8ef0cb8E.exit
 
 default.unreachable:                              ; preds = %_ZN13mini_lsm_mvcc9mem_table13map_key_bound17ha80abcaee8ef0cb8E.exit
@@ -13793,7 +13793,7 @@ _ZN13mini_lsm_mvcc9mem_table13map_key_bound17ha80abcaee8ef0cb8E.exit: ; preds = 
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2884)
-  %switch = icmp ult i64 %13, 2
+  %switch = icmp samesign ult i64 %13, 2
   br i1 %switch, label %.sink.split.i, label %.critedge
 
 .sink.split.i:                                    ; preds = %21

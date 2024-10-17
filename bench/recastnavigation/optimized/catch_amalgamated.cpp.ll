@@ -46061,7 +46061,7 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit36.thread: ; preds = %
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %49
-  %54 = icmp ugt i64 %.09.i.i.i.i.i31.idx, 240
+  %54 = icmp samesign ugt i64 %.09.i.i.i.i.i31.idx, 240
   br i1 %54, label %55, label %118
 
 55:                                               ; preds = %.noexc
@@ -52553,15 +52553,15 @@ _ZN5Catch12_GLOBAL__N_111headerValueEh.exit:      ; preds = %_ZN5Catch12_GLOBAL_
 
 115:                                              ; preds = %113
   %116 = icmp ult i32 %109, 2048
-  %117 = icmp ugt i64 %.06.i9698, 2
-  %or.cond14 = and i1 %117, %116
+  %117 = icmp samesign ugt i64 %.06.i9698, 2
+  %or.cond14 = select i1 %116, i1 %117, i1 false
   br i1 %or.cond14, label %122, label %118
 
 118:                                              ; preds = %115
   %119 = add i32 %111, -2049
   %or.cond16 = icmp ult i32 %119, 63487
-  %120 = icmp ugt i64 %.06.i9698, 3
-  %or.cond18 = and i1 %120, %or.cond16
+  %120 = icmp samesign ugt i64 %.06.i9698, 3
+  %or.cond18 = select i1 %or.cond16, i1 %120, i1 false
   %121 = icmp ugt i32 %109, 1114111
   %or.cond20 = select i1 %or.cond18, i1 true, i1 %121
   br i1 %or.cond20, label %122, label %.preheader
@@ -77441,7 +77441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -95923,7 +95923,7 @@ _ZNSt6vectorIN5Catch12ReporterSpecESaIS1_EE9push_backEOS1_.exit.i.i.i: ; preds =
   br i1 %.not51.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %91 = icmp ugt i32 %spec.select.i.i.i, 1
+  %91 = icmp samesign ugt i32 %spec.select.i.i.i, 1
   br i1 %91, label %92, label %._crit_edge.thread.i.i.i
 
 92:                                               ; preds = %._crit_edge.i.i.i

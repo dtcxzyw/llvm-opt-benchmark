@@ -7069,7 +7069,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %87
-  %90 = icmp ugt i32 %spec.select, 1
+  %90 = icmp samesign ugt i32 %spec.select, 1
   br i1 %90, label %91, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader158, %._crit_edge
@@ -7807,7 +7807,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %72, %73
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %70
-  %74 = icmp ugt i32 %spec.select, 2
+  %74 = icmp samesign ugt i32 %spec.select, 2
   br i1 %74, label %75, label %.lr.ph91.preheader
 
 .lr.ph91.preheader:                               ; preds = %.lr.ph, %.preheader65, %._crit_edge

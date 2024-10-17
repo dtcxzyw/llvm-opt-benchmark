@@ -1993,7 +1993,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %107 = load ptr, ptr %arrayidx5.i, align 8
   %arrayidx8.i = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv.i
   store ptr %107, ptr %arrayidx8.i, align 8
-  %cmp.i25 = icmp ult i64 %indvars.iv.next.i, %106
+  %cmp.i25 = icmp samesign ult i64 %indvars.iv.next.i, %106
   br i1 %cmp.i25, label %for.body.i, label %for.end.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i, %if.then12

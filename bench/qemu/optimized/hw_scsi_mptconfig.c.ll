@@ -642,7 +642,7 @@ if.else.i:                                        ; preds = %entry
 if.end6.i:                                        ; preds = %if.else.i, %entry
   %.sink.i = phi i32 [ 255, %entry ], [ 65535, %if.else.i ]
   %and4.i = and i32 %.sink.i, %address
-  %cmp7.i = icmp ugt i32 %and4.i, 7
+  %cmp7.i = icmp samesign ugt i32 %and4.i, 7
   br i1 %cmp7.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end6.i, %if.else.i
@@ -751,7 +751,7 @@ if.else.i:                                        ; preds = %entry
 if.end6.i:                                        ; preds = %if.else.i, %entry
   %.sink.i = phi i32 [ 255, %entry ], [ 65535, %if.else.i ]
   %and4.i = and i32 %.sink.i, %address
-  %cmp7.i = icmp ugt i32 %and4.i, 7
+  %cmp7.i = icmp samesign ugt i32 %and4.i, 7
   br i1 %cmp7.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end6.i, %if.else.i

@@ -120,7 +120,7 @@ for.body:                                         ; preds = %cond.end, %if.end21
   %add = add nsw i64 %sub11, 2147483563
   %spec.select = select i1 %cmp14, i64 %add, i64 %sub11
   store i64 %spec.select, ptr %this, align 8, !tbaa !11
-  %cmp16 = icmp ult i64 %indvars.iv, 32
+  %cmp16 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %for.body

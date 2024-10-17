@@ -2544,7 +2544,7 @@ define internal i32 @inet6_net_init(ptr noundef %0) #1 align 16 {
 36:                                               ; preds = %44, %34
   %37 = phi i64 [ %48, %44 ], [ 0, %34 ]
   %38 = and i64 %37, 4294967295
-  %39 = icmp ugt i64 %38, 63
+  %39 = icmp samesign ugt i64 %38, 63
   br i1 %39, label %.thread, label %40, !prof !31
 
 40:                                               ; preds = %36

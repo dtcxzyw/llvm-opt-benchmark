@@ -254,7 +254,7 @@ define dso_local ptr @LocalBufferAlloc(ptr nocapture noundef readonly %0, i32 no
   %40 = add i32 %39, 1
   store i32 %40, ptr @NLocalPinnedBuffers, align 4
   %41 = and i32 %32, 3932160
-  %42 = icmp ult i32 %41, 1310720
+  %42 = icmp samesign ult i32 %41, 1310720
   br i1 %42, label %43, label %PinLocalBuffer.exit
 
 43:                                               ; preds = %38
@@ -336,7 +336,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   %14 = add i32 %13, 1
   store i32 %14, ptr @NLocalPinnedBuffers, align 4
   %15 = and i32 %6, 3932160
-  %16 = icmp ult i32 %15, 1310720
+  %16 = icmp samesign ult i32 %15, 1310720
   %or.cond = select i1 %1, i1 %16, i1 false
   br i1 %or.cond, label %17, label %19
 
@@ -663,7 +663,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %33 = tail call i32 @smgrnblocks(ptr noundef %32, i32 noundef %1) #13
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %.pre-phi, %34
-  %36 = icmp ugt i64 %35, 4294967293
+  %36 = icmp samesign ugt i64 %35, 4294967293
   br i1 %36, label %43, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge

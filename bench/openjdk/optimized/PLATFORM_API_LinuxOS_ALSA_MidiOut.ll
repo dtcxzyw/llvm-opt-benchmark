@@ -101,7 +101,7 @@ define hidden i32 @MIDI_OUT_SendShortMessage(ptr noundef readonly %0, i32 nounde
   %14 = trunc i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %14, ptr %15, align 1
-  %16 = icmp ult i32 %8, 240
+  %16 = icmp samesign ult i32 %8, 240
   %17 = lshr i32 %8, 4
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds [15 x i32], ptr @CHANNEL_MESSAGE_LENGTH, i64 0, i64 %18

@@ -787,7 +787,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.in
   br i1 %cmp3.i.i, label %for.inc.i.i, label %count_encoded_length.exit.i, !llvm.loop !8
 
 count_encoded_length.exit.i:                      ; preds = %for.inc.i.i
-  %cmp.i = icmp ugt i64 %len.09.i.i, 14
+  %cmp.i = icmp samesign ugt i64 %len.09.i.i, 14
   br i1 %cmp.i, label %emit_table_size.exit.thread, label %if.end.i6.i
 
 emit_table_size.exit.thread:                      ; preds = %count_encoded_length.exit.i
@@ -864,7 +864,7 @@ for.inc.i.i33:                                    ; preds = %if.end.i.i19, %for.
   br i1 %cmp3.i.i38, label %for.inc.i.i33, label %count_encoded_length.exit.i39, !llvm.loop !8
 
 count_encoded_length.exit.i39:                    ; preds = %for.inc.i.i33
-  %cmp.i40 = icmp ugt i64 %len.09.i.i34, 14
+  %cmp.i40 = icmp samesign ugt i64 %len.09.i.i34, 14
   br i1 %cmp.i40, label %emit_table_size.exit52.thread, label %if.end.i6.i41
 
 emit_table_size.exit52.thread:                    ; preds = %count_encoded_length.exit.i39
@@ -1266,7 +1266,7 @@ for.inc.i.i48.i:                                  ; preds = %if.end.i.i.i, %for.
   br i1 %cmp3.i.i49.i, label %for.inc.i.i48.i, label %count_encoded_length.exit.i.i, !llvm.loop !8
 
 count_encoded_length.exit.i.i:                    ; preds = %for.inc.i.i48.i
-  %cmp.i.i56 = icmp ugt i64 %len.09.i.i.i, 14
+  %cmp.i.i56 = icmp samesign ugt i64 %len.09.i.i.i, 14
   br i1 %cmp.i.i56, label %emit_indexed_block.exit.i, label %if.end.i6.i.i
 
 if.end.i6.i.i:                                    ; preds = %count_encoded_length.exit.i.i
@@ -1329,7 +1329,7 @@ if.else.i.i:                                      ; preds = %if.then36.i
   unreachable
 
 if.end.i53.i:                                     ; preds = %if.then36.i
-  %cmp1.i.i = icmp ugt i64 %retval.sroa.0.0.i73.i, 60
+  %cmp1.i.i = icmp samesign ugt i64 %retval.sroa.0.0.i73.i, 60
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else4.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i53.i
@@ -3176,7 +3176,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.inc.
 
 count_encoded_length.exit:                        ; preds = %for.inc.i
   %0 = add nuw nsw i64 %len.09.i, 2
-  %cmp1 = icmp ugt i64 %len.09.i, 14
+  %cmp1 = icmp samesign ugt i64 %len.09.i, 14
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end.i, %entry, %count_encoded_length.exit
@@ -3321,7 +3321,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.in
   br i1 %cmp3.i.i, label %for.inc.i.i, label %count_encoded_length.exit.i, !llvm.loop !8
 
 count_encoded_length.exit.i:                      ; preds = %for.inc.i.i
-  %cmp.i = icmp ugt i64 %len.09.i.i, 14
+  %cmp.i = icmp samesign ugt i64 %len.09.i.i, 14
   br i1 %cmp.i, label %emit_table_size.exit, label %if.end.i6.i
 
 if.end.i6.i:                                      ; preds = %count_encoded_length.exit.i
@@ -4467,7 +4467,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.inc.
   br i1 %cmp3.i, label %for.inc.i, label %count_encoded_length.exit, !llvm.loop !8
 
 count_encoded_length.exit:                        ; preds = %for.inc.i
-  %cmp2 = icmp ugt i64 %len.09.i, 14
+  %cmp2 = icmp samesign ugt i64 %len.09.i, 14
   br i1 %cmp2, label %return, label %if.end.i19
 
 if.end.i19:                                       ; preds = %count_encoded_length.exit

@@ -540,7 +540,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_sb_rlP11pr
   %15 = load ptr, ptr %14, align 8
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -561,7 +561,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_sb_rlP11pr
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %1, 20
   %29 = and i64 %28, 31
-  %30 = icmp ugt i64 %29, 15
+  %30 = icmp samesign ugt i64 %29, 15
   br i1 %30, label %31, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 31:                                               ; preds = %24
@@ -677,7 +677,7 @@ define noundef i64 @_Z16fast_rv64e_sb_rlP11processor_t6insn_tm(ptr nocapture nou
   %15 = load ptr, ptr %14, align 8
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -698,7 +698,7 @@ define noundef i64 @_Z16fast_rv64e_sb_rlP11processor_t6insn_tm(ptr nocapture nou
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %1, 20
   %29 = and i64 %28, 31
-  %30 = icmp ugt i64 %29, 15
+  %30 = icmp samesign ugt i64 %29, 15
   br i1 %30, label %31, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 31:                                               ; preds = %24
@@ -812,7 +812,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_sb_rlP11
   %15 = load ptr, ptr %14, align 8
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -833,7 +833,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_sb_rlP11
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %1, 20
   %29 = and i64 %28, 31
-  %30 = icmp ugt i64 %29, 15
+  %30 = icmp samesign ugt i64 %29, 15
   br i1 %30, label %31, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 31:                                               ; preds = %24
@@ -949,7 +949,7 @@ define noundef i64 @_Z18logged_rv64e_sb_rlP11processor_t6insn_tm(ptr nocapture n
   %15 = load ptr, ptr %14, align 8
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
@@ -970,7 +970,7 @@ define noundef i64 @_Z18logged_rv64e_sb_rlP11processor_t6insn_tm(ptr nocapture n
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %1, 20
   %29 = and i64 %28, 31
-  %30 = icmp ugt i64 %29, 15
+  %30 = icmp samesign ugt i64 %29, 15
   br i1 %30, label %31, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 31:                                               ; preds = %24

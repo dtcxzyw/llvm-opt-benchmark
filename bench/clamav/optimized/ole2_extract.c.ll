@@ -419,7 +419,7 @@ define ptr @cli_ole2_get_property_name2(ptr nocapture noundef readonly %0, i32 n
   store i8 %.sink, ptr %73, align 1
   %.2 = add nsw i32 %.05770.sink, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %74 = icmp ult i64 %indvars.iv.next, %21
+  %74 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %74, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %71
@@ -4040,7 +4040,7 @@ aes_128ecb_decrypt.exit:                          ; preds = %14
   %27 = getelementptr inbounds i8, ptr %6, i64 %.01216.i
   call void @rijndaelDecrypt(ptr noundef nonnull %3, i32 noundef %24, ptr noundef nonnull %26, ptr noundef nonnull %27) #21
   %28 = add nuw nsw i64 %.01216.i, 16
-  %29 = icmp ult i64 %28, %20
+  %29 = icmp samesign ult i64 %28, %20
   br i1 %29, label %.lr.ph.i, label %.loopexit
 
 aes_128ecb_decrypt.exit14:                        ; preds = %22, %25
@@ -4151,7 +4151,7 @@ define internal fastcc i32 @ole2_get_next_block_number(ptr nocapture noundef rea
 
 ole2_read_block.exit.i:                           ; preds = %41
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %46, i64 %.029.i.i, i1 false)
-  %47 = icmp ugt i32 %1, 30207
+  %47 = icmp samesign ugt i32 %1, 30207
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %ole2_read_block.exit.i

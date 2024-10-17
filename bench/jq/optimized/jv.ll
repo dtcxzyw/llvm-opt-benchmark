@@ -952,7 +952,7 @@ define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4
 
 .preheader.i:                                     ; preds = %jv_copy.exit.i
   %51 = trunc nuw nsw i64 %smax to i32
-  %52 = icmp ugt i32 %..i52.i, %51
+  %52 = icmp samesign ugt i32 %..i52.i, %51
   br i1 %52, label %.lr.ph60.i, label %._crit_edge.i
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %35
@@ -2151,207 +2151,207 @@ jv_copy.exit:                                     ; preds = %4, %8
   %.val.i = load i32, ptr %11, align 4
   %12 = lshr i32 %.val.i, 1
   tail call void @jv_free(i64 %0, ptr %1)
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %.ptr88 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = and i64 %2, 128
-  %.not.i62 = icmp eq i64 %16, 0
-  br i1 %.not.i62, label %jv_copy.exit65, label %17
+  %narrow = add nuw i32 %12, 16
+  %.add = zext i32 %narrow to i64
+  %.ptr88 = getelementptr inbounds i8, ptr %1, i64 %.add
+  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = and i64 %2, 128
+  %.not.i62 = icmp eq i64 %14, 0
+  br i1 %.not.i62, label %jv_copy.exit65, label %15
 
-17:                                               ; preds = %jv_copy.exit
-  %18 = load i32, ptr %3, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %3, align 4
+15:                                               ; preds = %jv_copy.exit
+  %16 = load i32, ptr %3, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %3, align 4
   br label %jv_copy.exit65
 
-jv_copy.exit65:                                   ; preds = %jv_copy.exit, %17
-  %20 = getelementptr i8, ptr %3, i64 8
-  %.val.i66 = load i32, ptr %20, align 4
-  %21 = lshr i32 %.val.i66, 1
+jv_copy.exit65:                                   ; preds = %jv_copy.exit, %15
+  %18 = getelementptr i8, ptr %3, i64 8
+  %.val.i66 = load i32, ptr %18, align 4
+  %19 = lshr i32 %.val.i66, 1
   tail call void @jv_free(i64 %2, ptr %3)
-  %22 = tail call ptr @jv_mem_alloc(i64 noundef 272) #25
-  store i32 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  store i32 16, ptr %24, align 8
-  %25 = icmp ult i32 %.val.i66, 2
-  br i1 %25, label %.preheader, label %.preheader76
+  %20 = tail call ptr @jv_mem_alloc(i64 noundef 272) #25
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  store i32 16, ptr %22, align 8
+  %23 = icmp ult i32 %.val.i66, 2
+  br i1 %23, label %.preheader, label %.preheader76
 
 .preheader76:                                     ; preds = %jv_copy.exit65
   %.not89 = icmp ult i32 %.val.i, 2
   br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader76
-  %26 = ptrtoint ptr %.ptr88 to i64
-  %27 = zext nneg i32 %21 to i64
-  br label %74
+  %24 = ptrtoint ptr %.ptr88 to i64
+  %25 = zext nneg i32 %19 to i64
+  br label %72
 
 .preheader:                                       ; preds = %jv_copy.exit65
-  %28 = call ptr @jvp_utf8_next(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr88, ptr noundef nonnull %6) #25
-  %.not82 = icmp eq ptr %28, null
+  %26 = call ptr @jvp_utf8_next(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr88, ptr noundef nonnull %6) #25
+  %.not82 = icmp eq ptr %26, null
   br i1 %.not82, label %.loopexit, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %.preheader, %jv_array_append.exit
-  %29 = phi ptr [ %73, %jv_array_append.exit ], [ %28, %.preheader ]
-  %.sroa.8.084 = phi ptr [ %72, %jv_array_append.exit ], [ %22, %.preheader ]
-  %.sroa.050.083 = phi i64 [ %71, %jv_array_append.exit ], [ 134, %.preheader ]
-  %30 = call { i64, ptr } @jv_string_sized(ptr noundef nonnull @.str.10, i32 noundef 0)
-  %31 = extractvalue { i64, ptr } %30, 1
-  %32 = load i32, ptr %6, align 4
+  %27 = phi ptr [ %71, %jv_array_append.exit ], [ %26, %.preheader ]
+  %.sroa.8.084 = phi ptr [ %70, %jv_array_append.exit ], [ %20, %.preheader ]
+  %.sroa.050.083 = phi i64 [ %69, %jv_array_append.exit ], [ 134, %.preheader ]
+  %28 = call { i64, ptr } @jv_string_sized(ptr noundef nonnull @.str.10, i32 noundef 0)
+  %29 = extractvalue { i64, ptr } %28, 1
+  %30 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
-  %33 = call i32 @jvp_utf8_encode(i32 noundef %32, ptr noundef nonnull %5) #25
-  %34 = getelementptr i8, ptr %31, i64 8
-  %.val36.i.i = load i32, ptr %34, align 4
-  %35 = lshr i32 %.val36.i.i, 1
-  %.val.i.i = load i32, ptr %31, align 4
+  %31 = call i32 @jvp_utf8_encode(i32 noundef %30, ptr noundef nonnull %5) #25
+  %32 = getelementptr i8, ptr %29, i64 8
+  %.val36.i.i = load i32, ptr %32, align 4
+  %33 = lshr i32 %.val36.i.i, 1
+  %.val.i.i = load i32, ptr %29, align 4
   %.not.i.i = icmp eq i32 %.val.i.i, 1
-  br i1 %.not.i.i, label %36, label %48
+  br i1 %.not.i.i, label %34, label %46
 
-36:                                               ; preds = %.lr.ph85
-  %37 = getelementptr i8, ptr %31, i64 12
-  %.val38.i.i = load i32, ptr %37, align 4
-  %38 = sub i32 %.val38.i.i, %35
-  %.not35.i.i = icmp ult i32 %38, %33
-  br i1 %.not35.i.i, label %48, label %39
+34:                                               ; preds = %.lr.ph85
+  %35 = getelementptr i8, ptr %29, i64 12
+  %.val38.i.i = load i32, ptr %35, align 4
+  %36 = sub i32 %.val38.i.i, %33
+  %.not35.i.i = icmp ult i32 %36, %31
+  br i1 %.not35.i.i, label %46, label %37
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %31, i64 16
-  %41 = zext nneg i32 %35 to i64
-  %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %43 = zext i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %5, i64 %43, i1 false)
-  %44 = add i32 %35, %33
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds [0 x i8], ptr %40, i64 0, i64 %45
-  store i8 0, ptr %46, align 1
-  %47 = shl i32 %44, 1
-  store i32 %47, ptr %34, align 4
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %29, i64 16
+  %39 = zext nneg i32 %33 to i64
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %41 = zext i32 %31 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %5, i64 %41, i1 false)
+  %42 = add i32 %33, %31
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds [0 x i8], ptr %38, i64 0, i64 %43
+  store i8 0, ptr %44, align 1
+  %45 = shl i32 %42, 1
+  store i32 %45, ptr %32, align 4
   br label %jv_string_append_codepoint.exit
 
-48:                                               ; preds = %36, %.lr.ph85
-  %49 = add i32 %35, %33
-  %50 = shl i32 %49, 1
-  %spec.store.select.i.i = call i32 @llvm.umax.i32(i32 %50, i32 32)
-  %51 = zext i32 %spec.store.select.i.i to i64
-  %52 = add nuw nsw i64 %51, 17
-  %53 = call noundef ptr @jv_mem_alloc(i64 noundef %52) #25
-  store i32 1, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %53, i64 12
-  store i32 %spec.store.select.i.i, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
-  store i32 %50, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
-  %57 = getelementptr inbounds i8, ptr %31, i64 16
-  %58 = zext nneg i32 %35 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr nonnull align 4 %57, i64 %58, i1 false)
-  %59 = getelementptr inbounds i8, ptr %56, i64 %58
-  %60 = zext i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %5, i64 %60, i1 false)
-  %61 = zext i32 %49 to i64
-  %62 = getelementptr inbounds [0 x i8], ptr %56, i64 0, i64 %61
-  store i8 0, ptr %62, align 1
-  %63 = load i32, ptr %31, align 4
-  %64 = add nsw i32 %63, -1
-  store i32 %64, ptr %31, align 4
-  %.not.i.i.i = icmp eq i32 %64, 0
-  br i1 %.not.i.i.i, label %65, label %jv_string_append_codepoint.exit
+46:                                               ; preds = %34, %.lr.ph85
+  %47 = add i32 %33, %31
+  %48 = shl i32 %47, 1
+  %spec.store.select.i.i = call i32 @llvm.umax.i32(i32 %48, i32 32)
+  %49 = zext i32 %spec.store.select.i.i to i64
+  %50 = add nuw nsw i64 %49, 17
+  %51 = call noundef ptr @jv_mem_alloc(i64 noundef %50) #25
+  store i32 1, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %51, i64 12
+  store i32 %spec.store.select.i.i, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %51, i64 8
+  store i32 %48, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %51, i64 16
+  %55 = getelementptr inbounds i8, ptr %29, i64 16
+  %56 = zext nneg i32 %33 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull align 4 %55, i64 %56, i1 false)
+  %57 = getelementptr inbounds i8, ptr %54, i64 %56
+  %58 = zext i32 %31 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %5, i64 %58, i1 false)
+  %59 = zext i32 %47 to i64
+  %60 = getelementptr inbounds [0 x i8], ptr %54, i64 0, i64 %59
+  store i8 0, ptr %60, align 1
+  %61 = load i32, ptr %29, align 4
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %29, align 4
+  %.not.i.i.i = icmp eq i32 %62, 0
+  br i1 %.not.i.i.i, label %63, label %jv_string_append_codepoint.exit
 
-65:                                               ; preds = %48
-  call void @jv_mem_free(ptr noundef nonnull %31) #25
+63:                                               ; preds = %46
+  call void @jv_mem_free(ptr noundef nonnull %29) #25
   br label %jv_string_append_codepoint.exit
 
-jv_string_append_codepoint.exit:                  ; preds = %39, %48, %65
-  %.sroa.6.0.i.i = phi ptr [ %31, %39 ], [ %53, %48 ], [ %53, %65 ]
+jv_string_append_codepoint.exit:                  ; preds = %37, %46, %63
+  %.sroa.6.0.i.i = phi ptr [ %29, %37 ], [ %51, %46 ], [ %51, %63 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
-  %66 = and i64 %.sroa.050.083, 128
-  %.not.i.i67 = icmp eq i64 %66, 0
-  br i1 %.not.i.i67, label %jv_array_append.exit, label %67
+  %64 = and i64 %.sroa.050.083, 128
+  %.not.i.i67 = icmp eq i64 %64, 0
+  br i1 %.not.i.i67, label %jv_array_append.exit, label %65
 
-67:                                               ; preds = %jv_string_append_codepoint.exit
-  %68 = load i32, ptr %.sroa.8.084, align 4
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %.sroa.8.084, align 4
+65:                                               ; preds = %jv_string_append_codepoint.exit
+  %66 = load i32, ptr %.sroa.8.084, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %.sroa.8.084, align 4
   br label %jv_array_append.exit
 
-jv_array_append.exit:                             ; preds = %jv_string_append_codepoint.exit, %67
+jv_array_append.exit:                             ; preds = %jv_string_append_codepoint.exit, %65
   %.sroa.1.0.extract.shift.i.i.i = lshr i64 %.sroa.050.083, 32
   %.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i to i32
   call void @jv_free(i64 %.sroa.050.083, ptr %.sroa.8.084)
-  %70 = call { i64, ptr } @jv_array_set(i64 %.sroa.050.083, ptr %.sroa.8.084, i32 noundef %.sroa.1.0.extract.trunc.i.i.i, i64 133, ptr nonnull %.sroa.6.0.i.i)
-  %71 = extractvalue { i64, ptr } %70, 0
-  %72 = extractvalue { i64, ptr } %70, 1
-  %73 = call ptr @jvp_utf8_next(ptr noundef nonnull %29, ptr noundef nonnull %.ptr88, ptr noundef nonnull %6) #25
-  %.not = icmp eq ptr %73, null
+  %68 = call { i64, ptr } @jv_array_set(i64 %.sroa.050.083, ptr %.sroa.8.084, i32 noundef %.sroa.1.0.extract.trunc.i.i.i, i64 133, ptr nonnull %.sroa.6.0.i.i)
+  %69 = extractvalue { i64, ptr } %68, 0
+  %70 = extractvalue { i64, ptr } %68, 1
+  %71 = call ptr @jvp_utf8_next(ptr noundef nonnull %27, ptr noundef nonnull %.ptr88, ptr noundef nonnull %6) #25
+  %.not = icmp eq ptr %71, null
   br i1 %.not, label %.loopexit, label %.lr.ph85, !llvm.loop !20
 
-74:                                               ; preds = %.lr.ph, %103
-  %.sroa.8.280 = phi ptr [ %22, %.lr.ph ], [ %.sroa.8.3, %103 ]
-  %.sroa.050.279 = phi i64 [ 134, %.lr.ph ], [ %.sroa.050.3, %103 ]
-  %.05678 = phi ptr [ %.ptr, %.lr.ph ], [ %91, %103 ]
-  %75 = ptrtoint ptr %.05678 to i64
-  %76 = sub i64 %26, %75
-  %77 = tail call ptr @_jq_memmem(ptr noundef nonnull %.05678, i64 noundef %76, ptr noundef nonnull %15, i64 noundef %27) #25
-  %78 = icmp eq ptr %77, null
-  %spec.select = select i1 %78, ptr %.ptr88, ptr %77
-  %79 = ptrtoint ptr %spec.select to i64
-  %80 = sub i64 %79, %75
-  %81 = trunc i64 %80 to i32
-  %82 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %.05678, i32 noundef %81)
-  %83 = extractvalue { i64, ptr } %82, 1
-  %84 = and i64 %.sroa.050.279, 128
-  %.not.i.i68 = icmp eq i64 %84, 0
-  br i1 %.not.i.i68, label %jv_array_append.exit71, label %85
+72:                                               ; preds = %.lr.ph, %101
+  %.sroa.8.280 = phi ptr [ %20, %.lr.ph ], [ %.sroa.8.3, %101 ]
+  %.sroa.050.279 = phi i64 [ 134, %.lr.ph ], [ %.sroa.050.3, %101 ]
+  %.05678 = phi ptr [ %.ptr, %.lr.ph ], [ %89, %101 ]
+  %73 = ptrtoint ptr %.05678 to i64
+  %74 = sub i64 %24, %73
+  %75 = tail call ptr @_jq_memmem(ptr noundef nonnull %.05678, i64 noundef %74, ptr noundef nonnull %13, i64 noundef %25) #25
+  %76 = icmp eq ptr %75, null
+  %spec.select = select i1 %76, ptr %.ptr88, ptr %75
+  %77 = ptrtoint ptr %spec.select to i64
+  %78 = sub i64 %77, %73
+  %79 = trunc i64 %78 to i32
+  %80 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %.05678, i32 noundef %79)
+  %81 = extractvalue { i64, ptr } %80, 1
+  %82 = and i64 %.sroa.050.279, 128
+  %.not.i.i68 = icmp eq i64 %82, 0
+  br i1 %.not.i.i68, label %jv_array_append.exit71, label %83
 
-85:                                               ; preds = %74
-  %86 = load i32, ptr %.sroa.8.280, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %.sroa.8.280, align 4
+83:                                               ; preds = %72
+  %84 = load i32, ptr %.sroa.8.280, align 4
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %.sroa.8.280, align 4
   br label %jv_array_append.exit71
 
-jv_array_append.exit71:                           ; preds = %74, %85
+jv_array_append.exit71:                           ; preds = %72, %83
   %.sroa.1.0.extract.shift.i.i.i69 = lshr i64 %.sroa.050.279, 32
   %.sroa.1.0.extract.trunc.i.i.i70 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i69 to i32
   tail call void @jv_free(i64 %.sroa.050.279, ptr %.sroa.8.280)
-  %88 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.050.279, ptr %.sroa.8.280, i32 noundef %.sroa.1.0.extract.trunc.i.i.i70, i64 133, ptr %83)
-  %89 = extractvalue { i64, ptr } %88, 0
-  %90 = extractvalue { i64, ptr } %88, 1
-  %91 = getelementptr inbounds i8, ptr %spec.select, i64 %27
-  %92 = icmp eq ptr %91, %.ptr88
-  br i1 %92, label %93, label %103
+  %86 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.050.279, ptr %.sroa.8.280, i32 noundef %.sroa.1.0.extract.trunc.i.i.i70, i64 133, ptr %81)
+  %87 = extractvalue { i64, ptr } %86, 0
+  %88 = extractvalue { i64, ptr } %86, 1
+  %89 = getelementptr inbounds i8, ptr %spec.select, i64 %25
+  %90 = icmp eq ptr %89, %.ptr88
+  br i1 %90, label %91, label %101
 
-93:                                               ; preds = %jv_array_append.exit71
-  %94 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull @.str.10, i32 noundef 0)
-  %95 = extractvalue { i64, ptr } %94, 1
-  %96 = and i64 %89, 128
-  %.not.i.i72 = icmp eq i64 %96, 0
-  br i1 %.not.i.i72, label %jv_array_append.exit75, label %97
+91:                                               ; preds = %jv_array_append.exit71
+  %92 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull @.str.10, i32 noundef 0)
+  %93 = extractvalue { i64, ptr } %92, 1
+  %94 = and i64 %87, 128
+  %.not.i.i72 = icmp eq i64 %94, 0
+  br i1 %.not.i.i72, label %jv_array_append.exit75, label %95
 
-97:                                               ; preds = %93
-  %98 = load i32, ptr %90, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %90, align 4
+95:                                               ; preds = %91
+  %96 = load i32, ptr %88, align 4
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %88, align 4
   br label %jv_array_append.exit75
 
-jv_array_append.exit75:                           ; preds = %93, %97
-  %.sroa.1.0.extract.shift.i.i.i73 = lshr i64 %89, 32
+jv_array_append.exit75:                           ; preds = %91, %95
+  %.sroa.1.0.extract.shift.i.i.i73 = lshr i64 %87, 32
   %.sroa.1.0.extract.trunc.i.i.i74 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i73 to i32
-  tail call void @jv_free(i64 %89, ptr %90)
-  %100 = tail call { i64, ptr } @jv_array_set(i64 %89, ptr %90, i32 noundef %.sroa.1.0.extract.trunc.i.i.i74, i64 133, ptr %95)
-  %101 = extractvalue { i64, ptr } %100, 0
-  %102 = extractvalue { i64, ptr } %100, 1
-  br label %103
+  tail call void @jv_free(i64 %87, ptr %88)
+  %98 = tail call { i64, ptr } @jv_array_set(i64 %87, ptr %88, i32 noundef %.sroa.1.0.extract.trunc.i.i.i74, i64 133, ptr %93)
+  %99 = extractvalue { i64, ptr } %98, 0
+  %100 = extractvalue { i64, ptr } %98, 1
+  br label %101
 
-103:                                              ; preds = %jv_array_append.exit71, %jv_array_append.exit75
-  %.sroa.050.3 = phi i64 [ %101, %jv_array_append.exit75 ], [ %89, %jv_array_append.exit71 ]
-  %.sroa.8.3 = phi ptr [ %102, %jv_array_append.exit75 ], [ %90, %jv_array_append.exit71 ]
-  %104 = icmp ult ptr %91, %.ptr88
-  br i1 %104, label %74, label %.loopexit, !llvm.loop !21
+101:                                              ; preds = %jv_array_append.exit71, %jv_array_append.exit75
+  %.sroa.050.3 = phi i64 [ %99, %jv_array_append.exit75 ], [ %87, %jv_array_append.exit71 ]
+  %.sroa.8.3 = phi ptr [ %100, %jv_array_append.exit75 ], [ %88, %jv_array_append.exit71 ]
+  %102 = icmp ult ptr %89, %.ptr88
+  br i1 %102, label %72, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %103, %jv_array_append.exit, %.preheader76, %.preheader
-  %.sroa.050.1 = phi i64 [ 134, %.preheader ], [ 134, %.preheader76 ], [ %71, %jv_array_append.exit ], [ %.sroa.050.3, %103 ]
-  %.sroa.8.1 = phi ptr [ %22, %.preheader ], [ %22, %.preheader76 ], [ %72, %jv_array_append.exit ], [ %.sroa.8.3, %103 ]
+.loopexit:                                        ; preds = %101, %jv_array_append.exit, %.preheader76, %.preheader
+  %.sroa.050.1 = phi i64 [ 134, %.preheader ], [ 134, %.preheader76 ], [ %69, %jv_array_append.exit ], [ %.sroa.050.3, %101 ]
+  %.sroa.8.1 = phi ptr [ %20, %.preheader ], [ %20, %.preheader76 ], [ %70, %jv_array_append.exit ], [ %.sroa.8.3, %101 ]
   call void @jv_free(i64 %0, ptr %1)
   call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.050.1, 0

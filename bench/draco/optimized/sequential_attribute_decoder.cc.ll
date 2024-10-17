@@ -224,7 +224,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %69 = sub i64 %67, %68
   %70 = lshr exact i64 %69, 2
   %71 = and i64 %70, 4294967295
-  %72 = icmp uge i64 %indvars.iv.next, %71
+  %72 = icmp samesign uge i64 %indvars.iv.next, %71
   %.not7 = select i1 %62, i1 true, i1 %72
   br i1 %.not7, label %.loopexit, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !4
 

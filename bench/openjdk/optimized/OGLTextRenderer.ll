@@ -466,7 +466,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
   %.03644.us.i = phi i32 [ %182, %._crit_edge.us.i ], [ %.0102, %169 ]
   %.03843.us.i = phi i32 [ %170, %._crit_edge.us.i ], [ 0, %169 ]
   %170 = add nuw nsw i32 %.03843.us.i, 32
-  %171 = icmp ugt i32 %170, %157
+  %171 = icmp samesign ugt i32 %170, %157
   %172 = sub nuw nsw i32 %157, %.03843.us.i
   %173 = select i1 %171, i32 %172, i32 32
   br label %174
@@ -475,18 +475,18 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
   %.042.us.i = phi i32 [ %.1105, %.lr.ph.us.i ], [ %180, %174 ]
   %.03741.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %175, %174 ]
   %175 = add nuw nsw i32 %.03741.us.i, 32
-  %176 = icmp ugt i32 %175, %156
+  %176 = icmp samesign ugt i32 %175, %156
   %177 = sub nuw nsw i32 %156, %.03741.us.i
   %178 = select i1 %176, i32 %177, i32 32
   %179 = load ptr, ptr %83, align 8
   tail call void @OGLVertexCache_AddMaskQuad(ptr noundef nonnull %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %178, i32 noundef %173, i32 noundef %156, ptr noundef %179) #5
   %180 = add nsw i32 %.042.us.i, 32
-  %181 = icmp ult i32 %175, %156
+  %181 = icmp samesign ult i32 %175, %156
   br i1 %181, label %174, label %._crit_edge.us.i, !llvm.loop !6
 
 ._crit_edge.us.i:                                 ; preds = %174
   %182 = add nsw i32 %.03644.us.i, 32
-  %183 = icmp ult i32 %170, %157
+  %183 = icmp samesign ult i32 %170, %157
   br i1 %183, label %.lr.ph.us.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !8
 
 184:                                              ; preds = %86
@@ -980,7 +980,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %.0100116.us.i = phi float [ %.2102.us.i, %._crit_edge.us.i136 ], [ 0.000000e+00, %.lr.ph120.i ]
   %.0104115.us.i = phi i32 [ %440, %._crit_edge.us.i136 ], [ 0, %.lr.ph120.i ]
   %440 = add nuw nsw i32 %.0104115.us.i, 32
-  %441 = icmp ugt i32 %440, %415
+  %441 = icmp samesign ugt i32 %440, %415
   %442 = sub nuw nsw i32 %415, %.0104115.us.i
   %443 = select i1 %441, i32 %442, i32 32
   %444 = uitofp nneg i32 %443 to float
@@ -995,7 +995,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %.1101111.us.i = phi float [ %.0100116.us.i, %.lr.ph.us.i135 ], [ %.2102.us.i, %485 ]
   %.0103110.us.i = phi i32 [ 0, %.lr.ph.us.i135 ], [ %449, %485 ]
   %449 = add nuw nsw i32 %.0103110.us.i, 32
-  %450 = icmp ugt i32 %449, %185
+  %450 = icmp samesign ugt i32 %449, %185
   %451 = sub nuw nsw i32 %185, %.0103110.us.i
   %452 = select i1 %450, i32 %451, i32 32
   %453 = load ptr, ptr @j2d_glPixelStorei, align 8
@@ -1078,12 +1078,12 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %500 = load ptr, ptr @j2d_glEnd, align 8
   tail call void %500() #5
   %501 = add nsw i32 %.095113.us.i, 32
-  %502 = icmp ult i32 %449, %185
+  %502 = icmp samesign ult i32 %449, %185
   br i1 %502, label %448, label %._crit_edge.us.i136, !llvm.loop !9
 
 ._crit_edge.us.i136:                              ; preds = %485
   %503 = add nsw i32 %.096118.us.i, 32
-  %504 = icmp ult i32 %440, %415
+  %504 = icmp samesign ult i32 %440, %415
   br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
 OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %81

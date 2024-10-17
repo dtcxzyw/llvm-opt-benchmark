@@ -1827,7 +1827,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit385: ; preds = %if
 for.cond112:                                      ; preds = %for.body115
   %inc129 = add nuw nsw i32 %i111.0427, 1
   %conv113 = zext nneg i32 %inc129 to i64
-  %cmp114 = icmp ult i32 %inc129, %113
+  %cmp114 = icmp samesign ult i32 %inc129, %113
   br i1 %cmp114, label %for.body115, label %for.end130, !llvm.loop !8
 
 for.body115:                                      ; preds = %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit385, %for.cond112

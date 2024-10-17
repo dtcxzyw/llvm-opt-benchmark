@@ -404,7 +404,7 @@ _ZL21get_physical_cpucountv.exit.i:               ; preds = %62, %._crit_edge.i5
 
 .lr.ph.i17.i:                                     ; preds = %_ZL21get_physical_cpucountv.exit.i, %_ZN4ncnn6CpuSet6enableEi.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4ncnn6CpuSet6enableEi.exit.i.i ], [ 0, %_ZL21get_physical_cpucountv.exit.i ]
-  %68 = icmp ult i64 %indvars.iv.i.i, 1024
+  %68 = icmp samesign ult i64 %indvars.iv.i.i, 1024
   br i1 %68, label %69, label %_ZN4ncnn6CpuSet6enableEi.exit.i.i
 
 69:                                               ; preds = %.lr.ph.i17.i
@@ -634,7 +634,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
 136:                                              ; preds = %131
   %137 = call i32 @fclose(ptr noundef nonnull %.013.i.i.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
-  %138 = icmp ult i64 %indvars.iv34.i.i, 1024
+  %138 = icmp samesign ult i64 %indvars.iv34.i.i, 1024
   br i1 %138, label %_ZN4ncnn6CpuSet6enableEi.exit53.sink.split.i.i, label %_ZN4ncnn6CpuSet6enableEi.exit53.i.i
 
 .thread.i11.i:                                    ; preds = %134, %125
@@ -642,7 +642,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc47.
   %139 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv34.i.i
   %140 = load i32, ptr %139, align 4
   %141 = icmp slt i32 %140, %119
-  %142 = icmp ult i64 %indvars.iv34.i.i, 1024
+  %142 = icmp samesign ult i64 %indvars.iv34.i.i, 1024
   %_ZL26g_cpu_affinity_mask_little._ZL23g_cpu_affinity_mask_big.i.i = select i1 %141, ptr @_ZL26g_cpu_affinity_mask_little, ptr @_ZL23g_cpu_affinity_mask_big
   br i1 %142, label %_ZN4ncnn6CpuSet6enableEi.exit53.sink.split.i.i, label %_ZN4ncnn6CpuSet6enableEi.exit53.i.i
 
@@ -864,7 +864,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i:       ; preds = %_ZNK4ncnn6CpuSet10i
 
 .lr.ph.i.i49.i:                                   ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i ]
-  %215 = icmp ult i64 %indvars.iv.i.i.i, 1024
+  %215 = icmp samesign ult i64 %indvars.iv.i.i.i, 1024
   br i1 %215, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i:        ; preds = %.lr.ph.i.i49.i
@@ -945,7 +945,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i:     ; preds = %_ZNK4ncnn6CpuSet10i
 
 .lr.ph.i.i64.i:                                   ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, %.lr.ph.preheader.i.i62.i
   %indvars.iv.i.i65.i = phi i64 [ 0, %.lr.ph.preheader.i.i62.i ], [ %indvars.iv.next.i.i67.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i ]
-  %244 = icmp ult i64 %indvars.iv.i.i65.i, 1024
+  %244 = icmp samesign ult i64 %indvars.iv.i.i65.i, 1024
   br i1 %244, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i:      ; preds = %.lr.ph.i.i64.i
@@ -1724,7 +1724,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
   %61 = zext i8 %60 to i32
   %62 = and i32 %61, 1
   %.not85 = icmp ne i32 %62, 0
-  %63 = icmp ult i64 %indvars.iv158, 1024
+  %63 = icmp samesign ult i64 %indvars.iv158, 1024
   %or.cond114 = select i1 %.not85, i1 %63, i1 false
   br i1 %or.cond114, label %64, label %_ZN4ncnn6CpuSet6enableEi.exit
 
@@ -1830,7 +1830,7 @@ _ZNK4ncnn6CpuSet11num_enabledEv.exit:             ; preds = %_ZNK4ncnn6CpuSet10i
   %.sroa.0.0144 = phi ptr [ %.sroa.0.1, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread ], [ null, %.preheader119 ]
   %.sroa.12.0143 = phi ptr [ %.sroa.12.1, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread ], [ null, %.preheader119 ]
   %.sroa.7.0142 = phi ptr [ %.sroa.7.1, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread ], [ null, %.preheader119 ]
-  %109 = icmp ult i64 %indvars.iv163, 1024
+  %109 = icmp samesign ult i64 %indvars.iv163, 1024
   br i1 %109, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit:              ; preds = %.lr.ph147

@@ -6775,7 +6775,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.i: ; preds = %
   %266 = getelementptr inbounds nuw i8, ptr %250, i64 40
   %267 = load i64, ptr %266, align 8, !noalias !82
   store i32 %265, ptr %241, align 8, !alias.scope !82
-  %268 = icmp ult i32 %265, 65
+  %268 = icmp samesign ult i32 %265, 65
   br i1 %268, label %269, label %277
 
 269:                                              ; preds = %263
@@ -6872,7 +6872,7 @@ _ZN4llvm5APIntC2Ejmbb.exit199.i:                  ; preds = %302, %294
   br i1 %.not340.i, label %321, label %336
 
 321:                                              ; preds = %307, %305
-  %322 = icmp ugt i32 %232, %183
+  %322 = icmp samesign ugt i32 %232, %183
   br i1 %322, label %323, label %336
 
 323:                                              ; preds = %321
@@ -7039,7 +7039,7 @@ _ZN4llvm5APIntD2Ev.exit204.i:                     ; preds = %392, %389, %385
   br label %_ZN4llvm5APIntD2Ev.exit205.i
 
 399:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit199.i
-  %400 = icmp ugt i32 %232, %183
+  %400 = icmp samesign ugt i32 %232, %183
   br i1 %400, label %401, label %435
 
 401:                                              ; preds = %399
@@ -7108,7 +7108,7 @@ _ZN4llvm5APInt12getOneBitSetEjj.exit.i:           ; preds = %415, %411
   br label %_ZN4llvm5APIntD2Ev.exit206.i
 
 435:                                              ; preds = %399
-  %436 = icmp ult i32 %232, %183
+  %436 = icmp samesign ult i32 %232, %183
   br i1 %227, label %437, label %458
 
 437:                                              ; preds = %435
@@ -9263,7 +9263,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
 
 137:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit, %69
   %.1 = phi ptr [ %72, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %.0, %69 ]
-  %.not55 = icmp ult i24 %33, 65536
+  %.not55 = icmp samesign ult i24 %33, 65536
   br i1 %.not55, label %151, label %138
 
 138:                                              ; preds = %137
@@ -13867,7 +13867,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %18
 36:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
   %37 = load ptr, ptr %10, align 8
   %38 = call fastcc i24 @_ZL20getUsualDeleteParamsPKN5clang12FunctionDeclE(ptr noundef %37)
-  %.sroa.4.0.extract.trunc = icmp ugt i24 %38, 65535
+  %.sroa.4.0.extract.trunc = icmp samesign ugt i24 %38, 65535
   %39 = and i24 %38, 256
   %.not56 = icmp eq i24 %39, 0
   br i1 %.not56, label %51, label %40
@@ -14068,7 +14068,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %24
 41:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
   %42 = load ptr, ptr %16, align 8
   %43 = call fastcc i24 @_ZL20getUsualDeleteParamsPKN5clang12FunctionDeclE(ptr noundef %42)
-  %.sroa.4.0.extract.trunc = icmp ugt i24 %43, 65535
+  %.sroa.4.0.extract.trunc = icmp samesign ugt i24 %43, 65535
   %44 = and i24 %43, 256
   %.not36 = icmp eq i24 %44, 0
   br i1 %.not36, label %55, label %45

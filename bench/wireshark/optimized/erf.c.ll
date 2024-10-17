@@ -256,7 +256,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   ]
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %.070115, 3
+  %23 = icmp samesign ult i32 %.070115, 3
   br i1 %23, label %.loopexit, label %.loopexit101
 
 24:                                               ; preds = %17
@@ -287,7 +287,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not94, label %37, label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = icmp ult i32 %.070115, 3
+  %38 = icmp samesign ult i32 %.070115, 3
   br i1 %38, label %.loopexit, label %84
 
 39:                                               ; preds = %27
@@ -410,7 +410,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not91, label %82, label %.loopexit
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.070115, 3
+  %83 = icmp samesign ult i32 %.070115, 3
   br i1 %83, label %.loopexit, label %84
 
 84:                                               ; preds = %77, %82, %32, %37
@@ -586,8 +586,8 @@ define internal range(i32 0, 2) i32 @erf_read(ptr noundef %0, ptr noundef %1, pt
   %75 = phi i8 [ %65, %.lr.ph.i.i ], [ %74, %.thread296.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %76 = icmp slt i64 %67, 0
-  %77 = icmp ult i64 %indvars.iv.i.i, 15
-  %78 = and i1 %77, %76
+  %77 = icmp samesign ult i64 %indvars.iv.i.i, 15
+  %78 = select i1 %76, i1 %77, i1 false
   br i1 %78, label %.lr.ph.i.i, label %erf_get_source_from_header.exit.thread.i, !llvm.loop !8
 
 erf_get_source_from_header.exit.i:                ; preds = %.lr.ph.i.i
@@ -984,7 +984,7 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   %indvars.iv.next.i129.i = add nuw nsw i64 %indvars.iv.i128.i, 1
   %277 = load i32, ptr %36, align 8
   %278 = zext i32 %277 to i64
-  %279 = icmp ult i64 %indvars.iv.next.i129.i, %278
+  %279 = icmp samesign ult i64 %indvars.iv.next.i129.i, %278
   br i1 %279, label %.lr.ph16.i.i, label %.loopexit.i.i, !llvm.loop !12
 
 .loopexit.i.i:                                    ; preds = %276, %.preheader.i.i, %.critedge.i.i, %.preheader7.i.i
@@ -2639,8 +2639,8 @@ define hidden i32 @erf_populate_interface_from_header(ptr noundef %0, ptr nounde
   %33 = phi i8 [ %18, %17 ], [ %27, %.thread ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = icmp slt i64 %20, 0
-  %35 = icmp ult i64 %indvars.iv.i, 15
-  %36 = and i1 %35, %34
+  %35 = icmp samesign ult i64 %indvars.iv.i, 15
+  %36 = select i1 %34, i1 %35, i1 false
   br i1 %36, label %17, label %erf_get_source_from_header.exit, !llvm.loop !8
 
 erf_get_source_from_header.exit:                  ; preds = %.thread.i, %28, %6
@@ -3306,7 +3306,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %52, ptr %53, align 8
-  %54 = icmp ugt i64 %50, 4294967295999999999
+  %54 = icmp samesign ugt i64 %50, 4294967295999999999
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %39
@@ -3528,8 +3528,8 @@ erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %157, %167, %164, %1
   %.144.us.i = phi i64 [ %.04361.us.i, %.lr.ph.split.us.split.i ], [ %.04361.us.i, %164 ], [ %.04361.us.i, %160 ], [ %168, %167 ], [ %.04361.us.i, %157 ]
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %169 = icmp slt i64 %153, 0
-  %170 = icmp ult i64 %indvars.iv82.i, 15
-  %171 = and i1 %170, %169
+  %170 = icmp samesign ult i64 %indvars.iv82.i, 15
+  %171 = select i1 %169, i1 %170, i1 false
   br i1 %171, label %.lr.ph.split.us.split.i, label %erf_update_anchors_from_header.exit, !llvm.loop !30
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
@@ -3595,8 +3595,8 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
   %.1.us71.i = phi ptr [ %.04163.us64.i, %.lr.ph.split.split.us.i ], [ %.04163.us64.i, %182 ], [ %.04163.us64.i, %erf_find_anchor_mapping.exit.us.i ], [ %.04163.us64.i, %191 ], [ %spec.select.us.i, %189 ], [ %.04163.us64.i, %186 ], [ %.04163.us64.i, %177 ]
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %194 = icmp slt i64 %173, 0
-  %195 = icmp ult i64 %indvars.iv79.i, 15
-  %196 = and i1 %195, %194
+  %195 = icmp samesign ult i64 %indvars.iv79.i, 15
+  %196 = select i1 %194, i1 %195, i1 false
   br i1 %196, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !30
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %225
@@ -3673,8 +3673,8 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %204
   %.1.i = phi ptr [ %.04163.i, %.lr.ph.split.split.i ], [ %.04163.i, %222 ], [ %.04163.i, %218 ], [ %.04163.i, %209 ], [ %.04163.i, %erf_find_anchor_mapping.exit.i ], [ %.04163.i, %202 ], [ %spec.select.i, %216 ], [ %.04163.i, %213 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %226 = icmp slt i64 %198, 0
-  %227 = icmp ult i64 %indvars.iv.i, 15
-  %228 = and i1 %227, %226
+  %227 = icmp samesign ult i64 %indvars.iv.i, 15
+  %228 = select i1 %226, i1 %227, i1 false
   br i1 %228, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %225, %193
@@ -4213,7 +4213,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %111 = mul nuw nsw i64 %109, 2000000000
   %112 = and i64 %111, 4294967296
   %113 = add nuw nsw i64 %112, %110
-  %114 = icmp ugt i64 %113, 4294967295999999999
+  %114 = icmp samesign ugt i64 %113, 4294967295999999999
   %115 = zext i1 %114 to i64
   %spec.select = add nuw nsw i64 %108, %115
   %116 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4370,8 +4370,8 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %.1.i = phi i32 [ %.04373.i, %142 ], [ %.04373.i, %180 ], [ %.04373.i, %178 ], [ 1, %177 ], [ 1, %174 ], [ 1, %.loopexit.i ], [ 1, %148 ]
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
   %183 = icmp slt i64 %144, 0
-  %184 = icmp ult i64 %indvars.iv.i187, 15
-  %185 = and i1 %184, %183
+  %184 = icmp samesign ult i64 %indvars.iv.i187, 15
+  %185 = select i1 %183, i1 %184, i1 false
   br i1 %185, label %142, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.thread.i
@@ -4962,7 +4962,7 @@ define internal fastcc void @erf_comment_to_sections(i16 noundef zeroext range(i
   %37 = add i16 %36, %35
   store i16 %37, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = icmp ult i64 %indvars.iv.next.i, %28
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %38, label %.lr.ph.i, label %erf_populate_section_length_by_tags.exit, !llvm.loop !36
 
 erf_populate_section_length_by_tags.exit:         ; preds = %.lr.ph.i, %24
@@ -5186,7 +5186,7 @@ erf_meta_write_tag.exit.thread.i:                 ; preds = %107, %100, %.lr.ph.
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i, %114
   br i1 %115, label %.lr.ph.i, label %erf_meta_write_section.exit, !llvm.loop !38
 
 erf_meta_write_section.exit:                      ; preds = %110, %74, %.preheader.i, %erf_meta_write_tag.exit.thread.i
@@ -5194,7 +5194,7 @@ erf_meta_write_section.exit:                      ; preds = %110, %74, %.prehead
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %116 = load i32, ptr %13, align 8
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next69, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next69, %117
   br i1 %118, label %74, label %.preheader.preheader, !llvm.loop !39
 
 .preheader.preheader:                             ; preds = %erf_meta_write_section.exit, %erf_meta_write_tag.exit
@@ -5264,7 +5264,7 @@ define internal fastcc void @erf_wtap_info_to_sections(ptr nocapture noundef rea
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = load i32, ptr %17, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i.i, %30
   br i1 %31, label %.lr.ph.i.i, label %erf_populate_section_length_by_tags.exit.i, !llvm.loop !36
 
 erf_populate_section_length_by_tags.exit.i:       ; preds = %.lr.ph.i.i, %9
@@ -5313,7 +5313,7 @@ erf_wtap_blocks_to_erf_sections.exit:             ; preds = %2, %erf_populate_se
   %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i17, 1
   %54 = load i32, ptr %42, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i.i18, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i.i18, %55
   br i1 %56, label %.lr.ph.i.i16, label %erf_populate_section_length_by_tags.exit.i19, !llvm.loop !36
 
 erf_populate_section_length_by_tags.exit.i19:     ; preds = %.lr.ph.i.i16, %34
@@ -5373,7 +5373,7 @@ erf_wtap_blocks_to_erf_sections.exit20:           ; preds = %erf_wtap_blocks_to_
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %87 = load i32, ptr %75, align 8
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next.i.i26, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next.i.i26, %88
   br i1 %89, label %.lr.ph.i.i24, label %erf_populate_section_length_by_tags.exit.i27, !llvm.loop !36
 
 erf_populate_section_length_by_tags.exit.i27:     ; preds = %.lr.ph.i.i24, %65
@@ -5387,7 +5387,7 @@ erf_wtap_blocks_to_erf_sections.exit28:           ; preds = %.lr.ph.split, %erf_
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next, %93
   br i1 %94, label %.lr.ph.split, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %erf_wtap_blocks_to_erf_sections.exit28, %erf_wtap_blocks_to_erf_sections.exit20
@@ -5471,8 +5471,8 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %.1 = phi i8 [ %.088143, %20 ], [ %.2, %33 ], [ %.088143, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = icmp slt i64 %22, 0
-  %39 = icmp ult i64 %indvars.iv, 15
-  %40 = and i1 %38, %39
+  %39 = icmp samesign ult i64 %indvars.iv, 15
+  %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %20, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %37
@@ -5507,7 +5507,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %55 = zext i1 %.098.lcssa173 to i32
   %56 = add nuw nsw i32 %54, %55
   %57 = add nuw nsw i32 %56, %50
-  %58 = icmp ugt i32 %57, 16
+  %58 = icmp samesign ugt i32 %57, 16
   br i1 %58, label %66, label %59
 
 59:                                               ; preds = %._crit_edge.thread
@@ -5516,7 +5516,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %62 = zext i16 %61 to i32
   %63 = shl nuw nsw i32 %56, 3
   %64 = add nuw nsw i32 %63, %62
-  %65 = icmp ugt i32 %64, 65535
+  %65 = icmp samesign ugt i32 %64, 65535
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %59, %._crit_edge.thread

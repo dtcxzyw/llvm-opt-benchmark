@@ -11777,7 +11777,7 @@ define hidden void @_ZN4call4room4Room14leave_internal17h0b16f6bbb784a881E.llvm.
   %15 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %16 = icmp ult i64 %15, 6
   tail call void @llvm.assume(i1 %16)
-  %switch = icmp ult i64 %15, 3
+  %switch = icmp samesign ult i64 %15, 3
   br i1 %switch, label %34, label %24
 
 17:                                               ; preds = %3
@@ -16515,7 +16515,7 @@ select.unfold479:                                 ; preds = %.noexc381, %706
   %814 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %815 = icmp ult i64 %814, 6
   tail call void @llvm.assume(i1 %815)
-  %switch250 = icmp ugt i64 %814, 2
+  %switch250 = icmp samesign ugt i64 %814, 2
   br i1 %switch250, label %817, label %816
 
 816:                                              ; preds = %841, %812
@@ -16613,7 +16613,7 @@ select.unfold479:                                 ; preds = %.noexc381, %706
   %847 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %848 = icmp ult i64 %847, 6
   tail call void @llvm.assume(i1 %848)
-  %switch254 = icmp ult i64 %847, 3
+  %switch254 = icmp samesign ult i64 %847, 3
   br i1 %switch254, label %874, label %849
 
 849:                                              ; preds = %845
@@ -16737,7 +16737,7 @@ select.unfold479:                                 ; preds = %.noexc381, %706
   %890 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %891 = icmp ult i64 %890, 6
   tail call void @llvm.assume(i1 %891)
-  %switch257 = icmp ugt i64 %890, 2
+  %switch257 = icmp samesign ugt i64 %890, 2
   br i1 %switch257, label %893, label %892
 
 892:                                              ; preds = %917, %888
@@ -16835,7 +16835,7 @@ select.unfold479:                                 ; preds = %.noexc381, %706
   %923 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %924 = icmp ult i64 %923, 6
   tail call void @llvm.assume(i1 %924)
-  %switch261 = icmp ult i64 %923, 3
+  %switch261 = icmp samesign ult i64 %923, 3
   br i1 %switch261, label %950, label %925
 
 925:                                              ; preds = %921
@@ -18417,7 +18417,7 @@ define noundef zeroext i1 @_ZN4call4room4Room18can_use_microphone17hed6aa821a72d
 define noundef zeroext i1 @_ZN4call4room4Room18can_share_projects17hd24ce7e11fdb551cE(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !range !2363, !noundef !4
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   ret i1 %switch
 }
 

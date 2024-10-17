@@ -3055,11 +3055,11 @@ define internal fastcc noundef range(i32 -71, 1) i32 @__check_ccs_header(ptr noc
   br i1 %124, label %125, label %158
 
 125:                                              ; preds = %112
-  %126 = icmp ugt i32 %117, 69
+  %126 = icmp samesign ugt i32 %117, 69
   br i1 %126, label %127, label %147
 
 127:                                              ; preds = %125
-  %128 = icmp ugt i32 %119, 5
+  %128 = icmp samesign ugt i32 %119, 5
   br i1 %128, label %129, label %140
 
 129:                                              ; preds = %127
@@ -3079,7 +3079,7 @@ define internal fastcc noundef range(i32 -71, 1) i32 @__check_ccs_header(ptr noc
   br label %154
 
 140:                                              ; preds = %127
-  %141 = icmp ugt i32 %119, 2
+  %141 = icmp samesign ugt i32 %119, 2
   %142 = getelementptr inbounds i8, ptr %3, i64 1268
   store i32 1, ptr %142, align 4
   %143 = getelementptr inbounds i8, ptr %3, i64 1272

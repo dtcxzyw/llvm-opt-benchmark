@@ -1705,7 +1705,7 @@ dissect_batadv_gwflags.exit.i.i:                  ; preds = %104, %49
   %150 = add nuw nsw i32 %.0108111.i.i, 1
   %151 = load i8, ptr %79, align 8
   %152 = zext i8 %151 to i32
-  %153 = icmp ult i32 %150, %152
+  %153 = icmp samesign ult i32 %150, %152
   br i1 %153, label %.lr.ph.i.i, label %dissect_batadv_batman_v5.exit.i, !llvm.loop !7
 
 dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batadv_gwflags.exit.i.i
@@ -1855,7 +1855,7 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   %248 = add nuw nsw i32 %.09396.i.i, 1
   %249 = load i8, ptr %203, align 1
   %250 = zext i8 %249 to i32
-  %251 = icmp ult i32 %248, %250
+  %251 = icmp samesign ult i32 %248, %250
   br i1 %251, label %.lr.ph.i65.i, label %dissect_batadv_batman_v7.exit.i, !llvm.loop !9
 
 dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
@@ -2028,7 +2028,7 @@ dissect_batadv_gwflags.exit.i71.i:                ; preds = %326, %264
   %362 = add nuw nsw i32 %.0105108.i.i, 1
   %363 = load i8, ptr %291, align 1
   %364 = zext i8 %363 to i32
-  %365 = icmp ult i32 %362, %364
+  %365 = icmp samesign ult i32 %362, %364
   br i1 %365, label %.lr.ph.i74.i, label %dissect_batadv_batman_v9.exit.i, !llvm.loop !11
 
 dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batadv_gwflags.exit.i71.i
@@ -2177,7 +2177,7 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   %459 = add nuw nsw i32 %.09396.i81.i, 1
   %460 = load i8, ptr %415, align 1
   %461 = zext i8 %460 to i32
-  %462 = icmp ult i32 %459, %461
+  %462 = icmp samesign ult i32 %459, %461
   br i1 %462, label %.lr.ph.i80.i, label %dissect_batadv_batman_v11.exit.i, !llvm.loop !13
 
 dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
@@ -2361,7 +2361,7 @@ dissect_batadv_gwflags.exit.i88.i:                ; preds = %546, %485
   %582 = add nuw nsw i32 %.0105108.i93.i, 1
   %583 = load i8, ptr %512, align 1
   %584 = zext i8 %583 to i32
-  %585 = icmp ult i32 %582, %584
+  %585 = icmp samesign ult i32 %582, %584
   br i1 %585, label %.lr.ph.i92.i, label %dissect_batadv_batman_v10.exit.i, !llvm.loop !15
 
 dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batadv_gwflags.exit.i88.i
@@ -2548,7 +2548,7 @@ dissect_batadv_gwflags.exit.i100.i:               ; preds = %661, %598
   %708 = add nuw nsw i32 %.0126129.i.i, 1
   %709 = load i8, ptr %628, align 2
   %710 = zext i8 %709 to i32
-  %711 = icmp ult i32 %708, %710
+  %711 = icmp samesign ult i32 %708, %710
   br i1 %711, label %.lr.ph.i103.i, label %._crit_edge.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %696, %dissect_batadv_gwflags.exit.i100.i
@@ -2746,7 +2746,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %813 = add nuw nsw i32 %.0108.us.i.i, 1
   %814 = load i8, ptr %740, align 4
   %815 = zext i8 %814 to i32
-  %816 = icmp ult i32 %813, %815
+  %816 = icmp samesign ult i32 %813, %815
   br i1 %816, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i38, !llvm.loop !19
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i36, %846
@@ -2800,7 +2800,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %848 = add nuw nsw i32 %.0108.i.i, 1
   %849 = load i8, ptr %740, align 4
   %850 = zext i8 %849 to i32
-  %851 = icmp ult i32 %848, %850
+  %851 = icmp samesign ult i32 %848, %850
   br i1 %851, label %.lr.ph.split.i.i, label %._crit_edge.i.i38, !llvm.loop !19
 
 ._crit_edge.i.i38:                                ; preds = %846, %811, %729
@@ -2964,7 +2964,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %952 = add nuw nsw i32 %.094.i.i, 1
   %953 = load i8, ptr %869, align 1
   %954 = zext i8 %953 to i32
-  %955 = icmp ult i32 %952, %954
+  %955 = icmp samesign ult i32 %952, %954
   br i1 %955, label %.lr.ph.i16.i, label %._crit_edge.i18.i, !llvm.loop !20
 
 ._crit_edge.i18.i:                                ; preds = %939, %860
@@ -3131,7 +3131,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %1058 = add nuw nsw i32 %.097.i.i, 1
   %1059 = load i8, ptr %977, align 8
   %1060 = zext i8 %1059 to i32
-  %1061 = icmp ult i32 %1058, %1060
+  %1061 = icmp samesign ult i32 %1058, %1060
   br i1 %1061, label %.lr.ph.i20.i, label %._crit_edge.i23.i, !llvm.loop !21
 
 ._crit_edge.i23.i:                                ; preds = %1045, %964
@@ -3340,7 +3340,7 @@ dissect_batadv_vis_v6.exit.sink.split.i:          ; preds = %1070, %1068, %1064,
   %1176 = add nuw nsw i32 %.098.i.i, 1
   %1177 = load i16, ptr %1117, align 2
   %1178 = zext i16 %1177 to i32
-  %1179 = icmp ult i32 %1176, %1178
+  %1179 = icmp samesign ult i32 %1176, %1178
   br i1 %1179, label %.lr.ph.i.i41, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %1164, %1154, %.thread.i.i
@@ -4162,7 +4162,7 @@ dissect_batadv_icmp_tp_v15.exit.i:                ; preds = %330, %244
   %.01819.i.i.i = phi i32 [ 20, %411 ], [ %427, %422 ]
   %417 = load i32, ptr @hf_batadv_icmp_rr_ether, align 4
   %418 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.01819.i.i.i, i32 noundef 6) #4
-  %.not.i.i.i = icmp ult i32 %.020.i.i.i, %412
+  %.not.i.i.i = icmp samesign ult i32 %.020.i.i.i, %412
   br i1 %.not.i.i.i, label %419, label %422
 
 419:                                              ; preds = %416
@@ -5303,7 +5303,7 @@ define internal fastcc void @dissect_batadv_icmp_rr(ptr nocapture noundef readon
   %.02729 = phi i32 [ %14, %7 ], [ %27, %22 ]
   %17 = load i32, ptr @hf_batadv_icmp_rr_ether, align 4
   %18 = tail call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %.02729, i32 noundef 6) #4
-  %.not = icmp ult i32 %.030, %8
+  %.not = icmp samesign ult i32 %.030, %8
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %16

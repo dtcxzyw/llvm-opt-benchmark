@@ -10726,7 +10726,7 @@ _ZN5drjit12DynamicArrayIjE7arange_Elll.exit:      ; preds = %.lr.ph.split.i, %.l
   %84 = trunc nuw nsw i32 %83 to i8
   %85 = sub nsw i8 31, %84
   %86 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65)
-  %87 = icmp ult i32 %86, 2
+  %87 = icmp samesign ult i32 %86, 2
   br i1 %87, label %_ZN5drjit7divisorIjiEC2Ej.exit.thread, label %89
 
 _ZN5drjit7divisorIjiEC2Ej.exit.thread:            ; preds = %_ZN5drjit12DynamicArrayIjE7arange_Elll.exit

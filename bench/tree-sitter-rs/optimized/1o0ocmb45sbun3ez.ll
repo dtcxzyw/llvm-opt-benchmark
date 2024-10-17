@@ -7053,7 +7053,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1f409437c4ff3a3bE.llvm.10157
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !2123)
   %30 = load i32, ptr %3, align 8, !range !2126, !alias.scope !2123, !noalias !2120, !noundef !4
-  %switch.i.i.i.i.i = icmp ult i32 %30, 2
+  %switch.i.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %switch.i.i.i.i.i, label %.body.i.i.i.i, label %31
 
 31:                                               ; preds = %28
@@ -7195,7 +7195,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h66023311b0902486E.llvm.10157
   %30 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !2161
   %31 = icmp ult i64 %30, 6
   tail call void @llvm.assume(i1 %31)
-  %switch.selectcmp55.i.i.i.i = icmp ugt i64 %30, 3
+  %switch.selectcmp55.i.i.i.i = icmp samesign ugt i64 %30, 3
   br i1 %switch.selectcmp55.i.i.i.i, label %32, label %19
 
 32:                                               ; preds = %29
@@ -7471,7 +7471,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h66023311b0902486E.llvm.10157
   %120 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !2161
   %121 = icmp ult i64 %120, 6
   call void @llvm.assume(i1 %121)
-  %switch.selectcmp63.i.i.i.i = icmp ugt i64 %120, 3
+  %switch.selectcmp63.i.i.i.i = icmp samesign ugt i64 %120, 3
   br i1 %switch.selectcmp63.i.i.i.i, label %122, label %106
 
 122:                                              ; preds = %.loopexit.i.i.i.i
@@ -8859,7 +8859,7 @@ define hidden void @"_ZN4core3ptr406drop_in_place$LT$alloc..vec..Vec$LT$alloc..v
 define internal void @"_ZN4core3ptr40drop_in_place$LT$ctrlc..error..Error$GT$17h84a98cf348d2ff68E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i32, ptr %0, align 8, !range !2126, !noundef !4
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   br i1 %switch, label %10, label %4
 
 4:                                                ; preds = %1
@@ -28532,7 +28532,7 @@ define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate12build_tables1
   %74 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %75 = icmp ult i64 %74, 6
   call void @llvm.assume(i1 %75)
-  %76 = icmp ult i64 %74, 3
+  %76 = icmp samesign ult i64 %74, 3
   br i1 %76, label %.preheader, label %79
 
 77:                                               ; preds = %79
@@ -32339,7 +32339,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %53 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %54 = icmp ult i64 %53, 6
   tail call void @llvm.assume(i1 %54)
-  %55 = icmp ult i64 %53, 3
+  %55 = icmp samesign ult i64 %53, 3
   br i1 %55, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.exit.thread", label %.critedge13
 
 .critedge13:                                      ; preds = %.critedge
@@ -32580,7 +32580,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap27
   %58 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %59 = icmp ult i64 %58, 6
   call void @llvm.assume(i1 %59)
-  %60 = icmp ult i64 %58, 3
+  %60 = icmp samesign ult i64 %58, 3
   br i1 %60, label %73, label %.critedge11
 
 .critedge11:                                      ; preds = %.critedge
@@ -32961,7 +32961,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22
   %117 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %118 = icmp ult i64 %117, 6
   tail call void @llvm.assume(i1 %118)
-  %119 = icmp ult i64 %117, 3
+  %119 = icmp samesign ult i64 %117, 3
   br i1 %119, label %"_ZN4core6option15Option$LT$T$GT$7or_else17haeadd6bb0cee2562E.exit.thread", label %.critedge22
 
 .critedge22:                                      ; preds = %.critedge
@@ -33067,7 +33067,7 @@ define hidden noundef zeroext i1 @"_ZN15tree_sitter_cli8generate12build_tables17
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 3
+  %40 = icmp samesign ult i64 %38, 3
   br i1 %40, label %51, label %.critedge31
 
 .critedge31:                                      ; preds = %.critedge
@@ -33278,7 +33278,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap24
   %137 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %138 = icmp ult i64 %137, 6
   call void @llvm.assume(i1 %138)
-  %139 = icmp ult i64 %137, 3
+  %139 = icmp samesign ult i64 %137, 3
   br i1 %139, label %51, label %.critedge35
 
 .critedge35:                                      ; preds = %.critedge33

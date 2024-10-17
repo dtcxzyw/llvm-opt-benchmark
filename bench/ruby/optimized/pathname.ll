@@ -2954,7 +2954,7 @@ rb_array_len.exit:                                ; preds = %21
 rb_array_len.exit.thread:                         ; preds = %21
   %26 = lshr i64 %22, 15
   %27 = and i64 %26, 127
-  %28 = icmp ult i64 %.0, %27
+  %28 = icmp samesign ult i64 %.0, %27
   br i1 %28, label %rb_array_const_ptr.exit, label %.loopexit
 
 29:                                               ; preds = %rb_array_len.exit
@@ -3061,7 +3061,7 @@ rb_array_len.exit:                                ; preds = %38
 rb_array_len.exit.thread:                         ; preds = %38
   %43 = lshr i64 %39, 15
   %44 = and i64 %43, 127
-  %45 = icmp ult i64 %.019, %44
+  %45 = icmp samesign ult i64 %.019, %44
   br i1 %45, label %rb_array_const_ptr.exit, label %.loopexit
 
 46:                                               ; preds = %rb_array_len.exit
@@ -3131,7 +3131,7 @@ rb_array_len.exit:                                ; preds = %23
 rb_array_len.exit.thread:                         ; preds = %23
   %28 = lshr i64 %24, 15
   %29 = and i64 %28, 127
-  %30 = icmp ult i64 %.0, %29
+  %30 = icmp samesign ult i64 %.0, %29
   br i1 %30, label %rb_array_const_ptr.exit, label %37
 
 31:                                               ; preds = %rb_array_len.exit

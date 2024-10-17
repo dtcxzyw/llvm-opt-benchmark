@@ -783,7 +783,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit97:               ; preds = %306, %308
   %314 = lshr i32 %298, 6
   %315 = add i32 %311, -1
   %316 = lshr i32 %315, 6
-  %.not32.i.i.i.i = icmp ugt i32 %314, %316
+  %.not32.i.i.i.i = icmp samesign ugt i32 %314, %316
   br i1 %.not32.i.i.i.i, label %._crit_edge223, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %313
@@ -931,7 +931,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit123:              ; preds = %390, %392
   %398 = lshr i32 %382, 6
   %399 = add i32 %395, -1
   %400 = lshr i32 %399, 6
-  %.not32.i.i.i.i124 = icmp ugt i32 %398, %400
+  %.not32.i.i.i.i124 = icmp samesign ugt i32 %398, %400
   br i1 %.not32.i.i.i.i124, label %._crit_edge227, label %.lr.ph.i.i.i.i125
 
 .lr.ph.i.i.i.i125:                                ; preds = %397

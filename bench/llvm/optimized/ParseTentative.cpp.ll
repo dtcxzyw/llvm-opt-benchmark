@@ -2597,7 +2597,7 @@ _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE
   %narrow1.i.i = add nuw nsw i8 %narrow.i.i, %26
   %27 = and i8 %20, 1
   %narrow2.i.i = add nuw nsw i8 %narrow1.i.i, %27
-  %28 = icmp ult i8 %narrow2.i.i, 2
+  %28 = icmp samesign ult i8 %narrow2.i.i, 2
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit
@@ -2662,7 +2662,7 @@ _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE
   %narrow1.i.i6 = add nuw nsw i8 %narrow.i.i5, %60
   %61 = and i8 %54, 1
   %narrow2.i.i7 = add nuw nsw i8 %narrow1.i.i6, %61
-  %62 = icmp ult i8 %narrow2.i.i7, 2
+  %62 = icmp samesign ult i8 %narrow2.i.i7, 2
   br i1 %62, label %64, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit8
@@ -2724,7 +2724,7 @@ _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE
   %narrow.i.i12 = add nuw nsw i8 %82, %78
   %narrow1.i.i13 = add nuw nsw i8 %narrow.i.i12, %80
   %narrow2.i.i14 = add nuw nsw i8 %narrow1.i.i13, %84
-  %85 = icmp ult i8 %narrow2.i.i14, 2
+  %85 = icmp samesign ult i8 %narrow2.i.i14, 2
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit15
@@ -2794,7 +2794,7 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread: ; preds 
 117:                                              ; preds = %114
   store i8 0, ptr %9, align 1
   %narrow2.i.i23 = add nuw nsw i8 %narrow.i.i12, %84
-  %118 = icmp ult i8 %narrow2.i.i23, 2
+  %118 = icmp samesign ult i8 %narrow2.i.i23, 2
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %117
@@ -2809,7 +2809,7 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread: ; preds 
 
 123:                                              ; preds = %117
   store i8 0, ptr %11, align 1
-  %124 = icmp ult i8 %narrow.i.i12, 2
+  %124 = icmp samesign ult i8 %narrow.i.i12, 2
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %123
@@ -2902,7 +2902,7 @@ define linkonce_odr hidden void @_ZN5clang6Parser40ConditionDeclarationOrInitSta
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   %narrow2.i = add nuw nsw i8 %narrow1.i, %13
-  %14 = icmp ult i8 %narrow2.i, 2
+  %14 = icmp samesign ult i8 %narrow2.i, 2
   br i1 %14, label %61, label %15
 
 15:                                               ; preds = %1

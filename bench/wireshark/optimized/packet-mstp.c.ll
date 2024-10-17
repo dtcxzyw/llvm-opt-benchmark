@@ -125,7 +125,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %25 = add i32 %4, 6
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25) #4
   %27 = and i32 %26, 65535
-  %28 = icmp ugt i32 %27, 2
+  %28 = icmp samesign ugt i32 %27, 2
   br i1 %28, label %29, label %.preheader
 
 29:                                               ; preds = %5
@@ -304,7 +304,7 @@ cobs_decode.exit.i:                               ; preds = %105, %88, %.lr.ph38
   %113 = xor i8 %110, 85
   %114 = zext i8 %113 to i64
   %115 = add nuw nsw i64 %.02535.i36.i, %114
-  %116 = icmp ugt i64 %115, 5
+  %116 = icmp samesign ugt i64 %115, 5
   br i1 %116, label %cobs_frame_decode.exit.thread, label %.preheader.i37.i
 
 .preheader.i37.i:                                 ; preds = %112

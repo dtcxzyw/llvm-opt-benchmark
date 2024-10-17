@@ -2159,7 +2159,7 @@ _ZNSt10shared_ptrIN6opencc10ConversionEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_count
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %591 = load i32, ptr %408, align 8, !noalias !25
   %592 = zext i32 %591 to i64
-  %593 = icmp ult i64 %indvars.iv.next.i, %592
+  %593 = icmp samesign ult i64 %indvars.iv.next.i, %592
   br i1 %593, label %417, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %_ZNSt10shared_ptrIN6opencc10ConversionEED2Ev.exit.i, %409
@@ -4009,7 +4009,7 @@ _ZNSt10shared_ptrIN6opencc4DictEED2Ev.exit:       ; preds = %57, %77, %90, %_ZNS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %29, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %indvars.iv.next, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %97, label %33, label %._crit_edge, !llvm.loop !38
 
 98:                                               ; preds = %3
@@ -7715,7 +7715,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
-  %15 = icmp ult i64 %.0.us, 15
+  %15 = icmp samesign ult i64 %.0.us, 15
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.split.us
 
@@ -7780,7 +7780,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
   %36 = icmp eq i32 %.0.i.i.i.i, -1
   %37 = xor i1 %36, %.0.i.i4.i.i
-  %38 = icmp ult i64 %.0, 15
+  %38 = icmp samesign ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us
 
@@ -9870,7 +9870,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %.7542 = phi i32 [ %spec.select236, %118 ], [ %.3183430, %.lr.ph544.preheader ]
   %.6192541 = phi i64 [ %124, %118 ], [ %spec.select, %.lr.ph544.preheader ]
   %.sroa.0.11540 = phi ptr [ %120, %118 ], [ %104, %.lr.ph544.preheader ]
-  %115 = icmp ugt i8 %114, 57
+  %115 = icmp samesign ugt i8 %114, 57
   %116 = icmp ugt i64 %.6192541, 9007199254740991
   %or.cond = select i1 %115, i1 true, i1 %116
   br i1 %or.cond, label %.thread624, label %118
@@ -9914,7 +9914,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %.9556 = phi i32 [ %.10, %145 ], [ %.6621, %.lr.ph558.preheader ]
   %.4203555 = phi double [ %.5204, %145 ], [ %.3202619, %.lr.ph558.preheader ]
   %.sroa.0.12554 = phi ptr [ %.sroa.0.13, %145 ], [ %.sroa.0.10618, %.lr.ph558.preheader ]
-  %133 = icmp ult i8 %132, 58
+  %133 = icmp samesign ult i8 %132, 58
   br i1 %133, label %134, label %.critedge238
 
 134:                                              ; preds = %.lr.ph558

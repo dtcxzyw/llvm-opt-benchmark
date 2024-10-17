@@ -439,7 +439,7 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %126 = load i32, ptr %19, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next105, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next105, %127
   br i1 %128, label %.lr.ph99, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %118, %.preheader
@@ -2558,7 +2558,7 @@ define range(i32 -1, 1) i32 @H5SM_get_info(ptr noundef %0, ptr noundef %1) local
   %67 = phi i32 [ %54, %.lr.ph ], [ %.pre, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66, %43
@@ -3784,7 +3784,7 @@ define range(i32 -1, 1) i32 @H5SM_ih_size(ptr noundef %0, ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %15, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %19, label %.thread82
 
 83:                                               ; preds = %68, %75

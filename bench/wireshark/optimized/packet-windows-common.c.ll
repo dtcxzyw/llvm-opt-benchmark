@@ -7930,7 +7930,7 @@ match_wkwn_sids.exit295.thread:                   ; preds = %123, %match_wkwn_si
   br i1 %70, label %139, label %152
 
 139:                                              ; preds = %138
-  %140 = icmp ult i32 %.1224327, 5
+  %140 = icmp samesign ult i32 %.1224327, 5
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %139

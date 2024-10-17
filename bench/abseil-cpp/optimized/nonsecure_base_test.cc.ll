@@ -4634,7 +4634,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %shr8.i63 = lshr i64 %xor7.i62, 18
   %xor9.i64 = xor i64 %shr8.i63, %xor7.i62
   %shl.i.i = shl i64 %xor9.i64, 32
-  %cmp.i43 = icmp ugt i64 %11, 622
+  %cmp.i43 = icmp samesign ugt i64 %11, 622
   br i1 %cmp.i43, label %if.then.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
 
 if.then.i:                                        ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit116

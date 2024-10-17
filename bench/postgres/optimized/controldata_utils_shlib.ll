@@ -85,7 +85,7 @@ define ptr @get_controlfile(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 30:                                               ; preds = %28
   %31 = icmp ne i32 %11, %23
-  %32 = icmp ult i32 %.034, 10
+  %32 = icmp samesign ult i32 %.034, 10
   %or.cond = select i1 %31, i1 %32, i1 false
   br i1 %or.cond, label %33, label %37
 

@@ -115,7 +115,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder5buildEv(ptr nocapture nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = load i32, ptr %17, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %40, label %20, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %20, %10
@@ -194,7 +194,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_pa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %16, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
   br i1 %39, label %19, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %19, %9
@@ -505,7 +505,7 @@ _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %29
   %60 = add nsw i32 %55, 1
   %61 = icmp sgt i32 %55, -1
   %62 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %60)
-  %63 = icmp ult i32 %62, 2
+  %63 = icmp samesign ult i32 %62, 2
   %or.cond.i.i.i.i.i.i.i.i = select i1 %61, i1 %63, i1 false
   %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 true)
   %65 = sub nuw nsw i32 32, %64
@@ -572,7 +572,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %103 = add nsw i32 %98, 1
   %104 = icmp sgt i32 %98, -1
   %105 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %103)
-  %106 = icmp ult i32 %105, 2
+  %106 = icmp samesign ult i32 %105, 2
   %or.cond.i.i.i.i.i.i.i.i61 = select i1 %104, i1 %106, i1 false
   %107 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %103, i1 true)
   %108 = sub nuw nsw i32 32, %107
@@ -626,7 +626,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %137 = add nsw i32 %132, 1
   %138 = icmp sgt i32 %132, -1
   %139 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %137)
-  %140 = icmp ult i32 %139, 2
+  %140 = icmp samesign ult i32 %139, 2
   %or.cond.i.i.i.i.i.i.i.i67 = select i1 %138, i1 %140, i1 false
   %141 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %137, i1 true)
   %142 = sub nuw nsw i32 32, %141
@@ -696,7 +696,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %182 = add nsw i32 %177, 1
   %183 = icmp sgt i32 %177, -1
   %184 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %182)
-  %185 = icmp ult i32 %184, 2
+  %185 = icmp samesign ult i32 %184, 2
   %or.cond.i.i.i.i.i.i.i.i72 = select i1 %183, i1 %185, i1 false
   %186 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %182, i1 true)
   %187 = sub nuw nsw i32 32, %186
@@ -750,7 +750,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %216 = add nsw i32 %211, 1
   %217 = icmp sgt i32 %211, -1
   %218 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %216)
-  %219 = icmp ult i32 %218, 2
+  %219 = icmp samesign ult i32 %218, 2
   %or.cond.i.i.i.i.i.i.i.i78 = select i1 %217, i1 %219, i1 false
   %220 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %216, i1 true)
   %221 = sub nuw nsw i32 32, %220
@@ -841,7 +841,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %251
   %270 = add nsw i32 %265, 1
   %271 = icmp sgt i32 %265, -1
   %272 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %270)
-  %273 = icmp ult i32 %272, 2
+  %273 = icmp samesign ult i32 %272, 2
   %or.cond.i.i.i.i.i.i.i.i84 = select i1 %271, i1 %273, i1 false
   %274 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %270, i1 true)
   %275 = sub nuw nsw i32 32, %274
@@ -898,7 +898,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %307 = add nsw i32 %302, 1
   %308 = icmp sgt i32 %302, -1
   %309 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %307)
-  %310 = icmp ult i32 %309, 2
+  %310 = icmp samesign ult i32 %309, 2
   %or.cond.i.i.i.i.i.i.i.i90 = select i1 %308, i1 %310, i1 false
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %307, i1 true)
   %312 = sub nuw nsw i32 32, %311
@@ -960,7 +960,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %345 = add nsw i32 %340, 1
   %346 = icmp sgt i32 %340, -1
   %347 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %345)
-  %348 = icmp ult i32 %347, 2
+  %348 = icmp samesign ult i32 %347, 2
   %or.cond.i.i.i.i.i.i.i.i96 = select i1 %346, i1 %348, i1 false
   %349 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %345, i1 true)
   %350 = sub nuw nsw i32 32, %349
@@ -1018,7 +1018,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %383 = add nsw i32 %378, 1
   %384 = icmp sgt i32 %378, -1
   %385 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %383)
-  %386 = icmp ult i32 %385, 2
+  %386 = icmp samesign ult i32 %385, 2
   %or.cond.i.i.i.i.i.i.i.i102 = select i1 %384, i1 %386, i1 false
   %387 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %383, i1 true)
   %388 = sub nuw nsw i32 32, %387
@@ -1108,7 +1108,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %437 = load i32, ptr %432, align 8
   %438 = zext i32 %437 to i64
-  %439 = icmp ult i64 %indvars.iv.next, %438
+  %439 = icmp samesign ult i64 %indvars.iv.next, %438
   br i1 %439, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %431
@@ -1208,7 +1208,7 @@ _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %25
   %57 = add nsw i32 %52, 1
   %58 = icmp sgt i32 %52, -1
   %59 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %57)
-  %60 = icmp ult i32 %59, 2
+  %60 = icmp samesign ult i32 %59, 2
   %or.cond.i.i.i.i.i.i.i.i = select i1 %58, i1 %60, i1 false
   %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
   %62 = sub nuw nsw i32 32, %61
@@ -1275,7 +1275,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %100 = add nsw i32 %95, 1
   %101 = icmp sgt i32 %95, -1
   %102 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %100)
-  %103 = icmp ult i32 %102, 2
+  %103 = icmp samesign ult i32 %102, 2
   %or.cond.i.i.i.i.i.i.i.i31 = select i1 %101, i1 %103, i1 false
   %104 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %100, i1 true)
   %105 = sub nuw nsw i32 32, %104
@@ -1332,7 +1332,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %137 = add nsw i32 %132, 1
   %138 = icmp sgt i32 %132, -1
   %139 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %137)
-  %140 = icmp ult i32 %139, 2
+  %140 = icmp samesign ult i32 %139, 2
   %or.cond.i.i.i.i.i.i.i.i37 = select i1 %138, i1 %140, i1 false
   %141 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %137, i1 true)
   %142 = sub nuw nsw i32 32, %141
@@ -1402,7 +1402,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %181 = add nsw i32 %176, 1
   %182 = icmp sgt i32 %176, -1
   %183 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %181)
-  %184 = icmp ult i32 %183, 2
+  %184 = icmp samesign ult i32 %183, 2
   %or.cond.i.i.i.i.i.i.i.i43 = select i1 %182, i1 %184, i1 false
   %185 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %181, i1 true)
   %186 = sub nuw nsw i32 32, %185
@@ -1658,7 +1658,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -1720,7 +1720,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -1810,7 +1810,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_vectorsEPK
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -2066,7 +2066,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %_ZNK15VLoopReductio
   %131 = add nsw i32 %127, 1
   %132 = icmp sgt i32 %127, -1
   %133 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %131)
-  %134 = icmp ult i32 %133, 2
+  %134 = icmp samesign ult i32 %133, 2
   %or.cond.i.i.i.i.i.i = select i1 %132, i1 %134, i1 false
   %135 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %131, i1 true)
   %136 = sub nuw nsw i32 32, %135
@@ -2095,7 +2095,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   %149 = add nsw i32 %144, 1
   %150 = icmp sgt i32 %144, -1
   %151 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %149)
-  %152 = icmp ult i32 %151, 2
+  %152 = icmp samesign ult i32 %151, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %150, i1 %152, i1 false
   %153 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %154 = sub nuw nsw i32 32, %153
@@ -2166,7 +2166,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_scalarsEP4
   %28 = add nsw i32 %23, 1
   %29 = icmp sgt i32 %23, -1
   %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   %or.cond.i.i.i.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %33 = sub nuw nsw i32 32, %32
@@ -2595,7 +2595,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %168 = add nsw i32 %163, 1
   %169 = icmp sgt i32 %163, -1
   %170 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %168)
-  %171 = icmp ult i32 %170, 2
+  %171 = icmp samesign ult i32 %170, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %169, i1 %171, i1 false
   %172 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %168, i1 true)
   %173 = sub nuw nsw i32 32, %172
@@ -2719,7 +2719,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
   %253 = add nsw i32 %248, 1
   %254 = icmp sgt i32 %248, -1
   %255 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %253)
-  %256 = icmp ult i32 %255, 2
+  %256 = icmp samesign ult i32 %255, 2
   %or.cond.i.i.i.i.i.i.i74 = select i1 %254, i1 %256, i1 false
   %257 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %258 = sub nuw nsw i32 32, %257
@@ -2828,7 +2828,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   %323 = add nsw i32 %318, 1
   %324 = icmp sgt i32 %318, -1
   %325 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %323)
-  %326 = icmp ult i32 %325, 2
+  %326 = icmp samesign ult i32 %325, 2
   %or.cond.i.i.i.i.i.i.i78 = select i1 %324, i1 %326, i1 false
   %327 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %323, i1 true)
   %328 = sub nuw nsw i32 32, %327
@@ -2912,7 +2912,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
   %373 = add nsw i32 %368, 1
   %374 = icmp sgt i32 %368, -1
   %375 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %373)
-  %376 = icmp ult i32 %375, 2
+  %376 = icmp samesign ult i32 %375, 2
   %or.cond.i.i.i.i.i.i.i82 = select i1 %374, i1 %376, i1 false
   %377 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %373, i1 true)
   %378 = sub nuw nsw i32 32, %377

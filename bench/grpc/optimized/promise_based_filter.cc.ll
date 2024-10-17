@@ -2317,7 +2317,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont66, %if.
   %inc = add nuw nsw i64 %i.054, 1
   %32 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %32, 1
-  %cmp27 = icmp ult i64 %inc, %shr.i.i
+  %cmp27 = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %for.cond.preheader
@@ -2567,7 +2567,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.040, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -2748,7 +2748,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.th
   %inc = add nuw nsw i64 %i.020, 1
   %11 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %11, 1
-  %cmp = icmp ult i64 %inc, %shr.i.i
+  %cmp = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !39
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -28686,7 +28686,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont7
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %invoke.cont7 ], [ %div.i11, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -28982,7 +28982,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -29126,7 +29126,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

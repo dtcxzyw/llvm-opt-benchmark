@@ -156,7 +156,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 56:                                               ; preds = %51, %50
   %57 = add nuw nsw i64 %25, 1
   %58 = and i64 %57, 127
-  %59 = icmp ugt i64 %58, 63
+  %59 = icmp samesign ugt i64 %58, 63
   br i1 %59, label %.thread, label %18, !prof !9, !llvm.loop !10
 
 .thread:                                          ; preds = %18, %56, %24
@@ -633,7 +633,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
   %59 = add nuw nsw i64 %64, 1
   %60 = load i8, ptr %53, align 2
   %61 = zext i8 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %63, label %.loopexit3, !llvm.loop !42
 
 63:                                               ; preds = %58, %56
@@ -807,7 +807,7 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   %21 = phi i8 [ %6, %15 ], [ %6, %11 ], [ 0, %.preheader ]
   %22 = add nuw nsw i64 %5, 1
   %23 = zext i32 %20 to i64
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp samesign ult i64 %22, %23
   br i1 %24, label %.preheader, label %25, !llvm.loop !45
 
 25:                                               ; preds = %19
@@ -843,7 +843,7 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   tail call void @kfree(ptr noundef %44) #8
   %45 = add nuw nsw i64 %35, 1
   %46 = and i64 %45, 127
-  %47 = icmp ugt i64 %46, 63
+  %47 = icmp samesign ugt i64 %46, 63
   br i1 %47, label %.thread, label %28, !prof !9, !llvm.loop !46
 
 .thread:                                          ; preds = %28, %38, %34

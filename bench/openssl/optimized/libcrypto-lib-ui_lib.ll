@@ -1758,7 +1758,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %or.cond1 = icmp ult i32 %type, 4
+  %or.cond1 = icmp samesign ult i32 %type, 4
   %cmp5 = icmp eq ptr %result_buf, null
   %or.cond2 = and i1 %or.cond1, %cmp5
   br i1 %or.cond2, label %if.then6, label %if.else7

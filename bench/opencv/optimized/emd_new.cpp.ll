@@ -2714,7 +2714,7 @@ _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1169
   br i1 %.not175.i.i, label %1245, label %._crit_edge.thread.i.i111
 
 .preheader95.i.i:                                 ; preds = %.critedge2.i.i.i
-  %1175 = icmp ugt i32 %.0.i.i.i109, 1
+  %1175 = icmp samesign ugt i32 %.0.i.i.i109, 1
   %1176 = zext nneg i32 %.0.i.i.i109 to i64
   br i1 %1175, label %.lr.ph.i23.i, label %.lr.ph120.preheader.i.i
 
@@ -2734,7 +2734,7 @@ _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1169
   %.175.i.i = select i1 %1180, ptr %1178, ptr %.074115.i.i
   %.171.i.i = select i1 %1180, float %1179, float %.070116.i.i
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 2
-  %1181 = icmp ult i64 %indvars.iv.next.i25.i, %1176
+  %1181 = icmp samesign ult i64 %indvars.iv.next.i25.i, %1176
   br i1 %1181, label %.lr.ph.i23.i, label %.lr.ph120.preheader.i.i, !llvm.loop !59
 
 .lr.ph120.i.i:                                    ; preds = %.lr.ph120.i.i, %.lr.ph120.preheader.i.i
@@ -2752,7 +2752,7 @@ _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1169
   %1191 = load ptr, ptr %1187, align 8
   store float %1190, ptr %1191, align 8
   %indvars.iv.next140.i.i = add nuw nsw i64 %indvars.iv139.i.i, 2
-  %1192 = icmp ult i64 %indvars.iv.next140.i.i, %1176
+  %1192 = icmp samesign ult i64 %indvars.iv.next140.i.i, %1176
   br i1 %1192, label %.lr.ph120.i.i, label %._crit_edge.i20.i, !llvm.loop !60
 
 ._crit_edge.i20.i:                                ; preds = %.lr.ph120.i.i
@@ -3500,7 +3500,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIiEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -3694,7 +3694,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIfEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -3967,7 +3967,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIcEEvRPT_mt(pt
 
 40:                                               ; preds = %32
   %41 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %3)
-  %42 = icmp ult i16 %41, 2
+  %42 = icmp samesign ult i16 %41, 2
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40

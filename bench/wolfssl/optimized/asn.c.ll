@@ -268,7 +268,7 @@ if.else.i:                                        ; preds = %if.then3.i
   br i1 %cmp9.i, label %if.end22.thread.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  %cmp14.i = icmp ugt i32 %and.i, 4
+  %cmp14.i = icmp samesign ugt i32 %and.i, 4
   br i1 %cmp14.i, label %GetLength_ex.exit, label %if.else19.i
 
 if.else19.i:                                      ; preds = %if.else12.i
@@ -369,7 +369,7 @@ if.else:                                          ; preds = %if.then3
   br i1 %cmp9, label %if.end22.thread, label %if.else12
 
 if.else12:                                        ; preds = %if.else
-  %cmp14 = icmp ugt i32 %and, 4
+  %cmp14 = icmp samesign ugt i32 %and, 4
   br i1 %cmp14, label %return, label %if.else19
 
 if.else19:                                        ; preds = %if.else12
@@ -516,7 +516,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %GetASNHeader.exit, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -628,7 +628,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %GetASNHeader_ex.exit, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -742,7 +742,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %GetASNHeader.exit, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -854,7 +854,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %GetASNHeader_ex.exit, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -968,7 +968,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %GetASNHeader.exit, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -1080,7 +1080,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %return, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -1738,7 +1738,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -2478,7 +2478,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %GetASNHeader.exit, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -2675,7 +2675,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -2839,7 +2839,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -3016,7 +3016,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -3346,7 +3346,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -3475,7 +3475,7 @@ if.else.i.i.i.i53:                                ; preds = %if.then3.i.i.i.i50
   br i1 %cmp9.i.i.i.i54, label %if.end22.thread.i.i.i.i89, label %if.else12.i.i.i.i55
 
 if.else12.i.i.i.i55:                              ; preds = %if.else.i.i.i.i53
-  %cmp14.i.i.i.i56 = icmp ugt i32 %and.i.i.i.i51, 4
+  %cmp14.i.i.i.i56 = icmp samesign ugt i32 %and.i.i.i.i51, 4
   br i1 %cmp14.i.i.i.i56, label %return, label %if.else19.i.i.i.i57
 
 if.else19.i.i.i.i57:                              ; preds = %if.else12.i.i.i.i55
@@ -3581,7 +3581,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %return, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -3677,7 +3677,7 @@ if.else.i.i.i.i120:                               ; preds = %if.then3.i.i.i.i117
   br i1 %cmp9.i.i.i.i121, label %if.end22.thread.i.i.i.i156, label %if.else12.i.i.i.i122
 
 if.else12.i.i.i.i122:                             ; preds = %if.else.i.i.i.i120
-  %cmp14.i.i.i.i123 = icmp ugt i32 %and.i.i.i.i118, 4
+  %cmp14.i.i.i.i123 = icmp samesign ugt i32 %and.i.i.i.i118, 4
   br i1 %cmp14.i.i.i.i123, label %if.end52, label %if.else19.i.i.i.i124
 
 if.else19.i.i.i.i124:                             ; preds = %if.else12.i.i.i.i122
@@ -3787,7 +3787,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %if.end135.thread336, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -3882,7 +3882,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i8 %7, 4
+  %cmp14.i.i = icmp samesign ugt i8 %7, 4
   br i1 %cmp14.i.i, label %if.end135.thread336, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.else12.i.i
@@ -3990,7 +3990,7 @@ if.else.i.i82:                                    ; preds = %if.then3.i.i79
   br i1 %cmp9.i.i83, label %if.end22.thread.i.i118, label %if.else12.i.i84
 
 if.else12.i.i84:                                  ; preds = %if.else.i.i82
-  %cmp14.i.i85 = icmp ugt i8 %15, 4
+  %cmp14.i.i85 = icmp samesign ugt i8 %15, 4
   br i1 %cmp14.i.i85, label %if.end58, label %if.end22.i.i90
 
 if.end22.i.i90:                                   ; preds = %if.else12.i.i84
@@ -4113,7 +4113,7 @@ if.else.i.i149:                                   ; preds = %if.then3.i.i146
   br i1 %cmp9.i.i150, label %if.end22.thread.i.i185, label %if.else12.i.i151
 
 if.else12.i.i151:                                 ; preds = %if.else.i.i149
-  %cmp14.i.i152 = icmp ugt i8 %23, 4
+  %cmp14.i.i152 = icmp samesign ugt i8 %23, 4
   br i1 %cmp14.i.i152, label %if.end135.thread336, label %if.end22.i.i157
 
 if.end22.i.i157:                                  ; preds = %if.else12.i.i151
@@ -4260,7 +4260,7 @@ if.else.i.i220:                                   ; preds = %if.then3.i.i217
   br i1 %cmp9.i.i221, label %if.end22.thread.i.i256, label %if.else12.i.i222
 
 if.else12.i.i222:                                 ; preds = %if.else.i.i220
-  %cmp14.i.i223 = icmp ugt i8 %33, 4
+  %cmp14.i.i223 = icmp samesign ugt i8 %33, 4
   br i1 %cmp14.i.i223, label %if.end135.thread336, label %if.end22.i.i228
 
 if.end22.i.i228:                                  ; preds = %if.else12.i.i222
@@ -5467,7 +5467,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -5593,7 +5593,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -6802,7 +6802,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -6894,7 +6894,7 @@ if.else.i.i.i.i38:                                ; preds = %if.then3.i.i.i.i35
   br i1 %cmp9.i.i.i.i39, label %if.end22.thread.i.i.i.i74, label %if.else12.i.i.i.i40
 
 if.else12.i.i.i.i40:                              ; preds = %if.else.i.i.i.i38
-  %cmp14.i.i.i.i41 = icmp ugt i32 %and.i.i.i.i36, 4
+  %cmp14.i.i.i.i41 = icmp samesign ugt i32 %and.i.i.i.i36, 4
   br i1 %cmp14.i.i.i.i41, label %return, label %if.else19.i.i.i.i42
 
 if.else19.i.i.i.i42:                              ; preds = %if.else12.i.i.i.i40
@@ -7028,7 +7028,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -7133,7 +7133,7 @@ if.else.i.i.i.i66:                                ; preds = %if.then3.i.i.i.i63
   br i1 %cmp9.i.i.i.i67, label %if.end22.thread.i.i.i.i102, label %if.else12.i.i.i.i68
 
 if.else12.i.i.i.i68:                              ; preds = %if.else.i.i.i.i66
-  %cmp14.i.i.i.i69 = icmp ugt i32 %and.i.i.i.i64, 4
+  %cmp14.i.i.i.i69 = icmp samesign ugt i32 %and.i.i.i.i64, 4
   br i1 %cmp14.i.i.i.i69, label %return, label %if.else19.i.i.i.i70
 
 if.else19.i.i.i.i70:                              ; preds = %if.else12.i.i.i.i68
@@ -7233,7 +7233,7 @@ if.else.i.i.i.i132:                               ; preds = %if.then3.i.i.i.i129
   br i1 %cmp9.i.i.i.i133, label %if.end22.thread.i.i.i.i168, label %if.else12.i.i.i.i134
 
 if.else12.i.i.i.i134:                             ; preds = %if.else.i.i.i.i132
-  %cmp14.i.i.i.i135 = icmp ugt i32 %and.i.i.i.i130, 4
+  %cmp14.i.i.i.i135 = icmp samesign ugt i32 %and.i.i.i.i130, 4
   br i1 %cmp14.i.i.i.i135, label %return, label %if.else19.i.i.i.i136
 
 if.else19.i.i.i.i136:                             ; preds = %if.else12.i.i.i.i134
@@ -7573,7 +7573,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -7672,7 +7672,7 @@ if.else.i.i.i.i78:                                ; preds = %if.then3.i.i.i.i75
   br i1 %cmp9.i.i.i.i79, label %if.end22.thread.i.i.i.i114, label %if.else12.i.i.i.i80
 
 if.else12.i.i.i.i80:                              ; preds = %if.else.i.i.i.i78
-  %cmp14.i.i.i.i81 = icmp ugt i32 %and.i.i.i.i76, 4
+  %cmp14.i.i.i.i81 = icmp samesign ugt i32 %and.i.i.i.i76, 4
   br i1 %cmp14.i.i.i.i81, label %return, label %if.else19.i.i.i.i82
 
 if.else19.i.i.i.i82:                              ; preds = %if.else12.i.i.i.i80
@@ -7769,7 +7769,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %return, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -8046,7 +8046,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -8221,7 +8221,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -9247,7 +9247,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %return, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -9340,7 +9340,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -9433,7 +9433,7 @@ if.else.i.i.i.i.i63:                              ; preds = %if.then3.i.i.i.i.i6
   br i1 %cmp9.i.i.i.i.i64, label %if.end22.thread.i.i.i.i.i99, label %if.else12.i.i.i.i.i65
 
 if.else12.i.i.i.i.i65:                            ; preds = %if.else.i.i.i.i.i63
-  %cmp14.i.i.i.i.i66 = icmp ugt i32 %and.i.i.i.i.i61, 4
+  %cmp14.i.i.i.i.i66 = icmp samesign ugt i32 %and.i.i.i.i.i61, 4
   br i1 %cmp14.i.i.i.i.i66, label %return, label %if.else19.i.i.i.i.i67
 
 if.else19.i.i.i.i.i67:                            ; preds = %if.else12.i.i.i.i.i65
@@ -9556,7 +9556,7 @@ if.else.i.i.i.i91.i:                              ; preds = %if.then3.i.i.i.i88.
   br i1 %cmp9.i.i.i.i92.i, label %if.end22.thread.i.i.i.i127.i, label %if.else12.i.i.i.i93.i
 
 if.else12.i.i.i.i93.i:                            ; preds = %if.else.i.i.i.i91.i
-  %cmp14.i.i.i.i94.i = icmp ugt i32 %and.i.i.i.i89.i, 4
+  %cmp14.i.i.i.i94.i = icmp samesign ugt i32 %and.i.i.i.i89.i, 4
   br i1 %cmp14.i.i.i.i94.i, label %if.then5.i.i.i.i131.i, label %if.else19.i.i.i.i95.i
 
 if.else19.i.i.i.i95.i:                            ; preds = %if.else12.i.i.i.i93.i
@@ -9654,7 +9654,7 @@ if.else.i.i.i.i156.i:                             ; preds = %if.then3.i.i.i.i153
   br i1 %cmp9.i.i.i.i157.i, label %if.end22.thread.i.i.i.i192.i, label %if.else12.i.i.i.i158.i
 
 if.else12.i.i.i.i158.i:                           ; preds = %if.else.i.i.i.i156.i
-  %cmp14.i.i.i.i159.i = icmp ugt i32 %and.i.i.i.i154.i, 4
+  %cmp14.i.i.i.i159.i = icmp samesign ugt i32 %and.i.i.i.i154.i, 4
   br i1 %cmp14.i.i.i.i159.i, label %return, label %if.else19.i.i.i.i160.i
 
 if.else19.i.i.i.i160.i:                           ; preds = %if.else12.i.i.i.i158.i
@@ -9751,7 +9751,7 @@ if.else.i.i.i.i222.i:                             ; preds = %if.then3.i.i.i.i219
   br i1 %cmp9.i.i.i.i223.i, label %if.end22.thread.i.i.i.i258.i, label %if.else12.i.i.i.i224.i
 
 if.else12.i.i.i.i224.i:                           ; preds = %if.else.i.i.i.i222.i
-  %cmp14.i.i.i.i225.i = icmp ugt i32 %and.i.i.i.i220.i, 4
+  %cmp14.i.i.i.i225.i = icmp samesign ugt i32 %and.i.i.i.i220.i, 4
   br i1 %cmp14.i.i.i.i225.i, label %return, label %if.else19.i.i.i.i226.i
 
 if.else19.i.i.i.i226.i:                           ; preds = %if.else12.i.i.i.i224.i
@@ -9814,7 +9814,7 @@ if.end45.i.i.i.i213.i:                            ; preds = %while.end.i.i.i.i25
 if.end23.i:                                       ; preds = %if.end45.i.i.i.i213.i
   %conv.i = zext i32 %idx.1.i.i.i.i215.i to i64
   %add24.i = add nuw nsw i64 %conv.i, 3
-  %cmp26.i = icmp ugt i64 %add24.i, %conv25.i
+  %cmp26.i = icmp samesign ugt i64 %add24.i, %conv25.i
   br i1 %cmp26.i, label %return, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end23.i
@@ -9861,7 +9861,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %return, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -10013,7 +10013,7 @@ if.else.i.i277.i:                                 ; preds = %if.then3.i.i274.i
   br i1 %cmp9.i.i278.i, label %if.end22.thread.i.i313.i, label %if.else12.i.i279.i
 
 if.else12.i.i279.i:                               ; preds = %if.else.i.i277.i
-  %cmp14.i.i280.i = icmp ugt i32 %and.i.i275.i, 4
+  %cmp14.i.i280.i = icmp samesign ugt i32 %and.i.i275.i, 4
   br i1 %cmp14.i.i280.i, label %return, label %if.else19.i.i281.i
 
 if.else19.i.i281.i:                               ; preds = %if.else12.i.i279.i
@@ -10894,7 +10894,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %GetDateInfo.exit, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -11054,7 +11054,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %return, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -11153,7 +11153,7 @@ if.else.i.i.i.i49.i:                              ; preds = %if.then3.i.i.i.i46.
   br i1 %cmp9.i.i.i.i50.i, label %if.end22.thread.i.i.i.i85.i, label %if.else12.i.i.i.i51.i
 
 if.else12.i.i.i.i51.i:                            ; preds = %if.else.i.i.i.i49.i
-  %cmp14.i.i.i.i52.i = icmp ugt i32 %and.i.i.i.i47.i, 4
+  %cmp14.i.i.i.i52.i = icmp samesign ugt i32 %and.i.i.i.i47.i, 4
   br i1 %cmp14.i.i.i.i52.i, label %return, label %if.else19.i.i.i.i53.i
 
 if.else19.i.i.i.i53.i:                            ; preds = %if.else12.i.i.i.i51.i
@@ -11355,7 +11355,7 @@ if.else.i.i.i.i.i45:                              ; preds = %if.then3.i.i.i.i.i4
   br i1 %cmp9.i.i.i.i.i46, label %if.end22.thread.i.i.i.i.i81, label %if.else12.i.i.i.i.i47
 
 if.else12.i.i.i.i.i47:                            ; preds = %if.else.i.i.i.i.i45
-  %cmp14.i.i.i.i.i48 = icmp ugt i32 %and.i.i.i.i.i43, 4
+  %cmp14.i.i.i.i.i48 = icmp samesign ugt i32 %and.i.i.i.i.i43, 4
   br i1 %cmp14.i.i.i.i.i48, label %if.then19, label %if.else19.i.i.i.i.i49
 
 if.else19.i.i.i.i.i49:                            ; preds = %if.else12.i.i.i.i.i47
@@ -11486,7 +11486,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -11685,7 +11685,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %GetCertKey.exit.thread, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -11888,7 +11888,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i.
   br i1 %cmp9.i.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i.i, label %if.else12.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
-  %cmp14.i.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i.i, label %StoreRsaKey.exit.i, label %if.else19.i.i.i.i.i.i
 
 if.else19.i.i.i.i.i.i:                            ; preds = %if.else12.i.i.i.i.i.i
@@ -12592,7 +12592,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %if.then27.thread, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -12684,7 +12684,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %if.then27.thread, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -12799,7 +12799,7 @@ if.else.i.i.i.i60.i:                              ; preds = %if.then3.i.i.i.i57.
   br i1 %cmp9.i.i.i.i61.i, label %if.end22.thread.i.i.i.i96.i, label %if.else12.i.i.i.i62.i
 
 if.else12.i.i.i.i62.i:                            ; preds = %if.else.i.i.i.i60.i
-  %cmp14.i.i.i.i63.i = icmp ugt i32 %and.i.i.i.i58.i, 4
+  %cmp14.i.i.i.i63.i = icmp samesign ugt i32 %and.i.i.i.i58.i, 4
   br i1 %cmp14.i.i.i.i63.i, label %if.then27.thread, label %if.else19.i.i.i.i64.i
 
 if.else19.i.i.i.i64.i:                            ; preds = %if.else12.i.i.i.i62.i
@@ -12938,7 +12938,7 @@ if.else.i.i.i.i138.i:                             ; preds = %if.then3.i.i.i.i135
   br i1 %cmp9.i.i.i.i139.i, label %if.end22.thread.i.i.i.i174.i, label %if.else12.i.i.i.i140.i
 
 if.else12.i.i.i.i140.i:                           ; preds = %if.else.i.i.i.i138.i
-  %cmp14.i.i.i.i141.i = icmp ugt i32 %and.i.i.i.i136.i, 4
+  %cmp14.i.i.i.i141.i = icmp samesign ugt i32 %and.i.i.i.i136.i, 4
   br i1 %cmp14.i.i.i.i141.i, label %if.then27.thread, label %if.else19.i.i.i.i142.i
 
 if.else19.i.i.i.i142.i:                           ; preds = %if.else12.i.i.i.i140.i
@@ -13059,7 +13059,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then3.i.i.i.i.i.
   br i1 %cmp9.i.i.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i.i.i, label %if.else12.i.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i.i.i.i.i.i
-  %cmp14.i.i.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i.i.i
 
 if.else19.i.i.i.i.i.i.i:                          ; preds = %if.else12.i.i.i.i.i.i.i
@@ -13231,7 +13231,7 @@ if.else.i.i.i.i.i122.i.i:                         ; preds = %if.then3.i.i.i.i.i1
   br i1 %cmp9.i.i.i.i.i123.i.i, label %if.end22.thread.i.i.i.i.i158.i.i, label %if.else12.i.i.i.i.i124.i.i
 
 if.else12.i.i.i.i.i124.i.i:                       ; preds = %if.else.i.i.i.i.i122.i.i
-  %cmp14.i.i.i.i.i125.i.i = icmp ugt i32 %and.i.i.i.i.i120.i.i, 4
+  %cmp14.i.i.i.i.i125.i.i = icmp samesign ugt i32 %and.i.i.i.i.i120.i.i, 4
   br i1 %cmp14.i.i.i.i.i125.i.i, label %select.unfold.i.i, label %if.else19.i.i.i.i.i126.i.i
 
 if.else19.i.i.i.i.i126.i.i:                       ; preds = %if.else12.i.i.i.i.i124.i.i
@@ -13321,7 +13321,7 @@ if.else.i.i.i.i60.i.i.i:                          ; preds = %if.then3.i.i.i.i57.
   br i1 %cmp9.i.i.i.i61.i.i.i, label %if.end22.thread.i.i.i.i96.i.i.i, label %if.else12.i.i.i.i62.i.i.i
 
 if.else12.i.i.i.i62.i.i.i:                        ; preds = %if.else.i.i.i.i60.i.i.i
-  %cmp14.i.i.i.i63.i.i.i = icmp ugt i32 %and.i.i.i.i58.i.i.i, 4
+  %cmp14.i.i.i.i63.i.i.i = icmp samesign ugt i32 %and.i.i.i.i58.i.i.i, 4
   br i1 %cmp14.i.i.i.i63.i.i.i, label %select.unfold.i.i, label %if.else19.i.i.i.i64.i.i.i
 
 if.else19.i.i.i.i64.i.i.i:                        ; preds = %if.else12.i.i.i.i62.i.i.i
@@ -13416,7 +13416,7 @@ if.else.i.i.i.i205.i:                             ; preds = %if.then3.i.i.i.i202
   br i1 %cmp9.i.i.i.i206.i, label %if.end22.thread.i.i.i.i241.i, label %if.else12.i.i.i.i207.i
 
 if.else12.i.i.i.i207.i:                           ; preds = %if.else.i.i.i.i205.i
-  %cmp14.i.i.i.i208.i = icmp ugt i32 %and.i.i.i.i203.i, 4
+  %cmp14.i.i.i.i208.i = icmp samesign ugt i32 %and.i.i.i.i203.i, 4
   br i1 %cmp14.i.i.i.i208.i, label %select.unfold.i.i, label %if.else19.i.i.i.i209.i
 
 if.else19.i.i.i.i209.i:                           ; preds = %if.else12.i.i.i.i207.i
@@ -13512,7 +13512,7 @@ if.else.i.i126.i.i.i:                             ; preds = %if.then3.i.i123.i.i
   br i1 %cmp9.i.i127.i.i.i, label %if.end22.thread.i.i162.i.i.i, label %if.else12.i.i128.i.i.i
 
 if.else12.i.i128.i.i.i:                           ; preds = %if.else.i.i126.i.i.i
-  %cmp14.i.i129.i.i.i = icmp ugt i32 %and.i.i124.i.i.i, 4
+  %cmp14.i.i129.i.i.i = icmp samesign ugt i32 %and.i.i124.i.i.i, 4
   br i1 %cmp14.i.i129.i.i.i, label %select.unfold.i.i, label %if.else19.i.i130.i.i.i
 
 if.else19.i.i130.i.i.i:                           ; preds = %if.else12.i.i128.i.i.i
@@ -13644,7 +13644,7 @@ if.else.i.i199.i.i.i:                             ; preds = %if.then3.i.i196.i.i
   br i1 %cmp9.i.i200.i.i.i, label %if.end22.thread.i.i235.i.i.i, label %if.else12.i.i201.i.i.i
 
 if.else12.i.i201.i.i.i:                           ; preds = %if.else.i.i199.i.i.i
-  %cmp14.i.i202.i.i.i = icmp ugt i32 %and.i.i197.i.i.i, 4
+  %cmp14.i.i202.i.i.i = icmp samesign ugt i32 %and.i.i197.i.i.i, 4
   br i1 %cmp14.i.i202.i.i.i, label %select.unfold.i.i, label %if.else19.i.i203.i.i.i
 
 if.else19.i.i203.i.i.i:                           ; preds = %if.else12.i.i201.i.i.i
@@ -13740,7 +13740,7 @@ if.else.i.i265.i.i.i:                             ; preds = %if.then3.i.i262.i.i
   br i1 %cmp9.i.i266.i.i.i, label %if.end22.thread.i.i301.i.i.i, label %if.else12.i.i267.i.i.i
 
 if.else12.i.i267.i.i.i:                           ; preds = %if.else.i.i265.i.i.i
-  %cmp14.i.i268.i.i.i = icmp ugt i32 %and.i.i263.i.i.i, 4
+  %cmp14.i.i268.i.i.i = icmp samesign ugt i32 %and.i.i263.i.i.i, 4
   br i1 %cmp14.i.i268.i.i.i, label %select.unfold.i.i, label %if.else19.i.i269.i.i.i
 
 if.else19.i.i269.i.i.i:                           ; preds = %if.else12.i.i267.i.i.i
@@ -13874,7 +13874,7 @@ if.else.i.i.i.i.i241.i.i:                         ; preds = %if.then3.i.i.i.i.i2
   br i1 %cmp9.i.i.i.i.i242.i.i, label %if.end22.thread.i.i.i.i.i277.i.i, label %if.else12.i.i.i.i.i243.i.i
 
 if.else12.i.i.i.i.i243.i.i:                       ; preds = %if.else.i.i.i.i.i241.i.i
-  %cmp14.i.i.i.i.i244.i.i = icmp ugt i32 %and.i.i.i.i.i239.i.i, 4
+  %cmp14.i.i.i.i.i244.i.i = icmp samesign ugt i32 %and.i.i.i.i.i239.i.i, 4
   br i1 %cmp14.i.i.i.i.i244.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i.i.i.i245.i.i
 
 if.else19.i.i.i.i.i245.i.i:                       ; preds = %if.else12.i.i.i.i.i243.i.i
@@ -13982,7 +13982,7 @@ if.else.i.i.i199.i.i:                             ; preds = %if.then3.i.i.i196.i
   br i1 %cmp9.i.i.i200.i.i, label %if.end22.thread.i.i.i235.i.i, label %if.else12.i.i.i201.i.i
 
 if.else12.i.i.i201.i.i:                           ; preds = %if.else.i.i.i199.i.i
-  %cmp14.i.i.i202.i.i = icmp ugt i32 %and.i.i.i197.i.i, 4
+  %cmp14.i.i.i202.i.i = icmp samesign ugt i32 %and.i.i.i197.i.i, 4
   br i1 %cmp14.i.i.i202.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i.i203.i.i
 
 if.else19.i.i.i203.i.i:                           ; preds = %if.else12.i.i.i201.i.i
@@ -14098,7 +14098,7 @@ if.else.i.i110.i.i.i:                             ; preds = %if.then3.i.i107.i.i
   br i1 %cmp9.i.i111.i.i.i, label %if.end22.thread.i.i146.i.i.i, label %if.else12.i.i112.i.i.i
 
 if.else12.i.i112.i.i.i:                           ; preds = %if.else.i.i110.i.i.i
-  %cmp14.i.i113.i.i.i = icmp ugt i32 %and.i.i108.i.i.i, 4
+  %cmp14.i.i113.i.i.i = icmp samesign ugt i32 %and.i.i108.i.i.i, 4
   br i1 %cmp14.i.i113.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i114.i.i.i
 
 if.else19.i.i114.i.i.i:                           ; preds = %if.else12.i.i112.i.i.i
@@ -14193,7 +14193,7 @@ if.else.i.i.i.i174.i.i.i:                         ; preds = %if.then3.i.i.i.i171
   br i1 %cmp9.i.i.i.i175.i.i.i, label %if.end22.thread.i.i.i.i210.i.i.i, label %if.else12.i.i.i.i176.i.i.i
 
 if.else12.i.i.i.i176.i.i.i:                       ; preds = %if.else.i.i.i.i174.i.i.i
-  %cmp14.i.i.i.i177.i.i.i = icmp ugt i32 %and.i.i.i.i172.i.i.i, 4
+  %cmp14.i.i.i.i177.i.i.i = icmp samesign ugt i32 %and.i.i.i.i172.i.i.i, 4
   br i1 %cmp14.i.i.i.i177.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i.i.i178.i.i.i
 
 if.else19.i.i.i.i178.i.i.i:                       ; preds = %if.else12.i.i.i.i176.i.i.i
@@ -14309,7 +14309,7 @@ if.else.i.i237.i.i.i:                             ; preds = %if.then3.i.i234.i.i
   br i1 %cmp9.i.i238.i.i.i, label %if.end22.thread.i.i273.i.i.i, label %if.else12.i.i239.i.i.i
 
 if.else12.i.i239.i.i.i:                           ; preds = %if.else.i.i237.i.i.i
-  %cmp14.i.i240.i.i.i = icmp ugt i32 %and.i.i235.i.i.i, 4
+  %cmp14.i.i240.i.i.i = icmp samesign ugt i32 %and.i.i235.i.i.i, 4
   br i1 %cmp14.i.i240.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i241.i.i.i
 
 if.else19.i.i241.i.i.i:                           ; preds = %if.else12.i.i239.i.i.i
@@ -14425,7 +14425,7 @@ if.else.i.i300.i.i.i:                             ; preds = %if.then3.i.i297.i.i
   br i1 %cmp9.i.i301.i.i.i, label %if.end22.thread.i.i336.i.i.i, label %if.else12.i.i302.i.i.i
 
 if.else12.i.i302.i.i.i:                           ; preds = %if.else.i.i300.i.i.i
-  %cmp14.i.i303.i.i.i = icmp ugt i32 %and.i.i298.i.i.i, 4
+  %cmp14.i.i303.i.i.i = icmp samesign ugt i32 %and.i.i298.i.i.i, 4
   br i1 %cmp14.i.i303.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i304.i.i.i
 
 if.else19.i.i304.i.i.i:                           ; preds = %if.else12.i.i302.i.i.i
@@ -14573,7 +14573,7 @@ if.else.i.i364.i.i.i:                             ; preds = %if.then3.i.i361.i.i
   br i1 %cmp9.i.i365.i.i.i, label %if.end22.thread.i.i400.i.i.i, label %if.else12.i.i366.i.i.i
 
 if.else12.i.i366.i.i.i:                           ; preds = %if.else.i.i364.i.i.i
-  %cmp14.i.i367.i.i.i = icmp ugt i32 %and.i.i362.i.i.i, 4
+  %cmp14.i.i367.i.i.i = icmp samesign ugt i32 %and.i.i362.i.i.i, 4
   br i1 %cmp14.i.i367.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i368.i.i.i
 
 if.else19.i.i368.i.i.i:                           ; preds = %if.else12.i.i366.i.i.i
@@ -14665,7 +14665,7 @@ if.else.i.i423.i.i.i:                             ; preds = %if.then3.i.i420.i.i
   br i1 %cmp9.i.i424.i.i.i, label %if.end22.thread.i.i459.i.i.i, label %if.else12.i.i425.i.i.i
 
 if.else12.i.i425.i.i.i:                           ; preds = %if.else.i.i423.i.i.i
-  %cmp14.i.i426.i.i.i = icmp ugt i32 %and.i.i421.i.i.i, 4
+  %cmp14.i.i426.i.i.i = icmp samesign ugt i32 %and.i.i421.i.i.i, 4
   br i1 %cmp14.i.i426.i.i.i, label %GetASNTag.exit.i.i.i189.i, label %if.else19.i.i427.i.i.i
 
 if.else19.i.i427.i.i.i:                           ; preds = %if.else12.i.i425.i.i.i
@@ -14753,7 +14753,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i.
   br i1 %cmp9.i.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i.i, label %if.else12.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
-  %cmp14.i.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i.i.i.i.i
 
 if.else19.i.i.i.i.i.i:                            ; preds = %if.else12.i.i.i.i.i.i
@@ -14870,7 +14870,7 @@ if.else.i.i66.i.i.i.i:                            ; preds = %if.then3.i.i63.i.i.
   br i1 %cmp9.i.i67.i.i.i.i, label %if.end22.thread.i.i102.i.i.i.i, label %if.else12.i.i68.i.i.i.i
 
 if.else12.i.i68.i.i.i.i:                          ; preds = %if.else.i.i66.i.i.i.i
-  %cmp14.i.i69.i.i.i.i = icmp ugt i32 %and.i.i64.i.i.i.i, 4
+  %cmp14.i.i69.i.i.i.i = icmp samesign ugt i32 %and.i.i64.i.i.i.i, 4
   br i1 %cmp14.i.i69.i.i.i.i, label %return.sink.split.i.i.i, label %if.else19.i.i70.i.i.i.i
 
 if.else19.i.i70.i.i.i.i:                          ; preds = %if.else12.i.i68.i.i.i.i
@@ -14982,7 +14982,7 @@ if.else.i.i486.i.i.i:                             ; preds = %if.then3.i.i483.i.i
   br i1 %cmp9.i.i487.i.i.i, label %if.end22.thread.i.i522.i.i.i, label %if.else12.i.i488.i.i.i
 
 if.else12.i.i488.i.i.i:                           ; preds = %if.else.i.i486.i.i.i
-  %cmp14.i.i489.i.i.i = icmp ugt i32 %and.i.i484.i.i.i, 4
+  %cmp14.i.i489.i.i.i = icmp samesign ugt i32 %and.i.i484.i.i.i, 4
   br i1 %cmp14.i.i489.i.i.i, label %DecodeAltNames.exit.i.i, label %if.else19.i.i490.i.i.i
 
 if.else19.i.i490.i.i.i:                           ; preds = %if.else12.i.i488.i.i.i
@@ -15210,7 +15210,7 @@ if.else.i.i.i.i.i314.i.i:                         ; preds = %if.then3.i.i.i.i.i3
   br i1 %cmp9.i.i.i.i.i315.i.i, label %if.end22.thread.i.i.i.i.i350.i.i, label %if.else12.i.i.i.i.i316.i.i
 
 if.else12.i.i.i.i.i316.i.i:                       ; preds = %if.else.i.i.i.i.i314.i.i
-  %cmp14.i.i.i.i.i317.i.i = icmp ugt i32 %and.i.i.i.i.i312.i.i, 4
+  %cmp14.i.i.i.i.i317.i.i = icmp samesign ugt i32 %and.i.i.i.i.i312.i.i, 4
   br i1 %cmp14.i.i.i.i.i317.i.i, label %.loopexit.i.i, label %if.else19.i.i.i.i.i318.i.i
 
 if.else19.i.i.i.i.i318.i.i:                       ; preds = %if.else12.i.i.i.i.i316.i.i
@@ -15378,7 +15378,7 @@ if.else.i.i.i.i.i493.i.i:                         ; preds = %if.then3.i.i.i.i.i4
   br i1 %cmp9.i.i.i.i.i494.i.i, label %if.end22.thread.i.i.i.i.i529.i.i, label %if.else12.i.i.i.i.i495.i.i
 
 if.else12.i.i.i.i.i495.i.i:                       ; preds = %if.else.i.i.i.i.i493.i.i
-  %cmp14.i.i.i.i.i496.i.i = icmp ugt i32 %and.i.i.i.i.i491.i.i, 4
+  %cmp14.i.i.i.i.i496.i.i = icmp samesign ugt i32 %and.i.i.i.i.i491.i.i, 4
   br i1 %cmp14.i.i.i.i.i496.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i497.i.i
 
 if.else19.i.i.i.i.i497.i.i:                       ; preds = %if.else12.i.i.i.i.i495.i.i
@@ -15469,7 +15469,7 @@ if.else.i.i.i451.i.i:                             ; preds = %if.then3.i.i.i448.i
   br i1 %cmp9.i.i.i452.i.i, label %if.end22.thread.i.i.i487.i.i, label %if.else12.i.i.i453.i.i
 
 if.else12.i.i.i453.i.i:                           ; preds = %if.else.i.i.i451.i.i
-  %cmp14.i.i.i454.i.i = icmp ugt i32 %and.i.i.i449.i.i, 4
+  %cmp14.i.i.i454.i.i = icmp samesign ugt i32 %and.i.i.i449.i.i, 4
   br i1 %cmp14.i.i.i454.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i455.i.i
 
 if.else19.i.i.i455.i.i:                           ; preds = %if.else12.i.i.i453.i.i
@@ -15578,7 +15578,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then3.i.i.i.i.i.
   br i1 %cmp9.i.i.i.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i.i.i.i, label %if.else12.i.i.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i
-  %cmp14.i.i.i.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i.i.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i.i.i.i
 
 if.else19.i.i.i.i.i.i.i.i:                        ; preds = %if.else12.i.i.i.i.i.i.i.i
@@ -15667,7 +15667,7 @@ if.else.i.i.i.i409.i.i:                           ; preds = %if.then3.i.i.i.i406
   br i1 %cmp9.i.i.i.i410.i.i, label %if.end22.thread.i.i.i.i445.i.i, label %if.else12.i.i.i.i411.i.i
 
 if.else12.i.i.i.i411.i.i:                         ; preds = %if.else.i.i.i.i409.i.i
-  %cmp14.i.i.i.i412.i.i = icmp ugt i32 %and.i.i.i.i407.i.i, 4
+  %cmp14.i.i.i.i412.i.i = icmp samesign ugt i32 %and.i.i.i.i407.i.i, 4
   br i1 %cmp14.i.i.i.i412.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i413.i.i
 
 if.else19.i.i.i.i413.i.i:                         ; preds = %if.else12.i.i.i.i411.i.i
@@ -15777,7 +15777,7 @@ if.else.i.i.i.i49.i.i.i.i:                        ; preds = %if.then3.i.i.i.i46.
   br i1 %cmp9.i.i.i.i50.i.i.i.i, label %if.end22.thread.i.i.i.i85.i.i.i.i, label %if.else12.i.i.i.i51.i.i.i.i
 
 if.else12.i.i.i.i51.i.i.i.i:                      ; preds = %if.else.i.i.i.i49.i.i.i.i
-  %cmp14.i.i.i.i52.i.i.i.i = icmp ugt i32 %and.i.i.i.i47.i.i.i.i, 4
+  %cmp14.i.i.i.i52.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i47.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i52.i.i.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i53.i.i.i.i
 
 if.else19.i.i.i.i53.i.i.i.i:                      ; preds = %if.else12.i.i.i.i51.i.i.i.i
@@ -15959,7 +15959,7 @@ if.else.i.i.i.i.i618.i.i:                         ; preds = %if.then3.i.i.i.i.i6
   br i1 %cmp9.i.i.i.i.i619.i.i, label %if.end22.thread.i.i.i.i.i654.i.i, label %if.else12.i.i.i.i.i620.i.i
 
 if.else12.i.i.i.i.i620.i.i:                       ; preds = %if.else.i.i.i.i.i618.i.i
-  %cmp14.i.i.i.i.i621.i.i = icmp ugt i32 %and.i.i.i.i.i616.i.i, 4
+  %cmp14.i.i.i.i.i621.i.i = icmp samesign ugt i32 %and.i.i.i.i.i616.i.i, 4
   br i1 %cmp14.i.i.i.i.i621.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i622.i.i
 
 if.else19.i.i.i.i.i622.i.i:                       ; preds = %if.else12.i.i.i.i.i620.i.i
@@ -16059,7 +16059,7 @@ if.else.i.i.i576.i.i:                             ; preds = %if.then3.i.i.i573.i
   br i1 %cmp9.i.i.i577.i.i, label %if.end22.thread.i.i.i612.i.i, label %if.else12.i.i.i578.i.i
 
 if.else12.i.i.i578.i.i:                           ; preds = %if.else.i.i.i576.i.i
-  %cmp14.i.i.i579.i.i = icmp ugt i32 %and.i.i.i574.i.i, 4
+  %cmp14.i.i.i579.i.i = icmp samesign ugt i32 %and.i.i.i574.i.i, 4
   br i1 %cmp14.i.i.i579.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i580.i.i
 
 if.else19.i.i.i580.i.i:                           ; preds = %if.else12.i.i.i578.i.i
@@ -19168,7 +19168,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -19341,7 +19341,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -19585,7 +19585,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -19709,7 +19709,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -19837,7 +19837,7 @@ if.else.i.i.i.i97:                                ; preds = %if.then3.i.i.i.i94
   br i1 %cmp9.i.i.i.i98, label %if.end22.thread.i.i.i.i133, label %if.else12.i.i.i.i99
 
 if.else12.i.i.i.i99:                              ; preds = %if.else.i.i.i.i97
-  %cmp14.i.i.i.i100 = icmp ugt i32 %and.i.i.i.i95, 4
+  %cmp14.i.i.i.i100 = icmp samesign ugt i32 %and.i.i.i.i95, 4
   br i1 %cmp14.i.i.i.i100, label %return, label %if.else19.i.i.i.i101
 
 if.else19.i.i.i.i101:                             ; preds = %if.else12.i.i.i.i99
@@ -19932,7 +19932,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end22.thread.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp ugt i32 %and.i.i.i.i.i, 4
+  %cmp14.i.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i.i, label %return, label %if.else19.i.i.i.i.i
 
 if.else19.i.i.i.i.i:                              ; preds = %if.else12.i.i.i.i.i
@@ -20642,7 +20642,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -20773,7 +20773,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i.i
   br i1 %cmp9.i.i.i, label %if.end22.thread.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp14.i.i.i = icmp ugt i32 %and.i.i.i, 4
+  %cmp14.i.i.i = icmp samesign ugt i32 %and.i.i.i, 4
   br i1 %cmp14.i.i.i, label %return, label %if.else19.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else12.i.i.i
@@ -20899,7 +20899,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -20998,7 +20998,7 @@ if.else.i.i.i.i37:                                ; preds = %if.then3.i.i.i.i34
   br i1 %cmp9.i.i.i.i38, label %if.end22.thread.i.i.i.i73, label %if.else12.i.i.i.i39
 
 if.else12.i.i.i.i39:                              ; preds = %if.else.i.i.i.i37
-  %cmp14.i.i.i.i40 = icmp ugt i32 %and.i.i.i.i35, 4
+  %cmp14.i.i.i.i40 = icmp samesign ugt i32 %and.i.i.i.i35, 4
   br i1 %cmp14.i.i.i.i40, label %return, label %if.else19.i.i.i.i41
 
 if.else19.i.i.i.i41:                              ; preds = %if.else12.i.i.i.i39
@@ -21097,7 +21097,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -21217,7 +21217,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %return, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i
@@ -21316,7 +21316,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br i1 %cmp9.i.i, label %if.end22.thread.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %cmp14.i.i = icmp ugt i32 %and.i.i, 4
+  %cmp14.i.i = icmp samesign ugt i32 %and.i.i, 4
   br i1 %cmp14.i.i, label %return, label %if.else19.i.i
 
 if.else19.i.i:                                    ; preds = %if.else12.i.i
@@ -21428,7 +21428,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i
   br i1 %cmp9.i.i.i.i, label %if.end22.thread.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %cmp14.i.i.i.i = icmp ugt i32 %and.i.i.i.i, 4
+  %cmp14.i.i.i.i = icmp samesign ugt i32 %and.i.i.i.i, 4
   br i1 %cmp14.i.i.i.i, label %if.end, label %if.else19.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %if.else12.i.i.i.i

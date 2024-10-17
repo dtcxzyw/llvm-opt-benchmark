@@ -5114,7 +5114,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %14 = icmp eq i16 %13, 0
-  %15 = icmp ult i64 %indvars.iv, 3
+  %15 = icmp samesign ult i64 %indvars.iv, 3
   %or.cond = select i1 %14, i1 %15, i1 false
   br i1 %or.cond, label %16, label %.critedge.loopexit.split.loop.exit
 

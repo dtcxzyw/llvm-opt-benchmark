@@ -396,7 +396,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %78 = zext i32 %69 to i64
   %79 = zext i32 %70 to i64
   %80 = add nuw nsw i64 %79, %56
-  %81 = icmp ugt i64 %80, %78
+  %81 = icmp samesign ugt i64 %80, %78
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %77
@@ -600,7 +600,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %181 = zext i32 %69 to i64
   %182 = zext nneg i32 %70 to i64
   %183 = add nuw nsw i64 %182, %56
-  %184 = icmp ugt i64 %183, %181
+  %184 = icmp samesign ugt i64 %183, %181
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %180
@@ -3395,7 +3395,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   call void @llvm.assume(i1 %255)
   %256 = icmp sgt i32 %254, -1
   call void @llvm.assume(i1 %256)
-  %257 = icmp uge i32 %254, %248
+  %257 = icmp samesign uge i32 %254, %248
   call void @llvm.assume(i1 %257)
   %258 = icmp eq i32 %248, 0
   %259 = icmp ne i32 %251, 0
@@ -3519,7 +3519,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 310:                                              ; preds = %309, %308, %307
   %311 = phi i32 [ %185, %309 ], [ %205, %308 ], [ %225, %307 ]
-  %312 = icmp ugt i32 %266, 2
+  %312 = icmp samesign ugt i32 %266, 2
   call void @llvm.assume(i1 %312)
   %313 = getelementptr inbounds i8, ptr %243, i64 8
   store i32 %311, ptr %313, align 4, !tbaa !29
@@ -3565,7 +3565,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 329:                                              ; preds = %328, %327, %326
   %330 = phi i32 [ %185, %328 ], [ %205, %327 ], [ %225, %326 ]
-  %331 = icmp ugt i32 %266, 3
+  %331 = icmp samesign ugt i32 %266, 3
   call void @llvm.assume(i1 %331)
   %332 = getelementptr inbounds i8, ptr %243, i64 12
   store i32 %330, ptr %332, align 4, !tbaa !29

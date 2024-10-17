@@ -1464,7 +1464,7 @@ if.end18:                                         ; preds = %for.cond.preheader,
   %1 = load ptr, ptr %name, align 8
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %conv21 = and i64 %call19, 4294967295
-  %cmp22 = icmp ult i64 %conv21, 15
+  %cmp22 = icmp samesign ult i64 %conv21, 15
   br i1 %cmp22, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end18
@@ -1479,7 +1479,7 @@ if.end25:                                         ; preds = %if.end18
   br i1 %cmp27, label %if.then44, label %if.else30
 
 if.else30:                                        ; preds = %if.end25
-  %cmp32 = icmp ult i64 %conv21, 17
+  %cmp32 = icmp samesign ult i64 %conv21, 17
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.else30

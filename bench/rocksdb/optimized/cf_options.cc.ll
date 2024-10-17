@@ -16238,7 +16238,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorImSaImE
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %cmp7.us = icmp ugt i64 %indvars.iv, 1
+  %cmp7.us = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp7.us, label %if.then8.us, label %if.else17.us
 
 if.else17.us:                                     ; preds = %for.body.us

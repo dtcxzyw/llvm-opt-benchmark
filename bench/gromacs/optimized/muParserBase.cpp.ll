@@ -5801,8 +5801,8 @@ common.resume:                                    ; preds = %.body, %47, %58, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i8, ptr %13, align 8
   %51 = trunc i8 %50 to i1
-  %52 = icmp ult i64 %indvars.iv, 17
-  %53 = and i1 %52, %51
+  %52 = icmp samesign ult i64 %indvars.iv, 17
+  %53 = select i1 %51, i1 %52, i1 false
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %49, %.preheader

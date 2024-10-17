@@ -2661,7 +2661,7 @@ rb_struct_members.exit.split.us:                  ; preds = %rb_struct_members.e
 internal_RSTRUCT_LEN.exit20.thread.us:            ; preds = %rb_struct_members.exit.split.us
   %39 = lshr i64 %37, 13
   %40 = and i64 %39, 127
-  %41 = icmp ult i64 %.0.us, %40
+  %41 = icmp samesign ult i64 %.0.us, %40
   br i1 %41, label %42, label %.split.us
 
 42:                                               ; preds = %internal_RSTRUCT_LEN.exit20.thread.us
@@ -2702,7 +2702,7 @@ internal_RSTRUCT_LEN.exit20:                      ; preds = %rb_struct_members.e
 internal_RSTRUCT_LEN.exit20.thread:               ; preds = %rb_struct_members.exit.split
   %58 = lshr i64 %54, 13
   %59 = and i64 %58, 127
-  %60 = icmp ult i64 %.0, %59
+  %60 = icmp samesign ult i64 %.0, %59
   br i1 %60, label %61, label %.split.us
 
 61:                                               ; preds = %internal_RSTRUCT_LEN.exit20.thread
@@ -2761,7 +2761,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %10
 internal_RSTRUCT_LEN.exit.thread:                 ; preds = %10
   %15 = lshr i64 %11, 13
   %16 = and i64 %15, 127
-  %17 = icmp ult i64 %.0, %16
+  %17 = icmp samesign ult i64 %.0, %16
   br i1 %17, label %internal_RSTRUCT_GET.exit, label %.loopexit
 
 18:                                               ; preds = %internal_RSTRUCT_LEN.exit
@@ -2863,7 +2863,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %.preheader36
 internal_RSTRUCT_LEN.exit.thread:                 ; preds = %.preheader36
   %38 = lshr i64 %34, 13
   %39 = and i64 %38, 127
-  %40 = icmp ult i64 %.022, %39
+  %40 = icmp samesign ult i64 %.022, %39
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %internal_RSTRUCT_LEN.exit.thread
@@ -2899,7 +2899,7 @@ internal_RSTRUCT_LEN.exit29:                      ; preds = %.preheader
 internal_RSTRUCT_LEN.exit29.thread:               ; preds = %.preheader
   %55 = lshr i64 %51, 13
   %56 = and i64 %55, 127
-  %57 = icmp ult i64 %.1, %56
+  %57 = icmp samesign ult i64 %.1, %56
   br i1 %57, label %58, label %.loopexit
 
 58:                                               ; preds = %internal_RSTRUCT_LEN.exit29.thread
@@ -2968,7 +2968,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %15
 internal_RSTRUCT_LEN.exit.thread:                 ; preds = %15
   %20 = lshr i64 %16, 13
   %21 = and i64 %20, 127
-  %22 = icmp ult i64 %.0, %21
+  %22 = icmp samesign ult i64 %.0, %21
   br i1 %22, label %internal_RSTRUCT_GET.exit, label %.loopexit
 
 23:                                               ; preds = %internal_RSTRUCT_LEN.exit
@@ -3195,7 +3195,7 @@ rb_array_len.exit45:                              ; preds = %44
 rb_array_len.exit45.thread:                       ; preds = %44
   %49 = lshr i64 %45, 15
   %50 = and i64 %49, 127
-  %51 = icmp ult i64 %.037, %50
+  %51 = icmp samesign ult i64 %.037, %50
   br i1 %51, label %RARRAY_AREF.exit, label %.loopexit
 
 52:                                               ; preds = %rb_array_len.exit45

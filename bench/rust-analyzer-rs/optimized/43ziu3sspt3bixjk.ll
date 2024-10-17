@@ -1475,7 +1475,7 @@ default.unreachable:                              ; preds = %397, %231, %101
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i.i": ; preds = %101
-  %114 = icmp ult i8 %68, 24
+  %114 = icmp samesign ult i8 %68, 24
   tail call void @llvm.assume(i1 %114)
   %115 = zext nneg i8 %68 to i64
   %116 = getelementptr inbounds i8, ptr %.tr, i64 17
@@ -1491,7 +1491,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i: ; preds = %"_ZN106_$LT$co
   %.0.lcssa.i.i.i.i = phi i64 [ %100, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %121, %.lr.ph.i.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i.i = phi i64 [ %.sroa.4.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %122, %.lr.ph.i.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i ], [ %123, %.lr.ph.i.i.i.i ]
-  %118 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
+  %118 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
   br i1 %118, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i.i", label %131
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i, %.lr.ph.i.i.i.i
@@ -1751,7 +1751,7 @@ _ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i: ; preds = %.lr.ph
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i.i21": ; preds = %231
-  %244 = icmp ult i8 %225, 24
+  %244 = icmp samesign ult i8 %225, 24
   tail call void @llvm.assume(i1 %244)
   %245 = zext nneg i8 %225 to i64
   %246 = getelementptr inbounds i8, ptr %.tr, i64 25
@@ -1767,7 +1767,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22: ; preds = %"_ZN106_$LT$
   %.0.lcssa.i.i.i.i26 = phi i64 [ %230, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22 ], [ %251, %.lr.ph.i.i.i2.i ]
   %.sroa.11.0.lcssa.i.i.i.i27 = phi i64 [ %.sroa.4.0.i.i.i23, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22 ], [ %252, %.lr.ph.i.i.i2.i ]
   %.sroa.0.0.lcssa.i.i.i.i28 = phi ptr [ %.sroa.0.0.i.i.i24, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22 ], [ %253, %.lr.ph.i.i.i2.i ]
-  %248 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i27, 3
+  %248 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i27, 3
   br i1 %248, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i.i42", label %261
 
 .lr.ph.i.i.i2.i:                                  ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i22, %.lr.ph.i.i.i2.i
@@ -2064,7 +2064,7 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h49134d9bf00d2b4aE.exit.i.i": ; preds = %397
-  %410 = icmp ult i8 %167, 24
+  %410 = icmp samesign ult i8 %167, 24
   tail call void @llvm.assume(i1 %410)
   %411 = zext nneg i8 %167 to i64
   %412 = getelementptr inbounds i8, ptr %.tr, i64 17
@@ -2080,7 +2080,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i: ; preds = %"_ZN106_$LT$core
   %.0.lcssa.i.i.i = phi i64 [ %396, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %417, %.lr.ph.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i = phi i64 [ %.sroa.4.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %418, %.lr.ph.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i ], [ %419, %.lr.ph.i.i.i ]
-  %414 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
+  %414 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
   br i1 %414, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17heefd85a357e8329fE.exit.i.i.i", label %427
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i, %.lr.ph.i.i.i
@@ -2925,7 +2925,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %147 = add nsw i64 %146, -4
   %148 = select i1 %145, i64 %147, i64 0
   %149 = load i8, ptr %142, align 16, !range !591, !alias.scope !923, !noalias !920, !noundef !4
-  %150 = icmp ult i8 %149, 5
+  %150 = icmp samesign ult i8 %149, 5
   %151 = zext nneg i8 %149 to i64
   %152 = add nsw i64 %151, -4
   %153 = select i1 %150, i64 0, i64 %152

@@ -1588,7 +1588,7 @@ _ZN4llvm9MapVectorINS_10sampleprof13SampleContextEjNS_8DenseMapIS2_jNS_12DenseMa
 33:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %25
   %.019.i = phi i64 [ %28, %25 ], [ %34, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %34 = lshr i64 %.019.i, 7
-  %.not.i = icmp ugt i64 %.019.i, 127
+  %.not.i = icmp samesign ugt i64 %.019.i, 127
   %35 = trunc i64 %.019.i to i8
   %36 = or i8 %35, -128
   %.0.i = select i1 %.not.i, i8 %36, i8 %35
@@ -1674,7 +1674,7 @@ _ZN4llvm9MapVectorINS_10sampleprof10FunctionIdEjNS_8DenseMapIS2_jNS_12DenseMapIn
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %31
   %.019.i = phi i64 [ %34, %31 ], [ %40, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %40 = lshr i64 %.019.i, 7
-  %.not.i = icmp ugt i64 %.019.i, 127
+  %.not.i = icmp samesign ugt i64 %.019.i, 127
   %41 = trunc i64 %.019.i to i8
   %42 = or i8 %41, -128
   %.0.i = select i1 %.not.i, i8 %42, i8 %41
@@ -1913,7 +1913,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit55: ; preds = %_ZN4llvm11raw_os
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i61, %50
   %.019.i56 = phi i64 [ %52, %50 ], [ %54, %_ZN4llvm11raw_ostreamlsEc.exit.i61 ]
   %54 = lshr i64 %.019.i56, 7
-  %.not.i58 = icmp ugt i64 %.019.i56, 127
+  %.not.i58 = icmp samesign ugt i64 %.019.i56, 127
   %55 = trunc i64 %.019.i56 to i8
   %56 = or i8 %55, -128
   %.0.i59 = select i1 %.not.i58, i8 %56, i8 %55
@@ -1942,7 +1942,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit62: ; preds = %_ZN4llvm11raw_os
 64:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i68, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit62
   %.019.i63 = phi i64 [ %63, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit62 ], [ %65, %_ZN4llvm11raw_ostreamlsEc.exit.i68 ]
   %65 = lshr i64 %.019.i63, 7
-  %.not.i65 = icmp ugt i64 %.019.i63, 127
+  %.not.i65 = icmp samesign ugt i64 %.019.i63, 127
   %66 = trunc i64 %.019.i63 to i8
   %67 = or i8 %66, -128
   %.0.i66 = select i1 %.not.i65, i8 %67, i8 %66
@@ -2452,7 +2452,7 @@ _ZN4llvm10sampleprof25SampleProfileWriterBinary12writeNameIdxENS0_10FunctionIdE.
 271:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i, %264
   %.019.i.i = phi i64 [ %267, %264 ], [ %272, %_ZN4llvm11raw_ostreamlsEc.exit.i.i ]
   %272 = lshr i64 %.019.i.i, 7
-  %.not.i.i85 = icmp ugt i64 %.019.i.i, 127
+  %.not.i.i85 = icmp samesign ugt i64 %.019.i.i, 127
   %273 = trunc i64 %.019.i.i to i8
   %274 = or i8 %273, -128
   %.0.i.i = select i1 %.not.i.i85, i8 %274, i8 %273
@@ -2589,7 +2589,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit99: ; preds = %_ZN4llvm11raw_os
 317:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i105, %315
   %.019.i100 = phi i64 [ %316, %315 ], [ %318, %_ZN4llvm11raw_ostreamlsEc.exit.i105 ]
   %318 = lshr i64 %.019.i100, 7
-  %.not.i102 = icmp ugt i64 %.019.i100, 127
+  %.not.i102 = icmp samesign ugt i64 %.019.i100, 127
   %319 = trunc i64 %.019.i100 to i8
   %320 = or i8 %319, -128
   %.0.i103 = select i1 %.not.i102, i8 %320, i8 %319
@@ -2618,7 +2618,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit106: ; preds = %_ZN4llvm11raw_o
 328:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i112, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit106
   %.019.i107 = phi i64 [ %327, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit106 ], [ %329, %_ZN4llvm11raw_ostreamlsEc.exit.i112 ]
   %329 = lshr i64 %.019.i107, 7
-  %.not.i109 = icmp ugt i64 %.019.i107, 127
+  %.not.i109 = icmp samesign ugt i64 %.019.i107, 127
   %330 = trunc i64 %.019.i107 to i8
   %331 = or i8 %330, -128
   %.0.i110 = select i1 %.not.i109, i8 %331, i8 %330
@@ -3005,7 +3005,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
 41:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i27, %35
   %.019.i22 = phi i64 [ %38, %35 ], [ %42, %_ZN4llvm11raw_ostreamlsEc.exit.i27 ]
   %42 = lshr i64 %.019.i22, 7
-  %.not.i24 = icmp ugt i64 %.019.i22, 127
+  %.not.i24 = icmp samesign ugt i64 %.019.i22, 127
   %43 = trunc i64 %.019.i22 to i8
   %44 = or i8 %43, -128
   %.0.i25 = select i1 %.not.i24, i8 %44, i8 %43
@@ -3112,7 +3112,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit35: ; preds = %_ZN4llvm11raw_os
 80:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i41, %78
   %.019.i36 = phi i64 [ %79, %78 ], [ %81, %_ZN4llvm11raw_ostreamlsEc.exit.i41 ]
   %81 = lshr i64 %.019.i36, 7
-  %.not.i38 = icmp ugt i64 %.019.i36, 127
+  %.not.i38 = icmp samesign ugt i64 %.019.i36, 127
   %82 = trunc i64 %.019.i36 to i8
   %83 = or i8 %82, -128
   %.0.i39 = select i1 %.not.i38, i8 %83, i8 %82
@@ -3141,7 +3141,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit42: ; preds = %_ZN4llvm11raw_os
 91:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i48, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit42
   %.019.i43 = phi i64 [ %90, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit42 ], [ %92, %_ZN4llvm11raw_ostreamlsEc.exit.i48 ]
   %92 = lshr i64 %.019.i43, 7
-  %.not.i45 = icmp ugt i64 %.019.i43, 127
+  %.not.i45 = icmp samesign ugt i64 %.019.i43, 127
   %93 = trunc i64 %.019.i43 to i8
   %94 = or i8 %93, -128
   %.0.i46 = select i1 %.not.i45, i8 %94, i8 %93
@@ -6021,7 +6021,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit38: ; preds = %_ZN4llvm11raw_os
 72:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i44, %68
   %.019.i39 = phi i64 [ %71, %68 ], [ %73, %_ZN4llvm11raw_ostreamlsEc.exit.i44 ]
   %73 = lshr i64 %.019.i39, 7
-  %.not.i41 = icmp ugt i64 %.019.i39, 127
+  %.not.i41 = icmp samesign ugt i64 %.019.i39, 127
   %74 = trunc i64 %.019.i39 to i8
   %75 = or i8 %74, -128
   %.0.i42 = select i1 %.not.i41, i8 %75, i8 %74
@@ -6052,7 +6052,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit45: ; preds = %_ZN4llvm11raw_os
 85:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i51, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit45
   %.019.i46 = phi i64 [ %84, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit45 ], [ %86, %_ZN4llvm11raw_ostreamlsEc.exit.i51 ]
   %86 = lshr i64 %.019.i46, 7
-  %.not.i48 = icmp ugt i64 %.019.i46, 127
+  %.not.i48 = icmp samesign ugt i64 %.019.i46, 127
   %87 = trunc i64 %.019.i46 to i8
   %88 = or i8 %87, -128
   %.0.i49 = select i1 %.not.i48, i8 %88, i8 %87
@@ -6800,7 +6800,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit30: ; preds = %_ZN4llvm11raw_os
 50:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i36, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit30
   %.019.i31 = phi i64 [ %49, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit30 ], [ %51, %_ZN4llvm11raw_ostreamlsEc.exit.i36 ]
   %51 = lshr i64 %.019.i31, 7
-  %.not.i33 = icmp ugt i64 %.019.i31, 127
+  %.not.i33 = icmp samesign ugt i64 %.019.i31, 127
   %52 = trunc i64 %.019.i31 to i8
   %53 = or i8 %52, -128
   %.0.i34 = select i1 %.not.i33, i8 %53, i8 %52
@@ -6832,7 +6832,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit37: ; preds = %_ZN4llvm11raw_os
 64:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i43, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit37
   %.019.i38 = phi i64 [ %63, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit37 ], [ %65, %_ZN4llvm11raw_ostreamlsEc.exit.i43 ]
   %65 = lshr i64 %.019.i38, 7
-  %.not.i40 = icmp ugt i64 %.019.i38, 127
+  %.not.i40 = icmp samesign ugt i64 %.019.i38, 127
   %66 = trunc i64 %.019.i38 to i8
   %67 = or i8 %66, -128
   %.0.i41 = select i1 %.not.i40, i8 %67, i8 %66
@@ -6908,7 +6908,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit51.preheader: ; preds = %_ZN4ll
 94:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i57, %.lr.ph
   %.019.i52 = phi i64 [ %93, %.lr.ph ], [ %95, %_ZN4llvm11raw_ostreamlsEc.exit.i57 ]
   %95 = lshr i64 %.019.i52, 7
-  %.not.i54 = icmp ugt i64 %.019.i52, 127
+  %.not.i54 = icmp samesign ugt i64 %.019.i52, 127
   %96 = trunc i64 %.019.i52 to i8
   %97 = or i8 %96, -128
   %.0.i55 = select i1 %.not.i54, i8 %97, i8 %96
@@ -8446,7 +8446,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKSt4pairIKNS_10sampleprof12LineLocationENS2_1
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_EC2ES9_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %23
@@ -8526,7 +8526,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKSt4pairIKNS_10sampleprof12LineLocationESt3ma
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_EC2ESH_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %23
@@ -8679,7 +8679,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileWriterBinary15
 9:                                                ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %2
   %.019.i = phi i64 [ %6, %2 ], [ %10, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %10 = lshr i64 %.019.i, 7
-  %.not.i = icmp ugt i64 %.019.i, 127
+  %.not.i = icmp samesign ugt i64 %.019.i, 127
   %11 = trunc i64 %.019.i to i8
   %12 = or i8 %11, -128
   %.0.i = select i1 %.not.i, i8 %12, i8 %11
@@ -11112,7 +11112,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -12725,7 +12725,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_1
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit: ; preds = %.lr.ph, %12
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %12 ], [ %11, %.lr.ph ]
-  %.not56 = icmp ugt i64 %.047.idx61, 56
+  %.not56 = icmp samesign ugt i64 %.047.idx61, 56
   br i1 %.not56, label %.critedge, label %13
 
 13:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit
@@ -12831,7 +12831,7 @@ _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEE
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28: ; preds = %53, %57
   %.0.i.i.i.i27 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i26, %57 ], [ %56, %53 ]
-  %.not57 = icmp ugt i64 %.249.idx64, 56
+  %.not57 = icmp samesign ugt i64 %.249.idx64, 56
   br i1 %.not57, label %.critedge2, label %58
 
 58:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28

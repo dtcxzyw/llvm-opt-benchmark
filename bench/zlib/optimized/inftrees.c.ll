@@ -224,11 +224,11 @@ for.cond127:                                      ; preds = %for.cond127.backedg
   %14 = load i16, ptr %arrayidx132, align 2
   %conv133 = zext i16 %14 to i32
   %add134 = add nuw nsw i32 %conv133, 1
-  %cmp135 = icmp ult i32 %add134, %match.0160232
+  %cmp135 = icmp samesign ult i32 %add134, %match.0160232
   br i1 %cmp135, label %if.end167, label %if.else
 
 if.else:                                          ; preds = %for.cond127
-  %cmp145.not = icmp ugt i32 %match.0160232, %conv133
+  %cmp145.not = icmp samesign ugt i32 %match.0160232, %conv133
   br i1 %cmp145.not, label %if.end167, label %if.then147
 
 if.then147:                                       ; preds = %if.else

@@ -3927,7 +3927,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   store i8 %75, ptr %.046, align 1
   %76 = lshr i32 %.045, 7
   %77 = getelementptr inbounds i8, ptr %.046, i64 1
-  %78 = icmp ugt i32 %.045, 16383
+  %78 = icmp samesign ugt i32 %.045, 16383
   br i1 %78, label %73, label %79, !llvm.loop !25
 
 79:                                               ; preds = %73
@@ -4160,7 +4160,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   store i8 %75, ptr %.046, align 1
   %76 = lshr i32 %.045, 7
   %77 = getelementptr inbounds i8, ptr %.046, i64 1
-  %78 = icmp ugt i32 %.045, 16383
+  %78 = icmp samesign ugt i32 %.045, 16383
   br i1 %78, label %73, label %79, !llvm.loop !25
 
 79:                                               ; preds = %73
@@ -4312,7 +4312,7 @@ define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStri
   store i8 %21, ptr %.023.i, align 1
   %22 = lshr i32 %.022.i, 7
   %23 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %24 = icmp ugt i32 %.022.i, 16383
+  %24 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %24, label %19, label %25, !llvm.loop !25
 
 25:                                               ; preds = %19

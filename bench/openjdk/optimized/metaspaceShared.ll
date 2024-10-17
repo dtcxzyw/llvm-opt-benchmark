@@ -1089,7 +1089,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP6Symbol
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -1205,7 +1205,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI9OopHand
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -1498,7 +1498,7 @@ define hidden void @_ZN15MetaspaceShared51rewrite_nofast_bytecodes_and_calculate
   %35 = add nsw i32 %30, 1
   %36 = icmp sgt i32 %30, -1
   %37 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   %or.cond.i.i.i.i.i.i = select i1 %36, i1 %38, i1 false
   %39 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %40 = sub nuw nsw i32 32, %39
@@ -5538,7 +5538,7 @@ define linkonce_odr hidden void @_ZN17CollectCLDClosure6do_cldEP15ClassLoaderDat
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %14 = sub nuw nsw i32 32, %13
@@ -5581,7 +5581,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %_ZN26GrowableArrayW
   %34 = add nsw i32 %29, 1
   %35 = icmp sgt i32 %29, -1
   %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %or.cond.i.i.i.i1 = select i1 %35, i1 %37, i1 false
   %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %39 = sub nuw nsw i32 32, %38

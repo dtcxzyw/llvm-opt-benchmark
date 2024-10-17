@@ -196,7 +196,7 @@ define dso_local void @_ZN4llvm3pdb16TpiStreamBuilder22updateTypeIndexOffsetsENS
   %15 = add i64 %12, %14
   %16 = lshr i64 %15, 13
   %17 = lshr i64 %12, 13
-  %18 = icmp ugt i64 %16, %17
+  %18 = icmp samesign ugt i64 %16, %17
   %19 = icmp eq i32 %11, 0
   %or.cond = select i1 %18, i1 true, i1 %19
   br i1 %or.cond, label %20, label %_ZNSt6vectorIN4llvm8codeview15TypeIndexOffsetESaIS2_EE9push_backEOS2_.exit

@@ -1196,7 +1196,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.148.lcssa.us = phi i32 [ %.04779.us, %34 ], [ %.249.us, %61 ]
   %.145.lcssa.us = phi i32 [ %.04480.us, %34 ], [ %.246.us, %61 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %38 = icmp ult i64 %indvars.iv.next93, %31
+  %38 = icmp samesign ult i64 %indvars.iv.next93, %31
   br i1 %38, label %34, label %._crit_edge83, !llvm.loop !16
 
 39:                                               ; preds = %.lr.ph74.us, %61

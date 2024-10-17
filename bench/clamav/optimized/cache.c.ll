@@ -285,7 +285,7 @@ define void @clean_cache_destroy(ptr noundef readonly %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %9, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %.preheader

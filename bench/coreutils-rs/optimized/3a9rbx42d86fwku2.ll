@@ -797,7 +797,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias nocapture noun
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   %77 = getelementptr inbounds i8, ptr %8, i64 4
-  %switch.i = icmp ult i64 %62, 2
+  %switch.i = icmp samesign ult i64 %62, 2
   %78 = getelementptr inbounds i8, ptr %8, i64 8
   %79 = getelementptr inbounds i8, ptr %7, i64 8
   %80 = getelementptr inbounds i8, ptr %4, i64 8
@@ -808,7 +808,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias nocapture noun
   %85 = getelementptr inbounds i8, ptr %6, i64 32
   %86 = getelementptr inbounds i8, ptr %6, i64 16
   %87 = getelementptr inbounds i8, ptr %6, i64 24
-  %switch = icmp ult i64 %62, 2
+  %switch = icmp samesign ult i64 %62, 2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer

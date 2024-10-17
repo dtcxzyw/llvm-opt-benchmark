@@ -1647,7 +1647,7 @@ show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %313 = load i8, ptr @s_number_of_extensions, align 1
   %314 = zext i8 %313 to i64
-  %315 = icmp ult i64 %indvars.iv.next220.i, %314
+  %315 = icmp samesign ult i64 %indvars.iv.next220.i, %314
   br i1 %315, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %show_PDU_in_info.exit.i
@@ -1678,7 +1678,7 @@ show_PDU_in_info.exit.i:                          ; preds = %322, %319
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %326 = load i8, ptr @s_number_of_extensions, align 1
   %327 = zext i8 %326 to i64
-  %328 = icmp ult i64 %indvars.iv.next.i, %327
+  %328 = icmp samesign ult i64 %indvars.iv.next.i, %327
   br i1 %328, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %show_PDU_in_info.exit.i, %show_PDU_in_info.exit.us.i, %proto_item_set_generated.exit.i
@@ -1880,7 +1880,7 @@ show_PDU_in_info.exit178.i:                       ; preds = %420, %417
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
   %428 = load i8, ptr @s_number_of_extensions, align 1
   %429 = zext i8 %428 to i64
-  %430 = icmp ult i64 %indvars.iv.next225.i, %429
+  %430 = icmp samesign ult i64 %indvars.iv.next225.i, %429
   br i1 %430, label %.lr.ph202.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %show_PDU_in_info.exit178.i, %385
@@ -2391,7 +2391,7 @@ thread-pre-split.i.i:                             ; preds = %588
   store i16 %685, ptr %.069.i.i.i, align 4
   %686 = getelementptr [512 x i16], ptr %679, i64 0, i64 %indvars.iv106.i.i.i
   store i16 %684, ptr %686, align 2
-  %687 = icmp ult i64 %indvars.iv.next107.i.i.i, %680
+  %687 = icmp samesign ult i64 %indvars.iv.next107.i.i.i, %680
   br i1 %687, label %681, label %._crit_edge.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %681, %._crit_edge88.i.i.i
@@ -2842,7 +2842,7 @@ show_PDU_in_info.exit.i188:                       ; preds = %939, %936
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i186, 1
   %943 = load i8, ptr @s_number_of_extensions, align 1
   %944 = zext i8 %943 to i64
-  %945 = icmp ult i64 %indvars.iv.next.i189, %944
+  %945 = icmp samesign ult i64 %indvars.iv.next.i189, %944
   br i1 %945, label %931, label %._crit_edge.loopexit.i, !llvm.loop !13
 
 ._crit_edge.loopexit.i:                           ; preds = %show_PDU_in_info.exit.i188
@@ -3044,7 +3044,7 @@ show_PDU_in_info.exit241.i:                       ; preds = %1034, %1031
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
   %1042 = load i8, ptr @s_number_of_extensions, align 1
   %1043 = zext i8 %1042 to i64
-  %1044 = icmp ult i64 %indvars.iv.next277.i, %1043
+  %1044 = icmp samesign ult i64 %indvars.iv.next277.i, %1043
   br i1 %1044, label %.lr.ph262.i, label %.loopexit.i177, !llvm.loop !15
 
 .loopexit.i177:                                   ; preds = %show_PDU_in_info.exit241.i, %1021
@@ -6168,7 +6168,7 @@ proto_item_set_generated.exit74:                  ; preds = %proto_item_set_gene
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %114 = load i16, ptr %0, align 8
   %115 = zext i16 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next84, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next84, %115
   br i1 %116, label %46, label %._crit_edge80, !llvm.loop !20
 
 ._crit_edge80:                                    ; preds = %proto_item_set_generated.exit74, %proto_item_set_generated.exit62
@@ -6271,7 +6271,7 @@ proto_item_set_generated.exit31:                  ; preds = %30, %36, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i16, ptr %0, align 4
   %52 = zext i16 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %30, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %proto_item_set_generated.exit31, %proto_item_set_generated.exit28

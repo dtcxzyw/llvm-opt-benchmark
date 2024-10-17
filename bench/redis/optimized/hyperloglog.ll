@@ -315,7 +315,7 @@ entry:
   %2 = trunc nuw nsw i64 %or to i32
   %conv5 = and i32 %2, 63
   %conv6 = zext i8 %count to i32
-  %cmp = icmp ult i32 %conv5, %conv6
+  %cmp = icmp samesign ult i32 %conv5, %conv6
   br i1 %cmp, label %do.body9, label %return
 
 do.body9:                                         ; preds = %entry
@@ -365,7 +365,7 @@ entry:
   %3 = trunc nuw nsw i64 %or.i to i32
   %conv5.i = and i32 %3, 63
   %conv6.i = and i32 %call, 255
-  %cmp.i = icmp ult i32 %conv5.i, %conv6.i
+  %cmp.i = icmp samesign ult i32 %conv5.i, %conv6.i
   br i1 %cmp.i, label %do.body9.i, label %hllDenseSet.exit
 
 do.body9.i:                                       ; preds = %entry
@@ -1425,7 +1425,7 @@ if.then354:                                       ; preds = %if.then342
   %and357 = and i32 %conv319, 3
   %and361 = and i32 %conv339, 3
   %add362 = add nuw nsw i32 %and361, %and357
-  %cmp364 = icmp ult i32 %add362, 3
+  %cmp364 = icmp samesign ult i32 %add362, 3
   br i1 %cmp364, label %do.body367, label %while.cond314.outer.backedge
 
 do.body367:                                       ; preds = %if.then354
@@ -1476,7 +1476,7 @@ if.end395:                                        ; preds = %promote
   %70 = trunc nuw nsw i64 %or.i to i32
   %conv5.i = and i32 %70, 63
   %conv6.i = zext i8 %count to i32
-  %cmp.i = icmp ult i32 %conv5.i, %conv6.i
+  %cmp.i = icmp samesign ult i32 %conv5.i, %conv6.i
   br i1 %cmp.i, label %hllDenseSet.exit, label %cond.false408
 
 hllDenseSet.exit:                                 ; preds = %if.end395
@@ -2087,7 +2087,7 @@ sw.bb:                                            ; preds = %entry
   %5 = trunc nuw nsw i64 %or.i.i to i32
   %conv5.i.i = and i32 %5, 63
   %conv6.i.i = and i32 %call.i, 255
-  %cmp.i.i = icmp ult i32 %conv5.i.i, %conv6.i.i
+  %cmp.i.i = icmp samesign ult i32 %conv5.i.i, %conv6.i.i
   br i1 %cmp.i.i, label %do.body9.i.i, label %hllDenseAdd.exit
 
 do.body9.i.i:                                     ; preds = %sw.bb
@@ -2271,7 +2271,7 @@ while.body72:                                     ; preds = %while.cond71.prehea
   %arrayidx74 = getelementptr inbounds i8, ptr %max, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx74, align 1
   %18 = zext i8 %17 to i32
-  %cmp76.not = icmp ult i32 %and62, %18
+  %cmp76.not = icmp samesign ult i32 %and62, %18
   br i1 %cmp76.not, label %if.end82, label %if.then78
 
 if.then78:                                        ; preds = %while.body72
@@ -2906,7 +2906,7 @@ sw.bb:                                            ; preds = %if.end48
   %24 = trunc nuw nsw i64 %or.i to i32
   %conv5.i = and i32 %24, 63
   %conv6.i = zext i8 %19 to i32
-  %cmp.i = icmp ult i32 %conv5.i, %conv6.i
+  %cmp.i = icmp samesign ult i32 %conv5.i, %conv6.i
   br i1 %cmp.i, label %do.body9.i, label %for.inc62
 
 do.body9.i:                                       ; preds = %sw.bb
@@ -3133,7 +3133,7 @@ hllPatLen.exit:                                   ; preds = %hllPatLen.exit.loop
   %or.i.i = or i64 %shl.i.i, %shr.i.i
   %20 = trunc nuw nsw i64 %or.i.i to i32
   %conv5.i.i = and i32 %20, 63
-  %cmp.i.i = icmp ult i32 %conv5.i.i, %count.0.lcssa.i
+  %cmp.i.i = icmp samesign ult i32 %conv5.i.i, %count.0.lcssa.i
   br i1 %cmp.i.i, label %do.body9.i.i, label %hllDenseAdd.exit
 
 do.body9.i.i:                                     ; preds = %hllPatLen.exit
@@ -3164,7 +3164,7 @@ hllDenseAdd.exit:                                 ; preds = %hllPatLen.exit, %do
 land.lhs.true:                                    ; preds = %hllDenseAdd.exit
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
   %div9759 = lshr i64 %24, 1
-  %cmp98 = icmp ugt i64 %div9759, %indvars.iv96
+  %cmp98 = icmp samesign ugt i64 %div9759, %indvars.iv96
   br i1 %cmp98, label %if.then100, label %land.lhs.true110
 
 if.then100:                                       ; preds = %land.lhs.true

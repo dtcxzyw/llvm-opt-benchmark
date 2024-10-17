@@ -816,7 +816,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   %sub = add nsw i32 %.neg, %9
   %15 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %16 = icmp ugt i32 %15, 1
+  %16 = icmp samesign ugt i32 %15, 1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %switch.lookup
@@ -924,7 +924,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %61, label %.sink.split.i, label %.thread.i.i
 
 62:                                               ; preds = %.loopexit.i.i
-  %63 = icmp ult i32 %.02746.i.i, 8
+  %63 = icmp samesign ult i32 %.02746.i.i, 8
   br i1 %63, label %.thread.i.i, label %65
 
 .thread.i.i:                                      ; preds = %62, %.loopexit.thread56.i.i

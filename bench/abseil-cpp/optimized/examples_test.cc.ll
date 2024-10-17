@@ -2676,7 +2676,7 @@ if.then15:                                        ; preds = %if.end
   %rem34.lhs.trunc = sub nuw nsw i16 256, %conv2.i
   %rem3435 = urem i16 %rem34.lhs.trunc, %conv2.i
   %7 = and i16 %mul.i, 255
-  %cmp2536 = icmp ugt i16 %rem3435, %7
+  %cmp2536 = icmp samesign ugt i16 %rem3435, %7
   br i1 %cmp2536, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
@@ -2714,7 +2714,7 @@ _ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13ra
   %conv1.i30 = and i16 %conv.i.i22, 255
   %mul.i32 = mul nuw i16 %conv1.i30, %conv2.i
   %13 = and i16 %mul.i32, 255
-  %cmp25 = icmp ugt i16 %rem3435, %13
+  %cmp25 = icmp samesign ugt i16 %rem3435, %13
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !46
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29, %if.then15, %if.end

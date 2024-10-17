@@ -1174,7 +1174,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %1072 = add i32 %1071, %1067
   %1073 = add i32 %1072, %1061
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %1074 = icmp ult i64 %indvars.iv.i, 48
+  %1074 = icmp samesign ult i64 %indvars.iv.i, 48
   br i1 %1074, label %434, label %transform.exit, !llvm.loop !7
 
 transform.exit:                                   ; preds = %434

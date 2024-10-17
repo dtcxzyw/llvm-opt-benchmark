@@ -308,7 +308,7 @@ _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %75 ]
   %92 = load i32, ptr %89, align 4
   %93 = zext i32 %92 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv, %93
+  %.not.i.i = icmp samesign ult i64 %indvars.iv, %93
   br i1 %.not.i.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91

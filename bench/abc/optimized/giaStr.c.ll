@@ -126,7 +126,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %49 = add nuw nsw i32 %.082, 1
   %50 = load i32, ptr %.05785, align 4
   %51 = lshr i32 %50, 4
-  %52 = icmp ult i32 %49, %51
+  %52 = icmp samesign ult i32 %49, %51
   br i1 %52, label %36, label %.loopexit, !llvm.loop !4
 
 53:                                               ; preds = %28
@@ -160,7 +160,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %69 = add nuw nsw i32 %.181, 1
   %70 = load i32, ptr %.05785, align 4
   %71 = lshr i32 %70, 4
-  %72 = icmp ult i32 %69, %71
+  %72 = icmp samesign ult i32 %69, %71
   br i1 %72, label %56, label %.loopexit, !llvm.loop !6
 
 73:                                               ; preds = %28
@@ -2790,7 +2790,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .critedge2:                                       ; preds = %24, %18
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %31 = icmp ult i64 %indvars.iv.next28, %17
+  %31 = icmp samesign ult i64 %indvars.iv.next28, %17
   br i1 %31, label %18, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.critedge2, %Vec_IntStartFull.exit
@@ -3655,7 +3655,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %259
   %265 = lshr i64 %.val.i, 32
   %266 = trunc nuw i64 %265 to i32
   %267 = and i32 %266, 536870911
-  %.not.i210 = icmp ult i32 %264, %267
+  %.not.i210 = icmp samesign ult i32 %264, %267
   br i1 %.not.i210, label %268, label %281
 
 268:                                              ; preds = %Gia_ObjIsXor.exit.i
@@ -3680,7 +3680,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %259
   br label %Gia_ManSuperCollect.exit
 
 281:                                              ; preds = %Gia_ObjIsXor.exit.i
-  %282 = icmp ugt i32 %264, %267
+  %282 = icmp samesign ugt i32 %264, %267
   br i1 %282, label %283, label %Gia_ManSuperCollect.exit
 
 283:                                              ; preds = %281
@@ -3790,7 +3790,7 @@ Gia_ObjIsXor.exit:                                ; preds = %.critedge12
   %340 = lshr i64 %.val201, 32
   %341 = trunc nuw i64 %340 to i32
   %342 = and i32 %341, 536870911
-  %343 = icmp uge i32 %339, %342
+  %343 = icmp samesign uge i32 %339, %342
   %cond.fr = freeze i1 %343
   br i1 %cond.fr, label %Gia_ObjIsXor.exit.thread, label %344
 
@@ -4710,7 +4710,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit230, %152,
   %172 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv255
   %173 = load i64, ptr %172, align 8
   %174 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %173)
-  %175 = icmp ult i64 %174, 2
+  %175 = icmp samesign ult i64 %174, 2
   %176 = icmp eq i64 %173, %170
   %or.cond = select i1 %175, i1 true, i1 %176
   br i1 %or.cond, label %185, label %177
@@ -4804,7 +4804,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit230, %152,
   %218 = zext nneg i32 %217 to i64
   %219 = shl i64 %.032.i, %218
   %220 = xor i64 %219, %.032.i
-  %.not.i220 = icmp ult i32 %.02831.i, 2
+  %.not.i220 = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i220, label %transpose64.exit, label %.preheader.i, !llvm.loop !40
 
 transpose64.exit:                                 ; preds = %216
@@ -4883,7 +4883,7 @@ define void @Str_NtkBalanceMulti2(ptr noundef %0, ptr nocapture noundef readonly
   %37 = add nuw nsw i32 %.027, 1
   %38 = load i32, ptr %2, align 4
   %39 = lshr i32 %38, 4
-  %40 = icmp ult i32 %37, %39
+  %40 = icmp samesign ult i32 %37, %39
   br i1 %40, label %15, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %34, %5
@@ -5212,7 +5212,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %62 = add nuw nsw i32 %.0257323, 1
   %63 = load i32, ptr %2, align 4
   %64 = lshr i32 %63, 4
-  %65 = icmp ult i32 %62, %64
+  %65 = icmp samesign ult i32 %62, %64
   br i1 %65, label %23, label %._crit_edge.loopexit, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit
@@ -5703,7 +5703,7 @@ Str_CountBits.exit314:                            ; preds = %232, %238, %242, %2
   %.0243362 = phi i32 [ -1, %.lr.ph367.preheader ], [ %.1244.lcssa, %.loopexit ]
   %.4250361 = phi i32 [ -1, %.lr.ph367.preheader ], [ %.5251.lcssa, %.loopexit ]
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
-  %260 = icmp ult i64 %indvars.iv.next405, %257
+  %260 = icmp samesign ult i64 %indvars.iv.next405, %257
   br i1 %260, label %.lr.ph353, label %.loopexit
 
 .lr.ph353:                                        ; preds = %.lr.ph367
@@ -7725,7 +7725,7 @@ define range(i32 0, 2) i32 @Str_MuxTryOnce(ptr noundef %0, ptr nocapture readnon
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(64) %29, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(64) %33, i64 64, i1 false)
   %57 = and i32 %53, 1
-  %58 = icmp ult i64 %34, %indvars.iv75
+  %58 = icmp samesign ult i64 %34, %indvars.iv75
   %59 = load i32, ptr %40, align 4
   %60 = load i32, ptr %41, align 4
   %61 = load i32, ptr %42, align 4
@@ -8708,7 +8708,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %12 = lshr i64 %.val1421, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
-  %.not = icmp ult i32 %11, %14
+  %.not = icmp samesign ult i32 %11, %14
   br i1 %.not, label %15, label %Gia_ObjIsXor.exit.thread
 
 15:                                               ; preds = %Gia_ObjIsXor.exit
@@ -8863,7 +8863,7 @@ define internal fastcc void @Gia_ManSuperCollectAnd_rec(ptr nocapture noundef re
   %17 = lshr i64 %.val.i, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 536870911
-  %20 = icmp ugt i32 %16, %19
+  %20 = icmp samesign ugt i32 %16, %19
   br i1 %20, label %21, label %Gia_ObjIsAndReal.exit.thread
 
 21:                                               ; preds = %14

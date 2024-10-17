@@ -259,7 +259,7 @@ define void @dsytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %136 = load double, ptr %135, align 8
   %137 = getelementptr inbounds double, ptr %22, i64 %indvars.iv196
   store double %136, ptr %137, align 8
-  %.not.not = icmp ult i64 %indvars.iv.next197, %126
+  %.not.not = icmp samesign ult i64 %indvars.iv.next197, %126
   br i1 %.not.not, label %.lr.ph184, label %._crit_edge185, !llvm.loop !7
 
 ._crit_edge185:                                   ; preds = %.lr.ph184, %100

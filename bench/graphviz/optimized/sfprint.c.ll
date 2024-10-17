@@ -1328,7 +1328,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %spec.store.select47 = select i1 %or.cond6, i32 10, i32 %.8947
   %580 = add nsw i32 %spec.store.select47, -1
   %581 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select47)
-  %582 = icmp ult i32 %581, 2
+  %582 = icmp samesign ult i32 %581, 2
   br i1 %582, label %583, label %596
 
 583:                                              ; preds = %578
@@ -1631,11 +1631,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %.51070.idx.lcssa1592 = phi i64 [ %.41069.idx, %.preheader1461 ], [ %.51070.add1282, %704 ]
   %.21090.lcssa = phi i64 [ %.11089, %.preheader1461 ], [ %623, %704 ]
   %.51070.ptr.le = getelementptr inbounds i8, ptr %9, i64 %.51070.idx.lcssa1592
-  %713 = icmp ult i64 %.21090.lcssa, 100
+  %713 = icmp samesign ult i64 %.21090.lcssa, 100
   br i1 %713, label %714, label %726
 
 714:                                              ; preds = %._crit_edge1596
-  %715 = icmp ult i64 %.21090.lcssa, 10
+  %715 = icmp samesign ult i64 %.21090.lcssa, 10
   br i1 %715, label %716, label %719
 
 716:                                              ; preds = %714
@@ -1660,45 +1660,45 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1116
 
 726:                                              ; preds = %._crit_edge1596
-  %727 = icmp ult i64 %.21090.lcssa, 1000
+  %727 = icmp samesign ult i64 %.21090.lcssa, 1000
   br i1 %727, label %728, label %753
 
 728:                                              ; preds = %726
   %.51070.add1279 = add nsw i64 %.51070.idx.lcssa1592, -3
   %.ptr1293 = getelementptr inbounds i8, ptr %9, i64 %.51070.add1279
-  %729 = icmp ult i64 %.21090.lcssa, 500
+  %729 = icmp samesign ult i64 %.21090.lcssa, 500
   br i1 %729, label %730, label %736
 
 730:                                              ; preds = %728
-  %731 = icmp ult i64 %.21090.lcssa, 200
+  %731 = icmp samesign ult i64 %.21090.lcssa, 200
   br i1 %731, label %744, label %732
 
 732:                                              ; preds = %730
-  %733 = icmp ult i64 %.21090.lcssa, 300
+  %733 = icmp samesign ult i64 %.21090.lcssa, 300
   br i1 %733, label %744, label %734
 
 734:                                              ; preds = %732
-  %735 = icmp ult i64 %.21090.lcssa, 400
+  %735 = icmp samesign ult i64 %.21090.lcssa, 400
   %. = select i1 %735, i8 51, i8 52
   %.1915 = select i1 %735, i64 -300, i64 -400
   br label %744
 
 736:                                              ; preds = %728
-  %737 = icmp ult i64 %.21090.lcssa, 700
+  %737 = icmp samesign ult i64 %.21090.lcssa, 700
   br i1 %737, label %738, label %740
 
 738:                                              ; preds = %736
-  %739 = icmp ult i64 %.21090.lcssa, 600
+  %739 = icmp samesign ult i64 %.21090.lcssa, 600
   %.1916 = select i1 %739, i8 53, i8 54
   %.1917 = select i1 %739, i64 -500, i64 -600
   br label %744
 
 740:                                              ; preds = %736
-  %741 = icmp ult i64 %.21090.lcssa, 800
+  %741 = icmp samesign ult i64 %.21090.lcssa, 800
   br i1 %741, label %744, label %742
 
 742:                                              ; preds = %740
-  %743 = icmp ult i64 %.21090.lcssa, 900
+  %743 = icmp samesign ult i64 %.21090.lcssa, 900
   %.1918 = select i1 %743, i8 56, i8 57
   %.1919 = select i1 %743, i64 -800, i64 -900
   br label %744
@@ -1722,39 +1722,39 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
 753:                                              ; preds = %726
   %.51070.add = add nsw i64 %.51070.idx.lcssa1592, -4
   %.ptr1292 = getelementptr inbounds i8, ptr %9, i64 %.51070.add
-  %754 = icmp ult i64 %.21090.lcssa, 5000
+  %754 = icmp samesign ult i64 %.21090.lcssa, 5000
   br i1 %754, label %755, label %761
 
 755:                                              ; preds = %753
-  %756 = icmp ult i64 %.21090.lcssa, 2000
+  %756 = icmp samesign ult i64 %.21090.lcssa, 2000
   br i1 %756, label %769, label %757
 
 757:                                              ; preds = %755
-  %758 = icmp ult i64 %.21090.lcssa, 3000
+  %758 = icmp samesign ult i64 %.21090.lcssa, 3000
   br i1 %758, label %769, label %759
 
 759:                                              ; preds = %757
-  %760 = icmp ult i64 %.21090.lcssa, 4000
+  %760 = icmp samesign ult i64 %.21090.lcssa, 4000
   %.1920 = select i1 %760, i8 51, i8 52
   %.1921 = select i1 %760, i64 -3000, i64 -4000
   br label %769
 
 761:                                              ; preds = %753
-  %762 = icmp ult i64 %.21090.lcssa, 7000
+  %762 = icmp samesign ult i64 %.21090.lcssa, 7000
   br i1 %762, label %763, label %765
 
 763:                                              ; preds = %761
-  %764 = icmp ult i64 %.21090.lcssa, 6000
+  %764 = icmp samesign ult i64 %.21090.lcssa, 6000
   %.1922 = select i1 %764, i8 53, i8 54
   %.1923 = select i1 %764, i64 -5000, i64 -6000
   br label %769
 
 765:                                              ; preds = %761
-  %766 = icmp ult i64 %.21090.lcssa, 8000
+  %766 = icmp samesign ult i64 %.21090.lcssa, 8000
   br i1 %766, label %769, label %767
 
 767:                                              ; preds = %765
-  %768 = icmp ult i64 %.21090.lcssa, 9000
+  %768 = icmp samesign ult i64 %.21090.lcssa, 9000
   %.1924 = select i1 %768, i8 56, i8 57
   %.1925 = select i1 %768, i64 -8000, i64 -9000
   br label %769
@@ -2246,11 +2246,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %.91074.idx.lcssa = phi i64 [ %.91074.add1283, %._crit_edge ], [ %.81073.idx, %.preheader1465 ]
   %.12.lcssa = phi i32 [ %899, %._crit_edge ], [ %.11, %.preheader1465 ]
   %.91074.ptr.lcssa = phi ptr [ %.ptr1297, %._crit_edge ], [ %.81073.idx.sroa.phi, %.preheader1465 ]
-  %992 = icmp ult i32 %.12.lcssa, 100
+  %992 = icmp samesign ult i32 %.12.lcssa, 100
   br i1 %992, label %993, label %1006
 
 993:                                              ; preds = %991
-  %994 = icmp ult i32 %.12.lcssa, 10
+  %994 = icmp samesign ult i32 %.12.lcssa, 10
   br i1 %994, label %995, label %998
 
 995:                                              ; preds = %993
@@ -2276,45 +2276,45 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1116
 
 1006:                                             ; preds = %991
-  %1007 = icmp ult i32 %.12.lcssa, 1000
+  %1007 = icmp samesign ult i32 %.12.lcssa, 1000
   br i1 %1007, label %1008, label %1034
 
 1008:                                             ; preds = %1006
   %.91074.add1276 = add nsw i64 %.91074.idx.lcssa, -3
   %.ptr1287 = getelementptr inbounds i8, ptr %9, i64 %.91074.add1276
-  %1009 = icmp ult i32 %.12.lcssa, 500
+  %1009 = icmp samesign ult i32 %.12.lcssa, 500
   br i1 %1009, label %1010, label %1016
 
 1010:                                             ; preds = %1008
-  %1011 = icmp ult i32 %.12.lcssa, 200
+  %1011 = icmp samesign ult i32 %.12.lcssa, 200
   br i1 %1011, label %1024, label %1012
 
 1012:                                             ; preds = %1010
-  %1013 = icmp ult i32 %.12.lcssa, 300
+  %1013 = icmp samesign ult i32 %.12.lcssa, 300
   br i1 %1013, label %1024, label %1014
 
 1014:                                             ; preds = %1012
-  %1015 = icmp ult i32 %.12.lcssa, 400
+  %1015 = icmp samesign ult i32 %.12.lcssa, 400
   %.1926 = select i1 %1015, i8 51, i8 52
   %.1927 = select i1 %1015, i32 -300, i32 -400
   br label %1024
 
 1016:                                             ; preds = %1008
-  %1017 = icmp ult i32 %.12.lcssa, 700
+  %1017 = icmp samesign ult i32 %.12.lcssa, 700
   br i1 %1017, label %1018, label %1020
 
 1018:                                             ; preds = %1016
-  %1019 = icmp ult i32 %.12.lcssa, 600
+  %1019 = icmp samesign ult i32 %.12.lcssa, 600
   %.1928 = select i1 %1019, i8 53, i8 54
   %.1930 = select i1 %1019, i32 -500, i32 -600
   br label %1024
 
 1020:                                             ; preds = %1016
-  %1021 = icmp ult i32 %.12.lcssa, 800
+  %1021 = icmp samesign ult i32 %.12.lcssa, 800
   br i1 %1021, label %1024, label %1022
 
 1022:                                             ; preds = %1020
-  %1023 = icmp ult i32 %.12.lcssa, 900
+  %1023 = icmp samesign ult i32 %.12.lcssa, 900
   %.1931 = select i1 %1023, i8 56, i8 57
   %.1933 = select i1 %1023, i32 -800, i32 -900
   br label %1024
@@ -2339,39 +2339,39 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
 1034:                                             ; preds = %1006
   %.91074.add = add nsw i64 %.91074.idx.lcssa, -4
   %.ptr1286 = getelementptr inbounds i8, ptr %9, i64 %.91074.add
-  %1035 = icmp ult i32 %.12.lcssa, 5000
+  %1035 = icmp samesign ult i32 %.12.lcssa, 5000
   br i1 %1035, label %1036, label %1042
 
 1036:                                             ; preds = %1034
-  %1037 = icmp ult i32 %.12.lcssa, 2000
+  %1037 = icmp samesign ult i32 %.12.lcssa, 2000
   br i1 %1037, label %1050, label %1038
 
 1038:                                             ; preds = %1036
-  %1039 = icmp ult i32 %.12.lcssa, 3000
+  %1039 = icmp samesign ult i32 %.12.lcssa, 3000
   br i1 %1039, label %1050, label %1040
 
 1040:                                             ; preds = %1038
-  %1041 = icmp ult i32 %.12.lcssa, 4000
+  %1041 = icmp samesign ult i32 %.12.lcssa, 4000
   %.1934 = select i1 %1041, i8 51, i8 52
   %.1935 = select i1 %1041, i32 -3000, i32 -4000
   br label %1050
 
 1042:                                             ; preds = %1034
-  %1043 = icmp ult i32 %.12.lcssa, 7000
+  %1043 = icmp samesign ult i32 %.12.lcssa, 7000
   br i1 %1043, label %1044, label %1046
 
 1044:                                             ; preds = %1042
-  %1045 = icmp ult i32 %.12.lcssa, 6000
+  %1045 = icmp samesign ult i32 %.12.lcssa, 6000
   %.1936 = select i1 %1045, i8 53, i8 54
   %.1937 = select i1 %1045, i32 -5000, i32 -6000
   br label %1050
 
 1046:                                             ; preds = %1042
-  %1047 = icmp ult i32 %.12.lcssa, 8000
+  %1047 = icmp samesign ult i32 %.12.lcssa, 8000
   br i1 %1047, label %1050, label %1048
 
 1048:                                             ; preds = %1046
-  %1049 = icmp ult i32 %.12.lcssa, 9000
+  %1049 = icmp samesign ult i32 %.12.lcssa, 9000
   %.1938 = select i1 %1049, i8 56, i8 57
   %.1939 = select i1 %1049, i32 -8000, i32 -9000
   br label %1050
@@ -2977,7 +2977,7 @@ thread-pre-split1382:                             ; preds = %.lr.ph2048
   %1310 = add i8 %1309, 48
   %1311 = getelementptr inbounds i8, ptr %.1010401577, i64 -1
   store i8 %1310, ptr %1311, align 1
-  %1312 = icmp ugt i32 %1306, 99
+  %1312 = icmp samesign ugt i32 %1306, 99
   br i1 %1312, label %.lr.ph1578, label %.loopexit1470.sink.split
 
 .loopexit1470.sink.split:                         ; preds = %.lr.ph1578, %1293

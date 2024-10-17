@@ -934,7 +934,7 @@ define void @Extra_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noun
   %12 = and i32 %11, 28
   %13 = lshr i32 %10, %12
   %14 = and i32 %13, 15
-  %15 = icmp ult i32 %14, 10
+  %15 = icmp samesign ult i32 %14, 10
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
@@ -1010,7 +1010,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
   %22 = and i32 %21, 28
   %23 = lshr i32 %20, %22
   %24 = and i32 %23, 15
-  %25 = icmp ult i32 %24, 10
+  %25 = icmp samesign ult i32 %24, 10
   %26 = trunc nuw nsw i32 %24 to i8
   %27 = add nuw nsw i8 %26, 87
   %28 = or disjoint i8 %26, 48
@@ -1051,7 +1051,7 @@ define void @Extra_PrintHex(ptr nocapture noundef %0, ptr nocapture noundef read
   %16 = shl nuw nsw i32 %.016, 2
   %17 = lshr i32 %15, %16
   %18 = and i32 %17, 15
-  %19 = icmp ult i32 %18, 10
+  %19 = icmp samesign ult i32 %18, 10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph
@@ -1092,7 +1092,7 @@ define void @Extra_PrintHex2(ptr nocapture noundef %0, ptr nocapture noundef rea
   %15 = shl nuw nsw i32 %.015, 2
   %16 = lshr i32 %14, %15
   %17 = and i32 %16, 15
-  %18 = icmp ult i32 %17, 10
+  %18 = icmp samesign ult i32 %17, 10
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph
@@ -1133,7 +1133,7 @@ define void @Extra_PrintHexReverse(ptr nocapture noundef %0, ptr nocapture nound
   %16 = shl nsw i32 %.015, 2
   %17 = lshr i32 %15, %16
   %18 = and i32 %17, 15
-  %19 = icmp ult i32 %18, 10
+  %19 = icmp samesign ult i32 %18, 10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph

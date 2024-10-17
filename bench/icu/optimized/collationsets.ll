@@ -2008,7 +2008,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %incdec.ptr = getelementptr inbounds i8, ptr %ce32s.0140, i64 4
   %15 = load i32, ptr %ce32s.0140, align 4
   %and.i56 = and i32 %15, 255
-  %cmp.i57 = icmp ult i32 %and.i56, 192
+  %cmp.i57 = icmp samesign ult i32 %and.i56, 192
   br i1 %cmp.i57, label %if.then.i59, label %if.else.i58
 
 if.then.i59:                                      ; preds = %for.body

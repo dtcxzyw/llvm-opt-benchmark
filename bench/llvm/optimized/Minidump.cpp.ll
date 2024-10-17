@@ -678,7 +678,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %52 = zext i32 %.0.copyload.i.i.i to i64
   %53 = mul nuw nsw i64 %52, 108
   %54 = add nuw nsw i64 %53, 4
-  %55 = icmp ult i64 %54, %49
+  %55 = icmp samesign ult i64 %54, %49
   %spec.select = select i1 %55, i64 8, i64 4
   tail call void @_ZN4llvm6object12MinidumpFile14getDataSliceAsINS_8minidump6ModuleEEENS_8ExpectedINS_8ArrayRefIT_EEEENS6_IhEEmm(ptr dead_on_unwind writable sret(%"class.llvm::Expected.31") align 8 %0, ptr nonnull %51, i64 %49, i64 noundef %spec.select, i64 noundef %52)
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit
@@ -863,7 +863,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %52 = zext i32 %.0.copyload.i.i.i to i64
   %53 = mul nuw nsw i64 %52, 48
   %54 = or disjoint i64 %53, 4
-  %55 = icmp ult i64 %54, %49
+  %55 = icmp samesign ult i64 %54, %49
   %spec.select = select i1 %55, i64 8, i64 4
   tail call void @_ZN4llvm6object12MinidumpFile14getDataSliceAsINS_8minidump6ThreadEEENS_8ExpectedINS_8ArrayRefIT_EEEENS6_IhEEmm(ptr dead_on_unwind writable sret(%"class.llvm::Expected.35") align 8 %0, ptr nonnull %51, i64 %49, i64 noundef %spec.select, i64 noundef %52)
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit
@@ -1048,7 +1048,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %52 = zext i32 %.0.copyload.i.i.i to i64
   %53 = shl nuw nsw i64 %52, 4
   %54 = or disjoint i64 %53, 4
-  %55 = icmp ult i64 %54, %49
+  %55 = icmp samesign ult i64 %54, %49
   %spec.select = select i1 %55, i64 8, i64 4
   tail call void @_ZN4llvm6object12MinidumpFile14getDataSliceAsINS_8minidump16MemoryDescriptorEEENS_8ExpectedINS_8ArrayRefIT_EEEENS6_IhEEmm(ptr dead_on_unwind writable sret(%"class.llvm::Expected.39") align 8 %0, ptr nonnull %51, i64 %49, i64 noundef %spec.select, i64 noundef %52)
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit

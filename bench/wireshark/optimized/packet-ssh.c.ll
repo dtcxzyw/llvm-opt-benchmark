@@ -5547,7 +5547,7 @@ ssh_derive_symmetric_key.exit.i:                  ; preds = %478, %452
   %481 = getelementptr inbounds i8, ptr %395, i64 8
   store i32 %spec.select.i, ptr %481, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %482 = icmp ult i64 %indvars.iv75.i, 6
+  %482 = icmp samesign ult i64 %indvars.iv75.i, 6
   br i1 %482, label %switch.lookup, label %484
 
 switch.lookup:                                    ; preds = %ssh_derive_symmetric_key.exit.i
@@ -6102,8 +6102,8 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr nocapture nounde
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.483, i32 noundef %18) #21
   %20 = add nuw nsw i64 %.02933, 1
   %21 = add nuw nsw i64 %.02834, 1
-  %22 = icmp ult i64 %.02834, 15
-  %23 = icmp ult i64 %20, %2
+  %22 = icmp samesign ult i64 %.02834, 15
+  %23 = icmp samesign ult i64 %20, %2
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %14, label %.preheader, !llvm.loop !22
 
@@ -6112,7 +6112,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr nocapture nounde
   %25 = load ptr, ptr @ssh_debug_file, align 8
   %26 = tail call i64 @fwrite(ptr nonnull @.str.484, i64 3, i64 1, ptr %25)
   %27 = add nuw nsw i64 %.135, 1
-  %28 = icmp ult i64 %.135, 15
+  %28 = icmp samesign ult i64 %.135, 15
   br i1 %28, label %.lr.ph, label %.lr.ph39.preheader, !llvm.loop !23
 
 .lr.ph39.preheader:                               ; preds = %.lr.ph, %.preheader
@@ -6145,7 +6145,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr nocapture nounde
   %45 = load ptr, ptr @ssh_debug_file, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %45)
   %46 = add nuw nsw i64 %.041, 16
-  %47 = icmp ult i64 %46, %2
+  %47 = icmp samesign ult i64 %46, %2
   %indvars.iv.next = add nsw i64 %indvars.iv, -16
   br i1 %47, label %10, label %.loopexit, !llvm.loop !25
 
@@ -7380,8 +7380,8 @@ set_subdissector_for_channel.exit:                ; preds = %449, %481, %490, %5
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ssh_dissect_local_extension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %.280.val.732.val, ptr noundef %2, i32 noundef range(i32 192, 256) %3) unnamed_addr #0 {
   %5 = icmp ne i32 %.280.val.732.val, 0
-  %6 = icmp ult i32 %3, 194
-  %or.cond3 = and i1 %5, %6
+  %6 = icmp samesign ult i32 %3, 194
+  %or.cond3 = select i1 %5, i1 %6, i1 false
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %or.cond3, label %9, label %26

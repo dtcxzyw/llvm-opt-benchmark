@@ -368,7 +368,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %4, %53
   %indvars.iv176 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next177, %.loopexit131 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph158 ], [ %indvars.iv.next, %.loopexit131 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %72 = icmp ult i64 %indvars.iv.next177, %70
+  %72 = icmp samesign ult i64 %indvars.iv.next177, %70
   br i1 %72, label %.lr.ph, label %.loopexit131
 
 .lr.ph:                                           ; preds = %71, %.lr.ph

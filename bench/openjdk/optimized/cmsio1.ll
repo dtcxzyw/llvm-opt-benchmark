@@ -1205,7 +1205,7 @@ define hidden ptr @_cmsReadProfileSequence(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %2, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %15, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %6

@@ -1286,7 +1286,7 @@ define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_Mod
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !144
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %9, %12
+  %13 = icmp samesign ugt i64 %9, %12
   br i1 %13, label %38, label %14
 
 14:                                               ; preds = %2
@@ -1298,7 +1298,7 @@ define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_Mod
   %20 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %20)
   %21 = add nuw nsw i32 %7, 2
-  %22 = icmp ule i32 %21, %11
+  %22 = icmp samesign ule i32 %21, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %7, -1
   tail call void @llvm.assume(i1 %23)
@@ -1863,7 +1863,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %69 = or disjoint i32 %47, 256
   %70 = add nuw nsw i32 %69, %63
   %71 = icmp eq i8 %62, 0
-  %72 = icmp ult i32 %67, 12
+  %72 = icmp samesign ult i32 %67, 12
   %73 = sub nuw nsw i32 11, %67
   %74 = shl nsw i32 -1, %63
   %75 = xor i32 %74, -1
@@ -1890,7 +1890,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   br i1 %89, label %.loopexit13, label %.preheader, !llvm.loop !160
 
 90:                                               ; preds = %60
-  %91 = icmp ugt i32 %67, 11
+  %91 = icmp samesign ugt i32 %67, 11
   %92 = select i1 %91, i1 %68, i1 false
   %93 = freeze i1 %92
   br i1 %93, label %.preheader14, label %.preheader17
@@ -2028,7 +2028,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp uge i32 %17, %12
+  %23 = icmp samesign uge i32 %17, %12
   tail call void @llvm.assume(i1 %23)
   %24 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %24)
@@ -2042,7 +2042,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %29 = load i32, ptr %28, align 8, !tbaa !139
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !144
-  %32 = icmp uge i32 %31, %29
+  %32 = icmp samesign uge i32 %31, %29
   tail call void @llvm.assume(i1 %32)
   %33 = icmp sgt i32 %31, -1
   tail call void @llvm.assume(i1 %33)
@@ -2053,7 +2053,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %37 = zext i32 %35 to i64
   %38 = add nuw nsw i64 %37, %36
   %39 = zext nneg i32 %31 to i64
-  %40 = icmp ugt i64 %38, %39
+  %40 = icmp samesign ugt i64 %38, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %2
@@ -2066,7 +2066,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds i8, ptr %43, i64 %36
   store i32 0, ptr %3, align 4
-  %46 = icmp ult i32 %35, 4
+  %46 = icmp samesign ult i32 %35, 4
   br i1 %46, label %62, label %47
 
 47:                                               ; preds = %42
@@ -2102,7 +2102,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %68 = phi i64 [ 0, %47 ], [ %241, %101 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store i64 0, ptr %4, align 8
-  %69 = icmp ugt i64 %65, 1
+  %69 = icmp samesign ugt i64 %65, 1
   br i1 %69, label %70, label %81
 
 70:                                               ; preds = %64
@@ -2156,7 +2156,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %108 = phi i64 [ %68, %81 ], [ %241, %252 ]
   %109 = icmp ult i32 %107, 65
   tail call void @llvm.assume(i1 %109)
-  %110 = icmp ult i32 %107, 32
+  %110 = icmp samesign ult i32 %107, 32
   br i1 %110, label %111, label %139
 
 111:                                              ; preds = %104
@@ -2212,7 +2212,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %145 = load i32, ptr %144, align 4, !tbaa !118
   %146 = ashr i32 %145, 9
   %147 = and i32 %145, 255
-  %148 = icmp ult i32 %147, 33
+  %148 = icmp samesign ult i32 %147, 33
   tail call void @llvm.assume(i1 %148)
   %149 = sub nuw nsw i32 %141, %147
   %150 = zext nneg i32 %147 to i64
@@ -3329,7 +3329,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 4611686018427387903
   %38 = and i64 %37, 4611686018427387903
   %39 = add nuw nsw i64 %38, 1
-  %40 = icmp ult i64 %38, 31
+  %40 = icmp samesign ult i64 %38, 31
   br i1 %40, label %.preheader20, label %41
 
 41:                                               ; preds = %35
@@ -3520,7 +3520,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %151 = add nuw nsw i64 %2, 4611686018427387903
   %152 = and i64 %151, 4611686018427387903
   %153 = add nuw nsw i64 %152, 1
-  %154 = icmp ult i64 %152, 31
+  %154 = icmp samesign ult i64 %152, 31
   br i1 %154, label %.preheader, label %155
 
 155:                                              ; preds = %146
@@ -3814,11 +3814,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 9223372036854775807
   %38 = and i64 %37, 9223372036854775807
   %39 = add nuw i64 %38, 1
-  %40 = icmp ult i64 %38, 7
+  %40 = icmp samesign ult i64 %38, 7
   br i1 %40, label %.preheader32, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %38, 63
+  %42 = icmp samesign ult i64 %38, 63
   br i1 %42, label %63, label %43
 
 43:                                               ; preds = %41
@@ -4098,11 +4098,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
   %213 = add nuw i64 %212, 1
-  %214 = icmp ult i64 %212, 7
+  %214 = icmp samesign ult i64 %212, 7
   br i1 %214, label %.preheader, label %215
 
 215:                                              ; preds = %206
-  %216 = icmp ult i64 %212, 63
+  %216 = icmp samesign ult i64 %212, 63
   br i1 %216, label %237, label %217
 
 217:                                              ; preds = %215

@@ -18000,7 +18000,7 @@ define hidden void @"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$d
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !3110, !noundef !5
-  %switch = icmp ult i64 %2, 4
+  %switch = icmp samesign ult i64 %2, 4
   br i1 %switch, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime..runtime..memory..SharedMemory$GT$17h59a4fb346b94c8cbE.exit", label %3
 
 3:                                                ; preds = %1
@@ -18436,7 +18436,7 @@ define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3219)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %5
 
 5:                                                ; preds = %4
@@ -37549,7 +37549,7 @@ define { i64, i64 } @_ZN8wasmtime7runtime9externals6Extern9into_func17h29bfcb98b
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7448)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %7
 
 7:                                                ; preds = %1
@@ -37613,7 +37613,7 @@ define { i64, i64 } @_ZN8wasmtime7runtime9externals6Extern11into_global17h4ac27e
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7473)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %7
 
 7:                                                ; preds = %1
@@ -37677,7 +37677,7 @@ define { i64, i64 } @_ZN8wasmtime7runtime9externals6Extern10into_table17h8890e8a
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7498)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %7
 
 7:                                                ; preds = %1
@@ -37741,7 +37741,7 @@ define { i64, i64 } @_ZN8wasmtime7runtime9externals6Extern11into_memory17he4d6ef
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7523)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %7
 
 7:                                                ; preds = %1
@@ -41153,7 +41153,7 @@ _ZN8wasmtime7runtime6linker10Definition21comes_from_same_store17h17f64cfd7a6f8be
 144:                                              ; preds = %"_ZN75_$LT$wasmtime..runtime..externals..Extern$u20$as$u20$core..clone..Clone$GT$5clone17h41ea56e2317c2e52E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !8147)
   %145 = load i64, ptr %9, align 8, !range !3110, !alias.scope !8147, !noundef !5
-  %switch.i = icmp ult i64 %145, 4
+  %switch.i = icmp samesign ult i64 %145, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.exit", label %146
 
 146:                                              ; preds = %144
@@ -41445,11 +41445,11 @@ define void @_ZN8wasmtime7runtime6linker10Definition11update_size17hbada0caceabd
   br i1 %11, label %16, label %9
 
 12:                                               ; preds = %7
-  %13 = icmp ult i64 %6, 2
+  %13 = icmp samesign ult i64 %6, 2
   br i1 %13, label %41, label %9
 
 14:                                               ; preds = %7
-  %15 = icmp ult i64 %6, 2
+  %15 = icmp samesign ult i64 %6, 2
   br i1 %15, label %66, label %9
 
 16:                                               ; preds = %10

@@ -5120,7 +5120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i
@@ -59675,7 +59675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -65907,7 +65907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -90673,7 +90673,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -90693,7 +90693,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -90792,7 +90792,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 98:                                               ; preds = %96
   %99 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %99, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %99, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %98
@@ -90812,7 +90812,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %107 = trunc nuw i64 %.035273 to i32
   %108 = trunc i64 %.sroa.3202.0.copyload to i32
   %109 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %108)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %109, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %109, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %106
@@ -90876,7 +90876,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 136:                                              ; preds = %134
   %137 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %137, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %137, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %136
@@ -90896,7 +90896,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %145 = trunc nuw i64 %.034271 to i32
   %146 = trunc i64 %.sroa.3176.0.copyload to i32
   %147 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %146)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %147, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %147, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %144
@@ -90995,7 +90995,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 186:                                              ; preds = %184
   %187 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %187, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %187, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %186
@@ -91015,7 +91015,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %195 = trunc nuw i64 %.033269 to i32
   %196 = trunc i64 %.sroa.3150.0.copyload to i32
   %197 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %197, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %197, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %194
@@ -91079,7 +91079,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 224:                                              ; preds = %222
   %225 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %225, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %225, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %224
@@ -91099,7 +91099,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %233 = trunc nuw i64 %.032267 to i32
   %234 = trunc i64 %.sroa.3124.0.copyload to i32
   %235 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %235, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %235, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %232
@@ -91163,7 +91163,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 262:                                              ; preds = %260
   %263 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %263, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %263, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %262
@@ -91183,7 +91183,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %271 = trunc nuw i64 %.0266 to i32
   %272 = trunc i64 %.sroa.3118.0.copyload to i32
   %273 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %272)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %273, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %273, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %270
@@ -91402,7 +91402,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -91422,7 +91422,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -91522,7 +91522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -91542,7 +91542,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -91607,7 +91607,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -91627,7 +91627,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -91727,7 +91727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -91747,7 +91747,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -91812,7 +91812,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -91832,7 +91832,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -91897,7 +91897,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -91917,7 +91917,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -92131,7 +92131,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -92151,7 +92151,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -92251,7 +92251,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -92271,7 +92271,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -92336,7 +92336,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -92356,7 +92356,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -92456,7 +92456,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -92476,7 +92476,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -92541,7 +92541,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -92561,7 +92561,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -92626,7 +92626,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -92646,7 +92646,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -92860,7 +92860,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -92880,7 +92880,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -92980,7 +92980,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -93000,7 +93000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -93065,7 +93065,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -93085,7 +93085,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -93185,7 +93185,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -93205,7 +93205,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -93270,7 +93270,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -93290,7 +93290,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -93355,7 +93355,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -93375,7 +93375,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -93589,7 +93589,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -93609,7 +93609,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -93709,7 +93709,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -93729,7 +93729,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -93794,7 +93794,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -93814,7 +93814,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -93914,7 +93914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -93934,7 +93934,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -93999,7 +93999,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -94019,7 +94019,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -94084,7 +94084,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -94104,7 +94104,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -94318,7 +94318,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -94338,7 +94338,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -94438,7 +94438,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -94458,7 +94458,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -94523,7 +94523,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -94543,7 +94543,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -94643,7 +94643,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -94663,7 +94663,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -94728,7 +94728,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -94748,7 +94748,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -94813,7 +94813,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -94833,7 +94833,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -95047,7 +95047,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -95067,7 +95067,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -95167,7 +95167,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -95187,7 +95187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -95252,7 +95252,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -95272,7 +95272,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -95372,7 +95372,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -95392,7 +95392,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -95457,7 +95457,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -95477,7 +95477,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -95542,7 +95542,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -95562,7 +95562,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -95776,7 +95776,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -95796,7 +95796,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -95896,7 +95896,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -95916,7 +95916,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -95981,7 +95981,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -96001,7 +96001,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -96101,7 +96101,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -96121,7 +96121,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -96186,7 +96186,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -96206,7 +96206,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -96271,7 +96271,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -96291,7 +96291,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -96505,7 +96505,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -96525,7 +96525,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -96625,7 +96625,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -96645,7 +96645,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -96710,7 +96710,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -96730,7 +96730,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -96830,7 +96830,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -96850,7 +96850,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -96915,7 +96915,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -96935,7 +96935,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -97000,7 +97000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -97020,7 +97020,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -97234,7 +97234,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -97254,7 +97254,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -97354,7 +97354,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -97374,7 +97374,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -97439,7 +97439,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -97459,7 +97459,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -97559,7 +97559,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -97579,7 +97579,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -97644,7 +97644,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -97664,7 +97664,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -97729,7 +97729,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -97749,7 +97749,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -97963,7 +97963,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -97983,7 +97983,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -98083,7 +98083,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -98103,7 +98103,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -98168,7 +98168,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -98188,7 +98188,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -98288,7 +98288,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -98308,7 +98308,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -98373,7 +98373,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -98393,7 +98393,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -98458,7 +98458,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -98478,7 +98478,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -98692,7 +98692,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -98712,7 +98712,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -98812,7 +98812,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -98832,7 +98832,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -98897,7 +98897,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -98917,7 +98917,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -99017,7 +99017,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -99037,7 +99037,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -99102,7 +99102,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -99122,7 +99122,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -99187,7 +99187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -99207,7 +99207,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -99421,7 +99421,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -99441,7 +99441,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -99542,7 +99542,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -99562,7 +99562,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -99628,7 +99628,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -99648,7 +99648,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -99749,7 +99749,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -99769,7 +99769,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -99835,7 +99835,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -99855,7 +99855,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -99921,7 +99921,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -99941,7 +99941,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -100156,7 +100156,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -100176,7 +100176,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -100277,7 +100277,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -100297,7 +100297,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -100363,7 +100363,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -100383,7 +100383,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -100484,7 +100484,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -100504,7 +100504,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -100570,7 +100570,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -100590,7 +100590,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -100656,7 +100656,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -100676,7 +100676,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -100891,7 +100891,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -100911,7 +100911,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -101012,7 +101012,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -101032,7 +101032,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -101098,7 +101098,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -101118,7 +101118,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -101219,7 +101219,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -101239,7 +101239,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -101305,7 +101305,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -101325,7 +101325,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -101391,7 +101391,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -101411,7 +101411,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -101626,7 +101626,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -101646,7 +101646,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -101747,7 +101747,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -101767,7 +101767,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -101833,7 +101833,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -101853,7 +101853,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -101954,7 +101954,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -101974,7 +101974,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -102040,7 +102040,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -102060,7 +102060,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -102126,7 +102126,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -102146,7 +102146,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -102361,7 +102361,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -102381,7 +102381,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -102482,7 +102482,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -102502,7 +102502,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -102568,7 +102568,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -102588,7 +102588,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -102689,7 +102689,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -102709,7 +102709,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -102775,7 +102775,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -102795,7 +102795,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -102861,7 +102861,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -102881,7 +102881,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -103096,7 +103096,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -103116,7 +103116,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -103217,7 +103217,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -103237,7 +103237,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -103303,7 +103303,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -103323,7 +103323,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -103424,7 +103424,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -103444,7 +103444,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -103510,7 +103510,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -103530,7 +103530,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -103596,7 +103596,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -103616,7 +103616,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -103831,7 +103831,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -103851,7 +103851,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -103952,7 +103952,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -103972,7 +103972,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -104038,7 +104038,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -104058,7 +104058,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -104159,7 +104159,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -104179,7 +104179,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -104245,7 +104245,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -104265,7 +104265,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -104331,7 +104331,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -104351,7 +104351,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -104566,7 +104566,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -104586,7 +104586,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -104687,7 +104687,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -104707,7 +104707,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -104773,7 +104773,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -104793,7 +104793,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -104894,7 +104894,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -104914,7 +104914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -104980,7 +104980,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -105000,7 +105000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -105066,7 +105066,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -105086,7 +105086,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -105301,7 +105301,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -105321,7 +105321,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -105422,7 +105422,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -105442,7 +105442,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -105508,7 +105508,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -105528,7 +105528,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -105629,7 +105629,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -105649,7 +105649,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -105715,7 +105715,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -105735,7 +105735,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -105801,7 +105801,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -105821,7 +105821,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -106036,7 +106036,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -106056,7 +106056,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -106157,7 +106157,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -106177,7 +106177,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -106243,7 +106243,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -106263,7 +106263,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -106364,7 +106364,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -106384,7 +106384,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -106450,7 +106450,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -106470,7 +106470,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -106536,7 +106536,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -106556,7 +106556,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -106771,7 +106771,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -106791,7 +106791,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -106891,7 +106891,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -106911,7 +106911,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -106976,7 +106976,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -106996,7 +106996,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -107096,7 +107096,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -107116,7 +107116,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -107181,7 +107181,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -107201,7 +107201,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -107266,7 +107266,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -107286,7 +107286,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -107500,7 +107500,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -107520,7 +107520,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -107621,7 +107621,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -107641,7 +107641,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -107707,7 +107707,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -107727,7 +107727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -107828,7 +107828,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -107848,7 +107848,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -107914,7 +107914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -107934,7 +107934,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -108000,7 +108000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -108020,7 +108020,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -108234,7 +108234,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -108254,7 +108254,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -108355,7 +108355,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -108375,7 +108375,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -108441,7 +108441,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -108461,7 +108461,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -108562,7 +108562,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -108582,7 +108582,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -108648,7 +108648,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -108668,7 +108668,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -108734,7 +108734,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -108754,7 +108754,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -108969,7 +108969,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -108989,7 +108989,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -109090,7 +109090,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -109110,7 +109110,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -109176,7 +109176,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -109196,7 +109196,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -109297,7 +109297,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -109317,7 +109317,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -109383,7 +109383,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -109403,7 +109403,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -109469,7 +109469,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -109489,7 +109489,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -109704,7 +109704,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -109724,7 +109724,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -109825,7 +109825,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -109845,7 +109845,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -109911,7 +109911,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -109931,7 +109931,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -110032,7 +110032,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -110052,7 +110052,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -110118,7 +110118,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -110138,7 +110138,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -110204,7 +110204,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -110224,7 +110224,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -110439,7 +110439,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -110459,7 +110459,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -110560,7 +110560,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -110580,7 +110580,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -110646,7 +110646,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -110666,7 +110666,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -110767,7 +110767,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -110787,7 +110787,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -110853,7 +110853,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -110873,7 +110873,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -110939,7 +110939,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -110959,7 +110959,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -111174,7 +111174,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -111194,7 +111194,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -111295,7 +111295,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -111315,7 +111315,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -111381,7 +111381,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -111401,7 +111401,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -111502,7 +111502,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -111522,7 +111522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -111588,7 +111588,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -111608,7 +111608,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -111674,7 +111674,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -111694,7 +111694,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -111909,7 +111909,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -111929,7 +111929,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -112030,7 +112030,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -112050,7 +112050,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -112116,7 +112116,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -112136,7 +112136,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -112237,7 +112237,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -112257,7 +112257,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -112323,7 +112323,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -112343,7 +112343,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -112409,7 +112409,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -112429,7 +112429,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -112644,7 +112644,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -112664,7 +112664,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -112765,7 +112765,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -112785,7 +112785,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -112851,7 +112851,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -112871,7 +112871,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -112972,7 +112972,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -112992,7 +112992,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -113058,7 +113058,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -113078,7 +113078,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -113144,7 +113144,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -113164,7 +113164,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -113379,7 +113379,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -113399,7 +113399,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -113500,7 +113500,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -113520,7 +113520,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -113586,7 +113586,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -113606,7 +113606,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -113707,7 +113707,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -113727,7 +113727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -113793,7 +113793,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -113813,7 +113813,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -113879,7 +113879,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -113899,7 +113899,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -114114,7 +114114,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -114134,7 +114134,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -114235,7 +114235,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -114255,7 +114255,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -114321,7 +114321,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -114341,7 +114341,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -114442,7 +114442,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -114462,7 +114462,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -114528,7 +114528,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -114548,7 +114548,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -114614,7 +114614,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -114634,7 +114634,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -114849,7 +114849,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -114869,7 +114869,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -114969,7 +114969,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -114989,7 +114989,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -115054,7 +115054,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -115074,7 +115074,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -115174,7 +115174,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -115194,7 +115194,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -115259,7 +115259,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -115279,7 +115279,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -115344,7 +115344,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -115364,7 +115364,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -115578,7 +115578,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -115598,7 +115598,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -115699,7 +115699,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -115719,7 +115719,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -115785,7 +115785,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -115805,7 +115805,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -115906,7 +115906,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -115926,7 +115926,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -115992,7 +115992,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -116012,7 +116012,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -116078,7 +116078,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -116098,7 +116098,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -116313,7 +116313,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -116333,7 +116333,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -116434,7 +116434,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -116454,7 +116454,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -116520,7 +116520,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -116540,7 +116540,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -116641,7 +116641,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -116661,7 +116661,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -116727,7 +116727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -116747,7 +116747,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -116813,7 +116813,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -116833,7 +116833,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -117048,7 +117048,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -117068,7 +117068,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -117169,7 +117169,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -117189,7 +117189,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -117255,7 +117255,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -117275,7 +117275,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -117376,7 +117376,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -117396,7 +117396,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -117462,7 +117462,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -117482,7 +117482,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -117548,7 +117548,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -117568,7 +117568,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -117783,7 +117783,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -117803,7 +117803,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -117904,7 +117904,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -117924,7 +117924,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -117990,7 +117990,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -118010,7 +118010,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -118111,7 +118111,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -118131,7 +118131,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -118197,7 +118197,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -118217,7 +118217,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -118283,7 +118283,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -118303,7 +118303,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -118518,7 +118518,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -118538,7 +118538,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -118639,7 +118639,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -118659,7 +118659,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -118725,7 +118725,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -118745,7 +118745,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -118846,7 +118846,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -118866,7 +118866,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -118932,7 +118932,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -118952,7 +118952,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -119018,7 +119018,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -119038,7 +119038,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -119253,7 +119253,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -119273,7 +119273,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -119374,7 +119374,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -119394,7 +119394,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -119460,7 +119460,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -119480,7 +119480,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -119581,7 +119581,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -119601,7 +119601,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -119667,7 +119667,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -119687,7 +119687,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -119753,7 +119753,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -119773,7 +119773,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -119988,7 +119988,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -120008,7 +120008,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -120109,7 +120109,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -120129,7 +120129,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -120195,7 +120195,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -120215,7 +120215,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -120316,7 +120316,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -120336,7 +120336,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -120402,7 +120402,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -120422,7 +120422,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -120488,7 +120488,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -120508,7 +120508,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -120723,7 +120723,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -120743,7 +120743,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -120844,7 +120844,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -120864,7 +120864,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -120930,7 +120930,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -120950,7 +120950,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -121051,7 +121051,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -121071,7 +121071,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -121137,7 +121137,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -121157,7 +121157,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -121223,7 +121223,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -121243,7 +121243,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -121458,7 +121458,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -121478,7 +121478,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -121579,7 +121579,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -121599,7 +121599,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -121665,7 +121665,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -121685,7 +121685,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -121786,7 +121786,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -121806,7 +121806,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -121872,7 +121872,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -121892,7 +121892,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -121958,7 +121958,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -121978,7 +121978,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -122193,7 +122193,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -122213,7 +122213,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -122314,7 +122314,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -122334,7 +122334,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -122400,7 +122400,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -122420,7 +122420,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -122521,7 +122521,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -122541,7 +122541,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -122607,7 +122607,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -122627,7 +122627,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -122693,7 +122693,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -122713,7 +122713,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -122928,7 +122928,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -122948,7 +122948,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -123048,7 +123048,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -123068,7 +123068,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -123133,7 +123133,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -123153,7 +123153,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -123253,7 +123253,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -123273,7 +123273,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -123338,7 +123338,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -123358,7 +123358,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -123423,7 +123423,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -123443,7 +123443,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -123657,7 +123657,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -123677,7 +123677,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -123778,7 +123778,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -123798,7 +123798,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -123864,7 +123864,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -123884,7 +123884,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -123985,7 +123985,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -124005,7 +124005,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -124071,7 +124071,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -124091,7 +124091,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -124157,7 +124157,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -124177,7 +124177,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -124392,7 +124392,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -124412,7 +124412,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -124513,7 +124513,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -124533,7 +124533,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -124599,7 +124599,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -124619,7 +124619,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -124720,7 +124720,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -124740,7 +124740,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -124806,7 +124806,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -124826,7 +124826,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -124892,7 +124892,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -124912,7 +124912,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -125127,7 +125127,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -125147,7 +125147,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -125248,7 +125248,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -125268,7 +125268,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -125334,7 +125334,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -125354,7 +125354,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -125455,7 +125455,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -125475,7 +125475,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -125541,7 +125541,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -125561,7 +125561,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -125627,7 +125627,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -125647,7 +125647,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -125862,7 +125862,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -125882,7 +125882,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -125983,7 +125983,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -126003,7 +126003,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -126069,7 +126069,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -126089,7 +126089,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -126190,7 +126190,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -126210,7 +126210,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -126276,7 +126276,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -126296,7 +126296,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -126362,7 +126362,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -126382,7 +126382,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -126597,7 +126597,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -126617,7 +126617,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -126718,7 +126718,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -126738,7 +126738,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -126804,7 +126804,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -126824,7 +126824,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -126925,7 +126925,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -126945,7 +126945,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -127011,7 +127011,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -127031,7 +127031,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -127097,7 +127097,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -127117,7 +127117,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -127332,7 +127332,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -127352,7 +127352,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -127453,7 +127453,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -127473,7 +127473,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -127539,7 +127539,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -127559,7 +127559,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -127660,7 +127660,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -127680,7 +127680,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -127746,7 +127746,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -127766,7 +127766,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -127832,7 +127832,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -127852,7 +127852,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -128067,7 +128067,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -128087,7 +128087,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -128188,7 +128188,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -128208,7 +128208,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -128274,7 +128274,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -128294,7 +128294,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -128395,7 +128395,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -128415,7 +128415,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -128481,7 +128481,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -128501,7 +128501,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -128567,7 +128567,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -128587,7 +128587,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -128802,7 +128802,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -128822,7 +128822,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -128923,7 +128923,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -128943,7 +128943,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -129009,7 +129009,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -129029,7 +129029,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -129130,7 +129130,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -129150,7 +129150,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -129216,7 +129216,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -129236,7 +129236,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -129302,7 +129302,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -129322,7 +129322,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -129537,7 +129537,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -129557,7 +129557,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -129658,7 +129658,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -129678,7 +129678,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -129744,7 +129744,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -129764,7 +129764,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -129865,7 +129865,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -129885,7 +129885,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -129951,7 +129951,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -129971,7 +129971,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -130037,7 +130037,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -130057,7 +130057,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -130272,7 +130272,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -130292,7 +130292,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -130393,7 +130393,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -130413,7 +130413,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -130479,7 +130479,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -130499,7 +130499,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -130600,7 +130600,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -130620,7 +130620,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -130686,7 +130686,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -130706,7 +130706,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -130772,7 +130772,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -130792,7 +130792,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -131007,7 +131007,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -131027,7 +131027,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -131127,7 +131127,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -131147,7 +131147,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -131212,7 +131212,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -131232,7 +131232,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -131332,7 +131332,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -131352,7 +131352,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -131417,7 +131417,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -131437,7 +131437,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -131502,7 +131502,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -131522,7 +131522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -131736,7 +131736,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -131756,7 +131756,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -131857,7 +131857,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -131877,7 +131877,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -131943,7 +131943,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -131963,7 +131963,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -132064,7 +132064,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -132084,7 +132084,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -132150,7 +132150,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -132170,7 +132170,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -132236,7 +132236,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -132256,7 +132256,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -132471,7 +132471,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -132491,7 +132491,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -132592,7 +132592,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -132612,7 +132612,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -132678,7 +132678,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -132698,7 +132698,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -132799,7 +132799,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -132819,7 +132819,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -132885,7 +132885,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -132905,7 +132905,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -132971,7 +132971,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -132991,7 +132991,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -133206,7 +133206,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -133226,7 +133226,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -133327,7 +133327,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -133347,7 +133347,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -133413,7 +133413,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -133433,7 +133433,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -133534,7 +133534,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -133554,7 +133554,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -133620,7 +133620,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -133640,7 +133640,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -133706,7 +133706,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -133726,7 +133726,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -133941,7 +133941,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -133961,7 +133961,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -134062,7 +134062,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -134082,7 +134082,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -134148,7 +134148,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -134168,7 +134168,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -134269,7 +134269,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -134289,7 +134289,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -134355,7 +134355,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -134375,7 +134375,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -134441,7 +134441,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -134461,7 +134461,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -134676,7 +134676,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -134696,7 +134696,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -134797,7 +134797,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -134817,7 +134817,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -134883,7 +134883,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -134903,7 +134903,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -135004,7 +135004,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -135024,7 +135024,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -135090,7 +135090,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -135110,7 +135110,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -135176,7 +135176,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -135196,7 +135196,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -135411,7 +135411,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -135431,7 +135431,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -135532,7 +135532,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -135552,7 +135552,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -135618,7 +135618,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -135638,7 +135638,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -135739,7 +135739,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -135759,7 +135759,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -135825,7 +135825,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -135845,7 +135845,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -135911,7 +135911,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -135931,7 +135931,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -136146,7 +136146,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -136166,7 +136166,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -136267,7 +136267,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -136287,7 +136287,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -136353,7 +136353,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -136373,7 +136373,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -136474,7 +136474,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -136494,7 +136494,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -136560,7 +136560,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -136580,7 +136580,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -136646,7 +136646,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -136666,7 +136666,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -136881,7 +136881,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -136901,7 +136901,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -137002,7 +137002,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -137022,7 +137022,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -137088,7 +137088,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -137108,7 +137108,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -137209,7 +137209,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -137229,7 +137229,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -137295,7 +137295,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -137315,7 +137315,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -137381,7 +137381,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -137401,7 +137401,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -137616,7 +137616,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -137636,7 +137636,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -137737,7 +137737,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -137757,7 +137757,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -137823,7 +137823,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -137843,7 +137843,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -137944,7 +137944,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -137964,7 +137964,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -138030,7 +138030,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -138050,7 +138050,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -138116,7 +138116,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -138136,7 +138136,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -138351,7 +138351,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -138371,7 +138371,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -138472,7 +138472,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -138492,7 +138492,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -138558,7 +138558,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -138578,7 +138578,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -138679,7 +138679,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -138699,7 +138699,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -138765,7 +138765,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -138785,7 +138785,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -138851,7 +138851,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -138871,7 +138871,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -139086,7 +139086,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -139106,7 +139106,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -139206,7 +139206,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -139226,7 +139226,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -139291,7 +139291,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -139311,7 +139311,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -139411,7 +139411,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -139431,7 +139431,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -139496,7 +139496,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -139516,7 +139516,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -139581,7 +139581,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -139601,7 +139601,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -139815,7 +139815,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -139835,7 +139835,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -139936,7 +139936,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -139956,7 +139956,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -140022,7 +140022,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -140042,7 +140042,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -140143,7 +140143,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -140163,7 +140163,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -140229,7 +140229,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -140249,7 +140249,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -140315,7 +140315,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -140335,7 +140335,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -140550,7 +140550,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -140570,7 +140570,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -140671,7 +140671,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -140691,7 +140691,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -140757,7 +140757,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -140777,7 +140777,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -140878,7 +140878,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -140898,7 +140898,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -140964,7 +140964,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -140984,7 +140984,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -141050,7 +141050,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -141070,7 +141070,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -141285,7 +141285,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -141305,7 +141305,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -141406,7 +141406,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -141426,7 +141426,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -141492,7 +141492,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -141512,7 +141512,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -141613,7 +141613,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -141633,7 +141633,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -141699,7 +141699,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -141719,7 +141719,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -141785,7 +141785,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -141805,7 +141805,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -142020,7 +142020,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -142040,7 +142040,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -142141,7 +142141,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -142161,7 +142161,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -142227,7 +142227,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -142247,7 +142247,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -142348,7 +142348,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -142368,7 +142368,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -142434,7 +142434,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -142454,7 +142454,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -142520,7 +142520,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -142540,7 +142540,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -142755,7 +142755,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -142775,7 +142775,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -142876,7 +142876,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -142896,7 +142896,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -142962,7 +142962,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -142982,7 +142982,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -143083,7 +143083,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -143103,7 +143103,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -143169,7 +143169,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -143189,7 +143189,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -143255,7 +143255,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -143275,7 +143275,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -143490,7 +143490,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -143510,7 +143510,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -143611,7 +143611,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -143631,7 +143631,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -143697,7 +143697,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -143717,7 +143717,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -143818,7 +143818,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -143838,7 +143838,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -143904,7 +143904,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -143924,7 +143924,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -143990,7 +143990,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -144010,7 +144010,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -144225,7 +144225,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -144245,7 +144245,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -144346,7 +144346,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -144366,7 +144366,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -144432,7 +144432,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -144452,7 +144452,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -144553,7 +144553,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -144573,7 +144573,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -144639,7 +144639,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -144659,7 +144659,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -144725,7 +144725,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -144745,7 +144745,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -144960,7 +144960,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -144980,7 +144980,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -145081,7 +145081,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -145101,7 +145101,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -145167,7 +145167,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -145187,7 +145187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -145288,7 +145288,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -145308,7 +145308,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -145374,7 +145374,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -145394,7 +145394,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -145460,7 +145460,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -145480,7 +145480,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -145695,7 +145695,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -145715,7 +145715,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -145816,7 +145816,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -145836,7 +145836,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -145902,7 +145902,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -145922,7 +145922,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -146023,7 +146023,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -146043,7 +146043,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -146109,7 +146109,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -146129,7 +146129,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -146195,7 +146195,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -146215,7 +146215,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -146430,7 +146430,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -146450,7 +146450,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -146551,7 +146551,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -146571,7 +146571,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -146637,7 +146637,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -146657,7 +146657,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -146758,7 +146758,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -146778,7 +146778,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -146844,7 +146844,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -146864,7 +146864,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -146930,7 +146930,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -146950,7 +146950,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -147165,7 +147165,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -147185,7 +147185,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -147285,7 +147285,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -147305,7 +147305,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -147370,7 +147370,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -147390,7 +147390,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -147490,7 +147490,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -147510,7 +147510,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -147575,7 +147575,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -147595,7 +147595,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -147660,7 +147660,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -147680,7 +147680,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -147894,7 +147894,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -147914,7 +147914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -148015,7 +148015,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -148035,7 +148035,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -148101,7 +148101,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -148121,7 +148121,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -148222,7 +148222,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -148242,7 +148242,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -148308,7 +148308,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -148328,7 +148328,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -148394,7 +148394,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -148414,7 +148414,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -148629,7 +148629,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -148649,7 +148649,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -148750,7 +148750,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -148770,7 +148770,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -148836,7 +148836,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -148856,7 +148856,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -148957,7 +148957,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -148977,7 +148977,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -149043,7 +149043,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -149063,7 +149063,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -149129,7 +149129,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -149149,7 +149149,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -149364,7 +149364,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -149384,7 +149384,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -149485,7 +149485,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -149505,7 +149505,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -149571,7 +149571,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -149591,7 +149591,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -149692,7 +149692,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -149712,7 +149712,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -149778,7 +149778,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -149798,7 +149798,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -149864,7 +149864,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -149884,7 +149884,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -150099,7 +150099,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -150119,7 +150119,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -150220,7 +150220,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -150240,7 +150240,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -150306,7 +150306,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -150326,7 +150326,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -150427,7 +150427,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -150447,7 +150447,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -150513,7 +150513,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -150533,7 +150533,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -150599,7 +150599,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -150619,7 +150619,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -150834,7 +150834,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -150854,7 +150854,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -150955,7 +150955,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -150975,7 +150975,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -151041,7 +151041,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -151061,7 +151061,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -151162,7 +151162,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -151182,7 +151182,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -151248,7 +151248,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -151268,7 +151268,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -151334,7 +151334,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -151354,7 +151354,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -151569,7 +151569,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -151589,7 +151589,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -151690,7 +151690,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -151710,7 +151710,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -151776,7 +151776,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -151796,7 +151796,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -151897,7 +151897,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -151917,7 +151917,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -151983,7 +151983,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -152003,7 +152003,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -152069,7 +152069,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -152089,7 +152089,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -152304,7 +152304,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -152324,7 +152324,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -152425,7 +152425,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -152445,7 +152445,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -152511,7 +152511,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -152531,7 +152531,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -152632,7 +152632,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -152652,7 +152652,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -152718,7 +152718,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -152738,7 +152738,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -152804,7 +152804,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -152824,7 +152824,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -153039,7 +153039,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -153059,7 +153059,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -153160,7 +153160,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -153180,7 +153180,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -153246,7 +153246,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -153266,7 +153266,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -153367,7 +153367,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -153387,7 +153387,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -153453,7 +153453,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -153473,7 +153473,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -153539,7 +153539,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -153559,7 +153559,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -153774,7 +153774,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -153794,7 +153794,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -153895,7 +153895,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -153915,7 +153915,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -153981,7 +153981,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -154001,7 +154001,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -154102,7 +154102,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -154122,7 +154122,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -154188,7 +154188,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -154208,7 +154208,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -154274,7 +154274,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -154294,7 +154294,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -154509,7 +154509,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -154529,7 +154529,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -154630,7 +154630,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -154650,7 +154650,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -154716,7 +154716,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -154736,7 +154736,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -154837,7 +154837,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -154857,7 +154857,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -154923,7 +154923,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -154943,7 +154943,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -155009,7 +155009,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -155029,7 +155029,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -155244,7 +155244,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -155264,7 +155264,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -155364,7 +155364,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -155384,7 +155384,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -155449,7 +155449,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -155469,7 +155469,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -155569,7 +155569,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -155589,7 +155589,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -155654,7 +155654,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -155674,7 +155674,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -155739,7 +155739,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -155759,7 +155759,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -155973,7 +155973,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -155993,7 +155993,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -156094,7 +156094,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -156114,7 +156114,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -156180,7 +156180,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -156200,7 +156200,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -156301,7 +156301,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -156321,7 +156321,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -156387,7 +156387,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -156407,7 +156407,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -156473,7 +156473,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -156493,7 +156493,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -156708,7 +156708,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -156728,7 +156728,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -156829,7 +156829,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -156849,7 +156849,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -156915,7 +156915,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -156935,7 +156935,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -157036,7 +157036,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -157056,7 +157056,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -157122,7 +157122,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -157142,7 +157142,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -157208,7 +157208,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -157228,7 +157228,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -157443,7 +157443,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -157463,7 +157463,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -157564,7 +157564,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -157584,7 +157584,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -157650,7 +157650,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -157670,7 +157670,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -157771,7 +157771,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -157791,7 +157791,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -157857,7 +157857,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -157877,7 +157877,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -157943,7 +157943,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -157963,7 +157963,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -158178,7 +158178,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -158198,7 +158198,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -158299,7 +158299,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -158319,7 +158319,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -158385,7 +158385,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -158405,7 +158405,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -158506,7 +158506,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -158526,7 +158526,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -158592,7 +158592,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -158612,7 +158612,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -158678,7 +158678,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -158698,7 +158698,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -158913,7 +158913,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -158933,7 +158933,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -159034,7 +159034,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -159054,7 +159054,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -159120,7 +159120,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -159140,7 +159140,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -159241,7 +159241,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -159261,7 +159261,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -159327,7 +159327,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -159347,7 +159347,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -159413,7 +159413,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -159433,7 +159433,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -159648,7 +159648,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -159668,7 +159668,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -159769,7 +159769,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -159789,7 +159789,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -159855,7 +159855,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -159875,7 +159875,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -159976,7 +159976,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -159996,7 +159996,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -160062,7 +160062,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -160082,7 +160082,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -160148,7 +160148,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -160168,7 +160168,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -160383,7 +160383,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -160403,7 +160403,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -160504,7 +160504,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -160524,7 +160524,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -160590,7 +160590,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -160610,7 +160610,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -160711,7 +160711,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -160731,7 +160731,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -160797,7 +160797,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -160817,7 +160817,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -160883,7 +160883,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -160903,7 +160903,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -161118,7 +161118,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -161138,7 +161138,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -161239,7 +161239,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -161259,7 +161259,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -161325,7 +161325,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -161345,7 +161345,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -161446,7 +161446,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -161466,7 +161466,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -161532,7 +161532,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -161552,7 +161552,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -161618,7 +161618,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -161638,7 +161638,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -161853,7 +161853,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -161873,7 +161873,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -161974,7 +161974,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -161994,7 +161994,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -162060,7 +162060,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -162080,7 +162080,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -162181,7 +162181,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -162201,7 +162201,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -162267,7 +162267,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -162287,7 +162287,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -162353,7 +162353,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -162373,7 +162373,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -162588,7 +162588,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -162608,7 +162608,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -162709,7 +162709,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -162729,7 +162729,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -162795,7 +162795,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -162815,7 +162815,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -162916,7 +162916,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -162936,7 +162936,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -163002,7 +163002,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -163022,7 +163022,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -163088,7 +163088,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -163108,7 +163108,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -163323,7 +163323,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -163343,7 +163343,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -163443,7 +163443,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -163463,7 +163463,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -163528,7 +163528,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -163548,7 +163548,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -163648,7 +163648,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -163668,7 +163668,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -163733,7 +163733,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -163753,7 +163753,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -163818,7 +163818,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -163838,7 +163838,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -164052,7 +164052,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -164072,7 +164072,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -164173,7 +164173,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -164193,7 +164193,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -164259,7 +164259,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -164279,7 +164279,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -164380,7 +164380,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -164400,7 +164400,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -164466,7 +164466,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -164486,7 +164486,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -164552,7 +164552,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -164572,7 +164572,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -164787,7 +164787,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -164807,7 +164807,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -164908,7 +164908,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -164928,7 +164928,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -164994,7 +164994,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -165014,7 +165014,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -165115,7 +165115,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -165135,7 +165135,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -165201,7 +165201,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -165221,7 +165221,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -165287,7 +165287,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -165307,7 +165307,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -165522,7 +165522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -165542,7 +165542,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -165643,7 +165643,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -165663,7 +165663,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -165729,7 +165729,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -165749,7 +165749,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -165850,7 +165850,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -165870,7 +165870,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -165936,7 +165936,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -165956,7 +165956,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -166022,7 +166022,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -166042,7 +166042,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -166257,7 +166257,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -166277,7 +166277,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -166378,7 +166378,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -166398,7 +166398,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -166464,7 +166464,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -166484,7 +166484,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -166585,7 +166585,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -166605,7 +166605,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -166671,7 +166671,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -166691,7 +166691,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -166757,7 +166757,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -166777,7 +166777,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -166992,7 +166992,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -167012,7 +167012,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -167113,7 +167113,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -167133,7 +167133,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -167199,7 +167199,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -167219,7 +167219,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -167320,7 +167320,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -167340,7 +167340,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -167406,7 +167406,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -167426,7 +167426,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -167492,7 +167492,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -167512,7 +167512,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -167727,7 +167727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -167747,7 +167747,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -167848,7 +167848,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -167868,7 +167868,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -167934,7 +167934,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -167954,7 +167954,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -168055,7 +168055,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -168075,7 +168075,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -168141,7 +168141,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -168161,7 +168161,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -168227,7 +168227,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -168247,7 +168247,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -168462,7 +168462,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -168482,7 +168482,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -168583,7 +168583,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -168603,7 +168603,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -168669,7 +168669,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -168689,7 +168689,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -168790,7 +168790,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -168810,7 +168810,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -168876,7 +168876,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -168896,7 +168896,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -168962,7 +168962,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -168982,7 +168982,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -169197,7 +169197,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -169217,7 +169217,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -169318,7 +169318,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -169338,7 +169338,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -169404,7 +169404,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -169424,7 +169424,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -169525,7 +169525,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -169545,7 +169545,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -169611,7 +169611,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -169631,7 +169631,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -169697,7 +169697,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -169717,7 +169717,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -169932,7 +169932,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -169952,7 +169952,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -170053,7 +170053,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -170073,7 +170073,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -170139,7 +170139,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -170159,7 +170159,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -170260,7 +170260,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -170280,7 +170280,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -170346,7 +170346,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -170366,7 +170366,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -170432,7 +170432,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -170452,7 +170452,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -170667,7 +170667,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -170687,7 +170687,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -170788,7 +170788,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -170808,7 +170808,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -170874,7 +170874,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -170894,7 +170894,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -170995,7 +170995,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -171015,7 +171015,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -171081,7 +171081,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -171101,7 +171101,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -171167,7 +171167,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -171187,7 +171187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -171402,7 +171402,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -171422,7 +171422,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -171522,7 +171522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 99:                                               ; preds = %97
   %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %100, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %100, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %99
@@ -171542,7 +171542,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %108 = trunc nuw i64 %.035273 to i32
   %109 = trunc i64 %.sroa.3202.0.copyload to i32
   %110 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %110, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %110, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %107
@@ -171607,7 +171607,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 138:                                              ; preds = %136
   %139 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %139, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %138
@@ -171627,7 +171627,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %147 = trunc nuw i64 %.034271 to i32
   %148 = trunc i64 %.sroa.3176.0.copyload to i32
   %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %149, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %149, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %146
@@ -171727,7 +171727,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 189:                                              ; preds = %187
   %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %190, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %190, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %189
@@ -171747,7 +171747,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %198 = trunc nuw i64 %.033269 to i32
   %199 = trunc i64 %.sroa.3150.0.copyload to i32
   %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %200, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %200, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %197
@@ -171812,7 +171812,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 228:                                              ; preds = %226
   %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %229, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %229, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %228
@@ -171832,7 +171832,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %237 = trunc nuw i64 %.032267 to i32
   %238 = trunc i64 %.sroa.3124.0.copyload to i32
   %239 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %238)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %239, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %239, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %236
@@ -171897,7 +171897,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 267:                                              ; preds = %265
   %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %268, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %268, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %267
@@ -171917,7 +171917,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %276 = trunc nuw i64 %.0266 to i32
   %277 = trunc i64 %.sroa.3118.0.copyload to i32
   %278 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %277)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %278, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %278, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %275
@@ -172131,7 +172131,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -172151,7 +172151,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -172252,7 +172252,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -172272,7 +172272,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -172338,7 +172338,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -172358,7 +172358,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -172459,7 +172459,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -172479,7 +172479,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -172545,7 +172545,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -172565,7 +172565,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -172631,7 +172631,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -172651,7 +172651,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -172866,7 +172866,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -172886,7 +172886,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -172987,7 +172987,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -173007,7 +173007,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -173073,7 +173073,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -173093,7 +173093,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -173194,7 +173194,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -173214,7 +173214,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -173280,7 +173280,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -173300,7 +173300,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -173366,7 +173366,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -173386,7 +173386,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -173601,7 +173601,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -173621,7 +173621,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -173722,7 +173722,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -173742,7 +173742,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -173808,7 +173808,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -173828,7 +173828,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -173929,7 +173929,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -173949,7 +173949,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -174015,7 +174015,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -174035,7 +174035,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -174101,7 +174101,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -174121,7 +174121,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -174336,7 +174336,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -174356,7 +174356,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -174457,7 +174457,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -174477,7 +174477,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -174543,7 +174543,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -174563,7 +174563,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -174664,7 +174664,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -174684,7 +174684,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -174750,7 +174750,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -174770,7 +174770,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -174836,7 +174836,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -174856,7 +174856,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -175071,7 +175071,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -175091,7 +175091,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -175192,7 +175192,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -175212,7 +175212,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -175278,7 +175278,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -175298,7 +175298,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -175399,7 +175399,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -175419,7 +175419,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -175485,7 +175485,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -175505,7 +175505,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -175571,7 +175571,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -175591,7 +175591,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -175806,7 +175806,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -175826,7 +175826,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -175927,7 +175927,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -175947,7 +175947,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -176013,7 +176013,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -176033,7 +176033,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -176134,7 +176134,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -176154,7 +176154,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -176220,7 +176220,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -176240,7 +176240,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -176306,7 +176306,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -176326,7 +176326,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -176541,7 +176541,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -176561,7 +176561,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -176662,7 +176662,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -176682,7 +176682,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -176748,7 +176748,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -176768,7 +176768,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -176869,7 +176869,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -176889,7 +176889,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -176955,7 +176955,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -176975,7 +176975,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -177041,7 +177041,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -177061,7 +177061,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -177276,7 +177276,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -177296,7 +177296,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -177397,7 +177397,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -177417,7 +177417,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -177483,7 +177483,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -177503,7 +177503,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -177604,7 +177604,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -177624,7 +177624,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -177690,7 +177690,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -177710,7 +177710,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -177776,7 +177776,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -177796,7 +177796,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -178011,7 +178011,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -178031,7 +178031,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -178132,7 +178132,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -178152,7 +178152,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -178218,7 +178218,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -178238,7 +178238,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -178339,7 +178339,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -178359,7 +178359,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -178425,7 +178425,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -178445,7 +178445,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -178511,7 +178511,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -178531,7 +178531,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280
@@ -178746,7 +178746,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 48:                                               ; preds = %46
   %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3228.0.copyload)
-  %.not.i.i.i.i.i = icmp ult i64 %49, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %48
@@ -178766,7 +178766,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %57 = trunc nuw i64 %.036275 to i32
   %58 = trunc i64 %.sroa.3228.0.copyload to i32
   %59 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %.not.i7.i.i.i.i = icmp ult i32 %59, 2
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
 .split.us.i11.i.i.i.i:                            ; preds = %56
@@ -178867,7 +178867,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 100:                                              ; preds = %98
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3202.0.copyload)
-  %.not.i.i.i.i.i57 = icmp ult i64 %101, 2
+  %.not.i.i.i.i.i57 = icmp samesign ult i64 %101, 2
   br i1 %.not.i.i.i.i.i57, label %.split.us.i.i.i.i.i59, label %.split.i.i.i.i.i58
 
 .split.us.i.i.i.i.i59:                            ; preds = %100
@@ -178887,7 +178887,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %109 = trunc nuw i64 %.035273 to i32
   %110 = trunc i64 %.sroa.3202.0.copyload to i32
   %111 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %110)
-  %.not.i7.i.i.i.i48 = icmp ult i32 %111, 2
+  %.not.i7.i.i.i.i48 = icmp samesign ult i32 %111, 2
   br i1 %.not.i7.i.i.i.i48, label %.split.us.i11.i.i.i.i56, label %.split.i8.i.i.i.i49
 
 .split.us.i11.i.i.i.i56:                          ; preds = %108
@@ -178953,7 +178953,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 140:                                              ; preds = %138
   %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3176.0.copyload)
-  %.not.i.i.i.i.i70 = icmp ult i64 %141, 2
+  %.not.i.i.i.i.i70 = icmp samesign ult i64 %141, 2
   br i1 %.not.i.i.i.i.i70, label %.split.us.i.i.i.i.i72, label %.split.i.i.i.i.i71
 
 .split.us.i.i.i.i.i72:                            ; preds = %140
@@ -178973,7 +178973,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %149 = trunc nuw i64 %.034271 to i32
   %150 = trunc i64 %.sroa.3176.0.copyload to i32
   %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %.not.i7.i.i.i.i61 = icmp ult i32 %151, 2
+  %.not.i7.i.i.i.i61 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i61, label %.split.us.i11.i.i.i.i69, label %.split.i8.i.i.i.i62
 
 .split.us.i11.i.i.i.i69:                          ; preds = %148
@@ -179074,7 +179074,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 192:                                              ; preds = %190
   %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3150.0.copyload)
-  %.not.i.i.i.i.i83 = icmp ult i64 %193, 2
+  %.not.i.i.i.i.i83 = icmp samesign ult i64 %193, 2
   br i1 %.not.i.i.i.i.i83, label %.split.us.i.i.i.i.i85, label %.split.i.i.i.i.i84
 
 .split.us.i.i.i.i.i85:                            ; preds = %192
@@ -179094,7 +179094,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %201 = trunc nuw i64 %.033269 to i32
   %202 = trunc i64 %.sroa.3150.0.copyload to i32
   %203 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %202)
-  %.not.i7.i.i.i.i74 = icmp ult i32 %203, 2
+  %.not.i7.i.i.i.i74 = icmp samesign ult i32 %203, 2
   br i1 %.not.i7.i.i.i.i74, label %.split.us.i11.i.i.i.i82, label %.split.i8.i.i.i.i75
 
 .split.us.i11.i.i.i.i82:                          ; preds = %200
@@ -179160,7 +179160,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 232:                                              ; preds = %230
   %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3124.0.copyload)
-  %.not.i.i.i.i.i96 = icmp ult i64 %233, 2
+  %.not.i.i.i.i.i96 = icmp samesign ult i64 %233, 2
   br i1 %.not.i.i.i.i.i96, label %.split.us.i.i.i.i.i98, label %.split.i.i.i.i.i97
 
 .split.us.i.i.i.i.i98:                            ; preds = %232
@@ -179180,7 +179180,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %241 = trunc nuw i64 %.032267 to i32
   %242 = trunc i64 %.sroa.3124.0.copyload to i32
   %243 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %242)
-  %.not.i7.i.i.i.i87 = icmp ult i32 %243, 2
+  %.not.i7.i.i.i.i87 = icmp samesign ult i32 %243, 2
   br i1 %.not.i7.i.i.i.i87, label %.split.us.i11.i.i.i.i95, label %.split.i8.i.i.i.i88
 
 .split.us.i11.i.i.i.i95:                          ; preds = %240
@@ -179246,7 +179246,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 272:                                              ; preds = %270
   %273 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.3118.0.copyload)
-  %.not.i.i.i.i.i109 = icmp ult i64 %273, 2
+  %.not.i.i.i.i.i109 = icmp samesign ult i64 %273, 2
   br i1 %.not.i.i.i.i.i109, label %.split.us.i.i.i.i.i111, label %.split.i.i.i.i.i110
 
 .split.us.i.i.i.i.i111:                           ; preds = %272
@@ -179266,7 +179266,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %281 = trunc nuw i64 %.0266 to i32
   %282 = trunc i64 %.sroa.3118.0.copyload to i32
   %283 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %282)
-  %.not.i7.i.i.i.i100 = icmp ult i32 %283, 2
+  %.not.i7.i.i.i.i100 = icmp samesign ult i32 %283, 2
   br i1 %.not.i7.i.i.i.i100, label %.split.us.i11.i.i.i.i108, label %.split.i8.i.i.i.i101
 
 .split.us.i11.i.i.i.i108:                         ; preds = %280

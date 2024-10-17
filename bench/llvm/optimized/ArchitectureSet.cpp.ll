@@ -177,7 +177,7 @@ _ZNK4llvm5MachO15ArchitectureSet5beginEv.exit:    ; preds = %20
 
 42:                                               ; preds = %44, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ %39, %.preheader.i.i ]
-  %43 = icmp ult i64 %indvars.iv.i, 31
+  %43 = icmp samesign ult i64 %indvars.iv.i, 31
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %42
@@ -325,7 +325,7 @@ _ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9_
 
 45:                                               ; preds = %47, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ %42, %.preheader.i.i ]
-  %46 = icmp ult i64 %indvars.iv.i, 31
+  %46 = icmp samesign ult i64 %indvars.iv.i, 31
   br i1 %46, label %47, label %._crit_edge
 
 47:                                               ; preds = %45

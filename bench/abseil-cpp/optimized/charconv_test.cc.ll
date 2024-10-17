@@ -18545,7 +18545,7 @@ ehcleanup30:                                      ; preds = %ehcleanup26, %lpad
 
 for.inc31:                                        ; preds = %for.cond2
   %add = add nuw nsw i32 %mantissa.025, 501
-  %cmp = icmp ult i32 %mantissa.025, 9999499
+  %cmp = icmp samesign ult i32 %mantissa.025, 9999499
   br i1 %cmp, label %for.cond2.preheader, label %for.end32, !llvm.loop !621
 
 for.end32:                                        ; preds = %for.inc31, %_ZN7testing15AssertionResultD2Ev.exit
@@ -18787,7 +18787,7 @@ ehcleanup30:                                      ; preds = %ehcleanup26, %lpad
 
 for.inc31:                                        ; preds = %for.cond2
   %add = add nuw nsw i32 %mantissa.025, 501
-  %cmp = icmp ult i32 %mantissa.025, 9999499
+  %cmp = icmp samesign ult i32 %mantissa.025, 9999499
   br i1 %cmp, label %for.cond2.preheader, label %for.end32, !llvm.loop !628
 
 for.end32:                                        ; preds = %for.inc31, %_ZN7testing15AssertionResultD2Ev.exit

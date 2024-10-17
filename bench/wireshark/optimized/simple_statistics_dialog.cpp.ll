@@ -1839,7 +1839,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit:   ; preds = %85
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next58, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next58, %108
   br i1 %109, label %17, label %._crit_edge50, !llvm.loop !10
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %2
@@ -5024,7 +5024,7 @@ _ZN12QHashPrivate4NodeIK7QStringP18_stat_tap_table_uiED2Ev.exit.i: ; preds = %13
   %137 = add nuw nsw i64 %.01418.i, 1
   %138 = load i8, ptr %107, align 8
   %139 = zext i8 %138 to i64
-  %140 = icmp ult i64 %137, %139
+  %140 = icmp samesign ult i64 %137, %139
   br i1 %140, label %116, label %.preheader.loopexit.i, !llvm.loop !21
 
 141:                                              ; preds = %141, %.preheader.i
@@ -5194,7 +5194,7 @@ _ZN12QHashPrivate4NodeIK7QStringP18_stat_tap_table_uiED2Ev.exit: ; preds = %_ZN1
   %31 = add nuw nsw i64 %.01418, 1
   %32 = load i8, ptr %2, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %9, label %.preheader.loopexit, !llvm.loop !21
 
 35:                                               ; preds = %.preheader, %35
@@ -5452,7 +5452,7 @@ _ZN12QHashPrivate4NodeIK7QStringP18_stat_tap_table_uiED2Ev.exit.i37: ; preds = %
   %120 = add nuw nsw i64 %.01418.i, 1
   %121 = load i8, ptr %90, align 8
   %122 = zext i8 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %99, label %.preheader.loopexit.i, !llvm.loop !21
 
 124:                                              ; preds = %124, %.preheader.i38

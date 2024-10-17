@@ -1356,7 +1356,7 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 63:                                               ; preds = %62
   %64 = sub nsw i32 %58, %57
   %65 = and i32 %64, 255
-  %66 = icmp ugt i32 %65, 6
+  %66 = icmp samesign ugt i32 %65, 6
   br i1 %66, label %float_ieee_11073_cmp_lt.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %63
@@ -1375,7 +1375,7 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 70:                                               ; preds = %62
   %71 = sub nsw i32 %57, %58
   %72 = and i32 %71, 255
-  %73 = icmp ugt i32 %72, 6
+  %73 = icmp samesign ugt i32 %72, 6
   br i1 %73, label %float_ieee_11073_cmp_lt.exit.thread24, label %.preheader2.i
 
 .preheader2.i:                                    ; preds = %70

@@ -4933,11 +4933,11 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   %387 = call float @llvm.fmuladd.f32(float %386, float %382, float %.sroa.0121.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %388 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %389 = sitofp i32 %388 to float
   %390 = call float @llvm.fmuladd.f32(float %389, float %383, float %.sroa.2.0.copyload)
-  %391 = icmp ugt i32 %.02339.i, 3
+  %391 = icmp samesign ugt i32 %.02339.i, 3
   %392 = uitofp i1 %391 to float
   %393 = call float @llvm.fmuladd.f32(float %392, float %384, float %.sroa.3.0.copyload)
   %394 = fmul float %.sroa.4.0.copyload.i, %390
@@ -10982,11 +10982,11 @@ define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr nocapture 
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %16, float %.sroa.045.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
-  %.cmp.i = icmp ult i32 %.02339.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02339.i, 4
   %22 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
   %23 = sitofp i32 %22 to float
   %24 = tail call float @llvm.fmuladd.f32(float %23, float %17, float %.sroa.2.0.copyload)
-  %25 = icmp ugt i32 %.02339.i, 3
+  %25 = icmp samesign ugt i32 %.02339.i, 3
   %26 = uitofp i1 %25 to float
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %18, float %.sroa.346.0.copyload)
   %28 = fmul float %.sroa.4.0.copyload.i, %24
@@ -17983,7 +17983,7 @@ define void @_ZN25VisibilityCheck_ShadowMap16initMeshTexturesEv(ptr noundef nonn
   %29 = getelementptr inbounds %"class.vcg::Point3", ptr %23, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp ult i64 %indvars.iv.next, %26
+  %30 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %30, label %27, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %27, %.loopexit

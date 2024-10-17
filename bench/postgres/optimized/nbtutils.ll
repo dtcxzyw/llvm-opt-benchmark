@@ -1894,11 +1894,11 @@ define internal fastcc noundef zeroext i1 @_bt_compare_scankey_args(ptr nocaptur
   ]
 
 17:                                               ; preds = %9
-  %18 = icmp ult i32 %10, %11
+  %18 = icmp samesign ult i32 %10, %11
   br label %84
 
 19:                                               ; preds = %9
-  %20 = icmp ule i32 %10, %11
+  %20 = icmp samesign ule i32 %10, %11
   br label %84
 
 21:                                               ; preds = %9
@@ -1906,11 +1906,11 @@ define internal fastcc noundef zeroext i1 @_bt_compare_scankey_args(ptr nocaptur
   br label %84
 
 23:                                               ; preds = %9
-  %24 = icmp uge i32 %10, %11
+  %24 = icmp samesign uge i32 %10, %11
   br label %84
 
 25:                                               ; preds = %9
-  %26 = icmp ugt i32 %10, %11
+  %26 = icmp samesign ugt i32 %10, %11
   br label %84
 
 27:                                               ; preds = %9
@@ -2426,7 +2426,7 @@ BufferGetPage.exit:                               ; preds = %19, %13, %46
   %73 = getelementptr inbounds i8, ptr %72, i64 6
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
-  %76 = icmp ugt i32 %65, %75
+  %76 = icmp samesign ugt i32 %65, %75
   %.not91 = icmp ugt i16 %74, %.0.i
   %or.cond = select i1 %76, i1 true, i1 %.not91
   %.pre = add nuw nsw i64 %indvars.iv104, 1
@@ -3241,7 +3241,7 @@ BTreeTupleIsPosting.exit59.thread:                ; preds = %.thread, %.thread88
   br i1 %.not45, label %55, label %46
 
 46:                                               ; preds = %BTreeTupleIsPosting.exit59.thread
-  %.not46 = icmp ugt i32 %45, %41
+  %.not46 = icmp samesign ugt i32 %45, %41
   br i1 %.not46, label %52, label %47
 
 47:                                               ; preds = %46
@@ -3337,9 +3337,9 @@ define dso_local void @_bt_check_third_page(ptr nocapture noundef readonly %0, p
   %16 = and i64 %15, 9223372036854775800
   %17 = add nsw i64 %16, -8
   %.not = icmp ult i64 %17, %10
-  %.not20 = icmp ult i64 %16, %10
-  %or.cond = or i1 %2, %.not20
-  %or.cond28 = and i1 %.not, %or.cond
+  %.not20 = icmp samesign ult i64 %16, %10
+  %or.cond = select i1 %2, i1 true, i1 %.not20
+  %or.cond28 = select i1 %.not, i1 %or.cond, i1 false
   br i1 %or.cond28, label %18, label %62
 
 18:                                               ; preds = %5

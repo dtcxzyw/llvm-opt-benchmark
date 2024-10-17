@@ -3937,7 +3937,7 @@ for.body286:                                      ; preds = %for.body286.lr.ph, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = load i32, ptr %mNumMeshes276, align 8
   %128 = zext i32 %127 to i64
-  %cmp285 = icmp ult i64 %indvars.iv.next, %128
+  %cmp285 = icmp samesign ult i64 %indvars.iv.next, %128
   br i1 %cmp285, label %for.body286, label %if.end295, !llvm.loop !36
 
 if.end295:                                        ; preds = %for.body286, %if.end275

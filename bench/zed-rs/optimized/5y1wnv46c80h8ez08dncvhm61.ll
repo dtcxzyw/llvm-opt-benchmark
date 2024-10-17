@@ -2548,7 +2548,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 835:                                              ; preds = %836, %832, %829
   %.sroa.5.0.i.i.i = phi i64 [ 4, %829 ], [ 3, %832 ], [ 2, %836 ]
-  %.not.i.i5.i = icmp ugt i64 %.sroa.5.0.i.i.i, %823
+  %.not.i.i5.i = icmp samesign ugt i64 %.sroa.5.0.i.i.i, %823
   br i1 %.not.i.i5.i, label %.loopexit, label %839
 
 836:                                              ; preds = %832
@@ -2593,7 +2593,7 @@ default.unreachable:                              ; preds = %849
   %855 = zext nneg i8 %854 to i32
   %856 = shl nuw nsw i32 %855, 6
   %857 = or disjoint i32 %856, %852
-  %858 = icmp ult i8 %854, 2
+  %858 = icmp samesign ult i8 %854, 2
   br i1 %858, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 859:                                              ; preds = %849
@@ -2602,7 +2602,7 @@ default.unreachable:                              ; preds = %849
   %862 = shl nuw nsw i32 %861, 12
   %863 = shl nuw nsw i32 %852, 6
   %864 = or disjoint i32 %863, %862
-  %865 = icmp ult i32 %864, 2048
+  %865 = icmp samesign ult i32 %864, 2048
   %866 = and i32 %864, 64512
   %or.cond3.i.i.i.i = icmp eq i32 %866, 55296
   %or.cond.i.i167 = or i1 %865, %or.cond3.i.i.i.i
@@ -2625,7 +2625,7 @@ default.unreachable:                              ; preds = %849
   %881 = zext nneg i8 %880 to i32
   %882 = or disjoint i32 %877, %881
   %883 = or disjoint i32 %882, %872
-  %884 = icmp ult i32 %872, 65536
+  %884 = icmp samesign ult i32 %872, 65536
   br i1 %884, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 885:                                              ; preds = %859
@@ -2634,9 +2634,9 @@ default.unreachable:                              ; preds = %849
   %888 = and i8 %887, 63
   %889 = zext nneg i8 %888 to i32
   %890 = or disjoint i32 %864, %889
-  %891 = icmp ugt i32 %864, 56319
-  %892 = icmp ult i8 %860, 14
-  %or.cond5.i.i.i.i = and i1 %892, %891
+  %891 = icmp samesign ugt i32 %864, 56319
+  %892 = icmp samesign ult i8 %860, 14
+  %or.cond5.i.i.i.i = select i1 %891, i1 %892, i1 false
   br i1 %or.cond5.i.i.i.i, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 "_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i": ; preds = %885, %867, %853
@@ -5943,7 +5943,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 44:                                               ; preds = %41
   %45 = load i64, ptr %9, align 8, !range !383, !noundef !4
   %46 = getelementptr inbounds i8, ptr %9, i64 8
-  %switch = icmp ult i64 %45, 2
+  %switch = icmp samesign ult i64 %45, 2
   %.sroa.04.0.val = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   %.val.i.i30 = load i64, ptr %.sroa.04.0.val, align 8, !noundef !4
   %47 = icmp ne i64 %.val.i.i30, 0
@@ -11330,7 +11330,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %7 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %8 = icmp ult i64 %7, 6
   tail call void @llvm.assume(i1 %8)
-  %switch = icmp ult i64 %7, 2
+  %switch = icmp samesign ult i64 %7, 2
   br i1 %switch, label %21, label %9
 
 9:                                                ; preds = %3
@@ -13890,7 +13890,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %368 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %369 = icmp ult i64 %368, 6
   tail call void @llvm.assume(i1 %369)
-  %switch.i = icmp ult i64 %368, 4
+  %switch.i = icmp samesign ult i64 %368, 4
   br i1 %switch.i, label %404, label %370
 
 370:                                              ; preds = %4
@@ -13904,7 +13904,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %373 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %374 = icmp ult i64 %373, 6
   tail call void @llvm.assume(i1 %374)
-  %switch14.i = icmp ult i64 %373, 4
+  %switch14.i = icmp samesign ult i64 %373, 4
   br i1 %switch14.i, label %404, label %375
 
 375:                                              ; preds = %372

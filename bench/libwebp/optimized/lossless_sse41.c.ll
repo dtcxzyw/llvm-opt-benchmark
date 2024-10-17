@@ -68,7 +68,7 @@ define internal void @TransformColorInverse_SSE41(ptr noundef %0, ptr noundef %1
   %45 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv150
   store <16 x i8> %44, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %30
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %30
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 4
   br i1 %.not, label %._crit_edge.loopexit, label %31, !llvm.loop !4
 

@@ -3960,7 +3960,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast3Ast8is_empty17h0fc32f6c77006571
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN12regex_syntax3ast3Ast12has_subexprs17hd71159adc5afb601E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !54, !noundef !7
-  %switch = icmp ugt i64 %2, 6
+  %switch = icmp samesign ugt i64 %2, 6
   ret i1 %switch
 }
 
@@ -4304,7 +4304,7 @@ define { i8, i8 } @_ZN12regex_syntax3ast7Literal4byte17h76f184a6dafaf13eE(ptr no
   %or.cond = select i1 %4, i1 %7, i1 false
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !range !334
-  %10 = icmp ult i32 %9, 256
+  %10 = icmp samesign ult i32 %9, 256
   %11 = trunc nuw i32 %9 to i8
   %12 = select i1 %or.cond, i1 %10, i1 false
   %.sroa.4.0 = select i1 %12, i8 %11, i8 undef
@@ -4430,7 +4430,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast12ClassUnicode10is_negated17ha93
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12regex_syntax3ast18ClassUnicodeOpKind8is_equal17h30e8419e1b6a9e8bE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1, !range !99, !noundef !7
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   ret i1 %switch
 }
 
@@ -4544,7 +4544,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast13ClassSetRange8is_valid17hea486
   %3 = load i32, ptr %2, align 8, !range !334, !noundef !7
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8, !range !334, !noundef !7
-  %6 = icmp ule i32 %3, %5
+  %6 = icmp samesign ule i32 %3, %5
   ret i1 %6
 }
 

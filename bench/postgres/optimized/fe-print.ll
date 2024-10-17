@@ -355,7 +355,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %159 = trunc i64 %158 to i32
   %160 = add i32 %.0206321, %159
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
-  %161 = icmp ult i64 %indvars.iv.next355, %143
+  %161 = icmp samesign ult i64 %indvars.iv.next355, %143
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %.lr.ph322
@@ -599,7 +599,7 @@ switch.early.test:                                ; preds = %.loopexit.i
 
 263:                                              ; preds = %261, %211
   %264 = add nuw nsw i64 %indvars.iv360, 1
-  %265 = icmp ult i64 %264, %190
+  %265 = icmp samesign ult i64 %264, %190
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %263
@@ -775,7 +775,7 @@ do_field.exit:                                    ; preds = %232
   %347 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.2, ptr noundef nonnull %343, i32 noundef %345, ptr noundef nonnull %346) #13
   %348 = load i8, ptr %313, align 2
   %.not46.i = icmp ne i8 %348, 0
-  %349 = icmp ult i64 %indvars.iv.i, %314
+  %349 = icmp samesign ult i64 %indvars.iv.i, %314
   %or.cond.i302 = select i1 %.not46.i, i1 true, i1 %349
   br i1 %or.cond.i302, label %350, label %353
 
@@ -1044,7 +1044,7 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
   %.3.lcssa = phi ptr [ %.2134, %41 ], [ %scevgep141, %.lr.ph126.preheader ]
   %.not103 = icmp ne i8 %51, 0
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %52 = icmp ult i64 %indvars.iv.next143, %wide.trip.count
+  %52 = icmp samesign ult i64 %indvars.iv.next143, %wide.trip.count
   %or.cond = select i1 %.not103, i1 true, i1 %52
   br i1 %or.cond, label %53, label %.loopexit
 
@@ -1142,7 +1142,7 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
   %98 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull %.sink, i32 noundef %92, ptr noundef %75) #13
   %99 = load i8, ptr %64, align 2
   %.not112 = icmp ne i8 %99, 0
-  %100 = icmp ult i64 %indvars.iv147, %72
+  %100 = icmp samesign ult i64 %indvars.iv147, %72
   %or.cond116 = select i1 %.not112, i1 true, i1 %100
   br i1 %or.cond116, label %101, label %104
 

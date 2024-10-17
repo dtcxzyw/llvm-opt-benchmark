@@ -4502,7 +4502,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %20
   %62 = getelementptr inbounds i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = lshr i32 %63, 12
-  %.not16 = icmp ugt i32 %58, %64
+  %.not16 = icmp samesign ugt i32 %58, %64
   br i1 %.not16, label %65, label %Vec_PtrPushUnique.exit
 
 65:                                               ; preds = %.lr.ph
@@ -5753,7 +5753,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareLevelsIncrease(ptr nocapture noundef
   %14 = getelementptr inbounds i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 12
-  %17 = icmp ult i32 %9, %16
+  %17 = icmp samesign ult i32 %9, %16
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %2
@@ -5875,7 +5875,7 @@ Vec_IntFill.exit:                                 ; preds = %1
 
 19:                                               ; preds = %13, %.lr.ph, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = icmp ult i64 %indvars.iv.next, %9
+  %20 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %19, %Vec_IntFill.exit
@@ -7714,7 +7714,7 @@ define range(i32 0, 2) i32 @Abc_NtkAddBuffsEval(ptr noundef readonly %0, ptr noc
   %18 = lshr i32 %17, 12
   %19 = load i32, ptr %8, align 4
   %20 = lshr i32 %19, 12
-  %.not12 = icmp ult i32 %18, %20
+  %.not12 = icmp samesign ult i32 %18, %20
   br i1 %.not12, label %21, label %.critedge
 
 21:                                               ; preds = %9, %15
@@ -7762,7 +7762,7 @@ define range(i32 0, 2) i32 @Abc_NtkAddBuffsEval2(ptr noundef readonly %0, ptr no
   %18 = lshr i32 %17, 12
   %19 = load i32, ptr %8, align 4
   %20 = lshr i32 %19, 12
-  %21 = icmp ugt i32 %18, %20
+  %21 = icmp samesign ugt i32 %18, %20
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %9, %15
@@ -7929,7 +7929,7 @@ define noundef ptr @Abc_NtkAddBuffsInt(ptr noundef %0, i32 noundef %1, i32 nound
   %61 = or disjoint i32 %59, %60
   store i32 %61, ptr %36, align 4
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %62 = icmp ult i64 %indvars.iv.next305, %44
+  %62 = icmp samesign ult i64 %indvars.iv.next305, %44
   br i1 %62, label %45, label %.critedge4.loopexit, !llvm.loop !103
 
 .critedge6.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
@@ -8064,7 +8064,7 @@ define noundef ptr @Abc_NtkAddBuffsInt(ptr noundef %0, i32 noundef %1, i32 nound
   %121 = lshr i32 %120, 12
   %122 = load i32, ptr %89, align 4
   %123 = lshr i32 %122, 12
-  %.not12.i = icmp ult i32 %121, %123
+  %.not12.i = icmp samesign ult i32 %121, %123
   br i1 %.not12.i, label %124, label %Abc_NtkAddBuffsEval.exit
 
 124:                                              ; preds = %118, %112
@@ -8251,7 +8251,7 @@ Abc_NtkAddBuffsEval.exit:                         ; preds = %118, %124, %101
   %200 = lshr i32 %199, 12
   %201 = load i32, ptr %169, align 4
   %202 = lshr i32 %201, 12
-  %203 = icmp ugt i32 %200, %202
+  %203 = icmp samesign ugt i32 %200, %202
   br i1 %203, label %Abc_NtkAddBuffsEval2.exit, label %204
 
 204:                                              ; preds = %197, %191
@@ -8660,7 +8660,7 @@ define float @Abc_NtkComputeDelay(ptr noundef %0) local_unnamed_addr #0 {
   %62 = select i1 %61, float %52, float %60
   store float %62, ptr %45, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %63 = icmp ult i64 %indvars.iv.next82, %50
+  %63 = icmp samesign ult i64 %indvars.iv.next82, %50
   br i1 %63, label %51, label %.critedge4, !llvm.loop !118
 
 .critedge4:                                       ; preds = %51, %..critedge4_crit_edge
@@ -12897,7 +12897,7 @@ Vec_PtrPush.exit100:                              ; preds = %Vec_PtrPush.exit100
 
 ._crit_edge:                                      ; preds = %48
   %82 = trunc nuw nsw i64 %indvars.iv to i32
-  %83 = icmp ult i64 %indvars.iv, 145
+  %83 = icmp samesign ult i64 %indvars.iv, 145
   br i1 %83, label %.lr.ph116, label %._crit_edge120
 
 .lr.ph116:                                        ; preds = %._crit_edge

@@ -4555,7 +4555,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i64, ptr %6, align 8, !noalias !61
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %.not.i.i = icmp ult i64 %8, 2
+  %.not.i.i = icmp samesign ult i64 %8, 2
   br i1 %.not.i.i, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %5
@@ -4577,7 +4577,7 @@ define linkonce_odr void @_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_
   %18 = load i64, ptr %17, align 8, !noalias !66
   %19 = trunc i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
-  %.not.i7.i = icmp ult i32 %20, 2
+  %.not.i7.i = icmp samesign ult i32 %20, 2
   br i1 %.not.i7.i, label %.split.us.i11.i, label %.split.i8.i
 
 .split.us.i11.i:                                  ; preds = %15

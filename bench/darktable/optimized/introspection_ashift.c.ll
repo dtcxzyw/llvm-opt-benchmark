@@ -3430,7 +3430,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %687 = zext nneg i32 %671 to i64
   %688 = call i64 @llvm.umin.i64(i64 %686, i64 %687)
   %689 = add nuw nsw i64 %688, 1
-  %690 = icmp ult i64 %688, 31
+  %690 = icmp samesign ult i64 %688, 31
   br i1 %690, label %.preheader84, label %691
 
 .preheader84:                                     ; preds = %736, %684
@@ -7418,7 +7418,7 @@ define internal fastcc void @_draw_save_lines_to_params(ptr noundef %0) unnamed_
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %91 = trunc nuw nsw i64 %indvars.iv.next24 to i32
   store i32 %91, ptr %61, align 4, !tbaa !259
-  %92 = icmp ult i64 %indvars.iv23, 49
+  %92 = icmp samesign ult i64 %indvars.iv23, 49
   %93 = add nuw nsw i32 %74, 1
   %94 = icmp slt i32 %93, %63
   %95 = select i1 %92, i1 %94, i1 false
@@ -10629,7 +10629,7 @@ define internal fastcc i32 @simplex(ptr nocapture noundef readonly %0, ptr nocap
 
 44:                                               ; preds = %37
   %45 = and i64 %36, 3
-  %46 = icmp ult i32 %2, 4
+  %46 = icmp samesign ult i32 %2, 4
   %47 = icmp eq i64 %45, 0
   %48 = fmul reassoc nsz arcp contract afn double %4, 0x3FE6A09E667F3BCC
   %49 = fdiv reassoc nsz arcp contract afn double %48, %31
@@ -10724,12 +10724,12 @@ define internal fastcc i32 @simplex(ptr nocapture noundef readonly %0, ptr nocap
   %107 = and i64 %20, 7
   %108 = icmp eq i64 %107, 0
   %109 = and i64 %20, 3
-  %110 = icmp ult i32 %2, 3
+  %110 = icmp samesign ult i32 %2, 3
   %111 = icmp eq i64 %109, 0
   %112 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %31
   %113 = and i64 %106, 3
   %114 = icmp eq i64 %113, 0
-  %115 = icmp ult i32 %2, 4
+  %115 = icmp samesign ult i32 %2, 4
   %notsub = add nsw i64 %106, -1
   %116 = icmp ult i64 %notsub, 3
   %117 = getelementptr inbounds i8, ptr %13, i64 8
@@ -16836,7 +16836,7 @@ define internal fastcc void @edge_enhance_1d(ptr nocapture noundef nonnull reado
   %360 = mul nsw i64 %359, %347
   %361 = trunc i64 %357 to i32
   %362 = add nuw i32 %361, 1
-  %363 = icmp ult i64 %356, %348
+  %363 = icmp samesign ult i64 %356, %348
   %364 = select i1 %363, i32 %345, i32 1
   br i1 %358, label %365, label %391
 
@@ -16906,7 +16906,7 @@ define internal fastcc void @edge_enhance_1d(ptr nocapture noundef nonnull reado
   %399 = load double, ptr %gep37, align 8, !tbaa !161
   store double %399, ptr %398, align 8, !tbaa !161
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %400 = icmp ult i64 %indvars.iv.next28, %354
+  %400 = icmp samesign ult i64 %indvars.iv.next28, %354
   br i1 %400, label %397, label %.loopexit, !llvm.loop !427
 
 401:                                              ; preds = %391
@@ -19000,7 +19000,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %11, i1 false)
   %13 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %11) #35
-  %14 = icmp ugt i32 %3, 5
+  %14 = icmp samesign ugt i32 %3, 5
   br i1 %14, label %.loopexit30, label %.preheader29
 
 .preheader29:                                     ; preds = %9, %.preheader29
@@ -19017,7 +19017,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #32
-  %25 = icmp ult i32 %3, 31
+  %25 = icmp samesign ult i32 %3, 31
   br i1 %25, label %.preheader68, label %26
 
 .preheader68:                                     ; preds = %41, %.loopexit30

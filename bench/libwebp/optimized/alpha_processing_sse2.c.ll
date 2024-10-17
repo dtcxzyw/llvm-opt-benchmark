@@ -60,7 +60,7 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
   %19 = extractelement <2 x i64> %18, i64 0
   store i64 %19, ptr %5, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.not91 = icmp ugt i64 %indvars.iv.next, %4
+  %.not91 = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 2
   br i1 %.not91, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -118,7 +118,7 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
   %23 = extractelement <2 x i64> %22, i64 0
   store i64 %23, ptr %6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not86 = icmp ugt i64 %indvars.iv.next, %5
+  %.not86 = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 8
   br i1 %.not86, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -355,7 +355,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
   store <16 x i8> %124, ptr %106, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not176 = icmp ugt i64 %indvars.iv.next, %68
+  %.not176 = icmp samesign ugt i64 %indvars.iv.next, %68
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
   br i1 %.not176, label %..loopexit180_crit_edge, label %105, !llvm.loop !10
 
@@ -407,7 +407,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
 
 156:                                              ; preds = %129, %133
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %157 = icmp ult i64 %indvars.iv.next208, %68
+  %157 = icmp samesign ult i64 %indvars.iv.next208, %68
   br i1 %157, label %129, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %156, %..loopexit180_crit_edge
@@ -495,7 +495,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias nocapture no
   %43 = and <2 x i64> %28, %.199103.us
   %44 = getelementptr inbounds i8, ptr %.0100102.us, i64 32
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 8
-  %45 = icmp ult i64 %indvars.iv.next142, %13
+  %45 = icmp samesign ult i64 %indvars.iv.next142, %13
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 8
   br i1 %45, label %25, label %..preheader_crit_edge.us, !llvm.loop !13
 
@@ -623,7 +623,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias nocapture noundef re
   %40 = getelementptr inbounds i32, ptr %.06573.us, i64 %39
   store <8 x i16> %33, ptr %40, align 1
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 16
-  %41 = icmp ult i64 %indvars.iv.next88, %12
+  %41 = icmp samesign ult i64 %indvars.iv.next88, %12
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 16
   br i1 %41, label %23, label %..preheader_crit_edge.us, !llvm.loop !16
 
@@ -736,7 +736,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   %36 = and <2 x i64> %.17983.us, %33
   %37 = getelementptr inbounds i8, ptr %.08082.us, i64 32
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 8
-  %38 = icmp ult i64 %indvars.iv.next122, %13
+  %38 = icmp samesign ult i64 %indvars.iv.next122, %13
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 8
   br i1 %38, label %25, label %..preheader_crit_edge.us, !llvm.loop !19
 
@@ -832,7 +832,7 @@ define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %
   store <16 x i8> %22, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %.0107113, i64 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %.not = icmp ugt i64 %indvars.iv.next, %4
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 16
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
@@ -1056,7 +1056,7 @@ define internal void @AlphaReplace_SSE2(ptr nocapture noundef %0, i32 noundef %1
   %23 = or <2 x i64> %21, %18
   store <2 x i64> %23, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %6
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %6
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 8
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !27
 

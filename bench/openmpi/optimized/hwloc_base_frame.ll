@@ -223,7 +223,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i32, ptr %39, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next.i, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next.i, %47
   br i1 %48, label %42, label %free_topology.exit, !llvm.loop !6
 
 free_topology.exit:                               ; preds = %42, %10, %38
@@ -616,7 +616,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %26, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %29, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %29, %25

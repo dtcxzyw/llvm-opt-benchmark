@@ -592,7 +592,7 @@ _ZN15ZMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15ZMarkStackSpac
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i: ; preds = %55, %51
   %58 = add nuw nsw i64 %.08.i8, 2048
-  %59 = icmp ult i64 %.08.i8, 30720
+  %59 = icmp samesign ult i64 %.08.i8, 30720
   br i1 %59, label %51, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, !llvm.loop !10
 
 _ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit: ; preds = %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i, %_ZN15ZMarkStackSpace5allocEm.exit

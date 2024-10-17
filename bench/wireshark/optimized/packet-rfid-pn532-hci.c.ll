@@ -108,7 +108,7 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
 6:                                                ; preds = %4
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %8 = and i32 %7, 65534
-  %9 = icmp ult i32 %8, 6
+  %9 = icmp samesign ult i32 %8, 6
   br i1 %9, label %135, label %10
 
 10:                                               ; preds = %6

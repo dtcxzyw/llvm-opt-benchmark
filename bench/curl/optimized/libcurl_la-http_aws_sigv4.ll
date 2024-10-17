@@ -1186,7 +1186,7 @@ if.end145:                                        ; preds = %land.lhs.true141
   br i1 %tobool146.not, label %land.lhs.true147, label %return
 
 land.lhs.true147:                                 ; preds = %land.lhs.true141, %if.end145
-  %cmp149 = icmp ult i32 %i.091, %entry1.0
+  %cmp149 = icmp samesign ult i32 %i.091, %entry1.0
   br i1 %cmp149, label %if.then151, label %for.inc154
 
 if.then151:                                       ; preds = %land.lhs.true147
@@ -1198,7 +1198,7 @@ for.inc154:                                       ; preds = %land.lhs.true147, %
   %inc155 = add nuw nsw i32 %i.091, 1
   %incdec.ptr156 = getelementptr inbounds i8, ptr %ap.192, i64 16
   %tobool13.not = icmp eq i32 %result.1, 0
-  %cmp14 = icmp ult i32 %i.091, %entry1.0
+  %cmp14 = icmp samesign ult i32 %i.091, %entry1.0
   %20 = select i1 %tobool13.not, i1 %cmp14, i1 false
   br i1 %20, label %for.body, label %return, !llvm.loop !19
 

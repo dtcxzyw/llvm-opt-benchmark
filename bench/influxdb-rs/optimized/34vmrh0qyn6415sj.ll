@@ -1088,7 +1088,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   %8 = sub i64 %3, %6
   %9 = lshr i64 %8, 5
   %10 = and i64 %1, 31
-  %11 = icmp ugt i64 %9, %10
+  %11 = icmp samesign ugt i64 %9, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   br label %13
 

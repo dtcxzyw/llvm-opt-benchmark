@@ -526,7 +526,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i: ; 
   store i8 %61, ptr %.023.i.i.i.i.i.i.i, align 1
   %62 = lshr i32 %.022.i.i.i.i.i.i.i, 7
   %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 1
-  %64 = icmp ugt i32 %.022.i.i.i.i.i.i.i, 16383
+  %64 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i, 16383
   br i1 %64, label %59, label %65, !llvm.loop !5
 
 65:                                               ; preds = %59
@@ -608,7 +608,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394:
   store i8 %99, ptr %.023.i.i.i.i.i.i.i396, align 1
   %100 = lshr i32 %.022.i.i.i.i.i.i.i397, 7
   %101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i396, i64 1
-  %102 = icmp ugt i32 %.022.i.i.i.i.i.i.i397, 16383
+  %102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i397, 16383
   br i1 %102, label %97, label %103, !llvm.loop !5
 
 103:                                              ; preds = %97
@@ -703,7 +703,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i: 
   store i8 %144, ptr %.023.i.i.i.i.i.i.i.i, align 1
   %145 = lshr i32 %.022.i.i.i.i.i.i.i.i, 7
   %146 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i, i64 1
-  %147 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i, 16383
+  %147 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i, 16383
   br i1 %147, label %142, label %148, !llvm.loop !5
 
 148:                                              ; preds = %142
@@ -793,7 +793,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406:
   store i8 %189, ptr %.023.i.i.i.i.i.i.i408, align 1
   %190 = lshr i32 %.022.i.i.i.i.i.i.i409, 7
   %191 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i408, i64 1
-  %192 = icmp ugt i32 %.022.i.i.i.i.i.i.i409, 16383
+  %192 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i409, 16383
   br i1 %192, label %187, label %193, !llvm.loop !5
 
 193:                                              ; preds = %187
@@ -875,7 +875,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415:
   store i8 %227, ptr %.023.i.i.i.i.i.i.i417, align 1
   %228 = lshr i32 %.022.i.i.i.i.i.i.i418, 7
   %229 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i417, i64 1
-  %230 = icmp ugt i32 %.022.i.i.i.i.i.i.i418, 16383
+  %230 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i418, 16383
   br i1 %230, label %225, label %231, !llvm.loop !5
 
 231:                                              ; preds = %225
@@ -970,7 +970,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i42
   store i8 %272, ptr %.023.i.i.i.i.i.i.i.i427, align 1
   %273 = lshr i32 %.022.i.i.i.i.i.i.i.i428, 7
   %274 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i427, i64 1
-  %275 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i428, 16383
+  %275 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i428, 16383
   br i1 %275, label %270, label %276, !llvm.loop !5
 
 276:                                              ; preds = %270
@@ -1060,7 +1060,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434:
   store i8 %317, ptr %.023.i.i.i.i.i.i.i436, align 1
   %318 = lshr i32 %.022.i.i.i.i.i.i.i437, 7
   %319 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i436, i64 1
-  %320 = icmp ugt i32 %.022.i.i.i.i.i.i.i437, 16383
+  %320 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i437, 16383
   br i1 %320, label %315, label %321, !llvm.loop !5
 
 321:                                              ; preds = %315
@@ -1118,7 +1118,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %344, ptr %.023.i.i.i.i.i.i, align 1
   %345 = lshr i64 %.022.i.i.i.i.i.i, 7
   %346 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %347 = icmp ugt i64 %.022.i.i.i.i.i.i, 16383
+  %347 = icmp samesign ugt i64 %.022.i.i.i.i.i.i, 16383
   br i1 %347, label %342, label %348, !llvm.loop !7
 
 348:                                              ; preds = %342
@@ -1186,7 +1186,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443:
   store i8 %377, ptr %.023.i.i.i.i.i.i.i445, align 1
   %378 = lshr i32 %.022.i.i.i.i.i.i.i446, 7
   %379 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i445, i64 1
-  %380 = icmp ugt i32 %.022.i.i.i.i.i.i.i446, 16383
+  %380 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i446, 16383
   br i1 %380, label %375, label %381, !llvm.loop !5
 
 381:                                              ; preds = %375
@@ -1244,7 +1244,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450: ;
   store i8 %404, ptr %.023.i.i.i.i.i.i452, align 1
   %405 = lshr i64 %.022.i.i.i.i.i.i453, 7
   %406 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i452, i64 1
-  %407 = icmp ugt i64 %.022.i.i.i.i.i.i453, 16383
+  %407 = icmp samesign ugt i64 %.022.i.i.i.i.i.i453, 16383
   br i1 %407, label %402, label %408, !llvm.loop !7
 
 408:                                              ; preds = %402
@@ -1325,7 +1325,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i45
   store i8 %444, ptr %.023.i.i.i.i.i.i.i.i459, align 1
   %445 = lshr i32 %.022.i.i.i.i.i.i.i.i460, 7
   %446 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i459, i64 1
-  %447 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i460, 16383
+  %447 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i460, 16383
   br i1 %447, label %442, label %448, !llvm.loop !5
 
 448:                                              ; preds = %442
@@ -1383,7 +1383,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464:
   store i8 %471, ptr %.023.i.i.i.i.i.i.i466, align 1
   %472 = lshr i64 %.022.i.i.i.i.i.i.i467, 7
   %473 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i466, i64 1
-  %474 = icmp ugt i64 %.022.i.i.i.i.i.i.i467, 16383
+  %474 = icmp samesign ugt i64 %.022.i.i.i.i.i.i.i467, 16383
   br i1 %474, label %469, label %475, !llvm.loop !7
 
 475:                                              ; preds = %469
@@ -1459,7 +1459,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470:
   store i8 %511, ptr %.023.i.i.i.i.i.i.i472, align 1
   %512 = lshr i32 %.022.i.i.i.i.i.i.i473, 7
   %513 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i472, i64 1
-  %514 = icmp ugt i32 %.022.i.i.i.i.i.i.i473, 16383
+  %514 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i473, 16383
   br i1 %514, label %509, label %515, !llvm.loop !5
 
 515:                                              ; preds = %509
@@ -1517,7 +1517,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477: ;
   store i8 %538, ptr %.023.i.i.i.i.i.i479, align 1
   %539 = lshr i64 %.022.i.i.i.i.i.i480, 7
   %540 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i479, i64 1
-  %541 = icmp ugt i64 %.022.i.i.i.i.i.i480, 16383
+  %541 = icmp samesign ugt i64 %.022.i.i.i.i.i.i480, 16383
   br i1 %541, label %536, label %542, !llvm.loop !7
 
 542:                                              ; preds = %536
@@ -1585,7 +1585,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483:
   store i8 %571, ptr %.023.i.i.i.i.i.i.i485, align 1
   %572 = lshr i32 %.022.i.i.i.i.i.i.i486, 7
   %573 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i485, i64 1
-  %574 = icmp ugt i32 %.022.i.i.i.i.i.i.i486, 16383
+  %574 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i486, 16383
   br i1 %574, label %569, label %575, !llvm.loop !5
 
 575:                                              ; preds = %569
@@ -1643,7 +1643,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490: ;
   store i8 %598, ptr %.023.i.i.i.i.i.i492, align 1
   %599 = lshr i64 %.022.i.i.i.i.i.i493, 7
   %600 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 1
-  %601 = icmp ugt i64 %.022.i.i.i.i.i.i493, 16383
+  %601 = icmp samesign ugt i64 %.022.i.i.i.i.i.i493, 16383
   br i1 %601, label %596, label %602, !llvm.loop !7
 
 602:                                              ; preds = %596
@@ -1724,7 +1724,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i49
   store i8 %638, ptr %.023.i.i.i.i.i.i.i.i499, align 1
   %639 = lshr i32 %.022.i.i.i.i.i.i.i.i500, 7
   %640 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i499, i64 1
-  %641 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i500, 16383
+  %641 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i500, 16383
   br i1 %641, label %636, label %642, !llvm.loop !5
 
 642:                                              ; preds = %636
@@ -1782,7 +1782,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504:
   store i8 %665, ptr %.023.i.i.i.i.i.i.i506, align 1
   %666 = lshr i64 %.022.i.i.i.i.i.i.i507, 7
   %667 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i506, i64 1
-  %668 = icmp ugt i64 %.022.i.i.i.i.i.i.i507, 16383
+  %668 = icmp samesign ugt i64 %.022.i.i.i.i.i.i.i507, 16383
   br i1 %668, label %663, label %669, !llvm.loop !7
 
 669:                                              ; preds = %663
@@ -1858,7 +1858,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510:
   store i8 %705, ptr %.023.i.i.i.i.i.i.i512, align 1
   %706 = lshr i32 %.022.i.i.i.i.i.i.i513, 7
   %707 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i512, i64 1
-  %708 = icmp ugt i32 %.022.i.i.i.i.i.i.i513, 16383
+  %708 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i513, 16383
   br i1 %708, label %703, label %709, !llvm.loop !5
 
 709:                                              ; preds = %703
@@ -1917,7 +1917,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i: ;
   store i8 %733, ptr %.023.i.i.i.i.i.i7.i, align 1
   %734 = lshr i64 %.022.i.i.i.i.i.i8.i, 7
   %735 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i, i64 1
-  %736 = icmp ugt i64 %.022.i.i.i.i.i.i8.i, 16383
+  %736 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i, 16383
   br i1 %736, label %731, label %737, !llvm.loop !7
 
 737:                                              ; preds = %731
@@ -1985,7 +1985,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517:
   store i8 %766, ptr %.023.i.i.i.i.i.i.i519, align 1
   %767 = lshr i32 %.022.i.i.i.i.i.i.i520, 7
   %768 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i519, i64 1
-  %769 = icmp ugt i32 %.022.i.i.i.i.i.i.i520, 16383
+  %769 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i520, 16383
   br i1 %769, label %764, label %770, !llvm.loop !5
 
 770:                                              ; preds = %764
@@ -2044,7 +2044,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
   store i8 %794, ptr %.023.i.i.i.i.i.i7.i526, align 1
   %795 = lshr i64 %.022.i.i.i.i.i.i8.i527, 7
   %796 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i526, i64 1
-  %797 = icmp ugt i64 %.022.i.i.i.i.i.i8.i527, 16383
+  %797 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i527, 16383
   br i1 %797, label %792, label %798, !llvm.loop !7
 
 798:                                              ; preds = %792
@@ -2125,7 +2125,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i53
   store i8 %834, ptr %.023.i.i.i.i.i.i.i.i533, align 1
   %835 = lshr i32 %.022.i.i.i.i.i.i.i.i534, 7
   %836 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i533, i64 1
-  %837 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i534, 16383
+  %837 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i534, 16383
   br i1 %837, label %832, label %838, !llvm.loop !5
 
 838:                                              ; preds = %832
@@ -2184,7 +2184,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i:
   store i8 %862, ptr %.023.i.i.i.i.i.i7.i.i, align 1
   %863 = lshr i64 %.022.i.i.i.i.i.i8.i.i, 7
   %864 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i, i64 1
-  %865 = icmp ugt i64 %.022.i.i.i.i.i.i8.i.i, 16383
+  %865 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i.i, 16383
   br i1 %865, label %860, label %866, !llvm.loop !7
 
 866:                                              ; preds = %860
@@ -2260,7 +2260,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538:
   store i8 %902, ptr %.023.i.i.i.i.i.i.i540, align 1
   %903 = lshr i32 %.022.i.i.i.i.i.i.i541, 7
   %904 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i540, i64 1
-  %905 = icmp ugt i32 %.022.i.i.i.i.i.i.i541, 16383
+  %905 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i541, 16383
   br i1 %905, label %900, label %906, !llvm.loop !5
 
 906:                                              ; preds = %900
@@ -2342,7 +2342,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547:
   store i8 %940, ptr %.023.i.i.i.i.i.i.i549, align 1
   %941 = lshr i32 %.022.i.i.i.i.i.i.i550, 7
   %942 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
-  %943 = icmp ugt i32 %.022.i.i.i.i.i.i.i550, 16383
+  %943 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i550, 16383
   br i1 %943, label %938, label %944, !llvm.loop !5
 
 944:                                              ; preds = %938
@@ -2437,7 +2437,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i55
   store i8 %985, ptr %.023.i.i.i.i.i.i.i.i559, align 1
   %986 = lshr i32 %.022.i.i.i.i.i.i.i.i560, 7
   %987 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i559, i64 1
-  %988 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i560, 16383
+  %988 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i560, 16383
   br i1 %988, label %983, label %989, !llvm.loop !5
 
 989:                                              ; preds = %983
@@ -2527,7 +2527,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566:
   store i8 %1030, ptr %.023.i.i.i.i.i.i.i568, align 1
   %1031 = lshr i32 %.022.i.i.i.i.i.i.i569, 7
   %1032 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i568, i64 1
-  %1033 = icmp ugt i32 %.022.i.i.i.i.i.i.i569, 16383
+  %1033 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i569, 16383
   br i1 %1033, label %1028, label %1034, !llvm.loop !5
 
 1034:                                             ; preds = %1028
@@ -2609,7 +2609,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575:
   store i8 %1068, ptr %.023.i.i.i.i.i.i.i577, align 1
   %1069 = lshr i32 %.022.i.i.i.i.i.i.i578, 7
   %1070 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i577, i64 1
-  %1071 = icmp ugt i32 %.022.i.i.i.i.i.i.i578, 16383
+  %1071 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i578, 16383
   br i1 %1071, label %1066, label %1072, !llvm.loop !5
 
 1072:                                             ; preds = %1066
@@ -2704,7 +2704,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i58
   store i8 %1113, ptr %.023.i.i.i.i.i.i.i.i587, align 1
   %1114 = lshr i32 %.022.i.i.i.i.i.i.i.i588, 7
   %1115 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i587, i64 1
-  %1116 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i588, 16383
+  %1116 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i588, 16383
   br i1 %1116, label %1111, label %1117, !llvm.loop !5
 
 1117:                                             ; preds = %1111
@@ -2794,7 +2794,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594:
   store i8 %1158, ptr %.023.i.i.i.i.i.i.i596, align 1
   %1159 = lshr i32 %.022.i.i.i.i.i.i.i597, 7
   %1160 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i596, i64 1
-  %1161 = icmp ugt i32 %.022.i.i.i.i.i.i.i597, 16383
+  %1161 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i597, 16383
   br i1 %1161, label %1156, label %1162, !llvm.loop !5
 
 1162:                                             ; preds = %1156
@@ -2878,7 +2878,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603:
   store i8 %1198, ptr %.023.i.i.i.i.i.i.i605, align 1
   %1199 = lshr i32 %.022.i.i.i.i.i.i.i606, 7
   %1200 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i605, i64 1
-  %1201 = icmp ugt i32 %.022.i.i.i.i.i.i.i606, 16383
+  %1201 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i606, 16383
   br i1 %1201, label %1196, label %1202, !llvm.loop !5
 
 1202:                                             ; preds = %1196
@@ -2974,7 +2974,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i61
   store i8 %1244, ptr %.023.i.i.i.i.i.i.i.i615, align 1
   %1245 = lshr i32 %.022.i.i.i.i.i.i.i.i616, 7
   %1246 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i615, i64 1
-  %1247 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i616, 16383
+  %1247 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i616, 16383
   br i1 %1247, label %1242, label %1248, !llvm.loop !5
 
 1248:                                             ; preds = %1242
@@ -3065,7 +3065,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622:
   store i8 %1290, ptr %.023.i.i.i.i.i.i.i624, align 1
   %1291 = lshr i32 %.022.i.i.i.i.i.i.i625, 7
   %1292 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i624, i64 1
-  %1293 = icmp ugt i32 %.022.i.i.i.i.i.i.i625, 16383
+  %1293 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i625, 16383
   br i1 %1293, label %1288, label %1294, !llvm.loop !5
 
 1294:                                             ; preds = %1288
@@ -3142,7 +3142,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629:
   store i8 %1331, ptr %.023.i.i.i.i.i.i.i631, align 1
   %1332 = lshr i32 %.022.i.i.i.i.i.i.i632, 7
   %1333 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i631, i64 1
-  %1334 = icmp ugt i32 %.022.i.i.i.i.i.i.i632, 16383
+  %1334 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i632, 16383
   br i1 %1334, label %1329, label %1335, !llvm.loop !5
 
 1335:                                             ; preds = %1329
@@ -3221,7 +3221,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637:
   store i8 %1370, ptr %.023.i.i.i.i.i.i.i639, align 1
   %1371 = lshr i32 %.022.i.i.i.i.i.i.i640, 7
   %1372 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i639, i64 1
-  %1373 = icmp ugt i32 %.022.i.i.i.i.i.i.i640, 16383
+  %1373 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i640, 16383
   br i1 %1373, label %1368, label %1374, !llvm.loop !5
 
 1374:                                             ; preds = %1368
@@ -3309,7 +3309,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i64
   store i8 %1416, ptr %.023.i.i.i.i.i.i.i.i646, align 1
   %1417 = lshr i32 %.022.i.i.i.i.i.i.i.i647, 7
   %1418 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i646, i64 1
-  %1419 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i647, 16383
+  %1419 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i647, 16383
   br i1 %1419, label %1414, label %1420, !llvm.loop !5
 
 1420:                                             ; preds = %1414
@@ -3390,7 +3390,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828: ;
   store i8 %1460, ptr %.023.i.i.i.i.i.i830, align 1
   %1461 = lshr i32 %.022.i.i.i.i.i.i831, 7
   %1462 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i830, i64 1
-  %1463 = icmp ugt i32 %.022.i.i.i.i.i.i831, 16383
+  %1463 = icmp samesign ugt i32 %.022.i.i.i.i.i.i831, 16383
   br i1 %1463, label %1458, label %1464, !llvm.loop !5
 
 1464:                                             ; preds = %1458
@@ -3475,7 +3475,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822: ;
   store i8 %1503, ptr %.023.i.i.i.i.i.i824, align 1
   %1504 = lshr i32 %.022.i.i.i.i.i.i825, 7
   %1505 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i824, i64 1
-  %1506 = icmp ugt i32 %.022.i.i.i.i.i.i825, 16383
+  %1506 = icmp samesign ugt i32 %.022.i.i.i.i.i.i825, 16383
   br i1 %1506, label %1501, label %1507, !llvm.loop !5
 
 1507:                                             ; preds = %1501
@@ -3543,7 +3543,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844: ;
   store i8 %1536, ptr %.023.i.i.i.i.i.i846, align 1
   %1537 = lshr i32 %.022.i.i.i.i.i.i847, 7
   %1538 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i846, i64 1
-  %1539 = icmp ugt i32 %.022.i.i.i.i.i.i847, 16383
+  %1539 = icmp samesign ugt i32 %.022.i.i.i.i.i.i847, 16383
   br i1 %1539, label %1534, label %1540, !llvm.loop !5
 
 1540:                                             ; preds = %1534
@@ -3628,7 +3628,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835: ;
   store i8 %1579, ptr %.023.i.i.i.i.i.i837, align 1
   %1580 = lshr i32 %.022.i.i.i.i.i.i838, 7
   %1581 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i837, i64 1
-  %1582 = icmp ugt i32 %.022.i.i.i.i.i.i838, 16383
+  %1582 = icmp samesign ugt i32 %.022.i.i.i.i.i.i838, 16383
   br i1 %1582, label %1577, label %1583, !llvm.loop !5
 
 1583:                                             ; preds = %1577
@@ -3691,7 +3691,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860: ;
   store i8 %1608, ptr %.023.i.i.i.i.i.i862, align 1
   %1609 = lshr i32 %.022.i.i.i.i.i.i863, 7
   %1610 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i862, i64 1
-  %1611 = icmp ugt i32 %.022.i.i.i.i.i.i863, 16383
+  %1611 = icmp samesign ugt i32 %.022.i.i.i.i.i.i863, 16383
   br i1 %1611, label %1606, label %1612, !llvm.loop !5
 
 1612:                                             ; preds = %1606
@@ -3780,7 +3780,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851: ;
   store i8 %1653, ptr %.023.i.i.i.i.i.i853, align 1
   %1654 = lshr i32 %.022.i.i.i.i.i.i854, 7
   %1655 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i853, i64 1
-  %1656 = icmp ugt i32 %.022.i.i.i.i.i.i854, 16383
+  %1656 = icmp samesign ugt i32 %.022.i.i.i.i.i.i854, 16383
   br i1 %1656, label %1651, label %1657, !llvm.loop !5
 
 1657:                                             ; preds = %1651
@@ -3880,7 +3880,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867: ;
   store i8 %1708, ptr %.023.i.i.i.i.i.i869, align 1
   %1709 = lshr i32 %.022.i.i.i.i.i.i870, 7
   %1710 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i869, i64 1
-  %1711 = icmp ugt i32 %.022.i.i.i.i.i.i870, 16383
+  %1711 = icmp samesign ugt i32 %.022.i.i.i.i.i.i870, 16383
   br i1 %1711, label %1706, label %1712, !llvm.loop !5
 
 1712:                                             ; preds = %1706
@@ -3952,7 +3952,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874: ;
   store i8 %1744, ptr %.023.i.i.i.i.i.i876, align 1
   %1745 = lshr i32 %.022.i.i.i.i.i.i877, 7
   %1746 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i876, i64 1
-  %1747 = icmp ugt i32 %.022.i.i.i.i.i.i877, 16383
+  %1747 = icmp samesign ugt i32 %.022.i.i.i.i.i.i877, 16383
   br i1 %1747, label %1742, label %1748, !llvm.loop !5
 
 1748:                                             ; preds = %1742
@@ -4019,7 +4019,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883: ;
   store i8 %1776, ptr %.023.i.i.i.i.i.i885, align 1
   %1777 = lshr i32 %.022.i.i.i.i.i.i886, 7
   %1778 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i885, i64 1
-  %1779 = icmp ugt i32 %.022.i.i.i.i.i.i886, 16383
+  %1779 = icmp samesign ugt i32 %.022.i.i.i.i.i.i886, 16383
   br i1 %1779, label %1774, label %1780, !llvm.loop !5
 
 1780:                                             ; preds = %1774
@@ -4127,7 +4127,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651:
   store i8 %1836, ptr %.023.i.i.i.i.i.i.i653, align 1
   %1837 = lshr i32 %.022.i.i.i.i.i.i.i654, 7
   %1838 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i653, i64 1
-  %1839 = icmp ugt i32 %.022.i.i.i.i.i.i.i654, 16383
+  %1839 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i654, 16383
   br i1 %1839, label %1834, label %1840, !llvm.loop !5
 
 1840:                                             ; preds = %1834
@@ -4204,7 +4204,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659:
   store i8 %1877, ptr %.023.i.i.i.i.i.i.i661, align 1
   %1878 = lshr i32 %.022.i.i.i.i.i.i.i662, 7
   %1879 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i661, i64 1
-  %1880 = icmp ugt i32 %.022.i.i.i.i.i.i.i662, 16383
+  %1880 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i662, 16383
   br i1 %1880, label %1875, label %1881, !llvm.loop !5
 
 1881:                                             ; preds = %1875
@@ -4283,7 +4283,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669:
   store i8 %1916, ptr %.023.i.i.i.i.i.i.i671, align 1
   %1917 = lshr i32 %.022.i.i.i.i.i.i.i672, 7
   %1918 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i671, i64 1
-  %1919 = icmp ugt i32 %.022.i.i.i.i.i.i.i672, 16383
+  %1919 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i672, 16383
   br i1 %1919, label %1914, label %1920, !llvm.loop !5
 
 1920:                                             ; preds = %1914
@@ -4371,7 +4371,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i68
   store i8 %1962, ptr %.023.i.i.i.i.i.i.i.i682, align 1
   %1963 = lshr i32 %.022.i.i.i.i.i.i.i.i683, 7
   %1964 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i682, i64 1
-  %1965 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i683, 16383
+  %1965 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i683, 16383
   br i1 %1965, label %1960, label %1966, !llvm.loop !5
 
 1966:                                             ; preds = %1960
@@ -4452,7 +4452,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686:
   store i8 %2006, ptr %.023.i.i.i.i.i.i.i688, align 1
   %2007 = lshr i32 %.022.i.i.i.i.i.i.i689, 7
   %2008 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i688, i64 1
-  %2009 = icmp ugt i32 %.022.i.i.i.i.i.i.i689, 16383
+  %2009 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i689, 16383
   br i1 %2009, label %2004, label %2010, !llvm.loop !5
 
 2010:                                             ; preds = %2004
@@ -4510,7 +4510,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693: ;
   store i8 %2033, ptr %.023.i.i.i.i.i.i695, align 1
   %2034 = lshr i32 %.022.i.i.i.i.i.i696, 7
   %2035 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i695, i64 1
-  %2036 = icmp ugt i32 %.022.i.i.i.i.i.i696, 16383
+  %2036 = icmp samesign ugt i32 %.022.i.i.i.i.i.i696, 16383
   br i1 %2036, label %2031, label %2037, !llvm.loop !5
 
 2037:                                             ; preds = %2031
@@ -4578,7 +4578,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699:
   store i8 %2066, ptr %.023.i.i.i.i.i.i.i701, align 1
   %2067 = lshr i32 %.022.i.i.i.i.i.i.i702, 7
   %2068 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i701, i64 1
-  %2069 = icmp ugt i32 %.022.i.i.i.i.i.i.i702, 16383
+  %2069 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i702, 16383
   br i1 %2069, label %2064, label %2070, !llvm.loop !5
 
 2070:                                             ; preds = %2064
@@ -4636,7 +4636,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706: ;
   store i8 %2093, ptr %.023.i.i.i.i.i.i708, align 1
   %2094 = lshr i32 %.022.i.i.i.i.i.i709, 7
   %2095 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i708, i64 1
-  %2096 = icmp ugt i32 %.022.i.i.i.i.i.i709, 16383
+  %2096 = icmp samesign ugt i32 %.022.i.i.i.i.i.i709, 16383
   br i1 %2096, label %2091, label %2097, !llvm.loop !5
 
 2097:                                             ; preds = %2091
@@ -4717,7 +4717,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i71
   store i8 %2133, ptr %.023.i.i.i.i.i.i.i.i715, align 1
   %2134 = lshr i32 %.022.i.i.i.i.i.i.i.i716, 7
   %2135 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i715, i64 1
-  %2136 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i716, 16383
+  %2136 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i716, 16383
   br i1 %2136, label %2131, label %2137, !llvm.loop !5
 
 2137:                                             ; preds = %2131
@@ -4775,7 +4775,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720:
   store i8 %2160, ptr %.023.i.i.i.i.i.i.i722, align 1
   %2161 = lshr i32 %.022.i.i.i.i.i.i.i723, 7
   %2162 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i722, i64 1
-  %2163 = icmp ugt i32 %.022.i.i.i.i.i.i.i723, 16383
+  %2163 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i723, 16383
   br i1 %2163, label %2158, label %2164, !llvm.loop !5
 
 2164:                                             ; preds = %2158
@@ -4851,7 +4851,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726:
   store i8 %2200, ptr %.023.i.i.i.i.i.i.i728, align 1
   %2201 = lshr i32 %.022.i.i.i.i.i.i.i729, 7
   %2202 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i728, i64 1
-  %2203 = icmp ugt i32 %.022.i.i.i.i.i.i.i729, 16383
+  %2203 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i729, 16383
   br i1 %2203, label %2198, label %2204, !llvm.loop !5
 
 2204:                                             ; preds = %2198
@@ -4910,7 +4910,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
   store i8 %2228, ptr %.023.i.i.i.i.i.i7.i735, align 1
   %2229 = lshr i64 %.022.i.i.i.i.i.i8.i736, 7
   %2230 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i735, i64 1
-  %2231 = icmp ugt i64 %.022.i.i.i.i.i.i8.i736, 16383
+  %2231 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i736, 16383
   br i1 %2231, label %2226, label %2232, !llvm.loop !7
 
 2232:                                             ; preds = %2226
@@ -4978,7 +4978,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739:
   store i8 %2261, ptr %.023.i.i.i.i.i.i.i741, align 1
   %2262 = lshr i32 %.022.i.i.i.i.i.i.i742, 7
   %2263 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i741, i64 1
-  %2264 = icmp ugt i32 %.022.i.i.i.i.i.i.i742, 16383
+  %2264 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i742, 16383
   br i1 %2264, label %2259, label %2265, !llvm.loop !5
 
 2265:                                             ; preds = %2259
@@ -5037,7 +5037,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
   store i8 %2289, ptr %.023.i.i.i.i.i.i7.i748, align 1
   %2290 = lshr i64 %.022.i.i.i.i.i.i8.i749, 7
   %2291 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i748, i64 1
-  %2292 = icmp ugt i64 %.022.i.i.i.i.i.i8.i749, 16383
+  %2292 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i749, 16383
   br i1 %2292, label %2287, label %2293, !llvm.loop !7
 
 2293:                                             ; preds = %2287
@@ -5118,7 +5118,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i75
   store i8 %2329, ptr %.023.i.i.i.i.i.i.i.i755, align 1
   %2330 = lshr i32 %.022.i.i.i.i.i.i.i.i756, 7
   %2331 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i755, i64 1
-  %2332 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i756, 16383
+  %2332 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i756, 16383
   br i1 %2332, label %2327, label %2333, !llvm.loop !5
 
 2333:                                             ; preds = %2327
@@ -5177,7 +5177,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i7
   store i8 %2357, ptr %.023.i.i.i.i.i.i7.i.i762, align 1
   %2358 = lshr i64 %.022.i.i.i.i.i.i8.i.i763, 7
   %2359 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i762, i64 1
-  %2360 = icmp ugt i64 %.022.i.i.i.i.i.i8.i.i763, 16383
+  %2360 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i.i763, 16383
   br i1 %2360, label %2355, label %2361, !llvm.loop !7
 
 2361:                                             ; preds = %2355
@@ -5253,7 +5253,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766:
   store i8 %2397, ptr %.023.i.i.i.i.i.i.i768, align 1
   %2398 = lshr i32 %.022.i.i.i.i.i.i.i769, 7
   %2399 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i768, i64 1
-  %2400 = icmp ugt i32 %.022.i.i.i.i.i.i.i769, 16383
+  %2400 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i769, 16383
   br i1 %2400, label %2395, label %2401, !llvm.loop !5
 
 2401:                                             ; preds = %2395
@@ -5335,7 +5335,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775:
   store i8 %2435, ptr %.023.i.i.i.i.i.i.i777, align 1
   %2436 = lshr i32 %.022.i.i.i.i.i.i.i778, 7
   %2437 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i777, i64 1
-  %2438 = icmp ugt i32 %.022.i.i.i.i.i.i.i778, 16383
+  %2438 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i778, 16383
   br i1 %2438, label %2433, label %2439, !llvm.loop !5
 
 2439:                                             ; preds = %2433
@@ -5430,7 +5430,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i78
   store i8 %2480, ptr %.023.i.i.i.i.i.i.i.i787, align 1
   %2481 = lshr i32 %.022.i.i.i.i.i.i.i.i788, 7
   %2482 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i787, i64 1
-  %2483 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i788, 16383
+  %2483 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i788, 16383
   br i1 %2483, label %2478, label %2484, !llvm.loop !5
 
 2484:                                             ; preds = %2478
@@ -5520,7 +5520,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794:
   store i8 %2525, ptr %.023.i.i.i.i.i.i.i796, align 1
   %2526 = lshr i32 %.022.i.i.i.i.i.i.i797, 7
   %2527 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i796, i64 1
-  %2528 = icmp ugt i32 %.022.i.i.i.i.i.i.i797, 16383
+  %2528 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i797, 16383
   br i1 %2528, label %2523, label %2529, !llvm.loop !5
 
 2529:                                             ; preds = %2523
@@ -5602,7 +5602,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803:
   store i8 %2563, ptr %.023.i.i.i.i.i.i.i805, align 1
   %2564 = lshr i32 %.022.i.i.i.i.i.i.i806, 7
   %2565 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i805, i64 1
-  %2566 = icmp ugt i32 %.022.i.i.i.i.i.i.i806, 16383
+  %2566 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i806, 16383
   br i1 %2566, label %2561, label %2567, !llvm.loop !5
 
 2567:                                             ; preds = %2561
@@ -5697,7 +5697,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i81
   store i8 %2608, ptr %.023.i.i.i.i.i.i.i.i815, align 1
   %2609 = lshr i32 %.022.i.i.i.i.i.i.i.i816, 7
   %2610 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i815, i64 1
-  %2611 = icmp ugt i32 %.022.i.i.i.i.i.i.i.i816, 16383
+  %2611 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i816, 16383
   br i1 %2611, label %2606, label %2612, !llvm.loop !5
 
 2612:                                             ; preds = %2606
@@ -6081,7 +6081,7 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   store i8 %66, ptr %.023.i.i.i.i.i.i, align 1
   %67 = lshr i32 %.022.i.i.i.i.i.i, 7
   %68 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %69 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %69 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %69, label %64, label %70, !llvm.loop !5
 
 70:                                               ; preds = %64
@@ -6142,7 +6142,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   store i8 %98, ptr %.023.i.i.i.i.i.i400, align 1
   %99 = lshr i32 %.022.i.i.i.i.i.i401, 7
   %100 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i400, i64 1
-  %101 = icmp ugt i32 %.022.i.i.i.i.i.i401, 16383
+  %101 = icmp samesign ugt i32 %.022.i.i.i.i.i.i401, 16383
   br i1 %101, label %96, label %102, !llvm.loop !5
 
 102:                                              ; preds = %96
@@ -6207,7 +6207,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   store i8 %130, ptr %.023.i.i.i.i.i.i404, align 1
   %131 = lshr i32 %.022.i.i.i.i.i.i405, 7
   %132 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i404, i64 1
-  %133 = icmp ugt i32 %.022.i.i.i.i.i.i405, 16383
+  %133 = icmp samesign ugt i32 %.022.i.i.i.i.i.i405, 16383
   br i1 %133, label %128, label %134, !llvm.loop !5
 
 134:                                              ; preds = %128
@@ -6283,7 +6283,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
   store i8 %173, ptr %.023.i.i.i.i.i.i.i, align 1
   %174 = lshr i32 %.022.i.i.i.i.i.i.i, 7
   %175 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 1
-  %176 = icmp ugt i32 %.022.i.i.i.i.i.i.i, 16383
+  %176 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i, 16383
   br i1 %176, label %171, label %177, !llvm.loop !5
 
 177:                                              ; preds = %171
@@ -6352,7 +6352,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
   store i8 %212, ptr %.023.i.i.i.i.i.i407, align 1
   %213 = lshr i32 %.022.i.i.i.i.i.i408, 7
   %214 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i407, i64 1
-  %215 = icmp ugt i32 %.022.i.i.i.i.i.i408, 16383
+  %215 = icmp samesign ugt i32 %.022.i.i.i.i.i.i408, 16383
   br i1 %215, label %210, label %216, !llvm.loop !5
 
 216:                                              ; preds = %210
@@ -6413,7 +6413,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   store i8 %244, ptr %.023.i.i.i.i.i.i411, align 1
   %245 = lshr i32 %.022.i.i.i.i.i.i412, 7
   %246 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i411, i64 1
-  %247 = icmp ugt i32 %.022.i.i.i.i.i.i412, 16383
+  %247 = icmp samesign ugt i32 %.022.i.i.i.i.i.i412, 16383
   br i1 %247, label %242, label %248, !llvm.loop !5
 
 248:                                              ; preds = %242
@@ -6478,7 +6478,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   store i8 %276, ptr %.023.i.i.i.i.i.i418, align 1
   %277 = lshr i32 %.022.i.i.i.i.i.i419, 7
   %278 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i418, i64 1
-  %279 = icmp ugt i32 %.022.i.i.i.i.i.i419, 16383
+  %279 = icmp samesign ugt i32 %.022.i.i.i.i.i.i419, 16383
   br i1 %279, label %274, label %280, !llvm.loop !5
 
 280:                                              ; preds = %274
@@ -6554,7 +6554,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
   store i8 %319, ptr %.023.i.i.i.i.i.i.i422, align 1
   %320 = lshr i32 %.022.i.i.i.i.i.i.i423, 7
   %321 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i422, i64 1
-  %322 = icmp ugt i32 %.022.i.i.i.i.i.i.i423, 16383
+  %322 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i423, 16383
   br i1 %322, label %317, label %323, !llvm.loop !5
 
 323:                                              ; preds = %317
@@ -6623,7 +6623,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
   store i8 %358, ptr %.023.i.i.i.i.i.i425, align 1
   %359 = lshr i32 %.022.i.i.i.i.i.i426, 7
   %360 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i425, i64 1
-  %361 = icmp ugt i32 %.022.i.i.i.i.i.i426, 16383
+  %361 = icmp samesign ugt i32 %.022.i.i.i.i.i.i426, 16383
   br i1 %361, label %356, label %362, !llvm.loop !5
 
 362:                                              ; preds = %356
@@ -6670,7 +6670,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427: ; 
   store i8 %382, ptr %.023.i.i.i.i.i, align 1
   %383 = lshr i64 %.022.i.i.i.i.i, 7
   %384 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %385 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %385 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %385, label %380, label %386, !llvm.loop !7
 
 386:                                              ; preds = %380
@@ -6728,7 +6728,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   store i8 %412, ptr %.023.i.i.i.i.i.i429, align 1
   %413 = lshr i32 %.022.i.i.i.i.i.i430, 7
   %414 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i429, i64 1
-  %415 = icmp ugt i32 %.022.i.i.i.i.i.i430, 16383
+  %415 = icmp samesign ugt i32 %.022.i.i.i.i.i.i430, 16383
   br i1 %415, label %410, label %416, !llvm.loop !5
 
 416:                                              ; preds = %410
@@ -6775,7 +6775,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431: ; 
   store i8 %436, ptr %.023.i.i.i.i.i433, align 1
   %437 = lshr i64 %.022.i.i.i.i.i434, 7
   %438 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i433, i64 1
-  %439 = icmp ugt i64 %.022.i.i.i.i.i434, 16383
+  %439 = icmp samesign ugt i64 %.022.i.i.i.i.i434, 16383
   br i1 %439, label %434, label %440, !llvm.loop !7
 
 440:                                              ; preds = %434
@@ -6846,7 +6846,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   store i8 %473, ptr %.023.i.i.i.i.i.i.i437, align 1
   %474 = lshr i32 %.022.i.i.i.i.i.i.i438, 7
   %475 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i437, i64 1
-  %476 = icmp ugt i32 %.022.i.i.i.i.i.i.i438, 16383
+  %476 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i438, 16383
   br i1 %476, label %471, label %477, !llvm.loop !5
 
 477:                                              ; preds = %471
@@ -6893,7 +6893,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i: ; p
   store i8 %497, ptr %.023.i.i.i.i.i.i440, align 1
   %498 = lshr i64 %.022.i.i.i.i.i.i441, 7
   %499 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i440, i64 1
-  %500 = icmp ugt i64 %.022.i.i.i.i.i.i441, 16383
+  %500 = icmp samesign ugt i64 %.022.i.i.i.i.i.i441, 16383
   br i1 %500, label %495, label %501, !llvm.loop !7
 
 501:                                              ; preds = %495
@@ -6959,7 +6959,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
   store i8 %534, ptr %.023.i.i.i.i.i.i443, align 1
   %535 = lshr i32 %.022.i.i.i.i.i.i444, 7
   %536 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i443, i64 1
-  %537 = icmp ugt i32 %.022.i.i.i.i.i.i444, 16383
+  %537 = icmp samesign ugt i32 %.022.i.i.i.i.i.i444, 16383
   br i1 %537, label %532, label %538, !llvm.loop !5
 
 538:                                              ; preds = %532
@@ -7006,7 +7006,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445: ; 
   store i8 %558, ptr %.023.i.i.i.i.i447, align 1
   %559 = lshr i64 %.022.i.i.i.i.i448, 7
   %560 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i447, i64 1
-  %561 = icmp ugt i64 %.022.i.i.i.i.i448, 16383
+  %561 = icmp samesign ugt i64 %.022.i.i.i.i.i448, 16383
   br i1 %561, label %556, label %562, !llvm.loop !7
 
 562:                                              ; preds = %556
@@ -7064,7 +7064,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   store i8 %588, ptr %.023.i.i.i.i.i.i450, align 1
   %589 = lshr i32 %.022.i.i.i.i.i.i451, 7
   %590 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i450, i64 1
-  %591 = icmp ugt i32 %.022.i.i.i.i.i.i451, 16383
+  %591 = icmp samesign ugt i32 %.022.i.i.i.i.i.i451, 16383
   br i1 %591, label %586, label %592, !llvm.loop !5
 
 592:                                              ; preds = %586
@@ -7111,7 +7111,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452: ; 
   store i8 %612, ptr %.023.i.i.i.i.i454, align 1
   %613 = lshr i64 %.022.i.i.i.i.i455, 7
   %614 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i454, i64 1
-  %615 = icmp ugt i64 %.022.i.i.i.i.i455, 16383
+  %615 = icmp samesign ugt i64 %.022.i.i.i.i.i455, 16383
   br i1 %615, label %610, label %616, !llvm.loop !7
 
 616:                                              ; preds = %610
@@ -7182,7 +7182,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   store i8 %649, ptr %.023.i.i.i.i.i.i.i458, align 1
   %650 = lshr i32 %.022.i.i.i.i.i.i.i459, 7
   %651 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i458, i64 1
-  %652 = icmp ugt i32 %.022.i.i.i.i.i.i.i459, 16383
+  %652 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i459, 16383
   br i1 %652, label %647, label %653, !llvm.loop !5
 
 653:                                              ; preds = %647
@@ -7229,7 +7229,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460: 
   store i8 %673, ptr %.023.i.i.i.i.i.i462, align 1
   %674 = lshr i64 %.022.i.i.i.i.i.i463, 7
   %675 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i462, i64 1
-  %676 = icmp ugt i64 %.022.i.i.i.i.i.i463, 16383
+  %676 = icmp samesign ugt i64 %.022.i.i.i.i.i.i463, 16383
   br i1 %676, label %671, label %677, !llvm.loop !7
 
 677:                                              ; preds = %671
@@ -7295,7 +7295,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
   store i8 %710, ptr %.023.i.i.i.i.i.i465, align 1
   %711 = lshr i32 %.022.i.i.i.i.i.i466, 7
   %712 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i465, i64 1
-  %713 = icmp ugt i32 %.022.i.i.i.i.i.i466, 16383
+  %713 = icmp samesign ugt i32 %.022.i.i.i.i.i.i466, 16383
   br i1 %713, label %708, label %714, !llvm.loop !5
 
 714:                                              ; preds = %708
@@ -7343,7 +7343,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467: ; 
   store i8 %735, ptr %.023.i.i.i.i.i4.i, align 1
   %736 = lshr i64 %.022.i.i.i.i.i5.i, 7
   %737 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i, i64 1
-  %738 = icmp ugt i64 %.022.i.i.i.i.i5.i, 16383
+  %738 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i, 16383
   br i1 %738, label %733, label %739, !llvm.loop !7
 
 739:                                              ; preds = %733
@@ -7401,7 +7401,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   store i8 %765, ptr %.023.i.i.i.i.i.i469, align 1
   %766 = lshr i32 %.022.i.i.i.i.i.i470, 7
   %767 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i469, i64 1
-  %768 = icmp ugt i32 %.022.i.i.i.i.i.i470, 16383
+  %768 = icmp samesign ugt i32 %.022.i.i.i.i.i.i470, 16383
   br i1 %768, label %763, label %769, !llvm.loop !5
 
 769:                                              ; preds = %763
@@ -7449,7 +7449,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471: ; 
   store i8 %790, ptr %.023.i.i.i.i.i4.i473, align 1
   %791 = lshr i64 %.022.i.i.i.i.i5.i474, 7
   %792 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i473, i64 1
-  %793 = icmp ugt i64 %.022.i.i.i.i.i5.i474, 16383
+  %793 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i474, 16383
   br i1 %793, label %788, label %794, !llvm.loop !7
 
 794:                                              ; preds = %788
@@ -7520,7 +7520,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   store i8 %827, ptr %.023.i.i.i.i.i.i.i477, align 1
   %828 = lshr i32 %.022.i.i.i.i.i.i.i478, 7
   %829 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i477, i64 1
-  %830 = icmp ugt i32 %.022.i.i.i.i.i.i.i478, 16383
+  %830 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i478, 16383
   br i1 %830, label %825, label %831, !llvm.loop !5
 
 831:                                              ; preds = %825
@@ -7568,7 +7568,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479: 
   store i8 %852, ptr %.023.i.i.i.i.i4.i.i, align 1
   %853 = lshr i64 %.022.i.i.i.i.i5.i.i, 7
   %854 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i, i64 1
-  %855 = icmp ugt i64 %.022.i.i.i.i.i5.i.i, 16383
+  %855 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i.i, 16383
   br i1 %855, label %850, label %856, !llvm.loop !7
 
 856:                                              ; preds = %850
@@ -7634,7 +7634,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
   store i8 %889, ptr %.023.i.i.i.i.i.i481, align 1
   %890 = lshr i32 %.022.i.i.i.i.i.i482, 7
   %891 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i481, i64 1
-  %892 = icmp ugt i32 %.022.i.i.i.i.i.i482, 16383
+  %892 = icmp samesign ugt i32 %.022.i.i.i.i.i.i482, 16383
   br i1 %892, label %887, label %893, !llvm.loop !5
 
 893:                                              ; preds = %887
@@ -7695,7 +7695,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   store i8 %921, ptr %.023.i.i.i.i.i.i485, align 1
   %922 = lshr i32 %.022.i.i.i.i.i.i486, 7
   %923 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i485, i64 1
-  %924 = icmp ugt i32 %.022.i.i.i.i.i.i486, 16383
+  %924 = icmp samesign ugt i32 %.022.i.i.i.i.i.i486, 16383
   br i1 %924, label %919, label %925, !llvm.loop !5
 
 925:                                              ; preds = %919
@@ -7760,7 +7760,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   store i8 %953, ptr %.023.i.i.i.i.i.i492, align 1
   %954 = lshr i32 %.022.i.i.i.i.i.i493, 7
   %955 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 1
-  %956 = icmp ugt i32 %.022.i.i.i.i.i.i493, 16383
+  %956 = icmp samesign ugt i32 %.022.i.i.i.i.i.i493, 16383
   br i1 %956, label %951, label %957, !llvm.loop !5
 
 957:                                              ; preds = %951
@@ -7836,7 +7836,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
   store i8 %996, ptr %.023.i.i.i.i.i.i.i496, align 1
   %997 = lshr i32 %.022.i.i.i.i.i.i.i497, 7
   %998 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i496, i64 1
-  %999 = icmp ugt i32 %.022.i.i.i.i.i.i.i497, 16383
+  %999 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i497, 16383
   br i1 %999, label %994, label %1000, !llvm.loop !5
 
 1000:                                             ; preds = %994
@@ -7905,7 +7905,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
   store i8 %1035, ptr %.023.i.i.i.i.i.i499, align 1
   %1036 = lshr i32 %.022.i.i.i.i.i.i500, 7
   %1037 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i499, i64 1
-  %1038 = icmp ugt i32 %.022.i.i.i.i.i.i500, 16383
+  %1038 = icmp samesign ugt i32 %.022.i.i.i.i.i.i500, 16383
   br i1 %1038, label %1033, label %1039, !llvm.loop !5
 
 1039:                                             ; preds = %1033
@@ -7966,7 +7966,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   store i8 %1067, ptr %.023.i.i.i.i.i.i503, align 1
   %1068 = lshr i32 %.022.i.i.i.i.i.i504, 7
   %1069 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i503, i64 1
-  %1070 = icmp ugt i32 %.022.i.i.i.i.i.i504, 16383
+  %1070 = icmp samesign ugt i32 %.022.i.i.i.i.i.i504, 16383
   br i1 %1070, label %1065, label %1071, !llvm.loop !5
 
 1071:                                             ; preds = %1065
@@ -8031,7 +8031,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   store i8 %1099, ptr %.023.i.i.i.i.i.i510, align 1
   %1100 = lshr i32 %.022.i.i.i.i.i.i511, 7
   %1101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i510, i64 1
-  %1102 = icmp ugt i32 %.022.i.i.i.i.i.i511, 16383
+  %1102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i511, 16383
   br i1 %1102, label %1097, label %1103, !llvm.loop !5
 
 1103:                                             ; preds = %1097
@@ -8107,7 +8107,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
   store i8 %1142, ptr %.023.i.i.i.i.i.i.i514, align 1
   %1143 = lshr i32 %.022.i.i.i.i.i.i.i515, 7
   %1144 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i514, i64 1
-  %1145 = icmp ugt i32 %.022.i.i.i.i.i.i.i515, 16383
+  %1145 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i515, 16383
   br i1 %1145, label %1140, label %1146, !llvm.loop !5
 
 1146:                                             ; preds = %1140
@@ -8176,7 +8176,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
   store i8 %1181, ptr %.023.i.i.i.i.i.i517, align 1
   %1182 = lshr i32 %.022.i.i.i.i.i.i518, 7
   %1183 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i517, i64 1
-  %1184 = icmp ugt i32 %.022.i.i.i.i.i.i518, 16383
+  %1184 = icmp samesign ugt i32 %.022.i.i.i.i.i.i518, 16383
   br i1 %1184, label %1179, label %1185, !llvm.loop !5
 
 1185:                                             ; preds = %1179
@@ -8239,7 +8239,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   store i8 %1215, ptr %.023.i.i.i.i.i.i521, align 1
   %1216 = lshr i32 %.022.i.i.i.i.i.i522, 7
   %1217 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i521, i64 1
-  %1218 = icmp ugt i32 %.022.i.i.i.i.i.i522, 16383
+  %1218 = icmp samesign ugt i32 %.022.i.i.i.i.i.i522, 16383
   br i1 %1218, label %1213, label %1219, !llvm.loop !5
 
 1219:                                             ; preds = %1213
@@ -8305,7 +8305,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   store i8 %1248, ptr %.023.i.i.i.i.i.i528, align 1
   %1249 = lshr i32 %.022.i.i.i.i.i.i529, 7
   %1250 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i528, i64 1
-  %1251 = icmp ugt i32 %.022.i.i.i.i.i.i529, 16383
+  %1251 = icmp samesign ugt i32 %.022.i.i.i.i.i.i529, 16383
   br i1 %1251, label %1246, label %1252, !llvm.loop !5
 
 1252:                                             ; preds = %1246
@@ -8382,7 +8382,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
   store i8 %1292, ptr %.023.i.i.i.i.i.i.i532, align 1
   %1293 = lshr i32 %.022.i.i.i.i.i.i.i533, 7
   %1294 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i532, i64 1
-  %1295 = icmp ugt i32 %.022.i.i.i.i.i.i.i533, 16383
+  %1295 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i533, 16383
   br i1 %1295, label %1290, label %1296, !llvm.loop !5
 
 1296:                                             ; preds = %1290
@@ -8452,7 +8452,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
   store i8 %1332, ptr %.023.i.i.i.i.i.i535, align 1
   %1333 = lshr i32 %.022.i.i.i.i.i.i536, 7
   %1334 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i535, i64 1
-  %1335 = icmp ugt i32 %.022.i.i.i.i.i.i536, 16383
+  %1335 = icmp samesign ugt i32 %.022.i.i.i.i.i.i536, 16383
   br i1 %1335, label %1330, label %1336, !llvm.loop !5
 
 1336:                                             ; preds = %1330
@@ -8520,7 +8520,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   store i8 %1371, ptr %.023.i.i.i.i.i.i539, align 1
   %1372 = lshr i32 %.022.i.i.i.i.i.i540, 7
   %1373 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i539, i64 1
-  %1374 = icmp ugt i32 %.022.i.i.i.i.i.i540, 16383
+  %1374 = icmp samesign ugt i32 %.022.i.i.i.i.i.i540, 16383
   br i1 %1374, label %1369, label %1375, !llvm.loop !5
 
 1375:                                             ; preds = %1369
@@ -8591,7 +8591,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   store i8 %1408, ptr %.023.i.i.i.i.i.i545, align 1
   %1409 = lshr i32 %.022.i.i.i.i.i.i546, 7
   %1410 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i545, i64 1
-  %1411 = icmp ugt i32 %.022.i.i.i.i.i.i546, 16383
+  %1411 = icmp samesign ugt i32 %.022.i.i.i.i.i.i546, 16383
   br i1 %1411, label %1406, label %1412, !llvm.loop !5
 
 1412:                                             ; preds = %1406
@@ -8670,7 +8670,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
   store i8 %1452, ptr %.023.i.i.i.i.i.i.i549, align 1
   %1453 = lshr i32 %.022.i.i.i.i.i.i.i550, 7
   %1454 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
-  %1455 = icmp ugt i32 %.022.i.i.i.i.i.i.i550, 16383
+  %1455 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i550, 16383
   br i1 %1455, label %1450, label %1456, !llvm.loop !5
 
 1456:                                             ; preds = %1450
@@ -8742,7 +8742,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
   store i8 %1494, ptr %.023.i.i.i.i.i704, align 1
   %1495 = lshr i32 %.022.i.i.i.i.i705, 7
   %1496 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i704, i64 1
-  %1497 = icmp ugt i32 %.022.i.i.i.i.i705, 16383
+  %1497 = icmp samesign ugt i32 %.022.i.i.i.i.i705, 16383
   br i1 %1497, label %1492, label %1498, !llvm.loop !5
 
 1498:                                             ; preds = %1492
@@ -8815,7 +8815,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   store i8 %1533, ptr %.023.i.i.i.i.i701, align 1
   %1534 = lshr i32 %.022.i.i.i.i.i702, 7
   %1535 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i701, i64 1
-  %1536 = icmp ugt i32 %.022.i.i.i.i.i702, 16383
+  %1536 = icmp samesign ugt i32 %.022.i.i.i.i.i702, 16383
   br i1 %1536, label %1531, label %1537, !llvm.loop !5
 
 1537:                                             ; preds = %1531
@@ -8873,7 +8873,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %1563, ptr %.023.i.i.i.i.i714, align 1
   %1564 = lshr i32 %.022.i.i.i.i.i715, 7
   %1565 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i714, i64 1
-  %1566 = icmp ugt i32 %.022.i.i.i.i.i715, 16383
+  %1566 = icmp samesign ugt i32 %.022.i.i.i.i.i715, 16383
   br i1 %1566, label %1561, label %1567, !llvm.loop !5
 
 1567:                                             ; preds = %1561
@@ -8946,7 +8946,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   store i8 %1602, ptr %.023.i.i.i.i.i708, align 1
   %1603 = lshr i32 %.022.i.i.i.i.i709, 7
   %1604 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i708, i64 1
-  %1605 = icmp ugt i32 %.022.i.i.i.i.i709, 16383
+  %1605 = icmp samesign ugt i32 %.022.i.i.i.i.i709, 16383
   br i1 %1605, label %1600, label %1606, !llvm.loop !5
 
 1606:                                             ; preds = %1600
@@ -8999,7 +8999,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711: ; pr
   store i8 %1628, ptr %.023.i.i.i.i.i724, align 1
   %1629 = lshr i32 %.022.i.i.i.i.i725, 7
   %1630 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i724, i64 1
-  %1631 = icmp ugt i32 %.022.i.i.i.i.i725, 16383
+  %1631 = icmp samesign ugt i32 %.022.i.i.i.i.i725, 16383
   br i1 %1631, label %1626, label %1632, !llvm.loop !5
 
 1632:                                             ; preds = %1626
@@ -9076,7 +9076,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   store i8 %1669, ptr %.023.i.i.i.i.i718, align 1
   %1670 = lshr i32 %.022.i.i.i.i.i719, 7
   %1671 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i718, i64 1
-  %1672 = icmp ugt i32 %.022.i.i.i.i.i719, 16383
+  %1672 = icmp samesign ugt i32 %.022.i.i.i.i.i719, 16383
   br i1 %1672, label %1667, label %1673, !llvm.loop !5
 
 1673:                                             ; preds = %1667
@@ -9166,7 +9166,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
   store i8 %1721, ptr %.023.i.i.i.i.i728, align 1
   %1722 = lshr i32 %.022.i.i.i.i.i729, 7
   %1723 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i728, i64 1
-  %1724 = icmp ugt i32 %.022.i.i.i.i.i729, 16383
+  %1724 = icmp samesign ugt i32 %.022.i.i.i.i.i729, 16383
   br i1 %1724, label %1719, label %1725, !llvm.loop !5
 
 1725:                                             ; preds = %1719
@@ -9228,7 +9228,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
   store i8 %1754, ptr %.023.i.i.i.i.i732, align 1
   %1755 = lshr i32 %.022.i.i.i.i.i733, 7
   %1756 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i732, i64 1
-  %1757 = icmp ugt i32 %.022.i.i.i.i.i733, 16383
+  %1757 = icmp samesign ugt i32 %.022.i.i.i.i.i733, 16383
   br i1 %1757, label %1752, label %1758, !llvm.loop !5
 
 1758:                                             ; preds = %1752
@@ -9285,7 +9285,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735: ; pr
   store i8 %1783, ptr %.023.i.i.i.i.i738, align 1
   %1784 = lshr i32 %.022.i.i.i.i.i739, 7
   %1785 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i738, i64 1
-  %1786 = icmp ugt i32 %.022.i.i.i.i.i739, 16383
+  %1786 = icmp samesign ugt i32 %.022.i.i.i.i.i739, 16383
   br i1 %1786, label %1781, label %1787, !llvm.loop !5
 
 1787:                                             ; preds = %1781
@@ -9383,7 +9383,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   store i8 %1840, ptr %.023.i.i.i.i.i.i553, align 1
   %1841 = lshr i32 %.022.i.i.i.i.i.i554, 7
   %1842 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i553, i64 1
-  %1843 = icmp ugt i32 %.022.i.i.i.i.i.i554, 16383
+  %1843 = icmp samesign ugt i32 %.022.i.i.i.i.i.i554, 16383
   br i1 %1843, label %1838, label %1844, !llvm.loop !5
 
 1844:                                             ; preds = %1838
@@ -9451,7 +9451,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   store i8 %1879, ptr %.023.i.i.i.i.i.i558, align 1
   %1880 = lshr i32 %.022.i.i.i.i.i.i559, 7
   %1881 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i558, i64 1
-  %1882 = icmp ugt i32 %.022.i.i.i.i.i.i559, 16383
+  %1882 = icmp samesign ugt i32 %.022.i.i.i.i.i.i559, 16383
   br i1 %1882, label %1877, label %1883, !llvm.loop !5
 
 1883:                                             ; preds = %1877
@@ -9522,7 +9522,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   store i8 %1916, ptr %.023.i.i.i.i.i.i566, align 1
   %1917 = lshr i32 %.022.i.i.i.i.i.i567, 7
   %1918 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i566, i64 1
-  %1919 = icmp ugt i32 %.022.i.i.i.i.i.i567, 16383
+  %1919 = icmp samesign ugt i32 %.022.i.i.i.i.i.i567, 16383
   br i1 %1919, label %1914, label %1920, !llvm.loop !5
 
 1920:                                             ; preds = %1914
@@ -9601,7 +9601,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
   store i8 %1960, ptr %.023.i.i.i.i.i.i.i574, align 1
   %1961 = lshr i32 %.022.i.i.i.i.i.i.i575, 7
   %1962 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i574, i64 1
-  %1963 = icmp ugt i32 %.022.i.i.i.i.i.i.i575, 16383
+  %1963 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i575, 16383
   br i1 %1963, label %1958, label %1964, !llvm.loop !5
 
 1964:                                             ; preds = %1958
@@ -9673,7 +9673,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
   store i8 %2002, ptr %.023.i.i.i.i.i.i577, align 1
   %2003 = lshr i32 %.022.i.i.i.i.i.i578, 7
   %2004 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i577, i64 1
-  %2005 = icmp ugt i32 %.022.i.i.i.i.i.i578, 16383
+  %2005 = icmp samesign ugt i32 %.022.i.i.i.i.i.i578, 16383
   br i1 %2005, label %2000, label %2006, !llvm.loop !5
 
 2006:                                             ; preds = %2000
@@ -9720,7 +9720,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579: ; 
   store i8 %2026, ptr %.023.i.i.i.i.i581, align 1
   %2027 = lshr i32 %.022.i.i.i.i.i582, 7
   %2028 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i581, i64 1
-  %2029 = icmp ugt i32 %.022.i.i.i.i.i582, 16383
+  %2029 = icmp samesign ugt i32 %.022.i.i.i.i.i582, 16383
   br i1 %2029, label %2024, label %2030, !llvm.loop !5
 
 2030:                                             ; preds = %2024
@@ -9778,7 +9778,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   store i8 %2056, ptr %.023.i.i.i.i.i.i584, align 1
   %2057 = lshr i32 %.022.i.i.i.i.i.i585, 7
   %2058 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i584, i64 1
-  %2059 = icmp ugt i32 %.022.i.i.i.i.i.i585, 16383
+  %2059 = icmp samesign ugt i32 %.022.i.i.i.i.i.i585, 16383
   br i1 %2059, label %2054, label %2060, !llvm.loop !5
 
 2060:                                             ; preds = %2054
@@ -9825,7 +9825,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586: ; 
   store i8 %2080, ptr %.023.i.i.i.i.i588, align 1
   %2081 = lshr i32 %.022.i.i.i.i.i589, 7
   %2082 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i588, i64 1
-  %2083 = icmp ugt i32 %.022.i.i.i.i.i589, 16383
+  %2083 = icmp samesign ugt i32 %.022.i.i.i.i.i589, 16383
   br i1 %2083, label %2078, label %2084, !llvm.loop !5
 
 2084:                                             ; preds = %2078
@@ -9896,7 +9896,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   store i8 %2117, ptr %.023.i.i.i.i.i.i.i592, align 1
   %2118 = lshr i32 %.022.i.i.i.i.i.i.i593, 7
   %2119 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i592, i64 1
-  %2120 = icmp ugt i32 %.022.i.i.i.i.i.i.i593, 16383
+  %2120 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i593, 16383
   br i1 %2120, label %2115, label %2121, !llvm.loop !5
 
 2121:                                             ; preds = %2115
@@ -9943,7 +9943,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594: 
   store i8 %2141, ptr %.023.i.i.i.i.i.i596, align 1
   %2142 = lshr i32 %.022.i.i.i.i.i.i597, 7
   %2143 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i596, i64 1
-  %2144 = icmp ugt i32 %.022.i.i.i.i.i.i597, 16383
+  %2144 = icmp samesign ugt i32 %.022.i.i.i.i.i.i597, 16383
   br i1 %2144, label %2139, label %2145, !llvm.loop !5
 
 2145:                                             ; preds = %2139
@@ -10009,7 +10009,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
   store i8 %2178, ptr %.023.i.i.i.i.i.i599, align 1
   %2179 = lshr i32 %.022.i.i.i.i.i.i600, 7
   %2180 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i599, i64 1
-  %2181 = icmp ugt i32 %.022.i.i.i.i.i.i600, 16383
+  %2181 = icmp samesign ugt i32 %.022.i.i.i.i.i.i600, 16383
   br i1 %2181, label %2176, label %2182, !llvm.loop !5
 
 2182:                                             ; preds = %2176
@@ -10057,7 +10057,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601: ; 
   store i8 %2203, ptr %.023.i.i.i.i.i4.i603, align 1
   %2204 = lshr i64 %.022.i.i.i.i.i5.i604, 7
   %2205 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i603, i64 1
-  %2206 = icmp ugt i64 %.022.i.i.i.i.i5.i604, 16383
+  %2206 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i604, 16383
   br i1 %2206, label %2201, label %2207, !llvm.loop !7
 
 2207:                                             ; preds = %2201
@@ -10115,7 +10115,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   store i8 %2233, ptr %.023.i.i.i.i.i.i606, align 1
   %2234 = lshr i32 %.022.i.i.i.i.i.i607, 7
   %2235 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i606, i64 1
-  %2236 = icmp ugt i32 %.022.i.i.i.i.i.i607, 16383
+  %2236 = icmp samesign ugt i32 %.022.i.i.i.i.i.i607, 16383
   br i1 %2236, label %2231, label %2237, !llvm.loop !5
 
 2237:                                             ; preds = %2231
@@ -10163,7 +10163,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608: ; 
   store i8 %2258, ptr %.023.i.i.i.i.i4.i610, align 1
   %2259 = lshr i64 %.022.i.i.i.i.i5.i611, 7
   %2260 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i610, i64 1
-  %2261 = icmp ugt i64 %.022.i.i.i.i.i5.i611, 16383
+  %2261 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i611, 16383
   br i1 %2261, label %2256, label %2262, !llvm.loop !7
 
 2262:                                             ; preds = %2256
@@ -10234,7 +10234,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   store i8 %2295, ptr %.023.i.i.i.i.i.i.i614, align 1
   %2296 = lshr i32 %.022.i.i.i.i.i.i.i615, 7
   %2297 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i614, i64 1
-  %2298 = icmp ugt i32 %.022.i.i.i.i.i.i.i615, 16383
+  %2298 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i615, 16383
   br i1 %2298, label %2293, label %2299, !llvm.loop !5
 
 2299:                                             ; preds = %2293
@@ -10282,7 +10282,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616: 
   store i8 %2320, ptr %.023.i.i.i.i.i4.i.i618, align 1
   %2321 = lshr i64 %.022.i.i.i.i.i5.i.i619, 7
   %2322 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i618, i64 1
-  %2323 = icmp ugt i64 %.022.i.i.i.i.i5.i.i619, 16383
+  %2323 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i.i619, 16383
   br i1 %2323, label %2318, label %2324, !llvm.loop !7
 
 2324:                                             ; preds = %2318
@@ -10348,7 +10348,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
   store i8 %2357, ptr %.023.i.i.i.i.i.i621, align 1
   %2358 = lshr i32 %.022.i.i.i.i.i.i622, 7
   %2359 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i621, i64 1
-  %2360 = icmp ugt i32 %.022.i.i.i.i.i.i622, 16383
+  %2360 = icmp samesign ugt i32 %.022.i.i.i.i.i.i622, 16383
   br i1 %2360, label %2355, label %2361, !llvm.loop !5
 
 2361:                                             ; preds = %2355
@@ -10409,7 +10409,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   store i8 %2389, ptr %.023.i.i.i.i.i.i625, align 1
   %2390 = lshr i32 %.022.i.i.i.i.i.i626, 7
   %2391 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i625, i64 1
-  %2392 = icmp ugt i32 %.022.i.i.i.i.i.i626, 16383
+  %2392 = icmp samesign ugt i32 %.022.i.i.i.i.i.i626, 16383
   br i1 %2392, label %2387, label %2393, !llvm.loop !5
 
 2393:                                             ; preds = %2387
@@ -10474,7 +10474,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   store i8 %2421, ptr %.023.i.i.i.i.i.i632, align 1
   %2422 = lshr i32 %.022.i.i.i.i.i.i633, 7
   %2423 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i632, i64 1
-  %2424 = icmp ugt i32 %.022.i.i.i.i.i.i633, 16383
+  %2424 = icmp samesign ugt i32 %.022.i.i.i.i.i.i633, 16383
   br i1 %2424, label %2419, label %2425, !llvm.loop !5
 
 2425:                                             ; preds = %2419
@@ -10550,7 +10550,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
   store i8 %2464, ptr %.023.i.i.i.i.i.i.i636, align 1
   %2465 = lshr i32 %.022.i.i.i.i.i.i.i637, 7
   %2466 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i636, i64 1
-  %2467 = icmp ugt i32 %.022.i.i.i.i.i.i.i637, 16383
+  %2467 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i637, 16383
   br i1 %2467, label %2462, label %2468, !llvm.loop !5
 
 2468:                                             ; preds = %2462
@@ -10619,7 +10619,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
   store i8 %2503, ptr %.023.i.i.i.i.i.i639, align 1
   %2504 = lshr i32 %.022.i.i.i.i.i.i640, 7
   %2505 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i639, i64 1
-  %2506 = icmp ugt i32 %.022.i.i.i.i.i.i640, 16383
+  %2506 = icmp samesign ugt i32 %.022.i.i.i.i.i.i640, 16383
   br i1 %2506, label %2501, label %2507, !llvm.loop !5
 
 2507:                                             ; preds = %2501
@@ -10680,7 +10680,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   store i8 %2535, ptr %.023.i.i.i.i.i.i643, align 1
   %2536 = lshr i32 %.022.i.i.i.i.i.i644, 7
   %2537 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i643, i64 1
-  %2538 = icmp ugt i32 %.022.i.i.i.i.i.i644, 16383
+  %2538 = icmp samesign ugt i32 %.022.i.i.i.i.i.i644, 16383
   br i1 %2538, label %2533, label %2539, !llvm.loop !5
 
 2539:                                             ; preds = %2533
@@ -10745,7 +10745,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   store i8 %2567, ptr %.023.i.i.i.i.i.i650, align 1
   %2568 = lshr i32 %.022.i.i.i.i.i.i651, 7
   %2569 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i650, i64 1
-  %2570 = icmp ugt i32 %.022.i.i.i.i.i.i651, 16383
+  %2570 = icmp samesign ugt i32 %.022.i.i.i.i.i.i651, 16383
   br i1 %2570, label %2565, label %2571, !llvm.loop !5
 
 2571:                                             ; preds = %2565
@@ -10821,7 +10821,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
   store i8 %2610, ptr %.023.i.i.i.i.i.i.i654, align 1
   %2611 = lshr i32 %.022.i.i.i.i.i.i.i655, 7
   %2612 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i654, i64 1
-  %2613 = icmp ugt i32 %.022.i.i.i.i.i.i.i655, 16383
+  %2613 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i655, 16383
   br i1 %2613, label %2608, label %2614, !llvm.loop !5
 
 2614:                                             ; preds = %2608
@@ -10890,7 +10890,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
   store i8 %2649, ptr %.023.i.i.i.i.i.i657, align 1
   %2650 = lshr i32 %.022.i.i.i.i.i.i658, 7
   %2651 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i657, i64 1
-  %2652 = icmp ugt i32 %.022.i.i.i.i.i.i658, 16383
+  %2652 = icmp samesign ugt i32 %.022.i.i.i.i.i.i658, 16383
   br i1 %2652, label %2647, label %2653, !llvm.loop !5
 
 2653:                                             ; preds = %2647
@@ -10940,7 +10940,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659: ; 
   store i8 %2676, ptr %.023.i.i.i.i.i661, align 1
   %2677 = lshr i32 %.022.i.i.i.i.i662, 7
   %2678 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i661, i64 1
-  %2679 = icmp ugt i32 %.022.i.i.i.i.i662, 16383
+  %2679 = icmp samesign ugt i32 %.022.i.i.i.i.i662, 16383
   br i1 %2679, label %2674, label %2680, !llvm.loop !5
 
 2680:                                             ; preds = %2674
@@ -10998,7 +10998,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   store i8 %2706, ptr %.023.i.i.i.i.i.i664, align 1
   %2707 = lshr i32 %.022.i.i.i.i.i.i665, 7
   %2708 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i664, i64 1
-  %2709 = icmp ugt i32 %.022.i.i.i.i.i.i665, 16383
+  %2709 = icmp samesign ugt i32 %.022.i.i.i.i.i.i665, 16383
   br i1 %2709, label %2704, label %2710, !llvm.loop !5
 
 2710:                                             ; preds = %2704
@@ -11048,7 +11048,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666: ; 
   store i8 %2733, ptr %.023.i.i.i.i.i668, align 1
   %2734 = lshr i32 %.022.i.i.i.i.i669, 7
   %2735 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i668, i64 1
-  %2736 = icmp ugt i32 %.022.i.i.i.i.i669, 16383
+  %2736 = icmp samesign ugt i32 %.022.i.i.i.i.i669, 16383
   br i1 %2736, label %2731, label %2737, !llvm.loop !5
 
 2737:                                             ; preds = %2731
@@ -11119,7 +11119,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   store i8 %2770, ptr %.023.i.i.i.i.i.i.i672, align 1
   %2771 = lshr i32 %.022.i.i.i.i.i.i.i673, 7
   %2772 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i672, i64 1
-  %2773 = icmp ugt i32 %.022.i.i.i.i.i.i.i673, 16383
+  %2773 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i673, 16383
   br i1 %2773, label %2768, label %2774, !llvm.loop !5
 
 2774:                                             ; preds = %2768
@@ -11169,7 +11169,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674: 
   store i8 %2797, ptr %.023.i.i.i.i.i.i676, align 1
   %2798 = lshr i32 %.022.i.i.i.i.i.i677, 7
   %2799 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i676, i64 1
-  %2800 = icmp ugt i32 %.022.i.i.i.i.i.i677, 16383
+  %2800 = icmp samesign ugt i32 %.022.i.i.i.i.i.i677, 16383
   br i1 %2800, label %2795, label %2801, !llvm.loop !5
 
 2801:                                             ; preds = %2795
@@ -11235,7 +11235,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
   store i8 %2834, ptr %.023.i.i.i.i.i.i679, align 1
   %2835 = lshr i32 %.022.i.i.i.i.i.i680, 7
   %2836 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i679, i64 1
-  %2837 = icmp ugt i32 %.022.i.i.i.i.i.i680, 16383
+  %2837 = icmp samesign ugt i32 %.022.i.i.i.i.i.i680, 16383
   br i1 %2837, label %2832, label %2838, !llvm.loop !5
 
 2838:                                             ; preds = %2832
@@ -11285,7 +11285,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681: ; 
   store i8 %2861, ptr %.023.i.i.i.i.i683, align 1
   %2862 = lshr i64 %.022.i.i.i.i.i684, 7
   %2863 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i683, i64 1
-  %2864 = icmp ugt i64 %.022.i.i.i.i.i684, 16383
+  %2864 = icmp samesign ugt i64 %.022.i.i.i.i.i684, 16383
   br i1 %2864, label %2859, label %2865, !llvm.loop !7
 
 2865:                                             ; preds = %2859
@@ -11343,7 +11343,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   store i8 %2891, ptr %.023.i.i.i.i.i.i686, align 1
   %2892 = lshr i32 %.022.i.i.i.i.i.i687, 7
   %2893 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i686, i64 1
-  %2894 = icmp ugt i32 %.022.i.i.i.i.i.i687, 16383
+  %2894 = icmp samesign ugt i32 %.022.i.i.i.i.i.i687, 16383
   br i1 %2894, label %2889, label %2895, !llvm.loop !5
 
 2895:                                             ; preds = %2889
@@ -11393,7 +11393,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688: ; 
   store i8 %2918, ptr %.023.i.i.i.i.i690, align 1
   %2919 = lshr i64 %.022.i.i.i.i.i691, 7
   %2920 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i690, i64 1
-  %2921 = icmp ugt i64 %.022.i.i.i.i.i691, 16383
+  %2921 = icmp samesign ugt i64 %.022.i.i.i.i.i691, 16383
   br i1 %2921, label %2916, label %2922, !llvm.loop !7
 
 2922:                                             ; preds = %2916
@@ -11464,7 +11464,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   store i8 %2955, ptr %.023.i.i.i.i.i.i.i694, align 1
   %2956 = lshr i32 %.022.i.i.i.i.i.i.i695, 7
   %2957 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i694, i64 1
-  %2958 = icmp ugt i32 %.022.i.i.i.i.i.i.i695, 16383
+  %2958 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i695, 16383
   br i1 %2958, label %2953, label %2959, !llvm.loop !5
 
 2959:                                             ; preds = %2953
@@ -11514,7 +11514,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696: 
   store i8 %2982, ptr %.023.i.i.i.i.i.i698, align 1
   %2983 = lshr i64 %.022.i.i.i.i.i.i699, 7
   %2984 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i698, i64 1
-  %2985 = icmp ugt i64 %.022.i.i.i.i.i.i699, 16383
+  %2985 = icmp samesign ugt i64 %.022.i.i.i.i.i.i699, 16383
   br i1 %2985, label %2980, label %2986, !llvm.loop !7
 
 2986:                                             ; preds = %2980
@@ -11751,7 +11751,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -11843,7 +11843,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -11902,7 +11902,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -12005,7 +12005,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -12097,7 +12097,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -12156,7 +12156,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -12259,7 +12259,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -12319,7 +12319,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i64 %.022.i.i.i.i.i, 7
   %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %62 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %62 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !7
 
 63:                                               ; preds = %57
@@ -12395,7 +12395,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -12454,7 +12454,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -12520,7 +12520,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i64 %.022.i.i.i.i.i, 7
   %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %91 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %91 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !7
 
 92:                                               ; preds = %86
@@ -12601,7 +12601,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -12661,7 +12661,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i64 %.022.i.i.i.i.i, 7
   %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %62 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %62 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !7
 
 63:                                               ; preds = %57
@@ -12737,7 +12737,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -12796,7 +12796,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -12862,7 +12862,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i64 %.022.i.i.i.i.i, 7
   %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %91 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %91 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !7
 
 92:                                               ; preds = %86
@@ -12943,7 +12943,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -13004,7 +13004,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
   store i8 %60, ptr %.023.i.i.i.i.i.i11, align 1
   %61 = lshr i64 %.022.i.i.i.i.i.i12, 7
   %62 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 1
-  %63 = icmp ugt i64 %.022.i.i.i.i.i.i12, 16383
+  %63 = icmp samesign ugt i64 %.022.i.i.i.i.i.i12, 16383
   br i1 %63, label %58, label %64, !llvm.loop !7
 
 64:                                               ; preds = %58
@@ -13080,7 +13080,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -13139,7 +13139,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -13206,7 +13206,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
   store i8 %89, ptr %.023.i.i.i.i.i.i21, align 1
   %90 = lshr i64 %.022.i.i.i.i.i.i22, 7
   %91 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 1
-  %92 = icmp ugt i64 %.022.i.i.i.i.i.i22, 16383
+  %92 = icmp samesign ugt i64 %.022.i.i.i.i.i.i22, 16383
   br i1 %92, label %87, label %93, !llvm.loop !7
 
 93:                                               ; preds = %87
@@ -13287,7 +13287,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -13379,7 +13379,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -13438,7 +13438,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -13541,7 +13541,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -13633,7 +13633,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -13692,7 +13692,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -13795,7 +13795,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -13888,7 +13888,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -13947,7 +13947,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -14081,7 +14081,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
   %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %30 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
@@ -14166,7 +14166,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8: ; p
   store i8 %70, ptr %.023.i.i.i.i.i.i10, align 1
   %71 = lshr i32 %.022.i.i.i.i.i.i11, 7
   %72 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i10, i64 1
-  %73 = icmp ugt i32 %.022.i.i.i.i.i.i11, 16383
+  %73 = icmp samesign ugt i32 %.022.i.i.i.i.i.i11, 16383
   br i1 %73, label %68, label %74, !llvm.loop !5
 
 74:                                               ; preds = %68
@@ -14232,7 +14232,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
   %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %30 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
@@ -14301,7 +14301,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12: ; 
   store i8 %62, ptr %.023.i.i.i.i.i.i14, align 1
   %63 = lshr i32 %.022.i.i.i.i.i.i15, 7
   %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i14, i64 1
-  %65 = icmp ugt i32 %.022.i.i.i.i.i.i15, 16383
+  %65 = icmp samesign ugt i32 %.022.i.i.i.i.i.i15, 16383
   br i1 %65, label %60, label %66, !llvm.loop !5
 
 66:                                               ; preds = %60
@@ -14372,7 +14372,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6: ; p
   store i8 %99, ptr %.023.i.i.i.i.i.i8, align 1
   %100 = lshr i32 %.022.i.i.i.i.i.i9, 7
   %101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i8, i64 1
-  %102 = icmp ugt i32 %.022.i.i.i.i.i.i9, 16383
+  %102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i9, 16383
   br i1 %102, label %97, label %103, !llvm.loop !5
 
 103:                                              ; preds = %97
@@ -14454,7 +14454,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -14514,7 +14514,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i32 %.022.i.i.i.i.i, 7
   %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %62 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %62 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !5
 
 63:                                               ; preds = %57
@@ -14590,7 +14590,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -14649,7 +14649,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -14715,7 +14715,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i32 %.022.i.i.i.i.i, 7
   %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %91 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %91 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !5
 
 92:                                               ; preds = %86
@@ -14796,7 +14796,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -14857,7 +14857,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
   store i8 %60, ptr %.023.i.i.i.i.i.i11, align 1
   %61 = lshr i64 %.022.i.i.i.i.i.i12, 7
   %62 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 1
-  %63 = icmp ugt i64 %.022.i.i.i.i.i.i12, 16383
+  %63 = icmp samesign ugt i64 %.022.i.i.i.i.i.i12, 16383
   br i1 %63, label %58, label %64, !llvm.loop !7
 
 64:                                               ; preds = %58
@@ -14933,7 +14933,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -14992,7 +14992,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -15059,7 +15059,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
   store i8 %89, ptr %.023.i.i.i.i.i.i21, align 1
   %90 = lshr i64 %.022.i.i.i.i.i.i22, 7
   %91 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 1
-  %92 = icmp ugt i64 %.022.i.i.i.i.i.i22, 16383
+  %92 = icmp samesign ugt i64 %.022.i.i.i.i.i.i22, 16383
   br i1 %92, label %87, label %93, !llvm.loop !7
 
 93:                                               ; preds = %87
@@ -15140,7 +15140,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -15232,7 +15232,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -15291,7 +15291,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -15394,7 +15394,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -15486,7 +15486,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -15545,7 +15545,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -15639,7 +15639,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
   %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %30 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
@@ -15700,7 +15700,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %57, ptr %.023.i.i.i.i.i, align 1
   %58 = lshr i32 %.022.i.i.i.i.i, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -15775,7 +15775,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -15838,7 +15838,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %62, ptr %.023.i.i.i.i.i, align 1
   %63 = lshr i32 %.022.i.i.i.i.i, 7
   %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %65 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %65 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %65, label %60, label %66, !llvm.loop !5
 
 66:                                               ; preds = %60
@@ -15914,7 +15914,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -15973,7 +15973,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -16042,7 +16042,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %91, ptr %.023.i.i.i.i.i, align 1
   %92 = lshr i32 %.022.i.i.i.i.i, 7
   %93 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %94 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %94 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %94, label %89, label %95, !llvm.loop !5
 
 95:                                               ; preds = %89
@@ -16114,7 +16114,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
   %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %30 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
@@ -16175,7 +16175,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %57, ptr %.023.i.i.i.i.i, align 1
   %58 = lshr i64 %.022.i.i.i.i.i, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %60 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %60 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %60, label %55, label %61, !llvm.loop !7
 
 61:                                               ; preds = %55
@@ -16250,7 +16250,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -16313,7 +16313,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %62, ptr %.023.i.i.i.i.i, align 1
   %63 = lshr i64 %.022.i.i.i.i.i, 7
   %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %65 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %65 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %65, label %60, label %66, !llvm.loop !7
 
 66:                                               ; preds = %60
@@ -16389,7 +16389,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
   %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %32 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
@@ -16448,7 +16448,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i.i16, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
@@ -16517,7 +16517,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   store i8 %91, ptr %.023.i.i.i.i.i, align 1
   %92 = lshr i64 %.022.i.i.i.i.i, 7
   %93 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %94 = icmp ugt i64 %.022.i.i.i.i.i, 16383
+  %94 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %94, label %89, label %95, !llvm.loop !7
 
 95:                                               ; preds = %89
@@ -16582,7 +16582,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -16631,7 +16631,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -16708,7 +16708,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -16757,7 +16757,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -16839,7 +16839,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -16889,7 +16889,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i64 %.022.i.i.i.i, 7
   %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %55 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %55 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !7
 
 56:                                               ; preds = %50
@@ -16954,7 +16954,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -17003,7 +17003,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -17059,7 +17059,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i64 %.022.i.i.i.i, 7
   %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %81 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %81 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !7
 
 82:                                               ; preds = %76
@@ -17129,7 +17129,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -17179,7 +17179,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i64 %.022.i.i.i.i, 7
   %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %55 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %55 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !7
 
 56:                                               ; preds = %50
@@ -17244,7 +17244,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -17293,7 +17293,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -17349,7 +17349,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i64 %.022.i.i.i.i, 7
   %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %81 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %81 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !7
 
 82:                                               ; preds = %76
@@ -17419,7 +17419,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -17470,7 +17470,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %53, ptr %.023.i.i.i.i.i8, align 1
   %54 = lshr i64 %.022.i.i.i.i.i9, 7
   %55 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
-  %56 = icmp ugt i64 %.022.i.i.i.i.i9, 16383
+  %56 = icmp samesign ugt i64 %.022.i.i.i.i.i9, 16383
   br i1 %56, label %51, label %57, !llvm.loop !7
 
 57:                                               ; preds = %51
@@ -17535,7 +17535,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -17584,7 +17584,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -17641,7 +17641,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %79, ptr %.023.i.i.i.i.i15, align 1
   %80 = lshr i64 %.022.i.i.i.i.i16, 7
   %81 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 1
-  %82 = icmp ugt i64 %.022.i.i.i.i.i16, 16383
+  %82 = icmp samesign ugt i64 %.022.i.i.i.i.i16, 16383
   br i1 %82, label %77, label %83, !llvm.loop !7
 
 83:                                               ; preds = %77
@@ -17706,7 +17706,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -17755,7 +17755,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -17832,7 +17832,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -17881,7 +17881,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -17958,7 +17958,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -18007,7 +18007,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -18120,7 +18120,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
   store i8 %23, ptr %.023.i.i.i.i.i, align 1
   %24 = lshr i32 %.022.i.i.i.i.i, 7
   %25 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %26 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %26 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %26, label %21, label %27, !llvm.loop !5
 
 27:                                               ; preds = %21
@@ -18195,7 +18195,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   store i8 %63, ptr %.023.i.i.i.i.i7, align 1
   %64 = lshr i32 %.022.i.i.i.i.i8, 7
   %65 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i7, i64 1
-  %66 = icmp ugt i32 %.022.i.i.i.i.i8, 16383
+  %66 = icmp samesign ugt i32 %.022.i.i.i.i.i8, 16383
   br i1 %66, label %61, label %67, !llvm.loop !5
 
 67:                                               ; preds = %61
@@ -18250,7 +18250,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
   store i8 %23, ptr %.023.i.i.i.i.i, align 1
   %24 = lshr i32 %.022.i.i.i.i.i, 7
   %25 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %26 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %26 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %26, label %21, label %27, !llvm.loop !5
 
 27:                                               ; preds = %21
@@ -18309,7 +18309,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %55, ptr %.023.i.i.i.i.i8, align 1
   %56 = lshr i32 %.022.i.i.i.i.i9, 7
   %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
-  %58 = icmp ugt i32 %.022.i.i.i.i.i9, 16383
+  %58 = icmp samesign ugt i32 %.022.i.i.i.i.i9, 16383
   br i1 %58, label %53, label %59, !llvm.loop !5
 
 59:                                               ; preds = %53
@@ -18366,7 +18366,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11: ; 
   store i8 %85, ptr %.023.i.i.i.i.i5, align 1
   %86 = lshr i32 %.022.i.i.i.i.i6, 7
   %87 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i5, i64 1
-  %88 = icmp ugt i32 %.022.i.i.i.i.i6, 16383
+  %88 = icmp samesign ugt i32 %.022.i.i.i.i.i6, 16383
   br i1 %88, label %83, label %89, !llvm.loop !5
 
 89:                                               ; preds = %83
@@ -18441,7 +18441,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -18491,7 +18491,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i32 %.022.i.i.i.i, 7
   %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %55 = icmp ugt i32 %.022.i.i.i.i, 16383
+  %55 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !5
 
 56:                                               ; preds = %50
@@ -18556,7 +18556,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -18605,7 +18605,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -18661,7 +18661,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i32 %.022.i.i.i.i, 7
   %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %81 = icmp ugt i32 %.022.i.i.i.i, 16383
+  %81 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !5
 
 82:                                               ; preds = %76
@@ -18731,7 +18731,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -18782,7 +18782,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %53, ptr %.023.i.i.i.i.i8, align 1
   %54 = lshr i64 %.022.i.i.i.i.i9, 7
   %55 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
-  %56 = icmp ugt i64 %.022.i.i.i.i.i9, 16383
+  %56 = icmp samesign ugt i64 %.022.i.i.i.i.i9, 16383
   br i1 %56, label %51, label %57, !llvm.loop !7
 
 57:                                               ; preds = %51
@@ -18847,7 +18847,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -18896,7 +18896,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -18953,7 +18953,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %79, ptr %.023.i.i.i.i.i15, align 1
   %80 = lshr i64 %.022.i.i.i.i.i16, 7
   %81 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 1
-  %82 = icmp ugt i64 %.022.i.i.i.i.i16, 16383
+  %82 = icmp samesign ugt i64 %.022.i.i.i.i.i16, 16383
   br i1 %82, label %77, label %83, !llvm.loop !7
 
 83:                                               ; preds = %77
@@ -19018,7 +19018,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -19067,7 +19067,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -19144,7 +19144,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -19193,7 +19193,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -19275,7 +19275,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -19328,7 +19328,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %55, ptr %.023.i.i.i.i, align 1
   %56 = lshr i32 %.022.i.i.i.i, 7
   %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %58 = icmp ugt i32 %.022.i.i.i.i, 16383
+  %58 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %58, label %53, label %59, !llvm.loop !5
 
 59:                                               ; preds = %53
@@ -19393,7 +19393,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -19442,7 +19442,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -19501,7 +19501,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %81, ptr %.023.i.i.i.i, align 1
   %82 = lshr i32 %.022.i.i.i.i, 7
   %83 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %84 = icmp ugt i32 %.022.i.i.i.i, 16383
+  %84 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %84, label %79, label %85, !llvm.loop !5
 
 85:                                               ; preds = %79
@@ -19571,7 +19571,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -19624,7 +19624,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %55, ptr %.023.i.i.i.i, align 1
   %56 = lshr i64 %.022.i.i.i.i, 7
   %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %58 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %58 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %58, label %53, label %59, !llvm.loop !7
 
 59:                                               ; preds = %53
@@ -19689,7 +19689,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
   %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %28 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
@@ -19738,7 +19738,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
   %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
-  %53 = icmp ugt i32 %.022.i.i.i.i.i13, 16383
+  %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
@@ -19797,7 +19797,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %81, ptr %.023.i.i.i.i, align 1
   %82 = lshr i64 %.022.i.i.i.i, 7
   %83 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
-  %84 = icmp ugt i64 %.022.i.i.i.i, 16383
+  %84 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %84, label %79, label %85, !llvm.loop !7
 
 85:                                               ; preds = %79
@@ -20316,7 +20316,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %8
   store i8 %26, ptr %.023.i.i, align 1
   %27 = lshr i32 %.022.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -20427,7 +20427,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
   %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
-  %33 = icmp ugt i32 %.022.i.i.i.i.i.i, 16383
+  %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
@@ -20500,7 +20500,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18: ; 
   store i8 %69, ptr %.023.i.i.i.i.i.i20, align 1
   %70 = lshr i32 %.022.i.i.i.i.i.i21, 7
   %71 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i20, i64 1
-  %72 = icmp ugt i32 %.022.i.i.i.i.i.i21, 16383
+  %72 = icmp samesign ugt i32 %.022.i.i.i.i.i.i21, 16383
   br i1 %72, label %67, label %73, !llvm.loop !5
 
 73:                                               ; preds = %67
@@ -20570,7 +20570,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS1_1
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
   %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
-  %29 = icmp ugt i32 %.022.i.i.i.i.i, 16383
+  %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
@@ -20628,7 +20628,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store i8 %57, ptr %.023.i.i.i.i.i17, align 1
   %58 = lshr i32 %.022.i.i.i.i.i18, 7
   %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i17, i64 1
-  %60 = icmp ugt i32 %.022.i.i.i.i.i18, 16383
+  %60 = icmp samesign ugt i32 %.022.i.i.i.i.i18, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55

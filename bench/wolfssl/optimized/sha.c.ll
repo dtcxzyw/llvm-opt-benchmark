@@ -116,7 +116,7 @@ for.body9.i:                                      ; preds = %if.then21, %for.bod
   %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp8.i = icmp ult i64 %indvars.iv.i, 60
+  %cmp8.i = icmp samesign ult i64 %indvars.iv.i, 60
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
@@ -173,7 +173,7 @@ for.body9.i44:                                    ; preds = %while.body, %for.bo
   %or.i16.i48 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i47)
   store i32 %or.i16.i48, ptr %add.ptr.i46, align 1
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 4
-  %cmp8.i51 = icmp ult i64 %indvars.iv.i45, 60
+  %cmp8.i51 = icmp samesign ult i64 %indvars.iv.i45, 60
   br i1 %cmp8.i51, label %for.body9.i44, label %ByteReverseWords.exit60.loopexit61, !llvm.loop !6
 
 ByteReverseWords.exit60.loopexit61:               ; preds = %for.body9.i44
@@ -1250,7 +1250,7 @@ for.body9.i:                                      ; preds = %if.end, %for.body9.
   %add.ptr12.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv.i
   store i32 %or.i16.i, ptr %add.ptr12.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp8.i = icmp ult i64 %indvars.iv.i, 16
+  %cmp8.i = icmp samesign ult i64 %indvars.iv.i, 16
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
@@ -1319,7 +1319,7 @@ for.body9.i:                                      ; preds = %if.then8, %for.body
   %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp8.i = icmp ult i64 %indvars.iv.i, 60
+  %cmp8.i = icmp samesign ult i64 %indvars.iv.i, 60
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
@@ -1355,7 +1355,7 @@ for.body9.i41:                                    ; preds = %if.end25, %for.body
   %or.i16.i45 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i44)
   store i32 %or.i16.i45, ptr %add.ptr.i43, align 1
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i42, 4
-  %cmp8.i48 = icmp ult i64 %indvars.iv.i42, 60
+  %cmp8.i48 = icmp samesign ult i64 %indvars.iv.i42, 60
   br i1 %cmp8.i48, label %for.body9.i41, label %ByteReverseWords.exit57, !llvm.loop !6
 
 ByteReverseWords.exit57:                          ; preds = %for.body9.i41, %for.body.i50
@@ -1395,7 +1395,7 @@ for.body9.i60:                                    ; preds = %ByteReverseWords.ex
   %or.i16.i64 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i63)
   store i32 %or.i16.i64, ptr %add.ptr.i62, align 1
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i61, 4
-  %cmp8.i67 = icmp ult i64 %indvars.iv.i61, 16
+  %cmp8.i67 = icmp samesign ult i64 %indvars.iv.i61, 16
   br i1 %cmp8.i67, label %for.body9.i60, label %ByteReverseWords.exit76, !llvm.loop !6
 
 ByteReverseWords.exit76:                          ; preds = %for.body9.i60, %for.body.i69

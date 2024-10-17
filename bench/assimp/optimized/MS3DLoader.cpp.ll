@@ -903,7 +903,7 @@ for.inc66:                                        ; preds = %for.body56, %_ZNK8a
   %140 = phi i32 [ %133, %for.body56 ], [ %133, %_ZNK8aiStringeqERKS_.exit ], [ %.pre, %if.then62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = zext i32 %140 to i64
-  %cmp55 = icmp ult i64 %indvars.iv.next, %141
+  %cmp55 = icmp samesign ult i64 %indvars.iv.next, %141
   br i1 %cmp55, label %for.body56, label %for.inc69.loopexit, !llvm.loop !6
 
 for.inc69.loopexit:                               ; preds = %for.inc66
@@ -916,7 +916,7 @@ for.inc69:                                        ; preds = %for.inc69.loopexit,
   %mNumMeshes = getelementptr inbounds i8, ptr %142, i64 16
   %143 = load i32, ptr %mNumMeshes, align 8
   %144 = zext i32 %143 to i64
-  %cmp49 = icmp ult i64 %indvars.iv.next195, %144
+  %cmp49 = icmp samesign ult i64 %indvars.iv.next195, %144
   br i1 %cmp49, label %for.body50, label %for.end71, !llvm.loop !7
 
 for.end71:                                        ; preds = %for.inc69, %invoke.cont35
@@ -2978,7 +2978,7 @@ for.end296:                                       ; preds = %for.inc294, %invoke
   %sub.ptr.rhs.cast.i842 = ptrtoint ptr %184 to i64
   %sub.ptr.sub.i843 = sub i64 %sub.ptr.lhs.cast.i841, %sub.ptr.rhs.cast.i842
   %conv2.i = and i64 %sub.ptr.sub.i843, 4294967295
-  %cmp299 = icmp ugt i64 %conv2.i, 4
+  %cmp299 = icmp samesign ugt i64 %conv2.i, 4
   br i1 %cmp299, label %if.then300, label %if.end389
 
 if.then300:                                       ; preds = %for.end296
@@ -3117,7 +3117,7 @@ if.end336:                                        ; preds = %invoke.cont334, %in
   %sub.ptr.rhs.cast.i889 = ptrtoint ptr %198 to i64
   %sub.ptr.sub.i890 = sub i64 %sub.ptr.lhs.cast.i888, %sub.ptr.rhs.cast.i889
   %conv2.i891 = and i64 %sub.ptr.sub.i890, 4294967295
-  %cmp339 = icmp ugt i64 %conv2.i891, 4
+  %cmp339 = icmp samesign ugt i64 %conv2.i891, 4
   br i1 %cmp339, label %land.rhs, label %if.end389
 
 land.rhs:                                         ; preds = %if.end336
@@ -4479,7 +4479,7 @@ for.inc861:                                       ; preds = %for.inc857
   %indvars.iv.next1896 = add nuw nsw i64 %indvars.iv1895, 1
   %345 = load i32, ptr %mNumFaces.i, align 8
   %346 = zext i32 %345 to i64
-  %cmp814 = icmp ult i64 %indvars.iv.next1896, %346
+  %cmp814 = icmp samesign ult i64 %indvars.iv.next1896, %346
   br i1 %cmp814, label %for.body815, label %for.end863, !llvm.loop !35
 
 for.end863:                                       ; preds = %for.inc861, %for.cond812.preheader
@@ -4506,7 +4506,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit: ; preds = %if.end865
   %indvars.iv.next1899 = add nuw nsw i64 %indvars.iv1898, 1
   %350 = load i32, ptr %mNumMeshes, align 8
   %351 = zext i32 %350 to i64
-  %cmp554 = icmp ult i64 %indvars.iv.next1899, %351
+  %cmp554 = icmp samesign ult i64 %indvars.iv.next1899, %351
   br i1 %cmp554, label %for.body555, label %for.end869, !llvm.loop !36
 
 ehcleanup866:                                     ; preds = %lpad761.loopexit, %lpad761.loopexit.split-lp, %lpad643.loopexit, %lpad643.loopexit.split-lp.loopexit.split-lp, %lpad643.loopexit.split-lp.loopexit, %if.then.i.i.i1202, %lpad765, %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_Auto_nodeD2Ev.exit.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_Auto_nodeD2Ev.exit.i.i1149, %lpad691.body, %lpad664, %lpad640
@@ -5903,7 +5903,7 @@ if.else:                                          ; preds = %_ZN6Assimp12StreamR
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %add.ptr.i.i17 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
   %conv2.i = and i64 %sub.ptr.sub.i27, 4294967295
-  %cmp10 = icmp ult i64 %conv2.i, %conv8
+  %cmp10 = icmp samesign ult i64 %conv2.i, %conv8
   br i1 %cmp10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %if.else
@@ -6088,7 +6088,7 @@ if.else:                                          ; preds = %_ZN6Assimp12StreamR
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %add.ptr.i.i17 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
   %conv2.i = and i64 %sub.ptr.sub.i27, 4294967295
-  %cmp10 = icmp ult i64 %conv2.i, %conv8
+  %cmp10 = icmp samesign ult i64 %conv2.i, %conv8
   br i1 %cmp10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %if.else
@@ -6273,7 +6273,7 @@ if.else:                                          ; preds = %_ZN6Assimp12StreamR
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %add.ptr.i.i17 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
   %conv2.i = and i64 %sub.ptr.sub.i27, 4294967295
-  %cmp10 = icmp ult i64 %conv2.i, %conv8
+  %cmp10 = icmp samesign ult i64 %conv2.i, %conv8
   br i1 %cmp10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %if.else

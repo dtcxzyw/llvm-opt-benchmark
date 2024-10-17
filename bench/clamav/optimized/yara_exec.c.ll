@@ -1201,7 +1201,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 606:                                              ; preds = %.lr.ph661
   %607 = icmp sge i64 %573, %602
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
-  %608 = icmp ult i64 %indvars.iv.next689, %599
+  %608 = icmp samesign ult i64 %indvars.iv.next689, %599
   %or.cond669 = select i1 %607, i1 %608, i1 false
   br i1 %or.cond669, label %.lr.ph661, label %.loopexit
 
@@ -1290,7 +1290,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 654:                                              ; preds = %.lr.ph657
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
-  %655 = icmp uge i64 %indvars.iv.next686, %648
+  %655 = icmp samesign uge i64 %indvars.iv.next686, %648
   %or.cond670.not = select i1 %.not571, i1 true, i1 %655
   br i1 %or.cond670.not, label %.loopexit633, label %.lr.ph657
 
@@ -1453,7 +1453,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %737, label %743, label %.loopexit634
 
 743:                                              ; preds = %742
-  %.not562 = icmp uge i32 %.3.lcssa, %.0510.lcssa
+  %.not562 = icmp samesign uge i32 %.3.lcssa, %.0510.lcssa
   %744 = zext i1 %.not562 to i64
   store i64 %744, ptr %735, align 8
   br label %899

@@ -453,7 +453,7 @@ JsonbIteratorInit.exit:                           ; preds = %106, %116
 
 138:                                              ; preds = %.lr.ph71, %147
   %139 = phi i32 [ %136, %.lr.ph71 ], [ %150, %147 ]
-  %140 = icmp ult i32 %139, 4
+  %140 = icmp samesign ult i32 %139, 4
   br i1 %140, label %147, label %141
 
 141:                                              ; preds = %138
@@ -734,7 +734,7 @@ JsonbIteratorInit.exit26:                         ; preds = %44, %54
   br i1 %100, label %compareJsonbScalarValue.exit, label %101
 
 101:                                              ; preds = %95
-  %102 = icmp ugt i8 %97, %99
+  %102 = icmp samesign ugt i8 %97, %99
   %..i = select i1 %102, i32 1, i32 -1
   br label %compareJsonbScalarValue.exit.thread
 
@@ -2974,7 +2974,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %54 = load i32, ptr %7, align 4
   %55 = and i32 %54, 268435455
   %56 = add nuw nsw i32 %55, %.029.i39
-  %57 = icmp ugt i32 %56, 268435455
+  %57 = icmp samesign ugt i32 %56, 268435455
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %51
@@ -3112,7 +3112,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %123 = load i32, ptr %5, align 4
   %124 = and i32 %123, 268435455
   %125 = add nuw nsw i32 %124, %.045.i31
-  %126 = icmp ugt i32 %125, 268435455
+  %126 = icmp samesign ugt i32 %125, 268435455
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %120
@@ -3156,7 +3156,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %146 = load i32, ptr %6, align 4
   %147 = and i32 %146, 268435455
   %148 = add nuw nsw i32 %147, %.146.i35
-  %149 = icmp ugt i32 %148, 268435455
+  %149 = icmp samesign ugt i32 %148, 268435455
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %143

@@ -879,7 +879,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i117: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit126
 
 123:                                              ; preds = %116
-  %124 = icmp ult i64 %120, 126
+  %124 = icmp samesign ult i64 %120, 126
   br i1 %124, label %125, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit26.i.i121
 
 125:                                              ; preds = %123
@@ -1559,7 +1559,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i285: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit294
 
 277:                                              ; preds = %270
-  %278 = icmp ult i64 %274, 4
+  %278 = icmp samesign ult i64 %274, 4
   br i1 %278, label %279, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit26.i.i289
 
 279:                                              ; preds = %277
@@ -1622,7 +1622,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i273: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit282
 
 301:                                              ; preds = %294
-  %302 = icmp ult i64 %298, 4
+  %302 = icmp samesign ult i64 %298, 4
   br i1 %302, label %303, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit26.i.i277
 
 303:                                              ; preds = %301
@@ -1690,7 +1690,7 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i261: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit270
 
 327:                                              ; preds = %320
-  %328 = icmp ult i64 %324, 18
+  %328 = icmp samesign ult i64 %324, 18
   br i1 %328, label %329, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit26.i.i265
 
 329:                                              ; preds = %327

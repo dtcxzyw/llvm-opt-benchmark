@@ -169,7 +169,7 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
 
 ._crit_edge.us:                                   ; preds = %13
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %19 = icmp uge i64 %indvars.iv.next71, %9
+  %19 = icmp samesign uge i64 %indvars.iv.next71, %9
   %or.cond67.not = select i1 %.144.us, i1 true, i1 %19
   br i1 %or.cond67.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !9
 
@@ -943,7 +943,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS
   %30 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.041 = load i32, ptr %30, align 4
-  %31 = icmp ult i64 %indvars.iv.next, %29
+  %31 = icmp samesign ult i64 %indvars.iv.next, %29
   %32 = icmp ne i32 %.041, %1
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
@@ -1291,7 +1291,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
 
 ._crit_edge.us.i:                                 ; preds = %43
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %49 = icmp uge i64 %indvars.iv.next71.i, %39
+  %49 = icmp samesign uge i64 %indvars.iv.next71.i, %39
   %or.cond67.not.i = select i1 %.144.us.i, i1 true, i1 %49
   br i1 %or.cond67.not.i, label %._crit_edge58.i, label %.preheader.us.i, !llvm.loop !9
 

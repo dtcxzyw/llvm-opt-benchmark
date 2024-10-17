@@ -1540,15 +1540,15 @@ switch.lookup37:                                  ; preds = %64
   %83 = load i32, ptr %82, align 4, !range !87, !noundef !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !306
   store i32 0, ptr %9, align 4, !noalias !306
-  %84 = icmp ult i32 %83, 128
+  %84 = icmp samesign ult i32 %83, 128
   br i1 %84, label %90, label %85
 
 85:                                               ; preds = %81
-  %86 = icmp ult i32 %83, 2048
+  %86 = icmp samesign ult i32 %83, 2048
   br i1 %86, label %92, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ult i32 %83, 65536
+  %88 = icmp samesign ult i32 %83, 65536
   %89 = getelementptr inbounds i8, ptr %9, i64 1
   br i1 %88, label %100, label %112
 
@@ -20928,15 +20928,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h02f67cf5eca52bc8
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21024,15 +21024,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h592aa1b5fa4eb67a
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21122,15 +21122,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %10, label %22, label %34
 
@@ -21213,15 +21213,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h7d16a763d5756465
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -21311,15 +21311,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hc3a09bb2c5c02566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 

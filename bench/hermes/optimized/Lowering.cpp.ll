@@ -1406,7 +1406,7 @@ for.inc:                                          ; preds = %if.end9.sink.split.
   %inc = add nuw nsw i64 %i.0102, 1
   %call15 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0105) #13
   %conv = zext i32 %call15 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body16, label %for.inc22, !llvm.loop !21
 
 for.inc22:                                        ; preds = %for.inc, %for.cond14.preheader
@@ -2353,7 +2353,7 @@ if.end12.i.i:                                     ; preds = %do.body.i.i
   %conv15.i.i = zext nneg i8 %4 to i64
   %add.i.i = add nuw nsw i64 %mul.i.i, %conv15.i.i
   %add.fr.i.i = freeze i64 %add.i.i
-  %tobool.not.i.i = icmp ult i64 %add.fr.i.i, 4294967296
+  %tobool.not.i.i = icmp samesign ult i64 %add.fr.i.i, 4294967296
   br i1 %tobool.not.i.i, label %if.end17.i.i, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit
 
 if.end17.i.i:                                     ; preds = %if.end12.i.i
@@ -2474,7 +2474,7 @@ if.end12.i.i.i:                                   ; preds = %do.body.i.i.i
   %conv15.i.i.i = zext nneg i8 %9 to i64
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, %conv15.i.i.i
   %add.fr.i.i.i = freeze i64 %add.i.i.i
-  %tobool.not.i.i.i = icmp ult i64 %add.fr.i.i.i, 4294967296
+  %tobool.not.i.i.i = icmp samesign ult i64 %add.fr.i.i.i, 4294967296
   br i1 %tobool.not.i.i.i, label %if.end17.i.i.i, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i
 
 if.end17.i.i.i:                                   ; preds = %if.end12.i.i.i
@@ -2554,7 +2554,7 @@ if.end12.i.i.i38:                                 ; preds = %do.body.i.i.i34
   %conv15.i.i.i40 = zext nneg i8 %20 to i64
   %add.i.i.i41 = add nuw nsw i64 %mul.i.i.i39, %conv15.i.i.i40
   %add.fr.i.i.i42 = freeze i64 %add.i.i.i41
-  %tobool.not.i.i.i43 = icmp ult i64 %add.fr.i.i.i42, 4294967296
+  %tobool.not.i.i.i43 = icmp samesign ult i64 %add.fr.i.i.i42, 4294967296
   br i1 %tobool.not.i.i.i43, label %if.end17.i.i.i52, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i44
 
 if.end17.i.i.i52:                                 ; preds = %if.end12.i.i.i38
@@ -2634,7 +2634,7 @@ if.end12.i.i.i79:                                 ; preds = %do.body.i.i.i75
   %conv15.i.i.i81 = zext nneg i8 %31 to i64
   %add.i.i.i82 = add nuw nsw i64 %mul.i.i.i80, %conv15.i.i.i81
   %add.fr.i.i.i83 = freeze i64 %add.i.i.i82
-  %tobool.not.i.i.i84 = icmp ult i64 %add.fr.i.i.i83, 4294967296
+  %tobool.not.i.i.i84 = icmp samesign ult i64 %add.fr.i.i.i83, 4294967296
   br i1 %tobool.not.i.i.i84, label %if.end17.i.i.i93, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i85
 
 if.end17.i.i.i93:                                 ; preds = %if.end12.i.i.i79
@@ -2715,7 +2715,7 @@ if.end12.i.i.i120:                                ; preds = %do.body.i.i.i116
   %conv15.i.i.i122 = zext nneg i8 %40 to i64
   %add.i.i.i123 = add nuw nsw i64 %mul.i.i.i121, %conv15.i.i.i122
   %add.fr.i.i.i124 = freeze i64 %add.i.i.i123
-  %tobool.not.i.i.i125 = icmp ult i64 %add.fr.i.i.i124, 4294967296
+  %tobool.not.i.i.i125 = icmp samesign ult i64 %add.fr.i.i.i124, 4294967296
   br i1 %tobool.not.i.i.i125, label %if.end17.i.i.i134, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i126
 
 if.end17.i.i.i134:                                ; preds = %if.end12.i.i.i120
@@ -2790,7 +2790,7 @@ if.end12.i.i.i162:                                ; preds = %do.body.i.i.i158
   %conv15.i.i.i164 = zext nneg i8 %49 to i64
   %add.i.i.i165 = add nuw nsw i64 %mul.i.i.i163, %conv15.i.i.i164
   %add.fr.i.i.i166 = freeze i64 %add.i.i.i165
-  %tobool.not.i.i.i167 = icmp ult i64 %add.fr.i.i.i166, 4294967296
+  %tobool.not.i.i.i167 = icmp samesign ult i64 %add.fr.i.i.i166, 4294967296
   br i1 %tobool.not.i.i.i167, label %if.end17.i.i.i176, label %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i168
 
 if.end17.i.i.i176:                                ; preds = %if.end12.i.i.i162

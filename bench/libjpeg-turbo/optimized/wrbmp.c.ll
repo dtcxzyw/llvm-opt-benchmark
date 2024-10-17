@@ -1137,7 +1137,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
   %.2 = phi i32 [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
-  %89 = icmp ugt i32 %.2, %1
+  %89 = icmp samesign ugt i32 %.2, %1
   br i1 %89, label %90, label %97
 
 90:                                               ; preds = %.loopexit
@@ -1153,7 +1153,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br label %97
 
 97:                                               ; preds = %90, %.loopexit
-  %98 = icmp ult i32 %.2, %1
+  %98 = icmp samesign ult i32 %.2, %1
   br i1 %98, label %.lr.ph13, label %._crit_edge
 
 .lr.ph13:                                         ; preds = %.preheader1, %.preheader3, %97

@@ -1777,7 +1777,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i.i.i128: ; preds = %_ZN5faiss4CMinIf
   %409 = load i64, ptr %402, align 8
   %410 = getelementptr inbounds i64, ptr %391, i64 %.025.i.i.i.i
   store i64 %409, ptr %410, align 8
-  %411 = icmp ugt i64 %.025.i.i.i.i, 3
+  %411 = icmp samesign ugt i64 %.025.i.i.i.i, 3
   br i1 %411, label %.lr.ph.i.i.i.i97, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, !llvm.loop !31
 
 _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i.i.i128, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i.i.i98, %392
@@ -4756,7 +4756,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMinIflE4
   %30 = load i64, ptr %23, align 8
   %31 = getelementptr inbounds i64, ptr %12, i64 %.025.i
   store i64 %30, ptr %31, align 8
-  %32 = icmp ugt i64 %.025.i, 3
+  %32 = icmp samesign ugt i64 %.025.i, 3
   br i1 %32, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !31
 
 _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, %13
@@ -7327,7 +7327,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i.i.i145: ; preds = %_ZN5faiss4CMax
   %503 = load i64, ptr %496, align 8
   %504 = getelementptr inbounds i64, ptr %485, i64 %.025.i.i.i.i.i
   store i64 %503, ptr %504, align 8
-  %505 = icmp ugt i64 %.025.i.i.i.i.i, 3
+  %505 = icmp samesign ugt i64 %.025.i.i.i.i.i, 3
   br i1 %505, label %.lr.ph.i.i.i.i.i114, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i.i, !llvm.loop !78
 
 _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i.i: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i.i.i145, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i.i.i.i115, %486
@@ -10308,7 +10308,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4
   %30 = load i64, ptr %23, align 8
   %31 = getelementptr inbounds i64, ptr %12, i64 %.025.i
   store i64 %30, ptr %31, align 8
-  %32 = icmp ugt i64 %.025.i, 3
+  %32 = icmp samesign ugt i64 %.025.i, 3
   br i1 %32, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !78
 
 _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, %13

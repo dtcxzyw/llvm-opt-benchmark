@@ -1016,7 +1016,7 @@ define hidden void @ByteIndexedBmToUshortGrayXparBgCopy(ptr noundef %0, ptr noun
   %.045.ptr = getelementptr inbounds i8, ptr %10, i64 %.045.idx
   store i32 %4, ptr %.045.ptr, align 4
   %.045.add = add nuw nsw i64 %.045.idx, 4
-  %19 = icmp ult i64 %.045.idx, 1020
+  %19 = icmp samesign ult i64 %.045.idx, 1020
   br i1 %19, label %18, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %18, %9
@@ -1262,7 +1262,7 @@ define hidden void @UshortGraySrcMaskFill(ptr noundef %0, ptr noundef %1, i32 no
   %56 = mul nuw i32 %48, %.072
   %57 = add i32 %55, %56
   %58 = udiv i32 %57, 65535
-  %59 = icmp ult i32 %52, 65535
+  %59 = icmp samesign ult i32 %52, 65535
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %46

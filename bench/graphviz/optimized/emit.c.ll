@@ -8912,7 +8912,7 @@ gv_strdup.exit.i:                                 ; preds = %._crit_edge425.i
   %.1315.i = phi ptr [ %.0314436.i, %.lr.ph441.i ], [ %spec.store.select2.i, %1319 ], [ %spec.store.select2.i, %1314 ]
   %1321 = icmp eq i32 %.0440.i, 0
   %spec.select359.i = select i1 %1321, ptr %spec.store.select2.i, ptr %.0309438.i
-  %1322 = icmp ult i32 %.0440.i, 2
+  %1322 = icmp samesign ult i32 %.0440.i, 2
   %.2313.i = select i1 %1322, ptr %spec.store.select2.i, ptr %.0311437.i
   br i1 %.not402.i, label %._crit_edge434.i, label %.lr.ph433.i
 

@@ -229,7 +229,7 @@ define noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %4, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next.i, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %28, label %7, label %_calc_cpu_affinity.exit, !llvm.loop !6
 
 _calc_cpu_affinity.exit:                          ; preds = %25, %1, %.preheader.i

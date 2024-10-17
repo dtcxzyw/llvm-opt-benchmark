@@ -747,7 +747,7 @@ define internal range(i32 -22, 2088978) i32 @query_geometry_subslices(ptr nounde
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = or disjoint i32 %6, %9
-  %11 = icmp ult i32 %10, 3122
+  %11 = icmp samesign ult i32 %10, 3122
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %2

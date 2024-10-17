@@ -4075,9 +4075,9 @@ define void @_ZN6syntax4algo8TreeDiff14into_text_edit17h6f01ef5bf1b5df28E(ptr no
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %2
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 3
+  %18 = icmp samesign ult i64 %14, 3
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -4508,9 +4508,9 @@ define void @_ZN6syntax4algo4diff17h17b7ddfd72a2a8c6E(ptr noalias nocapture noun
   br i1 %11, label %.thread87, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 3
+  %14 = icmp samesign ult i64 %10, 3
   br i1 %14, label %15, label %.thread87
 
 15:                                               ; preds = %12

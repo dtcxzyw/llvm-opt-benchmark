@@ -1258,7 +1258,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
 
 .lr.ph.i21.i:                                     ; preds = %280, %286
   %indvars.iv.i22.i = phi i64 [ %indvars.iv.next.i23.i, %286 ], [ 5, %280 ]
-  %283 = icmp ugt i64 %indvars.iv.i22.i, 5
+  %283 = icmp samesign ugt i64 %indvars.iv.i22.i, 5
   br i1 %283, label %284, label %286
 
 284:                                              ; preds = %.lr.ph.i21.i

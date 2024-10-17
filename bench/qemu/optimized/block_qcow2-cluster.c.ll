@@ -527,7 +527,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx27 = getelementptr i64, ptr %call, i64 %indvars.iv
   store i64 %11, ptr %arrayidx27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp23 = icmp ult i64 %indvars.iv.next, %8
+  %cmp23 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.end
@@ -1578,7 +1578,7 @@ trace_qcow2_l2_allocate_write_l2.exit.i:          ; preds = %if.else.i.i97.i, %i
   %49 = load ptr, ptr %l2_table_cache.i, align 8
   call void @qcow2_cache_put(ptr noundef %49, ptr noundef nonnull %l2_slice.i) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp21.i = icmp ult i64 %indvars.iv.next.i, %29
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %trace_qcow2_l2_allocate_write_l2.exit.i, %trace_qcow2_l2_allocate_get_empty.exit.i
@@ -3061,7 +3061,7 @@ if.end35:                                         ; preds = %if.end29
   %conv36 = trunc nuw nsw i64 %cond15 to i32
   %call37 = tail call fastcc i32 @count_single_write_clusters(ptr noundef nonnull %bs, i32 noundef %conv36, ptr noundef nonnull %16, i32 noundef %17, i1 noundef zeroext false)
   %conv38 = zext i32 %call37 to i64
-  %cmp39.not = icmp ult i64 %cond15, %conv38
+  %cmp39.not = icmp samesign ult i64 %cond15, %conv38
   br i1 %cmp39.not, label %if.else42, label %if.end43
 
 if.else42:                                        ; preds = %if.end35
@@ -4437,7 +4437,7 @@ if.end149.us:                                     ; preds = %for.end.us.thread, 
 
 for.inc169.us:                                    ; preds = %for.end.us.thread, %if.end149.us, %if.end159.us, %if.else151.us
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
-  %cmp31.us = icmp ult i64 %indvars.iv.next333, %7
+  %cmp31.us = icmp samesign ult i64 %indvars.iv.next333, %7
   br i1 %cmp31.us, label %for.body33.us, label %for.cond30.for.end171_crit_edge.us, !llvm.loop !23
 
 for.body52.us:                                    ; preds = %for.cond48.preheader.us, %for.inc.us

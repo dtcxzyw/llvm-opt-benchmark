@@ -1659,7 +1659,7 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit16
   %506 = sub i64 %504, %505
   %507 = sdiv exact i64 %506, 12
   %508 = and i64 %507, 4294967295
-  %.not.i168 = icmp ult i64 %indvars.iv220, %508
+  %.not.i168 = icmp samesign ult i64 %indvars.iv220, %508
   %.pre226 = add nuw nsw i64 %indvars.iv220, 1
   br i1 %.not.i168, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %509
 
@@ -1697,7 +1697,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %519 = load i32, ptr %42, align 4
   %520 = zext i32 %519 to i64
-  %521 = icmp ult i64 %.pre226, %520
+  %521 = icmp samesign ult i64 %.pre226, %520
   br i1 %521, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %490, %488
@@ -2503,7 +2503,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %2
 
 25:                                               ; preds = %.preheader76
   %indvars90 = trunc i64 %indvars.iv to i32
-  %26 = icmp ugt i32 %indvars90, 2
+  %26 = icmp samesign ugt i32 %indvars90, 2
   br i1 %26, label %.loopexit77, label %27
 
 27:                                               ; preds = %25

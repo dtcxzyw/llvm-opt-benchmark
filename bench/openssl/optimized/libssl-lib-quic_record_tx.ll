@@ -1334,8 +1334,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add nuw nsw i64 %i.029, 1
   %txe.0 = load ptr, ptr %txe.030, align 8
   %cmp7 = icmp ne ptr %txe.0, null
-  %cmp8 = icmp ult i64 %i.029, 31
-  %2 = and i1 %cmp7, %cmp8
+  %cmp8 = icmp samesign ult i64 %i.029, 31
+  %2 = select i1 %cmp7, i1 %cmp8, i1 false
   br i1 %2, label %for.body, label %if.end11, !llvm.loop !8
 
 if.end11:                                         ; preds = %for.body

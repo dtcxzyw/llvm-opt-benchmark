@@ -6474,7 +6474,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -6541,7 +6541,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -11902,7 +11902,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -11969,7 +11969,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -14780,7 +14780,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -30837,7 +30837,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -30902,7 +30902,7 @@ do.body.i.i1471:                                  ; preds = %do.body.i.i1471, %i
   store i8 %conv10.i.i1472, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i1473 = lshr i64 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i1474 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i1475 = icmp ugt i64 %value.addr.i.0.i, 16383
+  %cmp13.i.i1475 = icmp samesign ugt i64 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i1475, label %do.body.i.i1471, label %do.end.i.i1476, !llvm.loop !26
 
 do.end.i.i1476:                                   ; preds = %do.body.i.i1471
@@ -30967,7 +30967,7 @@ do.body.i.i1503:                                  ; preds = %do.body.i.i1503, %i
   store i8 %conv10.i.i1506, ptr %ptr.addr.i.0.i1504, align 1
   %shr11.i.i1507 = lshr i32 %value.addr.i.0.i1505, 7
   %incdec.ptr12.i.i1508 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1504, i64 1
-  %cmp13.i.i1509 = icmp ugt i32 %value.addr.i.0.i1505, 16383
+  %cmp13.i.i1509 = icmp samesign ugt i32 %value.addr.i.0.i1505, 16383
   br i1 %cmp13.i.i1509, label %do.body.i.i1503, label %do.end.i.i1510, !llvm.loop !27
 
 do.end.i.i1510:                                   ; preds = %do.body.i.i1503
@@ -31032,7 +31032,7 @@ do.body.i.i1538:                                  ; preds = %do.body.i.i1538, %i
   store i8 %conv10.i.i1541, ptr %ptr.addr.i.0.i1539, align 1
   %shr11.i.i1542 = lshr i64 %value.addr.i.0.i1540, 7
   %incdec.ptr12.i.i1543 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1539, i64 1
-  %cmp13.i.i1544 = icmp ugt i64 %value.addr.i.0.i1540, 16383
+  %cmp13.i.i1544 = icmp samesign ugt i64 %value.addr.i.0.i1540, 16383
   br i1 %cmp13.i.i1544, label %do.body.i.i1538, label %do.end.i.i1545, !llvm.loop !26
 
 do.end.i.i1545:                                   ; preds = %do.body.i.i1538
@@ -31100,7 +31100,7 @@ do.body.i.i1574:                                  ; preds = %do.body.i.i1574, %i
   store i8 %conv10.i.i1577, ptr %ptr.addr.i.0.i1575, align 1
   %shr11.i.i1578 = lshr i32 %value.addr.i.0.i1576, 7
   %incdec.ptr12.i.i1579 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1575, i64 1
-  %cmp13.i.i1580 = icmp ugt i32 %value.addr.i.0.i1576, 16383
+  %cmp13.i.i1580 = icmp samesign ugt i32 %value.addr.i.0.i1576, 16383
   br i1 %cmp13.i.i1580, label %do.body.i.i1574, label %do.end.i.i1581, !llvm.loop !27
 
 do.end.i.i1581:                                   ; preds = %do.body.i.i1574
@@ -31168,7 +31168,7 @@ do.body.i.i1613:                                  ; preds = %do.body.i.i1613, %i
   store i8 %conv10.i.i1616, ptr %ptr.addr.i.0.i1614, align 1
   %shr11.i.i1617 = lshr i64 %value.addr.i.0.i1615, 7
   %incdec.ptr12.i.i1618 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1614, i64 1
-  %cmp13.i.i1619 = icmp ugt i64 %value.addr.i.0.i1615, 16383
+  %cmp13.i.i1619 = icmp samesign ugt i64 %value.addr.i.0.i1615, 16383
   br i1 %cmp13.i.i1619, label %do.body.i.i1613, label %do.end.i.i1620, !llvm.loop !26
 
 do.end.i.i1620:                                   ; preds = %do.body.i.i1613
@@ -31489,7 +31489,7 @@ do.body.i.i1768:                                  ; preds = %do.body.i.i1768, %i
   store i8 %conv10.i.i1771, ptr %ptr.addr.i.0.i1769, align 1
   %shr11.i.i1772 = lshr i32 %value.addr.i.0.i1770, 7
   %incdec.ptr12.i.i1773 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1769, i64 1
-  %cmp13.i.i1774 = icmp ugt i32 %value.addr.i.0.i1770, 16383
+  %cmp13.i.i1774 = icmp samesign ugt i32 %value.addr.i.0.i1770, 16383
   br i1 %cmp13.i.i1774, label %do.body.i.i1768, label %do.end.i.i1775, !llvm.loop !27
 
 do.end.i.i1775:                                   ; preds = %do.body.i.i1768
@@ -31563,7 +31563,7 @@ do.body.i.i1807:                                  ; preds = %do.body.i.i1807, %i
   store i8 %conv10.i.i1810, ptr %ptr.addr.i.0.i1808, align 1
   %shr11.i.i1811 = lshr i32 %value.addr.i.0.i1809, 7
   %incdec.ptr12.i.i1812 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1808, i64 1
-  %cmp13.i.i1813 = icmp ugt i32 %value.addr.i.0.i1809, 16383
+  %cmp13.i.i1813 = icmp samesign ugt i32 %value.addr.i.0.i1809, 16383
   br i1 %cmp13.i.i1813, label %do.body.i.i1807, label %do.end.i.i1814, !llvm.loop !27
 
 do.end.i.i1814:                                   ; preds = %do.body.i.i1807
@@ -31631,7 +31631,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -31715,7 +31715,7 @@ do.body.i.i.i1851:                                ; preds = %do.body.i.i.i1851, 
   store i8 %conv10.i.i.i1854, ptr %ptr.addr.i.0.i.i1852, align 1
   %shr11.i.i.i1855 = lshr i64 %value.addr.i.0.i.i1853, 7
   %incdec.ptr12.i.i.i1856 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i1852, i64 1
-  %cmp13.i.i.i1857 = icmp ugt i64 %value.addr.i.0.i.i1853, 16383
+  %cmp13.i.i.i1857 = icmp samesign ugt i64 %value.addr.i.0.i.i1853, 16383
   br i1 %cmp13.i.i.i1857, label %do.body.i.i.i1851, label %do.end.i.i.i1858, !llvm.loop !26
 
 do.end.i.i.i1858:                                 ; preds = %do.body.i.i.i1851
@@ -31783,7 +31783,7 @@ do.body.i.i.i1889:                                ; preds = %do.body.i.i.i1889, 
   store i8 %conv10.i.i.i1892, ptr %ptr.addr.i.0.i.i1890, align 1
   %shr11.i.i.i1893 = lshr i64 %value.addr.i.0.i.i1891, 7
   %incdec.ptr12.i.i.i1894 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i1890, i64 1
-  %cmp13.i.i.i1895 = icmp ugt i64 %value.addr.i.0.i.i1891, 16383
+  %cmp13.i.i.i1895 = icmp samesign ugt i64 %value.addr.i.0.i.i1891, 16383
   br i1 %cmp13.i.i.i1895, label %do.body.i.i.i1889, label %do.end.i.i.i1896, !llvm.loop !26
 
 do.end.i.i.i1896:                                 ; preds = %do.body.i.i.i1889
@@ -31932,7 +31932,7 @@ do.body.i.i1974:                                  ; preds = %do.body.i.i1974, %i
   store i8 %conv10.i.i1977, ptr %ptr.addr.i.0.i1975, align 1
   %shr11.i.i1978 = lshr i32 %value.addr.i.0.i1976, 7
   %incdec.ptr12.i.i1979 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i1975, i64 1
-  %cmp13.i.i1980 = icmp ugt i32 %value.addr.i.0.i1976, 16383
+  %cmp13.i.i1980 = icmp samesign ugt i32 %value.addr.i.0.i1976, 16383
   br i1 %cmp13.i.i1980, label %do.body.i.i1974, label %do.end.i.i1981, !llvm.loop !27
 
 do.end.i.i1981:                                   ; preds = %do.body.i.i1974
@@ -32008,7 +32008,7 @@ do.body.i.i.i2016:                                ; preds = %do.body.i.i.i2016, 
   store i8 %conv10.i.i.i2019, ptr %ptr.addr.i.0.i.i2017, align 1
   %shr11.i.i.i2020 = lshr i64 %value.addr.i.0.i.i2018, 7
   %incdec.ptr12.i.i.i2021 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i2017, i64 1
-  %cmp13.i.i.i2022 = icmp ugt i64 %value.addr.i.0.i.i2018, 16383
+  %cmp13.i.i.i2022 = icmp samesign ugt i64 %value.addr.i.0.i.i2018, 16383
   br i1 %cmp13.i.i.i2022, label %do.body.i.i.i2016, label %do.end.i.i.i2023, !llvm.loop !26
 
 do.end.i.i.i2023:                                 ; preds = %do.body.i.i.i2016
@@ -32084,7 +32084,7 @@ do.body.i.i2056:                                  ; preds = %do.body.i.i2056, %i
   store i8 %conv10.i.i2059, ptr %ptr.addr.i.0.i2057, align 1
   %shr11.i.i2060 = lshr i64 %value.addr.i.0.i2058, 7
   %incdec.ptr12.i.i2061 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2057, i64 1
-  %cmp13.i.i2062 = icmp ugt i64 %value.addr.i.0.i2058, 16383
+  %cmp13.i.i2062 = icmp samesign ugt i64 %value.addr.i.0.i2058, 16383
   br i1 %cmp13.i.i2062, label %do.body.i.i2056, label %do.end.i.i2063, !llvm.loop !26
 
 do.end.i.i2063:                                   ; preds = %do.body.i.i2056
@@ -32160,7 +32160,7 @@ do.body.i.i2097:                                  ; preds = %do.body.i.i2097, %i
   store i8 %conv10.i.i2100, ptr %ptr.addr.i.0.i2098, align 1
   %shr11.i.i2101 = lshr i32 %value.addr.i.0.i2099, 7
   %incdec.ptr12.i.i2102 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2098, i64 1
-  %cmp13.i.i2103 = icmp ugt i32 %value.addr.i.0.i2099, 16383
+  %cmp13.i.i2103 = icmp samesign ugt i32 %value.addr.i.0.i2099, 16383
   br i1 %cmp13.i.i2103, label %do.body.i.i2097, label %do.end.i.i2104, !llvm.loop !27
 
 do.end.i.i2104:                                   ; preds = %do.body.i.i2097
@@ -32236,7 +32236,7 @@ do.body.i.i2138:                                  ; preds = %do.body.i.i2138, %i
   store i8 %conv10.i.i2141, ptr %ptr.addr.i.0.i2139, align 1
   %shr11.i.i2142 = lshr i64 %value.addr.i.0.i2140, 7
   %incdec.ptr12.i.i2143 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2139, i64 1
-  %cmp13.i.i2144 = icmp ugt i64 %value.addr.i.0.i2140, 16383
+  %cmp13.i.i2144 = icmp samesign ugt i64 %value.addr.i.0.i2140, 16383
   br i1 %cmp13.i.i2144, label %do.body.i.i2138, label %do.end.i.i2145, !llvm.loop !26
 
 do.end.i.i2145:                                   ; preds = %do.body.i.i2138
@@ -32315,7 +32315,7 @@ do.body.i.i2182:                                  ; preds = %do.body.i.i2182, %i
   store i8 %conv10.i.i2185, ptr %ptr.addr.i.0.i2183, align 1
   %shr11.i.i2186 = lshr i32 %value.addr.i.0.i2184, 7
   %incdec.ptr12.i.i2187 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2183, i64 1
-  %cmp13.i.i2188 = icmp ugt i32 %value.addr.i.0.i2184, 16383
+  %cmp13.i.i2188 = icmp samesign ugt i32 %value.addr.i.0.i2184, 16383
   br i1 %cmp13.i.i2188, label %do.body.i.i2182, label %do.end.i.i2189, !llvm.loop !27
 
 do.end.i.i2189:                                   ; preds = %do.body.i.i2182
@@ -32394,7 +32394,7 @@ do.body.i.i2226:                                  ; preds = %do.body.i.i2226, %i
   store i8 %conv10.i.i2229, ptr %ptr.addr.i.0.i2227, align 1
   %shr11.i.i2230 = lshr i64 %value.addr.i.0.i2228, 7
   %incdec.ptr12.i.i2231 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2227, i64 1
-  %cmp13.i.i2232 = icmp ugt i64 %value.addr.i.0.i2228, 16383
+  %cmp13.i.i2232 = icmp samesign ugt i64 %value.addr.i.0.i2228, 16383
   br i1 %cmp13.i.i2232, label %do.body.i.i2226, label %do.end.i.i2233, !llvm.loop !26
 
 do.end.i.i2233:                                   ; preds = %do.body.i.i2226
@@ -32800,7 +32800,7 @@ do.body.i.i2420:                                  ; preds = %do.body.i.i2420, %i
   store i8 %conv10.i.i2423, ptr %ptr.addr.i.0.i2421, align 1
   %shr11.i.i2424 = lshr i32 %value.addr.i.0.i2422, 7
   %incdec.ptr12.i.i2425 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2421, i64 1
-  %cmp13.i.i2426 = icmp ugt i32 %value.addr.i.0.i2422, 16383
+  %cmp13.i.i2426 = icmp samesign ugt i32 %value.addr.i.0.i2422, 16383
   br i1 %cmp13.i.i2426, label %do.body.i.i2420, label %do.end.i.i2427, !llvm.loop !27
 
 do.end.i.i2427:                                   ; preds = %do.body.i.i2420
@@ -32886,7 +32886,7 @@ do.body.i.i2464:                                  ; preds = %do.body.i.i2464, %i
   store i8 %conv10.i.i2467, ptr %ptr.addr.i.0.i2465, align 1
   %shr11.i.i2468 = lshr i32 %value.addr.i.0.i2466, 7
   %incdec.ptr12.i.i2469 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i2465, i64 1
-  %cmp13.i.i2470 = icmp ugt i32 %value.addr.i.0.i2466, 16383
+  %cmp13.i.i2470 = icmp samesign ugt i32 %value.addr.i.0.i2466, 16383
   br i1 %cmp13.i.i2470, label %do.body.i.i2464, label %do.end.i.i2471, !llvm.loop !27
 
 do.end.i.i2471:                                   ; preds = %do.body.i.i2464
@@ -32954,7 +32954,7 @@ do.body.i.i.i.i2503:                              ; preds = %do.body.i.i.i.i2503
   store i8 %conv10.i.i.i.i2506, ptr %ptr.addr.i.0.i.i.i2504, align 1
   %shr11.i.i.i.i2507 = lshr i64 %value.addr.i.0.i.i.i2505, 7
   %incdec.ptr12.i.i.i.i2508 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i2504, i64 1
-  %cmp13.i.i.i.i2509 = icmp ugt i64 %value.addr.i.0.i.i.i2505, 16383
+  %cmp13.i.i.i.i2509 = icmp samesign ugt i64 %value.addr.i.0.i.i.i2505, 16383
   br i1 %cmp13.i.i.i.i2509, label %do.body.i.i.i.i2503, label %do.end.i.i.i.i2510, !llvm.loop !26
 
 do.end.i.i.i.i2510:                               ; preds = %do.body.i.i.i.i2503
@@ -33047,7 +33047,7 @@ do.body.i.i.i2553:                                ; preds = %do.body.i.i.i2553, 
   store i8 %conv10.i.i.i2556, ptr %ptr.addr.i.0.i.i2554, align 1
   %shr11.i.i.i2557 = lshr i64 %value.addr.i.0.i.i2555, 7
   %incdec.ptr12.i.i.i2558 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i2554, i64 1
-  %cmp13.i.i.i2559 = icmp ugt i64 %value.addr.i.0.i.i2555, 16383
+  %cmp13.i.i.i2559 = icmp samesign ugt i64 %value.addr.i.0.i.i2555, 16383
   br i1 %cmp13.i.i.i2559, label %do.body.i.i.i2553, label %do.end.i.i.i2560, !llvm.loop !26
 
 do.end.i.i.i2560:                                 ; preds = %do.body.i.i.i2553
@@ -33124,7 +33124,7 @@ do.body.i.i.i2594:                                ; preds = %do.body.i.i.i2594, 
   store i8 %conv10.i.i.i2597, ptr %ptr.addr.i.0.i.i2595, align 1
   %shr11.i.i.i2598 = lshr i64 %value.addr.i.0.i.i2596, 7
   %incdec.ptr12.i.i.i2599 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i2595, i64 1
-  %cmp13.i.i.i2600 = icmp ugt i64 %value.addr.i.0.i.i2596, 16383
+  %cmp13.i.i.i2600 = icmp samesign ugt i64 %value.addr.i.0.i.i2596, 16383
   br i1 %cmp13.i.i.i2600, label %do.body.i.i.i2594, label %do.end.i.i.i2601, !llvm.loop !26
 
 do.end.i.i.i2601:                                 ; preds = %do.body.i.i.i2594
@@ -37303,7 +37303,7 @@ do.body.i.i6830:                                  ; preds = %do.body.i.i6830, %i
   store i8 %conv10.i.i6833, ptr %ptr.addr.i.0.i6831, align 1
   %shr11.i.i6834 = lshr i32 %value.addr.i.0.i6832, 7
   %incdec.ptr12.i.i6835 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i6831, i64 1
-  %cmp13.i.i6836 = icmp ugt i32 %value.addr.i.0.i6832, 16383
+  %cmp13.i.i6836 = icmp samesign ugt i32 %value.addr.i.0.i6832, 16383
   br i1 %cmp13.i.i6836, label %do.body.i.i6830, label %do.end.i.i6837, !llvm.loop !27
 
 do.end.i.i6837:                                   ; preds = %do.body.i.i6830
@@ -37402,7 +37402,7 @@ do.body.i.i15.i:                                  ; preds = %do.body.i.i15.i, %i
   store i8 %conv10.i.i18.i, ptr %ptr.addr.i.0.i16.i, align 1
   %shr11.i.i19.i = lshr i32 %value.addr.i.0.i17.i, 7
   %incdec.ptr12.i.i20.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i16.i, i64 1
-  %cmp13.i.i21.i = icmp ugt i32 %value.addr.i.0.i17.i, 16383
+  %cmp13.i.i21.i = icmp samesign ugt i32 %value.addr.i.0.i17.i, 16383
   br i1 %cmp13.i.i21.i, label %do.body.i.i15.i, label %do.end.i.i22.i, !llvm.loop !27
 
 do.end.i.i22.i:                                   ; preds = %do.body.i.i15.i
@@ -37557,7 +37557,7 @@ do.body.i.i6950:                                  ; preds = %do.body.i.i6950, %i
   store i8 %conv10.i.i6953, ptr %ptr.addr.i.0.i6951, align 1
   %shr11.i.i6954 = lshr i32 %value.addr.i.0.i6952, 7
   %incdec.ptr12.i.i6955 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i6951, i64 1
-  %cmp13.i.i6956 = icmp ugt i32 %value.addr.i.0.i6952, 16383
+  %cmp13.i.i6956 = icmp samesign ugt i32 %value.addr.i.0.i6952, 16383
   br i1 %cmp13.i.i6956, label %do.body.i.i6950, label %do.end.i.i6957, !llvm.loop !27
 
 do.end.i.i6957:                                   ; preds = %do.body.i.i6950
@@ -37656,7 +37656,7 @@ do.body.i.i15.i6901:                              ; preds = %do.body.i.i15.i6901
   store i8 %conv10.i.i18.i6904, ptr %ptr.addr.i.0.i16.i6902, align 1
   %shr11.i.i19.i6905 = lshr i32 %value.addr.i.0.i17.i6903, 7
   %incdec.ptr12.i.i20.i6906 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i16.i6902, i64 1
-  %cmp13.i.i21.i6907 = icmp ugt i32 %value.addr.i.0.i17.i6903, 16383
+  %cmp13.i.i21.i6907 = icmp samesign ugt i32 %value.addr.i.0.i17.i6903, 16383
   br i1 %cmp13.i.i21.i6907, label %do.body.i.i15.i6901, label %do.end.i.i22.i6908, !llvm.loop !27
 
 do.end.i.i22.i6908:                               ; preds = %do.body.i.i15.i6901
@@ -38450,7 +38450,7 @@ do.body.i.i4473:                                  ; preds = %do.body.i.i4473, %i
   store i8 %conv10.i.i4475, ptr %ptr.addr.i.i4444.0, align 1
   %shr11.i.i4476 = lshr i64 %value.addr.i.i4443.0, 7
   %incdec.ptr12.i.i4477 = getelementptr inbounds i8, ptr %ptr.addr.i.i4444.0, i64 1
-  %cmp13.i.i4478 = icmp ugt i64 %value.addr.i.i4443.0, 16383
+  %cmp13.i.i4478 = icmp samesign ugt i64 %value.addr.i.i4443.0, 16383
   br i1 %cmp13.i.i4478, label %do.body.i.i4473, label %do.end.i.i4479, !llvm.loop !26
 
 do.end.i.i4479:                                   ; preds = %do.body.i.i4473
@@ -38563,7 +38563,7 @@ do.body.i.i5003:                                  ; preds = %do.body.i.i5003, %i
   store i8 %conv10.i.i5005, ptr %ptr.addr.i.i4976.0, align 1
   %shr11.i.i5006 = lshr i64 %value.addr.i.i4975.0, 7
   %incdec.ptr12.i.i5007 = getelementptr inbounds i8, ptr %ptr.addr.i.i4976.0, i64 1
-  %cmp13.i.i5008 = icmp ugt i64 %value.addr.i.i4975.0, 16383
+  %cmp13.i.i5008 = icmp samesign ugt i64 %value.addr.i.i4975.0, 16383
   br i1 %cmp13.i.i5008, label %do.body.i.i5003, label %do.end.i.i5009, !llvm.loop !26
 
 do.end.i.i5009:                                   ; preds = %do.body.i.i5003
@@ -38676,7 +38676,7 @@ do.body.i.i5091:                                  ; preds = %do.body.i.i5091, %i
   store i8 %conv10.i.i5093, ptr %ptr.addr.i.i5037.0, align 1
   %shr11.i.i5094 = lshr i32 %value.addr.i.i5036.0, 7
   %incdec.ptr12.i.i5095 = getelementptr inbounds i8, ptr %ptr.addr.i.i5037.0, i64 1
-  %cmp13.i.i5096 = icmp ugt i32 %value.addr.i.i5036.0, 16383
+  %cmp13.i.i5096 = icmp samesign ugt i32 %value.addr.i.i5036.0, 16383
   br i1 %cmp13.i.i5096, label %do.body.i.i5091, label %do.end.i.i5097, !llvm.loop !27
 
 do.end.i.i5097:                                   ; preds = %do.body.i.i5091
@@ -38789,7 +38789,7 @@ do.body.i.i5190:                                  ; preds = %do.body.i.i5190, %i
   store i8 %conv10.i.i5192, ptr %ptr.addr.i.i5136.0, align 1
   %shr11.i.i5193 = lshr i64 %value.addr.i.i5135.0, 7
   %incdec.ptr12.i.i5194 = getelementptr inbounds i8, ptr %ptr.addr.i.i5136.0, i64 1
-  %cmp13.i.i5195 = icmp ugt i64 %value.addr.i.i5135.0, 16383
+  %cmp13.i.i5195 = icmp samesign ugt i64 %value.addr.i.i5135.0, 16383
   br i1 %cmp13.i.i5195, label %do.body.i.i5190, label %do.end.i.i5196, !llvm.loop !26
 
 do.end.i.i5196:                                   ; preds = %do.body.i.i5190
@@ -38905,7 +38905,7 @@ do.body.i.i5290:                                  ; preds = %do.body.i.i5290, %i
   store i8 %conv10.i.i5292, ptr %ptr.addr.i.i5236.0, align 1
   %shr11.i.i5293 = lshr i32 %value.addr.i.i5235.0, 7
   %incdec.ptr12.i.i5294 = getelementptr inbounds i8, ptr %ptr.addr.i.i5236.0, i64 1
-  %cmp13.i.i5295 = icmp ugt i32 %value.addr.i.i5235.0, 16383
+  %cmp13.i.i5295 = icmp samesign ugt i32 %value.addr.i.i5235.0, 16383
   br i1 %cmp13.i.i5295, label %do.body.i.i5290, label %do.end.i.i5296, !llvm.loop !27
 
 do.end.i.i5296:                                   ; preds = %do.body.i.i5290
@@ -39021,7 +39021,7 @@ do.body.i.i5390:                                  ; preds = %do.body.i.i5390, %i
   store i8 %conv10.i.i5392, ptr %ptr.addr.i.i5336.0, align 1
   %shr11.i.i5393 = lshr i64 %value.addr.i.i5335.0, 7
   %incdec.ptr12.i.i5394 = getelementptr inbounds i8, ptr %ptr.addr.i.i5336.0, i64 1
-  %cmp13.i.i5395 = icmp ugt i64 %value.addr.i.i5335.0, 16383
+  %cmp13.i.i5395 = icmp samesign ugt i64 %value.addr.i.i5335.0, 16383
   br i1 %cmp13.i.i5395, label %do.body.i.i5390, label %do.end.i.i5396, !llvm.loop !26
 
 do.end.i.i5396:                                   ; preds = %do.body.i.i5390
@@ -39569,7 +39569,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.i.0, align 1
   %shr11.i.i = lshr i64 %value.addr.i.i.0, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.i.0, i64 1
-  %cmp13.i.i = icmp ugt i64 %value.addr.i.i.0, 16383
+  %cmp13.i.i = icmp samesign ugt i64 %value.addr.i.i.0, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !26
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -39645,7 +39645,7 @@ do.body.i.i.i5003:                                ; preds = %do.body.i.i.i5003, 
   store i8 %conv10.i.i.i5006, ptr %ptr.addr.i.0.i.i5004, align 1
   %shr11.i.i.i5007 = lshr i64 %value.addr.i.0.i.i5005, 7
   %incdec.ptr12.i.i.i5008 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i5004, i64 1
-  %cmp13.i.i.i5009 = icmp ugt i64 %value.addr.i.0.i.i5005, 16383
+  %cmp13.i.i.i5009 = icmp samesign ugt i64 %value.addr.i.0.i.i5005, 16383
   br i1 %cmp13.i.i.i5009, label %do.body.i.i.i5003, label %do.end.i.i.i5010, !llvm.loop !26
 
 do.end.i.i.i5010:                                 ; preds = %do.body.i.i.i5003
@@ -39721,7 +39721,7 @@ do.body.i.i5043:                                  ; preds = %do.body.i.i5043, %i
   store i8 %conv10.i.i5046, ptr %ptr.addr.i.0.i5044, align 1
   %shr11.i.i5047 = lshr i64 %value.addr.i.0.i5045, 7
   %incdec.ptr12.i.i5048 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5044, i64 1
-  %cmp13.i.i5049 = icmp ugt i64 %value.addr.i.0.i5045, 16383
+  %cmp13.i.i5049 = icmp samesign ugt i64 %value.addr.i.0.i5045, 16383
   br i1 %cmp13.i.i5049, label %do.body.i.i5043, label %do.end.i.i5050, !llvm.loop !26
 
 do.end.i.i5050:                                   ; preds = %do.body.i.i5043
@@ -39797,7 +39797,7 @@ do.body.i.i5084:                                  ; preds = %do.body.i.i5084, %i
   store i8 %conv10.i.i5087, ptr %ptr.addr.i.0.i5085, align 1
   %shr11.i.i5088 = lshr i32 %value.addr.i.0.i5086, 7
   %incdec.ptr12.i.i5089 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5085, i64 1
-  %cmp13.i.i5090 = icmp ugt i32 %value.addr.i.0.i5086, 16383
+  %cmp13.i.i5090 = icmp samesign ugt i32 %value.addr.i.0.i5086, 16383
   br i1 %cmp13.i.i5090, label %do.body.i.i5084, label %do.end.i.i5091, !llvm.loop !27
 
 do.end.i.i5091:                                   ; preds = %do.body.i.i5084
@@ -39873,7 +39873,7 @@ do.body.i.i5125:                                  ; preds = %do.body.i.i5125, %i
   store i8 %conv10.i.i5128, ptr %ptr.addr.i.0.i5126, align 1
   %shr11.i.i5129 = lshr i64 %value.addr.i.0.i5127, 7
   %incdec.ptr12.i.i5130 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5126, i64 1
-  %cmp13.i.i5131 = icmp ugt i64 %value.addr.i.0.i5127, 16383
+  %cmp13.i.i5131 = icmp samesign ugt i64 %value.addr.i.0.i5127, 16383
   br i1 %cmp13.i.i5131, label %do.body.i.i5125, label %do.end.i.i5132, !llvm.loop !26
 
 do.end.i.i5132:                                   ; preds = %do.body.i.i5125
@@ -39952,7 +39952,7 @@ do.body.i.i5169:                                  ; preds = %do.body.i.i5169, %i
   store i8 %conv10.i.i5172, ptr %ptr.addr.i.0.i5170, align 1
   %shr11.i.i5173 = lshr i32 %value.addr.i.0.i5171, 7
   %incdec.ptr12.i.i5174 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5170, i64 1
-  %cmp13.i.i5175 = icmp ugt i32 %value.addr.i.0.i5171, 16383
+  %cmp13.i.i5175 = icmp samesign ugt i32 %value.addr.i.0.i5171, 16383
   br i1 %cmp13.i.i5175, label %do.body.i.i5169, label %do.end.i.i5176, !llvm.loop !27
 
 do.end.i.i5176:                                   ; preds = %do.body.i.i5169
@@ -40031,7 +40031,7 @@ do.body.i.i5213:                                  ; preds = %do.body.i.i5213, %i
   store i8 %conv10.i.i5216, ptr %ptr.addr.i.0.i5214, align 1
   %shr11.i.i5217 = lshr i64 %value.addr.i.0.i5215, 7
   %incdec.ptr12.i.i5218 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5214, i64 1
-  %cmp13.i.i5219 = icmp ugt i64 %value.addr.i.0.i5215, 16383
+  %cmp13.i.i5219 = icmp samesign ugt i64 %value.addr.i.0.i5215, 16383
   br i1 %cmp13.i.i5219, label %do.body.i.i5213, label %do.end.i.i5220, !llvm.loop !26
 
 do.end.i.i5220:                                   ; preds = %do.body.i.i5213
@@ -40333,7 +40333,7 @@ do.body.i.i.i5386:                                ; preds = %do.body.i.i.i5386, 
   store i8 %conv10.i.i.i5389, ptr %ptr.addr.i.0.i.i5387, align 1
   %shr11.i.i.i5390 = lshr i64 %value.addr.i.0.i.i5388, 7
   %incdec.ptr12.i.i.i5391 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i5387, i64 1
-  %cmp13.i.i.i5392 = icmp ugt i64 %value.addr.i.0.i.i5388, 16383
+  %cmp13.i.i.i5392 = icmp samesign ugt i64 %value.addr.i.0.i.i5388, 16383
   br i1 %cmp13.i.i.i5392, label %do.body.i.i.i5386, label %do.end.i.i.i5393, !llvm.loop !26
 
 do.end.i.i.i5393:                                 ; preds = %do.body.i.i.i5386
@@ -40429,7 +40429,7 @@ do.body.i.i5425:                                  ; preds = %do.body.i.i5425, %i
   store i8 %conv10.i.i5428, ptr %ptr.addr.i.0.i5426, align 1
   %shr11.i.i5429 = lshr i32 %value.addr.i.0.i5427, 7
   %incdec.ptr12.i.i5430 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5426, i64 1
-  %cmp13.i.i5431 = icmp ugt i32 %value.addr.i.0.i5427, 16383
+  %cmp13.i.i5431 = icmp samesign ugt i32 %value.addr.i.0.i5427, 16383
   br i1 %cmp13.i.i5431, label %do.body.i.i5425, label %do.end.i.i5432, !llvm.loop !27
 
 do.end.i.i5432:                                   ; preds = %do.body.i.i5425
@@ -40492,7 +40492,7 @@ do.body.i.i5465:                                  ; preds = %do.body.i.i5465, %i
   store i8 %conv10.i.i5468, ptr %ptr.addr.i.0.i5466, align 1
   %shr11.i.i5469 = lshr i32 %value.addr.i.0.i5467, 7
   %incdec.ptr12.i.i5470 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5466, i64 1
-  %cmp13.i.i5471 = icmp ugt i32 %value.addr.i.0.i5467, 16383
+  %cmp13.i.i5471 = icmp samesign ugt i32 %value.addr.i.0.i5467, 16383
   br i1 %cmp13.i.i5471, label %do.body.i.i5465, label %do.end.i.i5472, !llvm.loop !27
 
 do.end.i.i5472:                                   ; preds = %do.body.i.i5465
@@ -40675,7 +40675,7 @@ do.body.i.i5607:                                  ; preds = %do.body.i.i5607, %i
   store i8 %conv10.i.i5610, ptr %ptr.addr.i.0.i5608, align 1
   %shr11.i.i5611 = lshr i64 %value.addr.i.0.i5609, 7
   %incdec.ptr12.i.i5612 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5608, i64 1
-  %cmp13.i.i5613 = icmp ugt i64 %value.addr.i.0.i5609, 16383
+  %cmp13.i.i5613 = icmp samesign ugt i64 %value.addr.i.0.i5609, 16383
   br i1 %cmp13.i.i5613, label %do.body.i.i5607, label %do.end.i.i5614, !llvm.loop !26
 
 do.end.i.i5614:                                   ; preds = %do.body.i.i5607
@@ -40818,7 +40818,7 @@ do.body.i.i.i5682:                                ; preds = %do.body.i.i.i5682, 
   store i8 %conv10.i.i.i5685, ptr %ptr.addr.i.0.i.i5683, align 1
   %shr11.i.i.i5686 = lshr i64 %value.addr.i.0.i.i5684, 7
   %incdec.ptr12.i.i.i5687 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i5683, i64 1
-  %cmp13.i.i.i5688 = icmp ugt i64 %value.addr.i.0.i.i5684, 16383
+  %cmp13.i.i.i5688 = icmp samesign ugt i64 %value.addr.i.0.i.i5684, 16383
   br i1 %cmp13.i.i.i5688, label %do.body.i.i.i5682, label %do.end.i.i.i5689, !llvm.loop !26
 
 do.end.i.i.i5689:                                 ; preds = %do.body.i.i.i5682
@@ -40930,7 +40930,7 @@ do.body.i.i.i5742:                                ; preds = %do.body.i.i.i5742, 
   store i8 %conv10.i.i.i5745, ptr %ptr.addr.i.0.i.i5743, align 1
   %shr11.i.i.i5746 = lshr i64 %value.addr.i.0.i.i5744, 7
   %incdec.ptr12.i.i.i5747 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i5743, i64 1
-  %cmp13.i.i.i5748 = icmp ugt i64 %value.addr.i.0.i.i5744, 16383
+  %cmp13.i.i.i5748 = icmp samesign ugt i64 %value.addr.i.0.i.i5744, 16383
   br i1 %cmp13.i.i.i5748, label %do.body.i.i.i5742, label %do.end.i.i.i5749, !llvm.loop !26
 
 do.end.i.i.i5749:                                 ; preds = %do.body.i.i.i5742
@@ -40997,7 +40997,7 @@ do.body.i.i5779:                                  ; preds = %do.body.i.i5779, %i
   store i8 %conv10.i.i5782, ptr %ptr.addr.i.0.i5780, align 1
   %shr11.i.i5783 = lshr i64 %value.addr.i.0.i5781, 7
   %incdec.ptr12.i.i5784 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5780, i64 1
-  %cmp13.i.i5785 = icmp ugt i64 %value.addr.i.0.i5781, 16383
+  %cmp13.i.i5785 = icmp samesign ugt i64 %value.addr.i.0.i5781, 16383
   br i1 %cmp13.i.i5785, label %do.body.i.i5779, label %do.end.i.i5786, !llvm.loop !26
 
 do.end.i.i5786:                                   ; preds = %do.body.i.i5779
@@ -41064,7 +41064,7 @@ do.body.i.i5817:                                  ; preds = %do.body.i.i5817, %i
   store i8 %conv10.i.i5820, ptr %ptr.addr.i.0.i5818, align 1
   %shr11.i.i5821 = lshr i32 %value.addr.i.0.i5819, 7
   %incdec.ptr12.i.i5822 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5818, i64 1
-  %cmp13.i.i5823 = icmp ugt i32 %value.addr.i.0.i5819, 16383
+  %cmp13.i.i5823 = icmp samesign ugt i32 %value.addr.i.0.i5819, 16383
   br i1 %cmp13.i.i5823, label %do.body.i.i5817, label %do.end.i.i5824, !llvm.loop !27
 
 do.end.i.i5824:                                   ; preds = %do.body.i.i5817
@@ -41131,7 +41131,7 @@ do.body.i.i5855:                                  ; preds = %do.body.i.i5855, %i
   store i8 %conv10.i.i5858, ptr %ptr.addr.i.0.i5856, align 1
   %shr11.i.i5859 = lshr i64 %value.addr.i.0.i5857, 7
   %incdec.ptr12.i.i5860 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5856, i64 1
-  %cmp13.i.i5861 = icmp ugt i64 %value.addr.i.0.i5857, 16383
+  %cmp13.i.i5861 = icmp samesign ugt i64 %value.addr.i.0.i5857, 16383
   br i1 %cmp13.i.i5861, label %do.body.i.i5855, label %do.end.i.i5862, !llvm.loop !26
 
 do.end.i.i5862:                                   ; preds = %do.body.i.i5855
@@ -41201,7 +41201,7 @@ do.body.i.i5896:                                  ; preds = %do.body.i.i5896, %i
   store i8 %conv10.i.i5899, ptr %ptr.addr.i.0.i5897, align 1
   %shr11.i.i5900 = lshr i32 %value.addr.i.0.i5898, 7
   %incdec.ptr12.i.i5901 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5897, i64 1
-  %cmp13.i.i5902 = icmp ugt i32 %value.addr.i.0.i5898, 16383
+  %cmp13.i.i5902 = icmp samesign ugt i32 %value.addr.i.0.i5898, 16383
   br i1 %cmp13.i.i5902, label %do.body.i.i5896, label %do.end.i.i5903, !llvm.loop !27
 
 do.end.i.i5903:                                   ; preds = %do.body.i.i5896
@@ -41271,7 +41271,7 @@ do.body.i.i5937:                                  ; preds = %do.body.i.i5937, %i
   store i8 %conv10.i.i5940, ptr %ptr.addr.i.0.i5938, align 1
   %shr11.i.i5941 = lshr i64 %value.addr.i.0.i5939, 7
   %incdec.ptr12.i.i5942 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i5938, i64 1
-  %cmp13.i.i5943 = icmp ugt i64 %value.addr.i.0.i5939, 16383
+  %cmp13.i.i5943 = icmp samesign ugt i64 %value.addr.i.0.i5939, 16383
   br i1 %cmp13.i.i5943, label %do.body.i.i5937, label %do.end.i.i5944, !llvm.loop !26
 
 do.end.i.i5944:                                   ; preds = %do.body.i.i5937
@@ -41610,7 +41610,7 @@ do.body.i.i.i6130:                                ; preds = %do.body.i.i.i6130, 
   store i8 %conv10.i.i.i6133, ptr %ptr.addr.i.0.i.i6131, align 1
   %shr11.i.i.i6134 = lshr i64 %value.addr.i.0.i.i6132, 7
   %incdec.ptr12.i.i.i6135 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6131, i64 1
-  %cmp13.i.i.i6136 = icmp ugt i64 %value.addr.i.0.i.i6132, 16383
+  %cmp13.i.i.i6136 = icmp samesign ugt i64 %value.addr.i.0.i.i6132, 16383
   br i1 %cmp13.i.i.i6136, label %do.body.i.i.i6130, label %do.end.i.i.i6137, !llvm.loop !26
 
 do.end.i.i.i6137:                                 ; preds = %do.body.i.i.i6130
@@ -41678,7 +41678,7 @@ do.body.i.i.i6168:                                ; preds = %do.body.i.i.i6168, 
   store i8 %conv10.i.i.i6171, ptr %ptr.addr.i.0.i.i6169, align 1
   %shr11.i.i.i6172 = lshr i64 %value.addr.i.0.i.i6170, 7
   %incdec.ptr12.i.i.i6173 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6169, i64 1
-  %cmp13.i.i.i6174 = icmp ugt i64 %value.addr.i.0.i.i6170, 16383
+  %cmp13.i.i.i6174 = icmp samesign ugt i64 %value.addr.i.0.i.i6170, 16383
   br i1 %cmp13.i.i.i6174, label %do.body.i.i.i6168, label %do.end.i.i.i6175, !llvm.loop !26
 
 do.end.i.i.i6175:                                 ; preds = %do.body.i.i.i6168
@@ -41746,7 +41746,7 @@ do.body.i.i.i6206:                                ; preds = %do.body.i.i.i6206, 
   store i8 %conv10.i.i.i6209, ptr %ptr.addr.i.0.i.i6207, align 1
   %shr11.i.i.i6210 = lshr i64 %value.addr.i.0.i.i6208, 7
   %incdec.ptr12.i.i.i6211 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6207, i64 1
-  %cmp13.i.i.i6212 = icmp ugt i64 %value.addr.i.0.i.i6208, 16383
+  %cmp13.i.i.i6212 = icmp samesign ugt i64 %value.addr.i.0.i.i6208, 16383
   br i1 %cmp13.i.i.i6212, label %do.body.i.i.i6206, label %do.end.i.i.i6213, !llvm.loop !26
 
 do.end.i.i.i6213:                                 ; preds = %do.body.i.i.i6206
@@ -41814,7 +41814,7 @@ do.body.i.i.i6244:                                ; preds = %do.body.i.i.i6244, 
   store i8 %conv10.i.i.i6247, ptr %ptr.addr.i.0.i.i6245, align 1
   %shr11.i.i.i6248 = lshr i64 %value.addr.i.0.i.i6246, 7
   %incdec.ptr12.i.i.i6249 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6245, i64 1
-  %cmp13.i.i.i6250 = icmp ugt i64 %value.addr.i.0.i.i6246, 16383
+  %cmp13.i.i.i6250 = icmp samesign ugt i64 %value.addr.i.0.i.i6246, 16383
   br i1 %cmp13.i.i.i6250, label %do.body.i.i.i6244, label %do.end.i.i.i6251, !llvm.loop !26
 
 do.end.i.i.i6251:                                 ; preds = %do.body.i.i.i6244
@@ -41882,7 +41882,7 @@ do.body.i.i.i6282:                                ; preds = %do.body.i.i.i6282, 
   store i8 %conv10.i.i.i6285, ptr %ptr.addr.i.0.i.i6283, align 1
   %shr11.i.i.i6286 = lshr i64 %value.addr.i.0.i.i6284, 7
   %incdec.ptr12.i.i.i6287 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6283, i64 1
-  %cmp13.i.i.i6288 = icmp ugt i64 %value.addr.i.0.i.i6284, 16383
+  %cmp13.i.i.i6288 = icmp samesign ugt i64 %value.addr.i.0.i.i6284, 16383
   br i1 %cmp13.i.i.i6288, label %do.body.i.i.i6282, label %do.end.i.i.i6289, !llvm.loop !26
 
 do.end.i.i.i6289:                                 ; preds = %do.body.i.i.i6282
@@ -41949,7 +41949,7 @@ do.body.i.i.i6320:                                ; preds = %do.body.i.i.i6320, 
   store i8 %conv10.i.i.i6323, ptr %ptr.addr.i.0.i.i6321, align 1
   %shr11.i.i.i6324 = lshr i64 %value.addr.i.0.i.i6322, 7
   %incdec.ptr12.i.i.i6325 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6321, i64 1
-  %cmp13.i.i.i6326 = icmp ugt i64 %value.addr.i.0.i.i6322, 16383
+  %cmp13.i.i.i6326 = icmp samesign ugt i64 %value.addr.i.0.i.i6322, 16383
   br i1 %cmp13.i.i.i6326, label %do.body.i.i.i6320, label %do.end.i.i.i6327, !llvm.loop !26
 
 do.end.i.i.i6327:                                 ; preds = %do.body.i.i.i6320
@@ -42018,7 +42018,7 @@ do.body.i.i.i6358:                                ; preds = %do.body.i.i.i6358, 
   store i8 %conv10.i.i.i6361, ptr %ptr.addr.i.0.i.i6359, align 1
   %shr11.i.i.i6362 = lshr i64 %value.addr.i.0.i.i6360, 7
   %incdec.ptr12.i.i.i6363 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6359, i64 1
-  %cmp13.i.i.i6364 = icmp ugt i64 %value.addr.i.0.i.i6360, 16383
+  %cmp13.i.i.i6364 = icmp samesign ugt i64 %value.addr.i.0.i.i6360, 16383
   br i1 %cmp13.i.i.i6364, label %do.body.i.i.i6358, label %do.end.i.i.i6365, !llvm.loop !26
 
 do.end.i.i.i6365:                                 ; preds = %do.body.i.i.i6358
@@ -42086,7 +42086,7 @@ do.body.i.i.i6396:                                ; preds = %do.body.i.i.i6396, 
   store i8 %conv10.i.i.i6399, ptr %ptr.addr.i.0.i.i6397, align 1
   %shr11.i.i.i6400 = lshr i64 %value.addr.i.0.i.i6398, 7
   %incdec.ptr12.i.i.i6401 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6397, i64 1
-  %cmp13.i.i.i6402 = icmp ugt i64 %value.addr.i.0.i.i6398, 16383
+  %cmp13.i.i.i6402 = icmp samesign ugt i64 %value.addr.i.0.i.i6398, 16383
   br i1 %cmp13.i.i.i6402, label %do.body.i.i.i6396, label %do.end.i.i.i6403, !llvm.loop !26
 
 do.end.i.i.i6403:                                 ; preds = %do.body.i.i.i6396
@@ -42154,7 +42154,7 @@ do.body.i.i.i6434:                                ; preds = %do.body.i.i.i6434, 
   store i8 %conv10.i.i.i6437, ptr %ptr.addr.i.0.i.i6435, align 1
   %shr11.i.i.i6438 = lshr i64 %value.addr.i.0.i.i6436, 7
   %incdec.ptr12.i.i.i6439 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6435, i64 1
-  %cmp13.i.i.i6440 = icmp ugt i64 %value.addr.i.0.i.i6436, 16383
+  %cmp13.i.i.i6440 = icmp samesign ugt i64 %value.addr.i.0.i.i6436, 16383
   br i1 %cmp13.i.i.i6440, label %do.body.i.i.i6434, label %do.end.i.i.i6441, !llvm.loop !26
 
 do.end.i.i.i6441:                                 ; preds = %do.body.i.i.i6434
@@ -42222,7 +42222,7 @@ do.body.i.i.i6472:                                ; preds = %do.body.i.i.i6472, 
   store i8 %conv10.i.i.i6475, ptr %ptr.addr.i.0.i.i6473, align 1
   %shr11.i.i.i6476 = lshr i64 %value.addr.i.0.i.i6474, 7
   %incdec.ptr12.i.i.i6477 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6473, i64 1
-  %cmp13.i.i.i6478 = icmp ugt i64 %value.addr.i.0.i.i6474, 16383
+  %cmp13.i.i.i6478 = icmp samesign ugt i64 %value.addr.i.0.i.i6474, 16383
   br i1 %cmp13.i.i.i6478, label %do.body.i.i.i6472, label %do.end.i.i.i6479, !llvm.loop !26
 
 do.end.i.i.i6479:                                 ; preds = %do.body.i.i.i6472
@@ -42290,7 +42290,7 @@ do.body.i.i.i6510:                                ; preds = %do.body.i.i.i6510, 
   store i8 %conv10.i.i.i6513, ptr %ptr.addr.i.0.i.i6511, align 1
   %shr11.i.i.i6514 = lshr i64 %value.addr.i.0.i.i6512, 7
   %incdec.ptr12.i.i.i6515 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6511, i64 1
-  %cmp13.i.i.i6516 = icmp ugt i64 %value.addr.i.0.i.i6512, 16383
+  %cmp13.i.i.i6516 = icmp samesign ugt i64 %value.addr.i.0.i.i6512, 16383
   br i1 %cmp13.i.i.i6516, label %do.body.i.i.i6510, label %do.end.i.i.i6517, !llvm.loop !26
 
 do.end.i.i.i6517:                                 ; preds = %do.body.i.i.i6510
@@ -42358,7 +42358,7 @@ do.body.i.i.i6548:                                ; preds = %do.body.i.i.i6548, 
   store i8 %conv10.i.i.i6551, ptr %ptr.addr.i.0.i.i6549, align 1
   %shr11.i.i.i6552 = lshr i64 %value.addr.i.0.i.i6550, 7
   %incdec.ptr12.i.i.i6553 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6549, i64 1
-  %cmp13.i.i.i6554 = icmp ugt i64 %value.addr.i.0.i.i6550, 16383
+  %cmp13.i.i.i6554 = icmp samesign ugt i64 %value.addr.i.0.i.i6550, 16383
   br i1 %cmp13.i.i.i6554, label %do.body.i.i.i6548, label %do.end.i.i.i6555, !llvm.loop !26
 
 do.end.i.i.i6555:                                 ; preds = %do.body.i.i.i6548
@@ -42426,7 +42426,7 @@ do.body.i.i.i6586:                                ; preds = %do.body.i.i.i6586, 
   store i8 %conv10.i.i.i6589, ptr %ptr.addr.i.0.i.i6587, align 1
   %shr11.i.i.i6590 = lshr i64 %value.addr.i.0.i.i6588, 7
   %incdec.ptr12.i.i.i6591 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6587, i64 1
-  %cmp13.i.i.i6592 = icmp ugt i64 %value.addr.i.0.i.i6588, 16383
+  %cmp13.i.i.i6592 = icmp samesign ugt i64 %value.addr.i.0.i.i6588, 16383
   br i1 %cmp13.i.i.i6592, label %do.body.i.i.i6586, label %do.end.i.i.i6593, !llvm.loop !26
 
 do.end.i.i.i6593:                                 ; preds = %do.body.i.i.i6586
@@ -42494,7 +42494,7 @@ do.body.i.i.i6624:                                ; preds = %do.body.i.i.i6624, 
   store i8 %conv10.i.i.i6627, ptr %ptr.addr.i.0.i.i6625, align 1
   %shr11.i.i.i6628 = lshr i64 %value.addr.i.0.i.i6626, 7
   %incdec.ptr12.i.i.i6629 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6625, i64 1
-  %cmp13.i.i.i6630 = icmp ugt i64 %value.addr.i.0.i.i6626, 16383
+  %cmp13.i.i.i6630 = icmp samesign ugt i64 %value.addr.i.0.i.i6626, 16383
   br i1 %cmp13.i.i.i6630, label %do.body.i.i.i6624, label %do.end.i.i.i6631, !llvm.loop !26
 
 do.end.i.i.i6631:                                 ; preds = %do.body.i.i.i6624
@@ -42562,7 +42562,7 @@ do.body.i.i.i6662:                                ; preds = %do.body.i.i.i6662, 
   store i8 %conv10.i.i.i6665, ptr %ptr.addr.i.0.i.i6663, align 1
   %shr11.i.i.i6666 = lshr i64 %value.addr.i.0.i.i6664, 7
   %incdec.ptr12.i.i.i6667 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6663, i64 1
-  %cmp13.i.i.i6668 = icmp ugt i64 %value.addr.i.0.i.i6664, 16383
+  %cmp13.i.i.i6668 = icmp samesign ugt i64 %value.addr.i.0.i.i6664, 16383
   br i1 %cmp13.i.i.i6668, label %do.body.i.i.i6662, label %do.end.i.i.i6669, !llvm.loop !26
 
 do.end.i.i.i6669:                                 ; preds = %do.body.i.i.i6662
@@ -42630,7 +42630,7 @@ do.body.i.i.i6700:                                ; preds = %do.body.i.i.i6700, 
   store i8 %conv10.i.i.i6703, ptr %ptr.addr.i.0.i.i6701, align 1
   %shr11.i.i.i6704 = lshr i64 %value.addr.i.0.i.i6702, 7
   %incdec.ptr12.i.i.i6705 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6701, i64 1
-  %cmp13.i.i.i6706 = icmp ugt i64 %value.addr.i.0.i.i6702, 16383
+  %cmp13.i.i.i6706 = icmp samesign ugt i64 %value.addr.i.0.i.i6702, 16383
   br i1 %cmp13.i.i.i6706, label %do.body.i.i.i6700, label %do.end.i.i.i6707, !llvm.loop !26
 
 do.end.i.i.i6707:                                 ; preds = %do.body.i.i.i6700
@@ -42698,7 +42698,7 @@ do.body.i.i.i6738:                                ; preds = %do.body.i.i.i6738, 
   store i8 %conv10.i.i.i6741, ptr %ptr.addr.i.0.i.i6739, align 1
   %shr11.i.i.i6742 = lshr i64 %value.addr.i.0.i.i6740, 7
   %incdec.ptr12.i.i.i6743 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6739, i64 1
-  %cmp13.i.i.i6744 = icmp ugt i64 %value.addr.i.0.i.i6740, 16383
+  %cmp13.i.i.i6744 = icmp samesign ugt i64 %value.addr.i.0.i.i6740, 16383
   br i1 %cmp13.i.i.i6744, label %do.body.i.i.i6738, label %do.end.i.i.i6745, !llvm.loop !26
 
 do.end.i.i.i6745:                                 ; preds = %do.body.i.i.i6738
@@ -42767,7 +42767,7 @@ do.body.i.i.i6776:                                ; preds = %do.body.i.i.i6776, 
   store i8 %conv10.i.i.i6779, ptr %ptr.addr.i.0.i.i6777, align 1
   %shr11.i.i.i6780 = lshr i64 %value.addr.i.0.i.i6778, 7
   %incdec.ptr12.i.i.i6781 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i6777, i64 1
-  %cmp13.i.i.i6782 = icmp ugt i64 %value.addr.i.0.i.i6778, 16383
+  %cmp13.i.i.i6782 = icmp samesign ugt i64 %value.addr.i.0.i.i6778, 16383
   br i1 %cmp13.i.i.i6782, label %do.body.i.i.i6776, label %do.end.i.i.i6783, !llvm.loop !26
 
 do.end.i.i.i6783:                                 ; preds = %do.body.i.i.i6776
@@ -42859,7 +42859,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -42954,7 +42954,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -43014,7 +43014,7 @@ do.body.i.i.i.i54:                                ; preds = %do.body.i.i.i.i54, 
   store i8 %conv10.i.i.i.i57, ptr %ptr.addr.i.0.i.i.i55, align 1
   %shr11.i.i.i.i58 = lshr i64 %value.addr.i.0.i.i.i56, 7
   %incdec.ptr12.i.i.i.i59 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i55, i64 1
-  %cmp13.i.i.i.i60 = icmp ugt i64 %value.addr.i.0.i.i.i56, 16383
+  %cmp13.i.i.i.i60 = icmp samesign ugt i64 %value.addr.i.0.i.i.i56, 16383
   br i1 %cmp13.i.i.i.i60, label %do.body.i.i.i.i54, label %do.end.i.i.i.i61, !llvm.loop !26
 
 do.end.i.i.i.i61:                                 ; preds = %do.body.i.i.i.i54
@@ -43078,7 +43078,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -43157,7 +43157,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i64 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i64 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i64 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !26
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -43216,7 +43216,7 @@ do.body.i.i12.i52:                                ; preds = %do.body.i.i12.i52, 
   store i8 %conv10.i.i15.i55, ptr %ptr.addr.i.0.i13.i53, align 1
   %shr11.i.i16.i56 = lshr i64 %value.addr.i.0.i14.i54, 7
   %incdec.ptr12.i.i17.i57 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i53, i64 1
-  %cmp13.i.i18.i58 = icmp ugt i64 %value.addr.i.0.i14.i54, 16383
+  %cmp13.i.i18.i58 = icmp samesign ugt i64 %value.addr.i.0.i14.i54, 16383
   br i1 %cmp13.i.i18.i58, label %do.body.i.i12.i52, label %do.end.i.i19.i59, !llvm.loop !26
 
 do.end.i.i19.i59:                                 ; preds = %do.body.i.i12.i52
@@ -43280,7 +43280,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -43358,7 +43358,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i32 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i32 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i32 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !27
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -43417,7 +43417,7 @@ do.body.i.i12.i51:                                ; preds = %do.body.i.i12.i51, 
   store i8 %conv10.i.i15.i54, ptr %ptr.addr.i.0.i13.i52, align 1
   %shr11.i.i16.i55 = lshr i32 %value.addr.i.0.i14.i53, 7
   %incdec.ptr12.i.i17.i56 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i52, i64 1
-  %cmp13.i.i18.i57 = icmp ugt i32 %value.addr.i.0.i14.i53, 16383
+  %cmp13.i.i18.i57 = icmp samesign ugt i32 %value.addr.i.0.i14.i53, 16383
   br i1 %cmp13.i.i18.i57, label %do.body.i.i12.i51, label %do.end.i.i19.i58, !llvm.loop !27
 
 do.end.i.i19.i58:                                 ; preds = %do.body.i.i12.i51
@@ -43481,7 +43481,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -43560,7 +43560,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i64 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i64 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i64 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !26
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -43619,7 +43619,7 @@ do.body.i.i12.i52:                                ; preds = %do.body.i.i12.i52, 
   store i8 %conv10.i.i15.i55, ptr %ptr.addr.i.0.i13.i53, align 1
   %shr11.i.i16.i56 = lshr i64 %value.addr.i.0.i14.i54, 7
   %incdec.ptr12.i.i17.i57 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i53, i64 1
-  %cmp13.i.i18.i58 = icmp ugt i64 %value.addr.i.0.i14.i54, 16383
+  %cmp13.i.i18.i58 = icmp samesign ugt i64 %value.addr.i.0.i14.i54, 16383
   br i1 %cmp13.i.i18.i58, label %do.body.i.i12.i52, label %do.end.i.i19.i59, !llvm.loop !26
 
 do.end.i.i19.i59:                                 ; preds = %do.body.i.i12.i52
@@ -43683,7 +43683,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -43770,7 +43770,7 @@ do.body.i.i13.i:                                  ; preds = %do.body.i.i13.i, %i
   store i8 %conv10.i.i16.i, ptr %ptr.addr.i.0.i14.i, align 1
   %shr11.i.i17.i = lshr i32 %value.addr.i.0.i15.i, 7
   %incdec.ptr12.i.i18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i, i64 1
-  %cmp13.i.i19.i = icmp ugt i32 %value.addr.i.0.i15.i, 16383
+  %cmp13.i.i19.i = icmp samesign ugt i32 %value.addr.i.0.i15.i, 16383
   br i1 %cmp13.i.i19.i, label %do.body.i.i13.i, label %do.end.i.i20.i, !llvm.loop !27
 
 do.end.i.i20.i:                                   ; preds = %do.body.i.i13.i
@@ -43832,7 +43832,7 @@ do.body.i.i13.i55:                                ; preds = %do.body.i.i13.i55, 
   store i8 %conv10.i.i16.i58, ptr %ptr.addr.i.0.i14.i56, align 1
   %shr11.i.i17.i59 = lshr i32 %value.addr.i.0.i15.i57, 7
   %incdec.ptr12.i.i18.i60 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i56, i64 1
-  %cmp13.i.i19.i61 = icmp ugt i32 %value.addr.i.0.i15.i57, 16383
+  %cmp13.i.i19.i61 = icmp samesign ugt i32 %value.addr.i.0.i15.i57, 16383
   br i1 %cmp13.i.i19.i61, label %do.body.i.i13.i55, label %do.end.i.i20.i62, !llvm.loop !27
 
 do.end.i.i20.i62:                                 ; preds = %do.body.i.i13.i55
@@ -43896,7 +43896,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -43984,7 +43984,7 @@ do.body.i.i13.i:                                  ; preds = %do.body.i.i13.i, %i
   store i8 %conv10.i.i16.i, ptr %ptr.addr.i.0.i14.i, align 1
   %shr11.i.i17.i = lshr i64 %value.addr.i.0.i15.i, 7
   %incdec.ptr12.i.i18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i, i64 1
-  %cmp13.i.i19.i = icmp ugt i64 %value.addr.i.0.i15.i, 16383
+  %cmp13.i.i19.i = icmp samesign ugt i64 %value.addr.i.0.i15.i, 16383
   br i1 %cmp13.i.i19.i, label %do.body.i.i13.i, label %do.end.i.i20.i, !llvm.loop !26
 
 do.end.i.i20.i:                                   ; preds = %do.body.i.i13.i
@@ -44046,7 +44046,7 @@ do.body.i.i13.i56:                                ; preds = %do.body.i.i13.i56, 
   store i8 %conv10.i.i16.i59, ptr %ptr.addr.i.0.i14.i57, align 1
   %shr11.i.i17.i60 = lshr i64 %value.addr.i.0.i15.i58, 7
   %incdec.ptr12.i.i18.i61 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i57, i64 1
-  %cmp13.i.i19.i62 = icmp ugt i64 %value.addr.i.0.i15.i58, 16383
+  %cmp13.i.i19.i62 = icmp samesign ugt i64 %value.addr.i.0.i15.i58, 16383
   br i1 %cmp13.i.i19.i62, label %do.body.i.i13.i56, label %do.end.i.i20.i63, !llvm.loop !26
 
 do.end.i.i20.i63:                                 ; preds = %do.body.i.i13.i56
@@ -44110,7 +44110,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -44189,7 +44189,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -44268,7 +44268,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -44347,7 +44347,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -44426,7 +44426,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -44494,7 +44494,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %if.
   store i8 %conv10.i.i22, ptr %ptr.addr.i.0.i20, align 1
   %shr11.i.i23 = lshr i32 %value.addr.i.0.i21, 7
   %incdec.ptr12.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i20, i64 1
-  %cmp13.i.i25 = icmp ugt i32 %value.addr.i.0.i21, 16383
+  %cmp13.i.i25 = icmp samesign ugt i32 %value.addr.i.0.i21, 16383
   br i1 %cmp13.i.i25, label %do.body.i.i19, label %do.end.i.i26, !llvm.loop !27
 
 do.end.i.i26:                                     ; preds = %do.body.i.i19
@@ -44638,7 +44638,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -44706,7 +44706,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %if.
   store i8 %conv10.i.i22, ptr %ptr.addr.i.0.i20, align 1
   %shr11.i.i23 = lshr i32 %value.addr.i.0.i21, 7
   %incdec.ptr12.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i20, i64 1
-  %cmp13.i.i25 = icmp ugt i32 %value.addr.i.0.i21, 16383
+  %cmp13.i.i25 = icmp samesign ugt i32 %value.addr.i.0.i21, 16383
   br i1 %cmp13.i.i25, label %do.body.i.i19, label %do.end.i.i26, !llvm.loop !27
 
 do.end.i.i26:                                     ; preds = %do.body.i.i19
@@ -44850,7 +44850,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -44917,7 +44917,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %if.
   store i8 %conv10.i.i22, ptr %ptr.addr.i.0.i20, align 1
   %shr11.i.i23 = lshr i32 %value.addr.i.0.i21, 7
   %incdec.ptr12.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i20, i64 1
-  %cmp13.i.i25 = icmp ugt i32 %value.addr.i.0.i21, 16383
+  %cmp13.i.i25 = icmp samesign ugt i32 %value.addr.i.0.i21, 16383
   br i1 %cmp13.i.i25, label %do.body.i.i19, label %do.end.i.i26, !llvm.loop !27
 
 do.end.i.i26:                                     ; preds = %do.body.i.i19
@@ -45022,7 +45022,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -45095,7 +45095,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %if.
   store i8 %conv10.i.i22, ptr %ptr.addr.i.0.i20, align 1
   %shr11.i.i23 = lshr i32 %value.addr.i.0.i21, 7
   %incdec.ptr12.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i20, i64 1
-  %cmp13.i.i25 = icmp ugt i32 %value.addr.i.0.i21, 16383
+  %cmp13.i.i25 = icmp samesign ugt i32 %value.addr.i.0.i21, 16383
   br i1 %cmp13.i.i25, label %do.body.i.i19, label %do.end.i.i26, !llvm.loop !27
 
 do.end.i.i26:                                     ; preds = %do.body.i.i19
@@ -45195,7 +45195,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -45259,7 +45259,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -45332,7 +45332,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %if.
   store i8 %conv10.i.i22, ptr %ptr.addr.i.0.i20, align 1
   %shr11.i.i23 = lshr i32 %value.addr.i.0.i21, 7
   %incdec.ptr12.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i20, i64 1
-  %cmp13.i.i25 = icmp ugt i32 %value.addr.i.0.i21, 16383
+  %cmp13.i.i25 = icmp samesign ugt i32 %value.addr.i.0.i21, 16383
   br i1 %cmp13.i.i25, label %do.body.i.i19, label %do.end.i.i26, !llvm.loop !27
 
 do.end.i.i26:                                     ; preds = %do.body.i.i19
@@ -45432,7 +45432,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -51860,7 +51860,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -52701,7 +52701,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -54492,7 +54492,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -54601,7 +54601,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -54669,7 +54669,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -54774,7 +54774,7 @@ do.body.i.i.i.i90:                                ; preds = %do.body.i.i.i.i90, 
   store i8 %conv10.i.i.i.i93, ptr %ptr.addr.i.0.i.i.i91, align 1
   %shr11.i.i.i.i94 = lshr i64 %value.addr.i.0.i.i.i92, 7
   %incdec.ptr12.i.i.i.i95 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i91, i64 1
-  %cmp13.i.i.i.i96 = icmp ugt i64 %value.addr.i.0.i.i.i92, 16383
+  %cmp13.i.i.i.i96 = icmp samesign ugt i64 %value.addr.i.0.i.i.i92, 16383
   br i1 %cmp13.i.i.i.i96, label %do.body.i.i.i.i90, label %do.end.i.i.i.i97, !llvm.loop !26
 
 do.end.i.i.i.i97:                                 ; preds = %do.body.i.i.i.i90
@@ -54907,7 +54907,7 @@ do.body.i.i.i183:                                 ; preds = %do.body.i.i.i183, %
   store i8 %conv10.i.i.i186, ptr %ptr.addr.i.0.i.i184, align 1
   %shr11.i.i.i187 = lshr i64 %value.addr.i.0.i.i185, 7
   %incdec.ptr12.i.i.i188 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i184, i64 1
-  %cmp13.i.i.i189 = icmp ugt i64 %value.addr.i.0.i.i185, 16383
+  %cmp13.i.i.i189 = icmp samesign ugt i64 %value.addr.i.0.i.i185, 16383
   br i1 %cmp13.i.i.i189, label %do.body.i.i.i183, label %do.end.i.i.i190, !llvm.loop !26
 
 do.end.i.i.i190:                                  ; preds = %do.body.i.i.i183
@@ -58798,7 +58798,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   store i8 %conv10.i.i.i, ptr %ptr.addr.i.0.i.i, align 1
   %shr11.i.i.i = lshr i64 %value.addr.i.0.i.i, 7
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 1
-  %cmp13.i.i.i = icmp ugt i64 %value.addr.i.0.i.i, 16383
+  %cmp13.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i, 16383
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !26
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
@@ -61890,7 +61890,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -61954,7 +61954,7 @@ do.body.i.i.i.i18:                                ; preds = %do.body.i.i.i.i18, 
   store i8 %conv10.i.i.i.i21, ptr %ptr.addr.i.0.i.i.i19, align 1
   %shr11.i.i.i.i22 = lshr i64 %value.addr.i.0.i.i.i20, 7
   %incdec.ptr12.i.i.i.i23 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i19, i64 1
-  %cmp13.i.i.i.i24 = icmp ugt i64 %value.addr.i.0.i.i.i20, 16383
+  %cmp13.i.i.i.i24 = icmp samesign ugt i64 %value.addr.i.0.i.i.i20, 16383
   br i1 %cmp13.i.i.i.i24, label %do.body.i.i.i.i18, label %do.end.i.i.i.i25, !llvm.loop !26
 
 do.end.i.i.i.i25:                                 ; preds = %do.body.i.i.i.i18
@@ -62482,7 +62482,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i64 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i64 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i64 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !26
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -62545,7 +62545,7 @@ do.body.i.i12.i17:                                ; preds = %do.body.i.i12.i17, 
   store i8 %conv10.i.i15.i20, ptr %ptr.addr.i.0.i13.i18, align 1
   %shr11.i.i16.i21 = lshr i64 %value.addr.i.0.i14.i19, 7
   %incdec.ptr12.i.i17.i22 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i18, i64 1
-  %cmp13.i.i18.i23 = icmp ugt i64 %value.addr.i.0.i14.i19, 16383
+  %cmp13.i.i18.i23 = icmp samesign ugt i64 %value.addr.i.0.i14.i19, 16383
   br i1 %cmp13.i.i18.i23, label %do.body.i.i12.i17, label %do.end.i.i19.i24, !llvm.loop !26
 
 do.end.i.i19.i24:                                 ; preds = %do.body.i.i12.i17
@@ -63071,7 +63071,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i32 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i32 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i32 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !27
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -63134,7 +63134,7 @@ do.body.i.i12.i17:                                ; preds = %do.body.i.i12.i17, 
   store i8 %conv10.i.i15.i20, ptr %ptr.addr.i.0.i13.i18, align 1
   %shr11.i.i16.i21 = lshr i32 %value.addr.i.0.i14.i19, 7
   %incdec.ptr12.i.i17.i22 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i18, i64 1
-  %cmp13.i.i18.i23 = icmp ugt i32 %value.addr.i.0.i14.i19, 16383
+  %cmp13.i.i18.i23 = icmp samesign ugt i32 %value.addr.i.0.i14.i19, 16383
   br i1 %cmp13.i.i18.i23, label %do.body.i.i12.i17, label %do.end.i.i19.i24, !llvm.loop !27
 
 do.end.i.i19.i24:                                 ; preds = %do.body.i.i12.i17
@@ -63658,7 +63658,7 @@ do.body.i.i12.i:                                  ; preds = %do.body.i.i12.i, %i
   store i8 %conv10.i.i15.i, ptr %ptr.addr.i.0.i13.i, align 1
   %shr11.i.i16.i = lshr i64 %value.addr.i.0.i14.i, 7
   %incdec.ptr12.i.i17.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i, i64 1
-  %cmp13.i.i18.i = icmp ugt i64 %value.addr.i.0.i14.i, 16383
+  %cmp13.i.i18.i = icmp samesign ugt i64 %value.addr.i.0.i14.i, 16383
   br i1 %cmp13.i.i18.i, label %do.body.i.i12.i, label %do.end.i.i19.i, !llvm.loop !26
 
 do.end.i.i19.i:                                   ; preds = %do.body.i.i12.i
@@ -63721,7 +63721,7 @@ do.body.i.i12.i17:                                ; preds = %do.body.i.i12.i17, 
   store i8 %conv10.i.i15.i20, ptr %ptr.addr.i.0.i13.i18, align 1
   %shr11.i.i16.i21 = lshr i64 %value.addr.i.0.i14.i19, 7
   %incdec.ptr12.i.i17.i22 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i13.i18, i64 1
-  %cmp13.i.i18.i23 = icmp ugt i64 %value.addr.i.0.i14.i19, 16383
+  %cmp13.i.i18.i23 = icmp samesign ugt i64 %value.addr.i.0.i14.i19, 16383
   br i1 %cmp13.i.i18.i23, label %do.body.i.i12.i17, label %do.end.i.i19.i24, !llvm.loop !26
 
 do.end.i.i19.i24:                                 ; preds = %do.body.i.i12.i17
@@ -64280,7 +64280,7 @@ do.body.i.i13.i:                                  ; preds = %do.body.i.i13.i, %i
   store i8 %conv10.i.i16.i, ptr %ptr.addr.i.0.i14.i, align 1
   %shr11.i.i17.i = lshr i32 %value.addr.i.0.i15.i, 7
   %incdec.ptr12.i.i18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i, i64 1
-  %cmp13.i.i19.i = icmp ugt i32 %value.addr.i.0.i15.i, 16383
+  %cmp13.i.i19.i = icmp samesign ugt i32 %value.addr.i.0.i15.i, 16383
   br i1 %cmp13.i.i19.i, label %do.body.i.i13.i, label %do.end.i.i20.i, !llvm.loop !27
 
 do.end.i.i20.i:                                   ; preds = %do.body.i.i13.i
@@ -64346,7 +64346,7 @@ do.body.i.i13.i20:                                ; preds = %do.body.i.i13.i20, 
   store i8 %conv10.i.i16.i23, ptr %ptr.addr.i.0.i14.i21, align 1
   %shr11.i.i17.i24 = lshr i32 %value.addr.i.0.i15.i22, 7
   %incdec.ptr12.i.i18.i25 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i21, i64 1
-  %cmp13.i.i19.i26 = icmp ugt i32 %value.addr.i.0.i15.i22, 16383
+  %cmp13.i.i19.i26 = icmp samesign ugt i32 %value.addr.i.0.i15.i22, 16383
   br i1 %cmp13.i.i19.i26, label %do.body.i.i13.i20, label %do.end.i.i20.i27, !llvm.loop !27
 
 do.end.i.i20.i27:                                 ; preds = %do.body.i.i13.i20
@@ -64897,7 +64897,7 @@ do.body.i.i13.i:                                  ; preds = %do.body.i.i13.i, %i
   store i8 %conv10.i.i16.i, ptr %ptr.addr.i.0.i14.i, align 1
   %shr11.i.i17.i = lshr i64 %value.addr.i.0.i15.i, 7
   %incdec.ptr12.i.i18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i, i64 1
-  %cmp13.i.i19.i = icmp ugt i64 %value.addr.i.0.i15.i, 16383
+  %cmp13.i.i19.i = icmp samesign ugt i64 %value.addr.i.0.i15.i, 16383
   br i1 %cmp13.i.i19.i, label %do.body.i.i13.i, label %do.end.i.i20.i, !llvm.loop !26
 
 do.end.i.i20.i:                                   ; preds = %do.body.i.i13.i
@@ -64963,7 +64963,7 @@ do.body.i.i13.i20:                                ; preds = %do.body.i.i13.i20, 
   store i8 %conv10.i.i16.i23, ptr %ptr.addr.i.0.i14.i21, align 1
   %shr11.i.i17.i24 = lshr i64 %value.addr.i.0.i15.i22, 7
   %incdec.ptr12.i.i18.i25 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i14.i21, i64 1
-  %cmp13.i.i19.i26 = icmp ugt i64 %value.addr.i.0.i15.i22, 16383
+  %cmp13.i.i19.i26 = icmp samesign ugt i64 %value.addr.i.0.i15.i22, 16383
   br i1 %cmp13.i.i19.i26, label %do.body.i.i13.i20, label %do.end.i.i20.i27, !llvm.loop !26
 
 do.end.i.i20.i27:                                 ; preds = %do.body.i.i13.i20
@@ -67092,7 +67092,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -67604,7 +67604,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -69976,7 +69976,7 @@ do.body.i.i15.i:                                  ; preds = %do.body.i.i15.i, %i
   store i8 %conv10.i.i18.i, ptr %ptr.addr.i.0.i16.i, align 1
   %shr11.i.i19.i = lshr i32 %value.addr.i.0.i17.i, 7
   %incdec.ptr12.i.i20.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i16.i, i64 1
-  %cmp13.i.i21.i = icmp ugt i32 %value.addr.i.0.i17.i, 16383
+  %cmp13.i.i21.i = icmp samesign ugt i32 %value.addr.i.0.i17.i, 16383
   br i1 %cmp13.i.i21.i, label %do.body.i.i15.i, label %do.end.i.i22.i, !llvm.loop !27
 
 do.end.i.i22.i:                                   ; preds = %do.body.i.i15.i
@@ -71330,7 +71330,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -71985,7 +71985,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -90547,7 +90547,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i, 
   %12 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !noalias !1521
   %13 = load i8, ptr %12, align 1, !noalias !1521
   %14 = and i8 %13, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %14, %frombool
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %14, %frombool
   %__y.addr.1.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i.i
@@ -90564,7 +90564,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %15 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i.i.i, align 8, !noalias !1521
   %16 = load i8, ptr %15, align 1, !noalias !1521
   %17 = and i8 %16, 1
-  %cmp.i4.i.i.i.i.i.i = icmp ule i8 %17, %frombool
+  %cmp.i4.i.i.i.i.i.i = icmp samesign ule i8 %17, %frombool
   br label %_ZNK6google8protobuf3MapIbbE4findERKb.exit
 
 _ZNK6google8protobuf3MapIbbE4findERKb.exit.loopexit: ; preds = %if.else.i.i.i.i, %do.body.i.i.i.i
@@ -90641,7 +90641,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i, 
   %13 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !noalias !1530
   %14 = load i8, ptr %13, align 1, !noalias !1530
   %15 = and i8 %14, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %15, %frombool
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %15, %frombool
   %__y.addr.1.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i.i
@@ -90658,7 +90658,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %16 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i.i.i, align 8, !noalias !1530
   %17 = load i8, ptr %16, align 1, !noalias !1530
   %18 = and i8 %17, 1
-  %cmp.i4.i.i.i.i.i.i = icmp ugt i8 %18, %frombool
+  %cmp.i4.i.i.i.i.i.i = icmp samesign ugt i8 %18, %frombool
   br i1 %cmp.i4.i.i.i.i.i.i, label %_ZN6google8protobuf3MapIbbE4findERKb.exit.thread, label %_ZN6google8protobuf3MapIbbE4findERKb.exit
 
 _ZN6google8protobuf3MapIbbE4findERKb.exit.thread: ; preds = %if.else.i.i.i.i, %_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i.i.i.i.i, %while.end.i.i.i.i, %entry, %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i.i.i
@@ -91950,7 +91950,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %whi
   %20 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !noalias !1583
   %21 = load i8, ptr %20, align 1, !noalias !1583
   %22 = and i8 %21, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %22, %9
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %22, %9
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
@@ -91967,7 +91967,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %23 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i, align 8, !noalias !1583
   %24 = load i8, ptr %23, align 1, !noalias !1583
   %25 = and i8 %24, 1
-  %cmp.i4.i.i.i.i = icmp ult i8 %9, %25
+  %cmp.i4.i.i.i.i = icmp samesign ult i8 %9, %25
   br i1 %cmp.i4.i.i.i.i, label %_ZNK6google8protobuf3MapIbbE8InnerMap4findERKbPSt23_Rb_tree_const_iteratorIPbE.exit, label %if.then28.i.i
 
 if.then28.i.i:                                    ; preds = %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i
@@ -92043,11 +92043,11 @@ while.body.i:                                     ; preds = %if.end20.i, %while.
   %3 = load ptr, ptr %_M_storage.i.i.i, align 8
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
-  %cmp.i.i = icmp ult i8 %5, %2
+  %cmp.i.i = icmp samesign ult i8 %5, %2
   br i1 %cmp.i.i, label %if.end20.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i18.i = icmp ult i8 %2, %5
+  %cmp.i18.i = icmp samesign ult i8 %2, %5
   br i1 %cmp.i18.i, label %if.end20.i, label %if.else13.i
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -92065,7 +92065,7 @@ while.body.i.i:                                   ; preds = %if.else13.i, %while
   %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
-  %cmp.i.i.i = icmp ult i8 %10, %2
+  %cmp.i.i.i = icmp samesign ult i8 %10, %2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__y.addr.06.i.i, ptr %__x.addr.07.i.i
   %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 %__x.addr.1.in.v.i.i
@@ -92085,7 +92085,7 @@ while.body.i23.i:                                 ; preds = %_ZNSt8_Rb_treeIPbS0
   %11 = load ptr, ptr %_M_storage.i.i.i26.i, align 8
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
-  %cmp.i.i27.i = icmp ult i8 %2, %13
+  %cmp.i.i27.i = icmp samesign ult i8 %2, %13
   %__y.addr.1.i28.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
   %__x.addr.1.in.v.i29.i = select i1 %cmp.i.i27.i, i64 16, i64 24
   %__x.addr.1.in.i30.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 %__x.addr.1.in.v.i29.i
@@ -92518,7 +92518,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %whi
   %13 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !noalias !1598
   %14 = load i8, ptr %13, align 1, !noalias !1598
   %15 = and i8 %14, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %15, %1
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %15, %1
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
@@ -92535,7 +92535,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %16 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i, align 8, !noalias !1598
   %17 = load i8, ptr %16, align 1, !noalias !1598
   %18 = and i8 %17, 1
-  %cmp.i4.i.i.i.i = icmp ult i8 %1, %18
+  %cmp.i4.i.i.i.i = icmp samesign ult i8 %1, %18
   br i1 %cmp.i4.i.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %do.body.i.i, %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i
@@ -92952,7 +92952,7 @@ while.body.i.i220:                                ; preds = %while.body.i.i220, 
   %28 = load ptr, ptr %_M_storage.i.i.i.i222, align 8, !noalias !1622
   %29 = load i8, ptr %28, align 1, !noalias !1622
   %30 = and i8 %29, 1
-  %cmp.i.i.i223 = icmp ult i8 %27, %30
+  %cmp.i.i.i223 = icmp samesign ult i8 %27, %30
   %cond.in.v.i.i224 = select i1 %cmp.i.i.i223, i64 16, i64 24
   %cond.in.i.i225 = getelementptr inbounds i8, ptr %__x.021.i.i221, i64 %cond.in.v.i.i224
   %__x.0.i.i226 = load ptr, ptr %cond.in.i.i225, align 8, !noalias !1622
@@ -92982,7 +92982,7 @@ if.end12.i.i229:                                  ; preds = %if.else.i.i264, %wh
   %.pre-phi22.i230 = phi i8 [ %.pre21.i272, %if.else.i.i264 ], [ %27, %while.end.i.i228 ]
   %.pre-phi.i231 = phi i8 [ %.pre20.i271, %if.else.i.i264 ], [ %30, %while.end.i.i228 ]
   %__y.0.lcssa26.i.i232 = phi ptr [ %__y.0.lcssa25.i.i261, %if.else.i.i264 ], [ %__x.021.i.i221, %while.end.i.i228 ]
-  %cmp.i5.i.i234 = icmp ult i8 %.pre-phi.i231, %.pre-phi22.i230
+  %cmp.i5.i.i234 = icmp samesign ult i8 %.pre-phi.i231, %.pre-phi22.i230
   br i1 %cmp.i5.i.i234, label %if.then.i239, label %_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE16_M_insert_uniqueIS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit273
 
 if.then.i239:                                     ; preds = %if.end12.i.i229, %if.then.i.i260
@@ -92997,7 +92997,7 @@ lor.rhs.i.i242:                                   ; preds = %if.then.i239
   %34 = and i8 %33, 1
   %35 = load i8, ptr %32, align 1, !noalias !1622
   %36 = and i8 %35, 1
-  %cmp.i.i7.i244 = icmp ult i8 %34, %36
+  %cmp.i.i7.i244 = icmp samesign ult i8 %34, %36
   br label %lor.end.i.i245
 
 lor.end.i.i245:                                   ; preds = %lor.rhs.i.i242, %if.then.i239
@@ -93069,7 +93069,7 @@ while.body.i.i161:                                ; preds = %while.body.i.i161, 
   %46 = load ptr, ptr %_M_storage.i.i.i.i163, align 8, !noalias !1622
   %47 = load i8, ptr %46, align 1, !noalias !1622
   %48 = and i8 %47, 1
-  %cmp.i.i.i164 = icmp ult i8 %45, %48
+  %cmp.i.i.i164 = icmp samesign ult i8 %45, %48
   %cond.in.v.i.i165 = select i1 %cmp.i.i.i164, i64 16, i64 24
   %cond.in.i.i166 = getelementptr inbounds i8, ptr %__x.021.i.i162, i64 %cond.in.v.i.i165
   %__x.0.i.i167 = load ptr, ptr %cond.in.i.i166, align 8, !noalias !1622
@@ -93099,7 +93099,7 @@ if.end12.i.i170:                                  ; preds = %if.else.i.i205, %wh
   %.pre-phi22.i171 = phi i8 [ %.pre21.i213, %if.else.i.i205 ], [ %45, %while.end.i.i169 ]
   %.pre-phi.i172 = phi i8 [ %.pre20.i212, %if.else.i.i205 ], [ %48, %while.end.i.i169 ]
   %__y.0.lcssa26.i.i173 = phi ptr [ %__y.0.lcssa25.i.i202, %if.else.i.i205 ], [ %__x.021.i.i162, %while.end.i.i169 ]
-  %cmp.i5.i.i175 = icmp ult i8 %.pre-phi.i172, %.pre-phi22.i171
+  %cmp.i5.i.i175 = icmp samesign ult i8 %.pre-phi.i172, %.pre-phi22.i171
   br i1 %cmp.i5.i.i175, label %if.then.i180, label %_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE16_M_insert_uniqueIS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit214
 
 if.then.i180:                                     ; preds = %if.end12.i.i170, %if.then.i.i201
@@ -93114,7 +93114,7 @@ lor.rhs.i.i183:                                   ; preds = %if.then.i180
   %52 = and i8 %51, 1
   %53 = load i8, ptr %50, align 1, !noalias !1622
   %54 = and i8 %53, 1
-  %cmp.i.i7.i185 = icmp ult i8 %52, %54
+  %cmp.i.i7.i185 = icmp samesign ult i8 %52, %54
   br label %lor.end.i.i186
 
 lor.end.i.i186:                                   ; preds = %lor.rhs.i.i183, %if.then.i180
@@ -93191,7 +93191,7 @@ while.body.i.i89:                                 ; preds = %while.body.i.i89, %
   %66 = load ptr, ptr %_M_storage.i.i.i.i91, align 8, !noalias !1630
   %67 = load i8, ptr %66, align 1, !noalias !1630
   %68 = and i8 %67, 1
-  %cmp.i.i.i92 = icmp ult i8 %65, %68
+  %cmp.i.i.i92 = icmp samesign ult i8 %65, %68
   %cond.in.v.i.i93 = select i1 %cmp.i.i.i92, i64 16, i64 24
   %cond.in.i.i94 = getelementptr inbounds i8, ptr %__x.021.i.i90, i64 %cond.in.v.i.i93
   %__x.0.i.i95 = load ptr, ptr %cond.in.i.i94, align 8, !noalias !1630
@@ -93222,7 +93222,7 @@ if.end12.i.i98:                                   ; preds = %if.else.i.i133, %wh
   %.pre-phi22.i99 = phi i8 [ %.pre21.i141, %if.else.i.i133 ], [ %65, %while.end.i.i97 ]
   %.pre-phi.i100 = phi i8 [ %.pre20.i140, %if.else.i.i133 ], [ %68, %while.end.i.i97 ]
   %__y.0.lcssa26.i.i101 = phi ptr [ %__y.0.lcssa25.i.i130, %if.else.i.i133 ], [ %__x.021.i.i90, %while.end.i.i97 ]
-  %cmp.i5.i.i103 = icmp ult i8 %.pre-phi.i100, %.pre-phi22.i99
+  %cmp.i5.i.i103 = icmp samesign ult i8 %.pre-phi.i100, %.pre-phi22.i99
   br i1 %cmp.i5.i.i103, label %if.then.i108, label %_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE16_M_insert_uniqueIS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit142
 
 if.then.i108:                                     ; preds = %if.end12.i.i98, %if.then.i.i129
@@ -93237,7 +93237,7 @@ lor.rhs.i.i111:                                   ; preds = %if.then.i108
   %72 = and i8 %71, 1
   %73 = load i8, ptr %70, align 1, !noalias !1630
   %74 = and i8 %73, 1
-  %cmp.i.i7.i113 = icmp ult i8 %72, %74
+  %cmp.i.i7.i113 = icmp samesign ult i8 %72, %74
   br label %lor.end.i.i114
 
 lor.end.i.i114:                                   ; preds = %lor.rhs.i.i111, %if.then.i108
@@ -93303,7 +93303,7 @@ while.body.i.i:                                   ; preds = %if.else60.i, %while
   %82 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1636
   %83 = load i8, ptr %82, align 1, !noalias !1636
   %84 = and i8 %83, 1
-  %cmp.i.i.i78 = icmp ult i8 %11, %84
+  %cmp.i.i.i78 = icmp samesign ult i8 %11, %84
   %cond.in.v.i.i = select i1 %cmp.i.i.i78, i64 16, i64 24
   %cond.in.i.i = getelementptr inbounds i8, ptr %__x.021.i.i, i64 %cond.in.v.i.i
   %__x.0.i.i = load ptr, ptr %cond.in.i.i, align 8, !noalias !1636
@@ -93331,7 +93331,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i82
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %.pre-phi.i = phi i8 [ %.pre20.i, %if.else.i.i ], [ %84, %while.end.i.i ]
   %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa25.i.i, %if.else.i.i ], [ %__x.021.i.i, %while.end.i.i ]
-  %cmp.i5.i.i = icmp ult i8 %.pre-phi.i, %11
+  %cmp.i5.i.i = icmp samesign ult i8 %.pre-phi.i, %11
   br i1 %cmp.i5.i.i, label %if.then.i80, label %_ZN6google8protobuf3MapIbbE8InnerMap12InsertUniqueEmPNS3_4NodeE.exit
 
 if.then.i80:                                      ; preds = %if.end12.i.i, %if.then.i.i82
@@ -93344,7 +93344,7 @@ lor.rhs.i.i:                                      ; preds = %if.then.i80
   %86 = load ptr, ptr %_M_storage.i.i.i.i6.i, align 8, !noalias !1636
   %87 = load i8, ptr %86, align 1, !noalias !1636
   %88 = and i8 %87, 1
-  %cmp.i.i7.i = icmp ult i8 %11, %88
+  %cmp.i.i7.i = icmp samesign ult i8 %11, %88
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %lor.rhs.i.i, %if.then.i80
@@ -93677,7 +93677,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %3 = load ptr, ptr %_M_storage.i.i.i, align 8
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
-  %cmp.i.i = icmp ult i8 %2, %5
+  %cmp.i.i = icmp samesign ult i8 %2, %5
   %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
   %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
@@ -93710,7 +93710,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %.pre-phi = phi i8 [ %.pre20, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp ult i8 %.pre-phi, %.pre-phi22
+  %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi22
   br i1 %cmp.i5.i, label %if.then, label %return
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
@@ -93726,7 +93726,7 @@ lor.rhs.i:                                        ; preds = %if.then
   %10 = and i8 %9, 1
   %11 = load i8, ptr %8, align 1
   %12 = and i8 %11, 1
-  %cmp.i.i7 = icmp ult i8 %10, %12
+  %cmp.i.i7 = icmp samesign ult i8 %10, %12
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.then
@@ -93835,7 +93835,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i, 
   %14 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !noalias !1660
   %15 = load i8, ptr %14, align 1, !noalias !1660
   %16 = and i8 %15, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %16, %2
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %16, %2
   %__y.addr.1.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i.i
@@ -93852,7 +93852,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %17 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i.i.i, align 8, !noalias !1660
   %18 = load i8, ptr %17, align 1, !noalias !1660
   %19 = and i8 %18, 1
-  %cmp.i4.i.i.i.i.i.i = icmp ult i8 %2, %19
+  %cmp.i4.i.i.i.i.i.i = icmp samesign ult i8 %2, %19
   br i1 %cmp.i4.i.i.i.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %do.body.i.i.i.i, %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i.i.i
@@ -121906,7 +121906,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.3.0.copyload14 = load ptr, ptr %__value.sroa.3.0.add.ptr.sroa_idx13, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6567 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div20, %div.i6567
+  %cmp24.i = icmp samesign ult i64 %div20, %div.i6567
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -122667,7 +122667,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6264 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div17, %div.i6264
+  %cmp23.i = icmp samesign ult i64 %div17, %div.i6264
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -123431,7 +123431,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.3.0.copyload14 = load ptr, ptr %__value.sroa.3.0.add.ptr.sroa_idx13, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6567 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div20, %div.i6567
+  %cmp24.i = icmp samesign ult i64 %div20, %div.i6567
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -124186,7 +124186,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6264 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div17, %div.i6264
+  %cmp23.i = icmp samesign ult i64 %div17, %div.i6264
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -124950,7 +124950,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.3.0.copyload14 = load ptr, ptr %__value.sroa.3.0.add.ptr.sroa_idx13, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6567 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div20, %div.i6567
+  %cmp24.i = icmp samesign ult i64 %div20, %div.i6567
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -125714,7 +125714,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.3.0.copyload14 = load ptr, ptr %__value.sroa.3.0.add.ptr.sroa_idx13, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6567 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div20, %div.i6567
+  %cmp24.i = icmp samesign ult i64 %div20, %div.i6567
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -125902,10 +125902,10 @@ if.end:                                           ; preds = %while.body
   %1 = and i8 %0, 1
   %2 = load i8, ptr %add.ptr.i, align 8
   %3 = and i8 %2, 1
-  %cmp.i.i.i.i = icmp ult i8 %1, %3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, %3
   %4 = load i8, ptr %add.ptr2.i, align 8
   %5 = and i8 %4, 1
-  %cmp.i.i20.i.i = icmp ult i8 %1, %5
+  %cmp.i.i20.i.i = icmp samesign ult i8 %1, %5
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -125939,7 +125939,7 @@ if.then9.i.i:                                     ; preds = %if.else7.i.i
   br label %while.body.i.i.preheader
 
 if.else10.i.i:                                    ; preds = %if.else7.i.i
-  %cmp.i.i25.i.i = icmp ult i8 %3, %5
+  %cmp.i.i25.i.i = icmp samesign ult i8 %3, %5
   br i1 %cmp.i.i25.i.i, label %if.then12.i.i, label %if.else13.i.i
 
 if.then12.i.i:                                    ; preds = %if.else10.i.i
@@ -125972,7 +125972,7 @@ while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %w
   %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i ], [ %incdec.ptr.i.i, %while.cond1.i.i ]
   %8 = load i8, ptr %__first.addr.1.i.i, align 8
   %9 = and i8 %8, 1
-  %cmp.i.i.i9.i = icmp ult i8 %9, %7
+  %cmp.i.i.i9.i = icmp samesign ult i8 %9, %7
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 16
   br i1 %cmp.i.i.i9.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !2953
 
@@ -125981,7 +125981,7 @@ while.cond4.i.i:                                  ; preds = %while.cond1.i.i, %w
   %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -16
   %10 = load i8, ptr %__last.addr.1.i.i, align 8
   %11 = and i8 %10, 1
-  %cmp.i.i11.i.i = icmp ult i8 %7, %11
+  %cmp.i.i11.i.i = icmp samesign ult i8 %7, %11
   br i1 %cmp.i.i11.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !2954
 
 while.end8.i.i:                                   ; preds = %while.cond4.i.i
@@ -126034,7 +126034,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %1 = and i8 %0, 1
   %2 = load i8, ptr %__first, align 8
   %3 = and i8 %2, 1
-  %cmp.i.i.i = icmp ult i8 %1, %3
+  %cmp.i.i.i = icmp samesign ult i8 %1, %3
   br i1 %cmp.i.i.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.body.i
@@ -126049,7 +126049,7 @@ if.else.i:                                        ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %__val.sroa.3.i.i, ptr noundef nonnull align 1 dereferenceable(15) %__val.sroa.3.0.__last.sroa_idx.i.i, i64 15, i1 false)
   %4 = load i8, ptr %__first.pn14.i, align 8
   %5 = and i8 %4, 1
-  %cmp.i.i10.i.i = icmp ult i8 %1, %5
+  %cmp.i.i10.i.i = icmp samesign ult i8 %1, %5
   br i1 %cmp.i.i10.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i
 
 while.body.i.i:                                   ; preds = %if.else.i, %while.body.i.i
@@ -126059,7 +126059,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %__next.0.i.i = getelementptr inbounds i8, ptr %__next.012.i.i, i64 -16
   %6 = load i8, ptr %__next.0.i.i, align 8
   %7 = and i8 %6, 1
-  %cmp.i.i.i.i = icmp ult i8 %1, %7
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, %7
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i, !llvm.loop !2957
 
 _ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i: ; preds = %while.body.i.i, %if.else.i
@@ -126091,7 +126091,7 @@ for.body.i10:                                     ; preds = %_ZSt16__insertion_s
   %__next.09.i.i = getelementptr inbounds i8, ptr %__i.04.i, i64 -16
   %9 = load i8, ptr %__next.09.i.i, align 8
   %10 = and i8 %9, 1
-  %cmp.i.i10.i.i12 = icmp ult i8 %8, %10
+  %cmp.i.i10.i.i12 = icmp samesign ult i8 %8, %10
   br i1 %cmp.i.i10.i.i12, label %while.body.i.i16, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i13
 
 while.body.i.i16:                                 ; preds = %for.body.i10, %while.body.i.i16
@@ -126101,7 +126101,7 @@ while.body.i.i16:                                 ; preds = %for.body.i10, %whil
   %__next.0.i.i19 = getelementptr inbounds i8, ptr %__next.012.i.i17, i64 -16
   %11 = load i8, ptr %__next.0.i.i19, align 8
   %12 = and i8 %11, 1
-  %cmp.i.i.i.i20 = icmp ult i8 %8, %12
+  %cmp.i.i.i.i20 = icmp samesign ult i8 %8, %12
   br i1 %cmp.i.i.i.i20, label %while.body.i.i16, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i13, !llvm.loop !2957
 
 _ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i13: ; preds = %while.body.i.i16, %for.body.i10
@@ -126129,7 +126129,7 @@ for.body.i25:                                     ; preds = %if.else, %for.inc.i
   %14 = and i8 %13, 1
   %15 = load i8, ptr %__first, align 8
   %16 = and i8 %15, 1
-  %cmp.i.i.i28 = icmp ult i8 %14, %16
+  %cmp.i.i.i28 = icmp samesign ult i8 %14, %16
   br i1 %cmp.i.i.i28, label %if.then2.i43, label %if.else.i29
 
 if.then2.i43:                                     ; preds = %for.body.i25
@@ -126150,7 +126150,7 @@ if.else.i29:                                      ; preds = %for.body.i25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %__val.sroa.3.i.i21, ptr noundef nonnull align 1 dereferenceable(15) %__val.sroa.3.0.__last.sroa_idx.i.i30, i64 15, i1 false)
   %17 = load i8, ptr %__first.pn14.i27, align 8
   %18 = and i8 %17, 1
-  %cmp.i.i10.i.i31 = icmp ult i8 %14, %18
+  %cmp.i.i10.i.i31 = icmp samesign ult i8 %14, %18
   br i1 %cmp.i.i10.i.i31, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i32
 
 while.body.i.i38:                                 ; preds = %if.else.i29, %while.body.i.i38
@@ -126160,7 +126160,7 @@ while.body.i.i38:                                 ; preds = %if.else.i29, %while
   %__next.0.i.i41 = getelementptr inbounds i8, ptr %__next.012.i.i39, i64 -16
   %19 = load i8, ptr %__next.0.i.i41, align 8
   %20 = and i8 %19, 1
-  %cmp.i.i.i.i42 = icmp ult i8 %14, %20
+  %cmp.i.i.i.i42 = icmp samesign ult i8 %14, %20
   br i1 %cmp.i.i.i.i42, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i32, !llvm.loop !2957
 
 _ZSt25__unguarded_linear_insertIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_.exit.i32: ; preds = %while.body.i.i38, %if.else.i29
@@ -126219,7 +126219,7 @@ while.body.i.i:                                   ; preds = %while.body, %while.
   %1 = and i8 %0, 1
   %2 = load i8, ptr %add.ptr2.i.i, align 8
   %3 = and i8 %2, 1
-  %cmp.i.i.i.i = icmp ult i8 %1, %3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, %3
   %spec.select.i.i = select i1 %cmp.i.i.i.i, i64 %sub1.i.i, i64 %mul.i.i
   %add.ptr3.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %spec.select.i.i
   %add.ptr4.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %__holeIndex.addr.025.i.i
@@ -126263,7 +126263,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %add.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %__parent.015.i.i56.i
   %6 = load i8, ptr %add.ptr.i.i.i, align 8
   %7 = and i8 %6, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %7, %5
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %7, %5
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -126328,7 +126328,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %2 = and i8 %1, 1
   %3 = load i8, ptr %add.ptr2.i, align 8
   %4 = and i8 %3, 1
-  %cmp.i.i.i = icmp ult i8 %2, %4
+  %cmp.i.i.i = icmp samesign ult i8 %2, %4
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %spec.select.i
   %add.ptr4.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %__holeIndex.addr.025.i
@@ -126362,7 +126362,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %__first, i64 %__parent.015.i.i
   %6 = load i8, ptr %add.ptr.i.i, align 8
   %7 = and i8 %6, 1
-  %cmp.i.i.i.i = icmp ult i8 %7, %5
+  %cmp.i.i.i.i = icmp samesign ult i8 %7, %5
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
@@ -148373,7 +148373,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %whi
   %20 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !noalias !3354
   %21 = load i8, ptr %20, align 1, !noalias !3354
   %22 = and i8 %21, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %22, %9
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %22, %9
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
@@ -148390,7 +148390,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %23 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i, align 8, !noalias !3354
   %24 = load i8, ptr %23, align 1, !noalias !3354
   %25 = and i8 %24, 1
-  %cmp.i4.i.i.i.i = icmp ult i8 %9, %25
+  %cmp.i4.i.i.i.i = icmp samesign ult i8 %9, %25
   br i1 %cmp.i4.i.i.i.i, label %_ZNK6google8protobuf3MapIbbE8InnerMap4findERKbPSt23_Rb_tree_const_iteratorIPbE.exit, label %if.then28.i.i
 
 if.then28.i.i:                                    ; preds = %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i
@@ -148986,7 +148986,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   store i8 %conv10.i.i, ptr %ptr.addr.i.0.i, align 1
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
-  %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
+  %cmp13.i.i = icmp samesign ugt i32 %value.addr.i.0.i, 16383
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !27
 
 do.end.i.i:                                       ; preds = %do.body.i.i
@@ -149034,7 +149034,7 @@ do.body.i.i15:                                    ; preds = %do.body.i.i15, %if.
   store i8 %conv10.i.i18, ptr %ptr.addr.i.0.i16, align 1
   %shr11.i.i19 = lshr i32 %value.addr.i.0.i17, 7
   %incdec.ptr12.i.i20 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i16, i64 1
-  %cmp13.i.i21 = icmp ugt i32 %value.addr.i.0.i17, 16383
+  %cmp13.i.i21 = icmp samesign ugt i32 %value.addr.i.0.i17, 16383
   br i1 %cmp13.i.i21, label %do.body.i.i15, label %do.end.i.i22, !llvm.loop !27
 
 do.end.i.i22:                                     ; preds = %do.body.i.i15
@@ -149102,7 +149102,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   store i8 %conv10.i.i.i.i, ptr %ptr.addr.i.0.i.i.i, align 1
   %shr11.i.i.i.i = lshr i64 %value.addr.i.0.i.i.i, 7
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i.i, i64 1
-  %cmp13.i.i.i.i = icmp ugt i64 %value.addr.i.0.i.i.i, 16383
+  %cmp13.i.i.i.i = icmp samesign ugt i64 %value.addr.i.0.i.i.i, 16383
   br i1 %cmp13.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !26
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
@@ -152656,7 +152656,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i, 
   %18 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !noalias !3720
   %19 = load i8, ptr %18, align 1, !noalias !3720
   %20 = and i8 %19, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %20, %6
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %20, %6
   %__y.addr.1.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i.i
@@ -152673,7 +152673,7 @@ _ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EE
   %21 = load ptr, ptr %_M_storage.i.i.i3.i.i.i.i.i.i, align 8, !noalias !3720
   %22 = load i8, ptr %21, align 1, !noalias !3720
   %23 = and i8 %22, 1
-  %cmp.i4.i.i.i.i.i.i = icmp ult i8 %6, %23
+  %cmp.i4.i.i.i.i.i.i = icmp samesign ult i8 %6, %23
   br i1 %cmp.i4.i.i.i.i.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %if.else.i.i.i.i, %_ZNSt3setIPbN6google8protobuf8internal12DerefCompareIbEENS3_12MapAllocatorIS0_EEE4findERKS0_.exit.i.i.i.i, %_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i.i.i.i.i, %while.end.i.i.i.i, %for.body

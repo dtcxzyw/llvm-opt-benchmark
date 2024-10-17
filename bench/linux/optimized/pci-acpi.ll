@@ -605,7 +605,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %347 = load i16, ptr %48, align 2
   %348 = lshr i16 %347, 4
   %349 = and i16 %348, 15
-  %350 = icmp ugt i16 %349, 10
+  %350 = icmp samesign ugt i16 %349, 10
   br i1 %350, label %356, label %351
 
 351:                                              ; preds = %346
@@ -670,7 +670,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %390 = and i8 %389, 15
   %391 = and i8 %389, 16
   %392 = icmp ne i8 %391, 0
-  %393 = icmp uge i8 %390, %388
+  %393 = icmp samesign uge i8 %390, %388
   %394 = and i1 %392, %393
   %395 = icmp eq i8 %390, %388
   %396 = or i1 %395, %394

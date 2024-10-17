@@ -2016,7 +2016,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit53: ; pr
 
 112:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit35, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit53
   %113 = add nuw nsw i64 %.03057, 3
-  %114 = icmp ult i64 %113, %.0.i.i
+  %114 = icmp samesign ult i64 %113, %.0.i.i
   br i1 %114, label %18, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %112, %_ZNK4llvm6MDNode14getNumOperandsEv.exit

@@ -1724,7 +1724,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 ..critedge_crit_edge.us:                          ; preds = %55
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
-  %56 = icmp uge i64 %indvars.iv.next386, %24
+  %56 = icmp samesign uge i64 %indvars.iv.next386, %24
   %57 = icmp ne ptr %.2226.us, null
   %or.cond.us = select i1 %56, i1 true, i1 %57
   br i1 %or.cond.us, label %._crit_edge, label %.preheader293.us, !llvm.loop !17

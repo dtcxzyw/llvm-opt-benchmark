@@ -2233,7 +2233,7 @@ for.inc:                                          ; preds = %land.rhs.i.i38, %_Z
   %43 = phi i32 [ %23, %land.rhs.i.i38 ], [ %.pre, %_ZN3hnf3imp18contains_predicateEP4expr.exit ], [ %23, %_ZNK3hnf3imp12is_predicateEP4expr.exit42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %44
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %cmp, label %for.body, label %if.end28, !llvm.loop !11
 
 land.rhs.i53:                                     ; preds = %land.rhs.i.i28
@@ -3945,7 +3945,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i586: ; preds = %if.end.i.i.i, %for.cond.i
   %retval.0.i.i.i = phi i64 [ %260, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.i587 = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i
+  %cmp.i587 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i
   br i1 %cmp.i587, label %for.body.i, label %invoke.cont236
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i586
@@ -4015,7 +4015,7 @@ if.end.i.i.i614:                                  ; preds = %for.cond.i611
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i616: ; preds = %if.end.i.i.i614, %for.cond.i611
   %retval.0.i.i.i617 = phi i64 [ %272, %if.end.i.i.i614 ], [ 0, %for.cond.i611 ]
-  %cmp.i618 = icmp ult i64 %indvars.iv.i612, %retval.0.i.i.i617
+  %cmp.i618 = icmp samesign ult i64 %indvars.iv.i612, %retval.0.i.i.i617
   br i1 %cmp.i618, label %for.body.i619, label %invoke.cont248
 
 for.body.i619:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i616
@@ -7592,7 +7592,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK14expr_free_vars4sizeEv.exit:                 ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i64 [ %4, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont7, label %for.end
 
 invoke.cont7:                                     ; preds = %_ZNK14expr_free_vars4sizeEv.exit

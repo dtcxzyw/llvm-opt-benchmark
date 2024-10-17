@@ -1488,7 +1488,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
 10:                                               ; preds = %4
   %11 = add nuw nsw i64 %8, 32
   %12 = zext i32 %3 to i64
-  %13 = icmp ugt i64 %11, %12
+  %13 = icmp samesign ugt i64 %11, %12
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
@@ -1936,7 +1936,7 @@ define dso_local void @xt_free_table_info(ptr noundef %0) #0 align 16 {
   tail call void @kvfree(ptr noundef %19) #20
   %20 = add nuw nsw i64 %12, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %.preheader, !prof !31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %11, %.thread
@@ -2201,7 +2201,7 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
 24:                                               ; preds = %37, %21
   %25 = phi i64 [ 0, %21 ], [ %51, %37 ]
   %26 = and i64 %25, 4294967295
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %28, !prof !14
 
 28:                                               ; preds = %24
@@ -2303,7 +2303,7 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
 .loopexit:                                        ; preds = %.preheader, %73
   %85 = add nuw nsw i64 %70, 1
   %86 = and i64 %85, 127
-  %87 = icmp ugt i64 %86, 63
+  %87 = icmp samesign ugt i64 %86, 63
   br i1 %87, label %.thread9, label %63, !prof !31, !llvm.loop !46
 
 .thread9:                                         ; preds = %63, %.loopexit, %69
@@ -2527,7 +2527,7 @@ define dso_local ptr @xt_hook_ops_alloc(ptr nocapture noundef readonly %0, ptr n
   %35 = lshr i32 %21, 1
   %36 = add nuw nsw i32 %19, 1
   %37 = zext i8 %34 to i32
-  %38 = icmp ugt i32 %6, %37
+  %38 = icmp samesign ugt i32 %6, %37
   %39 = icmp ugt i32 %21, 1
   %40 = and i1 %39, %38
   br i1 %40, label %18, label %.loopexit, !llvm.loop !49
@@ -2864,7 +2864,7 @@ define internal i32 @xt_init() #14 section ".init.text" align 16 {
   store i32 0, ptr %16, align 4
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %1, !prof !31, !llvm.loop !58
 
 .thread:                                          ; preds = %1, %11, %7

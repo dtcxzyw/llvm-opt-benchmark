@@ -905,7 +905,7 @@ InternalRead.exit63:                              ; preds = %117, %119
   %144 = load ptr, ptr %99, align 8
   %145 = load i32, ptr %144, align 8
   %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %indvars.iv.next, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next, %146
   br i1 %147, label %113, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %128, %.preheader, %102

@@ -3430,7 +3430,7 @@ _ZSt4sortIPdEvT_S1_.exit:                         ; preds = %._crit_edge200
   %310 = load double, ptr %309, align 8
   %311 = fsub double %.5118202, %310
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %312 = icmp ult i64 %indvars.iv.next249, %308
+  %312 = icmp samesign ult i64 %indvars.iv.next249, %308
   %313 = fcmp ugt double %311, 0.000000e+00
   %or.cond140 = select i1 %312, i1 %313, i1 false
   br i1 %or.cond140, label %.lr.ph204, label %._crit_edge205.loopexit, !llvm.loop !32
@@ -3980,7 +3980,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_le
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

@@ -844,7 +844,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %93 = add nuw nsw i64 %89, 1
   %94 = load i8, ptr %86, align 8
   %95 = zext i8 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %.preheader3, label %.loopexit4, !llvm.loop !41
 
 .loopexit4:                                       ; preds = %.preheader3, %85, %82
@@ -868,7 +868,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %107 = add nuw nsw i64 %103, 1
   %108 = load i8, ptr %100, align 8
   %109 = zext i8 %108 to i64
-  %110 = icmp ult i64 %107, %109
+  %110 = icmp samesign ult i64 %107, %109
   br i1 %110, label %.preheader1, label %.loopexit2, !llvm.loop !41
 
 .loopexit2:                                       ; preds = %.preheader1, %99, %.loopexit4
@@ -893,7 +893,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %122 = add nuw nsw i64 %118, 1
   %123 = load i8, ptr %115, align 8
   %124 = zext i8 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %.preheader, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2
@@ -1479,7 +1479,7 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr n
   %74 = add nuw nsw i64 %48, 1
   %75 = load i8, ptr %45, align 8
   %76 = zext i8 %75 to i64
-  %77 = icmp ult i64 %74, %76
+  %77 = icmp samesign ult i64 %74, %76
   br i1 %77, label %.preheader, label %.loopexit.loopexit, !llvm.loop !46
 
 .loopexit.loopexit:                               ; preds = %.preheader
@@ -1696,7 +1696,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
   %58 = add nuw nsw i64 %56, 1
   %59 = load i8, ptr %44, align 8
   %60 = zext i8 %59 to i64
-  %61 = icmp ult i64 %58, %60
+  %61 = icmp samesign ult i64 %58, %60
   br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %47, %43
@@ -2399,7 +2399,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
 
 158:                                              ; preds = %227, %144
   %159 = phi i64 [ 1, %144 ], [ %228, %227 ]
-  %160 = icmp ugt i64 %159, 1
+  %160 = icmp samesign ugt i64 %159, 1
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %158
@@ -3216,7 +3216,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %76 = add nuw nsw i64 %70, 1
   %77 = load i8, ptr %63, align 8
   %78 = zext i8 %77 to i64
-  %79 = icmp ult i64 %76, %78
+  %79 = icmp samesign ult i64 %76, %78
   br i1 %79, label %69, label %172, !llvm.loop !78
 
 80:                                               ; preds = %.thread42, %52
@@ -3283,7 +3283,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %126 = phi i32 [ %124, %113 ], [ 63, %92 ]
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 65535)
   %128 = trunc nuw i32 %127 to i16
-  %129 = icmp ult i16 %59, %128
+  %129 = icmp samesign ult i16 %59, %128
   br i1 %129, label %.thread, label %.thread42
 
 .thread42:                                        ; preds = %90, %125
@@ -3298,7 +3298,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %137 = add nuw nsw i32 %83, 1
   %138 = load i8, ptr %49, align 8
   %139 = zext i8 %138 to i64
-  %140 = icmp ult i64 %136, %139
+  %140 = icmp samesign ult i64 %136, %139
   br i1 %140, label %80, label %.loopexit20, !llvm.loop !79
 
 .thread:                                          ; preds = %80, %125
@@ -3340,7 +3340,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %166 = add nuw nsw i64 %160, 1
   %167 = load i8, ptr %151, align 8
   %168 = zext i8 %167 to i64
-  %169 = icmp ult i64 %166, %168
+  %169 = icmp samesign ult i64 %166, %168
   br i1 %169, label %159, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %159, %146
@@ -3438,7 +3438,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %242 = add nuw nsw i32 %235, %233
   %243 = add nuw nsw i32 %242, %238
   %244 = add nuw nsw i32 %243, %241
-  %245 = icmp ult i32 %244, 512
+  %245 = icmp samesign ult i32 %244, 512
   br i1 %245, label %246, label %.thread19
 
 246:                                              ; preds = %215
@@ -3754,7 +3754,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr nocapture noundef r
   %87 = add nuw nsw i64 %53, 1
   %88 = load i8, ptr %31, align 2
   %89 = zext i8 %88 to i64
-  %90 = icmp ult i64 %87, %89
+  %90 = icmp samesign ult i64 %87, %89
   br i1 %90, label %52, label %91, !llvm.loop !96
 
 91:                                               ; preds = %74
@@ -3808,7 +3808,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr nocapture noundef r
   %122 = add nuw nsw i64 %105, 1
   %123 = load i8, ptr %96, align 8
   %124 = zext i8 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %104, label %.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %119, %93, %23
@@ -4693,7 +4693,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %368 = add nuw nsw i64 %340, 1
   %369 = load i8, ptr %324, align 2
   %370 = zext i8 %369 to i64
-  %371 = icmp ult i64 %368, %370
+  %371 = icmp samesign ult i64 %368, %370
   br i1 %371, label %339, label %333, !llvm.loop !123
 
 372:                                              ; preds = %.loopexit20, %335
@@ -4725,7 +4725,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %391 = add nuw nsw i64 %389, 1
   %392 = load i8, ptr %382, align 8
   %393 = zext i8 %392 to i64
-  %394 = icmp ult i64 %391, %393
+  %394 = icmp samesign ult i64 %391, %393
   br i1 %394, label %388, label %.loopexit20, !llvm.loop !78
 
 .loopexit20:                                      ; preds = %388, %379, %372
@@ -4777,7 +4777,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %423 = add nuw nsw i64 %406, 1
   %424 = load i8, ptr %399, align 8
   %425 = zext i8 %424 to i64
-  %426 = icmp ult i64 %423, %425
+  %426 = icmp samesign ult i64 %423, %425
   br i1 %426, label %405, label %.loopexit21, !llvm.loop !98
 
 .loopexit21:                                      ; preds = %420, %397
@@ -4877,7 +4877,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %493 = add nuw nsw i64 %491, 1
   %494 = load i8, ptr %468, align 8
   %495 = zext i8 %494 to i64
-  %496 = icmp ult i64 %493, %495
+  %496 = icmp samesign ult i64 %493, %495
   br i1 %496, label %490, label %.loopexit18, !llvm.loop !126
 
 .loopexit18:                                      ; preds = %490, %483, %469
@@ -5062,7 +5062,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   %93 = add nuw nsw i64 %31, 1
   %94 = load i8, ptr %14, align 2
   %95 = zext i8 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %30, label %97, !llvm.loop !135
 
 97:                                               ; preds = %30, %39, %44, %49, %75
@@ -5117,7 +5117,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   %128 = add nuw nsw i64 %111, 1
   %129 = load i8, ptr %104, align 8
   %130 = zext i8 %129 to i64
-  %131 = icmp ult i64 %128, %130
+  %131 = icmp samesign ult i64 %128, %130
   br i1 %131, label %110, label %.thread, !llvm.loop !98
 
 .thread:                                          ; preds = %125, %1, %101, %97
@@ -5821,7 +5821,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %76 = add nuw nsw i64 %70, 1
   %77 = load i8, ptr %63, align 8
   %78 = zext i8 %77 to i64
-  %79 = icmp ult i64 %76, %78
+  %79 = icmp samesign ult i64 %76, %78
   br i1 %79, label %69, label %.loopexit13, !llvm.loop !144
 
 .loopexit13:                                      ; preds = %69, %60
@@ -5850,7 +5850,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %94 = add nuw nsw i64 %89, 1
   %95 = load i8, ptr %86, align 8
   %96 = zext i8 %95 to i64
-  %97 = icmp ult i64 %94, %96
+  %97 = icmp samesign ult i64 %94, %96
   br i1 %97, label %.preheader, label %.loopexit12, !llvm.loop !145
 
 .loopexit12:                                      ; preds = %.preheader, %83
@@ -6029,7 +6029,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
 
 205:                                              ; preds = %204, %201, %198, %195
   %206 = phi i32 [ 0, %204 ], [ %203, %201 ], [ %200, %198 ], [ 63, %195 ]
-  %207 = icmp ult i32 %206, %197
+  %207 = icmp samesign ult i32 %206, %197
   br i1 %207, label %263, label %208
 
 208:                                              ; preds = %205
@@ -6126,7 +6126,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %259 = add nuw nsw i32 %103, 1
   %260 = load i8, ptr %51, align 8
   %261 = zext i8 %260 to i64
-  %262 = icmp ult i64 %258, %261
+  %262 = icmp samesign ult i64 %258, %261
   br i1 %262, label %101, label %.loopexit, !llvm.loop !156
 
 263:                                              ; preds = %205
@@ -6161,7 +6161,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %284 = add nuw nsw i64 %278, 1
   %285 = load i8, ptr %269, align 8
   %286 = zext i8 %285 to i64
-  %287 = icmp ult i64 %284, %286
+  %287 = icmp samesign ult i64 %284, %286
   br i1 %287, label %277, label %288, !llvm.loop !144
 
 288:                                              ; preds = %277
@@ -6181,7 +6181,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %298 = getelementptr inbounds i8, ptr %296, i64 7024
   %299 = load i8, ptr %298, align 8
   %300 = zext i8 %299 to i32
-  %301 = icmp ult i32 %297, %300
+  %301 = icmp samesign ult i32 %297, %300
   br i1 %301, label %302, label %316
 
 302:                                              ; preds = %294
@@ -6200,7 +6200,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
   %310 = add nuw nsw i64 %305, 1
   %311 = load i8, ptr %298, align 8
   %312 = zext i8 %311 to i64
-  %313 = icmp ult i64 %310, %312
+  %313 = icmp samesign ult i64 %310, %312
   br i1 %313, label %304, label %314, !llvm.loop !145
 
 314:                                              ; preds = %304
@@ -6432,7 +6432,7 @@ define internal noundef i32 @g4x_compute_intermediate_wm(ptr nocapture noundef r
 
 86:                                               ; preds = %85, %84, %83, %74
   %87 = phi i32 [ 0, %85 ], [ 127, %84 ], [ 127, %83 ], [ 63, %74 ]
-  %88 = icmp ult i32 %87, %81
+  %88 = icmp samesign ult i32 %87, %81
   br i1 %88, label %89, label %100, !prof !16
 
 89:                                               ; preds = %86
@@ -6960,7 +6960,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %174 = getelementptr inbounds i8, ptr %173, i64 7024
   %175 = load i8, ptr %174, align 8
   %176 = zext i8 %175 to i32
-  %177 = icmp ult i32 %162, %176
+  %177 = icmp samesign ult i32 %162, %176
   br i1 %177, label %178, label %.loopexit17
 
 178:                                              ; preds = %171
@@ -6974,7 +6974,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %183 = add nuw nsw i64 %181, 1
   %184 = load i8, ptr %174, align 8
   %185 = zext i8 %184 to i64
-  %186 = icmp ult i64 %183, %185
+  %186 = icmp samesign ult i64 %183, %185
   br i1 %186, label %180, label %.loopexit17, !llvm.loop !144
 
 .loopexit17:                                      ; preds = %180, %171, %164
@@ -6988,7 +6988,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %192 = getelementptr inbounds i8, ptr %191, i64 7024
   %193 = load i8, ptr %192, align 8
   %194 = zext i8 %193 to i32
-  %195 = icmp ult i32 %162, %194
+  %195 = icmp samesign ult i32 %162, %194
   br i1 %195, label %.preheader, label %.loopexit18
 
 .preheader:                                       ; preds = %189
@@ -7003,7 +7003,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %198 = add nuw nsw i64 %197, 1
   %199 = load i8, ptr %192, align 8
   %200 = zext i8 %199 to i64
-  %201 = icmp ult i64 %198, %200
+  %201 = icmp samesign ult i64 %198, %200
   br i1 %201, label %196, label %.loopexit18, !llvm.loop !145
 
 .loopexit18:                                      ; preds = %196, %189
@@ -7160,7 +7160,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %298 = add nuw nsw i64 %294, 1
   %299 = load i8, ptr %272, align 8
   %300 = zext i8 %299 to i64
-  %301 = icmp ult i64 %298, %300
+  %301 = icmp samesign ult i64 %298, %300
   br i1 %301, label %.split.us, label %.loopexit15, !llvm.loop !188
 
 .split:                                           ; preds = %290
@@ -7174,7 +7174,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %304 = add nuw nsw i64 %303, 1
   %305 = load i8, ptr %272, align 8
   %306 = zext i8 %305 to i64
-  %307 = icmp ult i64 %304, %306
+  %307 = icmp samesign ult i64 %304, %306
   br i1 %307, label %302, label %.loopexit15, !llvm.loop !188
 
 .loopexit15:                                      ; preds = %302, %.split.us, %287, %273
@@ -7974,7 +7974,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %167 = sub nsw i32 507, %165
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %167) #14
   %168 = tail call i32 @llvm.smin.i32(i32 %167, i32 63)
-  %169 = icmp ugt i64 %160, 323840000
+  %169 = icmp samesign ugt i64 %160, 323840000
   %170 = tail call i32 @llvm.umax.i32(i32 %168, i32 8)
   %171 = shl i32 %170, 24
   %172 = load ptr, ptr %132, align 8
@@ -8036,7 +8036,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %223 = sub nsw i32 507, %221
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %223) #14
   %224 = tail call i32 @llvm.smin.i32(i32 %223, i32 63)
-  %225 = icmp ugt i64 %216, 323840000
+  %225 = icmp samesign ugt i64 %216, 323840000
   %226 = tail call i32 @llvm.umax.i32(i32 %224, i32 8)
   %227 = shl nuw i32 %226, 16
   %228 = load ptr, ptr %132, align 8

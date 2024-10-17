@@ -403,10 +403,10 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr nocapture no
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.131 = phi float [ %.035, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   %19 = trunc nuw i64 %indvars.iv.next to i32
   %20 = select i1 %18, i32 %19, i32 %.02334
-  %.not.i = icmp ult i64 %indvars.iv, %12
+  %.not.i = icmp samesign ult i64 %indvars.iv, %12
   %21 = getelementptr inbounds %struct.hb_outline_point_t, ptr %11, i64 %indvars.iv
   %.0.i = select i1 %.not.i, ptr %21, ptr @_hb_NullPool
   %.not.i28 = icmp ult i32 %20, %9
@@ -492,10 +492,10 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr nocapture noundef nonnul
   %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.131.i = phi float [ %.035.i, %.lr.ph.preheader.i ], [ %43, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = icmp ult i64 %indvars.iv.next.i, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i, %27
   %29 = trunc nuw i64 %indvars.iv.next.i to i32
   %30 = select i1 %28, i32 %29, i32 %.02334.i
-  %.not.i.i = icmp ult i64 %indvars.iv.i, %22
+  %.not.i.i = icmp samesign ult i64 %indvars.iv.i, %22
   %31 = getelementptr inbounds %struct.hb_outline_point_t, ptr %21, i64 %indvars.iv.i
   %.0.i.i = select i1 %.not.i.i, ptr %31, ptr @_hb_NullPool
   %.not.i28.i = icmp ult i32 %30, %10
@@ -533,7 +533,7 @@ _ZNK12hb_outline_t12control_areaEv.exit:          ; preds = %._crit_edge.i
   %indvars.iv = phi i64 [ 0, %_ZNK12hb_outline_t12control_areaEv.exit ], [ %indvars.iv.next, %._crit_edge ]
   %.086135 = phi i32 [ 0, %_ZNK12hb_outline_t12control_areaEv.exit ], [ %56, %._crit_edge ]
   %51 = zext i32 %50 to i64
-  %.not.i90 = icmp ult i64 %indvars.iv, %51
+  %.not.i90 = icmp samesign ult i64 %indvars.iv, %51
   br i1 %.not.i90, label %53, label %52
 
 52:                                               ; preds = %49
@@ -797,7 +797,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %147, %148
   %.pre-phi = phi i64 [ %.pre145, %._crit_edge.loopexit ], [ %51, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %164 = phi i32 [ %.pre144, %._crit_edge.loopexit ], [ %50, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %165 = icmp ult i64 %indvars.iv.next, %.pre-phi
+  %165 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi
   br i1 %165, label %49, label %.loopexit122, !llvm.loop !11
 
 .loopexit122:                                     ; preds = %._crit_edge, %11, %8, %5

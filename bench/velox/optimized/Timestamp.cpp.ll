@@ -761,7 +761,7 @@ while.body:                                       ; preds = %while.body.preheade
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont8:                                     ; preds = %while.body
-  %cmp6.not = icmp ult i32 %n.166, 10
+  %cmp6.not = icmp samesign ult i32 %n.166, 10
   br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %invoke.cont8, %if.end

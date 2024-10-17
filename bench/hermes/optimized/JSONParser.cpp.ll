@@ -889,7 +889,7 @@ if.end4:                                          ; preds = %if.then, %entry
   %1 = lshr i64 %0, 4
   %2 = add nuw nsw i64 %1, 1
   %__n.0.lcssa.i.i.i.i = select i1 %cmp.i.not3.i.i.i.i, i64 0, i64 %2
-  %cmp.i.i = icmp ugt i64 %__n.0.lcssa.i.i.i.i, 10
+  %cmp.i.i = icmp samesign ugt i64 %__n.0.lcssa.i.i.i.i, 10
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end4

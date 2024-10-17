@@ -587,7 +587,7 @@ define dso_local void @_ZN5clang4ento24NoOwnershipChangeVisitor26maybeEmitNoteFo
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(72) %3) #10
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   %26 = icmp ugt i64 %11, %indvars.iv.next
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %.critedge, !llvm.loop !20

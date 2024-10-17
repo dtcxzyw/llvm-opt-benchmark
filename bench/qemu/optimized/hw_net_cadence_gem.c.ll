@@ -281,7 +281,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i8, ptr %num_priority_queues.i, align 16
   %10 = zext i8 %9 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %10
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %cmp.i, label %for.body.i, label %gem_update_int_status.exit, !llvm.loop !9
 
 gem_update_int_status.exit:                       ; preds = %for.body.i, %entry
@@ -381,7 +381,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw nsw i32 %i.0179, 1
   %10 = load i8, ptr %num_priority_queues, align 16
   %conv27 = zext i8 %10 to i32
-  %cmp = icmp ult i32 %inc, %conv27
+  %cmp = icmp samesign ult i32 %inc, %conv27
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !10
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %sw.bb
@@ -549,7 +549,7 @@ for.body.i78:                                     ; preds = %sw.bb56, %for.body.
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %31 = load i8, ptr %num_priority_queues.i76, align 16
   %32 = zext i8 %31 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i80, %32
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i80, %32
   br i1 %cmp.i, label %for.body.i78, label %do.end120, !llvm.loop !9
 
 sw.bb57:                                          ; preds = %entry
@@ -602,7 +602,7 @@ for.body.i89:                                     ; preds = %sw.bb74, %for.body.
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i90, 1
   %39 = load i8, ptr %num_priority_queues.i86, align 16
   %40 = zext i8 %39 to i64
-  %cmp.i96 = icmp ult i64 %indvars.iv.next.i95, %40
+  %cmp.i96 = icmp samesign ult i64 %indvars.iv.next.i95, %40
   br i1 %cmp.i96, label %for.body.i89, label %do.end120, !llvm.loop !9
 
 sw.bb75:                                          ; preds = %entry
@@ -636,7 +636,7 @@ for.body.i106:                                    ; preds = %sw.bb75, %for.body.
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i107, 1
   %49 = load i8, ptr %num_priority_queues.i103, align 16
   %50 = zext i8 %49 to i64
-  %cmp.i113 = icmp ult i64 %indvars.iv.next.i112, %50
+  %cmp.i113 = icmp samesign ult i64 %indvars.iv.next.i112, %50
   br i1 %cmp.i113, label %for.body.i106, label %do.end120, !llvm.loop !9
 
 sw.bb82:                                          ; preds = %entry
@@ -677,7 +677,7 @@ for.body.i123:                                    ; preds = %sw.bb87, %for.body.
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i124, 1
   %59 = load i8, ptr %num_priority_queues.i120, align 16
   %60 = zext i8 %59 to i64
-  %cmp.i130 = icmp ult i64 %indvars.iv.next.i129, %60
+  %cmp.i130 = icmp samesign ult i64 %indvars.iv.next.i129, %60
   br i1 %cmp.i130, label %for.body.i123, label %do.end120, !llvm.loop !9
 
 sw.bb96:                                          ; preds = %entry
@@ -710,7 +710,7 @@ for.body.i140:                                    ; preds = %sw.bb96, %for.body.
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i141, 1
   %68 = load i8, ptr %num_priority_queues.i137, align 16
   %69 = zext i8 %68 to i64
-  %cmp.i147 = icmp ult i64 %indvars.iv.next.i146, %69
+  %cmp.i147 = icmp samesign ult i64 %indvars.iv.next.i146, %69
   br i1 %cmp.i147, label %for.body.i140, label %do.end120, !llvm.loop !9
 
 sw.bb102:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry
@@ -744,7 +744,7 @@ for.body.i157:                                    ; preds = %sw.bb102, %for.body
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i158, 1
   %77 = load i8, ptr %num_priority_queues.i154, align 16
   %78 = zext i8 %77 to i64
-  %cmp.i164 = icmp ult i64 %indvars.iv.next.i163, %78
+  %cmp.i164 = icmp samesign ult i64 %indvars.iv.next.i163, %78
   br i1 %cmp.i164, label %for.body.i157, label %do.end120, !llvm.loop !9
 
 sw.bb110:                                         ; preds = %entry, %entry, %entry, %entry
@@ -1011,7 +1011,7 @@ for.body.i:                                       ; preds = %gem_set_isr.exit, %
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = load i8, ptr %num_priority_queues.i, align 16
   %18 = zext i8 %17 to i64
-  %cmp.i45 = icmp ult i64 %indvars.iv.next.i, %18
+  %cmp.i45 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %cmp.i45, label %for.body.i, label %if.end, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body.i, %gem_set_isr.exit, %gem_get_rx_desc_addr.exit
@@ -1471,7 +1471,7 @@ for.body.i:                                       ; preds = %gem_set_isr.exit362
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %70 = load i8, ptr %num_priority_queues, align 16
   %71 = zext i8 %70 to i64
-  %cmp.i363 = icmp ult i64 %indvars.iv.next.i, %71
+  %cmp.i363 = icmp samesign ult i64 %indvars.iv.next.i, %71
   br i1 %cmp.i363, label %for.body.i, label %gem_update_int_status.exit, !llvm.loop !9
 
 gem_update_int_status.exit:                       ; preds = %for.body.i, %gem_set_isr.exit362
@@ -1700,7 +1700,7 @@ for.body.i458:                                    ; preds = %if.end333, %for.bod
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i459, 1
   %98 = load i8, ptr %num_priority_queues, align 16
   %99 = zext i8 %98 to i64
-  %cmp.i465 = icmp ult i64 %indvars.iv.next.i464, %99
+  %cmp.i465 = icmp samesign ult i64 %indvars.iv.next.i464, %99
   br i1 %cmp.i465, label %for.body.i458, label %for.inc, !llvm.loop !9
 
 for.inc:                                          ; preds = %for.body.i458, %if.end333, %while.end
@@ -1897,7 +1897,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i8, ptr %num_priority_queues, align 16
   %6 = zext i8 %5 to i64
-  %cmp27 = icmp ult i64 %indvars.iv.next, %6
+  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
@@ -2071,7 +2071,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i8, ptr %num_priority_queues, align 16
   %20 = zext i8 %19 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %20
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %cmp.i, label %for.body.i, label %gem_update_int_status.exit, !llvm.loop !9
 
 gem_update_int_status.exit:                       ; preds = %for.body.i, %if.end
@@ -2396,7 +2396,7 @@ for.cond31.i:                                     ; preds = %for.end152.i
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %36 = load i8, ptr %num_type2_screeners.i, align 2
   %37 = zext i8 %36 to i64
-  %cmp33.i = icmp ult i64 %indvars.iv.next107.i, %37
+  %cmp33.i = icmp samesign ult i64 %indvars.iv.next107.i, %37
   br i1 %cmp33.i, label %for.body35.i, label %get_queue_from_screen.exit, !llvm.loop !22
 
 for.body35.i:                                     ; preds = %for.cond31.i, %for.body35.lr.ph.i
@@ -2419,7 +2419,7 @@ if.then42.i:                                      ; preds = %for.body35.i
   %or48.i = or disjoint i32 %shl45.i, %conv47.i
   %shr.i59.i = lshr i32 %39, 9
   %and.i60.i = and i32 %shr.i59.i, 7
-  %cmp53.i = icmp ugt i32 %and.i60.i, %conv3299.i
+  %cmp53.i = icmp samesign ugt i32 %and.i60.i, %conv3299.i
   br i1 %cmp53.i, label %do.body.i, label %if.end62.i
 
 do.body.i:                                        ; preds = %if.then42.i
@@ -2462,7 +2462,7 @@ for.body77.i:                                     ; preds = %for.body77.i.prehea
 if.end85.i:                                       ; preds = %for.body77.i
   %47 = load i8, ptr %num_type2_screeners.i, align 2
   %conv87.i = zext i8 %47 to i32
-  %cmp88.i = icmp ugt i32 %and.i64.i, %conv87.i
+  %cmp88.i = icmp samesign ugt i32 %and.i64.i, %conv87.i
   br i1 %cmp88.i, label %do.body91.i, label %if.end102.i
 
 do.body91.i:                                      ; preds = %if.end85.i
@@ -3016,7 +3016,7 @@ for.body.i250:                                    ; preds = %gem_set_isr.exit245
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i251, 1
   %109 = load i8, ptr %num_priority_queues.i247, align 16
   %110 = zext i8 %109 to i64
-  %cmp.i253 = icmp ult i64 %indvars.iv.next.i252, %110
+  %cmp.i253 = icmp samesign ult i64 %indvars.iv.next.i252, %110
   br i1 %cmp.i253, label %for.body.i250, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.inc.i, %for.body.i250, %if.then19.i, %if.then24.i, %if.then.i168, %if.then3.i170, %if.then3.i, %gem_set_isr.exit245, %if.else.i151, %if.then.i154, %if.then9
@@ -3071,7 +3071,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i8, ptr %num_priority_queues.i, align 16
   %13 = zext i8 %12 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %13
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %13
   br i1 %cmp.i, label %for.body.i, label %gem_update_int_status.exit, !llvm.loop !9
 
 gem_update_int_status.exit:                       ; preds = %for.body.i, %entry

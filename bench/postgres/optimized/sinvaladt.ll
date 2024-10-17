@@ -392,7 +392,7 @@ define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i3
   %46 = getelementptr i8, ptr %11, i64 %.idx
   store i8 1, ptr %46, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp ult i64 %indvars.iv.next, %41
+  %47 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
@@ -486,7 +486,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %.152 = phi i32 [ %.05163, %23 ], [ %.05163, %34 ], [ %.05163, %40 ], [ %.05163, %41 ], [ %spec.select60, %43 ]
   %.1 = phi i32 [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = icmp ult i64 %indvars.iv.next, %22
+  %48 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %48, label %23, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47
@@ -528,7 +528,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %64 = add i32 %63, -1073741824
   store i32 %64, ptr %62, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %65 = icmp ult i64 %indvars.iv.next71, %57
+  %65 = icmp samesign ult i64 %indvars.iv.next71, %57
   br i1 %65, label %58, label %.loopexit.loopexit, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %58

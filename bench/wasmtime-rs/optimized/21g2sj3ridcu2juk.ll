@@ -3538,7 +3538,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 
 13:                                               ; preds = %5
   %14 = trunc i32 %3 to i8
-  %switch.i = icmp ult i8 %14, 5
+  %switch.i = icmp samesign ult i8 %14, 5
   br i1 %switch.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.thread, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit
 
 _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit: ; preds = %13
@@ -3580,7 +3580,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = load i8, ptr %6, align 4, !range !32, !noundef !5
-  %switch = icmp ult i8 %32, 5
+  %switch = icmp samesign ult i8 %32, 5
   %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 3
   %.sroa.07.sroa.5.0.copyload = load i8, ptr %.sroa.07.sroa.5.0..sroa_idx, align 1
   %33 = icmp slt i8 %.sroa.07.sroa.5.0.copyload, 0
@@ -5288,7 +5288,7 @@ default.unreachable10:                            ; preds = %2
 
 23:                                               ; preds = %10
   %24 = trunc i32 %.sroa.0.0.copyload.i to i8
-  %switch.i = icmp ult i8 %24, 5
+  %switch.i = icmp samesign ult i8 %24, 5
   br i1 %switch.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit, label %25
 
 25:                                               ; preds = %23
@@ -35271,7 +35271,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 
 30:                                               ; preds = %22
   %31 = trunc i32 %1 to i8
-  %switch.i.i = icmp ult i8 %31, 5
+  %switch.i.i = icmp samesign ult i8 %31, 5
   br i1 %switch.i.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.thread.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.i
 
 _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit.i: ; preds = %30
@@ -36969,8 +36969,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %56 = load i8, ptr %55, align 2, !range !1671, !noalias !4683, !noundef !5
   %57 = and i8 %56, 6
   %switch.i = icmp eq i8 %57, 6
-  %switch4468.i = icmp ult i8 %56, 5
-  %switch44.i = or i1 %switch4468.i, %switch.i
+  %switch4468.i = icmp samesign ult i8 %56, 5
+  %switch44.i = select i1 %switch.i, i1 true, i1 %switch4468.i
   br i1 %switch44.i, label %58, label %61
 
 58:                                               ; preds = %54
@@ -37296,8 +37296,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %60 = load i8, ptr %59, align 2, !range !1671, !noalias !4723, !noundef !5
   %61 = and i8 %60, 6
   %switch.i = icmp eq i8 %61, 6
-  %switch59.i = icmp ult i8 %60, 5
-  %or.cond = or i1 %switch59.i, %switch.i
+  %switch59.i = icmp samesign ult i8 %60, 5
+  %or.cond = select i1 %switch.i, i1 true, i1 %switch59.i
   br i1 %or.cond, label %.thread.i, label %67
 
 .thread.i:                                        ; preds = %58
@@ -39273,8 +39273,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %69 = load i8, ptr %68, align 2, !range !1671, !noalias !5024, !noundef !5
   %70 = and i8 %69, 6
   %switch.i = icmp eq i8 %70, 6
-  %switch72114.i = icmp ult i8 %69, 5
-  %switch72.i = or i1 %switch72114.i, %switch.i
+  %switch72114.i = icmp samesign ult i8 %69, 5
+  %switch72.i = select i1 %switch.i, i1 true, i1 %switch72114.i
   br i1 %switch72.i, label %71, label %74
 
 71:                                               ; preds = %67
@@ -39691,8 +39691,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %73 = load i8, ptr %72, align 2, !range !1671, !noalias !5072, !noundef !5
   %74 = and i8 %73, 6
   %switch.i = icmp eq i8 %74, 6
-  %switch83.i = icmp ult i8 %73, 5
-  %or.cond = or i1 %switch83.i, %switch.i
+  %switch83.i = icmp samesign ult i8 %73, 5
+  %or.cond = select i1 %switch.i, i1 true, i1 %switch83.i
   br i1 %or.cond, label %.thread.i, label %80
 
 .thread.i:                                        ; preds = %71
@@ -43146,7 +43146,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %55 = load i32, ptr %51, align 2, !noalias !5587
   store i32 %55, ptr %11, align 4, !noalias !5587
   %56 = trunc i32 %55 to i8
-  %57 = icmp ult i8 %56, 5
+  %57 = icmp samesign ult i8 %56, 5
   %58 = icmp slt i32 %55, 0
   %59 = or i1 %58, %57
   br i1 %59, label %.thread.i, label %60
@@ -45541,7 +45541,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 49:                                               ; preds = %46
   %50 = and i32 %.sroa.016.0.copyload32.i, 255
-  %switch.i.i.i = icmp ult i32 %50, 5
+  %switch.i.i.i = icmp samesign ult i32 %50, 5
   br i1 %switch.i.i.i, label %51, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_any_convert_extern28_$u7b$$u7b$closure$u7d$$u7d$17h96093a3cb32d9264E.exit.i.i"
 
 51:                                               ; preds = %49
@@ -45708,7 +45708,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 49:                                               ; preds = %46
   %50 = and i32 %.sroa.030.0.copyload46.i, 255
-  %switch.i.i.i = icmp ult i32 %50, 5
+  %switch.i.i.i = icmp samesign ult i32 %50, 5
   br i1 %switch.i.i.i, label %51, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_extern_convert_any28_$u7b$$u7b$closure$u7d$$u7d$17h468c1bbb3a3285f3E.exit.i.i"
 
 51:                                               ; preds = %49
@@ -48604,7 +48604,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %62 = load i32, ptr %58, align 1, !noalias !6414
   store i32 %62, ptr %10, align 4, !noalias !6414
   %63 = trunc i32 %62 to i8
-  %64 = icmp ult i8 %63, 5
+  %64 = icmp samesign ult i8 %63, 5
   %65 = icmp slt i32 %62, 0
   %.026.i = or i1 %65, %64
   br i1 %.026.i, label %.thread.i, label %66

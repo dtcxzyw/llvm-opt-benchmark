@@ -872,7 +872,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %switch.selectcmp14 = icmp ugt i64 %18, 4
+  %switch.selectcmp14 = icmp samesign ugt i64 %18, 4
   br i1 %switch.selectcmp14, label %20, label %13
 
 20:                                               ; preds = %17
@@ -947,7 +947,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %switch.selectcmp14 = icmp ugt i64 %18, 4
+  %switch.selectcmp14 = icmp samesign ugt i64 %18, 4
   br i1 %switch.selectcmp14, label %20, label %13
 
 20:                                               ; preds = %17
@@ -2009,7 +2009,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f2
   %283 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %284 = icmp ult i64 %283, 6
   call void @llvm.assume(i1 %284)
-  %switch.selectcmp49 = icmp ugt i64 %283, 4
+  %switch.selectcmp49 = icmp samesign ugt i64 %283, 4
   br i1 %switch.selectcmp49, label %285, label %280
 
 285:                                              ; preds = %282
@@ -3076,7 +3076,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
   %283 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %284 = icmp ult i64 %283, 6
   call void @llvm.assume(i1 %284)
-  %switch.selectcmp49 = icmp ugt i64 %283, 4
+  %switch.selectcmp49 = icmp samesign ugt i64 %283, 4
   br i1 %switch.selectcmp49, label %285, label %280
 
 285:                                              ; preds = %282
@@ -3171,7 +3171,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17
   %19 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he9ddc4e5e09c9d74E.llvm.7653731377883981346(ptr noundef nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E, i8 noundef 0), !noalias !339
   %20 = icmp ult i64 %19, 6
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i64 %19, 5
+  %21 = icmp samesign ult i64 %19, 5
   br i1 %21, label %"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$std..io..Write$GT$5flush17h3c61b1e373520845E.exit", label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %18
@@ -3273,7 +3273,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17
   %19 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he9ddc4e5e09c9d74E.llvm.7653731377883981346(ptr noundef nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E, i8 noundef 0), !noalias !348
   %20 = icmp ult i64 %19, 6
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i64 %19, 5
+  %21 = icmp samesign ult i64 %19, 5
   br i1 %21, label %"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$as$u20$std..io..Write$GT$5flush17h2431eb5753fb928fE.exit", label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %18
@@ -4976,7 +4976,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch.selectcmp64 = icmp ugt i64 %32, 4
+  %switch.selectcmp64 = icmp samesign ugt i64 %32, 4
   br i1 %switch.selectcmp64, label %34, label %30
 
 34:                                               ; preds = %31
@@ -5315,7 +5315,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %33 = icmp ult i64 %32, 6
   tail call void @llvm.assume(i1 %33)
-  %switch.selectcmp64 = icmp ugt i64 %32, 4
+  %switch.selectcmp64 = icmp samesign ugt i64 %32, 4
   br i1 %switch.selectcmp64, label %34, label %30
 
 34:                                               ; preds = %31
@@ -5675,7 +5675,7 @@ default.unreachable227:                           ; preds = %73
   %31 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %32 = icmp ult i64 %31, 6
   tail call void @llvm.assume(i1 %32)
-  %33 = icmp ult i64 %31, 5
+  %33 = icmp samesign ult i64 %31, 5
   br i1 %33, label %.critedge122, label %.critedge120
 
 .critedge120:                                     ; preds = %.critedge
@@ -5710,7 +5710,7 @@ default.unreachable227:                           ; preds = %73
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %43 = icmp ult i64 %42, 6
   call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %42, 5
+  %44 = icmp samesign ult i64 %42, 5
   br i1 %44, label %.critedge126, label %.critedge124
 
 .critedge124:                                     ; preds = %.critedge122
@@ -5737,7 +5737,7 @@ default.unreachable227:                           ; preds = %73
   %50 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %51 = icmp ult i64 %50, 6
   call void @llvm.assume(i1 %51)
-  %52 = icmp ult i64 %50, 5
+  %52 = icmp samesign ult i64 %50, 5
   br i1 %52, label %.critedge130, label %.critedge128
 
 .critedge128:                                     ; preds = %.critedge126
@@ -5769,7 +5769,7 @@ default.unreachable227:                           ; preds = %73
   %61 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %62 = icmp ult i64 %61, 6
   call void @llvm.assume(i1 %62)
-  %63 = icmp ult i64 %61, 5
+  %63 = icmp samesign ult i64 %61, 5
   br i1 %63, label %.critedge134, label %.critedge132
 
 .critedge132:                                     ; preds = %.critedge130
@@ -5800,7 +5800,7 @@ default.unreachable227:                           ; preds = %73
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %71 = icmp ult i64 %70, 6
   call void @llvm.assume(i1 %71)
-  %72 = icmp ult i64 %70, 5
+  %72 = icmp samesign ult i64 %70, 5
   br i1 %72, label %73, label %.critedge138
 
 73:                                               ; preds = %.critedge134, %.critedge138
@@ -7092,7 +7092,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %23 = icmp ult i64 %22, 6
   tail call void @llvm.assume(i1 %23)
-  %switch.selectcmp149 = icmp ugt i64 %22, 4
+  %switch.selectcmp149 = icmp samesign ugt i64 %22, 4
   br i1 %switch.selectcmp149, label %28, label %24
 
 .body.thread248:                                  ; preds = %28, %176
@@ -7746,7 +7746,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %23 = icmp ult i64 %22, 6
   tail call void @llvm.assume(i1 %23)
-  %switch.selectcmp160 = icmp ugt i64 %22, 4
+  %switch.selectcmp160 = icmp samesign ugt i64 %22, 4
   br i1 %switch.selectcmp160, label %28, label %24
 
 .body.thread260:                                  ; preds = %28, %177
@@ -10692,14 +10692,14 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %126, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.015.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76

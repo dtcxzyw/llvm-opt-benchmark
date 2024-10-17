@@ -2893,7 +2893,7 @@ for.body:                                         ; preds = %invoke.cont50, %for
   %inc = add nuw nsw i64 %i.095, 1
   %36 = load i32, ptr %mNumMeshes, align 8
   %conv53 = zext i32 %36 to i64
-  %cmp54 = icmp ult i64 %inc, %conv53
+  %cmp54 = icmp samesign ult i64 %inc, %conv53
   br i1 %cmp54, label %for.body, label %if.end60, !llvm.loop !30
 
 lpad41:                                           ; preds = %if.then90, %if.then62, %if.then44, %while.end
@@ -2967,7 +2967,7 @@ for.body78:                                       ; preds = %invoke.cont71, %for
   %inc86 = add nuw nsw i64 %i73.099, 1
   %50 = load i32, ptr %mNumMaterials, align 8
   %conv76 = zext i32 %50 to i64
-  %cmp77 = icmp ult i64 %inc86, %conv76
+  %cmp77 = icmp samesign ult i64 %inc86, %conv76
   br i1 %cmp77, label %for.body78, label %if.end88, !llvm.loop !34
 
 if.end88:                                         ; preds = %for.body78, %invoke.cont71, %if.end60
@@ -3003,7 +3003,7 @@ for.body106:                                      ; preds = %invoke.cont99, %for
   %inc114 = add nuw nsw i64 %i101.0103, 1
   %57 = load i32, ptr %mNumLights, align 8
   %conv104 = zext i32 %57 to i64
-  %cmp105 = icmp ult i64 %inc114, %conv104
+  %cmp105 = icmp samesign ult i64 %inc114, %conv104
   br i1 %cmp105, label %for.body106, label %if.end116.loopexit, !llvm.loop !35
 
 if.end116.loopexit:                               ; preds = %for.body106

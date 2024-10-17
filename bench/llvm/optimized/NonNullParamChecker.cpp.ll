@@ -1036,7 +1036,7 @@ _ZNK4llvm14SmallBitVector4sizeEv.exit.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i
 
 _ZNK4llvm14SmallBitVector4sizeEv.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %128 = lshr i64 %116, 58
-  %.not2032.i.i.i.i = icmp ugt i64 %128, %123
+  %.not2032.i.i.i.i = icmp samesign ugt i64 %128, %123
   br i1 %.not2032.i.i.i.i, label %.thread.i.i.i.i, label %_ZN4llvm14SmallBitVector3setEj.exit.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit.thread.i.i.i.i
@@ -2546,7 +2546,7 @@ _ZNK4llvm14SmallBitVector4sizeEv.exit.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i
 
 _ZNK4llvm14SmallBitVector4sizeEv.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %143 = lshr i64 %131, 58
-  %.not206.i.i.i.i = icmp ugt i64 %143, %138
+  %.not206.i.i.i.i = icmp samesign ugt i64 %143, %138
   br i1 %.not206.i.i.i.i, label %.thread.i.i.i.i, label %_ZN4llvm14SmallBitVector3setEj.exit.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit.thread.i.i.i.i

@@ -121,7 +121,7 @@ find_reconstructed_block_length.exit:             ; preds = %33, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %29, align 8
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %59, label %46, label %.preheader177, !llvm.loop !7
 
 .loopexit:                                        ; preds = %132, %.preheader
@@ -213,7 +213,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %99 = getelementptr ptr, ptr %39, i64 %indvars.iv259
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  %102 = icmp ult i64 %indvars.iv259, %97
+  %102 = icmp samesign ult i64 %indvars.iv259, %97
   %or.cond148 = select i1 %101, i1 %102, i1 false
   br i1 %or.cond148, label %103, label %107
 
@@ -230,7 +230,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %108 = phi i32 [ %98, %.lr.ph214 ], [ %.pre262, %103 ]
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next260, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next260, %109
   br i1 %110, label %.lr.ph214, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %107
@@ -278,7 +278,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %.3 = phi i1 [ false, %126 ], [ %.2131206, %121 ], [ %.2131206, %114 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next256, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next256, %134
   br i1 %135, label %114, label %.loopexit, !llvm.loop !9
 
 136:                                              ; preds = %._crit_edge
@@ -380,14 +380,14 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 183:                                              ; preds = %189, %.outer.i
   %indvars.iv.i154 = phi i64 [ %178, %.outer.i ], [ %indvars.iv.next.i155, %189 ]
-  %184 = icmp ult i64 %indvars.iv.i154, %37
+  %184 = icmp samesign ult i64 %indvars.iv.i154, %37
   br i1 %184, label %185, label %216
 
 185:                                              ; preds = %183
   %186 = getelementptr ptr, ptr %39, i64 %indvars.iv.i154
   %187 = load ptr, ptr %186, align 8
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i154, 1
-  %188 = icmp ult i64 %indvars.iv.next.i155, %37
+  %188 = icmp samesign ult i64 %indvars.iv.next.i155, %37
   br i1 %188, label %189, label %.split.loop.exit83.i
 
 189:                                              ; preds = %185

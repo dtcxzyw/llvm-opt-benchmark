@@ -5006,7 +5006,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %55, %58
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %55 ], [ %60, %58 ]
   %.idx275 = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %64 = getelementptr inbounds i8, ptr %63, i64 %.idx275
-  %.not = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit

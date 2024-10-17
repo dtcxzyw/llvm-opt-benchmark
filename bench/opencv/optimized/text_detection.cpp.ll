@@ -1146,7 +1146,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205: ; preds = %_ZNSt6ve
           to label %.noexc180 unwind label %.loopexit238
 
 .noexc180:                                        ; preds = %377
-  %382 = icmp ult i64 %indvars.iv.i, %376
+  %382 = icmp samesign ult i64 %indvars.iv.i, %376
   br i1 %382, label %383, label %.noexc181
 
 383:                                              ; preds = %.noexc180

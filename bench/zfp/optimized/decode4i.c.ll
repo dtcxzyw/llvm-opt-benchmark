@@ -810,7 +810,7 @@ decode_many_ints_uint32.exit:                     ; preds = %.lr.ph126.i, %strea
   %.sroa.10.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   %.sroa.16.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %3, i8 0, i64 1024, i1 false), !alias.scope !14, !noalias !11
-  %64 = icmp ult i32 %7, 32
+  %64 = icmp samesign ult i32 %7, 32
   br i1 %64, label %.preheader71.i.preheader, label %decode_many_ints_prec_uint32.exit
 
 .preheader71.i.preheader:                         ; preds = %63

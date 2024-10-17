@@ -1154,13 +1154,13 @@ for.end268:                                       ; preds = %for.body259.lr.ph, 
   %addr270 = getelementptr inbounds i8, ptr %call.i, i64 224
   %92 = load i8, ptr %addr270, align 8
   %conv271 = zext i8 %92 to i32
-  %cmp284 = icmp ugt i32 %82, 1
+  %cmp284 = icmp samesign ugt i32 %82, 1
   %cond291 = select i1 %cmp284, i32 %91, i32 0
-  %cmp293 = icmp ugt i32 %82, 2
+  %cmp293 = icmp samesign ugt i32 %82, 2
   %cond300 = select i1 %cmp293, i32 %90, i32 0
-  %cmp302 = icmp ugt i32 %82, 3
+  %cmp302 = icmp samesign ugt i32 %82, 3
   %cond309 = select i1 %cmp302, i32 %89, i32 0
-  %cmp311 = icmp ugt i32 %82, 4
+  %cmp311 = icmp samesign ugt i32 %82, 4
   %cond318 = select i1 %cmp311, i32 %88, i32 0
   call fastcc void @trace_usb_mtp_command(i32 noundef %conv271, i16 noundef zeroext %79, i32 noundef %81, i32 noundef %cond282, i32 noundef %cond291, i32 noundef %cond300, i32 noundef %cond309, i32 noundef %cond318)
   call fastcc void @usb_mtp_command(ptr noundef nonnull %call.i, ptr noundef %cmd)

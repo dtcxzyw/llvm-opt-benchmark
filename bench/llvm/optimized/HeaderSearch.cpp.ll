@@ -9078,7 +9078,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %46, %51
   %.0.i = phi i1 [ %53, %51 ], [ false, %46 ]
   %54 = call noundef i32 @_ZN5clang12HeaderSearch17loadModuleMapFileENS_17DirectoryEntryRefEbb(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr nonnull %45, i1 noundef zeroext %4, i1 noundef zeroext %.0.i)
-  %switch = icmp ult i32 %54, 2
+  %switch = icmp samesign ult i32 %54, 2
   br i1 %switch, label %55, label %97
 
 55:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -9599,7 +9599,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit43: ; pre
 _ZN4llvmeqENS_9StringRefES0_.exit.thread60:       ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit43, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %82, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit
   %.sroa.056.0 = phi ptr [ %.sroa.056.1, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ %.sroa.056.1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %46, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit ], [ %.sroa.056.1, %82 ], [ %.sroa.056.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %spec.select, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit43 ]
   %118 = call noundef i32 @_ZN5clang12HeaderSearch21loadModuleMapFileImplENS_12FileEntryRefEbNS_17DirectoryEntryRefENS_6FileIDEPj(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr %1, i1 noundef zeroext %2, ptr %.sroa.056.0, i32 %3, ptr noundef %4)
-  %switch = icmp ugt i32 %118, 1
+  %switch = icmp samesign ugt i32 %118, 1
   ret i1 %switch
 }
 

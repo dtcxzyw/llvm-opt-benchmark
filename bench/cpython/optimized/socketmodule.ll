@@ -8679,7 +8679,7 @@ if.then67:                                        ; preds = %if.end62, %if.end.i
 
 if.end68:                                         ; preds = %if.end.i
   %add = add nuw nsw i64 %add1.i, %controllen_last.0
-  %cmp69 = icmp ugt i64 %add, 2147483647
+  %cmp69 = icmp samesign ugt i64 %add, 2147483647
   br i1 %cmp69, label %if.then71, label %while.cond, !llvm.loop !10
 
 if.then71:                                        ; preds = %if.end68

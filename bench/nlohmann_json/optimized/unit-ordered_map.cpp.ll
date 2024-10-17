@@ -968,7 +968,7 @@ while.body.i.i.i.i.i:                             ; preds = %arraydestroy.done28
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !7
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i, 144115188075855870
+  %cmp.i.i.i.i = icmp samesign ugt i64 %__n.05.i.i.i.i.i, 144115188075855870
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS9_m.exit.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i
@@ -1236,7 +1236,7 @@ while.body.i.i.i.i.i271:                          ; preds = %arraydestroy.done10
   br i1 %cmp.i.not.i.i.i.i.i276, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i277, label %while.body.i.i.i.i.i271, !llvm.loop !7
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i277: ; preds = %while.body.i.i.i.i.i271
-  %cmp.i.i.i.i278 = icmp ugt i64 %__n.05.i.i.i.i.i272, 144115188075855870
+  %cmp.i.i.i.i278 = icmp samesign ugt i64 %__n.05.i.i.i.i.i272, 144115188075855870
   br i1 %cmp.i.i.i.i278, label %if.then.i.i.i.i293, label %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS9_m.exit.i.i.i.i279
 
 if.then.i.i.i.i293:                               ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i277
@@ -1606,7 +1606,7 @@ while.body.i.i.i.i.i370:                          ; preds = %arraydestroy.done18
   br i1 %cmp.i.not.i.i.i.i.i375, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i376, label %while.body.i.i.i.i.i370, !llvm.loop !7
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i376: ; preds = %while.body.i.i.i.i.i370
-  %cmp.i.i.i.i377 = icmp ugt i64 %__n.05.i.i.i.i.i371, 144115188075855870
+  %cmp.i.i.i.i377 = icmp samesign ugt i64 %__n.05.i.i.i.i.i371, 144115188075855870
   br i1 %cmp.i.i.i.i377, label %if.then.i.i.i.i392, label %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS9_m.exit.i.i.i.i378
 
 if.then.i.i.i.i392:                               ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i376
@@ -3212,7 +3212,7 @@ while.body.i.i.i.i.i510:                          ; preds = %arraydestroy.done73
   br i1 %cmp.i.not.i.i.i.i.i515, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i516, label %while.body.i.i.i.i.i510, !llvm.loop !7
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i516: ; preds = %while.body.i.i.i.i.i510
-  %cmp.i.i.i.i517 = icmp ugt i64 %__n.05.i.i.i.i.i511, 144115188075855870
+  %cmp.i.i.i.i517 = icmp samesign ugt i64 %__n.05.i.i.i.i.i511, 144115188075855870
   br i1 %cmp.i.i.i.i517, label %if.then.i.i.i.i532, label %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS9_m.exit.i.i.i.i518
 
 if.then.i.i.i.i532:                               ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i.i516

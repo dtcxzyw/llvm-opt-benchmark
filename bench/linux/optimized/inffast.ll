@@ -426,7 +426,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %319 = phi ptr [ %50, %305 ], [ %316, %313 ]
   %320 = phi i32 [ %127, %305 ], [ %317, %313 ]
   %321 = phi ptr [ %308, %305 ], [ %314, %313 ]
-  %322 = icmp ugt i32 %194, 2
+  %322 = icmp samesign ugt i32 %194, 2
   br i1 %322, label %323, label %335
 
 323:                                              ; preds = %318

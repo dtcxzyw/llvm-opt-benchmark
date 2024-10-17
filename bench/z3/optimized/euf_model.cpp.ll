@@ -4116,7 +4116,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIPN3eu
   %arrayidx.i38 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i38, align 4
   %17 = zext i32 %16 to i64
-  %cmp143 = icmp ult i64 %indvars.iv, %17
+  %cmp143 = icmp samesign ult i64 %indvars.iv, %17
   br i1 %cmp143, label %for.body, label %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit
 
 for.body:                                         ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread

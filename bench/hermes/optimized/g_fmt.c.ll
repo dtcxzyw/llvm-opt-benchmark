@@ -121,7 +121,7 @@ for.cond33.preheader:                             ; preds = %for.cond
   %conv3552 = add i8 %11, 48
   %incdec.ptr3653 = getelementptr inbounds i8, ptr %b.addr.2, i64 3
   store i8 %conv3552, ptr %b.addr.4, align 1
-  %cmp3854 = icmp ult i32 %j.0, 2
+  %cmp3854 = icmp samesign ult i32 %j.0, 2
   br i1 %cmp3854, label %done0.sink.split, label %if.end41
 
 if.end41:                                         ; preds = %for.cond33.preheader, %if.end41

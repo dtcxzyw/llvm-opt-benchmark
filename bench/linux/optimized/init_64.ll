@@ -1737,7 +1737,7 @@ define dso_local i64 @memory_block_size_bytes() local_unnamed_addr #0 align 16 {
 
 18:                                               ; preds = %.preheader
   %19 = lshr i64 %14, 1
-  %20 = icmp ugt i64 %14, 268435457
+  %20 = icmp samesign ugt i64 %14, 268435457
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %18, %.preheader, %10, %8, %3

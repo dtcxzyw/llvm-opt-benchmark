@@ -3799,7 +3799,7 @@ define internal fastcc void @unmap_pmd_range(ptr noundef %0, i64 noundef %1, i64
   br label %70
 
 68:                                               ; preds = %63
-  %69 = icmp ugt i64 %60, 510
+  %69 = icmp samesign ugt i64 %60, 510
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %.thread, %68
@@ -3881,7 +3881,7 @@ define internal fastcc void @__unmap_pmd_range(ptr noundef %0, ptr noundef %1, i
   br label %49
 
 47:                                               ; preds = %41
-  %48 = icmp ugt i64 %38, 510
+  %48 = icmp samesign ugt i64 %38, 510
   br i1 %48, label %49, label %72
 
 49:                                               ; preds = %47, %46
@@ -3921,7 +3921,7 @@ define internal fastcc void @__unmap_pmd_range(ptr noundef %0, ptr noundef %1, i
   br label %71
 
 69:                                               ; preds = %64
-  %70 = icmp ugt i64 %61, 510
+  %70 = icmp samesign ugt i64 %61, 510
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %.thread, %69

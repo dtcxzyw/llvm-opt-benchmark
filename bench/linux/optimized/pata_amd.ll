@@ -381,7 +381,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %7, i8 0, i64 20, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #8
   store i8 0, ptr %8, align 1, !annotation !5
-  %21 = icmp ugt i32 %4, 1
+  %21 = icmp samesign ugt i32 %4, 1
   %22 = select i1 %21, i32 15000, i32 30000
   %23 = trunc nuw nsw i32 %3 to i16
   %24 = call i32 @ata_timing_compute(ptr noundef %1, i16 noundef zeroext %23, ptr noundef nonnull %6, i32 noundef 30000, i32 noundef %22) #8

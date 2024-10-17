@@ -175,11 +175,11 @@ _ZN4core5slice4sort6shared5pivot7median317hc709b332a7c083efE.llvm.13455654888161
   %.sroa.0.0 = phi ptr [ %13, %7 ], [ %0, %5 ]
   %20 = load i8, ptr %.sroa.0.0, align 1, !range !9, !noalias !10, !noundef !10
   %21 = load i8, ptr %.sroa.04.0, align 1, !range !9, !noalias !10, !noundef !10
-  %22 = icmp ult i8 %20, %21
+  %22 = icmp samesign ult i8 %20, %21
   %23 = load i8, ptr %.sroa.08.0, align 1, !range !9, !noalias !10, !noundef !10
-  %24 = icmp ult i8 %20, %23
+  %24 = icmp samesign ult i8 %20, %23
   %25 = xor i1 %22, %24
-  %26 = icmp ult i8 %21, %23
+  %26 = icmp samesign ult i8 %21, %23
   %27 = xor i1 %22, %26
   %..i = select i1 %27, ptr %.sroa.08.0, ptr %.sroa.04.0
   %.sroa.0.0.i = select i1 %25, ptr %.sroa.0.0, ptr %..i
@@ -508,11 +508,11 @@ define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core5slice4sort6
 _ZN4core5slice4sort6shared5pivot7median317hc709b332a7c083efE.llvm.13455654888161778191.exit: ; preds = %5
   %13 = load i8, ptr %0, align 8, !range !9, !noalias !10, !noundef !10
   %14 = load i8, ptr %7, align 8, !range !9, !noalias !10, !noundef !10
-  %15 = icmp ult i8 %13, %14
+  %15 = icmp samesign ult i8 %13, %14
   %16 = load i8, ptr %8, align 8, !range !9, !noalias !10, !noundef !10
-  %17 = icmp ult i8 %13, %16
+  %17 = icmp samesign ult i8 %13, %16
   %18 = xor i1 %15, %17
-  %19 = icmp ult i8 %14, %16
+  %19 = icmp samesign ult i8 %14, %16
   %20 = xor i1 %15, %19
   %..i = select i1 %20, ptr %8, ptr %7
   %.sroa.0.0.i = select i1 %18, ptr %0, ptr %..i
@@ -832,11 +832,11 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h40
 define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317hc709b332a7c083efE.llvm.13455654888161778191(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %3) unnamed_addr #3 {
   %5 = load i8, ptr %0, align 8, !range !9, !noalias !10, !noundef !10
   %6 = load i8, ptr %1, align 8, !range !9, !noalias !10, !noundef !10
-  %7 = icmp ult i8 %5, %6
+  %7 = icmp samesign ult i8 %5, %6
   %8 = load i8, ptr %2, align 8, !range !9, !noalias !10, !noundef !10
-  %9 = icmp ult i8 %5, %8
+  %9 = icmp samesign ult i8 %5, %8
   %10 = xor i1 %7, %9
-  %11 = icmp ult i8 %6, %8
+  %11 = icmp samesign ult i8 %6, %8
   %12 = xor i1 %7, %11
   %. = select i1 %12, ptr %2, ptr %1
   %.sroa.0.0 = select i1 %10, ptr %0, ptr %.
@@ -1039,7 +1039,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17hd731f185a2eb98d
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 129
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 129
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
@@ -1136,7 +1136,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h45492d31f7d33a7bE(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   %22 = load i8, ptr %20, align 1, !range !9, !alias.scope !515, !noalias !516, !noundef !10
   %23 = load i8, ptr %19, align 1, !range !9, !alias.scope !519, !noalias !520, !noundef !10
-  %24 = icmp ult i8 %22, %23
+  %24 = icmp samesign ult i8 %22, %23
   %..i = select i1 %24, ptr %19, ptr %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %..i, i64 32, i1 false), !noalias !521
   %25 = xor i1 %24, true
@@ -1165,7 +1165,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h45492d31f7d33a7bE(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
   %35 = load i8, ptr %.sroa.0.02.i, align 1, !range !9, !alias.scope !537, !noalias !538, !noundef !10
   %36 = load i8, ptr %34, align 1, !range !9, !alias.scope !541, !noalias !542, !noundef !10
-  %37 = icmp ult i8 %35, %36
+  %37 = icmp samesign ult i8 %35, %36
   %38 = xor i1 %37, true
   %.sroa.05.0.i = select i1 %37, ptr %.sroa.0.02.i, ptr %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.0.i, i64 32, i1 false), !noalias !543
@@ -1795,7 +1795,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !709)
   %4 = load i8, ptr %1, align 8, !range !9, !alias.scope !711, !noalias !712, !noundef !10
   %5 = load i8, ptr %2, align 8, !range !9, !alias.scope !712, !noalias !711, !noundef !10
-  %6 = icmp ult i8 %4, %5
+  %6 = icmp samesign ult i8 %4, %5
   ret i1 %6
 }
 

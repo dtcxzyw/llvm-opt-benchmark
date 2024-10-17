@@ -11589,7 +11589,7 @@ if.then43:                                        ; preds = %if.end38
 
 if.end45:                                         ; preds = %if.then43, %if.end38
   %spans.0.add = add nuw nsw i64 %spans.0.idx, 12
-  %cmp49.not = icmp ugt i64 %spans.0.idx, 384
+  %cmp49.not = icmp samesign ugt i64 %spans.0.idx, 384
   br i1 %cmp49.not, label %do.end, label %do.body, !llvm.loop !376
 
 do.end:                                           ; preds = %do.body, %if.end45
@@ -25041,7 +25041,7 @@ if.then43.i:                                      ; preds = %if.end38.i
 
 if.end45.i:                                       ; preds = %if.then43.i, %if.end38.i
   %spans.0.add.i = add nuw nsw i64 %spans.0.idx.i, 12
-  %cmp49.not.i = icmp ugt i64 %spans.0.idx.i, 384
+  %cmp49.not.i = icmp samesign ugt i64 %spans.0.idx.i, 384
   br i1 %cmp49.not.i, label %do.end.i, label %do.body.i, !llvm.loop !376
 
 do.end.i:                                         ; preds = %if.end45.i, %do.body.i
@@ -25177,7 +25177,7 @@ if.then43.i110:                                   ; preds = %if.end38.i104
 
 if.end45.i111:                                    ; preds = %if.then43.i110, %if.end38.i104
   %spans.0.add.i112 = add nuw nsw i64 %spans.0.idx.i79, 12
-  %cmp49.not.i113 = icmp ugt i64 %spans.0.idx.i79, 384
+  %cmp49.not.i113 = icmp samesign ugt i64 %spans.0.idx.i79, 384
   br i1 %cmp49.not.i113, label %do.end.i114, label %do.body.i78, !llvm.loop !376
 
 do.end.i114:                                      ; preds = %if.end45.i111, %do.body.i78

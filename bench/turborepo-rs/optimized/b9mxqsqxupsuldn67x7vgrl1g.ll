@@ -44,7 +44,7 @@ define void @_RINvMCsjDgxGcjZqad_9utf8parseNtB3_6Parser14perform_actionINtCscmPy
   %17 = tail call noundef i64 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_loadjECs8mTrBI1stz4_15turborepo_vt100.llvm.17971349766402577642(ptr noundef nonnull @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER, i8 noundef 0), !noalias !9
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %switch.i.i = icmp ult i64 %17, 4
+  %switch.i.i = icmp samesign ult i64 %17, 4
   br i1 %switch.i.i, label %_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenENtCsjDgxGcjZqad_9utf8parse8Receiver16invalid_sequenceBK_.exit, label %19
 
 19:                                               ; preds = %15
@@ -90,7 +90,7 @@ _RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt100
   %32 = call noundef i64 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_loadjECs8mTrBI1stz4_15turborepo_vt100.llvm.17971349766402577642(ptr noundef nonnull @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER, i8 noundef 0), !noalias !17
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %switch.i.i1 = icmp ult i64 %32, 4
+  %switch.i.i1 = icmp samesign ult i64 %32, 4
   br i1 %switch.i.i1, label %_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenENtCsjDgxGcjZqad_9utf8parse8Receiver9codepointBK_.exit, label %34
 
 34:                                               ; preds = %31
@@ -145,7 +145,7 @@ _RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt100
   %53 = call noundef i64 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_loadjECs8mTrBI1stz4_15turborepo_vt100.llvm.17971349766402577642(ptr noundef nonnull @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER, i8 noundef 0), !noalias !23
   %54 = icmp ult i64 %53, 6
   call void @llvm.assume(i1 %54)
-  %switch.i.i3 = icmp ult i64 %53, 4
+  %switch.i.i3 = icmp samesign ult i64 %53, 4
   br i1 %switch.i.i3, label %_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenENtCsjDgxGcjZqad_9utf8parse8Receiver9codepointBK_.exit5, label %55
 
 55:                                               ; preds = %52

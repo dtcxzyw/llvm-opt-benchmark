@@ -306,7 +306,7 @@ define hidden noundef zeroext i1 @_ZNK18ConstraintCastNode18higher_equal_typesEP
   %28 = getelementptr inbounds i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %26

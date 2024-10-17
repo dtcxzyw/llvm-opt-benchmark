@@ -696,7 +696,7 @@ sub_1143:                                         ; preds = %.tail.thread, %.thr
 
 218:                                              ; preds = %214
   %219 = call range(i32 1, 12) i32 @llvm.ctpop.i32(i32 %216)
-  %220 = icmp ult i32 %219, 2
+  %220 = icmp samesign ult i32 %219, 2
   %221 = add nsw i32 %216, -1048576
   %222 = icmp ult i32 %221, 1072693249
   %or.cond7 = and i1 %220, %222
@@ -892,7 +892,7 @@ CheckDataVersion.exit:                            ; preds = %270
 294:                                              ; preds = %289
   %295 = call i32 @close(i32 noundef %282) #15
   %296 = and i64 %291, 2147483640
-  %297 = icmp ugt i64 %296, 295
+  %297 = icmp samesign ugt i64 %296, 295
   br i1 %297, label %298, label %320
 
 298:                                              ; preds = %294
@@ -923,7 +923,7 @@ CheckDataVersion.exit:                            ; preds = %270
 
 312:                                              ; preds = %310
   %313 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %311)
-  %314 = icmp ult i32 %313, 2
+  %314 = icmp samesign ult i32 %313, 2
   %315 = add i32 %311, -1048576
   %316 = icmp ult i32 %315, 1072693249
   %or.cond5.i = and i1 %314, %316

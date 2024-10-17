@@ -83,7 +83,7 @@ Abc_TtSwapAdjacent.exit.us.us.us:                 ; preds = %17, %.lr.ph.us.us
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %28, align 4
   store i32 %29, ptr %30, align 4
-  %32 = icmp ult i64 %indvars.iv, 5
+  %32 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %32, label %63, label %33
 
 33:                                               ; preds = %27
@@ -91,7 +91,7 @@ Abc_TtSwapAdjacent.exit.us.us.us:                 ; preds = %17, %.lr.ph.us.us
   br i1 %34, label %56, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i64 %indvars.iv, 7
+  %36 = icmp samesign ult i64 %indvars.iv, 7
   %37 = trunc i64 %indvars.iv to i32
   %38 = add i32 %37, -6
   %39 = shl nuw i32 1, %38
@@ -1376,7 +1376,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i145, %.lr.p
   %234 = add nuw nsw i32 %233, %230
   %235 = trunc i64 %.pre171 to i32
   %236 = lshr i32 %235, 24
-  %237 = icmp ugt i32 %234, %236
+  %237 = icmp samesign ugt i32 %234, %236
   %238 = icmp ult i32 %229, 16777216
   %or.cond = or i1 %238, %237
   %239 = icmp ult i32 %232, 16777216
@@ -1684,7 +1684,7 @@ define internal fastcc i32 @Abc_TtMinBase(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %5 = icmp ult i32 %3, 7
+  %5 = icmp samesign ult i32 %3, 7
   %6 = add nsw i32 %3, -6
   %7 = shl nuw i32 1, %6
   %8 = sext i32 %7 to i64
@@ -1781,7 +1781,7 @@ Abc_TtHasVar.exit.thread.us:                      ; preds = %39, %Abc_TtHasVar.e
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %Abc_TtHasVar.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %Abc_TtHasVar.exit.thread ]
   %.038 = phi i32 [ 0, %.lr.ph.split.split.split.preheader ], [ %.1, %Abc_TtHasVar.exit.thread ]
-  %41 = icmp ult i64 %indvars.iv, 6
+  %41 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %41, label %.lr.ph.i, label %.preheader.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split.split
@@ -2179,7 +2179,7 @@ Abc_TtStretch6.exit204:                           ; preds = %._crit_edge.us.i202
   %157 = load i64, ptr %11, align 4
   %158 = lshr i64 %157, 24
   %159 = and i64 %158, 255
-  %160 = icmp ult i64 %indvars.iv.next, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next, %159
   br i1 %160, label %148, label %.preheader227, !llvm.loop !31
 
 .preheader225:                                    ; preds = %Abc_TtFlip.exit, %.preheader227
@@ -2188,7 +2188,7 @@ Abc_TtStretch6.exit204:                           ; preds = %._crit_edge.us.i202
   %162 = load i64, ptr %90, align 4
   %163 = trunc i64 %162 to i32
   %164 = lshr i32 %163, 24
-  %165 = icmp ult i32 %.lcssa232, %164
+  %165 = icmp samesign ult i32 %.lcssa232, %164
   br i1 %165, label %.lr.ph237, label %.preheader
 
 .lr.ph237:                                        ; preds = %.preheader225
@@ -2252,7 +2252,7 @@ Abc_TtStretch6.exit204:                           ; preds = %._crit_edge.us.i202
   br label %Abc_TtFlip.exit
 
 206:                                              ; preds = %189
-  %207 = icmp ult i64 %indvars.iv260, 6
+  %207 = icmp samesign ult i64 %indvars.iv260, 6
   br i1 %207, label %208, label %222
 
 208:                                              ; preds = %206
@@ -2330,7 +2330,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i212
   %242 = trunc i64 %241 to i32
   %243 = lshr i32 %242, 24
   %244 = zext nneg i32 %243 to i64
-  %245 = icmp ult i64 %indvars.iv.next261, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next261, %244
   br i1 %245, label %168, label %.preheader225, !llvm.loop !35
 
 .preheader.loopexit:                              ; preds = %250
@@ -2356,7 +2356,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i212
   %252 = load i64, ptr %90, align 4
   %253 = lshr i64 %252, 24
   %254 = and i64 %253, 255
-  %255 = icmp ult i64 %indvars.iv.next264, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next264, %254
   br i1 %255, label %250, label %.preheader.loopexit, !llvm.loop !36
 
 256:                                              ; preds = %.lr.ph239, %271
@@ -2442,7 +2442,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph22.i, %._crit
   %301 = load i64, ptr %90, align 4
   %302 = trunc i64 %301 to i32
   %303 = lshr i32 %302, 24
-  %304 = icmp ugt i32 %300, %303
+  %304 = icmp samesign ugt i32 %300, %303
   %305 = icmp ult i32 %295, 16777216
   %or.cond164 = or i1 %305, %304
   %306 = icmp ult i32 %298, 16777216
@@ -2755,7 +2755,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef range(i3
 6:                                                ; preds = %4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %3, i32 %2)
   %spec.select117 = tail call i32 @llvm.smin.i32(i32 %3, i32 %2)
-  %7 = icmp ult i32 %1, 7
+  %7 = icmp samesign ult i32 %1, 7
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %6
@@ -2972,7 +2972,7 @@ define range(i32 0, 2) i32 @If_CutComputeTruthPerm(ptr noundef %0, ptr noundef %
   %22 = load i64, ptr %21, align 4
   %23 = trunc i64 %22 to i32
   %24 = lshr i32 %23, 24
-  %25 = icmp ugt i32 %20, %24
+  %25 = icmp samesign ugt i32 %20, %24
   %26 = icmp slt i32 %4, 2
   %or.cond = or i1 %26, %25
   %27 = icmp slt i32 %5, 2
@@ -3569,7 +3569,7 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
   %307 = trunc i64 %306 to i32
   %308 = lshr i32 %307, 24
   %309 = zext nneg i32 %308 to i64
-  %310 = icmp ult i64 %indvars.iv176, %309
+  %310 = icmp samesign ult i64 %indvars.iv176, %309
   %311 = getelementptr inbounds [0 x i32], ptr %302, i64 0, i64 %indvars.iv176
   %312 = load i32, ptr %311, align 4
   br i1 %310, label %313, label %316
@@ -3872,7 +3872,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %462 = load i64, ptr %21, align 4
   %463 = lshr i64 %462, 24
   %464 = and i64 %463, 255
-  %465 = icmp ult i64 %indvars.iv.next, %464
+  %465 = icmp samesign ult i64 %indvars.iv.next, %464
   br i1 %465, label %420, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %Vec_StrPush.exit, %Vec_IntPush.exit
@@ -3887,7 +3887,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %472 = add nuw nsw i32 %471, %468
   %473 = lshr i32 %.pre-phi, 16
   %474 = and i32 %473, 255
-  %475 = icmp ult i32 %472, %474
+  %475 = icmp samesign ult i32 %472, %474
   br i1 %475, label %.lr.ph150, label %._crit_edge151
 
 .lr.ph150:                                        ; preds = %._crit_edge
@@ -3967,7 +3967,7 @@ Vec_StrPush.exit130:                              ; preds = %.Vec_StrGrow.exit10
   %511 = trunc i64 %510 to i32
   %512 = lshr i32 %511, 16
   %513 = and i32 %512, 255
-  %514 = icmp ult i32 %509, %513
+  %514 = icmp samesign ult i32 %509, %513
   br i1 %514, label %477, label %._crit_edge151, !llvm.loop !52
 
 ._crit_edge151:                                   ; preds = %Vec_StrPush.exit130, %._crit_edge

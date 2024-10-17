@@ -32,7 +32,7 @@ if.then3:                                         ; preds = %for.body
 
 if.end4:                                          ; preds = %if.then3, %for.body
   %line.addr.1 = phi ptr [ %incdec.ptr, %if.then3 ], [ %line.addr.026, %for.body ]
-  %cmp5 = icmp ult i64 %indvars.iv, %0
+  %cmp5 = icmp samesign ult i64 %indvars.iv, %0
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end4
@@ -130,7 +130,7 @@ if.then3.i:                                       ; preds = %for.body.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %for.body.i
   %line.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then3.i ], [ %line.addr.026.i, %for.body.i ]
-  %cmp5.i = icmp ult i64 %indvars.iv.i, %1
+  %cmp5.i = icmp samesign ult i64 %indvars.iv.i, %1
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i

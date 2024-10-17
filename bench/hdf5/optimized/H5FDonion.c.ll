@@ -2093,7 +2093,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 42:                                               ; preds = %39
   %43 = urem i64 %.090106, %26
   %44 = add nuw nsw i64 %43, %32
-  %45 = icmp ugt i64 %44, %26
+  %45 = icmp samesign ugt i64 %44, %26
   %46 = icmp eq i64 %43, 0
   %or.cond = or i1 %46, %45
   %47 = zext i1 %or.cond to i64
@@ -2285,7 +2285,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 50:                                               ; preds = %47
   %51 = urem i64 %.0147170, %27
   %52 = add nuw nsw i64 %51, %40
-  %53 = icmp ugt i64 %52, %27
+  %53 = icmp samesign ugt i64 %52, %27
   %54 = icmp eq i64 %51, 0
   %or.cond163 = or i1 %54, %53
   %55 = zext i1 %or.cond163 to i64

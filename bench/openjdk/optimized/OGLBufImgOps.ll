@@ -93,7 +93,7 @@ define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone %0, i64 n
 36:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %8)
-  %.not.i = icmp ult i32 %.2, 4
+  %.not.i = icmp samesign ult i32 %.2, 4
   %37 = select i1 %.not.i, ptr @.str.6, ptr @.str.5
   %38 = and i32 %.2, 1
   %.not13.i = icmp eq i32 %38, 0
@@ -392,7 +392,7 @@ define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone %0, i64 nou
   %27 = and i32 %.2, 2
   %.not19.i = icmp eq i32 %27, 0
   %.str.20..str.19.i = select i1 %.not19.i, ptr @.str.20, ptr @.str.19
-  %.not20.i = icmp ult i32 %.2, 4
+  %.not20.i = icmp samesign ult i32 %.2, 4
   %.015.i = select i1 %.not20.i, ptr @.str.14, ptr @.str.15
   %.0.i = select i1 %.not20.i, ptr @.str.14, ptr @.str.16
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 2000, ptr noundef nonnull @.str.23, ptr noundef nonnull %26, ptr noundef nonnull %26, ptr noundef nonnull %.015.i, ptr noundef nonnull %.str.20..str.19.i, ptr noundef nonnull %.0.i) #6

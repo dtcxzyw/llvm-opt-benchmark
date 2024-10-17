@@ -270,7 +270,7 @@ define dso_local i32 @_ZN4llvm14VirtRegAuxInfo8copyHintEPKNS_12MachineInstrEjRKN
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 22
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  %.not.i.i = icmp ult i32 %35, %38
+  %.not.i.i = icmp samesign ult i32 %35, %38
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %33

@@ -59,7 +59,7 @@ if.end4:                                          ; preds = %if.else, %if.then
 define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %nLimit) local_unnamed_addr #1 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
-  %cmp.i = icmp ult i32 %0, 2
+  %cmp.i = icmp samesign ult i32 %0, 2
   %1 = load i32, ptr %this, align 4
   br i1 %cmp.i, label %if.then.i, label %do.body.i
 
@@ -303,7 +303,7 @@ entry:
 define linkonce_odr dso_local noundef i32 @_ZN2EA4StdC11RandomLimitINS0_10RandomTausEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(12) %r, i32 noundef %nLimit) local_unnamed_addr #0 comdat {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
-  %cmp = icmp ult i32 %0, 2
+  %cmp = icmp samesign ult i32 %0, 2
   br i1 %cmp, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
@@ -624,7 +624,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %1 = load i32, ptr %spec.select8.i, align 4
   %pStateOutput.0.add.i = add nuw nsw i64 %pStateOutput.0.idx9.i, 4
   store i32 %1, ptr %pStateOutput.0.ptr.i, align 4
-  %cmp11.i = icmp ult i64 %pStateOutput.0.idx9.i, 2492
+  %cmp11.i = icmp samesign ult i64 %pStateOutput.0.idx9.i, 2492
   br i1 %cmp11.i, label %while.body.i, label %_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit, !llvm.loop !12
 
 _ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit: ; preds = %while.body.i, %entry
@@ -662,7 +662,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %spec.select8, align 4
   %pStateOutput.0.add = add nuw nsw i64 %pStateOutput.0.idx9, 4
   store i32 %1, ptr %pStateOutput.0.ptr, align 4
-  %cmp11 = icmp ult i64 %pStateOutput.0.idx9, 2492
+  %cmp11 = icmp samesign ult i64 %pStateOutput.0.idx9, 2492
   br i1 %cmp11, label %while.body, label %if.end20, !llvm.loop !12
 
 if.end20:                                         ; preds = %while.body, %entry
@@ -938,7 +938,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEj(ptr noundef nonnull align 8 dereferenceable(2508) %this, i32 noundef %nLimit) local_unnamed_addr #6 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
-  %cmp.i = icmp ult i32 %0, 2
+  %cmp.i = icmp samesign ult i32 %0, 2
   br i1 %cmp.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %entry

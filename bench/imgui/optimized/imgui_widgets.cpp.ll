@@ -4769,7 +4769,7 @@ for.body73:                                       ; preds = %for.cond68.preheade
   store float %add84, ptr %Width78, align 4
   %sub85 = fsub float %width_excess.addr.376, %cond.i58
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %cmp69 = icmp ult i64 %indvars.iv.next92, %11
+  %cmp69 = icmp samesign ult i64 %indvars.iv.next92, %11
   %cmp71 = fcmp ogt float %sub85, 0.000000e+00
   %15 = select i1 %cmp69, i1 %cmp71, i1 false
   br i1 %15, label %for.body73, label %while.cond64.loopexit, !llvm.loop !14
@@ -12749,7 +12749,7 @@ if.then127:                                       ; preds = %if.then124
   br label %if.end145
 
 if.else130:                                       ; preds = %lor.lhs.false24.i211, %land.lhs.true.i208, %if.end14.i206, %if.end14.i206, %if.then106
-  %or.cond1 = icmp ult i32 %cond7, 101
+  %or.cond1 = icmp samesign ult i32 %cond7, 101
   %cmp135 = icmp ne i32 %v_min, %v_max
   %or.cond2 = and i1 %cmp135, %or.cond1
   %brmerge170 = or i1 %or.cond2, %call109
@@ -14231,7 +14231,7 @@ if.then127:                                       ; preds = %if.then124
   br label %if.end145
 
 if.else130:                                       ; preds = %lor.lhs.false24.i211, %land.lhs.true.i208, %if.end14.i206, %if.end14.i206, %if.then106
-  %or.cond1 = icmp ult i64 %cond7, 101
+  %or.cond1 = icmp samesign ult i64 %cond7, 101
   %cmp135 = icmp ne i64 %v_min, %v_max
   %or.cond2 = and i1 %cmp135, %or.cond1
   %brmerge170 = or i1 %or.cond2, %call109
@@ -34864,7 +34864,7 @@ for.body360:                                      ; preds = %for.body360.lr.ph, 
   store i32 -1, ptr %NameOffset, align 4
   %Width365 = getelementptr inbounds i8, ptr %arrayidx.i387, i64 20
   %159 = load float, ptr %Width365, align 4
-  %cmp368 = icmp ult i64 %indvars.iv535, %156
+  %cmp368 = icmp samesign ult i64 %indvars.iv535, %156
   br i1 %cmp368, label %cond.true369, label %cond.end374
 
 cond.true369:                                     ; preds = %for.body360

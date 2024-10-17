@@ -3345,7 +3345,7 @@ Vec_PtrFree.exit.i:                               ; preds = %60, %57
 
 61:                                               ; preds = %Vec_PtrFree.exit.i, %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = icmp ult i64 %indvars.iv.next.i, %53
+  %62 = icmp samesign ult i64 %indvars.iv.next.i, %53
   br i1 %62, label %54, label %.critedge.i.thread, !llvm.loop !35
 
 .critedge.i:                                      ; preds = %49

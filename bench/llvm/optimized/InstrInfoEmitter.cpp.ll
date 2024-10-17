@@ -21044,7 +21044,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit169: ; preds = %_ZN4llvmeqENS_
   %345 = getelementptr inbounds i8, ptr %.111.i171, i64 -1
   store i8 %344, ptr %345, align 1, !noalias !153
   %346 = udiv i64 %.0810.i172, 10
-  %.not.i173 = icmp ult i64 %.0810.i172, 10
+  %.not.i173 = icmp samesign ult i64 %.0810.i172, 10
   br i1 %.not.i173, label %_ZN4llvm6utostrB5cxx11Emb.exit176, label %.lr.ph.i170, !llvm.loop !137
 
 _ZN4llvm6utostrB5cxx11Emb.exit176:                ; preds = %.lr.ph.i170, %.thread.i175

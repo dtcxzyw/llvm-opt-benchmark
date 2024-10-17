@@ -108,19 +108,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %39 = load i16, ptr %38, align 8, !tbaa !20
   %40 = sext i16 %39 to i32
   %41 = call i32 @llvm.abs.i32(i32 %40, i1 true)
-  %42 = icmp ult i32 %41, 10
+  %42 = icmp samesign ult i32 %41, 10
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %34
-  %44 = icmp ult i32 %41, 100
+  %44 = icmp samesign ult i32 %41, 100
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i32 %41, 1000
+  %46 = icmp samesign ult i32 %41, 1000
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %41, 10000
+  %48 = icmp samesign ult i32 %41, 10000
   %49 = select i1 %48, i32 4, i32 5
   br label %50
 
@@ -909,7 +909,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
 
 .loopexit:                                        ; preds = %7, %3
   %27 = phi i32 [ %2, %3 ], [ %12, %7 ]
-  %28 = icmp ugt i32 %27, 9
+  %28 = icmp samesign ugt i32 %27, 9
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %.loopexit

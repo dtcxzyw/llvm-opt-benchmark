@@ -2127,7 +2127,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .lr.ph9472.preheader:                             ; preds = %thread-pre-split
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
-  %33 = icmp ult i32 %.pr, 8
+  %33 = icmp samesign ult i32 %.pr, 8
   br i1 %33, label %.lr.ph20498, label %41
 
 .lr.ph20498:                                      ; preds = %.lr.ph9472.preheader
@@ -2163,7 +2163,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   br i1 %42, label %7618, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %.lcssa17125, 10
+  %44 = icmp samesign ult i32 %.lcssa17125, 10
   %45 = getelementptr inbounds i8, ptr %.lcssa17134, i64 1
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 32

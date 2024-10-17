@@ -3739,7 +3739,7 @@ do_ssl_trace_str.exit.i211.i:                     ; preds = %for.inc.i.i207.i, %
   br i1 %tobool1.not.i216.i, label %if.end52, label %while.body.i198.i, !llvm.loop !10
 
 sw.bb33.i:                                        ; preds = %do_ssl_trace_str.exit.i
-  %cmp34.i = icmp ult i32 %or37, 2
+  %cmp34.i = icmp samesign ult i32 %or37, 2
   br i1 %cmp34.i, label %return, label %if.end37.i
 
 if.end37.i:                                       ; preds = %sw.bb33.i
@@ -3760,7 +3760,7 @@ if.end47.i:                                       ; preds = %if.end37.i
   br label %ssl_print_extension.exit
 
 sw.bb51.i:                                        ; preds = %do_ssl_trace_str.exit.i
-  %cmp52.i = icmp ult i32 %or37, 2
+  %cmp52.i = icmp samesign ult i32 %or37, 2
   br i1 %cmp52.i, label %return, label %if.end55.i
 
 if.end55.i:                                       ; preds = %sw.bb51.i
@@ -3804,7 +3804,7 @@ if.end76.i:                                       ; preds = %while.body.i
   br i1 %cmp69.not.i, label %if.end52, label %while.body.i, !llvm.loop !13
 
 sw.bb84.i:                                        ; preds = %do_ssl_trace_str.exit.i
-  %cmp85.i = icmp ult i32 %or37, 2
+  %cmp85.i = icmp samesign ult i32 %or37, 2
   br i1 %cmp85.i, label %return, label %if.end88.i
 
 if.end88.i:                                       ; preds = %sw.bb84.i
@@ -3968,7 +3968,7 @@ do_ssl_trace_str.exit248.i:                       ; preds = %for.inc.i241.i, %if
   br label %if.end52
 
 if.end174.i:                                      ; preds = %sw.bb159.i
-  %cmp175.i = icmp ult i32 %or37, 2
+  %cmp175.i = icmp samesign ult i32 %or37, 2
   br i1 %cmp175.i, label %return, label %if.end178.i
 
 if.end178.i:                                      ; preds = %if.end174.i
@@ -4451,7 +4451,7 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load i8, ptr %0, align 1
   %conv = zext i8 %2 to i64
-  %cmp1 = icmp ugt i64 %nlen, 1
+  %cmp1 = icmp samesign ugt i64 %nlen, 1
   br i1 %cmp1, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end

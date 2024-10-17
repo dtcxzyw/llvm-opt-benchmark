@@ -1939,7 +1939,7 @@ test_independent_groups.exit.i.i:                 ; preds = %independent_groups.
   br label %554
 
 554:                                              ; preds = %552, %test_independent_groups.exit.i.i
-  %555 = icmp ugt i32 %549, 9
+  %555 = icmp samesign ugt i32 %549, 9
   br i1 %555, label %.split.i.loopexit296.i, label %556
 
 .split.i.loopexit296.i:                           ; preds = %554
@@ -2042,7 +2042,7 @@ select_independent_groups_by_largest_index.exit.thread248.i: ; preds = %559, %50
   %indvars.iv58.i.i = phi i64 [ %indvars.iv.next59.i.i, %605 ], [ 0, %.preheader.i217.i ]
   %indvars.iv51.i218.i = phi i64 [ %indvars.iv.next52.i219.i, %605 ], [ 1, %.preheader.i217.i ]
   %indvars.iv.next59.i.i = add nuw nsw i64 %indvars.iv58.i.i, 1
-  %590 = icmp ult i64 %indvars.iv.next59.i.i, %417
+  %590 = icmp samesign ult i64 %indvars.iv.next59.i.i, %417
   br i1 %590, label %.lr.ph40.us.i.i, label %._crit_edge.split.us.us.i.i
 
 ._crit_edge.split.us.us.i.i:                      ; preds = %independent_tab.exit.thread.us.us.i.i, %.lr.ph42.split.us.i.i
@@ -4247,7 +4247,7 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %indvars.iv121 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next122, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph102 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %77 = icmp ult i64 %indvars.iv.next122, %75
+  %77 = icmp samesign ult i64 %indvars.iv.next122, %75
   br i1 %77, label %.lr.ph99, label %.loopexit
 
 .lr.ph99:                                         ; preds = %76

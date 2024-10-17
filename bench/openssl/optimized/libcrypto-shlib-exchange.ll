@@ -501,7 +501,7 @@ for.inc:                                          ; preds = %sw.bb, %if.end74, %
   %exchange.174 = phi ptr [ %exchange.1.ph, %if.then77 ], [ %exchange.1.ph, %if.end74 ], [ null, %sw.bb ]
   %provkey.1 = phi ptr [ %provkey.279, %if.then77 ], [ %call73, %if.end74 ], [ null, %sw.bb ]
   %inc = add nuw nsw i32 %iter.084, 1
-  %cmp40 = icmp ult i32 %iter.084, 2
+  %cmp40 = icmp samesign ult i32 %iter.084, 2
   %cmp42 = icmp eq ptr %provkey.1, null
   %20 = select i1 %cmp40, i1 %cmp42, i1 false
   br i1 %20, label %for.body, label %for.end, !llvm.loop !6

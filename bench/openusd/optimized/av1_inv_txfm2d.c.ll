@@ -586,8 +586,8 @@ define hidden void @av1_gen_inv_stage_range(ptr nocapture noundef writeonly %0, 
   %16 = load i32, ptr %9, align 8
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  %19 = icmp ult i64 %indvars.iv, 11
-  %20 = and i1 %19, %18
+  %19 = icmp samesign ult i64 %indvars.iv, 11
+  %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !8
 
 .lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
@@ -598,8 +598,8 @@ define hidden void @av1_gen_inv_stage_range(ptr nocapture noundef writeonly %0, 
   %22 = load i32, ptr %12, align 4
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next48, %23
-  %25 = icmp ult i64 %indvars.iv47, 11
-  %26 = and i1 %25, %24
+  %25 = icmp samesign ult i64 %indvars.iv47, 11
+  %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph45, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader

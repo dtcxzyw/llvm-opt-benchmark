@@ -29315,15 +29315,15 @@ _ZN4gpui7element7Element8into_any17hd84d67785c509ee0E.exit.i.i: ; preds = %"_ZN9
   %746 = load i32, ptr %745, align 16, !range !6801, !noalias !6561, !noundef !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !6505
-  %747 = icmp ult i32 %746, 128
+  %747 = icmp samesign ult i32 %746, 128
   br i1 %747, label %752, label %748
 
 748:                                              ; preds = %739
-  %749 = icmp ult i32 %746, 2048
+  %749 = icmp samesign ult i32 %746, 2048
   br i1 %749, label %754, label %750
 
 750:                                              ; preds = %748
-  %751 = icmp ult i32 %746, 65536
+  %751 = icmp samesign ult i32 %746, 65536
   br i1 %751, label %761, label %772
 
 752:                                              ; preds = %739
@@ -30733,7 +30733,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.0.lcssa = phi i64 [ %4, %3 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h77dcdc732910a340E.exit" ]
   %.sroa.11.0.lcssa = phi i64 [ %2, %3 ], [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h77dcdc732910a340E.exit" ]
   %.sroa.0.0.lcssa = phi ptr [ %1, %3 ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h77dcdc732910a340E.exit" ]
-  %6 = icmp ugt i64 %.sroa.11.0.lcssa, 3
+  %6 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 3
   br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72df557c2891883bE.exit", label %7
 
 7:                                                ; preds = %._crit_edge, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72df557c2891883bE.exit"
@@ -70054,15 +70054,15 @@ define hidden void @"_ZN13terminal_view21possible_open_targets28_$u7b$$u7b$closu
   %58 = load i32, ptr %.sroa.0.0.ptr, align 4, !range !6801, !noundef !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %59 = icmp ult i32 %58, 128
+  %59 = icmp samesign ult i32 %58, 128
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = icmp ult i32 %58, 2048
+  %61 = icmp samesign ult i32 %58, 2048
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %58, 65536
+  %63 = icmp samesign ult i32 %58, 65536
   br i1 %63, label %73, label %84
 
 64:                                               ; preds = %57

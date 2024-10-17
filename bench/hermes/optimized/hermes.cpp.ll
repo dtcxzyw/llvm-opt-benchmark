@@ -9220,7 +9220,7 @@ invoke.cont22:                                    ; preds = %return.fold.split.i
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then33, label %invoke.cont28
@@ -9507,7 +9507,7 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then47, label %invoke.cont43
@@ -18940,7 +18940,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end

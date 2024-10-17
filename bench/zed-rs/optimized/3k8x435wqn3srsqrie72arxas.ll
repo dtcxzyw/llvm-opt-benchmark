@@ -21365,7 +21365,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h5fc2342c8ce7f542E.exit.i.i: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !4505)
   call void @llvm.experimental.noalias.scope.decl(metadata !4508)
   %413 = load i64, ptr %94, align 8, !range !1132, !alias.scope !4510, !noalias !4511, !noundef !13
-  %switch.not.i.i = icmp ult i64 %413, 2
+  %switch.not.i.i = icmp samesign ult i64 %413, 2
   br i1 %switch.not.i.i, label %414, label %424
 
 414:                                              ; preds = %412

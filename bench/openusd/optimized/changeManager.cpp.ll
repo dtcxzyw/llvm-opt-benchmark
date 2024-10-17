@@ -7533,7 +7533,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
   store atomic i64 %41, ptr %61 release, align 8
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
-  %64 = and i1 %60, %63
+  %64 = and i1 %63, %60
   br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__17Sdf_ChangeManager5_DataEEELm128EEEZNS1_18spin_wait_while_eqISB_SB_EET_RKSt6atomicISD_ET0_St12memory_orderEUlSB_E_EESD_SH_SI_SJ_.exit, !llvm.loop !67
 
 65:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__17Sdf_ChangeManager5_DataEEELm128EEENS3_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_EmmEUlvE_E12on_exceptionIZNSE_14create_segmentESI_mmEUlvE0_EEvT_.exit
@@ -8602,7 +8602,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13SdfChangeList5Entry
   %103 = add nuw nsw i64 %.04470, 1
   %104 = load i32, ptr %41, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %103, %105
+  %106 = icmp samesign ult i64 %103, %105
   br i1 %106, label %.lr.ph71, label %._crit_edge72.loopexit, !llvm.loop !78
 
 ._crit_edge72.loopexit:                           ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13SdfChangeList5EntryEED2Ev.exit
@@ -8747,7 +8747,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13SdfChangeList5Entry
   %181 = add nuw nsw i64 %.069, 1
   %182 = load i32, ptr %122, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %181, %183
+  %184 = icmp samesign ult i64 %181, %183
   br i1 %184, label %125, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13SdfChangeList5EntryEED2Ev.exit53, %.thread
@@ -9366,7 +9366,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev
   %94 = add nuw nsw i64 %.04471, 1
   %95 = load i32, ptr %36, align 8
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %94, %96
+  %97 = icmp samesign ult i64 %94, %96
   br i1 %97, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !82
 
 ._crit_edge73.loopexit:                           ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev.exit
@@ -9510,7 +9510,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev
   %168 = add nuw nsw i64 %.070, 1
   %169 = load i32, ptr %113, align 8
   %170 = zext i32 %169 to i64
-  %171 = icmp ult i64 %168, %170
+  %171 = icmp samesign ult i64 %168, %170
   br i1 %171, label %116, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev.exit58, %.thread

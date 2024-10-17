@@ -11549,7 +11549,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.i.i.i34, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i, label %.lr.ph.i.i.i.i33, !llvm.loop !110
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i: ; preds = %.lr.ph.i.i.i.i33
-  %71 = icmp ugt i64 %.06.i.i.i.i, 230584300921369394
+  %71 = icmp samesign ugt i64 %.06.i.i.i.i, 230584300921369394
   br i1 %71, label %.noexc.i, label %_ZNSt16allocator_traitsISaISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEEE8allocateERSB_m.exit.i.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit.i.i

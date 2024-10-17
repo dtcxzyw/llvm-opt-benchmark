@@ -768,7 +768,7 @@ define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %67, label %68, label %99
 
 68:                                               ; preds = %65
-  %69 = icmp ult i32 %2, 512
+  %69 = icmp samesign ult i32 %2, 512
   br i1 %69, label %78, label %70
 
 70:                                               ; preds = %68

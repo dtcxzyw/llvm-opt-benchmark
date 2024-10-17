@@ -119,7 +119,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   %67 = add nuw nsw i64 %26, 1
   %68 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %67, %69
+  %70 = icmp samesign ult i64 %67, %69
   br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %64, %35, %62, %14

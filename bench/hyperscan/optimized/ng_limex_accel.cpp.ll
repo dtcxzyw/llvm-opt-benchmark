@@ -515,7 +515,7 @@ if.end.i:                                         ; preds = %_ZNKSt4lessIN3ue212
   %32 = load i64, ptr %arrayidx.i.i46.i.i.i, align 8
   %33 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %33
-  %cmp.i = icmp ult i64 %add21.i.i.i, 200
+  %cmp.i = icmp samesign ult i64 %add21.i.i.i, 200
   br i1 %cmp.i, label %for.inc25.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
@@ -1887,7 +1887,7 @@ invoke.cont51:                                    ; preds = %for.end, %invoke.co
   %65 = load i64, ptr %arrayidx.i.i46.i.i54, align 8
   %66 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %65)
   %add21.i.i55 = add nuw nsw i64 %add15.i.i53, %66
-  %cmp53 = icmp ult i64 %add21.i.i, %add21.i.i55
+  %cmp53 = icmp samesign ult i64 %add21.i.i, %add21.i.i55
   br i1 %cmp53, label %if.then54, label %nrvo.skipdtor
 
 if.then54:                                        ; preds = %invoke.cont51
@@ -2106,7 +2106,7 @@ do.end10:                                         ; preds = %for.cond.do.end10_c
   %add15.i.i = add nuw nsw i64 %add9.i.i, %17
   %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
   %add21.i.i = add nuw nsw i64 %add15.i.i, %18
-  %cmp = icmp ugt i64 %add21.i.i, %conv
+  %cmp = icmp samesign ugt i64 %add21.i.i, %conv
   br i1 %cmp, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %do.end10
@@ -3424,7 +3424,7 @@ _ZN3ue29CharReach4flipEv.exit:                    ; preds = %for.body.i.i
   %11 = load i64, ptr %arrayidx.i.i46.i.i, align 8
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
   %add21.i.i = add nuw nsw i64 %add15.i.i, %12
-  %cmp = icmp ugt i64 %add21.i.i, %conv
+  %cmp = icmp samesign ugt i64 %add21.i.i, %conv
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %_ZN3ue29CharReach4flipEv.exit
@@ -3935,7 +3935,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 invoke.cont68:                                    ; preds = %for.end
   store i64 0, ptr %m_size.i.i267, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp22 = icmp ugt i64 %indvars.iv, 2
+  %cmp22 = icmp samesign ugt i64 %indvars.iv, 2
   %.not = select i1 %stop.1.lcssa, i1 true, i1 %cmp22
   br i1 %.not, label %depth_done, label %invoke.cont26, !llvm.loop !261
 
@@ -4256,7 +4256,7 @@ invoke.cont160:                                   ; preds = %for.cond149
   %127 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %126)
   %add21.i.i164 = add nuw nsw i64 %add15.i.i162, %127
   %mul = mul nuw nsw i64 %add21.i.i164, %add21.i.i157
-  %cmp162 = icmp ult i64 %mul, 21
+  %cmp162 = icmp samesign ult i64 %mul, 21
   br i1 %cmp162, label %do.end166, label %for.cond149, !llvm.loop !273
 
 do.end166:                                        ; preds = %invoke.cont160
@@ -4427,7 +4427,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   %150 = load i64, ptr %arrayidx.i.i46.i.i224, align 8
   %151 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %150)
   %add21.i.i225 = add nuw nsw i64 %add15.i.i223, %151
-  %cmp194 = icmp ult i64 %add21.i.i225, 25
+  %cmp194 = icmp samesign ult i64 %add21.i.i225, 25
   %152 = or i1 %allow_wide, %cmp194
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i189) #26
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
@@ -5744,11 +5744,11 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i61.i:            ; preds = %if.then.i.i.i.i.i.i
   br label %lpad38.body
 
 if.end24.i:                                       ; preds = %if.end8.i
-  %cmp25.i = icmp ugt i64 %mul.i, 20
+  %cmp25.i = icmp samesign ugt i64 %mul.i, 20
   br i1 %cmp25.i, label %if.then26.i, label %for.body.i.i93.i
 
 if.then26.i:                                      ; preds = %if.end24.i
-  %cmp29.i = icmp ult i64 %add21.i.i43.i, %add21.i.i.i
+  %cmp29.i = icmp samesign ult i64 %add21.i.i43.i, %add21.i.i.i
   %61 = load i64, ptr %double_cr.i27, align 8, !noalias !312
   br i1 %cmp29.i, label %if.then30.i, label %if.else.i
 
@@ -5986,7 +5986,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.body.i.i114.i
   %i.0.in.i.i.i = phi i64 [ %i.0.i.i.i, %for.body.i.i114.i ], [ %div1.i.i.i.i, %for.cond.i.i.i.preheader ]
-  %cmp14.i.i.i = icmp ult i64 %i.0.in.i.i.i, 3
+  %cmp14.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i, 3
   br i1 %cmp14.i.i.i, label %for.body.i.i114.i, label %for.inc43.i
 
 for.body.i.i114.i:                                ; preds = %for.cond.i.i.i
@@ -6034,7 +6034,7 @@ if.then7.i.i127.i:                                ; preds = %if.then5.i.i122.i
 
 for.cond.i.i131.i:                                ; preds = %for.cond.i.i131.i.preheader, %for.body.i.i134.i
   %i.0.in.i.i132.i = phi i64 [ %i.0.i.i135.i, %for.body.i.i134.i ], [ %div1.i.i.i119.i, %for.cond.i.i131.i.preheader ]
-  %cmp14.i.i133.i = icmp ult i64 %i.0.in.i.i132.i, 3
+  %cmp14.i.i133.i = icmp samesign ult i64 %i.0.in.i.i132.i, 3
   br i1 %cmp14.i.i133.i, label %for.body.i.i134.i, label %if.end46.i
 
 for.body.i.i134.i:                                ; preds = %for.cond.i.i131.i
@@ -6636,7 +6636,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp4 = icmp ult i64 %add21.i.i, %add21.i.i30
+  %cmp4 = icmp samesign ult i64 %add21.i.i, %add21.i.i30
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7702,7 +7702,7 @@ while.cond1.i.i:                                  ; preds = %while.body3.i.i, %w
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i14, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.cond1.i.i
-  %cmp4.i.i.i = icmp ult i64 %add21.i.i.i.i.i, %add21.i.i30.i.i.i
+  %cmp4.i.i.i = icmp samesign ult i64 %add21.i.i.i.i.i, %add21.i.i30.i.i.i
   br i1 %cmp4.i.i.i, label %while.body3.i.i, label %while.cond6.i.i.preheader
 
 if.end.i.i.i14:                                   ; preds = %while.cond1.i.i
@@ -7891,7 +7891,7 @@ while.cond6.i.i:                                  ; preds = %while.cond6.i.i.bac
   br i1 %cmp.not.i25.i.i, label %if.end.i29.i.i, label %if.then.i26.i.i
 
 if.then.i26.i.i:                                  ; preds = %while.cond6.i.i
-  %cmp4.i27.i.i = icmp ult i64 %add21.i.i.i17.i.i, %add21.i.i30.i24.i.i
+  %cmp4.i27.i.i = icmp samesign ult i64 %add21.i.i.i17.i.i, %add21.i.i30.i24.i.i
   br i1 %cmp4.i27.i.i, label %while.cond6.i.i.backedge, label %while.end12.i.i
 
 if.end.i29.i.i:                                   ; preds = %while.cond6.i.i
@@ -10879,7 +10879,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i, label %cleanup.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK3ue212_GLOBAL__N_112SAccelSchemeltERKS1_.exit: ; preds = %if.then4
-  %cmp4.i = icmp ult i64 %add21.i.i.i, %add21.i.i16.i
+  %cmp4.i = icmp samesign ult i64 %add21.i.i.i, %add21.i.i16.i
   br i1 %cmp4.i, label %if.then6, label %cleanup.cont
 
 if.then6:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.body.i, %_ZNK3ue212_GLOBAL__N_112SAccelSchemeltERKS1_.exit
@@ -11053,7 +11053,7 @@ if.end.i.i.i.i.i.i.i.i.i64:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i68, label %if.end32, label %for.body.i.i.i.i.i.i.i.i.i59, !llvm.loop !368
 
 invoke.cont27:                                    ; preds = %invoke.cont23
-  %cmp4.i51 = icmp ult i64 %add21.i.i.i42, %add21.i.i16.i48
+  %cmp4.i51 = icmp samesign ult i64 %add21.i.i.i42, %add21.i.i16.i48
   br i1 %cmp4.i51, label %for.inc, label %if.end32
 
 lpad.loopexit:                                    ; preds = %if.end88
@@ -11308,7 +11308,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3ue212_GLOBAL__N_112SAccelSchemeEN5boost9container12vec_iteratorIPS5_Lb0EEEEEbRT_T0_.exit.i.i.i.i.i: ; preds = %while.cond.i.i.i.i.i
-  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %add21.i.i.i.i.i.i.i.i.i, %add21.i.i16.i.i.i.i.i.i.i
+  %cmp4.i.i.i.i.i.i.i = icmp samesign ult i64 %add21.i.i.i.i.i.i.i.i.i, %add21.i.i16.i.i.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3ue212_GLOBAL__N_112SAccelSchemeEN5boost9container12vec_iteratorIPS5_Lb0EEEEEbRT_T0_.exit.i.i.i.i.i, %do.body.i.i.i.i.i.i.i
@@ -11468,7 +11468,7 @@ if.end.i.i.i.i.i.i.i.i.i132:                      ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i136, label %if.end88, label %for.body.i.i.i.i.i.i.i.i.i127, !llvm.loop !368
 
 invoke.cont82:                                    ; preds = %for.body77
-  %cmp4.i119 = icmp ult i64 %add21.i.i.i110, %add21.i.i16.i116
+  %cmp4.i119 = icmp samesign ult i64 %add21.i.i.i110, %add21.i.i16.i116
   br i1 %cmp4.i119, label %for.inc102, label %if.end88
 
 if.end88:                                         ; preds = %if.end.i.i.i.i.i.i.i.i.i132, %if.end8.i125, %invoke.cont82
@@ -11641,7 +11641,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i40:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i.i44, label %if.else18.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i35, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.i.i23: ; preds = %if.end
-  %cmp4.i.i.i.i24 = icmp ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i.i.i21
+  %cmp4.i.i.i.i24 = icmp samesign ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i.i.i21
   br i1 %cmp4.i.i.i.i24, label %if.then.i.i28, label %if.else18.i.i
 
 if.then.i.i28:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.i.i23, %do.body.i.i.i.i29
@@ -11691,7 +11691,7 @@ if.end.i.i.i.i.i.i.i.i.i.i46.i.i:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i50.i.i, label %if.else.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i41.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit51.i.i: ; preds = %if.then.i.i28
-  %cmp4.i.i33.i.i = icmp ult i64 %add21.i.i16.i.i.i.i21, %add21.i.i16.i.i30.i.i
+  %cmp4.i.i33.i.i = icmp samesign ult i64 %add21.i.i16.i.i.i.i21, %add21.i.i16.i.i30.i.i
   br i1 %cmp4.i.i33.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i41.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit51.i.i, %do.body.i.i35.i.i
@@ -11735,7 +11735,7 @@ if.end.i.i.i.i.i.i.i.i.i.i79.i.i:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i83.i.i, label %if.else14.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i74.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit84.i.i: ; preds = %if.else.i.i
-  %cmp4.i.i66.i.i = icmp ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i30.i.i
+  %cmp4.i.i66.i.i = icmp samesign ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i30.i.i
   br i1 %cmp4.i.i66.i.i, label %if.then11.i.i, label %if.else14.i.i
 
 if.then11.i.i:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i74.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit84.i.i, %do.body.i.i68.i.i
@@ -11801,7 +11801,7 @@ if.end.i.i.i.i.i.i.i.i.i.i114.i.i:                ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i118.i.i, label %if.else25.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i109.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit119.i.i: ; preds = %if.else18.i.i
-  %cmp4.i.i101.i.i = icmp ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i98.i.i
+  %cmp4.i.i101.i.i = icmp samesign ult i64 %add21.i.i.i.i.i.i15, %add21.i.i16.i.i98.i.i
   br i1 %cmp4.i.i101.i.i, label %if.then22.i.i, label %if.else25.i.i
 
 if.then22.i.i:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i109.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit119.i.i, %do.body.i.i103.i.i
@@ -11845,7 +11845,7 @@ if.end.i.i.i.i.i.i.i.i.i.i148.i.i:                ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i152.i.i, label %if.else32.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i143.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit153.i.i: ; preds = %if.else25.i.i
-  %cmp4.i.i135.i.i = icmp ult i64 %add21.i.i16.i.i.i.i21, %add21.i.i16.i.i98.i.i
+  %cmp4.i.i135.i.i = icmp samesign ult i64 %add21.i.i16.i.i.i.i21, %add21.i.i16.i.i98.i.i
   br i1 %cmp4.i.i135.i.i, label %if.then29.i.i, label %if.else32.i.i
 
 if.then29.i.i:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i143.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit153.i.i, %do.body.i.i137.i.i
@@ -11934,7 +11934,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i39.i:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i43.i, label %while.cond6.i.i.preheader, label %for.body.i.i.i.i.i.i.i.i.i.i.i34.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.i26.i: ; preds = %while.cond1.i.i
-  %cmp4.i.i.i27.i = icmp ult i64 %add21.i.i.i.i.i21.i, %add21.i.i16.i.i.i24.i
+  %cmp4.i.i.i27.i = icmp samesign ult i64 %add21.i.i.i.i.i21.i, %add21.i.i16.i.i.i24.i
   br i1 %cmp4.i.i.i27.i, label %while.body3.i.i, label %while.cond6.i.i.preheader
 
 while.body3.i.i:                                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i34.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.i26.i, %do.body.i.i.i29.i
@@ -11992,7 +11992,7 @@ if.end.i.i.i.i.i.i.i.i.i.i35.i.i:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i39.i.i, label %while.end12.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i30.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit40.i.i: ; preds = %while.cond6.i.i
-  %cmp4.i.i22.i.i = icmp ult i64 %add21.i.i16.i.i.i24.i, %add21.i.i16.i.i19.i.i
+  %cmp4.i.i22.i.i = icmp samesign ult i64 %add21.i.i16.i.i.i24.i, %add21.i.i16.i.i19.i.i
   br i1 %cmp4.i.i22.i.i, label %while.cond6.i.i.backedge, label %while.end12.i.i
 
 while.cond6.i.i.backedge:                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i30.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit40.i.i, %do.body.i.i24.i.i
@@ -12104,7 +12104,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.thread4, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit: ; preds = %while.body
-  %cmp4.i.i = icmp ult i64 %add21.i.i.i.i, %add21.i.i16.i.i
+  %cmp4.i.i = icmp samesign ult i64 %add21.i.i.i.i, %add21.i.i16.i.i
   %cond.fr = freeze i1 %cmp4.i.i
   br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit.thread4
 
@@ -12214,7 +12214,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i, label %_ZSt11__push_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.i: ; preds = %land.rhs.i
-  %cmp4.i.i.i = icmp ult i64 %add21.i.i.i.i.i, %add21.i.i16.i.i.i
+  %cmp4.i.i.i = icmp samesign ult i64 %add21.i.i.i.i.i, %add21.i.i16.i.i.i
   br i1 %cmp4.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.i, %do.body.i.i.i
@@ -12315,7 +12315,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i, label %if.else, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit: ; preds = %for.body
-  %cmp4.i.i = icmp ult i64 %add21.i.i.i.i, %add21.i.i16.i.i
+  %cmp4.i.i = icmp samesign ult i64 %add21.i.i.i.i, %add21.i.i16.i.i
   br i1 %cmp4.i.i, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %do.body.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEESA_EEbT_T0_.exit
@@ -12409,7 +12409,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !368
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3ue212_GLOBAL__N_112SAccelSchemeEN5boost9container12vec_iteratorIPS5_Lb0EEEEEbRT_T0_.exit.i: ; preds = %while.cond.i
-  %cmp4.i.i.i = icmp ult i64 %add21.i.i.i.i.i, %add21.i.i16.i.i.i
+  %cmp4.i.i.i = icmp samesign ult i64 %add21.i.i.i.i.i, %add21.i.i16.i.i.i
   br i1 %cmp4.i.i.i, label %while.body.i, label %_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
 while.body.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3ue212_GLOBAL__N_112SAccelSchemeEN5boost9container12vec_iteratorIPS5_Lb0EEEEEbRT_T0_.exit.i, %do.body.i.i.i

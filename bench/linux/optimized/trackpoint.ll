@@ -184,7 +184,7 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 
 70:                                               ; preds = %67
   %71 = and i8 %68, 15
-  %72 = icmp ugt i8 %71, 2
+  %72 = icmp samesign ugt i8 %71, 2
   br i1 %72, label %.thread3, label %77
 
 .thread3.sink.split.sink.split:                   ; preds = %67, %64

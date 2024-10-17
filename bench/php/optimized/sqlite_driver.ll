@@ -1235,7 +1235,7 @@ define internal fastcc void @do_callback(ptr noundef %0, ptr nocapture noundef r
   %91 = getelementptr inbounds %struct._zval_struct, ptr %.0181, i64 %indvars.iv199
   call void @zval_ptr_dtor(ptr noundef nonnull %91) #11
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %92 = icmp ult i64 %indvars.iv.next200, %90
+  %92 = icmp samesign ult i64 %indvars.iv.next200, %90
   br i1 %92, label %.lr.ph196, label %._crit_edge197
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %.preheader

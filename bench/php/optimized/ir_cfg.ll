@@ -4014,7 +4014,7 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   %267 = phi i32 [ %258, %.lr.ph460 ], [ %.pre, %262 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %268 = zext i32 %267 to i64
-  %269 = icmp ult i64 %indvars.iv.next, %268
+  %269 = icmp samesign ult i64 %indvars.iv.next, %268
   br i1 %269, label %.lr.ph460, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %266, %.preheader431

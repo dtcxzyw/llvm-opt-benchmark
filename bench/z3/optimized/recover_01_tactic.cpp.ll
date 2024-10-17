@@ -1882,7 +1882,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i, %whil
 invoke.cont16:                                    ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %21, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %22 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %22
+  %cmp = icmp samesign ult i64 %indvars.iv, %22
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont16
@@ -2383,7 +2383,7 @@ sw.bb7.i.i.i118:                                  ; preds = %while.body.i.i.i114
 invoke.cont102:                                   ; preds = %sw.bb7.i.i.i118, %sw.bb5.i.i.i120, %sw.bb3.i.i.i122, %for.cond97
   %retval.0.i.i.i119 = phi i32 [ %82, %sw.bb7.i.i.i118 ], [ %sub.i.i.i121, %sw.bb5.i.i.i120 ], [ %add.i.i.i123, %sw.bb3.i.i.i122 ], [ 0, %for.cond97 ]
   %83 = zext i32 %retval.0.i.i.i119 to i64
-  %cmp104 = icmp ult i64 %indvars.iv279, %83
+  %cmp104 = icmp samesign ult i64 %indvars.iv279, %83
   br i1 %cmp104, label %for.body105, label %for.end121
 
 for.body105:                                      ; preds = %invoke.cont102
@@ -4208,7 +4208,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !26
 
@@ -7140,7 +7140,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %m_pos, align 8
   %14 = zext i32 %13 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %14
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %_ZN8rationalD2Ev.exit, %entry

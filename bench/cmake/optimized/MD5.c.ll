@@ -194,14 +194,14 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
 
 31:                                               ; preds = %30
   %32 = add nuw nsw i64 %20, %22
-  %33 = icmp ugt i64 %32, 64
+  %33 = icmp samesign ugt i64 %32, 64
   %34 = sub nuw nsw i64 64, %22
   %35 = select i1 %33, i64 %34, i64 %20
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = getelementptr inbounds i8, ptr %36, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @md5_finish.pad, i64 %35, i1 false)
   %38 = add nuw nsw i64 %35, %22
-  %39 = icmp ult i64 %38, 64
+  %39 = icmp samesign ult i64 %38, 64
   br i1 %39, label %md5_append.exit.i, label %40
 
 40:                                               ; preds = %31
@@ -257,14 +257,14 @@ md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.
   br i1 %.not.i15.i, label %._crit_edge.i18.thread.i, label %60
 
 60:                                               ; preds = %59
-  %61 = icmp ugt i32 %52, 56
+  %61 = icmp samesign ugt i32 %52, 56
   %62 = sub nuw nsw i64 64, %53
   %63 = select i1 %61, i64 %62, i64 8
   %64 = getelementptr inbounds i8, ptr %0, i64 24
   %65 = getelementptr inbounds i8, ptr %64, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
   %66 = add nuw nsw i64 %63, %53
-  %67 = icmp ult i64 %66, 64
+  %67 = icmp samesign ult i64 %66, 64
   br i1 %67, label %md5_append.exit25.i, label %68
 
 68:                                               ; preds = %60

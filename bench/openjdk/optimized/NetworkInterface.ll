@@ -1185,7 +1185,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
   %56 = zext i32 %54 to i64
   %57 = sext i32 %53 to i64
   %58 = udiv i64 %57, 40
-  %59 = icmp ugt i64 %58, %56
+  %59 = icmp samesign ugt i64 %58, %56
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %52, %20

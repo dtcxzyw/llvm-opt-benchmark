@@ -889,7 +889,7 @@ define hidden range(i32 -2147483647, 32769) i32 @_pcre2_check_escape_8(ptr nocap
 
 310:                                              ; preds = %300, %.preheader.i
   store ptr %.1.i, ptr %10, align 8
-  %311 = icmp ult i32 %.044.i, 10
+  %311 = icmp samesign ult i32 %.044.i, 10
   br i1 %311, label %.thread391, label %312
 
 312:                                              ; preds = %310
@@ -903,7 +903,7 @@ define hidden range(i32 -2147483647, 32769) i32 @_pcre2_check_escape_8(ptr nocap
   br i1 %.not341, label %read_number.exit.thread, label %317
 
 317:                                              ; preds = %314, %312
-  %318 = icmp ugt i32 %.044.i, 65535
+  %318 = icmp samesign ugt i32 %.044.i, 65535
   br i1 %318, label %319, label %.thread391
 
 319:                                              ; preds = %317
@@ -2616,7 +2616,7 @@ define ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
   %338 = getelementptr inbounds i8, ptr %.0322554, i64 16
   %339 = load i16, ptr %84, align 8
   %340 = zext i16 %339 to i32
-  %341 = icmp ult i32 %337, %340
+  %341 = icmp samesign ult i32 %337, %340
   br i1 %341, label %.lr.ph555, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph555, %292
@@ -6166,7 +6166,7 @@ thread-pre-split1142:                             ; preds = %1055
 
 1539:                                             ; preds = %1538, %1535, %1532, %1527
   %1540 = phi ptr [ %1533, %1538 ], [ %1529, %1535 ], [ %1529, %1532 ], [ %1529, %1527 ]
-  %1541 = icmp ult i64 %indvars.iv1754, 2
+  %1541 = icmp samesign ult i64 %indvars.iv1754, 2
   br i1 %1541, label %1542, label %1545
 
 1542:                                             ; preds = %1539
@@ -7531,7 +7531,7 @@ read_number.exit:                                 ; preds = %1956
   %2161 = getelementptr inbounds i8, ptr %.07361580, i64 16
   %2162 = load i16, ptr %236, align 8
   %2163 = zext i16 %2162 to i32
-  %2164 = icmp ult i32 %2160, %2163
+  %2164 = icmp samesign ult i32 %2160, %2163
   br i1 %2164, label %2135, label %._crit_edge1583
 
 ._crit_edge1583:                                  ; preds = %2159, %.._crit_edge1583.loopexit_crit_edge, %2129
@@ -9698,14 +9698,14 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   %716 = add nuw nsw i32 %.01264.i806, 1
   %717 = getelementptr inbounds i8, ptr %.01259.i807, i64 16
   %718 = zext i16 %715 to i32
-  %719 = icmp ult i32 %716, %718
+  %719 = icmp samesign ult i32 %716, %718
   br i1 %719, label %685, label %.loopexit390
 
 .loopexit390:                                     ; preds = %714, %..loopexit390_crit_edge, %669
   %720 = phi i16 [ %.pre1349, %..loopexit390_crit_edge ], [ 0, %669 ], [ %715, %714 ]
   %.01264.i407 = phi i32 [ %.01264.i806, %..loopexit390_crit_edge ], [ 0, %669 ], [ %716, %714 ]
   %721 = zext i16 %720 to i32
-  %.not1482.i = icmp ult i32 %.01264.i407, %721
+  %.not1482.i = icmp samesign ult i32 %.01264.i407, %721
   br i1 %.not1482.i, label %749, label %722
 
 722:                                              ; preds = %.loopexit390
@@ -10056,7 +10056,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   br label %compile_branch.exit.thread
 
 903:                                              ; preds = %896
-  %904 = icmp ugt i32 %.01254.i, 1
+  %904 = icmp samesign ugt i32 %.01254.i, 1
   br i1 %904, label %905, label %907
 
 905:                                              ; preds = %903
@@ -10246,7 +10246,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   %996 = getelementptr inbounds i8, ptr %.01248.i799, i64 16
   %997 = load i16, ptr %91, align 8
   %998 = zext i16 %997 to i32
-  %999 = icmp ult i32 %995, %998
+  %999 = icmp samesign ult i32 %995, %998
   br i1 %999, label %970, label %._crit_edge803
 
 ._crit_edge803:                                   ; preds = %994
@@ -11544,7 +11544,7 @@ select.unfold287:                                 ; preds = %.loopexit395, %sele
   br label %1723
 
 1614:                                             ; preds = %._crit_edge1357
-  %1615 = icmp ult i32 %136, 10
+  %1615 = icmp samesign ult i32 %136, 10
   br i1 %1615, label %1616, label %1620
 
 1616:                                             ; preds = %1614
@@ -12496,7 +12496,7 @@ define internal fastcc range(i32 0, 2) i32 @is_anchored(ptr noundef nonnull read
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
-  %31 = icmp ult i32 %30, 32
+  %31 = icmp samesign ult i32 %30, 32
   %32 = shl nuw i32 1, %30
   %33 = select i1 %31, i32 %32, i32 1
   %34 = or i32 %33, %1
@@ -12911,7 +12911,7 @@ thread-pre-split:                                 ; preds = %24, %27
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %62, %65
-  %67 = icmp ult i32 %66, 32
+  %67 = icmp samesign ult i32 %66, 32
   %68 = shl nuw i32 1, %66
   %69 = select i1 %67, i32 %68, i32 1
   %70 = or i32 %69, %1
@@ -14233,7 +14233,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
   %160 = add nuw nsw i32 %.0122284, 1
   %161 = getelementptr inbounds i8, ptr %.0118285, i64 16
   %162 = zext i16 %159 to i32
-  %163 = icmp ult i32 %160, %162
+  %163 = icmp samesign ult i32 %160, %162
   br i1 %163, label %148, label %.thread
 
 164:                                              ; preds = %154
@@ -14278,7 +14278,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
 
 185:                                              ; preds = %182
   %186 = and i32 %32, 65535
-  %187 = icmp ult i32 %186, 10
+  %187 = icmp samesign ult i32 %186, 10
   br i1 %187, label %188, label %192
 
 188:                                              ; preds = %185
@@ -14755,7 +14755,7 @@ define internal fastcc noundef ptr @parsed_skip(ptr noundef readonly %0, i32 nou
 
 23:                                               ; preds = %.split.us
   %24 = and i32 %4, 65534
-  %25 = icmp ugt i32 %24, 9
+  %25 = icmp samesign ugt i32 %24, 9
   %spec.select.idx.us = select i1 %25, i64 8, i64 0
   %spec.select.us = getelementptr inbounds i8, ptr %.026.us, i64 %spec.select.idx.us
   br label %28
@@ -14768,7 +14768,7 @@ define internal fastcc noundef ptr @parsed_skip(ptr noundef readonly %0, i32 nou
   %.228.us = phi ptr [ %.026.us, %26 ], [ %.026.us, %9 ], [ %.026.us, %11 ], [ %17, %13 ], [ %.026.us, %18 ], [ %20, %19 ], [ %22, %21 ], [ %spec.select.us, %23 ], [ %.026.us, %.split.us ]
   %.2.us = phi i32 [ %.0.us, %26 ], [ %10, %9 ], [ %12, %11 ], [ %.0.us, %13 ], [ %.0.us, %18 ], [ %.0.us, %19 ], [ %.0.us, %21 ], [ %.0.us, %23 ], [ %.0.us, %.split.us ]
   %29 = and i32 %5, 32767
-  %30 = icmp ugt i32 %29, 63
+  %30 = icmp samesign ugt i32 %29, 63
   br i1 %30, label %.split32.us, label %31
 
 31:                                               ; preds = %28
@@ -14829,7 +14829,7 @@ define internal fastcc noundef ptr @parsed_skip(ptr noundef readonly %0, i32 nou
 
 44:                                               ; preds = %.split
   %45 = and i32 %39, 65534
-  %46 = icmp ugt i32 %45, 9
+  %46 = icmp samesign ugt i32 %45, 9
   %spec.select.idx = select i1 %46, i64 8, i64 0
   %spec.select = getelementptr inbounds i8, ptr %.026, i64 %spec.select.idx
   br label %65
@@ -14879,7 +14879,7 @@ define internal fastcc noundef ptr @parsed_skip(ptr noundef readonly %0, i32 nou
   %.228 = phi ptr [ %.026, %42 ], [ %.026, %63 ], [ %.026, %59 ], [ %.026, %57 ], [ %56, %52 ], [ %.026, %47 ], [ %51, %50 ], [ %49, %48 ], [ %spec.select, %44 ], [ %.026, %.split ]
   %.2 = phi i32 [ %.0, %42 ], [ %64, %63 ], [ %.0, %59 ], [ %58, %57 ], [ %.0, %52 ], [ %.0, %47 ], [ %.0, %50 ], [ %.0, %48 ], [ %.0, %44 ], [ %.0, %.split ]
   %66 = and i32 %40, 32767
-  %67 = icmp ugt i32 %66, 63
+  %67 = icmp samesign ugt i32 %66, 63
   br i1 %67, label %.split32.us, label %68
 
 68:                                               ; preds = %65
@@ -14947,7 +14947,7 @@ define internal fastcc range(i32 0, 2) i32 @find_dupname_details(ptr noundef %0,
   %27 = add nuw nsw i32 %.04250, 1
   %28 = load i16, ptr %9, align 8
   %29 = zext i16 %28 to i32
-  %30 = icmp ult i32 %27, %29
+  %30 = icmp samesign ult i32 %27, %29
   br i1 %30, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %.._crit_edge.loopexit_crit_edge
@@ -14955,7 +14955,7 @@ define internal fastcc range(i32 0, 2) i32 @find_dupname_details(ptr noundef %0,
   %.042.lcssa.ph = phi i32 [ %.04250, %.._crit_edge.loopexit_crit_edge ], [ %27, %23 ]
   %.0.lcssa.ph = phi ptr [ %.051, %.._crit_edge.loopexit_crit_edge ], [ %26, %23 ]
   %31 = zext i16 %.pre to i32
-  %.not = icmp ult i32 %.042.lcssa.ph, %31
+  %.not = icmp samesign ult i32 %.042.lcssa.ph, %31
   br i1 %.not, label %38, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
@@ -14989,7 +14989,7 @@ define internal fastcc range(i32 0, 2) i32 @find_dupname_details(ptr noundef %0,
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
-  %52 = icmp ult i32 %51, 32
+  %52 = icmp samesign ult i32 %51, 32
   %53 = shl nuw i32 1, %51
   %54 = select i1 %52, i32 %53, i32 1
   %55 = load i32, ptr %40, align 4

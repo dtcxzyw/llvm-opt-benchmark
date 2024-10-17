@@ -1701,7 +1701,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1199 = fadd reassoc nsz arcp contract afn <4 x float> %1197, %1198
   store <4 x float> %1199, ptr %1196, align 4, !tbaa !41, !alias.scope !263, !noalias !266
   %1200 = add nuw nsw i64 %787, 2
-  %1201 = icmp ult i64 %1200, %721
+  %1201 = icmp samesign ult i64 %1200, %721
   br i1 %1201, label %786, label %783
 
 1202:                                             ; preds = %1323, %978

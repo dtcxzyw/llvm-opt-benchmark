@@ -236,7 +236,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %101, %98, %_ZNK4llv
   %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %.sroa.speculated6.i.i, i32 32)
   %109 = trunc nuw nsw i32 %.sroa.speculated.i.i to i8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %110 = icmp ult i8 %83, %109
+  %110 = icmp samesign ult i8 %83, %109
   br i1 %110, label %111, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit45
 
 111:                                              ; preds = %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit"
@@ -314,7 +314,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i106:                 ; preds = %144, %141, %_ZNK4ll
   %.sroa.speculated.i.i108 = call i32 @llvm.umin.i32(i32 %.sroa.speculated6.i.i107, i32 32)
   %152 = trunc nuw nsw i32 %.sroa.speculated.i.i108 to i8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %153 = icmp ult i8 %126, %152
+  %153 = icmp samesign ult i8 %126, %152
   br i1 %153, label %154, label %_ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIFNS_5AlignEPNS_5ValueES6_S6_EEE.exit45
 
 154:                                              ; preds = %"_ZN4llvm12function_refIFNS_5AlignEPNS_5ValueES1_S1_EE11callback_fnIZ14inferAlignmentRNS_8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeEE3$_1EES1_lS3_S1_S1_.exit110"

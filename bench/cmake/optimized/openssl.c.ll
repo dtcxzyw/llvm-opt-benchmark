@@ -1021,7 +1021,7 @@ SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_ce
 70:                                               ; preds = %68
   %.not23.i = icmp eq i64 %58, 0
   %71 = select i1 %.not23.i, i64 8, i64 13
-  %72 = icmp ult i64 %71, %.021.i222
+  %72 = icmp samesign ult i64 %71, %.021.i222
   br i1 %72, label %73, label %ossl_strerror.exit
 
 73:                                               ; preds = %70
@@ -1100,7 +1100,7 @@ SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_ce
 103:                                              ; preds = %101
   %.not23.i230 = icmp eq i64 %91, 0
   %104 = select i1 %.not23.i230, i64 8, i64 13
-  %105 = icmp ult i64 %104, %.021.i227
+  %105 = icmp samesign ult i64 %104, %.021.i227
   br i1 %105, label %106, label %ossl_strerror.exit231
 
 106:                                              ; preds = %103
@@ -1234,7 +1234,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
 157:                                              ; preds = %155
   %.not23.i236 = icmp eq i64 %145, 0
   %158 = select i1 %.not23.i236, i64 8, i64 13
-  %159 = icmp ult i64 %158, %.021.i233
+  %159 = icmp samesign ult i64 %158, %.021.i233
   br i1 %159, label %160, label %ossl_strerror.exit237
 
 160:                                              ; preds = %157
@@ -2638,7 +2638,7 @@ define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef 
   call void @ERR_error_string_n(i64 noundef %38, ptr noundef nonnull %.0.i, i64 noundef %.021.i) #13
   %50 = load i8, ptr %.0.i, align 1
   %.not.i = icmp eq i8 %50, 0
-  %51 = icmp ugt i64 %.021.i, 13
+  %51 = icmp samesign ugt i64 %.021.i, 13
   %or.cond = and i1 %51, %.not.i
   br i1 %or.cond, label %52, label %ossl_strerror.exit
 
@@ -3138,7 +3138,7 @@ define internal range(i32 0, 67) i32 @ossl_set_engine(ptr noundef %0, ptr nounde
 29:                                               ; preds = %27
   %.not23.i = icmp eq i64 %17, 0
   %30 = select i1 %.not23.i, i64 8, i64 13
-  %31 = icmp ult i64 %30, %.021.i
+  %31 = icmp samesign ult i64 %30, %.021.i
   br i1 %31, label %32, label %ossl_strerror.exit
 
 32:                                               ; preds = %29
@@ -3446,7 +3446,7 @@ define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef r
   call void @ERR_error_string_n(i64 noundef %29, ptr noundef nonnull %.0.i, i64 noundef %.021.i) #13
   %41 = load i8, ptr %.0.i, align 1
   %.not.i = icmp eq i8 %41, 0
-  %42 = icmp ugt i64 %.021.i, 13
+  %42 = icmp samesign ugt i64 %.021.i, 13
   %or.cond = and i1 %42, %.not.i
   br i1 %or.cond, label %43, label %ossl_strerror.exit
 
@@ -3501,7 +3501,7 @@ ossl_strerror.exit:                               ; preds = %43, %40, %45, %47
 62:                                               ; preds = %60
   %.not23.i38 = icmp eq i64 %50, 0
   %63 = select i1 %.not23.i38, i64 8, i64 13
-  %64 = icmp ult i64 %63, %.021.i35
+  %64 = icmp samesign ult i64 %63, %.021.i35
   br i1 %64, label %65, label %ossl_strerror.exit39
 
 65:                                               ; preds = %62
@@ -4068,7 +4068,7 @@ ossl_seed.exit.i:                                 ; preds = %69
 101:                                              ; preds = %99
   %.not23.i.i = icmp eq i64 %89, 0
   %102 = select i1 %.not23.i.i, i64 8, i64 13
-  %103 = icmp ult i64 %102, %.021.i.i
+  %103 = icmp samesign ult i64 %102, %.021.i.i
   br i1 %103, label %104, label %ossl_strerror.exit.i
 
 104:                                              ; preds = %101
@@ -4658,7 +4658,7 @@ ossl_connect_step1.exit:                          ; preds = %288
 370:                                              ; preds = %368
   %.not23.i = icmp eq i64 %343, 0
   %371 = select i1 %.not23.i, i64 8, i64 13
-  %372 = icmp ult i64 %371, %.021.i
+  %372 = icmp samesign ult i64 %371, %.021.i
   br i1 %372, label %373, label %ossl_strerror.exit
 
 373:                                              ; preds = %370
@@ -4845,7 +4845,7 @@ ossl_connect_step2.exit:                          ; preds = %413
 453:                                              ; preds = %451
   %.not23.i.i.i = icmp eq i64 %441, 0
   %454 = select i1 %.not23.i.i.i, i64 8, i64 13
-  %455 = icmp ult i64 %454, %.021.i.i.i
+  %455 = icmp samesign ult i64 %454, %.021.i.i.i
   br i1 %455, label %456, label %ossl_strerror.exit.i.i
 
 456:                                              ; preds = %453
@@ -5099,7 +5099,7 @@ x509_name_oneline.exit211.i.i:                    ; preds = %533
 577:                                              ; preds = %575
   %.not23.i215.i.i = icmp eq i64 %565, 0
   %578 = select i1 %.not23.i215.i.i, i64 8, i64 13
-  %579 = icmp ult i64 %578, %.021.i212.i.i
+  %579 = icmp samesign ult i64 %578, %.021.i212.i.i
   br i1 %579, label %580, label %ossl_strerror.exit216.i.i
 
 580:                                              ; preds = %577

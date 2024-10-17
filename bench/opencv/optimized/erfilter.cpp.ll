@@ -2054,7 +2054,7 @@ _ZNSt6vectorIPN2cv4text6ERStatESaIS3_EE9push_backEOS3_.exit321: ; preds = %_ZNSt
   %164 = zext i8 %163 to i32
   %165 = or i64 %156, %157
   store i64 %165, ptr %storemerge.i.i.i.i.i, align 8
-  %.not = icmp ugt i32 %.0245.ph, %164
+  %.not = icmp samesign ugt i32 %.0245.ph, %164
   br i1 %.not, label %228, label %166
 
 166:                                              ; preds = %161
@@ -2583,9 +2583,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %385 = getelementptr inbounds [3 x [4 x i32]], ptr @__const._ZN2cv4text10ERFilterNM15er_tree_extractERKNS_11_InputArrayE.quads, i64 0, i64 %indvars.iv799, i64 %indvars.iv
   %386 = load i32, ptr %385, align 4
   %387 = icmp eq i32 %.sroa.0117.2, %386
-  %388 = icmp ult i64 %indvars.iv, 2
-  %or.cond7 = or i1 %381, %388
-  %or.cond728 = and i1 %387, %or.cond7
+  %388 = icmp samesign ult i64 %indvars.iv, 2
+  %or.cond7 = select i1 %381, i1 true, i1 %388
+  %or.cond728 = select i1 %387, i1 %or.cond7, i1 false
   br i1 %or.cond728, label %389, label %392
 
 389:                                              ; preds = %384
@@ -2596,7 +2596,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 392:                                              ; preds = %389, %384
   %393 = icmp eq i32 %.sroa.8.2, %386
-  %or.cond729 = and i1 %393, %or.cond7
+  %or.cond729 = select i1 %393, i1 %or.cond7, i1 false
   br i1 %or.cond729, label %394, label %397
 
 394:                                              ; preds = %392
@@ -2607,7 +2607,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 397:                                              ; preds = %394, %392
   %398 = icmp eq i32 %.sroa.15.2, %386
-  %or.cond730 = and i1 %398, %or.cond7
+  %or.cond730 = select i1 %398, i1 %or.cond7, i1 false
   br i1 %or.cond730, label %399, label %402
 
 399:                                              ; preds = %397
@@ -2618,7 +2618,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 402:                                              ; preds = %399, %397
   %403 = icmp eq i32 %.sroa.22.2, %386
-  %or.cond731 = and i1 %403, %or.cond7
+  %or.cond731 = select i1 %403, i1 %or.cond7, i1 false
   br i1 %or.cond731, label %404, label %407
 
 404:                                              ; preds = %402
@@ -2629,7 +2629,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 407:                                              ; preds = %404, %402
   %408 = icmp eq i32 %.sroa.095.2, %386
-  %or.cond732 = and i1 %408, %or.cond7
+  %or.cond732 = select i1 %408, i1 %or.cond7, i1 false
   br i1 %or.cond732, label %409, label %412
 
 409:                                              ; preds = %407
@@ -2640,7 +2640,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 412:                                              ; preds = %409, %407
   %413 = icmp eq i32 %.sroa.9.2, %386
-  %or.cond733 = and i1 %413, %or.cond7
+  %or.cond733 = select i1 %413, i1 %or.cond7, i1 false
   br i1 %or.cond733, label %414, label %417
 
 414:                                              ; preds = %412
@@ -2651,7 +2651,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 417:                                              ; preds = %414, %412
   %418 = icmp eq i32 %.sroa.17.2, %386
-  %or.cond734 = and i1 %418, %or.cond7
+  %or.cond734 = select i1 %418, i1 %or.cond7, i1 false
   br i1 %or.cond734, label %419, label %422
 
 419:                                              ; preds = %417
@@ -2662,7 +2662,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 422:                                              ; preds = %419, %417
   %423 = icmp eq i32 %.sroa.25.2, %386
-  %or.cond735 = and i1 %423, %or.cond7
+  %or.cond735 = select i1 %423, i1 %or.cond7, i1 false
   br i1 %or.cond735, label %424, label %427
 
 424:                                              ; preds = %422
@@ -10554,7 +10554,7 @@ _ZNK2cv11_InputArray6getMatEi.exit97:             ; preds = %.noexc
   %114 = lshr i32 %113, 3
   %115 = and i32 %114, 511
   %116 = zext nneg i32 %115 to i64
-  %.not143.not = icmp ult i64 %indvars.iv166, %116
+  %.not143.not = icmp samesign ult i64 %indvars.iv166, %116
   br i1 %.not143.not, label %97, label %128, !llvm.loop !150
 
 117:                                              ; preds = %80
@@ -10807,7 +10807,7 @@ _ZNK2cv11_InputArray6getMatEi.exit105:            ; preds = %.noexc103
   %200 = lshr i32 %199, 3
   %201 = and i32 %200, 511
   %202 = zext nneg i32 %201 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %202
+  %.not.not = icmp samesign ult i64 %indvars.iv, %202
   br i1 %.not.not, label %183, label %212, !llvm.loop !152
 
 203:                                              ; preds = %.noexc103, %187, %183
@@ -12153,7 +12153,7 @@ _ZNK2cv4text13dissimilarityclEll.exit.i.i:        ; preds = %99
   %.066.lcssa.i.i = phi i64 [ 1, %_ZNK2cv4text13dissimilarityclEll.exit.i.i ], [ %.0130.i.i, %_ZNK2cv4text13dissimilarityclEll.exit81.i.i ]
   %.062.lcssa.i.i = phi double [ %101, %_ZNK2cv4text13dissimilarityclEll.exit.i.i ], [ %118, %_ZNK2cv4text13dissimilarityclEll.exit81.i.i ]
   %.0.lcssa.i.i = phi i64 [ 2, %_ZNK2cv4text13dissimilarityclEll.exit.i.i ], [ %120, %_ZNK2cv4text13dissimilarityclEll.exit81.i.i ]
-  %106 = icmp ult i64 %.0.lcssa.i.i, %78
+  %106 = icmp samesign ult i64 %.0.lcssa.i.i, %78
   br i1 %106, label %.lr.ph136.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK2cv4text13dissimilarityclEll.exit.i.i, %_ZNK2cv4text13dissimilarityclEll.exit81.i.i
@@ -12186,7 +12186,7 @@ _ZNK2cv4text13dissimilarityclEll.exit81.i.i:      ; preds = %116
   store double %118, ptr %119, align 8
   %120 = add nuw nsw i64 %.0130.i.i, 1
   %121 = fcmp uno double %118, 0.000000e+00
-  %122 = icmp ult i64 %120, %78
+  %122 = icmp samesign ult i64 %120, %78
   %123 = select i1 %121, i1 %122, i1 false
   br i1 %123, label %.lr.ph.i.i, label %.preheader114.i.i, !llvm.loop !157
 
@@ -12500,7 +12500,7 @@ _ZNK2cv4text13dissimilarity11postprocessERNS0_14cluster_resultE.exit.i: ; preds 
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN2cv4text4nodeES2_EC2ES3_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !162
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i
@@ -14177,7 +14177,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit.i:       ; preds = %517, %_ZSt8_Destroy
 
 _ZN2cv4text8HClusterD2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit.i, %519
   %indvars.iv.next1050 = add nuw nsw i64 %indvars.iv1049, 4
-  %520 = icmp ult i64 %indvars.iv.next1050, %40
+  %520 = icmp samesign ult i64 %indvars.iv.next1050, %40
   br i1 %520, label %41, label %._crit_edge919, !llvm.loop !173
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit788, %.loopexit.split-lp789.loopexit.split-lp, %.loopexit.split-lp789.loopexit, %284, %.loopexit.split-lp783, %101, %.loopexit.split-lp794, %.loopexit.split-lp779
@@ -18760,8 +18760,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.thread, %76
   %93 = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
   %94 = sub nsw i32 %.sroa.137.0.extract.trunc, %.sroa.131.0.extract.trunc
   %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %96 = icmp ult i32 %90, %93
-  %97 = icmp ult i32 %90, %95
+  %96 = icmp samesign ult i32 %90, %93
+  %97 = icmp samesign ult i32 %90, %95
   %or.cond104 = select i1 %96, i1 %97, i1 false
   br i1 %or.cond104, label %98, label %108
 
@@ -18781,7 +18781,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.thread, %76
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split
 
 108:                                              ; preds = %77
-  %109 = icmp ult i32 %93, %95
+  %109 = icmp samesign ult i32 %93, %95
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %108
@@ -19438,7 +19438,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit189:            ; preds = %323
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #34
   %361 = sub nsw i32 %258, %348
   %362 = call i32 @llvm.abs.i32(i32 %361, i1 true)
-  %363 = icmp ugt i32 %362, 111
+  %363 = icmp samesign ugt i32 %362, 111
   br i1 %363, label %395, label %384
 
 364:                                              ; preds = %234, %210, %173

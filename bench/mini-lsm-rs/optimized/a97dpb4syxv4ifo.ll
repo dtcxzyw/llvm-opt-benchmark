@@ -612,7 +612,7 @@ default.unreachable8:                             ; preds = %3
 
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp ult i32 %.07.i.i, 7
+  %76 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %76, label %.preheader.i.i.i, label %77
 
 77:                                               ; preds = %.lr.ph.i.i
@@ -620,7 +620,7 @@ default.unreachable8:                             ; preds = %3
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp ult i32 %.07.i.i, 11
+  %78 = icmp samesign ult i32 %.07.i.i, 11
   %79 = zext i1 %78 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
   %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
@@ -791,7 +791,7 @@ default.unreachable8:                             ; preds = %3
 
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp ult i32 %.07.i.i, 7
+  %76 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %76, label %.preheader.i.i.i, label %77
 
 77:                                               ; preds = %.lr.ph.i.i
@@ -799,7 +799,7 @@ default.unreachable8:                             ; preds = %3
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp ult i32 %.07.i.i, 11
+  %78 = icmp samesign ult i32 %.07.i.i, 11
   %79 = zext i1 %78 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
   %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
@@ -877,7 +877,7 @@ default.unreachable3:                             ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -885,7 +885,7 @@ default.unreachable3:                             ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -1025,7 +1025,7 @@ default.unreachable3:                             ; preds = %3
 
 .lr.ph.i:                                         ; preds = %14, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %14 ]
-  %18 = icmp ult i32 %.02.i, 7
+  %18 = icmp samesign ult i32 %.02.i, 7
   br i1 %18, label %.preheader.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -1033,7 +1033,7 @@ default.unreachable3:                             ; preds = %3
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %19
-  %20 = icmp ult i32 %.02.i, 11
+  %20 = icmp samesign ult i32 %.02.i, 11
   %21 = zext i1 %20 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %21
   %22 = load atomic i64, ptr %15 acquire, align 8
@@ -1275,7 +1275,7 @@ default.unreachable1:                             ; preds = %1
 
 .lr.ph.i:                                         ; preds = %21, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %21 ]
-  %27 = icmp ult i32 %.07.i, 7
+  %27 = icmp samesign ult i32 %.07.i, 7
   br i1 %27, label %.preheader.i.i, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -1283,7 +1283,7 @@ default.unreachable1:                             ; preds = %1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %28
-  %29 = icmp ult i32 %.07.i, 11
+  %29 = icmp samesign ult i32 %.07.i, 11
   %30 = zext i1 %29 to i32
   %spec.select.i = add nuw nsw i32 %.07.i, %30
   %31 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
@@ -1375,7 +1375,7 @@ default.unreachable1:                             ; preds = %1
 
 .lr.ph.i:                                         ; preds = %21, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %21 ]
-  %27 = icmp ult i32 %.07.i, 7
+  %27 = icmp samesign ult i32 %.07.i, 7
   br i1 %27, label %.preheader.i.i, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -1383,7 +1383,7 @@ default.unreachable1:                             ; preds = %1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %28
-  %29 = icmp ult i32 %.07.i, 11
+  %29 = icmp samesign ult i32 %.07.i, 11
   %30 = zext i1 %29 to i32
   %spec.select.i = add nuw nsw i32 %.07.i, %30
   %31 = atomicrmw xchg ptr %15, i64 1 acquire, align 8
@@ -1548,7 +1548,7 @@ default.unreachable8:                             ; preds = %1
 
 .lr.ph.i.i:                                       ; preds = %66, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %66 ]
-  %72 = icmp ult i32 %.07.i.i, 7
+  %72 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %72, label %.preheader.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph.i.i
@@ -1556,7 +1556,7 @@ default.unreachable8:                             ; preds = %1
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %73
-  %74 = icmp ult i32 %.07.i.i, 11
+  %74 = icmp samesign ult i32 %.07.i.i, 11
   %75 = zext i1 %74 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %75
   %76 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
@@ -1723,7 +1723,7 @@ default.unreachable8:                             ; preds = %1
 
 .lr.ph.i.i:                                       ; preds = %66, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %66 ]
-  %72 = icmp ult i32 %.07.i.i, 7
+  %72 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %72, label %.preheader.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph.i.i
@@ -1731,7 +1731,7 @@ default.unreachable8:                             ; preds = %1
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %73
-  %74 = icmp ult i32 %.07.i.i, 11
+  %74 = icmp samesign ult i32 %.07.i.i, 11
   %75 = zext i1 %74 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %75
   %76 = atomicrmw xchg ptr %60, i64 1 acquire, align 8
@@ -1902,7 +1902,7 @@ default.unreachable8:                             ; preds = %3
 
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp ult i32 %.07.i.i, 7
+  %76 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %76, label %.preheader.i.i.i, label %77
 
 77:                                               ; preds = %.lr.ph.i.i
@@ -1910,7 +1910,7 @@ default.unreachable8:                             ; preds = %3
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp ult i32 %.07.i.i, 11
+  %78 = icmp samesign ult i32 %.07.i.i, 11
   %79 = zext i1 %78 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
   %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
@@ -2081,7 +2081,7 @@ default.unreachable8:                             ; preds = %3
 
 .lr.ph.i.i:                                       ; preds = %70, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %70 ]
-  %76 = icmp ult i32 %.07.i.i, 7
+  %76 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %76, label %.preheader.i.i.i, label %77
 
 77:                                               ; preds = %.lr.ph.i.i
@@ -2089,7 +2089,7 @@ default.unreachable8:                             ; preds = %3
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %77
-  %78 = icmp ult i32 %.07.i.i, 11
+  %78 = icmp samesign ult i32 %.07.i.i, 11
   %79 = zext i1 %78 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %79
   %80 = atomicrmw xchg ptr %64, i64 1 acquire, align 8
@@ -2165,7 +2165,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
 
 .lr.ph:                                           ; preds = %10, %.thread.i
   %.07 = phi i32 [ %spec.select, %.thread.i ], [ 0, %10 ]
-  %19 = icmp ult i32 %.07, 7
+  %19 = icmp samesign ult i32 %.07, 7
   br i1 %19, label %.preheader.i, label %20
 
 20:                                               ; preds = %.lr.ph
@@ -2173,7 +2173,7 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %20
-  %21 = icmp ult i32 %.07, 11
+  %21 = icmp samesign ult i32 %.07, 11
   %22 = zext i1 %21 to i32
   %spec.select = add nuw nsw i32 %.07, %22
   %23 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
@@ -3522,7 +3522,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
 
 .lr.ph.i.i:                                       ; preds = %90, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %90 ]
-  %96 = icmp ult i32 %.07.i.i, 7
+  %96 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %96, label %.preheader.i.i.i, label %97
 
 97:                                               ; preds = %.lr.ph.i.i
@@ -3530,7 +3530,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %97
-  %98 = icmp ult i32 %.07.i.i, 11
+  %98 = icmp samesign ult i32 %.07.i.i, 11
   %99 = zext i1 %98 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %99
   %100 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
@@ -3741,7 +3741,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
 
 .lr.ph.i.i:                                       ; preds = %90, %.thread.i.i.i
   %.07.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %90 ]
-  %96 = icmp ult i32 %.07.i.i, 7
+  %96 = icmp samesign ult i32 %.07.i.i, 7
   br i1 %96, label %.preheader.i.i.i, label %97
 
 97:                                               ; preds = %.lr.ph.i.i
@@ -3749,7 +3749,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %97
-  %98 = icmp ult i32 %.07.i.i, 11
+  %98 = icmp samesign ult i32 %.07.i.i, 11
   %99 = zext i1 %98 to i32
   %spec.select.i.i = add nuw nsw i32 %.07.i.i, %99
   %100 = atomicrmw xchg ptr %84, i64 1 acquire, align 8
@@ -4658,7 +4658,7 @@ define hidden noundef zeroext i1 @_ZN17crossbeam_channel7flavors4tick7Channel8is
 
 .lr.ph.i:                                         ; preds = %11, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %11 ]
-  %17 = icmp ult i32 %.07.i, 7
+  %17 = icmp samesign ult i32 %.07.i, 7
   br i1 %17, label %.preheader.i.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
@@ -4666,7 +4666,7 @@ define hidden noundef zeroext i1 @_ZN17crossbeam_channel7flavors4tick7Channel8is
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %18
-  %19 = icmp ult i32 %.07.i, 11
+  %19 = icmp samesign ult i32 %.07.i, 11
   %20 = zext i1 %19 to i32
   %spec.select.i = add nuw nsw i32 %.07.i, %20
   %21 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
@@ -4744,7 +4744,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd16
 
 .lr.ph.i:                                         ; preds = %16, %.thread.i.i
   %.07.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %16 ]
-  %22 = icmp ult i32 %.07.i, 7
+  %22 = icmp samesign ult i32 %.07.i, 7
   br i1 %22, label %.preheader.i.i, label %23
 
 23:                                               ; preds = %.lr.ph.i
@@ -4752,7 +4752,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd16
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %23
-  %24 = icmp ult i32 %.07.i, 11
+  %24 = icmp samesign ult i32 %.07.i, 11
   %25 = zext i1 %24 to i32
   %spec.select.i = add nuw nsw i32 %.07.i, %25
   %26 = atomicrmw xchg ptr %5, i64 1 acquire, align 8
@@ -4797,7 +4797,7 @@ _ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7
 
 .lr.ph.i10:                                       ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26", %.thread.i.i11
   %.015.i = phi i32 [ %spec.select.i12, %.thread.i.i11 ], [ 0, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.7682092217504716512.exit.thread26" ]
-  %41 = icmp ult i32 %.015.i, 7
+  %41 = icmp samesign ult i32 %.015.i, 7
   br i1 %41, label %.preheader.i.i13, label %42
 
 42:                                               ; preds = %.lr.ph.i10
@@ -4805,7 +4805,7 @@ _ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7
   br label %.thread.i.i11
 
 .thread.i.i11:                                    ; preds = %.preheader.i.i13, %42
-  %43 = icmp ult i32 %.015.i, 11
+  %43 = icmp samesign ult i32 %.015.i, 11
   %44 = zext i1 %43 to i32
   %spec.select.i12 = add nuw nsw i32 %.015.i, %44
   %45 = atomicrmw xchg ptr %5, i64 1 acquire, align 8, !noalias !397
@@ -7955,7 +7955,7 @@ default.unreachable1.i9.i.i:                      ; preds = %_ZN13mini_lsm_mvcc9
   %51 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1007)
-  %switch.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 2
+  %switch.i.i = icmp samesign ult i64 %.sroa.0.0.copyload.i.i, 2
   br i1 %switch.i.i, label %.sink.split.i.i.i, label %.body6.i
 
 .sink.split.i.i.i:                                ; preds = %50

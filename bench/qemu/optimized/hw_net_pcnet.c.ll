@@ -1139,7 +1139,7 @@ pcnet_rdra_addr.exit76:                           ; preds = %while.body.i72, %if
 while.body.i88.preheader:                         ; preds = %pcnet_rdra_addr.exit76
   %7 = add nuw nsw i32 %conv, %conv.i
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 3)
-  %9 = icmp ult i32 %7, 3
+  %9 = icmp samesign ult i32 %7, 3
   %umin = zext i1 %9 to i32
   %10 = add nuw nsw i32 %umin, %conv
   %11 = add nuw nsw i32 %10, %conv.i
@@ -1892,7 +1892,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %cmp = icmp ult i32 %and, 32
+  %cmp = icmp samesign ult i32 %and, 32
   br i1 %cmp, label %cond.true, label %sw.epilog
 
 cond.true:                                        ; preds = %sw.default
@@ -2688,7 +2688,7 @@ sw.bb.i11:                                        ; preds = %sw.bb5
   br label %if.end
 
 sw.default.i10:                                   ; preds = %sw.bb5
-  %cmp.i = icmp ult i32 %and.i9, 32
+  %cmp.i = icmp samesign ult i32 %and.i9, 32
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %sw.default.i10
@@ -2930,7 +2930,7 @@ sw.bb.i11:                                        ; preds = %sw.bb5
   br label %if.end
 
 sw.default.i10:                                   ; preds = %sw.bb5
-  %cmp.i = icmp ult i32 %and.i9, 32
+  %cmp.i = icmp samesign ult i32 %and.i9, 32
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %sw.default.i10
@@ -3964,13 +3964,13 @@ if.else.i.i76:                                    ; preds = %if.then.i.i74
 
 trace_pcnet_rlen_tlen.exit:                       ; preds = %if.end, %land.lhs.true5.i.i71, %if.then8.i.i77, %if.else.i.i76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i67)
-  %cmp = icmp ult i32 %rlen.0, 9
+  %cmp = icmp samesign ult i32 %rlen.0, 9
   %shl171 = shl nuw nsw i32 1, %rlen.0
   %40 = trunc nuw i32 %shl171 to i16
   %conv175 = select i1 %cmp, i16 %40, i16 512
   %arrayidx177 = getelementptr i8, ptr %s, i64 8420
   store i16 %conv175, ptr %arrayidx177, align 4
-  %cmp178 = icmp ult i32 %tlen.0, 9
+  %cmp178 = icmp samesign ult i32 %tlen.0, 9
   %shl181 = shl nuw nsw i32 1, %tlen.0
   %41 = trunc nuw i32 %shl181 to i16
   %conv185 = select i1 %cmp178, i16 %41, i16 512

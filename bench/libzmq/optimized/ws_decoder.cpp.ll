@@ -281,7 +281,7 @@ if.end:                                           ; preds = %entry
   %conv10 = zext nneg i8 %3 to i64
   %_size = getelementptr inbounds i8, ptr %this, i64 192
   store i64 %conv10, ptr %_size, align 8
-  %cmp12 = icmp ult i8 %3, 126
+  %cmp12 = icmp samesign ult i8 %3, 126
   br i1 %cmp12, label %if.then13, label %if.else30
 
 if.then13:                                        ; preds = %if.end

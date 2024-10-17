@@ -216,7 +216,7 @@ rar5_signature.exit.i13:                          ; preds = %40, %rar5_signature
 
 40:                                               ; preds = %37
   %41 = lshr i64 %.020.i, 1
-  %42 = icmp ult i64 %.020.i, 128
+  %42 = icmp samesign ult i64 %.020.i, 128
   br i1 %42, label %.loopexit, label %rar5_signature.exit.i13, !llvm.loop !7
 
 43:                                               ; preds = %37
@@ -337,7 +337,7 @@ rar5_signature.exit.i:                            ; preds = %33, %rar5_signature
 
 33:                                               ; preds = %30
   %34 = lshr i64 %.0.i, 1
-  %35 = icmp ult i64 %.0.i, 128
+  %35 = icmp samesign ult i64 %.0.i, 128
   br i1 %35, label %try_skip_sfx.exit, label %rar5_signature.exit.i, !llvm.loop !9
 
 36:                                               ; preds = %30
@@ -786,7 +786,7 @@ advance_multivolume.exit.i.thread119:             ; preds = %124, %skip_base_blo
   %159 = trunc i16 %158 to i8
   %160 = lshr i8 %159, 3
   %161 = and i8 %160, 7
-  %162 = icmp ugt i8 %161, 2
+  %162 = icmp samesign ugt i8 %161, 2
   %163 = lshr i16 %158, 8
   %164 = zext nneg i16 %163 to i32
   br i1 %162, label %165, label %167
@@ -1503,7 +1503,7 @@ decode_code_length.exit.thread172.i.i:            ; preds = %501
   %509 = or disjoint i32 %508, 4
   %510 = shl i32 %509, %507
   %.0.i.i.i = add nsw i32 %510, 2
-  %511 = icmp ugt i32 %507, 16
+  %511 = icmp samesign ugt i32 %507, 16
   br i1 %511, label %decode_code_length.exit.thread.i.i, label %512
 
 512:                                              ; preds = %505
@@ -2077,7 +2077,7 @@ decode_code_length.exit154.thread193.i.i:         ; preds = %831
   %839 = or disjoint i32 %838, 4
   %840 = shl i32 %839, %837
   %.0.i148.i.i = add nsw i32 %840, 2
-  %841 = icmp ugt i32 %837, 16
+  %841 = icmp samesign ugt i32 %837, 16
   br i1 %841, label %do_uncompress_block.exit.i.thread, label %842
 
 842:                                              ; preds = %835
@@ -2430,7 +2430,7 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1009, %1004
   %1032 = add i64 %1030, 4
   %1033 = and i64 %1032, 4294967295
   %1034 = and i64 %1033, %1019
-  %1035 = icmp ugt i64 %1031, %1034
+  %1035 = icmp samesign ugt i64 %1031, %1034
   br i1 %1035, label %1036, label %1041
 
 1036:                                             ; preds = %1025
@@ -2564,7 +2564,7 @@ circular_memcpy.exit.i31.i.i:                     ; preds = %1090, %1085
   %1108 = add i64 %1106, 4
   %1109 = and i64 %1108, 4294967295
   %1110 = and i64 %1109, %1100
-  %1111 = icmp ugt i64 %1107, %1110
+  %1111 = icmp samesign ugt i64 %1107, %1110
   br i1 %1111, label %1112, label %1117
 
 1112:                                             ; preds = %1105
@@ -4301,11 +4301,11 @@ read_var_sized.exit183:                           ; preds = %180, %175
   br label %read_var_sized.exit.thread
 
 206:                                              ; preds = %read_var_sized.exit183
-  %207 = icmp ugt i64 %192, 67108864
+  %207 = icmp samesign ugt i64 %192, 67108864
   br i1 %207, label %209, label %215
 
 .thread:                                          ; preds = %201
-  %208 = icmp ugt i64 %192, 67108864
+  %208 = icmp samesign ugt i64 %192, 67108864
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %.thread, %206

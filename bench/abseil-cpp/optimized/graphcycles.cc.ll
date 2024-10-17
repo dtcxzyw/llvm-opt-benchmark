@@ -382,7 +382,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %this.val.i.i.i = load i32, ptr %size_.i.i.i, align 8
   %2 = zext i32 %this.val.i.i.i to i64
-  %cmp.i2.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %2
+  %cmp.i2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %2
   br i1 %cmp.i2.i.i, label %for.body.i.i.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit: ; preds = %for.body.i.i.i
@@ -553,7 +553,7 @@ for.inc:                                          ; preds = %while.cond.i
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %.val = load i32, ptr %3, align 8
   %28 = zext i32 %.val to i64
-  %cmp = icmp ult i64 %indvars.iv.next75, %28
+  %cmp = icmp samesign ult i64 %indvars.iv.next75, %28
   br i1 %cmp, label %for.body, label %for.end60, !llvm.loop !10
 
 for.end60:                                        ; preds = %for.inc, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit
@@ -806,7 +806,7 @@ for.body.i17:                                     ; preds = %for.body.i17.prehea
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %this.val.i = load i32, ptr %0, align 8
   %23 = zext i32 %this.val.i to i64
-  %cmp.i19 = icmp ult i64 %indvars.iv.next.i, %23
+  %cmp.i19 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %cmp.i19, label %for.body.i17, label %invoke.cont5.i, !llvm.loop !5
 
 invoke.cont5.i:                                   ; preds = %for.body.i17, %invoke.cont3.i
@@ -971,7 +971,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %this.val.i.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   %11 = zext i32 %this.val.i.i.i.i to i64
-  %cmp.i2.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %11
+  %cmp.i2.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %11
   br i1 %cmp.i2.i.i.i, label %for.body.i.i.i.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit.i, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit.i: ; preds = %for.body.i.i.i.i
@@ -994,7 +994,7 @@ for.body.i.i.i4.i:                                ; preds = %for.body.i.i.i4.i, 
   %indvars.iv.next.i.i.i7.i = add nuw nsw i64 %indvars.iv.i.i.i5.i, 1
   %this.val.i.i.i8.i = load i32, ptr %size_.i.i.i2.i, align 8
   %13 = zext i32 %this.val.i.i.i8.i to i64
-  %cmp.i2.i.i9.i = icmp ult i64 %indvars.iv.next.i.i.i7.i, %13
+  %cmp.i2.i.i9.i = icmp samesign ult i64 %indvars.iv.next.i.i.i7.i, %13
   br i1 %cmp.i2.i.i9.i, label %for.body.i.i.i4.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_14NodeC2Ev.exit, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_14NodeC2Ev.exit: ; preds = %for.body.i.i.i4.i
@@ -1405,7 +1405,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %this.val.i.i.i = load i32, ptr %17, align 8
   %37 = zext i32 %this.val.i.i.i to i64
-  %cmp.i2.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %37
+  %cmp.i2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %37
   br i1 %cmp.i2.i.i, label %for.body.i.i.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5clearEv.exit, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5clearEv.exit: ; preds = %for.body.i.i.i
@@ -1435,7 +1435,7 @@ for.body.i.i.i76:                                 ; preds = %for.body.i.i.i76, %
   %indvars.iv.next.i.i.i79 = add nuw nsw i64 %indvars.iv.i.i.i77, 1
   %this.val.i.i.i80 = load i32, ptr %15, align 8
   %40 = zext i32 %this.val.i.i.i80 to i64
-  %cmp.i2.i.i81 = icmp ult i64 %indvars.iv.next.i.i.i79, %40
+  %cmp.i2.i.i81 = icmp samesign ult i64 %indvars.iv.next.i.i.i79, %40
   br i1 %cmp.i2.i.i81, label %for.body.i.i.i76, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5clearEv.exit83, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5clearEv.exit83: ; preds = %for.body.i.i.i76
@@ -2802,7 +2802,7 @@ for.body.i123:                                    ; preds = %_ZSt5mergeIPiS0_S0_
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i124, 1
   %list_.val.i = load i32, ptr %size_.i.i.i118, align 8
   %136 = zext i32 %list_.val.i to i64
-  %cmp.i128 = icmp ult i64 %indvars.iv.next.i127, %136
+  %cmp.i128 = icmp samesign ult i64 %indvars.iv.next.i127, %136
   br i1 %cmp.i128, label %for.body.i123, label %return, !llvm.loop !22
 
 return:                                           ; preds = %for.body, %for.body.i123, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, %if.end19, %if.end16, %if.end, %entry
@@ -2859,7 +2859,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %this.val.i.i.i = load i32, ptr %size_.i.i.i, align 8
   %6 = zext i32 %this.val.i.i.i to i64
-  %cmp.i2.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %6
+  %cmp.i2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %6
   br i1 %cmp.i2.i.i, label %for.body.i.i.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit, !llvm.loop !5
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit: ; preds = %for.body.i.i.i
@@ -3485,7 +3485,7 @@ if.then:                                          ; preds = %while.body
   %0 = load i32, ptr %add.ptr9.i.i.i, align 4
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i7173.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i7173.i.i.i
+  %cmp24.i.i.i.i = icmp samesign ult i64 %div13.i.i.i, %div.i7173.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i

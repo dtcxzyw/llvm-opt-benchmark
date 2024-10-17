@@ -865,7 +865,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71
   %12 = getelementptr inbounds i8, ptr %.val12, i64 72
   %13 = load i32, ptr %12, align 8, !range !225, !noundef !4
   %14 = icmp eq i64 %11, %7
-  %15 = icmp ult i32 %13, %9
+  %15 = icmp samesign ult i32 %13, %9
   %16 = icmp slt i64 %11, %7
   %.sroa.0.0.i.i.i.i.i = select i1 %14, i1 %15, i1 %16
   br i1 %.sroa.0.0.i.i.i.i.i, label %17, label %18
@@ -897,7 +897,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71
   %27 = getelementptr inbounds i8, ptr %.val14, i64 72
   %28 = load i32, ptr %27, align 8, !range !225, !noundef !4
   %29 = icmp eq i64 %26, %23
-  %30 = icmp ult i32 %28, %24
+  %30 = icmp samesign ult i32 %28, %24
   %31 = icmp slt i64 %26, %23
   %.sroa.0.0.i.i.i.i.i15 = select i1 %29, i1 %30, i1 %31
   br i1 %.sroa.0.0.i.i.i.i.i15, label %19, label %32
@@ -1474,7 +1474,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %18 = getelementptr inbounds i8, ptr %.val12.i, i64 72
   %19 = load i32, ptr %18, align 8, !range !225, !noundef !4
   %20 = icmp eq i64 %17, %13
-  %21 = icmp ult i32 %19, %15
+  %21 = icmp samesign ult i32 %19, %15
   %22 = icmp slt i64 %17, %13
   %.sroa.0.0.i.i.i.i.i.i = select i1 %20, i1 %21, i1 %22
   br i1 %.sroa.0.0.i.i.i.i.i.i, label %23, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit
@@ -1503,7 +1503,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %32 = getelementptr inbounds i8, ptr %.val14.i, i64 72
   %33 = load i32, ptr %32, align 8, !range !225, !noundef !4
   %34 = icmp eq i64 %31, %28
-  %35 = icmp ult i32 %33, %29
+  %35 = icmp samesign ult i32 %33, %29
   %36 = icmp slt i64 %31, %28
   %.sroa.0.0.i.i.i.i.i15.i = select i1 %34, i1 %35, i1 %36
   br i1 %.sroa.0.0.i.i.i.i.i15.i, label %24, label %37
@@ -1781,7 +1781,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %103 = phi i64 [ 0, %28 ], [ %104, %.loopexit42 ]
   %104 = add nuw nsw i64 %103, 1
   store i64 %104, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !690
-  %105 = icmp ult i64 %103, 2
+  %105 = icmp samesign ult i64 %103, 2
   call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds i64, ptr %15, i64 %103
   %107 = load i64, ptr %106, align 8, !alias.scope !695, !noundef !4
@@ -2002,7 +2002,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %24 = getelementptr inbounds i8, ptr %.val21.i, i64 72
   %25 = load i32, ptr %24, align 8, !range !225, !noundef !4
   %26 = icmp eq i64 %23, %19
-  %27 = icmp ult i32 %25, %21
+  %27 = icmp samesign ult i32 %25, %21
   %28 = icmp slt i64 %23, %19
   %.sroa.0.0.i.i.i.i.i.i = select i1 %26, i1 %27, i1 %28
   %29 = getelementptr i8, ptr %0, i64 112
@@ -2018,7 +2018,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %37 = getelementptr inbounds i8, ptr %.val23.i, i64 72
   %38 = load i32, ptr %37, align 8, !range !225, !noundef !4
   %39 = icmp eq i64 %36, %32
-  %40 = icmp ult i32 %38, %34
+  %40 = icmp samesign ult i32 %38, %34
   %41 = icmp slt i64 %36, %32
   %.sroa.0.0.i.i.i.i.i28.i = select i1 %39, i1 %40, i1 %41
   %42 = zext i1 %.sroa.0.0.i.i.i.i.i.i to i64
@@ -2043,7 +2043,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %59 = getelementptr inbounds i8, ptr %.val25.i, i64 72
   %60 = load i32, ptr %59, align 8, !range !225, !noundef !4
   %61 = icmp eq i64 %58, %54
-  %62 = icmp ult i32 %60, %56
+  %62 = icmp samesign ult i32 %60, %56
   %63 = icmp slt i64 %58, %54
   %.sroa.0.0.i.i.i.i.i29.i = select i1 %61, i1 %62, i1 %63
   %64 = getelementptr i8, ptr %50, i64 16
@@ -2059,7 +2059,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %72 = getelementptr inbounds i8, ptr %.val27.i, i64 72
   %73 = load i32, ptr %72, align 8, !range !225, !noundef !4
   %74 = icmp eq i64 %71, %67
-  %75 = icmp ult i32 %73, %69
+  %75 = icmp samesign ult i32 %73, %69
   %76 = icmp slt i64 %71, %67
   %.sroa.0.0.i.i.i.i.i30.i = select i1 %74, i1 %75, i1 %76
   %..i = select i1 %.sroa.0.0.i.i.i.i.i29.i, ptr %48, ptr %43
@@ -2081,7 +2081,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %85 = getelementptr inbounds i8, ptr %.sroa.02.0.val.i, i64 72
   %86 = load i32, ptr %85, align 8, !range !225, !noundef !4
   %87 = icmp eq i64 %84, %80
-  %88 = icmp ult i32 %86, %82
+  %88 = icmp samesign ult i32 %86, %82
   %89 = icmp slt i64 %84, %80
   %.sroa.0.0.i.i.i.i.i31.i = select i1 %87, i1 %88, i1 %89
   %.sroa.010.0.i = select i1 %.sroa.0.0.i.i.i.i.i31.i, ptr %.sroa.06.0.i, ptr %.sroa.02.0.i
@@ -2108,7 +2108,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %103 = getelementptr inbounds i8, ptr %.val21.i25, i64 72
   %104 = load i32, ptr %103, align 8, !range !225, !noundef !4
   %105 = icmp eq i64 %102, %98
-  %106 = icmp ult i32 %104, %100
+  %106 = icmp samesign ult i32 %104, %100
   %107 = icmp slt i64 %102, %98
   %.sroa.0.0.i.i.i.i.i.i26 = select i1 %105, i1 %106, i1 %107
   %108 = getelementptr i8, ptr %93, i64 112
@@ -2124,7 +2124,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %116 = getelementptr inbounds i8, ptr %.val23.i28, i64 72
   %117 = load i32, ptr %116, align 8, !range !225, !noundef !4
   %118 = icmp eq i64 %115, %111
-  %119 = icmp ult i32 %117, %113
+  %119 = icmp samesign ult i32 %117, %113
   %120 = icmp slt i64 %115, %111
   %.sroa.0.0.i.i.i.i.i28.i29 = select i1 %118, i1 %119, i1 %120
   %121 = zext i1 %.sroa.0.0.i.i.i.i.i.i26 to i64
@@ -2149,7 +2149,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %138 = getelementptr inbounds i8, ptr %.val25.i31, i64 72
   %139 = load i32, ptr %138, align 8, !range !225, !noundef !4
   %140 = icmp eq i64 %137, %133
-  %141 = icmp ult i32 %139, %135
+  %141 = icmp samesign ult i32 %139, %135
   %142 = icmp slt i64 %137, %133
   %.sroa.0.0.i.i.i.i.i29.i32 = select i1 %140, i1 %141, i1 %142
   %143 = getelementptr i8, ptr %129, i64 16
@@ -2165,7 +2165,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %151 = getelementptr inbounds i8, ptr %.val27.i34, i64 72
   %152 = load i32, ptr %151, align 8, !range !225, !noundef !4
   %153 = icmp eq i64 %150, %146
-  %154 = icmp ult i32 %152, %148
+  %154 = icmp samesign ult i32 %152, %148
   %155 = icmp slt i64 %150, %146
   %.sroa.0.0.i.i.i.i.i30.i35 = select i1 %153, i1 %154, i1 %155
   %..i36 = select i1 %.sroa.0.0.i.i.i.i.i29.i32, ptr %127, ptr %122
@@ -2187,7 +2187,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %164 = getelementptr inbounds i8, ptr %.sroa.02.0.val.i43, i64 72
   %165 = load i32, ptr %164, align 8, !range !225, !noundef !4
   %166 = icmp eq i64 %163, %159
-  %167 = icmp ult i32 %165, %161
+  %167 = icmp samesign ult i32 %165, %161
   %168 = icmp slt i64 %163, %159
   %.sroa.0.0.i.i.i.i.i31.i44 = select i1 %166, i1 %167, i1 %168
   %.sroa.010.0.i45 = select i1 %.sroa.0.0.i.i.i.i.i31.i44, ptr %.sroa.06.0.i41, ptr %.sroa.02.0.i39
@@ -2260,7 +2260,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %196 = getelementptr inbounds i8, ptr %.sroa.0.0.val.i, i64 72
   %197 = load i32, ptr %196, align 8, !range !225, !noalias !801, !noundef !4
   %198 = icmp eq i64 %195, %191
-  %199 = icmp ult i32 %197, %193
+  %199 = icmp samesign ult i32 %197, %193
   %200 = icmp slt i64 %195, %191
   %.sroa.0.0.i.i.i.i.i.i48 = select i1 %198, i1 %199, i1 %200
   %..i23.i = select i1 %.sroa.0.0.i.i.i.i.i.i48, ptr %.sroa.06.09.i, ptr %.sroa.0.010.i
@@ -2284,7 +2284,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %215 = getelementptr inbounds i8, ptr %.sroa.013.0.val.i, i64 72
   %216 = load i32, ptr %215, align 8, !range !225, !noalias !801, !noundef !4
   %217 = icmp eq i64 %214, %210
-  %218 = icmp ult i32 %216, %212
+  %218 = icmp samesign ult i32 %216, %212
   %219 = icmp slt i64 %214, %210
   %.sroa.0.0.i.i.i.i.i24.i = select i1 %217, i1 %218, i1 %219
   %..i.i = select i1 %.sroa.0.0.i.i.i.i.i24.i, ptr %.sroa.013.07.i, ptr %.sroa.015.06.i
@@ -2327,7 +2327,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 235:                                              ; preds = %175, %.loopexit
   %236 = phi i64 [ 0, %175 ], [ %237, %.loopexit ]
   %237 = add nuw nsw i64 %236, 1
-  %238 = icmp ult i64 %236, 2
+  %238 = icmp samesign ult i64 %236, 2
   tail call void @llvm.assume(i1 %238)
   %239 = getelementptr inbounds i64, ptr %6, i64 %236
   %240 = load i64, ptr %239, align 8, !alias.scope !812, !noundef !4
@@ -2367,7 +2367,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h17629a238ae56871E.ex
   %259 = getelementptr inbounds i8, ptr %.val12.i, i64 72
   %260 = load i32, ptr %259, align 8, !range !225, !noundef !4
   %261 = icmp eq i64 %258, %254
-  %262 = icmp ult i32 %260, %256
+  %262 = icmp samesign ult i32 %260, %256
   %263 = icmp slt i64 %258, %254
   %.sroa.0.0.i.i.i.i.i.i50 = select i1 %261, i1 %262, i1 %263
   br i1 %.sroa.0.0.i.i.i.i.i.i50, label %264, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit
@@ -2394,7 +2394,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h17629a238ae56871E.ex
   %273 = getelementptr inbounds i8, ptr %.val14.i, i64 72
   %274 = load i32, ptr %273, align 8, !range !225, !noundef !4
   %275 = icmp eq i64 %272, %269
-  %276 = icmp ult i32 %274, %270
+  %276 = icmp samesign ult i32 %274, %270
   %277 = icmp slt i64 %272, %269
   %.sroa.0.0.i.i.i.i.i15.i = select i1 %275, i1 %276, i1 %277
   br i1 %.sroa.0.0.i.i.i.i.i15.i, label %265, label %278
@@ -4219,7 +4219,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %112 = load i32, ptr %46, align 8, !noundef !4
   %113 = zext i32 %112 to i64
   %114 = add nuw nsw i64 %113, %111
-  %115 = icmp ugt i64 %114, 12
+  %115 = icmp samesign ugt i64 %114, 12
   br i1 %115, label %192, label %189
 
 116:                                              ; preds = %142, %133, %123, %103
@@ -4854,7 +4854,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %301 = load i32, ptr %300, align 8, !noundef !4
   %302 = zext i32 %301 to i64
   %303 = add nuw nsw i64 %302, %299
-  %304 = icmp ugt i64 %303, 12
+  %304 = icmp samesign ugt i64 %303, 12
   br i1 %304, label %336, label %311
 
 "_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17h253e743468427e39E.exit268": ; preds = %.thread449, %402, %348, %345, %.thread449.thread.thread, %421, %"_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17h253e743468427e39E.exit265", %309
@@ -5568,7 +5568,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %119 = load i32, ptr %55, align 8, !noundef !4
   %120 = zext i32 %119 to i64
   %121 = add nuw nsw i64 %120, %118
-  %122 = icmp ugt i64 %121, 12
+  %122 = icmp samesign ugt i64 %121, 12
   br i1 %122, label %233, label %229
 
 123:                                              ; preds = %187, %169, %159, %110
@@ -6351,7 +6351,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %369 = load i32, ptr %368, align 8, !noundef !4
   %370 = zext i32 %369 to i64
   %371 = add nuw nsw i64 %370, %367
-  %372 = icmp ugt i64 %371, 12
+  %372 = icmp samesign ugt i64 %371, 12
   br i1 %372, label %405, label %379
 
 "_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17he74aff81453df367E.exit262": ; preds = %.thread454.thread488.thread.thread, %475, %489, %501, %503, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17he74aff81453df367E.exit259", %495, %377

@@ -2116,7 +2116,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   %220 = getelementptr inbounds i8, ptr %75, i64 6
   %221 = load i16, ptr %220, align 2
   %222 = zext i16 %221 to i32
-  %223 = icmp ugt i32 %207, %222
+  %223 = icmp samesign ugt i32 %207, %222
   %224 = zext nneg i8 %194 to i64
   %225 = getelementptr [8 x i32], ptr %5, i64 0, i64 %224
   br i1 %223, label %226, label %228

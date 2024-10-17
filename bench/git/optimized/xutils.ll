@@ -25,7 +25,7 @@ for.body:                                         ; preds = %entry, %for.body
   %n.addr.04 = phi i64 [ %shr, %for.body ], [ %n, %entry ]
   %shl = shl i64 %i.05, 1
   %shr = lshr i64 %n.addr.04, 2
-  %cmp.not = icmp ult i64 %n.addr.04, 4
+  %cmp.not = icmp samesign ult i64 %n.addr.04, 4
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
@@ -994,7 +994,7 @@ for.inc:                                          ; preds = %entry, %for.inc
   %shl = shl i32 %val.06, 1
   %inc = add nuw nsw i32 %bits.07, 1
   %cmp = icmp ult i32 %shl, %size
-  %cmp1 = icmp ult i32 %bits.07, 31
+  %cmp1 = icmp samesign ult i32 %bits.07, 31
   %0 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %0, label %for.inc, label %for.end, !llvm.loop !23
 

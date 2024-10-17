@@ -213,7 +213,7 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i:    ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
@@ -270,7 +270,7 @@ if.end.i.i5:                                      ; preds = %for.cond.i2
 
 _ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i:    ; preds = %if.end.i.i5, %for.cond.i2
   %retval.0.i.i7 = phi i64 [ %12, %if.end.i.i5 ], [ 0, %for.cond.i2 ]
-  %cmp.i8 = icmp ult i64 %indvars.iv.i3, %retval.0.i.i7
+  %cmp.i8 = icmp samesign ult i64 %indvars.iv.i3, %retval.0.i.i7
   br i1 %cmp.i8, label %for.body.i9, label %_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit
 
 for.body.i9:                                      ; preds = %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i
@@ -1078,7 +1078,7 @@ for.inc72:                                        ; preds = %invoke.cont35, %inv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %m_pos.i.i, align 8
   %59 = zext i32 %58 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %59
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %cmp, label %for.body, label %for.end74, !llvm.loop !14
 
 for.end74:                                        ; preds = %for.inc72, %for.cond.preheader
@@ -1866,7 +1866,7 @@ for.inc80:                                        ; preds = %invoke.cont38.invok
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %m_pos.i.i, align 8
   %52 = zext i32 %51 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %52
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %cmp, label %for.body, label %for.end82, !llvm.loop !17
 
 for.end82:                                        ; preds = %for.inc80, %invoke.cont10, %invoke.cont14
@@ -4078,7 +4078,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div11, %div.i5759
+  %cmp23.i = icmp samesign ult i64 %div11, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

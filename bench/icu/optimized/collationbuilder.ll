@@ -1123,7 +1123,7 @@ if.end.i:                                         ; preds = %if.then28, %if.end1
   %9 = load i64, ptr %arrayidx.i67, align 8
   %conv.i.i = trunc i64 %9 to i32
   %and.i.i = and i32 %conv.i.i, 3
-  %cmp1.i = icmp ult i32 %and.i.i, 2
+  %cmp1.i = icmp samesign ult i32 %and.i.i, 2
   br i1 %cmp1.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -2354,7 +2354,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit60.i344:  ; preds = %while.body.i340
   %11 = load i64, ptr %arrayidx.i59.i368, align 8
   %conv.i61.i346 = trunc i64 %11 to i32
   %and.i62.i347 = and i32 %conv.i61.i346, 3
-  %cmp37.not.i348 = icmp ugt i32 %and.i62.i347, 1
+  %cmp37.not.i348 = icmp samesign ugt i32 %and.i62.i347, 1
   br i1 %cmp37.not.i348, label %if.end53.i353, label %if.then38.i349
 
 if.then38.i349:                                   ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit60.i344
@@ -2424,7 +2424,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit60.i:     ; preds = %while.body.i
   br i1 %cmp37.not.i, label %if.end53.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit60.i
-  %cmp39.i = icmp ult i32 %and.i62.i, 2
+  %cmp39.i = icmp samesign ult i32 %and.i62.i, 2
   br i1 %cmp39.i, label %while.end.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then38.i
@@ -2567,7 +2567,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit60.i394:  ; preds = %while.body.i390
   %35 = load i64, ptr %arrayidx.i59.i418, align 8
   %conv.i61.i396 = trunc i64 %35 to i32
   %and.i62.i397 = and i32 %conv.i61.i396, 3
-  %cmp37.not.i398 = icmp ugt i32 %and.i62.i397, 1
+  %cmp37.not.i398 = icmp samesign ugt i32 %and.i62.i397, 1
   br i1 %cmp37.not.i398, label %if.end53.i403, label %if.then38.i399
 
 if.then38.i399:                                   ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit60.i394
@@ -3029,7 +3029,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit300:      ; preds = %if.end154, %cond.tr
   %cond.i295 = phi i64 [ %91, %cond.true.i296 ], [ 0, %if.end154 ]
   %conv.i301 = trunc i64 %cond.i295 to i32
   %and.i302 = and i32 %conv.i301, 3
-  %cmp158 = icmp ult i32 %and.i302, %strength.0
+  %cmp158 = icmp samesign ult i32 %and.i302, %strength.0
   br i1 %cmp158, label %for.end, label %for.cond, !llvm.loop !19
 
 for.end:                                          ; preds = %for.cond, %_ZNK6icu_759UVector6410elementAtiEi.exit300, %for.cond.preheader
@@ -3415,7 +3415,7 @@ entry:
   %t.0 = select i1 %cmp, i32 %conv.i14, i32 1280
   %conv.i1543 = trunc i64 %node to i32
   %and.i1644 = and i32 %conv.i1543, 3
-  %cmp445 = icmp ugt i32 %and.i1644, 1
+  %cmp445 = icmp samesign ugt i32 %and.i1644, 1
   br i1 %cmp445, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -3440,7 +3440,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit:         ; preds = %while.body
   %.fr = freeze i64 %2
   %conv.i15 = trunc i64 %.fr to i32
   %and.i16 = and i32 %conv.i15, 3
-  %cmp4 = icmp ugt i32 %and.i16, 1
+  %cmp4 = icmp samesign ugt i32 %and.i16, 1
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit, %entry

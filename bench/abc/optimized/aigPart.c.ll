@@ -3160,7 +3160,7 @@ Vec_PtrFree.exit.i176:                            ; preds = %364, %361
 
 365:                                              ; preds = %Vec_PtrFree.exit.i176, %.lr.ph.i170
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i172, 1
-  %366 = icmp ult i64 %indvars.iv.next.i179, %358
+  %366 = icmp samesign ult i64 %indvars.iv.next.i179, %358
   br i1 %366, label %.lr.ph.i170, label %.critedge.i168.thread, !llvm.loop !16
 
 .critedge.i168:                                   ; preds = %356

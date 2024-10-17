@@ -386,7 +386,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %32 = and i16 %31, 60
   %33 = zext nneg i16 %32 to i32
   %34 = icmp ult i32 %18, %33
-  %35 = icmp ult i16 %32, 20
+  %35 = icmp samesign ult i16 %32, 20
   %36 = or i1 %35, %34
   br i1 %36, label %.thread, label %37
 

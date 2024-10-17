@@ -2072,7 +2072,7 @@ _ZNK2OT4sbix10get_strikeEj.exit:                  ; preds = %2
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
   %83 = or disjoint i64 %79, %82
-  %.not.i.i35 = icmp ult i64 %indvars.iv, %83
+  %.not.i.i35 = icmp samesign ult i64 %indvars.iv, %83
   br i1 %.not.i.i35, label %84, label %_ZNK2OT4sbix10get_strikeEj.exit38
 
 84:                                               ; preds = %.lr.ph
@@ -2487,7 +2487,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33: ; preds = 
   %61 = load i8, ptr %17, align 1
   %62 = zext i8 %61 to i64
   %63 = or disjoint i64 %60, %62
-  %.not.i35 = icmp ult i64 %indvars.iv, %63
+  %.not.i35 = icmp samesign ult i64 %indvars.iv, %63
   br i1 %.not.i35, label %64, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
 
 64:                                               ; preds = %49
@@ -2717,7 +2717,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = or disjoint i32 %122, %125
-  %.not.i8 = icmp ugt i32 %117, %126
+  %.not.i8 = icmp samesign ugt i32 %117, %126
   br i1 %.not.i8, label %127, label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
 127:                                              ; preds = %106
@@ -7086,7 +7086,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %70 = load i8, ptr %44, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp ugt i32 %66, %72
+  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
   br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %58
@@ -7924,7 +7924,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sani
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not19 = icmp ugt i32 %21, %29
+  %.not19 = icmp samesign ugt i32 %21, %29
   br i1 %.not19, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %30
 
 30:                                               ; preds = %14

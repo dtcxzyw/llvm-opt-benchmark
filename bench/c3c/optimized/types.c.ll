@@ -656,7 +656,7 @@ define dso_local i32 @type_size(ptr nocapture noundef readonly %0) local_unnamed
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, %21
   %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
-  %.not = icmp ult i32 %25, 2
+  %.not = icmp samesign ult i32 %25, 2
   br i1 %.not, label %common.ret82, label %26
 
 26:                                               ; preds = %18
@@ -1730,7 +1730,7 @@ define dso_local i32 @type_abi_alignment(ptr nocapture noundef readonly %0) loca
   %16 = tail call i32 @type_size(ptr noundef %15)
   %17 = mul i32 %16, %spec.store.select
   %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
-  %.not = icmp ult i32 %18, 2
+  %.not = icmp samesign ult i32 %18, 2
   br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %11
@@ -5801,7 +5801,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly %0, ptr nounde
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 255
-  %.not = icmp ult i32 %20, %13
+  %.not = icmp samesign ult i32 %20, %13
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %17

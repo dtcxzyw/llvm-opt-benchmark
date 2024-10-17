@@ -79,7 +79,7 @@ define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 ali
   store i32 0, ptr %22, align 4
   %23 = add nuw nsw i64 %12, 1
   %24 = and i64 %23, 127
-  %25 = icmp ugt i64 %24, 63
+  %25 = icmp samesign ugt i64 %24, 63
   br i1 %25, label %.thread, label %5, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %5, %15, %11
@@ -211,7 +211,7 @@ define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
   %29 = add i64 %11, %28
   %30 = add nuw nsw i64 %16, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %9, !prof !6, !llvm.loop !19
 
 .thread:                                          ; preds = %9, %19, %15
@@ -412,7 +412,7 @@ define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, 
   %42 = add i64 %24, %41
   %43 = add nuw nsw i64 %29, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %22, !prof !6, !llvm.loop !19
 
 .thread:                                          ; preds = %22, %32, %28
@@ -545,7 +545,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %74 = add i64 %56, %73
   %75 = add nuw nsw i64 %61, 1
   %76 = and i64 %75, 127
-  %77 = icmp ugt i64 %76, 63
+  %77 = icmp samesign ugt i64 %76, 63
   br i1 %77, label %.thread4, label %54, !prof !6, !llvm.loop !30
 
 .thread4:                                         ; preds = %54, %64, %60

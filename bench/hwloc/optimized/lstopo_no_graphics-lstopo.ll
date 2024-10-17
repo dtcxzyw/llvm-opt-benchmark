@@ -4241,7 +4241,7 @@ hwloc_calc_parse_level.exit:                      ; preds = %1339, %hwloc_calc_p
   %indvars.iv.next1422 = add nuw nsw i64 %indvars.iv1421, 1
   %1431 = load i32, ptr %67, align 8
   %1432 = zext i32 %1431 to i64
-  %1433 = icmp ult i64 %indvars.iv.next1422, %1432
+  %1433 = icmp samesign ult i64 %indvars.iv.next1422, %1432
   br i1 %1433, label %.lr.ph1198, label %._crit_edge1199, !llvm.loop !37
 
 ._crit_edge1199:                                  ; preds = %.lr.ph1198, %.preheader
@@ -4668,7 +4668,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %14, label %15, label %.tail.thread
 
 15:                                               ; preds = %.tail, %6
-  %16 = icmp ult i32 %1, 2
+  %16 = icmp samesign ult i32 %1, 2
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -4697,7 +4697,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not21, label %25, label %49
 
 25:                                               ; preds = %23, %.tail.thread
-  %26 = icmp ult i32 %1, 2
+  %26 = icmp samesign ult i32 %1, 2
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -6230,7 +6230,7 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr noc
   %46 = phi i32 [ %25, %24 ], [ %25, %30 ], [ %.pre, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %24, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %45, %19

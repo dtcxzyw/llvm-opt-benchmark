@@ -7364,7 +7364,7 @@ tailrecurse.backedge:                             ; preds = %28, %19, %36, %39, 
   %25 = getelementptr inbounds i8, ptr %.tr, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef %26, ptr noundef %1, i32 noundef 1)
-  %.not49 = icmp ult i32 %27, 2
+  %.not49 = icmp samesign ult i32 %27, 2
   br i1 %.not49, label %28, label %.critedge
 
 28:                                               ; preds = %23
@@ -7436,7 +7436,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not55, label %.loopexit, label %6, !llvm.loop !37
 
 11:                                               ; preds = %tailrecurse
-  %.not53 = icmp ult i32 %.tr56, 256
+  %.not53 = icmp samesign ult i32 %.tr56, 256
   br i1 %.not53, label %16, label %12
 
 12:                                               ; preds = %11
@@ -7528,7 +7528,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.not = icmp eq i32 %53, %48
   %54 = or i32 %.3, 8
   %.4 = select i1 %.not, i32 %.3, i32 %54
-  %.not50 = icmp ult i32 %.4, 256
+  %.not50 = icmp samesign ult i32 %.4, 256
   br i1 %.not50, label %tailrecurse.backedge.sink.split, label %55
 
 55:                                               ; preds = %46
@@ -10181,7 +10181,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %5 = getelementptr inbounds i8, ptr %.093, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef %6, ptr noundef %1, i32 noundef %.092)
-  %.not118 = icmp ult i32 %7, 4
+  %.not118 = icmp samesign ult i32 %7, 4
   br i1 %.not118, label %8, label %common.ret185
 
 8:                                                ; preds = %.preheader
@@ -10210,7 +10210,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %16 = getelementptr inbounds i8, ptr %.090, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef %17, ptr noundef %1, i32 noundef %2)
-  %.not116 = icmp ult i32 %18, 4
+  %.not116 = icmp samesign ult i32 %18, 4
   br i1 %.not116, label %19, label %common.ret185
 
 19:                                               ; preds = %.preheader126
@@ -10303,7 +10303,7 @@ common.ret185:                                    ; preds = %87, %36, %25, %27, 
   %65 = getelementptr inbounds i8, ptr %.tr, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef %66, ptr noundef %1, i32 noundef %2)
-  %.not = icmp ult i32 %67, 4
+  %.not = icmp samesign ult i32 %67, 4
   br i1 %.not, label %68, label %common.ret185
 
 68:                                               ; preds = %64
@@ -10328,7 +10328,7 @@ common.ret185:                                    ; preds = %87, %36, %25, %27, 
   %78 = phi ptr [ %.pre, %72 ], [ %70, %71 ]
   %.0 = phi i32 [ %76, %72 ], [ 0, %71 ]
   %79 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef %78, ptr noundef %1, i32 noundef %.0)
-  %.not110 = icmp ult i32 %79, 4
+  %.not110 = icmp samesign ult i32 %79, 4
   br i1 %.not110, label %80, label %common.ret185
 
 80:                                               ; preds = %77
@@ -10344,13 +10344,13 @@ common.ret185:                                    ; preds = %87, %36, %25, %27, 
 
 85:                                               ; preds = %82
   %86 = tail call fastcc i32 @infinite_recursive_call_check(ptr noundef nonnull %84, ptr noundef %1, i32 noundef %2)
-  %.not112 = icmp ult i32 %86, 4
+  %.not112 = icmp samesign ult i32 %86, 4
   br i1 %.not112, label %87, label %common.ret185
 
 87:                                               ; preds = %85
   %88 = and i32 %86, 1
   %89 = or i32 %88, %.3
-  %90 = icmp ult i32 %86, 2
+  %90 = icmp samesign ult i32 %86, 2
   %91 = and i32 %89, -3
   %spec.select123 = select i1 %90, i32 %91, i32 %89
   br label %common.ret185
@@ -10770,7 +10770,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %.not66 = icmp eq i32 %51, %46
   %52 = or i32 %.1, 8
   %.2 = select i1 %.not66, i32 %.1, i32 %52
-  %.not67 = icmp ult i32 %.2, 256
+  %.not67 = icmp samesign ult i32 %.2, 256
   br i1 %.not67, label %tailrecurse.outer.backedge.sink.split, label %53
 
 53:                                               ; preds = %.split88.us
@@ -13159,7 +13159,7 @@ add_char_opt_map.exit:                            ; preds = %map_position_value.
 
 151:                                              ; preds = %147
   store i8 1, ptr %148, align 1
-  %152 = icmp ult i64 %indvars.iv424, 128
+  %152 = icmp samesign ult i64 %indvars.iv424, 128
   br i1 %152, label %153, label %map_position_value.exit.i255
 
 153:                                              ; preds = %151
@@ -13281,7 +13281,7 @@ add_char_opt_map.exit260:                         ; preds = %map_position_value.
 
 208:                                              ; preds = %.lr.ph382
   store i8 1, ptr %205, align 1
-  %209 = icmp ult i64 %indvars.iv, 128
+  %209 = icmp samesign ult i64 %indvars.iv, 128
   br i1 %209, label %210, label %map_position_value.exit.i261
 
 210:                                              ; preds = %208
@@ -14556,7 +14556,7 @@ mml_alt_merge.exit.i:                             ; preds = %45, %41
   br i1 %53, label %66, label %54
 
 54:                                               ; preds = %52, %.thread.i
-  %55 = icmp ult i64 %indvars.iv.i, 128
+  %55 = icmp samesign ult i64 %indvars.iv.i, 128
   br i1 %55, label %56, label %map_position_value.exit.i
 
 56:                                               ; preds = %54

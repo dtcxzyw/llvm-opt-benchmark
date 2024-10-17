@@ -756,7 +756,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %23 = shl i32 %22, %6
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i64, ptr %14, i64 %24
-  %26 = icmp ult i64 %indvars.iv73, 5
+  %26 = icmp samesign ult i64 %indvars.iv73, 5
   br i1 %26, label %.preheader.us.us, label %.preheader27.us.us
 
 27:                                               ; preds = %.preheader27.us.us, %27

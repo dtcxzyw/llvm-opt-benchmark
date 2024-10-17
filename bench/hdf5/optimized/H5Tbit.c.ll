@@ -55,11 +55,11 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   %29 = or i8 %28, %20
   store i8 %29, ptr %18, align 1
   %30 = add nuw nsw i64 %.0114., %.0110145
-  %31 = icmp ugt i64 %30, 7
+  %31 = icmp samesign ugt i64 %30, 7
   %32 = zext i1 %31 to i64
   %.1118 = add i64 %.0117142, %32
   %33 = add nuw nsw i64 %.0114., %.0144
-  %34 = icmp ugt i64 %33, 7
+  %34 = icmp samesign ugt i64 %33, 7
   %35 = zext i1 %34 to i64
   %.1122 = add i64 %.0121141, %35
   %36 = sub i64 %.0114143, %.0114.
@@ -184,12 +184,12 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   %96 = or i8 %95, %87
   store i8 %96, ptr %85, align 1
   %97 = add nuw nsw i64 %.2116., %.2112164
-  %98 = icmp ugt i64 %97, 7
+  %98 = icmp samesign ugt i64 %97, 7
   %99 = and i64 %97, 7
   %100 = zext i1 %98 to i64
   %.4 = add i64 %.3120162, %100
   %101 = add nuw nsw i64 %.2116., %.2165
-  %102 = icmp ugt i64 %101, 7
+  %102 = icmp samesign ugt i64 %101, 7
   %103 = and i64 %101, 7
   %104 = zext i1 %102 to i64
   %.4125 = add i64 %.3124161, %104
@@ -653,7 +653,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 19:                                               ; preds = %12
   %20 = add nuw nsw i64 %.091136, 1
   %21 = add i64 %.199135, -1
-  %22 = icmp ult i64 %.091136, 7
+  %22 = icmp samesign ult i64 %.091136, 7
   %23 = icmp ne i64 %21, 0
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %12, label %._crit_edge138
@@ -972,7 +972,7 @@ define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 no
   %6 = add i64 %1, -1
   %7 = add i64 %6, %2
   %8 = lshr i64 %7, 3
-  %9 = icmp ugt i64 %8, %4
+  %9 = icmp samesign ugt i64 %8, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 %4
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
@@ -1072,7 +1072,7 @@ define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
   %10 = add i64 %1, -1
   %11 = add i64 %10, %2
   %12 = lshr i64 %11, 3
-  %13 = icmp ugt i64 %12, %5
+  %13 = icmp samesign ugt i64 %12, %5
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %3

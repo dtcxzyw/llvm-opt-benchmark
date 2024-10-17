@@ -1368,7 +1368,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
   %19 = phi i8 [ %.pre, %16 ], [ %11, %10 ]
   %20 = add nuw nsw i64 %12, 1
   %21 = zext i8 %19 to i64
-  %22 = icmp ult i64 %20, %21
+  %22 = icmp samesign ult i64 %20, %21
   br i1 %22, label %10, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %3
@@ -1623,7 +1623,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
   %21 = add nuw nsw i64 %11, 1
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %10, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %3

@@ -4215,7 +4215,7 @@ record_entry_for_tree.exit283.i.i:                ; preds = %if.end.i278.i.i, %i
 if.else469.i.i:                                   ; preds = %land.lhs.true259.i.i, %if.else251.i.i
   %bf.lshr472.i.i = lshr i16 %bf.load156.i.i, 2
   %bf.clear473.i.i = and i16 %bf.lshr472.i.i, 7
-  %cmp475.i.i = icmp ugt i16 %bf.clear473.i.i, 5
+  %cmp475.i.i = icmp samesign ugt i16 %bf.clear473.i.i, 5
   br i1 %cmp475.i.i, label %if.then477.i.i, label %if.else586.i.i
 
 if.then477.i.i:                                   ; preds = %if.else469.i.i
@@ -8331,7 +8331,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %merges, align 8
   %33 = zext i32 %32 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %33
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !68
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -8683,7 +8683,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %7 = phi i32 [ %.pre, %land.lhs.true.for.inc_crit_edge ], [ %4, %for.body24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
-  %cmp22.not = icmp ult i64 %indvars.iv.next, %8
+  %cmp22.not = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp22.not, label %for.body24, label %if.then36.loopexit, !llvm.loop !71
 
 if.then36.loopexit:                               ; preds = %for.inc
@@ -8701,7 +8701,7 @@ for.inc42:                                        ; preds = %land.lhs.true, %if.
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %10 = load i32, ptr %merges, align 8
   %11 = zext i32 %10 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next23, %11
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next23, %11
   br i1 %cmp18, label %for.body, label %for.end44, !llvm.loop !72
 
 for.end44:                                        ; preds = %for.inc42, %while.end

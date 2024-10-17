@@ -3961,7 +3961,7 @@ if.then9:                                         ; preds = %if.then2.i.i, %_ZN6
   %retval.0.i.i131283 = phi i32 [ %number.1.lcssa.i.i, %_ZN6icu_7514MessagePattern14parseArgNumberEii.exit ], [ 0, %if.then2.i.i ]
   %sub = sub nsw i32 %conv.i123, %conv.i99
   %cmp10 = icmp sgt i32 %sub, 65535
-  %cmp11 = icmp ugt i32 %retval.0.i.i131283, 32767
+  %cmp11 = icmp samesign ugt i32 %retval.0.i.i131283, 32767
   %or.cond = or i1 %cmp10, %cmp11
   br i1 %or.cond, label %if.then12, label %if.end13
 

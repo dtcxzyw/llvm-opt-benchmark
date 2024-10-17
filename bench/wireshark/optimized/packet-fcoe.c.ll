@@ -111,7 +111,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = add nsw i32 %11, -4
   %13 = and i16 %8, 15
   %14 = trunc nuw nsw i16 %13 to i8
-  %15 = icmp ult i16 %13, 8
+  %15 = icmp samesign ult i16 %13, 8
   %16 = select i1 %15, i8 48, i8 32
   %17 = or disjoint i8 %16, %14
   %18 = lshr i32 %9, 14

@@ -813,9 +813,9 @@ tipc_v1_set_col_msgtype.exit:                     ; preds = %37, %37, %37, %37
   %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @tipc_data_msg_type_values, ptr noundef nonnull @.str.413) #7
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.417, ptr noundef %49, i32 noundef %48) #7
   %50 = and i32 %12, 29360128
-  %51 = icmp ugt i32 %50, 10485760
-  %52 = icmp ult i32 %35, 4
-  %or.cond = and i1 %51, %52
+  %51 = icmp samesign ugt i32 %50, 10485760
+  %52 = icmp samesign ult i32 %35, 4
+  %or.cond = select i1 %51, i1 %52, i1 false
   %53 = getelementptr inbounds i8, ptr %1, i64 208
   %54 = load i32, ptr @tipc_address_type, align 4
   %55 = getelementptr inbounds i8, ptr %1, i64 212
@@ -909,7 +909,7 @@ tipc_v1_set_col_msgtype.exit.thread:              ; preds = %tipc_v1_set_col_msg
   br label %92
 
 92:                                               ; preds = %89, %82
-  %93 = icmp ugt i8 %16, 8
+  %93 = icmp samesign ugt i8 %16, 8
   br i1 %93, label %94, label %tipc_v2_set_info_col.exit
 
 94:                                               ; preds = %92
@@ -923,7 +923,7 @@ tipc_v1_set_col_msgtype.exit.thread:              ; preds = %tipc_v1_set_col_msg
   %98 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #7
   %99 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.432, i32 noundef %98) #7
-  %100 = icmp ugt i8 %16, 10
+  %100 = icmp samesign ugt i8 %16, 10
   br i1 %100, label %101, label %tipc_v2_set_info_col.exit
 
 101:                                              ; preds = %97
@@ -1024,12 +1024,12 @@ tipc_v1_set_col_msgtype.exit.thread:              ; preds = %tipc_v1_set_col_msg
   br label %tipc_v2_set_info_col.exit
 
 tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, %101, %104, %108, %119, %128, %130, %132, %144, %145, %146, %150
-  %switch = icmp ugt i32 %35, 3
+  %switch = icmp samesign ugt i32 %35, 3
   br i1 %switch, label %172, label %154
 
 154:                                              ; preds = %tipc_v2_set_info_col.exit
   %155 = and i32 %12, 31457280
-  %156 = icmp ugt i32 %155, 12582912
+  %156 = icmp samesign ugt i32 %155, 12582912
   %157 = getelementptr inbounds i8, ptr %1, i64 208
   %158 = load i32, ptr @tipc_address_type, align 4
   %159 = getelementptr inbounds i8, ptr %1, i64 212
@@ -1529,7 +1529,7 @@ proto_item_set_generated.exit:                    ; preds = %427, %424, %413, %4
 444:                                              ; preds = %389
   %445 = load i32, ptr @hf_tipc_message_bundle, align 4
   %446 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %445, ptr noundef %.0262, i32 noundef 28, i32 noundef -1, i32 noundef 0) #7
-  %447 = icmp ugt i32 %20, 28
+  %447 = icmp samesign ugt i32 %20, 28
   br i1 %447, label %.lr.ph, label %dissect_tipc_int_prot_msg.exit
 
 .lr.ph:                                           ; preds = %444, %455
@@ -1553,7 +1553,7 @@ proto_item_set_generated.exit:                    ; preds = %427, %424, %413, %4
   tail call void @col_set_fence(ptr noundef %457, i32 noundef 25) #7
   %458 = tail call i32 @dissect_tipc(ptr noundef %456, ptr noundef %1, ptr noundef %202, ptr poison)
   %459 = add nuw nsw i32 %450, %.0.i274295
-  %460 = icmp ult i32 %459, %20
+  %460 = icmp samesign ult i32 %459, %20
   br i1 %460, label %.lr.ph, label %dissect_tipc_int_prot_msg.exit, !llvm.loop !4
 
 461:                                              ; preds = %.lr.ph
@@ -1589,7 +1589,7 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %455, %444, %.thread
   %477 = getelementptr inbounds i8, ptr %1, i64 232
   %478 = load i32, ptr %6, align 4
   call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %476, ptr noundef nonnull %477, i32 noundef 11, i32 noundef %478, i32 noundef %475) #7
-  %479 = icmp ult i32 %324, 7
+  %479 = icmp samesign ult i32 %324, 7
   br i1 %479, label %480, label %483
 
 480:                                              ; preds = %474
@@ -1632,7 +1632,7 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %455, %444, %.thread
   %509 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %504, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %508, i32 noundef %507, i32 noundef %505) #7
   %510 = load i32, ptr @hf_tipc_dst_proc, align 4
   %511 = call ptr @proto_tree_add_string(ptr noundef %202, i32 noundef %510, ptr noundef %.0262, i32 noundef 28, i32 noundef 4, ptr noundef %504) #7
-  %512 = icmp ugt i32 %324, 8
+  %512 = icmp samesign ugt i32 %324, 8
   br i1 %512, label %513, label %526
 
 513:                                              ; preds = %483
@@ -1658,7 +1658,7 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %455, %444, %.thread
 
 526:                                              ; preds = %521, %483
   %.0259 = phi i32 [ 40, %521 ], [ 32, %483 ]
-  %527 = icmp ult i32 %35, 4
+  %527 = icmp samesign ult i32 %35, 4
   %528 = load i32, ptr @dissect_tipc_data, align 4
   %529 = icmp ne i32 %528, 0
   %or.cond4 = select i1 %527, i1 %529, i1 false
@@ -2148,7 +2148,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %130 = load i32, ptr @hf_tipcv2_msg_count, align 4
   %131 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %130, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0) #7
   %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 36) #7
-  %133 = icmp ugt i32 %4, 40
+  %133 = icmp samesign ugt i32 %4, 40
   br i1 %133, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %127
@@ -2182,7 +2182,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %153 = select i1 %.not849, i32 0, i32 %152
   %154 = add nuw nsw i32 %139, %.4854
   %155 = add nuw nsw i32 %154, %153
-  %156 = icmp ult i32 %155, %4
+  %156 = icmp samesign ult i32 %155, %4
   br i1 %156, label %136, label %.loopexit, !llvm.loop !8
 
 157:                                              ; preds = %6

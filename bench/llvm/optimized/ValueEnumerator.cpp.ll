@@ -5317,7 +5317,7 @@ define dso_local void @_ZN4llvm15ValueEnumerator17OptimizeConstantsEjj(ptr nound
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %22
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm5ValueEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
@@ -5627,7 +5627,7 @@ _ZSt13__find_if_notIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm5ValueEjESt6
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i12.i
   %150 = add nuw nsw i64 %storemerge26.i.i.i, 1
   %151 = lshr i64 %150, 1
-  %.not10.i.i.i = icmp ult i64 %storemerge26.i.i.i, 2
+  %.not10.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i, 2
   br i1 %.not10.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm5ValueEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i, label %.lr.ph.i.i12.i, !llvm.loop !64
 
 152:                                              ; preds = %.lr.ph.i.i12.i
@@ -6010,12 +6010,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i.i.i.i.i.i.i: ; preds = %
   br i1 %98, label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", label %99
 
 99:                                               ; preds = %97
-  %100 = icmp ult i32 %.0.i.i.i.i.i.i.i.i.i.i, %.0.i1.i.i.i.i.i.i.i.i.i
+  %100 = icmp samesign ult i32 %.0.i.i.i.i.i.i.i.i.i.i, %.0.i1.i.i.i.i.i.i.i.i.i
   br i1 %100, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i.i.i.i.i.i.i": ; preds = %99
-  %101 = icmp uge i32 %.0.i1.i.i.i.i.i.i.i.i.i, %.0.i.i.i.i.i.i.i.i.i.i
-  %102 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.210.0.extract.shift.i.i.i.i.i.i.i.i.i
+  %101 = icmp samesign uge i32 %.0.i1.i.i.i.i.i.i.i.i.i, %.0.i.i.i.i.i.i.i.i.i.i
+  %102 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.210.0.extract.shift.i.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %101, i1 %102, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
@@ -17280,12 +17280,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i.i: ; preds = %_ZN4llvm8d
   br i1 %56, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread89.i.i", label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.0.i.i.i.i.i, %.0.i1.i.i.i.i
+  %58 = icmp samesign ult i32 %.0.i.i.i.i.i, %.0.i1.i.i.i.i
   br i1 %58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i.i": ; preds = %57
-  %59 = icmp uge i32 %.0.i1.i.i.i.i, %.0.i.i.i.i.i
-  %60 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i.i.i
+  %59 = icmp samesign uge i32 %.0.i1.i.i.i.i, %.0.i.i.i.i.i
+  %60 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i.i.i
   %spec.select.i.i.i.i = select i1 %59, i1 %60, i1 false
   br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread89.i.i"
 
@@ -17402,12 +17402,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i47.i.i: ; preds = %_ZN4llvm
   br i1 %80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit52.thread90.i.i", label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ult i32 %.0.i.i.i46.i.i, %.0.i1.i.i48.i.i
+  %82 = icmp samesign ult i32 %.0.i.i.i46.i.i, %.0.i1.i.i48.i.i
   br i1 %82, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit52.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit52.i.i": ; preds = %81
-  %83 = icmp uge i32 %.0.i1.i.i48.i.i, %.0.i.i.i46.i.i
-  %84 = icmp ult i64 %.sroa.210.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i44.i.i
+  %83 = icmp samesign uge i32 %.0.i1.i.i48.i.i, %.0.i.i.i46.i.i
+  %84 = icmp samesign ult i64 %.sroa.210.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i44.i.i
   %spec.select.i.i49.i.i = select i1 %83, i1 %84, i1 false
   br i1 %spec.select.i.i49.i.i, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit52.thread90.i.i"
 
@@ -17516,12 +17516,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i59.i.i: ; preds = %_ZN4llvm
   br i1 %99, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit64.thread91.i.i", label %100
 
 100:                                              ; preds = %98
-  %101 = icmp ult i32 %.0.i.i.i58.i.i, %.0.i1.i.i60.i.i
+  %101 = icmp samesign ult i32 %.0.i.i.i58.i.i, %.0.i1.i.i60.i.i
   br i1 %101, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit64.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit64.i.i": ; preds = %100
-  %102 = icmp uge i32 %.0.i1.i.i60.i.i, %.0.i.i.i58.i.i
-  %103 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i44.i.i
+  %102 = icmp samesign uge i32 %.0.i1.i.i60.i.i, %.0.i.i.i58.i.i
+  %103 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i44.i.i
   %spec.select.i.i61.i.i = select i1 %102, i1 %103, i1 false
   br i1 %spec.select.i.i61.i.i, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit64.thread91.i.i"
 
@@ -17641,12 +17641,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i71.i.i: ; preds = %_ZN4llvm
   br i1 %123, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit76.thread92.i.i", label %124
 
 124:                                              ; preds = %122
-  %125 = icmp ult i32 %.0.i.i.i70.i.i, %.0.i1.i.i72.i.i
+  %125 = icmp samesign ult i32 %.0.i.i.i70.i.i, %.0.i1.i.i72.i.i
   br i1 %125, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit76.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit76.i.i": ; preds = %124
-  %126 = icmp uge i32 %.0.i1.i.i72.i.i, %.0.i.i.i70.i.i
-  %127 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i68.i.i
+  %126 = icmp samesign uge i32 %.0.i1.i.i72.i.i, %.0.i.i.i70.i.i
+  %127 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i68.i.i
   %spec.select.i.i73.i.i = select i1 %126, i1 %127, i1 false
   br i1 %spec.select.i.i73.i.i, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit76.thread92.i.i"
 
@@ -17755,12 +17755,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i83.i.i: ; preds = %_ZN4llvm
   br i1 %142, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit88.thread93.i.i", label %143
 
 143:                                              ; preds = %141
-  %144 = icmp ult i32 %.0.i.i.i82.i.i, %.0.i1.i.i84.i.i
+  %144 = icmp samesign ult i32 %.0.i.i.i82.i.i, %.0.i1.i.i84.i.i
   br i1 %144, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit88.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit88.i.i": ; preds = %143
-  %145 = icmp uge i32 %.0.i1.i.i84.i.i, %.0.i.i.i82.i.i
-  %146 = icmp ult i64 %.sroa.210.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i68.i.i
+  %145 = icmp samesign uge i32 %.0.i1.i.i84.i.i, %.0.i.i.i82.i.i
+  %146 = icmp samesign ult i64 %.sroa.210.0.extract.shift.i.i.i.i, %.sroa.210.0.extract.shift.i.i68.i.i
   %spec.select.i.i85.i.i = select i1 %145, i1 %146, i1 false
   br i1 %spec.select.i.i85.i.i, label %"_ZSt22__move_median_to_firstIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_S9_S9_S9_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit88.thread93.i.i"
 
@@ -17906,13 +17906,13 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i18.i: ; preds = %_ZN4llvm
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i21.i"
 
 175:                                              ; preds = %173
-  %176 = icmp ult i32 %.0.i.i.i.i17.i, %.0.i1.i.i.i19.i
+  %176 = icmp samesign ult i32 %.0.i.i.i.i17.i, %.0.i1.i.i.i19.i
   br i1 %176, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread.i22.i", label %177
 
 177:                                              ; preds = %175
-  %178 = icmp uge i32 %.0.i1.i.i.i19.i, %.0.i.i.i.i17.i
-  %179 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i15.i, %.sroa.210.0.extract.shift.i.i.i13.i
-  %spec.select.i.i.i20.i = and i1 %179, %178
+  %178 = icmp samesign uge i32 %.0.i1.i.i.i19.i, %.0.i.i.i.i17.i
+  %179 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i15.i, %.sroa.210.0.extract.shift.i.i.i13.i
+  %spec.select.i.i.i20.i = select i1 %178, i1 %179, i1 false
   br i1 %spec.select.i.i.i20.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread.i22.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i21.i.preheader"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread.i22.i": ; preds = %177, %175, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i18.i
@@ -18033,12 +18033,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i26.i.i: ; preds = %_ZN4llvm
   br i1 %199, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit31.thread.i.i", label %200
 
 200:                                              ; preds = %198
-  %201 = icmp ult i32 %.0.i.i.i25.i.i, %.0.i1.i.i27.i.i
+  %201 = icmp samesign ult i32 %.0.i.i.i25.i.i, %.0.i1.i.i27.i.i
   br i1 %201, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i21.i.backedge", label %202
 
 202:                                              ; preds = %200
-  %203 = icmp uge i32 %.0.i1.i.i27.i.i, %.0.i.i.i25.i.i
-  %204 = icmp ult i64 %.sroa.210.0.extract.shift.i.i.i13.i, %.sroa.210.0.extract.shift.i.i23.i.i
+  %203 = icmp samesign uge i32 %.0.i1.i.i27.i.i, %.0.i.i.i25.i.i
+  %204 = icmp samesign ult i64 %.sroa.210.0.extract.shift.i.i.i13.i, %.sroa.210.0.extract.shift.i.i23.i.i
   %spec.select.i.i28.i.i = select i1 %203, i1 %204, i1 false
   br i1 %spec.select.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.i21.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit31.thread.i.i"
 
@@ -18205,12 +18205,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %_ZN4llvm8dyn_c
   br i1 %40, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36", label %41
 
 41:                                               ; preds = %39
-  %42 = icmp ult i32 %.0.i.i.i, %.0.i1.i.i
+  %42 = icmp samesign ult i32 %.0.i.i.i, %.0.i1.i.i
   br i1 %42, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit": ; preds = %41
-  %43 = icmp uge i32 %.0.i1.i.i, %.0.i.i.i
-  %44 = icmp ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i
+  %43 = icmp samesign uge i32 %.0.i1.i.i, %.0.i.i.i
+  %44 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i
   %spec.select.i.i = select i1 %43, i1 %44, i1 false
   %cond.fr = freeze i1 %spec.select.i.i
   br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36"
@@ -18381,12 +18381,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %_ZN4llvm8dyn
   br i1 %90, label %"_ZSt11__push_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_RT2_.exit", label %91
 
 91:                                               ; preds = %89
-  %92 = icmp ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
+  %92 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
   br i1 %92, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.i": ; preds = %91
-  %93 = icmp uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
-  %94 = icmp ult i64 %.sroa.213.0.extract.shift.i.i.i, %.sroa.210.0.extract.shift.i.i.i
+  %93 = icmp samesign uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
+  %94 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i.i, %.sroa.210.0.extract.shift.i.i.i
   %spec.select.i.i.i = select i1 %93, i1 %94, i1 false
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_RT2_.exit"
 
@@ -18542,12 +18542,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %_ZN4llvm8dyn_c
   br i1 %32, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader", label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i32 %.0.i.i.i, %.0.i1.i.i
+  %34 = icmp samesign ult i32 %.0.i.i.i, %.0.i1.i.i
   br i1 %34, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit": ; preds = %33
-  %35 = icmp uge i32 %.0.i1.i.i, %.0.i.i.i
-  %36 = icmp ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i
+  %35 = icmp samesign uge i32 %.0.i1.i.i, %.0.i.i.i
+  %36 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i
   %spec.select.i.i = select i1 %35, i1 %36, i1 false
   br i1 %spec.select.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader"
 
@@ -18682,12 +18682,12 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %_ZN4llvm8dyn
   br i1 %63, label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit", label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
+  %65 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
   br i1 %65, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i": ; preds = %64
-  %66 = icmp uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
-  %67 = icmp ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i.i
+  %66 = icmp samesign uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
+  %67 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i.i
   %spec.select.i.i.i = select i1 %66, i1 %67, i1 false
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit"
 

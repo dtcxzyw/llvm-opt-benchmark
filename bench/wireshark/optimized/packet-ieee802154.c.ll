@@ -6006,7 +6006,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
 
 .preheader63:                                     ; preds = %.lr.ph
   %45 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %46 = icmp ult i64 %indvars.iv, 15
+  %46 = icmp samesign ult i64 %indvars.iv, 15
   br i1 %46, label %.lr.ph70.preheader, label %._crit_edge
 
 .lr.ph70.preheader:                               ; preds = %33, %.preheader63
@@ -6027,7 +6027,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
   %49 = getelementptr i8, ptr %.05164, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = add nsw i32 %.04965, -1
-  %51 = icmp ult i64 %indvars.iv, 15
+  %51 = icmp samesign ult i64 %indvars.iv, 15
   %52 = icmp ugt i32 %.04965, 1
   %53 = select i1 %51, i1 %52, i1 false
   br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !12
@@ -6757,7 +6757,7 @@ define internal void @proto_init_ieee802154() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr @num_static_addrs, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   %58 = load ptr, ptr @static_addrs, align 8
   %59 = icmp ne ptr %58, null
   %60 = select i1 %57, i1 %59, i1 false
@@ -7129,7 +7129,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %41 = phi ptr [ %6, %4 ], [ %.pre, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = zext i32 %40 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %4, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %39, %0
@@ -8514,7 +8514,7 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread118
 
 85:                                               ; preds = %52
-  %86 = icmp ugt i32 %.1110, 1500
+  %86 = icmp samesign ugt i32 %.1110, 1500
   br i1 %86, label %87, label %.thread118
 
 87:                                               ; preds = %85
@@ -8525,7 +8525,7 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread118:                                       ; preds = %82, %79, %77, %75, %87, %85, %58, %60, %63, %67
   %.0111 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ %59, %58 ], [ null, %82 ], [ null, %79 ], [ %78, %77 ], [ %76, %75 ], [ %89, %87 ], [ null, %85 ]
   %.2 = phi i32 [ %57, %67 ], [ %66, %63 ], [ %57, %60 ], [ %57, %58 ], [ %74, %82 ], [ %74, %79 ], [ %74, %77 ], [ %74, %75 ], [ %.0108, %87 ], [ %.0108, %85 ]
-  %or.cond = icmp ult i8 %9, 2
+  %or.cond = icmp samesign ult i8 %9, 2
   br i1 %or.cond, label %90, label %.thread118.thread
 
 90:                                               ; preds = %.thread118
@@ -10041,7 +10041,7 @@ transaction_end.exit:                             ; preds = %191, %198, %203, %2
 ieee802154_dissect_payload_ies.exit:              ; preds = %449, %455, %457
   %.0.i95 = phi i32 [ %456, %455 ], [ 0, %457 ], [ 0, %449 ]
   %460 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %448, i32 noundef %.0.i95) #16
-  %.not81 = icmp ult i32 %4, 2
+  %.not81 = icmp samesign ult i32 %4, 2
   br i1 %.not81, label %476, label %461
 
 461:                                              ; preds = %ieee802154_dissect_payload_ies.exit

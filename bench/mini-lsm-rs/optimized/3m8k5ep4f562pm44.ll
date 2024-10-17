@@ -8087,7 +8087,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %0
   %.028.lcssa.i.i.i = phi i64 [ 20, %0 ], [ %12, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i64 [ %.0.val, %0 ], [ %5, %.lr.ph.i.i.i ]
-  %3 = icmp ugt i64 %.1.lcssa.i.i.i, 99
+  %3 = icmp samesign ugt i64 %.1.lcssa.i.i.i, 99
   br i1 %3, label %19, label %28
 
 .lr.ph.i.i.i:                                     ; preds = %0, %.lr.ph.i.i.i
@@ -8131,7 +8131,7 @@ define internal fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$i
 28:                                               ; preds = %19, %._crit_edge.i.i.i
   %.129.i.i.i = phi i64 [ %24, %19 ], [ %.028.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.027.i.i.i = phi i64 [ %.zext35.i.i.i, %19 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %29 = icmp ult i64 %.027.i.i.i, 10
+  %29 = icmp samesign ult i64 %.027.i.i.i, 10
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %28

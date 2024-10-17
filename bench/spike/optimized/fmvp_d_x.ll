@@ -574,7 +574,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fmvp_d_xP1
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 %1, i1 noundef zeroext false)
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -593,7 +593,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fmvp_d_xP1
   %32 = getelementptr inbounds i8, ptr %0, i64 120
   %33 = lshr i64 %1, 15
   %34 = and i64 %33, 31
-  %35 = icmp ugt i64 %34, 15
+  %35 = icmp samesign ugt i64 %34, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %31
@@ -644,7 +644,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fmvp_d_xP1
   unreachable
 
 59:                                               ; preds = %52
-  %60 = icmp ugt i64 %51, 15
+  %60 = icmp samesign ugt i64 %51, 15
   br i1 %60, label %61, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 61:                                               ; preds = %59
@@ -752,7 +752,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fmvp_d_x
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 %1, i1 noundef zeroext false)
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -771,7 +771,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fmvp_d_x
   %32 = getelementptr inbounds i8, ptr %0, i64 120
   %33 = lshr i64 %1, 15
   %34 = and i64 %33, 31
-  %35 = icmp ugt i64 %34, 15
+  %35 = icmp samesign ugt i64 %34, 15
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %31
@@ -888,7 +888,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %62, ptr %.0.i.i54, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.211.0..sroa_idx, align 8
-  %88 = icmp ugt i64 %53, 15
+  %88 = icmp samesign ugt i64 %53, 15
   br i1 %88, label %89, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 89:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

@@ -291,7 +291,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   store ptr %42, ptr %46, align 8
   %47 = add nuw nsw i64 %37, 1
   %48 = and i64 %47, 31
-  %49 = icmp ugt i64 %48, 14
+  %49 = icmp samesign ugt i64 %48, 14
   br i1 %49, label %.thread, label %31, !prof !17, !llvm.loop !18
 
 .thread:                                          ; preds = %31, %44, %36
@@ -336,7 +336,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   store volatile ptr null, ptr %73, align 8
   %74 = add nuw nsw i64 %61, 1
   %75 = and i64 %74, 31
-  %76 = icmp ugt i64 %75, 14
+  %76 = icmp samesign ugt i64 %75, 14
   br i1 %76, label %.preheader.preheader, label %55, !prof !17, !llvm.loop !21
 
 .preheader.preheader:                             ; preds = %55, %72, %60
@@ -389,7 +389,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 99:                                               ; preds = %98, %._crit_edge
   %100 = add nuw nsw i64 %82, 1
   %101 = and i64 %100, 31
-  %102 = icmp ugt i64 %101, 14
+  %102 = icmp samesign ugt i64 %101, 14
   br i1 %102, label %.thread17, label %.preheader, !prof !17, !llvm.loop !25
 
 .thread17:                                        ; preds = %.preheader, %99, %81
@@ -459,8 +459,8 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   %131 = getelementptr [15 x ptr], ptr %51, i64 0, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = icmp ne ptr %132, null
-  %134 = icmp ult i64 %130, 14
-  %or.cond = and i1 %134, %133
+  %134 = icmp samesign ult i64 %130, 14
+  %or.cond = select i1 %133, i1 %134, i1 false
   br i1 %or.cond, label %135, label %.thread20
 
 135:                                              ; preds = %129
@@ -927,7 +927,7 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   call void @ieee80211_link_release_channel(ptr noundef %60) #10
   %61 = add nuw nsw i64 %54, 1
   %62 = and i64 %61, 31
-  %63 = icmp ugt i64 %62, 14
+  %63 = icmp samesign ugt i64 %62, 14
   br i1 %63, label %.thread, label %48, !prof !17, !llvm.loop !55
 
 .thread:                                          ; preds = %48, %57, %53
@@ -1053,7 +1053,7 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   call void @ieee80211_link_info_change_notify(ptr noundef %0, ptr noundef %117, i64 noundef 941892798) #10
   %125 = add nuw nsw i64 %111, 1
   %126 = and i64 %125, 31
-  %127 = icmp ugt i64 %126, 14
+  %127 = icmp samesign ugt i64 %126, 14
   br i1 %127, label %.thread15, label %105, !prof !17, !llvm.loop !70
 
 .thread15:                                        ; preds = %105, %124, %110

@@ -4043,7 +4043,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE12compute_cost
   %19 = xor i32 %18, %10
   %20 = sext i32 %19 to i64
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
-  %22 = icmp ult i64 %15, %21
+  %22 = icmp samesign ult i64 %15, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %16
@@ -4801,7 +4801,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iter
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -5126,13 +5126,13 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
   %43 = sext i32 %40 to i64
   %44 = xor i64 %43, %27
   %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %46 = icmp ult i64 %34, %45
+  %46 = icmp samesign ult i64 %34, %45
   %47 = fpext float %42 to double
   %48 = fadd double %.243.us.i, %47
   %.3.us.i = select i1 %46, double %48, double %.243.us.i
   %49 = xor i64 %43, %28
   %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %51 = icmp ult i64 %36, %50
+  %51 = icmp samesign ult i64 %36, %50
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %38
@@ -5222,24 +5222,24 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %44 = xor i32 %41, %5
   %45 = sext i32 %44 to i64
   %46 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %45)
-  %47 = icmp ult i64 %46, %19
+  %47 = icmp samesign ult i64 %46, %19
   %48 = fpext float %43 to double
   %49 = fadd double %48, 0.000000e+00
   %.0.i = select i1 %47, double %49, double 0.000000e+00
   %50 = xor i32 %33, %4
   %51 = sext i32 %50 to i64
   %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
-  %53 = icmp ult i64 %52, %22
+  %53 = icmp samesign ult i64 %52, %22
   %54 = fsub double %.0.i, %48
   %.1.i = select i1 %53, double %54, double %.0.i
   %55 = fadd double %.057, %.1.i
   %56 = getelementptr inbounds float, ptr %.04655, i64 %14
   %57 = load float, ptr %56, align 4
-  %58 = icmp ult i64 %46, %25
+  %58 = icmp samesign ult i64 %46, %25
   %59 = fpext float %57 to double
   %60 = fadd double %59, 0.000000e+00
   %.0.i51 = select i1 %58, double %60, double 0.000000e+00
-  %61 = icmp ult i64 %52, %28
+  %61 = icmp samesign ult i64 %52, %28
   %62 = fsub double %.0.i51, %59
   %.1.i52 = select i1 %61, double %62, double %.0.i51
   %63 = fadd double %.1.i52, %55
@@ -5262,14 +5262,14 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %71 = xor i32 %68, %5
   %72 = sext i32 %71 to i64
   %73 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %72)
-  %74 = icmp ult i64 %46, %73
+  %74 = icmp samesign ult i64 %46, %73
   %75 = fpext float %70 to double
   %76 = fadd double %.025.i, %75
   %.2.i = select i1 %74, double %76, double %.025.i
   %77 = xor i32 %68, %4
   %78 = sext i32 %77 to i64
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %80 = icmp ult i64 %52, %79
+  %80 = icmp samesign ult i64 %52, %79
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %66

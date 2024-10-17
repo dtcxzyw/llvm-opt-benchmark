@@ -706,7 +706,7 @@ define internal fastcc ptr @reuseport_grow(ptr noundef %0) unnamed_addr #0 align
   %102 = add nuw nsw i64 %98, 1
   %103 = load i16, ptr %2, align 8
   %104 = zext i16 %103 to i64
-  %105 = icmp ult i64 %102, %104
+  %105 = icmp samesign ult i64 %102, %104
   br i1 %105, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %56

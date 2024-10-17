@@ -1005,7 +1005,7 @@ define void @_ZN4util25truncate_and_remove_front17ha3d3a8a4ca10dd70E(ptr dead_on
   %30 = and i8 %22, 48
   %31 = zext nneg i8 %30 to i32
   %32 = or disjoint i32 %29, %31
-  %33 = icmp ult i32 %32, 272
+  %33 = icmp samesign ult i32 %32, 272
   br label %"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h783bb9b88a3875e5E.exit.i"
 
 "_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h783bb9b88a3875e5E.exit.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h67d49b123aa113a2E.exit21.i.i.i.i", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h67d49b123aa113a2E.exit19.i.i.i.i", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h67d49b123aa113a2E.exit17.i.i.i.i", %12
@@ -1053,7 +1053,7 @@ define void @_ZN4util25truncate_and_remove_front17ha3d3a8a4ca10dd70E(ptr dead_on
   %53 = and i8 %45, 48
   %54 = zext nneg i8 %53 to i32
   %55 = or disjoint i32 %52, %54
-  %56 = icmp ult i32 %55, 272
+  %56 = icmp samesign ult i32 %55, 272
   br label %59
 
 57:                                               ; preds = %.lr.ph.i

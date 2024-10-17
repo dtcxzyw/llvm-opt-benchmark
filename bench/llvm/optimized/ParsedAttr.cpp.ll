@@ -5258,7 +5258,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang14Par
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 65535
-  %8 = icmp ult i32 %7, 399
+  %8 = icmp samesign ult i32 %7, 399
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
@@ -6153,7 +6153,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   %28 = load i32, ptr %6, align 8
   %29 = and i32 %28, 65535
   %30 = zext nneg i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next.i, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
   br i1 %31, label %16, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i, %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE7reserveEm.exit.i

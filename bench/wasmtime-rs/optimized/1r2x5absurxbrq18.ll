@@ -3687,7 +3687,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h04918cf6e56903c
   store i64 %17, ptr %6, align 8, !noalias !1055
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8), !noalias !1060
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1055
-  %18 = icmp ult i32 %15, 13
+  %18 = icmp samesign ult i32 %15, 13
   br i1 %18, label %19, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he54a2b827a8f4c09E.llvm.3269599604001853466.exit"
 
 19:                                               ; preds = %2
@@ -8243,7 +8243,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   store i64 %10, ptr %6, align 8, !noalias !2338
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8), !noalias !2333
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2338
-  %11 = icmp ult i32 %8, 13
+  %11 = icmp samesign ult i32 %8, 13
   br i1 %11, label %12, label %"_ZN71_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..hash..Hash$GT$4hash17h842916b5f79f2a5eE.llvm.3269599604001853466.exit"
 
 12:                                               ; preds = %2
@@ -8352,7 +8352,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   store i64 %22, ptr %11, align 8, !noalias !2407
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 8), !noalias !2412
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2407
-  %23 = icmp ult i32 %20, 13
+  %23 = icmp samesign ult i32 %20, 13
   br i1 %23, label %24, label %"_ZN71_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..hash..Hash$GT$4hash17h842916b5f79f2a5eE.llvm.12426178672938875897.exit.i.i"
 
 24:                                               ; preds = %.lr.ph.i.i
@@ -8411,7 +8411,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   store i64 %42, ptr %6, align 8, !noalias !2451
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8), !noalias !2456
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2451
-  %43 = icmp ult i32 %40, 13
+  %43 = icmp samesign ult i32 %40, 13
   br i1 %43, label %44, label %"_ZN71_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..hash..Hash$GT$4hash17h842916b5f79f2a5eE.llvm.12426178672938875897.exit.i.i4"
 
 44:                                               ; preds = %.lr.ph.i.i1
@@ -9260,7 +9260,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %.val9.i.i = load i32, ptr %14, align 4, !alias.scope !2682, !noalias !2691
   %15 = getelementptr i8, ptr %10, i64 4
   %.val7.i.i = load i32, ptr %15, align 4, !alias.scope !2679, !noalias !2692
-  %switch.i.i = icmp ult i32 %.val.i.i, 13
+  %switch.i.i = icmp samesign ult i32 %.val.i.i, 13
   %.0.shrunk.i.i.i.i = icmp eq i32 %.val7.i.i, %.val9.i.i
   %or.cond.i.i = select i1 %switch.i.i, i1 true, i1 %.0.shrunk.i.i.i.i
   br i1 %or.cond.i.i, label %.critedge.backedge.i.i, label %"_ZN86_$LT$wasmtime_environ..component..types..TypeTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10dd4bf559e83374E.llvm.3269599604001853466.exit"
@@ -9909,7 +9909,7 @@ define hidden void @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..has
   store i64 %17, ptr %6, align 8, !noalias !2804
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.12426178672938875897"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8), !noalias !2797
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2804
-  %18 = icmp ult i32 %15, 13
+  %18 = icmp samesign ult i32 %15, 13
   br i1 %18, label %19, label %"_ZN71_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..hash..Hash$GT$4hash17h842916b5f79f2a5eE.llvm.12426178672938875897.exit.i"
 
 19:                                               ; preds = %.lr.ph.i
@@ -10171,7 +10171,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -10184,7 +10184,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -10473,7 +10473,7 @@ define hidden void @"_ZN71_$LT$wasm_encoder..core..types..ValType$u20$as$u20$cor
   store i64 %9, ptr %6, align 8, !noalias !2854
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2854
-  %10 = icmp ult i32 %7, 13
+  %10 = icmp samesign ult i32 %7, 13
   br i1 %10, label %11, label %"_ZN71_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..hash..Hash$GT$4hash17h3c5f7c20501ea8dbE.llvm.3269599604001853466.exit"
 
 11:                                               ; preds = %2
@@ -10748,7 +10748,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.val9 = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %6, i64 4
   %.val7 = load i32, ptr %11, align 4
-  %switch = icmp ult i32 %.val, 13
+  %switch = icmp samesign ult i32 %.val, 13
   %.0.shrunk.i.i = icmp eq i32 %.val7, %.val9
   %or.cond = select i1 %switch, i1 true, i1 %.0.shrunk.i.i
   br i1 %or.cond, label %.critedge.backedge, label %.thread
@@ -18205,7 +18205,7 @@ _ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE
   %62 = getelementptr inbounds i8, ptr %25, i64 %58
   %63 = load i8, ptr %8, align 4, !noundef !16
   %64 = zext i8 %63 to i64
-  %65 = icmp ult i64 %58, %64
+  %65 = icmp samesign ult i64 %58, %64
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %.lr.ph
@@ -18430,7 +18430,7 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
   %59 = getelementptr inbounds i8, ptr %22, i64 %55
   %60 = load i8, ptr %9, align 4, !noundef !16
   %61 = zext i8 %60 to i64
-  %62 = icmp ult i64 %55, %61
+  %62 = icmp samesign ult i64 %55, %61
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %.lr.ph
@@ -19372,7 +19372,7 @@ define hidden void @"_ZN81_$LT$wasmtime_environ..component..info..Transcode$u20$
   store i64 %10, ptr %4, align 8, !noalias !4307
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !4307
-  %11 = icmp ult i8 %5, 3
+  %11 = icmp samesign ult i8 %5, 3
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
@@ -20104,7 +20104,7 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$wasmtime_environ..component..types.
   %.val9.i = load i32, ptr %14, align 4, !alias.scope !4439, !noalias !4436
   %15 = getelementptr i8, ptr %10, i64 4
   %.val7.i = load i32, ptr %15, align 4, !alias.scope !4436, !noalias !4439
-  %switch.i = icmp ult i32 %.val.i, 13
+  %switch.i = icmp samesign ult i32 %.val.i, 13
   %.0.shrunk.i.i.i = icmp eq i32 %.val7.i, %.val9.i
   %or.cond.i = select i1 %switch.i, i1 true, i1 %.0.shrunk.i.i.i
   br i1 %or.cond.i, label %.critedge.backedge.i, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
@@ -21373,7 +21373,7 @@ define hidden void @"_ZN81_$LT$wasmtime_environ..component..dfg..Trampoline$u20$
   store i64 %63, ptr %11, align 8, !noalias !4654
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 8), !noalias !4649
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !4654
-  %64 = icmp ult i8 %58, 3
+  %64 = icmp samesign ult i8 %58, 3
   br i1 %64, label %65, label %"_ZN81_$LT$wasmtime_environ..component..info..Transcode$u20$as$u20$core..hash..Hash$GT$4hash17h3c1f07b94749c354E.llvm.3269599604001853466.exit"
 
 65:                                               ; preds = %56
@@ -21754,7 +21754,7 @@ define hidden void @"_ZN82_$LT$wasmtime_environ..fact..transcode..Transcoder$u20
   store i64 %22, ptr %4, align 8, !noalias !4805
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4dc7d271764c4790E.llvm.3269599604001853466"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8), !noalias !4800
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !4805
-  %23 = icmp ult i8 %17, 3
+  %23 = icmp samesign ult i8 %17, 3
   br i1 %23, label %24, label %"_ZN81_$LT$wasmtime_environ..component..info..Transcode$u20$as$u20$core..hash..Hash$GT$4hash17h3c1f07b94749c354E.llvm.3269599604001853466.exit"
 
 24:                                               ; preds = %2

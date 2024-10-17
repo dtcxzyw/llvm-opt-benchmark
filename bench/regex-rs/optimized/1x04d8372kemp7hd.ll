@@ -10563,7 +10563,7 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   %65 = load i64, ptr %64, align 8, !alias.scope !2787, !noalias !2790, !noundef !9
   %66 = and i64 %65, 63
   %67 = shl nuw i64 1, %66
-  %68 = icmp ugt i64 %66, 26
+  %68 = icmp samesign ugt i64 %66, 26
   br i1 %68, label %69, label %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit
 
 69:                                               ; preds = %63
@@ -11519,7 +11519,7 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   %65 = load i64, ptr %64, align 8, !alias.scope !3121, !noalias !3124, !noundef !9
   %66 = and i64 %65, 63
   %67 = shl nuw i64 1, %66
-  %68 = icmp ugt i64 %66, 26
+  %68 = icmp samesign ugt i64 %66, 26
   br i1 %68, label %69, label %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit
 
 69:                                               ; preds = %63

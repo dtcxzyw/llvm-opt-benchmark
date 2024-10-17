@@ -1782,7 +1782,7 @@ _ZN12_GLOBAL__N_112getConditionEPKN5clang4StmtE.exit.i.i: ; preds = %242, %234
 
 _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i.i.i: ; preds = %245
   %252 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %247)
-  %.not.i.i20.i.i = icmp ult i64 %252, 4294967296
+  %.not.i.i20.i.i = icmp samesign ult i64 %252, 4294967296
   br i1 %.not.i.i20.i.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker20handleParameterCheckEPKN5clang8CFGBlockEPKNS1_4ExprERNS_5StateE.exit.i.i.i, label %253
 
 253:                                              ; preds = %_ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i.i.i
@@ -2596,7 +2596,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i: ; preds = %431
 
 _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i101: ; preds = %440
   %447 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %442)
-  %.not.i4.i.i102 = icmp ult i64 %447, 4294967296
+  %.not.i4.i.i102 = icmp samesign ult i64 %447, 4294967296
   br i1 %.not.i4.i.i102, label %_ZN12_GLOBAL__N_117CalledOnceChecker12checkEscapeeEPKN5clang4ExprE.exit.i93, label %448
 
 448:                                              ; preds = %_ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i101
@@ -2653,7 +2653,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12checkEscapeeEPKN5clang4ExprE.exit.i93: ; p
 _ZNK12_GLOBAL__N_117CalledOnceChecker20getIndexOfExpressionEPKN5clang4ExprE.exit.i.i: ; preds = %461
   %468 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %463)
   %469 = trunc i64 %468 to i32
-  %470 = icmp ugt i64 %468, 4294967295
+  %470 = icmp samesign ugt i64 %468, 4294967295
   br i1 %470, label %471, label %_ZN12_GLOBAL__N_117CalledOnceChecker16processEscapeForEj.exit.i.i
 
 471:                                              ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker20getIndexOfExpressionEPKN5clang4ExprE.exit.i.i
@@ -2751,7 +2751,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %486
 
 _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i86: ; preds = %509
   %516 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %511)
-  %.not.i4.i.i87 = icmp ult i64 %516, 4294967296
+  %.not.i4.i.i87 = icmp samesign ult i64 %516, 4294967296
   br i1 %.not.i4.i.i87, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i, label %517
 
 517:                                              ; preds = %_ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i86
@@ -3174,7 +3174,7 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang15
 
 696:                                              ; preds = %.lr.ph58.split.us.i
   %697 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %691)
-  %.not.us.i = icmp ult i64 %697, 4294967296
+  %.not.us.i = icmp samesign ult i64 %697, 4294967296
   br i1 %.not.us.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker16processEscapeForEj.exit.us.i, label %698
 
 698:                                              ; preds = %696
@@ -3213,7 +3213,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker16processEscapeForEj.exit.us.i: ; preds = %7
 
 710:                                              ; preds = %.lr.ph58.split.i
   %711 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %705)
-  %.not.i75 = icmp ult i64 %711, 4294967296
+  %.not.i75 = icmp samesign ult i64 %711, 4294967296
   br i1 %.not.i75, label %_ZN12_GLOBAL__N_117CalledOnceChecker16processEscapeForEj.exit.i, label %712
 
 712:                                              ; preds = %710
@@ -3318,7 +3318,7 @@ _ZNK5clang12DeclGroupRef3endEv.exit.i:            ; preds = %731, %729
 
 _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i: ; preds = %746
   %753 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %748)
-  %.not.i4.i.i = icmp ult i64 %753, 4294967296
+  %.not.i4.i.i = icmp samesign ult i64 %753, 4294967296
   br i1 %.not.i4.i.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker12checkEscapeeEPKN5clang4ExprE.exit.i, label %754
 
 754:                                              ; preds = %_ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i
@@ -4332,7 +4332,7 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
 1150:                                             ; preds = %1147
   %1151 = load i32, ptr %1146, align 8, !noalias !58
   %1152 = and i32 %1151, 16515072
-  %switch = icmp ult i32 %1152, 8650752
+  %switch = icmp samesign ult i32 %1152, 8650752
   br i1 %switch, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread234, label %1154
 
 1153:                                             ; preds = %1147
@@ -6733,7 +6733,7 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__op
   store ptr %.sroa.0.0.copyload13, ptr %6, align 8
   %17 = add nsw i64 %11, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -31104,7 +31104,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -39404,7 +39404,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -40011,7 +40011,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -47706,7 +47706,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -48150,7 +48150,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -48299,7 +48299,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -49372,7 +49372,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker13VisitCallExpr
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker16getIndexOfCalleeEPKN5clang8CallExprE.exit.i: ; preds = %11
   %18 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %13)
-  %19 = icmp ugt i64 %18, 4294967295
+  %19 = icmp samesign ugt i64 %18, 4294967295
   br i1 %19, label %20, label %_ZN12_GLOBAL__N_117CalledOnceChecker15checkDirectCallEPKN5clang8CallExprE.exit
 
 20:                                               ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker16getIndexOfCalleeEPKN5clang8CallExprE.exit.i
@@ -49424,7 +49424,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker15checkDirectCallEPKN5clang8CallExprE.exit: 
 _ZNK12_GLOBAL__N_117CalledOnceChecker20getIndexOfExpressionEPKN5clang4ExprE.exit.i: ; preds = %39
   %46 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %41)
   %47 = trunc i64 %46 to i32
-  %48 = icmp ugt i64 %46, 4294967295
+  %48 = icmp samesign ugt i64 %46, 4294967295
   br i1 %48, label %49, label %_ZN12_GLOBAL__N_117CalledOnceChecker16processEscapeForEj.exit.i
 
 49:                                               ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker20getIndexOfExpressionEPKN5clang4ExprE.exit.i
@@ -49511,7 +49511,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker19VisitBinaryOp
 
 _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i: ; preds = %14
   %21 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %16)
-  %.not.i4.i = icmp ult i64 %21, 4294967296
+  %.not.i4.i = icmp samesign ult i64 %21, 4294967296
   br i1 %.not.i4.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker12checkEscapeeEPKN5clang4ExprE.exit, label %22
 
 22:                                               ; preds = %_ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i
@@ -49553,7 +49553,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12checkEscapeeEPKN5clang4ExprE.exit: ; preds
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker20getIndexOfExpressionEPKN5clang4ExprE.exit.i: ; preds = %31
   %38 = call fastcc i64 @_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(104) %33)
-  %39 = icmp ugt i64 %38, 4294967295
+  %39 = icmp samesign ugt i64 %38, 4294967295
   %40 = and i64 %38, 4294967295
   br i1 %39, label %41, label %_ZN12_GLOBAL__N_117CalledOnceChecker16checkSuppressionEPKN5clang14BinaryOperatorE.exit
 

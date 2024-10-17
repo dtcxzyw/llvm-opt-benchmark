@@ -2607,7 +2607,7 @@ _ZNK7AstNode20warnContextSecondaryB5cxx11Ev.exit134: ; preds = %312
   %367 = load ptr, ptr %98, align 8
   %.not = icmp eq ptr %367, null
   %368 = select i1 %.not, i32 2, i32 3
-  %369 = icmp ult i32 %366, %368
+  %369 = icmp samesign ult i32 %366, %368
   br i1 %369, label %105, label %370, !llvm.loop !47
 
 370:                                              ; preds = %365
@@ -3046,7 +3046,7 @@ _ZNK7AstNode5widthEv.exit48:                      ; preds = %.critedge3, %115
   %121 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %121, null
   %122 = select i1 %.not, i32 2, i32 3
-  %123 = icmp ult i32 %120, %122
+  %123 = icmp samesign ult i32 %120, %122
   br i1 %123, label %25, label %.loopexit, !llvm.loop !51
 
 _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.thread: ; preds = %_ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit, %17, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit
@@ -3331,7 +3331,7 @@ _ZNK6AstVar11isNonOutputEv.exit.thread:           ; preds = %8, %8, %8, %8, %17,
   %40 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %40, null
   %41 = select i1 %.not, i32 2, i32 3
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br i1 %42, label %8, label %43, !llvm.loop !52
 
 43:                                               ; preds = %38
@@ -6713,7 +6713,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us:     ; preds = %.lr.ph.split.us, %_
   %111 = or i1 %.082145.us.us, %110
   %112 = add i32 %.081146.us.us, 1
   %113 = zext i32 %112 to i64
-  %114 = icmp ugt i64 %78, %113
+  %114 = icmp samesign ugt i64 %78, %113
   br i1 %114, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us, label %._crit_edge, !llvm.loop !103
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit.us:        ; preds = %.lr.ph.split.us, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us
@@ -6742,7 +6742,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us:        ; preds = %.lr.ph.split.us, %_
   %130 = or i1 %.084143.us, %129
   %131 = add i32 %.081146.us, 1
   %132 = zext i32 %131 to i64
-  %133 = icmp ugt i64 %78, %132
+  %133 = icmp samesign ugt i64 %78, %132
   br i1 %133, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us, label %._crit_edge.thread, !llvm.loop !103
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -6773,7 +6773,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   %147 = or i1 %.083144.us160, %not..us167
   %148 = add i32 %.081146.us159, 1
   %149 = zext i32 %148 to i64
-  %150 = icmp ugt i64 %78, %149
+  %150 = icmp samesign ugt i64 %78, %149
   br i1 %150, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us

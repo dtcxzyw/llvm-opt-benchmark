@@ -4125,7 +4125,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
   %59 = zext i32 %58 to i64
   %60 = add nuw nsw i64 %55, 1024
   %61 = add nuw nsw i64 %59, 1
-  %62 = icmp ugt i64 %60, %61
+  %62 = icmp samesign ugt i64 %60, %61
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %48
@@ -5398,7 +5398,7 @@ declare dso_local void @jbd2_buffer_frozen_trigger(ptr noundef, ptr noundef, ptr
 define dso_local ptr @jbd2_alloc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = add i64 %0, -1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0), !range !98
-  %5 = icmp ult i64 %4, 2
+  %5 = icmp samesign ult i64 %4, 2
   br i1 %5, label %7, label %6, !prof !29
 
 6:                                                ; preds = %2

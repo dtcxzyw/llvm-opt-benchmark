@@ -2099,7 +2099,7 @@ define dso_local void @_ZN4llvm6memtag20annotateDebugRecordsERNS0_10AllocaInfoEj
 
 _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i.i: ; preds = %31, %20
   %.0.i.i.i.i.i = phi i64 [ %34, %31 ], [ 1, %20 ]
-  %35 = icmp ult i64 %.0.i.i.i, %.0.i.i.i.i.i
+  %35 = icmp samesign ult i64 %.0.i.i.i, %.0.i.i.i.i.i
   br i1 %35, label %36, label %82
 
 36:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i.i
@@ -2368,7 +2368,7 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.us.i.i.i: ; 
   %166 = add nuw nsw i64 %.02.us.i.i.i, 1
   %167 = call noundef i32 @_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv(ptr noundef nonnull align 8 dereferenceable(96) %152) #12
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %166, %168
+  %169 = icmp samesign ult i64 %166, %168
   br i1 %169, label %.lr.ph.split.us.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !71
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %184
@@ -2412,7 +2412,7 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i.i.i: ; pre
   %185 = add nuw nsw i64 %.02.i.i.i, 1
   %186 = call noundef i32 @_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv(ptr noundef nonnull align 8 dereferenceable(96) %152) #12
   %187 = zext i32 %186 to i64
-  %188 = icmp ult i64 %185, %187
+  %188 = icmp samesign ult i64 %185, %187
   br i1 %188, label %.lr.ph.split.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !71
 
 ._crit_edge.i.i.i:                                ; preds = %184, %165, %151

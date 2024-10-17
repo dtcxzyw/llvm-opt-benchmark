@@ -348,7 +348,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   %52 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %6, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %.preheaderthread-pre-split, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %2, %1

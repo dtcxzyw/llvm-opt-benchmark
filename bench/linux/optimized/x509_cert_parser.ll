@@ -1283,7 +1283,7 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr nocapture n
   br i1 %149, label %.thread, label %150
 
 150:                                              ; preds = %147
-  %151 = icmp ult i32 %148, %85
+  %151 = icmp samesign ult i32 %148, %85
   %152 = icmp ugt i8 %narrow44, 24
   %153 = select i1 %151, i1 true, i1 %152
   %154 = icmp ugt i8 %narrow45, 59

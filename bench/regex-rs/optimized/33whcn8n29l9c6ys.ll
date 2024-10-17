@@ -1646,7 +1646,7 @@ default.unreachable603:                           ; preds = %193
 
 25:                                               ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
   %26 = xor i32 %24, %.0284
-  %27 = icmp ugt i32 %24, 512
+  %27 = icmp samesign ugt i32 %24, 512
   br i1 %27, label %387, label %22
 
 28:                                               ; preds = %.split13.i, %22
@@ -1678,7 +1678,7 @@ default.unreachable603:                           ; preds = %193
   %.0.i.i.i = phi i64 [ %43, %37 ], [ 0, %32 ]
   %45 = shl i64 %36, 1
   %46 = tail call noundef range(i64 0, 4294967296) i64 @llvm.usub.sat.i64(i64 %.0.i.i.i, i64 %45)
-  %47 = icmp ugt i64 %46, 32
+  %47 = icmp samesign ugt i64 %46, 32
   br i1 %47, label %383, label %48
 
 48:                                               ; preds = %44
@@ -3665,7 +3665,7 @@ _ZN14regex_automata4util4look11LookMatcher18matches_set_inline17hca1c18cdd181b8e
   %220 = getelementptr inbounds [0 x i64], ptr %203, i64 0, i64 %215
   store i64 %212, ptr %220, align 8, !alias.scope !492, !noalias !418
   %221 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %219, i1 false)
-  %222 = icmp ugt i32 %221, 31
+  %222 = icmp samesign ugt i32 %221, 31
   br i1 %222, label %_ZN14regex_automata3dfa7onepass3DFA10find_match17h3eadb0a9a3946ff7E.exit.i.thread, label %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i.i"
 
 223:                                              ; preds = %107
@@ -3938,7 +3938,7 @@ _ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E.exit11
   %344 = phi i32 [ %351, %346 ], [ %343, %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.preheader.i118.i" ]
   %.06.i120.i = phi i32 [ %349, %346 ], [ %341, %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.preheader.i118.i" ]
   %345 = zext nneg i32 %344 to i64
-  %.not.i121.i = icmp ugt i64 %.0.sroa.speculated.i.i, %345
+  %.not.i121.i = icmp samesign ugt i64 %.0.sroa.speculated.i.i, %345
   br i1 %.not.i121.i, label %346, label %.loopexit.i
 
 346:                                              ; preds = %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i119.i"
@@ -3948,7 +3948,7 @@ _ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E.exit11
   %350 = getelementptr inbounds [0 x i64], ptr %100, i64 0, i64 %345
   store i64 %108, ptr %350, align 8, !alias.scope !548, !noalias !418
   %351 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %349, i1 false)
-  %352 = icmp ugt i32 %351, 31
+  %352 = icmp samesign ugt i32 %351, 31
   br i1 %352, label %.loopexit.i, label %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i119.i"
 
 _ZN14regex_automata3dfa7onepass3DFA10find_match17h3eadb0a9a3946ff7E.exit51.i: ; preds = %354, %328, %322, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit105.thr_comm.i, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit105.i, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit.i, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge.i, %_ZN14regex_automata4util4look11LookMatcher11is_end_crlf17h2b734a5c7a968e35E.exit.i, %276, %_ZN14regex_automata4util4look11LookMatcher13is_start_crlf17h33e70362504babbeE.exit.i, %270, %267, %259, %248, %_ZN14regex_automata3dfa7onepass3DFA10transition17hd230cc2c96e6e830E.exit.i
@@ -4183,7 +4183,7 @@ _ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E.exit14
   %457 = phi i32 [ %464, %459 ], [ %456, %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.preheader.i147.i" ]
   %.06.i149.i = phi i32 [ %462, %459 ], [ %454, %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.preheader.i147.i" ]
   %458 = zext nneg i32 %457 to i64
-  %.not.i150.i = icmp ugt i64 %.0.sroa.speculated.i.i, %458
+  %.not.i150.i = icmp samesign ugt i64 %.0.sroa.speculated.i.i, %458
   br i1 %.not.i150.i, label %459, label %_ZN14regex_automata3dfa7onepass5Slots5apply17hb787369feb961a43E.exit151.i
 
 459:                                              ; preds = %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i148.i"
@@ -4193,7 +4193,7 @@ _ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E.exit14
   %463 = getelementptr inbounds [0 x i64], ptr %.val.i.i, i64 0, i64 %458
   store i64 %108, ptr %463, align 8, !alias.scope !572, !noalias !417
   %464 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %462, i1 false)
-  %465 = icmp ugt i32 %464, 31
+  %465 = icmp samesign ugt i32 %464, 31
   br i1 %465, label %_ZN14regex_automata3dfa7onepass5Slots5apply17hb787369feb961a43E.exit151.i, label %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i148.i"
 
 _ZN14regex_automata3dfa7onepass5Slots5apply17hb787369feb961a43E.exit151.i: ; preds = %459, %"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE.exit.i148.i", %_ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E.exit146.i
@@ -5694,7 +5694,7 @@ define noundef zeroext i1 @"_ZN72_$LT$regex_automata..dfa..onepass..Slots$u20$as
 12:                                               ; preds = %2
   %13 = load i32, ptr %0, align 4, !noundef !4
   %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 false)
-  %15 = icmp ugt i32 %14, 31
+  %15 = icmp samesign ugt i32 %14, 31
   br i1 %15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
@@ -5735,7 +5735,7 @@ define noundef zeroext i1 @"_ZN72_$LT$regex_automata..dfa..onepass..Slots$u20$as
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %29 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 false)
-  %30 = icmp ugt i32 %29, 31
+  %30 = icmp samesign ugt i32 %29, 31
   br i1 %30, label %.loopexit, label %21
 
 31:                                               ; preds = %21
@@ -5748,7 +5748,7 @@ define noundef zeroext i1 @"_ZN72_$LT$regex_automata..dfa..onepass..Slots$u20$as
 define { i64, i64 } @"_ZN98_$LT$regex_automata..dfa..onepass..SlotsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h691816eb8e57c2ebE"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 false)
-  %4 = icmp ugt i32 %3, 31
+  %4 = icmp samesign ugt i32 %3, 31
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1

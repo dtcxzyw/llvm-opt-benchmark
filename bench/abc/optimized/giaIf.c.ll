@@ -337,7 +337,7 @@ define range(i32 0, -2147483648) i32 @Gia_ManLutLevel(ptr nocapture noundef read
   %44 = getelementptr inbounds i32, ptr %5, i64 %35
   store i32 %42, ptr %44, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %45 = icmp ult i64 %indvars.iv.next81, %15
+  %45 = icmp samesign ult i64 %indvars.iv.next81, %15
   br i1 %45, label %.lr.ph70.split, label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %.lr.ph70.split, %.lr.ph70, %.preheader
@@ -4017,7 +4017,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %71 = load i64, ptr %31, align 4
   %72 = lshr i64 %71, 24
   %73 = and i64 %72, 255
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %.lr.ph, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %.lr.ph, %Vec_IntPush.exit, %28
@@ -6219,7 +6219,7 @@ define i32 @Gia_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %23 = load i64, ptr %7, align 4
   %24 = lshr i64 %23, 24
   %25 = and i64 %24, 255
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %12, label %.critedge, !llvm.loop !68
 
 .critedge:                                        ; preds = %12, %19, %5
@@ -6266,7 +6266,7 @@ define i32 @Gia_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %46 = load i64, ptr %7, align 4
   %47 = lshr i64 %46, 24
   %48 = and i64 %47, 255
-  %49 = icmp ult i64 %indvars.iv.next56, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next56, %48
   br i1 %49, label %37, label %.critedge2, !llvm.loop !69
 
 .critedge2:                                       ; preds = %37, %44, %.preheader
@@ -9221,7 +9221,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %170, %Abc_TtHasVar.
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i125 = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i128, %Abc_TtHasVar.exit.thread.i ]
   %.037.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %.1.i, %Abc_TtHasVar.exit.thread.i ]
-  %172 = icmp ult i64 %indvars.iv.i125, 6
+  %172 = icmp samesign ult i64 %indvars.iv.i125, 6
   br i1 %172, label %.lr.ph.i.i132, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i132:                                    ; preds = %.lr.ph.split.split.split.i
@@ -11598,7 +11598,7 @@ Vec_IntPush.exit451:                              ; preds = %.Vec_IntGrow.exit10
   %203 = trunc i64 %202 to i32
   %204 = lshr i32 %203, 24
   %205 = zext nneg i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next, %205
   br i1 %206, label %.lr.ph, label %.critedge2, !llvm.loop !117
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit451, %.lr.ph, %.lr.ph.preheader, %154
@@ -11978,7 +11978,7 @@ If_CutTruthW.exit473:                             ; preds = %.lr.ph.i.i462, %.lr
   br label %Abc_TtFlip.exit
 
 390:                                              ; preds = %374
-  %391 = icmp ult i64 %indvars.iv580, 6
+  %391 = icmp samesign ult i64 %indvars.iv580, 6
   br i1 %391, label %392, label %404
 
 392:                                              ; preds = %390
@@ -12055,7 +12055,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %423 = trunc i64 %422 to i32
   %424 = lshr i32 %423, 24
   %425 = zext nneg i32 %424 to i64
-  %426 = icmp ult i64 %indvars.iv.next581, %425
+  %426 = icmp samesign ult i64 %indvars.iv.next581, %425
   br i1 %426, label %368, label %.loopexit.loopexit, !llvm.loop !121
 
 .loopexit.loopexit:                               ; preds = %Abc_TtFlip.exit
@@ -16248,16 +16248,16 @@ define internal fastcc i64 @Abc_TtDeriveBiDecOne(ptr nocapture noundef nonnull r
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = icmp ult i32 %1, 7
+  %15 = icmp samesign ult i32 %1, 7
   %16 = add nsw i32 %1, -6
   %17 = shl nuw i32 1, %16
-  %.fr.i = freeze i32 %17
-  %18 = select i1 %15, i32 1, i32 %.fr.i
-  %19 = icmp sgt i32 %18, 0
+  %18 = select i1 %15, i32 1, i32 %17
+  %.fr72.i = freeze i32 %18
+  %19 = icmp sgt i32 %.fr72.i, 0
   br i1 %19, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
 .lr.ph18.preheader.i:                             ; preds = %3
-  %wide.trip.count24.i = zext nneg i32 %18 to i64
+  %wide.trip.count24.i = zext nneg i32 %.fr72.i to i64
   %20 = shl nuw nsw i64 %wide.trip.count24.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %0, i64 %20, i1 false)
   br label %Abc_TtCopy.exit
@@ -16267,10 +16267,10 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.
   br i1 %.not22, label %Abc_TtShrink.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_TtCopy.exit
-  %21 = icmp eq i32 %18, 1
-  %22 = sext i32 %18 to i64
+  %21 = icmp eq i32 %.fr72.i, 1
+  %22 = sext i32 %.fr72.i to i64
   %23 = getelementptr inbounds i64, ptr %6, i64 %22
-  %wide.trip.count59.i.i = zext nneg i32 %18 to i64
+  %wide.trip.count59.i.i = zext nneg i32 %.fr72.i to i64
   %24 = getelementptr inbounds i64, ptr %6, i64 %wide.trip.count59.i.i
   %wide.trip.count32 = zext nneg i32 %1 to i64
   br i1 %21, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -16325,7 +16325,7 @@ Abc_TtCofactor0p.exit.thread23.i.us:              ; preds = %.lr.ph.split.us
 46:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  %47 = icmp ult i64 %indvars.iv, 6
+  %47 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %46
@@ -16489,9 +16489,9 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %48, 
   br i1 %exitcond.not, label %.lr.ph53.i, label %.lr.ph.split, !llvm.loop !151
 
 .lr.ph53.i:                                       ; preds = %109, %41
-  %110 = sext i32 %18 to i64
+  %110 = sext i32 %.fr72.i to i64
   %111 = getelementptr inbounds i64, ptr %6, i64 %110
-  %wide.trip.count72.i.i = zext nneg i32 %18 to i64
+  %wide.trip.count72.i.i = zext nneg i32 %.fr72.i to i64
   br i1 %19, label %.lr.ph53.split.us.split.us.preheader.i, label %Abc_TtShrink.exit
 
 .lr.ph53.split.us.split.us.preheader.i:           ; preds = %.lr.ph53.i

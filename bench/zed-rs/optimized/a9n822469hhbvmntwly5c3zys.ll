@@ -13963,7 +13963,7 @@ _ZN4text14BufferSnapshot8line_len17h06c207b3170c896bE.exit: ; preds = %14, %21
   ]
 
 74:                                               ; preds = %72
-  %75 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
+  %75 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i, 127
   br i1 %75, label %76, label %.loopexit
 
 76:                                               ; preds = %74

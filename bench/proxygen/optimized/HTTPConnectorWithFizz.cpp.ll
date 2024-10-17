@@ -13151,7 +13151,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.012, 1
   %7 = load i64, ptr %contents10, align 8
   %and.i.i = and i64 %7, 4611686018427387903
-  %cmp = icmp ult i64 %inc, %and.i.i
+  %cmp = icmp samesign ult i64 %inc, %and.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
 
 lpad14.loopexit:                                  ; preds = %for.body

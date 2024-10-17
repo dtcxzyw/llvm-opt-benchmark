@@ -13776,15 +13776,15 @@ _ZN5serde2de7Visitor9visit_f3217hdb3f2c10284f06f1E.exit: ; preds = %55, %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4201)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !4201
-  %71 = icmp ult i32 %70, 128
+  %71 = icmp samesign ult i32 %70, 128
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %70, 2048
+  %73 = icmp samesign ult i32 %70, 2048
   br i1 %73, label %78, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i32 %70, 65536
+  %75 = icmp samesign ult i32 %70, 65536
   br i1 %75, label %85, label %96
 
 76:                                               ; preds = %68
@@ -21586,7 +21586,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %53 = fdiv double %.01828.i, 1.000000e+308
   %54 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %54, i1 true)
-  %55 = icmp ugt i32 %.017.i, 308
+  %55 = icmp samesign ugt i32 %.017.i, 308
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i
 
 56:                                               ; preds = %50
@@ -21876,7 +21876,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %91 = fdiv double %.01810.i, 1.000000e+308
   %92 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
-  %93 = icmp ugt i32 %.017.i, 308
+  %93 = icmp samesign ugt i32 %.017.i, 308
   br i1 %93, label %.lr.ph.i, label %._crit_edge.i
 
 94:                                               ; preds = %88
@@ -22995,7 +22995,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %99 = fdiv double %.01810.i, 1.000000e+308
   %100 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %100, i1 true)
-  %101 = icmp ugt i32 %.017.i, 308
+  %101 = icmp samesign ugt i32 %.017.i, 308
   br i1 %101, label %.lr.ph.i, label %._crit_edge.i
 
 102:                                              ; preds = %96
@@ -23199,7 +23199,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %61 = fdiv double %.01828.i, 1.000000e+308
   %62 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
-  %63 = icmp ugt i32 %.017.i, 308
+  %63 = icmp samesign ugt i32 %.017.i, 308
   br i1 %63, label %.lr.ph.i, label %._crit_edge.i
 
 64:                                               ; preds = %58
@@ -23770,7 +23770,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %31 = fdiv double %.01828.i, 1.000000e+308
   %32 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ugt i32 %.017.i, 308
+  %33 = icmp samesign ugt i32 %.017.i, 308
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
 34:                                               ; preds = %28
@@ -23935,7 +23935,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %45 = fdiv double %.01810.i, 1.000000e+308
   %46 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
-  %47 = icmp ugt i32 %.017.i, 308
+  %47 = icmp samesign ugt i32 %.017.i, 308
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i
 
 48:                                               ; preds = %42
@@ -24212,7 +24212,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %30 = fdiv double %.01828.i, 1.000000e+308
   %31 = add nsw i32 %.029.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
-  %32 = icmp ugt i32 %.017.i, 308
+  %32 = icmp samesign ugt i32 %.017.i, 308
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
 33:                                               ; preds = %27
@@ -24414,7 +24414,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %60 = fdiv double %.01810.i, 1.000000e+308
   %61 = add nsw i32 %.011.i, 308
   %.017.i = tail call i32 @llvm.abs.i32(i32 %61, i1 true)
-  %62 = icmp ugt i32 %.017.i, 308
+  %62 = icmp samesign ugt i32 %.017.i, 308
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 63:                                               ; preds = %57
@@ -24854,7 +24854,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_i3217h509
   %.026.lcssa.i = phi i64 [ 11, %3 ], [ %17, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %.0.i, %3 ], [ %10, %.lr.ph.i ]
   %7 = zext nneg i32 %.1.lcssa.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -24898,7 +24898,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_i3217h509
 33:                                               ; preds = %24, %._crit_edge.i
   %.127.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i, %._crit_edge.i ]
   %.025.i = phi i64 [ %.zext37.i, %24 ], [ %7, %._crit_edge.i ]
-  %34 = icmp ult i64 %.025.i, 10
+  %34 = icmp samesign ult i64 %.025.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -25327,7 +25327,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
 147:                                              ; preds = %139
   %148 = zext i16 %141 to i32
   %149 = xor i32 %148, -1058816
-  %150 = icmp ult i32 %149, -1112064
+  %150 = icmp samesign ult i32 %149, -1112064
   br i1 %150, label %153, label %154
 
 151:                                              ; preds = %139
@@ -40712,7 +40712,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %.026.lcssa = phi i64 [ 11, %2 ], [ %15, %.lr.ph ]
   %.1.lcssa = phi i32 [ %.0, %2 ], [ %8, %.lr.ph ]
   %5 = zext nneg i32 %.1.lcssa to i64
-  %6 = icmp ugt i32 %.1.lcssa, 99
+  %6 = icmp samesign ugt i32 %.1.lcssa, 99
   br i1 %6, label %22, label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -40756,7 +40756,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 31:                                               ; preds = %._crit_edge, %22
   %.127 = phi i64 [ %27, %22 ], [ %.026.lcssa, %._crit_edge ]
   %.025 = phi i64 [ %.zext37, %22 ], [ %5, %._crit_edge ]
-  %32 = icmp ult i64 %.025, 10
+  %32 = icmp samesign ult i64 %.025, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
@@ -42968,15 +42968,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   %4 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %5 = icmp ult i32 %0, 128
+  %5 = icmp samesign ult i32 %0, 128
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = icmp ult i32 %0, 2048
+  %7 = icmp samesign ult i32 %0, 2048
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ult i32 %0, 65536
+  %9 = icmp samesign ult i32 %0, 65536
   %10 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %9, label %21, label %33
 
@@ -43060,15 +43060,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   %4 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %5 = icmp ult i32 %0, 128
+  %5 = icmp samesign ult i32 %0, 128
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = icmp ult i32 %0, 2048
+  %7 = icmp samesign ult i32 %0, 2048
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ult i32 %0, 65536
+  %9 = icmp samesign ult i32 %0, 65536
   %10 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %9, label %21, label %33
 
@@ -43154,15 +43154,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hb1068d85ae8e8a55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -61614,7 +61614,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -61627,7 +61627,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -75497,7 +75497,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %.026.lcssa.i.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %2 ], [ %9, %.lr.ph.i.i ]
   %6 = zext nneg i32 %.1.lcssa.i.i to i64
-  %7 = icmp ugt i32 %.1.lcssa.i.i, 99
+  %7 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %7, label %23, label %32
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -75541,7 +75541,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 32:                                               ; preds = %23, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %28, %23 ], [ %.026.lcssa.i.i, %._crit_edge.i.i ]
   %.025.i.i = phi i64 [ %.zext37.i.i, %23 ], [ %6, %._crit_edge.i.i ]
-  %33 = icmp ult i64 %.025.i.i, 10
+  %33 = icmp samesign ult i64 %.025.i.i, 10
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -80141,7 +80141,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_72_$LT$impl$u20$serde
   %.026.lcssa.i.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %2 ], [ %10, %.lr.ph.i.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -80185,7 +80185,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_72_$LT$impl$u20$serde
 33:                                               ; preds = %24, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %24 ], [ %7, %._crit_edge.i.i.i ]
-  %34 = icmp ult i64 %.025.i.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -82382,7 +82382,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_73_$LT$impl$u20$serde
   %.026.lcssa.i.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %2 ], [ %10, %.lr.ph.i.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -82426,7 +82426,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_73_$LT$impl$u20$serde
 33:                                               ; preds = %24, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %24 ], [ %7, %._crit_edge.i.i.i ]
-  %34 = icmp ult i64 %.025.i.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -83582,7 +83582,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_76_$LT$impl$u20$serde
   %.026.lcssa.i.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %2 ], [ %10, %.lr.ph.i.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -83626,7 +83626,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_76_$LT$impl$u20$serde
 33:                                               ; preds = %24, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %24 ], [ %7, %._crit_edge.i.i.i ]
-  %34 = icmp ult i64 %.025.i.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -85532,7 +85532,7 @@ define hidden noundef align 8 ptr @"_ZN9lsp_types1_77_$LT$impl$u20$serde..ser..S
   %.026.lcssa.i.i.i = phi i64 [ 11, %7 ], [ %21, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %7 ], [ %14, %.lr.ph.i.i.i ]
   %11 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %12 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %12 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %12, label %28, label %37
 
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
@@ -85576,7 +85576,7 @@ define hidden noundef align 8 ptr @"_ZN9lsp_types1_77_$LT$impl$u20$serde..ser..S
 37:                                               ; preds = %28, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %33, %28 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %28 ], [ %11, %._crit_edge.i.i.i ]
-  %38 = icmp ult i64 %.025.i.i.i, 10
+  %38 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %37
@@ -89072,7 +89072,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_81_$LT$impl$u20$serde
   %.026.lcssa.i.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %2 ], [ %10, %.lr.ph.i.i.i ]
   %7 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %8 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %8 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %8, label %24, label %33
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -89116,7 +89116,7 @@ define hidden noalias noundef align 8 ptr @"_ZN9lsp_types1_81_$LT$impl$u20$serde
 33:                                               ; preds = %24, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %24 ], [ %7, %._crit_edge.i.i.i ]
-  %34 = icmp ult i64 %.025.i.i.i, 10
+  %34 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %33
@@ -94290,7 +94290,7 @@ common.resume:                                    ; preds = %30, %98, %99
   %71 = load i32, ptr %66, align 8, !range !23714, !noundef !4
   %72 = load i32, ptr %13, align 8, !range !23714, !noundef !4
   %73 = add nuw nsw i32 %72, %71
-  %74 = icmp ugt i32 %73, 999999999
+  %74 = icmp samesign ugt i32 %73, 999999999
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %70

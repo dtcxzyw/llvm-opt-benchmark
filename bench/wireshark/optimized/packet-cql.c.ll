@@ -925,7 +925,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %221 = add nuw nsw i64 %.0607730, 1
   %222 = load i32, ptr %7, align 4
   %223 = zext i32 %222 to i64
-  %224 = icmp ult i64 %221, %223
+  %224 = icmp samesign ult i64 %221, %223
   br i1 %224, label %.lr.ph732, label %.loopexit, !llvm.loop !6
 
 225:                                              ; preds = %197
@@ -1064,7 +1064,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %308 = add nuw nsw i64 %.0602718, 1
   %309 = load i32, ptr %20, align 4
   %310 = zext i32 %309 to i64
-  %311 = icmp ult i64 %308, %310
+  %311 = icmp samesign ult i64 %308, %310
   br i1 %311, label %.lr.ph720, label %._crit_edge721, !llvm.loop !7
 
 ._crit_edge721:                                   ; preds = %307, %292
@@ -1072,7 +1072,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %312 = add nuw nsw i64 %.1608724, 1
   %313 = load i32, ptr %10, align 4
   %314 = zext i32 %313 to i64
-  %315 = icmp ult i64 %312, %314
+  %315 = icmp samesign ult i64 %312, %314
   br i1 %315, label %.lr.ph726, label %._crit_edge727, !llvm.loop !8
 
 ._crit_edge727:                                   ; preds = %._crit_edge721, %266
@@ -1109,7 +1109,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %337 = add nuw nsw i64 %.2609714, 1
   %338 = load i32, ptr %7, align 4
   %339 = zext i32 %338 to i64
-  %340 = icmp ult i64 %337, %339
+  %340 = icmp samesign ult i64 %337, %339
   br i1 %340, label %.lr.ph716, label %.loopexit, !llvm.loop !9
 
 341:                                              ; preds = %197
@@ -1192,7 +1192,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %390 = add nuw nsw i64 %.3610706, 1
   %391 = load i32, ptr %24, align 4
   %392 = zext i32 %391 to i64
-  %393 = icmp ult i64 %390, %392
+  %393 = icmp samesign ult i64 %390, %392
   br i1 %393, label %.lr.ph707, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph707, %.lr.ph712
@@ -1200,7 +1200,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %394 = add nuw nsw i64 %.1603710, 1
   %395 = load i32, ptr %23, align 4
   %396 = zext i32 %395 to i64
-  %397 = icmp ult i64 %394, %396
+  %397 = icmp samesign ult i64 %394, %396
   br i1 %397, label %.lr.ph712, label %.loopexit, !llvm.loop !11
 
 398:                                              ; preds = %344
@@ -1239,7 +1239,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %418 = add nuw nsw i64 %.2604693, 1
   %419 = load i32, ptr %25, align 4
   %420 = zext i32 %419 to i64
-  %421 = icmp ult i64 %418, %420
+  %421 = icmp samesign ult i64 %418, %420
   br i1 %421, label %.lr.ph, label %.loopexit690, !llvm.loop !12
 
 422:                                              ; preds = %398
@@ -1770,7 +1770,7 @@ define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr no
   %35 = add nuw nsw i64 %.069.us, 1
   %36 = load i32, ptr %7, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %35, %37
+  %38 = icmp samesign ult i64 %35, %37
   br i1 %38, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %57
@@ -1803,7 +1803,7 @@ define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr no
   %58 = add nuw nsw i64 %.069, 1
   %59 = load i32, ptr %7, align 4
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %58, %60
+  %61 = icmp samesign ult i64 %58, %60
   br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %57, %34, %18, %4

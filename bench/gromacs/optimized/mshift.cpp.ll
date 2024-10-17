@@ -3575,7 +3575,7 @@ _ZL15mk_1shift_screwPA3_KfPS_S2_S2_PKiPi.exit.i:  ; preds = %225
   %251 = add nsw i32 %250, -1
   %252 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next54.i.i
   store i32 %251, ptr %252, align 4
-  %253 = icmp ugt i64 %indvars.iv53.i.i, 1
+  %253 = icmp samesign ugt i64 %indvars.iv53.i.i, 1
   br i1 %253, label %.lr.ph42.i.i, label %_ZL14mk_1shift_triciPA3_KfPS_S2_S2_PKiPi.exit.i
 
 .lr.ph42.i.i:                                     ; preds = %248, %.lr.ph42.i.i
@@ -3600,7 +3600,7 @@ _ZL15mk_1shift_screwPA3_KfPS_S2_S2_PKiPi.exit.i:  ; preds = %225
   %264 = add nsw i32 %262, 1
   %265 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next54.i.i
   store i32 %264, ptr %265, align 4
-  %266 = icmp ugt i64 %indvars.iv53.i.i, 1
+  %266 = icmp samesign ugt i64 %indvars.iv53.i.i, 1
   br i1 %266, label %.lr.ph.i.i, label %_ZL14mk_1shift_triciPA3_KfPS_S2_S2_PKiPi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %263, %.lr.ph.i.i

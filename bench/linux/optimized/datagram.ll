@@ -939,7 +939,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %108 = getelementptr inbounds i8, ptr %107, i64 2
   %109 = load i8, ptr %108, align 2
   %110 = zext i8 %109 to i64
-  %111 = icmp ult i64 %103, %110
+  %111 = icmp samesign ult i64 %103, %110
   br i1 %111, label %.split.us, label %.loopexit, !llvm.loop !30
 
 .split:                                           ; preds = %50, %.thread
@@ -1011,7 +1011,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %163 = getelementptr inbounds i8, ptr %162, i64 2
   %164 = load i8, ptr %163, align 2
   %165 = zext i8 %164 to i64
-  %166 = icmp ult i64 %158, %165
+  %166 = icmp samesign ult i64 %158, %165
   br i1 %166, label %.split, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %38
@@ -1315,7 +1315,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr 
   %81 = getelementptr inbounds i8, ptr %80, i64 2
   %82 = load i8, ptr %81, align 2
   %83 = zext i8 %82 to i64
-  %84 = icmp ult i64 %76, %83
+  %84 = icmp samesign ult i64 %76, %83
   br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %75, %31

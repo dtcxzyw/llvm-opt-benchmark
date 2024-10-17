@@ -1523,7 +1523,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %3 = and i64 %sub.ptr.sub.i.i.i.i, 34359738360
-  %cmp.i.i.i = icmp ult i64 %3, 312
+  %cmp.i.i.i = icmp samesign ult i64 %3, 312
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %if.end
@@ -1596,7 +1596,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %3 = and i64 %sub.ptr.sub.i.i.i.i, 34359738304
-  %cmp.i.i.i = icmp ult i64 %3, 320
+  %cmp.i.i.i = icmp samesign ult i64 %3, 320
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %if.end
@@ -1669,7 +1669,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %3 = and i64 %sub.ptr.sub.i.i.i.i, 34359738360
-  %cmp.i.i.i = icmp ult i64 %3, 328
+  %cmp.i.i.i = icmp samesign ult i64 %3, 328
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %if.end
@@ -1744,7 +1744,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %3 = and i64 %sub.ptr.sub.i.i.i.i, 34359738352
-  %cmp.i.i.i = icmp ult i64 %3, 336
+  %cmp.i.i.i = icmp samesign ult i64 %3, 336
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %if.end
@@ -1821,7 +1821,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %3 = and i64 %sub.ptr.sub.i.i.i.i, 34359738360
-  %cmp.i.i.i = icmp ult i64 %3, 344
+  %cmp.i.i.i = icmp samesign ult i64 %3, 344
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %if.end
@@ -1960,7 +1960,7 @@ if.end14:                                         ; preds = %if.end
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then30, label %if.end32
@@ -2399,7 +2399,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %18 = and i64 %sub.ptr.sub.i.i.i.i.i, 34359738360
-  %cmp.i.i.i.i = icmp ult i64 %18, 312
+  %cmp.i.i.i.i = icmp samesign ult i64 %18, 312
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
   br i1 %.not.i.i, label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, label %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
@@ -2634,7 +2634,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %18 = and i64 %sub.ptr.sub.i.i.i.i.i, 34359738304
-  %cmp.i.i.i.i = icmp ult i64 %18, 320
+  %cmp.i.i.i.i = icmp samesign ult i64 %18, 320
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
   br i1 %.not.i.i, label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, label %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
@@ -3310,7 +3310,7 @@ for.cond:                                         ; preds = %_ZSt20uninitialized
   %conv.i = and i64 %sub.ptr.div.i.i, 4294967295
   %conv2.i = zext i32 %cond.i to i64
   %add.i = add nuw nsw i64 %conv2.i, 32
-  %cmp.i.not = icmp ugt i64 %add.i, %conv.i
+  %cmp.i.not = icmp samesign ugt i64 %add.i, %conv.i
   br i1 %cmp.i.not, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %for.cond
@@ -3804,7 +3804,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %6 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp.i.i12 = icmp ugt i64 %6, 256
+  %cmp.i.i12 = icmp samesign ugt i64 %6, 256
   br i1 %cmp.i.i12, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
@@ -4397,7 +4397,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %argCount_.i, align 8
   %38 = zext i32 %37 to i64
-  %cmp.i24 = icmp ult i64 %indvars.iv, %38
+  %cmp.i24 = icmp samesign ult i64 %indvars.iv, %38
   br i1 %cmp.i24, label %cond.true.i, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
 
 cond.true.i:                                      ; preds = %for.body
@@ -4646,7 +4646,7 @@ _ZN6hermes2vm7Runtime17makeMutableHandleINS0_16ArrayStorageBaseINS0_11HermesValu
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
   %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
-  %cmp.i.i.i29 = icmp ugt i64 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i29 = icmp samesign ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i29, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then, label %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjNS0_11HermesValueES4_S4_.exit

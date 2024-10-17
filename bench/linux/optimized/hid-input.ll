@@ -2544,11 +2544,11 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %75, i32 16, ptr elementtype(i8) %75) #11, !srcloc !53
   %76 = load i32, ptr %2, align 4
   %77 = and i32 %76, 65535
-  %78 = icmp ult i32 %77, 256
+  %78 = icmp samesign ult i32 %77, 256
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %74
-  %80 = icmp ult i32 %77, 4
+  %80 = icmp samesign ult i32 %77, 4
   br i1 %80, label %708, label %81
 
 81:                                               ; preds = %79
@@ -2583,7 +2583,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   br label %138
 
 94:                                               ; preds = %87
-  %95 = icmp ult i32 %89, 16
+  %95 = icmp samesign ult i32 %89, 16
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -2595,7 +2595,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   br label %138
 
 100:                                              ; preds = %87
-  %101 = icmp ult i32 %89, 16
+  %101 = icmp samesign ult i32 %89, 16
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %100
@@ -2627,7 +2627,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %118
-  %123 = icmp ult i32 %89, 30
+  %123 = icmp samesign ult i32 %89, 30
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
@@ -4751,7 +4751,7 @@ default.unreachable304:                           ; preds = %150
   %676 = load i16, ptr %571, align 2
   %677 = zext i16 %676 to i64
   %678 = add nuw nsw i64 %677, 2
-  %679 = icmp ult i64 %675, %678
+  %679 = icmp samesign ult i64 %675, %678
   %680 = load i32, ptr %5, align 4
   %681 = sext i32 %680 to i64
   %682 = icmp slt i64 %673, %681
@@ -4848,7 +4848,7 @@ default.unreachable1:                             ; preds = %5
   %.sink = phi i64 [ 48, %9 ], [ 144, %8 ], [ 152, %5 ]
   %11 = phi i32 [ 767, %9 ], [ 15, %8 ], [ 63, %5 ]
   %12 = getelementptr inbounds i8, ptr %.24.val, i64 %.sink
-  %13 = icmp ult i32 %11, %6
+  %13 = icmp samesign ult i32 %11, %6
   %14 = icmp eq ptr %12, null
   %15 = select i1 %13, i1 true, i1 %14, !prof !58
   br i1 %15, label %16, label %22, !prof !58
@@ -4910,7 +4910,7 @@ define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef w
   %.sink = phi i64 [ 160, %10 ], [ 168, %9 ], [ 48, %8 ], [ 144, %7 ], [ 152, %5 ]
   %12 = phi i32 [ 7, %10 ], [ 15, %9 ], [ 767, %8 ], [ 15, %7 ], [ 63, %5 ]
   %13 = getelementptr inbounds i8, ptr %.24.val, i64 %.sink
-  %14 = icmp ult i32 %12, %4
+  %14 = icmp samesign ult i32 %12, %4
   %15 = icmp eq ptr %13, null
   %16 = select i1 %14, i1 true, i1 %15, !prof !58
   br i1 %16, label %.thread, label %22, !prof !59

@@ -998,7 +998,7 @@ define internal fastcc ptr @Super2_LibWriteGate_rec(ptr nocapture noundef readon
   br i1 %.not, label %.preheader, label %43
 
 43:                                               ; preds = %26
-  %44 = icmp ugt i32 %31, %41
+  %44 = icmp samesign ugt i32 %31, %41
   %.not60 = icmp eq i32 %1, 0
   %45 = select i1 %.not60, i32 40, i32 60
   %46 = select i1 %.not60, i32 41, i32 62

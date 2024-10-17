@@ -448,7 +448,7 @@ define internal noalias noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_o
   %73 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %74 = icmp ult i64 %73, 6
   call void @llvm.assume(i1 %74)
-  %switch.i = icmp ult i64 %73, 2
+  %switch.i = icmp samesign ult i64 %73, 2
   br i1 %switch.i, label %79, label %75
 
 75:                                               ; preds = %72

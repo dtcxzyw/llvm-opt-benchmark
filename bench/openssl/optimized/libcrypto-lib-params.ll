@@ -1049,7 +1049,7 @@ if.end51:                                         ; preds = %if.then45
 
 sw.bb53:                                          ; preds = %if.end51
   %cond = tail call i64 @llvm.abs.i64(i64 %val, i1 true)
-  %cmp57 = icmp ult i64 %cond, 9007199254740992
+  %cmp57 = icmp samesign ult i64 %cond, 9007199254740992
   br i1 %cmp57, label %if.then59, label %if.end62
 
 if.then59:                                        ; preds = %sw.bb53
@@ -2226,7 +2226,7 @@ sw.bb27:                                          ; preds = %if.then22
   %12 = load ptr, ptr %data28, align 8
   %13 = load i64, ptr %12, align 8
   %cond = tail call i64 @llvm.abs.i64(i64 %13, i1 true)
-  %cmp34 = icmp ult i64 %cond, 9007199254740992
+  %cmp34 = icmp samesign ult i64 %cond, 9007199254740992
   br i1 %cmp34, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %sw.bb27

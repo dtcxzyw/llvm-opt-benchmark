@@ -2169,7 +2169,7 @@ define internal fastcc void @show_ldttss(i16 %.0.val, i64 %.2.val, ptr noundef %
   %10 = zext nneg i32 %9 to i64
   %11 = add nuw nsw i64 %10, 16
   %12 = zext i16 %.0.val to i64
-  %13 = icmp ult i64 %11, %12
+  %13 = icmp samesign ult i64 %11, %12
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %8

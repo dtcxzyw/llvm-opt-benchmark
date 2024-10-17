@@ -131,7 +131,7 @@ define void @_ZN3gmx21SurfaceAreaCalculator11setDotCountEi(ptr nocapture noundef
   br i1 %12, label %.preheader.i.i, label %_ZL9unsp_typei.exit.i, !llvm.loop !7
 
 _ZL9unsp_typei.exit.i:                            ; preds = %.preheader.i.i
-  %14 = icmp ult i32 %5, %10
+  %14 = icmp samesign ult i32 %5, %10
   %15 = sitofp i32 %1 to float
   %16 = fpext float %15 to double
   %17 = fadd double %16, -2.000000e+00
@@ -1708,7 +1708,7 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
 .lr.ph384.us.i.i:                                 ; preds = %.loopexit346.us.i.i, %.preheader347.split.us.preheader.i.i
   %indvars.iv444.i.i = phi i64 [ 0, %.preheader347.split.us.preheader.i.i ], [ %indvars.iv.next445.i.i, %.loopexit346.us.i.i ]
   %.0252387.us.i.i = phi i32 [ 32, %.preheader347.split.us.preheader.i.i ], [ %.2254.us.us.i.i, %.loopexit346.us.i.i ]
-  %1231 = icmp ult i64 %indvars.iv444.i.i, 12
+  %1231 = icmp samesign ult i64 %indvars.iv444.i.i, 12
   %.0241.us.i.i = select i1 %1231, float 0x3FDA48C360000000, float 0x3FE04C1660000000
   %umax.i.i = tail call i64 @llvm.umax.i64(i64 %indvars.iv444.i.i, i64 11)
   %1232 = mul nuw nsw i64 %indvars.iv444.i.i, 3
@@ -1870,7 +1870,7 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
 
 ..loopexit345_crit_edge.us.us.i.i:                ; preds = %..loopexit345_crit_edge.us.us.loopexit.i.i, %1234
   %.2254.us.us.i.i = phi i32 [ %.1253382.us.us.i.i, %1234 ], [ %1352, %..loopexit345_crit_edge.us.us.loopexit.i.i ]
-  %1353 = icmp ult i64 %indvars.iv446.in.i.i, 30
+  %1353 = icmp samesign ult i64 %indvars.iv446.in.i.i, 30
   br i1 %1353, label %1234, label %.loopexit346.us.i.i, !llvm.loop !30
 
 .preheader342.i.i:                                ; preds = %.loopexit346.us.i.i

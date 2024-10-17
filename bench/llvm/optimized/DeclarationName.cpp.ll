@@ -319,7 +319,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i: ; preds = %_ZN4llvm9Str
   br i1 %86, label %_ZNK4llvm9StringRef7compareES0_.exit, label %87
 
 87:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i
-  %88 = icmp ult i64 %71, %79
+  %88 = icmp samesign ult i64 %71, %79
   %89 = select i1 %88, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
@@ -518,7 +518,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111: ; preds = %_ZN4llvm9
   br i1 %184, label %_ZNK4llvm9StringRef7compareES0_.exit, label %185
 
 185:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111
-  %186 = icmp ult i64 %166, %177
+  %186 = icmp samesign ult i64 %166, %177
   %187 = select i1 %186, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 

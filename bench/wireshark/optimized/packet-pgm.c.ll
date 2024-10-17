@@ -894,7 +894,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br label %dissect_pgmopts.exit
 
 309:                                              ; preds = %299
-  %310 = icmp ult i32 %288, %301
+  %310 = icmp samesign ult i32 %288, %301
   br i1 %310, label %311, label %314
 
 311:                                              ; preds = %309
@@ -942,7 +942,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br label %dissect_pgmopts.exit
 
 342:                                              ; preds = %332
-  %343 = icmp ult i32 %288, %334
+  %343 = icmp samesign ult i32 %288, %334
   br i1 %343, label %344, label %347
 
 344:                                              ; preds = %342
@@ -1038,7 +1038,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 400:                                              ; preds = %390
-  %401 = icmp ult i32 %288, %392
+  %401 = icmp samesign ult i32 %288, %392
   br i1 %401, label %402, label %405
 
 402:                                              ; preds = %400
@@ -1086,7 +1086,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 433:                                              ; preds = %423
-  %434 = icmp ult i32 %288, %425
+  %434 = icmp samesign ult i32 %288, %425
   br i1 %434, label %435, label %438
 
 435:                                              ; preds = %433
@@ -1216,7 +1216,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 506:                                              ; preds = %496
-  %507 = icmp ult i32 %288, %498
+  %507 = icmp samesign ult i32 %288, %498
   br i1 %507, label %508, label %511
 
 508:                                              ; preds = %506
@@ -1287,7 +1287,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 553:                                              ; preds = %543
-  %554 = icmp ult i32 %288, %545
+  %554 = icmp samesign ult i32 %288, %545
   br i1 %554, label %555, label %558
 
 555:                                              ; preds = %553
@@ -1358,7 +1358,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 600:                                              ; preds = %590
-  %601 = icmp ult i32 %288, %592
+  %601 = icmp samesign ult i32 %288, %592
   br i1 %601, label %602, label %605
 
 602:                                              ; preds = %600
@@ -1408,7 +1408,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 635:                                              ; preds = %625
-  %636 = icmp ult i32 %288, %627
+  %636 = icmp samesign ult i32 %288, %627
   br i1 %636, label %637, label %640
 
 637:                                              ; preds = %635
@@ -1458,7 +1458,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 670:                                              ; preds = %660
-  %671 = icmp ult i32 %288, %662
+  %671 = icmp samesign ult i32 %288, %662
   br i1 %671, label %672, label %675
 
 672:                                              ; preds = %670
@@ -1527,7 +1527,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 715:                                              ; preds = %705
-  %716 = icmp ult i32 %288, %707
+  %716 = icmp samesign ult i32 %288, %707
   br i1 %716, label %717, label %720
 
 717:                                              ; preds = %715
@@ -1580,7 +1580,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %dissect_pgmopts.exit
 
 753:                                              ; preds = %742
-  %754 = icmp ult i32 %288, %745
+  %754 = icmp samesign ult i32 %288, %745
   br i1 %754, label %755, label %758
 
 755:                                              ; preds = %753

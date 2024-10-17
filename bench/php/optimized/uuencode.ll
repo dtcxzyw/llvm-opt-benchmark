@@ -429,7 +429,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
 ._crit_edge:                                      ; preds = %39, %.preheader
   %.2106.lcssa = phi ptr [ %.0104118, %.preheader ], [ %65, %39 ]
   %.2.lcssa = phi ptr [ %.ptr, %.preheader ], [ %37, %39 ]
-  %67 = icmp ult i8 %20, 45
+  %67 = icmp samesign ult i8 %20, 45
   br i1 %67, label %._crit_edge123, label %68
 
 68:                                               ; preds = %._crit_edge

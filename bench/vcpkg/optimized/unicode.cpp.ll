@@ -383,7 +383,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   %106 = or disjoint i32 %103, %105
   %107 = or disjoint i32 %106, %100
   store i32 %107, ptr %2, align 4
-  %108 = icmp ugt i32 %100, 1114111
+  %108 = icmp samesign ugt i32 %100, 1114111
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %94

@@ -428,7 +428,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = add nsw i32 %20, -14234
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 14234
+  %24 = icmp samesign ult i32 %20, 14234
   %25 = select i1 %24, i32 0, i32 255
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = trunc i32 %26 to i8
@@ -454,7 +454,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %45 = add nsw i32 %44, -17685
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 17685
+  %48 = icmp samesign ult i32 %44, 17685
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -476,7 +476,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %66 = add nsw i32 %65, -14234
   %67 = icmp ult i32 %66, 16384
   %68 = lshr i32 %66, 6
-  %69 = icmp ult i32 %65, 14234
+  %69 = icmp samesign ult i32 %65, 14234
   %70 = select i1 %69, i32 0, i32 255
   %71 = select i1 %67, i32 %68, i32 %70
   %72 = trunc i32 %71 to i8
@@ -502,7 +502,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %90 = add nsw i32 %89, -17685
   %91 = icmp ult i32 %90, 16384
   %92 = lshr i32 %90, 6
-  %93 = icmp ult i32 %89, 17685
+  %93 = icmp samesign ult i32 %89, 17685
   %94 = select i1 %93, i32 0, i32 255
   %95 = select i1 %91, i32 %92, i32 %94
   %96 = trunc i32 %95 to i8
@@ -539,7 +539,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %115 = add nsw i32 %114, -14234
   %116 = icmp ult i32 %115, 16384
   %117 = lshr i32 %115, 6
-  %118 = icmp ult i32 %114, 14234
+  %118 = icmp samesign ult i32 %114, 14234
   %119 = select i1 %118, i32 0, i32 255
   %120 = select i1 %116, i32 %117, i32 %119
   %121 = trunc i32 %120 to i8
@@ -565,7 +565,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %139 = add nsw i32 %138, -17685
   %140 = icmp ult i32 %139, 16384
   %141 = lshr i32 %139, 6
-  %142 = icmp ult i32 %138, 17685
+  %142 = icmp samesign ult i32 %138, 17685
   %143 = select i1 %142, i32 0, i32 255
   %144 = select i1 %140, i32 %141, i32 %143
   %145 = trunc i32 %144 to i8
@@ -605,7 +605,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = add nsw i32 %20, -14234
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 14234
+  %24 = icmp samesign ult i32 %20, 14234
   %25 = select i1 %24, i32 0, i32 255
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = trunc i32 %26 to i8
@@ -631,7 +631,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %45 = add nsw i32 %44, -17685
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 17685
+  %48 = icmp samesign ult i32 %44, 17685
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -655,7 +655,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %67 = add nsw i32 %66, -14234
   %68 = icmp ult i32 %67, 16384
   %69 = lshr i32 %67, 6
-  %70 = icmp ult i32 %66, 14234
+  %70 = icmp samesign ult i32 %66, 14234
   %71 = select i1 %70, i32 0, i32 255
   %72 = select i1 %68, i32 %69, i32 %71
   %73 = trunc i32 %72 to i8
@@ -681,7 +681,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %91 = add nsw i32 %90, -17685
   %92 = icmp ult i32 %91, 16384
   %93 = lshr i32 %91, 6
-  %94 = icmp ult i32 %90, 17685
+  %94 = icmp samesign ult i32 %90, 17685
   %95 = select i1 %94, i32 0, i32 255
   %96 = select i1 %92, i32 %93, i32 %95
   %97 = trunc i32 %96 to i8
@@ -720,7 +720,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %117 = add nsw i32 %116, -14234
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 14234
+  %120 = icmp samesign ult i32 %116, 14234
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -746,7 +746,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %141 = add nsw i32 %140, -17685
   %142 = icmp ult i32 %141, 16384
   %143 = lshr i32 %141, 6
-  %144 = icmp ult i32 %140, 17685
+  %144 = icmp samesign ult i32 %140, 17685
   %145 = select i1 %144, i32 0, i32 255
   %146 = select i1 %142, i32 %143, i32 %145
   %147 = trunc i32 %146 to i8
@@ -788,7 +788,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = add nsw i32 %20, -17685
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 17685
+  %24 = icmp samesign ult i32 %20, 17685
   %25 = select i1 %24, i32 0, i32 255
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = trunc i32 %26 to i8
@@ -814,7 +814,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -836,7 +836,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %66 = add nsw i32 %65, -17685
   %67 = icmp ult i32 %66, 16384
   %68 = lshr i32 %66, 6
-  %69 = icmp ult i32 %65, 17685
+  %69 = icmp samesign ult i32 %65, 17685
   %70 = select i1 %69, i32 0, i32 255
   %71 = select i1 %67, i32 %68, i32 %70
   %72 = trunc i32 %71 to i8
@@ -862,7 +862,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %90 = add nsw i32 %89, -14234
   %91 = icmp ult i32 %90, 16384
   %92 = lshr i32 %90, 6
-  %93 = icmp ult i32 %89, 14234
+  %93 = icmp samesign ult i32 %89, 14234
   %94 = select i1 %93, i32 0, i32 255
   %95 = select i1 %91, i32 %92, i32 %94
   %96 = trunc i32 %95 to i8
@@ -899,7 +899,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %115 = add nsw i32 %114, -17685
   %116 = icmp ult i32 %115, 16384
   %117 = lshr i32 %115, 6
-  %118 = icmp ult i32 %114, 17685
+  %118 = icmp samesign ult i32 %114, 17685
   %119 = select i1 %118, i32 0, i32 255
   %120 = select i1 %116, i32 %117, i32 %119
   %121 = trunc i32 %120 to i8
@@ -925,7 +925,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %139 = add nsw i32 %138, -14234
   %140 = icmp ult i32 %139, 16384
   %141 = lshr i32 %139, 6
-  %142 = icmp ult i32 %138, 14234
+  %142 = icmp samesign ult i32 %138, 14234
   %143 = select i1 %142, i32 0, i32 255
   %144 = select i1 %140, i32 %141, i32 %143
   %145 = trunc i32 %144 to i8
@@ -965,7 +965,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = add nsw i32 %20, -17685
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 17685
+  %24 = icmp samesign ult i32 %20, 17685
   %25 = select i1 %24, i32 0, i32 255
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = trunc i32 %26 to i8
@@ -991,7 +991,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -1015,7 +1015,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %67 = add nsw i32 %66, -17685
   %68 = icmp ult i32 %67, 16384
   %69 = lshr i32 %67, 6
-  %70 = icmp ult i32 %66, 17685
+  %70 = icmp samesign ult i32 %66, 17685
   %71 = select i1 %70, i32 0, i32 255
   %72 = select i1 %68, i32 %69, i32 %71
   %73 = trunc i32 %72 to i8
@@ -1041,7 +1041,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %91 = add nsw i32 %90, -14234
   %92 = icmp ult i32 %91, 16384
   %93 = lshr i32 %91, 6
-  %94 = icmp ult i32 %90, 14234
+  %94 = icmp samesign ult i32 %90, 14234
   %95 = select i1 %94, i32 0, i32 255
   %96 = select i1 %92, i32 %93, i32 %95
   %97 = trunc i32 %96 to i8
@@ -1080,7 +1080,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %117 = add nsw i32 %116, -17685
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 17685
+  %120 = icmp samesign ult i32 %116, 17685
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -1106,7 +1106,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %141 = add nsw i32 %140, -14234
   %142 = icmp ult i32 %141, 16384
   %143 = lshr i32 %141, 6
-  %144 = icmp ult i32 %140, 14234
+  %144 = icmp samesign ult i32 %140, 14234
   %145 = select i1 %144, i32 0, i32 255
   %146 = select i1 %142, i32 %143, i32 %145
   %147 = trunc i32 %146 to i8
@@ -1150,7 +1150,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %22 = add nsw i32 %21, -14234
   %23 = icmp ult i32 %22, 16384
   %24 = lshr i32 %22, 6
-  %25 = icmp ult i32 %21, 14234
+  %25 = icmp samesign ult i32 %21, 14234
   %26 = select i1 %25, i32 0, i32 255
   %27 = select i1 %23, i32 %24, i32 %26
   %28 = trunc i32 %27 to i8
@@ -1176,7 +1176,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %46 = add nsw i32 %45, -17685
   %47 = icmp ult i32 %46, 16384
   %48 = lshr i32 %46, 6
-  %49 = icmp ult i32 %45, 17685
+  %49 = icmp samesign ult i32 %45, 17685
   %50 = select i1 %49, i32 0, i32 255
   %51 = select i1 %47, i32 %48, i32 %50
   %52 = trunc i32 %51 to i8
@@ -1200,7 +1200,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %68 = add nsw i32 %67, -14234
   %69 = icmp ult i32 %68, 16384
   %70 = lshr i32 %68, 6
-  %71 = icmp ult i32 %67, 14234
+  %71 = icmp samesign ult i32 %67, 14234
   %72 = select i1 %71, i32 0, i32 255
   %73 = select i1 %69, i32 %70, i32 %72
   %74 = trunc i32 %73 to i8
@@ -1226,7 +1226,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %92 = add nsw i32 %91, -17685
   %93 = icmp ult i32 %92, 16384
   %94 = lshr i32 %92, 6
-  %95 = icmp ult i32 %91, 17685
+  %95 = icmp samesign ult i32 %91, 17685
   %96 = select i1 %95, i32 0, i32 255
   %97 = select i1 %93, i32 %94, i32 %96
   %98 = trunc i32 %97 to i8
@@ -1265,7 +1265,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %118 = add nsw i32 %117, -14234
   %119 = icmp ult i32 %118, 16384
   %120 = lshr i32 %118, 6
-  %121 = icmp ult i32 %117, 14234
+  %121 = icmp samesign ult i32 %117, 14234
   %122 = select i1 %121, i32 0, i32 255
   %123 = select i1 %119, i32 %120, i32 %122
   %124 = trunc i32 %123 to i8
@@ -1291,7 +1291,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %142 = add nsw i32 %141, -17685
   %143 = icmp ult i32 %142, 16384
   %144 = lshr i32 %142, 6
-  %145 = icmp ult i32 %141, 17685
+  %145 = icmp samesign ult i32 %141, 17685
   %146 = select i1 %145, i32 0, i32 255
   %147 = select i1 %143, i32 %144, i32 %146
   %148 = trunc i32 %147 to i8
@@ -1331,7 +1331,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %21 = add nsw i32 %20, -14234
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 14234
+  %24 = icmp samesign ult i32 %20, 14234
   %25 = select i1 %24, i32 0, i32 240
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = mul nuw nsw i32 %13, 6419
@@ -1352,7 +1352,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %42 = add nsw i32 %41, -17685
   %43 = icmp ult i32 %42, 16384
   %44 = lshr i32 %42, 6
-  %45 = icmp ult i32 %41, 17685
+  %45 = icmp samesign ult i32 %41, 17685
   %46 = select i1 %45, i32 0, i32 240
   %47 = select i1 %43, i32 %44, i32 %46
   %48 = and i32 %26, 240
@@ -1379,7 +1379,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %67 = add nsw i32 %66, -14234
   %68 = icmp ult i32 %67, 16384
   %69 = lshr i32 %67, 6
-  %70 = icmp ult i32 %66, 14234
+  %70 = icmp samesign ult i32 %66, 14234
   %71 = select i1 %70, i32 0, i32 240
   %72 = select i1 %68, i32 %69, i32 %71
   %73 = mul nuw nsw i32 %58, 6419
@@ -1400,7 +1400,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %88 = add nsw i32 %87, -17685
   %89 = icmp ult i32 %88, 16384
   %90 = lshr i32 %88, 6
-  %91 = icmp ult i32 %87, 17685
+  %91 = icmp samesign ult i32 %87, 17685
   %92 = select i1 %91, i32 0, i32 240
   %93 = select i1 %89, i32 %90, i32 %92
   %94 = and i32 %72, 240
@@ -1442,7 +1442,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %117 = add nsw i32 %116, -14234
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 14234
+  %120 = icmp samesign ult i32 %116, 14234
   %121 = select i1 %120, i32 0, i32 240
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = mul nuw nsw i32 %109, 6419
@@ -1463,7 +1463,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   %138 = add nsw i32 %137, -17685
   %139 = icmp ult i32 %138, 16384
   %140 = lshr i32 %138, 6
-  %141 = icmp ult i32 %137, 17685
+  %141 = icmp samesign ult i32 %137, 17685
   %142 = select i1 %141, i32 0, i32 240
   %143 = select i1 %139, i32 %140, i32 %142
   %144 = and i32 %122, 240
@@ -1508,7 +1508,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %21 = add nsw i32 %20, -14234
   %22 = icmp ult i32 %21, 16384
   %23 = lshr i32 %21, 6
-  %24 = icmp ult i32 %20, 14234
+  %24 = icmp samesign ult i32 %20, 14234
   %25 = select i1 %24, i32 0, i32 248
   %26 = select i1 %22, i32 %23, i32 %25
   %27 = mul nuw nsw i32 %13, 6419
@@ -1529,7 +1529,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %42 = add nsw i32 %41, -17685
   %43 = icmp ult i32 %42, 16384
   %44 = lshr i32 %42, 9
-  %45 = icmp ult i32 %41, 17685
+  %45 = icmp samesign ult i32 %41, 17685
   %46 = select i1 %45, i32 0, i32 31
   %47 = select i1 %43, i32 %44, i32 %46
   %48 = and i32 %26, 248
@@ -1559,7 +1559,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %70 = add nsw i32 %69, -14234
   %71 = icmp ult i32 %70, 16384
   %72 = lshr i32 %70, 6
-  %73 = icmp ult i32 %69, 14234
+  %73 = icmp samesign ult i32 %69, 14234
   %74 = select i1 %73, i32 0, i32 248
   %75 = select i1 %71, i32 %72, i32 %74
   %76 = mul nuw nsw i32 %61, 6419
@@ -1580,7 +1580,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %91 = add nsw i32 %90, -17685
   %92 = icmp ult i32 %91, 16384
   %93 = lshr i32 %91, 9
-  %94 = icmp ult i32 %90, 17685
+  %94 = icmp samesign ult i32 %90, 17685
   %95 = select i1 %94, i32 0, i32 31
   %96 = select i1 %92, i32 %93, i32 %95
   %97 = and i32 %75, 248
@@ -1625,7 +1625,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %123 = add nsw i32 %122, -14234
   %124 = icmp ult i32 %123, 16384
   %125 = lshr i32 %123, 6
-  %126 = icmp ult i32 %122, 14234
+  %126 = icmp samesign ult i32 %122, 14234
   %127 = select i1 %126, i32 0, i32 248
   %128 = select i1 %124, i32 %125, i32 %127
   %129 = mul nuw nsw i32 %115, 6419
@@ -1646,7 +1646,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %144 = add nsw i32 %143, -17685
   %145 = icmp ult i32 %144, 16384
   %146 = lshr i32 %144, 9
-  %147 = icmp ult i32 %143, 17685
+  %147 = icmp samesign ult i32 %143, 17685
   %148 = select i1 %147, i32 0, i32 31
   %149 = select i1 %145, i32 %146, i32 %148
   %150 = and i32 %128, 248

@@ -187,9 +187,9 @@ for.end:                                          ; preds = %for.body, %entry
   %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %c) #16
   %2 = load i32, ptr %c, align 4
   %and = and i32 %2, 2097151
-  %cmp5 = icmp ult i32 %and, 2048
-  %cmp8 = icmp ult i32 %and, 55296
-  br i1 %cmp8, label %if.end, label %cond.end21
+  %cmp5 = icmp samesign ult i32 %and, 2048
+  %or.cond37 = icmp samesign ult i32 %and, 55296
+  br i1 %or.cond37, label %if.end, label %cond.end21
 
 cond.end21:                                       ; preds = %for.end
   %3 = add nsw i32 %and, -1114112
@@ -202,7 +202,7 @@ if.then:                                          ; preds = %cond.end21
   br label %return
 
 if.end:                                           ; preds = %for.end
-  %cmp4 = icmp ult i32 %and, 128
+  %cmp4 = icmp samesign ult i32 %and, 128
   br i1 %cmp4, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.end
@@ -221,7 +221,7 @@ if.then34:                                        ; preds = %if.else
   br label %if.end65
 
 if.else38:                                        ; preds = %cond.end21
-  %cmp39 = icmp ult i32 %and, 65536
+  %cmp39 = icmp samesign ult i32 %and, 65536
   br i1 %cmp39, label %if.then40, label %if.else46
 
 if.then40:                                        ; preds = %if.else, %if.else38

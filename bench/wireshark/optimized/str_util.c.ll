@@ -339,7 +339,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   %.fr = freeze i64 %15
   %16 = icmp slt i32 %3, 1
   %spec.store.select = select i1 %16, i32 2147483647, i32 %3
-  %17 = icmp ugt i32 %spec.store.select, 1
+  %17 = icmp samesign ugt i32 %spec.store.select, 1
   br i1 %17, label %.lr.ph, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %13
@@ -1473,7 +1473,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %.6287 = phi ptr [ %150, %147 ], [ %.0281362, %.thread352 ]
   %.6 = phi i32 [ %148, %147 ], [ %.0277363, %.thread352 ]
   %invariant.op = add i32 %.0275364, -1
-  %152 = icmp ugt i32 %.1267, 1
+  %152 = icmp samesign ugt i32 %.1267, 1
   br i1 %152, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %151

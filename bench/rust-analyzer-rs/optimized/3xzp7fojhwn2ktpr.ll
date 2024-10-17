@@ -526,7 +526,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12355220772335189349.exit
   %64 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %65 = icmp ult i64 %64, 6
   call void @llvm.assume(i1 %65)
-  %switch.selectcmp42.i = icmp ugt i64 %64, 3
+  %switch.selectcmp42.i = icmp samesign ugt i64 %64, 3
   br i1 %switch.selectcmp42.i, label %66, label %62
 
 66:                                               ; preds = %63
@@ -1539,15 +1539,15 @@ _ZN4core3str11validations15next_code_point17hdeb0d89a1c8d837fE.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i"
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %76, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %78 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %78, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %80 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %80, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 
@@ -2055,7 +2055,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
   %109 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !270
   %110 = icmp ult i64 %109, 6
   call void @llvm.assume(i1 %110)
-  %switch.selectcmp108.i = icmp ugt i64 %109, 3
+  %switch.selectcmp108.i = icmp samesign ugt i64 %109, 3
   br i1 %switch.selectcmp108.i, label %111, label %107
 
 111:                                              ; preds = %108
@@ -2588,7 +2588,7 @@ define noundef ptr @_ZN10lsp_server3msg7Message6_write17h7fe8907a654e0b28E(ptr n
   %50 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !417
   %51 = icmp ult i64 %50, 6
   call void @llvm.assume(i1 %51)
-  %52 = icmp ult i64 %50, 4
+  %52 = icmp samesign ult i64 %50, 4
   br i1 %52, label %53, label %.critedge32.i
 
 53:                                               ; preds = %.noexc38, %"_ZN4core3ptr62drop_in_place$LT$lsp_server..msg..Message.._write..JsonRpc$GT$17h6797ce1bd69ea5edE.exit36"

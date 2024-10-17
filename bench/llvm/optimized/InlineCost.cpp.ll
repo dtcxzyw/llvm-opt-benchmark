@@ -11275,7 +11275,7 @@ _ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i: ; preds = %_ZNK4llvm5APInt3ugt
   %616 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %612, i1 false)
   %617 = trunc nuw nsw i64 %616 to i32
   %618 = add nuw nsw i32 %617, %615
-  %619 = icmp ugt i32 %618, 63
+  %619 = icmp samesign ugt i32 %618, 63
   br i1 %619, label %620, label %622
 
 620:                                              ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i

@@ -59063,7 +59063,7 @@ land.rhs:                                         ; preds = %_ZNSt7__cxx1112basi
 
 invoke.cont195:                                   ; preds = %land.rhs
   %207 = zext i32 %call196 to i64
-  %cmp197 = icmp ult i64 %indvars.iv, %207
+  %cmp197 = icmp samesign ult i64 %indvars.iv, %207
   br i1 %cmp197, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774, %invoke.cont195, %for.cond.preheader
@@ -64846,7 +64846,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   br i1 %cmp.i9.not.i.i.i.i.i, label %_ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !664
 
 _ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i64 %__n.016.i.i.i.i.i, 1152921504606846974
+  %cmp.i.i.i = icmp samesign ugt i64 %__n.016.i.i.i.i.i, 1152921504606846974
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
@@ -64887,7 +64887,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %__len.addr.019.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %__len.addr.019.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then7.i.i, label %while.body.i.i.i.i, !llvm.loop !666
 
 if.then7.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i
@@ -66718,7 +66718,7 @@ do.body:                                          ; preds = %invoke.cont42
   %sub.ptr.div.i.i227 = sdiv exact i64 %sub.ptr.sub.i.i226, 80
   %conv.i228 = trunc i64 %sub.ptr.div.i.i227 to i32
   %conv2.i = and i32 %conv.i228, 65535
-  %cmp.i229 = icmp ult i32 %conv2.i, 2
+  %cmp.i229 = icmp samesign ult i32 %conv2.i, 2
   br i1 %cmp.i229, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.body
@@ -66883,7 +66883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
   %add.i = add nuw nsw i32 %.us-phi, 1
   %rem.i = urem i32 %add.i, %conv2.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp50) #33
-  %cmp61.not = icmp ult i32 %rem.i, 32768
+  %cmp61.not = icmp samesign ult i32 %rem.i, 32768
   br i1 %cmp61.not, label %if.end63, label %cleanup118
 
 lpad37:                                           ; preds = %if.else, %invoke.cont40, %if.end36
@@ -67725,7 +67725,7 @@ entry:
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   %conv = trunc i64 %sub.ptr.div.i to i32
   %conv2 = and i32 %conv, 65535
-  %cmp = icmp ult i32 %conv2, 2
+  %cmp = icmp samesign ult i32 %conv2, 2
   br i1 %cmp, label %cleanup20, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
@@ -69501,13 +69501,13 @@ invoke.cont262:                                   ; preds = %if.then257
   call void @llvm.experimental.noalias.scope.decl(metadata !712)
   call void @llvm.experimental.noalias.scope.decl(metadata !715)
   %cond.i.i = call i32 @llvm.abs.i32(i32 %add264, i1 true)
-  %cmp39.i.i.i = icmp ult i32 %cond.i.i, 10
+  %cmp39.i.i.i = icmp samesign ult i32 %cond.i.i, 10
   br i1 %cmp39.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i922
 
 if.end.i.i.i922:                                  ; preds = %invoke.cont262, %if.end14.i.i.i
   %__value.addr.041.i.i.i = phi i32 [ %194, %if.end14.i.i.i ], [ %cond.i.i, %invoke.cont262 ]
   %__n.040.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %invoke.cont262 ]
-  %cmp3.i.i.i923 = icmp ult i32 %__value.addr.041.i.i.i, 100
+  %cmp3.i.i.i923 = icmp samesign ult i32 %__value.addr.041.i.i.i, 100
   br i1 %cmp3.i.i.i923, label %if.then4.i.i.i, label %if.end5.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i922
@@ -69515,7 +69515,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i922
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i922
-  %cmp6.i.i.i = icmp ult i32 %__value.addr.041.i.i.i, 1000
+  %cmp6.i.i.i = icmp samesign ult i32 %__value.addr.041.i.i.i, 1000
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end9.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
@@ -69523,7 +69523,7 @@ if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %__value.addr.041.i.i.i, 10000
+  %cmp11.i.i.i = icmp samesign ult i32 %__value.addr.041.i.i.i, 10000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
@@ -69533,7 +69533,7 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
   %194 = udiv i32 %__value.addr.041.i.i.i, 10000
   %add17.i.i.i = add i32 %__n.040.i.i.i, 4
-  %cmp.i.i.i924 = icmp ult i32 %__value.addr.041.i.i.i, 100000
+  %cmp.i.i.i924 = icmp samesign ult i32 %__value.addr.041.i.i.i, 100000
   br i1 %cmp.i.i.i924, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i922, !llvm.loop !710
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %invoke.cont262
@@ -69549,7 +69549,7 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt8__detail14__t
   %conv5.i.i = zext nneg i32 %__val.lobit.i.i to i64
   %195 = load ptr, ptr %ref.tmp258, align 8, !tbaa !4, !alias.scope !718
   %arrayidx.i.i.i925 = getelementptr inbounds i8, ptr %195, i64 %conv5.i.i
-  %cmp34.i.i.i = icmp ugt i32 %cond.i.i, 99
+  %cmp34.i.i.i = icmp samesign ugt i32 %cond.i.i, 99
   br i1 %cmp34.i.i.i, label %while.body.preheader.i.i.i, label %while.end.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %invoke.cont.i.i
@@ -69577,12 +69577,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i925, i64 %idxprom6.i.i.i
   store i8 %197, ptr %arrayidx7.i.i.i, align 1, !tbaa !149
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i17.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i17.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i17.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !711
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %cond.i.i, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -69922,7 +69922,7 @@ while.body.i.i.i1029:                             ; preds = %while.body.i.i.i102
 
 while.end.i.i.i1013:                              ; preds = %while.body.i.i.i1029, %invoke.cont.i.i1009
   %__val.addr.0.lcssa.i.i.i1014 = phi i32 [ %cond.i.i990, %invoke.cont.i.i1009 ], [ %div.i.i.i1034, %while.body.i.i.i1029 ]
-  %cmp9.i.i.i1015 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i1014, 9
+  %cmp9.i.i.i1015 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i1014, 9
   br i1 %cmp9.i.i.i1015, label %if.then.i.i.i1019, label %if.else.i.i.i1016
 
 if.then.i.i.i1019:                                ; preds = %while.end.i.i.i1013
@@ -70248,7 +70248,7 @@ while.body.i.i.i1163:                             ; preds = %while.body.i.i.i116
 
 while.end.i.i.i1147:                              ; preds = %while.body.i.i.i1163, %invoke.cont.i.i1143
   %__val.addr.0.lcssa.i.i.i1148 = phi i32 [ %cond.i.i1124, %invoke.cont.i.i1143 ], [ %div.i.i.i1168, %while.body.i.i.i1163 ]
-  %cmp9.i.i.i1149 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i1148, 9
+  %cmp9.i.i.i1149 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i1148, 9
   br i1 %cmp9.i.i.i1149, label %if.then.i.i.i1153, label %if.else.i.i.i1150
 
 if.then.i.i.i1153:                                ; preds = %while.end.i.i.i1147
@@ -70514,13 +70514,13 @@ if.then398:                                       ; preds = %land.lhs.true390
   %add403 = add nsw i32 %322, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !739)
   %cond.i1264 = call i32 @llvm.abs.i32(i32 %add403, i1 true)
-  %cmp39.i.i1265 = icmp ult i32 %cond.i1264, 10
+  %cmp39.i.i1265 = icmp samesign ult i32 %cond.i1264, 10
   br i1 %cmp39.i.i1265, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i1277, label %if.end.i.i1266
 
 if.end.i.i1266:                                   ; preds = %if.then398, %if.end14.i.i1274
   %__value.addr.041.i.i1267 = phi i32 [ %323, %if.end14.i.i1274 ], [ %cond.i1264, %if.then398 ]
   %__n.040.i.i1268 = phi i32 [ %add17.i.i1275, %if.end14.i.i1274 ], [ 1, %if.then398 ]
-  %cmp3.i.i1269 = icmp ult i32 %__value.addr.041.i.i1267, 100
+  %cmp3.i.i1269 = icmp samesign ult i32 %__value.addr.041.i.i1267, 100
   br i1 %cmp3.i.i1269, label %if.then4.i.i1325, label %if.end5.i.i1270
 
 if.then4.i.i1325:                                 ; preds = %if.end.i.i1266
@@ -70528,7 +70528,7 @@ if.then4.i.i1325:                                 ; preds = %if.end.i.i1266
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i1277
 
 if.end5.i.i1270:                                  ; preds = %if.end.i.i1266
-  %cmp6.i.i1271 = icmp ult i32 %__value.addr.041.i.i1267, 1000
+  %cmp6.i.i1271 = icmp samesign ult i32 %__value.addr.041.i.i1267, 1000
   br i1 %cmp6.i.i1271, label %if.then7.i.i1323, label %if.end9.i.i1272
 
 if.then7.i.i1323:                                 ; preds = %if.end5.i.i1270
@@ -70536,7 +70536,7 @@ if.then7.i.i1323:                                 ; preds = %if.end5.i.i1270
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i1277
 
 if.end9.i.i1272:                                  ; preds = %if.end5.i.i1270
-  %cmp11.i.i1273 = icmp ult i32 %__value.addr.041.i.i1267, 10000
+  %cmp11.i.i1273 = icmp samesign ult i32 %__value.addr.041.i.i1267, 10000
   br i1 %cmp11.i.i1273, label %if.then12.i.i1321, label %if.end14.i.i1274
 
 if.then12.i.i1321:                                ; preds = %if.end9.i.i1272
@@ -70546,7 +70546,7 @@ if.then12.i.i1321:                                ; preds = %if.end9.i.i1272
 if.end14.i.i1274:                                 ; preds = %if.end9.i.i1272
   %323 = udiv i32 %__value.addr.041.i.i1267, 10000
   %add17.i.i1275 = add i32 %__n.040.i.i1268, 4
-  %cmp.i.i1276 = icmp ult i32 %__value.addr.041.i.i1267, 100000
+  %cmp.i.i1276 = icmp samesign ult i32 %__value.addr.041.i.i1267, 100000
   br i1 %cmp.i.i1276, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i1277, label %if.end.i.i1266, !llvm.loop !710
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i1277: ; preds = %if.end14.i.i1274, %if.then12.i.i1321, %if.then7.i.i1323, %if.then4.i.i1325, %if.then398
@@ -70562,7 +70562,7 @@ invoke.cont.i1283:                                ; preds = %_ZNSt8__detail14__t
   %conv5.i1284 = zext nneg i32 %__val.lobit.i1279 to i64
   %324 = load ptr, ptr %ref.tmp399, align 8, !tbaa !4, !alias.scope !739
   %arrayidx.i.i1285 = getelementptr inbounds i8, ptr %324, i64 %conv5.i1284
-  %cmp34.i.i1286 = icmp ugt i32 %cond.i1264, 99
+  %cmp34.i.i1286 = icmp samesign ugt i32 %cond.i1264, 99
   br i1 %cmp34.i.i1286, label %while.body.preheader.i.i1301, label %while.end.i.i1287
 
 while.body.preheader.i.i1301:                     ; preds = %invoke.cont.i1283
@@ -70590,12 +70590,12 @@ while.body.i.i1303:                               ; preds = %while.body.i.i1303,
   %arrayidx7.i.i1318 = getelementptr inbounds i8, ptr %arrayidx.i.i1285, i64 %idxprom6.i.i1317
   store i8 %326, ptr %arrayidx7.i.i1318, align 1, !tbaa !149
   %sub8.i.i1319 = add i32 %__pos.035.i.i1305, -2
-  %cmp.i17.i1320 = icmp ugt i32 %__val.addr.036.i.i1304, 9999
+  %cmp.i17.i1320 = icmp samesign ugt i32 %__val.addr.036.i.i1304, 9999
   br i1 %cmp.i17.i1320, label %while.body.i.i1303, label %while.end.i.i1287, !llvm.loop !711
 
 while.end.i.i1287:                                ; preds = %while.body.i.i1303, %invoke.cont.i1283
   %__val.addr.0.lcssa.i.i1288 = phi i32 [ %cond.i1264, %invoke.cont.i1283 ], [ %div.i.i1308, %while.body.i.i1303 ]
-  %cmp9.i.i1289 = icmp ugt i32 %__val.addr.0.lcssa.i.i1288, 9
+  %cmp9.i.i1289 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i1288, 9
   br i1 %cmp9.i.i1289, label %if.then.i.i1293, label %if.else.i.i1290
 
 if.then.i.i1293:                                  ; preds = %while.end.i.i1287
@@ -73110,7 +73110,7 @@ if.end357:                                        ; preds = %sw.bb353
   %cmp359 = icmp eq i8 %button.0.ph, 0
   %cmp362 = icmp eq i8 %button.0.ph, 1
   %cmp365 = icmp eq i8 %button.0.ph, 2
-  %or.cond2365 = icmp ult i8 %button.0.ph, 3
+  %or.cond2365 = icmp samesign ult i8 %button.0.ph, 3
   br i1 %or.cond2365, label %if.then366, label %if.end368
 
 if.then366:                                       ; preds = %if.end357
@@ -73608,7 +73608,7 @@ if.then672:                                       ; preds = %if.else670
 
 if.then675:                                       ; preds = %if.then672
   %conv677 = zext i16 %266 to i32
-  %cmp678 = icmp ugt i32 %s_count.0, %conv677
+  %cmp678 = icmp samesign ugt i32 %s_count.0, %conv677
   br i1 %cmp678, label %if.then679, label %sw.epilog1227.thread
 
 if.then679:                                       ; preds = %if.then675
@@ -76614,7 +76614,7 @@ do.body1629:                                      ; preds = %if.else1626
   %sub.ptr.div.i.i3878 = sdiv exact i64 %sub.ptr.sub.i.i3877, 80
   %conv.i3879 = trunc i64 %sub.ptr.div.i.i3878 to i32
   %conv2.i = and i32 %conv.i3879, 65535
-  %cmp.i3880 = icmp ult i32 %conv2.i, 2
+  %cmp.i3880 = icmp samesign ult i32 %conv2.i, 2
   br i1 %cmp.i3880, label %if.end1853, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.body1629
@@ -76727,7 +76727,7 @@ invoke.cont1634:                                  ; preds = %_ZSteqIcEN9__gnu_cx
   %indvars239.le = trunc i64 %indvars.iv4628 to i32
   %add.i = add nuw nsw i32 %indvars239.le, 1
   %rem.i = urem i32 %add.i, %conv2.i
-  %cmp1637.not = icmp ult i32 %rem.i, 32768
+  %cmp1637.not = icmp samesign ult i32 %rem.i, 32768
   br i1 %cmp1637.not, label %if.end1639, label %if.end1853
 
 if.end1639:                                       ; preds = %invoke.cont1634
@@ -79661,7 +79661,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %Text, align 8, !tbaa !204
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -79797,7 +79797,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %ToolTipText, align 8, !tbaa !204
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -80113,7 +80113,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %3 = icmp ult i64 %conv.i, 4
+  %3 = icmp samesign ult i64 %conv.i, 4
   br i1 %3, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

@@ -183,7 +183,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %40, label %.critedge196, label %41
 
 41:                                               ; preds = %1
-  %42 = icmp ult i64 %39, 5
+  %42 = icmp samesign ult i64 %39, 5
   tail call void @llvm.assume(i1 %42)
   %43 = icmp eq i64 %39, 0
   br i1 %43, label %44, label %.critedge196
@@ -232,7 +232,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %63 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %64 = icmp ult i64 %63, 6
   tail call void @llvm.assume(i1 %64)
-  %65 = icmp ult i64 %63, 5
+  %65 = icmp samesign ult i64 %63, 5
   br i1 %65, label %97, label %.critedge198
 
 .critedge198:                                     ; preds = %62
@@ -369,7 +369,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %108 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !16
   %109 = icmp ult i64 %108, 6
   call void @llvm.assume(i1 %109)
-  %110 = icmp ult i64 %108, 5
+  %110 = icmp samesign ult i64 %108, 5
   br i1 %110, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$17h84c61348851d0aa9E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %107
@@ -491,7 +491,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit230
   %159 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %160 = icmp ult i64 %159, 6
   call void @llvm.assume(i1 %160)
-  %161 = icmp ult i64 %159, 5
+  %161 = icmp samesign ult i64 %159, 5
   br i1 %161, label %193, label %.critedge204
 
 .critedge204:                                     ; preds = %158
@@ -625,7 +625,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit230
   %202 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !22
   %203 = icmp ult i64 %202, 6
   call void @llvm.assume(i1 %203)
-  %204 = icmp ult i64 %202, 5
+  %204 = icmp samesign ult i64 %202, 5
   br i1 %204, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$17h898f70b5230f4ca3E.exit", label %.critedge9.i245
 
 .critedge9.i245:                                  ; preds = %201
@@ -714,7 +714,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit247
   %240 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %241 = icmp ult i64 %240, 6
   call void @llvm.assume(i1 %241)
-  %242 = icmp ult i64 %240, 5
+  %242 = icmp samesign ult i64 %240, 5
   br i1 %242, label %193, label %.critedge210
 
 .critedge210:                                     ; preds = %239
@@ -845,7 +845,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit247
   %282 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !25
   %283 = icmp ult i64 %282, 6
   call void @llvm.assume(i1 %283)
-  %284 = icmp ult i64 %282, 5
+  %284 = icmp samesign ult i64 %282, 5
   br i1 %284, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$17h44e0f3175b8edaeeE.exit", label %.critedge9.i262
 
 .critedge9.i262:                                  ; preds = %281
@@ -936,9 +936,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %.critedge57, label %16
 
 16:                                               ; preds = %1
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge57
 
 19:                                               ; preds = %16
@@ -985,7 +985,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 4
+  %40 = icmp samesign ult i64 %38, 4
   br i1 %40, label %72, label %.critedge59
 
 .critedge59:                                      ; preds = %37
@@ -1121,7 +1121,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !32
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ult i64 %82, 4
+  %84 = icmp samesign ult i64 %82, 4
   br i1 %84, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$20enter_transmit_phase28_$u7b$$u7b$closure$u7d$$u7d$17h65c6ad05e49a0af8E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %81
@@ -1183,9 +1183,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %.critedge57, label %16
 
 16:                                               ; preds = %1
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge57
 
 19:                                               ; preds = %16
@@ -1232,7 +1232,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 4
+  %40 = icmp samesign ult i64 %38, 4
   br i1 %40, label %72, label %.critedge59
 
 .critedge59:                                      ; preds = %37
@@ -1368,7 +1368,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !35
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ult i64 %82, 4
+  %84 = icmp samesign ult i64 %82, 4
   br i1 %84, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$25enter_serialization_phase28_$u7b$$u7b$closure$u7d$$u7d$17h52de758cb2e02ceeE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %81
@@ -1431,9 +1431,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %16, label %.critedge66, label %17
 
 17:                                               ; preds = %1
-  %18 = icmp ult i64 %15, 5
+  %18 = icmp samesign ult i64 %15, 5
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %15, 2
+  %19 = icmp samesign ult i64 %15, 2
   br i1 %19, label %20, label %.critedge66
 
 20:                                               ; preds = %17
@@ -1480,7 +1480,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %39 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %40 = icmp ult i64 %39, 6
   tail call void @llvm.assume(i1 %40)
-  %41 = icmp ult i64 %39, 4
+  %41 = icmp samesign ult i64 %39, 4
   br i1 %41, label %73, label %.critedge68
 
 .critedge68:                                      ; preds = %38
@@ -1617,7 +1617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %84 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !38
   %85 = icmp ult i64 %84, 6
   call void @llvm.assume(i1 %85)
-  %86 = icmp ult i64 %84, 4
+  %86 = icmp samesign ult i64 %84, 4
   br i1 %86, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_before_transmit_phase28_$u7b$$u7b$closure$u7d$$u7d$17hc85a027b21abdf15E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %83
@@ -1707,9 +1707,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %.critedge57, label %16
 
 16:                                               ; preds = %1
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge57
 
 19:                                               ; preds = %16
@@ -1756,7 +1756,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 4
+  %40 = icmp samesign ult i64 %38, 4
   br i1 %40, label %72, label %.critedge59
 
 .critedge59:                                      ; preds = %37
@@ -1892,7 +1892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !44
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ult i64 %82, 4
+  %84 = icmp samesign ult i64 %82, 4
   br i1 %84, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_deserialization_phase28_$u7b$$u7b$closure$u7d$$u7d$17h36cf67c447754f6cE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %81
@@ -1954,9 +1954,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %.critedge57, label %16
 
 16:                                               ; preds = %1
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge57
 
 19:                                               ; preds = %16
@@ -2003,7 +2003,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 4
+  %40 = icmp samesign ult i64 %38, 4
   br i1 %40, label %72, label %.critedge59
 
 .critedge59:                                      ; preds = %37
@@ -2139,7 +2139,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !47
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ult i64 %82, 4
+  %84 = icmp samesign ult i64 %82, 4
   br i1 %84, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$33enter_after_deserialization_phase28_$u7b$$u7b$closure$u7d$$u7d$17ha2c627d51618a3e5E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %81
@@ -2201,9 +2201,9 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %15, label %.critedge61, label %16
 
 16:                                               ; preds = %1
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge61
 
 19:                                               ; preds = %16
@@ -2250,7 +2250,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %39 = icmp ult i64 %38, 6
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 4
+  %40 = icmp samesign ult i64 %38, 4
   br i1 %40, label %72, label %.critedge63
 
 .critedge63:                                      ; preds = %37
@@ -2386,7 +2386,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %82 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !50
   %83 = icmp ult i64 %82, 6
   call void @llvm.assume(i1 %83)
-  %84 = icmp ult i64 %82, 4
+  %84 = icmp samesign ult i64 %82, 4
   br i1 %84, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$34enter_before_deserialization_phase28_$u7b$$u7b$closure$u7d$$u7d$17h0f8f809edec6acfcE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %81
@@ -2463,7 +2463,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   %32 = alloca { { { ptr, i64 }, ptr } }, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 896
   %34 = load i16, ptr %33, align 8, !range !28, !noundef !5
-  %spec.select.i = icmp ult i16 %34, 11
+  %spec.select.i = icmp samesign ult i16 %34, 11
   br i1 %spec.select.i, label %102, label %35
 
 35:                                               ; preds = %2
@@ -2472,7 +2472,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %37, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread250, label %38
 
 38:                                               ; preds = %35
-  %39 = icmp ult i64 %36, 5
+  %39 = icmp samesign ult i64 %36, 5
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i64 %36, 0
   br i1 %40, label %41, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread250
@@ -2527,7 +2527,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %62 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %63 = icmp ult i64 %62, 6
   tail call void @llvm.assume(i1 %63)
-  %switch.selectcmp139 = icmp ugt i64 %62, 4
+  %switch.selectcmp139 = icmp samesign ugt i64 %62, 4
   br i1 %switch.selectcmp139, label %64, label %102
 
 64:                                               ; preds = %61
@@ -2692,7 +2692,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %114 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !65
   %115 = icmp ult i64 %114, 6
   call void @llvm.assume(i1 %115)
-  %116 = icmp ult i64 %114, 5
+  %116 = icmp samesign ult i64 %114, 5
   br i1 %116, label %"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail28_$u7b$$u7b$closure$u7d$$u7d$17h79977d58b8a5b79aE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %113
@@ -2768,7 +2768,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not129, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit170.thread256, label %138
 
 138:                                              ; preds = %136
-  %139 = icmp ult i64 %137, 5
+  %139 = icmp samesign ult i64 %137, 5
   call void @llvm.assume(i1 %139)
   %140 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail10__CALLSITE17h86722be0cff0413fE", i64 16) monotonic, align 8
   switch i8 %140, label %141 [
@@ -3373,7 +3373,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
 define hidden noundef zeroext i1 @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$9is_failed17h7b91a01648833b39E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   %3 = load i16, ptr %2, align 8, !range !28, !noundef !5
-  %spec.select = icmp ult i16 %3, 11
+  %spec.select = icmp samesign ult i16 %3, 11
   ret i1 %spec.select
 }
 

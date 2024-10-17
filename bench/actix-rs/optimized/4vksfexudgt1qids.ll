@@ -1414,7 +1414,7 @@ common.resume:                                    ; preds = %528, %.thread.i.i.i
           to label %508 unwind label %303, !noalias !123
 
 223:                                              ; preds = %219
-  %224 = icmp ult i64 %220, 5
+  %224 = icmp samesign ult i64 %220, 5
   call void @llvm.assume(i1 %224)
   %225 = icmp eq i64 %220, 0
   br i1 %225, label %226, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread99.i.i.i.i
@@ -1469,7 +1469,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %247 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !122
   %248 = icmp ult i64 %247, 6
   call void @llvm.assume(i1 %248)
-  %switch.selectcmp64.i.i.i.i = icmp ugt i64 %247, 4
+  %switch.selectcmp64.i.i.i.i = icmp samesign ugt i64 %247, 4
   br i1 %switch.selectcmp64.i.i.i.i, label %249, label %357
 
 249:                                              ; preds = %246
@@ -1615,7 +1615,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %287 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !137
   %288 = icmp ult i64 %287, 6
   call void @llvm.assume(i1 %288)
-  %289 = icmp ult i64 %287, 5
+  %289 = icmp samesign ult i64 %287, 5
   br i1 %289, label %"_ZN99_$LT$actix_tls..connect..resolver..ResolverFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he939512c14651db8E.exit.i.i.i.i", label %.critedge9.i.i.i.i.i
 
 .critedge9.i.i.i.i.i:                             ; preds = %286
@@ -1696,7 +1696,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 %.sroa.5153.sroa.5.0.copyload.i.i, ptr %21, align 8, !alias.scope !147, !noalias !152
   store ptr %.sroa.0152.0.copyload.i.i, ptr %76, align 8, !alias.scope !147, !noalias !152
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %.sroa.7.sroa.5.i.i.i)
-  %315 = icmp ult i64 %314, 2
+  %315 = icmp samesign ult i64 %314, 2
   br i1 %315, label %317, label %316
 
 316:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h280ec58ea6554c49E.exit.i.i"
@@ -1713,7 +1713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.0.0.i.i.i = phi i32 [ 2, %316 ], [ 1, %338 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.i.i.i" ], [ 0, %317 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %319 = load i32, ptr %59, align 8, !range !57, !alias.scope !161, !noalias !162, !noundef !20
-  %switch.i.i.i.i = icmp ult i32 %319, 2
+  %switch.i.i.i.i = icmp samesign ult i32 %319, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr68drop_in_place$LT$actix_tls..connect..connect_addrs..ConnectAddrs$GT$17ha872244fc3fec249E.llvm.11658830040512789610.exit.i.i.i", label %320
 
 320:                                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.thread.i.i.i"
@@ -1890,7 +1890,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %360, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread239.i.i, label %361
 
 361:                                              ; preds = %358
-  %362 = icmp ult i64 %359, 5
+  %362 = icmp samesign ult i64 %359, 5
   call void @llvm.assume(i1 %362)
   %363 = icmp eq i64 %359, 0
   br i1 %363, label %364, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread239.i.i
@@ -1945,7 +1945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %385 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !99
   %386 = icmp ult i64 %385, 6
   call void @llvm.assume(i1 %386)
-  %switch.selectcmp125.i.i = icmp ugt i64 %385, 4
+  %switch.selectcmp125.i.i = icmp samesign ugt i64 %385, 4
   br i1 %switch.selectcmp125.i.i, label %387, label %448
 
 387:                                              ; preds = %384
@@ -2246,7 +2246,7 @@ default.unreachable:                              ; preds = %452, %413
   %475 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !247
   %476 = icmp ult i64 %475, 6
   call void @llvm.assume(i1 %476), !noalias !99
-  %477 = icmp ult i64 %475, 5
+  %477 = icmp samesign ult i64 %475, 5
   br i1 %477, label %"_ZN99_$LT$actix_tls..connect..resolver..ResolverFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h4186ac53c1b01debE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %474
@@ -2863,7 +2863,7 @@ define hidden void @"_ZN142_$LT$actix_tls..connect..resolver..ResolverService$u2
   br i1 %53, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread127, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp ult i64 %52, 5
+  %55 = icmp samesign ult i64 %52, 5
   tail call void @llvm.assume(i1 %55)
   %56 = icmp eq i64 %52, 0
   br i1 %56, label %57, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread127
@@ -2918,7 +2918,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %78 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %79 = icmp ult i64 %78, 6
   tail call void @llvm.assume(i1 %79)
-  %switch.selectcmp77 = icmp ugt i64 %78, 4
+  %switch.selectcmp77 = icmp samesign ugt i64 %78, 4
   br i1 %switch.selectcmp77, label %80, label %120
 
 80:                                               ; preds = %77
@@ -3480,7 +3480,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr86drop
   %.sroa.0.0.i = phi i32 [ 2, %83 ], [ 1, %106 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.i" ], [ 0, %84 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %86 = load i32, ptr %9, align 8, !range !57, !alias.scope !437, !noalias !438, !noundef !20
-  %switch.i.i = icmp ult i32 %86, 2
+  %switch.i.i = icmp samesign ult i32 %86, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr68drop_in_place$LT$actix_tls..connect..connect_addrs..ConnectAddrs$GT$17ha872244fc3fec249E.llvm.11658830040512789610.exit.i", label %87
 
 87:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.thread.i"
@@ -3775,7 +3775,7 @@ define internal fastcc void @"_ZN142_$LT$actix_tls..connect..resolver..ResolverS
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 5
+  %10 = icmp samesign ult i64 %8, 5
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -5030,7 +5030,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$actix_tls..connect..connect_
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load i32, ptr %0, align 8, !range !57, !noundef !20
-  %switch = icmp ult i32 %4, 2
+  %switch = icmp samesign ult i32 %4, 2
   br i1 %switch, label %21, label %5
 
 5:                                                ; preds = %1
@@ -5239,7 +5239,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8ef6a5fe0a1191d
   br i1 %34, label %67, label %35
 
 35:                                               ; preds = %28
-  %36 = icmp ugt i64 %31, 1
+  %36 = icmp samesign ugt i64 %31, 1
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %35
@@ -5247,7 +5247,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8ef6a5fe0a1191d
   br i1 %38, label %41, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
 
 39:                                               ; preds = %35
-  %40 = icmp ugt i64 %31, 3
+  %40 = icmp samesign ugt i64 %31, 3
   br i1 %40, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i.i"
 
 41:                                               ; preds = %37
@@ -5542,7 +5542,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i64 [ %0, %2 ], [ %6, %.lr.ph ]
-  %4 = icmp ugt i64 %.1.lcssa, 99
+  %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -5586,7 +5586,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 29:                                               ; preds = %._crit_edge, %20
   %.129 = phi i64 [ %25, %20 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext35, %20 ], [ %.1.lcssa, %._crit_edge ]
-  %30 = icmp ult i64 %.027, 10
+  %30 = icmp samesign ult i64 %.027, 10
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -5625,7 +5625,7 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.028.lcssa.i = phi i64 [ 20, %2 ], [ %13, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %1, %2 ], [ %6, %.lr.ph.i ]
-  %4 = icmp ugt i64 %.1.lcssa.i, 99
+  %4 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %4, label %20, label %29
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
@@ -5669,7 +5669,7 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
 29:                                               ; preds = %20, %._crit_edge.i
   %.129.i = phi i64 [ %25, %20 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext35.i, %20 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %30 = icmp ult i64 %.027.i, 10
+  %30 = icmp samesign ult i64 %.027.i, 10
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -7984,7 +7984,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %11, label %49, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i64 %6, 1
+  %13 = icmp samesign ugt i64 %6, 1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -7992,7 +7992,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   br i1 %15, label %18, label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %6, 3
+  %17 = icmp samesign ugt i64 %6, 3
   br i1 %17, label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i", label %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i"
 
 18:                                               ; preds = %14
@@ -8635,7 +8635,7 @@ define hidden void @"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$8set_addr17
   %.sroa.0.0 = phi i32 [ 1, %7 ], [ 0, %3 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1010)
   %9 = load i32, ptr %1, align 8, !range !57, !alias.scope !1010, !noundef !20
-  %switch.i = icmp ult i32 %9, 2
+  %switch.i = icmp samesign ult i32 %9, 2
   br i1 %switch.i, label %"_ZN4core3ptr68drop_in_place$LT$actix_tls..connect..connect_addrs..ConnectAddrs$GT$17ha872244fc3fec249E.llvm.11658830040512789610.exit", label %10
 
 10:                                               ; preds = %8

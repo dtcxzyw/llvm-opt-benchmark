@@ -1477,7 +1477,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 127
-  %8 = icmp ult i32 %7, 28
+  %8 = icmp samesign ult i32 %7, 28
   br i1 %8, label %switch.lookup, label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
 9:                                                ; preds = %2
@@ -1490,7 +1490,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11
 13:                                               ; preds = %9
   %14 = trunc i64 %11 to i32
   %15 = and i32 %14, 127
-  %16 = icmp ult i32 %15, 31
+  %16 = icmp samesign ult i32 %15, 31
   br i1 %16, label %switch.lookup16, label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
 17:                                               ; preds = %2
@@ -1503,7 +1503,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11
 21:                                               ; preds = %17
   %22 = trunc i64 %19 to i32
   %23 = and i32 %22, 127
-  %24 = icmp ult i32 %23, 28
+  %24 = icmp samesign ult i32 %23, 28
   br i1 %24, label %switch.lookup21, label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
 25:                                               ; preds = %2
@@ -1516,7 +1516,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11
 29:                                               ; preds = %25
   %30 = trunc i64 %27 to i32
   %31 = and i32 %30, 127
-  %32 = icmp ult i32 %31, 28
+  %32 = icmp samesign ult i32 %31, 28
   br i1 %32, label %switch.lookup26, label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
 33:                                               ; preds = %2
@@ -1529,7 +1529,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11
 37:                                               ; preds = %33
   %38 = trunc i64 %35 to i32
   %39 = and i32 %38, 127
-  %40 = icmp ult i32 %39, 31
+  %40 = icmp samesign ult i32 %39, 31
   br i1 %40, label %switch.lookup31, label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
 switch.lookup:                                    ; preds = %3
@@ -4917,7 +4917,7 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
   %47 = load i64, ptr %46, align 8
   %48 = icmp ne i64 %47, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = icmp ugt i64 %indvars.iv, 4
+  %49 = icmp samesign ugt i64 %indvars.iv, 4
   %.not108 = or i1 %49, %48
   br i1 %.not108, label %._crit_edge, label %42, !llvm.loop !22
 
@@ -7079,7 +7079,7 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
   %43 = load i64, ptr %42, align 8
   %44 = icmp ne i64 %43, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = icmp ugt i64 %indvars.iv, 4
+  %45 = icmp samesign ugt i64 %indvars.iv, 4
   %.not111 = or i1 %45, %44
   br i1 %.not111, label %._crit_edge, label %38, !llvm.loop !93
 
@@ -20905,7 +20905,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -25224,7 +25224,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -25263,7 +25263,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_SL_SL_SL_T0_.exit.i", label %235
 
@@ -25300,7 +25300,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_SL_SL_SL_T0_.exit.i"
@@ -25338,7 +25338,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_SL_SL_SL_T0_.exit.i", label %299
 
@@ -25375,7 +25375,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_SL_SL_SL_T0_.exit.i"
@@ -25426,7 +25426,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !482
@@ -25468,7 +25468,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !483
 
@@ -25542,7 +25542,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -25859,7 +25859,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -26384,7 +26384,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -26640,7 +26640,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 
@@ -27401,7 +27401,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -27440,7 +27440,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_SL_SL_SL_T0_.exit.i", label %235
 
@@ -27477,7 +27477,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_SL_SL_SL_T0_.exit.i"
@@ -27515,7 +27515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_SL_SL_SL_T0_.exit.i", label %299
 
@@ -27552,7 +27552,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_SL_SL_SL_T0_.exit.i"
@@ -27603,7 +27603,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !564
@@ -27645,7 +27645,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !565
 
@@ -27719,7 +27719,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -28036,7 +28036,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -28309,7 +28309,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -28565,7 +28565,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 
@@ -29204,7 +29204,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -29243,7 +29243,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_SL_SL_SL_T0_.exit.i", label %235
 
@@ -29280,7 +29280,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_SL_SL_SL_T0_.exit.i"
@@ -29318,7 +29318,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_SL_SL_SL_T0_.exit.i", label %299
 
@@ -29355,7 +29355,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_SL_SL_SL_T0_.exit.i"
@@ -29406,7 +29406,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !636
@@ -29448,7 +29448,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !637
 
@@ -29522,7 +29522,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -29839,7 +29839,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -30112,7 +30112,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -30368,7 +30368,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 
@@ -31245,7 +31245,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -31284,7 +31284,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_SI_SI_SI_T0_.exit.i", label %235
 
@@ -31321,7 +31321,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_SI_SI_SI_T0_.exit.i"
@@ -31359,7 +31359,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_SI_SI_SI_T0_.exit.i", label %299
 
@@ -31396,7 +31396,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_SI_SI_SI_T0_.exit.i"
@@ -31447,7 +31447,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !735
@@ -31489,7 +31489,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !736
 
@@ -31563,7 +31563,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -31880,7 +31880,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -32153,7 +32153,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -32409,7 +32409,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 
@@ -33048,7 +33048,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -33087,7 +33087,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_SI_SI_SI_T0_.exit.i", label %235
 
@@ -33124,7 +33124,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_SI_SI_SI_T0_.exit.i"
@@ -33162,7 +33162,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_SI_SI_SI_T0_.exit.i", label %299
 
@@ -33199,7 +33199,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_SI_SI_SI_T0_.exit.i"
@@ -33250,7 +33250,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !807
@@ -33292,7 +33292,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !808
 
@@ -33366,7 +33366,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -33683,7 +33683,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -33956,7 +33956,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -34212,7 +34212,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 
@@ -34858,7 +34858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i.i.i, label %205, label %203
 
 203:                                              ; preds = %165
-  %204 = icmp ugt i8 %199, %202
+  %204 = icmp samesign ugt i8 %199, %202
   br i1 %204, label %211, label %293
 
 205:                                              ; preds = %165
@@ -34866,7 +34866,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i", label %206
 
 206:                                              ; preds = %205
-  %207 = icmp ugt i32 %189, %197
+  %207 = icmp samesign ugt i32 %189, %197
   br i1 %207, label %211, label %293
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i": ; preds = %205
@@ -34915,7 +34915,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i28.i.i, label %247, label %245
 
 245:                                              ; preds = %211
-  %246 = icmp ugt i8 %241, %244
+  %246 = icmp samesign ugt i8 %241, %244
   br i1 %246, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %253
 
 247:                                              ; preds = %211
@@ -34923,7 +34923,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit31.i.i", label %248
 
 248:                                              ; preds = %247
-  %249 = icmp ugt i32 %231, %239
+  %249 = icmp samesign ugt i32 %231, %239
   br i1 %249, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %253
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit31.i.i": ; preds = %247
@@ -34969,7 +34969,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i34.i.i, label %286, label %284
 
 284:                                              ; preds = %253
-  %285 = icmp ugt i8 %281, %283
+  %285 = icmp samesign ugt i8 %281, %283
   br i1 %285, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %292
 
 286:                                              ; preds = %253
@@ -34977,7 +34977,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit37.i.i", label %287
 
 287:                                              ; preds = %286
-  %288 = icmp ugt i32 %271, %279
+  %288 = icmp samesign ugt i32 %271, %279
   br i1 %288, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %292
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit37.i.i": ; preds = %286
@@ -35029,7 +35029,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i40.i.i, label %329, label %327
 
 327:                                              ; preds = %293
-  %328 = icmp ugt i8 %323, %326
+  %328 = icmp samesign ugt i8 %323, %326
   br i1 %328, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %335
 
 329:                                              ; preds = %293
@@ -35037,7 +35037,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit43.i.i", label %330
 
 330:                                              ; preds = %329
-  %331 = icmp ugt i32 %313, %321
+  %331 = icmp samesign ugt i32 %313, %321
   br i1 %331, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %335
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit43.i.i": ; preds = %329
@@ -35083,7 +35083,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i46.i.i, label %368, label %366
 
 366:                                              ; preds = %335
-  %367 = icmp ugt i8 %363, %365
+  %367 = icmp samesign ugt i8 %363, %365
   br i1 %367, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %374
 
 368:                                              ; preds = %335
@@ -35091,7 +35091,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i48.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit49.i.i", label %369
 
 369:                                              ; preds = %368
-  %370 = icmp ugt i32 %353, %361
+  %370 = icmp samesign ugt i32 %353, %361
   br i1 %370, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_SI_SI_SI_T0_.exit.i", label %374
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit49.i.i": ; preds = %368
@@ -35154,7 +35154,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i.i15.i, label %412, label %410
 
 410:                                              ; preds = %376
-  %411 = icmp ugt i8 %407, %409
+  %411 = icmp samesign ugt i8 %407, %409
   br i1 %411, label %418, label %.preheader
 
 .preheader:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i17.i", %413, %410
@@ -35165,7 +35165,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i.i16.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i17.i", label %413
 
 413:                                              ; preds = %412
-  %414 = icmp ugt i32 %396, %404
+  %414 = icmp samesign ugt i32 %396, %404
   br i1 %414, label %418, label %.preheader
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i17.i": ; preds = %412
@@ -35220,7 +35220,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not.i.i.i10.i.i, label %456, label %454
 
 454:                                              ; preds = %420
-  %455 = icmp ugt i8 %450, %453
+  %455 = icmp samesign ugt i8 %450, %453
   br i1 %455, label %.backedge, label %462
 
 456:                                              ; preds = %420
@@ -35228,7 +35228,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %.not20.i.i.i12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit13.i.i", label %457
 
 457:                                              ; preds = %456
-  %458 = icmp ugt i32 %440, %448
+  %458 = icmp samesign ugt i32 %440, %448
   br i1 %458, label %.backedge, label %462
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit13.i.i": ; preds = %456
@@ -35317,7 +35317,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %.not.i.i.i, label %52, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = icmp ugt i8 %46, %49
+  %51 = icmp samesign ugt i8 %46, %49
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
 
 52:                                               ; preds = %.lr.ph
@@ -35325,7 +35325,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %.not20.i.i.i, label %55, label %53
 
 53:                                               ; preds = %52
-  %54 = icmp ugt i32 %35, %43
+  %54 = icmp samesign ugt i32 %35, %43
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
 
 55:                                               ; preds = %52
@@ -35657,7 +35657,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   br i1 %.not.i.i.i.i38, label %216, label %214
 
 214:                                              ; preds = %179
-  %215 = icmp ugt i8 %211, %213
+  %215 = icmp samesign ugt i8 %211, %213
   br i1 %215, label %222, label %.critedge.i
 
 216:                                              ; preds = %179
@@ -35665,7 +35665,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   br i1 %.not20.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i", label %217
 
 217:                                              ; preds = %216
-  %218 = icmp ugt i32 %200, %208
+  %218 = icmp samesign ugt i32 %200, %208
   br i1 %218, label %222, label %.critedge.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i": ; preds = %216
@@ -35949,7 +35949,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not.i.i.i, label %51, label %49
 
 49:                                               ; preds = %15
-  %50 = icmp ugt i8 %46, %48
+  %50 = icmp samesign ugt i8 %46, %48
   br i1 %50, label %57, label %111
 
 51:                                               ; preds = %15
@@ -35957,7 +35957,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not20.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit", label %52
 
 52:                                               ; preds = %51
-  %53 = icmp ugt i32 %35, %43
+  %53 = icmp samesign ugt i32 %35, %43
   br i1 %53, label %57, label %111
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS_17__normal_iteratorIPNS2_12TVarLivePairESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit": ; preds = %51
@@ -36224,7 +36224,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   br i1 %.not.i.i.i, label %63, label %61
 
 61:                                               ; preds = %27
-  %62 = icmp ugt i8 %57, %60
+  %62 = icmp samesign ugt i8 %57, %60
   br i1 %62, label %69, label %108
 
 63:                                               ; preds = %27
@@ -36232,7 +36232,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   br i1 %.not20.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS2_12TVarLivePairENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit", label %64
 
 64:                                               ; preds = %63
-  %65 = icmp ugt i32 %47, %55
+  %65 = icmp samesign ugt i32 %47, %55
   br i1 %65, label %69, label %108
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7glslang13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EclINS2_12TVarLivePairENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit": ; preds = %63
@@ -36876,7 +36876,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %197 = load i64, ptr %13, align 8
   %198 = load i64, ptr %168, align 8
   %199 = icmp slt i64 %197, %198
-  %200 = icmp ugt i32 %187, %195
+  %200 = icmp samesign ugt i32 %187, %195
   %.0.i.i.i.i.i = select i1 %196, i1 %199, i1 %200
   %201 = getelementptr inbounds i8, ptr %storemerge26, i64 -48
   %202 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
@@ -36915,7 +36915,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %231 = load i64, ptr %168, align 8
   %232 = load i64, ptr %201, align 8
   %233 = icmp slt i64 %231, %232
-  %234 = icmp ugt i32 %221, %229
+  %234 = icmp samesign ugt i32 %221, %229
   %.0.i.i.i28.i.i = select i1 %230, i1 %233, i1 %234
   br i1 %.0.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_SI_SI_SI_T0_.exit.i", label %235
 
@@ -36952,7 +36952,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %263 = load i64, ptr %13, align 8
   %264 = load i64, ptr %201, align 8
   %265 = icmp slt i64 %263, %264
-  %266 = icmp ugt i32 %253, %261
+  %266 = icmp samesign ugt i32 %253, %261
   %.0.i.i.i31.i.i = select i1 %262, i1 %265, i1 %266
   %..i.i = select i1 %.0.i.i.i31.i.i, ptr %167, ptr %12
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_SI_SI_SI_T0_.exit.i"
@@ -36990,7 +36990,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %295 = load i64, ptr %13, align 8
   %296 = load i64, ptr %201, align 8
   %297 = icmp slt i64 %295, %296
-  %298 = icmp ugt i32 %285, %293
+  %298 = icmp samesign ugt i32 %285, %293
   %.0.i.i.i34.i.i = select i1 %294, i1 %297, i1 %298
   br i1 %.0.i.i.i34.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_SI_SI_SI_T0_.exit.i", label %299
 
@@ -37027,7 +37027,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %327 = load i64, ptr %168, align 8
   %328 = load i64, ptr %201, align 8
   %329 = icmp slt i64 %327, %328
-  %330 = icmp ugt i32 %317, %325
+  %330 = icmp samesign ugt i32 %317, %325
   %.0.i.i.i37.i.i = select i1 %326, i1 %329, i1 %330
   %.38.i.i = select i1 %.0.i.i.i37.i.i, ptr %167, ptr %166
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_SI_SI_SI_T0_.exit.i"
@@ -37078,7 +37078,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %362 = load i64, ptr %333, align 8
   %363 = load i64, ptr %15, align 8
   %364 = icmp slt i64 %362, %363
-  %365 = icmp ugt i32 %352, %360
+  %365 = icmp samesign ugt i32 %352, %360
   %.0.i.i.i.i15.i = select i1 %361, i1 %364, i1 %365
   %366 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i, i64 88
   br i1 %.0.i.i.i.i15.i, label %332, label %.preheader.i.i, !llvm.loop !951
@@ -37120,7 +37120,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %396 = load i64, ptr %15, align 8
   %397 = load i64, ptr %367, align 8
   %398 = icmp slt i64 %396, %397
-  %399 = icmp ugt i32 %386, %394
+  %399 = icmp samesign ugt i32 %386, %394
   %.0.i.i.i10.i.i = select i1 %395, i1 %398, i1 %399
   br i1 %.0.i.i.i10.i.i, label %.preheader.i.i, label %400, !llvm.loop !952
 
@@ -37194,7 +37194,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %45 = load i64, ptr %14, align 8
   %46 = load i64, ptr %15, align 8
   %47 = icmp slt i64 %45, %46
-  %48 = icmp ugt i32 %35, %43
+  %48 = icmp samesign ugt i32 %35, %43
   %.0.i.i.i = select i1 %44, i1 %47, i1 %48
   %spec.select = select i1 %.0.i.i.i, i64 %12, i64 %10
   %49 = getelementptr inbounds %"struct.glslang::TVarLivePair", ptr %0, i64 %spec.select
@@ -37511,7 +37511,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %199 = load i64, ptr %170, align 8
   %200 = load i64, ptr %164, align 8
   %201 = icmp slt i64 %199, %200
-  %202 = icmp ugt i32 %189, %197
+  %202 = icmp samesign ugt i32 %189, %197
   %.0.i.i.i.i39 = select i1 %198, i1 %201, i1 %202
   br i1 %.0.i.i.i.i39, label %203, label %.critedge.i
 
@@ -37784,7 +37784,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %44 = load i64, ptr %15, align 8
   %45 = load i64, ptr %5, align 8
   %46 = icmp slt i64 %44, %45
-  %47 = icmp ugt i32 %34, %42
+  %47 = icmp samesign ugt i32 %34, %42
   %.0.i.i.i = select i1 %43, i1 %46, i1 %47
   br i1 %.0.i.i.i, label %48, label %102
 
@@ -38040,7 +38040,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit:           ; preds = %._crit_edge.i.i.i.i
   %56 = load i64, ptr %23, align 8
   %57 = load i64, ptr %27, align 8
   %58 = icmp slt i64 %56, %57
-  %59 = icmp ugt i32 %46, %54
+  %59 = icmp samesign ugt i32 %46, %54
   %.0.i.i.i = select i1 %55, i1 %58, i1 %59
   br i1 %.0.i.i.i, label %60, label %99
 

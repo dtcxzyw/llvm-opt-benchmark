@@ -2166,7 +2166,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBound
   store float %25, ptr %23, align 4
   store float 0.000000e+00, ptr %16, align 4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 4
-  %26 = icmp ult i64 %indvars.iv68, 12
+  %26 = icmp samesign ult i64 %indvars.iv68, 12
   br i1 %26, label %.preheader59, label %.loopexit60, !llvm.loop !23
 
 .loopexit60:                                      ; preds = %.preheader59, %.loopexit62
@@ -2215,7 +2215,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBound
   store float %49, ptr %47, align 4
   store float 0.000000e+00, ptr %40, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 4
-  %50 = icmp ult i64 %indvars.iv75, 12
+  %50 = icmp samesign ult i64 %indvars.iv75, 12
   br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit58
@@ -2245,7 +2245,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTri
   %.not = icmp eq i32 %11, 0
   %12 = and i32 %0, 2
   %.not182 = icmp eq i32 %12, 0
-  %.not183 = icmp ult i32 %5, 4
+  %.not183 = icmp samesign ult i32 %5, 4
   br i1 %.not, label %51, label %13
 
 13:                                               ; preds = %.fold.split

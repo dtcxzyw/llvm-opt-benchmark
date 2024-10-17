@@ -1846,7 +1846,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = lshr i64 %1, 15
   %140 = and i64 %139, 31
-  %141 = icmp ugt i64 %140, 15
+  %141 = icmp samesign ugt i64 %140, 15
   %142 = getelementptr inbounds i8, ptr %0, i64 120
   %143 = getelementptr inbounds [32 x i64], ptr %142, i64 0, i64 %140
   %144 = getelementptr inbounds i8, ptr %0, i64 659712
@@ -2279,7 +2279,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = lshr i64 %1, 15
   %140 = and i64 %139, 31
-  %141 = icmp ugt i64 %140, 15
+  %141 = icmp samesign ugt i64 %140, 15
   %142 = getelementptr inbounds i8, ptr %0, i64 120
   %143 = getelementptr inbounds [32 x i64], ptr %142, i64 0, i64 %140
   %144 = getelementptr inbounds i8, ptr %0, i64 659712
@@ -2710,7 +2710,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = lshr i64 %1, 15
   %140 = and i64 %139, 31
-  %141 = icmp ugt i64 %140, 15
+  %141 = icmp samesign ugt i64 %140, 15
   %142 = getelementptr inbounds i8, ptr %0, i64 120
   %143 = getelementptr inbounds [32 x i64], ptr %142, i64 0, i64 %140
   %144 = getelementptr inbounds i8, ptr %0, i64 659712
@@ -3143,7 +3143,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %139 = lshr i64 %1, 15
   %140 = and i64 %139, 31
-  %141 = icmp ugt i64 %140, 15
+  %141 = icmp samesign ugt i64 %140, 15
   %142 = getelementptr inbounds i8, ptr %0, i64 120
   %143 = getelementptr inbounds [32 x i64], ptr %142, i64 0, i64 %140
   %144 = getelementptr inbounds i8, ptr %0, i64 659712

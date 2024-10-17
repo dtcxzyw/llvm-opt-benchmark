@@ -1298,7 +1298,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKanaKeyboard(pt
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %27 = icmp ugt i32 %spec.select, 10
+  %27 = icmp samesign ugt i32 %spec.select, 10
   %28 = zext i1 %27 to i8
   br label %._crit_edge
 

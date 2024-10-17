@@ -6511,7 +6511,7 @@ _ZNKSt8functionIFbjRKN4llvm6ModuleEEEclEjS3_.exit.i.i.i: ; preds = %3
   %42 = getelementptr inbounds i8, ptr %.111.i.i.i.i, i64 -1
   store i8 %41, ptr %42, align 1, !noalias !124
   %43 = udiv i64 %.0810.i.i.i.i, 10
-  %.not.i.i.i.i = icmp ult i64 %.0810.i.i.i.i, 10
+  %.not.i.i.i.i = icmp samesign ult i64 %.0810.i.i.i.i, 10
   br i1 %.not.i.i.i.i, label %_ZN4llvm6utostrB5cxx11Emb.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !127
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i.i, %.thread.i.i.i.i
@@ -10512,7 +10512,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

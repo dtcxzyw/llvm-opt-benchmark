@@ -86,7 +86,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
 25:                                               ; preds = %38, %17
   %26 = phi i64 [ 0, %17 ], [ %48, %38 ]
   %27 = and i64 %26, 4294967295
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %29, !prof !6
 
 29:                                               ; preds = %25
@@ -142,7 +142,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
   tail call void @kfree(ptr noundef %61) #5
   %62 = add nuw nsw i64 %55, 1
   %63 = and i64 %62, 127
-  %64 = icmp ugt i64 %63, 63
+  %64 = icmp samesign ugt i64 %63, 63
   br i1 %64, label %.thread7, label %.preheader, !prof !15, !llvm.loop !16
 
 .thread7:                                         ; preds = %.preheader, %58, %54
@@ -543,7 +543,7 @@ define internal void @release_callchain_buffers_rcu(ptr noundef %0) #0 align 16 
   tail call void @kfree(ptr noundef %16) #5
   %17 = add nuw nsw i64 %10, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %3, !prof !15, !llvm.loop !27
 
 .thread:                                          ; preds = %3, %13, %9

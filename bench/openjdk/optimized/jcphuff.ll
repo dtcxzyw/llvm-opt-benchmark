@@ -345,11 +345,11 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
   %.05665 = phi i32 [ %48, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %48 = add nuw nsw i32 %.05665, 1
   %49 = lshr i32 %.166, 1
-  %.not62 = icmp ult i32 %.166, 2
+  %.not62 = icmp samesign ult i32 %.166, 2
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %50 = icmp ugt i32 %.05665, 10
+  %50 = icmp samesign ugt i32 %.05665, 10
   br i1 %50, label %51, label %._crit_edge.thread
 
 51:                                               ; preds = %._crit_edge
@@ -709,7 +709,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   br i1 %.not73, label %._crit_edge, label %.lr.ph82, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph82
-  %152 = icmp ugt i32 %.06380, 9
+  %152 = icmp samesign ugt i32 %.06380, 9
   br i1 %152, label %153, label %._crit_edge.thread
 
 153:                                              ; preds = %._crit_edge
@@ -1045,7 +1045,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %73 = icmp ugt i32 %.026.i, 13
+  %73 = icmp samesign ugt i32 %.026.i, 13
   br i1 %73, label %74, label %._crit_edge.thread.i
 
 74:                                               ; preds = %._crit_edge.i
@@ -2540,7 +2540,7 @@ define internal fastcc void @emit_eobrun(ptr nocapture noundef %0) unnamed_addr 
   br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %6 = icmp ugt i32 %.026, 13
+  %6 = icmp samesign ugt i32 %.026, 13
   br i1 %6, label %7, label %._crit_edge.thread
 
 7:                                                ; preds = %._crit_edge

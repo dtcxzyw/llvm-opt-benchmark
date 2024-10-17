@@ -214,7 +214,7 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef range(i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 71776119061218052, ptr %2, align 8, !annotation !8
   store i8 0, ptr %1, align 4
-  %3 = icmp ugt i32 %0, 4
+  %3 = icmp samesign ugt i32 %0, 4
   %4 = select i1 %3, i8 16, i8 1
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %4, ptr %5, align 2
@@ -772,7 +772,7 @@ define internal fastcc void @construct_ioapic_table(i32 noundef range(i32 0, 256
 
 11:                                               ; preds = %9, %7
   call fastcc void @MP_bus_info(ptr noundef nonnull %3) #12
-  %12 = icmp ugt i32 %0, 4
+  %12 = icmp samesign ugt i32 %0, 4
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -1350,7 +1350,7 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   %30 = getelementptr i8, ptr %18, i64 %28
   %31 = add nuw nsw i32 %29, %19
   %32 = zext i16 %27 to i32
-  %33 = icmp ult i32 %31, %32
+  %33 = icmp samesign ult i32 %31, %32
   br i1 %33, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %.loopexit7, %75

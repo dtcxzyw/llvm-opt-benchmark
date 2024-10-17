@@ -136,7 +136,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h3ed1462c930e922aE(ptr noal
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.0109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46

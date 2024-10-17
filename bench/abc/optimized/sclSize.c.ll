@@ -1988,7 +1988,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %30, %26
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %37, i64 %41
   store i32 %.02732.i, ptr %42, align 4
-  %43 = icmp ugt i32 %.02732.i, 3
+  %43 = icmp samesign ugt i32 %.02732.i, 3
   br i1 %43, label %.lr.ph.i, label %Vec_QueMoveUp.exit.thread13, !llvm.loop !21
 
 Vec_QueMoveUp.exit.thread13:                      ; preds = %36
@@ -3080,7 +3080,7 @@ Vec_QuePrio.exit30.i.i.i:                         ; preds = %179, %175
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i32, ptr %186, i64 %190
   store i32 %.02732.i.i.i, ptr %191, align 4
-  %192 = icmp ugt i32 %.02732.i.i.i, 3
+  %192 = icmp samesign ugt i32 %.02732.i.i.i, 3
   br i1 %192, label %.lr.ph.i.i.i, label %Vec_QueMoveUp.exit.thread13.i.i, !llvm.loop !21
 
 Vec_QueMoveUp.exit.thread13.i.i:                  ; preds = %185
@@ -5032,7 +5032,7 @@ Vec_QuePrio.exit30.i.i.i:                         ; preds = %98, %94
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %105, i64 %109
   store i32 %.02732.i.i.i, ptr %110, align 4
-  %111 = icmp ugt i32 %.02732.i.i.i, 3
+  %111 = icmp samesign ugt i32 %.02732.i.i.i, 3
   br i1 %111, label %.lr.ph.i.i.i, label %Vec_QuePush.exit.i, !llvm.loop !21
 
 Vec_QuePush.exit.i:                               ; preds = %102, %Vec_QuePrio.exit30.i.i.i, %Vec_QuePrio.exit.i.i.i
@@ -7052,7 +7052,7 @@ Abc_SclCountBufferFanouts.exit:                   ; preds = %14, %19
 Abc_SclCountNonBufferFanouts.exit:                ; preds = %27, %Abc_SclCountBufferFanouts.exit
   %.0.lcssa.i = phi i32 [ 0, %Abc_SclCountBufferFanouts.exit ], [ %34, %27 ]
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.val, ptr noundef %15, i32 noundef %.val46, i32 noundef %22, i32 noundef %.0.lcssa.i)
-  %36 = icmp ult i32 %.0.lcssa, 4
+  %36 = icmp samesign ult i32 %.0.lcssa, 4
   br i1 %36, label %.lr.ph161, label %._crit_edge162
 
 .lr.ph161:                                        ; preds = %Abc_SclCountNonBufferFanouts.exit, %.lr.ph161

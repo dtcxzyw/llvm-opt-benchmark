@@ -392,7 +392,7 @@ define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i
   store i32 0, ptr %53, align 4
   %54 = add nuw nsw i64 %43, 1
   %55 = and i64 %54, 127
-  %56 = icmp ugt i64 %55, 63
+  %56 = icmp samesign ugt i64 %55, 63
   br i1 %56, label %.thread, label %36, !prof !16, !llvm.loop !17
 
 .thread:                                          ; preds = %36, %46, %42
@@ -1309,7 +1309,7 @@ define dso_local i32 @kstat_irqs_usr(i32 noundef %0) local_unnamed_addr #1 align
   %42 = add i32 %41, %27
   %43 = add nuw nsw i64 %32, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %25, !prof !16, !llvm.loop !36
 
 .thread:                                          ; preds = %25, %35, %31, %19, %5, %1
@@ -1412,7 +1412,7 @@ define internal i64 @per_cpu_count_show(ptr nocapture noundef readonly %0, ptr n
   %34 = add i64 %8, %33
   %35 = add nuw nsw i64 %14, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %5, !prof !16, !llvm.loop !37
 
 .thread:                                          ; preds = %5, %28, %13

@@ -10211,7 +10211,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 82:                                               ; preds = %27, %.loopexit30
   %83 = phi i64 [ 0, %27 ], [ %84, %.loopexit30 ]
   %84 = add nuw nsw i64 %83, 1
-  %85 = icmp ult i64 %83, 2
+  %85 = icmp samesign ult i64 %83, 2
   call void @llvm.assume(i1 %85)
   %86 = getelementptr inbounds i64, ptr %14, i64 %83
   %87 = load i64, ptr %86, align 8, !alias.scope !2269, !noundef !4
@@ -10545,7 +10545,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 97:                                               ; preds = %61, %.loopexit
   %98 = phi i64 [ 0, %61 ], [ %99, %.loopexit ]
   %99 = add nuw nsw i64 %98, 1
-  %100 = icmp ult i64 %98, 2
+  %100 = icmp samesign ult i64 %98, 2
   tail call void @llvm.assume(i1 %100)
   %101 = getelementptr inbounds i64, ptr %6, i64 %98
   %102 = load i64, ptr %101, align 8, !alias.scope !2298, !noundef !4
@@ -10867,7 +10867,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %103 = phi i64 [ 0, %28 ], [ %104, %.loopexit42 ]
   %104 = add nuw nsw i64 %103, 1
   store i64 %104, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2418
-  %105 = icmp ult i64 %103, 2
+  %105 = icmp samesign ult i64 %103, 2
   call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds i64, ptr %15, i64 %103
   %107 = load i64, ptr %106, align 8, !alias.scope !2423, !noundef !4
@@ -11280,7 +11280,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 115:                                              ; preds = %75, %.loopexit
   %116 = phi i64 [ 0, %75 ], [ %117, %.loopexit ]
   %117 = add nuw nsw i64 %116, 1
-  %118 = icmp ult i64 %116, 2
+  %118 = icmp samesign ult i64 %116, 2
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds i64, ptr %6, i64 %116
   %120 = load i64, ptr %119, align 8, !alias.scope !2540, !noundef !4
@@ -11555,7 +11555,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 97:                                               ; preds = %61, %.loopexit
   %98 = phi i64 [ 0, %61 ], [ %99, %.loopexit ]
   %99 = add nuw nsw i64 %98, 1
-  %100 = icmp ult i64 %98, 2
+  %100 = icmp samesign ult i64 %98, 2
   tail call void @llvm.assume(i1 %100)
   %101 = getelementptr inbounds i64, ptr %6, i64 %98
   %102 = load i64, ptr %101, align 8, !alias.scope !2564, !noundef !4
@@ -26957,7 +26957,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %159 = zext i32 %158 to i64
   %160 = zext i32 %156 to i64
   %161 = add nuw nsw i64 %160, %159
-  %162 = icmp ult i64 %161, 13
+  %162 = icmp samesign ult i64 %161, 13
   br i1 %162, label %236, label %285
 
 163:                                              ; preds = %189, %180, %170, %150
@@ -28059,7 +28059,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %509 = load i32, ptr %508, align 8, !noundef !4
   %510 = zext i32 %509 to i64
   %511 = add nuw nsw i64 %510, %507
-  %512 = icmp ugt i64 %511, 12
+  %512 = icmp samesign ugt i64 %511, 12
   br i1 %512, label %555, label %519
 
 .body255:                                         ; preds = %.thread562, %733, %602, %.body.i264, %.thread562.thread.thread, %750, %"_ZN4core3ptr91drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..InsertionFragment$C$12_usize$GT$$GT$17hdf2c3a86e222c154E.exit368", %517, %544
@@ -29231,7 +29231,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %158 = zext i32 %157 to i64
   %159 = zext i32 %155 to i64
   %160 = add nuw nsw i64 %159, %158
-  %161 = icmp ult i64 %160, 13
+  %161 = icmp samesign ult i64 %160, 13
   br i1 %161, label %253, label %309
 
 162:                                              ; preds = %192, %183, %174, %149
@@ -30380,7 +30380,7 @@ _ZN8sum_tree3sum17hb6e4110cd5fa6611E.exit197:     ; preds = %.lr.ph.preheader.i1
   %561 = load i32, ptr %560, align 8, !noundef !4
   %562 = zext i32 %561 to i64
   %563 = add nuw nsw i64 %562, %559
-  %564 = icmp ugt i64 %563, 12
+  %564 = icmp samesign ugt i64 %563, 12
   br i1 %564, label %643, label %571
 
 .body235:                                         ; preds = %857, %.body.i269, %611, %631, %569, %.body275.thread.thread, %868
@@ -31706,7 +31706,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %171 = zext i32 %170 to i64
   %172 = zext i32 %168 to i64
   %173 = add nuw nsw i64 %172, %171
-  %174 = icmp ugt i64 %173, 12
+  %174 = icmp samesign ugt i64 %173, 12
   br i1 %174, label %315, label %281
 
 175:                                              ; preds = %239, %221, %211, %162
@@ -32846,7 +32846,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %546 = load i32, ptr %545, align 8, !noundef !4
   %547 = zext i32 %546 to i64
   %548 = add nuw nsw i64 %547, %544
-  %549 = icmp ugt i64 %548, 12
+  %549 = icmp samesign ugt i64 %548, 12
   br i1 %549, label %622, label %556
 
 .body230:                                         ; preds = %.thread495.thread.thread.thread, %712, %587, %614, %554, %726, %724

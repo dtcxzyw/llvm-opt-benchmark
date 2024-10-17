@@ -276,7 +276,7 @@ if.end25:                                         ; preds = %if.then18, %if.else
   %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %call29, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.compoundliteral.sroa.10.0..sroa_idx, i8 0, i64 88, i1 false)
   store i32 %cond, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
-  %cmp.i35 = icmp ule i64 %retval.0.i.ph, %mul
+  %cmp.i35 = icmp samesign ule i64 %retval.0.i.ph, %mul
   %.sink.i = zext i1 %cmp.i35 to i32
   %method5.i = getelementptr inbounds i8, ptr %call29, i64 104
   store i32 %.sink.i, ptr %method5.i, align 8

@@ -1290,7 +1290,7 @@ _ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %61 = and i64 %sub.ptr.sub.i.i.i.i.i.i, 34359738360
-  %cmp.i.i.i.i116.i = icmp ugt i64 %61, 327
+  %cmp.i.i.i.i116.i = icmp samesign ugt i64 %61, 327
   call void @llvm.assume(i1 %cmp.i.i.i.i116.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 72
   store ptr %add.ptr.i.i.i.i, ptr %stackPointer_.i.i.i.i, align 8

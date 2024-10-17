@@ -2089,7 +2089,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %for.cond13.preheade
   %arrayidx.i23.i = getelementptr inbounds i8, ptr %115, i64 -4
   %116 = load i32, ptr %arrayidx.i23.i, align 4
   %117 = zext i32 %116 to i64
-  %cmp16.i = icmp ult i64 %indvars.iv57.i, %117
+  %cmp16.i = icmp samesign ult i64 %indvars.iv57.i, %117
   br i1 %cmp16.i, label %for.body17.i, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
 
 for.body17.i:                                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -2146,7 +2146,7 @@ land.rhs54:                                       ; preds = %_ZN24datatype_value
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit174.thread: ; preds = %land.rhs54
   %125 = load i32, ptr %arrayidx.i.i171, align 4
   %126 = zext i32 %125 to i64
-  %cmp57382 = icmp ult i64 %indvars.iv, %126
+  %cmp57382 = icmp samesign ult i64 %indvars.iv, %126
   br i1 %cmp57382, label %for.body59, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 for.body59:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit174.thread

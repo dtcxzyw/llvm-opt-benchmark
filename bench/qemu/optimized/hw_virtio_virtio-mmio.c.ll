@@ -1390,7 +1390,7 @@ if.end85:                                         ; preds = %sw.bb70
   %conv86 = trunc i64 %value to i32
   %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv86, i1 false)
   %guest_page_shift = getelementptr inbounds i8, ptr %opaque, i64 1112
-  %cmp89 = icmp ugt i32 %17, 31
+  %cmp89 = icmp samesign ugt i32 %17, 31
   %spec.select = select i1 %cmp89, i32 0, i32 %17
   store i32 %spec.select, ptr %guest_page_shift, align 8
   tail call fastcc void @trace_virtio_mmio_guest_page(i64 noundef %value, i32 noundef %spec.select)

@@ -794,7 +794,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %321 = load ptr, ptr %17, align 8
   %322 = getelementptr inbounds %"class.ZXing::Trit", ptr %321, i64 %320
   store i8 %316, ptr %322, align 1
-  %323 = icmp ult i64 %indvars.iv.i, 8
+  %323 = icmp samesign ult i64 %indvars.iv.i, 8
   %324 = load ptr, ptr %17, align 8
   br i1 %323, label %325, label %336
 
@@ -1856,7 +1856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

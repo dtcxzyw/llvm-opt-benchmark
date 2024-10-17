@@ -2369,7 +2369,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread: ; preds = %64,
   store i32 %81, ptr %9, align 4
   %82 = icmp eq i32 %81, 0
   %83 = zext i32 %81 to i64
-  %84 = icmp ult i64 %.sroa.5.0, %83
+  %84 = icmp samesign ult i64 %.sroa.5.0, %83
   %or.cond = select i1 %82, i1 true, i1 %84
   br i1 %or.cond, label %85, label %90
 

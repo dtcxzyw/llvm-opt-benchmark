@@ -335,7 +335,7 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i8, ptr %62, align 8
   %70 = zext i8 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 72:                                               ; preds = %55

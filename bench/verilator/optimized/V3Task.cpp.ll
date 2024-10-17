@@ -15785,7 +15785,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %16, %18
           to label %57 unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %38, %56
-  %58 = icmp ugt i24 %narrow185, 1
+  %58 = icmp samesign ugt i24 %narrow185, 1
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %57

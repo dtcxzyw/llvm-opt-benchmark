@@ -1298,7 +1298,7 @@ for.body13:                                       ; preds = %for.cond12.preheade
   br i1 %cmp.i22.not79, label %for.end72, label %invoke.cont31.lr.ph
 
 invoke.cont31.lr.ph:                              ; preds = %for.body13
-  %cmp5077 = icmp ult i64 %indvars.iv87, 15
+  %cmp5077 = icmp samesign ult i64 %indvars.iv87, 15
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %invoke.cont31.lr.ph, %for.inc70

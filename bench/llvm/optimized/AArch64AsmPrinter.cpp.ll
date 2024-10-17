@@ -4350,7 +4350,7 @@ _ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12Machi
   %990 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %989, ptr %990, align 1, !noalias !22
   %991 = udiv i64 %.0810.i.i, 10
-  %.not.i.i208 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i208 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i208, label %_ZN4llvm6utostrB5cxx11Emb.exit.i, label %.lr.ph.i.i207, !llvm.loop !25
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i207, %.thread.i.i
@@ -4390,7 +4390,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i207, %.th
   %1003 = getelementptr inbounds i8, ptr %.111.i12.i, i64 -1
   store i8 %1002, ptr %1003, align 1, !noalias !32
   %1004 = udiv i64 %.0810.i13.i, 10
-  %.not.i14.i = icmp ult i64 %.0810.i13.i, 10
+  %.not.i14.i = icmp samesign ult i64 %.0810.i13.i, 10
   br i1 %.not.i14.i, label %_ZN4llvm6utostrB5cxx11Emb.exit17.i, label %.lr.ph.i11.i, !llvm.loop !25
 
 _ZN4llvm6utostrB5cxx11Emb.exit17.i:               ; preds = %.lr.ph.i11.i, %.thread.i16.i
@@ -7517,7 +7517,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZNK4llvm18TargetRe
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 22
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
-  %.not.i.i = icmp ult i32 %91, %94
+  %.not.i.i = icmp samesign ult i32 %91, %94
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread92
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %89
@@ -7538,7 +7538,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %89
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 22
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
-  %.not.i.i73 = icmp ult i32 %91, %107
+  %.not.i.i73 = icmp samesign ult i32 %91, %107
   br i1 %.not.i.i73, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74, label %.thread95
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %.thread92
@@ -7592,7 +7592,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i76:              ; preds = %117
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 22
   %137 = load i16, ptr %136, align 2
   %138 = zext i16 %137 to i32
-  %.not.i.i80 = icmp ult i32 %91, %138
+  %.not.i.i80 = icmp samesign ult i32 %91, %138
   br i1 %.not.i.i80, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit81, label %.thread98
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit81: ; preds = %.thread95
@@ -7617,7 +7617,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit81: ; preds = %.thread
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 22
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i32
-  %.not.i.i83 = icmp ult i32 %91, %153
+  %.not.i.i83 = icmp samesign ult i32 %91, %153
   br i1 %.not.i.i83, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit84, label %.thread101
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit84: ; preds = %.thread98
@@ -7638,7 +7638,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit84: ; preds = %.thread
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 22
   %165 = load i16, ptr %164, align 2
   %166 = zext i16 %165 to i32
-  %.not.i.i86 = icmp ult i32 %91, %166
+  %.not.i.i86 = icmp samesign ult i32 %91, %166
   br i1 %.not.i.i86, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit87, label %.thread104
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit87: ; preds = %.thread101
@@ -7659,7 +7659,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit87: ; preds = %.thread
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 22
   %178 = load i16, ptr %177, align 2
   %179 = zext i16 %178 to i32
-  %.not.i.i89 = icmp ult i32 %91, %179
+  %.not.i.i89 = icmp samesign ult i32 %91, %179
   br i1 %.not.i.i89, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit90, label %.thread109
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit90: ; preds = %.thread104
@@ -13924,7 +13924,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit66:          ; preds = %_ZN4llvm13MCInstBui
 
 _ZN4llvm13MCInstBuilderD2Ev.exit67:               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit66, %160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %161 = icmp ult i64 %indvars.iv, 48
+  %161 = icmp samesign ult i64 %indvars.iv, 48
   br i1 %161, label %115, label %162, !llvm.loop !99
 
 162:                                              ; preds = %115, %_ZN4llvm13MCInstBuilderD2Ev.exit67
@@ -18773,11 +18773,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %27 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 48
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
-  %30 = icmp ult i8 %29, %12
+  %30 = icmp samesign ult i8 %29, %12
   br i1 %30, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread.i.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ult i8 %12, %29
+  %32 = icmp samesign ult i8 %12, %29
   br i1 %32, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread11.i.i.i, label %33
 
 33:                                               ; preds = %31
@@ -18794,11 +18794,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %40 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 40
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 1
-  %43 = icmp ult i8 %42, %17
+  %43 = icmp samesign ult i8 %42, %17
   br i1 %43, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread.i.i.i, label %44
 
 44:                                               ; preds = %39
-  %45 = icmp ult i8 %17, %42
+  %45 = icmp samesign ult i8 %17, %42
   br i1 %45, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread11.i.i.i, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.i.i.i: ; preds = %44
@@ -18836,11 +18836,11 @@ _ZNSt3mapISt5tupleIJjbjbmEEPN4llvm8MCSymbolESt4lessIS1_ESaISt4pairIKS1_S4_EEE11l
   %58 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, 1
-  %61 = icmp ult i8 %12, %60
+  %61 = icmp samesign ult i8 %12, %60
   br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %57
-  %63 = icmp ult i8 %60, %12
+  %63 = icmp samesign ult i8 %60, %12
   br i1 %63, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread12, label %64
 
 64:                                               ; preds = %62
@@ -18857,11 +18857,11 @@ _ZNSt3mapISt5tupleIJjbjbmEEPN4llvm8MCSymbolESt4lessIS1_ESaISt4pairIKS1_S4_EEE11l
   %71 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 1
-  %74 = icmp ult i8 %17, %73
+  %74 = icmp samesign ult i8 %17, %73
   br i1 %74, label %.critedge, label %75
 
 75:                                               ; preds = %70
-  %76 = icmp ult i8 %73, %17
+  %76 = icmp samesign ult i8 %73, %17
   br i1 %76, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit:   ; preds = %75
@@ -18945,11 +18945,11 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN4llvm8MCS
   %41 = getelementptr inbounds i8, ptr %26, i64 48
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 1
-  %44 = icmp ult i8 %40, %43
+  %44 = icmp samesign ult i8 %40, %43
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %38
-  %46 = icmp ult i8 %43, %40
+  %46 = icmp samesign ult i8 %43, %40
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %45
@@ -18969,11 +18969,11 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN4llvm8MCS
   %57 = getelementptr inbounds i8, ptr %26, i64 40
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, 1
-  %60 = icmp ult i8 %56, %59
+  %60 = icmp samesign ult i8 %56, %59
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %54
-  %62 = icmp ult i8 %59, %56
+  %62 = icmp samesign ult i8 %59, %56
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %61
@@ -19034,11 +19034,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load i8, ptr %24, align 8
   %26 = and i8 %25, 1
-  %27 = icmp ult i8 %23, %26
+  %27 = icmp samesign ult i8 %23, %26
   br i1 %27, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %28
 
 28:                                               ; preds = %20
-  %29 = icmp ult i8 %26, %23
+  %29 = icmp samesign ult i8 %26, %23
   br i1 %29, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread36, label %30
 
 30:                                               ; preds = %28
@@ -19060,11 +19060,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load i8, ptr %42, align 8
   %44 = and i8 %43, 1
-  %45 = icmp ult i8 %41, %44
+  %45 = icmp samesign ult i8 %41, %44
   br i1 %45, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %46
 
 46:                                               ; preds = %38
-  %47 = icmp ult i8 %44, %41
+  %47 = icmp samesign ult i8 %44, %41
   br i1 %47, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread36, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit:   ; preds = %46
@@ -19099,11 +19099,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread36: ; preds = %46, %36, %28
   %67 = getelementptr inbounds i8, ptr %1, i64 48
   %68 = load i8, ptr %67, align 1
   %69 = and i8 %68, 1
-  %70 = icmp ult i8 %66, %69
+  %70 = icmp samesign ult i8 %66, %69
   br i1 %70, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10.thread, label %71
 
 71:                                               ; preds = %63
-  %72 = icmp ult i8 %69, %66
+  %72 = icmp samesign ult i8 %69, %66
   br i1 %72, label %142, label %73
 
 73:                                               ; preds = %71
@@ -19125,11 +19125,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread36: ; preds = %46, %36, %28
   %85 = getelementptr inbounds i8, ptr %1, i64 40
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 1
-  %88 = icmp ult i8 %84, %87
+  %88 = icmp samesign ult i8 %84, %87
   br i1 %88, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10.thread, label %89
 
 89:                                               ; preds = %81
-  %90 = icmp ult i8 %87, %84
+  %90 = icmp samesign ult i8 %87, %84
   br i1 %90, label %142, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10: ; preds = %89
@@ -19163,11 +19163,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10.thread: ; preds = %81, %73, %63
   %109 = getelementptr inbounds i8, ptr %2, i64 16
   %110 = load i8, ptr %109, align 8
   %111 = and i8 %110, 1
-  %112 = icmp ult i8 %108, %111
+  %112 = icmp samesign ult i8 %108, %111
   br i1 %112, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread, label %113
 
 113:                                              ; preds = %105
-  %114 = icmp ult i8 %111, %108
+  %114 = icmp samesign ult i8 %111, %108
   br i1 %114, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread40, label %115
 
 115:                                              ; preds = %113
@@ -19189,11 +19189,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit10.thread: ; preds = %81, %73, %63
   %127 = getelementptr inbounds i8, ptr %2, i64 8
   %128 = load i8, ptr %127, align 8
   %129 = and i8 %128, 1
-  %130 = icmp ult i8 %126, %129
+  %130 = icmp samesign ult i8 %126, %129
   br i1 %130, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread, label %131
 
 131:                                              ; preds = %123
-  %132 = icmp ult i8 %129, %126
+  %132 = icmp samesign ult i8 %129, %126
   br i1 %132, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread40, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11: ; preds = %131
@@ -19223,11 +19223,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread40: ; preds = %131, %121,
   %146 = getelementptr inbounds i8, ptr %2, i64 16
   %147 = load i8, ptr %146, align 8
   %148 = and i8 %147, 1
-  %149 = icmp ult i8 %145, %148
+  %149 = icmp samesign ult i8 %145, %148
   br i1 %149, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12.thread, label %150
 
 150:                                              ; preds = %142
-  %151 = icmp ult i8 %148, %145
+  %151 = icmp samesign ult i8 %148, %145
   br i1 %151, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %152
 
 152:                                              ; preds = %150
@@ -19249,11 +19249,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit11.thread40: ; preds = %131, %121,
   %164 = getelementptr inbounds i8, ptr %2, i64 8
   %165 = load i8, ptr %164, align 8
   %166 = and i8 %165, 1
-  %167 = icmp ult i8 %163, %166
+  %167 = icmp samesign ult i8 %163, %166
   br i1 %167, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12.thread, label %168
 
 168:                                              ; preds = %160
-  %169 = icmp ult i8 %166, %163
+  %169 = icmp samesign ult i8 %166, %163
   br i1 %169, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12: ; preds = %168
@@ -19287,11 +19287,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12.thread: ; preds = %61, %160, %1
   %188 = getelementptr inbounds i8, ptr %177, i64 48
   %189 = load i8, ptr %188, align 1
   %190 = and i8 %189, 1
-  %191 = icmp ult i8 %187, %190
+  %191 = icmp samesign ult i8 %187, %190
   br i1 %191, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13.thread, label %192
 
 192:                                              ; preds = %184
-  %193 = icmp ult i8 %190, %187
+  %193 = icmp samesign ult i8 %190, %187
   br i1 %193, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13.thread44, label %194
 
 194:                                              ; preds = %192
@@ -19313,11 +19313,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit12.thread: ; preds = %61, %160, %1
   %206 = getelementptr inbounds i8, ptr %177, i64 40
   %207 = load i8, ptr %206, align 1
   %208 = and i8 %207, 1
-  %209 = icmp ult i8 %205, %208
+  %209 = icmp samesign ult i8 %205, %208
   br i1 %209, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13.thread, label %210
 
 210:                                              ; preds = %202
-  %211 = icmp ult i8 %208, %205
+  %211 = icmp samesign ult i8 %208, %205
   br i1 %211, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13.thread44, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit13: ; preds = %210
@@ -19386,11 +19386,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN
   %24 = getelementptr inbounds i8, ptr %.02128, i64 48
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 1
-  %27 = icmp ult i8 %9, %26
+  %27 = icmp samesign ult i8 %9, %26
   br i1 %27, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %28
 
 28:                                               ; preds = %23
-  %29 = icmp ult i8 %26, %9
+  %29 = icmp samesign ult i8 %26, %9
   br i1 %29, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread23, label %30
 
 30:                                               ; preds = %28
@@ -19407,11 +19407,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJjbjbmEESt4pairIKS1_PN
   %37 = getelementptr inbounds i8, ptr %.02128, i64 40
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 1
-  %40 = icmp ult i8 %14, %39
+  %40 = icmp samesign ult i8 %14, %39
   br i1 %40, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp ult i8 %39, %14
+  %42 = icmp samesign ult i8 %39, %14
   br i1 %42, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread23, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit:   ; preds = %41
@@ -19466,11 +19466,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread: ; preds = %_ZNKSt4lessISt
   %65 = getelementptr inbounds i8, ptr %1, i64 16
   %66 = load i8, ptr %65, align 8
   %67 = and i8 %66, 1
-  %68 = icmp ult i8 %64, %67
+  %68 = icmp samesign ult i8 %64, %67
   br i1 %68, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5.thread, label %69
 
 69:                                               ; preds = %61
-  %70 = icmp ult i8 %67, %64
+  %70 = icmp samesign ult i8 %67, %64
   br i1 %70, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5.thread25, label %71
 
 71:                                               ; preds = %69
@@ -19492,11 +19492,11 @@ _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit.thread: ; preds = %_ZNKSt4lessISt
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   %84 = load i8, ptr %83, align 8
   %85 = and i8 %84, 1
-  %86 = icmp ult i8 %82, %85
+  %86 = icmp samesign ult i8 %82, %85
   br i1 %86, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5.thread, label %87
 
 87:                                               ; preds = %79
-  %88 = icmp ult i8 %85, %82
+  %88 = icmp samesign ult i8 %85, %82
   br i1 %88, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5.thread25, label %_ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5
 
 _ZNKSt4lessISt5tupleIJjbjbmEEEclERKS1_S4_.exit5:  ; preds = %87

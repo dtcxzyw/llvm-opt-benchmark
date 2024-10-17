@@ -2419,7 +2419,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i8183 = lshr i64 %sub.i, 1
-  %cmp28.i = icmp ult i64 %div13, %div.i8183
+  %cmp28.i = icmp samesign ult i64 %div13, %div.i8183
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i
@@ -3160,7 +3160,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i7981 = lshr i64 %sub.i, 1
-  %cmp26.i = icmp ult i64 %div17, %div.i7981
+  %cmp26.i = icmp samesign ult i64 %div17, %div.i7981
   br i1 %cmp26.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread24.i

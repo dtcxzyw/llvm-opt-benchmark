@@ -867,7 +867,7 @@ rev_is_head.exit:                                 ; preds = %do.body.i1.i, %do.b
   %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %head.addr.0.i, ptr noundef nonnull dereferenceable(1) %name.addr.0.i) #18
   %tobool6.not.i.not = icmp ne i32 %call5.i, 0
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %cmp308 = icmp ult i64 %indvars.iv.next342, %51
+  %cmp308 = icmp samesign ult i64 %indvars.iv.next342, %51
   %59 = select i1 %tobool6.not.i.not, i1 %cmp308, i1 false
   br i1 %59, label %do.body.i.preheader.i, label %for.end320, !llvm.loop !9
 
@@ -1264,7 +1264,7 @@ if.end.i146:                                      ; preds = %if.then.i148, %for.
   br i1 %exitcond.not.i, label %return, label %for.body.i143, !llvm.loop !19
 
 if.end402:                                        ; preds = %if.end396
-  %cmp403 = icmp ugt i32 %num_rev.0.lcssa371, 1
+  %cmp403 = icmp samesign ugt i32 %num_rev.0.lcssa371, 1
   %104 = load i32, ptr %extra, align 4
   %cmp406 = icmp slt i32 %104, 0
   %or.cond8 = select i1 %cmp403, i1 true, i1 %cmp406

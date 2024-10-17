@@ -324,7 +324,7 @@ if.then:                                          ; preds = %_ZN8facebook5velox4
 
 if.end.i:                                         ; preds = %if.then
   %add1.i125 = add nuw nsw i64 %remaining.7, %and.i
-  %cmp.i126 = icmp ult i64 %add1.i125, 9
+  %cmp.i126 = icmp samesign ult i64 %add1.i125, 9
   br i1 %cmp.i126, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -359,7 +359,7 @@ _ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit: ; preds = %if.then, %if
   %conv7.i = trunc i64 %or.i to i8
   store i8 %conv7.i, ptr %61, align 1
   %add9.i = add nuw nsw i64 %remaining.7, %and.i128
-  %cmp10.i132 = icmp ugt i64 %add9.i, 8
+  %cmp10.i132 = icmp samesign ugt i64 %add9.i, 8
   br i1 %cmp10.i132, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
@@ -621,7 +621,7 @@ if.then4:                                         ; preds = %for.cond
   %sh_prom.i = zext nneg i32 %and.i to i64
   %shr.i = lshr i64 %8, %sh_prom.i
   %add.i = add nuw nsw i32 %and.i, %cast
-  %cmp.i25 = icmp ugt i32 %add.i, 64
+  %cmp.i25 = icmp samesign ugt i32 %add.i, 64
   br i1 %cmp.i25, label %if.then.i, label %_ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit
 
 if.then.i:                                        ; preds = %if.then4
@@ -668,7 +668,7 @@ if.else:                                          ; preds = %for.cond
   %sh_prom.i33 = zext nneg i32 %and.i30 to i64
   %shr.i34 = lshr i64 %15, %sh_prom.i33
   %add.i35 = add nuw nsw i32 %and.i30, %cast15
-  %cmp.i36 = icmp ugt i32 %add.i35, 64
+  %cmp.i36 = icmp samesign ugt i32 %add.i35, 64
   br i1 %cmp.i36, label %if.then.i38, label %_ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit51
 
 if.then.i38:                                      ; preds = %if.else

@@ -6418,7 +6418,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %.sroa.speculated81 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %.not72 = icmp sge i32 %24, %.sroa.speculated81
   %28 = add nuw nsw i32 %.sroa.speculated81, %22
-  %29 = icmp ult i32 %28, 10
+  %29 = icmp samesign ult i32 %28, 10
   %or.cond = select i1 %.not72, i1 true, i1 %29
   br i1 %or.cond, label %30, label %39
 
@@ -7088,7 +7088,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10
 75:                                               ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS8_EEESt4lessIlESaIS4_IKlSC_EELi256ELb0EEEE19transfer_n_backwardElllPSJ_PSH_.exit.i
   %76 = zext i8 %72 to i64
   %77 = add nuw nsw i64 %40, 1
-  %78 = icmp ult i64 %77, %76
+  %78 = icmp samesign ult i64 %77, %76
   br i1 %78, label %.lr.ph.i28, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS8_EEESt4lessIlESaIS4_IKlSC_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIlSC_EEEEEvlPSH_DpOT_.exit
 
 .lr.ph.i28:                                       ; preds = %75
@@ -7154,7 +7154,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %113 = load i8, ptr %17, align 1
   %114 = zext i8 %113 to i64
-  %.not.not = icmp ult i64 %indvars.iv32, %114
+  %.not.not = icmp samesign ult i64 %indvars.iv32, %114
   br i1 %.not.not, label %107, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %107, %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS8_EEESt4lessIlESaIS4_IKlSC_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIlSC_EEEEEvlPSH_DpOT_.exit

@@ -8106,20 +8106,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %4
   br i1 %48, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ult i32 %29, %40
+  %50 = icmp samesign ult i32 %29, %40
   br i1 %50, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i32 %40, %29
+  %52 = icmp samesign ult i32 %40, %29
   br i1 %52, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i32 %33, %42
+  %54 = icmp samesign ult i32 %33, %42
   br i1 %54, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %53
-  %55 = icmp uge i32 %42, %33
-  %56 = icmp ult i32 %36, %45
+  %55 = icmp samesign uge i32 %42, %33
+  %56 = icmp samesign ult i32 %36, %45
   %spec.select.i.i = select i1 %55, i1 %56, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread6
 
@@ -8140,12 +8140,12 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %47, %51, %._ZN4llvm
   br i1 %61, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %.pre-phi21, %57
+  %63 = icmp samesign ult i32 %.pre-phi21, %57
   br i1 %63, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp uge i32 %57, %.pre-phi21
-  %66 = icmp ult i32 %.pre-phi25, %58
+  %65 = icmp samesign uge i32 %57, %.pre-phi21
+  %66 = icmp samesign ult i32 %.pre-phi25, %58
   %spec.select = select i1 %65, i1 %66, i1 false
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
@@ -8968,8 +8968,8 @@ _ZNK5clang6driver10toolchains6Darwin23isTargetAppleSiliconMacEv.exit.thread: ; p
 52:                                               ; preds = %47
   %.not17.i = icmp ne i32 %50, 10
   %53 = and i64 %49, 9223372032559808512
-  %54 = icmp ugt i64 %53, 30064771071
-  %or.cond56 = or i1 %.not17.i, %54
+  %54 = icmp samesign ugt i64 %53, 30064771071
+  %or.cond56 = select i1 %.not17.i, i1 true, i1 %54
   br i1 %or.cond56, label %_ZNK5clang11ObjCRuntime15hasSubscriptingEv.exit.thread50, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread46
 
 55:                                               ; preds = %42
@@ -8982,8 +8982,8 @@ _ZNK5clang6driver10toolchains6Darwin23isTargetAppleSiliconMacEv.exit.thread: ; p
 60:                                               ; preds = %55
   %.not15.i = icmp ne i32 %58, 10
   %61 = and i64 %57, 9223372032559808512
-  %62 = icmp ugt i64 %61, 30064771071
-  %or.cond58 = or i1 %.not15.i, %62
+  %62 = icmp samesign ugt i64 %61, 30064771071
+  %or.cond58 = select i1 %.not15.i, i1 true, i1 %62
   br i1 %or.cond58, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread.thread62, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread46
 
 63:                                               ; preds = %42
@@ -9007,7 +9007,7 @@ _ZNK5clang6driver10toolchains6Darwin23isTargetAppleSiliconMacEv.exit.thread: ; p
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit:     ; preds = %68
   %73 = and i64 %70, 9223372028264841216
-  %74 = icmp ugt i64 %73, 25769803775
+  %74 = icmp samesign ugt i64 %73, 25769803775
   br i1 %74, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread46
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread46: ; preds = %60, %52, %42, %68, %55, %47, %63, %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit
@@ -9040,8 +9040,8 @@ _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread.thread62: ; preds = %60, %_Z
 81:                                               ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread.thread62
   %.not.i = icmp ne i32 %79, 10
   %82 = and i64 %78, 9223372032559808512
-  %83 = icmp ugt i64 %82, 47244640255
-  %or.cond60 = or i1 %.not.i, %83
+  %83 = icmp samesign ugt i64 %82, 47244640255
+  %or.cond60 = select i1 %.not.i, i1 true, i1 %83
   br i1 %or.cond60, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %_ZNK5clang11ObjCRuntime15hasSubscriptingEv.exit.thread50
 
 84:                                               ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread
@@ -19210,7 +19210,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin30isAligne
 
 15:                                               ; preds = %14
   %16 = and i64 %11, 9223372032559808512
-  %17 = icmp ult i64 %16, 55834574848
+  %17 = icmp samesign ult i64 %16, 55834574848
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
 18:                                               ; preds = %1
@@ -19245,7 +19245,7 @@ _ZN5clang22alignedAllocMinVersionEN4llvm6Triple6OSTypeE.exit: ; preds = %18, %19
   %31 = trunc nuw i64 %30 to i32
   %32 = and i32 %31, 2147483647
   %33 = icmp uge i32 %24, %23
-  %34 = icmp ult i32 %32, %29
+  %34 = icmp samesign ult i32 %32, %29
   %spec.select = select i1 %33, i1 %34, i1 false
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
@@ -19278,7 +19278,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin30isSizedD
 
 15:                                               ; preds = %14
   %16 = and i64 %11, 9223372019674906624
-  %17 = icmp ult i64 %16, 51539607552
+  %17 = icmp samesign ult i64 %16, 51539607552
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
 18:                                               ; preds = %1
@@ -19313,7 +19313,7 @@ _ZL22sizedDeallocMinVersionN4llvm6Triple6OSTypeE.exit: ; preds = %18, %19, %20
   %31 = trunc nuw i64 %30 to i32
   %32 = and i32 %31, 2147483647
   %33 = icmp uge i32 %24, %23
-  %34 = icmp ult i32 %32, %29
+  %34 = icmp samesign ult i32 %32, %29
   %spec.select = select i1 %33, i1 %34, i1 false
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
@@ -19420,8 +19420,8 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit
 43:                                               ; preds = %38
   %.not.i = icmp eq i32 %41, 10
   %44 = and i64 %40, 9223372032559808512
-  %45 = icmp ult i64 %44, 55834574848
-  %or.cond = and i1 %.not.i, %45
+  %45 = icmp samesign ult i64 %44, 55834574848
+  %or.cond = select i1 %.not.i, i1 %45, i1 false
   br i1 %or.cond, label %_ZNK5clang6driver10toolchains6Darwin30isAlignedAllocationUnavailableEv.exit.thread, label %_ZNK5clang6driver10toolchains6Darwin30isAlignedAllocationUnavailableEv.exit.thread97
 
 46:                                               ; preds = %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit.thread
@@ -19456,7 +19456,7 @@ _ZNK5clang6driver10toolchains6Darwin30isAlignedAllocationUnavailableEv.exit: ; p
   %58 = trunc nuw i64 %57 to i32
   %59 = and i32 %58, 2147483647
   %60 = icmp uge i32 %52, %51
-  %61 = icmp ult i32 %59, %56
+  %61 = icmp samesign ult i32 %59, %56
   %spec.select.i = select i1 %60, i1 %61, i1 false
   br i1 %spec.select.i, label %_ZNK5clang6driver10toolchains6Darwin30isAlignedAllocationUnavailableEv.exit.thread, label %_ZNK5clang6driver10toolchains6Darwin30isAlignedAllocationUnavailableEv.exit.thread97
 
@@ -19570,8 +19570,8 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit
 101:                                              ; preds = %96
   %.not.i38 = icmp eq i32 %99, 10
   %102 = and i64 %98, 9223372019674906624
-  %103 = icmp ult i64 %102, 51539607552
-  %or.cond113 = and i1 %.not.i38, %103
+  %103 = icmp samesign ult i64 %102, 51539607552
+  %or.cond113 = select i1 %.not.i38, i1 %103, i1 false
   br i1 %or.cond113, label %_ZNK5clang6driver10toolchains6Darwin30isSizedDeallocationUnavailableEv.exit.thread, label %_ZNK5clang6driver10toolchains6Darwin30isSizedDeallocationUnavailableEv.exit.thread102
 
 104:                                              ; preds = %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit34.thread
@@ -19606,7 +19606,7 @@ _ZNK5clang6driver10toolchains6Darwin30isSizedDeallocationUnavailableEv.exit: ; p
   %116 = trunc nuw i64 %115 to i32
   %117 = and i32 %116, 2147483647
   %118 = icmp uge i32 %110, %109
-  %119 = icmp ult i32 %117, %114
+  %119 = icmp samesign ult i32 %117, %114
   %spec.select.i37 = select i1 %118, i1 %119, i1 false
   br i1 %spec.select.i37, label %_ZNK5clang6driver10toolchains6Darwin30isSizedDeallocationUnavailableEv.exit.thread, label %_ZNK5clang6driver10toolchains6Darwin30isSizedDeallocationUnavailableEv.exit.thread102
 
@@ -21163,20 +21163,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %97
   br i1 %125, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread41, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp ult i32 %108, %117
+  %127 = icmp samesign ult i32 %108, %117
   br i1 %127, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %128
 
 128:                                              ; preds = %126
-  %129 = icmp ult i32 %117, %108
+  %129 = icmp samesign ult i32 %117, %108
   br i1 %129, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread41, label %130
 
 130:                                              ; preds = %128
-  %131 = icmp ult i32 %110, %119
+  %131 = icmp samesign ult i32 %110, %119
   br i1 %131, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %130
-  %132 = icmp uge i32 %119, %110
-  %133 = icmp ult i32 %113, %122
+  %132 = icmp samesign uge i32 %119, %110
+  %133 = icmp samesign ult i32 %113, %122
   %spec.select.i.i = select i1 %132, i1 %133, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread41
 
@@ -21332,20 +21332,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit29: ; preds = %179,
   br i1 %218, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread43, label %219
 
 219:                                              ; preds = %217
-  %220 = icmp ult i32 %200, %210
+  %220 = icmp samesign ult i32 %200, %210
   br i1 %220, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp ult i32 %210, %200
+  %222 = icmp samesign ult i32 %210, %200
   br i1 %222, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread43, label %223
 
 223:                                              ; preds = %221
-  %224 = icmp ult i32 %204, %212
+  %224 = icmp samesign ult i32 %204, %212
   br i1 %224, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit31:        ; preds = %223
-  %225 = icmp uge i32 %212, %204
-  %226 = icmp ult i32 %207, %215
+  %225 = icmp samesign uge i32 %212, %204
+  %226 = icmp samesign ult i32 %207, %215
   %spec.select.i.i30 = select i1 %225, i1 %226, i1 false
   br i1 %spec.select.i.i30, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit31.thread43
 
@@ -21698,20 +21698,20 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %130, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread60, label %131
 
 131:                                              ; preds = %129
-  %132 = icmp ult i32 %112, %122
+  %132 = icmp samesign ult i32 %112, %122
   br i1 %132, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %133
 
 133:                                              ; preds = %131
-  %134 = icmp ult i32 %122, %112
+  %134 = icmp samesign ult i32 %122, %112
   br i1 %134, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread60, label %135
 
 135:                                              ; preds = %133
-  %136 = icmp ult i32 %115, %124
+  %136 = icmp samesign ult i32 %115, %124
   br i1 %136, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %135
-  %137 = icmp uge i32 %124, %115
-  %138 = icmp ult i32 %118, %127
+  %137 = icmp samesign uge i32 %124, %115
+  %138 = icmp samesign ult i32 %118, %127
   %spec.select.i.i = select i1 %137, i1 %138, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread60
 
@@ -25284,7 +25284,7 @@ _ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappin
   %48 = add nuw nsw i64 %.013, 1
   %49 = load i32, ptr %9, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !793
 
 ._crit_edge:                                      ; preds = %.critedge, %2
@@ -25980,20 +25980,20 @@ _ZNK5clang13DarwinSDKInfo17getVersionMappingENS0_9OSEnvPairE.exit.thread: ; pred
   br i1 %86, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread13, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ult i32 %67, %77
+  %88 = icmp samesign ult i32 %67, %77
   br i1 %88, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %89
 
 89:                                               ; preds = %87
-  %90 = icmp ult i32 %77, %67
+  %90 = icmp samesign ult i32 %77, %67
   br i1 %90, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread13, label %91
 
 91:                                               ; preds = %89
-  %92 = icmp ult i32 %69, %80
+  %92 = icmp samesign ult i32 %69, %80
   br i1 %92, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %91
-  %93 = icmp uge i32 %80, %69
-  %94 = icmp ult i32 %72, %83
+  %93 = icmp samesign uge i32 %80, %69
+  %94 = icmp samesign ult i32 %72, %83
   %spec.select.i7 = select i1 %93, i1 %94, i1 false
   br i1 %spec.select.i7, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread13
 
@@ -26259,12 +26259,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit9.thread: ; preds = %_ZNK4llvm9StringRe
   br i1 %113, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread8.i, label %114
 
 114:                                              ; preds = %112
-  %115 = icmp ult i32 %104, %109
+  %115 = icmp samesign ult i32 %104, %109
   br i1 %115, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread.i, label %116
 
 116:                                              ; preds = %114
-  %117 = icmp uge i32 %109, %104
-  %118 = icmp ult i32 %108, %110
+  %117 = icmp samesign uge i32 %109, %104
+  %118 = icmp samesign ult i32 %108, %110
   %or.cond.i = select i1 %117, i1 %118, i1 false
   br i1 %or.cond.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread8.i
 

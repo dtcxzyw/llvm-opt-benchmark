@@ -556,7 +556,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit907.i.i:          ; preds = %.thread1107.i.i
   %indvars.iv1507.i.i = phi i64 [ 1, %151 ], [ 0, %.preheader1381.i.i.preheader ]
   %148 = load i32, ptr %4, align 4
   %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %indvars.iv1507.i.i, %149
+  %150 = icmp samesign ult i64 %indvars.iv1507.i.i, %149
   br i1 %150, label %151, label %.critedge.split.loop.exit1623.i.i
 
 151:                                              ; preds = %.preheader1381.i.i
@@ -608,7 +608,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit913.i.i:          ; preds = %.thread1113.i.i
   %indvars.iv1510.i.i = phi i64 [ 1, %169 ], [ 0, %.preheader1380.i.i.preheader ]
   %166 = load i32, ptr %4, align 4
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %indvars.iv1510.i.i, %167
+  %168 = icmp samesign ult i64 %indvars.iv1510.i.i, %167
   br i1 %168, label %169, label %.critedge2.split.loop.exit1625.i.i
 
 169:                                              ; preds = %.preheader1380.i.i
@@ -660,7 +660,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit919.i.i:          ; preds = %.thread1119.i.i
   %indvars.iv1513.i.i = phi i64 [ 1, %187 ], [ 0, %.preheader1379.i.i.preheader ]
   %184 = load i32, ptr %4, align 4
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv1513.i.i, %185
+  %186 = icmp samesign ult i64 %indvars.iv1513.i.i, %185
   br i1 %186, label %187, label %.critedge4.split.loop.exit1627.i.i
 
 187:                                              ; preds = %.preheader1379.i.i
@@ -712,7 +712,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit925.i.i:          ; preds = %.thread1125.i.i
   %indvars.iv1516.i.i = phi i64 [ 1, %205 ], [ 0, %.preheader1378.i.i.preheader ]
   %202 = load i32, ptr %4, align 4
   %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %indvars.iv1516.i.i, %203
+  %204 = icmp samesign ult i64 %indvars.iv1516.i.i, %203
   br i1 %204, label %205, label %.critedge6.split.loop.exit1629.i.i
 
 205:                                              ; preds = %.preheader1378.i.i
@@ -764,7 +764,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit931.i.i:          ; preds = %.thread1131.i.i
   %indvars.iv1519.i.i = phi i64 [ 1, %223 ], [ 0, %.preheader1377.i.i.preheader ]
   %220 = load i32, ptr %4, align 4
   %221 = zext i32 %220 to i64
-  %222 = icmp ult i64 %indvars.iv1519.i.i, %221
+  %222 = icmp samesign ult i64 %indvars.iv1519.i.i, %221
   br i1 %222, label %223, label %.critedge8.split.loop.exit1631.i.i
 
 223:                                              ; preds = %.preheader1377.i.i
@@ -816,7 +816,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit937.i.i:          ; preds = %.thread1137.i.i
   %indvars.iv1522.i.i = phi i64 [ 1, %241 ], [ 0, %.preheader1376.i.i.preheader ]
   %238 = load i32, ptr %4, align 4
   %239 = zext i32 %238 to i64
-  %240 = icmp ult i64 %indvars.iv1522.i.i, %239
+  %240 = icmp samesign ult i64 %indvars.iv1522.i.i, %239
   br i1 %240, label %241, label %.critedge10.split.loop.exit1633.i.i
 
 241:                                              ; preds = %.preheader1376.i.i
@@ -868,7 +868,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit943.i.i:          ; preds = %.thread1143.i.i
   %indvars.iv1525.i.i = phi i64 [ 1, %259 ], [ 0, %.preheader1375.i.i.preheader ]
   %256 = load i32, ptr %4, align 4
   %257 = zext i32 %256 to i64
-  %258 = icmp ult i64 %indvars.iv1525.i.i, %257
+  %258 = icmp samesign ult i64 %indvars.iv1525.i.i, %257
   br i1 %258, label %259, label %.critedge12.split.loop.exit1635.i.i
 
 259:                                              ; preds = %.preheader1375.i.i
@@ -920,7 +920,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.i.i:          ; preds = %.thread1149.i.i
   %indvars.iv1528.i.i = phi i64 [ 1, %277 ], [ 0, %.preheader1374.i.i.preheader ]
   %274 = load i32, ptr %4, align 4
   %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %indvars.iv1528.i.i, %275
+  %276 = icmp samesign ult i64 %indvars.iv1528.i.i, %275
   br i1 %276, label %277, label %.critedge14.split.loop.exit1637.i.i
 
 277:                                              ; preds = %.preheader1374.i.i
@@ -1251,7 +1251,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit997.thread.tail.i.i: ; preds = %sub_1.i.i
   %indvars.iv1552.i.i = phi i64 [ 1, %378 ], [ 0, %372 ]
   %375 = load i32, ptr %4, align 4
   %376 = zext i32 %375 to i64
-  %377 = icmp ult i64 %indvars.iv1552.i.i, %376
+  %377 = icmp samesign ult i64 %indvars.iv1552.i.i, %376
   br i1 %377, label %378, label %.critedge16.split.loop.exit1653.i.i
 
 378:                                              ; preds = %.preheader.i.i
@@ -1302,7 +1302,7 @@ sub_11296.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1549.i.i = phi i64 [ 1, %400 ], [ 0, %394 ]
   %397 = load i32, ptr %4, align 4
   %398 = zext i32 %397 to i64
-  %399 = icmp ult i64 %indvars.iv1549.i.i, %398
+  %399 = icmp samesign ult i64 %indvars.iv1549.i.i, %398
   br i1 %399, label %400, label %.critedge18.split.loop.exit1651.i.i
 
 400:                                              ; preds = %.preheader1367.i.i
@@ -1353,7 +1353,7 @@ sub_11301.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1546.i.i = phi i64 [ 1, %422 ], [ 0, %416 ]
   %419 = load i32, ptr %4, align 4
   %420 = zext i32 %419 to i64
-  %421 = icmp ult i64 %indvars.iv1546.i.i, %420
+  %421 = icmp samesign ult i64 %indvars.iv1546.i.i, %420
   br i1 %421, label %422, label %.critedge20.split.loop.exit1649.i.i
 
 422:                                              ; preds = %.preheader1368.i.i
@@ -1404,7 +1404,7 @@ sub_11306.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1543.i.i = phi i64 [ 1, %444 ], [ 0, %438 ]
   %441 = load i32, ptr %4, align 4
   %442 = zext i32 %441 to i64
-  %443 = icmp ult i64 %indvars.iv1543.i.i, %442
+  %443 = icmp samesign ult i64 %indvars.iv1543.i.i, %442
   br i1 %443, label %444, label %.critedge22.split.loop.exit1647.i.i
 
 444:                                              ; preds = %.preheader1369.i.i
@@ -1455,7 +1455,7 @@ sub_11311.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1540.i.i = phi i64 [ 1, %466 ], [ 0, %460 ]
   %463 = load i32, ptr %4, align 4
   %464 = zext i32 %463 to i64
-  %465 = icmp ult i64 %indvars.iv1540.i.i, %464
+  %465 = icmp samesign ult i64 %indvars.iv1540.i.i, %464
   br i1 %465, label %466, label %.critedge24.split.loop.exit1645.i.i
 
 466:                                              ; preds = %.preheader1370.i.i
@@ -1506,7 +1506,7 @@ sub_11316.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1537.i.i = phi i64 [ 1, %488 ], [ 0, %482 ]
   %485 = load i32, ptr %4, align 4
   %486 = zext i32 %485 to i64
-  %487 = icmp ult i64 %indvars.iv1537.i.i, %486
+  %487 = icmp samesign ult i64 %indvars.iv1537.i.i, %486
   br i1 %487, label %488, label %.critedge26.split.loop.exit1643.i.i
 
 488:                                              ; preds = %.preheader1371.i.i
@@ -1559,7 +1559,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1534.i.i = phi i64 [ 1, %510 ], [ 0, %504 ]
   %507 = load i32, ptr %4, align 4
   %508 = zext i32 %507 to i64
-  %509 = icmp ult i64 %indvars.iv1534.i.i, %508
+  %509 = icmp samesign ult i64 %indvars.iv1534.i.i, %508
   br i1 %509, label %510, label %.critedge28.split.loop.exit1641.i.i
 
 510:                                              ; preds = %.preheader1372.i.i
@@ -1604,7 +1604,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   %indvars.iv1531.i.i = phi i64 [ 1, %530 ], [ 0, %524 ]
   %527 = load i32, ptr %4, align 4
   %528 = zext i32 %527 to i64
-  %529 = icmp ult i64 %indvars.iv1531.i.i, %528
+  %529 = icmp samesign ult i64 %indvars.iv1531.i.i, %528
   br i1 %529, label %530, label %.critedge30.split.loop.exit1639.i.i
 
 530:                                              ; preds = %.preheader1373.i.i
@@ -1672,7 +1672,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.i.i:         ; preds = %.thread1215.i.i
   %indvars.iv1501.i.i = phi i64 [ 1, %558 ], [ 0, %.preheader1383.i.i.preheader ]
   %555 = load i32, ptr %4, align 4
   %556 = zext i32 %555 to i64
-  %557 = icmp ult i64 %indvars.iv1501.i.i, %556
+  %557 = icmp samesign ult i64 %indvars.iv1501.i.i, %556
   br i1 %557, label %558, label %.critedge32.split.loop.exit1619.i.i
 
 558:                                              ; preds = %.preheader1383.i.i
@@ -1779,7 +1779,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1012.thread.tail.i.i: ; preds = %sub_11330.i.i
   %indvars.iv1504.i.i = phi i64 [ 1, %594 ], [ 0, %588 ]
   %591 = load i32, ptr %4, align 4
   %592 = zext i32 %591 to i64
-  %593 = icmp ult i64 %indvars.iv1504.i.i, %592
+  %593 = icmp samesign ult i64 %indvars.iv1504.i.i, %592
   br i1 %593, label %594, label %.critedge34.split.loop.exit1621.i.i
 
 594:                                              ; preds = %.preheader1382.i.i
@@ -1847,7 +1847,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1018.i.i:         ; preds = %.thread1226.i.i
   %indvars.iv1489.i.i = phi i64 [ 1, %622 ], [ 0, %.preheader1387.i.i.preheader ]
   %619 = load i32, ptr %4, align 4
   %620 = zext i32 %619 to i64
-  %621 = icmp ult i64 %indvars.iv1489.i.i, %620
+  %621 = icmp samesign ult i64 %indvars.iv1489.i.i, %620
   br i1 %621, label %622, label %.critedge36.split.loop.exit1611.i.i
 
 622:                                              ; preds = %.preheader1387.i.i
@@ -1899,7 +1899,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.i.i:         ; preds = %.thread1232.i.i
   %indvars.iv1492.i.i = phi i64 [ 1, %640 ], [ 0, %.preheader1386.i.i.preheader ]
   %637 = load i32, ptr %4, align 4
   %638 = zext i32 %637 to i64
-  %639 = icmp ult i64 %indvars.iv1492.i.i, %638
+  %639 = icmp samesign ult i64 %indvars.iv1492.i.i, %638
   br i1 %639, label %640, label %.critedge38.split.loop.exit1613.i.i
 
 640:                                              ; preds = %.preheader1386.i.i
@@ -2021,7 +2021,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1036.thread.tail.i.i: ; preds = %sub_11334.i.i
   %indvars.iv1498.i.i = phi i64 [ 1, %681 ], [ 0, %675 ]
   %678 = load i32, ptr %4, align 4
   %679 = zext i32 %678 to i64
-  %680 = icmp ult i64 %indvars.iv1498.i.i, %679
+  %680 = icmp samesign ult i64 %indvars.iv1498.i.i, %679
   br i1 %680, label %681, label %.critedge40.split.loop.exit1617.i.i
 
 681:                                              ; preds = %.preheader1384.i.i
@@ -2072,7 +2072,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   %indvars.iv1495.i.i = phi i64 [ 1, %703 ], [ 0, %697 ]
   %700 = load i32, ptr %4, align 4
   %701 = zext i32 %700 to i64
-  %702 = icmp ult i64 %indvars.iv1495.i.i, %701
+  %702 = icmp samesign ult i64 %indvars.iv1495.i.i, %701
   br i1 %702, label %703, label %.critedge42.split.loop.exit1615.i.i
 
 703:                                              ; preds = %.preheader1385.i.i
@@ -2105,7 +2105,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   %indvars.iv1486.i.i = phi i64 [ 1, %719 ], [ 0, %711 ]
   %716 = load i32, ptr %4, align 4
   %717 = zext i32 %716 to i64
-  %718 = icmp ult i64 %indvars.iv1486.i.i, %717
+  %718 = icmp samesign ult i64 %indvars.iv1486.i.i, %717
   br i1 %718, label %719, label %.critedge44.split.loop.exit1609.i.i
 
 719:                                              ; preds = %.preheader1388.i.i
@@ -2208,7 +2208,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.i.i:         ; preds = %.thread1251.i.i
   %indvars.iv1480.i.i = phi i64 [ 1, %764 ], [ 0, %.preheader1390.i.i.preheader ]
   %761 = load i32, ptr %4, align 4
   %762 = zext i32 %761 to i64
-  %763 = icmp ult i64 %indvars.iv1480.i.i, %762
+  %763 = icmp samesign ult i64 %indvars.iv1480.i.i, %762
   br i1 %763, label %764, label %.critedge46.split.loop.exit1605.i.i
 
 764:                                              ; preds = %.preheader1390.i.i
@@ -2296,7 +2296,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1051.thread.tail.i.i: ; preds = %sub_11343.i.i
   %indvars.iv1483.i.i = phi i64 [ 1, %795 ], [ 0, %789 ]
   %792 = load i32, ptr %4, align 4
   %793 = zext i32 %792 to i64
-  %794 = icmp ult i64 %indvars.iv1483.i.i, %793
+  %794 = icmp samesign ult i64 %indvars.iv1483.i.i, %793
   br i1 %794, label %795, label %.critedge48.split.loop.exit1607.i.i
 
 795:                                              ; preds = %.preheader1389.i.i
@@ -2378,7 +2378,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.i.i:         ; preds = %.thread1261.i.i
   %indvars.iv1474.i.i = phi i64 [ 1, %829 ], [ 0, %.preheader1392.i.i.preheader ]
   %826 = load i32, ptr %4, align 4
   %827 = zext i32 %826 to i64
-  %828 = icmp ult i64 %indvars.iv1474.i.i, %827
+  %828 = icmp samesign ult i64 %indvars.iv1474.i.i, %827
   br i1 %828, label %829, label %.critedge50.split.loop.exit1601.i.i
 
 829:                                              ; preds = %.preheader1392.i.i
@@ -2464,7 +2464,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1063.thread.tail.i.i: ; preds = %sub_11352.i.i
   %indvars.iv1477.i.i = phi i64 [ 1, %860 ], [ 0, %854 ]
   %857 = load i32, ptr %4, align 4
   %858 = zext i32 %857 to i64
-  %859 = icmp ult i64 %indvars.iv1477.i.i, %858
+  %859 = icmp samesign ult i64 %indvars.iv1477.i.i, %858
   br i1 %859, label %860, label %.critedge52.split.loop.exit1603.i.i
 
 860:                                              ; preds = %.preheader1391.i.i
@@ -2543,7 +2543,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i: ; preds = %883, %_ZL14subt
   %indvars.iv1471.i.i = phi i64 [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i ], [ 0, %883 ]
   %892 = load i32, ptr %4, align 4
   %893 = zext i32 %892 to i64
-  %894 = icmp ult i64 %indvars.iv1471.i.i, %893
+  %894 = icmp samesign ult i64 %indvars.iv1471.i.i, %893
   br i1 %894, label %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, label %.critedge54.split.loop.exit1599.i.i
 
 _ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i:       ; preds = %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i
@@ -2603,7 +2603,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.i.i:         ; preds = %.thread1272.i.i
   %indvars.iv1465.i.i = phi i64 [ 1, %919 ], [ 0, %.preheader1394.i.i.preheader ]
   %916 = load i32, ptr %4, align 4
   %917 = zext i32 %916 to i64
-  %918 = icmp ult i64 %indvars.iv1465.i.i, %917
+  %918 = icmp samesign ult i64 %indvars.iv1465.i.i, %917
   br i1 %918, label %919, label %.critedge56.split.loop.exit1595.i.i
 
 919:                                              ; preds = %.preheader1394.i.i
@@ -2689,7 +2689,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1083.thread.tail.i.i: ; preds = %sub_11360.i.i
   %indvars.iv1468.i.i = phi i64 [ 1, %950 ], [ 0, %944 ]
   %947 = load i32, ptr %4, align 4
   %948 = zext i32 %947 to i64
-  %949 = icmp ult i64 %indvars.iv1468.i.i, %948
+  %949 = icmp samesign ult i64 %indvars.iv1468.i.i, %948
   br i1 %949, label %950, label %.critedge58.split.loop.exit1597.i.i
 
 950:                                              ; preds = %.preheader1393.i.i
@@ -2782,7 +2782,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1092.i.i:         ; preds = %.thread1283.i.i
   %indvars.iv.i.i = phi i64 [ 1, %990 ], [ 0, %.preheader1396.i.i.preheader ]
   %987 = load i32, ptr %4, align 4
   %988 = zext i32 %987 to i64
-  %989 = icmp ult i64 %indvars.iv.i.i, %988
+  %989 = icmp samesign ult i64 %indvars.iv.i.i, %988
   br i1 %989, label %990, label %.critedge60.split.loop.exit1591.i.i
 
 990:                                              ; preds = %.preheader1396.i.i
@@ -2880,7 +2880,7 @@ sub_01364.i.i:                                    ; preds = %_ZL12lang_matchesPK
   %indvars.iv1462.i.i = phi i64 [ 1, %1027 ], [ 0, %1021 ]
   %1024 = load i32, ptr %4, align 4
   %1025 = zext i32 %1024 to i64
-  %1026 = icmp ult i64 %indvars.iv1462.i.i, %1025
+  %1026 = icmp samesign ult i64 %indvars.iv1462.i.i, %1025
   br i1 %1026, label %1027, label %.critedge62.split.loop.exit1593.i.i
 
 1027:                                             ; preds = %.preheader1395.i.i
@@ -3069,7 +3069,7 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %1115 = load i32, ptr %4, align 4
   %1116 = zext i32 %1115 to i64
-  %1117 = icmp ult i64 %indvars.iv.next.i, %1116
+  %1117 = icmp samesign ult i64 %indvars.iv.next.i, %1116
   br i1 %1117, label %1101, label %.critedge4.loopexit.i, !llvm.loop !43
 
 .critedge4.loopexit.i:                            ; preds = %1113, %1109, %1105, %1101
@@ -3438,7 +3438,7 @@ _ZL7FROMHEXh.exit:                                ; preds = %29, %32
   br i1 %.not50, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %.critedge5
-  %60 = icmp ult i64 %indvars.iv, 4
+  %60 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %60, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -4100,7 +4100,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %47, %48
   %66 = lshr i32 %0, %.054
   %67 = trunc i32 %66 to i8
   %68 = and i8 %67, 15
-  %69 = icmp ult i8 %68, 10
+  %69 = icmp samesign ult i8 %68, 10
   %70 = or disjoint i8 %68, 48
   %71 = add nuw nsw i8 %68, 87
   %72 = select i1 %69, i8 %70, i8 %71

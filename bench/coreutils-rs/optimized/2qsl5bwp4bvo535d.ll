@@ -173,7 +173,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h24af580485d204b3E(ptr noal
   %.0136 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h71ec72fca2ea6d4fE.exit" ], [ %.0.i, %._crit_edge ]
   %50 = sub nuw i64 %1, %.0136
   %51 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0136
-  %52 = icmp ult i64 %50, 2
+  %52 = icmp samesign ult i64 %50, 2
   br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %48
@@ -901,7 +901,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h6bcf95055c8ce7b3E(ptr noal
   %.0152 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h543f537bb699391eE.exit" ], [ %.0.i, %._crit_edge ]
   %64 = sub nuw i64 %1, %.0152
   %65 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0152
-  %66 = icmp ult i64 %64, 2
+  %66 = icmp samesign ult i64 %64, 2
   br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %62
@@ -1297,7 +1297,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hf8197210293c53b4E.exit: ; preds = %.
 203:                                              ; preds = %.lr.ph29.i
   %204 = getelementptr inbounds i8, ptr %.sroa.10.027.i, i64 -232
   %205 = load i64, ptr %204, align 8, !range !110, !noundef !5
-  %switch.not.i.i84 = icmp ult i64 %205, 2
+  %switch.not.i.i84 = icmp samesign ult i64 %205, 2
   br i1 %switch.not.i.i84, label %219, label %.thread.i.i70
 
 .thread.i.i70:                                    ; preds = %203, %.lr.ph29.i
@@ -1359,7 +1359,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hf8197210293c53b4E.exit: ; preds = %.
 227:                                              ; preds = %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i73"
   %228 = getelementptr inbounds i8, ptr %.sroa.18.026.i, i64 -232
   %229 = load i64, ptr %228, align 8, !range !110, !noundef !5
-  %switch.not.i10.i81 = icmp ult i64 %229, 2
+  %switch.not.i10.i81 = icmp samesign ult i64 %229, 2
   br i1 %switch.not.i10.i81, label %243, label %.thread.i4.i75
 
 .thread.i4.i75:                                   ; preds = %227, %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i73"
@@ -1440,7 +1440,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hf8197210293c53b4E.exit: ; preds = %.
 260:                                              ; preds = %.lr.ph.i59
   %261 = getelementptr inbounds i8, ptr %.02823.i, i64 72
   %262 = load i64, ptr %261, align 8, !range !110, !noundef !5
-  %switch.not.i.i = icmp ult i64 %262, 2
+  %switch.not.i.i = icmp samesign ult i64 %262, 2
   br i1 %switch.not.i.i, label %276, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %260, %.lr.ph.i59
@@ -1502,7 +1502,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hf8197210293c53b4E.exit: ; preds = %.
 284:                                              ; preds = %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i"
   %285 = getelementptr inbounds i8, ptr %.sroa.0.222.i, i64 72
   %286 = load i64, ptr %285, align 8, !range !110, !noundef !5
-  %switch.not.i10.i = icmp ult i64 %286, 2
+  %switch.not.i10.i = icmp samesign ult i64 %286, 2
   br i1 %switch.not.i10.i, label %300, label %.thread.i4.i
 
 .thread.i4.i:                                     ; preds = %284, %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i"
@@ -1740,7 +1740,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h8570c52717c0c408E(ptr noal
   %.0108 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17hee25a6eca42ed75eE.exit" ], [ %.0.i, %._crit_edge ]
   %49 = sub nuw i64 %1, %.0108
   %50 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0108
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -2360,7 +2360,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hb7ccabb3eb8f1156E(ptr noal
   %.0109 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17hac1cc59d681254aaE.exit" ], [ %.0.i, %._crit_edge ]
   %49 = sub nuw i64 %1, %.0109
   %50 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0109
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -2970,7 +2970,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hdcf9bb47fc63f040E(ptr noal
   %.0152 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17heab4077d8e1f57cfE.exit" ], [ %.0.i, %._crit_edge ]
   %51 = sub nuw i64 %1, %.0152
   %52 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0152
-  %53 = icmp ult i64 %51, 2
+  %53 = icmp samesign ult i64 %51, 2
   br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %49
@@ -3899,7 +3899,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he774de4173339984E(ptr noal
   %.0149 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17hce9411844d64387dE.exit" ], [ %.0.i, %._crit_edge ]
   %49 = sub nuw i64 %1, %.0149
   %50 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0149
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -4678,7 +4678,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hdad400c7dc535d5cE.exit: ; preds
   %.0142 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17ha4ab39e675da6e8cE.exit" ], [ %.0.i, %._crit_edge ]
   %50 = sub nuw i64 %1, %.0142
   %51 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.0142
-  %52 = icmp ult i64 %50, 2
+  %52 = icmp samesign ult i64 %50, 2
   br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %47
@@ -6009,7 +6009,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
 
 .lr.ph.i.preheader:                               ; preds = %19
   %21 = trunc nuw i8 %.sroa.914.0.copyload to i1
-  %switch.not.i.i = icmp ult i64 %.sroa.77.0.copyload, 2
+  %switch.not.i.i = icmp samesign ult i64 %.sroa.77.0.copyload, 2
   %or.cond19 = select i1 %21, i1 %switch.not.i.i, i1 false
   %22 = icmp ne ptr %.sroa.5.0.copyload, null
   br i1 %or.cond19, label %.lr.ph.i.preheader.split.us, label %.lr.ph.i.preheader.split
@@ -6028,7 +6028,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
 28:                                               ; preds = %.lr.ph.i.preheader.split.us.split.us
   %29 = getelementptr i8, ptr %16, i64 -536
   %30 = load i64, ptr %29, align 8, !range !110, !noundef !5
-  %switch.not.i10.i.us.us = icmp ult i64 %30, 2
+  %switch.not.i10.i.us.us = icmp samesign ult i64 %30, 2
   br i1 %switch.not.i10.i.us.us, label %.thread.i, label %.thread.i4.i.us.us
 
 .thread.i4.i.us.us:                               ; preds = %28, %.lr.ph.i.preheader.split.us.split.us
@@ -6088,7 +6088,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
 48:                                               ; preds = %.lr.ph.i.us
   %49 = getelementptr inbounds i8, ptr %44, i64 72
   %50 = load i64, ptr %49, align 8, !range !110, !noundef !5
-  %switch.not.i10.i.us = icmp ult i64 %50, 2
+  %switch.not.i10.i.us = icmp samesign ult i64 %50, 2
   br i1 %switch.not.i10.i.us, label %61, label %.thread.i4.i.us
 
 .thread.i4.i.us:                                  ; preds = %48, %.lr.ph.i.us
@@ -6234,7 +6234,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
 85:                                               ; preds = %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i"
   %86 = getelementptr inbounds i8, ptr %72, i64 72
   %87 = load i64, ptr %86, align 8, !range !110, !noundef !5
-  %switch.not.i10.i = icmp ult i64 %87, 2
+  %switch.not.i10.i = icmp samesign ult i64 %87, 2
   br i1 %switch.not.i10.i, label %101, label %.thread.i4.i
 
 .thread.i4.i:                                     ; preds = %85, %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit.i"
@@ -6345,7 +6345,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load i64, ptr %11, align 8, !range !110, !noundef !5
-  %switch.not.i = icmp ult i64 %12, 2
+  %switch.not.i = icmp samesign ult i64 %12, 2
   br i1 %switch.not.i, label %28, label %.thread.i
 
 .thread.i:                                        ; preds = %10, %2
@@ -6404,7 +6404,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
 36:                                               ; preds = %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit"
   %37 = getelementptr inbounds i8, ptr %1, i64 72
   %38 = load i64, ptr %37, align 8, !range !110, !noundef !5
-  %switch.not.i10 = icmp ult i64 %38, 2
+  %switch.not.i10 = icmp samesign ult i64 %38, 2
   br i1 %switch.not.i10, label %54, label %.thread.i4
 
 .thread.i4:                                       ; preds = %36, %"_ZN5uu_ls12sort_entries28_$u7b$$u7b$closure$u7d$$u7d$17hdfd8bcfafcb6e6c2E.exit"

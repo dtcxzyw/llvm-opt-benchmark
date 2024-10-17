@@ -414,7 +414,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiE9push_bac
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = load i32, ptr %3, align 8
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next, %115
   br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiE9push_backEOi.exit, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiE7reserveEm.exit
@@ -1309,12 +1309,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40:  ; preds = %_ZNK5draco7VectorDI
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19:         ; preds = %81
   %86 = fcmp uge float %.sroa.2.0.copyload3.i.i13, %.sroa.2.0.copyload3.i.i
-  %87 = icmp ult i32 %.0847, 2
+  %87 = icmp samesign ult i32 %.0847, 2
   %or.cond = select i1 %86, i1 %87, i1 false
   br i1 %or.cond, label %.backedge, label %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43: ; preds = %84
-  %.old48 = icmp ult i32 %.0847, 2
+  %.old48 = icmp samesign ult i32 %.0847, 2
   br i1 %.old48, label %.backedge, label %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread
 
 .backedge:                                        ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19
@@ -1578,12 +1578,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i32: ; preds = %_ZNK5draco7Vecto
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i35:     ; preds = %100
   %105 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i26, %.sroa.2.0.copyload3.i.i.i18
-  %106 = icmp ult i32 %.0847.i12, 2
+  %106 = icmp samesign ult i32 %.0847.i12, 2
   %or.cond.i36 = select i1 %105, i1 %106, i1 false
   br i1 %or.cond.i36, label %.backedge.i38, label %_ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEES4_.exit43
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i41: ; preds = %103
-  %.old48.i42 = icmp ult i32 %.0847.i12, 2
+  %.old48.i42 = icmp samesign ult i32 %.0847.i12, 2
   br i1 %.old48.i42, label %.backedge.i38, label %_ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEES4_.exit43
 
 .backedge.i38:                                    ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i41, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i35
@@ -1759,12 +1759,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i: ; preds = %_ZNK5draco7VectorD
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i:       ; preds = %192
   %197 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i, %.sroa.2.0.copyload3.i.i.i
-  %198 = icmp ult i32 %.0847.i, 2
+  %198 = icmp samesign ult i32 %.0847.i, 2
   %or.cond.i = select i1 %197, i1 %198, i1 false
   br i1 %or.cond.i, label %.backedge.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_SH_T1_T2_.exit
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i: ; preds = %195
-  %.old48.i = icmp ult i32 %.0847.i, 2
+  %.old48.i = icmp samesign ult i32 %.0847.i, 2
   br i1 %.old48.i, label %.backedge.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_SH_T1_T2_.exit
 
 .backedge.i:                                      ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i
@@ -2104,12 +2104,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i: ; preds = %_ZNK5draco7VectorD
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i:       ; preds = %79
   %84 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i, %.sroa.2.0.copyload3.i.i.i
-  %85 = icmp ult i32 %.0847.i, 2
+  %85 = icmp samesign ult i32 %.0847.i, 2
   %or.cond.i = select i1 %84, i1 %85, i1 false
   br i1 %or.cond.i, label %.backedge.i, label %.loopexit53
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i: ; preds = %82
-  %.old48.i = icmp ult i32 %.0847.i, 2
+  %.old48.i = icmp samesign ult i32 %.0847.i, 2
   br i1 %.old48.i, label %.backedge.i, label %.loopexit53
 
 .backedge.i:                                      ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i
@@ -2265,12 +2265,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i30: ; preds = %_ZNK5draco7Vecto
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i33:     ; preds = %160
   %165 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i24, %.sroa.2.0.copyload3.i.i.i16
-  %166 = icmp ult i32 %.0847.i10, 2
+  %166 = icmp samesign ult i32 %.0847.i10, 2
   %or.cond.i34 = select i1 %165, i1 %166, i1 false
   br i1 %or.cond.i34, label %.backedge.i36, label %.loopexit
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i39: ; preds = %163
-  %.old48.i40 = icmp ult i32 %.0847.i10, 2
+  %.old48.i40 = icmp samesign ult i32 %.0847.i10, 2
   br i1 %.old48.i40, label %.backedge.i36, label %.loopexit
 
 .backedge.i36:                                    ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i39, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i33
@@ -2513,12 +2513,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i: ; preds = %_ZNK5draco7VectorD
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i:       ; preds = %101
   %106 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i, %.sroa.2.0.copyload3.i.i.i
-  %107 = icmp ult i32 %.0847.i, 2
+  %107 = icmp samesign ult i32 %.0847.i, 2
   %or.cond.i = select i1 %106, i1 %107, i1 false
   br i1 %or.cond.i, label %.backedge.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_.exit
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i: ; preds = %104
-  %.old48.i = icmp ult i32 %.0847.i, 2
+  %.old48.i = icmp samesign ult i32 %.0847.i, 2
   br i1 %.old48.i, label %.backedge.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_.exit
 
 .backedge.i:                                      ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i
@@ -2711,12 +2711,12 @@ _ZNK5draco7VectorDIfLi3EEltERKS1_.exit.thread40.i: ; preds = %_ZNK5draco7VectorD
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i:       ; preds = %83
   %88 = fcmp uge float %.sroa.2.0.copyload3.i.i13.i, %.sroa.2.0.copyload3.i.i.i
-  %89 = icmp ult i32 %.0847.i, 2
+  %89 = icmp samesign ult i32 %.0847.i, 2
   %or.cond.i = select i1 %88, i1 %89, i1 false
   br i1 %or.cond.i, label %.backedge.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_.exit
 
 _ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i: ; preds = %86
-  %.old48.i = icmp ult i32 %.0847.i, 2
+  %.old48.i = icmp samesign ult i32 %.0847.i, 2
   br i1 %.old48.i, label %.backedge.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_T0_.exit
 
 .backedge.i:                                      ; preds = %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.thread43.i, %_ZNK5draco7VectorDIfLi3EEltERKS1_.exit19.i

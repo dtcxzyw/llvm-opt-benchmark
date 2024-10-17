@@ -2871,7 +2871,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap14log_gc_ref_set
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i64 %18, 4
+  %20 = icmp samesign ugt i64 %18, 4
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %3
@@ -3065,7 +3065,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49: ; preds = %51, %.noexc4
   %79 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %80 = icmp ult i64 %79, 6
   call void @llvm.assume(i1 %80)
-  %81 = icmp ugt i64 %79, 4
+  %81 = icmp samesign ugt i64 %79, 4
   br i1 %81, label %82, label %64
 
 82:                                               ; preds = %73
@@ -3194,7 +3194,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap14log_gc_ref_set
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %17, 4
+  %19 = icmp samesign ugt i64 %17, 4
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %3
@@ -3396,7 +3396,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49: ; preds = %.critedge75,
   %74 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %75 = icmp ult i64 %74, 6
   call void @llvm.assume(i1 %75)
-  %76 = icmp ugt i64 %74, 4
+  %76 = icmp samesign ugt i64 %74, 4
   br i1 %76, label %77, label %59
 
 77:                                               ; preds = %68
@@ -3525,7 +3525,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap14log_gc_ref_set
   %18 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %19 = icmp ult i64 %18, 6
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i64 %18, 4
+  %20 = icmp samesign ugt i64 %18, 4
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %3
@@ -3719,7 +3719,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49: ; preds = %51, %.noexc4
   %79 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %80 = icmp ult i64 %79, 6
   call void @llvm.assume(i1 %80)
-  %81 = icmp ugt i64 %79, 4
+  %81 = icmp samesign ugt i64 %79, 4
   br i1 %81, label %82, label %64
 
 82:                                               ; preds = %73
@@ -4712,7 +4712,7 @@ common.resume:                                    ; preds = %24, %19
 57:                                               ; preds = %54
   %58 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %35, i64 0, i64 %55
   %59 = load i32, ptr %58, align 8, !range !634, !alias.scope !642, !noalias !645, !noundef !4
-  %.not.not.i.i = icmp ult i32 %59, 2
+  %.not.not.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.not.i.i, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i, label %.invoke85
 
 _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i: ; preds = %57
@@ -4769,7 +4769,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h
 81:                                               ; preds = %78
   %82 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %69, i64 0, i64 %79
   %83 = load i32, ptr %82, align 8, !range !634, !alias.scope !653, !noalias !656, !noundef !4
-  %.not.not.i.i55 = icmp ult i32 %83, 2
+  %.not.not.i.i55 = icmp samesign ult i32 %83, 2
   br i1 %.not.not.i.i55, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56, label %.invoke85
 
 .invoke85:                                        ; preds = %81, %34, %57
@@ -4933,7 +4933,7 @@ define internal fastcc void @_ZN16wasmtime_runtime8instance9allocator7pooling15i
 14:                                               ; preds = %2
   %15 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %12
   %16 = load i32, ptr %15, align 8, !range !634, !noundef !4
-  %.not.not.i.i = icmp ult i32 %16, 2
+  %.not.not.i.i = icmp samesign ult i32 %16, 2
   br i1 %.not.not.i.i, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i, label %17
 
 17:                                               ; preds = %14
@@ -4976,7 +4976,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   %27 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
   %28 = load i32, ptr %27, align 8, !range !634, !alias.scope !692, !noalias !686, !noundef !4
-  %.not.not.i18.i = icmp ult i32 %28, 2
+  %.not.not.i18.i = icmp samesign ult i32 %28, 2
   br i1 %.not.not.i18.i, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit19.i, label %29
 
 29:                                               ; preds = %26
@@ -5007,7 +5007,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   %38 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !694)
   %39 = load i32, ptr %38, align 8, !range !634, !alias.scope !697, !noalias !686, !noundef !4
-  %.not.not.i20.i = icmp ult i32 %39, 2
+  %.not.not.i20.i = icmp samesign ult i32 %39, 2
   br i1 %.not.not.i20.i, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit21.i, label %40
 
 40:                                               ; preds = %37
@@ -5062,7 +5062,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
 58:                                               ; preds = %52
   %59 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %12
   %60 = load i32, ptr %59, align 8, !range !634, !noalias !705, !noundef !4
-  %.not.not.i.i37 = icmp ult i32 %60, 2
+  %.not.not.i.i37 = icmp samesign ult i32 %60, 2
   br i1 %.not.not.i.i37, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i38, label %61
 
 61:                                               ; preds = %58
@@ -5103,7 +5103,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   %71 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
   %72 = load i32, ptr %71, align 8, !range !634, !alias.scope !715, !noalias !705, !noundef !4
-  %.not.not.i18.i43 = icmp ult i32 %72, 2
+  %.not.not.i18.i43 = icmp samesign ult i32 %72, 2
   br i1 %.not.not.i18.i43, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit19.i44, label %73
 
 73:                                               ; preds = %70
@@ -5135,7 +5135,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   %82 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !717)
   %83 = load i32, ptr %82, align 8, !range !634, !alias.scope !720, !noalias !705, !noundef !4
-  %.not.not.i20.i41 = icmp ult i32 %83, 2
+  %.not.not.i20.i41 = icmp samesign ult i32 %83, 2
   br i1 %.not.not.i20.i41, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit21.i42, label %84
 
 84:                                               ; preds = %81
@@ -5634,7 +5634,7 @@ define internal fastcc void @"_ZN16wasmtime_runtime8instance9allocator7pooling24
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = udiv i64 %22, 20
-  %24 = icmp ugt i64 %3, %23
+  %24 = icmp samesign ugt i64 %3, %23
   br i1 %24, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %51
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %17

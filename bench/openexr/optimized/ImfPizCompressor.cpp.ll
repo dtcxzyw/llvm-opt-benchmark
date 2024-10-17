@@ -849,12 +849,12 @@ for.body24.i:                                     ; preds = %for.inc37.i, %for.e
 
 if.then.i:                                        ; preds = %for.body24.i
   %90 = zext i16 %minNonZero.0 to i64
-  %cmp28.i = icmp ult i64 %indvars.iv26.i, %90
+  %cmp28.i = icmp samesign ult i64 %indvars.iv26.i, %90
   %conv30.i = trunc i64 %indvars.iv26.i to i16
   %spec.select176 = select i1 %cmp28.i, i16 %conv30.i, i16 %minNonZero.0
   %spec.select177 = select i1 %cmp28.i, i16 %maxNonZero.0, i16 %88
   %91 = zext i16 %spec.select177 to i64
-  %cmp32.i = icmp ugt i64 %indvars.iv26.i, %91
+  %cmp32.i = icmp samesign ugt i64 %indvars.iv26.i, %91
   %spec.select178 = select i1 %cmp32.i, i16 %conv30.i, i16 %maxNonZero.0
   %spec.select179 = select i1 %cmp32.i, i16 %conv30.i, i16 %spec.select177
   br label %for.inc37.i

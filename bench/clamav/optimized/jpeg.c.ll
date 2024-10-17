@@ -190,7 +190,7 @@ fmap_readn.exit217.thread:                        ; preds = %.lr.ph
   %44 = zext i32 %31 to i64
   %45 = load i64, ptr %10, align 8
   %46 = icmp ugt i64 %45, %44
-  %47 = icmp ult i32 %.0178437, 15
+  %47 = icmp samesign ult i32 %.0178437, 15
   %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.lr.ph, label %._crit_edge
 

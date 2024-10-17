@@ -3166,7 +3166,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   %72 = select i1 %69, i32 0, i32 %66
   %73 = sub i32 %44, %51
   %74 = icmp ne i32 %73, 0
-  %75 = icmp ult i64 %39, 16
+  %75 = icmp samesign ult i64 %39, 16
   %76 = and i1 %75, %74
   br i1 %76, label %37, label %77, !llvm.loop !17
 

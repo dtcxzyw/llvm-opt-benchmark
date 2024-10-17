@@ -84,7 +84,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nocap
   store i64 %36, ptr %35, align 1
   %37 = lshr <2 x i64> %34, <i64 56, i64 56>
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %17
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %17
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 8
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -165,7 +165,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   store i64 %32, ptr %31, align 1
   %33 = lshr <2 x i64> %30, <i64 56, i64 56>
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %13
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 8
   br i1 %.not.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
@@ -222,7 +222,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %57 = getelementptr inbounds i8, ptr %2, i64 %47
   store <16 x i8> %55, ptr %57, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %58 = icmp ult i64 %indvars.iv.next, %41
+  %58 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %58, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !7
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
@@ -303,7 +303,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   store i64 %32, ptr %31, align 1
   %33 = lshr <2 x i64> %30, <i64 56, i64 56>
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %.not.i = icmp ugt i64 %indvars.iv.next.i, %13
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 8
   br i1 %.not.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
@@ -413,7 +413,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %100 = extractelement <2 x i64> %93, i64 0
   store i64 %100, ptr %99, align 1
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 8
-  %101 = icmp ult i64 %indvars.iv.next.i14, %51
+  %101 = icmp samesign ult i64 %indvars.iv.next.i14, %51
   br i1 %101, label %.lr.ph.i12, label %.preheader.loopexit.i15, !llvm.loop !9
 
 .lr.ph101.i:                                      ; preds = %.lr.ph101.i, %.lr.ph101.preheader.i
@@ -490,7 +490,7 @@ define internal void @HorizontalFilter_SSE2(ptr nocapture noundef readonly %0, i
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store <16 x i8> %25, ptr %27, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
-  %28 = icmp ult i64 %indvars.iv.next.i.i, %12
+  %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %28, label %.lr.ph.i.i, label %.preheader.loopexit.i.i, !llvm.loop !11
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i, %.lr.ph44.preheader.i.i
@@ -550,7 +550,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   store <16 x i8> %55, ptr %57, align 1
   %indvars.iv.next.i47.us.i = add nuw nsw i64 %indvars.iv.i46.us.i, 32
-  %58 = icmp ult i64 %indvars.iv.next.i47.us.i, %39
+  %58 = icmp samesign ult i64 %indvars.iv.next.i47.us.i, %39
   br i1 %58, label %.lr.ph.i45.us.i, label %.preheader.loopexit.i48.us.i, !llvm.loop !11
 
 .preheader.loopexit.i48.us.i:                     ; preds = %.lr.ph.i45.us.i
@@ -684,7 +684,7 @@ define internal void @VerticalFilter_SSE2(ptr nocapture noundef readonly %0, i32
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store <16 x i8> %25, ptr %27, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
-  %28 = icmp ult i64 %indvars.iv.next.i.i, %12
+  %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %28, label %.lr.ph.i.i, label %.preheader.loopexit.i.i, !llvm.loop !11
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i, %.lr.ph44.preheader.i.i
@@ -739,7 +739,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %52 = getelementptr inbounds i8, ptr %.13253.us.i, i64 %42
   store <16 x i8> %50, ptr %52, align 1
   %indvars.iv.next.i45.us.i = add nuw nsw i64 %indvars.iv.i44.us.i, 32
-  %53 = icmp ult i64 %indvars.iv.next.i45.us.i, %39
+  %53 = icmp samesign ult i64 %indvars.iv.next.i45.us.i, %39
   br i1 %53, label %.lr.ph.i43.us.i, label %.preheader.loopexit.i46.us.i, !llvm.loop !14
 
 .preheader.loopexit.i46.us.i:                     ; preds = %.lr.ph.i43.us.i
@@ -852,7 +852,7 @@ define internal void @GradientFilter_SSE2(ptr nocapture noundef readonly %0, i32
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store <16 x i8> %25, ptr %27, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
-  %28 = icmp ult i64 %indvars.iv.next.i.i, %12
+  %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %28, label %.lr.ph.i.i, label %.preheader.loopexit.i.i, !llvm.loop !11
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i, %.lr.ph44.preheader.i.i
@@ -933,7 +933,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %77 = extractelement <2 x i64> %75, i64 0
   store i64 %77, ptr %76, align 1
   %indvars.iv.next.i45.us.i = add nuw nsw i64 %indvars.iv.i44.us.i, 8
-  %78 = icmp ult i64 %indvars.iv.next.i45.us.i, %42
+  %78 = icmp samesign ult i64 %indvars.iv.next.i45.us.i, %42
   br i1 %78, label %.lr.ph.i43.us.i, label %.preheader.loopexit.i46.us.i, !llvm.loop !17
 
 .preheader.loopexit.i46.us.i:                     ; preds = %.lr.ph.i43.us.i

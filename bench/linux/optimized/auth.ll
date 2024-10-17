@@ -262,7 +262,7 @@ define dso_local i32 @rpcauth_get_pseudoflavor(i32 noundef %0, ptr noundef %1) #
 define dso_local i32 @rpcauth_get_gssinfo(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = icmp ugt i32 %0, 8
   %4 = select i1 %3, i32 6, i32 %0
-  %5 = icmp ugt i32 %4, 7
+  %5 = icmp samesign ugt i32 %4, 7
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2

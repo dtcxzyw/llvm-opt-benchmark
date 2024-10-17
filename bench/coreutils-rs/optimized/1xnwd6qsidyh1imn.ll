@@ -86,17 +86,17 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114113) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
-  %3 = icmp ult i32 %1, 128
+  %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %1, 2048
+  %5 = icmp samesign ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   br i1 %7, label %15, label %26
 
 8:                                                ; preds = %4

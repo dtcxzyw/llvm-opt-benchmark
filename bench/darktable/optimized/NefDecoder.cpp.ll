@@ -617,7 +617,7 @@ define hidden void @_ZN8rawspeed10NefDecoder17decodeRawInternalEv(ptr dead_on_un
   %182 = getelementptr inbounds i8, ptr %1, i64 40
   %183 = load i32, ptr %182, align 8, !tbaa !15
   %184 = zext i32 %183 to i64
-  %185 = icmp ugt i64 %181, %184
+  %185 = icmp samesign ugt i64 %181, %184
   br i1 %185, label %186, label %187
 
 186:                                              ; preds = %175
@@ -670,7 +670,7 @@ define hidden void @_ZN8rawspeed10NefDecoder17decodeRawInternalEv(ptr dead_on_un
   %217 = add nuw nsw i64 %216, %215
   %218 = load i32, ptr %182, align 8, !tbaa !15
   %219 = zext i32 %218 to i64
-  %220 = icmp ugt i64 %217, %219
+  %220 = icmp samesign ugt i64 %217, %219
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %211
@@ -682,7 +682,7 @@ define hidden void @_ZN8rawspeed10NefDecoder17decodeRawInternalEv(ptr dead_on_un
   %224 = icmp sgt i32 %218, -1
   call void @llvm.assume(i1 %224)
   %225 = add nuw nsw i32 %214, %213
-  %226 = icmp ule i32 %225, %218
+  %226 = icmp samesign ule i32 %225, %218
   call void @llvm.assume(i1 %226)
   %227 = icmp sgt i32 %213, -1
   call void @llvm.assume(i1 %227)
@@ -934,7 +934,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10NefDecoder16D100IsCompressedEj(
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = zext i32 %6 to i64
-  %8 = icmp ugt i64 %4, %7
+  %8 = icmp samesign ugt i64 %4, %7
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
@@ -947,7 +947,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10NefDecoder16D100IsCompressedEj(
   %13 = icmp sgt i32 %6, -1
   tail call void @llvm.assume(i1 %13)
   %14 = add nuw nsw i32 %1, 256
-  %15 = icmp ule i32 %14, %6
+  %15 = icmp samesign ule i32 %14, %6
   tail call void @llvm.assume(i1 %15)
   %16 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %16)
@@ -1292,7 +1292,7 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10NefDecoder17NEFIsUncompressedEPK
   %22 = shl nuw nsw i64 %21, 3
   %23 = zext i32 %8 to i64
   %24 = udiv i64 %22, %23
-  %25 = icmp ult i64 %24, %20
+  %25 = icmp samesign ult i64 %24, %20
   br i1 %25, label %42, label %26
 
 26:                                               ; preds = %14
@@ -1460,7 +1460,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %96 = add nuw nsw i64 %95, %94
   %97 = load i32, ptr %68, align 8, !tbaa !15
   %98 = zext i32 %97 to i64
-  %99 = icmp ugt i64 %96, %98
+  %99 = icmp samesign ugt i64 %96, %98
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %88
@@ -1705,7 +1705,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %234 = add nuw nsw i64 %233, %232
   %235 = load i32, ptr %68, align 8, !tbaa !15
   %236 = zext i32 %235 to i64
-  %237 = icmp ugt i64 %234, %236
+  %237 = icmp samesign ugt i64 %234, %236
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %225
@@ -1720,7 +1720,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %242 = icmp sgt i32 %235, -1
   call void @llvm.assume(i1 %242)
   %243 = add nuw nsw i32 %231, %229
-  %244 = icmp ule i32 %243, %235
+  %244 = icmp samesign ule i32 %243, %235
   call void @llvm.assume(i1 %244)
   %245 = icmp sgt i32 %229, -1
   call void @llvm.assume(i1 %245)
@@ -2826,7 +2826,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   tail call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %21, -1
   tail call void @llvm.assume(i1 %26)
-  %27 = icmp uge i32 %21, %16
+  %27 = icmp samesign uge i32 %21, %16
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i32 %16, 0
   %29 = icmp ne i32 %18, 0
@@ -2917,7 +2917,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %79 = getelementptr inbounds i8, ptr %1, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !15, !noalias !38
   %81 = zext i32 %80 to i64
-  %82 = icmp ugt i64 %78, %81
+  %82 = icmp samesign ugt i64 %78, %81
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %72
@@ -2929,7 +2929,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %86 = icmp sgt i32 %80, -1
   tail call void @llvm.assume(i1 %86)
   %87 = add nuw nsw i32 %75, %73
-  %88 = icmp ule i32 %87, %80
+  %88 = icmp samesign ule i32 %87, %80
   tail call void @llvm.assume(i1 %88)
   %89 = icmp sgt i32 %75, -1
   tail call void @llvm.assume(i1 %89)
@@ -2950,7 +2950,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
 96:                                               ; preds = %92
   %97 = zext nneg i32 %87 to i64
   %98 = add nuw nsw i64 %97, %77
-  %99 = icmp ugt i64 %98, %81
+  %99 = icmp samesign ugt i64 %98, %81
   br i1 %99, label %100, label %101
 
 .thread14:                                        ; preds = %84
@@ -2963,12 +2963,12 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
 
 101:                                              ; preds = %96
   %102 = add nuw nsw i32 %87, %73
-  %103 = icmp ule i32 %102, %80
+  %103 = icmp samesign ule i32 %102, %80
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds i8, ptr %85, i64 %97
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %105 = icmp ult i32 %73, 4
+  %105 = icmp samesign ult i32 %73, 4
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %.thread14, %101
@@ -3003,7 +3003,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %124 = phi i32 [ 0, %112 ], [ %218, %235 ]
   %125 = phi i64 [ 0, %112 ], [ %219, %235 ]
   %126 = phi i32 [ 0, %112 ], [ %168, %235 ]
-  %127 = icmp ult i64 %120, %116
+  %127 = icmp samesign ult i64 %120, %116
   %128 = trunc nuw i64 %120 to i32
   %129 = mul nsw i32 %21, %128
   %130 = add nuw nsw i32 %129, %16
@@ -3068,7 +3068,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %172 = add nsw i32 %170, -12
   %173 = shl i64 %169, 12
   %174 = trunc nuw nsw i64 %171 to i16
-  %175 = icmp ult i64 %135, %114
+  %175 = icmp samesign ult i64 %135, %114
   tail call void @llvm.assume(i1 %175)
   tail call void @llvm.assume(i1 %228)
   tail call void @llvm.assume(i1 %232)
@@ -3136,7 +3136,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %219 = shl i64 %215, 12
   %220 = trunc nuw nsw i64 %217 to i16
   tail call void @llvm.assume(i1 %118)
-  %221 = icmp ult i64 %181, %114
+  %221 = icmp samesign ult i64 %181, %114
   tail call void @llvm.assume(i1 %221)
   tail call void @llvm.assume(i1 %117)
   tail call void @llvm.assume(i1 %127)
@@ -3150,7 +3150,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
 
 226:                                              ; preds = %213
   %227 = add nuw nsw i64 %120, 1
-  %228 = icmp ult i64 %227, %116
+  %228 = icmp samesign ult i64 %227, %116
   %229 = trunc nuw nsw i64 %227 to i32
   %230 = mul nsw i32 %21, %229
   %231 = add nuw nsw i32 %230, %16
@@ -3471,7 +3471,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   call void @llvm.assume(i1 %196)
   %197 = icmp sgt i32 %192, -1
   call void @llvm.assume(i1 %197)
-  %198 = icmp uge i32 %192, %187
+  %198 = icmp samesign uge i32 %192, %187
   call void @llvm.assume(i1 %198)
   %199 = icmp eq i32 %187, 0
   %200 = icmp ne i32 %189, 0
@@ -3486,7 +3486,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %208 = getelementptr inbounds i8, ptr %1, i64 8
   %209 = load i32, ptr %208, align 8, !tbaa !15
   %210 = zext i32 %209 to i64
-  %211 = icmp ugt i64 %207, %210
+  %211 = icmp samesign ugt i64 %207, %210
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %179
@@ -3501,13 +3501,13 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %216 = icmp sgt i32 %209, -1
   call void @llvm.assume(i1 %216)
   %217 = add nuw nsw i32 %204, %202
-  %218 = icmp ule i32 %217, %209
+  %218 = icmp samesign ule i32 %217, %209
   call void @llvm.assume(i1 %218)
   %219 = icmp sgt i32 %204, -1
   call void @llvm.assume(i1 %219)
   %220 = getelementptr inbounds i8, ptr %215, i64 %205
   call void @llvm.assume(i1 %200)
-  %221 = icmp ugt i32 %187, 2
+  %221 = icmp samesign ugt i32 %187, 2
   call void @llvm.assume(i1 %221)
   %222 = zext nneg i32 %187 to i64
   %223 = zext nneg i32 %192 to i64
@@ -3611,7 +3611,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %275 = load i8, ptr %274, align 1, !tbaa !18
   %276 = zext i8 %275 to i32
   %277 = or disjoint i64 %273, 1
-  %278 = icmp ult i64 %277, %222
+  %278 = icmp samesign ult i64 %277, %222
   call void @llvm.assume(i1 %278)
   %279 = getelementptr inbounds i8, ptr %254, i64 %277
   %280 = load i8, ptr %279, align 1, !tbaa !18
@@ -3628,7 +3628,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %291 = getelementptr inbounds i8, ptr %254, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !18
   %293 = add nuw nsw i64 %273, 5
-  %294 = icmp ult i64 %293, %222
+  %294 = icmp samesign ult i64 %293, %222
   call void @llvm.assume(i1 %294)
   %295 = getelementptr inbounds i8, ptr %254, i64 %293
   %296 = zext i8 %292 to i32
@@ -3649,7 +3649,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %311 = or disjoint i32 %310, %309
   %312 = uitofp nneg i32 %311 to float
   %313 = add nuw nsw i64 %273, 6
-  %314 = icmp ult i64 %313, %222
+  %314 = icmp samesign ult i64 %313, %222
   br i1 %314, label %315, label %341
 
 315:                                              ; preds = %272
@@ -3659,7 +3659,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %319 = getelementptr i8, ptr %263, i64 %273
   %320 = load i8, ptr %319, align 1, !tbaa !18
   %321 = add nuw nsw i64 %273, 11
-  %322 = icmp ult i64 %321, %222
+  %322 = icmp samesign ult i64 %321, %222
   call void @llvm.assume(i1 %322)
   %323 = getelementptr inbounds i8, ptr %254, i64 %321
   %324 = zext i8 %320 to i32
@@ -4633,7 +4633,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %163 = zext i32 %162 to i64
   %164 = add nuw nsw i64 %163, 4
   %165 = zext i32 %160 to i64
-  %166 = icmp ugt i64 %164, %165
+  %166 = icmp samesign ugt i64 %164, %165
   br i1 %166, label %167, label %207
 
 167:                                              ; preds = %155
@@ -4701,7 +4701,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %210 = icmp sgt i32 %160, -1
   call void @llvm.assume(i1 %210)
   %211 = add nuw nsw i32 %162, 4
-  %212 = icmp ule i32 %211, %160
+  %212 = icmp samesign ule i32 %211, %160
   call void @llvm.assume(i1 %212)
   %213 = icmp sgt i32 %162, -1
   call void @llvm.assume(i1 %213)
@@ -4720,7 +4720,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %226 = zext nneg i32 %224 to i64
   %227 = add nuw nsw i64 %225, %226
   %228 = zext i32 %221 to i64
-  %229 = icmp ugt i64 %227, %228
+  %229 = icmp samesign ugt i64 %227, %228
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %207
@@ -4748,7 +4748,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %247 = icmp sgt i32 %221, -1
   call void @llvm.assume(i1 %247)
   %248 = add nuw nsw i32 %223, %224
-  %249 = icmp ule i32 %248, %221
+  %249 = icmp samesign ule i32 %248, %221
   call void @llvm.assume(i1 %249)
   %250 = icmp sgt i32 %223, -1
   call void @llvm.assume(i1 %250)
@@ -4788,25 +4788,25 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   br i1 %265, label %259, label %266
 
 266:                                              ; preds = %263
-  %267 = icmp ult i32 %248, 2147483646
+  %267 = icmp samesign ult i32 %248, 2147483646
   call void @llvm.assume(i1 %267)
   %268 = icmp eq i32 %253, 3
   br i1 %268, label %259, label %269
 
 269:                                              ; preds = %266
-  %270 = icmp ult i32 %248, 2147483645
+  %270 = icmp samesign ult i32 %248, 2147483645
   call void @llvm.assume(i1 %270)
   %271 = icmp eq i32 %253, 4
   br i1 %271, label %259, label %272
 
 272:                                              ; preds = %269
-  %273 = icmp ult i32 %248, 2147483644
+  %273 = icmp samesign ult i32 %248, 2147483644
   call void @llvm.assume(i1 %273)
   %274 = icmp eq i32 %253, 5
   br i1 %274, label %259, label %275
 
 275:                                              ; preds = %272
-  %276 = icmp ult i32 %248, 2147483643
+  %276 = icmp samesign ult i32 %248, 2147483643
   call void @llvm.assume(i1 %276)
   %277 = icmp eq i32 %253, 6
   br i1 %277, label %259, label %278
@@ -4816,7 +4816,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %280 = shufflevector <4 x i8> %279, <4 x i8> poison, <4 x i32> zeroinitializer
   %281 = mul <4 x i8> %280, <i8 96, i8 97, i8 98, i8 99>
   %282 = getelementptr inbounds i8, ptr %3, i64 6
-  %283 = icmp ult i32 %248, 2147483642
+  %283 = icmp samesign ult i32 %248, 2147483642
   call void @llvm.assume(i1 %283)
   %284 = getelementptr i8, ptr %219, i64 %252
   %285 = getelementptr i8, ptr %284, i64 6
@@ -4832,7 +4832,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 292:                                              ; preds = %278
   %293 = getelementptr inbounds i8, ptr %3, i64 7
-  %294 = icmp ult i32 %248, 2147483641
+  %294 = icmp samesign ult i32 %248, 2147483641
   call void @llvm.assume(i1 %294)
   %295 = getelementptr i8, ptr %284, i64 7
   %296 = load i8, ptr %295, align 1
@@ -4845,7 +4845,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 301:                                              ; preds = %292
   %302 = getelementptr inbounds i8, ptr %3, i64 8
-  %303 = icmp ult i32 %248, 2147483640
+  %303 = icmp samesign ult i32 %248, 2147483640
   call void @llvm.assume(i1 %303)
   %304 = getelementptr i8, ptr %284, i64 8
   %305 = load i8, ptr %304, align 1
@@ -4858,7 +4858,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 310:                                              ; preds = %301
   %311 = getelementptr inbounds i8, ptr %3, i64 9
-  %312 = icmp ult i32 %248, 2147483639
+  %312 = icmp samesign ult i32 %248, 2147483639
   call void @llvm.assume(i1 %312)
   %313 = getelementptr i8, ptr %284, i64 9
   %314 = load i8, ptr %313, align 1
@@ -4871,7 +4871,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 319:                                              ; preds = %310
   %320 = getelementptr inbounds i8, ptr %3, i64 10
-  %321 = icmp ult i32 %248, 2147483638
+  %321 = icmp samesign ult i32 %248, 2147483638
   call void @llvm.assume(i1 %321)
   %322 = getelementptr i8, ptr %284, i64 10
   %323 = load i8, ptr %322, align 1
@@ -4884,7 +4884,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 328:                                              ; preds = %319
   %329 = getelementptr inbounds i8, ptr %3, i64 11
-  %330 = icmp ult i32 %248, 2147483637
+  %330 = icmp samesign ult i32 %248, 2147483637
   call void @llvm.assume(i1 %330)
   %331 = getelementptr i8, ptr %284, i64 11
   %332 = load i8, ptr %331, align 1
@@ -4897,7 +4897,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 337:                                              ; preds = %328
   %338 = getelementptr inbounds i8, ptr %3, i64 12
-  %339 = icmp ult i32 %248, 2147483636
+  %339 = icmp samesign ult i32 %248, 2147483636
   call void @llvm.assume(i1 %339)
   %340 = getelementptr i8, ptr %284, i64 12
   %341 = load i8, ptr %340, align 1
@@ -4910,7 +4910,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 346:                                              ; preds = %337
   %347 = getelementptr inbounds i8, ptr %3, i64 13
-  %348 = icmp ult i32 %248, 2147483635
+  %348 = icmp samesign ult i32 %248, 2147483635
   call void @llvm.assume(i1 %348)
   %349 = getelementptr i8, ptr %284, i64 13
   %350 = load i8, ptr %349, align 1
@@ -4923,7 +4923,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 355:                                              ; preds = %346
   %356 = getelementptr inbounds i8, ptr %3, i64 14
-  %357 = icmp ult i32 %248, 2147483634
+  %357 = icmp samesign ult i32 %248, 2147483634
   call void @llvm.assume(i1 %357)
   %358 = getelementptr i8, ptr %284, i64 14
   %359 = load i8, ptr %358, align 1
@@ -4936,7 +4936,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 364:                                              ; preds = %355
   %365 = getelementptr inbounds i8, ptr %3, i64 15
-  %366 = icmp ult i32 %248, 2147483633
+  %366 = icmp samesign ult i32 %248, 2147483633
   call void @llvm.assume(i1 %366)
   %367 = getelementptr i8, ptr %284, i64 15
   %368 = load i8, ptr %367, align 1
@@ -4949,7 +4949,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 373:                                              ; preds = %364
   %374 = getelementptr inbounds i8, ptr %3, i64 16
-  %375 = icmp ult i32 %248, 2147483632
+  %375 = icmp samesign ult i32 %248, 2147483632
   call void @llvm.assume(i1 %375)
   %376 = getelementptr i8, ptr %284, i64 16
   %377 = load i8, ptr %376, align 1
@@ -4962,7 +4962,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 382:                                              ; preds = %373
   %383 = getelementptr inbounds i8, ptr %3, i64 17
-  %384 = icmp ult i32 %248, 2147483631
+  %384 = icmp samesign ult i32 %248, 2147483631
   call void @llvm.assume(i1 %384)
   %385 = getelementptr i8, ptr %284, i64 17
   %386 = load i8, ptr %385, align 1
@@ -4975,7 +4975,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 391:                                              ; preds = %382
   %392 = getelementptr inbounds i8, ptr %3, i64 18
-  %393 = icmp ult i32 %248, 2147483630
+  %393 = icmp samesign ult i32 %248, 2147483630
   call void @llvm.assume(i1 %393)
   %394 = getelementptr i8, ptr %284, i64 18
   %395 = load i8, ptr %394, align 1
@@ -4988,7 +4988,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 400:                                              ; preds = %391
   %401 = getelementptr inbounds i8, ptr %3, i64 19
-  %402 = icmp ult i32 %248, 2147483629
+  %402 = icmp samesign ult i32 %248, 2147483629
   call void @llvm.assume(i1 %402)
   %403 = getelementptr i8, ptr %284, i64 19
   %404 = load i8, ptr %403, align 1
@@ -5001,7 +5001,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 409:                                              ; preds = %400
   %410 = getelementptr inbounds i8, ptr %3, i64 20
-  %411 = icmp ult i32 %248, 2147483628
+  %411 = icmp samesign ult i32 %248, 2147483628
   call void @llvm.assume(i1 %411)
   %412 = getelementptr i8, ptr %284, i64 20
   %413 = load i8, ptr %412, align 1
@@ -5014,7 +5014,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 418:                                              ; preds = %409
   %419 = getelementptr inbounds i8, ptr %3, i64 21
-  %420 = icmp ult i32 %248, 2147483627
+  %420 = icmp samesign ult i32 %248, 2147483627
   call void @llvm.assume(i1 %420)
   %421 = getelementptr i8, ptr %284, i64 21
   %422 = load i8, ptr %421, align 1
@@ -5107,7 +5107,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %476 = zext i32 %467 to i64
   %477 = add nuw nsw i64 %476, 1248
   %478 = zext i32 %465 to i64
-  %479 = icmp ugt i64 %477, %478
+  %479 = icmp samesign ugt i64 %477, %478
   br i1 %479, label %480, label %481
 
 480:                                              ; preds = %475
@@ -5118,13 +5118,13 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %482 = icmp sgt i32 %465, -1
   tail call void @llvm.assume(i1 %482)
   %483 = add nuw nsw i32 %467, 1248
-  %484 = icmp ule i32 %483, %465
+  %484 = icmp samesign ule i32 %483, %465
   tail call void @llvm.assume(i1 %484)
   %485 = icmp sgt i32 %467, -1
   tail call void @llvm.assume(i1 %485)
   %486 = zext nneg i32 %483 to i64
   %487 = add nuw nsw i64 %486, 2
-  %488 = icmp ugt i64 %487, %478
+  %488 = icmp samesign ugt i64 %487, %478
   br i1 %488, label %489, label %490
 
 489:                                              ; preds = %481
@@ -5135,7 +5135,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %491 = icmp ne ptr %463, null
   tail call void @llvm.assume(i1 %491)
   %492 = add nuw nsw i32 %467, 1250
-  %493 = icmp ule i32 %492, %465
+  %493 = icmp samesign ule i32 %492, %465
   tail call void @llvm.assume(i1 %493)
   %494 = getelementptr inbounds i8, ptr %463, i64 %486
   %495 = load i16, ptr %494, align 1
@@ -5150,7 +5150,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   store float 1.000000e+00, ptr %502, align 4, !tbaa !176
   %503 = zext nneg i32 %492 to i64
   %504 = add nuw nsw i64 %503, 2
-  %505 = icmp ugt i64 %504, %478
+  %505 = icmp samesign ugt i64 %504, %478
   br i1 %505, label %506, label %507
 
 506:                                              ; preds = %490
@@ -5159,7 +5159,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 507:                                              ; preds = %490
   %508 = add nuw nsw i32 %467, 1252
-  %509 = icmp ule i32 %508, %465
+  %509 = icmp samesign ule i32 %508, %465
   tail call void @llvm.assume(i1 %509)
   %510 = getelementptr inbounds i8, ptr %463, i64 %503
   %511 = load i16, ptr %510, align 1
@@ -5174,7 +5174,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %517 = zext i32 %467 to i64
   %518 = add nuw nsw i64 %517, 4
   %519 = zext i32 %465 to i64
-  %520 = icmp ugt i64 %518, %519
+  %520 = icmp samesign ugt i64 %518, %519
   br i1 %520, label %622, label %521
 
 521:                                              ; preds = %516
@@ -5213,7 +5213,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 542:                                              ; preds = %538
   %543 = zext nneg i32 %524 to i64
   %544 = add nuw nsw i64 %543, 4
-  %545 = icmp ugt i64 %544, %519
+  %545 = icmp samesign ugt i64 %544, %519
   br i1 %545, label %566, label %546
 
 546:                                              ; preds = %542
@@ -5264,7 +5264,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 573:                                              ; preds = %568
   %574 = zext nneg i32 %570 to i64
   %575 = add nuw nsw i64 %574, 4
-  %576 = icmp ugt i64 %575, %519
+  %576 = icmp samesign ugt i64 %575, %519
   br i1 %576, label %577, label %578
 
 577:                                              ; preds = %573
@@ -5285,7 +5285,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   store float %584, ptr %587, align 4, !tbaa !176
   %588 = zext nneg i32 %579 to i64
   %589 = add nuw nsw i64 %588, 4
-  %590 = icmp ugt i64 %589, %519
+  %590 = icmp samesign ugt i64 %589, %519
   br i1 %590, label %591, label %592
 
 591:                                              ; preds = %578
@@ -5303,7 +5303,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   store float %597, ptr %598, align 4, !tbaa !176
   %599 = zext nneg i32 %593 to i64
   %600 = add nuw nsw i64 %599, 4
-  %601 = icmp ugt i64 %600, %519
+  %601 = icmp samesign ugt i64 %600, %519
   br i1 %601, label %602, label %603
 
 602:                                              ; preds = %592
@@ -5321,7 +5321,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   store float %609, ptr %598, align 4, !tbaa !176
   %610 = zext nneg i32 %604 to i64
   %611 = add nuw nsw i64 %610, 4
-  %612 = icmp ugt i64 %611, %519
+  %612 = icmp samesign ugt i64 %611, %519
   br i1 %612, label %613, label %614
 
 613:                                              ; preds = %603
@@ -5599,7 +5599,7 @@ define hidden void @_ZN8rawspeed10NefDecoder22decodeMetaDataInternalEPKNS_14Came
   call void @llvm.assume(i1 %87)
   %88 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %88)
-  %89 = icmp uge i32 %86, %80
+  %89 = icmp samesign uge i32 %86, %80
   call void @llvm.assume(i1 %89)
   %90 = icmp eq i32 %80, 0
   %91 = icmp ne i32 %83, 0
@@ -5628,7 +5628,7 @@ define hidden void @_ZN8rawspeed10NefDecoder22decodeMetaDataInternalEPKNS_14Came
 105:                                              ; preds = %100
   %106 = zext i16 %104 to i32
   %107 = lshr i32 %106, %57
-  %108 = icmp ugt i32 %98, 1
+  %108 = icmp samesign ugt i32 %98, 1
   call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %107, ptr %109, align 4, !tbaa !19
@@ -5638,7 +5638,7 @@ define hidden void @_ZN8rawspeed10NefDecoder22decodeMetaDataInternalEPKNS_14Came
 111:                                              ; preds = %105
   %112 = zext i16 %110 to i32
   %113 = lshr i32 %112, %57
-  %114 = icmp ugt i32 %98, 2
+  %114 = icmp samesign ugt i32 %98, 2
   call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds i8, ptr %75, i64 8
   store i32 %113, ptr %115, align 4, !tbaa !19
@@ -5648,7 +5648,7 @@ define hidden void @_ZN8rawspeed10NefDecoder22decodeMetaDataInternalEPKNS_14Came
 117:                                              ; preds = %111
   %118 = zext i16 %116 to i32
   %119 = lshr i32 %118, %57
-  %120 = icmp ugt i32 %98, 3
+  %120 = icmp samesign ugt i32 %98, 3
   call void @llvm.assume(i1 %120)
   %121 = getelementptr inbounds i8, ptr %75, i64 12
   store i32 %119, ptr %121, align 4, !tbaa !19

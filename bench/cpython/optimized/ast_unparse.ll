@@ -1038,7 +1038,7 @@ sw.bb:                                            ; preds = %entry
   %cmp.i = icmp eq i32 %1, 1
   %cond.i = select i1 %cmp.i, ptr @.str.3, ptr @.str.4
   %cond5.i = select i1 %cmp.i, i32 3, i32 2
-  %cmp6.i = icmp ugt i32 %level, %cond5.i
+  %cmp6.i = icmp samesign ugt i32 %level, %cond5.i
   br i1 %cmp6.i, label %land.lhs.true.i, label %do.end.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
@@ -1160,7 +1160,7 @@ do.body.i:                                        ; preds = %sw.bb13.i, %sw.bb12
   %op.0.i = phi ptr [ @.str.19, %sw.bb13.i ], [ @.str.18, %sw.bb12.i ], [ @.str.17, %sw.bb11.i ], [ @.str.16, %sw.bb10.i ], [ @.str.15, %sw.bb9.i ], [ @.str.14, %sw.bb8.i ], [ @.str.13, %sw.bb7.i ], [ @.str.12, %sw.bb6.i ], [ @.str.11, %sw.bb5.i ], [ @.str.10, %sw.bb4.i ], [ @.str.9, %sw.bb3.i ], [ @.str.8, %sw.bb2.i ], [ @.str.7, %sw.bb1 ]
   %pr.0.i = phi i32 [ 13, %sw.bb13.i ], [ 11, %sw.bb12.i ], [ 8, %sw.bb11.i ], [ 7, %sw.bb10.i ], [ 6, %sw.bb9.i ], [ 9, %sw.bb8.i ], [ 9, %sw.bb7.i ], [ 11, %sw.bb6.i ], [ 11, %sw.bb5.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb3.i ], [ 10, %sw.bb2.i ], [ 10, %sw.bb1 ]
   %rassoc.0.i = phi i1 [ true, %sw.bb13.i ], [ false, %sw.bb12.i ], [ false, %sw.bb11.i ], [ false, %sw.bb10.i ], [ false, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb7.i ], [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ false, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %sw.bb1 ]
-  %cmp.i68 = icmp ugt i32 %level, %pr.0.i
+  %cmp.i68 = icmp samesign ugt i32 %level, %pr.0.i
   br i1 %cmp.i68, label %land.lhs.true.i71, label %do.body15.i
 
 land.lhs.true.i71:                                ; preds = %do.body.i
@@ -1221,7 +1221,7 @@ switch.lookup:                                    ; preds = %sw.bb3
   %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep598 = getelementptr inbounds [4 x i32], ptr @switch.table.append_ast_expr.6, i64 0, i64 %13
   %switch.load599 = load i32, ptr %switch.gep598, align 4
-  %cmp.i79 = icmp ugt i32 %level, %switch.load599
+  %cmp.i79 = icmp samesign ugt i32 %level, %switch.load599
   br i1 %cmp.i79, label %land.lhs.true.i83, label %do.body6.i
 
 land.lhs.true.i83:                                ; preds = %switch.lookup
@@ -1253,7 +1253,7 @@ do.end26.i:                                       ; preds = %land.lhs.true21.i, 
   br label %common.ret611
 
 sw.bb5:                                           ; preds = %entry
-  %cmp.i88 = icmp ugt i32 %level, 1
+  %cmp.i88 = icmp samesign ugt i32 %level, 1
   br i1 %cmp.i88, label %land.lhs.true.i98, label %do.end.i89
 
 land.lhs.true.i98:                                ; preds = %sw.bb5
@@ -1322,7 +1322,7 @@ do.end53.i:                                       ; preds = %land.lhs.true48.i, 
   br label %common.ret611
 
 sw.bb7:                                           ; preds = %entry
-  %cmp.i100 = icmp ugt i32 %level, 1
+  %cmp.i100 = icmp samesign ugt i32 %level, 1
   br i1 %cmp.i100, label %land.lhs.true.i111, label %do.body2.i
 
 land.lhs.true.i111:                               ; preds = %sw.bb7
@@ -1671,7 +1671,7 @@ do.end21.i:                                       ; preds = %land.lhs.true16.i, 
   br label %common.ret611
 
 sw.bb27:                                          ; preds = %entry
-  %cmp.i253 = icmp ugt i32 %level, 5
+  %cmp.i253 = icmp samesign ugt i32 %level, 5
   br i1 %cmp.i253, label %land.lhs.true.i279, label %do.end.i254
 
 land.lhs.true.i279:                               ; preds = %sw.bb27

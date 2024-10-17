@@ -2180,7 +2180,7 @@ define void @_RNvXs_NtCsaPKTPzkFU9s_3nom6branchTNCINvNtNtB6_9character8complete7
 
 73:                                               ; preds = %64
   %74 = load i64, ptr %11, align 8, !range !9, !noundef !5
-  %switch = icmp ult i64 %74, 2
+  %switch = icmp samesign ult i64 %74, 2
   br i1 %switch, label %.thread32, label %75
 
 .thread32:                                        ; preds = %73, %72, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1q_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEB2f_.exit.i
@@ -2283,7 +2283,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12Verb
 
 110:                                              ; preds = %92
   %111 = load i64, ptr %14, align 8, !range !9, !noundef !5
-  %switch34 = icmp ult i64 %111, 2
+  %switch34 = icmp samesign ult i64 %111, 2
   br i1 %switch34, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit23, label %112
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit23: ; preds = %110, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1q_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEB2f_.exit.i22, %109, %29
@@ -4984,17 +4984,17 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 96:                                               ; preds = %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit13, %93
   %97 = phi i64 [ %156, %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit13 ], [ %55, %93 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
-  %98 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %98 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %98, label %140, label %99
 
 99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !1022
-  %100 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %100 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
-  %102 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %102 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   br i1 %102, label %107, label %115
 
 103:                                              ; preds = %99

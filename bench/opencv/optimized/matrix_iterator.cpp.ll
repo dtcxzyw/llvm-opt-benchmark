@@ -126,7 +126,7 @@ define void @_ZN2cv15NAryMatIterator4initEPPKNS_3MatEPS1_PPhi(ptr nocapture noun
 40:                                               ; preds = %.preheader131
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %41, ptr %34, align 8
-  %42 = icmp ult i64 %indvars.iv, 1001
+  %42 = icmp samesign ult i64 %indvars.iv, 1001
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %40

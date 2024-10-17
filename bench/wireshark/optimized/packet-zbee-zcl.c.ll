@@ -1284,8 +1284,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph, %30, %
   tail call void @proto_item_set_end(ptr noundef %52, ptr noundef %0, i32 noundef %53) #5
   %54 = load i32, ptr %3, align 4
   %55 = icmp ult i32 %54, %10
-  %56 = icmp ult i64 %indvars.iv, 63
-  %57 = and i1 %55, %56
+  %56 = icmp samesign ult i64 %indvars.iv, 63
+  %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %51, %7
@@ -1449,8 +1449,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph, %30, %
   tail call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %43) #5
   %44 = load i32, ptr %3, align 4
   %45 = icmp ult i32 %44, %10
-  %46 = icmp ult i64 %indvars.iv, 63
-  %47 = and i1 %45, %46
+  %46 = icmp samesign ult i64 %indvars.iv, 63
+  %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %7
@@ -1530,8 +1530,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph, %30, %
   tail call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %43) #5
   %44 = load i32, ptr %3, align 4
   %45 = icmp ult i32 %44, %10
-  %46 = icmp ult i64 %indvars.iv, 63
-  %47 = and i1 %45, %46
+  %46 = icmp samesign ult i64 %indvars.iv, 63
+  %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %7
@@ -2336,7 +2336,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %20, %23 ]
   %.031 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
-  %15 = icmp ult i64 %indvars.iv, 15
+  %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
@@ -2381,7 +2381,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %19, %22 ]
   %.029 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
-  %15 = icmp ult i64 %indvars.iv, 15
+  %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
@@ -3018,8 +3018,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %34, %38
   tail call void @proto_item_set_end(ptr noundef %46, ptr noundef %0, i32 noundef %47) #5
   %48 = load i32, ptr %2, align 4
   %49 = icmp ult i32 %48, %7
-  %50 = icmp ult i64 %indvars.iv, 63
-  %51 = and i1 %49, %50
+  %50 = icmp samesign ult i64 %indvars.iv, 63
+  %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %45, %6
@@ -3236,8 +3236,8 @@ dissect_zcl_attr_id.exit72:                       ; preds = %93, %83, %95, %99
 dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluster_desc.exit.thread.i, %82, %68, %dissect_zcl_attr_id.exit72
   %110 = load i32, ptr %2, align 4
   %111 = icmp ult i32 %110, %7
-  %112 = icmp ult i64 %indvars.iv, 63
-  %113 = and i1 %111, %112
+  %112 = icmp samesign ult i64 %indvars.iv, 63
+  %113 = select i1 %111, i1 %112, i1 false
   br i1 %113, label %12, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
@@ -3359,8 +3359,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %60, %29, %62, %66
   %72 = add i32 %71, 2
   store i32 %72, ptr %3, align 4
   %73 = icmp ult i32 %72, %8
-  %74 = icmp ult i64 %indvars.iv, 63
-  %75 = and i1 %73, %74
+  %74 = icmp samesign ult i64 %indvars.iv, 63
+  %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %29, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %24
@@ -3449,8 +3449,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %36, %12, %38, %42
   %48 = add i32 %47, 2
   store i32 %48, ptr %2, align 4
   %49 = icmp ult i32 %48, %7
-  %50 = icmp ult i64 %indvars.iv, 63
-  %51 = and i1 %49, %50
+  %50 = icmp samesign ult i64 %indvars.iv, 63
+  %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %12, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
@@ -3635,8 +3635,8 @@ zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %90, %zbee_zcl_get_c
 dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluster_desc.exit.thread.i, %94, %80, %95, %dissect_zcl_attr_id.exit
   %100 = load i32, ptr %2, align 4
   %101 = icmp ult i32 %100, %7
-  %102 = icmp ult i64 %indvars.iv, 63
-  %103 = and i1 %101, %102
+  %102 = icmp samesign ult i64 %indvars.iv, 63
+  %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %13, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
@@ -3763,8 +3763,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %33, %
   %51 = add i32 %50, 1
   store i32 %51, ptr %2, align 4
   %52 = icmp ult i32 %51, %15
-  %53 = icmp ult i64 %indvars.iv, 63
-  %54 = and i1 %52, %53
+  %53 = icmp samesign ult i64 %indvars.iv, 63
+  %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
@@ -3782,8 +3782,8 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
 .loopexit:                                        ; preds = %.lr.ph, %dissect_zcl_attr_id.exit
   %10 = phi i32 [ %46, %dissect_zcl_attr_id.exit ], [ %52, %.lr.ph ]
   %11 = icmp ult i32 %10, %7
-  %12 = icmp ult i64 %indvars.iv, 15
-  %13 = and i1 %11, %12
+  %12 = icmp samesign ult i64 %indvars.iv, 15
+  %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %.lr.ph5, label %._crit_edge, !llvm.loop !21
 
 .lr.ph5:                                          ; preds = %6, %.loopexit
@@ -3969,8 +3969,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
   tail call void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %2, i16 noundef zeroext %20, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %8)
   %57 = load i32, ptr %2, align 4
   %58 = icmp ult i32 %57, %9
-  %59 = icmp ult i64 %indvars.iv, 63
-  %60 = and i1 %58, %59
+  %59 = icmp samesign ult i64 %indvars.iv, 63
+  %60 = select i1 %58, i1 %59, i1 false
   br i1 %60, label %.lr.ph4, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
@@ -4089,8 +4089,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
 .loopexit:                                        ; preds = %.lr.ph, %48, %dissect_zcl_attr_id.exit, %.lr.ph5
   %61 = phi i32 [ %55, %48 ], [ %47, %dissect_zcl_attr_id.exit ], [ %24, %.lr.ph5 ], [ %60, %.lr.ph ]
   %62 = icmp ult i32 %61, %7
-  %63 = icmp ult i64 %indvars.iv, 63
-  %64 = and i1 %62, %63
+  %63 = icmp samesign ult i64 %indvars.iv, 63
+  %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %.lr.ph5, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
@@ -4250,8 +4250,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %.lr.ph, %39, %
   %54 = add i32 %53, 1
   store i32 %54, ptr %2, align 4
   %55 = icmp ult i32 %54, %19
-  %56 = icmp ult i64 %indvars.iv, 63
-  %57 = and i1 %55, %56
+  %56 = icmp samesign ult i64 %indvars.iv, 63
+  %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %dissect_zcl_attr_id.exit, %18, %6

@@ -634,7 +634,7 @@ switch.early.test.i:                              ; preds = %for.body.i
 
 if.end.i46:                                       ; preds = %switch.early.test.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %20
+  %cmp3.i = icmp samesign ult i64 %indvars.iv.next.i, %20
   %cmp5.i = icmp eq i8 %.fr.i, 61
   %or.cond1.i = and i1 %cmp3.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true7.i, label %for.inc.i
@@ -3624,7 +3624,7 @@ switch.early.test.i:                              ; preds = %for.body.i
 
 if.end.i36:                                       ; preds = %switch.early.test.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %9
+  %cmp3.i = icmp samesign ult i64 %indvars.iv.next.i, %9
   %cmp5.i = icmp eq i8 %.fr.i, 61
   %or.cond1.i = and i1 %cmp3.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true7.i, label %for.inc.i
@@ -6321,7 +6321,7 @@ if.end47:                                         ; preds = %if.then44
 for.inc:                                          ; preds = %do.cond.i.i23, %do.cond.i.i, %do.cond.i.i.i, %if.end3.i, %if.end15.i30, %if.then1.i28, %if.end15.i, %if.then1.i, %if.end15.i.i, %if.then1.i.i, %for.body
   %arg.2 = phi ptr [ %arg.178, %for.body ], [ %p.0.sink.i.i, %if.end3.i ], [ %arg.178, %if.end15.i.i ], [ %arg.178, %if.then1.i.i ], [ %arg.178, %if.then1.i ], [ %arg.178, %if.end15.i ], [ %arg.178, %if.then1.i28 ], [ %arg.178, %if.end15.i30 ], [ %arg.178, %do.cond.i.i.i ], [ %arg.178, %do.cond.i.i ], [ %arg.178, %do.cond.i.i23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv, 3
+  %cmp = icmp samesign ult i64 %indvars.iv, 3
   br i1 %cmp, label %for.body.backedge, label %for.end57
 
 for.body.backedge:                                ; preds = %for.inc, %if.end47, %if.end31, %if.else, %if.then7

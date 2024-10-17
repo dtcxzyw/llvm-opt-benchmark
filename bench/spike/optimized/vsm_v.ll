@@ -225,7 +225,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %77 = load ptr, ptr %25, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %77, i64 noundef 1536)
   %78 = add nuw nsw i64 %8, %24
-  %79 = icmp ugt i64 %78, 32
+  %79 = icmp samesign ugt i64 %78, 32
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -558,7 +558,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %77 = load ptr, ptr %25, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %77, i64 noundef 1536)
   %78 = add nuw nsw i64 %8, %24
-  %79 = icmp ugt i64 %78, 32
+  %79 = icmp samesign ugt i64 %78, 32
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -863,7 +863,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %77 = load ptr, ptr %25, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %77, i64 noundef 1536)
   %78 = add nuw nsw i64 %8, %24
-  %79 = icmp ugt i64 %78, 32
+  %79 = icmp samesign ugt i64 %78, 32
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -1170,7 +1170,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %77 = load ptr, ptr %25, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %77, i64 noundef 1536)
   %78 = add nuw nsw i64 %8, %24
-  %79 = icmp ugt i64 %78, 32
+  %79 = icmp samesign ugt i64 %78, 32
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -1356,7 +1356,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_vsm_vP11pr
   %17 = lshr i64 %16, 3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %3
@@ -1491,7 +1491,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %84 = load ptr, ptr %32, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %84, i64 noundef 1536)
   %85 = add nuw nsw i64 %8, %31
-  %86 = icmp ugt i64 %85, 32
+  %86 = icmp samesign ugt i64 %85, 32
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -1679,7 +1679,7 @@ define noundef i64 @_Z16fast_rv64e_vsm_vP11processor_t6insn_tm(ptr noundef %0, i
   %17 = lshr i64 %16, 3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %3
@@ -1814,7 +1814,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %84 = load ptr, ptr %32, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %84, i64 noundef 1536)
   %85 = add nuw nsw i64 %8, %31
-  %86 = icmp ugt i64 %85, 32
+  %86 = icmp samesign ugt i64 %85, 32
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -2000,7 +2000,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_vsm_vP11
   %17 = lshr i64 %16, 3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %3
@@ -2135,7 +2135,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %84 = load ptr, ptr %32, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %84, i64 noundef 1536)
   %85 = add nuw nsw i64 %8, %31
-  %86 = icmp ugt i64 %85, 32
+  %86 = icmp samesign ugt i64 %85, 32
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -2323,7 +2323,7 @@ define noundef i64 @_Z18logged_rv64e_vsm_vP11processor_t6insn_tm(ptr noundef %0,
   %17 = lshr i64 %16, 3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %3
@@ -2458,7 +2458,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %84 = load ptr, ptr %32, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %84, i64 noundef 1536)
   %85 = add nuw nsw i64 %8, %31
-  %86 = icmp ugt i64 %85, 32
+  %86 = icmp samesign ugt i64 %85, 32
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

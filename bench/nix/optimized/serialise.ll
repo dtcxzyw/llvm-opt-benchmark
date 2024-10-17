@@ -3826,7 +3826,7 @@ _ZN3nix6SourceclEPcm.exit.preheader.preheader:    ; preds = %.lr.ph.i
 _ZN3nix6SourceclEPcm.exit:                        ; preds = %_ZN3nix6SourceclEPcm.exit.preheader
   %16 = add nuw nsw i32 %.01221, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = icmp ult i32 %16, %15
+  %18 = icmp samesign ult i32 %16, %15
   br i1 %18, label %_ZN3nix6SourceclEPcm.exit.preheader, label %.loopexit, !llvm.loop !22
 
 _ZN3nix6SourceclEPcm.exit.preheader:              ; preds = %_ZN3nix6SourceclEPcm.exit.preheader.preheader, %_ZN3nix6SourceclEPcm.exit
@@ -8413,7 +8413,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !33
 
 .critedge:                                        ; preds = %27

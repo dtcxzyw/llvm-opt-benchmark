@@ -242,7 +242,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture nou
 .split.split.us.i:                                ; preds = %110, %.split.split.us.preheader.i
   %indvars.iv157.i = phi i64 [ 0, %.split.split.us.preheader.i ], [ %indvars.iv.next158.i, %110 ]
   %.081116.us119.i = phi ptr [ %6, %.split.split.us.preheader.i ], [ %.283.us126.i, %110 ]
-  %96 = icmp ult i64 %indvars.iv157.i, %95
+  %96 = icmp samesign ult i64 %indvars.iv157.i, %95
   %97 = icmp eq i64 %indvars.iv157.i, 0
   br i1 %96, label %107, label %98
 

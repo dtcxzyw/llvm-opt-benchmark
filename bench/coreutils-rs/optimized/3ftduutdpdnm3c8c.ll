@@ -187,7 +187,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h33eb1ef042
 17:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %switch.i.i.i = icmp ult i64 %15, 4
+  %switch.i.i.i = icmp samesign ult i64 %15, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17hb75832e8b58aa8b2E.llvm.17722566642249704567.exit", label %18
 
 18:                                               ; preds = %17
@@ -280,7 +280,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17hafb76bdbe9
 13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %switch.i.i.i = icmp ult i64 %11, 4
+  %switch.i.i.i = icmp samesign ult i64 %11, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17hb75832e8b58aa8b2E.llvm.17722566642249704567.exit", label %14
 
 14:                                               ; preds = %13
@@ -517,7 +517,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h93f7569e25afdfe6E.exit", label %5
 
 5:                                                ; preds = %4

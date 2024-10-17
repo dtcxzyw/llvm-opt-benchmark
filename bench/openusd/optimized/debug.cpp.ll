@@ -1779,7 +1779,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   br label %152
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc56, %99, %92
-  %.not38 = icmp ult i16 %89, 256
+  %.not38 = icmp samesign ult i16 %89, 256
   %102 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(32) %87)
           to label %103 unwind label %100
 
@@ -4980,7 +4980,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaIS
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 5
   %46 = call fastcc i16 @_ZN32pxrInternal_v0_24__pxrReserved__L27_CheckSymbolAgainstPatternsEPKcNS_6TfSpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull %1, ptr %39, i64 %45)
-  %47 = icmp ugt i16 %46, 255
+  %47 = icmp samesign ugt i16 %46, 255
   br label %48
 
 48:                                               ; preds = %37, %31

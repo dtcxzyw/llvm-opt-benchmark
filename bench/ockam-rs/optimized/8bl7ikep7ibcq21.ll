@@ -553,9 +553,9 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
   br i1 %62, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdda585673e378738E.exit", label %148
 
 63:                                               ; preds = %42
-  %64 = icmp ult i64 %43, 5
+  %64 = icmp samesign ult i64 %43, 5
   call void @llvm.assume(i1 %64)
-  %65 = icmp ult i64 %43, 4
+  %65 = icmp samesign ult i64 %43, 4
   br i1 %65, label %66, label %.critedge68
 
 66:                                               ; preds = %63
@@ -602,7 +602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %86 = icmp ult i64 %85, 6
   call void @llvm.assume(i1 %86)
-  %87 = icmp ult i64 %85, 2
+  %87 = icmp samesign ult i64 %85, 2
   br i1 %87, label %147, label %.critedge70
 
 .critedge70:                                      ; preds = %84
@@ -742,7 +742,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %129 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !60
   %130 = icmp ult i64 %129, 6
   call void @llvm.assume(i1 %130)
-  %131 = icmp ult i64 %129, 2
+  %131 = icmp samesign ult i64 %129, 2
   br i1 %131, label %"_ZN14ockam_executor8executor8Executor9poll_task28_$u7b$$u7b$closure$u7d$$u7d$17h04b5040eeaff0fe8E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %128

@@ -704,7 +704,7 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared11find_recordEP23RunTimeSh
   %61 = and i32 %60, 1073741823
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %45, i64 %62
-  %64 = icmp ult i32 %43, %61
+  %64 = icmp samesign ult i32 %43, %61
   br i1 %64, label %.lr.ph.i, label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit
 
 .lr.ph.i:                                         ; preds = %58
@@ -778,7 +778,7 @@ _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compa
   %112 = and i32 %111, 1073741823
   %113 = zext nneg i32 %112 to i64
   %114 = getelementptr inbounds i32, ptr %96, i64 %113
-  %115 = icmp ult i32 %94, %112
+  %115 = icmp samesign ult i32 %94, %112
   br i1 %115, label %.lr.ph.i28, label %.loopexit.i26
 
 .lr.ph.i28:                                       ; preds = %109
@@ -853,7 +853,7 @@ _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compa
   %163 = and i32 %162, 1073741823
   %164 = zext nneg i32 %163 to i64
   %165 = getelementptr inbounds i32, ptr %147, i64 %164
-  %166 = icmp ult i32 %145, %163
+  %166 = icmp samesign ult i32 %145, %163
   br i1 %166, label %.lr.ph.i36, label %.loopexit.i34
 
 .lr.ph.i36:                                       ; preds = %160
@@ -3077,8 +3077,8 @@ define hidden void @_ZN22SystemDictionaryShared22check_excluded_classesEv() loca
   %.1.lcssa.i.i.i.i = phi i32 [ %.01217.i.i.i.i, %.preheader.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i ]
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i.i, 8
   %36 = icmp sgt i32 %.1.lcssa.i.i.i.i, 0
-  %37 = icmp ult i64 %.0.idx18.i.i.i.i, 127104
-  %or.cond.i.i.i.i = and i1 %37, %36
+  %37 = icmp samesign ult i64 %.0.idx18.i.i.i.i, 127104
+  %or.cond.i.i.i.i = select i1 %36, i1 %37, i1 false
   br i1 %or.cond.i.i.i.i, label %.preheader.i.i.i.i, label %_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesI37UnregisteredClassesDuplicationCheckerEEvPT_.exit, !llvm.loop !14
 
 _ZNK24DumpTimeSharedClassTable24iterate_all_live_classesI37UnregisteredClassesDuplicationCheckerEEvPT_.exit: ; preds = %._crit_edge.i.i.i.i, %8
@@ -3260,8 +3260,8 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   %.1.lcssa.i.i.i = phi i32 [ %.01217.i.i.i, %.preheader.i.i.i ], [ %108, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SM_E_clESO_SM_.exit.i.i.i" ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i, 8
   %109 = icmp sgt i32 %.1.lcssa.i.i.i, 0
-  %110 = icmp ult i64 %.0.idx18.i.i.i, 127104
-  %or.cond.i.i.i = and i1 %110, %109
+  %110 = icmp samesign ult i64 %.0.idx18.i.i.i, 127104
+  %or.cond.i.i.i = select i1 %109, i1 %110, i1 false
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %"_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvT_.exit.loopexit", !llvm.loop !16
 
 "_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvT_.exit.loopexit": ; preds = %._crit_edge.i.i.i
@@ -3652,8 +3652,8 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   %.1.lcssa.i.i.i = phi i32 [ %.01218.i.i.i, %.preheader.i.i.i ], [ %57, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvS9_EUlS2_RS3_E_EEvS9_ENKUlRS2_SO_E_clESQ_SO_.exit.i.i.i" ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx19.i.i.i, 8
   %58 = icmp sgt i32 %.1.lcssa.i.i.i, 0
-  %59 = icmp ult i64 %.0.idx19.i.i.i, 127104
-  %or.cond.i.i.i = and i1 %59, %58
+  %59 = icmp samesign ult i64 %.0.idx19.i.i.i, 127104
+  %or.cond.i.i.i = select i1 %58, i1 %59, i1 false
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %"_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvT_.exit", !llvm.loop !21
 
 "_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvT_.exit": ; preds = %._crit_edge.i.i.i, %1
@@ -3783,8 +3783,8 @@ _ZN28DumpTimeLambdaProxyClassInfo21metaspace_pointers_doEP16MetaspaceClosure.exi
   %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %116, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_ENKUlRS1_RS2_E_clESG_SH_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 8
   %117 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %118 = icmp ult i64 %.0.idx18.i.i, 1088
-  %or.cond.i.i = and i1 %118, %117
+  %118 = icmp samesign ult i64 %.0.idx18.i.i, 1088
+  %or.cond.i.i = select i1 %117, i1 %118, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_.exit", !llvm.loop !24
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE11iterate_allIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_1EEvT_.exit": ; preds = %._crit_edge.i.i, %"_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosureE3$_0EEvT_.exit"
@@ -3881,7 +3881,7 @@ define hidden void @_ZN22SystemDictionaryShared46add_to_dump_time_lambda_proxy_c
   %24 = add nsw i32 %19, 1
   %25 = icmp sgt i32 %19, -1
   %26 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
-  %27 = icmp ult i32 %26, 2
+  %27 = icmp samesign ult i32 %26, 2
   %or.cond.i.i.i.i.i = select i1 %25, i1 %27, i1 false
   %28 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %29 = sub nuw nsw i32 32, %28
@@ -5627,8 +5627,8 @@ define hidden void @_ZN22SystemDictionaryShared35write_lambda_proxy_class_dictio
   %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %19, %17 ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx20.i.i, 8
   %20 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %21 = icmp ult i64 %.0.idx20.i.i, 1088
-  %or.cond.i.i = and i1 %21, %20
+  %21 = icmp samesign ult i64 %.0.idx20.i.i, 1088
+  %or.cond.i.i = select i1 %20, i1 %21, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI33CopyLambdaProxyClassInfoToArchiveEEvPT_.exit, !llvm.loop !30
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI33CopyLambdaProxyClassInfoToArchiveEEvPT_.exit: ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %1
@@ -5822,8 +5822,8 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxy
   %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %25, %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI26AdjustLambdaProxyClassInfoEEvPT_ENKUlRS1_RS2_E_clESE_SF_.exit.i.i ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 8
   %26 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %27 = icmp ult i64 %.0.idx18.i.i, 1088
-  %or.cond.i.i = and i1 %27, %26
+  %27 = icmp samesign ult i64 %.0.idx18.i.i, 1088
+  %or.cond.i.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI26AdjustLambdaProxyClassInfoEEvPT_.exit, !llvm.loop !33
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI26AdjustLambdaProxyClassInfoEEvPT_.exit: ; preds = %._crit_edge.i.i, %0
@@ -5964,7 +5964,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP6SymbolPK16RunTimeClass
   %27 = and i32 %26, 1073741823
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %14, i64 %28
-  %30 = icmp ult i32 %13, %27
+  %30 = icmp samesign ult i32 %13, %27
   br i1 %30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %23, %_ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit
@@ -6106,7 +6106,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP19LambdaProxyClassKeyPK
   %27 = and i32 %26, 1073741823
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %14, i64 %28
-  %30 = icmp ult i32 %13, %27
+  %30 = icmp samesign ult i32 %13, %27
   br i1 %30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %23, %_ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit
@@ -7539,7 +7539,7 @@ _ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit: ; pred
   %62 = and i32 %61, 1073741823
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %18, i64 %63
-  %65 = icmp ult i32 %16, %62
+  %65 = icmp samesign ult i32 %16, %62
   br i1 %65, label %.lr.ph, label %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit.thread
 
 .lr.ph:                                           ; preds = %59
@@ -7675,7 +7675,7 @@ define linkonce_odr hidden void @_ZZNK24DumpTimeSharedClassTable24iterate_all_li
   %19 = add nsw i32 %14, 1
   %20 = icmp sgt i32 %14, -1
   %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i.i.i.i.i = select i1 %20, i1 %22, i1 false
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %24 = sub nuw nsw i32 32, %23
@@ -8259,8 +8259,8 @@ _ZZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKS_24iterate_all_liv
   %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %63, %_ZZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKS_24iterate_all_live_classesI22EstimateSizeForArchiveEEvPT_EUlP13InstanceKlassR17DumpTimeClassInfoE_EEvS3_ENKUlS6_S8_E_clES6_S8_.exit ]
   %.0.add.i = add nuw nsw i64 %.0.idx18.i, 8
   %64 = icmp sgt i32 %.1.lcssa.i, 0
-  %65 = icmp ult i64 %.0.idx18.i, 127104
-  %or.cond.i = and i1 %65, %64
+  %65 = icmp samesign ult i64 %.0.idx18.i, 127104
+  %or.cond.i = select i1 %64, i1 %65, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI22EstimateSizeForArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_.exit, !llvm.loop !52
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI22EstimateSizeForArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_.exit: ; preds = %._crit_edge.i, %2
@@ -8465,8 +8465,8 @@ _ZZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKS_24iterate_all_liv
   %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %51, %_ZZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKS_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvPT_EUlP13InstanceKlassR17DumpTimeClassInfoE_EEvS3_ENKUlS6_S8_E_clES6_S8_.exit ]
   %.0.add.i = add nuw nsw i64 %.0.idx18.i, 8
   %52 = icmp sgt i32 %.1.lcssa.i, 0
-  %53 = icmp ult i64 %.0.idx18.i, 127104
-  %or.cond.i = and i1 %53, %52
+  %53 = icmp samesign ult i64 %.0.idx18.i, 127104
+  %or.cond.i = select i1 %52, i1 %53, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_.exit, !llvm.loop !54
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_.exit: ; preds = %._crit_edge.i, %2

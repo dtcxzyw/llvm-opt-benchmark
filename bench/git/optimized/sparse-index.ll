@@ -580,7 +580,7 @@ for.inc:                                          ; preds = %strbuf_setlen.exit,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %cache_nr17, align 4
   %24 = zext i32 %23 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next, %24
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %if.end6
@@ -967,7 +967,7 @@ for.inc:                                          ; preds = %path_found.exit.thr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %cache_nr, align 4
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %ensure_full_index.exit, %for.inc, %if.end

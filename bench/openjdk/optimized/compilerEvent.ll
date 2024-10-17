@@ -228,7 +228,7 @@ _ZL12lookup_phasePKc.exit.thread:                 ; preds = %29, %19, %18, %17
   %42 = add nsw i32 %36, 1
   %43 = icmp sgt i32 %36, -1
   %44 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %42)
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp samesign ult i32 %44, 2
   %or.cond.i.i.i.i = select i1 %43, i1 %45, i1 false
   %46 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %47 = sub nuw nsw i32 32, %46
@@ -1818,7 +1818,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

@@ -4644,7 +4644,7 @@ _ZL21guessPotByIntegrationP16t_UmbrellaWindowiP15UmbrellaOptionsPKc.exit: ; pred
   br i1 %1649, label %.sink.split.i, label %1650
 
 1650:                                             ; preds = %1637
-  %1651 = icmp ult i64 %indvars.iv27.i301, %1636
+  %1651 = icmp samesign ult i64 %indvars.iv27.i301, %1636
   %1652 = icmp slt i64 %indvars.iv27.i301, %invariant.op.i
   %1653 = fdiv float %1641, %1633
   %1654 = fpext float %1653 to double
@@ -13395,7 +13395,7 @@ define linkonce_odr void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

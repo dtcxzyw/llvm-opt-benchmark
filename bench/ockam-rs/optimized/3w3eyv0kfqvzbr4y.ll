@@ -1009,9 +1009,9 @@ define hidden void @"_ZN81_$LT$ockam_executor..executor..Node$LT$F$GT$$u20$as$u2
   br i1 %18, label %.critedge57, label %19
 
 19:                                               ; preds = %2
-  %20 = icmp ult i64 %17, 5
+  %20 = icmp samesign ult i64 %17, 5
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i64 %17, 2
+  %21 = icmp samesign ult i64 %17, 2
   br i1 %21, label %22, label %.critedge57
 
 22:                                               ; preds = %19
@@ -1058,7 +1058,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %41 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %42 = icmp ult i64 %41, 6
   tail call void @llvm.assume(i1 %42)
-  %43 = icmp ult i64 %41, 4
+  %43 = icmp samesign ult i64 %41, 4
   br i1 %43, label %77, label %.critedge59
 
 .critedge59:                                      ; preds = %40
@@ -1203,7 +1203,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %88 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !148
   %89 = icmp ult i64 %88, 6
   call void @llvm.assume(i1 %89)
-  %90 = icmp ult i64 %88, 4
+  %90 = icmp samesign ult i64 %88, 4
   br i1 %90, label %"_ZN81_$LT$ockam_executor..executor..Node$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17hb4c190d7b60b8a23E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %87

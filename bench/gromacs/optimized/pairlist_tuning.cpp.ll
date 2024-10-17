@@ -728,7 +728,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
 
 187:                                              ; preds = %185
   %188 = load i32, ptr %109, align 8
-  %189 = icmp ult i64 %.2, 5
+  %189 = icmp samesign ult i64 %.2, 5
   %190 = fcmp olt float %153, %131
   %191 = and i1 %189, %190
   %192 = add nuw nsw i64 %.2, 1
@@ -2652,7 +2652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

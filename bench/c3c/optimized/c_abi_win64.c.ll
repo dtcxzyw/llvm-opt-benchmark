@@ -118,7 +118,7 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
   %58 = add i32 %54, -1
   %or.cond47 = icmp ult i32 %58, 8
   %59 = call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %55)
-  %60 = icmp ult i64 %59, 2
+  %60 = icmp samesign ult i64 %59, 2
   %or.cond49 = select i1 %or.cond47, i1 %60, i1 false
   br i1 %or.cond49, label %62, label %is_power_of_two.exit.thread
 
@@ -476,7 +476,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_u
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %44 ]
   %36 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ult i64 %indvars.iv.i, 6
+  %38 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35

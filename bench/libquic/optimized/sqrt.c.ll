@@ -202,7 +202,7 @@ if.end130:                                        ; preds = %if.end126
 
 do.body:                                          ; preds = %land.rhs, %if.end130
   %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs ], [ 2, %if.end130 ]
-  %cmp132 = icmp ult i64 %indvars.iv, 22
+  %cmp132 = icmp samesign ult i64 %indvars.iv, 22
   br i1 %cmp132, label %if.then134, label %if.else
 
 if.then134:                                       ; preds = %do.body

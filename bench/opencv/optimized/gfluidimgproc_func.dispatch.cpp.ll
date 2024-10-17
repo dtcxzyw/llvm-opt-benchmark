@@ -32,7 +32,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff
   %19 = add nuw nsw i32 %18, %17
   %20 = zext i16 %16 to i32
   %21 = add nuw nsw i32 %19, %20
-  %22 = icmp ult i32 %21, 65537
+  %22 = icmp samesign ult i32 %21, 65537
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %6
@@ -59,7 +59,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff
   br label %59
 
 30:                                               ; preds = %6
-  %31 = icmp ugt i32 %21, 65534
+  %31 = icmp samesign ugt i32 %21, 65534
   br i1 %31, label %.preheader, label %33
 
 .preheader:                                       ; preds = %30
@@ -822,7 +822,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi(
   store i8 %64, ptr %66, align 1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
-  %67 = icmp ult i64 %indvars.iv.next, %6
+  %67 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -9243,7 +9243,7 @@ define hidden void @_ZN2cv4gapi5fluid19run_rgb2yuv422_implEPhPKhi(ptr nocapture 
   store i8 %64, ptr %66, align 1
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 6
-  %67 = icmp ult i64 %indvars.iv.next.i, %6
+  %67 = icmp samesign ult i64 %indvars.iv.next.i, %6
   br i1 %67, label %.lr.ph.i, label %_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi.exit, !llvm.loop !13
 
 _ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi.exit: ; preds = %.lr.ph.i, %3

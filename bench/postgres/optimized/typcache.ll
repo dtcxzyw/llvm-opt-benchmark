@@ -2798,7 +2798,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 49:                                               ; preds = %46
   %50 = add i32 %40, 1
   %51 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
-  %52 = icmp ult i32 %51, 2
+  %52 = icmp samesign ult i32 %51, 2
   %53 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
   %54 = xor i32 %53, 31
   %55 = shl nuw i32 2, %54
@@ -3036,7 +3036,7 @@ define dso_local void @assign_record_type_typmod(ptr noundef %0) local_unnamed_a
 43:                                               ; preds = %40
   %44 = add i32 %34, 1
   %45 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   %47 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %48 = xor i32 %47, 31
   %49 = shl nuw i32 2, %48
@@ -3090,7 +3090,7 @@ ensure_record_cache_typmod_slot_exists.exit:      ; preds = %40, %43
 72:                                               ; preds = %69
   %73 = add i32 %63, 1
   %74 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %73)
-  %75 = icmp ult i32 %74, 2
+  %75 = icmp samesign ult i32 %74, 2
   %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
   %77 = xor i32 %76, 31
   %78 = shl nuw i32 2, %77

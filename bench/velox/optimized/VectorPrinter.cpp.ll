@@ -375,7 +375,7 @@ if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i, %11
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %11
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -1005,7 +1005,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %12
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %12
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -2124,7 +2124,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 invoke.cont99:                                    ; preds = %for.cond
   %29 = zext i32 %call100 to i64
-  %cmp = icmp ult i64 %indvars.iv, %29
+  %cmp = icmp samesign ult i64 %indvars.iv, %29
   br i1 %cmp, label %for.body, label %sw.epilog
 
 for.body:                                         ; preds = %invoke.cont99
@@ -4207,7 +4207,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 invoke.cont7:                                     ; preds = %for.cond
   %10 = zext i32 %call8 to i64
-  %cmp = icmp ult i64 %indvars.iv, %10
+  %cmp = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont7
@@ -4710,7 +4710,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %cast.i39.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
   %add.i40.i.i.i.i.i = add nuw nsw i32 %add.i4057.i.i.i.i.i, %cast.i39.i.i.i.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp15.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i, %8
+  %cmp15.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %8
   %indvars.iv.next2.i = add nuw nsw i64 %indvars.iv1.i, 64
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !76
 

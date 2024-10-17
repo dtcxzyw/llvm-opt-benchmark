@@ -623,7 +623,7 @@ define dso_local { ptr, i8 } @_ZNK4llvm10X86TTIImpl20instCombineIntrinsicERNS_12
   %133 = load i32, ptr %132, align 8
   %134 = lshr i32 %133, 8
   %135 = zext nneg i32 %134 to i64
-  %.not701 = icmp ult i64 %127, %135
+  %.not701 = icmp samesign ult i64 %127, %135
   br i1 %.not701, label %139, label %136
 
 136:                                              ; preds = %131, %119
@@ -683,7 +683,7 @@ define dso_local { ptr, i8 } @_ZNK4llvm10X86TTIImpl20instCombineIntrinsicERNS_12
   %175 = load i32, ptr %174, align 8
   %176 = lshr i32 %175, 8
   %177 = zext nneg i32 %176 to i64
-  %.not698 = icmp ult i64 %171, %177
+  %.not698 = icmp samesign ult i64 %171, %177
   br i1 %.not698, label %181, label %178
 
 178:                                              ; preds = %165
@@ -3501,7 +3501,7 @@ _ZN4llvm12InstCombiner18peekThroughBitcastEPNS_5ValueEb.exit: ; preds = %1585, %
   %.not.i.i870 = icmp ne i32 %1607, 0
   %or.cond1047.not1053 = and i1 %.not.i.i870, %1611
   %1612 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1607)
-  %1613 = icmp ult i32 %1612, 2
+  %1613 = icmp samesign ult i32 %1612, 2
   %or.cond1049 = select i1 %or.cond1047.not1053, i1 %1613, i1 false
   br i1 %or.cond1049, label %1614, label %.critedge
 
@@ -4701,7 +4701,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %11, %10
   br i1 %12, label %_ZN4llvm5APInt13getLowBitsSetEjj.exit, label %13
 
 13:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %14 = icmp ult i32 %2, 65
+  %14 = icmp samesign ult i32 %2, 65
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %13

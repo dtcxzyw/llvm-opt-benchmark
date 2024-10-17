@@ -939,7 +939,7 @@ define void @_ZNK5Yosys3AST7AstNode11genBindingsEv(ptr dead_on_unwind noalias no
 21:                                               ; preds = %.lr.ph
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 0, ptr %3, align 4
-  %23 = icmp ugt i64 %indvars.iv, 1
+  %23 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
@@ -956,7 +956,7 @@ define void @_ZNK5Yosys3AST7AstNode11genBindingsEv(ptr dead_on_unwind noalias no
 29:                                               ; preds = %24, %21
   %.031 = phi i32 [ 0, %21 ], [ 1, %24 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %30 = icmp ult i32 %.031, %22
+  %30 = icmp samesign ult i32 %.031, %22
   br i1 %30, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %29

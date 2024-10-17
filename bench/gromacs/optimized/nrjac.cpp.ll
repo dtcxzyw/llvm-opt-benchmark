@@ -117,11 +117,11 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %27, label %_ZL6jacobiIPPdEiT_iS0_S2_.exit, label %28
 
 28:                                               ; preds = %._crit_edge.i.us
-  %29 = icmp ult i32 %.0167242.i.us, 4
+  %29 = icmp samesign ult i32 %.0167242.i.us, 4
   %30 = fmul double %26, 2.000000e-01
   %31 = fdiv double %30, %19
   %.0179.i.us = select i1 %29, double %31, double 0.000000e+00
-  %32 = icmp ugt i32 %.0167242.i.us, 4
+  %32 = icmp samesign ugt i32 %.0167242.i.us, 4
   br label %.lr.ph231.i.us
 
 .lr.ph231.i.us:                                   ; preds = %.loopexit.i.us, %28
@@ -248,7 +248,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond271.not.i.us, label %.preheader197.i.us, label %94, !llvm.loop !10
 
 .preheader197.i.us:                               ; preds = %94, %75
-  %108 = icmp ult i64 %indvars.iv.next299.i.us, %indvars.iv292.i.us
+  %108 = icmp samesign ult i64 %indvars.iv.next299.i.us, %indvars.iv292.i.us
   br i1 %108, label %.lr.ph220.i.us, label %.preheader196.i.us
 
 .lr.ph220.i.us:                                   ; preds = %.preheader197.i.us
@@ -658,11 +658,11 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br i1 %46, label %_ZL6jacobiIN3gmx8ArrayRefINS0_11BasicVectorIdEEEEEiT_iPdS5_.exit, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %.0152239.i, 4
+  %48 = icmp samesign ult i32 %.0152239.i, 4
   %49 = fmul double %44, 2.000000e-01
   %50 = fdiv double %49, 9.000000e+00
   %.0164.i = select i1 %48, double %50, double 0.000000e+00
-  %51 = icmp ugt i32 %.0152239.i, 4
+  %51 = icmp samesign ugt i32 %.0152239.i, 4
   br label %.lr.ph233.i
 
 .loopexit.i:                                      ; preds = %153
@@ -784,7 +784,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph216.split.i, %97
-  %122 = icmp ult i64 %indvars.iv.next272.i, %indvars.iv267.i
+  %122 = icmp samesign ult i64 %indvars.iv.next272.i, %indvars.iv267.i
   br i1 %122, label %.lr.ph221.split.i, label %129
 
 .lr.ph221.split.i:                                ; preds = %.preheader.i

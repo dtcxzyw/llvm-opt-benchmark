@@ -3441,7 +3441,7 @@ getEncryptName.exit:                              ; preds = %9, %12, %13, %14, %
   br label %38
 
 26:                                               ; preds = %getEncryptName.exit, %getEncryptName.exit
-  %27 = icmp ult i64 %1, 21
+  %27 = icmp samesign ult i64 %1, 21
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
@@ -3454,7 +3454,7 @@ getEncryptName.exit:                              ; preds = %9, %12, %13, %14, %
   br label %38
 
 31:                                               ; preds = %getEncryptName.exit, %getEncryptName.exit
-  %32 = icmp ult i64 %1, 29
+  %32 = icmp samesign ult i64 %1, 29
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %31

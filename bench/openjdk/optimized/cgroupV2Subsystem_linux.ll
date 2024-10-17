@@ -162,7 +162,7 @@ define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN21CgroupV2CpuC
   %35 = and i32 %24, 1023
   %sub = sub nsw i32 %34, %24
   %36 = call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %.not = icmp ugt i32 %35, %36
+  %.not = icmp samesign ugt i32 %35, %36
   %37 = select i1 %.not, i32 %34, i32 %33
   %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not33 = icmp eq ptr %38, null

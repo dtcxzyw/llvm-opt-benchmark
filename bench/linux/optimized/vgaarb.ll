@@ -422,7 +422,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %59 = getelementptr inbounds i8, ptr %33, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, %52
-  %62 = icmp ult i32 %61, 2
+  %62 = icmp samesign ult i32 %61, 2
   %63 = select i1 %62, i32 0, i32 2
   %64 = and i32 %61, 1
   %65 = or disjoint i32 %63, %64

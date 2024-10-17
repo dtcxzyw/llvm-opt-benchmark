@@ -1436,7 +1436,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 28:                                               ; preds = %23
   %29 = load i64, ptr %8, align 8, !range !252, !alias.scope !253, !noundef !36
-  %switch.i = icmp ult i64 %29, 2
+  %switch.i = icmp samesign ult i64 %29, 2
   br i1 %switch.i, label %"_ZN4core3ptr88drop_in_place$LT$futures_util..future..try_join_all..FinalState$LT$anyhow..Error$GT$$GT$17h1ac6a0ec508db1e2E.exit", label %30
 
 30:                                               ; preds = %28
@@ -1445,7 +1445,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 31:                                               ; preds = %25
   %32 = load i64, ptr %8, align 8, !range !252, !alias.scope !256, !noundef !36
-  %switch.i21 = icmp ult i64 %32, 2
+  %switch.i21 = icmp samesign ult i64 %32, 2
   br i1 %switch.i21, label %.thread41, label %33
 
 33:                                               ; preds = %31
@@ -1621,7 +1621,7 @@ define hidden void @"_ZN129_$LT$digest..core_api..ct_variable..CtVariableCoreWra
   %28 = xor i64 %18, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %28, i1 false), !alias.scope !265, !noalias !278
   %29 = xor i64 %18, 56
-  %30 = icmp ult i64 %29, 8
+  %30 = icmp samesign ult i64 %29, 8
   br i1 %30, label %._crit_edge.thread.i, label %35
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %3
@@ -3361,7 +3361,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   ]
 
 49:                                               ; preds = %43
-  %50 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %50 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %50, label %51, label %_ZN4core3str7pattern8Searcher11next_reject17hc4d68d6566dd5df6E.llvm.7674728272632859446.exit
 
 51:                                               ; preds = %49
@@ -3514,7 +3514,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hc4d68d6566dd5df
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -4710,7 +4710,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 103:                                              ; preds = %65, %.loopexit
   %104 = phi i64 [ 0, %65 ], [ %105, %.loopexit ]
   %105 = add nuw nsw i64 %104, 1
-  %106 = icmp ult i64 %104, 2
+  %106 = icmp samesign ult i64 %104, 2
   tail call void @llvm.assume(i1 %106)
   %107 = getelementptr inbounds i64, ptr %6, i64 %104
   %108 = load i64, ptr %107, align 8, !alias.scope !1010, !noundef !36
@@ -5081,7 +5081,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 140:                                              ; preds = %98, %.loopexit
   %141 = phi i64 [ 0, %98 ], [ %142, %.loopexit ]
   %142 = add nuw nsw i64 %141, 1
-  %143 = icmp ult i64 %141, 2
+  %143 = icmp samesign ult i64 %141, 2
   tail call void @llvm.assume(i1 %143)
   %144 = getelementptr inbounds i64, ptr %6, i64 %141
   %145 = load i64, ptr %144, align 8, !alias.scope !1034, !noundef !36
@@ -5180,7 +5180,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h539f4e419b0
   %.val29 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   call void @llvm.experimental.noalias.scope.decl(metadata !1050)
-  %16 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %16 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %16, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3974b6e9a759a40E.exit, label %17
 
 17:                                               ; preds = %.outer._crit_edge
@@ -5190,7 +5190,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h539f4e419b0
 
 20:                                               ; preds = %17
   %21 = lshr i64 %.sroa.12.0.lcssa, 1
-  %22 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %22 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %22, label %24, label %28
 
 23:                                               ; preds = %17
@@ -14303,7 +14303,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53

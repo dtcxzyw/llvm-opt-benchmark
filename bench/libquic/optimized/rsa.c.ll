@@ -219,7 +219,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %num_blindings, align 8
   %18 = zext i32 %17 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %18
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end8

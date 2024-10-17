@@ -1626,7 +1626,7 @@ sw.bb32:                                          ; preds = %put_char.exit53
   %cmp.i = icmp slt i64 %24, 0
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %24, i1 true)
   %spec.select18.i = select i1 %cmp.i, i64 2, i64 1
-  %cmp119.i = icmp ugt i64 %spec.select.i, 9
+  %cmp119.i = icmp samesign ugt i64 %spec.select.i, 9
   br i1 %cmp119.i, label %for.inc.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %sw.bb32, %for.inc.i
@@ -1634,7 +1634,7 @@ for.inc.i:                                        ; preds = %sw.bb32, %for.inc.i
   %tmpval.120.i = phi i64 [ %div.i, %for.inc.i ], [ %spec.select.i, %sw.bb32 ]
   %inc2.i = add i64 %len.121.i, 1
   %div.i = udiv i64 %tmpval.120.i, 10
-  %cmp1.i = icmp ugt i64 %tmpval.120.i, 99
+  %cmp1.i = icmp samesign ugt i64 %tmpval.120.i, 99
   br i1 %cmp1.i, label %for.inc.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %sw.bb32

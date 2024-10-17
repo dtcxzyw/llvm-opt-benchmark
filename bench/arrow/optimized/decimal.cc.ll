@@ -1459,7 +1459,7 @@ do.end28:                                         ; preds = %lor.rhs
   %call30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call29)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %cmp15.i.i = icmp ugt i64 %rem17, 99
+  %cmp15.i.i = icmp samesign ugt i64 %rem17, 99
   br i1 %cmp15.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %do.end28, %while.body.i.i
@@ -1483,7 +1483,7 @@ while.body.i.i:                                   ; preds = %do.end28, %while.bo
 while.end.i.i:                                    ; preds = %while.body.i.i, %do.end28
   %cursor.1.i = phi ptr [ %add.ptr.i, %do.end28 ], [ %incdec.ptr.i3.i.i.i, %while.body.i.i ]
   %value.addr.0.lcssa.i.i = phi i32 [ %conv18, %do.end28 ], [ %div.i.i, %while.body.i.i ]
-  %cmp1.i.i = icmp ugt i32 %value.addr.0.lcssa.i.i, 9
+  %cmp1.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i.i, 9
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -1552,7 +1552,7 @@ while.body.i.i49:                                 ; preds = %while.body, %while.
 while.end.i.i30:                                  ; preds = %while.body.i.i49, %while.body
   %cursor.1.i31 = phi ptr [ %add.ptr.i28, %while.body ], [ %incdec.ptr.i3.i.i.i58, %while.body.i.i49 ]
   %value.addr.0.lcssa.i.i32 = phi i32 [ %10, %while.body ], [ %div.i.i59, %while.body.i.i49 ]
-  %cmp1.i.i33 = icmp ugt i32 %value.addr.0.lcssa.i.i32, 9
+  %cmp1.i.i33 = icmp samesign ugt i32 %value.addr.0.lcssa.i.i32, 9
   br i1 %cmp1.i.i33, label %if.then.i.i43, label %if.else.i.i34
 
 if.then.i.i43:                                    ; preds = %while.end.i.i30
@@ -1789,7 +1789,7 @@ while.body.i.i:                                   ; preds = %if.end35, %while.bo
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.end35
   %cursor.1.i = phi ptr [ %add.ptr.i25, %if.end35 ], [ %incdec.ptr.i3.i.i.i, %while.body.i.i ]
   %value.addr.0.lcssa.i.i = phi i32 [ %cond.i.i, %if.end35 ], [ %div.i.i, %while.body.i.i ]
-  %cmp1.i.i = icmp ugt i32 %value.addr.0.lcssa.i.i, 9
+  %cmp1.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i.i, 9
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -2990,7 +2990,7 @@ do.end28:                                         ; preds = %lor.rhs
   %call30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call29)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %cmp15.i.i = icmp ugt i64 %rem17, 99
+  %cmp15.i.i = icmp samesign ugt i64 %rem17, 99
   br i1 %cmp15.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %do.end28, %while.body.i.i
@@ -3014,7 +3014,7 @@ while.body.i.i:                                   ; preds = %do.end28, %while.bo
 while.end.i.i:                                    ; preds = %while.body.i.i, %do.end28
   %cursor.1.i = phi ptr [ %add.ptr.i, %do.end28 ], [ %incdec.ptr.i3.i.i.i, %while.body.i.i ]
   %value.addr.0.lcssa.i.i = phi i32 [ %conv18, %do.end28 ], [ %div.i.i, %while.body.i.i ]
-  %cmp1.i.i = icmp ugt i32 %value.addr.0.lcssa.i.i, 9
+  %cmp1.i.i = icmp samesign ugt i32 %value.addr.0.lcssa.i.i, 9
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -3083,7 +3083,7 @@ while.body.i.i49:                                 ; preds = %while.body, %while.
 while.end.i.i30:                                  ; preds = %while.body.i.i49, %while.body
   %cursor.1.i31 = phi ptr [ %add.ptr.i28, %while.body ], [ %incdec.ptr.i3.i.i.i58, %while.body.i.i49 ]
   %value.addr.0.lcssa.i.i32 = phi i32 [ %10, %while.body ], [ %div.i.i59, %while.body.i.i49 ]
-  %cmp1.i.i33 = icmp ugt i32 %value.addr.0.lcssa.i.i32, 9
+  %cmp1.i.i33 = icmp samesign ugt i32 %value.addr.0.lcssa.i.i32, 9
   br i1 %cmp1.i.i33, label %if.then.i.i43, label %if.else.i.i34
 
 if.then.i.i43:                                    ; preds = %while.end.i.i30
@@ -7181,7 +7181,7 @@ if.end146:                                        ; preds = %if.then134
   br i1 %cmp151.not, label %do.end, label %if.then152
 
 if.then152:                                       ; preds = %if.end146
-  %cmp154 = icmp ugt i32 %add148, 429496729
+  %cmp154 = icmp samesign ugt i32 %add148, 429496729
   br i1 %cmp154, label %return, label %if.end159
 
 if.end159:                                        ; preds = %if.then152

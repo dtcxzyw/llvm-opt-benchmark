@@ -475,7 +475,7 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   store i64 %retval.i20.sroa.0.0.insert.insert, ptr %add.ptr18.i, align 1
   store i64 %retval.i20.sroa.3.8.insert.insert, ptr %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx, align 1
   %add.i = add nuw nsw i64 %branch.i.0217, 4
-  %cmp.i6 = icmp ult i64 %branch.i.0217, 12
+  %cmp.i6 = icmp samesign ult i64 %branch.i.0217, 12
   br i1 %cmp.i6, label %for.body.i7, label %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit, !llvm.loop !7
 
 _ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit: ; preds = %for.body.i7

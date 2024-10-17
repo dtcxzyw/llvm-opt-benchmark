@@ -2902,7 +2902,7 @@ thread-pre-split.i:                               ; preds = %1258
   ]
 
 1339:                                             ; preds = %.lr.ph775
-  %1340 = icmp ult i32 %.0193.fr.i.us280770, 128
+  %1340 = icmp samesign ult i32 %.0193.fr.i.us280770, 128
   br i1 %1340, label %1341, label %.loopexit12.i
 
 1341:                                             ; preds = %1339

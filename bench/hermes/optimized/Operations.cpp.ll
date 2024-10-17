@@ -538,7 +538,7 @@ if.end12.i:                                       ; preds = %do.body.i
   %conv15.i = zext nneg i8 %6 to i64
   %add.i = add nuw nsw i64 %mul.i, %conv15.i
   %add.fr.i = freeze i64 %add.i
-  %tobool.not.i6 = icmp ult i64 %add.fr.i, 4294967296
+  %tobool.not.i6 = icmp samesign ult i64 %add.fr.i, 4294967296
   br i1 %tobool.not.i6, label %if.end17.i, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit
 
 if.end17.i:                                       ; preds = %if.end12.i
@@ -633,7 +633,7 @@ if.end12.i40:                                     ; preds = %do.body.i36
   %conv15.i43 = zext nneg i16 %16 to i64
   %add.i44 = add nuw nsw i64 %mul.i42, %conv15.i43
   %add.fr.i45 = freeze i64 %add.i44
-  %tobool.not.i46 = icmp ult i64 %add.fr.i45, 4294967296
+  %tobool.not.i46 = icmp samesign ult i64 %add.fr.i45, 4294967296
   br i1 %tobool.not.i46, label %if.end17.i49, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
 
 if.end17.i49:                                     ; preds = %if.end12.i40
@@ -1267,7 +1267,7 @@ if.end:                                           ; preds = %entry
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond118.not120 = and i1 %tobool.not.i, %cmp
   %1 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %radix)
-  %tobool1.not.i = icmp ult i32 %1, 2
+  %tobool1.not.i = icmp samesign ult i32 %1, 2
   %or.cond119 = select i1 %or.cond118.not120, i1 %tobool1.not.i, i1 false
   br i1 %or.cond119, label %if.then3, label %return
 
@@ -7999,7 +7999,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %and.i = and i32 %5, 2147483647
   %narrow = add nuw i32 %and.i, 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %cmp.i.i3.i = icmp ugt i32 %and.i, 65527
+  %cmp.i.i3.i = icmp samesign ugt i32 %and.i, 65527
   br i1 %cmp.i.i3.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEPS5_.exit
@@ -10774,7 +10774,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13
@@ -10994,7 +10994,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

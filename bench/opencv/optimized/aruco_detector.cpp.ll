@@ -4042,7 +4042,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %230, %_ZNSt6vectorI
   br i1 %.not.i.i.i.i147, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %320
@@ -4081,7 +4081,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   br i1 %.not.i.i.i.i155, label %select.unfold.i.i.i.i157, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i156
 
 select.unfold.i.i.i.i157:                         ; preds = %.lr.ph.i.i.i.i151
-  %.not10.i.i.i.i158 = icmp ult i64 %storemerge26.i.i.in.in.i.i152, 3
+  %.not10.i.i.i.i158 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i152, 3
   br i1 %.not10.i.i.i.i158, label %.loopexit.i.i150, label %.lr.ph.i.i.i.i151, !llvm.loop !28
 
 .loopexit.i.i150:                                 ; preds = %select.unfold.i.i.i.i157, %331
@@ -4532,7 +4532,7 @@ _ZNSt12_Vector_baseIN2cv5aruco19MarkerCandidateTreeESaIS2_EEC2EmRKS3_.exit.i188:
   %542 = getelementptr inbounds i8, ptr %8, i64 20
   %543 = getelementptr inbounds i8, ptr %8, i64 8
   %544 = and i64 %529, 2147483647
-  %545 = icmp ugt i64 %544, 1
+  %545 = icmp samesign ugt i64 %544, 1
   br i1 %545, label %.lr.ph405.lr.ph, label %._crit_edge411
 
 .lr.ph405.lr.ph:                                  ; preds = %.lr.ph410
@@ -8566,7 +8566,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit390.thread:          ; preds = %.invoke, %_ZNKSt6ve
   %1004 = load i8, ptr %894, align 4
   %1005 = trunc i8 %1004 to i1
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
-  %1006 = icmp ult i64 %indvars.iv857, 3
+  %1006 = icmp samesign ult i64 %indvars.iv857, 3
   %or.cond749 = select i1 %1005, i1 %1006, i1 false
   br i1 %or.cond749, label %.preheader.us, label %.split729.us, !llvm.loop !99
 
@@ -8679,7 +8679,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit390.thread:          ; preds = %.invoke, %_ZNKSt6ve
   %1053 = load i8, ptr %894, align 4
   %1054 = trunc i8 %1053 to i1
   %indvars.iv.next852 = add nuw nsw i64 %indvars.iv851, 1
-  %1055 = icmp ult i64 %indvars.iv851, 3
+  %1055 = icmp samesign ult i64 %indvars.iv851, 3
   %or.cond750 = select i1 %1054, i1 %1055, i1 false
   br i1 %or.cond750, label %.preheader, label %.split729.us, !llvm.loop !99
 
@@ -13528,7 +13528,7 @@ define linkonce_odr hidden void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %10 = add nuw nsw i64 %storemerge26.i, 1
   %11 = lshr i64 %10, 1
-  %.not10.i = icmp ult i64 %storemerge26.i, 2
+  %.not10.i = icmp samesign ult i64 %storemerge26.i, 2
   br i1 %.not10.i, label %_ZSt20get_temporary_bufferIN2cv5aruco19MarkerCandidateTreeEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !194
 
 12:                                               ; preds = %.lr.ph.i

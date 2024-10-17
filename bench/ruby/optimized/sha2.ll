@@ -303,7 +303,7 @@ define noundef i32 @rb_Digest_SHA256_Finish(ptr nocapture noundef %0, ptr nounde
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 %13
   store i8 -128, ptr %14, align 1
-  %15 = icmp ult i32 %8, 56
+  %15 = icmp samesign ult i32 %8, 56
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
@@ -385,7 +385,7 @@ define ptr @rb_Digest_SHA256_End(ptr nocapture noundef %0, ptr noundef writeonly
   %14 = zext nneg i32 %9 to i64
   %15 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 %14
   store i8 -128, ptr %15, align 1
-  %16 = icmp ult i32 %9, 56
+  %16 = icmp samesign ult i32 %9, 56
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
@@ -836,7 +836,7 @@ define void @rb_Digest_SHA512_Last(ptr nocapture noundef %0) local_unnamed_addr 
   %14 = zext nneg i32 %6 to i64
   %15 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %14
   store i8 -128, ptr %15, align 1
-  %16 = icmp ult i32 %6, 112
+  %16 = icmp samesign ult i32 %6, 112
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
@@ -907,7 +907,7 @@ define noundef i32 @rb_Digest_SHA512_Finish(ptr nocapture noundef %0, ptr nounde
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %16
   store i8 -128, ptr %17, align 1
-  %18 = icmp ult i32 %8, 112
+  %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
@@ -995,7 +995,7 @@ define ptr @rb_Digest_SHA512_End(ptr nocapture noundef %0, ptr noundef writeonly
   %17 = zext nneg i32 %9 to i64
   %18 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %17
   store i8 -128, ptr %18, align 1
-  %19 = icmp ult i32 %9, 112
+  %19 = icmp samesign ult i32 %9, 112
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
@@ -1148,7 +1148,7 @@ define noundef i32 @rb_Digest_SHA384_Finish(ptr nocapture noundef %0, ptr nounde
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %16
   store i8 -128, ptr %17, align 1
-  %18 = icmp ult i32 %8, 112
+  %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
@@ -1236,7 +1236,7 @@ define ptr @rb_Digest_SHA384_End(ptr nocapture noundef %0, ptr noundef writeonly
   %17 = zext nneg i32 %9 to i64
   %18 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %17
   store i8 -128, ptr %18, align 1
-  %19 = icmp ult i32 %9, 112
+  %19 = icmp samesign ult i32 %9, 112
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15

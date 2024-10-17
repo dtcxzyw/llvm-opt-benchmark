@@ -3134,7 +3134,7 @@ for.inc:                                          ; preds = %_ZN15ref_vector_cor
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %m_num_args.i, align 8
   %92 = zext i32 %91 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %92
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %92
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -3370,7 +3370,7 @@ for.inc119:                                       ; preds = %.noexc278, %lor.lhs
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %138 = load i32, ptr %m_num_decls.i, align 4
   %139 = zext i32 %138 to i64
-  %cmp109 = icmp ult i64 %indvars.iv.next410, %139
+  %cmp109 = icmp samesign ult i64 %indvars.iv.next410, %139
   br i1 %cmp109, label %invoke.cont111, label %for.end121, !llvm.loop !15
 
 for.end121:                                       ; preds = %for.inc119, %for.cond106.preheader

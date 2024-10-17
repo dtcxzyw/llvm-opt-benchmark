@@ -454,7 +454,7 @@ define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocaptu
   %45 = lshr i64 %42, 16
   %46 = and i64 %45, 255
   %47 = or disjoint i64 %44, %46
-  %48 = icmp ult i64 %47, 1797
+  %48 = icmp samesign ult i64 %47, 1797
   br i1 %48, label %.thread31, label %49
 
 49:                                               ; preds = %38
@@ -977,7 +977,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %172 = load i32, ptr %165, align 8
   %173 = lshr i32 %172, 12
   %174 = and i32 %173, 15
-  %175 = icmp ult i32 %171, %174
+  %175 = icmp samesign ult i32 %171, %174
   br i1 %175, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %164, %159
@@ -2069,7 +2069,7 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
   %21 = icmp ne i8 %20, 71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   %22 = add nuw nsw i32 %9, 1
-  %23 = icmp ult i32 %9, 2
+  %23 = icmp samesign ult i32 %9, 2
   %24 = select i1 %21, i1 %23, i1 false
   br i1 %24, label %8, label %25, !llvm.loop !18
 
@@ -2880,7 +2880,7 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   %24 = lshr i64 %21, 16
   %25 = and i64 %24, 255
   %26 = or disjoint i64 %23, %25
-  %27 = icmp ugt i64 %26, 1796
+  %27 = icmp samesign ugt i64 %26, 1796
   %28 = and i32 %16, 65280
   %29 = icmp eq i32 %28, 18176
   %or.cond = select i1 %27, i1 true, i1 %29
@@ -2919,7 +2919,7 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   store i32 %45, ptr %18, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %46 = and i32 %45, 61440
-  %47 = icmp ugt i32 %46, 32768
+  %47 = icmp samesign ugt i32 %46, 32768
   br i1 %47, label %51, label %53
 
 48:                                               ; preds = %39, %36
@@ -3020,7 +3020,7 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
   %31 = getelementptr inbounds i8, ptr %1, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 7340032
-  %34 = icmp ugt i32 %33, 4194304
+  %34 = icmp samesign ugt i32 %33, 4194304
   br i1 %34, label %35, label %68
 
 35:                                               ; preds = %.thread

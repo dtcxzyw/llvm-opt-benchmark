@@ -235,7 +235,7 @@ define internal i32 @dissect_sndcp_xid(ptr noundef %0, ptr nocapture readnone %1
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %11 = and i32 %10, 65535
   %12 = add nsw i32 %11, -1
-  %13 = icmp ugt i32 %11, 1
+  %13 = icmp samesign ugt i32 %11, 1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %59
@@ -330,7 +330,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %5 = and i32 %4, 65535
-  %6 = icmp ult i32 %5, 3
+  %6 = icmp samesign ult i32 %5, 3
   br i1 %6, label %.loopexit, label %.preheader168
 
 .preheader168:                                    ; preds = %3
@@ -354,11 +354,11 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %.not164, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i8 %14, 2
+  %16 = icmp samesign ult i8 %14, 2
   br i1 %16, label %19, label %.loopexit
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %14, 3
+  %18 = icmp samesign ult i8 %14, 3
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %17, %15
@@ -408,7 +408,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
 
 .preheader:                                       ; preds = %56, %19
   %.lcssa169 = phi i32 [ 0, %19 ], [ %50, %56 ]
-  %53 = icmp ult i32 %.lcssa169, %24
+  %53 = icmp samesign ult i32 %.lcssa169, %24
   br i1 %53, label %.lr.ph180, label %.critedge
 
 .lr.ph180:                                        ; preds = %.preheader
@@ -427,7 +427,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %63 = zext i8 %59 to i32
   %64 = tail call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %62, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef %63) #2
   %65 = or disjoint i64 %60, 1
-  %66 = icmp ult i64 %65, %51
+  %66 = icmp samesign ult i64 %65, %51
   %67 = getelementptr [15 x i32], ptr @hf_sndcp_xid_comp, i64 0, i64 %65
   %.sink.in = select i1 %66, ptr %67, ptr @hf_sndcp_xid_comp_spare
   %.sink = load i32, ptr %.sink.in, align 4
@@ -454,7 +454,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %79 = add nuw nsw i32 %70, %78
   %80 = add i8 %.0151178, 1
   %81 = and i32 %79, 65535
-  %82 = icmp ult i32 %81, %24
+  %82 = icmp samesign ult i32 %81, %24
   br i1 %82, label %69, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %69, %74, %.preheader
@@ -524,7 +524,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %124 = add nuw nsw i32 %115, %123
   %125 = add i8 %.1152171, 1
   %126 = and i32 %124, 65535
-  %127 = icmp ult i32 %126, %89
+  %127 = icmp samesign ult i32 %126, %89
   br i1 %127, label %114, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %114, %119, %110
@@ -535,7 +535,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
 129:                                              ; preds = %.critedge2, %.critedge
   %.1150 = phi i32 [ %84, %.critedge ], [ %128, %.critedge2 ]
   %130 = and i32 %.1150, 65535
-  %131 = icmp ult i32 %130, %5
+  %131 = icmp samesign ult i32 %130, %5
   br i1 %131, label %7, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %108, %106, %17, %15, %129, %3

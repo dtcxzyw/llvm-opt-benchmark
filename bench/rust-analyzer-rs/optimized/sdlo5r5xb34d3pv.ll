@@ -824,7 +824,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %2
-  %or.cond.not.i = icmp ult i8 %13, 3
+  %or.cond.not.i = icmp samesign ult i8 %13, 3
   br i1 %or.cond.not.i, label %14, label %21
 
 14:                                               ; preds = %.noexc
@@ -3388,7 +3388,7 @@ default.unreachable:                              ; preds = %5
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf721e8d671f1c561E.llvm.16389444582445941026.exit.i.i.i.i": ; preds = %5
-  %18 = icmp ult i8 %3, 24
+  %18 = icmp samesign ult i8 %3, 24
   tail call void @llvm.assume(i1 %18)
   %19 = zext nneg i8 %3 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 1
@@ -3404,7 +3404,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.i ], [ %25, %.lr.ph.i.i.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i.i.i = phi i64 [ %.sroa.4.0.i.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i ]
-  %22 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i.i, 3
+  %22 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i.i, 3
   br i1 %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i.i.i.i.i", label %35
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i.i, %.lr.ph.i.i.i.i.i
@@ -3908,7 +3908,7 @@ default.unreachable:                              ; preds = %11
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf721e8d671f1c561E.llvm.16389444582445941026.exit.i.i.i": ; preds = %11
-  %24 = icmp ult i8 %4, 24
+  %24 = icmp samesign ult i8 %4, 24
   tail call void @llvm.assume(i1 %24)
   %25 = zext nneg i8 %4 to i64
   %26 = getelementptr inbounds i8, ptr %3, i64 1
@@ -3924,7 +3924,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i:
   %.0.lcssa.i.i.i.i = phi i64 [ %10, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i ], [ %31, %.lr.ph.i.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i.i = phi i64 [ %.sroa.4.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i ], [ %32, %.lr.ph.i.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i ], [ %33, %.lr.ph.i.i.i.i ]
-  %28 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
+  %28 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i.i, 3
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i.i.i.i", label %41
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i.i, %.lr.ph.i.i.i.i
@@ -5143,7 +5143,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17he7d3eaa3c5461971E.llvm.1638
   %.0.lcssa.i = phi i64 [ %4, %3 ], [ %9, %.lr.ph.i ]
   %.sroa.11.0.lcssa.i = phi i64 [ %2, %3 ], [ %10, %.lr.ph.i ]
   %.sroa.0.0.lcssa.i = phi ptr [ %1, %3 ], [ %11, %.lr.ph.i ]
-  %6 = icmp ugt i64 %.sroa.11.0.lcssa.i, 3
+  %6 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i, 3
   br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i", label %19
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -5756,7 +5756,7 @@ default.unreachable:                              ; preds = %10
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf721e8d671f1c561E.llvm.16389444582445941026.exit.i.i": ; preds = %10
-  %23 = icmp ult i8 %3, 24
+  %23 = icmp samesign ult i8 %3, 24
   tail call void @llvm.assume(i1 %23)
   %24 = zext nneg i8 %3 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 1
@@ -5772,7 +5772,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i: ;
   %.0.lcssa.i.i.i = phi i64 [ %9, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i ], [ %30, %.lr.ph.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i = phi i64 [ %.sroa.4.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i ], [ %31, %.lr.ph.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i ], [ %32, %.lr.ph.i.i.i ]
-  %27 = icmp ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
+  %27 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
   br i1 %27, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i.i.i", label %40
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit.i, %.lr.ph.i.i.i
@@ -5890,7 +5890,7 @@ default.unreachable:                              ; preds = %10
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf721e8d671f1c561E.llvm.16389444582445941026.exit.i": ; preds = %10
-  %23 = icmp ult i8 %3, 24
+  %23 = icmp samesign ult i8 %3, 24
   tail call void @llvm.assume(i1 %23)
   %24 = zext nneg i8 %3 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 1
@@ -5906,7 +5906,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit: ; p
   %.0.lcssa.i.i = phi i64 [ %9, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit ], [ %30, %.lr.ph.i.i ]
   %.sroa.11.0.lcssa.i.i = phi i64 [ %.sroa.4.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit ], [ %31, %.lr.ph.i.i ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %.sroa.0.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit ], [ %32, %.lr.ph.i.i ]
-  %27 = icmp ugt i64 %.sroa.11.0.lcssa.i.i, 3
+  %27 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i, 3
   br i1 %27, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i.i", label %40
 
 .lr.ph.i.i:                                       ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.16389444582445941026.exit, %.lr.ph.i.i
@@ -6004,7 +6004,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.0.lcssa = phi i64 [ %4, %3 ], [ %9, %.lr.ph ]
   %.sroa.11.0.lcssa = phi i64 [ %2, %3 ], [ %10, %.lr.ph ]
   %.sroa.0.0.lcssa = phi ptr [ %1, %3 ], [ %11, %.lr.ph ]
-  %6 = icmp ugt i64 %.sroa.11.0.lcssa, 3
+  %6 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 3
   br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit", label %19
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -7841,7 +7841,7 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf721e8d671f1c561E.llvm.16389444582445941026.exit": ; preds = %1
-  %15 = icmp ult i8 %2, 24
+  %15 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i8 %2 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 1
@@ -9468,7 +9468,7 @@ define internal fastcc void @_ZN3hir7symbols15SymbolCollector19collect_from_modu
           to label %.noexc.i.i unwind label %.loopexit822, !noalias !3102
 
 .noexc.i.i:                                       ; preds = %.noexc51
-  %or.cond.not.i.i.i = icmp ult i8 %334, 3
+  %or.cond.not.i.i.i = icmp samesign ult i8 %334, 3
   br i1 %or.cond.not.i.i.i, label %335, label %341
 
 335:                                              ; preds = %.noexc.i.i
@@ -21507,7 +21507,7 @@ _ZN3hir11term_search4expr4Expr28contains_many_in_illegal_pos17h47e4e36edd4b7a97E
 
 383:                                              ; preds = %.noexc
   %384 = load i32, ptr %33, align 4, !range !5632, !noalias !5874, !noundef !23
-  %switch.i.i = icmp ult i32 %384, 2
+  %switch.i.i = icmp samesign ult i32 %384, 2
   %385 = load i32, ptr %34, align 4, !range !281, !noalias !5874
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %33), !noalias !5874
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34), !noalias !5868
@@ -25635,7 +25635,7 @@ define void @_ZN3hir11term_search4expr4Expr11traits_used17h8b8f3082262c723bE(ptr
 
 29:                                               ; preds = %.noexc
   %30 = load i32, ptr %5, align 4, !range !5632, !noalias !6478, !noundef !23
-  %switch.i.i = icmp ult i32 %30, 2
+  %switch.i.i = icmp samesign ult i32 %30, 2
   %31 = load i32, ptr %6, align 4, !range !281, !noalias !6478
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5), !noalias !6478
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !6472
@@ -28129,7 +28129,7 @@ define hidden { i32, i32 } @_ZN3hir13as_assoc_item17h555fd8527eb5311dE(ptr nound
   %10 = extractvalue { ptr, ptr } %8, 1
   call void @"_ZN59_$LT$hir_def..TypeAliasId$u20$as$u20$hir_expand..Lookup$GT$6lookup17habc1ef33d0e183ebE"(ptr noalias nocapture noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
   %11 = load i32, ptr %4, align 4, !range !5632, !noundef !23
-  %switch = icmp ult i32 %11, 2
+  %switch = icmp samesign ult i32 %11, 2
   %12 = load i32, ptr %5, align 4, !range !281
   %spec.select = select i1 %switch, i32 undef, i32 %12
   %spec.select3 = select i1 %switch, i32 3, i32 2
@@ -28152,7 +28152,7 @@ define hidden { i32, i32 } @_ZN3hir13as_assoc_item17hc0dbf4f90b1e0215E(ptr nound
   %10 = extractvalue { ptr, ptr } %8, 1
   call void @"_ZN58_$LT$hir_def..FunctionId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h0173142c192c25d1E"(ptr noalias nocapture noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
   %11 = load i32, ptr %4, align 4, !range !5632, !noundef !23
-  %switch = icmp ult i32 %11, 2
+  %switch = icmp samesign ult i32 %11, 2
   %12 = load i32, ptr %5, align 4, !range !281
   %spec.select = select i1 %switch, i32 undef, i32 %12
   %spec.select3 = select i1 %switch, i32 3, i32 0
@@ -28175,7 +28175,7 @@ define hidden { i32, i32 } @_ZN3hir13as_assoc_item17hfdffe61602779536E(ptr nound
   %10 = extractvalue { ptr, ptr } %8, 1
   call void @"_ZN55_$LT$hir_def..ConstId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h2334b33b3410f958E"(ptr noalias nocapture noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
   %11 = load i32, ptr %4, align 4, !range !5632, !noundef !23
-  %switch = icmp ult i32 %11, 2
+  %switch = icmp samesign ult i32 %11, 2
   %12 = load i32, ptr %5, align 4, !range !281
   %spec.select = select i1 %switch, i32 undef, i32 %12
   %spec.select3 = select i1 %switch, i32 3, i32 1
@@ -32279,7 +32279,7 @@ default.unreachable208:                           ; preds = %tailrecurse
   %.0.lcssa.i.i = phi i64 [ %140, %"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core..hash..Hash$GT$4hash17he2e1bc5d6eb610c5E.llvm.16389444582445941026.exit" ], [ %149, %.lr.ph.i.i40 ]
   %.sroa.11.0.lcssa.i.i = phi i64 [ %144, %"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core..hash..Hash$GT$4hash17he2e1bc5d6eb610c5E.llvm.16389444582445941026.exit" ], [ %150, %.lr.ph.i.i40 ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %142, %"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core..hash..Hash$GT$4hash17he2e1bc5d6eb610c5E.llvm.16389444582445941026.exit" ], [ %151, %.lr.ph.i.i40 ]
-  %146 = icmp ugt i64 %.sroa.11.0.lcssa.i.i, 3
+  %146 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i, 3
   br i1 %146, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h00d7d240563d8357E.exit.i.i", label %159
 
 .lr.ph.i.i40:                                     ; preds = %"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core..hash..Hash$GT$4hash17he2e1bc5d6eb610c5E.llvm.16389444582445941026.exit", %.lr.ph.i.i40

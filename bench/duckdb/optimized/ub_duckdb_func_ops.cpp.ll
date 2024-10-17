@@ -16087,7 +16087,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %cond.i, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -72245,8 +72245,8 @@ entry:
   %conv = sext i8 %value to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2021)
   %cond.i = tail call i32 @llvm.abs.i32(i32 %conv, i1 true)
-  %cmp39.i.i = icmp ult i32 %cond.i, 10
-  %cmp3.i.i = icmp ult i32 %cond.i, 100
+  %cmp39.i.i = icmp samesign ult i32 %cond.i, 10
+  %cmp3.i.i = icmp samesign ult i32 %cond.i, 100
   %spec.select = select i1 %cmp3.i.i, i32 2, i32 3
   %retval.0.i.i = select i1 %cmp39.i.i, i32 1, i32 %spec.select
   %__val.lobit.i = lshr i32 %conv, 31
@@ -72261,7 +72261,7 @@ invoke.cont.i:                                    ; preds = %entry
   %conv5.i = zext nneg i32 %__val.lobit.i to i64
   %1 = load ptr, ptr %agg.result, align 8, !tbaa !23, !alias.scope !2021
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %conv5.i
-  %cmp34.i.i = icmp ugt i32 %cond.i, 99
+  %cmp34.i.i = icmp samesign ugt i32 %cond.i, 99
   br i1 %cmp34.i.i, label %while.end.i.i.thread, label %while.end.i.i
 
 while.end.i.i.thread:                             ; preds = %invoke.cont.i
@@ -72281,7 +72281,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont.i
   br label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %invoke.cont.i
-  %cmp9.i.i = icmp ugt i32 %cond.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %cond.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -74613,19 +74613,19 @@ entry:
   %conv = sext i16 %value to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2038)
   %cond.i = tail call i32 @llvm.abs.i32(i32 %conv, i1 true)
-  %cmp39.i.i = icmp ult i32 %cond.i, 10
+  %cmp39.i.i = icmp samesign ult i32 %cond.i, 10
   br i1 %cmp39.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp3.i.i = icmp ult i32 %cond.i, 100
+  %cmp3.i.i = icmp samesign ult i32 %cond.i, 100
   br i1 %cmp3.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %cmp6.i.i = icmp ult i32 %cond.i, 1000
+  %cmp6.i.i = icmp samesign ult i32 %cond.i, 1000
   br i1 %cmp6.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
-  %cmp11.i.i = icmp ult i32 %cond.i, 10000
+  %cmp11.i.i = icmp samesign ult i32 %cond.i, 10000
   %spec.select = select i1 %cmp11.i.i, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
@@ -74643,7 +74643,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt8__detail14__t
   %conv5.i = zext nneg i32 %__val.lobit.i to i64
   %1 = load ptr, ptr %agg.result, align 8, !tbaa !23, !alias.scope !2038
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %conv5.i
-  %cmp34.i.i = icmp ugt i32 %cond.i, 99
+  %cmp34.i.i = icmp samesign ugt i32 %cond.i, 99
   br i1 %cmp34.i.i, label %while.body.preheader.i.i, label %while.end.i.i
 
 while.body.preheader.i.i:                         ; preds = %invoke.cont.i
@@ -74671,12 +74671,12 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idxprom6.i.i
   store i8 %3, ptr %arrayidx7.i.i, align 1, !tbaa !28
   %sub8.i.i = add i32 %__pos.035.i.i, -2
-  %cmp.i18.i = icmp ugt i32 %__val.addr.036.i.i, 9999
+  %cmp.i18.i = icmp samesign ugt i32 %__val.addr.036.i.i, 9999
   br i1 %cmp.i18.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !494
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %cond.i, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -78038,7 +78038,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i64 [ %cond.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %div.i16.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -81048,12 +81048,12 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %1, i64 %idxprom6.i.i
   store i8 %3, ptr %arrayidx7.i.i, align 1, !tbaa !28
   %sub8.i.i = add i32 %__pos.035.i.i, -2
-  %cmp.i18.i = icmp ugt i32 %__val.addr.036.i.i, 9999
+  %cmp.i18.i = icmp samesign ugt i32 %__val.addr.036.i.i, 9999
   br i1 %cmp.i18.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !494
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %conv, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -82597,7 +82597,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %value, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -84198,7 +84198,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i64 [ %value, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %div.i7.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i

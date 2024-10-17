@@ -3001,7 +3001,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i: ; preds = %_Z
   %417 = load i32, ptr %317, align 4
   %418 = and i32 %417, 134217727
   %419 = zext nneg i32 %418 to i64
-  %420 = icmp ult i64 %indvars.iv.next.i, %419
+  %420 = icmp samesign ult i64 %indvars.iv.next.i, %419
   br i1 %420, label %332, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i199.i
@@ -4945,7 +4945,7 @@ define internal fastcc noundef ptr @_ZL21replaceGEPIdxWithZeroRN4llvm16InstCombi
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 134217727
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   br i1 %15, label %_ZL24canReplaceGEPIdxWithZeroRN4llvm16InstCombinerImplEPNS_17GetElementPtrInstEPNS_11InstructionERj.exit.thread, label %16
 
 16:                                               ; preds = %11
@@ -9396,7 +9396,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %28, %31
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %28 ], [ %33, %31 ]
   %.idx111 = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %37 = getelementptr inbounds i8, ptr %36, i64 %.idx111
-  %.not110 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not110 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not110, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit
@@ -9524,7 +9524,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit42:       ; preds = %68, %71
   %.pre-phi2.i.i.i39 = phi i64 [ %.pre1.i.i.i38, %68 ], [ %73, %71 ]
   %77 = getelementptr inbounds %"class.llvm::Use", ptr %76, i64 %.pre-phi2.i.i.i39
   %78 = ptrtoint ptr %77 to i64
-  %.not114 = icmp ult i64 %.pre-phi2.i.i.i39, 4
+  %.not114 = icmp samesign ult i64 %.pre-phi2.i.i.i39, 4
   br i1 %.not114, label %._crit_edge.i.i.i.i.i.i43, label %.lr.ph.i.i.i.i.i.i50.preheader
 
 .lr.ph.i.i.i.i.i.i50.preheader:                   ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit42

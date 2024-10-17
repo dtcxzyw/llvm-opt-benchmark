@@ -2875,7 +2875,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 80:                                               ; preds = %59, %55
   %.1 = phi i32 [ 5, %59 ], [ 0, %55 ]
-  %81 = icmp ult i32 %26, 4096
+  %81 = icmp samesign ult i32 %26, 4096
   br i1 %81, label %82, label %155
 
 82:                                               ; preds = %80
@@ -3222,7 +3222,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %364
 
 265:                                              ; preds = %155, %197
-  %266 = icmp ult i32 %26, 49152
+  %266 = icmp samesign ult i32 %26, 49152
   %267 = and i32 %20, 1
   %.not77 = icmp eq i32 %267, 0
   %or.cond80 = or i1 %266, %.not77

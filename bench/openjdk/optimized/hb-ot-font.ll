@@ -2044,7 +2044,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %6, %23
   br label %_ZNK2OT4VORG12get_y_originEj.exit
 
 _ZNK2OT13SortedArrayOfINS_16VertOriginMetricENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_found_tj.exit.i: ; preds = %94
-  %.not.i.i = icmp ult i32 %80, %.sroa.2.8.insert.ext.i.i.i.i
+  %.not.i.i = icmp samesign ult i32 %80, %.sroa.2.8.insert.ext.i.i.i.i
   br i1 %.not.i.i, label %100, label %_ZNK2OT7ArrayOfINS_16VertOriginMetricENS_7IntTypeItLj2EEEEixEi.exit.i
 
 100:                                              ; preds = %_ZNK2OT13SortedArrayOfINS_16VertOriginMetricENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_found_tj.exit.i
@@ -3327,7 +3327,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL20hb_ot_get_glyph_nameP9hb_font_
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
-  %47 = icmp ult i32 %46, 258
+  %47 = icmp samesign ult i32 %46, 258
   br i1 %47, label %48, label %60
 
 48:                                               ; preds = %36
@@ -3545,7 +3545,7 @@ _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ;
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %62, %65
-  %67 = icmp ugt i32 %66, 5
+  %67 = icmp samesign ugt i32 %66, 5
   br i1 %67, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread, label %69
 
 _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread: ; preds = %46, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
@@ -4014,7 +4014,7 @@ _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55:
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = or disjoint i32 %144, %147
-  %149 = icmp ugt i32 %148, 6
+  %149 = icmp samesign ugt i32 %148, 6
   br i1 %149, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread, label %151
 
 _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread: ; preds = %128, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55
@@ -4098,7 +4098,7 @@ _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70:
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i32
   %200 = or disjoint i32 %196, %199
-  %201 = icmp ugt i32 %200, 4
+  %201 = icmp samesign ugt i32 %200, 4
   br i1 %201, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread, label %203
 
 _ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread: ; preds = %180, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70
@@ -4832,7 +4832,7 @@ _ZN21hb_sanitize_context_t7try_setIN2OT7IntTypeItLj2EEEtEEbPKT_RKT0_.exit.i: ; p
   %70 = shl nuw nsw i32 %69, 8
   %71 = zext i8 %57 to i32
   %72 = or disjoint i32 %70, %71
-  %73 = icmp ule i32 %68, %72
+  %73 = icmp samesign ule i32 %68, %72
   br label %_ZNK2OT19CmapSubtableFormat48sanitizeEP21hb_sanitize_context_t.exit
 
 74:                                               ; preds = %12
@@ -5502,7 +5502,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
   br i1 %.not26.i, label %.critedge, label %34
 
 34:                                               ; preds = %33
-  %35 = icmp ult i32 %30, 5
+  %35 = icmp samesign ult i32 %30, 5
   %36 = icmp ugt i32 %10, 99
   %or.cond.i = or i1 %36, %35
   br i1 %or.cond.i, label %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit, label %.critedge
@@ -5835,7 +5835,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19CmapSubtableFormat49get_
   %reass.sub = sub nsw i32 %27, %28
   %29 = add nsw i32 %reass.sub, -16
   %30 = lshr i32 %29, 1
-  %.not5.i.i.i.not = icmp ult i32 %11, 2
+  %.not5.i.i.i.not = icmp samesign ult i32 %11, 2
   br i1 %.not5.i.i.i.not, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3
@@ -7648,7 +7648,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %70 = load i8, ptr %44, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp ugt i32 %66, %72
+  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
   br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %58
@@ -8282,7 +8282,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT8HVARVVAR26get_advance_delta_un
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %.not.i.i = icmp ult i32 %49, %57
+  %.not.i.i = icmp samesign ult i32 %49, %57
   br i1 %.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %5
@@ -8698,7 +8698,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijP
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
   %.02940 = phi float [ 1.000000e+00, %.lr.ph.preheader ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
-  %33 = icmp ult i64 %indvars.iv, %32
+  %33 = icmp samesign ult i64 %indvars.iv, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.lr.ph
@@ -9636,7 +9636,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4VVAR23get_vorg_delta_unsc
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %.not.i.i = icmp ult i32 %49, %57
+  %.not.i.i = icmp samesign ult i32 %49, %57
   br i1 %.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %24
@@ -10079,7 +10079,7 @@ define linkonce_odr hidden void @_ZN2OT18glyf_accelerator_tC2EP9hb_face_t(ptr no
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp samesign ult i32 %30, 2
   br i1 %31, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit.thread
 
 _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %2
@@ -10091,7 +10091,7 @@ _ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit: ; preds = %2
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   br i1 %40, label %41, label %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit.thread
 
 41:                                               ; preds = %_ZN2OT4glyf21has_valid_glyf_formatEPK9hb_face_t.exit
@@ -12552,7 +12552,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %434 = load i32, ptr %392, align 4
   %435 = zext i32 %434 to i64
-  %436 = icmp ult i64 %indvars.iv.next.i.i.i, %435
+  %436 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %435
   br i1 %436, label %430, label %_ZN22contour_point_vector_taSERKS_.exitthread-pre-split, !llvm.loop !43
 
 _ZN22contour_point_vector_taSERKS_.exitthread-pre-split: ; preds = %430, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i.i
@@ -12756,7 +12756,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit251: ; preds = %514, 
   %.0.i.i250 = phi ptr [ @_hb_CrapPool, %513 ], [ %516, %514 ]
   %517 = load i32, ptr %191, align 8
   %518 = zext i32 %517 to i64
-  %.not.i.i252 = icmp ult i64 %indvars.iv, %518
+  %.not.i.i252 = icmp samesign ult i64 %indvars.iv, %518
   br i1 %.not.i.i252, label %520, label %519
 
 519:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit251
@@ -14628,7 +14628,7 @@ _ZL9hb_memsetPvij.exit333.thread:                 ; preds = %_ZN2OT18TupleVariat
 
 .lr.ph819:                                        ; preds = %.lr.ph819.preheader, %424
   %indvars.iv961 = phi i64 [ 0, %.lr.ph819.preheader ], [ %indvars.iv.next962, %424 ]
-  %.not.i.i334 = icmp ult i64 %indvars.iv961, %390
+  %.not.i.i334 = icmp samesign ult i64 %indvars.iv961, %390
   br i1 %.not.i.i334, label %405, label %404
 
 404:                                              ; preds = %.lr.ph819
@@ -14698,7 +14698,7 @@ _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit:       ; preds = %405, %404
 
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %457
   %indvars.iv956 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next957, %457 ]
-  %.not.i.i335 = icmp ult i64 %indvars.iv956, %389
+  %.not.i.i335 = icmp samesign ult i64 %indvars.iv956, %389
   br i1 %.not.i.i335, label %438, label %437
 
 437:                                              ; preds = %.lr.ph817
@@ -15103,7 +15103,7 @@ _ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3
   %611 = zext i8 %610 to i32
   %.masked.i.i.i357 = and i32 %609, 3840
   %612 = or disjoint i32 %.masked.i.i.i357, %611
-  %613 = icmp uge i32 %606, %612
+  %613 = icmp samesign uge i32 %606, %612
   %.not.i.i.i358 = icmp ugt ptr %22, %605
   %or.cond700 = select i1 %613, i1 true, i1 %.not.i.i.i358
   br i1 %or.cond700, label %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit.thread, label %614
@@ -16845,7 +16845,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %notmask = shl nsw i32 -1, %.0.i
   %32 = xor i32 %notmask, -1
   store i32 %32, ptr %26, align 8
-  %33 = icmp ugt i32 %.0.i, 31
+  %33 = icmp samesign ugt i32 %.0.i, 31
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
@@ -17631,7 +17631,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8HVARVVAR22get_lsb_delta_u
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %.not.i.i = icmp ult i32 %49, %57
+  %.not.i.i = icmp samesign ult i32 %49, %57
   br i1 %.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %24
@@ -20717,7 +20717,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit43: ; preds = %3
   store ptr %6, ptr %7, align 8
   %317 = load i32, ptr %261, align 4
   %318 = zext i32 %317 to i64
-  %.not.i44 = icmp ult i64 %indvars.iv, %318
+  %.not.i44 = icmp samesign ult i64 %indvars.iv, %318
   br i1 %.not.i44, label %320, label %319
 
 319:                                              ; preds = %316
@@ -20740,7 +20740,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit43: ; preds = %3
   store i32 0, ptr %326, align 8
   %327 = load i32, ptr %261, align 4
   %328 = zext i32 %327 to i64
-  %.not.i45 = icmp ult i64 %indvars.iv, %328
+  %.not.i45 = icmp samesign ult i64 %indvars.iv, %328
   br i1 %.not.i45, label %330, label %329
 
 329:                                              ; preds = %323
@@ -20765,7 +20765,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   %.0.i.i = select i1 %.not.i.i.not, ptr @_hb_NullPool, ptr %299
   %336 = load i32, ptr %261, align 4
   %337 = zext i32 %336 to i64
-  %.not.i48 = icmp ult i64 %indvars.iv, %337
+  %.not.i48 = icmp samesign ult i64 %indvars.iv, %337
   br i1 %.not.i48, label %343, label %338
 
 338:                                              ; preds = %335
@@ -20796,7 +20796,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store ptr %352, ptr %353, align 8
   %354 = load i32, ptr %261, align 4
   %355 = zext i32 %354 to i64
-  %.not.i55 = icmp ult i64 %indvars.iv, %355
+  %.not.i55 = icmp samesign ult i64 %indvars.iv, %355
   br i1 %.not.i55, label %356, label %.thread93
 
 356:                                              ; preds = %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EEixEi.exit54
@@ -20831,7 +20831,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %369 = load i32, ptr %22, align 8
   %370 = zext i32 %369 to i64
-  %371 = icmp ult i64 %indvars.iv.next, %370
+  %371 = icmp samesign ult i64 %indvars.iv.next, %370
   br i1 %371, label %265, label %.loopexit, !llvm.loop !92
 
 _ZN3CFF18dict_interpreter_tINS_21cff2_top_dict_opset_tENS_22cff2_top_dict_values_tENS_12interp_env_tINS_8number_tEEEE9interpretERS2_.exit: ; preds = %.noexc27, %294, %308, %269, %278, %367, %334, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit43, %293, %288, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit36, %161, %150, %142, %166, %61, %253, %213, %_ZNK3CFF18CFF2VariationStore8sanitizeEP21hb_sanitize_context_t.exit, %172, %177, %178, %183, %184, %189, %212, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit, %45
@@ -22999,7 +22999,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %.sroa.0.0.copyload.i35 = load i16, ptr %0, align 1
   %rev = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i35)
   %65 = zext i16 %rev to i64
-  %66 = icmp ult i64 %indvars.iv.next72, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next72, %65
   br i1 %66, label %.lr.ph65, label %._crit_edge66, !llvm.loop !103
 
 .lr.ph65:                                         ; preds = %.preheader, %64
@@ -23032,7 +23032,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = or disjoint i32 %73, %76
-  %.not.i39 = icmp ult i64 %indvars.iv71, %.pre-phi83
+  %.not.i39 = icmp samesign ult i64 %indvars.iv71, %.pre-phi83
   br i1 %.not.i39, label %78, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41
 
 78:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
@@ -23049,7 +23049,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = or disjoint i32 %82, %85
-  %.not33 = icmp ult i32 %77, %86
+  %.not33 = icmp samesign ult i32 %77, %86
   br i1 %.not33, label %64, label %.critedge
 
 ._crit_edge66:                                    ; preds = %64, %.preheader
@@ -23268,7 +23268,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   %.sroa.0.0.copyload.i35 = load i32, ptr %0, align 1
   %112 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i35)
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next71, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next71, %113
   br i1 %114, label %.lr.ph64, label %._crit_edge65, !llvm.loop !105
 
 .lr.ph64:                                         ; preds = %.preheader, %111
@@ -23485,7 +23485,7 @@ _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %7, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %10, label %.sink.split, !llvm.loop !106
 
 .sink.split:                                      ; preds = %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit, %.preheader, %2
@@ -23699,7 +23699,7 @@ _ZN3CFF23cff2_font_dict_values_tD2Ev.exit:        ; preds = %10, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %7, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %10, label %.sink.split, !llvm.loop !109
 
 .sink.split:                                      ; preds = %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit, %.preheader, %2
@@ -24927,7 +24927,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %179
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %314 ]
   %308 = load i32, ptr %305, align 4
   %309 = zext i32 %308 to i64
-  %.not.i54 = icmp ult i64 %indvars.iv, %309
+  %.not.i54 = icmp samesign ult i64 %indvars.iv, %309
   br i1 %.not.i54, label %311, label %310
 
 310:                                              ; preds = %307
@@ -24949,7 +24949,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %317 = load i32, ptr %27, align 8
   %318 = zext i32 %317 to i64
-  %319 = icmp ult i64 %indvars.iv.next, %318
+  %319 = icmp samesign ult i64 %indvars.iv.next, %318
   br i1 %319, label %307, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %314
@@ -25048,7 +25048,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit58: ; preds = %3
 364:                                              ; preds = %363
   %365 = load i32, ptr %327, align 4
   %366 = zext i32 %365 to i64
-  %.not.i59 = icmp ult i64 %indvars.iv94, %366
+  %.not.i59 = icmp samesign ult i64 %indvars.iv94, %366
   br i1 %.not.i59, label %368, label %367
 
 367:                                              ; preds = %364
@@ -25133,7 +25133,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit64: ; preds = %3
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %407 = load i32, ptr %27, align 8
   %408 = zext i32 %407 to i64
-  %409 = icmp ult i64 %indvars.iv.next95, %408
+  %409 = icmp samesign ult i64 %indvars.iv.next95, %408
   br i1 %409, label %333, label %.loopexit, !llvm.loop !112
 
 410:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -27680,7 +27680,7 @@ _ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %7, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %10, label %.sink.split, !llvm.loop !123
 
 .sink.split:                                      ; preds = %_ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit, %.preheader, %2
@@ -27894,7 +27894,7 @@ _ZN3CFF23cff1_font_dict_values_tD2Ev.exit:        ; preds = %10, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %7, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %10, label %.sink.split, !llvm.loop !126
 
 .sink.split:                                      ; preds = %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit, %.preheader, %2
@@ -33450,7 +33450,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT17VarStoreInstancerclEjt(ptr no
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not.i.i.i = icmp ult i32 %21, %29
+  %.not.i.i.i = icmp samesign ult i32 %21, %29
   br i1 %.not.i.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i, label %_ZNK2OT14VariationStore9get_deltaEj10hb_array_tIiEPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i: ; preds = %19
@@ -34477,7 +34477,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT9ColorLineINS_10NoVariableEE22stat
 23:                                               ; preds = %_ZNK2OT7ArrayOfINS_10NoVariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK2OT7ArrayOfINS_10NoVariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i ]
   %24 = add nuw nsw i64 %indvars.iv.i, %21
-  %25 = icmp ult i64 %24, %22
+  %25 = icmp samesign ult i64 %24, %22
   br i1 %25, label %26, label %.critedge.loopexit.i
 
 26:                                               ; preds = %23
@@ -34487,7 +34487,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT9ColorLineINS_10NoVariableEE22stat
   %30 = load i8, ptr %13, align 1
   %31 = zext i8 %30 to i64
   %32 = or disjoint i64 %29, %31
-  %.not.i.i = icmp ult i64 %24, %32
+  %.not.i.i = icmp samesign ult i64 %24, %32
   br i1 %.not.i.i, label %33, label %_ZNK2OT7ArrayOfINS_10NoVariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 33:                                               ; preds = %26
@@ -34502,7 +34502,7 @@ _ZNK2OT7ArrayOfINS_10NoVariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i:
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %3, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %38, label %23, label %.critedge.loopexit.i, !llvm.loop !135
 
 .critedge.loopexit.i:                             ; preds = %_ZNK2OT7ArrayOfINS_10NoVariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i, %23
@@ -34781,7 +34781,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT9ColorLineINS_8VariableEE22static_
 23:                                               ; preds = %_ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i ]
   %24 = add nuw nsw i64 %indvars.iv.i, %21
-  %25 = icmp ult i64 %24, %22
+  %25 = icmp samesign ult i64 %24, %22
   br i1 %25, label %26, label %.critedge.loopexit.i
 
 26:                                               ; preds = %23
@@ -34791,7 +34791,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT9ColorLineINS_8VariableEE22static_
   %30 = load i8, ptr %13, align 1
   %31 = zext i8 %30 to i64
   %32 = or disjoint i64 %29, %31
-  %.not.i.i = icmp ult i64 %24, %32
+  %.not.i.i = icmp samesign ult i64 %24, %32
   br i1 %.not.i.i, label %33, label %_ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 33:                                               ; preds = %26
@@ -34824,7 +34824,7 @@ _ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i32, ptr %3, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i, %55
   br i1 %56, label %23, label %.critedge.loopexit.i, !llvm.loop !136
 
 .critedge.loopexit.i:                             ; preds = %_ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i, %23
@@ -39037,7 +39037,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sani
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not19 = icmp ugt i32 %21, %29
+  %.not19 = icmp samesign ugt i32 %21, %29
   br i1 %.not19, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %30
 
 30:                                               ; preds = %14
@@ -39869,7 +39869,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33: ; preds = 
   %61 = load i8, ptr %17, align 1
   %62 = zext i8 %61 to i64
   %63 = or disjoint i64 %60, %62
-  %.not.i35 = icmp ult i64 %indvars.iv, %63
+  %.not.i35 = icmp samesign ult i64 %indvars.iv, %63
   br i1 %.not.i35, label %64, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
 
 64:                                               ; preds = %49
@@ -40099,7 +40099,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = or disjoint i32 %122, %125
-  %.not.i8 = icmp ugt i32 %117, %126
+  %.not.i8 = icmp samesign ugt i32 %117, %126
   br i1 %.not.i8, label %127, label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
 127:                                              ; preds = %106
@@ -40632,7 +40632,7 @@ _ZNK2OT4sbix10get_strikeEj.exit:                  ; preds = %2
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
   %83 = or disjoint i64 %79, %82
-  %.not.i.i35 = icmp ult i64 %indvars.iv, %83
+  %.not.i.i35 = icmp samesign ult i64 %indvars.iv, %83
   br i1 %.not.i.i35, label %84, label %_ZNK2OT4sbix10get_strikeEj.exit38
 
 84:                                               ; preds = %.lr.ph
@@ -42415,7 +42415,7 @@ _ZN2OT4post13accelerator_t7cmp_keyEPKvS3_Pv.exit.i.i.us: ; preds = %68, %66
   %89 = getelementptr inbounds i8, ptr %.026, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i32
-  %.not18.i.i.i.i.us = icmp ugt i32 %83, %91
+  %.not18.i.i.i.i.us = icmp samesign ugt i32 %83, %91
   br i1 %.not18.i.i.i.i.us, label %92, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.i.i.i.us57
 
 92:                                               ; preds = %84
@@ -42428,7 +42428,7 @@ _ZN2OT4post13accelerator_t7cmp_keyEPKvS3_Pv.exit.i.i.us: ; preds = %68, %66
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = or disjoint i32 %97, %100
-  %102 = icmp ult i32 %101, 258
+  %102 = icmp samesign ult i32 %101, 258
   br i1 %102, label %114, label %103
 
 103:                                              ; preds = %92
@@ -42920,7 +42920,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT4post13accelerator_t8cmp_gidsEPKvS
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = or disjoint i32 %28, %31
-  %.not18.i = icmp ugt i32 %32, %6
+  %.not18.i = icmp samesign ugt i32 %32, %6
   br i1 %.not18.i, label %33, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread
 
 33:                                               ; preds = %23
@@ -42934,7 +42934,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT4post13accelerator_t8cmp_gidsEPKvS
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = or disjoint i32 %39, %42
-  %44 = icmp ult i32 %43, 258
+  %44 = icmp samesign ult i32 %43, 258
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %33
@@ -42977,7 +42977,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread: ; preds = %23, %45, 
   %.sroa.0.0.i.ph = phi ptr [ null, %57 ], [ null, %23 ], [ %72, %61 ], [ %50, %45 ]
   %.sroa.10.0.i.ph = phi i32 [ 0, %57 ], [ 0, %23 ], [ %73, %61 ], [ %56, %45 ]
   %74 = zext i16 %4 to i32
-  %.not18.i6 = icmp ugt i32 %32, %74
+  %.not18.i6 = icmp samesign ugt i32 %32, %74
   br i1 %.not18.i6, label %87, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit15
 
 _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32: ; preds = %9, %11
@@ -43011,7 +43011,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32: ; preds = %9, %11
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = or disjoint i32 %93, %96
-  %98 = icmp ult i32 %97, 258
+  %98 = icmp samesign ult i32 %97, 258
   br i1 %98, label %99, label %111
 
 99:                                               ; preds = %87
@@ -43080,7 +43080,7 @@ _ZNK10hb_array_tIKcE3cmpERKS1_.exit:              ; preds = %3, %128, %130, %131
 define internal fastcc void @_ZL13sort_r_simpleIJPvEEvS0_mmPFiPKvS2_DpT_ES4_(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = shl nuw i64 %1, 1
   %5 = getelementptr i8, ptr %0, i64 %4
-  %6 = icmp ult i64 %1, 10
+  %6 = icmp samesign ult i64 %1, 10
   br i1 %6, label %.preheader12, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %3
@@ -43152,7 +43152,7 @@ define internal fastcc void @_ZL13sort_r_simpleIJPvEEvS0_mmPFiPKvS2_DpT_ES4_(ptr
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
-  %.not18.i.i196 = icmp ugt i32 %46, %22
+  %.not18.i.i196 = icmp samesign ugt i32 %46, %22
   br i1 %.not18.i.i196, label %47, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i197
 
 47:                                               ; preds = %38
@@ -43166,7 +43166,7 @@ define internal fastcc void @_ZL13sort_r_simpleIJPvEEvS0_mmPFiPKvS2_DpT_ES4_(ptr
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %53, %56
-  %58 = icmp ult i32 %57, 258
+  %58 = icmp samesign ult i32 %57, 258
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %47
@@ -43206,7 +43206,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i197: ; preds = %74, 
   %.sroa.0.0.i.ph.i198 = phi ptr [ null, %71 ], [ null, %38 ], [ %83, %74 ], [ %64, %59 ]
   %.sroa.10.0.i.ph.i199 = phi i32 [ 0, %71 ], [ 0, %38 ], [ %84, %74 ], [ %70, %59 ]
   %85 = zext i16 %20 to i32
-  %.not18.i6.i200 = icmp ugt i32 %46, %85
+  %.not18.i6.i200 = icmp samesign ugt i32 %46, %85
   br i1 %.not18.i6.i200, label %98, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit15.i201
 
 _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i211: ; preds = %26, %24
@@ -43240,7 +43240,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i211: ; preds = %26
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = or disjoint i32 %104, %107
-  %109 = icmp ult i32 %108, 258
+  %109 = icmp samesign ult i32 %108, 258
   br i1 %109, label %110, label %122
 
 110:                                              ; preds = %98
@@ -43429,7 +43429,7 @@ _ZL18sort_r_swap_blocksPcmm.exit.thread:          ; preds = %_ZL11sort_r_swapPcS
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
   %201 = or disjoint i32 %197, %200
-  %.not18.i.i = icmp ugt i32 %201, %177
+  %.not18.i.i = icmp samesign ugt i32 %201, %177
   br i1 %.not18.i.i, label %202, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i
 
 202:                                              ; preds = %193
@@ -43443,7 +43443,7 @@ _ZL18sort_r_swap_blocksPcmm.exit.thread:          ; preds = %_ZL11sort_r_swapPcS
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i32
   %212 = or disjoint i32 %208, %211
-  %213 = icmp ult i32 %212, 258
+  %213 = icmp samesign ult i32 %212, 258
   br i1 %213, label %214, label %226
 
 214:                                              ; preds = %202
@@ -43483,7 +43483,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i: ; preds = %229, %2
   %.sroa.0.0.i.ph.i = phi ptr [ null, %226 ], [ null, %193 ], [ %238, %229 ], [ %219, %214 ]
   %.sroa.10.0.i.ph.i = phi i32 [ 0, %226 ], [ 0, %193 ], [ %239, %229 ], [ %225, %214 ]
   %240 = zext i16 %175 to i32
-  %.not18.i6.i = icmp ugt i32 %201, %240
+  %.not18.i6.i = icmp samesign ugt i32 %201, %240
   br i1 %.not18.i6.i, label %253, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit15.i
 
 _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i: ; preds = %181, %179
@@ -43517,7 +43517,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i: ; preds = %181, 
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i32
   %263 = or disjoint i32 %259, %262
-  %264 = icmp ult i32 %263, 258
+  %264 = icmp samesign ult i32 %263, 258
   br i1 %264, label %265, label %277
 
 265:                                              ; preds = %253
@@ -43658,7 +43658,7 @@ _ZL11sort_r_swapPcS_m.exit155:                    ; preds = %.lr.ph.i152, %.thre
   %336 = load i8, ptr %335, align 1
   %337 = zext i8 %336 to i32
   %338 = or disjoint i32 %334, %337
-  %.not18.i.i156 = icmp ugt i32 %338, %314
+  %.not18.i.i156 = icmp samesign ugt i32 %338, %314
   br i1 %.not18.i.i156, label %339, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i157
 
 339:                                              ; preds = %330
@@ -43672,7 +43672,7 @@ _ZL11sort_r_swapPcS_m.exit155:                    ; preds = %.lr.ph.i152, %.thre
   %347 = load i8, ptr %346, align 1
   %348 = zext i8 %347 to i32
   %349 = or disjoint i32 %345, %348
-  %350 = icmp ult i32 %349, 258
+  %350 = icmp samesign ult i32 %349, 258
   br i1 %350, label %351, label %363
 
 351:                                              ; preds = %339
@@ -43712,7 +43712,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread.i157: ; preds = %366,
   %.sroa.0.0.i.ph.i158 = phi ptr [ null, %363 ], [ null, %330 ], [ %375, %366 ], [ %356, %351 ]
   %.sroa.10.0.i.ph.i159 = phi i32 [ 0, %363 ], [ 0, %330 ], [ %376, %366 ], [ %362, %351 ]
   %377 = zext i16 %312 to i32
-  %.not18.i6.i160 = icmp ugt i32 %338, %377
+  %.not18.i6.i160 = icmp samesign ugt i32 %338, %377
   br i1 %.not18.i6.i160, label %390, label %_ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit15.i161
 
 _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i171: ; preds = %318, %316
@@ -43746,7 +43746,7 @@ _ZNK2OT4post13accelerator_t15find_glyph_nameEj.exit.thread32.i171: ; preds = %31
   %398 = load i8, ptr %397, align 1
   %399 = zext i8 %398 to i32
   %400 = or disjoint i32 %396, %399
-  %401 = icmp ult i32 %400, 258
+  %401 = icmp samesign ult i32 %400, 258
   br i1 %401, label %402, label %414
 
 402:                                              ; preds = %390

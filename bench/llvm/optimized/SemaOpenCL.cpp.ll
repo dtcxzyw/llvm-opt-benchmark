@@ -1018,7 +1018,7 @@ _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread: ; preds = %35, %
 _ZNK5clang4Type18isOCLImage1dROTypeEv.exit.i:     ; preds = %.critedge
   %145 = load i32, ptr %142, align 16
   %146 = and i32 %145, 266338304
-  %switch.i = icmp ult i32 %146, 18874368
+  %switch.i = icmp samesign ult i32 %146, 18874368
   %147 = zext i1 %switch.i to i8
   br label %_ZNK5clang4Type11isImageTypeEv.exit
 

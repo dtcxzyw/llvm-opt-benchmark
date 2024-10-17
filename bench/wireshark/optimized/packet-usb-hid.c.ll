@@ -4387,7 +4387,7 @@ default.unreachable:                              ; preds = %switch.lookup
   %hf_usb_hid_mainitem_bit7.val.i = load i32, ptr @hf_usb_hid_mainitem_bit7, align 4
   %53 = select i1 %52, i32 %hf_usb_hid_mainitem_bit7_input.val.i, i32 %hf_usb_hid_mainitem_bit7.val.i
   %54 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %53, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648) #7
-  %55 = icmp ugt i32 %spec.select, 1
+  %55 = icmp samesign ugt i32 %spec.select, 1
   %56 = load i32, ptr @hf_usb_hid_mainitem_bit8, align 4
   br i1 %55, label %57, label %59
 
@@ -4673,7 +4673,7 @@ dissect_usb_hid_report_globalitem_data.exit:      ; preds = %102, %108, %112, %1
   ]
 
 176:                                              ; preds = %174
-  %177 = icmp ugt i32 %spec.select, 2
+  %177 = icmp samesign ugt i32 %spec.select, 2
   br i1 %177, label %178, label %181
 
 178:                                              ; preds = %176

@@ -228,7 +228,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %139 = phi ptr [ %136, %134 ], [ %86, %83 ]
   %140 = phi ptr [ %137, %134 ], [ %85, %83 ]
   %141 = lshr i64 %84, 1
-  %142 = icmp ult i64 %84, 2
+  %142 = icmp samesign ult i64 %84, 2
   br i1 %142, label %.loopexit22, label %83, !llvm.loop !13
 
 .loopexit22:                                      ; preds = %138, %.loopexit23
@@ -367,7 +367,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %229 = phi ptr [ %226, %224 ], [ %207, %.split44.us ]
   %230 = phi ptr [ %227, %224 ], [ %206, %.split44.us ]
   %231 = lshr i64 %205, 1
-  %232 = icmp ult i64 %205, 2
+  %232 = icmp samesign ult i64 %205, 2
   br i1 %232, label %.loopexit, label %.split44.us, !llvm.loop !16
 
 .split44:                                         ; preds = %202, %255
@@ -407,7 +407,7 @@ define noundef i32 @dtrsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %256 = phi ptr [ %253, %251 ], [ %235, %.split44 ]
   %257 = phi ptr [ %254, %251 ], [ %234, %.split44 ]
   %258 = lshr i64 %233, 1
-  %259 = icmp ult i64 %233, 2
+  %259 = icmp samesign ult i64 %233, 2
   br i1 %259, label %.loopexit, label %.split44, !llvm.loop !16
 
 .loopexit:                                        ; preds = %255, %228, %.loopexit19, %.loopexit24

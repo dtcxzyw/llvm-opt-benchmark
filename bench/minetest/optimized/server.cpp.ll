@@ -8132,7 +8132,7 @@ entry:
   %rem2 = urem i32 %div, 60
   %div3 = udiv i32 %spec.select88, 86400
   %rem4 = urem i32 %div1, 24
-  %cmp5.not = icmp ult i32 %spec.select88, 86400
+  %cmp5.not = icmp samesign ult i32 %spec.select88, 86400
   br i1 %cmp5.not, label %if.end19, label %if.then6
 
 if.then6:                                         ; preds = %entry
@@ -45681,7 +45681,7 @@ for.inc:                                          ; preds = %if.then49, %_ZNK14N
 
 cleanup68:                                        ; preds = %for.inc, %cleanup, %for.body
   %is_good.4 = phi i8 [ %is_good.0166, %for.body ], [ %is_good.1., %cleanup ], [ %is_good.0166, %for.inc ]
-  %cmp = icmp ult i32 %i.0165, 3999
+  %cmp = icmp samesign ult i32 %i.0165, 3999
   %32 = and i8 %is_good.4, 1
   %tobool.not = icmp eq i8 %32, 0
   %33 = select i1 %cmp, i1 %tobool.not, i1 false
@@ -48941,12 +48941,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %2, i64 %idxprom6.i.i.i
   store i8 %4, ptr %arrayidx7.i.i.i, align 1, !tbaa !13
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !1201
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %conv, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i

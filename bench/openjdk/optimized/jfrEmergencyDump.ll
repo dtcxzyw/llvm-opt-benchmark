@@ -474,7 +474,7 @@ define hidden void @_ZN18RepositoryIteratorC2EPKc(ptr nocapture noundef nonnull 
   %35 = add nsw i32 %30, 1
   %36 = icmp sgt i32 %30, -1
   %37 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   %or.cond.i.i.i.i = select i1 %36, i1 %38, i1 false
   %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %40 = sub nuw nsw i32 32, %39
@@ -2312,7 +2312,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

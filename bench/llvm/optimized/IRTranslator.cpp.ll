@@ -2510,7 +2510,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit242: ; preds = %.lr.ph,
   %433 = load i32, ptr %407, align 4
   %434 = and i32 %433, 134217727
   %435 = zext nneg i32 %434 to i64
-  %436 = icmp ult i64 %indvars.iv.next, %435
+  %436 = icmp samesign ult i64 %indvars.iv.next, %435
   br i1 %436, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit242, %417
@@ -4001,7 +4001,7 @@ _ZL12isValInBlockPKN4llvm5ValueEPKNS_10BasicBlockE.exit96.thread: ; preds = %_ZL
   %104 = zext nneg i32 %103 to i64
   %105 = zext i32 %8 to i64
   %106 = add nuw nsw i64 %104, %105
-  %107 = icmp ugt i64 %106, 2147483648
+  %107 = icmp samesign ugt i64 %106, 2147483648
   %108 = add i32 %103, %8
   %spec.select.i.i97 = select i1 %107, i32 -2147483648, i32 %108
   call void @_ZN4llvm12IRTranslator20findMergedConditionsEPKNS_5ValueEPNS_17MachineBasicBlockES5_S5_S5_NS_11Instruction9BinaryOpsENS_17BranchProbabilityES8_b(ptr noundef nonnull align 8 dereferenceable(1848) %0, ptr noundef %101, ptr noundef %2, ptr noundef nonnull %91, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 29, i32 %103, i32 %spec.select.i.i97, i1 noundef zeroext %9)
@@ -4027,7 +4027,7 @@ _ZL12isValInBlockPKN4llvm5ValueEPKNS_10BasicBlockE.exit96.thread: ; preds = %_ZL
   %118 = zext i32 %7 to i64
   %119 = zext nneg i32 %117 to i64
   %120 = add nuw nsw i64 %119, %118
-  %121 = icmp ugt i64 %120, 2147483648
+  %121 = icmp samesign ugt i64 %120, 2147483648
   %122 = add i32 %117, %7
   %spec.select.i.i98 = select i1 %121, i32 -2147483648, i32 %122
   call void @_ZN4llvm12IRTranslator20findMergedConditionsEPKNS_5ValueEPNS_17MachineBasicBlockES5_S5_S5_NS_11Instruction9BinaryOpsENS_17BranchProbabilityES8_b(ptr noundef nonnull align 8 dereferenceable(1848) %0, ptr noundef %101, ptr noundef nonnull %91, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 %spec.select.i.i98, i32 %117, i1 noundef zeroext %9)
@@ -7083,7 +7083,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %130 = zext i32 %.sroa.058.081 to i64
   %131 = zext i32 %.sroa.022.0.copyload to i64
   %132 = add nuw nsw i64 %131, %130
-  %133 = icmp ugt i64 %132, 2147483648
+  %133 = icmp samesign ugt i64 %132, 2147483648
   %134 = add i32 %.sroa.022.0.copyload, %.sroa.058.081
   %spec.select.i = select i1 %133, i32 -2147483648, i32 %134
   %135 = getelementptr inbounds i8, ptr %.sroa.055.080, i64 40
@@ -9387,7 +9387,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator20lowerBitTestWorkIte
   %46 = zext i32 %45 to i64
   %47 = zext nneg i32 %43 to i64
   %48 = add nuw nsw i64 %46, %47
-  %49 = icmp ugt i64 %48, 2147483648
+  %49 = icmp samesign ugt i64 %48, 2147483648
   %50 = add i32 %45, %43
   %spec.select.i = select i1 %49, i32 -2147483648, i32 %50
   store i32 %spec.select.i, ptr %44, align 4
@@ -21562,7 +21562,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit27: ; preds = %_ZN4llvm
   %37 = load i16, ptr %36, align 2
   %38 = lshr i16 %37, 4
   %39 = and i16 %38, 31
-  %40 = icmp ult i16 %39, 17
+  %40 = icmp samesign ult i16 %39, 17
   br i1 %40, label %switch.lookup, label %88
 
 switch.lookup:                                    ; preds = %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit27
@@ -21864,7 +21864,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj1EED2Ev.exit: ; preds = %._crit_
   %71 = load i32, ptr %45, align 4
   %72 = and i32 %71, 134217727
   %73 = zext nneg i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %51, label %._crit_edge64, !llvm.loop !227
 
 75:                                               ; preds = %.lr.ph61, %.loopexit

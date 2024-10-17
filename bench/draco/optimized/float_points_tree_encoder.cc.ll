@@ -3240,7 +3240,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %9, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !12
 
 .lr.ph164.split:                                  ; preds = %.lr.ph164.split.preheader, %._crit_edge
@@ -3281,7 +3281,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre185, %._crit_edge184 ], [ %126, %.lr.ph162 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next179, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next179, %142
   br i1 %143, label %.lr.ph162, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph164.split
@@ -4952,7 +4952,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %8, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !27
 
 .lr.ph168.split:                                  ; preds = %.lr.ph168.split.preheader, %._crit_edge
@@ -4993,7 +4993,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre189, %._crit_edge188 ], [ %126, %.lr.ph166 ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next183, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next183, %142
   br i1 %143, label %.lr.ph166, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph168.split
@@ -5898,7 +5898,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %9, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !39
 
 .lr.ph164.split:                                  ; preds = %.lr.ph164.split.preheader, %._crit_edge
@@ -5939,7 +5939,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre185, %._crit_edge184 ], [ %126, %.lr.ph162 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next179, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next179, %142
   br i1 %143, label %.lr.ph162, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph164.split
@@ -6858,7 +6858,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %8, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !51
 
 .lr.ph168.split:                                  ; preds = %.lr.ph168.split.preheader, %._crit_edge
@@ -6899,7 +6899,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre189, %._crit_edge188 ], [ %126, %.lr.ph166 ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next183, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next183, %142
   br i1 %143, label %.lr.ph166, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph168.split
@@ -7804,7 +7804,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %9, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !63
 
 .lr.ph164.split:                                  ; preds = %.lr.ph164.split.preheader, %._crit_edge
@@ -7845,7 +7845,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre185, %._crit_edge184 ], [ %126, %.lr.ph162 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next179, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next179, %142
   br i1 %143, label %.lr.ph162, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph164.split
@@ -8770,7 +8770,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %8, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph, label %.preheader, !llvm.loop !75
 
 .lr.ph184.split:                                  ; preds = %.lr.ph184.split.preheader, %._crit_edge
@@ -8811,7 +8811,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusIN9_
   %141 = phi i32 [ %.pre206, %._crit_edge205 ], [ %126, %.lr.ph182 ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next200, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next200, %142
   br i1 %143, label %.lr.ph182, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %140, %.lr.ph184.split
@@ -9763,7 +9763,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %9, align 8
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next, %118
   br i1 %119, label %.lr.ph, label %.preheader, !llvm.loop !88
 
 .lr.ph164.split:                                  ; preds = %.lr.ph164.split.preheader, %._crit_edge
@@ -9804,7 +9804,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9_
   %138 = phi i32 [ %.pre185, %._crit_edge184 ], [ %123, %.lr.ph162 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next179, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next179, %139
   br i1 %140, label %.lr.ph162, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %137, %.lr.ph164.split
@@ -10108,7 +10108,7 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %26, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph56.split.us, label %.preheader50, !llvm.loop !96
 
 .preheader50:                                     ; preds = %89, %47

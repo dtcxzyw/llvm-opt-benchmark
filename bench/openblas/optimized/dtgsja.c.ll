@@ -757,7 +757,7 @@ thread-pre-split20:                               ; preds = %.loopexit32
 
 507:                                              ; preds = %501, %480, %472
   %508 = add nuw nsw i64 %424, 1
-  %509 = icmp ult i64 %424, %423
+  %509 = icmp samesign ult i64 %424, %423
   %510 = xor i32 %427, -1
   br i1 %509, label %.preheader, label %.loopexit30.loopexit, !llvm.loop !16
 

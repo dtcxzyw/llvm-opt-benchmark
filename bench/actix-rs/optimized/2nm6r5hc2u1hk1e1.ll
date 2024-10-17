@@ -2915,7 +2915,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2ecbd5146
 16:                                               ; preds = %9
   %17 = landingpad { ptr, i32 }
           cleanup
-  %switch.not.i.i.i = icmp ult i64 %.val, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %.val, 2
   br i1 %switch.not.i.i.i, label %18, label %.noexc4
 
 18:                                               ; preds = %16
@@ -5377,7 +5377,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 15:                                               ; preds = %9
   %16 = landingpad { ptr, i32 }
           cleanup
-  %switch.not.i.i.i.i = icmp ult i64 %.val.i, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %.val.i, 2
   br i1 %switch.not.i.i.i.i, label %17, label %.noexc4.i
 
 17:                                               ; preds = %15

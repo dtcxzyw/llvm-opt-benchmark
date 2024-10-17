@@ -101,7 +101,7 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %58 = tail call double @llvm.fmuladd.f64(double %8, double %55, double %57)
   store double %58, ptr %56, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %59 = icmp ult i64 %indvars.iv.next, %17
+  %59 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %59, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !6
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67

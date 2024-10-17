@@ -1618,7 +1618,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %17
   %cond.i = mul i32 %mul.i, %18
   %19 = zext i32 %cond.i to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %19
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !9
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit10: ; preds = %if.else.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit

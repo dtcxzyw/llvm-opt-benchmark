@@ -7156,7 +7156,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTyp
   %69 = lshr i32 %55, 16
   %70 = and i32 %69, 15
   %71 = mul nuw nsw i32 %68, %70
-  %72 = icmp ugt i32 %71, 4
+  %72 = icmp samesign ugt i32 %71, 4
   %73 = getelementptr inbounds i8, ptr %0, i64 328
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 8

@@ -45598,7 +45598,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114mutate_queue_t4pickERNS_7
   %25 = urem i32 %24, 100
   %reass.sub = add nuw nsw i32 %24, 100
   %26 = sub nuw nsw i32 %reass.sub, %25
-  %27 = icmp ult i32 %26, 1073741825
+  %27 = icmp samesign ult i32 %26, 1073741825
   br i1 %27, label %_ZN12_GLOBAL__N_17xs128_tclEi.exit, label %12, !llvm.loop !63
 
 _ZN12_GLOBAL__N_17xs128_tclEi.exit:               ; preds = %12

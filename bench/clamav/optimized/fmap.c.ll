@@ -673,7 +673,7 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
 
 49:                                               ; preds = %44
   %50 = and i64 %46, 1073741823
-  %51 = icmp ugt i64 %50, 1
+  %51 = icmp samesign ugt i64 %50, 1
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
@@ -867,7 +867,7 @@ define internal void @handle_unneed_off(ptr nocapture noundef readonly %0, i64 n
 
 30:                                               ; preds = %25
   %31 = and i64 %27, 1073741823
-  %32 = icmp ugt i64 %31, 1
+  %32 = icmp samesign ugt i64 %31, 1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
@@ -1669,7 +1669,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   %42 = getelementptr inbounds i64, ptr %36, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 1073741823
-  %45 = icmp ugt i64 %44, %39
+  %45 = icmp samesign ugt i64 %44, %39
   br i1 %45, label %.preheader98, label %58
 
 .preheader98:                                     ; preds = %40, %34
@@ -1683,7 +1683,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   %49 = getelementptr inbounds i64, ptr %36, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1073741823
-  %52 = icmp ugt i64 %51, %39
+  %52 = icmp samesign ugt i64 %51, %39
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %46

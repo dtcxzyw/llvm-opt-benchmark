@@ -4949,7 +4949,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef 
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 8
   %56 = or disjoint i64 %55, %52
-  %57 = icmp ugt i64 %56, 14
+  %57 = icmp samesign ugt i64 %56, 14
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %50

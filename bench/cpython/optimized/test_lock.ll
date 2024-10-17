@@ -158,7 +158,7 @@ cond.false14:                                     ; preds = %do.body
 cond.end15:                                       ; preds = %do.body
   %inc = add nuw nsw i32 %iters.0, 1
   %cmp17 = icmp ne i8 %3, 3
-  %cmp19 = icmp ult i32 %iters.0, 199
+  %cmp19 = icmp samesign ult i32 %iters.0, 199
   %5 = select i1 %cmp17, i1 %cmp19, i1 false
   br i1 %5, label %do.body, label %do.end, !llvm.loop !4
 
@@ -419,11 +419,11 @@ for.body:                                         ; preds = %entry, %for.inc
 
 _PyOnceFlag_CallOnce.exit:                        ; preds = %for.body
   %call2.i = call i32 @_PyOnceFlag_CallOnceSlow(ptr noundef nonnull %once, ptr noundef nonnull @init_maybe_fail, ptr noundef nonnull %counter) #5
-  %cmp1 = icmp ult i32 %i.012, 4
+  %cmp1 = icmp samesign ult i32 %i.012, 4
   br i1 %cmp1, label %if.then, label %if.else
 
 _PyOnceFlag_CallOnce.exit.thread:                 ; preds = %for.body
-  %cmp15 = icmp ult i32 %i.012, 4
+  %cmp15 = icmp samesign ult i32 %i.012, 4
   br i1 %cmp15, label %cond.false, label %cond.end6
 
 if.then:                                          ; preds = %_PyOnceFlag_CallOnce.exit
@@ -496,7 +496,7 @@ do.body.i:                                        ; preds = %do.body.i, %cond.en
   %2 = load atomic i64, ptr %rw seq_cst, align 8
   %inc.i = add nuw nsw i32 %iters.0.i, 1
   %cmp.i = icmp ne i64 %2, 8
-  %cmp1.i = icmp ult i32 %iters.0.i, 199
+  %cmp1.i = icmp samesign ult i32 %iters.0.i, 199
   %3 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %3, label %do.body.i, label %wait_until.exit, !llvm.loop !11
 
@@ -518,7 +518,7 @@ do.body.i1:                                       ; preds = %do.body.i1, %cond.e
   %4 = load atomic i64, ptr %rw seq_cst, align 8
   %inc.i4 = add nuw nsw i32 %iters.0.i2, 1
   %cmp.i5 = icmp ne i64 %4, 10
-  %cmp1.i6 = icmp ult i32 %iters.0.i2, 199
+  %cmp1.i6 = icmp samesign ult i32 %iters.0.i2, 199
   %5 = select i1 %cmp.i5, i1 %cmp1.i6, i1 false
   br i1 %5, label %do.body.i1, label %wait_until.exit7, !llvm.loop !11
 
@@ -541,7 +541,7 @@ do.body.i8:                                       ; preds = %do.body.i8, %cond.e
   %6 = load atomic i64, ptr %rw seq_cst, align 8
   %inc.i11 = add nuw nsw i32 %iters.0.i9, 1
   %cmp.i12 = icmp ne i64 %6, 3
-  %cmp1.i13 = icmp ult i32 %iters.0.i9, 199
+  %cmp1.i13 = icmp samesign ult i32 %iters.0.i9, 199
   %7 = select i1 %cmp.i12, i1 %cmp1.i13, i1 false
   br i1 %7, label %do.body.i8, label %wait_until.exit14, !llvm.loop !11
 
@@ -564,7 +564,7 @@ do.body.i15:                                      ; preds = %do.body.i15, %cond.
   %8 = load atomic i64, ptr %rw seq_cst, align 8
   %inc.i18 = add nuw nsw i32 %iters.0.i16, 1
   %cmp.i19 = icmp ne i64 %8, 8
-  %cmp1.i20 = icmp ult i32 %iters.0.i16, 199
+  %cmp1.i20 = icmp samesign ult i32 %iters.0.i16, 199
   %9 = select i1 %cmp.i19, i1 %cmp1.i20, i1 false
   br i1 %9, label %do.body.i15, label %wait_until.exit21, !llvm.loop !11
 
@@ -587,7 +587,7 @@ do.body.i22:                                      ; preds = %do.body.i22, %cond.
   %10 = load atomic i64, ptr %rw seq_cst, align 8
   %inc.i25 = add nuw nsw i32 %iters.0.i23, 1
   %cmp.i26 = icmp ne i64 %10, 0
-  %cmp1.i27 = icmp ult i32 %iters.0.i23, 199
+  %cmp1.i27 = icmp samesign ult i32 %iters.0.i23, 199
   %11 = select i1 %cmp.i26, i1 %cmp1.i27, i1 false
   br i1 %11, label %do.body.i22, label %wait_until.exit28, !llvm.loop !11
 

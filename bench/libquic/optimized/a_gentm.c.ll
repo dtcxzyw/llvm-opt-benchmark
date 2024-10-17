@@ -54,7 +54,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
 if.end22.us:                                      ; preds = %for.body.us, %land.lhs.true.us
   %5 = add i8 %4, -48
   %or.cond.us = icmp ult i8 %5, 10
-  %cmp40.not.us = icmp ult i64 %indvars.iv146, %3
+  %cmp40.not.us = icmp samesign ult i64 %indvars.iv146, %3
   %or.cond114.us = and i1 %cmp40.not.us, %or.cond.us
   br i1 %or.cond114.us, label %if.end43.us, label %return
 
@@ -74,7 +74,7 @@ if.end56.us:                                      ; preds = %if.end43.us
   %add.us = add nuw nsw i32 %conv46.us, %mul.us
   %sub60.us = add nsw i32 %add.us, -48
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 2
-  %cmp62.us = icmp ugt i64 %indvars.iv.next147, %3
+  %cmp62.us = icmp samesign ugt i64 %indvars.iv.next147, %3
   br i1 %cmp62.us, label %return, label %if.end65.us
 
 if.end65.us:                                      ; preds = %if.end56.us
@@ -121,7 +121,7 @@ if.then20:                                        ; preds = %land.lhs.true, %lan
 if.end22:                                         ; preds = %for.body, %land.lhs.true
   %13 = add i8 %12, -48
   %or.cond = icmp ult i8 %13, 10
-  %cmp40.not = icmp ult i64 %indvars.iv, %3
+  %cmp40.not = icmp samesign ult i64 %indvars.iv, %3
   %or.cond114 = and i1 %cmp40.not, %or.cond
   br i1 %or.cond114, label %if.end43, label %return
 
@@ -141,7 +141,7 @@ if.end56:                                         ; preds = %if.end43
   %add = add nuw nsw i32 %conv46, %mul
   %sub60 = add nsw i32 %add, -48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp62 = icmp ugt i64 %indvars.iv.next, %3
+  %cmp62 = icmp samesign ugt i64 %indvars.iv.next, %3
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end56
@@ -233,7 +233,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %24 = load i8, ptr %arrayidx105, align 1
   %25 = add i8 %24, -58
   %or.cond108 = icmp ult i8 %25, -10
-  %cmp115.not = icmp uge i64 %indvars.iv155.in, %23
+  %cmp115.not = icmp samesign uge i64 %indvars.iv155.in, %23
   %or.cond109 = or i1 %cmp115.not, %or.cond108
   br i1 %or.cond109, label %while.end, label %while.cond, !llvm.loop !9
 

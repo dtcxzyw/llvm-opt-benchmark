@@ -2950,8 +2950,8 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZN13Molec
 
 165:                                              ; preds = %152
   %166 = icmp eq i32 %153, 11
-  %167 = icmp ugt i32 %.084124, 1
-  %or.cond5 = and i1 %167, %166
+  %167 = icmp samesign ugt i32 %.084124, 1
+  %or.cond5 = select i1 %166, i1 %167, i1 false
   br i1 %or.cond5, label %168, label %171
 
 168:                                              ; preds = %165

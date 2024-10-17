@@ -1990,7 +1990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -3503,7 +3503,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1
           to label %271 unwind label %.loopexit.split-lp.loopexit.i
 
 271:                                              ; preds = %._crit_edge300.i
-  %.not.i = icmp ult i16 %270, 256
+  %.not.i = icmp samesign ult i16 %270, 256
   %272 = add i32 %.073301.i, 1
   %273 = zext i32 %272 to i64
   %274 = icmp ugt i64 %.0.lcssa.i, %273
@@ -3773,7 +3773,7 @@ _ZN12_GLOBAL__N_124cmForEachFunctionBlocker14ReplayZipListsERKSt6vectorI18cmList
           to label %353 unwind label %.loopexit.i8
 
 353:                                              ; preds = %351
-  %.not21.i = icmp ugt i16 %352, 255
+  %.not21.i = icmp samesign ugt i16 %352, 255
   %.sroa.031.0.i = getelementptr inbounds i8, ptr %.sroa.031.040.i, i64 32
   %.not37.i = icmp eq ptr %.sroa.031.0.i, %344
   %or.cond.i11 = select i1 %.not21.i, i1 true, i1 %.not37.i
@@ -4512,7 +4512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -5566,7 +5566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

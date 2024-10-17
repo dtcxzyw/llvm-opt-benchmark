@@ -7035,14 +7035,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76
@@ -12929,7 +12929,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %.val.i.i.us.i.fr.i = freeze i64 %.val.i.i.us.i.i
   %1761 = getelementptr inbounds i8, ptr %1734, i64 16
   %.val4.i.i.us.i.i = load i8, ptr %1761, align 8, !range !415, !alias.scope !2241, !noalias !2242, !noundef !14
-  %1762 = icmp ult i8 %.val4.i.i.us.i.i, 4
+  %1762 = icmp samesign ult i8 %.val4.i.i.us.i.i, 4
   %1763 = icmp ult i64 %.val.i.i.us.i.fr.i, %1721
   %or.cond.i = or i1 %1762, %1763
   br i1 %or.cond.i, label %.thread35.us.i.i, label %1764
@@ -13002,7 +13002,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %.val.i.i.us56.i.fr.i = freeze i64 %.val.i.i.us56.i.i
   %1790 = getelementptr inbounds i8, ptr %1777, i64 16
   %.val4.i.i.us57.i.i = load i8, ptr %1790, align 8, !range !415, !alias.scope !2241, !noalias !2242, !noundef !14
-  %1791 = icmp ult i8 %.val4.i.i.us57.i.i, 4
+  %1791 = icmp samesign ult i8 %.val4.i.i.us57.i.i, 4
   %1792 = icmp ult i64 %.val.i.i.us56.i.fr.i, %1721
   %or.cond181.i = or i1 %1791, %1792
   br i1 %or.cond181.i, label %.thread35.us63.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$13binary_search28_$u7b$$u7b$closure$u7d$$u7d$17hfad6128ad947e4f3E.exit.thread29.us60.i.i"
@@ -13052,7 +13052,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %.val.i.i.i.fr.i = freeze i64 %.val.i.i.i.i
   %1809 = getelementptr inbounds i8, ptr %1801, i64 16
   %.val4.i.i.i.i332 = load i8, ptr %1809, align 8, !range !415, !alias.scope !2241, !noalias !2242, !noundef !14
-  %1810 = icmp ult i8 %.val4.i.i.i.i332, 4
+  %1810 = icmp samesign ult i8 %.val4.i.i.i.i332, 4
   %1811 = icmp ult i64 %.val.i.i.i.fr.i, %1721
   %or.cond182.i = or i1 %1810, %1811
   br i1 %or.cond182.i, label %.thread35.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$13binary_search28_$u7b$$u7b$closure$u7d$$u7d$17hfad6128ad947e4f3E.exit.thread29.i.i"
@@ -13695,7 +13695,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 
 2024:                                             ; preds = %2000, %2018
   %2025 = phi i8 [ %2004, %2000 ], [ %.pr379, %2018 ]
-  %.0.i387 = icmp ult i8 %2025, 2
+  %.0.i387 = icmp samesign ult i8 %2025, 2
   br i1 %.0.i387, label %2044, label %2026
 
 2026:                                             ; preds = %2047, %2055, %2024
@@ -14671,7 +14671,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %2298 = load ptr, ptr %2297, align 8, !alias.scope !2565, !noalias !2568, !nonnull !14, !noundef !14
   %2299 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, i8, [7 x i8] }], ptr %2298, i64 0, i64 %2292, i32 2
   %2300 = load i8, ptr %2299, align 8, !range !1583, !noalias !2383, !noundef !14
-  %.0.i.not.i = icmp ult i8 %2300, 2
+  %.0.i.not.i = icmp samesign ult i8 %2300, 2
   br i1 %.0.i.not.i, label %2301, label %2329
 
 2301:                                             ; preds = %2296
@@ -15939,7 +15939,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet6remove17h96235b2a844d2007E.exit: ; 
   %.val23.i.fr = freeze i64 %.val23.i
   %2671 = getelementptr i8, ptr %2670, i64 8
   %.val24.i = load i8, ptr %2671, align 8, !range !415, !alias.scope !2799, !noalias !2802, !noundef !14
-  %2672 = icmp ult i8 %.val24.i, 4
+  %2672 = icmp samesign ult i8 %.val24.i, 4
   %2673 = icmp ult i64 %.val23.i.fr, %2063
   %or.cond = or i1 %2672, %2673
   br i1 %or.cond, label %.thread.i561, label %2675
@@ -18443,7 +18443,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %.sroa.8.083 = phi i64 [ 0, %.lr.ph ], [ %98, %115 ]
   %97 = getelementptr inbounds i8, ptr %.sroa.0.084, i64 104
   %98 = add nuw nsw i64 %.sroa.8.083, 1
-  %99 = icmp ult i64 %.sroa.8.083, %93
+  %99 = icmp samesign ult i64 %.sroa.8.083, %93
   br i1 %99, label %106, label %100
 
 .critedge:                                        ; preds = %115, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit53", %142, %129, %128, %119, %118, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit", %117, %127, %133, %88, %59, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit44, %79, %53, %.thread72, %80, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit", %12, %2, %7, %19, %81
@@ -18825,7 +18825,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
 134:                                              ; preds = %132
   %135 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 104
   %136 = add nuw nsw i64 %.sroa.8.0.i, 1
-  %137 = icmp ult i64 %.sroa.8.0.i, %130
+  %137 = icmp samesign ult i64 %.sroa.8.0.i, %130
   %138 = icmp ult i64 %.sroa.8.0.i, %.val24
   br i1 %137, label %241, label %139
 
@@ -18849,7 +18849,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %.val12.i.i = load i64, ptr %143, align 8, !alias.scope !3387, !noalias !3384
   %145 = getelementptr inbounds i8, ptr %141, i64 88
   %.val13.i.i = load i8, ptr %145, align 8, !range !415, !alias.scope !3387, !noalias !3384, !noundef !14
-  %146 = icmp ult i8 %.val11.i.i, %.val13.i.i
+  %146 = icmp samesign ult i8 %.val11.i.i, %.val13.i.i
   br i1 %146, label %"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h5649804db455356bE.exit.loopexit", label %147
 
 147:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i"
@@ -20216,7 +20216,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate12build_tables20minimi
   %495 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3637
   %496 = icmp ult i64 %495, 6
   call void @llvm.assume(i1 %496)
-  %497 = icmp ult i64 %495, 3
+  %497 = icmp samesign ult i64 %495, 3
   br i1 %497, label %498, label %.critedge73.i.i.i.i.i
 
 498:                                              ; preds = %.noexc73.i.i, %.critedge.i.i.i.i.i
@@ -20291,7 +20291,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   %509 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3637
   %510 = icmp ult i64 %509, 6
   call void @llvm.assume(i1 %510)
-  %511 = icmp ult i64 %509, 3
+  %511 = icmp samesign ult i64 %509, 3
   br i1 %511, label %_ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer16entries_conflict17ha9eb264917f10561E.exit.thread.i.i.i.i, label %.critedge77.i.i.i.i.i
 
 .critedge77.i.i.i.i.i:                            ; preds = %.critedge75.i.i.i.i.i
@@ -20357,7 +20357,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   %522 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3637
   %523 = icmp ult i64 %522, 6
   call void @llvm.assume(i1 %523)
-  %524 = icmp ult i64 %522, 3
+  %524 = icmp samesign ult i64 %522, 3
   br i1 %524, label %_ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer16entries_conflict17ha9eb264917f10561E.exit.thread.i.i.i.i, label %.critedge81.i.i.i.i.i
 
 .critedge81.i.i.i.i.i:                            ; preds = %.critedge79.i.i.i.i.i
@@ -21139,7 +21139,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   %814 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3797
   %815 = icmp ult i64 %814, 6
   call void @llvm.assume(i1 %815)
-  %816 = icmp ult i64 %814, 3
+  %816 = icmp samesign ult i64 %814, 3
   br i1 %816, label %817, label %.critedge79.i.i.i.i
 
 817:                                              ; preds = %.noexc69.i.i, %.critedge.i.i.i.i
@@ -21339,7 +21339,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   %887 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3797
   %888 = icmp ult i64 %887, 6
   call void @llvm.assume(i1 %888)
-  %889 = icmp ult i64 %887, 3
+  %889 = icmp samesign ult i64 %887, 3
   br i1 %889, label %890, label %.critedge83.i.i.i.i
 
 890:                                              ; preds = %.noexc79.i.i, %.critedge81.i.i.i.i
@@ -25097,7 +25097,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap13
   %98 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %99 = icmp ult i64 %98, 6
   call void @llvm.assume(i1 %99)
-  %switch.selectcmp94 = icmp ugt i64 %98, 2
+  %switch.selectcmp94 = icmp samesign ugt i64 %98, 2
   br i1 %switch.selectcmp94, label %100, label %.loopexit
 
 100:                                              ; preds = %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap13does_conflict17hda1a62c465b56666E.exit.thread
@@ -25150,7 +25150,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap13
   %117 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %118 = icmp ult i64 %117, 6
   tail call void @llvm.assume(i1 %118)
-  %switch.selectcmp98 = icmp ugt i64 %117, 2
+  %switch.selectcmp98 = icmp samesign ugt i64 %117, 2
   br i1 %switch.selectcmp98, label %119, label %.loopexit
 
 119:                                              ; preds = %116
@@ -25245,7 +25245,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   %152 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %153 = icmp ult i64 %152, 6
   tail call void @llvm.assume(i1 %153)
-  %switch.selectcmp102 = icmp ugt i64 %152, 2
+  %switch.selectcmp102 = icmp samesign ugt i64 %152, 2
   br i1 %switch.selectcmp102, label %154, label %.loopexit
 
 154:                                              ; preds = %151
@@ -25299,7 +25299,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   %173 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8
   %174 = icmp ult i64 %173, 6
   tail call void @llvm.assume(i1 %174)
-  %switch.selectcmp106 = icmp ugt i64 %173, 2
+  %switch.selectcmp106 = icmp samesign ugt i64 %173, 2
   br i1 %switch.selectcmp106, label %175, label %.loopexit
 
 175:                                              ; preds = %172
@@ -29862,7 +29862,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %1549 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !5304
   %1550 = icmp ult i64 %1549, 6
   call void @llvm.assume(i1 %1550)
-  %switch.selectcmp73.i = icmp ugt i64 %1549, 2
+  %switch.selectcmp73.i = icmp samesign ugt i64 %1549, 2
   br i1 %switch.selectcmp73.i, label %1551, label %1548
 
 1551:                                             ; preds = %.thread51.i
@@ -29911,7 +29911,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %1568 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !5304
   %1569 = icmp ult i64 %1568, 6
   call void @llvm.assume(i1 %1569)
-  %switch.selectcmp77.i = icmp ugt i64 %1568, 2
+  %switch.selectcmp77.i = icmp samesign ugt i64 %1568, 2
   br i1 %switch.selectcmp77.i, label %1570, label %1559
 
 1570:                                             ; preds = %1567

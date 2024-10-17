@@ -347,7 +347,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next132, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next132, %61
   br i1 %62, label %.lr.ph117, label %._crit_edge118, !llvm.loop !7
 
 ._crit_edge118:                                   ; preds = %58, %.preheader
@@ -546,7 +546,7 @@ define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = load i32, ptr %155, align 8
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
   br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %154, %.preheader106
@@ -982,7 +982,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %46, %.preheader
@@ -1114,7 +1114,7 @@ define dso_local void @scontrol_requeue(i32 noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %43, %.preheader
@@ -1225,7 +1225,7 @@ define dso_local void @scontrol_requeue_hold(i32 noundef %0, ptr noundef %1) loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %39, %.preheader
@@ -1525,7 +1525,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 155:                                              ; preds = %151
   %156 = call i64 @strtoll(ptr nocapture noundef nonnull %.sink, ptr noundef null, i32 noundef 10) #14
   %157 = call i64 @llvm.abs.i64(i64 %156, i1 true)
-  %158 = icmp ugt i64 %157, 2147483645
+  %158 = icmp samesign ugt i64 %157, 2147483645
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %155
@@ -1827,7 +1827,7 @@ split.i:                                          ; preds = %280, %._crit_edge.i
   %298 = getelementptr inbounds i8, ptr %297, i64 16
   %299 = load i32, ptr %298, align 8
   %300 = zext i32 %299 to i64
-  %301 = icmp ult i64 %indvars.iv.next.i, %300
+  %301 = icmp samesign ult i64 %indvars.iv.next.i, %300
   br i1 %301, label %258, label %_get_job_time.exit, !llvm.loop !20
 
 302:                                              ; preds = %237
@@ -1936,7 +1936,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
 339:                                              ; preds = %337
   %340 = call i64 @strtoll(ptr nocapture noundef nonnull %.sink, ptr noundef null, i32 noundef 10) #14
   %341 = call i64 @llvm.abs.i64(i64 %340, i1 true)
-  %342 = icmp ugt i64 %341, 2147483645
+  %342 = icmp samesign ugt i64 %341, 2147483645
   br i1 %342, label %343, label %345
 
 343:                                              ; preds = %339
@@ -3569,7 +3569,7 @@ thread-pre-split707:                              ; preds = %.lr.ph1045
   %1074 = load ptr, ptr %14, align 8
   %1075 = load i32, ptr %1074, align 8
   %1076 = zext i32 %1075 to i64
-  %1077 = icmp ult i64 %indvars.iv.next, %1076
+  %1077 = icmp samesign ult i64 %indvars.iv.next, %1076
   br i1 %1077, label %.lr.ph1045, label %._crit_edge1046, !llvm.loop !23
 
 ._crit_edge1046:                                  ; preds = %1073, %.preheader

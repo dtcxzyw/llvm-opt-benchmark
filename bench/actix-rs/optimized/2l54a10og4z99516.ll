@@ -3687,7 +3687,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i64 [ %0, %2 ], [ %6, %.lr.ph ]
-  %4 = icmp ugt i64 %.1.lcssa, 99
+  %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -3731,7 +3731,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 29:                                               ; preds = %._crit_edge, %20
   %.129 = phi i64 [ %25, %20 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext35, %20 ], [ %.1.lcssa, %._crit_edge ]
-  %30 = icmp ult i64 %.027, 10
+  %30 = icmp samesign ult i64 %.027, 10
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -8775,7 +8775,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %7
   %.028.lcssa.i = phi i64 [ 20, %7 ], [ %21, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %0, %7 ], [ %14, %.lr.ph.i ]
-  %12 = icmp ugt i64 %.1.lcssa.i, 99
+  %12 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %12, label %28, label %37
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
@@ -8819,7 +8819,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
 37:                                               ; preds = %28, %._crit_edge.i
   %.129.i = phi i64 [ %33, %28 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext35.i, %28 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %38 = icmp ult i64 %.027.i, 10
+  %38 = icmp samesign ult i64 %.027.i, 10
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %37
@@ -9019,7 +9019,7 @@ define noundef nonnull align 8 dereferenceable(208) ptr @_ZN10actix_http4test11T
   tail call void @llvm.experimental.noalias.scope.decl(metadata !983)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !986)
   %8 = load i8, ptr %7, align 8, !range !419, !alias.scope !989, !noundef !4
-  %switch.i.i = icmp ult i8 %8, 10
+  %switch.i.i = icmp samesign ult i8 %8, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit", label %9
 
 9:                                                ; preds = %6
@@ -9040,7 +9040,7 @@ define noundef nonnull align 8 dereferenceable(208) ptr @_ZN10actix_http4test11T
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
           cleanup
-  %switch.i.i4 = icmp ult i8 %.sroa.0.0.copyload, 10
+  %switch.i.i4 = icmp samesign ult i8 %.sroa.0.0.copyload, 10
   %17 = icmp eq i64 %.sroa.7.0.copyload, 0
   %or.cond = select i1 %switch.i.i4, i1 true, i1 %17
   br i1 %or.cond, label %19, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i5"
@@ -9384,7 +9384,7 @@ define void @_ZN10actix_http4test11TestRequest6finish17h34917f898d062358E(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   %65 = load i8, ptr %64, align 8, !range !419, !alias.scope !1047, !noundef !4
-  %switch.i.i = icmp ult i8 %65, 10
+  %switch.i.i = icmp samesign ult i8 %65, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit", label %66
 
 66:                                               ; preds = %62
@@ -9516,7 +9516,7 @@ common.resume:                                    ; preds = %.thread69, %115, %1
   call void @llvm.experimental.noalias.scope.decl(metadata !1087)
   call void @llvm.experimental.noalias.scope.decl(metadata !1090)
   %103 = load i8, ptr %102, align 8, !range !419, !alias.scope !1093, !noundef !4
-  %switch.i.i32 = icmp ult i8 %103, 10
+  %switch.i.i32 = icmp samesign ult i8 %103, 10
   br i1 %switch.i.i32, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34", label %104
 
 104:                                              ; preds = %.thread

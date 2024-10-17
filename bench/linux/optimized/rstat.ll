@@ -505,7 +505,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
 246:                                              ; preds = %245, %238
   %247 = add nuw nsw i64 %12, 1
   %248 = and i64 %247, 127
-  %249 = icmp ugt i64 %248, 63
+  %249 = icmp samesign ugt i64 %248, 63
   br i1 %249, label %.thread, label %5, !prof !20, !llvm.loop !21
 
 .thread:                                          ; preds = %5, %246, %11
@@ -568,7 +568,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cgroup_rstat_init(ptr noundef %0
   store ptr %0, ptr %27, align 8
   %28 = add nuw nsw i64 %16, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %10, !prof !20, !llvm.loop !22
 
 .thread:                                          ; preds = %10, %19, %15, %5
@@ -592,7 +592,7 @@ define dso_local void @cgroup_rstat_exit(ptr noundef %0) local_unnamed_addr #0 a
 5:                                                ; preds = %29, %1
   %6 = phi i64 [ 0, %1 ], [ %33, %29 ]
   %7 = and i64 %6, 4294967295
-  %8 = icmp ugt i64 %7, 63
+  %8 = icmp samesign ugt i64 %7, 63
   br i1 %8, label %.thread, label %9, !prof !7
 
 9:                                                ; preds = %5
@@ -679,7 +679,7 @@ define dso_local void @cgroup_rstat_boot() local_unnamed_addr #4 section ".init.
   store i32 0, ptr %16, align 4
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %1, !prof !20, !llvm.loop !31
 
 .thread:                                          ; preds = %1, %11, %7
@@ -968,7 +968,7 @@ define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnam
   %55 = add i64 %54, %51
   %56 = add nuw nsw i64 %28, 1
   %57 = and i64 %56, 127
-  %58 = icmp ugt i64 %57, 63
+  %58 = icmp samesign ugt i64 %57, 63
   br i1 %58, label %.thread, label %19, !prof !20, !llvm.loop !40
 
 .thread:                                          ; preds = %27, %31, %19, %13

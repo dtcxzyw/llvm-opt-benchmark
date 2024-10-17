@@ -4043,7 +4043,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i.i:                  ; preds = %588, %_ZNK4llvm9Bit
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %589 = load i32, ptr %182, align 8, !noalias !45
   %590 = zext i32 %589 to i64
-  %591 = icmp ult i64 %indvars.iv.next.i.i, %590
+  %591 = icmp samesign ult i64 %indvars.iv.next.i.i, %590
   br i1 %591, label %216, label %._crit_edge.i.i, !llvm.loop !65
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i.i, %.lr.ph106.split.._crit_edge_crit_edge.i.i
@@ -9248,7 +9248,7 @@ _ZNK4llvm8coverage15CoverageMapping36getImpreciseRecordIndicesForFilenameENS_9St
   %63 = load ptr, ptr %49, align 8
   %64 = getelementptr inbounds %"struct.llvm::coverage::FunctionRecord", ptr %63, i64 %62
   %65 = call fastcc i64 @_ZL18findMainViewFileIDRKN4llvm8coverage14FunctionRecordE(ptr noundef nonnull readonly align 8 dereferenceable(136) %64)
-  %.not.i = icmp ult i64 %65, 4294967296
+  %.not.i = icmp samesign ult i64 %65, 4294967296
   br i1 %.not.i, label %_ZL18findMainViewFileIDN4llvm9StringRefERKNS_8coverage14FunctionRecordE.exit, label %66
 
 66:                                               ; preds = %60
@@ -10088,8 +10088,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
 
 23:                                               ; preds = %21
   %24 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.013.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
-  %25 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i.i.i.i = and i1 %24, %25
+  %25 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
 
 26:                                               ; preds = %16
@@ -10114,8 +10114,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %31
   %37 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
-  %38 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i.i.i.i.i.i.i
-  %spec.select15.i.i.i.i.i.i.i.i.i.i = and i1 %37, %38
+  %38 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i.i.i.i.i.i.i
+  %spec.select15.i.i.i.i.i.i.i.i.i.i = select i1 %37, i1 %38, i1 false
   br i1 %spec.select15.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i, %33, %31, %23, %21
@@ -10462,7 +10462,7 @@ _ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_p
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i15.i.i.i
   %155 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %156 = lshr i64 %155, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN4llvm8coverage13CountedRegionES4_EC2ES5_l.exit.i.i.i, label %.lr.ph.i.i15.i.i.i, !llvm.loop !300
 
 _ZNSt17_Temporary_bufferIPPKN4llvm8coverage13CountedRegionES4_EC2ES5_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i15.i.i.i, %148
@@ -10703,7 +10703,7 @@ _ZNK4llvm8coverage15CoverageMapping36getImpreciseRecordIndicesForFilenameENS_9St
   %54 = load ptr, ptr %49, align 8
   %55 = getelementptr inbounds %"struct.llvm::coverage::FunctionRecord", ptr %54, i64 %53
   %56 = call fastcc i64 @_ZL18findMainViewFileIDRKN4llvm8coverage14FunctionRecordE(ptr noundef nonnull readonly align 8 dereferenceable(136) %55)
-  %.not.i = icmp ult i64 %56, 4294967296
+  %.not.i = icmp samesign ult i64 %56, 4294967296
   br i1 %.not.i, label %_ZL18findMainViewFileIDN4llvm9StringRefERKNS_8coverage14FunctionRecordE.exit.thread, label %57
 
 57:                                               ; preds = %51
@@ -10986,7 +10986,7 @@ define dso_local void @_ZNK4llvm8coverage15CoverageMapping22getCoverageForFuncti
   %6 = alloca %"class.std::vector.364", align 8
   %7 = tail call fastcc i64 @_ZL18findMainViewFileIDRKN4llvm8coverage14FunctionRecordE(ptr noundef nonnull align 8 dereferenceable(136) %2)
   %.sroa.064.0.extract.trunc = trunc i64 %7 to i32
-  %.not = icmp ult i64 %7, 4294967296
+  %.not = icmp samesign ult i64 %7, 4294967296
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %3
@@ -16760,7 +16760,7 @@ _ZN4llvm11SmallVectorISt4pairINS_8coverage10MCDCRecord10TestVectorENS3_9CondStat
   %38 = add nuw nsw i64 %.013.i.i.i, 1
   %39 = load i32, ptr %11, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %.lr.ph.i.i.i, label %_ZN4llvm8DenseMapIjSt4pairIjjENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEC2ERKS8_.exit, !llvm.loop !405
 
 42:                                               ; preds = %_ZN4llvm11SmallVectorISt4pairINS_8coverage10MCDCRecord10TestVectorENS3_9CondStateEELj1EEC2ERKS7_.exit
@@ -16870,7 +16870,7 @@ _ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEC2ERKS6_
   %98 = add nuw nsw i64 %.013.i.i.i11, 1
   %99 = load i32, ptr %71, align 8
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %98, %100
+  %101 = icmp samesign ult i64 %98, %100
   br i1 %101, label %.lr.ph.i.i.i10, label %_ZN4llvm8DenseMapIjSt4pairIjjENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEC2ERKS8_.exit14, !llvm.loop !405
 
 102:                                              ; preds = %_ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEC2ERKS6_.exit
@@ -17588,8 +17588,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8coverage13CountedReg
 
 51:                                               ; preds = %49
   %52 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
-  %53 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i
-  %spec.select.i.i.i.i = and i1 %52, %53
+  %53 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %52, i1 %53, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %119
 
 54:                                               ; preds = %39
@@ -17618,8 +17618,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8coverage13CountedReg
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i: ; preds = %60
   %67 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
-  %68 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i
-  %spec.select15.i.i.i.i = and i1 %67, %68
+  %68 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i
+  %spec.select15.i.i.i.i = select i1 %67, i1 %68, i1 false
   br i1 %spec.select15.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %119
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i, %62, %60, %51, %49
@@ -17638,8 +17638,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 75:                                               ; preds = %73
   %76 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i24.i.i, %.sroa.011.0.extract.trunc.i.i.i.i
-  %77 = icmp ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
-  %spec.select.i.i34.i.i = and i1 %76, %77
+  %77 = icmp samesign ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
+  %spec.select.i.i34.i.i = select i1 %76, i1 %77, i1 false
   br i1 %spec.select.i.i34.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %95
 
 78:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i
@@ -17670,8 +17670,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i: ; preds = %85
   %93 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i27.i.i, %.sroa.03.0.extract.trunc.i.i29.i.i
-  %94 = icmp ult i64 %.sroa.24.0.extract.shift.i.i30.i.i, %.sroa.26.0.extract.shift.i.i28.i.i
-  %spec.select15.i.i33.i.i = and i1 %93, %94
+  %94 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i30.i.i, %.sroa.26.0.extract.shift.i.i28.i.i
+  %spec.select15.i.i33.i.i = select i1 %93, i1 %94, i1 false
   br i1 %spec.select15.i.i33.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %95
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i, %87, %85, %75, %73
@@ -17694,8 +17694,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 100:                                              ; preds = %98
   %101 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i24.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
-  %102 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
-  %spec.select.i.i48.i.i = and i1 %101, %102
+  %102 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
+  %spec.select.i.i48.i.i = select i1 %101, i1 %102, i1 false
   br i1 %spec.select.i.i48.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %118
 
 103:                                              ; preds = %95
@@ -17724,8 +17724,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i: ; preds = %109
   %116 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i41.i.i, %.sroa.03.0.extract.trunc.i.i43.i.i
-  %117 = icmp ult i64 %.sroa.24.0.extract.shift.i.i44.i.i, %.sroa.26.0.extract.shift.i.i42.i.i
-  %spec.select15.i.i47.i.i = and i1 %116, %117
+  %117 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i44.i.i, %.sroa.26.0.extract.shift.i.i42.i.i
+  %spec.select15.i.i47.i.i = select i1 %116, i1 %117, i1 false
   br i1 %spec.select15.i.i47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %118
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i, %111, %109, %100, %98
@@ -17760,8 +17760,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 126:                                              ; preds = %124
   %127 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i52.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
-  %128 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
-  %spec.select.i.i62.i.i = and i1 %127, %128
+  %128 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
+  %spec.select.i.i62.i.i = select i1 %127, i1 %128, i1 false
   br i1 %spec.select.i.i62.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %144
 
 129:                                              ; preds = %119
@@ -17790,8 +17790,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i: ; preds = %135
   %142 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i55.i.i, %.sroa.03.0.extract.trunc.i.i57.i.i
-  %143 = icmp ult i64 %.sroa.24.0.extract.shift.i.i58.i.i, %.sroa.26.0.extract.shift.i.i56.i.i
-  %spec.select15.i.i61.i.i = and i1 %142, %143
+  %143 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i58.i.i, %.sroa.26.0.extract.shift.i.i56.i.i
+  %spec.select15.i.i61.i.i = select i1 %142, i1 %143, i1 false
   br i1 %spec.select15.i.i61.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %144
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i, %137, %135, %126, %124
@@ -17814,8 +17814,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 149:                                              ; preds = %147
   %150 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i52.i.i, %.sroa.011.0.extract.trunc.i.i.i.i
-  %151 = icmp ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
-  %spec.select.i.i76.i.i = and i1 %150, %151
+  %151 = icmp samesign ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
+  %spec.select.i.i76.i.i = select i1 %150, i1 %151, i1 false
   br i1 %spec.select.i.i76.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %169
 
 152:                                              ; preds = %144
@@ -17846,8 +17846,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i: ; preds = %159
   %167 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i69.i.i, %.sroa.03.0.extract.trunc.i.i71.i.i
-  %168 = icmp ult i64 %.sroa.24.0.extract.shift.i.i72.i.i, %.sroa.26.0.extract.shift.i.i70.i.i
-  %spec.select15.i.i75.i.i = and i1 %167, %168
+  %168 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i72.i.i, %.sroa.26.0.extract.shift.i.i70.i.i
+  %spec.select15.i.i75.i.i = select i1 %167, i1 %168, i1 false
   br i1 %spec.select15.i.i75.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %169
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i, %161, %159, %149, %147
@@ -17894,8 +17894,8 @@ _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15
 
 178:                                              ; preds = %176
   %179 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i13.i, %.sroa.013.0.extract.trunc.i.i.i15.i
-  %180 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i16.i, %.sroa.212.0.extract.shift.i.i.i14.i
-  %spec.select.i.i.i26.i = and i1 %179, %180
+  %180 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i16.i, %.sroa.212.0.extract.shift.i.i.i14.i
+  %spec.select.i.i.i26.i = select i1 %179, i1 %180, i1 false
   br i1 %spec.select.i.i.i26.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i, %189, %178
@@ -17927,8 +17927,8 @@ _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i: ; preds = %187
   %194 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i18.i, %.sroa.03.0.extract.trunc.i.i.i20.i
-  %195 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i21.i, %.sroa.26.0.extract.shift.i.i.i19.i
-  %spec.select15.i.i.i25.i = and i1 %194, %195
+  %195 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i21.i, %.sroa.26.0.extract.shift.i.i.i19.i
+  %spec.select15.i.i.i25.i = select i1 %194, i1 %195, i1 false
   br i1 %spec.select15.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %.preheader.i.i.preheader
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i, %189, %187, %178, %176
@@ -17953,8 +17953,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 203:                                              ; preds = %201
   %204 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i17.i.i, %.sroa.011.0.extract.trunc.i.i.i13.i
-  %205 = icmp ult i64 %.sroa.212.0.extract.shift.i.i.i14.i, %.sroa.212.0.extract.shift.i.i18.i.i
-  %spec.select.i.i27.i.i = and i1 %204, %205
+  %205 = icmp samesign ult i64 %.sroa.212.0.extract.shift.i.i.i14.i, %.sroa.212.0.extract.shift.i.i18.i.i
+  %spec.select.i.i27.i.i = select i1 %204, i1 %205, i1 false
   br i1 %spec.select.i.i27.i.i, label %.preheader.i.i.backedge, label %222
 
 206:                                              ; preds = %.preheader.i.i
@@ -17976,8 +17976,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 214:                                              ; preds = %212
   %215 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i20.i.i, %.sroa.03.0.extract.trunc.i.i22.i.i
-  %216 = icmp ult i64 %.sroa.24.0.extract.shift.i.i23.i.i, %.sroa.26.0.extract.shift.i.i21.i.i
-  %spec.select15.i.i26.i.i = and i1 %215, %216
+  %216 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i23.i.i, %.sroa.26.0.extract.shift.i.i21.i.i
+  %spec.select15.i.i26.i.i = select i1 %215, i1 %216, i1 false
   br i1 %spec.select15.i.i26.i.i, label %.preheader.i.i.backedge, label %222
 
 217:                                              ; preds = %206
@@ -18047,8 +18047,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
 
 21:                                               ; preds = %19
   %22 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i, %.sroa.013.0.extract.trunc.i.i
-  %23 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
-  %spec.select.i.i = and i1 %22, %23
+  %23 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
+  %spec.select.i.i = select i1 %22, i1 %23, i1 false
   %cond.fr41 = freeze i1 %spec.select.i.i
   br i1 %cond.fr41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %41
 
@@ -18081,8 +18081,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit: ; preds = %31
   %39 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
-  %40 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
-  %spec.select15.i.i = and i1 %39, %40
+  %40 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
+  %spec.select15.i.i = select i1 %39, i1 %40, i1 false
   %cond.fr = freeze i1 %spec.select15.i.i
   br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %41
 
@@ -18155,8 +18155,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 67:                                               ; preds = %65
   %68 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i, %.sroa.013.0.extract.trunc.i.i.i
-  %69 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i, %.sroa.212.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %68, %69
+  %69 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i.i, %.sroa.212.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %68, i1 %69, i1 false
   br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 70:                                               ; preds = %59
@@ -18181,8 +18181,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i: ; preds = %75
   %81 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
-  %82 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i
-  %spec.select15.i.i.i = and i1 %81, %82
+  %82 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i
+  %spec.select15.i.i.i = select i1 %81, i1 %82, i1 false
   br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i, %77, %75, %67, %65
@@ -18251,8 +18251,8 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedReg
 
 17:                                               ; preds = %15
   %18 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i, %.sroa.013.0.extract.trunc.i.i
-  %19 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
-  %spec.select.i.i = and i1 %18, %19
+  %19 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
+  %spec.select.i.i = select i1 %18, i1 %19, i1 false
   br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17
@@ -18288,8 +18288,8 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedReg
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit: ; preds = %26
   %33 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
-  %34 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
-  %spec.select15.i.i = and i1 %33, %34
+  %34 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
+  %spec.select15.i.i = select i1 %33, i1 %34, i1 false
   br i1 %spec.select15.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread: ; preds = %26, %15, %17, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
@@ -18334,8 +18334,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 47:                                               ; preds = %45
   %48 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i, %.sroa.013.0.extract.trunc.i.i
-  %49 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %48, %49
+  %49 = icmp samesign ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %48, i1 %49, i1 false
   br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
 
 50:                                               ; preds = %40
@@ -18360,8 +18360,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i: ; preds = %55
   %61 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.pre-phi, %.sroa.03.0.extract.trunc.i.i.i
-  %62 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i.pre-phi
-  %spec.select15.i.i.i = and i1 %61, %62
+  %62 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i.pre-phi
+  %spec.select15.i.i.i = select i1 %61, i1 %62, i1 false
   br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i, %57, %55, %47, %45
@@ -18424,7 +18424,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder20completeRegionsU
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN4llvm8coverage13CountedRegionES4_EC2ES5_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !300
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %14
@@ -19122,8 +19122,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.0.val.val.i, 32
   %13 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
-  %14 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %13, %14
+  %14 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %13, i1 %14, i1 false
   br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %.preheader.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
@@ -19152,8 +19152,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.0.val.val.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i = lshr i64 %.val.val.i.i, 32
   %22 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
-  %23 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
-  %spec.select.i.i.i.i = and i1 %22, %23
+  %23 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %22, i1 %23, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i, %.preheader.i
@@ -19249,8 +19249,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.val39.val, 32
   %.sroa.24.0.extract.shift.i.i = lshr i64 %.val.val, 32
   %16 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
-  %17 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
-  %spec.select.i.i = and i1 %16, %17
+  %17 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
+  %spec.select.i.i = select i1 %16, i1 %17, i1 false
   br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread, label %.loopexit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread: ; preds = %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit
@@ -19300,8 +19300,8 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %39, 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.val.val.i, 32
   %34 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
-  %35 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %34, %35
+  %35 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %34, i1 %35, i1 false
   %cond.fr.i = freeze i1 %spec.select.i.i.i
   %36 = getelementptr inbounds i8, ptr %28, i64 8
   %37 = xor i64 %27, -1
@@ -19359,8 +19359,8 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51: ; preds = %.t
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51
   %.sroa.2.0.extract.shift.i.i.i56 = lshr i64 %.val13.val.i54, 32
   %56 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i55, %.sroa.03.0.extract.trunc.i.i.i49
-  %57 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i50, %.sroa.2.0.extract.shift.i.i.i56
-  %spec.select.i.i.i57 = and i1 %56, %57
+  %57 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i50, %.sroa.2.0.extract.shift.i.i.i56
+  %spec.select.i.i.i57 = select i1 %56, i1 %57, i1 false
   %cond.fr.i58 = freeze i1 %spec.select.i.i.i57
   br i1 %cond.fr.i58, label %.thread.i59, label %58
 
@@ -19439,8 +19439,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.val.val.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i = lshr i64 %.0.val.val.i.i, 32
   %15 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
-  %16 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
-  %spec.select.i.i.i.i = and i1 %15, %16
+  %16 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %15, i1 %16, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i, label %.preheader.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i, %11
@@ -19469,8 +19469,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.0.val.val.i.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i.i = lshr i64 %.val.val.i.i.i, 32
   %24 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i.i
-  %25 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i.i
-  %spec.select.i.i.i.i.i = and i1 %24, %25
+  %25 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i.i
+  %spec.select.i.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i, %.preheader.i.i
@@ -19519,8 +19519,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i23.i = lshr i64 %.val.val.i19.i, 32
   %.sroa.24.0.extract.shift.i.i.i24.i = lshr i64 %.0.val.val.i18.i, 32
   %34 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i21.i, %.sroa.03.0.extract.trunc.i.i.i20.i
-  %35 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i24.i, %.sroa.2.0.extract.shift.i.i.i23.i
-  %spec.select.i.i.i25.i = and i1 %34, %35
+  %35 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i24.i, %.sroa.2.0.extract.shift.i.i.i23.i
+  %spec.select.i.i.i25.i = select i1 %34, i1 %35, i1 false
   br i1 %spec.select.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i, label %.preheader.i26.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i, %.lr.ph.i.i
@@ -19549,8 +19549,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %.sroa.2.0.extract.shift.i.i.i.i35.i = lshr i64 %.0.val.val.i.i31.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i36.i = lshr i64 %.val.val.i.i27.i, 32
   %43 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i33.i, %.sroa.03.0.extract.trunc.i.i.i.i32.i
-  %44 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i36.i, %.sroa.2.0.extract.shift.i.i.i.i35.i
-  %spec.select.i.i.i.i37.i = and i1 %43, %44
+  %44 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i.i36.i, %.sroa.2.0.extract.shift.i.i.i.i35.i
+  %spec.select.i.i.i.i37.i = select i1 %43, i1 %44, i1 false
   br i1 %spec.select.i.i.i.i37.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i, %.preheader.i26.i
@@ -19632,8 +19632,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.018.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.019.val.val.i, 32
   %20 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
-  %21 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %20, %21
+  %21 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %20, i1 %21, i1 false
   br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %23
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
@@ -19718,8 +19718,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i79 = lshr i64 %.026.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i80 = lshr i64 %.024.val.val.i, 32
   %45 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i77, %.sroa.03.0.extract.trunc.i.i.i76
-  %46 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i80, %.sroa.2.0.extract.shift.i.i.i79
-  %spec.select.i.i.i81 = and i1 %45, %46
+  %46 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i80, %.sroa.2.0.extract.shift.i.i.i79
+  %spec.select.i.i.i81 = select i1 %45, i1 %46, i1 false
   br i1 %spec.select.i.i.i81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %51
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78, %41
@@ -19796,8 +19796,8 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %81, 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %.sroa.24.0.extract.shift.i.i.i89 = lshr i64 %.val.val.i, 32
   %76 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i86, %.sroa.03.0.extract.trunc.i.i.i88
-  %77 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i89, %.sroa.2.0.extract.shift.i.i.i87
-  %spec.select.i.i.i90 = and i1 %76, %77
+  %77 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i89, %.sroa.2.0.extract.shift.i.i.i87
+  %spec.select.i.i.i90 = select i1 %76, i1 %77, i1 false
   %cond.fr.i = freeze i1 %spec.select.i.i.i90
   %78 = getelementptr inbounds i8, ptr %70, i64 8
   %79 = xor i64 %69, -1
@@ -19855,8 +19855,8 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101: ; preds = %.
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
   %.sroa.2.0.extract.shift.i.i.i106 = lshr i64 %.val13.val.i104, 32
   %98 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i105, %.sroa.03.0.extract.trunc.i.i.i99
-  %99 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i100, %.sroa.2.0.extract.shift.i.i.i106
-  %spec.select.i.i.i107 = and i1 %98, %99
+  %99 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i100, %.sroa.2.0.extract.shift.i.i.i106
+  %spec.select.i.i.i107 = select i1 %98, i1 %99, i1 false
   %cond.fr.i108 = freeze i1 %spec.select.i.i.i107
   br i1 %cond.fr.i108, label %.thread.i109, label %100
 
@@ -20031,8 +20031,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.018.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.019.val.val.i, 32
   %15 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
-  %16 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %15, %16
+  %16 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %15, i1 %16, i1 false
   br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %18
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
@@ -20114,8 +20114,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.2.0.extract.shift.i.i.i41 = lshr i64 %.018.val.val.i37, 32
   %.sroa.24.0.extract.shift.i.i.i42 = lshr i64 %.019.val.val.i36, 32
   %44 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i39, %.sroa.03.0.extract.trunc.i.i.i38
-  %45 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i42, %.sroa.2.0.extract.shift.i.i.i41
-  %spec.select.i.i.i43 = and i1 %44, %45
+  %45 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i42, %.sroa.2.0.extract.shift.i.i.i41
+  %spec.select.i.i.i43 = select i1 %44, i1 %45, i1 false
   br i1 %spec.select.i.i.i43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46, label %47
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i40, %.lr.ph.i30
@@ -22146,7 +22146,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.sroa.02.0.copyload14.i.i.i = load i64, ptr %15, align 4
   %16 = add nsw i64 %12, -1
   %17 = lshr i64 %16, 1
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp samesign ult i64 %14, %17
   br i1 %18, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -23832,7 +23832,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.02060, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %5 = tail call noundef i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #28
-  %.not54 = icmp ugt i64 %.045.idx59, 56
+  %.not54 = icmp samesign ugt i64 %.045.idx59, 56
   br i1 %.not54, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
@@ -23918,7 +23918,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9
   %.sroa.2.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %.263, i64 8
   %.sroa.2.0.copyload.i26 = load i64, ptr %.sroa.2.0..sroa_idx.i25, align 8
   %42 = call noundef i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0.0.copyload.i24, i64 %.sroa.2.0.copyload.i26) #28
-  %.not55 = icmp ugt i64 %.247.idx62, 56
+  %.not55 = icmp samesign ugt i64 %.247.idx62, 56
   br i1 %.not55, label %.critedge2, label %43
 
 43:                                               ; preds = %41

@@ -1570,7 +1570,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %78 = load i32, ptr %6, align 4
   %79 = lshr i32 %78, 29
   %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %25, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %77, %2
@@ -2343,7 +2343,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %189 = load i32, ptr %16, align 4
   %190 = lshr i32 %189, 29
   %191 = zext nneg i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next, %191
   br i1 %192, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %148

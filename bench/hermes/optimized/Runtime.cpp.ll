@@ -6741,7 +6741,7 @@ if.else151:                                       ; preds = %if.else132
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %62 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %65 = and i64 %sub.ptr.sub.i.i.i.i, 34359738360
-  %cmp.i.i.i = icmp ult i64 %65, 312
+  %cmp.i.i.i = icmp samesign ult i64 %65, 312
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i2.i.i
   br i1 %.not.i, label %if.then180, label %if.end182
@@ -12568,7 +12568,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -14679,7 +14679,7 @@ if.then:                                          ; preds = %entry
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv382, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ugt i32 %shl, 127
+  %cmp11 = icmp samesign ugt i32 %shl, 127
   tail call void @llvm.assume(i1 %cmp11)
   br label %return
 
@@ -14708,7 +14708,7 @@ if.then19:                                        ; preds = %if.else
   %and48 = shl nsw i32 %conv22, 6
   %shl49 = and i32 %and48, 4032
   %or50 = or disjoint i32 %shl49, %shl47
-  %cmp53 = icmp ugt i32 %or50, 2047
+  %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
   %and51 = and i32 %conv3383, 63
   %or52 = or disjoint i32 %or50, %and51
@@ -14748,9 +14748,9 @@ if.else68:                                        ; preds = %if.else
   %and122 = and i32 %conv10184, 63
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
-  %cmp124 = icmp ugt i32 %or118, 65535
+  %cmp124 = icmp samesign ugt i32 %or118, 65535
   tail call void @llvm.assume(i1 %cmp124)
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68
@@ -16258,7 +16258,7 @@ while.cond:                                       ; preds = %_ZN6hermes2vm10Stri
   %first.sroa.11.0 = phi ptr [ %first.coerce1, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %first.sroa.11.3, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ]
   %buffer_ptr.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.0.idx
   %tobool.not.i.i = icmp eq ptr %first.sroa.0.0, null
-  %cmp.i.not = icmp ugt i64 %buffer_ptr.0.idx, 62
+  %cmp.i.not = icmp samesign ugt i64 %buffer_ptr.0.idx, 62
   br i1 %tobool.not.i.i, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread
 
 _ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit: ; preds = %while.cond
@@ -16402,7 +16402,7 @@ while.cond17:                                     ; preds = %while.cond17.prehea
   %first.sroa.11.2 = phi ptr [ %first.sroa.11.4, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit54 ], [ %first.sroa.11.1175, %while.cond17.preheader ]
   %buffer_ptr.2.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.2.idx
   %tobool.not.i.i26 = icmp eq ptr %first.sroa.0.2, null
-  %cmp.i43.not = icmp ugt i64 %buffer_ptr.2.idx, 62
+  %cmp.i43.not = icmp samesign ugt i64 %buffer_ptr.2.idx, 62
   br i1 %tobool.not.i.i26, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit35, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit35.thread
 
 _ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit35: ; preds = %while.cond17

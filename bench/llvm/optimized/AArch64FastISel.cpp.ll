@@ -10284,7 +10284,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %102
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 22
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
-  %.not.i.i = icmp ult i32 %121, %124
+  %.not.i.i = icmp samesign ult i32 %121, %124
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %110
@@ -13607,12 +13607,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddS
 
 13:                                               ; preds = %9
   %14 = icmp ne i16 %2, 8
-  %15 = icmp ugt i64 %6, 3
-  %or.cond = or i1 %14, %15
+  %15 = icmp samesign ugt i64 %6, 3
+  %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %62, label %16
 
 .critedge:                                        ; preds = %9
-  %.old = icmp ugt i64 %6, 3
+  %.old = icmp samesign ugt i64 %6, 3
   br i1 %.old, label %62, label %16
 
 16:                                               ; preds = %13, %.critedge
@@ -13715,7 +13715,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -14077,7 +14077,7 @@ tailrecurse:                                      ; preds = %50, %5
   br label %.loopexit.i
 
 21:                                               ; preds = %.preheader
-  %22 = icmp ugt i32 %.044.i, 5
+  %22 = icmp samesign ugt i32 %.044.i, 5
   br i1 %22, label %.preheader, label %.loopexit.i, !llvm.loop !362
 
 .loopexit.i:                                      ; preds = %21, %19
@@ -14195,7 +14195,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogical
   br label %.loopexit
 
 23:                                               ; preds = %14
-  %24 = icmp ugt i32 %.044, 5
+  %24 = icmp samesign ugt i32 %.044, 5
   br i1 %24, label %14, label %.loopexit, !llvm.loop !362
 
 .loopexit:                                        ; preds = %23, %21
@@ -17194,7 +17194,7 @@ _ZNK4llvm4User10getOperandEj.exit385:             ; preds = %520, %523
 _ZN4llvm13isPowerOf2_64Em.exit388:                ; preds = %541
   %545 = lshr i64 %544, 3
   %546 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %544)
-  %547 = icmp ult i64 %546, 2
+  %547 = icmp samesign ult i64 %546, 2
   %548 = zext nneg i32 %537 to i64
   %549 = shl nuw nsw i64 1, %548
   %.not278 = icmp eq i64 %545, %549
@@ -18255,7 +18255,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115AArch64FastISel20addLoadStoreOpe
 44:                                               ; preds = %5
   %45 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %46 = load ptr, ptr %45, align 8
-  %.not = icmp ugt i16 %2, 1
+  %.not = icmp samesign ugt i16 %2, 1
   %47 = zext i1 %.not to i32
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   %.val48 = load i32, ptr %48, align 8
@@ -20051,13 +20051,13 @@ _ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; p
 
 .lr.ph:                                           ; preds = %14
   %15 = and i16 %4, 255
-  %16 = icmp ugt i16 %15, 2
+  %16 = icmp samesign ugt i16 %15, 2
   %17 = icmp eq i16 %15, 1
   %switch.select = select i1 %17, i16 6, i16 5
   %switch.selectcmp46 = icmp eq i16 %15, 2
   %switch.select47 = select i1 %switch.selectcmp46, i16 7, i16 %switch.select
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %brmerge = or i1 %.not.i, %16
+  %brmerge = select i1 %.not.i, i1 true, i1 %16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %31

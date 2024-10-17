@@ -46,7 +46,7 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   %15 = zext i8 %14 to i16
   %16 = trunc nuw nsw i64 %5 to i16
   %17 = shl nuw nsw i16 %15, %16
-  %18 = icmp ult i16 %17, 256
+  %18 = icmp samesign ult i16 %17, 256
   %19 = trunc i16 %17 to i8
   %20 = or i8 %12, %19
   br i1 %18, label %.sink.split, label %21

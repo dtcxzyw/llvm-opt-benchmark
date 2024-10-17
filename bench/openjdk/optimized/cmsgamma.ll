@@ -863,7 +863,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %12, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %15, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %25
@@ -1547,7 +1547,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly %0, d
   %23 = zext i16 %22 to i32
   %24 = sub nsw i32 %19, %23
   %25 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
-  %26 = icmp ugt i32 %25, 15
+  %26 = icmp samesign ugt i32 %25, 15
   br i1 %26, label %cmsIsToneCurveLinear.exit, label %11
 
 cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
@@ -1663,7 +1663,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %99 = getelementptr inbounds i8, ptr %33, i64 8
   store float %98, ptr %99, align 4
   %100 = add nsw i32 %27, -1
-  %101 = icmp ugt i32 %27, 4
+  %101 = icmp samesign ugt i32 %27, 4
   br i1 %101, label %.lr.ph.i118.lver.check, label %._crit_edge.i
 
 .lr.ph.i118.lver.check:                           ; preds = %55
@@ -1907,7 +1907,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %264 = fneg float %263
   %265 = tail call float @llvm.fmuladd.f32(float %264, float %259, float %262)
   store float %265, ptr %231, align 4
-  %266 = icmp ugt i32 %27, 2
+  %266 = icmp samesign ugt i32 %27, 2
   br i1 %266, label %.lr.ph222.preheader.i, label %.thread.i
 
 .lr.ph222.preheader.i:                            ; preds = %._crit_edge.i
@@ -2132,7 +2132,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr nocapture noundef re
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %14, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = icmp ugt i32 %20, 15
+  %21 = icmp samesign ugt i32 %20, 15
   br i1 %21, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %1

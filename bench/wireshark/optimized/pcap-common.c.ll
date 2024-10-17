@@ -747,7 +747,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %224
   %272 = trunc nuw nsw i64 %271 to i32
   %273 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %272, ptr %273, align 8
-  %274 = icmp ugt i64 %270, 4294967295999999999
+  %274 = icmp samesign ugt i64 %270, 4294967295999999999
   br i1 %274, label %275, label %278
 
 275:                                              ; preds = %235
@@ -802,7 +802,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %224
 
 299:                                              ; preds = %297
   %300 = load i8, ptr %11, align 1
-  %301 = icmp ult i64 %indvars.iv.i, 16
+  %301 = icmp samesign ult i64 %indvars.iv.i, 16
   br i1 %301, label %302, label %333
 
 302:                                              ; preds = %299
@@ -1400,7 +1400,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.1.i.i = phi i32 [ %.03544.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %161 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %166 = add i32 %.046.i.i, -16
-  %167 = icmp ult i64 %indvars.iv.next.i.i, %133
+  %167 = icmp samesign ult i64 %indvars.iv.next.i.i, %133
   %168 = icmp ugt i32 %166, 15
   %169 = select i1 %167, i1 %168, i1 false
   br i1 %169, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
@@ -1473,7 +1473,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %reass.sub.i = and i32 %197, 65532
   %199 = add nuw nsw i32 %reass.sub.i, 4
   %.033.i = select i1 %.not38.i, i32 %197, i32 %199
-  %200 = icmp ugt i32 %.033.i, 3
+  %200 = icmp samesign ugt i32 %.033.i, 3
   %201 = icmp uge i32 %.12.i, %.033.i
   %or.cond.not13.i = and i1 %200, %201
   %202 = zext nneg i32 %.033.i to i64
@@ -1991,7 +1991,7 @@ define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapt
   %15 = add nuw nsw i32 %.2, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp slt i64 %14, 0
-  %17 = icmp ult i64 %indvars.iv, 15
+  %17 = icmp samesign ult i64 %indvars.iv, 15
   %18 = and i1 %17, %16
   br i1 %18, label %12, label %.loopexit, !llvm.loop !11
 
@@ -2321,7 +2321,7 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %142 = add nuw nsw i32 %.2.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %143 = icmp slt i64 %141, 0
-  %144 = icmp ult i64 %indvars.iv.i.i, 15
+  %144 = icmp samesign ult i64 %indvars.iv.i.i, 15
   %145 = and i1 %144, %143
   br i1 %145, label %139, label %.loopexit.i.i, !llvm.loop !11
 
@@ -2376,7 +2376,7 @@ pcap_get_phdr_size.exit.i:                        ; preds = %151, %149, %147, %.
   %160 = add nuw nsw i32 %.2.i79.i, 8
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i78.i, 1
   %161 = icmp slt i64 %159, 0
-  %162 = icmp ult i64 %indvars.iv.i78.i, 15
+  %162 = icmp samesign ult i64 %indvars.iv.i78.i, 15
   %163 = and i1 %162, %161
   br i1 %163, label %157, label %.loopexit.i81.i, !llvm.loop !11
 
@@ -2434,7 +2434,7 @@ pcap_get_phdr_size.exit84.i:                      ; preds = %168, %166, %164, %.
   %180 = add nuw nsw i32 %.2.i88.i, 8
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i87.i, 1
   %181 = icmp slt i64 %179, 0
-  %182 = icmp ult i64 %indvars.iv.i87.i, 15
+  %182 = icmp samesign ult i64 %indvars.iv.i87.i, 15
   %183 = and i1 %182, %181
   br i1 %183, label %177, label %.loopexit.i90.i, !llvm.loop !11
 
@@ -2488,7 +2488,7 @@ pcap_get_phdr_size.exit93.i:                      ; preds = %188, %186, %184, %.
   %197 = add nuw nsw i32 %.2.i97.i, 8
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i96.i, 1
   %198 = icmp slt i64 %196, 0
-  %199 = icmp ult i64 %indvars.iv.i96.i, 15
+  %199 = icmp samesign ult i64 %indvars.iv.i96.i, 15
   %200 = and i1 %199, %198
   br i1 %200, label %194, label %.loopexit.i99.i, !llvm.loop !11
 
@@ -2610,7 +2610,7 @@ pcap_get_phdr_size.exit102.i:                     ; preds = %205, %203, %201, %.
 258:                                              ; preds = %256
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %259 = icmp slt i64 %237, 0
-  %260 = icmp ult i64 %indvars.iv.i, 15
+  %260 = icmp samesign ult i64 %indvars.iv.i, 15
   %261 = and i1 %260, %259
   br i1 %261, label %235, label %.loopexit103.loopexit.i, !llvm.loop !12
 

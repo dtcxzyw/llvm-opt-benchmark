@@ -198,7 +198,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpness
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = icmp ugt i32 %.1, 1
+  %27 = icmp samesign ugt i32 %.1, 1
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %._crit_edge

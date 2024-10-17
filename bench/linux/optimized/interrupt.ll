@@ -98,7 +98,7 @@ define dso_local i32 @mei_irq_read_handler(ptr noundef %0, ptr noundef %1, ptr n
   %26 = add nuw nsw i32 %23, %25
   %27 = lshr i32 %16, 16
   %28 = and i32 %27, 511
-  %29 = icmp ult i32 %28, %26
+  %29 = icmp samesign ult i32 %28, %26
   br i1 %29, label %select.unfold, label %31
 
 select.unfold:                                    ; preds = %21, %7
@@ -155,7 +155,7 @@ select.unfold:                                    ; preds = %21, %7
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 2
   %62 = add nuw nsw i32 %61, 4
-  %63 = icmp ult i32 %.pre-phi75, %62
+  %63 = icmp samesign ult i32 %.pre-phi75, %62
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %58

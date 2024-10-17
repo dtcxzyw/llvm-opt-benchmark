@@ -99,7 +99,7 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   %indvars.iv48 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next49, %.lr.ph38 ]
   %indvars.iv46 = phi i64 [ %26, %.lr.ph38.preheader ], [ %indvars.iv.next47, %.lr.ph38 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %.not = icmp ult i64 %indvars.iv.next49, %27
+  %.not = icmp samesign ult i64 %indvars.iv.next49, %27
   %28 = and i64 %indvars.iv.next49, 4294967295
   %29 = getelementptr inbounds %struct.Pedge_t, ptr %17, i64 %indvars.iv46
   %30 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %indvars.iv48
@@ -156,7 +156,7 @@ define void @make_polyline(ptr nocapture readonly %0, i32 %1, ptr nocapture noun
   unreachable
 
 18:                                               ; preds = %8
-  %19 = icmp ugt i64 %12, %11
+  %19 = icmp samesign ugt i64 %12, %11
   br i1 %19, label %20, label %gv_recalloc.exit
 
 20:                                               ; preds = %18

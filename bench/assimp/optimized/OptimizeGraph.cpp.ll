@@ -263,7 +263,7 @@ invoke.cont:                                      ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %mNumChildren, align 8
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 lpad.loopexit:                                    ; preds = %invoke.cont50
@@ -1126,7 +1126,7 @@ for.body182:                                      ; preds = %for.body182.lr.ph, 
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %194 = load i32, ptr %mNumMeshes173, align 8
   %195 = zext i32 %194 to i64
-  %cmp181 = icmp ult i64 %indvars.iv.next541, %195
+  %cmp181 = icmp samesign ult i64 %indvars.iv.next541, %195
   br i1 %cmp181, label %for.body182, label %for.body195.lr.ph, !llvm.loop !11
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.inc260
@@ -1486,14 +1486,14 @@ for.inc251:                                       ; preds = %if.end238, %invoke.
   %329 = phi i32 [ %.pre558, %if.end238 ], [ %.pre557, %invoke.cont244 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit ]
   %indvars.iv.next544 = add nuw nsw i64 %indvars.iv543, 1
   %330 = zext i32 %329 to i64
-  %cmp224 = icmp ult i64 %indvars.iv.next544, %330
+  %cmp224 = icmp samesign ult i64 %indvars.iv.next544, %330
   br i1 %cmp224, label %invoke.cont229, label %for.inc254, !llvm.loop !12
 
 for.inc254:                                       ; preds = %for.inc251, %invoke.cont219
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %331 = load i32, ptr %mNumMeshes199, align 8
   %332 = zext i32 %331 to i64
-  %cmp200 = icmp ult i64 %indvars.iv.next547, %332
+  %cmp200 = icmp samesign ult i64 %indvars.iv.next547, %332
   br i1 %cmp200, label %for.body201, label %for.inc260, !llvm.loop !13
 
 for.inc260:                                       ; preds = %for.inc254, %for.body195
@@ -2208,7 +2208,7 @@ invoke.cont28:                                    ; preds = %_ZNKSt4lessINSt7__c
   %mNumChannels = getelementptr inbounds i8, ptr %27, i64 1048
   %28 = load i32, ptr %mNumChannels, align 8
   %29 = zext i32 %28 to i64
-  %cmp17 = icmp ult i64 %indvars.iv.next, %29
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %cmp17, label %for.body18, label %for.inc33.loopexit, !llvm.loop !18
 
 lpad:                                             ; preds = %call.i62.noexc, %for.body18
@@ -2236,7 +2236,7 @@ for.inc33:                                        ; preds = %for.inc33.loopexit,
   %33 = phi ptr [ %26, %for.inc33.loopexit ], [ %9, %for.cond16.preheader ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %34 = zext i32 %32 to i64
-  %cmp = icmp ult i64 %indvars.iv.next242, %34
+  %cmp = icmp samesign ult i64 %indvars.iv.next242, %34
   br i1 %cmp, label %for.cond16.preheader, label %for.cond37.preheader, !llvm.loop !19
 
 for.cond42.preheader:                             ; preds = %for.cond42.preheader.lr.ph, %for.inc71
@@ -2395,7 +2395,7 @@ invoke.cont60:                                    ; preds = %_ZNKSt4lessINSt7__c
   %mNumBones = getelementptr inbounds i8, ptr %56, i64 216
   %57 = load i32, ptr %mNumBones, align 8
   %58 = zext i32 %57 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next245, %58
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next245, %58
   br i1 %cmp45, label %for.body46, label %for.inc71.loopexit, !llvm.loop !20
 
 lpad57:                                           ; preds = %call.i71.noexc, %for.body46
@@ -2423,7 +2423,7 @@ for.inc71:                                        ; preds = %for.inc71.loopexit,
   %62 = phi ptr [ %55, %for.inc71.loopexit ], [ %36, %for.cond42.preheader ]
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %63 = zext i32 %61 to i64
-  %cmp39 = icmp ult i64 %indvars.iv.next248, %63
+  %cmp39 = icmp samesign ult i64 %indvars.iv.next248, %63
   br i1 %cmp39, label %for.cond42.preheader, label %for.cond75.preheader, !llvm.loop !21
 
 for.cond98.preheader:                             ; preds = %invoke.cont89, %for.cond75.preheader
@@ -2472,7 +2472,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %68 = load i32, ptr %mNumCameras, align 8
   %69 = zext i32 %68 to i64
-  %cmp76 = icmp ult i64 %indvars.iv.next251, %69
+  %cmp76 = icmp samesign ult i64 %indvars.iv.next251, %69
   br i1 %cmp76, label %for.body77, label %for.cond98.preheader, !llvm.loop !22
 
 lpad86:                                           ; preds = %call.i87.noexc, %for.body77
@@ -2527,7 +2527,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %75 = load i32, ptr %mNumLights, align 8
   %76 = zext i32 %75 to i64
-  %cmp99 = icmp ult i64 %indvars.iv.next254, %76
+  %cmp99 = icmp samesign ult i64 %indvars.iv.next254, %76
   br i1 %cmp99, label %for.body100, label %for.end119, !llvm.loop !23
 
 lpad109:                                          ; preds = %call.i102.noexc, %for.body100
@@ -2842,7 +2842,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %mNumMeshes, align 8
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !24
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
@@ -2854,7 +2854,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %10 = load i32, ptr %mNumChildren, align 8
   %11 = zext i32 %10 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next14, %11
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next14, %11
   br i1 %cmp5, label %for.body6, label %for.end11, !llvm.loop !25
 
 for.end11:                                        ; preds = %for.body6, %for.cond4.preheader

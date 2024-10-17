@@ -137,7 +137,7 @@ for.cond28.preheader:                             ; preds = %if.end23
   %5 = shl nuw nsw i64 %4, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf, ptr align 8 %add.ptr, i64 %5, i1 false)
   %6 = add nsw i32 %0, -3
-  %cmp29103 = icmp ult i32 %6, 3
+  %cmp29103 = icmp samesign ult i32 %6, 3
   br i1 %cmp29103, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %if.end23, %for.cond28.preheader
@@ -222,7 +222,7 @@ for.end36:                                        ; preds = %for.body31.preheade
   %add109 = add nuw nsw i64 %add106, %shr99
   %conv.i93 = trunc i64 %add109 to i32
   store i32 %conv.i93, ptr %arrayidx100, align 1
-  %cmp113.not = icmp ult i64 %add109, 4294967296
+  %cmp113.not = icmp samesign ult i64 %add109, 4294967296
   br i1 %cmp113.not, label %if.end123, label %if.then115
 
 if.then115:                                       ; preds = %for.end36
@@ -358,7 +358,7 @@ for.body.preheader:                               ; preds = %if.end23
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %for.body
-  %cmp2978 = icmp ult i32 %sub, 4
+  %cmp2978 = icmp samesign ult i32 %sub, 4
   br i1 %cmp2978, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %if.end23, %for.cond28.preheader
@@ -569,7 +569,7 @@ for.cond28.preheader:                             ; preds = %if.end23
   %5 = shl nuw nsw i64 %4, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf, ptr align 8 %add.ptr, i64 %5, i1 false)
   %6 = add nsw i32 %0, -4
-  %cmp29224 = icmp ult i32 %6, 4
+  %cmp29224 = icmp samesign ult i32 %6, 4
   br i1 %cmp29224, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %if.end23, %for.cond28.preheader
@@ -842,7 +842,7 @@ for.cond28.preheader:                             ; preds = %if.end23
   %5 = shl nuw nsw i64 %4, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf, ptr align 8 %add.ptr, i64 %5, i1 false)
   %6 = add nsw i32 %0, -6
-  %cmp29255 = icmp ult i32 %6, 6
+  %cmp29255 = icmp samesign ult i32 %6, 6
   br i1 %cmp29255, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %if.end23, %for.cond28.preheader
@@ -1169,7 +1169,7 @@ for.body.preheader:                               ; preds = %if.end23
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %for.body
-  %cmp2949 = icmp ult i32 %sub, 9
+  %cmp2949 = icmp samesign ult i32 %sub, 9
   br i1 %cmp2949, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %if.end23, %for.cond28.preheader

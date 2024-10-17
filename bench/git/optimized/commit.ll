@@ -4449,7 +4449,7 @@ for.inc.i:                                        ; preds = %if.then18.i, %if.en
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %46 = zext i32 %45 to i64
-  %cmp.i40 = icmp ult i64 %indvars.iv.next.i, %46
+  %cmp.i40 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %cmp.i40, label %for.body.i, label %list_paths.exit, !llvm.loop !13
 
 list_paths.exit:                                  ; preds = %for.inc.i, %if.end5.i

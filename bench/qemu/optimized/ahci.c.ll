@@ -2556,7 +2556,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @qtest_memwrite(ptr noundef %40, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp45 = icmp ugt i32 %conv7.mask, %41
+  %cmp45 = icmp samesign ugt i32 %conv7.mask, %41
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %do.end41
@@ -3729,7 +3729,7 @@ land.lhs.true:                                    ; preds = %if.else35
   %11 = and i8 %10, 1
   %12 = xor i8 %11, 1
   %cond = zext nneg i8 %12 to i32
-  %cmp43 = icmp ugt i32 %conv39, %cond
+  %cmp43 = icmp samesign ugt i32 %conv39, %cond
   br i1 %cmp43, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %land.lhs.true

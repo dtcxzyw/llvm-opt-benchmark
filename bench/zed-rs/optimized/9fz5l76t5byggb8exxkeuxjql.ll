@@ -12950,7 +12950,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr87drop
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
-  %switch.i182 = icmp ugt i64 %105, 4
+  %switch.i182 = icmp samesign ugt i64 %105, 4
   br i1 %switch.i182, label %107, label %123
 
 107:                                              ; preds = %99
@@ -13678,7 +13678,7 @@ switch.early.test:                                ; preds = %237, %246, %239, %3
   %353 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %354 = icmp ult i64 %353, 6
   call void @llvm.assume(i1 %354)
-  %switch.i233 = icmp ugt i64 %353, 1
+  %switch.i233 = icmp samesign ugt i64 %353, 1
   br i1 %switch.i233, label %355, label %383
 
 355:                                              ; preds = %352
@@ -14280,7 +14280,7 @@ select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u
   ]
 
 568:                                              ; preds = %565
-  %569 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i.i.i, 127
+  %569 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i.i.i, 127
   br i1 %569, label %570, label %590
 
 570:                                              ; preds = %568

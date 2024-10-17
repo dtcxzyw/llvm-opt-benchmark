@@ -2883,7 +2883,7 @@ define internal fastcc void @get_CP56Time(ptr noundef %0, ptr nocapture noundef 
   %46 = and i8 %45, 127
   %47 = zext nneg i8 %46 to i32
   %48 = getelementptr inbounds i8, ptr %4, i64 20
-  %49 = icmp ult i8 %46, 70
+  %49 = icmp samesign ult i8 %46, 70
   %50 = add nuw nsw i32 %47, 100
   %spec.select = select i1 %49, i32 %50, i32 %47
   store i32 %spec.select, ptr %48, align 4

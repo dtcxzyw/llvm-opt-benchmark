@@ -897,7 +897,7 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %59 = select i1 %58, i32 3, i32 2
   %60 = icmp eq i8 %43, 2
   %61 = zext i8 %46 to i32
-  %62 = icmp ult i32 %59, %61
+  %62 = icmp samesign ult i32 %59, %61
   %or.cond38 = select i1 %60, i1 %62, i1 false
   br i1 %or.cond38, label %63, label %71
 

@@ -97,7 +97,7 @@ define dso_local void @drm_clflush_pages(ptr nocapture noundef readonly %0, i64 
   %30 = getelementptr i8, ptr %26, i64 %29
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09.byte 0x3e; clflush ${0:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ${0:P}\0A6651:\0A.popsection\0A", "=*m,i,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30, i32 0, ptr elementtype(i8) %30) #11, !srcloc !13
   %31 = add nuw nsw i64 %29, %27
-  %32 = icmp ult i64 %31, 4096
+  %32 = icmp samesign ult i64 %31, 4096
   br i1 %32, label %28, label %33, !llvm.loop !14
 
 33:                                               ; preds = %28
@@ -204,7 +204,7 @@ define dso_local void @drm_clflush_sg(ptr nocapture noundef readonly %0) #0 alig
   %39 = getelementptr i8, ptr %35, i64 %38
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09.byte 0x3e; clflush ${0:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ${0:P}\0A6651:\0A.popsection\0A", "=*m,i,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %39, i32 0, ptr elementtype(i8) %39) #11, !srcloc !13
   %40 = add nuw nsw i64 %38, %36
-  %41 = icmp ult i64 %40, 4096
+  %41 = icmp samesign ult i64 %40, 4096
   br i1 %41, label %37, label %42, !llvm.loop !14
 
 42:                                               ; preds = %37

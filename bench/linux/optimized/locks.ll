@@ -7707,7 +7707,7 @@ define internal noundef i32 @filelock_init() #4 section ".init.text" align 16 {
   store ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %10, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %3, !prof !156, !llvm.loop !157
 
 .thread:                                          ; preds = %3, %13, %9

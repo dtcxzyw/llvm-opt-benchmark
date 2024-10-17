@@ -1322,11 +1322,11 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
   br i1 %.not43, label %45, label %43
 
 43:                                               ; preds = %38
-  %44 = icmp ult i32 %42, %39
+  %44 = icmp samesign ult i32 %42, %39
   br i1 %44, label %.sink.split, label %50
 
 45:                                               ; preds = %38
-  %46 = icmp ugt i32 %42, %39
+  %46 = icmp samesign ugt i32 %42, %39
   br i1 %46, label %.sink.split, label %50
 
 .sink.split:                                      ; preds = %45, %43

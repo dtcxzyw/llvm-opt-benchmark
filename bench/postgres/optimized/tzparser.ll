@@ -119,7 +119,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   br label %222
 
 ._crit_edge:                                      ; preds = %13, %5
-  %27 = icmp ugt i32 %1, 3
+  %27 = icmp samesign ugt i32 %1, 3
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %._crit_edge

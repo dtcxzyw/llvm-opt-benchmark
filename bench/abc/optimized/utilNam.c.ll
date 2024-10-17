@@ -2257,7 +2257,7 @@ Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.
   %80 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
   store i32 %79, ptr %80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = icmp ult i64 %indvars.iv.next, %36
+  %81 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %81, label %37, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %Abc_NamStrHashFind.exit, %16, %Vec_IntStart.exit, %Vec_IntAlloc.exit.i

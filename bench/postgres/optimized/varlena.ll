@@ -8013,7 +8013,7 @@ define dso_local noundef ptr @replace_text_regexp(ptr noundef %0, ptr noundef %1
 
 check_replace_text_has_escape.exit:               ; preds = %.lr.ph.i, %82, %87, %70
   %.0.i = phi i32 [ 0, %70 ], [ 2, %82 ], [ %.02536.i, %.lr.ph.i ], [ %.126.i, %87 ]
-  %89 = icmp ult i32 %.0.i, 2
+  %89 = icmp samesign ult i32 %.0.i, 2
   %90 = or i32 %3, 16
   %spec.select = select i1 %89, i64 1, i64 10
   %spec.select98 = select i1 %89, i32 %90, i32 %3
@@ -9949,7 +9949,7 @@ define dso_local noundef i64 @to_bin32(ptr nocapture noundef readonly %0) local_
   store i8 %10, ptr %11, align 1
   %12 = lshr i64 %.011.i, 1
   %13 = icmp ugt ptr %11, %2
-  %14 = icmp ugt i64 %.011.i, 1
+  %14 = icmp samesign ugt i64 %.011.i, 1
   %15 = and i1 %14, %13
   br i1 %15, label %7, label %convert_to_base.exit, !llvm.loop !43
 
@@ -10034,7 +10034,7 @@ define dso_local noundef i64 @to_oct32(ptr nocapture noundef readonly %0) local_
   store i8 %10, ptr %11, align 1
   %12 = lshr i64 %.011.i, 3
   %13 = icmp ugt ptr %11, %2
-  %14 = icmp ugt i64 %.011.i, 7
+  %14 = icmp samesign ugt i64 %.011.i, 7
   %15 = and i1 %14, %13
   br i1 %15, label %7, label %convert_to_base.exit, !llvm.loop !43
 
@@ -10119,7 +10119,7 @@ define dso_local noundef i64 @to_hex32(ptr nocapture noundef readonly %0) local_
   store i8 %10, ptr %11, align 1
   %12 = lshr i64 %.011.i, 4
   %13 = icmp ugt ptr %11, %2
-  %14 = icmp ugt i64 %.011.i, 15
+  %14 = icmp samesign ugt i64 %.011.i, 15
   %15 = and i1 %14, %13
   br i1 %15, label %7, label %convert_to_base.exit, !llvm.loop !43
 
@@ -13513,7 +13513,7 @@ define dso_local noundef i64 @unistr(ptr nocapture noundef readonly %0) local_un
   br label %236
 
 41:                                               ; preds = %33
-  %42 = icmp ugt i32 %.082147, 4
+  %42 = icmp samesign ugt i32 %.082147, 4
   br i1 %42, label %43, label %.thread134
 
 43:                                               ; preds = %41
@@ -13666,7 +13666,7 @@ hexval_n.exit:                                    ; preds = %hexval.exit.i
   br label %236
 
 117:                                              ; preds = %isxdigits_n.exit98, %55
-  %118 = icmp ugt i32 %.082147, 7
+  %118 = icmp samesign ugt i32 %.082147, 7
   br i1 %118, label %119, label %.thread134
 
 119:                                              ; preds = %117
@@ -13784,7 +13784,7 @@ hexval_n.exit114:                                 ; preds = %hexval.exit.i110
   br label %236
 
 173:                                              ; preds = %isxdigits_n.exit104, %119
-  %174 = icmp ugt i32 %.082147, 9
+  %174 = icmp samesign ugt i32 %.082147, 9
   %175 = icmp eq i8 %35, 85
   %or.cond = and i1 %174, %175
   br i1 %or.cond, label %176, label %.thread134

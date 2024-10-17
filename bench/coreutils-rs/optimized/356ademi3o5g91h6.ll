@@ -683,7 +683,7 @@ define hidden void @"_ZN4core3ptr1021drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !182, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -739,7 +739,7 @@ define hidden void @"_ZN4core3ptr1025drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !199, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -814,7 +814,7 @@ define hidden void @"_ZN4core3ptr1039drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !228, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -1382,7 +1382,7 @@ define hidden void @"_ZN4core3ptr1083drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %2 = load i64, ptr %0, align 8, !range !181, !alias.scope !391, !noundef !17
-  %switch.i.i = icmp ult i64 %2, 2
+  %switch.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr202drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$$GT$17hcb8e15d489d4c4e0E.exit", label %3
 
 3:                                                ; preds = %1
@@ -1438,7 +1438,7 @@ define hidden void @"_ZN4core3ptr1084drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !408, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -1494,7 +1494,7 @@ define hidden void @"_ZN4core3ptr1088drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !425, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -1623,7 +1623,7 @@ define hidden void @"_ZN4core3ptr1102drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !468, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -1779,7 +1779,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$c
 define hidden void @"_ZN4core3ptr112drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$$GT$17hcf422f4669ca891cE.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   %2 = load i64, ptr %0, align 8, !range !181, !alias.scope !510, !noundef !17
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hfe9b0df3a7f95a28E.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -4354,7 +4354,7 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$core..iter..adapters..peeka
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr172drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h30b50054f4ad8033E.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !181, !noundef !17
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -5177,7 +5177,7 @@ define hidden void @"_ZN4core3ptr201drop_in_place$LT$$u5b$core..option..Option$L
 define hidden void @"_ZN4core3ptr202drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$$GT$17hcb8e15d489d4c4e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1822)
   %2 = load i64, ptr %0, align 8, !range !181, !alias.scope !1822, !noundef !17
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr172drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h30b50054f4ad8033E.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -6322,7 +6322,7 @@ define hidden void @"_ZN4core3ptr2341drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2233)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !2236, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr330drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$$GT$17h53907ba627acbad4E.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -6533,7 +6533,7 @@ define hidden void @"_ZN4core3ptr2404drop_in_place$LT$rayon_core..job..StackJob$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2322)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2325)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !2328, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr330drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$$GT$17h53907ba627acbad4E.llvm.3531809010164697281.exit", label %4
 
 4:                                                ; preds = %1
@@ -7639,7 +7639,7 @@ define hidden void @"_ZN4core3ptr295drop_in_place$LT$std..thread..Builder..spawn
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr300drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$17h3471478c884a2866E.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !181, !noundef !17
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -7812,7 +7812,7 @@ define hidden void @"_ZN4core3ptr308drop_in_place$LT$$LP$alloc..collections..lin
 define hidden void @"_ZN4core3ptr330drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$$GT$17h53907ba627acbad4E.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2657)
   %2 = load i64, ptr %0, align 8, !range !181, !alias.scope !2657, !noundef !17
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr300drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$RP$$GT$$GT$17h3471478c884a2866E.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -12130,7 +12130,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..
 19:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h9442d4e3c10481a8E.llvm.3531809010164697281.exit90"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4881)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4884)
-  %switch.i.i.i = icmp ult i64 %17, 4
+  %switch.i.i.i = icmp samesign ult i64 %17, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h3330281bf6b092e9E.exit", label %20
 
 20:                                               ; preds = %19
@@ -12618,7 +12618,7 @@ define hidden void @"_ZN4core3ptr532drop_in_place$LT$rayon_core..job..StackJob$L
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4965)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !4968, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17h2f1cc0c8ce884436E.exit", label %4
 
 4:                                                ; preds = %1
@@ -12674,7 +12674,7 @@ define hidden void @"_ZN4core3ptr534drop_in_place$LT$rayon_core..job..StackJob$L
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4979)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4982)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !4985, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17h2f1cc0c8ce884436E.exit", label %4
 
 4:                                                ; preds = %1
@@ -12791,7 +12791,7 @@ define hidden void @"_ZN4core3ptr541drop_in_place$LT$rayon_core..job..StackJob$L
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5029)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5032)
   %3 = load i64, ptr %2, align 8, !range !181, !alias.scope !5035, !noundef !17
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17h2f1cc0c8ce884436E.exit", label %4
 
 4:                                                ; preds = %1
@@ -14615,7 +14615,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
 166:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$alloc..raw_vec..RawVec$LT$clap_builder..builder..command..Command$GT$$GT$17hbfcb94622d8e64dcE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
-  %switch.i.i.i = icmp ult i64 %164, 4
+  %switch.i.i.i = icmp samesign ult i64 %164, 4
   br i1 %switch.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h3330281bf6b092e9E.exit", label %167
 
 167:                                              ; preds = %166
@@ -15001,7 +15001,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..build
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr63drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$17hf0d7ad3bd986ba1cE.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !181, !noundef !17
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -15616,7 +15616,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$core..result..IntoIter$LT$st
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h7e32dd40105ba36bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6449)
   %2 = load i64, ptr %0, align 8, !range !6452, !alias.scope !6449, !noundef !17
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr74drop_in_place$LT$clap_builder..builder..value_parser..ValueParserInner$GT$17h6d0d587ddeb371c7E.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -16255,7 +16255,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$clap_builder..builder..value_parser..ValueParserInner$GT$17h6d0d587ddeb371c7E.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !6452, !noundef !17
-  %switch = icmp ult i64 %2, 4
+  %switch = icmp samesign ult i64 %2, 4
   br i1 %switch, label %"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$17h7eed245ab6100746E.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -17649,7 +17649,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$GT$$GT$17hfe9b0df3a7f95a28E.llvm.3531809010164697281"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !181, !noundef !17
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -18957,7 +18957,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$std..io..buffered..bufwriter
 define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$$GT$17h2f1cc0c8ce884436E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7824)
   %2 = load i64, ptr %0, align 8, !range !181, !alias.scope !7824, !noundef !17
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr63drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$$RP$$GT$$GT$17hf0d7ad3bd986ba1cE.llvm.3531809010164697281.exit", label %3
 
 3:                                                ; preds = %1
@@ -19418,7 +19418,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8145)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h7e32dd40105ba36bE.exit", label %5
 
 5:                                                ; preds = %4

@@ -1651,11 +1651,11 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnul
   %212 = load i8, ptr %30, align 8
   %213 = zext i8 %212 to i32
   %214 = or disjoint i32 %211, %213
-  %215 = icmp ult i32 %214, 65533
+  %215 = icmp samesign ult i32 %214, 65533
   br i1 %215, label %216, label %227
 
 216:                                              ; preds = %201
-  %217 = icmp ult i32 %214, %49
+  %217 = icmp samesign ult i32 %214, %49
   br i1 %217, label %218, label %225
 
 218:                                              ; preds = %216
@@ -2489,7 +2489,7 @@ define internal i32 @cabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
   br i1 %.not59.i, label %151, label %122
 
 122:                                              ; preds = %111
-  %.not22.i.i = icmp ult i32 %93, 4
+  %.not22.i.i = icmp samesign ult i32 %93, 4
   br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %122

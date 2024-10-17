@@ -1252,7 +1252,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
   %48 = add i16 %.0104, 1
-  %.not = icmp ugt i16 %48, %31
+  %.not = icmp samesign ugt i16 %48, %31
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
 .preheader.preheader:                             ; preds = %get_gist_range_class.exit, %1
@@ -1325,7 +1325,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %80 = getelementptr i8, ptr %78, i64 -16
   call void @range_deserialize(ptr noundef %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
   %81 = add i16 %.0244.i, 1
-  %.not.i77 = icmp ugt i16 %81, %71
+  %.not.i77 = icmp samesign ugt i16 %81, %71
   br i1 %.not.i77, label %._crit_edge.i, label %72, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %72
@@ -1723,7 +1723,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %.2172.i = phi ptr [ %.0170319.i, %222 ], [ %.1171.i, %230 ], [ %.0170319.i, %241 ]
   %248 = add i16 %.1320.i, 1
   %249 = zext i16 %248 to i32
-  %.not203.i = icmp ugt i16 %248, %71
+  %.not203.i = icmp samesign ugt i16 %248, %71
   br i1 %.not203.i, label %._crit_edge323.i, label %195, !llvm.loop !14
 
 ._crit_edge323.i:                                 ; preds = %247
@@ -1993,7 +1993,7 @@ get_gist_range_class.exit.i:                      ; preds = %353, %344
   %381 = getelementptr i16, ptr %.sink41.i, i64 %380
   store i16 %.03336.i, ptr %381, align 2
   %382 = add i16 %.03336.i, 1
-  %.not.i82 = icmp ugt i16 %382, %343
+  %.not.i82 = icmp samesign ugt i16 %382, %343
   br i1 %.not.i82, label %._crit_edge.loopexit.i, label %344, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %379
@@ -2099,7 +2099,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %47 = load i64, ptr %46, align 8
   %48 = inttoptr i64 %47 to ptr
   %49 = call ptr @pg_detoast_datum(ptr noundef %48) #10
-  %50 = icmp ult i64 %indvars.iv, %41
+  %50 = icmp samesign ult i64 %indvars.iv, %41
   br i1 %50, label %51, label %60
 
 51:                                               ; preds = %42
@@ -2197,7 +2197,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocap
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #10
-  %.not43 = icmp ult i32 %.zext, %14
+  %.not43 = icmp samesign ult i32 %.zext, %14
   br i1 %.not43, label %29, label %20
 
 20:                                               ; preds = %13
@@ -2246,7 +2246,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocap
   store i16 %.03336, ptr %40, align 2
   %41 = add i16 %.03336, 1
   %42 = zext i16 %41 to i32
-  %.not = icmp ugt i16 %41, %12
+  %.not = icmp samesign ugt i16 %41, %12
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %38

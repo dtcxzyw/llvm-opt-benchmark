@@ -316,7 +316,7 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #5 align
   call void @_raw_spin_unlock_irqrestore(ptr noundef %28, i64 noundef %29) #13
   %107 = add nuw nsw i64 %20, 1
   %108 = and i64 %107, 127
-  %109 = icmp ugt i64 %108, 63
+  %109 = icmp samesign ugt i64 %108, 63
   br i1 %109, label %.thread, label %13, !prof !13, !llvm.loop !14
 
 .thread:                                          ; preds = %13, %.thread5, %19

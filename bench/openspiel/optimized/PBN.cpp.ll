@@ -28,8 +28,8 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture nou
 
 4:                                                ; preds = %.preheader
   %5 = icmp ne i8 %3, 115
-  %6 = icmp ult i64 %indvars.iv, 3
-  %or.cond = and i1 %6, %5
+  %6 = icmp samesign ult i64 %indvars.iv, 3
+  %or.cond = select i1 %5, i1 %6, i1 false
   br i1 %or.cond, label %7, label %.critedge
 
 7:                                                ; preds = %4
@@ -38,7 +38,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture nou
   br label %.preheader, !llvm.loop !4
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %4
-  %8 = icmp ugt i64 %indvars.iv, 2
+  %8 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %8, label %.critedge2, label %9
 
 9:                                                ; preds = %.critedge
@@ -285,7 +285,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   %23 = getelementptr inbounds [52 x i32], ptr %8, i64 0, i64 %15
   store i32 %20, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %24 = icmp ult i64 %indvars.iv.next, %9
+  %24 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %24, label %10, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %14, %22, %10, %4, %2

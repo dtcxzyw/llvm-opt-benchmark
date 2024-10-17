@@ -640,7 +640,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   store i32 %shl.i22.i, ptr %nr_pstreams.i.i, align 4
   %conv.i.i.i = zext i32 %shl.i22.i to i64
   %call.i.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i.i, i64 noundef 32) #18
-  %cmp8.not.i.i.i = icmp ugt i32 %and13.i, 30
+  %cmp8.not.i.i.i = icmp samesign ugt i32 %and13.i, 30
   br i1 %cmp8.not.i.i.i, label %xhci_alloc_streams.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end.i.i, %for.body.i.i.i
@@ -860,7 +860,7 @@ if.end.i:                                         ; preds = %if.then
   store i32 %shl.i22, ptr %nr_pstreams.i, align 4
   %conv.i.i = zext i32 %shl.i22 to i64
   %call.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 32) #18
-  %cmp8.not.i.i = icmp ugt i32 %and13, 30
+  %cmp8.not.i.i = icmp samesign ugt i32 %and13, 30
   br i1 %cmp8.not.i.i, label %xhci_alloc_streams.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.body.i.i
@@ -2126,7 +2126,7 @@ sw.bb15.i:                                        ; preds = %sw.bb.i, %if.end.i1
   br i1 %tobool20.not.i, label %for.inc.sink.split.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %sw.bb15.i
-  %cmp22.i = icmp ugt i32 %and17.i, 8
+  %cmp22.i = icmp samesign ugt i32 %and17.i, 8
   br i1 %cmp22.i, label %err.i, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then21.i
@@ -3074,7 +3074,7 @@ if.end31:                                         ; preds = %if.end31.lr.ph, %if
   %trb.val = load i32, ptr %control, align 4
   %shr.i = lshr i32 %trb.val, 10
   %and.i35 = and i32 %shr.i, 63
-  %cmp.not.i.i = icmp ult i32 %and.i35, 51
+  %cmp.not.i.i = icmp samesign ult i32 %and.i35, 51
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %trb_name.exit
 
 lor.lhs.false.i.i:                                ; preds = %if.end31
@@ -3560,7 +3560,7 @@ if.end:                                           ; preds = %if.then, %entry
   %9 = load i32, ptr %er_ep_idx, align 4
   %shr.i = lshr i32 %8, 10
   %and.i = and i32 %shr.i, 63
-  %cmp.not.i.i = icmp ult i32 %and.i, 51
+  %cmp.not.i.i = icmp samesign ult i32 %and.i, 51
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %trb_name.exit
 
 lor.lhs.false.i.i:                                ; preds = %if.end
@@ -3771,7 +3771,7 @@ while.cond.sink.split:                            ; preds = %entry, %while.body
 while.cond:                                       ; preds = %while.cond.sink.split, %entry
   %1 = phi i32 [ %0, %entry ], [ %.sink56, %while.cond.sink.split ]
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %tobool.not = icmp ult i32 %2, 2
+  %tobool.not = icmp samesign ult i32 %2, 2
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
@@ -8219,7 +8219,7 @@ for.body.i.i293.i:                                ; preds = %for.body.i.i293.i, 
   %indvars.iv.next.i.i295.i = add nuw nsw i64 %indvars.iv.i.i294.i, 1
   %203 = load i32, ptr %nr_pstreams.i.i, align 4
   %204 = zext i32 %203 to i64
-  %cmp.i.i296.i = icmp ult i64 %indvars.iv.next.i.i295.i, %204
+  %cmp.i.i296.i = icmp samesign ult i64 %indvars.iv.next.i.i295.i, %204
   br i1 %cmp.i.i296.i, label %for.body.i.i293.i, label %xhci_stop_ep.exit.i, !llvm.loop !33
 
 xhci_stop_ep.exit.i:                              ; preds = %for.body.i.i293.i, %if.end12.i.i, %if.end5.i.i, %if.end.i288.i
@@ -8351,7 +8351,7 @@ for.body.i.i352.i:                                ; preds = %for.body.i.i352.i, 
   %indvars.iv.next.i.i355.i = add nuw nsw i64 %indvars.iv.i.i353.i, 1
   %221 = load i32, ptr %nr_pstreams.i348.i, align 4
   %222 = zext i32 %221 to i64
-  %cmp.i.i356.i = icmp ult i64 %indvars.iv.next.i.i355.i, %222
+  %cmp.i.i356.i = icmp samesign ult i64 %indvars.iv.next.i.i355.i, %222
   br i1 %cmp.i.i356.i, label %for.body.i.i352.i, label %xhci_reset_ep.exit.i, !llvm.loop !33
 
 xhci_reset_ep.exit.i:                             ; preds = %for.body.i.i352.i, %if.end48.i.i, %lor.lhs.false39.i.i, %lor.lhs.false32.i.i, %if.end21.i.i, %if.end12.i343.i, %if.end5.i333.i, %if.end.i331.i
@@ -8816,7 +8816,7 @@ if.else10:                                        ; preds = %if.end
   %numslots = getelementptr inbounds i8, ptr %ptr, i64 1740
   %281 = load i32, ptr %numslots, align 4
   %conv15 = zext i32 %281 to i64
-  %cmp16 = icmp ugt i64 %shr, %conv15
+  %cmp16 = icmp samesign ugt i64 %shr, %conv15
   %282 = add nsw i32 %conv11, -32
   %or.cond = icmp ult i32 %282, -31
   %or.cond13 = select i1 %cmp16, i1 true, i1 %or.cond
@@ -9379,7 +9379,7 @@ sw.bb19:                                          ; preds = %if.then13
   br i1 %cmp.not, label %if.end42.thread, label %if.then50
 
 sw.bb26:                                          ; preds = %if.then13
-  %cmp27 = icmp ult i32 %and15, 3
+  %cmp27 = icmp samesign ult i32 %and15, 3
   br i1 %cmp27, label %do.body30, label %if.end42.thread
 
 do.body30:                                        ; preds = %sw.bb26

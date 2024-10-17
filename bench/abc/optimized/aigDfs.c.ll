@@ -1818,7 +1818,7 @@ Aig_ManObj.exit:                                  ; preds = %22, %26
   %34 = load i64, ptr %6, align 8
   %35 = trunc i64 %34 to i32
   %36 = lshr i32 %35, 6
-  %37 = icmp ult i32 %33, %36
+  %37 = icmp samesign ult i32 %33, %36
   br i1 %37, label %12, label %.critedge.loopexit, !llvm.loop !21
 
 .critedge.loopexit:                               ; preds = %Aig_ManObj.exit

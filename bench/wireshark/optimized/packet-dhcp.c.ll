@@ -3406,7 +3406,7 @@ define internal void @dhcp_init_protocol() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr @num_dhcp_records_uat, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
@@ -6841,11 +6841,11 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
 
 203:                                              ; preds = %198
   %204 = zext nneg i8 %119 to i32
-  %205 = icmp ugt i8 %119, 30
+  %205 = icmp samesign ugt i8 %119, 30
   br i1 %205, label %225, label %206
 
 206:                                              ; preds = %203
-  %207 = icmp ugt i8 %119, 21
+  %207 = icmp samesign ugt i8 %119, 21
   br i1 %207, label %208, label %214
 
 208:                                              ; preds = %206
@@ -7365,7 +7365,7 @@ define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, 
   %29 = add i32 %.130.us37, 4
   %30 = add nuw nsw i32 %23, 4
   %31 = and i32 %30, 255
-  %32 = icmp ult i32 %31, %13
+  %32 = icmp samesign ult i32 %31, %13
   br i1 %32, label %.lr.ph38, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph38, %26, %.lr.ph41

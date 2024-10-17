@@ -2046,7 +2046,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit:        ; preds = %_ZNK5XPage22object_
   %.not.i.i.i.i = icmp eq i64 %21, 0
   %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 false)
   %spec.select.i = select i1 %.not.i.i.i.i, i64 %22, i64 0
-  %23 = icmp ult i64 %spec.select.i, 64
+  %23 = icmp samesign ult i64 %spec.select.i, 64
   br i1 %23, label %.lr.ph.i.preheader, label %_ZN8XLiveMap7iterateEP13ObjectClosuremm.exit
 
 .lr.ph.i.preheader:                               ; preds = %18
@@ -2070,7 +2070,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit:        ; preds = %_ZNK5XPage22object_
 30:                                               ; preds = %28
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 true)
   %32 = add nuw nsw i64 %31, %24
-  %33 = icmp ult i64 %32, 64
+  %33 = icmp samesign ult i64 %32, 64
   br i1 %33, label %_ZNK8XLiveMap17next_live_segmentEm.exit.i, label %_ZN8XLiveMap7iterateEP13ObjectClosuremm.exit
 
 _ZNK8XLiveMap17next_live_segmentEm.exit.i:        ; preds = %30, %.lr.ph
@@ -2118,7 +2118,7 @@ define linkonce_odr hidden void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosurem
 27:                                               ; preds = %30, %24
   %.025.i.i = phi i64 [ %15, %24 ], [ %28, %30 ]
   %28 = add nuw nsw i64 %.025.i.i, 1
-  %29 = icmp ult i64 %28, %26
+  %29 = icmp samesign ult i64 %28, %26
   br i1 %29, label %30, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
 30:                                               ; preds = %27
@@ -2273,7 +2273,7 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
 .preheader:                                       ; preds = %124, %128
   %.025.i.i29 = phi i64 [ %126, %128 ], [ %117, %124 ]
   %126 = add nuw nsw i64 %.025.i.i29, 1
-  %127 = icmp ult i64 %126, %47
+  %127 = icmp samesign ult i64 %126, %47
   br i1 %127, label %128, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
 128:                                              ; preds = %.preheader

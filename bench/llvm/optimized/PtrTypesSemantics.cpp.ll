@@ -790,7 +790,7 @@ define dso_local range(i16 0, 258) i16 @_ZN5clang11isUncountedEPKNS_13CXXRecordD
 
 3:                                                ; preds = %1
   %4 = tail call i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr noundef nonnull %0)
-  %.not = icmp ult i16 %4, 256
+  %.not = icmp samesign ult i16 %4, 256
   %5 = and i16 %4, 1
   %6 = or disjoint i16 %5, 256
   %7 = select i1 %.not, i16 0, i16 %6
@@ -863,7 +863,7 @@ define dso_local range(i16 0, 512) i16 @_ZN5clang14isUncountedPtrEPKNS_4TypeE(pt
 
 12:                                               ; preds = %10
   %13 = tail call i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr noundef nonnull %9)
-  %.not.i = icmp ult i16 %13, 256
+  %.not.i = icmp samesign ult i16 %13, 256
   %14 = and i16 %13, 1
   %15 = or disjoint i16 %14, 256
   %16 = select i1 %.not.i, i16 0, i16 %15
@@ -1055,7 +1055,7 @@ _ZNK5clang8QualType16getTypePtrOrNullEv.exit:     ; preds = %_ZNK5clang17CXXConv
 
 92:                                               ; preds = %90
   %93 = call i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr noundef nonnull %89)
-  %.not.i.i = icmp ult i16 %93, 256
+  %.not.i.i = icmp samesign ult i16 %93, 256
   %94 = and i16 %93, 1
   %95 = or disjoint i16 %94, 256
   %96 = select i1 %.not.i.i, i16 0, i16 %95
@@ -3497,7 +3497,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysi
 
 25:                                               ; preds = %23
   %26 = tail call i16 @_ZN5clang20isGetterOfRefCountedEPKNS_13CXXMethodDeclE(ptr noundef nonnull %24)
-  %.not9 = icmp ult i16 %26, 256
+  %.not9 = icmp samesign ult i16 %26, 256
   br i1 %.not9, label %29, label %27
 
 27:                                               ; preds = %25

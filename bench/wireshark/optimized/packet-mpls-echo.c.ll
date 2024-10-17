@@ -1183,7 +1183,7 @@ define internal fastcc i32 @dissect_mpls_echo_tlv(ptr noundef %0, ptr noundef %1
   br label %dissect_mpls_echo_tlv_errored.exit
 
 50:                                               ; preds = %34
-  %51 = icmp ult i32 %18, 12
+  %51 = icmp samesign ult i32 %18, 12
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
@@ -1196,7 +1196,7 @@ define internal fastcc i32 @dissect_mpls_echo_tlv(ptr noundef %0, ptr noundef %1
   br label %dissect_mpls_echo_tlv_errored.exit
 
 56:                                               ; preds = %34
-  %57 = icmp ult i32 %18, 24
+  %57 = icmp samesign ult i32 %18, 24
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
@@ -1305,7 +1305,7 @@ proto_item_set_hidden.exit211:                    ; preds = %95, %100, %103
   br label %dissect_mpls_echo_tlv_errored.exit
 
 110:                                              ; preds = %34
-  %111 = icmp ult i32 %18, 4
+  %111 = icmp samesign ult i32 %18, 4
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
@@ -1323,7 +1323,7 @@ proto_item_set_hidden.exit211:                    ; preds = %95, %100, %103
   br label %dissect_mpls_echo_tlv_errored.exit
 
 122:                                              ; preds = %34
-  %123 = icmp ult i32 %18, 16
+  %123 = icmp samesign ult i32 %18, 16
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
@@ -1336,7 +1336,7 @@ proto_item_set_hidden.exit211:                    ; preds = %95, %100, %103
   br label %dissect_mpls_echo_tlv_errored.exit
 
 128:                                              ; preds = %34
-  %129 = icmp ult i32 %18, 16
+  %129 = icmp samesign ult i32 %18, 16
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -1359,7 +1359,7 @@ proto_item_set_hidden.exit211:                    ; preds = %95, %100, %103
   br label %dissect_mpls_echo_tlv_errored.exit
 
 139:                                              ; preds = %134
-  %140 = icmp ugt i32 %18, 3
+  %140 = icmp samesign ugt i32 %18, 3
   br i1 %140, label %.lr.ph.preheader, label %dissect_mpls_echo_tlv_errored.exit
 
 .lr.ph.preheader:                                 ; preds = %139
@@ -1454,7 +1454,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
-  %12 = icmp ugt i32 %4, 3
+  %12 = icmp samesign ugt i32 %4, 3
   br i1 %12, label %.lr.ph514, label %.loopexit482
 
 .lr.ph514:                                        ; preds = %5
@@ -1493,7 +1493,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
   %.0454 = phi ptr [ %30, %18 ], [ null, %13 ]
   %.0453 = phi ptr [ %25, %18 ], [ null, %13 ]
   %32 = add nuw nsw i32 %17, 4
-  %33 = icmp ugt i32 %32, %.0448512
+  %33 = icmp samesign ugt i32 %32, %.0448512
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
@@ -2104,7 +2104,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1450480 = phi i16 [ %.1450, %.loopexit ], [ %.0449511, %226 ], [ %.0449511, %227 ]
   %435 = sub nuw nsw i32 4, %434
   %436 = add nuw nsw i32 %435, %32
-  %437 = icmp ugt i32 %436, %.0448512
+  %437 = icmp samesign ugt i32 %436, %.0448512
   br i1 %437, label %438, label %442
 
 438:                                              ; preds = %.thread476

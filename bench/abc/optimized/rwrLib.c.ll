@@ -90,7 +90,7 @@ define void @Rwr_ManPrecompute(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %51 = lshr i32 %50, 24
   %52 = and i32 %51, 63
   %53 = add nuw nsw i32 %52, %48
-  %54 = icmp ugt i32 %53, 5
+  %54 = icmp samesign ugt i32 %53, 5
   br i1 %54, label %.critedge2.loopexit, label %55
 
 55:                                               ; preds = %45
@@ -438,7 +438,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
 44:                                               ; preds = %41, %10
   %.0.in = phi i32 [ %15, %10 ], [ %43, %41 ]
   %.0 = and i32 %.0.in, 65535
-  %45 = icmp ugt i32 %4, 2
+  %45 = icmp samesign ugt i32 %4, 2
   br i1 %45, label %46, label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %44
@@ -474,7 +474,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   %62 = load i32, ptr %61, align 2
   %63 = lshr i32 %62, 24
   %64 = and i32 %63, 63
-  %65 = icmp ult i32 %64, %4
+  %65 = icmp samesign ult i32 %64, %4
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %.lr.ph

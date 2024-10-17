@@ -4270,7 +4270,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
   %.1136196.us = phi i32 [ %.0135216.us, %.lr.ph198.split.split.us223.preheader ], [ %.2137.us, %.loopexit.us ]
   %.1140195.us = phi i32 [ %.0139215.us, %.lr.ph198.split.split.us223.preheader ], [ %.2141.us, %.loopexit.us ]
   %98 = icmp ne i64 %indvars.iv236, 0
-  %.not168.us = icmp ult i64 %indvars.iv236, %93
+  %.not168.us = icmp samesign ult i64 %indvars.iv236, %93
   %or.cond174.us = select i1 %98, i1 %.not168.us, i1 false
   br i1 %or.cond174.us, label %99, label %184
 
@@ -4456,7 +4456,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
   %185 = mul i32 %85, %95
   %186 = zext i32 %185 to i64
   %scevgep = getelementptr i8, ptr %83, i64 %186
-  %187 = icmp ult i64 %indvars.iv244, %94
+  %187 = icmp samesign ult i64 %indvars.iv244, %94
   %.fr.us = freeze i1 %187
   br i1 %.fr.us, label %.lr.ph198.split.split.us223.preheader, label %._crit_edge199.us.sink.split
 
@@ -4950,7 +4950,7 @@ _ZN2cv6stereoL13prefilterNormERKNS_3MatERS1_iiPh.exit: ; preds = %._crit_edge196
   %.pn.i = select i1 %.not.us.i, i64 %284, i64 %285
   %286 = getelementptr inbounds i8, ptr %283, i64 %.pn.i
   %287 = getelementptr inbounds i8, ptr %283, i64 %284
-  %288 = icmp ult i64 %indvars.iv119.i, %277
+  %288 = icmp samesign ult i64 %indvars.iv119.i, %277
   %289 = shl i64 %284, 1
   %.idx.us.i = select i1 %288, i64 %289, i64 0
   %290 = getelementptr inbounds i8, ptr %283, i64 %.idx.us.i
@@ -5024,7 +5024,7 @@ _ZN2cv6stereoL13prefilterNormERKNS_3MatERS1_iiPh.exit: ; preds = %._crit_edge196
 
 ._crit_edge.us.i14:                               ; preds = %300
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 2
-  %346 = icmp ult i64 %indvars.iv.next120.i, %278
+  %346 = icmp samesign ult i64 %indvars.iv.next120.i, %278
   br i1 %346, label %.lr.ph96.split.us.i, label %.preheader.loopexit.i, !llvm.loop !43
 
 .lr.ph96.split.split.us.preheader.i:              ; preds = %.lr.ph96.i
@@ -5047,7 +5047,7 @@ _ZN2cv6stereoL13prefilterNormERKNS_3MatERS1_iiPh.exit: ; preds = %._crit_edge196
   store i8 %264, ptr %356, align 1
   store i8 %264, ptr %352, align 1
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 2
-  %357 = icmp ult i64 %indvars.iv.next113.i, %347
+  %357 = icmp samesign ult i64 %indvars.iv.next113.i, %347
   br i1 %357, label %.lr.ph96.split.split.us.i, label %.preheader.loopexit108.i, !llvm.loop !43
 
 .preheader.loopexit.i:                            ; preds = %._crit_edge.us.i14
@@ -5923,8 +5923,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IhEclERKNS_5Ra
   %31 = load i32, ptr %9, align 8
   %32 = add nsw i32 %31, -1
   %33 = icmp slt i32 %.059, %32
-  %34 = icmp ugt i32 %.04356, 3
-  %or.cond.not49 = and i1 %34, %33
+  %34 = icmp samesign ugt i32 %.04356, 3
+  %or.cond.not49 = select i1 %33, i1 %34, i1 false
   %35 = add nsw i32 %30, -4
   %.not = icmp slt i32 %.04356, %35
   %or.cond46 = select i1 %or.cond.not49, i1 %.not, i1 false

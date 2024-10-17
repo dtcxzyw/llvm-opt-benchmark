@@ -1050,7 +1050,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_encodeElPKfPh.omp_outlined(ptr
   %87 = or i8 %85, %86
   store i8 %87, ptr %84, align 1
   %88 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp ult i64 %.01318.i, 256
+  %.not16.i = icmp samesign ult i64 %.01318.i, 256
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %66, %74
@@ -1102,7 +1102,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %66, %74
   %116 = or i8 %114, %115
   store i8 %116, ptr %113, align 1
   %117 = lshr i64 %.01318.i37, 8
-  %.not16.i39 = icmp ult i64 %.01318.i37, 256
+  %.not16.i39 = icmp samesign ult i64 %.01318.i37, 256
   br i1 %.not16.i39, label %_ZN5faiss15BitstringWriter5writeEmi.exit40, label %.lr.ph.i35, !llvm.loop !14
 
 _ZN5faiss15BitstringWriter5writeEmi.exit40:       ; preds = %.lr.ph.i35, %95, %103

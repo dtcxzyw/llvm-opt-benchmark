@@ -62,7 +62,7 @@ for.body12:                                       ; preds = %for.body12.preheade
   %sub.i.i = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %vecinit3.i150, i1 false)
   %add.i163 = add <4 x i32> %sub.i.i, %8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %cmp11 = icmp ult i64 %indvars.iv.next137, %4
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next137, %4
   br i1 %cmp11, label %for.body12, label %for.cond16.preheader.loopexit, !llvm.loop !4
 
 for.cond26.preheader.loopexit:                    ; preds = %for.body18
@@ -87,7 +87,7 @@ for.body18:                                       ; preds = %for.body18.preheade
   %sub.i.i68 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %13, i1 false)
   %add.i160 = add <4 x i32> %sub.i.i68, %12
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 4
-  %cmp17 = icmp ult i64 %indvars.iv.next140, %7
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next140, %7
   br i1 %cmp17, label %for.body18, label %for.cond26.preheader.loopexit, !llvm.loop !6
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
@@ -186,7 +186,7 @@ for.body74:                                       ; preds = %for.body74.preheade
   %27 = bitcast <4 x i32> %permil80 to <2 x i64>
   %add.i173 = add <2 x i64> %mm_sum50.181, %27
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 2
-  %cmp72 = icmp ult i64 %indvars.iv.next123, %20
+  %cmp72 = icmp samesign ult i64 %indvars.iv.next123, %20
   br i1 %cmp72, label %for.body74, label %for.cond85.preheader.loopexit, !llvm.loop !10
 
 for.body88:                                       ; preds = %for.body88.preheader, %for.body88

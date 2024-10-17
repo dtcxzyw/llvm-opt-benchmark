@@ -819,7 +819,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load i8, ptr %127, align 8
   %129 = zext i8 %128 to i64
-  %130 = icmp ult i64 %125, %129
+  %130 = icmp samesign ult i64 %125, %129
   br i1 %130, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %118, %107

@@ -794,7 +794,7 @@ if.end7:                                          ; preds = %if.end
   %arrayidx9 = getelementptr inbounds i8, ptr %b.addr.025, i64 16
   %2 = load i64, ptr %arrayidx9, align 8
   %call10 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %arrayidx8, ptr noundef %a, i32 noundef %dec4, i64 noundef %2) #4
-  %cmp12 = icmp ult i32 %n.addr.026, 4
+  %cmp12 = icmp samesign ult i32 %n.addr.026, 4
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end7

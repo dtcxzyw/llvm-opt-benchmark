@@ -27380,7 +27380,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 28:                                               ; preds = %23
   %29 = load i64, ptr %8, align 8, !range !9, !alias.scope !7228, !noundef !5
-  %switch.i = icmp ult i64 %29, 2
+  %switch.i = icmp samesign ult i64 %29, 2
   br i1 %switch.i, label %"_ZN4core3ptr88drop_in_place$LT$futures_util..future..try_join_all..FinalState$LT$anyhow..Error$GT$$GT$17h2b569b13fd888eaeE.exit", label %30
 
 30:                                               ; preds = %28
@@ -27389,7 +27389,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 31:                                               ; preds = %25
   %32 = load i64, ptr %8, align 8, !range !9, !alias.scope !7231, !noundef !5
-  %switch.i21 = icmp ult i64 %32, 2
+  %switch.i21 = icmp samesign ult i64 %32, 2
   br i1 %switch.i21, label %.thread41, label %33
 
 33:                                               ; preds = %31
@@ -27576,7 +27576,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 28:                                               ; preds = %23
   %29 = load i64, ptr %8, align 8, !range !9, !alias.scope !7234, !noundef !5
-  %switch.i = icmp ult i64 %29, 2
+  %switch.i = icmp samesign ult i64 %29, 2
   br i1 %switch.i, label %"_ZN4core3ptr88drop_in_place$LT$futures_util..future..try_join_all..FinalState$LT$anyhow..Error$GT$$GT$17h2b569b13fd888eaeE.exit", label %30
 
 30:                                               ; preds = %28
@@ -27585,7 +27585,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 31:                                               ; preds = %25
   %32 = load i64, ptr %8, align 8, !range !9, !alias.scope !7237, !noundef !5
-  %switch.i21 = icmp ult i64 %32, 2
+  %switch.i21 = icmp samesign ult i64 %32, 2
   br i1 %switch.i21, label %.thread41, label %33
 
 33:                                               ; preds = %31
@@ -29233,15 +29233,15 @@ default.unreachable9:                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7539)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !7541
-  %93 = icmp ult i32 %92, 128
+  %93 = icmp samesign ult i32 %92, 128
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %90
-  %95 = icmp ult i32 %92, 2048
+  %95 = icmp samesign ult i32 %92, 2048
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i32 %92, 65536
+  %97 = icmp samesign ult i32 %92, 65536
   br i1 %97, label %107, label %118
 
 98:                                               ; preds = %90
@@ -30896,15 +30896,15 @@ default.unreachable64:                            ; preds = %tailrecurse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8021)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !8021
-  %78 = icmp ult i32 %77, 128
+  %78 = icmp samesign ult i32 %77, 128
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %75
-  %80 = icmp ult i32 %77, 2048
+  %80 = icmp samesign ult i32 %77, 2048
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ult i32 %77, 65536
+  %82 = icmp samesign ult i32 %77, 65536
   br i1 %82, label %92, label %103
 
 83:                                               ; preds = %75
@@ -45510,7 +45510,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -45693,7 +45693,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -46986,7 +46986,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %64 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %65 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %66 = icmp ult i32 %.sroa.07.0.i, 309
+  %66 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
 67:                                               ; preds = %61
@@ -47188,7 +47188,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %64 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %65 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %66 = icmp ult i32 %.sroa.07.0.i, 309
+  %66 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
 67:                                               ; preds = %61
@@ -48480,7 +48480,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -48612,7 +48612,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -48913,7 +48913,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -49032,7 +49032,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -50795,7 +50795,7 @@ default.unreachable:                              ; preds = %44, %2
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %48
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %48 ], [ %60, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %49, %48 ], [ %53, %.lr.ph.i.i.i.i ]
-  %51 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %51 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %51, label %67, label %76
 
 .lr.ph.i.i.i.i:                                   ; preds = %48, %.lr.ph.i.i.i.i
@@ -50839,7 +50839,7 @@ default.unreachable:                              ; preds = %44, %2
 76:                                               ; preds = %67, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %72, %67 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %67 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %77 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %77 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %76
@@ -50902,7 +50902,7 @@ default.unreachable:                              ; preds = %44, %2
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i7.i, %104
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %104 ], [ %117, %.lr.ph.i.i.i7.i ]
   %.sroa.0.1.lcssa.i.i.i5.i = phi i64 [ %.sroa.0.0.i.i.i.i, %104 ], [ %110, %.lr.ph.i.i.i7.i ]
-  %108 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i5.i, 99
+  %108 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i5.i, 99
   br i1 %108, label %124, label %133
 
 .lr.ph.i.i.i7.i:                                  ; preds = %104, %.lr.ph.i.i.i7.i
@@ -50946,7 +50946,7 @@ default.unreachable:                              ; preds = %44, %2
 133:                                              ; preds = %124, %._crit_edge.i.i.i4.i
   %.sroa.010.1.i.i.i.i = phi i64 [ %129, %124 ], [ %.sroa.010.0.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.sroa.04.0.i.i.i.i = phi i64 [ %.zext28.i.i.i.i, %124 ], [ %.sroa.0.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %134 = icmp ult i64 %.sroa.04.0.i.i.i.i, 10
+  %134 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i, 10
   br i1 %134, label %141, label %135
 
 135:                                              ; preds = %133
@@ -51742,7 +51742,7 @@ default.unreachable:                              ; preds = %45, %2
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %49
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %49 ], [ %61, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %50, %49 ], [ %54, %.lr.ph.i.i.i.i ]
-  %52 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %52 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %52, label %68, label %77
 
 .lr.ph.i.i.i.i:                                   ; preds = %49, %.lr.ph.i.i.i.i
@@ -51786,7 +51786,7 @@ default.unreachable:                              ; preds = %45, %2
 77:                                               ; preds = %68, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %73, %68 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %68 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %78 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %78 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %78, label %85, label %79
 
 79:                                               ; preds = %77
@@ -51849,7 +51849,7 @@ default.unreachable:                              ; preds = %45, %2
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i7.i, %105
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %105 ], [ %118, %.lr.ph.i.i.i7.i ]
   %.sroa.0.1.lcssa.i.i.i5.i = phi i64 [ %.sroa.0.0.i.i.i.i, %105 ], [ %111, %.lr.ph.i.i.i7.i ]
-  %109 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i5.i, 99
+  %109 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i5.i, 99
   br i1 %109, label %125, label %134
 
 .lr.ph.i.i.i7.i:                                  ; preds = %105, %.lr.ph.i.i.i7.i
@@ -51893,7 +51893,7 @@ default.unreachable:                              ; preds = %45, %2
 134:                                              ; preds = %125, %._crit_edge.i.i.i4.i
   %.sroa.010.1.i.i.i.i = phi i64 [ %130, %125 ], [ %.sroa.010.0.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.sroa.04.0.i.i.i.i = phi i64 [ %.zext28.i.i.i.i, %125 ], [ %.sroa.0.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %135 = icmp ult i64 %.sroa.04.0.i.i.i.i, 10
+  %135 = icmp samesign ult i64 %.sroa.04.0.i.i.i.i, 10
   br i1 %135, label %142, label %136
 
 136:                                              ; preds = %134
@@ -52882,7 +52882,7 @@ define hidden void @"_ZN112_$LT$html5ever..driver..Parser$LT$Sink$GT$$u20$as$u20
   %182 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !14148
   %183 = icmp ult i64 %182, 6
   call void @llvm.assume(i1 %183)
-  %switch.i.i = icmp ult i64 %182, 4
+  %switch.i.i = icmp samesign ult i64 %182, 4
   br i1 %switch.i.i, label %186, label %184
 
 default.unreachable:                              ; preds = %186
@@ -53147,7 +53147,7 @@ default.unreachable:                              ; preds = %186
 
 226:                                              ; preds = %186
   %227 = load i8, ptr %163, align 1, !range !3273, !alias.scope !14148, !noundef !5
-  %switch58.not.i.i = icmp ult i8 %227, 2
+  %switch58.not.i.i = icmp samesign ult i8 %227, 2
   br i1 %switch58.not.i.i, label %194, label %188
 
 228:                                              ; preds = %186
@@ -56766,7 +56766,7 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 15:                                               ; preds = %6
   %16 = lshr i64 %4, 4
   %17 = and i64 %16, 15
-  %18 = icmp ugt i64 %17, 7
+  %18 = icmp samesign ugt i64 %17, 7
   br i1 %18, label %19, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i"
 
 19:                                               ; preds = %15
@@ -56819,7 +56819,7 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 40:                                               ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfff162abaa7425d8E.llvm.3474792849321645876.exit"
   %41 = lshr i64 %3, 4
   %42 = and i64 %41, 15
-  %43 = icmp ugt i64 %42, 7
+  %43 = icmp samesign ugt i64 %42, 7
   br i1 %43, label %44, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i3"
 
 44:                                               ; preds = %40
@@ -58242,7 +58242,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i.i"
 
 17:                                               ; preds = %13
@@ -58305,7 +58305,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i.i"
 
 17:                                               ; preds = %13
@@ -58368,7 +58368,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 13:                                               ; preds = %2
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i.i"
 
 17:                                               ; preds = %13
@@ -78536,15 +78536,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h0c84795f1e5c6ef2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -78631,15 +78631,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h1f8de23885c429ed
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -78723,15 +78723,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h2615f1ff2f7c5997
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -78815,15 +78815,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h320e8a1e5b75b0d1
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -78913,15 +78913,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3719cf1b82efa8e8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -79008,15 +79008,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h486670c98e00789c
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79104,15 +79104,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h609b035cf612326c
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79196,15 +79196,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h8a1811ebbf9c6173
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79292,15 +79292,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h96756fe23a5b1914
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79388,15 +79388,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17ha529512baf66010c
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79486,15 +79486,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hcd3c251f4e96ac4b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %7 = icmp ult i32 %2, 128
+  %7 = icmp samesign ult i32 %2, 128
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ult i32 %2, 2048
+  %9 = icmp samesign ult i32 %2, 2048
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %2, 65536
+  %11 = icmp samesign ult i32 %2, 65536
   %12 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %11, label %23, label %35
 
@@ -79581,15 +79581,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hd1e6087987734fac
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79673,15 +79673,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hdd949c286b0797ca
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79767,15 +79767,15 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %10, label %22, label %34
 
@@ -79858,15 +79858,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hea6c93241d3dac53
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -79950,15 +79950,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hf1d5c43471a71bc0
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -106652,7 +106652,7 @@ define hidden noundef zeroext i1 @_ZN6chrono6format10formatting13write_rfc282217
   %11 = add nuw nsw i32 %9, %10
   %.lhs.trunc = trunc nuw nsw i32 %11 to i16
   %12 = urem i16 %.lhs.trunc, 7
-  %13 = icmp ult i16 %12, 6
+  %13 = icmp samesign ult i16 %12, 6
   %narrow = add nuw nsw i16 %12, 1
   %narrow82 = select i1 %13, i16 %narrow, i16 0
   %14 = zext nneg i16 %narrow82 to i64
@@ -106704,7 +106704,7 @@ _ZN6chrono6format10formatting14write_hundreds17h50e781a3690f499bE.exit: ; preds 
   %38 = lshr i32 %4, 3
   %39 = and i32 %38, 1023
   %40 = zext nneg i32 %39 to i64
-  %41 = icmp ult i32 %39, 733
+  %41 = icmp samesign ult i32 %39, 733
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h2ba0f20a474d1c4aE.llvm.3474792849321645876.exit55"
@@ -106714,7 +106714,7 @@ _ZN6chrono6format10formatting14write_hundreds17h50e781a3690f499bE.exit: ; preds 
   %46 = add nuw nsw i32 %39, %45
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 31
-  %49 = icmp ult i32 %48, 10
+  %49 = icmp samesign ult i32 %48, 10
   br i1 %49, label %58, label %_ZN6chrono6format10formatting14write_hundreds17h50e781a3690f499bE.exit.thread
 
 50:                                               ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h2ba0f20a474d1c4aE.llvm.3474792849321645876.exit55"
@@ -107023,7 +107023,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.3474792849321645876.exit: 
   %55 = lshr i32 %34, 3
   %56 = and i32 %55, 1023
   %57 = zext nneg i32 %56 to i64
-  %58 = icmp ult i32 %56, 733
+  %58 = icmp samesign ult i32 %56, 733
   br i1 %58, label %75, label %89
 
 _ZN6chrono6format10formatting14write_hundreds17h50e781a3690f499bE.exit174.thread: ; preds = %5
@@ -107057,12 +107057,12 @@ _ZN6chrono6format10formatting14write_hundreds17h50e781a3690f499bE.exit174.thread
   %78 = zext i8 %77 to i32
   %79 = add nuw nsw i32 %56, %78
   %80 = lshr i32 %79, 6
-  %.cmp = icmp ugt i32 %79, 639
+  %.cmp = icmp samesign ugt i32 %79, 639
   %81 = zext i1 %.cmp to i32
   %82 = or disjoint i32 %81, 48
   call void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.3474792849321645876(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %82)
   %.urem = add nuw nsw i32 %80, 246
-  %.cmp189 = icmp ult i32 %79, 640
+  %.cmp189 = icmp samesign ult i32 %79, 640
   %83 = select i1 %.cmp189, i32 %80, i32 %.urem
   %84 = and i32 %83, 207
   %85 = or disjoint i32 %84, 48
@@ -109159,7 +109159,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.01.1.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.01.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -109172,7 +109172,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %.sroa.03.0.i10 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %.sroa.0.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.03.0.i10, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -113492,15 +113492,15 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7"
 
 71:                                               ; preds = %68
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %76, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit"
 
@@ -116254,7 +116254,7 @@ define hidden { ptr, i64 } @"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
 11:                                               ; preds = %1
   %12 = lshr i64 %2, 4
   %13 = and i64 %12, 15
-  %14 = icmp ugt i64 %13, 7
+  %14 = icmp samesign ugt i64 %13, 7
   br i1 %14, label %15, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit"
 
 15:                                               ; preds = %11
@@ -116729,7 +116729,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
 41:                                               ; preds = %33, %._crit_edge.i.i.i.i
   %.sroa.010.1.i.i.i.i = phi i64 [ 3, %33 ], [ 5, %._crit_edge.i.i.i.i ]
   %.sroa.04.0.in.i.i.i.i = phi i16 [ %37, %33 ], [ %.val8, %._crit_edge.i.i.i.i ]
-  %42 = icmp ult i16 %.sroa.04.0.in.i.i.i.i, 10
+  %42 = icmp samesign ult i16 %.sroa.04.0.in.i.i.i.i, 10
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %41
@@ -117109,7 +117109,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit ], [ %29, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit ], [ %22, %.lr.ph.i.i.i.i ]
-  %20 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %20 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit, %.lr.ph.i.i.i.i
@@ -117153,7 +117153,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
 45:                                               ; preds = %36, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %41, %36 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %36 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %46 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45
@@ -118190,7 +118190,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
   %.sroa.012.0.lcssa.i.i.i.i = phi i64 [ 10, %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i32 [ %.val8, %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit ], [ %23, %.lr.ph.i.i.i.i ]
   %20 = zext nneg i32 %.sroa.0.1.lcssa.i.i.i.i to i64
-  %21 = icmp ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
+  %21 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %21, label %37, label %46
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit, %.lr.ph.i.i.i.i
@@ -118234,7 +118234,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
 46:                                               ; preds = %37, %._crit_edge.i.i.i.i
   %.sroa.012.1.i.i.i.i = phi i64 [ %42, %37 ], [ %.sroa.012.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.06.0.i.i.i.i = phi i64 [ %.zext30.i.i.i.i, %37 ], [ %20, %._crit_edge.i.i.i.i ]
-  %47 = icmp ult i64 %.sroa.06.0.i.i.i.i, 10
+  %47 = icmp samesign ult i64 %.sroa.06.0.i.i.i.i, 10
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %46
@@ -144025,15 +144025,15 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$10cr
   store i64 0, ptr %.sroa.6.0..sroa_idx4.i, align 8, !alias.scope !41429
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %24 = icmp ult i32 %2, 128
+  %24 = icmp samesign ult i32 %2, 128
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$11discard_tag17hb63782ad49dd9ae3E.exit"
-  %26 = icmp ult i32 %2, 2048
+  %26 = icmp samesign ult i32 %2, 2048
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %2, 65536
+  %28 = icmp samesign ult i32 %2, 65536
   %29 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %28, label %40, label %52
 
@@ -145309,7 +145309,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16fi
 44:                                               ; preds = %32
   %45 = lshr i64 %36, 4
   %46 = and i64 %45, 15
-  %47 = icmp ugt i64 %46, 7
+  %47 = icmp samesign ugt i64 %46, 7
   br i1 %47, label %48, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6b261a90e83c4442E.llvm.3474792849321645876.exit.i.i.i"
 
 48:                                               ; preds = %44
@@ -145673,15 +145673,15 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16pr
 31:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %32 = icmp ult i32 %19, 128
+  %32 = icmp samesign ult i32 %19, 128
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i32 %19, 2048
+  %34 = icmp samesign ult i32 %19, 2048
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i32 %19, 65536
+  %36 = icmp samesign ult i32 %19, 65536
   br i1 %36, label %46, label %57
 
 37:                                               ; preds = %31
@@ -145853,7 +145853,7 @@ thread-pre-split:                                 ; preds = %15, %20, %3
 
 .thread44:                                        ; preds = %.thread43, %35
   %36 = phi i32 [ %.pr42, %35 ], [ 10, %.thread43 ]
-  %37 = icmp ult i32 %36, 9
+  %37 = icmp samesign ult i32 %36, 9
   %38 = icmp eq i32 %36, 11
   %or.cond = or i1 %37, %38
   %39 = add nsw i32 %36, -14
@@ -146172,7 +146172,7 @@ _ZN11markup5ever4util12buffer_queue11BufferQueue3eat17h829563c9bc3508d2E.exit.th
 
 93:                                               ; preds = %94, %90, %87
   %.sroa.5.0.i.i.i.i = phi i64 [ 4, %87 ], [ 3, %90 ], [ 2, %94 ]
-  %.not.i.i5.i.i = icmp ugt i64 %.sroa.5.0.i.i.i.i, %81
+  %.not.i.i5.i.i = icmp samesign ugt i64 %.sroa.5.0.i.i.i.i, %81
   br i1 %.not.i.i5.i.i, label %.loopexit.i, label %97
 
 94:                                               ; preds = %90
@@ -146217,7 +146217,7 @@ default.unreachable:                              ; preds = %107
   %113 = zext nneg i8 %112 to i32
   %114 = shl nuw nsw i32 %113, 6
   %115 = or disjoint i32 %114, %110
-  %116 = icmp ult i8 %112, 2
+  %116 = icmp samesign ult i8 %112, 2
   br i1 %116, label %.loopexit.i, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i.i"
 
 117:                                              ; preds = %107
@@ -146226,7 +146226,7 @@ default.unreachable:                              ; preds = %107
   %120 = shl nuw nsw i32 %119, 12
   %121 = shl nuw nsw i32 %110, 6
   %122 = or disjoint i32 %121, %120
-  %123 = icmp ult i32 %122, 2048
+  %123 = icmp samesign ult i32 %122, 2048
   %124 = and i32 %122, 64512
   %or.cond3.i.i.i.i.i = icmp eq i32 %124, 55296
   %or.cond.i.i.i = or i1 %123, %or.cond3.i.i.i.i.i
@@ -146249,7 +146249,7 @@ default.unreachable:                              ; preds = %107
   %139 = zext nneg i8 %138 to i32
   %140 = or disjoint i32 %135, %139
   %141 = or disjoint i32 %140, %130
-  %142 = icmp ult i32 %130, 65536
+  %142 = icmp samesign ult i32 %130, 65536
   br i1 %142, label %.loopexit.i, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i.i"
 
 143:                                              ; preds = %117
@@ -146258,9 +146258,9 @@ default.unreachable:                              ; preds = %107
   %146 = and i8 %145, 63
   %147 = zext nneg i8 %146 to i32
   %148 = or disjoint i32 %122, %147
-  %149 = icmp ugt i32 %122, 56319
-  %150 = icmp ult i8 %118, 14
-  %or.cond5.i.i.i.i.i = and i1 %150, %149
+  %149 = icmp samesign ugt i32 %122, 56319
+  %150 = icmp samesign ult i8 %118, 14
+  %or.cond5.i.i.i.i.i = select i1 %149, i1 %150, i1 false
   br i1 %or.cond5.i.i.i.i.i, label %.loopexit.i, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i.i"
 
 "_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i.i": ; preds = %143, %125, %111
@@ -146532,15 +146532,15 @@ _ZN11markup5ever4util12buffer_queue11BufferQueue3eat17h829563c9bc3508d2E.exit.th
   %253 = phi i32 [ %247, %.lr.ph.i8 ], [ %295, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645876.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !41696
   store i32 0, ptr %6, align 4, !noalias !41696
-  %254 = icmp ult i32 %253, 128
+  %254 = icmp samesign ult i32 %253, 128
   br i1 %254, label %259, label %255
 
 255:                                              ; preds = %252
-  %256 = icmp ult i32 %253, 2048
+  %256 = icmp samesign ult i32 %253, 2048
   br i1 %256, label %261, label %257
 
 257:                                              ; preds = %255
-  %258 = icmp ult i32 %253, 65536
+  %258 = icmp samesign ult i32 %253, 65536
   br i1 %258, label %268, label %279
 
 259:                                              ; preds = %252
@@ -148452,15 +148452,15 @@ common.resume:                                    ; preds = %1564, %1567, %1570,
   %spec.select = select i1 %or.cond5, i32 %555, i32 %.sroa.0.0.i521
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62)
   store i32 0, ptr %62, align 4
-  %556 = icmp ult i32 %spec.select, 128
+  %556 = icmp samesign ult i32 %spec.select, 128
   br i1 %556, label %561, label %557
 
 557:                                              ; preds = %553
-  %558 = icmp ult i32 %spec.select, 2048
+  %558 = icmp samesign ult i32 %spec.select, 2048
   br i1 %558, label %563, label %559
 
 559:                                              ; preds = %557
-  %560 = icmp ult i32 %spec.select, 65536
+  %560 = icmp samesign ult i32 %spec.select, 65536
   br i1 %560, label %570, label %581
 
 561:                                              ; preds = %553
@@ -149091,7 +149091,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 751:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hb9df0b26cca6387fE.exit.i"
   %752 = lshr i64 %726, 4
   %753 = and i64 %752, 15
-  %754 = icmp ugt i64 %753, 7
+  %754 = icmp samesign ugt i64 %753, 7
   br i1 %754, label %755, label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfff162abaa7425d8E.llvm.3474792849321645876.exit.i"
 
 755:                                              ; preds = %751
@@ -149183,15 +149183,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 779:                                              ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$24have_appropriate_end_tag17hd63fd0c94bdcfc26E.exit.thread"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
   store i32 0, ptr %59, align 4
-  %780 = icmp ult i32 %.sroa.093.0, 128
+  %780 = icmp samesign ult i32 %.sroa.093.0, 128
   br i1 %780, label %785, label %781
 
 781:                                              ; preds = %779
-  %782 = icmp ult i32 %.sroa.093.0, 2048
+  %782 = icmp samesign ult i32 %.sroa.093.0, 2048
   br i1 %782, label %787, label %783
 
 783:                                              ; preds = %781
-  %784 = icmp ult i32 %.sroa.093.0, 65536
+  %784 = icmp samesign ult i32 %.sroa.093.0, 65536
   br i1 %784, label %794, label %805
 
 785:                                              ; preds = %779
@@ -149253,15 +149253,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58)
   store i32 0, ptr %58, align 4
-  %821 = icmp ult i32 %.sroa.0.0.i555720, 128
+  %821 = icmp samesign ult i32 %.sroa.0.0.i555720, 128
   br i1 %821, label %826, label %822
 
 822:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645876.exit558
-  %823 = icmp ult i32 %.sroa.0.0.i555720, 2048
+  %823 = icmp samesign ult i32 %.sroa.0.0.i555720, 2048
   br i1 %823, label %828, label %824
 
 824:                                              ; preds = %822
-  %825 = icmp ult i32 %.sroa.0.0.i555720, 65536
+  %825 = icmp samesign ult i32 %.sroa.0.0.i555720, 65536
   br i1 %825, label %835, label %846
 
 826:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645876.exit558
@@ -149613,15 +149613,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 961:                                              ; preds = %931
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56)
   store i32 0, ptr %56, align 4
-  %962 = icmp ult i32 %.sroa.0148.0, 128
+  %962 = icmp samesign ult i32 %.sroa.0148.0, 128
   br i1 %962, label %967, label %963
 
 963:                                              ; preds = %961
-  %964 = icmp ult i32 %.sroa.0148.0, 2048
+  %964 = icmp samesign ult i32 %.sroa.0148.0, 2048
   br i1 %964, label %969, label %965
 
 965:                                              ; preds = %963
-  %966 = icmp ult i32 %.sroa.0148.0, 65536
+  %966 = icmp samesign ult i32 %.sroa.0148.0, 65536
   br i1 %966, label %976, label %987
 
 967:                                              ; preds = %961
@@ -150207,15 +150207,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 1171:                                             ; preds = %1096
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
   store i32 0, ptr %47, align 4
-  %1172 = icmp ult i32 %1097, 128
+  %1172 = icmp samesign ult i32 %1097, 128
   br i1 %1172, label %1177, label %1173
 
 1173:                                             ; preds = %1171
-  %1174 = icmp ult i32 %1097, 2048
+  %1174 = icmp samesign ult i32 %1097, 2048
   br i1 %1174, label %1179, label %1175
 
 1175:                                             ; preds = %1173
-  %1176 = icmp ult i32 %1097, 65536
+  %1176 = icmp samesign ult i32 %1097, 65536
   br i1 %1176, label %1186, label %1197
 
 1177:                                             ; preds = %.thread, %1171
@@ -150818,15 +150818,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 1387:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hf19a1b0eafb878d3E.exit531"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store i32 0, ptr %22, align 4
-  %1388 = icmp ult i32 %.sroa.0.0.i530, 128
+  %1388 = icmp samesign ult i32 %.sroa.0.0.i530, 128
   br i1 %1388, label %1393, label %1389
 
 1389:                                             ; preds = %1387
-  %1390 = icmp ult i32 %.sroa.0.0.i530, 2048
+  %1390 = icmp samesign ult i32 %.sroa.0.0.i530, 2048
   br i1 %1390, label %1395, label %1391
 
 1391:                                             ; preds = %1389
-  %1392 = icmp ult i32 %.sroa.0.0.i530, 65536
+  %1392 = icmp samesign ult i32 %.sroa.0.0.i530, 65536
   br i1 %1392, label %1402, label %1413
 
 1393:                                             ; preds = %1387
@@ -151022,15 +151022,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 1471:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hf19a1b0eafb878d3E.exit533"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
   store i32 0, ptr %42, align 4
-  %1472 = icmp ult i32 %.sroa.0.0.i532, 128
+  %1472 = icmp samesign ult i32 %.sroa.0.0.i532, 128
   br i1 %1472, label %1477, label %1473
 
 1473:                                             ; preds = %1471
-  %1474 = icmp ult i32 %.sroa.0.0.i532, 2048
+  %1474 = icmp samesign ult i32 %.sroa.0.0.i532, 2048
   br i1 %1474, label %1479, label %1475
 
 1475:                                             ; preds = %1473
-  %1476 = icmp ult i32 %.sroa.0.0.i532, 65536
+  %1476 = icmp samesign ult i32 %.sroa.0.0.i532, 65536
   br i1 %1476, label %1486, label %1497
 
 1477:                                             ; preds = %1471
@@ -151918,15 +151918,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.3474792849321645
 1695:                                             ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hf19a1b0eafb878d3E.exit547"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   store i32 0, ptr %20, align 4
-  %1696 = icmp ult i32 %.sroa.0.0.i546, 128
+  %1696 = icmp samesign ult i32 %.sroa.0.0.i546, 128
   br i1 %1696, label %1701, label %1697
 
 1697:                                             ; preds = %1695
-  %1698 = icmp ult i32 %.sroa.0.0.i546, 2048
+  %1698 = icmp samesign ult i32 %.sroa.0.0.i546, 2048
   br i1 %1698, label %1703, label %1699
 
 1699:                                             ; preds = %1697
-  %1700 = icmp ult i32 %.sroa.0.0.i546, 65536
+  %1700 = icmp samesign ult i32 %.sroa.0.0.i546, 65536
   br i1 %1700, label %1710, label %1721
 
 1701:                                             ; preds = %1695
@@ -156442,15 +156442,15 @@ thread-pre-split:                                 ; preds = %397, %"_ZN63_$LT$al
   br i1 %142, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit", label %195
 
 195:                                              ; preds = %193
-  %196 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 128
+  %196 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 128
   br i1 %196, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i", label %197
 
 197:                                              ; preds = %195
-  %198 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 2048
+  %198 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 2048
   br i1 %198, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i", label %199
 
 199:                                              ; preds = %197
-  %200 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 65536
+  %200 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 65536
   %..i.i = select i1 %200, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i"
 

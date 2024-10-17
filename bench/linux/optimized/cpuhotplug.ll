@@ -68,7 +68,7 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
 30:                                               ; preds = %39, %23
   %31 = phi i64 [ 0, %23 ], [ %45, %39 ]
   %32 = and i64 %31, 4294967295
-  %33 = icmp ugt i64 %32, 63
+  %33 = icmp samesign ugt i64 %32, 63
   br i1 %33, label %.thread, label %34, !prof !6
 
 34:                                               ; preds = %30

@@ -1734,7 +1734,7 @@ while.body:                                       ; preds = %if.end42, %if.end19
   %shr = lshr i64 %7, 32
   %ipos.promoted = load i32, ptr %ipos, align 8
   %conv2263 = zext i32 %ipos.promoted to i64
-  %cmp23.not64 = icmp ult i64 %shr, %conv2263
+  %cmp23.not64 = icmp samesign ult i64 %shr, %conv2263
   br i1 %cmp23.not64, label %while.end, label %while.body25.preheader
 
 while.body25.preheader:                           ; preds = %while.body
@@ -1742,7 +1742,7 @@ while.body25.preheader:                           ; preds = %while.body
   br label %while.body25
 
 while.cond21:                                     ; preds = %while.body25
-  %cmp23.not = icmp ugt i32 %inc27, %8
+  %cmp23.not = icmp samesign ugt i32 %inc27, %8
   br i1 %cmp23.not, label %while.end, label %while.body25, !llvm.loop !51
 
 while.body25:                                     ; preds = %while.body25.preheader, %while.cond21
@@ -1895,7 +1895,7 @@ while.body:                                       ; preds = %if.end41, %if.end18
   %shr = lshr i64 %5, 32
   %ipos.promoted = load i32, ptr %ipos, align 8
   %conv2163 = zext i32 %ipos.promoted to i64
-  %cmp22.not64 = icmp ult i64 %shr, %conv2163
+  %cmp22.not64 = icmp samesign ult i64 %shr, %conv2163
   br i1 %cmp22.not64, label %while.end, label %while.body24.preheader
 
 while.body24.preheader:                           ; preds = %while.body
@@ -1903,7 +1903,7 @@ while.body24.preheader:                           ; preds = %while.body
   br label %while.body24
 
 while.cond20:                                     ; preds = %while.body24
-  %cmp22.not = icmp ugt i32 %inc26, %6
+  %cmp22.not = icmp samesign ugt i32 %inc26, %6
   br i1 %cmp22.not, label %while.end, label %while.body24, !llvm.loop !53
 
 while.body24:                                     ; preds = %while.body24.preheader, %while.cond20

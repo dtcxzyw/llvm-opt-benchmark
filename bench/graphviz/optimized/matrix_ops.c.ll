@@ -1386,7 +1386,7 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %10, float 0.000000e+00)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %.13337 = add i32 %.03243, 1
-  %15 = icmp ult i64 %indvars.iv.next57, %8
+  %15 = icmp samesign ult i64 %indvars.iv.next57, %8
   br i1 %15, label %.lr.ph41.preheader, label %._crit_edge
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph45

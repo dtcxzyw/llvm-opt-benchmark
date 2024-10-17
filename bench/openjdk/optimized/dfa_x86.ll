@@ -43212,7 +43212,7 @@ _ZNK4Node8get_longEv.exit157:                     ; preds = %42
   %47 = load i64, ptr %46, align 8
   %.not.i158 = icmp ne i64 %47, -1
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
-  %49 = icmp ugt i64 %48, 62
+  %49 = icmp samesign ugt i64 %48, 62
   %or.cond164 = select i1 %.not.i158, i1 %49, i1 false
   br i1 %or.cond164, label %50, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -79136,7 +79136,7 @@ _ZNK4Node8get_longEv.exit:                        ; preds = %103
   %118 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %116, i1 true)
   %119 = trunc nuw nsw i64 %118 to i32
   %120 = xor i32 %119, 32
-  %121 = icmp ugt i32 %120, 31
+  %121 = icmp samesign ugt i32 %120, 31
   %122 = select i1 %117, i1 %121, i1 false
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %122, label %123, label %148
@@ -79374,7 +79374,7 @@ _ZNK4Node8get_longEv.exit267:                     ; preds = %252
   %268 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %266, i1 true)
   %269 = trunc nuw nsw i64 %268 to i32
   %270 = xor i32 %269, 63
-  %271 = icmp ugt i32 %270, 30
+  %271 = icmp samesign ugt i32 %270, 30
   %272 = select i1 %267, i1 %271, i1 false
   %.pr290.pre = load ptr, ptr %3, align 8
   br i1 %272, label %273, label %298

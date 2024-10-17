@@ -580,7 +580,7 @@ RemoveHead.exit146:                               ; preds = %119, %121
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %143, %153
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = icmp uge i64 %indvars.iv.next, %146
+  %155 = icmp samesign uge i64 %indvars.iv.next, %146
   %.not126 = select i1 %155, i1 true, i1 %154
   br i1 %.not126, label %._crit_edge, label %151, !llvm.loop !14
 

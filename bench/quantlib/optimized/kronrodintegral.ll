@@ -997,7 +997,7 @@ _ZNKSt8functionIFddEEclEd.exit73:                 ; preds = %_ZNKSt8functionIFdd
   %16 = load double, ptr %arrayidx29, align 8, !tbaa !18
   %17 = call double @llvm.fmuladd.f64(double %add27, double %16, double %k15.1117)
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2
-  %cmp18 = icmp ult i64 %indvars.iv126, 6
+  %cmp18 = icmp samesign ult i64 %indvars.iv126, 6
   br i1 %cmp18, label %for.body19, label %for.end33, !llvm.loop !38
 
 for.end33:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit73

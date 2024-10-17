@@ -362,7 +362,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader146, %.cr
   %160 = add i64 %159, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %160) #17
   %161 = add nuw nsw i64 %.095148, 1
-  %162 = icmp ult i64 %161, %85
+  %162 = icmp samesign ult i64 %161, %85
   br i1 %162, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %163, !llvm.loop !6
 
 163:                                              ; preds = %.critedge2
@@ -789,7 +789,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader146, %.cr
   %160 = add i64 %159, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %160) #17
   %161 = add nuw nsw i64 %.095148, 1
-  %162 = icmp ult i64 %161, %85
+  %162 = icmp samesign ult i64 %161, %85
   br i1 %162, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %163, !llvm.loop !9
 
 163:                                              ; preds = %.critedge2
@@ -1190,7 +1190,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader146, %.cr
   %160 = add i64 %159, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %160) #17
   %161 = add nuw nsw i64 %.095148, 1
-  %162 = icmp ult i64 %161, %85
+  %162 = icmp samesign ult i64 %161, %85
   br i1 %162, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %163, !llvm.loop !12
 
 163:                                              ; preds = %.critedge2
@@ -1593,7 +1593,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader146, %.cr
   %160 = add i64 %159, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %160) #17
   %161 = add nuw nsw i64 %.095148, 1
-  %162 = icmp ult i64 %161, %85
+  %162 = icmp samesign ult i64 %161, %85
   br i1 %162, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %163, !llvm.loop !15
 
 163:                                              ; preds = %.critedge2
@@ -1842,7 +1842,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -2010,7 +2010,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader150, %.cr
   %167 = add i64 %166, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %162, i64 noundef %167) #17
   %168 = add nuw nsw i64 %.097152, 1
-  %169 = icmp ult i64 %168, %92
+  %169 = icmp samesign ult i64 %168, %92
   br i1 %169, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %170, !llvm.loop !18
 
 170:                                              ; preds = %.critedge2
@@ -2261,7 +2261,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -2429,7 +2429,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader150, %.cr
   %167 = add i64 %166, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %162, i64 noundef %167) #17
   %168 = add nuw nsw i64 %.097152, 1
-  %169 = icmp ult i64 %168, %92
+  %169 = icmp samesign ult i64 %168, %92
   br i1 %169, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %170, !llvm.loop !21
 
 170:                                              ; preds = %.critedge2
@@ -2678,7 +2678,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -2846,7 +2846,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader150, %.cr
   %167 = add i64 %166, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %162, i64 noundef %167) #17
   %168 = add nuw nsw i64 %.097152, 1
-  %169 = icmp ult i64 %168, %92
+  %169 = icmp samesign ult i64 %168, %92
   br i1 %169, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %170, !llvm.loop !24
 
 170:                                              ; preds = %.critedge2
@@ -3097,7 +3097,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -3265,7 +3265,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader150, %.cr
   %167 = add i64 %166, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %162, i64 noundef %167) #17
   %168 = add nuw nsw i64 %.097152, 1
-  %169 = icmp ult i64 %168, %92
+  %169 = icmp samesign ult i64 %168, %92
   br i1 %169, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %170, !llvm.loop !27
 
 170:                                              ; preds = %.critedge2

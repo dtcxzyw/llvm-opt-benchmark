@@ -1557,7 +1557,7 @@ hwloc_lstopo_show_summary.exit:                   ; preds = %hwloc_lstopo_show_s
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %509 = load i32, ptr %501, align 8
   %510 = zext i32 %509 to i64
-  %511 = icmp ult i64 %indvars.iv.next, %510
+  %511 = icmp samesign ult i64 %indvars.iv.next, %510
   br i1 %511, label %.lr.ph538, label %.loopexit, !llvm.loop !8
 
 512:                                              ; preds = %429
@@ -2280,7 +2280,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %14, label %15, label %.tail.thread
 
 15:                                               ; preds = %.tail, %6
-  %16 = icmp ult i32 %1, 2
+  %16 = icmp samesign ult i32 %1, 2
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -2309,7 +2309,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not21, label %25, label %49
 
 25:                                               ; preds = %23, %.tail.thread
-  %26 = icmp ult i32 %1, 2
+  %26 = icmp samesign ult i32 %1, 2
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -3536,7 +3536,7 @@ hwloc_info_show_descendant.exit174:               ; preds = %186, %188
   %237 = phi i32 [ %.pre241, %._crit_edge240 ], [ %226, %.lr.ph214 ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %238 = zext i32 %237 to i64
-  %239 = icmp ult i64 %indvars.iv.next237, %238
+  %239 = icmp samesign ult i64 %indvars.iv.next237, %238
   br i1 %239, label %.lr.ph214, label %.loopexit, !llvm.loop !24
 
 240:                                              ; preds = %197
@@ -4877,7 +4877,7 @@ switch.lookup:                                    ; preds = %105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %244 = load i32, ptr %234, align 8
   %245 = zext i32 %244 to i64
-  %246 = icmp ult i64 %indvars.iv.next, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next, %245
   br i1 %246, label %237, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %237, %230
@@ -4937,7 +4937,7 @@ switch.lookup:                                    ; preds = %105
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   %276 = load i32, ptr %275, align 8
   %277 = zext i32 %276 to i64
-  %278 = icmp ult i64 %indvars.iv.next250, %277
+  %278 = icmp samesign ult i64 %indvars.iv.next250, %277
   br i1 %278, label %.lr.ph233, label %.loopexit229, !llvm.loop !35
 
 .loopexit229:                                     ; preds = %.lr.ph233, %263, %255
@@ -5061,7 +5061,7 @@ switch.lookup:                                    ; preds = %105
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %338 = load i32, ptr %12, align 4
   %339 = zext i32 %338 to i64
-  %340 = icmp ult i64 %indvars.iv.next253, %339
+  %340 = icmp samesign ult i64 %indvars.iv.next253, %339
   br i1 %340, label %.lr.ph239, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %337, %305, %296

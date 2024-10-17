@@ -1928,7 +1928,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp3 = icmp ult i64 %and.i, 2
+  %cmp3 = icmp samesign ult i64 %and.i, 2
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -3048,7 +3048,7 @@ update_bases.exit.thread120:                      ; preds = %if.end12
   br label %if.end18
 
 for.body.i:                                       ; preds = %if.end12, %for.inc48.i
-  %new_bases.071.i = phi ptr [ %new_bases.2.i, %for.inc48.i ], [ null, %if.end12 ]
+  %new_bases.070.i = phi ptr [ %new_bases.2.i, %for.inc48.i ], [ null, %if.end12 ]
   %i.068.i = phi i64 [ %inc49.i, %for.inc48.i ], [ 0, %if.end12 ]
   %arrayidx.i = getelementptr ptr, ptr %add.ptr, i64 %i.068.i
   %9 = load ptr, ptr %arrayidx.i, align 8
@@ -3061,11 +3061,11 @@ for.body.i:                                       ; preds = %if.end12, %for.inc4
   br i1 %cmp.i.i.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %tobool1.not.i = icmp eq ptr %new_bases.071.i, null
+  %tobool1.not.i = icmp eq ptr %new_bases.070.i, null
   br i1 %tobool1.not.i, label %for.inc48.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call3.i = call i32 @PyList_Append(ptr noundef nonnull %new_bases.071.i, ptr noundef nonnull %9) #7
+  %call3.i = call i32 @PyList_Append(ptr noundef nonnull %new_bases.070.i, ptr noundef nonnull %9) #7
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then.i.i, label %for.inc48.i
 
@@ -3080,11 +3080,11 @@ if.end11.i:                                       ; preds = %if.end7.i
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end21.i
 
 if.then13.i:                                      ; preds = %if.end11.i
-  %tobool14.not.i = icmp eq ptr %new_bases.071.i, null
+  %tobool14.not.i = icmp eq ptr %new_bases.070.i, null
   br i1 %tobool14.not.i, label %for.inc48.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then13.i
-  %call16.i = call i32 @PyList_Append(ptr noundef nonnull %new_bases.071.i, ptr noundef nonnull %9) #7
+  %call16.i = call i32 @PyList_Append(ptr noundef nonnull %new_bases.070.i, ptr noundef nonnull %9) #7
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %if.then.i.i, label %for.inc48.i
 
@@ -3138,7 +3138,7 @@ if.then1.i88.i:                                   ; preds = %if.end.i85.i
   br label %error.i
 
 if.end30.i:                                       ; preds = %if.end25.i
-  %tobool31.not.i = icmp eq ptr %new_bases.071.i, null
+  %tobool31.not.i = icmp eq ptr %new_bases.070.i, null
   br i1 %tobool31.not.i, label %if.then32.i, label %if.end42.i
 
 if.then32.i:                                      ; preds = %if.end30.i
@@ -3188,7 +3188,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   br i1 %exitcond.not.i, label %if.end42.i, label %for.body39.i, !llvm.loop !16
 
 if.end42.i:                                       ; preds = %_Py_NewRef.exit.i, %for.cond37.preheader.i, %if.end30.i
-  %new_bases.3.i = phi ptr [ %new_bases.071.i, %if.end30.i ], [ %call33.i, %for.cond37.preheader.i ], [ %call33.i, %_Py_NewRef.exit.i ]
+  %new_bases.3.i = phi ptr [ %new_bases.070.i, %if.end30.i ], [ %call33.i, %for.cond37.preheader.i ], [ %call33.i, %_Py_NewRef.exit.i ]
   %27 = getelementptr i8, ptr %new_bases.3.i, i64 16
   %new_bases.3.val.i = load i64, ptr %27, align 8
   %call44.i = call i32 @PyList_SetSlice(ptr noundef nonnull %new_bases.3.i, i64 noundef %new_bases.3.val.i, i64 noundef %new_bases.3.val.i, ptr noundef nonnull %call22.i) #7
@@ -3225,10 +3225,10 @@ if.then1.i61.i:                                   ; preds = %if.end.i58.i
   br label %for.inc48.i
 
 for.inc48.i:                                      ; preds = %if.then1.i61.i, %if.end.i58.i, %if.end47.i, %if.then15.i, %if.then13.i, %if.then2.i, %if.then.i
-  %new_bases.2.i = phi ptr [ %new_bases.071.i, %if.then2.i ], [ null, %if.then.i ], [ %new_bases.3.i, %if.end47.i ], [ %new_bases.3.i, %if.then1.i61.i ], [ %new_bases.3.i, %if.end.i58.i ], [ %new_bases.071.i, %if.then15.i ], [ null, %if.then13.i ]
+  %new_bases.2.i = phi ptr [ %new_bases.070.i, %if.then2.i ], [ null, %if.then.i ], [ %new_bases.3.i, %if.end47.i ], [ %new_bases.3.i, %if.then1.i61.i ], [ %new_bases.3.i, %if.end.i58.i ], [ %new_bases.070.i, %if.then15.i ], [ null, %if.then13.i ]
   %inc49.i = add nuw nsw i64 %i.068.i, 1
-  %exitcond80.not.i = icmp eq i64 %inc49.i, %sub
-  br i1 %exitcond80.not.i, label %for.end50.i, label %for.body.i, !llvm.loop !17
+  %exitcond79.not.i = icmp eq i64 %inc49.i, %sub
+  br i1 %exitcond79.not.i, label %for.end50.i, label %for.body.i, !llvm.loop !17
 
 for.end50.i:                                      ; preds = %for.inc48.i
   %tobool51.not.i = icmp eq ptr %new_bases.2.i, null
@@ -3248,11 +3248,11 @@ if.end.i.i:                                       ; preds = %if.end53.i
   br i1 %cmp.i.i, label %return.sink.split.i, label %update_bases.exit
 
 error.i:                                          ; preds = %Py_DECREF.exit99.i, %if.end7.i, %if.then1.i88.i, %if.end.i85.i, %if.then29.i
-  %cmp.not.i.i = icmp eq ptr %new_bases.071.i, null
+  %cmp.not.i.i = icmp eq ptr %new_bases.070.i, null
   br i1 %cmp.not.i.i, label %update_bases.exit.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then15.i, %if.then2.i, %error.i, %if.then1.i70.i, %if.end.i67.i, %if.then46.i
-  %new_bases.152.i = phi ptr [ %new_bases.071.i, %error.i ], [ %new_bases.3.i, %if.end.i67.i ], [ %new_bases.3.i, %if.then1.i70.i ], [ %new_bases.3.i, %if.then46.i ], [ %new_bases.071.i, %if.then2.i ], [ %new_bases.071.i, %if.then15.i ]
+  %new_bases.152.i = phi ptr [ %new_bases.070.i, %error.i ], [ %new_bases.3.i, %if.end.i67.i ], [ %new_bases.3.i, %if.then1.i70.i ], [ %new_bases.3.i, %if.then46.i ], [ %new_bases.070.i, %if.then2.i ], [ %new_bases.070.i, %if.then15.i ]
   %32 = load i64, ptr %new_bases.152.i, align 8
   %33 = and i64 %32, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %33, 0
@@ -3265,9 +3265,9 @@ if.end.i.i48.i:                                   ; preds = %if.then.i.i
   br i1 %cmp.i.i49.i, label %return.sink.split.i, label %update_bases.exit.thread
 
 return.sink.split.i:                              ; preds = %if.end.i.i48.i, %if.end.i.i, %if.end.i76.i
-  %call22.lcssa83.sink.i = phi ptr [ %call22.i, %if.end.i76.i ], [ %new_bases.2.i, %if.end.i.i ], [ %new_bases.152.i, %if.end.i.i48.i ]
+  %call22.lcssa82.sink.i = phi ptr [ %call22.i, %if.end.i76.i ], [ %new_bases.2.i, %if.end.i.i ], [ %new_bases.152.i, %if.end.i.i48.i ]
   %retval.0.ph.i = phi ptr [ null, %if.end.i76.i ], [ %call54.i, %if.end.i.i ], [ null, %if.end.i.i48.i ]
-  call void @_Py_Dealloc(ptr noundef nonnull %call22.lcssa83.sink.i) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %call22.lcssa82.sink.i) #7
   br label %update_bases.exit
 
 update_bases.exit.thread:                         ; preds = %error.i, %if.then.i.i, %if.end.i.i48.i, %if.then35.i, %if.end.i76.i

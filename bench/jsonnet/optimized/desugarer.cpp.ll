@@ -6034,7 +6034,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE9push_backEOS4_.exit: ; pr
   %233 = or disjoint i32 %232, %226
   %234 = or disjoint i32 %233, %230
   %235 = zext nneg i32 %234 to i64
-  %236 = icmp ult i32 %spec.store.select.i.i.i, 128
+  %236 = icmp samesign ult i32 %spec.store.select.i.i.i, 128
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %.lr.ph.i.i
@@ -6042,7 +6042,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE9push_backEOS4_.exit: ; pr
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 
 239:                                              ; preds = %.lr.ph.i.i
-  %240 = icmp ult i32 %spec.store.select.i.i.i, 2048
+  %240 = icmp samesign ult i32 %spec.store.select.i.i.i, 2048
   br i1 %240, label %241, label %246
 
 241:                                              ; preds = %239
@@ -6057,7 +6057,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE9push_backEOS4_.exit: ; pr
   br label %_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 
 246:                                              ; preds = %239
-  %247 = icmp ult i32 %spec.store.select.i.i.i, 65536
+  %247 = icmp samesign ult i32 %spec.store.select.i.i.i, 65536
   br i1 %247, label %248, label %255
 
 248:                                              ; preds = %246

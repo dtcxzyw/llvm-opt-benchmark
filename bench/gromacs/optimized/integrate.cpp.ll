@@ -234,7 +234,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 20:                                               ; preds = %12, %.preheader.split.us.split.us
   %.055.us.us = phi double [ %19, %12 ], [ 0.000000e+00, %.preheader.split.us.split.us ]
-  %21 = icmp ult i64 %indvars.iv113, %11
+  %21 = icmp samesign ult i64 %indvars.iv113, %11
   %22 = getelementptr inbounds float, ptr %1, i64 %indvars.iv113
   br i1 %21, label %23, label %._crit_edge118
 
@@ -289,7 +289,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 47:                                               ; preds = %39, %.preheader.split.us.split
   %.055.us = phi double [ %46, %39 ], [ 0.000000e+00, %.preheader.split.us.split ]
-  %48 = icmp ult i64 %indvars.iv108, %11
+  %48 = icmp samesign ult i64 %indvars.iv108, %11
   %49 = getelementptr inbounds float, ptr %1, i64 %indvars.iv108
   br i1 %48, label %50, label %._crit_edge
 
@@ -358,7 +358,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 84:                                               ; preds = %76, %.preheader.split.split.us
   %.055.us76 = phi double [ %83, %76 ], [ 0.000000e+00, %.preheader.split.split.us ]
-  %85 = icmp ult i64 %indvars.iv103, %11
+  %85 = icmp samesign ult i64 %indvars.iv103, %11
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %84
@@ -414,7 +414,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 111:                                              ; preds = %103, %.preheader.split.split
   %.055 = phi double [ %110, %103 ], [ 0.000000e+00, %.preheader.split.split ]
-  %112 = icmp ult i64 %indvars.iv, %11
+  %112 = icmp samesign ult i64 %indvars.iv, %11
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %111

@@ -1194,7 +1194,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i32 %8, 55
+  %14 = icmp samesign ugt i32 %8, 55
   br i1 %14, label %.preheader, label %18
 
 .preheader:                                       ; preds = %13

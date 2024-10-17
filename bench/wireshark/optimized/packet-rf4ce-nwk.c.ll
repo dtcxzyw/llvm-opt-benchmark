@@ -1176,7 +1176,7 @@ rf4ce_security_parse_sec_str.exit.thread:         ; preds = %27, %32, %.split.us
   %53 = icmp ne ptr %52, null
   %54 = load i32, ptr @num_uat_security_records, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   %57 = select i1 %53, i1 %56, i1 false
   br i1 %57, label %8, label %._crit_edge, !llvm.loop !8
 
@@ -1350,7 +1350,7 @@ define internal fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr nound
   br i1 %.not, label %54, label %15
 
 15:                                               ; preds = %4
-  %.not68 = icmp ult i8 %3, 2
+  %.not68 = icmp samesign ult i8 %3, 2
   br i1 %.not68, label %49, label %16
 
 16:                                               ; preds = %15

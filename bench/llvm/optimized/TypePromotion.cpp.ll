@@ -4372,7 +4372,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds =
   %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 8
   %1312 = load i32, ptr %1311, align 8
   %1313 = lshr i32 %1312, 8
-  %1314 = icmp ugt i32 %1309, %1313
+  %1314 = icmp samesign ugt i32 %1309, %1313
   br i1 %1314, label %1315, label %1317
 
 1315:                                             ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i
@@ -4603,7 +4603,7 @@ _ZN4llvm8CallBase7arg_endEv.exit.i.i:             ; preds = %1394, %_ZNK4llvm8Ca
   %1420 = sub i64 %1418, %1419
   %1421 = lshr exact i64 %1420, 5
   %1422 = and i64 %1421, 4294967295
-  %1423 = icmp ult i64 %indvars.iv.i130.i, %1422
+  %1423 = icmp samesign ult i64 %indvars.iv.i130.i, %1422
   br i1 %1423, label %1424, label %.loopexit.i131.i
 
 1424:                                             ; preds = %_ZN4llvm8CallBase7arg_endEv.exit.i.i
@@ -5017,7 +5017,7 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i156.i: ; preds = %1627, %1623
   %1631 = load i32, ptr %1548, align 4
   %1632 = and i32 %1631, 134217727
   %1633 = zext nneg i32 %1632 to i64
-  %1634 = icmp ult i64 %indvars.iv.next146.i.i, %1633
+  %1634 = icmp samesign ult i64 %indvars.iv.next146.i.i, %1633
   br i1 %1634, label %1557, label %.loopexit.i131.i, !llvm.loop !56
 
 .loopexit.i131.i:                                 ; preds = %_ZN4llvm8CallBase7arg_endEv.exit.i.i, %1630, %1547, %1542, %_ZN4llvm10SwitchInst12setConditionEPNS_5ValueE.exit.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_11SmallVectorIPNS_4TypeELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixEOS3_.exit84.i.i

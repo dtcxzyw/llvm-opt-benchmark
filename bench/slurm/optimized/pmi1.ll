@@ -991,7 +991,7 @@ define internal i32 @_handle_mcmd(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %65 = getelementptr inbounds i8, ptr %64, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %20

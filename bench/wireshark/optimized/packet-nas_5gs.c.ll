@@ -4176,7 +4176,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
   br label %proto_item_set_hidden.exit
 
 68:                                               ; preds = %13
-  %or.cond9 = icmp ult i8 %16, 4
+  %or.cond9 = icmp samesign ult i8 %16, 4
   br i1 %or.cond9, label %69, label %73
 
 69:                                               ; preds = %68

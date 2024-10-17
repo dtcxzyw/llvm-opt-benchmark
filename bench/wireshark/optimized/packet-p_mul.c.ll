@@ -583,7 +583,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.mask = and i32 %83, 65535
   %86 = zext nneg i32 %.mask to i64
   %87 = tail call ptr @tvb_memdup(ptr noundef %85, ptr noundef %0, i32 noundef 0, i64 noundef %86) #12
-  %88 = icmp ugt i32 %.mask, 7
+  %88 = icmp samesign ugt i32 %.mask, 7
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %78
@@ -602,7 +602,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not600, label %.thread642, label %97
 
 97:                                               ; preds = %92
-  %98 = icmp ult i32 %.mask, 8
+  %98 = icmp samesign ult i32 %.mask, 8
   br i1 %98, label %133, label %99
 
 99:                                               ; preds = %97
@@ -1245,7 +1245,7 @@ proto_item_set_generated.exit634:                 ; preds = %387, %390, %393
   %.2 = phi i32 [ %.0, %225 ], [ %.0, %398 ], [ %.3.lcssa, %proto_item_set_generated.exit634 ], [ %.3.lcssa, %386 ], [ %.0, %268 ], [ %.0, %267 ], [ %.0, %.lr.ph ]
   %411 = load i32, ptr @use_seq_ack_analysis, align 4
   %412 = icmp ne i32 %411, 0
-  %413 = icmp ult i8 %13, 4
+  %413 = icmp samesign ult i8 %13, 4
   %414 = icmp ne i8 %13, 1
   %415 = and i1 %413, %414
   %or.cond22 = select i1 %412, i1 %415, i1 false

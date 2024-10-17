@@ -1276,12 +1276,12 @@ _ZNK2cv11_InputArray6getMatEi.exit33:             ; preds = %134, %137
   %.2.lcssa.i = phi i32 [ %.120.i, %150 ], [ %.120.i, %.lr.ph13.i ], [ %169, %._crit_edge.i38 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17
   %178 = add nuw nsw i32 %.02919.i, 4
-  %179 = icmp ult i32 %.02919.i, 25
+  %179 = icmp samesign ult i32 %.02919.i, 25
   br i1 %179, label %149, label %180, !llvm.loop !23
 
 180:                                              ; preds = %._crit_edge14.i
   %181 = add nuw nsw i32 %.03022.i, 4
-  %182 = icmp ult i32 %.03022.i, 25
+  %182 = icmp samesign ult i32 %.03022.i, 25
   br i1 %182, label %.preheader.i, label %183, !llvm.loop !24
 
 183:                                              ; preds = %180

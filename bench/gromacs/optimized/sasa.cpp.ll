@@ -6466,7 +6466,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 63:                                               ; preds = %46, %58
   %.1.us.us = phi float [ %62, %58 ], [ %.04881.us.us, %46 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %64 = icmp ult i64 %indvars.iv.next98, %45
+  %64 = icmp samesign ult i64 %indvars.iv.next98, %45
   br i1 %64, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %85
@@ -6507,7 +6507,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %.150.us = phi float [ %84, %77 ], [ %.04980.us, %65 ]
   %.1.us = phi float [ %81, %77 ], [ %.04881.us, %65 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %86 = icmp ult i64 %indvars.iv.next95, %45
+  %86 = icmp samesign ult i64 %indvars.iv.next95, %45
   br i1 %86, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread, %138

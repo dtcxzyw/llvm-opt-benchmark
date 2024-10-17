@@ -65,7 +65,7 @@ define internal i32 @ExtraCost_SSE41(ptr nocapture noundef readonly %0, i32 noun
   %34 = mul <4 x i32> %33, %32
   %35 = add <4 x i32> %34, %.040.in43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %17
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %17
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -146,7 +146,7 @@ define internal i32 @ExtraCostCombined_SSE41(ptr nocapture noundef readonly %0, 
   %56 = mul <4 x i32> %55, %52
   %57 = add <4 x i32> %56, %.064.in67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %33
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %33
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -178,7 +178,7 @@ define internal void @SubtractGreenFromBlueAndRed_SSE41(ptr noundef %0, i32 noun
   %7 = sub <16 x i8> %5, %6
   store <16 x i8> %7, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not = icmp ugt i64 %indvars.iv.next, %3
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %3
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -341,7 +341,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
   %103 = bitcast <4 x i32> %102 to <8 x i16>
   %104 = add <8 x i16> %95, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not127 = icmp ugt i64 %indvars.iv.next, %21
+  %.not127 = icmp samesign ugt i64 %indvars.iv.next, %21
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 4
   br i1 %.not127, label %._crit_edge, label %71, !llvm.loop !9
 
@@ -507,7 +507,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noundef %0, i32 nounde
   %79 = bitcast <4 x i32> %68 to <8 x i16>
   %80 = sub <8 x i16> %55, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %.not88 = icmp ugt i64 %indvars.iv.next, %15
+  %.not88 = icmp samesign ugt i64 %indvars.iv.next, %15
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 4
   br i1 %.not88, label %._crit_edge, label %53, !llvm.loop !11
 

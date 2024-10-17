@@ -4716,7 +4716,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -5223,7 +5223,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
   %235 = lshr i64 %234, 32
   %236 = trunc nuw i64 %235 to i32
   %237 = and i32 %236, 2147483647
-  %238 = icmp ult i32 %237, 65
+  %238 = icmp samesign ult i32 %237, 65
   br i1 %238, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %233

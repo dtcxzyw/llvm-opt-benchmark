@@ -5431,7 +5431,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   %1 = zext nneg i8 %.width.i.i.i to i64
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
@@ -6518,7 +6518,7 @@ for.body.i186:                                    ; preds = %for.body.i186, %if.
   %add.ptr2.i192 = getelementptr inbounds i8, ptr %arrayidx65, i64 %div7.i191
   tail call void @_ZN18duckdb_fastpforlib10fastunpackEPKjPjj(ptr noundef nonnull %add.ptr2.i192, ptr noundef %add.ptr.i189, i32 noundef %conv.i.i185)
   %add.i193 = add nuw nsw i64 %i.09.i187, 32
-  %cmp.i194 = icmp ult i64 %i.09.i187, 2016
+  %cmp.i194 = icmp samesign ult i64 %i.09.i187, 2016
   br i1 %cmp.i194, label %for.body.i186, label %_ZN6duckdb20BitpackingPrimitives12UnPackBufferIjEEvPhS2_mhb.exit195, !llvm.loop !259
 
 _ZN6duckdb20BitpackingPrimitives12UnPackBufferIjEEvPhS2_mhb.exit195: ; preds = %for.body.i186
@@ -11881,7 +11881,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -12588,7 +12588,7 @@ for.body:                                         ; preds = %_ZN6duckdbL10PackSi
   store <2 x i64> %71, ptr %in.i, align 16
   %conv1.i = zext nneg i16 %conv6 to i32
   %add.i64 = add nuw nsw i32 %conv1.i, %conv
-  %cmp.i65 = icmp ult i32 %add.i64, 32
+  %cmp.i65 = icmp samesign ult i32 %add.i64, 32
   br i1 %cmp.i65, label %if.then.i, label %land.lhs.true.i
 
 if.then.i:                                        ; preds = %for.body
@@ -12633,7 +12633,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN6duckdbL10PackSingleENS_9hugeint_tERrPjttS0_.exit
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %cmp22.i = icmp ult i32 %add.i64, 64
+  %cmp22.i = icmp samesign ult i32 %add.i64, 64
   br i1 %cmp22.i, label %if.then23.i, label %land.lhs.true61.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
@@ -12707,7 +12707,7 @@ if.then46.i:                                      ; preds = %if.end41.i
   br label %_ZN6duckdbL10PackSingleENS_9hugeint_tERrPjttS0_.exit
 
 land.lhs.true61.i:                                ; preds = %land.lhs.true.i
-  %cmp65.i = icmp ult i32 %add.i64, 96
+  %cmp65.i = icmp samesign ult i32 %add.i64, 96
   br i1 %cmp65.i, label %if.then66.i, label %land.lhs.true113.i
 
 if.then66.i:                                      ; preds = %land.lhs.true61.i
@@ -12796,7 +12796,7 @@ if.then97.i:                                      ; preds = %if.end82.i
   br label %_ZN6duckdbL10PackSingleENS_9hugeint_tERrPjttS0_.exit
 
 land.lhs.true113.i:                               ; preds = %land.lhs.true61.i
-  %cmp117.i = icmp ult i32 %add.i64, 128
+  %cmp117.i = icmp samesign ult i32 %add.i64, 128
   br i1 %cmp117.i, label %if.then118.i, label %if.then176.i
 
 if.then118.i:                                     ; preds = %land.lhs.true113.i
@@ -13589,7 +13589,7 @@ for.body:                                         ; preds = %_ZN6duckdbL12Unpack
   %conv7 = and i32 %60, 31
   call void @llvm.experimental.noalias.scope.decl(metadata !476)
   %add.i72 = add nuw nsw i32 %conv7, %conv
-  %cmp.i73 = icmp ult i32 %add.i72, 32
+  %cmp.i73 = icmp samesign ult i32 %add.i72, 32
   br i1 %cmp.i73, label %if.then.i, label %land.lhs.true.i
 
 if.then.i:                                        ; preds = %for.body
@@ -13631,7 +13631,7 @@ if.then.i:                                        ; preds = %for.body
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %cmp20.i = icmp ult i32 %add.i72, 64
+  %cmp20.i = icmp samesign ult i32 %add.i72, 64
   br i1 %cmp20.i, label %if.then21.i, label %land.lhs.true53.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
@@ -13681,7 +13681,7 @@ if.then33.i:                                      ; preds = %if.then21.i
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit
 
 land.lhs.true53.i:                                ; preds = %land.lhs.true.i
-  %cmp57.i = icmp ult i32 %add.i72, 96
+  %cmp57.i = icmp samesign ult i32 %add.i72, 96
   br i1 %cmp57.i, label %if.then58.i, label %land.lhs.true105.i
 
 if.then58.i:                                      ; preds = %land.lhs.true53.i
@@ -13750,7 +13750,7 @@ if.then80.i:                                      ; preds = %if.then58.i
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit
 
 land.lhs.true105.i:                               ; preds = %land.lhs.true53.i
-  %cmp109.i = icmp ult i32 %add.i72, 128
+  %cmp109.i = icmp samesign ult i32 %add.i72, 128
   %conv116.i = and i64 %mul, 31
   %ref.tmp111.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %arrayidx120.i = getelementptr inbounds i8, ptr %in.addr.0100, i64 4
@@ -16970,7 +16970,7 @@ while.body.i.i:                                   ; preds = %for.cond.cleanup70,
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i201 = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i201 = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i201, i8 64, i8 %inc.i.i
   %39 = zext nneg i8 %.width.i.i.i to i64
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
@@ -18706,7 +18706,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %tobool.not.i.i.i.i, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !197
 
 _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit.i.i: ; preds = %while.body.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i8 %bitwidth.06.i.i.i.i, 55
+  %cmp.i.i.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i.i.i, 55
   %.width.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i8 64, i8 %inc.i.i.i.i
   br label %_ZN6duckdb20FSSTCompressionState15GetRequiredSizeEm.exit.i
 
@@ -18757,7 +18757,7 @@ while.body.i.i.i.i58:                             ; preds = %if.then, %while.bod
   br i1 %tobool.not.i.i.i.i63, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit.i.i64, label %while.body.i.i.i.i58, !llvm.loop !197
 
 _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit.i.i64: ; preds = %while.body.i.i.i.i58
-  %cmp.i.i.i.i.i65 = icmp ugt i8 %bitwidth.06.i.i.i.i60, 55
+  %cmp.i.i.i.i.i65 = icmp samesign ugt i8 %bitwidth.06.i.i.i.i60, 55
   %.width.i.i.i.i.i66 = select i1 %cmp.i.i.i.i.i65, i8 64, i8 %inc.i.i.i.i61
   br label %_ZN6duckdb20FSSTCompressionState15GetRequiredSizeEm.exit.i36
 
@@ -18940,7 +18940,7 @@ while.body.i.i:                                   ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i72 = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i72 = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i72, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -22472,7 +22472,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %.noexc
   %__val.addr.0.lcssa.i.i.i = phi i64 [ %cond.i.i, %.noexc ], [ %div.i21.i.i, %while.body.i.i.i ]
-  %cmp7.i.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp7.i.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -22659,7 +22659,7 @@ while.body.i.i.i80:                               ; preds = %while.body.i.i.i80,
 
 while.end.i.i.i66:                                ; preds = %while.body.i.i.i80, %.noexc102
   %__val.addr.0.lcssa.i.i.i67 = phi i64 [ %cond.i.i44, %.noexc102 ], [ %div.i21.i.i85, %while.body.i.i.i80 ]
-  %cmp7.i.i.i68 = icmp ugt i64 %__val.addr.0.lcssa.i.i.i67, 9
+  %cmp7.i.i.i68 = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i.i67, 9
   br i1 %cmp7.i.i.i68, label %if.then.i.i.i72, label %if.else.i.i.i69
 
 if.then.i.i.i72:                                  ; preds = %while.end.i.i.i66
@@ -48193,7 +48193,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -49933,7 +49933,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -53559,11 +53559,11 @@ if.then71:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, label %iter.check
 
 iter.check:                                       ; preds = %if.then71
-  %min.iters.check = icmp ult i64 %cond.i154, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i154, 8
   br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check186 = icmp ult i64 %cond.i154, 32
+  %min.iters.check186 = icmp samesign ult i64 %cond.i154, 32
   br i1 %min.iters.check186, label %vec.epilog.ph, label %for.cond.preheader.i.thread
 
 for.cond.preheader.i.thread:                      ; preds = %vector.main.loop.iter.check
@@ -53623,7 +53623,7 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %for.body.i, %vec
   store i8 %add.i167, ptr %add.ptr54, align 1, !tbaa !115
   %div66.i = and i64 %cond.i154, 60
   %sub.i = add nsw i64 %div66.i, -4
-  %or.cond = icmp ult i64 %cond.i154, 8
+  %or.cond = icmp samesign ult i64 %cond.i154, 8
   br i1 %or.cond, label %if.end.i, label %for.body.i168.preheader
 
 for.body.i168.preheader:                          ; preds = %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, %for.cond.preheader.i.thread
@@ -53728,11 +53728,11 @@ if.else77:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %if.end79, label %iter.check199
 
 iter.check199:                                    ; preds = %if.else77
-  %min.iters.check197 = icmp ult i64 %cond.i154, 8
+  %min.iters.check197 = icmp samesign ult i64 %cond.i154, 8
   br i1 %min.iters.check197, label %for.body.i173.preheader, label %vector.main.loop.iter.check201
 
 vector.main.loop.iter.check201:                   ; preds = %iter.check199
-  %min.iters.check200 = icmp ult i64 %cond.i154, 32
+  %min.iters.check200 = icmp samesign ult i64 %cond.i154, 32
   br i1 %min.iters.check200, label %vec.epilog.ph216, label %vector.ph202
 
 vector.ph202:                                     ; preds = %vector.main.loop.iter.check201
@@ -54128,7 +54128,7 @@ while.body.i.i96:                                 ; preds = %while.body.i.i96, %
   %bitwidth.018.i.i = phi i8 [ %inc.i.i97, %while.body.i.i96 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i97 = add nuw nsw i8 %bitwidth.018.i.i, 1
   %17 = lshr i8 %value.019.i.i, 1
-  %tobool.not.i.i98 = icmp ult i8 %value.019.i.i, 2
+  %tobool.not.i.i98 = icmp samesign ult i8 %value.019.i.i, 2
   br i1 %tobool.not.i.i98, label %while.end.i.i99, label %while.body.i.i96, !llvm.loop !1375
 
 while.end.i.i99:                                  ; preds = %while.body.i.i96
@@ -54140,7 +54140,7 @@ _ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fol
 
 _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb1EEEhT_.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fold.split.i, %while.end.i.i99, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb0EEEhT_.exit
   %retval.0.i.i95 = phi i8 [ %.width.i.i.i100, %while.end.i.i99 ], [ 8, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb0EEEhT_.exit ], [ 0, %_ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fold.split.i ]
-  %cmp36 = icmp uge i8 %retval.0.i.i, %retval.0.i.i95
+  %cmp36 = icmp samesign uge i8 %retval.0.i.i, %retval.0.i.i95
   %mode38 = getelementptr inbounds i8, ptr %this, i64 6195
   %18 = load i8, ptr %mode38, align 1
   %cmp39.not = icmp eq i8 %18, 5
@@ -55003,7 +55003,7 @@ while.body.i.i117:                                ; preds = %while.body.i.i117, 
   %bitwidth.018.i.i = phi i8 [ %inc.i.i118, %while.body.i.i117 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i118 = add nuw nsw i8 %bitwidth.018.i.i, 1
   %40 = lshr i8 %value.019.i.i, 1
-  %tobool.not.i.i119 = icmp ult i8 %value.019.i.i, 2
+  %tobool.not.i.i119 = icmp samesign ult i8 %value.019.i.i, 2
   br i1 %tobool.not.i.i119, label %while.end.i.i120, label %while.body.i.i117, !llvm.loop !1375
 
 while.end.i.i120:                                 ; preds = %while.body.i.i117
@@ -55015,7 +55015,7 @@ _ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fol
 
 _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb1EEEhT_.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fold.split.i, %while.end.i.i120, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb0EEEhT_.exit
   %retval.0.i.i116 = phi i8 [ %.width.i.i.i121, %while.end.i.i120 ], [ 8, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIaLb0EEEhT_.exit ], [ 0, %_ZN6duckdb20BitpackingPrimitives19FindMinimumBitWidthIaLb1ELb0EEEhT_S2_.exit.fold.split.i ]
-  %cmp36 = icmp uge i8 %retval.0.i.i, %retval.0.i.i116
+  %cmp36 = icmp samesign uge i8 %retval.0.i.i, %retval.0.i.i116
   %mode38 = getelementptr inbounds i8, ptr %this, i64 6195
   %41 = load i8, ptr %mode38, align 1
   %cmp39.not = icmp eq i8 %41, 5
@@ -56116,11 +56116,11 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, label %iter.check
 
 iter.check:                                       ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 8
   br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check81 = icmp ult i64 %cond.i73, 32
+  %min.iters.check81 = icmp samesign ult i64 %cond.i73, 32
   br i1 %min.iters.check81, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check
@@ -57068,7 +57068,7 @@ if.then71:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then71
-  %min.iters.check = icmp ult i64 %cond.i154, 16
+  %min.iters.check = icmp samesign ult i64 %cond.i154, 16
   br i1 %min.iters.check, label %for.body.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -57226,7 +57226,7 @@ if.else77:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %if.end79, label %for.body.i165.preheader
 
 for.body.i165.preheader:                          ; preds = %if.else77
-  %min.iters.check180 = icmp ult i64 %cond.i154, 16
+  %min.iters.check180 = icmp samesign ult i64 %cond.i154, 16
   br i1 %min.iters.check180, label %for.body.i165.preheader6, label %vector.ph181
 
 vector.ph181:                                     ; preds = %for.body.i165.preheader
@@ -57600,11 +57600,11 @@ while.body.i.i96:                                 ; preds = %while.body.i.i96, %
   %bitwidth.018.i.i = phi i8 [ %inc.i.i97, %while.body.i.i96 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i97 = add nuw nsw i8 %bitwidth.018.i.i, 1
   %17 = lshr i16 %value.019.i.i, 1
-  %tobool.not.i.i98 = icmp ult i16 %value.019.i.i, 2
+  %tobool.not.i.i98 = icmp samesign ult i16 %value.019.i.i, 2
   br i1 %tobool.not.i.i98, label %while.end.i.i99, label %while.body.i.i96, !llvm.loop !1454
 
 while.end.i.i99:                                  ; preds = %while.body.i.i96
-  %cmp.i.i.i100 = icmp ugt i8 %bitwidth.018.i.i, 13
+  %cmp.i.i.i100 = icmp samesign ugt i8 %bitwidth.018.i.i, 13
   %.width.i.i.i101 = select i1 %cmp.i.i.i100, i8 16, i8 %inc.i.i97
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIsLb1EEEhT_.exit
 
@@ -58637,11 +58637,11 @@ while.body.i.i117:                                ; preds = %while.body.i.i117, 
   %bitwidth.018.i.i = phi i8 [ %inc.i.i118, %while.body.i.i117 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i118 = add nuw nsw i8 %bitwidth.018.i.i, 1
   %37 = lshr i16 %value.019.i.i, 1
-  %tobool.not.i.i119 = icmp ult i16 %value.019.i.i, 2
+  %tobool.not.i.i119 = icmp samesign ult i16 %value.019.i.i, 2
   br i1 %tobool.not.i.i119, label %while.end.i.i120, label %while.body.i.i117, !llvm.loop !1454
 
 while.end.i.i120:                                 ; preds = %while.body.i.i117
-  %cmp.i.i.i121 = icmp ugt i8 %bitwidth.018.i.i, 13
+  %cmp.i.i.i121 = icmp samesign ugt i8 %bitwidth.018.i.i, 13
   %.width.i.i.i122 = select i1 %cmp.i.i.i121, i8 16, i8 %inc.i.i118
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIsLb1EEEhT_.exit
 
@@ -59868,7 +59868,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 16
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 16
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -60816,7 +60816,7 @@ if.then67:                                        ; preds = %if.end63
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then67
-  %min.iters.check = icmp ult i64 %cond.i150, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i150, 8
   br i1 %min.iters.check, label %for.body.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -60998,7 +60998,7 @@ if.else73:                                        ; preds = %if.end63
   br i1 %tobool.not.i.not, label %if.end75, label %for.body.i158.preheader
 
 for.body.i158.preheader:                          ; preds = %if.else73
-  %min.iters.check173 = icmp ult i64 %cond.i150, 8
+  %min.iters.check173 = icmp samesign ult i64 %cond.i150, 8
   br i1 %min.iters.check173, label %for.body.i158.preheader6, label %vector.ph174
 
 vector.ph174:                                     ; preds = %for.body.i158.preheader
@@ -61391,11 +61391,11 @@ while.body.i.i93:                                 ; preds = %while.body.i.i93, %
   %bitwidth.012.i.i = phi i8 [ %inc.i.i94, %while.body.i.i93 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i94 = add nuw nsw i8 %bitwidth.012.i.i, 1
   %shr.i.i95 = lshr i32 %value.013.i.i, 1
-  %tobool.not.i.i96 = icmp ult i32 %value.013.i.i, 2
+  %tobool.not.i.i96 = icmp samesign ult i32 %value.013.i.i, 2
   br i1 %tobool.not.i.i96, label %while.end.i.i97, label %while.body.i.i93, !llvm.loop !1545
 
 while.end.i.i97:                                  ; preds = %while.body.i.i93
-  %cmp.i.i.i98 = icmp ugt i8 %bitwidth.012.i.i, 27
+  %cmp.i.i.i98 = icmp samesign ugt i8 %bitwidth.012.i.i, 27
   %.width.i.i.i99 = select i1 %cmp.i.i.i98, i8 32, i8 %inc.i.i94
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIiLb1EEEhT_.exit
 
@@ -62428,11 +62428,11 @@ while.body.i.i114:                                ; preds = %while.body.i.i114, 
   %bitwidth.012.i.i = phi i8 [ %inc.i.i115, %while.body.i.i114 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i115 = add nuw nsw i8 %bitwidth.012.i.i, 1
   %shr.i.i116 = lshr i32 %value.013.i.i, 1
-  %tobool.not.i.i117 = icmp ult i32 %value.013.i.i, 2
+  %tobool.not.i.i117 = icmp samesign ult i32 %value.013.i.i, 2
   br i1 %tobool.not.i.i117, label %while.end.i.i118, label %while.body.i.i114, !llvm.loop !1545
 
 while.end.i.i118:                                 ; preds = %while.body.i.i114
-  %cmp.i.i.i119 = icmp ugt i8 %bitwidth.012.i.i, 27
+  %cmp.i.i.i119 = icmp samesign ugt i8 %bitwidth.012.i.i, 27
   %.width.i.i.i120 = select i1 %cmp.i.i.i119, i8 32, i8 %inc.i.i115
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIiLb1EEEhT_.exit
 
@@ -63345,7 +63345,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 8
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -64322,7 +64322,7 @@ if.then66:                                        ; preds = %if.end62
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then66
-  %min.iters.check = icmp ult i64 %cond.i149, 4
+  %min.iters.check = icmp samesign ult i64 %cond.i149, 4
   br i1 %min.iters.check, label %for.body.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -64552,7 +64552,7 @@ if.else72:                                        ; preds = %if.end62
   br i1 %tobool.not.i.not, label %if.end74, label %for.body.i157.preheader
 
 for.body.i157.preheader:                          ; preds = %if.else72
-  %min.iters.check173 = icmp ult i64 %cond.i149, 4
+  %min.iters.check173 = icmp samesign ult i64 %cond.i149, 4
   br i1 %min.iters.check173, label %for.body.i157.preheader8, label %vector.ph174
 
 vector.ph174:                                     ; preds = %for.body.i157.preheader
@@ -64991,11 +64991,11 @@ while.body.i.i93:                                 ; preds = %while.body.i.i93, %
   %bitwidth.012.i.i = phi i8 [ %inc.i.i94, %while.body.i.i93 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i94 = add nuw nsw i8 %bitwidth.012.i.i, 1
   %shr.i.i95 = lshr i64 %value.013.i.i, 1
-  %tobool.not.i.i96 = icmp ult i64 %value.013.i.i, 2
+  %tobool.not.i.i96 = icmp samesign ult i64 %value.013.i.i, 2
   br i1 %tobool.not.i.i96, label %while.end.i.i97, label %while.body.i.i93, !llvm.loop !1636
 
 while.end.i.i97:                                  ; preds = %while.body.i.i93
-  %cmp.i.i.i98 = icmp ugt i8 %bitwidth.012.i.i, 55
+  %cmp.i.i.i98 = icmp samesign ugt i8 %bitwidth.012.i.i, 55
   %.width.i.i.i99 = select i1 %cmp.i.i.i98, i8 64, i8 %inc.i.i94
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIlLb1EEEhT_.exit
 
@@ -65864,11 +65864,11 @@ while.body.i.i114:                                ; preds = %while.body.i.i114, 
   %bitwidth.012.i.i = phi i8 [ %inc.i.i115, %while.body.i.i114 ], [ 1, %while.body.i.preheader.i ]
   %inc.i.i115 = add nuw nsw i8 %bitwidth.012.i.i, 1
   %shr.i.i116 = lshr i64 %value.013.i.i, 1
-  %tobool.not.i.i117 = icmp ult i64 %value.013.i.i, 2
+  %tobool.not.i.i117 = icmp samesign ult i64 %value.013.i.i, 2
   br i1 %tobool.not.i.i117, label %while.end.i.i118, label %while.body.i.i114, !llvm.loop !1636
 
 while.end.i.i118:                                 ; preds = %while.body.i.i114
-  %cmp.i.i.i119 = icmp ugt i8 %bitwidth.012.i.i, 55
+  %cmp.i.i.i119 = icmp samesign ugt i8 %bitwidth.012.i.i, 55
   %.width.i.i.i120 = select i1 %cmp.i.i.i119, i8 64, i8 %inc.i.i115
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIlLb1EEEhT_.exit
 
@@ -67662,7 +67662,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 4
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 4
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -68663,11 +68663,11 @@ if.then71:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, label %iter.check
 
 iter.check:                                       ; preds = %if.then71
-  %min.iters.check = icmp ult i64 %cond.i154, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i154, 8
   br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check185 = icmp ult i64 %cond.i154, 32
+  %min.iters.check185 = icmp samesign ult i64 %cond.i154, 32
   br i1 %min.iters.check185, label %vec.epilog.ph, label %for.cond.preheader.i.thread
 
 for.cond.preheader.i.thread:                      ; preds = %vector.main.loop.iter.check
@@ -68727,7 +68727,7 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %for.body.i, %vec
   store i8 %add.i167, ptr %add.ptr54, align 1, !tbaa !115
   %div66.i = and i64 %cond.i154, 60
   %sub.i = add nsw i64 %div66.i, -4
-  %or.cond = icmp ult i64 %cond.i154, 8
+  %or.cond = icmp samesign ult i64 %cond.i154, 8
   br i1 %or.cond, label %if.end.i, label %for.body.i168.preheader
 
 for.body.i168.preheader:                          ; preds = %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, %for.cond.preheader.i.thread
@@ -68832,11 +68832,11 @@ if.else77:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %if.end79, label %iter.check198
 
 iter.check198:                                    ; preds = %if.else77
-  %min.iters.check196 = icmp ult i64 %cond.i154, 8
+  %min.iters.check196 = icmp samesign ult i64 %cond.i154, 8
   br i1 %min.iters.check196, label %for.body.i173.preheader, label %vector.main.loop.iter.check200
 
 vector.main.loop.iter.check200:                   ; preds = %iter.check198
-  %min.iters.check199 = icmp ult i64 %cond.i154, 32
+  %min.iters.check199 = icmp samesign ult i64 %cond.i154, 32
   br i1 %min.iters.check199, label %vec.epilog.ph215, label %vector.ph201
 
 vector.ph201:                                     ; preds = %vector.main.loop.iter.check200
@@ -69204,7 +69204,7 @@ if.end32:                                         ; preds = %land.lhs.true19, %i
   %cmp.i.i95 = icmp eq i8 %17, 0
   %18 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %17, i1 true)
   %19 = sub nuw nsw i8 8, %18
-  %cmp3610 = icmp ule i8 %19, %retval.0.i.i
+  %cmp3610 = icmp samesign ule i8 %19, %retval.0.i.i
   %cmp36 = select i1 %cmp.i.i95, i1 true, i1 %cmp3610
   %mode38 = getelementptr inbounds i8, ptr %this, i64 6195
   %20 = load i8, ptr %mode38, align 1
@@ -70015,7 +70015,7 @@ if.end32:                                         ; preds = %land.lhs.true19, %i
   %cmp.i.i116 = icmp eq i8 %40, 0
   %41 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %40, i1 true)
   %42 = sub nuw nsw i8 8, %41
-  %cmp3614 = icmp ule i8 %42, %retval.0.i.i
+  %cmp3614 = icmp samesign ule i8 %42, %retval.0.i.i
   %cmp36 = select i1 %cmp.i.i116, i1 true, i1 %cmp3614
   %mode38 = getelementptr inbounds i8, ptr %this, i64 6195
   %43 = load i8, ptr %mode38, align 1
@@ -70857,11 +70857,11 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit, label %iter.check
 
 iter.check:                                       ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 8
   br i1 %min.iters.check, label %for.body.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check81 = icmp ult i64 %cond.i73, 32
+  %min.iters.check81 = icmp samesign ult i64 %cond.i73, 32
   br i1 %min.iters.check81, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check
@@ -71807,7 +71807,7 @@ if.then71:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then71
-  %min.iters.check = icmp ult i64 %cond.i154, 16
+  %min.iters.check = icmp samesign ult i64 %cond.i154, 16
   br i1 %min.iters.check, label %for.body.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -71965,7 +71965,7 @@ if.else77:                                        ; preds = %if.end67
   br i1 %tobool.not.i.not, label %if.end79, label %for.body.i165.preheader
 
 for.body.i165.preheader:                          ; preds = %if.else77
-  %min.iters.check179 = icmp ult i64 %cond.i154, 16
+  %min.iters.check179 = icmp samesign ult i64 %cond.i154, 16
   br i1 %min.iters.check179, label %for.body.i165.preheader6, label %vector.ph180
 
 vector.ph180:                                     ; preds = %for.body.i165.preheader
@@ -72318,7 +72318,7 @@ while.body.i.i:                                   ; preds = %if.end32, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !1781
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.08.i.i, 13
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.08.i.i, 13
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 16, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit
 
@@ -72337,7 +72337,7 @@ while.body.i.i96:                                 ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i100, label %while.end.i.i101, label %while.body.i.i96, !llvm.loop !1781
 
 while.end.i.i101:                                 ; preds = %while.body.i.i96
-  %cmp.i.i.i102 = icmp ugt i8 %bitwidth.08.i.i98, 13
+  %cmp.i.i.i102 = icmp samesign ugt i8 %bitwidth.08.i.i98, 13
   %.width.i.i.i103 = select i1 %cmp.i.i.i102, i8 16, i8 %inc.i.i99
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit105
 
@@ -72430,7 +72430,7 @@ while.body.i.i108:                                ; preds = %if.then66, %while.b
   br i1 %tobool.not.i.i112, label %while.end.i.i113, label %while.body.i.i108, !llvm.loop !1781
 
 while.end.i.i113:                                 ; preds = %while.body.i.i108
-  %cmp.i.i.i114 = icmp ugt i8 %bitwidth.08.i.i110, 13
+  %cmp.i.i.i114 = icmp samesign ugt i8 %bitwidth.08.i.i110, 13
   %.width.i.i.i115 = select i1 %cmp.i.i.i114, i8 16, i8 %inc.i.i111
   %30 = zext nneg i8 %.width.i.i.i115 to i64
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit117
@@ -73299,7 +73299,7 @@ while.body.i.i:                                   ; preds = %if.end32, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !1781
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.08.i.i, 13
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.08.i.i, 13
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 16, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit
 
@@ -73318,7 +73318,7 @@ while.body.i.i117:                                ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i121, label %while.end.i.i122, label %while.body.i.i117, !llvm.loop !1781
 
 while.end.i.i122:                                 ; preds = %while.body.i.i117
-  %cmp.i.i.i123 = icmp ugt i8 %bitwidth.08.i.i119, 13
+  %cmp.i.i.i123 = icmp samesign ugt i8 %bitwidth.08.i.i119, 13
   %.width.i.i.i124 = select i1 %cmp.i.i.i123, i8 16, i8 %inc.i.i120
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit126
 
@@ -73435,7 +73435,7 @@ while.body.i.i129:                                ; preds = %if.then66, %while.b
   br i1 %tobool.not.i.i133, label %while.end.i.i134, label %while.body.i.i129, !llvm.loop !1781
 
 while.end.i.i134:                                 ; preds = %while.body.i.i129
-  %cmp.i.i.i135 = icmp ugt i8 %bitwidth.08.i.i131, 13
+  %cmp.i.i.i135 = icmp samesign ugt i8 %bitwidth.08.i.i131, 13
   %.width.i.i.i136 = select i1 %cmp.i.i.i135, i8 16, i8 %inc.i.i132
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthItLb0EEEhT_.exit138
 
@@ -74254,7 +74254,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 16
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 16
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -75200,7 +75200,7 @@ if.then67:                                        ; preds = %if.end63
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then67
-  %min.iters.check = icmp ult i64 %cond.i150, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i150, 8
   br i1 %min.iters.check, label %for.body.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -75382,7 +75382,7 @@ if.else73:                                        ; preds = %if.end63
   br i1 %tobool.not.i.not, label %if.end75, label %for.body.i158.preheader
 
 for.body.i158.preheader:                          ; preds = %if.else73
-  %min.iters.check172 = icmp ult i64 %cond.i150, 8
+  %min.iters.check172 = icmp samesign ult i64 %cond.i150, 8
   br i1 %min.iters.check172, label %for.body.i158.preheader6, label %vector.ph173
 
 vector.ph173:                                     ; preds = %for.body.i158.preheader
@@ -75754,7 +75754,7 @@ while.body.i.i:                                   ; preds = %if.end29, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !1868
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 27
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 27
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 32, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit
 
@@ -75773,7 +75773,7 @@ while.body.i.i93:                                 ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i98, label %while.end.i.i99, label %while.body.i.i93, !llvm.loop !1868
 
 while.end.i.i99:                                  ; preds = %while.body.i.i93
-  %cmp.i.i.i100 = icmp ugt i8 %bitwidth.06.i.i95, 27
+  %cmp.i.i.i100 = icmp samesign ugt i8 %bitwidth.06.i.i95, 27
   %.width.i.i.i101 = select i1 %cmp.i.i.i100, i8 32, i8 %inc.i.i96
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit103
 
@@ -75865,7 +75865,7 @@ while.body.i.i106:                                ; preds = %if.then62, %while.b
   br i1 %tobool.not.i.i111, label %while.end.i.i112, label %while.body.i.i106, !llvm.loop !1868
 
 while.end.i.i112:                                 ; preds = %while.body.i.i106
-  %cmp.i.i.i113 = icmp ugt i8 %bitwidth.06.i.i108, 27
+  %cmp.i.i.i113 = icmp samesign ugt i8 %bitwidth.06.i.i108, 27
   %.width.i.i.i114 = select i1 %cmp.i.i.i113, i8 32, i8 %inc.i.i109
   %28 = zext nneg i8 %.width.i.i.i114 to i64
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit116
@@ -76735,7 +76735,7 @@ while.body.i.i:                                   ; preds = %if.end29, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !1868
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 27
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 27
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 32, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit
 
@@ -76754,7 +76754,7 @@ while.body.i.i114:                                ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i119, label %while.end.i.i120, label %while.body.i.i114, !llvm.loop !1868
 
 while.end.i.i120:                                 ; preds = %while.body.i.i114
-  %cmp.i.i.i121 = icmp ugt i8 %bitwidth.06.i.i116, 27
+  %cmp.i.i.i121 = icmp samesign ugt i8 %bitwidth.06.i.i116, 27
   %.width.i.i.i122 = select i1 %cmp.i.i.i121, i8 32, i8 %inc.i.i117
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit124
 
@@ -76870,7 +76870,7 @@ while.body.i.i127:                                ; preds = %if.then62, %while.b
   br i1 %tobool.not.i.i132, label %while.end.i.i133, label %while.body.i.i127, !llvm.loop !1868
 
 while.end.i.i133:                                 ; preds = %while.body.i.i127
-  %cmp.i.i.i134 = icmp ugt i8 %bitwidth.06.i.i129, 27
+  %cmp.i.i.i134 = icmp samesign ugt i8 %bitwidth.06.i.i129, 27
   %.width.i.i.i135 = select i1 %cmp.i.i.i134, i8 32, i8 %inc.i.i130
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthIjLb0EEEhT_.exit137
 
@@ -77664,7 +77664,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 8
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 8
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -78639,7 +78639,7 @@ if.then66:                                        ; preds = %if.end62
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then66
-  %min.iters.check = icmp ult i64 %cond.i149, 4
+  %min.iters.check = icmp samesign ult i64 %cond.i149, 4
   br i1 %min.iters.check, label %for.body.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -78869,7 +78869,7 @@ if.else72:                                        ; preds = %if.end62
   br i1 %tobool.not.i.not, label %if.end74, label %for.body.i157.preheader
 
 for.body.i157.preheader:                          ; preds = %if.else72
-  %min.iters.check172 = icmp ult i64 %cond.i149, 4
+  %min.iters.check172 = icmp samesign ult i64 %cond.i149, 4
   br i1 %min.iters.check172, label %for.body.i157.preheader8, label %vector.ph173
 
 vector.ph173:                                     ; preds = %for.body.i157.preheader
@@ -79287,7 +79287,7 @@ while.body.i.i:                                   ; preds = %if.end29, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -79306,7 +79306,7 @@ while.body.i.i93:                                 ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i98, label %while.end.i.i99, label %while.body.i.i93, !llvm.loop !197
 
 while.end.i.i99:                                  ; preds = %while.body.i.i93
-  %cmp.i.i.i100 = icmp ugt i8 %bitwidth.06.i.i95, 55
+  %cmp.i.i.i100 = icmp samesign ugt i8 %bitwidth.06.i.i95, 55
   %.width.i.i.i101 = select i1 %cmp.i.i.i100, i8 64, i8 %inc.i.i96
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit103
 
@@ -79372,7 +79372,7 @@ while.body.i.i106:                                ; preds = %if.then62, %while.b
   br i1 %tobool.not.i.i111, label %while.end.i.i112, label %while.body.i.i106, !llvm.loop !197
 
 while.end.i.i112:                                 ; preds = %while.body.i.i106
-  %cmp.i.i.i113 = icmp ugt i8 %bitwidth.06.i.i108, 55
+  %cmp.i.i.i113 = icmp samesign ugt i8 %bitwidth.06.i.i108, 55
   %.width.i.i.i114 = select i1 %cmp.i.i.i113, i8 64, i8 %inc.i.i109
   %25 = zext nneg i8 %.width.i.i.i114 to i64
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit116
@@ -80129,7 +80129,7 @@ while.body.i.i:                                   ; preds = %if.end29, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -80148,7 +80148,7 @@ while.body.i.i114:                                ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i119, label %while.end.i.i120, label %while.body.i.i114, !llvm.loop !197
 
 while.end.i.i120:                                 ; preds = %while.body.i.i114
-  %cmp.i.i.i121 = icmp ugt i8 %bitwidth.06.i.i116, 55
+  %cmp.i.i.i121 = icmp samesign ugt i8 %bitwidth.06.i.i116, 55
   %.width.i.i.i122 = select i1 %cmp.i.i.i121, i8 64, i8 %inc.i.i117
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit124
 
@@ -80225,7 +80225,7 @@ while.body.i.i127:                                ; preds = %if.then62, %while.b
   br i1 %tobool.not.i.i132, label %while.end.i.i133, label %while.body.i.i127, !llvm.loop !197
 
 while.end.i.i133:                                 ; preds = %while.body.i.i127
-  %cmp.i.i.i134 = icmp ugt i8 %bitwidth.06.i.i129, 55
+  %cmp.i.i.i134 = icmp samesign ugt i8 %bitwidth.06.i.i129, 55
   %.width.i.i.i135 = select i1 %cmp.i.i.i134, i8 64, i8 %inc.i.i130
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit137
 
@@ -80979,7 +80979,7 @@ if.then32:                                        ; preds = %if.end24
   br i1 %tobool.not.i.not, label %_ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then32
-  %min.iters.check = icmp ult i64 %cond.i73, 4
+  %min.iters.check = icmp samesign ult i64 %cond.i73, 4
   br i1 %min.iters.check, label %for.body.i.preheader2, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
@@ -85266,7 +85266,7 @@ while.body.i.i:                                   ; preds = %if.end29, %while.bo
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !197
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp ugt i8 %bitwidth.06.i.i, 55
+  %cmp.i.i.i = icmp samesign ugt i8 %bitwidth.06.i.i, 55
   %.width.i.i.i = select i1 %cmp.i.i.i, i8 64, i8 %inc.i.i
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
@@ -85285,7 +85285,7 @@ while.body.i.i117:                                ; preds = %_ZN6duckdb20Bitpack
   br i1 %tobool.not.i.i122, label %while.end.i.i123, label %while.body.i.i117, !llvm.loop !197
 
 while.end.i.i123:                                 ; preds = %while.body.i.i117
-  %cmp.i.i.i124 = icmp ugt i8 %bitwidth.06.i.i119, 55
+  %cmp.i.i.i124 = icmp samesign ugt i8 %bitwidth.06.i.i119, 55
   %.width.i.i.i125 = select i1 %cmp.i.i.i124, i8 64, i8 %inc.i.i120
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit127
 
@@ -85362,7 +85362,7 @@ while.body.i.i130:                                ; preds = %if.then62, %while.b
   br i1 %tobool.not.i.i135, label %while.end.i.i136, label %while.body.i.i130, !llvm.loop !197
 
 while.end.i.i136:                                 ; preds = %while.body.i.i130
-  %cmp.i.i.i137 = icmp ugt i8 %bitwidth.06.i.i132, 55
+  %cmp.i.i.i137 = icmp samesign ugt i8 %bitwidth.06.i.i132, 55
   %.width.i.i.i138 = select i1 %cmp.i.i.i137, i8 64, i8 %inc.i.i133
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit140
 

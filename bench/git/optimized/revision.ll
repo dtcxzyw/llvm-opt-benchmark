@@ -349,7 +349,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %slab_count, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
@@ -414,7 +414,7 @@ for.inc9:                                         ; preds = %for.inc9.loopexit, 
   %9 = phi i32 [ %.pre, %for.inc9.loopexit ], [ %1, %for.cond1.preheader ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end11, !llvm.loop !8
 
 for.end11:                                        ; preds = %for.inc9
@@ -434,7 +434,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %slab_count, align 8
   %15 = zext i32 %14 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %15
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %cmp.i, label %for.body.i, label %clear_revision_sources.exit, !llvm.loop !5
 
 clear_revision_sources.exit:                      ; preds = %for.body.i, %entry, %for.end11
@@ -1759,7 +1759,7 @@ for.inc:                                          ; preds = %for.body, %if.end3
   %7 = phi i32 [ %1, %for.body ], [ %.pre, %if.end3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -6470,7 +6470,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr %cmdline, align 8
   %6 = zext i32 %5 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %release_revisions_cmdline.exit, !llvm.loop !35
 
 release_revisions_cmdline.exit:                   ; preds = %for.body.i, %entry
@@ -6568,7 +6568,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr %slab_count.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %clear_indegree_slab.exit, !llvm.loop !36
 
 clear_indegree_slab.exit:                         ; preds = %for.body.i, %if.end
@@ -6595,7 +6595,7 @@ for.body.i11:                                     ; preds = %for.body.i11, %for.
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %9 = load i32, ptr %slab_count.i7, align 8
   %10 = zext i32 %9 to i64
-  %cmp.i15 = icmp ult i64 %indvars.iv.next.i14, %10
+  %cmp.i15 = icmp samesign ult i64 %indvars.iv.next.i14, %10
   br i1 %cmp.i15, label %for.body.i11, label %clear_author_date_slab.exit, !llvm.loop !37
 
 clear_author_date_slab.exit:                      ; preds = %for.body.i11, %clear_indegree_slab.exit
@@ -7179,7 +7179,7 @@ for.inc:                                          ; preds = %if.then108.i, %if.t
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %old_pending, align 8
   %60 = zext i32 %59 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %60
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -10097,7 +10097,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %11 = load i32, ptr %slab_count.i.i, align 8
   %12 = zext i32 %11 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %12
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %cmp.i.i, label %for.body.i.i, label %clear_saved_parents.exit.i, !llvm.loop !83
 
 clear_saved_parents.exit.i:                       ; preds = %for.body.i.i, %if.then.i
@@ -10250,7 +10250,7 @@ for.inc.i:                                        ; preds = %if.end12.i, %if.end
   %15 = phi i32 [ %12, %if.end.i ], [ %12, %for.body.i ], [ %.pre.i, %if.end12.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = zext i32 %15 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %16
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %cmp.i, label %for.body.i, label %create_boundary_commit_list.exit, !llvm.loop !85
 
 create_boundary_commit_list.exit:                 ; preds = %for.inc.i, %if.then47

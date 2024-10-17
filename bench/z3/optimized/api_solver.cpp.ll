@@ -3964,7 +3964,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont22:                                    ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %9, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont22
@@ -4074,7 +4074,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 invoke.cont41:                                    ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond40
   %retval.0.i.i.i = phi i32 [ %24, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond40 ]
   %25 = zext i32 %retval.0.i.i.i to i64
-  %cmp43 = icmp ult i64 %indvars.iv51, %25
+  %cmp43 = icmp samesign ult i64 %indvars.iv51, %25
   br i1 %cmp43, label %for.body44, label %for.end51
 
 for.body44:                                       ; preds = %invoke.cont41
@@ -10651,7 +10651,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i63 = getelementptr inbounds i8, ptr %25, i64 -4
   %26 = load i32, ptr %arrayidx.i.i.i63, align 4
   %27 = zext i32 %26 to i64
-  %cmp.i223 = icmp ult i64 %indvars.iv.i243, %27
+  %cmp.i223 = icmp samesign ult i64 %indvars.iv.i243, %27
   br i1 %cmp.i223, label %for.body.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread
@@ -14362,7 +14362,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !21
 

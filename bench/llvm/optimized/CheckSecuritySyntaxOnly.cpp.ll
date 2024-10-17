@@ -3522,8 +3522,8 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang15ObjCMessageExprEES8
 38:                                               ; preds = %35
   %.not.i = icmp eq i32 %36, 10
   %39 = and i64 %.sroa.0.0.copyload.i.i, 9223372032559808512
-  %40 = icmp ult i64 %39, 55834574848
-  %or.cond.i = and i1 %.not.i, %40
+  %40 = icmp samesign ult i64 %39, 55834574848
+  %or.cond.i = select i1 %.not.i, i1 %40, i1 false
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_17WalkAST30checkMsg_decodeValueOfObjCTypeEPKN5clang15ObjCMessageExprE.exit, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i
 
 41:                                               ; preds = %21
@@ -3637,7 +3637,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %24
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, 4294967295
-  %.not.i.i = icmp ult i64 %41, 10
+  %.not.i.i = icmp samesign ult i64 %41, 10
   br i1 %.not.i.i, label %47, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %35
@@ -4259,7 +4259,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread59.i: ; preds = 
   %117 = lshr i64 %116, 38
   %118 = trunc nuw nsw i64 %117 to i32
   %119 = and i32 %118, 65535
-  %120 = icmp ult i64 %.02867.i, 4
+  %120 = icmp samesign ult i64 %.02867.i, 4
   %121 = select i1 %120, i32 1, i32 2
   %.not33.i = icmp eq i32 %119, %121
   br i1 %.not33.i, label %.preheader.i, label %_ZN12_GLOBAL__N_17WalkAST25checkUncheckedReturnValueEPN5clang8CallExprE.exit
@@ -4278,7 +4278,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread59.i: ; preds = 
   %125 = load i64, ptr %115, align 16
   %126 = lshr i64 %125, 38
   %127 = and i64 %126, 65535
-  %128 = icmp ult i64 %indvars.iv.next.i, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next.i, %127
   br i1 %128, label %129, label %._crit_edge.i, !llvm.loop !19
 
 129:                                              ; preds = %124, %.lr.ph.i
@@ -6204,7 +6204,7 @@ define internal void @_ZN12_GLOBAL__N_17WalkAST16checkCall_strcpyEPKN5clang8Call
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   %56 = zext i32 %55 to i64
-  %.not15 = icmp ult i64 %52, %56
+  %.not15 = icmp samesign ult i64 %52, %56
   br i1 %.not15, label %57, label %84
 
 57:                                               ; preds = %37, %50, %18
@@ -6513,7 +6513,7 @@ define internal void @_ZN12_GLOBAL__N_17WalkAST37checkDeprecatedOrUnsafeBufferHa
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load i64, ptr %48, align 8
   %51 = and i64 %50, 4294967295
-  %.not.i.i = icmp ult i64 %51, 10
+  %.not.i.i = icmp samesign ult i64 %51, 10
   br i1 %.not.i.i, label %55, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %40

@@ -622,7 +622,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext i8 %wbits.040 to i32
   %conv5 = zext i8 %4 to i32
   %add = add nuw nsw i32 %conv5, %conv
-  %cmp6 = icmp ult i32 %add, 32
+  %cmp6 = icmp samesign ult i32 %add, 32
   br i1 %cmp6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body

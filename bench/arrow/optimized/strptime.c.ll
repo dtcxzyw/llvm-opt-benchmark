@@ -326,7 +326,7 @@ for.body174:                                      ; preds = %land.rhs165
   %sub = add i32 %add177, %mul
   store i32 %sub, ptr %dest.2, align 4
   %mul179 = mul nuw nsw i32 %i.0138, 10
-  %cmp163.not = icmp ugt i32 %mul179, %add162
+  %cmp163.not = icmp samesign ugt i32 %mul179, %add162
   br i1 %cmp163.not, label %for.end180, label %land.rhs165, !llvm.loop !8
 
 for.end180:                                       ; preds = %land.rhs165, %for.body174

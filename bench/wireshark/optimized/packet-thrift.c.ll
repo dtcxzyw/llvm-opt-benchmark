@@ -1689,7 +1689,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
 
 58:                                               ; preds = %53, %43
   %.098 = phi ptr [ %57, %53 ], [ null, %43 ]
-  %59 = icmp ult i32 %51, 14
+  %59 = icmp samesign ult i32 %51, 14
   br i1 %59, label %switch.lookup, label %compact_struct_type_to_generic_type.exit
 
 switch.lookup:                                    ; preds = %58

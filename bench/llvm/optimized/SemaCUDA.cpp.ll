@@ -2512,7 +2512,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %14 = getelementptr inbounds i8, ptr %.01218.i.i, i64 24
   %.val4.i.i.i.i = load ptr, ptr %14, align 8
   %15 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.val4.i.i.i.i)
-  %16 = icmp ult i32 %13, %15
+  %16 = icmp samesign ult i32 %13, %15
   %spec.select.i.i = select i1 %16, ptr %11, ptr %.019.i.i
   %17 = getelementptr inbounds i8, ptr %11, i64 16
   %.not.i.i = icmp eq ptr %17, %9
@@ -2537,28 +2537,28 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %26 = getelementptr i8, ptr %.02964.i.i.i.i.i.i, i64 8
   %.029.val46.i.i.i.i.i.i = load ptr, ptr %26, align 8
   %27 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.029.val46.i.i.i.i.i.i)
-  %28 = icmp ult i32 %27, %19
+  %28 = icmp samesign ult i32 %27, %19
   br i1 %28, label %"_ZSt9__find_ifIPSt4pairIN5clang14DeclAccessPairEPNS1_12FunctionDeclEEN9__gnu_cxx5__ops10_Iter_predIZNS1_8SemaCUDA20EraseUnwantedMatchesEPKS3_RN4llvm15SmallVectorImplIS5_EEE3$_2EEET_SJ_SJ_T0_.exit.i.i.i.i", label %29
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %30 = getelementptr i8, ptr %.02964.i.i.i.i.i.i, i64 24
   %.val43.i.i.i.i.i.i = load ptr, ptr %30, align 8
   %31 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.val43.i.i.i.i.i.i)
-  %32 = icmp ult i32 %31, %19
+  %32 = icmp samesign ult i32 %31, %19
   br i1 %32, label %.loopexit.split.loop.exit55.i.i.i.i.i.i, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %.02964.i.i.i.i.i.i, i64 40
   %.val40.i.i.i.i.i.i = load ptr, ptr %34, align 8
   %35 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.val40.i.i.i.i.i.i)
-  %36 = icmp ult i32 %35, %19
+  %36 = icmp samesign ult i32 %35, %19
   br i1 %36, label %.loopexit.split.loop.exit57.i.i.i.i.i.i, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr i8, ptr %.02964.i.i.i.i.i.i, i64 56
   %.val37.i.i.i.i.i.i = load ptr, ptr %38, align 8
   %39 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.val37.i.i.i.i.i.i)
-  %40 = icmp ult i32 %39, %19
+  %40 = icmp samesign ult i32 %39, %19
   br i1 %40, label %.loopexit.split.loop.exit59.i.i.i.i.i.i, label %41
 
 41:                                               ; preds = %37
@@ -2586,7 +2586,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %47 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   %.029.val.i.i.i.i.i.i = load ptr, ptr %47, align 8
   %48 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.029.val.i.i.i.i.i.i)
-  %49 = icmp ult i32 %48, %19
+  %49 = icmp samesign ult i32 %48, %19
   br i1 %49, label %"_ZSt9__find_ifIPSt4pairIN5clang14DeclAccessPairEPNS1_12FunctionDeclEEN9__gnu_cxx5__ops10_Iter_predIZNS1_8SemaCUDA20EraseUnwantedMatchesEPKS3_RN4llvm15SmallVectorImplIS5_EEE3$_2EEET_SJ_SJ_T0_.exit.i.i.i.i", label %50
 
 50:                                               ; preds = %46
@@ -2598,7 +2598,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %53 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val.i.i.i.i.i.i = load ptr, ptr %53, align 8
   %54 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.1.val.i.i.i.i.i.i)
-  %55 = icmp ult i32 %54, %19
+  %55 = icmp samesign ult i32 %54, %19
   br i1 %55, label %"_ZSt9__find_ifIPSt4pairIN5clang14DeclAccessPairEPNS1_12FunctionDeclEEN9__gnu_cxx5__ops10_Iter_predIZNS1_8SemaCUDA20EraseUnwantedMatchesEPKS3_RN4llvm15SmallVectorImplIS5_EEE3$_2EEET_SJ_SJ_T0_.exit.i.i.i.i", label %56
 
 56:                                               ; preds = %52
@@ -2610,7 +2610,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %59 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val.i.i.i.i.i.i = load ptr, ptr %59, align 8
   %60 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.2.val.i.i.i.i.i.i)
-  %61 = icmp ult i32 %60, %19
+  %61 = icmp samesign ult i32 %60, %19
   br i1 %61, label %"_ZSt9__find_ifIPSt4pairIN5clang14DeclAccessPairEPNS1_12FunctionDeclEEN9__gnu_cxx5__ops10_Iter_predIZNS1_8SemaCUDA20EraseUnwantedMatchesEPKS3_RN4llvm15SmallVectorImplIS5_EEE3$_2EEET_SJ_SJ_T0_.exit.i.i.i.i", label %"_ZN4llvm9remove_ifIRNS_15SmallVectorImplISt4pairIN5clang14DeclAccessPairEPNS3_12FunctionDeclEEEEZNS3_8SemaCUDA20EraseUnwantedMatchesEPKS5_S9_E3$_2EEDaOT_T0_.exit.i"
 
 .loopexit.split.loop.exit55.i.i.i.i.i.i:          ; preds = %29
@@ -2642,7 +2642,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   %66 = getelementptr i8, ptr %.pn30.i.i.i.i, i64 24
   %.017.val.i.i.i.i = load ptr, ptr %66, align 8
   %67 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.017.val.i.i.i.i)
-  %68 = icmp ult i32 %67, %19
+  %68 = icmp samesign ult i32 %67, %19
   br i1 %68, label %74, label %69
 
 69:                                               ; preds = %.lr.ph.i.i.i.i
@@ -6559,7 +6559,7 @@ _ZNK5clang4Sema33ExpressionEvaluationContextRecord13isUnevaluatedEv.exit: ; pred
   %27 = tail call noundef i32 @_ZN5clang4Sema17getEmissionStatusEPKNS_12FunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(17560) %26, ptr noundef nonnull %24, i1 noundef zeroext false) #13
   %28 = icmp eq i32 %27, 0
   %29 = tail call noundef i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %24, ptr noundef %2)
-  %switch.i = icmp ugt i32 %29, 1
+  %switch.i = icmp samesign ugt i32 %29, 1
   %30 = select i1 %28, i32 2, i32 3
   br i1 %switch.i, label %31, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit
 

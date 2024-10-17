@@ -26852,7 +26852,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %.06788.i = phi i32 [ %59, %.lr.ph.i ], [ %78, %.loopexit76.i ]
   %62 = load ptr, ptr %.06689.i, align 8
   %63 = icmp ne ptr %62, null
-  %64 = icmp ult i32 %.06788.i, 256
+  %64 = icmp samesign ult i32 %.06788.i, 256
   %or.cond.i = select i1 %63, i1 %64, i1 false
   br i1 %or.cond.i, label %.preheader75.i, label %.critedge.i
 
@@ -26910,7 +26910,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %.06595.i = phi ptr [ %82, %.lr.ph97.i ], [ %110, %.loopexit74.i ]
   %87 = load ptr, ptr %.06595.i, align 8
   %88 = icmp ne ptr %87, null
-  %89 = icmp ult i64 %indvars.iv112.i, 128
+  %89 = icmp samesign ult i64 %indvars.iv112.i, 128
   %or.cond5.i = select i1 %88, i1 %89, i1 false
   br i1 %or.cond5.i, label %.preheader73.i, label %.critedge2.i
 
@@ -28304,7 +28304,7 @@ numberOfBitSet.exit31:                            ; preds = %63
   %156 = add i32 %.01554, 4
   %157 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %156, i32 noundef %1) #10
   %158 = zext i16 %157 to i32
-  %159 = icmp ult i32 %155, %158
+  %159 = icmp samesign ult i32 %155, %158
   br i1 %159, label %consistentWithOrder.exit.thread45, label %.preheader.i
 
 .preheader.i:                                     ; preds = %153
@@ -29444,7 +29444,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 
 ._crit_edge.us211.i:                              ; preds = %64
   %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
-  %69 = icmp ult i64 %indvars.iv251.i, 7
+  %69 = icmp samesign ult i64 %indvars.iv251.i, 7
   %70 = icmp eq i32 %.2107.us.i, -1
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %.preheader135.us.i, label %.preheader.i, !llvm.loop !35

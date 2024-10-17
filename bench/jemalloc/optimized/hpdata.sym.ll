@@ -490,7 +490,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %25 = load ptr, ptr %ph, align 8
   store ptr %25, ptr %add.ptr.i64.i, align 8
   %inc26.i = add nuw nsw i32 %i.i.0114, 1
-  %cmp24.i = icmp uge i32 %inc26.i, %11
+  %cmp24.i = icmp samesign uge i32 %inc26.i, %11
   %.not = or i1 %cmp8.i.not, %cmp24.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !6
 
@@ -1967,7 +1967,7 @@ while.end:                                        ; preds = %fb_urange_iter.exit
   %div.i22.i = lshr i64 %begin.2, 6
   %rem.i.i62 = and i64 %begin.2, 63
   %add.i.i63 = add nuw nsw i64 %rem.i.i62, %shr
-  %cmp.i.i64 = icmp ugt i64 %add.i.i63, 64
+  %cmp.i.i64 = icmp samesign ugt i64 %add.i.i63, 64
   %sub.i.i65 = sub nuw nsw i64 64, %rem.i.i62
   %cond.i.i66 = select i1 %cmp.i.i64, i64 %sub.i.i65, i64 %shr
   %sub3.i.i67 = sub nsw i64 64, %cond.i.i66
@@ -2226,7 +2226,7 @@ entry:
   %div.i22.i = lshr i64 %sub, 18
   %rem.i.i = and i64 %shr, 63
   %add.i.i = add nuw nsw i64 %rem.i.i, %shr7
-  %cmp.i.i = icmp ugt i64 %add.i.i, 64
+  %cmp.i.i = icmp samesign ugt i64 %add.i.i, 64
   %sub.i.i = sub nuw nsw i64 64, %rem.i.i
   %cond.i.i = select i1 %cmp.i.i, i64 %sub.i.i, i64 %shr7
   %sub3.i.i = sub nsw i64 64, %cond.i.i

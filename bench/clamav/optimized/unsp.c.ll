@@ -128,7 +128,7 @@ define range(i32 0, 3) i32 @very_real_unpack(ptr noundef %0, i32 noundef %1, i32
   %19 = zext i32 %1 to i64
   %20 = zext i32 %14 to i64
   %21 = shl nuw nsw i64 %20, 1
-  %22 = icmp ugt i64 %21, %19
+  %22 = icmp samesign ugt i64 %21, %19
   br i1 %22, label %.loopexit, label %.preheader541
 
 .preheader541:                                    ; preds = %9, %.preheader541
@@ -1886,7 +1886,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
   %21 = shl nuw nsw i32 %.02326, 1
   %22 = or i32 %20, %21
   %23 = icmp ne i32 %14, %20
-  %24 = icmp ult i32 %.02326, 128
+  %24 = icmp samesign ult i32 %.02326, 128
   %or.cond = and i1 %24, %23
   br i1 %or.cond, label %.preheader, label %.loopexit
 

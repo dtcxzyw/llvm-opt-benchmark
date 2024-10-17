@@ -149,7 +149,7 @@ _ZN13Padded2DArrayImL8MEMFLAGS5ELm128EE17create_unfreeableEjjPm.exit: ; preds = 
   %67 = tail call noundef i32 @llvm.umax.i32(i32 %65, i32 %66)
   %68 = add i32 %64, %67
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next21.i, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next21.i, %69
   br i1 %70, label %.preheader.us.i, label %_ZN15G1FromCardCache10invalidateEjm.exit, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %.preheader.i
@@ -232,7 +232,7 @@ define hidden void @_ZN15G1FromCardCache10invalidateEjm(i32 noundef %0, i64 noun
   %24 = tail call noundef i32 @llvm.umax.i32(i32 %22, i32 %23)
   %25 = add i32 %21, %24
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next21, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next21, %26
   br i1 %27, label %.preheader.us, label %._crit_edge17, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader

@@ -644,8 +644,8 @@ _ZNK2cv11_InputArray6getMatEi.exit266:            ; preds = %165, %168
 
 234:                                              ; preds = %232
   %.not239 = icmp ugt i32 %119, %.sroa.0122.0.extract.trunc
-  %.not240 = icmp ult i64 %.sroa.15.0.extract.shift, %.sroa.2.0.insert.ext.i
-  %or.cond = and i1 %.not239, %.not240
+  %.not240 = icmp samesign ult i64 %.sroa.15.0.extract.shift, %.sroa.2.0.insert.ext.i
+  %or.cond = select i1 %.not239, i1 %.not240, i1 false
   br i1 %or.cond, label %243, label %235
 
 235:                                              ; preds = %234
@@ -1322,7 +1322,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit221.i
 
 548:                                              ; preds = %535
-  %549 = icmp ult i64 %540, %531
+  %549 = icmp samesign ult i64 %540, %531
   br i1 %549, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %548
@@ -1841,7 +1841,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit233.i
 
 758:                                              ; preds = %745
-  %759 = icmp ult i64 %750, %741
+  %759 = icmp samesign ult i64 %750, %741
   br i1 %759, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i296
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i296: ; preds = %758
@@ -2331,7 +2331,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit221.i376
 
 975:                                              ; preds = %962
-  %976 = icmp ult i64 %967, %958
+  %976 = icmp samesign ult i64 %967, %958
   br i1 %976, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i386
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i386: ; preds = %975
@@ -2820,7 +2820,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit221.i482
 
 1192:                                             ; preds = %1179
-  %1193 = icmp ult i64 %1184, %1175
+  %1193 = icmp samesign ult i64 %1184, %1175
   br i1 %1193, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i492
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i492: ; preds = %1192
@@ -3339,7 +3339,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit233.i596
 
 1402:                                             ; preds = %1389
-  %1403 = icmp ult i64 %1394, %1385
+  %1403 = icmp samesign ult i64 %1394, %1385
   br i1 %1403, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i606
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i606: ; preds = %1402
@@ -3859,7 +3859,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit229.i
 
 1617:                                             ; preds = %1604
-  %1618 = icmp ult i64 %1609, %1600
+  %1618 = icmp samesign ult i64 %1609, %1600
   br i1 %1618, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i727
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i727: ; preds = %1617
@@ -4750,7 +4750,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit473.us.us.i
 
 2031:                                             ; preds = %2018
-  %2032 = icmp ult i64 %2023, %2009
+  %2032 = icmp samesign ult i64 %2023, %2009
   br i1 %2032, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i498.us.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i498.us.us.i: ; preds = %2031
@@ -5043,7 +5043,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit471.us.i
 
 2168:                                             ; preds = %2155
-  %2169 = icmp ult i64 %2160, %2146
+  %2169 = icmp samesign ult i64 %2160, %2146
   br i1 %2169, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i481.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i481.us.i: ; preds = %2168
@@ -5335,7 +5335,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit469.i
 
 2291:                                             ; preds = %2278
-  %2292 = icmp ult i64 %2283, %2274
+  %2292 = icmp samesign ult i64 %2283, %2274
   br i1 %2292, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i782
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i782: ; preds = %2291
@@ -6379,7 +6379,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit526.us.us.i
 
 2830:                                             ; preds = %2817
-  %2831 = icmp ult i64 %2822, %2808
+  %2831 = icmp samesign ult i64 %2822, %2808
   br i1 %2831, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i552.us.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i552.us.us.i: ; preds = %2830
@@ -6777,7 +6777,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit500.us.i
 
 3035:                                             ; preds = %3022
-  %3036 = icmp ult i64 %3027, %3013
+  %3036 = icmp samesign ult i64 %3027, %3013
   br i1 %3036, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i535.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i535.us.i: ; preds = %3035
@@ -7124,7 +7124,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit486.i
 
 3190:                                             ; preds = %3177
-  %3191 = icmp ult i64 %3182, %3173
+  %3191 = icmp samesign ult i64 %3182, %3173
   br i1 %3191, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i843
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i843: ; preds = %3190
@@ -7847,7 +7847,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit491.us.us.i
 
 3529:                                             ; preds = %3516
-  %3530 = icmp ult i64 %3521, %3507
+  %3530 = icmp samesign ult i64 %3521, %3507
   br i1 %3530, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i517.us.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i517.us.us.i: ; preds = %3529
@@ -8147,7 +8147,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit481.us.i
 
 3666:                                             ; preds = %3653
-  %3667 = icmp ult i64 %3658, %3644
+  %3667 = icmp samesign ult i64 %3658, %3644
   br i1 %3667, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i500.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i500.us.i: ; preds = %3666
@@ -8453,7 +8453,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit475.i
 
 3798:                                             ; preds = %3785
-  %3799 = icmp ult i64 %3790, %3781
+  %3799 = icmp samesign ult i64 %3790, %3781
   br i1 %3799, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i951
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i951: ; preds = %3798
@@ -9770,7 +9770,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit688.us.us.i
 
 4357:                                             ; preds = %4344
-  %4358 = icmp ult i64 %4349, %4335
+  %4358 = icmp samesign ult i64 %4349, %4335
   br i1 %4358, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i714.us.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i714.us.us.i: ; preds = %4357
@@ -10241,7 +10241,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit590.us.i
 
 4546:                                             ; preds = %4533
-  %4547 = icmp ult i64 %4538, %4524
+  %4547 = icmp samesign ult i64 %4538, %4524
   br i1 %4547, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i697.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i697.us.i: ; preds = %4546
@@ -10646,7 +10646,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit540.i
 
 4708:                                             ; preds = %4695
-  %4709 = icmp ult i64 %4700, %4691
+  %4709 = icmp samesign ult i64 %4700, %4691
   br i1 %4709, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1092
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1092: ; preds = %4708
@@ -11373,7 +11373,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit473.us.us.i1284
 
 5064:                                             ; preds = %5051
-  %5065 = icmp ult i64 %5056, %5042
+  %5065 = icmp samesign ult i64 %5056, %5042
   br i1 %5065, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i498.us.us.i1294
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i498.us.us.i1294: ; preds = %5064
@@ -11673,7 +11673,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit471.us.i1243
 
 5205:                                             ; preds = %5192
-  %5206 = icmp ult i64 %5197, %5183
+  %5206 = icmp samesign ult i64 %5197, %5183
   br i1 %5206, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i481.us.i1253
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i481.us.i1253: ; preds = %5205
@@ -11979,7 +11979,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit469.i1207
 
 5342:                                             ; preds = %5329
-  %5343 = icmp ult i64 %5334, %5325
+  %5343 = icmp samesign ult i64 %5334, %5325
   br i1 %5343, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1217
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1217: ; preds = %5342
@@ -13296,7 +13296,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit598.us.us.i
 
 5973:                                             ; preds = %5960
-  %5974 = icmp ult i64 %5965, %5951
+  %5974 = icmp samesign ult i64 %5965, %5951
   br i1 %5974, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i623.us.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i623.us.us.i: ; preds = %5973
@@ -13767,7 +13767,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit540.us.i
 
 6185:                                             ; preds = %6172
-  %6186 = icmp ult i64 %6177, %6163
+  %6186 = icmp samesign ult i64 %6177, %6163
   br i1 %6186, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i606.us.i
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i606.us.i: ; preds = %6185
@@ -14172,7 +14172,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit510.i
 
 6365:                                             ; preds = %6352
-  %6366 = icmp ult i64 %6357, %6348
+  %6366 = icmp samesign ult i64 %6357, %6348
   br i1 %6366, label %.invoke3024, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1394
 
 _ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i.i1394: ; preds = %6365

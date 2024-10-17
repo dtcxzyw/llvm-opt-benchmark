@@ -1719,7 +1719,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %indvars.iv.next.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge15.i.i ], [ %106, %102 ]
   %111 = load i16, ptr %76, align 8
   %112 = zext i16 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next.pre-phi.i.i, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i.i, %112
   br i1 %113, label %99, label %._crit_edge.i.i, !llvm.loop !18
 
 ._crit_edge.i.i:                                  ; preds = %110, %93

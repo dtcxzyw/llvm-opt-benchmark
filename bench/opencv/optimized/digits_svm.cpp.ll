@@ -481,7 +481,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %180 = sub i64 %178, %179
   %181 = sdiv exact i64 %180, 96
   %182 = udiv i64 %181, 10
-  %183 = icmp ult i64 %175, %182
+  %183 = icmp samesign ult i64 %175, %182
   br i1 %183, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 184:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i

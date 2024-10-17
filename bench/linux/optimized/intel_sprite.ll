@@ -2178,7 +2178,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br label %985
 
 985:                                              ; preds = %982, %978, %964, %952
-  %986 = icmp ult i64 %955, 262144
+  %986 = icmp samesign ult i64 %955, 262144
   %987 = trunc nuw i64 %955 to i32
   br i1 %986, label %988, label %991
 

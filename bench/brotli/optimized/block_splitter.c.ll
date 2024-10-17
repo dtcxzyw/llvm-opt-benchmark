@@ -399,7 +399,7 @@ for.body.i47:                                     ; preds = %BuildBlockHistogram
   %num_histograms.1174.i = phi i64 [ %.add.i44, %cond.true133.i ], [ %conv27.i.i, %BuildBlockHistogramsLiteral.exit.i ]
   %add.i128.i = add nuw nsw i64 %num_histograms.1174.i, 7
   %shr.i.i = lshr i64 %add.i128.i, 3
-  %cmp.i.i = icmp ult i64 %num_histograms.1174.i, 2
+  %cmp.i.i = icmp samesign ult i64 %num_histograms.1174.i, 2
   br i1 %cmp.i.i, label %for.body.preheader.i.i, label %if.end.i129.i
 
 for.body.preheader.i.i:                           ; preds = %for.body.i47
@@ -416,7 +416,7 @@ for.body5.i.i:                                    ; preds = %FastLog2.exit.i.i, 
   %total_count_.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.192.i.i, i32 1
   %29 = load i64, ptr %total_count_.i.i, align 8
   %conv7.i.i = and i64 %29, 4294967295
-  %cmp.i.i.i = icmp ult i64 %conv7.i.i, 256
+  %cmp.i.i.i = icmp samesign ult i64 %conv7.i.i, 256
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body5.i.i
@@ -1075,7 +1075,7 @@ for.body261.i.i:                                  ; preds = %for.body254.i.i, %f
   store i64 %inc1.i.i171.i, ptr %total_count_.i.i167.i, align 8
   %74 = load i32, ptr %arrayidx257.i.i, align 4
   %conv258.i.i = zext i32 %74 to i64
-  %cmp259.i.i = icmp ult i64 %inc1.i.i171.i, %conv258.i.i
+  %cmp259.i.i = icmp samesign ult i64 %inc1.i.i171.i, %conv258.i.i
   br i1 %cmp259.i.i, label %for.body261.i.i, label %for.end267.i.i, !llvm.loop !35
 
 for.end267.i.i:                                   ; preds = %for.body261.i.i, %for.body254.i.i
@@ -1591,7 +1591,7 @@ for.body.i167:                                    ; preds = %BuildBlockHistogram
   %num_histograms.1174.i169 = phi i64 [ %spec.select.i58, %cond.true133.i158 ], [ %conv27.i.i307, %BuildBlockHistogramsCommand.exit.i ]
   %add.i128.i170 = add nuw nsw i64 %num_histograms.1174.i169, 7
   %shr.i.i171 = lshr i64 %add.i128.i170, 3
-  %cmp.i.i172 = icmp ult i64 %num_histograms.1174.i169, 2
+  %cmp.i.i172 = icmp samesign ult i64 %num_histograms.1174.i169, 2
   br i1 %cmp.i.i172, label %for.body.preheader.i.i642, label %if.end.i129.i173
 
 for.body.preheader.i.i642:                        ; preds = %for.body.i167
@@ -1608,7 +1608,7 @@ for.body5.i.i175:                                 ; preds = %FastLog2.exit.i.i18
   %total_count_.i.i177 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.192.i.i176, i32 1
   %121 = load i64, ptr %total_count_.i.i177, align 8
   %conv7.i.i178 = and i64 %121, 4294967295
-  %cmp.i.i.i179 = icmp ult i64 %conv7.i.i178, 256
+  %cmp.i.i.i179 = icmp samesign ult i64 %conv7.i.i178, 256
   br i1 %cmp.i.i.i179, label %if.then.i.i.i640, label %if.end.i.i.i180
 
 if.then.i.i.i640:                                 ; preds = %for.body5.i.i175
@@ -2271,7 +2271,7 @@ for.body261.i.i489:                               ; preds = %for.body254.i.i487,
   %inc266.i.i = add nuw nsw i64 %j255.0377.i.i, 1
   %167 = load i32, ptr %arrayidx257.i.i488, align 4
   %conv258.i.i496 = zext i32 %167 to i64
-  %cmp259.i.i497 = icmp ult i64 %inc266.i.i, %conv258.i.i496
+  %cmp259.i.i497 = icmp samesign ult i64 %inc266.i.i, %conv258.i.i496
   br i1 %cmp259.i.i497, label %for.body261.i.i489, label %for.end267.i.i498, !llvm.loop !70
 
 for.end267.i.i498:                                ; preds = %for.body261.i.i489, %for.body254.i.i487
@@ -2807,7 +2807,7 @@ for.body.i807:                                    ; preds = %BuildBlockHistogram
   %num_histograms.1174.i809 = phi i64 [ %spec.select, %cond.true133.i798 ], [ %conv27.i.i947, %BuildBlockHistogramsDistance.exit.i ]
   %add.i128.i810 = add nuw nsw i64 %num_histograms.1174.i809, 7
   %shr.i.i811 = lshr i64 %add.i128.i810, 3
-  %cmp.i.i812 = icmp ult i64 %num_histograms.1174.i809, 2
+  %cmp.i.i812 = icmp samesign ult i64 %num_histograms.1174.i809, 2
   br i1 %cmp.i.i812, label %for.body.preheader.i.i1331, label %if.end.i129.i813
 
 for.body.preheader.i.i1331:                       ; preds = %for.body.i807
@@ -2824,7 +2824,7 @@ for.body5.i.i815:                                 ; preds = %FastLog2.exit.i.i82
   %total_count_.i.i817 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %i.192.i.i816, i32 1
   %217 = load i64, ptr %total_count_.i.i817, align 8
   %conv7.i.i818 = and i64 %217, 4294967295
-  %cmp.i.i.i819 = icmp ult i64 %conv7.i.i818, 256
+  %cmp.i.i.i819 = icmp samesign ult i64 %conv7.i.i818, 256
   br i1 %cmp.i.i.i819, label %if.then.i.i.i1329, label %if.end.i.i.i820
 
 if.then.i.i.i1329:                                ; preds = %for.body5.i.i815
@@ -3487,7 +3487,7 @@ for.body261.i.i1166:                              ; preds = %for.body254.i.i1160
   %inc266.i.i1175 = add nuw nsw i64 %j255.0377.i.i1167, 1
   %263 = load i32, ptr %arrayidx257.i.i1164, align 4
   %conv258.i.i1176 = zext i32 %263 to i64
-  %cmp259.i.i1177 = icmp ult i64 %inc266.i.i1175, %conv258.i.i1176
+  %cmp259.i.i1177 = icmp samesign ult i64 %inc266.i.i1175, %conv258.i.i1176
   br i1 %cmp259.i.i1177, label %for.body261.i.i1166, label %for.end267.i.i1178, !llvm.loop !105
 
 for.end267.i.i1178:                               ; preds = %for.body261.i.i1166, %for.body254.i.i1160

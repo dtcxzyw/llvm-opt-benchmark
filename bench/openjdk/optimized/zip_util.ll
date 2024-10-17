@@ -1315,7 +1315,7 @@ countCENHeaders.exit:                             ; preds = %.lr.ph.i181, %389
   br label %readFullyAt.exit.thread
 
 453:                                              ; preds = %447
-  %454 = icmp ult i32 %423, 9
+  %454 = icmp samesign ult i32 %423, 9
   br i1 %454, label %isMetaName.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %453, %458
@@ -2181,7 +2181,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
 
 168:                                              ; preds = %165, %160
   %invariant.gep = getelementptr inbounds i8, ptr %155, i64 2
-  %169 = icmp ugt i32 %77, 4
+  %169 = icmp samesign ugt i32 %77, 4
   br i1 %169, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %168
@@ -2224,8 +2224,8 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   br i1 %192, label %193, label %237
 
 193:                                              ; preds = %191
-  %194 = icmp ult i32 %.lcssa, 8
-  %195 = icmp ugt i32 %.0182231.lcssa, %77
+  %194 = icmp samesign ult i32 %.lcssa, 8
+  %195 = icmp samesign ugt i32 %.0182231.lcssa, %77
   %or.cond257 = select i1 %194, i1 true, i1 %195
   br i1 %or.cond257, label %.loopexit, label %196
 
@@ -2387,7 +2387,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %319 = add nuw nsw i32 %.0182231252, 4
   %320 = add nuw nsw i32 %319, %318
   %321 = add nuw nsw i32 %320, 4
-  %322 = icmp ult i32 %321, %77
+  %322 = icmp samesign ult i32 %321, %77
   br i1 %322, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph253, %168, %165, %279, %284, %238, %240, %193, %149

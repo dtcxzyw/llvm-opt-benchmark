@@ -254,7 +254,7 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN14wasmtime_types11WasmValType15is_vmgcref_type17hb1e1e64d04ff511aE(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !range !4, !noundef !5
-  %3 = icmp ult i32 %2, 10
+  %3 = icmp samesign ult i32 %2, 10
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
@@ -287,7 +287,7 @@ _ZN14wasmtime_types11WasmValType15is_gc_heap_type17h242cf2c7e6376c07E.exit: ; pr
 define noundef zeroext i1 @_ZN14wasmtime_types11WasmValType15is_gc_heap_type17h242cf2c7e6376c07E(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #2 {
 _ZN14wasmtime_types11WasmRefType15is_gc_heap_type17hf5f27248142866f0E.exit:
   %1 = load i32, ptr %0, align 4, !range !4, !noundef !5
-  %2 = icmp ult i32 %1, 10
+  %2 = icmp samesign ult i32 %1, 10
   %3 = add nsw i32 %1, -3
   %4 = icmp ult i32 %3, 7
   %narrow.i.i = select i1 %4, i32 %3, i32 2

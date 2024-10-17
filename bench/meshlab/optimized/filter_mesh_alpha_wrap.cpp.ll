@@ -16456,7 +16456,7 @@ define linkonce_odr void @_ZN4CGAL10make_arrayINS_4MpzfEJS1_S1_EEESt5arrayIT_Xpl
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
-  %8 = icmp ult i32 %7, 9
+  %8 = icmp samesign ult i32 %7, 9
   br i1 %8, label %9, label %.noexc
 
 9:                                                ; preds = %4
@@ -16498,7 +16498,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit:                       ; preds = %22, %_ZN4CGAL4Mpzf4
   %26 = getelementptr inbounds i8, ptr %2, i64 80
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = icmp ult i32 %28, 9
+  %29 = icmp samesign ult i32 %28, 9
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit
@@ -16543,7 +16543,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit12:                     ; preds = %_ZN4CGAL4Mpzf4initE
   %48 = getelementptr inbounds i8, ptr %3, i64 80
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 @llvm.abs.i32(i32 %49, i1 true)
-  %51 = icmp ult i32 %50, 9
+  %51 = icmp samesign ult i32 %50, 9
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit12
@@ -17856,7 +17856,7 @@ define linkonce_odr void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind noalia
 
 8:                                                ; preds = %4
   %9 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
-  %10 = icmp ult i32 %9, 9
+  %10 = icmp samesign ult i32 %9, 9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
@@ -17927,7 +17927,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %34, %37
 
 40:                                               ; preds = %38
   %41 = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
-  %42 = icmp ult i32 %41, 9
+  %42 = icmp samesign ult i32 %41, 9
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40
@@ -18523,7 +18523,7 @@ define linkonce_odr void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind noalias w
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
   %10 = add nuw nsw i32 %9, %6
-  %11 = icmp ult i32 %10, 9
+  %11 = icmp samesign ult i32 %10, 9
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
@@ -18563,7 +18563,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit:             ; preds = %12, %15
   %30 = add nsw i32 %29, %27
   %31 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %30, ptr %31, align 4
-  %.not = icmp ult i32 %6, %9
+  %.not = icmp samesign ult i32 %6, %9
   %.38 = tail call i32 @llvm.umax.i32(i32 %6, i32 %9)
   %.40 = tail call i32 @llvm.umin.i32(i32 %6, i32 %9)
   %.val = load ptr, ptr %2, align 8
@@ -24010,7 +24010,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -24974,7 +24974,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit110:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %68 = load i32, ptr %67, align 8, !noalias !407
   %69 = call i32 @llvm.abs.i32(i32 %68, i1 true)
   %70 = shl nuw nsw i32 %69, 1
-  %71 = icmp ult i32 %69, 5
+  %71 = icmp samesign ult i32 %69, 5
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit110
@@ -25068,7 +25068,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc407, %72
   %118 = load i32, ptr %117, align 8, !noalias !410
   %119 = call i32 @llvm.abs.i32(i32 %118, i1 true)
   %120 = shl nuw nsw i32 %119, 1
-  %121 = icmp ult i32 %119, 5
+  %121 = icmp samesign ult i32 %119, 5
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %115
@@ -25166,7 +25166,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %165
   %168 = load i32, ptr %167, align 8, !noalias !413
   %169 = call i32 @llvm.abs.i32(i32 %168, i1 true)
   %170 = shl nuw nsw i32 %169, 1
-  %171 = icmp ult i32 %169, 5
+  %171 = icmp samesign ult i32 %169, 5
   br i1 %171, label %172, label %175
 
 172:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
@@ -25370,7 +25370,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit125:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %256 = load i32, ptr %255, align 8, !noalias !425
   %257 = call i32 @llvm.abs.i32(i32 %256, i1 true)
   %258 = shl nuw nsw i32 %257, 1
-  %259 = icmp ult i32 %257, 5
+  %259 = icmp samesign ult i32 %257, 5
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit125
@@ -25464,7 +25464,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i430:        ; preds = %.noexc437, %260
   %306 = load i32, ptr %305, align 8, !noalias !428
   %307 = call i32 @llvm.abs.i32(i32 %306, i1 true)
   %308 = shl nuw nsw i32 %307, 1
-  %309 = icmp ult i32 %307, 5
+  %309 = icmp samesign ult i32 %307, 5
   br i1 %309, label %310, label %313
 
 310:                                              ; preds = %303
@@ -25562,7 +25562,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit128:                ; preds = %353
   %356 = load i32, ptr %355, align 8, !noalias !431
   %357 = call i32 @llvm.abs.i32(i32 %356, i1 true)
   %358 = shl nuw nsw i32 %357, 1
-  %359 = icmp ult i32 %357, 5
+  %359 = icmp samesign ult i32 %357, 5
   br i1 %359, label %360, label %363
 
 360:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit128
@@ -25766,7 +25766,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit145:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %444 = load i32, ptr %443, align 8, !noalias !443
   %445 = call i32 @llvm.abs.i32(i32 %444, i1 true)
   %446 = shl nuw nsw i32 %445, 1
-  %447 = icmp ult i32 %445, 5
+  %447 = icmp samesign ult i32 %445, 5
   br i1 %447, label %448, label %451
 
 448:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit145
@@ -25860,7 +25860,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i463:        ; preds = %.noexc470, %448
   %494 = load i32, ptr %493, align 8, !noalias !446
   %495 = call i32 @llvm.abs.i32(i32 %494, i1 true)
   %496 = shl nuw nsw i32 %495, 1
-  %497 = icmp ult i32 %495, 5
+  %497 = icmp samesign ult i32 %495, 5
   br i1 %497, label %498, label %501
 
 498:                                              ; preds = %491
@@ -25958,7 +25958,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit148:                ; preds = %541
   %544 = load i32, ptr %543, align 8, !noalias !449
   %545 = call i32 @llvm.abs.i32(i32 %544, i1 true)
   %546 = shl nuw nsw i32 %545, 1
-  %547 = icmp ult i32 %545, 5
+  %547 = icmp samesign ult i32 %545, 5
   br i1 %547, label %548, label %551
 
 548:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit148
@@ -26360,7 +26360,7 @@ _ZN4CGAL4MpzfD2Ev.exit189:                        ; preds = %699, %702
   %704 = load i32, ptr %703, align 8, !noalias !479
   %705 = call i32 @llvm.abs.i32(i32 %704, i1 true)
   %706 = shl nuw nsw i32 %705, 1
-  %707 = icmp ult i32 %705, 5
+  %707 = icmp samesign ult i32 %705, 5
   br i1 %707, label %708, label %711
 
 708:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit189
@@ -26454,7 +26454,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i496:        ; preds = %.noexc503, %708
   %754 = load i32, ptr %753, align 8, !noalias !482
   %755 = call i32 @llvm.abs.i32(i32 %754, i1 true)
   %756 = shl nuw nsw i32 %755, 1
-  %757 = icmp ult i32 %755, 5
+  %757 = icmp samesign ult i32 %755, 5
   br i1 %757, label %758, label %761
 
 758:                                              ; preds = %751
@@ -26552,7 +26552,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit192:                ; preds = %801
   %804 = load i32, ptr %803, align 8, !noalias !485
   %805 = call i32 @llvm.abs.i32(i32 %804, i1 true)
   %806 = shl nuw nsw i32 %805, 1
-  %807 = icmp ult i32 %805, 5
+  %807 = icmp samesign ult i32 %805, 5
   br i1 %807, label %808, label %811
 
 808:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit192
@@ -31932,7 +31932,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit83:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %59 = load i32, ptr %58, align 8, !noalias !563
   %60 = call i32 @llvm.abs.i32(i32 %59, i1 true)
   %61 = shl nuw nsw i32 %60, 1
-  %62 = icmp ult i32 %60, 5
+  %62 = icmp samesign ult i32 %60, 5
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit83
@@ -32026,7 +32026,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc302, %63
   %109 = load i32, ptr %108, align 8, !noalias !566
   %110 = call i32 @llvm.abs.i32(i32 %109, i1 true)
   %111 = shl nuw nsw i32 %110, 1
-  %112 = icmp ult i32 %110, 5
+  %112 = icmp samesign ult i32 %110, 5
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %106
@@ -32124,7 +32124,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %156
   %159 = load i32, ptr %158, align 8, !noalias !569
   %160 = call i32 @llvm.abs.i32(i32 %159, i1 true)
   %161 = shl nuw nsw i32 %160, 1
-  %162 = icmp ult i32 %160, 5
+  %162 = icmp samesign ult i32 %160, 5
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
@@ -32328,7 +32328,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit98:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %247 = load i32, ptr %246, align 8, !noalias !581
   %248 = call i32 @llvm.abs.i32(i32 %247, i1 true)
   %249 = shl nuw nsw i32 %248, 1
-  %250 = icmp ult i32 %248, 5
+  %250 = icmp samesign ult i32 %248, 5
   br i1 %250, label %251, label %254
 
 251:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit98
@@ -32422,7 +32422,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i325:        ; preds = %.noexc332, %251
   %297 = load i32, ptr %296, align 8, !noalias !584
   %298 = call i32 @llvm.abs.i32(i32 %297, i1 true)
   %299 = shl nuw nsw i32 %298, 1
-  %300 = icmp ult i32 %298, 5
+  %300 = icmp samesign ult i32 %298, 5
   br i1 %300, label %301, label %304
 
 301:                                              ; preds = %294
@@ -32520,7 +32520,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit101:                ; preds = %344
   %347 = load i32, ptr %346, align 8, !noalias !587
   %348 = call i32 @llvm.abs.i32(i32 %347, i1 true)
   %349 = shl nuw nsw i32 %348, 1
-  %350 = icmp ult i32 %348, 5
+  %350 = icmp samesign ult i32 %348, 5
   br i1 %350, label %351, label %354
 
 351:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit101
@@ -32724,7 +32724,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit118:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %435 = load i32, ptr %434, align 8, !noalias !599
   %436 = call i32 @llvm.abs.i32(i32 %435, i1 true)
   %437 = shl nuw nsw i32 %436, 1
-  %438 = icmp ult i32 %436, 5
+  %438 = icmp samesign ult i32 %436, 5
   br i1 %438, label %439, label %442
 
 439:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit118
@@ -32818,7 +32818,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i358:        ; preds = %.noexc365, %439
   %485 = load i32, ptr %484, align 8, !noalias !602
   %486 = call i32 @llvm.abs.i32(i32 %485, i1 true)
   %487 = shl nuw nsw i32 %486, 1
-  %488 = icmp ult i32 %486, 5
+  %488 = icmp samesign ult i32 %486, 5
   br i1 %488, label %489, label %492
 
 489:                                              ; preds = %482
@@ -32916,7 +32916,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit121:                ; preds = %532
   %535 = load i32, ptr %534, align 8, !noalias !605
   %536 = call i32 @llvm.abs.i32(i32 %535, i1 true)
   %537 = shl nuw nsw i32 %536, 1
-  %538 = icmp ult i32 %536, 5
+  %538 = icmp samesign ult i32 %536, 5
   br i1 %538, label %539, label %542
 
 539:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit121
@@ -33120,7 +33120,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit138:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %623 = load i32, ptr %622, align 8, !noalias !617
   %624 = call i32 @llvm.abs.i32(i32 %623, i1 true)
   %625 = shl nuw nsw i32 %624, 1
-  %626 = icmp ult i32 %624, 5
+  %626 = icmp samesign ult i32 %624, 5
   br i1 %626, label %627, label %630
 
 627:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit138
@@ -33214,7 +33214,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i391:        ; preds = %.noexc398, %627
   %673 = load i32, ptr %672, align 8, !noalias !620
   %674 = call i32 @llvm.abs.i32(i32 %673, i1 true)
   %675 = shl nuw nsw i32 %674, 1
-  %676 = icmp ult i32 %674, 5
+  %676 = icmp samesign ult i32 %674, 5
   br i1 %676, label %677, label %680
 
 677:                                              ; preds = %670
@@ -33312,7 +33312,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit141:                ; preds = %720
   %723 = load i32, ptr %722, align 8, !noalias !623
   %724 = call i32 @llvm.abs.i32(i32 %723, i1 true)
   %725 = shl nuw nsw i32 %724, 1
-  %726 = icmp ult i32 %724, 5
+  %726 = icmp samesign ult i32 %724, 5
   br i1 %726, label %727, label %730
 
 727:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit141
@@ -46346,7 +46346,7 @@ _ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_13
 
 150:                                              ; preds = %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEES1G_NS_20Handle_hash_functionESaIS1G_EEixERKS1G_.exit, %220
   %indvars.iv = phi i64 [ 0, %_ZN4CGAL15Unique_hash_mapINS_8internal11CC_iteratorINS_17Compact_containerINS_13Alpha_wraps_38internal24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS5_12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE9Cell_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsISA_EEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS_34Delaunay_triangulation_cell_base_3ISH_NS_25Triangulation_cell_base_3ISH_NS_28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INSC_11Vertex_infoESH_NS_27Triangulation_vertex_base_3ISH_NS_30Triangulation_ds_vertex_base_3INSM_INSO_ISP_SH_NSQ_ISH_NSR_IvEEEEEENS6_INS7_ISD_SH_NSI_ISH_NSJ_ISH_NSK_ISH_NSL_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEEEEEENS_7DefaultES1E_S1E_EELb0EEES1G_NS_20Handle_hash_functionESaIS1G_EEixERKS1G_.exit ], [ %indvars.iv.next, %220 ]
-  %or.cond.i = icmp ult i64 %indvars.iv, 4
+  %or.cond.i = icmp samesign ult i64 %indvars.iv, 4
   call void @llvm.assume(i1 %or.cond.i)
   %151 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %148, i64 0, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %151, align 8
@@ -49141,7 +49141,7 @@ _ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha
   br i1 %274, label %_ZNK4CGAL15Triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS3_12Alpha_wrap_3INS3_20Triangle_mesh_oracleIS5_iLb1EEEE11Vertex_infoES7_NS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3INS8_INSA_ISF_S7_NSG_IS7_NSH_IvEEEEEENS3_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSE_9Cell_infoES7_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_34Delaunay_triangulation_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESX_SY_EENS_7DefaultEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINSL_INSM_ISN_S7_NSO_IS7_NSP_IS7_NSQ_IS7_NSR_IS14_EEEEEEEEEEEES15_S15_S15_EELb0EEEi.exit.thread, label %275
 
 275:                                              ; preds = %270
-  %276 = icmp ult i64 %indvars.iv229, 2
+  %276 = icmp samesign ult i64 %indvars.iv229, 2
   %277 = select i1 %276, i64 2, i64 1
   %278 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %268, i64 0, i64 %277
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %278, align 8
@@ -59274,7 +59274,7 @@ define linkonce_odr void @_ZN4CGAL18squared_distanceC3INS_4MpzfEEET_RKS2_S4_S4_S
   %19 = load i32, ptr %18, align 8, !noalias !1293
   %20 = call i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = shl nuw nsw i32 %20, 1
-  %22 = icmp ult i32 %20, 5
+  %22 = icmp samesign ult i32 %20, 5
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %7
@@ -59375,7 +59375,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit:                   ; preds = %66
   %72 = load i32, ptr %71, align 8, !noalias !1299
   %73 = call i32 @llvm.abs.i32(i32 %72, i1 true)
   %74 = shl nuw nsw i32 %73, 1
-  %75 = icmp ult i32 %73, 5
+  %75 = icmp samesign ult i32 %73, 5
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit
@@ -59480,7 +59480,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit20:                 ; preds = %_ZN4CGALplERKNS_4Mp
   %125 = load i32, ptr %124, align 8, !noalias !1305
   %126 = call i32 @llvm.abs.i32(i32 %125, i1 true)
   %127 = shl nuw nsw i32 %126, 1
-  %128 = icmp ult i32 %126, 5
+  %128 = icmp samesign ult i32 %126, 5
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit20
@@ -76406,7 +76406,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit98:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %71 = load i32, ptr %70, align 8, !noalias !1497
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
   %73 = shl nuw nsw i32 %72, 1
-  %74 = icmp ult i32 %72, 5
+  %74 = icmp samesign ult i32 %72, 5
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit98
@@ -76500,7 +76500,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc, %75
   %121 = load i32, ptr %120, align 8, !noalias !1500
   %122 = call i32 @llvm.abs.i32(i32 %121, i1 true)
   %123 = shl nuw nsw i32 %122, 1
-  %124 = icmp ult i32 %122, 5
+  %124 = icmp samesign ult i32 %122, 5
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %118
@@ -76598,7 +76598,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %168
   %171 = load i32, ptr %170, align 8, !noalias !1503
   %172 = call i32 @llvm.abs.i32(i32 %171, i1 true)
   %173 = shl nuw nsw i32 %172, 1
-  %174 = icmp ult i32 %172, 5
+  %174 = icmp samesign ult i32 %172, 5
   br i1 %174, label %175, label %178
 
 175:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
@@ -76802,7 +76802,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit113:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %259 = load i32, ptr %258, align 8, !noalias !1515
   %260 = call i32 @llvm.abs.i32(i32 %259, i1 true)
   %261 = shl nuw nsw i32 %260, 1
-  %262 = icmp ult i32 %260, 5
+  %262 = icmp samesign ult i32 %260, 5
   br i1 %262, label %263, label %266
 
 263:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit113
@@ -76896,7 +76896,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i436:        ; preds = %.noexc443, %263
   %309 = load i32, ptr %308, align 8, !noalias !1518
   %310 = call i32 @llvm.abs.i32(i32 %309, i1 true)
   %311 = shl nuw nsw i32 %310, 1
-  %312 = icmp ult i32 %310, 5
+  %312 = icmp samesign ult i32 %310, 5
   br i1 %312, label %313, label %316
 
 313:                                              ; preds = %306
@@ -76994,7 +76994,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit116:                ; preds = %356
   %359 = load i32, ptr %358, align 8, !noalias !1521
   %360 = call i32 @llvm.abs.i32(i32 %359, i1 true)
   %361 = shl nuw nsw i32 %360, 1
-  %362 = icmp ult i32 %360, 5
+  %362 = icmp samesign ult i32 %360, 5
   br i1 %362, label %363, label %366
 
 363:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit116
@@ -77694,7 +77694,7 @@ _ZN4CGAL4MpzfD2Ev.exit190:                        ; preds = %616, %619
   %622 = load i32, ptr %621, align 8, !noalias !1542
   %623 = call i32 @llvm.abs.i32(i32 %622, i1 true)
   %624 = shl nuw nsw i32 %623, 1
-  %625 = icmp ult i32 %623, 5
+  %625 = icmp samesign ult i32 %623, 5
   br i1 %625, label %626, label %629
 
 626:                                              ; preds = %620
@@ -77788,7 +77788,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i469:        ; preds = %.noexc476, %626
   %672 = load i32, ptr %671, align 8, !noalias !1545
   %673 = call i32 @llvm.abs.i32(i32 %672, i1 true)
   %674 = shl nuw nsw i32 %673, 1
-  %675 = icmp ult i32 %673, 5
+  %675 = icmp samesign ult i32 %673, 5
   br i1 %675, label %676, label %679
 
 676:                                              ; preds = %669
@@ -77886,7 +77886,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit193:                ; preds = %719
   %722 = load i32, ptr %721, align 8, !noalias !1548
   %723 = call i32 @llvm.abs.i32(i32 %722, i1 true)
   %724 = shl nuw nsw i32 %723, 1
-  %725 = icmp ult i32 %723, 5
+  %725 = icmp samesign ult i32 %723, 5
   br i1 %725, label %726, label %729
 
 726:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit193
@@ -78185,7 +78185,7 @@ _ZN4CGAL4MpzfD2Ev.exit207:                        ; preds = %828, %831
   %847 = load i32, ptr %846, align 8, !noalias !1553
   %848 = call i32 @llvm.abs.i32(i32 %847, i1 true)
   %849 = shl nuw nsw i32 %848, 1
-  %850 = icmp ult i32 %848, 5
+  %850 = icmp samesign ult i32 %848, 5
   br i1 %850, label %851, label %854
 
 851:                                              ; preds = %845
@@ -81514,7 +81514,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit83:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %61 = load i32, ptr %60, align 8, !noalias !1587
   %62 = call i32 @llvm.abs.i32(i32 %61, i1 true)
   %63 = shl nuw nsw i32 %62, 1
-  %64 = icmp ult i32 %62, 5
+  %64 = icmp samesign ult i32 %62, 5
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit83
@@ -81608,7 +81608,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc, %65
   %111 = load i32, ptr %110, align 8, !noalias !1590
   %112 = call i32 @llvm.abs.i32(i32 %111, i1 true)
   %113 = shl nuw nsw i32 %112, 1
-  %114 = icmp ult i32 %112, 5
+  %114 = icmp samesign ult i32 %112, 5
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %108
@@ -81706,7 +81706,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %158
   %161 = load i32, ptr %160, align 8, !noalias !1593
   %162 = call i32 @llvm.abs.i32(i32 %161, i1 true)
   %163 = shl nuw nsw i32 %162, 1
-  %164 = icmp ult i32 %162, 5
+  %164 = icmp samesign ult i32 %162, 5
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
@@ -81910,7 +81910,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit98:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %249 = load i32, ptr %248, align 8, !noalias !1605
   %250 = call i32 @llvm.abs.i32(i32 %249, i1 true)
   %251 = shl nuw nsw i32 %250, 1
-  %252 = icmp ult i32 %250, 5
+  %252 = icmp samesign ult i32 %250, 5
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit98
@@ -82004,7 +82004,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i345:        ; preds = %.noexc352, %253
   %299 = load i32, ptr %298, align 8, !noalias !1608
   %300 = call i32 @llvm.abs.i32(i32 %299, i1 true)
   %301 = shl nuw nsw i32 %300, 1
-  %302 = icmp ult i32 %300, 5
+  %302 = icmp samesign ult i32 %300, 5
   br i1 %302, label %303, label %306
 
 303:                                              ; preds = %296
@@ -82102,7 +82102,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit101:                ; preds = %346
   %349 = load i32, ptr %348, align 8, !noalias !1611
   %350 = call i32 @llvm.abs.i32(i32 %349, i1 true)
   %351 = shl nuw nsw i32 %350, 1
-  %352 = icmp ult i32 %350, 5
+  %352 = icmp samesign ult i32 %350, 5
   br i1 %352, label %353, label %356
 
 353:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit101
@@ -82306,7 +82306,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit118:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %437 = load i32, ptr %436, align 8, !noalias !1623
   %438 = call i32 @llvm.abs.i32(i32 %437, i1 true)
   %439 = shl nuw nsw i32 %438, 1
-  %440 = icmp ult i32 %438, 5
+  %440 = icmp samesign ult i32 %438, 5
   br i1 %440, label %441, label %444
 
 441:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit118
@@ -82400,7 +82400,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i378:        ; preds = %.noexc385, %441
   %487 = load i32, ptr %486, align 8, !noalias !1626
   %488 = call i32 @llvm.abs.i32(i32 %487, i1 true)
   %489 = shl nuw nsw i32 %488, 1
-  %490 = icmp ult i32 %488, 5
+  %490 = icmp samesign ult i32 %488, 5
   br i1 %490, label %491, label %494
 
 491:                                              ; preds = %484
@@ -82498,7 +82498,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit121:                ; preds = %534
   %537 = load i32, ptr %536, align 8, !noalias !1629
   %538 = call i32 @llvm.abs.i32(i32 %537, i1 true)
   %539 = shl nuw nsw i32 %538, 1
-  %540 = icmp ult i32 %538, 5
+  %540 = icmp samesign ult i32 %538, 5
   br i1 %540, label %541, label %544
 
 541:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit121
@@ -82700,7 +82700,7 @@ _ZN4CGAL4MpzfD2Ev.exit135:                        ; preds = %614, %617
   %623 = load i32, ptr %622, align 8, !noalias !1632
   %624 = call i32 @llvm.abs.i32(i32 %623, i1 true)
   %625 = shl nuw nsw i32 %624, 1
-  %626 = icmp ult i32 %624, 5
+  %626 = icmp samesign ult i32 %624, 5
   br i1 %626, label %627, label %630
 
 627:                                              ; preds = %621
@@ -82794,7 +82794,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i411:        ; preds = %.noexc418, %627
   %673 = load i32, ptr %672, align 8, !noalias !1635
   %674 = call i32 @llvm.abs.i32(i32 %673, i1 true)
   %675 = shl nuw nsw i32 %674, 1
-  %676 = icmp ult i32 %674, 5
+  %676 = icmp samesign ult i32 %674, 5
   br i1 %676, label %677, label %680
 
 677:                                              ; preds = %670
@@ -82892,7 +82892,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit138:                ; preds = %720
   %723 = load i32, ptr %722, align 8, !noalias !1638
   %724 = call i32 @llvm.abs.i32(i32 %723, i1 true)
   %725 = shl nuw nsw i32 %724, 1
-  %726 = icmp ult i32 %724, 5
+  %726 = icmp samesign ult i32 %724, 5
   br i1 %726, label %727, label %730
 
 727:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit138
@@ -83191,7 +83191,7 @@ _ZN4CGAL4MpzfD2Ev.exit152:                        ; preds = %829, %832
   %848 = load i32, ptr %847, align 8, !noalias !1641
   %849 = call i32 @llvm.abs.i32(i32 %848, i1 true)
   %850 = shl nuw nsw i32 %849, 1
-  %851 = icmp ult i32 %849, 5
+  %851 = icmp samesign ult i32 %849, 5
   br i1 %851, label %852, label %855
 
 852:                                              ; preds = %846
@@ -86907,7 +86907,7 @@ define linkonce_odr void @_ZNSt5arrayIN4CGAL4MpzfELm3EEC2ERKS2_(ptr noundef nonn
   %7 = getelementptr inbounds i8, ptr %6, i64 80
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %10 = icmp ult i32 %9, 9
+  %10 = icmp samesign ult i32 %9, 9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
@@ -90065,7 +90065,7 @@ _ZN5boost9container13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS2_15Search_traits
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #23
-  %44 = icmp ugt i64 %.04555, 1
+  %44 = icmp samesign ugt i64 %.04555, 1
   br i1 %44, label %.lr.ph57, label %._crit_edge
 
 .lr.ph57:                                         ; preds = %40, %.lr.ph57
@@ -90594,7 +90594,7 @@ _ZN5boost9container13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS2_15Search_tr
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #23
-  %44 = icmp ugt i64 %.04555, 1
+  %44 = icmp samesign ugt i64 %.04555, 1
   br i1 %44, label %.lr.ph57, label %._crit_edge
 
 .lr.ph57:                                         ; preds = %40, %.lr.ph57
@@ -94480,7 +94480,7 @@ define linkonce_odr void @_ZN4CGAL10make_arrayINS_4MpzfEJS1_S1_S1_EEESt5arrayIT_
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
-  %9 = icmp ult i32 %8, 9
+  %9 = icmp samesign ult i32 %8, 9
   br i1 %9, label %10, label %.noexc
 
 10:                                               ; preds = %5
@@ -94522,7 +94522,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit:                       ; preds = %23, %_ZN4CGAL4Mpzf4
   %27 = getelementptr inbounds i8, ptr %2, i64 80
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
-  %30 = icmp ult i32 %29, 9
+  %30 = icmp samesign ult i32 %29, 9
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit
@@ -94567,7 +94567,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit13:                     ; preds = %_ZN4CGAL4Mpzf4initE
   %49 = getelementptr inbounds i8, ptr %3, i64 80
   %50 = load i32, ptr %49, align 8
   %51 = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
-  %52 = icmp ult i32 %51, 9
+  %52 = icmp samesign ult i32 %51, 9
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit13
@@ -94612,7 +94612,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit19:                     ; preds = %_ZN4CGAL4Mpzf4initE
   %71 = getelementptr inbounds i8, ptr %4, i64 80
   %72 = load i32, ptr %71, align 8
   %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
-  %74 = icmp ult i32 %73, 9
+  %74 = icmp samesign ult i32 %73, 9
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit19
@@ -96026,7 +96026,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Intersections8internal25do_int
   %51 = getelementptr inbounds i8, ptr %0, i64 344
   %52 = load i32, ptr %51, align 8, !noalias !1861
   %53 = call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %54 = icmp ult i32 %53, 9
+  %54 = icmp samesign ult i32 %53, 9
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %8
@@ -96167,7 +96167,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit: ; preds = %85, %116, %11
   %119 = getelementptr inbounds i8, ptr %0, i64 80
   %120 = load i32, ptr %119, align 8, !noalias !1865
   %121 = call i32 @llvm.abs.i32(i32 %120, i1 true)
-  %122 = icmp ult i32 %121, 9
+  %122 = icmp samesign ult i32 %121, 9
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit
@@ -96353,7 +96353,7 @@ _ZN4CGAL4MpzfD2Ev.exit51:                         ; preds = %187, %189
   %190 = load i32, ptr %45, align 8, !noalias !1871
   %191 = call i32 @llvm.abs.i32(i32 %190, i1 true)
   %192 = shl nuw nsw i32 %191, 1
-  %193 = icmp ult i32 %191, 5
+  %193 = icmp samesign ult i32 %191, 5
   br i1 %193, label %194, label %197
 
 194:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit51
@@ -96745,7 +96745,7 @@ _ZN4CGAL4MpzfD2Ev.exit67:                         ; preds = %343, %340, %332
   br label %363
 
 363:                                              ; preds = %362, %361
-  %364 = icmp ult i32 %.pre-phi, 9
+  %364 = icmp samesign ult i32 %.pre-phi, 9
   br i1 %364, label %365, label %366
 
 365:                                              ; preds = %363
@@ -96777,7 +96777,7 @@ _ZN4CGAL4MpzfD2Ev.exit67:                         ; preds = %343, %340, %332
   %377 = getelementptr inbounds i8, ptr %0, i64 80
   %378 = load i32, ptr %377, align 8, !noalias !1875
   %379 = call i32 @llvm.abs.i32(i32 %378, i1 true)
-  %380 = icmp ult i32 %379, 9
+  %380 = icmp samesign ult i32 %379, 9
   br i1 %380, label %381, label %384
 
 381:                                              ; preds = %376
@@ -97048,7 +97048,7 @@ _ZN4CGAL4MpzfD2Ev.exit105:                        ; preds = %488, %491
   %492 = load i32, ptr %45, align 8, !noalias !1881
   %493 = call i32 @llvm.abs.i32(i32 %492, i1 true)
   %494 = shl nuw nsw i32 %493, 1
-  %495 = icmp ult i32 %493, 5
+  %495 = icmp samesign ult i32 %493, 5
   br i1 %495, label %496, label %499
 
 496:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit105
@@ -97424,7 +97424,7 @@ _ZN4CGAL4MpzfD2Ev.exit143:                        ; preds = %638, %636
   br label %659
 
 659:                                              ; preds = %658, %657
-  %660 = icmp ult i32 %.pre-phi669, 9
+  %660 = icmp samesign ult i32 %.pre-phi669, 9
   br i1 %660, label %661, label %662
 
 661:                                              ; preds = %659
@@ -97562,7 +97562,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit161: ; preds = %687, %718,
   %721 = getelementptr inbounds i8, ptr %0, i64 168
   %722 = load i32, ptr %721, align 8, !noalias !1887
   %723 = call i32 @llvm.abs.i32(i32 %722, i1 true)
-  %724 = icmp ult i32 %723, 9
+  %724 = icmp samesign ult i32 %723, 9
   br i1 %724, label %725, label %728
 
 725:                                              ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit161
@@ -97748,7 +97748,7 @@ _ZN4CGAL4MpzfD2Ev.exit185:                        ; preds = %789, %791
   %792 = load i32, ptr %45, align 8, !noalias !1893
   %793 = call i32 @llvm.abs.i32(i32 %792, i1 true)
   %794 = shl nuw nsw i32 %793, 1
-  %795 = icmp ult i32 %793, 5
+  %795 = icmp samesign ult i32 %793, 5
   br i1 %795, label %796, label %799
 
 796:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit185
@@ -98108,7 +98108,7 @@ _ZN4CGAL4MpzfD2Ev.exit223:                        ; preds = %941, %938, %930
   %954 = getelementptr inbounds i8, ptr %0, i64 168
   %955 = load i32, ptr %954, align 8, !noalias !1896
   %956 = call i32 @llvm.abs.i32(i32 %955, i1 true)
-  %957 = icmp ult i32 %956, 9
+  %957 = icmp samesign ult i32 %956, 9
   br i1 %957, label %958, label %961
 
 958:                                              ; preds = %953
@@ -98379,7 +98379,7 @@ _ZN4CGAL4MpzfD2Ev.exit257:                        ; preds = %1065, %1068
   %1069 = load i32, ptr %45, align 8, !noalias !1902
   %1070 = call i32 @llvm.abs.i32(i32 %1069, i1 true)
   %1071 = shl nuw nsw i32 %1070, 1
-  %1072 = icmp ult i32 %1070, 5
+  %1072 = icmp samesign ult i32 %1070, 5
   br i1 %1072, label %1073, label %1076
 
 1073:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit257
@@ -98826,7 +98826,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit305: ; preds = %1240, %127
   %1274 = getelementptr inbounds i8, ptr %0, i64 256
   %1275 = load i32, ptr %1274, align 8, !noalias !1908
   %1276 = call i32 @llvm.abs.i32(i32 %1275, i1 true)
-  %1277 = icmp ult i32 %1276, 9
+  %1277 = icmp samesign ult i32 %1276, 9
   br i1 %1277, label %1278, label %1281
 
 1278:                                             ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd.exit305
@@ -99012,7 +99012,7 @@ _ZN4CGAL4MpzfD2Ev.exit329:                        ; preds = %1342, %1344
   %1345 = load i32, ptr %45, align 8, !noalias !1914
   %1346 = call i32 @llvm.abs.i32(i32 %1345, i1 true)
   %1347 = shl nuw nsw i32 %1346, 1
-  %1348 = icmp ult i32 %1346, 5
+  %1348 = icmp samesign ult i32 %1346, 5
   br i1 %1348, label %1349, label %1352
 
 1349:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit329
@@ -99247,7 +99247,7 @@ _ZN4CGAL4MpzfD2Ev.exit344:                        ; preds = %1433, %1430, %1422
   %1446 = getelementptr inbounds i8, ptr %0, i64 256
   %1447 = load i32, ptr %1446, align 8, !noalias !1917
   %1448 = call i32 @llvm.abs.i32(i32 %1447, i1 true)
-  %1449 = icmp ult i32 %1448, 9
+  %1449 = icmp samesign ult i32 %1448, 9
   br i1 %1449, label %1450, label %1453
 
 1450:                                             ; preds = %1445
@@ -99518,7 +99518,7 @@ _ZN4CGAL4MpzfD2Ev.exit378:                        ; preds = %1557, %1560
   %1561 = load i32, ptr %45, align 8, !noalias !1923
   %1562 = call i32 @llvm.abs.i32(i32 %1561, i1 true)
   %1563 = shl nuw nsw i32 %1562, 1
-  %1564 = icmp ult i32 %1562, 5
+  %1564 = icmp samesign ult i32 %1562, 5
   br i1 %1564, label %1565, label %1568
 
 1565:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit378
@@ -100347,7 +100347,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZN4CGAL4Mp
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = icmp ult i32 %5, 9
+  %24 = icmp samesign ult i32 %5, 9
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -100509,7 +100509,7 @@ define linkonce_odr void @_ZN4CGAL8Sphere_3INS_16Simple_cartesianINS_4MpzfEEEEC2
   %10 = getelementptr inbounds i8, ptr %6, i64 344
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @llvm.abs.i32(i32 %11, i1 true)
-  %13 = icmp ult i32 %12, 9
+  %13 = icmp samesign ult i32 %12, 9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.noexc
@@ -100725,7 +100725,7 @@ _ZN5boost6tuples5tupleIN4CGAL7Point_3INS2_16Simple_cartesianINS2_4MpzfEEEEES5_NS
   %19 = getelementptr inbounds i8, ptr %2, i64 80
   %20 = load i32, ptr %19, align 8
   %21 = call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %22 = icmp ult i32 %21, 9
+  %22 = icmp samesign ult i32 %21, 9
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.noexc
@@ -100959,7 +100959,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(360) ptr @_ZN5boost6
   br label %26
 
 26:                                               ; preds = %25, %23
-  %27 = icmp ult i32 %8, 9
+  %27 = icmp samesign ult i32 %8, 9
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -101071,7 +101071,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit.us:                    ; preds = %4, %7
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = icmp ult i32 %16, 9
+  %33 = icmp samesign ult i32 %16, 9
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -107257,7 +107257,7 @@ _ZN4CGAL4MpzfD2Ev.exit239:                        ; preds = %503, %505
   call void @llvm.experimental.noalias.scope.decl(metadata !2142)
   %507 = load i32, ptr %498, align 8, !noalias !2142
   %508 = call i32 @llvm.abs.i32(i32 %507, i1 true)
-  %509 = icmp ult i32 %508, 9
+  %509 = icmp samesign ult i32 %508, 9
   br i1 %509, label %510, label %513
 
 510:                                              ; preds = %506
@@ -107405,7 +107405,7 @@ _ZN4CGAL4MpzfD2Ev.exit251:                        ; preds = %558, %561
   %562 = getelementptr inbounds i8, ptr %12, i64 80
   %563 = load i32, ptr %562, align 8, !noalias !2145
   %564 = call i32 @llvm.abs.i32(i32 %563, i1 true)
-  %565 = icmp ult i32 %564, 9
+  %565 = icmp samesign ult i32 %564, 9
   br i1 %565, label %566, label %569
 
 566:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit251
@@ -107553,7 +107553,7 @@ _ZN4CGAL4MpzfD2Ev.exit268:                        ; preds = %614, %617
   %618 = getelementptr inbounds i8, ptr %13, i64 80
   %619 = load i32, ptr %618, align 8, !noalias !2148
   %620 = call i32 @llvm.abs.i32(i32 %619, i1 true)
-  %621 = icmp ult i32 %620, 9
+  %621 = icmp samesign ult i32 %620, 9
   br i1 %621, label %622, label %625
 
 622:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit268
@@ -107701,7 +107701,7 @@ _ZN4CGAL4MpzfD2Ev.exit285:                        ; preds = %670, %673
   %674 = getelementptr inbounds i8, ptr %14, i64 80
   %675 = load i32, ptr %674, align 8, !noalias !2151
   %676 = call i32 @llvm.abs.i32(i32 %675, i1 true)
-  %677 = icmp ult i32 %676, 9
+  %677 = icmp samesign ult i32 %676, 9
   br i1 %677, label %678, label %681
 
 678:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit285
@@ -117108,7 +117108,7 @@ _ZN4CGAL7Plane_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit: ; preds = %_ZN4CGA
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
   %30 = call i32 @llvm.abs.i32(i32 %29, i1 true)
-  %31 = icmp ult i32 %30, 9
+  %31 = icmp samesign ult i32 %30, 9
   br i1 %31, label %32, label %.noexc
 
 32:                                               ; preds = %27
@@ -117151,7 +117151,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i:                      ; preds = %.noexc, %32
   %51 = getelementptr inbounds i8, ptr %0, i64 168
   %52 = load i32, ptr %51, align 8
   %53 = call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %54 = icmp ult i32 %53, 9
+  %54 = icmp samesign ult i32 %53, 9
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %48
@@ -117197,7 +117197,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i49:                    ; preds = %.noexc52, %55
   %75 = getelementptr inbounds i8, ptr %0, i64 256
   %76 = load i32, ptr %75, align 8
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 9
+  %78 = icmp samesign ult i32 %77, 9
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %72
@@ -117242,7 +117242,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i55:                    ; preds = %.noexc58, %79
   %97 = getelementptr inbounds i8, ptr %0, i64 344
   %98 = load i32, ptr %97, align 8
   %99 = call i32 @llvm.abs.i32(i32 %98, i1 true)
-  %100 = icmp ult i32 %99, 9
+  %100 = icmp samesign ult i32 %99, 9
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %96
@@ -117288,7 +117288,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i61:                    ; preds = %.noexc64, %101
   %120 = getelementptr inbounds i8, ptr %0, i64 432
   %121 = load i32, ptr %120, align 8
   %122 = call i32 @llvm.abs.i32(i32 %121, i1 true)
-  %123 = icmp ult i32 %122, 9
+  %123 = icmp samesign ult i32 %122, 9
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %118
@@ -117334,7 +117334,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i67:                    ; preds = %.noexc70, %124
   %143 = getelementptr inbounds i8, ptr %0, i64 520
   %144 = load i32, ptr %143, align 8
   %145 = call i32 @llvm.abs.i32(i32 %144, i1 true)
-  %146 = icmp ult i32 %145, 9
+  %146 = icmp samesign ult i32 %145, 9
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %141
@@ -117379,7 +117379,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i73:                    ; preds = %.noexc76, %147
   %165 = getelementptr inbounds i8, ptr %0, i64 608
   %166 = load i32, ptr %165, align 8
   %167 = call i32 @llvm.abs.i32(i32 %166, i1 true)
-  %168 = icmp ult i32 %167, 9
+  %168 = icmp samesign ult i32 %167, 9
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %164
@@ -117425,7 +117425,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i79:                    ; preds = %.noexc82, %169
   %188 = getelementptr inbounds i8, ptr %0, i64 696
   %189 = load i32, ptr %188, align 8
   %190 = call i32 @llvm.abs.i32(i32 %189, i1 true)
-  %191 = icmp ult i32 %190, 9
+  %191 = icmp samesign ult i32 %190, 9
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %186
@@ -117471,7 +117471,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i85:                    ; preds = %.noexc88, %192
   %211 = getelementptr inbounds i8, ptr %0, i64 784
   %212 = load i32, ptr %211, align 8
   %213 = call i32 @llvm.abs.i32(i32 %212, i1 true)
-  %214 = icmp ult i32 %213, 9
+  %214 = icmp samesign ult i32 %213, 9
   br i1 %214, label %215, label %218
 
 215:                                              ; preds = %209
@@ -126945,7 +126945,7 @@ _ZN4CGAL4MpzfD2Ev.exit96:                         ; preds = %220, %223
   %224 = getelementptr inbounds i8, ptr %9, i64 80
   %225 = load i32, ptr %224, align 8, !noalias !2263
   %226 = call i32 @llvm.abs.i32(i32 %225, i1 true)
-  %227 = icmp ult i32 %226, 9
+  %227 = icmp samesign ult i32 %226, 9
   br i1 %227, label %228, label %231
 
 228:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit96
@@ -128104,7 +128104,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit:           ; preds = %20, %_ZNSt5arrayIN4
   %37 = getelementptr inbounds i8, ptr %1, i64 256
   %38 = load i32, ptr %37, align 8, !noalias !2272
   %39 = call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = icmp ult i32 %39, 9
+  %40 = icmp samesign ult i32 %39, 9
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %31
@@ -128156,7 +128156,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %41
   %62 = getelementptr inbounds i8, ptr %1, i64 168
   %63 = load i32, ptr %62, align 8
   %64 = call i32 @llvm.abs.i32(i32 %63, i1 true)
-  %65 = icmp ult i32 %64, 9
+  %65 = icmp samesign ult i32 %64, 9
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %58
@@ -128804,7 +128804,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit:           ; preds = %19, %_ZNSt5arrayIN4
   %37 = getelementptr inbounds i8, ptr %1, i64 520
   %38 = load i32, ptr %37, align 8, !noalias !2287
   %39 = call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = icmp ult i32 %39, 9
+  %40 = icmp samesign ult i32 %39, 9
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %30
@@ -128856,7 +128856,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %41
   %62 = getelementptr inbounds i8, ptr %1, i64 432
   %63 = load i32, ptr %62, align 8
   %64 = call i32 @llvm.abs.i32(i32 %63, i1 true)
-  %65 = icmp ult i32 %64, 9
+  %65 = icmp samesign ult i32 %64, 9
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %58
@@ -129505,7 +129505,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit:           ; preds = %20, %_ZNSt5arrayIN4
   %38 = getelementptr inbounds i8, ptr %1, i64 784
   %39 = load i32, ptr %38, align 8, !noalias !2302
   %40 = call i32 @llvm.abs.i32(i32 %39, i1 true)
-  %41 = icmp ult i32 %40, 9
+  %41 = icmp samesign ult i32 %40, 9
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %31
@@ -129557,7 +129557,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %42
   %63 = getelementptr inbounds i8, ptr %1, i64 696
   %64 = load i32, ptr %63, align 8
   %65 = call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = icmp ult i32 %65, 9
+  %66 = icmp samesign ult i32 %65, 9
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %59
@@ -130196,7 +130196,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %32 = getelementptr inbounds i8, ptr %1, i64 256
   %33 = load i32, ptr %32, align 8
   %34 = call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %35 = icmp ult i32 %34, 9
+  %35 = icmp samesign ult i32 %34, 9
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -130249,7 +130249,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i:                      ; preds = %.noexc, %36
   %58 = getelementptr inbounds i8, ptr %1, i64 80
   %59 = load i32, ptr %58, align 8, !noalias !2317
   %60 = call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %61 = icmp ult i32 %60, 9
+  %61 = icmp samesign ult i32 %60, 9
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %53
@@ -130886,7 +130886,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %33 = getelementptr inbounds i8, ptr %1, i64 520
   %34 = load i32, ptr %33, align 8
   %35 = call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %36 = icmp ult i32 %35, 9
+  %36 = icmp samesign ult i32 %35, 9
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -130939,7 +130939,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i:                      ; preds = %.noexc, %37
   %59 = getelementptr inbounds i8, ptr %1, i64 344
   %60 = load i32, ptr %59, align 8, !noalias !2332
   %61 = call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = icmp ult i32 %61, 9
+  %62 = icmp samesign ult i32 %61, 9
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %54
@@ -131577,7 +131577,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %34 = getelementptr inbounds i8, ptr %1, i64 784
   %35 = load i32, ptr %34, align 8
   %36 = call i32 @llvm.abs.i32(i32 %35, i1 true)
-  %37 = icmp ult i32 %36, 9
+  %37 = icmp samesign ult i32 %36, 9
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -131630,7 +131630,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i:                      ; preds = %.noexc, %38
   %60 = getelementptr inbounds i8, ptr %1, i64 608
   %61 = load i32, ptr %60, align 8, !noalias !2347
   %62 = call i32 @llvm.abs.i32(i32 %61, i1 true)
-  %63 = icmp ult i32 %62, 9
+  %63 = icmp samesign ult i32 %62, 9
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %55
@@ -132267,7 +132267,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %32 = getelementptr inbounds i8, ptr %1, i64 168
   %33 = load i32, ptr %32, align 8, !noalias !2362
   %34 = call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %35 = icmp ult i32 %34, 9
+  %35 = icmp samesign ult i32 %34, 9
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -132318,7 +132318,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %36
   %56 = getelementptr inbounds i8, ptr %1, i64 80
   %57 = load i32, ptr %56, align 8
   %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %59 = icmp ult i32 %58, 9
+  %59 = icmp samesign ult i32 %58, 9
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %53
@@ -132957,7 +132957,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %33 = getelementptr inbounds i8, ptr %1, i64 432
   %34 = load i32, ptr %33, align 8, !noalias !2377
   %35 = call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %36 = icmp ult i32 %35, 9
+  %36 = icmp samesign ult i32 %35, 9
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -133008,7 +133008,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %37
   %57 = getelementptr inbounds i8, ptr %1, i64 344
   %58 = load i32, ptr %57, align 8
   %59 = call i32 @llvm.abs.i32(i32 %58, i1 true)
-  %60 = icmp ult i32 %59, 9
+  %60 = icmp samesign ult i32 %59, 9
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %54
@@ -133648,7 +133648,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35:         ; preds = %_ZNSt5arrayIN4CGAL4
   %34 = getelementptr inbounds i8, ptr %1, i64 696
   %35 = load i32, ptr %34, align 8, !noalias !2392
   %36 = call i32 @llvm.abs.i32(i32 %35, i1 true)
-  %37 = icmp ult i32 %36, 9
+  %37 = icmp samesign ult i32 %36, 9
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %_ZNSt5arrayIN4CGAL4MpzfELm3EEC2Ev.exit35
@@ -133699,7 +133699,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i.i:                    ; preds = %.noexc, %38
   %58 = getelementptr inbounds i8, ptr %1, i64 608
   %59 = load i32, ptr %58, align 8
   %60 = call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %61 = icmp ult i32 %60, 9
+  %61 = icmp samesign ult i32 %60, 9
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %55
@@ -136442,7 +136442,7 @@ define linkonce_odr void @_ZN4CGAL10make_arrayINS_4MpzfEJddEEESt5arrayIT_XplLi1E
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
-  %8 = icmp ult i32 %7, 9
+  %8 = icmp samesign ult i32 %7, 9
   br i1 %8, label %9, label %.noexc
 
 9:                                                ; preds = %4
@@ -136669,7 +136669,7 @@ define linkonce_odr i64 @_ZZN4CGAL13Intersections8internal31do_intersect_bbox_or
   %10 = getelementptr inbounds i8, ptr %3, i64 80
   %11 = load i32, ptr %10, align 8, !noalias !2407
   %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
-  %13 = icmp ult i32 %12, 9
+  %13 = icmp samesign ult i32 %12, 9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %5
@@ -147882,7 +147882,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit114:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %76 = load i32, ptr %75, align 8, !noalias !2500
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
   %78 = shl nuw nsw i32 %77, 1
-  %79 = icmp ult i32 %77, 5
+  %79 = icmp samesign ult i32 %77, 5
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit114
@@ -147976,7 +147976,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc452, %80
   %126 = load i32, ptr %125, align 8, !noalias !2503
   %127 = call i32 @llvm.abs.i32(i32 %126, i1 true)
   %128 = shl nuw nsw i32 %127, 1
-  %129 = icmp ult i32 %127, 5
+  %129 = icmp samesign ult i32 %127, 5
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %123
@@ -148074,7 +148074,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %173
   %176 = load i32, ptr %175, align 8, !noalias !2506
   %177 = call i32 @llvm.abs.i32(i32 %176, i1 true)
   %178 = shl nuw nsw i32 %177, 1
-  %179 = icmp ult i32 %177, 5
+  %179 = icmp samesign ult i32 %177, 5
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
@@ -148278,7 +148278,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit129:                ; preds = %_ZN4CGALmiERKNS_4Mp
   %264 = load i32, ptr %263, align 8, !noalias !2518
   %265 = call i32 @llvm.abs.i32(i32 %264, i1 true)
   %266 = shl nuw nsw i32 %265, 1
-  %267 = icmp ult i32 %265, 5
+  %267 = icmp samesign ult i32 %265, 5
   br i1 %267, label %268, label %271
 
 268:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit129
@@ -148372,7 +148372,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i475:        ; preds = %.noexc482, %268
   %314 = load i32, ptr %313, align 8, !noalias !2521
   %315 = call i32 @llvm.abs.i32(i32 %314, i1 true)
   %316 = shl nuw nsw i32 %315, 1
-  %317 = icmp ult i32 %315, 5
+  %317 = icmp samesign ult i32 %315, 5
   br i1 %317, label %318, label %321
 
 318:                                              ; preds = %311
@@ -148470,7 +148470,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit132:                ; preds = %361
   %364 = load i32, ptr %363, align 8, !noalias !2524
   %365 = call i32 @llvm.abs.i32(i32 %364, i1 true)
   %366 = shl nuw nsw i32 %365, 1
-  %367 = icmp ult i32 %365, 5
+  %367 = icmp samesign ult i32 %365, 5
   br i1 %367, label %368, label %371
 
 368:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit132
@@ -149243,7 +149243,7 @@ _ZN4CGAL4MpzfD2Ev.exit215:                        ; preds = %650, %652
   %653 = getelementptr inbounds i8, ptr %46, i64 80
   %654 = load i32, ptr %653, align 8, !noalias !2554
   %655 = call i32 @llvm.abs.i32(i32 %654, i1 true)
-  %656 = icmp ult i32 %655, 9
+  %656 = icmp samesign ult i32 %655, 9
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit215
@@ -163689,7 +163689,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Intersections8internal12do_int
   %28 = getelementptr inbounds i8, ptr %0, i64 344
   %29 = load i32, ptr %28, align 8, !noalias !38
   %30 = call i32 @llvm.abs.i32(i32 %29, i1 true)
-  %31 = icmp ult i32 %30, 9
+  %31 = icmp samesign ult i32 %30, 9
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %26
@@ -163737,7 +163737,7 @@ _ZNK4CGAL23CartesianKernelFunctors24Compute_squared_radius_3INS_16Simple_cartesi
   %49 = phi i32 [ %.pre, %._ZNK4CGAL23CartesianKernelFunctors24Compute_squared_radius_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_8Sphere_3IS4_EE.exit_crit_edge ], [ 0, %_ZN4CGAL4Mpzf4initEj.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2832)
   %50 = call i32 @llvm.abs.i32(i32 %49, i1 true)
-  %51 = icmp ult i32 %50, 9
+  %51 = icmp samesign ult i32 %50, 9
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors24Compute_squared_radius_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_8Sphere_3IS4_EE.exit
@@ -165166,7 +165166,7 @@ _ZN4CGAL9Segment_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit154: ; preds = %_Z
   br label %120
 
 120:                                              ; preds = %119, %117
-  %121 = icmp ult i32 %102, 9
+  %121 = icmp samesign ult i32 %102, 9
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %120
@@ -165243,7 +165243,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit:                       ; preds = %107, %104, %_ZN4CGA
   br label %154
 
 154:                                              ; preds = %153, %151
-  %155 = icmp ult i32 %136, 9
+  %155 = icmp samesign ult i32 %136, 9
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %154
@@ -165411,7 +165411,7 @@ _ZN4CGAL9Segment_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit174: ; preds = %_Z
   br label %220
 
 220:                                              ; preds = %219, %217
-  %221 = icmp ult i32 %202, 9
+  %221 = icmp samesign ult i32 %202, 9
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %220
@@ -165488,7 +165488,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit182:                    ; preds = %207, %204, %_ZN4CGA
   br label %254
 
 254:                                              ; preds = %253, %251
-  %255 = icmp ult i32 %236, 9
+  %255 = icmp samesign ult i32 %236, 9
   br i1 %255, label %256, label %258
 
 256:                                              ; preds = %254
@@ -165795,7 +165795,7 @@ _ZN4CGAL9Segment_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit219: ; preds = %_Z
   br label %371
 
 371:                                              ; preds = %370, %368
-  %372 = icmp ult i32 %353, 9
+  %372 = icmp samesign ult i32 %353, 9
   br i1 %372, label %373, label %375
 
 373:                                              ; preds = %371
@@ -165872,7 +165872,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit227:                    ; preds = %358, %355, %_ZN4CGA
   br label %405
 
 405:                                              ; preds = %404, %402
-  %406 = icmp ult i32 %387, 9
+  %406 = icmp samesign ult i32 %387, 9
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %405
@@ -166183,7 +166183,7 @@ _ZN4CGAL9Segment_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit267: ; preds = %_Z
   br label %523
 
 523:                                              ; preds = %522, %520
-  %524 = icmp ult i32 %505, 9
+  %524 = icmp samesign ult i32 %505, 9
   br i1 %524, label %525, label %527
 
 525:                                              ; preds = %523
@@ -166260,7 +166260,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit275:                    ; preds = %510, %507, %_ZN4CGA
   br label %557
 
 557:                                              ; preds = %556, %554
-  %558 = icmp ult i32 %539, 9
+  %558 = icmp samesign ult i32 %539, 9
   br i1 %558, label %559, label %561
 
 559:                                              ; preds = %557
@@ -166635,7 +166635,7 @@ _ZN4CGAL9Segment_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit325: ; preds = %_Z
   br label %697
 
 697:                                              ; preds = %696, %694
-  %698 = icmp ult i32 %679, 9
+  %698 = icmp samesign ult i32 %679, 9
   br i1 %698, label %699, label %701
 
 699:                                              ; preds = %697
@@ -166712,7 +166712,7 @@ _ZN4CGAL4MpzfaSERKS0_.exit333:                    ; preds = %684, %681, %_ZN4CGA
   br label %731
 
 731:                                              ; preds = %730, %728
-  %732 = icmp ult i32 %713, 9
+  %732 = icmp samesign ult i32 %713, 9
   br i1 %732, label %733, label %735
 
 733:                                              ; preds = %731
@@ -167844,7 +167844,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit37: ; preds = %84
   %86 = phi i32 [ %.pr, %84 ], [ 1, %77 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2861)
   %87 = call i32 @llvm.abs.i32(i32 %86, i1 true)
-  %88 = icmp ult i32 %87, 9
+  %88 = icmp samesign ult i32 %87, 9
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit37
@@ -168066,7 +168066,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit58: ; preds = %16
   call void @llvm.experimental.noalias.scope.decl(metadata !2864)
   %168 = load i32, ptr %30, align 8, !noalias !2864
   %169 = call i32 @llvm.abs.i32(i32 %168, i1 true)
-  %170 = icmp ult i32 %169, 9
+  %170 = icmp samesign ult i32 %169, 9
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit58
@@ -168126,7 +168126,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit64: ; preds = %_Z
   %191 = getelementptr inbounds i8, ptr %14, i64 80
   %192 = load i32, ptr %191, align 8, !noalias !2868
   %193 = call i32 @llvm.abs.i32(i32 %192, i1 true)
-  %194 = icmp ult i32 %193, 9
+  %194 = icmp samesign ult i32 %193, 9
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit64
@@ -168479,7 +168479,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit88: ; preds = %33
   %339 = phi i32 [ %.pr169, %337 ], [ 1, %330 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2871)
   %340 = call i32 @llvm.abs.i32(i32 %339, i1 true)
-  %341 = icmp ult i32 %340, 9
+  %341 = icmp samesign ult i32 %340, 9
   br i1 %341, label %342, label %345
 
 342:                                              ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit88
@@ -168862,7 +168862,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit128: ; preds = %4
   call void @llvm.experimental.noalias.scope.decl(metadata !2874)
   %480 = load i32, ptr %191, align 8, !noalias !2874
   %481 = call i32 @llvm.abs.i32(i32 %480, i1 true)
-  %482 = icmp ult i32 %481, 9
+  %482 = icmp samesign ult i32 %481, 9
   br i1 %482, label %483, label %486
 
 483:                                              ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit128
@@ -169806,7 +169806,7 @@ _ZN4CGAL4MpzfD2Ev.exit22:                         ; preds = %85, %87
   %88 = load i32, ptr %12, align 8, !noalias !2877
   %89 = call i32 @llvm.abs.i32(i32 %88, i1 true)
   %90 = shl nuw nsw i32 %89, 1
-  %91 = icmp ult i32 %89, 5
+  %91 = icmp samesign ult i32 %89, 5
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit22
@@ -170009,7 +170009,7 @@ _ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit33: ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !2880)
   %175 = load i32, ptr %16, align 8, !noalias !2880
   %176 = call i32 @llvm.abs.i32(i32 %175, i1 true)
-  %177 = icmp ult i32 %176, 9
+  %177 = icmp samesign ult i32 %176, 9
   br i1 %177, label %178, label %181
 
 178:                                              ; preds = %_ZNK4CGAL8Vector_3INS_16Simple_cartesianINS_4MpzfEEEE2hwEv.exit33
@@ -176974,7 +176974,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangul
 
 _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit: ; preds = %43, %47, %51
   %.0.i = phi i32 [ 0, %43 ], [ 1, %47 ], [ %..i, %51 ]
-  %55 = icmp ult i32 %.0.i, 2
+  %55 = icmp samesign ult i32 %.0.i, 2
   tail call void @llvm.assume(i1 %55)
   %56 = xor i32 %.0.i, 1
   %57 = zext nneg i32 %56 to i64
@@ -177000,7 +177000,7 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
 
 _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit20: ; preds = %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit, %62, %66
   %.0.i19 = phi i32 [ 0, %_ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS5_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS5_27Alpha_wrap_AABB_geom_traitsIS8_EEEENS_27Triangulation_vertex_base_3ISF_NS_30Triangulation_ds_vertex_base_3INS1_INS3_ISB_SF_NSG_ISF_NSH_IvEEEEEENS5_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSA_9Cell_infoESF_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISF_NS_34Delaunay_triangulation_cell_base_3ISF_NS_25Triangulation_cell_base_3ISF_NS0_IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_EEE5indexENS_8internal11CC_iteratorINS_17Compact_containerINS2_INS3_ISB_SF_NSG_ISF_NSH_IS13_EEEEEEEENS_7DefaultES1C_S1C_EELb0EEE.exit ], [ 1, %62 ], [ %..i18, %66 ]
-  %70 = icmp ult i32 %.0.i19, 2
+  %70 = icmp samesign ult i32 %.0.i19, 2
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %44, i64 0, i64 %57
   %.sroa.0.0.copyload.i21 = load ptr, ptr %71, align 8
@@ -177350,7 +177350,7 @@ define linkonce_odr void @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangul
 
 12:                                               ; preds = %.lr.ph, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E23Vertex_feeder_treatmentISt20back_insert_iteratorISt6vectorINS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1E_S1E_EELb0EEESaIS1G_EEEEclENS18_INS19_INSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEES1E_S1E_S1E_EELb0EEES1G_i.
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E23Vertex_feeder_treatmentISt20back_insert_iteratorISt6vectorINS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1E_S1E_EELb0EEESaIS1G_EEEEclENS18_INS19_INSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEES1E_S1E_S1E_EELb0EEES1G_i. ]
-  %or.cond.i = icmp ult i64 %indvars.iv, 4
+  %or.cond.i = icmp samesign ult i64 %indvars.iv, 4
   tail call void @llvm.assume(i1 %or.cond.i)
   %13 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %6, i64 0, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8
@@ -180702,7 +180702,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %119, %114
   store i64 9, ptr %136, align 8
   %137 = mul nsw i64 %34, 3
   %138 = and i64 %137, 4294967295
-  %139 = icmp ugt i64 %138, 9
+  %139 = icmp samesign ugt i64 %138, 9
   br i1 %139, label %140, label %149
 
 140:                                              ; preds = %133
@@ -189961,7 +189961,7 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   %117 = load i32, ptr %116, align 8, !noalias !3516
   %118 = call i32 @llvm.abs.i32(i32 %117, i1 true)
   %119 = shl nuw nsw i32 %118, 1
-  %120 = icmp ult i32 %118, 5
+  %120 = icmp samesign ult i32 %118, 5
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %114
@@ -190062,7 +190062,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit:                   ; preds = %164
   %170 = load i32, ptr %169, align 8, !noalias !3522
   %171 = call i32 @llvm.abs.i32(i32 %170, i1 true)
   %172 = shl nuw nsw i32 %171, 1
-  %173 = icmp ult i32 %171, 5
+  %173 = icmp samesign ult i32 %171, 5
   br i1 %173, label %174, label %177
 
 174:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit
@@ -190165,7 +190165,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit82:                 ; preds = %217
   %225 = load i32, ptr %224, align 8, !noalias !3528
   %226 = call i32 @llvm.abs.i32(i32 %225, i1 true)
   %227 = shl nuw nsw i32 %226, 1
-  %228 = icmp ult i32 %226, 5
+  %228 = icmp samesign ult i32 %226, 5
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit82
@@ -190273,7 +190273,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit84:                 ; preds = %274
   %278 = load i32, ptr %277, align 8, !noalias !3534
   %279 = call i32 @llvm.abs.i32(i32 %278, i1 true)
   %280 = shl nuw nsw i32 %279, 1
-  %281 = icmp ult i32 %279, 5
+  %281 = icmp samesign ult i32 %279, 5
   br i1 %281, label %282, label %285
 
 282:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit84
@@ -190374,7 +190374,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit86:                 ; preds = %325
   %331 = load i32, ptr %330, align 8, !noalias !3540
   %332 = call i32 @llvm.abs.i32(i32 %331, i1 true)
   %333 = shl nuw nsw i32 %332, 1
-  %334 = icmp ult i32 %332, 5
+  %334 = icmp samesign ult i32 %332, 5
   br i1 %334, label %335, label %338
 
 335:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit86
@@ -190477,7 +190477,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit88:                 ; preds = %378
   %386 = load i32, ptr %385, align 8, !noalias !3546
   %387 = call i32 @llvm.abs.i32(i32 %386, i1 true)
   %388 = shl nuw nsw i32 %387, 1
-  %389 = icmp ult i32 %387, 5
+  %389 = icmp samesign ult i32 %387, 5
   br i1 %389, label %390, label %393
 
 390:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit88
@@ -192304,7 +192304,7 @@ define linkonce_odr void @_ZN4CGAL10make_arrayINS_4MpzfEJS1_EEESt5arrayIT_XplLi1
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %7 = icmp ult i32 %6, 9
+  %7 = icmp samesign ult i32 %6, 9
   br i1 %7, label %8, label %.noexc
 
 8:                                                ; preds = %3
@@ -192346,7 +192346,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit:                       ; preds = %21, %_ZN4CGAL4Mpzf4
   %25 = getelementptr inbounds i8, ptr %2, i64 80
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
-  %28 = icmp ult i32 %27, 9
+  %28 = icmp samesign ult i32 %27, 9
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit
@@ -209176,7 +209176,7 @@ _ZSt3maxIN4CGAL4MpzfESt4lessIS1_EERKT_S6_S6_T0_.exit: ; preds = %38, %42, %67, %
   %71 = phi i32 [ %8, %_ZNKSt4lessIN4CGAL4MpzfEEclERKS1_S4_.exit.thread.i ], [ %6, %_ZNKSt4lessIN4CGAL4MpzfEEclERKS1_S4_.exit.i ], [ %6, %38 ], [ %6, %67 ], [ %6, %42 ]
   %72 = phi ptr [ %3, %_ZNKSt4lessIN4CGAL4MpzfEEclERKS1_S4_.exit.thread.i ], [ %2, %_ZNKSt4lessIN4CGAL4MpzfEEclERKS1_S4_.exit.i ], [ %2, %38 ], [ %2, %67 ], [ %2, %42 ]
   %73 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %74 = icmp ult i32 %73, 9
+  %74 = icmp samesign ult i32 %73, 9
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %_ZSt3maxIN4CGAL4MpzfESt4lessIS1_EERKT_S6_S6_T0_.exit

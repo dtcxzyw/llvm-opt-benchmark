@@ -877,7 +877,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %253
   %273 = add nsw i32 %272, 1
   %spec.select780 = select i1 %.not.i, i32 %.3, i32 %273
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %274 = icmp ult i64 %indvars.iv.next.i, %256
+  %274 = icmp samesign ult i64 %indvars.iv.next.i, %256
   br i1 %274, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i
@@ -3165,7 +3165,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
   %1166 = load i8, ptr @_ZZ7gmx_nmriPPcE5bOvec, align 1
   %1167 = trunc i8 %1166 to i1
   %1168 = select i1 %1167, i32 12, i32 3
-  %1169 = icmp ult i32 %1165, %1168
+  %1169 = icmp samesign ult i32 %1165, %1168
   br i1 %1169, label %1159, label %1170, !llvm.loop !31
 
 1170:                                             ; preds = %1162
@@ -4623,7 +4623,7 @@ define internal fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112b
   %18 = trunc nsw i64 %indvars.iv.next to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.121, i32 noundef %18, ptr noundef %17) #21
   %20 = add nuw nsw i32 %.02133, 1
-  %21 = icmp ult i32 %.02133, 3
+  %21 = icmp samesign ult i32 %.02133, 3
   %22 = icmp slt i64 %indvars.iv.next, %12
   %23 = select i1 %21, i1 %22, i1 false
   br i1 %23, label %14, label %24, !llvm.loop !40

@@ -509,7 +509,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h44414745a29cbf2cE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h44414745a29cbf2cE.exit": ; preds = %.critedge.i, %157
-  %166 = icmp ugt i64 %143, 1
+  %166 = icmp samesign ugt i64 %143, 1
   %167 = icmp eq i64 %131, %.sroa.0.0.i
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %169, label %168

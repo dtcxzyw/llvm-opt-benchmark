@@ -7958,7 +7958,7 @@ common.resume:                                    ; preds = %6, %34
   %36 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %37 = icmp ult i64 %36, 6
   tail call void @llvm.assume(i1 %37)
-  %switch.selectcmp13 = icmp ugt i64 %36, 1
+  %switch.selectcmp13 = icmp samesign ugt i64 %36, 1
   br i1 %switch.selectcmp13, label %38, label %8
 
 38:                                               ; preds = %35

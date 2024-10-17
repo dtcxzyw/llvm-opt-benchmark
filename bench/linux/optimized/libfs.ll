@@ -2023,7 +2023,7 @@ define dso_local i32 @simple_write_begin(ptr nocapture readnone %0, ptr noundef 
 
 113:                                              ; preds = %110, %104
   %114 = phi i64 [ %112, %110 ], [ 1, %104 ]
-  %115 = icmp ugt i64 %114, %106
+  %115 = icmp samesign ugt i64 %114, %106
   %116 = add i32 %105, 1
   br i1 %115, label %104, label %.loopexit, !llvm.loop !27
 
@@ -2078,7 +2078,7 @@ define internal noundef i32 @simple_read_folio(ptr nocapture readnone %0, ptr no
 
 32:                                               ; preds = %28
   %33 = load volatile i64, ptr %1, align 8
-  %34 = icmp ugt i64 %11, 19
+  %34 = icmp samesign ugt i64 %11, 19
   br i1 %34, label %37, label %36
 
 35:                                               ; preds = %28
@@ -2109,7 +2109,7 @@ define internal noundef i32 @simple_read_folio(ptr nocapture readnone %0, ptr no
 
 48:                                               ; preds = %45, %39
   %49 = phi i64 [ %47, %45 ], [ 1, %39 ]
-  %50 = icmp ugt i64 %49, %41
+  %50 = icmp samesign ugt i64 %49, %41
   %51 = add i32 %40, 1
   br i1 %50, label %39, label %52, !llvm.loop !27
 
@@ -2270,7 +2270,7 @@ define internal noundef i32 @simple_write_end(ptr nocapture readnone %0, ptr noc
 
 102:                                              ; preds = %99, %94
   %103 = phi i64 [ %101, %99 ], [ 1, %94 ]
-  %104 = icmp ugt i64 %103, %95
+  %104 = icmp samesign ugt i64 %103, %95
   %105 = add nuw nsw i64 %95, 1
   br i1 %104, label %94, label %.loopexit, !llvm.loop !27
 

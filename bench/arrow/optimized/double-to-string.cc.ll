@@ -240,7 +240,7 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx29 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %indvars.iv.next
   store i8 %conv, ptr %arrayidx29, align 1
   %div = udiv i32 %exponent.addr.155, 10
-  %cmp26.not = icmp ult i32 %exponent.addr.155, 10
+  %cmp26.not = icmp samesign ult i32 %exponent.addr.155, 10
   br i1 %cmp26.not, label %if.end30.loopexit, label %while.body, !llvm.loop !5
 
 if.end30.loopexit:                                ; preds = %while.body

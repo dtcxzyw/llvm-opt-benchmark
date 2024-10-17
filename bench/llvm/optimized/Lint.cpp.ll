@@ -3390,7 +3390,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %_ZNK4llvm11Constant
   br label %.thread147.sink.split
 
 106:                                              ; preds = %100
-  %.not75 = icmp ult i32 %5, 8
+  %.not75 = icmp samesign ult i32 %5, 8
   %107 = icmp ugt i8 %40, 21
   %or.cond137.not141 = or i1 %.not75, %107
   %or.cond138 = or i1 %102, %or.cond137.not141

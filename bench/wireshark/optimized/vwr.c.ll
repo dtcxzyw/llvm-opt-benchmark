@@ -111,7 +111,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br i1 %.not112.i, label %decode_msg.exit.thread.i, label %39
 
 39:                                               ; preds = %decode_msg.exit.i
-  %40 = icmp ugt i32 %.0.i.i, 32768
+  %40 = icmp samesign ugt i32 %.0.i.i, 32768
   br i1 %40, label %vwr_get_fpga_version.exit.thread33, label %41
 
 41:                                               ; preds = %39
@@ -143,7 +143,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br label %vwr_get_fpga_version.exit
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %.0.i.i, 64
+  %54 = icmp samesign ugt i32 %.0.i.i, 64
   br i1 %54, label %55, label %77
 
 55:                                               ; preds = %53
@@ -182,7 +182,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
 
 77:                                               ; preds = %66, %53
   %.2.i = phi i16 [ 1000, %53 ], [ %spec.select127.i, %66 ]
-  %78 = icmp ugt i32 %.0.i.i, 44
+  %78 = icmp samesign ugt i32 %.0.i.i, 44
   %79 = icmp eq i16 %.2.i, 1000
   %or.cond.i = select i1 %78, i1 %79, i1 false
   br i1 %or.cond.i, label %80, label %98
@@ -218,7 +218,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
 
 98:                                               ; preds = %91, %77
   %.3.i = phi i16 [ %.2.i, %77 ], [ %spec.select124.i, %91 ]
-  %99 = icmp ugt i32 %.0.i.i, 48
+  %99 = icmp samesign ugt i32 %.0.i.i, 48
   %100 = icmp eq i16 %.3.i, 1000
   %or.cond5.i = select i1 %99, i1 %100, i1 false
   br i1 %or.cond5.i, label %101, label %120
@@ -309,7 +309,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
 decode_msg.exit.thread.i:                         ; preds = %140, %43, %decode_msg.exit.i, %23
   %.1.i = phi i32 [ %.0.i, %140 ], [ %.0.i, %decode_msg.exit.i ], [ %.0.i, %23 ], [ 1, %43 ]
   %146 = add nuw nsw i64 %.0102.i, 16
-  %147 = icmp ugt i64 %.0102.i, 1073741807
+  %147 = icmp samesign ugt i64 %.0102.i, 1073741807
   br i1 %147, label %vwr_get_fpga_version.exit.thread33, label %20, !llvm.loop !9
 
 148:                                              ; preds = %20
@@ -875,7 +875,7 @@ decode_msg.exit.us:                               ; preds = %.lr.ph.split.us, %3
   br i1 %.not18.us, label %decode_msg.exit.thread.us, label %33
 
 33:                                               ; preds = %decode_msg.exit.us
-  %34 = icmp ugt i32 %.0.i.us, 32768
+  %34 = icmp samesign ugt i32 %.0.i.us, 32768
   br i1 %34, label %.split.us, label %35
 
 35:                                               ; preds = %33
@@ -949,7 +949,7 @@ decode_msg.exit.thread.us:                        ; preds = %.lr.ph.split.us, %3
   br i1 %.not18, label %decode_msg.exit.thread, label %62
 
 62:                                               ; preds = %.sink.split.i
-  %63 = icmp ugt i32 %.0.ph.i, 32768
+  %63 = icmp samesign ugt i32 %.0.ph.i, 32768
   br i1 %63, label %.split.us, label %65
 
 .split.us:                                        ; preds = %62, %33
@@ -1810,9 +1810,9 @@ get_signature_ts.exit.i:                          ; preds = %246, %find_signatur
 
 544:                                              ; preds = %543
   %545 = and i8 %443, 63
-  %546 = icmp ult i8 %545, 4
+  %546 = icmp samesign ult i8 %545, 4
   %..i = select i1 %546, i8 32, i8 64
-  %547 = icmp ult i8 %545, 12
+  %547 = icmp samesign ult i8 %545, 12
   br i1 %547, label %548, label %get_legacy_rate.exit.i
 
 548:                                              ; preds = %544
@@ -1912,7 +1912,7 @@ get_signature_ts.exit.i:                          ; preds = %246, %find_signatur
   %612 = and i32 %611, 256
   %.not.i469.i = icmp eq i32 %612, 0
   %..i470.i = select i1 %.not.i469.i, float 4.000000e+00, float 0x400CCCCCC0000000
-  %613 = icmp ugt i8 %601, 9
+  %613 = icmp samesign ugt i8 %601, 9
   br i1 %613, label %get_legacy_rate.exit.i, label %614
 
 614:                                              ; preds = %609
@@ -1931,7 +1931,7 @@ get_signature_ts.exit.i:                          ; preds = %246, %find_signatur
   br label %get_legacy_rate.exit.i
 
 624:                                              ; preds = %614
-  %.not24.i.i = icmp ult i16 %.1416.i, 1024
+  %.not24.i.i = icmp samesign ult i16 %.1416.i, 1024
   br i1 %.not24.i.i, label %633, label %625
 
 625:                                              ; preds = %624
@@ -1981,7 +1981,7 @@ get_legacy_rate.exit.i:                           ; preds = %640, %638, %636, %6
   %.1420.i = phi i8 [ 64, %576 ], [ 64, %552 ], [ %..i, %544 ], [ %..i, %548 ], [ 64, %609 ], [ 64, %616 ], [ 64, %625 ], [ 64, %635 ], [ 64, %636 ], [ 64, %638 ], [ 64, %640 ]
   %.0415.i = phi i16 [ %584, %576 ], [ %561, %552 ], [ 0, %544 ], [ 0, %548 ], [ %.1416.i, %609 ], [ %.1416.i, %616 ], [ %.1416.i, %625 ], [ %.1416.i, %635 ], [ %.1416.i, %636 ], [ %.1416.i, %638 ], [ %.1416.i, %640 ]
   %.0413.i = phi float [ %598, %576 ], [ %575, %552 ], [ 0.000000e+00, %544 ], [ %551, %548 ], [ 0.000000e+00, %609 ], [ %623, %616 ], [ %632, %625 ], [ 0.000000e+00, %635 ], [ %637, %636 ], [ %639, %638 ], [ %647, %640 ]
-  %648 = icmp ult i32 %455, 4
+  %648 = icmp samesign ult i32 %455, 4
   br i1 %648, label %649, label %652
 
 649:                                              ; preds = %get_legacy_rate.exit.i
@@ -2791,7 +2791,7 @@ get_signature_ts.exit.i47:                        ; preds = %793, %791, %find_si
   ]
 
 1161:                                             ; preds = %1160
-  %1162 = icmp ult i8 %.0727.i, 12
+  %1162 = icmp samesign ult i8 %.0727.i, 12
   br i1 %1162, label %1163, label %get_legacy_rate.exit.i71
 
 1163:                                             ; preds = %1161
@@ -2866,7 +2866,7 @@ get_signature_ts.exit.i47:                        ; preds = %793, %791, %find_si
   %1204 = and i32 %1203, 256
   %.not.i793.i = icmp eq i32 %1204, 0
   %..i794.i = select i1 %.not.i793.i, float 4.000000e+00, float 0x400CCCCCC0000000
-  %1205 = icmp ugt i8 %.0727.i, 9
+  %1205 = icmp samesign ugt i8 %.0727.i, 9
   br i1 %1205, label %get_legacy_rate.exit.i71, label %1206
 
 1206:                                             ; preds = %1202
@@ -2885,7 +2885,7 @@ get_signature_ts.exit.i47:                        ; preds = %793, %791, %find_si
   br label %get_legacy_rate.exit.i71
 
 1216:                                             ; preds = %1206
-  %.not24.i.i94 = icmp ult i16 %.0680.i, 1024
+  %.not24.i.i94 = icmp samesign ult i16 %.0680.i, 1024
   br i1 %.not24.i.i94, label %1225, label %1217
 
 1217:                                             ; preds = %1216
@@ -4432,7 +4432,7 @@ get_signature_ts.exit.i105:                       ; preds = %2149, %2147, %find_
 
 2164:                                             ; preds = %2159
   %2165 = sub nuw nsw i64 %.0352.i, %2028
-  %2166 = icmp ugt i64 %2165, 268435456
+  %2166 = icmp samesign ugt i64 %2165, 268435456
   %2167 = trunc nuw nsw i64 %2165 to i32
   %spec.select376.i = select i1 %2166, i32 0, i32 %2167
   br label %2168

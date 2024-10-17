@@ -2027,7 +2027,7 @@ emitter_json_object_end.exit:                     ; preds = %do.end544, %if.end.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %arenas_nbins, align 4
   %24 = zext i32 %23 to i64
-  %cmp476 = icmp ult i64 %indvars.iv.next, %24
+  %cmp476 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp476, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %emitter_json_object_end.exit, %for.cond.preheader
@@ -2191,7 +2191,7 @@ emitter_json_object_end.exit239:                  ; preds = %do.end597, %if.end.
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %35 = load i32, ptr %nlextents, align 4
   %36 = zext i32 %35 to i64
-  %cmp576 = icmp ult i64 %indvars.iv.next293, %36
+  %cmp576 = icmp samesign ult i64 %indvars.iv.next293, %36
   br i1 %cmp576, label %for.body578, label %for.end600, !llvm.loop !9
 
 for.end600:                                       ; preds = %emitter_json_object_end.exit239, %for.cond575.preheader
@@ -3176,7 +3176,7 @@ do.end200:                                        ; preds = %for.body188
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %71 = load i32, ptr %narenas, align 4
   %72 = zext i32 %71 to i64
-  %cmp187 = icmp ult i64 %indvars.iv.next212, %72
+  %cmp187 = icmp samesign ult i64 %indvars.iv.next212, %72
   br i1 %cmp187, label %for.body188, label %for.end209.loopexit, !llvm.loop !11
 
 for.end209.loopexit:                              ; preds = %do.end200
@@ -3328,7 +3328,7 @@ for.inc265:                                       ; preds = %if.end.i171, %if.th
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %85 = load i32, ptr %narenas, align 4
   %86 = zext i32 %85 to i64
-  %cmp248 = icmp ult i64 %indvars.iv.next215, %86
+  %cmp248 = icmp samesign ult i64 %indvars.iv.next215, %86
   br i1 %cmp248, label %for.body250, label %if.end268, !llvm.loop !12
 
 if.end268:                                        ; preds = %for.inc265, %if.end244
@@ -12181,7 +12181,7 @@ for.inc:                                          ; preds = %for.end.i788, %rate
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %357 = load i32, ptr %nbins, align 4
   %358 = zext i32 %357 to i64
-  %cmp251 = icmp ult i64 %indvars.iv.next, %358
+  %cmp251 = icmp samesign ult i64 %indvars.iv.next, %358
   br i1 %cmp251, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -13104,7 +13104,7 @@ for.inc:                                          ; preds = %for.end.i336, %if.t
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %nlextents, align 4
   %110 = zext i32 %109 to i64
-  %cmp160 = icmp ult i64 %indvars.iv.next, %110
+  %cmp160 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %cmp160, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

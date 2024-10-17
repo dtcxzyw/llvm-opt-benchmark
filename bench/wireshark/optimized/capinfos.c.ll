@@ -1751,7 +1751,7 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %218 = load i32, ptr %77, align 8
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %indvars.iv.next, %219
+  %220 = icmp samesign ult i64 %indvars.iv.next, %219
   br i1 %220, label %.lr.ph204, label %._crit_edge205, !llvm.loop !12
 
 ._crit_edge205:                                   ; preds = %.lr.ph204, %._crit_edge
@@ -1804,7 +1804,7 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   %244 = getelementptr inbounds i8, ptr %243, i64 8
   %245 = load i32, ptr %244, align 8
   %246 = zext i32 %245 to i64
-  %247 = icmp ult i64 %indvars.iv.next.i, %246
+  %247 = icmp samesign ult i64 %indvars.iv.next.i, %246
   br i1 %247, label %.lr.ph.i119, label %._crit_edge.i120, !llvm.loop !13
 
 ._crit_edge.i120:                                 ; preds = %.lr.ph.i119, %.preheader.i117
@@ -1858,7 +1858,7 @@ cleanup_capture_info.exit:                        ; preds = %232, %._crit_edge.i
   %270 = getelementptr inbounds i8, ptr %269, i64 8
   %271 = load i32, ptr %270, align 8
   %272 = zext i32 %271 to i64
-  %273 = icmp ult i64 %indvars.iv.next.i126, %272
+  %273 = icmp samesign ult i64 %indvars.iv.next.i126, %272
   br i1 %273, label %.lr.ph.i124, label %._crit_edge.i127, !llvm.loop !13
 
 ._crit_edge.i127:                                 ; preds = %.lr.ph.i124, %.preheader.i122
@@ -2907,7 +2907,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
   %762 = load ptr, ptr @decimal_point, align 8
   %763 = call i32 @format_fractional_part_nsecs(ptr noundef %757, i64 noundef %758, i32 noundef %761, ptr noundef %762, i32 noundef %746) #16
   %764 = zext i32 %763 to i64
-  %.not40.i.i = icmp ugt i64 %758, %764
+  %.not40.i.i = icmp samesign ugt i64 %758, %764
   br i1 %.not40.i.i, label %765, label %relative_time_string.exit.i
 
 765:                                              ; preds = %759
@@ -3393,7 +3393,7 @@ show_option_string.exit207.i:                     ; preds = %string_replace_newl
   %937 = getelementptr inbounds i8, ptr %936, i64 8
   %938 = load i32, ptr %937, align 8
   %939 = zext i32 %938 to i64
-  %940 = icmp ult i64 %indvars.iv223.i, %939
+  %940 = icmp samesign ult i64 %indvars.iv223.i, %939
   br i1 %940, label %941, label %945
 
 941:                                              ; preds = %.lr.ph217.i
@@ -3413,7 +3413,7 @@ show_option_string.exit207.i:                     ; preds = %string_replace_newl
   %951 = getelementptr inbounds i8, ptr %950, i64 8
   %952 = load i32, ptr %951, align 8
   %953 = zext i32 %952 to i64
-  %954 = icmp ult i64 %indvars.iv.next224.i, %953
+  %954 = icmp samesign ult i64 %indvars.iv.next224.i, %953
   br i1 %954, label %.lr.ph217.i, label %.loopexit.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %945, %927, %925, %.loopexit208.i, %859
@@ -3854,7 +3854,7 @@ putquote.exit132.i:                               ; preds = %1141, %1136
   %1161 = load ptr, ptr @decimal_point, align 8
   %1162 = call i32 @format_fractional_part_nsecs(ptr noundef %1156, i64 noundef %1157, i32 noundef %1160, ptr noundef %1161, i32 noundef %1144) #16
   %1163 = zext i32 %1162 to i64
-  %.not40.i.i149 = icmp ugt i64 %1157, %1163
+  %.not40.i.i149 = icmp samesign ugt i64 %1157, %1163
   br i1 %.not40.i.i149, label %1164, label %relative_time_string.exit.i150
 
 1164:                                             ; preds = %1158
@@ -4513,7 +4513,7 @@ print_stats_table.exit:                           ; preds = %putquote.exit200.i,
   %1454 = getelementptr inbounds i8, ptr %1453, i64 8
   %1455 = load i32, ptr %1454, align 8
   %1456 = zext i32 %1455 to i64
-  %1457 = icmp ult i64 %indvars.iv.next.i168, %1456
+  %1457 = icmp samesign ult i64 %indvars.iv.next.i168, %1456
   br i1 %1457, label %.lr.ph.i166, label %._crit_edge.i169, !llvm.loop !13
 
 ._crit_edge.i169:                                 ; preds = %.lr.ph.i166, %.preheader.i164

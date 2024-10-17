@@ -376,7 +376,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
 49:                                               ; preds = %11, %11, %11
   %50 = zext i16 %12 to i32
   %51 = zext i8 %16 to i32
-  %52 = icmp ugt i32 %50, %51
+  %52 = icmp samesign ugt i32 %50, %51
   %53 = xor i32 %51, -1
   %54 = add nuw nsw i32 %50, 7
   %55 = add nsw i32 %54, %53
@@ -546,7 +546,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
 188:                                              ; preds = %11
   %189 = zext i16 %12 to i32
   %190 = zext i8 %16 to i32
-  %191 = icmp ugt i32 %189, %190
+  %191 = icmp samesign ugt i32 %189, %190
   %192 = xor i32 %190, -1
   %193 = add nuw nsw i32 %189, 7
   %194 = add nsw i32 %193, %192

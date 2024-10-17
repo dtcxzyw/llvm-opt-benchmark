@@ -197,7 +197,7 @@ Abc_Clock.exit162:                                ; preds = %71, %74
   br i1 %narrow.i, label %239, label %87
 
 87:                                               ; preds = %82
-  %88 = icmp ugt i64 %indvars.iv, %61
+  %88 = icmp samesign ugt i64 %indvars.iv, %61
   br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %87
@@ -431,7 +431,7 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %199 = getelementptr inbounds i8, ptr %.1121188, i64 24
   %200 = lshr i64 %197, 56
   %201 = trunc nuw nsw i64 %200 to i32
-  %202 = icmp ult i32 %198, %201
+  %202 = icmp samesign ult i32 %198, %201
   br i1 %202, label %.lr.ph190, label %._crit_edge191, !llvm.loop !6
 
 ._crit_edge191:                                   ; preds = %196, %178

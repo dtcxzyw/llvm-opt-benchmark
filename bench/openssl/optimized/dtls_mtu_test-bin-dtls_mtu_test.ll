@@ -353,7 +353,7 @@ for.body74:                                       ; preds = %if.end64, %for.cond
   %15 = load i64, ptr %arrayidx76, align 8
   %cmp77.not = icmp ule i64 %s.049, %15
   %16 = add nuw nsw i64 %indvars.iv62, 500
-  %cmp81 = icmp ult i64 %16, %14
+  %cmp81 = icmp samesign ult i64 %16, %14
   %narrow = select i1 %cmp77.not, i1 %cmp81, i1 false
   %land.ext = zext i1 %narrow to i32
   %call85 = call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @.str.27, i32 noundef %land.ext) #6
@@ -367,7 +367,7 @@ if.then87:                                        ; preds = %for.body74
   br label %end
 
 if.end91:                                         ; preds = %for.body74
-  %cmp99 = icmp uge i64 %16, %14
+  %cmp99 = icmp samesign uge i64 %16, %14
   %not.cmp77.not = xor i1 %cmp77.not, true
   %narrow37 = select i1 %not.cmp77.not, i1 %cmp99, i1 false
   %land.ext102 = zext i1 %narrow37 to i32

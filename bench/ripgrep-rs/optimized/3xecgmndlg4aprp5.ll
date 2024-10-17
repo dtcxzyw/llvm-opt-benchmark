@@ -1323,7 +1323,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit217: ; preds = %434
   %447 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %448 = icmp ult i64 %447, 6
   call void @llvm.assume(i1 %448)
-  %switch.selectcmp177 = icmp ugt i64 %447, 3
+  %switch.selectcmp177 = icmp samesign ugt i64 %447, 3
   br i1 %switch.selectcmp177, label %449, label %445
 
 449:                                              ; preds = %._crit_edge

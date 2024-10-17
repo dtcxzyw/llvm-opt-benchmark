@@ -21645,7 +21645,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br i1 %0, label %16, label %28
 
 16:                                               ; preds = %15
-  %17 = icmp ugt i64 %6, 8
+  %17 = icmp samesign ugt i64 %6, 8
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16

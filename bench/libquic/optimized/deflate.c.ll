@@ -3513,8 +3513,8 @@ land.lhs.true70:                                  ; preds = %land.lhs.true65
   %incdec.ptr71.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.0.add
   %16 = load i8, ptr %incdec.ptr71.ptr, align 1
   %cmp73 = icmp eq i8 %5, %16
-  %cmp75 = icmp ult i64 %scan.0.idx, 250
-  %or.cond110 = and i1 %cmp75, %cmp73
+  %cmp75 = icmp samesign ult i64 %scan.0.idx, 250
+  %or.cond110 = select i1 %cmp73, i1 %cmp75, i1 false
   br i1 %or.cond110, label %do.body, label %if.end88.split.loop.exit, !llvm.loop !23
 
 if.end88.split.loop.exit:                         ; preds = %land.lhs.true70
@@ -6068,8 +6068,8 @@ land.lhs.true107.us:                              ; preds = %land.lhs.true100.us
   %incdec.ptr110.us = getelementptr inbounds i8, ptr %match.0.us, i64 8
   %36 = load i8, ptr %incdec.ptr110.us, align 1
   %cmp112.us = icmp eq i8 %35, %36
-  %cmp114.us = icmp ult i64 %scan.2.idx.us, 250
-  %or.cond.us = and i1 %cmp114.us, %cmp112.us
+  %cmp114.us = icmp samesign ult i64 %scan.2.idx.us, 250
+  %or.cond.us = select i1 %cmp112.us, i1 %cmp114.us, i1 false
   br i1 %or.cond.us, label %do.body58.us, label %if.end135.loopexit.us.split.loop.exit, !llvm.loop !28
 
 if.then144.us:                                    ; preds = %if.end135.loopexit.us
@@ -6217,8 +6217,8 @@ land.lhs.true124:                                 ; preds = %do.body116
   %shr1.i88 = lshr i32 %conv.i87, %and.i84
   %and2.i89 = and i32 %shr1.i88, 1
   %cmp128 = icmp eq i32 %and2.i89, %clas
-  %cmp131 = icmp ult i64 %scan.4.idx, 257
-  %or.cond80 = and i1 %cmp131, %cmp128
+  %cmp131 = icmp samesign ult i64 %scan.4.idx, 257
+  %or.cond80 = select i1 %cmp128, i1 %cmp131, i1 false
   br i1 %or.cond80, label %do.body116, label %if.end135.loopexit90, !llvm.loop !30
 
 if.end135.loopexit90:                             ; preds = %do.body116, %land.lhs.true124

@@ -223,7 +223,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 %i.010.i.i.i
   %14 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv6.i.i.i = zext i8 %14 to i32
-  %cmp8.i.i.i = icmp ule i32 %conv7.i.i.i, %conv6.i.i.i
+  %cmp8.i.i.i = icmp samesign ule i32 %conv7.i.i.i, %conv6.i.i.i
   %conv9.i.i.i = zext i1 %cmp8.i.i.i to i64
   %add.i.i.i = add i64 %result.09.i.i.i, %conv9.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.010.i.i.i, 1
@@ -236,7 +236,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %for.body.i.i.i, 
   %cmp15.i.i = icmp ult i64 %retval.0.i.i.i, %best_size.040.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i.i, i64 %best_size.040.i.i)
   %spec.select31.i.i = select i1 %cmp15.i.i, i32 %bits.041.i.i, i32 %best_bits.042.i.i
-  %cmp11.i.i = icmp ult i32 %bits.041.i.i, 4
+  %cmp11.i.i = icmp samesign ult i32 %bits.041.i.i, 4
   br i1 %cmp11.i.i, label %for.body12.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i

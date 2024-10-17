@@ -172,7 +172,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %37 = add nuw nsw i64 %26, 1
   %38 = load i32, ptr @num_var_ranges, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %.preheader18, label %24, !llvm.loop !10
 
 .preheader17:                                     ; preds = %24, %53

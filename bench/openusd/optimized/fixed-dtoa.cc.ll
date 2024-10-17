@@ -212,7 +212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64Fixed
   %111 = lshr i64 %.0.i, %110
   %112 = shl i64 %111, %110
   %113 = sub i64 %.0.i, %112
-  %114 = icmp ugt i64 %111, 4294967295
+  %114 = icmp samesign ugt i64 %111, 4294967295
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %108
@@ -650,7 +650,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %0, i32 noundef range(i32 -128, 0) %1, i32 noundef range(i32 -2147483648, 21) %2, ptr nocapture %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = sub nsw i32 0, %1
-  %8 = icmp ult i32 %7, 65
+  %8 = icmp samesign ult i32 %7, 65
   br i1 %8, label %.preheader, label %57
 
 .preheader:                                       ; preds = %6
@@ -772,7 +772,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
 60:                                               ; preds = %57
-  %61 = icmp ugt i32 %1, -65
+  %61 = icmp samesign ugt i32 %1, -65
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60

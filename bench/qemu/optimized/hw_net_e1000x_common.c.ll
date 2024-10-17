@@ -794,7 +794,7 @@ for.body:                                         ; preds = %entry, %cond.end
   %shl = shl nuw i32 %conv, %1
   %or = or i32 %shl, %or1821
   store i32 %or, ptr %arrayidx, align 4
-  %cmp4 = icmp ult i64 %indvars.iv, 2
+  %cmp4 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp4, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body

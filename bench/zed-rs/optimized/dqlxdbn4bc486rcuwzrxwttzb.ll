@@ -46205,7 +46205,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.0.lcssa = phi i64 [ %4, %3 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0ca92deadb4ea36bE.exit" ]
   %.sroa.11.0.lcssa = phi i64 [ %2, %3 ], [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0ca92deadb4ea36bE.exit" ]
   %.sroa.0.0.lcssa = phi ptr [ %1, %3 ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0ca92deadb4ea36bE.exit" ]
-  %6 = icmp ugt i64 %.sroa.11.0.lcssa, 3
+  %6 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 3
   br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit", label %7
 
 7:                                                ; preds = %._crit_edge, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit"
@@ -122508,7 +122508,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -122521,7 +122521,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -125409,7 +125409,7 @@ define hidden void @"_ZN9workspace4pane4Pane9save_item28_$u7b$$u7b$closure$u7d$$
   call void @llvm.experimental.noalias.scope.decl(metadata !26143)
   call void @llvm.experimental.noalias.scope.decl(metadata !26146)
   %40 = load i64, ptr %10, align 8, !range !219, !alias.scope !26149, !noundef !7
-  %switch.i.i = icmp ult i64 %40, 2
+  %switch.i.i = icmp samesign ult i64 %40, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17hbd99d29911f84f66E.exit", label %41
 
 41:                                               ; preds = %39
@@ -129279,7 +129279,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h13caafb75fea8173E.exit: ; preds = %"_Z
   br i1 %71, label %.thread.i.i, label %72
 
 72:                                               ; preds = %68
-  %switch.i.i.i.i = icmp ult i8 %70, 3
+  %switch.i.i.i.i = icmp samesign ult i8 %70, 3
   %73 = getelementptr inbounds i8, ptr %16, i64 16
   %74 = load i8, ptr %73, align 8, !range !18992, !alias.scope !26933, !noalias !26930, !noundef !7
   %75 = icmp eq i8 %74, 6
@@ -129288,14 +129288,14 @@ _ZN4gpui3app10entity_map9EntityMap4read17h13caafb75fea8173E.exit: ; preds = %"_Z
 .thread.i.i:                                      ; preds = %68
   %76 = getelementptr inbounds i8, ptr %16, i64 16
   %77 = load i8, ptr %76, align 8, !range !18992, !alias.scope !26933, !noalias !26930, !noundef !7
-  %switch.i.i3453.i.i = icmp ult i8 %77, 3
+  %switch.i.i3453.i.i = icmp samesign ult i8 %77, 3
   br i1 %switch.i.i3453.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %72
   br i1 %switch.i.i.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
 
 78:                                               ; preds = %72
-  %switch.i.i34.i.i = icmp ult i8 %74, 3
+  %switch.i.i34.i.i = icmp samesign ult i8 %74, 3
   %79 = xor i1 %switch.i.i.i.i, %switch.i.i34.i.i
   br i1 %79, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
 
@@ -130681,7 +130681,7 @@ _ZN9workspace4pane4Pane11active_item17he8b935861003fa8dE.exit.thread: ; preds = 
   %67 = load ptr, ptr %66, align 8, !invariant.load !7, !nonnull !7
   %68 = tail call noundef align 8 dereferenceable(80) ptr %67(ptr noundef nonnull align 1 %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %65)
   %69 = load i64, ptr %68, align 8, !range !213, !noundef !7
-  %switch.not = icmp ult i64 %69, 2
+  %switch.not = icmp samesign ult i64 %69, 2
   br i1 %switch.not, label %77, label %70
 
 70:                                               ; preds = %60

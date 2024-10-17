@@ -9654,7 +9654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
   %98 = getelementptr inbounds i8, ptr %97, i64 160
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 255
-  %101 = icmp ugt i32 %100, 4
+  %101 = icmp samesign ugt i32 %100, 4
   %102 = load ptr, ptr %97, align 8
   %103 = getelementptr i8, ptr %102, i64 -48
   %104 = load i64, ptr %103, align 8
@@ -17570,7 +17570,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !103
 
 .critedge:                                        ; preds = %27

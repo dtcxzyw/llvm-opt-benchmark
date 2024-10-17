@@ -137,7 +137,7 @@ _ZN3euflsERSoRKNS_6egraph4b_ppE.exit:             ; preds = %cond.true.i.i, %con
   %m_num_decls.i.i.i = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %m_num_decls.i.i.i, align 4
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit, %entry

@@ -730,7 +730,7 @@ define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr noc
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i64 %indvars.iv.next, %36
+  %42 = icmp samesign ult i64 %indvars.iv.next, %36
   %43 = icmp eq i32 %41, 0
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -824,7 +824,7 @@ define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr noc
 90:                                               ; preds = %88
   %91 = lshr i32 %89, 16
   %92 = and i32 %89, 65535
-  %93 = icmp ult i32 %92, %91
+  %93 = icmp samesign ult i32 %92, %91
   %94 = sext i1 %93 to i32
   %95 = add nsw i32 %91, %94
   %96 = load i32, ptr %47, align 4
@@ -860,7 +860,7 @@ Vec_IntDrop.exit:                                 ; preds = %101, %90, %88
 110:                                              ; preds = %Vec_IntDrop.exit
   %111 = lshr i32 %109, 16
   %112 = and i32 %109, 65535
-  %113 = icmp ult i32 %112, %111
+  %113 = icmp samesign ult i32 %112, %111
   %114 = sext i1 %113 to i32
   %115 = add nsw i32 %111, %114
   %116 = add nsw i32 %.pre, -1
@@ -1364,7 +1364,7 @@ Vec_IntErase.exit:                                ; preds = %167, %170
   %174 = load i32, ptr %31, align 8
   %175 = and i32 %174, 65535
   %176 = zext nneg i32 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next158, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next158, %176
   br i1 %177, label %49, label %._crit_edge138.loopexit, !llvm.loop !16
 
 ._crit_edge138.loopexit:                          ; preds = %173

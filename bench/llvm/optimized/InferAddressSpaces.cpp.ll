@@ -3199,7 +3199,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   %321 = load i32, ptr %207, align 4
   %322 = and i32 %321, 134217727
   %323 = zext nneg i32 %322 to i64
-  %324 = icmp ult i64 %indvars.iv.next.i.i, %323
+  %324 = icmp samesign ult i64 %indvars.iv.next.i.i, %323
   br i1 %324, label %271, label %.loopexit.i.i, !llvm.loop !31
 
 325:                                              ; preds = %._crit_edge.i.i
@@ -10505,7 +10505,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit72: ; pr
   %196 = load i32, ptr %112, align 4
   %197 = and i32 %196, 134217727
   %198 = zext nneg i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next, %198
   br i1 %199, label %118, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %193

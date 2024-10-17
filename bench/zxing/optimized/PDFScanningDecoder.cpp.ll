@@ -5095,7 +5095,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.us.i:            ; preds = %.lr.ph41.i
   %32 = trunc i64 %indvars.iv61.i to i32
   %33 = sub i32 %5, %32
   %34 = tail call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %35 = icmp ugt i32 %34, 2
+  %35 = icmp samesign ugt i32 %34, 2
   br i1 %35, label %_ZN5ZXing6Pdf417L25AdjustCodewordStartColumnERKNS_9BitMatrixEiibii.exit, label %36
 
 36:                                               ; preds = %31
@@ -5133,7 +5133,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %.lr.ph.i
   %44 = trunc i64 %indvars.iv.i to i32
   %45 = sub i32 %5, %44
   %46 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
-  %47 = icmp ugt i32 %46, 2
+  %47 = icmp samesign ugt i32 %46, 2
   br i1 %47, label %_ZN5ZXing6Pdf417L25AdjustCodewordStartColumnERKNS_9BitMatrixEiibii.exit, label %48
 
 48:                                               ; preds = %43
@@ -5561,7 +5561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

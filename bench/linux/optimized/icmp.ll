@@ -1563,7 +1563,7 @@ define dso_local range(i32 -2147483648, 1) i32 @icmpv6_init() local_unnamed_addr
   store i32 132224, ptr %24, align 4
   %25 = add nuw nsw i64 %9, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %2, !prof !27, !llvm.loop !28
 
 .thread:                                          ; preds = %2, %17, %8

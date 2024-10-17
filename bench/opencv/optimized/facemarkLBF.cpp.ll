@@ -16977,7 +16977,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit256.thread:          ; preds = %36
 
 193:                                              ; preds = %191
   %194 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %186)
-  %195 = icmp ult i32 %.0197421, 999
+  %195 = icmp samesign ult i32 %.0197421, 999
   br i1 %195, label %.thread, label %196
 
 196:                                              ; preds = %.thread482, %193

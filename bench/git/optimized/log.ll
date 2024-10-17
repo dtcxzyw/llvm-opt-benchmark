@@ -4054,7 +4054,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.cond51.preheader.i:                           ; preds = %while.cond.preheader.i, %if.end84.i
   %rev_nr.064.i = phi i32 [ %div8653.i, %if.end84.i ], [ %118, %while.cond.preheader.i ]
   %div52.i = lshr i32 %rev_nr.064.i, 1
-  %cmp5261.not.i = icmp ult i32 %rev_nr.064.i, 2
+  %cmp5261.not.i = icmp samesign ult i32 %rev_nr.064.i, 2
   br i1 %cmp5261.not.i, label %for.end76.i, label %for.body54.preheader.i
 
 for.body54.preheader.i:                           ; preds = %for.cond51.preheader.i
@@ -4119,7 +4119,7 @@ if.then78.i:                                      ; preds = %for.end76.i
 if.end84.i:                                       ; preds = %if.then78.i, %for.end76.i
   %sub.i = add nuw nsw i32 %rev_nr.064.i, 1
   %div8653.i = lshr i32 %sub.i, 1
-  %cmp49.i = icmp ugt i32 %rev_nr.064.i, 2
+  %cmp49.i = icmp samesign ugt i32 %rev_nr.064.i, 2
   br i1 %cmp49.i, label %for.cond51.preheader.i, label %while.end.i, !llvm.loop !19
 
 while.end.i:                                      ; preds = %if.end84.i, %while.cond.preheader.i
@@ -4627,7 +4627,7 @@ if.end16.i:                                       ; preds = %if.then15.i, %for.b
   %indvars.iv.next.i267 = add nuw nsw i64 %indvars.iv.i265, 1
   %231 = load i32, ptr %need_8bit_cte.i, align 4
   %tobool10.not.i = icmp eq i32 %231, 0
-  %cmp.i268 = icmp ult i64 %indvars.iv.next.i267, %226
+  %cmp.i268 = icmp samesign ult i64 %indvars.iv.next.i267, %226
   %232 = select i1 %tobool10.not.i, i1 %cmp.i268, i1 false
   br i1 %232, label %for.body.i264, label %for.end.i244, !llvm.loop !26
 

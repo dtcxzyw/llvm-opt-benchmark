@@ -412,7 +412,7 @@ if.else.i.i:                                      ; preds = %if.then28.i
 
 if.end.i.i:                                       ; preds = %if.then28.i
   %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %17)
-  %tobool6.not.i.i = icmp ult i32 %18, 2
+  %tobool6.not.i.i = icmp samesign ult i32 %18, 2
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.else8.i.i
 
 if.else8.i.i:                                     ; preds = %if.end.i.i
@@ -523,7 +523,7 @@ if.else.i.i115:                                   ; preds = %if.end28.i
 
 if.end.i.i85:                                     ; preds = %if.end28.i
   %33 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %tobool6.not.i.i86 = icmp ult i32 %33, 2
+  %tobool6.not.i.i86 = icmp samesign ult i32 %33, 2
   br i1 %tobool6.not.i.i86, label %if.end9.i.i88, label %if.else8.i.i87
 
 if.else8.i.i87:                                   ; preds = %if.end.i.i85
@@ -927,7 +927,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %5 = load i16, ptr %aer_log4.i, align 8
   %6 = zext i16 %5 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %6
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %6
   br i1 %cmp.i.i, label %for.body.i.i, label %pcie_aer_update_uncor_status.exit.i, !llvm.loop !7
 
 pcie_aer_update_uncor_status.exit.i:              ; preds = %for.body.i.i
@@ -980,7 +980,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i16, ptr %aer_log, align 8
   %12 = zext i16 %11 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %12
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %cmp.i, label %for.body.i, label %if.end11, !llvm.loop !7
 
 if.else9:                                         ; preds = %if.else
@@ -1202,7 +1202,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2)
-  %tobool8.not = icmp ult i32 %4, 2
+  %tobool8.not = icmp samesign ult i32 %4, 2
   br i1 %tobool8.not, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %if.end

@@ -522,7 +522,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
 14:                                               ; preds = %23, %9
   %15 = phi i64 [ 0, %9 ], [ %29, %23 ]
   %16 = and i64 %15, 4294967295
-  %17 = icmp ugt i64 %16, 63
+  %17 = icmp samesign ugt i64 %16, 63
   br i1 %17, label %.thread, label %18, !prof !12
 
 18:                                               ; preds = %14
@@ -577,7 +577,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
 49:                                               ; preds = %58, %44
   %50 = phi i64 [ 0, %44 ], [ %64, %58 ]
   %51 = and i64 %50, 4294967295
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread10, label %53, !prof !12
 
 53:                                               ; preds = %49
@@ -629,7 +629,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
 81:                                               ; preds = %90, %79
   %82 = phi i64 [ 0, %79 ], [ %96, %90 ]
   %83 = and i64 %82, 4294967295
-  %84 = icmp ugt i64 %83, 63
+  %84 = icmp samesign ugt i64 %83, 63
   br i1 %84, label %.thread12, label %85, !prof !12
 
 85:                                               ; preds = %81

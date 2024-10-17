@@ -605,7 +605,7 @@ uv_pipe_getsockname.exit:                         ; preds = %15
 46:                                               ; preds = %44, %40
   %storemerge.in.i.i39 = phi i64 [ %45, %44 ], [ %43, %40 ]
   %47 = and i64 %storemerge.in.i.i39, 4294967295
-  %.not.i.i40 = icmp ult i64 %47, %.04650
+  %.not.i.i40 = icmp samesign ult i64 %47, %.04650
   br i1 %.not.i.i40, label %48, label %52
 
 48:                                               ; preds = %46

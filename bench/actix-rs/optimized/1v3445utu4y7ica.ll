@@ -4407,7 +4407,7 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h
   %32 = and i32 %31, 255
   %33 = lshr i32 %31, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = icmp ult i32 %32, 128
+  %35 = icmp samesign ult i32 %32, 128
   br i1 %35, label %37, label %49, !prof !646
 
 36:                                               ; preds = %.lr.ph68
@@ -4427,7 +4427,7 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h
   %46 = zext i32 %45 to i64
   %47 = zext nneg i32 %33 to i64
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hf4851fa4b68a36a6E(i64 noundef %46, i64 noundef %47, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
-  %48 = icmp ult i32 %32, 24
+  %48 = icmp samesign ult i32 %32, 24
   br i1 %48, label %52, label %50
 
 49:                                               ; preds = %29
@@ -4482,7 +4482,7 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h
   %74 = load i32, ptr %73, align 4, !noundef !4
   %75 = and i32 %74, 255
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ult i32 %75, 128
+  %77 = icmp samesign ult i32 %75, 128
   br i1 %77, label %79, label %84, !prof !646
 
 78:                                               ; preds = %.lr.ph59
@@ -9675,7 +9675,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
 41:                                               ; preds = %44, %39
   %.03.i = phi float [ %46, %44 ], [ %40, %39 ]
   %42 = uitofp nneg i64 %28 to float
-  %43 = icmp ult i64 %28, 256
+  %43 = icmp samesign ult i64 %28, 256
   br i1 %43, label %49, label %47
 
 44:                                               ; preds = %33
@@ -9943,7 +9943,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
 41:                                               ; preds = %44, %39
   %.03.i = phi float [ %46, %44 ], [ %40, %39 ]
   %42 = uitofp nneg i64 %28 to float
-  %43 = icmp ult i64 %28, 256
+  %43 = icmp samesign ult i64 %28, 256
   br i1 %43, label %49, label %47
 
 44:                                               ; preds = %33
@@ -10211,7 +10211,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
 41:                                               ; preds = %44, %39
   %.03.i = phi float [ %46, %44 ], [ %40, %39 ]
   %42 = uitofp nneg i64 %28 to float
-  %43 = icmp ult i64 %28, 256
+  %43 = icmp samesign ult i64 %28, 256
   br i1 %43, label %49, label %47
 
 44:                                               ; preds = %33
@@ -11079,13 +11079,13 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72: ; p
   ]
 
 180:                                              ; preds = %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72, %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72
-  %.old1 = icmp ult i32 %179, 3
+  %.old1 = icmp samesign ult i32 %179, 3
   br i1 %.old1, label %185, label %184
 
 181:                                              ; preds = %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72
   %182 = icmp eq i32 %178, 7
-  %183 = icmp ult i32 %179, 3
-  %or.cond = and i1 %182, %183
+  %183 = icmp samesign ult i32 %179, 3
+  %or.cond = select i1 %182, i1 %183, i1 false
   br i1 %or.cond, label %185, label %184
 
 184:                                              ; preds = %181, %180
@@ -11104,7 +11104,7 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72: ; p
   %192 = and i16 %191, 1023
   %193 = zext nneg i16 %192 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1360)
-  %194 = icmp ult i16 %192, 544
+  %194 = icmp samesign ult i16 %192, 544
   br i1 %194, label %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit, label %195, !prof !646
 
 195:                                              ; preds = %189

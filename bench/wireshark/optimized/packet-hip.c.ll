@@ -941,7 +941,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %271 = zext i16 %266 to i32
   %272 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %270, ptr noundef %0, i32 noundef %269, i32 noundef %271, i32 noundef 0) #3
   %273 = add nuw nsw i32 %269, %271
-  %274 = icmp ult i32 %273, %118
+  %274 = icmp samesign ult i32 %273, %118
   br i1 %274, label %275, label %dissect_hip_tlv.exit
 
 275:                                              ; preds = %259
@@ -1338,7 +1338,7 @@ dissect_hip_tlv.exit:                             ; preds = %.lr.ph583.i, %.lr.p
   %542 = add i32 %.0130145, 11
   %543 = add i32 %542, %118
   %544 = sub i32 %543, %541
-  %545 = icmp ult i32 %544, %110
+  %545 = icmp samesign ult i32 %544, %110
   br i1 %545, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_hip_tlv.exit, %103

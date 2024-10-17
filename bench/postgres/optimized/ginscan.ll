@@ -115,7 +115,7 @@ define dso_local void @ginFreeScanKeys(ptr nocapture noundef %0) local_unnamed_a
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %5, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %8, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %27, %.preheader
@@ -810,7 +810,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %47 = phi i32 [ %.pre, %._crit_edge ], [ %16, %15 ], [ %16, %23 ], [ %16, %28 ], [ %16, %32 ], [ %16, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %15, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %46, %.preheader, %8

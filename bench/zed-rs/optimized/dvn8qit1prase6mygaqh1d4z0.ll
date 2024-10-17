@@ -3952,7 +3952,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !500
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h51df7823d8ef3f63E.llvm.8186059494691717871"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %8), !noalias !500
   %10 = load i32, ptr %3, align 4, !range !503, !noundef !5
-  %.not.i = icmp ult i32 %10, 2
+  %.not.i = icmp samesign ult i32 %10, 2
   %11 = zext nneg i32 %10 to i64
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i, i64 0, i64 %12
@@ -4046,7 +4046,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$8try_n
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !517
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h51df7823d8ef3f63E.llvm.8186059494691717871"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 %7), !noalias !517
   %9 = load i32, ptr %3, align 4, !range !503, !noalias !520, !noundef !5
-  %.not.i.i = icmp ult i32 %9, 2
+  %.not.i.i = icmp samesign ult i32 %9, 2
   %10 = zext nneg i32 %9 to i64
   %11 = add nsw i64 %10, -1
   %12 = select i1 %.not.i.i, i64 0, i64 %11
@@ -8126,7 +8126,7 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !920
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h51df7823d8ef3f63E.llvm.8186059494691717871"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 %9), !noalias !920
   %11 = load i32, ptr %5, align 4, !range !503, !noalias !924, !noundef !5
-  %.not.i.i = icmp ult i32 %11, 2
+  %.not.i.i = icmp samesign ult i32 %11, 2
   %12 = zext nneg i32 %11 to i64
   %13 = add nsw i64 %12, -1
   %14 = select i1 %.not.i.i, i64 0, i64 %13
@@ -8243,7 +8243,7 @@ common.resume:                                    ; preds = %63, %28
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !940
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h51df7823d8ef3f63E.llvm.8186059494691717871"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 %43), !noalias !940
   %45 = load i32, ptr %4, align 4, !range !503, !noalias !943, !noundef !5
-  %.not.i.i8 = icmp ult i32 %45, 2
+  %.not.i.i8 = icmp samesign ult i32 %45, 2
   %46 = zext nneg i32 %45 to i64
   %47 = add nsw i64 %46, -1
   %48 = select i1 %.not.i.i8, i64 0, i64 %47

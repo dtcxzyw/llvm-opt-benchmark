@@ -3743,7 +3743,7 @@ _ZSt4sortIPSt5arrayIiLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i: ; preds = %1418, %_ZSt2
 1441:                                             ; preds = %1435, %1434, %1429
   %.194.i = phi i32 [ %.093324.i, %1434 ], [ %.093324.i, %1429 ], [ %1440, %1435 ]
   %indvars.iv.next335.i = add nuw nsw i64 %indvars.iv334.i, 2
-  %1442 = icmp ult i64 %indvars.iv.next335.i, %1421
+  %1442 = icmp samesign ult i64 %indvars.iv.next335.i, %1421
   br i1 %1442, label %.lr.ph326.i, label %.loopexit.i194, !llvm.loop !31
 
 1443:                                             ; preds = %._crit_edge.i193
@@ -4051,7 +4051,7 @@ _ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i: ; preds = %1541, %_ZSt2
 1564:                                             ; preds = %1558, %1557, %1552
   %.4.i = phi i32 [ %.396320.i, %1557 ], [ %.396320.i, %1552 ], [ %1563, %1558 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %1565 = icmp ult i64 %indvars.iv.next.i, %1544
+  %1565 = icmp samesign ult i64 %indvars.iv.next.i, %1544
   br i1 %1565, label %.lr.ph322.i, label %.loopexit.i194, !llvm.loop !35
 
 .loopexit.i194:                                   ; preds = %1564, %1441, %_ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i, %1506, %1443, %_ZSt4sortIPSt5arrayIiLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i, %1383, %1323
@@ -8307,7 +8307,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -9034,7 +9034,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

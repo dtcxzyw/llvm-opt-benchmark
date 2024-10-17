@@ -2818,7 +2818,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vsuxei64_v
   %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(48) %17) #17
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = icmp ugt i64 %23, 15
+  %24 = icmp samesign ugt i64 %23, 15
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %3
@@ -3503,7 +3503,7 @@ define noundef i64 @_Z21fast_rv64e_vsuxei64_vP11processor_t6insn_tm(ptr noundef 
   %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(48) %17) #17
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = icmp ugt i64 %23, 15
+  %24 = icmp samesign ugt i64 %23, 15
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %3
@@ -4186,7 +4186,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vsuxei64
   %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(48) %17) #17
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = icmp ugt i64 %23, 15
+  %24 = icmp samesign ugt i64 %23, 15
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %3
@@ -4871,7 +4871,7 @@ define noundef i64 @_Z23logged_rv64e_vsuxei64_vP11processor_t6insn_tm(ptr nounde
   %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(48) %17) #17
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = icmp ugt i64 %23, 15
+  %24 = icmp samesign ugt i64 %23, 15
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %3

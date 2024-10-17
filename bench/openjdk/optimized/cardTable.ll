@@ -426,7 +426,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br i1 %92, label %154, label %93
 
 93:                                               ; preds = %_ZNK9CardTable13committed_forE9MemRegion.exit13
-  %94 = icmp ugt i64 %91, %54
+  %94 = icmp samesign ugt i64 %91, %54
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %93

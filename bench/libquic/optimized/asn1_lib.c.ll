@@ -154,7 +154,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end54.thread, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else.i
-  %cmp10.i = icmp ult i8 %5, 9
+  %cmp10.i = icmp samesign ult i8 %5, 9
   %cmp12.not.i = icmp ugt i64 %max.134, %conv5.i
   %or.cond.i = select i1 %cmp10.i, i1 %cmp12.not.i, i1 false
   br i1 %or.cond.i, label %while.cond.preheader.i, label %err
@@ -315,7 +315,7 @@ for.body.i:                                       ; preds = %if.else26, %for.bod
   %i.016.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.else26 ]
   %shr.i = lshr i32 %l.017.i, 8
   %inc.i = add nuw nsw i32 %i.016.i, 1
-  %cmp1.not.i = icmp ult i32 %l.017.i, 256
+  %cmp1.not.i = icmp samesign ult i32 %l.017.i, 256
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
@@ -372,7 +372,7 @@ while.body:                                       ; preds = %entry, %while.body
   %ret.1 = phi i32 [ %inc2, %while.body ], [ %inc, %entry ]
   %shr = lshr i32 %tag.addr.0, 7
   %inc2 = add nsw i32 %ret.1, 1
-  %cmp1.old.not = icmp ult i32 %tag.addr.0, 128
+  %cmp1.old.not = icmp samesign ult i32 %tag.addr.0, 128
   br i1 %cmp1.old.not, label %if.end, label %while.body
 
 if.end:                                           ; preds = %while.body, %entry
@@ -394,7 +394,7 @@ while.body11:                                     ; preds = %if.end5, %while.bod
   %ret.3 = phi i32 [ %inc13, %while.body11 ], [ %inc6, %if.end5 ]
   %shr12 = lshr i32 %length.addr.0, 8
   %inc13 = add nsw i32 %ret.3, 1
-  %cmp10.old.not = icmp ult i32 %length.addr.0, 256
+  %cmp10.old.not = icmp samesign ult i32 %length.addr.0, 256
   br i1 %cmp10.old.not, label %return, label %while.body11
 
 return:                                           ; preds = %while.body11, %if.end5, %if.then4
@@ -543,7 +543,7 @@ entry:
   %call = tail call i32 @ASN1_get_object(ptr noundef nonnull %c, ptr noundef nonnull %slen, ptr noundef nonnull %tag, ptr noundef nonnull %xclass, i64 noundef %1)
   %inf = getelementptr inbounds i8, ptr %c, i64 16
   store i32 %call, ptr %inf, align 8
-  %tobool.not = icmp ult i32 %call, 128
+  %tobool.not = icmp samesign ult i32 %call, 128
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

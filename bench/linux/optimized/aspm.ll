@@ -763,7 +763,7 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
 
 394:                                              ; preds = %392, %390, %388, %386
   %395 = phi i32 [ 0, %392 ], [ %391, %390 ], [ %389, %388 ], [ %387, %386 ]
-  %396 = icmp ugt i32 %385, %395
+  %396 = icmp samesign ugt i32 %385, %395
   br i1 %396, label %397, label %409
 
 397:                                              ; preds = %394
@@ -829,8 +829,8 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   %425 = add nuw nsw i32 %424, %423
   %426 = zext nneg i32 %425 to i64
   %427 = mul nuw nsw i64 %426, 1000
-  %428 = icmp ult i32 %425, 33
-  %429 = icmp ult i32 %425, 1048
+  %428 = icmp samesign ult i32 %425, 33
+  %429 = icmp samesign ult i32 %425, 1048
   %430 = select i1 %429, i64 1023, i64 32767
   %431 = select i1 %429, i64 10, i64 15
   %432 = select i1 %429, i32 1073741824, i32 1610612736
@@ -3101,7 +3101,7 @@ define internal fastcc noundef i64 @aspm_attr_store_common(ptr nocapture noundef
   %38 = and i16 %33, -128
   %39 = or disjoint i16 %37, %38
   store i16 %39, ptr %32, align 4
-  %40 = icmp ult i8 %3, 8
+  %40 = icmp samesign ult i8 %3, 8
   br i1 %40, label %56, label %41
 
 41:                                               ; preds = %34

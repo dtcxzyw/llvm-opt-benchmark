@@ -2139,7 +2139,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %198 = icmp eq ptr %.2.i, null
   %or.cond.not204.i = select i1 %197, i1 true, i1 %198
   %indvars.iv.next226.i = add nuw nsw i64 %indvars.iv225.i, 1
-  %199 = icmp ult i64 %indvars.iv.next226.i, %189
+  %199 = icmp samesign ult i64 %indvars.iv.next226.i, %189
   %or.cond201.i = select i1 %or.cond.not204.i, i1 %199, i1 false
   br i1 %or.cond201.i, label %190, label %.thread115.i
 
@@ -3667,7 +3667,7 @@ replace_varno.exit.us:                            ; preds = %43, %._crit_edge.sp
   %46 = phi i32 [ %.pre319, %replace_varno.exit.us ], [ %26, %.lr.ph281.split.us ]
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next314, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next314, %47
   br i1 %48, label %.lr.ph281.split.us, label %._crit_edge282, !llvm.loop !22
 
 .lr.ph.us:                                        ; preds = %32
@@ -3826,7 +3826,7 @@ replace_varno.exit:                               ; preds = %._crit_edge.split, 
   %124 = phi i32 [ %69, %.lr.ph281.split ], [ %.pre, %replace_varno.exit ]
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next305, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next305, %125
   br i1 %126, label %.lr.ph281.split, label %._crit_edge282, !llvm.loop !22
 
 ._crit_edge282:                                   ; preds = %123, %45, %14

@@ -239,7 +239,7 @@ for.body:                                         ; preds = %if.end35, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i16, ptr %num_request_queues, align 8
   %11 = zext i16 %10 to i64
-  %cmp47 = icmp ult i64 %indvars.iv.next, %11
+  %cmp47 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp47, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -277,7 +277,7 @@ for.body77:                                       ; preds = %err_virtio, %for.bo
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %18 = load i16, ptr %num_request_queues, align 8
   %19 = zext i16 %18 to i64
-  %cmp75 = icmp ult i64 %indvars.iv.next56, %19
+  %cmp75 = icmp samesign ult i64 %indvars.iv.next56, %19
   br i1 %cmp75, label %for.body77, label %for.end83, !llvm.loop !7
 
 for.end83:                                        ; preds = %for.body77, %err_virtio
@@ -325,7 +325,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i16, ptr %num_request_queues, align 8
   %6 = zext i16 %5 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %6
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry

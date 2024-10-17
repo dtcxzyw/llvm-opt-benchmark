@@ -930,7 +930,7 @@ define internal noundef range(i32 -22, 1) i32 @ext_set_pat(ptr noundef %0, ptr n
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ult i32 %12, 3142
+  %13 = icmp samesign ult i32 %12, 3142
   br i1 %13, label %34, label %14
 
 14:                                               ; preds = %2

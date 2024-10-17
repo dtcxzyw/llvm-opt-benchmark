@@ -2438,7 +2438,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   %225 = phi i32 [ %storemerge187, %184 ], [ %.sink194, %.sink.split192 ]
   %226 = load i32, ptr %4, align 4
   %227 = zext i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv.next, %227
+  %228 = icmp samesign ult i64 %indvars.iv.next, %227
   br i1 %228, label %12, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %224, %..loopexit_crit_edge

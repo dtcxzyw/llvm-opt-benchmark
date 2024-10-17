@@ -82,7 +82,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, ptr nocapture noundef 
   %36 = phi i32 [ %26, %.lr.ph.i ], [ %.pre.i, %30 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %35, %24
@@ -239,7 +239,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr nocapture noundef %0, ptr no
   %28 = phi i32 [ %18, %.lr.ph ], [ %.pre, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %27, %16

@@ -2106,8 +2106,8 @@ if.then166:                                       ; preds = %for.body157
 
 for.inc:                                          ; preds = %for.body157, %if.then166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp156240 = icmp ult i64 %indvars.iv, 5
-  %cmp156 = and i1 %cmp152.not, %cmp156240
+  %cmp156240 = icmp samesign ult i64 %indvars.iv, 5
+  %cmp156 = select i1 %cmp152.not, i1 %cmp156240, i1 false
   br i1 %cmp156, label %for.body157, label %if.end168, !llvm.loop !13
 
 if.end168:                                        ; preds = %for.inc, %if.end144
@@ -2848,7 +2848,7 @@ for.inc60:                                        ; preds = %_ZNSt13unordered_se
   %15 = phi i32 [ %.pre, %_ZNSt13unordered_setIPK6aiBoneSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE6insertERKS2_.exit ], [ %12, %for.body50 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %16 = zext i32 %15 to i64
-  %cmp49 = icmp ult i64 %indvars.iv.next49, %16
+  %cmp49 = icmp samesign ult i64 %indvars.iv.next49, %16
   br i1 %cmp49, label %for.body50, label %for.end62, !llvm.loop !22
 
 for.end62:                                        ; preds = %for.inc60
@@ -2948,7 +2948,7 @@ for.inc98:                                        ; preds = %for.body91, %delete
   %31 = phi i32 [ %28, %for.body91 ], [ %.pre55, %delete.notnull96 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %32 = zext i32 %31 to i64
-  %cmp90 = icmp ult i64 %indvars.iv.next52, %32
+  %cmp90 = icmp samesign ult i64 %indvars.iv.next52, %32
   br i1 %cmp90, label %for.body91, label %for.end100, !llvm.loop !24
 
 for.end100:                                       ; preds = %for.inc98
@@ -3466,7 +3466,7 @@ while.end.split.loop.exit6.i:                     ; preds = %land.rhs.i
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %while.body.i, %while.end.split.loop.exit6.i
   %n.0.lcssa.i = phi i64 [ %72, %while.end.split.loop.exit6.i ], [ 8, %while.body.i ]
-  %cmp227 = icmp ult i64 %i.0, %n.0.lcssa.i
+  %cmp227 = icmp samesign ult i64 %i.0, %n.0.lcssa.i
   br i1 %cmp227, label %for.body228, label %if.end241
 
 for.body228:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit

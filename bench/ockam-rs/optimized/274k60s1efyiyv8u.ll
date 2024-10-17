@@ -386,7 +386,7 @@ common.resume:                                    ; preds = %39, %16
   %32 = xor i64 %22, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %32, i1 false), !alias.scope !86, !noalias !99
   %33 = xor i64 %22, 56
-  %34 = icmp ult i64 %33, 8
+  %34 = icmp samesign ult i64 %33, 8
   br i1 %34, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h838485e2f8eb269cE.exit.thread.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h838485e2f8eb269cE.exit.thread.i"
@@ -1340,7 +1340,7 @@ define hidden void @"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h
   %6 = zext nneg i8 %5 to i64
   %7 = icmp ult i8 %5, 64
   tail call void @llvm.assume(i1 %7)
-  %8 = icmp ult i8 %5, 32
+  %8 = icmp samesign ult i8 %5, 32
   br i1 %8, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i": ; preds = %2
@@ -5257,7 +5257,7 @@ common.resume:                                    ; preds = %27, %18
   %33 = zext nneg i8 %32 to i64
   %34 = icmp ult i8 %32, 64
   call void @llvm.assume(i1 %34)
-  %35 = icmp ult i8 %32, 32
+  %35 = icmp samesign ult i8 %32, 32
   br i1 %35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$8finalize17h14580b9b361580bbE.llvm.4054924361102640483.exit"
@@ -5715,7 +5715,7 @@ common.resume:                                    ; preds = %25, %16
   %32 = zext nneg i8 %31 to i64
   %33 = icmp ult i8 %31, 64
   call void @llvm.assume(i1 %33)
-  %34 = icmp ult i8 %31, 32
+  %34 = icmp samesign ult i8 %31, 32
   br i1 %34, label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hcd06cf2ea5cb7eceE.llvm.4054924361102640483.exit20.thread", label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hcd06cf2ea5cb7eceE.llvm.4054924361102640483.exit20"
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hcd06cf2ea5cb7eceE.llvm.4054924361102640483.exit20.thread": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$14finalize_reset17h74d2a1273bb48ce7E.exit"

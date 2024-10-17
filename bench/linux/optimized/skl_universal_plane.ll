@@ -241,7 +241,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr
   %21 = tail call i32 @intel_plane_compute_aligned_offset(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0) #11
   store i32 %21, ptr %3, align 4
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !6
-  %23 = icmp ugt i32 %22, 1
+  %23 = icmp samesign ugt i32 %22, 1
   br i1 %23, label %24, label %36, !prof !7
 
 24:                                               ; preds = %4
@@ -1120,7 +1120,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = icmp ult i32 %19, %26
+  %27 = icmp samesign ult i32 %19, %26
   br i1 %27, label %28, label %48
 
 28:                                               ; preds = %17
@@ -5650,7 +5650,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   %197 = getelementptr inbounds i8, ptr %196, i64 5
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i64
-  %200 = icmp ult i64 %195, %199
+  %200 = icmp samesign ult i64 %195, %199
   br i1 %200, label %162, label %.loopexit45, !llvm.loop !55
 
 .loopexit45:                                      ; preds = %194, %147, %143

@@ -123,7 +123,7 @@ if.end5:                                          ; preds = %if.end5.lr.ph, %if.
   %tries.032 = phi i32 [ 0, %if.end5.lr.ph ], [ %inc, %if.end29 ]
   %delay.031 = phi i64 [ 0, %if.end5.lr.ph ], [ %add32, %if.end29 ]
   %inc = add nuw nsw i32 %tries.032, 1
-  %cmp6 = icmp ugt i32 %tries.032, 2
+  %cmp6 = icmp samesign ugt i32 %tries.032, 2
   br i1 %cmp6, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end5
@@ -2421,7 +2421,7 @@ for.body.preheader.i16:                           ; preds = %fastlog2.exit
 
 fastlog2.exit18:                                  ; preds = %fastlog2.exit, %for.body.preheader.i16
   %retval.0.i17 = phi i32 [ %20, %for.body.preheader.i16 ], [ 0, %fastlog2.exit ]
-  %cmp17 = icmp ult i32 %retval.0.i, %retval.0.i17
+  %cmp17 = icmp samesign ult i32 %retval.0.i, %retval.0.i17
   br i1 %cmp17, label %while.end, label %if.end19
 
 if.end19:                                         ; preds = %fastlog2.exit18

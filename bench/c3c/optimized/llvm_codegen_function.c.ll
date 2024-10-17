@@ -1287,7 +1287,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %330 = add nuw nsw i32 %.0158170.i.i.i, 1
   %331 = load i8, ptr %321, align 8
   %332 = zext i8 %331 to i32
-  %333 = icmp ult i32 %330, %332
+  %333 = icmp samesign ult i32 %330, %332
   br i1 %333, label %.lr.ph.i.i.i, label %llvm_process_parameter_value.exit.i.i, !llvm.loop !7
 
 334:                                              ; preds = %193

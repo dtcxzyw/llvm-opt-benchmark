@@ -473,7 +473,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %123 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %122, ptr %123, align 1, !noalias !10
   %124 = udiv i64 %.0810.i.i, 10
-  %.not.i.i5 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i5 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i5, label %_ZNSt10unique_ptrIN4llvm15SpecialCaseListESt14default_deleteIS1_EED2Ev.exit8, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZNSt10unique_ptrIN4llvm15SpecialCaseListESt14default_deleteIS1_EED2Ev.exit8: ; preds = %.lr.ph.i.i

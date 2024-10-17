@@ -4566,7 +4566,7 @@ define internal fastcc void @_ZN5YosysL9big2constERK10BigIntegerii(ptr dead_on_u
   %21 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i.i
   store i64 %20, ptr %21, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %22 = icmp ult i64 %indvars.iv.next.i.i, %12
+  %22 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %22, label %18, label %_ZN11BigUnsignedC2ERKS_.exit, !llvm.loop !43
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
@@ -5060,7 +5060,7 @@ define void @_ZN5Yosys5RTLIL9const_divERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %49 = load i32, ptr %35, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next.i.i.i, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %50
   br i1 %51, label %43, label %_ZNK10BigIntegerngEv.exit, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit:                        ; preds = %43, %.noexc, %27
@@ -5134,7 +5134,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %52, %56
   %indvars.iv.next.i.i.i31 = add nuw nsw i64 %indvars.iv.i.i.i30, 1
   %82 = load i32, ptr %68, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next.i.i.i31, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next.i.i.i31, %83
   br i1 %84, label %76, label %_ZNK10BigIntegerngEv.exit27, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit27:                      ; preds = %76, %.noexc32, %60
@@ -5496,7 +5496,7 @@ define void @_ZN5Yosys5RTLIL9const_modERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %48 = load i32, ptr %34, align 4
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i.i.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %49
   br i1 %50, label %42, label %_ZNK10BigIntegerngEv.exit, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit:                        ; preds = %42, %.noexc, %26
@@ -5570,7 +5570,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %51, %55
   %indvars.iv.next.i.i.i31 = add nuw nsw i64 %indvars.iv.i.i.i30, 1
   %81 = load i32, ptr %67, align 4
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next.i.i.i31, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next.i.i.i31, %82
   br i1 %83, label %75, label %_ZNK10BigIntegerngEv.exit27, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit27:                      ; preds = %75, %.noexc32, %59
@@ -5938,7 +5938,7 @@ define void @_ZN5Yosys5RTLIL14const_divfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %56 = load i32, ptr %42, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i.i.i, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %57
   br i1 %58, label %50, label %_ZNK10BigIntegerngEv.exit, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit:                        ; preds = %50, %.noexc, %34
@@ -6012,7 +6012,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %59, %63
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
   %89 = load i32, ptr %75, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next.i.i.i38, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next.i.i.i38, %90
   br i1 %91, label %83, label %_ZNK10BigIntegerngEv.exit34, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit34:                      ; preds = %83, %.noexc39, %67
@@ -6533,7 +6533,7 @@ define void @_ZN5Yosys5RTLIL14const_modfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %51 = load i32, ptr %37, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next.i.i.i, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %52
   br i1 %53, label %45, label %_ZNK10BigIntegerngEv.exit, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit:                        ; preds = %45, %.noexc, %29
@@ -6608,7 +6608,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %54, %58
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
   %85 = load i32, ptr %71, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next.i.i.i37, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next.i.i.i37, %86
   br i1 %87, label %79, label %_ZNK10BigIntegerngEv.exit33, !llvm.loop !43
 
 _ZNK10BigIntegerngEv.exit33:                      ; preds = %79, %.noexc38, %60

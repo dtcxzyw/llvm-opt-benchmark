@@ -633,7 +633,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator17adjustSlotOff
 
 .loopexit3:                                       ; preds = %26, %10
   %30 = phi ptr [ %4, %10 ], [ %27, %26 ]
-  %31 = icmp ult i64 %12, 3
+  %31 = icmp samesign ult i64 %12, 3
   br i1 %31, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %75, %.loopexit3, %2

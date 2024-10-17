@@ -9508,7 +9508,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_17AnyBinaryOp_matc
   %.not.i.i312 = icmp ne i32 %144, 0
   %or.cond.not620 = and i1 %.not.i.i312, %.not283
   %330 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %144)
-  %331 = icmp ult i32 %330, 2
+  %331 = icmp samesign ult i32 %330, 2
   %or.cond614 = select i1 %or.cond.not620, i1 %331, i1 false
   br i1 %or.cond614, label %332, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -11475,7 +11475,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -16115,7 +16115,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -16159,7 +16159,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 35:                                               ; preds = %33
   %36 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
-  %37 = icmp ult i64 %36, 2
+  %37 = icmp samesign ult i64 %36, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 38:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit

@@ -294,7 +294,7 @@ _ZN13XValueStorageI17XPerWorkerStorageE5allocEm.exit.i: ; preds = %tailrecurse.i
   %103 = tail call i32 @llvm.umax.i32(i32 %101, i32 %102)
   %104 = select i1 %100, i32 %101, i32 %103
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next.i, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next.i, %105
   br i1 %106, label %.lr.ph.i, label %_ZN6XValueI17XPerWorkerStorageP7oopDescEC2ERKS2_.exit, !llvm.loop !6
 
 _ZN6XValueI17XPerWorkerStorageP7oopDescEC2ERKS2_.exit: ; preds = %.lr.ph.i, %_ZN13XValueStorageI17XPerWorkerStorageE5allocEm.exit.i
@@ -1335,7 +1335,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit: ; preds = %1, %_ZN
   %17 = tail call i32 @llvm.umax.i32(i32 %15, i32 %16)
   %18 = select i1 %14, i32 %15, i32 %17
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit
@@ -1359,7 +1359,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit11: ; preds = %._cri
   %31 = tail call i32 @llvm.umax.i32(i32 %29, i32 %30)
   %32 = select i1 %28, i32 %29, i32 %31
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next49, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next49, %33
   br i1 %34, label %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit11, label %._crit_edge36, !llvm.loop !18
 
 ._crit_edge36:                                    ; preds = %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit11
@@ -1383,7 +1383,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit12: ; preds = %._cri
   %45 = tail call i32 @llvm.umax.i32(i32 %43, i32 %44)
   %46 = select i1 %42, i32 %43, i32 %45
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next56, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next56, %47
   br i1 %48, label %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit12, label %._crit_edge39, !llvm.loop !19
 
 ._crit_edge39:                                    ; preds = %_ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit12, %1, %._crit_edge, %._crit_edge36

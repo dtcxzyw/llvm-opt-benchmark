@@ -993,7 +993,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit", label %15, !prof !181
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16
@@ -1361,7 +1361,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %8, label %.preheader.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %.not22.i = icmp ugt i64 %.128.i, 9
+  %.not22.i = icmp samesign ugt i64 %.128.i, 9
   br i1 %.not22.i, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.loopexit.i
@@ -1386,7 +1386,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
-  %14 = icmp ult i64 %.01829.i, 9
+  %14 = icmp samesign ult i64 %.01829.i, 9
   br i1 %14, label %"_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit", label %15, !prof !181
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %16

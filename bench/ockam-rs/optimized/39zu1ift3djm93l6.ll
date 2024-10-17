@@ -863,7 +863,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %7 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hd53d73d879a28131E.llvm.5777560861739151222(ptr noundef nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E, i8 noundef 0), !noalias !45
   %8 = icmp ult i64 %7, 6
   tail call void @llvm.assume(i1 %8)
-  %9 = icmp ult i64 %7, 5
+  %9 = icmp samesign ult i64 %7, 5
   br i1 %9, label %_ZN3mio4poll8Registry10deregister17h8db01216e80c6d9cE.exit, label %.critedge11.i
 
 .critedge11.i:                                    ; preds = %3

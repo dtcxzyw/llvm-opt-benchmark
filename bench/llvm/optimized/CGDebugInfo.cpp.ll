@@ -1082,7 +1082,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %157, %158
   %.sroa.0.0.copyload.i91 = load i32, ptr %55, align 8
   %160 = call i64 @_ZNK5clang7CodeGen11CGDebugInfo15computeChecksumENS_6FileIDERN4llvm11SmallStringILj64EEE(ptr noundef nonnull align 8 dereferenceable(2472) %0, i32 %.sroa.0.0.copyload.i91, ptr noundef nonnull align 8 dereferenceable(88) %10)
   %.sroa.0129.0.extract.trunc = trunc i64 %160 to i32
-  %161 = icmp ugt i64 %160, 4294967295
+  %161 = icmp samesign ugt i64 %160, 4294967295
   br label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
 
 _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds = %60, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %.critedge, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
@@ -1109,7 +1109,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
   %171 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %172 = load i64, ptr %171, align 8
   %173 = and i64 %172, 7
-  %174 = icmp ult i64 %173, 5
+  %174 = icmp samesign ult i64 %173, 5
   br i1 %174, label %213, label %175
 
 175:                                              ; preds = %170, %166
@@ -1147,7 +1147,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 120
   %193 = load i64, ptr %192, align 8
   %194 = and i64 %193, 7
-  %195 = icmp ugt i64 %194, 4
+  %195 = icmp samesign ugt i64 %194, 4
   br i1 %195, label %213, label %196
 
 196:                                              ; preds = %191, %180
@@ -1173,7 +1173,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
   %207 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %208, 7
-  %210 = icmp ult i64 %209, 5
+  %210 = icmp samesign ult i64 %209, 5
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %206, %200
@@ -3887,7 +3887,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKcNS_13TrackingMDRefENS_12DenseMapInfoIS3_v
 
 155:                                              ; preds = %152
   %156 = call i64 @_ZNK5clang7CodeGen11CGDebugInfo15computeChecksumENS_6FileIDERN4llvm11SmallStringILj64EEE(ptr noundef nonnull align 8 dereferenceable(2472) %0, i32 %.sroa.056.0, ptr noundef nonnull align 8 dereferenceable(88) %5)
-  %.not63 = icmp ult i64 %156, 4294967296
+  %.not63 = icmp samesign ult i64 %156, 4294967296
   br i1 %.not63, label %159, label %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit
 
 _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit: ; preds = %155
@@ -3928,7 +3928,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %166
   %.0.i.i.i.i.i = phi ptr [ %165, %163 ], [ %167, %166 ]
   %168 = load i32, ptr %.0.i.i.i.i.i, align 8
   %169 = and i32 %168, 2147483647
-  %170 = icmp ult i32 %160, %169
+  %170 = icmp samesign ult i32 %160, %169
   br i1 %170, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %171
 
 171:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -3952,7 +3952,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %182 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %12, i32 noundef %162, ptr noundef null)
   %183 = load i32, ptr %182, align 8
   %184 = and i32 %183, 2147483647
-  %185 = icmp ult i32 %160, %184
+  %185 = icmp samesign ult i32 %160, %184
   br i1 %185, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %178, %171
@@ -6299,8 +6299,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang7CodeGen11CGDebugInfo15
   %16 = and i64 %15, 8
   %.not = icmp eq i64 %16, 0
   %17 = and i64 %15, 7
-  %18 = icmp ult i64 %17, 5
-  %or.cond = and i1 %.not, %18
+  %18 = icmp samesign ult i64 %17, 5
+  %or.cond = select i1 %.not, i1 %18, i1 false
   br i1 %or.cond, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.thread, label %19
 
 19:                                               ; preds = %3
@@ -10864,7 +10864,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %104 = lshr i64 %103, 32
   %105 = trunc nuw i64 %104 to i32
   %106 = and i32 %105, 2147483647
-  %107 = icmp ult i32 %106, 65
+  %107 = icmp samesign ult i32 %106, 65
   br i1 %107, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %94
@@ -13384,7 +13384,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN5clang7CodeGen11
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 7
-  %76 = icmp ugt i64 %75, 4
+  %76 = icmp samesign ugt i64 %75, 4
   %77 = and i32 %59, 256
   %.not.i.i = icmp eq i32 %77, 0
   br i1 %.not.i.i, label %_ZL22getDeclAlignIfRequiredPKN5clang4DeclERKNS_10ASTContextE.exit, label %78
@@ -25164,7 +25164,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %_ZNK5clang4Type6cas
   br i1 %switch6.i, label %.critedge4.i, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit
 
 .critedge.i:                                      ; preds = %92
-  %103 = icmp ult i64 %97, 5
+  %103 = icmp samesign ult i64 %97, 5
   br i1 %103, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit, label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %.critedge.i, %99
@@ -25291,7 +25291,7 @@ define dso_local noundef range(i32 0, 536870913) i32 @_ZNK5clang7CodeGen11CGDebu
   br i1 %switch6, label %.critedge4, label %.critedge.thread
 
 .critedge:                                        ; preds = %10
-  %21 = icmp ult i64 %15, 5
+  %21 = icmp samesign ult i64 %15, 5
   br i1 %21, label %.critedge.thread, label %.critedge4
 
 .critedge4:                                       ; preds = %17, %.critedge
@@ -26624,7 +26624,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen11CGDebugInfo24getObjCMethodDecla
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 7
-  %23 = icmp ult i64 %22, 5
+  %23 = icmp samesign ult i64 %22, 5
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %16
@@ -27627,7 +27627,7 @@ _ZNK5clang4Decl7hasAttrINS_14ArtificialAttrEEEbv.exit.thread: ; preds = %220, %2
   br i1 %switch6.i, label %.critedge4.i, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit
 
 .critedge.i:                                      ; preds = %251
-  %262 = icmp ult i64 %256, 5
+  %262 = icmp samesign ult i64 %256, 5
   br i1 %262, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit, label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %.critedge.i, %258
@@ -28396,7 +28396,7 @@ _ZNK5clang4Decl7hasAttrINS_11NoDebugAttrEEEbv.exit.thread: ; preds = %39, %32, %
   br i1 %switch6.i, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
 .critedge.i:                                      ; preds = %49
-  %60 = icmp ult i64 %54, 5
+  %60 = icmp samesign ult i64 %54, 5
   br i1 %60, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %_ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit
 
 _ZNK5clang7CodeGen11CGDebugInfo23getCallSiteRelatedAttrsEv.exit: ; preds = %.critedge.i, %56
@@ -36593,7 +36593,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %_ZNK4llv
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 120
   %136 = load i64, ptr %135, align 8
   %137 = and i64 %136, 7
-  %138 = icmp ult i64 %137, 5
+  %138 = icmp samesign ult i64 %137, 5
   %.0.copyload.i.i.i51.pre = load i64, ptr %.sroa.0128.0179, align 8
   %139 = and i64 %.0.copyload.i.i.i51.pre, 4
   %.not40 = icmp eq i64 %139, 0
@@ -37070,7 +37070,7 @@ define dso_local void @_ZN5clang7CodeGen11CGDebugInfo17EmitAndRetainTypeENS_8Qua
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1080863910568919040
-  %9 = icmp ugt i64 %8, 432345564227567616
+  %9 = icmp samesign ugt i64 %8, 432345564227567616
   br i1 %9, label %10, label %33
 
 10:                                               ; preds = %2
@@ -44759,7 +44759,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %23 = lshr i64 %22, 32
   %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 2147483647
-  %26 = icmp ult i32 %25, 65
+  %26 = icmp samesign ult i32 %25, 65
   br i1 %26, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit
 
 _ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread: ; preds = %21
@@ -69796,7 +69796,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %51
   %66 = load i64, ptr %10, align 16
   %67 = lshr i64 %66, 38
   %68 = and i64 %67, 65535
-  %69 = icmp ult i64 %indvars.iv, %68
+  %69 = icmp samesign ult i64 %indvars.iv, %68
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %65
@@ -77485,7 +77485,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -78092,7 +78092,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -85622,7 +85622,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -86060,7 +86060,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -86207,7 +86207,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -110153,7 +110153,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -117479,7 +117479,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -118086,7 +118086,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %"
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -125297,7 +125297,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -125729,7 +125729,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -125860,7 +125860,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread

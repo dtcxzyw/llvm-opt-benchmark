@@ -1448,7 +1448,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitializ
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %115 = load i16, ptr %alphasize, align 2
   %116 = zext i16 %115 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %116
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %116
   br i1 %cmp.i, label %for.body.i270, label %for.end.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit.i, %if.end96
@@ -1495,7 +1495,7 @@ for.body15.i:                                     ; preds = %.noexc281, %for.bod
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %127 = load i16, ptr %alphasize, align 2
   %128 = zext i16 %127 to i64
-  %cmp14.i = icmp ult i64 %indvars.iv.next29.i, %128
+  %cmp14.i = icmp samesign ult i64 %indvars.iv.next29.i, %128
   br i1 %cmp14.i, label %for.body15.i, label %for.inc26.i, !llvm.loop !16
 
 for.inc26.i:                                      ; preds = %for.body15.i, %.noexc281
@@ -1986,7 +1986,7 @@ if.end187:                                        ; preds = %if.end180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %199 = load i16, ptr %alphasize, align 2
   %200 = zext i16 %199 to i64
-  %cmp103 = icmp ult i64 %indvars.iv.next, %200
+  %cmp103 = icmp samesign ult i64 %indvars.iv.next, %200
   br i1 %cmp103, label %for.body104, label %cleanup, !llvm.loop !20
 
 cleanup:                                          ; preds = %if.end187, %_ZN3ue212_GLOBAL__N_115Automaton_Merge10transitionERKSt6vectorItSaItEEPS4_.exit, %invoke.cont.i.i422, %do.end186, %invoke.cont85
@@ -3655,7 +3655,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i40
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i40 ], [ %div1.i.i.i35, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i40, label %for.body.i.i.i.preheader
 
 for.body.i.i40:                                   ; preds = %for.cond.i.i

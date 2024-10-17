@@ -38,7 +38,7 @@ if.then14.i:                                      ; preds = %if.end.i
   store i32 1, ptr %this, align 8
   %body_offset_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 5, ptr %body_offset_.i, align 8
-  %cmp22.i = icmp ugt i64 %add.i, 16388
+  %cmp22.i = icmp samesign ugt i64 %add.i, 16388
   br i1 %cmp22.i, label %if.end.i7.i, label %sw.bb2
 
 if.end.i.i:                                       ; preds = %if.end.i
@@ -103,7 +103,7 @@ if.then14:                                        ; preds = %if.end
   store i32 1, ptr %this, align 8
   %body_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 5, ptr %body_offset_, align 8
-  %cmp22 = icmp ugt i64 %add, 16388
+  %cmp22 = icmp samesign ugt i64 %add, 16388
   br i1 %cmp22, label %if.end.i7, label %return
 
 if.else:                                          ; preds = %if.end
@@ -439,7 +439,7 @@ if.end63:                                         ; preds = %if.end40
   ]
 
 sw.bb.i:                                          ; preds = %if.end63
-  %cmp.i = icmp ult i64 %add56, 2
+  %cmp.i = icmp samesign ult i64 %add56, 2
   br i1 %cmp.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb.i
@@ -451,7 +451,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   %conv4.i = zext i8 %12 to i64
   %add.i = or disjoint i64 %shl.i, %conv4.i
   %add5.i = add nuw nsw i64 %add.i, 2
-  %cmp7.i = icmp ule i64 %add5.i, %add56
+  %cmp7.i = icmp samesign ule i64 %add5.i, %add56
   %cmp1223.i = icmp ne i64 %add.i, 0
   %or.cond.i = and i1 %cmp1223.i, %cmp7.i
   br i1 %or.cond.i, label %for.body.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit

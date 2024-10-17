@@ -6089,7 +6089,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = add i64 %5, -1
-  %12 = icmp ult i64 %7, 11
+  %12 = icmp samesign ult i64 %7, 11
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
@@ -6116,7 +6116,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = add i64 %5, -1
-  %12 = icmp ult i64 %7, 11
+  %12 = icmp samesign ult i64 %7, 11
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
@@ -6143,7 +6143,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = add i64 %5, -1
-  %12 = icmp ult i64 %7, 11
+  %12 = icmp samesign ult i64 %7, 11
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3

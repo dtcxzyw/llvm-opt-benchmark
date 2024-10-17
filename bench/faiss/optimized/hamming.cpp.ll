@@ -580,7 +580,7 @@ _ZN5faissL19uint64_reverse_bitsEm.exit:           ; preds = %_ZN5faissL19uint64_
   %14 = lshr i64 %.016, 1
   %15 = add nuw nsw i64 %.01015, 1
   %16 = add nuw i64 %.114, 1
-  %17 = icmp ult i64 %.01015, 63
+  %17 = icmp samesign ult i64 %.01015, 63
   %18 = icmp ult i64 %16, %1
   %19 = select i1 %17, i1 %18, i1 false
   br i1 %19, label %_ZN5faissL19uint64_reverse_bitsEm.exit, label %_ZN5faissL19uint64_reverse_bitsEm.exit._crit_edge, !llvm.loop !21
@@ -2141,7 +2141,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %80 = icmp ult i64 %indvars.iv.next170, %38
+  %80 = icmp samesign ult i64 %indvars.iv.next170, %38
   br i1 %80, label %.preheader, label %._crit_edge.preheader, !llvm.loop !148
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -2417,7 +2417,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 202:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %203 = icmp ult i64 %indvars.iv.next183, %39
+  %203 = icmp samesign ult i64 %indvars.iv.next183, %39
   br i1 %203, label %.lr.ph, label %._crit_edge157, !llvm.loop !152
 
 ._crit_edge157:                                   ; preds = %202, %.preheader145
@@ -2640,7 +2640,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %78 = icmp ult i64 %indvars.iv.next168, %38
+  %78 = icmp samesign ult i64 %indvars.iv.next168, %38
   br i1 %78, label %.preheader, label %._crit_edge.preheader, !llvm.loop !157
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -2912,7 +2912,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 199:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %200 = icmp ult i64 %indvars.iv.next179, %39
+  %200 = icmp samesign ult i64 %indvars.iv.next179, %39
   br i1 %200, label %.lr.ph, label %._crit_edge157, !llvm.loop !161
 
 ._crit_edge157:                                   ; preds = %199, %.preheader145
@@ -3148,7 +3148,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %87 = icmp ult i64 %indvars.iv.next188, %38
+  %87 = icmp samesign ult i64 %indvars.iv.next188, %38
   br i1 %87, label %.preheader141, label %.preheader145.preheader, !llvm.loop !168
 
 .preheader144:                                    ; preds = %120
@@ -3468,7 +3468,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 222:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %223 = icmp ult i64 %indvars.iv.next211, %39
+  %223 = icmp samesign ult i64 %indvars.iv.next211, %39
   br i1 %223, label %.lr.ph, label %._crit_edge, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %222, %.preheader143
@@ -3706,7 +3706,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %85 = icmp ult i64 %indvars.iv.next190, %38
+  %85 = icmp samesign ult i64 %indvars.iv.next190, %38
   br i1 %85, label %.preheader141, label %.preheader145.preheader, !llvm.loop !181
 
 .preheader144:                                    ; preds = %116
@@ -4029,7 +4029,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 217:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %218 = icmp ult i64 %indvars.iv.next216, %39
+  %218 = icmp samesign ult i64 %indvars.iv.next216, %39
   br i1 %218, label %.lr.ph, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %217, %.preheader143
@@ -4597,7 +4597,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %81 = icmp ult i64 %indvars.iv.next170, %38
+  %81 = icmp samesign ult i64 %indvars.iv.next170, %38
   br i1 %81, label %.preheader, label %._crit_edge.preheader, !llvm.loop !193
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -4874,7 +4874,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 204:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %205 = icmp ult i64 %indvars.iv.next183, %39
+  %205 = icmp samesign ult i64 %indvars.iv.next183, %39
   br i1 %205, label %.lr.ph, label %._crit_edge157, !llvm.loop !197
 
 ._crit_edge157:                                   ; preds = %204, %.preheader145
@@ -5095,7 +5095,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %79 = icmp ult i64 %indvars.iv.next168, %38
+  %79 = icmp samesign ult i64 %indvars.iv.next168, %38
   br i1 %79, label %.preheader, label %._crit_edge.preheader, !llvm.loop !202
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -5368,7 +5368,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 201:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %202 = icmp ult i64 %indvars.iv.next179, %39
+  %202 = icmp samesign ult i64 %indvars.iv.next179, %39
   br i1 %202, label %.lr.ph, label %._crit_edge157, !llvm.loop !206
 
 ._crit_edge157:                                   ; preds = %201, %.preheader145
@@ -5605,7 +5605,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %88 = icmp ult i64 %indvars.iv.next188, %38
+  %88 = icmp samesign ult i64 %indvars.iv.next188, %38
   br i1 %88, label %.preheader141, label %.preheader145.preheader, !llvm.loop !213
 
 .preheader144:                                    ; preds = %121
@@ -5926,7 +5926,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 224:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %225 = icmp ult i64 %indvars.iv.next211, %39
+  %225 = icmp samesign ult i64 %indvars.iv.next211, %39
   br i1 %225, label %.lr.ph, label %._crit_edge, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %224, %.preheader143
@@ -6165,7 +6165,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %86 = icmp ult i64 %indvars.iv.next190, %38
+  %86 = icmp samesign ult i64 %indvars.iv.next190, %38
   br i1 %86, label %.preheader141, label %.preheader145.preheader, !llvm.loop !226
 
 .preheader144:                                    ; preds = %117
@@ -6489,7 +6489,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 219:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %220 = icmp ult i64 %indvars.iv.next216, %39
+  %220 = icmp samesign ult i64 %indvars.iv.next216, %39
   br i1 %220, label %.lr.ph, label %._crit_edge, !llvm.loop !232
 
 ._crit_edge:                                      ; preds = %219, %.preheader143
@@ -7079,7 +7079,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %89 = icmp ult i64 %indvars.iv.next170, %40
+  %89 = icmp samesign ult i64 %indvars.iv.next170, %40
   br i1 %89, label %.preheader, label %._crit_edge.preheader, !llvm.loop !238
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -7362,7 +7362,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 218:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %219 = icmp ult i64 %indvars.iv.next183, %41
+  %219 = icmp samesign ult i64 %indvars.iv.next183, %41
   br i1 %219, label %.lr.ph, label %._crit_edge157, !llvm.loop !242
 
 ._crit_edge157:                                   ; preds = %218, %.preheader145
@@ -7591,7 +7591,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %87 = icmp ult i64 %indvars.iv.next168, %40
+  %87 = icmp samesign ult i64 %indvars.iv.next168, %40
   br i1 %87, label %.preheader, label %._crit_edge.preheader, !llvm.loop !247
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -7870,7 +7870,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 215:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %216 = icmp ult i64 %indvars.iv.next179, %41
+  %216 = icmp samesign ult i64 %indvars.iv.next179, %41
   br i1 %216, label %.lr.ph, label %._crit_edge157, !llvm.loop !251
 
 ._crit_edge157:                                   ; preds = %215, %.preheader145
@@ -8115,7 +8115,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %96 = icmp ult i64 %indvars.iv.next188, %40
+  %96 = icmp samesign ult i64 %indvars.iv.next188, %40
   br i1 %96, label %.preheader141, label %.preheader145.preheader, !llvm.loop !258
 
 .preheader144:                                    ; preds = %129
@@ -8442,7 +8442,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 238:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %239 = icmp ult i64 %indvars.iv.next211, %41
+  %239 = icmp samesign ult i64 %indvars.iv.next211, %41
   br i1 %239, label %.lr.ph, label %._crit_edge, !llvm.loop !264
 
 ._crit_edge:                                      ; preds = %238, %.preheader143
@@ -8689,7 +8689,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %94 = icmp ult i64 %indvars.iv.next190, %40
+  %94 = icmp samesign ult i64 %indvars.iv.next190, %40
   br i1 %94, label %.preheader141, label %.preheader145.preheader, !llvm.loop !271
 
 .preheader144:                                    ; preds = %125
@@ -9019,7 +9019,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 233:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %234 = icmp ult i64 %indvars.iv.next216, %41
+  %234 = icmp samesign ult i64 %indvars.iv.next216, %41
   br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !277
 
 ._crit_edge:                                      ; preds = %233, %.preheader143
@@ -9627,7 +9627,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %96 = icmp ult i64 %indvars.iv.next170, %42
+  %96 = icmp samesign ult i64 %indvars.iv.next170, %42
   br i1 %96, label %.preheader, label %._crit_edge.preheader, !llvm.loop !283
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -9915,7 +9915,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 230:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %231 = icmp ult i64 %indvars.iv.next183, %43
+  %231 = icmp samesign ult i64 %indvars.iv.next183, %43
   br i1 %231, label %.lr.ph, label %._crit_edge157, !llvm.loop !287
 
 ._crit_edge157:                                   ; preds = %230, %.preheader145
@@ -10151,7 +10151,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %94 = icmp ult i64 %indvars.iv.next168, %42
+  %94 = icmp samesign ult i64 %indvars.iv.next168, %42
   br i1 %94, label %.preheader, label %._crit_edge.preheader, !llvm.loop !292
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -10435,7 +10435,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 227:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %228 = icmp ult i64 %indvars.iv.next179, %43
+  %228 = icmp samesign ult i64 %indvars.iv.next179, %43
   br i1 %228, label %.lr.ph, label %._crit_edge157, !llvm.loop !296
 
 ._crit_edge157:                                   ; preds = %227, %.preheader145
@@ -10687,7 +10687,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %103 = icmp ult i64 %indvars.iv.next188, %42
+  %103 = icmp samesign ult i64 %indvars.iv.next188, %42
   br i1 %103, label %.preheader141, label %.preheader145.preheader, !llvm.loop !303
 
 .preheader144:                                    ; preds = %136
@@ -11019,7 +11019,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 250:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %251 = icmp ult i64 %indvars.iv.next211, %43
+  %251 = icmp samesign ult i64 %indvars.iv.next211, %43
   br i1 %251, label %.lr.ph, label %._crit_edge, !llvm.loop !309
 
 ._crit_edge:                                      ; preds = %250, %.preheader143
@@ -11273,7 +11273,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %101 = icmp ult i64 %indvars.iv.next190, %42
+  %101 = icmp samesign ult i64 %indvars.iv.next190, %42
   br i1 %101, label %.preheader141, label %.preheader145.preheader, !llvm.loop !316
 
 .preheader144:                                    ; preds = %132
@@ -11608,7 +11608,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 245:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %246 = icmp ult i64 %indvars.iv.next216, %43
+  %246 = icmp samesign ult i64 %indvars.iv.next216, %43
   br i1 %246, label %.lr.ph, label %._crit_edge, !llvm.loop !322
 
 ._crit_edge:                                      ; preds = %245, %.preheader143
@@ -12236,7 +12236,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %105 = icmp ult i64 %indvars.iv.next170, %44
+  %105 = icmp samesign ult i64 %indvars.iv.next170, %44
   br i1 %105, label %.preheader, label %._crit_edge.preheader, !llvm.loop !328
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -12531,7 +12531,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 246:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %247 = icmp ult i64 %indvars.iv.next183, %45
+  %247 = icmp samesign ult i64 %indvars.iv.next183, %45
   br i1 %247, label %.lr.ph, label %._crit_edge157, !llvm.loop !332
 
 ._crit_edge157:                                   ; preds = %246, %.preheader145
@@ -12776,7 +12776,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %103 = icmp ult i64 %indvars.iv.next168, %44
+  %103 = icmp samesign ult i64 %indvars.iv.next168, %44
   br i1 %103, label %.preheader, label %._crit_edge.preheader, !llvm.loop !337
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -13067,7 +13067,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 243:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %244 = icmp ult i64 %indvars.iv.next179, %45
+  %244 = icmp samesign ult i64 %indvars.iv.next179, %45
   br i1 %244, label %.lr.ph, label %._crit_edge157, !llvm.loop !341
 
 ._crit_edge157:                                   ; preds = %243, %.preheader145
@@ -13328,7 +13328,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %112 = icmp ult i64 %indvars.iv.next188, %44
+  %112 = icmp samesign ult i64 %indvars.iv.next188, %44
   br i1 %112, label %.preheader141, label %.preheader145.preheader, !llvm.loop !348
 
 .preheader144:                                    ; preds = %145
@@ -13667,7 +13667,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 266:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %267 = icmp ult i64 %indvars.iv.next211, %45
+  %267 = icmp samesign ult i64 %indvars.iv.next211, %45
   br i1 %267, label %.lr.ph, label %._crit_edge, !llvm.loop !354
 
 ._crit_edge:                                      ; preds = %266, %.preheader143
@@ -13930,7 +13930,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %110 = icmp ult i64 %indvars.iv.next190, %44
+  %110 = icmp samesign ult i64 %indvars.iv.next190, %44
   br i1 %110, label %.preheader141, label %.preheader145.preheader, !llvm.loop !361
 
 .preheader144:                                    ; preds = %141
@@ -14272,7 +14272,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 261:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %262 = icmp ult i64 %indvars.iv.next216, %45
+  %262 = icmp samesign ult i64 %indvars.iv.next216, %45
   br i1 %262, label %.lr.ph, label %._crit_edge, !llvm.loop !367
 
 ._crit_edge:                                      ; preds = %261, %.preheader143
@@ -14976,7 +14976,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
-  %137 = icmp ult i64 %indvars.iv.next170, %52
+  %137 = icmp samesign ult i64 %indvars.iv.next170, %52
   br i1 %137, label %.preheader, label %._crit_edge.preheader, !llvm.loop !373
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -15295,7 +15295,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 302:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %303 = icmp ult i64 %indvars.iv.next183, %53
+  %303 = icmp samesign ult i64 %indvars.iv.next183, %53
   br i1 %303, label %.lr.ph, label %._crit_edge157, !llvm.loop !377
 
 ._crit_edge157:                                   ; preds = %302, %.preheader145
@@ -15572,7 +15572,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge105
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 8
-  %135 = icmp ult i64 %indvars.iv.next168, %52
+  %135 = icmp samesign ult i64 %indvars.iv.next168, %52
   br i1 %135, label %.preheader, label %._crit_edge.preheader, !llvm.loop !382
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit113
@@ -15887,7 +15887,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 
 299:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %300 = icmp ult i64 %indvars.iv.next179, %53
+  %300 = icmp samesign ult i64 %indvars.iv.next179, %53
   br i1 %300, label %.lr.ph, label %._crit_edge157, !llvm.loop !386
 
 ._crit_edge157:                                   ; preds = %299, %.preheader145
@@ -16180,7 +16180,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 16
-  %144 = icmp ult i64 %indvars.iv.next188, %52
+  %144 = icmp samesign ult i64 %indvars.iv.next188, %52
   br i1 %144, label %.preheader141, label %.preheader145.preheader, !llvm.loop !393
 
 .preheader144:                                    ; preds = %177
@@ -16543,7 +16543,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 322:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %323 = icmp ult i64 %indvars.iv.next211, %53
+  %323 = icmp samesign ult i64 %indvars.iv.next211, %53
   br i1 %323, label %.lr.ph, label %._crit_edge, !llvm.loop !399
 
 ._crit_edge:                                      ; preds = %322, %.preheader143
@@ -16838,7 +16838,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader140
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 32
-  %142 = icmp ult i64 %indvars.iv.next190, %52
+  %142 = icmp samesign ult i64 %indvars.iv.next190, %52
   br i1 %142, label %.preheader141, label %.preheader145.preheader, !llvm.loop !406
 
 .preheader144:                                    ; preds = %173
@@ -17204,7 +17204,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 
 317:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %318 = icmp ult i64 %indvars.iv.next216, %53
+  %318 = icmp samesign ult i64 %indvars.iv.next216, %53
   br i1 %318, label %.lr.ph, label %._crit_edge, !llvm.loop !412
 
 ._crit_edge:                                      ; preds = %317, %.preheader143
@@ -18049,7 +18049,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge106
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 8
-  %84 = icmp ult i64 %indvars.iv.next171, %44
+  %84 = icmp samesign ult i64 %indvars.iv.next171, %44
   br i1 %84, label %.preheader, label %._crit_edge.preheader, !llvm.loop !419
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit114
@@ -18323,7 +18323,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 
 204:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %205 = icmp ult i64 %indvars.iv.next184, %45
+  %205 = icmp samesign ult i64 %indvars.iv.next184, %45
   br i1 %205, label %.lr.ph, label %._crit_edge158, !llvm.loop !423
 
 ._crit_edge158:                                   ; preds = %204, %.preheader146
@@ -18547,7 +18547,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.critedge106
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 8
-  %82 = icmp ult i64 %indvars.iv.next169, %44
+  %82 = icmp samesign ult i64 %indvars.iv.next169, %44
   br i1 %82, label %.preheader, label %._crit_edge.preheader, !llvm.loop !428
 
 ._crit_edge.preheader:                            ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit, %_ZN5faiss11simd8uint32C2Ej.exit114
@@ -18817,7 +18817,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 
 201:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %202 = icmp ult i64 %indvars.iv.next180, %45
+  %202 = icmp samesign ult i64 %indvars.iv.next180, %45
   br i1 %202, label %.lr.ph, label %._crit_edge158, !llvm.loop !432
 
 ._crit_edge158:                                   ; preds = %201, %.preheader146
@@ -19057,7 +19057,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader141
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 16
-  %91 = icmp ult i64 %indvars.iv.next189, %44
+  %91 = icmp samesign ult i64 %indvars.iv.next189, %44
   br i1 %91, label %.preheader142, label %.preheader146.preheader, !llvm.loop !439
 
 .preheader145:                                    ; preds = %124
@@ -19375,7 +19375,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 
 224:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %225 = icmp ult i64 %indvars.iv.next212, %45
+  %225 = icmp samesign ult i64 %indvars.iv.next212, %45
   br i1 %225, label %.lr.ph, label %._crit_edge, !llvm.loop !445
 
 ._crit_edge:                                      ; preds = %224, %.preheader144
@@ -19617,7 +19617,7 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 
 _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader141
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 32
-  %89 = icmp ult i64 %indvars.iv.next191, %44
+  %89 = icmp samesign ult i64 %indvars.iv.next191, %44
   br i1 %89, label %.preheader142, label %.preheader146.preheader, !llvm.loop !452
 
 .preheader145:                                    ; preds = %120
@@ -19938,7 +19938,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 
 219:                                              ; preds = %.lr.ph, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %220 = icmp ult i64 %indvars.iv.next217, %45
+  %220 = icmp samesign ult i64 %indvars.iv.next217, %45
   br i1 %220, label %.lr.ph, label %._crit_edge, !llvm.loop !458
 
 ._crit_edge:                                      ; preds = %219, %.preheader144
@@ -20253,7 +20253,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
   %.pre-phi.i.i.i = phi i64 [ %.pre161.i.i.i, %._crit_edge122.us.loopexit.i.i.i ], [ %129, %.preheader.us.i.i.i ]
   %.1.lcssa.us.i.i.i = phi i32 [ %118, %._crit_edge122.us.loopexit.i.i.i ], [ %.056123.us.i.i.i, %.preheader.us.i.i.i ]
   %indvars.iv.next153.i.i.i = add nuw nsw i64 %indvars.iv152.i.i.i, 1
-  %119 = icmp ult i64 %indvars.iv152.i.i.i, 32
+  %119 = icmp samesign ult i64 %indvars.iv152.i.i.i, 32
   %120 = icmp ugt i64 %4, %.pre-phi.i.i.i
   %121 = select i1 %119, i1 %120, i1 false
   br i1 %121, label %.preheader.us.i.i.i, label %..preheader113_crit_edge.us.i.i.i, !llvm.loop !480
@@ -20265,7 +20265,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
   store i32 %136, ptr %gep186, align 4, !alias.scope !463, !noalias !478
   %indvars.iv.next148.i.i.i = add i64 %indvars.iv147.i.i.i, 1
   %indvars.iv.next146.i.i.i = add nuw nsw i64 %indvars.iv145.i.i.i, 1
-  %123 = icmp ult i64 %indvars.iv.next146.i.i.i, %135
+  %123 = icmp samesign ult i64 %indvars.iv.next146.i.i.i, %135
   %124 = icmp ugt i64 %4, %indvars.iv.next148.i.i.i
   %125 = and i1 %123, %124
   br i1 %125, label %122, label %._crit_edge122.us.loopexit.i.i.i, !llvm.loop !481
@@ -20616,7 +20616,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
   %.pre-phi.i.i95.i = phi i64 [ %.pre158.i.i.i, %._crit_edge119.us.loopexit.i.i.i ], [ %233, %.preheader.us.i.i94.i ]
   %.1.lcssa.us.i.i96.i = phi i32 [ %222, %._crit_edge119.us.loopexit.i.i.i ], [ %.056120.us.i.i.i, %.preheader.us.i.i94.i ]
   %indvars.iv.next150.i.i.i = add nuw nsw i64 %indvars.iv149.i.i.i, 1
-  %223 = icmp ult i64 %indvars.iv149.i.i.i, 64
+  %223 = icmp samesign ult i64 %indvars.iv149.i.i.i, 64
   %224 = icmp ugt i64 %4, %.pre-phi.i.i95.i
   %225 = select i1 %223, i1 %224, i1 false
   br i1 %225, label %.preheader.us.i.i94.i, label %..preheader110_crit_edge.us.i.i.i, !llvm.loop !506
@@ -20628,7 +20628,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
   store i32 %240, ptr %gep182, align 4, !alias.scope !489, !noalias !504
   %indvars.iv.next145.i.i.i = add i64 %indvars.iv144.i.i.i, 1
   %indvars.iv.next143.i.i.i = add nuw nsw i64 %indvars.iv142.i.i.i, 1
-  %227 = icmp ult i64 %indvars.iv.next143.i.i.i, %239
+  %227 = icmp samesign ult i64 %indvars.iv.next143.i.i.i, %239
   %228 = icmp ugt i64 %4, %indvars.iv.next145.i.i.i
   %229 = and i1 %227, %228
   br i1 %229, label %226, label %._crit_edge119.us.loopexit.i.i.i, !llvm.loop !507
@@ -20975,7 +20975,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
   %.pre-phi.i.i179.i = phi i64 [ %.pre161.i.i195.i, %._crit_edge122.us.loopexit.i.i193.i ], [ %339, %.preheader.us.i.i175.i ]
   %.1.lcssa.us.i.i180.i = phi i32 [ %328, %._crit_edge122.us.loopexit.i.i193.i ], [ %.056123.us.i.i177.i, %.preheader.us.i.i175.i ]
   %indvars.iv.next153.i.i181.i = add nuw nsw i64 %indvars.iv152.i.i176.i, 1
-  %329 = icmp ult i64 %indvars.iv152.i.i176.i, 128
+  %329 = icmp samesign ult i64 %indvars.iv152.i.i176.i, 128
   %330 = icmp ugt i64 %4, %.pre-phi.i.i179.i
   %331 = select i1 %329, i1 %330, i1 false
   br i1 %331, label %.preheader.us.i.i175.i, label %..preheader113_crit_edge.us.i.i182.i, !llvm.loop !531
@@ -20987,7 +20987,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
   store i32 %346, ptr %gep178, align 4, !alias.scope !514, !noalias !529
   %indvars.iv.next148.i.i191.i = add i64 %indvars.iv147.i.i189.i, 1
   %indvars.iv.next146.i.i192.i = add nuw nsw i64 %indvars.iv145.i.i190.i, 1
-  %333 = icmp ult i64 %indvars.iv.next146.i.i192.i, %345
+  %333 = icmp samesign ult i64 %indvars.iv.next146.i.i192.i, %345
   %334 = icmp ugt i64 %4, %indvars.iv.next148.i.i191.i
   %335 = and i1 %333, %334
   br i1 %335, label %332, label %._crit_edge122.us.loopexit.i.i193.i, !llvm.loop !532
@@ -21341,7 +21341,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
   %.pre-phi.i.i252.i = phi i64 [ %.pre166.i.i.i, %._crit_edge127.us.loopexit.i.i.i ], [ %448, %.preheader.us.i.i251.i ]
   %.1.lcssa.us.i.i253.i = phi i32 [ %437, %._crit_edge127.us.loopexit.i.i.i ], [ %.056128.us.i.i.i, %.preheader.us.i.i251.i ]
   %indvars.iv.next158.i.i.i = add nuw nsw i64 %indvars.iv157.i.i.i, 1
-  %438 = icmp ult i64 %indvars.iv157.i.i.i, 160
+  %438 = icmp samesign ult i64 %indvars.iv157.i.i.i, 160
   %439 = icmp ugt i64 %4, %.pre-phi.i.i252.i
   %440 = select i1 %438, i1 %439, i1 false
   br i1 %440, label %.preheader.us.i.i251.i, label %..preheader118_crit_edge.us.i.i.i, !llvm.loop !556
@@ -21353,7 +21353,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
   store i32 %455, ptr %gep174, align 4, !alias.scope !539, !noalias !554
   %indvars.iv.next153.i.i255.i = add i64 %indvars.iv152.i.i254.i, 1
   %indvars.iv.next151.i.i.i = add nuw nsw i64 %indvars.iv150.i.i.i, 1
-  %442 = icmp ult i64 %indvars.iv.next151.i.i.i, %454
+  %442 = icmp samesign ult i64 %indvars.iv.next151.i.i.i, %454
   %443 = icmp ugt i64 %4, %indvars.iv.next153.i.i255.i
   %444 = and i1 %442, %443
   br i1 %444, label %441, label %._crit_edge127.us.loopexit.i.i.i, !llvm.loop !557
@@ -21712,7 +21712,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
   %.pre-phi.i.i316.i = phi i64 [ %.pre165.i.i321.i, %._crit_edge126.us.loopexit.i.i.i ], [ %558, %.preheader.us.i.i315.i ]
   %.1.lcssa.us.i.i317.i = phi i32 [ %547, %._crit_edge126.us.loopexit.i.i.i ], [ %.056127.us.i.i.i, %.preheader.us.i.i315.i ]
   %indvars.iv.next157.i.i.i = add nuw nsw i64 %indvars.iv156.i.i.i, 1
-  %548 = icmp ult i64 %indvars.iv156.i.i.i, 256
+  %548 = icmp samesign ult i64 %indvars.iv156.i.i.i, 256
   %549 = icmp ugt i64 %4, %.pre-phi.i.i316.i
   %550 = select i1 %548, i1 %549, i1 false
   br i1 %550, label %.preheader.us.i.i315.i, label %..preheader117_crit_edge.us.i.i.i, !llvm.loop !581
@@ -21724,7 +21724,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
   store i32 %565, ptr %gep170, align 4, !alias.scope !564, !noalias !579
   %indvars.iv.next152.i.i.i = add i64 %indvars.iv151.i.i.i, 1
   %indvars.iv.next150.i.i319.i = add nuw nsw i64 %indvars.iv149.i.i318.i, 1
-  %552 = icmp ult i64 %indvars.iv.next150.i.i319.i, %564
+  %552 = icmp samesign ult i64 %indvars.iv.next150.i.i319.i, %564
   %553 = icmp ugt i64 %4, %indvars.iv.next152.i.i.i
   %554 = and i1 %552, %553
   br i1 %554, label %551, label %._crit_edge126.us.loopexit.i.i.i, !llvm.loop !582
@@ -22107,7 +22107,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
   %.pre-phi.i.i383.i = phi i64 [ %.pre173.i.i.i, %._crit_edge134.us.loopexit.i.i.i ], [ %676, %.preheader.us.i.i382.i ]
   %.1.lcssa.us.i.i384.i = phi i32 [ %665, %._crit_edge134.us.loopexit.i.i.i ], [ %.056135.us.i.i.i, %.preheader.us.i.i382.i ]
   %indvars.iv.next165.i.i.i = add nuw nsw i64 %indvars.iv164.i.i.i, 1
-  %666 = icmp ult i64 %indvars.iv164.i.i.i, 512
+  %666 = icmp samesign ult i64 %indvars.iv164.i.i.i, 512
   %667 = icmp ugt i64 %4, %.pre-phi.i.i383.i
   %668 = select i1 %666, i1 %667, i1 false
   br i1 %668, label %.preheader.us.i.i382.i, label %..preheader125_crit_edge.us.i.i.i, !llvm.loop !606
@@ -22119,7 +22119,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
   store i32 %683, ptr %gep, align 4, !alias.scope !589, !noalias !604
   %indvars.iv.next160.i.i387.i = add i64 %indvars.iv159.i.i385.i, 1
   %indvars.iv.next158.i.i388.i = add nuw nsw i64 %indvars.iv157.i.i386.i, 1
-  %670 = icmp ult i64 %indvars.iv.next158.i.i388.i, %682
+  %670 = icmp samesign ult i64 %indvars.iv.next158.i.i388.i, %682
   %671 = icmp ugt i64 %4, %indvars.iv.next160.i.i387.i
   %672 = and i1 %670, %671
   br i1 %672, label %669, label %._crit_edge134.us.loopexit.i.i.i, !llvm.loop !607
@@ -22479,7 +22479,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
   %.pre-phi.i.i454.i = phi i64 [ %.pre163.i.i463.i, %._crit_edge124.us.loopexit.i.i.i ], [ %789, %.preheader.us.i.i453.i ]
   %.1.lcssa.us.i.i455.i = phi i32 [ %778, %._crit_edge124.us.loopexit.i.i.i ], [ %.056125.us.i.i.i, %.preheader.us.i.i453.i ]
   %indvars.iv.next155.i.i.i = add nuw nsw i64 %indvars.iv154.i.i.i, 1
-  %779 = icmp ult i64 %indvars.iv154.i.i.i, %771
+  %779 = icmp samesign ult i64 %indvars.iv154.i.i.i, %771
   %780 = icmp ugt i64 %4, %.pre-phi.i.i454.i
   %781 = select i1 %779, i1 %780, i1 false
   br i1 %781, label %.preheader.us.i.i453.i, label %..preheader115_crit_edge.us.i.i.i, !llvm.loop !629
@@ -22491,7 +22491,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
   store i32 %796, ptr %gep190, align 4, !alias.scope !611, !noalias !627
   %indvars.iv.next150.i.i460.i = add i64 %indvars.iv149.i.i458.i, 1
   %indvars.iv.next148.i.i461.i = add nuw nsw i64 %indvars.iv147.i.i459.i, 1
-  %783 = icmp ult i64 %indvars.iv.next148.i.i461.i, %795
+  %783 = icmp samesign ult i64 %indvars.iv.next148.i.i461.i, %795
   %784 = icmp ugt i64 %4, %indvars.iv.next150.i.i460.i
   %785 = and i1 %783, %784
   br i1 %785, label %782, label %._crit_edge124.us.loopexit.i.i.i, !llvm.loop !630
@@ -26976,7 +26976,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr noal
   %57 = or i8 %55, %56
   store i8 %57, ptr %54, align 1
   %58 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp ult i64 %.01318.i, 256
+  %.not16.i = icmp samesign ult i64 %.01318.i, 256
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !841
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %36, %44
@@ -27195,7 +27195,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr no
   %59 = or i8 %57, %58
   store i8 %59, ptr %56, align 1
   %60 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp ult i64 %.01318.i, 256
+  %.not16.i = icmp samesign ult i64 %.01318.i, 256
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !841
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %38, %46

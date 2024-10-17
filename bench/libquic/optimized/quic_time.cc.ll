@@ -17,7 +17,7 @@ entry:
   %time_offset_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %time_offset_, align 8
   %1 = tail call noundef i64 @llvm.abs.i64(i64 %0, i1 true)
-  %cmp = icmp ugt i64 %1, 1000000
+  %cmp = icmp samesign ugt i64 %1, 1000000
   %rem = urem i64 %1, 1000000
   %cmp2 = icmp eq i64 %rem, 0
   %or.cond = and i1 %cmp, %cmp2
@@ -29,7 +29,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i64 %1, 1000
+  %cmp4 = icmp samesign ugt i64 %1, 1000
   %rem6 = urem i64 %1, 1000
   %cmp7 = icmp eq i64 %rem6, 0
   %or.cond4 = and i1 %cmp4, %cmp7

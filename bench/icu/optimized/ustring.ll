@@ -3016,8 +3016,8 @@ if.then80:                                        ; preds = %for.body
 if.else85:                                        ; preds = %for.body
   %cmp89 = icmp uge i16 %call, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp77 = icmp ult i64 %indvars.iv, 14
-  %or.cond140 = and i1 %cmp89, %cmp77
+  %cmp77 = icmp samesign ult i64 %indvars.iv, 14
+  %or.cond140 = select i1 %cmp89, i1 %cmp77, i1 false
   br i1 %or.cond140, label %for.body, label %for.end, !llvm.loop !48
 
 for.end:                                          ; preds = %if.else85

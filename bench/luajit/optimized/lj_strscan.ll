@@ -298,7 +298,7 @@ while.body229:                                    ; preds = %land.rhs223
   br i1 %exitcond.not, label %if.end235, label %land.rhs223, !llvm.loop !7
 
 while.end231:                                     ; preds = %land.rhs223
-  %cmp232 = icmp ult i32 %ex.1193, -1048575
+  %cmp232 = icmp samesign ult i32 %ex.1193, -1048575
   br i1 %cmp232, label %return, label %if.end235
 
 if.end235:                                        ; preds = %while.body229, %if.then216, %while.end231
@@ -371,7 +371,7 @@ while.body284:                                    ; preds = %while.cond278
   %48 = and i8 %45, 15
   %and287 = zext nneg i8 %48 to i32
   %add288 = add nuw nsw i32 %mul285, %and287
-  %cmp289 = icmp ugt i32 %add288, 1048575
+  %cmp289 = icmp samesign ugt i32 %add288, 1048575
   br i1 %cmp289, label %return, label %while.cond278, !llvm.loop !8
 
 while.end294:                                     ; preds = %while.cond278
@@ -1417,7 +1417,7 @@ for.end254:                                       ; preds = %if.end241, %while.b
   %lo.1.lcssa = phi i32 [ %lo.0217, %while.body220 ], [ %lo.2, %if.end241 ]
   %add229.lcssa = phi i32 [ %shl200, %while.body220 ], [ %add229, %if.end241 ]
   %shr232.lcssa = phi i32 [ %shr232203, %while.body220 ], [ %shr232, %if.end241 ]
-  %tobool255.not = icmp ult i32 %add229.lcssa, 100
+  %tobool255.not = icmp samesign ult i32 %add229.lcssa, 100
   br i1 %tobool255.not, label %if.end291, label %if.then256
 
 if.then256:                                       ; preds = %for.end254
@@ -1466,7 +1466,7 @@ while.end292:                                     ; preds = %if.end291, %while.c
   %lo.0.lcssa = phi i32 [ %conv193, %while.cond211.preheader ], [ %lo.3, %if.end291 ]
   %ex2.0.lcssa = phi i32 [ 0, %while.cond211.preheader ], [ %sub222, %if.end291 ]
   %idig.0.lcssa = phi i32 [ %add195, %while.cond211.preheader ], [ %idig.1, %if.end291 ]
-  %cmp294232 = icmp ugt i32 %idig.0.lcssa, 9
+  %cmp294232 = icmp samesign ugt i32 %idig.0.lcssa, 9
   br i1 %cmp294232, label %while.body296, label %while.end353
 
 while.body296:                                    ; preds = %while.end292, %while.end352

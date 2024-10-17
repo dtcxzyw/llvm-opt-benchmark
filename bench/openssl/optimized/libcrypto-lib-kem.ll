@@ -221,7 +221,7 @@ for.inc:                                          ; preds = %sw.bb, %if.end75, %
   %provkey.1 = phi ptr [ %provkey.291, %if.then78 ], [ %call60, %if.end75 ], [ null, %sw.bb ]
   %provauthkey.1 = phi ptr [ %provauthkey.292, %if.then78 ], [ %provauthkey.2.ph, %if.end75 ], [ %provauthkey.0102, %sw.bb ]
   %inc = add nuw nsw i32 %iter.0103, 1
-  %cmp27 = icmp ult i32 %iter.0103, 2
+  %cmp27 = icmp samesign ult i32 %iter.0103, 2
   %cmp29 = icmp eq ptr %provkey.1, null
   %21 = and i1 %cmp29, %cmp27
   br i1 %21, label %for.body, label %for.end, !llvm.loop !4

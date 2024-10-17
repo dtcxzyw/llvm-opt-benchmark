@@ -104,7 +104,7 @@ qcrypto_der_invoke_callback.exit.i.i:             ; preds = %if.end.i.i
 
 if.end12.i.i:                                     ; preds = %if.end4.i
   %and14.i.i = and i8 %data.val.val.i14, 127
-  %cmp17.i.i = icmp ugt i8 %and14.i.i, 8
+  %cmp17.i.i = icmp samesign ugt i8 %and14.i.i, 8
   br i1 %cmp17.i.i, label %if.then19.i.i, label %if.end21.i.i
 
 if.then19.i.i:                                    ; preds = %if.end12.i.i

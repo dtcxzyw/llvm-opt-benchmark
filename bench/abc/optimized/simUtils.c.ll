@@ -1127,7 +1127,7 @@ Sim_UtilCountOnes.exit.loopexit.us:               ; preds = %.lr.ph.i.us
   %29 = getelementptr inbounds i32, ptr %.val12, i64 %indvars.iv17
   store i32 %28, ptr %29, align 4
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %30 = icmp ult i64 %indvars.iv.next18, %20
+  %30 = icmp samesign ult i64 %indvars.iv.next18, %20
   br i1 %30, label %.lr.ph.preheader.i.us, label %.critedge, !llvm.loop !32
 
 Sim_UtilCountOnes.exit:                           ; preds = %Sim_UtilCountOnes.exit.preheader, %Sim_UtilCountOnes.exit
@@ -1135,7 +1135,7 @@ Sim_UtilCountOnes.exit:                           ; preds = %Sim_UtilCountOnes.e
   %31 = getelementptr inbounds i32, ptr %.val12, i64 %indvars.iv
   store i32 0, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp ult i64 %indvars.iv.next, %18
+  %32 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %32, label %Sim_UtilCountOnes.exit, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %Sim_UtilCountOnes.exit, %Sim_UtilCountOnes.exit.loopexit.us, %Vec_IntStart.exit

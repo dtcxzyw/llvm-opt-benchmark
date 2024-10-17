@@ -3999,7 +3999,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   %reass.sub = sub i32 %.neg, %.1
   %145 = add i32 %reass.sub, -3
   %146 = icmp uge i32 %145, %101
-  %147 = icmp ult i32 %111, %105
+  %147 = icmp samesign ult i32 %111, %105
   %148 = select i1 %146, i1 %147, i1 false
   br i1 %148, label %109, label %.loopexit, !llvm.loop !18
 
@@ -4661,7 +4661,7 @@ switch.lookup:                                    ; preds = %.preheader
   %66 = sub i32 %65, %3
   %67 = sub i32 %4, %66
   %68 = icmp ugt i32 %67, 5
-  %69 = icmp ult i32 %29, %24
+  %69 = icmp samesign ult i32 %29, %24
   %70 = and i1 %69, %68
   br i1 %70, label %.preheader, label %71, !llvm.loop !23
 
@@ -5119,7 +5119,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
   %84 = load i32, ptr @hf_ansi_a_is2000_scr_socr_rlp_blob_msb, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %84, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef 0) #5
   %86 = add i32 %.0231247, 7
-  %87 = icmp ugt i32 %81, 1
+  %87 = icmp samesign ugt i32 %81, 1
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %74
@@ -5327,7 +5327,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   %reass.sub = sub i32 %.neg, %.1
   %56 = and i32 %reass.sub, -4
   %57 = icmp ne i32 %56, 4
-  %58 = icmp ult i32 %32, %26
+  %58 = icmp samesign ult i32 %32, %26
   %59 = and i1 %58, %57
   br i1 %59, label %30, label %.loopexit, !llvm.loop !25
 
@@ -6341,7 +6341,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
   %48 = sub i32 %44, %3
   %49 = sub i32 %4, %48
   %50 = icmp ugt i32 %49, 2
-  %51 = icmp ult i32 %22, %13
+  %51 = icmp samesign ult i32 %22, %13
   %52 = and i1 %51, %50
   br i1 %52, label %.preheader, label %53, !llvm.loop !29
 
@@ -7081,7 +7081,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   %47 = phi i1 [ false, %33 ], [ true, %45 ], [ false, %44 ]
   %.not241 = phi i1 [ true, %33 ], [ true, %45 ], [ false, %44 ]
   %48 = and i32 %41, 15
-  %49 = icmp ugt i32 %48, 9
+  %49 = icmp samesign ugt i32 %48, 9
   %. = select i1 %49, i32 16000, i32 8000
   %50 = call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @ansi_a_a2p_bearer_form_format_format_id_vals, ptr noundef nonnull @.str.275) #5
   %51 = load ptr, ptr %7, align 8

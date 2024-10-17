@@ -165,7 +165,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   %81 = lshr i32 %79, 1
   %82 = or i32 %81, %80
   %83 = or i32 %82, 65535
-  %84 = icmp ugt i32 %83, 16777216
+  %84 = icmp samesign ugt i32 %83, 16777216
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %70
@@ -178,10 +178,10 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   %.098 = phi i32 [ %83, %70 ], [ 65535, %67 ], [ %spec.select112, %85 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %.098, ptr %89, align 8
-  %90 = icmp ugt i32 %65, 2
+  %90 = icmp samesign ugt i32 %65, 2
   %spec.select111.v = select i1 %90, i32 1025, i32 1
   %spec.select111 = add nuw nsw i32 %.098, %spec.select111.v
-  %91 = icmp ugt i32 %65, 3
+  %91 = icmp samesign ugt i32 %65, 3
   %92 = add nuw nsw i32 %spec.select111, 65536
   %.2 = select i1 %91, i32 %92, i32 %spec.select111
   %93 = getelementptr inbounds i8, ptr %0, i64 108

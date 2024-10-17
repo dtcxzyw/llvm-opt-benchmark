@@ -11462,7 +11462,7 @@ _ZNSt6vectorIP10AstSenItemSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vector
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %103
@@ -19844,7 +19844,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i.i.i.i: 
   %284 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %285 = load i8, ptr %284, align 4
   %286 = and i8 %285, 1
-  %287 = icmp ult i8 %286, %278
+  %287 = icmp samesign ult i8 %286, %278
   br i1 %287, label %288, label %289
 
 288:                                              ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i.i.i.i, %282
@@ -19876,7 +19876,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i: ; pred
   %297 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %298 = load i8, ptr %297, align 4
   %299 = and i8 %298, 1
-  %300 = icmp ult i8 %278, %299
+  %300 = icmp samesign ult i8 %278, %299
   br i1 %300, label %.critedge.i, label %302
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i, %295, %_ZNSt3mapIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt6vectorIP11AstNodeExprSaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, %272
@@ -21232,7 +21232,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %36, %_ZNK7AstNode6i
 
 49:                                               ; preds = %_ZNK7AstNode6isWideEv.exit.thread
   %50 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %47)
-  %51 = icmp ugt i32 %50, 1
+  %51 = icmp samesign ugt i32 %50, 1
   br label %52
 
 52:                                               ; preds = %_ZN7AstNode11privateCastI10AstWordSelPS_EEPT_S2_.exit._crit_edge, %42, %49, %_ZNK7AstNode6isWideEv.exit.thread
@@ -21278,7 +21278,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %36, %_ZNK7AstNode6i
 
 71:                                               ; preds = %59
   %72 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %58)
-  %73 = icmp ult i64 %72, 2
+  %73 = icmp samesign ult i64 %72, 2
   br i1 %73, label %74, label %160
 
 74:                                               ; preds = %71
@@ -22289,7 +22289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -27432,7 +27432,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14Froz
   %31 = and i8 %30, 1
   %32 = load i8, ptr %29, align 4
   %33 = and i8 %32, 1
-  %34 = icmp ult i8 %31, %33
+  %34 = icmp samesign ult i8 %31, %33
   br label %.thread
 
 .thread:                                          ; preds = %18, %26, %28
@@ -27500,7 +27500,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit: ; preds 
   %20 = and i8 %19, 1
   %21 = load i8, ptr %2, align 4
   %22 = and i8 %21, 1
-  %23 = icmp ult i8 %20, %22
+  %23 = icmp samesign ult i8 %20, %22
   br i1 %23, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %24
 
 24:                                               ; preds = %16, %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit, %6
@@ -27531,7 +27531,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i: ; pred
   %34 = getelementptr inbounds i8, ptr %.02329.i, i64 32
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 1
-  %37 = icmp ult i8 %29, %36
+  %37 = icmp samesign ult i8 %29, %36
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i, %32
@@ -27583,7 +27583,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i: ; pre
   %52 = and i8 %51, 1
   %53 = load i8, ptr %2, align 4
   %54 = and i8 %53, 1
-  %55 = icmp ult i8 %52, %54
+  %55 = icmp samesign ult i8 %52, %54
   br i1 %55, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %56
 
 56:                                               ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i, %48
@@ -27607,7 +27607,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit12: ; pred
   %66 = and i8 %65, 1
   %67 = load i8, ptr %64, align 4
   %68 = and i8 %67, 1
-  %69 = icmp ult i8 %66, %68
+  %69 = icmp samesign ult i8 %66, %68
   br i1 %69, label %70, label %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit40
 
 70:                                               ; preds = %62, %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit12
@@ -27633,7 +27633,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit15: ; pred
   %82 = and i8 %81, 1
   %83 = load i8, ptr %2, align 4
   %84 = and i8 %83, 1
-  %85 = icmp ult i8 %82, %84
+  %85 = icmp samesign ult i8 %82, %84
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %78, %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit15
@@ -27670,7 +27670,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i36: ; pr
   %98 = getelementptr inbounds i8, ptr %.02329.i19, i64 32
   %99 = load i8, ptr %98, align 4
   %100 = and i8 %99, 1
-  %101 = icmp ult i8 %93, %100
+  %101 = icmp samesign ult i8 %93, %100
   br i1 %101, label %102, label %.thread93
 
 102:                                              ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i36, %96
@@ -27717,7 +27717,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i33: ; p
   %113 = and i8 %112, 1
   %114 = load i8, ptr %2, align 4
   %115 = and i8 %114, 1
-  %116 = icmp ult i8 %113, %115
+  %116 = icmp samesign ult i8 %113, %115
   br i1 %116, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %117
 
 117:                                              ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i33, %109
@@ -27728,7 +27728,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i33: ; p
   br i1 %119, label %121, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit40: ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit12
-  %120 = icmp ult i8 %68, %66
+  %120 = icmp samesign ult i8 %68, %66
   br i1 %120, label %121, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit
 
 121:                                              ; preds = %118, %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit40
@@ -27754,7 +27754,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit43: ; pred
   %133 = and i8 %132, 1
   %134 = load i8, ptr %131, align 4
   %135 = and i8 %134, 1
-  %136 = icmp ult i8 %133, %135
+  %136 = icmp samesign ult i8 %133, %135
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %129, %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit43
@@ -27791,7 +27791,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i64: ; pr
   %149 = getelementptr inbounds i8, ptr %.02329.i47, i64 32
   %150 = load i8, ptr %149, align 4
   %151 = and i8 %150, 1
-  %152 = icmp ult i8 %144, %151
+  %152 = icmp samesign ult i8 %144, %151
   br i1 %152, label %153, label %.thread101
 
 153:                                              ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit.i64, %147
@@ -27840,7 +27840,7 @@ _ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i61: ; p
   %166 = and i8 %165, 1
   %167 = load i8, ptr %2, align 4
   %168 = and i8 %167, 1
-  %169 = icmp ult i8 %166, %168
+  %169 = icmp samesign ult i8 %166, %168
   br i1 %169, label %_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %170
 
 170:                                              ; preds = %_ZNKSt4lessIN21ConstBitOpTreeVisitor14FrozenNodeInfoEEclERKS1_S4_.exit7.i61, %162

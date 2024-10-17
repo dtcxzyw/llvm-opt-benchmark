@@ -1801,7 +1801,7 @@ define internal fastcc void @folio_batch_move_lru(ptr nocapture noundef %0, ptr 
   %34 = add nuw nsw i64 %8, 1
   %35 = load i8, ptr %0, align 8
   %36 = zext i8 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %.split.us, label %.split5.us, !llvm.loop !62
 
 .split:                                           ; preds = %5, %68
@@ -1857,7 +1857,7 @@ define internal fastcc void @folio_batch_move_lru(ptr nocapture noundef %0, ptr 
   %71 = add nuw nsw i64 %38, 1
   %72 = load i8, ptr %0, align 8
   %73 = zext i8 %72 to i64
-  %74 = icmp ult i64 %71, %73
+  %74 = icmp samesign ult i64 %71, %73
   br i1 %74, label %.split, label %.split5.us, !llvm.loop !62
 
 .split5.us:                                       ; preds = %68, %31
@@ -2883,7 +2883,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
 63:                                               ; preds = %55, %53
   %64 = add nuw nsw i64 %19, 1
   %65 = and i64 %64, 127
-  %66 = icmp ugt i64 %65, 63
+  %66 = icmp samesign ugt i64 %65, 63
   br i1 %66, label %.preheader.preheader, label %12, !prof !101, !llvm.loop !102
 
 .preheader.preheader:                             ; preds = %12, %63, %18
@@ -2912,7 +2912,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
   %82 = tail call zeroext i1 @flush_work(ptr noundef %81) #12
   %83 = add nuw nsw i64 %73, 1
   %84 = and i64 %83, 127
-  %85 = icmp ugt i64 %84, 63
+  %85 = icmp samesign ugt i64 %84, 63
   br i1 %85, label %.thread, label %.preheader, !prof !101, !llvm.loop !103
 
 .thread:                                          ; preds = %.preheader, %76, %72, %5

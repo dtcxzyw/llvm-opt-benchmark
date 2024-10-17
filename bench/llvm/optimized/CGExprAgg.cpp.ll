@@ -7864,7 +7864,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %120 = load i64, ptr %119, align 8, !noalias !216
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %118, ptr %121, align 8, !alias.scope !216
-  %122 = icmp ult i32 %118, 65
+  %122 = icmp samesign ult i32 %118, 65
   br i1 %122, label %123, label %131
 
 123:                                              ; preds = %116
@@ -8821,7 +8821,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %52, %_ZN12_GLOBAL__
   %71 = load i64, ptr %70, align 8, !noalias !280
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %69, ptr %72, align 8, !alias.scope !280
-  %73 = icmp ult i32 %69, 65
+  %73 = icmp samesign ult i32 %69, 65
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %67

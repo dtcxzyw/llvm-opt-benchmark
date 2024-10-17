@@ -361,7 +361,7 @@ invoke.cont.thread:                               ; preds = %invoke.cont.thread.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %7 = zext i32 %6 to i64
-  %cmp13 = icmp ult i64 %indvars.iv, %7
+  %cmp13 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %cmp13, label %for.body, label %invoke.cont6
 
 for.body:                                         ; preds = %invoke.cont.thread
@@ -4546,7 +4546,7 @@ if.end.i.i.i:                                     ; preds = %for.cond
 
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %retval.0.i.i.i
+  %cmp.not.not.not.not.not = icmp samesign uge i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit
@@ -4608,7 +4608,7 @@ if.end.i.i.i:                                     ; preds = %for.cond
 
 _ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %retval.0.i.i.i
+  %cmp.not.not.not.not.not = icmp samesign uge i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit

@@ -931,7 +931,7 @@ while.body.i:                                     ; preds = %if.end, %if.end3.i
   br i1 %cmp1.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %6 = icmp ugt i64 %current.addr.06.i, 2305843009213693951
+  %6 = icmp samesign ugt i64 %current.addr.06.i, 2305843009213693951
   br i1 %6, label %if.then.i33.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i

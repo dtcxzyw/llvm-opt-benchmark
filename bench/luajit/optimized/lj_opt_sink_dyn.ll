@@ -76,7 +76,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx4.i = getelementptr inbounds i32, ptr %arrayidx.i, i64 %indvars.iv.i
   %11 = load i32, ptr %arrayidx4.i, align 4
   %and.i = and i32 %11, 65535
-  %cmp5.i = icmp ult i32 %and.i, 32768
+  %cmp5.i = icmp samesign ult i32 %and.i, 32768
   br i1 %cmp5.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i

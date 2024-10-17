@@ -9584,7 +9584,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = load ptr, ptr %agg.result, align 8, !tbaa !104
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %5 = ptrtoint ptr %4 to i64
   %6 = sub i64 %5, %1
   %diff.check = icmp ult i64 %6, 32
@@ -12898,7 +12898,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i191
 
 for.body.lr.ph.i.i194:                            ; preds = %for.cond.preheader.i.i
   %62 = load ptr, ptr %ref.tmp72, align 8, !tbaa !104, !alias.scope !289
-  %min.iters.check = icmp ult i64 %conv.i.i192, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i.i192, 8
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %63, %59
   %diff.check = icmp ult i64 %64, 32
@@ -14116,7 +14116,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %Text, align 8, !tbaa !104
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -14252,7 +14252,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %ToolTipText, align 8, !tbaa !104
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -14568,7 +14568,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %3 = icmp ult i64 %conv.i, 4
+  %3 = icmp samesign ult i64 %conv.i, 4
   br i1 %3, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

@@ -69,7 +69,7 @@ define void @dlahr2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %42 = phi i64 [ 1, %34 ], [ %156, %131 ]
   %43 = phi double [ undef, %34 ], [ %151, %131 ]
   %44 = trunc i64 %42 to i32
-  %45 = icmp ugt i64 %42, 1
+  %45 = icmp samesign ugt i64 %42, 1
   %.pre9 = load i32, ptr %0, align 4, !tbaa !3
   %.pre10 = load i32, ptr %1, align 4, !tbaa !3
   br i1 %45, label %46, label %._crit_edge

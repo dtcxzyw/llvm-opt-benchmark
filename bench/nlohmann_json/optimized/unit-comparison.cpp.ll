@@ -20002,7 +20002,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -24428,7 +24428,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
 while.end.i157:                                   ; preds = %while.body.i, %if.end8.i
   %abs_value.1.lcssa.i = phi i64 [ %144, %if.end8.i ], [ %div.i, %while.body.i ]
   %buffer_ptr.0.lcssa.i = phi ptr [ %add.ptr.i156, %if.end8.i ], [ %incdec.ptr16.i, %while.body.i ]
-  %cmp17.i = icmp ugt i64 %abs_value.1.lcssa.i, 9
+  %cmp17.i = icmp samesign ugt i64 %abs_value.1.lcssa.i, 9
   br i1 %cmp17.i, label %if.then18.i, label %if.else29.i
 
 if.then18.i:                                      ; preds = %while.end.i157
@@ -24735,7 +24735,7 @@ while.body.i294:                                  ; preds = %if.end8.i270, %whil
 while.end.i275:                                   ; preds = %while.body.i294, %if.end8.i270
   %abs_value.1.lcssa.i276 = phi i64 [ %192, %if.end8.i270 ], [ %div.i298, %while.body.i294 ]
   %buffer_ptr.0.lcssa.i277 = phi ptr [ %add.ptr.i273, %if.end8.i270 ], [ %incdec.ptr16.i302, %while.body.i294 ]
-  %cmp17.i278 = icmp ugt i64 %abs_value.1.lcssa.i276, 9
+  %cmp17.i278 = icmp samesign ugt i64 %abs_value.1.lcssa.i276, 9
   br i1 %cmp17.i278, label %if.then18.i289, label %if.else29.i279
 
 if.then18.i289:                                   ; preds = %while.end.i275
@@ -24887,7 +24887,7 @@ while.body.i355:                                  ; preds = %if.end8.i331, %whil
 while.end.i336:                                   ; preds = %while.body.i355, %if.end8.i331
   %abs_value.1.lcssa.i337 = phi i64 [ %210, %if.end8.i331 ], [ %div.i359, %while.body.i355 ]
   %buffer_ptr.0.lcssa.i338 = phi ptr [ %add.ptr.i334, %if.end8.i331 ], [ %incdec.ptr16.i363, %while.body.i355 ]
-  %cmp17.i339 = icmp ugt i64 %abs_value.1.lcssa.i337, 9
+  %cmp17.i339 = icmp samesign ugt i64 %abs_value.1.lcssa.i337, 9
   br i1 %cmp17.i339, label %if.then18.i350, label %if.else29.i340
 
 if.then18.i350:                                   ; preds = %while.end.i336
@@ -25811,7 +25811,7 @@ while.body:                                       ; preds = %if.end8, %while.bod
 while.end:                                        ; preds = %while.body, %if.end8
   %abs_value.1.lcssa = phi i64 [ %abs_value.0, %if.end8 ], [ %div, %while.body ]
   %buffer_ptr.0.lcssa = phi ptr [ %add.ptr, %if.end8 ], [ %incdec.ptr16, %while.body ]
-  %cmp17 = icmp ugt i64 %abs_value.1.lcssa, 9
+  %cmp17 = icmp samesign ugt i64 %abs_value.1.lcssa, 9
   br i1 %cmp17, label %if.then18, label %if.else29
 
 if.then18:                                        ; preds = %while.end
@@ -26092,7 +26092,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -26823,7 +26823,7 @@ if.end60:                                         ; preds = %if.end48, %if.else
   %e.addr.0.i = tail call i32 @llvm.abs.i32(i32 %sub61, i1 true)
   %buf.addr.0.i = getelementptr i8, ptr %buf.pn, i64 3
   store i8 %storemerge.i, ptr %incdec.ptr, align 1
-  %cmp2.i = icmp ult i32 %e.addr.0.i, 10
+  %cmp2.i = icmp samesign ult i32 %e.addr.0.i, 10
   br i1 %cmp2.i, label %if.then3.i, label %if.else6.i
 
 if.then3.i:                                       ; preds = %if.end60
@@ -26836,7 +26836,7 @@ if.then3.i:                                       ; preds = %if.end60
   br label %return
 
 if.else6.i:                                       ; preds = %if.end60
-  %cmp7.i = icmp ult i32 %e.addr.0.i, 100
+  %cmp7.i = icmp samesign ult i32 %e.addr.0.i, 100
   %incdec.ptr11.i = getelementptr i8, ptr %buf.pn, i64 4
   br i1 %cmp7.i, label %if.then8.i, label %if.else15.i
 

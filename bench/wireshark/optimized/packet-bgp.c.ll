@@ -3870,7 +3870,7 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   %113 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %112) #4
   %114 = icmp ne i16 %113, 0
   %115 = add nuw nsw i32 %.07592.i, 1
-  %116 = icmp ult i32 %115, %104
+  %116 = icmp samesign ult i32 %115, %104
   %117 = select i1 %116, i1 %114, i1 false
   br i1 %117, label %.lr.ph93.i, label %._crit_edge94.loopexit.i, !llvm.loop !7
 
@@ -4685,7 +4685,7 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
   %500 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %497, ptr noundef %1, i32 noundef %498, i32 noundef %499, i32 noundef 0) #4
   %501 = load i32, ptr @ett_bgp_mp_unreach_nlri, align 4
   %502 = call ptr @proto_item_add_subtree(ptr noundef %500, i32 noundef %501) #4
-  %503 = icmp ugt i32 %.01694, 3
+  %503 = icmp samesign ugt i32 %.01694, 3
   br i1 %503, label %.preheader1793.preheader, label %dissect_bgp_update_pmsi_attr.exit
 
 .preheader1793.preheader:                         ; preds = %save_afi_safi_data.exit1768
@@ -5109,7 +5109,7 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
   %780 = load i32, ptr @ett_bgp_segment_list, align 4
   %781 = call ptr @proto_item_add_subtree(ptr noundef %779, i32 noundef %780) #4
   %782 = and i32 %778, 65535
-  %783 = icmp ugt i32 %782, 2
+  %783 = icmp samesign ugt i32 %782, 2
   br i1 %783, label %.lr.ph1852, label %.loopexit1786
 
 .lr.ph1852:                                       ; preds = %772, %822
@@ -5166,7 +5166,7 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
   %.11 = phi i32 [ %817, %800 ], [ %821, %818 ], [ %798, %.lr.ph1852 ]
   %823 = sub nsw i32 %784, %790
   %824 = and i32 %823, 65535
-  %825 = icmp ugt i32 %824, 2
+  %825 = icmp samesign ugt i32 %824, 2
   br i1 %825, label %.lr.ph1852, label %.loopexit1786, !llvm.loop !17
 
 826:                                              ; preds = %651
@@ -5489,7 +5489,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   %1040 = call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %.reass) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1031, ptr noundef nonnull @.str.74, i32 noundef %1039, i32 noundef %1040) #4
   %.reass1833 = add nuw nsw i32 %.016971829, 8
-  %1041 = icmp ult i32 %.reass1833, %999
+  %1041 = icmp samesign ult i32 %.reass1833, %999
   br i1 %1041, label %1027, label %._crit_edge1832, !llvm.loop !22
 
 ._crit_edge1832:                                  ; preds = %1027, %1016
@@ -6062,7 +6062,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %dissect_bgp_update_pmsi_attr.exit
 
 1470:                                             ; preds = %60
-  %1471 = icmp ugt i32 %.01694, 3
+  %1471 = icmp samesign ugt i32 %.01694, 3
   br i1 %1471, label %1472, label %1484
 
 1472:                                             ; preds = %1470
@@ -6110,7 +6110,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %dissect_bgp_update_pmsi_attr.exit
 
 1500:                                             ; preds = %60
-  %1501 = icmp ult i32 %.01694, 8
+  %1501 = icmp samesign ult i32 %.01694, 8
   %1502 = add i32 %.01690, %12
   br i1 %1501, label %1503, label %1507
 
@@ -6183,7 +6183,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
 
 dissect_bgp_update_pmsi_attr.exit:                ; preds = %1321, %.lr.ph1845, %.loopexit1789, %611, %534, %.preheader1793, %515, %.lr.ph1873, %469, %314, %196, %965, %._crit_edge1841, %613, %551, %525, %.preheader, %277, %141, %1467, %1462, %1457, %1445, %1435, %1425, %1422, %1407, %1392, %1356, %1353, %save_afi_safi_data.exit1768, %.loopexit1792, %457, %1490, %1495, %1484, %1476, %1472, %879, %850, %859, %575, %546, %548, %318, %323, %245, %260, %232, %233, %222, %227, %211, %216, %199, %204, %62, %65, %1541, %1537, %1535, %1503, %._crit_edge1849, %save_link_state_attr_position.exit, %520, %272, %239, %heuristic_as2_or_4_from_as_path.exit.thread1779
   %1545 = add nuw nsw i32 %27, %.016801894
-  %1546 = icmp ult i32 %1545, %9
+  %1546 = icmp samesign ult i32 %1545, %9
   br i1 %1546, label %11, label %._crit_edge1897, !llvm.loop !29
 
 ._crit_edge1897:                                  ; preds = %dissect_bgp_update_pmsi_attr.exit, %5
@@ -6608,7 +6608,7 @@ decode_MPLS_stack.exit:                           ; preds = %195, %202
 
 210:                                              ; preds = %decode_MPLS_stack.exit
   %211 = sub nuw nsw i32 %186, %207
-  %212 = icmp ult i32 %211, 64
+  %212 = icmp samesign ult i32 %211, 64
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %210
@@ -6955,7 +6955,7 @@ decode_MPLS_stack.exit937:                        ; preds = %396, %403
 
 411:                                              ; preds = %decode_MPLS_stack.exit937
   %412 = sub nuw nsw i32 %387, %408
-  %413 = icmp ult i32 %412, 64
+  %413 = icmp samesign ult i32 %412, 64
   br i1 %413, label %414, label %416
 
 414:                                              ; preds = %411
@@ -11373,7 +11373,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   %.052 = phi i32 [ %.0, %26 ], [ %.051, %4 ]
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.052) #4
   %10 = zext i8 %9 to i32
-  %11 = icmp ult i32 %3, %10
+  %11 = icmp samesign ult i32 %3, %10
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
@@ -11409,8 +11409,8 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   %30 = zext i8 %29 to i32
   %31 = icmp eq i8 %29, 0
   %or.cond = and i1 %8, %31
-  %32 = icmp ult i32 %3, %30
-  %or.cond49 = or i1 %or.cond, %32
+  %32 = icmp samesign ult i32 %3, %30
+  %or.cond49 = select i1 %or.cond, i1 true, i1 %32
   br i1 %or.cond49, label %.loopexit, label %33
 
 33:                                               ; preds = %28
@@ -11777,7 +11777,7 @@ define internal fastcc range(i32 -1, 4097) i32 @decode_flowspec_nlri(ptr noundef
 63:                                               ; preds = %40, %47, %54, %61, %20
   %.0177 = phi i32 [ 0, %20 ], [ 8, %61 ], [ 8, %54 ], [ 8, %47 ], [ 8, %40 ]
   %invariant.op = add i32 %30, 1
-  %64 = icmp ult i32 %.0177, %.0175
+  %64 = icmp samesign ult i32 %.0177, %.0175
   br i1 %64, label %.lr.ph, label %decode_bgp_nlri_op_dscp_value.exit.thread
 
 .lr.ph:                                           ; preds = %63
@@ -12961,7 +12961,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 65549) i32 @decode_bgp_link_node_nlri_common_fields(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 12
+  %6 = icmp samesign ult i32 %4, 12
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -13094,7 +13094,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_link_descr
   %.0116183 = phi i32 [ %2, %5 ], [ %133, %129 ]
   %.0117182 = phi i16 [ 0, %5 ], [ %135, %129 ]
   %.0118181 = phi i32 [ %4, %5 ], [ %132, %129 ]
-  %12 = icmp ult i32 %.0118181, 4
+  %12 = icmp samesign ult i32 %.0118181, 4
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -13306,7 +13306,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_prefix_des
   %.083117 = phi i32 [ %2, %6 ], [ %91, %89 ]
   %.084116 = phi i16 [ 0, %6 ], [ %93, %89 ]
   %.085115 = phi i32 [ %4, %6 ], [ %90, %89 ]
-  %13 = icmp ult i32 %.085115, 4
+  %13 = icmp samesign ult i32 %.085115, 4
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -13458,7 +13458,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_srv6_sid_d
   %.06592 = phi i32 [ %2, %5 ], [ %66, %62 ]
   %.06691 = phi i16 [ 0, %5 ], [ %68, %62 ]
   %.06790 = phi i32 [ %4, %5 ], [ %65, %62 ]
-  %12 = icmp ult i32 %.06790, 4
+  %12 = icmp samesign ult i32 %.06790, 4
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -14037,7 +14037,7 @@ define internal fastcc void @decode_bgp_link_node_descriptor(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %5, %95
   %.0104114 = phi i32 [ %97, %95 ], [ %2, %5 ]
   %.0105113 = phi i32 [ %96, %95 ], [ %4, %5 ]
-  %6 = icmp ult i32 %.0105113, 4
+  %6 = icmp samesign ult i32 %.0105113, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph

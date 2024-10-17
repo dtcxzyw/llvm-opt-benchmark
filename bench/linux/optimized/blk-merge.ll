@@ -341,7 +341,7 @@ define dso_local ptr @__bio_split_to_limits(ptr noundef %0, ptr nocapture nounde
   %42 = sub i64 %36, %41
   %43 = zext nneg i32 %16 to i64
   %44 = urem i64 %42, %43
-  %45 = icmp ult i64 %44, %35
+  %45 = icmp samesign ult i64 %44, %35
   %46 = trunc nuw nsw i64 %44 to i32
   %47 = select i1 %45, i32 %46, i32 0
   %48 = sub nsw i32 %25, %47
@@ -378,7 +378,7 @@ define dso_local ptr @__bio_split_to_limits(ptr noundef %0, ptr nocapture nounde
 68:                                               ; preds = %58
   %69 = zext i32 %66 to i64
   %70 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %69), !range !11
-  %71 = icmp ult i64 %70, 2
+  %71 = icmp samesign ult i64 %70, 2
   br i1 %71, label %75, label %72, !prof !12
 
 72:                                               ; preds = %68
@@ -1145,7 +1145,7 @@ define dso_local noundef range(i32 0, 2) i32 @ll_back_merge_fn(ptr noundef %0, p
 44:                                               ; preds = %43
   %45 = zext i32 %41 to i64
   %46 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %45), !range !11
-  %47 = icmp ult i64 %46, 2
+  %47 = icmp samesign ult i64 %46, 2
   br i1 %47, label %51, label %48, !prof !12
 
 48:                                               ; preds = %44
@@ -2291,7 +2291,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
 50:                                               ; preds = %49
   %51 = zext i32 %47 to i64
   %52 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %51), !range !11
-  %53 = icmp ult i64 %52, 2
+  %53 = icmp samesign ult i64 %52, 2
   br i1 %53, label %57, label %54, !prof !12
 
 54:                                               ; preds = %50
@@ -2674,7 +2674,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(pt
 47:                                               ; preds = %46
   %48 = zext i32 %44 to i64
   %49 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %48), !range !11
-  %50 = icmp ult i64 %49, 2
+  %50 = icmp samesign ult i64 %49, 2
   br i1 %50, label %54, label %51, !prof !12
 
 51:                                               ; preds = %47
@@ -3084,7 +3084,7 @@ define internal fastcc noundef zeroext i1 @req_attempt_discard_merge(ptr nocaptu
 49:                                               ; preds = %48
   %50 = zext i32 %46 to i64
   %51 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %50), !range !11
-  %52 = icmp ult i64 %51, 2
+  %52 = icmp samesign ult i64 %51, 2
   br i1 %52, label %56, label %53, !prof !12
 
 53:                                               ; preds = %49
@@ -3208,7 +3208,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ll_merge_requests_fn(ptr nou
 45:                                               ; preds = %44
   %46 = zext i32 %42 to i64
   %47 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %46), !range !11
-  %48 = icmp ult i64 %47, 2
+  %48 = icmp samesign ult i64 %47, 2
   br i1 %48, label %52, label %49, !prof !12
 
 49:                                               ; preds = %45
@@ -3247,7 +3247,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ll_merge_requests_fn(ptr nou
   %74 = getelementptr inbounds i8, ptr %5, i64 %73
   %75 = load i16, ptr %74, align 4
   %76 = zext i16 %75 to i32
-  %77 = icmp ugt i32 %70, %76
+  %77 = icmp samesign ugt i32 %70, %76
   br i1 %77, label %98, label %78
 
 78:                                               ; preds = %63

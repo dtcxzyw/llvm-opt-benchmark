@@ -228,7 +228,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = add nuw nsw i32 %.01718.i, 1
   %14 = lshr i64 %.019.i, 8
   %15 = icmp ugt i64 %.019.i, 255
-  %16 = icmp ult i32 %.01718.i, 7
+  %16 = icmp samesign ult i32 %.01718.i, 7
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
 
@@ -312,7 +312,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %47 = add nuw nsw i32 %.01718.i44, 1
   %48 = lshr i64 %.019.i43, 8
   %49 = icmp ugt i64 %.019.i43, 255
-  %50 = icmp ult i32 %.01718.i44, 7
+  %50 = icmp samesign ult i32 %.01718.i44, 7
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph.i42, label %.lr.ph22.preheader.i45, !llvm.loop !8
 

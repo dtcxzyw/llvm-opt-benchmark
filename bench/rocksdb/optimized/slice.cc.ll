@@ -1568,7 +1568,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 invoke.cont4:                                     ; preds = %for.body
   %5 = and i8 %3, 15
-  %cmp.i4 = icmp ult i8 %5, 10
+  %cmp.i4 = icmp samesign ult i8 %5, 10
   %6 = or disjoint i8 %5, 48
   %sub.i5 = add nuw nsw i8 %5, 55
   %retval.0.i6 = select i1 %cmp.i4, i8 %6, i8 %sub.i5
@@ -1937,7 +1937,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

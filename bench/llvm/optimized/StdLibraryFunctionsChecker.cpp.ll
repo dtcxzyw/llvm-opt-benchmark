@@ -77786,19 +77786,19 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   br i1 %or.cond.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %67
 
 67:                                               ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit.i
-  %68 = icmp ugt i32 %65, 454
+  %68 = icmp samesign ugt i32 %65, 454
   br i1 %68, label %69, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %65, 458
+  %70 = icmp samesign ult i32 %65, 458
   br i1 %70, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i32 %65, 460
+  %72 = icmp samesign ugt i32 %65, 460
   br i1 %72, label %73, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread39
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i32 %65, 463
+  %74 = icmp samesign ugt i32 %65, 463
   %75 = add nsw i32 %65, -470
   %spec.select.i4.i = icmp ult i32 %75, -3
   %or.cond = select i1 %74, i1 %spec.select.i4.i, i1 false
@@ -83635,7 +83635,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

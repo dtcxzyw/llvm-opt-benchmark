@@ -73,7 +73,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %50 ]
   %.02232.i = phi ptr [ %.059, %.lr.ph.preheader.i ], [ %52, %50 ]
   %.02331.i = phi i32 [ %22, %.lr.ph.preheader.i ], [ %53, %50 ]
-  %32 = icmp ult i32 %.02331.i, 3
+  %32 = icmp samesign ult i32 %.02331.i, 3
   br i1 %32, label %.lr.ph35.preheader.i, label %37
 
 .lr.ph35.preheader.i:                             ; preds = %.lr.ph.i
@@ -85,7 +85,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   br label %CodeRepeatedZeros.exit
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = icmp ult i32 %.02331.i, 11
+  %38 = icmp samesign ult i32 %.02331.i, 11
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %37
@@ -141,7 +141,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
 .lr.ph.preheader.i34:                             ; preds = %60
   %62 = add nsw i32 %.025.i, -1
   %63 = urem i32 %62, 6
-  %64 = icmp ult i32 %.025.i, 3
+  %64 = icmp samesign ult i32 %.025.i, 3
   br i1 %64, label %.lr.ph38.i.preheader, label %.lr.ph
 
 .lr.ph38.i.preheader:                             ; preds = %.lr.ph.i36, %.lr.ph.preheader.i34
@@ -163,7 +163,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i34, %.lr.ph.i36
   %.12734.i55 = phi ptr [ %75, %.lr.ph.i36 ], [ %.026.i, %.lr.ph.preheader.i34 ]
   %.135.i54 = phi i32 [ %76, %.lr.ph.i36 ], [ %.025.i, %.lr.ph.preheader.i34 ]
-  %68 = icmp ult i32 %.135.i54, 7
+  %68 = icmp samesign ult i32 %.135.i54, 7
   store i8 16, ptr %.12734.i55, align 1
   br i1 %68, label %69, label %.lr.ph.i36
 
@@ -180,7 +180,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   store i8 3, ptr %74, align 1
   %75 = getelementptr inbounds i8, ptr %.12734.i55, i64 2
   %76 = add nsw i32 %.135.i54, -6
-  %77 = icmp ult i32 %76, 3
+  %77 = icmp samesign ult i32 %76, 3
   br i1 %77, label %.lr.ph38.i.preheader, label %.lr.ph, !llvm.loop !8
 
 CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %50, %69, %60, %45, %39, %.lr.ph35.preheader.i, %24
@@ -331,7 +331,7 @@ OptimizeHuffmanForRle.exit.thread:                ; preds = %5
   %54 = load i32, ptr %53, align 4
   %55 = sub nsw i32 %54, %.088144.i
   %56 = tail call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = icmp ugt i32 %56, 3
+  %57 = icmp samesign ugt i32 %56, 3
   br i1 %57, label %58, label %97
 
 58:                                               ; preds = %52, %49, %45, %43
@@ -387,7 +387,7 @@ OptimizeHuffmanForRle.exit.thread:                ; preds = %5
   br label %94
 
 89:                                               ; preds = %.loopexit.i
-  %90 = icmp ult i64 %indvars.iv156.i, %14
+  %90 = icmp samesign ult i64 %indvars.iv156.i, %14
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
@@ -729,7 +729,7 @@ GenerateOptimalTree.exit:                         ; preds = %._crit_edge128.us14
   %222 = shl i32 %220, %221
   %223 = or i32 %222, %.01014.i.i
   %224 = lshr i32 %.01113.i.i, 4
-  %225 = icmp ult i32 %215, %210
+  %225 = icmp samesign ult i32 %215, %210
   br i1 %225, label %.lr.ph.i.i, label %ReverseBits.exit.i, !llvm.loop !20
 
 ReverseBits.exit.i:                               ; preds = %.lr.ph.i.i, %206

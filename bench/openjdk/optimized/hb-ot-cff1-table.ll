@@ -596,11 +596,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = or disjoint i32 %107, %110
-  %112 = icmp ult i32 %111, 1240
+  %112 = icmp samesign ult i32 %111, 1240
   br i1 %112, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %113
 
 113:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %114 = icmp ult i32 %111, 33900
+  %114 = icmp samesign ult i32 %111, 33900
   %..i.i.i = select i1 %114, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -620,11 +620,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   %122 = or disjoint i32 %118, %121
-  %123 = icmp ult i32 %122, 1240
+  %123 = icmp samesign ult i32 %122, 1240
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i.i
-  %125 = icmp ult i32 %122, 33900
+  %125 = icmp samesign ult i32 %122, 33900
   %..i7.i.i = select i1 %125, i32 1131, i32 32768
   br label %126
 
@@ -1144,11 +1144,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = or disjoint i32 %106, %109
-  %111 = icmp ult i32 %110, 1240
+  %111 = icmp samesign ult i32 %110, 1240
   br i1 %111, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %112
 
 112:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %113 = icmp ult i32 %110, 33900
+  %113 = icmp samesign ult i32 %110, 33900
   %..i.i.i = select i1 %113, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -1168,11 +1168,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = or disjoint i32 %117, %120
-  %122 = icmp ult i32 %121, 1240
+  %122 = icmp samesign ult i32 %121, 1240
   br i1 %122, label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit, label %123
 
 123:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i.i
-  %124 = icmp ult i32 %121, 33900
+  %124 = icmp samesign ult i32 %121, 33900
   %..i7.i.i = select i1 %124, i32 1131, i32 32768
   br label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
 
@@ -1588,11 +1588,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = or disjoint i32 %104, %107
-  %109 = icmp ult i32 %108, 1240
+  %109 = icmp samesign ult i32 %108, 1240
   br i1 %109, label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i, label %110
 
 110:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i.i
-  %111 = icmp ult i32 %108, 33900
+  %111 = icmp samesign ult i32 %108, 33900
   %..i.i.i = select i1 %111, i32 1131, i32 32768
   br label %_ZN3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE4initEPKS5_.exit.i.i
 
@@ -1612,11 +1612,11 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = or disjoint i32 %115, %118
-  %120 = icmp ult i32 %119, 1240
+  %120 = icmp samesign ult i32 %119, 1240
   br i1 %120, label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit, label %121
 
 121:                                              ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i.i
-  %122 = icmp ult i32 %119, 33900
+  %122 = icmp samesign ult i32 %119, 33900
   %..i7.i.i = select i1 %122, i32 1131, i32 32768
   br label %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit
 
@@ -6771,7 +6771,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.preheader, %_Z
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %23, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26 ]
   %16 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %14, i64 0, i64 %indvars.iv
   %17 = or disjoint i64 %indvars.iv, 1
-  %.not.i.i24 = icmp ult i64 %17, 11
+  %.not.i.i24 = icmp samesign ult i64 %17, 11
   br i1 %.not.i.i24, label %19, label %18
 
 18:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -6790,7 +6790,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %18, %19
   %23 = fadd double %.sroa.0.065, %22
   %24 = fadd double %.sroa.4.066, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = icmp ult i64 %indvars.iv, 8
+  %25 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %25, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !29
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26
@@ -9305,7 +9305,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %19 = load i32, ptr %8, align 4
   %20 = zext i32 %19 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv55, %20
+  %.not.i.i = icmp samesign ult i64 %indvars.iv55, %20
   br i1 %.not.i.i, label %22, label %21
 
 21:                                               ; preds = %18
@@ -9320,7 +9320,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
   %.0.i.i = phi ptr [ @_hb_CrapPool, %21 ], [ %23, %22 ]
   %24 = or disjoint i64 %indvars.iv55, 1
-  %.not.i.i29 = icmp ult i64 %24, %20
+  %.not.i.i29 = icmp samesign ult i64 %24, %20
   br i1 %.not.i.i29, label %26, label %25
 
 25:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -11055,7 +11055,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.preheader, %_Z
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %23, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26 ]
   %16 = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %14, i64 0, i64 %indvars.iv
   %17 = or disjoint i64 %indvars.iv, 1
-  %.not.i.i24 = icmp ult i64 %17, 11
+  %.not.i.i24 = icmp samesign ult i64 %17, 11
   br i1 %.not.i.i24, label %19, label %18
 
 18:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -11074,7 +11074,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %18, %19
   %23 = fadd double %.sroa.0.065, %22
   %24 = fadd double %.sroa.4.066, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = icmp ult i64 %indvars.iv, 8
+  %25 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %25, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !42
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26

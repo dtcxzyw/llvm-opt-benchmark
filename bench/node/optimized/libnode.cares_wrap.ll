@@ -4768,7 +4768,7 @@ for.inc493:                                       ; preds = %_ZNK2v85MaybeIbE5Ch
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %call344 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
   %71 = zext i32 %call344 to i64
-  %cmp345 = icmp ult i64 %indvars.iv.next313, %71
+  %cmp345 = icmp samesign ult i64 %indvars.iv.next313, %71
   br i1 %cmp345, label %for.body346, label %for.end495, !llvm.loop !25
 
 for.end495:                                       ; preds = %for.inc493, %for.cond342.preheader

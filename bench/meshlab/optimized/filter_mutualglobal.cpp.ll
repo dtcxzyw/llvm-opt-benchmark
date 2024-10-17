@@ -13296,7 +13296,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit179:       ; preds = %._crit_edge, %_ZNSt
 
 495:                                              ; preds = %488
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %496 = icmp ult i64 %indvars.iv.next302, %478
+  %496 = icmp samesign ult i64 %indvars.iv.next302, %478
   br i1 %496, label %.preheader, label %._crit_edge275, !llvm.loop !144
 
 ._crit_edge275:                                   ; preds = %495, %.preheader248

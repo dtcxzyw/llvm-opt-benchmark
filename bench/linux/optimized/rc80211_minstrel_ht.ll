@@ -1316,7 +1316,7 @@ define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, pt
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %59
-  %68 = icmp ugt i16 %65, 3
+  %68 = icmp samesign ugt i16 %65, 3
   %69 = getelementptr inbounds i8, ptr %3, i64 36
   %70 = load i8, ptr %69, align 4, !range !16, !noundef !17
   %71 = zext i1 %68 to i8
@@ -2517,7 +2517,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr nocapture noundef read
 
 338:                                              ; preds = %317, %271
   %339 = phi i32 [ %337, %317 ], [ 0, %271 ]
-  %340 = icmp ult i32 %270, %339
+  %340 = icmp samesign ult i32 %270, %339
   br i1 %340, label %347, label %341
 
 341:                                              ; preds = %338
@@ -2727,7 +2727,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 
 485:                                              ; preds = %464, %418
   %486 = phi i32 [ %484, %464 ], [ 0, %418 ]
-  %487 = icmp ult i32 %417, %486
+  %487 = icmp samesign ult i32 %417, %486
   br i1 %487, label %494, label %488
 
 488:                                              ; preds = %485
@@ -2963,7 +2963,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 
 652:                                              ; preds = %631, %585
   %653 = phi i32 [ %651, %631 ], [ 0, %585 ]
-  %654 = icmp ugt i32 %586, %653
+  %654 = icmp samesign ugt i32 %586, %653
   br i1 %654, label %.preheader, label %.loopexit111
 
 .preheader:                                       ; preds = %652, %minstrel_ht_sort_best_tp_rates.exit94
@@ -3151,7 +3151,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 
 789:                                              ; preds = %768, %722
   %790 = phi i32 [ %788, %768 ], [ 0, %722 ]
-  %791 = icmp ult i32 %721, %790
+  %791 = icmp samesign ult i32 %721, %790
   br i1 %791, label %798, label %792
 
 792:                                              ; preds = %789
@@ -3425,7 +3425,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
   %974 = udiv i32 %973, %970
   %975 = mul i32 %974, 100
   %976 = lshr i32 %975, 12
-  %977 = icmp ugt i32 %976, %920
+  %977 = icmp samesign ugt i32 %976, %920
   %978 = select i1 %977, i16 %866, i16 %858
   %979 = icmp ult i16 %947, 409
   br i1 %979, label %1019, label %980
@@ -3489,7 +3489,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
 
 1019:                                             ; preds = %998, %965
   %1020 = phi i32 [ %1018, %998 ], [ 0, %965 ]
-  %1021 = icmp ugt i32 %976, %1020
+  %1021 = icmp samesign ugt i32 %976, %1020
   br i1 %1021, label %1026, label %1028
 
 1022:                                             ; preds = %._crit_edge192
@@ -3868,7 +3868,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
 1289:                                             ; preds = %1276, %1271
   %1290 = add nuw nsw i64 %1272, 1
   %1291 = lshr i16 %1273, 1
-  %1292 = icmp ult i64 %1272, 9
+  %1292 = icmp samesign ult i64 %1272, 9
   %1293 = icmp ugt i16 %1273, 1
   %1294 = and i1 %1292, %1293
   br i1 %1294, label %1271, label %.thread, !llvm.loop !58
@@ -4090,7 +4090,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
 1437:                                             ; preds = %1424, %1419
   %1438 = add nuw nsw i64 %1420, 1
   %1439 = lshr i16 %1421, 1
-  %1440 = icmp ult i64 %1420, 9
+  %1440 = icmp samesign ult i64 %1420, 9
   %1441 = icmp ugt i16 %1421, 1
   %1442 = and i1 %1440, %1441
   br i1 %1442, label %1419, label %.thread96, !llvm.loop !58

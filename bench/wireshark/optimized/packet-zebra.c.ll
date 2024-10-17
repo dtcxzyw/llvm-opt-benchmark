@@ -2170,8 +2170,8 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef rang
   %.0 = phi i16 [ %16, %15 ], [ %11, %9 ]
   %21 = add i32 %3, %.sink
   %22 = add i16 %.0, -1
-  %or.cond230.not = icmp ult i16 %22, %4
-  br i1 %or.cond230.not, label %.lr.ph, label %.loopexit
+  %or.cond232.not = icmp ult i16 %22, %4
+  br i1 %or.cond232.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %20
   %23 = icmp ugt i8 %6, 4
@@ -2187,87 +2187,87 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef rang
   %or.cond22 = and i1 %27, %30
   br label %31
 
-31:                                               ; preds = %.lr.ph, %94
-  %.in = phi i16 [ %.0, %.lr.ph ], [ %32, %94 ]
-  %.0139186 = phi i8 [ 0, %.lr.ph ], [ %.1140157169206222, %94 ]
-  %.1142185 = phi i32 [ %21, %.lr.ph ], [ %.8, %94 ]
+31:                                               ; preds = %.lr.ph, %.thread207
+  %.in = phi i16 [ %.0, %.lr.ph ], [ %32, %.thread207 ]
+  %.0139189 = phi i8 [ 0, %.lr.ph ], [ %.1140157169216, %.thread207 ]
+  %.1142188 = phi i32 [ %21, %.lr.ph ], [ %.8, %.thread207 ]
   %32 = add i16 %.in, -1
   br i1 %23, label %.thread151, label %36
 
 .thread151:                                       ; preds = %31
   %33 = load i32, ptr @hf_zebra_vrfid, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %2, i32 noundef %.1142185, i32 noundef 4, i32 noundef 0) #4
-  %35 = add i32 %.1142185, 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %2, i32 noundef %.1142188, i32 noundef 4, i32 noundef 0) #4
+  %35 = add i32 %.1142188, 4
   br label %46
 
 36:                                               ; preds = %31
   br i1 %or.cond, label %37, label %42
 
 37:                                               ; preds = %36
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1142185) #4
+  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1142188) #4
   %39 = load i32, ptr @hf_zebra_nexthoptype, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %2, i32 noundef %.1142185, i32 noundef 1, i32 noundef 0) #4
-  %41 = add i32 %.1142185, 1
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %2, i32 noundef %.1142188, i32 noundef 1, i32 noundef 0) #4
+  %41 = add i32 %.1142188, 1
   br label %43
 
 42:                                               ; preds = %36
   br i1 %26, label %46, label %43
 
 43:                                               ; preds = %42, %37
-  %.1140160 = phi i8 [ %38, %37 ], [ %.0139186, %42 ]
-  %.3156 = phi i32 [ %41, %37 ], [ %.1142185, %42 ]
+  %.1140160 = phi i8 [ %38, %37 ], [ %.0139189, %42 ]
+  %.3156 = phi i32 [ %41, %37 ], [ %.1142188, %42 ]
   %44 = phi i1 [ true, %37 ], [ %25, %42 ]
   %45 = add i8 %.1140160, -3
   %or.cond7 = icmp ult i8 %45, 3
   %or.cond144 = select i1 %44, i1 %or.cond7, i1 false
   %brmerge = or i1 %or.cond144, %or.cond10
-  br i1 %brmerge, label %.thread181, label %.thread195
+  br i1 %brmerge, label %.thread182, label %.thread198
 
 46:                                               ; preds = %42, %.thread151
-  %.2150153 = phi i32 [ %35, %.thread151 ], [ %.1142185, %42 ]
+  %.2150153 = phi i32 [ %35, %.thread151 ], [ %.1142188, %42 ]
   %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.2150153) #4
   %48 = load i32, ptr @hf_zebra_nexthoptype_frr, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %48, ptr noundef %2, i32 noundef %.2150153, i32 noundef 1, i32 noundef 0) #4
   %50 = add i32 %.2150153, 1
   %51 = and i8 %47, -2
   switch i8 %51, label %.thread176 [
-    i8 2, label %.thread217
+    i8 2, label %.thread225
     i8 4, label %58
   ]
 
-.thread181:                                       ; preds = %43
+.thread182:                                       ; preds = %43
   %52 = load i32, ptr @hf_zebra_nexthop4, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %52, ptr noundef %2, i32 noundef %.3156, i32 noundef 4, i32 noundef 0) #4
   %54 = add i32 %.3156, 4
-  br label %.thread195
+  br label %.thread198
 
-.thread217:                                       ; preds = %46
+.thread225:                                       ; preds = %46
   %55 = load i32, ptr @hf_zebra_nexthop4, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %55, ptr noundef %2, i32 noundef %50, i32 noundef 4, i32 noundef 0) #4
   %57 = add i32 %.2150153, 5
   br label %68
 
-.thread195:                                       ; preds = %43, %.thread181
-  %.4175 = phi i32 [ %54, %.thread181 ], [ %.3156, %43 ]
+.thread198:                                       ; preds = %43, %.thread182
+  %.4175 = phi i32 [ %54, %.thread182 ], [ %.3156, %43 ]
   %.1140.off = add i8 %.1140160, -6
   %switch = icmp ult i8 %.1140.off, 3
   %or.cond147 = select i1 %44, i1 %switch, i1 false
-  %brmerge187 = or i1 %or.cond147, %or.cond22
-  br i1 %brmerge187, label %58, label %.thread176
+  %brmerge190 = or i1 %or.cond147, %or.cond22
+  br i1 %brmerge190, label %58, label %.thread176
 
-58:                                               ; preds = %46, %.thread195
-  %.4172 = phi i32 [ %.4175, %.thread195 ], [ %50, %46 ]
-  %59 = phi i1 [ true, %.thread195 ], [ false, %46 ]
-  %.1140157170 = phi i8 [ %.1140160, %.thread195 ], [ %47, %46 ]
+58:                                               ; preds = %46, %.thread198
+  %.4172 = phi i32 [ %.4175, %.thread198 ], [ %50, %46 ]
+  %59 = phi i1 [ true, %.thread198 ], [ false, %46 ]
+  %.1140157170 = phi i8 [ %.1140160, %.thread198 ], [ %47, %46 ]
   %60 = load i32, ptr @hf_zebra_nexthop6, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %60, ptr noundef %2, i32 noundef %.4172, i32 noundef 16, i32 noundef 0) #4
   %62 = add i32 %.4172, 16
   br label %.thread176
 
-.thread176:                                       ; preds = %46, %.thread195, %58
-  %63 = phi i1 [ %59, %58 ], [ true, %.thread195 ], [ false, %46 ]
-  %.1140157169 = phi i8 [ %.1140157170, %58 ], [ %.1140160, %.thread195 ], [ %47, %46 ]
-  %.5 = phi i32 [ %62, %58 ], [ %.4175, %.thread195 ], [ %50, %46 ]
+.thread176:                                       ; preds = %46, %.thread198, %58
+  %63 = phi i1 [ %59, %58 ], [ true, %.thread198 ], [ false, %46 ]
+  %.1140157169 = phi i8 [ %.1140157170, %58 ], [ %.1140160, %.thread198 ], [ %47, %46 ]
+  %.5 = phi i32 [ %62, %58 ], [ %.4175, %.thread198 ], [ %50, %46 ]
   %64 = icmp eq i8 %.1140157169, 1
   br i1 %64, label %73, label %65
 
@@ -2276,81 +2276,82 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef rang
 
 66:                                               ; preds = %65
   switch i8 %.1140157169, label %67 [
-    i8 7, label %.thread226
-    i8 4, label %.thread226
+    i8 7, label %.thread186
+    i8 4, label %.thread186
   ]
 
 67:                                               ; preds = %66, %65
   br i1 %29, label %68, label %78
 
-68:                                               ; preds = %.thread217, %67
-  %.5209215221 = phi i32 [ %57, %.thread217 ], [ %.5, %67 ]
-  %.1140157169208216220 = phi i8 [ %47, %.thread217 ], [ %.1140157169, %67 ]
-  %69 = phi i1 [ false, %.thread217 ], [ %63, %67 ]
-  switch i8 %.1140157169208216220, label %78 [
+68:                                               ; preds = %.thread225, %67
+  %.5217223230 = phi i32 [ %57, %.thread225 ], [ %.5, %67 ]
+  %.1140157169215224228 = phi i8 [ %47, %.thread225 ], [ %.1140157169, %67 ]
+  %69 = phi i1 [ false, %.thread225 ], [ %63, %67 ]
+  switch i8 %.1140157169215224228, label %78 [
     i8 5, label %73
     i8 3, label %73
   ]
 
-.thread226:                                       ; preds = %66, %66
+.thread186:                                       ; preds = %66, %66
   %70 = load i32, ptr @hf_zebra_index, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %2, i32 noundef %.5, i32 noundef 4, i32 noundef 0) #4
   %72 = add i32 %.5, 4
   br label %80
 
 73:                                               ; preds = %68, %68, %.thread176
-  %.5211 = phi i32 [ %.5209215221, %68 ], [ %.5209215221, %68 ], [ %.5, %.thread176 ]
-  %.1140157169207 = phi i8 [ %.1140157169208216220, %68 ], [ %.1140157169208216220, %68 ], [ 1, %.thread176 ]
+  %.5219 = phi i32 [ %.5217223230, %68 ], [ %.5217223230, %68 ], [ %.5, %.thread176 ]
+  %.1140157169214 = phi i8 [ %.1140157169215224228, %68 ], [ %.1140157169215224228, %68 ], [ 1, %.thread176 ]
   %74 = phi i1 [ %69, %68 ], [ %69, %68 ], [ %63, %.thread176 ]
   %75 = load i32, ptr @hf_zebra_index, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %75, ptr noundef %2, i32 noundef %.5211, i32 noundef 4, i32 noundef 0) #4
-  %77 = add i32 %.5211, 4
-  br i1 %74, label %80, label %88
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %75, ptr noundef %2, i32 noundef %.5219, i32 noundef 4, i32 noundef 0) #4
+  %77 = add i32 %.5219, 4
+  br i1 %74, label %80, label %.thread207
 
 78:                                               ; preds = %68, %67
-  %.1140157169206 = phi i8 [ %.1140157169208216220, %68 ], [ %.1140157169, %67 ]
+  %.5217223231 = phi i32 [ %.5217223230, %68 ], [ %.5, %67 ]
+  %.1140157169215224229 = phi i8 [ %.1140157169215224228, %68 ], [ %.1140157169, %67 ]
   %79 = phi i1 [ %69, %68 ], [ %63, %67 ]
-  %.6 = phi i32 [ %.5209215221, %68 ], [ %.5, %67 ]
   br i1 %79, label %80, label %88
 
-80:                                               ; preds = %.thread226, %73, %78
-  %.6224 = phi i32 [ %77, %73 ], [ %.6, %78 ], [ %72, %.thread226 ]
-  %.1140157169206223 = phi i8 [ %.1140157169207, %73 ], [ %.1140157169206, %78 ], [ %.1140157169, %.thread226 ]
-  switch i8 %.1140157169206223, label %88 [
+80:                                               ; preds = %.thread186, %73, %78
+  %.1140157169213 = phi i8 [ %.1140157169214, %73 ], [ %.1140157169215224229, %78 ], [ %.1140157169, %.thread186 ]
+  %.6181 = phi i32 [ %77, %73 ], [ %.5217223231, %78 ], [ %72, %.thread186 ]
+  switch i8 %.1140157169213, label %88 [
     i8 8, label %81
     i8 5, label %81
     i8 2, label %81
   ]
 
 81:                                               ; preds = %80, %80, %80
-  %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.6224) #4
-  %83 = add i32 %.6224, 1
+  %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.6181) #4
+  %83 = add i32 %.6181, 1
   %84 = load i32, ptr @hf_zebra_interface, align 4
   %85 = zext i8 %82 to i32
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %84, ptr noundef %2, i32 noundef %83, i32 noundef %85, i32 noundef 0) #4
   %87 = add i32 %83, %85
   br label %88
 
-88:                                               ; preds = %73, %80, %81, %78
-  %.1140157169206222 = phi i8 [ %.1140157169206223, %81 ], [ %.1140157169206223, %80 ], [ %.1140157169206, %78 ], [ %.1140157169207, %73 ]
-  %.7 = phi i32 [ %87, %81 ], [ %.6224, %80 ], [ %.6, %78 ], [ %77, %73 ]
-  %89 = icmp eq i8 %.1140157169206222, 6
+88:                                               ; preds = %80, %81, %78
+  %.1140157169212 = phi i8 [ %.1140157169213, %81 ], [ %.1140157169213, %80 ], [ %.1140157169215224229, %78 ]
+  %.7 = phi i32 [ %87, %81 ], [ %.6181, %80 ], [ %.5217223231, %78 ]
+  %89 = icmp eq i8 %.1140157169212, 6
   %or.cond40 = and i1 %23, %89
-  br i1 %or.cond40, label %90, label %94
+  br i1 %or.cond40, label %90, label %.thread207
 
 90:                                               ; preds = %88
   %91 = load i32, ptr @hf_zebra_bhtype, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %91, ptr noundef %2, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #4
   %93 = add i32 %.7, 1
-  br label %94
+  br label %.thread207
 
-94:                                               ; preds = %90, %88
-  %.8 = phi i32 [ %93, %90 ], [ %.7, %88 ]
+.thread207:                                       ; preds = %73, %90, %88
+  %.1140157169216 = phi i8 [ 6, %90 ], [ %.1140157169212, %88 ], [ %.1140157169214, %73 ]
+  %.8 = phi i32 [ %93, %90 ], [ %.7, %88 ], [ %77, %73 ]
   %.not = icmp eq i16 %32, 0
   br i1 %.not, label %.loopexit, label %31, !llvm.loop !9
 
-.loopexit:                                        ; preds = %94, %20
-  %.0138 = phi i32 [ %21, %20 ], [ %.8, %94 ]
+.loopexit:                                        ; preds = %.thread207, %20
+  %.0138 = phi i32 [ %21, %20 ], [ %.8, %.thread207 ]
   ret i32 %.0138
 }
 

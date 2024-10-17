@@ -339,7 +339,7 @@ _ZN14StackMapStream6get_u1EP10JavaThread.exit:    ; preds = %13, %._crit_edge.i
 101:                                              ; preds = %97, %94
   %.0266 = phi i32 [ 2, %97 ], [ 1, %94 ]
   %102 = zext i16 %4 to i32
-  %103 = icmp ugt i32 %.0266, %102
+  %103 = icmp samesign ugt i32 %.0266, %102
   br i1 %103, label %104, label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit
 
 104:                                              ; preds = %101
@@ -522,7 +522,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %133, %._crit_edge.i
 197:                                              ; preds = %193, %190
   %.0271 = phi i32 [ 2, %193 ], [ 1, %190 ]
   %198 = zext i16 %4 to i32
-  %199 = icmp ugt i32 %.0271, %198
+  %199 = icmp samesign ugt i32 %.0271, %198
   br i1 %199, label %200, label %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294
 
 200:                                              ; preds = %197
@@ -1205,7 +1205,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i16, ptr %45, align 8
   %55 = zext i16 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.i, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.i, %55
   br i1 %56, label %51, label %.preheader.i, !llvm.loop !17
 
 57:                                               ; preds = %57, %.lr.ph9.i
@@ -1216,7 +1216,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %60 = load i16, ptr %48, align 2
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next13.i, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next13.i, %61
   br i1 %62, label %57, label %_ZN13StackMapFrame5resetEv.exit, !llvm.loop !18
 
 _ZN13StackMapFrame5resetEv.exit:                  ; preds = %57, %.preheader.i, %40
@@ -1454,7 +1454,7 @@ define hidden void @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP1
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
   %34 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i.i.i = select i1 %33, i1 %35, i1 false
   %36 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %37 = sub nuw nsw i32 32, %36

@@ -167,7 +167,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.689692909401
   %.2.i = phi i8 [ %25, %._crit_edge.i ], [ %18, %.preheader12.i ], [ %27, %.lr.ph.i ]
   %29 = or disjoint i8 %.2.i, -128
   %30 = shl i8 %.022, 2
-  %31 = icmp ult i8 %.022, 64
+  %31 = icmp samesign ult i8 %.022, 64
   %32 = icmp sgt i8 %30, -1
   br i1 %31, label %.preheader.i35, label %.preheader12.i29
 

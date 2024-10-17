@@ -278,7 +278,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 170:                                              ; preds = %167
   %171 = load i32, ptr %6, align 4, !tbaa !3
   %172 = tail call i32 @llvm.abs.i32(i32 %171, i1 true)
-  %173 = icmp ugt i32 %172, 6
+  %173 = icmp samesign ugt i32 %172, 6
   br i1 %173, label %.thread, label %174
 
 174:                                              ; preds = %170
@@ -1288,7 +1288,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %792, ptr %26, align 8, !tbaa !7
   %793 = call double @sin(double noundef %791) #6
   store double %793, ptr %27, align 8, !tbaa !7
-  %794 = icmp ugt i64 %776, %760
+  %794 = icmp samesign ugt i64 %776, %760
   %795 = zext i1 %794 to i32
   store i32 %795, ptr %23, align 4, !tbaa !3
   %796 = mul i32 %44, %784

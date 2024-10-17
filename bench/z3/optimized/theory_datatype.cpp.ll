@@ -1765,7 +1765,7 @@ cond.false.i:                                     ; preds = %for.cond
 
 invoke.cont7:                                     ; preds = %cond.false.i, %for.cond
   %cond.i = phi i64 [ %12, %cond.false.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %cond.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %cond.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont7
@@ -7464,7 +7464,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIPN3sm
   %arrayidx.i26 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i26, align 4
   %14 = zext i32 %13 to i64
-  %cmp88 = icmp ult i64 %indvars.iv, %14
+  %cmp88 = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp88, label %for.body11, label %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit
 
 for.body11:                                       ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread

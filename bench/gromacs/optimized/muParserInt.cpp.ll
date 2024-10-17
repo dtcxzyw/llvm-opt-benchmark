@@ -1744,7 +1744,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, -2
   %switch = icmp eq i8 %17, 48
-  %18 = icmp ult i64 %indvars.iv, 32
+  %18 = icmp samesign ult i64 %indvars.iv, 32
   %or.cond = and i1 %18, %switch
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !9

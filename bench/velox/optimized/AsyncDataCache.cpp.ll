@@ -1323,7 +1323,7 @@ if.end.i8:                                        ; preds = %if.then36
   %conv.i = trunc i64 %div2.i to i32
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %conv.i, i32 4096)
   %conv6.i = zext nneg i32 %.sroa.speculated.i to i64
-  %cmp.i9 = icmp ugt i64 %div.i1.i, %conv6.i
+  %cmp.i9 = icmp samesign ugt i64 %div.i1.i, %conv6.i
   br i1 %cmp.i9, label %if.then7.i, label %if.end43
 
 if.then7.i:                                       ; preds = %if.end.i8
@@ -1379,7 +1379,7 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %div2 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %conv, i32 4096)
   %conv6 = zext nneg i32 %.sroa.speculated to i64
-  %cmp = icmp ugt i64 %div.i1, %conv6
+  %cmp = icmp samesign ugt i64 %div.i1, %conv6
   br i1 %cmp, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.end
@@ -3909,7 +3909,7 @@ lor.lhs.false:                                    ; preds = %if.end25
   %sub.ptr.div11.i.i98 = ashr exact i64 %sub.ptr.sub10.i.i97, 3
   %add12.i.i99 = add nsw i64 %add.i.i93, %sub.ptr.div11.i.i98
   %div35 = lshr i64 %add12.i.i99, 2
-  %cmp31 = icmp ult i64 %div35, %conv28
+  %cmp31 = icmp samesign ult i64 %div35, %conv28
   br i1 %cmp31, label %if.then38, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false
@@ -6870,7 +6870,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i, %for.end
   br label %ehcleanup97
 
 if.end18:                                         ; preds = %invoke.cont14, %invoke.cont
-  %cmp19 = icmp ugt i32 %nthAttempt.058, 2
+  %cmp19 = icmp samesign ugt i32 %nthAttempt.058, 2
   br i1 %cmp19, label %land.lhs.true, label %if.end48
 
 land.lhs.true:                                    ; preds = %if.end18
@@ -6932,7 +6932,7 @@ lpad29:                                           ; preds = %invoke.cont32, %inv
   br label %ehcleanup97
 
 if.end40:                                         ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %land.lhs.true21, %land.lhs.true
-  %cmp41 = icmp ugt i32 %nthAttempt.058, 8
+  %cmp41 = icmp samesign ugt i32 %nthAttempt.058, 8
   br i1 %cmp41, label %if.then42, label %if.end48
 
 if.then42:                                        ; preds = %if.end40
@@ -6988,7 +6988,7 @@ if.end59:                                         ; preds = %invoke.cont53, %if.
   %mul = fmul float %sizeMultiplier.057, %conv75
   %conv76 = fptoui float %mul to i64
   %mul.i = shl i64 %conv76, 12
-  %cmp79 = icmp ugt i32 %nthAttempt.058, 3
+  %cmp79 = icmp samesign ugt i32 %nthAttempt.058, 3
   %call82 = invoke noundef i64 @_ZN8facebook5velox5cache10CacheShard5evictEmbmRNS0_6memory10AllocationE(ptr noundef nonnull align 8 dereferenceable(280) %27, i64 noundef %mul.i, i1 noundef zeroext %cmp79, i64 noundef %cond, ptr noundef nonnull align 8 dereferenceable(36) %acquired)
           to label %invoke.cont81 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -9047,7 +9047,7 @@ _ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE9push_backEOS3_.exit58.i.i: ; preds = %_Z
   %sub.ptr.sub.i.i.i64.i = sub i64 %sub.ptr.lhs.cast.i.i.i62.i, %sub.ptr.rhs.cast.i.i.i63.i
   %sub.ptr.div.i.i.i65.i = lshr exact i64 %sub.ptr.sub.i.i.i64.i, 3
   %47 = and i64 %sub.ptr.div.i.i.i65.i, 4294967295
-  %cmp10.i.i = icmp ult i64 %indvars.iv.next.i.i, %47
+  %cmp10.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %47
   br i1 %cmp10.i.i, label %for.body.i.i, label %if.end.i66.i, !llvm.loop !182
 
 if.end.i66.i:                                     ; preds = %_ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE9push_backEOS3_.exit58.i.i, %for.cond.preheader.i.i
@@ -12190,7 +12190,7 @@ if.then:                                          ; preds = %entry
 for.cond.i:                                       ; preds = %while.end.i, %if.then
   %tries.i.0 = phi i64 [ 0, %if.then ], [ %inc.i, %while.end.i ]
   %index.i.0 = phi i64 [ %add.i22, %if.then ], [ %add.i, %while.end.i ]
-  %cmp.i.not = icmp ule i64 %tries.i.0, %conv.i
+  %cmp.i.not = icmp samesign ule i64 %tries.i.0, %conv.i
   call void @llvm.assume(i1 %cmp.i.not)
   %and.i = and i64 %index.i.0, %conv.i
   %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %9, i64 %and.i

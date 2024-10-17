@@ -112,7 +112,7 @@ mi_bin.exit:                                      ; preds = %if.then, %if.then2.
 if.else:                                          ; preds = %entry
   %call2 = tail call i64 @_mi_os_page_size() #12
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call2)
-  %cmp.i4 = icmp ult i64 %5, 2
+  %cmp.i4 = icmp samesign ult i64 %5, 2
   %sub.i3 = add i64 %size, -1
   %add.i = add i64 %sub.i3, %call2
   br i1 %cmp.i4, label %if.then.i, label %if.else.i5
@@ -385,9 +385,9 @@ mi_bin.exit38:                                    ; preds = %while.cond, %if.the
 
 if.end25:                                         ; preds = %mi_bin.exit38
   %add = add nuw nsw i64 %div1.i.i21, 1
-  %cmp21.not = icmp ult i64 %div1.i.i21, %div1.i
+  %cmp21.not = icmp samesign ult i64 %div1.i.i21, %div1.i
   %spec.select = select i1 %cmp21.not, i64 %add, i64 %div1.i
-  %cmp26.not41 = icmp ugt i64 %spec.select, %div1.i
+  %cmp26.not41 = icmp samesign ugt i64 %spec.select, %div1.i
   br i1 %cmp26.not41, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end7, %if.end25
@@ -498,14 +498,14 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %inc.i = add nuw nsw i32 %count.021.i, 1
   %tail.0.val.i = load i64, ptr %8, align 8
   %cmp4.i = icmp ne i64 %tail.0.val.i, 0
-  %cmp6.i = icmp ult i32 %count.021.i, %conv.i
+  %cmp6.i = icmp samesign ult i32 %count.021.i, %conv.i
   %9 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
   br i1 %9, label %while.body.i, label %while.end.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i
   %count.0.lcssa.i = phi i32 [ 1, %if.end.i ], [ %inc.i, %while.body.i ]
   %tail.0.lcssa.i = phi ptr [ %5, %if.end.i ], [ %8, %while.body.i ]
-  %cmp8.i = icmp ugt i32 %count.0.lcssa.i, %conv.i
+  %cmp8.i = icmp samesign ugt i32 %count.0.lcssa.i, %conv.i
   br i1 %cmp8.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -1696,11 +1696,11 @@ mi_page_usable_block_size.exit.i:                 ; preds = %if.else.i.i.i, %if.
 if.else12:                                        ; preds = %entry
   %sub.i.i.i.i.i7 = add nuw nsw i64 %size, 7
   %div1.i.i.i.i.i8 = lshr i64 %sub.i.i.i.i.i7, 3
-  %cmp.i.i.i.i9 = icmp ult i64 %size, 9
+  %cmp.i.i.i.i9 = icmp samesign ult i64 %size, 9
   br i1 %cmp.i.i.i.i9, label %mi_page_queue.exit.i20, label %if.else.i.i.i.i10
 
 if.else.i.i.i.i10:                                ; preds = %if.else12
-  %cmp1.i.i.i.i11 = icmp ult i64 %size, 65
+  %cmp1.i.i.i.i11 = icmp samesign ult i64 %size, 65
   br i1 %cmp1.i.i.i.i11, label %if.then2.i.i.i.i25, label %if.else7.i.i.i.i12
 
 if.then2.i.i.i.i25:                               ; preds = %if.else.i.i.i.i10
@@ -1770,14 +1770,14 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %inc.i.i.i = add nuw nsw i32 %count.021.i.i.i, 1
   %tail.0.val.i.i.i = load i64, ptr %23, align 8
   %cmp4.i.i.i = icmp ne i64 %tail.0.val.i.i.i, 0
-  %cmp6.i.i.i = icmp ult i32 %count.021.i.i.i, %conv.i.i.i
+  %cmp6.i.i.i = icmp samesign ult i32 %count.021.i.i.i, %conv.i.i.i
   %24 = select i1 %cmp4.i.i.i, i1 %cmp6.i.i.i, i1 false
   br i1 %24, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !11
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i.i.i
   %count.0.lcssa.i.i.i = phi i32 [ 1, %if.end.i.i.i ], [ %inc.i.i.i, %while.body.i.i.i ]
   %tail.0.lcssa.i.i.i = phi ptr [ %20, %if.end.i.i.i ], [ %23, %while.body.i.i.i ]
-  %cmp8.i.i.i = icmp ugt i32 %count.0.lcssa.i.i.i, %conv.i.i.i
+  %cmp8.i.i.i = icmp samesign ugt i32 %count.0.lcssa.i.i.i, %conv.i.i.i
   br i1 %cmp8.i.i.i, label %if.then10.i.i.i, label %if.end11.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %while.end.i.i.i
@@ -1875,14 +1875,14 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %inc.i.i.i.i = add nuw nsw i32 %count.021.i.i.i.i, 1
   %tail.0.val.i.i.i.i = load i64, ptr %40, align 8
   %cmp4.i.i.i21.i = icmp ne i64 %tail.0.val.i.i.i.i, 0
-  %cmp6.i.i.i.i = icmp ult i32 %count.021.i.i.i.i, %conv.i.i.i8.i
+  %cmp6.i.i.i.i = icmp samesign ult i32 %count.021.i.i.i.i, %conv.i.i.i8.i
   %41 = select i1 %cmp4.i.i.i21.i, i1 %cmp6.i.i.i.i, i1 false
   br i1 %41, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !11
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %if.end.i.i.i.i
   %count.0.lcssa.i.i.i.i = phi i32 [ 1, %if.end.i.i.i.i ], [ %inc.i.i.i.i, %while.body.i.i.i.i ]
   %tail.0.lcssa.i.i.i.i = phi ptr [ %37, %if.end.i.i.i.i ], [ %40, %while.body.i.i.i.i ]
-  %cmp8.i.i.i.i = icmp ugt i32 %count.0.lcssa.i.i.i.i, %conv.i.i.i8.i
+  %cmp8.i.i.i.i = icmp samesign ugt i32 %count.0.lcssa.i.i.i.i, %conv.i.i.i8.i
   br i1 %cmp8.i.i.i.i, label %if.then10.i.i.i.i, label %if.end11.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
@@ -2061,14 +2061,14 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   %inc.i.i.i.i.i = add nuw nsw i32 %count.021.i.i.i.i.i, 1
   %tail.0.val.i.i.i.i.i = load i64, ptr %71, align 8
   %cmp4.i.i.i.i.i = icmp ne i64 %tail.0.val.i.i.i.i.i, 0
-  %cmp6.i.i.i.i.i = icmp ult i32 %count.021.i.i.i.i.i, %conv.i.i.i.i17.i
+  %cmp6.i.i.i.i.i = icmp samesign ult i32 %count.021.i.i.i.i.i, %conv.i.i.i.i17.i
   %72 = select i1 %cmp4.i.i.i.i.i, i1 %cmp6.i.i.i.i.i, i1 false
   br i1 %72, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !11
 
 while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %count.0.lcssa.i.i.i.i.i = phi i32 [ 1, %if.end.i.i.i.i.i ], [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %tail.0.lcssa.i.i.i.i.i = phi ptr [ %68, %if.end.i.i.i.i.i ], [ %71, %while.body.i.i.i.i.i ]
-  %cmp8.i.i.i.i.i = icmp ugt i32 %count.0.lcssa.i.i.i.i.i, %conv.i.i.i.i17.i
+  %cmp8.i.i.i.i.i = icmp samesign ugt i32 %count.0.lcssa.i.i.i.i.i, %conv.i.i.i.i17.i
   br i1 %cmp8.i.i.i.i.i, label %if.then10.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i

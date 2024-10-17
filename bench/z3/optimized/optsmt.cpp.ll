@@ -195,7 +195,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -835,7 +835,7 @@ if.end.i43:                                       ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i43
   %retval.0.i = phi i64 [ %32, %if.end.i43 ], [ 0, %for.cond ]
-  %cmp47 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp47 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp47, label %for.body, label %if.then.i52
 
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -1113,7 +1113,7 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i64 [ %15, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i, label %for.body.i, label %invoke.cont27
 
 for.body.i:                                       ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit.i
@@ -1172,7 +1172,7 @@ if.end.i.i8:                                      ; preds = %for.cond.i5
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit.i10: ; preds = %if.end.i.i8, %for.cond.i5
   %retval.0.i.i11 = phi i64 [ %19, %if.end.i.i8 ], [ 0, %for.cond.i5 ]
-  %cmp.i12 = icmp ult i64 %indvars.iv.i6, %retval.0.i.i11
+  %cmp.i12 = icmp samesign ult i64 %indvars.iv.i6, %retval.0.i.i11
   br i1 %cmp.i12, label %for.body.i13, label %invoke.cont37
 
 for.body.i13:                                     ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit.i10
@@ -2041,7 +2041,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %83, %if.end.i ], [ 0, %for.cond ]
-  %cmp103 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp103 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp103, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -4983,7 +4983,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %14, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -5312,7 +5312,7 @@ if.end.i.i86:                                     ; preds = %for.cond79
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond79, %if.end.i.i86
   %retval.0.i.i89 = phi i64 [ %63, %if.end.i.i86 ], [ 0, %for.cond79 ]
-  %cmp82 = icmp ult i64 %indvars.iv331, %retval.0.i.i89
+  %cmp82 = icmp samesign ult i64 %indvars.iv331, %retval.0.i.i89
   br i1 %cmp82, label %invoke.cont87, label %for.end118
 
 invoke.cont87:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -6186,7 +6186,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -6320,7 +6320,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %9, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %land.rhs, label %for.end
 
 land.rhs:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -6918,7 +6918,7 @@ if.end.i95:                                       ; preds = %for.cond55
 
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit98: ; preds = %for.cond55, %if.end.i95
   %retval.0.i97 = phi i64 [ %92, %if.end.i95 ], [ 0, %for.cond55 ]
-  %cmp59 = icmp ult i64 %indvars.iv448, %retval.0.i97
+  %cmp59 = icmp samesign ult i64 %indvars.iv448, %retval.0.i97
   br i1 %cmp59, label %land.rhs60, label %for.end234
 
 land.rhs60:                                       ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit98
@@ -7696,7 +7696,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i64 [ %7, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

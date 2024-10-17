@@ -544,7 +544,7 @@ Abc_NtkRetimeCheckCompatibleLatchFanouts.exit:    ; preds = %42
   %52 = and i32 %.val45, 15
   %.not = icmp ne i32 %52, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp ult i64 %indvars.iv.next, %44
+  %53 = icmp samesign ult i64 %indvars.iv.next, %44
   %or.cond62 = select i1 %.not, i1 %53, i1 false
   br i1 %or.cond62, label %45, label %.critedge2, !llvm.loop !12
 

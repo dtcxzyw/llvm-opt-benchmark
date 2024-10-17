@@ -7011,7 +7011,7 @@ land.lhs.true32:                                  ; preds = %if.else, %_ZNK2dd11
   %bf.lshr.i = lshr i32 %bf.load.i, 10
   %bf.load.i148 = load i32, ptr %arrayidx.i.i134, align 4
   %bf.lshr.i149 = lshr i32 %bf.load.i148, 10
-  %cmp35 = icmp ult i32 %bf.lshr.i, %bf.lshr.i149
+  %cmp35 = icmp samesign ult i32 %bf.lshr.i, %bf.lshr.i149
   %spec.select = select i1 %cmp35, i32 %q, i32 %p
   %spec.select1153 = select i1 %cmp35, i32 %p, i32 %q
   br label %sw.epilog
@@ -7125,7 +7125,7 @@ land.lhs.true65:                                  ; preds = %if.else63, %_ZNK2dd
   %bf.lshr.i211 = lshr i32 %bf.load.i210, 10
   %bf.load.i214 = load i32, ptr %arrayidx.i.i198, align 4
   %bf.lshr.i215 = lshr i32 %bf.load.i214, 10
-  %cmp68 = icmp ult i32 %bf.lshr.i211, %bf.lshr.i215
+  %cmp68 = icmp samesign ult i32 %bf.lshr.i211, %bf.lshr.i215
   %spec.select1155 = select i1 %cmp68, i32 %q, i32 %p
   %spec.select1156 = select i1 %cmp68, i32 %p, i32 %q
   br label %sw.epilog
@@ -7211,7 +7211,7 @@ _ZNK2dd11pdd_manager13first_leadingEj.exit:       ; preds = %land.rhs.i.i.i, %_Z
   %arrayidx.i.i236 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %51, i64 %idxprom.i.i217
   %bf.load.i237 = load i32, ptr %arrayidx.i.i236, align 4
   %bf.lshr.i238 = lshr i32 %bf.load.i237, 10
-  %cmp87 = icmp ugt i32 %bf.lshr.i234, %bf.lshr.i238
+  %cmp87 = icmp samesign ugt i32 %bf.lshr.i234, %bf.lshr.i238
   br i1 %cmp87, label %return, label %sw.epilog
 
 while.cond:                                       ; preds = %while.body, %while.cond.preheader
@@ -7255,7 +7255,7 @@ while.body:                                       ; preds = %land.rhs, %_ZNK2dd1
   %bf.lshr.i264 = lshr i32 %bf.load.i263, 10
   %bf.load.i267 = load i32, ptr %arrayidx.i.i240, align 4
   %bf.lshr.i268 = lshr i32 %bf.load.i267, 10
-  %cmp95 = icmp ult i32 %bf.lshr.i264, %bf.lshr.i268
+  %cmp95 = icmp samesign ult i32 %bf.lshr.i264, %bf.lshr.i268
   br i1 %cmp95, label %while.cond, label %while.end, !llvm.loop !89
 
 while.end:                                        ; preds = %land.rhs.i.i243, %_ZNK2dd11pdd_manager6is_valEj.exit249, %while.body, %_ZNK2dd11pdd_manager6is_valEj.exit260
@@ -7585,12 +7585,12 @@ _ZNK2dd11pdd_manager6is_valEj.exit408:            ; preds = %land.rhs.i.i402
   %m_index.i.i406 = getelementptr inbounds i8, ptr %arrayidx.i.i302, i64 12
   %101 = load i32, ptr %m_index.i.i406, align 4
   %cmp3.i.i407 = icmp ne i32 %101, 0
-  %cmp149 = icmp ult i32 %bf.lshr.i300, %bf.lshr.i304
+  %cmp149 = icmp samesign ult i32 %bf.lshr.i300, %bf.lshr.i304
   %or.cond = and i1 %cmp149, %cmp3.i.i407
   br i1 %or.cond, label %if.then150, label %lor.rhs.i.i449
 
 _ZNK2dd11pdd_manager6is_valEj.exit408.thread1144: ; preds = %lor.lhs.false146
-  %cmp1491146 = icmp ult i32 %bf.lshr.i300, %bf.lshr.i304
+  %cmp1491146 = icmp samesign ult i32 %bf.lshr.i300, %bf.lshr.i304
   br i1 %cmp1491146, label %if.then150, label %_ZNK2dd11pdd_manager6is_valEj.exit452
 
 if.then150:                                       ; preds = %land.rhs.i.i391, %_ZNK2dd11pdd_manager6is_valEj.exit408.thread1144, %_ZNK2dd11pdd_manager6is_valEj.exit408, %_ZNK2dd11pdd_manager6is_valEj.exit397
@@ -7659,7 +7659,7 @@ lor.rhs.i.i449:                                   ; preds = %_ZNK2dd11pdd_manage
 
 _ZNK2dd11pdd_manager6is_valEj.exit452:            ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit408.thread1144, %lor.rhs.i.i449
   %113 = phi i1 [ %cmp3.i.i451, %lor.rhs.i.i449 ], [ false, %_ZNK2dd11pdd_manager6is_valEj.exit408.thread1144 ]
-  %cmp161 = icmp ugt i32 %bf.lshr.i300, %bf.lshr.i304
+  %cmp161 = icmp samesign ugt i32 %bf.lshr.i300, %bf.lshr.i304
   %or.cond68 = or i1 %cmp161, %113
   br i1 %or.cond68, label %if.then162, label %if.else168
 
@@ -8285,7 +8285,7 @@ sw.bb264:                                         ; preds = %if.end113
   %arrayidx.i.i811 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %233, i64 %idxprom.i.i810
   %bf.load.i812 = load i32, ptr %arrayidx.i.i811, align 4
   %bf.lshr.i813 = lshr i32 %bf.load.i812, 10
-  %cmp267 = icmp ult i32 %bf.lshr.i813, %bf.lshr.i300
+  %cmp267 = icmp samesign ult i32 %bf.lshr.i813, %bf.lshr.i300
   br i1 %cmp267, label %if.then268, label %if.else299
 
 if.then268:                                       ; preds = %sw.bb264
@@ -8340,7 +8340,7 @@ if.else281:                                       ; preds = %land.lhs.true277, %
   %arrayidx.i.i841 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %244, i64 %idxprom.i.i840
   %bf.load.i842 = load i32, ptr %arrayidx.i.i841, align 4
   %bf.lshr.i843 = lshr i32 %bf.load.i842, 10
-  %cmp283 = icmp ult i32 %bf.lshr.i843, %bf.lshr.i300
+  %cmp283 = icmp samesign ult i32 %bf.lshr.i843, %bf.lshr.i300
   br i1 %cmp283, label %land.lhs.true284, label %if.else281.if.else290_crit_edge
 
 if.else281.if.else290_crit_edge:                  ; preds = %if.else281
@@ -8357,7 +8357,7 @@ land.lhs.true284:                                 ; preds = %if.else281
   %arrayidx.i.i849 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %244, i64 %idxprom.i.i297
   %bf.load.i850 = load i32, ptr %arrayidx.i.i849, align 4
   %bf.lshr.i851 = lshr i32 %bf.load.i850, 10
-  %cmp287.not = icmp ugt i32 %bf.lshr.i847, %bf.lshr.i851
+  %cmp287.not = icmp samesign ugt i32 %bf.lshr.i847, %bf.lshr.i851
   br i1 %cmp287.not, label %if.else290, label %if.then288
 
 if.then288:                                       ; preds = %land.lhs.true284
@@ -8446,7 +8446,7 @@ sw.bb302:                                         ; preds = %if.end113
   %263 = load i32, ptr %m_hi.i888, align 4
   %call306 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %263, i32 noundef %q.addr.0, i32 noundef 7)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call306)
-  %cmp307 = icmp ugt i32 %bf.lshr.i300, %bf.lshr.i304
+  %cmp307 = icmp samesign ugt i32 %bf.lshr.i300, %bf.lshr.i304
   br i1 %cmp307, label %if.then308, label %if.else312
 
 if.then308:                                       ; preds = %sw.bb302
@@ -8548,7 +8548,7 @@ _ZN2dd11pdd_manager4readEj.exit946:               ; preds = %_ZN2dd11pdd_manager
   br label %sw.epilog333
 
 sw.bb320:                                         ; preds = %if.end113
-  %cmp321 = icmp ult i32 %bf.lshr.i300, %bf.lshr.i304
+  %cmp321 = icmp samesign ult i32 %bf.lshr.i300, %bf.lshr.i304
   br i1 %cmp321, label %if.then322, label %if.else325
 
 if.then322:                                       ; preds = %sw.bb320
@@ -11358,7 +11358,7 @@ if.end5:                                          ; preds = %if.end, %_ZNK2dd11p
   %bf.lshr.i = lshr i32 %bf.load.i, 10
   %bf.load.i27 = load i32, ptr %arrayidx.i.i13, align 4
   %bf.lshr.i28 = lshr i32 %bf.load.i27, 10
-  %cmp = icmp ugt i32 %bf.lshr.i, %bf.lshr.i28
+  %cmp = icmp samesign ugt i32 %bf.lshr.i, %bf.lshr.i28
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end5
@@ -12685,7 +12685,7 @@ while.body.i.i240:                                ; preds = %land.rhs.i.i234
   br label %while.cond.i.i227, !llvm.loop !88
 
 if.else:                                          ; preds = %if.end34
-  %cmp43 = icmp ugt i32 %bf.lshr.i, %bf.lshr.i200
+  %cmp43 = icmp samesign ugt i32 %bf.lshr.i, %bf.lshr.i200
   %99 = load ptr, ptr %m_level2var.i302, align 8
   br i1 %cmp43, label %if.then44, label %if.else49
 
@@ -13590,7 +13590,7 @@ if.then19:                                        ; preds = %if.then15
   br label %while.body.backedge
 
 if.else25:                                        ; preds = %if.end11
-  %cmp28 = icmp ugt i32 %bf.lshr.i, %bf.lshr.i52
+  %cmp28 = icmp samesign ugt i32 %bf.lshr.i, %bf.lshr.i52
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i40, %_ZNK2dd11pdd_manager6is_valEj.exit46, %if.then3, %if.else.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %_ZNK2dd11pdd_manager6is_valEj.exit27, %entry, %if.else25
@@ -13863,7 +13863,7 @@ _ZNK2dd11pdd_manager12next_leadingEj.exit119:     ; preds = %land.rhs.i.i.i.i113
   br i1 %cmp, label %while.end, label %if.end, !llvm.loop !127
 
 if.else:                                          ; preds = %if.end13
-  %cmp22 = icmp ult i32 %bf.lshr.i, %bf.lshr.i90
+  %cmp22 = icmp samesign ult i32 %bf.lshr.i, %bf.lshr.i90
   br label %return
 
 while.end:                                        ; preds = %_ZNK2dd11pdd_manager12next_leadingEj.exit119, %_ZNK2dd11pdd_manager6is_valEj.exit62, %land.rhs.i.i56, %_ZNK2dd11pdd_manager13first_leadingEj.exit50
@@ -19362,7 +19362,7 @@ entry:
   %arrayidx.i.i60 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %1, i64 %idxprom.i.i59
   %bf.load.i61 = load i32, ptr %arrayidx.i.i60, align 4
   %bf.lshr.i62 = lshr i32 %bf.load.i61, 10
-  %cmp = icmp ugt i32 %bf.lshr.i, %bf.lshr.i62
+  %cmp = icmp samesign ugt i32 %bf.lshr.i, %bf.lshr.i62
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -20098,7 +20098,7 @@ if.then.i.i430:                                   ; preds = %ehcleanup49
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %cmp54 = icmp ult i32 %bf.lshr.i, %bf.lshr.i62
+  %cmp54 = icmp samesign ult i32 %bf.lshr.i, %bf.lshr.i62
   br i1 %cmp54, label %if.then55, label %if.else62
 
 if.then55:                                        ; preds = %if.else
@@ -26356,7 +26356,7 @@ if.end.i.i79:                                     ; preds = %for.cond.i
 
 _ZNK6vectorISt4pairI8rational7svectorIjjEELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i79, %for.cond.i
   %retval.0.i.i81 = phi i64 [ %48, %if.end.i.i79 ], [ 0, %for.cond.i ]
-  %cmp.i82 = icmp ult i64 %indvars.iv.i, %retval.0.i.i81
+  %cmp.i82 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i81
   br i1 %cmp.i82, label %for.body.i, label %invoke.cont33
 
 for.body.i:                                       ; preds = %_ZNK6vectorISt4pairI8rational7svectorIjjEELb1EjE4sizeEv.exit.i
@@ -27820,7 +27820,7 @@ lor.rhs.i:                                        ; preds = %_ZNK2dd11pdd_manage
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 10
   %bf.load.i = load i32, ptr %__begin157.053, align 4
   %bf.lshr.i = lshr i32 %bf.load.i, 10
-  %cmp4.i = icmp ult i32 %bf.lshr.i.i, %bf.lshr.i
+  %cmp4.i = icmp samesign ult i32 %bf.lshr.i.i, %bf.lshr.i
   br i1 %cmp4.i, label %land.rhs.i, label %lor.end.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
@@ -27862,7 +27862,7 @@ lor.rhs8.i:                                       ; preds = %_ZNK2dd11pdd_manage
   %bf.lshr.i35.i = lshr i32 %bf.load.i34.i, 10
   %bf.load10.i = load i32, ptr %__begin157.053, align 4
   %bf.lshr11.i = lshr i32 %bf.load10.i, 10
-  %cmp12.not.i = icmp ugt i32 %bf.lshr.i35.i, %bf.lshr11.i
+  %cmp12.not.i = icmp samesign ugt i32 %bf.lshr.i35.i, %bf.lshr11.i
   br i1 %cmp12.not.i, label %if.then66, label %land.rhs13.i
 
 land.rhs13.i:                                     ; preds = %lor.rhs8.i
@@ -27958,7 +27958,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN2dd11pdd_manager4nodeELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN2dd11pdd_manager4nodeELb0EjE4sizeEv.exit
@@ -28109,7 +28109,7 @@ lor.rhs:                                          ; preds = %if.end, %_ZNK2dd11p
   %bf.lshr.i = lshr i32 %bf.load.i, 10
   %bf.load = load i32, ptr %n, align 4
   %bf.lshr = lshr i32 %bf.load, 10
-  %cmp4 = icmp ult i32 %bf.lshr.i, %bf.lshr
+  %cmp4 = icmp samesign ult i32 %bf.lshr.i, %bf.lshr
   br i1 %cmp4, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
@@ -28151,7 +28151,7 @@ lor.rhs8:                                         ; preds = %lor.end, %_ZNK2dd11
   %bf.lshr.i35 = lshr i32 %bf.load.i34, 10
   %bf.load10 = load i32, ptr %n, align 4
   %bf.lshr11 = lshr i32 %bf.load10, 10
-  %cmp12.not = icmp ugt i32 %bf.lshr.i35, %bf.lshr11
+  %cmp12.not = icmp samesign ugt i32 %bf.lshr.i35, %bf.lshr11
   br i1 %cmp12.not, label %lor.end19, label %land.rhs13
 
 land.rhs13:                                       ; preds = %lor.rhs8
@@ -42148,7 +42148,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ult i64 %div11, %div.i5557
+  %cmp24.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

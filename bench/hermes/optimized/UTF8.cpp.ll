@@ -511,7 +511,7 @@ if.then:                                          ; preds = %entry
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv382, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ugt i32 %shl, 127
+  %cmp11 = icmp samesign ugt i32 %shl, 127
   tail call void @llvm.assume(i1 %cmp11)
   br label %return
 
@@ -540,7 +540,7 @@ if.then19:                                        ; preds = %if.else
   %and48 = shl nsw i32 %conv22, 6
   %shl49 = and i32 %and48, 4032
   %or50 = or disjoint i32 %shl49, %shl47
-  %cmp53 = icmp ugt i32 %or50, 2047
+  %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
   %and51 = and i32 %conv3383, 63
   %or52 = or disjoint i32 %or50, %and51
@@ -580,9 +580,9 @@ if.else68:                                        ; preds = %if.else
   %and122 = and i32 %conv10184, 63
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
-  %cmp124 = icmp ugt i32 %or118, 65535
+  %cmp124 = icmp samesign ugt i32 %or118, 65535
   tail call void @llvm.assume(i1 %cmp124)
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68

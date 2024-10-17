@@ -2313,7 +2313,7 @@ thread-pre-split:                                 ; preds = %15, %thread-pre-spl
 .preheader193:                                    ; preds = %.lr.ph226, %.critedge4
   %.1132.lcssa = phi double [ 1.000000e+00, %.critedge4 ], [ %62, %.lr.ph226 ]
   %.1126.lcssa = phi i32 [ %spec.store.select, %.critedge4 ], [ %63, %.lr.ph226 ]
-  %61 = icmp ugt i32 %.1126.lcssa, 7
+  %61 = icmp samesign ugt i32 %.1126.lcssa, 7
   br i1 %61, label %.lr.ph231, label %.preheader
 
 .lr.ph226:                                        ; preds = %.critedge4, %.lr.ph226
@@ -2737,7 +2737,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -5719,7 +5719,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
-  %15 = icmp ult i64 %.0.us, 15
+  %15 = icmp samesign ult i64 %.0.us, 15
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.split.us
 
@@ -5784,7 +5784,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
   %36 = icmp eq i32 %.0.i.i.i.i, -1
   %37 = xor i1 %36, %.0.i.i4.i.i
-  %38 = icmp ult i64 %.0, 15
+  %38 = icmp samesign ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us
 
@@ -6680,7 +6680,7 @@ _ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %313 = add nuw nsw i64 %storemerge26.i.i.i.i, 1
   %314 = lshr i64 %313, 1
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i, 2
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i, 2
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !84
 
 315:                                              ; preds = %.lr.ph.i.i.i.i
@@ -7225,7 +7225,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

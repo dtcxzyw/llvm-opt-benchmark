@@ -632,7 +632,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
 
 .preheader171.split:                              ; preds = %.preheader171, %69
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %69 ], [ 0, %.preheader171 ]
-  %64 = icmp ult i64 %indvars.iv245, %54
+  %64 = icmp samesign ult i64 %indvars.iv245, %54
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %.preheader171.split

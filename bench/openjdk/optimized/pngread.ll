@@ -1682,7 +1682,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %8, align 4
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1707,7 +1707,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %94 = load i32, ptr %8, align 4
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next87, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next87, %95
   br i1 %96, label %89, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %89, %._crit_edge.thread, %._crit_edge, %png_read_update_info.exit
@@ -3457,9 +3457,9 @@ decode_gamma.exit521.thread:                      ; preds = %.preheader585, %dec
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %769
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %769 ]
-  %641 = icmp ult i64 %indvars.iv, %639
-  %642 = and i1 %629, %641
-  %or.cond459 = and i1 %632, %641
+  %641 = icmp samesign ult i64 %indvars.iv, %639
+  %642 = select i1 %629, i1 %641, i1 false
+  %or.cond459 = select i1 %632, i1 %641, i1 false
   br i1 %or.cond459, label %643, label %752
 
 643:                                              ; preds = %.lr.ph
@@ -5086,7 +5086,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %22
-  %26 = icmp ugt i32 %.0104154, 1
+  %26 = icmp samesign ugt i32 %.0104154, 1
   %27 = sub nuw nsw i32 7, %.0104154
   %28 = lshr i32 %27, 1
   %29 = select i1 %26, i32 %28, i32 3
@@ -5111,7 +5111,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %45 = sub nsw i32 3, %44
   %46 = shl nuw nsw i32 %43, %45
   %47 = and i32 %46, 7
-  %48 = icmp ugt i32 %.0104154, 2
+  %48 = icmp samesign ugt i32 %.0104154, 2
   %49 = add nsw i32 %.0104154, -1
   %50 = ashr i32 %49, 1
   %51 = lshr i32 8, %50
@@ -5137,19 +5137,19 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   ]
 
 .preheader132.us.preheader:                       ; preds = %.lr.ph147
-  %57 = icmp ult i64 %.0105, %21
+  %57 = icmp samesign ult i64 %.0105, %21
   br label %.preheader132.us
 
 .preheader130.us.preheader:                       ; preds = %.lr.ph147
-  %58 = icmp ult i64 %.0105, %21
+  %58 = icmp samesign ult i64 %.0105, %21
   br label %.preheader130.us
 
 .preheader128.us.preheader:                       ; preds = %.lr.ph147
-  %59 = icmp ult i64 %.0105, %21
+  %59 = icmp samesign ult i64 %.0105, %21
   br label %.preheader128.us
 
 .preheader.us.preheader:                          ; preds = %.lr.ph147
-  %60 = icmp ult i64 %.0105, %21
+  %60 = icmp samesign ult i64 %.0105, %21
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
@@ -5453,7 +5453,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   br i1 %30, label %31, label %61
 
 31:                                               ; preds = %28
-  %32 = icmp ugt i32 %.07392, 1
+  %32 = icmp samesign ugt i32 %.07392, 1
   %33 = sub nuw nsw i32 7, %.07392
   %34 = lshr i32 %33, 1
   %35 = select i1 %32, i32 %34, i32 3
@@ -5479,7 +5479,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   %52 = sub nsw i32 3, %51
   %53 = shl nuw nsw i32 %50, %52
   %54 = and i32 %53, 7
-  %55 = icmp ugt i32 %.07392, 2
+  %55 = icmp samesign ugt i32 %.07392, 2
   %56 = add nsw i32 %.07392, -1
   %57 = ashr i32 %56, 1
   %58 = lshr i32 8, %57
@@ -5497,7 +5497,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
 
 .lr.ph91:                                         ; preds = %61
   %63 = zext nneg i32 %.078 to i64
-  %64 = icmp ult i64 %.079, %23
+  %64 = icmp samesign ult i64 %.079, %23
   br label %65
 
 65:                                               ; preds = %.lr.ph91, %._crit_edge
@@ -5686,7 +5686,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   br i1 %46, label %47, label %77
 
 47:                                               ; preds = %44
-  %48 = icmp ugt i32 %.0234, 1
+  %48 = icmp samesign ugt i32 %.0234, 1
   %49 = sub nuw nsw i32 7, %.0234
   %50 = lshr i32 %49, 1
   %51 = select i1 %48, i32 %50, i32 3
@@ -5711,7 +5711,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %67 = sub nsw i32 3, %66
   %68 = shl nuw nsw i32 %65, %67
   %69 = and i32 %68, 7
-  %70 = icmp ugt i32 %.0234, 2
+  %70 = icmp samesign ugt i32 %.0234, 2
   %71 = add nsw i32 %.0234, -1
   %72 = ashr i32 %71, 1
   %73 = lshr i32 8, %72
@@ -5734,7 +5734,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   br i1 %80, label %.lr.ph233.preheader, label %.loopexit
 
 .lr.ph233.preheader:                              ; preds = %.preheader
-  %81 = icmp ult i64 %.0182, %43
+  %81 = icmp samesign ult i64 %.0182, %43
   br label %.lr.ph233
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %._crit_edge231
@@ -5822,7 +5822,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %133 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
-  %136 = icmp ult i64 %.0182, %43
+  %136 = icmp samesign ult i64 %.0182, %43
   br label %137
 
 137:                                              ; preds = %.lr.ph226, %._crit_edge
@@ -5920,7 +5920,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   br i1 %194, label %195, label %225
 
 195:                                              ; preds = %.split.us
-  %196 = icmp ugt i32 %.1219.us, 1
+  %196 = icmp samesign ugt i32 %.1219.us, 1
   %197 = sub nuw nsw i32 7, %.1219.us
   %198 = lshr i32 %197, 1
   %199 = select i1 %196, i32 %198, i32 3
@@ -5946,7 +5946,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %216 = sub nsw i32 3, %215
   %217 = shl nuw nsw i32 %214, %216
   %218 = and i32 %217, 7
-  %219 = icmp ugt i32 %.1219.us, 2
+  %219 = icmp samesign ugt i32 %.1219.us, 2
   %220 = add nsw i32 %.1219.us, -1
   %221 = ashr i32 %220, 1
   %222 = lshr i32 8, %221
@@ -5969,7 +5969,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
 
 .lr.ph218.us:                                     ; preds = %225
   %228 = zext nneg i32 %.0179.us to i64
-  %229 = icmp ult i64 %.0180.us, %188
+  %229 = icmp samesign ult i64 %.0180.us, %188
   br label %230
 
 230:                                              ; preds = %._crit_edge.split.us.us.us, %.lr.ph218.us
@@ -6031,7 +6031,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   br i1 %257, label %258, label %288
 
 258:                                              ; preds = %.split
-  %259 = icmp ugt i32 %.1219, 1
+  %259 = icmp samesign ugt i32 %.1219, 1
   %260 = sub nuw nsw i32 7, %.1219
   %261 = lshr i32 %260, 1
   %262 = select i1 %259, i32 %261, i32 3
@@ -6057,7 +6057,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %279 = sub nsw i32 3, %278
   %280 = shl nuw nsw i32 %277, %279
   %281 = and i32 %280, 7
-  %282 = icmp ugt i32 %.1219, 2
+  %282 = icmp samesign ugt i32 %.1219, 2
   %283 = add nsw i32 %.1219, -1
   %284 = ashr i32 %283, 1
   %285 = lshr i32 8, %284
@@ -6075,7 +6075,7 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
 
 .lr.ph218:                                        ; preds = %288
   %290 = zext nneg i32 %.0179 to i64
-  %291 = icmp ult i64 %.0180, %188
+  %291 = icmp samesign ult i64 %.0180, %188
   br label %292
 
 292:                                              ; preds = %.lr.ph218, %._crit_edge.split

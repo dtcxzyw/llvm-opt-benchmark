@@ -1204,7 +1204,7 @@ for.body151:                                      ; preds = %for.body151.lr.ph, 
   %w.sroa.27.01589 = phi float [ %33, %for.body151.lr.ph ], [ %w.sroa.27.1, %for.inc ]
   %w.sroa.0.01588 = phi <2 x float> [ %w.sroa.0.0.copyload, %for.body151.lr.ph ], [ %w.sroa.0.1, %for.inc ]
   %rng.sroa.0.31587 = phi i64 [ %add.i.i.i148, %for.body151.lr.ph ], [ %rng.sroa.0.6, %for.inc ]
-  %cmp152 = icmp ugt i32 %depth.01591, 3
+  %cmp152 = icmp samesign ugt i32 %depth.01591, 3
   br i1 %cmp152, label %land.lhs.true, label %if.end171
 
 land.lhs.true:                                    ; preds = %for.body151
@@ -3142,7 +3142,7 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
 _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %for.body.i120
   %rng.sroa.0.0493 = add i64 %mul.i1.i.i.pn481.pn, %or.i.i
   %div = fdiv float %.sroa.speculated.i, %pdf79.0491
-  %cmp92 = icmp ugt i32 %depth.0489, 3
+  %cmp92 = icmp samesign ugt i32 %depth.0489, 3
   %cmp93 = fcmp olt float %div, 2.500000e-01
   %or.cond = select i1 %cmp92, i1 %cmp93, i1 false
   br i1 %or.cond, label %if.then94, label %if.end105
@@ -6094,7 +6094,7 @@ for.body151:                                      ; preds = %for.body151.lr.ph, 
   %w.sroa.27.01545 = phi float [ %33, %for.body151.lr.ph ], [ %w.sroa.27.1, %for.inc ]
   %w.sroa.0.01544 = phi <2 x float> [ %w.sroa.0.0.copyload, %for.body151.lr.ph ], [ %w.sroa.0.1, %for.inc ]
   %rng.sroa.0.31543 = phi i64 [ %add.i.i.i143, %for.body151.lr.ph ], [ %rng.sroa.0.6, %for.inc ]
-  %cmp152 = icmp ugt i32 %depth.01546, 3
+  %cmp152 = icmp samesign ugt i32 %depth.01546, 3
   br i1 %cmp152, label %land.lhs.true, label %if.end171
 
 land.lhs.true:                                    ; preds = %for.body151
@@ -7909,7 +7909,7 @@ for.body.i120:                                    ; preds = %for.body.i120, %for
 _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %for.body.i120
   %rng.sroa.0.0496 = add i64 %mul.i1.i.i.pn484.pn, %or.i.i
   %div = fdiv float %.sroa.speculated.i, %pdf79.0494
-  %cmp92 = icmp ugt i32 %depth.0492, 3
+  %cmp92 = icmp samesign ugt i32 %depth.0492, 3
   %cmp93 = fcmp olt float %div, 2.500000e-01
   %or.cond = select i1 %cmp92, i1 %cmp93, i1 false
   br i1 %or.cond, label %if.then94, label %if.end105
@@ -12263,7 +12263,7 @@ _ZN4pbrt7FastExpEf.exit:                          ; preds = %if.end52, %if.end.i
   %conv2.val.i.i94 = select i1 %cmp3.i.i93, float 1.000000e+00, float %div87
   %retval.0.i.i95 = select i1 %cmp.i.i92, float -1.000000e+00, float %conv2.val.i.i94
   %call.i.i96 = tail call noundef float @asinf(float noundef %retval.0.i.i95) #24
-  %cmp92 = icmp ult i64 %indvars.iv.i, 3
+  %cmp92 = icmp samesign ult i64 %indvars.iv.i, 3
   br i1 %cmp92, label %if.then93, label %if.else97
 
 if.then93:                                        ; preds = %_ZN4pbrt7FastExpEf.exit

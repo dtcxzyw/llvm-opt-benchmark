@@ -23623,7 +23623,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN10scoped_ptrIN7d
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %m_col_cnt, align 8
   %59 = zext i32 %58 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %59
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %cmp, label %for.body71, label %for.end, !llvm.loop !77
 
 lpad30:                                           ; preds = %if.then.i35
@@ -24662,7 +24662,7 @@ if.end.split:                                     ; preds = %entry
   %agg.tmp.sroa.0.0.copyload10 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6668 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i6668
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i6668
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

@@ -224,7 +224,7 @@ define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) loca
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %18, align 8
-  %19 = icmp ugt i32 %10, 1
+  %19 = icmp samesign ugt i32 %10, 1
   br i1 %19, label %.lr.ph167, label %._crit_edge
 
 .lr.ph167:                                        ; preds = %1
@@ -277,7 +277,7 @@ hemdist.exit:                                     ; preds = %31
   %.2109 = select i1 %36, i16 %25, i16 %.1108159
   %.2 = select i1 %36, i16 %.0116157, i16 %.1106160
   %37 = add i16 %.0116157, 1
-  %.not130 = icmp ugt i16 %37, %21
+  %.not130 = icmp samesign ugt i16 %37, %21
   br i1 %.not130, label %.loopexit, label %26, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %1

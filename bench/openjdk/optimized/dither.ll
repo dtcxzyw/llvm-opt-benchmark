@@ -91,7 +91,7 @@ define void @initInverseGrayLut(ptr nocapture noundef readonly %0, i32 noundef %
   %34 = lshr i32 %33, 1
   %35 = select i1 %32, i32 0, i32 %34
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ugt i64 %indvars.iv73, %36
+  %37 = icmp samesign ugt i64 %indvars.iv73, %36
   br i1 %37, label %.lr.ph61, label %.loopexit
 
 .lr.ph61:                                         ; preds = %31, %.lr.ph61
@@ -390,7 +390,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef n
   %38 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
   %40 = and i16 %36, 31744
-  %41 = icmp ult i16 %40, 30721
+  %41 = icmp samesign ult i16 %40, 30721
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %32
@@ -442,7 +442,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef n
 66:                                               ; preds = %60, %.thread, %53
   %67 = phi i32 [ %65, %60 ], [ %55, %.thread ], [ %54, %53 ]
   %68 = and i16 %36, 992
-  %69 = icmp ult i16 %68, 961
+  %69 = icmp samesign ult i16 %68, 961
   br i1 %69, label %70, label %.thread84
 
 70:                                               ; preds = %66

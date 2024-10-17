@@ -1006,7 +1006,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr51drop_in_place$LT$outline_panel..ExcerptOutlines$GT$17h2f491912a55760ebE.llvm.13117562262406010975"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -1900,7 +1900,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !399, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -1909,14 +1909,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !399, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
@@ -3470,7 +3470,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   ]
 
 134:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread"
-  %135 = icmp ugt i32 %133, 127
+  %135 = icmp samesign ugt i32 %133, 127
   br i1 %135, label %136, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread117"
 
 136:                                              ; preds = %134
@@ -3513,11 +3513,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   br i1 %155, label %156, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread117"
 
 156:                                              ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_whitespace17h40d880906af0e7e1E.exit"
-  %157 = icmp ult i32 %133, 2048
+  %157 = icmp samesign ult i32 %133, 2048
   br i1 %157, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8len_utf817he9792ae131d7f00dE.exit", label %158
 
 158:                                              ; preds = %156
-  %159 = icmp ult i32 %133, 65536
+  %159 = icmp samesign ult i32 %133, 65536
   %..i.i = select i1 %159, i64 3, i64 4
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8len_utf817he9792ae131d7f00dE.exit"
 
@@ -4959,7 +4959,7 @@ define hidden void @_ZN13outline_panel10SearchData3new17h3dc882ed3df23f31E(ptr d
   ]
 
 128:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i.i"
-  %129 = icmp ugt i32 %127, 127
+  %129 = icmp samesign ugt i32 %127, 127
   br i1 %129, label %130, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h13af511cf906faf3E.exit"
 
 130:                                              ; preds = %128
@@ -5002,11 +5002,11 @@ define hidden void @_ZN13outline_panel10SearchData3new17h3dc882ed3df23f31E(ptr d
   br i1 %149, label %150, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h13af511cf906faf3E.exit"
 
 150:                                              ; preds = %"_ZN13outline_panel10SearchData3new28_$u7b$$u7b$closure$u7d$$u7d$17h3cafe263d19a2290E.exit.i.i.i.i"
-  %151 = icmp ult i32 %127, 2048
+  %151 = icmp samesign ult i32 %127, 2048
   br i1 %151, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbaa970818d913305E.exit.i.i.i", label %152
 
 152:                                              ; preds = %150
-  %153 = icmp ult i32 %127, 65536
+  %153 = icmp samesign ult i32 %127, 65536
   %..i.i.i.i.i.i.i = select i1 %153, i64 3, i64 4
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hbaa970818d913305E.exit.i.i.i"
 
@@ -5247,7 +5247,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i:
   ]
 
 251:                                              ; preds = %250
-  %252 = icmp ugt i32 %.sroa.4.1.i.ph, 127
+  %252 = icmp samesign ugt i32 %.sroa.4.1.i.ph, 127
   br i1 %252, label %253, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5d7af2e82ad9684fE.exit.thread110"
 
 253:                                              ; preds = %251
@@ -13144,7 +13144,7 @@ _ZN13outline_panel12OutlinePanel14selected_entry17hd330d6fd0442231eE.exit.thread
   %127 = getelementptr inbounds { i64, { { i64, [3 x i64] }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } } }, ptr %106, i64 %116
   %128 = getelementptr inbounds i8, ptr %127, i64 -160
   %129 = load i64, ptr %128, align 8, !range !17, !noalias !2824, !noundef !4
-  %switch = icmp ult i64 %129, 2
+  %switch = icmp samesign ult i64 %129, 2
   br i1 %switch, label %130, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h272de39750d1f4e7E.exit"
 
 130:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h64faa0f2da2e46f4E.exit.i"
@@ -19538,8 +19538,8 @@ select.unfold.i.i.i:                              ; preds = %._crit_edge.i.i.i.i
 502:                                              ; preds = %501
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %21), !noalias !3711
   %503 = load i64, ptr %22, align 8, !range !651, !alias.scope !3923, !noalias !3711, !noundef !4
-  %switch.i.i.i.i.i.i = icmp ult i64 %503, 2
-  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %568
+  %or.cond.i.i.i.i = icmp samesign ult i64 %503, 2
+  br i1 %or.cond.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %568
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %502
   call void @llvm.experimental.noalias.scope.decl(metadata !3926)
@@ -25933,7 +25933,7 @@ define hidden void @_ZN13outline_panel12OutlinePanel10push_entry17h4417d42ef6b56
   call void @llvm.experimental.noalias.scope.decl(metadata !5513)
   call void @llvm.experimental.noalias.scope.decl(metadata !5516)
   %76 = load i64, ptr %44, align 8, !range !17, !alias.scope !5519, !noundef !4
-  %switch.i.i = icmp ult i64 %76, 2
+  %switch.i.i = icmp samesign ult i64 %76, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17hde1ef856905b436bE.exit", label %77
 
 77:                                               ; preds = %75
@@ -30042,7 +30042,7 @@ select.unfold81:                                  ; preds = %._crit_edge.i.i48, 
 "_ZN4core3ptr67drop_in_place$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$GT$17h4286e84e98d2b28eE.exit": ; preds = %"_ZN4core3ptr57drop_in_place$LT$fuzzy..strings..StringMatchCandidate$GT$17hf4e5a873f31a22caE.exit.i", %"_ZN4core3ptr57drop_in_place$LT$$u5b$outline_panel..CachedEntry$u5d$$GT$17h0ae6c541a10e9d10E.exit", %select.unfold81, %129
   %.sroa.06.0 = phi i64 [ %63, %select.unfold81 ], [ %63, %129 ], [ 0, %"_ZN4core3ptr57drop_in_place$LT$$u5b$outline_panel..CachedEntry$u5d$$GT$17h0ae6c541a10e9d10E.exit" ], [ 0, %"_ZN4core3ptr57drop_in_place$LT$fuzzy..strings..StringMatchCandidate$GT$17hf4e5a873f31a22caE.exit.i" ]
   %246 = load i64, ptr %119, align 8, !range !17, !alias.scope !6212, !noundef !4
-  %switch = icmp ult i64 %246, 2
+  %switch = icmp samesign ult i64 %246, 2
   br i1 %switch, label %_ZN13outline_panel7Excerpt13iter_outlines17ha92d414b149bb02aE.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e81400d19abe464E.exit.thread.backedge"
 
 _ZN13outline_panel7Excerpt13iter_outlines17ha92d414b149bb02aE.exit: ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$GT$17h4286e84e98d2b28eE.exit"

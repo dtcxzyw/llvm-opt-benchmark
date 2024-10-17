@@ -218,7 +218,7 @@ define range(i32 -1, 1) i32 @H5G__stab_create(ptr noundef %0, ptr nocapture noun
   %41 = add nuw nsw i64 %40, %39
   %42 = and i64 %41, 1016
   %43 = or disjoint i64 %42, 2
-  %44 = icmp ugt i64 %.020, %43
+  %44 = icmp samesign ugt i64 %.020, %43
   br i1 %44, label %56, label %45
 
 45:                                               ; preds = %33

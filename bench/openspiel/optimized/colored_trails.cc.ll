@@ -11648,7 +11648,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
 .preheader165:                                    ; preds = %.preheader165.loopexit, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit
   %.041.lcssa = phi i32 [ %35, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit ], [ %.0.lcssa.i71154, %.preheader165.loopexit ]
   %.0.lcssa = phi i32 [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit ], [ %41, %.preheader165.loopexit ]
-  %42 = icmp ugt i32 %.041.lcssa, 8
+  %42 = icmp samesign ugt i32 %.041.lcssa, 8
   br i1 %42, label %.preheader.lr.ph, label %._crit_edge244
 
 .preheader.lr.ph:                                 ; preds = %.preheader165
@@ -17081,14 +17081,14 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
           to label %296 unwind label %.loopexit95
 
 296:                                              ; preds = %._crit_edge113
-  %297 = icmp ugt i32 %.0, 998
+  %297 = icmp samesign ugt i32 %.0, 998
   %.not29 = select i1 %295, i1 true, i1 %297
   br i1 %.not29, label %298, label %37, !llvm.loop !153
 
 298:                                              ; preds = %296
   store i32 %38, ptr %8, align 4
   store i32 1000, ptr %9, align 4
-  %299 = icmp ult i32 %.0, 999
+  %299 = icmp samesign ult i32 %.0, 999
   br i1 %299, label %305, label %300
 
 300:                                              ; preds = %298

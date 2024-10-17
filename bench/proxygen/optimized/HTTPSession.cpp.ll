@@ -10249,7 +10249,7 @@ land.lhs.true42:                                  ; preds = %if.end37
   %34 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i.i = lshr i64 %34, 8
   %cond.i = select i1 %cmp.i.i17, i64 %conv.i, i64 %shr.i.i.i.i.i
-  %cmp44 = icmp ugt i64 %cond.i, 1
+  %cmp44 = icmp samesign ugt i64 %cond.i, 1
   br i1 %cmp44, label %if.then45, label %if.end229
 
 if.then45:                                        ; preds = %land.lhs.true42
@@ -10293,7 +10293,7 @@ cleanup.done61:                                   ; preds = %if.then45
   %41 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i.i27 = lshr i64 %41, 8
   %cond.i28 = select i1 %cmp.i.i23, i64 %conv.i25, i64 %shr.i.i.i.i.i27
-  %cmp71 = icmp ult i64 %cond.i28, 2
+  %cmp71 = icmp samesign ult i64 %cond.i28, 2
   br i1 %cmp71, label %if.end229, label %while.end110
 
 while.end110:                                     ; preds = %cleanup.done61
@@ -19887,7 +19887,7 @@ invoke.cont45:                                    ; preds = %lor.lhs.false
   %29 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i, align 8
   %shr.i.i.i.i.i = lshr i64 %29, 8
   %cond.i = select i1 %cmp.i.i7, i64 %conv.i, i64 %shr.i.i.i.i.i
-  %cmp47 = icmp ult i64 %cond.i, 2
+  %cmp47 = icmp samesign ult i64 %cond.i, 2
   %reads_.i.i = getelementptr inbounds i8, ptr %this, i64 2392
   %30 = load i8, ptr %reads_.i.i, align 8
   %cmp.i.i9 = icmp eq i8 %30, 1
@@ -27478,7 +27478,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i, label %while.end.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
@@ -32413,7 +32413,7 @@ entry:
   %and.i.i.i = and i64 %0, 4611686018427387903
   %add.ptr.i.idx18 = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i.idx18
-  %cmp48.i.i.i.not = icmp ult i64 %add.ptr.i.idx18, 64
+  %cmp48.i.i.i.not = icmp samesign ult i64 %add.ptr.i.idx18, 64
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -32590,7 +32590,7 @@ entry:
   %and.i.i.i = and i64 %0, 4611686018427387903
   %add.ptr.i.idx20 = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i.idx20
-  %cmp48.i.i.i.not = icmp ult i64 %add.ptr.i.idx20, 64
+  %cmp48.i.i.i.not = icmp samesign ult i64 %add.ptr.i.idx20, 64
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -32925,7 +32925,7 @@ for.body.us:                                      ; preds = %invoke.cont34.split
   %idx.0.us13 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
   %4 = load i64, ptr %observers_, align 8
   %and.i.i.i.us = and i64 %4, 4611686018427387903
-  %cmp.not.i.us = icmp ult i64 %idx.0.us13, %and.i.i.i.us
+  %cmp.not.i.us = icmp samesign ult i64 %idx.0.us13, %and.i.i.i.us
   br i1 %cmp.not.i.us, label %invoke.cont46.us, label %if.then.i
 
 invoke.cont46.us:                                 ; preds = %for.body.us
@@ -32956,7 +32956,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %.pre2035 = phi i64 [ %.pre20, %for.inc ], [ %.pre2030, %for.cond.preheader ]
   %idx.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %.pre15.pre1733 = phi i64 [ %.pre15.pre, %for.inc ], [ %2, %for.cond.preheader ]
-  %cmp.not.i = icmp ult i64 %idx.034, %.pre2035
+  %cmp.not.i = icmp samesign ult i64 %idx.034, %.pre2035
   br i1 %cmp.not.i, label %invoke.cont46, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.us, %for.body
@@ -32987,9 +32987,9 @@ if.end.for.inc_crit_edge:                         ; preds = %if.end
 for.inc:                                          ; preds = %if.end.for.inc_crit_edge, %invoke.cont46
   %.pre15.pre = phi i64 [ %.pre15.pre.pre, %if.end.for.inc_crit_edge ], [ %.pre15.pre1733, %invoke.cont46 ]
   %inc = add nuw nsw i64 %idx.034, 1
-  %cmp = icmp ult i64 %inc, %and.i.i
+  %cmp = icmp samesign ult i64 %inc, %and.i.i
   %.pre20 = and i64 %.pre15.pre, 4611686018427387903
-  %cmp43 = icmp ult i64 %inc, %.pre20
+  %cmp43 = icmp samesign ult i64 %inc, %.pre20
   %or.cond = select i1 %cmp, i1 true, i1 %cmp43
   br i1 %or.cond, label %for.body, label %if.then.i8, !llvm.loop !225
 
@@ -37358,7 +37358,7 @@ invoke.cont24:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %8 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i41 = or i64 %shr.i.i, %8
@@ -37986,7 +37986,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i
@@ -38449,7 +38449,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i
@@ -38518,7 +38518,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -38755,7 +38755,7 @@ entry:
   store i64 %or.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv2.i.i = and i64 %pos.coerce1, 255
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %1 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i1.i = or i64 %shr.i.i.i, %1
@@ -38816,7 +38816,7 @@ if.end.i:                                         ; preds = %while.body.i.i.i, %
   %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %conv2.i5.i = and i64 %iter.sroa.7.0.i, 255
   %shr.i.i6.i = lshr i64 %conv2.i5.i, 1
-  %cmp.i.i7.i = icmp ult i64 %conv2.i5.i, 16
+  %cmp.i.i7.i = icmp samesign ult i64 %conv2.i5.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i7.i)
   %10 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i8.i = or i64 %shr.i.i6.i, %10
@@ -38922,7 +38922,7 @@ _ZN5folly3f146detail19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvE11des
   store i64 %or.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv2.i.i = and i64 %pos.coerce1, 255
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %3 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i1.i = or i64 %shr.i.i.i, %3
@@ -38983,7 +38983,7 @@ if.end.i:                                         ; preds = %while.body.i.i.i, %
   %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %conv2.i5.i = and i64 %iter.sroa.7.0.i, 255
   %shr.i.i6.i = lshr i64 %conv2.i5.i, 1
-  %cmp.i.i7.i = icmp ult i64 %conv2.i5.i, 16
+  %cmp.i.i7.i = icmp samesign ult i64 %conv2.i5.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i7.i)
   %12 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i8.i = or i64 %shr.i.i6.i, %12
@@ -39500,7 +39500,7 @@ lpad7:                                            ; preds = %invoke.cont8, %lpad
 try.cont:                                         ; preds = %call5.i.i.i.noexc
   %conv2.i.i = and i64 %pos.coerce1, 255
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %5 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i.i = or i64 %shr.i.i.i, %5
@@ -39688,7 +39688,7 @@ invoke.cont24:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i41 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i41 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i41)
   %8 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i42 = or i64 %shr.i.i, %8
@@ -40334,7 +40334,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -40562,7 +40562,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -40676,7 +40676,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i

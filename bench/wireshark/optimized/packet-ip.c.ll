@@ -1509,7 +1509,7 @@ define internal i32 @dissect_ip_v4(ptr noundef %0, ptr noundef %1, ptr noundef %
   %92 = zext i16 %91 to i32
   %93 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %92, ptr %93, align 4
-  %94 = icmp ugt i32 %16, %92
+  %94 = icmp samesign ugt i32 %16, %92
   br i1 %94, label %95, label %116
 
 95:                                               ; preds = %90
@@ -2621,8 +2621,8 @@ define internal range(i32 0, 2) i32 @dissect_ip_heur(ptr noundef %0, ptr noundef
 21:                                               ; preds = %7
   %22 = and i8 %8, 15
   %23 = icmp ne i8 %9, 4
-  %24 = icmp ult i8 %22, 5
-  %or.cond = or i1 %23, %24
+  %24 = icmp samesign ult i8 %22, 5
+  %or.cond = select i1 %23, i1 true, i1 %24
   br i1 %or.cond, label %31, label %25
 
 25:                                               ; preds = %21
@@ -2912,7 +2912,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %34 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #8
   %36 = add i32 %.0213282, 4
-  %37 = icmp ugt i32 %.0212, 4
+  %37 = icmp samesign ugt i32 %.0212, 4
   br i1 %37, label %.preheader246.preheader, label %.backedge
 
 .preheader246.preheader:                          ; preds = %32
@@ -3029,7 +3029,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %89 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #8
   %91 = add i32 %.0213282, 4
-  %92 = icmp ugt i32 %.0212, 4
+  %92 = icmp samesign ugt i32 %.0212, 4
   br i1 %92, label %93, label %.backedge
 
 93:                                               ; preds = %87
@@ -3090,7 +3090,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %123 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0) #8
   %125 = add i32 %.0213282, 4
-  %126 = icmp ugt i32 %.0212, 4
+  %126 = icmp samesign ugt i32 %.0212, 4
   br i1 %126, label %127, label %.backedge
 
 127:                                              ; preds = %121
@@ -3250,7 +3250,7 @@ define internal i32 @dissect_ipopt_record_route(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %21
   %24 = and i32 %6, 255
-  %25 = icmp ult i32 %24, %13
+  %25 = icmp samesign ult i32 %24, %13
   br i1 %25, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_option_route.exit.us
@@ -4336,7 +4336,7 @@ define internal fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %20
   %23 = and i32 %6, 255
-  %24 = icmp ult i32 %23, %12
+  %24 = icmp samesign ult i32 %23, %12
   %25 = add nsw i32 %23, -4
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
 

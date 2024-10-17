@@ -62,7 +62,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %.0150.ptr = getelementptr inbounds i8, ptr %4, i64 %.0150.idx192
   store ptr %0, ptr %.0150.ptr, align 8
   %.0150.add = add nuw nsw i64 %.0150.idx192, 8
-  %16 = icmp ult i64 %.0150.idx192, 65528
+  %16 = icmp samesign ult i64 %.0150.idx192, 65528
   br i1 %16, label %.preheader190, label %17, !llvm.loop !8
 
 17:                                               ; preds = %.preheader190
@@ -279,7 +279,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
 .loopexit:                                        ; preds = %128, %118
   %.3154 = phi ptr [ %.2153, %118 ], [ %131, %128 ]
   %.0145 = phi i32 [ %122, %118 ], [ %132, %128 ]
-  %133 = icmp ult i32 %.0145, 7
+  %133 = icmp samesign ult i32 %.0145, 7
   %134 = getelementptr inbounds i8, ptr %.3154, i64 2
   br i1 %133, label %135, label %141
 
@@ -458,7 +458,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %.0181.ptr = getelementptr inbounds i8, ptr %4, i64 %.0181.idx232
   store ptr %0, ptr %.0181.ptr, align 8
   %.0181.add = add nuw nsw i64 %.0181.idx232, 8
-  %16 = icmp ult i64 %.0181.idx232, 65528
+  %16 = icmp samesign ult i64 %.0181.idx232, 65528
   br i1 %16, label %.preheader231, label %17, !llvm.loop !14
 
 17:                                               ; preds = %.preheader231

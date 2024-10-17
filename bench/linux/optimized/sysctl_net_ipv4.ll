@@ -869,7 +869,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
 
 67:                                               ; preds = %35
   %68 = add nuw nsw i64 %38, 1
-  %69 = icmp ult i64 %68, %34
+  %69 = icmp samesign ult i64 %68, %34
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %67

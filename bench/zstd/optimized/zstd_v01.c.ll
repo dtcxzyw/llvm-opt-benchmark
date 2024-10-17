@@ -239,7 +239,7 @@ if.end19.i:                                       ; preds = %if.then16.i, %if.en
   br label %ZSTDv01_decodeLiteralsBlock.exit
 
 sw.bb22.i:                                        ; preds = %if.end3.i
-  %cmp.i35.i = icmp ult i64 %retval.0.i.ph.i, 4
+  %cmp.i35.i = icmp samesign ult i64 %retval.0.i.ph.i, 4
   br i1 %cmp.i35.i, label %return, label %if.end.i36.i
 
 if.end.i36.i:                                     ; preds = %sw.bb22.i
@@ -609,7 +609,7 @@ FSE_reloadDStream.exit.i.i.i.i.i.i:               ; preds = %if.end22.i.i.i.i.i.
   %bitD.i13.sroa.60.8.idx.i.i.i.i.i.i = sub nsw i64 %bitD.i13.sroa.60.0.idx.i57.i.i.i.i.i, %idx.ext38.i.pn.i.i.i.i.i.i
   %bitD.i13.sroa.0.6.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i13.sroa.60.8.idx.i.i.i.i.i.i
   %bitD.i13.sroa.0.6.i.i.i.i.i.i = load i64, ptr %bitD.i13.sroa.0.6.in.i.i.i.i.i.i, align 1
-  %cmp4.i142.i.i.i.i.i.i = icmp ult i64 %op.i10.0.idx.i58.i.i.i.i.i, 252
+  %cmp4.i142.i.i.i.i.i.i = icmp samesign ult i64 %op.i10.0.idx.i58.i.i.i.i.i, 252
   %39 = select i1 %retval.0.i123.i.i.i.i.i.i, i1 %cmp4.i142.i.i.i.i.i.i, i1 false
   br i1 %39, label %cond.true.i138.i.i.i.i.i.i, label %while.body.i28.preheader.i.i.i.i.i.i
 
@@ -1127,7 +1127,7 @@ FSE_reloadDStream.exit532.i.i.i.i.i.i:            ; preds = %if.end22.i511.i.i.i
   %bitD.i.sroa.60.8.idx.i.i.i.i.i.i = sub nsw i64 %bitD.i.sroa.60.0.idx.i68.i.i.i.i.i, %idx.ext38.i523.pn.i.i.i.i.i.i
   %bitD.i.sroa.0.6.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i.sroa.60.8.idx.i.i.i.i.i.i
   %bitD.i.sroa.0.6.i.i.i.i.i.i = load i64, ptr %bitD.i.sroa.0.6.in.i.i.i.i.i.i, align 1
-  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %op.i.0.idx.i73.i.i.i.i.i, 252
+  %cmp4.i.i.i.i.i.i.i = icmp samesign ult i64 %op.i.0.idx.i73.i.i.i.i.i, 252
   %66 = select i1 %retval.0.i508.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i.i, i1 false
   br i1 %66, label %cond.false.i.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i
 
@@ -1567,7 +1567,7 @@ if.end3.i.i.i:                                    ; preds = %HUF_readDTable.exit
   br i1 %cmp.i12.i.i.i, label %HUF_decompress.exit.thread132.i.i, label %if.end.i13.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %if.end3.i.i.i
-  %cmp1.i.i.i.i = icmp ult i64 %add8.i.i, 15
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add8.i.i, 15
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -15
   %cond.i.i.i.i = select i1 %cmp1.i.i.i.i, ptr %add.ptr9.i.i, ptr %add.ptr2.i.i.i.i
   %cSrc.val.i.i.i.i = load i16, ptr %add.ptr.i.i.i, align 1
@@ -1924,7 +1924,7 @@ if.end37.i.i.i.i:                                 ; preds = %if.end63.i165.i.i.i
 
 if.end42.i.i.i.i:                                 ; preds = %if.end37.i.i.i.i
   %call43.i.i.i.i = call fastcc i32 @FSE_reloadDStream(ptr noundef %bitD2.i.i.i.i)
-  %cmp44647.i.i.i.i = icmp ult i32 %call43.i.i.i.i, 2
+  %cmp44647.i.i.i.i = icmp samesign ult i32 %call43.i.i.i.i, 2
   %cmp46648.i.i.i.i = icmp ult ptr %add.ptr9.i.i, %cond.i.i.i.i
   %149 = select i1 %cmp44647.i.i.i.i, i1 %cmp46648.i.i.i.i, i1 false
   br i1 %149, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
@@ -2365,7 +2365,7 @@ FSE_reloadDStream.exit532.i.i.i.i:                ; preds = %if.end22.i511.i.i.i
   %bitD1.sroa.29.2.i.i.i.i = phi ptr [ %bitD1.sroa.29.0651.i.i.i.i, %FSE_reloadDStream.exit493.i.i.i.i ], [ %add.ptr40.i525.i.i.i.i, %if.end22.i511.i.i.i.i ], [ %add.ptr7.i505.i.i.i.i, %if.then4.i501.i.i.i.i ], [ %add.ptr14.i18.i.i.i, %if.end10.i509.i.i.i.i ]
   %bitD1.sroa.15.2.i.i.i.i = phi i32 [ %add.i.i369.i.i.i.i, %FSE_reloadDStream.exit493.i.i.i.i ], [ %sub.i527.i.i.i.i, %if.end22.i511.i.i.i.i ], [ %and.i506.i.i.i.i, %if.then4.i501.i.i.i.i ], [ %add.i.i369.i.i.i.i, %if.end10.i509.i.i.i.i ]
   %bitD1.sroa.0.3.i.i.i.i = phi i64 [ %bitD1.sroa.0.0653.i.i.i.i, %FSE_reloadDStream.exit493.i.i.i.i ], [ %add.ptr40.val.i528.i.i.i.i, %if.end22.i511.i.i.i.i ], [ %add.ptr7.val.i507.i.i.i.i, %if.then4.i501.i.i.i.i ], [ %bitD1.sroa.0.0653.i.i.i.i, %if.end10.i509.i.i.i.i ]
-  %cmp44.i.i.i.i = icmp ult i32 %or151.i.i.i.i, 2
+  %cmp44.i.i.i.i = icmp samesign ult i32 %or151.i.i.i.i, 2
   %cmp46.i.i.i.i = icmp ult ptr %add.ptr147.i.i.i.i, %cond.i.i.i.i
   %186 = select i1 %cmp44.i.i.i.i, i1 %cmp46.i.i.i.i, i1 false
   br i1 %186, label %for.body.i24.i.i.i, label %for.end.i.i.i.i, !llvm.loop !11
@@ -3897,7 +3897,7 @@ entry:
 if.end:                                           ; preds = %entry
   %headerBuffer.val = load i32, ptr %headerBuffer, align 1
   %and = and i32 %headerBuffer.val, 15
-  %cmp1 = icmp ugt i32 %and, 10
+  %cmp1 = icmp samesign ugt i32 %and, 10
   br i1 %cmp1, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end

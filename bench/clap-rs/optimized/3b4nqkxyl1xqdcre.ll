@@ -385,7 +385,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %switch.i.i = icmp ult i64 %2, 4
+  %switch.i.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h64fc3265e8ce61cfE.exit", label %5
 
 5:                                                ; preds = %4
@@ -1012,15 +1012,15 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   br i1 %175, label %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h88233494dd37c41aE.exit.thread", label %176
 
 176:                                              ; preds = %174
-  %177 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %177 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %177, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i", label %178
 
 178:                                              ; preds = %176
-  %179 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %179 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %179, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i", label %180
 
 180:                                              ; preds = %178
-  %181 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %181 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %181, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i"
 
@@ -1311,7 +1311,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %15 = getelementptr inbounds i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !alias.scope !227, !noalias !224, !noundef !12
   %17 = icmp eq i8 %14, %16
-  %switch.i = icmp ult i8 %3, 2
+  %switch.i = icmp samesign ult i8 %3, 2
   %.not.i = xor i1 %17, true
   %brmerge.i = or i1 %switch.i, %.not.i
   br i1 %brmerge.i, label %9, label %18
@@ -1363,7 +1363,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %45 = getelementptr inbounds i8, ptr %1, i64 5
   %46 = load i8, ptr %45, align 1, !alias.scope !232, !noalias !229, !noundef !12
   %47 = icmp eq i8 %44, %46
-  %switch.i12 = icmp ult i8 %32, 2
+  %switch.i12 = icmp samesign ult i8 %32, 2
   %.not.i13 = xor i1 %47, true
   %brmerge.i14 = or i1 %switch.i12, %.not.i13
   br i1 %brmerge.i14, label %39, label %48
@@ -1415,7 +1415,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$anstyle..style..Style$u20$
   %75 = getelementptr inbounds i8, ptr %1, i64 9
   %76 = load i8, ptr %75, align 1, !alias.scope !237, !noalias !234, !noundef !12
   %77 = icmp eq i8 %74, %76
-  %switch.i18 = icmp ult i8 %62, 2
+  %switch.i18 = icmp samesign ult i8 %62, 2
   %.not.i19 = xor i1 %77, true
   %brmerge.i20 = or i1 %switch.i18, %.not.i19
   br i1 %brmerge.i20, label %69, label %78
@@ -4957,7 +4957,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
 
 517:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4f83ad18c53d7015E.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1037)
-  %switch.i.i148 = icmp ult i64 %514, 4
+  %switch.i.i148 = icmp samesign ult i64 %514, 4
   br i1 %switch.i.i148, label %"_ZN87_$LT$clap_builder..builder..value_parser..ValueParser$u20$as$u20$core..clone..Clone$GT$5clone17h0bf5a484f67fd1c3E.exit.i", label %518
 
 518:                                              ; preds = %517
@@ -10026,15 +10026,15 @@ define internal void @_ZN12clap_builder6output13help_template15option_sort_key17
   %.0 = select i1 %.018, i32 %9, i32 %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.040)
   store i32 0, ptr %.sroa.040, align 4
-  %10 = icmp ult i32 %.0, 128
+  %10 = icmp samesign ult i32 %.0, 128
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ult i32 %.0, 2048
+  %12 = icmp samesign ult i32 %.0, 2048
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %.0, 65536
+  %14 = icmp samesign ult i32 %.0, 65536
   br i1 %14, label %24, label %35
 
 15:                                               ; preds = %7

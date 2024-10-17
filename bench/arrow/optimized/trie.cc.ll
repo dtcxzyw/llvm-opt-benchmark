@@ -909,7 +909,7 @@ do.body:                                          ; preds = %for.body
   store i16 %5, ptr %child_lookup_.i, align 2, !noalias !55
   %add.i = add nuw nsw i64 %remaining.0, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4.i)
-  %cmp.i.i.i.i.not = icmp ult i64 %remaining.0, %conv.i.i
+  %cmp.i.i.i.i.not = icmp samesign ult i64 %remaining.0, %conv.i.i
   br i1 %cmp.i.i.i.i.not, label %_ZN5arrow6StatusD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
@@ -986,7 +986,7 @@ do.body24:                                        ; preds = %if.end19
   store i16 %13, ptr %child_lookup_.i77, align 2, !noalias !67
   %add.i80 = add nuw nsw i64 %i.0308, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4.i73)
-  %cmp.i.i.i.i82.not = icmp ult i64 %i.0308, %conv.i.i
+  %cmp.i.i.i.i82.not = icmp samesign ult i64 %i.0308, %conv.i.i
   br i1 %cmp.i.i.i.i82.not, label %_ZN5arrow6StatusD2Ev.exit138, label %if.then.i.i.i.i101
 
 if.then.i.i.i.i101:                               ; preds = %do.body24

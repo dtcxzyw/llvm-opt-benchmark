@@ -19798,7 +19798,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_p
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
   %7 = and i32 %6, 16515072
-  %switch = icmp ult i32 %7, 8650752
+  %switch = icmp samesign ult i32 %7, 8650752
   br i1 %switch, label %.thread, label %10
 
 8:                                                ; preds = %2
@@ -33047,7 +33047,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_p
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
   %7 = and i32 %6, 16515072
-  %switch = icmp ult i32 %7, 8650752
+  %switch = icmp samesign ult i32 %7, 8650752
   br i1 %switch, label %.thread, label %10
 
 8:                                                ; preds = %2

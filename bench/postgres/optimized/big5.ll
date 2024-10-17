@@ -126,8 +126,8 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef read
   %26 = and i32 %15, 255
   %27 = and i32 %14, 255
   %28 = mul nsw i32 %25, 157
-  %29 = icmp ugt i32 %26, 160
-  %30 = icmp ugt i32 %27, 160
+  %29 = icmp samesign ugt i32 %26, 160
+  %30 = icmp samesign ugt i32 %27, 160
   %31 = select i1 %30, i32 0, i32 -34
   %32 = select i1 %30, i32 34, i32 0
   %33 = select i1 %29, i32 %31, i32 %32
@@ -156,7 +156,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef read
   %54 = add nsw i32 %53, %50
   %55 = and i32 %18, 255
   %56 = add nsw i32 %54, %55
-  %57 = icmp ugt i32 %55, 160
+  %57 = icmp samesign ugt i32 %55, 160
   %.neg = select i1 %57, i32 65438, i32 65472
   %58 = add nsw i32 %56, %.neg
   %.lhs.trunc = trunc i32 %58 to i16

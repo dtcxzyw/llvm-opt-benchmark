@@ -563,7 +563,7 @@ cond.false.i40:                                   ; preds = %for.cond81
 invoke.cont85:                                    ; preds = %cond.false.i40, %if.end.i.i46, %cond.true.i43
   %cond.i42 = phi i32 [ %63, %cond.false.i40 ], [ %61, %if.end.i.i46 ], [ 0, %cond.true.i43 ]
   %64 = zext i32 %cond.i42 to i64
-  %cmp87 = icmp ult i64 %indvars.iv, %64
+  %cmp87 = icmp samesign ult i64 %indvars.iv, %64
   br i1 %cmp87, label %invoke.cont102, label %if.end107
 
 invoke.cont102:                                   ; preds = %invoke.cont85
@@ -989,7 +989,7 @@ if.end.i75:                                       ; preds = %land.rhs77
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit78:   ; preds = %land.rhs77, %if.end.i75
   %retval.0.i77 = phi i64 [ %47, %if.end.i75 ], [ 0, %land.rhs77 ]
-  %cmp82 = icmp ult i64 %indvars.iv184, %retval.0.i77
+  %cmp82 = icmp samesign ult i64 %indvars.iv184, %retval.0.i77
   br i1 %cmp82, label %for.body84, label %for.end208
 
 for.body84:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit78
@@ -1154,7 +1154,7 @@ if.end.i125:                                      ; preds = %land.rhs146
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit128:  ; preds = %land.rhs146, %if.end.i125
   %retval.0.i127 = phi i64 [ %75, %if.end.i125 ], [ 0, %land.rhs146 ]
-  %cmp151 = icmp ult i64 %indvars.iv, %retval.0.i127
+  %cmp151 = icmp samesign ult i64 %indvars.iv, %retval.0.i127
   br i1 %cmp151, label %for.body153, label %for.end187
 
 for.body153:                                      ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit128
@@ -1276,8 +1276,8 @@ _ZN3sat6binspr24clauses_are_unit_impliedENS_7literalE.exit.i: ; preds = %if.end.
   %91 = phi i32 [ %.pre.i, %for.body.i143 ], [ %.pre.i, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i.i ], [ %90, %if.end.i.i148 ]
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i144, 1
   %cmp.i.i150 = icmp ne i32 %91, 0
-  %cmp.i151 = icmp ult i64 %indvars.iv.i144, 3
-  %92 = and i1 %cmp.i151, %cmp.i.i150
+  %cmp.i151 = icmp samesign ult i64 %indvars.iv.i144, 3
+  %92 = select i1 %cmp.i.i150, i1 %cmp.i151, i1 false
   br i1 %92, label %for.body.i143, label %_ZN3sat6binspr9check_sprENS_7literalES1_S1_S1_.exit, !llvm.loop !13
 
 _ZN3sat6binspr9check_sprENS_7literalES1_S1_S1_.exit: ; preds = %_ZN3sat6binspr24clauses_are_unit_impliedENS_7literalE.exit.i
@@ -1878,8 +1878,8 @@ _ZN3sat6binspr24clauses_are_unit_impliedENS_7literalE.exit: ; preds = %if.end.i,
   %11 = phi i32 [ %.pre, %for.body ], [ %.pre, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i ], [ %10, %if.end.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.i = icmp ne i32 %11, 0
-  %cmp = icmp ult i64 %indvars.iv, 3
-  %12 = and i1 %cmp.i, %cmp
+  %cmp = icmp samesign ult i64 %indvars.iv, 3
+  %12 = select i1 %cmp.i, i1 %cmp, i1 false
   br i1 %12, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %_ZN3sat6binspr24clauses_are_unit_impliedENS_7literalE.exit, %_ZN3sat6binspr6init_gENS_7literalES1_S1_S1_.exit
@@ -2507,7 +2507,7 @@ define hidden void @_ZN3sat6binspr10g_add_unitENS_7literalES1_(ptr nocapture nou
 entry:
   %shr.i = lshr i32 %lit1.coerce, 1
   %shr.i1 = lshr i32 %lit2.coerce, 1
-  %cmp = icmp ult i32 %shr.i, %shr.i1
+  %cmp = icmp samesign ult i32 %shr.i, %shr.i1
   %m_state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_state, align 8
   %. = select i1 %cmp, i32 2, i32 4
@@ -2521,7 +2521,7 @@ define hidden void @_ZN3sat6binspr12g_add_binaryENS_7literalES1_b(ptr nocapture 
 entry:
   %shr.i = lshr i32 %lit1.coerce, 1
   %shr.i1 = lshr i32 %lit2.coerce, 1
-  %cmp = icmp ugt i32 %shr.i, %shr.i1
+  %cmp = icmp samesign ugt i32 %shr.i, %shr.i1
   %not.cmp = xor i1 %cmp, true
   %narrow = and i1 %flip2, %not.cmp
   %tobool = and i1 %flip2, %cmp

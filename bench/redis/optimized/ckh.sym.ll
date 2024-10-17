@@ -71,7 +71,7 @@ for.end:                                          ; preds = %for.cond
 if.then.i:                                        ; preds = %for.end
   %add.i = add nuw nsw i64 %shl12, 63
   %and.i = and i64 %add.i, 32704
-  %cmp.i36 = icmp ult i64 %and.i, 4097
+  %cmp.i36 = icmp samesign ult i64 %and.i, 4097
   br i1 %cmp.i36, label %if.then.i41, label %if.end5.i88
 
 if.then.i41:                                      ; preds = %if.then.i
@@ -385,7 +385,7 @@ while.body.i:                                     ; preds = %ckh_try_insert.exit
 if.then.i.i:                                      ; preds = %while.body.i
   %add.i.i = add nuw nsw i64 %shl.i, 63
   %and.i.i = and i64 %add.i.i, 32704
-  %cmp.i71.i = icmp ult i64 %and.i.i, 4097
+  %cmp.i71.i = icmp samesign ult i64 %and.i.i, 4097
   br i1 %cmp.i71.i, label %if.then.i76.i, label %if.end5.i123.i
 
 if.then.i76.i:                                    ; preds = %if.then.i.i
@@ -1087,7 +1087,7 @@ if.then20:                                        ; preds = %land.lhs.true
 if.then.i.i:                                      ; preds = %if.then20
   %add.i.i27 = add nuw nsw i64 %shl.i, 63
   %and.i.i = and i64 %add.i.i27, 32704
-  %cmp.i71.i = icmp ult i64 %and.i.i, 4097
+  %cmp.i71.i = icmp samesign ult i64 %and.i.i, 4097
   br i1 %cmp.i71.i, label %if.then.i76.i, label %if.end5.i123.i
 
 if.then.i76.i:                                    ; preds = %if.then.i.i

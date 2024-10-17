@@ -627,7 +627,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 325:                                              ; preds = %322, %318, %204
   %326 = add nuw nsw i64 %82, 4
-  %327 = icmp ult i64 %326, %80
+  %327 = icmp samesign ult i64 %326, %80
   br i1 %327, label %81, label %.loopexit
 
 328:                                              ; preds = %.loopexit, %6

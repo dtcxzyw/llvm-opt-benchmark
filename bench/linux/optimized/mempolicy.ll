@@ -1954,11 +1954,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %222 = lshr i64 %221, 3
   %223 = and i64 %222, 1073741820
   %224 = select i1 %220, i64 %216, i64 %223
-  %225 = icmp ugt i64 %211, %224
+  %225 = icmp samesign ugt i64 %211, %224
   br i1 %225, label %226, label %247
 
 226:                                              ; preds = %208
-  %227 = icmp ugt i64 %211, 4096
+  %227 = icmp samesign ugt i64 %211, 4096
   br i1 %227, label %.thread22, label %228
 
 228:                                              ; preds = %226
@@ -2745,7 +2745,7 @@ define internal fastcc ptr @policy_nodemask(i32 noundef %0, ptr noundef %1, i64 
 .preheader:                                       ; preds = %98, %114
   %102 = phi i32 [ %116, %114 ], [ %100, %98 ]
   %103 = phi i32 [ %117, %114 ], [ 0, %98 ]
-  %104 = icmp ugt i32 %102, 62
+  %104 = icmp samesign ugt i32 %102, 62
   br i1 %104, label %114, label %105, !prof !8
 
 105:                                              ; preds = %.preheader
@@ -3772,7 +3772,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
 .preheader:                                       ; preds = %98, %114
   %102 = phi i32 [ %116, %114 ], [ %100, %98 ]
   %103 = phi i32 [ %117, %114 ], [ 0, %98 ]
-  %104 = icmp ugt i32 %102, 62
+  %104 = icmp samesign ugt i32 %102, 62
   br i1 %104, label %114, label %105, !prof !8
 
 105:                                              ; preds = %.preheader

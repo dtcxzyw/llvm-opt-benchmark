@@ -17068,7 +17068,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit104: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %487 = load i32, ptr %154, align 8
   %488 = zext i32 %487 to i64
-  %489 = icmp ult i64 %indvars.iv.next, %488
+  %489 = icmp samesign ult i64 %indvars.iv.next, %488
   br i1 %489, label %181, label %._crit_edge, !llvm.loop !1431
 
 ._crit_edge:                                      ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit104, %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29

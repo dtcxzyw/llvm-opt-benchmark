@@ -275,7 +275,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %184 = fcmp oge double %183, 0.000000e+00
   %185 = fneg double %183
   %186 = select i1 %184, double %183, double %185
-  %187 = icmp ugt i64 %181, 1
+  %187 = icmp samesign ugt i64 %181, 1
   br i1 %187, label %188, label %.loopexit42
 
 188:                                              ; preds = %180
@@ -369,7 +369,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %250 = fneg double %248
   %251 = select i1 %249, double %248, double %250
   %252 = add nuw nsw i64 %245, 1
-  %253 = icmp ult i64 %245, %217
+  %253 = icmp samesign ult i64 %245, %217
   br i1 %253, label %254, label %.loopexit41
 
 254:                                              ; preds = %244
@@ -469,7 +469,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %318 = fcmp oge double %317, 0.000000e+00
   %319 = fneg double %317
   %320 = select i1 %318, double %317, double %319
-  %321 = icmp ugt i64 %315, 1
+  %321 = icmp samesign ugt i64 %315, 1
   br i1 %321, label %322, label %.loopexit40
 
 322:                                              ; preds = %314
@@ -569,7 +569,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %391 = fneg double %389
   %392 = select i1 %390, double %389, double %391
   %393 = add nuw nsw i64 %386, 1
-  %394 = icmp ult i64 %386, %356
+  %394 = icmp samesign ult i64 %386, %356
   br i1 %394, label %395, label %.loopexit39
 
 395:                                              ; preds = %385
@@ -784,7 +784,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread36:                                        ; preds = %509, %529, %527
   %532 = add nuw nsw i64 %113, 1
-  %533 = icmp ult i64 %113, %110
+  %533 = icmp samesign ult i64 %113, %110
   br i1 %533, label %111, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread36, %87, %82, %93, %83, %75

@@ -664,7 +664,7 @@ for.body36:                                       ; preds = %if.then24, %for.bod
   %mNumMeshes35 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load i32, ptr %mNumMeshes35, align 8
   %32 = zext i32 %31 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %32
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp, label %for.body36, label %if.end42, !llvm.loop !8
 
 if.end42:                                         ; preds = %for.body36, %if.then24, %if.end20
@@ -1314,7 +1314,7 @@ for.inc:                                          ; preds = %_ZNSt12_Vector_base
   %mNumMeshes20 = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %mNumMeshes20, align 8
   %25 = zext i32 %24 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %25
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !10
 
 lpad.loopexit422:                                 ; preds = %for.body64, %invoke.cont65
@@ -2303,7 +2303,7 @@ for.inc335:                                       ; preds = %if.end324
   %mNumFaces162 = getelementptr inbounds i8, ptr %159, i64 8
   %160 = load i32, ptr %mNumFaces162, align 8
   %161 = zext i32 %160 to i64
-  %cmp163 = icmp ult i64 %indvars.iv.next542, %161
+  %cmp163 = icmp samesign ult i64 %indvars.iv.next542, %161
   br i1 %cmp163, label %for.body164, label %for.cond339.preheader, !llvm.loop !30
 
 for.body344:                                      ; preds = %for.cond339.preheader, %for.body344
@@ -2475,7 +2475,7 @@ for.body411:                                      ; preds = %_ZN8aiString3SetERK
   %mNumWeights409 = getelementptr inbounds i8, ptr %198, i64 1028
   %199 = load i32, ptr %mNumWeights409, align 4
   %200 = zext i32 %199 to i64
-  %cmp410 = icmp ult i64 %indvars.iv.next545, %200
+  %cmp410 = icmp samesign ult i64 %indvars.iv.next545, %200
   br i1 %cmp410, label %for.body411, label %for.end432, !llvm.loop !32
 
 for.end432:                                       ; preds = %for.body411, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2530,7 +2530,7 @@ _ZNSt10unique_ptrIA_St6vectorISt4pairIjfESaIS2_EESt14default_deleteIS5_EED2Ev.ex
   %mNumMeshes62 = getelementptr inbounds i8, ptr %205, i64 16
   %206 = load i32, ptr %mNumMeshes62, align 8
   %207 = zext i32 %206 to i64
-  %cmp63 = icmp ult i64 %indvars.iv.next548, %207
+  %cmp63 = icmp samesign ult i64 %indvars.iv.next548, %207
   br i1 %cmp63, label %for.body64, label %delete.notnull.i.i349, !llvm.loop !34
 
 delete.notnull.i.i349:                            ; preds = %_ZNSt10unique_ptrIA_St6vectorISt4pairIjfESaIS2_EESt14default_deleteIS5_EED2Ev.exit347, %for.cond60.preheader
@@ -2682,7 +2682,7 @@ for.inc:                                          ; preds = %invoke.cont, %if.th
   %mNumMaterials9 = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load i32, ptr %mNumMaterials9, align 8
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc

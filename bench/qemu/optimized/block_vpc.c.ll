@@ -367,7 +367,7 @@ if.end113:                                        ; preds = %if.end108
   %conv117 = zext i32 %22 to i64
   %tobool.not.i119 = icmp eq i32 %21, 0
   %23 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv117)
-  %tobool1.not.i = icmp ugt i64 %23, 1
+  %tobool1.not.i = icmp samesign ugt i64 %23, 1
   %or.cond122.not124 = select i1 %tobool.not.i119, i1 true, i1 %tobool1.not.i
   %cmp122 = icmp ult i32 %22, 512
   %or.cond123 = or i1 %cmp122, %or.cond122.not124
@@ -689,7 +689,7 @@ calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.
   %conv2.i = zext i8 %secs_per_cyl.2.i to i64
   %mul.i = mul nuw nsw i64 %conv2.i, %conv1.i
   %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
-  %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
+  %cmp4.i = icmp samesign ugt i64 %cond.i, %mul3.i
   br i1 %cmp4.i, label %for.body.i, label %if.end.loopexit.i, !llvm.loop !8
 
 if.end.loopexit.i:                                ; preds = %calculate_geometry.exit.i
@@ -943,7 +943,7 @@ calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.
   %conv1.i = zext nneg i8 %heads.2.i to i64
   %mul.i = mul nuw nsw i64 %secs_per_cyl.2.i, %conv1.i
   %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
-  %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
+  %cmp4.i = icmp samesign ugt i64 %cond.i, %mul3.i
   br i1 %cmp4.i, label %for.body.i, label %if.end.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %calculate_geometry.exit.i

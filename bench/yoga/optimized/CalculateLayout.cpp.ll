@@ -157,7 +157,7 @@ for.cond:                                         ; preds = %for.body
   %inc59 = add nuw nsw i64 %i.02255, 1
   %13 = load i32, ptr %nextCachedMeasurementsIndex34, align 4
   %conv = zext i32 %13 to i64
-  %cmp35 = icmp ult i64 %inc59, %conv
+  %cmp35 = icmp samesign ult i64 %inc59, %conv
   br i1 %cmp35, label %for.body, label %if.else146, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -1764,14 +1764,14 @@ if.then4.i:                                       ; preds = %if.then.i1082
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %if.end44.i
-  %170 = icmp ult i8 %bf.clear.i1085, 2
+  %170 = icmp samesign ult i8 %bf.clear.i1085, 2
   %spec.select2034 = select i1 %170, i8 2, i8 0
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread: ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit, %if.then.i1082, %if.then4.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread1829
   %retval.0.i10811828 = phi i8 [ %bf.clear.i1085, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread1829 ], [ 3, %if.then.i1082 ], [ 2, %if.then4.i ], [ %bf.clear.i1085, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
   %171 = phi i8 [ 3, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread1829 ], [ 0, %if.then.i1082 ], [ 0, %if.then4.i ], [ %spec.select2034, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
-  %172 = icmp ugt i8 %retval.0.i10811828, 1
+  %172 = icmp samesign ugt i8 %retval.0.i10811828, 1
   %flexWrap_.i1072 = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i1073 = load i24, ptr %flexWrap_.i1072, align 1
   %173 = and i24 %bf.load.i1073, 49152
@@ -1924,7 +1924,7 @@ if.end6.i1779:                                    ; preds = %if.then.i1781, %if.
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit1783: ; preds = %if.then.i1781, %if.then4.i1782, %if.end6.i1779
   %retval.0.i1780 = phi i8 [ 2, %if.then4.i1782 ], [ %bf.clear.i1786, %if.end6.i1779 ], [ 3, %if.then.i1781 ]
-  %182 = icmp ugt i8 %retval.0.i1780, 1
+  %182 = icmp samesign ugt i8 %retval.0.i1780, 1
   %cond8.i.i = select i1 %182, float %call89.i, float %call91.i
   %call9.i.i1027 = tail call i64 @_ZNK8facebook4yoga4Node19resolveFlexBasisPtrEv(ptr noundef nonnull align 8 dereferenceable(640) %179)
   %value.sroa.0.0.extract.trunc.i1769 = trunc i64 %call9.i.i1027 to i32

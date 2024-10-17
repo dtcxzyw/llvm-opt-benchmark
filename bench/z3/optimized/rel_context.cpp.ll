@@ -2679,7 +2679,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %3, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end18
 
 for.body:                                         ; preds = %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit
@@ -2774,7 +2774,7 @@ if.end.i33:                                       ; preds = %for.cond22
 
 _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit36: ; preds = %for.cond22, %if.end.i33
   %retval.0.i35 = phi i64 [ %14, %if.end.i33 ], [ 0, %for.cond22 ]
-  %cmp24 = icmp ult i64 %indvars.iv793, %retval.0.i35
+  %cmp24 = icmp samesign ult i64 %indvars.iv793, %retval.0.i35
   br i1 %cmp24, label %while.body, label %for.end93
 
 while.cond.loopexit:                              ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit119
@@ -2962,7 +2962,7 @@ if.end.i66:                                       ; preds = %land.rhs
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit:   ; preds = %land.rhs, %if.end.i66
   %retval.0.i68 = phi i64 [ %30, %if.end.i66 ], [ 0, %land.rhs ]
-  %cmp54 = icmp ult i64 %indvars.iv791, %retval.0.i68
+  %cmp54 = icmp samesign ult i64 %indvars.iv791, %retval.0.i68
   br i1 %cmp54, label %for.body55, label %for.inc87
 
 for.body55:                                       ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit
@@ -3452,7 +3452,7 @@ for.end56.i198:                                   ; preds = %for.cond27.preheade
 
 for.inc81:                                        ; preds = %for.body.i.i82, %for.inc36.i.i93, %for.body20.i.i90, %for.cond18.preheader.i.i88
   %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
-  %cmp69.not = icmp ult i64 %indvars.iv.next790, %44
+  %cmp69.not = icmp samesign ult i64 %indvars.iv.next790, %44
   br i1 %cmp69.not, label %for.body71, label %for.inc84, !llvm.loop !23
 
 for.inc84:                                        ; preds = %for.inc81, %if.end65
@@ -5920,7 +5920,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi i64 [ %15, %if.end.i.i.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i ]
-  %cmp.i.i.i.i.i = icmp ult i64 %indvars.iv.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt9make_pairIRP9func_declRKN7datalog13relation_factEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.i.i.i
@@ -6296,7 +6296,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %15, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
@@ -7903,7 +7903,7 @@ for.inc:                                          ; preds = %.noexc35, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %m_arity.i, align 8
   %32 = zext i32 %31 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %32
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !35
 
 lpad8.loopexit:                                   ; preds = %for.body, %if.then.i.i, %if.then.i.i29, %if.then.i

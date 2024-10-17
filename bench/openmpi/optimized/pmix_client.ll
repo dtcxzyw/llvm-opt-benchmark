@@ -5977,7 +5977,7 @@ define i32 @PMIx_Put(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2) loca
   br i1 %exitcond.not.i, label %pmix_keylen.exit.thread, label %.preheader, !llvm.loop !27
 
 pmix_keylen.exit:                                 ; preds = %.preheader
-  %31 = icmp ugt i64 %.0711.i, 511
+  %31 = icmp samesign ugt i64 %.0711.i, 511
   br i1 %31, label %pmix_keylen.exit.thread, label %32
 
 32:                                               ; preds = %pmix_keylen.exit

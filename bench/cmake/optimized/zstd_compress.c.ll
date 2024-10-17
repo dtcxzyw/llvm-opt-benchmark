@@ -2375,7 +2375,7 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
 
 ZSTD_dictAndWindowLog.exit.i:                     ; preds = %33, %31, %26, %.thread.i
   %.0.i.i = phi i32 [ %37, %33 ], [ %24, %.thread.i ], [ %24, %26 ], [ 31, %31 ]
-  %38 = icmp ugt i32 %.sroa.16.0, 5
+  %38 = icmp samesign ugt i32 %.sroa.16.0, 5
   %.neg.i.i = sext i1 %38 to i32
   %39 = add nsw i32 %.sroa.6.0, %.neg.i.i
   %40 = add nuw nsw i32 %.0.i.i, 1
@@ -3125,7 +3125,7 @@ ZSTD_getCParamRowSize.exit.i:                     ; preds = %40, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %10 = icmp ne i64 %indvars.iv.i, 3
   %11 = zext i1 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.i, 2
+  %12 = icmp samesign ult i64 %indvars.iv.i, 2
   %13 = zext i1 %12 to i64
   %14 = add nuw nsw i64 %11, %13
   %15 = icmp eq i64 %indvars.iv.i, 0
@@ -10208,7 +10208,7 @@ ZSTD_validateSequence.exit:                       ; preds = %93
   %111 = or i1 %110, %109
   %112 = select i1 %111, i64 3, i64 4
   %113 = zext i32 %52 to i64
-  %.not213 = icmp ugt i64 %112, %113
+  %.not213 = icmp samesign ugt i64 %112, %113
   br i1 %.not213, label %ZSTD_validateSequence.exit.thread, label %114
 
 114:                                              ; preds = %ZSTD_validateSequence.exit, %ZSTD_updateRep.exit
@@ -10719,7 +10719,7 @@ ZSTD_validateSequence.exit:                       ; preds = %105
   %123 = or i1 %122, %121
   %124 = select i1 %123, i64 3, i64 4
   %125 = zext i32 %.1186 to i64
-  %.not235 = icmp ugt i64 %124, %125
+  %.not235 = icmp samesign ugt i64 %124, %125
   br i1 %.not235, label %ZSTD_validateSequence.exit.thread, label %126
 
 126:                                              ; preds = %ZSTD_validateSequence.exit, %ZSTD_updateRep.exit
@@ -14602,7 +14602,7 @@ define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i8, ptr %0, i64 1
   %.ptr = getelementptr i8, ptr %0, i64 %6
   %.ptr28 = getelementptr i8, ptr %.ptr, i64 -7
-  %11 = icmp ugt i64 %6, 8
+  %11 = icmp samesign ugt i64 %6, 8
   br i1 %11, label %12, label %.loopexit.i
 
 12:                                               ; preds = %9
@@ -14715,7 +14715,7 @@ ZSTD_count.exit:                                  ; preds = %13, %19, %48
 
 55:                                               ; preds = %58
   %56 = add nuw nsw i64 %.032, 8
-  %57 = icmp ult i64 %.032, 24
+  %57 = icmp samesign ult i64 %.032, 24
   br i1 %57, label %58, label %60, !llvm.loop !76
 
 58:                                               ; preds = %.preheader, %55
@@ -15129,8 +15129,8 @@ ZSTD_countSeqStoreLiteralsBytes.exit:             ; preds = %26, %5
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %2, %37
-  %39 = icmp ult i64 %3, %37
-  %or.cond = or i1 %38, %39
+  %39 = icmp samesign ult i64 %3, %37
+  %or.cond = select i1 %38, i1 true, i1 %39
   br i1 %or.cond, label %40, label %42
 
 40:                                               ; preds = %34
@@ -16263,7 +16263,7 @@ ZSTD_window_update.exit115:                       ; preds = %ZSTD_window_update.
   %spec.select116 = tail call i32 @llvm.umin.i32(i32 %., i32 28)
   %116 = shl nuw i32 8, %spec.select116
   %117 = zext i32 %116 to i64
-  %118 = icmp ugt i64 %.092, %117
+  %118 = icmp samesign ugt i64 %.092, %117
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %111

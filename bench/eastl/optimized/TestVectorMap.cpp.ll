@@ -42988,7 +42988,7 @@ invoke.cont229:                                   ; preds = %if.then.i478, %_ZN5
   %shr.i.i484 = lshr i64 %add.i.i483, 16
   %conv4.i.i = trunc i64 %shr.i.i484 to i32
   %150 = and i64 %add.i.i483, 281474976579584
-  %cmp231 = icmp ult i64 %150, 93824992280576
+  %cmp231 = icmp samesign ult i64 %150, 93824992280576
   br i1 %cmp231, label %if.then232, label %for.inc246
 
 if.then232:                                       ; preds = %invoke.cont229
@@ -46944,7 +46944,7 @@ invoke.cont225:                                   ; preds = %if.then.i671, %_ZN5
   %shr.i.i678 = lshr i64 %add.i.i677, 16
   %conv4.i.i = trunc i64 %shr.i.i678 to i32
   %223 = and i64 %add.i.i677, 281474976579584
-  %cmp227 = icmp ult i64 %223, 93824992280576
+  %cmp227 = icmp samesign ult i64 %223, 93824992280576
   br i1 %cmp227, label %if.then228, label %for.inc242
 
 if.then228:                                       ; preds = %invoke.cont225
@@ -52179,7 +52179,7 @@ invoke.cont266:                                   ; preds = %_ZN10TestObjectD2Ev
   %shr.i.i790 = lshr i64 %add.i.i789, 16
   %conv4.i.i = trunc i64 %shr.i.i790 to i32
   %356 = and i64 %add.i.i789, 281474976579584
-  %cmp268 = icmp ult i64 %356, 93824992280576
+  %cmp268 = icmp samesign ult i64 %356, 93824992280576
   br i1 %cmp268, label %invoke.cont277, label %for.inc301
 
 invoke.cont277:                                   ; preds = %invoke.cont266
@@ -57911,7 +57911,7 @@ invoke.cont262:                                   ; preds = %_ZN10TestObjectD2Ev
   %shr.i.i923 = lshr i64 %add.i.i922, 16
   %conv4.i.i = trunc i64 %shr.i.i923 to i32
   %373 = and i64 %add.i.i922, 281474976579584
-  %cmp264 = icmp ult i64 %373, 93824992280576
+  %cmp264 = icmp samesign ult i64 %373, 93824992280576
   br i1 %cmp264, label %invoke.cont273, label %for.inc297
 
 invoke.cont273:                                   ; preds = %invoke.cont262
@@ -63870,7 +63870,7 @@ invoke.cont222:                                   ; preds = %if.then.i511, %_ZN5
   %shr.i.i518 = lshr i64 %add.i.i517, 16
   %conv4.i.i = trunc i64 %shr.i.i518 to i32
   %139 = and i64 %add.i.i517, 281474976579584
-  %cmp224 = icmp ult i64 %139, 93824992280576
+  %cmp224 = icmp samesign ult i64 %139, 93824992280576
   br i1 %cmp224, label %if.then225, label %for.inc239
 
 if.then225:                                       ; preds = %invoke.cont222
@@ -68441,7 +68441,7 @@ invoke.cont226:                                   ; preds = %if.then.i598, %_ZN5
   %shr.i.i606 = lshr i64 %add.i.i605, 16
   %conv4.i.i = trunc i64 %shr.i.i606 to i32
   %241 = and i64 %add.i.i605, 281474976579584
-  %cmp228 = icmp ult i64 %241, 93824992280576
+  %cmp228 = icmp samesign ult i64 %241, 93824992280576
   br i1 %cmp228, label %if.then229, label %for.inc243
 
 if.then229:                                       ; preds = %invoke.cont226
@@ -73289,7 +73289,7 @@ invoke.cont259:                                   ; preds = %_ZN10TestObjectD2Ev
   %shr.i.i961 = lshr i64 %add.i.i960, 16
   %conv4.i.i = trunc i64 %shr.i.i961 to i32
   %370 = and i64 %add.i.i960, 281474976579584
-  %cmp261 = icmp ult i64 %370, 93824992280576
+  %cmp261 = icmp samesign ult i64 %370, 93824992280576
   br i1 %cmp261, label %invoke.cont270, label %for.inc294
 
 invoke.cont270:                                   ; preds = %invoke.cont259
@@ -80069,7 +80069,7 @@ invoke.cont263:                                   ; preds = %_ZN10TestObjectD2Ev
   %shr.i.i1039 = lshr i64 %add.i.i1038, 16
   %conv4.i.i = trunc i64 %shr.i.i1039 to i32
   %442 = and i64 %add.i.i1038, 281474976579584
-  %cmp265 = icmp ult i64 %442, 93824992280576
+  %cmp265 = icmp samesign ult i64 %442, 93824992280576
   br i1 %cmp265, label %invoke.cont274, label %for.inc298
 
 invoke.cont274:                                   ; preds = %invoke.cont263
@@ -148682,7 +148682,7 @@ _ZN5eastl4pairI10TestObjectS1_ED2Ev.exit48:       ; preds = %_ZN10TestObjectD2Ev
   %inc3.i6.i47 = add nsw i64 %23, 2
   store i64 %inc3.i6.i47, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %p34.0.add = add nuw nsw i64 %p34.0.idx88, 48
-  %cmp37 = icmp ult i64 %p34.0.idx88, 144
+  %cmp37 = icmp samesign ult i64 %p34.0.idx88, 144
   br i1 %cmp37, label %for.body38, label %for.end41, !llvm.loop !5780
 
 for.end41:                                        ; preds = %_ZN5eastl4pairI10TestObjectS1_ED2Ev.exit48
@@ -161332,7 +161332,7 @@ _ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit:      ; preds = %_ZN10TestObjectaSEO
   %19 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i = add nsw i64 %19, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %cmp19.i = icmp ult i64 %__i.0.idx, -24
+  %cmp19.i = icmp samesign ult i64 %__i.0.idx, -24
   br i1 %cmp19.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i, label %return
 
 _ZN10TestObjectaSEOS_.exit.i.i.i:                 ; preds = %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit, %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit.i

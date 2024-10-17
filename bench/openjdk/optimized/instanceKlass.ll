@@ -1848,7 +1848,7 @@ define hidden noundef ptr @_ZN13InstanceKlass9nest_hostEP10JavaThread(ptr nounde
   %65 = add nsw i32 %60, 1
   %66 = icmp sgt i32 %60, -1
   %67 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %65)
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %66, i1 %68, i1 false
   %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %70 = sub nuw nsw i32 32, %69
@@ -1947,7 +1947,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread44:          ; preds = %104, %_ZNK7oopDesc4
   %123 = add nsw i32 %118, 1
   %124 = icmp sgt i32 %118, -1
   %125 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %123)
-  %126 = icmp ult i32 %125, 2
+  %126 = icmp samesign ult i32 %125, 2
   %or.cond.i.i.i.i.i.i = select i1 %124, i1 %126, i1 false
   %127 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %123, i1 true)
   %128 = sub nuw nsw i32 32, %127
@@ -2104,7 +2104,7 @@ _ZNK13InstanceKlass21is_same_class_packageEPK5Klass.exit: ; preds = %161, %_ZNK5
   %208 = add nsw i32 %203, 1
   %209 = icmp sgt i32 %203, -1
   %210 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %208)
-  %211 = icmp ult i32 %210, 2
+  %211 = icmp samesign ult i32 %210, 2
   %or.cond.i.i.i.i.i.i35 = select i1 %209, i1 %211, i1 false
   %212 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %208, i1 true)
   %213 = sub nuw nsw i32 32, %212
@@ -2384,7 +2384,7 @@ define hidden noundef ptr @_ZN13InstanceKlass15nest_host_errorEv(ptr nocapture n
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -5152,7 +5152,7 @@ _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %2, %11
   %33 = add nsw i32 %28, 1
   %34 = icmp sgt i32 %28, -1
   %35 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   %or.cond.i.i.i.i.i.i = select i1 %34, i1 %36, i1 false
   %37 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %38 = sub nuw nsw i32 32, %37
@@ -5978,7 +5978,7 @@ _ZNK13InstanceKlass17class_initializerEv.exit.thread: ; preds = %30, %_ZNK13Inst
   %53 = add nsw i32 %48, 1
   %54 = icmp sgt i32 %48, -1
   %55 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %53)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   %or.cond.i.i.i.i.i.i = select i1 %54, i1 %56, i1 false
   %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %58 = sub nuw nsw i32 32, %57
@@ -6605,7 +6605,7 @@ _ZN13GrowableArrayIP5KlassEC2Ei.exit:             ; preds = %20, %.lr.ph.prehead
   %40 = add nsw i32 %36, 1
   %41 = icmp sgt i32 %36, -1
   %42 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %40)
-  %43 = icmp ult i32 %42, 2
+  %43 = icmp samesign ult i32 %42, 2
   %or.cond.i.i.i.i.i = select i1 %41, i1 %43, i1 false
   %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %45 = sub nuw nsw i32 32, %44
@@ -6829,7 +6829,7 @@ _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %2, %_ZN10Handl
   %40 = add nsw i32 %35, 1
   %41 = icmp sgt i32 %35, -1
   %42 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %40)
-  %43 = icmp ult i32 %42, 2
+  %43 = icmp samesign ult i32 %42, 2
   %or.cond.i.i.i.i.i.i = select i1 %41, i1 %43, i1 false
   %44 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %45 = sub nuw nsw i32 32, %44
@@ -8168,7 +8168,7 @@ _ZN13GrowableArrayI4PairIii11ResourceObjEE8allocateEv.exit.i: ; preds = %46
   %54 = add nsw i32 %.sroa.9.049, 1
   %55 = icmp sgt i32 %.sroa.9.049, -1
   %56 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i.i = select i1 %55, i1 %57, i1 false
   %58 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %59 = sub nuw nsw i32 32, %58
@@ -10917,7 +10917,7 @@ define hidden noundef zeroext i1 @_ZNK13InstanceKlass28methods_contain_jsr_bytec
   %31 = add nsw i32 %26, 1
   %32 = icmp sgt i32 %26, -1
   %33 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %31)
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   %or.cond.i.i.i.i.i.i = select i1 %32, i1 %34, i1 false
   %35 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
   %36 = sub nuw nsw i32 32, %35
@@ -13052,7 +13052,7 @@ define hidden noundef zeroext i1 @_ZNK13InstanceKlass23find_inner_classes_attrEP
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -13122,7 +13122,7 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %_ZN18constantPool
   %54 = add nsw i32 %49, 1
   %55 = icmp sgt i32 %49, -1
   %56 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp ult i32 %56, 2
+  %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %55, i1 %57, i1 false
   %58 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
   %59 = sub nuw nsw i32 32, %58
@@ -13212,7 +13212,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass23compute_enclosing_classEPbP10Jav
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -13255,7 +13255,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %10, %_ZN26Gro
   %45 = add nsw i32 %40, 1
   %46 = icmp sgt i32 %40, -1
   %47 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %45)
-  %48 = icmp ult i32 %47, 2
+  %48 = icmp samesign ult i32 %47, 2
   %or.cond.i.i.i.i.i.i.i = select i1 %46, i1 %48, i1 false
   %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %50 = sub nuw nsw i32 32, %49
@@ -13367,7 +13367,7 @@ _ZNK13InstanceKlass28enclosing_method_class_indexEv.exit: ; preds = %88
   %107 = add nsw i32 %102, 1
   %108 = icmp sgt i32 %102, -1
   %109 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %107)
-  %110 = icmp ult i32 %109, 2
+  %110 = icmp samesign ult i32 %109, 2
   %or.cond.i.i.i.i.i.i.i31 = select i1 %108, i1 %110, i1 false
   %111 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
   %112 = sub nuw nsw i32 32, %111
@@ -14288,7 +14288,7 @@ _ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit: ; preds = %25,
 .lr.ph:                                           ; preds = %_ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit, %36
   %.0179 = phi ptr [ %38, %36 ], [ %30, %_ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit ]
   %.0117178 = phi i32 [ %37, %36 ], [ 0, %_ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit ]
-  %31 = icmp ult i32 %.0117178, 4
+  %31 = icmp samesign ult i32 %.0117178, 4
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %.lr.ph
@@ -14306,7 +14306,7 @@ _ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit: ; preds = %25,
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %36
-  %39 = icmp ugt i32 %.0117178, 2
+  %39 = icmp samesign ugt i32 %.0117178, 2
   br i1 %39, label %40, label %._crit_edge.thread
 
 40:                                               ; preds = %._crit_edge
@@ -19007,7 +19007,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EP5ArrayIhEP12ConstantPoo
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -19702,7 +19702,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EPK5ArrayIhEP12ConstantPo
   %23 = add nsw i32 %18, 1
   %24 = icmp sgt i32 %18, -1
   %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %or.cond.i.i.i.i.i.i = select i1 %24, i1 %26, i1 false
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %28 = sub nuw nsw i32 32, %27
@@ -22116,7 +22116,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -25944,7 +25944,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader
@@ -26252,7 +26252,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader

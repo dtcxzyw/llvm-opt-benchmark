@@ -1048,7 +1048,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end55
   %bf.load.i.i = load i8, ptr %prio1.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 3
   %bf.cast.i.i = zext nneg i8 %bf.clear.i.i to i32
-  %cmp.i.i38 = icmp ugt i32 %prio.0, %bf.cast.i.i
+  %cmp.i.i38 = icmp samesign ugt i32 %prio.0, %bf.cast.i.i
   br i1 %cmp.i.i38, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i

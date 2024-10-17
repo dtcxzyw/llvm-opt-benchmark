@@ -1221,7 +1221,7 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %437, %430
   %572 = select i1 %563, i32 %566, i32 0
   %573 = sub nsw i32 %571, %572
   %574 = call i32 @llvm.abs.i32(i32 %573, i1 true)
-  %575 = icmp ult i32 %574, 10
+  %575 = icmp samesign ult i32 %574, 10
   %576 = fcmp olt double %570, %561
   %577 = select i1 %576, i32 %572, i32 %571
   %.0266.i.i = select i1 %575, i32 %577, i32 %571
@@ -1825,13 +1825,13 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !21
   %769 = shl nuw nsw i32 %761, 2
   %770 = mul nuw nsw i32 %763, 7
-  %.not49.i = icmp ult i32 %769, %770
+  %.not49.i = icmp samesign ult i32 %769, %770
   br i1 %.not49.i, label %771, label %774
 
 771:                                              ; preds = %768
   %772 = shl nuw nsw i32 %763, 2
   %773 = mul nuw nsw i32 %761, 7
-  %.not50.i = icmp ult i32 %772, %773
+  %.not50.i = icmp samesign ult i32 %772, %773
   br i1 %.not50.i, label %872, label %774
 
 774:                                              ; preds = %771, %768
@@ -1975,7 +1975,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
   %859 = sub nsw i32 %763, %858
   %860 = call i32 @llvm.abs.i32(i32 %859, i1 true)
   %861 = add nuw nsw i32 %860, %856
-  %.not.i.i31 = icmp ugt i32 %852, %861
+  %.not.i.i31 = icmp samesign ugt i32 %852, %861
   %..i.i = select i1 %.not.i.i31, ptr %10, ptr %9
   br label %.thread.i29
 
@@ -2879,7 +2879,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit102.thread: ; preds 
   %.sroa.0114.1 = phi double [ %130, %150 ], [ %128, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit102 ], [ %128, %133 ], [ %128, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %.sroa.11.1 = phi double [ %131, %150 ], [ %129, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit102 ], [ %129, %133 ], [ %129, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %151 = add nuw nsw i32 %.062176, 1
-  %152 = icmp ugt i32 %.062176, 1
+  %152 = icmp samesign ugt i32 %.062176, 1
   %153 = fcmp ult double %.sroa.0114.1, 0.000000e+00
   %or.cond = or i1 %153, %152
   br i1 %or.cond, label %.critedge69, label %86, !llvm.loop !37
@@ -3148,7 +3148,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread: ; preds =
   %.sroa.0111.1 = phi double [ %103, %123 ], [ %101, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90 ], [ %101, %106 ], [ %101, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %.sroa.11.1 = phi double [ %104, %123 ], [ %102, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90 ], [ %102, %106 ], [ %102, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %124 = add nuw nsw i32 %.051164, 1
-  %125 = icmp ugt i32 %.051164, 1
+  %125 = icmp samesign ugt i32 %.051164, 1
   %126 = fcmp ult double %.sroa.0111.1, 0.000000e+00
   %or.cond = or i1 %126, %125
   br i1 %or.cond, label %.critedge, label %76, !llvm.loop !37
@@ -3953,7 +3953,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit222.thread: ; preds 
   %.sroa.0258.1 = phi double [ %298, %318 ], [ %296, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit222 ], [ %296, %301 ], [ %296, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %.sroa.11.1 = phi double [ %299, %318 ], [ %297, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit222 ], [ %297, %301 ], [ %297, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
   %319 = add nuw nsw i32 %.0131390, 1
-  %320 = icmp uge i32 %319, %.sroa.speculated
+  %320 = icmp samesign uge i32 %319, %.sroa.speculated
   %321 = fcmp ult double %.sroa.0258.1, 0.000000e+00
   %or.cond288 = or i1 %321, %320
   br i1 %or.cond288, label %.critedge, label %253, !llvm.loop !37
@@ -5731,7 +5731,7 @@ define internal fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9Bi
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = sub nsw i32 %14, %7
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %23 = icmp ugt i32 %20, %22
+  %23 = icmp samesign ugt i32 %20, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %4
@@ -6079,7 +6079,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread: ; preds 
   %87 = load i32, ptr %86, align 8
   %88 = sub nsw i32 %85, %87
   %89 = call i32 @llvm.abs.i32(i32 %88, i1 true)
-  %.not = icmp ugt i32 %83, %89
+  %.not = icmp samesign ugt i32 %83, %89
   %.val = load double, ptr %6, align 8
   %.val73 = load double, ptr %5, align 8
   %.sroa.064.0.copyload67 = select i1 %.not, double %.val, double %.val73

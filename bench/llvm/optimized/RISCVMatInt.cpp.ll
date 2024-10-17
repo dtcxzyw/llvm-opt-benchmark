@@ -514,7 +514,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit141: ; preds = %231, %
   %247 = add nsw i32 %246, -1
   %or.cond.i = icmp ult i32 %247, 63
   %248 = add nuw nsw i32 %244, %246
-  %249 = icmp ugt i32 %248, 52
+  %249 = icmp samesign ugt i32 %248, 52
   %or.cond18.i = and i1 %or.cond.i, %249
   br i1 %or.cond18.i, label %_ZL17extractRotateInfol.exit.thread173, label %251
 
@@ -530,9 +530,9 @@ _ZL17extractRotateInfol.exit.thread173:           ; preds = %241
   %256 = trunc i64 %1 to i32
   %257 = xor i32 %256, -1
   %258 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %257, i1 false)
-  %259 = icmp ugt i32 %255, 31
+  %259 = icmp samesign ugt i32 %255, 31
   %260 = add nuw nsw i32 %255, %258
-  %261 = icmp ult i32 %260, 53
+  %261 = icmp samesign ult i32 %260, 53
   %or.cond20.i.not187 = or i1 %259, %261
   %262 = sub nuw nsw i32 32, %255
   %.not92 = icmp eq i64 %252, 4294967295
@@ -622,7 +622,7 @@ define internal fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoE
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %12 = icmp ult i64 %11, 2
+  %12 = icmp samesign ult i64 %11, 2
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -725,7 +725,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
   %61 = trunc nuw nsw i64 %60 to i32
   store i32 %61, ptr %5, align 4
   %62 = ashr i64 %56, %60
-  %63 = icmp ult i64 %60, 13
+  %63 = icmp samesign ult i64 %60, 13
   %64 = add i64 %62, 2048
   %65 = icmp ult i64 %64, 4096
   %or.cond = select i1 %63, i1 true, i1 %65

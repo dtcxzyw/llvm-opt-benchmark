@@ -168,7 +168,7 @@ if.then.i.i:                                      ; preds = %while.cond.backedge
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i, i64 %.sroa.speculated.i.i
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %read.0.ph46.i.i
   %add9.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %offset.addr.0.ph48.i.i
-  %cmp.i.i = icmp ult i64 %add.i.i, 64
+  %cmp.i.i = icmp samesign ult i64 %add.i.i, 64
   br i1 %cmp.i.i, label %while.body.us.preheader.i.i, label %if.end, !llvm.loop !5
 
 do.body.i.i:                                      ; preds = %if.then16.us.i.i
@@ -241,7 +241,7 @@ if.then.i.i27:                                    ; preds = %while.cond.backedge
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i11, i64 %.sroa.speculated.i.i34
   %add.i.i36 = add nuw nsw i64 %.sroa.speculated.i.i34, %read.0.ph46.i.i12
   %add9.i.i37 = add nsw i64 %.sroa.speculated.i.i34, %offset.addr.0.ph48.i.i10
-  %cmp.i.i38 = icmp ult i64 %add.i.i36, 64
+  %cmp.i.i38 = icmp samesign ult i64 %add.i.i36, 64
   br i1 %cmp.i.i38, label %while.body.us.preheader.i.i9, label %for.cond.preheader, !llvm.loop !5
 
 do.body.i.i44:                                    ; preds = %if.then16.us.i.i41
@@ -321,7 +321,7 @@ if.then.i.i71:                                    ; preds = %while.cond.backedge
   %add.ptr.i.i79 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i55, i64 %.sroa.speculated.i.i78
   %add.i.i80 = add nuw nsw i64 %.sroa.speculated.i.i78, %read.0.ph46.i.i56
   %add9.i.i81 = add nsw i64 %.sroa.speculated.i.i78, %offset.addr.0.ph48.i.i54
-  %cmp.i.i82 = icmp ult i64 %add.i.i80, 64
+  %cmp.i.i82 = icmp samesign ult i64 %add.i.i80, 64
   br i1 %cmp.i.i82, label %while.body.us.preheader.i.i53, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit92, !llvm.loop !5
 
 do.body.i.i88:                                    ; preds = %if.then16.us.i.i85
@@ -384,7 +384,7 @@ if.then.i:                                        ; preds = %while.cond.backedge
   %add.ptr.i = getelementptr inbounds i8, ptr %dst.0.ph47.i, i64 %.sroa.speculated.i
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %read.0.ph46.i
   %add9.i = add nsw i64 %.sroa.speculated.i, %offset.addr.0.ph48.i
-  %cmp.i = icmp ult i64 %add.i, 64
+  %cmp.i = icmp samesign ult i64 %add.i, 64
   br i1 %cmp.i, label %while.body.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, !llvm.loop !5
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread: ; preds = %if.then16.us.i
@@ -495,7 +495,7 @@ if.then.i.i:                                      ; preds = %while.cond.backedge
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i, i64 %.sroa.speculated.i.i
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %read.0.ph46.i.i
   %add9.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %offset.addr.0.ph48.i.i
-  %cmp.i.i = icmp ult i64 %add.i.i, 64
+  %cmp.i.i = icmp samesign ult i64 %add.i.i, 64
   br i1 %cmp.i.i, label %while.body.us.preheader.i.i, label %if.end2, !llvm.loop !5
 
 do.body.i.i:                                      ; preds = %if.then16.us.i.i
@@ -568,7 +568,7 @@ if.then.i.i32:                                    ; preds = %while.cond.backedge
   %add.ptr.i.i40 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i16, i64 %.sroa.speculated.i.i39
   %add.i.i41 = add nuw nsw i64 %.sroa.speculated.i.i39, %read.0.ph46.i.i17
   %add9.i.i42 = add nsw i64 %.sroa.speculated.i.i39, %offset.addr.0.ph48.i.i15
-  %cmp.i.i43 = icmp ult i64 %add.i.i41, 64
+  %cmp.i.i43 = icmp samesign ult i64 %add.i.i41, 64
   br i1 %cmp.i.i43, label %while.body.us.preheader.i.i14, label %for.cond.preheader, !llvm.loop !5
 
 do.body.i.i49:                                    ; preds = %if.then16.us.i.i46
@@ -646,7 +646,7 @@ if.then.i.i76:                                    ; preds = %while.cond.backedge
   %add.ptr.i.i84 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i60, i64 %.sroa.speculated.i.i83
   %add.i.i85 = add nuw nsw i64 %.sroa.speculated.i.i83, %read.0.ph46.i.i61
   %add9.i.i86 = add nsw i64 %.sroa.speculated.i.i83, %offset.addr.0.ph48.i.i59
-  %cmp.i.i87 = icmp ult i64 %add.i.i85, 64
+  %cmp.i.i87 = icmp samesign ult i64 %add.i.i85, 64
   br i1 %cmp.i.i87, label %while.body.us.preheader.i.i58, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit97, !llvm.loop !5
 
 do.body.i.i93:                                    ; preds = %if.then16.us.i.i90
@@ -1654,9 +1654,9 @@ while.body52.i.i.i.i:                             ; preds = %land.rhs48.i.i.i.i
 while.end.i.i.i.i:                                ; preds = %while.body52.i.i.i.i, %land.rhs48.i.i.i.i
   %storemerge.idx.lcssa.ph.i.i.i.i = phi i64 [ %storemerge.idx61.i.i.i.i, %land.rhs48.i.i.i.i ], [ %29, %while.body52.i.i.i.i ]
   %storemerge.ptr.lcssa.ph.i.i.i.i = phi ptr [ %storemerge.ptr62.i.i.i.i, %land.rhs48.i.i.i.i ], [ %scevgep.i.i.i.i, %while.body52.i.i.i.i ]
-  %31 = icmp ult i64 %storemerge.idx.lcssa.ph.i.i.i.i, 5
+  %31 = icmp samesign ult i64 %storemerge.idx.lcssa.ph.i.i.i.i, 5
   %cmp54.i.i.i.i = icmp eq ptr %storemerge.ptr.lcssa.ph.i.i.i.i, %call.i.i.i.i.i.i
-  %or.cond.i.i.i.i = or i1 %31, %cmp54.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp54.i.i.i.i, i1 true, i1 %31
   br i1 %or.cond.i.i.i.i, label %do.body26.invoke.i.i.i.i, label %if.end63.i.i.i.i
 
 if.end63.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
@@ -2251,7 +2251,7 @@ if.then.i.i100.i.i.i:                             ; preds = %while.cond.backedge
   %add.ptr.i.i108.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i84.i.i.i, i64 %.sroa.speculated.i.i107.i.i.i
   %add.i.i109.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i107.i.i.i, %read.0.ph46.i.i85.i.i.i
   %add9.i.i110.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i107.i.i.i, %offset.addr.0.ph48.i.i83.i.i.i
-  %cmp.i.i111.i.i.i = icmp ult i64 %add.i.i109.i.i.i, 64
+  %cmp.i.i111.i.i.i = icmp samesign ult i64 %add.i.i109.i.i.i, 64
   br i1 %cmp.i.i111.i.i.i, label %while.body.us.preheader.i.i82.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit121.i.i.i, !llvm.loop !5
 
 do.body.i.i117.i.i.i:                             ; preds = %if.then16.us.i.i114.i.i.i
@@ -2334,7 +2334,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.cond.backedge
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i
   %add.i.i.i42.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, %read.0.ph46.i.i.i.i.i
   %add9.i.i.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, %offset.addr.0.ph48.i.i.i.i.i
-  %cmp.i.i.i43.i.i = icmp ult i64 %add.i.i.i42.i.i, 64
+  %cmp.i.i.i43.i.i = icmp samesign ult i64 %add.i.i.i42.i.i, 64
   br i1 %cmp.i.i.i43.i.i, label %while.body.us.preheader.i.i.i.i.i, label %if.end38.i.i.i, !llvm.loop !5
 
 do.body.i.i.i.i.i:                                ; preds = %if.then16.us.i.i.i.i.i
@@ -2782,7 +2782,7 @@ if.then.i.i29.i.i.i:                              ; preds = %while.cond.backedge
   %add.ptr.i.i36.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i16.i.i.i, i64 %.sroa.speculated.i.i35.i.i.i
   %add.i.i37.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i35.i.i.i, %read.0.ph46.i.i17.i.i.i
   %add9.i.i38.i.i.i = add nsw i64 %.sroa.speculated.i.i35.i.i.i, %offset.addr.0.ph48.i.i15.i.i.i
-  %cmp.i.i39.i.i.i = icmp ult i64 %add.i.i37.i.i.i, 64
+  %cmp.i.i39.i.i.i = icmp samesign ult i64 %add.i.i37.i.i.i, 64
   br i1 %cmp.i.i39.i.i.i, label %while.body.us.preheader.i.i14.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i, !llvm.loop !5
 
 do.body.i.i.i109.i.i:                             ; preds = %if.then16.us.i.i42.i.i.i
@@ -2888,7 +2888,7 @@ cond.false9.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
   unreachable
 
 cond.end10.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
-  %cmp12.not.i.i101.i.i = icmp ugt i64 %div11.i.i.i.i, %.sroa.speculated.i.i.i.i
+  %cmp12.not.i.i101.i.i = icmp samesign ugt i64 %div11.i.i.i.i, %.sroa.speculated.i.i.i.i
   br i1 %cmp12.not.i.i101.i.i, label %cond.false14.i.i.i.i, label %for.cond16.preheader.i.i.i.i
 
 for.cond16.preheader.i.i.i.i:                     ; preds = %cond.end10.i.i.i.i

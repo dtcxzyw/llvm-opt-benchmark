@@ -301,7 +301,7 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
 138:                                              ; preds = %.lr.ph.i.i
   %139 = lshr i32 %128, 14
   %140 = lshr i32 %130, 14
-  %141 = icmp ugt i32 %139, %140
+  %141 = icmp samesign ugt i32 %139, %140
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %138
@@ -459,7 +459,7 @@ uniquePos.exit.i:                                 ; preds = %._crit_edge.i.i, %1
 225:                                              ; preds = %.lr.ph.i76.i
   %226 = lshr i32 %215, 14
   %227 = lshr i32 %217, 14
-  %228 = icmp ugt i32 %226, %227
+  %228 = icmp samesign ugt i32 %226, %227
   br i1 %228, label %229, label %230
 
 229:                                              ; preds = %225
@@ -1119,7 +1119,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
 
 31:                                               ; preds = %26
   %32 = and i32 %19, 65535
-  %33 = icmp ugt i32 %32, 256
+  %33 = icmp samesign ugt i32 %32, 256
   br i1 %33, label %42, label %.preheader
 
 .preheader:                                       ; preds = %31
@@ -1256,7 +1256,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 16383
   %114 = zext nneg i16 %113 to i32
-  %.not109 = icmp ugt i32 %110, %114
+  %.not109 = icmp samesign ugt i32 %110, %114
   br i1 %.not109, label %118, label %115
 
 115:                                              ; preds = %109

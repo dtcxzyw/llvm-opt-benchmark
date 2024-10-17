@@ -1366,7 +1366,7 @@ find_first_bit.exit:                              ; preds = %do.body1, %if.then.
 while.body:                                       ; preds = %find_first_bit.exit, %cond.end
   %value.022 = phi i64 [ %call8, %cond.end ], [ %retval.0.i, %find_first_bit.exit ]
   %div417 = lshr i64 %value.022, 3
-  %cmp5 = icmp ult i64 %div417, %mul
+  %cmp5 = icmp samesign ult i64 %div417, %mul
   br i1 %cmp5, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %while.body

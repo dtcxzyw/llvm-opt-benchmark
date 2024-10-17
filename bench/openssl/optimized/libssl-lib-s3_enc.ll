@@ -304,7 +304,7 @@ if.then58.i:                                      ; preds = %lor.lhs.false54.i, 
 
 if.end59.i:                                       ; preds = %lor.lhs.false54.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 16
-  %cmp60.i = icmp ugt i64 %indvars.iv.next51.i, %17
+  %cmp60.i = icmp samesign ugt i64 %indvars.iv.next51.i, %17
   br i1 %cmp60.i, label %if.then62.i, label %if.else.i
 
 if.then62.i:                                      ; preds = %if.end59.i

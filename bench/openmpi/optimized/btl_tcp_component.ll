@@ -1036,7 +1036,7 @@ define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly %
   %47 = load i32, ptr %46, align 4
   %48 = icmp ne i32 %47, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %49 = icmp ult i64 %indvars.iv.next.i, %45
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %45
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
@@ -1732,7 +1732,7 @@ mca_btl_tcp_component_exchange.exit._crit_edge:   ; preds = %mca_btl_tcp_compone
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %424 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 284), align 4
   %425 = zext i32 %424 to i64
-  %426 = icmp ult i64 %indvars.iv.next, %425
+  %426 = icmp samesign ult i64 %indvars.iv.next, %425
   br i1 %426, label %.lr.ph54, label %.loopexit38, !llvm.loop !15
 
 .loopexit38:                                      ; preds = %.lr.ph54, %415
@@ -1759,7 +1759,7 @@ mca_btl_tcp_component_exchange.exit._crit_edge:   ; preds = %mca_btl_tcp_compone
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %436 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 284), align 4
   %437 = zext i32 %436 to i64
-  %438 = icmp ult i64 %indvars.iv.next73, %437
+  %438 = icmp samesign ult i64 %indvars.iv.next73, %437
   br i1 %438, label %.lr.ph56, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph56, %.loopexit38..loopexit_crit_edge

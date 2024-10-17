@@ -414,7 +414,7 @@ define internal fastcc void @invalid_numa_statistics() unnamed_addr #0 align 16 
   store i64 0, ptr %32, align 8
   %33 = add nuw nsw i64 %20, 1
   %34 = and i64 %33, 127
-  %35 = icmp ugt i64 %34, 63
+  %35 = icmp samesign ugt i64 %34, 63
   br i1 %35, label %.thread, label %13, !prof !7, !llvm.loop !8
 
 .thread:                                          ; preds = %13, %23, %19
@@ -491,7 +491,7 @@ define dso_local void @all_vm_events(ptr nocapture noundef %0) #0 align 16 {
 27:                                               ; preds = %18
   %28 = add nuw nsw i64 %9, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %2, !prof !7, !llvm.loop !15
 
 .thread:                                          ; preds = %2, %27, %8
@@ -593,7 +593,7 @@ define dso_local void @fold_vm_numa_events() local_unnamed_addr #0 align 16 {
 39:                                               ; preds = %30
   %40 = add nuw nsw i64 %17, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %10, !prof !7, !llvm.loop !20
 
 43:                                               ; preds = %43, %.thread
@@ -694,7 +694,7 @@ define dso_local void @refresh_zone_stat_thresholds() local_unnamed_addr #0 alig
   store i8 0, ptr %22, align 1
   %23 = add nuw nsw i64 %12, 1
   %24 = and i64 %23, 127
-  %25 = icmp ugt i64 %24, 63
+  %25 = icmp samesign ugt i64 %24, 63
   br i1 %25, label %.thread, label %5, !prof !7, !llvm.loop !25
 
 .thread:                                          ; preds = %5, %15, %11
@@ -770,7 +770,7 @@ define dso_local void @refresh_zone_stat_thresholds() local_unnamed_addr #0 alig
   store i8 %79, ptr %75, align 1
   %80 = add nuw nsw i64 %59, 1
   %81 = and i64 %80, 127
-  %82 = icmp ugt i64 %81, 63
+  %82 = icmp samesign ugt i64 %81, 63
   br i1 %82, label %.thread10, label %52, !prof !7, !llvm.loop !27
 
 .thread10:                                        ; preds = %52, %62, %58
@@ -855,7 +855,7 @@ define dso_local void @set_pgdat_percpu_threshold(ptr noundef %0, ptr nocapture 
   store i8 %15, ptr %34, align 2
   %35 = add nuw nsw i64 %23, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread.loopexit, label %17, !prof !7, !llvm.loop !29
 
 .thread.loopexit:                                 ; preds = %22, %26, %17
@@ -1923,7 +1923,7 @@ define dso_local i32 @extfrag_for_order(ptr nocapture noundef readonly %0, i32 n
   %11 = load i64, ptr %10, align 8
   %12 = shl i64 %11, %8
   %13 = add i64 %12, %9
-  %14 = icmp ult i64 %8, %4
+  %14 = icmp samesign ult i64 %8, %4
   %15 = sub nsw i64 %8, %3
   %16 = shl i64 %11, %15
   %17 = select i1 %14, i64 0, i64 %16
@@ -1968,7 +1968,7 @@ define dso_local i32 @fragmentation_index(ptr nocapture noundef readonly %0, i32
   %13 = add i64 %12, %9
   %14 = shl i64 %12, %8
   %15 = add i64 %14, %10
-  %16 = icmp ult i64 %8, %4
+  %16 = icmp samesign ult i64 %8, %4
   %17 = sub nsw i64 %8, %3
   %18 = shl i64 %12, %17
   %19 = select i1 %16, i64 0, i64 %18
@@ -2563,7 +2563,7 @@ define internal fastcc void @start_shepherd_timer() unnamed_addr #9 section ".in
   tail call void @init_timer_key(ptr noundef %29, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2621440, ptr noundef null, ptr noundef null) #17
   %30 = add nuw nsw i64 %8, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %1, !prof !7, !llvm.loop !97
 
 .thread:                                          ; preds = %1, %11, %7
@@ -2742,7 +2742,7 @@ need_update.exit:                                 ; preds = %.thread7.i, %27, %5
 62:                                               ; preds = %need_update.exit, %21, %19, %12
   %63 = add nuw nsw i64 %9, 1
   %64 = and i64 %63, 127
-  %65 = icmp ugt i64 %64, 63
+  %65 = icmp samesign ugt i64 %64, 63
   br i1 %65, label %.thread, label %2, !prof !7, !llvm.loop !100
 
 .thread:                                          ; preds = %2, %62, %8
@@ -3012,7 +3012,7 @@ define internal noundef i32 @pagetypeinfo_show(ptr noundef %0, ptr noundef %1) #
 
 87:                                               ; preds = %86, %84, %84
   %88 = phi i64 [ 524288, %86 ], [ 33554432, %84 ], [ 33554432, %84 ]
-  %89 = icmp ult i64 %85, %88
+  %89 = icmp samesign ult i64 %85, %88
   br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %87
@@ -3025,7 +3025,7 @@ define internal noundef i32 @pagetypeinfo_show(ptr noundef %0, ptr noundef %1) #
 
 93:                                               ; preds = %92, %90, %90
   %94 = phi i64 [ 2048, %92 ], [ 131072, %90 ], [ 131072, %90 ]
-  %95 = icmp ult i64 %91, %94
+  %95 = icmp samesign ult i64 %91, %94
   br i1 %95, label %96, label %106, !prof !110
 
 96:                                               ; preds = %93
@@ -3300,7 +3300,7 @@ define internal ptr @vmstat_start(ptr nocapture noundef %0, ptr nocapture nounde
 65:                                               ; preds = %56
   %66 = add nuw nsw i64 %47, 1
   %67 = and i64 %66, 127
-  %68 = icmp ugt i64 %67, 63
+  %68 = icmp samesign ugt i64 %67, 63
   br i1 %68, label %.thread, label %41, !prof !7, !llvm.loop !15
 
 .thread:                                          ; preds = %41, %65, %46
@@ -3557,7 +3557,7 @@ define internal noundef i32 @zoneinfo_show(ptr noundef %0, ptr noundef %1) #0 al
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.178, i32 noundef %119) #17
   %120 = add nuw nsw i64 %95, 1
   %121 = and i64 %120, 127
-  %122 = icmp ugt i64 %121, 63
+  %122 = icmp samesign ugt i64 %121, 63
   br i1 %122, label %.thread, label %88, !prof !7, !llvm.loop !126
 
 .thread:                                          ; preds = %88, %98, %94
@@ -3668,7 +3668,7 @@ define internal noundef i32 @unusable_show(ptr noundef %0, ptr noundef %1) #0 al
   %30 = load i64, ptr %29, align 8
   %31 = shl i64 %30, %27
   %32 = add i64 %31, %28
-  %33 = icmp ult i64 %27, %24
+  %33 = icmp samesign ult i64 %27, %24
   %34 = sub nsw i64 %27, %24
   %35 = shl i64 %30, %34
   %36 = select i1 %33, i64 0, i64 %35
@@ -3776,7 +3776,7 @@ define internal noundef i32 @extfrag_show(ptr noundef %0, ptr noundef %1) #0 ali
   %26 = add i64 %25, %22
   %27 = shl i64 %25, %21
   %28 = add i64 %27, %23
-  %29 = icmp ult i64 %21, %18
+  %29 = icmp samesign ult i64 %21, %18
   %30 = sub nsw i64 %21, %18
   %31 = shl i64 %25, %30
   %32 = select i1 %29, i64 0, i64 %31

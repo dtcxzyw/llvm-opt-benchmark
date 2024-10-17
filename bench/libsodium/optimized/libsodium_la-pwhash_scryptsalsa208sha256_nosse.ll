@@ -37,7 +37,7 @@ if.then10:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %0 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %N)
-  %cmp13 = icmp ugt i64 %0, 1
+  %cmp13 = icmp samesign ugt i64 %0, 1
   %cmp15 = icmp ult i64 %N, 2
   %or.cond = or i1 %cmp15, %cmp13
   br i1 %or.cond, label %if.then17, label %if.end19
@@ -60,7 +60,7 @@ if.then25:                                        ; preds = %if.end19
 
 if.end27:                                         ; preds = %if.end19
   %div = udiv i64 144115188075855871, %conv1
-  %cmp28 = icmp ult i64 %div, %conv
+  %cmp28 = icmp samesign ult i64 %div, %conv
   br i1 %cmp28, label %if.then34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end27
@@ -201,7 +201,7 @@ blkxor.exit24.i.i:                                ; preds = %for.body.i17.i.i
   %arrayidx12.i.i = getelementptr i8, ptr %arrayidx6.i.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i.i = add nuw nsw i64 %i.025.i.i, 2
-  %cmp.i.i = icmp ult i64 %add13.i.i, %mul13.i
+  %cmp.i.i = icmp samesign ult i64 %add13.i.i, %mul13.i
   br i1 %cmp.i.i, label %for.body.i.i, label %blockmix_salsa8.exit.i, !llvm.loop !7
 
 blockmix_salsa8.exit.i:                           ; preds = %blkxor.exit24.i.i
@@ -256,12 +256,12 @@ blkxor.exit24.i86.i:                              ; preds = %for.body.i17.i79.i
   %arrayidx12.i87.i = getelementptr i8, ptr %arrayidx6.i76.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i87.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i88.i = add nuw nsw i64 %i.025.i64.i, 2
-  %cmp.i89.i = icmp ult i64 %add13.i88.i, %mul13.i
+  %cmp.i89.i = icmp samesign ult i64 %add13.i88.i, %mul13.i
   br i1 %cmp.i89.i, label %for.body.i63.i, label %blockmix_salsa8.exit90.i, !llvm.loop !7
 
 blockmix_salsa8.exit90.i:                         ; preds = %blkxor.exit24.i86.i
   %add19.i = add nuw nsw i64 %i.0171.i, 2
-  %cmp8.i = icmp ult i64 %add19.i, %N
+  %cmp8.i = icmp samesign ult i64 %add19.i, %N
   br i1 %cmp8.i, label %for.body9.i, label %for.body23.i, !llvm.loop !8
 
 for.body23.i:                                     ; preds = %blockmix_salsa8.exit90.i, %blockmix_salsa8.exit169.i
@@ -332,7 +332,7 @@ blkxor.exit24.i122.i:                             ; preds = %for.body.i17.i115.i
   %arrayidx12.i123.i = getelementptr i8, ptr %arrayidx6.i112.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i123.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i124.i = add nuw nsw i64 %i.025.i100.i, 2
-  %cmp.i125.i = icmp ult i64 %add13.i124.i, %mul13.i
+  %cmp.i125.i = icmp samesign ult i64 %add13.i124.i, %mul13.i
   br i1 %cmp.i125.i, label %for.body.i99.i, label %blockmix_salsa8.exit126.i, !llvm.loop !7
 
 blockmix_salsa8.exit126.i:                        ; preds = %blkxor.exit24.i122.i
@@ -402,12 +402,12 @@ blkxor.exit24.i165.i:                             ; preds = %for.body.i17.i158.i
   %arrayidx12.i166.i = getelementptr i8, ptr %arrayidx6.i155.i, i64 %arrayidx12.idx.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx12.i166.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %arrayidx2.i, i64 64, i1 false)
   %add13.i167.i = add nuw nsw i64 %i.025.i143.i, 2
-  %cmp.i168.i = icmp ult i64 %add13.i167.i, %mul13.i
+  %cmp.i168.i = icmp samesign ult i64 %add13.i167.i, %mul13.i
   br i1 %cmp.i168.i, label %for.body.i142.i, label %blockmix_salsa8.exit169.i, !llvm.loop !7
 
 blockmix_salsa8.exit169.i:                        ; preds = %blkxor.exit24.i165.i
   %add37.i = add nuw nsw i64 %i.1172.i, 2
-  %cmp22.i = icmp ult i64 %add37.i, %N
+  %cmp22.i = icmp samesign ult i64 %add37.i, %N
   br i1 %cmp22.i, label %for.body23.i, label %for.body42.i, !llvm.loop !9
 
 for.body42.i:                                     ; preds = %blockmix_salsa8.exit169.i, %for.body42.i
@@ -619,7 +619,7 @@ for.body:                                         ; preds = %entry, %for.body
   %or344 = tail call i32 @llvm.fshl.i32(i32 %add338, i32 %add338, i32 18)
   %xor346 = xor i32 %or344, %xor170
   %add347 = add nuw nsw i64 %i.039, 2
-  %cmp = icmp ult i64 %i.039, 6
+  %cmp = icmp samesign ult i64 %i.039, 6
   br i1 %cmp, label %for.body, label %for.cond348.preheader, !llvm.loop !12
 
 for.body350:                                      ; preds = %for.cond348.preheader, %for.body350

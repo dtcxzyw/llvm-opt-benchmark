@@ -260,7 +260,7 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   %97 = select i1 %94, i8 %95, i8 %96
   %98 = getelementptr i8, ptr %.01519.i, i64 1
   store i8 %97, ptr %.01519.i, align 1
-  %99 = icmp ult i8 %93, 10
+  %99 = icmp samesign ult i8 %93, 10
   %100 = or disjoint i8 %93, 48
   %101 = add nuw nsw i8 %93, 87
   %102 = select i1 %99, i8 %100, i8 %101
@@ -342,7 +342,7 @@ escape_json.exit:                                 ; preds = %72, %71, %hex_encod
   %141 = select i1 %138, i8 %139, i8 %140
   %142 = getelementptr i8, ptr %.01519.i50, i64 1
   store i8 %141, ptr %.01519.i50, align 1
-  %143 = icmp ult i8 %137, 10
+  %143 = icmp samesign ult i8 %137, 10
   %144 = or disjoint i8 %137, 48
   %145 = add nuw nsw i8 %137, 87
   %146 = select i1 %143, i8 %144, i8 %145
@@ -537,7 +537,7 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
   %37 = select i1 %34, i8 %35, i8 %36
   %38 = getelementptr i8, ptr %.01519.i, i64 1
   store i8 %37, ptr %.01519.i, align 1
-  %39 = icmp ult i8 %33, 10
+  %39 = icmp samesign ult i8 %33, 10
   %40 = or disjoint i8 %33, 48
   %41 = add nuw nsw i8 %33, 87
   %42 = select i1 %39, i8 %40, i8 %41

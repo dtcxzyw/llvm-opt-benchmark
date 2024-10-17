@@ -400,7 +400,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
   %97 = getelementptr inbounds i8, ptr %.05162.i, i64 56
   %98 = load i16, ptr %54, align 8
   %99 = zext i16 %98 to i32
-  %100 = icmp ult i32 %96, %99
+  %100 = icmp samesign ult i32 %96, %99
   br i1 %100, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %95, %50

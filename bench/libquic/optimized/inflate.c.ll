@@ -759,7 +759,7 @@ if.end28:                                         ; preds = %do.body25
   %shl = shl nuw nsw i64 %conv, %indvars.iv2325
   %add = add i64 %shl, %hold.221910
   %indvars.iv.next2326 = add nuw nsw i64 %indvars.iv2325, 8
-  %cmp24 = icmp ult i64 %indvars.iv2325, 8
+  %cmp24 = icmp samesign ult i64 %indvars.iv2325, 8
   br i1 %cmp24, label %do.body25, label %do.end31.loopexit, !llvm.loop !5
 
 do.end31.loopexit:                                ; preds = %if.end28
@@ -880,7 +880,7 @@ if.end112:                                        ; preds = %do.body108
   %shl117 = shl nuw nsw i64 %conv115, %indvars.iv2304
   %add118 = add i64 %shl117, %hold.231868
   %indvars.iv.next2305 = add nuw nsw i64 %indvars.iv2304, 8
-  %cmp105 = icmp ult i64 %indvars.iv2304, 8
+  %cmp105 = icmp samesign ult i64 %indvars.iv2304, 8
   br i1 %cmp105, label %do.body108, label %do.end122.loopexit, !llvm.loop !7
 
 do.end122.loopexit:                               ; preds = %if.end112
@@ -974,7 +974,7 @@ if.end178:                                        ; preds = %do.body174
   %shl183 = shl nuw nsw i64 %conv181, %indvars.iv2307
   %add184 = add i64 %shl183, %hold.251877
   %indvars.iv.next2308 = add nuw nsw i64 %indvars.iv2307, 8
-  %cmp171 = icmp ult i64 %indvars.iv2307, 24
+  %cmp171 = icmp samesign ult i64 %indvars.iv2307, 24
   br i1 %cmp171, label %do.body174, label %do.end188, !llvm.loop !8
 
 do.end188:                                        ; preds = %if.end178, %do.body169
@@ -1045,7 +1045,7 @@ if.end230:                                        ; preds = %do.body226
   %shl235 = shl nuw nsw i64 %conv233, %indvars.iv2310
   %add236 = add i64 %shl235, %hold.271885
   %indvars.iv.next2311 = add nuw nsw i64 %indvars.iv2310, 8
-  %cmp223 = icmp ult i64 %indvars.iv2310, 8
+  %cmp223 = icmp samesign ult i64 %indvars.iv2310, 8
   br i1 %cmp223, label %do.body226, label %do.end240, !llvm.loop !9
 
 do.end240:                                        ; preds = %if.end230, %do.body221
@@ -1127,7 +1127,7 @@ if.end285:                                        ; preds = %do.body281
   %shl290 = shl nuw nsw i64 %conv288, %indvars.iv2313
   %add291 = add i64 %shl290, %hold.281893
   %indvars.iv.next2314 = add nuw nsw i64 %indvars.iv2313, 8
-  %cmp278 = icmp ult i64 %indvars.iv2313, 8
+  %cmp278 = icmp samesign ult i64 %indvars.iv2313, 8
   br i1 %cmp278, label %do.body281, label %do.end295, !llvm.loop !10
 
 do.end295:                                        ; preds = %if.end285, %while.cond277.preheader
@@ -1315,7 +1315,7 @@ if.then413:                                       ; preds = %land.lhs.true408
 
 do.cond:                                          ; preds = %do.body398, %land.lhs.true404, %land.lhs.true408, %if.then413
   %tobool422 = icmp ne i8 %65, 0
-  %cmp423 = icmp ult i64 %indvars.iv.next2317, %64
+  %cmp423 = icmp samesign ult i64 %indvars.iv.next2317, %64
   %70 = select i1 %tobool422, i1 %cmp423, i1 false
   br i1 %70, label %do.body398, label %do.end425, !llvm.loop !11
 
@@ -1405,7 +1405,7 @@ if.then477:                                       ; preds = %land.lhs.true472
 
 do.cond486:                                       ; preds = %do.body460, %land.lhs.true468, %land.lhs.true472, %if.then477
   %tobool487 = icmp ne i8 %77, 0
-  %cmp489 = icmp ult i64 %indvars.iv.next2320, %76
+  %cmp489 = icmp samesign ult i64 %indvars.iv.next2320, %76
   %82 = select i1 %tobool487, i1 %cmp489, i1 false
   br i1 %82, label %do.body460, label %do.end492, !llvm.loop !12
 
@@ -1478,7 +1478,7 @@ if.end531:                                        ; preds = %do.body527
   %shl536 = shl nuw nsw i64 %conv534, %indvars.iv2322
   %add537 = add i64 %shl536, %hold.311901
   %indvars.iv.next2323 = add nuw nsw i64 %indvars.iv2322, 8
-  %cmp524 = icmp ult i64 %indvars.iv2322, 8
+  %cmp524 = icmp samesign ult i64 %indvars.iv2322, 8
   br i1 %cmp524, label %do.body527, label %do.end543.loopexit, !llvm.loop !13
 
 do.end543.loopexit:                               ; preds = %if.end531
@@ -1542,7 +1542,7 @@ if.end581:                                        ; preds = %do.body577
   %shl586 = shl nuw nsw i64 %conv584, %indvars.iv2301
   %add587 = add i64 %shl586, %hold.321703
   %indvars.iv.next2302 = add nuw nsw i64 %indvars.iv2301, 8
-  %cmp574 = icmp ult i64 %indvars.iv2301, 24
+  %cmp574 = icmp samesign ult i64 %indvars.iv2301, 24
   br i1 %cmp574, label %do.body577, label %do.end593, !llvm.loop !14
 
 do.end593:                                        ; preds = %if.end581, %while.cond573.preheader
@@ -1704,7 +1704,7 @@ if.end724:                                        ; preds = %do.body720
   %shl729 = shl nuw nsw i64 %conv727, %indvars.iv2299
   %add730 = add i64 %shl729, %hold.341694
   %indvars.iv.next2300 = add nuw nsw i64 %indvars.iv2299, 8
-  %cmp717 = icmp ult i64 %indvars.iv2299, 24
+  %cmp717 = icmp samesign ult i64 %indvars.iv2299, 24
   br i1 %cmp717, label %do.body720, label %do.end736.loopexit, !llvm.loop !15
 
 do.end736.loopexit:                               ; preds = %if.end724
@@ -1789,7 +1789,7 @@ if.end795:                                        ; preds = %do.body791
   %shl800 = shl nuw nsw i64 %conv798, %indvars.iv2263
   %add801 = add i64 %shl800, %hold.351351
   %indvars.iv.next2264 = add nuw nsw i64 %indvars.iv2263, 8
-  %cmp788 = icmp ult i64 %indvars.iv2263, 6
+  %cmp788 = icmp samesign ult i64 %indvars.iv2263, 6
   br i1 %cmp788, label %do.body791, label %do.end807.loopexit, !llvm.loop !16
 
 do.end807.loopexit:                               ; preds = %if.end795
@@ -1815,9 +1815,9 @@ do.end807:                                        ; preds = %do.end807.loopexit,
   store i32 %add826, ptr %ncode, align 8
   %shr828 = lshr i64 %hold.35.lcssa, 14
   %sub829 = add i32 %bits.35.lcssa, -14
-  %cmp833 = icmp ugt i32 %and809, 29
-  %cmp837 = icmp ugt i32 %and817, 29
-  %or.cond901 = or i1 %cmp833, %cmp837
+  %cmp833 = icmp samesign ugt i32 %and809, 29
+  %cmp837 = icmp samesign ugt i32 %and817, 29
+  %or.cond901 = select i1 %cmp833, i1 true, i1 %cmp837
   br i1 %or.cond901, label %if.then839, label %sw.bb845.thread
 
 if.then839:                                       ; preds = %do.end807
@@ -1897,7 +1897,7 @@ do.end873:                                        ; preds = %if.end861, %while.c
   store i16 %and875, ptr %arrayidx882, align 2
   %shr884 = lshr i64 %hold.37.lcssa, 3
   %sub885 = add i32 %bits.37.lcssa, -3
-  %cmp849 = icmp ult i64 %indvars.iv.next2267, %112
+  %cmp849 = icmp samesign ult i64 %indvars.iv.next2267, %112
   br i1 %cmp849, label %while.cond853.preheader, label %while.cond889.preheader, !llvm.loop !17
 
 while.body893:                                    ; preds = %while.cond889.preheader, %while.body893
@@ -1995,7 +1995,7 @@ if.end946:                                        ; preds = %do.body942
   %here.sroa.16.0.arrayidx935.sroa_idx = getelementptr inbounds %struct.code, ptr %.pre2333, i64 %idxprom934, i32 1
   %here.sroa.16.0.copyload = load i8, ptr %here.sroa.16.0.arrayidx935.sroa_idx, align 1
   %122 = zext i8 %here.sroa.16.0.copyload to i64
-  %cmp938.not = icmp ult i64 %indvars.iv.next2270, %122
+  %cmp938.not = icmp samesign ult i64 %indvars.iv.next2270, %122
   br i1 %cmp938.not, label %do.body942, label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %if.end946
@@ -2079,7 +2079,7 @@ if.end994:                                        ; preds = %do.body990
   %shl999 = shl i64 %conv997, %indvars.iv2275
   %add1000 = add i64 %shl999, %hold.421554
   %indvars.iv.next2276 = add nuw nsw i64 %indvars.iv2275, 8
-  %cmp987 = icmp ult i64 %indvars.iv.next2276, %128
+  %cmp987 = icmp samesign ult i64 %indvars.iv.next2276, %128
   br i1 %cmp987, label %do.body990, label %do.body1007.loopexit, !llvm.loop !19
 
 do.body1007.loopexit:                             ; preds = %if.end994
@@ -2130,7 +2130,7 @@ if.end1056:                                       ; preds = %do.body1052
   %shl1061 = shl i64 %conv1059, %indvars.iv2272
   %add1062 = add i64 %shl1061, %hold.441545
   %indvars.iv.next2273 = add nuw nsw i64 %indvars.iv2272, 8
-  %cmp1049 = icmp ult i64 %indvars.iv.next2273, %126
+  %cmp1049 = icmp samesign ult i64 %indvars.iv.next2273, %126
   br i1 %cmp1049, label %do.body1052, label %do.body1069.loopexit, !llvm.loop !20
 
 do.body1069.loopexit:                             ; preds = %if.end1056
@@ -2168,7 +2168,7 @@ if.end1100:                                       ; preds = %do.body1096
   %shl1105 = shl i64 %conv1103, %indvars.iv2278
   %add1106 = add i64 %shl1105, %hold.451563
   %indvars.iv.next2279 = add nuw nsw i64 %indvars.iv2278, 8
-  %cmp1093 = icmp ult i64 %indvars.iv.next2279, %130
+  %cmp1093 = icmp samesign ult i64 %indvars.iv.next2279, %130
   br i1 %cmp1093, label %do.body1096, label %do.body1113.loopexit, !llvm.loop !21
 
 do.body1113.loopexit:                             ; preds = %if.end1100
@@ -2363,7 +2363,7 @@ if.end1265:                                       ; preds = %do.body1261
   %here.sroa.16.0.arrayidx1254.sroa_idx = getelementptr inbounds i8, ptr %arrayidx1254, i64 1
   %here.sroa.16.0.copyload54 = load i8, ptr %here.sroa.16.0.arrayidx1254.sroa_idx, align 1
   %153 = zext i8 %here.sroa.16.0.copyload54 to i64
-  %cmp1257.not = icmp ult i64 %indvars.iv.next2282, %153
+  %cmp1257.not = icmp samesign ult i64 %indvars.iv.next2282, %153
   br i1 %cmp1257.not, label %do.body1261, label %for.end1275.loopexit
 
 for.end1275.loopexit:                             ; preds = %if.end1265
@@ -2436,7 +2436,7 @@ if.end1317:                                       ; preds = %do.body1313
   %conv1307 = zext i8 %here.sroa.16.0.copyload55 to i32
   %add1308 = add nuw nsw i32 %conv1256.lcssa, %conv1307
   %158 = zext nneg i32 %add1308 to i64
-  %cmp1309.not = icmp ult i64 %indvars.iv.next2286, %158
+  %cmp1309.not = icmp samesign ult i64 %indvars.iv.next2286, %158
   br i1 %cmp1309.not, label %do.body1313, label %do.body1328.loopexit
 
 do.body1328.loopexit:                             ; preds = %if.end1317
@@ -2624,7 +2624,7 @@ if.end1456:                                       ; preds = %do.body1452
   %here.sroa.16.0.arrayidx1445.sroa_idx = getelementptr inbounds i8, ptr %arrayidx1445, i64 1
   %here.sroa.16.0.copyload56 = load i8, ptr %here.sroa.16.0.arrayidx1445.sroa_idx, align 1
   %170 = zext i8 %here.sroa.16.0.copyload56 to i64
-  %cmp1448.not = icmp ult i64 %indvars.iv.next2291, %170
+  %cmp1448.not = icmp samesign ult i64 %indvars.iv.next2291, %170
   br i1 %cmp1448.not, label %do.body1452, label %for.end1466.loopexit
 
 for.end1466.loopexit:                             ; preds = %if.end1456
@@ -2700,7 +2700,7 @@ if.end1505:                                       ; preds = %do.body1501
   %conv1495 = zext i8 %here.sroa.16.0.copyload57 to i32
   %add1496 = add nuw nsw i32 %conv1447.lcssa, %conv1495
   %174 = zext nneg i32 %add1496 to i64
-  %cmp1497.not = icmp ult i64 %indvars.iv.next2295, %174
+  %cmp1497.not = icmp samesign ult i64 %indvars.iv.next2295, %174
   br i1 %cmp1497.not, label %do.body1501, label %do.body1516.loopexit
 
 do.body1516.loopexit:                             ; preds = %if.end1505
@@ -2955,7 +2955,7 @@ if.end1698:                                       ; preds = %do.body1694
   %shl1703 = shl nuw nsw i64 %conv1701, %indvars.iv
   %add1704 = add i64 %shl1703, %hold.571334
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp1691 = icmp ult i64 %indvars.iv, 24
+  %cmp1691 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %cmp1691, label %do.body1694, label %do.end1710.loopexit, !llvm.loop !27
 
 do.end1710.loopexit:                              ; preds = %if.end1698
@@ -3064,7 +3064,7 @@ if.end1782:                                       ; preds = %do.body1778
   %shl1787 = shl nuw nsw i64 %conv1785, %indvars.iv2260
   %add1788 = add i64 %shl1787, %hold.591342
   %indvars.iv.next2261 = add nuw nsw i64 %indvars.iv2260, 8
-  %cmp1775 = icmp ult i64 %indvars.iv2260, 24
+  %cmp1775 = icmp samesign ult i64 %indvars.iv2260, 24
   br i1 %cmp1775, label %do.body1778, label %do.end1794.loopexit, !llvm.loop !28
 
 do.end1794.loopexit:                              ; preds = %if.end1782
@@ -3816,7 +3816,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %spec.select.i = select i1 %tobool.not.i, i32 %sub.i, i32 0
   %got.1.i = select i1 %cmp4.i, i32 %inc.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %7
   %cmp1.i = icmp ult i32 %got.1.i, 4
   %9 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %9, label %while.body.i, label %syncsearch.exit, !llvm.loop !30
@@ -3857,7 +3857,7 @@ while.body.i38:                                   ; preds = %while.body.i38, %wh
   %spec.select.i49 = select i1 %tobool.not.i47, i32 %sub.i48, i32 0
   %got.1.i50 = select i1 %cmp4.i45, i32 %inc.i46, i32 %spec.select.i49
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i39, 1
-  %cmp.i52 = icmp ult i64 %indvars.iv.next.i51, %14
+  %cmp.i52 = icmp samesign ult i64 %indvars.iv.next.i51, %14
   %cmp1.i53 = icmp ult i32 %got.1.i50, 4
   %16 = select i1 %cmp.i52, i1 %cmp1.i53, i1 false
   br i1 %16, label %while.body.i38, label %while.end.loopexit.i54, !llvm.loop !30

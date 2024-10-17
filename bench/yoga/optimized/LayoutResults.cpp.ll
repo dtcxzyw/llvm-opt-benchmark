@@ -46,7 +46,7 @@ land.rhs.i.i:                                     ; preds = %if.end.i.i
 _ZN8facebook4yoga13inexactEqualsEff.exit.i:       ; preds = %land.rhs.i.i, %if.then.i.i
   %retval.0.i.i = phi i1 [ %cmp.i.i, %if.then.i.i ], [ %cmp.i6.i.i, %land.rhs.i.i ]
   %inc.i = add nuw nsw i64 %i.06.i, 1
-  %cmp.i = icmp ult i64 %i.06.i, 3
+  %cmp.i = icmp samesign ult i64 %i.06.i, 3
   %3 = and i1 %cmp.i, %retval.0.i.i
   br i1 %3, label %for.body.i, label %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, !llvm.loop !4
 
@@ -121,7 +121,7 @@ land.rhs.i.i32:                                   ; preds = %if.end.i.i29
 _ZN8facebook4yoga13inexactEqualsEff.exit.i34:     ; preds = %land.rhs.i.i32, %if.then.i.i38
   %retval.0.i.i35 = phi i1 [ %cmp.i.i40, %if.then.i.i38 ], [ %cmp.i6.i.i33, %land.rhs.i.i32 ]
   %inc.i36 = add nuw nsw i64 %i.06.i25, 1
-  %cmp.i37 = icmp ult i64 %i.06.i25, 3
+  %cmp.i37 = icmp samesign ult i64 %i.06.i25, 3
   %11 = and i1 %cmp.i37, %retval.0.i.i35
   br i1 %11, label %for.body.i24, label %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41, !llvm.loop !4
 
@@ -159,7 +159,7 @@ land.rhs.i.i50:                                   ; preds = %if.end.i.i47
 _ZN8facebook4yoga13inexactEqualsEff.exit.i52:     ; preds = %land.rhs.i.i50, %if.then.i.i56
   %retval.0.i.i53 = phi i1 [ %cmp.i.i58, %if.then.i.i56 ], [ %cmp.i6.i.i51, %land.rhs.i.i50 ]
   %inc.i54 = add nuw nsw i64 %i.06.i43, 1
-  %cmp.i55 = icmp ult i64 %i.06.i43, 3
+  %cmp.i55 = icmp samesign ult i64 %i.06.i43, 3
   %15 = and i1 %cmp.i55, %retval.0.i.i53
   br i1 %15, label %for.body.i42, label %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59, !llvm.loop !4
 
@@ -197,7 +197,7 @@ land.rhs.i.i68:                                   ; preds = %if.end.i.i65
 _ZN8facebook4yoga13inexactEqualsEff.exit.i70:     ; preds = %land.rhs.i.i68, %if.then.i.i74
   %retval.0.i.i71 = phi i1 [ %cmp.i.i76, %if.then.i.i74 ], [ %cmp.i6.i.i69, %land.rhs.i.i68 ]
   %inc.i72 = add nuw nsw i64 %i.06.i61, 1
-  %cmp.i73 = icmp ult i64 %i.06.i61, 3
+  %cmp.i73 = icmp samesign ult i64 %i.06.i61, 3
   %19 = and i1 %cmp.i73, %retval.0.i.i71
   br i1 %19, label %for.body.i60, label %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77, !llvm.loop !4
 
@@ -324,7 +324,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %land.rhs40, %if.the
   %narrow16.i = select i1 %isEqual.2.v.i, i1 %cmp48.i, i1 false
   %isEqual.3.v.i = select i1 %or.cond13.i, i1 %isEqual.2.v.i, i1 %narrow16.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp36 = icmp ult i64 %indvars.iv, 7
+  %cmp36 = icmp samesign ult i64 %indvars.iv, 7
   %36 = select i1 %cmp36, i1 %isEqual.3.v.i, i1 false
   br i1 %36, label %land.rhs40, label %for.end, !llvm.loop !7
 

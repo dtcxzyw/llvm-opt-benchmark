@@ -2317,7 +2317,7 @@ _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit261: ; preds = %99
   %165 = zext i16 %164 to i32
   %166 = sub nsw i32 %165, %152
   %167 = tail call noundef i32 @llvm.abs.i32(i32 %166, i1 true)
-  %168 = icmp ult i32 %167, 3
+  %168 = icmp samesign ult i32 %167, 3
   br i1 %168, label %_ZL9addVertextttPtS_S_Ri.exit, label %169
 
 169:                                              ; preds = %162, %158, %153
@@ -3136,7 +3136,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %466
   br label %518
 
 503:                                              ; preds = %.lr.ph44.i
-  %504 = icmp ult i32 %spec.select.i291, 3
+  %504 = icmp samesign ult i32 %spec.select.i291, 3
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   br i1 %504, label %505, label %518
 
@@ -3386,7 +3386,7 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKhPtS1_(i32 noundef %0, pt
   %.0106122 = phi i32 [ -1, %.preheader ], [ %.1, %66 ]
   %.0107121 = phi i32 [ -1, %.preheader ], [ %.1108, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = icmp ult i64 %indvars.iv.next, %indvars.iv145
+  %24 = icmp samesign ult i64 %indvars.iv.next, %indvars.iv145
   %25 = trunc nuw nsw i64 %indvars.iv.next to i32
   %26 = select i1 %24, i32 %25, i32 0
   %27 = zext nneg i32 %26 to i64
@@ -3404,7 +3404,7 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKhPtS1_(i32 noundef %0, pt
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
   %37 = add nuw nsw i32 %26, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %indvars.iv145, %38
+  %39 = icmp samesign ugt i64 %indvars.iv145, %38
   %40 = zext nneg i32 %37 to i64
   %41 = select i1 %39, i64 %40, i64 0
   %42 = getelementptr inbounds i16, ptr %2, i64 %41
@@ -4046,7 +4046,7 @@ _ZL9pushFronttPtRi.exit302:                       ; preds = %.lr.ph.preheader.i2
 ._crit_edge430:                                   ; preds = %208, %.preheader356
   %231 = call fastcc noundef i32 @_ZL11triangulateiPKhPtS1_(i32 noundef %.1351.lcssa569, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %spec.select282 = tail call i32 @llvm.abs.i32(i32 %231, i1 true)
-  %232 = icmp ugt i32 %spec.select282, 48
+  %232 = icmp samesign ugt i32 %spec.select282, 48
   br i1 %232, label %.loopexit, label %233
 
 233:                                              ; preds = %._crit_edge430
@@ -6097,7 +6097,7 @@ _ZL6inConeiiiPKhPKt.exit.thread:                  ; preds = %78, %71, %_ZL6inCon
 98:                                               ; preds = %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %99 = icmp ult i64 %indvars.iv.next.i, %94
+  %99 = icmp samesign ult i64 %indvars.iv.next.i, %94
   %100 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %101 = select i1 %99, i32 %100, i32 0
   %102 = icmp eq i64 %indvars.iv.i, %96

@@ -4370,7 +4370,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonn
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35

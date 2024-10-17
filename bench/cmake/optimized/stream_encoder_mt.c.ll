@@ -261,7 +261,7 @@ get_options.exit:                                 ; preds = %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %97 = load i32, ptr %83, align 4
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next.i, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next.i, %98
   br i1 %99, label %.critedge.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
@@ -297,7 +297,7 @@ get_options.exit:                                 ; preds = %31
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %116 = load i32, ptr %83, align 4
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %indvars.iv.next51.i, %117
+  %118 = icmp samesign ult i64 %indvars.iv.next51.i, %117
   br i1 %118, label %.critedge44.i, label %threads_stop.exit, !llvm.loop !9
 
 threads_stop.exit:                                ; preds = %.critedge40.i, %._crit_edge.i, %82, %80
@@ -584,7 +584,7 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %72 = load i32, ptr %35, align 4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next.i, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next.i, %73
   br i1 %74, label %.critedge.i, label %threads_stop.exit, !llvm.loop !5
 
 75:                                               ; preds = %58
@@ -835,7 +835,7 @@ stream_encode_in.exit._crit_edge:                 ; preds = %stream_encode_in.ex
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %200 = load i32, ptr %35, align 4
   %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next.i98, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next.i98, %201
   br i1 %202, label %.critedge.i96, label %threads_stop.exit, !llvm.loop !5
 
 203:                                              ; preds = %stream_encode_in.exit._crit_edge, %stream_encode_in.exit.thread
@@ -1128,7 +1128,7 @@ define internal void @get_progress(ptr noundef %0, ptr nocapture noundef %1, ptr
   %28 = add nuw nsw i64 %.02438, 1
   %29 = load i32, ptr %9, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %.critedge33, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.critedge33, %.critedge35
@@ -1175,7 +1175,7 @@ define internal fastcc void @threads_end(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.critedge, label %.preheader, !llvm.loop !23
 
 22:                                               ; preds = %.lr.ph, %22
@@ -1187,7 +1187,7 @@ define internal fastcc void @threads_end(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %27 = load i32, ptr %3, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next31, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next31, %28
   br i1 %29, label %22, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %22, %2, %.preheader

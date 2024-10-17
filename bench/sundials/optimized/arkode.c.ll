@@ -5265,7 +5265,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %or.cond.us, label %.split.us, label %88
 
 88:                                               ; preds = %84
-  %89 = icmp ugt i32 %.08599.us, 1
+  %89 = icmp samesign ugt i32 %.08599.us, 1
   %90 = fcmp ogt double %85, 2.000000e+00
   %or.cond3.us = and i1 %89, %90
   br i1 %or.cond3.us, label %.split.us, label %69
@@ -5320,7 +5320,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %or.cond, label %.split.us, label %116
 
 116:                                              ; preds = %112
-  %117 = icmp ugt i32 %.08599, 1
+  %117 = icmp samesign ugt i32 %.08599, 1
   %118 = fcmp ogt double %113, 2.000000e+00
   %or.cond3 = and i1 %117, %118
   br i1 %or.cond3, label %.split.us, label %94

@@ -1321,7 +1321,7 @@ if.then32:                                        ; preds = %if.end28
   br i1 %tobool35.not, label %if.end44, label %invalid
 
 if.else38:                                        ; preds = %if.end28
-  %tobool39.not = icmp ult i32 %flags, 2
+  %tobool39.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool39.not, label %if.end44, label %if.then40
 
 if.then40:                                        ; preds = %if.else38

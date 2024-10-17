@@ -4023,7 +4023,7 @@ _ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit.i.i: ; pre
   %367 = add i64 %366, -1
   %368 = getelementptr [0 x { i32, i32 }], ptr %.pre.i.i133, i64 0, i64 %367, i32 1
   %.val.i.i.i.i = load i32, ptr %368, align 4, !range !652, !alias.scope !653, !noalias !656, !noundef !9
-  %369 = icmp ult i32 %.val.i.i.i.i, 128
+  %369 = icmp samesign ult i32 %.val.i.i.i.i, 128
   br i1 %369, label %_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit.thread.i.i, label %.loopexit.i134
 
 _ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit.thread.i.i: ; preds = %_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit.i.i, %364
@@ -4291,7 +4291,7 @@ _ZN12regex_syntax3hir10ClassBytes5union17h867dc9d150c6118dE.exit.i: ; preds = %4
   %461 = ptrtoint ptr %.sroa.0246.0 to i64
   %462 = sub nuw i64 %456, %461
   %463 = udiv exact i64 %462, 48
-  %.not.i.i.not = icmp ult i64 %.sroa.10.0, %463
+  %.not.i.i.not = icmp samesign ult i64 %.sroa.10.0, %463
   %464 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.sroa.0246.0, i64 %.sroa.10.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d8b18e42fff447aE.exit.thread324", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce45373ccf395cd3E.exit203.lr.ph"
 
@@ -5267,15 +5267,15 @@ define { i64, i64 } @_ZN12regex_syntax3hir5Class11minimum_len17h753aecb190616363
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !897, !nonnull !9, !noundef !9
   %9 = load i32, ptr %8, align 4, !range !652, !noalias !894, !noundef !9
-  %10 = icmp ult i32 %9, 128
+  %10 = icmp samesign ult i32 %9, 128
   br i1 %10, label %_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = icmp ult i32 %9, 2048
+  %12 = icmp samesign ult i32 %9, 2048
   br i1 %12, label %_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %9, 65536
+  %14 = icmp samesign ult i32 %9, 65536
   %..i = select i1 %14, i64 3, i64 4
   br label %_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE.exit
 
@@ -5313,15 +5313,15 @@ define { i64, i64 } @_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07
   %9 = add i64 %5, -1
   %10 = getelementptr inbounds [0 x { i32, i32 }], ptr %8, i64 0, i64 %9, i32 1
   %11 = load i32, ptr %10, align 4, !range !652, !noalias !909, !noundef !9
-  %12 = icmp ult i32 %11, 128
+  %12 = icmp samesign ult i32 %11, 128
   br i1 %12, label %_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = icmp ult i32 %11, 2048
+  %14 = icmp samesign ult i32 %11, 2048
   br i1 %14, label %_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i32 %11, 65536
+  %16 = icmp samesign ult i32 %11, 65536
   %..i = select i1 %16, i64 3, i64 4
   br label %_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E.exit
 
@@ -5801,7 +5801,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0
   %7 = add i64 %3, -1
   %8 = getelementptr [0 x { i32, i32 }], ptr %6, i64 0, i64 %7, i32 1
   %.val.i = load i32, ptr %8, align 4, !range !652, !alias.scope !1003, !noundef !9
-  %9 = icmp ult i32 %.val.i, 128
+  %9 = icmp samesign ult i32 %.val.i, 128
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he77f3b89de630024E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he77f3b89de630024E.exit": ; preds = %1, %4
@@ -5820,15 +5820,15 @@ define { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f7
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !1006, !nonnull !9, !noundef !9
   %7 = load i32, ptr %6, align 4, !range !652, !noundef !9
-  %8 = icmp ult i32 %7, 128
+  %8 = icmp samesign ult i32 %7, 128
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
-  %10 = icmp ult i32 %7, 2048
+  %10 = icmp samesign ult i32 %7, 2048
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %7, 65536
+  %12 = icmp samesign ult i32 %7, 65536
   %. = select i1 %12, i64 3, i64 4
   br label %13
 
@@ -5853,15 +5853,15 @@ define { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268
   %7 = add i64 %3, -1
   %8 = getelementptr inbounds [0 x { i32, i32 }], ptr %6, i64 0, i64 %7, i32 1
   %9 = load i32, ptr %8, align 4, !range !652, !noundef !9
-  %10 = icmp ult i32 %9, 128
+  %10 = icmp samesign ult i32 %9, 128
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %4
-  %12 = icmp ult i32 %9, 2048
+  %12 = icmp samesign ult i32 %9, 2048
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %9, 65536
+  %14 = icmp samesign ult i32 %9, 65536
   %. = select i1 %14, i64 3, i64 4
   br label %15
 
@@ -5898,15 +5898,15 @@ define void @_ZN12regex_syntax3hir12ClassUnicode7literal17hd21aaa14991f2a78E(ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %19 = icmp ult i32 %14, 128
+  %19 = icmp samesign ult i32 %14, 128
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %14, 2048
+  %21 = icmp samesign ult i32 %14, 2048
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %14, 65536
+  %23 = icmp samesign ult i32 %14, 65536
   %24 = getelementptr inbounds i8, ptr %6, i64 1
   br i1 %23, label %35, label %47
 
@@ -6052,7 +6052,7 @@ _ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit: ; preds =
   %7 = add i64 %6, -1
   %8 = getelementptr [0 x { i32, i32 }], ptr %.pre, i64 0, i64 %7, i32 1
   %.val.i.i = load i32, ptr %8, align 4, !range !652, !alias.scope !1028, !noalias !1031, !noundef !9
-  %9 = icmp ult i32 %.val.i.i, 128
+  %9 = icmp samesign ult i32 %.val.i.i, 128
   br i1 %9, label %_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit.thread, label %10
 
 10:                                               ; preds = %_ZN12regex_syntax3hir12ClassUnicode8is_ascii17hf074f0c7b6ddeb44E.exit
@@ -6148,7 +6148,7 @@ define noundef zeroext i1 @"_ZN73_$LT$regex_syntax..hir..ClassUnicodeRange$u20$a
   ]
 
 16:                                               ; preds = %2
-  %17 = icmp ugt i32 %15, 127
+  %17 = icmp samesign ugt i32 %15, 127
   br i1 %17, label %18, label %.critedge12
 
 18:                                               ; preds = %16
@@ -6197,15 +6197,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hb09543846971dd4fE.exit: ; p
 39:                                               ; preds = %.critedge12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %40 = icmp ult i32 %15, 128
+  %40 = icmp samesign ult i32 %15, 128
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = icmp ult i32 %15, 2048
+  %42 = icmp samesign ult i32 %15, 2048
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %15, 65536
+  %44 = icmp samesign ult i32 %15, 65536
   br i1 %44, label %54, label %65
 
 45:                                               ; preds = %39
@@ -6320,7 +6320,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %_ZN4core7unicode12u
   br label %85
 
 89:                                               ; preds = %85
-  %90 = icmp ugt i32 %87, 127
+  %90 = icmp samesign ugt i32 %87, 127
   br i1 %90, label %91, label %.critedge17
 
 91:                                               ; preds = %89
@@ -6382,15 +6382,15 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %_ZN4core7unicode12u
 117:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.055)
   store i32 0, ptr %.sroa.055, align 4
-  %118 = icmp ult i32 %87, 128
+  %118 = icmp samesign ult i32 %87, 128
   br i1 %118, label %123, label %119
 
 119:                                              ; preds = %117
-  %120 = icmp ult i32 %87, 2048
+  %120 = icmp samesign ult i32 %87, 2048
   br i1 %120, label %125, label %121
 
 121:                                              ; preds = %119
-  %122 = icmp ult i32 %87, 65536
+  %122 = icmp samesign ult i32 %87, 65536
   br i1 %122, label %132, label %143
 
 123:                                              ; preds = %117
@@ -6596,7 +6596,7 @@ define noundef zeroext i1 @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeRange$u20$a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %6, ptr %4, align 4, !noalias !1092
   store i32 %8, ptr %3, align 4, !noalias !1092
-  %.not.i = icmp ugt i32 %6, %8
+  %.not.i = icmp samesign ugt i32 %6, %8
   br i1 %.not.i, label %9, label %_ZN12regex_syntax7unicode16SimpleCaseFolder8overlaps17hc3d01e5086a27cc1E.exit
 
 9:                                                ; preds = %2
@@ -7495,15 +7495,15 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties5cl
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !1218, !nonnull !9, !noundef !9
   %9 = load i32, ptr %8, align 4, !range !652, !noalias !1223, !noundef !9
-  %10 = icmp ult i32 %9, 128
+  %10 = icmp samesign ult i32 %9, 128
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  %12 = icmp ult i32 %9, 2048
+  %12 = icmp samesign ult i32 %9, 2048
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %9, 65536
+  %14 = icmp samesign ult i32 %9, 65536
   %..i.i = select i1 %14, i64 3, i64 4
   br label %16
 
@@ -7518,15 +7518,15 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties5cl
   %19 = add i64 %5, -1
   %20 = getelementptr inbounds [0 x { i32, i32 }], ptr %18, i64 0, i64 %19, i32 1
   %21 = load i32, ptr %20, align 4, !range !652, !noalias !1234, !noundef !9
-  %22 = icmp ult i32 %21, 128
+  %22 = icmp samesign ult i32 %21, 128
   br i1 %22, label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit, label %23
 
 23:                                               ; preds = %16
-  %24 = icmp ult i32 %21, 2048
+  %24 = icmp samesign ult i32 %21, 2048
   br i1 %24, label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %21, 65536
+  %26 = icmp samesign ult i32 %21, 65536
   %..i.i3 = select i1 %26, i64 3, i64 4
   br label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit
 

@@ -159,7 +159,7 @@ init_packobject.exit:                             ; preds = %43
   %50 = getelementptr inbounds i8, ptr %41, i64 832
   store i32 0, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = icmp ult i64 %indvars.iv, 29
+  %51 = icmp samesign ult i64 %indvars.iv, 29
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %init_packobject.exit
@@ -618,7 +618,7 @@ init_packobject.exit:                             ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %0, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %init_packobject.exit, %27, %11, %23, %19

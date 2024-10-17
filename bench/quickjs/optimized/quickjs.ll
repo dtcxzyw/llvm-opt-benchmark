@@ -1521,7 +1521,7 @@ js_mallocz_rt.exit.i.i:                           ; preds = %13
   %70 = phi i32 [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %54, %53 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next.i.i, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next.i.i, %71
   br i1 %72, label %53, label %JS_ResizeAtomHash.exit.i, !llvm.loop !9
 
 JS_ResizeAtomHash.exit.i:                         ; preds = %._crit_edge.i.i, %js_mallocz_rt.exit.i.i
@@ -1549,7 +1549,7 @@ JS_ResizeAtomHash.exit.i:                         ; preds = %._crit_edge.i.i, %j
 
 __JS_NewAtomInit.exit.i:                          ; preds = %77
   %83 = icmp eq i32 %.01926.i, 212
-  %84 = icmp ugt i32 %.01926.i, 212
+  %84 = icmp samesign ugt i32 %.01926.i, 212
   %..i = select i1 %84, i32 3, i32 1
   %.017.i = select i1 %83, i32 4, i32 %..i
   store i32 1, ptr %82, align 4
@@ -2172,7 +2172,7 @@ define internal { i64, i64 } @js_call_bound_function(ptr noundef %0, i64 %1, i64
   %33 = getelementptr [0 x %struct.JSValue], ptr %28, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = icmp ult i64 %indvars.iv.next, %29
+  %34 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %34, label %31, label %.preheader, !llvm.loop !14
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
@@ -9681,7 +9681,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %30 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_map_constructor, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 3, i32 noundef %29, i64 %.val.i.i, i64 %.val6.i.i)
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
-  %33 = icmp ult i64 %indvars.iv, 2
+  %33 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %9
@@ -11741,7 +11741,7 @@ string_buffer_putc16.exit:                        ; preds = %148, %155
   br label %string_buffer_putc8.exit
 
 178:                                              ; preds = %169
-  %179 = icmp ult i32 %.0, 256
+  %179 = icmp samesign ult i32 %.0, 256
   br i1 %179, label %180, label %187
 
 180:                                              ; preds = %178
@@ -11918,7 +11918,7 @@ string_get.exit.i:                                ; preds = %13, %10
   br i1 %20, label %34, label %.preheader.i
 
 .preheader.i:                                     ; preds = %19
-  %21 = icmp ugt i32 %5, 1
+  %21 = icmp samesign ugt i32 %5, 1
   br i1 %21, label %.lr.ph.i, label %is_num_string.exit.thread19
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -11946,7 +11946,7 @@ string_get.exit29.us.i:                           ; preds = %.lr.ph.i, %27
   %31 = mul nuw nsw i64 %30, 10
   %32 = zext nneg i32 %25 to i64
   %33 = add nuw nsw i64 %31, %32
-  %.not26.us.i = icmp ult i64 %33, 4294967296
+  %.not26.us.i = icmp samesign ult i64 %33, 4294967296
   br i1 %.not26.us.i, label %27, label %is_num_string.exit.thread
 
 34:                                               ; preds = %19
@@ -11974,7 +11974,7 @@ string_get.exit29.i:                              ; preds = %.lr.ph.i, %35
   %44 = mul nuw nsw i64 %43, 10
   %45 = zext nneg i32 %40 to i64
   %46 = add nuw nsw i64 %44, %45
-  %.not26.i = icmp ult i64 %46, 4294967296
+  %.not26.i = icmp samesign ult i64 %46, 4294967296
   br i1 %.not26.i, label %35, label %is_num_string.exit.thread
 
 is_num_string.exit:                               ; preds = %35, %27
@@ -12143,7 +12143,7 @@ define dso_local { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @__JS_NewAtom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
-  %4 = icmp ult i32 %2, 3
+  %4 = icmp samesign ult i32 %2, 3
   br i1 %4, label %5, label %117
 
 5:                                                ; preds = %3
@@ -12751,7 +12751,7 @@ js_mallocz_rt.exit.i:                             ; preds = %306
   %337 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %319, %318 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %338 = zext i32 %337 to i64
-  %339 = icmp ult i64 %indvars.iv.next.i, %338
+  %339 = icmp samesign ult i64 %indvars.iv.next.i, %338
   br i1 %339, label %318, label %._crit_edge38.i, !llvm.loop !9
 
 ._crit_edge38.i:                                  ; preds = %._crit_edge.i, %js_mallocz_rt.exit.i
@@ -17898,7 +17898,7 @@ string_get.exit:                                  ; preds = %36, %40
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %string_get.exit
-  %49 = icmp ult i32 %44, 128
+  %49 = icmp samesign ult i32 %44, 128
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -17918,7 +17918,7 @@ string_get.exit:                                  ; preds = %36, %40
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %58 = load i64, ptr %17, align 4
   %59 = and i64 %58, 2147483647
-  %60 = icmp ult i64 %indvars.iv.next59, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next59, %59
   br i1 %60, label %33, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %string_get.exit, %57, %29, %10
@@ -19555,7 +19555,7 @@ define dso_local { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i6
   %28 = load i64, ptr %27, align 4
   %29 = trunc i64 %28 to i32
   %30 = and i32 %29, 2147483647
-  %31 = icmp ult i32 %26, %30
+  %31 = icmp samesign ult i32 %26, %30
   br i1 %31, label %32, label %JS_GetPrototypePrimitive.exit
 
 32:                                               ; preds = %25
@@ -20464,7 +20464,7 @@ string_get.exit.i.i:                              ; preds = %84, %81
   br i1 %91, label %105, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %90
-  %92 = icmp ugt i32 %76, 1
+  %92 = icmp samesign ugt i32 %76, 1
   br i1 %92, label %.lr.ph.i.i, label %118
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -20492,7 +20492,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %98
   %102 = mul nuw nsw i64 %101, 10
   %103 = zext nneg i32 %96 to i64
   %104 = add nuw nsw i64 %102, %103
-  %.not26.us.i.i = icmp ult i64 %104, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %104, 4294967296
   br i1 %.not26.us.i.i, label %98, label %JS_AtomIsArrayIndex.exit
 
 105:                                              ; preds = %90
@@ -20520,7 +20520,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %106
   %115 = mul nuw nsw i64 %114, 10
   %116 = zext nneg i32 %111 to i64
   %117 = add nuw nsw i64 %115, %116
-  %.not26.i.i = icmp ult i64 %117, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %117, 4294967296
   br i1 %.not26.i.i, label %106, label %JS_AtomIsArrayIndex.exit
 
 is_num_string.exit.i:                             ; preds = %106, %98
@@ -20989,7 +20989,7 @@ string_get.exit.i.i260:                           ; preds = %334, %331
   br i1 %341, label %355, label %.preheader.i.i261
 
 .preheader.i.i261:                                ; preds = %340
-  %342 = icmp ugt i32 %326, 1
+  %342 = icmp samesign ugt i32 %326, 1
   br i1 %342, label %.lr.ph.i.i262, label %368
 
 .lr.ph.i.i262:                                    ; preds = %.preheader.i.i261
@@ -21017,7 +21017,7 @@ string_get.exit29.us.i.i273:                      ; preds = %.lr.ph.i.i262, %348
   %352 = mul nuw nsw i64 %351, 10
   %353 = zext nneg i32 %346 to i64
   %354 = add nuw nsw i64 %352, %353
-  %.not26.us.i.i276 = icmp ult i64 %354, 4294967296
+  %.not26.us.i.i276 = icmp samesign ult i64 %354, 4294967296
   br i1 %.not26.us.i.i276, label %348, label %JS_AtomIsArrayIndex.exit280
 
 355:                                              ; preds = %340
@@ -21045,7 +21045,7 @@ string_get.exit29.i.i264:                         ; preds = %.lr.ph.i.i262, %356
   %365 = mul nuw nsw i64 %364, 10
   %366 = zext nneg i32 %361 to i64
   %367 = add nuw nsw i64 %365, %366
-  %.not26.i.i267 = icmp ult i64 %367, 4294967296
+  %.not26.i.i267 = icmp samesign ult i64 %367, 4294967296
   br i1 %.not26.i.i267, label %356, label %JS_AtomIsArrayIndex.exit280
 
 is_num_string.exit.i270:                          ; preds = %356, %348
@@ -24143,7 +24143,7 @@ string_get.exit.i:                                ; preds = %55, %51
   br i1 %62, label %.loopexit.i, label %63
 
 63:                                               ; preds = %string_get.exit.i
-  %64 = icmp ult i32 %59, 128
+  %64 = icmp samesign ult i32 %59, 128
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63
@@ -24163,7 +24163,7 @@ string_get.exit.i:                                ; preds = %55, %51
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %73 = load i64, ptr %33, align 4
   %74 = and i64 %73, 2147483647
-  %75 = icmp ult i64 %indvars.iv.next59.i, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next59.i, %74
   br i1 %75, label %48, label %.loopexit.i, !llvm.loop !82
 
 .loopexit.i:                                      ; preds = %72, %string_get.exit.i, %45, %27
@@ -24493,7 +24493,7 @@ string_get.exit.i.i:                              ; preds = %248, %245
   br i1 %255, label %269, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %254
-  %256 = icmp ugt i32 %240, 1
+  %256 = icmp samesign ugt i32 %240, 1
   br i1 %256, label %.lr.ph.i.i, label %282
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -24521,7 +24521,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %262
   %266 = mul nuw nsw i64 %265, 10
   %267 = zext nneg i32 %260 to i64
   %268 = add nuw nsw i64 %266, %267
-  %.not26.us.i.i = icmp ult i64 %268, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %268, 4294967296
   br i1 %.not26.us.i.i, label %262, label %JS_AtomIsArrayIndex.exit
 
 269:                                              ; preds = %254
@@ -24549,7 +24549,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %270
   %279 = mul nuw nsw i64 %278, 10
   %280 = zext nneg i32 %275 to i64
   %281 = add nuw nsw i64 %279, %280
-  %.not26.i.i = icmp ult i64 %281, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %281, 4294967296
   br i1 %.not26.i.i, label %270, label %JS_AtomIsArrayIndex.exit
 
 is_num_string.exit.i:                             ; preds = %270, %262
@@ -24641,7 +24641,7 @@ string_get.exit.i.i136:                           ; preds = %316, %313
   br i1 %323, label %337, label %.preheader.i.i137
 
 .preheader.i.i137:                                ; preds = %322
-  %324 = icmp ugt i32 %308, 1
+  %324 = icmp samesign ugt i32 %308, 1
   br i1 %324, label %.lr.ph.i.i138, label %350
 
 .lr.ph.i.i138:                                    ; preds = %.preheader.i.i137
@@ -24669,7 +24669,7 @@ string_get.exit29.us.i.i149:                      ; preds = %.lr.ph.i.i138, %330
   %334 = mul nuw nsw i64 %333, 10
   %335 = zext nneg i32 %328 to i64
   %336 = add nuw nsw i64 %334, %335
-  %.not26.us.i.i152 = icmp ult i64 %336, 4294967296
+  %.not26.us.i.i152 = icmp samesign ult i64 %336, 4294967296
   br i1 %.not26.us.i.i152, label %330, label %JS_AtomIsArrayIndex.exit156
 
 337:                                              ; preds = %322
@@ -24697,7 +24697,7 @@ string_get.exit29.i.i140:                         ; preds = %.lr.ph.i.i138, %338
   %347 = mul nuw nsw i64 %346, 10
   %348 = zext nneg i32 %343 to i64
   %349 = add nuw nsw i64 %347, %348
-  %.not26.i.i143 = icmp ult i64 %349, 4294967296
+  %.not26.i.i143 = icmp samesign ult i64 %349, 4294967296
   br i1 %.not26.i.i143, label %338, label %JS_AtomIsArrayIndex.exit156
 
 is_num_string.exit.i146:                          ; preds = %338, %330
@@ -26919,7 +26919,7 @@ string_get.exit.i:                                ; preds = %74, %70
   br i1 %81, label %.loopexit.i, label %82
 
 82:                                               ; preds = %string_get.exit.i
-  %83 = icmp ult i32 %78, 128
+  %83 = icmp samesign ult i32 %78, 128
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
@@ -26939,7 +26939,7 @@ string_get.exit.i:                                ; preds = %74, %70
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %92 = load i64, ptr %52, align 4
   %93 = and i64 %92, 2147483647
-  %94 = icmp ult i64 %indvars.iv.next59.i, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next59.i, %93
   br i1 %94, label %67, label %.loopexit.i, !llvm.loop !82
 
 .loopexit.i:                                      ; preds = %91, %string_get.exit.i, %64, %46
@@ -27436,7 +27436,7 @@ string_get.exit.i.i:                              ; preds = %62, %59
   br i1 %69, label %83, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %68
-  %70 = icmp ugt i32 %54, 1
+  %70 = icmp samesign ugt i32 %54, 1
   br i1 %70, label %.lr.ph.i.i, label %JS_AtomIsArrayIndex.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -27464,7 +27464,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %76
   %80 = mul nuw nsw i64 %79, 10
   %81 = zext nneg i32 %74 to i64
   %82 = add nuw nsw i64 %80, %81
-  %.not26.us.i.i = icmp ult i64 %82, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %82, 4294967296
   br i1 %.not26.us.i.i, label %76, label %JS_AtomIsArrayIndex.exit
 
 83:                                               ; preds = %68
@@ -27492,7 +27492,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %84
   %93 = mul nuw nsw i64 %92, 10
   %94 = zext nneg i32 %89 to i64
   %95 = add nuw nsw i64 %93, %94
-  %.not26.i.i = icmp ult i64 %95, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %95, 4294967296
   br i1 %.not26.i.i, label %84, label %JS_AtomIsArrayIndex.exit
 
 is_num_string.exit.i:                             ; preds = %84, %76
@@ -27561,7 +27561,7 @@ string_get.exit.i.i151:                           ; preds = %121, %118
   br i1 %128, label %142, label %.preheader.i.i152
 
 .preheader.i.i152:                                ; preds = %127
-  %129 = icmp ugt i32 %113, 1
+  %129 = icmp samesign ugt i32 %113, 1
   br i1 %129, label %.lr.ph.i.i153, label %JS_AtomIsArrayIndex.exit171.thread
 
 .lr.ph.i.i153:                                    ; preds = %.preheader.i.i152
@@ -27589,7 +27589,7 @@ string_get.exit29.us.i.i164:                      ; preds = %.lr.ph.i.i153, %135
   %139 = mul nuw nsw i64 %138, 10
   %140 = zext nneg i32 %133 to i64
   %141 = add nuw nsw i64 %139, %140
-  %.not26.us.i.i167 = icmp ult i64 %141, 4294967296
+  %.not26.us.i.i167 = icmp samesign ult i64 %141, 4294967296
   br i1 %.not26.us.i.i167, label %135, label %JS_AtomIsArrayIndex.exit
 
 142:                                              ; preds = %127
@@ -27617,7 +27617,7 @@ string_get.exit29.i.i155:                         ; preds = %.lr.ph.i.i153, %143
   %152 = mul nuw nsw i64 %151, 10
   %153 = zext nneg i32 %148 to i64
   %154 = add nuw nsw i64 %152, %153
-  %.not26.i.i158 = icmp ult i64 %154, 4294967296
+  %.not26.i.i158 = icmp samesign ult i64 %154, 4294967296
   br i1 %.not26.i.i158, label %143, label %JS_AtomIsArrayIndex.exit
 
 is_num_string.exit.i161:                          ; preds = %143, %135
@@ -30828,7 +30828,7 @@ JS_FreeAtom.exit:                                 ; preds = %84, %97, %JS_FreeAt
 175:                                              ; preds = %175, %165
   %.068.i = phi i32 [ %174, %165 ], [ %176, %175 ]
   %176 = lshr i32 %.068.i, 1
-  %.not.i77 = icmp ult i32 %176, %..i
+  %.not.i77 = icmp samesign ult i32 %176, %..i
   br i1 %.not.i77, label %177, label %175, !llvm.loop !104
 
 177:                                              ; preds = %175
@@ -30938,7 +30938,7 @@ js_malloc.exit:                                   ; preds = %177
   %237 = getelementptr i8, ptr %.067.i152, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %238 = zext i32 %236 to i64
-  %239 = icmp ult i64 %indvars.iv.next, %238
+  %239 = icmp samesign ult i64 %indvars.iv.next, %238
   br i1 %239, label %.lr.ph154, label %._crit_edge155, !llvm.loop !105
 
 ._crit_edge155:                                   ; preds = %235, %js_malloc.exit
@@ -31054,7 +31054,7 @@ string_get.exit.i.i:                              ; preds = %291, %288
   br i1 %298, label %312, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %297
-  %299 = icmp ugt i32 %283, 1
+  %299 = icmp samesign ugt i32 %283, 1
   br i1 %299, label %.lr.ph.i.i, label %325
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -31082,7 +31082,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %305
   %309 = mul nuw nsw i64 %308, 10
   %310 = zext nneg i32 %303 to i64
   %311 = add nuw nsw i64 %309, %310
-  %.not26.us.i.i = icmp ult i64 %311, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %311, 4294967296
   br i1 %.not26.us.i.i, label %305, label %js_shape_prepare_update.exit
 
 312:                                              ; preds = %297
@@ -31110,7 +31110,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %313
   %322 = mul nuw nsw i64 %321, 10
   %323 = zext nneg i32 %318 to i64
   %324 = add nuw nsw i64 %322, %323
-  %.not26.i.i = icmp ult i64 %324, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %324, 4294967296
   br i1 %.not26.i.i, label %313, label %js_shape_prepare_update.exit
 
 is_num_string.exit.i:                             ; preds = %313, %305
@@ -31996,7 +31996,7 @@ JS_DupValue.exit:                                 ; preds = %4, %8
   %18 = lshr i64 %13, 52
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 2047
-  %21 = icmp ult i32 %20, 1086
+  %21 = icmp samesign ult i32 %20, 1086
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
@@ -32006,7 +32006,7 @@ JS_DupValue.exit:                                 ; preds = %4, %8
   br label %JS_FreeValue.exit.i
 
 24:                                               ; preds = %17
-  %25 = icmp ult i32 %20, 1139
+  %25 = icmp samesign ult i32 %20, 1139
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %24
@@ -32216,7 +32216,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr 
   %11 = lshr i64 %7, 52
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 2047
-  %14 = icmp ult i32 %13, 1054
+  %14 = icmp samesign ult i32 %13, 1054
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
@@ -32226,7 +32226,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr 
   br label %JS_FreeValue.exit
 
 17:                                               ; preds = %10
-  %18 = icmp ult i32 %13, 1107
+  %18 = icmp samesign ult i32 %13, 1107
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %17
@@ -33123,7 +33123,7 @@ define internal fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %1, i64
   br i1 %.not3416, label %142, label %115
 
 115:                                              ; preds = %113
-  %.not3422 = icmp ult i32 %8, 4
+  %.not3422 = icmp samesign ult i32 %8, 4
   br i1 %.not3422, label %151, label %116
 
 116:                                              ; preds = %115
@@ -33258,7 +33258,7 @@ define internal fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %1, i64
 .preheader4995:                                   ; preds = %.preheader4995.loopexit, %195
   %.pre-phi5888 = phi i32 [ %.pre5887, %.preheader4995.loopexit ], [ %197, %195 ]
   %.03335.lcssa = phi i32 [ %..i, %.preheader4995.loopexit ], [ 0, %195 ]
-  %199 = icmp ult i32 %.03335.lcssa, %.pre-phi5888
+  %199 = icmp samesign ult i32 %.03335.lcssa, %.pre-phi5888
   br i1 %199, label %.lr.ph5352.preheader, label %._crit_edge
 
 .lr.ph5352.preheader:                             ; preds = %.preheader4995
@@ -33300,7 +33300,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   %indvars.iv.next5823 = add nuw nsw i64 %indvars.iv5822, 1
   %213 = load i16, ptr %160, align 8
   %214 = zext i16 %213 to i64
-  %215 = icmp ult i64 %indvars.iv.next5823, %214
+  %215 = icmp samesign ult i64 %indvars.iv.next5823, %214
   br i1 %215, label %.lr.ph5352, label %._crit_edge.loopexit, !llvm.loop !107
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph5352
@@ -33333,7 +33333,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   %indvars.iv.next5826 = add nuw nsw i64 %indvars.iv5825, 1
   %224 = load i16, ptr %167, align 2
   %225 = zext i16 %224 to i64
-  %226 = icmp ult i64 %indvars.iv.next5826, %225
+  %226 = icmp samesign ult i64 %indvars.iv.next5826, %225
   br i1 %226, label %.lr.ph5356, label %._crit_edge5357, !llvm.loop !108
 
 ._crit_edge5357:                                  ; preds = %.lr.ph5356, %217
@@ -40170,7 +40170,7 @@ JS_DupValue.exit.i6505.backedge:                  ; preds = %3711, %3707, %3703
   %indvars.iv.next.i6511 = add nuw nsw i64 %indvars.iv.i6510, 1
   %3751 = load i32, ptr %3749, align 4
   %3752 = zext i32 %3751 to i64
-  %3753 = icmp ult i64 %indvars.iv.next.i6511, %3752
+  %3753 = icmp samesign ult i64 %indvars.iv.next.i6511, %3752
   br i1 %3753, label %.lr.ph.i6509, label %.loopexit6727, !llvm.loop !127
 
 .lr.ph.i6509:                                     ; preds = %3746, %3750
@@ -45835,7 +45835,7 @@ js_not_slow.exit:                                 ; preds = %6487, %6521
   %6535 = zext i32 %.sroa.0230.0.copyload to i64
   %6536 = zext nneg i32 %.sroa.0227.0.copyload to i64
   %6537 = shl nuw nsw i64 %6535, %6536
-  %.not3445 = icmp ult i64 %6537, 2147483648
+  %.not3445 = icmp samesign ult i64 %6537, 2147483648
   %or.cond3609 = select i1 %6534, i1 %.not3445, i1 false
   br i1 %or.cond3609, label %6540, label %6542
 
@@ -48649,7 +48649,7 @@ JS_DefinePropertyValue.exit:                      ; preds = %20, %31, %36
   %40 = call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 50, i64 %.sroa.071.0.insert.ext, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, ptr noundef nonnull byval(%struct.JSValue) align 8 %11, i32 noundef 9987)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %.not83 = icmp ult i32 %5, 2
+  %.not83 = icmp samesign ult i32 %5, 2
   br i1 %.not83, label %41, label %.loopexit
 
 41:                                               ; preds = %JS_DefinePropertyValue.exit, %6
@@ -49004,7 +49004,7 @@ js_class_has_bytecode.exit.thread:                ; preds = %JS_FreeCString.exit
 
 245:                                              ; preds = %.lr.ph.i.i
   %246 = add nuw nsw i32 %.023.i.i, 1
-  %247 = icmp ult i32 %.023.i.i, 4
+  %247 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %248, %235
   %or.cond.i.i = and i1 %247, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %find_line_num.exit, !llvm.loop !139
@@ -49039,7 +49039,7 @@ get_leb128.exit.i:                                ; preds = %.lr.ph.i.i
 
 262:                                              ; preds = %.lr.ph.i.i.i
   %263 = add nuw nsw i32 %.023.i.i.i, 1
-  %264 = icmp ult i32 %.023.i.i.i, 4
+  %264 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i.i108 = icmp ult ptr %265, %235
   %or.cond.i.i.i = and i1 %264, %.not.i.i.i108
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %find_line_num.exit, !llvm.loop !139
@@ -53199,7 +53199,7 @@ bc_get_u8.exit.i:                                 ; preds = %4
 
 40:                                               ; preds = %.lr.ph.i.i.i
   %41 = add nuw nsw i32 %.023.i.i.i, 1
-  %42 = icmp ult i32 %.023.i.i.i, 4
+  %42 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i41.i = icmp ult ptr %43, %15
   %or.cond.i.i.i = and i1 %42, %.not.i.i41.i
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %bc_get_leb128.exit.i, !llvm.loop !139
@@ -54824,7 +54824,7 @@ JS_ToUint32.exit20:                               ; preds = %19, %26
 
 .lr.ph:                                           ; preds = %60, %string_buffer_putc.exit
   %.01527 = phi i32 [ %109, %string_buffer_putc.exit ], [ %spec.store.select, %60 ]
-  %69 = icmp ugt i32 %.01527, 65535
+  %69 = icmp samesign ugt i32 %.01527, 65535
   %.pre29 = load i32, ptr %43, align 8
   %.pre31 = load i32, ptr %42, align 4
   br i1 %69, label %70, label %85
@@ -54890,7 +54890,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit
 
 98:                                               ; preds = %89
-  %99 = icmp ult i32 %.0.i22, 256
+  %99 = icmp samesign ult i32 %.0.i22, 256
   br i1 %99, label %100, label %107
 
 100:                                              ; preds = %98
@@ -55150,7 +55150,7 @@ string_buffer_putc16.exit:                        ; preds = %4, %12
   br label %string_buffer_putc16.exit10
 
 43:                                               ; preds = %32
-  %44 = icmp ult i32 %.0, 256
+  %44 = icmp samesign ult i32 %.0, 256
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %43
@@ -59549,7 +59549,7 @@ JS_DupValue.exit531:                              ; preds = %115, %JS_DupValue.e
   br i1 %.not63, label %JS_FreeValue.exit543, label %167
 
 167:                                              ; preds = %160
-  %168 = icmp ult i64 %.048181, 2147483648
+  %168 = icmp samesign ult i64 %.048181, 2147483648
   %.sroa.0479.0.insert.ext = and i64 %.048181, 4294967295
   %169 = uitofp nneg i64 %.048181 to double
   %170 = bitcast double %169 to i64
@@ -64183,7 +64183,7 @@ JS_DupAtom.exit.i:                                ; preds = %220, %208
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %230 = load i16, ptr %116, align 8
   %231 = zext i16 %230 to i64
-  %232 = icmp ult i64 %indvars.iv.next.i, %231
+  %232 = icmp samesign ult i64 %indvars.iv.next.i, %231
   br i1 %232, label %208, label %.preheader102.i, !llvm.loop !182
 
 233:                                              ; preds = %287, %.lr.ph109.i
@@ -64266,7 +64266,7 @@ set_closure_from_var.exit97.i:                    ; preds = %277, %246
   %288 = phi i16 [ %234, %233 ], [ %234, %244 ], [ %.pre.i, %set_closure_from_var.exit97.i ]
   %289 = add nuw nsw i32 %.2108.i, 1
   %290 = zext i16 %288 to i32
-  %291 = icmp ult i32 %289, %290
+  %291 = icmp samesign ult i32 %289, %290
   br i1 %291, label %233, label %.loopexit101.i, !llvm.loop !183
 
 292:                                              ; preds = %348, %.lr.ph111.i
@@ -64361,7 +64361,7 @@ set_closure_from_var.exit98.i:                    ; preds = %338, %is_var_in_arg
   %349 = phi i16 [ %293, %292 ], [ %293, %is_var_in_arg_scope.exit.i ], [ %.pre123.i, %set_closure_from_var.exit98.i ]
   %350 = add nuw nsw i32 %.3110.i, 1
   %351 = zext i16 %349 to i32
-  %352 = icmp ult i32 %350, %351
+  %352 = icmp samesign ult i32 %350, %351
   br i1 %352, label %292, label %.loopexit101.i, !llvm.loop !184
 
 .loopexit101.i:                                   ; preds = %287, %348, %.preheader102.i, %.preheader.i
@@ -66847,7 +66847,7 @@ JS_ToStringFree.exit.i:                           ; preds = %147, %141
   %155 = extractvalue { i64, i64 } %153, 1
   %.not.i.i195.i = icmp ne i64 %155, 7
   %156 = and i64 %154, 9223372036854775807
-  %157 = icmp ult i64 %156, 9218868437227405313
+  %157 = icmp samesign ult i64 %156, 9218868437227405313
   %narrow.i.not.i.i = select i1 %.not.i.i195.i, i1 true, i1 %157
   br i1 %narrow.i.not.i.i, label %JS_StringToBigIntErr.exit.i, label %158
 
@@ -72993,7 +72993,7 @@ JS_FreeValueRT.exit:                              ; preds = %14, %21, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i8, ptr %11, align 1
   %28 = zext i8 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %14, label %._crit_edge, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %JS_FreeValueRT.exit, %.preheader
@@ -73057,7 +73057,7 @@ JS_MarkValue.exit:                                ; preds = %15, %21
   %24 = phi i8 [ %16, %15 ], [ %.pre, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = zext i8 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %15, label %JS_GetOpaque.exit.thread, !llvm.loop !198
 
 JS_GetOpaque.exit.thread:                         ; preds = %JS_MarkValue.exit, %.preheader, %7, %4, %JS_GetOpaque.exit
@@ -75938,7 +75938,7 @@ define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc_slow(ptr nocaptu
   br label %string_buffer_widen.exit.thread
 
 22:                                               ; preds = %10
-  %23 = icmp ult i32 %1, 256
+  %23 = icmp samesign ult i32 %1, 256
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -76781,7 +76781,7 @@ JS_FreeAtomRT.exit39:                             ; preds = %107, %112, %JS_Free
   %166 = load i16, ptr %96, align 2
   %167 = zext i16 %166 to i64
   %168 = add nuw nsw i64 %167, %165
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %107, label %.loopexit, !llvm.loop !223
 
 .loopexit:                                        ; preds = %JS_FreeAtomRT.exit39, %.preheader53, %88
@@ -78346,7 +78346,7 @@ string_get.exit.i.i:                              ; preds = %31, %28
   br i1 %38, label %52, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %37
-  %39 = icmp ugt i32 %23, 1
+  %39 = icmp samesign ugt i32 %23, 1
   br i1 %39, label %.lr.ph.i.i, label %JS_AtomIsArrayIndex.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -78374,7 +78374,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %45
   %49 = mul nuw nsw i64 %48, 10
   %50 = zext nneg i32 %43 to i64
   %51 = add nuw nsw i64 %49, %50
-  %.not26.us.i.i = icmp ult i64 %51, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %51, 4294967296
   br i1 %.not26.us.i.i, label %45, label %is_num_string.exit.thread.i
 
 52:                                               ; preds = %37
@@ -78402,7 +78402,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %53
   %62 = mul nuw nsw i64 %61, 10
   %63 = zext nneg i32 %58 to i64
   %64 = add nuw nsw i64 %62, %63
-  %.not26.i.i = icmp ult i64 %64, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %64, 4294967296
   br i1 %.not26.i.i, label %53, label %is_num_string.exit.thread.i
 
 is_num_string.exit.i:                             ; preds = %53, %45
@@ -78470,7 +78470,7 @@ string_get.exit.i.i16:                            ; preds = %88, %85
   br i1 %95, label %109, label %.preheader.i.i17
 
 .preheader.i.i17:                                 ; preds = %94
-  %96 = icmp ugt i32 %80, 1
+  %96 = icmp samesign ugt i32 %80, 1
   br i1 %96, label %.lr.ph.i.i18, label %JS_AtomIsArrayIndex.exit36
 
 .lr.ph.i.i18:                                     ; preds = %.preheader.i.i17
@@ -78498,7 +78498,7 @@ string_get.exit29.us.i.i29:                       ; preds = %.lr.ph.i.i18, %102
   %106 = mul nuw nsw i64 %105, 10
   %107 = zext nneg i32 %100 to i64
   %108 = add nuw nsw i64 %106, %107
-  %.not26.us.i.i32 = icmp ult i64 %108, 4294967296
+  %.not26.us.i.i32 = icmp samesign ult i64 %108, 4294967296
   br i1 %.not26.us.i.i32, label %102, label %is_num_string.exit.thread.i13
 
 109:                                              ; preds = %94
@@ -78526,7 +78526,7 @@ string_get.exit29.i.i20:                          ; preds = %.lr.ph.i.i18, %110
   %119 = mul nuw nsw i64 %118, 10
   %120 = zext nneg i32 %115 to i64
   %121 = add nuw nsw i64 %119, %120
-  %.not26.i.i23 = icmp ult i64 %121, 4294967296
+  %.not26.i.i23 = icmp samesign ult i64 %121, 4294967296
   br i1 %.not26.i.i23, label %110, label %is_num_string.exit.thread.i13
 
 is_num_string.exit.i26:                           ; preds = %110, %102
@@ -79261,7 +79261,7 @@ js_string_memcmp.exit.thread:                     ; preds = %45, %36, %44, %35, 
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %js_string_memcmp.exit.thread
-  %56 = icmp ult i32 %6, %10
+  %56 = icmp samesign ult i32 %6, %10
   %. = select i1 %56, i32 -1, i32 1
   br label %57
 
@@ -79653,7 +79653,7 @@ define internal fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %1, 
 
 10:                                               ; preds = %4
   %11 = and i32 %3, 15
-  %.not112 = icmp ult i32 %3, 16
+  %.not112 = icmp samesign ult i32 %3, 16
   br i1 %.not112, label %12, label %72
 
 12:                                               ; preds = %10
@@ -80016,13 +80016,13 @@ define internal fastcc { i64, i64 } @js_atof2(ptr noundef %0, ptr noundef %1, pt
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %1, i64 1
   store ptr %14, ptr %7, align 8
-  %.not266 = icmp ult i32 %4, 1024
+  %.not266 = icmp samesign ult i32 %4, 1024
   br i1 %.not266, label %67, label %thread-pre-split
 
 15:                                               ; preds = %6
   %16 = getelementptr i8, ptr %1, i64 1
   store ptr %16, ptr %7, align 8
-  %.not265 = icmp ult i32 %4, 1024
+  %.not265 = icmp samesign ult i32 %4, 1024
   br i1 %.not265, label %67, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %13, %15
@@ -80157,7 +80157,7 @@ thread-pre-split:                                 ; preds = %13, %15
 
 to_digit.exit:                                    ; preds = %56, %62, %64
   %.0.i = phi i32 [ %63, %62 ], [ %spec.select.i, %64 ], [ %59, %56 ]
-  %.not274 = icmp ult i32 %.0.i, %.0
+  %.not274 = icmp samesign ult i32 %.0.i, %.0
   br i1 %.not274, label %.thread361, label %.thread368
 
 67:                                               ; preds = %17, %15, %13
@@ -81387,7 +81387,7 @@ js_ecvt.exit:                                     ; preds = %156, %162
 
 176:                                              ; preds = %174, %js_ecvt.exit
   %.090 = phi ptr [ %175, %174 ], [ %0, %js_ecvt.exit ]
-  %.not104 = icmp ult i32 %4, 4
+  %.not104 = icmp samesign ult i32 %4, 4
   br i1 %.not104, label %177, label %206
 
 177:                                              ; preds = %176
@@ -81656,7 +81656,7 @@ is_math_mode.exit67:                              ; preds = %32
   %56 = extractvalue { i64, i64 } %54, 1
   %.not.i70 = icmp ne i64 %56, 7
   %57 = and i64 %55, 9223372036854775807
-  %58 = icmp ult i64 %57, 9218868437227405313
+  %58 = icmp samesign ult i64 %57, 9218868437227405313
   %narrow.i.not = select i1 %.not.i70, i1 true, i1 %58
   br i1 %narrow.i.not, label %JS_StringToBigIntErr.exit, label %JS_StringToBigIntErr.exit.thread
 
@@ -82609,7 +82609,7 @@ string_get.exit.i.i:                              ; preds = %37, %34
   br i1 %44, label %58, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %43
-  %45 = icmp ugt i32 %29, 1
+  %45 = icmp samesign ugt i32 %29, 1
   br i1 %45, label %.lr.ph.i.i, label %71
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -82637,7 +82637,7 @@ string_get.exit29.us.i.i:                         ; preds = %.lr.ph.i.i, %51
   %55 = mul nuw nsw i64 %54, 10
   %56 = zext nneg i32 %49 to i64
   %57 = add nuw nsw i64 %55, %56
-  %.not26.us.i.i = icmp ult i64 %57, 4294967296
+  %.not26.us.i.i = icmp samesign ult i64 %57, 4294967296
   br i1 %.not26.us.i.i, label %51, label %JS_AtomIsArrayIndex.exit
 
 58:                                               ; preds = %43
@@ -82665,7 +82665,7 @@ string_get.exit29.i.i:                            ; preds = %.lr.ph.i.i, %59
   %68 = mul nuw nsw i64 %67, 10
   %69 = zext nneg i32 %64 to i64
   %70 = add nuw nsw i64 %68, %69
-  %.not26.i.i = icmp ult i64 %70, 4294967296
+  %.not26.i.i = icmp samesign ult i64 %70, 4294967296
   br i1 %.not26.i.i, label %59, label %JS_AtomIsArrayIndex.exit
 
 is_num_string.exit.i:                             ; preds = %59, %51
@@ -86694,7 +86694,7 @@ define internal fastcc range(i32 0, 2) i32 @JS_ConcatStringInPlace(ptr nocapture
   %61 = add nuw nsw i64 %.040, 1
   %62 = load i64, ptr %9, align 4
   %63 = and i64 %62, 2147483647
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %50, label %.loopexit, !llvm.loop !257
 
 65:                                               ; preds = %15
@@ -87499,7 +87499,7 @@ js_string_memcmp.exit.thread.i:                   ; preds = %125, %116, %js_stri
   br i1 %134, label %js_string_compare.exit, label %135
 
 135:                                              ; preds = %js_string_memcmp.exit.thread.i
-  %136 = icmp ult i32 %86, %90
+  %136 = icmp samesign ult i32 %86, %90
   %..i = select i1 %136, i32 -1, i32 1
   br label %js_string_compare.exit
 
@@ -93105,7 +93105,7 @@ js_string_memcmp.exit.thread.i:                   ; preds = %105, %96, %js_strin
   br i1 %114, label %js_string_compare.exit, label %115
 
 115:                                              ; preds = %js_string_memcmp.exit.thread.i
-  %116 = icmp ult i32 %66, %70
+  %116 = icmp samesign ult i32 %66, %70
   %..i = select i1 %116, i32 -1, i32 1
   br label %js_string_compare.exit
 
@@ -96880,7 +96880,7 @@ bc_put_leb128.exit:                               ; preds = %.lr.ph.i.i, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i64, ptr %4, align 4
   %24 = and i64 %23, 2147483647
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %19, label %.loopexit, !llvm.loop !289
 
 26:                                               ; preds = %bc_put_leb128.exit
@@ -96972,7 +96972,7 @@ bc_put_atom.exit:                                 ; preds = %26, %bc_put_leb128.
   %42 = trunc i32 %.08.i.i to i8
   %43 = or i8 %42, -128
   %44 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %43) #42
-  %.not.i.i = icmp ult i32 %.08.i.i, 16384
+  %.not.i.i = icmp samesign ult i32 %.08.i.i, 16384
   br i1 %.not.i.i, label %bc_put_leb128.exit, label %.lr.ph.i.i
 
 bc_put_leb128.exit:                               ; preds = %.lr.ph.i.i, %bc_put_atom.exit
@@ -96991,7 +96991,7 @@ bc_put_leb128.exit:                               ; preds = %.lr.ph.i.i, %bc_put
   %51 = trunc i32 %.08.i.i94 to i8
   %52 = or i8 %51, -128
   %53 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %52) #42
-  %.not.i.i95 = icmp ult i32 %.08.i.i94, 16384
+  %.not.i.i95 = icmp samesign ult i32 %.08.i.i94, 16384
   br i1 %.not.i.i95, label %bc_put_leb128.exit97, label %.lr.ph.i.i93
 
 bc_put_leb128.exit97:                             ; preds = %.lr.ph.i.i93, %bc_put_leb128.exit
@@ -97010,7 +97010,7 @@ bc_put_leb128.exit97:                             ; preds = %.lr.ph.i.i93, %bc_p
   %60 = trunc i32 %.08.i.i100 to i8
   %61 = or i8 %60, -128
   %62 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %61) #42
-  %.not.i.i101 = icmp ult i32 %.08.i.i100, 16384
+  %.not.i.i101 = icmp samesign ult i32 %.08.i.i100, 16384
   br i1 %.not.i.i101, label %bc_put_leb128.exit103, label %.lr.ph.i.i99
 
 bc_put_leb128.exit103:                            ; preds = %.lr.ph.i.i99, %bc_put_leb128.exit97
@@ -97029,7 +97029,7 @@ bc_put_leb128.exit103:                            ; preds = %.lr.ph.i.i99, %bc_p
   %69 = trunc i32 %.08.i.i106 to i8
   %70 = or i8 %69, -128
   %71 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %70) #42
-  %.not.i.i107 = icmp ult i32 %.08.i.i106, 16384
+  %.not.i.i107 = icmp samesign ult i32 %.08.i.i106, 16384
   br i1 %.not.i.i107, label %bc_put_leb128.exit109, label %.lr.ph.i.i105
 
 bc_put_leb128.exit109:                            ; preds = %.lr.ph.i.i105, %bc_put_leb128.exit103
@@ -97101,7 +97101,7 @@ bc_put_leb128.exit127:                            ; preds = %.lr.ph.i.i123, %bc_
   %103 = load i16, ptr %47, align 2
   %104 = zext i16 %103 to i32
   %105 = add nuw nsw i32 %104, %102
-  %.not7.i.i128 = icmp ult i32 %105, 128
+  %.not7.i.i128 = icmp samesign ult i32 %105, 128
   br i1 %.not7.i.i128, label %bc_put_leb128.exit133, label %.lr.ph.i.i129
 
 .lr.ph.i.i129:                                    ; preds = %100, %.lr.ph.i.i129
@@ -97110,7 +97110,7 @@ bc_put_leb128.exit127:                            ; preds = %.lr.ph.i.i123, %bc_
   %107 = trunc i32 %.08.i.i130 to i8
   %108 = or i8 %107, -128
   %109 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %108) #42
-  %.not.i.i131 = icmp ult i32 %.08.i.i130, 16384
+  %.not.i.i131 = icmp samesign ult i32 %.08.i.i130, 16384
   br i1 %.not.i.i131, label %bc_put_leb128.exit133, label %.lr.ph.i.i129
 
 bc_put_leb128.exit133:                            ; preds = %.lr.ph.i.i129, %100
@@ -97221,7 +97221,7 @@ bc_put_leb128.exit156:                            ; preds = %.lr.ph.i.i152, %bc_
   %161 = load i16, ptr %47, align 2
   %162 = zext i16 %161 to i64
   %163 = add nuw nsw i64 %162, %160
-  %164 = icmp ult i64 %indvars.iv.next, %163
+  %164 = icmp samesign ult i64 %indvars.iv.next, %163
   br i1 %164, label %.lr.ph, label %.loopexit269, !llvm.loop !290
 
 165:                                              ; preds = %bc_put_leb128.exit127
@@ -97296,7 +97296,7 @@ bc_put_atom.exit168:                              ; preds = %178, %bc_put_leb128
   %194 = trunc i32 %.08.i.i171 to i8
   %195 = or i8 %194, -128
   %196 = call i32 @dbuf_putc(ptr noundef nonnull %9, i8 noundef zeroext %195) #42
-  %.not.i.i172 = icmp ult i32 %.08.i.i171, 16384
+  %.not.i.i172 = icmp samesign ult i32 %.08.i.i171, 16384
   br i1 %.not.i.i172, label %bc_put_leb128.exit174, label %.lr.ph.i.i170
 
 bc_put_leb128.exit174:                            ; preds = %.lr.ph.i.i170, %bc_put_atom.exit168
@@ -98203,7 +98203,7 @@ js_malloc.exit.i:                                 ; preds = %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %67 = load i32, ptr %39, align 8
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next.i, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next.i, %68
   br i1 %69, label %.lr.ph.i, label %.preheader.i, !llvm.loop !300
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %.lr.ph31.i
@@ -98230,7 +98230,7 @@ js_malloc.exit.i:                                 ; preds = %44
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %87 = load i32, ptr %5, align 8
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next35.i, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next35.i, %88
   br i1 %89, label %.lr.ph31.i, label %js_object_list_resize_hash.exit.thread.loopexit, !llvm.loop !301
 
 js_object_list_resize_hash.exit.thread.loopexit:  ; preds = %.lr.ph31.i
@@ -98599,7 +98599,7 @@ JS_AtomIsString.exit.thread:                      ; preds = %bc_put_atom.exit.JS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = getelementptr i8, ptr %.03050, i64 8
   %75 = zext i32 %73 to i64
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %JS_AtomIsString.exit.thread, %21
@@ -99069,7 +99069,7 @@ define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128(ptr nocapture noundef
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw nsw i32 %.023.i, 1
-  %9 = icmp ult i32 %.023.i, 4
+  %9 = icmp samesign ult i32 %.023.i, 4
   %.not.i = icmp ult ptr %10, %6
   %or.cond.i = and i1 %9, %.not.i
   br i1 %or.cond.i, label %.lr.ph.i, label %get_leb128.exit.thread, !llvm.loop !139
@@ -99139,7 +99139,7 @@ define internal fastcc ptr @JS_ReadString(ptr nocapture noundef nonnull %0) unna
 
 6:                                                ; preds = %.lr.ph.i.i
   %7 = add nuw nsw i32 %.023.i.i, 1
-  %8 = icmp ult i32 %.023.i.i, 4
+  %8 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %9, %5
   %or.cond.i.i = and i1 %8, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -99380,7 +99380,7 @@ define internal fastcc range(i32 -1, 1) i32 @bc_get_sleb128(ptr nocapture nounde
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !139
@@ -99570,7 +99570,7 @@ bc_get_u8.exit:                                   ; preds = %34, %37
 
 49:                                               ; preds = %.lr.ph.i.i.i
   %50 = add nuw nsw i32 %.023.i.i.i, 1
-  %51 = icmp ult i32 %.023.i.i.i, 4
+  %51 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i.i = icmp ult ptr %52, %48
   %or.cond.i.i.i = and i1 %51, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %get_leb128.exit.thread.i.i, !llvm.loop !139
@@ -99973,7 +99973,7 @@ define internal fastcc { i64, i64 } @JS_ReadModule(ptr nocapture noundef nonnull
 
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = add nuw nsw i32 %.023.i.i.i, 1
-  %19 = icmp ult i32 %.023.i.i.i, 4
+  %19 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i.i = icmp ult ptr %20, %16
   %or.cond.i.i.i = and i1 %19, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %get_leb128.exit.thread.i.i, !llvm.loop !139
@@ -100092,7 +100092,7 @@ js_mallocz.exit:                                  ; preds = %42
 
 71:                                               ; preds = %.lr.ph.i.i.i135
   %72 = add nuw nsw i32 %.023.i.i.i136, 1
-  %73 = icmp ult i32 %.023.i.i.i136, 4
+  %73 = icmp samesign ult i32 %.023.i.i.i136, 4
   %.not.i.i.i140 = icmp ult ptr %74, %70
   %or.cond.i.i.i141 = and i1 %73, %.not.i.i.i140
   br i1 %or.cond.i.i.i141, label %.lr.ph.i.i.i135, label %get_leb128.exit.thread.i.i131, !llvm.loop !139
@@ -100221,7 +100221,7 @@ bc_get_u8.exit:                                   ; preds = %116, %119
 
 133:                                              ; preds = %.lr.ph.i.i.i151
   %134 = add nuw nsw i32 %.023.i.i.i152, 1
-  %135 = icmp ult i32 %.023.i.i.i152, 4
+  %135 = icmp samesign ult i32 %.023.i.i.i152, 4
   %.not.i.i.i156 = icmp ult ptr %136, %132
   %or.cond.i.i.i157 = and i1 %135, %.not.i.i.i156
   br i1 %or.cond.i.i.i157, label %.lr.ph.i.i.i151, label %get_leb128.exit.thread.i.i147, !llvm.loop !139
@@ -100331,7 +100331,7 @@ bc_get_leb128_int.exit160:                        ; preds = %.loopexit201, %149
 
 178:                                              ; preds = %.lr.ph.i.i.i166
   %179 = add nuw nsw i32 %.023.i.i.i167, 1
-  %180 = icmp ult i32 %.023.i.i.i167, 4
+  %180 = icmp samesign ult i32 %.023.i.i.i167, 4
   %.not.i.i.i171 = icmp ult ptr %181, %177
   %or.cond.i.i.i172 = and i1 %180, %.not.i.i.i171
   br i1 %or.cond.i.i.i172, label %.lr.ph.i.i.i166, label %get_leb128.exit.thread.i.i162, !llvm.loop !139
@@ -100574,7 +100574,7 @@ BC_add_object_ref.exit:                           ; preds = %js_resize_array.exi
 
 55:                                               ; preds = %.lr.ph.i.i
   %56 = add nuw nsw i32 %.023.i.i, 1
-  %57 = icmp ult i32 %.023.i.i, 4
+  %57 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i28 = icmp ult ptr %58, %54
   %or.cond.i.i = and i1 %57, %.not.i.i28
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -100993,7 +100993,7 @@ BC_add_object_ref.exit:                           ; preds = %js_resize_array.exi
 
 58:                                               ; preds = %.lr.ph.i.i
   %59 = add nuw nsw i32 %.023.i.i, 1
-  %60 = icmp ult i32 %.023.i.i, 4
+  %60 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i50 = icmp ult ptr %61, %57
   %or.cond.i.i = and i1 %60, %.not.i.i50
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -101176,7 +101176,7 @@ bc_get_u8.exit:                                   ; preds = %12, %15
 
 24:                                               ; preds = %.lr.ph.i.i
   %25 = add nuw nsw i32 %.023.i.i, 1
-  %26 = icmp ult i32 %.023.i.i, 4
+  %26 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i109 = icmp ult ptr %27, %5
   %or.cond.i.i = and i1 %26, %.not.i.i109
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -101226,7 +101226,7 @@ bc_get_leb128.exit:                               ; preds = %get_leb128.exit.thr
 
 45:                                               ; preds = %.lr.ph.i.i115
   %46 = add nuw nsw i32 %.023.i.i116, 1
-  %47 = icmp ult i32 %.023.i.i116, 4
+  %47 = icmp samesign ult i32 %.023.i.i116, 4
   %.not.i.i120 = icmp ult ptr %48, %5
   %or.cond.i.i121 = and i1 %47, %.not.i.i120
   br i1 %or.cond.i.i121, label %.lr.ph.i.i115, label %get_leb128.exit.thread.i111, !llvm.loop !139
@@ -101483,7 +101483,7 @@ define internal fastcc { i64, i64 } @JS_ReadArrayBuffer(ptr nocapture noundef no
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -101682,7 +101682,7 @@ define internal fastcc { i64, i64 } @JS_ReadSharedArrayBuffer(ptr nocapture noun
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -102378,7 +102378,7 @@ define internal fastcc { i64, i64 } @JS_ReadBigNum(ptr nocapture noundef nonnull
 
 27:                                               ; preds = %.lr.ph.i.i.i
   %28 = add nuw nsw i32 %.023.i.i.i, 1
-  %29 = icmp ult i32 %.023.i.i.i, 4
+  %29 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i.i94 = icmp ult ptr %30, %26
   %or.cond.i.i.i = and i1 %29, %.not.i.i.i94
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i, !llvm.loop !139
@@ -102471,7 +102471,7 @@ bc_get_sleb128.exit:                              ; preds = %.loopexit.i, %43
 
 72:                                               ; preds = %.lr.ph.i.i
   %73 = add nuw nsw i32 %.023.i.i, 1
-  %74 = icmp ult i32 %.023.i.i, 4
+  %74 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i97 = icmp ult ptr %75, %71
   %or.cond.i.i = and i1 %74, %.not.i.i97
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -102631,7 +102631,7 @@ bc_get_u8.exit:                                   ; preds = %127, %130
 
 145:                                              ; preds = %.thread141, %142
   %.1 = phi i64 [ 1, %142 ], [ 0, %.thread141 ]
-  %146 = icmp ult i64 %.1, %108
+  %146 = icmp samesign ult i64 %.1, %108
   br i1 %146, label %.lr.ph, label %JS_FreeValue.exit
 
 .lr.ph:                                           ; preds = %145
@@ -102680,7 +102680,7 @@ bc_get_u64.exit:                                  ; preds = %155, %158
   %.0126186 = phi i8 [ undef, %.lr.ph189 ], [ %.1127.lcssa, %._crit_edge ]
   %167 = icmp eq i64 %.3188, 0
   %.067 = select i1 %167, i64 %spec.select, i64 0
-  %168 = icmp ult i64 %.067, 19
+  %168 = icmp samesign ult i64 %.067, 19
   br i1 %168, label %.lr.ph183, label %._crit_edge
 
 .lr.ph183:                                        ; preds = %166, %194
@@ -102730,7 +102730,7 @@ bc_get_u8.exit108:                                ; preds = %177, %180
   %.2128 = phi i8 [ %185, %183 ], [ %.1127179, %187 ]
   %.072.in = phi i8 [ %186, %183 ], [ %188, %187 ]
   %.271 = phi i32 [ 1, %183 ], [ 0, %187 ]
-  %190 = icmp ugt i8 %.072.in, 9
+  %190 = icmp samesign ugt i8 %.072.in, 9
   br i1 %190, label %191, label %194
 
 191:                                              ; preds = %189
@@ -102792,7 +102792,7 @@ define internal fastcc range(i32 -1, 1) i32 @bc_get_atom(ptr nocapture noundef n
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -102924,7 +102924,7 @@ define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_u16(ptr nocapture nou
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -102991,7 +102991,7 @@ define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_int(ptr nocapture nou
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.023.i.i, 1
-  %9 = icmp ult i32 %.023.i.i, 4
+  %9 = icmp samesign ult i32 %.023.i.i, 4
   %.not.i.i = icmp ult ptr %10, %6
   %or.cond.i.i = and i1 %9, %.not.i.i
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %get_leb128.exit.thread.i, !llvm.loop !139
@@ -103341,7 +103341,7 @@ define internal range(i32 0, 2) i32 @js_string_get_own_property(ptr noundef %0, 
   %17 = load i64, ptr %16, align 4
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = icmp ult i32 %15, %19
+  %20 = icmp samesign ult i32 %15, %19
   br i1 %20, label %21, label %69
 
 21:                                               ; preds = %12
@@ -103478,7 +103478,7 @@ js_string_obj_get_length.exit:                    ; preds = %5
   %14 = load i64, ptr %13, align 4
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 2147483647
-  %17 = icmp ult i32 %10, %16
+  %17 = icmp samesign ult i32 %10, %16
   br i1 %17, label %18, label %js_string_obj_get_length.exit.thread
 
 js_string_obj_get_length.exit.thread:             ; preds = %5, %js_string_obj_get_length.exit, %4
@@ -103511,7 +103511,7 @@ define internal i32 @js_string_define_own_property(ptr noundef %0, i64 %1, i64 %
   %21 = load i64, ptr %20, align 4
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 2147483647
-  %.not24 = icmp ult i32 %13, %23
+  %.not24 = icmp samesign ult i32 %13, %23
   br i1 %.not24, label %24, label %65
 
 24:                                               ; preds = %17
@@ -103956,7 +103956,7 @@ string_buffer_putc16.exit.i._crit_edge.i:         ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread.i
 
 188:                                              ; preds = %179
-  %189 = icmp ult i32 %.0.i.i, 256
+  %189 = icmp samesign ult i32 %.0.i.i, 256
   br i1 %189, label %190, label %string_buffer_putc.exit.i
 
 190:                                              ; preds = %188
@@ -104697,7 +104697,7 @@ string_get.exit68:                                ; preds = %string_get.exit70.t
   br label %string_buffer_putc16.exit
 
 137:                                              ; preds = %128
-  %138 = icmp ult i32 %.049, 256
+  %138 = icmp samesign ult i32 %.049, 256
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %137
@@ -104742,7 +104742,7 @@ string_buffer_putc16.exit:                        ; preds = %130, %139, %146
   br label %string_buffer_putc16.exit77
 
 162:                                              ; preds = %153
-  %163 = icmp ult i32 %.047, 256
+  %163 = icmp samesign ult i32 %.047, 256
   br i1 %163, label %164, label %171
 
 164:                                              ; preds = %162
@@ -109937,7 +109937,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_ch
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !324
 
 17:                                               ; preds = %3
-  %18 = icmp ult i32 %1, 256
+  %18 = icmp samesign ult i32 %1, 256
   br i1 %18, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %17
@@ -111240,7 +111240,7 @@ string_get.exit198:                               ; preds = %243, %247
   %254 = mul nuw nsw i32 %238, 10
   %255 = add nuw nsw i32 %251, %254
   %256 = add nsw i32 %255, -48
-  %257 = icmp ugt i32 %255, 48
+  %257 = icmp samesign ugt i32 %255, 48
   %258 = icmp ult i32 %256, %82
   %or.cond153 = select i1 %257, i1 %258, i1 false
   %259 = add nuw i32 %.0.i161, 3
@@ -112376,7 +112376,7 @@ string_buffer_putc16.exit.i:                      ; preds = %134
   br label %.backedge
 
 163:                                              ; preds = %154
-  %164 = icmp ult i32 %.0.i, 256
+  %164 = icmp samesign ult i32 %.0.i, 256
   br i1 %164, label %165, label %string_buffer_putc.exit
 
 165:                                              ; preds = %163
@@ -113970,7 +113970,7 @@ define internal fastcc { i64, i64 } @JS_GetOwnPropertyNames2(ptr noundef %0, i64
 
 .lr.ph:                                           ; preds = %.preheader
   %32 = load ptr, ptr %11, align 8
-  %.not191 = icmp ult i32 %3, 16
+  %.not191 = icmp samesign ult i32 %3, 16
   %33 = getelementptr inbounds i8, ptr %13, i64 24
   %34 = getelementptr inbounds i8, ptr %13, i64 32
   %35 = getelementptr inbounds i8, ptr %0, i64 24
@@ -120227,7 +120227,7 @@ check_function.exit:                              ; preds = %6, %JS_IsFunction.e
 
 70:                                               ; preds = %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  %71 = icmp ult i64 %.0311395, 2147483648
+  %71 = icmp samesign ult i64 %.0311395, 2147483648
   %72 = uitofp nneg i64 %.0311395 to double
   %73 = bitcast double %72 to i64
   %.sroa.0304.0 = select i1 %71, i64 %.0311395, i64 %73
@@ -129309,7 +129309,7 @@ define internal { i64, i64 } @js_Date_parse(ptr noundef %0, i64 %1, i64 %2, i32 
 
 string_get.exit:                                  ; preds = %28, %32
   %36 = phi i32 [ %31, %28 ], [ %35, %32 ]
-  %37 = icmp ugt i32 %36, 255
+  %37 = icmp samesign ugt i32 %36, 255
   %38 = icmp eq i32 %36, 8722
   %39 = select i1 %38, i32 45, i32 120
   %.054 = select i1 %37, i32 %39, i32 %36
@@ -129372,7 +129372,7 @@ string_get.exit:                                  ; preds = %28, %32
 
 62:                                               ; preds = %51
   %63 = trunc nuw nsw i64 %indvars.iv137 to i32
-  %64 = icmp ult i64 %indvars.iv137, 7
+  %64 = icmp samesign ult i64 %indvars.iv137, 7
   br i1 %64, label %js_date_parse_isostring.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %56, %62
@@ -129411,7 +129411,7 @@ string_get.exit:                                  ; preds = %28, %32
 
 80:                                               ; preds = %.preheader.i
   %81 = trunc nuw nsw i64 %indvars.iv140 to i32
-  %82 = icmp ult i64 %indvars.iv140, 4
+  %82 = icmp samesign ult i64 %indvars.iv140, 4
   br i1 %82, label %js_date_parse_isostring.exit.thread, label %string_get_digits.exit66.i
 
 string_get_digits.exit66.i:                       ; preds = %74, %80
@@ -136851,7 +136851,7 @@ lre_js_is_ident_first.exit185:                    ; preds = %.thread194, %164
 208:                                              ; preds = %.loopexit
   %.not.i = icmp ne i64 %206, 7
   %209 = and i64 %205, 9223372036854775807
-  %210 = icmp ult i64 %209, 9218868437227405313
+  %210 = icmp samesign ult i64 %209, 9218868437227405313
   %narrow.i.not = select i1 %.not.i, i1 true, i1 %210
   br i1 %narrow.i.not, label %211, label %.sink.split405
 
@@ -140086,7 +140086,7 @@ string_buffer_init.exit:                          ; preds = %2
   br label %.thread68
 
 66:                                               ; preds = %60
-  %67 = icmp ugt i32 %.036, 127
+  %67 = icmp samesign ugt i32 %.036, 127
   br i1 %67, label %68, label %.thread68
 
 68:                                               ; preds = %66
@@ -140161,7 +140161,7 @@ string_buffer_putc16.exit.i:                      ; preds = %77
   br label %.backedge
 
 106:                                              ; preds = %97
-  %107 = icmp ult i32 %.0.i46, 256
+  %107 = icmp samesign ult i32 %.0.i46, 256
   br i1 %107, label %108, label %string_buffer_putc.exit
 
 108:                                              ; preds = %106
@@ -140987,7 +140987,7 @@ thread-pre-split:                                 ; preds = %2, %is_label.exit.t
 
 170:                                              ; preds = %922, %thread-pre-split, %thread-pre-split
   %.1443 = phi i32 [ %132, %thread-pre-split ], [ %132, %thread-pre-split ], [ -45, %922 ]
-  %.not566 = icmp ult i32 %1, 4
+  %.not566 = icmp samesign ult i32 %1, 4
   br i1 %.not566, label %171, label %173
 
 171:                                              ; preds = %170
@@ -142495,7 +142495,7 @@ JS_DupAtom.exit617:                               ; preds = %781, %785
   br i1 %.not494, label %938, label %910
 
 910:                                              ; preds = %908
-  %.not495 = icmp ult i32 %1, 4
+  %.not495 = icmp samesign ult i32 %1, 4
   br i1 %.not495, label %911, label %940
 
 911:                                              ; preds = %910
@@ -142562,7 +142562,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %927
   br i1 %936, label %937, label %token_is_pseudo_keyword.exit.thread
 
 937:                                              ; preds = %933
-  %.not493 = icmp ult i32 %1, 4
+  %.not493 = icmp samesign ult i32 %1, 4
   br i1 %.not493, label %938, label %940
 
 938:                                              ; preds = %937, %911, %908
@@ -142579,7 +142579,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %927
   br i1 %.not496, label %js_parse_expect_semi.exit.thread, label %.loopexit636
 
 946:                                              ; preds = %thread-pre-split
-  %.not489 = icmp ult i32 %1, 4
+  %.not489 = icmp samesign ult i32 %1, 4
   br i1 %.not489, label %947, label %949
 
 947:                                              ; preds = %946
@@ -149810,7 +149810,7 @@ string_buffer_putc16.exit.i:                      ; preds = %100
   br label %.backedge
 
 129:                                              ; preds = %120
-  %130 = icmp ult i32 %.0.i88, 256
+  %130 = icmp samesign ult i32 %.0.i88, 256
   br i1 %130, label %131, label %string_buffer_putc.exit
 
 131:                                              ; preds = %129
@@ -149850,7 +149850,7 @@ string_buffer_putc.exit:                          ; preds = %129, %.thread105
 
 148:                                              ; preds = %145, %.preheader
   %.168 = phi i32 [ %146, %145 ], [ %143, %.preheader ]
-  %149 = icmp ult i32 %.168, 128
+  %149 = icmp samesign ult i32 %.168, 128
   br i1 %149, label %150, label %158
 
 150:                                              ; preds = %148
@@ -149878,7 +149878,7 @@ lre_js_is_ident_next.exit:                        ; preds = %150, %158
   br i1 %.not80, label %205, label %164
 
 164:                                              ; preds = %lre_js_is_ident_next.exit
-  %165 = icmp ugt i32 %.168, 65535
+  %165 = icmp samesign ugt i32 %.168, 65535
   %.pre144 = load i32, ptr %31, align 8
   %.pre146 = load i32, ptr %30, align 4
   br i1 %165, label %166, label %181
@@ -149944,7 +149944,7 @@ string_buffer_putc16.exit.i94._crit_edge:         ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit98.thread
 
 194:                                              ; preds = %185
-  %195 = icmp ult i32 %.0.i91, 256
+  %195 = icmp samesign ult i32 %.0.i91, 256
   br i1 %195, label %196, label %string_buffer_putc.exit98
 
 196:                                              ; preds = %194
@@ -152775,7 +152775,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @js_parse_postfix_expr(ptr n
   %76 = alloca i32, align 4
   %77 = alloca i32, align 4
   %78 = alloca i32, align 4
-  %79 = icmp ugt i32 %1, 1
+  %79 = icmp samesign ugt i32 %1, 1
   %80 = getelementptr inbounds i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 8
   switch i32 %81, label %771 [
@@ -153769,7 +153769,7 @@ switch.early.test.i:                              ; preds = %.preheader, %577
 577:                                              ; preds = %575
   %.pre = load i32, ptr %80, align 8
   %578 = icmp eq i32 %.pre, 93
-  %579 = icmp ugt i32 %.052.i738, 30
+  %579 = icmp samesign ugt i32 %.052.i738, 30
   %.not689 = select i1 %578, i1 true, i1 %579
   %580 = freeze i1 %.not689
   br i1 %580, label %switch.early.test.i._crit_edge.loopexit, label %switch.early.test.i, !llvm.loop !445
@@ -154291,7 +154291,7 @@ js_parse_expr_paren.exit:                         ; preds = %js_parse_object_lit
 789:                                              ; preds = %787
   %790 = load i32, ptr %80, align 8
   %791 = icmp eq i32 %790, 40
-  %or.cond = and i1 %.0402.shrunk, %791
+  %or.cond = select i1 %791, i1 %.0402.shrunk, i1 false
   br i1 %or.cond, label %804, label %792
 
 792:                                              ; preds = %789
@@ -154315,7 +154315,7 @@ js_parse_expr_paren.exit:                         ; preds = %js_parse_object_lit
 
 802:                                              ; preds = %794
   %803 = icmp eq i32 %786, 40
-  %or.cond5 = and i1 %.0402.shrunk, %803
+  %or.cond5 = select i1 %803, i1 %.0402.shrunk, i1 false
   br i1 %or.cond5, label %804, label %1193
 
 804:                                              ; preds = %802, %789
@@ -162046,7 +162046,7 @@ get_prev_opcode.exit83.thread:                    ; preds = %get_prev_opcode.exi
   br i1 %.not72, label %157, label %js_parse_delete.exit
 
 157:                                              ; preds = %145, %142, %149, %31
-  %.not73 = icmp ult i32 %1, 4
+  %.not73 = icmp samesign ult i32 %1, 4
   br i1 %.not73, label %js_parse_delete.exit, label %158
 
 158:                                              ; preds = %157
@@ -162062,8 +162062,8 @@ get_prev_opcode.exit83.thread:                    ; preds = %get_prev_opcode.exi
   %165 = load i8, ptr %164, align 2
   %166 = and i8 %165, 4
   %.not74 = icmp ne i8 %166, 0
-  %.not75 = icmp ult i32 %1, 8
-  %or.cond = or i1 %.not75, %.not74
+  %.not75 = icmp samesign ult i32 %1, 8
+  %or.cond = select i1 %.not74, i1 true, i1 %.not75
   br i1 %or.cond, label %170, label %167
 
 167:                                              ; preds = %161
@@ -164606,8 +164606,8 @@ token_is_pseudo_keyword.exit:                     ; preds = %6
   %28 = load i32, ptr %13, align 8
   %29 = load i32, ptr %15, align 4
   %30 = icmp eq i32 %28, %29
-  %.not18 = icmp ugt i32 %1, 3
-  %or.cond.not = or i1 %.not18, %30
+  %.not18 = icmp samesign ugt i32 %1, 3
+  %or.cond.not = select i1 %30, i1 true, i1 %.not18
   %spec.select20 = zext i1 %or.cond.not to i32
   br label %.thread
 
@@ -174558,7 +174558,7 @@ JS_ToNumeric.exit:                                ; preds = %6, %11
 
 44:                                               ; preds = %40
   %45 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %.not71 = icmp ult i32 %45, 2
+  %.not71 = icmp samesign ult i32 %45, 2
   br i1 %.not71, label %69, label %46
 
 46:                                               ; preds = %44
@@ -185539,7 +185539,7 @@ check_function.exit:                              ; preds = %72, %JS_IsFunction.
   br i1 %.not332, label %205, label %.thread
 
 .thread:                                          ; preds = %139, %147
-  %148 = icmp ult i64 %.0408, 2147483648
+  %148 = icmp samesign ult i64 %.0408, 2147483648
   %.sroa.0300.0.insert.ext = and i64 %.0408, 4294967295
   %149 = uitofp nneg i64 %.0408 to double
   %150 = bitcast double %149 to i64
@@ -188314,7 +188314,7 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %62 = and i64 %indvars.iv.next, 4294967295
-  %63 = icmp ult i64 %indvars.iv.next111, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next111, %62
   br i1 %63, label %.lr.ph, label %.loopexit102, !llvm.loop !507
 
 .loopexit102:                                     ; preds = %.lr.ph, %58
@@ -191994,7 +191994,7 @@ js_string_memcmp.exit.thread.i:                   ; preds = %113, %104, %js_stri
   br i1 %122, label %js_string_compare.exit.thread73, label %123
 
 123:                                              ; preds = %js_string_memcmp.exit.thread.i
-  %124 = icmp ult i32 %74, %78
+  %124 = icmp samesign ult i32 %74, %78
   %..i = select i1 %124, i32 -1, i32 1
   br label %js_string_compare.exit.thread
 
@@ -192075,7 +192075,7 @@ define internal fastcc i64 @JS_FlattenIntoArray(ptr noundef %0, i64 %1, i64 %2, 
 
 35:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %36 = icmp ult i64 %.06122, 2147483648
+  %36 = icmp samesign ult i64 %.06122, 2147483648
   %37 = uitofp nneg i64 %.06122 to double
   %38 = bitcast double %37 to i64
   %.sroa.053.0 = select i1 %36, i64 %.06122, i64 %38
@@ -192887,7 +192887,7 @@ JS_FreeValue.exit378:                             ; preds = %JS_IsConstructor.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 %208, ptr %7, align 8
   store i64 %205, ptr %203, align 8
-  %209 = icmp ult i64 %.2569.us, 2147483648
+  %209 = icmp samesign ult i64 %.2569.us, 2147483648
   %210 = uitofp nneg i64 %.2569.us to double
   %211 = bitcast double %210 to i64
   %.sroa.015.0.i381.us = select i1 %209, i64 %.2569.us, i64 %211
@@ -192951,7 +192951,7 @@ JS_FreeValue.exit379:                             ; preds = %222, %228, %233
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 %224, ptr %7, align 8
   store i64 %225, ptr %203, align 8
-  %237 = icmp ult i64 %.2569, 2147483648
+  %237 = icmp samesign ult i64 %.2569, 2147483648
   %238 = uitofp nneg i64 %.2569 to double
   %239 = bitcast double %238 to i64
   %.sroa.015.0.i381 = select i1 %237, i64 %.sroa.0296.0.insert.ext, i64 %239
@@ -194092,7 +194092,7 @@ string_buffer_putc16.exit.i:                      ; preds = %92
   br label %string_buffer_putc.exit
 
 121:                                              ; preds = %112
-  %122 = icmp ult i32 %.0.i, 256
+  %122 = icmp samesign ult i32 %.0.i, 256
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %121
@@ -195788,7 +195788,7 @@ string_get_hex.exit65:                            ; preds = %138, %from_hex.exit
   br label %string_buffer_putc16.exit
 
 160:                                              ; preds = %151
-  %161 = icmp ult i32 %.0, 256
+  %161 = icmp samesign ult i32 %.0, 256
   br i1 %161, label %162, label %169
 
 162:                                              ; preds = %160
@@ -196673,7 +196673,7 @@ js_get_radix.exit:                                ; preds = %45
   %61 = or disjoint i8 %59, 48
   %62 = getelementptr i8, ptr %.019.i, i64 -1
   store i8 %61, ptr %62, align 1
-  %.not25.i = icmp ult i64 %.121.i, 10
+  %.not25.i = icmp samesign ult i64 %.121.i, 10
   br i1 %.not25.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !240
 
 63:                                               ; preds = %63, %.preheader27.i
@@ -197502,7 +197502,7 @@ JS_ToInt32.exit:                                  ; preds = %35, %42
   br label %string_buffer_putc16.exit.thread
 
 62:                                               ; preds = %53
-  %63 = icmp ult i32 %49, 256
+  %63 = icmp samesign ult i32 %49, 256
   br i1 %63, label %64, label %string_buffer_putc16.exit
 
 64:                                               ; preds = %62
@@ -197830,7 +197830,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread
 
 91:                                               ; preds = %82
-  %92 = icmp ult i32 %.0.i, 256
+  %92 = icmp samesign ult i32 %.0.i, 256
   br i1 %92, label %93, label %string_buffer_putc.exit
 
 93:                                               ; preds = %91
@@ -198755,7 +198755,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %19
   %23 = tail call fastcc { i64, i64 } @JS_ConcatString(ptr noundef %0, i64 %.sroa.013.025, i64 %.sroa.5.024, i64 %14, i64 %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.sroa.5.0 = extractvalue { i64, i64 } %23, 1
-  %24 = icmp uge i64 %indvars.iv.next, %12
+  %24 = icmp samesign uge i64 %indvars.iv.next, %12
   %25 = and i64 %.sroa.5.0, 4294967295
   %.not = icmp eq i64 %25, 6
   %or.cond = select i1 %24, i1 true, i1 %.not
@@ -199360,7 +199360,7 @@ JS_ToInt32Clamp.exit.thread:                      ; preds = %81, %78, %64
   %.059 = phi i32 [ %.059175, %JS_ToInt32Clamp.exit.thread ], [ %36, %JS_ToFloat64.exit.thread ], [ %36, %59 ], [ %63, %62 ], [ %36, %35 ], [ 0, %56 ]
   %.062 = phi i32 [ 1, %JS_ToInt32Clamp.exit.thread ], [ -1, %JS_ToFloat64.exit.thread ], [ -1, %59 ], [ -1, %62 ], [ -1, %35 ], [ -1, %56 ]
   %.060 = phi i32 [ %82, %JS_ToInt32Clamp.exit.thread ], [ 0, %JS_ToFloat64.exit.thread ], [ 0, %59 ], [ 0, %62 ], [ 0, %35 ], [ 0, %56 ]
-  %.not69 = icmp ult i32 %29, %33
+  %.not69 = icmp samesign ult i32 %29, %33
   br i1 %.not69, label %.loopexit, label %84
 
 84:                                               ; preds = %83
@@ -202852,7 +202852,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread
 
 173:                                              ; preds = %164
-  %174 = icmp ult i32 %.0.i46, 256
+  %174 = icmp samesign ult i32 %.0.i46, 256
   br i1 %174, label %175, label %string_buffer_putc.exit
 
 175:                                              ; preds = %173
@@ -203429,7 +203429,7 @@ string_get.exit:                                  ; preds = %196, %200
   br label %string_buffer_puts8.exit107
 
 243:                                              ; preds = %234
-  %244 = icmp ult i32 %204, 256
+  %244 = icmp samesign ult i32 %204, 256
   br i1 %244, label %245, label %252
 
 245:                                              ; preds = %243
@@ -203451,7 +203451,7 @@ string_buffer_puts8.exit107:                      ; preds = %252, %245, %236, %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %254 = load i64, ptr %188, align 4
   %255 = and i64 %254, 2147483647
-  %256 = icmp ult i64 %indvars.iv.next, %255
+  %256 = icmp samesign ult i64 %indvars.iv.next, %255
   br i1 %256, label %193, label %._crit_edge, !llvm.loop !561
 
 ._crit_edge:                                      ; preds = %string_buffer_puts8.exit107, %187
@@ -203953,7 +203953,7 @@ string_get.exit:                                  ; preds = %16, %19
   %.not.i28 = icmp eq i64 %23, 0
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %wide.trip.count.i = and i64 %.fr99, 2147483647
-  %25 = icmp ult i32 %22, 256
+  %25 = icmp samesign ult i32 %22, 256
   %26 = add nsw i32 %11, -1
   %.not29.i = icmp eq i32 %26, 0
   %wide.trip.count65.i = zext nneg i32 %26 to i64
@@ -204219,7 +204219,7 @@ define internal fastcc range(i32 -1, 1) i32 @string_buffer_fill(ptr nocapture no
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = trunc nuw i32 %1 to i16
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp ult i32 %1, 256
+  %17 = icmp samesign ult i32 %1, 256
   %18 = trunc nuw i32 %1 to i8
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -204851,7 +204851,7 @@ define internal double @js_math_round(double noundef %0) #4 {
   %3 = lshr i64 %2, 52
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = and i32 %4, 2047
-  %6 = icmp ult i32 %5, 1023
+  %6 = icmp samesign ult i32 %5, 1023
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
@@ -204870,7 +204870,7 @@ define internal double @js_math_round(double noundef %0) #4 {
   br label %27
 
 15:                                               ; preds = %1
-  %16 = icmp ult i32 %5, 1075
+  %16 = icmp samesign ult i32 %5, 1075
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %15

@@ -256,7 +256,7 @@ define internal i32 @dissect_vp9(ptr noundef %0, ptr nocapture noundef readonly 
   %80 = add nuw nsw i32 %.0150161, 1
   %.0149 = and i8 %79, 1
   %81 = icmp ne i8 %.0149, 0
-  %82 = icmp ult i32 %.0150161, 2
+  %82 = icmp samesign ult i32 %.0150161, 2
   %83 = select i1 %81, i1 %82, i1 false
   br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !4
 

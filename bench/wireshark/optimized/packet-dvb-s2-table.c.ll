@@ -2699,7 +2699,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %927 = add nuw nsw i32 %.095.i, 2
   %928 = add nuw nsw i32 %927, %926
   %929 = add i32 %.09094.i, 1
-  %930 = icmp ult i32 %928, %921
+  %930 = icmp samesign ult i32 %928, %921
   br i1 %930, label %923, label %._crit_edge.i353, !llvm.loop !25
 
 ._crit_edge.i353:                                 ; preds = %923, %916
@@ -2761,7 +2761,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %967 = add nuw nsw i32 %.197.i, 2
   %968 = add nuw nsw i32 %967, %966
   %969 = add i32 %.19196.i, 1
-  %970 = icmp ult i32 %968, %961
+  %970 = icmp samesign ult i32 %968, %961
   br i1 %970, label %963, label %._crit_edge100.i, !llvm.loop !26
 
 ._crit_edge100.i:                                 ; preds = %963, %945

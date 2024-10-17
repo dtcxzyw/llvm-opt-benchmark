@@ -9057,7 +9057,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit:            ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %7, %if.end.i ], [ 0, %for.cond ]
-  %cmp16 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp16 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   %vtable17 = load ptr, ptr %ctx, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 40
   %8 = load ptr, ptr %vfn18, align 8

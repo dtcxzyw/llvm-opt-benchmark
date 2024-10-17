@@ -937,7 +937,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %20 = load ptr, ptr %master, align 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %22
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit

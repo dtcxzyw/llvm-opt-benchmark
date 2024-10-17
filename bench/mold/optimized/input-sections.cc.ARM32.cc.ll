@@ -581,7 +581,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre, i64 %end.07
   %x.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv5 = zext i32 %x.0.copyload.i to i64
-  %cmp8 = icmp ugt i64 %add, %conv5
+  %cmp8 = icmp samesign ugt i64 %add, %conv5
   br i1 %cmp8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -678,7 +678,7 @@ land.rhs.i39:                                     ; preds = %while.body.i, %land
   %add.ptr.i.i40 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i, i64 %end.07.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i40, align 1
   %conv5.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_5ARM32EE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i39
@@ -712,7 +712,7 @@ land.rhs.i65:                                     ; preds = %while.body.i71, %la
   %add.ptr.i.i67 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i47, i64 %end.07.i66
   %x.0.copyload.i.i68 = load i32, ptr %add.ptr.i.i67, align 1
   %conv5.i69 = zext i32 %x.0.copyload.i.i68 to i64
-  %cmp8.i70 = icmp ugt i64 %add.i64, %conv5.i69
+  %cmp8.i70 = icmp samesign ugt i64 %add.i64, %conv5.i69
   br i1 %cmp8.i70, label %while.body.i71, label %_ZNK4mold3elf9CieRecordINS0_5ARM32EE8get_relsEv.exit74
 
 while.body.i71:                                   ; preds = %land.rhs.i65

@@ -1131,7 +1131,7 @@ _ZL14hasUndefSourcePN4llvm18AnyMemTransferInstE.exit.thread: ; preds = %_ZNK4llv
   %145 = call noundef i64 @_ZNK4llvm11ConstantInt15getLimitedValueEm(ptr noundef nonnull align 8 dereferenceable(40) %142, i64 noundef -1)
   %146 = icmp ult i64 %145, 9
   %147 = call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %145)
-  %.not58 = icmp ult i64 %147, 2
+  %.not58 = icmp samesign ult i64 %147, 2
   %or.cond = select i1 %146, i1 %.not58, i1 false
   br i1 %or.cond, label %148, label %_ZN4llvm16MemIntrinsicBaseINS_15AnyMemIntrinsicEE9setLengthEPNS_5ValueE.exit
 
@@ -1765,7 +1765,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i46: ; preds = %111, %107
   %145 = trunc nuw nsw i64 %123 to i32
   %.not.i.i = icmp ne i64 %123, 0
   %146 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %145)
-  %147 = icmp ult i32 %146, 2
+  %147 = icmp samesign ult i32 %146, 2
   %or.cond81 = select i1 %.not.i.i, i1 %147, i1 false
   br i1 %or.cond81, label %148, label %_ZN4llvm16MemIntrinsicBaseINS_15AnyMemIntrinsicEE9setLengthEPNS_5ValueE.exit
 
@@ -8788,7 +8788,7 @@ _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit1467: ; preds = %1777, %1782
   %1788 = and i16 %1786, 255
   %narrow = select i1 %.not2453, i16 0, i16 %1788
   %1789 = zext nneg i16 %narrow to i32
-  %1790 = icmp ugt i32 %1785, %1789
+  %1790 = icmp samesign ugt i32 %1785, %1789
   br i1 %1790, label %.thread2629, label %1794
 
 .thread2629:                                      ; preds = %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit1467
@@ -11586,7 +11586,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2365:     ; preds = %.lr.ph2508, %_ZN4ll
   %3369 = load ptr, ptr %17, align 8
   %3370 = call noundef i32 @_ZNK4llvm8CallBase20getNumOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %3369)
   %3371 = zext i32 %3370 to i64
-  %3372 = icmp ult i64 %indvars.iv.next, %3371
+  %3372 = icmp samesign ult i64 %indvars.iv.next, %3371
   br i1 %3372, label %.lr.ph2508, label %._crit_edge2509, !llvm.loop !248
 
 ._crit_edge2509:                                  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2365, %.critedge97
@@ -11883,7 +11883,7 @@ _ZN4llvm19InstructionWorklist9pushValueEPNS_5ValueE.exit1643: ; preds = %3528, %
   %3532 = load ptr, ptr %17, align 8
   %3533 = call noundef i32 @_ZNK4llvm8CallBase20getNumOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %3532)
   %3534 = zext i32 %3533 to i64
-  %3535 = icmp ult i64 %indvars.iv.next2545, %3534
+  %3535 = icmp samesign ult i64 %indvars.iv.next2545, %3534
   br i1 %3535, label %3445, label %.loopexit, !llvm.loop !255
 
 .loopexit:                                        ; preds = %3531, %.preheader, %3435, %.critedge101

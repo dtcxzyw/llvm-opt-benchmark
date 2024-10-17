@@ -315,7 +315,7 @@ define hidden void @_ZN8rawspeed10DngDecoderC2EOSt10unique_ptrINS_11TiffRootIFDE
   %21 = zext i32 %20 to i64
   %22 = add nuw nsw i64 %21, 4
   %23 = zext i32 %18 to i64
-  %24 = icmp ugt i64 %22, %23
+  %24 = icmp samesign ugt i64 %22, %23
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %16
@@ -331,7 +331,7 @@ define hidden void @_ZN8rawspeed10DngDecoderC2EOSt10unique_ptrINS_11TiffRootIFDE
   %30 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %30)
   %31 = add nuw nsw i32 %20, 4
-  %32 = icmp ule i32 %31, %18
+  %32 = icmp samesign ule i32 %31, %18
   tail call void @llvm.assume(i1 %32)
   %33 = icmp sgt i32 %20, -1
   tail call void @llvm.assume(i1 %33)
@@ -965,7 +965,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder16parseColorMatrixEv(ptr nocapture 
 
 .loopexit21:                                      ; preds = %.preheader20, %38
   %51 = phi ptr [ %36, %38 ], [ %48, %.preheader20 ]
-  %52 = icmp ult i64 %41, 7
+  %52 = icmp samesign ult i64 %41, 7
   br i1 %52, label %.loopexit19, label %.preheader18
 
 .preheader18:                                     ; preds = %.loopexit21, %.preheader18
@@ -1923,7 +1923,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   %211 = add nuw nsw i64 %210, %209
   %212 = load i32, ptr %183, align 8, !tbaa !185
   %213 = zext i32 %212 to i64
-  %214 = icmp ugt i64 %211, %213
+  %214 = icmp samesign ugt i64 %211, %213
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %208
@@ -1938,7 +1938,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   %219 = icmp sgt i32 %212, -1
   call void @llvm.assume(i1 %219)
   %220 = add nuw nsw i32 %197, %195
-  %221 = icmp ule i32 %220, %212
+  %221 = icmp samesign ule i32 %220, %212
   call void @llvm.assume(i1 %221)
   %222 = icmp sgt i32 %195, -1
   call void @llvm.assume(i1 %222)
@@ -2044,7 +2044,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   %277 = load i32, ptr %276, align 8, !tbaa !185
   %278 = getelementptr inbounds i8, ptr %242, i64 32
   %279 = load i32, ptr %278, align 8, !tbaa !188
-  %280 = icmp uge i32 %277, %279
+  %280 = icmp samesign uge i32 %277, %279
   call void @llvm.assume(i1 %280)
   %281 = icmp sgt i32 %277, -1
   call void @llvm.assume(i1 %281)
@@ -2164,7 +2164,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   %357 = load i32, ptr %356, align 8, !tbaa !185
   %358 = getelementptr inbounds i8, ptr %325, i64 32
   %359 = load i32, ptr %358, align 8, !tbaa !188
-  %360 = icmp uge i32 %357, %359
+  %360 = icmp samesign uge i32 %357, %359
   call void @llvm.assume(i1 %360)
   %361 = icmp sgt i32 %357, -1
   call void @llvm.assume(i1 %361)
@@ -3955,7 +3955,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   call void @llvm.assume(i1 %528)
   %529 = icmp sgt i32 %527, -1
   call void @llvm.assume(i1 %529)
-  %530 = icmp uge i32 %527, %521
+  %530 = icmp samesign uge i32 %527, %521
   call void @llvm.assume(i1 %530)
   %531 = icmp eq i32 %521, 0
   %532 = icmp ne i32 %524, 0
@@ -4252,7 +4252,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder8setBlackEPKNS_7TiffIFDE(ptr nocapt
   tail call void @llvm.assume(i1 %56)
   %57 = icmp sgt i32 %55, -1
   tail call void @llvm.assume(i1 %57)
-  %58 = icmp uge i32 %55, %49
+  %58 = icmp samesign uge i32 %55, %49
   tail call void @llvm.assume(i1 %58)
   %59 = icmp eq i32 %49, 0
   %60 = icmp ne i32 %52, 0
@@ -6467,7 +6467,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %74 = zext nneg i32 %39 to i64
   %75 = zext nneg i32 %40 to i64
   %76 = mul nuw nsw i64 %75, %74
-  %77 = icmp ugt i64 %76, %73
+  %77 = icmp samesign ugt i64 %76, %73
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %69
@@ -6540,7 +6540,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   tail call void @llvm.assume(i1 %120)
   %121 = icmp sgt i32 %119, -1
   tail call void @llvm.assume(i1 %121)
-  %122 = icmp uge i32 %119, %113
+  %122 = icmp samesign uge i32 %119, %113
   tail call void @llvm.assume(i1 %122)
   %123 = icmp eq i32 %113, 0
   %124 = icmp ne i32 %116, 0
@@ -6610,7 +6610,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   tail call void @llvm.assume(i1 %165)
   %166 = icmp sgt i32 %164, -1
   tail call void @llvm.assume(i1 %166)
-  %167 = icmp uge i32 %164, %158
+  %167 = icmp samesign uge i32 %164, %158
   tail call void @llvm.assume(i1 %167)
   %168 = icmp eq i32 %158, 0
   %169 = icmp ne i32 %161, 0
@@ -6649,7 +6649,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
 
 191:                                              ; preds = %183
   %192 = fptosi float %186 to i32
-  %193 = icmp ugt i32 %176, 1
+  %193 = icmp samesign ugt i32 %176, 1
   tail call void @llvm.assume(i1 %193)
   %194 = getelementptr inbounds i8, ptr %153, i64 4
   store i32 %192, ptr %194, align 4, !tbaa !125
@@ -6662,7 +6662,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
 
 200:                                              ; preds = %191
   %201 = fptosi float %195 to i32
-  %202 = icmp ugt i32 %176, 2
+  %202 = icmp samesign ugt i32 %176, 2
   tail call void @llvm.assume(i1 %202)
   %203 = getelementptr inbounds i8, ptr %153, i64 8
   store i32 %201, ptr %203, align 4, !tbaa !125
@@ -6765,7 +6765,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   tail call void @llvm.assume(i1 %269)
   %270 = icmp sgt i32 %268, -1
   tail call void @llvm.assume(i1 %270)
-  %271 = icmp uge i32 %268, %262
+  %271 = icmp samesign uge i32 %268, %262
   tail call void @llvm.assume(i1 %271)
   %272 = icmp eq i32 %262, 0
   %273 = icmp ne i32 %265, 0
@@ -6818,7 +6818,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %310, label %361, label %311
 
 311:                                              ; preds = %300
-  %312 = icmp ugt i32 %280, 1
+  %312 = icmp samesign ugt i32 %280, 1
   tail call void @llvm.assume(i1 %312)
   %313 = getelementptr inbounds i8, ptr %257, i64 4
   %314 = load i32, ptr %313, align 4, !tbaa !125
@@ -6845,7 +6845,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %331, label %361, label %332
 
 332:                                              ; preds = %319
-  %333 = icmp ugt i32 %280, 2
+  %333 = icmp samesign ugt i32 %280, 2
   tail call void @llvm.assume(i1 %333)
   %334 = getelementptr inbounds i8, ptr %257, i64 8
   %335 = load i32, ptr %334, align 4, !tbaa !125
@@ -6870,7 +6870,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %350, label %361, label %351
 
 351:                                              ; preds = %340
-  %352 = icmp ugt i32 %280, 3
+  %352 = icmp samesign ugt i32 %280, 3
   tail call void @llvm.assume(i1 %352)
   %353 = getelementptr inbounds i8, ptr %257, i64 12
   %354 = load i32, ptr %353, align 4, !tbaa !125
@@ -6985,7 +6985,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   tail call void @llvm.assume(i1 %422)
   %423 = icmp sgt i32 %421, -1
   tail call void @llvm.assume(i1 %423)
-  %424 = icmp uge i32 %421, %415
+  %424 = icmp samesign uge i32 %421, %415
   tail call void @llvm.assume(i1 %424)
   %425 = icmp eq i32 %415, 0
   %426 = icmp ne i32 %418, 0
@@ -7040,7 +7040,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %465, label %513, label %466
 
 466:                                              ; preds = %453
-  %467 = icmp ugt i32 %433, 1
+  %467 = icmp samesign ugt i32 %433, 1
   tail call void @llvm.assume(i1 %467)
   %468 = getelementptr inbounds i8, ptr %410, i64 4
   %469 = load i32, ptr %468, align 4, !tbaa !125
@@ -7065,7 +7065,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %484, label %513, label %485
 
 485:                                              ; preds = %474
-  %486 = icmp ugt i32 %433, 2
+  %486 = icmp samesign ugt i32 %433, 2
   tail call void @llvm.assume(i1 %486)
   %487 = getelementptr inbounds i8, ptr %410, i64 8
   %488 = load i32, ptr %487, align 4, !tbaa !125
@@ -7090,7 +7090,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   br i1 %503, label %513, label %504
 
 504:                                              ; preds = %493
-  %505 = icmp ugt i32 %433, 3
+  %505 = icmp samesign ugt i32 %433, 3
   tail call void @llvm.assume(i1 %505)
   %506 = getelementptr inbounds i8, ptr %410, i64 12
   %507 = load i32, ptr %506, align 4, !tbaa !125

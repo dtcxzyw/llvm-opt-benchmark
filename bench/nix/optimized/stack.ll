@@ -1028,7 +1028,7 @@ define internal void @_ZN3nixL14sigsegvHandlerEiP9siginfo_tPv(i32 %0, ptr nounde
   %11 = ptrtoint ptr %10 to i64
   %12 = sub i64 %11, %8
   %.0 = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
-  %13 = icmp ult i64 %.0, 4096
+  %13 = icmp samesign ult i64 %.0, 4096
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %3
@@ -2639,7 +2639,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !12
 
 .critedge:                                        ; preds = %27

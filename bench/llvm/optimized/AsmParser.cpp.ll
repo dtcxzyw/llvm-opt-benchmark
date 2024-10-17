@@ -3463,7 +3463,7 @@ _ZN4llvm15SmallVectorImplIjE5eraseEPKjS3_.exit:   ; preds = %_ZN4llvm6uniqueIRNS
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %399 = load i32, ptr %2, align 4
   %400 = zext i32 %399 to i64
-  %401 = icmp ult i64 %indvars.iv.next433, %400
+  %401 = icmp samesign ult i64 %indvars.iv.next433, %400
   br i1 %401, label %.lr.ph399, label %.preheader, !llvm.loop !57
 
 .lr.ph403:                                        ; preds = %.preheader, %.lr.ph403
@@ -3491,7 +3491,7 @@ _ZN4llvm15SmallVectorImplIjE5eraseEPKjS3_.exit:   ; preds = %_ZN4llvm6uniqueIRNS
   %418 = add i32 %.0164401, 1
   %419 = load i32, ptr %3, align 4
   %420 = zext i32 %419 to i64
-  %421 = icmp ult i64 %indvars.iv.next436, %420
+  %421 = icmp samesign ult i64 %indvars.iv.next436, %420
   br i1 %421, label %.lr.ph403, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph403, %.preheader, %._crit_edge396
@@ -13046,7 +13046,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDir
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %80
   %82 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %70)
-  %83 = icmp ult i64 %82, 2
+  %83 = icmp samesign ult i64 %82, 2
   br i1 %83, label %92, label %84
 
 84:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -13408,8 +13408,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDir
   %60 = phi i64 [ 8, %52 ], [ %41, %50 ]
   %61 = load i64, ptr %5, align 8
   %62 = icmp ult i64 %61, 4294967296
-  %63 = icmp ult i64 %60, 5
-  %or.cond.not = or i1 %62, %63
+  %63 = icmp samesign ult i64 %60, 5
+  %or.cond.not = select i1 %62, i1 true, i1 %63
   br i1 %or.cond.not, label %71, label %64
 
 64:                                               ; preds = %59
@@ -32992,7 +32992,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %.val15 = load ptr, ptr %11, align 8
   %.val1216 = load i8, ptr %12, align 4
   %15 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val15, i8 %.val1216, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %.not = icmp ult i32 %15, %1
+  %.not = icmp samesign ult i32 %15, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -33018,7 +33018,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %.val13 = load ptr, ptr %11, align 8
   %.val14 = load i8, ptr %12, align 4
   %31 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val13, i8 %.val14, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %32 = icmp ult i32 %18, %31
+  %32 = icmp samesign ult i32 %18, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28
@@ -33042,7 +33042,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   %.val = load ptr, ptr %11, align 8
   %.val12 = load i8, ptr %12, align 4
   %47 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19AsmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE(ptr %.val, i8 %.val12, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %.not21 = icmp ult i32 %47, %1
+  %.not21 = icmp samesign ult i32 %47, %1
   br i1 %.not21, label %._crit_edge, label %17, !llvm.loop !630
 
 ._crit_edge:                                      ; preds = %36, %17, %33, %4

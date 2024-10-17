@@ -1641,7 +1641,7 @@ define internal fastcc void @onas_ddd_handle_extra_scanning(ptr noundef %0, ptr 
   store ptr %11, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %12, i64 65
   %15 = load i8, ptr %14, align 1
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp samesign ult i32 %2, 2
   %. = select i1 %.not, i8 21, i8 22
   %16 = or i8 %15, %.
   store i8 %16, ptr %14, align 1

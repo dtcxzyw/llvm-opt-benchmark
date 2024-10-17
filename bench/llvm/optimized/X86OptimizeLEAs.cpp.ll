@@ -1593,7 +1593,7 @@ _ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit40.thread5.i.i: ; preds = %_Z
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %619 = load i24, ptr %605, align 8
   %620 = zext i24 %619 to i64
-  %621 = icmp ult i64 %indvars.iv.next.i.i, %620
+  %621 = icmp samesign ult i64 %indvars.iv.next.i.i, %620
   br i1 %621, label %.lr.ph.i.i, label %_ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit._crit_edge.i.i, !llvm.loop !58
 
 _ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit._crit_edge.i.i: ; preds = %_ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit40.thread5.i.i, %_ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit.preheader.i.i

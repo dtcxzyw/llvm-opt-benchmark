@@ -911,7 +911,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   %153 = getelementptr i8, ptr %152, i64 32
   %.val.i21 = load i32, ptr %153, align 8
   %154 = lshr i32 %.val.i21, 6
-  %.not16.i = icmp ugt i32 %149, %154
+  %.not16.i = icmp samesign ugt i32 %149, %154
   br i1 %.not16.i, label %155, label %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit
 
 155:                                              ; preds = %.lr.ph.i18

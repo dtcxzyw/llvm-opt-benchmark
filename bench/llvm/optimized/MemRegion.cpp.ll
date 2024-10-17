@@ -12124,7 +12124,7 @@ define internal fastcc noundef zeroext i1 @"_ZZZNK5clang4ento16MemRegionManager1
   %24 = load i64, ptr %23, align 8, !noalias !95
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %22, ptr %25, align 8, !alias.scope !95
-  %26 = icmp ult i32 %22, 65
+  %26 = icmp samesign ult i32 %22, 65
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %20

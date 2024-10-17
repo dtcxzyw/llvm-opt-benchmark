@@ -29,7 +29,7 @@ define void @Dar_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %9 = load i32, ptr %2, align 4
   %10 = lshr i32 %9, 29
   %11 = zext nneg i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %5, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -84,7 +84,7 @@ define void @Dar_ObjCutPrint(ptr nocapture noundef readnone %0, ptr nocapture no
   %21 = load i32, ptr %10, align 4
   %22 = lshr i32 %21, 29
   %23 = zext nneg i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %24, label %17, label %Dar_CutPrint.exit, !llvm.loop !4
 
 Dar_CutPrint.exit:                                ; preds = %17, %14
@@ -98,7 +98,7 @@ Dar_CutPrint.exit:                                ; preds = %17, %14
   %28 = getelementptr inbounds i8, ptr %.078, i64 24
   %29 = lshr i64 %26, 56
   %30 = trunc nuw nsw i64 %29 to i32
-  %31 = icmp ult i32 %27, %30
+  %31 = icmp samesign ult i32 %27, %30
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %25, %2
@@ -323,7 +323,7 @@ define ptr @Dar_ObjPrepareCuts(ptr nocapture noundef %0, ptr noundef %1) local_u
   %26 = load i64, ptr %5, align 8
   %27 = lshr i64 %26, 56
   %28 = trunc nuw nsw i64 %27 to i32
-  %29 = icmp ult i32 %24, %28
+  %29 = icmp samesign ult i32 %24, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -627,7 +627,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %66 = and i32 %65, 31
   %67 = lshr i32 %65, 16
   %68 = add nuw nsw i32 %66, %67
-  %69 = icmp ugt i32 %68, 4
+  %69 = icmp samesign ugt i32 %68, 4
   br i1 %69, label %Dar_CutMerge.exit.thread, label %70
 
 70:                                               ; preds = %44
@@ -663,7 +663,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %86 = and i32 %85, 2047
   %87 = lshr i32 %75, 16
   %88 = and i32 %87, 2047
-  %89 = icmp ugt i32 %86, %88
+  %89 = icmp samesign ugt i32 %86, %88
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %82, %80
@@ -700,7 +700,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %104 = and i32 %103, 2047
   %105 = lshr i32 %96, 16
   %106 = and i32 %105, 2047
-  %107 = icmp ugt i32 %104, %106
+  %107 = icmp samesign ugt i32 %104, %106
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %100, %98
@@ -738,7 +738,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %121 = load i32, ptr %120, align 4
   %122 = lshr i32 %121, 16
   %123 = and i32 %122, 2047
-  %124 = icmp ugt i32 %119, %123
+  %124 = icmp samesign ugt i32 %119, %123
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %115, %.lr.ph19.i
@@ -765,7 +765,7 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   %133 = lshr i32 %132, 29
   %134 = load i32, ptr %40, align 4
   %135 = lshr i32 %134, 29
-  %.not.i69 = icmp ugt i32 %133, %135
+  %.not.i69 = icmp samesign ugt i32 %133, %135
   br i1 %.not.i69, label %138, label %136
 
 136:                                              ; preds = %Dar_CutFindFree.exit
@@ -1170,7 +1170,7 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %301
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %323 = lshr i32 %322, 29
   %324 = zext nneg i32 %323 to i64
-  %325 = icmp ult i64 %indvars.iv.next57.i, %324
+  %325 = icmp samesign ult i64 %indvars.iv.next57.i, %324
   br i1 %325, label %306, label %326, !llvm.loop !22
 
 326:                                              ; preds = %321
@@ -1233,7 +1233,7 @@ Aig_ManObj.exit.i:                                ; preds = %343, %.lr.ph.split.
 
 353:                                              ; preds = %.critedge.i
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %348, i32 1000)
-  %354 = icmp ugt i32 %351, 3
+  %354 = icmp samesign ugt i32 %351, 3
   %355 = sub nsw i32 5, %351
   %spec.select.i = select i1 %354, i32 %355, i32 %spec.store.select.i
   br label %Dar_CutFindValue.exit
@@ -1268,7 +1268,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %138, %136, %39, %36
   %371 = load i64, ptr %19, align 8
   %372 = lshr i64 %371, 56
   %373 = trunc nuw nsw i64 %372 to i32
-  %374 = icmp ult i32 %369, %373
+  %374 = icmp samesign ult i32 %369, %373
   br i1 %374, label %39, label %.loopexit.loopexit, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %Dar_CutMerge.exit.thread
@@ -1281,7 +1281,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %138, %136, %39, %36
   %377 = getelementptr inbounds i8, ptr %.061105, i64 24
   %378 = lshr i64 %375, 56
   %379 = trunc nuw nsw i64 %378 to i32
-  %380 = icmp ult i32 %376, %379
+  %380 = icmp samesign ult i32 %376, %379
   br i1 %380, label %30, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
@@ -1319,7 +1319,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %138, %136, %39, %36
   %397 = getelementptr inbounds i8, ptr %.059109, i64 24
   %398 = lshr i64 %395, 56
   %399 = trunc nuw nsw i64 %398 to i32
-  %400 = icmp ult i32 %396, %399
+  %400 = icmp samesign ult i32 %396, %399
   br i1 %400, label %385, label %._crit_edge113, !llvm.loop !26
 
 ._crit_edge113:                                   ; preds = %394, %._crit_edge
@@ -1365,7 +1365,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutFilter(ptr nocapture noundef 
   %16 = lshr i32 %11, 29
   %17 = load i32, ptr %6, align 4
   %18 = lshr i32 %17, 29
-  %19 = icmp ugt i32 %16, %18
+  %19 = icmp samesign ugt i32 %16, %18
   %20 = load i32, ptr %.02257, align 4
   %21 = load i32, ptr %1, align 4
   %22 = and i32 %21, %20
@@ -1475,7 +1475,7 @@ Dar_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i40,
   %50 = getelementptr inbounds i8, ptr %.02257, i64 24
   %51 = lshr i64 %48, 56
   %52 = trunc nuw nsw i64 %51 to i32
-  %53 = icmp ult i32 %49, %52
+  %53 = icmp samesign ult i32 %49, %52
   br i1 %53, label %8, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %Dar_CutCheckDominance.exit.thread, %2, %Dar_CutCheckDominance.exit43
@@ -1606,7 +1606,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr nocapture no
   %30 = load i32, ptr %4, align 4
   %31 = lshr i32 %30, 29
   %32 = zext nneg i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next153, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next153, %32
   br i1 %33, label %26, label %._crit_edge127.loopexit, !llvm.loop !31
 
 ._crit_edge127.loopexit:                          ; preds = %26
@@ -1680,7 +1680,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr nocapture no
   %57 = load i32, ptr %4, align 4
   %58 = lshr i32 %57, 29
   %59 = zext nneg i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next146, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next146, %59
   br i1 %60, label %53, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %53

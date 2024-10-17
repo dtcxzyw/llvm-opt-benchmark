@@ -131,7 +131,7 @@ define ptr @Wlc_ObjTypeName(ptr noundef readonly %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = load i16, ptr %0, align 8
   %4 = and i16 %3, 63
-  %5 = icmp ult i16 %4, 60
+  %5 = icmp samesign ult i16 %4, 60
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
@@ -2260,7 +2260,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %40, %Wlc_ObjHasArra
 
 .critedge2:                                       ; preds = %53, %22
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %55 = icmp ult i64 %indvars.iv.next106, %20
+  %55 = icmp samesign ult i64 %indvars.iv.next106, %20
   br i1 %55, label %22, label %.critedge.preheader, !llvm.loop !21
 
 .critedge4.preheader:                             ; preds = %.critedge, %.critedge.preheader
@@ -5935,7 +5935,7 @@ Wlc_ObjName.exit138:                              ; preds = %212, %216
   %233 = tail call i32 @llvm.abs.i32(i32 %232, i1 true)
   %234 = add nuw nsw i32 %233, 4
   %235 = lshr i32 %234, 2
-  %236 = icmp ult i32 %231, %235
+  %236 = icmp samesign ult i32 %231, %235
   br i1 %236, label %.lr.ph, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !41
 
 237:                                              ; preds = %222
@@ -5984,7 +5984,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %260 = lshr i64 %256, %259
   %261 = trunc i64 %260 to i32
   %262 = and i32 %261, 15
-  %263 = icmp ult i32 %262, 10
+  %263 = icmp samesign ult i32 %262, 10
   %264 = or disjoint i32 %262, 48
   %265 = add nuw nsw i32 %262, 87
   %.0.i.i = select i1 %263, i32 %264, i32 %265
@@ -6716,7 +6716,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   %30 = sub nsw i32 %.val33, %.val34
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
-  %.not.not = icmp ult i64 %indvars.iv43, %32
+  %.not.not = icmp samesign ult i64 %indvars.iv43, %32
   br i1 %.not.not, label %25, label %.loopexit.loopexit, !llvm.loop !49
 
 .loopexit.loopexit:                               ; preds = %25

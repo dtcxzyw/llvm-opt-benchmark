@@ -1222,7 +1222,7 @@ _ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread: ; preds = %182, %167
   %193 = phi float [ %190, %192 ], [ %99, %189 ], [ %99, %.lr.ph ], [ %99, %158 ], [ %99, %167 ], [ %99, %182 ]
   %.2 = phi i1 [ true, %192 ], [ true, %189 ], [ %.162, %.lr.ph ], [ %.162, %158 ], [ %.162, %167 ], [ %.162, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %194 = icmp ult i64 %indvars.iv.next, %98
+  %194 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread, %.lr.ph67

@@ -523,7 +523,7 @@ define hidden void @"_ZN129_$LT$digest..core_api..ct_variable..CtVariableCoreWra
   %28 = xor i64 %18, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %28, i1 false), !alias.scope !86, !noalias !99
   %29 = xor i64 %18, 56
-  %30 = icmp ult i64 %29, 8
+  %30 = icmp samesign ult i64 %29, 8
   br i1 %30, label %._crit_edge.thread.i, label %35
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %3
@@ -5185,7 +5185,7 @@ define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..
   %22 = xor i64 %11, 63
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %22, i1 false), !noalias !933
   %23 = xor i64 %11, 56
-  %24 = icmp ult i64 %23, 8
+  %24 = icmp samesign ult i64 %23, 8
   br i1 %24, label %._crit_edge.thread, label %29
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge

@@ -10902,7 +10902,7 @@ _ZN4llvm11raw_ostreamlsEc.exit99.i:               ; preds = %865, %863
   %871 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #33
   %872 = add i32 %871, -1
   %873 = zext i32 %872 to i64
-  %874 = icmp ult i64 %indvars.iv.next.i, %873
+  %874 = icmp samesign ult i64 %indvars.iv.next.i, %873
   br i1 %874, label %.lr.ph.i, label %._crit_edge.i203, !llvm.loop !78
 
 ._crit_edge.i203:                                 ; preds = %_ZN4llvm11raw_ostreamlsEc.exit99.i, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i
@@ -18651,7 +18651,7 @@ _ZNK4llvm11ConstantInt15getLimitedValueEm.exit:   ; preds = %_ZNK4llvm5APInt13ge
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %100
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm10AsmPrinter8StructorES2_EC2ES3_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !248
 
 100:                                              ; preds = %.lr.ph.i.i.i.i.i

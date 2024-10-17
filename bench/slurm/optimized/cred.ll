@@ -1096,7 +1096,7 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
 ._crit_edge:                                      ; preds = %78
   %80 = zext i16 %2 to i32
   %81 = udiv i32 %80, %62
-  %82 = icmp ugt i32 %81, 1
+  %82 = icmp samesign ugt i32 %81, 1
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %._crit_edge

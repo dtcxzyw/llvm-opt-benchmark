@@ -1165,7 +1165,7 @@ memcpy_reverse.exit73:                            ; preds = %memcpy_reverse.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = icmp ne ptr %161, null
   %163 = zext i32 %160 to i64
-  %164 = icmp ult i64 %indvars.iv.next, %163
+  %164 = icmp samesign ult i64 %indvars.iv.next, %163
   %165 = select i1 %162, i1 %164, i1 false
   br i1 %165, label %25, label %._crit_edge, !llvm.loop !12
 
@@ -1920,7 +1920,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
 
 46:                                               ; preds = %41, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %47 = icmp ult i64 %indvars.iv.next.i.i, %30
+  %47 = icmp samesign ult i64 %indvars.iv.next.i.i, %30
   br i1 %47, label %35, label %zb_direct_decrypt.exit, !llvm.loop !14
 
 zb_direct_decryption_needed.exit.i:               ; preds = %41, %39

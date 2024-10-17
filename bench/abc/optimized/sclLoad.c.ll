@@ -71,7 +71,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   %31 = getelementptr inbounds float, ptr %15, i64 %30
   store float %29, ptr %31, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %32 = icmp ult i64 %indvars.iv.next104, %23
+  %32 = icmp samesign ult i64 %indvars.iv.next104, %23
   br i1 %32, label %24, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %24, %Vec_FltStart.exit

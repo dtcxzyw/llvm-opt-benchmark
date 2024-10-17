@@ -128,7 +128,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_ucmple16P1
   %37 = trunc i64 %36 to i32
   %38 = and i32 %34, 65535
   %39 = and i32 %37, 65535
-  %.not.not = icmp ugt i32 %38, %39
+  %.not.not = icmp samesign ugt i32 %38, %39
   %40 = xor i64 %28, -1
   %41 = and i64 %.044, %40
   %42 = select i1 %.not.not, i64 0, i64 65535
@@ -224,7 +224,7 @@ define noundef i64 @_Z19fast_rv64i_ucmple16P11processor_t6insn_tm(ptr nocapture 
   %37 = trunc i64 %36 to i32
   %38 = and i32 %34, 65535
   %39 = and i32 %37, 65535
-  %.not.not = icmp ugt i32 %38, %39
+  %.not.not = icmp samesign ugt i32 %38, %39
   %40 = xor i64 %28, -1
   %41 = and i64 %.044, %40
   %42 = select i1 %.not.not, i64 0, i64 65535
@@ -301,7 +301,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_ucmple16
   %37 = trunc i64 %36 to i32
   %38 = and i32 %34, 65535
   %39 = and i32 %37, 65535
-  %.not.not = icmp ugt i32 %38, %39
+  %.not.not = icmp samesign ugt i32 %38, %39
   %40 = xor i64 %28, -1
   %41 = and i64 %.049, %40
   %42 = select i1 %.not.not, i64 0, i64 65535
@@ -439,7 +439,7 @@ define noundef i64 @_Z21logged_rv64i_ucmple16P11processor_t6insn_tm(ptr noundef 
   %37 = trunc i64 %36 to i32
   %38 = and i32 %34, 65535
   %39 = and i32 %37, 65535
-  %.not.not = icmp ugt i32 %38, %39
+  %.not.not = icmp samesign ugt i32 %38, %39
   %40 = xor i64 %28, -1
   %41 = and i64 %.049, %40
   %42 = select i1 %.not.not, i64 0, i64 65535
@@ -543,7 +543,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_ucmple16P1
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -564,7 +564,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_ucmple16P1
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 15
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -584,7 +584,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_ucmple16P1
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %1, 20
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
@@ -621,7 +621,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_ucmple16P1
   %58 = trunc i64 %57 to i32
   %59 = and i32 %55, 65535
   %60 = and i32 %58, 65535
-  %.not.not = icmp ugt i32 %59, %60
+  %.not.not = icmp samesign ugt i32 %59, %60
   %61 = xor i64 %49, -1
   %62 = and i64 %.04563, %61
   %63 = select i1 %.not.not, i64 0, i64 65535
@@ -672,7 +672,7 @@ define noundef i64 @_Z19fast_rv64e_ucmple16P11processor_t6insn_tm(ptr nocapture 
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -693,7 +693,7 @@ define noundef i64 @_Z19fast_rv64e_ucmple16P11processor_t6insn_tm(ptr nocapture 
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 15
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -713,7 +713,7 @@ define noundef i64 @_Z19fast_rv64e_ucmple16P11processor_t6insn_tm(ptr nocapture 
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %1, 20
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
@@ -750,7 +750,7 @@ define noundef i64 @_Z19fast_rv64e_ucmple16P11processor_t6insn_tm(ptr nocapture 
   %58 = trunc i64 %57 to i32
   %59 = and i32 %55, 65535
   %60 = and i32 %58, 65535
-  %.not.not = icmp ugt i32 %59, %60
+  %.not.not = icmp samesign ugt i32 %59, %60
   %61 = xor i64 %49, -1
   %62 = and i64 %.04563, %61
   %63 = select i1 %.not.not, i64 0, i64 65535
@@ -797,7 +797,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_ucmple16
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -818,7 +818,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_ucmple16
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 15
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -838,7 +838,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_ucmple16
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %1, 20
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
@@ -875,7 +875,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_ucmple16
   %58 = trunc i64 %57 to i32
   %59 = and i32 %55, 65535
   %60 = and i32 %58, 65535
-  %.not.not = icmp ugt i32 %59, %60
+  %.not.not = icmp samesign ugt i32 %59, %60
   %61 = xor i64 %49, -1
   %62 = and i64 %.04868, %61
   %63 = select i1 %.not.not, i64 0, i64 65535
@@ -983,7 +983,7 @@ define noundef i64 @_Z21logged_rv64e_ucmple16P11processor_t6insn_tm(ptr noundef 
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -1004,7 +1004,7 @@ define noundef i64 @_Z21logged_rv64e_ucmple16P11processor_t6insn_tm(ptr noundef 
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 15
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -1024,7 +1024,7 @@ define noundef i64 @_Z21logged_rv64e_ucmple16P11processor_t6insn_tm(ptr noundef 
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %1, 20
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
@@ -1061,7 +1061,7 @@ define noundef i64 @_Z21logged_rv64e_ucmple16P11processor_t6insn_tm(ptr noundef 
   %58 = trunc i64 %57 to i32
   %59 = and i32 %55, 65535
   %60 = and i32 %58, 65535
-  %.not.not = icmp ugt i32 %59, %60
+  %.not.not = icmp samesign ugt i32 %59, %60
   %61 = xor i64 %49, -1
   %62 = and i64 %.04868, %61
   %63 = select i1 %.not.not, i64 0, i64 65535

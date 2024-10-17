@@ -271,7 +271,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %181 = fcmp oge double %180, 0.000000e+00
   %182 = fneg double %180
   %183 = select i1 %181, double %180, double %182
-  %184 = icmp ugt i64 %177, 1
+  %184 = icmp samesign ugt i64 %177, 1
   br i1 %184, label %185, label %.loopexit40
 
 185:                                              ; preds = %176
@@ -376,7 +376,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %258 = fneg double %256
   %259 = select i1 %257, double %256, double %258
   %260 = add nuw nsw i64 %251, 1
-  %261 = icmp ult i64 %251, %216
+  %261 = icmp samesign ult i64 %251, %216
   br i1 %261, label %262, label %..loopexit39_crit_edge
 
 ..loopexit39_crit_edge:                           ; preds = %250
@@ -490,7 +490,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %335 = fcmp oge double %334, 0.000000e+00
   %336 = fneg double %334
   %337 = select i1 %335, double %334, double %336
-  %338 = icmp ugt i64 %331, 1
+  %338 = icmp samesign ugt i64 %331, 1
   br i1 %338, label %339, label %.loopexit38
 
 339:                                              ; preds = %330
@@ -601,7 +601,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %419 = fneg double %417
   %420 = select i1 %418, double %417, double %419
   %421 = add nuw nsw i64 %412, 1
-  %422 = icmp ult i64 %412, %375
+  %422 = icmp samesign ult i64 %412, %375
   br i1 %422, label %423, label %..loopexit37_crit_edge
 
 ..loopexit37_crit_edge:                           ; preds = %411
@@ -826,7 +826,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread34:                                        ; preds = %542, %562, %560
   %565 = add nuw nsw i64 %106, 1
-  %566 = icmp ult i64 %106, %103
+  %566 = icmp samesign ult i64 %106, %103
   br i1 %566, label %104, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread34, %80, %75, %86, %76, %68

@@ -7199,7 +7199,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %13 = zext nneg i8 %7 to i64
   %14 = add nsw i64 %13, -5
   %15 = select i1 %12, i64 %14, i64 0
-  %16 = icmp ult i8 %8, 6
+  %16 = icmp samesign ult i8 %8, 6
   %17 = zext nneg i8 %8 to i64
   %18 = add nsw i64 %17, -5
   %19 = select i1 %16, i64 0, i64 %18
@@ -10390,15 +10390,15 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread: ; pr
   br label %90
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %85, i64 3, i64 4
   br label %86
 
@@ -11213,15 +11213,15 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
   br label %85
 
 75:                                               ; preds = %70
-  %76 = icmp ult i32 %.sroa.4.1.i.ph, 128
+  %76 = icmp samesign ult i32 %.sroa.4.1.i.ph, 128
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i32 %.sroa.4.1.i.ph, 2048
+  %78 = icmp samesign ult i32 %.sroa.4.1.i.ph, 2048
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i32 %.sroa.4.1.i.ph, 65536
+  %80 = icmp samesign ult i32 %.sroa.4.1.i.ph, 65536
   %. = select i1 %80, i64 -3, i64 -4
   br label %81
 
@@ -18212,7 +18212,7 @@ _ZN10env_logger6logger7Builder8from_env17h5f8228e94a99d336E.exit: ; preds = %_ZN
   %41 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %42 = icmp ult i64 %41, 6
   call void @llvm.assume(i1 %42)
-  %switch.selectcmp43 = icmp ugt i64 %41, 2
+  %switch.selectcmp43 = icmp samesign ugt i64 %41, 2
   br i1 %switch.selectcmp43, label %43, label %39
 
 43:                                               ; preds = %40

@@ -382,7 +382,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -1086,7 +1086,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -1754,7 +1754,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -2424,7 +2424,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -3092,7 +3092,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -3762,7 +3762,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -4430,7 +4430,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 
@@ -5100,7 +5100,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 161:                                              ; preds = %143
-  %162 = icmp ult i64 %95, %131
+  %162 = icmp samesign ult i64 %95, %131
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   br i1 %162, label %163, label %._crit_edge.i
 

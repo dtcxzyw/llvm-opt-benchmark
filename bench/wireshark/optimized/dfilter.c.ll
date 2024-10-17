@@ -201,7 +201,7 @@ define hidden ptr @dfilter_resolve_unparsed(ptr noundef %0, ptr noundef %1) loca
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr %8, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next.i, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %7, %10
@@ -238,7 +238,7 @@ define hidden void @add_deprecated_token(ptr noundef %0, ptr noundef %1) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %3, align 8
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %2, %5
@@ -351,7 +351,7 @@ define void @dfilter_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %5, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !6
 
 free_insns.exit:                                  ; preds = %.lr.ph.i, %4
@@ -1232,7 +1232,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %33 = load i32, ptr %20, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next27, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next27, %34
   br i1 %35, label %reference_new.exit.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !12
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %._crit_edge18.split
@@ -1286,7 +1286,7 @@ reference_new.exit:                               ; preds = %.preheader, %refere
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %42, align 8
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %59, label %reference_new.exit, label %._crit_edge.split, !llvm.loop !12
 
 ._crit_edge.split:                                ; preds = %reference_new.exit, %.preheader
@@ -1713,7 +1713,7 @@ define internal fastcc void @dfwork_free(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %29, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !6
 
 free_insns.exit:                                  ; preds = %.lr.ph.i, %28

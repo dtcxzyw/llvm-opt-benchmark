@@ -1265,8 +1265,8 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   %or.cond11 = icmp eq i64 %552, 2
   %553 = icmp ne i64 %550, 0
   %or.cond13 = or i1 %or.cond11, %553
-  %554 = icmp ugt i64 %551, 524287
-  %or.cond17 = or i1 %554, %or.cond13
+  %554 = icmp samesign ugt i64 %551, 524287
+  %or.cond17 = select i1 %or.cond13, i1 true, i1 %554
   br i1 %or.cond17, label %.critedge, label %555
 
 555:                                              ; preds = %547

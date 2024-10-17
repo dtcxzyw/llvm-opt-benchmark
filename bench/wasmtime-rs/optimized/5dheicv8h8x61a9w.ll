@@ -6246,7 +6246,7 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
 
 34:                                               ; preds = %25, %25
   %35 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8, !range !223, !alias.scope !224, !noalias !227, !noundef !11
-  %switch.i.i = icmp ult i32 %35, 2
+  %switch.i.i = icmp samesign ult i32 %35, 2
   %36 = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !alias.scope !224, !noalias !227
   %37 = load i32, ptr %13, align 8, !alias.scope !224, !noalias !227
   %.sroa.7.0.i.i = select i1 %switch.i.i, i32 undef, i32 %37
@@ -6285,7 +6285,7 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleEnvironment9translate1
   %48 = load i64, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !229, !noalias !232, !noundef !11
   %49 = add i64 %48, 1
   store i64 %49, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !229, !noalias !232
-  %switch.i13.i = icmp ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
+  %switch.i13.i = icmp samesign ult i32 %.sroa.7.sroa.0.0.copyload.i, 2
   %.sroa.7.0.i14.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.5.0.copyload.i
   %.sroa.6.0.i15.i = select i1 %switch.i13.i, i32 undef, i32 %.sroa.7.sroa.4.0.copyload.i
   store i64 %29, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !210, !noalias !215
@@ -6992,7 +6992,7 @@ default.unreachable2569:                          ; preds = %1068
           to label %291 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 289:                                              ; preds = %1871, %1663, %.loopexit2168, %._crit_edge, %.loopexit2147, %.loopexit2143, %.loopexit2138, %.loopexit2134, %.thread1684, %.loopexit2125, %._crit_edge2387
-  %290 = icmp ult i8 %162, 27
+  %290 = icmp samesign ult i8 %162, 27
   br i1 %290, label %switch.hole_check, label %.thread1615
 
 291:                                              ; preds = %283
@@ -7148,7 +7148,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   %360 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %361 = icmp ult i64 %360, 6
   call void @llvm.assume(i1 %361)
-  %362 = icmp ugt i64 %360, 4
+  %362 = icmp samesign ugt i64 %360, 4
   br i1 %362, label %363, label %357
 
 363:                                              ; preds = %359
@@ -12012,7 +12012,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %1861 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %1862 = icmp ult i64 %1861, 6
   call void @llvm.assume(i1 %1862)
-  %1863 = icmp ugt i64 %1861, 1
+  %1863 = icmp samesign ugt i64 %1861, 1
   br i1 %1863, label %1864, label %1857
 
 1864:                                             ; preds = %1860
@@ -12717,7 +12717,7 @@ common.resume:                                    ; preds = %63, %126
   %97 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %98 = icmp ult i64 %97, 6
   tail call void @llvm.assume(i1 %98)
-  %99 = icmp ugt i64 %97, 1
+  %99 = icmp samesign ugt i64 %97, 1
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE.exit198.thread", %101
@@ -14184,7 +14184,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thre
   %84 = getelementptr inbounds i8, ptr %78, i64 8
   %85 = load i32, ptr %84, align 4, !range !1243, !noundef !11
   %86 = and i32 %85, 11
-  %switch = icmp ugt i32 %86, 2
+  %switch = icmp samesign ugt i32 %86, 2
   %trunc = trunc nuw i64 %.sroa.0.0.copyload4.i to i1
   %or.cond95.not = select i1 %switch, i1 true, i1 %trunc
   br i1 %or.cond95.not, label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1d4988c5e91a7af0E.exit", label %87

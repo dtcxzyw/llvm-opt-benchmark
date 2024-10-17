@@ -322,7 +322,7 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
   %31 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 false)
   %32 = trunc nuw nsw i32 %31 to i8
   %33 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %27
@@ -522,7 +522,7 @@ define weak_odr noundef float @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS
   %spec.select.i = mul i32 %13, %.01116.i
   %14 = mul i32 %.01215.i, %.01215.i
   %15 = lshr i32 %.017.i, 1
-  %.not.i = icmp ult i32 %.017.i, 2
+  %.not.i = icmp samesign ult i32 %.017.i, 2
   br i1 %.not.i, label %_ZN5drjit3powIjjEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN5drjit3powIjjEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit: ; preds = %.lr.ph.i, %5
@@ -1713,7 +1713,7 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
 34:                                               ; preds = %21, %25
   %.019 = phi i32 [ %33, %25 ], [ %.02627, %21 ]
   %35 = add nuw nsw i64 %.029, 1
-  %36 = icmp ult i64 %35, %6
+  %36 = icmp samesign ult i64 %35, %6
   br i1 %36, label %21, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %34, %3

@@ -4209,7 +4209,7 @@ _ZN5sim_t8get_coreEm.exit:                        ; preds = %1
   br i1 %.not, label %.preheader, label %.preheader60, !llvm.loop !21
 
 .preheader:                                       ; preds = %.preheader60
-  %44 = icmp ult i64 %indvars.iv, 8
+  %44 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -5095,7 +5095,7 @@ define void @_ZN5sim_t4idleEv(ptr noundef nonnull align 8 dereferenceable(2888) 
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %46, %29, %18
   %56 = add nuw nsw i64 %.sroa.speculated.i, %.020.i
-  %57 = icmp ult i64 %56, 5000
+  %57 = icmp samesign ult i64 %56, 5000
   br i1 %57, label %18, label %_ZN5sim_t4stepEm.exit, !llvm.loop !19
 
 _ZN5sim_t4stepEm.exit:                            ; preds = %.loopexit.i, %10

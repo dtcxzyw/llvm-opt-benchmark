@@ -289,7 +289,7 @@ define internal void @blk_stat_timer_fn(ptr noundef %0) #2 align 16 {
   %18 = add nuw nsw i64 %11, 1
   %19 = load i32, ptr %2, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   br i1 %21, label %10, label %.loopexit3, !llvm.loop !16
 
 22:                                               ; preds = %.loopexit3, %.loopexit
@@ -371,14 +371,14 @@ define internal void @blk_stat_timer_fn(ptr noundef %0) #2 align 16 {
   %78 = add nuw nsw i64 %42, 1
   %79 = load i32, ptr %2, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %78, %80
+  %81 = icmp samesign ult i64 %78, %80
   br i1 %81, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %74, %33
   %82 = phi i32 [ 0, %33 ], [ %79, %74 ]
   %83 = add nuw nsw i64 %30, 1
   %84 = and i64 %83, 127
-  %85 = icmp ugt i64 %84, 63
+  %85 = icmp samesign ugt i64 %84, 63
   br i1 %85, label %.thread, label %22, !prof !19, !llvm.loop !20
 
 .thread:                                          ; preds = %22, %.loopexit, %29
@@ -436,13 +436,13 @@ define dso_local void @blk_stat_add_callback(ptr noundef %0, ptr noundef %1) loc
   %31 = add nuw nsw i64 %25, 1
   %32 = load i32, ptr %4, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %15
   %35 = add nuw nsw i64 %12, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %5, !prof !19, !llvm.loop !22
 
 .thread:                                          ; preds = %5, %.loopexit, %11

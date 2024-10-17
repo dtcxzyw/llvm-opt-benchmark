@@ -23783,7 +23783,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
 
 ._crit_edge.us.i300.us:                           ; preds = %151
   %161 = add nuw nsw i64 %.07992.us.i.us, 4
-  %162 = icmp ult i64 %161, %145
+  %162 = icmp samesign ult i64 %161, %145
   br i1 %162, label %.preheader88.us.i.us, label %.preheader87.i.us, !llvm.loop !454
 
 .preheader87.i.us:                                ; preds = %._crit_edge.us.i300.us, %140
@@ -24007,7 +24007,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i335:                              ; preds = %235
   %245 = add nuw nsw i64 %.07992.us.i330, 4
-  %246 = icmp ult i64 %245, %229
+  %246 = icmp samesign ult i64 %245, %229
   br i1 %246, label %.preheader88.us.i329, label %.preheader87.i302, !llvm.loop !454
 
 .preheader87.i302:                                ; preds = %._crit_edge.us.i335, %228
@@ -24470,7 +24470,7 @@ define linkonce_odr void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(ptr nound
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !467
 
@@ -24584,7 +24584,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !467
 
@@ -29673,7 +29673,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
 
 ._crit_edge.us.i307.us:                           ; preds = %150
   %160 = add nuw nsw i64 %.07992.us.i.us, 4
-  %161 = icmp ult i64 %160, %144
+  %161 = icmp samesign ult i64 %160, %144
   br i1 %161, label %.preheader88.us.i.us, label %.preheader87.i.us, !llvm.loop !454
 
 .preheader87.i.us:                                ; preds = %._crit_edge.us.i307.us, %141
@@ -29902,7 +29902,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i342:                              ; preds = %243
   %253 = add nuw nsw i64 %.07992.us.i337, 4
-  %254 = icmp ult i64 %253, %237
+  %254 = icmp samesign ult i64 %253, %237
   br i1 %254, label %.preheader88.us.i336, label %.preheader87.i309, !llvm.loop !454
 
 .preheader87.i309:                                ; preds = %._crit_edge.us.i342, %236

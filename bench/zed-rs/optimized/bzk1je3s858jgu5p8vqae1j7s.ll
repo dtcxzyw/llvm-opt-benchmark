@@ -9567,7 +9567,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN4core3
   %61 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %62 = icmp ult i64 %61, 6
   call void @llvm.assume(i1 %62)
-  %switch.i39 = icmp ugt i64 %61, 1
+  %switch.i39 = icmp samesign ugt i64 %61, 1
   br i1 %switch.i39, label %63, label %53
 
 63:                                               ; preds = %60
@@ -14474,7 +14474,7 @@ _ZN13async_process7Command3arg17h2444b89155b69854E.exit.i: ; preds = %1418
   %1585 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3981
   %1586 = icmp ult i64 %1585, 6
   call void @llvm.assume(i1 %1586)
-  %switch.i168.i = icmp ugt i64 %1585, 2
+  %switch.i168.i = icmp samesign ugt i64 %1585, 2
   br i1 %switch.i168.i, label %1587, label %"_ZN4core3ptr43drop_in_place$LT$async_process..Command$GT$17h5185bc79bd097561E.exit135.i"
 
 1587:                                             ; preds = %1584
@@ -14822,7 +14822,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit.i: ; preds = %1595
   %1699 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3981
   %1700 = icmp ult i64 %1699, 6
   call void @llvm.assume(i1 %1700)
-  %switch.i187.i = icmp ugt i64 %1699, 2
+  %switch.i187.i = icmp samesign ugt i64 %1699, 2
   br i1 %switch.i187.i, label %1701, label %.thread423.i
 
 1701:                                             ; preds = %1698
@@ -15710,7 +15710,7 @@ _ZN5alloc3fmt6format17ha8569d2e1d23f268E.exit80.i.i: ; preds = %1913
   %1958 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3981
   %1959 = icmp ult i64 %1958, 6
   call void @llvm.assume(i1 %1959)
-  %switch.i205.i = icmp ugt i64 %1958, 2
+  %switch.i205.i = icmp samesign ugt i64 %1958, 2
   br i1 %switch.i205.i, label %1960, label %1984
 
 1960:                                             ; preds = %1957
@@ -18862,7 +18862,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr80drop
   %69 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %70 = icmp ult i64 %69, 6
   call void @llvm.assume(i1 %70)
-  %switch.i121 = icmp ugt i64 %69, 3
+  %switch.i121 = icmp samesign ugt i64 %69, 3
   br i1 %switch.i121, label %71, label %88
 
 71:                                               ; preds = %68
@@ -19983,7 +19983,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit123: ; preds = %104
   %504 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %505 = icmp ult i64 %504, 6
   call void @llvm.assume(i1 %505)
-  %switch.i173 = icmp ugt i64 %504, 3
+  %switch.i173 = icmp samesign ugt i64 %504, 3
   br i1 %switch.i173, label %506, label %522
 
 506:                                              ; preds = %501

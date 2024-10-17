@@ -1982,7 +1982,7 @@ sw.bb7.i.i.i28:                                   ; preds = %while.body.i.i.i24
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %sw.bb7.i.i.i28, %sw.bb5.i.i.i51, %sw.bb3.i.i.i53
   %retval.0.i.i.i29 = phi i32 [ %34, %sw.bb7.i.i.i28 ], [ %sub.i.i.i52, %sw.bb5.i.i.i51 ], [ %add.i.i.i54, %sw.bb3.i.i.i53 ]
   %35 = zext i32 %retval.0.i.i.i29 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %35
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %35
   br i1 %cmp.i, label %cond.true.i31, label %invoke.cont25
 
 cond.true.i31:                                    ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
@@ -2180,7 +2180,7 @@ for.inc:                                          ; preds = %invoke.cont42
   %bf.load.i16 = load i32, ptr %m_inconsistent.i, align 8
   %68 = and i32 %bf.load.i16, 536870912
   %tobool.i17 = icmp ne i32 %68, 0
-  %cmp = icmp uge i64 %indvars.iv.next, %14
+  %cmp = icmp samesign uge i64 %indvars.iv.next, %14
   %.not = select i1 %tobool.i17, i1 true, i1 %cmp
   br i1 %.not, label %for.end, label %cond.false.i, !llvm.loop !8
 
@@ -2640,7 +2640,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !12
 
@@ -7559,7 +7559,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont4:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %5, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %invoke.cont33
 
 for.body:                                         ; preds = %invoke.cont4
@@ -8247,7 +8247,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %3, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
@@ -16345,7 +16345,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !49
 

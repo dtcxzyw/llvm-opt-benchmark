@@ -2645,7 +2645,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %18
   %40 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
   store i64 %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = icmp ugt i64 %37, %indvars.iv.next
+  %41 = icmp samesign ugt i64 %37, %indvars.iv.next
   br i1 %41, label %38, label %.loopexit, !llvm.loop !7
 
 42:                                               ; preds = %14

@@ -728,7 +728,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %18, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.59.0.copyload = load ptr, ptr %.sroa.59.0..sroa_idx, align 8
-  %19 = icmp ugt i64 %10, %13
+  %19 = icmp samesign ugt i64 %10, %13
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb408f3012b7553f3E.exit.i"
 
 20:                                               ; preds = %15
@@ -1382,7 +1382,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h988c5b69a92e389aE.exit.i"
 
 21:                                               ; preds = %16
@@ -1467,7 +1467,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.59.0.copyload = load ptr, ptr %.sroa.59.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
-  %19 = icmp ugt i64 %10, %13
+  %19 = icmp samesign ugt i64 %10, %13
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hcbce6acf2cf9ecbdE.exit.i"
 
 20:                                               ; preds = %15
@@ -2248,7 +2248,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.val.i.i to i64
   %27 = sub nuw i64 %25, %26
   %28 = udiv exact i64 %27, 80
-  %29 = icmp ugt i64 %28, %17
+  %29 = icmp samesign ugt i64 %28, %17
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha42da59db40df3d1E.exit.i"
 
 30:                                               ; preds = %19
@@ -2869,7 +2869,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h3
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h446305095a9bdd76E.exit.sink.split", label %83
 
 94:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17ha489e7d883e2005aE.exit"
-  %95 = icmp ult i64 %10, 29
+  %95 = icmp samesign ult i64 %10, 29
   br i1 %95, label %.lr.ph.i59, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h446305095a9bdd76E.exit.sink.split"
 
 .lr.ph.i59:                                       ; preds = %94
@@ -3097,7 +3097,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h819b9048b66d8e05E.exit.sink.split", label %79
 
 90:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hac1d506d22f7e986E.exit"
-  %91 = icmp ult i64 %12, 29
+  %91 = icmp samesign ult i64 %12, 29
   br i1 %91, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h819b9048b66d8e05E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %90
@@ -3317,7 +3317,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h9
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17habb00343ff386385E.exit.sink.split", label %.lr.ph.i49
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h703ae5e3b629e7c0E.exit"
-  %89 = icmp ult i64 %12, 29
+  %89 = icmp samesign ult i64 %12, 29
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17habb00343ff386385E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88, %99
@@ -3534,7 +3534,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h75cebd18613a0ab3E.exit.sink.split", label %79
 
 90:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a076766e85f6528E.exit"
-  %91 = icmp ult i64 %12, 29
+  %91 = icmp samesign ult i64 %12, 29
   br i1 %91, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h75cebd18613a0ab3E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %90
@@ -14915,7 +14915,7 @@ common.resume:                                    ; preds = %.body, %72, %"_ZN63
   store i64 0, ptr %57, align 8, !noalias !2508
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2513)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2516)
-  %58 = icmp ugt i64 %16, %52
+  %58 = icmp samesign ugt i64 %16, %52
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdc3b0ac4d1ca8839E.exit.i.i.i"
 
 59:                                               ; preds = %54
@@ -15621,7 +15621,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit80: ; preds = %.thread
   %189 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %190 = icmp ult i64 %189, 6
   call void @llvm.assume(i1 %190)
-  %switch60 = icmp ult i64 %189, 4
+  %switch60 = icmp samesign ult i64 %189, 4
   br i1 %switch60, label %203, label %191
 
 191:                                              ; preds = %188
@@ -15748,7 +15748,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit80: ; preds = %.thread
   %237 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %238 = icmp ult i64 %237, 6
   call void @llvm.assume(i1 %238)
-  %switch63 = icmp ult i64 %237, 4
+  %switch63 = icmp samesign ult i64 %237, 4
   br i1 %switch63, label %203, label %239
 
 239:                                              ; preds = %236
@@ -15857,7 +15857,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit80: ; preds = %.thread
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17ha2dddad29039739bE.llvm.17421949163919709637.exit"
 
 273:                                              ; preds = %156
-  %switch69 = icmp ult i64 %157, 4
+  %switch69 = icmp samesign ult i64 %157, 4
   br i1 %switch69, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17ha2dddad29039739bE.llvm.17421949163919709637.exit", label %274
 
 274:                                              ; preds = %273

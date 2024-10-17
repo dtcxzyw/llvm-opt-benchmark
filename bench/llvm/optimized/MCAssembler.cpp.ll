@@ -1451,7 +1451,7 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
   br i1 %20, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i64 %17, %7
+  %22 = icmp samesign ult i64 %17, %7
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -1466,7 +1466,7 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
 
 29:                                               ; preds = %10
   %.not.i = icmp ne i64 %16, 0
-  %30 = icmp ugt i64 %17, %7
+  %30 = icmp samesign ugt i64 %17, %7
   %31 = sub nsw i64 %7, %16
   %or.cond = select i1 %.not.i, i1 %30, i1 false
   br i1 %or.cond, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
@@ -4541,7 +4541,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i

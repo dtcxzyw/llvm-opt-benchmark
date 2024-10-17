@@ -4281,7 +4281,7 @@ while.body.i:                                     ; preds = %if.else8.i, %while.
   %sub.i = fsub float %mul13.i, %conv10.i
   %30 = tail call float @llvm.fabs.f32(float %sub.i)
   %cmp11.i = fcmp ogt float %30, 0x3EE4F8B580000000
-  %cmp12.i = icmp ult i32 %29, 100000
+  %cmp12.i = icmp samesign ult i32 %29, 100000
   %or.cond = select i1 %cmp11.i, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %while.body.i, label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRjS0_.exit.loopexit, !llvm.loop !167
 
@@ -4364,7 +4364,7 @@ while.body.i.i:                                   ; preds = %if.else8.i.i, %whil
   %sub.i.i = fsub float %mul13.i.i, %conv10.i.i
   %37 = tail call float @llvm.fabs.f32(float %sub.i.i)
   %cmp11.i.i = fcmp ogt float %37, 0x3EE4F8B580000000
-  %cmp12.i.i = icmp ult i32 %d.04.i, 100000
+  %cmp12.i.i = icmp samesign ult i32 %d.04.i, 100000
   %or.cond.i135 = select i1 %cmp11.i.i, i1 %cmp12.i.i, i1 false
   br i1 %or.cond.i135, label %while.body.i.i, label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRiS0_.exit, !llvm.loop !167
 

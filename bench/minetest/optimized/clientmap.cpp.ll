@@ -5216,7 +5216,7 @@ invoke.cont668:                                   ; preds = %cond.true605, %if.e
   %shl = select i1 %spec.select, i8 2, i8 0
   %317 = insertelement <2 x i16> poison, i16 %308, i64 0
   %318 = shufflevector <2 x i16> %317, <2 x i16> poison, <2 x i32> zeroinitializer
-  %319 = icmp ult <2 x i16> %313, %318
+  %319 = icmp samesign ult <2 x i16> %313, %318
   %shift = shufflevector <2 x i1> %319, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
   %320 = and <2 x i1> %shift, %319
   %321 = extractelement <2 x i1> %320, i64 0
@@ -16833,7 +16833,7 @@ lor.rhs56.i:                                      ; preds = %land.rhs.i
 _ZNK3irr5video14SMaterialLayerneERKS1_.exit:      ; preds = %lor.rhs56.i, %if.else.i
   %retval.0.i = phi i1 [ false, %if.else.i ], [ %lnot.i.i, %lor.rhs56.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp196 = icmp ugt i64 %indvars.iv, 2
+  %cmp196 = icmp samesign ugt i64 %indvars.iv, 2
   %.not = or i1 %cmp196, %retval.0.i
   br i1 %.not, label %for.cond.cleanup, label %for.body, !llvm.loop !608
 }

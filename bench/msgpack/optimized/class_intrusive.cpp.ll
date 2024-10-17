@@ -9457,7 +9457,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type12define_arrayIJKNSt7__c
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = shl nuw nsw i64 %.023.i.i, 1
-  %22 = icmp ult i64 %.023.i.i, 52
+  %22 = icmp samesign ult i64 %.023.i.i, 52
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %20, %.lr.ph.i.i, %17
@@ -9595,7 +9595,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14type16define_array_impISt5tup
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = shl nuw nsw i64 %.023.i.i.i.i, 1
-  %39 = icmp ult i64 %.023.i.i.i.i, 16
+  %39 = icmp samesign ult i64 %.023.i.i.i.i, 16
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !23
 
 ._crit_edge.i.i.i.i:                              ; preds = %37, %.lr.ph.i.i.i.i, %34
@@ -9775,7 +9775,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type12define_arrayIJKNSt7__c
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = shl nuw nsw i64 %.023.i.i, 1
-  %24 = icmp ult i64 %.023.i.i, 28
+  %24 = icmp samesign ult i64 %.023.i.i, 28
   br i1 %24, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %22, %.lr.ph.i.i, %19

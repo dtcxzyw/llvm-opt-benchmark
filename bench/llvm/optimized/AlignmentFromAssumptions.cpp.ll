@@ -290,7 +290,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   %73 = trunc i16 %72 to i8
   %74 = lshr i8 %73, 1
   %75 = and i8 %74, 63
-  %76 = icmp ugt i8 %70, %75
+  %76 = icmp samesign ugt i8 %70, %75
   br i1 %76, label %77, label %_ZN4llvm8dyn_castINS_12MemIntrinsicENS_11InstructionEEEDcPT0_.exit.thread
 
 77:                                               ; preds = %66
@@ -321,7 +321,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   %94 = trunc i16 %93 to i8
   %95 = lshr i8 %94, 1
   %96 = and i8 %95, 63
-  %97 = icmp ugt i8 %91, %96
+  %97 = icmp samesign ugt i8 %91, %96
   br i1 %97, label %98, label %_ZN4llvm8dyn_castINS_12MemIntrinsicENS_11InstructionEEEDcPT0_.exit.thread
 
 98:                                               ; preds = %87
@@ -744,7 +744,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i: ; preds = %_ZNK4llvm11Cons
 _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i
   %53 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i, i1 true)
   %54 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %53)
-  %55 = icmp ult i64 %54, 2
+  %55 = icmp samesign ult i64 %54, 2
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i
@@ -822,7 +822,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40: ; preds = %_ZNK4llvm11Co
 _ZN4llvm13isPowerOf2_64Em.exit.i36:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33
   %100 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i34, i1 true)
   %101 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %100)
-  %102 = icmp ult i64 %101, 2
+  %102 = icmp samesign ult i64 %101, 2
   br i1 %102, label %103, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45
 
 103:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i36
@@ -890,7 +890,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55: ; preds = %_ZNK4llvm11Co
 _ZN4llvm13isPowerOf2_64Em.exit.i51:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48
   %138 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i49, i1 true)
   %139 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %138)
-  %140 = icmp ult i64 %139, 2
+  %140 = icmp samesign ult i64 %139, 2
   br i1 %140, label %141, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60
 
 141:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i51

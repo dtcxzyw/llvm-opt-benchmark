@@ -4272,7 +4272,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 2
   %82 = lshr i64 %81, 1
-  %83 = icmp ugt i64 %82, %indvars.iv.next138
+  %83 = icmp samesign ugt i64 %82, %indvars.iv.next138
   br i1 %83, label %29, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit62.loopexit, !llvm.loop !12
 
 84:                                               ; preds = %.lr.ph, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit29
@@ -6264,7 +6264,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %105 = sub i64 %103, %104
   %106 = ashr exact i64 %105, 2
   %107 = lshr i64 %106, 1
-  %108 = icmp ugt i64 %107, %indvars.iv.next105
+  %108 = icmp samesign ugt i64 %107, %indvars.iv.next105
   br i1 %108, label %32, label %.loopexit, !llvm.loop !31
 
 109:                                              ; preds = %13

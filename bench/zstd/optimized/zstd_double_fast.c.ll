@@ -130,7 +130,7 @@ if.then23.i:                                      ; preds = %lor.lhs.false.i, %i
 
 if.end25.i:                                       ; preds = %if.then23.i, %lor.lhs.false.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp8.i = icmp ult i64 %indvars.iv.i, 2
+  %cmp8.i = icmp samesign ult i64 %indvars.iv.i, 2
   %or.cond.i = select i1 %cmp26.i, i1 %cmp8.i, i1 false
   br i1 %or.cond.i, label %for.body10.i, label %for.inc30.i, !llvm.loop !4
 

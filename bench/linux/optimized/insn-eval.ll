@@ -225,7 +225,7 @@ define dso_local i64 @insn_get_seg_base(ptr nocapture noundef readonly %0, i32 n
   %81 = and i32 %61, 32760
   %82 = load i16, ptr %3, align 2
   %83 = zext i16 %82 to i32
-  %84 = icmp ugt i32 %81, %83
+  %84 = icmp samesign ugt i32 %81, %83
   br i1 %84, label %.thread7, label %.thread6
 
 .thread7:                                         ; preds = %80
@@ -342,7 +342,7 @@ define dso_local range(i32 -32768, 133) i32 @insn_get_code_seg_params(ptr nocapt
   %41 = and i32 %10, 32760
   %42 = load i16, ptr %2, align 2
   %43 = zext i16 %42 to i32
-  %44 = icmp ugt i32 %41, %43
+  %44 = icmp samesign ugt i32 %41, %43
   br i1 %44, label %.thread, label %45
 
 .thread:                                          ; preds = %40
@@ -418,7 +418,7 @@ define dso_local i32 @insn_get_modrm_rm_off(ptr nocapture noundef readonly %0, p
   %15 = shl i32 %14, 3
   %16 = and i32 %15, 8
   %17 = or disjoint i32 %16, %12
-  %18 = icmp ult i32 %17, %11
+  %18 = icmp samesign ult i32 %17, %11
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %7
@@ -536,7 +536,7 @@ define dso_local i32 @insn_get_modrm_reg_off(ptr nocapture noundef readonly %0, 
   %13 = shl i32 %12, 1
   %14 = and i32 %13, 8
   %15 = or disjoint i32 %14, %10
-  %16 = icmp ult i32 %15, %6
+  %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %2
@@ -579,7 +579,7 @@ define dso_local ptr @insn_get_modrm_reg_ptr(ptr nocapture noundef readonly %0, 
   %13 = shl i32 %12, 1
   %14 = and i32 %13, 8
   %15 = or disjoint i32 %14, %10
-  %16 = icmp ult i32 %15, %6
+  %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %2
@@ -715,7 +715,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 
 68:                                               ; preds = %59, %48
   %69 = phi i32 [ 0, %48 ], [ %67, %59 ]
-  %70 = icmp ult i32 %49, 4
+  %70 = icmp samesign ult i32 %49, 4
   br i1 %70, label %71, label %80
 
 71:                                               ; preds = %68
@@ -1161,7 +1161,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
   %23 = shl i32 %22, 3
   %24 = and i32 %23, 8
   %25 = or disjoint i32 %24, %20
-  %26 = icmp ult i32 %25, %19
+  %26 = icmp samesign ult i32 %25, %19
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %15
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %154 = and i32 %134, 32760
   %155 = load i16, ptr %6, align 2
   %156 = zext i16 %155 to i32
-  %157 = icmp ugt i32 %154, %156
+  %157 = icmp samesign ugt i32 %154, %156
   br i1 %157, label %.thread20.sink.split, label %.thread16
 
 .thread16:                                        ; preds = %153
@@ -1791,7 +1791,7 @@ define internal fastcc i32 @get_eff_addr_modrm(ptr noundef nonnull %0, ptr nound
   %32 = shl i32 %31, 3
   %33 = and i32 %32, 8
   %34 = or disjoint i32 %33, %29
-  %35 = icmp ult i32 %34, %28
+  %35 = icmp samesign ult i32 %34, %28
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %24

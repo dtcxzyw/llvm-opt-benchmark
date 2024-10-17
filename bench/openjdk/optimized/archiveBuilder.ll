@@ -562,7 +562,7 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInf
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -690,7 +690,7 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_(ptr nocaptu
 .preheader.i.i:                                   ; preds = %32, %36
   %.025.i.i.i.i = phi i64 [ %34, %36 ], [ %25, %32 ]
   %34 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %35 = icmp ult i64 %34, %23
+  %35 = icmp samesign ult i64 %34, %23
   br i1 %35, label %36, label %_ZNK6BitMap7iterateI24RelocateEmbeddedPointersEEbPT_mm.exit
 
 36:                                               ; preds = %.preheader.i.i
@@ -1179,7 +1179,7 @@ _ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread: ; preds = %31, %25, %27, %
   %43 = add nsw i32 %38, 1
   %44 = icmp sgt i32 %38, -1
   %45 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   %or.cond.i.i.i.i = select i1 %44, i1 %46, i1 false
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %48 = sub nuw nsw i32 32, %47
@@ -1232,7 +1232,7 @@ _ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE6appendERKS1_.exit: 
   %77 = add nsw i32 %72, 1
   %78 = icmp sgt i32 %72, -1
   %79 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %77)
-  %80 = icmp ult i32 %79, 2
+  %80 = icmp samesign ult i32 %79, 2
   %or.cond.i.i.i.i9 = select i1 %78, i1 %80, i1 false
   %81 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
   %82 = sub nuw nsw i32 32, %81
@@ -2259,7 +2259,7 @@ _ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15a
   %169 = add nsw i32 %164, 1
   %170 = icmp sgt i32 %164, -1
   %171 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %169)
-  %172 = icmp ult i32 %171, 2
+  %172 = icmp samesign ult i32 %171, 2
   %or.cond.i.i.i.i.i = select i1 %170, i1 %172, i1 false
   %173 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %174 = sub nuw nsw i32 32, %173
@@ -2314,7 +2314,7 @@ _ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArra
   %206 = add nsw i32 %201, 1
   %207 = icmp sgt i32 %201, -1
   %208 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %206)
-  %209 = icmp ult i32 %208, 2
+  %209 = icmp samesign ult i32 %208, 2
   %or.cond.i.i.i.i.i17 = select i1 %207, i1 %209, i1 false
   %210 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %206, i1 true)
   %211 = sub nuw nsw i32 32, %210
@@ -3583,7 +3583,7 @@ define hidden void @_ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13Source
 .preheader.i.i.i:                                 ; preds = %34, %38
   %.025.i.i.i.i.i = phi i64 [ %36, %38 ], [ %27, %34 ]
   %36 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %37 = icmp ult i64 %36, %25
+  %37 = icmp samesign ult i64 %36, %25
   br i1 %37, label %38, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit
 
 38:                                               ; preds = %.preheader.i.i.i
@@ -3701,7 +3701,7 @@ define hidden void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointers
 .preheader.i.i.i.i:                               ; preds = %37, %41
   %.025.i.i.i.i.i.i = phi i64 [ %39, %41 ], [ %30, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i
 
 41:                                               ; preds = %.preheader.i.i.i.i
@@ -3803,7 +3803,7 @@ _ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13SourceObjListE.exit: ; pre
 .preheader.i.i.i.i14:                             ; preds = %90, %94
   %.025.i.i.i.i.i.i15 = phi i64 [ %92, %94 ], [ %83, %90 ]
   %92 = add nuw nsw i64 %.025.i.i.i.i.i.i15, 1
-  %93 = icmp ult i64 %92, %81
+  %93 = icmp samesign ult i64 %92, %81
   br i1 %93, label %94, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3
 
 94:                                               ; preds = %.preheader.i.i.i.i14
@@ -4546,7 +4546,7 @@ _ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit: ; preds = %17, %3
 .preheader.i.i.i.i:                               ; preds = %54, %58
   %.025.i.i.i.i.i.i = phi i64 [ %56, %58 ], [ %47, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %45
+  %57 = icmp samesign ult i64 %56, %45
   br i1 %57, label %58, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
 
 58:                                               ; preds = %.preheader.i.i.i.i
@@ -4655,7 +4655,7 @@ _ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %74, %9
 .preheader.i.i.i.i13:                             ; preds = %113, %117
   %.025.i.i.i.i.i.i14 = phi i64 [ %115, %117 ], [ %106, %113 ]
   %115 = add nuw nsw i64 %.025.i.i.i.i.i.i14, 1
-  %116 = icmp ult i64 %115, %104
+  %116 = icmp samesign ult i64 %115, %104
   br i1 %116, label %117, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
 117:                                              ; preds = %.preheader.i.i.i.i13

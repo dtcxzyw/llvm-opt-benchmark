@@ -2128,7 +2128,7 @@ define noundef i32 @_ZN8PmeSolve15solveCoulombYZXERK9gmx_pme_tP9t_complexfbi(ptr
   %.idx436 = zext i32 %207 to i64
   %208 = lshr exact i64 %.idx436, 3
   %.off.i = or disjoint i64 %.idx436, 7
-  %.not10.i = icmp ult i64 %.off.i, 15
+  %.not10.i = icmp samesign ult i64 %.off.i, 15
   br i1 %.not10.i, label %_ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge455
@@ -2330,7 +2330,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit: ;
   %.idx = zext i32 %342 to i64
   %343 = lshr exact i64 %.idx, 3
   %.off.i405 = or disjoint i64 %.idx, 7
-  %.not10.i406 = icmp ult i64 %.off.i405, 15
+  %.not10.i406 = icmp samesign ult i64 %.off.i405, 15
   br i1 %.not10.i406, label %_ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit413, label %.lr.ph.i407
 
 .lr.ph.i407:                                      ; preds = %._crit_edge
@@ -2653,7 +2653,7 @@ define noundef i32 @_ZN8PmeSolve10solveLJYZXERK9gmx_pme_tN3gmx8ArrayRefI14PmeAnd
 ._crit_edge611.us:                                ; preds = %.lr.ph610.us, %._crit_edge606.us
   %137 = lshr exact i64 %134, 3
   %.off.i.us = or disjoint i64 %134, 7
-  %.not18.i.us = icmp ult i64 %.off.i.us, 15
+  %.not18.i.us = icmp samesign ult i64 %.off.i.us, 15
   br i1 %.not18.i.us, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %._crit_edge611.us
@@ -3310,7 +3310,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 ._crit_edge592:                                   ; preds = %.lr.ph591, %._crit_edge
   %552 = lshr exact i64 %547, 3
   %.off.i550 = or disjoint i64 %547, 7
-  %.not18.i551 = icmp ult i64 %.off.i550, 15
+  %.not18.i551 = icmp samesign ult i64 %.off.i550, 15
   br i1 %.not18.i551, label %_ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559, label %.lr.ph.i552
 
 .lr.ph.i552:                                      ; preds = %._crit_edge592
@@ -3510,8 +3510,8 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
 
 ._crit_edge600:                                   ; preds = %.lr.ph599, %._crit_edge595
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
-  %707 = icmp ult i64 %indvars.iv705, 6
-  %708 = and i1 %4, %707
+  %707 = icmp samesign ult i64 %indvars.iv705, 6
+  %708 = select i1 %4, i1 %707, i1 false
   br i1 %708, label %._crit_edge595, label %.loopexit583, !llvm.loop !65
 
 .loopexit583:                                     ; preds = %._crit_edge600

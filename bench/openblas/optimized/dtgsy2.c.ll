@@ -1187,7 +1187,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 .loopexit34:                                      ; preds = %1276
   %783 = add nuw nsw i64 %785, 1
-  %784 = icmp ult i64 %785, %782
+  %784 = icmp samesign ult i64 %785, %782
   br i1 %784, label %.split57, label %.loopexit35, !llvm.loop !19
 
 .split57:                                         ; preds = %.split57.preheader, %.loopexit34
@@ -1228,7 +1228,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %817 = add nsw i32 %787, %56
   %818 = sext i32 %817 to i64
   %819 = getelementptr inbounds double, ptr %59, i64 %818
-  %820 = icmp ult i64 %785, %780
+  %820 = icmp samesign ult i64 %785, %780
   %821 = mul nsw i32 %790, %36
   %822 = add nsw i32 %821, %787
   %823 = sext i32 %822 to i64

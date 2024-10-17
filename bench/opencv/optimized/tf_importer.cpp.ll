@@ -9396,7 +9396,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   store float %1432, ptr %1428, align 4
   store float %1431, ptr %1430, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %1433 = icmp ult i64 %indvars.iv.next, %1391
+  %1433 = icmp samesign ult i64 %indvars.iv.next, %1391
   br i1 %1433, label %.lr.ph, label %.loopexit571, !llvm.loop !54
 
 .loopexit571:                                     ; preds = %.lr.ph, %.preheader570, %1378, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EED2Ev.exit424
@@ -12298,7 +12298,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   store float %295, ptr %291, align 4
   store float %294, ptr %293, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %296 = icmp ult i64 %indvars.iv.next, %273
+  %296 = icmp samesign ult i64 %indvars.iv.next, %273
   br i1 %296, label %.lr.ph220, label %.loopexit211, !llvm.loop !84
 
 .loopexit211:                                     ; preds = %.lr.ph220, %.preheader210, %260, %197
@@ -31229,7 +31229,7 @@ _ZN2cv3Mat2atIiEERT_i.exit496:                    ; preds = %810
 
 816:                                              ; preds = %_ZN2cv3Mat2atIiEERT_i.exit496
   %817 = icmp eq i32 %815, 2
-  %or.cond.not = icmp ult i32 %815, 2
+  %or.cond.not = icmp samesign ult i32 %815, 2
   br i1 %or.cond.not, label %1003, label %818
 
 818:                                              ; preds = %816

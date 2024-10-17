@@ -8338,7 +8338,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !742, !noalias !745, !nonnull !4, !noundef !4
   %27 = shl nuw nsw i64 %9, 4
-  %28 = icmp uge i64 %23, %27
+  %28 = icmp samesign uge i64 %23, %27
   tail call void @llvm.assume(i1 %28)
   %29 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %26, i64 noundef %27, i64 noundef 8, i64 noundef %23) #29, !noalias !747
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i"

@@ -2924,7 +2924,7 @@ _ZN8rationalD2Ev.exit47:                          ; preds = %.noexc.i45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %m_lit_tail, align 8
   %40 = zext i32 %39 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %40
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %cmp, label %invoke.cont10, label %for.end, !llvm.loop !22
 
 lpad:                                             ; preds = %sw.epilog
@@ -2991,7 +2991,7 @@ for.inc28:                                        ; preds = %if.then.for.inc28_c
   %48 = phi i32 [ %.pre, %if.then.for.inc28_crit_edge ], [ %46, %invoke.cont21 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %49 = zext i32 %48 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next132, %49
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next132, %49
   br i1 %cmp18, label %invoke.cont21, label %for.end30.loopexit, !llvm.loop !23
 
 for.end30.loopexit:                               ; preds = %for.inc28
@@ -3220,7 +3220,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i70
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %87 = load i32, ptr %m_lit_tail, align 8
   %88 = zext i32 %87 to i64
-  %cmp35 = icmp ult i64 %indvars.iv.next135, %88
+  %cmp35 = icmp samesign ult i64 %indvars.iv.next135, %88
   br i1 %cmp35, label %invoke.cont38, label %for.end60.loopexit, !llvm.loop !27
 
 lpad45:                                           ; preds = %invoke.cont44
@@ -3285,7 +3285,7 @@ for.inc81:                                        ; preds = %if.then77.for.inc81
   %97 = phi i32 [ %.pre142, %if.then77.for.inc81_crit_edge ], [ %95, %invoke.cont68 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %98 = zext i32 %97 to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next138, %98
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next138, %98
   br i1 %cmp65, label %invoke.cont68, label %for.end83, !llvm.loop !28
 
 for.end83:                                        ; preds = %for.inc81, %for.end60

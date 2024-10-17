@@ -1918,7 +1918,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %47, %50
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %151 = load i32, ptr %17, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next115, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next115, %152
   br i1 %153, label %.lr.ph103.split.us, label %._crit_edge104, !llvm.loop !34
 
 .lr.ph96.us:                                      ; preds = %122
@@ -2194,7 +2194,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %47, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %274 = load i32, ptr %17, align 4
   %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %indvars.iv.next, %275
+  %276 = icmp samesign ult i64 %indvars.iv.next, %275
   br i1 %276, label %.lr.ph103.split, label %._crit_edge104, !llvm.loop !34
 
 ._crit_edge104:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %102
@@ -2539,7 +2539,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %46, %49
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %145 = load i32, ptr %17, align 4
   %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %indvars.iv.next129, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next129, %146
   br i1 %147, label %.lr.ph117.split.us, label %._crit_edge118, !llvm.loop !41
 
 .lr.ph110.us:                                     ; preds = %121
@@ -2858,7 +2858,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %46, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %287 = load i32, ptr %17, align 4
   %288 = zext i32 %287 to i64
-  %289 = icmp ult i64 %indvars.iv.next, %288
+  %289 = icmp samesign ult i64 %indvars.iv.next, %288
   br i1 %289, label %.lr.ph117.split, label %._crit_edge118, !llvm.loop !41
 
 ._crit_edge118:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %101
@@ -3086,7 +3086,7 @@ define void @_ZN2cv8freetype13FreeType2Impl14putTextOutlineERKNS_17_InputOutputA
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %12, align 4
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next, %107
   br i1 %108, label %70, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %95
@@ -3766,7 +3766,7 @@ _ZN2cv8freetype13FreeType2Impl3ftdEl.exit94:      ; preds = %140, %143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %145 = load i32, ptr %12, align 4
   %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %indvars.iv.next, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next, %146
   br i1 %147, label %70, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZN2cv8freetype13FreeType2Impl3ftdEl.exit94, %.preheader

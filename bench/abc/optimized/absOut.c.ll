@@ -1584,7 +1584,7 @@ Vec_BitStart.exit:                                ; preds = %3, %10
 
 43:                                               ; preds = %26, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = icmp ult i64 %indvars.iv.next, %20
+  %44 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %44, label %21, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %21, %43, %Vec_BitStart.exit

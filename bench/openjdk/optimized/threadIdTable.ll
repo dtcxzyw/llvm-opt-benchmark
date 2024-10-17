@@ -210,7 +210,7 @@ _ZN11MutexLockerD2Ev.exit18:                      ; preds = %46, %45, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %22, align 4
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %25, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerD2Ev.exit18, %.preheader, %_ZN11MutexLockerD2Ev.exit, %1

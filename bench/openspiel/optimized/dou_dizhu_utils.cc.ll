@@ -2203,7 +2203,7 @@ define { i64, i32 } @_ZN10open_spiel9dou_dizhu22GetChainOnlyHandParamsEi(i32 nou
   %8 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRankEi(i32 noundef %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %9 = icmp ult i32 %8, 4
+  %9 = icmp samesign ult i32 %8, 4
   br i1 %9, label %switch.lookup, label %10
 
 10:                                               ; preds = %1
@@ -2918,7 +2918,7 @@ switch.lookup:                                    ; preds = %.lr.ph145
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %.not42 = icmp ult i64 %indvars.iv166, %switch.load
+  %.not42 = icmp samesign ult i64 %indvars.iv166, %switch.load
   br i1 %.not42, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, label %76
 
 76:                                               ; preds = %switch.lookup

@@ -1543,7 +1543,7 @@ define internal fastcc i64 @mremap_to(i64 noundef %0, i64 noundef %1, i64 nounde
   br label %107
 
 80:                                               ; preds = %74
-  %81 = icmp ult i64 %5, 4
+  %81 = icmp samesign ult i64 %5, 4
   br i1 %81, label %87, label %82
 
 82:                                               ; preds = %80
@@ -1620,7 +1620,7 @@ define internal fastcc ptr @vma_to_resize(i64 noundef %0, i64 noundef %1, i64 no
   br label %63
 
 26:                                               ; preds = %14, %12
-  %27 = icmp ult i64 %3, 4
+  %27 = icmp samesign ult i64 %3, 4
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
@@ -1739,7 +1739,7 @@ define internal fastcc i64 @move_vma(ptr noundef %0, i64 noundef %1, i64 noundef
 
 21:                                               ; preds = %8
   %22 = sub i64 %3, %2
-  %23 = icmp ugt i64 %6, 3
+  %23 = icmp samesign ugt i64 %6, 3
   br i1 %23, label %24, label %25, !prof !7
 
 24:                                               ; preds = %21

@@ -12598,7 +12598,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
 8:                                                ; preds = %7
   %9 = lshr i64 %1, 3
   %10 = tail call range(i64 1, 6) i64 @llvm.ctpop.i64(i64 %9)
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %8, %7, %3
@@ -20661,7 +20661,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets13AIXTargetInfoINS0_15PPC32Ta
 
 105:                                              ; preds = %97
   %.not134 = icmp eq i32 %100, 3
-  %106 = icmp ult i32 %103, 2
+  %106 = icmp samesign ult i32 %103, 2
   %or.cond157 = select i1 %.not134, i1 %106, i1 false
   br i1 %or.cond157, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit56, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
@@ -20697,7 +20697,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %105
   store ptr @.str, ptr %26, align 8
   store i8 3, ptr %116, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %26)
-  %118 = icmp ult i32 %103, 3
+  %118 = icmp samesign ult i32 %103, 3
   %or.cond158 = select i1 %112, i1 %118, i1 false
   br i1 %or.cond158, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit56, label %119
 
@@ -21943,7 +21943,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets13AIXTargetInfoINS0_15PPC64Ta
 
 105:                                              ; preds = %97
   %.not134 = icmp eq i32 %100, 3
-  %106 = icmp ult i32 %103, 2
+  %106 = icmp samesign ult i32 %103, 2
   %or.cond157 = select i1 %.not134, i1 %106, i1 false
   br i1 %or.cond157, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit56, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
@@ -21979,7 +21979,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %105
   store ptr @.str, ptr %26, align 8
   store i8 3, ptr %116, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %26)
-  %118 = icmp ult i32 %103, 3
+  %118 = icmp samesign ult i32 %103, 3
   %or.cond158 = select i1 %112, i1 %118, i1 false
   br i1 %or.cond158, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit56, label %119
 
@@ -27865,7 +27865,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets16DarwinTargetInfoINS0
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = icmp uge i32 %12, %11
-  %22 = icmp ult i32 %20, %17
+  %22 = icmp samesign ult i32 %20, %17
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %23
 
@@ -30275,7 +30275,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets16DarwinTargetInfoINS0
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = icmp uge i32 %12, %11
-  %22 = icmp ult i32 %20, %17
+  %22 = icmp samesign ult i32 %20, %17
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %23
 

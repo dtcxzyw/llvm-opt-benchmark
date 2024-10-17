@@ -7537,7 +7537,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %28 = mul nsw i64 %19, %19
   %29 = getelementptr inbounds i8, ptr %12, i64 8
   %30 = getelementptr inbounds i8, ptr %12, i64 16
-  %31 = icmp ugt i64 %28, 2305843009213693951
+  %31 = icmp samesign ugt i64 %28, 2305843009213693951
   br i1 %31, label %.noexc, label %33
 
 .noexc:                                           ; preds = %27
@@ -9801,7 +9801,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i320:                              ; preds = %197
   %207 = add nuw nsw i64 %.07992.us.i315, 4
-  %208 = icmp ult i64 %207, %191
+  %208 = icmp samesign ult i64 %207, %191
   br i1 %208, label %.preheader88.us.i314, label %.preheader87.i289, !llvm.loop !234
 
 .preheader87.i289:                                ; preds = %._crit_edge.us.i320, %188
@@ -10411,7 +10411,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(pt
 38:                                               ; preds = %.sink.split.i.i, %20, %15
   %39 = add nuw nsw i32 %.0.i.i, 1
   %40 = icmp ne i32 %18, 0
-  %41 = icmp ult i32 %.0.i.i, 15
+  %41 = icmp samesign ult i32 %.0.i.i, 15
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %15, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !245
 
@@ -10525,7 +10525,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
 95:                                               ; preds = %.sink.split.i.i14, %77, %72
   %96 = add nuw nsw i32 %.0.i.i12, 1
   %97 = icmp ne i32 %75, 0
-  %98 = icmp ult i32 %.0.i.i12, 15
+  %98 = icmp samesign ult i32 %.0.i.i12, 15
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %72, label %_ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit, !llvm.loop !245
 
@@ -13086,7 +13086,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
 
 .lr.ph:                                           ; preds = %25
   %30 = shl nuw nsw i64 %indvars.iv228, 1
-  %31 = icmp ugt i64 %indvars.iv228, 3
+  %31 = icmp samesign ugt i64 %indvars.iv228, 3
   %32 = and i64 %indvars.iv228, 2
   %.not.not = icmp eq i64 %32, 0
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13132,7 +13132,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv228
   store <2 x double> %49, ptr %52, align 16
   %53 = add nuw nsw i64 %.0153168.us, 2
-  %54 = icmp ult i64 %53, %indvars.iv228
+  %54 = icmp samesign ult i64 %53, %indvars.iv228
   br i1 %54, label %.preheader161.us, label %35, !llvm.loop !366
 
 .preheader164.us:                                 ; preds = %.preheader164.us.preheader, %35
@@ -13226,7 +13226,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv228
   store <2 x double> %93, ptr %96, align 16
   %97 = add nuw nsw i64 %.0153168, 2
-  %98 = icmp ult i64 %97, %indvars.iv228
+  %98 = icmp samesign ult i64 %97, %indvars.iv228
   br i1 %98, label %.preheader161, label %99, !llvm.loop !366
 
 99:                                               ; preds = %.preheader161
@@ -13956,7 +13956,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us.i334:                              ; preds = %215
   %225 = add nuw nsw i64 %.07992.us.i329, 4
-  %226 = icmp ult i64 %225, %209
+  %226 = icmp samesign ult i64 %225, %209
   br i1 %226, label %.preheader88.us.i328, label %.preheader87.i303, !llvm.loop !234
 
 .preheader87.i303:                                ; preds = %._crit_edge.us.i334, %204
@@ -16015,7 +16015,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   %13 = and i64 %9, 12
   %14 = and i64 %9, 14
   %15 = icmp ugt i64 %9, 7
-  %16 = icmp ugt i64 %14, %13
+  %16 = icmp samesign ugt i64 %14, %13
   %.not.i = icmp eq i64 %14, %9
   %cond.i = icmp eq i64 %9, 1
   br i1 %cond.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.us12.preheader.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.preheader
@@ -16077,7 +16077,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   %42 = fmul <2 x double> %39, %41
   %43 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us, %42
   %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us = add nuw nsw i64 %.05478.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us, 4
-  %44 = icmp ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us, %13
+  %44 = icmp samesign ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us, %13
   br i1 %44, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us.us.us.us.us, !llvm.loop !431
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us.us.us.us.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us.us.us
@@ -16140,7 +16140,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   %76 = fmul <2 x double> %73, %75
   %77 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us, %76
   %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us = add nuw nsw i64 %.05478.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us, 4
-  %78 = icmp ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us, %13
+  %78 = icmp samesign ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us, %13
   br i1 %78, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us.us.us, !llvm.loop !431
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us.us.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us.us.us
@@ -16199,7 +16199,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   %106 = fmul <2 x double> %103, %105
   %107 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us, %106
   %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us = add nuw nsw i64 %.05478.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us, 4
-  %108 = icmp ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us, %13
+  %108 = icmp samesign ult i64 %.054.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us, %13
   br i1 %108, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.us.us.us.us, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us, !llvm.loop !431
 
 109:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.loopexit.us.us.us.us

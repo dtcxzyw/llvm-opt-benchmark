@@ -856,7 +856,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116X86PreTileConfig20runOnMa
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i16, ptr %108, align 4
   %110 = zext i16 %109 to i32
-  %111 = icmp ult i32 %106, %110
+  %111 = icmp samesign ult i32 %106, %110
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %79
@@ -1163,7 +1163,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i: ; pre
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %275 = load i24, ptr %244, align 8
   %276 = zext i24 %275 to i64
-  %277 = icmp ult i64 %indvars.iv.next.i, %276
+  %277 = icmp samesign ult i64 %indvars.iv.next.i, %276
   br i1 %277, label %248, label %.backedge.i, !llvm.loop !16
 
 278:                                              ; preds = %241

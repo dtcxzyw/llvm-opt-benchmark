@@ -1171,7 +1171,7 @@ switch.lookup:                                    ; preds = %52
   br label %146
 
 137:                                              ; preds = %129
-  %138 = icmp ult i32 %.0175, 6
+  %138 = icmp samesign ult i32 %.0175, 6
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %137

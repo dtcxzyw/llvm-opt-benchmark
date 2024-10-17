@@ -12093,7 +12093,7 @@ _ZN4gpui3app10AppContext17observe_new_views17ha48b4a4a90f18887E.exit: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN13extensions_ui15ExtensionFilter22include_dev_extensions17h1a0ce291aba89499E.llvm.12017988288703029125(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !1041, !noundef !10
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   ret i1 %switch
 }
 
@@ -12716,7 +12716,7 @@ define hidden void @_ZN13extensions_ui14ExtensionsPage17render_extensions17haec3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %1, i64 226
   %9 = load i8, ptr %8, align 2, !range !1041, !alias.scope !2987, !noundef !10
-  %switch.i = icmp ult i8 %9, 2
+  %switch.i = icmp samesign ult i8 %9, 2
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8
   %storemerge = select i1 %switch.i, i64 %11, i64 0
@@ -16950,7 +16950,7 @@ default.unreachable:                              ; preds = %279
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %862
   %.sroa.012.0.lcssa.i.i.i = phi i64 [ 20, %862 ], [ %875, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i64 [ %863, %862 ], [ %868, %.lr.ph.i.i.i ]
-  %866 = icmp ugt i64 %.sroa.0.1.lcssa.i.i.i, 99
+  %866 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %866, label %882, label %891
 
 .lr.ph.i.i.i:                                     ; preds = %862, %.lr.ph.i.i.i
@@ -16994,7 +16994,7 @@ default.unreachable:                              ; preds = %279
 891:                                              ; preds = %882, %._crit_edge.i.i.i
   %.sroa.012.1.i.i.i = phi i64 [ %887, %882 ], [ %.sroa.012.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.06.0.i.i.i = phi i64 [ %.zext30.i.i.i, %882 ], [ %.sroa.0.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %892 = icmp ult i64 %.sroa.06.0.i.i.i, 10
+  %892 = icmp samesign ult i64 %.sroa.06.0.i.i.i, 10
   br i1 %892, label %899, label %893
 
 893:                                              ; preds = %891
@@ -17199,13 +17199,13 @@ _ZN10num_format5impls8integers14write_one_byte17hbba7601a7b3d0a2eE.exit20.i.i.i.
   %980 = getelementptr inbounds i8, ptr %846, i64 %978
   %981 = load i8, ptr %979, align 1, !noalias !3776
   store i8 %981, ptr %980, align 1, !alias.scope !3772, !noalias !3773
-  %982 = icmp ugt i128 %.sroa.0.0.i.i.i77.i, 99999999
+  %982 = icmp samesign ugt i128 %.sroa.0.0.i.i.i77.i, 99999999
   br i1 %982, label %919, label %._crit_edge.loopexit.i
 
 ._crit_edge83.i:                                  ; preds = %_ZN10num_format5impls8integers14write_one_byte17hbba7601a7b3d0a2eE.exit18.i.i.i.i, %._crit_edge.i
   %.sroa.31.5.lcssa.i = phi i64 [ %.sroa.31.0.lcssa.i, %._crit_edge.i ], [ %.sroa.31.7.i, %_ZN10num_format5impls8integers14write_one_byte17hbba7601a7b3d0a2eE.exit18.i.i.i.i ]
   %.sroa.08.0.i.i.i.lcssa.i = phi i64 [ %.sroa.0.0.i.i.i.lcssa.off0.i, %._crit_edge.i ], [ %988, %_ZN10num_format5impls8integers14write_one_byte17hbba7601a7b3d0a2eE.exit18.i.i.i.i ]
-  %983 = icmp ugt i64 %.sroa.08.0.i.i.i.lcssa.i, 9
+  %983 = icmp samesign ugt i64 %.sroa.08.0.i.i.i.lcssa.i, 9
   %984 = shl nuw nsw i64 %.sroa.08.0.i.i.i.lcssa.i, 1
   %985 = or disjoint i64 %984, 1
   br i1 %983, label %1022, label %1018
@@ -21698,7 +21698,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha26659fc2b00fc99E.exit.i.i: ; preds = 
   %835 = getelementptr inbounds i8, ptr %1, i64 64
   %836 = load i64, ptr %835, align 8, !alias.scope !4602, !noalias !4607, !noundef !10
   %837 = load i8, ptr %661, align 2, !range !1041, !alias.scope !4602, !noalias !4607, !noundef !10
-  %switch.i.i = icmp ult i8 %837, 2
+  %switch.i.i = icmp samesign ult i8 %837, 2
   %838 = getelementptr inbounds i8, ptr %1, i64 40
   %839 = load i64, ptr %838, align 8, !alias.scope !4602, !noalias !4607
   %840 = select i1 %switch.i.i, i64 %839, i64 0

@@ -5082,7 +5082,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %.0, %27
+  %28 = icmp samesign ult i64 %.0, %27
   br i1 %28, label %29, label %45
 
 29:                                               ; preds = %18
@@ -6443,7 +6443,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %.0, %32
+  %33 = icmp samesign ult i64 %.0, %32
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %19

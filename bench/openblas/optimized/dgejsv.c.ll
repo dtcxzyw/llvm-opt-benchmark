@@ -1709,7 +1709,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1024:                                             ; preds = %1044, %1019
   %1025 = phi i64 [ 1, %1019 ], [ %1046, %1044 ]
   %1026 = phi double [ %1014, %1019 ], [ %1045, %1044 ]
-  %1027 = icmp ugt i64 %1025, %1008
+  %1027 = icmp samesign ugt i64 %1025, %1008
   br i1 %1027, label %1028, label %1035
 
 1028:                                             ; preds = %1024
@@ -1722,7 +1722,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1034, label %1044, label %1037
 
 1035:                                             ; preds = %1024
-  %1036 = icmp ult i64 %1025, %1008
+  %1036 = icmp samesign ult i64 %1025, %1008
   br i1 %1036, label %._crit_edge, label %1044
 
 ._crit_edge:                                      ; preds = %1035
@@ -1851,7 +1851,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1112:                                             ; preds = %1132, %1096
   %1113 = phi i64 [ 1, %1096 ], [ %1134, %1132 ]
   %1114 = phi double [ %1103, %1096 ], [ %1133, %1132 ]
-  %1115 = icmp ugt i64 %1113, %1097
+  %1115 = icmp samesign ugt i64 %1113, %1097
   br i1 %1115, label %1116, label %1123
 
 1116:                                             ; preds = %1112
@@ -1864,7 +1864,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1122, label %1132, label %1125
 
 1123:                                             ; preds = %1112
-  %1124 = icmp ult i64 %1113, %1097
+  %1124 = icmp samesign ult i64 %1113, %1097
   br i1 %1124, label %._crit_edge446, label %1132
 
 ._crit_edge446:                                   ; preds = %1123
@@ -2514,7 +2514,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1517:                                             ; preds = %1544, %1512
   %1518 = phi i64 [ 1, %1512 ], [ %1545, %1544 ]
   %1519 = phi double [ %1507, %1512 ], [ %1538, %1544 ]
-  %1520 = icmp ugt i64 %1518, %1501
+  %1520 = icmp samesign ugt i64 %1518, %1501
   br i1 %1520, label %1521, label %1528
 
 1521:                                             ; preds = %1517
@@ -2527,7 +2527,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1527, label %1537, label %1530
 
 1528:                                             ; preds = %1517
-  %1529 = icmp ult i64 %1518, %1501
+  %1529 = icmp samesign ult i64 %1518, %1501
   br i1 %1529, label %._crit_edge467, label %1537
 
 ._crit_edge467:                                   ; preds = %1528
@@ -2547,7 +2547,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1537:                                             ; preds = %1530, %1528, %1521
   %1538 = phi double [ %1523, %1521 ], [ %1532, %1530 ], [ %1519, %1528 ]
-  %1539 = icmp ult i64 %1518, %1501
+  %1539 = icmp samesign ult i64 %1518, %1501
   br i1 %1539, label %1540, label %1544
 
 1540:                                             ; preds = %1537
@@ -4333,7 +4333,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 2734:                                             ; preds = %2761, %2729
   %2735 = phi i64 [ 1, %2729 ], [ %2762, %2761 ]
   %2736 = phi double [ %2724, %2729 ], [ %2755, %2761 ]
-  %2737 = icmp ugt i64 %2735, %2718
+  %2737 = icmp samesign ugt i64 %2735, %2718
   br i1 %2737, label %2738, label %2745
 
 2738:                                             ; preds = %2734
@@ -4346,7 +4346,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2744, label %2754, label %2747
 
 2745:                                             ; preds = %2734
-  %2746 = icmp ult i64 %2735, %2718
+  %2746 = icmp samesign ult i64 %2735, %2718
   br i1 %2746, label %._crit_edge454, label %2754
 
 ._crit_edge454:                                   ; preds = %2745
@@ -4366,7 +4366,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 2754:                                             ; preds = %2747, %2745, %2738
   %2755 = phi double [ %2740, %2738 ], [ %2749, %2747 ], [ %2736, %2745 ]
-  %2756 = icmp ult i64 %2735, %2718
+  %2756 = icmp samesign ult i64 %2735, %2718
   br i1 %2756, label %2757, label %2761
 
 2757:                                             ; preds = %2754

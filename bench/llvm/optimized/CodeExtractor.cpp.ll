@@ -6544,7 +6544,7 @@ _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_N
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = and i32 %85, 134217727
   %87 = zext nneg i32 %86 to i64
-  %88 = icmp ult i64 %indvars.iv.next, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %88, label %44, label %._crit_edge, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit.thread, %38
@@ -8459,7 +8459,7 @@ _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12De
   br i1 %.not.i.i.i.i225, label %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !169
 
 _ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %509 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %509 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %509, label %510, label %_ZNSt12_Vector_baseIPN4llvm4UserESaIS2_EE11_M_allocateEm.exit.i.i
 
 510:                                              ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i
@@ -8743,7 +8743,7 @@ _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12De
   br i1 %.not.i.i.i.i249, label %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i250, label %.lr.ph.i.i.i.i246, !llvm.loop !169
 
 _ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i250: ; preds = %.lr.ph.i.i.i.i246
-  %643 = icmp ugt i64 %.06.i.i.i.i247, 1152921504606846974
+  %643 = icmp samesign ugt i64 %.06.i.i.i.i247, 1152921504606846974
   br i1 %643, label %644, label %_ZNSt12_Vector_baseIPN4llvm4UserESaIS2_EE11_M_allocateEm.exit.i.i251
 
 644:                                              ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i250
@@ -10193,7 +10193,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit521: ; preds = %552, %_ZN
   br i1 %.not.i.i.i.i522, label %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !169
 
 _ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %582 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %582 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %582, label %583, label %_ZNSt12_Vector_baseIPN4llvm4UserESaIS2_EE11_M_allocateEm.exit.i.i
 
 583:                                              ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implINS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i

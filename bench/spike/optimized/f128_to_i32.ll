@@ -14,11 +14,11 @@ define i64 @f128_to_i32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroex
   %9 = icmp ne i64 %0, 0
   %10 = zext i1 %9 to i64
   %11 = or i64 %.021, %10
-  %12 = icmp ult i64 %6, 16419
+  %12 = icmp samesign ult i64 %6, 16419
   br i1 %12, label %13, label %softfloat_shiftRightJam64.exit
 
 13:                                               ; preds = %4
-  %14 = icmp ugt i64 %6, 16356
+  %14 = icmp samesign ugt i64 %6, 16356
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %13

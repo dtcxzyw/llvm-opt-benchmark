@@ -557,7 +557,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i10, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -6244,21 +6244,21 @@ for.body.lr.ph:                                   ; preds = %_ZN6duckdb15FixedSi
 
 if.end15.peel:                                    ; preds = %for.body.lr.ph
   %not.peel = xor i64 %entry6.0.peel, -1
-  %tobool.not.peel = icmp ugt i64 %entry6.0.peel, -4294967297
+  %tobool.not.peel = icmp samesign ugt i64 %entry6.0.peel, -4294967297
   %shr.peel = lshr i64 %not.peel, 32
   %spec.select108 = select i1 %tobool.not.peel, i64 %not.peel, i64 %shr.peel
   %spec.select109 = select i1 %tobool.not.peel, i32 0, i32 32
-  %tobool.not.1.peel = icmp ult i64 %spec.select108, 65536
+  %tobool.not.1.peel = icmp samesign ult i64 %spec.select108, 65536
   %shr.1.peel = lshr i64 %spec.select108, 16
   %add.1.peel = or disjoint i32 %spec.select109, 16
   %entry_inv.1.1.peel = select i1 %tobool.not.1.peel, i64 %spec.select108, i64 %shr.1.peel
   %first_valid_bit.1.1.peel = select i1 %tobool.not.1.peel, i32 %spec.select109, i32 %add.1.peel
-  %tobool.not.2.peel = icmp ult i64 %entry_inv.1.1.peel, 256
+  %tobool.not.2.peel = icmp samesign ult i64 %entry_inv.1.1.peel, 256
   %shr.2.peel = lshr i64 %entry_inv.1.1.peel, 8
   %add.2.peel = or disjoint i32 %first_valid_bit.1.1.peel, 8
   %entry_inv.1.2.peel = select i1 %tobool.not.2.peel, i64 %entry_inv.1.1.peel, i64 %shr.2.peel
   %first_valid_bit.1.2.peel = select i1 %tobool.not.2.peel, i32 %first_valid_bit.1.1.peel, i32 %add.2.peel
-  %tobool.not.3.peel = icmp ult i64 %entry_inv.1.2.peel, 16
+  %tobool.not.3.peel = icmp samesign ult i64 %entry_inv.1.2.peel, 16
   %shr.3.peel = lshr i64 %entry_inv.1.2.peel, 4
   %add.3.peel = or disjoint i32 %first_valid_bit.1.2.peel, 4
   %entry_inv.1.3.peel = select i1 %tobool.not.3.peel, i64 %entry_inv.1.2.peel, i64 %shr.3.peel

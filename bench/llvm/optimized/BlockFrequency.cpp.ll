@@ -70,7 +70,7 @@ define dso_local { i64, i8 } @_ZNK4llvm14BlockFrequency3mulEm(ptr nocapture noun
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = add nuw nsw i32 %5, %7
-  %9 = icmp ugt i32 %8, 63
+  %9 = icmp samesign ugt i32 %8, 63
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2

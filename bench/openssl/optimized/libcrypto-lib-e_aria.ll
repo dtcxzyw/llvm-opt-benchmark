@@ -1608,7 +1608,7 @@ if.end153:                                        ; preds = %sw.bb149
   %29 = load i8, ptr %arrayidx163, align 1
   %conv164 = zext i8 %29 to i32
   %or = or disjoint i32 %shl, %conv164
-  %cmp165 = icmp ult i32 %or, 8
+  %cmp165 = icmp samesign ult i32 %or, 8
   br i1 %cmp165, label %return, label %if.end168
 
 if.end168:                                        ; preds = %if.end153
@@ -2135,7 +2135,7 @@ if.end:                                           ; preds = %sw.bb3
   %2 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %2 to i32
   %or = or disjoint i32 %shl, %conv13
-  %cmp16 = icmp ult i32 %or, 8
+  %cmp16 = icmp samesign ult i32 %or, 8
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end

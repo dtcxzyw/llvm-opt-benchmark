@@ -3999,7 +3999,7 @@ dissect_opp_cap_loop.exit190:                     ; preds = %.lr.ph.i186, %143
   %159 = add i32 %.01.i196, %151
   %160 = tail call ptr @proto_tree_add_item(ptr noundef %.0235.i194, i32 noundef %152, ptr noundef %2, i32 noundef %159, i32 noundef 2, i32 noundef 0) #15
   %161 = add nuw nsw i32 %.01.i196, 2
-  %162 = icmp ult i32 %161, %158
+  %162 = icmp samesign ult i32 %161, %158
   br i1 %162, label %.lr.ph.i195, label %dissect_opp_cap_loop.exit199, !llvm.loop !19
 
 163:                                              ; preds = %7
@@ -4927,7 +4927,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
 
 .thread119:                                       ; preds = %86, %87, %90
   %.0106121 = phi i32 [ %91, %90 ], [ 0, %86 ], [ 1, %87 ]
-  %93 = icmp ult i32 %.0106121, %81
+  %93 = icmp samesign ult i32 %.0106121, %81
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %.thread119
@@ -6080,7 +6080,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
   %388 = getelementptr inbounds i8, ptr %350, i64 16
   %389 = load i8, ptr %388, align 8
   %390 = zext i8 %389 to i32
-  %391 = icmp ult i32 %387, %390
+  %391 = icmp samesign ult i32 %387, %390
   br i1 %391, label %392, label %thread-pre-split.i.i
 
 392:                                              ; preds = %386

@@ -530,7 +530,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_
   %46 = mul nsw i32 %45, %37
   %47 = sub nsw i32 %43, %46
   %48 = tail call i32 @llvm.abs.i32(i32 %47, i1 true)
-  %49 = icmp ugt i32 %48, %39
+  %49 = icmp samesign ugt i32 %48, %39
   br i1 %49, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %50
 
 50:                                               ; preds = %.lr.ph.i

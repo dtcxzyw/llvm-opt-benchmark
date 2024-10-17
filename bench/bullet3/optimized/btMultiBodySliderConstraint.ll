@@ -1166,7 +1166,7 @@ if.then137:                                       ; preds = %if.end134
 
 if.end141:                                        ; preds = %if.then137, %if.end134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, i8 0, i64 16, i1 false)
-  %cmp148 = icmp ult i64 %indvars.iv375, 2
+  %cmp148 = icmp samesign ult i64 %indvars.iv375, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constraintNormalAng, i8 0, i64 16, i1 false)
   br i1 %cmp148, label %if.then149, label %if.else157
 

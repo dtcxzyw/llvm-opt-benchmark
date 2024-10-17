@@ -3984,7 +3984,7 @@ _bt_unlink_halfdead_page.exit:                    ; preds = %900, %913
   %929 = add nuw nsw i32 %928, 262120
   %930 = lshr i32 %929, 2
   %931 = and i32 %930, 65535
-  %932 = icmp ult i32 %931, %926
+  %932 = icmp samesign ult i32 %931, %926
   %933 = select i1 %927, i1 true, i1 %932
   br label %934
 

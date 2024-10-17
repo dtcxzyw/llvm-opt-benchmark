@@ -5147,7 +5147,7 @@ if.end.i.i:                                       ; preds = %for.cond18
 
 invoke.cont19:                                    ; preds = %if.end.i.i, %for.cond18
   %retval.0.i.i = phi i64 [ %11, %if.end.i.i ], [ 0, %for.cond18 ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont23, label %for.cond31.preheader
 
 for.cond31.preheader:                             ; preds = %invoke.cont19
@@ -5249,7 +5249,7 @@ if.end.i.i23:                                     ; preds = %for.cond31
 
 _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %for.cond31, %if.end.i.i23
   %retval.0.i.i25 = phi i64 [ %24, %if.end.i.i23 ], [ 0, %for.cond31 ]
-  %cmp34 = icmp ult i64 %indvars.iv90, %retval.0.i.i25
+  %cmp34 = icmp samesign ult i64 %indvars.iv90, %retval.0.i.i25
   br i1 %cmp34, label %for.body35, label %for.end46
 
 for.body35:                                       ; preds = %_ZNK10model_core17get_num_functionsEv.exit

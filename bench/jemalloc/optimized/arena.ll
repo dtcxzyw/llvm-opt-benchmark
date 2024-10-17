@@ -651,7 +651,7 @@ bin_stats_merge.exit:                             ; preds = %if.end.i25.i, %if.t
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %100 = load i32, ptr %n_shards, align 4
   %101 = zext i32 %100 to i64
-  %cmp129 = icmp ult i64 %indvars.iv.next178, %101
+  %cmp129 = icmp samesign ult i64 %indvars.iv.next178, %101
   br i1 %cmp129, label %for.body131, label %for.inc138, !llvm.loop !8
 
 for.inc138:                                       ; preds = %bin_stats_merge.exit, %for.cond126.preheader
@@ -1914,7 +1914,7 @@ arena_bin_reset.exit:                             ; preds = %malloc_mutex_lock.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %n_shards, align 4
   %78 = zext i32 %77 to i64
-  %cmp21 = icmp ult i64 %indvars.iv.next, %78
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %cmp21, label %for.body23, label %for.inc27, !llvm.loop !13
 
 for.inc27:                                        ; preds = %arena_bin_reset.exit, %for.cond20.preheader
@@ -5698,7 +5698,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr @nbins_total, align 4
   %8 = zext i32 %7 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %8
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -6094,7 +6094,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr @nbins_total, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
@@ -6121,7 +6121,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i32, ptr @nbins_total, align 4
   %2 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %2
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %entry
@@ -6268,7 +6268,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr @nbins_total, align 4
   %27 = zext i32 %26 to i64
-  %cmp120 = icmp ult i64 %indvars.iv.next, %27
+  %cmp120 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %cmp120, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body, %if.end119

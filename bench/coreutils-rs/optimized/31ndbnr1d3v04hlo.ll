@@ -658,7 +658,7 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
 33:                                               ; preds = %39
   %34 = lshr i64 %.01830, 1
   %35 = shl i64 %.01731, 1
-  %.not = icmp ult i64 %.01830, 2
+  %.not = icmp samesign ult i64 %.01830, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 36:                                               ; preds = %.lr.ph, %39

@@ -9136,7 +9136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19.i: 
   br i1 %2724, label %2725, label %.loopexit639
 
 2725:                                             ; preds = %.noexc314
-  %2726 = icmp ult i64 %indvars.iv.i297, 4
+  %2726 = icmp samesign ult i64 %indvars.iv.i297, 4
   %2727 = select i1 %2726, ptr @.str.260, ptr @.str.248
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #19
   %2728 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %102)

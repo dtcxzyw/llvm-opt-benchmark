@@ -936,7 +936,7 @@ _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.th
   %.01218 = phi ptr [ %51, %.lr.ph ], [ %108, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
   %56 = load i32, ptr %25, align 4
   %57 = zext i32 %56 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %57
+  %.not.i = icmp samesign ult i64 %indvars.iv, %57
   br i1 %.not.i, label %59, label %58
 
 58:                                               ; preds = %55
@@ -1150,7 +1150,7 @@ _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.th
   %.01218 = phi ptr [ %51, %.lr.ph ], [ %108, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
   %56 = load i32, ptr %25, align 4
   %57 = zext i32 %56 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %57
+  %.not.i = icmp samesign ult i64 %indvars.iv, %57
   br i1 %.not.i, label %59, label %58
 
 58:                                               ; preds = %55
@@ -1935,7 +1935,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %21, %14, %9
   %.01617 = phi ptr [ %45, %.lr.ph ], [ %77, %58 ]
   %50 = load i32, ptr %46, align 4
   %51 = zext i32 %50 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %51
+  %.not.i = icmp samesign ult i64 %indvars.iv, %51
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds %struct.hb_vector_t.178, ptr %52, i64 %indvars.iv
   %.0.i = select i1 %.not.i, ptr %53, ptr @_hb_NullPool
@@ -2054,7 +2054,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %21, %14, %9
   %.01617 = phi ptr [ %45, %.lr.ph ], [ %77, %58 ]
   %50 = load i32, ptr %46, align 4
   %51 = zext i32 %50 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %51
+  %.not.i = icmp samesign ult i64 %indvars.iv, %51
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds %struct.hb_vector_t.178, ptr %52, i64 %indvars.iv
   %.0.i = select i1 %.not.i, ptr %53, ptr @_hb_NullPool
@@ -2673,7 +2673,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %94 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %95 = icmp ult i64 %indvars.iv.next20.i.i.i, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %94
   br i1 %95, label %.lr.ph.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i, %85
@@ -2708,7 +2708,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %106 = and i64 %indvars.iv.next.i14.i.i, 4294967295
-  %107 = icmp ult i64 %indvars.iv.next20.i13.i.i, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %106
   br i1 %107, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !20
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %99, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, %.loopexit
@@ -2809,7 +2809,7 @@ _ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_
   %indvars.iv.next20.i.i.i71 = add nuw nsw i64 %indvars.iv19.i.i.i69, 1
   %indvars.iv.next.i.i.i72 = add nsw i64 %indvars.iv.i.i.i70, -1
   %160 = and i64 %indvars.iv.next.i.i.i72, 4294967295
-  %161 = icmp ult i64 %indvars.iv.next20.i.i.i71, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next20.i.i.i71, %160
   br i1 %161, label %.lr.ph.i.i.i68, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56: ; preds = %.lr.ph.i.i.i68, %151
@@ -2844,7 +2844,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56: ; preds = %.lr.ph.i.i.
   %indvars.iv.next20.i13.i.i64 = add nuw nsw i64 %indvars.iv19.i11.i.i62, 1
   %indvars.iv.next.i14.i.i65 = add nsw i64 %indvars.iv.i12.i.i63, -1
   %172 = and i64 %indvars.iv.next.i14.i.i65, 4294967295
-  %173 = icmp ult i64 %indvars.iv.next20.i13.i.i64, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i64, %172
   br i1 %173, label %.lr.ph.i10.i.i61, label %_ZN11hb_buffer_t7reverseEv.exit73, !llvm.loop !20
 
 174:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_tRKT_.exit
@@ -3882,7 +3882,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %105
   %indvars.iv39 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next40, %105 ]
-  %.not.i.i = icmp ult i64 %indvars.iv39, %83
+  %.not.i.i = icmp samesign ult i64 %indvars.iv39, %83
   %84 = getelementptr inbounds %"struct.OT::HBFixed", ptr %81, i64 %indvars.iv39
   %.0.i.i = select i1 %.not.i.i, ptr %84, ptr @_hb_NullPool
   %85 = load i8, ptr %.0.i.i, align 1
@@ -4060,7 +4060,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT11FeatureName18get_selector_info
   %.not13 = icmp eq i8 %39, 0
   %narrow = select i1 %.not13, i8 0, i8 %38
   %spec.select = zext i8 %narrow to i32
-  %.not.i.i = icmp ugt i32 %33, %spec.select
+  %.not.i.i = icmp samesign ugt i32 %33, %spec.select
   %40 = zext i8 %narrow to i64
   %41 = getelementptr inbounds %"struct.AAT::SettingName", ptr %25, i64 %40
   %.0.i.i = select i1 %.not.i.i, ptr %41, ptr @_hb_Null_AAT_SettingName
@@ -5912,7 +5912,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17CaretValueFormat38saniti
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = or disjoint i32 %51, %54
-  %56 = icmp ugt i32 %47, %55
+  %56 = icmp samesign ugt i32 %47, %55
   br i1 %56, label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i, label %57
 
 57:                                               ; preds = %40
@@ -6472,7 +6472,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %70 = load i8, ptr %44, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp ugt i32 %66, %72
+  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
   br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
 
 73:                                               ; preds = %58
@@ -8047,7 +8047,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_co
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
-  %46 = icmp ugt i32 %45, 5
+  %46 = icmp samesign ugt i32 %45, 5
   br i1 %46, label %47, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 47:                                               ; preds = %38
@@ -8095,7 +8095,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT19LookupSegmentSingleINS_7IntTypeItLj2EEE
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = icmp ugt i32 %79, 3
+  %80 = icmp samesign ugt i32 %79, 3
   br i1 %80, label %81, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 81:                                               ; preds = %72
@@ -8173,7 +8173,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_co
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %136 = icmp ult i32 %135, 5
+  %136 = icmp samesign ult i32 %135, 5
   br i1 %136, label %137, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 137:                                              ; preds = %128
@@ -8229,7 +8229,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat4IN2OT7IntT
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = icmp ugt i32 %20, 5
+  %21 = icmp samesign ugt i32 %20, 5
   br i1 %21, label %22, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 22:                                               ; preds = %13
@@ -8407,7 +8407,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeItLj2EEEE
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
-  %.not19.i = icmp ugt i32 %127, %134
+  %.not19.i = icmp samesign ugt i32 %127, %134
   br i1 %.not19.i, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %135
 
 135:                                              ; preds = %119
@@ -8978,7 +8978,7 @@ _ZNK2OT14UnsizedArrayOfINS_11HBGlyphID16EE16sanitize_shallowEP21hb_sanitize_cont
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
-  %46 = icmp ugt i32 %45, 5
+  %46 = icmp samesign ugt i32 %45, 5
   br i1 %46, label %47, label %_ZNK3AAT13LookupFormat0IN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t.exit
 
 47:                                               ; preds = %38
@@ -9026,7 +9026,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT19LookupSegmentSingleINS_11HBGlyphID16EEE
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = icmp ugt i32 %79, 3
+  %80 = icmp samesign ugt i32 %79, 3
   br i1 %80, label %81, label %_ZNK3AAT13LookupFormat0IN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t.exit
 
 81:                                               ; preds = %72
@@ -9104,7 +9104,7 @@ _ZNK2OT14UnsizedArrayOfINS_11HBGlyphID16EE16sanitize_shallowEP21hb_sanitize_cont
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %136 = icmp ult i32 %135, 5
+  %136 = icmp samesign ult i32 %135, 5
   br i1 %136, label %137, label %_ZNK3AAT13LookupFormat0IN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t.exit
 
 137:                                              ; preds = %128
@@ -9160,7 +9160,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat4IN2OT11HBG
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = icmp ugt i32 %20, 5
+  %21 = icmp samesign ugt i32 %20, 5
   br i1 %21, label %22, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_11HBGlyphID16EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 22:                                               ; preds = %13
@@ -9338,7 +9338,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_11HBGlyphID16EEEE
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
-  %.not19.i = icmp ugt i32 %127, %134
+  %.not19.i = icmp samesign ugt i32 %127, %134
   br i1 %.not19.i, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_11HBGlyphID16EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %135
 
 135:                                              ; preds = %119
@@ -10357,7 +10357,7 @@ _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EED2Ev.exit.i: ; preds = %40,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %23, align 4
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next.i, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
   br i1 %46, label %26, label %.sink.split.i, !llvm.loop !62
 
 .sink.split.i:                                    ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EED2Ev.exit.i, %.preheader.i, %18
@@ -11213,7 +11213,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Obso
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
-  %20 = icmp ult i32 %19, 9
+  %20 = icmp samesign ult i32 %19, 9
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %12
@@ -11493,7 +11493,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Obsolet
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
-  %22 = icmp ult i32 %21, 4
+  %22 = icmp samesign ult i32 %21, 4
   %23 = getelementptr inbounds i8, ptr %0, i64 4
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %8
@@ -11781,7 +11781,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Obsolet
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
-  %22 = icmp ult i32 %21, 4
+  %22 = icmp samesign ult i32 %21, 4
   %23 = getelementptr inbounds i8, ptr %0, i64 4
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %8
@@ -12069,7 +12069,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Obsolet
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
-  %22 = icmp ult i32 %21, 4
+  %22 = icmp samesign ult i32 %21, 4
   %23 = getelementptr inbounds i8, ptr %0, i64 4
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %8
@@ -12823,7 +12823,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %122 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %123 = icmp ult i64 %indvars.iv.next20.i.i.i, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %122
   br i1 %123, label %.lr.ph.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i, %113
@@ -12858,7 +12858,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %134 = and i64 %indvars.iv.next.i14.i.i, 4294967295
-  %135 = icmp ult i64 %indvars.iv.next20.i13.i.i, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %134
   br i1 %135, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !20
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, %127
@@ -12970,7 +12970,7 @@ _ZNK3AAT13ChainSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE
   %indvars.iv.next20.i.i.i47 = add nuw nsw i64 %indvars.iv19.i.i.i45, 1
   %indvars.iv.next.i.i.i48 = add nsw i64 %indvars.iv.i.i.i46, -1
   %193 = and i64 %indvars.iv.next.i.i.i48, 4294967295
-  %194 = icmp ult i64 %indvars.iv.next20.i.i.i47, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next20.i.i.i47, %193
   br i1 %194, label %.lr.ph.i.i.i44, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32: ; preds = %.lr.ph.i.i.i44, %_ZNK3AAT13ChainSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE.exit
@@ -13005,7 +13005,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32: ; preds = %.lr.ph.i.i.
   %indvars.iv.next20.i13.i.i40 = add nuw nsw i64 %indvars.iv19.i11.i.i38, 1
   %indvars.iv.next.i14.i.i41 = add nsw i64 %indvars.iv.i12.i.i39, -1
   %205 = and i64 %indvars.iv.next.i14.i.i41, 4294967295
-  %206 = icmp ult i64 %indvars.iv.next20.i13.i.i40, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i40, %205
   br i1 %206, label %.lr.ph.i10.i.i37, label %_ZN11hb_buffer_t7reverseEv.exit49, !llvm.loop !20
 
 .critedge:                                        ; preds = %112
@@ -13332,7 +13332,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit.thread.thr
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next157, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next157, %101
   br i1 %102, label %95, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %95, %.preheader
@@ -19729,7 +19729,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN12hb_aat_map_t13range_flags
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %101 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %102 = icmp ult i64 %indvars.iv.next20.i.i.i, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %101
   br i1 %102, label %.lr.ph.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i, %92
@@ -19764,7 +19764,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %113 = and i64 %indvars.iv.next.i14.i.i, 4294967295
-  %114 = icmp ult i64 %indvars.iv.next20.i13.i.i, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %113
   br i1 %114, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !20
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, %106
@@ -19866,7 +19866,7 @@ _ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE5applyEPNS_22hb_aat_apply_context_tE
   %indvars.iv.next20.i.i.i47 = add nuw nsw i64 %indvars.iv19.i.i.i45, 1
   %indvars.iv.next.i.i.i48 = add nsw i64 %indvars.iv.i.i.i46, -1
   %162 = and i64 %indvars.iv.next.i.i.i48, 4294967295
-  %163 = icmp ult i64 %indvars.iv.next20.i.i.i47, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next20.i.i.i47, %162
   br i1 %163, label %.lr.ph.i.i.i44, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32, !llvm.loop !19
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32: ; preds = %.lr.ph.i.i.i44, %_ZNK3AAT13ChainSubtableINS_13ObsoleteTypesEE5applyEPNS_22hb_aat_apply_context_tE.exit
@@ -19901,7 +19901,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i32: ; preds = %.lr.ph.i.i.
   %indvars.iv.next20.i13.i.i40 = add nuw nsw i64 %indvars.iv19.i11.i.i38, 1
   %indvars.iv.next.i14.i.i41 = add nsw i64 %indvars.iv.i12.i.i39, -1
   %174 = and i64 %indvars.iv.next.i14.i.i41, 4294967295
-  %175 = icmp ult i64 %indvars.iv.next20.i13.i.i40, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i40, %174
   br i1 %175, label %.lr.ph.i10.i.i37, label %_ZN11hb_buffer_t7reverseEv.exit49, !llvm.loop !20
 
 .critedge:                                        ; preds = %91
@@ -20493,7 +20493,7 @@ _ZNK3AAT10StateTableINS_13ObsoleteTypesEvE9get_classEjj.exit: ; preds = %._ZNK3A
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = or disjoint i32 %142, %145
-  %.not.i30 = icmp ult i32 %138, %146
+  %.not.i30 = icmp samesign ult i32 %138, %146
   %spec.select.i = select i1 %.not.i30, i32 %138, i32 1
   %147 = getelementptr inbounds i8, ptr %137, i64 4
   %148 = load i8, ptr %147, align 1
@@ -21283,7 +21283,7 @@ _ZNK3AAT10StateTableINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = or disjoint i32 %142, %145
-  %.not.i30 = icmp ult i32 %138, %146
+  %.not.i30 = icmp samesign ult i32 %138, %146
   %spec.select.i = select i1 %.not.i30, i32 %138, i32 1
   %147 = getelementptr inbounds i8, ptr %137, i64 4
   %148 = load i8, ptr %147, align 1
@@ -22231,7 +22231,7 @@ _ZNK3AAT10StateTableINS_13ObsoleteTypesEvE9get_classEjj.exit: ; preds = %._ZNK3A
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = or disjoint i32 %143, %146
-  %.not.i30 = icmp ult i32 %139, %147
+  %.not.i30 = icmp samesign ult i32 %139, %147
   %spec.select.i = select i1 %.not.i30, i32 %139, i32 1
   %148 = getelementptr inbounds i8, ptr %138, i64 4
   %149 = load i8, ptr %148, align 1
@@ -23384,7 +23384,7 @@ _ZNK3AAT10StateTableINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE9
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = or disjoint i32 %143, %146
-  %.not.i30 = icmp ult i32 %139, %147
+  %.not.i30 = icmp samesign ult i32 %139, %147
   %spec.select.i = select i1 %.not.i30, i32 %139, i32 1
   %148 = getelementptr inbounds i8, ptr %138, i64 4
   %149 = load i8, ptr %148, align 1
@@ -24420,7 +24420,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableINS_4kerxEE8san
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %7
@@ -25825,7 +25825,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_co
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
-  %46 = icmp ugt i32 %45, 7
+  %46 = icmp samesign ugt i32 %45, 7
   br i1 %46, label %47, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 47:                                               ; preds = %38
@@ -25873,7 +25873,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT19LookupSegmentSingleINS_7IntTypeIjLj4EEE
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = icmp ugt i32 %79, 5
+  %80 = icmp samesign ugt i32 %79, 5
   br i1 %80, label %81, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 81:                                               ; preds = %72
@@ -25951,7 +25951,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_co
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %136 = icmp ult i32 %135, 5
+  %136 = icmp samesign ult i32 %135, 5
   br i1 %136, label %137, label %_ZNK3AAT13LookupFormat0IN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t.exit
 
 137:                                              ; preds = %128
@@ -26007,7 +26007,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat4IN2OT7IntT
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = icmp ugt i32 %20, 5
+  %21 = icmp samesign ugt i32 %20, 5
   br i1 %21, label %22, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 22:                                               ; preds = %13
@@ -26185,7 +26185,7 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeIjLj4EEEE
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
-  %.not19.i = icmp ugt i32 %127, %134
+  %.not19.i = icmp samesign ugt i32 %127, %134
   br i1 %.not19.i, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %135
 
 135:                                              ; preds = %119
@@ -26809,7 +26809,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat2IN2OT8Offs
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
-  %22 = icmp ugt i32 %21, 5
+  %22 = icmp samesign ugt i32 %21, 5
   br i1 %22, label %23, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT19LookupSegmentSingleINS_8OffsetToINS_7ArrayOfINS1_6AnchorENS_7IntTypeIjLj4EEEEENS6_ItLj2EEELb0EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 23:                                               ; preds = %14
@@ -27054,7 +27054,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat4IN2OT8Offs
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
-  %23 = icmp ugt i32 %22, 5
+  %23 = icmp samesign ugt i32 %22, 5
   br i1 %23, label %24, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT18LookupSegmentArrayINS_8OffsetToINS_7ArrayOfINS1_6AnchorENS_7IntTypeIjLj4EEEEENS6_ItLj2EEELb0EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 24:                                               ; preds = %15
@@ -27231,7 +27231,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13LookupFormat6IN2OT8Offs
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
-  %22 = icmp ugt i32 %21, 3
+  %22 = icmp samesign ugt i32 %21, 3
   br i1 %22, label %23, label %_ZNK2OT24VarSizedBinSearchArrayOfIN3AAT12LookupSingleINS_8OffsetToINS_7ArrayOfINS1_6AnchorENS_7IntTypeIjLj4EEEEENS6_ItLj2EEELb0EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 23:                                               ; preds = %14
@@ -27460,7 +27460,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT18LookupSegmentArrayIN2OT
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
-  %.not21 = icmp ugt i32 %23, %30
+  %.not21 = icmp samesign ugt i32 %23, %30
   br i1 %.not21, label %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_8OffsetToINS1_7ArrayOfIN3AAT6AnchorENS1_7IntTypeIjLj4EEEEENS7_ItLj2EEELb0EEEEEJjRPKvEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSI_.exit, label %31
 
 31:                                               ; preds = %15
@@ -29115,7 +29115,7 @@ _ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7Int
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = or disjoint i32 %86, %89
-  %.not.i = icmp ugt i32 %82, %90
+  %.not.i = icmp samesign ugt i32 %82, %90
   br i1 %.not.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %91
 
 91:                                               ; preds = %_ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE7bsearchIjEERKS5_RKT_SB_.exit.i

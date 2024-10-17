@@ -1039,7 +1039,7 @@ define hidden void @FindRulePrecedences(ptr nocapture noundef readonly %0) local
 .loopexit:                                        ; preds = %26, %.loopexit.sink.split, %.preheader, %33
   %37 = phi ptr [ null, %33 ], [ null, %.preheader ], [ %.lcssa.sink, %.loopexit.sink.split ], [ null, %26 ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %38 = icmp ult i64 %indvars.iv.next37, %10
+  %38 = icmp samesign ult i64 %indvars.iv.next37, %10
   br i1 %38, label %11, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %11, %.loopexit, %.preheader24, %.lr.ph33
@@ -15041,7 +15041,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %152 = getelementptr [50 x i8], ptr %3, i64 0, i64 %151
   store i8 %149, ptr %152, align 1
   %153 = udiv i32 %.1257.i, 10
-  %.not.i = icmp ult i32 %.1257.i, 10
+  %.not.i = icmp samesign ult i32 %.1257.i, 10
   br i1 %.not.i, label %._crit_edge260.i, label %.lr.ph259.i, !llvm.loop !211
 
 ._crit_edge260.i:                                 ; preds = %.lr.ph259.i

@@ -3742,7 +3742,7 @@ check_need_password.exit:                         ; preds = %258, %267, %271
   %273 = load i32, ptr @wal_segment_size_mb, align 4
   %274 = shl i32 %273, 20
   %275 = call range(i32 1, 12) i32 @llvm.ctpop.i32(i32 %274)
-  %276 = icmp ult i32 %275, 2
+  %276 = icmp samesign ult i32 %275, 2
   %277 = add i32 %274, -1048576
   %278 = icmp ult i32 %277, 1072693249
   %or.cond67 = select i1 %278, i1 %276, i1 false
@@ -4424,7 +4424,7 @@ define internal fastcc ptr @replace_guc_value(ptr noundef %0, ptr noundef %1, pt
 15:                                               ; preds = %12
   %16 = and i32 %10, 255
   %17 = zext nneg i32 %16 to i64
-  %memchr.bounds.i = icmp ugt i32 %16, 63
+  %memchr.bounds.i = icmp samesign ugt i32 %16, 63
   %18 = shl nuw i64 1, %17
   %19 = and i64 %18, 287948901175001089
   %memchr.bits.i = icmp eq i64 %19, 0

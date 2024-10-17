@@ -329,7 +329,7 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
   %112 = getelementptr inbounds i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next212.i, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next212.i, %114
   br i1 %115, label %.lr.ph186.i, label %._crit_edge187.i
 
 ._crit_edge187.i:                                 ; preds = %110
@@ -532,7 +532,7 @@ switch.lookup:                                    ; preds = %189
   %199 = getelementptr inbounds i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next221.i, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next221.i, %201
   br i1 %202, label %174, label %._crit_edge201.i
 
 ._crit_edge201.i:                                 ; preds = %._crit_edge195.i
@@ -1282,7 +1282,7 @@ check_options.exit.thread:                        ; preds = %39, %43, %31, %128,
   %609 = getelementptr inbounds i8, ptr %608, i64 4
   %610 = load i32, ptr %609, align 4
   %611 = zext i32 %610 to i64
-  %612 = icmp ult i64 %indvars.iv.next249.i, %611
+  %612 = icmp samesign ult i64 %indvars.iv.next249.i, %611
   br i1 %612, label %414, label %.loopexit127.i
 
 .loopexit127.i:                                   ; preds = %._crit_edge181.i, %603, %597, %593, %585, %578, %574, %566, %557, %553, %545, %538, %534, %526, %519, %515, %507, %500, %496, %488, %472, %468, %460, %442, %435, %427, %406, %394, %390, %382, %372, %368, %360, %349
@@ -2057,7 +2057,7 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %40 = load i64, ptr %16, align 8
   %41 = and i64 %40, 4294967295
-  %42 = icmp ult i64 %indvars.iv.next481, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next481, %41
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph369, %39

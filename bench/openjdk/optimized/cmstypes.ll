@@ -1295,7 +1295,7 @@ define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %
   %52 = zext i32 %51 to i64
   %53 = zext i32 %48 to i64
   %54 = shl nuw nsw i64 %53, 1
-  %55 = icmp ugt i64 %54, %52
+  %55 = icmp samesign ugt i64 %54, %52
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %50
@@ -2251,7 +2251,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr nocapture noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = tail call i32 @cmsPipelineInputChannels(ptr noundef nonnull %2) #13
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %.thread152.thread, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %50, %57
@@ -3562,7 +3562,7 @@ define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %5, align 4
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %28, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %49
@@ -3651,7 +3651,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr nocapture readnone %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %11, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %25, label %._crit_edge, !llvm.loop !38
 
 25:                                               ; preds = %.lr.ph, %21
@@ -3765,7 +3765,7 @@ define internal ptr @Type_ProfileSequenceDesc_Read(ptr nocapture noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %5, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %22, label %._crit_edge, !llvm.loop !39
 
 22:                                               ; preds = %.lr.ph, %18
@@ -3852,7 +3852,7 @@ define internal range(i32 0, 2) i32 @Type_ProfileSequenceDesc_Write(ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %2, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %14, label %SaveDescription.exit.thread, !llvm.loop !40
 
 14:                                               ; preds = %.lr.ph, %10
@@ -5784,7 +5784,7 @@ define internal ptr @Type_Screening_Read(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %12, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %23, label %._crit_edge, !llvm.loop !44
 
 23:                                               ; preds = %.lr.ph, %19
@@ -5844,7 +5844,7 @@ define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr nocapture readnone
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %8, align 4
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %.preheader, %13
@@ -6384,7 +6384,7 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr %7, align 4
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next, %139
   br i1 %140, label %141, label %._crit_edge, !llvm.loop !47
 
 141:                                              ; preds = %.lr.ph, %137
@@ -7127,7 +7127,7 @@ define internal ptr @Type_vcgt_Read(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %62 = load i16, ptr %7, align 2
   %63 = zext i16 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next86, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next86, %63
   br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 65:                                               ; preds = %49
@@ -8185,7 +8185,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
   br label %.loopexit
 
 8:                                                ; preds = %5
-  %9 = icmp ugt i32 %3, 16
+  %9 = icmp samesign ugt i32 %3, 16
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %8
@@ -8318,7 +8318,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
   %21 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %6, %5 ]
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next11, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next11, %22
   br i1 %23, label %5, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %2
@@ -8422,7 +8422,7 @@ define internal fastcc ptr @ReadSetOfCurves(ptr nocapture noundef readonly %0, p
   %5 = alloca i32, align 4
   %6 = alloca [5 x i8], align 1
   %7 = alloca [16 x ptr], align 16
-  %8 = icmp ugt i32 %3, 16
+  %8 = icmp samesign ugt i32 %3, 16
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
@@ -8618,7 +8618,7 @@ define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noun
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %52 = load i32, ptr %40, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next53, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next53, %53
   br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !75
 
 55:                                               ; preds = %36
@@ -8968,7 +8968,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
   %21 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp ult i64 %indvars.iv.next, %16
+  %22 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %22, label %17, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %17, %10
@@ -9012,7 +9012,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %39 = load i32, ptr %36, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next9, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next9, %40
   br i1 %41, label %.lr.ph4, label %.loopexit, !llvm.loop !78
 
 .lr.ph4:                                          ; preds = %.preheader, %38
@@ -9094,7 +9094,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noca
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %19 = load i32, ptr %7, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next23, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next23, %20
   br i1 %21, label %.lr.ph7, label %.loopexit, !llvm.loop !80
 
 .lr.ph7:                                          ; preds = %.preheader1, %18
@@ -9151,7 +9151,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture nou
   %16 = load i32, ptr %3, align 4
   %17 = zext i32 %16 to i64
   %18 = add nuw nsw i64 %15, 4
-  %19 = icmp ugt i64 %18, %17
+  %19 = icmp samesign ugt i64 %18, %17
   br i1 %19, label %42, label %20
 
 20:                                               ; preds = %14
@@ -9440,7 +9440,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noca
   %39 = phi i16 [ %34, %.lr.ph ], [ %.pre, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i16 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %38, %32
@@ -9603,7 +9603,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %49 = load i16, ptr %6, align 2
   %50 = zext i16 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next56, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next56, %50
   br i1 %51, label %.lr.ph50, label %._crit_edge.loopexit, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %45
@@ -9709,7 +9709,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr nocapture readnone
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %39 = load i32, ptr %12, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next41, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next41, %40
   br i1 %41, label %28, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %33, %38, %.preheader, %11, %4
@@ -9798,7 +9798,7 @@ define internal ptr @Type_MPEclut_Read(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %44 = load i32, ptr %41, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next49, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next49, %45
   br i1 %46, label %.lr.ph43, label %._crit_edge44, !llvm.loop !91
 
 .lr.ph43:                                         ; preds = %38, %43
@@ -9898,7 +9898,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr nocapture readnone %
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %38 = load i32, ptr %35, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next36, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next36, %39
   br i1 %40, label %.lr.ph29, label %.loopexit, !llvm.loop !93
 
 .lr.ph29:                                         ; preds = %.preheader, %37
@@ -9992,7 +9992,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %37 = zext i16 %36 to i32
   %38 = add nsw i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !94
 
 ._crit_edge.i:                                    ; preds = %34
@@ -10068,7 +10068,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %71 = getelementptr inbounds [3 x i32], ptr @__const.WriteSegmentedCurve.ParamsByType, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next173.i, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next173.i, %73
   br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !95
 
 75:                                               ; preds = %49
@@ -10101,7 +10101,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %91 = load i32, ptr %10, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next170.i, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next170.i, %92
   br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !96
 
 .lr.ph131.i:                                      ; preds = %87, %90
@@ -10122,7 +10122,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %99 = load i16, ptr %7, align 2
   %100 = zext i16 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next176.i, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next176.i, %100
   br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !97
 
 ._crit_edge137.loopexit.i:                        ; preds = %.loopexit106.i
@@ -10155,7 +10155,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %112 = phi i16 [ %106, %.lr.ph141.i ], [ %.pre187.i, %109 ]
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
   %113 = zext i16 %112 to i64
-  %114 = icmp ult i64 %indvars.iv.next182.i, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next182.i, %113
   br i1 %114, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !98
 
 ._crit_edge142.i:                                 ; preds = %111, %._crit_edge137.i
@@ -10193,7 +10193,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %132 = phi i16 [ %119, %118 ], [ %.pre188.i, %125 ]
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %133 = zext i16 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next185.i, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next185.i, %133
   br i1 %134, label %118, label %ReadSegmentedCurve.exit, !llvm.loop !99
 
 .loopexit107.i:                                   ; preds = %.lr.ph.i, %77, %75, %55, %53, %51, %47, %.lr.ph136.i, %.lr.ph131.i, %63, %97
@@ -10219,7 +10219,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly
   %142 = phi i16 [ %136, %.lr.ph148.i ], [ %.pre.i, %139 ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %143 = zext i16 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next179.i, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next179.i, %143
   br i1 %144, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !100
 
 ._crit_edge149.i:                                 ; preds = %141, %.loopexit107.i
@@ -10476,7 +10476,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr nocapture readnone %0, pt
   %49 = getelementptr inbounds %struct.cmsCurveSegment, ptr %48, i64 %indvars.iv109.i, i32 4
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next107.i, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next107.i, %51
   br i1 %52, label %53, label %.loopexit.i, !llvm.loop !106
 
 53:                                               ; preds = %47, %.lr.ph74.i
@@ -10543,7 +10543,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr nocapture readnone %0, pt
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %81 = load i32, ptr %13, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next110.i, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next110.i, %82
   br i1 %83, label %.lr.ph76.i, label %WriteSegmentedCurve.exit, !llvm.loop !108
 
 WriteSegmentedCurve.exit:                         ; preds = %.lr.ph.i, %33, %35, %37, %58, %60, %62, %66, %69, %.loopexit.i, %76, %53, %5, %16, %18, %21, %.preheader66.i
@@ -10971,7 +10971,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
   br i1 %.not, label %WriteOneElem.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = icmp ugt i32 %3, 16
+  %13 = icmp samesign ugt i32 %3, 16
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -10979,14 +10979,14 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %14 = icmp ugt i32 %3, 24
-  %wide.trip.count87 = zext i32 %2 to i64
+  %14 = icmp samesign ugt i32 %3, 24
+  %wide.trip.count88 = zext i32 %2 to i64
   br i1 %14, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv84
+  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv85
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %17) #13
   %.not.i.us.us = icmp eq i32 %18, 0
@@ -10994,7 +10994,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
 
 WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.split.us
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv84
+  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv85
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %21) #13
   %.not6.i.not.us.us = icmp eq i32 %22, 0
@@ -11002,7 +11002,7 @@ WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.spl
 
 23:                                               ; preds = %WriteOneElem.exit.us.us
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv84
+  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv85
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %26) #13
   %.not.i21.us.us = icmp eq i32 %27, 0
@@ -11010,7 +11010,7 @@ WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.spl
 
 WriteOneElem.exit25.us.us:                        ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv84
+  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv85
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %30) #13
   %.not6.i22.not.us.us = icmp eq i32 %31, 0
@@ -11018,7 +11018,7 @@ WriteOneElem.exit25.us.us:                        ; preds = %23
 
 32:                                               ; preds = %WriteOneElem.exit25.us.us
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv84
+  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv85
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %35) #13
   %.not.i26.us.us = icmp eq i32 %36, 0
@@ -11026,7 +11026,7 @@ WriteOneElem.exit25.us.us:                        ; preds = %23
 
 WriteOneElem.exit30.us.us:                        ; preds = %32
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv84
+  %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv85
   %39 = load i32, ptr %38, align 4
   %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %39) #13
   %.not6.i27.not.us.us = icmp eq i32 %40, 0
@@ -11034,7 +11034,7 @@ WriteOneElem.exit30.us.us:                        ; preds = %32
 
 41:                                               ; preds = %WriteOneElem.exit30.us.us
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv84
+  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv85
   %44 = load i32, ptr %43, align 4
   %45 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %44) #13
   %.not.i31.us.us = icmp eq i32 %45, 0
@@ -11042,21 +11042,21 @@ WriteOneElem.exit30.us.us:                        ; preds = %32
 
 WriteOneElem.exit35.us.us:                        ; preds = %41
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv84
+  %47 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv85
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %48) #13
   %.not6.i32.not.us.us = icmp eq i32 %49, 0
   br i1 %.not6.i32.not.us.us, label %WriteOneElem.exit.thread, label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %WriteOneElem.exit35.us.us
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split.us, !llvm.loop !109
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split.us, !llvm.loop !109
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.thread.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.thread.us ], [ 0, %.lr.ph.split.us ]
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv79
+  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv80
   %52 = load i32, ptr %51, align 4
   %53 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %52) #13
   %.not.i.us = icmp eq i32 %53, 0
@@ -11064,7 +11064,7 @@ WriteOneElem.exit35.us.us:                        ; preds = %41
 
 WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.split
   %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv79
+  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv80
   %56 = load i32, ptr %55, align 4
   %57 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %56) #13
   %.not6.i.not.us = icmp eq i32 %57, 0
@@ -11072,7 +11072,7 @@ WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.spl
 
 58:                                               ; preds = %WriteOneElem.exit.us
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv79
+  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv80
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %61) #13
   %.not.i21.us = icmp eq i32 %62, 0
@@ -11080,7 +11080,7 @@ WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.spl
 
 WriteOneElem.exit25.us:                           ; preds = %58
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv79
+  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv80
   %65 = load i32, ptr %64, align 4
   %66 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %65) #13
   %.not6.i22.not.us = icmp eq i32 %66, 0
@@ -11088,7 +11088,7 @@ WriteOneElem.exit25.us:                           ; preds = %58
 
 67:                                               ; preds = %WriteOneElem.exit25.us
   %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv79
+  %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv80
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %70) #13
   %.not.i26.us = icmp eq i32 %71, 0
@@ -11096,16 +11096,16 @@ WriteOneElem.exit25.us:                           ; preds = %58
 
 WriteOneElem.exit30.us:                           ; preds = %67
   %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv79
+  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv80
   %74 = load i32, ptr %73, align 4
   %75 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %74) #13
   %.not6.i27.not.us = icmp eq i32 %75, 0
   br i1 %.not6.i27.not.us, label %WriteOneElem.exit.thread, label %.thread.us
 
 .thread.us:                                       ; preds = %WriteOneElem.exit30.us
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count87
-  br i1 %exitcond83.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split, !llvm.loop !109
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count88
+  br i1 %exitcond84.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split, !llvm.loop !109
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.thread ]

@@ -544,13 +544,13 @@ define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr nocapture noundef 
   %35 = shl i64 %27, %34
   %36 = lshr i64 %35, 12
   %37 = add nuw nsw i64 %36, %33
-  %38 = icmp ugt i64 %37, %28
+  %38 = icmp samesign ugt i64 %37, %28
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %29
   %40 = load i32, ptr %22, align 4
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %33, %41
+  %42 = icmp samesign ult i64 %33, %41
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %39, %29
@@ -609,7 +609,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef 
   %34 = getelementptr i8, ptr %31, i64 -40
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 12
-  %37 = icmp ult i64 %36, %27
+  %37 = icmp samesign ult i64 %36, %27
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %33
@@ -620,7 +620,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef 
   %43 = add nuw nsw i64 %42, %36
   %44 = load i32, ptr %28, align 4
   %45 = zext i32 %44 to i64
-  %46 = icmp ugt i64 %43, %45
+  %46 = icmp samesign ugt i64 %43, %45
   br i1 %46, label %.loopexit, label %29, !llvm.loop !20
 
 .loopexit:                                        ; preds = %38, %33, %29, %16, %7

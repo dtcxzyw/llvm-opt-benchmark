@@ -110,7 +110,7 @@ define void @dcopy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %62 = getelementptr inbounds double, ptr %3, i64 %59
   store double %61, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %63 = icmp ult i64 %indvars.iv.next, %13
+  %63 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %63, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !6
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74

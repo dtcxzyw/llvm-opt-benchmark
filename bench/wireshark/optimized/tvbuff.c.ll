@@ -4612,7 +4612,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.15066.i = phi i32 [ %50, %47 ], [ %.049.i, %21 ]
   %.25465.i = phi i32 [ %51, %47 ], [ %.052.i, %21 ]
   %.15764.i = phi i32 [ %52, %47 ], [ %.056.i, %21 ]
-  %23 = icmp ugt i32 %.25465.i, 31
+  %23 = icmp samesign ugt i32 %.25465.i, 31
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.lr.ph.i
@@ -4622,7 +4622,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %47
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = icmp ugt i32 %.25465.i, 15
+  %29 = icmp samesign ugt i32 %.25465.i, 15
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
@@ -4632,7 +4632,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %47
 
 33:                                               ; preds = %28
-  %34 = icmp ugt i32 %.25465.i, 7
+  %34 = icmp samesign ugt i32 %.25465.i, 7
   br i1 %34, label %35, label %.thread72.i
 
 35:                                               ; preds = %33

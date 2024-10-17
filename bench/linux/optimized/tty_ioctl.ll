@@ -963,7 +963,7 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %16, label %25, label %.loopexit
 
 17:                                               ; preds = %8
-  %18 = icmp ult i32 %2, 8
+  %18 = icmp samesign ult i32 %2, 8
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17

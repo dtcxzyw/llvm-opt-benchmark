@@ -1108,8 +1108,8 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %11 = zext i16 %6 to i32
   %spec.select = select i1 %10, i32 10, i32 %11
   %.0136 = select i1 %9, i32 4, i32 %spec.select
-  %12 = icmp ult i32 %.0136, 4
-  %13 = icmp ugt i32 %.0136, %11
+  %12 = icmp samesign ult i32 %.0136, 4
+  %13 = icmp samesign ugt i32 %.0136, %11
   %or.cond = select i1 %12, i1 true, i1 %13
   br i1 %or.cond, label %102, label %14
 
@@ -1162,7 +1162,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef %38, i32 noundef 0) #3
   %40 = load i32, ptr @ett_bdt, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #3
-  %42 = icmp ugt i32 %spec.select, 13
+  %42 = icmp samesign ugt i32 %spec.select, 13
   br i1 %42, label %.lr.ph4.preheader, label %.loopexit
 
 .lr.ph4.preheader:                                ; preds = %36
@@ -1194,7 +1194,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef %58, i32 noundef 0) #3
   %60 = load i32, ptr @ett_fdt, align 4
   %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #3
-  %62 = icmp ugt i32 %spec.select, 13
+  %62 = icmp samesign ugt i32 %spec.select, 13
   br i1 %62, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %56
@@ -1286,7 +1286,7 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.dissect_ipv6_bvlc, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext i16 %6 to i32
-  %13 = icmp ugt i32 %switch.load, %12
+  %13 = icmp samesign ugt i32 %switch.load, %12
   br i1 %13, label %79, label %14
 
 14:                                               ; preds = %.thread, %switch.lookup

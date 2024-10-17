@@ -1540,7 +1540,7 @@ define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr n
 74:                                               ; preds = %53, %54, %67, %71
   %75 = add nuw nsw i64 %16, 1
   %76 = and i64 %75, 127
-  %77 = icmp ugt i64 %76, 63
+  %77 = icmp samesign ugt i64 %76, 63
   br i1 %77, label %.thread, label %9, !prof !64, !llvm.loop !65
 
 .preheader:                                       ; preds = %38, %89
@@ -1564,7 +1564,7 @@ define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr n
   %91 = and i64 %90, 127
   %92 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %91
   tail call void @irq_matrix_remove_managed(ptr noundef %0, ptr noundef %92)
-  %93 = icmp ugt i64 %91, 63
+  %93 = icmp samesign ugt i64 %91, 63
   br i1 %93, label %.thread, label %.preheader, !prof !64, !llvm.loop !66
 
 .thread:                                          ; preds = %9, %74, %15, %.preheader, %89, %83
@@ -1693,7 +1693,7 @@ define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture n
 72:                                               ; preds = %69, %65, %52, %51, %38, %28
   %73 = add nuw nsw i64 %14, 1
   %74 = and i64 %73, 127
-  %75 = icmp ugt i64 %74, 63
+  %75 = icmp samesign ugt i64 %74, 63
   br i1 %75, label %.thread, label %7, !prof !64, !llvm.loop !78
 
 .thread:                                          ; preds = %7, %72, %13
@@ -1751,7 +1751,7 @@ define dso_local range(i32 0, -1) i32 @irq_matrix_alloc_managed(ptr noundef %0, 
   %38 = phi i32 [ %10, %19 ], [ %35, %30 ]
   %39 = add nuw nsw i64 %16, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %8, !prof !64, !llvm.loop !79
 
 .thread:                                          ; preds = %8, %36, %15
@@ -2100,7 +2100,7 @@ define dso_local range(i32 0, -1) i32 @irq_matrix_alloc(ptr noundef %0, ptr noca
   %38 = phi i32 [ %11, %20 ], [ %35, %31 ]
   %39 = add nuw nsw i64 %17, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %9, !prof !64, !llvm.loop !105
 
 .thread:                                          ; preds = %9, %36, %16

@@ -612,8 +612,8 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   %45 = getelementptr inbounds i8, ptr %.082105, i64 2
   store i16 %44, ptr %45, align 2
   %46 = and i32 %42, 32767
-  %47 = icmp ult i32 %46, %8
-  %48 = icmp uge i32 %46, %11
+  %47 = icmp samesign ult i32 %46, %8
+  %48 = icmp samesign uge i32 %46, %11
   %49 = select i1 %47, i1 true, i1 %48
   br i1 %49, label %50, label %57
 
@@ -1158,7 +1158,7 @@ define dso_local range(i64 0, 4294967296) i64 @PageGetHeapFreeSpace(ptr nocaptur
   %14 = lshr i32 %13, 2
   %15 = trunc i32 %14 to i16
   %.0.i20 = select i1 %12, i16 0, i16 %15
-  %16 = icmp ugt i16 %.0.i20, 290
+  %16 = icmp samesign ugt i16 %.0.i20, 290
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %11
@@ -1268,13 +1268,13 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %51 = zext nneg i32 %50 to i64
   %52 = and i32 %49, 32767
   %53 = zext i16 %8 to i32
-  %54 = icmp ult i32 %52, %53
+  %54 = icmp samesign ult i32 %52, %53
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %43
   %56 = zext nneg i32 %52 to i64
   %57 = add nuw nsw i64 %56, %51
-  %58 = icmp ugt i64 %57, %16
+  %58 = icmp samesign ugt i64 %57, %16
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %55
@@ -1316,7 +1316,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 80:                                               ; preds = %76, %66
   %.pre-phi = phi i32 [ %.pre82, %76 ], [ %53, %66 ]
   %81 = phi i16 [ %.pre, %76 ], [ %8, %66 ]
-  %82 = icmp ugt i32 %52, %.pre-phi
+  %82 = icmp samesign ugt i32 %52, %.pre-phi
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %80
@@ -1353,7 +1353,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %99 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 32767
-  %.not74 = icmp ugt i32 %101, %52
+  %.not74 = icmp samesign ugt i32 %101, %52
   br i1 %.not74, label %107, label %102
 
 102:                                              ; preds = %97
@@ -1461,9 +1461,9 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 17
   %47 = and i32 %45, 32767
-  %48 = icmp ult i32 %47, %11
+  %48 = icmp samesign ult i32 %47, %11
   %narrow = add nuw nsw i32 %47, %46
-  %49 = icmp ugt i32 %narrow, %14
+  %49 = icmp samesign ugt i32 %narrow, %14
   %or.cond105 = select i1 %48, i1 true, i1 %49
   br i1 %or.cond105, label %54, label %50
 
@@ -1660,13 +1660,13 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   %51 = zext nneg i32 %50 to i64
   %52 = and i32 %49, 32767
   %53 = zext i16 %8 to i32
-  %54 = icmp ult i32 %52, %53
+  %54 = icmp samesign ult i32 %52, %53
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %44
   %56 = zext nneg i32 %52 to i64
   %57 = add nuw nsw i64 %56, %51
-  %58 = icmp ugt i64 %57, %16
+  %58 = icmp samesign ugt i64 %57, %16
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %55
@@ -1702,7 +1702,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 74:                                               ; preds = %71, %70
   %.val7379 = phi i16 [ %4, %70 ], [ %72, %71 ]
   %.059 = phi i32 [ %38, %70 ], [ %73, %71 ]
-  %75 = icmp ugt i32 %52, %53
+  %75 = icmp samesign ugt i32 %52, %53
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %74
@@ -1740,8 +1740,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   %92 = load i32, ptr %91, align 4
   %.not69 = icmp ult i32 %92, 131072
   %93 = and i32 %92, 32767
-  %.not70 = icmp ugt i32 %93, %52
-  %or.cond72 = or i1 %.not69, %.not70
+  %.not70 = icmp samesign ugt i32 %93, %52
+  %or.cond72 = select i1 %.not69, i1 true, i1 %.not70
   br i1 %or.cond72, label %99, label %94
 
 94:                                               ; preds = %89
@@ -1835,10 +1835,10 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture nound
   %52 = lshr i32 %51, 17
   %53 = and i32 %51, 32767
   %54 = zext i16 %10 to i32
-  %55 = icmp ult i32 %53, %54
+  %55 = icmp samesign ult i32 %53, %54
   %56 = add nuw nsw i32 %53, %52
   %57 = zext nneg i16 %14 to i32
-  %58 = icmp ugt i32 %56, %57
+  %58 = icmp samesign ugt i32 %56, %57
   %or.cond87 = select i1 %55, i1 true, i1 %58
   br i1 %or.cond87, label %63, label %59
 
@@ -1895,8 +1895,8 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture nound
   %89 = load i32, ptr %88, align 4
   %.not80 = icmp ult i32 %89, 131072
   %90 = and i32 %89, 32767
-  %.not81 = icmp ugt i32 %90, %53
-  %or.cond83 = or i1 %.not80, %.not81
+  %.not81 = icmp samesign ugt i32 %90, %53
+  %or.cond83 = select i1 %.not80, i1 true, i1 %.not81
   br i1 %or.cond83, label %96, label %91
 
 91:                                               ; preds = %.lr.ph

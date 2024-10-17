@@ -127,7 +127,7 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
   %11 = sub nuw nsw i32 55, %7
   %12 = getelementptr i8, ptr %10, i64 1
   store i8 -128, ptr %10, align 1
-  %13 = icmp ugt i32 %7, 55
+  %13 = icmp samesign ugt i32 %7, 55
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2

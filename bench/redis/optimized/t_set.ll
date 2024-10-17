@@ -761,7 +761,7 @@ cond.end:                                         ; preds = %entry
   %conv2 = zext i32 %call to i64
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5000), align 8
   %spec.store.select.i = tail call range(i64 0, 1073741825) i64 @llvm.umin.i64(i64 %2, i64 1073741824)
-  %cmp4 = icmp ult i64 %spec.store.select.i, %conv2
+  %cmp4 = icmp samesign ult i64 %spec.store.select.i, %conv2
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end

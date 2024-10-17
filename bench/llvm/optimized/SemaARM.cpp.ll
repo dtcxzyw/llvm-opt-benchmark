@@ -4367,7 +4367,7 @@ _ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit.thread: ; preds = %654, %647
   br label %_ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit.thread1817
 
 _ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit.thread1817: ; preds = %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit.i, %_ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit.thread, %_ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit, %596
-  %.not19 = icmp ult i32 %597, 4
+  %.not19 = icmp samesign ult i32 %597, 4
   br i1 %.not19, label %_ZN5clangL14hasArmZT0StateEPKNS_12FunctionDeclE.exit.thread1818, label %704
 
 704:                                              ; preds = %_ZN5clangL13hasArmZAStateEPKNS_12FunctionDeclE.exit.thread1817
@@ -16612,8 +16612,8 @@ declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 0, 128) i32 @_ZN5clangL3RFTEjbb(i32 noundef range(i32 0, 64) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #5 {
-  %4 = icmp ugt i32 %0, 31
-  %narrow = or i1 %4, %2
+  %4 = icmp samesign ugt i32 %0, 31
+  %narrow = select i1 %2, i1 true, i1 %4
   %5 = zext i1 %narrow to i32
   %6 = and i32 %0, 15
   switch i32 %6, label %36 [
@@ -19245,7 +19245,7 @@ _ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread: ; preds = %3, %_ZNK5clang10Par
   %24 = trunc i64 %23 to i32
   %25 = lshr i32 %24, 9
   %26 = and i32 %25, 65535
-  %27 = icmp ugt i32 %26, 35
+  %27 = icmp samesign ugt i32 %26, 35
   %28 = icmp ne i32 %26, 65534
   %or.cond.i = and i1 %27, %28
   %29 = add nsw i32 %26, -36
@@ -20437,7 +20437,7 @@ define dso_local void @_ZN5clang7SemaARM19handleInterruptAttrEPNS_4DeclERKNS_10P
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 65535
-  %14 = icmp ugt i32 %13, 1
+  %14 = icmp samesign ugt i32 %13, 1
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %3

@@ -30,7 +30,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv4 = zext i8 %3 to i32
   %add5 = add i32 %sum2.016, %conv4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv.next, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -75,7 +75,7 @@ while.body:                                       ; preds = %entry, %while.body
   %shr = lshr i32 %sum.addr.05, 16
   %and = and i32 %sum.addr.05, 65535
   %add = add nuw nsw i32 %and, %shr
-  %tobool.not = icmp ult i32 %add, 65536
+  %tobool.not = icmp samesign ult i32 %add, 65536
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
@@ -111,7 +111,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %conv4.i.i = zext i8 %3 to i32
   %add5.i.i = add i32 %sum2.016.i.i, %conv4.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %0
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %0
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
@@ -151,7 +151,7 @@ for.body.i.i6:                                    ; preds = %for.body.i.i6, %net
   %conv4.i.i14 = zext i8 %8 to i32
   %add5.i.i15 = add i32 %sum2.016.i.i8, %conv4.i.i14
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i7, 2
-  %cmp.i.i17 = icmp ult i64 %indvars.iv.i.i7, 5
+  %cmp.i.i17 = icmp samesign ult i64 %indvars.iv.i.i7, 5
   br i1 %cmp.i.i17, label %for.body.i.i6, label %net_checksum_add.exit32, !llvm.loop !5
 
 net_checksum_add.exit32:                          ; preds = %for.body.i.i6
@@ -170,7 +170,7 @@ while.body.i:                                     ; preds = %net_checksum_add.ex
   %shr.i = lshr i32 %sum.addr.05.i, 16
   %and.i = and i32 %sum.addr.05.i, 65535
   %add.i = add nuw nsw i32 %and.i, %shr.i
-  %tobool.not.i = icmp ult i32 %add.i, 65536
+  %tobool.not.i = icmp samesign ult i32 %add.i, 65536
   br i1 %tobool.not.i, label %net_checksum_finish.exit, label %while.body.i, !llvm.loop !7
 
 net_checksum_finish.exit:                         ; preds = %while.body.i, %net_checksum_add.exit32
@@ -252,7 +252,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %conv4.i.i.i = zext i8 %5 to i32
   %add5.i.i.i = add i32 %sum2.016.i.i.i, %conv4.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 2
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %2
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
@@ -286,7 +286,7 @@ while.body.i.i:                                   ; preds = %net_checksum_add.ex
   %shr.i.i = lshr i32 %sum.addr.05.i.i, 16
   %and.i.i = and i32 %sum.addr.05.i.i, 65535
   %add.i.i = add nuw nsw i32 %and.i.i, %shr.i.i
-  %tobool.not.i.i = icmp ult i32 %add.i.i, 65536
+  %tobool.not.i.i = icmp samesign ult i32 %add.i.i, 65536
   br i1 %tobool.not.i.i, label %net_raw_checksum.exit, label %while.body.i.i, !llvm.loop !7
 
 net_raw_checksum.exit:                            ; preds = %while.body.i.i, %net_checksum_add.exit.i
@@ -412,7 +412,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv4.i = zext i8 %7 to i32
   %add5.i = add i32 %sum2.016.i, %conv4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %net_checksum_add_co
   %size.addr.1 = phi i32 [ %conv25, %net_checksum_add_cont.exit ], [ %size.addr.030, %for.body ]
   %iov_off.addr.1 = phi i32 [ %conv22, %net_checksum_add_cont.exit ], [ %iov_off.addr.031, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %1
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %1
   %tobool = icmp ne i32 %size.addr.1, 0
   %10 = select i1 %cmp, i1 %tobool, i1 false
   br i1 %10, label %for.body, label %for.end, !llvm.loop !8

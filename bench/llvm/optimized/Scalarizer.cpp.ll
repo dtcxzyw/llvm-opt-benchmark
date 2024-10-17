@@ -4994,7 +4994,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i99:          ; preds = %2129, %2128
   %indvars.iv.next141.i.i.i = add nuw nsw i64 %indvars.iv140.i.i.i, 1
   %2142 = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i.i90, align 4
   %2143 = zext i32 %2142 to i64
-  %2144 = icmp ult i64 %indvars.iv.next141.i.i.i, %2143
+  %2144 = icmp samesign ult i64 %indvars.iv.next141.i.i.i, %2143
   br i1 %2144, label %.lr.ph133.i.i.i, label %._crit_edge134.i.i.i, !llvm.loop !165
 
 ._crit_edge134.i.i.i:                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i99, %._crit_edge.i.i.i98
@@ -12519,7 +12519,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_111concatenateERN4llvm9IRBui
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %17, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !359
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
@@ -12801,7 +12801,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit112:               ; preds = %_ZN4llvmplERKNS_5Tw
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %130 = load i32, ptr %34, align 4
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next149, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next149, %131
   br i1 %132, label %53, label %._crit_edge136, !llvm.loop !391
 
 ._crit_edge136:                                   ; preds = %.loopexit, %.loopexit121

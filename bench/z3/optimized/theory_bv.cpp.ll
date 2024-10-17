@@ -4752,7 +4752,7 @@ if.end.i:                                         ; preds = %sw.bb6
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %sw.bb6, %if.end.i
   %retval.0.i = phi i32 [ %9, %if.end.i ], [ 0, %sw.bb6 ]
   %10 = zext i32 %retval.0.i to i64
-  %cmp9.not19 = icmp ult i64 %indvars.iv26, %10
+  %cmp9.not19 = icmp samesign ult i64 %indvars.iv26, %10
   br i1 %cmp9.not19, label %for.end, label %for.body10
 
 for.body10:                                       ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZN8rationalD2Ev.exit
@@ -5506,7 +5506,7 @@ for.inc:                                          ; preds = %.noexc30, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %sz, align 4
   %40 = zext i32 %39 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %40
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %invoke.cont11
@@ -21875,7 +21875,7 @@ _ZNK6vectorISt4pairIijELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorISt4pair
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp62 = icmp ult i64 %indvars.iv, %3
+  %cmp62 = icmp samesign ult i64 %indvars.iv, %3
   br i1 %cmp62, label %for.body, label %if.then.i54
 
 for.body:                                         ; preds = %_ZNK6vectorISt4pairIijELb0EjE4sizeEv.exit.thread
@@ -26825,7 +26825,7 @@ _ZNK6vectorIPN3smt9theory_bv4atomELb0EjE3getEjRKS3_.exit.i: ; preds = %for.body
   %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i8, align 4
   %7 = zext i32 %6 to i64
-  %cmp.not.i.i = icmp ult i64 %indvars.iv, %7
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv, %7
   br i1 %cmp.not.i.i, label %_ZNK3smt9theory_bv8get_bv2aEj.exit, label %for.inc
 
 _ZNK3smt9theory_bv8get_bv2aEj.exit:               ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE3getEjRKS3_.exit.i
@@ -26919,7 +26919,7 @@ _ZNK6vectorIPN3smt9theory_bv4atomELb0EjE3getEjRKS3_.exit.i.i: ; preds = %for.bod
   %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i8.i, align 4
   %9 = zext i32 %8 to i64
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.i, %9
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.i, %9
   br i1 %cmp.not.i.i.i, label %_ZNK3smt9theory_bv8get_bv2aEj.exit.i, label %for.inc.i
 
 _ZNK3smt9theory_bv8get_bv2aEj.exit.i:             ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE3getEjRKS3_.exit.i.i
@@ -27454,7 +27454,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %32, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %invoke.cont43
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit

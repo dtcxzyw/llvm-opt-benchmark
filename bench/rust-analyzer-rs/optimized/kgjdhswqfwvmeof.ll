@@ -8283,9 +8283,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h95cdcf497f909f15
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -9077,7 +9077,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3663
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !3661
-  %or.cond.not = icmp ult i8 %39, 3
+  %or.cond.not = icmp samesign ult i8 %39, 3
   br i1 %or.cond.not, label %56, label %54
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
@@ -11722,7 +11722,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %.noexc39
   %.sroa.6.sroa.0.0130 = phi i8 [ %78, %.thread124 ], [ %.sroa.0.i.sroa.4.0.copyload, %106 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.sroa.7, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.sroa.6, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6.sroa.6)
-  %109 = icmp ult i8 %.sroa.6.sroa.0.0130, 11
+  %109 = icmp samesign ult i8 %.sroa.6.sroa.0.0130, 11
   br i1 %109, label %110, label %141
 
 110:                                              ; preds = %108

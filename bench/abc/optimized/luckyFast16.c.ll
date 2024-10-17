@@ -193,7 +193,7 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
 10:                                               ; preds = %4
   %11 = lshr i64 %0, 32
   %spec.select = select i1 %5, i64 %11, i64 %0
-  %12 = icmp ugt i64 %spec.select, 65535
+  %12 = icmp samesign ugt i64 %spec.select, 65535
   %13 = or disjoint i32 %spec.select28, 16
   %.1 = select i1 %12, i32 %13, i32 %spec.select28
   %14 = icmp eq i32 %1, 4
@@ -207,7 +207,7 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
 16:                                               ; preds = %10
   %17 = lshr i64 %spec.select, 16
   %.123 = select i1 %12, i64 %17, i64 %spec.select
-  %18 = icmp ugt i64 %.123, 255
+  %18 = icmp samesign ugt i64 %.123, 255
   %19 = or disjoint i32 %.1, 8
   %.2 = select i1 %18, i32 %19, i32 %.1
   %20 = icmp eq i32 %1, 2
@@ -221,7 +221,7 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
 23:                                               ; preds = %16
   %24 = lshr i64 %.123, 8
   %.224 = select i1 %18, i64 %24, i64 %.123
-  %25 = icmp ugt i64 %.224, 15
+  %25 = icmp samesign ugt i64 %.224, 15
   %26 = or disjoint i32 %.2, 4
   %spec.select29 = select i1 %25, i32 %26, i32 %.2
   %.lhs.trunc31 = sub nuw nsw i32 64, %spec.select29
@@ -355,7 +355,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
 37:                                               ; preds = %31
   %38 = lshr i64 %27, 32
   %spec.select.i = select i1 %32, i64 %38, i64 %27
-  %39 = icmp ugt i64 %spec.select.i, 65535
+  %39 = icmp samesign ugt i64 %spec.select.i, 65535
   %40 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %39, i32 %40, i32 %spec.select28.i
   %41 = icmp eq i32 %1, 2
@@ -369,7 +369,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
 43:                                               ; preds = %37
   %44 = lshr i64 %spec.select.i, 16
   %.123.i = select i1 %39, i64 %44, i64 %spec.select.i
-  %45 = icmp ugt i64 %.123.i, 255
+  %45 = icmp samesign ugt i64 %.123.i, 255
   %46 = or disjoint i32 %.1.i, 8
   %.2.i = select i1 %45, i32 %46, i32 %.1.i
   %47 = icmp eq i32 %1, 1
@@ -383,7 +383,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
 50:                                               ; preds = %43
   %51 = lshr i64 %.123.i, 8
   %.224.i = select i1 %45, i64 %51, i64 %.123.i
-  %52 = icmp ugt i64 %.224.i, 15
+  %52 = icmp samesign ugt i64 %.224.i, 15
   %53 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %52, i32 %53, i32 %.2.i
   %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
@@ -466,7 +466,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
 41:                                               ; preds = %35
   %42 = lshr i64 %31, 32
   %spec.select.i = select i1 %36, i64 %42, i64 %31
-  %43 = icmp ugt i64 %spec.select.i, 65535
+  %43 = icmp samesign ugt i64 %spec.select.i, 65535
   %44 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %43, i32 %44, i32 %spec.select28.i
   %45 = icmp eq i32 %1, 2
@@ -480,7 +480,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
 47:                                               ; preds = %41
   %48 = lshr i64 %spec.select.i, 16
   %.123.i = select i1 %43, i64 %48, i64 %spec.select.i
-  %49 = icmp ugt i64 %.123.i, 255
+  %49 = icmp samesign ugt i64 %.123.i, 255
   %50 = or disjoint i32 %.1.i, 8
   %.2.i = select i1 %49, i32 %50, i32 %.1.i
   %51 = icmp eq i32 %1, 1
@@ -494,7 +494,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
 54:                                               ; preds = %47
   %55 = lshr i64 %.123.i, 8
   %.224.i = select i1 %49, i64 %55, i64 %.123.i
-  %56 = icmp ugt i64 %.224.i, 15
+  %56 = icmp samesign ugt i64 %.224.i, 15
   %57 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %56, i32 %57, i32 %.2.i
   %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
@@ -579,7 +579,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
 44:                                               ; preds = %38
   %45 = lshr i64 %34, 32
   %spec.select.i = select i1 %39, i64 %45, i64 %34
-  %46 = icmp ugt i64 %spec.select.i, 65535
+  %46 = icmp samesign ugt i64 %spec.select.i, 65535
   %47 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %46, i32 %47, i32 %spec.select28.i
   %48 = icmp eq i32 %1, 2
@@ -593,7 +593,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
 50:                                               ; preds = %44
   %51 = lshr i64 %spec.select.i, 16
   %.123.i = select i1 %46, i64 %51, i64 %spec.select.i
-  %52 = icmp ugt i64 %.123.i, 255
+  %52 = icmp samesign ugt i64 %.123.i, 255
   %53 = or disjoint i32 %.1.i, 8
   %.2.i = select i1 %52, i32 %53, i32 %.1.i
   %54 = icmp eq i32 %1, 1
@@ -607,7 +607,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
 57:                                               ; preds = %50
   %58 = lshr i64 %.123.i, 8
   %.224.i = select i1 %52, i64 %58, i64 %.123.i
-  %59 = icmp ugt i64 %.224.i, 15
+  %59 = icmp samesign ugt i64 %.224.i, 15
   %60 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %59, i32 %60, i32 %.2.i
   %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
@@ -691,7 +691,7 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
 42:                                               ; preds = %36
   %43 = lshr i64 %32, 32
   %spec.select.i = select i1 %37, i64 %43, i64 %32
-  %44 = icmp ugt i64 %spec.select.i, 65535
+  %44 = icmp samesign ugt i64 %spec.select.i, 65535
   %45 = or disjoint i32 %spec.select28.i, 16
   %.1.i = select i1 %44, i32 %45, i32 %spec.select28.i
   %46 = icmp eq i32 %1, 2
@@ -705,7 +705,7 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
 48:                                               ; preds = %42
   %49 = lshr i64 %spec.select.i, 16
   %.123.i = select i1 %44, i64 %49, i64 %spec.select.i
-  %50 = icmp ugt i64 %.123.i, 255
+  %50 = icmp samesign ugt i64 %.123.i, 255
   %51 = or disjoint i32 %.1.i, 8
   %.2.i = select i1 %50, i32 %51, i32 %.1.i
   %52 = icmp eq i32 %1, 1
@@ -719,7 +719,7 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
 55:                                               ; preds = %48
   %56 = lshr i64 %.123.i, 8
   %.224.i = select i1 %50, i64 %56, i64 %.123.i
-  %57 = icmp ugt i64 %.224.i, 15
+  %57 = icmp samesign ugt i64 %.224.i, 15
   %58 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %57, i32 %58, i32 %.2.i
   %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
@@ -808,7 +808,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
 41:                                               ; preds = %35
   %42 = lshr i64 %31, 32
   %spec.select.i.i = select i1 %36, i64 %42, i64 %31
-  %43 = icmp ugt i64 %spec.select.i.i, 65535
+  %43 = icmp samesign ugt i64 %spec.select.i.i, 65535
   %44 = or disjoint i32 %spec.select28.i.i, 16
   %.1.i.i = select i1 %43, i32 %44, i32 %spec.select28.i.i
   %45 = icmp eq i32 %1, 2
@@ -822,7 +822,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
 47:                                               ; preds = %41
   %48 = lshr i64 %spec.select.i.i, 16
   %.123.i.i = select i1 %43, i64 %48, i64 %spec.select.i.i
-  %49 = icmp ugt i64 %.123.i.i, 255
+  %49 = icmp samesign ugt i64 %.123.i.i, 255
   %50 = or disjoint i32 %.1.i.i, 8
   %.2.i.i = select i1 %49, i32 %50, i32 %.1.i.i
   %51 = icmp eq i32 %1, 1
@@ -836,7 +836,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
 54:                                               ; preds = %47
   %55 = lshr i64 %.123.i.i, 8
   %.224.i.i = select i1 %49, i64 %55, i64 %.123.i.i
-  %56 = icmp ugt i64 %.224.i.i, 15
+  %56 = icmp samesign ugt i64 %.224.i.i, 15
   %57 = or disjoint i32 %.2.i.i, 4
   %spec.select29.i.i = select i1 %56, i32 %57, i32 %.2.i.i
   %.lhs.trunc31.i.i = sub nuw nsw i32 64, %spec.select29.i.i

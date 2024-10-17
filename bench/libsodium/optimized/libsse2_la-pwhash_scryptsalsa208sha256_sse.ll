@@ -37,7 +37,7 @@ if.then10:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %0 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %N)
-  %cmp13 = icmp ugt i64 %0, 1
+  %cmp13 = icmp samesign ugt i64 %0, 1
   %cmp15 = icmp ult i64 %N, 2
   %or.cond = or i1 %cmp15, %cmp13
   br i1 %or.cond, label %if.then17, label %if.end19
@@ -60,7 +60,7 @@ if.then25:                                        ; preds = %if.end19
 
 if.end27:                                         ; preds = %if.end19
   %div = udiv i64 144115188075855871, %conv1
-  %cmp28 = icmp ult i64 %div, %conv
+  %cmp28 = icmp samesign ult i64 %div, %conv
   br i1 %cmp28, label %if.then34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end27
@@ -122,7 +122,7 @@ for.body.lr.ph:                                   ; preds = %if.end53, %if.end59
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %2, i64 noundef %mul38) #6
   %mul1.i = shl nuw nsw i64 %conv, 1
   %sub.i = add nsw i64 %N, -1
-  %cmp1565.i = icmp ugt i64 %N, 2
+  %cmp1565.i = icmp samesign ugt i64 %N, 2
   %3 = ptrtoint ptr %add.ptr to i64
   %4 = ptrtoint ptr %add.ptr65 to i64
   %add27.i = add i64 %mul37, %4
@@ -215,7 +215,7 @@ for.body32.i:                                     ; preds = %for.body32.i, %for.
   %call40.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %5, ptr noundef %12, ptr noundef %add.ptr65, i64 noundef %conv)
   %conv41.i = zext i32 %call40.i to i64
   %add45.i = add nuw nsw i64 %i.270.i, 2
-  %cmp31.i = icmp ult i64 %add45.i, %N
+  %cmp31.i = icmp samesign ult i64 %add45.i, %N
   br i1 %cmp31.i, label %for.body32.i, label %for.cond52.preheader.i, !llvm.loop !8
 
 for.cond52.preheader.i:                           ; preds = %for.body32.i, %for.inc68.i

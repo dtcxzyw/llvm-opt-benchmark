@@ -101,7 +101,7 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   br i1 %12, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %13 = icmp ugt i64 %1, 2
+  %13 = icmp samesign ugt i64 %1, 2
   br i1 %13, label %.lr.ph132.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -558,7 +558,7 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   br i1 %11, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %12 = icmp ugt i64 %1, 2
+  %12 = icmp samesign ugt i64 %1, 2
   br i1 %12, label %.lr.ph464.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1082,7 +1082,7 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   br label %16
 
 .loopexit:                                        ; preds = %2
-  %38 = icmp ugt i64 %1, 2
+  %38 = icmp samesign ugt i64 %1, 2
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %16, %.loopexit
@@ -1216,7 +1216,7 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   br i1 %11, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %12 = icmp ugt i64 %1, 2
+  %12 = icmp samesign ugt i64 %1, 2
   br i1 %12, label %.lr.ph81.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph

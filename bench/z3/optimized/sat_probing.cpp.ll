@@ -1900,7 +1900,7 @@ for.inc91:                                        ; preds = %if.end.i64, %if.end
   %sz.1 = phi i32 [ %sz.083, %if.end66 ], [ %sz.083, %if.end73 ], [ %sz.083, %for.body54 ], [ %67, %if.end.i64 ], [ 0, %if.end89 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %69 = zext i32 %sz.1 to i64
-  %cmp53 = icmp ult i64 %indvars.iv.next86, %69
+  %cmp53 = icmp samesign ult i64 %indvars.iv.next86, %69
   br i1 %cmp53, label %for.body54, label %if.end94, !llvm.loop !31
 
 if.end94:                                         ; preds = %if.end80, %if.end85, %for.inc91, %if.then41, %_ZNK6vectorIN3sat7watchedELb1EjE4sizeEv.exit, %for.end, %if.end40, %_ZN3sat6solver13assign_scopedENS_7literalE.exit30

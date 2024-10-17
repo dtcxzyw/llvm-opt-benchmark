@@ -127,7 +127,7 @@ define dso_local noundef range(i32 0, 2) i32 @__ext4_check_dir_entry(ptr noundef
 
 65:                                               ; preds = %59, %.thread
   %66 = phi i32 [ 12, %.thread ], [ %64, %59 ]
-  %67 = icmp ugt i32 %66, %14
+  %67 = icmp samesign ugt i32 %66, %14
   br i1 %67, label %111, label %68, !prof !5
 
 68:                                               ; preds = %65
@@ -1477,7 +1477,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %635 = getelementptr i8, ptr %609, i64 %633
   %636 = load i16, ptr %635, align 4
   %637 = zext i16 %636 to i32
-  %638 = icmp ugt i32 %625, %637
+  %638 = icmp samesign ugt i32 %625, %637
   br i1 %638, label %.loopexit53, label %626
 
 .loopexit53:                                      ; preds = %626, %632, %615, %.split.us, %601

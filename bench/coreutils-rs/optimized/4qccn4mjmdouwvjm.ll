@@ -2811,7 +2811,7 @@ define noundef zeroext i1 @_ZN5uu_rm6remove17h641699c8246c7794E(ptr noalias noun
   %245 = load i8, ptr %87, align 2, !range !808, !noalias !824, !noundef !5
   %246 = trunc nuw i8 %245 to i1
   %247 = load i8, ptr %88, align 8, !range !831, !noalias !824
-  %or.cond.i.i = icmp ult i8 %247, 5
+  %or.cond.i.i = icmp samesign ult i8 %247, 5
   %.0.i.i = select i1 %246, i1 true, i1 %or.cond.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32), !noalias !824
   br i1 %.0.i.i, label %248, label %.thread.i

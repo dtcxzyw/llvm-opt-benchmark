@@ -2153,7 +2153,7 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   %694 = load i32, ptr @hf_radiotap_l1info_rateindex, align 4
   %695 = zext nneg i8 %693 to i32
   %696 = call ptr @proto_tree_add_uint(ptr noundef %683, i32 noundef %694, ptr noundef %616, i32 noundef 2, i32 noundef 1, i32 noundef %695) #5
-  %697 = icmp ult i8 %693, 4
+  %697 = icmp samesign ult i8 %693, 4
   br i1 %697, label %698, label %.thread.i
 
 698:                                              ; preds = %686
@@ -2260,7 +2260,7 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   br label %773
 
 766:                                              ; preds = %744
-  %767 = icmp ult i8 %.0552572.i, 4
+  %767 = icmp samesign ult i8 %.0552572.i, 4
   %768 = load i32, ptr @hf_radiotap_modulation, align 4
   br i1 %767, label %769, label %771
 
@@ -2419,7 +2419,7 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   ]
 
 839:                                              ; preds = %834
-  %840 = icmp ult i8 %.0552572.i, 4
+  %840 = icmp samesign ult i8 %.0552572.i, 4
   br i1 %840, label %841, label %856
 
 841:                                              ; preds = %839

@@ -403,15 +403,15 @@ switch.lookup37:                                  ; preds = %64
   %83 = load i32, ptr %82, align 4, !range !56, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !57
   store i32 0, ptr %9, align 4, !noalias !57
-  %84 = icmp ult i32 %83, 128
+  %84 = icmp samesign ult i32 %83, 128
   br i1 %84, label %90, label %85
 
 85:                                               ; preds = %81
-  %86 = icmp ult i32 %83, 2048
+  %86 = icmp samesign ult i32 %83, 2048
   br i1 %86, label %92, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ult i32 %83, 65536
+  %88 = icmp samesign ult i32 %83, 65536
   %89 = getelementptr inbounds i8, ptr %9, i64 1
   br i1 %88, label %100, label %112
 

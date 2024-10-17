@@ -4085,8 +4085,8 @@ invoke.cont38:                                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %cmp39.i.i.i = icmp ult i32 %i.0461, 10
-  %cmp3.i.i.i = icmp ult i32 %i.0461, 100
+  %cmp39.i.i.i = icmp samesign ult i32 %i.0461, 10
+  %cmp3.i.i.i = icmp samesign ult i32 %i.0461, 100
   %spec.select = select i1 %cmp3.i.i.i, i64 2, i64 3
   %retval.0.i.i.i = select i1 %cmp39.i.i.i, i64 1, i64 %spec.select
   store ptr %25, ptr %ref.tmp39, align 8, !tbaa !14, !alias.scope !162
@@ -4095,7 +4095,7 @@ invoke.cont38:                                    ; preds = %_ZNKSt7__cxx1112bas
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont38
   %55 = load ptr, ptr %ref.tmp39, align 8, !tbaa !4, !alias.scope !162
-  %cmp34.i.i.i = icmp ugt i32 %i.0461, 99
+  %cmp34.i.i.i = icmp samesign ugt i32 %i.0461, 99
   br i1 %cmp34.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %while.body.i.i.i
@@ -4119,12 +4119,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %w
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %55, i64 %idxprom6.i.i.i
   store i8 %57, ptr %arrayidx7.i.i.i, align 1, !tbaa !16
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !163
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %i.0461, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i202, label %if.else.i.i.i
 
 if.then.i.i.i202:                                 ; preds = %while.end.i.i.i
@@ -4400,7 +4400,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %is) #29
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %is) #29
   %inc = add nuw nsw i32 %i.0461, 1
-  %cmp = icmp ugt i32 %i.0461, 998
+  %cmp = icmp samesign ugt i32 %i.0461, 998
   %98 = and i8 %path_found.1, 1
   %tobool.not = icmp ne i8 %98, 0
   %.not = select i1 %cmp, i1 true, i1 %tobool.not
@@ -5142,8 +5142,8 @@ invoke.cont21:                                    ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp22) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %cmp39.i.i.i = icmp ult i32 %i.0153, 10
-  %cmp3.i.i.i = icmp ult i32 %i.0153, 100
+  %cmp39.i.i.i = icmp samesign ult i32 %i.0153, 10
+  %cmp3.i.i.i = icmp samesign ult i32 %i.0153, 100
   %spec.select = select i1 %cmp3.i.i.i, i64 2, i64 3
   %retval.0.i.i.i = select i1 %cmp39.i.i.i, i64 1, i64 %spec.select
   store ptr %12, ptr %ref.tmp22, align 8, !tbaa !14, !alias.scope !186
@@ -5152,7 +5152,7 @@ invoke.cont21:                                    ; preds = %if.end18
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont21
   %22 = load ptr, ptr %ref.tmp22, align 8, !tbaa !4, !alias.scope !186
-  %cmp34.i.i.i = icmp ugt i32 %i.0153, 99
+  %cmp34.i.i.i = icmp samesign ugt i32 %i.0153, 99
   br i1 %cmp34.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %while.body.i.i.i
@@ -5176,12 +5176,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %w
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %22, i64 %idxprom6.i.i.i
   store i8 %24, ptr %arrayidx7.i.i.i, align 1, !tbaa !16
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !163
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %i.0153, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i65, label %if.else.i.i.i
 
 if.then.i.i.i65:                                  ; preds = %while.end.i.i.i
@@ -5461,7 +5461,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %is) #29
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %is) #29
   %inc = add nuw nsw i32 %i.0153, 1
-  %cmp = icmp ult i32 %i.0153, 999
+  %cmp = icmp samesign ult i32 %i.0153, 999
   %exitcond.not = icmp eq i32 %inc, 1000
   br i1 %exitcond.not, label %cleanup37, label %for.body, !llvm.loop !190
 
@@ -6001,8 +6001,8 @@ invoke.cont25:                                    ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp26) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %cmp39.i.i.i = icmp ult i32 %i.0255, 10
-  %cmp3.i.i.i = icmp ult i32 %i.0255, 100
+  %cmp39.i.i.i = icmp samesign ult i32 %i.0255, 10
+  %cmp3.i.i.i = icmp samesign ult i32 %i.0255, 100
   %spec.select = select i1 %cmp3.i.i.i, i64 2, i64 3
   %retval.0.i.i.i = select i1 %cmp39.i.i.i, i64 1, i64 %spec.select
   store ptr %30, ptr %ref.tmp26, align 8, !tbaa !14, !alias.scope !203
@@ -6011,7 +6011,7 @@ invoke.cont25:                                    ; preds = %if.end21
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont25
   %40 = load ptr, ptr %ref.tmp26, align 8, !tbaa !4, !alias.scope !203
-  %cmp34.i.i.i = icmp ugt i32 %i.0255, 99
+  %cmp34.i.i.i = icmp samesign ugt i32 %i.0255, 99
   br i1 %cmp34.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %while.body.i.i.i
@@ -6035,12 +6035,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i, %w
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %40, i64 %idxprom6.i.i.i
   store i8 %42, ptr %arrayidx7.i.i.i, align 1, !tbaa !16
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !163
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %i.0255, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i110, label %if.else.i.i.i
 
 if.then.i.i.i110:                                 ; preds = %while.end.i.i.i
@@ -6315,7 +6315,7 @@ for.inc:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %is) #29
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %is) #29
   %inc = add nuw nsw i32 %i.0255, 1
-  %cmp = icmp ult i32 %i.0255, 999
+  %cmp = icmp samesign ult i32 %i.0255, 999
   %exitcond.not = icmp eq i32 %inc, 1000
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !207
 

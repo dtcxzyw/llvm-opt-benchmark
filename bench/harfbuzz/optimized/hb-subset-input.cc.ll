@@ -2028,7 +2028,7 @@ for.end:                                          ; preds = %if.end4
   %notmask = shl nsw i32 -1, %retval.0.i
   %sub = xor i32 %notmask, -1
   store i32 %sub, ptr %mask.i, align 4
-  %cmp.i = icmp ugt i32 %retval.0.i, 31
+  %cmp.i = icmp samesign ugt i32 %retval.0.i, 31
   br i1 %cmp.i, label %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end

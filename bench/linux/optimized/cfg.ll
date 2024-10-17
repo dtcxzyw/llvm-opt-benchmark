@@ -9437,7 +9437,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(pt
   %185 = add nuw nsw i64 %172, 1
   %186 = load i8, ptr %148, align 8
   %187 = zext i8 %186 to i64
-  %188 = icmp ult i64 %185, %187
+  %188 = icmp samesign ult i64 %185, %187
   br i1 %188, label %171, label %.loopexit34.loopexit, !llvm.loop !261
 
 .loopexit34.loopexit:                             ; preds = %171
@@ -9488,7 +9488,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(pt
   %219 = add nuw nsw i64 %206, 1
   %220 = load i8, ptr %146, align 8
   %221 = zext i8 %220 to i64
-  %222 = icmp ult i64 %219, %221
+  %222 = icmp samesign ult i64 %219, %221
   br i1 %222, label %205, label %.loopexit, !llvm.loop !262
 
 .loopexit:                                        ; preds = %205, %193
@@ -10480,7 +10480,7 @@ define internal fastcc ptr @cfg80211_beacon_dup(ptr nocapture noundef readonly %
   %191 = add nuw nsw i64 %178, 1
   %192 = load i8, ptr %167, align 8
   %193 = zext i8 %192 to i64
-  %194 = icmp ult i64 %191, %193
+  %194 = icmp samesign ult i64 %191, %193
   br i1 %194, label %177, label %195, !llvm.loop !261
 
 195:                                              ; preds = %177
@@ -10524,7 +10524,7 @@ define internal fastcc ptr @cfg80211_beacon_dup(ptr nocapture noundef readonly %
   %223 = add nuw nsw i64 %210, 1
   %224 = load i8, ptr %199, align 8
   %225 = zext i8 %224 to i64
-  %226 = icmp ult i64 %223, %225
+  %226 = icmp samesign ult i64 %223, %225
   br i1 %226, label %209, label %227, !llvm.loop !262
 
 227:                                              ; preds = %209

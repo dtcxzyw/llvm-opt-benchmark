@@ -2571,7 +2571,7 @@ _ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader:  ; preds = %.lr.ph.i
 
 15:                                               ; preds = %.lr.ph
   %16 = and i32 %11, 4095
-  %17 = icmp ugt i32 %16, 31
+  %17 = icmp samesign ugt i32 %16, 31
   br i1 %17, label %18, label %_ZL29getPrefixEncodingFromUnsignedj.exit.i
 
 18:                                               ; preds = %15

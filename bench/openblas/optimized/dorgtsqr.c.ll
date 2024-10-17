@@ -134,7 +134,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %85 = getelementptr double, ptr %72, i64 %84
   call void @dcopy_(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull @c__1, ptr noundef %85, ptr noundef nonnull @c__1) #4
   %86 = add nuw nsw i64 %78, 1
-  %87 = icmp ult i64 %78, %76
+  %87 = icmp samesign ult i64 %78, %76
   br i1 %87, label %77, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %77, %67

@@ -1306,7 +1306,7 @@ define internal fastcc void @_ZN5clang4semaL32visitLocalsRetainedByInitializerER
   %152 = sub i64 %150, %151
   %153 = lshr exact i64 %152, 3
   %154 = and i64 %153, 4294967295
-  %155 = icmp ult i64 %indvars.iv, %154
+  %155 = icmp samesign ult i64 %indvars.iv, %154
   br i1 %155, label %156, label %.critedge2.loopexit
 
 156:                                              ; preds = %.lr.ph
@@ -1325,7 +1325,7 @@ define internal fastcc void @_ZN5clang4semaL32visitLocalsRetainedByInitializerER
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = load i32, ptr %165, align 8
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %indvars.iv.next, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next, %167
   br i1 %168, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !9
 
 .critedge2.loopexit:                              ; preds = %156, %.lr.ph

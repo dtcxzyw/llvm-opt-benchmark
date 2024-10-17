@@ -1592,7 +1592,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %496 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %12, i32 noundef %492, ptr noundef %0, i32 noundef %.01617.i.i, i32 noundef 1, i32 noundef %493, ptr noundef nonnull @.str.497, i32 noundef %494, ptr noundef %495) #5
   %497 = add i32 %.01617.i.i, 1
   %498 = add nuw nsw i32 %.018.i.i, 2
-  %499 = icmp ult i32 %.018.i.i, 6
+  %499 = icmp samesign ult i32 %.018.i.i, 6
   br i1 %499, label %.preheader.i, label %dissect_tss_mo_state.exit.i, !llvm.loop !12
 
 dissect_tss_mo_state.exit.i:                      ; preds = %.preheader.i

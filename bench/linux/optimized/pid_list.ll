@@ -325,7 +325,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
 
 39:                                               ; preds = %29
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #7
-  %40 = icmp ugt i64 %17, 255
+  %40 = icmp samesign ugt i64 %17, 255
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %39

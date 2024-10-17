@@ -89,7 +89,7 @@ define void @slurm_print_job_step_info_msg(ptr nocapture noundef %0, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %8, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

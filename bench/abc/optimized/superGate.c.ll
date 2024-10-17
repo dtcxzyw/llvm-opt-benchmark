@@ -712,7 +712,7 @@ Abc_Clock.exit.i:                                 ; preds = %286, %280
   %320 = getelementptr inbounds i8, ptr %318, i64 8
   %321 = load i32, ptr %320, align 8
   %322 = and i32 %321, 252
-  %323 = icmp ugt i32 %322, 8
+  %323 = icmp samesign ugt i32 %322, 8
   br i1 %323, label %333, label %._crit_edge1400.i
 
 ._crit_edge1400.i:                                ; preds = %319, %316
@@ -2198,7 +2198,7 @@ Super_AddGateToTable.exit859.us.us.us.us.i:       ; preds = %936, %914
   %.1644.i = phi float [ %.06431266.i, %302 ], [ %.06431266.i, %346 ], [ %.06431266.i, %.preheader.i95 ], [ %.06431266.i, %.preheader890.i ], [ %.06431266.i, %.preheader893.i ], [ %.06431266.i, %.preheader895.i ], [ %.06431266.i, %.preheader897.i ], [ %.06431266.i, %.preheader899.i ], [ %.296721254.i, %811 ], [ %.30673.lcssa.i, %.critedge32.i ], [ %.296721254.i, %.lr.ph1257.i ], [ %371, %368 ], [ %.3646.i, %420 ], [ %.26451148.i, %.lr.ph1151.i ], [ %.46471136.i, %423 ], [ %.7650.i, %.critedge4.i ], [ %.46471136.i, %.lr.ph1139.i ], [ %.86511111.i, %496 ], [ %.9652.lcssa.i, %.critedge8.i ], [ %.86511111.i, %.lr.ph1114.i ], [ %.136561067.i, %585 ], [ %.14657.lcssa.i, %.critedge14.i ], [ %.136561067.i, %.lr.ph1070.i ], [ %.206631004.i, %690 ], [ %.21664.lcssa.i, %.critedge22.i ], [ %.206631004.i, %.lr.ph1007.i ]
   %.1.i = phi i32 [ 0, %302 ], [ 0, %346 ], [ 0, %.preheader.i95 ], [ 0, %.preheader890.i ], [ 0, %.preheader893.i ], [ 0, %.preheader895.i ], [ 0, %.preheader897.i ], [ 0, %.preheader899.i ], [ %.281256.i, %811 ], [ %.29.lcssa.i, %.critedge32.i ], [ %.281256.i, %.lr.ph1257.i ], [ %363, %368 ], [ %363, %420 ], [ %.21150.i, %.lr.ph1151.i ], [ %.31138.i, %423 ], [ %.6.i, %.critedge4.i ], [ %.31138.i, %.lr.ph1139.i ], [ %.71113.i, %496 ], [ %.8.lcssa.i, %.critedge8.i ], [ %.71113.i, %.lr.ph1114.i ], [ %.121069.i, %585 ], [ %.13.lcssa.i, %.critedge14.i ], [ %.121069.i, %.lr.ph1070.i ], [ %.191006.i, %690 ], [ %.20.lcssa.i, %.critedge22.i ], [ %.191006.i, %.lr.ph1007.i ]
   %indvars.iv.next1397.i = add nuw nsw i64 %indvars.iv1396.i, 1
-  %948 = icmp uge i64 %indvars.iv.next1397.i, %298
+  %948 = icmp samesign uge i64 %indvars.iv.next1397.i, %298
   %949 = icmp ne i32 %.1.i, 0
   %or.cond.i = select i1 %948, i1 true, i1 %949
   br i1 %or.cond.i, label %._crit_edge1269.i, label %299, !llvm.loop !35
@@ -3070,7 +3070,7 @@ define void @Super_WriteLibraryGateName_rec(ptr nocapture noundef readonly %0, p
   %25 = lshr i32 %24, 2
   %26 = and i32 %25, 63
   %27 = zext nneg i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %19, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %21, %12
@@ -3361,7 +3361,7 @@ Vec_StrPush.exit.i:                               ; preds = %57, %Vec_StrGrow.ex
   store i8 %65, ptr %66, align 1
   %67 = udiv i32 %.11525.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp ult i32 %.11525.i, 10
+  %.not.i = icmp samesign ult i32 %.11525.i, 10
   %indvars.iv.next30.i = add nuw i64 %indvars.iv29.i, 1
   br i1 %.not.i, label %.preheader.i, label %.preheader24.i, !llvm.loop !48
 

@@ -680,7 +680,7 @@ get_or_assign_node_force.exit222:                 ; preds = %.lr.ph249.split, %1
   %175 = load ptr, ptr %174, align 8
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %171, ptr noundef %175, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %176 = icmp ult i64 %indvars.iv.next293, %167
+  %176 = icmp samesign ult i64 %indvars.iv.next293, %167
   br i1 %176, label %172, label %177
 
 177:                                              ; preds = %172

@@ -366,7 +366,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13Pr
           to label %.noexc12 unwind label %105
 
 .noexc12:                                         ; preds = %25
-  %31 = icmp ugt i64 %.013.i.i.i.i.i.idx, 240
+  %31 = icmp samesign ugt i64 %.013.i.i.i.i.i.idx, 240
   br i1 %31, label %.lr.ph.i.i, label %.preheader.i18.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc12

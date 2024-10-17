@@ -2810,7 +2810,7 @@ define internal fastcc i32 @rawv6_send_hdrinc(ptr noundef %0, ptr noundef %1, i3
   br label %208
 
 30:                                               ; preds = %7
-  %31 = icmp ult i32 %2, 40
+  %31 = icmp samesign ult i32 %2, 40
   br i1 %31, label %208, label %32
 
 32:                                               ; preds = %30

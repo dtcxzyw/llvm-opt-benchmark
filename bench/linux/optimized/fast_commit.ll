@@ -2331,7 +2331,7 @@ define dso_local zeroext i1 @ext4_fc_replay_check_excluded(ptr nocapture noundef
 
 29:                                               ; preds = %23, %19, %12
   %30 = add nuw nsw i64 %13, 1
-  %31 = icmp ult i64 %30, %11
+  %31 = icmp samesign ult i64 %30, %11
   %32 = icmp eq i64 %30, %11
   br i1 %32, label %.loopexit, label %12, !llvm.loop !72
 
@@ -4979,7 +4979,7 @@ define internal fastcc void @ext4_fc_set_bitmaps_and_counters(ptr noundef %0) un
   %46 = add nuw nsw i64 %42, 1
   %47 = load i16, ptr %39, align 8
   %48 = zext i16 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.preheader, %38

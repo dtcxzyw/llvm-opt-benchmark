@@ -3437,25 +3437,25 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
 .loopexit123:                                     ; preds = %.preheader122, %1786, %.loopexit125, %.loopexit126
   %1850 = getelementptr double, ptr %574, i64 %1675
   %1851 = getelementptr double, ptr %1850, i64 %1625
-  %1852 = icmp ult i64 %1625, 8
+  %1852 = icmp samesign ult i64 %1625, 8
   %1853 = add nuw nsw i64 %1625, 1
   %1854 = getelementptr double, ptr %1850, i64 %1853
   %1855 = icmp eq i64 %1625, 7
   %1856 = add nuw nsw i64 %1625, 2
   %1857 = getelementptr double, ptr %1850, i64 %1856
-  %1858 = icmp ult i64 %1625, 6
+  %1858 = icmp samesign ult i64 %1625, 6
   %1859 = add nuw nsw i64 %1625, 3
   %1860 = getelementptr double, ptr %1850, i64 %1859
   %1861 = icmp eq i64 %1625, 5
   %1862 = add nuw nsw i64 %1625, 4
   %1863 = getelementptr double, ptr %1850, i64 %1862
-  %1864 = icmp ult i64 %1625, 4
+  %1864 = icmp samesign ult i64 %1625, 4
   %1865 = add nuw nsw i64 %1625, 5
   %1866 = getelementptr double, ptr %1850, i64 %1865
   %1867 = icmp eq i64 %1625, 3
   %1868 = add nuw nsw i64 %1625, 6
   %1869 = getelementptr double, ptr %1850, i64 %1868
-  %1870 = icmp ult i64 %1625, 2
+  %1870 = icmp samesign ult i64 %1625, 2
   %1871 = add nuw nsw i64 %1625, 7
   %1872 = getelementptr double, ptr %1850, i64 %1871
   br label %1873
@@ -3545,7 +3545,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
 
 1932:                                             ; preds = %1925, %1918, %1911, %1904, %1897, %1890, %1884, %1873
   %1933 = add nuw nsw i64 %1874, 1
-  %1934 = icmp ult i64 %1874, 8
+  %1934 = icmp samesign ult i64 %1874, 8
   br i1 %1934, label %1873, label %.loopexit121.loopexit
 
 1935:                                             ; preds = %1679

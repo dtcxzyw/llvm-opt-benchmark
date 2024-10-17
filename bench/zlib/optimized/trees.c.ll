@@ -779,7 +779,7 @@ build_bl_tree.exit:                               ; preds = %for.body.i74, %for.
   %37 = load i64, ptr %static_len, align 8
   %add8 = add i64 %37, 10
   %shr9 = lshr i64 %add8, 3
-  %cmp10.not = icmp ugt i64 %shr9, %shr
+  %cmp10.not = icmp samesign ugt i64 %shr9, %shr
   br i1 %cmp10.not, label %lor.lhs.false, label %if.then12
 
 lor.lhs.false:                                    ; preds = %build_bl_tree.exit
@@ -2200,7 +2200,7 @@ if.end199:                                        ; preds = %if.end199.sink.spli
   %45 = phi i16 [ %32, %if.end137 ], [ %.ph, %if.end199.sink.split ]
   %46 = phi i32 [ %storemerge, %if.end137 ], [ %add186.sink, %if.end199.sink.split ]
   %dec = add nsw i32 %add, -1
-  %cmp200 = icmp ult i32 %add, 257
+  %cmp200 = icmp samesign ult i32 %add, 257
   %shr205 = lshr i32 %dec, 7
   %add206 = add nuw nsw i32 %shr205, 256
   %idxprom202.pn.in = select i1 %cmp200, i32 %dec, i32 %add206

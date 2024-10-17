@@ -7649,7 +7649,7 @@ _ZN6syntax3ted6remove17h262b1dc4ba2d4809E.exit:   ; preds = %"_ZN5rowan3api125_$
 
 22:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17h56548db4465f59e9E.exit"
   %23 = add nuw nsw i64 %6, 1
-  %24 = icmp ult i64 %6, 2
+  %24 = icmp samesign ult i64 %6, 2
   tail call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds i8, ptr %.sroa.5.0..sroa_idx, i64 %6
   %26 = load i8, ptr %25, align 1, !range !2511, !alias.scope !2512, !noundef !4
@@ -33218,9 +33218,9 @@ define void @"_ZN6syntax59_$LT$impl$u20$syntax..ast..generated..nodes..SourceFil
   br i1 %16, label %.thread41, label %17
 
 17:                                               ; preds = %4
-  %18 = icmp ult i64 %15, 5
+  %18 = icmp samesign ult i64 %15, 5
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %15, 3
+  %19 = icmp samesign ult i64 %15, 3
   br i1 %19, label %20, label %.thread41
 
 20:                                               ; preds = %17

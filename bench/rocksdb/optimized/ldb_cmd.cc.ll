@@ -11597,7 +11597,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -20244,7 +20244,7 @@ if.end227:                                        ; preds = %if.end225, %land.lh
   %54 = load i32, ptr %max_keys_, align 8
   %cmp229 = icmp slt i32 %54, 1
   %conv232 = zext nneg i32 %54 to i64
-  %cmp233.not = icmp ult i64 %inc, %conv232
+  %cmp233.not = icmp samesign ult i64 %inc, %conv232
   %or.cond = select i1 %cmp229, i1 true, i1 %cmp233.not
   br i1 %or.cond, label %for.inc237, label %cleanup.thread
 

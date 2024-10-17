@@ -832,16 +832,16 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 %41)
   %47 = lshr i32 %44, 2
   %48 = and i32 %47, 3
-  %.not96 = icmp ugt i32 %48, %46
+  %.not96 = icmp samesign ugt i32 %48, %46
   %49 = tail call i32 @llvm.umax.i32(i32 %48, i32 %46)
   %.not97.not.not100.not102 = or i1 %.not95, %.not96
   %50 = lshr i32 %44, 4
   %51 = and i32 %50, 3
-  %.not98 = icmp ugt i32 %51, %49
+  %.not98 = icmp samesign ugt i32 %51, %49
   %spec.select = tail call i32 @llvm.umax.i32(i32 %51, i32 %49)
   %.not99.not = or i1 %.not97.not.not100.not102, %.not98
   %52 = lshr i32 %44, 6
-  %.not101 = icmp ugt i32 %52, %spec.select
+  %.not101 = icmp samesign ugt i32 %52, %spec.select
   %spec.select92 = tail call i32 @llvm.umax.i32(i32 %52, i32 %spec.select)
   %53 = or i1 %.not99.not, %.not101
   br i1 %53, label %54, label %55
@@ -866,7 +866,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   %.not93 = icmp sgt i32 %63, %59
   %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 %59)
   %65 = lshr i32 %62, 4
-  %.not94 = icmp ugt i32 %65, %64
+  %.not94 = icmp samesign ugt i32 %65, %64
   %66 = tail call i32 @llvm.umax.i32(i32 %65, i32 %64)
   %67 = or i1 %.not93, %.not94
   br i1 %67, label %68, label %69

@@ -141,7 +141,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .thread25:                                        ; preds = %.thread.us, %.preheader34
   %95 = phi i64 [ %26, %.preheader34 ], [ %45, %.thread.us ]
   %96 = shl nuw nsw i64 %27, 1
-  %97 = icmp ult i64 %27, 8
+  %97 = icmp samesign ult i64 %27, 8
   br i1 %97, label %.preheader34, label %.loopexit35, !llvm.loop !12
 
 .loopexit35:                                      ; preds = %.thread25, %22
@@ -358,7 +358,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .thread28:                                        ; preds = %231, %202, %.preheader
   %240 = phi i64 [ %184, %.preheader ], [ %203, %202 ], [ %203, %231 ]
   %241 = shl nuw nsw i64 %185, 1
-  %242 = icmp ult i64 %185, 8
+  %242 = icmp samesign ult i64 %185, 8
   br i1 %242, label %.preheader, label %.loopexit31, !llvm.loop !15
 
 .loopexit31:                                      ; preds = %.thread28, %174

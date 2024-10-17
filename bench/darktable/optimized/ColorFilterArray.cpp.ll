@@ -90,7 +90,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArrayC2ERKNS_8iPoint2DE(ptr noundef
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %18 = zext i32 %17 to i64
   %19 = mul nuw nsw i64 %18, %14
-  %20 = icmp ugt i64 %19, 36
+  %20 = icmp samesign ugt i64 %19, 36
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %9
@@ -162,7 +162,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE(ptr n
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %18 = zext i32 %17 to i64
   %19 = mul nuw nsw i64 %18, %14
-  %20 = icmp ugt i64 %19, 36
+  %20 = icmp samesign ugt i64 %19, 36
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %9
@@ -400,7 +400,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %20 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
   %21 = zext i32 %20 to i64
   %22 = mul nuw nsw i64 %21, %19
-  %23 = icmp ugt i64 %22, 36
+  %23 = icmp samesign ugt i64 %22, 36
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %17
@@ -1354,7 +1354,7 @@ define hidden void @_ZNK8rawspeed16ColorFilterArray8asStringB5cxx11Ev(ptr dead_o
 129:                                              ; preds = %125
   %130 = icmp ult i64 %120, 16
   call void @llvm.assume(i1 %130)
-  %131 = icmp ugt i64 %126, 15
+  %131 = icmp samesign ugt i64 %126, 15
   br i1 %131, label %.thread, label %135
 
 132:                                              ; preds = %125
@@ -1663,7 +1663,7 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %18 = icmp slt i32 %8, 9
   %19 = select i1 %17, i1 %18, i1 false
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8), !range !50
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %22 = select i1 %19, i1 %21, i1 false
   br i1 %22, label %23, label %244
 

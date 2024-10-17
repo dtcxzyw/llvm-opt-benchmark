@@ -64,7 +64,7 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
   %27 = load i32, ptr %26, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %27, i32 %.02634)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not31.not = icmp ult i64 %indvars.iv, %20
+  %.not31.not = icmp samesign ult i64 %indvars.iv, %20
   br i1 %.not31.not, label %25, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %25, %12

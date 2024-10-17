@@ -797,7 +797,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   %20 = tail call float @sinf(float noundef %17) #16
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %2, float %7)
   tail call void @rlVertex2f(float noundef %19, float noundef %21) #16
-  %22 = icmp ult i32 %.021, 350
+  %22 = icmp samesign ult i32 %.021, 350
   br i1 %22, label %8, label %23
 
 23:                                               ; preds = %8
@@ -837,7 +837,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
   %19 = tail call float @sinf(float noundef %16) #16
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %6)
   tail call void @rlVertex2f(float noundef %18, float noundef %20) #16
-  %21 = icmp ult i32 %.014.i, 350
+  %21 = icmp samesign ult i32 %.014.i, 350
   br i1 %21, label %7, label %DrawCircleLinesV.exit
 
 DrawCircleLinesV.exit:                            ; preds = %7
@@ -877,7 +877,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
   %16 = tail call float @sinf(float noundef %13) #16
   %17 = tail call float @llvm.fmuladd.f32(float %16, float %1, float %.sroa.09.4.vec.extract)
   tail call void @rlVertex2f(float noundef %15, float noundef %17) #16
-  %18 = icmp ult i32 %.014, 350
+  %18 = icmp samesign ult i32 %.014, 350
   br i1 %18, label %4, label %19
 
 19:                                               ; preds = %4
@@ -918,7 +918,7 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
   %20 = tail call float @sinf(float noundef %17) #16
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %3, float %7)
   tail call void @rlVertex2f(float noundef %19, float noundef %21) #16
-  %22 = icmp ult i32 %.015, 350
+  %22 = icmp samesign ult i32 %.015, 350
   br i1 %22, label %8, label %23
 
 23:                                               ; preds = %8
@@ -958,7 +958,7 @@ define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, 
   %20 = tail call float @sinf(float noundef %17) #16
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %3, float %7)
   tail call void @rlVertex2f(float noundef %19, float noundef %21) #16
-  %22 = icmp ult i32 %.013, 350
+  %22 = icmp samesign ult i32 %.013, 350
   br i1 %22, label %8, label %23
 
 23:                                               ; preds = %8
@@ -2470,7 +2470,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   %287 = load float, ptr %286, align 4
   tail call void @rlVertex2f(float noundef %285, float noundef %287) #16
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 2
-  %288 = icmp ult i64 %indvars.iv416, 6
+  %288 = icmp samesign ult i64 %indvars.iv416, 6
   br i1 %288, label %.preheader, label %289
 
 289:                                              ; preds = %.preheader

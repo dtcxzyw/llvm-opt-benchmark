@@ -5176,7 +5176,7 @@ default.unreachable:                              ; preds = %_ZN5alloc5alloc15ex
 72:                                               ; preds = %71
   %73 = landingpad { ptr, i32 }
           cleanup
-  %switch.i.i.i = icmp ult i8 %37, 10
+  %switch.i.i.i = icmp samesign ult i8 %37, 10
   br i1 %switch.i.i.i, label %.thread59, label %74
 
 74:                                               ; preds = %72

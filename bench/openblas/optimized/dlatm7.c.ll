@@ -194,7 +194,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %106 = and i64 %105, 1
   %107 = icmp eq i64 %106, 0
   %108 = select i1 %107, double 1.000000e+00, double %97
-  %109 = icmp ult i64 %104, 3
+  %109 = icmp samesign ult i64 %104, 3
   br i1 %109, label %.loopexit20, label %.preheader19
 
 .preheader19:                                     ; preds = %103, %.preheader19

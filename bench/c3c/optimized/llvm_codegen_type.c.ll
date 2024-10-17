@@ -927,7 +927,7 @@ expand_.exit168:                                  ; preds = %139, %143
   %206 = add nuw nsw i32 %.0120209, 1
   %207 = load i8, ptr %172, align 8
   %208 = zext i8 %207 to i32
-  %209 = icmp ult i32 %206, %208
+  %209 = icmp samesign ult i32 %206, %208
   br i1 %209, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 210:                                              ; preds = %10

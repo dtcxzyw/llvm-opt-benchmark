@@ -1486,7 +1486,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit438:      ; preds = %entry.if.end_crit_e
   %indvars.iv.next764 = add nuw nsw i64 %indvars.iv763, 1
   %160 = load i32, ptr %m_num_patterns.i, align 8
   %161 = zext i32 %160 to i64
-  %cmp141 = icmp ult i64 %indvars.iv.next764, %161
+  %cmp141 = icmp samesign ult i64 %indvars.iv.next764, %161
   br i1 %cmp141, label %for.body142, label %for.cond152.preheader, !llvm.loop !10
 
 lpad145:                                          ; preds = %if.end.i.i.i.i.i418, %if.then.i.i399
@@ -1573,7 +1573,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit483:      ; preds = %entry.if.end_crit_e
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %172 = load i32, ptr %m_num_no_patterns.i, align 4
   %173 = zext i32 %172 to i64
-  %cmp155 = icmp ult i64 %indvars.iv.next767, %173
+  %cmp155 = icmp samesign ult i64 %indvars.iv.next767, %173
   br i1 %cmp155, label %for.body156, label %for.end166, !llvm.loop !11
 
 lpad161:                                          ; preds = %if.end.i.i.i.i.i462, %if.then.i.i443

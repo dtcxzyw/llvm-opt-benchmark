@@ -2006,7 +2006,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw nsw i64 %i.015, 1
   %12 = load i32, ptr %size_.i, align 8
   %conv = zext i32 %12 to i64
-  %cmp.not.not = icmp ult i64 %i.015, %conv
+  %cmp.not.not = icmp samesign ult i64 %i.015, %conv
   br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %entry
@@ -2422,7 +2422,7 @@ invoke.cont:                                      ; preds = %entry
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %sh_prom.i.i.i = and i64 %1, 255
-  %cmp3 = icmp ugt i64 %sh_prom.i.i.i, 3
+  %cmp3 = icmp samesign ugt i64 %sh_prom.i.i.i, 3
   %shr.i.i.i = lshr i64 %1, 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %v.0.copyload.i.i = load i16, ptr %arrayidx.i.i.i.i, align 1

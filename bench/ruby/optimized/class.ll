@@ -1167,7 +1167,7 @@ rb_array_len.exit:                                ; preds = %167
 rb_array_len.exit.thread:                         ; preds = %167
   %172 = lshr i64 %168, 15
   %173 = and i64 %172, 127
-  %174 = icmp ugt i64 %173, 1
+  %174 = icmp samesign ugt i64 %173, 1
   br i1 %174, label %RARRAY_AREF.exit.thread, label %.critedge122
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit
@@ -3604,7 +3604,7 @@ rb_array_len.exit:                                ; preds = %101
 rb_array_len.exit.thread:                         ; preds = %101
   %108 = lshr i64 %103, 15
   %109 = and i64 %108, 127
-  %110 = icmp ugt i64 %109, 1
+  %110 = icmp samesign ugt i64 %109, 1
   br i1 %110, label %RARRAY_AREF.exit.thread, label %143
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit

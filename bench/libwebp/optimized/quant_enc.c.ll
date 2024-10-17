@@ -709,7 +709,7 @@ ExpandMatrix.exit86.i:                            ; preds = %.preheader.split.i8
   %390 = ashr i32 %389, 5
   %391 = getelementptr inbounds i8, ptr %194, i64 716
   store i32 %390, ptr %391, align 4
-  %392 = icmp ult i32 %370, 128
+  %392 = icmp samesign ult i32 %370, 128
   br i1 %392, label %393, label %CheckLambdaValue.exit.i
 
 393:                                              ; preds = %ExpandMatrix.exit86.i
@@ -1396,7 +1396,7 @@ ReconstructIntra4.exit.i:                         ; preds = %285, %271
   %309 = icmp ne i16 %308, 0
   %310 = zext i1 %309 to i32
   %311 = add nuw nsw i32 %.116.i.i32, %310
-  %312 = icmp ugt i32 %311, 3
+  %312 = icmp samesign ugt i32 %311, 3
   br i1 %312, label %IsFlat_C.exit.i35, label %306
 
 IsFlat_C.exit.i35:                                ; preds = %.preheader.i.preheader.i, %306, %301
@@ -2336,7 +2336,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %31 = getelementptr inbounds [16 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv
   call void %25(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %32 = icmp ult i64 %indvars.iv, 14
+  %32 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %32, label %24, label %33, !llvm.loop !131
 
 33:                                               ; preds = %24
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %72 = shl i32 %70, %71
   %73 = or i32 %72, %.377
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 2
-  %74 = icmp ult i64 %indvars.iv94, 14
+  %74 = icmp samesign ult i64 %indvars.iv94, 14
   br i1 %74, label %64, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %63, %64
@@ -2438,7 +2438,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %83 = getelementptr inbounds i8, ptr %2, i64 %80
   call void %77(ptr noundef %81, ptr noundef nonnull %82, ptr noundef %83, i32 noundef 1) #11
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 2
-  %84 = icmp ult i64 %indvars.iv97, 14
+  %84 = icmp samesign ult i64 %indvars.iv97, 14
   br i1 %84, label %76, label %85, !llvm.loop !135
 
 85:                                               ; preds = %76
@@ -2489,7 +2489,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i32
   %39 = mul nsw i32 %38, %38
-  %40 = icmp ugt i32 %39, %22
+  %40 = icmp samesign ugt i32 %39, %22
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %31
@@ -2582,11 +2582,11 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   %88 = getelementptr inbounds i8, ptr %.0172225, i64 24
   %.lobit = lshr i16 %71, 15
   %89 = trunc nuw nsw i16 %.lobit to i8
-  %90 = icmp ult i64 %indvars.iv245, 15
+  %90 = icmp samesign ult i64 %indvars.iv245, 15
   %91 = zext i8 %83 to i64
   %92 = zext nneg i32 %spec.store.select1 to i64
-  %93 = zext i16 %65 to i64
-  %94 = zext nneg i32 %spec.store.select to i64
+  %93 = zext nneg i32 %spec.store.select to i64
+  %94 = zext i16 %65 to i64
   %95 = trunc nuw nsw i64 %indvars.iv245 to i32
   br label %96
 
@@ -2607,7 +2607,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   %104 = getelementptr inbounds %struct.ScoreState, ptr %.0175224, i64 %indvars.iv241
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   store ptr %103, ptr %105, align 8
-  %106 = icmp ugt i64 %98, %94
+  %106 = icmp samesign ugt i64 %98, %93
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %96
@@ -2617,7 +2617,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
 108:                                              ; preds = %96
   %109 = add nuw nsw i32 %spec.store.select1, %indvars244
   %110 = getelementptr inbounds [16 x [2 x %struct.Node]], ptr %8, i64 0, i64 %indvars.iv245, i64 %indvars.iv241
-  %111 = mul nuw nsw i64 %98, %93
+  %111 = mul nuw nsw i64 %98, %94
   %112 = mul nuw nsw i32 %109, %66
   %113 = load i16, ptr %84, align 2
   %114 = zext i16 %113 to i32
@@ -2825,7 +2825,7 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nocap
   %31 = getelementptr inbounds [8 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv
   call void %25(ptr noundef nonnull %29, ptr noundef %30, ptr noundef nonnull %31) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %32 = icmp ult i64 %indvars.iv, 6
+  %32 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %32, label %24, label %33, !llvm.loop !140
 
 33:                                               ; preds = %24
@@ -3046,7 +3046,7 @@ CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit
   %180 = shl i32 %178, %179
   %181 = or i32 %180, %.03234
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 2
-  %182 = icmp ult i64 %indvars.iv38, 6
+  %182 = icmp samesign ult i64 %indvars.iv38, 6
   br i1 %182, label %174, label %.preheader, !llvm.loop !185
 
 .preheader:                                       ; preds = %174, %.preheader
@@ -3060,7 +3060,7 @@ CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit
   %189 = getelementptr inbounds i8, ptr %2, i64 %186
   call void %183(ptr noundef %187, ptr noundef nonnull %188, ptr noundef %189, i32 noundef 1) #11
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2
-  %190 = icmp ult i64 %indvars.iv41, 6
+  %190 = icmp samesign ult i64 %indvars.iv41, 6
   br i1 %190, label %.preheader, label %191, !llvm.loop !186
 
 191:                                              ; preds = %.preheader

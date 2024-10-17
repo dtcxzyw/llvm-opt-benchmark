@@ -990,7 +990,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h51983cb72cb84b
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 119
   %6 = load i8, ptr %5, align 1, !range !176, !alias.scope !177, !noundef !15
-  %switch.not.i.i = icmp ult i8 %6, 2
+  %switch.not.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.not.i.i, label %7, label %"_ZN4core3ptr46drop_in_place$LT$console..term..TermTarget$GT$17h43de3c8ce52ee959E.llvm.13937331920422269825.exit.i"
 
 7:                                                ; preds = %1

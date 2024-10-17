@@ -1916,7 +1916,7 @@ table_attr_mark_exist.exit137.i:                  ; preds = %383, %379
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %417 = load i64, ptr %403, align 8
   %418 = and i64 %417, 4294967295
-  %419 = icmp ult i64 %indvars.iv.next.i, %418
+  %419 = icmp samesign ult i64 %indvars.iv.next.i, %418
   br i1 %419, label %407, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %407, %402
@@ -2198,7 +2198,7 @@ build_match_list_attrs.exit:                      ; preds = %448, %450
   %.2 = phi i64 [ %569, %568 ], [ %.1116, %487 ], [ %.1116, %481 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %572 = and i64 %571, 4294967295
-  %573 = icmp ult i64 %indvars.iv.next, %572
+  %573 = icmp samesign ult i64 %indvars.iv.next, %572
   br i1 %573, label %481, label %.loopexit
 
 .loopexit:                                        ; preds = %570, %476, %552, %564, %560, %533, %545, %541, %513, %525, %521, %494, %506, %502, %452, %464, %460

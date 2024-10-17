@@ -758,7 +758,7 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit:            ; preds = %.lr.ph.i, %106
   %294 = load double, ptr %293, align 8
   %295 = fdiv double %290, %294
   store double %295, ptr %289, align 8
-  %296 = icmp ugt i64 %indvars.iv.next403.i1269, 1
+  %296 = icmp samesign ugt i64 %indvars.iv.next403.i1269, 1
   br i1 %296, label %.lr.ph.preheader.i700, label %.preheader369.i.preheader, !llvm.loop !25
 
 .lr.ph.preheader.i700:                            ; preds = %.lr.ph.preheader.i700.lr.ph, %.lr.ph377.i.loopexit
@@ -1409,7 +1409,7 @@ _Z8lm_enormiPKd.exit317.i:                        ; preds = %.thread.i299.i, %51
   %606 = tail call double @llvm.fmuladd.f64(double %604, double %601, double %605)
   store double %603, ptr %600, align 8
   %607 = add nuw nsw i64 %indvars.iv238.i.i, 1
-  %608 = icmp ult i64 %607, %76
+  %608 = icmp samesign ult i64 %607, %76
   br i1 %608, label %.lr.ph203.preheader.i.i, label %.loopexit.i.i
 
 .lr.ph203.preheader.i.i:                          ; preds = %597
@@ -1715,7 +1715,7 @@ _Z8lm_enormiPKd.exit339.i:                        ; preds = %.thread.i321.i, %71
   %742 = fdiv double %739, %741
   store double %742, ptr %738, align 8
   %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
-  %743 = icmp ult i64 %indvars.iv.next480.i, %76
+  %743 = icmp samesign ult i64 %indvars.iv.next480.i, %76
   br i1 %743, label %.lr.ph393.i, label %.loopexit.i
 
 .lr.ph393.i:                                      ; preds = %.preheader.i
@@ -3055,7 +3055,7 @@ _Z8lm_enormiPKd.exit:                             ; preds = %49, %59, %65, %.thr
   %indvars.iv256 = phi i64 [ 1, %.preheader224 ], [ %indvars.iv.next257, %278 ]
   %indvars290 = trunc i64 %indvars.iv268 to i32
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %78 = icmp ult i64 %indvars.iv.next269, %wide.trip.count254
+  %78 = icmp samesign ult i64 %indvars.iv.next269, %wide.trip.count254
   br i1 %78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %77, %.lr.ph
@@ -3249,7 +3249,7 @@ _Z8lm_enormiPKd.exit199:                          ; preds = %145, %155, %161, %.
   %171 = fcmp olt double %170, 0.000000e+00
   %172 = fneg double %.062.i181
   %.0165 = select i1 %171, double %172, double %.062.i181
-  %173 = icmp ult i64 %indvars.iv268, %wide.trip.count.i
+  %173 = icmp samesign ult i64 %indvars.iv268, %wide.trip.count.i
   br i1 %173, label %.lr.ph234.preheader, label %._crit_edge235
 
 .lr.ph234.preheader:                              ; preds = %169

@@ -180,7 +180,7 @@ while.cond:                                       ; preds = %ConstantCompare.exi
   %4 = trunc nuw i64 %indvars.iv.next to i32
   %sub8 = sub i32 %seedSz, %4
   %cond.i9 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8, i32 4)
-  %cmp = icmp ult i64 %indvars.iv.next, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond, %entry
@@ -330,7 +330,7 @@ while.cond.i36:                                   ; preds = %ConstantCompare.exi
   %5 = trunc nuw i64 %indvars.iv.next.i to i32
   %sub8.i = sub i32 %spec.select, %5
   %cond.i9.i = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8.i, i32 4)
-  %cmp.i37 = icmp ult i64 %indvars.iv.next.i, %2
+  %cmp.i37 = icmp samesign ult i64 %indvars.iv.next.i, %2
   br i1 %cmp.i37, label %while.body.i33, label %if.end29, !llvm.loop !8
 
 while.cond.i36.thread:                            ; preds = %while.body.i33, %ConstantCompare.exit.i
@@ -338,7 +338,7 @@ while.cond.i36.thread:                            ; preds = %while.body.i33, %Co
   %6 = trunc nuw i64 %indvars.iv.next.i60 to i32
   %sub8.i61 = sub i32 %spec.select, %6
   %cond.i9.i62 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8.i61, i32 4)
-  %cmp.i3763 = icmp ult i64 %indvars.iv.next.i60, %2
+  %cmp.i3763 = icmp samesign ult i64 %indvars.iv.next.i60, %2
   br i1 %cmp.i3763, label %while.body.i33.outer, label %if.then38, !llvm.loop !8
 
 if.end29.thread:                                  ; preds = %wc_GenerateSeed.exit.thread50, %if.then3.i

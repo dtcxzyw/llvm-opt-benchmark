@@ -50339,7 +50339,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ;
   %793 = xor i32 %792, %791
   store i32 %793, ptr %786, align 8
   %794 = urem i32 %793, 100
-  %795 = icmp ult i32 %794, %781
+  %795 = icmp samesign ult i32 %794, %781
   br i1 %795, label %796, label %_ZN12_GLOBAL__N_113xilinx_srl_pm7block_9Ei.exit
 
 796:                                              ; preds = %785
@@ -54014,7 +54014,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit115.i.i:         ; preds = %1126, %1119, %1114
   %1136 = xor i32 %1135, %1134
   store i32 %1136, ptr %186, align 8
   %1137 = and i32 %1134, 7
-  %switch.i.i = icmp ult i32 %1137, 2
+  %switch.i.i = icmp samesign ult i32 %1137, 2
   %1138 = load ptr, ptr %0, align 8
   br i1 %switch.i.i, label %1172, label %1209
 
@@ -57928,7 +57928,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ;
   %826 = xor i32 %825, %824
   store i32 %826, ptr %819, align 8
   %827 = urem i32 %826, 100
-  %828 = icmp ult i32 %827, %814
+  %828 = icmp samesign ult i32 %827, %814
   br i1 %828, label %829, label %_ZN12_GLOBAL__N_113xilinx_srl_pm8block_18Ei.exit
 
 829:                                              ; preds = %818

@@ -144,7 +144,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.01926.i, i64 16
   %20 = add nuw nsw i32 %.01727.i, 16
-  %21 = icmp ult i32 %.01727.i, 32
+  %21 = icmp samesign ult i32 %.01727.i, 32
   br i1 %21, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %18, %.preheader.i
@@ -273,7 +273,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocaptur
   %42 = add i8 %41, 1
   store i8 %42, ptr %27, align 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 16
-  %43 = icmp ult i64 %indvars.iv79, 32
+  %43 = icmp samesign ult i64 %indvars.iv79, 32
   br i1 %43, label %28, label %44, !llvm.loop !11
 
 44:                                               ; preds = %39
@@ -296,7 +296,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocaptur
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.15371, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false)
   %51 = getelementptr inbounds i8, ptr %.15371, i64 16
   %52 = add nuw nsw i32 %.172, 16
-  %53 = icmp ult i32 %.172, 32
+  %53 = icmp samesign ult i32 %.172, 32
   br i1 %53, label %48, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %35, %50, %48, %44, %24
@@ -335,7 +335,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 
 10:                                               ; preds = %4
   %11 = sub nuw nsw i64 384, %8
-  %12 = icmp ugt i64 %3, %11
+  %12 = icmp samesign ugt i64 %3, %11
   %13 = sub nuw nsw i64 %11, %3
   %14 = icmp ugt i64 %2, %13
   %or.cond45 = select i1 %12, i1 true, i1 %14
@@ -420,7 +420,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 47:                                               ; preds = %45
   %48 = getelementptr inbounds i8, ptr %.01926.i, i64 16
   %49 = add nuw nsw i32 %.01727.i, 16
-  %50 = icmp ult i32 %.01727.i, 32
+  %50 = icmp samesign ult i32 %.01727.i, 32
   br i1 %50, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %47, %.preheader.i
@@ -587,7 +587,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %.01926.i, i64 16
   %38 = add nuw nsw i32 %.01727.i, 16
-  %39 = icmp ult i32 %.01727.i, 32
+  %39 = icmp samesign ult i32 %.01727.i, 32
   br i1 %39, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %36, %.preheader.i
@@ -693,7 +693,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %.01926.i55, i64 16
   %70 = add nuw nsw i32 %.01727.i54, 16
-  %71 = icmp ult i32 %.01727.i54, 32
+  %71 = icmp samesign ult i32 %.01727.i54, 32
   br i1 %71, label %.preheader25.i53, label %.preheader.i62, !llvm.loop !6
 
 .preheader.i62:                                   ; preds = %68, %.preheader.i62

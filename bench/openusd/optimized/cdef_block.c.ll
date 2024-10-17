@@ -218,7 +218,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
 141:                                              ; preds = %125
   store i32 %140, ptr %115, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
-  %142 = icmp ult i64 %indvars.iv142, 6
+  %142 = icmp samesign ult i64 %indvars.iv142, 6
   br i1 %142, label %.preheader91, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %141, %.preheader
@@ -710,7 +710,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
   %115 = ashr i32 %113, 6
   %116 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %115, i1 true)
   %117 = xor i32 %116, 28
-  %118 = icmp ult i32 %117, 12
+  %118 = icmp samesign ult i32 %117, 12
   %119 = sub nuw nsw i32 35, %116
   %spec.select.i164.us = select i1 %118, i32 %119, i32 16
   br label %adjust_strength.exit166.us
@@ -775,7 +775,7 @@ adjust_strength.exit166.us:                       ; preds = %114, %109
   %157 = ashr i32 %155, 6
   %158 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
   %159 = xor i32 %158, 28
-  %160 = icmp ult i32 %159, 12
+  %160 = icmp samesign ult i32 %159, 12
   %161 = sub nuw nsw i32 35, %158
   %spec.select.i = select i1 %160, i32 %161, i32 16
   br label %adjust_strength.exit

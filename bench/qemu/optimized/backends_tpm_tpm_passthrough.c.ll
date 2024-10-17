@@ -591,7 +591,7 @@ if.then24.i:                                      ; preds = %if.then17.i
 
 if.else.i:                                        ; preds = %if.end.i.i, %if.end10.i
   %retval.0.i.ph.i = phi i32 [ %conv13.i.i, %if.end10.i ], [ %conv1.i.i, %if.end.i.i ]
-  %cmp27.i = icmp ult i32 %retval.0.i.ph.i, 10
+  %cmp27.i = icmp samesign ult i32 %retval.0.i.ph.i, 10
   br i1 %cmp27.i, label %if.then34.i, label %lor.lhs.false29.i
 
 lor.lhs.false29.i:                                ; preds = %if.else.i

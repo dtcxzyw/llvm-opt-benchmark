@@ -4441,7 +4441,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %59 = add nuw nsw i64 %storemerge77, 1
   %60 = load i32, ptr %6, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
@@ -4993,7 +4993,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %49 = add nuw nsw i64 %storemerge68, 1
   %50 = load i32, ptr %7, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %10, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit

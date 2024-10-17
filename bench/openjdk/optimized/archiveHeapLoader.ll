@@ -531,7 +531,7 @@ define hidden void @_ZN17ArchiveHeapLoader34patch_compressed_embedded_pointersE1
 .preheader.i.i.i:                                 ; preds = %52, %56
   %.025.i.i.i.i.i = phi i64 [ %54, %56 ], [ %45, %52 ]
   %54 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %55 = icmp ult i64 %54, %43
+  %55 = icmp samesign ult i64 %54, %43
   br i1 %55, label %56, label %_ZNK6BitMap7iterateI36PatchCompressedEmbeddedPointersQuickEEbPT_.exit
 
 56:                                               ; preds = %.preheader.i.i.i
@@ -608,7 +608,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %61, %44
 .preheader.i.i.i19:                               ; preds = %88, %92
   %.025.i.i.i.i.i20 = phi i64 [ %90, %92 ], [ %81, %88 ]
   %90 = add nuw nsw i64 %.025.i.i.i.i.i20, 1
-  %91 = icmp ult i64 %90, %79
+  %91 = icmp samesign ult i64 %90, %79
   br i1 %91, label %92, label %_ZNK6BitMap7iterateI36PatchCompressedEmbeddedPointersQuickEEbPT_.exit
 
 92:                                               ; preds = %.preheader.i.i.i19
@@ -709,7 +709,7 @@ define hidden void @_ZN17ArchiveHeapLoader23patch_embedded_pointersEP11FileMapIn
 .preheader.i.i.i:                                 ; preds = %28, %32
   %.025.i.i.i.i.i = phi i64 [ %30, %32 ], [ %22, %28 ]
   %30 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %31 = icmp ult i64 %30, %20
+  %31 = icmp samesign ult i64 %30, %20
   br i1 %31, label %32, label %_ZNK6BitMap7iterateI33PatchUncompressedEmbeddedPointersEEbPT_.exit
 
 32:                                               ; preds = %.preheader.i.i.i
@@ -931,7 +931,7 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader21load_heap_region_implE
 .preheader.i.i.i:                                 ; preds = %65, %69
   %.025.i.i.i.i.i = phi i64 [ %67, %69 ], [ %59, %65 ]
   %67 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %68 = icmp ult i64 %67, %57
+  %68 = icmp samesign ult i64 %67, %57
   br i1 %68, label %69, label %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit
 
 69:                                               ; preds = %.preheader.i.i.i
@@ -1516,7 +1516,7 @@ define hidden void @_ZN17ArchiveHeapLoader21patch_native_pointersEv() local_unna
 .preheader.i.i.i:                                 ; preds = %39, %43
   %.025.i.i.i.i.i = phi i64 [ %41, %43 ], [ %32, %39 ]
   %41 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %42 = icmp ult i64 %41, %30
+  %42 = icmp samesign ult i64 %41, %30
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI19PatchNativePointersEEbPT_.exit
 
 43:                                               ; preds = %.preheader.i.i.i
@@ -4884,7 +4884,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %22, %26
   %.025.i.i = phi i64 [ %24, %26 ], [ %16, %22 ]
   %24 = add nuw nsw i64 %.025.i.i, 1
-  %25 = icmp ult i64 %24, %8
+  %25 = icmp samesign ult i64 %24, %8
   br i1 %25, label %26, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 26:                                               ; preds = %.preheader
@@ -5039,7 +5039,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 52:                                               ; preds = %55, %49
   %.025.i.i.i.i.i = phi i64 [ %41, %49 ], [ %53, %55 ]
   %53 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %54 = icmp ult i64 %53, %51
+  %54 = icmp samesign ult i64 %53, %51
   br i1 %54, label %55, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc32VerifyLoadedHeapEmbeddedPointersEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 55:                                               ; preds = %52

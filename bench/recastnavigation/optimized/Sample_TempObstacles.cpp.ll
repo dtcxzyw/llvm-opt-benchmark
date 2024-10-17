@@ -1172,7 +1172,7 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us: ; preds = %.noexc1.i.us
   store ptr null, ptr %22, align 8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %50 = icmp ult i64 %indvars.iv.next66, %25
+  %50 = icmp samesign ult i64 %indvars.iv.next66, %25
   %or.cond = select i1 %38, i1 %50, i1 false
   br i1 %or.cond, label %.lr.ph.split.us, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, !llvm.loop !13
 
@@ -1337,7 +1337,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit: ; preds = %.noexc1.i
   store ptr null, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = icmp uge i64 %indvars.iv.next, %25
+  %124 = icmp samesign uge i64 %indvars.iv.next, %25
   %or.cond61.not = select i1 %switch, i1 true, i1 %124
   br i1 %or.cond61.not, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, label %.lr.ph.split, !llvm.loop !13
 

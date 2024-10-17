@@ -7594,7 +7594,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %.lr.ph.i, %102, %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = load i24, ptr %57, align 8
   %109 = zext i24 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next, %109
+  %110 = icmp samesign ult i64 %indvars.iv.next, %109
   br i1 %110, label %70, label %.preheader, !llvm.loop !50
 
 111:                                              ; preds = %.lr.ph72, %_ZN4llvm13MCInstBuilderD2Ev.exit43
@@ -7674,7 +7674,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit43:               ; preds = %145, %_ZN4llvm13MCI
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %146 = load i24, ptr %57, align 8
   %147 = zext i24 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next77, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next77, %147
   br i1 %148, label %111, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit43, %_ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit, %.preheader
@@ -8070,7 +8070,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %.lr.ph.i, %104, %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i24, ptr %59, align 8
   %111 = zext i24 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next, %111
   br i1 %112, label %72, label %.preheader, !llvm.loop !56
 
 113:                                              ; preds = %.lr.ph70, %_ZN4llvm13MCInstBuilderD2Ev.exit42
@@ -8152,7 +8152,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit42:               ; preds = %150, %_ZN4llvm13MCI
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %151 = load i24, ptr %59, align 8
   %152 = zext i24 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next75, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next75, %152
   br i1 %153, label %113, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit42, %_ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit, %.preheader

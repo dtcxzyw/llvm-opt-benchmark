@@ -3309,7 +3309,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 78:                                               ; preds = %58
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %16, i64 206)
   %79 = and i64 %spec.store.select, 254
-  %80 = icmp ugt i64 %79, 4
+  %80 = icmp samesign ugt i64 %79, 4
   br i1 %80, label %81, label %99
 
 81:                                               ; preds = %78
@@ -3805,7 +3805,7 @@ define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @toi(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 5) %1) unnamed_addr #12 {
-  %3 = icmp ugt i32 %1, 1
+  %3 = icmp samesign ugt i32 %1, 1
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   br i1 %3, label %6, label %common.ret8
@@ -4343,7 +4343,7 @@ parse_rockridge_NM1.exit:                         ; preds = %175, %177, %179, %1
   br label %253
 
 253:                                              ; preds = %252, %250
-  %254 = icmp ugt i32 %82, 2
+  %254 = icmp samesign ugt i32 %82, 2
   br i1 %254, label %.lr.ph.i135, label %parse_rockridge_SL1.exit
 
 .lr.ph.i135:                                      ; preds = %253
@@ -4460,8 +4460,8 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   br i1 %.not.i136, label %338, label %310
 
 310:                                              ; preds = %303
-  %311 = icmp ugt i32 %82, 17
-  %or.cond.i = and i1 %311, %309
+  %311 = icmp samesign ugt i32 %82, 17
+  %or.cond.i = select i1 %309, i1 %311, i1 false
   br i1 %or.cond.i, label %312, label %316
 
 312:                                              ; preds = %310
@@ -4518,8 +4518,8 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   br label %.sink.split.i
 
 338:                                              ; preds = %303
-  %339 = icmp ugt i32 %82, 7
-  %or.cond9.i = and i1 %339, %309
+  %339 = icmp samesign ugt i32 %82, 7
+  %or.cond9.i = select i1 %309, i1 %339, i1 false
   br i1 %or.cond9.i, label %340, label %370
 
 340:                                              ; preds = %338

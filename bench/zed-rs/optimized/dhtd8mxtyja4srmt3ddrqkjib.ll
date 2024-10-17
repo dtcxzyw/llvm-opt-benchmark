@@ -827,7 +827,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.59.0.copyload = load i64, ptr %.sroa.59.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %19 = icmp ugt i64 %10, %13
+  %19 = icmp samesign ugt i64 %10, %13
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h473c5b07fc219e58E.exit.i"
 
 20:                                               ; preds = %15
@@ -911,7 +911,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5ca12ba1132e3fc1E.exit.i"
 
 21:                                               ; preds = %16
@@ -11386,7 +11386,7 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   store i64 0, ptr %44, align 8, !noalias !3524
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3531)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3534)
-  %45 = icmp ugt i64 %.sroa.06.0.copyload, %39
+  %45 = icmp samesign ugt i64 %.sroa.06.0.copyload, %39
   br i1 %45, label %46, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha27cd291d2de5409E.exit.i.i.i.i"
 
 46:                                               ; preds = %41
@@ -13119,7 +13119,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h90c44dddb6c2fc84E.llvm.127
   %170 = sub nuw i64 %168, %169
   %171 = lshr exact i64 %170, 4
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %165, i64 %171)
-  %172 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i, %154
+  %172 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i, %154
   br i1 %172, label %173, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h36807618a640ec7cE.exit.i.i.i"
 
 173:                                              ; preds = %156

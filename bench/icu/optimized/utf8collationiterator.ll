@@ -1484,7 +1484,7 @@ if.else121:                                       ; preds = %if.else114
   %shr122 = lshr i32 %call118, 10
   %conv124 = add nuw nsw i32 %shr122, 55232
   %conv125 = and i32 %conv124, 65535
-  %cmp.i50 = icmp ugt i32 %conv125, 191
+  %cmp.i50 = icmp samesign ugt i32 %conv125, 191
   br i1 %cmp.i50, label %land.lhs.true.i52, label %if.else138
 
 land.lhs.true.i52:                                ; preds = %if.else121
@@ -1792,7 +1792,7 @@ do.end:                                           ; preds = %land.lhs.true71
   %conv91 = add nuw nsw i32 %shr90, 55232
   %conv92 = and i32 %conv91, 65535
   %spec.select = select i1 %cmp88, i32 %conv92, i32 %or83
-  %cmp.i = icmp ugt i32 %spec.select, 767
+  %cmp.i = icmp samesign ugt i32 %spec.select, 767
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true71, %land.lhs.true60, %land.lhs.true51, %land.lhs.true44, %land.lhs.true32, %cond.false, %cond.true17, %if.end, %do.end
@@ -2035,7 +2035,7 @@ invoke.cont99:                                    ; preds = %if.end98
 
 land.lhs.true103:                                 ; preds = %invoke.cont99
   %22 = and i16 %prevCC.0, 255
-  %cmp106 = icmp ugt i16 %22, %21
+  %cmp106 = icmp samesign ugt i16 %22, %21
   br i1 %cmp106, label %while.cond.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true103
@@ -3190,7 +3190,7 @@ invoke.cont18:                                    ; preds = %if.end17
 
 land.lhs.true22:                                  ; preds = %invoke.cont18
   %cmp24.not = icmp ne i32 %nextCC.0, 0
-  %cmp28 = icmp ult i32 %nextCC.0, %conv12
+  %cmp28 = icmp samesign ult i32 %nextCC.0, %conv12
   %or.cond23 = select i1 %cmp24.not, i1 %cmp28, i1 false
   br i1 %or.cond23, label %while.cond.preheader, label %lor.lhs.false
 

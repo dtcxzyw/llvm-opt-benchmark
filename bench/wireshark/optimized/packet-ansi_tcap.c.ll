@@ -633,7 +633,7 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
   br i1 %.not14, label %25, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i32 %12, 4
+  %14 = icmp samesign ugt i32 %12, 4
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 408

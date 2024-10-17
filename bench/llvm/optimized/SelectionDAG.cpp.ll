@@ -18675,7 +18675,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
   %.sroa.01.0.copyload = phi i16 [ %51, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ 0, %.thread.i ]
   %58 = phi i32 [ %56, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %57, %.thread.i ]
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %.0, %59
+  %60 = icmp samesign ult i64 %.0, %59
   br i1 %60, label %61, label %105
 
 61:                                               ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
@@ -22132,7 +22132,7 @@ _ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.
 
 _ZNSt5dequeIN4llvm7SDValueESaIS1_EE9push_backEOS1_.exit: ; preds = %72, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = icmp ult i64 %indvars.iv.next, %58
+  %76 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %76, label %61, label %.preheader.loopexit, !llvm.loop !123
 
 77:                                               ; preds = %.preheader, %_ZNSt5dequeIN4llvm7SDValueESaIS1_EE9pop_frontEv.exit50
@@ -23420,7 +23420,7 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit38:             ; preds = %18, %22
   %.fca.1.extract.i35 = extractvalue { i64, i8 } %.pn.i.i33, 1
   %24 = add i64 %.fca.0.extract.i34, 7
   %25 = lshr i64 %24, 3
-  %26 = icmp ugt i64 %17, %25
+  %26 = icmp samesign ugt i64 %17, %25
   %.sroa.29.0.copyload.v = select i1 %26, i8 %.fca.1.extract.i, i8 %.fca.1.extract.i35
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
@@ -34507,7 +34507,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -35652,7 +35652,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %230, %227, %_ZN4llv
 243:                                              ; preds = %202, %_ZN4llvm5APIntD2Ev.exit
   %.11043 = phi i32 [ %.sroa.speculated950, %_ZN4llvm5APIntD2Ev.exit ], [ %.010421168, %202 ]
   %indvars.iv.next1186 = add nuw nsw i64 %indvars.iv1185, 1
-  %244 = icmp ult i64 %indvars.iv.next1186, %201
+  %244 = icmp samesign ult i64 %indvars.iv.next1186, %201
   %245 = icmp ugt i32 %.11043, 1
   %246 = select i1 %244, i1 %245, i1 false
   br i1 %246, label %202, label %_ZNK4llvm5APInt14getNumSignBitsEv.exit, !llvm.loop !234
@@ -37354,7 +37354,7 @@ _ZNK4llvm5APIntntEv.exit738:                      ; preds = %1105
 _ZN4llvm5APIntD2Ev.exit740:                       ; preds = %1110, %1115, %.thread1104, %1124
   %.91106 = phi i32 [ %.sroa.speculated908, %1115 ], [ %.91107, %.thread1104 ], [ %.91107, %1124 ], [ %.810501158, %1110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1125 = icmp ult i64 %indvars.iv.next, %1104
+  %1125 = icmp samesign ult i64 %indvars.iv.next, %1104
   %1126 = icmp ugt i32 %.91106, 1
   %1127 = select i1 %1125, i1 %1126, i1 false
   br i1 %1127, label %1105, label %_ZNK4llvm5APInt14getNumSignBitsEv.exit, !llvm.loop !242
@@ -40991,7 +40991,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i.i.i.i.i.i: ;
 
 148:                                              ; preds = %146
   %149 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %147)
-  %150 = icmp ult i64 %149, 2
+  %150 = icmp samesign ult i64 %149, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %150, label %157, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit"
 
@@ -41042,7 +41042,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i47.i.i.i.i.i:
 
 168:                                              ; preds = %166
   %169 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %167)
-  %170 = icmp ult i64 %169, 2
+  %170 = icmp samesign ult i64 %169, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %170, label %178, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit"
 
@@ -41094,7 +41094,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i51.i.i.i.i.i:
 
 189:                                              ; preds = %187
   %190 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %188)
-  %191 = icmp ult i64 %190, 2
+  %191 = icmp samesign ult i64 %190, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %191, label %199, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit208"
 
@@ -41146,7 +41146,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i55.i.i.i.i.i:
 
 210:                                              ; preds = %208
   %211 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %209)
-  %212 = icmp ult i64 %211, 2
+  %212 = icmp samesign ult i64 %211, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %212, label %220, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit214"
 
@@ -41219,7 +41219,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i59.i.i.i.i.i:
 
 236:                                              ; preds = %234
   %237 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %235)
-  %238 = icmp ult i64 %237, 2
+  %238 = icmp samesign ult i64 %237, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %238, label %245, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit"
 
@@ -41275,7 +41275,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i63.i.i.i.i.i:
 
 258:                                              ; preds = %256
   %259 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %257)
-  %260 = icmp ult i64 %259, 2
+  %260 = icmp samesign ult i64 %259, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %260, label %267, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit"
 
@@ -41331,7 +41331,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i.i67.i.i.i.i.i:
 
 280:                                              ; preds = %278
   %281 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %279)
-  %282 = icmp ult i64 %281, 2
+  %282 = icmp samesign ult i64 %281, 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %282, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit"
 
@@ -59283,7 +59283,7 @@ _ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit: ; preds = %70, %68, %64, %62
 
 111:                                              ; preds = %107
   %112 = tail call i16 @_ZNK4llvm12SelectionDAG14isBoolConstantENS_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr nonnull %.sroa.070.0.copyload, i32 %.sroa.271.0.copyload, i1 noundef zeroext true)
-  %.not.i154 = icmp ult i16 %112, 256
+  %.not.i154 = icmp samesign ult i16 %112, 256
   br i1 %.not.i154, label %115, label %113
 
 113:                                              ; preds = %111
@@ -59746,7 +59746,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG14simplifySelectENS_7SDValu
 
 21:                                               ; preds = %17
   %22 = tail call i16 @_ZNK4llvm12SelectionDAG14isBoolConstantENS_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr nonnull %1, i32 %2, i1 noundef zeroext true)
-  %.not = icmp ult i16 %22, 256
+  %.not = icmp samesign ult i16 %22, 256
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %21
@@ -60672,7 +60672,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; pred
   %.0291 = phi i1 [ %.not95, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit ], [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionERNS_12SelectionDAGE.exit ]
   %85 = tail call i16 @_ZNK4llvm12SelectionDAG13InferPtrAlignENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr nonnull %.0.val, i32 poison)
   %.sroa.050.0.extract.trunc = trunc i16 %85 to i8
-  %.not96 = icmp ult i16 %85, 256
+  %.not96 = icmp samesign ult i16 %85, 256
   %86 = tail call i8 @llvm.umax.i8(i8 %7, i8 %.sroa.050.0.extract.trunc)
   %spec.select = select i1 %.not96, i8 %7, i8 %86
   br i1 %8, label %_ZL20isMemSrcFromConstantN4llvm7SDValueERNS_22ConstantDataArraySliceE.exit, label %87
@@ -62543,7 +62543,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.thread.i: ; pr
   %.0.i = phi i1 [ %.not51.i, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ false, %_ZL25shouldLowerMemFuncForSizeRKN4llvm15MachineFunctionERNS_12SelectionDAGE.exit.i ]
   %113 = tail call i16 @_ZNK4llvm12SelectionDAG13InferPtrAlignENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr nonnull %.sroa.0201.0.copyload, i32 poison)
   %.sroa.036.0.extract.trunc.i = trunc i16 %113 to i8
-  %.not52.i = icmp ult i16 %113, 256
+  %.not52.i = icmp samesign ult i16 %113, 256
   %114 = tail call i8 @llvm.umax.i8(i8 %8, i8 %.sroa.036.0.extract.trunc.i)
   %spec.select.i = select i1 %.not52.i, i8 %8, i8 %114
   %.in.v.i.i = select i1 %.0.i.i, i64 408116, i64 408112
@@ -80578,7 +80578,7 @@ define dso_local void @_ZN4llvm12SelectionDAG22CreateTopologicalOrderERSt6vector
   br i1 %.not.i.i.i, label %_ZNK4llvm12simple_ilistINS_6SDNodeEJEE4sizeEv.exit, label %.lr.ph.i.i.i, !llvm.loop !541
 
 _ZNK4llvm12simple_ilistINS_6SDNodeEJEE4sizeEv.exit: ; preds = %.lr.ph.i.i.i
-  %12 = icmp ugt i64 %.06.i.i.i, 1152921504606846974
+  %12 = icmp samesign ugt i64 %.06.i.i.i, 1152921504606846974
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %_ZNK4llvm12simple_ilistINS_6SDNodeEJEE4sizeEv.exit
@@ -88605,7 +88605,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %44, %47
   %50 = icmp ult i16 %6, 2
   %or.cond = or i1 %50, %.0.i.i
   %51 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %7)
-  %52 = icmp ugt i32 %51, 1
+  %52 = icmp samesign ugt i32 %51, 1
   %or.cond62.not = select i1 %or.cond, i1 true, i1 %52
   br i1 %or.cond62.not, label %.loopexit68, label %53
 
@@ -98534,7 +98534,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN4llvm14Constan
 
 11:                                               ; preds = %9
   %12 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %"_ZSt10__invoke_rIbRZNK4llvm12SelectionDAG22isKnownToBeAPowerOfTwoENS0_7SDValueEjE3$_0JPNS0_14ConstantSDNodeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 14:                                               ; preds = %2

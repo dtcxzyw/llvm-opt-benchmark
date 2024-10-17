@@ -395,7 +395,7 @@ if.then117:                                       ; preds = %if.else107
   %28 = load i8, ptr %arrayidx128, align 1
   %conv129 = zext i8 %28 to i32
   %or130 = or disjoint i32 %shl125, %conv129
-  %cmp131 = icmp ugt i32 %or130, 769
+  %cmp131 = icmp samesign ugt i32 %or130, 769
   %spec.select337 = select i1 %cmp131, i64 16, i64 0
   %add136 = or disjoint i64 %spec.select337, 33
   %cmp137 = icmp ult i64 %len, %add136
@@ -414,7 +414,7 @@ if.end140:                                        ; preds = %if.then117
   %shr149 = lshr i32 %sub148, 24
   %conv147.masked = and i32 %conv147, 255
   %and151 = or i32 %conv147.masked, %shr149
-  %32 = icmp uge i32 %and151, %conv145
+  %32 = icmp samesign uge i32 %and151, %conv145
   %not.i = sext i1 %32 to i32
   %33 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i) #9, !srcloc !4
   %and.i = and i32 %33, %conv145
@@ -1216,11 +1216,11 @@ if.then5:                                         ; preds = %if.end
   %or16 = or disjoint i32 %shl11, %conv15
   %aux = getelementptr inbounds i8, ptr %vctx, i64 448
   store i32 %or16, ptr %aux, align 8
-  %cmp17 = icmp ugt i32 %or16, 769
+  %cmp17 = icmp samesign ugt i32 %or16, 769
   br i1 %cmp17, label %if.then19, label %if.end33
 
 if.then19:                                        ; preds = %if.then5
-  %cmp20 = icmp ult i32 %or, 16
+  %cmp20 = icmp samesign ult i32 %or, 16
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then19
@@ -1329,7 +1329,7 @@ if.then:                                          ; preds = %entry
   %5 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %5 to i32
   %or11 = or disjoint i32 %shl7, %conv10
-  %cmp = icmp ult i32 %or11, 770
+  %cmp = icmp samesign ult i32 %or11, 770
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then

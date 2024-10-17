@@ -19707,7 +19707,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK5clang14IdentifierInfo10isRese
   store ptr %6, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %2
@@ -19783,7 +19783,7 @@ define dso_local { ptr, i64 } @_ZNK5clang14IdentifierInfo14deuglifiedNameEv(ptr 
   store ptr %5, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = icmp ugt i64 %7, 1
+  %9 = icmp samesign ugt i64 %7, 1
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %1
@@ -20193,7 +20193,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8Selector17isKeywordSelectorEN4ll
   %6 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i = icmp eq i64 %6, 0
   %spec.select.i.i = select i1 %.not.i.i, i32 %5, i32 7
-  %7 = icmp ult i32 %spec.select.i.i, 2
+  %7 = icmp samesign ult i32 %spec.select.i.i, 2
   br i1 %7, label %_ZNK5clang8Selector10getNumArgsEv.exit, label %8
 
 8:                                                ; preds = %3
@@ -20345,7 +20345,7 @@ define dso_local noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr nocapture no
   %4 = and i64 %.0.copyload.i.i.i.i, 4
   %.not.i = icmp eq i64 %4, 0
   %spec.select.i = select i1 %.not.i, i32 %3, i32 7
-  %5 = icmp ult i32 %spec.select.i, 2
+  %5 = icmp samesign ult i32 %spec.select.i, 2
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %1
@@ -20631,7 +20631,7 @@ define dso_local void @_ZNK5clang8Selector11getAsStringB5cxx11Ev(ptr dead_on_unw
   br i1 %.not.i, label %18, label %44
 
 18:                                               ; preds = %12
-  %19 = icmp ult i32 %14, 2
+  %19 = icmp samesign ult i32 %14, 2
   br i1 %19, label %_ZNK5clang8Selector10getNumArgsEv.exit.thread, label %20
 
 20:                                               ; preds = %18
@@ -20968,7 +20968,7 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit: ; preds = %1, %5
   ]
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %13, 5
+  %18 = icmp samesign ult i64 %13, 5
   br i1 %18, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %19
 
 19:                                               ; preds = %17
@@ -20991,7 +20991,7 @@ _ZL14startsWithWordN4llvm9StringRefES0_.exit:     ; preds = %21, %19
   br i1 %28, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread
 
 29:                                               ; preds = %15
-  %30 = icmp ult i64 %13, 7
+  %30 = icmp samesign ult i64 %13, 7
   br i1 %30, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %31
 
 31:                                               ; preds = %29
@@ -21014,7 +21014,7 @@ _ZL14startsWithWordN4llvm9StringRefES0_.exit17:   ; preds = %33, %31
   br i1 %40, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit17.thread
 
 _ZL14startsWithWordN4llvm9StringRefES0_.exit17.thread: ; preds = %33, %_ZL14startsWithWordN4llvm9StringRefES0_.exit17
-  %41 = icmp ult i64 %13, 10
+  %41 = icmp samesign ult i64 %13, 10
   br i1 %41, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %42
 
 42:                                               ; preds = %_ZL14startsWithWordN4llvm9StringRefES0_.exit17.thread
@@ -21037,7 +21037,7 @@ _ZL14startsWithWordN4llvm9StringRefES0_.exit21:   ; preds = %44, %42
   br i1 %51, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread
 
 52:                                               ; preds = %15
-  %53 = icmp ult i64 %13, 6
+  %53 = icmp samesign ult i64 %13, 6
   br i1 %53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %54
 
 54:                                               ; preds = %52
@@ -21060,7 +21060,7 @@ _ZL14startsWithWordN4llvm9StringRefES0_.exit25:   ; preds = %56, %54
   br i1 %63, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit25.thread
 
 _ZL14startsWithWordN4llvm9StringRefES0_.exit25.thread: ; preds = %56, %_ZL14startsWithWordN4llvm9StringRefES0_.exit25
-  %64 = icmp ult i64 %13, 8
+  %64 = icmp samesign ult i64 %13, 8
   br i1 %64, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %65
 
 65:                                               ; preds = %_ZL14startsWithWordN4llvm9StringRefES0_.exit25.thread
@@ -21083,7 +21083,7 @@ _ZL14startsWithWordN4llvm9StringRefES0_.exit29:   ; preds = %67, %65
   br i1 %74, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread53, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread
 
 75:                                               ; preds = %15
-  %76 = icmp ult i64 %13, 4
+  %76 = icmp samesign ult i64 %13, 4
   br i1 %76, label %_ZL14startsWithWordN4llvm9StringRefES0_.exit.thread, label %77
 
 77:                                               ; preds = %75

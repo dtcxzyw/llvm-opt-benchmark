@@ -186,7 +186,7 @@ define void @Kit_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr n
   %80 = getelementptr inbounds i32, ptr %0, i64 %69
   store i32 %79, ptr %80, align 4
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %81 = icmp ult i64 %indvars.iv.next165, %33
+  %81 = icmp samesign ult i64 %indvars.iv.next165, %33
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph, %20, %.preheader87.lr.ph, %34, %.preheader, %10
@@ -331,7 +331,7 @@ define void @Kit_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr n
   %65 = getelementptr inbounds i32, ptr %1, i64 %54
   store i32 %64, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %66 = icmp ult i64 %indvars.iv.next, %10
+  %66 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 67:                                               ; preds = %4
@@ -601,7 +601,7 @@ define void @Kit_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef %1
   %90 = getelementptr inbounds i32, ptr %.12839, i64 %79
   store i32 %89, ptr %90, align 4
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %91 = icmp ult i64 %indvars.iv.next165.i, %14
+  %91 = icmp samesign ult i64 %indvars.iv.next165.i, %14
   br i1 %91, label %.lr.ph.i, label %Kit_TruthSwapAdjacentVars.exit, !llvm.loop !11
 
 Kit_TruthSwapAdjacentVars.exit:                   ; preds = %._crit_edge.us.i, %.lr.ph.i, %31, %22, %.preheader.i, %44, %.preheader87.lr.ph.i
@@ -845,7 +845,7 @@ define void @Kit_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %1,
   %88 = getelementptr inbounds i32, ptr %.12742, i64 %77
   store i32 %87, ptr %88, align 4
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %89 = icmp ult i64 %indvars.iv.next165.i, %13
+  %89 = icmp samesign ult i64 %indvars.iv.next165.i, %13
   br i1 %89, label %.lr.ph.i, label %Kit_TruthSwapAdjacentVars.exit, !llvm.loop !11
 
 Kit_TruthSwapAdjacentVars.exit:                   ; preds = %._crit_edge.us.i, %.lr.ph.i, %29, %20, %.preheader.i, %42, %.preheader87.lr.ph.i
@@ -944,7 +944,7 @@ define void @Kit_TruthPermute(ptr nocapture noundef %0, ptr nocapture noundef %1
   %19 = add nsw i32 %.149.us, 1
   store i8 %17, ptr %14, align 1
   store i8 %15, ptr %16, align 1
-  %20 = icmp ult i64 %indvars.iv, 4
+  %20 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %20, label %71, label %21
 
 21:                                               ; preds = %18
@@ -1054,7 +1054,7 @@ define void @Kit_TruthPermute(ptr nocapture noundef %0, ptr nocapture noundef %1
   %69 = getelementptr inbounds i32, ptr %.13247.us, i64 %58
   store i32 %68, ptr %69, align 4
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %70 = icmp ult i64 %indvars.iv.next165.i.us, %12
+  %70 = icmp samesign ult i64 %indvars.iv.next165.i.us, %12
   br i1 %70, label %.lr.ph.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, !llvm.loop !11
 
 71:                                               ; preds = %18
@@ -4851,9 +4851,9 @@ Kit_TruthSupport.exit51:                          ; preds = %Kit_TruthVarInSuppo
   %175 = lshr i32 %173, 16
   %176 = add nuw nsw i32 %174, %175
   %177 = icmp sgt i32 %.030150, %176
-  %178 = icmp ult i32 %84, 6
+  %178 = icmp samesign ult i32 %84, 6
   %or.cond = select i1 %177, i1 %178, i1 false
-  %179 = icmp ult i32 %156, 6
+  %179 = icmp samesign ult i32 %156, 6
   %or.cond3 = select i1 %or.cond, i1 %179, i1 false
   %spec.select = select i1 %or.cond3, i32 %.0151, i32 %.031149
   %spec.select37 = select i1 %or.cond3, i32 %176, i32 %.030150
@@ -6482,7 +6482,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %73 = shl i32 3, %66
   %74 = select i1 %.not99.us, i32 0, i32 %73
   %.6.us = xor i32 %.4126.us, %74
-  %75 = icmp ult i64 %indvars.iv149, 4
+  %75 = icmp samesign ult i64 %indvars.iv149, 4
   br i1 %75, label %126, label %76
 
 76:                                               ; preds = %54
@@ -6592,7 +6592,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %124 = getelementptr inbounds i32, ptr %.192121.us, i64 %113
   store i32 %123, ptr %124, align 4
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %125 = icmp ult i64 %indvars.iv.next165.i.us, %46
+  %125 = icmp samesign ult i64 %indvars.iv.next165.i.us, %46
   br i1 %125, label %.lr.ph.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, !llvm.loop !11
 
 126:                                              ; preds = %54
@@ -6723,7 +6723,7 @@ define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr 
   %23 = getelementptr inbounds i8, ptr %.06165, i64 4
   store i32 %22, ptr %.06165, align 4
   %24 = and i32 %21, 255
-  %25 = icmp ugt i32 %24, 246
+  %25 = icmp samesign ugt i32 %24, 246
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %16
@@ -6837,7 +6837,7 @@ define void @Kit_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture nounde
   %12 = and i32 %11, 28
   %13 = lshr i32 %10, %12
   %14 = and i32 %13, 15
-  %15 = icmp ult i32 %14, 10
+  %15 = icmp samesign ult i32 %14, 10
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
@@ -6903,7 +6903,7 @@ define void @Kit_TruthCountMintermsPrecomp() local_unnamed_addr #4 {
   %26 = and i32 %25, 28
   %27 = lshr i32 %22, %26
   %28 = and i32 %27, 15
-  %29 = icmp ult i32 %28, 10
+  %29 = icmp samesign ult i32 %28, 10
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i
@@ -6959,7 +6959,7 @@ define noundef nonnull ptr @Kit_TruthDumpToFile(ptr nocapture noundef readonly %
   %15 = and i32 %14, 28
   %16 = lshr i32 %13, %15
   %17 = and i32 %16, 15
-  %18 = icmp ult i32 %17, 10
+  %18 = icmp samesign ult i32 %17, 10
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
@@ -7089,14 +7089,14 @@ select.unfold.i:                                  ; preds = %47, %select.unfold.
   br i1 %51, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !24
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %47
-  %52 = icmp ult i64 %indvars.iv597, %46
+  %52 = icmp samesign ult i64 %indvars.iv597, %46
   br i1 %52, label %.lr.ph501, label %._crit_edge
 
 .lr.ph501:                                        ; preds = %Kit_TruthCopy.exit, %Kit_TruthSwapAdjacentVars.exit
   %indvars.iv599 = phi i64 [ %indvars.iv.next600, %Kit_TruthSwapAdjacentVars.exit ], [ %indvars.iv597, %Kit_TruthCopy.exit ]
   %.1500 = phi ptr [ %.1209499, %Kit_TruthSwapAdjacentVars.exit ], [ %.0510, %Kit_TruthCopy.exit ]
   %.1209499 = phi ptr [ %.1500, %Kit_TruthSwapAdjacentVars.exit ], [ %.0208509, %Kit_TruthCopy.exit ]
-  %53 = icmp ult i64 %indvars.iv599, 4
+  %53 = icmp samesign ult i64 %indvars.iv599, 4
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %.lr.ph501
@@ -7208,7 +7208,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   %112 = getelementptr inbounds i32, ptr %.1209499, i64 %103
   store i32 %111, ptr %112, align 4
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %113 = icmp ult i64 %indvars.iv.next165.i, %37
+  %113 = icmp samesign ult i64 %indvars.iv.next165.i, %37
   br i1 %113, label %.lr.ph.i, label %Kit_TruthSwapAdjacentVars.exit, !llvm.loop !11
 
 Kit_TruthSwapAdjacentVars.exit:                   ; preds = %.lr.ph.us.preheader.i, %.lr.ph.i, %63, %54, %.preheader.i, %75, %.preheader87.lr.ph.i
@@ -7226,7 +7226,7 @@ Kit_TruthSwapAdjacentVars.exit:                   ; preds = %.lr.ph.us.preheader
 
 .lr.ph506:                                        ; preds = %._crit_edge, %Kit_TruthXorCount.exit413
   %indvars.iv616 = phi i64 [ %indvars.iv.next617, %Kit_TruthXorCount.exit413 ], [ 0, %._crit_edge ]
-  %117 = icmp ult i64 %indvars.iv616, %indvars.iv597
+  %117 = icmp samesign ult i64 %indvars.iv616, %indvars.iv597
   %indvars.iv.next617 = add nuw nsw i64 %indvars.iv616, 1
   %118 = trunc nuw nsw i64 %indvars.iv616 to i32
   %.0214 = select i1 %117, i64 %indvars.iv616, i64 %indvars.iv.next617

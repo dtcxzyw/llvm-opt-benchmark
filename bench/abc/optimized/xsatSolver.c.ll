@@ -2086,11 +2086,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %26 = lshr i32 %25, 4
   %27 = load i32, ptr %11, align 4
   %28 = lshr i32 %27, 4
-  %29 = icmp ugt i32 %26, %28
+  %29 = icmp samesign ugt i32 %26, %28
   br i1 %29, label %xSAT_ClauseCompare.exit.thread5.i, label %30
 
 30:                                               ; preds = %.thread19.i.i
-  %31 = icmp ult i32 %26, %28
+  %31 = icmp samesign ult i32 %26, %28
   br i1 %31, label %xSAT_ClauseCompare.exit.thread.i, label %xSAT_ClauseCompare.exit.i
 
 xSAT_ClauseCompare.exit.i:                        ; preds = %30
@@ -2180,11 +2180,11 @@ xSAT_ClauseCompare.exit.thread5.i:                ; preds = %xSAT_ClauseCompare.
   %70 = lshr i32 %69, 4
   %71 = load i32, ptr %52, align 4
   %72 = lshr i32 %71, 4
-  %73 = icmp ugt i32 %70, %72
+  %73 = icmp samesign ugt i32 %70, %72
   br i1 %73, label %.backedge6.backedge, label %74
 
 74:                                               ; preds = %.thread19.i
-  %75 = icmp ult i32 %70, %72
+  %75 = icmp samesign ult i32 %70, %72
   %.pre.pre = load i32, ptr %53, align 4
   br i1 %75, label %.critedge4, label %xSAT_ClauseCompare.exit
 
@@ -2233,11 +2233,11 @@ xSAT_ClauseCompare.exit:                          ; preds = %74
   %96 = lshr i32 %95, 4
   %97 = load i32, ptr %91, align 4
   %98 = lshr i32 %97, 4
-  %99 = icmp ugt i32 %96, %98
+  %99 = icmp samesign ugt i32 %96, %98
   br i1 %99, label %.preheader.split.us.backedge, label %100
 
 100:                                              ; preds = %.thread19.i44.us
-  %101 = icmp ult i32 %96, %98
+  %101 = icmp samesign ult i32 %96, %98
   br i1 %101, label %xSAT_ClauseCompare.exit47.thread, label %xSAT_ClauseCompare.exit47.us
 
 xSAT_ClauseCompare.exit47.us:                     ; preds = %100
@@ -2267,14 +2267,14 @@ xSAT_ClauseCompare.exit47.us:                     ; preds = %100
   %113 = lshr i32 %112, 4
   %114 = load i32, ptr %108, align 4
   %115 = lshr i32 %114, 4
-  %116 = icmp ugt i32 %113, %115
+  %116 = icmp samesign ugt i32 %113, %115
   br i1 %116, label %.preheader.split.backedge, label %117
 
 .preheader.split.backedge:                        ; preds = %.thread19.i44, %xSAT_ClauseCompare.exit47
   br label %.preheader.split, !llvm.loop !27
 
 117:                                              ; preds = %.thread19.i44
-  %118 = icmp ult i32 %113, %115
+  %118 = icmp samesign ult i32 %113, %115
   br i1 %118, label %xSAT_ClauseCompare.exit47.thread, label %xSAT_ClauseCompare.exit47
 
 xSAT_ClauseCompare.exit47:                        ; preds = %117

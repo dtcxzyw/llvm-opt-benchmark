@@ -803,7 +803,7 @@ define internal fastcc ptr @get_str_from_var(ptr nocapture noundef nonnull %0, i
   %33 = trunc nuw nsw i32 %32 to i8
   store i8 %33, ptr %28, align 1
   %34 = udiv i32 %31, 10
-  %.not = icmp ult i32 %31, 10
+  %.not = icmp samesign ult i32 %31, 10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1850,7 +1850,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr nocapture noundef readonly %
   %79 = add i32 %.184108, -1
   store i8 %78, ptr %73, align 1
   %80 = udiv i64 %76, 10
-  %.not = icmp ult i64 %76, 10
+  %.not = icmp samesign ult i64 %76, 10
   br i1 %.not, label %.loopexit, label %.lr.ph111, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph111, %66, %._crit_edge106
@@ -2331,7 +2331,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   %210 = trunc nuw nsw i32 %209 to i8
   store i8 %210, ptr %205, align 1
   %211 = udiv i32 %208, 10
-  %212 = icmp ugt i32 %208, 9
+  %212 = icmp samesign ugt i32 %208, 9
   %213 = icmp ugt i64 %indvars.iv230, 1
   %214 = and i1 %213, %212
   br i1 %214, label %.lr.ph205, label %.loopexit174thread-pre-split, !llvm.loop !35

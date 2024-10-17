@@ -278,7 +278,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge: ; preds
   %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 false)
   %39 = trunc nuw nsw i32 %38 to i8
   %40 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
-  %41 = icmp ult i32 %40, 2
+  %41 = icmp samesign ult i32 %40, 2
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge

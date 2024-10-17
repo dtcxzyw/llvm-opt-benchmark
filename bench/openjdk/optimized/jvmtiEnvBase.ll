@@ -720,7 +720,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN12JvmtiEnvBase26set_native_metho
   br i1 %19, label %.preheader, label %23
 
 .preheader:                                       ; preds = %.lr.ph
-  %20 = icmp ugt i64 %indvars.iv, 1
+  %20 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %20, label %.lr.ph60.preheader, label %.sink.split
 
 .lr.ph60.preheader:                               ; preds = %.preheader
@@ -742,7 +742,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN12JvmtiEnvBase26set_native_metho
   br i1 %25, label %.preheader48, label %29
 
 .preheader48:                                     ; preds = %23
-  %26 = icmp ugt i64 %indvars.iv, 1
+  %26 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %26, label %.lr.ph57.preheader, label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %.preheader48
@@ -1141,7 +1141,7 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %1, %8
   %32 = icmp sgt i64 %indvars.iv, -1
   %33 = trunc nsw i64 %indvars.iv.next to i32
   %34 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %35 = icmp ult i32 %34, 2
+  %35 = icmp samesign ult i32 %34, 2
   %or.cond.i.i.i.i = select i1 %32, i1 %35, i1 false
   %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %37 = sub nuw nsw i32 32, %36
@@ -3468,7 +3468,7 @@ _ZN12JvmtiEnvBase13jni_referenceEP10JavaThread6Handle.exit: ; preds = %94, %96
   %104 = add nsw i32 %100, 1
   %105 = icmp sgt i32 %100, -1
   %106 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %104)
-  %107 = icmp ult i32 %106, 2
+  %107 = icmp samesign ult i32 %106, 2
   %or.cond.i.i.i.i = select i1 %105, i1 %107, i1 false
   %108 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %104, i1 true)
   %109 = sub nuw nsw i32 32, %108
@@ -3702,7 +3702,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN12JvmtiEnvBase15get_stack_traceE
   store i64 %63, ptr %64, align 8
   %65 = call noundef ptr @_ZNK6vframe11java_senderEv(ptr noundef nonnull align 8 dereferenceable(5064) %.379) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = icmp ult i64 %indvars.iv.next, %43
+  %66 = icmp samesign ult i64 %indvars.iv.next, %43
   %67 = icmp ne ptr %65, null
   %68 = and i1 %67, %66
   br i1 %68, label %.lr.ph82, label %._crit_edge83.loopexit, !llvm.loop !52
@@ -5831,7 +5831,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN15ResourceTracker8allocateElPPh(
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -5893,7 +5893,7 @@ define hidden noundef ptr @_ZN15ResourceTracker8allocateEl(ptr nocapture noundef
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -5954,7 +5954,7 @@ define hidden noundef ptr @_ZN15ResourceTracker6strdupEPKc(ptr nocapture noundef
   %19 = add nsw i32 %14, 1
   %20 = icmp sgt i32 %14, -1
   %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i.i.i.i.i = select i1 %20, i1 %22, i1 false
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %24 = sub nuw nsw i32 32, %23
@@ -7520,7 +7520,7 @@ _ZN12JvmtiEnvBase13jni_referenceEP10JavaThread6Handle.exit: ; preds = %49, %51
   %63 = add nsw i32 %58, 1
   %64 = icmp sgt i32 %58, -1
   %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
-  %66 = icmp ult i32 %65, 2
+  %66 = icmp samesign ult i32 %65, 2
   %or.cond.i.i.i.i = select i1 %64, i1 %66, i1 false
   %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
   %68 = sub nuw nsw i32 32, %67
@@ -7575,7 +7575,7 @@ _ZNK9OopHandle7resolveEv.exit.thread:             ; preds = %1, %_ZNK9OopHandle7
   %14 = add nsw i32 %9, 1
   %15 = icmp sgt i32 %9, -1
   %16 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %or.cond.i.i.i.i.i = select i1 %15, i1 %17, i1 false
   %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %19 = sub nuw nsw i32 32, %18
@@ -7821,7 +7821,7 @@ define hidden void @_ZN27UpdateForPopTopFrameClosure4doitEP6Thread(ptr nocapture
   %53 = add nsw i32 %48, 1
   %54 = icmp sgt i32 %48, -1
   %55 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %53)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   %or.cond.i.i.i.i.i.i = select i1 %54, i1 %56, i1 false
   %57 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %58 = sub nuw nsw i32 32, %57

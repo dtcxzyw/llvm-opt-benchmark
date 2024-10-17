@@ -13754,7 +13754,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv8ximgproc19RICInterpolatorImpl
   br i1 %53, label %_ZN2cv3Mat2atIfEERT_i.exit, label %54
 
 54:                                               ; preds = %36
-  %55 = icmp ugt i32 %.04469, 9
+  %55 = icmp samesign ugt i32 %.04469, 9
   %56 = add nuw nsw i32 %.04469, 1
   br i1 %55, label %.loopexit, label %.preheader
 

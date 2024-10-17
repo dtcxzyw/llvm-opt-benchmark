@@ -8493,7 +8493,7 @@ for.body.i.i.i.i.i.prol:                          ; preds = %if.then16, %for.bod
 for.body.i.i.i.i.i.prol.loopexit:                 ; preds = %for.body.i.i.i.i.i.prol, %if.then16
   %__cur.020.i.i.i.i.i.unr = phi ptr [ %1, %if.then16 ], [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
   %__first.sroa.0.019.i.i.i.i.i.unr = phi ptr [ %add.ptr, %if.then16 ], [ %incdec.ptr.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.prol.loopexit, %for.body.i.i.i.i.i

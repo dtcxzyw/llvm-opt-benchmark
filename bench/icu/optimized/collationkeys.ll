@@ -2267,8 +2267,8 @@ if.else239:                                       ; preds = %cond.false236, %con
   %and241 = and i32 %shr240, 255
   %160 = and i32 %conv135, 49152
   %cmp243 = icmp eq i32 %160, 0
-  %cmp245 = icmp ugt i32 %and241, 1
-  %or.cond3 = and i1 %cmp243, %cmp245
+  %cmp245 = icmp samesign ugt i32 %and241, 1
+  %or.cond3 = select i1 %cmp243, i1 %cmp245, i1 false
   br i1 %or.cond3, label %if.then246, label %if.else248
 
 if.then246:                                       ; preds = %if.else239
@@ -2378,7 +2378,7 @@ while.end266.loopexit:                            ; preds = %invoke.cont264
 while.end266:                                     ; preds = %while.end266.loopexit, %if.then259
   %170 = phi i32 [ %cases.val225, %if.then259 ], [ %.pre1630, %while.end266.loopexit ]
   %commonCases.3.lcssa = phi i32 [ %dec260, %if.then259 ], [ %sub265, %while.end266.loopexit ]
-  %cmp268 = icmp ult i32 %and241, 2
+  %cmp268 = icmp samesign ult i32 %and241, 2
   %add270 = add nuw nsw i32 %commonCases.3.lcssa, 1
   %sub272 = sub i32 13, %commonCases.3.lcssa
   %b267.0 = select i1 %cmp268, i32 %add270, i32 %sub272
@@ -2819,7 +2819,7 @@ invoke.cont325:                                   ; preds = %if.then.i942, %if.t
 
 while.end327:                                     ; preds = %invoke.cont325, %if.then320
   %commonTertiaries.3.lcssa = phi i32 [ %dec321, %if.then320 ], [ %sub326, %invoke.cont325 ]
-  %cmp329 = icmp ult i32 %and311, 1280
+  %cmp329 = icmp samesign ult i32 %and311, 1280
   %add331 = add nsw i32 %commonTertiaries.3.lcssa, 5
   %sub333 = sub i32 197, %commonTertiaries.3.lcssa
   %b328.0 = select i1 %cmp329, i32 %add331, i32 %sub333
@@ -2896,7 +2896,7 @@ if.then.i979:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end336
 
 if.end336:                                        ; preds = %if.then.i979, %if.then12.i.i989, %lor.lhs.false.i961, %if.then318
-  %cmp337 = icmp ugt i32 %and311, 1280
+  %cmp337 = icmp samesign ugt i32 %and311, 1280
   %add339 = add nuw nsw i32 %and311, 49152
   %spec.select206 = select i1 %cmp337, i32 %add339, i32 %and311
   %shr.i996 = lshr i32 %spec.select206, 8
@@ -3080,7 +3080,7 @@ invoke.cont352:                                   ; preds = %if.then.i1065, %if.
 
 while.end354:                                     ; preds = %invoke.cont352, %if.then347
   %commonTertiaries.5.lcssa = phi i32 [ %dec348, %if.then347 ], [ %sub353, %invoke.cont352 ]
-  %cmp356 = icmp ult i32 %and311, 1280
+  %cmp356 = icmp samesign ult i32 %and311, 1280
   %add358 = add nsw i32 %commonTertiaries.5.lcssa, 5
   %sub360 = sub i32 69, %commonTertiaries.5.lcssa
   %b355.0 = select i1 %cmp356, i32 %add358, i32 %sub360
@@ -3157,7 +3157,7 @@ if.then.i1102:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end363
 
 if.end363:                                        ; preds = %if.then.i1102, %if.then12.i.i1112, %lor.lhs.false.i1084, %if.then345
-  %cmp364 = icmp ugt i32 %and311, 1280
+  %cmp364 = icmp samesign ugt i32 %and311, 1280
   %add366 = add nuw nsw i32 %and311, 16384
   %spec.select207 = select i1 %cmp364, i32 %add366, i32 %and311
   %shr.i1119 = lshr i32 %spec.select207, 8
@@ -3250,7 +3250,7 @@ if.then12.i1135:                                  ; preds = %if.then.i1131
   br label %if.end405
 
 if.else369:                                       ; preds = %if.else342
-  %cmp370 = icmp ult i32 %and311, 257
+  %cmp370 = icmp samesign ult i32 %and311, 257
   br i1 %cmp370, label %if.end382, label %if.else372
 
 if.else372:                                       ; preds = %if.else369
@@ -3259,7 +3259,7 @@ if.else372:                                       ; preds = %if.else369
 
 if.then374:                                       ; preds = %if.else372
   %xor = xor i32 %and311, 49152
-  %cmp375 = icmp ult i32 %xor, 50432
+  %cmp375 = icmp samesign ult i32 %xor, 50432
   %sub377 = add nsw i32 %xor, -16384
   %spec.select208 = select i1 %cmp375, i32 %sub377, i32 %xor
   br label %if.end382
@@ -3532,8 +3532,8 @@ if.then408:                                       ; preds = %if.end405
   %and410 = and i32 %conv135, 65535
   %and411 = and i32 %conv135, 192
   %cmp412 = icmp eq i32 %and411, 0
-  %cmp414 = icmp ugt i32 %and410, 256
-  %or.cond4 = and i1 %cmp412, %cmp414
+  %cmp414 = icmp samesign ugt i32 %and410, 256
+  %or.cond4 = select i1 %cmp412, i1 %cmp414, i1 false
   br i1 %or.cond4, label %if.then415, label %if.else417
 
 if.then415:                                       ; preds = %if.then408
@@ -4214,7 +4214,7 @@ if.end7:                                          ; preds = %lor.lhs.false.if.th
   %5 = load ptr, ptr %vfn, align 8
   %call8 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %and = and i32 %call8, 255
-  %cmp9 = icmp ult i32 %and, 192
+  %cmp9 = icmp samesign ult i32 %and, 192
   br i1 %cmp9, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.end7
@@ -4341,7 +4341,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.true.i, %cond.
   %arrayidx52.i = getelementptr inbounds i32, ptr %14, i64 %idxprom51.i
   %26 = load i32, ptr %arrayidx52.i, align 4
   %and33 = and i32 %26, 255
-  %cmp34 = icmp ult i32 %and33, 192
+  %cmp34 = icmp samesign ult i32 %and33, 192
   br i1 %cmp34, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit

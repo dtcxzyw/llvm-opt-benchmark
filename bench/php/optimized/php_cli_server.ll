@@ -4507,7 +4507,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread
 .lr.ph.i.i.i:                                     ; preds = %255, %275
   %.05.i.i.i = phi i32 [ %.2.i.i.i, %275 ], [ 0, %255 ]
   %.0184.i.i.i = phi i32 [ %276, %275 ], [ 0, %255 ]
-  %257 = icmp ult i32 %.0184.i.i.i, 1024
+  %257 = icmp samesign ult i32 %.0184.i.i.i, 1024
   br i1 %257, label %258, label %275
 
 258:                                              ; preds = %.lr.ph.i.i.i

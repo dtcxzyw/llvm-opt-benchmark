@@ -2517,7 +2517,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false59
   %31 = load ptr, ptr %fDecimalQuantity, align 8
   %call64 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %31)
   %32 = tail call i32 @llvm.abs.i32(i32 %call64, i1 true)
-  %cmp65 = icmp ult i32 %32, 5
+  %cmp65 = icmp samesign ult i32 %32, 5
   br i1 %cmp65, label %if.then66, label %if.else72
 
 if.then66:                                        ; preds = %if.else55, %if.else55, %land.lhs.true

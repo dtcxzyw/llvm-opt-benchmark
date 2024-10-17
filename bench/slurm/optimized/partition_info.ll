@@ -140,7 +140,7 @@ define void @slurm_print_partition_info_msg(ptr nocapture noundef %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %8, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1282,7 +1282,7 @@ _load_cluster_parts.exit:                         ; preds = %9
   %40 = phi i32 [ %30, %29 ], [ %.pre, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %29, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %39, %.preheader

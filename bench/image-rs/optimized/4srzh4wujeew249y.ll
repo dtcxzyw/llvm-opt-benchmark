@@ -1048,7 +1048,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %201, label %.loopexit913, label %202
 
 202:                                              ; preds = %198
-  %203 = icmp ult i64 %199, 4
+  %203 = icmp samesign ult i64 %199, 4
   br i1 %203, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h03fdfb2c9480f29bE.exit.i.i", label %204, !prof !27
 
 204:                                              ; preds = %202
@@ -1611,7 +1611,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %.not1681, label %.loopexit903, label %.lr.ph1641
 
 .lr.ph1641:                                       ; preds = %385
-  %388 = icmp ult i64 %.sroa.8585.01643, 4
+  %388 = icmp samesign ult i64 %.sroa.8585.01643, 4
   %389 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8585.01643
   %390 = getelementptr inbounds i8, ptr %.sroa.0583.01644, i64 26
   %391 = getelementptr inbounds i8, ptr %.sroa.0583.01644, i64 20
@@ -3593,7 +3593,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %201, label %.loopexit911, label %202
 
 202:                                              ; preds = %198
-  %203 = icmp ult i64 %199, 4
+  %203 = icmp samesign ult i64 %199, 4
   br i1 %203, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h49578dddd470079cE.exit.i.i", label %204, !prof !27
 
 204:                                              ; preds = %202
@@ -4156,7 +4156,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %.not1679, label %.loopexit901, label %.lr.ph1639
 
 .lr.ph1639:                                       ; preds = %385
-  %388 = icmp ult i64 %.sroa.8583.01641, 4
+  %388 = icmp samesign ult i64 %.sroa.8583.01641, 4
   %389 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8583.01641
   %390 = getelementptr inbounds i8, ptr %.sroa.0581.01642, i64 26
   %391 = getelementptr inbounds i8, ptr %.sroa.0581.01642, i64 20
@@ -6135,7 +6135,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %201, label %.loopexit911, label %202
 
 202:                                              ; preds = %198
-  %203 = icmp ult i64 %199, 4
+  %203 = icmp samesign ult i64 %199, 4
   br i1 %203, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8c42c16a0ae4a751E.exit.i.i", label %204, !prof !27
 
 204:                                              ; preds = %202
@@ -6698,7 +6698,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %.not1679, label %.loopexit901, label %.lr.ph1639
 
 .lr.ph1639:                                       ; preds = %385
-  %388 = icmp ult i64 %.sroa.8583.01641, 4
+  %388 = icmp samesign ult i64 %.sroa.8583.01641, 4
   %389 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8583.01641
   %390 = getelementptr inbounds i8, ptr %.sroa.0581.01642, i64 26
   %391 = getelementptr inbounds i8, ptr %.sroa.0581.01642, i64 20
@@ -11588,7 +11588,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %473 = load i16, ptr %215, align 4, !noundef !9
   %474 = zext i16 %473 to i64
   %475 = mul nuw nsw i64 %474, %474
-  %476 = icmp ugt i64 %475, 16384
+  %476 = icmp samesign ugt i64 %475, 16384
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %61)
   %477 = getelementptr inbounds i8, ptr %61, i64 48
   store ptr %1, ptr %477, align 8
@@ -12325,7 +12325,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %718, label %719, label %.split802.us.invoke.i, !prof !27
 
 719:                                              ; preds = %715
-  %720 = icmp ult i64 %.sroa.7391.0773.us.i, 4
+  %720 = icmp samesign ult i64 %.sroa.7391.0773.us.i, 4
   br i1 %720, label %721, label %.split802.us.invoke.i, !prof !27
 
 721:                                              ; preds = %719
@@ -12356,7 +12356,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %733, label %734, label %.split802.us.invoke.i, !prof !27
 
 734:                                              ; preds = %729
-  %735 = icmp ult i64 %.sroa.7391.0773.us.i, 4
+  %735 = icmp samesign ult i64 %.sroa.7391.0773.us.i, 4
   br i1 %735, label %736, label %.split802.us.invoke.i, !prof !27
 
 736:                                              ; preds = %734
@@ -12378,7 +12378,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br label %.thread429.us.i
 
 746:                                              ; preds = %726
-  %747 = icmp ult i64 %.sroa.7391.0773.us.i, 4
+  %747 = icmp samesign ult i64 %.sroa.7391.0773.us.i, 4
   br i1 %747, label %..thread429.us_crit_edge.i, label %.split802.us.invoke.i, !prof !1081
 
 ..thread429.us_crit_edge.i:                       ; preds = %746
@@ -13021,7 +13021,7 @@ default.unreachable:                              ; preds = %760
   %956 = load i16, ptr %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx90.sroa_idx, align 4, !noundef !9
   %957 = zext i16 %956 to i64
   %958 = mul nuw nsw i64 %957, %957
-  %959 = icmp ugt i64 %958, 16384
+  %959 = icmp samesign ugt i64 %958, 16384
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11145.sroa.0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %85)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
@@ -15168,7 +15168,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %484 = load i16, ptr %226, align 4, !noundef !9
   %485 = zext i16 %484 to i64
   %486 = mul nuw nsw i64 %485, %485
-  %487 = icmp ugt i64 %486, 16384
+  %487 = icmp samesign ugt i64 %486, 16384
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %63)
   %488 = getelementptr inbounds i8, ptr %63, i64 48
   store ptr %1, ptr %488, align 8
@@ -15905,7 +15905,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %729, label %730, label %.split800.us.invoke.i, !prof !27
 
 730:                                              ; preds = %726
-  %731 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %731 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %731, label %732, label %.split800.us.invoke.i, !prof !27
 
 732:                                              ; preds = %730
@@ -15936,7 +15936,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %744, label %745, label %.split800.us.invoke.i, !prof !27
 
 745:                                              ; preds = %740
-  %746 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %746 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %746, label %747, label %.split800.us.invoke.i, !prof !27
 
 747:                                              ; preds = %745
@@ -15958,7 +15958,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br label %.thread427.us.i
 
 757:                                              ; preds = %737
-  %758 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %758 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %758, label %..thread427.us_crit_edge.i, label %.split800.us.invoke.i, !prof !1081
 
 ..thread427.us_crit_edge.i:                       ; preds = %757
@@ -16599,7 +16599,7 @@ default.unreachable:                              ; preds = %771
   %967 = load i16, ptr %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx90.sroa_idx, align 4, !noundef !9
   %968 = zext i16 %967 to i64
   %969 = mul nuw nsw i64 %968, %968
-  %970 = icmp ugt i64 %969, 16384
+  %970 = icmp samesign ugt i64 %969, 16384
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11145.sroa.0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %87)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86)
@@ -18703,7 +18703,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %465 = load i16, ptr %207, align 4, !noundef !9
   %466 = zext i16 %465 to i64
   %467 = mul nuw nsw i64 %466, %466
-  %468 = icmp ugt i64 %467, 16384
+  %468 = icmp samesign ugt i64 %467, 16384
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %61)
   %469 = getelementptr inbounds i8, ptr %61, i64 48
   store ptr %1, ptr %469, align 8
@@ -19440,7 +19440,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %710, label %711, label %.split800.us.invoke.i, !prof !27
 
 711:                                              ; preds = %707
-  %712 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %712 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %712, label %713, label %.split800.us.invoke.i, !prof !27
 
 713:                                              ; preds = %711
@@ -19471,7 +19471,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br i1 %725, label %726, label %.split800.us.invoke.i, !prof !27
 
 726:                                              ; preds = %721
-  %727 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %727 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %727, label %728, label %.split800.us.invoke.i, !prof !27
 
 728:                                              ; preds = %726
@@ -19493,7 +19493,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   br label %.thread427.us.i
 
 738:                                              ; preds = %718
-  %739 = icmp ult i64 %.sroa.7389.0771.us.i, 4
+  %739 = icmp samesign ult i64 %.sroa.7389.0771.us.i, 4
   br i1 %739, label %..thread427.us_crit_edge.i, label %.split800.us.invoke.i, !prof !1081
 
 ..thread427.us_crit_edge.i:                       ; preds = %738
@@ -20134,7 +20134,7 @@ default.unreachable:                              ; preds = %752
   %948 = load i16, ptr %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx90.sroa_idx, align 4, !noundef !9
   %949 = zext i16 %948 to i64
   %950 = mul nuw nsw i64 %949, %949
-  %951 = icmp ugt i64 %950, 16384
+  %951 = icmp samesign ugt i64 %950, 16384
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11145.sroa.0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %85)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
@@ -21571,7 +21571,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h922a
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %.0175 = phi i8 [ %6, %.lr.ph ], [ %.1, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = icmp ult i64 %indvars.iv, 64
+  %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %19, label %24, !prof !27
 
 18:                                               ; preds = %39, %71, %79, %53, %._crit_edge
@@ -21633,7 +21633,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h922a
 
 44:                                               ; preds = %46, %.thread134, %.thread114, %42
   %.1 = phi i8 [ %43, %42 ], [ %.0175, %.thread134 ], [ %.0175, %.thread114 ], [ %.0175, %46 ]
-  %45 = icmp ult i64 %indvars.iv.next, %14
+  %45 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %45, label %16, label %._crit_edge
 
 46:                                               ; preds = %38, %32
@@ -21761,7 +21761,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h9cd3
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %.0175 = phi i8 [ %6, %.lr.ph ], [ %.1, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = icmp ult i64 %indvars.iv, 64
+  %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %19, label %24, !prof !27
 
 18:                                               ; preds = %39, %71, %79, %53, %._crit_edge
@@ -21823,7 +21823,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h9cd3
 
 44:                                               ; preds = %46, %.thread134, %.thread114, %42
   %.1 = phi i8 [ %43, %42 ], [ %.0175, %.thread134 ], [ %.0175, %.thread114 ], [ %.0175, %46 ]
-  %45 = icmp ult i64 %indvars.iv.next, %14
+  %45 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %45, label %16, label %._crit_edge
 
 46:                                               ; preds = %38, %32
@@ -21951,7 +21951,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17hcf3c
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %.0175 = phi i8 [ %6, %.lr.ph ], [ %.1, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = icmp ult i64 %indvars.iv, 64
+  %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %19, label %24, !prof !27
 
 18:                                               ; preds = %39, %71, %79, %53, %._crit_edge
@@ -22013,7 +22013,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17hcf3c
 
 44:                                               ; preds = %46, %.thread134, %.thread114, %42
   %.1 = phi i8 [ %43, %42 ], [ %.0175, %.thread134 ], [ %.0175, %.thread114 ], [ %.0175, %46 ]
-  %45 = icmp ult i64 %indvars.iv.next, %14
+  %45 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %45, label %16, label %._crit_edge
 
 46:                                               ; preds = %38, %32
@@ -35901,7 +35901,7 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   %255 = add nuw nsw i32 %.016.i.us, %.013.i.us
   %256 = add nuw nsw i32 %255, %.014.i.us
   %257 = add nuw nsw i32 %256, %.015.i.us
-  %258 = icmp ult i32 %250, %257
+  %258 = icmp samesign ult i32 %250, %257
   %.0.i.us = select i1 %258, i32 %212, i32 %215
   %259 = and i32 %210, -16777216
   %260 = and i32 %210, 16711680
@@ -36724,7 +36724,7 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit344.us
   %.2.us = phi i32 [ %721, %717 ], [ %.1749.us, %710 ]
   %724 = and i32 %.2.us, %700
   %725 = zext nneg i32 %724 to i64
-  %.not.us = icmp ult i32 %724, %705
+  %.not.us = icmp samesign ult i32 %724, %705
   br i1 %.not.us, label %726, label %731
 
 726:                                              ; preds = %723

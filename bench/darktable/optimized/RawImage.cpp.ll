@@ -1131,7 +1131,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 
 28:                                               ; preds = %171, %20
   %29 = phi i64 [ %24, %20 ], [ %172, %171 ]
-  %30 = icmp ult i64 %29, %25
+  %30 = icmp samesign ult i64 %29, %25
   tail call void @llvm.assume(i1 %30)
   %31 = trunc nuw nsw i64 %29 to i32
   %32 = mul nsw i32 %9, %31
@@ -1144,11 +1144,11 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 
 37:                                               ; preds = %.loopexit, %28
   %38 = phi i64 [ 0, %28 ], [ %155, %.loopexit ]
-  %39 = icmp ule i64 %38, %23
+  %39 = icmp samesign ule i64 %38, %23
   tail call void @llvm.assume(i1 %39)
   %40 = shl nuw nsw i64 %38, 2
   %41 = add nuw nsw i64 %40, 4
-  %42 = icmp ule i64 %41, %23
+  %42 = icmp samesign ule i64 %41, %23
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %36, i64 %40
   %44 = getelementptr inbounds i8, ptr %36, i64 %41
@@ -1308,7 +1308,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 
 151:                                              ; preds = %145, %141
   %152 = add nuw nsw i64 %158, 1
-  %153 = icmp ult i64 %158, 3
+  %153 = icmp samesign ult i64 %158, 3
   %154 = icmp eq i64 %152, 4
   br i1 %154, label %.loopexit, label %157, !llvm.loop !127
 
@@ -1322,7 +1322,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %159 = phi i1 [ true, %169 ], [ %153, %151 ]
   tail call void @llvm.assume(i1 %159)
   %160 = or disjoint i64 %158, %40
-  %161 = icmp ule i64 %160, %23
+  %161 = icmp samesign ule i64 %160, %23
   tail call void @llvm.assume(i1 %161)
   %162 = getelementptr inbounds i8, ptr %36, i64 %160
   %163 = shl nuw nsw i64 %158, 3
@@ -1396,7 +1396,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   tail call void @llvm.assume(i1 %43)
   %44 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %44)
-  %45 = icmp uge i32 %39, %34
+  %45 = icmp samesign uge i32 %39, %34
   tail call void @llvm.assume(i1 %45)
   %46 = icmp eq i32 %34, 0
   %47 = icmp ne i32 %36, 0
@@ -1417,13 +1417,13 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %58 = icmp sgt i64 %11, -1
   tail call void @llvm.assume(i1 %58)
   %59 = add nuw nsw i32 %51, %54
-  %60 = icmp ule i32 %59, %34
+  %60 = icmp samesign ule i32 %59, %34
   tail call void @llvm.assume(i1 %60)
   %61 = add nuw nsw i32 %53, %16
-  %62 = icmp ule i32 %61, %36
+  %62 = icmp samesign ule i32 %61, %36
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i32 %54, 0
-  %64 = icmp ugt i64 %11, 4294967295
+  %64 = icmp samesign ugt i64 %11, 4294967295
   %65 = xor i1 %64, %63
   tail call void @llvm.assume(i1 %65)
   %66 = icmp slt i32 %18, %20
@@ -1471,14 +1471,14 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %96 = zext i32 %95 to i64
   %97 = shl nuw nsw i64 %96, 1
   %98 = getelementptr i8, ptr %75, i64 %97
-  %99 = icmp ult i32 %92, %16
+  %99 = icmp samesign ult i32 %92, %16
   tail call void @llvm.assume(i1 %99)
   %100 = add nuw nsw i32 %92, %53
-  %101 = icmp ugt i32 %36, %100
+  %101 = icmp samesign ugt i32 %36, %100
   tail call void @llvm.assume(i1 %101)
   %102 = mul nuw nsw i32 %100, %39
   %103 = add nuw nsw i32 %102, %34
-  %104 = icmp ule i32 %103, %40
+  %104 = icmp samesign ule i32 %103, %40
   tail call void @llvm.assume(i1 %104)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %98, i8 0, i64 %81, i1 false), !tbaa !138
   %105 = add nuw nsw i32 %92, 1
@@ -1487,14 +1487,14 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %108 = zext i32 %107 to i64
   %109 = shl nuw nsw i64 %108, 1
   %110 = getelementptr i8, ptr %75, i64 %109
-  %111 = icmp ult i32 %105, %16
+  %111 = icmp samesign ult i32 %105, %16
   tail call void @llvm.assume(i1 %111)
   %.reass = add nuw i32 %92, %invariant.op
-  %112 = icmp ugt i32 %36, %.reass
+  %112 = icmp samesign ugt i32 %36, %.reass
   tail call void @llvm.assume(i1 %112)
   %113 = mul nuw nsw i32 %.reass, %39
   %114 = add nuw nsw i32 %113, %34
-  %115 = icmp ule i32 %114, %40
+  %115 = icmp samesign ule i32 %114, %40
   tail call void @llvm.assume(i1 %115)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %110, i8 0, i64 %81, i1 false), !tbaa !138
   %116 = add nuw nsw i32 %92, 2
@@ -1503,14 +1503,14 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %119 = zext i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 1
   %121 = getelementptr i8, ptr %75, i64 %120
-  %122 = icmp ult i32 %116, %16
+  %122 = icmp samesign ult i32 %116, %16
   tail call void @llvm.assume(i1 %122)
   %.reass7 = add nuw i32 %92, %invariant.op6
-  %123 = icmp ugt i32 %36, %.reass7
+  %123 = icmp samesign ugt i32 %36, %.reass7
   tail call void @llvm.assume(i1 %123)
   %124 = mul nuw nsw i32 %.reass7, %39
   %125 = add nuw nsw i32 %124, %34
-  %126 = icmp ule i32 %125, %40
+  %126 = icmp samesign ule i32 %125, %40
   tail call void @llvm.assume(i1 %126)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %121, i8 0, i64 %81, i1 false), !tbaa !138
   %127 = add nuw nsw i32 %92, 3
@@ -1519,14 +1519,14 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %130 = zext i32 %129 to i64
   %131 = shl nuw nsw i64 %130, 1
   %132 = getelementptr i8, ptr %75, i64 %131
-  %133 = icmp ult i32 %127, %16
+  %133 = icmp samesign ult i32 %127, %16
   tail call void @llvm.assume(i1 %133)
   %.reass9 = add nuw i32 %92, %invariant.op8
-  %134 = icmp ugt i32 %36, %.reass9
+  %134 = icmp samesign ugt i32 %36, %.reass9
   tail call void @llvm.assume(i1 %134)
   %135 = mul nuw nsw i32 %.reass9, %39
   %136 = add nuw nsw i32 %135, %34
-  %137 = icmp ule i32 %136, %40
+  %137 = icmp samesign ule i32 %136, %40
   tail call void @llvm.assume(i1 %137)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %132, i8 0, i64 %81, i1 false), !tbaa !138
   %138 = add nuw nsw i32 %92, 4

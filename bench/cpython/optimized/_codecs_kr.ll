@@ -504,14 +504,14 @@ land.lhs.true:                                    ; preds = %do.end24
   %bottom = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv31 = zext i8 %10 to i32
-  %cmp32.not = icmp ult i32 %and, %conv31
+  %cmp32.not = icmp samesign ult i32 %and, %conv31
   br i1 %cmp32.not, label %return, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx25, i64 9
   %11 = load i8, ptr %top, align 1
   %conv39 = zext i8 %11 to i32
-  %cmp40.not = icmp ugt i32 %and, %conv39
+  %cmp40.not = icmp samesign ugt i32 %and, %conv39
   br i1 %cmp40.not, label %return, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %land.lhs.true34
@@ -637,7 +637,7 @@ land.lhs.true:                                    ; preds = %do.end15
   br i1 %cmp21, label %do.body24, label %if.else122
 
 do.body24:                                        ; preds = %land.lhs.true
-  %cmp25 = icmp ult i64 %inleft.addr.053, 8
+  %cmp25 = icmp samesign ult i64 %inleft.addr.053, 8
   br i1 %cmp25, label %return, label %do.end29
 
 do.end29:                                         ; preds = %do.body24
@@ -847,14 +847,14 @@ land.lhs.true:                                    ; preds = %do.end24
   %bottom = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv31 = zext i8 %10 to i32
-  %cmp32.not = icmp ult i32 %and, %conv31
+  %cmp32.not = icmp samesign ult i32 %and, %conv31
   br i1 %cmp32.not, label %return, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx25, i64 9
   %11 = load i8, ptr %top, align 1
   %conv39 = zext i8 %11 to i32
-  %cmp40.not = icmp ugt i32 %and, %conv39
+  %cmp40.not = icmp samesign ugt i32 %and, %conv39
   br i1 %cmp40.not, label %return, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %land.lhs.true34
@@ -1124,14 +1124,14 @@ land.lhs.true59:                                  ; preds = %if.else54
   %bottom = getelementptr inbounds i8, ptr %arrayidx56, i64 8
   %16 = load i8, ptr %bottom, align 8
   %conv63 = zext i8 %16 to i32
-  %cmp64.not = icmp ult i32 %and, %conv63
+  %cmp64.not = icmp samesign ult i32 %and, %conv63
   br i1 %cmp64.not, label %return, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %land.lhs.true59
   %top = getelementptr inbounds i8, ptr %arrayidx56, i64 9
   %17 = load i8, ptr %top, align 1
   %conv71 = zext i8 %17 to i32
-  %cmp72.not = icmp ugt i32 %and, %conv71
+  %cmp72.not = icmp samesign ugt i32 %and, %conv71
   br i1 %cmp72.not, label %return, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %land.lhs.true66
@@ -1152,18 +1152,18 @@ lor.lhs.false:                                    ; preds = %if.then91
   %20 = add i16 %18, -18944
   %or.cond3 = icmp ult i16 %20, 13312
   %conv97.mask = and i16 %18, 255
-  %cmp114 = icmp ugt i16 %conv97.mask, 32
-  %or.cond4 = and i1 %or.cond3, %cmp114
+  %cmp114 = icmp samesign ugt i16 %conv97.mask, 32
+  %or.cond4 = select i1 %or.cond3, i1 %cmp114, i1 false
   br i1 %or.cond4, label %land.lhs.true116, label %return
 
 land.lhs.true112:                                 ; preds = %if.then91
   %conv97.mask55 = and i16 %18, 255
-  %cmp114.old = icmp ugt i16 %conv97.mask55, 32
+  %cmp114.old = icmp samesign ugt i16 %conv97.mask55, 32
   br i1 %cmp114.old, label %land.lhs.true116, label %return
 
 land.lhs.true116:                                 ; preds = %lor.lhs.false, %land.lhs.true112
   %.pre-phi = phi i16 [ %conv97.mask, %lor.lhs.false ], [ %conv97.mask55, %land.lhs.true112 ]
-  %cmp118 = icmp ult i16 %.pre-phi, 127
+  %cmp118 = icmp samesign ult i16 %.pre-phi, 127
   br i1 %cmp118, label %if.then120, label %return
 
 if.then120:                                       ; preds = %land.lhs.true116
@@ -1181,7 +1181,7 @@ if.then120:                                       ; preds = %land.lhs.true116
   %22 = load ptr, ptr %outbuf, align 8
   store i8 %conv141, ptr %22, align 1
   %conv145 = and i32 %add136, 254
-  %cmp146 = icmp ult i32 %conv145, 78
+  %cmp146 = icmp samesign ult i32 %conv145, 78
   %cond155.v = select i1 %cmp146, i32 49, i32 67
   %cond155 = add nuw nsw i32 %cond155.v, %add136
   %conv156 = trunc i32 %cond155 to i8

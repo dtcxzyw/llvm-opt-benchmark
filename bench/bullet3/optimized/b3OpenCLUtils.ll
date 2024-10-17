@@ -426,7 +426,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %num_devices, align 4
   %5 = zext i32 %4 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %5
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp8, label %for.body, label %if.end24, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end5, %for.cond
@@ -568,7 +568,7 @@ for.inc.us:                                       ; preds = %if.then34.us, %if.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %numPlatforms, align 4
   %10 = zext i32 %9 to i64
-  %cmp15.us = icmp ult i64 %indvars.iv.next, %10
+  %cmp15.us = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !7
 
 if.then10:                                        ; preds = %if.then6
@@ -629,7 +629,7 @@ for.inc:                                          ; preds = %if.then34, %if.else
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %17 = load i32, ptr %numPlatforms, align 4
   %18 = zext i32 %17 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next63, %18
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next63, %18
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc.us, %for.inc, %if.then25
@@ -641,7 +641,7 @@ for.cond44:                                       ; preds = %for.body46
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %20 = load i32, ptr %numPlatforms, align 4
   %21 = zext i32 %20 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next66, %21
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next66, %21
   br i1 %cmp45, label %for.body46, label %for.end58, !llvm.loop !8
 
 for.body46:                                       ; preds = %for.end, %for.cond44
@@ -714,7 +714,7 @@ entry:
   %1 = load i64, ptr %szParmDataBytes, align 8
   %div5 = lshr i64 %1, 3
   %conv = zext i32 %deviceIndex to i64
-  %cmp = icmp ult i64 %div5, %conv
+  %cmp = icmp samesign ult i64 %div5, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1204,8 +1204,8 @@ for.body:                                         ; preds = %if.then61, %for.bod
   %call72 = call noalias ptr @fopen(ptr noundef nonnull %relativeFileName, ptr noundef nonnull @.str.63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool66.not = icmp eq ptr %call72, null
-  %cmp67 = icmp ult i64 %indvars.iv, 2
-  %20 = and i1 %tobool66.not, %cmp67
+  %cmp67 = icmp samesign ult i64 %indvars.iv, 2
+  %20 = select i1 %tobool66.not, i1 %cmp67, i1 false
   br i1 %20, label %for.body, label %if.end73, !llvm.loop !10
 
 if.end73:                                         ; preds = %for.body

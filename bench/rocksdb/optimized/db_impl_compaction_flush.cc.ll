@@ -4760,7 +4760,7 @@ for.body22.lr.ph:                                 ; preds = %for.cond21.preheade
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZNSt6vectorImSaImEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %for.body22.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %cmp.i165 = icmp ult i64 %indvars.iv, 8
+  %cmp.i165 = icmp samesign ult i64 %indvars.iv, 8
   %22 = load ptr, ptr %values_.i, align 8
   %arrayidx.i167 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %vect_.i, align 8
@@ -5287,7 +5287,7 @@ if.then.i.i309:                                   ; preds = %for.body112
 
 invoke.cont116:                                   ; preds = %for.body112
   %add.ptr.i.i310 = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %79, i64 %indvars.iv2280
-  %cmp.i312 = icmp ult i64 %indvars.iv2280, 8
+  %cmp.i312 = icmp samesign ult i64 %indvars.iv2280, 8
   %80 = load ptr, ptr %values_.i313, align 8
   %arrayidx.i314 = getelementptr inbounds %"struct.rocksdb::DBImpl::BGFlushArg", ptr %80, i64 %indvars.iv2280
   %81 = load ptr, ptr %vect_.i.i, align 8
@@ -6097,7 +6097,7 @@ invoke.cont281:                                   ; preds = %cond.end.i.i.i.i.i,
           to label %invoke.cont283 unwind label %lpad193.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont283:                                   ; preds = %invoke.cont281
-  %cmp.i484 = icmp ult i64 %indvars.iv2286, 8
+  %cmp.i484 = icmp samesign ult i64 %indvars.iv2286, 8
   %180 = load ptr, ptr %values_.i394, align 8
   %arrayidx.i486 = getelementptr inbounds %"struct.std::pair.878", ptr %180, i64 %indvars.iv2286
   %181 = load ptr, ptr %vect_.i396, align 8
@@ -6800,7 +6800,7 @@ invoke.cont436:                                   ; preds = %invoke.cont436.preh
   br i1 %tobool.i843.not, label %for.inc453, label %land.rhs439
 
 land.rhs439:                                      ; preds = %invoke.cont436
-  %cmp.i844 = icmp ult i64 %indvars.iv2289, 8
+  %cmp.i844 = icmp samesign ult i64 %indvars.iv2289, 8
   %281 = load ptr, ptr %values_.i394, align 8
   %arrayidx.i846 = getelementptr inbounds %"struct.std::pair.878", ptr %281, i64 %indvars.iv2289
   %282 = load ptr, ptr %vect_.i396, align 8
@@ -6825,7 +6825,7 @@ for.inc453:                                       ; preds = %land.rhs439, %if.th
 
 invoke.cont464:                                   ; preds = %invoke.cont464.preheader, %for.inc485
   %indvars.iv2292 = phi i64 [ 0, %invoke.cont464.preheader ], [ %indvars.iv.next2293, %for.inc485 ]
-  %cmp.i851 = icmp ult i64 %indvars.iv2292, 8
+  %cmp.i851 = icmp samesign ult i64 %indvars.iv2292, 8
   %287 = load ptr, ptr %values_.i394, align 8
   %arrayidx.i853 = getelementptr inbounds %"struct.std::pair.878", ptr %287, i64 %indvars.iv2292
   %288 = load ptr, ptr %vect_.i396, align 8
@@ -7367,7 +7367,7 @@ for.body598:                                      ; preds = %for.body598.prehead
   %add.ptr.i1055 = getelementptr inbounds %"class.std::unique_ptr.852", ptr %.pre2332, i64 %indvars.iv2295
   %379 = load ptr, ptr %add.ptr.i1055, align 8
   %mems_.i1056 = getelementptr inbounds i8, ptr %379, i64 1424
-  %cmp.i1057 = icmp ult i64 %indvars.iv2295, 8
+  %cmp.i1057 = icmp samesign ult i64 %indvars.iv2295, 8
   %380 = load ptr, ptr %values_.i, align 8
   %arrayidx.i1059 = getelementptr inbounds ptr, ptr %380, i64 %indvars.iv2295
   %381 = load ptr, ptr %vect_.i, align 8
@@ -7446,7 +7446,7 @@ for.body631:                                      ; preds = %for.body631.lr.ph, 
   %add.ptr.i1080 = getelementptr inbounds %"class.std::unique_ptr.852", ptr %.pre2335, i64 %indvars.iv2298
   %385 = load ptr, ptr %add.ptr.i1080, align 8
   %mems_.i1081 = getelementptr inbounds i8, ptr %385, i64 1424
-  %cmp.i1082 = icmp ult i64 %indvars.iv2298, 8
+  %cmp.i1082 = icmp samesign ult i64 %indvars.iv2298, 8
   %386 = load ptr, ptr %values_.i, align 8
   %arrayidx.i1084 = getelementptr inbounds ptr, ptr %386, i64 %indvars.iv2298
   %387 = load ptr, ptr %vect_.i, align 8
@@ -8251,7 +8251,7 @@ for.body695.lr.ph:                                ; preds = %for.cond693.prehead
 
 for.body695:                                      ; preds = %for.body695.lr.ph, %for.inc746
   %indvars.iv2301 = phi i64 [ 0, %for.body695.lr.ph ], [ %indvars.iv.next2302, %for.inc746 ]
-  %cmp.i1427 = icmp ult i64 %indvars.iv2301, 8
+  %cmp.i1427 = icmp samesign ult i64 %indvars.iv2301, 8
   %466 = load ptr, ptr %values_.i, align 8
   %arrayidx.i1429 = getelementptr inbounds ptr, ptr %466, i64 %indvars.iv2301
   %467 = load ptr, ptr %vect_.i, align 8
@@ -8392,7 +8392,7 @@ _ZNSt5dequeIbSaIbEEixEm.exit:                     ; preds = %if.then.i.i.i.i1469
   br i1 %tobool764, label %for.inc841, label %if.end766
 
 if.end766:                                        ; preds = %_ZNSt5dequeIbSaIbEEixEm.exit
-  %cmp.i1470 = icmp ult i64 %indvars.iv2304, 8
+  %cmp.i1470 = icmp samesign ult i64 %indvars.iv2304, 8
   %497 = load ptr, ptr %values_.i, align 8
   %arrayidx.i1472 = getelementptr inbounds ptr, ptr %497, i64 %indvars.iv2304
   %498 = load ptr, ptr %vect_.i, align 8
@@ -20851,7 +20851,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -26375,7 +26375,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %num_finished.0397 = phi i32 [ %num_finished.1, %for.inc ], [ 0, %for.cond.preheader ]
   %num_dropped.0396 = phi i32 [ %num_dropped.1, %for.inc ], [ 0, %for.cond.preheader ]
-  %cmp.i89 = icmp ult i64 %indvars.iv, 8
+  %cmp.i89 = icmp samesign ult i64 %indvars.iv, 8
   %34 = load ptr, ptr %values_.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
   %35 = load ptr, ptr %vect_.i, align 8

@@ -1133,7 +1133,7 @@ for.body14:                                       ; preds = %for.end, %for.body1
   %add22 = or disjoint i16 %shl, %conv
   %add24 = add i16 %add22, %chksum.025
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 2
-  %cmp13 = icmp ult i64 %indvars.iv30, 124
+  %cmp13 = icmp samesign ult i64 %indvars.iv30, 124
   br i1 %cmp13, label %for.body14, label %for.end28, !llvm.loop !8
 
 for.end28:                                        ; preds = %for.body14

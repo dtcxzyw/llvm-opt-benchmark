@@ -4667,8 +4667,8 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %conv8.i.i = zext nneg i8 %10 to i64
   %add.i.i = add nuw nsw i64 %conv8.i.i, 2
   %cmp9.i.i = icmp ugt i64 %add.i.i, %key_len
-  %cmp11.i.i = icmp ugt i8 %10, 8
-  %or.cond.i.i = or i1 %cmp11.i.i, %cmp9.i.i
+  %cmp11.i.i = icmp samesign ugt i8 %10, 8
+  %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %cmp11.i.i
   br i1 %or.cond.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then4.i.i
@@ -5583,8 +5583,8 @@ if.then4.i:                                       ; preds = %if.end.i
   %conv8.i = zext nneg i8 %2 to i64
   %add.i = add nuw nsw i64 %conv8.i, 2
   %cmp9.i = icmp ugt i64 %add.i, %size
-  %cmp11.i = icmp ugt i8 %2, 8
-  %or.cond.i = or i1 %cmp11.i, %cmp9.i
+  %cmp11.i = icmp samesign ugt i8 %2, 8
+  %or.cond.i = select i1 %cmp9.i, i1 true, i1 %cmp11.i
   br i1 %or.cond.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then4.i

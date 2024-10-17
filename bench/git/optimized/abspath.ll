@@ -62,7 +62,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tobool2.not = icmp ult i32 %flags, 2
+  %tobool2.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool2.not, label %error_out, label %if.then3
 
 if.then3:                                         ; preds = %if.then
@@ -103,7 +103,7 @@ if.then5:                                         ; preds = %get_root_part.exit
   br i1 %tobool6.not, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %tobool9.not = icmp ult i32 %flags, 2
+  %tobool9.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool9.not, label %error_out, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
@@ -333,7 +333,7 @@ lor.lhs.false:                                    ; preds = %if.then44
   br i1 %or.cond, label %if.then53, label %if.end98
 
 if.then53:                                        ; preds = %lor.lhs.false, %if.then44
-  %tobool55.not = icmp ult i32 %flags, 2
+  %tobool55.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool55.not, label %error_out, label %if.then56
 
 if.then56:                                        ; preds = %if.then53
@@ -365,7 +365,7 @@ strbuf_setlen.exit:                               ; preds = %if.then64, %if.then
 if.then68:                                        ; preds = %strbuf_setlen.exit
   %call69 = tail call ptr @__errno_location() #15
   store i32 40, ptr %call69, align 4
-  %tobool71.not = icmp ult i32 %flags, 2
+  %tobool71.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool71.not, label %error_out, label %if.then72
 
 if.then72:                                        ; preds = %if.then68
@@ -380,7 +380,7 @@ if.end74:                                         ; preds = %strbuf_setlen.exit
   br i1 %cmp78, label %if.then80, label %if.end86
 
 if.then80:                                        ; preds = %if.end74
-  %tobool82.not = icmp ult i32 %flags, 2
+  %tobool82.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool82.not, label %error_out, label %if.then83
 
 if.then83:                                        ; preds = %if.then80

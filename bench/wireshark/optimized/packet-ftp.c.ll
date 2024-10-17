@@ -2374,7 +2374,7 @@ add_directory_to_conv.exit:                       ; preds = %._crit_edge.i, %14,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_pwd_success(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef range(i32 0, 2147483644) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 4, i32 noundef %2) #11
-  %7 = icmp ult i32 %2, 2
+  %7 = icmp samesign ult i32 %2, 2
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5

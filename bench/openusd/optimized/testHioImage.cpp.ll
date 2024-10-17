@@ -3258,7 +3258,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 1003:                                             ; preds = %995
   %1004 = add nuw nsw i32 %998, 2
-  %.not1229 = icmp ult i32 %1004, %1002
+  %.not1229 = icmp samesign ult i32 %1004, %1002
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %49)
   br i1 %.not1229, label %.loopexit1232.invoke, label %1006
 

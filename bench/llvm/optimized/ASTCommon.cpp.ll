@@ -59,7 +59,7 @@ define dso_local range(i64 0, 2160368549889) i64 @_ZN5clang13serialization18Type
   %3 = load i32, ptr %2, align 16
   %4 = lshr i32 %3, 19
   %5 = and i32 %4, 511
-  %6 = icmp ult i32 %5, 502
+  %6 = icmp samesign ult i32 %5, 502
   br i1 %6, label %switch.lookup, label %8
 
 switch.lookup:                                    ; preds = %1

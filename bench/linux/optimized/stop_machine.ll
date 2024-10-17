@@ -658,7 +658,7 @@ define internal noundef i32 @cpu_stop_init() #7 section ".init.text" align 16 {
   store volatile ptr %18, ptr %19, align 8
   %20 = add nuw nsw i64 %8, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %2, !prof !34, !llvm.loop !35
 
 .thread:                                          ; preds = %2, %11, %7
@@ -804,7 +804,7 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   %33 = select i1 %32, i8 1, i8 %11
   %34 = add nuw nsw i64 %17, 1
   %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %9, !prof !34, !llvm.loop !45
 
 .thread:                                          ; preds = %9, %20, %16
@@ -1038,7 +1038,7 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   %54 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %40, ptr noundef %47)
   %55 = add nuw nsw i64 %39, 1
   %56 = and i64 %55, 127
-  %57 = icmp ugt i64 %56, 63
+  %57 = icmp samesign ugt i64 %56, 63
   br i1 %57, label %.thread, label %32, !prof !34, !llvm.loop !45
 
 .thread:                                          ; preds = %32, %42, %38

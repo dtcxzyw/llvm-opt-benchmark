@@ -250,8 +250,8 @@ define void @_Z7read_abPcRKNSt10filesystem7__cxx114pathEP13MoleculePatch(ptr nou
   %64 = load i32, ptr %42, align 8
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  %67 = icmp ult i64 %indvars.iv, 3
-  %68 = and i1 %67, %66
+  %67 = icmp samesign ult i64 %indvars.iv, 3
+  %68 = select i1 %66, i1 %67, i1 false
   br i1 %68, label %60, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %60

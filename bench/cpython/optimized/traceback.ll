@@ -1513,7 +1513,7 @@ while.cond:                                       ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.preheader, %while.cond
   %indvars.iv = phi i64 [ %0, %while.body.preheader ], [ %indvars.iv.next, %while.cond ]
-  %cmp1 = icmp ult i64 %indvars.iv, 10
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
@@ -2377,7 +2377,7 @@ while.cond.i:                                     ; preds = %if.end.i173
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.preheader.i
   %indvars.iv.i = phi i64 [ %78, %while.body.preheader.i ], [ %indvars.iv.next.i, %while.cond.i ]
-  %cmp1.i = icmp ult i64 %indvars.iv.i, 10
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.i, 10
   br i1 %cmp1.i, label %if.then.i176, label %if.end.i173
 
 if.then.i176:                                     ; preds = %while.body.i
@@ -3050,7 +3050,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp2.i = icmp slt i64 %sub.ptr.sub.i, 2
-  %tobool.i = icmp ugt i64 %value.addr.0.i, 15
+  %tobool.i = icmp samesign ugt i64 %value.addr.0.i, 15
   %16 = or i1 %tobool.i, %cmp2.i
   br i1 %16, label %do.body.i, label %_Py_DumpHexadecimal.exit, !llvm.loop !14
 
@@ -3082,7 +3082,7 @@ do.body.i45:                                      ; preds = %do.body.i45, %if.th
   %sub.ptr.rhs.cast.i52 = ptrtoint ptr %incdec.ptr.i48 to i64
   %sub.ptr.sub.i53 = sub i64 %sub.ptr.lhs.cast.i44, %sub.ptr.rhs.cast.i52
   %cmp2.i54 = icmp slt i64 %sub.ptr.sub.i53, 4
-  %tobool.i55 = icmp ugt i64 %value.addr.0.i47, 15
+  %tobool.i55 = icmp samesign ugt i64 %value.addr.0.i47, 15
   %19 = or i1 %tobool.i55, %cmp2.i54
   br i1 %19, label %do.body.i45, label %_Py_DumpHexadecimal.exit57, !llvm.loop !14
 
@@ -3110,7 +3110,7 @@ do.body.i61:                                      ; preds = %do.body.i61, %if.el
   %sub.ptr.rhs.cast.i68 = ptrtoint ptr %incdec.ptr.i64 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i68
   %cmp2.i70 = icmp slt i64 %sub.ptr.sub.i69, 8
-  %tobool.i71 = icmp ugt i64 %value.addr.0.i63, 15
+  %tobool.i71 = icmp samesign ugt i64 %value.addr.0.i63, 15
   %22 = or i1 %tobool.i71, %cmp2.i70
   br i1 %22, label %do.body.i61, label %_Py_DumpHexadecimal.exit73, !llvm.loop !14
 
@@ -3249,7 +3249,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %conv.i21.i = or disjoint i8 %7, 48
   store i8 %conv.i21.i, ptr %incdec.ptr.i.i, align 1
   %div.i.i = udiv i64 %value.addr.0.i.i, 10
-  %tobool.not.i.i = icmp ult i64 %value.addr.0.i.i, 10
+  %tobool.not.i.i = icmp samesign ult i64 %value.addr.0.i.i, 10
   br i1 %tobool.not.i.i, label %_Py_DumpDecimal.exit.i, label %do.body.i.i, !llvm.loop !13
 
 _Py_DumpDecimal.exit.i:                           ; preds = %do.body.i.i
@@ -3398,7 +3398,7 @@ do.body:                                          ; preds = %if.end41, %if.end23
 
 if.end28:                                         ; preds = %do.body
   %call27 = call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef nonnull @.str.12, i64 noundef 1) #10
-  %cmp29 = icmp ugt i32 %nthreads.0, 99
+  %cmp29 = icmp samesign ugt i32 %nthreads.0, 99
   br i1 %cmp29, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %if.end28

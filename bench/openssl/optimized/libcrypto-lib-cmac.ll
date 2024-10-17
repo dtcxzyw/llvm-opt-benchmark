@@ -237,7 +237,7 @@ if.end59:                                         ; preds = %if.end51
   %k1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %11 = load i8, ptr %tbl53, align 1
   %sub.i = add nsw i32 %call47, -1
-  %cmp10.i = icmp ugt i32 %call47, 1
+  %cmp10.i = icmp samesign ugt i32 %call47, 1
   br i1 %cmp10.i, label %for.body.preheader.i, label %make_kn.exit
 
 for.body.preheader.i:                             ; preds = %if.end59

@@ -276,8 +276,8 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   store i16 %.0152174.i, ptr %73, align 2
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
   %74 = add nuw nsw i16 %.0150170.i, 1
-  %75 = icmp ult i16 %74, %67
-  %76 = icmp ult i64 %indvars.iv194.i, 511
+  %75 = icmp samesign ult i16 %74, %67
+  %76 = icmp samesign ult i64 %indvars.iv194.i, 511
   %77 = and i1 %76, %75
   br i1 %77, label %.lr.ph172.i, label %.loopexit.loopexit.i, !llvm.loop !4
 

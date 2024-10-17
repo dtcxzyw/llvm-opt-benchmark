@@ -7893,7 +7893,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -15100,7 +15100,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !2811, !noundef !5
   %36 = icmp eq i8 %35, 6
@@ -15109,14 +15109,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !2811, !noundef !5
-  %switch.i.i3454 = icmp ult i8 %38, 3
+  %switch.i.i3454 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3454, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit"
 
@@ -20837,7 +20837,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i17.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !3742
   %173 = load i64, ptr %172, align 8, !range !130, !alias.scope !3809, !noalias !3766, !noundef !5
-  %switch.i.i = icmp ult i64 %173, 2
+  %switch.i.i = icmp samesign ult i64 %173, 2
   br i1 %switch.i.i, label %.sink.split.i.i, label %"_ZN4core3ptr51drop_in_place$LT$outline_panel..ExcerptOutlines$GT$17h2f491912a55760ebE.exit.i"
 
 .sink.split.i.i:                                  ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h8f2e6501d17c76e5E.exit.i"
@@ -25698,14 +25698,14 @@ default.unreachable:                              ; preds = %1428, %419, %281
   br i1 %355, label %.thread.i.i.i, label %356
 
 356:                                              ; preds = %354
-  %switch.i.i.i.i.i = icmp ult i8 %.pre20.i.i, 3
+  %switch.i.i.i.i.i = icmp samesign ult i8 %.pre20.i.i, 3
   %357 = load i8, ptr %323, align 8, !range !2811, !alias.scope !4617, !noalias !4620, !noundef !5
   %358 = icmp eq i8 %357, 6
   br i1 %358, label %._crit_edge.i.i.i, label %361
 
 .thread.i.i.i:                                    ; preds = %354
   %359 = load i8, ptr %323, align 8, !range !2811, !alias.scope !4617, !noalias !4620, !noundef !5
-  %switch.i.i3454.i.i.i = icmp ult i8 %359, 3
+  %switch.i.i3454.i.i.i = icmp samesign ult i8 %359, 3
   br i1 %switch.i.i3454.i.i.i, label %.thread21.thread.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i.i"
 
 .thread21.thread.i.i:                             ; preds = %.thread.i.i.i
@@ -25716,7 +25716,7 @@ default.unreachable:                              ; preds = %1428, %419, %281
   br i1 %switch.i.i.i.i.i, label %.thread.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i.i"
 
 361:                                              ; preds = %356
-  %switch.i.i34.i.i.i = icmp ult i8 %357, 3
+  %switch.i.i34.i.i.i = icmp samesign ult i8 %357, 3
   %362 = xor i1 %switch.i.i.i.i.i, %switch.i.i34.i.i.i
   br i1 %362, label %.thread.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i.i"
 
@@ -26084,14 +26084,14 @@ default.unreachable:                              ; preds = %1428, %419, %281
   br i1 %463, label %.thread.i.i306.i, label %464
 
 464:                                              ; preds = %462
-  %switch.i.i.i.i300.i = icmp ult i8 %.pre20.i299.i, 3
+  %switch.i.i.i.i300.i = icmp samesign ult i8 %.pre20.i299.i, 3
   %465 = load i8, ptr %263, align 8, !range !2811, !alias.scope !4689, !noalias !4692, !noundef !5
   %466 = icmp eq i8 %465, 6
   br i1 %466, label %._crit_edge.i.i305.i, label %469
 
 .thread.i.i306.i:                                 ; preds = %462
   %467 = load i8, ptr %263, align 8, !range !2811, !alias.scope !4689, !noalias !4692, !noundef !5
-  %switch.i.i3454.i.i307.i = icmp ult i8 %467, 3
+  %switch.i.i3454.i.i307.i = icmp samesign ult i8 %467, 3
   br i1 %switch.i.i3454.i.i307.i, label %.thread21.thread.i308.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i302.i"
 
 .thread21.thread.i308.i:                          ; preds = %.thread.i.i306.i
@@ -26102,7 +26102,7 @@ default.unreachable:                              ; preds = %1428, %419, %281
   br i1 %switch.i.i.i.i300.i, label %.thread.i289.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i302.i"
 
 469:                                              ; preds = %464
-  %switch.i.i34.i.i301.i = icmp ult i8 %465, 3
+  %switch.i.i34.i.i301.i = icmp samesign ult i8 %465, 3
   %470 = xor i1 %switch.i.i.i.i300.i, %switch.i.i34.i.i301.i
   br i1 %470, label %.thread.i289.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i302.i"
 
@@ -28195,14 +28195,14 @@ _ZN13outline_panel10FsChildren16may_be_fold_part17h58ed0e989d9ae85cE.exit.i: ; p
   br i1 %1277, label %.thread.i.i505.i, label %1278
 
 1278:                                             ; preds = %1276
-  %switch.i.i.i.i499.i = icmp ult i8 %.pre20.i498.i, 3
+  %switch.i.i.i.i499.i = icmp samesign ult i8 %.pre20.i498.i, 3
   %1279 = load i8, ptr %170, align 8, !range !2811, !alias.scope !5152, !noalias !5155, !noundef !5
   %1280 = icmp eq i8 %1279, 6
   br i1 %1280, label %._crit_edge.i.i504.i, label %1283
 
 .thread.i.i505.i:                                 ; preds = %1276
   %1281 = load i8, ptr %170, align 8, !range !2811, !alias.scope !5152, !noalias !5155, !noundef !5
-  %switch.i.i3454.i.i506.i = icmp ult i8 %1281, 3
+  %switch.i.i3454.i.i506.i = icmp samesign ult i8 %1281, 3
   br i1 %switch.i.i3454.i.i506.i, label %.thread21.thread.i507.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i501.i"
 
 .thread21.thread.i507.i:                          ; preds = %.thread.i.i505.i
@@ -28213,7 +28213,7 @@ _ZN13outline_panel10FsChildren16may_be_fold_part17h58ed0e989d9ae85cE.exit.i: ; p
   br i1 %switch.i.i.i.i499.i, label %.thread.i488.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i501.i"
 
 1283:                                             ; preds = %1278
-  %switch.i.i34.i.i500.i = icmp ult i8 %1279, 3
+  %switch.i.i34.i.i500.i = icmp samesign ult i8 %1279, 3
   %1284 = xor i1 %switch.i.i.i.i499.i, %switch.i.i34.i.i500.i
   br i1 %1284, label %.thread.i488.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c88818f2a9c81fE.exit.i.i501.i"
 

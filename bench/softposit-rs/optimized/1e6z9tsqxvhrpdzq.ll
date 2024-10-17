@@ -76,7 +76,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %34 = shl i32 %.2.i, 2
   %35 = or i32 %34, -2147483648
   %36 = shl i32 %.0168, 2
-  %37 = icmp ult i32 %.0168, 1073741824
+  %37 = icmp samesign ult i32 %.0168, 1073741824
   %38 = icmp sgt i32 %36, -1
   br i1 %37, label %.preheader.i252, label %.preheader12.i246
 
@@ -119,7 +119,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; pred
   %51 = or i32 %50, -2147483648
   %52 = zext i32 %51 to i64
   %53 = mul nuw i64 %52, %49
-  %54 = icmp ugt i32 %48, 3
+  %54 = icmp samesign ugt i32 %48, 3
   %55 = and i32 %48, 3
   %56 = zext i1 %54 to i8
   %.0174 = add i8 %46, %56
@@ -148,7 +148,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; pred
 
 66:                                               ; preds = %59
   %67 = shl i32 %.0169, 2
-  %68 = icmp ult i32 %.0169, 1073741824
+  %68 = icmp samesign ult i32 %.0169, 1073741824
   %69 = icmp sgt i32 %67, -1
   br i1 %68, label %.preheader.i266, label %.preheader12.i260
 
@@ -229,7 +229,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   br i1 %96, label %100, label %102
 
 100:                                              ; preds = %99
-  %101 = icmp ult i64 %.0182, %82
+  %101 = icmp samesign ult i64 %.0182, %82
   br i1 %101, label %.thread, label %104
 
 102:                                              ; preds = %99
@@ -379,7 +379,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %.2211300 = phi i8 [ %171, %.lr.ph ], [ %.1210279, %.preheader288 ]
   %171 = add i8 %.2211300, -1
   %172 = shl nuw nsw i64 %.9191301, 4
-  %173 = icmp ult i64 %.9191301, 36028797018963968
+  %173 = icmp samesign ult i64 %.9191301, 36028797018963968
   br i1 %173, label %.lr.ph, label %.preheader
 
 .lr.ph306:                                        ; preds = %.preheader, %.lr.ph306
@@ -393,7 +393,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %177 = trunc nsw i32 %.lobit286 to i8
   %spec.select242 = add i8 %.3212303, %177
   %spec.select243 = select i1 %176, i32 3, i32 %174
-  %178 = icmp ult i64 %.10304, 2305843009213693952
+  %178 = icmp samesign ult i64 %.10304, 2305843009213693952
   br i1 %178, label %.lr.ph306, label %.loopexit
 
 179:                                              ; preds = %.loopexit

@@ -554,7 +554,7 @@ define internal ptr @H5FS__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noc
   %247 = zext i8 %240 to i32
   %248 = shl nuw nsw i32 %247, 8
   %249 = or disjoint i32 %248, %246
-  %250 = icmp ugt i32 %249, %245
+  %250 = icmp samesign ugt i32 %249, %245
   br i1 %250, label %251, label %255
 
 251:                                              ; preds = %244
@@ -1947,7 +1947,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %78 = zext i8 %77 to i64
   %79 = or disjoint i64 %75, %78
   %80 = add nuw nsw i64 %.082110, 1
-  %81 = icmp ult i64 %80, %72
+  %81 = icmp samesign ult i64 %80, %72
   br i1 %81, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -1978,7 +1978,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %92 = zext i8 %91 to i64
   %93 = or disjoint i64 %89, %92
   %94 = add nuw nsw i64 %.0114, 1
-  %95 = icmp ult i64 %94, %86
+  %95 = icmp samesign ult i64 %94, %86
   br i1 %95, label %.lr.ph116, label %._crit_edge117
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.lr.ph122
@@ -2298,7 +2298,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %21, %27, %33, %39, 
   %88 = phi i32 [ %.pre, %._crit_edge40 ], [ %76, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next, %89
   br i1 %90, label %75, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %87, %H5VM_limit_enc_size.exit
@@ -2593,7 +2593,7 @@ define internal range(i32 -1, 1) i32 @H5FS__sinfo_serialize_node_cb(ptr nocaptur
   %15 = lshr i64 %.03238, 8
   %16 = load i32, ptr %10, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp samesign ult i64 %14, %17
   br i1 %18, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2632,7 +2632,7 @@ define internal range(i32 -1, 1) i32 @H5FS__sinfo_serialize_node_cb(ptr nocaptur
   %33 = getelementptr inbounds i8, ptr %32, i64 304
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %30, %35
+  %36 = icmp samesign ult i64 %30, %35
   br i1 %36, label %.lr.ph45, label %._crit_edge46.loopexit
 
 ._crit_edge46.loopexit:                           ; preds = %.lr.ph45
@@ -2709,7 +2709,7 @@ define internal range(i32 -1, 1) i32 @H5FS__sinfo_serialize_sect_cb(ptr noundef 
   %28 = getelementptr inbounds i8, ptr %27, i64 300
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %25, %30
+  %31 = icmp samesign ult i64 %25, %30
   br i1 %31, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

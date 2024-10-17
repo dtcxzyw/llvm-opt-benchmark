@@ -9081,7 +9081,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3957, %3975, %3988, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1290
   %3993 = add nuw nsw i32 %.01800, 1000
-  %3994 = icmp ult i32 %.01800, 14001
+  %3994 = icmp samesign ult i32 %.01800, 14001
   br i1 %3994, label %3938, label %4182, !llvm.loop !39
 
 3995:                                             ; preds = %186, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit138

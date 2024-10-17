@@ -61,7 +61,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   store i8 %.0.i, ptr %.04063, align 1
   %26 = load i8, ptr %19, align 1
   %27 = and i8 %26, 15
-  %28 = icmp ult i8 %27, 10
+  %28 = icmp samesign ult i8 %27, 10
   %29 = or disjoint i8 %27, 48
   %30 = add nuw nsw i8 %27, 87
   %.0.i56 = select i1 %28, i8 %29, i8 %30

@@ -264,7 +264,7 @@ define dso_local zeroext range(i16 6, 0) i16 @eth_type_trans(ptr noundef %0, ptr
   %55 = getelementptr inbounds i8, ptr %6, i64 12
   %56 = load i16, ptr %55, align 1
   %57 = and i16 %56, 254
-  %58 = icmp ugt i16 %57, 5
+  %58 = icmp samesign ugt i16 %57, 5
   br i1 %58, label %66, label %59, !prof !8
 
 59:                                               ; preds = %54

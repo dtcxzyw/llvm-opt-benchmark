@@ -28601,7 +28601,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr124dro
 72:                                               ; preds = %.noexc54
   %.sroa.8.0.copyload99 = load i64, ptr %.sroa.8.0..sroa_idx98, align 4, !noalias !4392
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !4388
-  %or.cond.not = icmp ult i32 %68, 2
+  %or.cond.not = icmp samesign ult i32 %68, 2
   br i1 %or.cond.not, label %157, label %.loopexit
 
 .loopexit:                                        ; preds = %72, %.thread

@@ -847,7 +847,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   %213 = getelementptr inbounds i8, ptr %68, i64 6
   %214 = load i16, ptr %213, align 2
   %215 = zext i16 %214 to i32
-  %216 = icmp ugt i32 %200, %215
+  %216 = icmp samesign ugt i32 %200, %215
   %217 = zext nneg i8 %187 to i64
   %218 = getelementptr [8 x i32], ptr %5, i64 0, i64 %217
   br i1 %216, label %219, label %221

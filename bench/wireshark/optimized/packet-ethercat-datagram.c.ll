@@ -2093,7 +2093,7 @@ proto_item_set_hidden.exit351.thread:             ; preds = %356, %360, %365, %3
   br i1 %.not310, label %proto_item_set_hidden.exit360, label %417
 
 417:                                              ; preds = %415
-  %418 = icmp ugt i16 %159, 5
+  %418 = icmp samesign ugt i16 %159, 5
   br i1 %418, label %419, label %437
 
 419:                                              ; preds = %417
@@ -2308,7 +2308,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %16 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %indvars.iv14
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
-  %19 = icmp ult i32 %10, %18
+  %19 = icmp samesign ult i32 %10, %18
   br i1 %19, label %.loopexit, label %.preheader.us
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge18, %.preheader.us
@@ -2349,7 +2349,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %indvars.iv
   %29 = load i16, ptr %28, align 8
   %30 = zext i16 %29 to i32
-  %31 = icmp ult i32 %10, %30
+  %31 = icmp samesign ult i32 %10, %30
   br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.split

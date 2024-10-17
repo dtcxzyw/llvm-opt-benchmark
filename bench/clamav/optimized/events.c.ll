@@ -1634,7 +1634,7 @@ evtype.exit:                                      ; preds = %4, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %13, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %17, label %.loopexit
 
 27:                                               ; preds = %evtype.exit
@@ -1728,7 +1728,7 @@ define void @cli_event_debug_all(ptr noundef %0) local_unnamed_addr #4 {
   %11 = phi i32 [ %4, %.lr.ph ], [ %.pre, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %1
@@ -1874,7 +1874,7 @@ ev_diff.exit.thread:                              ; preds = %32, %57, %ev_diff.e
   %70 = add i32 %.0.i78, %.056.fr87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = zext i32 %69 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %32, label %._crit_edge
 
 73:                                               ; preds = %28
@@ -2000,7 +2000,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %4, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %.lr.ph.split.us, %.preheader

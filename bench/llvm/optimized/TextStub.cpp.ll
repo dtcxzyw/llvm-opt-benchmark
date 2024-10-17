@@ -22768,7 +22768,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE9push_backERKS2_.exit: ;
 
 71:                                               ; preds = %73, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ %70, %.preheader.i.i ]
-  %72 = icmp ult i64 %indvars.iv.i, 31
+  %72 = icmp samesign ult i64 %indvars.iv.i, 31
   br i1 %72, label %73, label %._crit_edge
 
 73:                                               ; preds = %71

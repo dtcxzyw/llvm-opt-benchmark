@@ -83,7 +83,7 @@ define dso_local i32 @cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 nound
   %32 = getelementptr inbounds i8, ptr %30, i64 1128
   %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 0
-  %35 = icmp ugt i64 %indvars.iv, 13
+  %35 = icmp samesign ugt i64 %indvars.iv, 13
   %36 = select i1 %34, i1 true, i1 %35
   br i1 %36, label %.loopexit, label %14, !llvm.loop !6
 

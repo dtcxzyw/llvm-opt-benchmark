@@ -1193,7 +1193,7 @@ if.then5:                                         ; preds = %if.then2
   br label %if.end28
 
 if.else13:                                        ; preds = %if.then2
-  %cmp17 = icmp ult i32 %and3, 3
+  %cmp17 = icmp samesign ult i32 %and3, 3
   br i1 %cmp17, label %if.then19, label %if.else25
 
 if.then19:                                        ; preds = %if.else13

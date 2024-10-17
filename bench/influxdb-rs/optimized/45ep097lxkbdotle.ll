@@ -1291,7 +1291,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$parquet..column..w
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr104drop_in_place$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$17hde422e552236e95eE.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(216) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8, !range !472, !noundef !4
-  %switch.not = icmp ult i32 %2, 2
+  %switch.not = icmp samesign ult i32 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$trace..span..Span$GT$$GT$17hecf3732eca7798dcE.llvm.9135219245553044050.exit"
 
 3:                                                ; preds = %1
@@ -2844,7 +2844,7 @@ common.resume.i.i.i:                              ; preds = %91, %common.resume.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1021)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1024)
   %32 = load i8, ptr %31, align 8, !range !1027, !alias.scope !1028, !noundef !4
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %32, 10
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %32, 10
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h896f6ddc253d1013E.exit.i.i.i.i.i", label %33
 
 33:                                               ; preds = %30
@@ -2865,7 +2865,7 @@ common.resume.i.i.i:                              ; preds = %91, %common.resume.
   %.val.i.i.i.i.i = load i8, ptr %37, align 8, !range !1032, !alias.scope !1033, !noundef !4
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   %.val2.i.i.i.i.i = load ptr, ptr %38, align 8, !alias.scope !1033
-  %switch.i.i.i1.i.i.i.i = icmp ult i8 %.val.i.i.i.i.i, 2
+  %switch.i.i.i1.i.i.i.i = icmp samesign ult i8 %.val.i.i.i.i.i, 2
   br i1 %switch.i.i.i1.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17ha7cc81fd21ef675fE.exit.i.i.i.i.i", label %39
 
 39:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h896f6ddc253d1013E.exit.i.i.i.i.i"
@@ -6559,8 +6559,8 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexM
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(216) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8, !range !2473, !noundef !4
-  %switch.not.i = icmp ult i32 %2, 2
-  br i1 %switch.not.i, label %3, label %"_ZN4core3ptr104drop_in_place$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$17hde422e552236e95eE.llvm.9135219245553044050.exit"
+  %or.cond = icmp samesign ult i32 %2, 2
+  br i1 %or.cond, label %3, label %"_ZN4core3ptr104drop_in_place$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$17hde422e552236e95eE.llvm.9135219245553044050.exit"
 
 "_ZN4core3ptr104drop_in_place$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$17hde422e552236e95eE.llvm.9135219245553044050.exit": ; preds = %3, %1
   ret void
@@ -7992,8 +7992,8 @@ define hidden void @"_ZN4core3ptr143drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc4
   %10 = phi i32 [ %12, %.noexc4 ], [ %4, %.noexc ]
-  %switch.not.i.i2.i.i = icmp ult i32 %10, 2
-  br i1 %switch.not.i.i2.i.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i"
+  %or.cond.i2.i.i = icmp samesign ult i32 %10, 2
+  br i1 %or.cond.i2.i.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i"
 
 11:                                               ; preds = %.lr.ph.i.i
   invoke void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
@@ -32032,7 +32032,7 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.913521924
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %.0, %16
+  %18 = icmp samesign ugt i64 %.0, %16
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13, %36, %5
@@ -32456,8 +32456,8 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
   %10 = phi i32 [ %12, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i" ], [ %4, %1 ]
-  %switch.not.i.i2.i = icmp ult i32 %10, 2
-  br i1 %switch.not.i.i2.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
+  %or.cond.i2.i = icmp samesign ult i32 %10, 2
+  br i1 %or.cond.i2.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
 
 11:                                               ; preds = %.lr.ph.i
   call void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
@@ -32506,8 +32506,8 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
   %10 = phi i32 [ %12, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3" ], [ %4, %2 ]
-  %switch.not.i.i2 = icmp ult i32 %10, 2
-  br i1 %switch.not.i.i2, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
+  %or.cond.i2 = icmp samesign ult i32 %10, 2
+  br i1 %or.cond.i2, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
 
 11:                                               ; preds = %.lr.ph
   call void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %3)

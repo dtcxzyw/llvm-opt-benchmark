@@ -14128,7 +14128,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i13, %34
   %.0.lcssa.i = phi i64 [ %4, %34 ], [ %44, %.lr.ph.i13 ]
-  %57 = icmp ugt i64 %.0.lcssa.i, 9
+  %57 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %._crit_edge.i
@@ -14691,7 +14691,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %153 = getelementptr inbounds i8, ptr %152, i64 %140
   store i8 0, ptr %153, align 1
   %154 = and i8 %13, 15
-  %155 = icmp ult i8 %154, 10
+  %155 = icmp samesign ult i8 %154, 10
   %156 = select i1 %155, i8 48, i8 55
   %157 = add nuw nsw i8 %156, %154
   %158 = load i64, ptr %6, align 8
@@ -15404,7 +15404,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %150 = getelementptr inbounds i8, ptr %149, i64 %137
   store i8 0, ptr %150, align 1
   %151 = and i8 %13, 15
-  %152 = icmp ult i8 %151, 10
+  %152 = icmp samesign ult i8 %151, 10
   %153 = select i1 %152, i8 48, i8 55
   %154 = add nuw nsw i8 %153, %151
   %155 = load i64, ptr %6, align 8
@@ -22705,7 +22705,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %31
   %.0.lcssa.i = phi i64 [ %1, %31 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp ugt i64 %.0.lcssa.i, 9
+  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %._crit_edge.i
@@ -212570,7 +212570,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !1394
 
 .critedge:                                        ; preds = %27

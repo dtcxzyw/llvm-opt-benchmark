@@ -1492,7 +1492,7 @@ if.end167:                                        ; preds = %while.cond155, %if.
   %spec.select205 = tail call i32 @llvm.abs.i32(i32 %spec.select81.i, i1 true)
   store i8 %spec.select, ptr %incdec.ptr168, align 1
   %out.16 = getelementptr inbounds i8, ptr %out.15, i64 2
-  %cmp174 = icmp ugt i32 %spec.select205, 99
+  %cmp174 = icmp samesign ugt i32 %spec.select205, 99
   br i1 %cmp174, label %if.then175, label %if.end181
 
 if.then175:                                       ; preds = %if.end167
@@ -2488,7 +2488,7 @@ declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef range(i64 0, -1) %num, i32 noundef range(i32 0, -2147483648) %expfive) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp52 = icmp ugt i32 %expfive, 12
+  %cmp52 = icmp samesign ugt i32 %expfive, 12
   br i1 %cmp52, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN4abslL5Mul32ESt4pairImmEj.exit

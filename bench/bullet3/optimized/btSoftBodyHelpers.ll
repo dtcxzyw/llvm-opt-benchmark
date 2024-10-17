@@ -4856,7 +4856,7 @@ for.body2.i:                                      ; preds = %for.cond1.preheader
   %t.1.i = select i1 %tobool3.not.i, float %t.015.i, float %add.i
   %conv4.i = fmul float %p.014.i, 5.000000e-01
   %shr.i = lshr i32 %j.016.i, 1
-  %tobool.not.i = icmp ult i32 %j.016.i, 2
+  %tobool.not.i = icmp samesign ult i32 %j.016.i, 2
   br i1 %tobool.not.i, label %for.end.i, label %for.body2.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.body2.i, %for.cond1.preheader.i

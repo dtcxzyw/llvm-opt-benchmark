@@ -437,7 +437,7 @@ if.end5:                                          ; preds = %if.then4, %if.end2
   %4 = add i32 %conv, -4096
   %or.cond.i = icmp ult i32 %4, 67104769
   %5 = tail call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %conv)
-  %tobool.not.i = icmp ult i32 %5, 2
+  %tobool.not.i = icmp samesign ult i32 %5, 2
   %or.cond = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond, label %if.end8, label %if.then7
 
@@ -452,7 +452,7 @@ if.end8:                                          ; preds = %if.end5
   %7 = add i32 %conv10, -1
   %or.cond.i41 = icmp ult i32 %7, 16
   %8 = tail call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %conv10)
-  %tobool.not.i43 = icmp ult i32 %8, 2
+  %tobool.not.i43 = icmp samesign ult i32 %8, 2
   %or.cond57 = select i1 %or.cond.i41, i1 %tobool.not.i43, i1 false
   br i1 %or.cond57, label %if.end13, label %if.then12
 
@@ -1418,7 +1418,7 @@ if.end10:                                         ; preds = %if.end4
   %14 = add i32 %4, -4096
   %or.cond.i = icmp ult i32 %14, 67104769
   %15 = call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %4)
-  %tobool.not.i = icmp ult i32 %15, 2
+  %tobool.not.i = icmp samesign ult i32 %15, 2
   %or.cond106 = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond106, label %if.end14, label %if.then13
 
@@ -1450,7 +1450,7 @@ if.end20:                                         ; preds = %if.end14
   %19 = add i32 %18, -1
   %or.cond.i84 = icmp ult i32 %19, 16
   %20 = call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %18)
-  %tobool.not.i86 = icmp ult i32 %20, 2
+  %tobool.not.i86 = icmp samesign ult i32 %20, 2
   %or.cond107 = select i1 %or.cond.i84, i1 %tobool.not.i86, i1 false
   br i1 %or.cond107, label %if.end26, label %if.then25
 
@@ -1523,7 +1523,7 @@ if.then64:                                        ; preds = %if.end59
   %add69 = add nuw nsw i64 %conv68, %conv66
   %mul74 = mul i32 %26, %.val
   %conv75 = zext i32 %mul74 to i64
-  %cmp76 = icmp ugt i64 %add69, %conv75
+  %cmp76 = icmp samesign ugt i64 %add69, %conv75
   br i1 %cmp76, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.then64

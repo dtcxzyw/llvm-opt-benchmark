@@ -5402,7 +5402,7 @@ invoke.cont348:                                   ; preds = %while.body347
   %149 = load i32, ptr %fLength.i323, align 4
   %cond.i496 = select i1 %cmp.i.i493, i32 %149, i32 %shr.i.i494
   %cmp340 = icmp slt i32 %call349, %cond.i496
-  %cmp342 = icmp ult i32 %katakanaRunLength.0866, 19
+  %cmp342 = icmp samesign ult i32 %katakanaRunLength.0866, 19
   %or.cond = select i1 %cmp340, i1 %cmp342, i1 false
   br i1 %or.cond, label %land.rhs, label %while.end351, !llvm.loop !35
 
@@ -5424,7 +5424,7 @@ cond.true.i507:                                   ; preds = %if.then353
 
 _ZNK6icu_759UVector3210elementAtiEi.exit511:      ; preds = %if.then353, %cond.true.i507
   %cond.i506 = phi i32 [ %153, %cond.true.i507 ], [ 0, %if.then353 ]
-  %cmp.i512 = icmp ugt i32 %katakanaRunLength.0843, 8
+  %cmp.i512 = icmp samesign ugt i32 %katakanaRunLength.0843, 8
   br i1 %cmp.i512, label %_ZN6icu_75L15getKatakanaCostEi.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit511

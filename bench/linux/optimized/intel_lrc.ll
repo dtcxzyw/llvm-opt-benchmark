@@ -64,15 +64,15 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %10, label %33, label %20
 
 20:                                               ; preds = %6
-  %21 = icmp ugt i32 %19, 3141
+  %21 = icmp samesign ugt i32 %19, 3141
   br i1 %21, label %40, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i32 %19, 3126
+  %23 = icmp samesign ugt i32 %19, 3126
   br i1 %23, label %40, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %19, 3121
+  %25 = icmp samesign ugt i32 %19, 3121
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %24
@@ -89,7 +89,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br label %40
 
 33:                                               ; preds = %6
-  %34 = icmp ugt i32 %19, 3126
+  %34 = icmp samesign ugt i32 %19, 3126
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %33
@@ -215,7 +215,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = or disjoint i32 %117, %120
-  %122 = icmp ugt i32 %121, 3141
+  %122 = icmp samesign ugt i32 %121, 3141
   br i1 %122, label %123, label %.thread
 
 123:                                              ; preds = %103
@@ -263,7 +263,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = or disjoint i32 %143, %146
-  %148 = icmp ugt i32 %147, 3121
+  %148 = icmp samesign ugt i32 %147, 3121
   br i1 %148, label %159, label %149
 
 149:                                              ; preds = %.thread
@@ -547,7 +547,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = or disjoint i32 %348, %351
-  %353 = icmp ugt i32 %352, 3121
+  %353 = icmp samesign ugt i32 %352, 3121
   br i1 %353, label %select.unfold39, label %354
 
 354:                                              ; preds = %343
@@ -591,7 +591,7 @@ define dso_local void @lrc_reset_regs(ptr nocapture noundef readonly %0, ptr noc
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
-  %14 = icmp ugt i32 %13, 3121
+  %14 = icmp samesign ugt i32 %13, 3121
   br i1 %14, label %select.unfold, label %15
 
 15:                                               ; preds = %2
@@ -1570,7 +1570,7 @@ define internal ptr @gen12_emit_indirect_ctx_xcs(ptr nocapture noundef readonly 
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %34, %37
-  %39 = icmp ugt i32 %38, 3121
+  %39 = icmp samesign ugt i32 %38, 3121
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %2
@@ -1684,7 +1684,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr nocapture noundef readonly 
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %34, %37
-  %39 = icmp ugt i32 %38, 3121
+  %39 = icmp samesign ugt i32 %38, 3121
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %2
@@ -1737,7 +1737,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr nocapture noundef readonly 
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = or disjoint i32 %72, %75
-  %77 = icmp ugt i32 %76, 3121
+  %77 = icmp samesign ugt i32 %76, 3121
   br i1 %77, label %87, label %78
 
 78:                                               ; preds = %49
@@ -2016,15 +2016,15 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
   br i1 %8, label %31, label %18
 
 18:                                               ; preds = %2
-  %19 = icmp ugt i32 %17, 3141
+  %19 = icmp samesign ugt i32 %17, 3141
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %17, 3126
+  %21 = icmp samesign ugt i32 %17, 3126
   br i1 %21, label %38, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i32 %17, 3121
+  %23 = icmp samesign ugt i32 %17, 3121
   br i1 %23, label %38, label %24
 
 24:                                               ; preds = %22
@@ -2041,7 +2041,7 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
   br label %38
 
 31:                                               ; preds = %2
-  %32 = icmp ugt i32 %17, 3126
+  %32 = icmp samesign ugt i32 %17, 3126
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %31
@@ -2205,7 +2205,7 @@ define dso_local void @lrc_check_regs(ptr nocapture noundef readonly %0, ptr nou
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = or disjoint i32 %54, %57
-  %59 = icmp ugt i32 %58, 3121
+  %59 = icmp samesign ugt i32 %58, 3121
   br i1 %59, label %select.unfold, label %60
 
 60:                                               ; preds = %48

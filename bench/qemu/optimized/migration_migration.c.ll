@@ -6942,12 +6942,12 @@ if.end14:                                         ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end14
   %conv18 = zext nneg i32 %conv3.mask to i64
   %cmp22 = icmp ne i64 %15, %conv18
-  %cmp26 = icmp ugt i32 %conv3.mask, 512
-  %or.cond1 = or i1 %cmp26, %cmp22
+  %cmp26 = icmp samesign ugt i32 %conv3.mask, 512
+  %or.cond1 = select i1 %cmp22, i1 true, i1 %cmp26
   br i1 %or.cond1, label %if.then28, label %if.end36
 
 lor.lhs.false24:                                  ; preds = %if.end14
-  %cmp26.old = icmp ugt i32 %conv3.mask, 512
+  %cmp26.old = icmp samesign ugt i32 %conv3.mask, 512
   br i1 %cmp26.old, label %if.then28, label %lor.lhs.false24.if.end36_crit_edge
 
 lor.lhs.false24.if.end36_crit_edge:               ; preds = %lor.lhs.false24
@@ -7077,7 +7077,7 @@ sw.bb57:                                          ; preds = %if.end46
   br i1 %tobool63.not, label %while.cond.outer.backedge, label %if.then118
 
 sw.bb66:                                          ; preds = %if.end46
-  %cmp68 = icmp ugt i32 %conv3.mask, 12
+  %cmp68 = icmp samesign ugt i32 %conv3.mask, 12
   br i1 %cmp68, label %if.then70, label %if.end83
 
 if.then70:                                        ; preds = %sw.bb66

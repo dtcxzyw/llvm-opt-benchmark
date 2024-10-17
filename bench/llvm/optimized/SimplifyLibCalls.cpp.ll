@@ -8332,7 +8332,7 @@ _ZNK4llvm6APSIntgtEl.exit:                        ; preds = %220, %226, %229
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit:               ; preds = %234
   %239 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %235)
-  %240 = icmp ult i64 %239, 2
+  %240 = icmp samesign ult i64 %239, 2
   br i1 %240, label %241, label %_ZL9copyFlagsRKN4llvm8CallInstEPNS_5ValueE.exit140
 
 241:                                              ; preds = %236, %_ZNK4llvm5APInt10isPowerOf2Ev.exit
@@ -13692,7 +13692,7 @@ define internal fastcc noundef ptr @_ZL15convertStrToIntPN4llvm8CallInstERNS_9St
   %101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.087127, i1 false)
   %102 = trunc nuw nsw i64 %101 to i32
   %103 = add nuw nsw i32 %102, %79
-  %104 = icmp ugt i32 %103, 63
+  %104 = icmp samesign ugt i32 %103, 63
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %100
@@ -14599,7 +14599,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %5 ], [ %10, %8 ]
   %.idx2 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %14 = getelementptr inbounds i8, ptr %13, i64 %.idx2
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK4llvm4User8operandsEv.exit
@@ -14850,7 +14850,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %5 ], [ %10, %8 ]
   %.idx2 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %14 = getelementptr inbounds i8, ptr %13, i64 %.idx2
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK4llvm4User8operandsEv.exit

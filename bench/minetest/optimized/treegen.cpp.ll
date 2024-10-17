@@ -1333,7 +1333,7 @@ invoke.cont284:                                   ; preds = %if.then277
   %111 = trunc nsw i32 %div.i.i709 to i16
   %rem.lhs.trunc.i710 = and i16 %111, 32767
   %rem49.i711 = urem i16 %rem.lhs.trunc.i710, 100
-  %cmp286 = icmp ult i16 %rem49.i711, 10
+  %cmp286 = icmp samesign ult i16 %rem49.i711, 10
   %or.cond = and i1 %is_apple_tree, %cmp286
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext = select i1 %or.cond, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext, ptr %arrayidx267, align 4
@@ -1398,7 +1398,7 @@ invoke.cont284.1:                                 ; preds = %if.then277.1
   %120 = trunc nsw i32 %div.i.i709.1 to i16
   %rem.lhs.trunc.i710.1 = and i16 %120, 32767
   %rem49.i711.1 = urem i16 %rem.lhs.trunc.i710.1, 100
-  %cmp286.1 = icmp ult i16 %rem49.i711.1, 10
+  %cmp286.1 = icmp samesign ult i16 %rem49.i711.1, 10
   %or.cond.1 = and i1 %is_apple_tree, %cmp286.1
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext921 = select i1 %or.cond.1, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext921, ptr %arrayidx267.1, align 4
@@ -1463,7 +1463,7 @@ invoke.cont284.2:                                 ; preds = %if.then277.2
   %129 = trunc nsw i32 %div.i.i709.2 to i16
   %rem.lhs.trunc.i710.2 = and i16 %129, 32767
   %rem49.i711.2 = urem i16 %rem.lhs.trunc.i710.2, 100
-  %cmp286.2 = icmp ult i16 %rem49.i711.2, 10
+  %cmp286.2 = icmp samesign ult i16 %rem49.i711.2, 10
   %or.cond.2 = and i1 %is_apple_tree, %cmp286.2
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext922 = select i1 %or.cond.2, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext922, ptr %arrayidx267.2, align 4
@@ -1528,7 +1528,7 @@ invoke.cont284.3:                                 ; preds = %if.then277.3
   %138 = trunc nsw i32 %div.i.i709.3 to i16
   %rem.lhs.trunc.i710.3 = and i16 %138, 32767
   %rem49.i711.3 = urem i16 %rem.lhs.trunc.i710.3, 100
-  %cmp286.3 = icmp ult i16 %rem49.i711.3, 10
+  %cmp286.3 = icmp samesign ult i16 %rem49.i711.3, 10
   %or.cond.3 = and i1 %is_apple_tree, %cmp286.3
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext923 = select i1 %or.cond.3, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext923, ptr %arrayidx267.3, align 4
@@ -1593,7 +1593,7 @@ invoke.cont284.4:                                 ; preds = %if.then277.4
   %147 = trunc nsw i32 %div.i.i709.4 to i16
   %rem.lhs.trunc.i710.4 = and i16 %147, 32767
   %rem49.i711.4 = urem i16 %rem.lhs.trunc.i710.4, 100
-  %cmp286.4 = icmp ult i16 %rem49.i711.4, 10
+  %cmp286.4 = icmp samesign ult i16 %rem49.i711.4, 10
   %or.cond.4 = and i1 %is_apple_tree, %cmp286.4
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext924 = select i1 %or.cond.4, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext924, ptr %arrayidx267.4, align 4
@@ -2296,7 +2296,7 @@ invoke.cont67:                                    ; preds = %invoke.cont52
   %38 = trunc nsw i32 %div.i.i893 to i16
   %rem.lhs.trunc.i894 = and i16 %38, 32767
   %rem49.i895 = urem i16 %rem.lhs.trunc.i894, 10
-  %cmp70 = icmp ult i16 %rem49.i895, 9
+  %cmp70 = icmp samesign ult i16 %rem49.i895, 9
   br i1 %cmp70, label %if.then71, label %sw.epilog
 
 if.then71:                                        ; preds = %invoke.cont67
@@ -2315,7 +2315,7 @@ invoke.cont77:                                    ; preds = %invoke.cont52
   %42 = trunc nsw i32 %div.i.i908 to i16
   %rem.lhs.trunc.i909 = and i16 %42, 32767
   %rem49.i910 = urem i16 %rem.lhs.trunc.i909, 10
-  %cmp80 = icmp ult i16 %rem49.i910, 8
+  %cmp80 = icmp samesign ult i16 %rem49.i910, 8
   br i1 %cmp80, label %if.then81, label %sw.epilog
 
 if.then81:                                        ; preds = %invoke.cont77
@@ -2334,7 +2334,7 @@ invoke.cont87:                                    ; preds = %invoke.cont52
   %46 = trunc nsw i32 %div.i.i924 to i16
   %rem.lhs.trunc.i925 = and i16 %46, 32767
   %rem49.i926 = urem i16 %rem.lhs.trunc.i925, 10
-  %cmp90 = icmp ult i16 %rem49.i926, 7
+  %cmp90 = icmp samesign ult i16 %rem49.i926, 7
   br i1 %cmp90, label %if.then91, label %sw.epilog
 
 if.then91:                                        ; preds = %invoke.cont87
@@ -2353,7 +2353,7 @@ invoke.cont97:                                    ; preds = %invoke.cont52
   %50 = trunc nsw i32 %div.i.i940 to i16
   %rem.lhs.trunc.i941 = and i16 %50, 32767
   %rem49.i942 = urem i16 %rem.lhs.trunc.i941, 10
-  %cmp100 = icmp ult i16 %rem49.i942, 6
+  %cmp100 = icmp samesign ult i16 %rem49.i942, 6
   br i1 %cmp100, label %if.then101, label %sw.epilog
 
 if.then101:                                       ; preds = %invoke.cont97
@@ -3060,7 +3060,7 @@ if.else.i:                                        ; preds = %if.then25.i
   br label %invoke.cont474
 
 if.else44.i:                                      ; preds = %if.end23.i
-  %cmp46.i = icmp ugt i16 %rem49.i92.i, 19
+  %cmp46.i = icmp samesign ugt i16 %rem49.i92.i, 19
   br i1 %cmp46.i, label %if.then47.i, label %invoke.cont474
 
 if.then47.i:                                      ; preds = %if.else44.i
@@ -3194,7 +3194,7 @@ if.else.i1195:                                    ; preds = %if.then25.i1190
   br label %invoke.cont495
 
 if.else44.i1185:                                  ; preds = %if.end23.i1177
-  %cmp46.i1186 = icmp ugt i16 %rem49.i92.i1184, 19
+  %cmp46.i1186 = icmp samesign ugt i16 %rem49.i92.i1184, 19
   br i1 %cmp46.i1186, label %if.then47.i1187, label %invoke.cont495
 
 if.then47.i1187:                                  ; preds = %if.else44.i1185
@@ -3328,7 +3328,7 @@ if.else.i1297:                                    ; preds = %if.then25.i1292
   br label %invoke.cont516
 
 if.else44.i1287:                                  ; preds = %if.end23.i1279
-  %cmp46.i1288 = icmp ugt i16 %rem49.i92.i1286, 19
+  %cmp46.i1288 = icmp samesign ugt i16 %rem49.i92.i1286, 19
   br i1 %cmp46.i1288, label %if.then47.i1289, label %invoke.cont516
 
 if.then47.i1289:                                  ; preds = %if.else44.i1287
@@ -3462,7 +3462,7 @@ if.else.i1399:                                    ; preds = %if.then25.i1394
   br label %for.inc520
 
 if.else44.i1389:                                  ; preds = %if.end23.i1381
-  %cmp46.i1390 = icmp ugt i16 %rem49.i92.i1388, 19
+  %cmp46.i1390 = icmp samesign ugt i16 %rem49.i92.i1388, 19
   br i1 %cmp46.i1390, label %if.then47.i1391, label %for.inc520
 
 if.then47.i1391:                                  ; preds = %if.else44.i1389
@@ -6409,7 +6409,7 @@ invoke.cont122.1:                                 ; preds = %if.end154.6, %if.en
   %66 = trunc nsw i32 %div.i.i819.1 to i16
   %rem.lhs.trunc.i820.1 = and i16 %66, 32767
   %rem49.i821.1 = urem i16 %rem.lhs.trunc.i820.1, 21
-  %cmp148.not.1 = icmp ugt i16 %rem49.i821.1, 17
+  %cmp148.not.1 = icmp samesign ugt i16 %rem49.i821.1, 17
   br i1 %cmp148.not.1, label %if.end154.1, label %if.then149.1
 
 if.then149.1:                                     ; preds = %invoke.cont122.1
@@ -6426,7 +6426,7 @@ if.end154.1:                                      ; preds = %if.then149.1, %invo
   %67 = trunc nsw i32 %div.i.i819.1.1 to i16
   %rem.lhs.trunc.i820.1.1 = and i16 %67, 32767
   %rem49.i821.1.1 = urem i16 %rem.lhs.trunc.i820.1.1, 21
-  %cmp148.not.1.1 = icmp ugt i16 %rem49.i821.1.1, 17
+  %cmp148.not.1.1 = icmp samesign ugt i16 %rem49.i821.1.1, 17
   br i1 %cmp148.not.1.1, label %if.end154.1.1, label %if.then149.1.1
 
 if.then149.1.1:                                   ; preds = %if.end154.1
@@ -6444,7 +6444,7 @@ if.end154.1.1:                                    ; preds = %if.then149.1.1, %if
   %68 = trunc nsw i32 %div.i.i819.1.2 to i16
   %rem.lhs.trunc.i820.1.2 = and i16 %68, 32767
   %rem49.i821.1.2 = urem i16 %rem.lhs.trunc.i820.1.2, 21
-  %cmp148.not.1.2 = icmp ugt i16 %rem49.i821.1.2, 17
+  %cmp148.not.1.2 = icmp samesign ugt i16 %rem49.i821.1.2, 17
   br i1 %cmp148.not.1.2, label %if.end154.1.2, label %if.then149.1.2
 
 if.then149.1.2:                                   ; preds = %if.end154.1.1
@@ -6461,7 +6461,7 @@ if.end154.1.2:                                    ; preds = %if.then149.1.2, %if
   %69 = trunc nsw i32 %div.i.i819.1.3 to i16
   %rem.lhs.trunc.i820.1.3 = and i16 %69, 32767
   %rem49.i821.1.3 = urem i16 %rem.lhs.trunc.i820.1.3, 21
-  %cmp148.not.1.3 = icmp ugt i16 %rem49.i821.1.3, 17
+  %cmp148.not.1.3 = icmp samesign ugt i16 %rem49.i821.1.3, 17
   br i1 %cmp148.not.1.3, label %if.end154.1.3, label %if.then149.1.3
 
 if.then149.1.3:                                   ; preds = %if.end154.1.2
@@ -6478,7 +6478,7 @@ if.end154.1.3:                                    ; preds = %if.then149.1.3, %if
   %70 = trunc nsw i32 %div.i.i819.1.4 to i16
   %rem.lhs.trunc.i820.1.4 = and i16 %70, 32767
   %rem49.i821.1.4 = urem i16 %rem.lhs.trunc.i820.1.4, 21
-  %cmp148.not.1.4 = icmp ugt i16 %rem49.i821.1.4, 17
+  %cmp148.not.1.4 = icmp samesign ugt i16 %rem49.i821.1.4, 17
   br i1 %cmp148.not.1.4, label %if.end154.1.4, label %if.then149.1.4
 
 if.then149.1.4:                                   ; preds = %if.end154.1.3
@@ -6503,7 +6503,7 @@ invoke.cont122.preheader.2:                       ; preds = %if.end154.1.4
   %71 = trunc nsw i32 %div.i.i819.2 to i16
   %rem.lhs.trunc.i820.2 = and i16 %71, 32767
   %rem49.i821.2 = urem i16 %rem.lhs.trunc.i820.2, 21
-  %cmp148.not.2 = icmp ugt i16 %rem49.i821.2, 18
+  %cmp148.not.2 = icmp samesign ugt i16 %rem49.i821.2, 18
   br i1 %cmp148.not.2, label %if.end154.2, label %if.then149.2
 
 if.then149.2:                                     ; preds = %invoke.cont122.preheader.2
@@ -6520,7 +6520,7 @@ if.end154.2:                                      ; preds = %if.then149.2, %invo
   %72 = trunc nsw i32 %div.i.i819.2.1 to i16
   %rem.lhs.trunc.i820.2.1 = and i16 %72, 32767
   %rem49.i821.2.1 = urem i16 %rem.lhs.trunc.i820.2.1, 21
-  %cmp148.not.2.1 = icmp ugt i16 %rem49.i821.2.1, 18
+  %cmp148.not.2.1 = icmp samesign ugt i16 %rem49.i821.2.1, 18
   br i1 %cmp148.not.2.1, label %if.end154.2.1, label %if.then149.2.1
 
 if.then149.2.1:                                   ; preds = %if.end154.2
@@ -6537,7 +6537,7 @@ if.end154.2.1:                                    ; preds = %if.then149.2.1, %if
   %73 = trunc nsw i32 %div.i.i819.2.2 to i16
   %rem.lhs.trunc.i820.2.2 = and i16 %73, 32767
   %rem49.i821.2.2 = urem i16 %rem.lhs.trunc.i820.2.2, 21
-  %cmp148.not.2.2 = icmp ugt i16 %rem49.i821.2.2, 18
+  %cmp148.not.2.2 = icmp samesign ugt i16 %rem49.i821.2.2, 18
   br i1 %cmp148.not.2.2, label %if.end154.2.2, label %if.then149.2.2
 
 if.then149.2.2:                                   ; preds = %if.end154.2.1
@@ -6554,7 +6554,7 @@ if.end154.2.2:                                    ; preds = %if.then149.2.2, %if
   %74 = trunc nsw i32 %div.i.i819.2.11359 to i16
   %rem.lhs.trunc.i820.2.11360 = and i16 %74, 32767
   %rem49.i821.2.11361 = urem i16 %rem.lhs.trunc.i820.2.11360, 21
-  %cmp148.not.2.11363 = icmp ugt i16 %rem49.i821.2.11361, 18
+  %cmp148.not.2.11363 = icmp samesign ugt i16 %rem49.i821.2.11361, 18
   br i1 %cmp148.not.2.11363, label %if.end154.2.11369, label %if.then149.2.11366
 
 if.then149.2.11366:                               ; preds = %if.end154.2.2
@@ -6571,7 +6571,7 @@ if.end154.2.11369:                                ; preds = %if.then149.2.11366,
   %75 = trunc nsw i32 %div.i.i819.2.1.1 to i16
   %rem.lhs.trunc.i820.2.1.1 = and i16 %75, 32767
   %rem49.i821.2.1.1 = urem i16 %rem.lhs.trunc.i820.2.1.1, 21
-  %cmp148.not.2.1.1 = icmp ugt i16 %rem49.i821.2.1.1, 18
+  %cmp148.not.2.1.1 = icmp samesign ugt i16 %rem49.i821.2.1.1, 18
   br i1 %cmp148.not.2.1.1, label %if.end154.2.1.1, label %if.then149.2.1.1
 
 if.then149.2.1.1:                                 ; preds = %if.end154.2.11369
@@ -6588,7 +6588,7 @@ if.end154.2.1.1:                                  ; preds = %if.then149.2.1.1, %
   %76 = trunc nsw i32 %div.i.i819.2.2.1 to i16
   %rem.lhs.trunc.i820.2.2.1 = and i16 %76, 32767
   %rem49.i821.2.2.1 = urem i16 %rem.lhs.trunc.i820.2.2.1, 21
-  %cmp148.not.2.2.1 = icmp ugt i16 %rem49.i821.2.2.1, 18
+  %cmp148.not.2.2.1 = icmp samesign ugt i16 %rem49.i821.2.2.1, 18
   br i1 %cmp148.not.2.2.1, label %if.end154.2.2.1, label %if.then149.2.2.1
 
 if.then149.2.2.1:                                 ; preds = %if.end154.2.1.1
@@ -6605,7 +6605,7 @@ if.end154.2.2.1:                                  ; preds = %if.then149.2.2.1, %
   %77 = trunc nsw i32 %div.i.i819.2.21372 to i16
   %rem.lhs.trunc.i820.2.21373 = and i16 %77, 32767
   %rem49.i821.2.21374 = urem i16 %rem.lhs.trunc.i820.2.21373, 21
-  %cmp148.not.2.21376 = icmp ugt i16 %rem49.i821.2.21374, 18
+  %cmp148.not.2.21376 = icmp samesign ugt i16 %rem49.i821.2.21374, 18
   br i1 %cmp148.not.2.21376, label %if.end154.2.21380, label %if.then149.2.21379
 
 if.then149.2.21379:                               ; preds = %if.end154.2.2.1
@@ -6622,7 +6622,7 @@ if.end154.2.21380:                                ; preds = %if.then149.2.21379,
   %78 = trunc nsw i32 %div.i.i819.2.1.2 to i16
   %rem.lhs.trunc.i820.2.1.2 = and i16 %78, 32767
   %rem49.i821.2.1.2 = urem i16 %rem.lhs.trunc.i820.2.1.2, 21
-  %cmp148.not.2.1.2 = icmp ugt i16 %rem49.i821.2.1.2, 18
+  %cmp148.not.2.1.2 = icmp samesign ugt i16 %rem49.i821.2.1.2, 18
   br i1 %cmp148.not.2.1.2, label %if.end154.2.1.2, label %if.then149.2.1.2
 
 if.then149.2.1.2:                                 ; preds = %if.end154.2.21380
@@ -6639,7 +6639,7 @@ if.end154.2.1.2:                                  ; preds = %if.then149.2.1.2, %
   %79 = trunc nsw i32 %div.i.i819.2.2.2 to i16
   %rem.lhs.trunc.i820.2.2.2 = and i16 %79, 32767
   %rem49.i821.2.2.2 = urem i16 %rem.lhs.trunc.i820.2.2.2, 21
-  %cmp148.not.2.2.2 = icmp ugt i16 %rem49.i821.2.2.2, 18
+  %cmp148.not.2.2.2 = icmp samesign ugt i16 %rem49.i821.2.2.2, 18
   br i1 %cmp148.not.2.2.2, label %for.cond.cleanup113.2, label %if.then149.2.2.2
 
 if.then149.2.2.2:                                 ; preds = %if.end154.2.1.2
@@ -6669,7 +6669,7 @@ invoke.cont122:                                   ; preds = %if.end154.6, %invok
   %80 = trunc nsw i32 %div.i.i819 to i16
   %rem.lhs.trunc.i820 = and i16 %80, 32767
   %rem49.i821 = urem i16 %rem.lhs.trunc.i820, 21
-  %cmp148.not = icmp ugt i16 %rem49.i821, 16
+  %cmp148.not = icmp samesign ugt i16 %rem49.i821, 16
   br i1 %cmp148.not, label %if.end154, label %if.then149
 
 if.then149:                                       ; preds = %invoke.cont122
@@ -6686,7 +6686,7 @@ if.end154:                                        ; preds = %if.then149, %invoke
   %81 = trunc nsw i32 %div.i.i819.11413 to i16
   %rem.lhs.trunc.i820.11414 = and i16 %81, 32767
   %rem49.i821.11415 = urem i16 %rem.lhs.trunc.i820.11414, 21
-  %cmp148.not.11417 = icmp ugt i16 %rem49.i821.11415, 16
+  %cmp148.not.11417 = icmp samesign ugt i16 %rem49.i821.11415, 16
   br i1 %cmp148.not.11417, label %if.end154.11422, label %if.then149.11421
 
 if.then149.11421:                                 ; preds = %if.end154
@@ -6704,7 +6704,7 @@ if.end154.11422:                                  ; preds = %if.then149.11421, %
   %82 = trunc nsw i32 %div.i.i819.21425 to i16
   %rem.lhs.trunc.i820.21426 = and i16 %82, 32767
   %rem49.i821.21427 = urem i16 %rem.lhs.trunc.i820.21426, 21
-  %cmp148.not.21429 = icmp ugt i16 %rem49.i821.21427, 16
+  %cmp148.not.21429 = icmp samesign ugt i16 %rem49.i821.21427, 16
   br i1 %cmp148.not.21429, label %if.end154.21434, label %if.then149.21433
 
 if.then149.21433:                                 ; preds = %if.end154.11422
@@ -6721,7 +6721,7 @@ if.end154.21434:                                  ; preds = %if.then149.21433, %
   %83 = trunc nsw i32 %div.i.i819.3 to i16
   %rem.lhs.trunc.i820.3 = and i16 %83, 32767
   %rem49.i821.3 = urem i16 %rem.lhs.trunc.i820.3, 21
-  %cmp148.not.3 = icmp ugt i16 %rem49.i821.3, 16
+  %cmp148.not.3 = icmp samesign ugt i16 %rem49.i821.3, 16
   br i1 %cmp148.not.3, label %if.end154.3, label %if.then149.3
 
 if.then149.3:                                     ; preds = %if.end154.21434
@@ -6738,7 +6738,7 @@ if.end154.3:                                      ; preds = %if.then149.3, %if.e
   %84 = trunc nsw i32 %div.i.i819.4 to i16
   %rem.lhs.trunc.i820.4 = and i16 %84, 32767
   %rem49.i821.4 = urem i16 %rem.lhs.trunc.i820.4, 21
-  %cmp148.not.4 = icmp ugt i16 %rem49.i821.4, 16
+  %cmp148.not.4 = icmp samesign ugt i16 %rem49.i821.4, 16
   br i1 %cmp148.not.4, label %if.end154.4, label %if.then149.4
 
 if.then149.4:                                     ; preds = %if.end154.3
@@ -6755,7 +6755,7 @@ if.end154.4:                                      ; preds = %if.then149.4, %if.e
   %85 = trunc nsw i32 %div.i.i819.5 to i16
   %rem.lhs.trunc.i820.5 = and i16 %85, 32767
   %rem49.i821.5 = urem i16 %rem.lhs.trunc.i820.5, 21
-  %cmp148.not.5 = icmp ugt i16 %rem49.i821.5, 16
+  %cmp148.not.5 = icmp samesign ugt i16 %rem49.i821.5, 16
   br i1 %cmp148.not.5, label %if.end154.5, label %if.then149.5
 
 if.then149.5:                                     ; preds = %if.end154.4
@@ -6772,7 +6772,7 @@ if.end154.5:                                      ; preds = %if.then149.5, %if.e
   %86 = trunc nsw i32 %div.i.i819.6 to i16
   %rem.lhs.trunc.i820.6 = and i16 %86, 32767
   %rem49.i821.6 = urem i16 %rem.lhs.trunc.i820.6, 21
-  %cmp148.not.6 = icmp ugt i16 %rem49.i821.6, 16
+  %cmp148.not.6 = icmp samesign ugt i16 %rem49.i821.6, 16
   br i1 %cmp148.not.6, label %if.end154.6, label %if.then149.6
 
 if.then149.6:                                     ; preds = %if.end154.5

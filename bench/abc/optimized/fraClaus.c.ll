@@ -271,7 +271,7 @@ define void @transpose32a(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %27 = zext nneg i32 %26 to i64
   %28 = shl i64 %.02326, %27
   %29 = xor i64 %28, %.02326
-  %.not = icmp ult i32 %.027, 2
+  %.not = icmp samesign ult i32 %.027, 2
   br i1 %.not, label %30, label %.preheader, !llvm.loop !8
 
 30:                                               ; preds = %25
@@ -403,7 +403,7 @@ define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr no
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %.02326.i, %63
   %65 = xor i64 %64, %.02326.i
-  %.not.i = icmp ult i32 %.027.i, 2
+  %.not.i = icmp samesign ult i32 %.027.i, 2
   br i1 %.not.i, label %transpose32a.exit.preheader, label %.preheader.i, !llvm.loop !8
 
 transpose32a.exit.preheader:                      ; preds = %61, %transpose32a.exit
@@ -718,7 +718,7 @@ define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr 
   %72 = zext nneg i32 %71 to i64
   %73 = shl i64 %.02326.i, %72
   %74 = xor i64 %73, %.02326.i
-  %.not.i = icmp ult i32 %.027.i, 2
+  %.not.i = icmp samesign ult i32 %.027.i, 2
   br i1 %.not.i, label %transpose32a.exit.preheader, label %.preheader.i, !llvm.loop !8
 
 transpose32a.exit.preheader:                      ; preds = %70, %transpose32a.exit
@@ -1044,7 +1044,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %56 = load i32, ptr %5, align 4
   %57 = lshr i32 %56, 29
   %58 = zext nneg i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %59, label %10, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %4
@@ -3248,7 +3248,7 @@ Abc_Clock.exit140:                                ; preds = %106, %109
   %189 = zext nneg i32 %188 to i64
   %190 = shl i64 %.02326.i.i, %189
   %191 = xor i64 %190, %.02326.i.i
-  %.not.i.i = icmp ult i32 %.027.i.i, 2
+  %.not.i.i = icmp samesign ult i32 %.027.i.i, 2
   br i1 %.not.i.i, label %transpose32a.exit.preheader.i, label %.preheader.i.i, !llvm.loop !8
 
 transpose32a.exit.preheader.i:                    ; preds = %187, %transpose32a.exit.i
@@ -3314,7 +3314,7 @@ Fra_ClausProcessClausesCut.exit:                  ; preds = %.preheader.i
   %214 = getelementptr inbounds i8, ptr %.097225, i64 24
   %215 = lshr i64 %212, 56
   %216 = trunc nuw nsw i64 %215 to i32
-  %217 = icmp ult i32 %213, %216
+  %217 = icmp samesign ult i32 %213, %216
   br i1 %217, label %.lr.ph, label %.loopexit224.loopexit, !llvm.loop !40
 
 .loopexit224.loopexit:                            ; preds = %211
@@ -3601,7 +3601,7 @@ Abc_Clock.exit148:                                ; preds = %266, %269
   %348 = zext nneg i32 %347 to i64
   %349 = shl i64 %.02326.i.i185, %348
   %350 = xor i64 %349, %.02326.i.i185
-  %.not.i.i187 = icmp ult i32 %.027.i.i184, 2
+  %.not.i.i187 = icmp samesign ult i32 %.027.i.i184, 2
   br i1 %.not.i.i187, label %transpose32a.exit.preheader.i188, label %.preheader.i.i183, !llvm.loop !8
 
 transpose32a.exit.preheader.i188:                 ; preds = %346, %transpose32a.exit.i193
@@ -3694,7 +3694,7 @@ Fra_ClausProcessClausesCut.exit198:               ; preds = %.preheader.i159
   %386 = load i64, ptr %288, align 8
   %387 = lshr i64 %386, 56
   %388 = trunc nuw nsw i64 %387 to i32
-  %389 = icmp ult i32 %384, %388
+  %389 = icmp samesign ult i32 %384, %388
   br i1 %389, label %.lr.ph234, label %.loopexit223.loopexit, !llvm.loop !43
 
 .loopexit223.loopexit:                            ; preds = %.loopexit

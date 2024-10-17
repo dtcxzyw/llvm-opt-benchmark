@@ -209,7 +209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6V
   %33 = add i64 %32, -48
   %34 = add i64 %33, %31
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i14, 1
-  %35 = icmp ult i64 %indvars.iv.next.i16, %28
+  %35 = icmp samesign ult i64 %indvars.iv.next.i16, %28
   br i1 %35, label %.lr.ph.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17: ; preds = %.lr.ph.i13
@@ -401,7 +401,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
   br label %54
 
 .preheader.i16:                                   ; preds = %54
-  %.not18.i = icmp ult i64 %59, 268435456
+  %.not18.i = icmp samesign ult i64 %59, 268435456
   br i1 %.not18.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i
 
 54:                                               ; preds = %54, %.lr.ph.i11
@@ -440,7 +440,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %71 = add i16 %70, 1
   store i16 %71, ptr %0, align 4
   %72 = lshr i64 %.119.i, 28
-  %.not.i18 = icmp ult i64 %.119.i, 268435456
+  %.not.i18 = icmp samesign ult i64 %.119.i, 268435456
   br i1 %.not.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i, !llvm.loop !15
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i17, %.lr.ph45.split, %.preheader.i16
@@ -521,7 +521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %104 = add i16 %103, 1
   store i16 %104, ptr %0, align 4
   %105 = lshr i64 %.119.i28, 28
-  %.not.i30 = icmp ult i64 %.119.i28, 268435456
+  %.not.i30 = icmp samesign ult i64 %.119.i28, 268435456
   br i1 %.not.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31, label %.lr.ph20.i27, !llvm.loop !15
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29, %.preheader.i25, %77, %._crit_edge, %83
@@ -1388,7 +1388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %29 = add i16 %28, 1
   store i16 %29, ptr %0, align 4
   %30 = lshr i64 %.119, 28
-  %.not = icmp ult i64 %.119, 268435456
+  %.not = icmp samesign ult i64 %.119, 268435456
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit, %.preheader, %2, %5, %3
@@ -1815,7 +1815,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt6
   br label %53
 
 .preheader.i:                                     ; preds = %53
-  %.not18.i = icmp ult i64 %58, 268435456
+  %.not18.i = icmp samesign ult i64 %58, 268435456
   br i1 %.not18.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i
 
 53:                                               ; preds = %53, %.lr.ph.i53
@@ -1889,7 +1889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
   br label %78
 
 .preheader.i63:                                   ; preds = %78
-  %.not18.i64 = icmp ult i64 %83, 268435456
+  %.not18.i64 = icmp samesign ult i64 %83, 268435456
   br i1 %.not18.i64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69, label %.lr.ph20.i65
 
 78:                                               ; preds = %78, %.lr.ph.i57
@@ -2492,7 +2492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjE
   %.02947 = phi i32 [ 0, %.lr.ph ], [ %51, %43 ]
   %.03046 = phi i32 [ %41, %.lr.ph ], [ %50, %43 ]
   %44 = and i32 %.03046, 15
-  %45 = icmp ult i32 %44, 10
+  %45 = icmp samesign ult i32 %44, 10
   %46 = trunc nuw nsw i32 %44 to i8
   %47 = or disjoint i8 %46, 48
   %48 = add nuw nsw i8 %46, 55
@@ -2530,7 +2530,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjE
   %indvars.iv72 = phi i64 [ %60, %.lr.ph56.preheader ], [ %indvars.iv.next73, %.lr.ph56 ]
   %.054 = phi i32 [ %59, %.lr.ph56.preheader ], [ %67, %.lr.ph56 ]
   %61 = and i32 %.054, 15
-  %62 = icmp ult i32 %61, 10
+  %62 = icmp samesign ult i32 %61, 10
   %63 = trunc nuw nsw i32 %61 to i8
   %64 = or disjoint i8 %63, 48
   %65 = add nuw nsw i8 %63, 55

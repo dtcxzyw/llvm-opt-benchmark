@@ -1165,7 +1165,7 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi8
   %37 = load i32, ptr %36, align 8, !tbaa !128
   %38 = getelementptr inbounds i8, ptr %35, i64 32
   %39 = load i32, ptr %38, align 8, !tbaa !129
-  %40 = icmp uge i32 %37, %39
+  %40 = icmp samesign uge i32 %37, %39
   call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %37, -1
   call void @llvm.assume(i1 %41)
@@ -1176,7 +1176,7 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi8
   %45 = zext i32 %43 to i64
   %46 = add nuw nsw i64 %45, %44
   %47 = zext nneg i32 %37 to i64
-  %48 = icmp ugt i64 %46, %47
+  %48 = icmp samesign ugt i64 %46, %47
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %34
@@ -1888,7 +1888,7 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi3
   %31 = load i32, ptr %30, align 8, !tbaa !128
   %32 = getelementptr inbounds i8, ptr %29, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !129
-  %34 = icmp uge i32 %31, %33
+  %34 = icmp samesign uge i32 %31, %33
   call void @llvm.assume(i1 %34)
   %35 = icmp sgt i32 %31, -1
   call void @llvm.assume(i1 %35)
@@ -1899,7 +1899,7 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi3
   %39 = zext i32 %37 to i64
   %40 = add nuw nsw i64 %39, %38
   %41 = zext nneg i32 %31 to i64
-  %42 = icmp ugt i64 %40, %41
+  %42 = icmp samesign ugt i64 %40, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %28

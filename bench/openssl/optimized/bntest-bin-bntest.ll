@@ -964,7 +964,7 @@ for.cond:                                         ; preds = %land.lhs.true58
 
 for.body:                                         ; preds = %lor.lhs.false5, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %lor.lhs.false5 ]
-  %cmp9 = icmp ult i64 %indvars.iv, 50
+  %cmp9 = icmp samesign ult i64 %indvars.iv, 50
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %for.body
@@ -1109,7 +1109,7 @@ for.cond:                                         ; preds = %land.lhs.true84
 
 for.body:                                         ; preds = %lor.lhs.false17, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %lor.lhs.false17 ]
-  %cmp21 = icmp ult i64 %indvars.iv, 50
+  %cmp21 = icmp samesign ult i64 %indvars.iv, 50
   br i1 %cmp21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body

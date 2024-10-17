@@ -5285,7 +5285,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE6insertES3_.exit36.i.i: ; pre
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i15.i.i.i
   %603 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %604 = lshr i64 %603, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph3SCCES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i15.i.i.i, !llvm.loop !86
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph3SCCES3_EC2ES4_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i15.i.i.i, %596
@@ -6367,7 +6367,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i: ; preds = %_ZNK4llv
 select.unfold.i.i.i.i122.i:                       ; preds = %.lr.ph.i.i15.i.i119.i
   %1059 = add nuw nsw i64 %storemerge26.i.i.i.i120.i, 1
   %1060 = lshr i64 %1059, 1
-  %.not10.i.i.i.i123.i = icmp ult i64 %storemerge26.i.i.i.i120.i, 2
+  %.not10.i.i.i.i123.i = icmp samesign ult i64 %storemerge26.i.i.i.i120.i, 2
   br i1 %.not10.i.i.i.i123.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph3SCCES3_EC2ES4_l.exit.i.i116.i, label %.lr.ph.i.i15.i.i119.i, !llvm.loop !86
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph3SCCES3_EC2ES4_l.exit.i.i116.i: ; preds = %select.unfold.i.i.i.i122.i, %.lr.ph.i.i15.i.i119.i, %1052
@@ -11080,7 +11080,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit38.i.i: ; 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i15.i.i.i
   %569 = add nuw nsw i64 %storemerge26.i.i.i.i.i, 1
   %570 = lshr i64 %569, 1
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i.i, 2
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i.i, 2
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i, label %.lr.ph.i.i15.i.i.i, !llvm.loop !157
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i.i: ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i15.i.i.i, %562
@@ -12164,7 +12164,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i: ; preds = %_ZNK4llv
 select.unfold.i.i.i.i123.i:                       ; preds = %.lr.ph.i.i15.i.i120.i
   %1023 = add nuw nsw i64 %storemerge26.i.i.i.i121.i, 1
   %1024 = lshr i64 %1023, 1
-  %.not10.i.i.i.i124.i = icmp ult i64 %storemerge26.i.i.i.i121.i, 2
+  %.not10.i.i.i.i124.i = icmp samesign ult i64 %storemerge26.i.i.i.i121.i, 2
   br i1 %.not10.i.i.i.i124.i, label %_ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i117.i, label %.lr.ph.i.i15.i.i120.i, !llvm.loop !157
 
 _ZNSt17_Temporary_bufferIPPN4llvm13LazyCallGraph6RefSCCES3_EC2ES4_l.exit.i.i117.i: ; preds = %select.unfold.i.i.i.i123.i, %.lr.ph.i.i15.i.i120.i, %1016

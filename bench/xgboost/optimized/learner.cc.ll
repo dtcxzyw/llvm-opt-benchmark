@@ -7736,7 +7736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !94
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %48 = icmp ugt i64 %.06.i.i.i.i, 144115188075855870
+  %48 = icmp samesign ugt i64 %.06.i.i.i.i, 144115188075855870
   br i1 %48, label %49, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i.i.i
 
 49:                                               ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i
@@ -8058,7 +8058,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %.not.i.i.i.i59, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i60, label %.lr.ph.i.i.i.i56, !llvm.loop !94
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i60: ; preds = %.lr.ph.i.i.i.i56
-  %169 = icmp ugt i64 %.06.i.i.i.i57, 144115188075855870
+  %169 = icmp samesign ugt i64 %.06.i.i.i.i57, 144115188075855870
   br i1 %169, label %170, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i.i.i61
 
 170:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i60
@@ -9460,7 +9460,7 @@ _ZNSt6vectorISt10unique_ptrIN7xgboost6MetricESt14default_deleteIS2_EESaIS5_EE12e
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !114
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %114 = icmp ugt i64 %.06.i.i.i.i, 144115188075855870
+  %114 = icmp samesign ugt i64 %.06.i.i.i.i, 144115188075855870
   br i1 %114, label %115, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i.i.i
 
 115:                                              ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i
@@ -10223,7 +10223,7 @@ define linkonce_odr void @_ZN7xgboost11LearnerImpl7PredictESt10shared_ptrINS_7DM
   tail call void @_ZNK7xgboost20LearnerConfiguration21CheckModelInitializedEv(ptr noundef nonnull align 8 dereferenceable(904) %0)
   store i32 %21, ptr %12, align 4, !noalias !116
   store i32 1, ptr %13, align 4, !noalias !116
-  %27 = icmp ult i32 %21, 2
+  %27 = icmp samesign ult i32 %21, 2
   br i1 %27, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %28
 
 28:                                               ; preds = %26
@@ -14097,7 +14097,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i.i.i.i69, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !114
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %277 = icmp ugt i64 %.06.i.i.i.i, 144115188075855870
+  %277 = icmp samesign ugt i64 %.06.i.i.i.i, 144115188075855870
   br i1 %277, label %278, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i.i.i
 
 278:                                              ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i
@@ -31609,7 +31609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180: ;
   br i1 %.not.i.i.i.i182, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i, label %.lr.ph.i.i.i.i181, !llvm.loop !94
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i181
-  %244 = icmp ugt i64 %.06.i.i.i.i, 144115188075855870
+  %244 = icmp samesign ugt i64 %.06.i.i.i.i, 144115188075855870
   br i1 %244, label %.noexc.i, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit.i.i
@@ -34747,7 +34747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -42429,7 +42429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -49070,7 +49070,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.0117180 = phi i32 [ %109, %108 ], [ 0, %.preheader161 ]
   %.0118179 = phi i64 [ %.1119, %108 ], [ 0, %.preheader161 ]
   %.0120178 = phi i64 [ %.1121, %108 ], [ 1, %.preheader161 ]
-  %101 = icmp ult i32 %.0117180, 19
+  %101 = icmp samesign ult i32 %.0117180, 19
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %.lr.ph182

@@ -698,7 +698,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr nocapture noun
   %19 = getelementptr inbounds [6 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 255
-  %22 = icmp ugt i32 %.014, %21
+  %22 = icmp samesign ugt i32 %.014, %21
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %2

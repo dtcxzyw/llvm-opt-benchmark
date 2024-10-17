@@ -3695,13 +3695,13 @@ if.end:                                           ; preds = %land.lhs.true22.i
   %15 = load i8, ptr %param1, align 2, !tbaa !170
   %conv24 = zext i8 %15 to i32
   %and25 = and i32 %conv24, 15
-  %cmp26.not = icmp ult i32 %and25, %conv23
+  %cmp26.not = icmp samesign ult i32 %and25, %conv23
   br i1 %cmp26.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %conv27 = zext i8 %light_night.0 to i32
   %and30 = and i32 %conv24, 240
-  %cmp31.not = icmp ult i32 %and30, %conv27
+  %cmp31.not = icmp samesign ult i32 %and30, %conv27
   br i1 %cmp31.not, label %lor.rhs, label %cleanup.cont
 
 lor.rhs:                                          ; preds = %land.lhs.true, %if.end
@@ -4393,9 +4393,9 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %27 = load i8, ptr %param1.i, align 2, !tbaa !170
   %conv24.i = zext i8 %27 to i32
   %and25.i = and i32 %conv24.i, 15
-  %cmp26.not.i = icmp ult i32 %and25.i, %conv23.i
+  %cmp26.not.i = icmp samesign ult i32 %and25.i, %conv23.i
   %and30.i = and i32 %conv24.i, 240
-  %cmp31.not.i = icmp ult i32 %and30.i, %conv27.i
+  %cmp31.not.i = icmp samesign ult i32 %and30.i, %conv27.i
   %or.cond = or i1 %cmp26.not.i, %cmp31.not.i
   br i1 %or.cond, label %lor.rhs.i, label %invoke.cont59
 
@@ -4759,13 +4759,13 @@ if.end.i200:                                      ; preds = %land.lhs.true22.i.i
   %75 = load i8, ptr %param1.i227, align 2, !tbaa !170
   %conv24.i228 = zext i8 %75 to i32
   %and25.i229 = and i32 %conv24.i228, 15
-  %cmp26.not.i230 = icmp ult i32 %and25.i229, %conv23.i226
+  %cmp26.not.i230 = icmp samesign ult i32 %and25.i229, %conv23.i226
   br i1 %cmp26.not.i230, label %lor.rhs.i235, label %land.lhs.true.i231
 
 land.lhs.true.i231:                               ; preds = %if.end.i200
   %conv27.i232 = zext i8 %light_night.0.i225 to i32
   %and30.i233 = and i32 %conv24.i228, 240
-  %cmp31.not.i234 = icmp ult i32 %and30.i233, %conv27.i232
+  %cmp31.not.i234 = icmp samesign ult i32 %and30.i233, %conv27.i232
   br i1 %cmp31.not.i234, label %lor.rhs.i235, label %invoke.cont98
 
 lor.rhs.i235:                                     ; preds = %land.lhs.true.i231, %if.end.i200
@@ -7311,7 +7311,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %cond.i.i, %invoke.cont.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i

@@ -5301,7 +5301,7 @@ _ZNK4llvm4User10getOperandEj.exit1033:            ; preds = %2392, %2395
   %2415 = sub i32 %219, %.0.i1029
   %2416 = sub nuw nsw i64 %2412, %2371
   %2417 = zext i32 %2415 to i64
-  %.not669 = icmp ult i64 %2416, %2417
+  %.not669 = icmp samesign ult i64 %2416, %2417
   br i1 %.not669, label %2431, label %2418
 
 2418:                                             ; preds = %2414
@@ -13116,7 +13116,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -15706,7 +15706,7 @@ _ZN4llvm5APIntD2Ev.exit366:                       ; preds = %318, %315, %_ZN4llv
   %319 = load i32, ptr %235, align 4
   %320 = and i32 %319, 134217727
   %321 = zext nneg i32 %320 to i64
-  %322 = icmp ult i64 %indvars.iv.next607, %321
+  %322 = icmp samesign ult i64 %indvars.iv.next607, %321
   br i1 %322, label %243, label %_ZN4llvm5APIntD2Ev.exit371, !llvm.loop !212
 
 323:                                              ; preds = %229

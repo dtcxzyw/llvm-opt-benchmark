@@ -374,7 +374,7 @@ define internal fastcc void @__linkwatch_run_queue(i32 noundef range(i32 0, 2) %
   br i1 %89, label %79, label %linkwatch_urgent_event.exit, !llvm.loop !7
 
 linkwatch_urgent_event.exit:                      ; preds = %83
-  %90 = icmp ult i64 %81, %78
+  %90 = icmp samesign ult i64 %81, %78
   br i1 %90, label %linkwatch_urgent_event.exit.thread, label %linkwatch_urgent_event.exit.thread8
 
 linkwatch_urgent_event.exit.thread8:              ; preds = %79, %66, %62, %39, %linkwatch_urgent_event.exit, %.preheader
@@ -572,7 +572,7 @@ define dso_local void @linkwatch_fire_event(ptr noundef %0) #0 align 16 {
 
 53:                                               ; preds = %46, %42
   %.lcssa.i = phi i64 [ %44, %46 ], [ %41, %42 ]
-  %54 = icmp ult i64 %.lcssa.i, %41
+  %54 = icmp samesign ult i64 %.lcssa.i, %41
   br label %linkwatch_urgent_event.exit
 
 linkwatch_urgent_event.exit:                      ; preds = %1, %6, %11, %20, %25, %29, %32, %53

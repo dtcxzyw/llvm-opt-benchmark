@@ -3882,7 +3882,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h8b3e76087b9c8081E.exit: ; preds
   %.0105 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h15b5146c44fcbd26E.exit" ], [ %.0.i, %._crit_edge ]
   %48 = sub nuw i64 %1, %.0105
   %49 = getelementptr inbounds { { i64, [8 x i64] }, i16, [3 x i16] }, ptr %0, i64 %.0105
-  %50 = icmp ult i64 %48, 2
+  %50 = icmp samesign ult i64 %48, 2
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %45
@@ -4540,7 +4540,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h15e77ee1c755d5a1E.exit: ; preds
   %.0142 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h776c4e911adb330cE.exit" ], [ %.0.i, %._crit_edge ]
   %50 = sub nuw i64 %1, %.0142
   %51 = getelementptr inbounds { { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, i16, [3 x i16] }, ptr %0, i64 %.0142
-  %52 = icmp ult i64 %50, 2
+  %52 = icmp samesign ult i64 %50, 2
   br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %47
@@ -5254,7 +5254,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hc608d402055874b8E(ptr noal
   %.0118 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h05f8dec607d41149E.exit" ], [ %.0.i, %._crit_edge ]
   %49 = sub nuw i64 %1, %.0118
   %50 = getelementptr inbounds { { i64, [2 x i64] }, i16, [3 x i16] }, ptr %0, i64 %.0118
-  %51 = icmp ult i64 %49, 2
+  %51 = icmp samesign ult i64 %49, 2
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
@@ -5316,7 +5316,7 @@ switch.lookup243:                                 ; preds = %66
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit.i": ; preds = %switch.lookup243, %71, %66, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i
   %.0.i12.i.i.i = phi i8 [ 1, %71 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i ], [ 0, %66 ], [ %switch.masked247, %switch.lookup243 ]
   %.not.i.i.i = icmp eq i16 %55, %57
-  %72 = icmp ult i8 %.0.i.i.i.i, %.0.i12.i.i.i
+  %72 = icmp samesign ult i8 %.0.i.i.i.i, %.0.i12.i.i.i
   %73 = icmp ult i16 %55, %57
   %74 = select i1 %.not.i.i.i, i1 %72, i1 %73
   %.not11.i = icmp eq i64 %49, 2
@@ -5391,7 +5391,7 @@ switch.lookup253:                                 ; preds = %90
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit33.i": ; preds = %switch.lookup253, %95, %90, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i28.i
   %.0.i12.i.i30.i = phi i8 [ 1, %95 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i28.i ], [ 0, %90 ], [ %switch.masked257, %switch.lookup253 ]
   %.not.i.i31.i = icmp eq i16 %75, %81
-  %96 = icmp ult i8 %.0.i.i.i29.i, %.0.i12.i.i30.i
+  %96 = icmp samesign ult i8 %.0.i.i.i29.i, %.0.i12.i.i30.i
   %97 = icmp ult i16 %75, %81
   %98 = select i1 %.not.i.i31.i, i1 %96, i1 %97
   br i1 %98, label %.thread, label %99
@@ -5464,7 +5464,7 @@ switch.lookup263:                                 ; preds = %116
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit39.i": ; preds = %switch.lookup263, %121, %116, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i34.i
   %.0.i12.i.i36.i = phi i8 [ 1, %121 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i34.i ], [ 0, %116 ], [ %switch.masked267, %switch.lookup263 ]
   %.not.i.i37.i = icmp eq i16 %101, %107
-  %122 = icmp ult i8 %.0.i.i.i35.i, %.0.i12.i.i36.i
+  %122 = icmp samesign ult i8 %.0.i.i.i35.i, %.0.i12.i.i36.i
   %123 = icmp ult i16 %101, %107
   %124 = select i1 %.not.i.i37.i, i1 %122, i1 %123
   br i1 %124, label %125, label %.loopexit76
@@ -5856,7 +5856,7 @@ switch.lookup273:                                 ; preds = %264
 270:                                              ; preds = %switch.lookup273, %269, %264, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i58
   %.0.i12.i.i.i60 = phi i8 [ 1, %269 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i58 ], [ 0, %264 ], [ %switch.masked277, %switch.lookup273 ]
   %.not.i.i.i61 = icmp eq i16 %252, %254
-  %271 = icmp ult i8 %.0.i.i.i.i59, %.0.i12.i.i.i60
+  %271 = icmp samesign ult i8 %.0.i.i.i.i59, %.0.i12.i.i.i60
   %272 = icmp ult i16 %252, %254
   %273 = select i1 %.not.i.i.i61, i1 %271, i1 %272
   %.neg.i = sext i1 %273 to i64
@@ -5933,7 +5933,7 @@ switch.lookup283:                                 ; preds = %292
 298:                                              ; preds = %switch.lookup283, %297, %292, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i35.i
   %.0.i12.i.i37.i = phi i8 [ 1, %297 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i35.i ], [ 0, %292 ], [ %switch.masked287, %switch.lookup283 ]
   %.not.i.i38.i = icmp eq i16 %281, %283
-  %299 = icmp ult i8 %.0.i.i.i36.i, %.0.i12.i.i37.i
+  %299 = icmp samesign ult i8 %.0.i.i.i36.i, %.0.i12.i.i37.i
   %300 = icmp ult i16 %281, %283
   %301 = select i1 %.not.i.i38.i, i1 %299, i1 %300
   %.029.i = select i1 %301, ptr %.02822.i, ptr %.sroa.0.121.i
@@ -6064,7 +6064,7 @@ switch.lookup8:                                   ; preds = %22
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit.i": ; preds = %switch.lookup8, %27, %22, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i
   %.0.i12.i.i.i = phi i8 [ 1, %27 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i.i ], [ 0, %22 ], [ %switch.masked12, %switch.lookup8 ]
   %.not.i.i.i = icmp eq i16 %11, %13
-  %28 = icmp ult i8 %.0.i.i.i.i, %.0.i12.i.i.i
+  %28 = icmp samesign ult i8 %.0.i.i.i.i, %.0.i12.i.i.i
   %29 = icmp ult i16 %11, %13
   %30 = select i1 %.not.i.i.i, i1 %28, i1 %29
   br i1 %30, label %31, label %_ZN4core5slice4sort11insert_tail17h2fd1ecfac1daa690E.exit
@@ -6152,7 +6152,7 @@ switch.lookup18:                                  ; preds = %_ZN9actix_web4http6
 45:                                               ; preds = %switch.lookup18, %44, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i13.i
   %.0.i12.i.i15.i = phi i8 [ 1, %44 ], [ 0, %_ZN9actix_web4http6header15accept_encoding13encoding_rank17h6ef6c974e20bb582E.exit.i.i13.i ], [ %switch.masked22, %switch.lookup18 ]
   %.not.i.i16.i = icmp eq i16 %36, %13
-  %46 = icmp ult i8 %.0.i.i.i14.i, %.0.i12.i.i15.i
+  %46 = icmp samesign ult i8 %.0.i.i.i14.i, %.0.i12.i.i15.i
   %47 = icmp ult i16 %36, %13
   %48 = select i1 %.not.i.i16.i, i1 %46, i1 %47
   br i1 %48, label %49, label %.thread.i

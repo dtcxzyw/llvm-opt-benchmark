@@ -99,7 +99,7 @@ if.then.i.i:                                      ; preds = %if.end6.i
   unreachable
 
 xsize_t.exit.i:                                   ; preds = %if.end6.i
-  %cmp8.i = icmp ult i64 %3, 12
+  %cmp8.i = icmp samesign ult i64 %3, 12
   br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
 
 if.then9.i:                                       ; preds = %xsize_t.exit.i

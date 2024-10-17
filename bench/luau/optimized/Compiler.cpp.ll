@@ -23139,10 +23139,10 @@ _ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHas
   store i64 0, ptr %10, align 8
   %69 = getelementptr inbounds i8, ptr %2, i64 96
   %70 = load i64, ptr %69, align 8
-  %.not73 = icmp eq i64 %70, 0
+  %.not74 = icmp eq i64 %70, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 48
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not73, label %.critedge, label %.lr.ph67
+  br i1 %.not74, label %.critedge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %68
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %.pre, i64 8)
@@ -23150,8 +23150,8 @@ _ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHas
   %72 = getelementptr inbounds i8, ptr %0, i64 224
   %73 = getelementptr inbounds i8, ptr %0, i64 240
   %74 = load i64, ptr %73, align 8
-  %.fr74 = freeze i64 %74
-  %75 = icmp eq i64 %.fr74, 0
+  %.fr = freeze i64 %74
+  %75 = icmp eq i64 %.fr, 0
   %76 = getelementptr inbounds i8, ptr %0, i64 248
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 232
@@ -23242,18 +23242,18 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit: ; preds = %98, %100, %84, %103
 
 119:                                              ; preds = %112
   %120 = load i64, ptr %111, align 8
-  %invariant.umin69 = tail call i64 @llvm.umin.i64(i64 %.pre80, i64 8)
-  %121 = icmp ult i64 %120, %invariant.umin69
-  br i1 %121, label %.lr.ph72.preheader, label %.loopexit
+  %invariant.umin70 = tail call i64 @llvm.umin.i64(i64 %.pre80, i64 8)
+  %121 = icmp ult i64 %120, %invariant.umin70
+  br i1 %121, label %.lr.ph73.preheader, label %.loopexit
 
-.lr.ph72.preheader:                               ; preds = %119
+.lr.ph73.preheader:                               ; preds = %119
   %scevgep = getelementptr i8, ptr %10, i64 %120
-  %122 = sub nuw nsw i64 %invariant.umin69, %120
+  %122 = sub nuw nsw i64 %invariant.umin70, %120
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 1, i64 %122, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph72.preheader, %119, %112, %.critedge
-  %123 = phi i64 [ %.pre80, %.lr.ph72.preheader ], [ %.pre80, %119 ], [ %.pre80, %112 ], [ %70, %.critedge ]
+.loopexit:                                        ; preds = %.lr.ph73.preheader, %119, %112, %.critedge
+  %123 = phi i64 [ %.pre80, %.lr.ph73.preheader ], [ %.pre80, %119 ], [ %.pre80, %112 ], [ %70, %.critedge ]
   %124 = getelementptr inbounds i8, ptr %38, i64 32
   %125 = load i64, ptr %124, align 8
   %126 = trunc i64 %123 to i32

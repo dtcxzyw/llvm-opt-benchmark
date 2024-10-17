@@ -3489,15 +3489,15 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %.noexc44
   ]
 
 258:                                              ; preds = %257
-  %259 = icmp ult i32 %.sroa.4.0.i.ph.i, 127
+  %259 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 127
   br i1 %259, label %262, label %260
 
 260:                                              ; preds = %258
-  %261 = icmp ugt i32 %.sroa.4.0.i.ph.i, 159
+  %261 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 159
   br i1 %261, label %264, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread178.i
 
 262:                                              ; preds = %258
-  %263 = icmp ugt i32 %.sroa.4.0.i.ph.i, 31
+  %263 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 31
   %spec.select186.i = zext i1 %263 to i64
   br label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread178.i
 

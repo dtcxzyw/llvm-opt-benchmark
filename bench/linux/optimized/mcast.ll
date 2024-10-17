@@ -6246,7 +6246,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 18:                                               ; preds = %13
   %19 = icmp eq i32 %2, 2
-  %20 = icmp ult i32 %2, 3
+  %20 = icmp samesign ult i32 %2, 3
   %21 = icmp eq i32 %2, 4
   %22 = or i1 %19, %21
   %23 = icmp eq i32 %4, 0

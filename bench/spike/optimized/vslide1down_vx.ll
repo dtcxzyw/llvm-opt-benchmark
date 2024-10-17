@@ -1770,7 +1770,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %134 = lshr i64 %1, 15
   %135 = add i64 %125, -1
   %136 = and i64 %134, 31
-  %137 = icmp ugt i64 %136, 15
+  %137 = icmp samesign ugt i64 %136, 15
   %138 = getelementptr inbounds i8, ptr %0, i64 120
   %139 = getelementptr inbounds [32 x i64], ptr %138, i64 0, i64 %136
   br label %140
@@ -2187,7 +2187,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %134 = lshr i64 %1, 15
   %135 = add i64 %125, -1
   %136 = and i64 %134, 31
-  %137 = icmp ugt i64 %136, 15
+  %137 = icmp samesign ugt i64 %136, 15
   %138 = getelementptr inbounds i8, ptr %0, i64 120
   %139 = getelementptr inbounds [32 x i64], ptr %138, i64 0, i64 %136
   br label %140
@@ -2602,7 +2602,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %134 = lshr i64 %1, 15
   %135 = add i64 %125, -1
   %136 = and i64 %134, 31
-  %137 = icmp ugt i64 %136, 15
+  %137 = icmp samesign ugt i64 %136, 15
   %138 = getelementptr inbounds i8, ptr %0, i64 120
   %139 = getelementptr inbounds [32 x i64], ptr %138, i64 0, i64 %136
   br label %140
@@ -3019,7 +3019,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %134 = lshr i64 %1, 15
   %135 = add i64 %125, -1
   %136 = and i64 %134, 31
-  %137 = icmp ugt i64 %136, 15
+  %137 = icmp samesign ugt i64 %136, 15
   %138 = getelementptr inbounds i8, ptr %0, i64 120
   %139 = getelementptr inbounds [32 x i64], ptr %138, i64 0, i64 %136
   br label %140

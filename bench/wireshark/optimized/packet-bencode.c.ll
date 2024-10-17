@@ -259,7 +259,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br label %dissect_bencoding_int.exit
 
 85:                                               ; preds = %17
-  %86 = icmp ult i32 %3, 3
+  %86 = icmp samesign ult i32 %3, 3
   br i1 %86, label %87, label %.lr.ph.preheader.i
 
 87:                                               ; preds = %85
@@ -381,7 +381,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
-  %8 = icmp ult i32 %3, 2
+  %8 = icmp samesign ult i32 %3, 2
   br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %7

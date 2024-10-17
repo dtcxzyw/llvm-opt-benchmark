@@ -787,7 +787,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   %77 = phi i64 [ %78, %.preheader52 ], [ %72, %60 ]
   %78 = lshr i64 %77, 3
   %79 = add nuw nsw i32 %76, 1
-  %80 = icmp ugt i64 %77, 65535
+  %80 = icmp samesign ugt i64 %77, 65535
   br i1 %80, label %.preheader52, label %81, !llvm.loop !24
 
 81:                                               ; preds = %.preheader52
@@ -825,7 +825,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   %103 = phi i64 [ %104, %.preheader51 ], [ %72, %90 ]
   %104 = lshr i64 %103, 1
   %105 = add nuw nsw i32 %102, 1
-  %106 = icmp ugt i64 %103, 2097151
+  %106 = icmp samesign ugt i64 %103, 2097151
   br i1 %106, label %.preheader51, label %107, !llvm.loop !25
 
 107:                                              ; preds = %.preheader51
@@ -918,7 +918,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   %165 = phi i64 [ %166, %.preheader50 ], [ %161, %155 ]
   %166 = lshr i64 %165, 3
   %167 = add nuw nsw i32 %164, 1
-  %168 = icmp ugt i64 %165, 65535
+  %168 = icmp samesign ugt i64 %165, 65535
   br i1 %168, label %.preheader50, label %169, !llvm.loop !24
 
 169:                                              ; preds = %.preheader50
@@ -965,7 +965,7 @@ define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_a
   %195 = phi i64 [ %196, %.preheader49 ], [ %191, %186 ]
   %196 = lshr i64 %195, 3
   %197 = add nuw nsw i32 %194, 1
-  %198 = icmp ugt i64 %195, 65535
+  %198 = icmp samesign ugt i64 %195, 65535
   br i1 %198, label %.preheader49, label %199, !llvm.loop !24
 
 199:                                              ; preds = %.preheader49

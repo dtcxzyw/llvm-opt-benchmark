@@ -1078,7 +1078,7 @@ for.end215:                                       ; preds = %for.body205, %for.c
 
 for.end221:                                       ; preds = %for.cond170, %for.end215
   %62 = phi i32 [ %sub203.lcssa, %for.end215 ], [ %43, %for.cond170 ]
-  %cmp172268 = icmp ult i64 %indvars.iv254, %44
+  %cmp172268 = icmp samesign ult i64 %indvars.iv254, %44
   %cmp168 = icmp sgt i32 %62, 2
   %63 = and i1 %cmp172268, %cmp168
   br i1 %63, label %for.cond170.preheader, label %while.end, !llvm.loop !21
@@ -1286,7 +1286,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.cond11.for.cond.loopexit_crit_edge.us, %for.body.lr.ph
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.cond11.for.cond.loopexit_crit_edge.us ], [ 0, %for.body.lr.ph ]
-  %cmp6.us = icmp ult i64 %indvars.iv96, %2
+  %cmp6.us = icmp samesign ult i64 %indvars.iv96, %2
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %3 = and i64 %indvars.iv.next97, 4294967295
   %arrayidx.us = getelementptr inbounds [8 x %struct.b2Vec2], ptr %hull, i64 0, i64 %indvars.iv96

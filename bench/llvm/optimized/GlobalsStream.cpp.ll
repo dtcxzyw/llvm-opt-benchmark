@@ -1534,7 +1534,7 @@ _ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit: ; preds = %93, 
 110:                                              ; preds = %_ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit26
   %.022 = phi i32 [ %.0.copyload.i.i.i27, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit26 ], [ %109, %_ZNK4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEE4sizeEv.exit ]
   %111 = udiv i32 %.022, 12
-  %112 = icmp ult i32 %68, %111
+  %112 = icmp samesign ult i32 %68, %111
   br i1 %112, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %110

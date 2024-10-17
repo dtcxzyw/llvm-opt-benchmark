@@ -2051,7 +2051,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115GlobalMergeImpl7d
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm14GlobalVariableES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %16
@@ -4265,7 +4265,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit:                  ; preds = %.lr.ph.i, %_ZN4llvm
   br i1 %.not.i.i.i.i.i169, label %select.unfold.i.i.i.i.i171, label %1123
 
 select.unfold.i.i.i.i.i171:                       ; preds = %.lr.ph.i.i.i.i.i168
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i168, !llvm.loop !27
 
 1123:                                             ; preds = %.lr.ph.i.i.i.i.i168
@@ -6614,7 +6614,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %192, %_ZNSt6vectorI
   %233 = lshr i32 %229, 6
   %234 = add i32 %230, -1
   %235 = lshr i32 %234, 6
-  %.not32.i.i = icmp ugt i32 %233, %235
+  %.not32.i.i = icmp samesign ugt i32 %233, %235
   br i1 %.not32.i.i, label %_ZNK4llvm9BitVector9find_nextEj.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %232
@@ -6895,7 +6895,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN
   %380 = lshr i32 %376, 6
   %381 = add i32 %377, -1
   %382 = lshr i32 %381, 6
-  %.not32.i.i146 = icmp ugt i32 %380, %382
+  %.not32.i.i146 = icmp samesign ugt i32 %380, %382
   br i1 %.not32.i.i146, label %_ZNK4llvm9BitVector9find_nextEj.exit156, label %.lr.ph.i.i147
 
 .lr.ph.i.i147:                                    ; preds = %379

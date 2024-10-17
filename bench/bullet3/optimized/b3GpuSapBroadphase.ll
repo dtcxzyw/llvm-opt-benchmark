@@ -4191,7 +4191,7 @@ for.body657:                                      ; preds = %for.body657.prehead
   %y667 = getelementptr inbounds %struct.b3Int4, ptr %225, i64 %idxprom.i440, i32 0, i32 0, i32 1
   store i32 2147483647, ptr %y667, align 4
   %indvars.iv.next1050 = add nuw nsw i64 %indvars.iv1049, 1
-  %cmp656 = icmp ult i64 %indvars.iv.next1050, %221
+  %cmp656 = icmp samesign ult i64 %indvars.iv.next1050, %221
   br i1 %cmp656, label %for.body657, label %for.end670, !llvm.loop !36
 
 for.end670:                                       ; preds = %for.body657, %for.cond653.preheader
@@ -4648,7 +4648,7 @@ for.inc735:                                       ; preds = %if.then.i556, %_ZN2
   %inc.i555 = add nsw i32 %269, 1
   store i32 %inc.i555, ptr %m_size.i.i, align 4
   %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
-  %cmp730 = icmp ult i64 %indvars.iv.next1056, %238
+  %cmp730 = icmp samesign ult i64 %indvars.iv.next1056, %238
   br i1 %cmp730, label %for.body731, label %for.end737, !llvm.loop !38
 
 for.end737:                                       ; preds = %for.inc735, %for.cond685.preheader, %for.cond727.preheader
@@ -5124,7 +5124,7 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %smallAabbi.sroa.7.0.arrayidx.i95.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i95, i64 24
   %smallAabbi.sroa.7.0.copyload = load float, ptr %smallAabbi.sroa.7.0.arrayidx.i95.sroa_idx, align 8
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
-  %cmp92329 = icmp ult i64 %indvars.iv.next343, %3
+  %cmp92329 = icmp samesign ult i64 %indvars.iv.next343, %3
   br i1 %cmp92329, label %for.body93, label %for.cond82.loopexit
 
 for.body93:                                       ; preds = %for.body84, %for.inc112

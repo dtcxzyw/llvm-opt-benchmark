@@ -1194,7 +1194,7 @@ proto_item_set_generated.exit338:                 ; preds = %181, %190, %193
 249:                                              ; preds = %244
   %250 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #5
   %251 = zext i16 %250 to i32
-  %252 = icmp ult i32 %246, %251
+  %252 = icmp samesign ult i32 %246, %251
   br i1 %252, label %253, label %259
 
 253:                                              ; preds = %249
@@ -1836,14 +1836,14 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
   %606 = and i32 %605, 2147483647
   %607 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #5
   %608 = and i32 %607, 2147483647
-  %609 = icmp ult i32 %606, 86400000
-  %610 = icmp ugt i32 %608, 86399999
+  %609 = icmp samesign ult i32 %606, 86400000
+  %610 = icmp samesign ugt i32 %608, 86399999
   %or.cond.i = select i1 %609, i1 %610, i1 false
   br i1 %or.cond.i, label %get_best_guess_mstimeofday.exit, label %611
 
 611:                                              ; preds = %594
-  %612 = icmp ult i32 %608, 86400000
-  %613 = icmp ugt i32 %606, 86399999
+  %612 = icmp samesign ult i32 %608, 86400000
+  %613 = icmp samesign ugt i32 %606, 86399999
   %or.cond3.i = select i1 %612, i1 %613, i1 false
   br i1 %or.cond3.i, label %get_best_guess_mstimeofday.exit, label %614
 
@@ -1853,15 +1853,15 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
 
 615:                                              ; preds = %614
   %616 = icmp ult i32 %606, %604
-  %617 = icmp ult i32 %606, 21600001
-  %or.cond7.i = and i1 %617, %616
+  %617 = icmp samesign ult i32 %606, 21600001
+  %or.cond7.i = select i1 %616, i1 %617, i1 false
   %618 = icmp ugt i64 %603, 64799999
   %or.cond9.i = and i1 %618, %or.cond7.i
   %619 = add nuw nsw i32 %606, 86400000
   %spec.select.i = select i1 %or.cond9.i, i32 %619, i32 %606
   %620 = icmp ult i32 %608, %604
-  %621 = icmp ult i32 %608, 21600001
-  %or.cond11.i = and i1 %621, %620
+  %621 = icmp samesign ult i32 %608, 21600001
+  %or.cond11.i = select i1 %620, i1 %621, i1 false
   %or.cond13.i = and i1 %618, %or.cond11.i
   %622 = add nuw nsw i32 %608, 86400000
   %.050.i = select i1 %or.cond13.i, i32 %622, i32 %608
@@ -1893,14 +1893,14 @@ get_best_guess_mstimeofday.exit:                  ; preds = %594, %611, %615, %6
   %639 = and i32 %638, 2147483647
   %640 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #5
   %641 = and i32 %640, 2147483647
-  %642 = icmp ult i32 %639, 86400000
-  %643 = icmp ugt i32 %641, 86399999
+  %642 = icmp samesign ult i32 %639, 86400000
+  %643 = icmp samesign ugt i32 %641, 86399999
   %or.cond.i348 = select i1 %642, i1 %643, i1 false
   br i1 %or.cond.i348, label %get_best_guess_mstimeofday.exit360, label %644
 
 644:                                              ; preds = %get_best_guess_mstimeofday.exit
-  %645 = icmp ult i32 %641, 86400000
-  %646 = icmp ugt i32 %639, 86399999
+  %645 = icmp samesign ult i32 %641, 86400000
+  %646 = icmp samesign ugt i32 %639, 86399999
   %or.cond3.i349 = select i1 %645, i1 %646, i1 false
   br i1 %or.cond3.i349, label %get_best_guess_mstimeofday.exit360, label %647
 
@@ -1910,15 +1910,15 @@ get_best_guess_mstimeofday.exit:                  ; preds = %594, %611, %615, %6
 
 648:                                              ; preds = %647
   %649 = icmp ult i32 %639, %604
-  %650 = icmp ult i32 %639, 21600001
-  %or.cond7.i353 = and i1 %649, %650
+  %650 = icmp samesign ult i32 %639, 21600001
+  %or.cond7.i353 = select i1 %649, i1 %650, i1 false
   %651 = icmp ugt i64 %603, 64799999
   %or.cond9.i354 = and i1 %651, %or.cond7.i353
   %652 = add nuw nsw i32 %639, 86400000
   %spec.select.i355 = select i1 %or.cond9.i354, i32 %652, i32 %639
   %653 = icmp ult i32 %641, %604
-  %654 = icmp ult i32 %641, 21600001
-  %or.cond11.i356 = and i1 %653, %654
+  %654 = icmp samesign ult i32 %641, 21600001
+  %or.cond11.i356 = select i1 %653, i1 %654, i1 false
   %or.cond13.i357 = and i1 %651, %or.cond11.i356
   %655 = add nuw nsw i32 %641, 86400000
   %.050.i358 = select i1 %or.cond13.i357, i32 %655, i32 %641
@@ -1946,14 +1946,14 @@ get_best_guess_mstimeofday.exit360:               ; preds = %get_best_guess_msti
   %668 = and i32 %667, 2147483647
   %669 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #5
   %670 = and i32 %669, 2147483647
-  %671 = icmp ult i32 %668, 86400000
-  %672 = icmp ugt i32 %670, 86399999
+  %671 = icmp samesign ult i32 %668, 86400000
+  %672 = icmp samesign ugt i32 %670, 86399999
   %or.cond.i361 = select i1 %671, i1 %672, i1 false
   br i1 %or.cond.i361, label %get_best_guess_mstimeofday.exit373, label %673
 
 673:                                              ; preds = %get_best_guess_mstimeofday.exit360
-  %674 = icmp ult i32 %670, 86400000
-  %675 = icmp ugt i32 %668, 86399999
+  %674 = icmp samesign ult i32 %670, 86400000
+  %675 = icmp samesign ugt i32 %668, 86399999
   %or.cond3.i362 = select i1 %674, i1 %675, i1 false
   br i1 %or.cond3.i362, label %get_best_guess_mstimeofday.exit373, label %676
 
@@ -1963,15 +1963,15 @@ get_best_guess_mstimeofday.exit360:               ; preds = %get_best_guess_msti
 
 677:                                              ; preds = %676
   %678 = icmp ult i32 %668, %604
-  %679 = icmp ult i32 %668, 21600001
-  %or.cond7.i366 = and i1 %678, %679
+  %679 = icmp samesign ult i32 %668, 21600001
+  %or.cond7.i366 = select i1 %678, i1 %679, i1 false
   %680 = icmp ugt i64 %603, 64799999
   %or.cond9.i367 = and i1 %680, %or.cond7.i366
   %681 = add nuw nsw i32 %668, 86400000
   %spec.select.i368 = select i1 %or.cond9.i367, i32 %681, i32 %668
   %682 = icmp ult i32 %670, %604
-  %683 = icmp ult i32 %670, 21600001
-  %or.cond11.i369 = and i1 %682, %683
+  %683 = icmp samesign ult i32 %670, 21600001
+  %or.cond11.i369 = select i1 %682, i1 %683, i1 false
   %or.cond13.i370 = and i1 %680, %or.cond11.i369
   %684 = add nuw nsw i32 %670, 86400000
   %.050.i371 = select i1 %or.cond13.i370, i32 %684, i32 %670
@@ -2721,7 +2721,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   %31 = load i32, ptr @ett_icmp_mip_flags, align 4
   %32 = call ptr @proto_tree_add_bitmask(ptr noundef %14, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_mip_extensions.flags, i32 noundef 0) #5
   %33 = add i32 %.06278, 8
-  %34 = icmp ugt i32 %.064, 9
+  %34 = icmp samesign ugt i32 %.064, 9
   br i1 %34, label %.lr.ph76.preheader, label %.thread
 
 .lr.ph76.preheader:                               ; preds = %23

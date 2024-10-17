@@ -2498,7 +2498,7 @@ land.lhs.true47:                                  ; preds = %if.end40
   br i1 %or.cond43, label %if.end70, label %if.then57
 
 if.then57:                                        ; preds = %land.lhs.true47
-  %cmp.i.i56 = icmp ult i64 %or7.i.i, 3
+  %cmp.i.i56 = icmp samesign ult i64 %or7.i.i, 3
   br i1 %cmp.i.i56, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.then57

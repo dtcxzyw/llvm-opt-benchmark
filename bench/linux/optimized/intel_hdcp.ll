@@ -3917,7 +3917,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %437 = add nuw nsw i64 %434, 1
   %438 = load i16, ptr %428, align 2
   %439 = zext i16 %438 to i64
-  %440 = icmp ult i64 %437, %439
+  %440 = icmp samesign ult i64 %437, %439
   br i1 %440, label %433, label %.loopexit159, !llvm.loop !80
 
 .loopexit159:                                     ; preds = %433, %425, %.thread131, %.thread133
@@ -4001,7 +4001,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %483 = add nuw nsw i64 %474, 1
   %484 = load i16, ptr %467, align 2
   %485 = zext i16 %484 to i64
-  %486 = icmp ult i64 %483, %485
+  %486 = icmp samesign ult i64 %483, %485
   br i1 %486, label %473, label %.loopexit.loopexit, !llvm.loop !81
 
 .loopexit.loopexit:                               ; preds = %473

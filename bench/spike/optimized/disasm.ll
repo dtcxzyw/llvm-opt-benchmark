@@ -10335,7 +10335,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %2212 = icmp ult i64 %2206, 16
   call void @llvm.assume(i1 %2212)
-  %.not.i = icmp ugt i64 %2209, 15
+  %.not.i = icmp samesign ugt i64 %2209, 15
   br i1 %.not.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3091, label %2214
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -17611,7 +17611,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %32
   %.0.lcssa.i = phi i32 [ %1, %32 ], [ %43, %.lr.ph.i2 ]
-  %58 = icmp ugt i32 %.0.lcssa.i, 9
+  %58 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %._crit_edge.i
@@ -21711,7 +21711,7 @@ define internal void @"_ZNK3$_89to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   %10 = trunc i64 %2 to i32
   %11 = lshr i32 %10, 4
   %12 = and i32 %11, 15
-  %13 = icmp ugt i32 %12, 3
+  %13 = icmp samesign ugt i32 %12, 3
   br i1 %13, label %14, label %88
 
 14:                                               ; preds = %3
@@ -28181,7 +28181,7 @@ define internal void @"_ZNK4$_329to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 7
-  %7 = icmp ult i64 %6, 2
+  %7 = icmp samesign ult i64 %6, 2
   %.v = select i1 %7, i64 8, i64 16
   %8 = or disjoint i64 %.v, %6
   %9 = getelementptr inbounds [32 x ptr], ptr @xpr_name, i64 0, i64 %8
@@ -28212,7 +28212,7 @@ define internal void @"_ZNK4$_339to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 7
-  %7 = icmp ult i64 %6, 2
+  %7 = icmp samesign ult i64 %6, 2
   %.v = select i1 %7, i64 8, i64 16
   %8 = or disjoint i64 %.v, %6
   %9 = getelementptr inbounds [32 x ptr], ptr @xpr_name, i64 0, i64 %8
@@ -30489,7 +30489,7 @@ define internal void @"_ZNK4$_589to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %.v = select i1 %.not, i64 2047, i64 1023
   %19 = and i64 %.v, %11
   %20 = trunc nuw nsw i64 %19 to i32
-  %.not9 = icmp ult i64 %19, 256
+  %.not9 = icmp samesign ult i64 %19, 256
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %.not9, label %30, label %22
 
@@ -31698,7 +31698,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i
@@ -31746,7 +31746,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %12 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %12)
-  %.not.i.i = icmp ugt i64 %8, 15
+  %.not.i.i = icmp samesign ugt i64 %8, 15
   br i1 %.not.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %14
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -31990,7 +31990,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %31
   %.0.lcssa.i = phi i64 [ %1, %31 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp ugt i64 %.0.lcssa.i, 9
+  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %._crit_edge.i

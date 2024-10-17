@@ -15771,7 +15771,7 @@ while.body.i.i.i.i.i.i2279:                       ; preds = %if.then.i.i2278, %w
   br i1 %cmp.i.not.i.i.i.i.i.i2281, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i, label %while.body.i.i.i.i.i.i2279, !llvm.loop !255
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i2279
-  %cmp.i.i.i.i.i2282 = icmp ugt i64 %__n.07.i.i.i.i.i.i, 2305843009213693950
+  %cmp.i.i.i.i.i2282 = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 2305843009213693950
   br i1 %cmp.i.i.i.i.i2282, label %if.then.i.i.i.i.i2456, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i.i.i
 
 if.then.i.i.i.i.i2456:                            ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i
@@ -15990,7 +15990,7 @@ while.body.i.i.i.i193.i.i:                        ; preds = %if.then66.i.i, %whi
   br i1 %cmp.i.not.i.i.i.i198.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i199.i.i, label %while.body.i.i.i.i193.i.i, !llvm.loop !255
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i199.i.i: ; preds = %while.body.i.i.i.i193.i.i
-  %cmp.i.i.i200.i.i = icmp ugt i64 %__n.07.i.i.i.i194.i.i, 2305843009213693950
+  %cmp.i.i.i200.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i194.i.i, 2305843009213693950
   br i1 %cmp.i.i.i200.i.i, label %if.then.i.i.i220.i.i, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i201.i.i
 
 if.then.i.i.i220.i.i:                             ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i199.i.i
@@ -16568,7 +16568,7 @@ while.body.i.i.i.i.i2359:                         ; preds = %invoke.cont10.i2358
   %_M_storage.i.i.i.i.i.i.i2362 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i2360, i64 32
   %1617 = load i32, ptr %_M_storage.i.i.i.i.i.i.i2362, align 4
   %1618 = zext i32 %1617 to i64
-  %cmp.i.i.i.i.i157.i = icmp ugt i64 %indvars.iv, %1618
+  %cmp.i.i.i.i.i157.i = icmp samesign ugt i64 %indvars.iv, %1618
   %__y.addr.1.i.i.i.i.i2365 = select i1 %cmp.i.i.i.i.i157.i, ptr %__y.addr.010.i.i.i.i.i2361, ptr %__x.addr.011.i.i.i.i.i2360
   %__x.addr.1.in.i.i.i.i.i2366.v = select i1 %cmp.i.i.i.i.i157.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i2366 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i2360, i64 %__x.addr.1.in.i.i.i.i.i2366.v
@@ -16585,7 +16585,7 @@ lor.lhs.false.i.i.i.i2369:                        ; preds = %_ZNKSt8_Rb_treeIjjS
   %__y.addr.1.i.i.i.i.i2365.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i2365.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1619 = load i32, ptr %__y.addr.1.i.i.i.i.i2365.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %1620 = zext i32 %1619 to i64
-  %cmp.i15.i.i.i.i2371 = icmp ult i64 %indvars.iv, %1620
+  %cmp.i15.i.i.i.i2371 = icmp samesign ult i64 %indvars.iv, %1620
   %spec.select.i.i.i.i2372 = select i1 %cmp.i15.i.i.i.i2371, ptr %391, ptr %__y.addr.1.i.i.i.i.i2365
   br label %invoke.cont12.i
 
@@ -16609,7 +16609,7 @@ for.body21.i:                                     ; preds = %invoke.cont30.i2378
   %queue.i.i2377 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0271.i, i64 140
   %1622 = load i32, ptr %queue.i.i2377, align 4
   %conv29.i = zext i32 %1622 to i64
-  %cmp.not.i.i166.i = icmp ugt i64 %sub.ptr.div.i.i.i165.i, %conv29.i
+  %cmp.not.i.i166.i = icmp samesign ugt i64 %sub.ptr.div.i.i.i165.i, %conv29.i
   br i1 %cmp.not.i.i166.i, label %invoke.cont30.i2378, label %if.then.i.i167.i
 
 if.then.i.i167.i:                                 ; preds = %for.body21.i
@@ -16678,7 +16678,7 @@ while.body.i.i.i.i.i178.i:                        ; preds = %while.body.i.i.i.i.
   %_M_storage.i.i.i.i.i.i.i181.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i179.i, i64 32
   %1628 = load i32, ptr %_M_storage.i.i.i.i.i.i.i181.i, align 4
   %1629 = zext i32 %1628 to i64
-  %cmp.i.i.i.i.i.i182.i = icmp ugt i64 %indvars.iv3325, %1629
+  %cmp.i.i.i.i.i.i182.i = icmp samesign ugt i64 %indvars.iv3325, %1629
   %__y.addr.1.i.i.i.i.i185.i = select i1 %cmp.i.i.i.i.i.i182.i, ptr %__y.addr.010.i.i.i.i.i180.i, ptr %__x.addr.011.i.i.i.i.i179.i
   %__x.addr.1.in.i.i.i.i.i186.i.v = select i1 %cmp.i.i.i.i.i.i182.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i186.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i179.i, i64 %__x.addr.1.in.i.i.i.i.i186.i.v
@@ -16695,7 +16695,7 @@ lor.rhs.i.i189.i:                                 ; preds = %_ZNKSt3mapIjN3ue211
   %__y.addr.1.i.i.i.i.i185.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i185.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1630 = load i32, ptr %__y.addr.1.i.i.i.i.i185.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %1631 = zext i32 %1630 to i64
-  %cmp.i10.i.i.i2407 = icmp ult i64 %indvars.iv3325, %1631
+  %cmp.i10.i.i.i2407 = icmp samesign ult i64 %indvars.iv3325, %1631
   br i1 %cmp.i10.i.i.i2407, label %if.then.i.i192.i.split, label %_ZNKSt3mapIjN3ue211engine_infoESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit.i.i
 
 if.then.i.i192.i.split:                           ; preds = %lor.rhs.i.i189.i, %_ZNKSt3mapIjN3ue211engine_infoESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i, %for.cond.cleanup50.i
@@ -16788,7 +16788,7 @@ invoke.cont72.i:                                  ; preds = %invoke.cont68.i
 
 if.then74.i:                                      ; preds = %invoke.cont72.i
   %conv75.i = zext i32 %1649 to i64
-  %cmp.not.i.i206.i = icmp ugt i64 %sub.ptr.div.i.i.i205.i, %conv75.i
+  %cmp.not.i.i206.i = icmp samesign ugt i64 %sub.ptr.div.i.i.i205.i, %conv75.i
   br i1 %cmp.not.i.i206.i, label %invoke.cont76.i, label %if.then.i.i207.i
 
 if.then.i.i207.i:                                 ; preds = %if.then74.i
@@ -21731,11 +21731,11 @@ _ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT
   br i1 %cmp.not6.i.i.i.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit, label %iter.check
 
 iter.check:                                       ; preds = %_ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit67
-  %min.iters.check = icmp ult i64 %sub.ptr.sub.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.sub.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check69 = icmp ult i64 %sub.ptr.sub.i, 32
+  %min.iters.check69 = icmp samesign ult i64 %sub.ptr.sub.i, 32
   br i1 %min.iters.check69, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check
@@ -49905,7 +49905,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.b
 if.end4.i:                                        ; preds = %while.body.i
   %add.i = add nuw nsw i64 %__len.addr.019.i, 1
   %div17.i = lshr i64 %add.i, 1
-  %cmp1.not.i = icmp ult i64 %__len.addr.019.i, 2
+  %cmp1.not.i = icmp samesign ult i64 %__len.addr.019.i, 2
   br i1 %cmp1.not.i, label %if.end, label %while.body.i, !llvm.loop !789
 
 if.then:                                          ; preds = %while.body.i

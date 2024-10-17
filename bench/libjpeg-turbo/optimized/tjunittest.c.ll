@@ -364,7 +364,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 87:                                               ; preds = %86
   %88 = shl nuw nsw i32 %.03036.i, 1
-  %89 = icmp ult i32 %.03036.i, 5
+  %89 = icmp samesign ult i32 %.03036.i, 5
   br i1 %89, label %.preheader.i, label %bmpTest.exit, !llvm.loop !8
 
 90:                                               ; preds = %46
@@ -1312,7 +1312,7 @@ setVal.exit135.us156.i.i:                         ; preds = %setVal.exit135.us15
   %.pn133.i.i = select i1 %.not.i, i32 %.0114172.i.i, i32 %121
   %.pn132.i.i = mul nsw i32 %.pn133.i.i, %0
   %122 = lshr i32 %.0114172.i.i, 3
-  %123 = icmp ult i32 %.0114172.i.i, 16
+  %123 = icmp samesign ult i32 %.0114172.i.i, 16
   %124 = select i1 %123, i32 %116, i32 %117
   %125 = trunc i32 %124 to i16
   %126 = trunc i32 %124 to i8
@@ -1426,7 +1426,7 @@ setVal.exit135.i.i:                               ; preds = %setVal.exit135.i.i,
   %.pn130.i.i = select i1 %.not.i, i32 %.1115163.i.i, i32 %160
   %.pn129.i.i = mul nsw i32 %.pn130.i.i, %0
   %161 = lshr i32 %.1115163.i.i, 3
-  %162 = icmp ugt i32 %.1115163.i.i, 15
+  %162 = icmp samesign ugt i32 %.1115163.i.i, 15
   br i1 %162, label %.preheader149.split.us.preheader.i.i, label %.preheader149.split.split.us.preheader.i.i
 
 .preheader149.split.us.preheader.i.i:             ; preds = %.preheader149.i.i
@@ -1576,7 +1576,7 @@ setVal.exit136.us161.i.i:                         ; preds = %setVal.exit137.us16
   %.pn127.i.i = select i1 %.not.i, i32 %.2116182.i.i, i32 %221
   %.pn.i.i = mul nsw i32 %.pn127.i.i, %0
   %222 = lshr i32 %.2116182.i.i, 3
-  %223 = icmp ult i32 %.2116182.i.i, 16
+  %223 = icmp samesign ult i32 %.2116182.i.i, 16
   br i1 %223, label %.preheader.split.us.preheader.i.i, label %.preheader.split.split.us.preheader.i.i
 
 .preheader.split.us.preheader.i.i:                ; preds = %.preheader.i.i
@@ -3333,7 +3333,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
   br i1 %52, label %57, label %54
 
 54:                                               ; preds = %.lr.ph.split.split.us260
-  %55 = icmp ugt i32 %35, %53
+  %55 = icmp samesign ugt i32 %35, %53
   %56 = icmp slt i32 %36, %53
   %or.cond178.us257 = select i1 %55, i1 true, i1 %56
   br i1 %or.cond178.us257, label %.split.us240, label %59
@@ -3365,7 +3365,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
   br i1 %65, label %70, label %67
 
 67:                                               ; preds = %.lr.ph.split.us.us
-  %68 = icmp ugt i32 %37, %66
+  %68 = icmp samesign ugt i32 %37, %66
   %69 = icmp slt i32 %38, %66
   %or.cond.us.us = select i1 %68, i1 true, i1 %69
   br i1 %or.cond.us.us, label %.split.us, label %72
@@ -3464,20 +3464,20 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
 
 114:                                              ; preds = %112
   %115 = zext i8 %104 to i32
-  %116 = icmp ugt i32 %86, %115
+  %116 = icmp samesign ugt i32 %86, %115
   %117 = icmp ult i32 %87, %115
   %or.cond183.us = select i1 %116, i1 true, i1 %117
   br i1 %or.cond183.us, label %.split336.us, label %125
 
 118:                                              ; preds = %.lr.ph.split.us326
-  %119 = icmp ugt i32 %92, %111
+  %119 = icmp samesign ugt i32 %92, %111
   %120 = icmp slt i32 %93, %111
   %or.cond = select i1 %119, i1 true, i1 %120
   br i1 %or.cond, label %.split308.us, label %121
 
 121:                                              ; preds = %118
   %122 = zext i8 %104 to i32
-  %123 = icmp ugt i32 %92, %122
+  %123 = icmp samesign ugt i32 %92, %122
   %124 = icmp ult i32 %93, %122
   %or.cond179.us323 = or i1 %123, %124
   br i1 %or.cond179.us323, label %.split313.us, label %125
@@ -3513,7 +3513,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
   br i1 %139, label %147, label %141
 
 141:                                              ; preds = %.lr.ph.split.us.us328
-  %142 = icmp ugt i32 %88, %140
+  %142 = icmp samesign ugt i32 %88, %140
   %143 = icmp slt i32 %89, %140
   %or.cond181.us.us = select i1 %142, i1 true, i1 %143
   br i1 %or.cond181.us.us, label %.split297.us, label %144
@@ -3524,14 +3524,14 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
   br i1 %146, label %.split302.us, label %154
 
 147:                                              ; preds = %.lr.ph.split.us.us328
-  %148 = icmp ugt i32 %92, %140
+  %148 = icmp samesign ugt i32 %92, %140
   %149 = icmp slt i32 %93, %140
   %or.cond376 = select i1 %148, i1 true, i1 %149
   br i1 %or.cond376, label %.split308.us, label %150
 
 150:                                              ; preds = %147
   %151 = zext i8 %133 to i32
-  %152 = icmp ugt i32 %92, %151
+  %152 = icmp samesign ugt i32 %92, %151
   %153 = icmp ult i32 %93, %151
   %or.cond179.us.us = or i1 %152, %153
   br i1 %or.cond179.us.us, label %.split313.us, label %154

@@ -4995,7 +4995,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %272, %Vec_StrGrow.e
   %278 = getelementptr inbounds i8, ptr %274, i64 %277
   store i8 %251, ptr %278, align 1
   %279 = lshr i32 %.012.i.i, 7
-  %280 = icmp ugt i32 %.012.i.i, 16383
+  %280 = icmp samesign ugt i32 %.012.i.i, 16383
   br i1 %280, label %.lr.ph.i.i145, label %._crit_edge.i.i, !llvm.loop !43
 
 ._crit_edge.i.i:                                  ; preds = %Vec_StrPush.exit.i.i, %Scl_LibertyReadString.exit144

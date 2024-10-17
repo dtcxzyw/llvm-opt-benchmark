@@ -5098,7 +5098,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15sortPtrAccessesENS_8ArrayRefIPNS_
   store i64 %.sroa.546.062, ptr %10, align 8
   %22 = load ptr, ptr %.sroa.043.064, align 8
   %23 = call i64 @_ZN4llvm15getPointersDiffEPNS_4TypeEPNS_5ValueES1_S3_RKNS_10DataLayoutERNS_15ScalarEvolutionEbb(ptr noundef %2, ptr noundef %12, ptr noundef %2, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(512) %3, ptr noundef nonnull align 8 dereferenceable(1392) %4, i1 noundef zeroext true, i1 noundef zeroext true)
-  %.not55 = icmp ult i64 %23, 4294967296
+  %.not55 = icmp samesign ult i64 %23, 4294967296
   br i1 %.not55, label %.loopexit, label %24
 
 24:                                               ; preds = %.lr.ph
@@ -5208,7 +5208,7 @@ _ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit25:   ; preds = %_ZN4llvm16getLoadSt
   %.0.in.i23 = getelementptr inbounds nuw i8, ptr %.pn.i22, i64 8
   %.0.i24 = load ptr, ptr %.0.in.i23, align 8
   %21 = tail call i64 @_ZN4llvm15getPointersDiffEPNS_4TypeEPNS_5ValueES1_S3_RKNS_10DataLayoutERNS_15ScalarEvolutionEbb(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i24, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(1392) %3, i1 noundef zeroext true, i1 noundef zeroext %4)
-  %.not = icmp ult i64 %21, 4294967296
+  %.not = icmp samesign ult i64 %21, 4294967296
   br i1 %.not, label %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit20.thread, label %22
 
 22:                                               ; preds = %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit25
@@ -11413,7 +11413,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   %indvars.iv60 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next61, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph53 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %163 = icmp ult i64 %indvars.iv.next61, %161
+  %163 = icmp samesign ult i64 %indvars.iv.next61, %161
   br i1 %163, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %162

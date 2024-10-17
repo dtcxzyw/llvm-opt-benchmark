@@ -253,7 +253,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_
   %23 = xor i64 %22, -1
   %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
   %.0.i.us = select i1 %.not.i.us, i64 %21, i64 %24
-  %.not25.i.us = icmp ult i64 %.0.i.us, %.02226.i.us
+  %.not25.i.us = icmp samesign ult i64 %.0.i.us, %.02226.i.us
   br i1 %.not25.i.us, label %25, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread
 
 25:                                               ; preds = %.lr.ph.i.us
@@ -409,7 +409,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_s
   %26 = xor i64 %25, -1
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
   %.0.i.us = select i1 %.not.i.us, i64 %23, i64 %27
-  %.not24.i.us = icmp ult i64 %.0.i.us, %.02225.i.us
+  %.not24.i.us = icmp samesign ult i64 %.0.i.us, %.02225.i.us
   br i1 %.not24.i.us, label %28, label %.loopexit
 
 28:                                               ; preds = %.lr.ph.i.us

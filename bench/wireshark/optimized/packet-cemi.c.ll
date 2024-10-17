@@ -877,7 +877,7 @@ define internal noundef i32 @dissect_cemi(ptr noundef %0, ptr noundef %1, ptr no
   %.ph.i = phi i1 [ true, %33 ], [ true, %31 ], [ true, %32 ], [ false, %34 ], [ true, %29 ]
   %.0.ph.i = phi i8 [ 2, %33 ], [ 1, %31 ], [ 3, %32 ], [ 2, %34 ], [ 0, %29 ]
   %37 = call fastcc zeroext i16 @dissect_ot(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %16, ptr noundef %5, i32 noundef %10, ptr noundef %6)
-  %38 = icmp ult i32 %10, 4
+  %38 = icmp samesign ult i32 %10, 4
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
@@ -1006,7 +1006,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %8, align 1
-  %24 = icmp ult i32 %7, 2
+  %24 = icmp samesign ult i32 %7, 2
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %10
@@ -1021,7 +1021,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #8
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 2
-  %35 = icmp ugt i32 %34, %7
+  %35 = icmp samesign ugt i32 %34, %7
   %36 = add nsw i32 %7, -2
   %.1338 = select i1 %35, i8 2, i8 %31
   %.0239 = tail call i32 @llvm.umin.i32(i32 %34, i32 %7)
@@ -1043,7 +1043,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   br label %47
 
 47:                                               ; preds = %45, %30
-  %48 = icmp ugt i32 %.0239, 2
+  %48 = icmp samesign ugt i32 %.0239, 2
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47, %92
@@ -1177,7 +1177,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 97:                                               ; preds = %95, %95, %95, %95
   %98 = add nuw nsw i32 %.0341, 6
-  %.not283 = icmp ult i32 %7, %98
+  %.not283 = icmp samesign ult i32 %7, %98
   %99 = sub nsw i32 %7, %.0341
   %100 = select i1 %.not283, i32 %99, i32 6
   %101 = load i32, ptr @hf_bytes, align 4
@@ -1210,7 +1210,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 110:                                              ; preds = %96, %95
   %.not285.ph = phi i1 [ true, %95 ], [ false, %96 ]
-  %.not266 = icmp ult i32 %.0341, %7
+  %.not266 = icmp samesign ult i32 %.0341, %7
   br i1 %.not266, label %113, label %111
 
 111:                                              ; preds = %110
@@ -3056,7 +3056,7 @@ define internal fastcc void @dissect_pid_ext(ptr noundef %0, ptr noundef %1, ptr
 31:                                               ; preds = %21
   %32 = load i32, ptr @hf_cemi_ext_pid, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %32, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0) #8
-  %34 = icmp ult i16 %29, 51
+  %34 = icmp samesign ult i16 %29, 51
   br i1 %34, label %get_pid_name.exit, label %35
 
 35:                                               ; preds = %31
@@ -3474,7 +3474,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %170 = load i8, ptr @knx_decryption_key_count, align 1
   %171 = zext i8 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next.i, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next.i, %171
   br i1 %172, label %.lr.ph256.i, label %decrypt_data_security_data.exit.thread, !llvm.loop !17
 
 .lr.ph256.i:                                      ; preds = %.loopexit183.i, %169
@@ -3594,7 +3594,7 @@ proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.spl
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   %217 = add nuw nsw i32 %216, 9
-  %218 = icmp uge i32 %217, %11
+  %218 = icmp samesign uge i32 %217, %11
   %219 = add i32 %217, %192
   %.not217 = icmp sgt i32 %219, %213
   %or.cond = select i1 %218, i1 true, i1 %.not217
@@ -3775,8 +3775,8 @@ define internal fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %0, 
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
   %10 = icmp sgt i32 %3, 4
-  %11 = icmp ugt i32 %5, 1
-  %or.cond = and i1 %10, %11
+  %11 = icmp samesign ugt i32 %5, 1
+  %or.cond = select i1 %10, i1 %11, i1 false
   br i1 %or.cond, label %12, label %97
 
 12:                                               ; preds = %6
@@ -3784,7 +3784,7 @@ define internal fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %0, 
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, 17
-  %.not = icmp ugt i32 %16, %5
+  %.not = icmp samesign ugt i32 %16, %5
   br i1 %.not, label %97, label %17
 
 17:                                               ; preds = %12

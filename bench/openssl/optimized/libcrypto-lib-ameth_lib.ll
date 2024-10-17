@@ -210,7 +210,7 @@ if.end.i.preheader:                               ; preds = %if.end11, %EVP_PKEY
 if.end.i:                                         ; preds = %if.end.i.preheader, %for.cond.backedge
   %indvars.iv = phi i64 [ %4, %if.end.i.preheader ], [ %indvars.iv.next, %for.cond.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp1.i = icmp ult i64 %indvars.iv, 17
+  %cmp1.i = icmp samesign ult i64 %indvars.iv, 17
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i

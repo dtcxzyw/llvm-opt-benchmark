@@ -1343,7 +1343,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i, %for.
   %.us-phi = phi i64 [ %indvars.iv.i.i.us, %for.body.i.i.us ], [ %indvars.iv.i.i, %for.body.i.i ]
   %107 = load ptr, ptr @stderr, align 8
   %108 = call i64 @fwrite(ptr nonnull @.str.80, i64 42, i64 1, ptr %107) #22
-  %cmp1234.i.i = icmp ult i64 %.us-phi, 16
+  %cmp1234.i.i = icmp samesign ult i64 %.us-phi, 16
   br i1 %cmp1234.i.i, label %for.body13.lr.ph.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 for.body13.lr.ph.i.i:                             ; preds = %if.else.i.i
@@ -2183,8 +2183,8 @@ if.end70.i.i:                                     ; preds = %for.end.i197.i, %fo
   %225 = load i8, ptr %newName.i.i, align 16
   %cmp73.not.i.i = icmp eq i8 %225, 0
   %indvars.iv.next57.i.i = add nuw nsw i64 %indvars.iv56.i.i, 1
-  %cmp25.i.i = icmp ult i64 %indvars.iv56.i.i, 8
-  %or.cond54.i.i = and i1 %cmp25.i.i, %cmp73.not.i.i
+  %cmp25.i.i = icmp samesign ult i64 %indvars.iv56.i.i, 8
+  %or.cond54.i.i = select i1 %cmp73.not.i.i, i1 %cmp25.i.i, i1 false
   br i1 %or.cond54.i.i, label %for.body26.i.i, label %for.end78.i.i, !llvm.loop !24
 
 for.end78.i.i:                                    ; preds = %if.end70.i.i

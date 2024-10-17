@@ -370,7 +370,7 @@ _ZN13ZValueStorageI17ZPerWorkerStorageE5allocEm.exit.i: ; preds = %tailrecurse.i
   store i64 0, ptr %74, align 8
   %75 = load i32, ptr @ConcGCThreads, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next.i, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next.i, %76
   br i1 %77, label %.lr.ph.i, label %_ZN6ZValueI17ZPerWorkerStorage8zaddressEC2ERKS1_.exit, !llvm.loop !6
 
 _ZN6ZValueI17ZPerWorkerStorage8zaddressEC2ERKS1_.exit: ; preds = %.lr.ph.i, %_ZN13ZValueStorageI17ZPerWorkerStorageE5allocEm.exit.i
@@ -1681,7 +1681,7 @@ define hidden void @_ZN19ZReferenceProcessor4workEv(ptr nocapture noundef nonnul
 10:                                               ; preds = %9, %.lr.ph
   %11 = load i32, ptr @ConcGCThreads, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %_ZN26SuspendibleThreadSetJoinerD2Ev.exit, !llvm.loop !13
 
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %10, %1
@@ -1712,7 +1712,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit: ; preds = %1, %_ZN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @ConcGCThreads, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit
@@ -1731,7 +1731,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit11: ; preds = %._cri
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %17 = load i32, ptr @ConcGCThreads, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next49, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next49, %18
   br i1 %19, label %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit11, label %._crit_edge36, !llvm.loop !15
 
 ._crit_edge36:                                    ; preds = %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit11
@@ -1750,7 +1750,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit12: ; preds = %._cri
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %26 = load i32, ptr @ConcGCThreads, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next56, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next56, %27
   br i1 %28, label %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit12, label %._crit_edge39, !llvm.loop !16
 
 ._crit_edge39:                                    ; preds = %_ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit12, %1, %._crit_edge, %._crit_edge36
@@ -3667,7 +3667,7 @@ define linkonce_odr hidden void @_ZN23ZReferenceProcessorTask4workEv(ptr noundef
 12:                                               ; preds = %11, %.lr.ph.i
   %13 = load i32, ptr @ConcGCThreads, align 4
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next.i, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %15, label %.lr.ph.i, label %_ZN19ZReferenceProcessor4workEv.exit, !llvm.loop !13
 
 _ZN19ZReferenceProcessor4workEv.exit:             ; preds = %12, %1

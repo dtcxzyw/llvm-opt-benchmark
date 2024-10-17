@@ -658,7 +658,7 @@ define dso_local i32 @nr_processes() local_unnamed_addr #4 align 16 {
   %20 = add i32 %4, %19
   %21 = add nuw nsw i64 %9, 1
   %22 = and i64 %21, 127
-  %23 = icmp ugt i64 %22, 63
+  %23 = icmp samesign ugt i64 %22, 63
   br i1 %23, label %.thread, label %2, !prof !16, !llvm.loop !17
 
 .thread:                                          ; preds = %2, %12, %8
@@ -1461,7 +1461,7 @@ define internal fastcc noundef ptr @mm_init(ptr noundef nonnull %0) unnamed_addr
   store i64 0, ptr %85, align 8
   %87 = add nuw nsw i64 %75, 1
   %88 = and i64 %87, 127
-  %89 = icmp ugt i64 %88, 63
+  %89 = icmp samesign ugt i64 %88, 63
   br i1 %89, label %.thread, label %.preheader, !prof !16, !llvm.loop !57
 
 .thread:                                          ; preds = %.preheader, %78, %74

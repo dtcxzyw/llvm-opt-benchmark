@@ -719,7 +719,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr nocapture 
   %175 = phi i8 [ %171, %170 ], [ %122, %128 ], [ %122, %132 ], [ %122, %139 ]
   %176 = add nuw nsw i64 %121, 1
   %177 = zext i32 %173 to i64
-  %178 = icmp ult i64 %176, %177
+  %178 = icmp samesign ult i64 %176, %177
   br i1 %178, label %.preheader, label %179, !llvm.loop !16
 
 179:                                              ; preds = %.loopexit
@@ -6446,7 +6446,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
 
 32:                                               ; preds = %25
   %33 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %30), !range !57
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   %35 = icmp eq i32 %28, 0
   %36 = select i1 %34, i1 %35, i1 false
   br i1 %36, label %37, label %.loopexit15
@@ -6571,7 +6571,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fixup_unreferenced_params(
 
 108:                                              ; preds = %101
   %109 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %106), !range !57
-  %110 = icmp ult i32 %109, 2
+  %110 = icmp samesign ult i32 %109, 2
   %111 = icmp eq i32 %104, 0
   %112 = select i1 %110, i1 %111, i1 false
   br i1 %112, label %113, label %.loopexit

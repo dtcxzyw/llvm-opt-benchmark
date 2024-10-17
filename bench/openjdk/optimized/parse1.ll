@@ -5265,11 +5265,11 @@ _ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit:      ; preds = %354, %_ZNK8GraphKit
   %418 = getelementptr inbounds i8, ptr %414, i64 20
   %419 = load i32, ptr %418, align 4
   %420 = zext i32 %419 to i64
-  %.not.i115 = icmp uge i64 %indvars.iv, %420
+  %.not.i115 = icmp samesign uge i64 %indvars.iv, %420
   %421 = getelementptr inbounds i8, ptr %414, i64 24
   %422 = load i32, ptr %421, align 8
   %423 = zext i32 %422 to i64
-  %424 = icmp ult i64 %indvars.iv, %423
+  %424 = icmp samesign ult i64 %indvars.iv, %423
   %425 = select i1 %.not.i115, i1 %424, i1 false
   br i1 %425, label %426, label %441
 
@@ -5312,11 +5312,11 @@ _ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit:      ; preds = %354, %_ZNK8GraphKit
   %448 = getelementptr inbounds i8, ptr %447, i64 12
   %449 = load i32, ptr %448, align 4
   %450 = zext i32 %449 to i64
-  %.not.i.i.i116 = icmp uge i64 %indvars.iv, %450
+  %.not.i.i.i116 = icmp samesign uge i64 %indvars.iv, %450
   %451 = getelementptr inbounds i8, ptr %447, i64 16
   %452 = load i32, ptr %451, align 8
   %453 = zext i32 %452 to i64
-  %454 = icmp ult i64 %indvars.iv, %453
+  %454 = icmp samesign ult i64 %indvars.iv, %453
   %455 = select i1 %.not.i.i.i116, i1 %454, i1 false
   br i1 %455, label %456, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread
 
@@ -5580,7 +5580,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit136:    ; preds = %_ZNK5Parse5Block17c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %596 = load i32, ptr %381, align 8
   %597 = zext i32 %596 to i64
-  %598 = icmp ult i64 %indvars.iv.next, %597
+  %598 = icmp samesign ult i64 %indvars.iv.next, %597
   br i1 %598, label %386, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZNK8GraphKit15record_for_igvnEP4Node.exit136, %_ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit
@@ -8164,7 +8164,7 @@ _ZN4Node8init_reqEjPS_.exit60:                    ; preds = %213, %217, %228
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %234 = load i32, ptr %123, align 8
   %235 = zext i32 %234 to i64
-  %236 = icmp ult i64 %indvars.iv.next68, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next68, %235
   br i1 %236, label %213, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit60, %.preheader
@@ -9262,7 +9262,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %62, %.thread5.i.i, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %23, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %.lr.ph, label %.loopexit27, !llvm.loop !43
 
 .loopexit27:                                      ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit, %20, %16, %4

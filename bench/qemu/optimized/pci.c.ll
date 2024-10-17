@@ -606,7 +606,7 @@ if.then56:                                        ; preds = %if.then49
 lor.lhs.false:                                    ; preds = %if.then56
   %conv62 = zext i8 %conv61 to i32
   %conv58 = and i32 %call.i89, 255
-  %cmp72 = icmp ugt i32 %conv58, %conv62
+  %cmp72 = icmp samesign ugt i32 %conv58, %conv62
   br i1 %cmp72, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %lor.lhs.false, %if.then56

@@ -3891,7 +3891,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i132.i:            ; preds = %1626, %1623
   %1634 = add i32 %1633, %spec.select.i134.i
   %1635 = icmp sge i32 %1634, %.0
   %indvars.iv.next.i135.i = add nuw nsw i64 %indvars.iv.i128.i, 1
-  %1636 = icmp ult i64 %indvars.iv.next.i135.i, %1552
+  %1636 = icmp samesign ult i64 %indvars.iv.next.i135.i, %1552
   %or.cond.i136.i = select i1 %1635, i1 %1636, i1 false
   br i1 %or.cond.i136.i, label %.lr.ph.i125.i, label %"_ZZZL9getPlanesRKN2cv11_InputArrayERSt6vectorIiSaIiEERS3_INS_3VecIdLi4EEESaIS8_EEiddiENK3$_0clERKNS_3MatEddiRS8_RS3_IbSaIbEEENKUlRKS8_E_clESL_.exit138.i", !llvm.loop !97
 
@@ -4195,7 +4195,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i:               ; preds = %1747, %1744
   %1755 = add i32 %1754, %spec.select.i.i
   %1756 = icmp sge i32 %1755, %.2
   %indvars.iv.next.i87.i = add nuw nsw i64 %indvars.iv.i85.i, 1
-  %1757 = icmp ult i64 %indvars.iv.next.i87.i, %1552
+  %1757 = icmp samesign ult i64 %indvars.iv.next.i87.i, %1552
   %or.cond.i88.i = select i1 %1756, i1 %1757, i1 false
   br i1 %or.cond.i88.i, label %.lr.ph.i82.i, label %"_ZZZL9getPlanesRKN2cv11_InputArrayERSt6vectorIiSaIiEERS3_INS_3VecIdLi4EEESaIS8_EEiddiENK3$_0clERKNS_3MatEddiRS8_RS3_IbSaIbEEENKUlRKS8_E_clESL_.exit.i", !llvm.loop !97
 
@@ -4472,7 +4472,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i:                 ; preds = %1859, %1856
   %1867 = add i32 %1866, %spec.select.i
   %1868 = icmp sge i32 %1867, %.1
   %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i479, 1
-  %1869 = icmp ult i64 %indvars.iv.next.i481, %1552
+  %1869 = icmp samesign ult i64 %indvars.iv.next.i481, %1552
   %or.cond.i482 = select i1 %1868, i1 %1869, i1 false
   br i1 %or.cond.i482, label %.lr.ph.i477, label %"_ZZZL9getPlanesRKN2cv11_InputArrayERSt6vectorIiSaIiEERS3_INS_3VecIdLi4EEESaIS8_EEiddiENK3$_0clERKNS_3MatEddiRS8_RS3_IbSaIbEEENKUlRKS8_E_clESL_.exit", !llvm.loop !97
 

@@ -36780,7 +36780,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %indvars.iv.next88 = add nuw nsw i32 %indvars.iv87, 1
   %17 = load i32, ptr %7, align 8
   %18 = icmp ugt i32 %17, %indvars.iv.next88
-  %19 = icmp ult i32 %indvars.iv87, 7
+  %19 = icmp samesign ult i32 %indvars.iv87, 7
   %20 = and i1 %19, %18
   br i1 %20, label %.lr.ph74, label %._crit_edge, !llvm.loop !15
 
@@ -36861,7 +36861,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
 
 63:                                               ; preds = %.lr.ph.i
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %64 = icmp ult i32 %indvars.iv.next, %62
+  %64 = icmp samesign ult i32 %indvars.iv.next, %62
   br i1 %64, label %.lr.ph.i, label %asterix_field_exists.exit, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %63

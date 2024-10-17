@@ -177,7 +177,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
   store i32 %47, ptr %54, align 4
   %55 = add nuw nsw i64 %43, 1
   %56 = and i64 %55, 127
-  %57 = icmp ugt i64 %56, 63
+  %57 = icmp samesign ugt i64 %56, 63
   br i1 %57, label %.thread5, label %.preheader, !prof !11, !llvm.loop !12
 
 58:                                               ; preds = %29
@@ -244,7 +244,7 @@ define dso_local void @sbitmap_resize(ptr nocapture noundef %0, i32 noundef %1) 
   %22 = phi i32 [ %.pre, %18 ], [ %11, %10 ]
   %23 = add nuw nsw i64 %12, 1
   %24 = zext i32 %22 to i64
-  %25 = icmp ult i64 %23, %24
+  %25 = icmp samesign ult i64 %23, %24
   br i1 %25, label %10, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %21, %2
@@ -504,7 +504,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
   %30 = add nuw nsw i64 %9, 1
   %31 = load i32, ptr %2, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %8, label %34, !llvm.loop !29
 
 34:                                               ; preds = %26
@@ -542,7 +542,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
   %57 = add nuw nsw i64 %36, 1
   %58 = load i32, ptr %2, align 8
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %57, %59
+  %60 = icmp samesign ult i64 %57, %59
   br i1 %60, label %.preheader, label %.thread, !llvm.loop !29
 
 .thread:                                          ; preds = %52, %1, %34
@@ -597,7 +597,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
   %32 = add nuw nsw i64 %11, 1
   %33 = load i32, ptr %4, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %10, label %36, !llvm.loop !29
 
 36:                                               ; preds = %28
@@ -635,7 +635,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
   %59 = add nuw nsw i64 %38, 1
   %60 = load i32, ptr %4, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %.preheader, label %sbitmap_weight.exit, !llvm.loop !29
 
 sbitmap_weight.exit:                              ; preds = %54, %2, %36
@@ -683,7 +683,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
   %93 = add nuw nsw i64 %72, 1
   %94 = load i32, ptr %4, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %71, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %88, %sbitmap_weight.exit
@@ -1030,7 +1030,7 @@ define dso_local void @sbitmap_queue_resize(ptr noundef %0, i32 noundef %1) #0 a
   %42 = phi i32 [ %.pre, %38 ], [ %31, %30 ]
   %43 = add nuw nsw i64 %32, 1
   %44 = zext i32 %42 to i64
-  %45 = icmp ult i64 %43, %44
+  %45 = icmp samesign ult i64 %43, %44
   br i1 %45, label %30, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %41, %24
@@ -1576,7 +1576,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %25) #10
   %26 = add nuw nsw i64 %12, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %4, !prof !11, !llvm.loop !50
 
 .thread:                                          ; preds = %4, %17, %11

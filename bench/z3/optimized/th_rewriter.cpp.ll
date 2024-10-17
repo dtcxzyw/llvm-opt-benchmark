@@ -11140,7 +11140,7 @@ invoke.cont62.i:                                  ; preds = %.noexc.i, %lor.lhs.
   %indvars.iv.next.i379 = add nuw nsw i64 %indvars.iv.i376, 1
   %216 = load i32, ptr %m_pos.i.i271, align 8
   %217 = zext i32 %216 to i64
-  %cmp55.i = icmp ult i64 %indvars.iv.next.i379, %217
+  %cmp55.i = icmp samesign ult i64 %indvars.iv.next.i379, %217
   br i1 %cmp55.i, label %for.body56.i, label %for.end69.i, !llvm.loop !43
 
 lpad.i377:                                        ; preds = %if.then.i.i69.i, %for.body56.i
@@ -17478,7 +17478,7 @@ for.inc:                                          ; preds = %_ZNK9table2mapI17de
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %m_num_args.i, align 8
   %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !53
 
 if.end9:                                          ; preds = %for.inc, %for.cond.preheader, %entry

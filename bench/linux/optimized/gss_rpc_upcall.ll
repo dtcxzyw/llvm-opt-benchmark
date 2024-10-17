@@ -242,7 +242,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %34 = add nuw nsw i64 %38, 1
   %35 = load i32, ptr %25, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %.preheader19, label %.loopexit20, !llvm.loop !6
 
 .preheader19:                                     ; preds = %30, %33
@@ -275,7 +275,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %55 = add nuw nsw i64 %49, 1
   %56 = load i32, ptr %25, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.preheader17, label %..loopexit18.loopexit_crit_edge, !llvm.loop !9
 
 ..loopexit18.loopexit_crit_edge:                  ; preds = %54
@@ -378,7 +378,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %108 = add nuw nsw i64 %102, 1
   %109 = load i32, ptr %25, align 8
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %108, %110
+  %111 = icmp samesign ult i64 %108, %110
   br i1 %111, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %107, %.preheader, %98

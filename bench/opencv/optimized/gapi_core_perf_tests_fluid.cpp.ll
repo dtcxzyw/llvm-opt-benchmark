@@ -36628,7 +36628,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK11opencv_test25Tolerance_Floa
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = load i32, ptr %1, align 8
   %10 = and i32 %9, 7
-  %11 = icmp ugt i32 %10, 4
+  %11 = icmp samesign ugt i32 %10, 4
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %3

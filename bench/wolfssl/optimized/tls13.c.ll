@@ -413,7 +413,7 @@ DeriveClientHandshakeSecret.exit:                 ; preds = %sw.epilog.i.i
 
 if.end12:                                         ; preds = %DeriveClientHandshakeSecret.exit, %sw.bb
   %ret.0 = phi i32 [ 0, %DeriveClientHandshakeSecret.exit ], [ -173, %sw.bb ]
-  %tobool14.not = icmp ult i32 %provision.0, 2
+  %tobool14.not = icmp samesign ult i32 %provision.0, 2
   br i1 %tobool14.not, label %sw.epilog, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
@@ -538,7 +538,7 @@ DeriveClientTrafficSecret.exit:                   ; preds = %sw.epilog.i.i104
 
 if.end34:                                         ; preds = %DeriveClientTrafficSecret.exit, %sw.bb23
   %ret.3 = phi i32 [ 0, %DeriveClientTrafficSecret.exit ], [ -173, %sw.bb23 ]
-  %tobool36.not = icmp ult i32 %provision.0, 2
+  %tobool36.not = icmp samesign ult i32 %provision.0, 2
   br i1 %tobool36.not, label %sw.epilog, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
@@ -635,7 +635,7 @@ DeriveTrafficSecret.exit:                         ; preds = %if.then49, %sw.bb1.
 
 if.end57:                                         ; preds = %DeriveTrafficSecret.exit, %sw.bb46
   %ret.4 = phi i32 [ 0, %DeriveTrafficSecret.exit ], [ -173, %sw.bb46 ]
-  %tobool59.not = icmp ult i32 %provision.0, 2
+  %tobool59.not = icmp samesign ult i32 %provision.0, 2
   br i1 %tobool59.not, label %sw.epilog, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
@@ -718,7 +718,7 @@ if.end84:                                         ; preds = %Tls13DeriveKey.exit
 
 if.end88:                                         ; preds = %if.end84, %if.end71
   %i.1 = phi i32 [ %conv87, %if.end84 ], [ 0, %if.end71 ]
-  %tobool90.not = icmp ult i32 %provision.0, 2
+  %tobool90.not = icmp samesign ult i32 %provision.0, 2
   br i1 %tobool90.not, label %if.end113, label %do.end93
 
 do.end93:                                         ; preds = %if.end88
@@ -1174,7 +1174,7 @@ sw.epilog:                                        ; preds = %ChaCha20Poly1305_De
   br i1 %tobool.not12.i, label %for.body.i29.preheader, label %while.body.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
-  %cmp515.i = icmp ult i32 %conv.i28, 5
+  %cmp515.i = icmp samesign ult i32 %conv.i28, 5
   br i1 %cmp515.i, label %for.body.i29.preheader, label %while.body12.i.preheader
 
 for.body.i29.preheader:                           ; preds = %sw.epilog, %for.cond.preheader.i
@@ -1530,7 +1530,7 @@ for.body.i32.i.preheader:                         ; preds = %for.cond.preheader.
   br label %for.body.i32.i
 
 for.cond.preheader.i.i:                           ; preds = %while.body.i.i
-  %cmp515.i.i = icmp ult i32 %conv.i31.i, 5
+  %cmp515.i.i = icmp samesign ult i32 %conv.i31.i, 5
   br i1 %cmp515.i.i, label %for.body.i32.i.preheader, label %while.body12.i.i.preheader
 
 while.body12.i.i.preheader:                       ; preds = %while.cond9.preheader.i.i, %for.cond.preheader.i.i
@@ -1690,7 +1690,7 @@ land.lhs.true:                                    ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %add25 = add nuw nsw i32 %conv10, 2
   %conv = and i32 %add25, 65535
-  %cmp5 = icmp ult i32 %conv, %conv4
+  %cmp5 = icmp samesign ult i32 %conv, %conv4
   br i1 %cmp5, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %land.lhs.true, %for.inc, %cond.end
@@ -4910,7 +4910,7 @@ if.end17:                                         ; preds = %if.then13
   br i1 %cmp21.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end17
-  %cmp24 = icmp ugt i32 %or6.i.i88, 18462
+  %cmp24 = icmp samesign ugt i32 %or6.i.i88, 18462
   br i1 %cmp24, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end23

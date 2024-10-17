@@ -228,7 +228,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %74 = phi ptr [ %35, %33 ], [ %.pre121, %40 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %75 = zext i32 %73 to i64
-  %76 = icmp ult i64 %indvars.iv.next117, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next117, %75
   br i1 %76, label %33, label %.loopexit, !llvm.loop !5
 
 77:                                               ; preds = %1
@@ -329,7 +329,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %145 = getelementptr %struct._rtd_timestat, ptr %144, i64 %indvars.iv113
   %146 = load i32, ptr %145, align 8
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next, %147
   br i1 %148, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %143
@@ -342,7 +342,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %151 = phi ptr [ %144, %._crit_edge.loopexit ], [ %83, %.preheader ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %152 = zext i32 %149 to i64
-  %153 = icmp ult i64 %indvars.iv.next114, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next114, %152
   br i1 %153, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %72, %77, %12

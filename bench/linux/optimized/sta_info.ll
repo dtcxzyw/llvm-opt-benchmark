@@ -3449,7 +3449,7 @@ define dso_local void @ieee80211_sta_expire(ptr noundef readonly %0, i64 noundef
   %39 = select i1 %38, ptr %32, ptr %19
   %40 = add nuw nsw i64 %24, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %17, !prof !141, !llvm.loop !142
 
 .thread:                                          ; preds = %17, %27, %23, %.preheader
@@ -3541,7 +3541,7 @@ define dso_local i64 @ieee80211_sta_last_active(ptr nocapture noundef readonly %
   %31 = select i1 %30, ptr %24, ptr %11
   %32 = add nuw nsw i64 %16, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %9, !prof !141, !llvm.loop !142
 
 .thread:                                          ; preds = %9, %19, %15, %1
@@ -5527,7 +5527,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %37 = select i1 %36, ptr %30, ptr %17
   %38 = add nuw nsw i64 %22, 1
   %39 = and i64 %38, 127
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread, label %15, !prof !141, !llvm.loop !142
 
 .thread:                                          ; preds = %15, %25, %21, %3
@@ -5769,7 +5769,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %188 = select i1 %187, ptr %181, ptr %168
   %189 = add nuw nsw i64 %173, 1
   %190 = and i64 %189, 127
-  %191 = icmp ugt i64 %190, 63
+  %191 = icmp samesign ugt i64 %190, 63
   br i1 %191, label %.thread29, label %166, !prof !141, !llvm.loop !142
 
 .thread29:                                        ; preds = %166, %176, %172, %150
@@ -5892,7 +5892,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   store i64 %271, ptr %244, align 8
   %272 = add nuw nsw i64 %258, 1
   %273 = and i64 %272, 127
-  %274 = icmp ugt i64 %273, 63
+  %274 = icmp samesign ugt i64 %273, 63
   br i1 %274, label %.thread31, label %251, !prof !141, !llvm.loop !227
 
 .thread31:                                        ; preds = %251, %261, %257, %241
@@ -5947,7 +5947,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   store i32 %308, ptr %283, align 4
   %309 = add nuw nsw i64 %295, 1
   %310 = and i64 %309, 127
-  %311 = icmp ugt i64 %310, 63
+  %311 = icmp samesign ugt i64 %310, 63
   br i1 %311, label %.thread33, label %288, !prof !141, !llvm.loop !228
 
 .thread33:                                        ; preds = %288, %298, %294, %280
@@ -6103,7 +6103,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   store i32 %409, ptr %383, align 4
   %410 = add nuw nsw i64 %395, 1
   %411 = and i64 %410, 127
-  %412 = icmp ugt i64 %411, 63
+  %412 = icmp samesign ugt i64 %411, 63
   br i1 %412, label %.thread35, label %388, !prof !141, !llvm.loop !231
 
 .thread35:                                        ; preds = %388, %398, %394, %378
@@ -6319,7 +6319,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %549 = select i1 %548, ptr %542, ptr %529
   %550 = add nuw nsw i64 %534, 1
   %551 = and i64 %550, 127
-  %552 = icmp ugt i64 %551, 63
+  %552 = icmp samesign ugt i64 %551, 63
   br i1 %552, label %.thread37, label %527, !prof !141, !llvm.loop !142
 
 .thread37:                                        ; preds = %527, %537, %533, %520
@@ -6541,7 +6541,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   store i64 %695, ptr %667, align 8
   %696 = add nuw nsw i64 %681, 1
   %697 = and i64 %696, 127
-  %698 = icmp ugt i64 %697, 63
+  %698 = icmp samesign ugt i64 %697, 63
   br i1 %698, label %.thread39, label %674, !prof !141, !llvm.loop !236
 
 .thread39:                                        ; preds = %674, %684, %680, %664

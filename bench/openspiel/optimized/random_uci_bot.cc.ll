@@ -646,7 +646,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread: ; preds = %_ZN4a
   br label %.loopexit.split-lp127
 
 103:                                              ; preds = %.lr.ph
-  %104 = icmp ugt i64 %indvars.iv, 2
+  %104 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %103

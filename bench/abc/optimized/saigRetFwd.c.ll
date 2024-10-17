@@ -181,7 +181,7 @@ define void @Aig_ManMarkAutonomous_rec(ptr nocapture noundef readonly %0, ptr no
   %13 = load i64, ptr %7, align 8
   %14 = lshr i64 %13, 6
   %15 = and i64 %14, 67108863
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %12, %5, %2

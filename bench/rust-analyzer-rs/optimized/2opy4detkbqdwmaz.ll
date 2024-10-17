@@ -4636,9 +4636,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h24f3626b9beade0a
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -17030,7 +17030,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit60.i: ; pr
   br i1 %.not.i, label %.critedge46.i, label %209
 
 209:                                              ; preds = %207
-  %210 = icmp ult i64 %208, 5
+  %210 = icmp samesign ult i64 %208, 5
   call void @llvm.assume(i1 %210)
   %211 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN15ide_diagnostics8handlers16json_is_not_rust5State12serde_derive10__CALLSITE17h0399fdf9aa81c3d7E, i64 16) monotonic, align 8, !noalias !4437
   switch i8 %211, label %212 [

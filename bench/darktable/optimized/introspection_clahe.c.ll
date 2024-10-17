@@ -1007,7 +1007,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %733 = select i1 %731, i32 %728, i32 %732
   %734 = add nuw nsw i64 %727, 1
   %735 = zext i32 %733 to i64
-  %736 = icmp ult i64 %734, %735
+  %736 = icmp samesign ult i64 %734, %735
   br i1 %736, label %.preheader, label %688
 
 .loopexit45:                                      ; preds = %775, %720, %688

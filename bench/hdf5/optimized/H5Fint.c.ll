@@ -5041,7 +5041,7 @@ define void @H5F_addr_decode(ptr nocapture noundef readonly %0, ptr nocapture no
   %10 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %10, -1
   %spec.select.i = select i1 %.not.i, i1 %.017.i, i1 false
-  %11 = icmp ult i64 %indvars.iv, 8
+  %11 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.lr.ph.i

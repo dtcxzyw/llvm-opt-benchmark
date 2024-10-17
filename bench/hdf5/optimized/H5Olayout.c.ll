@@ -966,7 +966,7 @@ default.unreachable:                              ; preds = %87
 
 489:                                              ; preds = %462
   %indvars.iv.next855 = add nuw nsw i64 %indvars.iv854, 1
-  %490 = icmp ult i64 %indvars.iv.next855, %461
+  %490 = icmp samesign ult i64 %indvars.iv.next855, %461
   br i1 %490, label %462, label %._crit_edge826
 
 ._crit_edge826:                                   ; preds = %489
@@ -989,7 +989,7 @@ default.unreachable:                              ; preds = %87
   %500 = mul i32 %497, %499
   store i32 %500, ptr %493, align 4
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
-  %501 = icmp ult i64 %indvars.iv.next858, %495
+  %501 = icmp samesign ult i64 %indvars.iv.next858, %495
   br i1 %501, label %496, label %._crit_edge830
 
 ._crit_edge830:                                   ; preds = %496, %._crit_edge826.thread, %._crit_edge826
@@ -1154,7 +1154,7 @@ default.unreachable:                              ; preds = %87
   %590 = add nuw nsw i64 %.0622801, 1
   %591 = load i32, ptr %553, align 8
   %592 = zext i32 %591 to i64
-  %593 = icmp ult i64 %590, %592
+  %593 = icmp samesign ult i64 %590, %592
   br i1 %593, label %.lr.ph803, label %._crit_edge804
 
 ._crit_edge804:                                   ; preds = %.lr.ph803
@@ -1194,7 +1194,7 @@ default.unreachable:                              ; preds = %87
   %610 = mul i32 %607, %609
   store i32 %610, ptr %604, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %611 = icmp ult i64 %indvars.iv.next, %605
+  %611 = icmp samesign ult i64 %indvars.iv.next, %605
   br i1 %611, label %606, label %._crit_edge817
 
 ._crit_edge817:                                   ; preds = %606, %._crit_edge813.thread, %._crit_edge813
@@ -2567,7 +2567,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %106 = load i32, ptr %77, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %indvars.iv.next150, %107
+  %108 = icmp samesign ult i64 %indvars.iv.next150, %107
   br i1 %108, label %84, label %.loopexit
 
 109:                                              ; preds = %72
@@ -2619,7 +2619,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   %132 = lshr i32 %.0112128, 8
   %133 = load i32, ptr %117, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %131, %134
+  %135 = icmp samesign ult i64 %131, %134
   br i1 %135, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2636,7 +2636,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   store ptr %139, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = zext i32 %136 to i64
-  %141 = icmp ult i64 %indvars.iv.next, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next, %140
   br i1 %141, label %123, label %._crit_edge134
 
 ._crit_edge134:                                   ; preds = %._crit_edge, %109
@@ -3403,7 +3403,7 @@ define internal noundef i32 @H5O__layout_debug(ptr nocapture readnone %0, ptr no
   %26 = add nuw nsw i64 %.0106, 1
   %27 = load i32, ptr %13, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %10

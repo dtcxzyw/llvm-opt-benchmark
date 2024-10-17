@@ -650,7 +650,7 @@ Bal_SetLastCutIsContained.exit166.thread239.us:   ; preds = %.loopexit260.us
   %177 = getelementptr inbounds i8, ptr %176, i64 12
   %178 = load i32, ptr %177, align 4
   %179 = lshr i32 %178, 27
-  %.not.i144.us = icmp ugt i32 %179, %174
+  %.not.i144.us = icmp samesign ugt i32 %179, %174
   br i1 %.not.i144.us, label %Bal_SetCutIsContainedOrder.exit.thread.i145.us, label %180
 
 180:                                              ; preds = %.lr.ph.split.split.i142.us
@@ -727,7 +727,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i145.us:   ; preds = %189, %201, %203, %1
   %211 = getelementptr inbounds i8, ptr %210, i64 12
   %212 = load i32, ptr %211, align 4
   %213 = lshr i32 %212, 27
-  %.not.us.us.i161.us = icmp ugt i32 %213, %174
+  %.not.us.us.i161.us = icmp samesign ugt i32 %213, %174
   br i1 %.not.us.us.i161.us, label %Bal_SetCutIsContainedOrder.exit.thread.us.us.i162.us, label %214
 
 214:                                              ; preds = %.lr.ph.split.us.split.us.i159.us
@@ -770,7 +770,7 @@ Bal_SetLastCutIsContained.exit166.us:             ; preds = %Bal_SetCutIsContain
   %231 = getelementptr inbounds i8, ptr %230, i64 12
   %232 = load i32, ptr %231, align 4
   %233 = lshr i32 %232, 27
-  %234 = icmp ult i32 %226, %233
+  %234 = icmp samesign ult i32 %226, %233
   br i1 %234, label %235, label %Bal_SetCutIsContainedOrder.exit.thread.i.i176.us
 
 235:                                              ; preds = %.outer.i.split.i174.us
@@ -827,7 +827,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i.i176.us: ; preds = %241, %253, %.prehea
   %256 = getelementptr inbounds i8, ptr %255, i64 12
   %257 = load i32, ptr %256, align 4
   %258 = lshr i32 %257, 27
-  %259 = icmp ult i32 %226, %258
+  %259 = icmp samesign ult i32 %226, %258
   br i1 %259, label %260, label %Bal_SetCutIsContainedOrder.exit.thread.i.us.i210.us
 
 260:                                              ; preds = %.outer.i.split.us.i208.us
@@ -927,7 +927,7 @@ Bal_SetLastCutContains.exit.i189.us:              ; preds = %._crit_edge56.loope
   %301 = getelementptr inbounds i8, ptr %289, i64 12
   %302 = load i32, ptr %301, align 4
   %303 = lshr i32 %302, 27
-  %304 = icmp ult i32 %300, %303
+  %304 = icmp samesign ult i32 %300, %303
   br i1 %304, label %Bal_SetSortByDelay.exit.i167.us, label %Bal_CutCompareArea.exit.i.i193.us
 
 Bal_CutCompareArea.exit.i.i193.us:                ; preds = %297, %295
@@ -1175,7 +1175,7 @@ Bal_SetLastCutIsContained.exit.thread233.us.us.us: ; preds = %409
   %434 = getelementptr inbounds i8, ptr %433, i64 12
   %435 = load i32, ptr %434, align 4
   %436 = lshr i32 %435, 27
-  %.not.i120.us.us.us = icmp ugt i32 %436, %431
+  %.not.i120.us.us.us = icmp samesign ugt i32 %436, %431
   br i1 %.not.i120.us.us.us, label %Bal_SetCutIsContainedOrder.exit.thread.i.us.us.us, label %437
 
 437:                                              ; preds = %.lr.ph.split.split.i.us.us.us
@@ -1252,7 +1252,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %446, %458, %460, %
   %468 = getelementptr inbounds i8, ptr %467, i64 12
   %469 = load i32, ptr %468, align 4
   %470 = lshr i32 %469, 27
-  %.not.us.us.i.us.us.us = icmp ugt i32 %470, %431
+  %.not.us.us.i.us.us.us = icmp samesign ugt i32 %470, %431
   br i1 %.not.us.us.i.us.us.us, label %Bal_SetCutIsContainedOrder.exit.thread.us.us.i.us.us.us, label %471
 
 471:                                              ; preds = %.lr.ph.split.us.split.us.i.us.us.us
@@ -1295,7 +1295,7 @@ Bal_SetLastCutIsContained.exit.us.us.us:          ; preds = %Bal_SetCutIsContain
   %488 = getelementptr inbounds i8, ptr %487, i64 12
   %489 = load i32, ptr %488, align 4
   %490 = lshr i32 %489, 27
-  %491 = icmp ult i32 %483, %490
+  %491 = icmp samesign ult i32 %483, %490
   br i1 %491, label %492, label %Bal_SetCutIsContainedOrder.exit.thread.i.i.us.us.us
 
 492:                                              ; preds = %.outer.i.split.i.us.us.us
@@ -1352,7 +1352,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i.i.us.us.us: ; preds = %498, %510, %.pre
   %513 = getelementptr inbounds i8, ptr %512, i64 12
   %514 = load i32, ptr %513, align 4
   %515 = lshr i32 %514, 27
-  %516 = icmp ult i32 %483, %515
+  %516 = icmp samesign ult i32 %483, %515
   br i1 %516, label %517, label %Bal_SetCutIsContainedOrder.exit.thread.i.us.i.us.us.us
 
 517:                                              ; preds = %.outer.i.split.us.i.us.us.us
@@ -1452,7 +1452,7 @@ Bal_SetLastCutContains.exit.i.us.us.us:           ; preds = %._crit_edge56.loope
   %558 = getelementptr inbounds i8, ptr %546, i64 12
   %559 = load i32, ptr %558, align 4
   %560 = lshr i32 %559, 27
-  %561 = icmp ult i32 %557, %560
+  %561 = icmp samesign ult i32 %557, %560
   br i1 %561, label %Bal_SetSortByDelay.exit.i.us.us.us, label %Bal_CutCompareArea.exit.i.i.us.us.us
 
 Bal_CutCompareArea.exit.i.i.us.us.us:             ; preds = %554, %552
@@ -2513,7 +2513,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %84
   %90 = lshr i64 %.val.i, 32
   %91 = trunc nuw i64 %90 to i32
   %92 = and i32 %91, 536870911
-  %.not.i66 = icmp ult i32 %89, %92
+  %.not.i66 = icmp samesign ult i32 %89, %92
   br i1 %.not.i66, label %93, label %145
 
 93:                                               ; preds = %Gia_ObjIsXor.exit.i
@@ -2646,7 +2646,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %Vec_IntGrow.exit.i.
   br label %Gia_ManSuperCollect.exit
 
 145:                                              ; preds = %Gia_ObjIsXor.exit.i
-  %146 = icmp ugt i32 %89, %92
+  %146 = icmp samesign ugt i32 %89, %92
   br i1 %146, label %147, label %Gia_ManSuperCollect.exit
 
 147:                                              ; preds = %145
@@ -3156,7 +3156,7 @@ Gia_ObjIsXor.exit.i.i:                            ; preds = %Vec_IntPush.exit71.
   %370 = lshr i64 %.val38.i.i, 32
   %371 = trunc nuw i64 %370 to i32
   %372 = and i32 %371, 536870911
-  %.not.i.i71 = icmp ult i32 %369, %372
+  %.not.i.i71 = icmp samesign ult i32 %369, %372
   br i1 %.not.i.i71, label %374, label %Gia_ObjIsXor.exit.thread.i.i
 
 Gia_ObjIsXor.exit.thread.i.i:                     ; preds = %Gia_ObjIsXor.exit.i.i, %Vec_IntPush.exit71.i
@@ -3857,7 +3857,7 @@ Gia_ObjIsXor.exit.i89:                            ; preds = %Vec_IntRemove.exit1
   %693 = lshr i64 %.val51.i, 32
   %694 = trunc nuw i64 %693 to i32
   %695 = and i32 %694, 536870911
-  %.not.i90 = icmp ult i32 %692, %695
+  %.not.i90 = icmp samesign ult i32 %692, %695
   br i1 %.not.i90, label %696, label %Gia_ObjIsXor.exit.thread.i
 
 696:                                              ; preds = %Gia_ObjIsXor.exit.i89
@@ -4201,7 +4201,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %12 = lshr i64 %.val21, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
-  %.not = icmp ult i32 %11, %14
+  %.not = icmp samesign ult i32 %11, %14
   br i1 %.not, label %15, label %Gia_ObjIsXor.exit.thread
 
 15:                                               ; preds = %Gia_ObjIsXor.exit
@@ -4356,7 +4356,7 @@ define internal fastcc void @Gia_ManSuperCollectAnd_rec(ptr nocapture noundef re
   %17 = lshr i64 %.val7.i, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 536870911
-  %20 = icmp ugt i32 %16, %19
+  %20 = icmp samesign ugt i32 %16, %19
   br i1 %20, label %21, label %Gia_ObjIsAndReal.exit.thread
 
 21:                                               ; preds = %14

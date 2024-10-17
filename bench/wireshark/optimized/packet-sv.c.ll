@@ -495,7 +495,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   %32 = load i32, ptr @hf_sv_phsmeas_q, align 4
   %33 = load i32, ptr @ett_phsmeas_q, align 4
   %34 = call ptr @proto_tree_add_bitmask(ptr noundef nonnull %23, ptr noundef %1, i32 noundef %28, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @dissect_PhsMeas1.q_flags, i32 noundef 0) #3
-  %35 = icmp ult i64 %indvars.iv.i, 20
+  %35 = icmp samesign ult i64 %indvars.iv.i, 20
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %.lr.ph.split.us.i
@@ -514,7 +514,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   %43 = load i32, ptr %10, align 4
   %44 = lshr i32 %43, 3
   %45 = zext nneg i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next.i, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
   br i1 %46, label %.lr.ph.split.us.i, label %dissect_PhsMeas1.exit, !llvm.loop !6
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i

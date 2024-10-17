@@ -25,7 +25,7 @@ entry:
   %alimit4.phi.trans.insert = getelementptr inbounds i8, ptr %t, i64 12
   %.pre = load i32, ptr %alimit4.phi.trans.insert, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.pre)
-  %cmp = icmp ult i32 %1, 2
+  %cmp = icmp samesign ult i32 %1, 2
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
   br i1 %or.cond, label %return, label %if.else
 
@@ -57,7 +57,7 @@ entry:
   %alimit4.phi.trans.insert.i = getelementptr inbounds i8, ptr %t, i64 12
   %.pre.i = load i32, ptr %alimit4.phi.trans.insert.i, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.pre.i)
-  %cmp.i = icmp ult i32 %1, 2
+  %cmp.i = icmp samesign ult i32 %1, 2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
   br i1 %or.cond.i, label %luaH_realasize.exit, label %if.else.i
 
@@ -230,7 +230,7 @@ entry:
   %alimit4.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %t, i64 12
   %.pre.i.i = load i32, ptr %alimit4.phi.trans.insert.i.i, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.pre.i.i)
-  %cmp.i.i = icmp ult i32 %1, 2
+  %cmp.i.i = icmp samesign ult i32 %1, 2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i
   br i1 %or.cond.i.i, label %setlimittosize.exit, label %if.else.i.i
 
@@ -353,7 +353,7 @@ if.then4:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %k.i)
   %13 = load i32, ptr %alimit4.phi.trans.insert.i.i, align 4
   %conv.i77 = zext i32 %13 to i64
-  %cmp.i78 = icmp ult i64 %indvars.iv, %conv.i77
+  %cmp.i78 = icmp samesign ult i64 %indvars.iv, %conv.i77
   br i1 %cmp.i78, label %luaH_getint.exit, label %if.else.i79
 
 if.else.i79:                                      ; preds = %if.then4
@@ -364,7 +364,7 @@ if.else.i79:                                      ; preds = %if.then4
 land.lhs.true.i:                                  ; preds = %if.else.i79
   %not.i = sub nsw i64 0, %conv.i77
   %and7.i = and i64 %indvars.iv, %not.i
-  %cmp8.i = icmp ult i64 %and7.i, %conv.i77
+  %cmp8.i = icmp samesign ult i64 %and7.i, %conv.i77
   br i1 %cmp8.i, label %if.then10.i, label %if.else16.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
@@ -784,7 +784,7 @@ freehash.exit:                                    ; preds = %entry, %if.then.i
   %alimit4.phi.trans.insert.i = getelementptr inbounds i8, ptr %t, i64 12
   %.pre.i = load i32, ptr %alimit4.phi.trans.insert.i, align 4
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.pre.i)
-  %cmp.i6 = icmp ult i32 %5, 2
+  %cmp.i6 = icmp samesign ult i32 %5, 2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i6
   br i1 %or.cond.i, label %luaH_realasize.exit, label %if.else.i
 
@@ -1574,7 +1574,7 @@ if.then45:                                        ; preds = %while.cond.i, %lor.
   %alimit4.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %t, i64 12
   %.pre.i.i = load i32, ptr %alimit4.phi.trans.insert.i.i, align 4
   %13 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.pre.i.i)
-  %cmp.i.i115 = icmp ult i32 %13, 2
+  %cmp.i.i115 = icmp samesign ult i32 %13, 2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i115
   br i1 %or.cond.i.i, label %setlimittosize.exit, label %if.else.i.i
 
@@ -1986,7 +1986,7 @@ if.then15:                                        ; preds = %land.lhs.true5
 
 ispow2realasize.exit:                             ; preds = %if.then15
   %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp.i = icmp ugt i32 %7, 1
+  %cmp.i = icmp samesign ugt i32 %7, 1
   %and20 = and i32 %sub, %sub7
   %cmp21 = icmp eq i32 %and20, 0
   %or.cond = or i1 %cmp.i, %cmp21
@@ -2029,11 +2029,11 @@ binsearch.exit:                                   ; preds = %while.body.i, %if.t
   br i1 %tobool.not.i44, label %ispow2realasize.exit49, label %land.lhs.true34
 
 ispow2realasize.exit49:                           ; preds = %binsearch.exit
-  %cmp.i48 = icmp ugt i32 %12, 1
+  %cmp.i48 = icmp samesign ugt i32 %12, 1
   br i1 %cmp.i48, label %if.end44, label %luaH_realasize.exit
 
 land.lhs.true34:                                  ; preds = %binsearch.exit
-  %cmp.i52 = icmp ult i32 %12, 2
+  %cmp.i52 = icmp samesign ult i32 %12, 2
   br i1 %cmp.i52, label %luaH_realasize.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true34
@@ -2071,7 +2071,7 @@ if.end46:                                         ; preds = %land.lhs.true, %ent
   %14 = load i8, ptr %flags47, align 2
   %tobool50.not = icmp sgt i8 %14, -1
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp55 = icmp ult i32 %15, 2
+  %cmp55 = icmp samesign ult i32 %15, 2
   %or.cond113 = select i1 %tobool50.not, i1 true, i1 %cmp55
   br i1 %or.cond113, label %if.end87, label %if.then57
 
@@ -2233,7 +2233,7 @@ if.else100:                                       ; preds = %luaH_getint.exit
 do.body.i:                                        ; preds = %luaH_getint.exit.i, %if.else100
   %32 = phi i32 [ %alimit.promoted, %if.else100 ], [ %41, %luaH_getint.exit.i ]
   %j.addr.1.i = phi i64 [ %spec.select.i, %if.else100 ], [ %mul.i, %luaH_getint.exit.i ]
-  %cmp1.i = icmp ult i64 %j.addr.1.i, 4611686018427387904
+  %cmp1.i = icmp samesign ult i64 %j.addr.1.i, 4611686018427387904
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i96
 
 if.then2.i:                                       ; preds = %do.body.i
@@ -2258,7 +2258,7 @@ if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
   br label %return.sink.split.i.i
 
 if.else16.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i104
-  %cmp.i.i.i = icmp ult i64 %j.addr.1.i, 1073741824
+  %cmp.i.i.i = icmp samesign ult i64 %j.addr.1.i, 1073741824
   %33 = load ptr, ptr %node.i.i.i, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -2334,7 +2334,7 @@ land.lhs.true.i23.i:                              ; preds = %if.else.i96
   %conv.i18.i = zext i32 %32 to i64
   %not.i24.i = sub nsw i64 0, %conv.i18.i
   %and7.i25.i = and i64 %not.i24.i, 9223372036854775806
-  %cmp8.i26.i = icmp ult i64 %and7.i25.i, %conv.i18.i
+  %cmp8.i26.i = icmp samesign ult i64 %and7.i25.i, %conv.i18.i
   br i1 %cmp8.i26.i, label %if.then10.i54.i, label %if.else16.i27.i
 
 if.then10.i54.i:                                  ; preds = %land.lhs.true.i23.i

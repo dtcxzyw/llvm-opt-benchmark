@@ -1065,7 +1065,7 @@ smb_flush.exit:                                   ; preds = %33
   %74 = zext i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 1
   %76 = add nuw nsw i64 %75, 39
-  %.not35.i = icmp ult i64 %66, %76
+  %.not35.i = icmp samesign ult i64 %66, %76
   br i1 %.not35.i, label %84, label %77
 
 77:                                               ; preds = %71
@@ -1074,7 +1074,7 @@ smb_flush.exit:                                   ; preds = %33
   %80 = call zeroext i16 @Curl_read16_le(ptr noundef nonnull %79) #12
   %81 = zext i16 %80 to i64
   %82 = add nuw nsw i64 %76, %81
-  %83 = icmp ult i64 %66, %82
+  %83 = icmp samesign ult i64 %66, %82
   br i1 %83, label %smb_recv_message.exit, label %84
 
 84:                                               ; preds = %77, %71, %69

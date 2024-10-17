@@ -3031,7 +3031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %131 = add i32 %129, %130
   %132 = call i32 @llvm.abs.i32(i32 %131, i1 true)
   %133 = add nuw nsw i32 %.041, 1
-  %134 = icmp ult i32 %.041, 9
+  %134 = icmp samesign ult i32 %.041, 9
   %135 = select i1 %134, i32 2, i32 1
   %136 = add nuw nsw i32 %135, %132
   %137 = zext nneg i32 %136 to i64

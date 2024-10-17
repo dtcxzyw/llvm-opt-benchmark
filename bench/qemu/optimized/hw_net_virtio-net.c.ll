@@ -1370,7 +1370,7 @@ if.end9:                                          ; preds = %iov_to_buf.exit.if.
   %conv24 = zext i16 %spec.select to i64
   %tobool.not.i = icmp ne i16 %spec.select, 0
   %7 = call range(i64 1, 17) i64 @llvm.ctpop.i64(i64 %conv24)
-  %tobool1.not.i = icmp ult i64 %7, 2
+  %tobool1.not.i = icmp samesign ult i64 %7, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end30, label %if.then26
 
@@ -1987,7 +1987,7 @@ if.end.thread:                                    ; preds = %for.body
 if.end:                                           ; preds = %for.body
   %59 = load i16, ptr %curr_queue_pairs, align 2
   %60 = zext i16 %59 to i64
-  %cmp6.not = icmp uge i64 %indvars.iv, %60
+  %cmp6.not = icmp samesign uge i64 %indvars.iv, %60
   %call.i.i52 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %tobool.not.i53 = or i1 %tobool.not.i.i, %cmp6.not
   br i1 %tobool.not.i53, label %if.end13.thread, label %land.lhs.true.i
@@ -2007,7 +2007,7 @@ virtio_net_started.exit:                          ; preds = %land.lhs.true.i
 land.end:                                         ; preds = %virtio_net_started.exit
   %64 = load i8, ptr %vhost_started, align 2
   %tobool10.not = icmp eq i8 %64, 0
-  br i1 %tobool10.not, label %if.end13, label %if.end13.thread98
+  br i1 %tobool10.not, label %if.end13, label %if.end13.thread96
 
 if.end13:                                         ; preds = %land.end
   tail call void @qemu_flush_queued_packets(ptr noundef %call2) #19
@@ -2016,11 +2016,11 @@ if.end13:                                         ; preds = %land.end
   %tobool14.not = icmp eq i32 %65, 0
   br i1 %tobool14.not, label %for.inc, label %if.then18
 
-if.end13.thread98:                                ; preds = %land.end
-  %tx_waiting99 = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %66 = load i32, ptr %tx_waiting99, align 8
-  %tobool14.not100 = icmp eq i32 %66, 0
-  br i1 %tobool14.not100, label %for.inc, label %if.else26
+if.end13.thread96:                                ; preds = %land.end
+  %tx_waiting97 = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %66 = load i32, ptr %tx_waiting97, align 8
+  %tobool14.not98 = icmp eq i32 %66, 0
+  br i1 %tobool14.not98, label %for.inc, label %if.else26
 
 if.end13.thread:                                  ; preds = %if.end.thread, %if.end, %land.lhs.true.i, %virtio_net_started.exit
   %tobool.not.i536769.ph = phi i1 [ false, %virtio_net_started.exit ], [ true, %if.end.thread ], [ true, %if.end ], [ false, %land.lhs.true.i ]
@@ -2049,9 +2049,9 @@ if.else24:                                        ; preds = %if.then18
   tail call void @qemu_bh_schedule(ptr noundef %70) #19
   br label %for.inc
 
-if.else26:                                        ; preds = %if.end13.thread98, %if.end13.thread
-  %tobool.not.i536769717580 = phi i1 [ %tobool.not.i536769.ph, %if.end13.thread ], [ false, %if.end13.thread98 ]
-  %tx_waiting7679 = phi ptr [ %tx_waiting73, %if.end13.thread ], [ %tx_waiting99, %if.end13.thread98 ]
+if.else26:                                        ; preds = %if.end13.thread96, %if.end13.thread
+  %tobool.not.i536769717580 = phi i1 [ %tobool.not.i536769.ph, %if.end13.thread ], [ false, %if.end13.thread96 ]
+  %tx_waiting7679 = phi ptr [ %tx_waiting73, %if.end13.thread ], [ %tx_waiting97, %if.end13.thread96 ]
   %tx_timer27 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %71 = load ptr, ptr %tx_timer27, align 8
   %tobool28.not = icmp eq ptr %71, null
@@ -2093,11 +2093,11 @@ if.then.i58:                                      ; preds = %if.then45
   tail call void @virtio_notify(ptr noundef nonnull %vdev, ptr noundef %77) #19
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end13.thread98, %if.then.i58, %if.then45, %if.end13.thread, %if.else24, %if.then20, %land.lhs.true42, %if.end33, %if.end13
+for.inc:                                          ; preds = %if.end13.thread96, %if.then.i58, %if.then45, %if.end13.thread, %if.else24, %if.then20, %land.lhs.true42, %if.end33, %if.end13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i16, ptr %max_queue_pairs, align 4
   %79 = zext i16 %78 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %79
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %virtio_net_vhost_status.exit
@@ -2128,7 +2128,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.028 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load i16, ptr %curr_queue_pairs, align 2
   %conv2 = zext i16 %3 to i32
-  %cmp3 = icmp ult i32 %i.028, %conv2
+  %cmp3 = icmp samesign ult i32 %i.028, %conv2
   %4 = load ptr, ptr %nic, align 8
   %call.i = tail call ptr @qemu_get_subqueue(ptr noundef %4, i32 noundef %i.028) #19
   %peer.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -2207,7 +2207,7 @@ for.inc:                                          ; preds = %if.end5.i15, %if.el
   %inc = add nuw nsw i32 %i.028, 1
   %15 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %15 to i32
-  %cmp = icmp ult i32 %inc, %conv
+  %cmp = icmp samesign ult i32 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
@@ -2595,7 +2595,7 @@ if.end44:                                         ; preds = %if.end36.if.end44_c
   %10 = add i16 %9, -256
   %or.cond = icmp ult i16 %10, 769
   %11 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %9)
-  %tobool1.not.i = icmp ult i16 %11, 2
+  %tobool1.not.i = icmp samesign ult i16 %11, 2
   %or.cond161 = select i1 %or.cond, i1 %tobool1.not.i, i1 false
   br i1 %or.cond161, label %if.end63, label %if.then59
 
@@ -2634,9 +2634,9 @@ if.end.i142:                                      ; preds = %lor.lhs.false68
 
 virtio_net_max_tx_queue_size.exit:                ; preds = %lor.lhs.false68, %if.end.i142
   %retval.0.i143 = phi i32 [ 256, %lor.lhs.false68 ], [ %..i, %if.end.i142 ]
-  %cmp73 = icmp uge i32 %retval.0.i143, %conv65
+  %cmp73 = icmp samesign uge i32 %retval.0.i143, %conv65
   %17 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %12)
-  %tobool1.not.i146 = icmp ult i16 %17, 2
+  %tobool1.not.i146 = icmp samesign ult i16 %17, 2
   %or.cond162 = select i1 %cmp73, i1 %tobool1.not.i146, i1 false
   br i1 %or.cond162, label %if.end85, label %if.then80
 
@@ -2696,7 +2696,7 @@ if.then101:                                       ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp96 = icmp ult i64 %indvars.iv.next, %22
+  %cmp96 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %cmp96, label %for.body, label %if.end104, !llvm.loop !11
 
 if.end104:                                        ; preds = %for.inc, %if.end85
@@ -2785,7 +2785,7 @@ for.body163:                                      ; preds = %virtio_net_max_tx_q
   %inc165 = add nuw nsw i32 %i.1168, 1
   %41 = load i16, ptr %max_queue_pairs105, align 4
   %conv160 = zext i16 %41 to i32
-  %cmp161 = icmp ult i32 %inc165, %conv160
+  %cmp161 = icmp samesign ult i32 %inc165, %conv160
   br i1 %cmp161, label %for.body163, label %for.end166, !llvm.loop !12
 
 for.end166:                                       ; preds = %for.body163, %virtio_net_max_tx_queue_size.exit160
@@ -2839,7 +2839,7 @@ for.body191:                                      ; preds = %if.end185, %for.bod
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %49 = load i16, ptr %max_queue_pairs105, align 4
   %50 = zext i16 %49 to i64
-  %cmp189 = icmp ult i64 %indvars.iv.next178, %50
+  %cmp189 = icmp samesign ult i64 %indvars.iv.next178, %50
   br i1 %cmp189, label %for.body191, label %for.end198, !llvm.loop !13
 
 for.end198:                                       ; preds = %for.body191, %if.end185
@@ -2864,7 +2864,7 @@ for.body207:                                      ; preds = %for.cond202.prehead
   %inc211 = add nuw nsw i32 %i.3174, 1
   %55 = load i16, ptr %max_queue_pairs105, align 4
   %conv204 = zext i16 %55 to i32
-  %cmp205 = icmp ult i32 %inc211, %conv204
+  %cmp205 = icmp samesign ult i32 %inc211, %conv204
   br i1 %cmp205, label %for.body207, label %if.end215, !llvm.loop !14
 
 if.end215:                                        ; preds = %for.body207, %for.end198, %for.cond202.preheader
@@ -3569,7 +3569,7 @@ for.inc.i:                                        ; preds = %if.then16.i, %land.
   %inc.i = add nuw nsw i32 %i.018.i, 1
   %18 = load i16, ptr %max_queue_pairs.i46, align 4
   %conv.i48 = zext i16 %18 to i32
-  %cmp.i = icmp ult i32 %inc.i, %conv.i48
+  %cmp.i = icmp samesign ult i32 %inc.i, %conv.i48
   br i1 %cmp.i, label %for.body.i, label %virtio_net_set_mrg_rx_bufs.exit, !llvm.loop !20
 
 virtio_net_set_mrg_rx_bufs.exit:                  ; preds = %for.inc.i, %if.end.i
@@ -3666,7 +3666,7 @@ for.inc:                                          ; preds = %for.body, %if.end33
   %inc = add nuw nsw i32 %i.082, 1
   %42 = load i16, ptr %max_queue_pairs.i46, align 4
   %conv27 = zext i16 %42 to i32
-  %cmp = icmp ult i32 %inc, %conv27
+  %cmp = icmp samesign ult i32 %inc, %conv27
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %if.end26
@@ -3862,7 +3862,7 @@ flush_or_purge_queued_packets.exit:               ; preds = %for.body, %if.end.i
   %inc = add nuw nsw i32 %i.026, 1
   %13 = load i16, ptr %max_queue_pairs, align 4
   %conv10 = zext i16 %13 to i32
-  %cmp = icmp ult i32 %inc, %conv10
+  %cmp = icmp samesign ult i32 %inc, %conv10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %flush_or_purge_queued_packets.exit, %entry
@@ -4742,7 +4742,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %inc = add nuw nsw i32 %i.018, 1
   %9 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %9 to i32
-  %cmp = icmp ult i32 %inc, %conv
+  %cmp = icmp samesign ult i32 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %if.end
@@ -6120,8 +6120,8 @@ for.inc.i:                                        ; preds = %do.body.i, %for.bod
   %arrayidx.i = getelementptr i32, ptr %23, i64 %indvars.iv20.i
   %24 = load i32, ptr %arrayidx.i, align 4
   %tobool.i = icmp ne i32 %24, 0
-  %cmp2.i = icmp ult i64 %indvars.iv.i, 31
-  %25 = and i1 %cmp2.i, %tobool.i
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.i, 31
+  %25 = select i1 %tobool.i, i1 %cmp2.i, i1 false
   br i1 %25, label %for.body3.i, label %for.inc9.i, !llvm.loop !26
 
 for.inc9.i:                                       ; preds = %for.inc.i, %for.cond1.preheader.i
@@ -6950,7 +6950,7 @@ coalesce:                                         ; preds = %if.else20, %if.then
   %max_payload = getelementptr inbounds i8, ptr %chain, i64 28
   %21 = load i16, ptr %max_payload, align 4
   %conv33 = zext i16 %21 to i32
-  %cmp34 = icmp ugt i32 %add, %conv33
+  %cmp34 = icmp samesign ugt i32 %add, %conv33
   br i1 %cmp34, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %coalesce
@@ -8020,7 +8020,7 @@ for.inc.i:                                        ; preds = %if.then16.i, %land.
   %inc.i = add nuw nsw i32 %i.018.i, 1
   %19 = load i16, ptr %max_queue_pairs.i, align 4
   %conv.i = zext i16 %19 to i32
-  %cmp.i = icmp ult i32 %inc.i, %conv.i
+  %cmp.i = icmp samesign ult i32 %inc.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %virtio_net_set_mrg_rx_bufs.exit, !llvm.loop !20
 
 virtio_net_set_mrg_rx_bufs.exit:                  ; preds = %for.inc.i, %if.end.i
@@ -8108,7 +8108,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   %inc33 = add nuw nsw i32 %i.191, 1
   %32 = load i16, ptr %max_queue_pairs.i, align 4
   %conv26 = zext i16 %32 to i32
-  %cmp27 = icmp ult i32 %inc33, %conv26
+  %cmp27 = icmp samesign ult i32 %inc33, %conv26
   br i1 %cmp27, label %for.body29, label %for.end34, !llvm.loop !39
 
 for.end34:                                        ; preds = %for.body29, %for.end

@@ -1865,7 +1865,7 @@ _ZL21isOpcWithIntImmediatePKN4llvm6SDNodeEjRm.exit.i: ; preds = %612, %612, %605
   %.0281.i = load i64, ptr %.0.in.i.i.i.i.i165.i, align 8
   %627 = xor i64 %.0281.i, -1
   %628 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %627, i1 false)
-  %629 = icmp ugt i64 %.0102.i, %628
+  %629 = icmp samesign ugt i64 %.0102.i, %628
   br i1 %629, label %_ZL14isIntImmediateN4llvm7SDValueERm.exit145.i, label %630
 
 630:                                              ; preds = %_ZL21isOpcWithIntImmediatePKN4llvm6SDNodeEjRm.exit.i
@@ -14792,7 +14792,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit265:           ; preds = %153, %167
   br label %.loopexit.i
 
 192:                                              ; preds = %.preheader
-  %193 = icmp ugt i32 %.044.i, 5
+  %193 = icmp samesign ugt i32 %.044.i, 5
   br i1 %193, label %.preheader, label %.loopexit.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %192, %190
@@ -17041,7 +17041,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit.i:            ; preds = %99, %92
   %.0137378.i = phi i32 [ 0, %_ZNK4llvm5APInt11countl_zeroEv.exit.i ], [ %146, %_ZNK4llvm3EVTeqES0_.exit.thread.i ]
   store ptr null, ptr %37, align 8
   store i32 0, ptr %102, align 8
-  %141 = icmp ugt i32 %.0137378.i, 1
+  %141 = icmp samesign ugt i32 %.0137378.i, 1
   %142 = and i32 %.0137378.i, 1
   %143 = load ptr, ptr %103, align 8
   %144 = zext nneg i32 %142 to i64
@@ -18930,7 +18930,7 @@ _ZN4llvm5APIntD2Ev.exit95.i:                      ; preds = %898, %894, %_ZNK4ll
   %911 = zext i1 %.not81.i to i32
   %.177.i = add i32 %.076136.i, %911
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %912 = icmp ult i64 %indvars.iv.next.i, %906
+  %912 = icmp samesign ult i64 %indvars.iv.next.i, %906
   br i1 %912, label %.preheader.i, label %913, !llvm.loop !67
 
 913:                                              ; preds = %.preheader.i
@@ -26344,7 +26344,7 @@ define internal fastcc void @_ZL13getUsefulBitsN4llvm7SDValueERNS_5APIntEj(ptr r
   %23 = alloca %"class.llvm::APInt", align 8
   %24 = alloca %"class.llvm::APInt", align 8
   %25 = alloca %"class.llvm::APInt", align 8
-  %26 = icmp ugt i32 %3, 5
+  %26 = icmp samesign ugt i32 %3, 5
   br i1 %26, label %_ZN4llvm5APIntD2Ev.exit18, label %27
 
 27:                                               ; preds = %4
@@ -34156,7 +34156,7 @@ _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit:        ; preds = %46, %50
   %.pn.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %46 ], [ %52, %50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %53 = lshr i64 %.pn.i.i, 1
-  %54 = icmp ugt i64 %31, %53
+  %54 = icmp samesign ugt i64 %31, %53
   br i1 %54, label %_ZN4llvm5APIntD2Ev.exit30, label %55
 
 55:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
@@ -36760,7 +36760,7 @@ _ZNK4llvm7APFloat15getExactInverseEPS0_.exit:     ; preds = %33
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit:               ; preds = %48
   %53 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %54 = icmp ult i64 %53, 2
+  %54 = icmp samesign ult i64 %53, 2
   br i1 %54, label %55, label %_ZN4llvm5SDLocD2Ev.exit
 
 55:                                               ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit
@@ -37565,7 +37565,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %_ZN4llvm8dyn_castIN
   br label %.loopexit.i
 
 44:                                               ; preds = %.preheader
-  %45 = icmp ugt i32 %.044.i, 5
+  %45 = icmp samesign ugt i32 %.044.i, 5
   br i1 %45, label %.preheader, label %.loopexit.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %44, %42

@@ -8583,7 +8583,7 @@ dcm_export_create_tag_str.exit.i:                 ; preds = %290, %274, %.sink.s
   %295 = trunc i64 %294 to i32
   %296 = and i32 %295, 1
   %spec.select.i28.i = add i32 %296, %295
-  %297 = icmp ugt i32 %.013.i.i, 506
+  %297 = icmp samesign ugt i32 %.013.i.i, 506
   br i1 %297, label %dcm_export_create_tag_str.exit30.i, label %298
 
 298:                                              ; preds = %293
@@ -8598,7 +8598,7 @@ dcm_export_create_tag_str.exit.i:                 ; preds = %290, %274, %.sink.s
   store i8 0, ptr %303, align 1
   %304 = getelementptr i8, ptr %300, i64 4
   store i16 18773, ptr %304, align 1
-  %305 = icmp ugt i32 %.013.i.i, 504
+  %305 = icmp samesign ugt i32 %.013.i.i, 504
   br i1 %305, label %dcm_export_create_tag_str.exit30.i, label %306
 
 306:                                              ; preds = %298
@@ -8631,7 +8631,7 @@ dcm_export_create_tag_str.exit30.i:               ; preds = %315, %306, %298, %2
   %321 = trunc i64 %320 to i32
   %322 = and i32 %321, 1
   %spec.select.i32.i = add i32 %322, %321
-  %323 = icmp ugt i32 %.013.i29.i, 506
+  %323 = icmp samesign ugt i32 %.013.i29.i, 506
   br i1 %323, label %dcm_export_create_header.exit, label %324
 
 324:                                              ; preds = %319
@@ -8646,7 +8646,7 @@ dcm_export_create_tag_str.exit30.i:               ; preds = %315, %306, %298, %2
   store i8 0, ptr %329, align 1
   %330 = getelementptr i8, ptr %326, i64 4
   store i16 18773, ptr %330, align 1
-  %331 = icmp ugt i32 %.013.i29.i, 504
+  %331 = icmp samesign ugt i32 %.013.i29.i, 504
   br i1 %331, label %dcm_export_create_header.exit, label %332
 
 332:                                              ; preds = %324
@@ -8671,7 +8671,7 @@ dcm_export_create_tag_str.exit30.i:               ; preds = %315, %306, %298, %2
 
 dcm_export_create_tag_str.exit34.i:               ; preds = %341, %dcm_export_create_tag_str.exit30.i
   %.013.i33.i = phi i32 [ %.013.i29.i, %dcm_export_create_tag_str.exit30.i ], [ %339, %341 ]
-  %345 = icmp ugt i32 %.013.i33.i, 506
+  %345 = icmp samesign ugt i32 %.013.i33.i, 506
   br i1 %345, label %dcm_export_create_header.exit, label %346
 
 346:                                              ; preds = %dcm_export_create_tag_str.exit34.i
@@ -8686,7 +8686,7 @@ dcm_export_create_tag_str.exit34.i:               ; preds = %341, %dcm_export_cr
   store i8 0, ptr %351, align 1
   %352 = getelementptr i8, ptr %348, i64 4
   store i16 18773, ptr %352, align 1
-  %353 = icmp ugt i32 %.013.i33.i, 504
+  %353 = icmp samesign ugt i32 %.013.i33.i, 504
   br i1 %353, label %dcm_export_create_header.exit, label %354
 
 354:                                              ; preds = %346

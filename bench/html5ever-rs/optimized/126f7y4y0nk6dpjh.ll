@@ -73,7 +73,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 23:                                               ; preds = %14
   %24 = lshr i64 %5, 4
   %25 = and i64 %24, 15
-  %26 = icmp ugt i64 %25, 7
+  %26 = icmp samesign ugt i64 %25, 7
   br i1 %26, label %27, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i.i.i.i.i"
 
 27:                                               ; preds = %23
@@ -129,7 +129,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 51:                                               ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit.i.i.i.i.i"
   %52 = lshr i64 %7, 4
   %53 = and i64 %52, 15
-  %54 = icmp ugt i64 %53, 7
+  %54 = icmp samesign ugt i64 %53, 7
   br i1 %54, label %55, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i3.i.i.i.i.i"
 
 55:                                               ; preds = %51
@@ -208,7 +208,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 88:                                               ; preds = %79
   %89 = lshr i64 %76, 4
   %90 = and i64 %89, 15
-  %91 = icmp ugt i64 %90, 7
+  %91 = icmp samesign ugt i64 %90, 7
   br i1 %91, label %92, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i.i.i.i"
 
 92:                                               ; preds = %88
@@ -264,7 +264,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 116:                                              ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17he83af64da1ea261dE.exit.i.i.i.i"
   %117 = lshr i64 %77, 4
   %118 = and i64 %117, 15
-  %119 = icmp ugt i64 %118, 7
+  %119 = icmp samesign ugt i64 %118, 7
   br i1 %119, label %120, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i3.i.i.i.i"
 
 120:                                              ; preds = %116
@@ -341,7 +341,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 155:                                              ; preds = %146
   %156 = lshr i64 %143, 4
   %157 = and i64 %156, 15
-  %158 = icmp ugt i64 %157, 7
+  %158 = icmp samesign ugt i64 %157, 7
   br i1 %158, label %159, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i18.i.i.i"
 
 159:                                              ; preds = %155
@@ -397,7 +397,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
 183:                                              ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2853db1a340944b2E.exit.i.i.i.i"
   %184 = lshr i64 %144, 4
   %185 = and i64 %184, 15
-  %186 = icmp ugt i64 %185, 7
+  %186 = icmp samesign ugt i64 %185, 7
   br i1 %186, label %187, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i3.i17.i.i.i"
 
 187:                                              ; preds = %183
@@ -654,7 +654,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1ae935e5a73ef618E.exit: ; preds
   %.0155 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h111dbb0a200c974aE.exit" ], [ %.0.i, %._crit_edge ]
   %45 = sub nuw i64 %1, %.0155
   %46 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %0, i64 %.0155
-  %47 = icmp ult i64 %45, 2
+  %47 = icmp samesign ult i64 %45, 2
   br i1 %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4078fc42c6f6cfb9E.exit", label %48
 
 48:                                               ; preds = %42

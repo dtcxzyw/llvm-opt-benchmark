@@ -2622,7 +2622,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !11
 
 .critedge:                                        ; preds = %27
@@ -11911,7 +11911,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter
   %.sroa.22.0.copyload15 = load ptr, ptr %.sroa.22.0..sroa_idx14, align 8
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

@@ -236,7 +236,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 13:                                               ; preds = %8
   %14 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   store i32 %9, ptr %14, align 8
-  %15 = icmp ult i32 %9, 7
+  %15 = icmp samesign ult i32 %9, 7
   %16 = add nsw i32 %9, -6
   %17 = shl nuw nsw i32 1, %16
   %18 = select i1 %15, i32 1, i32 %17
@@ -444,7 +444,7 @@ Abc_TruthReadHex.exit.i.loopexit.us.i:            ; preds = %Abc_TruthReadHexDig
   %106 = tail call ptr @Abc_FileRead(ptr noundef %0) #10
   %107 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   store i32 %1, ptr %107, align 8
-  %108 = icmp ult i32 %1, 7
+  %108 = icmp samesign ult i32 %1, 7
   %109 = add nsw i32 %1, -6
   %110 = shl nuw i32 1, %109
   %111 = select i1 %108, i32 1, i32 %110

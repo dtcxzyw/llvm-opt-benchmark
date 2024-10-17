@@ -13,11 +13,11 @@ define range(i64 -9223372036854774784, -9223372036854775807) i64 @f64_to_i64_r_m
   %5 = and i64 %0, 4503599627370495
   %.neg = add nsw i64 %4, -1075
   %6 = sub nsw i64 1075, %4
-  %7 = icmp ugt i64 %4, 1074
+  %7 = icmp samesign ugt i64 %4, 1074
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i64 %4, 1085
+  %9 = icmp samesign ugt i64 %4, 1085
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %8
@@ -39,7 +39,7 @@ define range(i64 -9223372036854774784, -9223372036854775807) i64 @f64_to_i64_r_m
   br label %34
 
 20:                                               ; preds = %2
-  %21 = icmp ult i64 %4, 1023
+  %21 = icmp samesign ult i64 %4, 1023
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20

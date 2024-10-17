@@ -309,7 +309,7 @@ define void @_ZN2cv9SparseMat3HdrC2EiPKii(ptr noundef nonnull align 8 dereferenc
   br label %31
 
 .preheader:                                       ; preds = %31
-  %29 = icmp ult i32 %1, 32
+  %29 = icmp samesign ult i32 %1, 32
   br i1 %29, label %._crit_edge, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
@@ -398,7 +398,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %._crit_edge.thread,
   br label %.noexc
 
 65:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i
-  %66 = icmp ult i64 %61, 8
+  %66 = icmp samesign ult i64 %61, 8
   br i1 %66, label %67, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
 
 67:                                               ; preds = %65
@@ -2116,7 +2116,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %9, %4
   br label %_ZNSt6vectorImSaImEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i
-  %26 = icmp ult i64 %21, 8
+  %26 = icmp samesign ult i64 %21, 8
   br i1 %26, label %27, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
 
 27:                                               ; preds = %25
@@ -2349,7 +2349,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit:      ; preds = %_ZNK2cv22SparseMatC
   br label %.lr.ph.i
 
 .preheader.i.loopexit:                            ; preds = %.lr.ph.i
-  %92 = icmp ult i64 %93, %44
+  %92 = icmp samesign ult i64 %93, %44
   br i1 %92, label %.lr.ph17.i, label %_ZN2cvL8copyElemEPKhPhm.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit, %.lr.ph.i
@@ -2360,7 +2360,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit:      ; preds = %_ZNK2cv22SparseMatC
   %96 = getelementptr inbounds i8, ptr %90, i64 %.015.i
   store i32 %95, ptr %96, align 4
   %97 = add nuw nsw i64 %93, 4
-  %.not.i14 = icmp ugt i64 %97, %44
+  %.not.i14 = icmp samesign ugt i64 %97, %44
   br i1 %.not.i14, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph17.i:                                       ; preds = %.preheader.i.loopexit, %.lr.ph17.i
@@ -2464,7 +2464,7 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat4d
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = getelementptr inbounds i8, ptr %1, i64 72
   %42 = getelementptr inbounds i8, ptr %1, i64 4
-  %.not14.i = icmp ult i32 %36, 4
+  %.not14.i = icmp samesign ult i32 %36, 4
   br i1 %39, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN2cvL8copyElemEPKhPhm.exit.us
@@ -2531,12 +2531,12 @@ _ZN2cv3Mat3ptrEPKi.exit.us:                       ; preds = %61, %_ZNK2cv22Spars
   %73 = getelementptr inbounds i8, ptr %69, i64 %.015.i.us
   store i32 %72, ptr %73, align 4
   %74 = add nuw nsw i64 %70, 4
-  %.not.i20.us = icmp ugt i64 %74, %37
+  %.not.i20.us = icmp samesign ugt i64 %74, %37
   br i1 %.not.i20.us, label %.preheader.i.us, label %.lr.ph.i19.us, !llvm.loop !14
 
 .preheader.i.us:                                  ; preds = %.lr.ph.i19.us, %_ZN2cv3Mat3ptrEPKi.exit.us
   %.0.lcssa.i21.us = phi i64 [ 0, %_ZN2cv3Mat3ptrEPKi.exit.us ], [ %70, %.lr.ph.i19.us ]
-  %75 = icmp ult i64 %.0.lcssa.i21.us, %37
+  %75 = icmp samesign ult i64 %.0.lcssa.i21.us, %37
   br i1 %75, label %.lr.ph17.i.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us
 
 .lr.ph17.i.us:                                    ; preds = %.preheader.i.us, %.lr.ph17.i.us
@@ -2628,7 +2628,7 @@ _ZN2cvL8copyElemEPKhPhm.exit.loopexit.us37.us:    ; preds = %.lr.ph17.i.us32.us
   br label %.lr.ph.i19
 
 .preheader.i.loopexit:                            ; preds = %.lr.ph.i19
-  %124 = icmp ult i64 %125, %37
+  %124 = icmp samesign ult i64 %125, %37
   br i1 %124, label %.lr.ph17.i, label %_ZN2cvL8copyElemEPKhPhm.exit
 
 .lr.ph.i19:                                       ; preds = %.lr.ph.split.split, %.lr.ph.i19
@@ -2639,7 +2639,7 @@ _ZN2cvL8copyElemEPKhPhm.exit.loopexit.us37.us:    ; preds = %.lr.ph17.i.us32.us
   %128 = getelementptr inbounds i8, ptr %123, i64 %.015.i
   store i32 %127, ptr %128, align 4
   %129 = add nuw nsw i64 %125, 4
-  %.not.i20 = icmp ugt i64 %129, %37
+  %.not.i20 = icmp samesign ugt i64 %129, %37
   br i1 %.not.i20, label %.preheader.i.loopexit, label %.lr.ph.i19, !llvm.loop !14
 
 .lr.ph17.i:                                       ; preds = %.preheader.i.loopexit, %.lr.ph17.i
@@ -4058,7 +4058,7 @@ define void @_ZN2cv9SparseMat13resizeHashTabEm(ptr nocapture noundef nonnull rea
   %3 = alloca %"class.std::vector.0", align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 8)
   %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not = icmp ult i64 %4, 2
+  %.not = icmp samesign ult i64 %4, 2
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %2
@@ -5418,7 +5418,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit:      ; preds = %_ZNK2cv22SparseMatC
   br label %.lr.ph.i
 
 .preheader.i.loopexit:                            ; preds = %.lr.ph.i
-  %73 = icmp ult i64 %74, %28
+  %73 = icmp samesign ult i64 %74, %28
   br i1 %73, label %.lr.ph17.i, label %_ZN2cvL8copyElemEPKhPhm.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit, %.lr.ph.i
@@ -5429,7 +5429,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit:      ; preds = %_ZNK2cv22SparseMatC
   %77 = getelementptr inbounds i8, ptr %71, i64 %.015.i
   store i32 %76, ptr %77, align 4
   %78 = add nuw nsw i64 %74, 4
-  %.not.i20 = icmp ugt i64 %78, %28
+  %.not.i20 = icmp samesign ugt i64 %78, %28
   br i1 %.not.i20, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph17.i:                                       ; preds = %.preheader.i.loopexit, %.lr.ph17.i
@@ -5483,7 +5483,7 @@ define void @_ZNK11CvSparseMat15copyToSparseMatERN2cv9SparseMatE(ptr noundef non
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = getelementptr inbounds i8, ptr %0, i64 44
-  %.not14.i = icmp ult i32 %17, 4
+  %.not14.i = icmp samesign ult i32 %17, 4
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   br label %24
@@ -5531,7 +5531,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %24, %29
 
 .preheader.i:                                     ; preds = %.lr.ph.i11, %_ZNK2cv9SparseMat4hashEPKi.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNK2cv9SparseMat4hashEPKi.exit ], [ %45, %.lr.ph.i11 ]
-  %44 = icmp ult i64 %.0.lcssa.i, %18
+  %44 = icmp samesign ult i64 %.0.lcssa.i, %18
   br i1 %44, label %.lr.ph17.i, label %_ZN2cvL8copyElemEPKhPhm.exit
 
 .lr.ph.i11:                                       ; preds = %_ZNK2cv9SparseMat4hashEPKi.exit, %.lr.ph.i11
@@ -5542,7 +5542,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %24, %29
   %48 = getelementptr inbounds i8, ptr %40, i64 %.015.i
   store i32 %47, ptr %48, align 4
   %49 = add nuw nsw i64 %45, 4
-  %.not.i12 = icmp ugt i64 %49, %18
+  %.not.i12 = icmp samesign ugt i64 %49, %18
   br i1 %.not.i12, label %.preheader.i, label %.lr.ph.i11, !llvm.loop !14
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i

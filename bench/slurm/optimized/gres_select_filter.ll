@@ -969,7 +969,7 @@ define i32 @gres_select_filter_select_and_set(ptr nocapture noundef readonly %0,
   %224 = add nuw nsw i32 %.0112155.i, 1
   %225 = load i16, ptr %29, align 2
   %226 = zext i16 %225 to i32
-  %227 = icmp ult i32 %224, %226
+  %227 = icmp samesign ult i32 %224, %226
   br i1 %227, label %159, label %.loopexit152.loopexit.i, !llvm.loop !13
 
 .loopexit152.loopexit.i:                          ; preds = %223, %222
@@ -1046,7 +1046,7 @@ define i32 @gres_select_filter_select_and_set(ptr nocapture noundef readonly %0,
   %247 = add nuw nsw i32 %.1113174.i, 1
   %248 = load i16, ptr %29, align 2
   %249 = zext i16 %248 to i32
-  %250 = icmp ult i32 %247, %249
+  %250 = icmp samesign ult i32 %247, %249
   br i1 %250, label %.lr.ph175.i, label %.loopexit.i, !llvm.loop !18
 
 .lr.ph175.i:                                      ; preds = %246, %.lr.ph175.preheader.i
@@ -1078,7 +1078,7 @@ define i32 @gres_select_filter_select_and_set(ptr nocapture noundef readonly %0,
   %266 = icmp sgt i32 %.12.i, 0
   %267 = load i16, ptr %28, align 2
   %268 = zext i16 %267 to i64
-  %269 = icmp ult i64 %indvars.iv.next.i, %268
+  %269 = icmp samesign ult i64 %indvars.iv.next.i, %268
   %270 = select i1 %266, i1 %269, i1 false
   br i1 %270, label %.preheader.ithread-pre-split, label %._crit_edge.i, !llvm.loop !19
 
@@ -1223,7 +1223,7 @@ _build_tasks_per_node_sock.exit:                  ; preds = %._crit_edge.i, %._c
   %331 = add nuw nsw i32 %.02025.i, 1
   %332 = load i16, ptr %27, align 2
   %333 = zext i16 %332 to i32
-  %334 = icmp ult i32 %331, %333
+  %334 = icmp samesign ult i32 %331, %333
   br i1 %334, label %.lr.ph.i182, label %._crit_edge.loopexit.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i182
@@ -1236,7 +1236,7 @@ _build_tasks_per_node_sock.exit:                  ; preds = %._crit_edge.i, %._c
   %.1.lcssa.i = phi i32 [ %.01927.i, %.preheader.i181 ], [ %spec.select.i, %._crit_edge.loopexit.i ]
   %337 = add nuw nsw i32 %.028.i, 1
   %338 = zext i16 %335 to i32
-  %339 = icmp ult i32 %337, %338
+  %339 = icmp samesign ult i32 %337, %338
   br i1 %339, label %.preheader.i181, label %._crit_edge29.i, !llvm.loop !22
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge.i183
@@ -1563,7 +1563,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   %496 = add nuw nsw i32 %.053.i, 1
   %497 = load i16, ptr %23, align 2
   %498 = zext i16 %497 to i32
-  %499 = icmp ult i32 %496, %498
+  %499 = icmp samesign ult i32 %496, %498
   br i1 %499, label %.lr.ph.i205, label %.loopexit.i206, !llvm.loop !25
 
 .lr.ph.i205:                                      ; preds = %495, %.lr.ph.preheader.i204
@@ -1589,7 +1589,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   %indvars.iv.next.i207 = add nuw nsw i64 %indvars.iv.i203, 1
   %511 = load i16, ptr %22, align 2
   %512 = zext i16 %511 to i64
-  %513 = icmp ult i64 %indvars.iv.next.i207, %512
+  %513 = icmp samesign ult i64 %indvars.iv.next.i207, %512
   br i1 %513, label %.preheader.i202, label %._crit_edge.i208, !llvm.loop !26
 
 ._crit_edge.i208:                                 ; preds = %.loopexit.i206, %487
@@ -1866,7 +1866,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %628 = add nuw nsw i32 %.017913.i, 1
   %629 = load i16, ptr %16, align 2
   %630 = zext i16 %629 to i32
-  %631 = icmp ult i32 %628, %630
+  %631 = icmp samesign ult i32 %628, %630
   br i1 %631, label %.lr.ph.i221, label %.loopexit10.i, !llvm.loop !29
 
 .lr.ph.i221:                                      ; preds = %627, %.lr.ph.preheader.i220
@@ -1892,7 +1892,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i219, 1
   %643 = load i16, ptr %15, align 2
   %644 = zext i16 %643 to i64
-  %645 = icmp ult i64 %indvars.iv.next.i222, %644
+  %645 = icmp samesign ult i64 %indvars.iv.next.i222, %644
   br i1 %645, label %.preheader9.i, label %._crit_edge.i223, !llvm.loop !30
 
 ._crit_edge.i223:                                 ; preds = %.loopexit10.i, %612
@@ -2023,7 +2023,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %712 = phi ptr [ %.pre168.i, %702 ], [ %696, %699 ], [ %696, %.lr.ph22.us.i ]
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %713 = icmp ne ptr %712, null
-  %714 = icmp ult i64 %indvars.iv.next138.i, %668
+  %714 = icmp samesign ult i64 %indvars.iv.next138.i, %668
   %715 = select i1 %713, i1 %714, i1 false
   br i1 %715, label %.lr.ph22.us.i, label %.loopexit7.us.i, !llvm.loop !31
 
@@ -2372,7 +2372,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %.9.us.i.us = phi i32 [ %.897.us.i.us, %856 ], [ %.us-phi407.us.ph, %.loopexit.us.loopexit.i.split.us.us.loopexit443 ], [ %.897.us.i.us, %.preheader.us.i.preheader.us ]
   %indvars.iv.next166.i.us = add nuw nsw i64 %indvars.iv165.i.us, 1
   %861 = zext i16 %860 to i64
-  %862 = icmp ult i64 %indvars.iv.next166.i.us, %861
+  %862 = icmp samesign ult i64 %indvars.iv.next166.i.us, %861
   br i1 %862, label %.lr.ph98.split.us.i.us, label %.critedge8.i, !llvm.loop !40
 
 .preheader.us.i.preheader.us:                     ; preds = %856
@@ -2523,7 +2523,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %.9.us.i = phi i32 [ %.897.us.i, %895 ], [ %.9.us.ph.i, %.loopexit.us.loopexit.i.split ]
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %929 = zext i16 %928 to i64
-  %930 = icmp ult i64 %indvars.iv.next166.i, %929
+  %930 = icmp samesign ult i64 %indvars.iv.next166.i, %929
   br i1 %930, label %.lr.ph98.split.us.i, label %.critedge8.i, !llvm.loop !40
 
 931:                                              ; preds = %917, %914, %909, %907, %904, %902, %.preheader.us.i
@@ -2642,7 +2642,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %980 = add nuw nsw i32 %.0188269.i, 1
   %981 = load i16, ptr %12, align 2
   %982 = zext i16 %981 to i32
-  %983 = icmp ult i32 %980, %982
+  %983 = icmp samesign ult i32 %980, %982
   br i1 %983, label %.lr.ph.i232, label %.loopexit268.i, !llvm.loop !44
 
 .lr.ph.i232:                                      ; preds = %979, %.lr.ph.preheader.i231
@@ -2670,7 +2670,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %indvars.iv.next.i233 = add nuw nsw i64 %indvars.iv.i230, 1
   %996 = load i16, ptr %11, align 2
   %997 = zext i16 %996 to i64
-  %998 = icmp ult i64 %indvars.iv.next.i233, %997
+  %998 = icmp samesign ult i64 %indvars.iv.next.i233, %997
   br i1 %998, label %.preheader267.i, label %._crit_edge.i234, !llvm.loop !45
 
 ._crit_edge.i234:                                 ; preds = %.loopexit268.i, %964
@@ -2765,7 +2765,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %indvars.iv.next358.i = add nuw nsw i64 %indvars.iv357.i, 1
   %1046 = load i16, ptr %11, align 2
   %1047 = zext i16 %1046 to i64
-  %1048 = icmp ult i64 %indvars.iv.next358.i, %1047
+  %1048 = icmp samesign ult i64 %indvars.iv.next358.i, %1047
   br i1 %1048, label %1014, label %.loopexit263.i, !llvm.loop !46
 
 1049:                                             ; preds = %1008
@@ -2880,7 +2880,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %.5.i237 = phi i32 [ %.4274.i, %1086 ], [ %.4274.i, %.lr.ph276.i ], [ %spec.select.i236, %1090 ]
   %indvars.iv.next352.i = add nuw nsw i64 %indvars.iv351.i, 1
   %1106 = zext i16 %1104 to i64
-  %1107 = icmp ult i64 %indvars.iv.next352.i, %1106
+  %1107 = icmp samesign ult i64 %indvars.iv.next352.i, %1106
   br i1 %1107, label %.lr.ph276.i, label %.preheader265.i, !llvm.loop !49
 
 .loopexit263.i:                                   ; preds = %._crit_edge283.us.i, %1060, %1044, %1039, %1055, %.preheader265.i, %1010, %1005, %1002, %999, %._crit_edge.i234
@@ -3171,7 +3171,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %indvars.iv.next389.i = add nuw nsw i64 %indvars.iv388.i, 1
   %1216 = load i16, ptr %11, align 2
   %1217 = zext i16 %1216 to i64
-  %1218 = icmp ult i64 %indvars.iv.next389.i, %1217
+  %1218 = icmp samesign ult i64 %indvars.iv.next389.i, %1217
   br i1 %1218, label %1150, label %._crit_edge333.i, !llvm.loop !57
 
 ._crit_edge333.i:                                 ; preds = %.loopexit.i239, %.loopexit259.i
@@ -3385,7 +3385,7 @@ _set_sock_bits.exit:                              ; preds = %946, %951, %._crit_
   %1321 = phi ptr [ %1305, %.lr.ph.i259 ], [ %1305, %1308 ], [ %.pre295.i, %1311 ]
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %1322 = icmp ne ptr %1321, null
-  %1323 = icmp ult i64 %indvars.iv.next267.i, %1255
+  %1323 = icmp samesign ult i64 %indvars.iv.next267.i, %1255
   %1324 = select i1 %1322, i1 %1323, i1 false
   br i1 %1324, label %.lr.ph.i259, label %.loopexit173.i, !llvm.loop !59
 
@@ -3395,7 +3395,7 @@ _set_sock_bits.exit:                              ; preds = %946, %951, %._crit_
   %1327 = phi ptr [ %1277, %.thread.i ], [ %1277, %1291 ], [ %1277, %1287 ], [ %1277, %1284 ], [ %1277, %1282 ], [ %1277, %1280 ], [ %1277, %1278 ], [ null, %1296 ], [ %1321, %1320 ]
   %.3.i256 = phi i64 [ %.2125181.i, %.thread.i ], [ %.2125181.i, %1291 ], [ %.2125181.i, %1287 ], [ %.2125181.i, %1284 ], [ %.2125181.i, %1282 ], [ %.2125181.i, %1280 ], [ %.2125181.i, %1278 ], [ %1304, %1296 ], [ %1304, %1320 ]
   %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
-  %1328 = icmp ult i64 %indvars.iv.next270.i, %1255
+  %1328 = icmp samesign ult i64 %indvars.iv.next270.i, %1255
   %.not161.i = icmp ult i64 %.3.i256, %1272
   %or.cond.i257 = select i1 %1328, i1 %.not161.i, i1 false
   br i1 %or.cond.i257, label %1274, label %.loopexit174.i, !llvm.loop !60
@@ -3561,7 +3561,7 @@ _set_sock_bits.exit:                              ; preds = %946, %951, %._crit_
 1384:                                             ; preds = %1375, %1370, %.thread170.us215.us.i, %1366, %1363, %1361, %1356
   %.7.us218.us.i = phi i64 [ %.6204.us212.us.i, %1356 ], [ %.6204.us212.us.i, %.thread170.us215.us.i ], [ %.6204.us212.us.i, %1370 ], [ %1383, %1375 ], [ %.6204.us212.us.i, %1366 ], [ %.6204.us212.us.i, %1363 ], [ %.6204.us212.us.i, %1361 ]
   %indvars.iv.next288.i = add nuw nsw i64 %indvars.iv287.i, 1
-  %1385 = icmp ult i64 %indvars.iv.next288.i, %1350
+  %1385 = icmp samesign ult i64 %indvars.iv.next288.i, %1350
   %1386 = icmp ult i64 %.7.us218.us.i, %1348
   %1387 = select i1 %1385, i1 %1386, i1 false
   br i1 %1387, label %.lr.ph205.split.us221.us.i, label %._crit_edge206.us.us.i, !llvm.loop !63
@@ -3626,7 +3626,7 @@ _set_sock_bits.exit:                              ; preds = %946, %951, %._crit_
 1417:                                             ; preds = %1408, %1403, %.thread170.us.us.us.i, %1399, %1397, %1393
   %.7.us.us.us.i = phi i64 [ %.6204.us.us.us.i, %1393 ], [ %.6204.us.us.us.i, %.thread170.us.us.us.i ], [ %.6204.us.us.us.i, %1403 ], [ %1416, %1408 ], [ %.6204.us.us.us.i, %1399 ], [ %.6204.us.us.us.i, %1397 ]
   %indvars.iv.next291.i = add nuw nsw i64 %indvars.iv290.i, 1
-  %1418 = icmp ult i64 %indvars.iv.next291.i, %1350
+  %1418 = icmp samesign ult i64 %indvars.iv.next291.i, %1350
   %1419 = icmp ult i64 %.7.us.us.us.i, %1348
   %1420 = select i1 %1418, i1 %1419, i1 false
   br i1 %1420, label %.lr.ph205.split.us.us.us.i, label %._crit_edge206.us.us.i, !llvm.loop !63
@@ -3792,7 +3792,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   %1503 = add nuw nsw i32 %.0199279.i, 1
   %1504 = load i16, ptr %8, align 2
   %1505 = zext i16 %1504 to i32
-  %1506 = icmp ult i32 %1503, %1505
+  %1506 = icmp samesign ult i32 %1503, %1505
   br i1 %1506, label %1490, label %._crit_edge.loopexit.i271, !llvm.loop !66
 
 ._crit_edge.loopexit.i271:                        ; preds = %1502
@@ -3805,7 +3805,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   %.1190.lcssa.i = phi i32 [ %.0189282.i, %.preheader278.i ], [ %.2191.i, %._crit_edge.loopexit.i271 ]
   %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i267, 1
   %1509 = zext i16 %1507 to i64
-  %1510 = icmp ult i64 %indvars.iv.next.i273, %1509
+  %1510 = icmp samesign ult i64 %indvars.iv.next.i273, %1509
   br i1 %1510, label %.preheader278.i, label %._crit_edge283.i, !llvm.loop !67
 
 ._crit_edge283.i:                                 ; preds = %._crit_edge.i272, %1468
@@ -3943,7 +3943,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
 1568:                                             ; preds = %1557, %1552, %.thread264.us.i, %1548, %.lr.ph288.split.us.split.i
   %.3197.us.i = phi i32 [ %.2196286.us.i, %.thread264.us.i ], [ %.2196286.us.i, %1552 ], [ %1565, %1557 ], [ %.2196286.us.i, %1548 ], [ %.2196286.us.i, %.lr.ph288.split.us.split.i ]
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 1
-  %1569 = icmp ult i64 %indvars.iv.next350.i, %1535
+  %1569 = icmp samesign ult i64 %indvars.iv.next350.i, %1535
   %1570 = icmp slt i32 %.3197.us.i, %.0192.i
   %1571 = select i1 %1569, i1 %1570, i1 false
   br i1 %1571, label %.lr.ph288.split.us.splitthread-pre-split.i, label %.loopexit277.i, !llvm.loop !68
@@ -4003,7 +4003,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
 1596:                                             ; preds = %1585, %1580, %.thread264.i, %1576, %1573, %.lr.ph288.split.i
   %.3197.i = phi i32 [ %.2196286.i, %.thread264.i ], [ %.2196286.i, %1580 ], [ %1593, %1585 ], [ %.2196286.i, %1576 ], [ %.2196286.i, %1573 ], [ %.2196286.i, %.lr.ph288.split.i ]
   %indvars.iv.next347.i = add nuw nsw i64 %indvars.iv346.i, 1
-  %1597 = icmp ult i64 %indvars.iv.next347.i, %1535
+  %1597 = icmp samesign ult i64 %indvars.iv.next347.i, %1535
   %1598 = icmp slt i32 %.3197.i, %.0192.i
   %1599 = select i1 %1597, i1 %1598, i1 false
   br i1 %1599, label %.lr.ph288.split.ithread-pre-split, label %.loopexit277.i, !llvm.loop !69
@@ -4077,7 +4077,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   %1624 = phi i16 [ %.pre514, %..loopexit275_crit_edge.us.i.loopexit ], [ %1607, %.preheader274.us.i ], [ %1607, %.lr.ph301.split.us.i ]
   %indvars.iv.next356.i = add nuw nsw i64 %indvars.iv355.i, 1
   %1625 = zext i16 %1624 to i64
-  %1626 = icmp ult i64 %indvars.iv.next356.i, %1625
+  %1626 = icmp samesign ult i64 %indvars.iv.next356.i, %1625
   br i1 %1626, label %.lr.ph301.split.us.i, label %.lr.ph301.thread.i, !llvm.loop !71
 
 1627:                                             ; preds = %1619, %1616, %1614, %1611, %.lr.ph299.split.us306.i
@@ -4140,7 +4140,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   %1650 = call i32 @slurm_bit_test(ptr noundef %1649, i64 noundef %indvars.iv365.i) #6
   %.not235.i280 = icmp ne i32 %1650, 0
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
-  %1651 = icmp ult i64 %indvars.iv.next366.i, %1642
+  %1651 = icmp samesign ult i64 %indvars.iv.next366.i, %1642
   %or.cond334.i = select i1 %.not235.i280, i1 %1651, i1 false
   br i1 %or.cond334.i, label %.lr.ph313.preheader.i, label %.loopexit272.i
 
@@ -4851,7 +4851,7 @@ define internal fastcc void @_pick_shared_gres(ptr nocapture noundef nonnull %0,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load i16, ptr %16, align 8
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %57
   br i1 %58, label %27, label %_get_sorted_topo_by_least_loaded.exit, !llvm.loop !86
 
 _get_sorted_topo_by_least_loaded.exit:            ; preds = %55, %11
@@ -5086,7 +5086,7 @@ define internal fastcc void @_pick_shared_gres_topo(ptr nocapture noundef nonnul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load i16, ptr %22, align 8
   %104 = zext i16 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next, %104
   br i1 %105, label %35, label %.critedge, !llvm.loop !88
 
 .critedge:                                        ; preds = %35, %102, %.preheader, %33

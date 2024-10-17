@@ -7481,7 +7481,7 @@ _ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE9v
 
 144:                                              ; preds = %144, %139
   %.0.i.i86 = phi i32 [ 0, %139 ], [ %150, %144 ]
-  %145 = icmp ult i32 %.0.i.i86, 2
+  %145 = icmp samesign ult i32 %.0.i.i86, 2
   call void @llvm.assume(i1 %145)
   %146 = xor i32 %.0.i.i86, 1
   %147 = zext nneg i32 %146 to i64
@@ -10444,7 +10444,7 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN4llvm12GenericCycleINS0_17Generi
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

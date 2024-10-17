@@ -4750,7 +4750,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn12initF
   br i1 %exitcond.not.i.i, label %..preheader_crit_edge.us.i.us.i.i, label %94, !llvm.loop !58
 
 ..preheader_crit_edge.us.i.us.i.i:                ; preds = %94
-  %100 = icmp ult i64 %indvars.iv.i.us.i.i, 3
+  %100 = icmp samesign ult i64 %indvars.iv.i.us.i.i, 3
   br i1 %100, label %.lr.ph52.us.preheader.i.us.i.i, label %._crit_edge.us.i.us.i.i
 
 .lr.ph52.us.preheader.i.us.i.i:                   ; preds = %..preheader_crit_edge.us.i.us.i.i

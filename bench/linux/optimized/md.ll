@@ -11072,7 +11072,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %39 = add i64 %38, %19
   %40 = add nuw nsw i64 %24, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.preheader9, label %17, !prof !62, !llvm.loop !134
 
 43:                                               ; preds = %.preheader9, %53
@@ -11108,7 +11108,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %65 = add i64 %64, %45
   %66 = add nuw nsw i64 %50, 1
   %67 = and i64 %66, 127
-  %68 = icmp ugt i64 %67, 63
+  %68 = icmp samesign ugt i64 %67, 63
   br i1 %68, label %.preheader, label %43, !prof !62, !llvm.loop !135
 
 69:                                               ; preds = %.preheader, %79
@@ -11140,7 +11140,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 no
   %91 = add i64 %90, %71
   %92 = add nuw nsw i64 %76, 1
   %93 = and i64 %92, 127
-  %94 = icmp ugt i64 %93, 63
+  %94 = icmp samesign ugt i64 %93, 63
   br i1 %94, label %.thread, label %69, !prof !62, !llvm.loop !136
 
 .thread:                                          ; preds = %69, %79, %75
@@ -26642,7 +26642,7 @@ define internal noundef i32 @md_seq_show(ptr noundef %0, ptr noundef %1) #0 alig
   %239 = phi i32 [ %240, %.preheader21 ], [ 0, %.thread14 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.290) #32
   %240 = add nuw nsw i32 %239, 1
-  %241 = icmp ult i32 %240, %236
+  %241 = icmp samesign ult i32 %240, %236
   br i1 %241, label %.preheader21, label %.loopexit22, !llvm.loop !199
 
 .loopexit22:                                      ; preds = %.preheader21

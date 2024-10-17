@@ -880,7 +880,7 @@ for.inc:                                          ; preds = %if.then4.i.i118, %i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %hashCapacity_, align 4
   %26 = zext i32 %25 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %26
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11raw_ostreamlsEPKc.exit58
@@ -1042,7 +1042,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit218:              ; preds = %if.then.i.i216, %if
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %48 = load i32, ptr %descriptorCapacity_, align 4
   %49 = zext i32 %48 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next225, %49
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next225, %49
   br i1 %cmp28, label %for.body29, label %for.end42, !llvm.loop !19
 
 for.end42:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit218, %_ZN4llvh11raw_ostreamlsEPKc.exit155

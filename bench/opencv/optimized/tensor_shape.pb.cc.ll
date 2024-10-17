@@ -712,7 +712,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %6, 
   %26 = trunc i64 %25 to i8
   store i8 %26, ptr %.021.i, align 1
   %27 = getelementptr inbounds i8, ptr %.021.i, i64 1
-  %28 = icmp ugt i64 %.020.i, 16383
+  %28 = icmp samesign ugt i64 %.020.i, 16383
   br i1 %28, label %.preheader, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; preds = %.preheader, %16, %14, %3

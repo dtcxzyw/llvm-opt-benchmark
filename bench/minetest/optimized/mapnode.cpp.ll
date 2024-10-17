@@ -193,7 +193,7 @@ if.then:                                          ; preds = %_ZNK14NodeDefManage
   %.fr = freeze i8 %5
   %6 = and i8 %.fr, 31
   %.urem = add nsw i8 %6, -24
-  %.cmp = icmp ult i8 %6, 24
+  %.cmp = icmp samesign ult i8 %6, 24
   %7 = select i1 %.cmp, i8 %6, i8 %.urem
   br label %cleanup
 
@@ -420,7 +420,7 @@ if.then8:                                         ; preds = %_ZNK14NodeDefManage
   %.fr = freeze i8 %9
   %10 = and i8 %.fr, 31
   %.urem = add nsw i8 %10, -24
-  %.cmp = icmp ult i8 %10, 24
+  %.cmp = icmp samesign ult i8 %10, 24
   %11 = select i1 %.cmp, i8 %10, i8 %.urem
   %mul = mul nuw i8 %11, 10
   br label %cleanup
@@ -476,7 +476,7 @@ if.then15:                                        ; preds = %_ZNK14NodeDefManage
   %5 = load i8, ptr %param2, align 1, !tbaa !47
   %.fr = freeze i8 %5
   %and = and i8 %.fr, 31
-  %rem.cmp = icmp ult i8 %and, 24
+  %rem.cmp = icmp samesign ult i8 %and, 24
   %6 = shl nuw nsw i8 %and, 2
   %7 = add nsw i8 %6, -96
   %8 = select i1 %rem.cmp, i8 %6, i8 %7
@@ -509,7 +509,7 @@ if.then61:                                        ; preds = %_ZNK14NodeDefManage
   %param262 = getelementptr inbounds i8, ptr %this, i64 3
   %17 = load i8, ptr %param262, align 1, !tbaa !47
   %18 = and i8 %17, 7
-  %cmp71 = icmp ugt i8 %18, 1
+  %cmp71 = icmp samesign ugt i8 %18, 1
   br i1 %cmp71, label %if.end73, label %cleanup122
 
 if.end73:                                         ; preds = %if.then61
@@ -612,7 +612,7 @@ if.then.i:                                        ; preds = %_ZNK14NodeDefManage
   %.fr.i = freeze i8 %6
   %7 = and i8 %.fr.i, 31
   %.urem.i = add nsw i8 %7, -24
-  %.cmp.i = icmp ult i8 %7, 24
+  %.cmp.i = icmp samesign ult i8 %7, 24
   %8 = select i1 %.cmp.i, i8 %7, i8 %.urem.i
   br label %_ZNK7MapNode10getFaceDirEPK14NodeDefManagerb.exit
 

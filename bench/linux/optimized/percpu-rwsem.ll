@@ -374,7 +374,7 @@ define dso_local zeroext i1 @percpu_is_read_locked(ptr noundef %0) #5 align 16 {
   %23 = add i32 %22, %6
   %24 = add nuw nsw i64 %11, 1
   %25 = and i64 %24, 127
-  %26 = icmp ugt i64 %25, 63
+  %26 = icmp samesign ugt i64 %25, 63
   br i1 %26, label %.thread, label %4, !prof !38, !llvm.loop !39
 
 .thread:                                          ; preds = %4, %14, %10
@@ -498,7 +498,7 @@ define dso_local void @percpu_down_write(ptr noundef %0) #0 section ".sched.text
   %59 = add i32 %58, %42
   %60 = add nuw nsw i64 %47, 1
   %61 = and i64 %60, 127
-  %62 = icmp ugt i64 %61, 63
+  %62 = icmp samesign ugt i64 %61, 63
   br i1 %62, label %.thread, label %40, !prof !38, !llvm.loop !42
 
 .thread:                                          ; preds = %40, %50, %46

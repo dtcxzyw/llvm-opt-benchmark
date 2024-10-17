@@ -218,7 +218,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true
   %cond = phi i32 [ 6, %land.lhs.true ], [ %3, %land.rhs ]
-  %cmp6 = icmp ult i32 %div60, %cond
+  %cmp6 = icmp samesign ult i32 %div60, %cond
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.end
@@ -271,7 +271,7 @@ if.else:                                          ; preds = %land.lhs.true17, %i
   %add.ptr = getelementptr inbounds i8, ptr %inBytes, i64 4
   %10 = load i32, ptr %add.ptr, align 4
   %and = and i32 %10, 255
-  %cmp24 = icmp ult i32 %and, 5
+  %cmp24 = icmp samesign ult i32 %and, 5
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.else
@@ -377,8 +377,8 @@ if.end66.thread:                                  ; preds = %if.end50
 
 lor.lhs.false68:                                  ; preds = %if.end66
   %tobool70 = icmp ne i8 %conv61, 0
-  %cmp72 = icmp ult i32 %and, 8
-  %or.cond2 = and i1 %cmp72, %tobool70
+  %cmp72 = icmp samesign ult i32 %and, 8
+  %or.cond2 = select i1 %tobool70, i1 %cmp72, i1 false
   br i1 %or.cond2, label %if.then73, label %if.end74
 
 lor.lhs.false68.thread:                           ; preds = %if.end66.thread
@@ -388,7 +388,7 @@ lor.lhs.false68.thread:                           ; preds = %if.end66.thread
   br i1 %tobool7078.not, label %if.end86, label %if.then73
 
 land.lhs.true71:                                  ; preds = %if.end66
-  %cmp72.old = icmp ult i32 %and, 8
+  %cmp72.old = icmp samesign ult i32 %and, 8
   br i1 %cmp72.old, label %if.then73, label %land.lhs.true76
 
 if.then73:                                        ; preds = %if.end66.thread, %lor.lhs.false68.thread, %lor.lhs.false68, %land.lhs.true71
@@ -403,7 +403,7 @@ if.then.i71:                                      ; preds = %if.then73
   br label %if.end92
 
 if.end74:                                         ; preds = %lor.lhs.false68
-  %cmp75 = icmp ugt i32 %and, 6
+  %cmp75 = icmp samesign ugt i32 %and, 6
   br i1 %cmp75, label %land.lhs.true76, label %if.end86
 
 land.lhs.true76:                                  ; preds = %land.lhs.true71, %if.end74
@@ -3463,7 +3463,7 @@ if.end64:                                         ; preds = %if.end55, %if.else
   %15 = load i32, ptr %add.ptr67, align 4
   %call69 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %15)
   %and = and i32 %call69, 255
-  %cmp70 = icmp ult i32 %and, 5
+  %cmp70 = icmp samesign ult i32 %and, 5
   br i1 %cmp70, label %if.then71, label %if.end72
 
 if.then71:                                        ; preds = %if.end64
@@ -3476,7 +3476,7 @@ if.end72:                                         ; preds = %if.end64
   %arrayidx73 = getelementptr inbounds i8, ptr %add.ptr65, i64 8
   %16 = load i32, ptr %arrayidx73, align 4
   %call74 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %16)
-  %cmp75 = icmp ugt i32 %and, 6
+  %cmp75 = icmp samesign ugt i32 %and, 6
   br i1 %cmp75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end72
@@ -3518,7 +3518,7 @@ if.then97:                                        ; preds = %if.end89
   %shr = lshr i32 %add100, 5
   %add101 = add nuw nsw i32 %shr, 3
   %and102 = and i32 %add101, 134217724
-  %cmp103 = icmp ult i32 %and102, 801
+  %cmp103 = icmp samesign ult i32 %and102, 801
   br i1 %cmp103, label %if.then104, label %if.else105
 
 if.then104:                                       ; preds = %if.then97

@@ -1597,7 +1597,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
 461:                                              ; preds = %457, %451, %441, %435, %427, %421, %404
   %462 = add i32 %417, %406
   %463 = icmp ult i32 %462, %300
-  %464 = icmp ult i64 %indvars.iv.next.i149.i.i, %390
+  %464 = icmp samesign ult i64 %indvars.iv.next.i149.i.i, %390
   %465 = select i1 %463, i1 %464, i1 false
   br i1 %465, label %391, label %.thread253.i.i.i, !llvm.loop !11
 

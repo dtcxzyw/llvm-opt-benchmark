@@ -442,7 +442,7 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %7, align 8
   %22 = zext i16 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -1580,28 +1580,28 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = icmp ugt i32 %37, %31
+  %38 = icmp samesign ugt i32 %37, %31
   br i1 %38, label %54, label %.thread49
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds i8, ptr %4, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
-  %43 = icmp ugt i32 %42, %31
+  %43 = icmp samesign ugt i32 %42, %31
   br i1 %43, label %54, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %4, i64 4
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
-  %48 = icmp ugt i32 %47, %31
+  %48 = icmp samesign ugt i32 %47, %31
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %4, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
-  %53 = icmp ugt i32 %52, %31
+  %53 = icmp samesign ugt i32 %52, %31
   br i1 %53, label %54, label %.thread49
 
 54:                                               ; preds = %49, %44, %39, %34

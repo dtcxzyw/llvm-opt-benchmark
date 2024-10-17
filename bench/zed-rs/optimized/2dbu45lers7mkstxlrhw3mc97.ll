@@ -19802,7 +19802,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h5fbeb41dd10dcd37E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h5fbeb41dd10dcd37E.exit": ; preds = %.critedge.i, %154
-  %163 = icmp ugt i64 %140, 1
+  %163 = icmp samesign ugt i64 %140, 1
   %164 = icmp eq i64 %128, %.sroa.0.0.i
   %or.cond = select i1 %163, i1 true, i1 %164
   br i1 %or.cond, label %166, label %165
@@ -20181,7 +20181,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h356cbe4d7deae9e0E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h356cbe4d7deae9e0E.exit": ; preds = %.critedge.i, %144
-  %153 = icmp ugt i64 %133, 1
+  %153 = icmp samesign ugt i64 %133, 1
   %154 = icmp eq i64 %129, %.sroa.0.0.i
   %or.cond = select i1 %153, i1 true, i1 %154
   br i1 %or.cond, label %156, label %155
@@ -20614,7 +20614,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h92bbd8a97226d36bE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h92bbd8a97226d36bE.exit": ; preds = %.critedge.i, %155
-  %164 = icmp ugt i64 %141, 1
+  %164 = icmp samesign ugt i64 %141, 1
   %165 = icmp eq i64 %129, %.sroa.0.0.i
   %or.cond = select i1 %164, i1 true, i1 %165
   br i1 %or.cond, label %167, label %166
@@ -20944,7 +20944,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN117_$LT$futures_util..stream..futur
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h8d154e0f500ba342E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h8d154e0f500ba342E.exit": ; preds = %.critedge.i, %135
-  %144 = icmp ugt i64 %124, 1
+  %144 = icmp samesign ugt i64 %124, 1
   %145 = icmp eq i64 %116, %.sroa.0.0.i
   %or.cond = select i1 %144, i1 true, i1 %145
   br i1 %or.cond, label %147, label %146
@@ -21300,7 +21300,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h26c363311e775248E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h26c363311e775248E.exit": ; preds = %.critedge.i, %140
-  %149 = icmp ugt i64 %129, 1
+  %149 = icmp samesign ugt i64 %129, 1
   %150 = icmp eq i64 %125, %.sroa.0.0.i
   %or.cond = select i1 %149, i1 true, i1 %150
   br i1 %or.cond, label %.thread75, label %151
@@ -21687,7 +21687,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h614a081463eed698E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h614a081463eed698E.exit": ; preds = %.critedge.i, %137
-  %146 = icmp ugt i64 %126, 1
+  %146 = icmp samesign ugt i64 %126, 1
   %147 = icmp eq i64 %121, %.sroa.0.0.i
   %or.cond = select i1 %146, i1 true, i1 %147
   br i1 %or.cond, label %.thread73, label %148
@@ -22121,7 +22121,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h268df46e066ea085E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h268df46e066ea085E.exit": ; preds = %.critedge.i, %155
-  %164 = icmp ugt i64 %141, 1
+  %164 = icmp samesign ugt i64 %141, 1
   %165 = icmp eq i64 %129, %.sroa.0.0.i
   %or.cond = select i1 %164, i1 true, i1 %165
   br i1 %or.cond, label %167, label %166
@@ -27898,7 +27898,7 @@ default.unreachable:                              ; preds = %94
   %23 = load ptr, ptr %22, align 8, !alias.scope !7727, !noalias !7730, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17hc4096fb34b7f0040E.llvm.4784060810856971783"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %19, i64 noundef 0, ptr noundef nonnull %11), !range !285, !noalias !7730
-  %switch.i19 = icmp ult i8 %25, 2
+  %switch.i19 = icmp samesign ult i8 %25, 2
   br i1 %switch.i19, label %"_ZN14event_listener26InnerListener$LT$T$C$B$GT$13poll_internal17h1b7eabb1753736efE.exit", label %26
 
 26:                                               ; preds = %21
@@ -28945,7 +28945,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3), !noalias !7939
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17hd08c64d185b0212aE.llvm.13404939825518204095"(ptr noalias nocapture noundef nonnull sret([392 x i8]) align 8 dereferenceable(392) %3, ptr noundef nonnull align 8 %8), !noalias !7939
   %11 = load i64, ptr %9, align 8, !range !6894, !noundef !5
-  %.not.i = icmp ult i64 %11, 2
+  %.not.i = icmp samesign ult i64 %11, 2
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i, i64 0, i64 %12
   switch i64 %13, label %14 [
@@ -30623,7 +30623,7 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17hd08c64d185b0212aE.llvm.13404939825518204095"(ptr noalias nocapture noundef nonnull sret([392 x i8]) align 8 dereferenceable(392) %3, ptr noundef nonnull align 8 %1)
   %6 = load i64, ptr %4, align 8, !range !6894, !noundef !5
-  %.not = icmp ult i64 %6, 2
+  %.not = icmp samesign ult i64 %6, 2
   %7 = add nsw i64 %6, -1
   %8 = select i1 %.not, i64 0, i64 %7
   switch i64 %8, label %9 [
@@ -31345,7 +31345,7 @@ default.unreachable44:                            ; preds = %3
   %13 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %14 = icmp ult i64 %13, 6
   tail call void @llvm.assume(i1 %14)
-  %switch.i15 = icmp ugt i64 %13, 2
+  %switch.i15 = icmp samesign ugt i64 %13, 2
   br i1 %switch.i15, label %15, label %11
 
 15:                                               ; preds = %12
@@ -51721,7 +51721,7 @@ default.unreachable:                              ; preds = %309, %246, %242, %.
   %314 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !13108
   %315 = icmp ult i64 %314, 6
   call void @llvm.assume(i1 %315)
-  %switch.i19.i.i.i = icmp ugt i64 %314, 2
+  %switch.i19.i.i.i = icmp samesign ugt i64 %314, 2
   br i1 %switch.i19.i.i.i, label %316, label %310
 
 316:                                              ; preds = %311
@@ -59114,7 +59114,7 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4), !noalias !15097
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17hd08c64d185b0212aE.llvm.13404939825518204095"(ptr noalias nocapture noundef nonnull sret([392 x i8]) align 8 dereferenceable(392) %4, ptr noundef nonnull align 8 %8), !noalias !15097
   %11 = load i64, ptr %9, align 8, !range !6894, !noalias !15101, !noundef !5
-  %.not.i.i = icmp ult i64 %11, 2
+  %.not.i.i = icmp samesign ult i64 %11, 2
   %12 = add nsw i64 %11, -1
   %13 = select i1 %.not.i.i, i64 0, i64 %12
   switch i64 %13, label %14 [

@@ -1883,7 +1883,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %.2 = phi i32 [ %.1273, %109 ], [ %116, %115 ]
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next304, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next304, %131
   br i1 %132, label %109, label %.preheader, !llvm.loop !14
 
 133:                                              ; preds = %.lr.ph279, %133
@@ -1909,7 +1909,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
   %147 = load i32, ptr %105, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next307, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next307, %148
   br i1 %149, label %133, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %133, %.preheader, %99
@@ -2173,7 +2173,7 @@ get_type_fun.exit246:                             ; preds = %switch.lookup317, %
   %269 = add i32 %.0215261, %252
   %270 = load i32, ptr %234, align 4
   %271 = zext i32 %270 to i64
-  %272 = icmp ult i64 %indvars.iv.next, %271
+  %272 = icmp samesign ult i64 %indvars.iv.next, %271
   br i1 %272, label %263, label %.preheader259, !llvm.loop !20
 
 .preheader257:                                    ; preds = %292, %.preheader259
@@ -2219,7 +2219,7 @@ get_type_fun.exit246:                             ; preds = %switch.lookup317, %
   %.1209 = phi i32 [ %.0208265, %276 ], [ %290, %282 ]
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %294 = zext i32 %293 to i64
-  %295 = icmp ult i64 %indvars.iv.next298, %294
+  %295 = icmp samesign ult i64 %indvars.iv.next298, %294
   br i1 %295, label %276, label %.preheader257, !llvm.loop !21
 
 296:                                              ; preds = %.lr.ph270, %296
@@ -2241,7 +2241,7 @@ get_type_fun.exit246:                             ; preds = %switch.lookup317, %
   %308 = add i32 %.3218268, %252
   %309 = load i32, ptr %239, align 8
   %310 = zext i32 %309 to i64
-  %311 = icmp ult i64 %indvars.iv.next301, %310
+  %311 = icmp samesign ult i64 %indvars.iv.next301, %310
   br i1 %311, label %296, label %.loopexit258, !llvm.loop !22
 
 .loopexit258:                                     ; preds = %296, %.preheader257, %get_type_fun.exit246, %233, %223
@@ -2964,7 +2964,7 @@ hwloc_obj_get_info_by_name.exit247.thread:        ; preds = %335, %hwloc_obj_get
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %378 = load i32, ptr %15, align 4
   %379 = zext i32 %378 to i64
-  %380 = icmp ult i64 %indvars.iv.next, %379
+  %380 = icmp samesign ult i64 %indvars.iv.next, %379
   br i1 %380, label %357, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %377, %hwloc_obj_get_info_by_name.exit247.thread, %2, %19
@@ -3456,7 +3456,7 @@ define internal void @normal_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %97 = load i32, ptr %83, align 4
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next.i, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next.i, %98
   br i1 %99, label %88, label %draw_text.exit, !llvm.loop !25
 
 draw_text.exit:                                   ; preds = %88, %56, %77, %.preheader.i
@@ -3619,7 +3619,7 @@ define internal void @cache_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = load i32, ptr %86, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next.i, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next.i, %101
   br i1 %102, label %91, label %draw_text.exit, !llvm.loop !25
 
 draw_text.exit:                                   ; preds = %91, %62, %80, %.preheader.i
@@ -3798,7 +3798,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %110 = load i32, ptr %96, align 4
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next.i, %111
   br i1 %112, label %101, label %draw_text.exit, !llvm.loop !25
 
 draw_text.exit:                                   ; preds = %101, %77, %90, %.preheader.i

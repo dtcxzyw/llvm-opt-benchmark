@@ -1170,7 +1170,7 @@ decode_many_ints_uint64.exit:                     ; preds = %.lr.ph126.i, %strea
   %.sroa.16.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %3, i8 0, i64 2048, i1 false), !alias.scope !14, !noalias !11
   %64 = tail call i32 @llvm.usub.sat.i32(i32 64, i32 %2)
-  %65 = icmp ult i32 %64, 64
+  %65 = icmp samesign ult i32 %64, 64
   br i1 %65, label %.preheader71.preheader.i, label %decode_many_ints_prec_uint64.exit
 
 .preheader71.preheader.i:                         ; preds = %63

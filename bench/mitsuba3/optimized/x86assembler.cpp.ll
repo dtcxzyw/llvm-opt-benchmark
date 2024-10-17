@@ -694,7 +694,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   ]
 
 264:                                              ; preds = %929, %153
-  %265 = icmp ugt i32 %31, 7
+  %265 = icmp samesign ugt i32 %31, 7
   br i1 %265, label %266, label %329
 
 266:                                              ; preds = %264
@@ -6428,7 +6428,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4241 = lshr i32 %4240, 24
   %4242 = lshr i32 %4230, 3
   %4243 = or i32 %4241, %4242
-  %4244 = icmp ugt i32 %4243, 128
+  %4244 = icmp samesign ugt i32 %4243, 128
   br i1 %4244, label %6031, label %4245, !prof !37
 
 4245:                                             ; preds = %4229
@@ -6621,7 +6621,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4395 = and i32 %4394, 1
   %4396 = or disjoint i32 %4395, %4393
   %4397 = or i32 %4396, %4391
-  %4398 = icmp ugt i32 %4397, 128
+  %4398 = icmp samesign ugt i32 %4397, 128
   br i1 %4398, label %6031, label %4399, !prof !37
 
 4399:                                             ; preds = %4377
@@ -6708,7 +6708,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4458 = lshr i32 %4457, 24
   %4459 = lshr i32 %416, 3
   %4460 = or i32 %4459, %4458
-  %4461 = icmp ugt i32 %4460, 128
+  %4461 = icmp samesign ugt i32 %4460, 128
   br i1 %4461, label %6031, label %4462, !prof !37
 
 4462:                                             ; preds = %4451
@@ -6831,7 +6831,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4563 = or i32 %4518, %4517
   %4564 = lshr i32 %4563, 24
   %4565 = or i32 %4562, %4564
-  %4566 = icmp ugt i32 %4565, 128
+  %4566 = icmp samesign ugt i32 %4565, 128
   br i1 %4566, label %6031, label %4567, !prof !37
 
 4567:                                             ; preds = %4514
@@ -7053,7 +7053,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 4718:                                             ; preds = %4711
   %4719 = and i32 %4684, 1835008
-  %4720 = icmp ugt i32 %4719, 1048576
+  %4720 = icmp samesign ugt i32 %4719, 1048576
   %4721 = icmp eq i32 %14, 382
   %4722 = or i1 %4705, %4706
   %4723 = select i1 %4721, i1 %4722, i1 false
@@ -8254,7 +8254,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5556 = getelementptr inbounds i8, ptr %5550, i64 %5555
   %5557 = load i32, ptr %5533, align 4, !tbaa !31
   %5558 = and i32 %5557, 248
-  %5559 = icmp ugt i32 %5558, 8
+  %5559 = icmp samesign ugt i32 %5558, 8
   br i1 %5559, label %5560, label %5563
 
 5560:                                             ; preds = %5528
@@ -8265,7 +8265,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5563:                                             ; preds = %5560, %5528
   %5564 = phi i32 [ %5562, %5560 ], [ 0, %5528 ]
   %5565 = and i32 %5557, 7936
-  %5566 = icmp ugt i32 %5565, 256
+  %5566 = icmp samesign ugt i32 %5565, 256
   br i1 %5566, label %5567, label %5570
 
 5567:                                             ; preds = %5563
@@ -8979,7 +8979,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
 
 16:                                               ; preds = %14
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2), !range !128
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %19 = icmp ult i32 %2, 65
   %20 = and i1 %19, %18
   br i1 %20, label %23, label %21, !prof !35

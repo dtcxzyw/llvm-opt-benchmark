@@ -1036,7 +1036,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   br i1 %207, label %228, label %208
 
 208:                                              ; preds = %199
-  %209 = icmp ugt i64 %indvars.iv.i, 4
+  %209 = icmp samesign ugt i64 %indvars.iv.i, 4
   %210 = or i32 %indvars87.i, -8
   %211 = sitofp i32 %210 to float
   %212 = uitofp nneg i32 %indvars87.i to float
@@ -1051,7 +1051,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
 
 .split69.us.i:                                    ; preds = %178
   %220 = trunc nuw nsw i64 %indvars.iv88.i to i32
-  %221 = icmp ugt i64 %indvars.iv88.i, 4
+  %221 = icmp samesign ugt i64 %indvars.iv88.i, 4
   %222 = or disjoint i32 %220, -8
   %223 = sitofp i32 %222 to float
   %224 = uitofp nneg i32 %220 to float
@@ -4454,7 +4454,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
   br i1 %57, label %81, label %58
 
 58:                                               ; preds = %49
-  %59 = icmp ugt i64 %indvars.iv, 4
+  %59 = icmp samesign ugt i64 %indvars.iv, 4
   %60 = trunc i64 %indvars.iv to i32
   %61 = or i32 %60, -8
   %62 = sitofp i32 %61 to float
@@ -4473,7 +4473,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
   store i32 %20, ptr %3, align 4
   %72 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %22, ptr %72, align 4
-  %73 = icmp ugt i64 %indvars.iv88, 4
+  %73 = icmp samesign ugt i64 %indvars.iv88, 4
   %74 = or disjoint i32 %71, -8
   %75 = sitofp i32 %74 to float
   %76 = uitofp nneg i32 %71 to float
@@ -4707,7 +4707,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   br i1 %exitcond142.not, label %118, label %93, !llvm.loop !69
 
 118:                                              ; preds = %93
-  %119 = icmp ugt i32 %105, %117
+  %119 = icmp samesign ugt i32 %105, %117
   br i1 %119, label %120, label %132
 
 120:                                              ; preds = %118

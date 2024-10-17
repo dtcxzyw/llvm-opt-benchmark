@@ -1421,7 +1421,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %indvars.iv524 = phi i64 [ 0, %.lr.ph446 ], [ %indvars.iv.next525, %.loopexit318 ]
   %indvars.iv516 = phi i64 [ 1, %.lr.ph446 ], [ %indvars.iv.next517, %.loopexit318 ]
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
-  %341 = icmp ult i64 %indvars.iv.next525, %339
+  %341 = icmp samesign ult i64 %indvars.iv.next525, %339
   br i1 %341, label %.lr.ph443, label %.loopexit318
 
 .lr.ph443:                                        ; preds = %340

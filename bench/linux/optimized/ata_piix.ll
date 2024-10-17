@@ -1018,7 +1018,7 @@ define internal fastcc void @piix_set_timings(ptr nocapture noundef readonly %0,
   %32 = load i8, ptr %31, align 16
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %19, 8
-  %35 = icmp ugt i32 %34, %33
+  %35 = icmp samesign ugt i32 %34, %33
   %36 = or disjoint i16 %30, 8
   %37 = select i1 %35, i16 %36, i16 %30
   %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @piix_lock) #13

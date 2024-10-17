@@ -5130,7 +5130,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %132, %133
   %150 = getelementptr inbounds i8, ptr %84, i64 16
   %151 = and i32 %9, 1
   %.not = icmp eq i32 %151, 0
-  %.not121 = icmp ult i32 %9, 2
+  %.not121 = icmp samesign ult i32 %9, 2
   %152 = getelementptr inbounds i8, ptr %81, i64 8
   %153 = getelementptr inbounds i8, ptr %82, i64 8
   %154 = getelementptr inbounds i8, ptr %78, i64 16
@@ -5784,7 +5784,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %433
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %.loopexit.i ], [ 0, %.preheader.i.preheader ]
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.loopexit.i ], [ 1, %.preheader.i.preheader ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
-  %554 = icmp ult i64 %indvars.iv.next179.i, %.pre186.i
+  %554 = icmp samesign ult i64 %indvars.iv.next179.i, %.pre186.i
   br i1 %554, label %.lr.ph157.i, label %.loopexit.i
 
 .lr.ph157.i:                                      ; preds = %.preheader.i, %.lr.ph157.i
@@ -6300,7 +6300,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i171:               ; preds = %_ZN2cvmlIfLi3EEENS_
   %indvars.iv182.i = phi i64 [ %indvars.iv.next183.i, %.loopexit.i166 ], [ 0, %.preheader.i164.preheader ]
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %.loopexit.i166 ], [ 1, %.preheader.i164.preheader ]
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
-  %799 = icmp ult i64 %indvars.iv.next183.i, %.pre186.i
+  %799 = icmp samesign ult i64 %indvars.iv.next183.i, %.pre186.i
   br i1 %799, label %.lr.ph161.i, label %.loopexit.i166
 
 .lr.ph161.i:                                      ; preds = %.preheader.i164, %.lr.ph161.i
@@ -14356,7 +14356,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %116
   %158 = getelementptr inbounds float, ptr %109, i64 %indvars.iv
   store float %157, ptr %158, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %159 = icmp ult i64 %indvars.iv.next, %134
+  %159 = icmp samesign ult i64 %indvars.iv.next, %134
   br i1 %159, label %144, label %.preheader, !llvm.loop !221
 
 160:                                              ; preds = %64
@@ -14430,7 +14430,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %116
   %194 = getelementptr inbounds float, ptr %110, i64 %indvars.iv226
   store float %193, ptr %194, align 4
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %195 = icmp ult i64 %indvars.iv.next227, %143
+  %195 = icmp samesign ult i64 %indvars.iv.next227, %143
   br i1 %195, label %177, label %._crit_edge, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %177, %.preheader

@@ -1089,7 +1089,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit100.i.i:      ; preds = %_ZNK4llvm4Type22get
 
 _ZN4llvm13isPowerOf2_32Ej.exit102.i.i:            ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit100.i.i
   %247 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %246)
-  %248 = icmp ugt i32 %247, 1
+  %248 = icmp samesign ugt i32 %247, 1
   %249 = lshr i32 %230, 1
   %250 = icmp ult i32 %249, %203
   %or.cond82.i.i = or i1 %250, %248
@@ -1402,7 +1402,7 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit.i.i.i:     ; preds = %364, %361, %358, %3
   %366 = add nuw nsw i64 %.019103.i.i.i, 1
   %367 = getelementptr i8, ptr %.sroa.068.0102.i.i.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %367, align 8, !noalias !22
-  %368 = icmp ult i64 %.019103.i.i.i, 63
+  %368 = icmp samesign ult i64 %.019103.i.i.i, 63
   %369 = icmp ne ptr %.val.i.i.i.i, %4
   %or.cond.i.i.i = select i1 %368, i1 %369, i1 false
   br i1 %or.cond.i.i.i, label %335, label %.critedge.i.i.i, !llvm.loop !25

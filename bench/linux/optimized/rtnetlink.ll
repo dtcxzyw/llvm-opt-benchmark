@@ -2102,7 +2102,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   %96 = load i16, ptr %94, align 2
   %97 = icmp ult i16 %96, 4
   %98 = zext i16 %96 to i32
-  %.not = icmp ult i32 %95, %98
+  %.not = icmp samesign ult i32 %95, %98
   %or.cond = or i1 %97, %.not
   br i1 %or.cond, label %.thread16, label %99
 
@@ -4807,7 +4807,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %343, %360, %312, %.thread56, %296, %132, %46, %104, %114, %65, %75
   %390 = phi i32 [ -90, %65 ], [ %78, %75 ], [ -90, %104 ], [ %117, %114 ], [ -90, %46 ], [ %297, %296 ], [ -90, %132 ], [ -90, %.thread56 ], [ -90, %312 ], [ -90, %343 ], [ %346, %360 ]
-  %391 = icmp ult i32 %4, 2
+  %391 = icmp samesign ult i32 %4, 2
   br i1 %391, label %395, label %392
 
 392:                                              ; preds = %.thread
@@ -6993,7 +6993,7 @@ define internal i32 @rtnl_dump_all(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 .split:                                           ; preds = %2, %.thread
   %19 = phi i64 [ %40, %.thread ], [ 1, %2 ]
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp samesign ult i64 %19, %18
   %21 = icmp eq i64 %19, 17
   %22 = or i1 %20, %21
   br i1 %22, label %.thread, label %23
@@ -7017,7 +7017,7 @@ define internal i32 @rtnl_dump_all(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = icmp ugt i64 %19, %18
+  %36 = icmp samesign ugt i64 %19, %18
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
@@ -8576,7 +8576,7 @@ define internal i32 @rtnl_bridge_dellink(ptr nocapture noundef readonly %0, ptr 
   %37 = load i16, ptr %35, align 2
   %38 = icmp ult i16 %37, 4
   %39 = zext i16 %37 to i32
-  %.not = icmp ult i32 %36, %39
+  %.not = icmp samesign ult i32 %36, %39
   %or.cond = or i1 %38, %.not
   br i1 %or.cond, label %.critedge.thread, label %40
 
@@ -8737,7 +8737,7 @@ define internal i32 @rtnl_bridge_setlink(ptr nocapture noundef readonly %0, ptr 
   %39 = load i16, ptr %37, align 2
   %40 = icmp ult i16 %39, 4
   %41 = zext i16 %39 to i32
-  %.not = icmp ult i32 %38, %41
+  %.not = icmp samesign ult i32 %38, %41
   %or.cond = or i1 %40, %.not
   br i1 %or.cond, label %.critedge, label %42
 
@@ -12326,7 +12326,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 193:                                              ; preds = %183
   tail call void @__rcu_read_unlock() #18
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
-  %194 = icmp ugt i32 %163, 129
+  %194 = icmp samesign ugt i32 %163, 129
   %195 = select i1 %194, i32 0, i32 %163
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %196
@@ -13102,7 +13102,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %396 = load i16, ptr %393, align 2
   %397 = icmp ult i16 %396, 4
   %398 = zext i16 %396 to i32
-  %.not = icmp ult i32 %395, %398
+  %.not = icmp samesign ult i32 %395, %398
   %or.cond188 = or i1 %397, %.not
   br i1 %or.cond188, label %.thread172, label %399
 
@@ -13215,7 +13215,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %468 = load i16, ptr %467, align 2
   %469 = icmp ult i16 %468, 4
   %470 = zext i16 %468 to i32
-  %.not118 = icmp ult i32 %488, %470
+  %.not118 = icmp samesign ult i32 %488, %470
   %or.cond = or i1 %469, %.not118
   br i1 %or.cond, label %.critedge.loopexit, label %471, !llvm.loop !131
 
@@ -13612,7 +13612,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %708 = load i16, ptr %705, align 2
   %709 = icmp ult i16 %708, 4
   %710 = zext i16 %708 to i32
-  %.not119 = icmp ult i32 %707, %710
+  %.not119 = icmp samesign ult i32 %707, %710
   %or.cond123 = or i1 %709, %.not119
   br i1 %or.cond123, label %.critedge122, label %711
 
@@ -13736,7 +13736,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %776 = load i16, ptr %773, align 2
   %777 = icmp ult i16 %776, 4
   %778 = zext i16 %776 to i32
-  %.not120 = icmp ult i32 %775, %778
+  %.not120 = icmp samesign ult i32 %775, %778
   %or.cond189 = or i1 %777, %.not120
   br i1 %or.cond189, label %.thread184, label %779
 
@@ -14322,7 +14322,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   %72 = load i16, ptr %69, align 2
   %73 = icmp ult i16 %72, 4
   %74 = zext i16 %72 to i32
-  %.not.us = icmp ult i32 %70, %74
+  %.not.us = icmp samesign ult i32 %70, %74
   %or.cond.us = or i1 %73, %.not.us
   br i1 %or.cond.us, label %.critedge, label %75
 
@@ -14394,7 +14394,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   %114 = load i16, ptr %111, align 2
   %115 = icmp ult i16 %114, 4
   %116 = zext i16 %114 to i32
-  %.not = icmp ult i32 %112, %116
+  %.not = icmp samesign ult i32 %112, %116
   %or.cond = or i1 %115, %.not
   br i1 %or.cond, label %.critedge, label %117
 

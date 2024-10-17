@@ -221,7 +221,7 @@ define dso_local void @mminit_verify_zonelist() local_unnamed_addr #0 section ".
   %24 = lshr i32 %16, 2
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr [2 x %struct.zonelist], ptr %14, i64 0, i64 %25
-  %27 = icmp ult i32 %16, 4
+  %27 = icmp samesign ult i32 %16, 4
   %28 = select i1 %27, ptr @.str.2, ptr @.str.1
   %29 = getelementptr inbounds i8, ptr %19, i64 160
   %30 = load ptr, ptr %29, align 32
@@ -548,7 +548,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
   %4 = lshr i64 %0, 12
   %5 = add i64 %1, 4095
   %6 = lshr i64 %5, 12
-  %7 = icmp ult i64 %4, %6
+  %7 = icmp samesign ult i64 %4, %6
   br i1 %7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.thread
@@ -562,7 +562,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
 
 11:                                               ; preds = %10, %.preheader, %.preheader
   %12 = phi i64 [ 524288, %10 ], [ 33554432, %.preheader ], [ 33554432, %.preheader ]
-  %13 = icmp ult i64 %9, %12
+  %13 = icmp samesign ult i64 %9, %12
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %11
@@ -575,7 +575,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
 
 17:                                               ; preds = %16, %14, %14
   %18 = phi i64 [ 2048, %16 ], [ 131072, %14 ], [ 131072, %14 ]
-  %19 = icmp ult i64 %15, %18
+  %19 = icmp samesign ult i64 %15, %18
   br i1 %19, label %20, label %30, !prof !17
 
 20:                                               ; preds = %17
@@ -2991,7 +2991,7 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
 
 20:                                               ; preds = %19, %17, %17
   %21 = phi i64 [ 524288, %19 ], [ 33554432, %17 ], [ 33554432, %17 ]
-  %22 = icmp ult i64 %18, %21
+  %22 = icmp samesign ult i64 %18, %21
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
@@ -3004,7 +3004,7 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
 
 26:                                               ; preds = %25, %23, %23
   %27 = phi i64 [ 2048, %25 ], [ 131072, %23 ], [ 131072, %23 ]
-  %28 = icmp ult i64 %24, %27
+  %28 = icmp samesign ult i64 %24, %27
   br i1 %28, label %29, label %39, !prof !17
 
 29:                                               ; preds = %26

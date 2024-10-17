@@ -186,7 +186,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %53 = load i32, ptr %43, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next115, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next115, %54
   br i1 %55, label %.thread.us, label %.loopexit101.loopexit, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
@@ -206,7 +206,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %43, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph.split, label %.loopexit101, !llvm.loop !7
 
 .loopexit101.loopexit:                            ; preds = %.thread.us

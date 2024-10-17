@@ -112,17 +112,17 @@ define hidden void @_RINvYNtCseBw3mChBYfU_3hex15BytesToHexCharsNtNtNtNtCs1LoaDTb
 7:                                                ; preds = %.lr.ph, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callcNCINvXsb_NtCs68wO5nsWeTG_5alloc6stringNtB1p_6StringINtNtBa_7collect6ExtendcE6extendNtCseBw3mChBYfU_3hex15BytesToHexCharsE0E0Csff1zCjKRl2o_13turborepo_env.exit
   %8 = phi i32 [ %3, %.lr.ph ], [ %61, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callcNCINvXsb_NtCs68wO5nsWeTG_5alloc6stringNtB1p_6StringINtNtBa_7collect6ExtendcE6extendNtCseBw3mChBYfU_3hex15BytesToHexCharsE0E0Csff1zCjKRl2o_13turborepo_env.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %9 = icmp ult i32 %8, 128
+  %9 = icmp samesign ult i32 %8, 128
   br i1 %9, label %52, label %10
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i, align 4, !noalias !19
-  %11 = icmp ult i32 %8, 2048
+  %11 = icmp samesign ult i32 %8, 2048
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %8, 65536
+  %13 = icmp samesign ult i32 %8, 65536
   br i1 %13, label %18, label %26
 
 14:                                               ; preds = %10

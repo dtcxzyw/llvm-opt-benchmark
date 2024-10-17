@@ -1197,7 +1197,7 @@ define noalias noundef ptr @H5FL_arr_free(ptr nocapture noundef %0, ptr noundef 
   %69 = phi i32 [ %31, %29 ], [ %.pre42.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next.i, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next.i, %70
   br i1 %71, label %29, label %H5FL__arr_gc_list.exit
 
 H5FL__arr_gc_list.exit:                           ; preds = %67, %25, %3
@@ -1304,7 +1304,7 @@ define internal fastcc void @H5FL__arr_gc() unnamed_addr #0 {
   %45 = phi i32 [ %8, %7 ], [ %.pre42.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next.i, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %47, label %7, label %H5FL__arr_gc_list.exit
 
 H5FL__arr_gc_list.exit:                           ; preds = %44, %.lr.ph
@@ -2018,7 +2018,7 @@ define noundef i32 @H5FL_get_free_list_sizes(ptr noundef writeonly %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %24, label %.loopexit58
 
 .loopexit58:                                      ; preds = %24, %.preheader, %.lr.ph69

@@ -446,7 +446,7 @@ xsize_t.exit:                                     ; preds = %if.end5
   %reass.add = shl i64 %2, 1
   %add7 = add i64 %reass.add, 1024
   %conv8 = and i64 %add7, 4294967294
-  %cmp9 = icmp ult i64 %3, %conv8
+  %cmp9 = icmp samesign ult i64 %3, %conv8
   br i1 %cmp9, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %xsize_t.exit
@@ -2459,7 +2459,7 @@ if.then6.i.i:                                     ; preds = %for.cond4.i.i
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
-  %32 = icmp ule i8 %bf.clear3.i.i.i.i, %bf.clear.i.i.i.i
+  %32 = icmp samesign ule i8 %bf.clear3.i.i.i.i, %bf.clear.i.i.i.i
   br label %sort_pack.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then6.i.i
@@ -2789,7 +2789,7 @@ while.body:                                       ; preds = %entry, %st_add.exit
   %used.020 = phi i64 [ %inc9, %st_add.exit ], [ 1, %entry ]
   %size.019 = phi i64 [ %add.i, %st_add.exit ], [ %and2, %entry ]
   %cmp = icmp ule i64 %len, %used.020
-  %cmp6 = icmp ugt i64 %indvars.iv, 57
+  %cmp6 = icmp samesign ugt i64 %indvars.iv, 57
   %or.cond = select i1 %cmp, i1 true, i1 %cmp6
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -2896,7 +2896,7 @@ do.body.i:                                        ; preds = %do.end, %st_left_sh
   %5 = load i8, ptr %data.0.i.ptr, align 1
   %6 = and i8 %5, 127
   %and.i = zext nneg i8 %6 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.i, 64
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i, 64
   %shr.i.i = lshr i64 -1, %indvars.iv.i
   %cmp2.i.i = icmp ult i64 %shr.i.i, %and.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
@@ -2911,8 +2911,8 @@ st_left_shift.exit.i:                             ; preds = %do.body.i
   %data.0.i.add = add nuw nsw i64 %data.0.i.idx, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %tobool.i = icmp slt i8 %5, 0
-  %cmp.i = icmp ult i64 %data.0.i.idx, 19
-  %8 = and i1 %cmp.i, %tobool.i
+  %cmp.i = icmp samesign ult i64 %data.0.i.idx, 19
+  %8 = select i1 %tobool.i, i1 %cmp.i, i1 false
   br i1 %8, label %do.body.i, label %do.body.i10, !llvm.loop !32
 
 do.body.i10:                                      ; preds = %st_left_shift.exit.i, %st_left_shift.exit.i19
@@ -2923,7 +2923,7 @@ do.body.i10:                                      ; preds = %st_left_shift.exit.
   %9 = load i8, ptr %data.0.i12.ptr, align 1
   %10 = and i8 %9, 127
   %and.i14 = zext nneg i8 %10 to i64
-  %cmp.i.i15 = icmp ult i64 %indvars.iv.i11, 64
+  %cmp.i.i15 = icmp samesign ult i64 %indvars.iv.i11, 64
   %shr.i.i16 = lshr i64 -1, %indvars.iv.i11
   %cmp2.i.i17 = icmp ult i64 %shr.i.i16, %and.i14
   %or.cond.i.i18 = select i1 %cmp.i.i15, i1 %cmp2.i.i17, i1 false
@@ -2940,8 +2940,8 @@ st_left_shift.exit.i19:                           ; preds = %do.body.i10
   %or.i22 = or i64 %shl.i.i21, %size.0.i13
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i11, 7
   %tobool.i24 = icmp slt i8 %9, 0
-  %cmp.i25 = icmp ult i64 %data.0.i12.idx, 19
-  %12 = and i1 %cmp.i25, %tobool.i24
+  %cmp.i25 = icmp samesign ult i64 %data.0.i12.idx, 19
+  %12 = select i1 %tobool.i24, i1 %cmp.i25, i1 false
   br i1 %12, label %do.body.i10, label %return, !llvm.loop !32
 
 return:                                           ; preds = %st_left_shift.exit.i19, %if.then
@@ -2979,7 +2979,7 @@ while.body.i:                                     ; preds = %entry, %st_add.exit
   %used.020.i = phi i64 [ %inc9.i, %st_add.exit.i ], [ 1, %entry ]
   %size.019.i = phi i64 [ %add.i.i, %st_add.exit.i ], [ %and2.i, %entry ]
   %cmp.i = icmp ule i64 %1, %used.020.i
-  %cmp6.i = icmp ugt i64 %indvars.iv.i, 57
+  %cmp6.i = icmp samesign ugt i64 %indvars.iv.i, 57
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %if.then, label %if.end.i
 
@@ -3349,7 +3349,7 @@ while.body.i.i:                                   ; preds = %if.else, %st_add.ex
   %used.020.i.i = phi i64 [ %inc9.i.i, %st_add.exit.i.i ], [ 1, %if.else ]
   %size.019.i.i = phi i64 [ %add.i.i.i45, %st_add.exit.i.i ], [ %and2.i.i, %if.else ]
   %cmp.i.i = icmp ule i64 %9, %used.020.i.i
-  %cmp6.i.i = icmp ugt i64 %indvars.iv.i.i, 57
+  %cmp6.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 57
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %or.cond.i.i, label %if.then.i47, label %if.end.i.i
 
@@ -3664,7 +3664,7 @@ while.body.i.i.i:                                 ; preds = %st_add.exit.i.i.i, 
   %used.020.i.i.i = phi i64 [ %inc9.i.i.i, %st_add.exit.i.i.i ], [ 1, %while.body.i.i.preheader.i ]
   %size.019.i.i.i = phi i64 [ %add.i.i.i.i, %st_add.exit.i.i.i ], [ %and2.i.i.i, %while.body.i.i.preheader.i ]
   %cmp.i.i.i = icmp ule i64 %50, %used.020.i.i.i
-  %cmp6.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 57
+  %cmp6.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 57
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp6.i.i.i
   br i1 %or.cond.i.i.i, label %unpack_object_header.exit.thread.i, label %if.end.i.i.i
 
@@ -4215,7 +4215,7 @@ while.body.i.i:                                   ; preds = %if.end23, %st_add.e
   %used.020.i.i = phi i64 [ %inc9.i.i, %st_add.exit.i.i ], [ 1, %if.end23 ]
   %size.019.i.i = phi i64 [ %add.i.i.i, %st_add.exit.i.i ], [ %and2.i.i, %if.end23 ]
   %cmp.i.i = icmp ule i64 %25, %used.020.i.i
-  %cmp6.i.i = icmp ugt i64 %indvars.iv.i.i, 57
+  %cmp6.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 57
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %or.cond.i.i, label %for.end.thread, label %if.end.i.i
 
@@ -4256,7 +4256,7 @@ unpack_object_header.exit:                        ; preds = %st_add.exit.i.i, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %left.i)
   store i32 %conv1.i.i86, ptr %type, align 4
   %33 = or disjoint i32 %conv1.i.i86, -8
-  %or.cond = icmp ult i32 %33, -2
+  %or.cond = icmp samesign ult i32 %33, -2
   br i1 %or.cond, label %for.end.loopexit, label %if.end29
 
 if.end29:                                         ; preds = %unpack_object_header.exit

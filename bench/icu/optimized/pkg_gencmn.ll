@@ -501,7 +501,7 @@ for.body106:                                      ; preds = %if.end103, %for.bod
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %54 = load i32, ptr @_ZL9fileCount, align 4
   %55 = zext i32 %54 to i64
-  %cmp105 = icmp ult i64 %indvars.iv.next196, %55
+  %cmp105 = icmp samesign ult i64 %indvars.iv.next196, %55
   br i1 %cmp105, label %for.body106, label %for.cond116.preheader, !llvm.loop !9
 
 for.body118:                                      ; preds = %for.cond116.preheader, %for.body118
@@ -516,7 +516,7 @@ for.body118:                                      ; preds = %for.cond116.prehead
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %59 = load i32, ptr @_ZL9fileCount, align 4
   %60 = zext i32 %59 to i64
-  %cmp117 = icmp ult i64 %indvars.iv.next199, %60
+  %cmp117 = icmp samesign ult i64 %indvars.iv.next199, %60
   br i1 %cmp117, label %for.body118, label %for.end126, !llvm.loop !10
 
 for.end126.thread:                                ; preds = %for.cond116.preheader, %if.end103
@@ -722,7 +722,7 @@ for.body254:                                      ; preds = %if.end240, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr @_ZL9fileCount, align 4
   %88 = zext i32 %87 to i64
-  %cmp253 = icmp ult i64 %indvars.iv.next, %88
+  %cmp253 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %cmp253, label %for.body254, label %for.end267, !llvm.loop !13
 
 for.end267:                                       ; preds = %for.body254, %if.end240
@@ -753,7 +753,7 @@ for.body286:                                      ; preds = %for.end267, %for.bo
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %97 = load i32, ptr @_ZL9fileCount, align 4
   %98 = zext i32 %97 to i64
-  %cmp285 = icmp ult i64 %indvars.iv.next190, %98
+  %cmp285 = icmp samesign ult i64 %indvars.iv.next190, %98
   br i1 %cmp285, label %for.body286, label %for.end302, !llvm.loop !14
 
 for.end302:                                       ; preds = %for.body286, %for.end267

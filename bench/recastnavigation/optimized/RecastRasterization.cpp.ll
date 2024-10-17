@@ -118,14 +118,14 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %46 = load i32, ptr %26, align 8
   %47 = lshr i32 %46, 13
   %48 = and i32 %47, 8191
-  %49 = icmp ugt i32 %45, %48
+  %49 = icmp samesign ugt i32 %45, %48
   br i1 %49, label %._crit_edge, label %50
 
 50:                                               ; preds = %.lr.ph
   %51 = lshr i32 %44, 13
   %52 = and i32 %51, 8191
   %53 = and i32 %46, 8191
-  %54 = icmp ult i32 %52, %53
+  %54 = icmp samesign ult i32 %52, %53
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
@@ -134,7 +134,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br label %92
 
 58:                                               ; preds = %50
-  %59 = icmp ult i32 %45, %53
+  %59 = icmp samesign ult i32 %45, %53
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %58
@@ -153,7 +153,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %.pre-phi77 = phi i32 [ %.pre76, %60 ], [ %52, %58 ]
   %64 = phi i32 [ %62, %60 ], [ %46, %58 ]
   %65 = phi i32 [ %.pre, %60 ], [ %44, %58 ]
-  %66 = icmp ugt i32 %.pre-phi77, %.pre-phi81
+  %66 = icmp samesign ugt i32 %.pre-phi77, %.pre-phi81
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %63

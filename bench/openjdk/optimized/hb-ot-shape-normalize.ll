@@ -908,8 +908,8 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %499 = and i32 %498, 7168
   %.not.i179 = icmp ne i32 %499, 0
   %500 = lshr i16 %.val170, 8
-  %.not163206 = icmp ugt i16 %500, %493
-  %.not163 = and i1 %.not163206, %.not.i179
+  %.not163206 = icmp samesign ugt i16 %500, %493
+  %.not163 = select i1 %.not.i179, i1 %.not163206, i1 false
   br i1 %.not163, label %505, label %501
 
 501:                                              ; preds = %492, %484
@@ -1031,7 +1031,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %520, %533
   %563 = select i1 %.not.i184, i32 0, i32 %562
   %564 = lshr i16 %.val166, 8
   %565 = zext nneg i16 %564 to i32
-  %566 = icmp ult i32 %563, %565
+  %566 = icmp samesign ult i32 %563, %565
   br i1 %566, label %567, label %625
 
 567:                                              ; preds = %554, %550

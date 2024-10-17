@@ -1184,7 +1184,7 @@ define internal i32 @drm_gem_shmem_fault(ptr nocapture noundef readonly %0) #0 a
   %13 = getelementptr inbounds i8, ptr %4, i64 248
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @ww_mutex_lock(ptr noundef %14, ptr noundef null) #5
-  %16 = icmp ult i64 %12, %7
+  %16 = icmp samesign ult i64 %12, %7
   br i1 %16, label %17, label %52
 
 17:                                               ; preds = %1

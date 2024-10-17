@@ -165,7 +165,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h414b35a54e83e71fE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = load i8, ptr %0, align 8, !range !4, !noundef !5
-  %.not = icmp ult i8 %4, 2
+  %.not = icmp samesign ult i8 %4, 2
   %5 = zext nneg i8 %4 to i64
   %6 = add nsw i64 %5, -1
   %7 = select i1 %.not, i64 0, i64 %6
@@ -7469,7 +7469,7 @@ default.unreachable180:                           ; preds = %229, %218, %2
   %80 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %81 = icmp ult i64 %80, 6
   tail call void @llvm.assume(i1 %81)
-  %switch.i55 = icmp ugt i64 %80, 2
+  %switch.i55 = icmp samesign ugt i64 %80, 2
   br i1 %switch.i55, label %82, label %69
 
 82:                                               ; preds = %72
@@ -8789,7 +8789,7 @@ _ZN10serde_json3ser6to_vec17h15fff049cb8924e0E.exit.i.i.i: ; preds = %273
   %526 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !1574
   %527 = icmp ult i64 %526, 6
   call void @llvm.assume(i1 %527)
-  %switch.i144.i.i = icmp ugt i64 %526, 4
+  %switch.i144.i.i = icmp samesign ugt i64 %526, 4
   br i1 %switch.i144.i.i, label %528, label %520
 
 528:                                              ; preds = %522
@@ -9540,7 +9540,7 @@ _ZN3log13__private_api3log17ha69604be991792afE.exit182.i.i: ; preds = %683
   %746 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !1570
   %747 = icmp ult i64 %746, 6
   call void @llvm.assume(i1 %747)
-  %switch.i29.i = icmp ugt i64 %746, 4
+  %switch.i29.i = icmp samesign ugt i64 %746, 4
   br i1 %switch.i29.i, label %748, label %764
 
 748:                                              ; preds = %745
@@ -9876,7 +9876,7 @@ common.ret:                                       ; preds = %892, %823
   %840 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %841 = icmp ult i64 %840, 6
   call void @llvm.assume(i1 %841)
-  %switch.i75 = icmp ugt i64 %840, 3
+  %switch.i75 = icmp samesign ugt i64 %840, 3
   br i1 %switch.i75, label %842, label %828
 
 842:                                              ; preds = %839

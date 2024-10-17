@@ -654,7 +654,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !190
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 1, !range !194, !alias.scope !195, !noalias !198, !noundef !4
-  %switch.i.i.i.i = icmp ult i8 %6, 2
+  %switch.i.i.i.i = icmp samesign ult i8 %6, 2
   %..i.i.i.i = select i1 %switch.i.i.i.i, i8 2, i8 0
   store i8 %..i.i.i.i, ptr %4, align 1, !noalias !190
   %7 = load ptr, ptr %0, align 8, !alias.scope !181, !noalias !199, !nonnull !4, !align !10, !noundef !4
@@ -1106,7 +1106,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !338
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i8, ptr %14, align 1, !range !194, !alias.scope !339, !noalias !335, !noundef !4
-  %switch.i.i.i.i = icmp ult i8 %15, 2
+  %switch.i.i.i.i = icmp samesign ult i8 %15, 2
   %..i.i.i.i = select i1 %switch.i.i.i.i, i8 2, i8 0
   store i8 %..i.i.i.i, ptr %4, align 1, !noalias !338
   %16 = getelementptr inbounds i8, ptr %7, i64 40
@@ -12654,7 +12654,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity8on_click28_$u7b$$u7b$c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !1326
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i8, ptr %14, align 8, !range !194, !alias.scope !1327, !noalias !1324, !noundef !4
-  %switch.i.i = icmp ult i8 %15, 2
+  %switch.i.i = icmp samesign ult i8 %15, 2
   %..i.i = select i1 %switch.i.i, i8 2, i8 0
   store i8 %..i.i, ptr %4, align 1, !noalias !1326
   %16 = getelementptr inbounds i8, ptr %7, i64 40
@@ -12722,7 +12722,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity8on_click28_$u7b$$u7b$c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !1356
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !194, !alias.scope !1358, !noalias !1361, !noundef !4
-  %switch.i.i = icmp ult i8 %6, 2
+  %switch.i.i = icmp samesign ult i8 %6, 2
   %..i.i = select i1 %switch.i.i, i8 2, i8 0
   store i8 %..i.i, ptr %4, align 1, !noalias !1356
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1362)

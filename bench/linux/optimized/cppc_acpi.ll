@@ -129,7 +129,7 @@ define dso_local noundef zeroext i1 @acpi_cpc_valid() #0 align 16 {
 5:                                                ; preds = %16, %3
   %6 = phi i64 [ %24, %16 ], [ 0, %3 ]
   %7 = and i64 %6, 4294967295
-  %8 = icmp ugt i64 %7, 63
+  %8 = icmp samesign ugt i64 %7, 63
   br i1 %8, label %.thread, label %9, !prof !5
 
 9:                                                ; preds = %5
@@ -174,7 +174,7 @@ define dso_local noundef zeroext i1 @cppc_allow_fast_switch() #0 align 16 {
 2:                                                ; preds = %24
   %3 = add nuw nsw i64 %12, 1
   %4 = and i64 %3, 127
-  %5 = icmp ugt i64 %4, 63
+  %5 = icmp samesign ugt i64 %4, 63
   br i1 %5, label %.thread, label %6, !prof !10, !llvm.loop !11
 
 6:                                                ; preds = %0, %2
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 -14, 1) i32 @acpi_get_psd_map(i32 noundef %0,
   %63 = phi i64 [ %.pre, %61 ], [ %28, %47 ], [ %28, %37 ]
   %64 = add nuw nsw i64 %34, 1
   %65 = and i64 %64, 127
-  %66 = icmp ugt i64 %65, 63
+  %66 = icmp samesign ugt i64 %65, 63
   br i1 %66, label %.thread, label %27, !prof !10, !llvm.loop !13
 
 67:                                               ; preds = %56, %52, %39
@@ -697,7 +697,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr nocapture noundef readonly %
   %215 = phi i32 [ %.pre17, %213 ], [ %207, %206 ]
   %216 = add nuw nsw i64 %208, 1
   %217 = zext i32 %215 to i64
-  %218 = icmp ult i64 %216, %217
+  %218 = icmp samesign ult i64 %216, %217
   br i1 %218, label %206, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %214, %.thread
@@ -993,7 +993,7 @@ define dso_local void @acpi_cppc_processor_exit(ptr nocapture noundef readonly %
   %50 = phi i32 [ %.pre, %48 ], [ %42, %41 ]
   %51 = add nuw nsw i64 %43, 1
   %52 = zext i32 %50 to i64
-  %53 = icmp ult i64 %51, %52
+  %53 = icmp samesign ult i64 %51, %52
   br i1 %53, label %41, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %49, %37
@@ -1492,7 +1492,7 @@ define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext ran
   %48 = sub i64 %45, %47
   %49 = sdiv i64 %48, 1000000
   %50 = and i64 %49, 4294967264
-  %51 = icmp ugt i64 %50, 59999
+  %51 = icmp samesign ugt i64 %50, 59999
   %52 = icmp eq i64 %47, 0
   %53 = or i1 %52, %51
   br i1 %53, label %54, label %.thread
@@ -1615,7 +1615,7 @@ define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext ran
 121:                                              ; preds = %119, %114, %106
   %122 = add nuw nsw i64 %103, 1
   %123 = and i64 %122, 127
-  %124 = icmp ugt i64 %123, 63
+  %124 = icmp samesign ugt i64 %123, 63
   br i1 %124, label %.thread9, label %97, !prof !10, !llvm.loop !26
 
 .thread9:                                         ; preds = %97, %121, %102, %92
@@ -1892,7 +1892,7 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
 .thread2:                                         ; preds = %45, %75, %71
   %80 = add nuw nsw i64 %8, 1
   %81 = and i64 %80, 127
-  %82 = icmp ugt i64 %81, 63
+  %82 = icmp samesign ugt i64 %81, 63
   br i1 %82, label %.thread, label %2, !prof !10, !llvm.loop !31
 
 .thread:                                          ; preds = %2, %.thread2, %75, %37, %29, %21, %7

@@ -1289,7 +1289,7 @@ define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture nound
   %24 = getelementptr inbounds i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 28:                                               ; preds = %3
@@ -1981,7 +1981,7 @@ define internal void @PrecalculatedXFORMGamutCheck(ptr noundef %0, ptr noundef %
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %41 = load i32, ptr %36, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i.us, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i.us, %42
   br i1 %43, label %.lr.ph.i.us, label %TransformOnePixelWithGamutCheck.exit.us, !llvm.loop !11
 
 44:                                               ; preds = %22
@@ -2156,7 +2156,7 @@ define internal void @CachedXFORMGamutCheck(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %46 = load i32, ptr %41, align 4
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next.i.us, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next.i.us, %47
   br i1 %48, label %.lr.ph.i.us, label %TransformOnePixelWithGamutCheck.exit.us, !llvm.loop !11
 
 49:                                               ; preds = %30

@@ -265,7 +265,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %64
 .loopexit.i:                                      ; preds = %88
   %69 = add i32 %73, 1
   %70 = zext i32 %69 to i64
-  %71 = icmp ugt i64 %67, %70
+  %71 = icmp samesign ugt i64 %67, %70
   br i1 %71, label %.lr.ph.i.preheader, label %.lr.ph22.i._crit_edge, !llvm.loop !4
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph22.i.preheader, %.loopexit.i
@@ -298,7 +298,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %64
 88:                                               ; preds = %87, %.lr.ph.i
   %89 = add i32 %.01720.i, 1
   %90 = zext i32 %89 to i64
-  %91 = icmp ugt i64 %67, %90
+  %91 = icmp samesign ugt i64 %67, %90
   br i1 %91, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 .lr.ph22.i._crit_edge:                            ; preds = %.loopexit.i, %.lr.ph22.i.preheader

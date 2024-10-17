@@ -306,7 +306,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   %45 = add nuw nsw i64 %42, 1
   %46 = load i32, ptr %36, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %41, label %.loopexit, !llvm.loop !6
 
 49:                                               ; preds = %12
@@ -348,7 +348,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   %68 = add nuw nsw i64 %62, 1
   %69 = load i32, ptr %56, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %61, label %.loopexit5, !llvm.loop !14
 
 .loopexit5:                                       ; preds = %61, %51
@@ -394,7 +394,7 @@ define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
   %18 = add nuw nsw i64 %12, 1
   %19 = load i32, ptr %6, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   br i1 %21, label %11, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %1
@@ -1221,7 +1221,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   %43 = add nuw nsw i64 %40, 1
   %44 = load i32, ptr %34, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %43, %45
+  %46 = icmp samesign ult i64 %43, %45
   br i1 %46, label %39, label %.loopexit, !llvm.loop !6
 
 47:                                               ; preds = %29, %24, %22

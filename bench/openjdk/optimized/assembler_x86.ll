@@ -29365,7 +29365,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br i1 %501, label %492, label %._crit_edge43.thread, !llvm.loop !50
 
 ._crit_edge43:                                    ; preds = %489
-  %502 = icmp ugt i32 %1, 8
+  %502 = icmp samesign ugt i32 %1, 8
   br i1 %502, label %._crit_edge43.thread, label %517
 
 ._crit_edge43.thread:                             ; preds = %492, %._crit_edge43
@@ -29400,7 +29400,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br label %519
 
 517:                                              ; preds = %._crit_edge43
-  %518 = icmp ugt i32 %1, 4
+  %518 = icmp samesign ugt i32 %1, 4
   br i1 %518, label %519, label %537
 
 519:                                              ; preds = %.thread30, %517
@@ -104116,7 +104116,7 @@ define hidden void @_ZN9Assembler4adcqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -104324,7 +104324,7 @@ define hidden void @_ZN9Assembler4addqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -104528,7 +104528,7 @@ define hidden void @_ZN9Assembler4addqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -105221,7 +105221,7 @@ define hidden void @_ZN9Assembler4andqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -105398,7 +105398,7 @@ define hidden void @_ZN9Assembler4andqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -106873,7 +106873,7 @@ define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8Register7Address(ptr noca
   call void %16(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
   %17 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %5, i32 %2, i1 noundef zeroext true)
   %18 = or i32 %1, 64
-  %19 = icmp ult i32 %17, 256
+  %19 = icmp samesign ult i32 %17, 256
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %4
@@ -107108,7 +107108,7 @@ define hidden void @_ZN9Assembler4cmpqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -107285,7 +107285,7 @@ define hidden void @_ZN9Assembler4cmpqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -107370,7 +107370,7 @@ define hidden void @_ZN9Assembler8cmpxchgqE8Register7Address(ptr nocapture nound
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -109141,7 +109141,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Address(ptr nocapture noundef 
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -109453,7 +109453,7 @@ define hidden void @_ZN9Assembler4leaqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -110494,7 +110494,7 @@ define hidden void @_ZN9Assembler4movqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -110579,7 +110579,7 @@ define hidden void @_ZN9Assembler4movqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -110828,7 +110828,7 @@ define hidden void @_ZN9Assembler6movsbqE8Register7Address(ptr nocapture noundef
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -111133,7 +111133,7 @@ define hidden void @_ZN9Assembler6movslqE8Register7Address(ptr nocapture noundef
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -111323,7 +111323,7 @@ define hidden void @_ZN9Assembler6movswqE8Register7Address(ptr nocapture noundef
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -111540,7 +111540,7 @@ define hidden void @_ZN9Assembler6movzbqE8Register7Address(ptr nocapture noundef
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -111757,7 +111757,7 @@ define hidden void @_ZN9Assembler6movzwqE8Register7Address(ptr nocapture noundef
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -112853,7 +112853,7 @@ define hidden void @_ZN9Assembler3orqE7Address8Register(ptr nocapture noundef no
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -113131,7 +113131,7 @@ define hidden void @_ZN9Assembler3orqE8Register7Address(ptr nocapture noundef no
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -113314,7 +113314,7 @@ define hidden void @_ZN9Assembler7popcntqE8Register7Address(ptr nocapture nounde
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
   %20 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
-  %21 = icmp ult i32 %20, 256
+  %21 = icmp samesign ult i32 %20, 256
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %3
@@ -117794,7 +117794,7 @@ define hidden void @_ZN9Assembler4sbbqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -118563,7 +118563,7 @@ define hidden void @_ZN9Assembler4subqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -118722,7 +118722,7 @@ define hidden void @_ZN9Assembler4subqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -119179,7 +119179,7 @@ define hidden void @_ZN9Assembler5testqE8Register7Address(ptr nocapture noundef 
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -119264,7 +119264,7 @@ define hidden void @_ZN9Assembler5xaddqE7Address8Register(ptr nocapture noundef 
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -119349,7 +119349,7 @@ define hidden void @_ZN9Assembler5xchgqE8Register7Address(ptr nocapture noundef 
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -119631,7 +119631,7 @@ define hidden void @_ZN9Assembler4xorqE8Register7Address(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3
@@ -119866,7 +119866,7 @@ define hidden void @_ZN9Assembler4xorqE7Address8Register(ptr nocapture noundef n
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
-  %17 = icmp ult i32 %16, 256
+  %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %3

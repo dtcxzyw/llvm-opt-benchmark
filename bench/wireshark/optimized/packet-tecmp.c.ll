@@ -1603,7 +1603,7 @@ dissect_tecmp_status_device_vendor_data.exit.i:   ; preds = %274, %271, %269, %2
   %283 = call ptr @proto_item_add_subtree(ptr noundef %281, i32 noundef %282) #4
   %284 = and i32 %162, 65535
   %285 = add nuw nsw i32 %284, 12
-  %.not139148.i = icmp ugt i32 %285, %280
+  %.not139148.i = icmp samesign ugt i32 %285, %280
   br i1 %.not139148.i, label %dissect_tecmp_status_device.exit, label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %276
@@ -1766,7 +1766,7 @@ dissect_tecmp_status_bus_vendor_data.exit.i:      ; preds = %373, %372, %368, %3
   %376 = add i32 %.0130151.i, 1
   %377 = sub i16 %.0132149.i, %286
   %378 = zext i16 %377 to i32
-  %.not139.i = icmp ugt i32 %285, %378
+  %.not139.i = icmp samesign ugt i32 %285, %378
   br i1 %.not139.i, label %dissect_tecmp_status_device.exit, label %287, !llvm.loop !6
 
 379:                                              ; preds = %143
@@ -3000,7 +3000,7 @@ define internal void @post_update_tecmp_interfaces_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @tecmp_interfaces_num, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %3

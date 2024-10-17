@@ -1204,7 +1204,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %2, %12
   %28 = lshr i64 %27, 32
   %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 2147483647
-  %31 = icmp ult i32 %30, 65
+  %31 = icmp samesign ult i32 %30, 65
   br i1 %31, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %26
@@ -1475,7 +1475,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread: ; preds = %66
   %77 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 40
   %78 = load i64, ptr %77, align 8, !noalias !15
   store i32 %76, ptr %40, align 8, !alias.scope !15
-  %79 = icmp ult i32 %76, 65
+  %79 = icmp samesign ult i32 %76, 65
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %74
@@ -7581,7 +7581,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114ODRTypeVisitor22VisitConstantArr
   %21 = load i64, ptr %20, align 8, !noalias !29
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %19, ptr %22, align 8, !alias.scope !29
-  %23 = icmp ult i32 %19, 65
+  %23 = icmp samesign ult i32 %19, 65
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %17

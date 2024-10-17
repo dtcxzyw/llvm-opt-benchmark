@@ -5511,7 +5511,7 @@ define internal i32 @xfrm_add_acquire(ptr nocapture noundef readonly %0, ptr noc
   %94 = getelementptr i8, ptr %78, i64 64
   %95 = load i8, ptr %65, align 4
   %96 = zext i8 %95 to i64
-  %97 = icmp ult i64 %93, %96
+  %97 = icmp samesign ult i64 %93, %96
   br i1 %97, label %76, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %76, %54
@@ -6065,7 +6065,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_new_ae(ptr nocapture noundef
   %97 = zext i32 %96 to i64
   %98 = zext i32 %75 to i64
   %99 = shl nuw nsw i64 %98, 5
-  %100 = icmp ult i64 %99, %97
+  %100 = icmp samesign ult i64 %99, %97
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %94
@@ -7077,7 +7077,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead(ptr %.144.val,
   %9 = add i32 %8, 7
   %10 = lshr i32 %9, 3
   %11 = add nuw nsw i32 %10, 72
-  %12 = icmp ugt i32 %11, %6
+  %12 = icmp samesign ugt i32 %11, %6
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
@@ -7113,7 +7113,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc(ptr %.16
   %9 = add i32 %8, 7
   %10 = lshr i32 %9, 3
   %11 = add nuw nsw i32 %10, 72
-  %12 = icmp ugt i32 %11, %6
+  %12 = icmp samesign ugt i32 %11, %6
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
@@ -7152,7 +7152,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_one_alg(ptr nocaptu
   %14 = add i32 %13, 7
   %15 = lshr i32 %14, 3
   %16 = add nuw nsw i32 %15, 68
-  %17 = icmp ugt i32 %16, %11
+  %17 = icmp samesign ugt i32 %16, %11
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %8
@@ -7243,7 +7243,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_replay(ptr nocaptur
   %19 = zext i16 %18 to i32
   %20 = shl nuw nsw i32 %12, 2
   %21 = add nuw nsw i32 %20, 24
-  %22 = icmp ule i32 %21, %19
+  %22 = icmp samesign ule i32 %21, %19
   %23 = icmp eq i16 %18, 24
   %24 = or i1 %23, %22
   br i1 %24, label %27, label %25

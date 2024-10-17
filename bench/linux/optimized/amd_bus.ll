@@ -268,7 +268,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %129 = and i64 %128, 281474968322048
   %130 = lshr exact i64 %129, 20
   %131 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %129, i64 noundef %130) #10
-  %132 = icmp ult i64 %129, 4294967296
+  %132 = icmp samesign ult i64 %129, 4294967296
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %.thread29

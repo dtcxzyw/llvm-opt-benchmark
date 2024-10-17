@@ -934,7 +934,7 @@ define void @Aig_RManPrintUniqueVars(ptr nocapture noundef readonly %0, i32 noun
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %.lr.ph31
-  %16 = icmp ult i64 %indvars.iv34, 10
+  %16 = icmp samesign ult i64 %indvars.iv34, 10
   %17 = trunc i64 %indvars.iv34 to i32
   br i1 %16, label %18, label %20
 

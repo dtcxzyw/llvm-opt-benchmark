@@ -373,7 +373,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i32, ptr @nk12_handles, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
   br i1 %85, label %.lr.ph, label %.thread, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader104, %82
@@ -690,7 +690,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %273 ]
   %232 = mul nuw nsw i64 %indvars.iv.i, 104
   %233 = add nuw nsw i64 %232, %229
-  %.not.i = icmp ugt i64 %233, %230
+  %.not.i = icmp samesign ugt i64 %233, %230
   br i1 %.not.i, label %fill_fp_info.exit, label %234
 
 234:                                              ; preds = %231

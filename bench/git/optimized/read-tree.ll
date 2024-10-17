@@ -686,7 +686,7 @@ sw.bb344:                                         ; preds = %if.then339
 sw.epilog:                                        ; preds = %if.then339
   %fn348 = getelementptr inbounds i8, ptr %opts, i64 96
   store ptr @threeway_merge, ptr %fn348, align 8
-  %cmp350 = icmp ugt i32 %stage.1.lcssa, 3
+  %cmp350 = icmp samesign ugt i32 %stage.1.lcssa, 3
   %sub353 = add nsw i32 %stage.1.lcssa, -2
   %spec.select = select i1 %cmp350, i32 %sub353, i32 1
   br label %if.end358.sink.split

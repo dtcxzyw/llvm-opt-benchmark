@@ -1784,7 +1784,7 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.edge
   %brmerge84 = or i1 %46, %brmerge83
   %brmerge85 = or i1 %45, %brmerge84
   %151 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %150)
-  %.not = icmp ult i64 %151, 2
+  %.not = icmp samesign ult i64 %151, 2
   %not.brmerge85 = xor i1 %brmerge85, true
   %narrow = select i1 %not.brmerge85, i1 %.not, i1 false
   %152 = zext i1 %narrow to i8
@@ -3147,7 +3147,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit66.i: ; pred
   %754 = getelementptr inbounds i8, ptr %.111.i4.i.i, i64 -1
   store i8 %753, ptr %754, align 1, !noalias !39
   %755 = udiv i64 %.0810.i5.i.i, 10
-  %.not.i6.i.i = icmp ult i64 %.0810.i5.i.i, 10
+  %.not.i6.i.i = icmp samesign ult i64 %.0810.i5.i.i, 10
   br i1 %.not.i6.i.i, label %_ZN4llvm6itostrB5cxx11El.exit.i, label %.lr.ph.i3.i.i, !llvm.loop !40
 
 _ZN4llvm6itostrB5cxx11El.exit.i:                  ; preds = %.lr.ph.i3.i.i
@@ -8612,7 +8612,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i

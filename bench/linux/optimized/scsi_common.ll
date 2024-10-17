@@ -169,7 +169,7 @@ define dso_local i64 @scsilun_to_int(ptr nocapture noundef readonly %0) #1 align
   %16 = or i64 %10, %4
   %17 = or i64 %16, %15
   %18 = add nuw nsw i64 %3, 2
-  %19 = icmp ult i64 %3, 6
+  %19 = icmp samesign ult i64 %3, 6
   br i1 %19, label %2, label %20, !llvm.loop !5
 
 20:                                               ; preds = %2
@@ -194,7 +194,7 @@ define dso_local void @int_to_scsilun(i64 noundef %0, ptr nocapture noundef writ
   store i8 %9, ptr %11, align 1
   %12 = lshr i64 %5, 16
   %13 = add nuw nsw i64 %4, 2
-  %14 = icmp ult i64 %4, 6
+  %14 = icmp samesign ult i64 %4, 6
   br i1 %14, label %3, label %15, !llvm.loop !8
 
 15:                                               ; preds = %3
@@ -220,7 +220,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
   br i1 %13, label %14, label %.thread5
 
 14:                                               ; preds = %7
-  %15 = icmp ugt i8 %9, 113
+  %15 = icmp samesign ugt i8 %9, 113
   br i1 %15, label %16, label %33
 
 16:                                               ; preds = %14
@@ -271,7 +271,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
   %44 = zext i8 %43 to i32
   %45 = add nuw nsw i32 %44, 8
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 %1)
-  %47 = icmp ugt i32 %46, 12
+  %47 = icmp samesign ugt i32 %46, 12
   br i1 %47, label %48, label %.thread5
 
 48:                                               ; preds = %41
@@ -331,7 +331,7 @@ define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly %0, i32 noundef 
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 2
   %26 = add nuw nsw i32 %25, %30
-  %27 = icmp ult i32 %26, %16
+  %27 = icmp samesign ult i32 %26, %16
   br i1 %27, label %28, label %.thread3, !llvm.loop !9
 
 28:                                               ; preds = %21, %18
@@ -411,7 +411,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr n
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %20, 2
   %22 = add nuw nsw i32 %21, %26
-  %23 = icmp ult i32 %22, %9
+  %23 = icmp samesign ult i32 %22, %9
   br i1 %23, label %24, label %.thread4, !llvm.loop !9
 
 24:                                               ; preds = %17, %14
@@ -511,7 +511,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 2
   %25 = add nuw nsw i32 %24, %29
-  %26 = icmp ult i32 %25, %11
+  %26 = icmp samesign ult i32 %25, %11
   br i1 %26, label %27, label %.thread4, !llvm.loop !9
 
 27:                                               ; preds = %20, %17

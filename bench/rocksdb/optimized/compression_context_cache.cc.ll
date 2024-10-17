@@ -318,7 +318,7 @@ while.end:                                        ; preds = %while.cond
   %size_shift_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %storemerge, ptr %size_shift_, align 8
   %sh_prom = zext nneg i32 %storemerge to i64
-  %0 = icmp ugt i32 %storemerge, 57
+  %0 = icmp samesign ugt i32 %storemerge, 57
   %1 = shl i64 64, %sh_prom
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2

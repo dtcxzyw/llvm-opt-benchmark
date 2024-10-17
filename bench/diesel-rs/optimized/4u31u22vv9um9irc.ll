@@ -6287,7 +6287,7 @@ common.resume:                                    ; preds = %.body144, %.sink.sp
 .body144:                                         ; preds = %520, %510, %505, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit151"
   %.pn4.i24 = phi { ptr, i32 } [ %.pn.i22, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit151" ], [ %521, %520 ], [ %506, %510 ], [ %506, %505 ]
   %518 = load i64, ptr %463, align 8, !range !2385, !alias.scope !2386, !noundef !12
-  %switch.i = icmp ult i64 %518, 2
+  %switch.i = icmp samesign ult i64 %518, 2
   br i1 %switch.i, label %.sink.split.i, label %common.resume
 
 .sink.split.i:                                    ; preds = %.body144
@@ -8733,7 +8733,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$syn..data..Variant$
 
 "_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.14510580911666860995.exit.i.i1.i.i.i.i.i", %30, %.body
   %41 = load i64, ptr %0, align 8, !range !2385, !alias.scope !3559, !noundef !12
-  %switch.i = icmp ult i64 %41, 2
+  %switch.i = icmp samesign ult i64 %41, 2
   br i1 %switch.i, label %.sink.split.i, label %.body11
 
 .sink.split.i:                                    ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit"
@@ -20282,7 +20282,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
   %8 = add nuw i64 %.09.i.i, 1
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i8, ptr %9, align 4, !range !8182, !alias.scope !8183, !noalias !8179, !noundef !12
-  %11 = icmp ult i8 %10, 4
+  %11 = icmp samesign ult i8 %10, 4
   br i1 %11, label %12, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17hbd320979de799297E.exit.i.i"
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -20311,7 +20311,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
   %22 = add i64 %.110.i.i, 1
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load i8, ptr %23, align 4, !range !8182, !alias.scope !8195, !noalias !8179, !noundef !12
-  %25 = icmp ult i8 %24, 4
+  %25 = icmp samesign ult i8 %24, 4
   br i1 %25, label %26, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17hbd320979de799297E.exit8.i.i"
 
 26:                                               ; preds = %.lr.ph12.i.i
@@ -20981,7 +20981,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$syn..ex
 define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17hde1e8d3353bea1bfE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8504)
   %2 = load i32, ptr %0, align 8, !range !837, !alias.scope !8504, !noundef !12
-  %switch.i = icmp ult i32 %2, 2
+  %switch.i = icmp samesign ult i32 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h79016c6ff28b3197E.exit", label %3
 
 3:                                                ; preds = %1
@@ -25143,7 +25143,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %8 = add nuw i64 %.09.i, 1
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i8, ptr %9, align 4, !range !8182, !alias.scope !9786, !noundef !12
-  %11 = icmp ult i8 %10, 4
+  %11 = icmp samesign ult i8 %10, 4
   br i1 %11, label %12, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17hbd320979de799297E.exit.i"
 
 12:                                               ; preds = %.lr.ph.i
@@ -25172,7 +25172,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %22 = add i64 %.110.i, 1
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load i8, ptr %23, align 4, !range !8182, !alias.scope !9798, !noundef !12
-  %25 = icmp ult i8 %24, 4
+  %25 = icmp samesign ult i8 %24, 4
   br i1 %25, label %26, label %"_ZN4core3ptr42drop_in_place$LT$proc_macro..TokenTree$GT$17hbd320979de799297E.exit8.i"
 
 26:                                               ; preds = %.lr.ph12.i

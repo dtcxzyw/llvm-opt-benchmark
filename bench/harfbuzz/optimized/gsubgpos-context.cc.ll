@@ -845,7 +845,7 @@ for.inc:                                          ; preds = %_ZN11hb_vector_tIN5
   %36 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i = zext i8 %36 to i64
   %add.i.i = or disjoint i64 %shl.i.i, %conv4.i.i
-  %cmp = icmp ult i64 %indvars.iv.next, %add.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %add.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit, %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit, %_ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit
@@ -1059,7 +1059,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
   store i32 0, ptr %population, align 4
   %sub = add i32 %shl, -1
   store i32 %sub, ptr %mask.i, align 4
-  %cmp.i = icmp ugt i32 %retval.0.i, 31
+  %cmp.i = icmp samesign ugt i32 %retval.0.i, 31
   br i1 %cmp.i, label %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %_ZL9hb_memsetPvij.exit
@@ -1738,7 +1738,7 @@ _ZN5graph7graph_t8vertex_taSEOS1_.exit:           ; preds = %lor.lhs.false.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %length, align 4
   %19 = zext i32 %18 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %19
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %lor.lhs.false.i.i.i.i, label %return.sink.split, !llvm.loop !45
 
 return.sink.split:                                ; preds = %_ZN5graph7graph_t8vertex_taSEOS1_.exit, %for.cond.preheader, %entry
@@ -2264,7 +2264,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
   %notmask = shl nsw i32 -1, %retval.0.i
   %sub = xor i32 %notmask, -1
   store i32 %sub, ptr %mask.i, align 4
-  %cmp.i = icmp ugt i32 %retval.0.i, 31
+  %cmp.i = icmp samesign ugt i32 %retval.0.i, 31
   br i1 %cmp.i, label %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %_ZL9hb_memsetPvij.exit

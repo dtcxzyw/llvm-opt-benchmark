@@ -173,7 +173,7 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %45 = load i64, ptr %44, align 8
   %46 = xor i64 %45, %43
   store i64 %46, ptr %44, align 8
-  %47 = icmp ugt i64 %2, 72
+  %47 = icmp samesign ugt i64 %2, 72
   %48 = getelementptr inbounds i8, ptr %0, i64 72
   %49 = load i64, ptr %48, align 8
   br i1 %47, label %50, label %._crit_edge
@@ -210,7 +210,7 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %67 = load i64, ptr %66, align 8
   %68 = xor i64 %67, %65
   store i64 %68, ptr %66, align 8
-  %69 = icmp ugt i64 %2, 104
+  %69 = icmp samesign ugt i64 %2, 104
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %50
@@ -238,7 +238,7 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %89 = load i64, ptr %88, align 8
   %90 = xor i64 %89, %87
   store i64 %90, ptr %88, align 8
-  %91 = icmp ugt i64 %2, 136
+  %91 = icmp samesign ugt i64 %2, 136
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %70

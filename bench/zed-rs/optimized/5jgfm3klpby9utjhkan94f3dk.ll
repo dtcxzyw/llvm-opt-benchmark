@@ -170,7 +170,7 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$async_lock..semaphore..AcquireInn
   %14 = load ptr, ptr %13, align 8, !alias.scope !6, !noalias !9, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %10, i64 noundef 0, ptr noundef nonnull %8), !range !18, !noalias !9
-  %switch.i.i.i = icmp ult i8 %16, 2
+  %switch.i.i.i = icmp samesign ult i8 %16, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %17
 
 17:                                               ; preds = %12
@@ -490,7 +490,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %36 = load ptr, ptr %35, align 8, !alias.scope !72, !noalias !75, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %37, ptr noundef nonnull align 8 %29, i64 noundef 0, ptr noundef nonnull %26), !range !18, !noalias !75
-  %switch.i.i.i = icmp ult i8 %38, 2
+  %switch.i.i.i = icmp samesign ult i8 %38, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %39
 
 39:                                               ; preds = %34
@@ -641,7 +641,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %84 = load ptr, ptr %83, align 8, !alias.scope !111, !noalias !114, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %85, ptr noundef nonnull align 8 %80, i64 noundef 0, ptr noundef nonnull %32), !range !18, !noalias !114
-  %switch.i.i.i53 = icmp ult i8 %86, 2
+  %switch.i.i.i53 = icmp samesign ult i8 %86, 2
   br i1 %switch.i.i.i53, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", label %87
 
 87:                                               ; preds = %82
@@ -811,7 +811,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %36 = load ptr, ptr %35, align 8, !alias.scope !153, !noalias !156, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %37, ptr noundef nonnull align 8 %29, i64 noundef 0, ptr noundef nonnull %26), !range !18, !noalias !156
-  %switch.i.i.i = icmp ult i8 %38, 2
+  %switch.i.i.i = icmp samesign ult i8 %38, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %39
 
 39:                                               ; preds = %34
@@ -962,7 +962,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %84 = load ptr, ptr %83, align 8, !alias.scope !192, !noalias !195, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %85, ptr noundef nonnull align 8 %80, i64 noundef 0, ptr noundef nonnull %32), !range !18, !noalias !195
-  %switch.i.i.i53 = icmp ult i8 %86, 2
+  %switch.i.i.i53 = icmp samesign ult i8 %86, 2
   br i1 %switch.i.i.i53, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", label %87
 
 87:                                               ; preds = %82
@@ -1132,7 +1132,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %36 = load ptr, ptr %35, align 8, !alias.scope !234, !noalias !237, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %37, ptr noundef nonnull align 8 %29, i64 noundef 0, ptr noundef nonnull %26), !range !18, !noalias !237
-  %switch.i.i.i = icmp ult i8 %38, 2
+  %switch.i.i.i = icmp samesign ult i8 %38, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %39
 
 39:                                               ; preds = %34
@@ -1283,7 +1283,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %84 = load ptr, ptr %83, align 8, !alias.scope !273, !noalias !276, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %85, ptr noundef nonnull align 8 %80, i64 noundef 0, ptr noundef nonnull %32), !range !18, !noalias !276
-  %switch.i.i.i53 = icmp ult i8 %86, 2
+  %switch.i.i.i53 = icmp samesign ult i8 %86, 2
   br i1 %switch.i.i.i53, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", label %87
 
 87:                                               ; preds = %82
@@ -1453,7 +1453,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %36 = load ptr, ptr %35, align 8, !alias.scope !315, !noalias !318, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %37, ptr noundef nonnull align 8 %29, i64 noundef 0, ptr noundef nonnull %26), !range !18, !noalias !318
-  %switch.i.i.i = icmp ult i8 %38, 2
+  %switch.i.i.i = icmp samesign ult i8 %38, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %39
 
 39:                                               ; preds = %34
@@ -1604,7 +1604,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %84 = load ptr, ptr %83, align 8, !alias.scope !354, !noalias !357, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %85, ptr noundef nonnull align 8 %80, i64 noundef 0, ptr noundef nonnull %32), !range !18, !noalias !357
-  %switch.i.i.i53 = icmp ult i8 %86, 2
+  %switch.i.i.i53 = icmp samesign ult i8 %86, 2
   br i1 %switch.i.i.i53, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", label %87
 
 87:                                               ; preds = %82
@@ -1775,7 +1775,7 @@ define internal fastcc noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..Acqui
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   call void @llvm.assume(i1 %24)
   %36 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %35, ptr noundef nonnull align 8 %27, i64 noundef 0, ptr noundef nonnull %.0.val), !range !18, !noalias !399
-  %switch.i.i.i = icmp ult i8 %36, 2
+  %switch.i.i.i = icmp samesign ult i8 %36, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %37
 
 37:                                               ; preds = %32
@@ -1927,7 +1927,7 @@ common.resume:                                    ; preds = %46, %94, %.body.i55
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   call void @llvm.assume(i1 %30)
   %84 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %83, ptr noundef nonnull align 8 %78, i64 noundef 0, ptr noundef nonnull %.0.val), !range !18, !noalias !438
-  %switch.i.i.i53 = icmp ult i8 %84, 2
+  %switch.i.i.i53 = icmp samesign ult i8 %84, 2
   br i1 %switch.i.i.i53, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", label %85
 
 85:                                               ; preds = %80
@@ -3674,7 +3674,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h9a3405db4706185fE.exit48"
 
 78:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h9a3405db4706185fE.exit"
-  %79 = icmp ult i64 %9, 29
+  %79 = icmp samesign ult i64 %9, 29
   br i1 %79, label %.lr.ph.i51, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %89, %78
@@ -3877,7 +3877,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h9
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit.sink.split", label %.lr.ph.i53
 
 88:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h82bcea7954c2a682E.exit"
-  %89 = icmp ult i64 %10, 29
+  %89 = icmp samesign ult i64 %10, 29
   br i1 %89, label %.lr.ph.i55, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit.sink.split"
 
 .lr.ph.i55:                                       ; preds = %88, %99
@@ -6378,7 +6378,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !754)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
   %5 = load i64, ptr %4, align 8, !range !760, !alias.scope !761, !noundef !4
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit", label %6
 
 6:                                                ; preds = %3
@@ -6606,7 +6606,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !965)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !968)
   %89 = load i64, ptr %88, align 8, !range !760, !alias.scope !971, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zbus_names..error_name..OwnedErrorName$GT$17h69f02081a45447d3E.exit", label %90
 
 90:                                               ; preds = %87
@@ -7565,7 +7565,7 @@ common.resume:                                    ; preds = %411, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1910)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1913)
   %422 = load i64, ptr %421, align 8, !range !760, !alias.scope !1916, !noundef !4
-  %switch.i.i.i17 = icmp ult i64 %422, 2
+  %switch.i.i.i17 = icmp samesign ult i64 %422, 2
   br i1 %switch.i.i.i17, label %common.resume, label %423
 
 423:                                              ; preds = %419
@@ -7588,7 +7588,7 @@ common.resume:                                    ; preds = %411, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1927)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1930)
   %430 = load i64, ptr %429, align 8, !range !760, !alias.scope !1933, !noundef !4
-  %switch.i.i.i19 = icmp ult i64 %430, 2
+  %switch.i.i.i19 = icmp samesign ult i64 %430, 2
   br i1 %switch.i.i.i19, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %431
 
 431:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit"
@@ -7657,7 +7657,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1967)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1970)
   %20 = load i64, ptr %19, align 8, !range !760, !alias.scope !1973, !noundef !4
-  %switch.i.i = icmp ult i64 %20, 2
+  %switch.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %21
 
 21:                                               ; preds = %18
@@ -7677,7 +7677,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
 27:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1984)
-  %switch.i.i1 = icmp ult i64 %2, 2
+  %switch.i.i1 = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit2", label %28
 
 28:                                               ; preds = %27
@@ -8513,7 +8513,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h24c29cc5b0d4771
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 129
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 129
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
@@ -14219,7 +14219,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$event_listener..EventListener$LT$T$
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !alias.scope !2788, !nonnull !4, !align !5, !noundef !4
   %8 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %3, i64 noundef 0, ptr noundef nonnull %7), !range !18, !noalias !2788
-  %switch.i = icmp ult i8 %8, 2
+  %switch.i = icmp samesign ult i8 %8, 2
   br i1 %switch.i, label %"_ZN14event_listener26InnerListener$LT$T$C$B$GT$13poll_internal17h8d73b2f6812fd02dE.exit", label %9
 
 9:                                                ; preds = %2
@@ -14332,7 +14332,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$event_listener_strategy..NonBlockin
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %2, align 8, !alias.scope !2805, !noalias !2806, !nonnull !4, !align !5, !noundef !4
   %12 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %10, ptr noundef nonnull align 8 %4, i64 noundef 0, ptr noundef nonnull %11), !range !18, !noalias !2803
-  %switch.i.i = icmp ult i8 %12, 2
+  %switch.i.i = icmp samesign ult i8 %12, 2
   br i1 %switch.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit", label %13
 
 13:                                               ; preds = %7
@@ -14512,7 +14512,7 @@ _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.
   %23 = load ptr, ptr %22, align 8, !alias.scope !2837, !noalias !2840, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %13, i64 noundef 0, ptr noundef nonnull %6), !range !18, !noalias !2840
-  %switch.i.i.i = icmp ult i8 %25, 2
+  %switch.i.i.i = icmp samesign ult i8 %25, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %26
 
 26:                                               ; preds = %21
@@ -14931,7 +14931,7 @@ _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.
   %127 = load ptr, ptr %126, align 8, !alias.scope !2967, !noalias !2970, !nonnull !4, !noundef !4
   %128 = getelementptr inbounds i8, ptr %127, i64 16
   %129 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %128, ptr noundef nonnull align 8 %107, i64 noundef 0, ptr noundef nonnull %8), !range !18, !noalias !2970
-  %switch.i.i.i = icmp ult i8 %129, 2
+  %switch.i.i.i = icmp samesign ult i8 %129, 2
   br i1 %switch.i.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", label %130
 
 130:                                              ; preds = %125

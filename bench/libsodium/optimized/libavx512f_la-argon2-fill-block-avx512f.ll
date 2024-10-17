@@ -114,7 +114,7 @@ if.end.i:                                         ; preds = %if.then21.i, %for.b
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %segment_length.i, align 4
   %10 = zext i32 %9 to i64
-  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %10
+  %cmp17.i = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %cmp17.i, label %for.body.i, label %generate_addresses.exit, !llvm.loop !4
 
 generate_addresses.exit:                          ; preds = %if.end.i, %if.then8
@@ -722,7 +722,7 @@ for.inc:                                          ; preds = %if.then87, %fill_bl
   %inc101 = add i32 %spec.select38, 1
   %212 = load i32, ptr %segment_length, align 4
   %213 = zext i32 %212 to i64
-  %cmp34 = icmp ult i64 %indvars.iv.next, %213
+  %cmp34 = icmp samesign ult i64 %indvars.iv.next, %213
   br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end9, %entry

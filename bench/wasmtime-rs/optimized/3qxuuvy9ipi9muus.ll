@@ -4179,7 +4179,7 @@ define hidden void @"_ZN4core3ptr203drop_in_place$LT$core..task..poll..Poll$LT$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr209drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17h211c6b44c75ac893E.llvm.3320867604257097217"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !range !350, !noundef !4
-  %switch = icmp ult i32 %2, 2
+  %switch = icmp samesign ult i32 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -4425,7 +4425,7 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$core..result..Result$LT$was
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
   %7 = load i32, ptr %6, align 4, !range !350, !alias.scope !846, !noundef !4
-  %switch = icmp ult i32 %7, 2
+  %switch = icmp samesign ult i32 %7, 2
   br i1 %switch, label %.sink.split.i, label %"_ZN4core3ptr209drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$GT$17h211c6b44c75ac893E.llvm.3320867604257097217.exit"
 
 .sink.split.i:                                    ; preds = %5
@@ -4540,7 +4540,7 @@ define hidden void @"_ZN4core3ptr291drop_in_place$LT$core..task..poll..Poll$LT$c
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !885)
   %8 = load i32, ptr %7, align 4, !range !350, !alias.scope !888, !noundef !4
-  %switch.i = icmp ult i32 %8, 2
+  %switch.i = icmp samesign ult i32 %8, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr261drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$17h4cb7613f4e36242dE.llvm.3320867604257097217.exit"
 
 .sink.split.i.i:                                  ; preds = %6
@@ -4592,7 +4592,7 @@ define hidden void @"_ZN4core3ptr330drop_in_place$LT$core..result..Result$LT$cor
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
   %11 = load i32, ptr %10, align 4, !range !350, !alias.scope !908, !noundef !4
-  %switch.i = icmp ult i32 %11, 2
+  %switch.i = icmp samesign ult i32 %11, 2
   br i1 %switch.i, label %.sink.split.i.i, label %"_ZN4core3ptr261drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$17h4cb7613f4e36242dE.llvm.3320867604257097217.exit"
 
 .sink.split.i.i:                                  ; preds = %9
@@ -13954,7 +13954,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h11b9a
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %12 = load i64, ptr %11, align 8, !range !41, !noalias !3309, !noundef !4
-  %13 = icmp ult i64 %12, 3
+  %13 = icmp samesign ult i64 %12, 3
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %3
@@ -14228,7 +14228,7 @@ define hidden { i64, ptr } @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !range !1496, !noalias !3343, !noundef !4
-  %13 = icmp ult i32 %12, 1000000003
+  %13 = icmp samesign ult i32 %12, 1000000003
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %2
@@ -14504,7 +14504,7 @@ define hidden { i64, ptr } @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !range !1496, !noalias !3375, !noundef !4
-  %13 = icmp ult i32 %12, 1000000003
+  %13 = icmp samesign ult i32 %12, 1000000003
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %2
@@ -19119,7 +19119,7 @@ define hidden { i64, ptr } @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !range !1496, !noundef !4
-  %9 = icmp ult i32 %8, 1000000003
+  %9 = icmp samesign ult i32 %8, 1000000003
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
@@ -19231,7 +19231,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca { { i64, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = load i64, ptr %3, align 8, !range !41, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
@@ -19906,7 +19906,7 @@ define hidden { i64, ptr } @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !range !1496, !noundef !4
-  %9 = icmp ult i32 %8, 1000000003
+  %9 = icmp samesign ult i32 %8, 1000000003
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
@@ -26414,7 +26414,7 @@ define noundef range(i8 0, 2) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN13wasmtime_wasi4host10filesystem4sync209_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..NewTimestamp$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..NewTimestamp$GT$4from17h4f9b690912f8bfbbE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #14 {
   %3 = load i64, ptr %1, align 8, !range !55, !noundef !4
-  %switch = icmp ult i64 %3, 2
+  %switch = icmp samesign ult i64 %3, 2
   br i1 %switch, label %11, label %4
 
 4:                                                ; preds = %2
@@ -26522,9 +26522,9 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.332086760
   br i1 %25, label %.critedge61, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp ult i64 %24, 5
+  %27 = icmp samesign ult i64 %24, 5
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ult i64 %24, 2
+  %28 = icmp samesign ult i64 %24, 2
   br i1 %28, label %29, label %.critedge61
 
 29:                                               ; preds = %26
@@ -26571,7 +26571,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   %48 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %49 = icmp ult i64 %48, 6
   tail call void @llvm.assume(i1 %49)
-  %50 = icmp ugt i64 %48, 3
+  %50 = icmp samesign ugt i64 %48, 3
   br i1 %50, label %51, label %84
 
 51:                                               ; preds = %47
@@ -26760,7 +26760,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit: ;
   %111 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !4437
   %112 = icmp ult i64 %111, 6
   call void @llvm.assume(i1 %112)
-  %113 = icmp ugt i64 %111, 3
+  %113 = icmp samesign ugt i64 %111, 3
   br i1 %113, label %114, label %"_ZN13wasmtime_wasi4host10filesystem152_$LT$impl$u20$core..convert..From$LT$$RF$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17hc1c48d28e75bd51eE.exit"
 
 114:                                              ; preds = %110
@@ -29554,7 +29554,7 @@ default.unreachable12:                            ; preds = %2
   %9 = load ptr, ptr %0, align 8, !nonnull !4, !align !95, !noundef !4
   store ptr %9, ptr %8, align 8
   %10 = load i64, ptr %9, align 8, !range !55, !noundef !4
-  %switch = icmp ult i64 %10, 2
+  %switch = icmp samesign ult i64 %10, 2
   br i1 %switch, label %common.ret, label %11
 
 common.ret:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h129a3a68f0c45f3dE.exit", %7, %54

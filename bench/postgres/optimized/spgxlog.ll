@@ -1310,7 +1310,7 @@ BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %B
   %754 = phi i16 [ %742, %.lr.ph.i ], [ %.pre.i37, %750 ]
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %755 = zext i16 %754 to i64
-  %756 = icmp ult i64 %indvars.iv.next.i38, %755
+  %756 = icmp samesign ult i64 %indvars.iv.next.i38, %755
   br i1 %756, label %.lr.ph.i, label %._crit_edge.i39, !llvm.loop !7
 
 ._crit_edge.i39:                                  ; preds = %753, %BufferGetPage.exit101.i
@@ -1644,7 +1644,7 @@ BufferGetPage.exit.i47:                           ; preds = %928, %922
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
   %952 = load i16, ptr %906, align 4
   %953 = zext i16 %952 to i64
-  %954 = icmp ult i64 %indvars.iv.next.i52, %953
+  %954 = icmp samesign ult i64 %indvars.iv.next.i52, %953
   br i1 %954, label %940, label %._crit_edge.i53.loopexit, !llvm.loop !8
 
 ._crit_edge.i53.loopexit:                         ; preds = %940
@@ -1684,7 +1684,7 @@ BufferGetPage.exit.i47:                           ; preds = %928, %922
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %972 = load i16, ptr %912, align 2
   %973 = zext i16 %972 to i64
-  %974 = icmp ult i64 %indvars.iv.next68.i, %973
+  %974 = icmp samesign ult i64 %indvars.iv.next68.i, %973
   br i1 %974, label %958, label %._crit_edge62.i, !llvm.loop !9
 
 ._crit_edge62.i:                                  ; preds = %958, %._crit_edge.i53
@@ -1859,7 +1859,7 @@ BufferGetPage.exit.i58:                           ; preds = %1041, %1035
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %1067 = load i16, ptr %1019, align 4
   %1068 = zext i16 %1067 to i64
-  %1069 = icmp ult i64 %indvars.iv.next.i62, %1068
+  %1069 = icmp samesign ult i64 %indvars.iv.next.i62, %1068
   br i1 %1069, label %1053, label %._crit_edge.i63, !llvm.loop !10
 
 ._crit_edge.i63:                                  ; preds = %1053, %BufferGetPage.exit.i58

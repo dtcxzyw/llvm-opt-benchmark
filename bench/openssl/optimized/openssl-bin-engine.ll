@@ -257,9 +257,9 @@ for.body79.lr.ph:                                 ; preds = %if.end73
   %tobool206.not = icmp eq i32 %test_avail.0.ph, 0
   %tobool215.not = icmp eq i32 %test_avail_noise.0.ph, 0
   %cmp220 = icmp sgt i32 %verbose.0.ph233, 0
-  %cmp13.i = icmp ugt i32 %verbose.0.ph233, 3
+  %cmp13.i = icmp samesign ugt i32 %verbose.0.ph233, 3
   %cmp56.i = icmp eq i32 %verbose.0.ph233, 1
-  %cmp78.i = icmp ugt i32 %verbose.0.ph233, 2
+  %cmp78.i = icmp samesign ugt i32 %verbose.0.ph233, 2
   br label %for.body79
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc235
@@ -504,7 +504,7 @@ do.body.i:                                        ; preds = %if.end.i, %if.end86
 if.end10.i:                                       ; preds = %do.body.i
   %and.i = and i32 %call6.i, 8
   %tobool11.i = icmp eq i32 %and.i, 0
-  %or.cond.i = or i1 %cmp13.i, %tobool11.i
+  %or.cond.i = select i1 %tobool11.i, i1 true, i1 %cmp13.i
   br i1 %or.cond.i, label %if.then15.i, label %if.end86.i
 
 if.then15.i:                                      ; preds = %if.end10.i

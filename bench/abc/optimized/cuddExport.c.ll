@@ -638,8 +638,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %58 = zext nneg i32 %57 to i64
   %.not246 = icmp sgt i64 %.0208.lcssa, %58
   %59 = add nuw nsw i32 %.2214302, 4
-  %60 = icmp ult i32 %.2214302, 60
-  %or.cond = and i1 %.not246, %60
+  %60 = icmp samesign ult i32 %.2214302, 60
+  %or.cond = select i1 %.not246, i1 %60, i1 false
   br i1 %or.cond, label %56, label %61, !llvm.loop !13
 
 61:                                               ; preds = %56
@@ -1221,8 +1221,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
   %31 = zext nneg i32 %30 to i64
   %.not74 = icmp ugt i64 %.060.lcssa, %31
   %32 = add nuw nsw i32 %.16491, 4
-  %33 = icmp ult i32 %.16491, 60
-  %or.cond = and i1 %.not74, %33
+  %33 = icmp samesign ult i32 %.16491, 60
+  %or.cond = select i1 %.not74, i1 %33, i1 false
   br i1 %or.cond, label %29, label %34, !llvm.loop !29
 
 34:                                               ; preds = %29
@@ -1478,8 +1478,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %33 = zext nneg i32 %32 to i64
   %.not141 = icmp ugt i64 %.0116.lcssa, %33
   %34 = add nuw nsw i32 %.1120177, 4
-  %35 = icmp ult i32 %.1120177, 60
-  %or.cond = and i1 %.not141, %35
+  %35 = icmp samesign ult i32 %.1120177, 60
+  %or.cond = select i1 %.not141, i1 %35, i1 false
   br i1 %or.cond, label %31, label %36, !llvm.loop !33
 
 36:                                               ; preds = %31

@@ -141,7 +141,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %42, 8
   %47 = or disjoint i32 %46, %45
-  %48 = icmp ugt i32 %47, 62880
+  %48 = icmp samesign ugt i32 %47, 62880
   br i1 %48, label %50, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %41
@@ -204,7 +204,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
   %79 = zext i8 %38 to i32
   %80 = shl nuw nsw i32 %21, 8
   %81 = or disjoint i32 %80, %79
-  %82 = icmp ugt i32 %81, 62880
+  %82 = icmp samesign ugt i32 %81, 62880
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %78
@@ -1196,7 +1196,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %43, 8
   %48 = or disjoint i32 %47, %46
-  %49 = icmp ugt i32 %48, 62880
+  %49 = icmp samesign ugt i32 %48, 62880
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %40
@@ -1239,7 +1239,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
   %72 = zext i8 %71 to i32
   %73 = shl nuw nsw i32 %69, 8
   %74 = or disjoint i32 %73, %72
-  %75 = icmp ugt i32 %74, 62880
+  %75 = icmp samesign ugt i32 %74, 62880
   br i1 %75, label %77, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %66

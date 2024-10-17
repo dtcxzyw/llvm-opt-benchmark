@@ -229,7 +229,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 83:                                               ; preds = %81, %80
   %indvars.iv.next311.i = add nuw nsw i64 %indvars.iv310.i, 1
-  %84 = icmp ult i64 %indvars.iv.next311.i, %70
+  %84 = icmp samesign ult i64 %indvars.iv.next311.i, %70
   br i1 %84, label %.lr.ph269.us.i, label %._crit_edge.us.i, !llvm.loop !6
 
 85:                                               ; preds = %109, %.lr.ph269.us.i
@@ -332,7 +332,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %139 = getelementptr inbounds i16, ptr %28, i64 %indvars.iv322.i
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
-  %142 = icmp ult i32 %138, %141
+  %142 = icmp samesign ult i32 %138, %141
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %128
@@ -361,7 +361,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %160 = zext i16 %159 to i32
   %161 = add nuw nsw i32 %160, 3
   %162 = zext i16 %146 to i32
-  %163 = icmp ult i32 %161, %162
+  %163 = icmp samesign ult i32 %161, %162
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %151
@@ -392,7 +392,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %183 = getelementptr inbounds i16, ptr %28, i64 %indvars.iv322.i
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i32
-  %186 = icmp ult i32 %182, %185
+  %186 = icmp samesign ult i32 %182, %185
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %170
@@ -421,7 +421,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %204 = zext i16 %203 to i32
   %205 = add nuw nsw i32 %204, 3
   %206 = zext i16 %190 to i32
-  %207 = icmp ult i32 %205, %206
+  %207 = icmp samesign ult i32 %205, %206
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %195
@@ -431,7 +431,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 210:                                              ; preds = %208, %195, %189, %166
   %indvars.iv.next323.i = add nuw nsw i64 %indvars.iv322.i, 1
-  %211 = icmp ult i64 %indvars.iv.next323.i, %216
+  %211 = icmp samesign ult i64 %indvars.iv.next323.i, %216
   br i1 %211, label %123, label %._crit_edge.us285.i, !llvm.loop !11
 
 .lr.ph275.us.i:                                   ; preds = %118
@@ -499,7 +499,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %246 = getelementptr inbounds i16, ptr %28, i64 %indvars.iv336.i
   %247 = load i16, ptr %246, align 2
   %248 = zext i16 %247 to i32
-  %249 = icmp ult i32 %245, %248
+  %249 = icmp samesign ult i32 %245, %248
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %234
@@ -529,7 +529,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %268 = zext i16 %267 to i32
   %269 = add nuw nsw i32 %268, 3
   %270 = zext i16 %253 to i32
-  %271 = icmp ult i32 %269, %270
+  %271 = icmp samesign ult i32 %269, %270
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %258
@@ -560,7 +560,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %291 = getelementptr inbounds i16, ptr %28, i64 %indvars.iv336.i
   %292 = load i16, ptr %291, align 2
   %293 = zext i16 %292 to i32
-  %294 = icmp ult i32 %290, %293
+  %294 = icmp samesign ult i32 %290, %293
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %278
@@ -588,7 +588,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %311 = zext i16 %310 to i32
   %312 = add nuw nsw i32 %311, 3
   %313 = zext i16 %298 to i32
-  %314 = icmp ult i32 %312, %313
+  %314 = icmp samesign ult i32 %312, %313
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %302
@@ -598,7 +598,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 317:                                              ; preds = %315, %302, %297, %274
   %indvars.iv.next337.i = add nuw nsw i64 %indvars.iv336.i, 1
-  %318 = icmp ult i64 %indvars.iv.next337.i, %324
+  %318 = icmp samesign ult i64 %indvars.iv.next337.i, %324
   br i1 %318, label %228, label %.loopexit.us.i, !llvm.loop !13
 
 .loopexit.us.i:                                   ; preds = %317, %223
@@ -825,7 +825,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit32: ; preds = %_ZN13rcScopedT
   %438 = getelementptr inbounds i16, ptr %35, i64 %indvars.iv89.i
   store i16 %.sink.i, ptr %438, align 2
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %439 = icmp ult i64 %indvars.iv.next90.i, %368
+  %439 = icmp samesign ult i64 %indvars.iv.next90.i, %368
   br i1 %439, label %.lr.ph.us.i, label %._crit_edge.us.i39, !llvm.loop !19
 
 .preheader.us.i34:                                ; preds = %.lr.ph.us.i
@@ -1064,7 +1064,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 
 76:                                               ; preds = %74, %.lr.ph.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %77 = icmp ult i64 %indvars.iv.next.i, %70
+  %77 = icmp samesign ult i64 %indvars.iv.next.i, %70
   br i1 %77, label %.lr.ph.us.i, label %._crit_edge.us.i, !llvm.loop !22
 
 ._crit_edge28.us.i:                               ; preds = %._crit_edge.us.i
@@ -1123,7 +1123,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 
 97:                                               ; preds = %95, %.lr.ph.us.i221
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i222, 1
-  %98 = icmp ult i64 %indvars.iv.next.i224, %91
+  %98 = icmp samesign ult i64 %indvars.iv.next.i224, %91
   br i1 %98, label %.lr.ph.us.i221, label %._crit_edge.us.i225, !llvm.loop !22
 
 ._crit_edge28.us.i228:                            ; preds = %._crit_edge.us.i225
@@ -1182,7 +1182,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit231.loopexit: ; preds = %
 
 118:                                              ; preds = %116, %.lr.ph.us.i241
   %indvars.iv.next.i244 = add nuw nsw i64 %indvars.iv.i242, 1
-  %119 = icmp ult i64 %indvars.iv.next.i244, %112
+  %119 = icmp samesign ult i64 %indvars.iv.next.i244, %112
   br i1 %119, label %.lr.ph.us.i241, label %._crit_edge.us.i245, !llvm.loop !22
 
 ._crit_edge28.us.i248:                            ; preds = %._crit_edge.us.i245
@@ -1243,7 +1243,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit251: ; preds = %._crit_ed
 
 141:                                              ; preds = %139, %.lr.ph.us.i261
   %indvars.iv.next.i264 = add nuw nsw i64 %indvars.iv.i262, 1
-  %142 = icmp ult i64 %indvars.iv.next.i264, %135
+  %142 = icmp samesign ult i64 %indvars.iv.next.i264, %135
   br i1 %142, label %.lr.ph.us.i261, label %._crit_edge.us.i265, !llvm.loop !22
 
 ._crit_edge28.us.i268:                            ; preds = %._crit_edge.us.i265
@@ -1313,7 +1313,7 @@ _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegio
 
 .noexc291:                                        ; preds = %.noexc290
   %169 = icmp eq ptr %168, null
-  %170 = icmp ult i64 %.0.i.i, 2305843009213693952
+  %170 = icmp samesign ult i64 %.0.i.i, 2305843009213693952
   %or.cond.i.i = or i1 %169, %170
   br i1 %or.cond.i.i, label %.noexc292, label %171
 
@@ -1572,7 +1572,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %160, %.sink.split.i
 281:                                              ; preds = %208, %279
   %.2187 = phi i16 [ %.1186370, %208 ], [ %.3188, %279 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %282 = icmp ult i64 %indvars.iv.next, %206
+  %282 = icmp samesign ult i64 %indvars.iv.next, %206
   br i1 %282, label %208, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %281, %195
@@ -1676,7 +1676,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %160, %.sink.split.i
 
 325:                                              ; preds = %.lr.ph383, %321
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
-  %326 = icmp ult i64 %indvars.iv.next405, %317
+  %326 = icmp samesign ult i64 %indvars.iv.next405, %317
   br i1 %326, label %.lr.ph383, label %._crit_edge384, !llvm.loop !28
 
 ._crit_edge384:                                   ; preds = %325, %307
@@ -2047,7 +2047,7 @@ define internal fastcc noundef zeroext i1 @_ZL21mergeAndFilterRegionsP9rcContext
   store i32 %69, ptr %67, align 8
   %70 = load i32, ptr %46, align 4
   %71 = and i32 %70, 16777215
-  %72 = icmp ult i32 %71, %50
+  %72 = icmp samesign ult i32 %71, %50
   br i1 %72, label %.lr.ph.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZL20addUniqueFloorRegionR8rcRegioni.exit.us, %65
@@ -2579,7 +2579,7 @@ _ZN10rcIntArray3popEv.exit.i.us:                  ; preds = %.noexc292.us, %.noe
 
 _ZL11walkContouriiiiR20rcCompactHeightfieldPKtR10rcIntArray.exit.us: ; preds = %320, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.i.us, %316, %246, %._crit_edge.us, %.lr.ph748.us
   %indvars.iv.next825 = add nuw nsw i64 %indvars.iv824, 1
-  %321 = icmp ult i64 %indvars.iv.next825, %53
+  %321 = icmp samesign ult i64 %indvars.iv.next825, %53
   br i1 %321, label %.lr.ph748.us, label %._crit_edge749.us, !llvm.loop !37
 
 322:                                              ; preds = %.lr.ph.us, %_ZL20addUniqueFloorRegionR8rcRegioni.exit.us
@@ -5180,7 +5180,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE7reserveEl.e
 
 105:                                              ; preds = %103, %.lr.ph.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %106 = icmp ult i64 %indvars.iv.next.i, %99
+  %106 = icmp samesign ult i64 %indvars.iv.next.i, %99
   br i1 %106, label %.lr.ph.us.i, label %._crit_edge.us.i, !llvm.loop !22
 
 ._crit_edge28.us.i:                               ; preds = %._crit_edge.us.i
@@ -5239,7 +5239,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE7reserveEl.e
 
 126:                                              ; preds = %124, %.lr.ph.us.i194
   %indvars.iv.next.i197 = add nuw nsw i64 %indvars.iv.i195, 1
-  %127 = icmp ult i64 %indvars.iv.next.i197, %120
+  %127 = icmp samesign ult i64 %indvars.iv.next.i197, %120
   br i1 %127, label %.lr.ph.us.i194, label %._crit_edge.us.i198, !llvm.loop !22
 
 ._crit_edge28.us.i201:                            ; preds = %._crit_edge.us.i198
@@ -5298,7 +5298,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit204.loopexit: ; preds = %
 
 147:                                              ; preds = %145, %.lr.ph.us.i214
   %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i215, 1
-  %148 = icmp ult i64 %indvars.iv.next.i217, %141
+  %148 = icmp samesign ult i64 %indvars.iv.next.i217, %141
   br i1 %148, label %.lr.ph.us.i214, label %._crit_edge.us.i218, !llvm.loop !22
 
 ._crit_edge28.us.i221:                            ; preds = %._crit_edge.us.i218
@@ -5359,7 +5359,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit224: ; preds = %._crit_ed
 
 170:                                              ; preds = %168, %.lr.ph.us.i234
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i235, 1
-  %171 = icmp ult i64 %indvars.iv.next.i237, %164
+  %171 = icmp samesign ult i64 %indvars.iv.next.i237, %164
   br i1 %171, label %.lr.ph.us.i234, label %._crit_edge.us.i238, !llvm.loop !22
 
 ._crit_edge28.us.i241:                            ; preds = %._crit_edge.us.i238
@@ -5613,7 +5613,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_a
 
 _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE9push_backERKS1_.exit.us.i: ; preds = %268, %.noexc260, %228, %225, %.lr.ph.us.i253
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %274 = icmp ult i64 %indvars.iv.next63.i, %219
+  %274 = icmp samesign ult i64 %indvars.iv.next63.i, %219
   br i1 %274, label %.lr.ph.us.i253, label %._crit_edge.us.i255, !llvm.loop !67
 
 ._crit_edge57.us.i:                               ; preds = %._crit_edge.us.i255
@@ -6735,7 +6735,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_a
 
 _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE9push_backERKS1_.exit.us: ; preds = %78, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i.us, %45, %41, %.lr.ph246.us
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
-  %83 = icmp ult i64 %indvars.iv.next283, %35
+  %83 = icmp samesign ult i64 %indvars.iv.next283, %35
   br i1 %83, label %.lr.ph246.us, label %._crit_edge.us, !llvm.loop !78
 
 ._crit_edge249.us:                                ; preds = %._crit_edge.us
@@ -6968,7 +6968,7 @@ _ZN12rcTempVectorI10DirtyEntryED2Ev.exit:         ; preds = %143
   %188 = zext i16 %187 to i32
   %189 = add nuw nsw i32 %188, 2
   %190 = zext i16 %.0117252 to i32
-  %191 = icmp ult i32 %189, %190
+  %191 = icmp samesign ult i32 %189, %190
   %192 = trunc nuw i32 %189 to i16
   %spec.select = select i1 %191, i16 %184, i16 %.0119251
   %spec.select137 = select i1 %191, i16 %192, i16 %.0117252
@@ -7313,7 +7313,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %17, %21
 
 80:                                               ; preds = %78, %.lr.ph.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = icmp ult i64 %indvars.iv.next.i, %74
+  %81 = icmp samesign ult i64 %indvars.iv.next.i, %74
   br i1 %81, label %.lr.ph.us.i, label %._crit_edge.us.i, !llvm.loop !22
 
 ._crit_edge28.us.i:                               ; preds = %._crit_edge.us.i
@@ -7372,7 +7372,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %17, %21
 
 101:                                              ; preds = %99, %.lr.ph.us.i217
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i218, 1
-  %102 = icmp ult i64 %indvars.iv.next.i220, %95
+  %102 = icmp samesign ult i64 %indvars.iv.next.i220, %95
   br i1 %102, label %.lr.ph.us.i217, label %._crit_edge.us.i221, !llvm.loop !22
 
 ._crit_edge28.us.i224:                            ; preds = %._crit_edge.us.i221
@@ -7431,7 +7431,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit227.loopexit: ; preds = %
 
 122:                                              ; preds = %120, %.lr.ph.us.i237
   %indvars.iv.next.i240 = add nuw nsw i64 %indvars.iv.i238, 1
-  %123 = icmp ult i64 %indvars.iv.next.i240, %116
+  %123 = icmp samesign ult i64 %indvars.iv.next.i240, %116
   br i1 %123, label %.lr.ph.us.i237, label %._crit_edge.us.i241, !llvm.loop !22
 
 ._crit_edge28.us.i244:                            ; preds = %._crit_edge.us.i241
@@ -7492,7 +7492,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit247: ; preds = %._crit_ed
 
 145:                                              ; preds = %143, %.lr.ph.us.i257
   %indvars.iv.next.i260 = add nuw nsw i64 %indvars.iv.i258, 1
-  %146 = icmp ult i64 %indvars.iv.next.i260, %139
+  %146 = icmp samesign ult i64 %indvars.iv.next.i260, %139
   br i1 %146, label %.lr.ph.us.i257, label %._crit_edge.us.i261, !llvm.loop !22
 
 ._crit_edge28.us.i264:                            ; preds = %._crit_edge.us.i261
@@ -7562,7 +7562,7 @@ _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegio
 
 .noexc293:                                        ; preds = %.noexc292
   %173 = icmp eq ptr %172, null
-  %174 = icmp ult i64 %.0.i.i, 2305843009213693952
+  %174 = icmp samesign ult i64 %.0.i.i, 2305843009213693952
   %or.cond.i.i = or i1 %173, %174
   br i1 %or.cond.i.i, label %.noexc294, label %175
 
@@ -7821,7 +7821,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
 285:                                              ; preds = %212, %283
   %.2185 = phi i16 [ %.1184379, %212 ], [ %.3186, %283 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %286 = icmp ult i64 %indvars.iv.next, %210
+  %286 = icmp samesign ult i64 %indvars.iv.next, %210
   br i1 %286, label %212, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %285, %199
@@ -7925,7 +7925,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
 
 329:                                              ; preds = %.lr.ph392, %325
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
-  %330 = icmp ult i64 %indvars.iv.next420, %321
+  %330 = icmp samesign ult i64 %indvars.iv.next420, %321
   br i1 %330, label %.lr.ph392, label %._crit_edge393, !llvm.loop !89
 
 ._crit_edge393:                                   ; preds = %329, %311
@@ -8666,7 +8666,7 @@ _ZN10rcIntArray4pushEi.exit.us.i:                 ; preds = %640, %.noexc437.us.
 
 .loopexit672.us.i:                                ; preds = %726, %.lr.ph.us.i280
   %indvars.iv.next743.i = add nuw nsw i64 %indvars.iv742.i, 1
-  %649 = icmp ult i64 %indvars.iv.next743.i, %389
+  %649 = icmp samesign ult i64 %indvars.iv.next743.i, %389
   br i1 %649, label %.lr.ph.us.i280, label %.preheader676.us.i, !llvm.loop !95
 
 650:                                              ; preds = %726, %_ZN10rcIntArray4pushEi.exit.us.i
@@ -10900,7 +10900,7 @@ _ZNK10rcIntArrayixEi.exit:                        ; preds = %13, %18
   br i1 %28, label %13, label %._crit_edge, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %_ZNK10rcIntArrayixEi.exit
-  %29 = icmp ugt i32 %spec.select, 1
+  %29 = icmp samesign ugt i32 %spec.select, 1
   br i1 %29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader24, %._crit_edge

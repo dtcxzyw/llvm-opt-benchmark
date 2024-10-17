@@ -734,7 +734,7 @@ get_repeat_base.exit:                             ; preds = %11, %13, %15
 282:                                              ; preds = %290, %276
   %.0181.idx = phi i64 [ 8, %276 ], [ %.0181.add, %290 ]
   %.0 = phi ptr [ %280, %276 ], [ %292, %290 ]
-  %.not194 = icmp ult i64 %.0181.idx, 32
+  %.not194 = icmp samesign ult i64 %.0181.idx, 32
   br i1 %.not194, label %290, label %283
 
 283:                                              ; preds = %282

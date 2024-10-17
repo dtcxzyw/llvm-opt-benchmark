@@ -1244,7 +1244,7 @@ _ZN4NodenwEm.exit63:                              ; preds = %130, %132
 137:                                              ; preds = %48
   %138 = add nuw i32 %spec.select.i.i, 1
   %139 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %138)
-  %140 = icmp ult i32 %139, 2
+  %140 = icmp samesign ult i32 %139, 2
   br i1 %140, label %141, label %197
 
 141:                                              ; preds = %137
@@ -1963,7 +1963,7 @@ _ZN4NodenwEm.exit63:                              ; preds = %133, %135
 140:                                              ; preds = %49
   %141 = add nuw i64 %spec.select.i.i, 1
   %142 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %141)
-  %143 = icmp ult i64 %142, 2
+  %143 = icmp samesign ult i64 %142, 2
   br i1 %143, label %144, label %201
 
 144:                                              ; preds = %140
@@ -4036,8 +4036,8 @@ define hidden noundef ptr @_ZN11LShiftINode5IdealEP8PhaseGVNb(ptr noundef nonnul
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(52) %10) #10
   %14 = icmp eq i32 %13, 23
-  %15 = icmp ult i32 %4, 16
-  %or.cond9 = and i1 %15, %14
+  %15 = icmp samesign ult i32 %4, 16
+  %or.cond9 = select i1 %14, i1 %15, i1 false
   br i1 %or.cond9, label %16, label %128
 
 16:                                               ; preds = %6
@@ -6796,7 +6796,7 @@ define hidden noundef ptr @_ZN12URShiftINode5IdealEP8PhaseGVNb(ptr noundef nonnu
 44:                                               ; preds = %38
   %45 = and i32 %40, 31
   %46 = add nuw nsw i32 %45, %4
-  %47 = icmp ult i32 %46, 32
+  %47 = icmp samesign ult i32 %46, 32
   br i1 %47, label %48, label %78
 
 48:                                               ; preds = %44

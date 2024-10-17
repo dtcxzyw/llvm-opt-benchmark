@@ -80,7 +80,7 @@ define dso_local ptr @nf_reject_skb_v6_tcp_reset(ptr nocapture noundef readonly 
   %34 = add nuw nsw i64 %33, 40
   %35 = load i32, ptr %7, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %34, %36
+  %37 = icmp samesign ugt i64 %34, %36
   br i1 %37, label %86, label %38
 
 38:                                               ; preds = %29
@@ -430,7 +430,7 @@ define dso_local ptr @nf_reject_skb_v6_unreach(ptr nocapture noundef readonly %0
   %36 = add nuw nsw i64 %35, 40
   %37 = load i32, ptr %9, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %36, %38
+  %39 = icmp samesign ugt i64 %36, %38
   br i1 %39, label %202, label %40
 
 40:                                               ; preds = %31

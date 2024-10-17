@@ -1437,7 +1437,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   %291 = load i16, ptr %28, align 2
   %292 = icmp eq i16 %291, 0
   %or.cond14 = select i1 %or.cond11, i1 true, i1 %292
-  %293 = icmp ugt i32 %.0154, 6
+  %293 = icmp samesign ugt i32 %.0154, 6
   %or.cond16 = select i1 %or.cond14, i1 true, i1 %293
   br i1 %or.cond16, label %294, label %303
 
@@ -7661,7 +7661,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   %246 = load i16, ptr %245, align 8
   %247 = zext i16 %246 to i32
   %248 = mul nuw nsw i32 %244, %247
-  %249 = icmp ult i32 %208, %248
+  %249 = icmp samesign ult i32 %208, %248
   br i1 %249, label %250, label %258
 
 250:                                              ; preds = %237
@@ -11107,7 +11107,7 @@ define dso_local void @make_node_idle(ptr noundef %0, ptr noundef %1) local_unna
   %26 = getelementptr inbounds i8, ptr %1, i64 448
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 255
-  %29 = icmp ugt i32 %28, 2
+  %29 = icmp samesign ugt i32 %28, 2
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %23

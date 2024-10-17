@@ -504,7 +504,7 @@ define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %1, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %25, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %54, %22, %14, %17, %2
@@ -1334,7 +1334,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %41 = getelementptr inbounds i8, ptr %38, i64 448
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
-  %44 = icmp ugt i32 %43, 2
+  %44 = icmp samesign ugt i32 %43, 2
   br i1 %44, label %195, label %54
 
 45:                                               ; preds = %27
@@ -1608,7 +1608,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %196 = load i32, ptr %2, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next, %197
   br i1 %198, label %27, label %.loopexit81, !llvm.loop !13
 
 .loopexit81:                                      ; preds = %195, %24, %21, %11, %14
@@ -3179,7 +3179,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   %56 = getelementptr inbounds i8, ptr %49, i64 448
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 255
-  %59 = icmp ugt i32 %58, 2
+  %59 = icmp samesign ugt i32 %58, 2
   %60 = and i32 %57, 32768
   %61 = icmp eq i32 %60, 0
   %or.cond80.i = and i1 %59, %61
@@ -4444,7 +4444,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %689 = load i16, ptr @front_end_node_cnt, align 2
   %690 = zext i16 %689 to i64
-  %691 = icmp ult i64 %indvars.iv.next.i, %690
+  %691 = icmp samesign ult i64 %indvars.iv.next.i, %690
   br i1 %691, label %.lr.ph.i114, label %._crit_edge.i115, !llvm.loop !19
 
 ._crit_edge.i115:                                 ; preds = %688, %676
@@ -4519,7 +4519,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %726 = load i16, ptr @front_end_node_cnt, align 2
   %727 = zext i16 %726 to i64
-  %728 = icmp ult i64 %indvars.iv.next50.i, %727
+  %728 = icmp samesign ult i64 %indvars.iv.next50.i, %727
   br i1 %728, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !20
 
 ._crit_edge45.i:                                  ; preds = %725, %713
@@ -4726,7 +4726,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   %832 = and i64 %indvars.iv.i118, 4294967295
   %833 = getelementptr inbounds [64 x ptr], ptr %4, i64 0, i64 %832
   store ptr %831, ptr %833, align 8
-  %834 = icmp ult i64 %indvars.iv.i118, 63
+  %834 = icmp samesign ult i64 %indvars.iv.i118, 63
   br i1 %834, label %.lr.ph.preheader.i, label %._crit_edge.i121
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit45.i

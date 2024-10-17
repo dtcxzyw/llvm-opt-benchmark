@@ -710,7 +710,7 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %202 = load i32, ptr %91, align 4
   %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %indvars.iv.next.i, %203
+  %204 = icmp samesign ult i64 %indvars.iv.next.i, %203
   br i1 %204, label %95, label %zend_file_cache_serialize_warnings.exit
 
 zend_file_cache_serialize_warnings.exit:          ; preds = %201, %63, %84
@@ -1000,7 +1000,7 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %201, %63, %84
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i61, 1
   %360 = load i32, ptr %229, align 8
   %361 = zext i32 %360 to i64
-  %362 = icmp ult i64 %indvars.iv.next.i64, %361
+  %362 = icmp samesign ult i64 %indvars.iv.next.i64, %361
   br i1 %362, label %233, label %zend_file_cache_serialize_early_bindings.exit
 
 zend_file_cache_serialize_early_bindings.exit:    ; preds = %359, %zend_file_cache_serialize_warnings.exit, %222
@@ -1701,7 +1701,7 @@ zend_file_cache_unserialize_interned.exit78.i.i:  ; preds = %349, %339, %333
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %382 = load i32, ptr %261, align 4
   %383 = zext i32 %382 to i64
-  %384 = icmp ult i64 %indvars.iv.next.i.i, %383
+  %384 = icmp samesign ult i64 %indvars.iv.next.i.i, %383
   br i1 %384, label %.lr.ph.i.i, label %zend_file_cache_unserialize_warnings.exit.i
 
 zend_file_cache_unserialize_warnings.exit.i:      ; preds = %381, %254, %248
@@ -1990,7 +1990,7 @@ zend_file_cache_unserialize_interned.exit96.i.i:  ; preds = %516, %506, %500
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %543 = load i32, ptr %394, align 8
   %544 = zext i32 %543 to i64
-  %545 = icmp ult i64 %indvars.iv.next.i36.i, %544
+  %545 = icmp samesign ult i64 %indvars.iv.next.i36.i, %544
   br i1 %545, label %.lr.ph.i32.i, label %zend_file_cache_unserialize.exit
 
 zend_file_cache_unserialize.exit.thread:          ; preds = %195
@@ -3120,7 +3120,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %375 = phi i32 [ %.pre1301, %368 ], [ %352, %351 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %376 = zext i32 %375 to i64
-  %377 = icmp ult i64 %indvars.iv.next, %376
+  %377 = icmp samesign ult i64 %indvars.iv.next, %376
   br i1 %377, label %351, label %.loopexit1256
 
 .loopexit1256:                                    ; preds = %374, %341, %322
@@ -3343,7 +3343,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %indvars.iv.next1286 = add nuw nsw i64 %indvars.iv1285, 1
   %496 = load i32, ptr %378, align 8
   %497 = zext i32 %496 to i64
-  %498 = icmp ult i64 %indvars.iv.next1286, %497
+  %498 = icmp samesign ult i64 %indvars.iv.next1286, %497
   br i1 %498, label %411, label %.loopexit1255
 
 .loopexit1255:                                    ; preds = %495, %.loopexit1256
@@ -3561,7 +3561,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %indvars.iv.next1289 = add nuw nsw i64 %indvars.iv1288, 1
   %614 = load i32, ptr %499, align 4
   %615 = zext i32 %614 to i64
-  %616 = icmp ult i64 %indvars.iv.next1289, %615
+  %616 = icmp samesign ult i64 %indvars.iv.next1289, %615
   br i1 %616, label %529, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %613
@@ -4209,7 +4209,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
   %indvars.iv.next1292 = add nuw nsw i64 %indvars.iv1291, 1
   %969 = load i32, ptr %923, align 8
   %970 = zext i32 %969 to i64
-  %971 = icmp ult i64 %indvars.iv.next1292, %970
+  %971 = icmp samesign ult i64 %indvars.iv.next1292, %970
   br i1 %971, label %926, label %._crit_edge1275
 
 ._crit_edge1275:                                  ; preds = %968, %922
@@ -6558,7 +6558,7 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %702 = load i32, ptr %652, align 4
   %703 = zext i32 %702 to i64
-  %704 = icmp ult i64 %indvars.iv.next, %703
+  %704 = icmp samesign ult i64 %indvars.iv.next, %703
   br i1 %704, label %679, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread772, %.loopexit785
@@ -7733,7 +7733,7 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = load i32, ptr %117, align 4
   %168 = zext i32 %167 to i64
-  %169 = icmp ult i64 %indvars.iv.next, %168
+  %169 = icmp samesign ult i64 %indvars.iv.next, %168
   br i1 %169, label %123, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %165, %116
@@ -8097,7 +8097,7 @@ define internal fastcc void @zend_file_cache_serialize_ast(ptr nocapture noundef
   %43 = phi i32 [ %18, %17 ], [ %18, %21 ], [ %.pre, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %17, label %.loopexit
 
 46:                                               ; preds = %10
@@ -9062,7 +9062,7 @@ zend_file_cache_unserialize_interned.exit714:     ; preds = %204, %211, %221
   %291 = phi i32 [ %.pre, %284 ], [ %280, %.lr.ph754 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %292 = zext i32 %291 to i64
-  %293 = icmp ult i64 %indvars.iv.next, %292
+  %293 = icmp samesign ult i64 %indvars.iv.next, %292
   br i1 %293, label %.lr.ph754, label %.loopexit747
 
 .loopexit747:                                     ; preds = %290, %271, %267
@@ -9276,7 +9276,7 @@ zend_file_cache_unserialize_interned.exit720:     ; preds = %366, %372, %382
   %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
   %409 = load i32, ptr %294, align 8
   %410 = zext i32 %409 to i64
-  %411 = icmp ult i64 %indvars.iv.next777, %410
+  %411 = icmp samesign ult i64 %indvars.iv.next777, %410
   br i1 %411, label %310, label %.loopexit746
 
 .loopexit746:                                     ; preds = %408, %.loopexit747
@@ -9486,7 +9486,7 @@ zend_file_cache_unserialize_interned.exit726:     ; preds = %482, %488, %498
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %525 = load i32, ptr %412, align 4
   %526 = zext i32 %525 to i64
-  %527 = icmp ult i64 %indvars.iv.next780, %526
+  %527 = icmp samesign ult i64 %indvars.iv.next780, %526
   br i1 %527, label %426, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %524
@@ -10046,7 +10046,7 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %778, %784, %794
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %814 = load i32, ptr %769, align 8
   %815 = zext i32 %814 to i64
-  %816 = icmp ult i64 %indvars.iv.next783, %815
+  %816 = icmp samesign ult i64 %indvars.iv.next783, %815
   br i1 %816, label %772, label %._crit_edge766
 
 ._crit_edge766:                                   ; preds = %813, %768
@@ -11541,7 +11541,7 @@ zend_file_cache_unserialize_interned.exit495:     ; preds = %477, %483, %493
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %540 = load i32, ptr %515, align 4
   %541 = zext i32 %540 to i64
-  %542 = icmp ult i64 %indvars.iv.next, %541
+  %542 = icmp samesign ult i64 %indvars.iv.next, %541
   br i1 %542, label %528, label %.loopexit
 
 .loopexit:                                        ; preds = %538, %.loopexit506
@@ -12578,7 +12578,7 @@ zend_file_cache_unserialize_interned.exit80:      ; preds = %109, %115, %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = load i32, ptr %98, align 4
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next, %147
   br i1 %148, label %103, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %144, %97
@@ -12948,7 +12948,7 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr nocapture nound
   %40 = phi i32 [ %17, %16 ], [ %17, %22 ], [ %17, %29 ], [ %.pre, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %16, label %.loopexit
 
 43:                                               ; preds = %9

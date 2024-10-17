@@ -656,7 +656,7 @@ if.end5.i:                                        ; preds = %if.then4.i, %do.end
 
 land.lhs.true9.i:                                 ; preds = %if.end5.i
   %19 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %18)
-  %cmp10.i = icmp ult i32 %19, 2
+  %cmp10.i = icmp samesign ult i32 %19, 2
   %cmp12.i = icmp ugt i32 %18, 4095
   %or.cond1.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond1.i, label %if.end14.i, label %if.then13.i
@@ -1262,7 +1262,7 @@ if.end.i:                                         ; preds = %for.body.i
   %inc.i = zext i1 %cmp13.not.i to i32
   %spec.select.i = add nuw i32 %count.013.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %9
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %9
   %cmp3.i = icmp ult i32 %spec.select.i, %4
   %11 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
   br i1 %11, label %for.body.i, label %if.else, !llvm.loop !5
@@ -1484,7 +1484,7 @@ if.end.i:                                         ; preds = %for.body.i27
   %inc.i = zext i1 %cmp13.not.i to i32
   %spec.select.i = add nuw i32 %count.013.i, %inc.i
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i30, %19
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i30, %19
   %cmp3.i = icmp ult i32 %spec.select.i, %14
   %21 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
   br i1 %21, label %for.body.i27, label %if.else, !llvm.loop !5
@@ -1624,7 +1624,7 @@ if.end.i:                                         ; preds = %for.body.i
   %inc.i = zext i1 %cmp13.not.i to i32
   %spec.select.i = add nuw i32 %count.013.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %7
   %cmp3.i = icmp ult i32 %spec.select.i, %2
   %9 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
   br i1 %9, label %for.body.i, label %return, !llvm.loop !5

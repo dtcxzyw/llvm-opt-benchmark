@@ -279,7 +279,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 
 68:                                               ; preds = %51
   %69 = and i64 %60, 254
-  %70 = icmp ugt i64 %69, 9
+  %70 = icmp samesign ugt i64 %69, 9
   br i1 %70, label %.sink.split, label %73
 
 71:                                               ; preds = %48, %42, %45

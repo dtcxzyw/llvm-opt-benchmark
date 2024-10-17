@@ -10927,7 +10927,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter23
   %.not22 = icmp eq i32 %27, 0
   %.in23.sroa.speculated.v = select i1 %.not22, double %13, double %19
   %.in23.sroa.speculated = fptrunc double %.in23.sroa.speculated.v to float
-  %.not = icmp ult i64 %indvars.iv, 4
+  %.not = icmp samesign ult i64 %indvars.iv, 4
   %.in.sroa.speculated.v = select i1 %.not, double %11, double %17
   %.in.sroa.speculated = fptrunc double %.in.sroa.speculated.v to float
   store float %.in.sroa.speculated, ptr %23, align 4

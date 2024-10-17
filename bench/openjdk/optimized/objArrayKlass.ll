@@ -1423,7 +1423,7 @@ _ZN13GrowableArrayIP5KlassEC2Ei.exit:             ; preds = %19, %.lr.ph.prehead
   %34 = add nsw i32 %28, 1
   %35 = icmp sgt i32 %28, -1
   %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   %or.cond.i.i.i.i.i = select i1 %35, i1 %37, i1 false
   %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %39 = sub nuw nsw i32 32, %38
@@ -1451,7 +1451,7 @@ _ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit: ; 
   %51 = add nsw i32 %47, 1
   %52 = icmp sgt i32 %47, -1
   %53 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %51)
-  %54 = icmp ult i32 %53, 2
+  %54 = icmp samesign ult i32 %53, 2
   %or.cond.i.i.i.i.i19 = select i1 %52, i1 %54, i1 false
   %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
   %56 = sub nuw nsw i32 32, %55
@@ -1494,7 +1494,7 @@ _ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE4pushERKS1_.exit22: 
   %76 = add nsw i32 %72, 1
   %77 = icmp sgt i32 %72, -1
   %78 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %76)
-  %79 = icmp ult i32 %78, 2
+  %79 = icmp samesign ult i32 %78, 2
   %or.cond.i.i.i.i.i23 = select i1 %77, i1 %79, i1 false
   %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
   %81 = sub nuw nsw i32 32, %80

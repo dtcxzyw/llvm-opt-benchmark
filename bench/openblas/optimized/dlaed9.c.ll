@@ -182,7 +182,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 117:                                              ; preds = %.loopexit21, %112
   %118 = phi i64 [ 1, %112 ], [ %157, %.loopexit21 ]
-  %119 = icmp ugt i64 %118, 1
+  %119 = icmp samesign ugt i64 %118, 1
   br i1 %119, label %120, label %.loopexit22
 
 120:                                              ; preds = %117
@@ -192,7 +192,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br label %129
 
 .loopexit22:                                      ; preds = %129, %117
-  %124 = icmp ult i64 %118, %113
+  %124 = icmp samesign ult i64 %118, %113
   br i1 %124, label %125, label %.loopexit21
 
 125:                                              ; preds = %.loopexit22

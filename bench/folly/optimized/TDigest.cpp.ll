@@ -543,7 +543,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i575, %if.en
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
   %add.i.i.i585 = add nuw nsw i64 %__len.addr.019.i.i.i, 1
   %div17.i.i.i = lshr i64 %add.i.i.i585, 1
-  %cmp1.not.i.i.i = icmp ult i64 %__len.addr.019.i.i.i, 2
+  %cmp1.not.i.i.i = icmp samesign ult i64 %__len.addr.019.i.i.i, 2
   br i1 %cmp1.not.i.i.i, label %if.then17.i, label %while.body.i.i.i, !llvm.loop !30
 
 if.then.i.i580:                                   ; preds = %while.body.i.i.i

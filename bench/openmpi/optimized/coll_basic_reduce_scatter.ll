@@ -406,7 +406,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 195:                                              ; preds = %186, %181
   %196 = add nuw nsw i32 %.1258435, %.0261393
   %197 = lshr i32 %.0261393, 1
-  %.not399 = icmp ult i32 %.0261393, 2
+  %.not399 = icmp samesign ult i32 %.0261393, 2
   br i1 %.not399, label %._crit_edge398, label %.lr.ph397, !llvm.loop !12
 
 ._crit_edge398:                                   ; preds = %195, %._crit_edge374

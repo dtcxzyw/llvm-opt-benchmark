@@ -727,7 +727,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorI
   %48 = fmul float %34, %47
   store float %48, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %49 = icmp ult i64 %indvars.iv.next, %21
+  %49 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %49, label %22, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %22, %2

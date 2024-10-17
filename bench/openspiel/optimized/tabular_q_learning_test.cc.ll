@@ -2200,7 +2200,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i: ; p
 807:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit64.i
   store i32 %739, ptr %70, align 4
   store i32 %792, ptr %71, align 4
-  %.not.i = icmp ult i32 %.01390.i, %.01291.i
+  %.not.i = icmp samesign ult i32 %.01390.i, %.01291.i
   br i1 %.not.i, label %808, label %705
 
 808:                                              ; preds = %807

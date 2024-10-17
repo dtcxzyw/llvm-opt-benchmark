@@ -348,7 +348,7 @@ list_length.exit.i:                               ; preds = %96, %92
   %183 = load i16, ptr %182, align 2
   %184 = and i16 %183, 2047
   %185 = zext nneg i16 %184 to i32
-  %186 = icmp ugt i32 %167, %185
+  %186 = icmp samesign ugt i32 %167, %185
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %179

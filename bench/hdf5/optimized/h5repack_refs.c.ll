@@ -3473,7 +3473,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %indvars.iv.next1492 = add nuw nsw i64 %indvars.iv14912181, 1
   %789 = load i64, ptr %18, align 8
   %790 = and i64 %789, 4294967295
-  %791 = icmp ult i64 %indvars.iv.next1492, %790
+  %791 = icmp samesign ult i64 %indvars.iv.next1492, %790
   br i1 %791, label %.lr.ph1102, label %.thread564.thread
 
 792:                                              ; preds = %665, %677, %673

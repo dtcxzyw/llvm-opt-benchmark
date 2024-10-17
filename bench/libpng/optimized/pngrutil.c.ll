@@ -342,7 +342,7 @@ png_check_chunk_name.exit:                        ; preds = %48
   %74 = load i32, ptr %73, align 4, !alias.scope !9
   %75 = zext i32 %74 to i64
   %76 = udiv i64 4294967295, %72
-  %77 = icmp ult i64 %76, %75
+  %77 = icmp samesign ult i64 %76, %75
   %78 = mul i64 %72, %75
   %.0.i = select i1 %77, i64 2147483647, i64 %78
   %79 = call i64 @llvm.umin.i64(i64 %72, i64 32566)
@@ -437,7 +437,7 @@ define void @png_check_chunk_length(ptr noalias noundef %0, i32 noundef %1) loca
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = udiv i64 4294967295, %26
-  %31 = icmp ult i64 %30, %29
+  %31 = icmp samesign ult i64 %30, %29
   %32 = mul i64 %26, %29
   %.0 = select i1 %31, i64 2147483647, i64 %32
   %33 = tail call i64 @llvm.umin.i64(i64 %26, i64 32566)
@@ -1734,7 +1734,7 @@ png_crc_read.exit:                                ; preds = %28
 
 42:                                               ; preds = %.critedge
   %43 = add nuw nsw i32 %.0104.lcssa, 1
-  %44 = icmp ult i32 %43, %spec.select
+  %44 = icmp samesign ult i32 %43, %spec.select
   br i1 %44, label %45, label %.thread142
 
 45:                                               ; preds = %42
@@ -2204,7 +2204,7 @@ define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef 
   br label %20
 
 15:                                               ; preds = %11
-  %16 = icmp ult i32 %2, 2
+  %16 = icmp samesign ult i32 %2, 2
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
@@ -2477,7 +2477,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   store i16 %133, ptr %134, align 2
   %135 = getelementptr inbounds i8, ptr %.2, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %136 = icmp ult i64 %indvars.iv.next, %72
+  %136 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %125, %.preheader
@@ -7043,10 +7043,10 @@ define internal void @png_read_filter_row_paeth_1byte_pixel(ptr nocapture nounde
   %20 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %21 = add nsw i32 %17, %18
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %23 = icmp ult i32 %20, %19
+  %23 = icmp samesign ult i32 %20, %19
   %.1 = select i1 %23, i32 %16, i32 %14
   %.039 = tail call i32 @llvm.umin.i32(i32 %20, i32 %19)
-  %24 = icmp ult i32 %22, %.039
+  %24 = icmp samesign ult i32 %22, %.039
   %.2 = select i1 %24, i32 %.04148, i32 %.1
   %25 = load i8, ptr %.051, align 1
   %26 = zext i8 %25 to i32
@@ -7115,10 +7115,10 @@ define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr nocapture no
   %34 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
   %35 = add nsw i32 %31, %32
   %36 = tail call i32 @llvm.abs.i32(i32 %35, i1 true)
-  %37 = icmp ult i32 %34, %33
+  %37 = icmp samesign ult i32 %34, %33
   %.048 = select i1 %37, i8 %29, i8 %26
   %.047 = tail call i32 @llvm.umin.i32(i32 %34, i32 %33)
-  %38 = icmp ult i32 %36, %.047
+  %38 = icmp samesign ult i32 %36, %.047
   %.149 = select i1 %38, i8 %23, i8 %.048
   %39 = load i8, ptr %.159, align 1
   %40 = add i8 %.149, %39

@@ -1413,7 +1413,7 @@ define internal fastcc void @_ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiP
   store i32 %58, ptr %59, align 4
   %60 = mul nuw nsw i64 %indvars.iv, 3
   %61 = add nuw nsw i64 %60, %indvars.iv10
-  %62 = icmp ult i64 %61, %48
+  %62 = icmp samesign ult i64 %61, %48
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %50
@@ -1756,7 +1756,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit: ; preds = %.preheader
   %332 = fsub <4 x float> %331, %291
   store <4 x float> %332, ptr %330, align 16
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 24
-  %333 = icmp ult i64 %indvars.iv.next11, %48
+  %333 = icmp samesign ult i64 %indvars.iv.next11, %48
   br i1 %333, label %.preheader5, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit, %7

@@ -487,7 +487,7 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 46:                                               ; preds = %.lr.ph, %dissect_link_tlv.exit
   %.0150 = phi i32 [ 16, %.lr.ph ], [ %420, %dissect_link_tlv.exit ]
   %47 = sub nuw nsw i32 %21, %.0150
-  %48 = icmp ult i32 %47, 4
+  %48 = icmp samesign ult i32 %47, 4
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
@@ -501,8 +501,8 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %55 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %54) #4
   %56 = zext i16 %55 to i32
   %57 = icmp ult i16 %55, 4
-  %58 = icmp ult i32 %47, %56
-  %or.cond = or i1 %57, %58
+  %58 = icmp samesign ult i32 %47, %56
+  %or.cond = select i1 %57, i1 true, i1 %58
   br i1 %or.cond, label %59, label %61
 
 59:                                               ; preds = %51
@@ -973,7 +973,7 @@ dissect_esl_tlv.exit:                             ; preds = %.lr.ph.i, %273
 
 dissect_link_tlv.exit:                            ; preds = %406, %385, %409, %368, %345, %dissect_esl_tlv.exit, %229, %194, %dissect_vlan_tlv.exit, %84, %70
   %420 = add nuw nsw i32 %.0150, %56
-  %421 = icmp ult i32 %420, %21
+  %421 = icmp samesign ult i32 %420, %21
   br i1 %421, label %46, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_link_tlv.exit, %dissect_link_tlv.exit.thread, %35, %59, %49

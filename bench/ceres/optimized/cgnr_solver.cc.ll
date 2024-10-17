@@ -2948,7 +2948,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %111, %109, %115
   %136 = load <2 x double>, ptr %135, align 1
   store <2 x double> %136, ptr %134, align 16
   %137 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %138 = icmp ult i64 %137, %133
+  %138 = icmp samesign ult i64 %137, %133
   br i1 %138, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !102
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread125, %.thread, %131
@@ -3028,7 +3028,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_3MapIKS1_Li0ENS_6StrideILi0ELi0EE
   %168 = load <2 x double>, ptr %167, align 1
   store <2 x double> %168, ptr %166, align 16
   %169 = add nuw nsw i64 %.011.i.i.i.i.i.i.i72, 2
-  %170 = icmp ult i64 %169, %165
+  %170 = icmp samesign ult i64 %169, %165
   br i1 %170, label %.lr.ph.i.i.i.i.i.i.i71, label %._crit_edge.i.i.i.i.i.i.i67, !llvm.loop !102
 
 ._crit_edge.i.i.i.i.i.i.i67:                      ; preds = %.lr.ph.i.i.i.i.i.i.i71, %.thread130, %.thread128, %163

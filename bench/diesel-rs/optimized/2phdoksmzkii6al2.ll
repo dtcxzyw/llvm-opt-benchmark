@@ -858,7 +858,7 @@ default.unreachable94:                            ; preds = %52, %2
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %56
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %56 ], [ %68, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %57, %56 ], [ %61, %.lr.ph.i.i.i.i ]
-  %59 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %59 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %59, label %75, label %84
 
 .lr.ph.i.i.i.i:                                   ; preds = %56, %.lr.ph.i.i.i.i
@@ -902,7 +902,7 @@ default.unreachable94:                            ; preds = %52, %2
 84:                                               ; preds = %75, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %80, %75 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %75 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %85 = icmp ult i64 %.027.i.i.i.i, 10
+  %85 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %85, label %92, label %86
 
 86:                                               ; preds = %84
@@ -967,7 +967,7 @@ default.unreachable94:                            ; preds = %52, %2
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i10.i, %113
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %113 ], [ %126, %.lr.ph.i.i.i10.i ]
   %.1.lcssa.i.i.i5.i = phi i64 [ %.0.i.i.i.i, %113 ], [ %119, %.lr.ph.i.i.i10.i ]
-  %117 = icmp ugt i64 %.1.lcssa.i.i.i5.i, 99
+  %117 = icmp samesign ugt i64 %.1.lcssa.i.i.i5.i, 99
   br i1 %117, label %133, label %142
 
 .lr.ph.i.i.i10.i:                                 ; preds = %113, %.lr.ph.i.i.i10.i
@@ -1011,7 +1011,7 @@ default.unreachable94:                            ; preds = %52, %2
 142:                                              ; preds = %133, %._crit_edge.i.i.i4.i
   %.127.i.i.i.i = phi i64 [ %138, %133 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.025.i.i.i.i = phi i64 [ %.zext35.i.i.i9.i, %133 ], [ %.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %143 = icmp ult i64 %.025.i.i.i.i, 10
+  %143 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %143, label %150, label %144
 
 144:                                              ; preds = %142
@@ -1625,7 +1625,7 @@ default.unreachable94:                            ; preds = %52, %2
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %56
   %.028.lcssa.i.i.i.i = phi i64 [ 20, %56 ], [ %68, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %57, %56 ], [ %61, %.lr.ph.i.i.i.i ]
-  %59 = icmp ugt i64 %.1.lcssa.i.i.i.i, 99
+  %59 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %59, label %75, label %84
 
 .lr.ph.i.i.i.i:                                   ; preds = %56, %.lr.ph.i.i.i.i
@@ -1669,7 +1669,7 @@ default.unreachable94:                            ; preds = %52, %2
 84:                                               ; preds = %75, %._crit_edge.i.i.i.i
   %.129.i.i.i.i = phi i64 [ %80, %75 ], [ %.028.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.027.i.i.i.i = phi i64 [ %.zext35.i.i.i.i, %75 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %85 = icmp ult i64 %.027.i.i.i.i, 10
+  %85 = icmp samesign ult i64 %.027.i.i.i.i, 10
   br i1 %85, label %92, label %86
 
 86:                                               ; preds = %84
@@ -1734,7 +1734,7 @@ default.unreachable94:                            ; preds = %52, %2
 ._crit_edge.i.i.i4.i:                             ; preds = %.lr.ph.i.i.i10.i, %113
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %113 ], [ %126, %.lr.ph.i.i.i10.i ]
   %.1.lcssa.i.i.i5.i = phi i64 [ %.0.i.i.i.i, %113 ], [ %119, %.lr.ph.i.i.i10.i ]
-  %117 = icmp ugt i64 %.1.lcssa.i.i.i5.i, 99
+  %117 = icmp samesign ugt i64 %.1.lcssa.i.i.i5.i, 99
   br i1 %117, label %133, label %142
 
 .lr.ph.i.i.i10.i:                                 ; preds = %113, %.lr.ph.i.i.i10.i
@@ -1778,7 +1778,7 @@ default.unreachable94:                            ; preds = %52, %2
 142:                                              ; preds = %133, %._crit_edge.i.i.i4.i
   %.127.i.i.i.i = phi i64 [ %138, %133 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i4.i ]
   %.025.i.i.i.i = phi i64 [ %.zext35.i.i.i9.i, %133 ], [ %.1.lcssa.i.i.i5.i, %._crit_edge.i.i.i4.i ]
-  %143 = icmp ult i64 %.025.i.i.i.i, 10
+  %143 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %143, label %150, label %144
 
 144:                                              ; preds = %142

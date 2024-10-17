@@ -1722,7 +1722,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %143 = icmp ugt i64 %140, 15
+  %143 = icmp samesign ugt i64 %140, 15
   br i1 %143, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -1756,7 +1756,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !10
 
 .lr.ph.split.us130:                               ; preds = %.lr.ph
-  %160 = icmp ugt i64 %140, 15
+  %160 = icmp samesign ugt i64 %140, 15
   br i1 %160, label %.lr.ph.split.us130.split.us, label %.lr.ph.split.us130.split
 
 .lr.ph.split.us130.split.us:                      ; preds = %.lr.ph.split.us130
@@ -1790,7 +1790,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.us130.split, !llvm.loop !10
 
 .lr.ph.split.us134:                               ; preds = %.lr.ph
-  %177 = icmp ugt i64 %140, 15
+  %177 = icmp samesign ugt i64 %140, 15
   br i1 %177, label %.lr.ph.split.us134.split.us, label %.lr.ph.split.us134.split
 
 .lr.ph.split.us134.split.us:                      ; preds = %.lr.ph.split.us134
@@ -1824,7 +1824,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us134.split, !llvm.loop !10
 
 .lr.ph.split.us138:                               ; preds = %.lr.ph
-  %194 = icmp ugt i64 %140, 15
+  %194 = icmp samesign ugt i64 %140, 15
   br i1 %194, label %.lr.ph.split.us138.split.us, label %.lr.ph.split.us138.split
 
 .lr.ph.split.us138.split.us:                      ; preds = %.lr.ph.split.us138
@@ -2141,7 +2141,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %143 = icmp ugt i64 %140, 15
+  %143 = icmp samesign ugt i64 %140, 15
   br i1 %143, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -2175,7 +2175,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !11
 
 .lr.ph.split.us130:                               ; preds = %.lr.ph
-  %160 = icmp ugt i64 %140, 15
+  %160 = icmp samesign ugt i64 %140, 15
   br i1 %160, label %.lr.ph.split.us130.split.us, label %.lr.ph.split.us130.split
 
 .lr.ph.split.us130.split.us:                      ; preds = %.lr.ph.split.us130
@@ -2209,7 +2209,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.us130.split, !llvm.loop !11
 
 .lr.ph.split.us134:                               ; preds = %.lr.ph
-  %177 = icmp ugt i64 %140, 15
+  %177 = icmp samesign ugt i64 %140, 15
   br i1 %177, label %.lr.ph.split.us134.split.us, label %.lr.ph.split.us134.split
 
 .lr.ph.split.us134.split.us:                      ; preds = %.lr.ph.split.us134
@@ -2243,7 +2243,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us134.split, !llvm.loop !11
 
 .lr.ph.split.us138:                               ; preds = %.lr.ph
-  %194 = icmp ugt i64 %140, 15
+  %194 = icmp samesign ugt i64 %140, 15
   br i1 %194, label %.lr.ph.split.us138.split.us, label %.lr.ph.split.us138.split
 
 .lr.ph.split.us138.split.us:                      ; preds = %.lr.ph.split.us138
@@ -2558,7 +2558,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %143 = icmp ugt i64 %140, 15
+  %143 = icmp samesign ugt i64 %140, 15
   br i1 %143, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -2592,7 +2592,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !12
 
 .lr.ph.split.us130:                               ; preds = %.lr.ph
-  %160 = icmp ugt i64 %140, 15
+  %160 = icmp samesign ugt i64 %140, 15
   br i1 %160, label %.lr.ph.split.us130.split.us, label %.lr.ph.split.us130.split
 
 .lr.ph.split.us130.split.us:                      ; preds = %.lr.ph.split.us130
@@ -2626,7 +2626,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.us130.split, !llvm.loop !12
 
 .lr.ph.split.us134:                               ; preds = %.lr.ph
-  %177 = icmp ugt i64 %140, 15
+  %177 = icmp samesign ugt i64 %140, 15
   br i1 %177, label %.lr.ph.split.us134.split.us, label %.lr.ph.split.us134.split
 
 .lr.ph.split.us134.split.us:                      ; preds = %.lr.ph.split.us134
@@ -2660,7 +2660,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us134.split, !llvm.loop !12
 
 .lr.ph.split.us138:                               ; preds = %.lr.ph
-  %194 = icmp ugt i64 %140, 15
+  %194 = icmp samesign ugt i64 %140, 15
   br i1 %194, label %.lr.ph.split.us138.split.us, label %.lr.ph.split.us138.split
 
 .lr.ph.split.us138.split.us:                      ; preds = %.lr.ph.split.us138
@@ -2977,7 +2977,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %143 = icmp ugt i64 %140, 15
+  %143 = icmp samesign ugt i64 %140, 15
   br i1 %143, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -3011,7 +3011,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !13
 
 .lr.ph.split.us130:                               ; preds = %.lr.ph
-  %160 = icmp ugt i64 %140, 15
+  %160 = icmp samesign ugt i64 %140, 15
   br i1 %160, label %.lr.ph.split.us130.split.us, label %.lr.ph.split.us130.split
 
 .lr.ph.split.us130.split.us:                      ; preds = %.lr.ph.split.us130
@@ -3045,7 +3045,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.us130.split, !llvm.loop !13
 
 .lr.ph.split.us134:                               ; preds = %.lr.ph
-  %177 = icmp ugt i64 %140, 15
+  %177 = icmp samesign ugt i64 %140, 15
   br i1 %177, label %.lr.ph.split.us134.split.us, label %.lr.ph.split.us134.split
 
 .lr.ph.split.us134.split.us:                      ; preds = %.lr.ph.split.us134
@@ -3079,7 +3079,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us134.split, !llvm.loop !13
 
 .lr.ph.split.us138:                               ; preds = %.lr.ph
-  %194 = icmp ugt i64 %140, 15
+  %194 = icmp samesign ugt i64 %140, 15
   br i1 %194, label %.lr.ph.split.us138.split.us, label %.lr.ph.split.us138.split
 
 .lr.ph.split.us138.split.us:                      ; preds = %.lr.ph.split.us138

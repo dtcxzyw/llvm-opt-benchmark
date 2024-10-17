@@ -3632,7 +3632,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit77.i: ; preds = %.noexc67
   %315 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !694
   %316 = icmp ult i64 %315, 6
   call void @llvm.assume(i1 %316)
-  %317 = icmp ugt i64 %315, 1
+  %317 = icmp samesign ugt i64 %315, 1
   br i1 %317, label %318, label %_ZN14wasmtime_cache6config11CacheConfig43validate_worker_event_queue_size_or_default17h76057878d59192e5E.exit
 
 318:                                              ; preds = %314
@@ -3819,7 +3819,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i83: ; preds = %335
 
 341:                                              ; preds = %.thread247, %335
   %342 = phi i32 [ 20, %.thread247 ], [ %.pre243, %335 ]
-  %343 = icmp ult i32 %342, %333
+  %343 = icmp samesign ult i32 %342, %333
   br i1 %343, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit31.i, label %350
 
 344:                                              ; preds = %.noexc98, %.noexc96

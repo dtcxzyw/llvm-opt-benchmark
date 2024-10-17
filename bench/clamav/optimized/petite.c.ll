@@ -671,11 +671,11 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 268:                                              ; preds = %266
   %269 = zext i32 %267 to i64
   %270 = add nuw nsw i64 %269, %265
-  %.not912 = icmp ule i64 %260, %270
-  %271 = icmp ugt i64 %260, %269
-  %or.cond974 = and i1 %271, %.not912
-  %272 = icmp ugt i64 %270, %75
-  %or.cond975 = and i1 %272, %or.cond974
+  %.not912 = icmp samesign ule i64 %260, %270
+  %271 = icmp samesign ugt i64 %260, %269
+  %or.cond974 = select i1 %.not912, i1 %271, i1 false
+  %272 = icmp samesign ugt i64 %270, %75
+  %or.cond975 = select i1 %or.cond974, i1 %272, i1 false
   br i1 %or.cond975, label %273, label %279
 
 273:                                              ; preds = %268

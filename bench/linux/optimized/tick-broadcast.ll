@@ -509,7 +509,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
 39:                                               ; preds = %37, %29
   %40 = add nuw nsw i64 %26, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %20, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %20, %39, %25
@@ -1405,7 +1405,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef %0) #2 align 16 
   %34 = phi i64 [ %30, %27 ], [ %7, %26 ]
   %35 = add nuw nsw i64 %13, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %4, !prof !11, !llvm.loop !32
 
 .thread:                                          ; preds = %4, %31, %12

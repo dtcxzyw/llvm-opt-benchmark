@@ -645,7 +645,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %115 = load i16, ptr %10, align 8
   %116 = icmp eq i16 %115, 0
-  %117 = icmp ugt i64 %indvars.iv61, 13
+  %117 = icmp samesign ugt i64 %indvars.iv61, 13
   %118 = select i1 %116, i1 true, i1 %117
   br i1 %118, label %.loopexit44, label %81, !llvm.loop !40
 
@@ -774,7 +774,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %182 = phi i16 [ %.pre75, %178 ], [ %158, %154 ], [ %142, %149 ], [ %142, %144 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %183 = icmp eq i16 %182, 0
-  %184 = icmp ugt i64 %indvars.iv63, 13
+  %184 = icmp samesign ugt i64 %indvars.iv63, 13
   %185 = select i1 %183, i1 true, i1 %184
   br i1 %185, label %186, label %141, !llvm.loop !51
 
@@ -815,7 +815,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %204 = phi i16 [ %.pre76, %198 ], [ %191, %193 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %205 = icmp eq i16 %204, 0
-  %206 = icmp ugt i64 %indvars.iv65, 13
+  %206 = icmp samesign ugt i64 %indvars.iv65, 13
   %207 = select i1 %205, i1 true, i1 %206
   br i1 %207, label %208, label %190, !llvm.loop !52
 
@@ -856,8 +856,8 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %229 = phi i16 [ %.pre77, %224 ], [ %219, %.preheader ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %230 = icmp eq i16 %229, 0
-  %231 = icmp ugt i64 %indvars.iv67, 13
-  %232 = or i1 %230, %231
+  %231 = icmp samesign ugt i64 %indvars.iv67, 13
+  %232 = select i1 %230, i1 true, i1 %231
   br i1 %232, label %.loopexit43, label %.preheader, !llvm.loop !53
 
 .loopexit43:                                      ; preds = %228, %208
@@ -897,7 +897,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %249 = phi i16 [ %.pre78, %._crit_edge ], [ %236, %238 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %250 = icmp eq i16 %249, 0
-  %251 = icmp ugt i64 %indvars.iv69, 13
+  %251 = icmp samesign ugt i64 %indvars.iv69, 13
   %252 = select i1 %250, i1 true, i1 %251
   br i1 %252, label %253, label %235, !llvm.loop !54
 
@@ -976,7 +976,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %297 = load i16, ptr %10, align 8
   %298 = icmp eq i16 %297, 0
-  %299 = icmp ugt i64 %indvars.iv71, 13
+  %299 = icmp samesign ugt i64 %indvars.iv71, 13
   %300 = select i1 %298, i1 true, i1 %299
   br i1 %300, label %.loopexit42, label %273, !llvm.loop !55
 
@@ -1017,7 +1017,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   %319 = phi i16 [ %.pre79, %314 ], [ %307, %309 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %320 = icmp eq i16 %319, 0
-  %321 = icmp ugt i64 %indvars.iv73, 13
+  %321 = icmp samesign ugt i64 %indvars.iv73, 13
   %322 = select i1 %320, i1 true, i1 %321
   br i1 %322, label %.loopexit, label %306, !llvm.loop !56
 
@@ -1466,7 +1466,7 @@ define dso_local void @cfg80211_wdev_release_link_bsses(ptr nocapture noundef %0
   %45 = phi i16 [ %.pre, %40 ], [ %9, %20 ], [ %9, %16 ], [ %9, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = icmp eq i16 %45, 0
-  %47 = icmp ugt i64 %indvars.iv, 13
+  %47 = icmp samesign ugt i64 %indvars.iv, 13
   %48 = select i1 %46, i1 true, i1 %47
   br i1 %48, label %49, label %8, !llvm.loop !57
 
@@ -1634,7 +1634,7 @@ define internal fastcc void @cfg80211_wdev_release_bsses(ptr nocapture noundef %
   %39 = phi i16 [ %.pre, %34 ], [ %7, %14 ], [ %7, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp eq i16 %39, 0
-  %41 = icmp ugt i64 %indvars.iv, 13
+  %41 = icmp samesign ugt i64 %indvars.iv, 13
   %42 = select i1 %40, i1 true, i1 %41
   br i1 %42, label %43, label %6, !llvm.loop !65
 
@@ -1716,7 +1716,7 @@ define internal fastcc void @cfg80211_connect_result_release_bsses(ptr nocapture
   %39 = phi i16 [ %.pre, %35 ], [ %8, %15 ], [ %8, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp eq i16 %39, 0
-  %41 = icmp ugt i64 %indvars.iv, 13
+  %41 = icmp samesign ugt i64 %indvars.iv, 13
   %42 = select i1 %40, i1 true, i1 %41
   br i1 %42, label %43, label %7, !llvm.loop !66
 
@@ -1845,7 +1845,7 @@ define dso_local void @cfg80211_connect_done(ptr nocapture noundef readonly %0, 
   %66 = phi i64 [ %63, %54 ], [ %20, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = icmp eq i16 %65, 0
-  %68 = icmp ugt i64 %indvars.iv, 13
+  %68 = icmp samesign ugt i64 %indvars.iv, 13
   %69 = select i1 %67, i1 true, i1 %68
   br i1 %69, label %70, label %17, !llvm.loop !67
 
@@ -1910,7 +1910,7 @@ define dso_local void @cfg80211_connect_done(ptr nocapture noundef readonly %0, 
   %113 = phi i16 [ %.pre26, %108 ], [ %101, %103 ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %114 = icmp eq i16 %113, 0
-  %115 = icmp ugt i64 %indvars.iv24, 13
+  %115 = icmp samesign ugt i64 %indvars.iv24, 13
   %116 = select i1 %114, i1 true, i1 %115
   br i1 %116, label %.loopexit, label %100, !llvm.loop !68
 
@@ -2105,7 +2105,7 @@ define dso_local void @cfg80211_connect_done(ptr nocapture noundef readonly %0, 
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %229 = load i16, ptr %9, align 8
   %230 = icmp eq i16 %229, 0
-  %231 = icmp ugt i64 %indvars.iv22, 13
+  %231 = icmp samesign ugt i64 %indvars.iv22, 13
   %232 = select i1 %230, i1 true, i1 %231
   br i1 %232, label %233, label %190, !llvm.loop !69
 
@@ -2307,7 +2307,7 @@ define dso_local void @__cfg80211_roamed(ptr nocapture noundef %0, ptr noundef %
   %77 = phi i16 [ %.pre, %72 ], [ %56, %58 ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %78 = icmp eq i16 %77, 0
-  %79 = icmp ugt i64 %indvars.iv24, 13
+  %79 = icmp samesign ugt i64 %indvars.iv24, 13
   %80 = select i1 %78, i1 true, i1 %79
   br i1 %80, label %81, label %55, !llvm.loop !87
 
@@ -2359,8 +2359,8 @@ define dso_local void @__cfg80211_roamed(ptr nocapture noundef %0, ptr noundef %
   %108 = phi i16 [ %.pre30, %103 ], [ %98, %.preheader ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %109 = icmp eq i16 %108, 0
-  %110 = icmp ugt i64 %indvars.iv26, 13
-  %111 = or i1 %109, %110
+  %110 = icmp samesign ugt i64 %indvars.iv26, 13
+  %111 = select i1 %109, i1 true, i1 %110
   br i1 %111, label %.loopexit17, label %.preheader, !llvm.loop !88
 
 .loopexit17:                                      ; preds = %107, %89
@@ -2415,7 +2415,7 @@ define dso_local void @__cfg80211_roamed(ptr nocapture noundef %0, ptr noundef %
   %138 = phi i16 [ %.pre31, %133 ], [ %126, %128 ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %139 = icmp eq i16 %138, 0
-  %140 = icmp ugt i64 %indvars.iv28, 13
+  %140 = icmp samesign ugt i64 %indvars.iv28, 13
   %141 = select i1 %139, i1 true, i1 %140
   br i1 %141, label %.loopexit, label %125, !llvm.loop !89
 
@@ -2500,7 +2500,7 @@ define dso_local void @cfg80211_roamed(ptr nocapture noundef readonly %0, ptr no
   %51 = phi i64 [ %36, %26 ], [ %36, %._crit_edge ], [ %20, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = icmp eq i16 %50, 0
-  %53 = icmp ugt i64 %indvars.iv, 13
+  %53 = icmp samesign ugt i64 %indvars.iv, 13
   %.not15 = select i1 %52, i1 true, i1 %53
   br i1 %.not15, label %55, label %17, !llvm.loop !91
 
@@ -2710,7 +2710,7 @@ define dso_local void @cfg80211_roamed(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %182 = load i16, ptr %9, align 8
   %183 = icmp eq i16 %182, 0
-  %184 = icmp ugt i64 %indvars.iv16, 13
+  %184 = icmp samesign ugt i64 %indvars.iv16, 13
   %185 = select i1 %183, i1 true, i1 %184
   br i1 %185, label %186, label %153, !llvm.loop !95
 
@@ -2763,7 +2763,7 @@ define dso_local void @cfg80211_roamed(ptr nocapture noundef readonly %0, ptr no
   %212 = phi i16 [ %.pre20, %207 ], [ %200, %202 ]
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %213 = icmp eq i16 %212, 0
-  %214 = icmp ugt i64 %indvars.iv18, 13
+  %214 = icmp samesign ugt i64 %indvars.iv18, 13
   %215 = select i1 %213, i1 true, i1 %214
   br i1 %215, label %.loopexit, label %199, !llvm.loop !96
 

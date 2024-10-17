@@ -587,7 +587,7 @@ deglist_remove.exit.i:                            ; preds = %183, %177, %174
   %indvars.iv160.i.i = phi i64 [ 0, %.lr.ph149.preheader.i.i ], [ %indvars.iv.next161.i.i, %255 ]
   %.0108147.i.i = phi i32 [ %249, %.lr.ph149.preheader.i.i ], [ %272, %255 ]
   %254 = or disjoint i64 %indvars.iv160.i.i, 1
-  %.not119.i.i = icmp ult i64 %254, %253
+  %.not119.i.i = icmp samesign ult i64 %254, %253
   br i1 %.not119.i.i, label %255, label %._crit_edge150.i.i
 
 255:                                              ; preds = %.lr.ph149.i.i

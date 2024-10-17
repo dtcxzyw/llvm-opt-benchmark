@@ -19,7 +19,7 @@ define dso_local noundef ptr @psprintf(ptr noundef %0, ...) local_unnamed_addr #
   call void @llvm.va_start.p0(ptr nonnull %2)
   %6 = call i64 @pvsnprintf(ptr noundef %5, i64 noundef 128, ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %7 = icmp ult i64 %6, 128
+  %7 = icmp samesign ult i64 %6, 128
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -35,7 +35,7 @@ define dso_local noundef ptr @psprintf(ptr noundef %0, ...) local_unnamed_addr #
   call void @llvm.va_start.p0(ptr nonnull %2)
   %11 = call i64 @pvsnprintf(ptr noundef %10, i64 noundef %8, ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %12 = icmp ult i64 %11, %8
+  %12 = icmp samesign ult i64 %11, %8
   br i1 %12, label %._crit_edge, label %.lr.ph
 }
 

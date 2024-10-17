@@ -6462,31 +6462,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i.i = add i64 %mul.i.i, 1013904223
   %and.i.i = and i64 %add.i.i, 4294967295
   store i64 %and.i.i, ptr %m_btSeed2.i.i, align 8
-  %cmp.i = icmp ult i64 %indvars.iv, 65536
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 65536
   br i1 %cmp.i, label %if.then.i, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit
 
 if.then.i:                                        ; preds = %for.body
   %shr.i = lshr i64 %and.i.i, 16
   %xor.i = xor i64 %shr.i, %and.i.i
-  %cmp2.i = icmp ult i64 %indvars.iv, 256
+  %cmp2.i = icmp samesign ult i64 %indvars.iv, 256
   br i1 %cmp2.i, label %if.then3.i, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit
 
 if.then3.i:                                       ; preds = %if.then.i
   %shr4.i = lshr i64 %xor.i, 8
   %xor5.i = xor i64 %shr4.i, %xor.i
-  %cmp6.i = icmp ult i64 %indvars.iv, 16
+  %cmp6.i = icmp samesign ult i64 %indvars.iv, 16
   br i1 %cmp6.i, label %if.then7.i, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit
 
 if.then7.i:                                       ; preds = %if.then3.i
   %shr8.i = lshr i64 %xor5.i, 4
   %xor9.i = xor i64 %shr8.i, %xor5.i
-  %cmp10.i = icmp ult i64 %indvars.iv, 4
+  %cmp10.i = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp10.i, label %if.then11.i, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit
 
 if.then11.i:                                      ; preds = %if.then7.i
   %shr12.i = lshr i64 %xor9.i, 2
   %xor13.i = xor i64 %shr12.i, %xor9.i
-  %cmp14.i = icmp ult i64 %indvars.iv, 2
+  %cmp14.i = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp14.i, label %if.then15.i, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit
 
 if.then15.i:                                      ; preds = %if.then11.i
@@ -6578,31 +6578,31 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %add.i.i119 = add i64 %mul.i.i118, 1013904223
   %and.i.i120 = and i64 %add.i.i119, 4294967295
   store i64 %and.i.i120, ptr %m_btSeed2.i.i117, align 8
-  %cmp.i121 = icmp ult i64 %indvars.iv392, 65536
+  %cmp.i121 = icmp samesign ult i64 %indvars.iv392, 65536
   br i1 %cmp.i121, label %if.then.i126, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit145
 
 if.then.i126:                                     ; preds = %for.body27
   %shr.i127 = lshr i64 %and.i.i120, 16
   %xor.i128 = xor i64 %shr.i127, %and.i.i120
-  %cmp2.i129 = icmp ult i64 %indvars.iv392, 256
+  %cmp2.i129 = icmp samesign ult i64 %indvars.iv392, 256
   br i1 %cmp2.i129, label %if.then3.i130, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit145
 
 if.then3.i130:                                    ; preds = %if.then.i126
   %shr4.i131 = lshr i64 %xor.i128, 8
   %xor5.i132 = xor i64 %shr4.i131, %xor.i128
-  %cmp6.i133 = icmp ult i64 %indvars.iv392, 16
+  %cmp6.i133 = icmp samesign ult i64 %indvars.iv392, 16
   br i1 %cmp6.i133, label %if.then7.i134, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit145
 
 if.then7.i134:                                    ; preds = %if.then3.i130
   %shr8.i135 = lshr i64 %xor5.i132, 4
   %xor9.i136 = xor i64 %shr8.i135, %xor5.i132
-  %cmp10.i137 = icmp ult i64 %indvars.iv392, 4
+  %cmp10.i137 = icmp samesign ult i64 %indvars.iv392, 4
   br i1 %cmp10.i137, label %if.then11.i138, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit145
 
 if.then11.i138:                                   ; preds = %if.then7.i134
   %shr12.i139 = lshr i64 %xor9.i136, 2
   %xor13.i140 = xor i64 %shr12.i139, %xor9.i136
-  %cmp14.i141 = icmp ult i64 %indvars.iv392, 2
+  %cmp14.i141 = icmp samesign ult i64 %indvars.iv392, 2
   br i1 %cmp14.i141, label %if.then15.i142, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit145
 
 if.then15.i142:                                   ; preds = %if.then11.i138
@@ -6633,31 +6633,31 @@ for.body49:                                       ; preds = %for.body49.lr.ph, %
   %add.i.i160 = add i64 %mul.i.i159, 1013904223
   %and.i.i161 = and i64 %add.i.i160, 4294967295
   store i64 %and.i.i161, ptr %m_btSeed2.i.i158, align 8
-  %cmp.i162 = icmp ult i64 %indvars.iv397, 65536
+  %cmp.i162 = icmp samesign ult i64 %indvars.iv397, 65536
   br i1 %cmp.i162, label %if.then.i167, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit186
 
 if.then.i167:                                     ; preds = %for.body49
   %shr.i168 = lshr i64 %and.i.i161, 16
   %xor.i169 = xor i64 %shr.i168, %and.i.i161
-  %cmp2.i170 = icmp ult i64 %indvars.iv397, 256
+  %cmp2.i170 = icmp samesign ult i64 %indvars.iv397, 256
   br i1 %cmp2.i170, label %if.then3.i171, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit186
 
 if.then3.i171:                                    ; preds = %if.then.i167
   %shr4.i172 = lshr i64 %xor.i169, 8
   %xor5.i173 = xor i64 %shr4.i172, %xor.i169
-  %cmp6.i174 = icmp ult i64 %indvars.iv397, 16
+  %cmp6.i174 = icmp samesign ult i64 %indvars.iv397, 16
   br i1 %cmp6.i174, label %if.then7.i175, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit186
 
 if.then7.i175:                                    ; preds = %if.then3.i171
   %shr8.i176 = lshr i64 %xor5.i173, 4
   %xor9.i177 = xor i64 %shr8.i176, %xor5.i173
-  %cmp10.i178 = icmp ult i64 %indvars.iv397, 4
+  %cmp10.i178 = icmp samesign ult i64 %indvars.iv397, 4
   br i1 %cmp10.i178, label %if.then11.i179, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit186
 
 if.then11.i179:                                   ; preds = %if.then7.i175
   %shr12.i180 = lshr i64 %xor9.i177, 2
   %xor13.i181 = xor i64 %shr12.i180, %xor9.i177
-  %cmp14.i182 = icmp ult i64 %indvars.iv397, 2
+  %cmp14.i182 = icmp samesign ult i64 %indvars.iv397, 2
   br i1 %cmp14.i182, label %if.then15.i183, label %_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit186
 
 if.then15.i183:                                   ; preds = %if.then11.i179

@@ -51,7 +51,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit26.i:           ; preds = %cond.false.i21.i, %
   %conv5.i = add nuw nsw i8 %4, 1
   %vecinit.i.i.i = insertelement <32 x i8> poison, i8 %conv5.i, i64 0
   %5 = shufflevector <32 x i8> %vecinit.i.i.i, <32 x i8> poison, <32 x i32> zeroinitializer
-  %cmp.i.i.i = icmp ugt <32 x i8> %5, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i.i = icmp samesign ugt <32 x i8> %5, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i.i = sext <32 x i1> %cmp.i.i.i to <32 x i8>
   %6 = bitcast <32 x i8> %sext.i.i.i to <4 x i64>
   %cmp740.not.i = icmp eq i32 %sub239.i, 0
@@ -177,7 +177,7 @@ for.body7.i.i:                                    ; preds = %for.body7.i.i, %for
   %xor5.i.i.i = xor i32 %shr4.i.i.i, %mul3.i.i.i
   store i32 %xor5.i.i.i, ptr %arrayidx.i.i, align 4
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %cmp6.i.i = icmp ult i64 %indvars.iv.next21.i.i, %27
+  %cmp6.i.i = icmp samesign ult i64 %indvars.iv.next21.i.i, %27
   br i1 %cmp6.i.i, label %for.body7.i.i, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body7.i.i, %for.end.i.i, %_ZN5arrow8bit_util7CeilDivEll.exit26.i, %if.then
@@ -216,7 +216,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit26:             ; preds = %cond.false.i21, %_Z
   %conv5 = add nuw nsw i8 %4, 1
   %vecinit.i.i = insertelement <32 x i8> poison, i8 %conv5, i64 0
   %5 = shufflevector <32 x i8> %vecinit.i.i, <32 x i8> poison, <32 x i32> zeroinitializer
-  %cmp.i.i = icmp ugt <32 x i8> %5, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i = icmp samesign ugt <32 x i8> %5, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i = sext <32 x i1> %cmp.i.i to <32 x i8>
   %6 = bitcast <32 x i8> %sext.i.i to <4 x i64>
   %cmp742.not = icmp eq i32 %sub241, 0
@@ -360,7 +360,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
   %xor.i21.i = xor i32 %add2.i.i, %34
   store i32 %xor.i21.i, ptr %arrayidx.i, align 4
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %cmp10.i = icmp ult i64 %indvars.iv.next28.i, %32
+  %cmp10.i = icmp samesign ult i64 %indvars.iv.next28.i, %32
   br i1 %cmp10.i, label %for.body11.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit, !llvm.loop !11
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit: ; preds = %for.body11.i, %_ZN5arrow8bit_util7CeilDivEll.exit26, %for.end.i
@@ -405,7 +405,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %1 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %1 to i64
   %add = add nuw nsw i64 %conv, 16
-  %cmp4 = icmp ugt i64 %add, %conv3
+  %cmp4 = icmp samesign ugt i64 %add, %conv3
   br i1 %cmp4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -472,16 +472,16 @@ for.body:                                         ; preds = %for.body.preheader,
   %vecinit.i53.i = insertelement <32 x i8> poison, i8 %conv10.i, i64 0
   %vecinit31.i84.i = shufflevector <32 x i8> %vecinit.i53.i, <32 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
   %9 = shufflevector <32 x i8> %vecinit31.i.i, <32 x i8> %vecinit31.i84.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %cmp.i.i = icmp ugt <32 x i8> %9, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i = icmp samesign ugt <32 x i8> %9, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i = sext <32 x i1> %cmp.i.i to <32 x i8>
   %conv43 = zext i32 %3 to i64
   %conv44 = zext i32 %5 to i64
-  %cmp6.i = icmp ugt i64 %add35, %add22
+  %cmp6.i = icmp samesign ugt i64 %add35, %add22
   %or.i = select i1 %cmp6.i, i64 %conv43, i64 %conv44
   %or15.i = select i1 %cmp6.i, i64 %conv44, i64 %conv43
   %10 = tail call i64 @llvm.umin.i64(i64 %add35, i64 %add22)
   %11 = tail call i64 @llvm.umax.i64(i64 %add35, i64 %add22)
-  %cmp2457.i = icmp ugt i64 %10, 1
+  %cmp2457.i = icmp samesign ugt i64 %10, 1
   br i1 %cmp2457.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
@@ -648,7 +648,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
   %xor.i21.i = xor i32 %add2.i.i, %47
   store i32 %xor.i21.i, ptr %arrayidx.i, align 4
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %cmp10.i = icmp ult i64 %indvars.iv.next28.i, %45
+  %cmp10.i = icmp samesign ult i64 %indvars.iv.next28.i, %45
   br i1 %cmp10.i, label %for.body11.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit, !llvm.loop !11
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit: ; preds = %for.body11.i, %for.end.i48
@@ -675,7 +675,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %1 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %1 to i64
   %add = add nuw nsw i64 %conv, 16
-  %cmp4 = icmp ugt i64 %add, %conv3
+  %cmp4 = icmp samesign ugt i64 %add, %conv3
   br i1 %cmp4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -742,16 +742,16 @@ for.body:                                         ; preds = %for.body.preheader,
   %vecinit.i53.i = insertelement <32 x i8> poison, i8 %conv10.i, i64 0
   %vecinit31.i84.i = shufflevector <32 x i8> %vecinit.i53.i, <32 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
   %9 = shufflevector <32 x i8> %vecinit31.i.i, <32 x i8> %vecinit31.i84.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %cmp.i.i = icmp ugt <32 x i8> %9, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i = icmp samesign ugt <32 x i8> %9, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i = sext <32 x i1> %cmp.i.i to <32 x i8>
   %conv43 = zext i32 %3 to i64
   %conv44 = zext i32 %5 to i64
-  %cmp6.i = icmp ugt i64 %add35, %add22
+  %cmp6.i = icmp samesign ugt i64 %add35, %add22
   %or.i = select i1 %cmp6.i, i64 %conv43, i64 %conv44
   %or15.i = select i1 %cmp6.i, i64 %conv44, i64 %conv43
   %10 = tail call i64 @llvm.umin.i64(i64 %add35, i64 %add22)
   %11 = tail call i64 @llvm.umax.i64(i64 %add35, i64 %add22)
-  %cmp2457.i = icmp ugt i64 %10, 1
+  %cmp2457.i = icmp samesign ugt i64 %10, 1
   br i1 %cmp2457.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
@@ -900,7 +900,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %xor5.i.i = xor i32 %shr4.i.i, %mul3.i.i
   store i32 %xor5.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %cmp6.i48 = icmp ult i64 %indvars.iv.next21.i, %40
+  %cmp6.i48 = icmp samesign ult i64 %indvars.iv.next21.i, %40
   br i1 %cmp6.i48, label %for.body7.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit, !llvm.loop !8
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit: ; preds = %for.body7.i, %for.end.i47
@@ -1018,7 +1018,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit39:             ; preds = %_ZN5arrow8bit_util7
   %vecinit.i53.i = insertelement <32 x i8> poison, i8 %conv10.i, i64 0
   %vecinit31.i84.i = shufflevector <32 x i8> %vecinit.i53.i, <32 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
   %7 = shufflevector <32 x i8> %vecinit31.i.i, <32 x i8> %vecinit31.i84.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %cmp.i.i = icmp ugt <32 x i8> %7, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i = icmp samesign ugt <32 x i8> %7, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i = sext <32 x i1> %cmp.i.i to <32 x i8>
   %cmp6.i = icmp sgt i64 %add31, %add19
   %or.i = select i1 %cmp6.i, i64 %3, i64 %5
@@ -1192,7 +1192,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
   %xor.i21.i = xor i32 %add2.i.i, %43
   store i32 %xor.i21.i, ptr %arrayidx.i, align 4
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %cmp10.i = icmp ult i64 %indvars.iv.next28.i, %41
+  %cmp10.i = icmp samesign ult i64 %indvars.iv.next28.i, %41
   br i1 %cmp10.i, label %for.body11.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit, !llvm.loop !11
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit: ; preds = %for.body11.i, %for.end.i48
@@ -1292,7 +1292,7 @@ _ZN5arrow8bit_util7CeilDivEll.exit39:             ; preds = %_ZN5arrow8bit_util7
   %vecinit.i53.i = insertelement <32 x i8> poison, i8 %conv10.i, i64 0
   %vecinit31.i84.i = shufflevector <32 x i8> %vecinit.i53.i, <32 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
   %7 = shufflevector <32 x i8> %vecinit31.i.i, <32 x i8> %vecinit31.i84.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %cmp.i.i = icmp ugt <32 x i8> %7, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
+  %cmp.i.i = icmp samesign ugt <32 x i8> %7, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %sext.i.i = sext <32 x i1> %cmp.i.i to <32 x i8>
   %cmp6.i = icmp sgt i64 %add31, %add19
   %or.i = select i1 %cmp6.i, i64 %3, i64 %5
@@ -1448,7 +1448,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %xor5.i.i = xor i32 %shr4.i.i, %mul3.i.i
   store i32 %xor5.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %cmp6.i48 = icmp ult i64 %indvars.iv.next21.i, %36
+  %cmp6.i48 = icmp samesign ult i64 %indvars.iv.next21.i, %36
   br i1 %cmp6.i48, label %for.body7.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit, !llvm.loop !8
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit: ; preds = %for.body7.i, %for.end.i47

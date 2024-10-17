@@ -121,7 +121,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %53 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv172
   store i64 %.0121159, ptr %53, align 1
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 8
-  %54 = icmp ult i64 %indvars.iv.next173, %52
+  %54 = icmp samesign ult i64 %indvars.iv.next173, %52
   br i1 %54, label %.lr.ph156, label %._crit_edge157, !llvm.loop !7
 
 ._crit_edge157:                                   ; preds = %.lr.ph156, %.lr.ph162
@@ -154,7 +154,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %68 = add nuw nsw i64 %.0123164, %47
   %69 = and i64 %68, %41
   %70 = add nuw nsw i64 %.0122165, 2
-  %71 = icmp ult i64 %70, %46
+  %71 = icmp samesign ult i64 %70, %46
   br i1 %71, label %.preheader, label %.loopexit139, !llvm.loop !9
 
 .preheader140.lr.ph:                              ; preds = %._crit_edge

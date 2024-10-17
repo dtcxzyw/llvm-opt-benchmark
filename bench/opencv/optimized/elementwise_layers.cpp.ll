@@ -1762,7 +1762,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn23ActivationLayerInt8Impl10Activatio
   %65 = getelementptr inbounds i8, ptr %.03049.us.us.us, i64 %indvars.iv68
   store i8 %64, ptr %65, align 1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %66 = icmp ult i64 %indvars.iv.next69, %41
+  %66 = icmp samesign ult i64 %indvars.iv.next69, %41
   br i1 %66, label %60, label %._crit_edge47.us.us.us, !llvm.loop !13
 
 ._crit_edge47.us.us.us:                           ; preds = %60

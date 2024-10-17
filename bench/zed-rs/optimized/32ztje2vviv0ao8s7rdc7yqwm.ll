@@ -813,7 +813,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17hc06de5ed07483a4
   %.sroa.0.0.sroa.speculated.i17 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i16, i64 48)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 171
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 171
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %3
@@ -1241,7 +1241,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0851f0864ac364a4E.exit: ; preds =
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64 }, ptr %149, i64 %145
-  %.not.i34 = icmp ugt i64 %145, %146
+  %.not.i34 = icmp samesign ugt i64 %145, %146
   %.20.i = select i1 %.not.i34, ptr %177, ptr %149
   %178 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %178, i1 false), !alias.scope !367

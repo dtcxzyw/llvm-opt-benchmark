@@ -2224,7 +2224,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
 
 182:                                              ; preds = %162, %179
   %183 = and i64 %137, 4294967295
-  %184 = icmp ugt i64 %183, 2147483648
+  %184 = icmp samesign ugt i64 %183, 2147483648
   br i1 %184, label %.invoke212, label %185
 
 185:                                              ; preds = %182
@@ -4527,7 +4527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -7051,7 +7051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -11728,7 +11728,7 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit153:   ; preds = %.noexc148, %.noexc1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %189 = load i32, ptr %1, align 4
   %190 = zext i32 %189 to i64
-  %191 = icmp ult i64 %indvars.iv.next, %190
+  %191 = icmp samesign ult i64 %indvars.iv.next, %190
   br i1 %191, label %.lr.ph372.split, label %._crit_edge373, !llvm.loop !63
 
 ._crit_edge373:                                   ; preds = %.loopexit280

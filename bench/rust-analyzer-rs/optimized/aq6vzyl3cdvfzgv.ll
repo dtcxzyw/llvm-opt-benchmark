@@ -10522,9 +10522,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h24f3626b9beade0aE.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -21668,7 +21668,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit133.i.i: ; preds = %377
           to label %.noexc.i.i56.i unwind label %721, !noalias !4507
 
 .noexc.i.i56.i:                                   ; preds = %693
-  %or.cond.not.i.i.i.i = icmp ult i8 %715, 3
+  %or.cond.not.i.i.i.i = icmp samesign ult i8 %715, 3
   br i1 %or.cond.not.i.i.i.i, label %716, label %723
 
 716:                                              ; preds = %.noexc.i.i56.i
@@ -21779,7 +21779,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit133.i.i: ; preds = %377
           to label %.noexc.i27.i.i unwind label %750, !noalias !4532
 
 .noexc.i27.i.i:                                   ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb5e32fcecbcfa0dcE.exit.i.i"
-  %or.cond.not.i.i28.i.i = icmp ult i8 %744, 3
+  %or.cond.not.i.i28.i.i = icmp samesign ult i8 %744, 3
   br i1 %or.cond.not.i.i28.i.i, label %745, label %752
 
 745:                                              ; preds = %.noexc.i27.i.i

@@ -428,7 +428,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i5:      ; preds = %_ZNK4llvm7msgpack7D
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
-  %37 = icmp ult i8 %36, %18
+  %37 = icmp samesign ult i8 %36, %18
   %cond.fr41 = freeze i1 %37
   br i1 %cond.fr41, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit22.thread36.thread, label %.thread
 
@@ -536,7 +536,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i:       ; preds = %56
   %73 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
   %74 = load i8, ptr %73, align 8
   %75 = and i8 %74, 1
-  %76 = icmp ult i8 %18, %75
+  %76 = icmp samesign ult i8 %18, %75
   %cond.fr5054 = freeze i1 %76
   br i1 %cond.fr5054, label %89, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
 
@@ -2351,7 +2351,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21:       ; preds = %9
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 1
-  %36 = icmp ult i8 %32, %35
+  %36 = icmp samesign ult i8 %32, %35
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 37:                                               ; preds = %14

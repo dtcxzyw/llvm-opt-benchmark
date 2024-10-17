@@ -1746,7 +1746,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %196, %192
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %203, i64 %207
   store i32 %.02732.i.i, ptr %208, align 4
-  %209 = icmp ugt i32 %.02732.i.i, 3
+  %209 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %209, label %.lr.ph.i.i, label %Vec_QuePush.exit, !llvm.loop !4
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %200, %Vec_QuePrio.exit.i.i
@@ -2491,7 +2491,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %30, %26
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %37, i64 %41
   store i32 %.02732.i, ptr %42, align 4
-  %43 = icmp ugt i32 %.02732.i, 3
+  %43 = icmp samesign ugt i32 %.02732.i, 3
   br i1 %43, label %.lr.ph.i, label %Vec_QueMoveUp.exit.thread13, !llvm.loop !4
 
 Vec_QueMoveUp.exit.thread13:                      ; preds = %36
@@ -3341,7 +3341,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   %170 = getelementptr inbounds i32, ptr %.val88, i64 %indvars.iv296
   %171 = load i32, ptr %170, align 4
   %172 = ashr i32 %171, 1
-  %173 = icmp ugt i64 %indvars.iv296, 1
+  %173 = icmp samesign ugt i64 %indvars.iv296, 1
   %174 = zext i1 %173 to i32
   %175 = xor i32 %172, %174
   %176 = icmp sgt i32 %169, 1
@@ -3413,7 +3413,7 @@ Vec_IntRemove1.exit192:                           ; preds = %184, %.lr.ph253.spl
   %198 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv299
   %199 = load i32, ptr %198, align 4
   %200 = ashr i32 %199, 1
-  %201 = icmp ugt i64 %indvars.iv299, 1
+  %201 = icmp samesign ugt i64 %indvars.iv299, 1
   %202 = zext i1 %201 to i32
   %203 = xor i32 %200, %202
   %204 = icmp sgt i32 %197, 1

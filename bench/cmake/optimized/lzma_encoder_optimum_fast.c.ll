@@ -110,7 +110,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 
 48:                                               ; preds = %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %49 = icmp ult i64 %indvars.iv.next, %29
+  %49 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %49, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !7
 
 .preheader187.split:                              ; preds = %.preheader187

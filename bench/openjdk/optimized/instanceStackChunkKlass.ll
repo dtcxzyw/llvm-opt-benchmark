@@ -3962,7 +3962,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %76
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %79 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %79, 2
+  %switch = icmp samesign ult i32 %79, 2
   br i1 %switch, label %80, label %_ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit
 
 80:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4242,7 +4242,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %75
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %75, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 2
   %78 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %78, 2
+  %switch = icmp samesign ult i32 %78, 2
   br i1 %switch, label %79, label %_ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit
 
 79:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4392,7 +4392,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %45
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %48 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %48, 2
+  %switch = icmp samesign ult i32 %48, 2
   br i1 %switch, label %49, label %_ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit
 
 49:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4558,7 +4558,7 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %44
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %44, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 2
   %47 = and i32 %.sroa.0.0.copyload.i, 3
-  %switch = icmp ult i32 %47, 2
+  %switch = icmp samesign ult i32 %47, 2
   br i1 %switch, label %48, label %_ZN13Devirtualizer6do_oopI33StackChunkOopIterateFilterClosureI17OopIterateClosureE9narrowOopEEvPT_PT0_.exit
 
 48:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread

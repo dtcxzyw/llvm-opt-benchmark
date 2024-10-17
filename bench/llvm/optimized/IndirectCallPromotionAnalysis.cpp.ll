@@ -163,7 +163,7 @@ define dso_local noundef i32 @_ZN4llvm22ICallPromotionAnalysis32getProfitablePro
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 128), align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %20, %7
@@ -236,7 +236,7 @@ _ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit: ; preds = %4, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 128), align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %37, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !4
 
 .critedge.loopexit.i:                             ; preds = %33, %20, %.lr.ph.i

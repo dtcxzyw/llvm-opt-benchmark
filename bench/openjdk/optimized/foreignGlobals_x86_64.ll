@@ -375,7 +375,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %5, %9, %13
   %46 = add nsw i32 %42, 1
   %47 = icmp sgt i32 %42, -1
   %48 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %46)
-  %49 = icmp ult i32 %48, 2
+  %49 = icmp samesign ult i32 %48, 2
   %or.cond.i.i.i.i.i.i = select i1 %47, i1 %49, i1 false
   %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %51 = sub nuw nsw i32 32, %50
@@ -452,7 +452,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %89 = add nsw i32 %85, 1
   %90 = icmp sgt i32 %85, -1
   %91 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %89)
-  %92 = icmp ult i32 %91, 2
+  %92 = icmp samesign ult i32 %91, 2
   %or.cond.i.i.i.i.i.i27 = select i1 %90, i1 %92, i1 false
   %93 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %89, i1 true)
   %94 = sub nuw nsw i32 32, %93
@@ -524,7 +524,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %133 = add nsw i32 %129, 1
   %134 = icmp sgt i32 %129, -1
   %135 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %133)
-  %136 = icmp ult i32 %135, 2
+  %136 = icmp samesign ult i32 %135, 2
   %or.cond.i.i.i.i.i.i40 = select i1 %134, i1 %136, i1 false
   %137 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %133, i1 true)
   %138 = sub nuw nsw i32 32, %137
@@ -601,7 +601,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %176 = add nsw i32 %172, 1
   %177 = icmp sgt i32 %172, -1
   %178 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %176)
-  %179 = icmp ult i32 %178, 2
+  %179 = icmp samesign ult i32 %178, 2
   %or.cond.i.i.i.i.i.i54 = select i1 %177, i1 %179, i1 false
   %180 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %176, i1 true)
   %181 = sub nuw nsw i32 32, %180
@@ -695,7 +695,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %234 = add nsw i32 %230, 1
   %235 = icmp sgt i32 %230, -1
   %236 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %234)
-  %237 = icmp ult i32 %236, 2
+  %237 = icmp samesign ult i32 %236, 2
   %or.cond.i.i.i.i.i.i68 = select i1 %235, i1 %237, i1 false
   %238 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %234, i1 true)
   %239 = sub nuw nsw i32 32, %238
@@ -772,7 +772,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %277 = add nsw i32 %273, 1
   %278 = icmp sgt i32 %273, -1
   %279 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %277)
-  %280 = icmp ult i32 %279, 2
+  %280 = icmp samesign ult i32 %279, 2
   %or.cond.i.i.i.i.i.i82 = select i1 %278, i1 %280, i1 false
   %281 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %277, i1 true)
   %282 = sub nuw nsw i32 32, %281

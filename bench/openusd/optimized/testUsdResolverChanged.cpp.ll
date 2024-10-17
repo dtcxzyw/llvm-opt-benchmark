@@ -6694,7 +6694,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
   br i1 %.not.i.i.i, label %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange8iteratorEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange8iteratorEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i: ; preds = %.lr.ph.i.i.i
-  %7 = icmp ugt i64 %.06.i.i.i, 1152921504606846974
+  %7 = icmp samesign ugt i64 %.06.i.i.i, 1152921504606846974
   br i1 %7, label %8, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_M_allocateEm.exit.i
 
 8:                                                ; preds = %_ZSt8distanceIN32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged9PathRange8iteratorEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i

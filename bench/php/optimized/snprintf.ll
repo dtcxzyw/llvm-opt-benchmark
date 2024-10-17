@@ -237,7 +237,7 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   %89 = add i8 %88, 48
   %90 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %89, ptr %90, align 1
-  %.not.i = icmp ult i64 %.1.i, 10
+  %.not.i = icmp samesign ult i64 %.1.i, 10
   br i1 %.not.i, label %.lr.ph105.preheader, label %85
 
 .lr.ph105.preheader:                              ; preds = %85

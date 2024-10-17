@@ -336,7 +336,7 @@ land.rhs38:                                       ; preds = %land.rhs38.preheade
   %arrayidx40 = getelementptr inbounds i8, ptr %T, i64 %idxprom39
   %8 = load i8, ptr %arrayidx40, align 1
   %conv41 = zext i8 %8 to i32
-  %cmp42.not = icmp ult i32 %c1.0358, %conv41
+  %cmp42.not = icmp samesign ult i32 %c1.0358, %conv41
   br i1 %cmp42.not, label %do.body.preheader, label %for.body45, !llvm.loop !9
 
 for.body45:                                       ; preds = %land.rhs38
@@ -380,7 +380,7 @@ for.body59:                                       ; preds = %for.end54, %for.con
   %14 = load i32, ptr %arrayidx68, align 4
   %add69 = add nsw i32 %add, %14
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
-  %cmp72365 = icmp ult i64 %indvars.iv476, 255
+  %cmp72365 = icmp samesign ult i64 %indvars.iv476, 255
   br i1 %cmp72365, label %for.body74, label %for.cond56.loopexit
 
 for.body74:                                       ; preds = %for.body59, %for.body74
@@ -721,7 +721,7 @@ for.inc63.i:                                      ; preds = %if.then55.i, %for.b
   %a.2.i = phi ptr [ %add.ptr58.i, %if.then55.i ], [ %a.1122.i, %for.body52.i ]
   %shl64.i = shl i32 %k.1123.i, 1
   %shr65.i = lshr i32 %i.1124.i, 1
-  %cmp50.not.i = icmp ult i32 %i.1124.i, 2
+  %cmp50.not.i = icmp samesign ult i32 %i.1124.i, 2
   br i1 %cmp50.not.i, label %for.end66.i, label %for.body52.i, !llvm.loop !16
 
 for.end66.i:                                      ; preds = %for.inc63.i, %for.end48.thread.i
@@ -1174,11 +1174,11 @@ do.end227:                                        ; preds = %do.body214
   br i1 %cmp181, label %for.body183, label %for.end234, !llvm.loop !27
 
 for.end234:                                       ; preds = %do.end227, %do.end204, %do.end204.thread
-  %tobool.not.i.i218 = icmp ult i32 %sub55, 65536
+  %tobool.not.i.i218 = icmp samesign ult i32 %sub55, 65536
   br i1 %tobool.not.i.i218, label %cond.false10.i.i282, label %cond.true.i.i219
 
 cond.true.i.i219:                                 ; preds = %for.end234
-  %tobool2.not.i.i220 = icmp ult i32 %sub55, 16777216
+  %tobool2.not.i.i220 = icmp samesign ult i32 %sub55, 16777216
   br i1 %tobool2.not.i.i220, label %cond.false.i.i277, label %cond.true3.i.i221
 
 cond.true3.i.i221:                                ; preds = %cond.true.i.i219
@@ -1198,7 +1198,7 @@ cond.false.i.i277:                                ; preds = %cond.true.i.i219
   br label %tr_ilg.exit.i
 
 cond.false10.i.i282:                              ; preds = %for.end234
-  %tobool12.not.i.i283 = icmp ult i32 %sub55, 256
+  %tobool12.not.i.i283 = icmp samesign ult i32 %sub55, 256
   br i1 %tobool12.not.i.i283, label %cond.false19.i.i289, label %cond.true13.i.i284
 
 cond.true13.i.i284:                               ; preds = %cond.false10.i.i282
@@ -2705,7 +2705,7 @@ for.body.i665.i.i:                                ; preds = %tr_fixdown.exit.i.i
   %224 = load i32, ptr %arrayidx2.i.i.i.i, align 4
   %225 = shl nuw nsw i64 %indvars.iv.next.i.i.i, 1
   %226 = or disjoint i64 %225, 1
-  %cmp20.i.i.i.i = icmp ult i64 %226, %222
+  %cmp20.i.i.i.i = icmp samesign ult i64 %226, %222
   %227 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   br i1 %cmp20.i.i.i.i, label %for.body.i.preheader.i.i.i, label %tr_fixdown.exit.i.i.i
 
@@ -4151,7 +4151,7 @@ land.rhs266:                                      ; preds = %if.then261, %for.in
   %arrayidx268 = getelementptr inbounds i8, ptr %T, i64 %idxprom267
   %398 = load i8, ptr %arrayidx268, align 1
   %conv269 = zext i8 %398 to i32
-  %cmp270.not = icmp ult i32 %c1.4388, %conv269
+  %cmp270.not = icmp samesign ult i32 %c1.4388, %conv269
   br i1 %cmp270.not, label %if.end288, label %for.inc274
 
 for.inc274:                                       ; preds = %land.rhs266
@@ -5174,7 +5174,7 @@ for.body.i363:                                    ; preds = %ss_fixdown.exit.i, 
   %28 = load i8, ptr %arrayidx4.i.i, align 1
   %29 = shl nuw nsw i64 %indvars.iv.next.i, 1
   %30 = or disjoint i64 %29, 1
-  %cmp21.i.i = icmp ult i64 %30, %25
+  %cmp21.i.i = icmp samesign ult i64 %30, %25
   %31 = trunc nsw i64 %indvars.iv.next.i to i32
   br i1 %cmp21.i.i, label %for.body.i.preheader.i, label %ss_fixdown.exit.i
 

@@ -60,7 +60,7 @@ define dso_local noundef ptr @drm_property_create(ptr noundef %0, i32 noundef %1
   %11 = icmp eq i32 %9, 0
   %12 = xor i1 %10, %11
   %13 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %8), !range !6
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %15 = select i1 %12, i1 %14, i1 false
   br i1 %15, label %17, label %16, !prof !7
 
@@ -638,7 +638,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getproperty_ioctl(ptr n
   %38 = phi i64 [ 0, %33 ], [ %55, %54 ]
   %39 = load i32, ptr %34, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %42, label %54
 
 42:                                               ; preds = %37

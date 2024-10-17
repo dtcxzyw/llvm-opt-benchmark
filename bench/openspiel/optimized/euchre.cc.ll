@@ -4093,7 +4093,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 116:                                              ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 22, %.lr.ph ], [ %indvars.iv.next, %109 ]
   %117 = phi ptr [ %94, %.lr.ph ], [ %181, %109 ]
-  %118 = icmp ult i64 %indvars.iv, 25
+  %118 = icmp samesign ult i64 %indvars.iv, 25
   br i1 %118, label %119, label %137
 
 119:                                              ; preds = %116

@@ -1436,7 +1436,7 @@ define internal void @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Erro
 define internal void @"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17ha6f0cd676aeb171cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !68, !noundef !4
-  %switch = icmp ult i64 %3, 2
+  %switch = icmp samesign ult i64 %3, 2
   br i1 %switch, label %10, label %4
 
 4:                                                ; preds = %1
@@ -2532,7 +2532,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
   %38 = icmp slt i8 %.sroa.04.0.extract.trunc.i, 26
   tail call void @llvm.assume(i1 %38)
   %.0327.i = tail call i8 @llvm.abs.i8(i8 %.sroa.04.0.extract.trunc.i, i1 true)
-  %39 = icmp ugt i8 %.0327.i, 23
+  %39 = icmp samesign ugt i8 %.0327.i, 23
   br i1 %39, label %213, label %40
 
 40:                                               ; preds = %36
@@ -4851,7 +4851,7 @@ define internal fastcc void @_ZN9actix_web10middleware6logger6Format3new17hd9ef4
   %37 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %38 = icmp ult i64 %37, 6
   tail call void @llvm.assume(i1 %38)
-  %39 = icmp ult i64 %37, 5
+  %39 = icmp samesign ult i64 %37, 5
   br i1 %39, label %40, label %.critedge254
 
 40:                                               ; preds = %.critedge, %.critedge254
@@ -7823,7 +7823,7 @@ define noundef i8 @"_ZN90_$LT$actix_web..middleware..normalize..NormalizePath$u2
   %1 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %2 = icmp ult i64 %1, 6
   tail call void @llvm.assume(i1 %2)
-  %3 = icmp ult i64 %1, 2
+  %3 = icmp samesign ult i64 %1, 2
   br i1 %3, label %4, label %.critedge8
 
 4:                                                ; preds = %.critedge, %.critedge8

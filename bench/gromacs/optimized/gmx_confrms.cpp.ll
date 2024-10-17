@@ -966,7 +966,7 @@ _ZL12debug_strcmpPcS_.exit166.i.i:                ; preds = %402
   %.4.i.i = phi i1 [ %.3.i.i, %417 ], [ %.3.i.i, %_ZL12debug_strcmpPcS_.exit166.i.i ], [ %.1129199.i.i, %353 ], [ %.3.i.i, %400 ], [ %.3.i.i, %_ZL12debug_strcmpPcS_.exit166.thread.i.i ]
   %.2.i.i = phi i1 [ true, %417 ], [ true, %_ZL12debug_strcmpPcS_.exit166.i.i ], [ %.1127200.i.i, %353 ], [ false, %400 ], [ true, %_ZL12debug_strcmpPcS_.exit166.thread.i.i ]
   %indvars.iv.next222.i.i = add nuw nsw i64 %indvars.iv221.i.i, 1
-  %419 = icmp ult i64 %indvars.iv221.i.i, %indvars.iv223.i.i
+  %419 = icmp samesign ult i64 %indvars.iv221.i.i, %indvars.iv223.i.i
   %420 = icmp ne i32 %.4139.i.i, 0
   %421 = select i1 %419, i1 %420, i1 false
   br i1 %421, label %353, label %422, !llvm.loop !10
@@ -974,7 +974,7 @@ _ZL12debug_strcmpPcS_.exit166.i.i:                ; preds = %402
 422:                                              ; preds = %.thread178.i.i
   %indvars.iv.next224.i.i = add nuw nsw i64 %indvars.iv223.i.i, 1
   %423 = add nuw nsw i32 %.0124205.i.i, 1
-  %424 = icmp ult i64 %indvars.iv.next224.i.i, %342
+  %424 = icmp samesign ult i64 %indvars.iv.next224.i.i, %342
   %425 = select i1 %424, i1 %420, i1 false
   br i1 %425, label %.preheader.i.i, label %426, !llvm.loop !11
 

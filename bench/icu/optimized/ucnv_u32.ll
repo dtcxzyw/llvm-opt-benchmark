@@ -67,7 +67,7 @@ morebytes:                                        ; preds = %while.cond, %if.the
   %mySource.0 = phi ptr [ %0, %if.then ], [ %mySource.1, %while.cond ]
   %ch.0 = phi i32 [ %sub, %if.then ], [ 0, %while.cond ]
   %i.0 = phi i32 [ %conv, %if.then ], [ 0, %while.cond ]
-  %cmp1855 = icmp ult i32 %i.0, 4
+  %cmp1855 = icmp samesign ult i32 %i.0, 4
   br i1 %cmp1855, label %while.body19.preheader, label %while.end
 
 while.body19.preheader:                           ; preds = %morebytes
@@ -232,7 +232,7 @@ morebytes:                                        ; preds = %while.cond, %if.the
   %ch.0 = phi i32 [ %sub, %if.then ], [ 0, %while.cond ]
   %i.0 = phi i32 [ %conv, %if.then ], [ 0, %while.cond ]
   %offsetNum.0 = phi i32 [ 0, %if.then ], [ %offsetNum.1, %while.cond ]
-  %cmp1864 = icmp ult i32 %i.0, 4
+  %cmp1864 = icmp samesign ult i32 %i.0, 4
   br i1 %cmp1864, label %while.body19.preheader, label %while.end
 
 while.body19.preheader:                           ; preds = %morebytes
@@ -890,7 +890,7 @@ morebytes:                                        ; preds = %while.cond, %if.the
   %mySource.0 = phi ptr [ %0, %if.then ], [ %mySource.1, %while.cond ]
   %ch.0 = phi i32 [ %sub, %if.then ], [ 0, %while.cond ]
   %i.0 = phi i32 [ %conv, %if.then ], [ 0, %while.cond ]
-  %cmp1856 = icmp ult i32 %i.0, 4
+  %cmp1856 = icmp samesign ult i32 %i.0, 4
   br i1 %cmp1856, label %while.body19.preheader, label %while.end
 
 while.body19.preheader:                           ; preds = %morebytes
@@ -1057,7 +1057,7 @@ morebytes:                                        ; preds = %while.cond, %if.the
   %ch.0 = phi i32 [ %sub, %if.then ], [ 0, %while.cond ]
   %i.0 = phi i32 [ %conv, %if.then ], [ 0, %while.cond ]
   %offsetNum.0 = phi i32 [ 0, %if.then ], [ %offsetNum.1, %while.cond ]
-  %cmp1865 = icmp ult i32 %i.0, 4
+  %cmp1865 = icmp samesign ult i32 %i.0, 4
   br i1 %cmp1865, label %while.body19.preheader, label %while.end
 
 while.body19.preheader:                           ; preds = %morebytes

@@ -442,7 +442,7 @@ extract_lateral_references.exit:                  ; preds = %switch.hole_check, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %5, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %10, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %extract_lateral_references.exit, %.preheader, %1
@@ -547,7 +547,7 @@ define dso_local void @create_lateral_join_info(ptr noundef %0) local_unnamed_ad
   %.1 = phi i1 [ %.0154, %10 ], [ %.0154, %16 ], [ %.2.lcssa, %._crit_edge ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next176, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next176, %48
   br i1 %49, label %10, label %._crit_edge156, !llvm.loop !9
 
 ._crit_edge156:                                   ; preds = %46, %.preheader136
@@ -714,14 +714,14 @@ define dso_local void @create_lateral_join_info(ptr noundef %0) local_unnamed_ad
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %130 = load i32, ptr %6, align 8
   %131 = zext i32 %130 to i64
-  %132 = icmp ult i64 %indvars.iv.next180, %131
+  %132 = icmp samesign ult i64 %indvars.iv.next180, %131
   br i1 %132, label %.lr.ph169, label %.loopexit132, !llvm.loop !11
 
 .loopexit132:                                     ; preds = %129, %109, %100, %106
   %133 = phi i32 [ %101, %109 ], [ %101, %100 ], [ %101, %106 ], [ %130, %129 ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next183, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next183, %134
   br i1 %135, label %100, label %.preheader129, !llvm.loop !12
 
 136:                                              ; preds = %.lr.ph174, %.loopexit
@@ -778,7 +778,7 @@ define dso_local void @create_lateral_join_info(ptr noundef %0) local_unnamed_ad
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %163 = load i32, ptr %6, align 8
   %164 = zext i32 %163 to i64
-  %165 = icmp ult i64 %indvars.iv.next186, %164
+  %165 = icmp samesign ult i64 %indvars.iv.next186, %164
   br i1 %165, label %136, label %.loopexit130, !llvm.loop !14
 
 .loopexit130:                                     ; preds = %.loopexit, %.preheader133, %.preheader129, %1, %97

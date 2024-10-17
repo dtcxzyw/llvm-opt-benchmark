@@ -1696,7 +1696,7 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
   %42 = phi i32 [ %23, %22 ], [ %.pre31, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %22, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %41
@@ -1807,7 +1807,7 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
   %38 = phi i32 [ %23, %22 ], [ %.pre29, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %22, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %37

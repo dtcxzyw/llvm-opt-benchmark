@@ -8875,7 +8875,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   ]
 
 70:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i.i.i"
-  %71 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i, 127
+  %71 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i, 127
   br i1 %71, label %72, label %92
 
 72:                                               ; preds = %70

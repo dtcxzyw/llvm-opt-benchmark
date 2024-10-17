@@ -1346,7 +1346,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapt
   br label %62
 
 ._crit_edge.i.i:                                  ; preds = %10
-  %40 = icmp ugt i32 %.01115.i, 99
+  %40 = icmp samesign ugt i32 %.01115.i, 99
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %._crit_edge.i.i
@@ -1367,7 +1367,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapt
 51:                                               ; preds = %41, %._crit_edge.i.i
   %.138.i.i.neg = phi i64 [ -2, %41 ], [ 0, %._crit_edge.i.i ]
   %.1.i.i = phi i32 [ %.zext41.i.i, %41 ], [ %.01115.i, %._crit_edge.i.i ]
-  %52 = icmp ugt i32 %.1.i.i, 9
+  %52 = icmp samesign ugt i32 %.1.i.i, 9
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %51
@@ -1471,7 +1471,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture nou
 ._crit_edge.i:                                    ; preds = %25, %9
   %.037.lcssa.i = phi i32 [ 0, %9 ], [ %43, %25 ]
   %.036.lcssa.i = phi i32 [ %.01115, %9 ], [ %26, %25 ]
-  %45 = icmp ugt i32 %.036.lcssa.i, 99
+  %45 = icmp samesign ugt i32 %.036.lcssa.i, 99
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %._crit_edge.i
@@ -1496,7 +1496,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture nou
 60:                                               ; preds = %46, %._crit_edge.i
   %.138.i = phi i32 [ %59, %46 ], [ %.037.lcssa.i, %._crit_edge.i ]
   %.1.i = phi i32 [ %.zext41.i, %46 ], [ %.036.lcssa.i, %._crit_edge.i ]
-  %61 = icmp ugt i32 %.1.i, 9
+  %61 = icmp samesign ugt i32 %.1.i, 9
   br i1 %61, label %62, label %73
 
 62:                                               ; preds = %60
@@ -1588,7 +1588,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
 ._crit_edge:                                      ; preds = %20, %5
   %.037.lcssa = phi i32 [ 0, %5 ], [ %38, %20 ]
   %.036.lcssa = phi i32 [ %0, %5 ], [ %21, %20 ]
-  %40 = icmp ugt i32 %.036.lcssa, 99
+  %40 = icmp samesign ugt i32 %.036.lcssa, 99
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %._crit_edge
@@ -1613,7 +1613,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
 55:                                               ; preds = %41, %._crit_edge
   %.138 = phi i32 [ %54, %41 ], [ %.037.lcssa, %._crit_edge ]
   %.1 = phi i32 [ %.zext41, %41 ], [ %.036.lcssa, %._crit_edge ]
-  %56 = icmp ugt i32 %.1, 9
+  %56 = icmp samesign ugt i32 %.1, 9
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %55
@@ -1720,7 +1720,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   %.061.lcssa = phi i32 [ 0, %5 ], [ %54, %21 ]
   %.060.lcssa = phi i64 [ %0, %5 ], [ %22, %21 ]
   %56 = trunc nuw nsw i64 %.060.lcssa to i32
-  %57 = icmp ugt i64 %.060.lcssa, 9999
+  %57 = icmp samesign ugt i64 %.060.lcssa, 9999
   br i1 %57, label %58, label %79
 
 58:                                               ; preds = %._crit_edge
@@ -1775,7 +1775,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
 95:                                               ; preds = %81, %79
   %.163 = phi i32 [ %89, %81 ], [ %.062, %79 ]
   %.2 = phi i32 [ %94, %81 ], [ %.1, %79 ]
-  %96 = icmp ugt i32 %.163, 9
+  %96 = icmp samesign ugt i32 %.163, 9
   br i1 %96, label %97, label %108
 
 97:                                               ; preds = %95
@@ -1900,7 +1900,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 nou
 ._crit_edge.i:                                    ; preds = %30, %15
   %.037.lcssa.i = phi i32 [ 0, %15 ], [ %48, %30 ]
   %.036.lcssa.i = phi i32 [ %1, %15 ], [ %31, %30 ]
-  %50 = icmp ugt i32 %.036.lcssa.i, 99
+  %50 = icmp samesign ugt i32 %.036.lcssa.i, 99
   br i1 %50, label %51, label %65
 
 51:                                               ; preds = %._crit_edge.i
@@ -1925,7 +1925,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 nou
 65:                                               ; preds = %51, %._crit_edge.i
   %.138.i = phi i32 [ %64, %51 ], [ %.037.lcssa.i, %._crit_edge.i ]
   %.1.i = phi i32 [ %.zext41.i, %51 ], [ %.036.lcssa.i, %._crit_edge.i ]
-  %66 = icmp ugt i32 %.1.i, 9
+  %66 = icmp samesign ugt i32 %.1.i, 9
   br i1 %66, label %67, label %78
 
 67:                                               ; preds = %65
@@ -2040,7 +2040,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local
 ._crit_edge.i:                                    ; preds = %20, %5
   %.037.lcssa.i = phi i32 [ 0, %5 ], [ %38, %20 ]
   %.036.lcssa.i = phi i32 [ %1, %5 ], [ %21, %20 ]
-  %40 = icmp ugt i32 %.036.lcssa.i, 99
+  %40 = icmp samesign ugt i32 %.036.lcssa.i, 99
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %._crit_edge.i
@@ -2065,7 +2065,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local
 55:                                               ; preds = %41, %._crit_edge.i
   %.138.i = phi i32 [ %54, %41 ], [ %.037.lcssa.i, %._crit_edge.i ]
   %.1.i = phi i32 [ %.zext41.i, %41 ], [ %.036.lcssa.i, %._crit_edge.i ]
-  %56 = icmp ugt i32 %.1.i, 9
+  %56 = icmp samesign ugt i32 %.1.i, 9
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %55

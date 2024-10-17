@@ -2915,12 +2915,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %102, i64 %idxprom6.i.i.i
   store i8 %104, ptr %arrayidx7.i.i.i, align 1, !tbaa !13
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !67
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont6.i.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %conv, %invoke.cont6.i.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i363, label %if.else.i.i.i
 
 if.then.i.i.i363:                                 ; preds = %while.end.i.i.i
@@ -11843,7 +11843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit458: ; preds = %if
   %sub.ptr.sub.i.i395 = sub i64 %sub.ptr.lhs.cast.i.i393, %sub.ptr.rhs.cast.i.i394
   %sub.ptr.div.i.i396 = sdiv exact i64 %sub.ptr.sub.i.i395, 312
   %134 = and i64 %sub.ptr.div.i.i396, 4294967295
-  %cmp126 = icmp ult i64 %indvars.iv.next, %134
+  %cmp126 = icmp samesign ult i64 %indvars.iv.next, %134
   br i1 %cmp126, label %for.body128, label %for.cond.cleanup127, !llvm.loop !215
 
 lpad133:                                          ; preds = %call2.i.i.i.noexc, %for.body128

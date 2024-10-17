@@ -14,11 +14,11 @@ define i64 @f128_to_ui32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   %.not = icmp eq i64 %6, 0
   %11 = or disjoint i64 %10, 281474976710656
   %.019 = select i1 %.not, i64 %10, i64 %11
-  %12 = icmp ult i64 %6, 16419
+  %12 = icmp samesign ult i64 %6, 16419
   br i1 %12, label %13, label %softfloat_shiftRightJam64.exit
 
 13:                                               ; preds = %4
-  %14 = icmp ugt i64 %6, 16356
+  %14 = icmp samesign ugt i64 %6, 16356
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %13

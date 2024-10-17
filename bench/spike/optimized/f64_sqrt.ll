@@ -77,7 +77,7 @@ define i64 @f64_sqrt(i64 %0) local_unnamed_addr #0 {
   %43 = and i64 %42, 34359738360
   %44 = add i64 %41, %43
   %45 = and i64 %44, 504
-  %46 = icmp ult i64 %45, 34
+  %46 = icmp samesign ult i64 %45, 34
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %19

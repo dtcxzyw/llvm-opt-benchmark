@@ -5045,7 +5045,7 @@ define internal fastcc range(i32 2, 65538) i32 @dissect_scsi_modepage(ptr nounde
   %18 = zext nneg i8 %7 to i32
   %19 = tail call ptr @try_val_to_str(i32 noundef %18, ptr noundef nonnull @scsi_spc_modepage_val) #10
   %20 = icmp eq ptr %19, null
-  %21 = icmp ult i32 %4, 9
+  %21 = icmp samesign ult i32 %4, 9
   %or.cond = and i1 %20, %21
   br i1 %or.cond, label %switch.lookup, label %25
 
@@ -5279,7 +5279,7 @@ define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr n
   %29 = load ptr, ptr %28, align 8
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 127
-  %32 = icmp ult i8 %31, 9
+  %32 = icmp samesign ult i8 %31, 9
   br i1 %32, label %switch.lookup, label %34
 
 switch.lookup:                                    ; preds = %27
@@ -5424,7 +5424,7 @@ define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr 
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, 127
-  %33 = icmp ult i8 %32, 9
+  %33 = icmp samesign ult i8 %32, 9
   br i1 %33, label %switch.lookup, label %35
 
 switch.lookup:                                    ; preds = %28
@@ -6000,7 +6000,7 @@ default.unreachable133:                           ; preds = %28
 89:                                               ; preds = %30, %40, %87, %51, %46
   %.pn = zext nneg i8 %.0114 to i32
   %.1116 = add nuw nsw i32 %.0115131, %.pn
-  %90 = icmp ult i32 %.1116, 8
+  %90 = icmp samesign ult i32 %.1116, 8
   br i1 %90, label %9, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %9, %89, %86

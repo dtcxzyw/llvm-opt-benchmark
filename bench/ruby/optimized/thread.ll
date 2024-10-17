@@ -5518,7 +5518,7 @@ define internal fastcc void @sleep_forever(ptr noundef %0, i32 noundef range(i32
   %8 = and i8 %4, -4
   %9 = or disjoint i8 %8, %7
   store i8 %9, ptr %3, align 8
-  %.not19 = icmp ult i32 %1, 8
+  %.not19 = icmp samesign ult i32 %1, 8
   br i1 %.not19, label %10, label %vm_check_ints_blocking.exit
 
 10:                                               ; preds = %2
@@ -5959,7 +5959,7 @@ vm_check_ints_blocking.exit:                      ; preds = %32, %43
 .lr.ph:                                           ; preds = %vm_check_ints_blocking.exit
   %48 = getelementptr i8, ptr %0, i64 40
   %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %.not11 = icmp ult i32 %2, 2
+  %.not11 = icmp samesign ult i32 %2, 2
   %50 = getelementptr inbounds i8, ptr %4, i64 8
   br label %51
 
@@ -6029,7 +6029,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i21:  ; preds = %68, %65
 vm_check_ints_blocking.exit28:                    ; preds = %71, %76
   %82 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i18, i32 noundef 1)
   %.not = icmp ne i32 %82, 0
-  %or.cond = and i1 %.not11, %.not
+  %or.cond = select i1 %.not, i1 %.not11, i1 false
   br i1 %or.cond, label %vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge, label %vm_check_ints_blocking.exit28.thread
 
 vm_check_ints_blocking.exit28.hrtime_update_expire.exit.thread.loopexit_crit_edge: ; preds = %vm_check_ints_blocking.exit28

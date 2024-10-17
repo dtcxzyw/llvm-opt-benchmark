@@ -462,7 +462,7 @@ Wln_NtkCleanNameId.exit:                          ; preds = %79, %Vec_IntGrow.ex
   %171 = sub nsw i32 %.val279, %.val280
   %172 = call i32 @llvm.abs.i32(i32 %171, i1 true)
   %173 = zext nneg i32 %172 to i64
-  %.not372.not = icmp ult i64 %indvars.iv445, %173
+  %.not372.not = icmp samesign ult i64 %indvars.iv445, %173
   br i1 %.not372.not, label %.preheader, label %.loopexit, !llvm.loop !10
 
 174:                                              ; preds = %.preheader376, %174

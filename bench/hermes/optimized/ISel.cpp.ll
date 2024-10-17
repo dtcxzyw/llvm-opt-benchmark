@@ -47934,7 +47934,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIPN6her
   %call.i17 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %Inst) #19
   %sub.i18 = add i32 %call.i17, -4
   %div1.i = lshr i32 %sub.i18, 1
-  %cmp = icmp ult i32 %inc, %div1.i
+  %cmp = icmp samesign ult i32 %inc, %div1.i
   br i1 %cmp, label %for.body, label %for.cond9.preheader, !llvm.loop !41
 
 for.body11:                                       ; preds = %for.cond9.preheader, %for.inc18
@@ -54508,7 +54508,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end

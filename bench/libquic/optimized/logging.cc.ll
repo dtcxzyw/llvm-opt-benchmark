@@ -1057,7 +1057,7 @@ if.end64:                                         ; preds = %if.then59, %if.end5
   br i1 %cmp65, label %if.then66, label %if.else
 
 if.then66:                                        ; preds = %if.end64
-  %cmp1.i = icmp ult i32 %11, 4
+  %cmp1.i = icmp samesign ult i32 %11, 4
   br i1 %cmp1.i, label %if.then.i, label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit
 
 if.then.i:                                        ; preds = %if.then66

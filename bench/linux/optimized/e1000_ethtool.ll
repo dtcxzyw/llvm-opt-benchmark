@@ -1486,7 +1486,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %103, label %.preheader67, label %104, !llvm.loop !22
 
 104:                                              ; preds = %99
-  %105 = icmp ult i64 %96, 3
+  %105 = icmp samesign ult i64 %96, 3
   br label %106
 
 106:                                              ; preds = %104, %89
@@ -1532,7 +1532,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %129, label %.preheader65, label %130, !llvm.loop !22
 
 130:                                              ; preds = %124
-  %131 = icmp ult i64 %121, 3
+  %131 = icmp samesign ult i64 %121, 3
   br label %132
 
 132:                                              ; preds = %130, %.loopexit68
@@ -1578,7 +1578,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %155, label %.preheader63, label %156, !llvm.loop !22
 
 156:                                              ; preds = %150
-  %157 = icmp ult i64 %147, 3
+  %157 = icmp samesign ult i64 %147, 3
   br label %158
 
 158:                                              ; preds = %156, %.loopexit66
@@ -1624,7 +1624,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %181, label %.preheader61, label %182, !llvm.loop !22
 
 182:                                              ; preds = %176
-  %183 = icmp ult i64 %173, 3
+  %183 = icmp samesign ult i64 %173, 3
   br label %184
 
 184:                                              ; preds = %182, %.loopexit64
@@ -1674,7 +1674,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %211, label %.preheader59, label %212, !llvm.loop !22
 
 212:                                              ; preds = %206
-  %213 = icmp ult i64 %203, 3
+  %213 = icmp samesign ult i64 %203, 3
   br label %214
 
 214:                                              ; preds = %212, %.loopexit62
@@ -1723,7 +1723,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %240, label %.preheader.i, label %241, !llvm.loop !22
 
 241:                                              ; preds = %236
-  %242 = icmp ult i64 %233, 3
+  %242 = icmp samesign ult i64 %233, 3
   br label %243
 
 243:                                              ; preds = %241, %.loopexit60
@@ -2631,7 +2631,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 
 814:                                              ; preds = %813, %806
   %815 = phi i32 [ 0, %813 ], [ %810, %806 ]
-  %816 = icmp ult i32 %809, 64
+  %816 = icmp samesign ult i32 %809, 64
   br i1 %816, label %817, label %821
 
 817:                                              ; preds = %814
@@ -3343,7 +3343,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr nocapture noundef readon
   br i1 %24, label %.preheader, label %25, !llvm.loop !22
 
 25:                                               ; preds = %18
-  %26 = icmp ult i64 %15, 3
+  %26 = icmp samesign ult i64 %15, 3
   br label %27
 
 27:                                               ; preds = %25, %5
@@ -3716,7 +3716,7 @@ define internal fastcc noundef range(i32 0, 9) i32 @e1000_set_phy_loopback(ptr n
   br i1 %73, label %.thread, label %15, !llvm.loop !49
 
 74:                                               ; preds = %66
-  %75 = icmp ult i16 %16, 11
+  %75 = icmp samesign ult i16 %16, 11
   br i1 %75, label %126, label %.thread
 
 76:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1

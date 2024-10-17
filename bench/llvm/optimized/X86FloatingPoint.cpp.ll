@@ -1508,7 +1508,7 @@ _ZN12_GLOBAL__N_13FPS15setupBlockStackEv.exit:    ; preds = %2, %_ZN12_GLOBAL__N
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 22
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
-  %.not.i.i.i = icmp ult i32 %123, %126
+  %.not.i.i.i = icmp samesign ult i32 %123, %126
   br i1 %.not.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %121
@@ -1535,7 +1535,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i: ; preds = %
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 22
   %142 = load i16, ptr %141, align 2
   %143 = zext i16 %142 to i32
-  %.not.i.i6.i = icmp ult i32 %140, %143
+  %.not.i.i6.i = icmp samesign ult i32 %140, %143
   br i1 %.not.i.i6.i, label %_ZN12_GLOBAL__N_13FPS8isFPCopyERN4llvm12MachineInstrE.exit, label %.thread
 
 _ZN12_GLOBAL__N_13FPS8isFPCopyERN4llvm12MachineInstrE.exit: ; preds = %138
@@ -1570,7 +1570,7 @@ _ZN12_GLOBAL__N_13FPS8isFPCopyERN4llvm12MachineInstrE.exit.thread6: ; preds = %_
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 22
   %164 = load i16, ptr %163, align 2
   %165 = zext i16 %164 to i32
-  %.not.i.i = icmp ult i32 %162, %165
+  %.not.i.i = icmp samesign ult i32 %162, %165
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %160
@@ -1639,7 +1639,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %181, %186
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 22
   %205 = load i16, ptr %204, align 2
   %206 = zext i16 %205 to i32
-  %.not.i.i57 = icmp ult i32 %203, %206
+  %.not.i.i57 = icmp samesign ult i32 %203, %206
   br i1 %.not.i.i57, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit58, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit58.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit58: ; preds = %201
@@ -3417,7 +3417,7 @@ _ZNK4llvm8SmallSetIjLj1ESt4lessIjEE5vfindERKj.exit.i.i: ; preds = %.lr.ph.i.i.i1
   %970 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
   %971 = load i32, ptr %970, align 4
   %972 = zext i32 %971 to i64
-  %973 = icmp ugt i64 %indvars.iv291.i, %972
+  %973 = icmp samesign ugt i64 %indvars.iv291.i, %972
   %.19.i.i.i.i.i = select i1 %973, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %973, i64 24, i64 16
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
@@ -3434,7 +3434,7 @@ _ZNK4llvm8SmallSetIjLj1ESt4lessIjEE5countERKj.exit.i: ; preds = %_ZNKSt8_Rb_tree
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %975 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %976 = zext i32 %975 to i64
-  %977 = icmp ult i64 %indvars.iv291.i, %976
+  %977 = icmp samesign ult i64 %indvars.iv291.i, %976
   br i1 %977, label %_ZNK4llvm8SmallSetIjLj1ESt4lessIjEE5countERKj.exit.thread.i, label %978
 
 978:                                              ; preds = %_ZNK4llvm8SmallSetIjLj1ESt4lessIjEE5countERKj.exit.i, %_ZNK4llvm8SmallSetIjLj1ESt4lessIjEE5vfindERKj.exit.i.i
@@ -4059,7 +4059,7 @@ _ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i208: ; preds = %_ZNK12_GLOBAL__N_1
   %indvars.iv.next.i210 = add nuw nsw i64 %indvars.iv.i209, 1
   %1235 = load i32, ptr %22, align 8
   %1236 = zext i32 %1235 to i64
-  %1237 = icmp ult i64 %indvars.iv.next.i210, %1236
+  %1237 = icmp samesign ult i64 %indvars.iv.next.i210, %1236
   br i1 %1237, label %_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i208, label %_ZN12_GLOBAL__N_13FPS16finishBlockStackEv.exit, !llvm.loop !63
 
 _ZN12_GLOBAL__N_13FPS16finishBlockStackEv.exit:   ; preds = %1220, %.backedge.i.i205, %_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i208, %._crit_edge65, %1184, %1222

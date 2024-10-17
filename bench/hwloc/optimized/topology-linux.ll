@@ -727,7 +727,7 @@ hwloc_open.exit:                                  ; preds = %.preheader.i.i.i, %
   %64 = getelementptr inbounds i64, ptr %.2, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = or disjoint i64 %61, 1
-  %67 = icmp ult i64 %66, %60
+  %67 = icmp samesign ult i64 %66, %60
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %.lr.ph75
@@ -803,7 +803,7 @@ define i32 @hwloc_linux_set_tid_cpubind(ptr nocapture readnone %0, i32 noundef %
   %.02227 = phi i32 [ %28, %27 ], [ %16, %15 ]
   %17 = zext i32 %.02227 to i64
   %18 = lshr i64 %17, 3
-  %19 = icmp ult i64 %18, %13
+  %19 = icmp samesign ult i64 %18, %13
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %.lr.ph
@@ -981,7 +981,7 @@ hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %30
   %.02840 = phi i32 [ 0, %58 ], [ %74, %.critedge ]
   %61 = zext i32 %.02840 to i64
   %62 = lshr i64 %61, 3
-  %63 = icmp ult i64 %62, %41
+  %63 = icmp samesign ult i64 %62, %41
   br i1 %63, label %64, label %.critedge
 
 64:                                               ; preds = %60
@@ -1392,7 +1392,7 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
   %.02738 = phi i32 [ %45, %44 ], [ %33, %32 ]
   %34 = zext i32 %.02738 to i64
   %35 = lshr i64 %34, 3
-  %36 = icmp ult i64 %35, %30
+  %36 = icmp samesign ult i64 %35, %30
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %.lr.ph
@@ -1501,7 +1501,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   %.02838 = phi i32 [ 0, %38 ], [ %53, %.critedge ]
   %40 = zext i32 %.02838 to i64
   %41 = lshr i64 %40, 3
-  %42 = icmp ult i64 %41, %32
+  %42 = icmp samesign ult i64 %41, %32
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %39
@@ -2606,7 +2606,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_set_pid_cpubind(i32 nou
   %.02227.i = phi i32 [ %50, %49 ], [ %38, %37 ]
   %39 = zext i32 %.02227.i to i64
   %40 = lshr i64 %39, 3
-  %41 = icmp ult i64 %40, %35
+  %41 = icmp samesign ult i64 %40, %35
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %.lr.ph.i3
@@ -12010,7 +12010,7 @@ annotate_dax_nodes.exit.i:                        ; preds = %.split.us.i.i, %hwl
 
 1630:                                             ; preds = %.lr.ph95.i.i.i
   %indvars.iv.next109.i.i.i = add nuw nsw i64 %indvars.iv108.i.i.i, 1
-  %1631 = icmp ult i64 %indvars.iv.next109.i.i.i, %1609
+  %1631 = icmp samesign ult i64 %indvars.iv.next109.i.i.i, %1609
   br i1 %1631, label %.lr.ph93.i.i.i, label %.loopexit84.i.i.i
 
 .lr.ph93.i.i.i:                                   ; preds = %1630, %1679
@@ -13586,7 +13586,7 @@ read_node_local_memattrs.exit.i:                  ; preds = %2262, %2259, %hwloc
   %2270 = freeze i32 %2269
   %indvars.iv.next404.i = add nuw nsw i64 %indvars.iv403.i, 1
   %2271 = zext i32 %2270 to i64
-  %2272 = icmp ult i64 %indvars.iv.next404.i, %2271
+  %2272 = icmp samesign ult i64 %indvars.iv.next404.i, %2271
   br i1 %2272, label %2092, label %.preheader304.i, !llvm.loop !81
 
 .lr.ph359.split.i:                                ; preds = %.lr.ph359.i, %._crit_edge353.split.i

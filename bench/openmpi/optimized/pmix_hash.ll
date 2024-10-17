@@ -831,7 +831,7 @@ pmix_pointer_array_get_item.exit.us:              ; preds = %pmix_pointer_array_
 
 35:                                               ; preds = %31, %28, %pmix_pointer_array_get_item.exit.us
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %36 = icmp ult i64 %indvars.iv.next113, %24
+  %36 = icmp samesign ult i64 %indvars.iv.next113, %24
   br i1 %36, label %pmix_pointer_array_get_item.exit.us, label %.loopexit65, !llvm.loop !11
 
 pmix_pointer_array_get_item.exit.us85:            ; preds = %pmix_pointer_array_get_item.exit.lr.ph, %86

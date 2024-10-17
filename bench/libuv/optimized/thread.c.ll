@@ -236,7 +236,7 @@ for.cond.preheader.i:                             ; preds = %do.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %cond.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cond.end.i ], [ 0, %for.cond.preheader.i ]
-  %cmp11.i = icmp ult i64 %indvars.iv.i, 1024
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.i, 1024
   br i1 %cmp11.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %for.body.i
@@ -287,8 +287,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp ne i8 %5, 0
-  %cmp18 = icmp ult i64 %indvars.iv, 1024
-  %or.cond = and i1 %cmp18, %tobool.not
+  %cmp18 = icmp samesign ult i64 %indvars.iv, 1024
+  %or.cond = select i1 %tobool.not, i1 %cmp18, i1 false
   br i1 %or.cond, label %cond.true, label %for.inc
 
 cond.true:                                        ; preds = %for.body
@@ -349,7 +349,7 @@ if.then6:                                         ; preds = %do.body
 
 for.body:                                         ; preds = %for.cond.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %for.cond.preheader ]
-  %cmp11 = icmp ult i64 %indvars.iv, 1024
+  %cmp11 = icmp samesign ult i64 %indvars.iv, 1024
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body

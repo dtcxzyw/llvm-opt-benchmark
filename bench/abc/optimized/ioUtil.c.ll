@@ -1811,7 +1811,7 @@ define noalias noundef ptr @Io_ConvertNumsToSop(ptr nocapture noundef readonly %
   %34 = getelementptr inbounds i8, ptr %21, i64 %33
   store i8 %31, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = icmp ult i64 %indvars.iv.next, %25
+  %35 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %35, label %26, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %26, %18

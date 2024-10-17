@@ -56,7 +56,7 @@ while.body.i:                                     ; preds = %entry, %if.end10.i
   %add.ptr2.i.i = getelementptr inbounds i32, ptr %this.val, i64 %conv1.i
   %4 = load i32, ptr %add.ptr2.i.i, align 4
   %shr.i.i = lshr i32 %4, 6
-  %cmp4.i = icmp ult i32 %shr.i.i, %conv.i
+  %cmp4.i = icmp samesign ult i32 %shr.i.i, %conv.i
   br i1 %cmp4.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
@@ -64,7 +64,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp6.i = icmp ugt i32 %shr.i.i, %conv.i
+  %cmp6.i = icmp samesign ugt i32 %shr.i.i, %conv.i
   br i1 %cmp6.i, label %if.then7.i, label %if.then
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -83,7 +83,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12Stl
 
 if.then:                                          ; preds = %if.else.i
   %and.i = and i32 %4, 63
-  %cmp9 = icmp ult i32 %and.i, %cast.i
+  %cmp9 = icmp samesign ult i32 %and.i, %cast.i
   br i1 %cmp9, label %if.then10, label %if.end25
 
 if.then10:                                        ; preds = %if.then
@@ -519,7 +519,7 @@ while.body:                                       ; preds = %invoke.cont, %if.en
   %arrayidx = getelementptr inbounds i32, ptr %otherEntries, i64 %conv374
   %8 = load i32, ptr %arrayidx, align 4
   %shr.i34 = lshr i32 %8, 6
-  %cmp13 = icmp ult i32 %shr.i, %shr.i34
+  %cmp13 = icmp samesign ult i32 %shr.i, %shr.i34
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %while.body
@@ -537,7 +537,7 @@ if.then.i.i.i:                                    ; preds = %lpad8
   br label %eh.resume
 
 if.else:                                          ; preds = %while.body
-  %cmp21 = icmp ugt i32 %shr.i, %shr.i34
+  %cmp21 = icmp samesign ugt i32 %shr.i, %shr.i34
   br i1 %cmp21, label %if.then22, label %if.else29
 
 if.then22:                                        ; preds = %if.else
@@ -723,7 +723,7 @@ for.body:                                         ; preds = %if.end, %for.cond
   %add.ptr2.i = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %3 = load i32, ptr %add.ptr2.i, align 4
   %shr.i12 = lshr i32 %3, 6
-  %cmp12.not = icmp ult i32 %prevIndex.014, %shr.i12
+  %cmp12.not = icmp samesign ult i32 %prevIndex.014, %shr.i12
   br i1 %cmp12.not, label %for.cond, label %if.then14
 
 if.then14:                                        ; preds = %for.body
@@ -841,7 +841,7 @@ _ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit: ; pr
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit
-  %cmp.i.i.i = icmp ugt i64 %cond.i, 768
+  %cmp.i.i.i = icmp samesign ugt i64 %cond.i, 768
   %3 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 

@@ -181,7 +181,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %.026.lcssa.i.i.i = phi i64 [ 11, %34 ], [ %47, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %34 ], [ %40, %.lr.ph.i.i.i ]
   %37 = zext nneg i32 %.1.lcssa.i.i.i to i64
-  %38 = icmp ugt i32 %.1.lcssa.i.i.i, 99
+  %38 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %38, label %54, label %63
 
 .lr.ph.i.i.i:                                     ; preds = %34, %.lr.ph.i.i.i
@@ -225,7 +225,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
 63:                                               ; preds = %54, %._crit_edge.i.i.i
   %.127.i.i.i = phi i64 [ %59, %54 ], [ %.026.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.025.i.i.i = phi i64 [ %.zext37.i.i.i, %54 ], [ %37, %._crit_edge.i.i.i ]
-  %64 = icmp ult i64 %.025.i.i.i, 10
+  %64 = icmp samesign ult i64 %.025.i.i.i, 10
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %63
@@ -407,7 +407,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   %.026.lcssa.i.i.i.i = phi i64 [ 11, %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit ], [ %54, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i32 [ %.0.i.i.i.i, %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit ], [ %47, %.lr.ph.i.i.i.i ]
   %44 = zext nneg i32 %.1.lcssa.i.i.i.i to i64
-  %45 = icmp ugt i32 %.1.lcssa.i.i.i.i, 99
+  %45 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i, 99
   br i1 %45, label %61, label %70
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit, %.lr.ph.i.i.i.i
@@ -451,7 +451,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
 70:                                               ; preds = %61, %._crit_edge.i.i.i.i
   %.127.i.i.i.i = phi i64 [ %66, %61 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.025.i.i.i.i = phi i64 [ %.zext37.i.i.i.i, %61 ], [ %44, %._crit_edge.i.i.i.i ]
-  %71 = icmp ult i64 %.025.i.i.i.i, 10
+  %71 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %71, label %78, label %72
 
 72:                                               ; preds = %70
@@ -1725,7 +1725,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
 
 44:                                               ; preds = %.critedge.i
   %45 = and i8 %42, 127
-  %46 = icmp ugt i8 %45, 14
+  %46 = icmp samesign ugt i8 %45, 14
   br i1 %46, label %63, label %_ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i
 
 _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
@@ -8624,7 +8624,7 @@ _ZN9typst_pdf4page11write_image17ha0940c3ca9ba3e6aE.exit: ; preds = %710, %718
 719:                                              ; preds = %148
   %720 = getelementptr inbounds i8, ptr %.sroa.0.0118, i64 48
   %721 = load i64, ptr %720, align 16, !range !1273, !noundef !14
-  %722 = icmp ult i64 %721, 3
+  %722 = icmp samesign ult i64 %721, 3
   br i1 %722, label %724, label %_ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit
 
 _ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit: ; preds = %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.exit38.i", %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.exit28.i", %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.exit.i", %361, %719, %_ZN9typst_pdf4page10write_link17he340e52f1a8ba751E.exit, %_ZN9typst_pdf4page11write_image17ha0940c3ca9ba3e6aE.exit, %344, %_ZN9typst_pdf4page11PageContext13restore_state17he5271de64e2faae7E.exit

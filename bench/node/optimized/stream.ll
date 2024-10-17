@@ -529,7 +529,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %if.end25.sink.split
   br label %for.inc19.i.i
 
 uv__stream_queue_fd.exit.i.i:                     ; preds = %if.then10.i.i.i, %if.then.i.i.i
-  %cmp1331.i.i = icmp ult i64 %i.025.i.i, %div19.i.i
+  %cmp1331.i.i = icmp samesign ult i64 %i.025.i.i, %div19.i.i
   br i1 %cmp1331.i.i, label %for.body14.i.i, label %if.then99.i
 
 for.body14.i.i:                                   ; preds = %uv__stream_queue_fd.exit.i.i, %for.body14.i.i
@@ -2102,7 +2102,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %offset, align 4
   %16 = zext i32 %15 to i64
-  %cmp37 = icmp ult i64 %indvars.iv.next, %16
+  %cmp37 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp37, label %for.body, label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %for.body

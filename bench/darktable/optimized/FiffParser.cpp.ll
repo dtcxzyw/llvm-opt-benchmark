@@ -150,7 +150,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
 30:                                               ; preds = %1
   %31 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = icmp ult i32 %27, 88
+  %32 = icmp samesign ult i32 %27, 88
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
@@ -172,7 +172,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
 
 41:                                               ; preds = %34
   %42 = add nuw i32 %38, 12
-  %43 = icmp ult i32 %27, 92
+  %43 = icmp samesign ult i32 %27, 92
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
@@ -180,7 +180,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   unreachable
 
 45:                                               ; preds = %41
-  %46 = icmp ult i32 %27, 96
+  %46 = icmp samesign ult i32 %27, 96
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %45
@@ -191,7 +191,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   %49 = getelementptr inbounds i8, ptr %25, i64 92
   %50 = load i32, ptr %49, align 1
   %51 = tail call i32 @llvm.bswap.i32(i32 %50)
-  %52 = icmp ult i32 %27, 100
+  %52 = icmp samesign ult i32 %27, 100
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %48
@@ -199,7 +199,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   unreachable
 
 54:                                               ; preds = %48
-  %55 = icmp ult i32 %27, 104
+  %55 = icmp samesign ult i32 %27, 104
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
@@ -727,7 +727,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   %285 = icmp sgt i32 %51, -1
   call void @llvm.assume(i1 %285)
   %286 = getelementptr inbounds i8, ptr %283, i64 %280
-  %287 = icmp ult i32 %281, 4
+  %287 = icmp samesign ult i32 %281, 4
   br i1 %287, label %288, label %290
 
 288:                                              ; preds = %279
@@ -771,7 +771,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   %306 = phi i32 [ 4, %296 ], [ %351, %367 ]
   %307 = zext i32 %306 to i64
   %308 = add nuw nsw i64 %307, 2
-  %309 = icmp ugt i64 %308, %282
+  %309 = icmp samesign ugt i64 %308, %282
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %304
@@ -783,7 +783,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
 
 312:                                              ; preds = %304
   %313 = add nuw nsw i32 %306, 2
-  %314 = icmp ule i32 %313, %281
+  %314 = icmp samesign ule i32 %313, %281
   call void @llvm.assume(i1 %314)
   %315 = icmp sgt i32 %306, -1
   call void @llvm.assume(i1 %315)
@@ -792,7 +792,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   %318 = call i16 @llvm.bswap.i16(i16 %317)
   %319 = zext i16 %318 to i32
   %320 = zext nneg i32 %313 to i64
-  %321 = icmp ult i64 %invariant.op, %320
+  %321 = icmp samesign ult i64 %invariant.op, %320
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %312
@@ -804,7 +804,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
 
 324:                                              ; preds = %312
   %325 = add nuw nsw i32 %306, 4
-  %326 = icmp ule i32 %325, %281
+  %326 = icmp samesign ule i32 %325, %281
   call void @llvm.assume(i1 %326)
   %327 = getelementptr inbounds i8, ptr %286, i64 %320
   %328 = load i16, ptr %327, align 1
@@ -839,7 +839,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   %343 = zext nneg i32 %325 to i64
   %344 = zext i16 %329 to i64
   %345 = add nuw nsw i64 %344, %343
-  %346 = icmp ugt i64 %345, %282
+  %346 = icmp samesign ugt i64 %345, %282
   br i1 %346, label %347, label %349
 
 347:                                              ; preds = %340
@@ -852,7 +852,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
 349:                                              ; preds = %340
   %350 = zext i16 %329 to i32
   %351 = add nuw nsw i32 %325, %350
-  %352 = icmp ule i32 %351, %281
+  %352 = icmp samesign ule i32 %351, %281
   call void @llvm.assume(i1 %352)
   %353 = getelementptr inbounds i8, ptr %286, i64 %343
   %354 = or disjoint i64 %344, 209933706461184

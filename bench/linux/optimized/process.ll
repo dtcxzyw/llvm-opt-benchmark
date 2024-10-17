@@ -1004,7 +1004,7 @@ define dso_local void @speculative_store_bypass_ht_init() local_unnamed_addr #8 
 34:                                               ; preds = %26, %24
   %35 = add nuw nsw i64 %21, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %15, !prof !54, !llvm.loop !55
 
 .thread:                                          ; preds = %15, %34, %26, %20

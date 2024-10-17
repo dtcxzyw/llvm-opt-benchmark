@@ -1249,7 +1249,7 @@ open_file.exit.i47.i:                             ; preds = %if.end.i.i44.i, %if
 for.body.i49.i:                                   ; preds = %open_file.exit.i47.i, %if.end10.i.i
   %line.015.i.i = phi i32 [ %inc.i.i, %if.end10.i.i ], [ 1, %open_file.exit.i47.i ]
   %tok.addr.014.i.i = phi ptr [ %129, %if.end10.i.i ], [ %call11.i, %open_file.exit.i47.i ]
-  %cmp1.i.i = icmp ugt i32 %line.015.i.i, 1
+  %cmp1.i.i = icmp samesign ugt i32 %line.015.i.i, 1
   br i1 %cmp1.i.i, label %land.lhs.true.i52.i, label %if.end.i.i
 
 land.lhs.true.i52.i:                              ; preds = %for.body.i49.i

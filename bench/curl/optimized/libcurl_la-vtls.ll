@@ -4573,7 +4573,7 @@ if.end.i:                                         ; preds = %entry
 
 sw.default.i:                                     ; preds = %if.end.i
   %shr.i = lshr i32 %2, 16
-  %cmp10.i = icmp ult i32 %shr.i, %conv.i
+  %cmp10.i = icmp samesign ult i32 %shr.i, %conv.i
   br i1 %cmp10.i, label %ssl_prefs_check.exit, label %if.end
 
 ssl_prefs_check.exit:                             ; preds = %entry, %sw.default.i
@@ -4613,7 +4613,7 @@ if.end.i:                                         ; preds = %entry
 
 sw.default.i:                                     ; preds = %if.end.i
   %shr.i = lshr i32 %1, 16
-  %cmp10.i = icmp ult i32 %shr.i, %conv.i
+  %cmp10.i = icmp samesign ult i32 %shr.i, %conv.i
   br i1 %cmp10.i, label %ssl_prefs_check.exit, label %if.end
 
 ssl_prefs_check.exit:                             ; preds = %entry, %sw.default.i

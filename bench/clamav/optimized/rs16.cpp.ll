@@ -232,7 +232,7 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr nocapture noundef nonnull
   %30 = load i32, ptr %6, align 8
   %31 = add i32 %30, %29
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %.preheader35, !llvm.loop !7
 
 .preheader:                                       ; preds = %44, %.preheader35
@@ -392,7 +392,7 @@ _ZN9RSCoder165gfInvEj.exit.i:                     ; preds = %90, %.lr.ph.i
   %.1.i = phi i32 [ %.01321.i, %77 ], [ %111, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i, %114
   br i1 %115, label %77, label %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, !llvm.loop !12
 
 _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %112, %69
@@ -550,7 +550,7 @@ _ZN9RSCoder165gfInvEj.exit:                       ; preds = %.lr.ph, %20
   %.1 = phi i32 [ %.01321, %7 ], [ %41, %._crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %7, label %._crit_edge24, !llvm.loop !12
 
 ._crit_edge24:                                    ; preds = %42, %1
@@ -747,7 +747,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %104 = load i32, ptr %4, align 4
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next115, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next115, %105
   br i1 %106, label %.lr.ph, label %.preheader78, !llvm.loop !20
 
 .lr.ph92:                                         ; preds = %.preheader78, %.loopexit
@@ -815,7 +815,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %151 = load i32, ptr %4, align 4
   %152 = zext i32 %151 to i64
-  %153 = icmp ult i64 %indvars.iv.next118, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next118, %152
   br i1 %153, label %119, label %.loopexit.loopexit, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %119
@@ -861,7 +861,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   %174 = load i32, ptr %4, align 4
   %175 = mul i32 %174, %173
   %176 = zext i32 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next121, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next121, %176
   br i1 %177, label %168, label %._crit_edge99, !llvm.loop !24
 
 ._crit_edge99:                                    ; preds = %168, %.critedge._crit_edge

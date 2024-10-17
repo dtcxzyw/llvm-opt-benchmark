@@ -42,11 +42,11 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 27:                                               ; preds = %20
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
-  %28 = icmp ult i64 %14, %12
+  %28 = icmp samesign ult i64 %14, %12
   br i1 %28, label %77, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i64 %12, %14
+  %30 = icmp samesign ult i64 %12, %14
   br i1 %30, label %57, label %31
 
 31:                                               ; preds = %29

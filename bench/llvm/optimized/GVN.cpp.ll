@@ -3555,7 +3555,7 @@ _ZN4llvm9AAResults15onlyReadsMemoryEPKNS_8CallBaseE.exit: ; preds = %151
 159:                                              ; preds = %_ZN4llvm9AAResults15onlyReadsMemoryEPKNS_8CallBaseE.exit
   call void @_ZN4llvm7GVNPass10ValueTable10createExprEPNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::GVNPass::Expression") align 8 %7, ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull %1)
   %160 = call i64 @_ZN4llvm7GVNPass10ValueTable20assignExpNewValueNumERNS0_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %.not78 = icmp ult i64 %160, 4294967296
+  %.not78 = icmp samesign ult i64 %160, 4294967296
   br i1 %.not78, label %163, label %161
 
 161:                                              ; preds = %159
@@ -13393,7 +13393,7 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit:      ; preds = %_ZN4llvm5Value6addU
   %97 = load i32, ptr %3, align 4
   %98 = and i32 %97, 134217727
   %99 = zext nneg i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %100, label %11, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit, %2
@@ -21115,7 +21115,7 @@ _ZN4llvm7GVNPass10ExpressionD2Ev.exit27:          ; preds = %_ZN4llvm7GVNPass10E
   %84 = add nuw nsw i64 %.01331, 1
   %85 = load i32, ptr %11, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %84, %86
+  %87 = icmp samesign ult i64 %84, %86
   br i1 %87, label %21, label %._crit_edge, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %83, %2
@@ -21191,7 +21191,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapISt4pairIjPKNS_10BasicBlockEEj
   %42 = add nuw nsw i64 %.014.i, 1
   %43 = load i32, ptr %4, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %.lr.ph.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKNS_10BasicBlockEEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E8copyFromISC_EEvRKNS0_IT_S6_jS8_SB_EE.exit, !llvm.loop !289
 
 46:                                               ; preds = %2

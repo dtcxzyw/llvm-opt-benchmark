@@ -1569,7 +1569,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit28:        ; preds = %21, %24
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit31:        ; preds = %33, %36
   %.0.i.i30 = phi i64 [ %38, %36 ], [ %35, %33 ]
-  %39 = icmp ult i64 %.018, %.0.i.i30
+  %39 = icmp samesign ult i64 %.018, %.0.i.i30
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit31

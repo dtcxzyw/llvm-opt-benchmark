@@ -41795,7 +41795,7 @@ _ZNK5clang17ConstantArrayType11getSizeExprEv.exit28: ; preds = %42
   %72 = load i64, ptr %71, align 8, !noalias !142
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %70, ptr %73, align 8, !alias.scope !142
-  %74 = icmp ult i32 %70, 65
+  %74 = icmp samesign ult i32 %70, 65
   br i1 %74, label %75, label %83
 
 75:                                               ; preds = %68
@@ -50430,7 +50430,7 @@ define internal fastcc noundef i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
   %.not.i.i.i70 = icmp eq i8 %108, 13
   %109 = load i32, ptr %107, align 16
   %110 = and i32 %109, 267911168
-  %111 = icmp ugt i32 %110, 256901120
+  %111 = icmp samesign ugt i32 %110, 256901120
   %.0.i.i.i = select i1 %.not.i.i.i70, i1 %111, i1 false
   br i1 %.0.i.i.i, label %112, label %.thread
 
@@ -59859,7 +59859,7 @@ _ZNSt8optionalIPN5clang4ExprEEaSIPNS0_14IntegerLiteralEEENSt9enable_ifIX7__and_v
   %219 = load i64, ptr %218, align 8, !noalias !201
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %217, ptr %220, align 8, !alias.scope !201
-  %221 = icmp ult i32 %217, 65
+  %221 = icmp samesign ult i32 %217, 65
   br i1 %221, label %222, label %230
 
 222:                                              ; preds = %215
@@ -65305,7 +65305,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
   %75 = lshr i64 %74, 32
   %76 = trunc nuw i64 %75 to i32
   %77 = and i32 %76, 2147483647
-  %78 = icmp ult i32 %77, 65
+  %78 = icmp samesign ult i32 %77, 65
   br i1 %78, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %71
@@ -89849,7 +89849,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
   %48 = load i32, ptr %11, align 8
   %49 = select i1 %.not.i.i, i32 %48, i32 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %45, %50
+  %51 = icmp samesign ult i64 %45, %50
   br i1 %51, label %15, label %._crit_edge, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %.critedge, %2

@@ -204,7 +204,7 @@ if.then.i.us:                                     ; preds = %if.then58.us
   br i1 %cmp.i147.not.us, label %if.end83.us, label %do.end71
 
 if.end83.us:                                      ; preds = %if.then.i.us, %invoke.cont66.us, %for.body56.us
-  %cmp84.us = icmp ult i64 %indvars.iv265, %24
+  %cmp84.us = icmp samesign ult i64 %indvars.iv265, %24
   br i1 %cmp84.us, label %if.then85.us, label %for.inc158.us
 
 if.then85.us:                                     ; preds = %if.end83.us
@@ -276,7 +276,7 @@ do.end71:                                         ; preds = %invoke.cont66, %if.
   br label %for.end160
 
 if.end83:                                         ; preds = %if.then.i, %invoke.cont66, %for.body56
-  %cmp84 = icmp ult i64 %indvars.iv261, %24
+  %cmp84 = icmp samesign ult i64 %indvars.iv261, %24
   br i1 %cmp84, label %if.then85, label %for.inc158
 
 if.then85:                                        ; preds = %if.end83
@@ -774,7 +774,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
 for.body261.preheader:                            ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %arrayidx262308 = getelementptr inbounds i32, ptr %85, i64 %add.i.i
   store i32 %currentFloodIndex.0249, ptr %arrayidx262308, align 4
-  %cmp.not.i.i191309 = icmp ult i64 %i.06.i.i, 4
+  %cmp.not.i.i191309 = icmp samesign ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i191309, label %if.end.i.i, label %for.end266
 
 if.end.i.i:                                       ; preds = %for.body261.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -801,7 +801,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i198
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i198 ], [ %div1.i.i.i193, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i198, label %for.end266
 
 for.body.i.i198:                                  ; preds = %for.cond.i.i
@@ -822,7 +822,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.t
   %add9.i.i = or disjoint i64 %90, %mul.i.i197.sink
   %arrayidx262 = getelementptr inbounds i32, ptr %85, i64 %add9.i.i
   store i32 %currentFloodIndex.0249, ptr %arrayidx262, align 4
-  %cmp.not.i.i191 = icmp ult i64 %mul.i.i197.sink, 256
+  %cmp.not.i.i191 = icmp samesign ult i64 %mul.i.i197.sink, 256
   br i1 %cmp.not.i.i191, label %if.end.i.i, label %for.end266
 
 for.end266:                                       ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %for.body261.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

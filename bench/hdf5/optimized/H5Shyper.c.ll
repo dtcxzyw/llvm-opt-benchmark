@@ -981,7 +981,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %41, %H5S__hyper_reb
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %211 = load i32, ptr %12, align 8
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %indvars.iv.next455, %212
+  %213 = icmp samesign ult i64 %indvars.iv.next455, %212
   br i1 %213, label %.lr.ph409, label %.loopexit
 
 .lr.ph407:                                        ; preds = %.preheader334, %310
@@ -1148,7 +1148,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %41, %H5S__hyper_reb
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %311 = load i32, ptr %12, align 8
   %312 = zext i32 %311 to i64
-  %313 = icmp ult i64 %indvars.iv.next452, %312
+  %313 = icmp samesign ult i64 %indvars.iv.next452, %312
   br i1 %313, label %.lr.ph407, label %.loopexit
 
 .lr.ph403:                                        ; preds = %.preheader344, %.loopexit337
@@ -1263,7 +1263,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %41, %H5S__hyper_reb
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %357 = load i32, ptr %12, align 8
   %358 = zext i32 %357 to i64
-  %359 = icmp ult i64 %indvars.iv.next449, %358
+  %359 = icmp samesign ult i64 %indvars.iv.next449, %358
   br i1 %359, label %.lr.ph403, label %._crit_edge404.loopexit
 
 ._crit_edge404.loopexit:                          ; preds = %.loopexit337
@@ -2026,7 +2026,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr nocapture nound
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %226 = load i32, ptr %173, align 8
   %227 = zext i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv.next666, %227
+  %228 = icmp samesign ult i64 %indvars.iv.next666, %227
   br i1 %228, label %177, label %.loopexit542
 
 229:                                              ; preds = %.lr.ph575, %239
@@ -2148,7 +2148,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr nocapture nound
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %318 = load i32, ptr %169, align 8
   %319 = zext i32 %318 to i64
-  %320 = icmp ult i64 %indvars.iv.next663, %319
+  %320 = icmp samesign ult i64 %indvars.iv.next663, %319
   br i1 %320, label %229, label %.loopexit542
 
 321:                                              ; preds = %.lr.ph, %382
@@ -2271,7 +2271,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %383 = load i32, ptr %165, align 8
   %384 = zext i32 %383 to i64
-  %385 = icmp ult i64 %indvars.iv.next, %384
+  %385 = icmp samesign ult i64 %indvars.iv.next, %384
   br i1 %385, label %321, label %.loopexit542
 
 386:                                              ; preds = %164
@@ -2815,7 +2815,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_bounds(ptr nocapture noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %22, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %25, label %.loopexit
 
 53:                                               ; preds = %18
@@ -3056,7 +3056,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_contiguous(ptr nocapture noun
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %indvars.iv, %28
+  %35 = icmp samesign ult i64 %indvars.iv, %28
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
@@ -3869,7 +3869,7 @@ define internal noundef i32 @H5S__hyper_adjust_u(ptr nocapture noundef readonly 
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %32 = load i32, ptr %3, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next36, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next36, %33
   br i1 %34, label %.lr.ph31, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph31
@@ -3952,7 +3952,7 @@ define internal noundef i32 @H5S__hyper_adjust_s(ptr nocapture noundef readonly 
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %32 = load i32, ptr %3, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next42, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next42, %33
   br i1 %34, label %.lr.ph37, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph37
@@ -4161,7 +4161,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr nocapture no
   %72 = load i32, ptr %29, align 8
   %73 = sub i32 %71, %72
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next196, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next196, %74
   br i1 %75, label %.lr.ph172, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph172
@@ -4263,7 +4263,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr nocapture no
   %139 = add i32 %.2176, 1
   %140 = load i32, ptr %29, align 8
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %indvars.iv.next202, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next202, %141
   br i1 %142, label %.lr.ph178, label %.preheader.loopexit
 
 .lr.ph180:                                        ; preds = %.preheader, %.lr.ph180
@@ -4298,7 +4298,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr nocapture no
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %168 = load i32, ptr %27, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next205, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next205, %169
   br i1 %170, label %.lr.ph180, label %._crit_edge181
 
 ._crit_edge181:                                   ; preds = %.lr.ph180, %.preheader
@@ -4338,7 +4338,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr nocapture no
   %.0123.in = getelementptr inbounds i8, ptr %.pn, i64 56
   %.0123 = load ptr, ptr %.0123.in, align 8
   %.not = icmp ne ptr %.0123, null
-  %182 = icmp ult i64 %indvars.iv.next, %178
+  %182 = icmp samesign ult i64 %indvars.iv.next, %178
   %or.cond = select i1 %.not, i1 %182, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
@@ -4542,7 +4542,7 @@ H5S__hyper_free_span.exit.i:                      ; preds = %234, %230, %220
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %291 = load i32, ptr %27, align 8
   %292 = zext i32 %291 to i64
-  %293 = icmp ult i64 %indvars.iv.next96.i, %292
+  %293 = icmp samesign ult i64 %indvars.iv.next96.i, %292
   br i1 %293, label %.lr.ph.i151, label %._crit_edge.i149
 
 ._crit_edge.i149:                                 ; preds = %.lr.ph.i151, %.preheader.i
@@ -6248,7 +6248,7 @@ define range(i32 0, 2) i32 @H5S_hyper_normalize_offset(ptr nocapture noundef %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %11, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -6306,7 +6306,7 @@ define range(i32 0, 2) i32 @H5S_hyper_normalize_offset(ptr nocapture noundef %0,
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %49 = load i32, ptr %11, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next42.i, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next42.i, %50
   br i1 %51, label %.lr.ph37.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph37.i
@@ -6402,7 +6402,7 @@ define noundef i32 @H5S_hyper_denormalize_offset(ptr nocapture noundef %0, ptr n
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %32 = load i32, ptr %3, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next42.i, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next42.i, %33
   br i1 %34, label %.lr.ph37.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph37.i
@@ -7426,7 +7426,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %27, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %100, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %94
@@ -7470,7 +7470,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %120 = phi i32 [ %105, %.lr.ph93 ], [ %.pre102, %110 ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next99, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next99, %121
   br i1 %122, label %.lr.ph93, label %._crit_edge94
 
 ._crit_edge94:                                    ; preds = %119, %102
@@ -9169,7 +9169,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr nocapture noundef rea
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %168 = load i32, ptr %19, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next206, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next206, %169
   br i1 %170, label %.lr.ph202, label %.loopexit
 
 .loopexit:                                        ; preds = %167, %.preheader, %.loopexit190, %15
@@ -10198,7 +10198,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %134, %135
   %199 = phi i32 [ %187, %186 ], [ %.pre89, %197 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = zext i32 %199 to i64
-  %201 = icmp ult i64 %indvars.iv.next, %200
+  %201 = icmp samesign ult i64 %indvars.iv.next, %200
   br i1 %201, label %186, label %.loopexit
 
 .loopexit:                                        ; preds = %198, %.preheader, %.thread73
@@ -11593,7 +11593,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %42, %H5S__hyper_reb
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i32, ptr %83, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next, %91
+  %92 = icmp samesign ult i64 %indvars.iv.next, %91
   br i1 %92, label %.lr.ph, label %.loopexit80
 
 .loopexit80:                                      ; preds = %.lr.ph, %.preheader79, %82
@@ -11618,7 +11618,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %42, %H5S__hyper_reb
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %100 = load i32, ptr %93, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next94, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next94, %101
   br i1 %102, label %.lr.ph83, label %.loopexit78
 
 .loopexit78:                                      ; preds = %.lr.ph83, %.preheader77, %.loopexit80
@@ -11643,7 +11643,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %42, %H5S__hyper_reb
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %110 = load i32, ptr %103, align 8
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next97, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next97, %111
   br i1 %112, label %.lr.ph85, label %.loopexit76
 
 .loopexit76:                                      ; preds = %.lr.ph85, %.preheader75, %.loopexit78
@@ -11668,7 +11668,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %42, %H5S__hyper_reb
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %120 = load i32, ptr %113, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next100, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next100, %121
   br i1 %122, label %.lr.ph87, label %.loopexit
 
 .thread71:                                        ; preds = %78, %38, %30
@@ -11855,7 +11855,7 @@ define internal noundef i32 @H5S__hyper_iter_block(ptr nocapture noundef readonl
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %21 = load i32, ptr %8, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next33, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next33, %22
   br i1 %23, label %12, label %.loopexit
 
 24:                                               ; preds = %.lr.ph, %24
@@ -11873,7 +11873,7 @@ define internal noundef i32 @H5S__hyper_iter_block(ptr nocapture noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %8, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %24, label %.loopexit
 
 .loopexit:                                        ; preds = %24, %12, %.preheader24, %.preheader
@@ -16015,7 +16015,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_clip_spans(ptr n
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %.not = icmp ult i32 %2, 4
+  %.not = icmp samesign ult i32 %2, 4
   %11 = and i32 %2, 2
   %.not412 = icmp eq i32 %11, 0
   %12 = and i32 %2, 1

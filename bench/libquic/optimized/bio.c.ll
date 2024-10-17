@@ -1398,8 +1398,8 @@ if.end55:                                         ; preds = %if.end53, %if.then1
   %header_len.0 = phi i64 [ 2, %if.then10 ], [ %add, %if.end53 ]
   %add56 = add nuw nsw i64 %header_len.0, %len.0
   %cmp61 = icmp ugt i64 %add56, %max_len
-  %cmp64 = icmp ugt i64 %len.0, 2147483647
-  %or.cond2 = or i1 %cmp64, %cmp61
+  %cmp64 = icmp samesign ugt i64 %len.0, 2147483647
+  %or.cond2 = select i1 %cmp61, i1 true, i1 %cmp64
   br i1 %or.cond2, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.end55

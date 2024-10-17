@@ -192,7 +192,7 @@ define dso_local void @clocks_calc_mult_shift(ptr nocapture noundef writeonly %0
   %21 = phi i32 [ %23, %19 ], [ 32, %10 ]
   %22 = lshr i64 %20, 1
   %23 = add nsw i32 %21, -1
-  %24 = icmp ult i64 %20, 2
+  %24 = icmp samesign ult i64 %20, 2
   br i1 %24, label %12, label %19, !llvm.loop !6
 
 25:                                               ; preds = %32, %14
@@ -605,7 +605,7 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
   %156 = phi i64 [ %104, %114 ], [ %152, %137 ]
   %157 = add nuw nsw i64 %111, 1
   %158 = and i64 %157, 127
-  %159 = icmp ugt i64 %158, 63
+  %159 = icmp samesign ugt i64 %158, 63
   br i1 %159, label %.thread16, label %102, !prof !31, !llvm.loop !32
 
 .thread16:                                        ; preds = %102, %154, %110
@@ -949,7 +949,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %35 = phi i32 [ %37, %33 ], [ 32, %24 ]
   %36 = lshr i64 %34, 1
   %37 = add nsw i32 %35, -1
-  %38 = icmp ult i64 %34, 2
+  %38 = icmp samesign ult i64 %34, 2
   br i1 %38, label %26, label %33, !llvm.loop !6
 
 39:                                               ; preds = %46, %28
@@ -1046,7 +1046,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %91 = mul nuw nsw i64 %90, 11
   %92 = udiv i64 %91, 100
   %93 = trunc nuw nsw i64 %92 to i32
-  %94 = icmp ult i32 %88, %93
+  %94 = icmp samesign ult i32 %88, %93
   br i1 %94, label %85, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %85

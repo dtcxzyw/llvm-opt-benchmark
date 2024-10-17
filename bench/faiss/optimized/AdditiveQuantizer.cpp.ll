@@ -1712,7 +1712,7 @@ define internal void @_ZNK5faiss17AdditiveQuantizer10pack_codesEmPKiPhlPKfS5_.om
   %65 = or i8 %63, %64
   store i8 %65, ptr %62, align 1
   %66 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp ult i64 %.01318.i, 256
+  %.not16.i = icmp samesign ult i64 %.01318.i, 256
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %44, %52
@@ -1778,7 +1778,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %44, %52
   %100 = or i8 %98, %99
   store i8 %100, ptr %97, align 1
   %101 = lshr i64 %.01318.i30, 8
-  %.not16.i32 = icmp ult i64 %.01318.i30, 256
+  %.not16.i32 = icmp samesign ult i64 %.01318.i30, 256
   br i1 %.not16.i32, label %_ZN5faiss15BitstringWriter5writeEmi.exit33, label %.lr.ph.i28, !llvm.loop !11
 
 _ZN5faiss15BitstringWriter5writeEmi.exit33:       ; preds = %.lr.ph.i28, %88, %81, %._crit_edge
@@ -4169,7 +4169,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = lshr i32 %62, %58
-  %.not.i6 = icmp ugt i32 %58, 4
+  %.not.i6 = icmp samesign ugt i32 %58, 4
   br i1 %.not.i6, label %._crit_edge.i, label %64
 
 64:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit
@@ -4481,7 +4481,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = lshr i32 %62, %58
-  %.not.i6 = icmp ugt i32 %58, 4
+  %.not.i6 = icmp samesign ugt i32 %58, 4
   br i1 %.not.i6, label %._crit_edge.i, label %64
 
 64:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit

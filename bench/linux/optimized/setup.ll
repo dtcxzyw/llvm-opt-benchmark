@@ -169,7 +169,7 @@ define dso_local ptr @extend_brk(i64 noundef %0, i64 noundef %1) local_unnamed_a
 
 7:                                                ; preds = %2
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1), !range !8
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br i1 %9, label %11, label %10, !prof !9
 
 10:                                               ; preds = %7

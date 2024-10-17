@@ -600,7 +600,7 @@ _ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEE
 49:                                               ; preds = %51, %.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ %41, %.preheader.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = icmp ult i64 %indvars.iv.next, %40
+  %50 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %50, label %51, label %.loopexit.i
 
 51:                                               ; preds = %49
@@ -1094,7 +1094,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveMacr
   store ptr @"_ZNSt17_Function_handlerIFbRKN5clang6format17WhitespaceManager6ChangeEEZNS2_22alignConsecutiveMacrosEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %12, align 8
   %.not.i = icmp eq i32 %.05873, 0
   %36 = zext i32 %.05873 to i64
-  %37 = icmp ule i64 %indvars.iv, %36
+  %37 = icmp samesign ule i64 %indvars.iv, %36
   %or.cond43.i = or i1 %.not.i, %37
   br i1 %or.cond43.i, label %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit.thread, label %.lr.ph.i
 
@@ -3396,7 +3396,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %.0146 = phi i32 [ %65, %63 ], [ 2147483647, %69 ], [ %spec.select, %73 ]
   %78 = add nuw nsw i64 %indvars.iv199, 1
   %79 = add nuw nsw i32 %.069177, 1
-  %80 = icmp ult i64 %78, %21
+  %80 = icmp samesign ult i64 %78, %21
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %77
@@ -3941,7 +3941,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager20alignEscapedNewlines
   %.250.us = select i1 %or.cond.us, i32 %.04556.us, i32 %.sroa.speculated.us
   %39 = add i32 %.059.us, 1
   %40 = zext i32 %39 to i64
-  %41 = icmp ugt i64 %indvars.iv66, %40
+  %41 = icmp samesign ugt i64 %indvars.iv66, %40
   %42 = trunc nuw i64 %indvars.iv66 to i32
   br i1 %41, label %.lr.ph.i.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit.us
 
@@ -4001,7 +4001,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit.us: ; preds =
 .thread48:                                        ; preds = %58
   %62 = add i32 %.059, 1
   %63 = zext i32 %62 to i64
-  %64 = icmp ugt i64 %indvars.iv, %63
+  %64 = icmp samesign ugt i64 %indvars.iv, %63
   %65 = trunc nuw i64 %indvars.iv to i32
   br i1 %64, label %.lr.ph.i, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit
 
@@ -6495,7 +6495,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.0.in = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp ne ptr %.0, null
-  %.not17 = icmp ult i64 %indvars.iv.next, %35
+  %.not17 = icmp samesign ult i64 %indvars.iv.next, %35
   %or.cond = select i1 %.not, i1 %.not17, i1 false
   br i1 %or.cond, label %.lr.ph.i19, label %._crit_edge, !llvm.loop !136
 
@@ -7473,7 +7473,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -7497,7 +7497,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15

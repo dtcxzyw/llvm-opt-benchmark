@@ -360,7 +360,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %112 = add nuw nsw i64 %70, 1
   %113 = load i32, ptr %65, align 8
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %112, %114
+  %115 = icmp samesign ult i64 %112, %114
   br i1 %115, label %.split.us, label %.split8.us, !llvm.loop !11
 
 .split.us10:                                      ; preds = %68
@@ -402,7 +402,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %135 = add nuw nsw i64 %116, 1
   %136 = load i32, ptr %65, align 8
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %135, %137
+  %138 = icmp samesign ult i64 %135, %137
   br i1 %138, label %.preheader.us.us, label %.split8.us, !llvm.loop !11
 
 .preheader.us:                                    ; preds = %.split.us10, %.thread4.i.loopexit.us
@@ -437,7 +437,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %156 = add nuw nsw i64 %139, 1
   %157 = load i32, ptr %65, align 8
   %158 = zext i32 %157 to i64
-  %159 = icmp ult i64 %156, %158
+  %159 = icmp samesign ult i64 %156, %158
   br i1 %159, label %.preheader.us, label %.split8.us, !llvm.loop !11
 
 .split:                                           ; preds = %68
@@ -455,7 +455,7 @@ acpi_ex_convert_to_ascii.exit.us17:               ; preds = %.split, %acpi_ex_co
   %165 = add nuw nsw i64 %160, 1
   %166 = load i32, ptr %65, align 8
   %167 = zext i32 %166 to i64
-  %168 = icmp ult i64 %165, %167
+  %168 = icmp samesign ult i64 %165, %167
   br i1 %168, label %acpi_ex_convert_to_ascii.exit.us17, label %.split8.us, !llvm.loop !11
 
 acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_convert_to_ascii.exit
@@ -466,7 +466,7 @@ acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_co
   %172 = add nuw nsw i64 %169, 1
   %173 = load i32, ptr %65, align 8
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %172, %174
+  %175 = icmp samesign ult i64 %172, %174
   br i1 %175, label %acpi_ex_convert_to_ascii.exit, label %.split8.us, !llvm.loop !11
 
 .split8.us:                                       ; preds = %.thread4.i.loopexit.us, %.thread4.i.loopexit.us.us, %.thread4.i.us, %acpi_ex_convert_to_ascii.exit, %acpi_ex_convert_to_ascii.exit.us17

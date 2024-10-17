@@ -117,7 +117,7 @@ if.then72:                                        ; preds = %land.lhs.true67
   %conv75 = zext i8 %14 to i32
   %conv78 = zext nneg i8 %13 to i32
   %add79 = add nuw nsw i32 %conv75, %conv78
-  %cmp81 = icmp ult i32 %add79, 24
+  %cmp81 = icmp samesign ult i32 %add79, 24
   br i1 %cmp81, label %if.then82, label %if.else
 
 if.then82:                                        ; preds = %if.then72

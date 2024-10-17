@@ -895,7 +895,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIxPNS_6SDNodeENS_12DenseMapInfoIxvEENS_6detai
   %193 = add nuw nsw i32 %.043183, 1
   %.sroa.0138.0 = load ptr, ptr %192, align 8
   %194 = icmp ne ptr %.sroa.0138.0, null
-  %195 = icmp ult i32 %.043183, 99
+  %195 = icmp samesign ult i32 %.043183, 99
   %196 = select i1 %194, i1 %195, i1 false
   br i1 %196, label %59, label %._crit_edge, !llvm.loop !22
 
@@ -1152,7 +1152,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIxPNS_6SDNodeENS_12DenseMapInfoIxvEENS_6detai
   %indvars.iv215 = phi i64 [ 1, %.lr.ph198 ], [ %indvars.iv.next216, %346 ]
   %.sroa.0119.1195 = phi ptr [ %.sroa.0119.0, %.lr.ph198 ], [ %.sroa.0119.3, %346 ]
   %.sroa.7.1194 = phi i32 [ %.sroa.7.0, %.lr.ph198 ], [ %.sroa.7.3, %346 ]
-  %323 = icmp ult i64 %indvars.iv215, %321
+  %323 = icmp samesign ult i64 %indvars.iv215, %321
   %324 = load ptr, ptr %10, align 8
   %325 = getelementptr inbounds ptr, ptr %324, i64 %indvars.iv215
   %326 = load ptr, ptr %325, align 8
@@ -4082,7 +4082,7 @@ _ZN4llvm11SmallVectorIPNS_6SDNodeELj4EED2Ev.exit: ; preds = %266, %_ZNK4llvm12Se
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm10SDDbgValueES2_EC2ES3_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i203
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i202, label %.lr.ph.i.i.i.i203, !llvm.loop !65
 
 .loopexit.i.i202:                                 ; preds = %select.unfold.i.i.i.i, %282
@@ -7827,7 +7827,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPSt4pairIjPN4llvm12MachineInstrEEN
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIjPN4llvm12MachineInstrEES4_EC2ES5_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !93
 
 12:                                               ; preds = %.lr.ph.i.i

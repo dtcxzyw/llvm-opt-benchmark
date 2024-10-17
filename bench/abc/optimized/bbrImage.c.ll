@@ -408,7 +408,7 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %182 = tail call i32 @Cudd_DagSize(ptr noundef %181) #10
   %183 = getelementptr inbounds i8, ptr %.pre, i64 16
   store i32 %182, ptr %183, align 8
-  %184 = icmp ult i64 %indvars.iv115.i, %134
+  %184 = icmp samesign ult i64 %indvars.iv115.i, %134
   br i1 %184, label %185, label %._crit_edge174
 
 185:                                              ; preds = %170

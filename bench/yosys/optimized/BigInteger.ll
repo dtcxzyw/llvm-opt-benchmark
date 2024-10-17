@@ -85,7 +85,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %17, %4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %30 = load i32, ptr %9, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i.i, %31
   br i1 %32, label %24, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %24, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %2
@@ -116,7 +116,7 @@ define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = load i32, ptr %6, align 4
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next.i.i, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next.i.i, %16
   br i1 %17, label %.lr.ph.i.i, label %_ZN15NumberlikeArrayImEC2EPKmj.exit.i, !llvm.loop !8
 
 _ZN15NumberlikeArrayImEC2EPKmj.exit.i:            ; preds = %.lr.ph.i.i
@@ -225,7 +225,7 @@ define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef no
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %19 = load i32, ptr %5, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i.i, %20
   br i1 %21, label %13, label %_ZN11BigUnsignedC2ERKS_.exit.loopexit, !llvm.loop !10
 
 _ZN11BigUnsignedC2ERKS_.exit.loopexit:            ; preds = %13
@@ -718,7 +718,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i.i.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %39
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
@@ -797,7 +797,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
   %indvars.iv.next.i.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i35, 1
   %79 = load i32, ptr %58, align 4
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next.i.i.i36, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next.i.i.i36, %80
   br i1 %81, label %73, label %_ZN10BigIntegerD2Ev.exit, !llvm.loop !6
 
 82:                                               ; preds = %50
@@ -856,7 +856,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
   %indvars.iv.next.i.i.i44 = add nuw nsw i64 %indvars.iv.i.i.i43, 1
   %109 = load i32, ptr %88, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next.i.i.i44, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next.i.i.i44, %110
   br i1 %111, label %103, label %_ZN10BigIntegerD2Ev.exit, !llvm.loop !6
 
 112:                                              ; preds = %82
@@ -940,7 +940,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc48, %125
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %149 = load i32, ptr %128, align 4
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next.i.i, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next.i.i, %150
   br i1 %151, label %143, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %143, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %122
@@ -1075,7 +1075,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i.i.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %39
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
@@ -1152,7 +1152,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %65, %53
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %78 = load i32, ptr %57, align 4
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next.i.i, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next.i.i, %79
   br i1 %80, label %72, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %72, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
@@ -1218,7 +1218,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
   %111 = load i32, ptr %90, align 4
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next.i.i.i37, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next.i.i.i37, %112
   br i1 %113, label %105, label %_ZN10BigIntegerD2Ev.exit, !llvm.loop !6
 
 114:                                              ; preds = %83
@@ -1302,7 +1302,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i41:    ; preds = %.noexc48, %126
   %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i44, 1
   %150 = load i32, ptr %129, align 4
   %151 = zext i32 %150 to i64
-  %152 = icmp ult i64 %indvars.iv.next.i.i45, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next.i.i45, %151
   br i1 %152, label %144, label %_ZN11BigUnsignedaSERKS_.exit49, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit49:                   ; preds = %144, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i41, %123
@@ -1432,7 +1432,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i.i.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %39
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
@@ -1523,7 +1523,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc21, %59
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %83 = load i32, ptr %62, align 4
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next.i.i, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next.i.i, %84
   br i1 %85, label %77, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %56
@@ -1619,7 +1619,7 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
   %28 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv.i.i.i
   store i64 %27, ptr %28, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %29 = icmp ult i64 %indvars.iv.next.i.i.i, %19
+  %29 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %19
   br i1 %29, label %25, label %_ZN10BigIntegerC2ERKS_.exit, !llvm.loop !10
 
 _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
@@ -1705,7 +1705,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc, %43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %67 = load i32, ptr %46, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next.i.i, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next.i.i, %68
   br i1 %69, label %61, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %61, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %40
@@ -1794,7 +1794,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i33:    ; preds = %.noexc40, %85
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %109 = load i32, ptr %88, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next.i.i37, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next.i.i37, %110
   br i1 %111, label %103, label %_ZN11BigUnsignedaSERKS_.exit41, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit41:                   ; preds = %103, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i33, %82
@@ -1959,7 +1959,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %9
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %35 = load i32, ptr %14, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i.i.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %36
   br i1 %37, label %29, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %29, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %7
@@ -2038,7 +2038,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %60, %48
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %73 = load i32, ptr %52, align 4
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next.i.i, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next.i.i, %74
   br i1 %75, label %67, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %67, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i

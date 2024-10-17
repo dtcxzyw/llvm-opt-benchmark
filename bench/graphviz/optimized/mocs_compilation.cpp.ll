@@ -1617,7 +1617,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate24QLessThanOperatorForTypeI
   %5 = and i8 %4, 1
   %6 = load i8, ptr %2, align 1
   %7 = and i8 %6, 1
-  %8 = icmp ult i8 %5, %7
+  %8 = icmp samesign ult i8 %5, %7
   ret i1 %8
 }
 

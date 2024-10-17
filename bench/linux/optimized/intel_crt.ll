@@ -2101,8 +2101,8 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 
 121:                                              ; preds = %6
   %122 = and i32 %47, 65535
-  %123 = icmp ule i32 %122, %49
-  %124 = icmp uge i32 %50, %48
+  %123 = icmp samesign ule i32 %122, %49
+  %124 = icmp samesign uge i32 %50, %48
   %125 = and i1 %123, %124
   br i1 %125, label %126, label %153
 

@@ -437,7 +437,7 @@ Min_LitIsNode.exit:                               ; preds = %8
 
 25:                                               ; preds = %13
   %26 = or i8 %22, %21
-  %or.cond.i = icmp ult i8 %26, 2
+  %or.cond.i = icmp samesign ult i8 %26, 2
   %27 = xor i8 %22, %21
   br i1 %or.cond.i, label %select.unfold, label %.thread41
 
@@ -768,7 +768,7 @@ define void @Min_LitMinimize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 7
   %36 = zext nneg i8 %35 to i32
-  %37 = icmp ugt i8 %35, 3
+  %37 = icmp samesign ugt i8 %35, 3
   br i1 %37, label %38, label %147
 
 38:                                               ; preds = %28
@@ -7421,7 +7421,7 @@ Abc_TtCopy.exit.us:                               ; preds = %.lr.ph.i.us
 
 Abc_TtCopy.exit41.loopexit.us:                    ; preds = %.lr.ph.i37.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = icmp ult i64 %indvars.iv.next, %28
+  %45 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %45, label %.lr.ph.preheader.i.us, label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %Abc_TtCopy.exit41.loopexit.us, %.lr.ph, %Vec_WrdStart.exit

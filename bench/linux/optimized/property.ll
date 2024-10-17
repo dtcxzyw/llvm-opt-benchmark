@@ -198,7 +198,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   br i1 %65, label %.thread, label %.lr.ph, !llvm.loop !8
 
 .thread:                                          ; preds = %59
-  %66 = icmp ult i64 %57, %46
+  %66 = icmp samesign ult i64 %57, %46
   %67 = getelementptr i8, ptr %61, i64 24
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 4
@@ -297,7 +297,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   br i1 %124, label %.thread20, label %.lr.ph56, !llvm.loop !8
 
 .thread20:                                        ; preds = %118
-  %125 = icmp ult i64 %116, %105
+  %125 = icmp samesign ult i64 %116, %105
   %126 = getelementptr i8, ptr %120, i64 24
   %127 = load i32, ptr %126, align 8
   %128 = icmp eq i32 %127, 2
@@ -579,7 +579,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   %108 = add nuw nsw i64 %64, 1
   %109 = load i32, ptr %42, align 4
   %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %108, %110
+  %111 = icmp samesign ult i64 %108, %110
   br i1 %111, label %63, label %112, !llvm.loop !11
 
 112:                                              ; preds = %106
@@ -615,7 +615,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br i1 %125, label %126, label %.preheader, !llvm.loop !12
 
 126:                                              ; preds = %122
-  %127 = icmp ult i64 %119, 5
+  %127 = icmp samesign ult i64 %119, 5
   br i1 %127, label %128, label %.thread10
 
 128:                                              ; preds = %126, %38
@@ -1035,7 +1035,7 @@ define dso_local void @acpi_free_properties(ptr noundef %0) local_unnamed_addr #
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %28, %32
+  %33 = icmp samesign ult i64 %28, %32
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %18, %.preheader2
@@ -1118,7 +1118,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
   %43 = getelementptr inbounds i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %41, %45
+  %46 = icmp samesign ult i64 %41, %45
   br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %31, %.preheader5
@@ -1176,7 +1176,7 @@ define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, pt
 
 25:                                               ; preds = %28
   %26 = add nuw nsw i64 %29, 1
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp samesign ult i64 %26, %24
   br i1 %27, label %28, label %.loopexit, !llvm.loop !8
 
 28:                                               ; preds = %25, %21
@@ -1285,7 +1285,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 
 44:                                               ; preds = %37
   %45 = add nuw nsw i64 %38, 1
-  %46 = icmp ult i64 %45, %34
+  %46 = icmp samesign ult i64 %45, %34
   br i1 %46, label %37, label %.critedge.us, !llvm.loop !8
 
 .critedge:                                        ; preds = %57, %.lr.ph.split
@@ -1310,7 +1310,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 
 57:                                               ; preds = %60
   %58 = add nuw nsw i64 %61, 1
-  %59 = icmp ult i64 %58, %56
+  %59 = icmp samesign ult i64 %58, %56
   br i1 %59, label %60, label %.critedge, !llvm.loop !8
 
 60:                                               ; preds = %57, %.split
@@ -1434,7 +1434,7 @@ select.unfold:                                    ; preds = %19, %17
 .split.loop.exit64:                               ; preds = %52, %.split.loop.exit
   %64 = phi i64 [ %56, %.split.loop.exit ], [ %50, %52 ]
   %65 = phi ptr [ %63, %.split.loop.exit ], [ %.ph58, %52 ]
-  %66 = icmp ult i64 %64, %50
+  %66 = icmp samesign ult i64 %64, %50
   br i1 %66, label %.thread30, label %.outer, !llvm.loop !9
 
 .thread30.split.loop.exit:                        ; preds = %40
@@ -2137,7 +2137,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
   br i1 %52, label %53, label %42, !llvm.loop !8
 
 53:                                               ; preds = %45
-  %54 = icmp ult i64 %46, %40
+  %54 = icmp samesign ult i64 %46, %40
   br i1 %54, label %.thread, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %42, %53, %.lr.ph
@@ -2837,7 +2837,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %23, label %.thread50, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp ult i32 %2, 4
+  %25 = icmp samesign ult i32 %2, 4
   %26 = icmp ne ptr %20, null
   %27 = icmp ne ptr %1, null
   %28 = and i1 %27, %26
@@ -2907,7 +2907,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %66, label %.thread, label %.lr.ph134, !llvm.loop !8
 
 .thread:                                          ; preds = %60
-  %67 = icmp ult i64 %58, %47
+  %67 = icmp samesign ult i64 %58, %47
   %68 = getelementptr i8, ptr %62, i64 24
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 1
@@ -2983,7 +2983,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %111, label %.thread49, label %.lr.ph, !llvm.loop !8
 
 .thread49:                                        ; preds = %105
-  %112 = icmp ult i64 %103, %92
+  %112 = icmp samesign ult i64 %103, %92
   %113 = getelementptr i8, ptr %107, i64 24
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 2
@@ -3152,7 +3152,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   br i1 %196, label %.thread53, label %.lr.ph144, !llvm.loop !8
 
 .thread53:                                        ; preds = %190
-  %197 = icmp ult i64 %188, %176
+  %197 = icmp samesign ult i64 %188, %176
   %198 = getelementptr i8, ptr %192, i64 24
   %199 = load i32, ptr %198, align 8
   %200 = icmp eq i32 %199, 4
@@ -3175,12 +3175,12 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   %208 = phi i32 [ %206, %.loopexit78.loopexit84 ], [ -22, %.critedge63.backedge ], [ -22, %.critedge63.outer ]
   %209 = icmp eq i32 %208, 0
   %210 = select i1 %209, ptr %207, ptr null
-  %211 = icmp ugt i32 %2, 3
+  %211 = icmp samesign ugt i32 %2, 3
   %212 = or i1 %211, %209
   br i1 %212, label %255, label %.thread232
 
 .loopexit78.thread:                               ; preds = %162
-  %213 = icmp ugt i32 %2, 3
+  %213 = icmp samesign ugt i32 %2, 3
   br i1 %213, label %.thread52, label %.thread232
 
 .thread232:                                       ; preds = %.loopexit78, %.loopexit78.thread
@@ -3240,7 +3240,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   br i1 %247, label %.thread55, label %.lr.ph156, !llvm.loop !8
 
 .thread55:                                        ; preds = %241
-  %248 = icmp ult i64 %239, %228
+  %248 = icmp samesign ult i64 %239, %228
   %249 = getelementptr i8, ptr %243, i64 24
   %250 = load i32, ptr %249, align 8
   %251 = icmp eq i32 %250, 3

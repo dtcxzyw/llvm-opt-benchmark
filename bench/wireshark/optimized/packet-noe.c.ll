@@ -552,7 +552,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   %24 = zext nneg i8 %22 to i32
   %25 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @methods_vals, ptr noundef nonnull @.str.359) #5
   %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %8, i32 noundef %23, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.361, ptr noundef %25, i32 noundef %24) #5
-  %27 = icmp ugt i8 %22, 6
+  %27 = icmp samesign ugt i8 %22, 6
   br i1 %27, label %237, label %28
 
 28:                                               ; preds = %4

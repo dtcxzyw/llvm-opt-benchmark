@@ -285,7 +285,7 @@ define dso_local i64 @get_pfnblock_flags_mask(ptr nocapture readnone %0, i64 nou
 
 7:                                                ; preds = %6, %3, %3
   %8 = phi i64 [ 2048, %6 ], [ 131072, %3 ], [ 131072, %3 ]
-  %9 = icmp ult i64 %5, %8
+  %9 = icmp samesign ult i64 %5, %8
   br i1 %9, label %10, label %20, !prof !7
 
 10:                                               ; preds = %7
@@ -338,7 +338,7 @@ define dso_local void @set_pfnblock_flags_mask(ptr nocapture noundef readnone %0
 
 8:                                                ; preds = %7, %4, %4
   %9 = phi i64 [ 2048, %7 ], [ 131072, %4 ], [ 131072, %4 ]
-  %10 = icmp ult i64 %6, %9
+  %10 = icmp samesign ult i64 %6, %9
   br i1 %10, label %11, label %21, !prof !7
 
 11:                                               ; preds = %8
@@ -427,7 +427,7 @@ define dso_local void @set_pageblock_migratetype(ptr noundef %0, i32 noundef %1)
 
 18:                                               ; preds = %17, %8, %8
   %19 = phi i64 [ 2048, %17 ], [ 131072, %8 ], [ 131072, %8 ]
-  %20 = icmp ult i64 %16, %19
+  %20 = icmp samesign ult i64 %16, %19
   br i1 %20, label %21, label %31, !prof !7
 
 21:                                               ; preds = %18
@@ -577,7 +577,7 @@ define dso_local void @destroy_large_folio(ptr noundef %0) local_unnamed_addr #0
   %17 = load i64, ptr %16, align 16
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 255
-  %20 = icmp ult i32 %19, 4
+  %20 = icmp samesign ult i32 %19, 4
   br i1 %20, label %.thread, label %22
 
 .thread:                                          ; preds = %11, %15
@@ -598,7 +598,7 @@ declare dso_local void @free_huge_folio(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @free_the_page(ptr noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #4 align 16 {
-  %3 = icmp ult i32 %1, 4
+  %3 = icmp samesign ult i32 %1, 4
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
@@ -656,7 +656,7 @@ define dso_local noundef range(i32 -2, 1) i32 @split_free_page(ptr noundef %0, i
 
 32:                                               ; preds = %31, %28, %28
   %33 = phi i64 [ 2048, %31 ], [ 131072, %28 ], [ 131072, %28 ]
-  %34 = icmp ult i64 %30, %33
+  %34 = icmp samesign ult i64 %30, %33
   br i1 %34, label %35, label %45, !prof !7
 
 35:                                               ; preds = %32
@@ -725,7 +725,7 @@ define dso_local noundef range(i32 -2, 1) i32 @split_free_page(ptr noundef %0, i
 
 76:                                               ; preds = %75, %.preheader, %.preheader
   %77 = phi i64 [ 2048, %75 ], [ 131072, %.preheader ], [ 131072, %.preheader ]
-  %78 = icmp ult i64 %74, %77
+  %78 = icmp samesign ult i64 %74, %77
   br i1 %78, label %79, label %89, !prof !7
 
 79:                                               ; preds = %76
@@ -950,7 +950,7 @@ define internal fastcc void @__free_one_page(ptr noundef %0, i64 noundef %1, ptr
   %110 = load i32, ptr %109, align 16
   %111 = and i32 %110, -129
   store i32 %111, ptr %109, align 16
-  %112 = icmp ult i32 %5, 2
+  %112 = icmp samesign ult i32 %5, 2
   br i1 %112, label %123, label %151
 
 .thread.thread:                                   ; preds = %80
@@ -960,7 +960,7 @@ define internal fastcc void @__free_one_page(ptr noundef %0, i64 noundef %1, ptr
   %115 = load i32, ptr %114, align 16
   %116 = and i32 %115, -129
   store i32 %116, ptr %114, align 16
-  %117 = icmp ult i32 %5, 2
+  %117 = icmp samesign ult i32 %5, 2
   br i1 %117, label %.thread8, label %151
 
 .thread7:                                         ; preds = %87
@@ -970,7 +970,7 @@ define internal fastcc void @__free_one_page(ptr noundef %0, i64 noundef %1, ptr
   %120 = load i32, ptr %119, align 16
   %121 = and i32 %120, -129
   store i32 %121, ptr %119, align 16
-  %122 = icmp ult i32 %5, 2
+  %122 = icmp samesign ult i32 %5, 2
   br i1 %122, label %.thread8, label %151
 
 123:                                              ; preds = %.thread
@@ -1340,7 +1340,7 @@ define internal fastcc void @__free_pages_ok(ptr noundef %0, i32 noundef %1, i32
 
 144:                                              ; preds = %143, %.loopexit, %.loopexit
   %145 = phi i64 [ 2048, %143 ], [ 131072, %.loopexit ], [ 131072, %.loopexit ]
-  %146 = icmp ult i64 %142, %145
+  %146 = icmp samesign ult i64 %142, %145
   br i1 %146, label %147, label %157, !prof !7
 
 147:                                              ; preds = %144
@@ -1402,7 +1402,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
 
 9:                                                ; preds = %8, %6, %6
   %10 = phi i64 [ 524288, %8 ], [ 33554432, %6 ], [ 33554432, %6 ]
-  %11 = icmp ult i64 %7, %10
+  %11 = icmp samesign ult i64 %7, %10
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
@@ -1415,7 +1415,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
 
 15:                                               ; preds = %14, %12, %12
   %16 = phi i64 [ 2048, %14 ], [ 131072, %12 ], [ 131072, %12 ]
-  %17 = icmp ult i64 %13, %16
+  %17 = icmp samesign ult i64 %13, %16
   br i1 %17, label %18, label %28, !prof !7
 
 18:                                               ; preds = %15
@@ -1514,7 +1514,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
 
 72:                                               ; preds = %71, %69, %69
   %73 = phi i64 [ 524288, %71 ], [ 33554432, %69 ], [ 33554432, %69 ]
-  %74 = icmp ult i64 %70, %73
+  %74 = icmp samesign ult i64 %70, %73
   br i1 %74, label %75, label %.thread
 
 75:                                               ; preds = %72
@@ -1527,7 +1527,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
 
 78:                                               ; preds = %77, %75, %75
   %79 = phi i64 [ 2048, %77 ], [ 131072, %75 ], [ 131072, %75 ]
-  %80 = icmp ult i64 %76, %79
+  %80 = icmp samesign ult i64 %76, %79
   br i1 %80, label %81, label %91, !prof !7
 
 81:                                               ; preds = %78
@@ -2319,7 +2319,7 @@ define internal fastcc void @__drain_all_pages(ptr noundef %0, i1 noundef zeroex
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__drain_all_pages.cpus_with_pcps, i64 %20) #22, !srcloc !57
   %21 = add nuw nsw i64 %17, 1
   %22 = and i64 %21, 127
-  %23 = icmp ugt i64 %22, 63
+  %23 = icmp samesign ugt i64 %22, 63
   br i1 %23, label %.preheader, label %.split.us.preheader, !prof !9, !llvm.loop !58
 
 .split:                                           ; preds = %8
@@ -2380,7 +2380,7 @@ define internal fastcc void @__drain_all_pages(ptr noundef %0, i1 noundef zeroex
 .split.split.us:                                  ; preds = %.loopexit9.us, %.loopexit10.us
   %56 = add nuw nsw i64 %30, 1
   %57 = and i64 %56, 127
-  %58 = icmp ugt i64 %57, 63
+  %58 = icmp samesign ugt i64 %57, 63
   br i1 %58, label %.preheader, label %.split.split.us.preheader, !prof !9, !llvm.loop !58
 
 .loopexit9.us:                                    ; preds = %43
@@ -2573,7 +2573,7 @@ free_pcppages_bulk.exit.us:                       ; preds = %159, %98
 .loopexit.us:                                     ; preds = %165, %77
   %168 = add nuw nsw i64 %74, 1
   %169 = and i64 %168, 127
-  %170 = icmp ugt i64 %169, 63
+  %170 = icmp samesign ugt i64 %169, 63
   br i1 %170, label %.thread, label %.preheader.split14.us, !prof !9, !llvm.loop !61
 
 171:                                              ; preds = %64
@@ -2600,7 +2600,7 @@ free_pcppages_bulk.exit.us:                       ; preds = %159, %98
 .split.split:                                     ; preds = %183, %182
   %184 = add nuw nsw i64 %65, 1
   %185 = and i64 %184, 127
-  %186 = icmp ugt i64 %185, 63
+  %186 = icmp samesign ugt i64 %185, 63
   br i1 %186, label %.preheader, label %.split.split.preheader, !prof !9, !llvm.loop !58
 
 .preheader.split14:                               ; preds = %.preheader.split14.preheader, %209
@@ -2642,7 +2642,7 @@ free_pcppages_bulk.exit.us:                       ; preds = %159, %98
   %210 = phi i64 [ %.pre, %207 ], [ %187, %196 ]
   %211 = add nuw nsw i64 %193, 1
   %212 = and i64 %211, 127
-  %213 = icmp ugt i64 %212, 63
+  %213 = icmp samesign ugt i64 %212, 63
   br i1 %213, label %.thread, label %.preheader.split14, !prof !9, !llvm.loop !61
 
 .thread:                                          ; preds = %192, %209, %.preheader.split14, %.preheader.split14.us, %73, %.loopexit.us
@@ -2972,7 +2972,7 @@ define internal fastcc noundef zeroext i1 @free_unref_page_prepare(ptr noundef %
 
 133:                                              ; preds = %132, %.loopexit, %.loopexit
   %134 = phi i64 [ 2048, %132 ], [ 131072, %.loopexit ], [ 131072, %.loopexit ]
-  %135 = icmp ult i64 %131, %134
+  %135 = icmp samesign ult i64 %131, %134
   br i1 %135, label %136, label %146, !prof !7
 
 136:                                              ; preds = %133
@@ -3518,7 +3518,7 @@ define dso_local i32 @__isolate_free_page(ptr noundef %0, i32 noundef %1) local_
 
 17:                                               ; preds = %16, %2, %2
   %18 = phi i64 [ 2048, %16 ], [ 131072, %2 ], [ 131072, %2 ]
-  %19 = icmp ult i64 %15, %18
+  %19 = icmp samesign ult i64 %15, %18
   br i1 %19, label %20, label %30, !prof !7
 
 20:                                               ; preds = %17
@@ -3615,7 +3615,7 @@ define dso_local i32 @__isolate_free_page(ptr noundef %0, i32 noundef %1) local_
 
 85:                                               ; preds = %84, %.preheader12, %.preheader12
   %86 = phi i64 [ 2048, %84 ], [ 131072, %.preheader12 ], [ 131072, %.preheader12 ]
-  %87 = icmp ult i64 %83, %86
+  %87 = icmp samesign ult i64 %83, %86
   br i1 %87, label %88, label %98, !prof !7
 
 88:                                               ; preds = %85
@@ -3647,7 +3647,7 @@ define dso_local i32 @__isolate_free_page(ptr noundef %0, i32 noundef %1) local_
   %108 = load volatile i64, ptr %107, align 8
   %109 = lshr i64 %108, %106
   %110 = and i64 %109, 7
-  %111 = icmp ult i64 %110, 3
+  %111 = icmp samesign ult i64 %110, 3
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %98
@@ -3673,7 +3673,7 @@ define dso_local i32 @__isolate_free_page(ptr noundef %0, i32 noundef %1) local_
 
 124:                                              ; preds = %123, %116, %116
   %125 = phi i64 [ 2048, %123 ], [ 131072, %116 ], [ 131072, %116 ]
-  %126 = icmp ult i64 %122, %125
+  %126 = icmp samesign ult i64 %122, %125
   br i1 %126, label %127, label %137, !prof !7
 
 127:                                              ; preds = %124
@@ -3944,7 +3944,7 @@ define dso_local noundef zeroext i1 @zone_watermark_ok_safe(ptr noundef %0, i32 
   %37 = add i64 %19, %36
   %38 = add nuw nsw i64 %24, 1
   %39 = and i64 %38, 127
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread, label %17, !prof !9, !llvm.loop !89
 
 .thread:                                          ; preds = %17, %27, %23
@@ -5076,7 +5076,7 @@ select.unfold:                                    ; preds = %74
   br i1 %186, label %.thread23, label %187
 
 187:                                              ; preds = %.preheader
-  %188 = icmp ugt i64 %181, 3
+  %188 = icmp samesign ugt i64 %181, 3
   br label %189
 
 189:                                              ; preds = %198, %187
@@ -5683,13 +5683,13 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef r
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = and i32 %0, 32768
   %11 = icmp ne i32 %10, 0
-  %12 = icmp ugt i32 %1, 1
+  %12 = icmp samesign ugt i32 %1, 1
   %13 = and i1 %12, %11
-  %14 = icmp ult i32 %1, 4
+  %14 = icmp samesign ult i32 %1, 4
   %15 = mul nuw nsw i32 %1, 3
   %16 = shl nuw nsw i32 1, %1
   %17 = zext nneg i32 %16 to i64
-  %18 = icmp ugt i32 %1, 8
+  %18 = icmp samesign ugt i32 %1, 8
   %19 = sub nsw i32 0, %16
   %20 = sext i32 %19 to i64
   %21 = zext nneg i32 %1 to i64
@@ -5753,7 +5753,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef r
   %70 = and i32 %30, 8
   %71 = icmp eq i32 %70, 0
   %72 = select i1 %69, i64 %26, i64 9
-  %73 = icmp ult i32 %30, 2048
+  %73 = icmp samesign ult i32 %30, 2048
   br label %.preheader77
 
 .preheader77:                                     ; preds = %.preheader77.preheader, %554
@@ -6330,7 +6330,7 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   br i1 %405, label %.thread56, label %406
 
 406:                                              ; preds = %399
-  %407 = icmp ugt i64 %400, 3
+  %407 = icmp samesign ugt i64 %400, 3
   br label %408
 
 408:                                              ; preds = %417, %406
@@ -6611,7 +6611,7 @@ define internal fastcc ptr @__alloc_pages_slowpath(i32 noundef %0, i32 noundef r
   %5 = alloca i32, align 4
   %6 = and i32 %0, 1024
   %7 = icmp eq i32 %6, 0
-  %8 = icmp ult i32 %1, 4
+  %8 = icmp samesign ult i32 %1, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22
   store i32 0, ptr %5, align 4, !annotation !91
   %9 = and i32 %0, 2080
@@ -6649,7 +6649,7 @@ define internal fastcc ptr @__alloc_pages_slowpath(i32 noundef %0, i32 noundef r
   %41 = icmp ne i32 %40, 0
   %42 = or i1 %41, %8
   %43 = select i1 %8, i32 16, i32 4
-  %44 = icmp ugt i32 %1, 3
+  %44 = icmp samesign ugt i32 %1, 3
   %45 = zext i1 %44 to i32
   %46 = getelementptr inbounds i8, ptr %4, i64 8
   %47 = getelementptr inbounds i8, ptr %4, i64 16
@@ -7215,7 +7215,7 @@ wake_all_kswapds.exit29:                          ; preds = %265, %238, %222
   %402 = add i64 %384, %401
   %403 = add nuw nsw i64 %389, 1
   %404 = and i64 %403, 127
-  %405 = icmp ugt i64 %404, 63
+  %405 = icmp samesign ugt i64 %404, 63
   br i1 %405, label %.thread39, label %382, !prof !9, !llvm.loop !89
 
 .thread39:                                        ; preds = %382, %392, %388
@@ -7875,7 +7875,7 @@ define dso_local void @__page_frag_cache_drain(ptr noundef %0, i32 noundef %1) #
   %13 = load i64, ptr %12, align 16
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 255
-  %16 = icmp ult i32 %15, 4
+  %16 = icmp samesign ult i32 %15, 4
   br i1 %16, label %.thread, label %18
 
 .thread:                                          ; preds = %7, %11
@@ -8733,7 +8733,7 @@ define internal fastcc void @build_all_zonelists_init() unnamed_addr #16 section
   store i16 0, ptr %30, align 4
   %31 = add nuw nsw i64 %8, 1
   %32 = and i64 %31, 127
-  %33 = icmp ugt i64 %32, 63
+  %33 = icmp samesign ugt i64 %32, 63
   br i1 %33, label %.thread, label %1, !prof !9, !llvm.loop !191
 
 .thread:                                          ; preds = %1, %26, %7
@@ -8876,7 +8876,7 @@ define dso_local void @setup_zone_pageset(ptr noundef %0) local_unnamed_addr #16
   store i16 0, ptr %39, align 4
   %40 = add nuw nsw i64 %13, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %6, !prof !9, !llvm.loop !195
 
 .thread:                                          ; preds = %6, %35, %12
@@ -9041,7 +9041,7 @@ define internal fastcc void @zone_set_pageset_high_and_batch(ptr noundef %0, i32
   store volatile i32 %79, ptr %116, align 16
   %117 = add nuw nsw i64 %103, 1
   %118 = and i64 %117, 127
-  %119 = icmp ugt i64 %118, 63
+  %119 = icmp samesign ugt i64 %118, 63
   br i1 %119, label %.thread, label %97, !prof !9, !llvm.loop !197
 
 .thread:                                          ; preds = %97, %106, %102, %88
@@ -9105,7 +9105,7 @@ define dso_local void @setup_pcp_cacheinfo() local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_unlock(ptr noundef %26) #22
   %40 = add nuw nsw i64 %16, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.thread, label %9, !prof !9, !llvm.loop !198
 
 .thread:                                          ; preds = %9, %19, %15, %.preheader
@@ -9172,7 +9172,7 @@ define dso_local void @setup_per_cpu_pageset() local_unnamed_addr #16 section ".
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
   %28 = add nuw nsw i64 %18, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %12, !prof !9, !llvm.loop !201
 
 .thread:                                          ; preds = %12, %21, %17
@@ -10086,7 +10086,7 @@ define dso_local void @zone_pcp_disable(ptr noundef %0) local_unnamed_addr #0 al
   store volatile i32 0, ptr %23, align 16
   %24 = add nuw nsw i64 %10, 1
   %25 = and i64 %24, 127
-  %26 = icmp ugt i64 %25, 63
+  %26 = icmp samesign ugt i64 %25, 63
   br i1 %26, label %.thread, label %4, !prof !9, !llvm.loop !197
 
 .thread:                                          ; preds = %4, %13, %9
@@ -10138,7 +10138,7 @@ define dso_local void @zone_pcp_enable(ptr nocapture noundef readonly %0) local_
   store volatile i32 %5, ptr %29, align 16
   %30 = add nuw nsw i64 %16, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %10, !prof !9, !llvm.loop !197
 
 .thread:                                          ; preds = %10, %19, %15
@@ -10185,7 +10185,7 @@ define dso_local void @zone_pcp_reset(ptr noundef %0) local_unnamed_addr #0 alig
   tail call void @drain_zonestat(ptr noundef %0, ptr noundef %24) #22
   %25 = add nuw nsw i64 %14, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %7, !prof !9, !llvm.loop !229
 
 .thread:                                          ; preds = %7, %17, %13
@@ -10243,7 +10243,7 @@ define dso_local zeroext i1 @is_free_buddy_page(ptr noundef %0) #5 align 16 {
 
 24:                                               ; preds = %20, %6
   %25 = add nuw nsw i64 %7, 1
-  %26 = icmp ult i64 %7, 10
+  %26 = icmp samesign ult i64 %7, 10
   %27 = icmp eq i64 %25, 11
   br i1 %27, label %28, label %6, !llvm.loop !230
 
@@ -10697,7 +10697,7 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
 
 17:                                               ; preds = %16, %5, %5
   %18 = phi i64 [ 2048, %16 ], [ 131072, %5 ], [ 131072, %5 ]
-  %19 = icmp ult i64 %15, %18
+  %19 = icmp samesign ult i64 %15, %18
   br i1 %19, label %20, label %30, !prof !7
 
 20:                                               ; preds = %17
@@ -10772,7 +10772,7 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
 
 69:                                               ; preds = %68, %59, %59
   %70 = phi i64 [ 2048, %68 ], [ 131072, %59 ], [ 131072, %59 ]
-  %71 = icmp ult i64 %67, %70
+  %71 = icmp samesign ult i64 %67, %70
   br i1 %71, label %72, label %82, !prof !7
 
 72:                                               ; preds = %69
@@ -10862,7 +10862,7 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
   %134 = add i64 %133, 512
   %135 = tail call i64 @llvm.umin.i64(i64 %134, i64 %131)
   store i64 %135, ptr %132, align 32
-  %136 = icmp ult i32 %2, 2048
+  %136 = icmp samesign ult i32 %2, 2048
   br i1 %136, label %.thread, label %137
 
 137:                                              ; preds = %130
@@ -10929,7 +10929,7 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
 
 172:                                              ; preds = %171, %163, %163
   %173 = phi i64 [ 2048, %171 ], [ 131072, %163 ], [ 131072, %163 ]
-  %174 = icmp ult i64 %170, %173
+  %174 = icmp samesign ult i64 %170, %173
   br i1 %174, label %175, label %185, !prof !7
 
 175:                                              ; preds = %172
@@ -11148,7 +11148,7 @@ define internal fastcc void @reserve_highatomic_pageblock(ptr noundef nonnull %0
 
 27:                                               ; preds = %26, %19, %19
   %28 = phi i64 [ 2048, %26 ], [ 131072, %19 ], [ 131072, %19 ]
-  %29 = icmp ult i64 %25, %28
+  %29 = icmp samesign ult i64 %25, %28
   br i1 %29, label %30, label %40, !prof !7
 
 30:                                               ; preds = %27
@@ -11180,7 +11180,7 @@ define internal fastcc void @reserve_highatomic_pageblock(ptr noundef nonnull %0
   %50 = load volatile i64, ptr %49, align 8
   %51 = lshr i64 %50, %48
   %52 = and i64 %51, 7
-  %53 = icmp ult i64 %52, 3
+  %53 = icmp samesign ult i64 %52, 3
   br i1 %53, label %54, label %.loopexit
 
 54:                                               ; preds = %40
@@ -11200,7 +11200,7 @@ define internal fastcc void @reserve_highatomic_pageblock(ptr noundef nonnull %0
 
 63:                                               ; preds = %62, %54, %54
   %64 = phi i64 [ 2048, %62 ], [ 131072, %54 ], [ 131072, %54 ]
-  %65 = icmp ult i64 %61, %64
+  %65 = icmp samesign ult i64 %61, %64
   br i1 %65, label %66, label %76, !prof !7
 
 66:                                               ; preds = %63
@@ -11534,7 +11534,7 @@ define internal fastcc noundef zeroext i1 @unreserve_highatomic_pageblock(ptr no
 
 49:                                               ; preds = %48, %41, %41
   %50 = phi i64 [ 2048, %48 ], [ 131072, %41 ], [ 131072, %41 ]
-  %51 = icmp ult i64 %47, %50
+  %51 = icmp samesign ult i64 %47, %50
   br i1 %51, label %52, label %62, !prof !7
 
 52:                                               ; preds = %49
@@ -11602,7 +11602,7 @@ define internal fastcc noundef zeroext i1 @unreserve_highatomic_pageblock(ptr no
 
 95:                                               ; preds = %94, %86, %86
   %96 = phi i64 [ 2048, %94 ], [ 131072, %86 ], [ 131072, %86 ]
-  %97 = icmp ult i64 %93, %96
+  %97 = icmp samesign ult i64 %93, %96
   br i1 %97, label %98, label %108, !prof !7
 
 98:                                               ; preds = %95

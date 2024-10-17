@@ -841,7 +841,7 @@ define internal i32 @dissect_ged125_base_messages(ptr noundef %0, ptr noundef %1
   %93 = add nuw nsw i16 %.011.i, 1
   %94 = add nuw nsw i32 %.1, 8
   %95 = icmp sle i32 %94, %6
-  %96 = icmp ult i16 %.011.i, 1023
+  %96 = icmp samesign ult i16 %.011.i, 1023
   %97 = select i1 %95, i1 %96, i1 false
   br i1 %97, label %.lr.ph.i, label %trunk_funk.exit, !llvm.loop !4
 
@@ -1038,7 +1038,7 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   %221 = add nuw nsw i32 %.07.i, 1
   %222 = add nuw nsw i32 %.7, 4
   %223 = icmp sle i32 %222, %6
-  %224 = icmp ult i32 %.07.i, 1023
+  %224 = icmp samesign ult i32 %.07.i, 1023
   %225 = select i1 %223, i1 %224, i1 false
   br i1 %225, label %.lr.ph.i239, label %trunk_funk.exit, !llvm.loop !7
 
@@ -1230,7 +1230,7 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   %326 = add nuw nsw i16 %.011.i.i, 1
   %327 = add nuw nsw i32 %.12, 8
   %328 = icmp sle i32 %327, %6
-  %329 = icmp ult i16 %.011.i.i, 1023
+  %329 = icmp samesign ult i16 %.011.i.i, 1023
   %330 = select i1 %328, i1 %329, i1 false
   br i1 %330, label %.lr.ph.i.i, label %trunk_funk.exit, !llvm.loop !4
 
@@ -1308,7 +1308,7 @@ OperationalStatus_funk.exit.i:                    ; preds = %357, %355, %353, %3
   %375 = add nuw nsw i16 %.011.i365.i, 1
   %376 = add nuw nsw i32 %.10, 8
   %377 = icmp sle i32 %376, %6
-  %378 = icmp ult i16 %.011.i365.i, 1023
+  %378 = icmp samesign ult i16 %.011.i365.i, 1023
   %379 = select i1 %377, i1 %378, i1 false
   br i1 %379, label %.lr.ph.i364.i, label %trunk_funk.exit, !llvm.loop !4
 

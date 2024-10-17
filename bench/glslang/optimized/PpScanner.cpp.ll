@@ -622,7 +622,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   %.2151 = select i1 %.not193, double %.1150411, double %244
   %245 = fmul double %.0142413, %.0142413
   %246 = lshr i32 %.5148412, 1
-  %.not366 = icmp ult i32 %.5148412, 2
+  %.not366 = icmp samesign ult i32 %.5148412, 2
   br i1 %.not366, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %241, %238
@@ -2962,7 +2962,7 @@ switch.early.test643:                             ; preds = %126
 789:                                              ; preds = %787
   %790 = icmp eq i64 %.8581898, 6553
   %791 = and i32 %786, 65534
-  %792 = icmp ugt i32 %791, 5
+  %792 = icmp samesign ugt i32 %791, 5
   %793 = select i1 %790, i1 %792, i1 false
   br i1 %793, label %.loopexit814, label %800
 

@@ -815,7 +815,7 @@ _ZN3ue210verify_u32ImEEjT_.exit.i78.i:            ; preds = %for.body30.i.i
 
 for.body39.i.i:                                   ; preds = %for.inc63.i.i, %_ZN3ue210verify_u32ImEEjT_.exit.i78.i
   %indvars.iv.i79.i = phi i64 [ 1, %_ZN3ue210verify_u32ImEEjT_.exit.i78.i ], [ %indvars.iv.next.i80.i, %for.inc63.i.i ]
-  %cmp40.i.i = icmp ult i64 %106, %indvars.iv.i79.i
+  %cmp40.i.i = icmp samesign ult i64 %106, %indvars.iv.i79.i
   br i1 %cmp40.i.i, label %if.then.i.i12, label %if.else.i.i
 
 if.then.i.i12:                                    ; preds = %for.body39.i.i
@@ -1619,7 +1619,7 @@ for.inc.i.i.i:                                    ; preds = %if.else39.i.i.i, %i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %25 = load i32, ptr %ts.i.i, align 8
   %26 = zext i32 %25 to i64
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %26
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %26
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !26
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i

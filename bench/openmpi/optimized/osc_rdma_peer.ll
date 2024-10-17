@@ -441,7 +441,7 @@ mca_bml_base_btl_array_find.exit61:               ; preds = %114, %123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = load i8, ptr %85, align 8
   %142 = zext i8 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next, %142
   br i1 %143, label %91, label %mca_bml_base_btl_array_find.exit.thread, !llvm.loop !7
 
 mca_bml_base_btl_array_find.exit.thread:          ; preds = %.loopexit, %69, %83, %62

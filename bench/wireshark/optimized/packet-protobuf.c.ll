@@ -1001,7 +1001,7 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %85 = load i32, ptr @num_protobuf_udp_message_types, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next.i, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next.i, %86
   br i1 %87, label %66, label %find_message_type_by_udp_port.exit.thread, !llvm.loop !6
 
 find_message_type_by_udp_port.exit:               ; preds = %80, %56, %58
@@ -1176,7 +1176,7 @@ define internal fastcc void @update_header_fields(i32 noundef range(i32 0, 2) %0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = load i32, ptr @dynamic_hf_size, align 4
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next.i, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1292,7 +1292,7 @@ deregister_header_fields.exit34:                  ; preds = %37, %35, %1, %._cri
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unnamed_addr #0 {
-  %.not = icmp ult i32 %0, 2
+  %.not = icmp samesign ult i32 %0, 2
   br i1 %.not, label %.loopexit55, label %.preheader
 
 .preheader:                                       ; preds = %1
@@ -1355,7 +1355,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   %18 = phi ptr [ %8, %.lr.ph62 ], [ %.pre85, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %17 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph62, label %.loopexit55, !llvm.loop !12
 
 .loopexit55:                                      ; preds = %16, %._crit_edge.thread, %1
@@ -1433,7 +1433,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
 55:                                               ; preds = %43, %49
   %56 = add i32 %.267, 1
   %57 = zext i32 %56 to i64
-  %.not74 = icmp ugt i64 %26, %57
+  %.not74 = icmp samesign ugt i64 %26, %57
   br i1 %.not74, label %40, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %55, %54
@@ -1484,7 +1484,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %72 = load i32, ptr @num_protobuf_udp_message_types, align 4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next83, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next83, %73
   br i1 %74, label %.lr.ph70.split, label %._crit_edge71, !llvm.loop !15
 
 ._crit_edge71:                                    ; preds = %71, %.loopexit, %.thread

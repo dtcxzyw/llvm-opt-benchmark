@@ -125,7 +125,7 @@ entry:
   store ptr null, ptr %elements, align 8
   %cmp.i = icmp slt i32 %initialCapacity, 1
   %spec.store.select.i = select i1 %cmp.i, i32 8, i32 %initialCapacity
-  %cmp8.i = icmp ugt i32 %spec.store.select.i, 536870911
+  %cmp8.i = icmp samesign ugt i32 %spec.store.select.i, 536870911
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %entry

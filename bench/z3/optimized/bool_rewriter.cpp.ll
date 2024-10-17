@@ -1478,7 +1478,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit84:    ; preds = %if.then2.i.i.i82, %
 
 for.inc:                                          ; preds = %invoke.cont42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp36 = icmp ult i64 %indvars.iv.next, %indvars.iv143
+  %cmp36 = icmp samesign ult i64 %indvars.iv.next, %indvars.iv143
   br i1 %cmp36, label %for.body37, label %for.inc62, !llvm.loop !6
 
 for.inc62:                                        ; preds = %for.inc, %invoke.cont50, %invoke.cont28
@@ -1570,7 +1570,7 @@ for.body97:                                       ; preds = %if.then90, %for.con
   %indvars.iv151 = phi i64 [ 0, %if.then90 ], [ %indvars.iv.next152, %for.cond95.loopexit ]
   %indvars.iv145 = phi i64 [ 1, %if.then90 ], [ %indvars.iv.next146, %for.cond95.loopexit ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %cmp100137 = icmp ult i64 %indvars.iv.next152, %wide.trip.count
+  %cmp100137 = icmp samesign ult i64 %indvars.iv.next152, %wide.trip.count
   br i1 %cmp100137, label %for.body101.lr.ph, label %for.cond95.loopexit
 
 for.body101.lr.ph:                                ; preds = %for.body97
@@ -11094,7 +11094,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
@@ -15685,7 +15685,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div11, %div.i5557
+  %cmp23.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

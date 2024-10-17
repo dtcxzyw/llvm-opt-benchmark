@@ -797,7 +797,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
   %21 = sext i32 %20 to i64
   %22 = icmp eq ptr %3, null
   %23 = and i64 %21, 288230376151711680
-  %24 = icmp ugt i64 %23, 128
+  %24 = icmp samesign ugt i64 %23, 128
   %25 = select i1 %22, i1 %24, i1 false
   br i1 %25, label %26, label %28
 

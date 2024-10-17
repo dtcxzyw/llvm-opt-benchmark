@@ -571,7 +571,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   br i1 %.not13.i, label %Abc_SclClassCellNum.exit, label %14, !llvm.loop !10
 
 Abc_SclClassCellNum.exit:                         ; preds = %14
-  %20 = icmp ult i32 %spec.select.i93, 2
+  %20 = icmp samesign ult i32 %spec.select.i93, 2
   br i1 %20, label %Abc_Base10Log.exit100, label %.lr.ph.preheader.i94
 
 .lr.ph.preheader.i94:                             ; preds = %Abc_SclClassCellNum.exit

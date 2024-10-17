@@ -975,7 +975,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 295:                                              ; preds = %292
   %narrow.i = add nuw nsw i16 %.sroa.3.0.copyload.i, 9
   %296 = zext nneg i16 %narrow.i to i32
-  %297 = icmp ult i32 %.095162.i, %296
+  %297 = icmp samesign ult i32 %.095162.i, %296
   br i1 %297, label %._crit_edge166.i, label %298
 
 298:                                              ; preds = %295

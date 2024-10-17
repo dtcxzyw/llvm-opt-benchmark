@@ -720,7 +720,7 @@ define signext range(i8 0, 2) i8 @uprv_isNaN_75(double noundef %number) local_un
 entry:
   %0 = tail call double @llvm.fabs.f64(double %number)
   %and = bitcast double %0 to i64
-  %cmp = icmp ugt i64 %and, 9218868437227405312
+  %cmp = icmp samesign ugt i64 %and, 9218868437227405312
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -843,13 +843,13 @@ define noundef double @uprv_fmax_75(double noundef %x, double noundef %y) local_
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
+  %cmp.i = icmp samesign ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %y)
   %and.i9 = bitcast double %1 to i64
-  %cmp.i10 = icmp ult i64 %and.i9, 9218868437227405313
+  %cmp.i10 = icmp samesign ult i64 %and.i9, 9218868437227405313
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -876,13 +876,13 @@ define noundef double @uprv_fmin_75(double noundef %x, double noundef %y) local_
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
+  %cmp.i = icmp samesign ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %y)
   %and.i9 = bitcast double %1 to i64
-  %cmp.i10 = icmp ult i64 %and.i9, 9218868437227405313
+  %cmp.i10 = icmp samesign ult i64 %and.i9, 9218868437227405313
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -934,7 +934,7 @@ define noundef double @uprv_trunc_75(double noundef %d) local_unnamed_addr #9 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %d)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
+  %cmp.i = icmp samesign ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1265,7 +1265,7 @@ while.cond11:                                     ; preds = %while.cond11, %whil
   %7 = load i8, ptr %arrayidx13, align 1
   %8 = add i8 %7, -48
   %or.cond25 = icmp ult i8 %8, 10
-  %cmp26 = icmp ult i64 %indvars.iv31, %6
+  %cmp26 = icmp samesign ult i64 %indvars.iv31, %6
   %or.cond26 = select i1 %or.cond25, i1 %cmp26, i1 false
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   br i1 %or.cond26, label %while.cond11, label %while.end30, !llvm.loop !7
@@ -2305,7 +2305,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
 
 if.end11:                                         ; preds = %for.cond, %lor.lhs.false6
   %4 = trunc nuw nsw i64 %indvars.iv.next to i16
-  %cmp1314 = icmp ult i64 %indvars.iv, 3
+  %cmp1314 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %cmp1314, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %for.cond.preheader, %if.end, %if.end11
@@ -2373,7 +2373,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
-  %cmp1314.i = icmp ult i64 %indvars.iv.i, 3
+  %cmp1314.i = icmp samesign ult i64 %indvars.iv.i, 3
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i
@@ -2442,7 +2442,7 @@ if.then16:                                        ; preds = %for.end
 if.end21:                                         ; preds = %if.then16, %for.end
   %versionString.addr.0 = phi ptr [ %incdec.ptr, %if.then16 ], [ %versionString, %for.end ]
   %field.0 = phi i8 [ %3, %if.then16 ], [ %2, %for.end ]
-  %cmp23 = icmp ugt i8 %field.0, 9
+  %cmp23 = icmp samesign ugt i8 %field.0, 9
   br i1 %cmp23, label %if.then24, label %if.end33
 
 if.then24:                                        ; preds = %if.end21
@@ -2484,7 +2484,7 @@ if.then48:                                        ; preds = %for.body42
 if.end57:                                         ; preds = %if.then48, %for.body42
   %versionString.addr.3 = phi ptr [ %incdec.ptr53, %if.then48 ], [ %incdec.ptr43, %for.body42 ]
   %field.2 = phi i8 [ %7, %if.then48 ], [ %6, %for.body42 ]
-  %cmp59 = icmp ugt i8 %field.2, 9
+  %cmp59 = icmp samesign ugt i8 %field.2, 9
   br i1 %cmp59, label %if.then60, label %if.end69
 
 if.then60:                                        ; preds = %if.end57
@@ -2554,7 +2554,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
-  %cmp1314.i = icmp ult i64 %indvars.iv.i, 3
+  %cmp1314.i = icmp samesign ult i64 %indvars.iv.i, 3
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i

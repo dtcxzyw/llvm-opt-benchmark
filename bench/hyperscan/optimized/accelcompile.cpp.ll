@@ -329,7 +329,7 @@ if.then41.i:                                      ; preds = %for.end.i.i
 
 if.end66.i:                                       ; preds = %for.end.i.i, %if.end13.i
   %cmp67.i = icmp ult i64 %add21.i.i.i, %10
-  %cmp69.i = icmp ult i64 %add21.i.i.i, 3
+  %cmp69.i = icmp samesign ult i64 %add21.i.i.i, 3
   %or.cond1.i = and i1 %cmp67.i, %cmp69.i
   br i1 %or.cond1.i, label %do.end72.i, label %if.end3.thread
 
@@ -490,7 +490,7 @@ if.then29.i:                                      ; preds = %do.end25.thread.i, 
   br label %if.end7
 
 if.end36.i:                                       ; preds = %do.end25.i
-  %cmp37.i = icmp ult i64 %add21.i.i.i17, 25
+  %cmp37.i = icmp samesign ult i64 %add21.i.i.i17, 25
   br i1 %cmp37.i, label %do.end40.i, label %if.end7
 
 do.end40.i:                                       ; preds = %if.end36.i, %do.end25.thread.i

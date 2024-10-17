@@ -491,7 +491,7 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
   %213 = getelementptr inbounds i8, ptr %3, i64 64
   %214 = load i64, ptr %213, align 16
   %215 = and i64 %214, 252
-  %216 = icmp ugt i64 %215, 51
+  %216 = icmp samesign ugt i64 %215, 51
   br i1 %216, label %220, label %217, !prof !24
 
 217:                                              ; preds = %212, %199
@@ -528,7 +528,7 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
 
 234:                                              ; preds = %231, %226
   %235 = phi i64 [ %233, %231 ], [ 1, %226 ]
-  %236 = icmp ugt i64 %235, %227
+  %236 = icmp samesign ugt i64 %235, %227
   %237 = add nuw nsw i64 %227, 1
   br i1 %236, label %226, label %238, !llvm.loop !27
 
@@ -1113,7 +1113,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nocap
 
 231:                                              ; preds = %228, %223
   %232 = phi i64 [ %230, %228 ], [ 1, %223 ]
-  %233 = icmp ugt i64 %232, %224
+  %233 = icmp samesign ugt i64 %232, %224
   %234 = add nuw nsw i64 %224, 1
   br i1 %233, label %223, label %.loopexit, !llvm.loop !27
 

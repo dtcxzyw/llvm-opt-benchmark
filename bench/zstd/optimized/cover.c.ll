@@ -1202,7 +1202,7 @@ if.end41:                                         ; preds = %COVER_selectSegment
   %sub43 = sub i32 %add42, %newBegin.0.lcssa44.i
   %conv44 = zext i32 %sub43 to i64
   %conv44.tail.0 = tail call i64 @llvm.umin.i64(i64 %tail.018, i64 %conv44)
-  %cmp60 = icmp ult i64 %conv44.tail.0, %conv59
+  %cmp60 = icmp samesign ult i64 %conv44.tail.0, %conv59
   br i1 %cmp60, label %for.end, label %if.end63
 
 if.end63:                                         ; preds = %if.end41

@@ -3238,7 +3238,7 @@ if.then60:                                        ; preds = %if.end.i
 if.else62:                                        ; preds = %if.end.i.thread
   %19 = trunc nuw nsw i64 %indvars.iv.i to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  %cmp64 = icmp ult i64 %indvars.iv.i, 5
+  %cmp64 = icmp samesign ult i64 %indvars.iv.i, 5
   br i1 %cmp64, label %do.body, label %for.cond70.preheader
 
 do.body:                                          ; preds = %if.else62

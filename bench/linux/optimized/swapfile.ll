@@ -217,7 +217,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   %128 = add i64 %35, 4095
   %129 = lshr i64 %128, 12
   %130 = lshr i64 %117, 12
-  %131 = icmp ult i64 %129, %130
+  %131 = icmp samesign ult i64 %129, %130
   br i1 %131, label %132, label %.thread31
 
 132:                                              ; preds = %127
@@ -323,7 +323,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   %200 = lshr i64 %199, 12
   %201 = add i64 %183, %178
   %202 = lshr i64 %201, 12
-  %203 = icmp ult i64 %200, %202
+  %203 = icmp samesign ult i64 %200, %202
   br i1 %203, label %204, label %.thread39
 
 204:                                              ; preds = %198

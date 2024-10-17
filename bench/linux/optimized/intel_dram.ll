@@ -508,7 +508,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bxt_get_dram_info(ptr noun
   %19 = add i8 %18, 1
   store i8 %19, ptr %4, align 1
   %20 = and i32 %15, 448
-  %21 = icmp ult i32 %20, 320
+  %21 = icmp samesign ult i32 %20, 320
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17

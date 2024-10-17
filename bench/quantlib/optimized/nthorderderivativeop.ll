@@ -242,7 +242,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont26, %whi
   br i1 %cmp.i.not.i.i.i.i, label %cond.true.i.i, label %while.body.i.i.i.i, !llvm.loop !35
 
 cond.true.i.i:                                    ; preds = %while.body.i.i.i.i
-  %16 = icmp ugt i64 %__n.05.i.i.i.i, 2305843009213693950
+  %16 = icmp samesign ugt i64 %__n.05.i.i.i.i, 2305843009213693950
   %17 = shl i64 %inc.i.i.i.i, 3
   %18 = select i1 %16, i64 -1, i64 %17
   %call5.i1.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %18) #25

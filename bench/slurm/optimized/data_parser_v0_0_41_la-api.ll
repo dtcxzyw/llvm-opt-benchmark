@@ -219,7 +219,7 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   %67 = phi i8 [ %.pre.i, %._crit_edge20.i ], [ %42, %41 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %68 = zext i8 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next.i, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next.i, %68
   br i1 %69, label %41, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %66, %36

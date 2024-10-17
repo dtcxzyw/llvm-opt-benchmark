@@ -1216,7 +1216,7 @@ define i32 @Fra_OneHotCount(ptr nocapture noundef readnone %0, ptr nocapture nou
   %15 = zext i1 %or.cond.not to i32
   %spec.select = add nuw nsw i32 %.016, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %16 = icmp ult i64 %indvars.iv.next, %6
+  %16 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %16, label %7, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %7, %2

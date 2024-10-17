@@ -1005,7 +1005,7 @@ vhdx_log_hdr_is_valid.exit:                       ; preds = %if.end12.i
   %11 = load i32, ptr %descriptor_count.i, align 4
   %conv18.i = zext i32 %11 to i64
   %mul.i = shl nuw nsw i64 %conv18.i, 5
-  %cmp21.i.not = icmp ugt i64 %mul.i, %conv.i27
+  %cmp21.i.not = icmp samesign ugt i64 %mul.i, %conv.i27
   br i1 %cmp21.i.not, label %inc_and_exit, label %if.end6
 
 if.end6:                                          ; preds = %vhdx_log_hdr_is_valid.exit
@@ -1033,7 +1033,7 @@ if.end22:                                         ; preds = %if.end14
   %mul = shl nuw nsw i64 %conv23, 12
   %call24 = call i32 @vhdx_checksum_calc(i32 noundef -1, ptr noundef %.pre, i64 noundef %mul, i32 noundef 4) #8
   %call25 = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 4096) #8
-  %cmp26 = icmp ugt i32 %12, %spec.select.i
+  %cmp26 = icmp samesign ugt i32 %12, %spec.select.i
   br i1 %cmp26, label %for.body.lr.ph, label %if.end40
 
 for.body.lr.ph:                                   ; preds = %if.end22
@@ -1189,7 +1189,7 @@ vhdx_log_hdr_is_valid.exit:                       ; preds = %if.end12.i
   %12 = load i32, ptr %descriptor_count.i, align 4
   %conv18.i = zext i32 %12 to i64
   %mul.i = shl nuw nsw i64 %conv18.i, 5
-  %cmp21.i.not = icmp ugt i64 %mul.i, %conv.i21
+  %cmp21.i.not = icmp samesign ugt i64 %mul.i, %conv.i21
   br i1 %cmp21.i.not, label %exit, label %if.end8
 
 if.end8:                                          ; preds = %vhdx_log_hdr_is_valid.exit

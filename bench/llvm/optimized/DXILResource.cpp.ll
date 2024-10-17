@@ -907,11 +907,11 @@ _ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1
   %74 = and i8 %73, 1
   %75 = load i8, ptr %68, align 8
   %76 = and i8 %75, 1
-  %77 = icmp ult i8 %74, %76
+  %77 = icmp samesign ult i8 %74, %76
   br i1 %77, label %_ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1_12ResourceKindEEJS5_S8_SB_EEbRKSt5tupleIJDpT_EERKSC_IJDpT0_EE.exit.thread, label %78
 
 78:                                               ; preds = %66
-  %79 = icmp ult i8 %76, %74
+  %79 = icmp samesign ult i8 %76, %74
   br i1 %79, label %.thread30, label %80
 
 80:                                               ; preds = %78
@@ -919,11 +919,11 @@ _ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1
   %82 = and i8 %81, 1
   %83 = load i8, ptr %71, align 1
   %84 = and i8 %83, 1
-  %85 = icmp ult i8 %82, %84
+  %85 = icmp samesign ult i8 %82, %84
   br i1 %85, label %_ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1_12ResourceKindEEJS5_S8_SB_EEbRKSt5tupleIJDpT_EERKSC_IJDpT0_EE.exit.thread, label %86
 
 86:                                               ; preds = %80
-  %87 = icmp ult i8 %84, %82
+  %87 = icmp samesign ult i8 %84, %82
   br i1 %87, label %.thread30, label %_ZNK4llvm4dxil12ResourceInfo7UAVInfoltERKS2_.exit
 
 _ZNK4llvm4dxil12ResourceInfo7UAVInfoltERKS2_.exit: ; preds = %86
@@ -931,7 +931,7 @@ _ZNK4llvm4dxil12ResourceInfo7UAVInfoltERKS2_.exit: ; preds = %86
   %89 = and i8 %88, 1
   %90 = load i8, ptr %72, align 2
   %91 = and i8 %90, 1
-  %92 = icmp ult i8 %89, %91
+  %92 = icmp samesign ult i8 %89, %91
   br i1 %92, label %_ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1_12ResourceKindEEJS5_S8_SB_EEbRKSt5tupleIJDpT_EERKSC_IJDpT0_EE.exit.thread, label %.thread30
 
 .thread30:                                        ; preds = %_ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1_12ResourceKindEEJS5_S8_SB_EEbRKSt5tupleIJDpT_EERKSC_IJDpT0_EE.exit.thread28, %86, %78, %45, %48, %54, %57, %_ZNK4llvm4dxil12ResourceInfo7UAVInfoltERKS2_.exit, %63
@@ -3227,7 +3227,7 @@ define dso_local void @_ZN4llvm15DXILResourceMapC2EONS_15SmallVectorImplISt4pair
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %19
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_EC2ES7_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 19:                                               ; preds = %.lr.ph.i.i.i.i.i

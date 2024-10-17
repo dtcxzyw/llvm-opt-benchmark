@@ -1928,10 +1928,10 @@ proto_item_set_generated.exit:                    ; preds = %36, %44, %47
   %54 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %41, i32 noundef %51, ptr noundef %27, i32 noundef %52, i32 noundef 1, i64 noundef %35, i32 noundef 0, ptr noundef nonnull @.str.252, ptr noundef %53) #5
   %55 = add i16 %.1184242, 1
   %56 = zext i16 %55 to i32
-  %.not192 = icmp ugt i32 %invariant.op, %56
+  %.not192 = icmp samesign ugt i32 %invariant.op, %56
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %57 = icmp ult i32 %indvars.iv, 7
-  %or.cond247 = and i1 %.not192, %57
+  %57 = icmp samesign ult i32 %indvars.iv, 7
+  %or.cond247 = select i1 %.not192, i1 %57, i1 false
   br i1 %or.cond247, label %36, label %58, !llvm.loop !12
 
 58:                                               ; preds = %proto_item_set_generated.exit

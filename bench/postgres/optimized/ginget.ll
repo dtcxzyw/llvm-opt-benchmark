@@ -1504,7 +1504,7 @@ startScanEntry.exit.i:                            ; preds = %.critedge.i.i, %Buf
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %830 = load i32, ptr %410, align 8
   %831 = zext i32 %830 to i64
-  %832 = icmp ult i64 %indvars.iv.next.i, %831
+  %832 = icmp samesign ult i64 %indvars.iv.next.i, %831
   br i1 %832, label %416, label %._crit_edge.i21, !llvm.loop !15
 
 ._crit_edge.i21:                                  ; preds = %startScanEntry.exit.i
@@ -1551,7 +1551,7 @@ startScanEntry.exit.i:                            ; preds = %.critedge.i.i, %Buf
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %854 = load i32, ptr %410, align 8
   %855 = zext i32 %854 to i64
-  %856 = icmp ult i64 %indvars.iv.next98.i, %855
+  %856 = icmp samesign ult i64 %indvars.iv.next98.i, %855
   br i1 %856, label %.critedge.i, label %.loopexit.i22, !llvm.loop !17
 
 .loopexit.i22:                                    ; preds = %838, %.critedge.i, %._crit_edge.i21, %scanPendingInsert.exit
@@ -1811,7 +1811,7 @@ startScanKey.exit.i:                              ; preds = %880, %980, %._crit_
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %989 = load i32, ptr %857, align 8
   %990 = zext i32 %989 to i64
-  %991 = icmp ult i64 %indvars.iv.next101.i, %990
+  %991 = icmp samesign ult i64 %indvars.iv.next101.i, %990
   br i1 %991, label %861, label %startScan.exit, !llvm.loop !25
 
 startScan.exit:                                   ; preds = %startScanKey.exit.i, %.loopexit.i22
@@ -2000,7 +2000,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i38, 1
   %1069 = load i32, ptr %1034, align 8
   %1070 = zext i32 %1069 to i64
-  %1071 = icmp ult i64 %indvars.iv.next.i.i39, %1070
+  %1071 = icmp samesign ult i64 %indvars.iv.next.i.i39, %1070
   br i1 %1071, label %1037, label %._crit_edge.i.i40, !llvm.loop !26
 
 ._crit_edge.i.i40:                                ; preds = %1068
@@ -2169,7 +2169,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %indvars.iv.next215.i.i = add nuw nsw i64 %indvars.iv214.i.i, 1
   %1142 = load i32, ptr %1100, align 8
   %1143 = zext i32 %1142 to i64
-  %1144 = icmp ult i64 %indvars.iv.next215.i.i, %1143
+  %1144 = icmp samesign ult i64 %indvars.iv.next215.i.i, %1143
   br i1 %1144, label %1110, label %._crit_edge195.i.i, !llvm.loop !27
 
 ._crit_edge195.i.i:                               ; preds = %1141, %1099
@@ -2232,7 +2232,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
 1176:                                             ; preds = %1164
   %1177 = load i32, ptr %1155, align 4
   %1178 = zext i32 %1177 to i64
-  %1179 = icmp ult i64 %indvars.iv216.i.i, %1178
+  %1179 = icmp samesign ult i64 %indvars.iv216.i.i, %1178
   %1180 = load ptr, ptr %1154, align 8
   %1181 = getelementptr i8, ptr %1180, i64 %indvars.iv216.i.i
   br i1 %1179, label %1182, label %1183
@@ -2256,7 +2256,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %indvars.iv.next217.i.i = add nuw nsw i64 %indvars.iv216.i.i, 1
   %1188 = load i32, ptr %1003, align 8
   %1189 = zext i32 %1188 to i64
-  %1190 = icmp ult i64 %indvars.iv.next217.i.i, %1189
+  %1190 = icmp samesign ult i64 %indvars.iv.next217.i.i, %1189
   br i1 %1190, label %1156, label %._crit_edge204.i.i, !llvm.loop !28
 
 ._crit_edge204.i.i:                               ; preds = %1187
@@ -2361,7 +2361,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %indvars.iv.next219.i.i = add nuw nsw i64 %indvars.iv218.i.i, 1
   %1246 = load i32, ptr %1003, align 8
   %1247 = zext i32 %1246 to i64
-  %1248 = icmp ult i64 %indvars.iv.next219.i.i, %1247
+  %1248 = icmp samesign ult i64 %indvars.iv.next219.i.i, %1247
   br i1 %1248, label %1214, label %._crit_edge209.i.i, !llvm.loop !29
 
 ._crit_edge209.i.i:                               ; preds = %1245, %1200
@@ -2539,7 +2539,7 @@ keyGetItem.exit.i:                                ; preds = %1259, %1197, %1075,
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i35, 1
   %1319 = load i32, ptr %998, align 8
   %1320 = zext i32 %1319 to i64
-  %1321 = icmp ult i64 %indvars.iv.next.i43, %1320
+  %1321 = icmp samesign ult i64 %indvars.iv.next.i43, %1320
   %1322 = select i1 %1321, i1 %.147.i, i1 false
   br i1 %1322, label %.lr.ph.i34.backedge, label %.loopexit2.i
 

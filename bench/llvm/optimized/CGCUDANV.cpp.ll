@@ -2955,7 +2955,7 @@ _ZNK5clang4Decl7hasAttrINS_32CUDADeviceBuiltinSurfaceTypeAttrEEEbv.exit: ; preds
   %221 = lshr i64 %220, 32
   %222 = trunc nuw i64 %221 to i32
   %223 = and i32 %222, 2147483647
-  %224 = icmp ult i32 %223, 65
+  %224 = icmp samesign ult i32 %223, 65
   br i1 %224, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %218
@@ -3048,7 +3048,7 @@ _ZNK5clang4Decl7hasAttrINS_32CUDADeviceBuiltinSurfaceTypeAttrEEEbv.exit.thread: 
   %270 = lshr i64 %269, 32
   %271 = trunc nuw i64 %270 to i32
   %272 = and i32 %271, 2147483647
-  %273 = icmp ult i32 %272, 65
+  %273 = icmp samesign ult i32 %272, 65
   br i1 %273, label %_ZN4llvm5APIntD2Ev.exit.i84, label %_ZN4llvm5APIntD2Ev.exit1.i78
 
 _ZN4llvm5APIntD2Ev.exit.i84:                      ; preds = %_ZNK5clang4Decl7hasAttrINS_32CUDADeviceBuiltinSurfaceTypeAttrEEEbv.exit.thread
@@ -3085,7 +3085,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit86: ; preds = %_ZN4llvm5APIntD
   %292 = lshr i64 %291, 32
   %293 = trunc nuw i64 %292 to i32
   %294 = and i32 %293, 2147483647
-  %295 = icmp ult i32 %294, 65
+  %295 = icmp samesign ult i32 %294, 65
   br i1 %295, label %_ZN4llvm5APIntD2Ev.exit.i93, label %_ZN4llvm5APIntD2Ev.exit1.i87
 
 _ZN4llvm5APIntD2Ev.exit.i93:                      ; preds = %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit86

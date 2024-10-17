@@ -2844,8 +2844,8 @@ define internal zeroext i1 @vac_tid_reaped(ptr noundef %0, ptr noundef %1) #0 {
   %33 = or disjoint i64 %32, %31
   %34 = zext i16 %.val5.i19 to i64
   %35 = or disjoint i64 %33, %34
-  %36 = icmp ult i64 %35, %12
-  %37 = icmp ugt i64 %35, %26
+  %36 = icmp samesign ult i64 %35, %12
+  %37 = icmp samesign ugt i64 %35, %26
   %or.cond = select i1 %36, i1 true, i1 %37
   br i1 %or.cond, label %42, label %38
 

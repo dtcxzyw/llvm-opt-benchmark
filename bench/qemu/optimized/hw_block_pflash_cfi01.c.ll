@@ -565,7 +565,7 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   %spec.select68.i = select i1 %cmp.i, i8 8, i8 11
   %18 = getelementptr i8, ptr %call.i, i64 902
   store i8 %spec.select68.i, ptr %18, align 2
-  %cmp79.i = icmp ult i32 %cond.i, 2
+  %cmp79.i = icmp samesign ult i32 %cond.i, 2
   %or.cond.not.i = select i1 %tobool4.i, i1 true, i1 %cmp79.i
   %spec.select.i = select i1 %or.cond.not.i, i32 1, i32 %cond.i
   %writeblock_size.i = getelementptr inbounds i8, ptr %call.i, i64 952
@@ -1079,7 +1079,7 @@ deposit32.exit.i.i:                               ; preds = %for.body.i.i
   %and6.i.i.i = shl i32 %shl57.i.i.i, %mul.i.i
   %or.i.i.i = or i32 %and.i.i.i, %and6.i.i.i
   %add29.i.i = add nuw nsw i32 %i.052.i.i, %conv13.i.i
-  %cmp21.i.i = icmp ult i32 %add29.i.i, %conv20.i.i
+  %cmp21.i.i = icmp samesign ult i32 %add29.i.i, %conv20.i.i
   br i1 %cmp21.i.i, label %for.body.i.i, label %pflash_devid_query.exit.i, !llvm.loop !7
 
 pflash_devid_query.exit.i:                        ; preds = %deposit32.exit.i.i, %sw.epilog.i.i, %trace_pflash_device_info.exit.i.i
@@ -1149,7 +1149,7 @@ if.end105.thread.i:                               ; preds = %if.then89.i
 
 if.end105.i:                                      ; preds = %if.then95.i, %if.then89.i
   %boff.1.i = phi i64 [ %shr96.i, %if.then95.i ], [ %and90.i, %if.then89.i ]
-  %cmp106.i = icmp ult i64 %boff.1.i, 82
+  %cmp106.i = icmp samesign ult i64 %boff.1.i, 82
   br i1 %cmp106.i, label %if.then108.i, label %sw.epilog135.i
 
 if.then108.i:                                     ; preds = %if.end105.i, %if.end105.thread.i
@@ -1302,7 +1302,7 @@ deposit32.exit40.i.i:                             ; preds = %for.body49.i.i
   %and6.i37.i.i = shl i32 %shl57.i36.i.i, %mul50.i.i
   %or.i38.i.i = or i32 %and.i35.i.i, %and6.i37.i.i
   %add58.i.i = add nuw nsw i32 %i.146.i.i, %conv3.i101.i
-  %cmp47.i.i = icmp ult i32 %add58.i.i, %conv120.i
+  %cmp47.i.i = icmp samesign ult i32 %add58.i.i, %conv120.i
   br i1 %cmp47.i.i, label %for.body49.i.i, label %pflash_cfi_query.exit.i, !llvm.loop !10
 
 pflash_cfi_query.exit.i:                          ; preds = %deposit32.exit40.i.i, %if.end34.thread.i.i, %if.end34.i.i, %trace_pflash_unsupported_device_configuration.exit.i.i, %for.body117.i

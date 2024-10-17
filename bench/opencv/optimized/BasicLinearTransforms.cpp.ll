@@ -322,7 +322,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %65
   %129 = lshr i32 %128, 3
   %130 = and i32 %129, 511
   %131 = zext nneg i32 %130 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %131
+  %.not.not = icmp samesign ult i64 %indvars.iv, %131
   br i1 %.not.not, label %102, label %134, !llvm.loop !8
 
 132:                                              ; preds = %151, %87, %85, %83, %81, %79, %77, %75, %_ZNK2cv7MatExprcvNS_3MatEEv.exit

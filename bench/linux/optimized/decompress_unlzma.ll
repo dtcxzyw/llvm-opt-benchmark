@@ -140,7 +140,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %71 = add nuw nsw i32 %.zext, 1
   %72 = add nsw i32 %64, -9
   %73 = add nsw i32 %72, %70
-  %74 = icmp ugt i32 %67, 27
+  %74 = icmp samesign ugt i32 %67, 27
   br i1 %74, label %75, label %.thread16
 
 75:                                               ; preds = %66

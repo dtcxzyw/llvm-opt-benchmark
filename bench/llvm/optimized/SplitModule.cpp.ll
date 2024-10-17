@@ -2177,7 +2177,7 @@ _ZNSt14priority_queueISt4pairIjjESt6vectorIS1_SaIS1_EEPFbRKS1_S6_EE4pushEOS1_.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %870 = load i32, ptr %16, align 4
   %871 = zext i32 %870 to i64
-  %872 = icmp ult i64 %indvars.iv.next, %871
+  %872 = icmp samesign ult i64 %indvars.iv.next, %871
   br i1 %872, label %761, label %._crit_edge370, !llvm.loop !51
 
 ._crit_edge370:                                   ; preds = %868, %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit

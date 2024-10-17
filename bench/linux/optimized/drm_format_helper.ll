@@ -178,7 +178,7 @@ define dso_local void @drm_fb_memcpy(ptr nocapture noundef readonly %0, ptr noun
   %25 = add nuw nsw i64 %22, 1
   %26 = load i8, ptr %15, align 1
   %27 = zext i8 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %.split3.us, label %.loopexit2, !llvm.loop !7
 
 .split3:                                          ; preds = %18, %.loopexit
@@ -246,7 +246,7 @@ define dso_local void @drm_fb_memcpy(ptr nocapture noundef readonly %0, ptr noun
   %79 = add nuw nsw i64 %29, 1
   %80 = load i8, ptr %15, align 1
   %81 = zext i8 %80 to i64
-  %82 = icmp ult i64 %79, %81
+  %82 = icmp samesign ult i64 %79, %81
   br i1 %82, label %.split3, label %.loopexit2, !llvm.loop !7
 
 .loopexit2:                                       ; preds = %.loopexit, %.split3.us, %5

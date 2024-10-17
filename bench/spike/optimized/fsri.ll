@@ -106,7 +106,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_fsriP11pro
   %19 = lshr i64 %1, 27
   %20 = and i64 %19, 31
   %21 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %20
-  %22 = icmp ugt i32 %14, 31
+  %22 = icmp samesign ugt i32 %14, 31
   %23 = add nsw i32 %14, -32
   %.022.in = select i1 %22, ptr %21, ptr %18
   %.0 = select i1 %22, i32 %23, i32 %14
@@ -208,7 +208,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_fsriP11p
   %19 = lshr i64 %1, 27
   %20 = and i64 %19, 31
   %21 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %20
-  %22 = icmp ugt i32 %14, 31
+  %22 = icmp samesign ugt i32 %14, 31
   %23 = add nsw i32 %14, -32
   %.025.in = select i1 %22, ptr %21, ptr %18
   %.0 = select i1 %22, i32 %23, i32 %14
@@ -347,7 +347,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_fsriP11pro
   %14 = and i32 %13, 63
   %15 = lshr i64 %1, 15
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %11
@@ -366,7 +366,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_fsriP11pro
   %24 = getelementptr inbounds i8, ptr %0, i64 120
   %25 = lshr i64 %1, 27
   %26 = and i64 %25, 31
-  %27 = icmp ugt i64 %26, 15
+  %27 = icmp samesign ugt i64 %26, 15
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %23
@@ -384,7 +384,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_fsriP11pro
 33:                                               ; preds = %23
   %34 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %16
   %35 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %26
-  %36 = icmp ugt i32 %14, 31
+  %36 = icmp samesign ugt i32 %14, 31
   %37 = add nsw i32 %14, -32
   %.034.in = select i1 %36, ptr %35, ptr %34
   %.033 = select i1 %36, i32 %37, i32 %14
@@ -409,7 +409,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_fsriP11pro
   %48 = phi i64 [ %46, %38 ], [ %.034, %33 ]
   %49 = lshr i64 %1, 7
   %50 = and i64 %49, 31
-  %51 = icmp ugt i64 %50, 15
+  %51 = icmp samesign ugt i64 %50, 15
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %47
@@ -482,7 +482,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_fsriP11p
   %14 = and i32 %13, 63
   %15 = lshr i64 %1, 15
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %11
@@ -501,7 +501,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_fsriP11p
   %24 = getelementptr inbounds i8, ptr %0, i64 120
   %25 = lshr i64 %1, 27
   %26 = and i64 %25, 31
-  %27 = icmp ugt i64 %26, 15
+  %27 = icmp samesign ugt i64 %26, 15
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %23
@@ -519,7 +519,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_fsriP11p
 33:                                               ; preds = %23
   %34 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %16
   %35 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %26
-  %36 = icmp ugt i32 %14, 31
+  %36 = icmp samesign ugt i32 %14, 31
   %37 = add nsw i32 %14, -32
   %.037.in = select i1 %36, ptr %35, ptr %34
   %.036 = select i1 %36, i32 %37, i32 %14
@@ -603,7 +603,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %50, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %78 = icmp ugt i64 %53, 15
+  %78 = icmp samesign ugt i64 %53, 15
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

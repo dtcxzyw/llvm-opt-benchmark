@@ -133,7 +133,7 @@ define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly
   %26 = add nuw nsw i64 %13, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %.preheader, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %.preheader, %16, %12, %1
@@ -503,7 +503,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
   store ptr %31, ptr %34, align 8
   %35 = add nuw nsw i64 %11, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %.preheader, !prof !6, !llvm.loop !14
 
 38:                                               ; preds = %.preheader13, %48
@@ -535,7 +535,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
   %58 = add nuw nsw i64 %45, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %59 = and i64 %58, 127
-  %60 = icmp ugt i64 %59, 63
+  %60 = icmp samesign ugt i64 %59, 63
   br i1 %60, label %.thread, label %38, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %.preheader, %33, %10, %38, %48, %44, %1

@@ -10620,7 +10620,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   %55 = zext i32 %.fca.1.extract19.i to i128
   %56 = add nuw nsw i128 %54, %55
   %57 = urem i128 %56, %50
-  %58 = icmp ugt i128 %57, 18446744073709551615
+  %58 = icmp samesign ugt i128 %57, 18446744073709551615
   br i1 %58, label %.split.i, label %.split23.i
 
 59:                                               ; preds = %41

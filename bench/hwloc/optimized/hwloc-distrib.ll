@@ -1661,7 +1661,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %49 = getelementptr inbounds ptr, ptr %.06212, i64 %indvars.iv21
   store ptr %48, ptr %49, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %50 = icmp ult i64 %indvars.iv.next22, %47
+  %50 = icmp samesign ult i64 %indvars.iv.next22, %47
   br i1 %50, label %.lr.ph9, label %.loopexit, !llvm.loop !15
 
 51:                                               ; preds = %46

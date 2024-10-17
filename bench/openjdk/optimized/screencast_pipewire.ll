@@ -1529,7 +1529,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %60, i64 12
   store i32 %58, ptr %.sroa.4.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %61 = icmp ult i64 %indvars.iv.next.i, %47
+  %61 = icmp samesign ult i64 %indvars.iv.next.i, %47
   br i1 %61, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -3274,7 +3274,7 @@ spa_pod_object_find_prop.exit.i:                  ; preds = %66, %spa_pod_prop_i
   %118 = zext i32 %117 to i64
   %119 = add nuw nsw i64 %118, 8
   %120 = zext i32 %116 to i64
-  %.not.i.i.i.i = icmp ule i64 %119, %120
+  %.not.i.i.i.i = icmp samesign ule i64 %119, %120
   %121 = and i32 %117, 7
   %122 = icmp eq i32 %121, 0
   %or.cond.i.i.i.i = and i1 %122, %.not.i.i.i.i
@@ -5800,7 +5800,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %.not.i15 = icmp ugt i64 %40, %43
+  %.not.i15 = icmp samesign ugt i64 %40, %43
   br i1 %.not.i15, label %spa_pod_builder_frame.exit.thread, label %spa_pod_builder_frame.exit
 
 spa_pod_builder_frame.exit:                       ; preds = %spa_pod_builder_raw.exit

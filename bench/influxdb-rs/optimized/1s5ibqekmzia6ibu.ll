@@ -1351,16 +1351,16 @@ define internal fastcc void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h
   br i1 %9, label %_ZN4core3cmp6max_by17h900ac0b627267129E.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = icmp eq i64 %.fca.0.extract, %.fca.0.extract2
-  br i1 %11, label %_ZN4core3ops8function6FnOnce9call_once17h7466acd5c35cd23dE.exit.i, label %_ZN4core3cmp6max_by17h900ac0b627267129E.exit
-
-_ZN4core3ops8function6FnOnce9call_once17h7466acd5c35cd23dE.exit.i: ; preds = %10
-  %spec.select19.i = tail call i32 @llvm.umax.i32(i32 %.fca.1.extract, i32 %.fca.1.extract4)
+  %11 = icmp ne i64 %.fca.0.extract, %.fca.0.extract2
+  %spec.select.i = icmp samesign ugt i32 %.fca.1.extract, %.fca.1.extract4
+  %or.cond = select i1 %11, i1 true, i1 %spec.select.i
+  %spec.select = select i1 %or.cond, i32 %.fca.1.extract, i32 %.fca.1.extract4
+  %spec.select34 = select i1 %or.cond, i64 %.fca.0.extract, i64 %.fca.0.extract2
   br label %_ZN4core3cmp6max_by17h900ac0b627267129E.exit
 
-_ZN4core3cmp6max_by17h900ac0b627267129E.exit:     ; preds = %6, %10, %_ZN4core3ops8function6FnOnce9call_once17h7466acd5c35cd23dE.exit.i
-  %12 = phi i32 [ %.fca.1.extract4, %6 ], [ %.fca.1.extract, %10 ], [ %spec.select19.i, %_ZN4core3ops8function6FnOnce9call_once17h7466acd5c35cd23dE.exit.i ]
-  %13 = phi i64 [ %.fca.0.extract2, %6 ], [ %.fca.0.extract, %10 ], [ %.fca.0.extract, %_ZN4core3ops8function6FnOnce9call_once17h7466acd5c35cd23dE.exit.i ]
+_ZN4core3cmp6max_by17h900ac0b627267129E.exit:     ; preds = %10, %6
+  %12 = phi i32 [ %.fca.1.extract4, %6 ], [ %spec.select, %10 ]
+  %13 = phi i64 [ %.fca.0.extract2, %6 ], [ %spec.select34, %10 ]
   %14 = load i64, ptr %4, align 8, !noundef !4
   %15 = load i32, ptr %5, align 8, !range !134, !noundef !4
   %16 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h0a1f0590dae2428bE"(i64 noundef %13, i32 noundef %12, i64 noundef %14, i32 noundef %15)
@@ -1379,8 +1379,8 @@ _ZN4core3cmp6max_by17h900ac0b627267129E.exit:     ; preds = %6, %10, %_ZN4core3o
 23:                                               ; preds = %21
   %24 = icmp eq i64 %.fca.0.extract2, %.fca.0.extract
   %25 = icmp ult i32 %.fca.1.extract4, %.fca.1.extract
-  %or.cond = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread", label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread31"
+  %or.cond33 = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond33, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread", label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread31"
 
 "_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3e37bb2a1cd6d9d3E.exit.thread": ; preds = %23, %21
   %26 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd1d4a08d20a56fdE"(i64 noundef %.fca.0.extract, i32 noundef %.fca.1.extract, i64 noundef %.fca.0.extract2, i32 noundef %.fca.1.extract4)
@@ -1543,7 +1543,7 @@ define hidden void @"_ZN22influxdb_line_protocol11parse_lines28_$u7b$$u7b$closur
   %57 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %58 = icmp ult i64 %57, 6
   call void @llvm.assume(i1 %58)
-  %switch.selectcmp27 = icmp ugt i64 %57, 3
+  %switch.selectcmp27 = icmp samesign ugt i64 %57, 3
   br i1 %switch.selectcmp27, label %59, label %54
 
 59:                                               ; preds = %55
@@ -4182,7 +4182,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hc015e640e95daf95E.exit: ; preds
   %.0117 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h78120e4afdbc5ba7E.exit" ], [ %.0.i, %._crit_edge ]
   %44 = sub nuw i64 %1, %.0117
   %45 = getelementptr inbounds { { { { { { ptr, i64 }, i64 } } } }, i32, [1 x i32] }, ptr %0, i64 %.0117
-  %46 = icmp ult i64 %44, 2
+  %46 = icmp samesign ult i64 %44, 2
   br i1 %46, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h3af4cb6b2998991fE.exit", label %47
 
 47:                                               ; preds = %41
@@ -4842,7 +4842,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd1e4f0dfd8eb3ddcE(ptr noal
   %45 = sub nuw i64 %1, %.0112
   %46 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, ptr %0, i64 %.0112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
-  %47 = icmp ult i64 %45, 2
+  %47 = icmp samesign ult i64 %45, 2
   br i1 %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h30ed30f95d0b2617E.exit", label %48
 
 48:                                               ; preds = %42
@@ -5923,7 +5923,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h042f79ad33b54539E.llvm.2921359
 .outer._crit_edge:                                ; preds = %.outer, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcfef045416611928E.exit", %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %257, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcfef045416611928E.exit" ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %258, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcfef045416611928E.exit" ], [ %.sroa.0.1, %.outer ]
-  %27 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %27 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %27, label %263, label %.loopexit
 
 28:                                               ; preds = %25
@@ -8517,7 +8517,7 @@ define hidden noundef zeroext i1 @_ZN6chrono6format10formatting13write_rfc333917
   %58 = add i64 %57, 1
   store i64 %58, ptr %48, align 8, !alias.scope !1166
   %59 = and i32 %35, 8191
-  %60 = icmp ult i32 %59, 5864
+  %60 = icmp samesign ult i32 %59, 5864
   br i1 %60, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.thread
 
 _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit219.thread: ; preds = %5
@@ -8551,11 +8551,11 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread: ; preds 
   %79 = add nuw nsw i32 %78, %59
   %80 = lshr i32 %79, 9
   %81 = trunc nuw nsw i32 %80 to i8
-  %.cmp = icmp ugt i32 %79, 5119
+  %.cmp = icmp samesign ugt i32 %79, 5119
   %82 = zext i1 %.cmp to i8
   %83 = or disjoint i8 %82, 48
   %.urem = add nsw i8 %81, -10
-  %.cmp244 = icmp ult i32 %79, 5120
+  %.cmp244 = icmp samesign ult i32 %79, 5120
   %spec.select = select i1 %.cmp244, i8 %81, i8 %.urem
   %84 = or disjoint i8 %spec.select, 48
   br label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.thread
@@ -9452,15 +9452,15 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   br label %85
 
 75:                                               ; preds = %70
-  %76 = icmp ult i32 %.sroa.4.1.i.ph, 128
+  %76 = icmp samesign ult i32 %.sroa.4.1.i.ph, 128
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i32 %.sroa.4.1.i.ph, 2048
+  %78 = icmp samesign ult i32 %.sroa.4.1.i.ph, 2048
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i32 %.sroa.4.1.i.ph, 65536
+  %80 = icmp samesign ult i32 %.sroa.4.1.i.ph, 65536
   %. = select i1 %80, i64 -3, i64 -4
   br label %81
 
@@ -10139,9 +10139,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #32

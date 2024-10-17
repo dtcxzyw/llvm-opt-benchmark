@@ -5717,7 +5717,7 @@ if.end.i20:                                       ; preds = %for.cond9
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23:   ; preds = %for.cond9, %if.end.i20
   %retval.0.i22 = phi i64 [ %10, %if.end.i20 ], [ 0, %for.cond9 ]
-  %cmp11 = icmp ult i64 %indvars.iv28, %retval.0.i22
+  %cmp11 = icmp samesign ult i64 %indvars.iv28, %retval.0.i22
   br i1 %cmp11, label %for.body12, label %for.end18
 
 for.body12:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23
@@ -5882,7 +5882,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %m_num_bindings, align 4
   %16 = zext i32 %15 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 lpad2:                                            ; preds = %invoke.cont3, %entry
@@ -6103,7 +6103,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i37
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %45 = load i32, ptr %m_num_literals, align 8
   %46 = zext i32 %45 to i64
-  %cmp26 = icmp ult i64 %indvars.iv.next143, %46
+  %cmp26 = icmp samesign ult i64 %indvars.iv.next143, %46
   br i1 %cmp26, label %for.body27, label %for.end42, !llvm.loop !28
 
 lpad37:                                           ; preds = %if.then.i.i45

@@ -15245,7 +15245,7 @@ declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #2 {
-  %3 = icmp ult i64 %1, 4
+  %3 = icmp samesign ult i64 %1, 4
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2

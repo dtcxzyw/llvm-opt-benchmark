@@ -453,7 +453,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %8 = add nuw nsw i64 %indvars.iv.i.i, %5
-  %cmp4.i.i.i = icmp ugt i64 %8, 197
+  %cmp4.i.i.i = icmp samesign ugt i64 %8, 197
   br i1 %cmp4.i.i.i, label %extent_alloc_retained.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 if.end4.i.i:                                      ; preds = %while.cond.i.i.i

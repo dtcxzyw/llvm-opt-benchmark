@@ -16217,7 +16217,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %58
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %64
   %67 = getelementptr inbounds i8, ptr %63, i64 8
   %68 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %67)
-  %.not = icmp ult i16 %68, 256
+  %.not = icmp samesign ult i16 %68, 256
   br i1 %.not, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread, label %69
 
 69:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
@@ -16316,7 +16316,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZNSt3mapINSt7__cx
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit104: ; preds = %107
   %110 = getelementptr inbounds i8, ptr %106, i64 8
   %111 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %110)
-  %.not204 = icmp ult i16 %111, 256
+  %.not204 = icmp samesign ult i16 %111, 256
   br i1 %.not204, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit104.thread, label %112
 
 112:                                              ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit104
@@ -31143,7 +31143,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ISt23_R
   br i1 %.not.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIPKN4Luau4TypeEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !149
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIPKN4Luau4TypeEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %.lr.ph.i.i.i
-  %7 = icmp ugt i64 %.06.i.i.i, 1152921504606846974
+  %7 = icmp samesign ugt i64 %.06.i.i.i, 1152921504606846974
   br i1 %7, label %8, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
 
 8:                                                ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIPKN4Luau4TypeEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i

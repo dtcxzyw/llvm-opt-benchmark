@@ -580,7 +580,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIP6aiBo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %mNumBones, align 8
   %27 = zext i32 %26 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %27
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %cmp10, label %for.body11, label %for.inc26.loopexit, !llvm.loop !7
 
 for.inc26.loopexit:                               ; preds = %for.inc
@@ -591,7 +591,7 @@ for.inc26:                                        ; preds = %for.inc26.loopexit,
   %28 = phi i32 [ %.pre52, %for.inc26.loopexit ], [ %4, %for.body3 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %29 = zext i32 %28 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next47, %29
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next47, %29
   br i1 %cmp2, label %for.body3, label %for.end28, !llvm.loop !8
 
 for.end28:                                        ; preds = %for.inc26, %for.body
@@ -599,7 +599,7 @@ for.end28:                                        ; preds = %for.inc26, %for.bod
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %30 = load i32, ptr %mNumChildren, align 8
   %31 = zext i32 %30 to i64
-  %cmp = icmp ult i64 %indvars.iv.next50, %31
+  %cmp = icmp samesign ult i64 %indvars.iv.next50, %31
   br i1 %cmp, label %for.body, label %for.end31, !llvm.loop !9
 
 for.end31:                                        ; preds = %for.end28, %entry
@@ -705,7 +705,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIP6aiNo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %mNumChildren, align 8
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %if.end, %entry

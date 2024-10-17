@@ -8504,7 +8504,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i166: ; preds = %.lr.ph251
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %393 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %393 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %382 = icmp ult i64 %indvars.iv.next44.i.i, %363
+  %382 = icmp samesign ult i64 %indvars.iv.next44.i.i, %363
   br i1 %382, label %.preheader.i.i, label %390
 
 .preheader.i.i:                                   ; preds = %381, %.preheader.i.i
@@ -8690,7 +8690,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit178:                 ; preds = %418, %_ZSt4copyIPdS
   %indvars.iv38.i.i188 = phi i64 [ 1, %.lr.ph33.i.i186 ], [ %indvars.iv.next39.i.i193, %462 ]
   %.02132.i.i189 = phi i32 [ 0, %.lr.ph33.i.i186 ], [ %.1.i.i192, %462 ]
   %indvars.iv.next44.i.i190 = add nuw nsw i64 %indvars.iv43.i.i187, 1
-  %451 = icmp ult i64 %indvars.iv.next44.i.i190, %432
+  %451 = icmp samesign ult i64 %indvars.iv.next44.i.i190, %432
   br i1 %451, label %.preheader.i.i195, label %459
 
 .preheader.i.i195:                                ; preds = %450, %.preheader.i.i195
@@ -12528,7 +12528,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit199.thread:          ; preds = %.noexc79
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %214 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %214 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %203 = icmp ult i64 %indvars.iv.next44.i.i, %184
+  %203 = icmp samesign ult i64 %indvars.iv.next44.i.i, %184
   br i1 %203, label %.preheader.i.i, label %211
 
 .preheader.i.i:                                   ; preds = %202, %.preheader.i.i
@@ -12612,7 +12612,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit: ; preds = %.l
   %indvars.iv38.i.i112 = phi i64 [ 1, %.lr.ph33.i.i110 ], [ %indvars.iv.next39.i.i117, %256 ]
   %.02132.i.i113 = phi i32 [ 0, %.lr.ph33.i.i110 ], [ %.1.i.i116, %256 ]
   %indvars.iv.next44.i.i114 = add nuw nsw i64 %indvars.iv43.i.i111, 1
-  %245 = icmp ult i64 %indvars.iv.next44.i.i114, %226
+  %245 = icmp samesign ult i64 %indvars.iv.next44.i.i114, %226
   br i1 %245, label %.preheader.i.i119, label %253
 
 .preheader.i.i119:                                ; preds = %244, %.preheader.i.i119
@@ -12697,7 +12697,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit: ; preds = %_ZN1
   %indvars.iv38.i.i131 = phi i64 [ 1, %.lr.ph33.i.i129 ], [ %indvars.iv.next39.i.i136, %299 ]
   %.02132.i.i132 = phi i32 [ 0, %.lr.ph33.i.i129 ], [ %.1.i.i135, %299 ]
   %indvars.iv.next44.i.i133 = add nuw nsw i64 %indvars.iv43.i.i130, 1
-  %288 = icmp ult i64 %indvars.iv.next44.i.i133, %269
+  %288 = icmp samesign ult i64 %indvars.iv.next44.i.i133, %269
   br i1 %288, label %.preheader.i.i139, label %296
 
 .preheader.i.i139:                                ; preds = %287, %.preheader.i.i139
@@ -12812,7 +12812,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %310
   %indvars.iv38.i.i156 = phi i64 [ 1, %.lr.ph33.i.i154 ], [ %indvars.iv.next39.i.i161, %348 ]
   %.02132.i.i157 = phi i32 [ 0, %.lr.ph33.i.i154 ], [ %.1.i.i160, %348 ]
   %indvars.iv.next44.i.i158 = add nuw nsw i64 %indvars.iv43.i.i155, 1
-  %337 = icmp ult i64 %indvars.iv.next44.i.i158, %318
+  %337 = icmp samesign ult i64 %indvars.iv.next44.i.i158, %318
   br i1 %337, label %.preheader.i.i164, label %345
 
 .preheader.i.i164:                                ; preds = %336, %.preheader.i.i164
@@ -12985,7 +12985,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_c
   %indvars.iv38.i.i177 = phi i64 [ 1, %.lr.ph33.i.i175 ], [ %indvars.iv.next39.i.i182, %416 ]
   %.02132.i.i178 = phi i32 [ 0, %.lr.ph33.i.i175 ], [ %.1.i.i181, %416 ]
   %indvars.iv.next44.i.i179 = add nuw nsw i64 %indvars.iv43.i.i176, 1
-  %405 = icmp ult i64 %indvars.iv.next44.i.i179, %386
+  %405 = icmp samesign ult i64 %indvars.iv.next44.i.i179, %386
   br i1 %405, label %.preheader.i.i185, label %413
 
 .preheader.i.i185:                                ; preds = %404, %.preheader.i.i185
@@ -18436,7 +18436,7 @@ define linkonce_odr noundef zeroext i1 @_ZN11UIestimator11UIestimator6updateExSt
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %120 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %120 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %109 = icmp ult i64 %indvars.iv.next44.i.i, %88
+  %109 = icmp samesign ult i64 %indvars.iv.next44.i.i, %88
   br i1 %109, label %.preheader.i.i, label %117
 
 .preheader.i.i:                                   ; preds = %108, %.preheader.i.i
@@ -18535,7 +18535,7 @@ _ZN11UIestimator8n_vectorIdE14increase_valueERKSt6vectorIdSaIdEEd.exit: ; preds 
   %indvars.iv38.i.i48 = phi i64 [ 1, %.lr.ph33.i.i46 ], [ %indvars.iv.next39.i.i53, %174 ]
   %.02132.i.i49 = phi i32 [ 0, %.lr.ph33.i.i46 ], [ %.1.i.i52, %174 ]
   %indvars.iv.next44.i.i50 = add nuw nsw i64 %indvars.iv43.i.i47, 1
-  %163 = icmp ult i64 %indvars.iv.next44.i.i50, %142
+  %163 = icmp samesign ult i64 %indvars.iv.next44.i.i50, %142
   br i1 %163, label %.preheader.i.i56, label %171
 
 .preheader.i.i56:                                 ; preds = %162, %.preheader.i.i56
@@ -18636,7 +18636,7 @@ _ZN11UIestimator8n_vectorIdE14increase_valueERKSt6vectorIdSaIdEEd.exit61: ; pred
   %indvars.iv38.i.i69 = phi i64 [ 1, %.lr.ph33.i.i67 ], [ %indvars.iv.next39.i.i74, %226 ]
   %.02132.i.i70 = phi i32 [ 0, %.lr.ph33.i.i67 ], [ %.1.i.i73, %226 ]
   %indvars.iv.next44.i.i71 = add nuw nsw i64 %indvars.iv43.i.i68, 1
-  %215 = icmp ult i64 %indvars.iv.next44.i.i71, %194
+  %215 = icmp samesign ult i64 %indvars.iv.next44.i.i71, %194
   br i1 %215, label %.preheader.i.i76, label %223
 
 .preheader.i.i76:                                 ; preds = %214, %.preheader.i.i76
@@ -18766,7 +18766,7 @@ _ZN11UIestimator8n_vectorIiE14increase_valueERKSt6vectorIdSaIdEEi.exit: ; preds 
   %indvars.iv38.i.i88 = phi i64 [ 1, %.lr.ph33.i.i86 ], [ %indvars.iv.next39.i.i93, %295 ]
   %.02132.i.i89 = phi i32 [ 0, %.lr.ph33.i.i86 ], [ %.1.i.i92, %295 ]
   %indvars.iv.next44.i.i90 = add nuw nsw i64 %indvars.iv43.i.i87, 1
-  %284 = icmp ult i64 %indvars.iv.next44.i.i90, %263
+  %284 = icmp samesign ult i64 %indvars.iv.next44.i.i90, %263
   br i1 %284, label %.preheader.i.i95, label %292
 
 .preheader.i.i95:                                 ; preds = %283, %.preheader.i.i95
@@ -22714,7 +22714,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %70 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %70 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %59 = icmp ult i64 %indvars.iv.next44.i.i, %40
+  %59 = icmp samesign ult i64 %indvars.iv.next44.i.i, %40
   br i1 %59, label %.preheader.i.i, label %67
 
 .preheader.i.i:                                   ; preds = %58, %.preheader.i.i
@@ -22797,7 +22797,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit.thread: ; preds 
   %indvars.iv38.i.i131 = phi i64 [ 1, %.lr.ph33.i.i129 ], [ %indvars.iv.next39.i.i136, %112 ]
   %.02132.i.i132 = phi i32 [ 0, %.lr.ph33.i.i129 ], [ %.1.i.i135, %112 ]
   %indvars.iv.next44.i.i133 = add nuw nsw i64 %indvars.iv43.i.i130, 1
-  %101 = icmp ult i64 %indvars.iv.next44.i.i133, %82
+  %101 = icmp samesign ult i64 %indvars.iv.next44.i.i133, %82
   br i1 %101, label %.preheader.i.i139, label %109
 
 .preheader.i.i139:                                ; preds = %100, %.preheader.i.i139
@@ -22917,7 +22917,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit144: ; preds = %_
   %indvars.iv38.i.i152 = phi i64 [ 1, %.lr.ph33.i.i150 ], [ %indvars.iv.next39.i.i157, %171 ]
   %.02132.i.i153 = phi i32 [ 0, %.lr.ph33.i.i150 ], [ %.1.i.i156, %171 ]
   %indvars.iv.next44.i.i154 = add nuw nsw i64 %indvars.iv43.i.i151, 1
-  %160 = icmp ult i64 %indvars.iv.next44.i.i154, %140
+  %160 = icmp samesign ult i64 %indvars.iv.next44.i.i154, %140
   br i1 %160, label %.preheader.i.i159, label %168
 
 .preheader.i.i159:                                ; preds = %159, %.preheader.i.i159
@@ -23008,7 +23008,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.
   %indvars.iv38.i.i171 = phi i64 [ 1, %.lr.ph33.i.i169 ], [ %indvars.iv.next39.i.i176, %218 ]
   %.02132.i.i172 = phi i32 [ 0, %.lr.ph33.i.i169 ], [ %.1.i.i175, %218 ]
   %indvars.iv.next44.i.i173 = add nuw nsw i64 %indvars.iv43.i.i170, 1
-  %207 = icmp ult i64 %indvars.iv.next44.i.i173, %187
+  %207 = icmp samesign ult i64 %indvars.iv.next44.i.i173, %187
   br i1 %207, label %.preheader.i.i179, label %215
 
 .preheader.i.i179:                                ; preds = %206, %.preheader.i.i179
@@ -23102,7 +23102,7 @@ _ZN11UIestimator8n_vectorIdE9set_valueERKSt6vectorIdSaIdEEd.exit: ; preds = %_ZN
   %indvars.iv38.i.i191 = phi i64 [ 1, %.lr.ph33.i.i189 ], [ %indvars.iv.next39.i.i196, %267 ]
   %.02132.i.i192 = phi i32 [ 0, %.lr.ph33.i.i189 ], [ %.1.i.i195, %267 ]
   %indvars.iv.next44.i.i193 = add nuw nsw i64 %indvars.iv43.i.i190, 1
-  %256 = icmp ult i64 %indvars.iv.next44.i.i193, %236
+  %256 = icmp samesign ult i64 %indvars.iv.next44.i.i193, %236
   br i1 %256, label %.preheader.i.i199, label %264
 
 .preheader.i.i199:                                ; preds = %255, %.preheader.i.i199
@@ -23195,7 +23195,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit204: ; preds = %_
   %indvars.iv38.i.i212 = phi i64 [ 1, %.lr.ph33.i.i210 ], [ %indvars.iv.next39.i.i217, %316 ]
   %.02132.i.i213 = phi i32 [ 0, %.lr.ph33.i.i210 ], [ %.1.i.i216, %316 ]
   %indvars.iv.next44.i.i214 = add nuw nsw i64 %indvars.iv43.i.i211, 1
-  %305 = icmp ult i64 %indvars.iv.next44.i.i214, %285
+  %305 = icmp samesign ult i64 %indvars.iv.next44.i.i214, %285
   br i1 %305, label %.preheader.i.i220, label %313
 
 .preheader.i.i220:                                ; preds = %304, %.preheader.i.i220
@@ -23287,7 +23287,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit225: ; preds = %_
   %indvars.iv38.i.i233 = phi i64 [ 1, %.lr.ph33.i.i231 ], [ %indvars.iv.next39.i.i238, %364 ]
   %.02132.i.i234 = phi i32 [ 0, %.lr.ph33.i.i231 ], [ %.1.i.i237, %364 ]
   %indvars.iv.next44.i.i235 = add nuw nsw i64 %indvars.iv43.i.i232, 1
-  %353 = icmp ult i64 %indvars.iv.next44.i.i235, %333
+  %353 = icmp samesign ult i64 %indvars.iv.next44.i.i235, %333
   br i1 %353, label %.preheader.i.i241, label %361
 
 .preheader.i.i241:                                ; preds = %352, %.preheader.i.i241
@@ -23379,7 +23379,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit246: ; preds = %_
   %indvars.iv38.i.i254 = phi i64 [ 1, %.lr.ph33.i.i252 ], [ %indvars.iv.next39.i.i259, %412 ]
   %.02132.i.i255 = phi i32 [ 0, %.lr.ph33.i.i252 ], [ %.1.i.i258, %412 ]
   %indvars.iv.next44.i.i256 = add nuw nsw i64 %indvars.iv43.i.i253, 1
-  %401 = icmp ult i64 %indvars.iv.next44.i.i256, %381
+  %401 = icmp samesign ult i64 %indvars.iv.next44.i.i256, %381
   br i1 %401, label %.preheader.i.i262, label %409
 
 .preheader.i.i262:                                ; preds = %400, %.preheader.i.i262
@@ -23647,7 +23647,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit529.thread:          ; preds = %.noexc296
   %indvars.iv38.i.i315 = phi i64 [ 1, %.lr.ph33.i.i313 ], [ %indvars.iv.next39.i.i320, %538 ]
   %.02132.i.i316 = phi i32 [ 0, %.lr.ph33.i.i313 ], [ %.1.i.i319, %538 ]
   %indvars.iv.next44.i.i317 = add nuw nsw i64 %indvars.iv43.i.i314, 1
-  %527 = icmp ult i64 %indvars.iv.next44.i.i317, %508
+  %527 = icmp samesign ult i64 %indvars.iv.next44.i.i317, %508
   br i1 %527, label %.preheader.i.i322, label %535
 
 .preheader.i.i322:                                ; preds = %526, %.preheader.i.i322
@@ -23888,7 +23888,7 @@ _ZN11UIestimator8n_matrix5roundEd.exit22.i:       ; preds = %583, %580
   %indvars.iv38.i.i335 = phi i64 [ 1, %.lr.ph33.i.i333 ], [ %indvars.iv.next39.i.i340, %669 ]
   %.02132.i.i336 = phi i32 [ 0, %.lr.ph33.i.i333 ], [ %.1.i.i339, %669 ]
   %indvars.iv.next44.i.i337 = add nuw nsw i64 %indvars.iv43.i.i334, 1
-  %658 = icmp ult i64 %indvars.iv.next44.i.i337, %638
+  %658 = icmp samesign ult i64 %indvars.iv.next44.i.i337, %638
   br i1 %658, label %.preheader.i.i343, label %666
 
 .preheader.i.i343:                                ; preds = %657, %.preheader.i.i343
@@ -23984,7 +23984,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit348: ; preds = %.
   %indvars.iv38.i.i356 = phi i64 [ 1, %.lr.ph33.i.i354 ], [ %indvars.iv.next39.i.i361, %719 ]
   %.02132.i.i357 = phi i32 [ 0, %.lr.ph33.i.i354 ], [ %.1.i.i360, %719 ]
   %indvars.iv.next44.i.i358 = add nuw nsw i64 %indvars.iv43.i.i355, 1
-  %708 = icmp ult i64 %indvars.iv.next44.i.i358, %688
+  %708 = icmp samesign ult i64 %indvars.iv.next44.i.i358, %688
   br i1 %708, label %.preheader.i.i364, label %716
 
 .preheader.i.i364:                                ; preds = %707, %.preheader.i.i364
@@ -24071,7 +24071,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit369: ; preds = %6
   %indvars.iv38.i.i378 = phi i64 [ 1, %.lr.ph33.i.i376 ], [ %indvars.iv.next39.i.i383, %762 ]
   %.02132.i.i379 = phi i32 [ 0, %.lr.ph33.i.i376 ], [ %.1.i.i382, %762 ]
   %indvars.iv.next44.i.i380 = add nuw nsw i64 %indvars.iv43.i.i377, 1
-  %751 = icmp ult i64 %indvars.iv.next44.i.i380, %732
+  %751 = icmp samesign ult i64 %indvars.iv.next44.i.i380, %732
   br i1 %751, label %.preheader.i.i386, label %759
 
 .preheader.i.i386:                                ; preds = %750, %.preheader.i.i386
@@ -24294,7 +24294,7 @@ _ZN11UIestimator8n_matrix5roundEd.exit22.i543:    ; preds = %806, %803
   %indvars.iv38.i.i400 = phi i64 [ 1, %.lr.ph33.i.i398 ], [ %indvars.iv.next39.i.i405, %890 ]
   %.02132.i.i401 = phi i32 [ 0, %.lr.ph33.i.i398 ], [ %.1.i.i404, %890 ]
   %indvars.iv.next44.i.i402 = add nuw nsw i64 %indvars.iv43.i.i399, 1
-  %879 = icmp ult i64 %indvars.iv.next44.i.i402, %859
+  %879 = icmp samesign ult i64 %indvars.iv.next44.i.i402, %859
   br i1 %879, label %.preheader.i.i408, label %887
 
 .preheader.i.i408:                                ; preds = %878, %.preheader.i.i408
@@ -24388,7 +24388,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit413: ; preds = %.
   %indvars.iv38.i.i421 = phi i64 [ 1, %.lr.ph33.i.i419 ], [ %indvars.iv.next39.i.i426, %940 ]
   %.02132.i.i422 = phi i32 [ 0, %.lr.ph33.i.i419 ], [ %.1.i.i425, %940 ]
   %indvars.iv.next44.i.i423 = add nuw nsw i64 %indvars.iv43.i.i420, 1
-  %929 = icmp ult i64 %indvars.iv.next44.i.i423, %909
+  %929 = icmp samesign ult i64 %indvars.iv.next44.i.i423, %909
   br i1 %929, label %.preheader.i.i429, label %937
 
 .preheader.i.i429:                                ; preds = %928, %.preheader.i.i429
@@ -24479,7 +24479,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit434: ; preds = %_
   %indvars.iv38.i.i443 = phi i64 [ 1, %.lr.ph33.i.i441 ], [ %indvars.iv.next39.i.i448, %986 ]
   %.02132.i.i444 = phi i32 [ 0, %.lr.ph33.i.i441 ], [ %.1.i.i447, %986 ]
   %indvars.iv.next44.i.i445 = add nuw nsw i64 %indvars.iv43.i.i442, 1
-  %975 = icmp ult i64 %indvars.iv.next44.i.i445, %956
+  %975 = icmp samesign ult i64 %indvars.iv.next44.i.i445, %956
   br i1 %975, label %.preheader.i.i451, label %983
 
 .preheader.i.i451:                                ; preds = %974, %.preheader.i.i451
@@ -24829,7 +24829,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i458: ; preds = %._crit_edge
   %indvars.iv38.i.i479 = phi i64 [ 1, %.lr.ph33.i.i477 ], [ %indvars.iv.next39.i.i484, %1168 ]
   %.02132.i.i480 = phi i32 [ 0, %.lr.ph33.i.i477 ], [ %.1.i.i483, %1168 ]
   %indvars.iv.next44.i.i481 = add nuw nsw i64 %indvars.iv43.i.i478, 1
-  %1157 = icmp ult i64 %indvars.iv.next44.i.i481, %1138
+  %1157 = icmp samesign ult i64 %indvars.iv.next44.i.i481, %1138
   br i1 %1157, label %.preheader.i.i486, label %1165
 
 .preheader.i.i486:                                ; preds = %1156, %.preheader.i.i486
@@ -24923,7 +24923,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN11UIestimator8n_
   %indvars.iv38.i.i499 = phi i64 [ 1, %.lr.ph33.i.i497 ], [ %indvars.iv.next39.i.i504, %1210 ]
   %.02132.i.i500 = phi i32 [ 0, %.lr.ph33.i.i497 ], [ %.1.i.i503, %1210 ]
   %indvars.iv.next44.i.i501 = add nuw nsw i64 %indvars.iv43.i.i498, 1
-  %1199 = icmp ult i64 %indvars.iv.next44.i.i501, %1180
+  %1199 = icmp samesign ult i64 %indvars.iv.next44.i.i501, %1180
   br i1 %1199, label %.preheader.i.i507, label %1207
 
 .preheader.i.i507:                                ; preds = %1198, %.preheader.i.i507
@@ -25628,7 +25628,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %94
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %213 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %213 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %202 = icmp ult i64 %indvars.iv.next44.i.i, %183
+  %202 = icmp samesign ult i64 %indvars.iv.next44.i.i, %183
   br i1 %202, label %.preheader.i.i, label %210
 
 .preheader.i.i:                                   ; preds = %201, %.preheader.i.i
@@ -25720,7 +25720,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit: ; preds = %.l
   %indvars.iv38.i.i113 = phi i64 [ 1, %.lr.ph33.i.i111 ], [ %indvars.iv.next39.i.i118, %259 ]
   %.02132.i.i114 = phi i32 [ 0, %.lr.ph33.i.i111 ], [ %.1.i.i117, %259 ]
   %indvars.iv.next44.i.i115 = add nuw nsw i64 %indvars.iv43.i.i112, 1
-  %248 = icmp ult i64 %indvars.iv.next44.i.i115, %229
+  %248 = icmp samesign ult i64 %indvars.iv.next44.i.i115, %229
   br i1 %248, label %.preheader.i.i121, label %256
 
 .preheader.i.i121:                                ; preds = %247, %.preheader.i.i121
@@ -25827,7 +25827,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit126: ; preds = 
   %indvars.iv38.i.i134 = phi i64 [ 1, %.lr.ph33.i.i132 ], [ %indvars.iv.next39.i.i139, %312 ]
   %.02132.i.i135 = phi i32 [ 0, %.lr.ph33.i.i132 ], [ %.1.i.i138, %312 ]
   %indvars.iv.next44.i.i136 = add nuw nsw i64 %indvars.iv43.i.i133, 1
-  %301 = icmp ult i64 %indvars.iv.next44.i.i136, %282
+  %301 = icmp samesign ult i64 %indvars.iv.next44.i.i136, %282
   br i1 %301, label %.preheader.i.i141, label %309
 
 .preheader.i.i141:                                ; preds = %300, %.preheader.i.i141
@@ -25913,7 +25913,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit: ; preds = %276,
   %indvars.iv38.i.i153 = phi i64 [ 1, %.lr.ph33.i.i151 ], [ %indvars.iv.next39.i.i158, %352 ]
   %.02132.i.i154 = phi i32 [ 0, %.lr.ph33.i.i151 ], [ %.1.i.i157, %352 ]
   %indvars.iv.next44.i.i155 = add nuw nsw i64 %indvars.iv43.i.i152, 1
-  %341 = icmp ult i64 %indvars.iv.next44.i.i155, %322
+  %341 = icmp samesign ult i64 %indvars.iv.next44.i.i155, %322
   br i1 %341, label %.preheader.i.i161, label %349
 
 .preheader.i.i161:                                ; preds = %340, %.preheader.i.i161
@@ -25995,7 +25995,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit166: ; preds = %.
   %indvars.iv38.i.i174 = phi i64 [ 1, %.lr.ph33.i.i172 ], [ %indvars.iv.next39.i.i179, %392 ]
   %.02132.i.i175 = phi i32 [ 0, %.lr.ph33.i.i172 ], [ %.1.i.i178, %392 ]
   %indvars.iv.next44.i.i176 = add nuw nsw i64 %indvars.iv43.i.i173, 1
-  %381 = icmp ult i64 %indvars.iv.next44.i.i176, %362
+  %381 = icmp samesign ult i64 %indvars.iv.next44.i.i176, %362
   br i1 %381, label %.preheader.i.i182, label %389
 
 .preheader.i.i182:                                ; preds = %380, %.preheader.i.i182
@@ -26076,7 +26076,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit187.thread: ; pre
   %indvars.iv38.i.i195 = phi i64 [ 1, %.lr.ph33.i.i193 ], [ %indvars.iv.next39.i.i200, %432 ]
   %.02132.i.i196 = phi i32 [ 0, %.lr.ph33.i.i193 ], [ %.1.i.i199, %432 ]
   %indvars.iv.next44.i.i197 = add nuw nsw i64 %indvars.iv43.i.i194, 1
-  %421 = icmp ult i64 %indvars.iv.next44.i.i197, %402
+  %421 = icmp samesign ult i64 %indvars.iv.next44.i.i197, %402
   br i1 %421, label %.preheader.i.i203, label %429
 
 .preheader.i.i203:                                ; preds = %420, %.preheader.i.i203
@@ -26163,7 +26163,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit208: ; preds = %_
   %indvars.iv38.i.i216 = phi i64 [ 1, %.lr.ph33.i.i214 ], [ %indvars.iv.next39.i.i221, %475 ]
   %.02132.i.i217 = phi i32 [ 0, %.lr.ph33.i.i214 ], [ %.1.i.i220, %475 ]
   %indvars.iv.next44.i.i218 = add nuw nsw i64 %indvars.iv43.i.i215, 1
-  %464 = icmp ult i64 %indvars.iv.next44.i.i218, %445
+  %464 = icmp samesign ult i64 %indvars.iv.next44.i.i218, %445
   br i1 %464, label %.preheader.i.i224, label %472
 
 .preheader.i.i224:                                ; preds = %463, %.preheader.i.i224
@@ -26251,7 +26251,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit229: ; preds = 
   %indvars.iv38.i.i237 = phi i64 [ 1, %.lr.ph33.i.i235 ], [ %indvars.iv.next39.i.i242, %519 ]
   %.02132.i.i238 = phi i32 [ 0, %.lr.ph33.i.i235 ], [ %.1.i.i241, %519 ]
   %indvars.iv.next44.i.i239 = add nuw nsw i64 %indvars.iv43.i.i236, 1
-  %508 = icmp ult i64 %indvars.iv.next44.i.i239, %489
+  %508 = icmp samesign ult i64 %indvars.iv.next44.i.i239, %489
   br i1 %508, label %.preheader.i.i245, label %516
 
 .preheader.i.i245:                                ; preds = %507, %.preheader.i.i245
@@ -26335,7 +26335,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit250: ; preds = 
   %indvars.iv38.i.i258 = phi i64 [ 1, %.lr.ph33.i.i256 ], [ %indvars.iv.next39.i.i263, %561 ]
   %.02132.i.i259 = phi i32 [ 0, %.lr.ph33.i.i256 ], [ %.1.i.i262, %561 ]
   %indvars.iv.next44.i.i260 = add nuw nsw i64 %indvars.iv43.i.i257, 1
-  %550 = icmp ult i64 %indvars.iv.next44.i.i260, %531
+  %550 = icmp samesign ult i64 %indvars.iv.next44.i.i260, %531
   br i1 %550, label %.preheader.i.i266, label %558
 
 .preheader.i.i266:                                ; preds = %549, %.preheader.i.i266
@@ -26418,7 +26418,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit271: ; preds = %_
   %indvars.iv38.i.i279 = phi i64 [ 1, %.lr.ph33.i.i277 ], [ %indvars.iv.next39.i.i284, %602 ]
   %.02132.i.i280 = phi i32 [ 0, %.lr.ph33.i.i277 ], [ %.1.i.i283, %602 ]
   %indvars.iv.next44.i.i281 = add nuw nsw i64 %indvars.iv43.i.i278, 1
-  %591 = icmp ult i64 %indvars.iv.next44.i.i281, %572
+  %591 = icmp samesign ult i64 %indvars.iv.next44.i.i281, %572
   br i1 %591, label %.preheader.i.i287, label %599
 
 .preheader.i.i287:                                ; preds = %590, %.preheader.i.i287
@@ -26502,7 +26502,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit292: ; preds = 
   %indvars.iv38.i.i300 = phi i64 [ 1, %.lr.ph33.i.i298 ], [ %indvars.iv.next39.i.i305, %644 ]
   %.02132.i.i301 = phi i32 [ 0, %.lr.ph33.i.i298 ], [ %.1.i.i304, %644 ]
   %indvars.iv.next44.i.i302 = add nuw nsw i64 %indvars.iv43.i.i299, 1
-  %633 = icmp ult i64 %indvars.iv.next44.i.i302, %614
+  %633 = icmp samesign ult i64 %indvars.iv.next44.i.i302, %614
   br i1 %633, label %.preheader.i.i308, label %641
 
 .preheader.i.i308:                                ; preds = %632, %.preheader.i.i308
@@ -26624,7 +26624,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313: ; preds = %_
   %indvars.iv38.i.i321 = phi i64 [ 1, %.lr.ph33.i.i319 ], [ %indvars.iv.next39.i.i326, %705 ]
   %.02132.i.i322 = phi i32 [ 0, %.lr.ph33.i.i319 ], [ %.1.i.i325, %705 ]
   %indvars.iv.next44.i.i323 = add nuw nsw i64 %indvars.iv43.i.i320, 1
-  %694 = icmp ult i64 %indvars.iv.next44.i.i323, %675
+  %694 = icmp samesign ult i64 %indvars.iv.next44.i.i323, %675
   br i1 %694, label %.preheader.i.i329, label %702
 
 .preheader.i.i329:                                ; preds = %693, %.preheader.i.i329
@@ -26706,7 +26706,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit334: ; preds = %6
   %indvars.iv38.i.i342 = phi i64 [ 1, %.lr.ph33.i.i340 ], [ %indvars.iv.next39.i.i347, %745 ]
   %.02132.i.i343 = phi i32 [ 0, %.lr.ph33.i.i340 ], [ %.1.i.i346, %745 ]
   %indvars.iv.next44.i.i344 = add nuw nsw i64 %indvars.iv43.i.i341, 1
-  %734 = icmp ult i64 %indvars.iv.next44.i.i344, %715
+  %734 = icmp samesign ult i64 %indvars.iv.next44.i.i344, %715
   br i1 %734, label %.preheader.i.i350, label %742
 
 .preheader.i.i350:                                ; preds = %733, %.preheader.i.i350
@@ -27088,7 +27088,7 @@ define linkonce_odr void @_ZN11UIestimator11UIestimator11calc_1D_pmfEv(ptr nound
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %46 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %46 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %35 = icmp ult i64 %indvars.iv.next44.i.i, %14
+  %35 = icmp samesign ult i64 %indvars.iv.next44.i.i, %14
   br i1 %35, label %.preheader.i.i, label %43
 
 .preheader.i.i:                                   ; preds = %34, %.preheader.i.i
@@ -27273,7 +27273,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
   %indvars.iv38.i.i38 = phi i64 [ 1, %.lr.ph33.i.i36 ], [ %indvars.iv.next39.i.i43, %145 ]
   %.02132.i.i39 = phi i32 [ 0, %.lr.ph33.i.i36 ], [ %.1.i.i42, %145 ]
   %indvars.iv.next44.i.i40 = add nuw nsw i64 %indvars.iv43.i.i37, 1
-  %134 = icmp ult i64 %indvars.iv.next44.i.i40, %115
+  %134 = icmp samesign ult i64 %indvars.iv.next44.i.i40, %115
   br i1 %134, label %.preheader.i.i45, label %142
 
 .preheader.i.i45:                                 ; preds = %133, %.preheader.i.i45
@@ -27359,7 +27359,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit: ; preds = %109,
   %indvars.iv38.i.i57 = phi i64 [ 1, %.lr.ph33.i.i55 ], [ %indvars.iv.next39.i.i62, %187 ]
   %.02132.i.i58 = phi i32 [ 0, %.lr.ph33.i.i55 ], [ %.1.i.i61, %187 ]
   %indvars.iv.next44.i.i59 = add nuw nsw i64 %indvars.iv43.i.i56, 1
-  %176 = icmp ult i64 %indvars.iv.next44.i.i59, %157
+  %176 = icmp samesign ult i64 %indvars.iv.next44.i.i59, %157
   br i1 %176, label %.preheader.i.i65, label %184
 
 .preheader.i.i65:                                 ; preds = %175, %.preheader.i.i65
@@ -27441,7 +27441,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit: ; preds = %151,
   %indvars.iv38.i.i77 = phi i64 [ 1, %.lr.ph33.i.i75 ], [ %indvars.iv.next39.i.i82, %227 ]
   %.02132.i.i78 = phi i32 [ 0, %.lr.ph33.i.i75 ], [ %.1.i.i81, %227 ]
   %indvars.iv.next44.i.i79 = add nuw nsw i64 %indvars.iv43.i.i76, 1
-  %216 = icmp ult i64 %indvars.iv.next44.i.i79, %197
+  %216 = icmp samesign ult i64 %indvars.iv.next44.i.i79, %197
   br i1 %216, label %.preheader.i.i84, label %224
 
 .preheader.i.i84:                                 ; preds = %215, %.preheader.i.i84
@@ -27541,7 +27541,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt12_Vector_base
   %indvars.iv38.i.i96 = phi i64 [ 1, %.lr.ph33.i.i94 ], [ %indvars.iv.next39.i.i101, %275 ]
   %.02132.i.i97 = phi i32 [ 0, %.lr.ph33.i.i94 ], [ %.1.i.i100, %275 ]
   %indvars.iv.next44.i.i98 = add nuw nsw i64 %indvars.iv43.i.i95, 1
-  %264 = icmp ult i64 %indvars.iv.next44.i.i98, %245
+  %264 = icmp samesign ult i64 %indvars.iv.next44.i.i98, %245
   br i1 %264, label %.preheader.i.i104, label %272
 
 .preheader.i.i104:                                ; preds = %263, %.preheader.i.i104
@@ -27623,7 +27623,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit109: ; preds = %2
   %indvars.iv38.i.i117 = phi i64 [ 1, %.lr.ph33.i.i115 ], [ %indvars.iv.next39.i.i122, %315 ]
   %.02132.i.i118 = phi i32 [ 0, %.lr.ph33.i.i115 ], [ %.1.i.i121, %315 ]
   %indvars.iv.next44.i.i119 = add nuw nsw i64 %indvars.iv43.i.i116, 1
-  %304 = icmp ult i64 %indvars.iv.next44.i.i119, %285
+  %304 = icmp samesign ult i64 %indvars.iv.next44.i.i119, %285
   br i1 %304, label %.preheader.i.i125, label %312
 
 .preheader.i.i125:                                ; preds = %303, %.preheader.i.i125
@@ -27706,7 +27706,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit130: ; preds = 
   %indvars.iv38.i.i138 = phi i64 [ 1, %.lr.ph33.i.i136 ], [ %indvars.iv.next39.i.i143, %356 ]
   %.02132.i.i139 = phi i32 [ 0, %.lr.ph33.i.i136 ], [ %.1.i.i142, %356 ]
   %indvars.iv.next44.i.i140 = add nuw nsw i64 %indvars.iv43.i.i137, 1
-  %345 = icmp ult i64 %indvars.iv.next44.i.i140, %326
+  %345 = icmp samesign ult i64 %indvars.iv.next44.i.i140, %326
   br i1 %345, label %.preheader.i.i146, label %353
 
 .preheader.i.i146:                                ; preds = %344, %.preheader.i.i146
@@ -27789,7 +27789,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit151: ; preds = %_
   %indvars.iv38.i.i159 = phi i64 [ 1, %.lr.ph33.i.i157 ], [ %indvars.iv.next39.i.i164, %397 ]
   %.02132.i.i160 = phi i32 [ 0, %.lr.ph33.i.i157 ], [ %.1.i.i163, %397 ]
   %indvars.iv.next44.i.i161 = add nuw nsw i64 %indvars.iv43.i.i158, 1
-  %386 = icmp ult i64 %indvars.iv.next44.i.i161, %367
+  %386 = icmp samesign ult i64 %indvars.iv.next44.i.i161, %367
   br i1 %386, label %.preheader.i.i167, label %394
 
 .preheader.i.i167:                                ; preds = %385, %.preheader.i.i167
@@ -27872,7 +27872,7 @@ _ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit172: ; preds = 
   %indvars.iv38.i.i180 = phi i64 [ 1, %.lr.ph33.i.i178 ], [ %indvars.iv.next39.i.i185, %438 ]
   %.02132.i.i181 = phi i32 [ 0, %.lr.ph33.i.i178 ], [ %.1.i.i184, %438 ]
   %indvars.iv.next44.i.i182 = add nuw nsw i64 %indvars.iv43.i.i179, 1
-  %427 = icmp ult i64 %indvars.iv.next44.i.i182, %408
+  %427 = icmp samesign ult i64 %indvars.iv.next44.i.i182, %408
   br i1 %427, label %.preheader.i.i188, label %435
 
 .preheader.i.i188:                                ; preds = %426, %.preheader.i.i188
@@ -27957,7 +27957,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit193: ; preds = %_
   %indvars.iv38.i.i201 = phi i64 [ 1, %.lr.ph33.i.i199 ], [ %indvars.iv.next39.i.i206, %481 ]
   %.02132.i.i202 = phi i32 [ 0, %.lr.ph33.i.i199 ], [ %.1.i.i205, %481 ]
   %indvars.iv.next44.i.i203 = add nuw nsw i64 %indvars.iv43.i.i200, 1
-  %470 = icmp ult i64 %indvars.iv.next44.i.i203, %451
+  %470 = icmp samesign ult i64 %indvars.iv.next44.i.i203, %451
   br i1 %470, label %.preheader.i.i209, label %478
 
 .preheader.i.i209:                                ; preds = %469, %.preheader.i.i209
@@ -28039,7 +28039,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit214: ; preds = %_
   %indvars.iv38.i.i222 = phi i64 [ 1, %.lr.ph33.i.i220 ], [ %indvars.iv.next39.i.i227, %521 ]
   %.02132.i.i223 = phi i32 [ 0, %.lr.ph33.i.i220 ], [ %.1.i.i226, %521 ]
   %indvars.iv.next44.i.i224 = add nuw nsw i64 %indvars.iv43.i.i221, 1
-  %510 = icmp ult i64 %indvars.iv.next44.i.i224, %491
+  %510 = icmp samesign ult i64 %indvars.iv.next44.i.i224, %491
   br i1 %510, label %.preheader.i.i230, label %518
 
 .preheader.i.i230:                                ; preds = %509, %.preheader.i.i230
@@ -28133,7 +28133,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit235: ; preds = %_
   %indvars.iv38.i.i243 = phi i64 [ 1, %.lr.ph33.i.i241 ], [ %indvars.iv.next39.i.i248, %569 ]
   %.02132.i.i244 = phi i32 [ 0, %.lr.ph33.i.i241 ], [ %.1.i.i247, %569 ]
   %indvars.iv.next44.i.i245 = add nuw nsw i64 %indvars.iv43.i.i242, 1
-  %558 = icmp ult i64 %indvars.iv.next44.i.i245, %539
+  %558 = icmp samesign ult i64 %indvars.iv.next44.i.i245, %539
   br i1 %558, label %.preheader.i.i251, label %566
 
 .preheader.i.i251:                                ; preds = %557, %.preheader.i.i251
@@ -28247,7 +28247,7 @@ _ZN11UIestimator8n_vectorIdE9set_valueERKSt6vectorIdSaIdEEd.exit256: ; preds = %
   %indvars.iv38.i.i264 = phi i64 [ 1, %.lr.ph33.i.i262 ], [ %indvars.iv.next39.i.i269, %622 ]
   %.02132.i.i265 = phi i32 [ 0, %.lr.ph33.i.i262 ], [ %.1.i.i268, %622 ]
   %indvars.iv.next44.i.i266 = add nuw nsw i64 %indvars.iv43.i.i263, 1
-  %611 = icmp ult i64 %indvars.iv.next44.i.i266, %592
+  %611 = icmp samesign ult i64 %indvars.iv.next44.i.i266, %592
   br i1 %611, label %.preheader.i.i272, label %619
 
 .preheader.i.i272:                                ; preds = %610, %.preheader.i.i272
@@ -28328,7 +28328,7 @@ _ZN11UIestimator8n_vectorIdE9get_valueERKSt6vectorIdSaIdEE.exit277.thread: ; pre
   %indvars.iv38.i.i285 = phi i64 [ 1, %.lr.ph33.i.i283 ], [ %indvars.iv.next39.i.i290, %662 ]
   %.02132.i.i286 = phi i32 [ 0, %.lr.ph33.i.i283 ], [ %.1.i.i289, %662 ]
   %indvars.iv.next44.i.i287 = add nuw nsw i64 %indvars.iv43.i.i284, 1
-  %651 = icmp ult i64 %indvars.iv.next44.i.i287, %632
+  %651 = icmp samesign ult i64 %indvars.iv.next44.i.i287, %632
   br i1 %651, label %.preheader.i.i293, label %659
 
 .preheader.i.i293:                                ; preds = %650, %.preheader.i.i293
@@ -28536,7 +28536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph33.i.i ], [ %indvars.iv.next39.i.i, %85 ]
   %.02132.i.i = phi i32 [ 0, %.lr.ph33.i.i ], [ %.1.i.i, %85 ]
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %74 = icmp ult i64 %indvars.iv.next44.i.i, %55
+  %74 = icmp samesign ult i64 %indvars.iv.next44.i.i, %55
   br i1 %74, label %.preheader.i.i, label %82
 
 .preheader.i.i:                                   ; preds = %73, %.preheader.i.i

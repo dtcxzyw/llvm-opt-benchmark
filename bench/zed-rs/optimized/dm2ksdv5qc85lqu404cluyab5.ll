@@ -11270,7 +11270,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
 define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h49ee5a0ebd92ba68E"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = load i8, ptr %0, align 8, !range !1212, !noundef !24
-  %.not = icmp ult i8 %4, 2
+  %.not = icmp samesign ult i8 %4, 2
   %5 = zext nneg i8 %4 to i64
   %6 = add nsw i64 %5, -1
   %7 = select i1 %.not, i64 0, i64 %6
@@ -11589,7 +11589,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
   %.sroa.57 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !845, !noundef !24
-  %.not = icmp ult i64 %4, 2
+  %.not = icmp samesign ult i64 %4, 2
   %5 = add nsw i64 %4, -1
   %6 = select i1 %.not, i64 0, i64 %5
   switch i64 %6, label %7 [
@@ -22696,15 +22696,15 @@ define hidden noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..skip_while..
   %11 = getelementptr inbounds i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !6510, !noalias !6513, !noundef !24
   %13 = load i32, ptr %1, align 4, !range !4847, !alias.scope !6513, !noalias !6510, !noundef !24
-  %14 = icmp ult i32 %13, 128
+  %14 = icmp samesign ult i32 %13, 128
   br i1 %14, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit", label %15
 
 15:                                               ; preds = %6
-  %16 = icmp ult i32 %13, 2048
+  %16 = icmp samesign ult i32 %13, 2048
   br i1 %16, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit", label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %13, 65536
+  %18 = icmp samesign ult i32 %13, 65536
   %..i = select i1 %18, i32 3, i32 4
   br label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit"
 
@@ -23526,7 +23526,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %36, label %43, label %38
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h12749d73c6f7c2e9E.exit.i.i.i.i.i.i": ; preds = %29
-  %37 = icmp ugt i64 %31, %20
+  %37 = icmp samesign ugt i64 %31, %20
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h12749d73c6f7c2e9E.exit.i.i.i.i.i.i", %.sink.split.i.i.i.i.i.i.i.i.i.i
@@ -24795,7 +24795,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %or.cond2.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd925c8bb62973d56E.exit.i.i.i.i.i.i.i", label %53
 
 53:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i.i.i.i.i.i"
-  %54 = icmp ugt i32 %50, 127
+  %54 = icmp samesign ugt i32 %50, 127
   br i1 %54, label %"_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i.i.i.i.i.i", label %182
 
 "_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i.i.i.i.i.i": ; preds = %53
@@ -24918,7 +24918,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %or.cond2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd925c8bb62973d56E.exit.i.i.i.i.i.i.i.i.i.i.i.i", label %113
 
 113:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i"
-  %114 = icmp ugt i32 %110, 127
+  %114 = icmp samesign ugt i32 %110, 127
   br i1 %114, label %"_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i", label %187
 
 "_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %113
@@ -25152,7 +25152,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.933925041898046037.exit.i.
   br i1 %or.cond2.i.i.i.i.i25.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd925c8bb62973d56E.exit.i.i27.i.i.i.i.i", label %232
 
 232:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i24.i.i.i.i.i"
-  %233 = icmp ugt i32 %229, 127
+  %233 = icmp samesign ugt i32 %229, 127
   br i1 %233, label %"_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i26.i.i.i.i.i", label %236
 
 "_ZN6editor6Editor32accept_partial_inline_completion28_$u7b$$u7b$closure$u7d$$u7d$17h902c42f3f41cf258E.exit.i.i.i.i26.i.i.i.i.i": ; preds = %232
@@ -25188,7 +25188,7 @@ define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWh
   ]
 
 4:                                                ; preds = %3
-  %5 = icmp ugt i32 %2, 127
+  %5 = icmp samesign ugt i32 %2, 127
   br i1 %5, label %6, label %"_ZN6editor6Editor7newline28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9cc330256d02a869E.exit.thread"
 
 6:                                                ; preds = %4
@@ -25237,11 +25237,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br label %33
 
 28:                                               ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
-  %29 = icmp ult i32 %2, 2048
+  %29 = icmp samesign ult i32 %2, 2048
   br i1 %29, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hdf6c4dd2eb14ace1E.exit", label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %2, 65536
+  %31 = icmp samesign ult i32 %2, 65536
   %..i.i.i = select i1 %31, i64 3, i64 4
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hdf6c4dd2eb14ace1E.exit"
 
@@ -33152,7 +33152,7 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   ]
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i32 %2, 127
+  %6 = icmp samesign ugt i32 %2, 127
   br i1 %6, label %7, label %"_ZN6editor6Editor7newline28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9cc330256d02a869E.exit.thread.i"
 
 7:                                                ; preds = %5
@@ -33201,11 +33201,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i:
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h384a34f8f9d2ad84E.llvm.933925041898046037.exit"
 
 29:                                               ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i
-  %30 = icmp ult i32 %2, 2048
+  %30 = icmp samesign ult i32 %2, 2048
   br i1 %30, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hdf6c4dd2eb14ace1E.exit.i", label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i32 %2, 65536
+  %32 = icmp samesign ult i32 %2, 65536
   %..i.i.i.i = select i1 %32, i64 3, i64 4
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hdf6c4dd2eb14ace1E.exit.i"
 
@@ -33730,15 +33730,15 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN4core3ops8function5impls79_
   %11 = load i32, ptr %10, align 4, !alias.scope !10052, !noalias !10055, !noundef !24
   %12 = getelementptr inbounds i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4, !alias.scope !10052, !noalias !10055, !noundef !24
-  %14 = icmp ult i32 %1, 128
+  %14 = icmp samesign ult i32 %1, 128
   br i1 %14, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i", label %15
 
 15:                                               ; preds = %7
-  %16 = icmp ult i32 %1, 2048
+  %16 = icmp samesign ult i32 %1, 2048
   br i1 %16, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i", label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %1, 65536
+  %18 = icmp samesign ult i32 %1, 65536
   %..i.i.i = select i1 %18, i32 3, i32 4
   br label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i"
 
@@ -37166,7 +37166,7 @@ define hidden void @"_ZN4core3ptr260drop_in_place$LT$futures_util..future..maybe
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr269drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$editor..linked_editing_ranges..refresh_linked_ranges..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h366e0242fa285465E.llvm.933925041898046037"(ptr noundef nonnull align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !845, !noundef !24
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr218drop_in_place$LT$editor..linked_editing_ranges..refresh_linked_ranges..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ba27c2204246d51E.llvm.933925041898046037.exit" [
@@ -41356,15 +41356,15 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN4core4iter6traits8iterator8
   %10 = load i32, ptr %9, align 4, !alias.scope !13144, !noalias !13147, !noundef !24
   %11 = getelementptr inbounds i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !13144, !noalias !13147, !noundef !24
-  %13 = icmp ult i32 %1, 128
+  %13 = icmp samesign ult i32 %1, 128
   br i1 %13, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i", label %14
 
 14:                                               ; preds = %6
-  %15 = icmp ult i32 %1, 2048
+  %15 = icmp samesign ult i32 %1, 2048
   br i1 %15, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i", label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %1, 65536
+  %17 = icmp samesign ult i32 %1, 65536
   %..i.i = select i1 %17, i32 3, i32 4
   br label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i"
 
@@ -47169,15 +47169,15 @@ define hidden noundef range(i32 0, 2097152) i32 @_ZN4core4iter6traits8iterator8I
 73:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i.i.i.i"
   %74 = load i32, ptr %27, align 4, !alias.scope !15569, !noalias !15572, !noundef !24
   %75 = load i32, ptr %28, align 4, !alias.scope !15569, !noalias !15572, !noundef !24
-  %76 = icmp ult i32 %70, 128
+  %76 = icmp samesign ult i32 %70, 128
   br i1 %76, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i.i.i.i.i.i.i", label %77
 
 77:                                               ; preds = %73
-  %78 = icmp ult i32 %70, 2048
+  %78 = icmp samesign ult i32 %70, 2048
   br i1 %78, label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i.i.i.i.i.i.i", label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i32 %70, 65536
+  %80 = icmp samesign ult i32 %70, 65536
   %..i.i.i.i.i.i.i.i.i = select i1 %80, i32 3, i32 4
   br label %"_ZN6editor11display_map15DisplaySnapshot16display_chars_at28_$u7b$$u7b$closure$u7d$$u7d$17hc468a420128ca6c9E.llvm.933925041898046037.exit.i.i.i.i.i.i.i.i"
 
@@ -48442,7 +48442,7 @@ default.unreachable:                              ; preds = %57
 
 63:                                               ; preds = %57
   %64 = load i8, ptr %19, align 1, !range !2355, !noalias !15944, !noundef !24
-  %switch11.i.i.i.i = icmp ult i8 %64, 2
+  %switch11.i.i.i.i = icmp samesign ult i8 %64, 2
   br i1 %switch11.i.i.i.i, label %"_ZN6editor7element13EditorElement23layout_gutter_git_hunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aeb91c914fe3749E.exitthread-pre-split.i.i.i", label %"_ZN6editor7element13EditorElement23layout_gutter_git_hunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aeb91c914fe3749E.exit.thread.i.i.i"
 
 "_ZN6editor7element13EditorElement23layout_gutter_git_hunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aeb91c914fe3749E.exit.thread.i.i.i": ; preds = %63
@@ -50354,7 +50354,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19
   br i1 %or.cond.i, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i32 %9, 127
+  %18 = icmp samesign ugt i32 %9, 127
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -50373,7 +50373,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19
   br i1 %or.cond3.i.i, label %137, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp ugt i32 %9, 127
+  %27 = icmp samesign ugt i32 %9, 127
   br i1 %27, label %28, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i"
 
 28:                                               ; preds = %26
@@ -77836,7 +77836,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -77849,7 +77849,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -139799,7 +139799,7 @@ define hidden noundef i32 @_ZN6editor11display_map7tab_map11TabSnapshot11expand_
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %10, 128
+  %44 = icmp samesign ult i32 %10, 128
   br i1 %44, label %.thread, label %48
 
 45:                                               ; preds = %41
@@ -139813,7 +139813,7 @@ define hidden noundef i32 @_ZN6editor11display_map7tab_map11TabSnapshot11expand_
   br label %52
 
 48:                                               ; preds = %43
-  %49 = icmp ult i32 %10, 2048
+  %49 = icmp samesign ult i32 %10, 2048
   br i1 %49, label %.thread26, label %50
 
 .thread26:                                        ; preds = %48
@@ -139821,7 +139821,7 @@ define hidden noundef i32 @_ZN6editor11display_map7tab_map11TabSnapshot11expand_
   br label %52
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %10, 65536
+  %51 = icmp samesign ult i32 %10, 65536
   %. = select i1 %51, i32 3, i32 4
   %.sroa.0.1 = add i32 %.sroa.0.0, 1
   br label %52
@@ -139883,11 +139883,11 @@ define hidden void @_ZN6editor11display_map7tab_map11TabSnapshot13collapse_tabs1
 
 16:                                               ; preds = %14
   %17 = add i32 %.sroa.019.0.us, 1
-  %18 = icmp ult i32 %11, 128
+  %18 = icmp samesign ult i32 %11, 128
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %11, 2048
+  %20 = icmp samesign ult i32 %11, 2048
   br i1 %20, label %.thread89, label %24
 
 .thread89:                                        ; preds = %19
@@ -139899,10 +139899,10 @@ define hidden void @_ZN6editor11display_map7tab_map11TabSnapshot13collapse_tabs1
   br label %.thread49.us
 
 24:                                               ; preds = %19
-  %25 = icmp ult i32 %11, 65536
+  %25 = icmp samesign ult i32 %11, 65536
   %..us = select i1 %25, i32 3, i32 4
   %26 = add i32 %..us, %.sroa.011.0.us
-  %27 = icmp ult i32 %11, 65536
+  %27 = icmp samesign ult i32 %11, 65536
   %.37.us = select i1 %27, i32 3, i32 4
   br label %.thread49.us
 
@@ -140038,7 +140038,7 @@ common.resume:                                    ; preds = %38, %93, %47
 
 72:                                               ; preds = %70
   %73 = add i32 %.sroa.019.0, 1
-  %74 = icmp ult i32 %36, 128
+  %74 = icmp samesign ult i32 %36, 128
   br i1 %74, label %.thread91, label %113
 
 75:                                               ; preds = %70
@@ -140138,8 +140138,8 @@ common.resume:                                    ; preds = %38, %93, %47
   ret void
 
 113:                                              ; preds = %72
-  %114 = icmp ult i32 %36, 2048
-  %115 = icmp ult i32 %36, 65536
+  %114 = icmp samesign ult i32 %36, 2048
+  %115 = icmp samesign ult i32 %36, 65536
   %. = select i1 %115, i32 3, i32 4
   %.sroa.04.0 = select i1 %114, i32 2, i32 %.
   %116 = add i32 %.sroa.04.0, %.sroa.011.0
@@ -140147,11 +140147,11 @@ common.resume:                                    ; preds = %38, %93, %47
   br i1 %.not72, label %.split63.us, label %117
 
 117:                                              ; preds = %113
-  %118 = icmp ult i32 %36, 2048
+  %118 = icmp samesign ult i32 %36, 2048
   br i1 %118, label %.thread49, label %119
 
 119:                                              ; preds = %117
-  %120 = icmp ult i32 %36, 65536
+  %120 = icmp samesign ult i32 %36, 65536
   %.37 = select i1 %120, i32 3, i32 4
   br label %.thread49
 
@@ -140176,15 +140176,15 @@ define hidden noundef zeroext i1 @"_ZN6editor11display_map15DisplaySnapshot16dis
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !noundef !24
   %7 = load i32, ptr %1, align 4, !range !4847, !noundef !24
-  %8 = icmp ult i32 %7, 128
+  %8 = icmp samesign ult i32 %7, 128
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i32 %7, 2048
+  %10 = icmp samesign ult i32 %7, 2048
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %7, 65536
+  %12 = icmp samesign ult i32 %7, 65536
   %. = select i1 %12, i32 3, i32 4
   br label %13
 
@@ -140219,7 +140219,7 @@ define hidden noundef i64 @"_ZN6editor13hover_popover10show_hover28_$u7b$$u7b$cl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6editor16inlay_hint_cache20InvalidationStrategy17should_invalidate17heef2cfad57b9fea3E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #15 {
   %2 = load i8, ptr %0, align 1, !range !2355, !noundef !24
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   ret i1 %switch
 }
 
@@ -142529,7 +142529,7 @@ define hidden void @_ZN6editor16inlay_hint_cache14InlayHintCache18spawn_hint_ref
   store ptr inttoptr (i64 8 to ptr), ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 0, ptr %37, align 8
-  %switch.i = icmp ult i8 %5, 2
+  %switch.i = icmp samesign ult i8 %5, 2
   br i1 %switch.i, label %38, label %40
 
 38:                                               ; preds = %35
@@ -143998,7 +143998,7 @@ define hidden void @_ZN6editor16inlay_hint_cache22spawn_new_update_tasks17hb186a
   %73 = getelementptr inbounds i8, ptr %0, i64 3952
   %74 = getelementptr inbounds i8, ptr %27, i64 8
   %75 = getelementptr inbounds i8, ptr %0, i64 3928
-  %switch.i.i = icmp ult i8 %4, 2
+  %switch.i.i = icmp samesign ult i8 %4, 2
   %.sroa.777.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 16
   %.sroa.890.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 24
@@ -152568,7 +152568,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond15.not, label %22, label %"_ZN6editor8movement19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h8ebc58f5c3784facE.exit.thread"
 
 22:                                               ; preds = %.noexc13, %"_ZN6editor8movement19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h8ebc58f5c3784facE.exit", %17
-  %23 = icmp ult i32 %13, 128
+  %23 = icmp samesign ult i32 %13, 128
   br i1 %23, label %28, label %24
 
 "_ZN6editor8movement19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h8ebc58f5c3784facE.exit": ; preds = %.noexc
@@ -152576,11 +152576,11 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %.old, label %"_ZN6editor8movement19previous_word_start28_$u7b$$u7b$closure$u7d$$u7d$17h8ebc58f5c3784facE.exit.thread", label %22
 
 24:                                               ; preds = %22
-  %25 = icmp ult i32 %13, 2048
+  %25 = icmp samesign ult i32 %13, 2048
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ult i32 %13, 65536
+  %27 = icmp samesign ult i32 %13, 65536
   %. = select i1 %27, i64 -3, i64 -4
   br label %28
 
@@ -152649,7 +152649,7 @@ switch.early.test.i:                              ; preds = %.noexc
   br i1 %or.cond15, label %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread", label %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread14"
 
 23:                                               ; preds = %switch.early.test.i
-  %24 = icmp ugt i32 %.sroa.04.0, 127
+  %24 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %24, label %25, label %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread"
 
 25:                                               ; preds = %23
@@ -152693,15 +152693,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %or.cond.not.i, label %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread14", label %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread"
 
 "_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread14": ; preds = %21, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %17
-  %45 = icmp ult i32 %13, 128
+  %45 = icmp samesign ult i32 %13, 128
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %"_ZN6editor8movement30previous_word_start_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17he15e8090072e2b4dE.exit.thread14"
-  %47 = icmp ult i32 %13, 2048
+  %47 = icmp samesign ult i32 %13, 2048
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i32 %13, 65536
+  %49 = icmp samesign ult i32 %13, 65536
   %. = select i1 %49, i64 -3, i64 -4
   br label %50
 
@@ -152769,7 +152769,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %23, label %50, label %47
 
 24:                                               ; preds = %switch.hole_check, %21
-  %25 = icmp ugt i32 %.sroa.04.0, 127
+  %25 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %25, label %26, label %switch.lookup
 
 26:                                               ; preds = %24
@@ -152840,7 +152840,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %or.cond3.i, label %59, label %55
 
 55:                                               ; preds = %.thread.i
-  %56 = icmp ugt i32 %13, 127
+  %56 = icmp samesign ugt i32 %13, 127
   br i1 %56, label %.noexc14, label %.thread3.i
 
 .noexc14:                                         ; preds = %55
@@ -152858,7 +152858,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %or.cond5.i, label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread", label %61
 
 61:                                               ; preds = %59
-  %62 = icmp ugt i32 %.sroa.04.0, 127
+  %62 = icmp samesign ugt i32 %.sroa.04.0, 127
   br i1 %62, label %.noexc15, label %63
 
 63:                                               ; preds = %61
@@ -152870,15 +152870,15 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %brmerge.i, label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread", label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18"
 
 "_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18": ; preds = %.thread3.i, %.noexc15, %63, %17
-  %65 = icmp ult i32 %13, 128
+  %65 = icmp samesign ult i32 %13, 128
   br i1 %65, label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18.thread", label %66
 
 66:                                               ; preds = %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18"
-  %67 = icmp ult i32 %13, 2048
+  %67 = icmp samesign ult i32 %13, 2048
   br i1 %67, label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18.thread", label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ult i32 %13, 65536
+  %69 = icmp samesign ult i32 %13, 65536
   %. = select i1 %69, i64 -3, i64 -4
   br label %"_ZN6editor8movement22previous_subword_start28_$u7b$$u7b$closure$u7d$$u7d$17h474bc96d444c674aE.exit.thread18.thread"
 
@@ -153332,7 +153332,7 @@ switch.early.test:                                ; preds = %105
   ]
 
 .thread.i:                                        ; preds = %103
-  %106 = icmp ugt i32 %.sroa.05.0, 127
+  %106 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %106, label %107, label %.thread.thread.i
 
 107:                                              ; preds = %.thread.i
@@ -153353,7 +153353,7 @@ switch.early.test:                                ; preds = %105
   br i1 %or.cond4.i, label %"_ZN6editor8movement16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h85d67c5f7fabd585E.exit.thread", label %111
 
 111:                                              ; preds = %109
-  %112 = icmp ugt i32 %44, 127
+  %112 = icmp samesign ugt i32 %44, 127
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %111
@@ -153379,7 +153379,7 @@ switch.early.test:                                ; preds = %105
 
 "_ZN6editor8movement16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h85d67c5f7fabd585E.exit.thread31": ; preds = %switch.early.test, %.thread.thread.i, %87
   store i64 %43, ptr %12, align 8
-  %116 = icmp ult i32 %44, 128
+  %116 = icmp samesign ult i32 %44, 128
   br i1 %116, label %160, label %156
 
 "_ZN6editor8movement16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h85d67c5f7fabd585E.exit.thread": ; preds = %switch.early.test, %switch.early.test, %105, %109, %.thread.thread.i, %113, %.noexc15, %97, %101
@@ -153481,11 +153481,11 @@ _ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit26:
   br label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
 156:                                              ; preds = %"_ZN6editor8movement16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h85d67c5f7fabd585E.exit.thread31.thread", %"_ZN6editor8movement16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h85d67c5f7fabd585E.exit.thread31"
-  %157 = icmp ult i32 %44, 2048
+  %157 = icmp samesign ult i32 %44, 2048
   br i1 %157, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = icmp ult i32 %44, 65536
+  %159 = icmp samesign ult i32 %44, 65536
   %. = select i1 %159, i64 3, i64 4
   br label %160
 
@@ -153679,7 +153679,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h986fb32c9
 
 94:                                               ; preds = %.noexc12, %"_ZN6editor8movement13next_word_end28_$u7b$$u7b$closure$u7d$$u7d$17h9e3a8eb30773ddd8E.exit", %87
   store i64 %43, ptr %12, align 8
-  %95 = icmp ult i32 %44, 128
+  %95 = icmp samesign ult i32 %44, 128
   br i1 %95, label %139, label %135
 
 "_ZN6editor8movement13next_word_end28_$u7b$$u7b$closure$u7d$$u7d$17h9e3a8eb30773ddd8E.exit": ; preds = %.noexc11
@@ -153785,11 +153785,11 @@ _ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit23:
   br label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
 135:                                              ; preds = %94
-  %136 = icmp ult i32 %44, 2048
+  %136 = icmp samesign ult i32 %44, 2048
   br i1 %136, label %139, label %137
 
 137:                                              ; preds = %135
-  %138 = icmp ult i32 %44, 65536
+  %138 = icmp samesign ult i32 %44, 65536
   %. = select i1 %138, i64 3, i64 4
   br label %139
 
@@ -154007,7 +154007,7 @@ switch.early.test.i:                              ; preds = %95
   ]
 
 97:                                               ; preds = %switch.early.test2.i
-  %98 = icmp ugt i32 %.sroa.05.0, 127
+  %98 = icmp samesign ugt i32 %.sroa.05.0, 127
   br i1 %98, label %99, label %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread"
 
 99:                                               ; preds = %97
@@ -154051,7 +154051,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   br i1 %or.cond31.not, label %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30", label %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread"
 
 119:                                              ; preds = %switch.early.test.i
-  %120 = icmp ugt i32 %46, 127
+  %120 = icmp samesign ugt i32 %46, 127
   br i1 %120, label %121, label %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread"
 
 121:                                              ; preds = %119
@@ -154104,7 +154104,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit: ; p
 "_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30": ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %89, %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit"
   %141 = phi i8 [ %92, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i ], [ %45, %89 ], [ %92, %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit" ]
   store i64 %44, ptr %13, align 8
-  %142 = icmp ult i32 %46, 128
+  %142 = icmp samesign ult i32 %46, 128
   br i1 %142, label %187, label %182
 
 "_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit": ; preds = %.noexc12, %switch.early.test2.i, %switch.early.test2.i, %switch.early.test2.i, %switch.early.test2.i, %switch.early.test2.i, %switch.early.test2.i
@@ -154211,11 +154211,11 @@ _ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit23:
 
 182:                                              ; preds = %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30.thread", %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30"
   %183 = phi i8 [ %92, %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30.thread" ], [ %141, %"_ZN6editor8movement24next_word_end_or_newline28_$u7b$$u7b$closure$u7d$$u7d$17h99ecbce7483f2aecE.exit.thread30" ]
-  %184 = icmp ult i32 %46, 2048
+  %184 = icmp samesign ult i32 %46, 2048
   br i1 %184, label %187, label %185
 
 185:                                              ; preds = %182
-  %186 = icmp ult i32 %46, 65536
+  %186 = icmp samesign ult i32 %46, 65536
   %. = select i1 %186, i64 3, i64 4
   br label %187
 
@@ -155666,7 +155666,7 @@ _ZN12multi_buffer19MultiBufferSnapshot17language_scope_at17h120ab1ebe8379f10E.ex
   ]
 
 187:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i108"
-  %188 = icmp ugt i32 %186, 127
+  %188 = icmp samesign ugt i32 %186, 127
   br i1 %188, label %189, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb1fa17b8e1775a60E.exit120"
 
 189:                                              ; preds = %187
@@ -155709,11 +155709,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   br i1 %208, label %209, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb1fa17b8e1775a60E.exit120"
 
 209:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.i.i.i114
-  %210 = icmp ult i32 %186, 2048
+  %210 = icmp samesign ult i32 %186, 2048
   br i1 %210, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i109", label %211
 
 211:                                              ; preds = %209
-  %212 = icmp ult i32 %186, 65536
+  %212 = icmp samesign ult i32 %186, 65536
   %..i.i.i.i.i.i.i116 = select i1 %212, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i109"
 
@@ -155863,7 +155863,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   ]
 
 276:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i91"
-  %277 = icmp ugt i32 %275, 127
+  %277 = icmp samesign ugt i32 %275, 127
   br i1 %277, label %278, label %321
 
 278:                                              ; preds = %276
@@ -155906,11 +155906,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   br i1 %297, label %298, label %321
 
 298:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.i.i.i97
-  %299 = icmp ult i32 %275, 2048
+  %299 = icmp samesign ult i32 %275, 2048
   br i1 %299, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i92", label %300
 
 300:                                              ; preds = %298
-  %301 = icmp ult i32 %275, 65536
+  %301 = icmp samesign ult i32 %275, 65536
   %..i.i.i.i.i.i.i99 = select i1 %301, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i92"
 
@@ -156065,7 +156065,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   ]
 
 365:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i.i"
-  %366 = icmp ugt i32 %364, 127
+  %366 = icmp samesign ugt i32 %364, 127
   br i1 %366, label %367, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb1fa17b8e1775a60E.exit"
 
 367:                                              ; preds = %365
@@ -156108,11 +156108,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   br i1 %386, label %387, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb1fa17b8e1775a60E.exit"
 
 387:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.i.i.i
-  %388 = icmp ult i32 %364, 2048
+  %388 = icmp samesign ult i32 %364, 2048
   br i1 %388, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i", label %389
 
 389:                                              ; preds = %387
-  %390 = icmp ult i32 %364, 65536
+  %390 = icmp samesign ult i32 %364, 65536
   %..i.i.i.i.i.i.i = select i1 %390, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h085df083dc3da6e3E.exit.i.i"
 
@@ -156612,7 +156612,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hbd0260db96b2916aE.exit.i: ; pred
   ]
 
 552:                                              ; preds = %551
-  %553 = icmp ugt i32 %548, 127
+  %553 = icmp samesign ugt i32 %548, 127
   br i1 %553, label %554, label %577
 
 554:                                              ; preds = %552
@@ -156784,7 +156784,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
   ]
 
 633:                                              ; preds = %632
-  %634 = icmp ugt i32 %629, 127
+  %634 = icmp samesign ugt i32 %629, 127
   br i1 %634, label %635, label %658
 
 635:                                              ; preds = %633

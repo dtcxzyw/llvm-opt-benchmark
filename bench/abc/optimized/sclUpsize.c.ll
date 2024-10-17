@@ -4859,7 +4859,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %46, %42
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i32, ptr %53, i64 %57
   store i32 %.02732.i, ptr %58, align 4
-  %59 = icmp ugt i32 %.02732.i, 3
+  %59 = icmp samesign ugt i32 %.02732.i, 3
   br i1 %59, label %.lr.ph.i, label %Vec_QueMoveUp.exit, !llvm.loop !40
 
 Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i, %50, %Vec_QuePrio.exit.i

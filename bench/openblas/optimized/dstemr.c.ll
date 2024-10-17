@@ -786,7 +786,7 @@ thread-pre-split19:                               ; preds = %321
 
 464:                                              ; preds = %458
   %465 = add nuw nsw i64 %459, 1
-  %466 = icmp ult i64 %465, %457
+  %466 = icmp samesign ult i64 %465, %457
   br i1 %466, label %458, label %.loopexit28
 
 467:                                              ; preds = %458

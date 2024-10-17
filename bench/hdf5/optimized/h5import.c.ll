@@ -6977,7 +6977,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not514, label %591, label %586
 
 586:                                              ; preds = %584
-  %587 = icmp ugt i32 %.0424859, 31
+  %587 = icmp samesign ugt i32 %.0424859, 31
   br i1 %587, label %588, label %.preheader789
 
 588:                                              ; preds = %586
@@ -7108,7 +7108,7 @@ select.unfold:                                    ; preds = %543
 
 644:                                              ; preds = %643
   %645 = add nuw nsw i32 %.0417863, 1
-  %646 = icmp ugt i32 %.0417863, 30
+  %646 = icmp samesign ugt i32 %.0417863, 30
   br i1 %646, label %647, label %.preheader787
 
 647:                                              ; preds = %644
@@ -7223,7 +7223,7 @@ select.unfold:                                    ; preds = %543
 
 699:                                              ; preds = %698
   %700 = add nuw nsw i32 %.0413858, 1
-  %701 = icmp ugt i32 %.0413858, 31
+  %701 = icmp samesign ugt i32 %.0413858, 31
   br i1 %701, label %702, label %.preheader790
 
 702:                                              ; preds = %699
@@ -7478,7 +7478,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not572, label %.preheader785, label %803
 
 803:                                              ; preds = %801
-  %804 = icmp ugt i32 %.0409851, 30
+  %804 = icmp samesign ugt i32 %.0409851, 30
   br i1 %804, label %805, label %.preheader786
 
 805:                                              ; preds = %803
@@ -7561,7 +7561,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not583, label %.preheader, label %836
 
 836:                                              ; preds = %834
-  %837 = icmp ugt i32 %.0404854, 31
+  %837 = icmp samesign ugt i32 %.0404854, 31
   br i1 %837, label %838, label %.preheader784
 
 838:                                              ; preds = %836

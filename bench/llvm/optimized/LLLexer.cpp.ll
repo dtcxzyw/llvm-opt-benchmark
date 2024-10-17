@@ -841,7 +841,7 @@ define dso_local void @_ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm(ptr nocapture nou
   store i64 %30, ptr %21, align 8
   %31 = add nuw nsw i32 %.025, 1
   %32 = getelementptr inbounds i8, ptr %.224, i64 1
-  %33 = icmp ult i32 %.025, 15
+  %33 = icmp samesign ult i32 %.025, 15
   %34 = icmp ne ptr %32, %2
   %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -888,7 +888,7 @@ define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr nocapture
   store i64 %15, ptr %6, align 8
   %16 = add nuw nsw i32 %.02023, 1
   %17 = getelementptr inbounds i8, ptr %.02122, i64 1
-  %18 = icmp ult i32 %.02023, 3
+  %18 = icmp samesign ult i32 %.02023, 3
   %19 = icmp ne ptr %17, %2
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -915,7 +915,7 @@ define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr nocapture
   store i64 %29, ptr %3, align 8
   %30 = add nuw nsw i32 %.025, 1
   %31 = getelementptr inbounds i8, ptr %.124, i64 1
-  %32 = icmp ult i32 %.025, 15
+  %32 = icmp samesign ult i32 %.025, 15
   %33 = icmp ne ptr %31, %2
   %34 = select i1 %32, i1 %33, i1 false
   br i1 %34, label %.lr.ph27, label %._crit_edge28, !llvm.loop !11
@@ -6693,7 +6693,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %63, %_ZN4llvm6detai
   store i64 %86, ptr %77, align 8
   %87 = add nuw nsw i32 %.02023.i, 1
   %88 = getelementptr inbounds i8, ptr %.02122.i, i64 1
-  %89 = icmp ult i32 %.02023.i, 3
+  %89 = icmp samesign ult i32 %.02023.i, 3
   %90 = icmp ne ptr %88, %.ptr106.le
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph.i10, label %._crit_edge.i, !llvm.loop !10
@@ -6720,7 +6720,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %63, %_ZN4llvm6detai
   store i64 %100, ptr %10, align 16
   %101 = add nuw nsw i32 %.025.i, 1
   %102 = getelementptr inbounds i8, ptr %.124.i, i64 1
-  %103 = icmp ult i32 %.025.i, 15
+  %103 = icmp samesign ult i32 %.025.i, 15
   %104 = icmp ne ptr %102, %.ptr106.le
   %105 = select i1 %103, i1 %104, i1 false
   br i1 %105, label %.lr.ph27.i, label %._crit_edge28.i, !llvm.loop !11
@@ -6798,7 +6798,7 @@ _ZN4llvm7APFloatD2Ev.exit16:                      ; preds = %118, %_ZN4llvm6deta
   %131 = getelementptr inbounds i8, ptr %22, i64 3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store i64 0, ptr %10, align 16
-  %132 = icmp ugt i64 %.idx, 17
+  %132 = icmp samesign ugt i64 %.idx, 17
   br i1 %132, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %130, %.preheader.i
@@ -6841,7 +6841,7 @@ _ZN4llvm7APFloatD2Ev.exit16:                      ; preds = %118, %_ZN4llvm6deta
   store i64 %153, ptr %144, align 8
   %154 = add nuw nsw i32 %.025.i20, 1
   %155 = getelementptr inbounds i8, ptr %.224.i, i64 1
-  %156 = icmp ult i32 %.025.i20, 15
+  %156 = icmp samesign ult i32 %.025.i20, 15
   %157 = icmp ne ptr %155, %.ptr106.le
   %158 = select i1 %156, i1 %157, i1 false
   br i1 %158, label %.lr.ph.i19, label %._crit_edge.i21, !llvm.loop !9
@@ -6919,7 +6919,7 @@ _ZN4llvm7APFloatD2Ev.exit28:                      ; preds = %171, %_ZN4llvm6deta
   %184 = getelementptr inbounds i8, ptr %22, i64 3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   store i64 0, ptr %10, align 16
-  %185 = icmp ugt i64 %.idx, 17
+  %185 = icmp samesign ugt i64 %.idx, 17
   br i1 %185, label %.preheader.i37, label %.loopexit.i30
 
 .preheader.i37:                                   ; preds = %183, %.preheader.i37
@@ -6962,7 +6962,7 @@ _ZN4llvm7APFloatD2Ev.exit28:                      ; preds = %171, %_ZN4llvm6deta
   store i64 %206, ptr %197, align 8
   %207 = add nuw nsw i32 %.025.i34, 1
   %208 = getelementptr inbounds i8, ptr %.224.i35, i64 1
-  %209 = icmp ult i32 %.025.i34, 15
+  %209 = icmp samesign ult i32 %.025.i34, 15
   %210 = icmp ne ptr %208, %.ptr106.le
   %211 = select i1 %209, i1 %210, i1 false
   br i1 %211, label %.lr.ph.i33, label %._crit_edge.i36, !llvm.loop !9

@@ -486,7 +486,7 @@ if.else.i:                                        ; preds = %if.end15.i
 
 if.end24.i:                                       ; preds = %if.else.i, %if.then18.i
   %ret.0.i = phi ptr [ %call19.i, %if.then18.i ], [ %6, %if.else.i ]
-  %cmp.i1 = icmp ugt i64 %indvars.iv.i, 536870911
+  %cmp.i1 = icmp samesign ugt i64 %indvars.iv.i, 536870911
   br i1 %cmp.i1, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end24.i

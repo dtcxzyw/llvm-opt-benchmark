@@ -874,7 +874,7 @@ switch.early.test:                                ; preds = %90
   %276 = or i32 %275, %.019.i.i
   %277 = and i32 %272, 1
   %278 = icmp eq i32 %277, 0
-  %279 = icmp ult i32 %indvars.iv.i.i, 4
+  %279 = icmp samesign ult i32 %indvars.iv.i.i, 4
   %280 = select i1 %278, i1 %279, i1 false
   br i1 %280, label %269, label %dissect_btrfcomm_MccType.exit, !llvm.loop !4
 
@@ -913,7 +913,7 @@ dissect_btrfcomm_MccType.exit:                    ; preds = %269
   %306 = or i32 %305, %.019.i
   %307 = and i32 %302, 1
   %308 = icmp eq i32 %307, 0
-  %309 = icmp ult i32 %indvars.iv.i, 4
+  %309 = icmp samesign ult i32 %indvars.iv.i, 4
   %310 = select i1 %308, i1 %309, i1 false
   br i1 %310, label %299, label %311, !llvm.loop !4
 
@@ -1442,7 +1442,7 @@ define internal i32 @dissect_btspp(ptr noundef %0, ptr nocapture noundef readonl
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.026) #6
   %15 = icmp sgt i8 %14, -1
   %16 = add nuw nsw i32 %.026, 1
-  %17 = icmp ult i32 %16, %13
+  %17 = icmp samesign ult i32 %16, %13
   %18 = select i1 %17, i1 %15, i1 false
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 

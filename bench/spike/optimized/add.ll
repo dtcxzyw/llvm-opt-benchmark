@@ -312,7 +312,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_addP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -333,7 +333,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_addP11proc
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %1, 20
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
@@ -351,7 +351,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_addP11proc
 24:                                               ; preds = %12
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
-  %27 = icmp ugt i64 %26, 15
+  %27 = icmp samesign ugt i64 %26, 15
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
@@ -403,7 +403,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 define noundef i64 @_Z14fast_rv64e_addP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -424,7 +424,7 @@ define noundef i64 @_Z14fast_rv64e_addP11processor_t6insn_tm(ptr nocapture nound
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %1, 20
   %17 = and i64 %16, 31
-  %18 = icmp ugt i64 %17, 15
+  %18 = icmp samesign ugt i64 %17, 15
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
@@ -442,7 +442,7 @@ define noundef i64 @_Z14fast_rv64e_addP11processor_t6insn_tm(ptr nocapture nound
 24:                                               ; preds = %12
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
-  %27 = icmp ugt i64 %26, 15
+  %27 = icmp samesign ugt i64 %26, 15
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
@@ -478,7 +478,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %33, %34
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_addP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -497,7 +497,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_addP11pr
   %13 = getelementptr inbounds i8, ptr %0, i64 120
   %14 = lshr i64 %1, 20
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
@@ -579,7 +579,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %29, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %57 = icmp ugt i64 %32, 15
+  %57 = icmp samesign ugt i64 %32, 15
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -614,7 +614,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %63, %64
 define noundef i64 @_Z16logged_rv64e_addP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 15
   %5 = and i64 %4, 31
-  %6 = icmp ugt i64 %5, 15
+  %6 = icmp samesign ugt i64 %5, 15
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -633,7 +633,7 @@ define noundef i64 @_Z16logged_rv64e_addP11processor_t6insn_tm(ptr noundef %0, i
   %13 = getelementptr inbounds i8, ptr %0, i64 120
   %14 = lshr i64 %1, 20
   %15 = and i64 %14, 31
-  %16 = icmp ugt i64 %15, 15
+  %16 = icmp samesign ugt i64 %15, 15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
@@ -713,7 +713,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %27, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %55 = icmp ugt i64 %30, 15
+  %55 = icmp samesign ugt i64 %30, 15
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

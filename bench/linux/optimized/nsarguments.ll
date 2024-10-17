@@ -50,7 +50,7 @@ define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readon
   %24 = phi i16 [ %14, %18 ], [ %29, %51 ]
   %25 = load i16, ptr %16, align 8
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %23, %26
+  %27 = icmp samesign ult i64 %23, %26
   br i1 %27, label %28, label %.loopexit
 
 28:                                               ; preds = %22
@@ -145,7 +145,7 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
   %31 = getelementptr inbounds i8, ptr %30, i64 14
   %32 = load i8, ptr %31, align 2
   %33 = zext i8 %32 to i32
-  %34 = icmp ugt i32 %14, %33
+  %34 = icmp samesign ugt i32 %14, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %29
@@ -153,7 +153,7 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
   br label %41
 
 36:                                               ; preds = %29
-  %37 = icmp ult i32 %14, %33
+  %37 = icmp samesign ult i32 %14, %33
   %38 = icmp sgt i16 %12, -1
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %41

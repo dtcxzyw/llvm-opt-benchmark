@@ -1949,7 +1949,7 @@ _ZN4llvm9BitVector6resizeEjb.exit61.i:            ; preds = %539, %_ZN4llvm9BitV
   br i1 %.not.i.i.i.i.i62.i, label %select.unfold.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i41
-  %.not10.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i41, !llvm.loop !17
 
 .loopexit.i.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i.i, %565
@@ -2240,7 +2240,7 @@ _ZNK12_GLOBAL__N_117StackSlotColoring19ColorAssignmentInfo8overlapsEPN4llvm12Liv
   %714 = lshr i32 %709, 6
   %715 = add i32 %711, -1
   %716 = lshr i32 %715, 6
-  %.not32.i.i.i.i = icmp ugt i32 %714, %716
+  %.not32.i.i.i.i = icmp samesign ugt i32 %714, %716
   br i1 %.not32.i.i.i.i, label %.thread71.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %713
@@ -2341,7 +2341,7 @@ _ZNK4llvm9BitVector9find_nextEj.exit.i.i:         ; preds = %732
   %782 = lshr i32 %777, 6
   %783 = add i32 %779, -1
   %784 = lshr i32 %783, 6
-  %.not32.i.i50.i.i = icmp ugt i32 %782, %784
+  %.not32.i.i50.i.i = icmp samesign ugt i32 %782, %784
   br i1 %.not32.i.i50.i.i, label %_ZNK4llvm9BitVector9find_nextEj.exit60.i.i, label %.lr.ph.i.i51.i.i
 
 .lr.ph.i.i51.i.i:                                 ; preds = %781
@@ -2634,7 +2634,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i: ; preds = %880, %_Z
   br i1 %.not.i.i.i.i.i.i82, label %select.unfold.i.i.i.i.i.i84, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i.i83
 
 select.unfold.i.i.i.i.i.i84:                      ; preds = %.lr.ph.i.i.i.i.i.i78
-  %.not10.i.i.i.i.i.i85 = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i79, 3
+  %.not10.i.i.i.i.i.i85 = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i79, 3
   br i1 %.not10.i.i.i.i.i.i85, label %.loopexit.i.i.i.i53, label %.lr.ph.i.i.i.i.i.i78, !llvm.loop !17
 
 .loopexit.i.i.i.i53:                              ; preds = %select.unfold.i.i.i.i.i.i84, %918
@@ -3202,7 +3202,7 @@ _ZN12_GLOBAL__N_117StackSlotColoring16RemoveDeadStoresEPN4llvm17MachineBasicBloc
   %1161 = lshr i32 %1156, 6
   %1162 = add i32 %1158, -1
   %1163 = lshr i32 %1162, 6
-  %.not32.i.i.i = icmp ugt i32 %1161, %1163
+  %.not32.i.i.i = icmp samesign ugt i32 %1161, %1163
   br i1 %.not32.i.i.i, label %._crit_edge164.i, label %.lr.ph.i.i.i64
 
 .lr.ph.i.i.i64:                                   ; preds = %1160
@@ -4988,7 +4988,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIKiN4llvm12LiveInt
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

@@ -226,7 +226,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %134, ptr %18, align 4, !tbaa !3
   %135 = add nsw i32 %129, -1
   store i32 %135, ptr %13, align 4, !tbaa !3
-  %136 = icmp ult i32 %129, 2
+  %136 = icmp samesign ult i32 %129, 2
   br i1 %136, label %.loopexit54, label %137
 
 137:                                              ; preds = %128
@@ -315,7 +315,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds double, ptr %24, i64 %196
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef %193, ptr noundef nonnull %3, ptr noundef nonnull %197, ptr noundef nonnull %13) #5
-  %198 = icmp ugt i32 %129, 1
+  %198 = icmp samesign ugt i32 %129, 1
   br i1 %198, label %.thread30, label %240
 
 .thread30:                                        ; preds = %.loopexit54
@@ -845,7 +845,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %560, ptr %18, align 4, !tbaa !3
   %561 = add nsw i32 %555, -1
   store i32 %561, ptr %13, align 4, !tbaa !3
-  %562 = icmp ult i32 %555, 2
+  %562 = icmp samesign ult i32 %555, 2
   br i1 %562, label %.loopexit45, label %563
 
 563:                                              ; preds = %554
@@ -933,7 +933,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %621 = sext i32 %620 to i64
   %622 = getelementptr inbounds double, ptr %24, i64 %621
   call void @dlacpy_(ptr noundef nonnull @.str.9, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef %618, ptr noundef nonnull %3, ptr noundef nonnull %622, ptr noundef nonnull %13) #5
-  %623 = icmp ugt i32 %555, 1
+  %623 = icmp samesign ugt i32 %555, 1
   br i1 %623, label %.thread31, label %664
 
 .thread31:                                        ; preds = %.loopexit45

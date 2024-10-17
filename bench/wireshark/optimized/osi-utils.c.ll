@@ -256,7 +256,7 @@ define hidden void @print_system_id_buf(ptr nocapture noundef readonly %0, i32 n
   %92 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %86, i64 noundef %88, ptr noundef nonnull @.str.5, i32 noundef %91) #6
   %93 = sext i32 %92 to i64
   %94 = getelementptr i8, ptr %86, i64 %93
-  %95 = icmp ult i64 %indvars.iv.next, %15
+  %95 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %95, label %61, label %.preheader.loopexit, !llvm.loop !4
 
 96:                                               ; preds = %.lr.ph104, %96
@@ -497,7 +497,7 @@ define internal fastcc void @print_address_prefix_buf(ptr nocapture noundef read
   %132 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %126, i64 noundef %128, ptr noundef nonnull @.str.5, i32 noundef %131) #6
   %133 = sext i32 %132 to i64
   %134 = getelementptr i8, ptr %126, i64 %133
-  %135 = icmp ult i64 %indvars.iv.next, %15
+  %135 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %135, label %101, label %.preheader.loopexit, !llvm.loop !7
 
 136:                                              ; preds = %.lr.ph131, %136

@@ -3080,7 +3080,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 
 42:                                               ; preds = %36
   %43 = and i64 %17, 7
-  %44 = icmp ugt i64 %43, 2
+  %44 = icmp samesign ugt i64 %43, 2
   %45 = load i16, ptr %12, align 2
   %46 = getelementptr inbounds i8, ptr %19, i64 16
   %.offs = select i1 %44, i64 72, i64 16
@@ -3782,7 +3782,7 @@ select.unfold:                                    ; preds = %122, %105
   %139 = getelementptr inbounds i8, ptr %138, i64 136
   %140 = load ptr, ptr %139, align 8
   %141 = and i64 %136, 7
-  %142 = icmp ult i64 %141, 3
+  %142 = icmp samesign ult i64 %141, 3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #14
@@ -4172,7 +4172,7 @@ select.unfold:                                    ; preds = %122, %105
 
 340:                                              ; preds = %334, %330, %329
   %341 = add nuw nsw i32 %67, 1
-  %342 = icmp ult i32 %67, 2
+  %342 = icmp samesign ult i32 %67, 2
   %343 = icmp eq i32 %341, 3
   br i1 %343, label %.loopexit, label %65, !llvm.loop !35
 
@@ -4528,7 +4528,7 @@ define internal i32 @process_register_request(ptr noundef %0, i32 noundef %1, i3
   %33 = phi ptr [ %28, %27 ], [ %31, %29 ], [ null, %20 ], [ null, %6 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = and i64 %14, 7
-  %36 = icmp ult i64 %35, 3
+  %36 = icmp samesign ult i64 %35, 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   store i32 0, ptr %8, align 4, !annotation !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
@@ -4942,7 +4942,7 @@ define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i
   %36 = phi ptr [ %31, %30 ], [ %34, %32 ], [ null, %23 ], [ null, %7 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = and i64 %17, 7
-  %39 = icmp ugt i64 %38, 2
+  %39 = icmp samesign ugt i64 %38, 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #14

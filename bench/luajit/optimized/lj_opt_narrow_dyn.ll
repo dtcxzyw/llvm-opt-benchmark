@@ -51,7 +51,7 @@ if.end:                                           ; preds = %if.then, %if.else
   %6 = load i16, ptr %fold, align 8
   %conv16 = zext i16 %6 to i32
   %call = call fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %conv16, i32 noundef 0)
-  %cmp17 = icmp ult i32 %call, 2
+  %cmp17 = icmp samesign ult i32 %call, 2
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end
@@ -251,7 +251,7 @@ if.then8:                                         ; preds = %land.lhs.true
   %mode = getelementptr inbounds i8, ptr %nc, i64 24
   %7 = load i32, ptr %mode, align 8
   %and9 = and i32 %7, 61440
-  %cmp10 = icmp ult i32 %and9, 4097
+  %cmp10 = icmp samesign ult i32 %and9, 4097
   %8 = load i16, ptr %arrayidx, align 8
   %conv13 = zext i16 %8 to i32
   br i1 %cmp10, label %if.then12, label %if.else
@@ -334,7 +334,7 @@ if.end66:                                         ; preds = %if.end, %land.lhs.t
   %arrayidx69 = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom68
   %cref.0.in104 = load i16, ptr %arrayidx69, align 2
   %cref.0105 = zext i16 %cref.0.in104 to i32
-  %cmp71106 = icmp ult i32 %ref, %cref.0105
+  %cmp71106 = icmp samesign ult i32 %ref, %cref.0105
   br i1 %cmp71106, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end66
@@ -368,7 +368,7 @@ if.end111.us:                                     ; preds = %if.end111.us.prehea
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %19
   %cref.0.in.us = load i16, ptr %gep, align 2
   %cref.0.us = zext i16 %cref.0.in.us to i32
-  %cmp71.us = icmp ult i32 %ref, %cref.0.us
+  %cmp71.us = icmp samesign ult i32 %ref, %cref.0.us
   br i1 %cmp71.us, label %while.body.us, label %while.end, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end111
@@ -411,7 +411,7 @@ if.end111:                                        ; preds = %land.lhs.true95, %l
   %prev = getelementptr inbounds i8, ptr %arrayidx76, i64 6
   %cref.0.in = load i16, ptr %prev, align 2
   %cref.0 = zext i16 %cref.0.in to i32
-  %cmp71 = icmp ult i32 %ref, %cref.0
+  %cmp71 = icmp samesign ult i32 %ref, %cref.0
   br i1 %cmp71, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end111, %if.end111.us, %if.end66
@@ -519,7 +519,7 @@ if.then168:                                       ; preds = %if.end160
   %conv174 = zext i16 %38 to i32
   %call175 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %conv174, i32 noundef %inc)
   %add176 = add nuw nsw i32 %call175, %call172
-  %cmp177 = icmp ult i32 %add176, 2
+  %cmp177 = icmp samesign ult i32 %add176, 2
   br i1 %cmp177, label %if.then179, label %if.end190
 
 if.then179:                                       ; preds = %if.then168
@@ -683,8 +683,8 @@ entry:
   %1 = load i8, ptr %o, align 1
   %conv3 = zext i8 %1 to i32
   %cmp = icmp ult i8 %1, 53
-  %cmp5.not = icmp ult i32 %lastop, %conv3
-  %or.cond = or i1 %cmp, %cmp5.not
+  %cmp5.not = icmp samesign ult i32 %lastop, %conv3
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp5.not
   br i1 %or.cond, label %if.else30, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -766,7 +766,7 @@ if.else:                                          ; preds = %for.inc.i
   br label %common.ret48
 
 if.else30:                                        ; preds = %entry
-  %tobool32.not = icmp ult i32 %mode, 2048
+  %tobool32.not = icmp samesign ult i32 %mode, 2048
   br i1 %tobool32.not, label %common.ret48, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.else30

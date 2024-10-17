@@ -1110,9 +1110,9 @@ define void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %0) u
   br i1 %10, label %.critedge28, label %11
 
 11:                                               ; preds = %1
-  %12 = icmp ult i64 %9, 5
+  %12 = icmp samesign ult i64 %9, 5
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %9, 2
+  %13 = icmp samesign ult i64 %9, 2
   br i1 %13, label %14, label %.critedge28
 
 14:                                               ; preds = %11

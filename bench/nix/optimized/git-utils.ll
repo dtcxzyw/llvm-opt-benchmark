@@ -9753,7 +9753,7 @@ _ZNSt5dequeISt10unique_ptrI10git_commitN3nix7DeleterIXadL_Z15git_commit_freeEEEE
 
 93:                                               ; preds = %.preheader
   %94 = zext i32 %92 to i64
-  %95 = icmp ult i64 %.08, %94
+  %95 = icmp samesign ult i64 %.08, %94
   br i1 %95, label %96, label %.loopexit42.thread49
 
 96:                                               ; preds = %93
@@ -15982,7 +15982,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !87
 
 .critedge:                                        ; preds = %27

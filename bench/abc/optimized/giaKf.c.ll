@@ -610,7 +610,7 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noun
   %40 = or i64 %39, %38
   %41 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %40)
   %42 = trunc nuw nsw i64 %41 to i32
-  %43 = icmp ugt i32 %42, %35
+  %43 = icmp samesign ugt i32 %42, %35
   br i1 %43, label %Kf_SetMergeOrderOne.exit.thread, label %44
 
 44:                                               ; preds = %37, %29
@@ -1081,7 +1081,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i59, 1
   %249 = load i16, ptr %172, align 8
   %250 = zext i16 %249 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv.i59, %250
+  %.not.not.i = icmp samesign ult i64 %indvars.iv.i59, %250
   br i1 %.not.not.i, label %176, label %Kf_SetFilterOrder.exit, !llvm.loop !20
 
 Kf_SetFilterOrder.exit:                           ; preds = %select.unfold._crit_edge.i
@@ -3406,7 +3406,7 @@ select.unfold._crit_edge.i.i:                     ; preds = %Kf_HashCleanup.exit
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %264 = load i16, ptr %75, align 8
   %265 = zext i16 %264 to i64
-  %.not.not.i.i = icmp ult i64 %indvars.iv.i.i, %265
+  %.not.not.i.i = icmp samesign ult i64 %indvars.iv.i.i, %265
   br i1 %.not.not.i.i, label %168, label %Kf_SetMerge.exit, !llvm.loop !41
 
 Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit_edge.i.i
@@ -3504,7 +3504,7 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %331 = or i64 %330, %329
   %332 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %331)
   %333 = trunc nuw nsw i64 %332 to i32
-  %334 = icmp ugt i32 %333, %326
+  %334 = icmp samesign ugt i32 %333, %326
   br i1 %334, label %Kf_SetRemoveDuplicatesSimple.exit.i, label %335
 
 335:                                              ; preds = %328, %320
@@ -3915,7 +3915,7 @@ select.unfold._crit_edge.i.i133:                  ; preds = %select.unfold.i.i, 
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i59.i, 1
   %503 = load i16, ptr %75, align 8
   %504 = zext i16 %503 to i64
-  %.not.not.i.i134 = icmp ult i64 %indvars.iv.i59.i, %504
+  %.not.not.i.i134 = icmp samesign ult i64 %indvars.iv.i59.i, %504
   br i1 %.not.not.i.i134, label %._crit_edge97.i, label %Kf_SetMergeSimple.exit, !llvm.loop !50
 
 Kf_SetMergeSimple.exit:                           ; preds = %select.unfold._crit_edge.i.i133
@@ -5485,7 +5485,7 @@ select.unfold._crit_edge.split.us.us:             ; preds = %Kf_SetStoreAddOne.e
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %11 = load i16, ptr %3, align 8
   %12 = zext i16 %11 to i64
-  %.not.us.not = icmp ult i64 %indvars.iv80, %12
+  %.not.us.not = icmp samesign ult i64 %indvars.iv80, %12
   br i1 %.not.us.not, label %.split.us, label %.split63.us, !llvm.loop !63
 
 .lr.ph.us:                                        ; preds = %.split.us, %Kf_SetStoreAddOne.exit.us.us
@@ -5655,7 +5655,7 @@ select.unfold._crit_edge.split:                   ; preds = %Kf_SetStoreAddOne.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i16, ptr %3, align 8
   %91 = zext i16 %90 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %91
+  %.not.not = icmp samesign ult i64 %indvars.iv, %91
   br i1 %.not.not, label %.split, label %.split63.us, !llvm.loop !63
 
 .split63.us:                                      ; preds = %select.unfold._crit_edge.split, %select.unfold._crit_edge.split.us.us
@@ -5913,7 +5913,7 @@ Kf_HashPopulate.exit:                             ; preds = %Kf_HashFindOrAdd.ex
   %74 = or i64 %73, %72
   %75 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
   %76 = trunc nuw nsw i64 %75 to i32
-  %77 = icmp ugt i32 %76, %69
+  %77 = icmp samesign ugt i32 %76, %69
   br i1 %77, label %Kf_SetRemoveDuplicates.exit, label %78
 
 78:                                               ; preds = %71, %63

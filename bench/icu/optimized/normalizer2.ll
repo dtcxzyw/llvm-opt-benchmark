@@ -3248,7 +3248,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 cond.true.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   %12 = and i16 %9, 6
-  %cmp.i.i.i = icmp ult i16 %12, 3
+  %cmp.i.i.i = icmp samesign ult i16 %12, 3
   br label %_ZNK6icu_7515Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %lor.rhs.i.i.i

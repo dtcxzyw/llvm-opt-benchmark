@@ -517,7 +517,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr nocapture nou
   %67 = getelementptr inbounds i8, ptr %66, i64 52
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph89, label %.loopexit
 
 71:                                               ; preds = %3

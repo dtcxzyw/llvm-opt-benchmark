@@ -9973,7 +9973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %16, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %21, label %._crit_edge, !llvm.loop !79
 
 49:                                               ; preds = %29
@@ -11212,7 +11212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %16, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %21, label %._crit_edge, !llvm.loop !86
 
 49:                                               ; preds = %29
@@ -11520,7 +11520,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_Kc5base
 
 18:                                               ; preds = %.lr.ph.i.i
   %19 = shl nuw nsw i64 %.023.i.i, 1
-  %20 = icmp ult i64 %.023.i.i, 76
+  %20 = icmp samesign ult i64 %.023.i.i, 76
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %18, %.lr.ph.i.i, %15
@@ -11878,7 +11878,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA2_KcKNSt7
 
 18:                                               ; preds = %.lr.ph.i.i
   %19 = shl nuw nsw i64 %.023.i.i, 1
-  %20 = icmp ult i64 %.023.i.i, 28
+  %20 = icmp samesign ult i64 %.023.i.i, 28
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %18, %.lr.ph.i.i, %15
@@ -12204,7 +12204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %16, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %21, label %._crit_edge, !llvm.loop !91
 
 49:                                               ; preds = %29

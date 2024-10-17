@@ -342,7 +342,7 @@ for.body.i:                                       ; preds = %copy_array.exit, %f
   store i32 %31, ptr %index.i, align 4
   %32 = load i32, ptr %cache_nr.i, align 4
   %33 = zext i32 %32 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %33
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %cmp.i, label %for.body.i, label %mark_base_index_entries.exit, !llvm.loop !5
 
 mark_base_index_entries.exit:                     ; preds = %for.body.i
@@ -367,7 +367,7 @@ for.body:                                         ; preds = %mark_base_index_ent
   %cache_nr61 = getelementptr inbounds i8, ptr %39, i64 12
   %40 = load i32, ptr %cache_nr61, align 4
   %41 = zext i32 %40 to i64
-  %cmp62 = icmp ult i64 %indvars.iv.next, %41
+  %cmp62 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %cmp62, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %copy_array.exit, %mark_base_index_entries.exit
@@ -410,7 +410,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i32 %5, ptr %index.i, align 4
   %6 = load i32, ptr %cache_nr.i, align 4
   %7 = zext i32 %6 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %cmp.i, label %for.body.i, label %mark_base_index_entries.exit.loopexit, !llvm.loop !5
 
 mark_base_index_entries.exit.loopexit:            ; preds = %for.body.i
@@ -506,7 +506,7 @@ if.end38:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %saved_cache_nr, align 8
   %26 = zext i32 %25 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %26
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end38, %if.end30
@@ -874,7 +874,7 @@ for.inc:                                          ; preds = %if.then21, %land.lh
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %cache_nr, align 4
   %32 = zext i32 %31 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %32
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp, label %for.body, label %for.cond75.preheader.loopexit, !llvm.loop !9
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc129
@@ -983,7 +983,7 @@ for.inc129:                                       ; preds = %is_null_oid.exit, %
   %cache_nr77 = getelementptr inbounds i8, ptr %46, i64 12
   %47 = load i32, ptr %cache_nr77, align 4
   %48 = zext i32 %47 to i64
-  %cmp78 = icmp ult i64 %indvars.iv.next146, %48
+  %cmp78 = icmp samesign ult i64 %indvars.iv.next146, %48
   br i1 %cmp78, label %for.body79, label %if.end132, !llvm.loop !10
 
 if.end132:                                        ; preds = %for.inc129, %for.cond75.preheader, %init_split_index.exit
@@ -1063,7 +1063,7 @@ if.end177:                                        ; preds = %do.end173, %land.lh
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %57 = load i32, ptr %cache_nr134, align 4
   %58 = zext i32 %57 to i64
-  %cmp135 = icmp ult i64 %indvars.iv.next149, %58
+  %cmp135 = icmp samesign ult i64 %indvars.iv.next149, %58
   br i1 %cmp135, label %for.body137, label %for.end182, !llvm.loop !11
 
 for.end182:                                       ; preds = %if.end177, %if.end132

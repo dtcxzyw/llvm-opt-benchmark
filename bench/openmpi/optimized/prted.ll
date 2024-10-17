@@ -1005,7 +1005,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i426, %241
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %396 = load i8, ptr %11, align 1
   %397 = zext i8 %396 to i64
-  %398 = icmp ult i64 %indvars.iv.next501, %397
+  %398 = icmp samesign ult i64 %indvars.iv.next501, %397
   br i1 %398, label %.lr.ph470, label %._crit_edge471, !llvm.loop !12
 
 ._crit_edge471:                                   ; preds = %395, %.preheader446

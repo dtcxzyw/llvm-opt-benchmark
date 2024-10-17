@@ -573,7 +573,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   %118 = getelementptr inbounds i8, ptr %29, i64 33
   %119 = load i8, ptr %118, align 1
   %120 = and i8 %119, 1
-  %.not138.not = icmp ult i8 %117, %120
+  %.not138.not = icmp samesign ult i8 %117, %120
   br i1 %.not138.not, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
 121:                                              ; preds = %106
@@ -601,11 +601,11 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   %132 = getelementptr inbounds i8, ptr %29, i64 33
   %133 = load i8, ptr %132, align 1
   %134 = and i8 %133, 1
-  %135 = icmp ugt i8 %131, %134
+  %135 = icmp samesign ugt i8 %131, %134
   br i1 %135, label %compare_path_costs_fuzzily.exit.thread155, label %136
 
 136:                                              ; preds = %129
-  %137 = icmp ult i8 %131, %134
+  %137 = icmp samesign ult i8 %131, %134
   br i1 %137, label %compare_path_costs_fuzzily.exit.thread149, label %138
 
 138:                                              ; preds = %136
@@ -637,7 +637,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   %156 = getelementptr inbounds i8, ptr %29, i64 33
   %157 = load i8, ptr %156, align 1
   %158 = and i8 %157, 1
-  %.not135 = icmp ult i8 %155, %158
+  %.not135 = icmp samesign ult i8 %155, %158
   br i1 %.not135, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
 159:                                              ; preds = %128
@@ -733,7 +733,7 @@ compare_path_costs_fuzzily.exit:                  ; preds = %179
   %207 = getelementptr inbounds i8, ptr %29, i64 33
   %208 = load i8, ptr %207, align 1
   %209 = and i8 %208, 1
-  %.not132.not = icmp ult i8 %206, %209
+  %.not132.not = icmp samesign ult i8 %206, %209
   br i1 %.not132.not, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
 compare_path_costs_fuzzily.exit.thread155:        ; preds = %153, %138, %129, %145, %115, %compare_path_costs_fuzzily.exit
@@ -755,7 +755,7 @@ compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %200, %159, %123
   %218 = getelementptr inbounds i8, ptr %29, i64 33
   %219 = load i8, ptr %218, align 1
   %220 = and i8 %219, 1
-  %.not128 = icmp ugt i8 %217, %220
+  %.not128 = icmp samesign ugt i8 %217, %220
   %spec.select142 = select i1 %.not128, i8 %.0163, i8 0
   br label %compare_path_costs_fuzzily.exit.thread149
 

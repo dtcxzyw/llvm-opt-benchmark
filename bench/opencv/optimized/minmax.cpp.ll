@@ -417,7 +417,7 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
   br label %142
 
 135:                                              ; preds = %.thread
-  %136 = icmp ult i32 %27, 5
+  %136 = icmp samesign ult i32 %27, 5
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %135

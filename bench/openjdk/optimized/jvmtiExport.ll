@@ -576,7 +576,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN11JvmtiExport19get_jvmti_interfac
   ]
 
 8:                                                ; preds = %3
-  %switch = icmp ult i32 %7, 3
+  %switch = icmp samesign ult i32 %7, 3
   br i1 %switch, label %15, label %65
 
 9:                                                ; preds = %3
@@ -588,7 +588,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN11JvmtiExport19get_jvmti_interfac
   br i1 %cond, label %15, label %65
 
 11:                                               ; preds = %3
-  %12 = icmp ult i32 %5, 13
+  %12 = icmp samesign ult i32 %5, 13
   %13 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
   %14 = icmp sgt i32 %5, %13
   %or.cond = select i1 %12, i1 true, i1 %14
@@ -3155,7 +3155,7 @@ define hidden void @_ZN11JvmtiExport19post_raw_breakpointEP10JavaThreadP6MethodP
   %16 = add nsw i32 %11, 1
   %17 = icmp sgt i32 %11, -1
   %18 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %or.cond.i.i.i.i.i.i = select i1 %17, i1 %19, i1 false
   %20 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -3560,7 +3560,7 @@ define hidden void @_ZN11JvmtiExport24at_single_stepping_pointEP10JavaThreadP6Me
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19
@@ -3751,7 +3751,7 @@ define hidden void @_ZN11JvmtiExport16post_single_stepEP10JavaThreadP6MethodPh(p
   %16 = add nsw i32 %11, 1
   %17 = icmp sgt i32 %11, -1
   %18 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %or.cond.i.i.i.i.i.i = select i1 %17, i1 %19, i1 false
   %20 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -7978,7 +7978,7 @@ define hidden void @_ZN11JvmtiExport17post_method_entryEP10JavaThreadP6Method5fr
   %16 = add nsw i32 %11, 1
   %17 = icmp sgt i32 %11, -1
   %18 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %or.cond.i.i.i.i.i.i = select i1 %17, i1 %19, i1 false
   %20 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -8402,7 +8402,7 @@ define hidden void @_ZN11JvmtiExport16post_method_exitEP10JavaThreadP6Method5fra
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -9213,7 +9213,7 @@ define hidden void @_ZN11JvmtiExport20post_exception_throwEP10JavaThreadP6Method
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -9587,7 +9587,7 @@ _ZN23JvmtiExceptionEventMarkC2EP10JavaThreadRK12methodHandlePh6Handle.exit: ; pr
   %220 = add nsw i32 %215, 1
   %221 = icmp sgt i32 %215, -1
   %222 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %220)
-  %223 = icmp ult i32 %222, 2
+  %223 = icmp samesign ult i32 %222, 2
   %or.cond.i.i.i.i.i.i65 = select i1 %221, i1 %223, i1 false
   %224 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %220, i1 true)
   %225 = sub nuw nsw i32 32, %224
@@ -10098,7 +10098,7 @@ define hidden void @_ZN11JvmtiExport30notice_unwind_due_to_exceptionEP10JavaThre
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
   %22 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
-  %23 = icmp ult i32 %22, 2
+  %23 = icmp samesign ult i32 %22, 2
   %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
   %24 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %25 = sub nuw nsw i32 32, %24
@@ -10764,7 +10764,7 @@ define hidden void @_ZN11JvmtiExport17post_field_accessEP10JavaThreadP6MethodPhP
   %19 = add nsw i32 %14, 1
   %20 = icmp sgt i32 %14, -1
   %21 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i.i.i.i.i = select i1 %20, i1 %22, i1 false
   %23 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %24 = sub nuw nsw i32 32, %23
@@ -11347,7 +11347,7 @@ define hidden void @_ZN11JvmtiExport23post_field_modificationEP10JavaThreadP6Met
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
   %23 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp samesign ult i32 %23, 2
   %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
   %25 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %26 = sub nuw nsw i32 32, %25
@@ -11881,7 +11881,7 @@ define hidden void @_ZN11JvmtiExport23post_native_method_bindEP6MethodPPh(ptr no
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -12730,7 +12730,7 @@ define linkonce_odr hidden void @_ZN32JvmtiCompiledMethodLoadEventMarkC2EP10Java
   %17 = add nsw i32 %12, 1
   %18 = icmp sgt i32 %12, -1
   %19 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %20 = icmp ult i32 %19, 2
+  %20 = icmp samesign ult i32 %19, 2
   %or.cond.i.i.i.i.i.i = select i1 %18, i1 %20, i1 false
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -13473,7 +13473,7 @@ define hidden void @_ZN30JvmtiDynamicCodeEventCollector13register_stubEPKcPhS2_(
   %29 = add nsw i32 %24, 1
   %30 = icmp sgt i32 %24, -1
   %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp ult i32 %31, 2
+  %32 = icmp samesign ult i32 %31, 2
   %or.cond.i.i.i.i = select i1 %30, i1 %32, i1 false
   %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %34 = sub nuw nsw i32 32, %33
@@ -13615,7 +13615,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %15
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31

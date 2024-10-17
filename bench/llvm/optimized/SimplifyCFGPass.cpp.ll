@@ -1471,7 +1471,7 @@ _ZN4llvm4User8operandsEv.exit.i.i:                ; preds = %69, %66
   %.pre-phi2.i.i.i.i = phi i64 [ %.pre1.i.i.i.i, %66 ], [ %71, %69 ]
   %.idx126.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i, 5
   %75 = getelementptr inbounds i8, ptr %74, i64 %.idx126.i.i
-  %.not125.i.i = icmp ult i64 %.pre-phi2.i.i.i.i, 4
+  %.not125.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i, 4
   br i1 %.not125.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %_ZN4llvm4User8operandsEv.exit.i.i

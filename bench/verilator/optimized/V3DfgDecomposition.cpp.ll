@@ -8239,7 +8239,7 @@ _ZN17DfgVertexVariadic12allocSourcesEm.exit:      ; preds = %.lr.ph.i, %1
   %23 = phi i32 [ %15, %14 ], [ %.pre, %20 ]
   %24 = add nuw nsw i64 %.010, 1
   %25 = zext i32 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %14, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %22, %_ZN17DfgVertexVariadic12allocSourcesEm.exit

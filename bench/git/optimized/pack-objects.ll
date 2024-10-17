@@ -175,7 +175,7 @@ oe_in_pack.exit:                                  ; preds = %if.then.i, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %nr_objects, align 8
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !7
 
 do.body:                                          ; preds = %oe_in_pack.exit, %if.end

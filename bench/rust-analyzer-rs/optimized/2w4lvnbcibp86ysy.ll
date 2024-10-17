@@ -412,7 +412,7 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   br label %.preheader.split.us
 
 10:                                               ; preds = %7
-  %11 = icmp ult i32 %.0, 7
+  %11 = icmp samesign ult i32 %.0, 7
   br i1 %11, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %10
@@ -1233,7 +1233,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
 
 .lr.ph.i.i:                                       ; preds = %68, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i14, %.thread.i.i.i ], [ 0, %68 ]
-  %72 = icmp ult i32 %.02.i.i, 7
+  %72 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %72, label %.preheader.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph.i.i
@@ -1241,7 +1241,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %73
-  %74 = icmp ult i32 %.02.i.i, 11
+  %74 = icmp samesign ult i32 %.02.i.i, 11
   %75 = zext i1 %74 to i32
   %spec.select.i.i14 = add nuw nsw i32 %.02.i.i, %75
   %76 = load atomic i8, ptr %69 acquire, align 1, !noalias !147
@@ -1879,7 +1879,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
 
 .lr.ph.i:                                         ; preds = %78, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %78 ]
-  %81 = icmp ult i32 %.02.i, 7
+  %81 = icmp samesign ult i32 %.02.i, 7
   br i1 %81, label %.preheader.i.i, label %82
 
 82:                                               ; preds = %.lr.ph.i
@@ -1887,7 +1887,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %82
-  %83 = icmp ult i32 %.02.i, 11
+  %83 = icmp samesign ult i32 %.02.i, 11
   %84 = zext i1 %83 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %84
   %85 = load atomic i8, ptr %16 acquire, align 8
@@ -3048,7 +3048,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
 
 .lr.ph.i:                                         ; preds = %80, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %80 ]
-  %83 = icmp ult i32 %.02.i, 7
+  %83 = icmp samesign ult i32 %.02.i, 7
   br i1 %83, label %.preheader.i.i, label %84
 
 84:                                               ; preds = %.lr.ph.i
@@ -3056,7 +3056,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.16286753980509133904.exit
           to label %.thread.i.i unwind label %.loopexit
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %84
-  %85 = icmp ult i32 %.02.i, 11
+  %85 = icmp samesign ult i32 %.02.i, 11
   %86 = zext i1 %85 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %86
   %87 = load atomic i8, ptr %18 acquire, align 8
@@ -3695,7 +3695,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$vfs..loader..Messag
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !647, !noundef !4
-  %.not = icmp ult i64 %4, 2
+  %.not = icmp samesign ult i64 %4, 2
   %5 = add nsw i64 %4, -1
   %6 = select i1 %.not, i64 0, i64 %5
   switch i64 %6, label %7 [

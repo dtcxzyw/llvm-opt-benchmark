@@ -4840,7 +4840,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %6, ptr %12, align 8
   %13 = zext i16 %4 to i32
-  %14 = icmp ult i32 %3, %13
+  %14 = icmp samesign ult i32 %3, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %61
@@ -6731,7 +6731,7 @@ decode_pfcp_address.exit:                         ; preds = %7, %16, %22, %28
   %.0.i = phi i32 [ 1, %7 ], [ %29, %28 ], [ 17, %22 ], [ 5, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %30 = zext i16 %4 to i32
-  %31 = icmp ult i32 %.0.i, %30
+  %31 = icmp samesign ult i32 %.0.i, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %decode_pfcp_address.exit
@@ -7972,7 +7972,7 @@ define internal void @dissect_pfcp_outer_hdr_rem(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %15, %7
   %.0 = phi i32 [ 2, %15 ], [ 1, %7 ]
-  %17 = icmp ult i32 %.0, %13
+  %17 = icmp samesign ult i32 %.0, %13
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -8509,7 +8509,7 @@ define internal void @dissect_pfcp_failed_rule_id(ptr noundef %0, ptr noundef %1
 61:                                               ; preds = %7, %57, %53, %49, %40, %31, %22, %18
   %.0 = phi i32 [ 1, %7 ], [ 2, %57 ], [ 3, %53 ], [ 2, %49 ], [ 5, %40 ], [ 5, %31 ], [ 5, %22 ], [ 3, %18 ]
   %62 = zext i16 %4 to i32
-  %63 = icmp ult i32 %.0, %62
+  %63 = icmp samesign ult i32 %.0, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
@@ -9911,7 +9911,7 @@ define internal void @dissect_pfcp_smf_set_id(ptr noundef %0, ptr noundef %1, pt
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = tail call fastcc i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
   %11 = zext i16 %4 to i32
-  %12 = icmp ult i32 %10, %11
+  %12 = icmp samesign ult i32 %10, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %7
@@ -10327,7 +10327,7 @@ define internal void @dissect_pfcp_5gs_user_plane_node_id(ptr noundef %0, ptr no
 14:                                               ; preds = %11, %7
   %.0 = phi i32 [ 9, %11 ], [ 1, %7 ]
   %15 = zext i16 %4 to i32
-  %16 = icmp ult i32 %.0, %15
+  %16 = icmp samesign ult i32 %.0, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
@@ -11470,7 +11470,7 @@ define internal void @dissect_pfcp_lns_address(ptr noundef %0, ptr noundef %1, p
 
 12:                                               ; preds = %.sink.split, %7
   %.0 = phi i32 [ 0, %7 ], [ %.sink16, %.sink.split ]
-  %13 = icmp ult i32 %.0, %8
+  %13 = icmp samesign ult i32 %.0, %8
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
@@ -12239,7 +12239,7 @@ define internal void @dissect_pfcp_traffic_parameter_threshold(ptr noundef %0, p
 14:                                               ; preds = %11, %7
   %.0 = phi i32 [ 5, %11 ], [ 1, %7 ]
   %15 = zext i16 %4 to i32
-  %16 = icmp ult i32 %.0, %15
+  %16 = icmp samesign ult i32 %.0, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
@@ -12288,7 +12288,7 @@ define internal void @dissect_pfcp_n6_jitter_measurement(ptr noundef %0, ptr nou
 18:                                               ; preds = %11, %7
   %.0 = phi i32 [ 13, %11 ], [ 1, %7 ]
   %19 = zext i16 %4 to i32
-  %20 = icmp ult i32 %.0, %19
+  %20 = icmp samesign ult i32 %.0, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -12436,7 +12436,7 @@ define internal void @dissect_pfcp_reporting_suggestion_info(ptr noundef %0, ptr
 16:                                               ; preds = %13, %7
   %.0 = phi i32 [ 5, %13 ], [ 1, %7 ]
   %17 = zext i16 %4 to i32
-  %18 = icmp ult i32 %.0, %17
+  %18 = icmp samesign ult i32 %.0, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
@@ -13475,7 +13475,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
   %.3 = phi i32 [ %.288, %25 ], [ %42, %._crit_edge104 ]
   %55 = lshr i32 %.07386, 2
   %56 = add nuw nsw i32 %.07485, 1
-  %.not79 = icmp ult i32 %.07386, 4
+  %.not79 = icmp samesign ult i32 %.07386, 4
   br i1 %.not79, label %.loopexit, label %25, !llvm.loop !24
 
 .loopexit:                                        ; preds = %54, %36, %46, %19

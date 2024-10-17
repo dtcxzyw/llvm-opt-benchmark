@@ -629,7 +629,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %39 = add nsw i32 %34, 1
   %40 = icmp sgt i32 %34, -1
   %41 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %39)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %or.cond.i.i.i.i.i.i = select i1 %40, i1 %42, i1 false
   %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %39, i1 true)
   %44 = sub nuw nsw i32 32, %43
@@ -28790,7 +28790,7 @@ _ZN4Node7set_reqEjPS_.exit126:                    ; preds = %_ZN4Node7set_reqEjP
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %662 = load i32, ptr %533, align 8
   %663 = zext i32 %662 to i64
-  %664 = icmp ult i64 %indvars.iv.next169, %663
+  %664 = icmp samesign ult i64 %indvars.iv.next169, %663
   br i1 %664, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN4Node7set_reqEjPS_.exit126, %_ZN4Node7set_reqEjPS_.exit110
@@ -54284,7 +54284,7 @@ define linkonce_odr hidden void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncP
   %41 = add nsw i32 %36, 1
   %42 = icmp sgt i32 %36, -1
   %43 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
-  %44 = icmp ult i32 %43, 2
+  %44 = icmp samesign ult i32 %43, 2
   %or.cond.i.i.i.i.i = select i1 %42, i1 %44, i1 false
   %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %46 = sub nuw nsw i32 32, %45
@@ -55287,7 +55287,7 @@ _ZN13SafePointNode11set_controlEP4Node.exit:      ; preds = %_ZN4Node7del_outEPS
   %111 = phi i32 [ %91, %90 ], [ %91, %99 ], [ %91, %104 ], [ %.pre, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next, %112
   br i1 %113, label %90, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %110, %_ZN13SafePointNode11set_controlEP4Node.exit

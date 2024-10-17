@@ -188,7 +188,7 @@ Encode.exit:                                      ; preds = %18
   %35 = load i32, ptr %17, align 8
   %36 = lshr i32 %35, 3
   %37 = and i32 %36, 127
-  %38 = icmp ult i32 %37, 118
+  %38 = icmp samesign ult i32 %37, 118
   %.v = select i1 %38, i32 118, i32 246
   %39 = sub nsw i32 %.v, %37
   %40 = zext i32 %39 to i64
@@ -217,7 +217,7 @@ Encode.exit:                                      ; preds = %18
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %1, ptr noundef nonnull %53) #6
   %58 = add nuw nsw i64 %52, 127
-  %59 = icmp ult i64 %58, %40
+  %59 = icmp samesign ult i64 %58, %40
   br i1 %59, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -227,7 +227,7 @@ Encode.exit:                                      ; preds = %18
   tail call void %60(ptr noundef nonnull %1, ptr noundef nonnull %61) #6
   %62 = add nuw nsw i64 %.033.i, 128
   %63 = add nuw nsw i64 %.033.i, 255
-  %64 = icmp ult i64 %63, %40
+  %64 = icmp samesign ult i64 %63, %40
   br i1 %64, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 65:                                               ; preds = %Encode.exit
@@ -252,7 +252,7 @@ PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i, %51, %65
   %77 = zext i1 %75 to i32
   %78 = add i32 %76, %77
   store i32 %78, ptr %44, align 4
-  %.not.i33 = icmp ult i32 %73, 118
+  %.not.i33 = icmp samesign ult i32 %73, 118
   br i1 %.not.i33, label %86, label %79
 
 79:                                               ; preds = %PHP_HAVALUpdate.exit
@@ -713,7 +713,7 @@ Encode.exit:                                      ; preds = %18
   %35 = load i32, ptr %17, align 8
   %36 = lshr i32 %35, 3
   %37 = and i32 %36, 127
-  %38 = icmp ult i32 %37, 118
+  %38 = icmp samesign ult i32 %37, 118
   %.v = select i1 %38, i32 118, i32 246
   %39 = sub nsw i32 %.v, %37
   %40 = zext i32 %39 to i64
@@ -742,7 +742,7 @@ Encode.exit:                                      ; preds = %18
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %1, ptr noundef nonnull %53) #6
   %58 = add nuw nsw i64 %52, 127
-  %59 = icmp ult i64 %58, %40
+  %59 = icmp samesign ult i64 %58, %40
   br i1 %59, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -752,7 +752,7 @@ Encode.exit:                                      ; preds = %18
   tail call void %60(ptr noundef nonnull %1, ptr noundef nonnull %61) #6
   %62 = add nuw nsw i64 %.033.i, 128
   %63 = add nuw nsw i64 %.033.i, 255
-  %64 = icmp ult i64 %63, %40
+  %64 = icmp samesign ult i64 %63, %40
   br i1 %64, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 65:                                               ; preds = %Encode.exit
@@ -777,7 +777,7 @@ PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i, %51, %65
   %77 = zext i1 %75 to i32
   %78 = add i32 %76, %77
   store i32 %78, ptr %44, align 4
-  %.not.i39 = icmp ult i32 %73, 118
+  %.not.i39 = icmp samesign ult i32 %73, 118
   br i1 %.not.i39, label %86, label %79
 
 79:                                               ; preds = %PHP_HAVALUpdate.exit
@@ -964,7 +964,7 @@ Encode.exit:                                      ; preds = %18
   %35 = load i32, ptr %17, align 8
   %36 = lshr i32 %35, 3
   %37 = and i32 %36, 127
-  %38 = icmp ult i32 %37, 118
+  %38 = icmp samesign ult i32 %37, 118
   %.v = select i1 %38, i32 118, i32 246
   %39 = sub nsw i32 %.v, %37
   %40 = zext i32 %39 to i64
@@ -993,7 +993,7 @@ Encode.exit:                                      ; preds = %18
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %1, ptr noundef nonnull %53) #6
   %58 = add nuw nsw i64 %52, 127
-  %59 = icmp ult i64 %58, %40
+  %59 = icmp samesign ult i64 %58, %40
   br i1 %59, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -1003,7 +1003,7 @@ Encode.exit:                                      ; preds = %18
   tail call void %60(ptr noundef nonnull %1, ptr noundef nonnull %61) #6
   %62 = add nuw nsw i64 %.033.i, 128
   %63 = add nuw nsw i64 %.033.i, 255
-  %64 = icmp ult i64 %63, %40
+  %64 = icmp samesign ult i64 %63, %40
   br i1 %64, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 65:                                               ; preds = %Encode.exit
@@ -1028,7 +1028,7 @@ PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i, %51, %65
   %77 = zext i1 %75 to i32
   %78 = add i32 %76, %77
   store i32 %78, ptr %44, align 4
-  %.not.i33 = icmp ult i32 %73, 118
+  %.not.i33 = icmp samesign ult i32 %73, 118
   br i1 %.not.i33, label %86, label %79
 
 79:                                               ; preds = %PHP_HAVALUpdate.exit
@@ -1211,7 +1211,7 @@ Encode.exit:                                      ; preds = %18
   %35 = load i32, ptr %17, align 8
   %36 = lshr i32 %35, 3
   %37 = and i32 %36, 127
-  %38 = icmp ult i32 %37, 118
+  %38 = icmp samesign ult i32 %37, 118
   %.v = select i1 %38, i32 118, i32 246
   %39 = sub nsw i32 %.v, %37
   %40 = zext i32 %39 to i64
@@ -1240,7 +1240,7 @@ Encode.exit:                                      ; preds = %18
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %1, ptr noundef nonnull %53) #6
   %58 = add nuw nsw i64 %52, 127
-  %59 = icmp ult i64 %58, %40
+  %59 = icmp samesign ult i64 %58, %40
   br i1 %59, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -1250,7 +1250,7 @@ Encode.exit:                                      ; preds = %18
   tail call void %60(ptr noundef nonnull %1, ptr noundef nonnull %61) #6
   %62 = add nuw nsw i64 %.033.i, 128
   %63 = add nuw nsw i64 %.033.i, 255
-  %64 = icmp ult i64 %63, %40
+  %64 = icmp samesign ult i64 %63, %40
   br i1 %64, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 65:                                               ; preds = %Encode.exit
@@ -1275,7 +1275,7 @@ PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i, %51, %65
   %77 = zext i1 %75 to i32
   %78 = add i32 %76, %77
   store i32 %78, ptr %44, align 4
-  %.not.i27 = icmp ult i32 %73, 118
+  %.not.i27 = icmp samesign ult i32 %73, 118
   br i1 %.not.i27, label %86, label %79
 
 79:                                               ; preds = %PHP_HAVALUpdate.exit
@@ -1449,7 +1449,7 @@ Encode.exit:                                      ; preds = %18
   %35 = load i32, ptr %17, align 8
   %36 = lshr i32 %35, 3
   %37 = and i32 %36, 127
-  %38 = icmp ult i32 %37, 118
+  %38 = icmp samesign ult i32 %37, 118
   %.v = select i1 %38, i32 118, i32 246
   %39 = sub nsw i32 %.v, %37
   %40 = zext i32 %39 to i64
@@ -1478,7 +1478,7 @@ Encode.exit:                                      ; preds = %18
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %1, ptr noundef nonnull %53) #6
   %58 = add nuw nsw i64 %52, 127
-  %59 = icmp ult i64 %58, %40
+  %59 = icmp samesign ult i64 %58, %40
   br i1 %59, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -1488,7 +1488,7 @@ Encode.exit:                                      ; preds = %18
   tail call void %60(ptr noundef nonnull %1, ptr noundef nonnull %61) #6
   %62 = add nuw nsw i64 %.033.i, 128
   %63 = add nuw nsw i64 %.033.i, 255
-  %64 = icmp ult i64 %63, %40
+  %64 = icmp samesign ult i64 %63, %40
   br i1 %64, label %.lr.ph.i, label %PHP_HAVALUpdate.exit
 
 65:                                               ; preds = %Encode.exit
@@ -1513,7 +1513,7 @@ PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i, %51, %65
   %77 = zext i1 %75 to i32
   %78 = add i32 %76, %77
   store i32 %78, ptr %44, align 4
-  %.not.i13 = icmp ult i32 %73, 118
+  %.not.i13 = icmp samesign ult i32 %73, 118
   br i1 %.not.i13, label %86, label %79
 
 79:                                               ; preds = %PHP_HAVALUpdate.exit

@@ -136,7 +136,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %80 = mul nuw nsw i32 %79, 101581
   %81 = lshr i32 %80, 16
   %82 = getelementptr inbounds i8, ptr %45, i64 12
-  %83 = icmp ult i32 %75, 2
+  %83 = icmp samesign ult i32 %75, 2
   %spec.select57 = select i1 %83, i32 8, i32 %81
   store i32 %spec.select57, ptr %82, align 4
   %84 = add nsw i32 %.049, %23

@@ -304,10 +304,10 @@ define dso_local noundef zeroext i1 @inet_sk_get_local_port_range(ptr noundef %0
 13:                                               ; preds = %3
   %14 = and i32 %11, 65535
   %15 = lshr i32 %11, 16
-  %16 = icmp ugt i32 %14, %9
+  %16 = icmp samesign ugt i32 %14, %9
   %17 = tail call i32 @llvm.umax.i32(i32 %8, i32 %14)
   %18 = select i1 %16, i32 %8, i32 %17
-  %19 = icmp ugt i32 %18, %15
+  %19 = icmp samesign ugt i32 %18, %15
   %20 = tail call i32 @llvm.umin.i32(i32 %15, i32 %9)
   %21 = select i1 %19, i32 %9, i32 %20
   br label %22
@@ -569,10 +569,10 @@ define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0
 44:                                               ; preds = %35
   %45 = and i32 %42, 65535
   %46 = lshr i32 %42, 16
-  %47 = icmp ugt i32 %45, %41
+  %47 = icmp samesign ugt i32 %45, %41
   %48 = tail call i32 @llvm.umax.i32(i32 %40, i32 %45)
   %49 = select i1 %47, i32 %40, i32 %48
-  %50 = icmp ugt i32 %49, %46
+  %50 = icmp samesign ugt i32 %49, %46
   %51 = tail call i32 @llvm.umin.i32(i32 %46, i32 %41)
   %52 = select i1 %50, i32 %41, i32 %51
   br label %53

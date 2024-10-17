@@ -65,7 +65,7 @@ define void @If_CutSortInputPins(ptr nocapture noundef readonly %0, ptr nocaptur
   %28 = load i64, ptr %6, align 4
   %29 = lshr i64 %28, 24
   %30 = and i64 %29, 255
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %15, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph63, %15, %.lr.ph, %4
@@ -85,7 +85,7 @@ define void @If_CutSortInputPins(ptr nocapture noundef readonly %0, ptr nocaptur
   %37 = phi i32 [ %35, %.lr.ph47.preheader ], [ %65, %62 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next57, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next57, %38
   %40 = trunc nuw nsw i64 %indvars.iv56 to i32
   br i1 %39, label %.lr.ph45, label %._crit_edge
 
@@ -267,7 +267,7 @@ define float @If_CutDelay(ptr nocapture noundef readonly %0, ptr nocapture nound
   %68 = getelementptr inbounds float, ptr @If_CutDelay.pPinDelays, i64 %indvars.iv.i141
   store float %67, ptr %68, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i141, 1
-  %69 = icmp ult i64 %indvars.iv.next.i, %55
+  %69 = icmp samesign ult i64 %indvars.iv.next.i, %55
   br i1 %69, label %56, label %.critedge.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %56, %.lr.ph142, %.lr.ph.i, %46
@@ -284,7 +284,7 @@ define float @If_CutDelay(ptr nocapture noundef readonly %0, ptr nocapture nound
   %75 = phi i32 [ %103, %100 ], [ %73, %.critedge.i ]
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next57.i, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next57.i, %76
   %78 = trunc nuw nsw i64 %indvars.iv56.i to i32
   br i1 %77, label %.lr.ph45.i, label %._crit_edge.i
 
@@ -568,7 +568,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr nocapture readnone %1, 
   %29 = load i64, ptr %6, align 4
   %30 = lshr i64 %29, 24
   %31 = and i64 %30, 255
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %13, label %.critedge, !llvm.loop !14
 
 33:                                               ; preds = %4
@@ -643,7 +643,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr nocapture readnone %1, 
   %70 = getelementptr inbounds float, ptr @If_CutPropagateRequired.pPinDelays, i64 %indvars.iv.i173
   store float %69, ptr %70, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i173, 1
-  %71 = icmp ult i64 %indvars.iv.next.i, %57
+  %71 = icmp samesign ult i64 %indvars.iv.next.i, %57
   br i1 %71, label %58, label %.critedge.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %58, %.lr.ph174, %.lr.ph.i, %48
@@ -663,7 +663,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr nocapture readnone %1, 
   %77 = phi i32 [ %75, %.lr.ph47.preheader.i ], [ %105, %102 ]
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %78 = zext nneg i32 %77 to i64
-  %79 = icmp ult i64 %indvars.iv.next57.i, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next57.i, %78
   %80 = trunc nuw nsw i64 %indvars.iv56.i to i32
   br i1 %79, label %.lr.ph45.i, label %._crit_edge.i
 
@@ -750,7 +750,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %128 = load i64, ptr %6, align 4
   %129 = lshr i64 %128, 24
   %130 = and i64 %129, 255
-  %131 = icmp ult i64 %indvars.iv.next204, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next204, %130
   br i1 %131, label %112, label %.critedge, !llvm.loop !15
 
 132:                                              ; preds = %.lr.ph180, %139
@@ -778,7 +778,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %145 = load i64, ptr %6, align 4
   %146 = lshr i64 %145, 24
   %147 = and i64 %146, 255
-  %148 = icmp ult i64 %indvars.iv.next207, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next207, %147
   br i1 %148, label %132, label %.critedge, !llvm.loop !16
 
 149:                                              ; preds = %33
@@ -835,7 +835,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %176 = load i64, ptr %6, align 4
   %177 = lshr i64 %176, 24
   %178 = and i64 %177, 255
-  %179 = icmp ult i64 %indvars.iv.next210, %178
+  %179 = icmp samesign ult i64 %indvars.iv.next210, %178
   br i1 %179, label %155, label %.critedge, !llvm.loop !17
 
 180:                                              ; preds = %149
@@ -932,7 +932,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %228 = load i64, ptr %6, align 4
   %229 = lshr i64 %228, 24
   %230 = and i64 %229, 255
-  %231 = icmp ult i64 %indvars.iv.next213, %230
+  %231 = icmp samesign ult i64 %indvars.iv.next213, %230
   br i1 %231, label %211, label %.critedge, !llvm.loop !18
 
 232:                                              ; preds = %.lr.ph189, %239
@@ -958,7 +958,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %243 = load i64, ptr %6, align 4
   %244 = lshr i64 %243, 24
   %245 = and i64 %244, 255
-  %246 = icmp ult i64 %indvars.iv.next216, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next216, %245
   br i1 %246, label %232, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %20, %13, %112, %139, %132, %174, %155, %211, %218, %232, %239, %.preheader166, %If_CutSortInputPins.exit, %.preheader163, %.preheader161, %206, %.preheader

@@ -1021,7 +1021,7 @@ while.end.thread:                                 ; preds = %if.then65, %lor.lhs
 
 while.end:                                        ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
-  %cmp.i46 = icmp ult i64 %numlenbytes.0102, 8
+  %cmp.i46 = icmp samesign ult i64 %numlenbytes.0102, 8
   br i1 %cmp.i46, label %lor.lhs.false.i, label %WPACKET_put_bytes__.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %while.end.thread, %while.end

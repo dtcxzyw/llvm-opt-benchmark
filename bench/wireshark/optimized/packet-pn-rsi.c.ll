@@ -480,7 +480,7 @@ dissect_FREQ_RTA_block.exit:                      ; preds = %97, %99, %102, %104
   %134 = lshr i32 %133, 24
   %135 = and i32 %134, 31
   %136 = load ptr, ptr %16, align 8
-  %137 = icmp ult i32 %135, 10
+  %137 = icmp samesign ult i32 %135, 10
   br i1 %137, label %switch.lookup, label %139
 
 switch.lookup:                                    ; preds = %121
@@ -512,7 +512,7 @@ switch.lookup:                                    ; preds = %121
 
 149:                                              ; preds = %148, %146, %144
   %.0.i.i = phi i32 [ %145, %144 ], [ %132, %148 ], [ %132, %146 ]
-  %150 = icmp ugt i32 %142, 8
+  %150 = icmp samesign ugt i32 %142, 8
   br i1 %150, label %151, label %dissect_FRSP_RTA_block.exit
 
 151:                                              ; preds = %149
@@ -713,7 +713,7 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
 
 37:                                               ; preds = %34, %36, %22
   %.0 = phi i32 [ %33, %22 ], [ %1, %36 ], [ %1, %34 ]
-  %38 = icmp ugt i32 %16, 8
+  %38 = icmp samesign ugt i32 %16, 8
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %37
@@ -753,7 +753,7 @@ define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %
 
 24:                                               ; preds = %21, %23, %18
   %.0 = phi i32 [ %20, %18 ], [ %1, %23 ], [ %1, %21 ]
-  %25 = icmp ugt i32 %12, 8
+  %25 = icmp samesign ugt i32 %12, 8
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24

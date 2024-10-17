@@ -455,7 +455,7 @@ Vec_PtrPush.exit.i.i:                             ; preds = %209, %Vec_PtrGrow.e
   %216 = load i32, ptr %.023.i, align 8
   %217 = lshr i32 %216, 28
   %218 = zext nneg i32 %217 to i64
-  %219 = icmp ult i64 %indvars.iv.next.i.i, %218
+  %219 = icmp samesign ult i64 %indvars.iv.next.i.i, %218
   br i1 %219, label %173, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %Vec_PtrPush.exit.i.i, %167
@@ -763,7 +763,7 @@ Abc_Clock.exit103.i.i:                            ; preds = %337, %.critedge2.i.
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %342
   store i32 0, ptr %16, align 4
   %369 = call i32 @Abc_NodeEvaluateDsd_rec(ptr noundef nonnull %calloc.i.i.i.i, ptr noundef nonnull readonly %33, ptr noundef %265, i32 noundef %168, i32 noundef %320, ptr noundef nonnull %16)
-  %370 = icmp ugt i32 %369, 2001
+  %370 = icmp samesign ugt i32 %369, 2001
   br i1 %370, label %371, label %374
 
 371:                                              ; preds = %.critedge.i.i.i
@@ -1984,7 +1984,7 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr nocapture noundef readonly %0, ptr n
   %24 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val18, i64 %12, i32 3
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16383
-  %.not = icmp ugt i32 %23, %26
+  %.not = icmp samesign ugt i32 %23, %26
   br i1 %.not, label %._crit_edge.loopexit.split.loop.exit, label %27
 
 27:                                               ; preds = %14
@@ -2195,7 +2195,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %78
   %93 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val18.i, i64 %82, i32 3
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 16383
-  %.not.i477 = icmp ugt i32 %92, %95
+  %.not.i477 = icmp samesign ugt i32 %92, %95
   br i1 %.not.i477, label %._crit_edge.loopexit.split.loop.exit.i, label %96
 
 96:                                               ; preds = %84
@@ -2488,7 +2488,7 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %235
   %251 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val18.i484, i64 %208, i32 3
   %252 = load i32, ptr %251, align 8
   %253 = and i32 %252, 16383
-  %.not.i485 = icmp ugt i32 %250, %253
+  %.not.i485 = icmp samesign ugt i32 %250, %253
   br i1 %.not.i485, label %._crit_edge.loopexit.split.loop.exit.i486, label %254
 
 254:                                              ; preds = %242
@@ -3189,7 +3189,7 @@ Abc_NodeEdgeDsdPushOrdered.exit519.thread:        ; preds = %627
   %643 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val18.i516, i64 %497, i32 3
   %644 = load i32, ptr %643, align 8
   %645 = and i32 %644, 16383
-  %.not.i517 = icmp ugt i32 %642, %645
+  %.not.i517 = icmp samesign ugt i32 %642, %645
   br i1 %.not.i517, label %._crit_edge.loopexit.split.loop.exit.i518, label %646
 
 646:                                              ; preds = %634
@@ -4201,7 +4201,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %84 = load i32, ptr %2, align 8
   %85 = lshr i32 %84, 28
   %86 = zext nneg i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %33, label %.preheader, !llvm.loop !23
 
 .lr.ph99:                                         ; preds = %.preheader, %.critedge2
@@ -5504,7 +5504,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleNode(ptr nocapture noundef readonl
   %indvars.iv51 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next52, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph45 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %17 = icmp ult i64 %indvars.iv.next52, %15
+  %17 = icmp samesign ult i64 %indvars.iv.next52, %15
   br i1 %17, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16

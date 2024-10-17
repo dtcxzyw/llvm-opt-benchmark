@@ -221,7 +221,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi4ELi4ELi1ELi4ELi4E
   %61 = getelementptr inbounds double, ptr %57, i64 %.011.i.i.i.i.i.i.i
   store <2 x double> <double -1.000000e+17, double -1.000000e+17>, ptr %61, align 16
   %62 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %63 = icmp ult i64 %.011.i.i.i.i.i.i.i, 38
+  %63 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i, 38
   br i1 %63, label %.lr.ph.i.i.i.i.i.i.i, label %66, !llvm.loop !9
 
 64:                                               ; preds = %59
@@ -248,7 +248,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi4ELi4ELi1ELi4ELi4E
   %71 = getelementptr inbounds double, ptr %67, i64 %.011.i.i.i.i.i.i.i53
   store <2 x double> <double 1.000000e+17, double 1.000000e+17>, ptr %71, align 16
   %72 = add nuw nsw i64 %.011.i.i.i.i.i.i.i53, 2
-  %73 = icmp ult i64 %.011.i.i.i.i.i.i.i53, 38
+  %73 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i53, 38
   br i1 %73, label %.lr.ph.i.i.i.i.i.i.i52, label %76, !llvm.loop !9
 
 74:                                               ; preds = %69

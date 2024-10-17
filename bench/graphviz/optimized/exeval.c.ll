@@ -1114,8 +1114,8 @@ common.ret:                                       ; preds = %13, %821, %826, %11
   %497 = getelementptr inbounds i8, ptr %.18571236, i64 40
   %.1857 = load ptr, ptr %497, align 8
   %498 = icmp ne ptr %.1857, null
-  %499 = icmp ult i64 %indvars.iv1403, 63
-  %500 = and i1 %498, %499
+  %499 = icmp samesign ult i64 %indvars.iv1403, 63
+  %500 = select i1 %498, i1 %499, i1 false
   br i1 %500, label %.lr.ph1238, label %._crit_edge1239
 
 ._crit_edge1239:                                  ; preds = %.lr.ph1238
@@ -1163,8 +1163,8 @@ common.ret:                                       ; preds = %13, %821, %826, %11
   %520 = getelementptr inbounds i8, ptr %.28581243, i64 40
   %.2858 = load ptr, ptr %520, align 8
   %521 = icmp ne ptr %.2858, null
-  %522 = icmp ult i64 %indvars.iv1406, 63
-  %523 = and i1 %521, %522
+  %522 = icmp samesign ult i64 %indvars.iv1406, 63
+  %523 = select i1 %521, i1 %522, i1 false
   br i1 %523, label %.lr.ph1245, label %common.ret
 
 .lr.ph1223:                                       ; preds = %.preheader1010, %.lr.ph1223
@@ -1179,7 +1179,7 @@ common.ret:                                       ; preds = %13, %821, %826, %11
   %.2.in = getelementptr inbounds i8, ptr %.21222, i64 40
   %.2 = load ptr, ptr %.2.in, align 8
   %528 = icmp ne ptr %.2, null
-  %529 = icmp ult i64 %indvars.iv1400, 64
+  %529 = icmp samesign ult i64 %indvars.iv1400, 64
   %530 = select i1 %528, i1 %529, i1 false
   br i1 %530, label %.lr.ph1223, label %._crit_edge1224.loopexit
 
@@ -1220,7 +1220,7 @@ common.ret:                                       ; preds = %13, %821, %826, %11
   %.3.in = getelementptr inbounds i8, ptr %.31215, i64 40
   %.3 = load ptr, ptr %.3.in, align 8
   %547 = icmp ne ptr %.3, null
-  %548 = icmp ult i64 %indvars.iv, 64
+  %548 = icmp samesign ult i64 %indvars.iv, 64
   %549 = select i1 %547, i1 %548, i1 false
   br i1 %549, label %.lr.ph1217, label %._crit_edge1218.loopexit
 

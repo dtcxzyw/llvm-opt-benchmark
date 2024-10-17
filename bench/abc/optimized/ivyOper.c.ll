@@ -654,7 +654,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   %129 = zext i1 %106 to i32
   %130 = zext i1 %107 to i32
   %131 = add nuw nsw i32 %130, %129
-  %.not84 = icmp ult i32 %76, %131
+  %.not84 = icmp samesign ult i32 %76, %131
   br i1 %.not84, label %236, label %132
 
 132:                                              ; preds = %128

@@ -1004,7 +1004,7 @@ define dso_local void @ida_free(ptr noundef %0, i32 noundef %1) #0 align 16 {
 
 18:                                               ; preds = %11
   %19 = lshr i64 %15, 1
-  %20 = icmp ugt i32 %9, 62
+  %20 = icmp samesign ugt i32 %9, 62
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18

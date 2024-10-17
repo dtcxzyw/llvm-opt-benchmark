@@ -2005,7 +2005,7 @@ if.end.i684:                                      ; preds = %invoke.cont226
 
 for.body.i686.preheader:                          ; preds = %.noexc689
   %xtraiter = and i64 %call.i.i685, 3
-  %167 = icmp ult i64 %conv.i, 4
+  %167 = icmp samesign ult i64 %conv.i, 4
   br i1 %167, label %invoke.cont229.loopexit.unr-lcssa, label %for.body.i686.preheader.new
 
 for.body.i686.preheader.new:                      ; preds = %for.body.i686.preheader
@@ -4088,7 +4088,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %.noexc
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

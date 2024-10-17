@@ -1015,7 +1015,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %287, %289
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %287 ], [ %291, %289 ]
   %.idx331 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %295 = getelementptr inbounds i8, ptr %294, i64 %.idx331
-  %.not330 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not330 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not330, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm4User8operandsEv.exit

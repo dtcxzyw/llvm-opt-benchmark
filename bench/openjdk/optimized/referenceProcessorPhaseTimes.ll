@@ -522,7 +522,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr nocapture
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %21 = load i32, ptr %12, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i.i.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %22
   br i1 %23, label %.lr.ph.i.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, !llvm.loop !6
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %8
@@ -577,7 +577,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %27
   %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
   %40 = load i32, ptr %31, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next.i.i.i16, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next.i.i.i16, %41
   br i1 %42, label %.lr.ph.i.i.i14, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17.preheader, !llvm.loop !6
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17.preheader: ; preds = %.lr.ph.i.i.i14, %29
@@ -633,7 +633,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr nocapture noun
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %12 = load i32, ptr %8, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next.i.i, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next.i.i, %13
   br i1 %14, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !6
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %4
@@ -688,7 +688,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %32 = load i32, ptr %28, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next.i.i16, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next.i.i16, %33
   br i1 %34, label %.lr.ph.i.i14, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i17, !llvm.loop !6
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i17:       ; preds = %.lr.ph.i.i14, %24
@@ -1199,7 +1199,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %.pre.pre to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %13
@@ -1245,7 +1245,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %34 = load i32, ptr %6, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next57, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next57, %35
   br i1 %36, label %.lr.ph50, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %33
@@ -1342,7 +1342,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i32, ptr %3, align 8
   %8 = zext i32 %7 to i64
-  %9 = icmp ult i64 %indvars.iv.next.i, %8
+  %9 = icmp samesign ult i64 %indvars.iv.next.i, %8
   br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !17
 
 _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1

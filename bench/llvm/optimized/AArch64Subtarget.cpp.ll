@@ -4023,7 +4023,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %18 = and i32 %17, 448
   %cond4244 = icmp eq i32 %18, 0
   %19 = and i32 %17, 63
-  %switch = icmp ult i32 %19, 5
+  %switch = icmp samesign ult i32 %19, 5
   %or.cond4260 = and i1 %cond4244, %switch
   %spec.select4556 = select i1 %or.cond4260, i32 1574, i32 1575
   br label %.critedge14
@@ -4037,7 +4037,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %26 = and i32 %25, 448
   %cond4243 = icmp eq i32 %26, 0
   %27 = and i32 %25, 63
-  %switch4261 = icmp ult i32 %27, 5
+  %switch4261 = icmp samesign ult i32 %27, 5
   %or.cond4262 = and i1 %cond4243, %switch4261
   %spec.select4557 = select i1 %or.cond4262, i32 1576, i32 1577
   br label %.critedge14
@@ -4051,7 +4051,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %34 = and i32 %33, 448
   %cond4242 = icmp eq i32 %34, 0
   %35 = and i32 %33, 63
-  %switch4263 = icmp ult i32 %35, 5
+  %switch4263 = icmp samesign ult i32 %35, 5
   %or.cond4264 = and i1 %cond4242, %switch4263
   %spec.select4558 = select i1 %or.cond4264, i32 1578, i32 1579
   br label %.critedge14
@@ -4065,7 +4065,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %42 = and i32 %41, 448
   %cond4241 = icmp eq i32 %42, 0
   %43 = and i32 %41, 63
-  %switch4265 = icmp ult i32 %43, 5
+  %switch4265 = icmp samesign ult i32 %43, 5
   %or.cond4266 = and i1 %cond4241, %switch4265
   %spec.select4559 = select i1 %or.cond4266, i32 1580, i32 1581
   br label %.critedge14
@@ -4593,7 +4593,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %279 = and i32 %278, 448
   %cond4240 = icmp eq i32 %279, 0
   %280 = and i32 %278, 63
-  %switch4284 = icmp ult i32 %280, 5
+  %switch4284 = icmp samesign ult i32 %280, 5
   %or.cond4285 = and i1 %cond4240, %switch4284
   %spec.select4560 = select i1 %or.cond4285, i32 1645, i32 1646
   br label %.critedge14
@@ -4611,7 +4611,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %289 = and i32 %288, 448
   %cond4239 = icmp eq i32 %289, 0
   %290 = and i32 %288, 63
-  %switch4286 = icmp ult i32 %290, 5
+  %switch4286 = icmp samesign ult i32 %290, 5
   %or.cond4287 = and i1 %cond4239, %switch4286
   %spec.select4561 = select i1 %or.cond4287, i32 1648, i32 1649
   br label %.critedge14
@@ -4645,7 +4645,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %305 = and i32 %304, 448
   %cond4238 = icmp eq i32 %305, 0
   %306 = and i32 %304, 63
-  %switch4288 = icmp ult i32 %306, 5
+  %switch4288 = icmp samesign ult i32 %306, 5
   %or.cond4289 = and i1 %cond4238, %switch4288
   %spec.select4562 = select i1 %or.cond4289, i32 1574, i32 1575
   br label %.critedge14
@@ -4659,7 +4659,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %313 = and i32 %312, 448
   %cond4237 = icmp eq i32 %313, 0
   %314 = and i32 %312, 63
-  %switch4290 = icmp ult i32 %314, 5
+  %switch4290 = icmp samesign ult i32 %314, 5
   %or.cond4291 = and i1 %cond4237, %switch4290
   %spec.select4563 = select i1 %or.cond4291, i32 1652, i32 1653
   br label %.critedge14
@@ -4705,7 +4705,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %335 = and i32 %334, 448
   %cond4236 = icmp eq i32 %335, 0
   %336 = and i32 %334, 63
-  %switch4292 = icmp ult i32 %336, 5
+  %switch4292 = icmp samesign ult i32 %336, 5
   %or.cond4293 = and i1 %cond4236, %switch4292
   %spec.select4564 = select i1 %or.cond4293, i32 1650, i32 1651
   br label %.critedge14
@@ -4719,7 +4719,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %343 = and i32 %342, 448
   %cond4235 = icmp eq i32 %343, 0
   %344 = and i32 %342, 63
-  %switch4294 = icmp ult i32 %344, 5
+  %switch4294 = icmp samesign ult i32 %344, 5
   %or.cond4295 = and i1 %cond4235, %switch4294
   %spec.select4565 = select i1 %or.cond4295, i32 1580, i32 1581
   br label %.critedge14
@@ -7346,7 +7346,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1557 = and i32 %1556, 448
   %cond4234 = icmp eq i32 %1557, 0
   %1558 = and i32 %1556, 63
-  %switch4324 = icmp ult i32 %1558, 5
+  %switch4324 = icmp samesign ult i32 %1558, 5
   %or.cond4325 = and i1 %cond4234, %switch4324
   %spec.select4566 = select i1 %or.cond4325, i32 1645, i32 1646
   br label %.critedge14
@@ -7364,7 +7364,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1567 = and i32 %1566, 448
   %cond4233 = icmp eq i32 %1567, 0
   %1568 = and i32 %1566, 63
-  %switch4326 = icmp ult i32 %1568, 5
+  %switch4326 = icmp samesign ult i32 %1568, 5
   %or.cond4327 = and i1 %cond4233, %switch4326
   %spec.select4567 = select i1 %or.cond4327, i32 1648, i32 1649
   br label %.critedge14
@@ -7478,7 +7478,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1616 = and i32 %1615, 448
   %cond4230 = icmp eq i32 %1616, 0
   %1617 = and i32 %1615, 63
-  %switch4330 = icmp ult i32 %1617, 5
+  %switch4330 = icmp samesign ult i32 %1617, 5
   %or.cond4331 = and i1 %cond4230, %switch4330
   %spec.select4568 = select i1 %or.cond4331, i32 1645, i32 1646
   br label %.critedge14
@@ -7496,7 +7496,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1626 = and i32 %1625, 448
   %cond4229 = icmp eq i32 %1626, 0
   %1627 = and i32 %1625, 63
-  %switch4332 = icmp ult i32 %1627, 5
+  %switch4332 = icmp samesign ult i32 %1627, 5
   %or.cond4333 = and i1 %cond4229, %switch4332
   %spec.select4569 = select i1 %or.cond4333, i32 1648, i32 1649
   br label %.critedge14
@@ -7608,7 +7608,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1675 = and i32 %1674, 448
   %cond4226 = icmp eq i32 %1675, 0
   %1676 = and i32 %1674, 63
-  %switch4336 = icmp ult i32 %1676, 5
+  %switch4336 = icmp samesign ult i32 %1676, 5
   %or.cond4337 = and i1 %cond4226, %switch4336
   %spec.select4570 = select i1 %or.cond4337, i32 1728, i32 1729
   br label %.critedge14
@@ -7626,7 +7626,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1685 = and i32 %1684, 448
   %cond4225 = icmp eq i32 %1685, 0
   %1686 = and i32 %1684, 63
-  %switch4338 = icmp ult i32 %1686, 5
+  %switch4338 = icmp samesign ult i32 %1686, 5
   %or.cond4339 = and i1 %cond4225, %switch4338
   %spec.select4571 = select i1 %or.cond4339, i32 1648, i32 1649
   br label %.critedge14
@@ -7718,7 +7718,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1722 = and i32 %1721, 448
   %cond4224 = icmp eq i32 %1722, 0
   %1723 = and i32 %1721, 63
-  %switch4340 = icmp ult i32 %1723, 5
+  %switch4340 = icmp samesign ult i32 %1723, 5
   %or.cond4341 = and i1 %cond4224, %switch4340
   %spec.select4572 = select i1 %or.cond4341, i32 1728, i32 1729
   br label %.critedge14
@@ -7736,7 +7736,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1732 = and i32 %1731, 448
   %cond4223 = icmp eq i32 %1732, 0
   %1733 = and i32 %1731, 63
-  %switch4342 = icmp ult i32 %1733, 5
+  %switch4342 = icmp samesign ult i32 %1733, 5
   %or.cond4343 = and i1 %cond4223, %switch4342
   %spec.select4573 = select i1 %or.cond4343, i32 1648, i32 1649
   br label %.critedge14
@@ -7828,7 +7828,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1769 = and i32 %1768, 448
   %cond4222 = icmp eq i32 %1769, 0
   %1770 = and i32 %1768, 63
-  %switch4344 = icmp ult i32 %1770, 5
+  %switch4344 = icmp samesign ult i32 %1770, 5
   %or.cond4345 = and i1 %cond4222, %switch4344
   %spec.select4574 = select i1 %or.cond4345, i32 1728, i32 1729
   br label %.critedge14
@@ -7846,7 +7846,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1779 = and i32 %1778, 448
   %cond4221 = icmp eq i32 %1779, 0
   %1780 = and i32 %1778, 63
-  %switch4346 = icmp ult i32 %1780, 5
+  %switch4346 = icmp samesign ult i32 %1780, 5
   %or.cond4347 = and i1 %cond4221, %switch4346
   %spec.select4575 = select i1 %or.cond4347, i32 1648, i32 1649
   br label %.critedge14
@@ -7997,7 +7997,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1843 = and i32 %1842, 448
   %cond4220 = icmp eq i32 %1843, 0
   %1844 = and i32 %1842, 63
-  %switch4348 = icmp ult i32 %1844, 5
+  %switch4348 = icmp samesign ult i32 %1844, 5
   %or.cond4349 = and i1 %cond4220, %switch4348
   %spec.select4576 = select i1 %or.cond4349, i32 1728, i32 1729
   br label %.critedge14
@@ -8015,7 +8015,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1853 = and i32 %1852, 448
   %cond4219 = icmp eq i32 %1853, 0
   %1854 = and i32 %1852, 63
-  %switch4350 = icmp ult i32 %1854, 5
+  %switch4350 = icmp samesign ult i32 %1854, 5
   %or.cond4351 = and i1 %cond4219, %switch4350
   %spec.select4577 = select i1 %or.cond4351, i32 1648, i32 1649
   br label %.critedge14
@@ -8210,7 +8210,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1944 = and i32 %1943, 448
   %cond4218 = icmp eq i32 %1944, 0
   %1945 = and i32 %1943, 63
-  %switch4356 = icmp ult i32 %1945, 5
+  %switch4356 = icmp samesign ult i32 %1945, 5
   %or.cond4357 = and i1 %cond4218, %switch4356
   %spec.select4578 = select i1 %or.cond4357, i32 1645, i32 1646
   br label %.critedge14
@@ -8228,7 +8228,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1954 = and i32 %1953, 448
   %cond4217 = icmp eq i32 %1954, 0
   %1955 = and i32 %1953, 63
-  %switch4358 = icmp ult i32 %1955, 5
+  %switch4358 = icmp samesign ult i32 %1955, 5
   %or.cond4359 = and i1 %cond4217, %switch4358
   %spec.select4579 = select i1 %or.cond4359, i32 1648, i32 1649
   br label %.critedge14
@@ -8262,7 +8262,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1970 = and i32 %1969, 448
   %cond4216 = icmp eq i32 %1970, 0
   %1971 = and i32 %1969, 63
-  %switch4360 = icmp ult i32 %1971, 5
+  %switch4360 = icmp samesign ult i32 %1971, 5
   %or.cond4361 = and i1 %cond4216, %switch4360
   %spec.select4580 = select i1 %or.cond4361, i32 1574, i32 1575
   br label %.critedge14
@@ -8276,7 +8276,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1978 = and i32 %1977, 448
   %cond4215 = icmp eq i32 %1978, 0
   %1979 = and i32 %1977, 63
-  %switch4362 = icmp ult i32 %1979, 5
+  %switch4362 = icmp samesign ult i32 %1979, 5
   %or.cond4363 = and i1 %cond4215, %switch4362
   %spec.select4581 = select i1 %or.cond4363, i32 1652, i32 1653
   br label %.critedge14
@@ -8322,7 +8322,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2000 = and i32 %1999, 448
   %cond4214 = icmp eq i32 %2000, 0
   %2001 = and i32 %1999, 63
-  %switch4364 = icmp ult i32 %2001, 5
+  %switch4364 = icmp samesign ult i32 %2001, 5
   %or.cond4365 = and i1 %cond4214, %switch4364
   %spec.select4582 = select i1 %or.cond4365, i32 1650, i32 1651
   br label %.critedge14
@@ -8336,7 +8336,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2008 = and i32 %2007, 448
   %cond4213 = icmp eq i32 %2008, 0
   %2009 = and i32 %2007, 63
-  %switch4366 = icmp ult i32 %2009, 5
+  %switch4366 = icmp samesign ult i32 %2009, 5
   %or.cond4367 = and i1 %cond4213, %switch4366
   %spec.select4583 = select i1 %or.cond4367, i32 1580, i32 1581
   br label %.critedge14
@@ -8381,7 +8381,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2025 = and i32 %2024, 448
   %cond4212 = icmp eq i32 %2025, 0
   %2026 = and i32 %2024, 63
-  %switch4368 = icmp ult i32 %2026, 5
+  %switch4368 = icmp samesign ult i32 %2026, 5
   %or.cond4369 = and i1 %cond4212, %switch4368
   %spec.select4584 = select i1 %or.cond4369, i32 1645, i32 1646
   br label %.critedge14
@@ -8399,7 +8399,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2035 = and i32 %2034, 448
   %cond4211 = icmp eq i32 %2035, 0
   %2036 = and i32 %2034, 63
-  %switch4370 = icmp ult i32 %2036, 5
+  %switch4370 = icmp samesign ult i32 %2036, 5
   %or.cond4371 = and i1 %cond4211, %switch4370
   %spec.select4585 = select i1 %or.cond4371, i32 1648, i32 1649
   br label %.critedge14
@@ -8455,7 +8455,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2061 = and i32 %2060, 448
   %cond4210 = icmp eq i32 %2061, 0
   %2062 = and i32 %2060, 63
-  %switch4372 = icmp ult i32 %2062, 5
+  %switch4372 = icmp samesign ult i32 %2062, 5
   %or.cond4373 = and i1 %cond4210, %switch4372
   %spec.select4586 = select i1 %or.cond4373, i32 1650, i32 1651
   br label %.critedge14
@@ -8500,7 +8500,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2078 = and i32 %2077, 448
   %cond4209 = icmp eq i32 %2078, 0
   %2079 = and i32 %2077, 63
-  %switch4374 = icmp ult i32 %2079, 5
+  %switch4374 = icmp samesign ult i32 %2079, 5
   %or.cond4375 = and i1 %cond4209, %switch4374
   %spec.select4587 = select i1 %or.cond4375, i32 1645, i32 1646
   br label %.critedge14
@@ -8518,7 +8518,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2088 = and i32 %2087, 448
   %cond4208 = icmp eq i32 %2088, 0
   %2089 = and i32 %2087, 63
-  %switch4376 = icmp ult i32 %2089, 5
+  %switch4376 = icmp samesign ult i32 %2089, 5
   %or.cond4377 = and i1 %cond4208, %switch4376
   %spec.select4588 = select i1 %or.cond4377, i32 1648, i32 1649
   br label %.critedge14
@@ -8574,7 +8574,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2114 = and i32 %2113, 448
   %cond4207 = icmp eq i32 %2114, 0
   %2115 = and i32 %2113, 63
-  %switch4378 = icmp ult i32 %2115, 5
+  %switch4378 = icmp samesign ult i32 %2115, 5
   %or.cond4379 = and i1 %cond4207, %switch4378
   %spec.select4589 = select i1 %or.cond4379, i32 1650, i32 1651
   br label %.critedge14
@@ -9467,7 +9467,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2514 = and i32 %2513, 448
   %cond4206 = icmp eq i32 %2514, 0
   %2515 = and i32 %2513, 63
-  %switch4400 = icmp ult i32 %2515, 5
+  %switch4400 = icmp samesign ult i32 %2515, 5
   %or.cond4401 = and i1 %cond4206, %switch4400
   %spec.select4590 = select i1 %or.cond4401, i32 1645, i32 1646
   br label %.critedge14
@@ -9485,7 +9485,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2524 = and i32 %2523, 448
   %cond4205 = icmp eq i32 %2524, 0
   %2525 = and i32 %2523, 63
-  %switch4402 = icmp ult i32 %2525, 5
+  %switch4402 = icmp samesign ult i32 %2525, 5
   %or.cond4403 = and i1 %cond4205, %switch4402
   %spec.select4591 = select i1 %or.cond4403, i32 1648, i32 1649
   br label %.critedge14
@@ -9610,7 +9610,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2579 = and i32 %2578, 448
   %cond4202 = icmp eq i32 %2579, 0
   %2580 = and i32 %2578, 63
-  %switch4406 = icmp ult i32 %2580, 5
+  %switch4406 = icmp samesign ult i32 %2580, 5
   %or.cond4407 = and i1 %cond4202, %switch4406
   %spec.select4592 = select i1 %or.cond4407, i32 1645, i32 1646
   br label %.critedge14
@@ -9628,7 +9628,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2589 = and i32 %2588, 448
   %cond4201 = icmp eq i32 %2589, 0
   %2590 = and i32 %2588, 63
-  %switch4408 = icmp ult i32 %2590, 5
+  %switch4408 = icmp samesign ult i32 %2590, 5
   %or.cond4409 = and i1 %cond4201, %switch4408
   %spec.select4593 = select i1 %or.cond4409, i32 1648, i32 1649
   br label %.critedge14
@@ -9740,7 +9740,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2638 = and i32 %2637, 448
   %cond4198 = icmp eq i32 %2638, 0
   %2639 = and i32 %2637, 63
-  %switch4412 = icmp ult i32 %2639, 5
+  %switch4412 = icmp samesign ult i32 %2639, 5
   %or.cond4413 = and i1 %cond4198, %switch4412
   %spec.select4594 = select i1 %or.cond4413, i32 1728, i32 1729
   br label %.critedge14
@@ -9758,7 +9758,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2648 = and i32 %2647, 448
   %cond4197 = icmp eq i32 %2648, 0
   %2649 = and i32 %2647, 63
-  %switch4414 = icmp ult i32 %2649, 5
+  %switch4414 = icmp samesign ult i32 %2649, 5
   %or.cond4415 = and i1 %cond4197, %switch4414
   %spec.select4595 = select i1 %or.cond4415, i32 1648, i32 1649
   br label %.critedge14
@@ -9850,7 +9850,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2685 = and i32 %2684, 448
   %cond4196 = icmp eq i32 %2685, 0
   %2686 = and i32 %2684, 63
-  %switch4416 = icmp ult i32 %2686, 5
+  %switch4416 = icmp samesign ult i32 %2686, 5
   %or.cond4417 = and i1 %cond4196, %switch4416
   %spec.select4596 = select i1 %or.cond4417, i32 1728, i32 1729
   br label %.critedge14
@@ -9868,7 +9868,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2695 = and i32 %2694, 448
   %cond4195 = icmp eq i32 %2695, 0
   %2696 = and i32 %2694, 63
-  %switch4418 = icmp ult i32 %2696, 5
+  %switch4418 = icmp samesign ult i32 %2696, 5
   %or.cond4419 = and i1 %cond4195, %switch4418
   %spec.select4597 = select i1 %or.cond4419, i32 1648, i32 1649
   br label %.critedge14
@@ -9960,7 +9960,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2732 = and i32 %2731, 448
   %cond4194 = icmp eq i32 %2732, 0
   %2733 = and i32 %2731, 63
-  %switch4420 = icmp ult i32 %2733, 5
+  %switch4420 = icmp samesign ult i32 %2733, 5
   %or.cond4421 = and i1 %cond4194, %switch4420
   %spec.select4598 = select i1 %or.cond4421, i32 1728, i32 1729
   br label %.critedge14
@@ -9978,7 +9978,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2742 = and i32 %2741, 448
   %cond4193 = icmp eq i32 %2742, 0
   %2743 = and i32 %2741, 63
-  %switch4422 = icmp ult i32 %2743, 5
+  %switch4422 = icmp samesign ult i32 %2743, 5
   %or.cond4423 = and i1 %cond4193, %switch4422
   %spec.select4599 = select i1 %or.cond4423, i32 1648, i32 1649
   br label %.critedge14
@@ -10071,7 +10071,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2779 = and i32 %2778, 448
   %cond4192 = icmp eq i32 %2779, 0
   %2780 = and i32 %2778, 63
-  %switch4424 = icmp ult i32 %2780, 5
+  %switch4424 = icmp samesign ult i32 %2780, 5
   %or.cond4425 = and i1 %cond4192, %switch4424
   %spec.select4600 = select i1 %or.cond4425, i32 1728, i32 1729
   br label %.critedge14
@@ -10089,7 +10089,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2789 = and i32 %2788, 448
   %cond4191 = icmp eq i32 %2789, 0
   %2790 = and i32 %2788, 63
-  %switch4426 = icmp ult i32 %2790, 5
+  %switch4426 = icmp samesign ult i32 %2790, 5
   %or.cond4427 = and i1 %cond4191, %switch4426
   %spec.select4601 = select i1 %or.cond4427, i32 1648, i32 1649
   br label %.critedge14
@@ -10361,7 +10361,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2919 = and i32 %2918, 448
   %cond4190 = icmp eq i32 %2919, 0
   %2920 = and i32 %2918, 63
-  %switch4432 = icmp ult i32 %2920, 5
+  %switch4432 = icmp samesign ult i32 %2920, 5
   %or.cond4433 = and i1 %cond4190, %switch4432
   %spec.select4602 = select i1 %or.cond4433, i32 1728, i32 1729
   br label %.critedge14
@@ -10379,7 +10379,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2929 = and i32 %2928, 448
   %cond4189 = icmp eq i32 %2929, 0
   %2930 = and i32 %2928, 63
-  %switch4434 = icmp ult i32 %2930, 5
+  %switch4434 = icmp samesign ult i32 %2930, 5
   %or.cond4435 = and i1 %cond4189, %switch4434
   %spec.select4603 = select i1 %or.cond4435, i32 1648, i32 1649
   br label %.critedge14
@@ -10413,7 +10413,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2945 = and i32 %2944, 448
   %cond4188 = icmp eq i32 %2945, 0
   %2946 = and i32 %2944, 63
-  %switch4436 = icmp ult i32 %2946, 5
+  %switch4436 = icmp samesign ult i32 %2946, 5
   %or.cond4437 = and i1 %cond4188, %switch4436
   %spec.select4604 = select i1 %or.cond4437, i32 1574, i32 1575
   br label %.critedge14
@@ -10427,7 +10427,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2953 = and i32 %2952, 448
   %cond4187 = icmp eq i32 %2953, 0
   %2954 = and i32 %2952, 63
-  %switch4438 = icmp ult i32 %2954, 5
+  %switch4438 = icmp samesign ult i32 %2954, 5
   %or.cond4439 = and i1 %cond4187, %switch4438
   %spec.select4605 = select i1 %or.cond4439, i32 1576, i32 1577
   br label %.critedge14
@@ -10473,7 +10473,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2975 = and i32 %2974, 448
   %cond4186 = icmp eq i32 %2975, 0
   %2976 = and i32 %2974, 63
-  %switch4440 = icmp ult i32 %2976, 5
+  %switch4440 = icmp samesign ult i32 %2976, 5
   %or.cond4441 = and i1 %cond4186, %switch4440
   %spec.select4606 = select i1 %or.cond4441, i32 1578, i32 1579
   br label %.critedge14
@@ -10487,7 +10487,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2983 = and i32 %2982, 448
   %cond4185 = icmp eq i32 %2983, 0
   %2984 = and i32 %2982, 63
-  %switch4442 = icmp ult i32 %2984, 5
+  %switch4442 = icmp samesign ult i32 %2984, 5
   %or.cond4443 = and i1 %cond4185, %switch4442
   %spec.select4607 = select i1 %or.cond4443, i32 1580, i32 1581
   br label %.critedge14
@@ -10532,7 +10532,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3000 = and i32 %2999, 448
   %cond4184 = icmp eq i32 %3000, 0
   %3001 = and i32 %2999, 63
-  %switch4444 = icmp ult i32 %3001, 5
+  %switch4444 = icmp samesign ult i32 %3001, 5
   %or.cond4445 = and i1 %cond4184, %switch4444
   %spec.select4608 = select i1 %or.cond4445, i32 1728, i32 1729
   br label %.critedge14
@@ -10550,7 +10550,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3010 = and i32 %3009, 448
   %cond4183 = icmp eq i32 %3010, 0
   %3011 = and i32 %3009, 63
-  %switch4446 = icmp ult i32 %3011, 5
+  %switch4446 = icmp samesign ult i32 %3011, 5
   %or.cond4447 = and i1 %cond4183, %switch4446
   %spec.select4609 = select i1 %or.cond4447, i32 1648, i32 1649
   br label %.critedge14
@@ -10642,7 +10642,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3047 = and i32 %3046, 448
   %cond4182 = icmp eq i32 %3047, 0
   %3048 = and i32 %3046, 63
-  %switch4448 = icmp ult i32 %3048, 5
+  %switch4448 = icmp samesign ult i32 %3048, 5
   %or.cond4449 = and i1 %cond4182, %switch4448
   %spec.select4610 = select i1 %or.cond4449, i32 1728, i32 1729
   br label %.critedge14
@@ -10660,7 +10660,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3057 = and i32 %3056, 448
   %cond4181 = icmp eq i32 %3057, 0
   %3058 = and i32 %3056, 63
-  %switch4450 = icmp ult i32 %3058, 5
+  %switch4450 = icmp samesign ult i32 %3058, 5
   %or.cond4451 = and i1 %cond4181, %switch4450
   %spec.select4611 = select i1 %or.cond4451, i32 1648, i32 1649
   br label %.critedge14
@@ -10752,7 +10752,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3094 = and i32 %3093, 448
   %cond4180 = icmp eq i32 %3094, 0
   %3095 = and i32 %3093, 63
-  %switch4452 = icmp ult i32 %3095, 5
+  %switch4452 = icmp samesign ult i32 %3095, 5
   %or.cond4453 = and i1 %cond4180, %switch4452
   %spec.select4612 = select i1 %or.cond4453, i32 1728, i32 1729
   br label %.critedge14
@@ -10770,7 +10770,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3104 = and i32 %3103, 448
   %cond4179 = icmp eq i32 %3104, 0
   %3105 = and i32 %3103, 63
-  %switch4454 = icmp ult i32 %3105, 5
+  %switch4454 = icmp samesign ult i32 %3105, 5
   %or.cond4455 = and i1 %cond4179, %switch4454
   %spec.select4613 = select i1 %or.cond4455, i32 1648, i32 1649
   br label %.critedge14
@@ -10862,7 +10862,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3141 = and i32 %3140, 448
   %cond4178 = icmp eq i32 %3141, 0
   %3142 = and i32 %3140, 63
-  %switch4456 = icmp ult i32 %3142, 5
+  %switch4456 = icmp samesign ult i32 %3142, 5
   %or.cond4457 = and i1 %cond4178, %switch4456
   %spec.select4614 = select i1 %or.cond4457, i32 1728, i32 1729
   br label %.critedge14
@@ -10880,7 +10880,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3151 = and i32 %3150, 448
   %cond4177 = icmp eq i32 %3151, 0
   %3152 = and i32 %3150, 63
-  %switch4458 = icmp ult i32 %3152, 5
+  %switch4458 = icmp samesign ult i32 %3152, 5
   %or.cond4459 = and i1 %cond4177, %switch4458
   %spec.select4615 = select i1 %or.cond4459, i32 1648, i32 1649
   br label %.critedge14
@@ -10977,7 +10977,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3188 = and i32 %3187, 448
   %cond4176 = icmp eq i32 %3188, 0
   %3189 = and i32 %3187, 63
-  %switch4460 = icmp ult i32 %3189, 5
+  %switch4460 = icmp samesign ult i32 %3189, 5
   %or.cond4461 = and i1 %cond4176, %switch4460
   %spec.select4616 = select i1 %or.cond4461, i32 1728, i32 1729
   br label %.critedge14
@@ -10995,7 +10995,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3198 = and i32 %3197, 448
   %cond4175 = icmp eq i32 %3198, 0
   %3199 = and i32 %3197, 63
-  %switch4462 = icmp ult i32 %3199, 5
+  %switch4462 = icmp samesign ult i32 %3199, 5
   %or.cond4463 = and i1 %cond4175, %switch4462
   %spec.select4617 = select i1 %or.cond4463, i32 1648, i32 1649
   br label %.critedge14
@@ -11029,7 +11029,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3214 = and i32 %3213, 448
   %cond4174 = icmp eq i32 %3214, 0
   %3215 = and i32 %3213, 63
-  %switch4464 = icmp ult i32 %3215, 5
+  %switch4464 = icmp samesign ult i32 %3215, 5
   %or.cond4465 = and i1 %cond4174, %switch4464
   %spec.select4618 = select i1 %or.cond4465, i32 1574, i32 1575
   br label %.critedge14
@@ -11043,7 +11043,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3222 = and i32 %3221, 448
   %cond4173 = icmp eq i32 %3222, 0
   %3223 = and i32 %3221, 63
-  %switch4466 = icmp ult i32 %3223, 5
+  %switch4466 = icmp samesign ult i32 %3223, 5
   %or.cond4467 = and i1 %cond4173, %switch4466
   %spec.select4619 = select i1 %or.cond4467, i32 1576, i32 1577
   br label %.critedge14
@@ -11089,7 +11089,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3244 = and i32 %3243, 448
   %cond4172 = icmp eq i32 %3244, 0
   %3245 = and i32 %3243, 63
-  %switch4468 = icmp ult i32 %3245, 5
+  %switch4468 = icmp samesign ult i32 %3245, 5
   %or.cond4469 = and i1 %cond4172, %switch4468
   %spec.select4620 = select i1 %or.cond4469, i32 1578, i32 1579
   br label %.critedge14
@@ -11103,7 +11103,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3252 = and i32 %3251, 448
   %cond4171 = icmp eq i32 %3252, 0
   %3253 = and i32 %3251, 63
-  %switch4470 = icmp ult i32 %3253, 5
+  %switch4470 = icmp samesign ult i32 %3253, 5
   %or.cond4471 = and i1 %cond4171, %switch4470
   %spec.select4621 = select i1 %or.cond4471, i32 1580, i32 1581
   br label %.critedge14
@@ -11572,7 +11572,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3458 = and i32 %3457, 448
   %cond4170 = icmp eq i32 %3458, 0
   %3459 = and i32 %3457, 63
-  %switch4476 = icmp ult i32 %3459, 5
+  %switch4476 = icmp samesign ult i32 %3459, 5
   %or.cond4477 = and i1 %cond4170, %switch4476
   %spec.select4622 = select i1 %or.cond4477, i32 1728, i32 1729
   br label %.critedge14
@@ -11590,7 +11590,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3468 = and i32 %3467, 448
   %cond4169 = icmp eq i32 %3468, 0
   %3469 = and i32 %3467, 63
-  %switch4478 = icmp ult i32 %3469, 5
+  %switch4478 = icmp samesign ult i32 %3469, 5
   %or.cond4479 = and i1 %cond4169, %switch4478
   %spec.select4623 = select i1 %or.cond4479, i32 1648, i32 1649
   br label %.critedge14
@@ -11624,7 +11624,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3484 = and i32 %3483, 448
   %cond4168 = icmp eq i32 %3484, 0
   %3485 = and i32 %3483, 63
-  %switch4480 = icmp ult i32 %3485, 5
+  %switch4480 = icmp samesign ult i32 %3485, 5
   %or.cond4481 = and i1 %cond4168, %switch4480
   %spec.select4624 = select i1 %or.cond4481, i32 1574, i32 1575
   br label %.critedge14
@@ -11638,7 +11638,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3492 = and i32 %3491, 448
   %cond4167 = icmp eq i32 %3492, 0
   %3493 = and i32 %3491, 63
-  %switch4482 = icmp ult i32 %3493, 5
+  %switch4482 = icmp samesign ult i32 %3493, 5
   %or.cond4483 = and i1 %cond4167, %switch4482
   %spec.select4625 = select i1 %or.cond4483, i32 1576, i32 1577
   br label %.critedge14
@@ -11684,7 +11684,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3514 = and i32 %3513, 448
   %cond4166 = icmp eq i32 %3514, 0
   %3515 = and i32 %3513, 63
-  %switch4484 = icmp ult i32 %3515, 5
+  %switch4484 = icmp samesign ult i32 %3515, 5
   %or.cond4485 = and i1 %cond4166, %switch4484
   %spec.select4626 = select i1 %or.cond4485, i32 1578, i32 1579
   br label %.critedge14
@@ -11698,7 +11698,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3522 = and i32 %3521, 448
   %cond4165 = icmp eq i32 %3522, 0
   %3523 = and i32 %3521, 63
-  %switch4486 = icmp ult i32 %3523, 5
+  %switch4486 = icmp samesign ult i32 %3523, 5
   %or.cond4487 = and i1 %cond4165, %switch4486
   %spec.select4627 = select i1 %or.cond4487, i32 1580, i32 1581
   br label %.critedge14
@@ -11748,7 +11748,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3539 = and i32 %3538, 448
   %cond4164 = icmp eq i32 %3539, 0
   %3540 = and i32 %3538, 63
-  %switch4488 = icmp ult i32 %3540, 5
+  %switch4488 = icmp samesign ult i32 %3540, 5
   %or.cond4489 = and i1 %cond4164, %switch4488
   %spec.select4628 = select i1 %or.cond4489, i32 1728, i32 1729
   br label %.critedge14
@@ -11766,7 +11766,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3549 = and i32 %3548, 448
   %cond4163 = icmp eq i32 %3549, 0
   %3550 = and i32 %3548, 63
-  %switch4490 = icmp ult i32 %3550, 5
+  %switch4490 = icmp samesign ult i32 %3550, 5
   %or.cond4491 = and i1 %cond4163, %switch4490
   %spec.select4629 = select i1 %or.cond4491, i32 1648, i32 1649
   br label %.critedge14
@@ -11800,7 +11800,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3565 = and i32 %3564, 448
   %cond4162 = icmp eq i32 %3565, 0
   %3566 = and i32 %3564, 63
-  %switch4492 = icmp ult i32 %3566, 5
+  %switch4492 = icmp samesign ult i32 %3566, 5
   %or.cond4493 = and i1 %cond4162, %switch4492
   %spec.select4630 = select i1 %or.cond4493, i32 1574, i32 1575
   br label %.critedge14
@@ -11814,7 +11814,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3573 = and i32 %3572, 448
   %cond4161 = icmp eq i32 %3573, 0
   %3574 = and i32 %3572, 63
-  %switch4494 = icmp ult i32 %3574, 5
+  %switch4494 = icmp samesign ult i32 %3574, 5
   %or.cond4495 = and i1 %cond4161, %switch4494
   %spec.select4631 = select i1 %or.cond4495, i32 1576, i32 1577
   br label %.critedge14
@@ -11860,7 +11860,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3595 = and i32 %3594, 448
   %cond4160 = icmp eq i32 %3595, 0
   %3596 = and i32 %3594, 63
-  %switch4496 = icmp ult i32 %3596, 5
+  %switch4496 = icmp samesign ult i32 %3596, 5
   %or.cond4497 = and i1 %cond4160, %switch4496
   %spec.select4632 = select i1 %or.cond4497, i32 1578, i32 1579
   br label %.critedge14
@@ -11874,7 +11874,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3603 = and i32 %3602, 448
   %cond4159 = icmp eq i32 %3603, 0
   %3604 = and i32 %3602, 63
-  %switch4498 = icmp ult i32 %3604, 5
+  %switch4498 = icmp samesign ult i32 %3604, 5
   %or.cond4499 = and i1 %cond4159, %switch4498
   %spec.select4633 = select i1 %or.cond4499, i32 1580, i32 1581
   br label %.critedge14
@@ -11924,7 +11924,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3620 = and i32 %3619, 448
   %cond4158 = icmp eq i32 %3620, 0
   %3621 = and i32 %3619, 63
-  %switch4500 = icmp ult i32 %3621, 5
+  %switch4500 = icmp samesign ult i32 %3621, 5
   %or.cond4501 = and i1 %cond4158, %switch4500
   %spec.select4634 = select i1 %or.cond4501, i32 1645, i32 1646
   br label %.critedge14
@@ -11942,7 +11942,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3630 = and i32 %3629, 448
   %cond4157 = icmp eq i32 %3630, 0
   %3631 = and i32 %3629, 63
-  %switch4502 = icmp ult i32 %3631, 5
+  %switch4502 = icmp samesign ult i32 %3631, 5
   %or.cond4503 = and i1 %cond4157, %switch4502
   %spec.select4635 = select i1 %or.cond4503, i32 1648, i32 1649
   br label %.critedge14
@@ -11976,7 +11976,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3646 = and i32 %3645, 448
   %cond4156 = icmp eq i32 %3646, 0
   %3647 = and i32 %3645, 63
-  %switch4504 = icmp ult i32 %3647, 5
+  %switch4504 = icmp samesign ult i32 %3647, 5
   %or.cond4505 = and i1 %cond4156, %switch4504
   %spec.select4636 = select i1 %or.cond4505, i32 1574, i32 1575
   br label %.critedge14
@@ -11990,7 +11990,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3654 = and i32 %3653, 448
   %cond4155 = icmp eq i32 %3654, 0
   %3655 = and i32 %3653, 63
-  %switch4506 = icmp ult i32 %3655, 5
+  %switch4506 = icmp samesign ult i32 %3655, 5
   %or.cond4507 = and i1 %cond4155, %switch4506
   %spec.select4637 = select i1 %or.cond4507, i32 1652, i32 1653
   br label %.critedge14
@@ -12036,7 +12036,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3676 = and i32 %3675, 448
   %cond4154 = icmp eq i32 %3676, 0
   %3677 = and i32 %3675, 63
-  %switch4508 = icmp ult i32 %3677, 5
+  %switch4508 = icmp samesign ult i32 %3677, 5
   %or.cond4509 = and i1 %cond4154, %switch4508
   %spec.select4638 = select i1 %or.cond4509, i32 1650, i32 1651
   br label %.critedge14
@@ -12050,7 +12050,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3684 = and i32 %3683, 448
   %cond4153 = icmp eq i32 %3684, 0
   %3685 = and i32 %3683, 63
-  %switch4510 = icmp ult i32 %3685, 5
+  %switch4510 = icmp samesign ult i32 %3685, 5
   %or.cond4511 = and i1 %cond4153, %switch4510
   %spec.select4639 = select i1 %or.cond4511, i32 1580, i32 1581
   br label %.critedge14
@@ -12100,7 +12100,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3701 = and i32 %3700, 448
   %cond4152 = icmp eq i32 %3701, 0
   %3702 = and i32 %3700, 63
-  %switch4512 = icmp ult i32 %3702, 5
+  %switch4512 = icmp samesign ult i32 %3702, 5
   %or.cond4513 = and i1 %cond4152, %switch4512
   %spec.select4640 = select i1 %or.cond4513, i32 1645, i32 1646
   br label %.critedge14
@@ -12118,7 +12118,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3711 = and i32 %3710, 448
   %cond4151 = icmp eq i32 %3711, 0
   %3712 = and i32 %3710, 63
-  %switch4514 = icmp ult i32 %3712, 5
+  %switch4514 = icmp samesign ult i32 %3712, 5
   %or.cond4515 = and i1 %cond4151, %switch4514
   %spec.select4641 = select i1 %or.cond4515, i32 1648, i32 1649
   br label %.critedge14
@@ -12152,7 +12152,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3727 = and i32 %3726, 448
   %cond4150 = icmp eq i32 %3727, 0
   %3728 = and i32 %3726, 63
-  %switch4516 = icmp ult i32 %3728, 5
+  %switch4516 = icmp samesign ult i32 %3728, 5
   %or.cond4517 = and i1 %cond4150, %switch4516
   %spec.select4642 = select i1 %or.cond4517, i32 1574, i32 1575
   br label %.critedge14
@@ -12166,7 +12166,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3735 = and i32 %3734, 448
   %cond4149 = icmp eq i32 %3735, 0
   %3736 = and i32 %3734, 63
-  %switch4518 = icmp ult i32 %3736, 5
+  %switch4518 = icmp samesign ult i32 %3736, 5
   %or.cond4519 = and i1 %cond4149, %switch4518
   %spec.select4643 = select i1 %or.cond4519, i32 1652, i32 1653
   br label %.critedge14
@@ -12212,7 +12212,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3757 = and i32 %3756, 448
   %cond4148 = icmp eq i32 %3757, 0
   %3758 = and i32 %3756, 63
-  %switch4520 = icmp ult i32 %3758, 5
+  %switch4520 = icmp samesign ult i32 %3758, 5
   %or.cond4521 = and i1 %cond4148, %switch4520
   %spec.select4644 = select i1 %or.cond4521, i32 1650, i32 1651
   br label %.critedge14
@@ -12226,7 +12226,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3765 = and i32 %3764, 448
   %cond4147 = icmp eq i32 %3765, 0
   %3766 = and i32 %3764, 63
-  %switch4522 = icmp ult i32 %3766, 5
+  %switch4522 = icmp samesign ult i32 %3766, 5
   %or.cond4523 = and i1 %cond4147, %switch4522
   %spec.select4645 = select i1 %or.cond4523, i32 1580, i32 1581
   br label %.critedge14
@@ -12271,7 +12271,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3782 = and i32 %3781, 448
   %cond4146 = icmp eq i32 %3782, 0
   %3783 = and i32 %3781, 63
-  %switch4524 = icmp ult i32 %3783, 5
+  %switch4524 = icmp samesign ult i32 %3783, 5
   %or.cond4525 = and i1 %cond4146, %switch4524
   %spec.select4646 = select i1 %or.cond4525, i32 1645, i32 1646
   br label %.critedge14
@@ -12289,7 +12289,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3792 = and i32 %3791, 448
   %cond4145 = icmp eq i32 %3792, 0
   %3793 = and i32 %3791, 63
-  %switch4526 = icmp ult i32 %3793, 5
+  %switch4526 = icmp samesign ult i32 %3793, 5
   %or.cond4527 = and i1 %cond4145, %switch4526
   %spec.select4647 = select i1 %or.cond4527, i32 1648, i32 1649
   br label %.critedge14
@@ -12345,7 +12345,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3818 = and i32 %3817, 448
   %cond4144 = icmp eq i32 %3818, 0
   %3819 = and i32 %3817, 63
-  %switch4528 = icmp ult i32 %3819, 5
+  %switch4528 = icmp samesign ult i32 %3819, 5
   %or.cond4529 = and i1 %cond4144, %switch4528
   %spec.select4648 = select i1 %or.cond4529, i32 1650, i32 1651
   br label %.critedge14
@@ -12390,7 +12390,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3835 = and i32 %3834, 448
   %cond4143 = icmp eq i32 %3835, 0
   %3836 = and i32 %3834, 63
-  %switch4530 = icmp ult i32 %3836, 5
+  %switch4530 = icmp samesign ult i32 %3836, 5
   %or.cond4531 = and i1 %cond4143, %switch4530
   %spec.select4649 = select i1 %or.cond4531, i32 1645, i32 1646
   br label %.critedge14
@@ -12408,7 +12408,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3845 = and i32 %3844, 448
   %cond4142 = icmp eq i32 %3845, 0
   %3846 = and i32 %3844, 63
-  %switch4532 = icmp ult i32 %3846, 5
+  %switch4532 = icmp samesign ult i32 %3846, 5
   %or.cond4533 = and i1 %cond4142, %switch4532
   %spec.select4650 = select i1 %or.cond4533, i32 1648, i32 1649
   br label %.critedge14
@@ -12464,7 +12464,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3871 = and i32 %3870, 448
   %cond4141 = icmp eq i32 %3871, 0
   %3872 = and i32 %3870, 63
-  %switch4534 = icmp ult i32 %3872, 5
+  %switch4534 = icmp samesign ult i32 %3872, 5
   %or.cond4535 = and i1 %cond4141, %switch4534
   %spec.select4651 = select i1 %or.cond4535, i32 1650, i32 1651
   br label %.critedge14
@@ -13366,7 +13366,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4245 = and i32 %4244, 448
   %cond4140 = icmp eq i32 %4245, 0
   %4246 = and i32 %4244, 63
-  %switch4536 = icmp ult i32 %4246, 5
+  %switch4536 = icmp samesign ult i32 %4246, 5
   %or.cond4537 = and i1 %cond4140, %switch4536
   %spec.select4652 = select i1 %or.cond4537, i32 1728, i32 1729
   br label %.critedge14
@@ -13384,7 +13384,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4255 = and i32 %4254, 448
   %cond4139 = icmp eq i32 %4255, 0
   %4256 = and i32 %4254, 63
-  %switch4538 = icmp ult i32 %4256, 5
+  %switch4538 = icmp samesign ult i32 %4256, 5
   %or.cond4539 = and i1 %cond4139, %switch4538
   %spec.select4653 = select i1 %or.cond4539, i32 1648, i32 1649
   br label %.critedge14
@@ -13470,7 +13470,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4290 = and i32 %4289, 448
   %cond4138 = icmp eq i32 %4290, 0
   %4291 = and i32 %4289, 63
-  %switch4540 = icmp ult i32 %4291, 5
+  %switch4540 = icmp samesign ult i32 %4291, 5
   %or.cond4541 = and i1 %cond4138, %switch4540
   %spec.select4654 = select i1 %or.cond4541, i32 1728, i32 1729
   br label %.critedge14
@@ -13488,7 +13488,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4300 = and i32 %4299, 448
   %cond4137 = icmp eq i32 %4300, 0
   %4301 = and i32 %4299, 63
-  %switch4542 = icmp ult i32 %4301, 5
+  %switch4542 = icmp samesign ult i32 %4301, 5
   %or.cond4543 = and i1 %cond4137, %switch4542
   %spec.select4655 = select i1 %or.cond4543, i32 1648, i32 1649
   br label %.critedge14
@@ -13574,7 +13574,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4335 = and i32 %4334, 448
   %cond4136 = icmp eq i32 %4335, 0
   %4336 = and i32 %4334, 63
-  %switch4544 = icmp ult i32 %4336, 5
+  %switch4544 = icmp samesign ult i32 %4336, 5
   %or.cond4545 = and i1 %cond4136, %switch4544
   %spec.select4656 = select i1 %or.cond4545, i32 1728, i32 1729
   br label %.critedge14
@@ -13592,7 +13592,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4345 = and i32 %4344, 448
   %cond4135 = icmp eq i32 %4345, 0
   %4346 = and i32 %4344, 63
-  %switch4546 = icmp ult i32 %4346, 5
+  %switch4546 = icmp samesign ult i32 %4346, 5
   %or.cond4547 = and i1 %cond4135, %switch4546
   %spec.select4657 = select i1 %or.cond4547, i32 1648, i32 1649
   br label %.critedge14
@@ -13678,7 +13678,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4380 = and i32 %4379, 448
   %cond4134 = icmp eq i32 %4380, 0
   %4381 = and i32 %4379, 63
-  %switch4548 = icmp ult i32 %4381, 5
+  %switch4548 = icmp samesign ult i32 %4381, 5
   %or.cond4549 = and i1 %cond4134, %switch4548
   %spec.select4658 = select i1 %or.cond4549, i32 1728, i32 1729
   br label %.critedge14
@@ -13696,7 +13696,7 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
   %4390 = and i32 %4389, 448
   %cond = icmp eq i32 %4390, 0
   %4391 = and i32 %4389, 63
-  %switch4550 = icmp ult i32 %4391, 5
+  %switch4550 = icmp samesign ult i32 %4391, 5
   %or.cond4551 = and i1 %cond, %switch4550
   %spec.select4659 = select i1 %or.cond4551, i32 1648, i32 1649
   br label %.critedge14

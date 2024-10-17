@@ -4634,7 +4634,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   %.0335391.i = phi i32 [ 0, %1113 ], [ %.1336.i, %1116 ]
   %1117 = trunc i32 %.076392.i to i1
   %.not102.i = xor i1 %1112, %1117
-  %1118 = icmp ult i32 %.076392.i, 2
+  %1118 = icmp samesign ult i32 %.076392.i, 2
   %.not103.i = xor i1 %1114, %1118
   %brmerge.i = or i1 %.not102.i, %.not103.i
   %1119 = shl nuw nsw i32 1, %.076392.i
@@ -4698,7 +4698,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   br i1 %brmerge106.i, label %1139, label %1141
 
 1139:                                             ; preds = %1135
-  %1140 = icmp ult i32 %.074396.i, 4
+  %1140 = icmp samesign ult i32 %.074396.i, 4
   %.not108.i = xor i1 %1133, %1140
   %brmerge109367.i = and i1 %.not104.i, %.not105.i
   %or.cond364.i = or i1 %.not108.i, %brmerge109367.i
@@ -60018,7 +60018,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit85:               ; preds = %_ZSt8_DestroyIPN5Yo
 
 121:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit85, %119
   %.037297 = phi i32 [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit85 ], [ %120, %119 ]
-  %.not52 = icmp ugt i32 %.037297, 1
+  %.not52 = icmp samesign ugt i32 %.037297, 1
   %122 = load ptr, ptr %102, align 8
   %123 = load ptr, ptr %103, align 8
   %.not.i.i = icmp eq ptr %122, %123
@@ -60700,7 +60700,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit199:              ; preds = %_ZSt8_DestroyIPN5Yo
 369:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit199, %367
   %370 = phi i32 [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit199 ], [ %475, %367 ]
   %.038299 = phi i32 [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit199 ], [ %368, %367 ]
-  %.not44 = icmp ugt i32 %.038299, 3
+  %.not44 = icmp samesign ugt i32 %.038299, 3
   %371 = load ptr, ptr %346, align 8
   %372 = load ptr, ptr %347, align 8
   %.not.i.i200 = icmp eq ptr %371, %372

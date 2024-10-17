@@ -2041,7 +2041,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit360: ; preds = %
   %64 = trunc i64 %63 to i8
   store i8 %64, ptr %.0345, align 1
   %65 = getelementptr inbounds i8, ptr %.0345, i64 1
-  %66 = icmp ugt i64 %.0344, 16383
+  %66 = icmp samesign ugt i64 %.0344, 16383
   br i1 %66, label %60, label %.loopexit386, !llvm.loop !17
 
 .loopexit386:                                     ; preds = %60, %53, %51
@@ -2270,7 +2270,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit373: ; preds = %
   %162 = trunc i64 %161 to i8
   store i8 %162, ptr %.0323, align 1
   %163 = getelementptr inbounds i8, ptr %.0323, i64 1
-  %164 = icmp ugt i64 %.0321, 16383
+  %164 = icmp samesign ugt i64 %.0321, 16383
   br i1 %164, label %158, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %158, %150, %148
@@ -4948,7 +4948,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit140.thread: ; pr
   %70 = trunc i64 %69 to i8
   store i8 %70, ptr %.021.i, align 1
   %71 = getelementptr inbounds i8, ptr %.021.i, i64 1
-  %72 = icmp ugt i64 %.020.i, 16383
+  %72 = icmp samesign ugt i64 %.020.i, 16383
   br i1 %72, label %.preheader, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exitthread-pre-split, !llvm.loop !17
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exitthread-pre-split: ; preds = %.preheader, %58, %60
@@ -5100,7 +5100,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit159.thread: ; pr
   %129 = trunc i64 %128 to i8
   store i8 %129, ptr %.021.i.i, align 1
   %130 = getelementptr inbounds i8, ptr %.021.i.i, i64 1
-  %131 = icmp ugt i64 %.020.i.i, 16383
+  %131 = icmp samesign ugt i64 %.020.i.i, 16383
   br i1 %131, label %.preheader.i, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, !llvm.loop !17
 
 _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit: ; preds = %.preheader.i, %118, %116, %104
@@ -7211,7 +7211,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   %135 = trunc i32 %134 to i8
   store i8 %135, ptr %.021.i, align 1
   %136 = getelementptr inbounds i8, ptr %.021.i, i64 1
-  %137 = icmp ugt i32 %.020.i, 16383
+  %137 = icmp samesign ugt i32 %.020.i, 16383
   br i1 %137, label %.preheader, label %.noexc36, !llvm.loop !48
 
 .noexc36:                                         ; preds = %.preheader, %125, %123
@@ -7439,7 +7439,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit97: ; pr
   %236 = trunc i32 %235 to i8
   store i8 %236, ptr %.021.i90, align 1
   %237 = getelementptr inbounds i8, ptr %.021.i90, i64 1
-  %238 = icmp ugt i32 %.020.i91, 16383
+  %238 = icmp samesign ugt i32 %.020.i91, 16383
   br i1 %238, label %.preheader118, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit93, !llvm.loop !48
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit93: ; preds = %.preheader118, %224, %226

@@ -432,7 +432,7 @@ if.end37.i:                                       ; preds = %land.lhs.true.i, %i
   %spec.select136.i = select i1 %cmp.i59.i, i8 45, i8 43
   %spec.select137.i = call i32 @llvm.abs.i32(i32 %35, i1 true)
   store i8 %spec.select136.i, ptr %39, align 1
-  %cmp1.i62.i = icmp ugt i32 %spec.select137.i, 99
+  %cmp1.i62.i = icmp samesign ugt i32 %spec.select137.i, 99
   %40 = load ptr, ptr %32, align 8
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %40, i64 1
   store ptr %incdec.ptr.i20.i.i, ptr %32, align 8
@@ -490,7 +490,7 @@ if.end52.i:                                       ; preds = %if.then45.i
 
 lor.lhs.false54.i:                                ; preds = %if.end52.i
   %conv55.i = zext nneg i32 %46 to i64
-  %cmp56.i = icmp ugt i64 %.sroa.speculated.i, %conv55.i
+  %cmp56.i = icmp samesign ugt i64 %.sroa.speculated.i, %conv55.i
   br i1 %cmp56.i, label %if.else68.i, label %if.end80.i
 
 land.lhs.true57.i:                                ; preds = %if.end52.i
@@ -592,7 +592,7 @@ if.then92.i:                                      ; preds = %if.end91.i
   %spec.select = select i1 %cmp.i2, i8 45, i8 43
   %spec.select15 = call i32 @llvm.abs.i32(i32 %54, i1 true)
   store i8 %spec.select, ptr %62, align 1
-  %cmp1.i = icmp ugt i32 %spec.select15, 99
+  %cmp1.i = icmp samesign ugt i32 %spec.select15, 99
   %63 = load ptr, ptr %end.i.i, align 8
   %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %63, i64 1
   store ptr %incdec.ptr.i20.i, ptr %end.i.i, align 8
@@ -772,7 +772,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEE
 if.then.i21.i.i:                                  ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %if.then7.i.i.i.i
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %shl.i.i50.i.i.i.sink24.off0 to i128
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i
-  %cmp.i14.i.i.i = icmp ugt i64 %sub.i.i.i, 31
+  %cmp.i14.i.i.i = icmp samesign ugt i64 %sub.i.i.i, 31
   %sh_prom.i.i.i22.i.i = zext nneg i32 %74 to i128
   %shl.i.i.i23.i.i = shl nuw nsw i128 1, %sh_prom.i.i.i22.i.i
   %coerce1.sroa.0.0.extract.trunc.i10.i.i.i.i = trunc i128 %shl.i.i.i23.i.i to i64
@@ -1389,7 +1389,7 @@ if.end37:                                         ; preds = %land.lhs.true, %if.
   %spec.select158 = select i1 %cmp.i66, i8 45, i8 43
   %spec.select159 = call i32 @llvm.abs.i32(i32 %36, i1 true)
   store i8 %spec.select158, ptr %40, align 1
-  %cmp1.i69 = icmp ugt i32 %spec.select159, 99
+  %cmp1.i69 = icmp samesign ugt i32 %spec.select159, 99
   %41 = load ptr, ptr %end.i.i, align 8
   %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %41, i64 1
   store ptr %incdec.ptr.i20.i, ptr %end.i.i, align 8
@@ -1447,7 +1447,7 @@ if.end52:                                         ; preds = %if.then45
 
 lor.lhs.false54:                                  ; preds = %if.end52
   %conv55 = zext nneg i32 %47 to i64
-  %cmp56 = icmp ugt i64 %.sroa.speculated, %conv55
+  %cmp56 = icmp samesign ugt i64 %.sroa.speculated, %conv55
   br i1 %cmp56, label %if.else68, label %if.end80
 
 land.lhs.true57:                                  ; preds = %if.end52
@@ -1628,7 +1628,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.
   br i1 %cmp8.i.not.i.i, label %cond.false.i.i.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i, %if.then3.i.i.i
-  %cmp.i12.i.i = icmp ugt i64 %sub.i.i, 15
+  %cmp.i12.i.i = icmp samesign ugt i64 %sub.i.i, 15
   %shl.i.i.i103 = shl nuw i64 1, %65
   %cond.i13.i.i = select i1 %cmp.i12.i.i, i64 0, i64 %shl.i.i.i103
   %add.i.i.i104 = add i64 %mantissa.addr.2.i, %cond.i13.i.i

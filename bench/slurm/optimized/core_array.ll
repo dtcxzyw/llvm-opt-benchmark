@@ -584,7 +584,7 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
   %28 = getelementptr inbounds i8, ptr %27, i64 496
   %29 = load i16, ptr %28, align 8
   %30 = zext i16 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %24, %11, %.lr.ph25
@@ -720,7 +720,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %58 = getelementptr inbounds i8, ptr %57, i64 496
   %59 = load i16, ptr %58, align 8
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph45, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %54, %33

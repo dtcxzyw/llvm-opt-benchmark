@@ -224,7 +224,7 @@ define i32 @PMIx_Get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef
   br i1 %exitcond.not.i, label %pmix_keylen.exit.thread, label %.preheader, !llvm.loop !6
 
 pmix_keylen.exit:                                 ; preds = %.preheader
-  %37 = icmp ugt i64 %.0711.i, 511
+  %37 = icmp samesign ugt i64 %.0711.i, 511
   br i1 %37, label %pmix_keylen.exit.thread, label %38
 
 38:                                               ; preds = %pmix_keylen.exit, %31
@@ -4316,7 +4316,7 @@ define i32 @PMIx_Get_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noun
   br i1 %exitcond.not.i, label %pmix_keylen.exit.thread, label %.preheader, !llvm.loop !6
 
 pmix_keylen.exit:                                 ; preds = %.preheader
-  %26 = icmp ugt i64 %.0711.i, 511
+  %26 = icmp samesign ugt i64 %.0711.i, 511
   br i1 %26, label %pmix_keylen.exit.thread, label %27
 
 27:                                               ; preds = %pmix_keylen.exit, %20

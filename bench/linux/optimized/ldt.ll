@@ -740,7 +740,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @__se_sys_modify_ldt(i64 nou
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %15
-  %26 = icmp ugt i64 %16, %20
+  %26 = icmp samesign ugt i64 %16, %20
   br i1 %26, label %27, label %43
 
 27:                                               ; preds = %25

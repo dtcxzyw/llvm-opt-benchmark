@@ -165,7 +165,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %77 = add i64 %.0142175, %0
   %78 = icmp ugt i64 %77, %.0142175
   %79 = add nuw nsw i64 %.1174, 1
-  %80 = icmp ult i64 %.1174, 6
+  %80 = icmp samesign ult i64 %.1174, 6
   %81 = select i1 %78, i1 %80, i1 false
   br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 

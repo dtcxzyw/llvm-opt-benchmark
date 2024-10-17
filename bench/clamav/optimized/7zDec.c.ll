@@ -360,7 +360,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   %193 = load i64, ptr %192, align 8
   %194 = getelementptr inbounds [3 x i32], ptr @__const.SzFolder_Decode2.indices, i64 0, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4
-  %196 = icmp ult i64 %indvars.iv.i, 2
+  %196 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %196, label %197, label %202
 
 197:                                              ; preds = %190
@@ -905,7 +905,7 @@ SzDecodeCopy.exit201.thread.i:                    ; preds = %368, %365, %362
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %387 = load i32, ptr %28, align 8
   %388 = zext i32 %387 to i64
-  %389 = icmp ult i64 %indvars.iv.next.i, %388
+  %389 = icmp samesign ult i64 %indvars.iv.next.i, %388
   br i1 %389, label %182, label %SzFolder_Decode2.exit
 
 SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %206, %.thread307.i, %.thread.i, %GetSum.exit.i, %221, %SzDecodeLzma.exit.i, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i186.preheader.i, %351, %355, %374, %380, %381, %386, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %84, %88, %92, %96, %IS_SUPPORTED_CODER.exit65.i.i, %101, %105, %109, %IS_SUPPORTED_CODER.exit66.i.i, %114, %118, %122, %125, %129, %132, %135, %138, %141, %145, %148, %151, %154, %157, %SzDecodeCopy.exit.thread.i, %SzDecodeLzma.exit.thread.i, %SzDecodeLzma.exit.thread235.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread241.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread247.i, %SzDecodeCopy.exit201.thread.i

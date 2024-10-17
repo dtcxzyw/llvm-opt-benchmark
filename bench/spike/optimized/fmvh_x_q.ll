@@ -372,7 +372,7 @@ define noundef i64 @_Z19fast_rv64e_fmvh_x_qP11processor_t6insn_tm(ptr nocapture 
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
-  %27 = icmp ugt i64 %26, 15
+  %27 = icmp samesign ugt i64 %26, 15
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %20
@@ -524,7 +524,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.sroa.25.0.copyload, ptr %.0.i.i27, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %52 = icmp ugt i64 %27, 15
+  %52 = icmp samesign ugt i64 %27, 15
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

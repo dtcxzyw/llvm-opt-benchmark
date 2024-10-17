@@ -850,7 +850,7 @@ for.inc.i:                                        ; preds = %if.else.i24, %if.th
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %cache_nr.i, align 4
   %35 = zext i32 %34 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %35
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %cmp.i, label %for.body.i, label %wt_status_collect_changes_initial.exit.loopexit, !llvm.loop !7
 
 wt_status_collect_changes_initial.exit.loopexit:  ; preds = %for.inc.i

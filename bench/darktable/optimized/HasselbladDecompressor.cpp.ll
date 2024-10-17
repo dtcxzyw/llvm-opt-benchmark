@@ -288,7 +288,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp uge i32 %16, %11
+  %22 = icmp samesign uge i32 %16, %11
   tail call void @llvm.assume(i1 %22)
   %23 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %23)
@@ -396,7 +396,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   store i32 0, ptr %3, align 4
   %78 = icmp sgt i32 %77, -1
   call void @llvm.assume(i1 %78)
-  %79 = icmp ult i32 %77, 4
+  %79 = icmp samesign ult i32 %77, 4
   br i1 %79, label %104, label %80
 
 80:                                               ; preds = %.loopexit51
@@ -537,7 +537,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   %161 = phi i32 [ %144, %140 ], [ %498, %497 ]
   %162 = icmp ult i32 %160, 65
   call void @llvm.assume(i1 %162)
-  %163 = icmp ult i32 %160, 32
+  %163 = icmp samesign ult i32 %160, 32
   br i1 %163, label %164, label %192
 
 164:                                              ; preds = %155
@@ -595,7 +595,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   %198 = load i32, ptr %197, align 4, !tbaa !14
   %199 = ashr i32 %198, 9
   %200 = and i32 %198, 255
-  %201 = icmp ult i32 %200, 33
+  %201 = icmp samesign ult i32 %200, 33
   call void @llvm.assume(i1 %201)
   %202 = sub nuw nsw i32 %194, %200
   %203 = zext nneg i32 %200 to i64
@@ -753,7 +753,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   %310 = load i32, ptr %309, align 4, !tbaa !14
   %311 = ashr i32 %310, 9
   %312 = and i32 %310, 255
-  %313 = icmp ult i32 %312, 33
+  %313 = icmp samesign ult i32 %312, 33
   call void @llvm.assume(i1 %313)
   %314 = sub nuw nsw i32 %306, %312
   %315 = zext nneg i32 %312 to i64
@@ -946,12 +946,12 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   call void @llvm.assume(i1 %447)
   %448 = icmp ult i32 %388, 33
   call void @llvm.assume(i1 %448)
-  %449 = icmp ult i32 %440, %388
+  %449 = icmp samesign ult i32 %440, %388
   br i1 %449, label %450, label %478
 
 450:                                              ; preds = %445
   %451 = add nuw nsw i32 %439, 4
-  %452 = icmp ugt i32 %451, %77
+  %452 = icmp samesign ugt i32 %451, %77
   br i1 %452, label %456, label %453
 
 453:                                              ; preds = %450
@@ -960,7 +960,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   br label %469
 
 456:                                              ; preds = %450
-  %457 = icmp ugt i32 %439, %86
+  %457 = icmp samesign ugt i32 %439, %86
   br i1 %457, label %458, label %460
 
 458:                                              ; preds = %456, %399, %284
@@ -1028,13 +1028,13 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   %504 = trunc i32 %443 to i16
   store i16 %504, ptr %503, align 2, !tbaa !128
   %505 = or disjoint i64 %156, 1
-  %506 = icmp ult i64 %505, %91
+  %506 = icmp samesign ult i64 %505, %91
   call void @llvm.assume(i1 %506)
   %507 = getelementptr inbounds i16, ptr %151, i64 %505
   %508 = trunc i32 %502 to i16
   store i16 %508, ptr %507, align 2, !tbaa !128
   %509 = add nuw nsw i64 %156, 2
-  %510 = icmp ult i64 %509, %91
+  %510 = icmp samesign ult i64 %509, %91
   br i1 %510, label %155, label %152, !llvm.loop !131
 
 511:                                              ; preds = %253, %172

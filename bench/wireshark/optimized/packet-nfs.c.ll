@@ -12893,7 +12893,7 @@ define internal fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %50, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %.03846.i, 5
+  %31 = icmp samesign ult i32 %.03846.i, 5
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %30
@@ -12939,7 +12939,7 @@ define internal fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %1, ptr
   %.137.i = phi i32 [ 0, %45 ], [ %.03647.i, %28 ]
   %.1.i = phi ptr [ %.2.i, %45 ], [ %.048.i, %28 ]
   %51 = shl nuw nsw i32 %.03846.i, 1
-  %52 = icmp ult i32 %.03846.i, 524289
+  %52 = icmp samesign ult i32 %.03846.i, 524289
   br i1 %52, label %28, label %dissect_nfs4_acemask.exit, !llvm.loop !26
 
 dissect_nfs4_acemask.exit:                        ; preds = %50

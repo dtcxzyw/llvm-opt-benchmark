@@ -1104,7 +1104,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.i:        ; preds = %delete.notnull.i.i,
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %16 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %16
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %cmp.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !94
 
 _ZN3irr5scene13CSceneManager17clearDeletionListEv.exit: ; preds = %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit.i, %entry
@@ -1217,7 +1217,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit96:        ; preds = %delete.notnull.i93,
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %35 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %35
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !96
 
 for.end:                                          ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit96, %if.end22
@@ -1530,7 +1530,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %11 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !94
 
 return:                                           ; preds = %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit, %entry
@@ -4498,7 +4498,7 @@ for.body52:                                       ; preds = %if.end35, %for.body
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %44 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp51 = icmp ult i64 %indvars.iv.next, %44
+  %cmp51 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %cmp51, label %for.body52, label %for.end58, !llvm.loop !205
 
 for.end58:                                        ; preds = %for.body52, %if.end35
@@ -4560,7 +4560,7 @@ for.body79:                                       ; preds = %_ZN3irr4core5arrayI
   %sub.ptr.sub.i.i235 = sub i64 %sub.ptr.lhs.cast.i.i233, %sub.ptr.rhs.cast.i.i234
   %sub.ptr.div.i.i236 = lshr exact i64 %sub.ptr.sub.i.i235, 3
   %59 = and i64 %sub.ptr.div.i.i236, 4294967295
-  %cmp78 = icmp ult i64 %indvars.iv.next389, %59
+  %cmp78 = icmp samesign ult i64 %indvars.iv.next389, %59
   br i1 %cmp78, label %for.body79, label %for.end86, !llvm.loop !206
 
 for.end86:                                        ; preds = %for.body79, %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit
@@ -4653,7 +4653,7 @@ for.body108:                                      ; preds = %_ZN3irr4core5arrayI
   %sub.ptr.sub.i.i255 = sub i64 %sub.ptr.lhs.cast.i.i253, %sub.ptr.rhs.cast.i.i254
   %sub.ptr.div.i.i256 = lshr exact i64 %sub.ptr.sub.i.i255, 4
   %77 = and i64 %sub.ptr.div.i.i256, 4294967295
-  %cmp107 = icmp ult i64 %indvars.iv.next392, %77
+  %cmp107 = icmp samesign ult i64 %indvars.iv.next392, %77
   br i1 %cmp107, label %for.body108, label %for.end115, !llvm.loop !210
 
 for.end115:                                       ; preds = %for.body108, %_ZN3irr4core5arrayINS_5scene13CSceneManager16DefaultNodeEntryEE4sortEv.exit
@@ -4737,7 +4737,7 @@ for.body137:                                      ; preds = %_ZN3irr4core5arrayI
   %sub.ptr.sub.i.i275 = sub i64 %sub.ptr.lhs.cast.i.i273, %sub.ptr.rhs.cast.i.i274
   %sub.ptr.div.i.i276 = lshr exact i64 %sub.ptr.sub.i.i275, 4
   %95 = and i64 %sub.ptr.div.i.i276, 4294967295
-  %cmp136 = icmp ult i64 %indvars.iv.next395, %95
+  %cmp136 = icmp samesign ult i64 %indvars.iv.next395, %95
   br i1 %cmp136, label %for.body137, label %for.end145, !llvm.loop !213
 
 for.end145:                                       ; preds = %for.body137, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit
@@ -4821,7 +4821,7 @@ for.body167:                                      ; preds = %_ZN3irr4core5arrayI
   %sub.ptr.sub.i.i297 = sub i64 %sub.ptr.lhs.cast.i.i295, %sub.ptr.rhs.cast.i.i296
   %sub.ptr.div.i.i298 = lshr exact i64 %sub.ptr.sub.i.i297, 4
   %113 = and i64 %sub.ptr.div.i.i298, 4294967295
-  %cmp166 = icmp ult i64 %indvars.iv.next398, %113
+  %cmp166 = icmp samesign ult i64 %indvars.iv.next398, %113
   br i1 %cmp166, label %for.body167, label %for.end175, !llvm.loop !214
 
 for.end175:                                       ; preds = %for.body167, %_ZN3irr4core5arrayINS_5scene13CSceneManager20TransparentNodeEntryEE4sortEv.exit293
@@ -4874,7 +4874,7 @@ for.body196:                                      ; preds = %for.end175, %for.bo
   %sub.ptr.sub.i.i305 = sub i64 %sub.ptr.lhs.cast.i.i303, %sub.ptr.rhs.cast.i.i304
   %sub.ptr.div.i.i306 = lshr exact i64 %sub.ptr.sub.i.i305, 3
   %128 = and i64 %sub.ptr.div.i.i306, 4294967295
-  %cmp195 = icmp ult i64 %indvars.iv.next401, %128
+  %cmp195 = icmp samesign ult i64 %indvars.iv.next401, %128
   br i1 %cmp195, label %for.body196, label %for.end203, !llvm.loop !215
 
 for.end203:                                       ; preds = %for.body196, %for.end175
@@ -4958,7 +4958,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.i:        ; preds = %delete.notnull.i.i3
   %sub.ptr.sub.i.i.i323 = sub i64 %sub.ptr.lhs.cast.i.i.i321, %sub.ptr.rhs.cast.i.i.i322
   %sub.ptr.div.i.i.i324 = lshr exact i64 %sub.ptr.sub.i.i.i323, 3
   %140 = and i64 %sub.ptr.div.i.i.i324, 4294967295
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %140
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %140
   br i1 %cmp.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !94
 
 _ZN3irr5scene13CSceneManager17clearDeletionListEv.exit: ; preds = %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE5clearEv.exit.i, %_ZN3irr4core5arrayIPNS_5scene10ISceneNodeEE8set_usedEj.exit319

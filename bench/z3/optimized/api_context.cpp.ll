@@ -3977,7 +3977,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %m_num_args.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp22 = icmp ult i64 %indvars.iv.next, %11
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp22, label %invoke.cont26, label %for.end, !llvm.loop !7
 
 lpad41:                                           ; preds = %invoke.cont42, %invoke.cont40

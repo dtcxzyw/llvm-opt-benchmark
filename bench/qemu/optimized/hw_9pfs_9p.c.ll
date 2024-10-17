@@ -6042,7 +6042,7 @@ if.end30:                                         ; preds = %name_is_illegal.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i16, ptr %nwnames, align 2
   %23 = zext i16 %22 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next, %23
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp18, label %for.body, label %if.end33, !llvm.loop !14
 
 if.end33:                                         ; preds = %if.end30, %p9array_new_V9fsPath.exit, %if.end9
@@ -6229,7 +6229,7 @@ for.inc111:                                       ; preds = %lor.lhs.false.tail,
   %err.3 = phi i32 [ %call98, %if.end105 ], [ %err.2182, %lor.lhs.false.tail ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %66 = zext i16 %65 to i64
-  %cmp57 = icmp ult i64 %indvars.iv.next214, %66
+  %cmp57 = icmp samesign ult i64 %indvars.iv.next214, %66
   br i1 %cmp57, label %for.body59, label %do.end.loopexit, !llvm.loop !15
 
 do.end.loopexit:                                  ; preds = %for.inc111, %for.body59, %if.end87

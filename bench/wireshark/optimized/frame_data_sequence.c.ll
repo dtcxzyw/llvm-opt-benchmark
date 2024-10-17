@@ -398,11 +398,11 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
   %.not31 = icmp ne i32 %11, 0
   %12 = zext i1 %.not31 to i32
   %spec.select = add nuw nsw i32 %9, %12
-  %13 = icmp ugt i32 %2, 1
+  %13 = icmp samesign ugt i32 %2, 1
   br i1 %13, label %.preheader, label %.preheader32
 
 .thread:                                          ; preds = %4
-  %14 = icmp ugt i32 %2, 1
+  %14 = icmp samesign ugt i32 %2, 1
   br i1 %14, label %.lr.ph35, label %.lr.ph.preheader
 
 .preheader32:                                     ; preds = %5

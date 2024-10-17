@@ -4893,7 +4893,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   %indvars.iv.next564.i = add nuw nsw i64 %indvars.iv563.i, 1
   %1470 = load i16, ptr %1439, align 8
   %1471 = zext i16 %1470 to i64
-  %1472 = icmp ult i64 %indvars.iv.next564.i, %1471
+  %1472 = icmp samesign ult i64 %indvars.iv.next564.i, %1471
   br i1 %1472, label %1455, label %.loopexit525.i, !llvm.loop !14
 
 .loopexit525.i:                                   ; preds = %1455, %1447, %1445, %1440
@@ -4980,7 +4980,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   %indvars.iv.next570.i = add nuw nsw i64 %indvars.iv569.i, 1
   %1508 = load i16, ptr %1439, align 8
   %1509 = zext i16 %1508 to i64
-  %1510 = icmp ult i64 %indvars.iv.next570.i, %1509
+  %1510 = icmp samesign ult i64 %indvars.iv.next570.i, %1509
   br i1 %1510, label %.lr.ph534.i, label %._crit_edge535.i, !llvm.loop !16
 
 ._crit_edge535.i:                                 ; preds = %.loopexit.i184, %proto_item_set_generated.exit.i
@@ -5070,7 +5070,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %1559 = load i16, ptr %1539, align 8
   %1560 = zext i16 %1559 to i64
-  %1561 = icmp ult i64 %indvars.iv.next.i, %1560
+  %1561 = icmp samesign ult i64 %indvars.iv.next.i, %1560
   br i1 %1561, label %.lr.ph.i181, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 .lr.ph.i181:                                      ; preds = %1552, %1558

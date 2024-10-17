@@ -12220,7 +12220,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h495653956488d0a4E.exit.threa
   br i1 %58, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6124c78b3edfbd56E.exit.i.us.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha0adf1355c4064a0E.llvm.7519451831489459490.exit.i.us.i"
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6124c78b3edfbd56E.exit.i.us.i": ; preds = %54
-  %narrow63.i.i.i.us.i = icmp ult i64 %spec.store.select.i.i.i10.us.i, 9
+  %narrow63.i.i.i.us.i = icmp samesign ult i64 %spec.store.select.i.i.i10.us.i, 9
   %59 = select i1 %narrow63.i.i.i.us.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hef2ef1e861c17ec0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %45, i64 noundef %59)
           to label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6124c78b3edfbd56E.exit.i.us.i._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha0adf1355c4064a0E.llvm.7519451831489459490.exit.i.us.i_crit_edge" unwind label %.split15.us.i, !noalias !3840
@@ -12330,7 +12330,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h495653956488d0a4E.exit.threa
           to label %72 unwind label %83, !noalias !3840
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6124c78b3edfbd56E.exit.i.i": ; preds = %73
-  %narrow63.i.i.i.i = icmp ult i64 %spec.store.select.i.i.i10.i, 9
+  %narrow63.i.i.i.i = icmp samesign ult i64 %spec.store.select.i.i.i10.i, 9
   %82 = select i1 %narrow63.i.i.i.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hef2ef1e861c17ec0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %68, i64 noundef %82)
           to label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6124c78b3edfbd56E.exit.i.i._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha0adf1355c4064a0E.llvm.7519451831489459490.exit.i.i_crit_edge" unwind label %.split15.i, !noalias !3840
@@ -15061,7 +15061,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !25
   %18 = lshr i64 %17, 1
-  %.not4 = icmp ult i64 %15, %18
+  %.not4 = icmp samesign ult i64 %15, %18
   br i1 %.not4, label %19, label %48
 
 19:                                               ; preds = %10
@@ -15206,7 +15206,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !25
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %64
 
 18:                                               ; preds = %9
@@ -15396,7 +15396,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !25
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %50
 
 18:                                               ; preds = %9

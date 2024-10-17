@@ -3019,7 +3019,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %87
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 3
   %109 = udiv i64 %108, 3
-  %110 = icmp ult i64 %102, %109
+  %110 = icmp samesign ult i64 %102, %109
   br i1 %110, label %.preheader, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %101, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit

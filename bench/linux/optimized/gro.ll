@@ -256,7 +256,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef %0, ptr nou
   %79 = load i8, ptr %78, align 2
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %80, %77
-  %82 = icmp ugt i32 %81, 17
+  %82 = icmp samesign ugt i32 %81, 17
   br i1 %82, label %.thread, label %83
 
 83:                                               ; preds = %74
@@ -377,7 +377,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef %0, ptr nou
   %166 = load i8, ptr %165, align 2
   %167 = zext i8 %166 to i32
   %168 = add nuw nsw i32 %164, %167
-  %169 = icmp ugt i32 %168, 17
+  %169 = icmp samesign ugt i32 %168, 17
   br i1 %169, label %.thread, label %170
 
 170:                                              ; preds = %162

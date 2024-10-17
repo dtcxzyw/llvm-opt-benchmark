@@ -428,7 +428,7 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
   %107 = add nuw nsw i64 %22, 1
   %108 = load i32, ptr %8, align 8
   %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %107, %109
+  %110 = icmp samesign ult i64 %107, %109
   br i1 %110, label %.split, label %.thread.loopexit, !llvm.loop !18
 
 .thread.loopexit:                                 ; preds = %34, %40, %44, %106, %.split, %28

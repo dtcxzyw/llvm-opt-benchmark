@@ -255,7 +255,7 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
   %rank = getelementptr inbounds i8, ptr %29, i64 48
   %30 = load i32, ptr %rank, align 8
   %31 = zext i32 %30 to i64
-  %cmp6 = icmp ult i64 %indvars.iv.next, %31
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit, %for.cond.preheader
@@ -1941,7 +1941,7 @@ for.body104:                                      ; preds = %for.cond101.prehead
   %conv110 = zext i8 %95 to i32
   %call111 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %inc94, ptr noundef nonnull %arrayidx93, ptr noundef %94, i32 noundef %conv110, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp102 = icmp ult i64 %indvars.iv, 2
+  %cmp102 = icmp samesign ult i64 %indvars.iv, 2
   %96 = and i1 %cmp102, %call111
   br i1 %96, label %for.body104, label %for.end, !llvm.loop !25
 

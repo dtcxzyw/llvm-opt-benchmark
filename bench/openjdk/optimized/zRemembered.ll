@@ -270,7 +270,7 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered9scan_pageEP5ZPage(ptr nocapt
 .preheader.i.i.i.i.i:                             ; preds = %33, %37
   %.025.i.i.i.i.i.i.i = phi i64 [ %35, %37 ], [ %26, %33 ]
   %35 = add nuw nsw i64 %.025.i.i.i.i.i.i.i, 1
-  %36 = icmp ult i64 %35, %23
+  %36 = icmp samesign ult i64 %35, %23
   br i1 %36, label %37, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit"
 
 37:                                               ; preds = %.preheader.i.i.i.i.i
@@ -1766,7 +1766,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI24ZRemem
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -2137,7 +2137,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20ZRemsetTableIterator4nextEP1
 35:                                               ; preds = %38, %32
   %.025.i.i.i = phi i64 [ %23, %32 ], [ %36, %38 ]
   %36 = add nuw nsw i64 %.025.i.i.i, 1
-  %37 = icmp ult i64 %36, %34
+  %37 = icmp samesign ult i64 %36, %34
   br i1 %37, label %38, label %_ZNK6BitMap18find_first_set_bitEm.exit.thread
 
 38:                                               ; preds = %35

@@ -13466,7 +13466,7 @@ _ZN3vcg3tri2io11ImporterOBJI6CMeshOE12GoodObjIndexERii.exit462: ; preds = %468, 
   %482 = load float, ptr %481, align 4
   %483 = getelementptr inbounds i8, ptr %473, i64 8
   store float %482, ptr %483, align 4
-  %484 = icmp ult i64 %indvars.iv.next, %430
+  %484 = icmp samesign ult i64 %indvars.iv.next, %430
   br i1 %484, label %445, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN3vcg3tri2io11ImporterOBJI6CMeshOE12GoodObjIndexERii.exit462
@@ -49624,7 +49624,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %522
 
 522:                                              ; preds = %517, %.preheader505
-  %523 = icmp ult i64 %indvars.iv661, %482
+  %523 = icmp samesign ult i64 %indvars.iv661, %482
   br i1 %523, label %524, label %529
 
 524:                                              ; preds = %522
@@ -95584,7 +95584,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %22, %_ZN9QtPrivate8
   %148 = add nuw nsw i32 %.095227, 1
   %149 = load i8, ptr %8, align 1
   %150 = zext i8 %149 to i32
-  %.not105.not = icmp ult i32 %.095227, %150
+  %.not105.not = icmp samesign ult i32 %.095227, %150
   br i1 %.not105.not, label %.preheader160, label %.loopexit156, !llvm.loop !693
 
 .preheader155:                                    ; preds = %99, %194
@@ -95660,7 +95660,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %22, %_ZN9QtPrivate8
   %195 = add nuw nsw i32 %.094229, 1
   %196 = load i8, ptr %8, align 1
   %197 = zext i8 %196 to i32
-  %.not104.not = icmp ult i32 %.094229, %197
+  %.not104.not = icmp samesign ult i32 %.094229, %197
   br i1 %.not104.not, label %.preheader155, label %.loopexit156, !llvm.loop !694
 
 .loopexit156:                                     ; preds = %147, %194

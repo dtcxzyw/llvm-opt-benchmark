@@ -766,7 +766,7 @@ define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_u
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = sub nuw nsw i64 64, %11
   %13 = shl nuw nsw i64 1, %12
-  %.inv.i20 = icmp ugt i64 %9, 1
+  %.inv.i20 = icmp samesign ugt i64 %9, 1
   %14 = select i1 %.inv.i20, i64 %13, i64 1
   br label %15
 
@@ -825,7 +825,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
   %11 = sub nuw nsw i64 64, %10
   %12 = shl nuw nsw i64 1, %11
-  %.inv.i7 = icmp ugt i64 %8, 1
+  %.inv.i7 = icmp samesign ugt i64 %8, 1
   %13 = select i1 %.inv.i7, i64 %12, i64 1
   br label %14
 

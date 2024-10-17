@@ -1170,7 +1170,7 @@ _ZN13cmELFInternal15SetErrorMessageEPKc.exit27:   ; preds = %_ZN17cmELFInternalI
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i16, ptr %65, align 8
   %110 = zext i16 %109 to i64
-  %111 = icmp ult i64 %indvars.iv.next, %110
+  %111 = icmp samesign ult i64 %indvars.iv.next, %110
   br i1 %111, label %86, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %108, %_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit27, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit22, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit, %55
@@ -4711,7 +4711,7 @@ _ZNSt6vectorI9Elf64_DynSaIS0_EE6resizeEm.exit:    ; preds = %19, %24
 
 30:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = icmp ult i64 %indvars.iv.next, %29
+  %31 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %31, label %32, label %.loopexit, !llvm.loop !27
 
 32:                                               ; preds = %.lr.ph, %30

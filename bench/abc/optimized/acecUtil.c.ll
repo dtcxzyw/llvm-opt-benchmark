@@ -42,7 +42,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   %21 = lshr i64 %.val21, 32
   %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
-  %.not32 = icmp ult i32 %20, %23
+  %.not32 = icmp samesign ult i32 %20, %23
   br i1 %.not32, label %24, label %Vec_IntPushUnique.exit
 
 24:                                               ; preds = %Gia_ObjIsXor.exit

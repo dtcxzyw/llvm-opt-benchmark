@@ -717,7 +717,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %62, %64
   %114 = add nuw nsw i64 %.047110, 1
   %115 = load i32, ptr %38, align 8
   %116 = zext i32 %115 to i64
-  %.not52.not = icmp ult i64 %.047110, %116
+  %.not52.not = icmp samesign ult i64 %.047110, %116
   br i1 %.not52.not, label %.lr.ph112, label %._crit_edge113, !llvm.loop !10
 
 ._crit_edge113:                                   ; preds = %108
@@ -874,7 +874,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i: ; preds = %.lr.ph.i.i, 
   %173 = add nuw nsw i64 %.046114, 1
   %174 = load i32, ptr %38, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %173, %175
+  %176 = icmp samesign ult i64 %173, %175
   br i1 %176, label %.lr.ph115, label %._crit_edge116, !llvm.loop !13
 
 ._crit_edge116:                                   ; preds = %171, %._crit_edge113.thread, %.preheader

@@ -70,7 +70,7 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
   %21 = sext i32 %20 to i64
   %22 = tail call i32 %18(i64 noundef %21, i64 noundef %21, ptr noundef %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp ult i64 %indvars.iv.next, %17
+  %23 = icmp samesign ult i64 %indvars.iv.next, %17
   %24 = icmp eq i32 %22, 0
   %25 = select i1 %23, i1 %24, i1 false
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !4

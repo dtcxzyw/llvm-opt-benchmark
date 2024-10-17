@@ -279,7 +279,7 @@ if.end61:                                         ; preds = %while.body
   %24 = load i32, ptr %ce_flags62, align 8
   %and63 = lshr i32 %24, 12
   %shr64 = and i32 %and63, 3
-  %cmp65 = icmp ugt i32 %shr64, 1
+  %cmp65 = icmp samesign ugt i32 %shr64, 1
   br i1 %cmp65, label %if.then67, label %if.end84
 
 if.then67:                                        ; preds = %if.end61
@@ -1004,7 +1004,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %7 = load i32, ptr %pending, align 8
   %8 = zext i32 %7 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next29, %8
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next29, %8
   br i1 %cmp15, label %for.body16, label %for.end27, !llvm.loop !9
 
 for.end27:                                        ; preds = %for.body16

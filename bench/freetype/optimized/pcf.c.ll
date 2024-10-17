@@ -725,7 +725,7 @@ define internal range(i32 0, 7) i32 @pcf_get_bdf_property(ptr nocapture noundef 
   %.fr.i = freeze i32 %12
   %.not13.i = icmp ne i32 %.fr.i, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = icmp ult i64 %indvars.iv.next.i, %9
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %9
   %14 = and i1 %13, %.not13.i
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
@@ -783,7 +783,7 @@ define internal fastcc ptr @pcf_find_property(ptr nocapture noundef readonly %0,
   %.fr = freeze i32 %11
   %.not13 = icmp ne i32 %.fr, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = icmp ult i64 %indvars.iv.next, %8
+  %12 = icmp samesign ult i64 %indvars.iv.next, %8
   %13 = and i1 %12, %.not13
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -1123,7 +1123,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
 
 143:                                              ; preds = %141
   %144 = udiv i64 %131, 9
-  %145 = icmp ult i64 %144, %.086.i
+  %145 = icmp samesign ult i64 %144, %.086.i
   br i1 %145, label %.loopexit.sink.split.i193, label %146
 
 146:                                              ; preds = %143
@@ -1443,7 +1443,7 @@ pcf_has_table_type.exit:                          ; preds = %.lr.ph.i206, %.loop
 
 273:                                              ; preds = %271, %269
   %274 = add nuw nsw i64 %.039.i, 1
-  %.inv.i = icmp ult i64 %.039.i, 65535
+  %.inv.i = icmp samesign ult i64 %.039.i, 65535
   %.040.i = select i1 %.inv.i, i64 %274, i64 65535
   %275 = getelementptr inbounds i8, ptr %1, i64 520
   store i64 %.040.i, ptr %275, align 8
@@ -1840,7 +1840,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %440 = load i64, ptr %439, align 8
   %441 = add nsw i64 %440, %438
   %442 = call i64 @llvm.abs.i64(i64 %441, i1 true)
-  %443 = icmp ugt i64 %442, 32767
+  %443 = icmp samesign ugt i64 %442, 32767
   br i1 %443, label %449, label %444
 
 444:                                              ; preds = %436
@@ -1862,7 +1862,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %452 = getelementptr inbounds i8, ptr %450, i64 16
   %453 = load i64, ptr %452, align 8
   %454 = call i64 @llvm.abs.i64(i64 %453, i1 true)
-  %455 = icmp ugt i64 %454, 327665
+  %455 = icmp samesign ugt i64 %454, 327665
   br i1 %455, label %469, label %456
 
 456:                                              ; preds = %451
@@ -1895,7 +1895,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %473 = getelementptr inbounds i8, ptr %471, i64 16
   %474 = load i64, ptr %473, align 8
   %475 = call i64 @llvm.abs.i64(i64 %474, i1 true)
-  %476 = icmp ugt i64 %475, 328898
+  %476 = icmp samesign ugt i64 %475, 328898
   br i1 %476, label %.sink.split, label %477
 
 477:                                              ; preds = %472
@@ -1917,7 +1917,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %483 = getelementptr inbounds i8, ptr %481, i64 16
   %484 = load i64, ptr %483, align 8
   %485 = call i64 @llvm.abs.i64(i64 %484, i1 true)
-  %486 = icmp ugt i64 %485, 32767
+  %486 = icmp samesign ugt i64 %485, 32767
   br i1 %486, label %.sink.split362, label %487
 
 487:                                              ; preds = %482
@@ -1944,7 +1944,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %497 = getelementptr inbounds i8, ptr %495, i64 16
   %498 = load i64, ptr %497, align 8
   %499 = call i64 @llvm.abs.i64(i64 %498, i1 true)
-  %500 = icmp ugt i64 %499, 32767
+  %500 = icmp samesign ugt i64 %499, 32767
   br i1 %500, label %506, label %501
 
 501:                                              ; preds = %496
@@ -1965,7 +1965,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   %509 = getelementptr inbounds i8, ptr %507, i64 16
   %510 = load i64, ptr %509, align 8
   %511 = call i64 @llvm.abs.i64(i64 %510, i1 true)
-  %512 = icmp ugt i64 %511, 32767
+  %512 = icmp samesign ugt i64 %511, 32767
   br i1 %512, label %.thread, label %513
 
 513:                                              ; preds = %508
@@ -2169,7 +2169,7 @@ define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 no
   %37 = getelementptr inbounds i8, ptr %1, i64 384
   %38 = load i64, ptr %37, align 8
   %39 = call i64 @llvm.abs.i64(i64 %38, i1 true)
-  %40 = icmp ugt i64 %39, 32767
+  %40 = icmp samesign ugt i64 %39, 32767
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %36
@@ -2182,7 +2182,7 @@ define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 no
   %45 = getelementptr inbounds i8, ptr %1, i64 392
   %46 = load i64, ptr %45, align 8
   %47 = call i64 @llvm.abs.i64(i64 %46, i1 true)
-  %48 = icmp ugt i64 %47, 32767
+  %48 = icmp samesign ugt i64 %47, 32767
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -2516,7 +2516,7 @@ define internal fastcc i32 @pcf_interpret_style(ptr nocapture noundef %0) unname
   %.fr.i = freeze i32 %16
   %.not13.i = icmp ne i32 %.fr.i, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = icmp ult i64 %indvars.iv.next.i, %13
+  %17 = icmp samesign ult i64 %indvars.iv.next.i, %13
   %18 = and i1 %17, %.not13.i
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
@@ -2565,7 +2565,7 @@ pcf_find_property.exit:                           ; preds = %._crit_edge.i
   %.fr.i106 = freeze i32 %37
   %.not13.i107 = icmp ne i32 %.fr.i106, 0
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i105, 1
-  %38 = icmp ult i64 %indvars.iv.next.i108, %13
+  %38 = icmp samesign ult i64 %indvars.iv.next.i108, %13
   %39 = and i1 %38, %.not13.i107
   br i1 %39, label %.lr.ph.i104, label %._crit_edge.i109, !llvm.loop !10
 
@@ -2606,7 +2606,7 @@ pcf_find_property.exit110:                        ; preds = %._crit_edge.i109
   %.fr.i115 = freeze i32 %52
   %.not13.i116 = icmp ne i32 %.fr.i115, 0
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i114, 1
-  %53 = icmp ult i64 %indvars.iv.next.i117, %13
+  %53 = icmp samesign ult i64 %indvars.iv.next.i117, %13
   %54 = and i1 %53, %.not13.i116
   br i1 %54, label %.lr.ph.i113, label %._crit_edge.i118, !llvm.loop !10
 
@@ -2647,7 +2647,7 @@ pcf_find_property.exit119:                        ; preds = %._crit_edge.i118
   %.fr.i124 = freeze i32 %67
   %.not13.i125 = icmp ne i32 %.fr.i124, 0
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i123, 1
-  %68 = icmp ult i64 %indvars.iv.next.i126, %13
+  %68 = icmp samesign ult i64 %indvars.iv.next.i126, %13
   %69 = and i1 %68, %.not13.i125
   br i1 %69, label %.lr.ph.i122, label %._crit_edge.i127, !llvm.loop !10
 

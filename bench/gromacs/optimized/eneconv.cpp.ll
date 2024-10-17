@@ -2194,7 +2194,7 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
   %18 = trunc nsw i64 %indvars.iv.next to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.81, i32 noundef %18, ptr noundef %17) #24
   %20 = add nuw nsw i32 %.02234, 1
-  %21 = icmp ult i32 %.02234, 3
+  %21 = icmp samesign ult i32 %.02234, 3
   %22 = icmp slt i64 %indvars.iv.next, %12
   %23 = and i1 %21, %22
   br i1 %23, label %14, label %24, !llvm.loop !28

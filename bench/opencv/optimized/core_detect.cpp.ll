@@ -385,7 +385,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %126 = add nuw nsw i64 %.042185, 1
   %127 = load i32, ptr %44, align 4
   %128 = zext i32 %127 to i64
-  %129 = icmp ult i64 %126, %128
+  %129 = icmp samesign ult i64 %126, %128
   br i1 %129, label %94, label %.preheader158, !llvm.loop !12
 
 .preheader156:                                    ; preds = %._crit_edge, %.preheader158
@@ -505,7 +505,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit127: ; preds = %_ZNSt6vector
   %181 = load i32, ptr %42, align 4
   %182 = add i32 %181, 1
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %180, %183
+  %184 = icmp samesign ult i64 %180, %183
   br i1 %184, label %.lr.ph188, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit127
@@ -518,7 +518,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit127: ; preds = %_ZNSt6vector
   %187 = add nuw nsw i64 %.041189, 1
   %188 = add i32 %185, 1
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %187, %189
+  %190 = icmp samesign ult i64 %187, %189
   br i1 %190, label %133, label %.preheader156, !llvm.loop !18
 
 191:                                              ; preds = %.lr.ph194, %238
@@ -789,7 +789,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %304 = add nuw nsw i64 %.0196, 1
   %305 = load i32, ptr %43, align 8
   %306 = zext i32 %305 to i64
-  %307 = icmp ult i64 %304, %306
+  %307 = icmp samesign ult i64 %304, %306
   br i1 %307, label %296, label %._crit_edge199, !llvm.loop !20
 
 .thread:                                          ; preds = %._crit_edge195
@@ -3310,7 +3310,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.preheader, %_ZNSt6
   %192 = add nuw nsw i64 %.0168, 1
   %193 = load i32, ptr %9, align 8
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %192, %194
+  %195 = icmp samesign ult i64 %192, %194
   br i1 %195, label %.preheader, label %._crit_edge170, !llvm.loop !47
 
 196:                                              ; preds = %146, %167, %173

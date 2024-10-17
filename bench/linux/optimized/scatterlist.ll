@@ -767,7 +767,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr nocapture noundef %0,
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = add nuw nsw i64 %62, 4096
-  %64 = icmp ugt i64 %63, %12
+  %64 = icmp samesign ugt i64 %63, %12
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %58

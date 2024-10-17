@@ -91,7 +91,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %22, %24
   %34 = getelementptr inbounds i8, ptr %33, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
@@ -145,7 +145,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101: ; preds = %52, 
   %64 = getelementptr inbounds i8, ptr %63, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next208, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next208, %66
   br i1 %67, label %.lr.ph159, label %.loopexit155, !llvm.loop !8
 
 .loopexit155:                                     ; preds = %.lr.ph159, %._crit_edge, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101
@@ -184,7 +184,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101: ; preds = %52, 
   %92 = getelementptr inbounds i8, ptr %91, i64 64
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next211, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next211, %94
   br i1 %95, label %.lr.ph162, label %._crit_edge163.loopexit, !llvm.loop !9
 
 ._crit_edge163.loopexit:                          ; preds = %.lr.ph162
@@ -678,7 +678,7 @@ _ZNK5Block8get_nodeEj.exit117:                    ; preds = %.lr.ph177, %366
   %371 = getelementptr inbounds i8, ptr %370, i64 24
   %372 = load i32, ptr %371, align 8
   %373 = zext i32 %372 to i64
-  %374 = icmp ult i64 %indvars.iv228, %373
+  %374 = icmp samesign ult i64 %indvars.iv228, %373
   br i1 %374, label %375, label %388
 
 375:                                              ; preds = %_ZNK5Block8get_nodeEj.exit117
@@ -711,7 +711,7 @@ _ZNK5Block8get_nodeEj.exit117:                    ; preds = %.lr.ph177, %366
   %392 = getelementptr inbounds i8, ptr %391, i64 24
   %393 = load i32, ptr %392, align 8
   %394 = zext i32 %393 to i64
-  %395 = icmp ult i64 %indvars.iv.next229, %394
+  %395 = icmp samesign ult i64 %indvars.iv.next229, %394
   br i1 %395, label %.lr.ph181, label %._crit_edge182, !llvm.loop !16
 
 ._crit_edge182:                                   ; preds = %._crit_edge178, %.preheader154
@@ -850,7 +850,7 @@ _ZN9PhaseLive6getsetEP5Block.exit124:             ; preds = %.lr.ph188, %_ZN9Pha
   %477 = getelementptr inbounds i8, ptr %476, i64 24
   %478 = load i32, ptr %477, align 8
   %479 = zext i32 %478 to i64
-  %480 = icmp ult i64 %indvars.iv.next233, %479
+  %480 = icmp samesign ult i64 %indvars.iv.next233, %479
   br i1 %480, label %.lr.ph185, label %._crit_edge186, !llvm.loop !17
 
 ._crit_edge186:                                   ; preds = %.lr.ph185, %_ZN9PhaseLive6getsetEP5Block.exit124
@@ -1024,7 +1024,7 @@ _ZN9PhaseLive7freesetEP5Block.exit127:            ; preds = %._crit_edge186, %_Z
   %566 = phi i32 [ %559, %558 ], [ %.pre.i, %563 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %567 = zext i32 %566 to i64
-  %568 = icmp ult i64 %indvars.iv.next.i, %567
+  %568 = icmp samesign ult i64 %indvars.iv.next.i, %567
   br i1 %568, label %558, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit:                        ; preds = %565, %.lr.ph193
@@ -1065,7 +1065,7 @@ _ZN8IndexSet5clearEv.exit:                        ; preds = %565, %.lr.ph193
   %584 = phi i32 [ %577, %576 ], [ %.pre.i133, %581 ]
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i131, 1
   %585 = zext i32 %584 to i64
-  %586 = icmp ult i64 %indvars.iv.next.i134, %585
+  %586 = icmp samesign ult i64 %indvars.iv.next.i134, %585
   br i1 %586, label %576, label %_ZN8IndexSet5clearEv.exit135, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
@@ -1078,7 +1078,7 @@ _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
   %589 = getelementptr inbounds i8, ptr %588, i64 64
   %590 = load i32, ptr %589, align 8
   %591 = zext i32 %590 to i64
-  %592 = icmp ult i64 %indvars.iv.next241, %591
+  %592 = icmp samesign ult i64 %indvars.iv.next241, %591
   br i1 %592, label %.lr.ph193, label %._crit_edge194, !llvm.loop !21
 
 ._crit_edge194:                                   ; preds = %587, %_ZN10Block_ListC2Ev.exit, %.preheader
@@ -1119,7 +1119,7 @@ _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
   %607 = phi i32 [ %600, %599 ], [ %.pre.i140, %604 ]
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i138, 1
   %608 = zext i32 %607 to i64
-  %609 = icmp ult i64 %indvars.iv.next.i141, %608
+  %609 = icmp samesign ult i64 %indvars.iv.next.i141, %608
   br i1 %609, label %599, label %_ZN8IndexSet5clearEv.exit142, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit142:                     ; preds = %606, %.lr.ph198

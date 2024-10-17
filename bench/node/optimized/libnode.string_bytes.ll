@@ -1085,7 +1085,7 @@ _ZN4node15UncheckedMallocIcEEPT_m.exit:           ; preds = %entry, %if.end.i.i,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN4nodeL11force_asciiEPKcPcm(ptr noundef %src, ptr noundef nonnull %dst, i64 noundef range(i64 0, 4294967297) %len) unnamed_addr #6 {
 entry:
-  %cmp = icmp ult i64 %len, 16
+  %cmp = icmp samesign ult i64 %len, 16
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1149,7 +1149,7 @@ if.end13:                                         ; preds = %for.body.i33
   %add.ptr9 = getelementptr inbounds i8, ptr %dst, i64 %conv7
   %conv10 = and i64 %2, 7
   %sub11 = sub nuw nsw i64 %len, %conv10
-  %cmp1458.not = icmp ult i64 %sub11, 8
+  %cmp1458.not = icmp samesign ult i64 %sub11, 8
   br i1 %cmp1458.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end, %if.end13
@@ -1286,7 +1286,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp6 = icmp ult i64 %length, 1031913
+  %cmp6 = icmp samesign ult i64 %length, 1031913
   br i1 %cmp6, label %if.then7, label %if.end.i.i
 
 if.then7:                                         ; preds = %if.end
@@ -1533,7 +1533,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp6 = icmp ult i64 %length, 1031913
+  %cmp6 = icmp samesign ult i64 %length, 1031913
   br i1 %cmp6, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.end
@@ -1606,7 +1606,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp6 = icmp ult i64 %length, 1031913
+  %cmp6 = icmp samesign ult i64 %length, 1031913
   br i1 %cmp6, label %if.then7, label %if.end.i.i
 
 if.then7:                                         ; preds = %if.end

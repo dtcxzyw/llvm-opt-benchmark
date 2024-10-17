@@ -5445,7 +5445,7 @@ Vec_IntPrint.exit231:                             ; preds = %.lr.ph.i226, %Vec_I
   %spec.select = zext i1 %narrow to i32
   %.1113 = add nuw nsw i32 %.0112, %spec.select
   %229 = icmp sgt i32 %.1117, 3
-  %230 = icmp ugt i32 %.1113, 5
+  %230 = icmp samesign ugt i32 %.1113, 5
   %or.cond11 = select i1 %229, i1 true, i1 %230
   br i1 %or.cond11, label %.loopexit, label %231
 

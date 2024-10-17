@@ -6078,7 +6078,7 @@ if.end:                                           ; preds = %entry
   %conv24 = zext i16 %4 to i32
   %cmp25 = icmp sgt i32 %cond21, %conv24
   %spec.select = select i1 %cmp25, i32 %conv24, i32 %cond23
-  %cmp33 = icmp ult i32 %spec.select, %conv13
+  %cmp33 = icmp samesign ult i32 %spec.select, %conv13
   br i1 %cmp33, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.end

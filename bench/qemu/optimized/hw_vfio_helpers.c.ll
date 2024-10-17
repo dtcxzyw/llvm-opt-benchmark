@@ -885,7 +885,7 @@ if.end:                                           ; preds = %entry, %if.then8
   %3 = load ptr, ptr %info, align 8
   %4 = load i32, ptr %3, align 8
   %conv6 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %argsz.015, %conv6
+  %cmp = icmp samesign ult i64 %argsz.015, %conv6
   br i1 %cmp, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end

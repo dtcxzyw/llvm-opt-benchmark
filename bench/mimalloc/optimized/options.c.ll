@@ -280,7 +280,7 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %arrayidx.i5 = getelementptr inbounds i8, ptr %s.i, i64 %len.0.i
   %25 = load i8, ptr %arrayidx.i5, align 1
   %cmp1.i = icmp ne i8 %25, 0
-  %cmp3.i = icmp ult i64 %len.0.i, 64
+  %cmp3.i = icmp samesign ult i64 %len.0.i, 64
   %26 = and i1 %cmp3.i, %cmp1.i
   %inc.i6 = add nuw nsw i64 %len.0.i, 1
   br i1 %26, label %while.cond.i, label %for.cond.i.preheader, !llvm.loop !8
@@ -821,7 +821,7 @@ while.cond.i:                                     ; preds = %entry, %while.cond.
   %arrayidx.i = getelementptr inbounds i8, ptr %prefix, i64 %len.0.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i = icmp ne i8 %0, 0
-  %cmp3.i = icmp ult i64 %len.0.i, 33
+  %cmp3.i = icmp samesign ult i64 %len.0.i, 33
   %1 = and i1 %cmp3.i, %cmp1.i
   %inc.i = add nuw nsw i64 %len.0.i, 1
   br i1 %1, label %while.cond.i, label %_mi_strnlen.exit, !llvm.loop !8

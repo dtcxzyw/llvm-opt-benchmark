@@ -6774,7 +6774,7 @@ define dso_local void @_ZN4llvm28setProfileInfoAfterUnrollingEPNS_4LoopES1_S1_m(
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i64 @_ZN4llvm25getLoopEstimatedTripCountEPNS_4LoopEPj(ptr noundef %0, ptr noundef nonnull %5)
-  %.not = icmp ult i64 %6, 4294967296
+  %.not = icmp samesign ult i64 %6, 4294967296
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %4

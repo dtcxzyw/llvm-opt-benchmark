@@ -628,7 +628,7 @@ _ZN5ArrayIwE3AddEm.exit.i105:                     ; preds = %244, %234
 
 _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.exit.i105, %222
   %245 = add nuw nsw i64 %spec.select, 1
-  %.not154 = icmp ult i64 %spec.select, %..i.i86
+  %.not154 = icmp samesign ult i64 %spec.select, %..i.i86
   br i1 %.not154, label %253, label %246
 
 246:                                              ; preds = %_ZN5ArrayIwE5AllocEm.exit111

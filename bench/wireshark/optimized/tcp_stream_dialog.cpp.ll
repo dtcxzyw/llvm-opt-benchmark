@@ -10867,7 +10867,7 @@ _ZN5QListIdE6appendEd.exit160:                    ; preds = %652, %658, %_ZN9QtP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %701 = load i8, ptr %300, align 8
   %702 = zext i8 %701 to i64
-  %703 = icmp ult i64 %indvars.iv.next, %702
+  %703 = icmp samesign ult i64 %indvars.iv.next, %702
   br i1 %703, label %304, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZN5QListIdE6appendEd.exit160, %294
@@ -12140,7 +12140,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE7reserveEm.exit171: ; preds = %191, %_ZNSt12_Vec
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %290 = load i8, ptr %279, align 8
   %291 = zext i8 %290 to i64
-  %292 = icmp ult i64 %indvars.iv.next, %291
+  %292 = icmp samesign ult i64 %indvars.iv.next, %291
   br i1 %292, label %283, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %283
@@ -15422,7 +15422,7 @@ _ZN9QtPrivate12QPodArrayOpsIdE10createHoleEN10QArrayData14GrowthPositionExx.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %500 = load i8, ptr %202, align 8
   %501 = zext i8 %500 to i64
-  %502 = icmp ult i64 %indvars.iv.next, %501
+  %502 = icmp samesign ult i64 %indvars.iv.next, %501
   br i1 %502, label %.lr.ph, label %.loopexit890, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %496, %499

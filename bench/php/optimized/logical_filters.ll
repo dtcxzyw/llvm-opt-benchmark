@@ -2016,9 +2016,9 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   %31 = mul nuw nsw i32 %.031.i, 10
   %32 = zext nneg i8 %29 to i32
   %33 = add nuw nsw i32 %31, %32
-  %34 = icmp ugt i32 %33, 255
+  %34 = icmp samesign ugt i32 %33, 255
   %35 = add nuw nsw i32 %.030.i, 1
-  %36 = icmp ugt i32 %.030.i, 2
+  %36 = icmp samesign ugt i32 %.030.i, 2
   %or.cond44.i = select i1 %34, i1 true, i1 %36
   br i1 %or.cond44.i, label %_php_filter_validate_ipv4.exit.thread, label %25
 
@@ -2027,8 +2027,8 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
 
 37:                                               ; preds = %.critedge.i
   %38 = icmp ne i32 %.031.i, 0
-  %39 = icmp ugt i32 %.030.i, 1
-  %or.cond.i = or i1 %38, %39
+  %39 = icmp samesign ugt i32 %.030.i, 1
+  %or.cond.i = select i1 %38, i1 true, i1 %39
   br i1 %or.cond.i, label %_php_filter_validate_ipv4.exit.thread, label %40
 
 40:                                               ; preds = %37, %.critedge.i
@@ -2575,9 +2575,9 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   %57 = mul nuw nsw i32 %.031.i, 10
   %58 = zext nneg i8 %55 to i32
   %59 = add nuw nsw i32 %57, %58
-  %60 = icmp ugt i32 %59, 255
+  %60 = icmp samesign ugt i32 %59, 255
   %61 = add nuw nsw i32 %.030.i, 1
-  %62 = icmp ugt i32 %.030.i, 2
+  %62 = icmp samesign ugt i32 %.030.i, 2
   %or.cond44.i = select i1 %60, i1 true, i1 %62
   br i1 %or.cond44.i, label %_php_filter_validate_ipv4.exit.thread, label %51
 
@@ -2586,8 +2586,8 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
 
 63:                                               ; preds = %.critedge.i
   %64 = icmp ne i32 %.031.i, 0
-  %65 = icmp ugt i32 %.030.i, 1
-  %or.cond.i = or i1 %64, %65
+  %65 = icmp samesign ugt i32 %.030.i, 1
+  %or.cond.i = select i1 %64, i1 true, i1 %65
   br i1 %or.cond.i, label %_php_filter_validate_ipv4.exit.thread, label %66
 
 66:                                               ; preds = %63, %.critedge.i
@@ -3126,16 +3126,16 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   %57 = or disjoint i32 %.071, 1
   %58 = add nsw i32 %.069, -1
   %59 = zext nneg i32 %.071 to i64
-  %60 = zext nneg i32 %58 to i64
-  %61 = zext nneg i32 %57 to i64
+  %60 = zext nneg i32 %57 to i64
+  %61 = zext nneg i32 %58 to i64
   %wide.trip.count = zext nneg i32 %.069 to i64
   %invariant.gep = getelementptr inbounds i8, ptr %6, i64 %59
   br label %62
 
 62:                                               ; preds = %56, %php_filter_parse_hex.exit
   %indvars.iv = phi i64 [ 0, %56 ], [ %indvars.iv.next, %php_filter_parse_hex.exit ]
-  %63 = mul nuw nsw i64 %indvars.iv, %61
-  %64 = icmp ult i64 %indvars.iv, %60
+  %63 = mul nuw nsw i64 %indvars.iv, %60
+  %64 = icmp samesign ult i64 %indvars.iv, %61
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %62

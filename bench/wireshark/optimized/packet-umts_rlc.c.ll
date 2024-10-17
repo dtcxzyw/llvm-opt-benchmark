@@ -2375,7 +2375,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %32 = getelementptr inbounds i8, ptr %22, i64 2
   store i16 %31, ptr %32, align 2
   %33 = zext nneg i8 %24 to i32
-  %34 = icmp ult i32 %17, %33
+  %34 = icmp samesign ult i32 %17, %33
   %35 = load i32, ptr @global_rlc_headers_expected, align 4
   %36 = icmp eq i32 %35, 0
   %or.cond3.not168.us = select i1 %34, i1 %36, i1 false
@@ -2434,7 +2434,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
 
 56:                                               ; preds = %42
   %57 = zext nneg i16 %49 to i32
-  %58 = icmp ult i32 %17, %57
+  %58 = icmp samesign ult i32 %17, %57
   %59 = load i32, ptr @global_rlc_headers_expected, align 4
   %60 = icmp eq i32 %59, 0
   %or.cond.not165 = select i1 %58, i1 %60, i1 false
@@ -3277,7 +3277,7 @@ get_frags.exit:                                   ; preds = %142, %rlc_channel_c
   %180 = zext nneg i16 %179 to i32
   %181 = sub nsw i32 1, %117
   %182 = and i16 %178, %174
-  %.not.i266289 = icmp ugt i16 %182, %179
+  %.not.i266289 = icmp samesign ugt i16 %182, %179
   %183 = select i1 %.not.i266289, i32 %117, i32 0
   %184 = zext nneg i16 %182 to i32
   %185 = add nuw nsw i32 %183, %180
@@ -3301,7 +3301,7 @@ get_frags.exit:                                   ; preds = %142, %rlc_channel_c
   %196 = srem i32 %195, %117
   %197 = trunc nsw i32 %196 to i16
   %198 = and i16 %178, %197
-  %.not.i266 = icmp ugt i16 %198, %179
+  %.not.i266 = icmp samesign ugt i16 %198, %179
   %199 = select i1 %.not.i266, i32 %117, i32 0
   %200 = zext nneg i16 %198 to i32
   %201 = add nuw nsw i32 %199, %180
@@ -3553,7 +3553,7 @@ thread-pre-split:                                 ; preds = %285, %286
   %336 = zext nneg i16 %335 to i32
   %337 = sub nsw i32 1, %117
   %338 = and i16 %334, %299
-  %.not.i268294 = icmp ugt i16 %338, %335
+  %.not.i268294 = icmp samesign ugt i16 %338, %335
   %339 = select i1 %.not.i268294, i32 %117, i32 0
   %340 = zext nneg i16 %338 to i32
   %341 = add nuw nsw i32 %339, %336
@@ -3595,7 +3595,7 @@ thread-pre-split:                                 ; preds = %285, %286
   %363 = srem i32 %362, %117
   %364 = trunc nsw i32 %363 to i16
   %365 = and i16 %334, %364
-  %.not.i268 = icmp ugt i16 %365, %335
+  %.not.i268 = icmp samesign ugt i16 %365, %335
   %366 = select i1 %.not.i268, i32 %117, i32 0
   %367 = zext nneg i16 %365 to i32
   %368 = add nuw nsw i32 %366, %336
@@ -3959,7 +3959,7 @@ define internal fastcc void @reassemble_sequence(ptr nocapture noundef %0, ptr n
   %13 = zext nneg i16 %12 to i32
   %14 = sub nsw i32 1, %10
   %15 = and i16 %3, %11
-  %.not.i47 = icmp ugt i16 %15, %12
+  %.not.i47 = icmp samesign ugt i16 %15, %12
   %16 = select i1 %.not.i47, i32 %10, i32 0
   %17 = zext nneg i16 %15 to i32
   %18 = add nuw nsw i32 %16, %13
@@ -4026,7 +4026,7 @@ define internal fastcc void @reassemble_sequence(ptr nocapture noundef %0, ptr n
   %52 = getelementptr inbounds i8, ptr %33, i64 28
   %53 = load i16, ptr %52, align 4
   %54 = zext i16 %53 to i32
-  %55 = icmp ult i32 %51, %54
+  %55 = icmp samesign ult i32 %51, %54
   br i1 %55, label %.preheader.i, label %76
 
 .preheader.i:                                     ; preds = %47, %58
@@ -4040,7 +4040,7 @@ define internal fastcc void @reassemble_sequence(ptr nocapture noundef %0, ptr n
   %59 = getelementptr inbounds i8, ptr %.0.i35, i64 28
   %60 = load i16, ptr %59, align 4
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %51, %61
+  %62 = icmp samesign ult i32 %51, %61
   br i1 %62, label %.preheader.i, label %.critedge.i, !llvm.loop !16
 
 63:                                               ; preds = %.preheader.i
@@ -4126,7 +4126,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %91
   store ptr %31, ptr %28, align 8
   %98 = add nsw i16 %.051, 1
   %99 = and i16 %98, %11
-  %.not.i = icmp ugt i16 %99, %12
+  %.not.i = icmp samesign ugt i16 %99, %12
   %100 = select i1 %.not.i, i32 %10, i32 0
   %101 = zext nneg i16 %99 to i32
   %102 = add nuw nsw i32 %100, %13
@@ -4206,7 +4206,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %91
   %143 = add nuw nsw i32 %139, %142
   %144 = load i16, ptr %135, align 8
   %145 = zext i16 %144 to i32
-  %.not33.i = icmp ugt i32 %143, %145
+  %.not33.i = icmp samesign ugt i32 %143, %145
   br i1 %.not33.i, label %reassemble_data.exit, label %146
 
 146:                                              ; preds = %.lr.ph.i

@@ -969,7 +969,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 %195, ptr %196, align 4
   %indvars.iv.next784 = add nsw i64 %indvars.iv783, 1
   %197 = icmp slt i64 %indvars.iv.next784, %183
-  %198 = icmp ult i64 %indvars.iv.i, 31
+  %198 = icmp samesign ult i64 %indvars.iv.i, 31
   %199 = select i1 %197, i1 %198, i1 false
   br i1 %199, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
@@ -1218,7 +1218,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 307:                                              ; preds = %313, %.lr.ph.i579
   %indvars.iv.i580 = phi i64 [ 0, %.lr.ph.i579 ], [ %indvars.iv.next.i581, %313 ]
   %308 = add nuw nsw i64 %indvars.iv.i580, %305
-  %309 = icmp ult i64 %308, %306
+  %309 = icmp samesign ult i64 %308, %306
   br i1 %309, label %310, label %313
 
 310:                                              ; preds = %307
@@ -1443,7 +1443,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   store i32 %416, ptr %417, align 4
   %indvars.iv.next781 = add nsw i64 %indvars.iv780, 1
   %418 = icmp slt i64 %indvars.iv.next781, %404
-  %419 = icmp ult i64 %indvars.iv.i590, 31
+  %419 = icmp samesign ult i64 %indvars.iv.i590, 31
   %420 = select i1 %418, i1 %419, i1 false
   br i1 %420, label %.lr.ph.i589, label %._crit_edge.i594, !llvm.loop !6
 
@@ -2380,8 +2380,8 @@ proto_item_set_generated.exit:                    ; preds = %778, %781, %784
   %900 = getelementptr i8, ptr %882, i64 %indvars.iv.next788
   %901 = load i8, ptr %900, align 1
   %902 = icmp ne i8 %901, 0
-  %903 = icmp ult i64 %indvars.iv789, 195
-  %904 = and i1 %902, %903
+  %903 = icmp samesign ult i64 %indvars.iv789, 195
+  %904 = select i1 %902, i1 %903, i1 false
   br i1 %904, label %.lr.ph744, label %._crit_edge745, !llvm.loop !17
 
 ._crit_edge745:                                   ; preds = %.lr.ph744, %.critedge
@@ -3380,7 +3380,7 @@ define internal fastcc i32 @parse_outhdr_string(ptr nocapture noundef readonly %
   store i32 %17, ptr %18, align 4
   %19 = add nsw i32 %.129, 1
   %20 = icmp slt i32 %19, %1
-  %21 = icmp ult i64 %indvars.iv, 31
+  %21 = icmp samesign ult i64 %indvars.iv, 31
   %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 

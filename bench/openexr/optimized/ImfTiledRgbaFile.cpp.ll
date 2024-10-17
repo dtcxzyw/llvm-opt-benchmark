@@ -164,7 +164,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %9 = load i32, ptr %_tileXSize, align 4
   %conv13 = zext i32 %9 to i64
   %mul.i = mul nuw nsw i64 %conv13, %conv
-  %10 = icmp ugt i64 %mul.i, 2305843009213693951
+  %10 = icmp samesign ugt i64 %mul.i, 2305843009213693951
   %11 = shl nuw i64 %mul.i, 3
   %12 = select i1 %10, i64 -1, i64 %11
   %call.i3 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #15
@@ -1909,7 +1909,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %7 = load i32, ptr %_tileXSize, align 8
   %conv13 = zext i32 %7 to i64
   %mul.i = mul nuw nsw i64 %conv13, %conv
-  %8 = icmp ugt i64 %mul.i, 2305843009213693951
+  %8 = icmp samesign ugt i64 %mul.i, 2305843009213693951
   %9 = shl nuw i64 %mul.i, 3
   %10 = select i1 %8, i64 -1, i64 %9
   %call.i3 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #15
@@ -2363,7 +2363,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc4
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i7, 16
+  %tobool.not = icmp samesign ult i32 %call3.i7, 16
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
@@ -2481,7 +2481,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc4
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i7, 16
+  %tobool.not = icmp samesign ult i32 %call3.i7, 16
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
@@ -2568,7 +2568,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i5, 16
+  %tobool.not = icmp samesign ult i32 %call3.i5, 16
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
@@ -2757,7 +2757,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i5, 16
+  %tobool.not = icmp samesign ult i32 %call3.i5, 16
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
@@ -3076,7 +3076,7 @@ delete.end:                                       ; preds = %_ZN7Imf_3_218TiledR
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214TiledInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %call2.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
   %call3.i = call fastcc noundef range(i32 0, 32) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
-  %tobool.not = icmp ult i32 %call3.i, 16
+  %tobool.not = icmp samesign ult i32 %call3.i, 16
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %delete.end

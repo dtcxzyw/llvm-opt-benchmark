@@ -545,7 +545,7 @@ _ZN4llvmneENS_9StringRefES0_.exit154.thread389:   ; preds = %_ZN4llvmneENS_9Stri
   %.0442 = phi i1 [ false, %.lr.ph443 ], [ %.2, %696 ]
   %226 = load i32, ptr %165, align 8
   %227 = zext i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv, %227
+  %228 = icmp samesign ult i64 %indvars.iv, %227
   br i1 %228, label %229, label %237
 
 229:                                              ; preds = %225
@@ -900,7 +900,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %394
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %398 = load i32, ptr %165, align 8
   %399 = zext i32 %398 to i64
-  %400 = icmp ult i64 %indvars.iv, %399
+  %400 = icmp samesign ult i64 %indvars.iv, %399
   %spec.select = select i1 %400, i1 true, i1 %.0442
   store i8 1, ptr %132, align 2
   br label %696
@@ -3424,7 +3424,7 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %472, %470, %_Z
   br i1 %546, label %.thread269.i.i, label %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i
 
 _ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i:          ; preds = %545
-  %547 = icmp ult i64 %.sroa.4204.0.extract.shift.i.i, %.sroa.4.0.extract.shift.i.i
+  %547 = icmp samesign ult i64 %.sroa.4204.0.extract.shift.i.i, %.sroa.4.0.extract.shift.i.i
   %cond.fr240.i.i = freeze i1 %547
   br i1 %cond.fr240.i.i, label %.thread282.i.i, label %.thread269.i.i
 

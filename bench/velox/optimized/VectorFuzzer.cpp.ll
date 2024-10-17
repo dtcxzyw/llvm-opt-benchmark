@@ -5965,7 +5965,7 @@ call76.i.noexc.i.i:                               ; preds = %_ZNSt23mersenne_twi
   %213 = lshr i64 %xor7.i1167.i.i, 19
   %214 = lshr i64 %xor7.i1167.i.i, 1
   %div78.i1222.i.i = xor i64 %213, %214
-  %cmp79.not.i.i.i = icmp ugt i64 %div78.i1222.i.i, 2147483647
+  %cmp79.not.i.i.i = icmp samesign ugt i64 %div78.i1222.i.i, 2147483647
   br i1 %cmp79.not.i.i.i, label %for.cond73.i.i.i, label %if.end45.i.i.i.i, !llvm.loop !18
 
 if.end45.i.i.i.i:                                 ; preds = %call76.i.noexc.i.i
@@ -9997,7 +9997,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %28 = lshr i64 %xor7.i.i, 19
   %29 = lshr i64 %xor7.i.i, 1
   %div78.i4.i = xor i64 %28, %29
-  %cmp79.not.i.i = icmp ugt i64 %div78.i4.i, 2147483647
+  %cmp79.not.i.i = icmp samesign ugt i64 %div78.i4.i, 2147483647
   br i1 %cmp79.not.i.i, label %for.cond73.i.i, label %if.end45.i.i.i, !llvm.loop !18
 
 if.end45.i.i.i:                                   ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i
@@ -10235,7 +10235,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %60 = lshr i64 %xor7.i.i36, 19
   %61 = lshr i64 %xor7.i.i36, 1
   %div78.i4.i37 = xor i64 %60, %61
-  %cmp79.not.i.i38 = icmp ugt i64 %div78.i4.i37, 2147483647
+  %cmp79.not.i.i38 = icmp samesign ugt i64 %div78.i4.i37, 2147483647
   br i1 %cmp79.not.i.i38, label %for.cond73.i.i24, label %if.end45.i.i.i39, !llvm.loop !18
 
 if.end45.i.i.i39:                                 ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i26
@@ -10487,7 +10487,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %92 = lshr i64 %xor7.i.i.i, 19
   %93 = lshr i64 %xor7.i.i.i, 1
   %div78.i4.i.i = xor i64 %92, %93
-  %cmp79.not.i.i.i = icmp ugt i64 %div78.i4.i.i, 2147483647
+  %cmp79.not.i.i.i = icmp samesign ugt i64 %div78.i4.i.i, 2147483647
   br i1 %cmp79.not.i.i.i, label %for.cond73.i.i.i, label %if.end45.i.i.i.i, !llvm.loop !18
 
 if.end45.i.i.i.i:                                 ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i.i
@@ -10749,7 +10749,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %123 = lshr i64 %xor7.i.i38.i, 19
   %124 = lshr i64 %xor7.i.i38.i, 1
   %div78.i4.i39.i = xor i64 %123, %124
-  %cmp79.not.i.i40.i = icmp ugt i64 %div78.i4.i39.i, 2147483647
+  %cmp79.not.i.i40.i = icmp samesign ugt i64 %div78.i4.i39.i, 2147483647
   br i1 %cmp79.not.i.i40.i, label %for.cond73.i.i25.i, label %if.end45.i.i.i41.i, !llvm.loop !18
 
 if.end45.i.i.i41.i:                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i27.i
@@ -11011,7 +11011,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %154 = lshr i64 %xor7.i.i169.i, 19
   %155 = lshr i64 %xor7.i.i169.i, 1
   %div78.i4.i170.i = xor i64 %154, %155
-  %cmp79.not.i.i171.i = icmp ugt i64 %div78.i4.i170.i, 2147483647
+  %cmp79.not.i.i171.i = icmp samesign ugt i64 %div78.i4.i170.i, 2147483647
   br i1 %cmp79.not.i.i171.i, label %for.cond73.i.i156.i, label %if.end45.i.i.i172.i, !llvm.loop !18
 
 if.end45.i.i.i172.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i158.i
@@ -11273,7 +11273,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %185 = lshr i64 %xor7.i.i297.i, 19
   %186 = lshr i64 %xor7.i.i297.i, 1
   %div78.i4.i298.i = xor i64 %185, %186
-  %cmp79.not.i.i299.i = icmp ugt i64 %div78.i4.i298.i, 2147483647
+  %cmp79.not.i.i299.i = icmp samesign ugt i64 %div78.i4.i298.i, 2147483647
   br i1 %cmp79.not.i.i299.i, label %for.cond73.i.i284.i, label %if.end45.i.i.i300.i, !llvm.loop !18
 
 if.end45.i.i.i300.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i286.i
@@ -11535,7 +11535,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %216 = lshr i64 %xor7.i.i429.i, 19
   %217 = lshr i64 %xor7.i.i429.i, 1
   %div78.i4.i430.i = xor i64 %216, %217
-  %cmp79.not.i.i431.i = icmp ugt i64 %div78.i4.i430.i, 2147483647
+  %cmp79.not.i.i431.i = icmp samesign ugt i64 %div78.i4.i430.i, 2147483647
   br i1 %cmp79.not.i.i431.i, label %for.cond73.i.i417.i, label %if.end45.i.i.i432.i, !llvm.loop !18
 
 if.end45.i.i.i432.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i419.i
@@ -11808,7 +11808,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %248 = lshr i64 %xor7.i.i555.i, 19
   %249 = lshr i64 %xor7.i.i555.i, 1
   %div78.i4.i556.i = xor i64 %248, %249
-  %cmp79.not.i.i557.i = icmp ugt i64 %div78.i4.i556.i, 2147483647
+  %cmp79.not.i.i557.i = icmp samesign ugt i64 %div78.i4.i556.i, 2147483647
   br i1 %cmp79.not.i.i557.i, label %for.cond73.i.i543.i, label %if.end45.i.i.i558.i, !llvm.loop !18
 
 if.end45.i.i.i558.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i545.i
@@ -11981,7 +11981,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %269 = lshr i64 %xor7.i120.i.i, 19
   %270 = lshr i64 %xor7.i120.i.i, 1
   %div78.i1045.i.i = xor i64 %269, %270
-  %cmp79.not.i105.i.i = icmp ugt i64 %div78.i1045.i.i, 2147483647
+  %cmp79.not.i105.i.i = icmp samesign ugt i64 %div78.i1045.i.i, 2147483647
   br i1 %cmp79.not.i105.i.i, label %for.cond73.i102.i.i, label %if.end45.i.i54.i.i, !llvm.loop !18
 
 if.end45.i.i54.i.i:                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit174.i.i
@@ -12180,7 +12180,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %293 = lshr i64 %xor7.i.i674.i, 19
   %294 = lshr i64 %xor7.i.i674.i, 1
   %div78.i4.i675.i = xor i64 %293, %294
-  %cmp79.not.i.i676.i = icmp ugt i64 %div78.i4.i675.i, 2147483647
+  %cmp79.not.i.i676.i = icmp samesign ugt i64 %div78.i4.i675.i, 2147483647
   br i1 %cmp79.not.i.i676.i, label %for.cond73.i.i662.i, label %if.end45.i.i.i677.i, !llvm.loop !18
 
 if.end45.i.i.i677.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i664.i
@@ -12441,7 +12441,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %324 = lshr i64 %xor7.i.i796.i, 19
   %325 = lshr i64 %xor7.i.i796.i, 1
   %div78.i4.i797.i = xor i64 %324, %325
-  %cmp79.not.i.i798.i = icmp ugt i64 %div78.i4.i797.i, 2147483647
+  %cmp79.not.i.i798.i = icmp samesign ugt i64 %div78.i4.i797.i, 2147483647
   br i1 %cmp79.not.i.i798.i, label %for.cond73.i.i783.i, label %if.end45.i.i.i799.i, !llvm.loop !18
 
 if.end45.i.i.i799.i:                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit.i785.i
@@ -17440,7 +17440,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %cast.i39.i.i.i.i = trunc nuw nsw i64 %8 to i32
   %add.i40.i.i.i.i = add nuw nsw i32 %add.i4057.i.i.i.i, %cast.i39.i.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp15.not.i.i.i.i = icmp ugt i64 %indvars.iv.next, %5
+  %cmp15.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 64
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !255
 
@@ -24113,7 +24113,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %29 = lshr i64 %xor7.i13, 19
   %30 = lshr i64 %xor7.i13, 1
   %div78.i1 = xor i64 %29, %30
-  %cmp79.not.i = icmp ugt i64 %div78.i1, 2147483647
+  %cmp79.not.i = icmp samesign ugt i64 %div78.i1, 2147483647
   br i1 %cmp79.not.i, label %for.cond73.i, label %if.end45.i.i, !llvm.loop !18
 
 if.end45.i.i:                                     ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit67
@@ -27041,7 +27041,7 @@ if.end.i.i.i.i.i.i6:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i3
   %add.i.i.i.i.i.i8 = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -31070,7 +31070,7 @@ if.end.i.i.i.i.i.i6.i:                            ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i3.i
   %add.i.i.i.i.i.i8.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i, label %while.end.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i6.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
@@ -32875,7 +32875,7 @@ while.body:                                       ; preds = %for.cond.preheader,
 
 if.end36:                                         ; preds = %while.body
   %mul38 = shl i64 %mult.067, 32
-  %cmp27.not = icmp ugt i64 %mul38, %limit.0
+  %cmp27.not = icmp samesign ugt i64 %mul38, %limit.0
   br i1 %cmp27.not, label %while.cond.while.end_crit_edge, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.end36, %while.cond.while.end_crit_edge, %if.end45
@@ -41264,7 +41264,7 @@ if.end.i.i.i.i.i.i6:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i3
   %add.i.i.i.i.i.i8 = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -44368,7 +44368,7 @@ if.end.i.i.i.i.i.i.i6:                            ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i3
   %add.i.i.i.i.i.i.i8 = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i, label %while.end.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.i6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
@@ -47472,7 +47472,7 @@ if.end.i.i.i.i.i.i.i6:                            ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i3
   %add.i.i.i.i.i.i.i8 = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i, label %while.end.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.i6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i
@@ -57964,7 +57964,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt6vectorImSaImE
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %9
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %9
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -59630,7 +59630,7 @@ if.end.i.i.i:                                     ; preds = %entry
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %12
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %12
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -71036,7 +71036,7 @@ if.end.i.i.i:                                     ; preds = %for.end
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp ugt i64 %indvars.iv.next.i, %13
+  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
@@ -71231,7 +71231,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i.i.i, %45
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %45
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
@@ -71732,7 +71732,7 @@ if.end.i.i.i25.i:                                 ; preds = %invoke.cont28.i
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i25.i
   %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i27.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i25.i ]
   %indvars.iv.next.i27.i = add nuw nsw i64 %indvars.iv.i26.i, 64
-  %cmp19.not.i.i.i.i = icmp ugt i64 %indvars.iv.next.i27.i, %120
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i27.i, %120
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
@@ -71981,7 +71981,7 @@ if.end.i.i.i.i120.i:                              ; preds = %land.rhs.i.i118.i
 for.cond.i.i.i.i121.i:                            ; preds = %for.body.i.i.i.i125.i, %if.end.i.i.i.i120.i
   %indvars.iv.i.i122.i = phi i64 [ %indvars.iv.next.i.i123.i, %for.body.i.i.i.i125.i ], [ 0, %if.end.i.i.i.i120.i ]
   %indvars.iv.next.i.i123.i = add nuw nsw i64 %indvars.iv.i.i122.i, 64
-  %cmp19.not.i.i.i.i124.i = icmp ugt i64 %indvars.iv.next.i.i123.i, %159
+  %cmp19.not.i.i.i.i124.i = icmp samesign ugt i64 %indvars.iv.next.i.i123.i, %159
   br i1 %cmp19.not.i.i.i.i124.i, label %for.end.i.i.i.i128.i, label %for.body.i.i.i.i125.i
 
 for.body.i.i.i.i125.i:                            ; preds = %for.cond.i.i.i.i121.i

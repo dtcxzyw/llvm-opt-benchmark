@@ -369,7 +369,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = and i32 %152, 255
-  %157 = icmp uge i32 %156, %155
+  %157 = icmp samesign uge i32 %156, %155
   br label %177
 
 158:                                              ; preds = %148
@@ -379,7 +379,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %162 = load i16, ptr %161, align 2
   %163 = zext i16 %162 to i32
   %164 = and i32 %160, 65535
-  %165 = icmp uge i32 %164, %163
+  %165 = icmp samesign uge i32 %164, %163
   br label %177
 
 166:                                              ; preds = %148
@@ -746,7 +746,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = and i32 %152, 255
-  %157 = icmp uge i32 %156, %155
+  %157 = icmp samesign uge i32 %156, %155
   br label %177
 
 158:                                              ; preds = %148
@@ -756,7 +756,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %162 = load i16, ptr %161, align 2
   %163 = zext i16 %162 to i32
   %164 = and i32 %160, 65535
-  %165 = icmp uge i32 %164, %163
+  %165 = icmp samesign uge i32 %164, %163
   br label %177
 
 166:                                              ; preds = %148
@@ -1091,7 +1091,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = and i32 %152, 255
-  %157 = icmp uge i32 %156, %155
+  %157 = icmp samesign uge i32 %156, %155
   br label %177
 
 158:                                              ; preds = %148
@@ -1101,7 +1101,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %162 = load i16, ptr %161, align 2
   %163 = zext i16 %162 to i32
   %164 = and i32 %160, 65535
-  %165 = icmp uge i32 %164, %163
+  %165 = icmp samesign uge i32 %164, %163
   br label %177
 
 166:                                              ; preds = %148
@@ -1438,7 +1438,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = and i32 %152, 255
-  %157 = icmp uge i32 %156, %155
+  %157 = icmp samesign uge i32 %156, %155
   br label %177
 
 158:                                              ; preds = %148
@@ -1448,7 +1448,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %162 = load i16, ptr %161, align 2
   %163 = zext i16 %162 to i32
   %164 = and i32 %160, 65535
-  %165 = icmp uge i32 %164, %163
+  %165 = icmp samesign uge i32 %164, %163
   br label %177
 
 166:                                              ; preds = %148
@@ -1739,7 +1739,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %133 = add i64 %122, -8
   %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 61)
   %135 = and i64 %130, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   %137 = getelementptr inbounds i8, ptr %0, i64 120
   %138 = getelementptr inbounds [32 x i64], ptr %137, i64 0, i64 %135
   br label %139
@@ -1799,7 +1799,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = and i32 %159, 255
-  %164 = icmp uge i32 %163, %162
+  %164 = icmp samesign uge i32 %163, %162
   br label %202
 
 165:                                              ; preds = %149
@@ -1824,7 +1824,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %175 = load i16, ptr %174, align 2
   %176 = zext i16 %175 to i32
   %177 = and i32 %173, 65535
-  %178 = icmp uge i32 %177, %176
+  %178 = icmp samesign uge i32 %177, %176
   br label %202
 
 179:                                              ; preds = %149
@@ -2147,7 +2147,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %133 = add i64 %122, -8
   %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 61)
   %135 = and i64 %130, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   %137 = getelementptr inbounds i8, ptr %0, i64 120
   %138 = getelementptr inbounds [32 x i64], ptr %137, i64 0, i64 %135
   br label %139
@@ -2207,7 +2207,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = and i32 %159, 255
-  %164 = icmp uge i32 %163, %162
+  %164 = icmp samesign uge i32 %163, %162
   br label %202
 
 165:                                              ; preds = %149
@@ -2232,7 +2232,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %175 = load i16, ptr %174, align 2
   %176 = zext i16 %175 to i32
   %177 = and i32 %173, 65535
-  %178 = icmp uge i32 %177, %176
+  %178 = icmp samesign uge i32 %177, %176
   br label %202
 
 179:                                              ; preds = %149
@@ -2553,7 +2553,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %133 = add i64 %122, -8
   %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 61)
   %135 = and i64 %130, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   %137 = getelementptr inbounds i8, ptr %0, i64 120
   %138 = getelementptr inbounds [32 x i64], ptr %137, i64 0, i64 %135
   br label %139
@@ -2613,7 +2613,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = and i32 %159, 255
-  %164 = icmp uge i32 %163, %162
+  %164 = icmp samesign uge i32 %163, %162
   br label %202
 
 165:                                              ; preds = %149
@@ -2638,7 +2638,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %175 = load i16, ptr %174, align 2
   %176 = zext i16 %175 to i32
   %177 = and i32 %173, 65535
-  %178 = icmp uge i32 %177, %176
+  %178 = icmp samesign uge i32 %177, %176
   br label %202
 
 179:                                              ; preds = %149
@@ -2961,7 +2961,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %133 = add i64 %122, -8
   %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 61)
   %135 = and i64 %130, 31
-  %136 = icmp ugt i64 %135, 15
+  %136 = icmp samesign ugt i64 %135, 15
   %137 = getelementptr inbounds i8, ptr %0, i64 120
   %138 = getelementptr inbounds [32 x i64], ptr %137, i64 0, i64 %135
   br label %139
@@ -3021,7 +3021,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = and i32 %159, 255
-  %164 = icmp uge i32 %163, %162
+  %164 = icmp samesign uge i32 %163, %162
   br label %202
 
 165:                                              ; preds = %149
@@ -3046,7 +3046,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %175 = load i16, ptr %174, align 2
   %176 = zext i16 %175 to i32
   %177 = and i32 %173, 65535
-  %178 = icmp uge i32 %177, %176
+  %178 = icmp samesign uge i32 %177, %176
   br label %202
 
 179:                                              ; preds = %149

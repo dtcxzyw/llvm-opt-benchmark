@@ -787,7 +787,7 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
 
 29:                                               ; preds = %24
   %30 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %31 = icmp ult i64 %30, 2
+  %31 = icmp samesign ult i64 %30, 2
   %32 = add i64 %3, -1
   %spec.select = select i1 %31, i64 %32, i64 0
   br label %.thread
@@ -1722,7 +1722,7 @@ define dso_local void @drm_mm_scan_init_with_range(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8
   %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %15 = icmp ult i64 %14, 2
+  %15 = icmp samesign ult i64 %14, 2
   %16 = add i64 %3, -1
   %spec.select = select i1 %15, i64 %16, i64 0
   br label %.thread

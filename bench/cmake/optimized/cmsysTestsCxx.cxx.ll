@@ -319,7 +319,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit101:          ; preds = %.lr.ph.i98, %111, %
   %.2 = phi i32 [ %131, %130 ], [ %138, %137 ], [ %.1127, %134 ], [ %.1127, %133 ]
   call void @free(ptr noundef %116) #11
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %141 = icmp ult i64 %indvars.iv143, 10
+  %141 = icmp samesign ult i64 %indvars.iv143, 10
   %142 = icmp eq i32 %.281, -1
   %143 = and i1 %142, %141
   br i1 %143, label %111, label %._crit_edge, !llvm.loop !10

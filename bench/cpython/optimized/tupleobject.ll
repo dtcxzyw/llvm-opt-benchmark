@@ -2287,7 +2287,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp3 = icmp ult i64 %and.i, 2
+  %cmp3 = icmp samesign ult i64 %and.i, 2
   br i1 %cmp3, label %if.end8, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end

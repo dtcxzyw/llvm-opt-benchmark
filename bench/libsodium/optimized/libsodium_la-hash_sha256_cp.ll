@@ -944,7 +944,7 @@ entry:
   %1 = trunc i64 %0 to i32
   %2 = lshr i32 %1, 3
   %conv.i = and i32 %2, 63
-  %cmp.i = icmp ult i32 %conv.i, 56
+  %cmp.i = icmp samesign ult i32 %conv.i, 56
   br i1 %cmp.i, label %for.body.lr.ph.i, label %for.cond6.preheader.i
 
 for.cond6.preheader.i:                            ; preds = %entry

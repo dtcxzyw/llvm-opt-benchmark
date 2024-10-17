@@ -577,7 +577,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %31 = getelementptr i8, ptr %gep223, i64 1
   store i8 %30, ptr %31, align 1
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 2
-  %32 = icmp ult i64 %indvars.iv.next208, %22
+  %32 = icmp samesign ult i64 %indvars.iv.next208, %22
   br i1 %32, label %27, label %._crit_edge154.us.us, !llvm.loop !19
 
 ._crit_edge154.us.us:                             ; preds = %27
@@ -608,7 +608,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %42 = getelementptr i8, ptr %gep219, i64 1
   store i8 %41, ptr %42, align 1
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 2
-  %43 = icmp ult i64 %indvars.iv.next200, %22
+  %43 = icmp samesign ult i64 %indvars.iv.next200, %22
   br i1 %43, label %38, label %._crit_edge154.us, !llvm.loop !19
 
 ._crit_edge154.us:                                ; preds = %38
@@ -692,7 +692,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %72 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv174
   store i8 %71, ptr %72, align 1
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %73 = icmp ult i64 %indvars.iv.next175, %67
+  %73 = icmp samesign ult i64 %indvars.iv.next175, %67
   br i1 %73, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !21
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
@@ -702,7 +702,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %76 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv180
   store double %75, ptr %76, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 8
-  %.not114 = icmp ugt i64 %indvars.iv.next181, %17
+  %.not114 = icmp samesign ugt i64 %indvars.iv.next181, %17
   br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -712,7 +712,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %79 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv
   store i8 %78, ptr %79, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = icmp ult i64 %indvars.iv.next, %63
+  %80 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %80, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -751,7 +751,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %100 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv170
   store i64 %99, ptr %100, align 8
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 8
-  %.not115 = icmp ugt i64 %indvars.iv.next171, %17
+  %.not115 = icmp samesign ugt i64 %indvars.iv.next171, %17
   br i1 %.not115, label %.loopexit124.loopexit163, label %94, !llvm.loop !24
 
 .loopexit124.loopexit:                            ; preds = %.lr.ph143
@@ -866,7 +866,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %33 = getelementptr i8, ptr %gep223, i64 2
   store i16 %32, ptr %33, align 2
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 2
-  %34 = icmp ult i64 %indvars.iv.next208, %24
+  %34 = icmp samesign ult i64 %indvars.iv.next208, %24
   br i1 %34, label %29, label %._crit_edge154.us.us, !llvm.loop !27
 
 ._crit_edge154.us.us:                             ; preds = %29
@@ -897,7 +897,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %44 = getelementptr i8, ptr %gep219, i64 2
   store i16 %43, ptr %44, align 2
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 2
-  %45 = icmp ult i64 %indvars.iv.next200, %24
+  %45 = icmp samesign ult i64 %indvars.iv.next200, %24
   br i1 %45, label %40, label %._crit_edge154.us, !llvm.loop !27
 
 ._crit_edge154.us:                                ; preds = %40
@@ -983,7 +983,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %76 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv174
   store i16 %75, ptr %76, align 2
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %77 = icmp ult i64 %indvars.iv.next175, %71
+  %77 = icmp samesign ult i64 %indvars.iv.next175, %71
   br i1 %77, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !29
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
@@ -993,7 +993,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %80 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv180
   store double %79, ptr %80, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 4
-  %.not114 = icmp ugt i64 %indvars.iv.next181, %19
+  %.not114 = icmp samesign ugt i64 %indvars.iv.next181, %19
   br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1003,7 +1003,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %83 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv
   store i16 %82, ptr %83, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = icmp ult i64 %indvars.iv.next, %66
+  %84 = icmp samesign ult i64 %indvars.iv.next, %66
   br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1042,7 +1042,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %104 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv170
   store i64 %103, ptr %104, align 8
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 4
-  %.not115 = icmp ugt i64 %indvars.iv.next171, %19
+  %.not115 = icmp samesign ugt i64 %indvars.iv.next171, %19
   br i1 %.not115, label %.loopexit124.loopexit163, label %98, !llvm.loop !32
 
 .loopexit124.loopexit:                            ; preds = %.lr.ph143
@@ -1163,7 +1163,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
   %37 = getelementptr i8, ptr %gep196, i64 4
   store i32 %36, ptr %37, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 2
-  %38 = icmp ult i64 %indvars.iv.next180, %28
+  %38 = icmp samesign ult i64 %indvars.iv.next180, %28
   br i1 %38, label %33, label %._crit_edge131.us.us, !llvm.loop !35
 
 ._crit_edge131.us.us:                             ; preds = %33
@@ -1194,7 +1194,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
   %48 = getelementptr i8, ptr %gep192, i64 4
   store i32 %47, ptr %48, align 4
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 2
-  %49 = icmp ult i64 %indvars.iv.next172, %28
+  %49 = icmp samesign ult i64 %indvars.iv.next172, %28
   br i1 %49, label %44, label %._crit_edge131.us, !llvm.loop !35
 
 ._crit_edge131.us:                                ; preds = %44
@@ -1267,7 +1267,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
   %79 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv152
   store double %78, ptr %79, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
-  %.not102 = icmp ugt i64 %indvars.iv.next153, %21
+  %.not102 = icmp samesign ugt i64 %indvars.iv.next153, %21
   br i1 %.not102, label %.loopexit112.loopexit, label %.lr.ph122, !llvm.loop !37
 
 80:                                               ; preds = %57
@@ -1303,7 +1303,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
   %94 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv142
   store i64 %93, ptr %94, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
-  %.not104 = icmp ugt i64 %indvars.iv.next143, %21
+  %.not104 = icmp samesign ugt i64 %indvars.iv.next143, %21
   br i1 %.not104, label %.loopexit112.loopexit138, label %.lr.ph, !llvm.loop !38
 
 .loopexit112.loopexit:                            ; preds = %.lr.ph122

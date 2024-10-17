@@ -61,7 +61,7 @@ define hidden void @_ZN17FilteredFieldsMap10initializeEv() local_unnamed_addr #1
   %11 = add nsw i32 %6, 1
   %12 = icmp sgt i32 %6, -1
   %13 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %or.cond.i.i.i.i = select i1 %12, i1 %14, i1 false
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %16 = sub nuw nsw i32 32, %15

@@ -995,7 +995,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   %40 = add nuw nsw i32 %12, 1
   %41 = getelementptr i8, ptr %13, i64 56
   %42 = zext i16 %39 to i32
-  %43 = icmp ult i32 %40, %42
+  %43 = icmp samesign ult i32 %40, %42
   br i1 %43, label %10, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %17, %38, %3
@@ -1103,7 +1103,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @update_note_header_size_el
   %56 = getelementptr i8, ptr %10, i64 56
   %57 = load i16, ptr %3, align 8
   %58 = zext i16 %57 to i32
-  %59 = icmp ult i32 %55, %58
+  %59 = icmp samesign ult i32 %55, %58
   br i1 %59, label %8, label %.loopexit8, !llvm.loop !22
 
 .loopexit8:                                       ; preds = %54, %.loopexit7, %1
@@ -1161,7 +1161,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_notes_elf64(ptr nocap
   %30 = add nuw nsw i32 %12, 1
   %31 = getelementptr i8, ptr %11, i64 56
   %32 = zext i16 %29 to i32
-  %33 = icmp ult i32 %30, %32
+  %33 = icmp samesign ult i32 %30, %32
   br i1 %33, label %9, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %28, %27, %2
@@ -1352,7 +1352,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   %43 = add nuw nsw i32 %12, 1
   %44 = getelementptr i8, ptr %13, i64 32
   %45 = zext i16 %42 to i32
-  %46 = icmp ult i32 %43, %45
+  %46 = icmp samesign ult i32 %43, %45
   br i1 %46, label %10, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %17, %41, %3
@@ -1427,7 +1427,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @update_note_header_size_el
   %41 = and i64 %40, 8589934588
   %42 = add nuw nsw i64 %36, %41
   %43 = add nuw nsw i64 %42, %31
-  %44 = icmp ugt i64 %43, %16
+  %44 = icmp samesign ugt i64 %43, %16
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %.preheader
@@ -1465,7 +1465,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @update_note_header_size_el
   %59 = getelementptr i8, ptr %10, i64 32
   %60 = load i16, ptr %3, align 4
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %58, %61
+  %62 = icmp samesign ult i32 %58, %61
   br i1 %62, label %8, label %.loopexit8, !llvm.loop !27
 
 .loopexit8:                                       ; preds = %57, %.loopexit, %1
@@ -1526,7 +1526,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_notes_elf32(ptr nocap
   %33 = add nuw nsw i32 %12, 1
   %34 = getelementptr i8, ptr %11, i64 32
   %35 = zext i16 %32 to i32
-  %36 = icmp ult i32 %33, %35
+  %36 = icmp samesign ult i32 %33, %35
   br i1 %36, label %9, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %31, %30, %2
@@ -1932,7 +1932,7 @@ define internal range(i32 -22, 1) i32 @mmap_vmcore(ptr nocapture readnone %0, pt
   %153 = phi i64 [ %152, %150 ], [ %124, %.preheader29 ], [ %124, %133 ]
   %154 = phi i64 [ %151, %150 ], [ %122, %.preheader29 ], [ %122, %133 ]
   %155 = add nuw nsw i64 %123, 1
-  %156 = icmp ult i64 %155, %120
+  %156 = icmp samesign ult i64 %155, %120
   br i1 %156, label %.preheader29, label %157, !llvm.loop !33
 
 157:                                              ; preds = %.loopexit

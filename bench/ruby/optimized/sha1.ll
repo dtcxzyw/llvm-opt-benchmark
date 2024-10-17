@@ -1134,7 +1134,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr nocapture noundef %0, ptr noundef 
 
 5:                                                ; preds = %2, %5
   %.033 = phi i64 [ 0, %2 ], [ %16, %5 ]
-  %6 = icmp ult i64 %.033, 4
+  %6 = icmp samesign ult i64 %.033, 4
   %7 = zext i1 %6 to i64
   %8 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4

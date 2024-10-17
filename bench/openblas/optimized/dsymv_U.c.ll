@@ -127,7 +127,7 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %96 = getelementptr inbounds double, ptr %76, i64 %59
   %97 = getelementptr inbounds double, ptr %75, i64 %59
   %98 = add nuw nsw i64 %81, 2
-  %99 = icmp ult i64 %98, %63
+  %99 = icmp samesign ult i64 %98, %63
   br i1 %99, label %.preheader6, label %.loopexit7, !llvm.loop !7
 
 .loopexit7:                                       ; preds = %.preheader6, %71
@@ -180,7 +180,7 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %131 = getelementptr inbounds double, ptr %121, i64 %59
   %132 = getelementptr inbounds double, ptr %120, i64 %59
   %133 = add nuw nsw i64 %124, 2
-  %134 = icmp ult i64 %133, %63
+  %134 = icmp samesign ult i64 %133, %63
   br i1 %134, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %118

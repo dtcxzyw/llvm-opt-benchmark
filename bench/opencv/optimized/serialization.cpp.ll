@@ -4879,7 +4879,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
   %54 = add nuw nsw i64 %.09.i, 1
   %55 = load i32, ptr %3, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %54, %56
+  %57 = icmp samesign ult i64 %54, %56
   br i1 %57, label %.lr.ph.i, label %_ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit, !llvm.loop !19
 
 _ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit: ; preds = %.lr.ph.i, %35, %39, %40
@@ -6067,7 +6067,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %34
   %55 = add nuw nsw i64 %.010.i.i, 1
   %56 = load i32, ptr %14, align 4
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.lr.ph.i.i, label %_ZN2cv4gapi4s11nrsIiEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i, !llvm.loop !21
 
 _ZN2cv4gapi4s11nrsIiEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %33, %31
@@ -6142,7 +6142,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i.i.i:         ; preds = %72
   %93 = add nuw nsw i64 %.010.i.i.i, 1
   %94 = load i32, ptr %13, align 4
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %.lr.ph.i.i.i, label %_ZN2cv4gapi4s11nrsIdEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i, !llvm.loop !22
 
 _ZN2cv4gapi4s11nrsIdEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i.i.i, %71, %69
@@ -6217,7 +6217,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.i.i:       ; preds = %110
   %131 = add nuw nsw i64 %.010.i.i.i.i, 1
   %132 = load i32, ptr %12, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %131, %133
+  %134 = icmp samesign ult i64 %131, %133
   br i1 %134, label %.lr.ph.i.i.i.i, label %_ZN2cv4gapi4s11nrsIfEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i, !llvm.loop !23
 
 _ZN2cv4gapi4s11nrsIfEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.i.i, %109, %107
@@ -6292,7 +6292,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i.i:     ; preds = %148
   %169 = add nuw nsw i64 %.010.i.i.i.i.i, 1
   %170 = load i32, ptr %11, align 4
   %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %169, %171
+  %172 = icmp samesign ult i64 %169, %171
   br i1 %172, label %.lr.ph.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsImEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i.i, !llvm.loop !24
 
 _ZN2cv4gapi4s11nrsImEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i.i, %147, %145
@@ -6367,7 +6367,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit.i.i.i.i.i.i:  ; preds = %184
   %210 = add nuw nsw i64 %.011.i.i.i.i.i.i, 1
   %211 = load i32, ptr %10, align 4
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %210, %212
+  %213 = icmp samesign ult i64 %210, %212
   br i1 %213, label %.lr.ph.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsIbEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i.i.i, !llvm.loop !25
 
 _ZN2cv4gapi4s11nrsIbEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.i.i.i.i.i.i, %182
@@ -6427,7 +6427,7 @@ _ZN2cv4gapi4s11nrsIbEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit.i.i.i.i.i: ; 
   %244 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i, 1
   %245 = load i32, ptr %9, align 4
   %246 = zext i32 %245 to i64
-  %247 = icmp ult i64 %244, %246
+  %247 = icmp samesign ult i64 %244, %246
   br i1 %247, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsINS_5Size_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN2cv4gapi4s11nrsINS_5Size_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %230, %229, %225
@@ -6487,7 +6487,7 @@ _ZN2cv4gapi4s11nrsINS_5Size_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i
   %278 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i, 1
   %279 = load i32, ptr %8, align 4
   %280 = zext i32 %279 to i64
-  %281 = icmp ult i64 %278, %280
+  %281 = icmp samesign ult i64 %278, %280
   br i1 %281, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %264, %263, %259
@@ -6541,7 +6541,7 @@ _ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.
   %309 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.i, 1
   %310 = load i32, ptr %7, align 4
   %311 = zext i32 %310 to i64
-  %312 = icmp ult i64 %309, %311
+  %312 = icmp samesign ult i64 %309, %311
   br i1 %312, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsINS_6Point_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZN2cv4gapi4s11nrsINS_6Point_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %295, %294, %290
@@ -6600,7 +6600,7 @@ _ZN2cv4gapi4s11nrsINS_6Point_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.
   %345 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %346 = load i32, ptr %6, align 4
   %347 = zext i32 %346 to i64
-  %348 = icmp ult i64 %345, %347
+  %348 = icmp samesign ult i64 %345, %347
   br i1 %348, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsINS_7Point3_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !28
 
 _ZN2cv4gapi4s11nrsINS_7Point3_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %326, %325, %321
@@ -6670,7 +6670,7 @@ _ZN2cv4gapi4s11nrsINS_7Point3_IfEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit
   %389 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %390 = load i32, ptr %5, align 4
   %391 = zext i32 %390 to i64
-  %392 = icmp ult i64 %389, %391
+  %392 = icmp samesign ult i64 %389, %391
   br i1 %392, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv4gapi4s11nrsINS_5Rect_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZN2cv4gapi4s11nrsINS_5Rect_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %365, %364, %360
@@ -9910,7 +9910,7 @@ _ZNSt6vectorIN2cv6GShapeESaIS1_EE6resizeEm.exit.i: ; preds = %26
   %48 = add nuw nsw i64 %.010.i, 1
   %49 = load i32, ptr %4, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.lr.ph.i, label %_ZN2cv4gapi4s11nrsINS_6GShapeEEERNS1_8IIStreamES5_RSt6vectorIT_SaIS7_EE.exit, !llvm.loop !33
 
 _ZN2cv4gapi4s11nrsINS_6GShapeEEERNS1_8IIStreamES5_RSt6vectorIT_SaIS7_EE.exit: ; preds = %.lr.ph.i, %23, %25, %_ZNSt6vectorIN2cv6GShapeESaIS1_EE6resizeEm.exit.i
@@ -10076,7 +10076,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %40
   %61 = add nuw nsw i64 %.010.i, 1
   %62 = load i32, ptr %3, align 4
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %.lr.ph.i, label %_ZN2cv4gapi4s11nrsIiEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit, !llvm.loop !21
 
 _ZN2cv4gapi4s11nrsIiEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit: ; preds = %.lr.ph.i, %37, %39, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -10369,7 +10369,7 @@ _ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEm.exit: ; preds = %32, %34, %36, 
   %60 = add nuw nsw i64 %.015, 1
   %61 = load i32, ptr %4, align 4
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %60, %62
+  %63 = icmp samesign ult i64 %60, %62
   br i1 %63, label %.lr.ph, label %_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE5clearEv.exit, !llvm.loop !35
 
 _ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv5gimpl6RcDescES2_EvT_S4_RSaIT0_E.exit.i.i, %13
@@ -10480,7 +10480,7 @@ _ZNSt6vectorIN2cv4GArgESaIS1_EE6resizeEm.exit:    ; preds = %28, %30, %32, %_ZSt
   %44 = add nuw nsw i64 %.017, 1
   %45 = load i32, ptr %3, align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %.lr.ph, label %_ZNSt6vectorIN2cv4GArgESaIS1_EE5clearEv.exit, !llvm.loop !37
 
 _ZNSt6vectorIN2cv4GArgESaIS1_EE5clearEv.exit:     ; preds = %.lr.ph, %_ZNSt6vectorIN2cv4GArgESaIS1_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv4GArgES1_EvT_S3_RSaIT0_E.exit.i.i, %12
@@ -11449,7 +11449,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
   %59 = add nuw nsw i64 %.07, 1
   %60 = load i32, ptr %4, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit, %_ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE5clearEv.exit
@@ -14328,7 +14328,7 @@ _ZN2cv5gimpl10ConstValueD2Ev.exit:                ; preds = %_ZNSt13unordered_ma
   %69 = add nuw nsw i64 %.09, 1
   %70 = load i32, ptr %5, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %27, label %._crit_edge, !llvm.loop !101
 
 73:                                               ; preds = %46, %.critedge.i, %32, %27
@@ -14481,7 +14481,7 @@ _ZNSt6vectorIN2cv5gimpl4DataESaIS2_EE6resizeEm.exit: ; preds = %39, %41, %43, %_
   %66 = add nuw nsw i64 %.016, 1
   %67 = load i32, ptr %3, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %66, %68
+  %69 = icmp samesign ult i64 %66, %68
   br i1 %69, label %.lr.ph, label %_ZNSt6vectorIN2cv5gimpl4DataESaIS2_EE5clearEv.exit, !llvm.loop !102
 
 _ZNSt6vectorIN2cv5gimpl4DataESaIS2_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5gimpl4DataESaIS2_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv5gimpl4DataES2_EvT_S4_RSaIT0_E.exit.i.i, %12
@@ -14570,7 +14570,7 @@ _ZNSt6vectorIN2cv5gimpl2OpESaIS2_EE6resizeEm.exit: ; preds = %23, %25, %27, %_ZS
   %38 = add nuw nsw i64 %.014, 1
   %39 = load i32, ptr %3, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %.lr.ph, label %_ZNSt6vectorIN2cv5gimpl2OpESaIS2_EE5clearEv.exit, !llvm.loop !103
 
 _ZNSt6vectorIN2cv5gimpl2OpESaIS2_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv5gimpl2OpESaIS2_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv5gimpl2OpES2_EvT_S4_RSaIT0_E.exit.i.i, %12
@@ -20192,7 +20192,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -22168,7 +22168,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescEN
   %48 = add nuw nsw i64 %.015, 1
   %49 = load i32, ptr %3, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.lr.ph, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EE5clearEv.exit, !llvm.loop !251
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i.i, %12
@@ -22323,7 +22323,7 @@ _ZNSt6vectorIN2cv7GRunArgESaIS1_EE6resizeEm.exit: ; preds = %26, %28, %30, %_ZSt
   %40 = add nuw nsw i64 %.011, 1
   %41 = load i32, ptr %3, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp samesign ult i64 %40, %42
   br i1 %43, label %.lr.ph, label %_ZNSt6vectorIN2cv7GRunArgESaIS1_EE5clearEv.exit, !llvm.loop !252
 
 _ZNSt6vectorIN2cv7GRunArgESaIS1_EE5clearEv.exit:  ; preds = %.lr.ph, %_ZNSt6vectorIN2cv7GRunArgESaIS1_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv7GRunArgES1_EvT_S3_RSaIT0_E.exit.i.i, %12
@@ -22455,7 +22455,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   %37 = add nuw nsw i64 %.014, 1
   %38 = load i32, ptr %3, align 4
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %.lr.ph, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, !llvm.loop !254
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %12
@@ -40836,7 +40836,7 @@ _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit: ; preds = %15
   %51 = add nuw nsw i64 %.010, 1
   %52 = load i32, ptr %3, align 4
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %.lr.ph, label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE5clearEv.exit, !llvm.loop !329
 
 _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit, %14, %12
@@ -44229,7 +44229,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %23, %25, %27, %_ZSt
   %34 = add nuw nsw i64 %.014, 1
   %35 = load i32, ptr %3, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %.lr.ph, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, !llvm.loop !348
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, %12
@@ -46085,7 +46085,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   %48 = add nuw nsw i64 %.015, 1
   %49 = load i32, ptr %3, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.lr.ph, label %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE5clearEv.exit, !llvm.loop !357
 
 _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE5clearEv.exit: ; preds = %.lr.ph, %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE6resizeEm.exit, %_ZSt8_DestroyIPN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_EvT_SG_RSaIT0_E.exit.i.i, %12

@@ -2724,7 +2724,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %115 = sub i64 %113, %114
   %116 = ashr exact i64 %115, 5
   %117 = icmp ult i64 %116, %3
-  %118 = icmp ult i64 %.024104, 5
+  %118 = icmp samesign ult i64 %.024104, 5
   %or.cond = select i1 %117, i1 %118, i1 false
   br i1 %or.cond, label %102, label %.critedge, !llvm.loop !18
 

@@ -1675,7 +1675,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.dissect_oampdu_vendor_specific.oui_cl, i64 3, i1 false)
   %313 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #6
   %314 = and i32 %313, 65535
-  %315 = icmp ugt i32 %314, 2
+  %315 = icmp samesign ugt i32 %314, 2
   br i1 %315, label %316, label %dissect_oampdu_vendor_specific.exit
 
 316:                                              ; preds = %312
@@ -1926,8 +1926,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %446 = add i16 %420, -5120
   %or.cond13.i = icmp ult i16 %446, 1536
   %447 = and i16 %420, 255
-  %448 = icmp ult i16 %447, 100
-  %or.cond16.i = and i1 %or.cond13.i, %448
+  %448 = icmp samesign ult i16 %447, 100
+  %or.cond16.i = select i1 %or.cond13.i, i1 %448, i1 false
   br i1 %or.cond16.i, label %449, label %456
 
 449:                                              ; preds = %445

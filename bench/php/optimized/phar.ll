@@ -5528,7 +5528,7 @@ phar_strnstr.exit:                                ; preds = %172
   %568 = getelementptr inbounds i8, ptr %13, i64 48
   %569 = getelementptr inbounds i8, ptr %13, i64 148
   %570 = add i64 %522, -24
-  %571 = icmp ugt i32 %275, 4367
+  %571 = icmp samesign ugt i32 %275, 4367
   %572 = getelementptr inbounds i8, ptr %13, i64 56
   %573 = getelementptr inbounds i8, ptr %13, i64 4
   %574 = getelementptr inbounds i8, ptr %481, i64 244
@@ -9619,7 +9619,7 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @cached_phars, i64 28), align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %18

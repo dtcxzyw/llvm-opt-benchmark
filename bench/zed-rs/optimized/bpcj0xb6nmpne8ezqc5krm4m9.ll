@@ -14261,7 +14261,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17hf14388687f67
   %37 = zext i16 %36 to i64
   %38 = sub i64 %.sroa.03.0.us, %37
   %39 = and i64 %38, %17
-  %40 = icmp ugt i64 %.sroa.0.0.us.ph, %39
+  %40 = icmp samesign ugt i64 %.sroa.0.0.us.ph, %39
   br i1 %40, label %.split25.us, label %41
 
 41:                                               ; preds = %32
@@ -14317,7 +14317,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17hf14388687f67
   %65 = zext i16 %64 to i64
   %66 = sub i64 %.sroa.03.0.us32, %65
   %67 = and i64 %66, %17
-  %68 = icmp ugt i64 %.sroa.0.0.us33.ph, %67
+  %68 = icmp samesign ugt i64 %.sroa.0.0.us33.ph, %67
   br i1 %68, label %.split25.us, label %69
 
 69:                                               ; preds = %60
@@ -14376,7 +14376,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17hf14388687f67
   %94 = zext i16 %93 to i64
   %95 = sub i64 %.sroa.03.0, %94
   %96 = and i64 %95, %17
-  %97 = icmp ugt i64 %.sroa.0.0.ph, %96
+  %97 = icmp samesign ugt i64 %.sroa.0.0.ph, %96
   br i1 %97, label %.split25.us, label %98
 
 98:                                               ; preds = %89
@@ -25953,7 +25953,7 @@ default.unreachable130:                           ; preds = %3
   br label %228
 
 32:                                               ; preds = %28
-  %switch = icmp ult i8 %29, 4
+  %switch = icmp samesign ult i8 %29, 4
   br i1 %switch, label %33, label %225
 
 33:                                               ; preds = %32
@@ -28958,7 +28958,7 @@ define void @_ZN14language_model7request20LanguageModelRequest14into_anthropic17
 
 85:                                               ; preds = %84
   %86 = load i8, ptr %23, align 1, !range !161, !noundef !7
-  %switch30 = icmp ult i8 %86, 2
+  %switch30 = icmp samesign ult i8 %86, 2
   br i1 %switch30, label %90, label %87
 
 87:                                               ; preds = %85

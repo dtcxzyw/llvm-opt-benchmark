@@ -115,21 +115,21 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 12:                                               ; preds = %5, %.split5
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
-  %.not88.i = icmp eq i64 %14, 0
-  br i1 %.not88.i, label %._crit_edge, label %.lr.ph63.i
+  %.not89.i = icmp eq i64 %14, 0
+  br i1 %.not89.i, label %._crit_edge, label %.lr.ph64.i
 
-.lr.ph63.i:                                       ; preds = %12
+.lr.ph64.i:                                       ; preds = %12
   %15 = load ptr, ptr %0, align 8
-  br label %.lr.ph63.split.split.i
+  br label %.lr.ph64.split.split.i
 
-.lr.ph63.split.split.i:                           ; preds = %25, %.lr.ph63.i
-  %.059.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph63.i ]
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.059.i
+.lr.ph64.split.split.i:                           ; preds = %25, %.lr.ph64.i
+  %.060.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph64.i ]
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.060.i
   %.02942.i = load ptr, ptr %16, align 8
   %.not3443.i = icmp eq ptr %.02942.i, null
   br i1 %.not3443.i, label %25, label %.split.us.i
 
-.split.us.i:                                      ; preds = %.lr.ph63.split.split.i
+.split.us.i:                                      ; preds = %.lr.ph64.split.split.i
   %17 = load ptr, ptr %.02942.i, align 8
   %.not36.i = icmp eq ptr %17, null
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02942.i, i64 8
@@ -153,14 +153,14 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 
 22:                                               ; preds = %.split.us._crit_edge.i
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %.059.i
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %.060.i
   store ptr %20, ptr %24, align 8
   br label %.split.lr.ph
 
-25:                                               ; preds = %.lr.ph63.split.split.i
-  %26 = add nuw i64 %.059.i, 1
+25:                                               ; preds = %.lr.ph64.split.split.i
+  %26 = add nuw i64 %.060.i, 1
   %exitcond.not.i = icmp eq i64 %26, %14
-  br i1 %exitcond.not.i, label %._crit_edge, label %.lr.ph63.split.split.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %._crit_edge, label %.lr.ph64.split.split.i, !llvm.loop !5
 
 .split.lr.ph:                                     ; preds = %22, %21
   %27 = getelementptr inbounds i8, ptr %0, i64 16
@@ -195,21 +195,21 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 
 41:                                               ; preds = %34, %.split
   %42 = load i64, ptr %13, align 8
-  %.not88.i7 = icmp eq i64 %42, 0
-  br i1 %.not88.i7, label %._crit_edge, label %.lr.ph63.i8
+  %.not89.i7 = icmp eq i64 %42, 0
+  br i1 %.not89.i7, label %._crit_edge, label %.lr.ph64.i8
 
-.lr.ph63.i8:                                      ; preds = %41
+.lr.ph64.i8:                                      ; preds = %41
   %43 = load ptr, ptr %0, align 8
-  br label %.lr.ph63.split.split.i9
+  br label %.lr.ph64.split.split.i9
 
-.lr.ph63.split.split.i9:                          ; preds = %53, %.lr.ph63.i8
-  %.059.i10 = phi i64 [ %54, %53 ], [ 0, %.lr.ph63.i8 ]
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %.059.i10
+.lr.ph64.split.split.i9:                          ; preds = %53, %.lr.ph64.i8
+  %.060.i10 = phi i64 [ %54, %53 ], [ 0, %.lr.ph64.i8 ]
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %.060.i10
   %.02942.i11 = load ptr, ptr %44, align 8
   %.not3443.i12 = icmp eq ptr %.02942.i11, null
   br i1 %.not3443.i12, label %53, label %.split.us.i13
 
-.split.us.i13:                                    ; preds = %.lr.ph63.split.split.i9
+.split.us.i13:                                    ; preds = %.lr.ph64.split.split.i9
   %45 = load ptr, ptr %.02942.i11, align 8
   %.not36.i14 = icmp eq ptr %45, null
   %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %.02942.i11, i64 8
@@ -233,14 +233,14 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 
 50:                                               ; preds = %.split.us._crit_edge.i17
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %.059.i10
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %.060.i10
   store ptr %48, ptr %52, align 8
   br label %next_entry.exit21
 
-53:                                               ; preds = %.lr.ph63.split.split.i9
-  %54 = add nuw i64 %.059.i10, 1
+53:                                               ; preds = %.lr.ph64.split.split.i9
+  %54 = add nuw i64 %.060.i10, 1
   %exitcond.not.i20 = icmp eq i64 %54, %42
-  br i1 %exitcond.not.i20, label %._crit_edge, label %.lr.ph63.split.split.i9, !llvm.loop !5
+  br i1 %exitcond.not.i20, label %._crit_edge, label %.lr.ph64.split.split.i9, !llvm.loop !5
 
 next_entry.exit21:                                ; preds = %49, %50
   %55 = load i64, ptr %30, align 8
@@ -282,80 +282,80 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 12:                                               ; preds = %5, %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
-  %.not88 = icmp eq i64 %14, 0
-  br i1 %.not88, label %.loopexit, label %.lr.ph63
+  %.not89 = icmp eq i64 %14, 0
+  br i1 %.not89, label %.loopexit, label %.lr.ph64
 
-.lr.ph63:                                         ; preds = %12
+.lr.ph64:                                         ; preds = %12
   %15 = load ptr, ptr %0, align 8
   %16 = and i32 %1, 1
   %17 = icmp eq i32 %16, 0
-  %18 = icmp ult i32 %1, 2
-  br i1 %17, label %.lr.ph63.split.us, label %.lr.ph63.split
+  %18 = icmp samesign ult i32 %1, 2
+  br i1 %17, label %.lr.ph64.split.us, label %.lr.ph64.split
 
-.lr.ph63.split.us:                                ; preds = %.lr.ph63
-  br i1 %18, label %.loopexit, label %.lr.ph63.split.us.split
+.lr.ph64.split.us:                                ; preds = %.lr.ph64
+  br i1 %18, label %.loopexit, label %.lr.ph64.split.us.split
 
-.lr.ph63.split.us.split:                          ; preds = %.lr.ph63.split.us, %._crit_edge.split.split.us68
-  %.059.us = phi i64 [ %23, %._crit_edge.split.split.us68 ], [ 0, %.lr.ph63.split.us ]
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %.059.us
+.lr.ph64.split.us.split:                          ; preds = %.lr.ph64.split.us, %._crit_edge.split.split.us69
+  %.060.us = phi i64 [ %23, %._crit_edge.split.split.us69 ], [ 0, %.lr.ph64.split.us ]
+  %19 = getelementptr inbounds ptr, ptr %15, i64 %.060.us
   %.02942.us = load ptr, ptr %19, align 8
   %.not3443.us = icmp eq ptr %.02942.us, null
-  br i1 %.not3443.us, label %._crit_edge.split.split.us68, label %.lr.ph.us
+  br i1 %.not3443.us, label %._crit_edge.split.split.us69, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph63.split.us.split, %22
-  %.02944.us64 = phi ptr [ %.029.us66, %22 ], [ %.02942.us, %.lr.ph63.split.us.split ]
-  %20 = getelementptr inbounds i8, ptr %.02944.us64, i64 24
+.lr.ph.us:                                        ; preds = %.lr.ph64.split.us.split, %22
+  %.02944.us65 = phi ptr [ %.029.us67, %22 ], [ %.02942.us, %.lr.ph64.split.us.split ]
+  %20 = getelementptr inbounds i8, ptr %.02944.us65, i64 24
   %21 = load ptr, ptr %20, align 8
-  %.not35.us65.not = icmp eq ptr %21, null
-  br i1 %.not35.us65.not, label %.split.us, label %22
+  %.not35.us66.not = icmp eq ptr %21, null
+  br i1 %.not35.us66.not, label %.split.us, label %22
 
 22:                                               ; preds = %.lr.ph.us
-  %.029.us66 = load ptr, ptr %.02944.us64, align 8
-  %.not34.us67 = icmp eq ptr %.029.us66, null
-  br i1 %.not34.us67, label %._crit_edge.split.split.us68, label %.lr.ph.us, !llvm.loop !8
+  %.029.us67 = load ptr, ptr %.02944.us65, align 8
+  %.not34.us68 = icmp eq ptr %.029.us67, null
+  br i1 %.not34.us68, label %._crit_edge.split.split.us69, label %.lr.ph.us, !llvm.loop !8
 
-._crit_edge.split.split.us68:                     ; preds = %22, %.lr.ph63.split.us.split
-  %23 = add nuw i64 %.059.us, 1
-  %exitcond101.not = icmp eq i64 %23, %14
-  br i1 %exitcond101.not, label %.loopexit, label %.lr.ph63.split.us.split, !llvm.loop !5
+._crit_edge.split.split.us69:                     ; preds = %22, %.lr.ph64.split.us.split
+  %23 = add nuw i64 %.060.us, 1
+  %exitcond102.not = icmp eq i64 %23, %14
+  br i1 %exitcond102.not, label %.loopexit, label %.lr.ph64.split.us.split, !llvm.loop !5
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63
-  br i1 %18, label %.lr.ph63.split.split.us, label %.lr.ph63.split.split
+.lr.ph64.split:                                   ; preds = %.lr.ph64
+  br i1 %18, label %.lr.ph64.split.split.us, label %.lr.ph64.split.split
 
-.lr.ph63.split.split.us:                          ; preds = %.lr.ph63.split, %._crit_edge.split.us.us
-  %.059.us76 = phi i64 [ %25, %._crit_edge.split.us.us ], [ 0, %.lr.ph63.split ]
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %.059.us76
-  %.02942.us77 = load ptr, ptr %24, align 8
-  %.not3443.us78 = icmp eq ptr %.02942.us77, null
-  br i1 %.not3443.us78, label %._crit_edge.split.us.us, label %.lr.ph.us79
+.lr.ph64.split.split.us:                          ; preds = %.lr.ph64.split, %._crit_edge.split.us.us
+  %.060.us77 = phi i64 [ %25, %._crit_edge.split.us.us ], [ 0, %.lr.ph64.split ]
+  %24 = getelementptr inbounds ptr, ptr %15, i64 %.060.us77
+  %.02942.us78 = load ptr, ptr %24, align 8
+  %.not3443.us79 = icmp eq ptr %.02942.us78, null
+  br i1 %.not3443.us79, label %._crit_edge.split.us.us, label %.lr.ph.us80
 
-._crit_edge.split.us.us:                          ; preds = %29, %.lr.ph63.split.split.us
-  %25 = add nuw i64 %.059.us76, 1
-  %exitcond100.not = icmp eq i64 %25, %14
-  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph63.split.split.us, !llvm.loop !5
+._crit_edge.split.us.us:                          ; preds = %29, %.lr.ph64.split.split.us
+  %25 = add nuw i64 %.060.us77, 1
+  %exitcond101.not = icmp eq i64 %25, %14
+  br i1 %exitcond101.not, label %.loopexit, label %.lr.ph64.split.split.us, !llvm.loop !5
 
-.lr.ph.us79:                                      ; preds = %.lr.ph63.split.split.us, %29
-  %.02944.us.us80 = phi ptr [ %.029.us.us, %29 ], [ %.02942.us77, %.lr.ph63.split.split.us ]
-  %26 = getelementptr inbounds i8, ptr %.02944.us.us80, i64 24
+.lr.ph.us80:                                      ; preds = %.lr.ph64.split.split.us, %29
+  %.02944.us.us81 = phi ptr [ %.029.us.us, %29 ], [ %.02942.us78, %.lr.ph64.split.split.us ]
+  %26 = getelementptr inbounds i8, ptr %.02944.us.us81, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.split.us
 
-29:                                               ; preds = %.lr.ph.us79
-  %.029.us.us = load ptr, ptr %.02944.us.us80, align 8
+29:                                               ; preds = %.lr.ph.us80
+  %.029.us.us = load ptr, ptr %.02944.us.us81, align 8
   %.not34.us.us = icmp eq ptr %.029.us.us, null
-  br i1 %.not34.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us79, !llvm.loop !8
+  br i1 %.not34.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us80, !llvm.loop !8
 
-.lr.ph63.split.split:                             ; preds = %.lr.ph63.split, %43
-  %.059 = phi i64 [ %44, %43 ], [ 0, %.lr.ph63.split ]
-  %30 = getelementptr inbounds ptr, ptr %15, i64 %.059
+.lr.ph64.split.split:                             ; preds = %.lr.ph64.split, %43
+  %.060 = phi i64 [ %44, %43 ], [ 0, %.lr.ph64.split ]
+  %30 = getelementptr inbounds ptr, ptr %15, i64 %.060
   %.02942 = load ptr, ptr %30, align 8
   %.not3443 = icmp eq ptr %.02942, null
   br i1 %.not3443, label %43, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph63.split.split, %.lr.ph.us79, %.lr.ph.us
-  %.us-phi = phi i64 [ %.059.us, %.lr.ph.us ], [ %.059.us76, %.lr.ph.us79 ], [ %.059, %.lr.ph63.split.split ]
-  %.us-phi45 = phi ptr [ %.02944.us64, %.lr.ph.us ], [ %.02944.us.us80, %.lr.ph.us79 ], [ %.02942, %.lr.ph63.split.split ]
+.split.us:                                        ; preds = %.lr.ph64.split.split, %.lr.ph.us80, %.lr.ph.us
+  %.us-phi = phi i64 [ %.060.us, %.lr.ph.us ], [ %.060.us77, %.lr.ph.us80 ], [ %.060, %.lr.ph64.split.split ]
+  %.us-phi45 = phi ptr [ %.02944.us65, %.lr.ph.us ], [ %.02944.us.us81, %.lr.ph.us80 ], [ %.02942, %.lr.ph64.split.split ]
   %31 = load ptr, ptr %.us-phi45, align 8
   %.not36 = icmp eq ptr %31, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.us-phi45, i64 8
@@ -390,13 +390,13 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
   store ptr %.us-phi45, ptr %3, align 8
   br label %.loopexit
 
-43:                                               ; preds = %.lr.ph63.split.split
-  %44 = add nuw i64 %.059, 1
+43:                                               ; preds = %.lr.ph64.split.split
+  %44 = add nuw i64 %.060, 1
   %exitcond.not = icmp eq i64 %44, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph63.split.split, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph64.split.split, !llvm.loop !5
 
-.loopexit:                                        ; preds = %43, %._crit_edge.split.us.us, %._crit_edge.split.split.us68, %.lr.ph63.split.us, %12, %39
-  %.030 = phi ptr [ %.us-phi45, %39 ], [ null, %12 ], [ null, %.lr.ph63.split.us ], [ null, %._crit_edge.split.split.us68 ], [ null, %._crit_edge.split.us.us ], [ null, %43 ]
+.loopexit:                                        ; preds = %43, %._crit_edge.split.us.us, %._crit_edge.split.split.us69, %.lr.ph64.split.us, %12, %39
+  %.030 = phi ptr [ %.us-phi45, %39 ], [ null, %12 ], [ null, %.lr.ph64.split.us ], [ null, %._crit_edge.split.split.us69 ], [ null, %._crit_edge.split.us.us ], [ null, %43 ]
   ret ptr %.030
 }
 

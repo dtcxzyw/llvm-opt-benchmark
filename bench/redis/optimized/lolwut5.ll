@@ -61,7 +61,7 @@ for.cond10.preheader.us:                          ; preds = %for.cond10.preheade
   %1 = tail call float @llvm.fmuladd.f32(float %conv19.us, float %div, float %div16)
   %add23.us = fadd float %1, %conv17
   %conv24.us = fptosi float %add23.us to i32
-  %cmp25.us = icmp ugt i32 %y.035.us, 1
+  %cmp25.us = icmp samesign ugt i32 %y.035.us, 1
   %conv69.us = sitofp i32 %conv24.us to float
   br i1 %cmp25.us, label %for.body13.us.us, label %for.body13.us36
 

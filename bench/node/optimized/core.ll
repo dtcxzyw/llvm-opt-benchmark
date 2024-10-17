@@ -1351,8 +1351,8 @@ land.rhs.i:                                       ; preds = %do.body.i
 uv__cloexec.exit:                                 ; preds = %land.rhs.i, %do.body.if.then4_crit_edge.i
   %1 = phi i32 [ %.pre, %do.body.if.then4_crit_edge.i ], [ %0, %land.rhs.i ]
   %tobool = icmp ne i32 %1, 0
-  %cmp = icmp ugt i32 %fd.0, 15
-  %or.cond = and i1 %cmp, %tobool
+  %cmp = icmp samesign ugt i32 %fd.0, 15
+  %or.cond = select i1 %tobool, i1 %cmp, i1 false
   br i1 %or.cond, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %do.body.i, %uv__cloexec.exit

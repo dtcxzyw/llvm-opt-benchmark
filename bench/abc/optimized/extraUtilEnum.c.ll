@@ -1293,7 +1293,7 @@ Abc_Clock.exit173:                                ; preds = %383, %390
   %397 = sitofp i64 %396 to double
   %398 = fdiv double %397, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.100, double noundef %398)
-  %399 = icmp ult i64 %indvars.iv.next238, %154
+  %399 = icmp samesign ult i64 %indvars.iv.next238, %154
   %400 = icmp slt i32 %.11, 7
   %401 = select i1 %399, i1 %400, i1 false
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1

@@ -528,7 +528,7 @@ for.body.i103:                                    ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = load i32, ptr %m_total_sz, align 8
   %50 = zext i32 %49 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %50
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %50
   br i1 %cmp2.i, label %for.body.i103, label %invoke.cont33, !llvm.loop !6
 
 invoke.cont33:                                    ; preds = %for.body.i103, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit.i
@@ -616,7 +616,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -763,7 +763,7 @@ for.body.i:                                       ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %m_total_sz.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %10
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %cmp2.i, label %for.body.i, label %invoke.cont, !llvm.loop !7
 
 invoke.cont:                                      ; preds = %for.body.i, %_ZN6id_gen7recycleEj.exit.i, %entry
@@ -951,7 +951,7 @@ for.body:                                         ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %m_total_sz.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next, %10
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body, %_ZN6id_gen7recycleEj.exit, %entry
@@ -1327,7 +1327,7 @@ for.body.i:                                       ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %m_total_sz.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %10
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %10
   br i1 %cmp2.i, label %for.body.i, label %_ZN12mpfx_manager3delER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager3delER4mpfx.exit:                ; preds = %for.body.i, %entry, %_ZN6id_gen7recycleEj.exit.i
@@ -1641,7 +1641,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -1709,7 +1709,7 @@ for.body:                                         ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %m_total_sz.i, align 8
   %20 = zext i32 %19 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next, %20
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit
@@ -1808,7 +1808,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %11 = load i32, ptr %m_total_sz.i.i.i, align 8
   %12 = zext i32 %11 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %12
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then7, %_ZN6id_gen7recycleEj.exit.i.i
@@ -1935,7 +1935,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_total_sz.i.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then6, %_ZN6id_gen7recycleEj.exit.i.i
@@ -2003,7 +2003,7 @@ for.body:                                         ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %m_total_sz.i, align 8
   %21 = zext i32 %20 to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next, %21
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit
@@ -2119,7 +2119,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_total_sz.i.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit, !llvm.loop !7
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -2198,7 +2198,7 @@ for.body.i.i37:                                   ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i40 = add nuw nsw i64 %indvars.iv.i.i38, 1
   %24 = load i32, ptr %m_total_sz.i.i.i32, align 8
   %25 = zext i32 %24 to i64
-  %cmp2.i.i41 = icmp ult i64 %indvars.iv.next.i.i40, %25
+  %cmp2.i.i41 = icmp samesign ult i64 %indvars.iv.next.i.i40, %25
   br i1 %cmp2.i.i41, label %for.body.i.i37, label %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit47, !llvm.loop !7
 
 terminate.lpad.i14:                               ; preds = %if.then.i.i.i.i42, %if.then.i.i11
@@ -2301,7 +2301,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %if.end135.sink.split, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end
@@ -2400,7 +2400,7 @@ for.body:                                         ; preds = %_ZNK12mpfx_manager2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %m_frac_part_sz, align 4
   %24 = zext i32 %23 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %24
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp, label %for.body, label %for.cond13.preheader.loopexit, !llvm.loop !14
 
 for.body15:                                       ; preds = %for.cond13.preheader, %for.body15
@@ -2416,7 +2416,7 @@ for.body15:                                       ; preds = %for.cond13.preheade
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %28 = load i32, ptr %m_total_sz.i, align 8
   %29 = zext i32 %28 to i64
-  %cmp14 = icmp ult i64 %indvars.iv.next202, %29
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next202, %29
   br i1 %cmp14, label %for.body15, label %for.end24, !llvm.loop !15
 
 for.end24:                                        ; preds = %for.body15, %for.cond13.preheader
@@ -2471,7 +2471,7 @@ for.body.i:                                       ; preds = %if.then35, %for.bod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %m_total_sz.i, align 8
   %37 = zext i32 %36 to i64
-  %cmp.i84 = icmp ult i64 %indvars.iv.next.i, %37
+  %cmp.i84 = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %cmp.i84, label %for.body.i, label %if.end135, !llvm.loop !16
 
 if.else36:                                        ; preds = %if.then29
@@ -2535,7 +2535,7 @@ for.body.i.i111:                                  ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i114 = add nuw nsw i64 %indvars.iv.i.i112, 1
   %47 = load i32, ptr %m_total_sz.i, align 8
   %48 = zext i32 %47 to i64
-  %cmp2.i.i115 = icmp ult i64 %indvars.iv.next.i.i114, %48
+  %cmp2.i.i115 = icmp samesign ult i64 %indvars.iv.next.i.i114, %48
   br i1 %cmp2.i.i115, label %for.body.i.i111, label %if.end135.sink.split, !llvm.loop !7
 
 if.else38:                                        ; preds = %_ZNK12mpfx_manager2szEPj.exit81
@@ -2556,7 +2556,7 @@ for.body46.preheader:                             ; preds = %if.else38
 
 for.cond44:                                       ; preds = %for.body46
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %cmp45 = icmp ult i64 %indvars.iv.next205, %52
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next205, %52
   br i1 %cmp45, label %for.body46, label %for.end55, !llvm.loop !17
 
 for.body46:                                       ; preds = %for.body46.preheader, %for.cond44
@@ -2650,7 +2650,7 @@ for.body79:                                       ; preds = %for.body79.preheade
   %arrayidx88 = getelementptr inbounds i32, ptr %add.ptr.i127, i64 %indvars.iv207
   store i32 %62, ptr %arrayidx88, align 4
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %cmp78 = icmp ult i64 %indvars.iv.next208, %58
+  %cmp78 = icmp samesign ult i64 %indvars.iv.next208, %58
   br i1 %cmp78, label %for.body79, label %for.cond92.preheader.loopexit, !llvm.loop !18
 
 for.body95:                                       ; preds = %for.body95.preheader, %for.body95
@@ -2660,7 +2660,7 @@ for.body95:                                       ; preds = %for.body95.preheade
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %63 = load i32, ptr %m_total_sz.i, align 8
   %64 = zext i32 %63 to i64
-  %cmp94 = icmp ult i64 %indvars.iv.next210, %64
+  %cmp94 = icmp samesign ult i64 %indvars.iv.next210, %64
   br i1 %cmp94, label %for.body95, label %if.end119, !llvm.loop !19
 
 for.body106:                                      ; preds = %for.cond103.preheader, %for.body106
@@ -2675,7 +2675,7 @@ for.body106:                                      ; preds = %for.cond103.prehead
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %66 = load i32, ptr %m_total_sz.i, align 8
   %67 = zext i32 %66 to i64
-  %cmp105 = icmp ult i64 %indvars.iv.next213, %67
+  %cmp105 = icmp samesign ult i64 %indvars.iv.next213, %67
   br i1 %cmp105, label %for.body106, label %if.end119, !llvm.loop !20
 
 if.end119:                                        ; preds = %for.body95, %for.body106, %for.cond92.preheader
@@ -2715,7 +2715,7 @@ for.body.i136:                                    ; preds = %if.then130, %for.bo
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i137, 1
   %74 = load i32, ptr %m_total_sz.i, align 8
   %75 = zext i32 %74 to i64
-  %cmp.i140 = icmp ult i64 %indvars.iv.next.i139, %75
+  %cmp.i140 = icmp samesign ult i64 %indvars.iv.next.i139, %75
   br i1 %cmp.i140, label %for.body.i136, label %if.end135, !llvm.loop !16
 
 if.else131:                                       ; preds = %if.then121
@@ -2779,7 +2779,7 @@ for.body.i.i168:                                  ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i171 = add nuw nsw i64 %indvars.iv.i.i169, 1
   %85 = load i32, ptr %m_total_sz.i, align 8
   %86 = zext i32 %85 to i64
-  %cmp2.i.i172 = icmp ult i64 %indvars.iv.next.i.i171, %86
+  %cmp2.i.i172 = icmp samesign ult i64 %indvars.iv.next.i.i171, %86
   br i1 %cmp2.i.i172, label %for.body.i.i168, label %if.end135.sink.split, !llvm.loop !7
 
 if.end135.sink.split:                             ; preds = %for.body.i.i168, %for.body.i.i111, %for.body.i.i, %_ZN6id_gen7recycleEj.exit.i.i159, %if.else131, %_ZN6id_gen7recycleEj.exit.i.i102, %if.else36, %_ZN6id_gen7recycleEj.exit.i.i, %if.then3
@@ -2864,7 +2864,7 @@ for.body.i:                                       ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %m_total_sz.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %11
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %cmp2.i, label %for.body.i, label %invoke.cont, !llvm.loop !7
 
 invoke.cont:                                      ; preds = %for.body.i, %_ZN6id_gen7recycleEj.exit.i, %entry
@@ -2969,7 +2969,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_total_sz.i.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit, !llvm.loop !7
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -3048,7 +3048,7 @@ for.body.i.i37:                                   ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i40 = add nuw nsw i64 %indvars.iv.i.i38, 1
   %24 = load i32, ptr %m_total_sz.i.i.i32, align 8
   %25 = zext i32 %24 to i64
-  %cmp2.i.i41 = icmp ult i64 %indvars.iv.next.i.i40, %25
+  %cmp2.i.i41 = icmp samesign ult i64 %indvars.iv.next.i.i40, %25
   br i1 %cmp2.i.i41, label %for.body.i.i37, label %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit47, !llvm.loop !7
 
 terminate.lpad.i14:                               ; preds = %if.then.i.i.i.i42, %if.then.i.i11
@@ -3140,7 +3140,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -3220,7 +3220,7 @@ for.body:                                         ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %m_total_sz.i, align 8
   %21 = zext i32 %20 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit, %_ZN12mpfx_manager5resetER4mpfx.exit
@@ -3305,7 +3305,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_total_sz.i.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -3411,7 +3411,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %m_frac_part_sz, align 4
   %26 = zext i32 %25 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %26
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp8, label %for.body, label %for.end.loopexit, !llvm.loop !22
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -3509,7 +3509,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %10 = load i32, ptr %m_total_sz.i.i.i, align 8
   %11 = zext i32 %10 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %11
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %11
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -3615,7 +3615,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %m_frac_part_sz, align 4
   %26 = zext i32 %25 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %26
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp8, label %for.body, label %for.end.loopexit, !llvm.loop !23
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -4404,7 +4404,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %21 = load i32, ptr %m_total_sz.i, align 8
   %22 = zext i32 %21 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %22
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %22
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then57, %_ZN6id_gen7recycleEj.exit.i.i
@@ -4507,7 +4507,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -4645,7 +4645,7 @@ for.body:                                         ; preds = %if.end29, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %m_total_sz.i, align 8
   %30 = zext i32 %29 to i64
-  %cmp32 = icmp ult i64 %indvars.iv.next, %30
+  %cmp32 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %cmp32, label %for.body, label %if.end35, !llvm.loop !25
 
 if.end35:                                         ; preds = %for.body, %if.end29, %_ZN12mpfx_manager5resetER4mpfx.exit
@@ -4686,7 +4686,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %m_total_sz.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4808,7 +4808,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %16 = load i32, ptr %m_total_sz.i, align 8
   %17 = zext i32 %16 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %17
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %17
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then16, %_ZN6id_gen7recycleEj.exit.i.i
@@ -4847,7 +4847,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr %m_total_sz.i.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %_ZN12mpfx_manager11set_epsilonER4mpfx.exit, !llvm.loop !16
 
 _ZN12mpfx_manager11set_epsilonER4mpfx.exit:       ; preds = %for.body.i, %entry
@@ -4881,7 +4881,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = load i32, ptr %m_total_sz.i.i, align 8
   %4 = zext i32 %3 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %_ZN12mpfx_manager11set_epsilonER4mpfx.exit, !llvm.loop !16
 
 _ZN12mpfx_manager11set_epsilonER4mpfx.exit:       ; preds = %for.body.i, %entry
@@ -4935,7 +4935,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
   %is_int.1 = phi i1 [ false, %if.then4 ], [ %is_int.014, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = zext i32 %5 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %6
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc
@@ -4965,7 +4965,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %8 = load i32, ptr %m_frac_part_sz13, align 4
   %9 = zext i32 %8 to i64
-  %cmp14 = icmp ult i64 %indvars.iv.next21, %9
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next21, %9
   br i1 %cmp14, label %for.body15, label %if.end21, !llvm.loop !27
 
 if.end21:                                         ; preds = %for.body15, %for.cond.preheader, %land.lhs.true.if.end21_crit_edge, %for.cond12.preheader, %for.end
@@ -5038,7 +5038,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %21 = load i32, ptr %m_total_sz.i, align 8
   %22 = zext i32 %21 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %22
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %22
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then27, %_ZN6id_gen7recycleEj.exit.i.i
@@ -5095,7 +5095,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
   %is_int.1 = phi i1 [ false, %if.then4 ], [ %is_int.016, %for.body ]
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next22, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next22, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc
@@ -5125,7 +5125,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %m_frac_part_sz, align 4
   %10 = zext i32 %9 to i64
-  %cmp14 = icmp ult i64 %indvars.iv.next, %10
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp14, label %for.body15, label %if.end21, !llvm.loop !29
 
 if.end21:                                         ; preds = %for.body15, %for.cond.preheader, %land.lhs.true.if.end21_crit_edge, %for.cond12.preheader, %for.end
@@ -5198,7 +5198,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %22 = load i32, ptr %m_total_sz.i, align 8
   %23 = zext i32 %22 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %23
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %23
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then27, %_ZN6id_gen7recycleEj.exit.i.i
@@ -5281,7 +5281,7 @@ for.body.i.i:                                     ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %m_total_sz.i.i.i, align 8
   %10 = zext i32 %9 to i64
-  %cmp2.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN12mpfx_manager5resetER4mpfx.exit, !llvm.loop !7
 
 _ZN12mpfx_manager5resetER4mpfx.exit:              ; preds = %for.body.i.i, %if.then, %_ZN6id_gen7recycleEj.exit.i.i
@@ -5355,7 +5355,7 @@ for.body.i:                                       ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr %m_total_sz.i.i, align 8
   %20 = zext i32 %19 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %20
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %cmp2.i, label %for.body.i, label %_ZN12mpfx_manager3setER4mpfxj.exit, !llvm.loop !6
 
 _ZN12mpfx_manager3setER4mpfxj.exit:               ; preds = %for.body.i, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit.i
@@ -5470,7 +5470,7 @@ for.body.i86:                                     ; preds = %_ZN12mpfx_manager18
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
   %31 = load i32, ptr %m_total_sz.i.i81, align 8
   %32 = zext i32 %31 to i64
-  %cmp2.i90 = icmp ult i64 %indvars.iv.next.i89, %32
+  %cmp2.i90 = icmp samesign ult i64 %indvars.iv.next.i89, %32
   br i1 %cmp2.i90, label %for.body.i86, label %_ZN12mpfx_manager3setER4mpfxi.exit, !llvm.loop !6
 
 _ZN12mpfx_manager3setER4mpfxi.exit:               ; preds = %for.body.i86
@@ -5588,7 +5588,7 @@ for.body.i.i59:                                   ; preds = %_ZN6id_gen7recycleE
   %indvars.iv.next.i.i62 = add nuw nsw i64 %indvars.iv.i.i60, 1
   %44 = load i32, ptr %m_total_sz.i.i.i54, align 8
   %45 = zext i32 %44 to i64
-  %cmp2.i.i63 = icmp ult i64 %indvars.iv.next.i.i62, %45
+  %cmp2.i.i63 = icmp samesign ult i64 %indvars.iv.next.i.i62, %45
   br i1 %cmp2.i.i63, label %for.body.i.i59, label %if.end38, !llvm.loop !7
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i64, %if.then.i.i36
@@ -6603,7 +6603,7 @@ for.body:                                         ; preds = %invoke.cont19, %for
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %m_frac_part_sz.i, align 4
   %20 = zext i32 %19 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %20
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !37
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i47, %if.end.i.i.i.i.i.i65

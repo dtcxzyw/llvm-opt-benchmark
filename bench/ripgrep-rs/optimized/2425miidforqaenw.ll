@@ -393,17 +393,17 @@ define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$core..option..Optio
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
-  %3 = icmp ult i32 %1, 128
+  %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %1, 2048
+  %5 = icmp samesign ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   br i1 %7, label %15, label %26
 
 8:                                                ; preds = %4
@@ -4047,7 +4047,7 @@ _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit
   %562 = getelementptr inbounds i8, ptr %557, i64 4
   store i32 45, ptr %562, align 4, !alias.scope !634, !noalias !637
   %563 = load i32, ptr %557, align 4, !range !94, !alias.scope !634, !noalias !637, !noundef !5
-  %564 = icmp ugt i32 %563, 45
+  %564 = icmp samesign ugt i32 %563, 45
   br i1 %564, label %565, label %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i
 
 565:                                              ; preds = %559
@@ -4103,7 +4103,7 @@ _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit
   %588 = getelementptr inbounds i8, ptr %586, i64 4
   store i32 %.0.i71.i.i, ptr %588, align 4, !alias.scope !643, !noalias !646
   %589 = load i32, ptr %586, align 4, !range !94, !alias.scope !643, !noalias !646, !noundef !5
-  %590 = icmp ult i32 %.0.i71.i.i, %589
+  %590 = icmp samesign ult i32 %.0.i71.i.i, %589
   br i1 %590, label %591, label %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i
 
 591:                                              ; preds = %587
@@ -6032,15 +6032,15 @@ define internal fastcc void @_ZN7globset4glob23char_to_escaped_literal17ha13e008
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !1021
-  %16 = icmp ult i32 %1, 128
+  %16 = icmp samesign ult i32 %1, 128
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
-  %18 = icmp ult i32 %1, 2048
+  %18 = icmp samesign ult i32 %1, 2048
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %1, 65536
+  %20 = icmp samesign ult i32 %1, 65536
   br i1 %20, label %30, label %41
 
 21:                                               ; preds = %2

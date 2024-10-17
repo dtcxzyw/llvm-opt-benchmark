@@ -245,7 +245,7 @@ define hidden void @_ZN14ZRememberedSet19swap_remset_bitmapsEv(ptr noundef nonnu
 .preheader.i.i:                                   ; preds = %20, %24
   %.025.i.i.i.i = phi i64 [ %22, %24 ], [ %13, %20 ]
   %22 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %23 = icmp ult i64 %22, %8
+  %23 = icmp samesign ult i64 %22, %8
   br i1 %23, label %24, label %"_ZNK6BitMap7iterateIZN14ZRememberedSet19swap_remset_bitmapsEvE3$_0EEbT_.exit"
 
 24:                                               ; preds = %.preheader.i.i
@@ -339,7 +339,7 @@ define hidden void @_ZN14ZRememberedSet24iterator_limited_currentEmm(ptr dead_on
 24:                                               ; preds = %27, %21
   %.025.i.i.i = phi i64 [ %12, %21 ], [ %25, %27 ]
   %25 = add nuw nsw i64 %.025.i.i.i, 1
-  %26 = icmp ult i64 %25, %23
+  %26 = icmp samesign ult i64 %25, %23
   br i1 %26, label %27, label %.loopexit.i.i.i
 
 27:                                               ; preds = %24
@@ -408,7 +408,7 @@ define hidden void @_ZN14ZRememberedSet25iterator_limited_previousEmm(ptr dead_o
 25:                                               ; preds = %28, %22
   %.025.i.i.i = phi i64 [ %13, %22 ], [ %26, %28 ]
   %26 = add nuw nsw i64 %.025.i.i.i, 1
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp samesign ult i64 %26, %24
   br i1 %27, label %28, label %.loopexit.i.i.i
 
 28:                                               ; preds = %25

@@ -3846,7 +3846,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   %32 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !684
   %33 = icmp ult i64 %32, 6
   call void @llvm.assume(i1 %33)
-  %34 = icmp ugt i64 %.0.i8, %32
+  %34 = icmp samesign ugt i64 %.0.i8, %32
   br i1 %34, label %.noexc5, label %.critedge.i9
 
 .critedge.i9:                                     ; preds = %.noexc12

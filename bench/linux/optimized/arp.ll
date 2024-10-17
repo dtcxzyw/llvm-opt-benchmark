@@ -2644,7 +2644,7 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
 38:                                               ; preds = %42, %29
   %39 = phi i64 [ 0, %29 ], [ %57, %42 ]
   %40 = phi i64 [ 0, %29 ], [ %59, %42 ]
-  %41 = icmp ult i64 %40, %37
+  %41 = icmp samesign ult i64 %40, %37
   br i1 %41, label %42, label %61
 
 42:                                               ; preds = %38

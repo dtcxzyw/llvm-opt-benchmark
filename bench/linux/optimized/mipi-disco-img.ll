@@ -365,7 +365,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   store ptr %83, ptr %85, align 8
   %86 = add i32 %81, 1
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %75, %87
+  %88 = icmp samesign ult i64 %75, %87
   br i1 %88, label %89, label %79, !llvm.loop !11
 
 89:                                               ; preds = %79
@@ -467,7 +467,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 144:                                              ; preds = %152
   %145 = add nuw nsw i64 %148, 1
-  %146 = icmp ult i64 %145, %143
+  %146 = icmp samesign ult i64 %145, %143
   br i1 %146, label %147, label %.thread28, !llvm.loop !14
 
 147:                                              ; preds = %.preheader, %144
@@ -520,7 +520,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 171:                                              ; preds = %179
   %172 = add nuw nsw i64 %175, 1
-  %173 = icmp ult i64 %172, %170
+  %173 = icmp samesign ult i64 %172, %170
   br i1 %173, label %174, label %.thread30, !llvm.loop !14
 
 174:                                              ; preds = %171, %167
@@ -1052,7 +1052,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %190 = shl nuw nsw i64 %189, 3
   %191 = add nuw nsw i32 %184, 1
   %192 = zext nneg i32 %191 to i64
-  %193 = icmp ult i64 %190, %192
+  %193 = icmp samesign ult i64 %190, %192
   br i1 %193, label %194, label %195
 
 194:                                              ; preds = %188
@@ -1202,7 +1202,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %275 = add nuw nsw i64 %113, 1
   %276 = load i32, ptr %106, align 8
   %277 = zext i32 %276 to i64
-  %278 = icmp ult i64 %275, %277
+  %278 = icmp samesign ult i64 %275, %277
   br i1 %278, label %112, label %.loopexit14, !llvm.loop !30
 
 .loopexit14:                                      ; preds = %274, %100

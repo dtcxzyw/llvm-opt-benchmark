@@ -8034,7 +8034,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.0121224 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph226 ], [ %.1122.lcssa, %.loopexit ]
   %.0124209.lcssa221222 = phi i32 [ -1, %.lr.ph226 ], [ %.0124209.lcssa, %.loopexit ]
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %.not135210.not = icmp ult i64 %indvars.iv246, %293
+  %.not135210.not = icmp samesign ult i64 %indvars.iv246, %293
   br i1 %.not135210.not, label %.lr.ph215, label %.loopexit
 
 .lr.ph215:                                        ; preds = %294
@@ -8350,7 +8350,7 @@ define noundef zeroext i1 @_ZN2cv6detail12DpSeamFinder12estimateSeamERKNS_3MatES
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
   %73 = sub nsw i32 %69, %67
   %74 = call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %75 = icmp ugt i32 %72, %74
+  %75 = icmp samesign ugt i32 %72, %74
   %76 = zext i1 %75 to i8
   store i8 %76, ptr %9, align 1
   br i1 %75, label %77, label %82
@@ -8580,7 +8580,7 @@ define noundef zeroext i1 @_ZN2cv6detail12DpSeamFinder12estimateSeamERKNS_3MatES
 
 210:                                              ; preds = %182, %175, %174
   %.5140.us = phi i32 [ %206, %182 ], [ %.4139.us, %175 ], [ %.4139.us, %174 ]
-  %211 = icmp ult i64 %indvars.iv, %135
+  %211 = icmp samesign ult i64 %indvars.iv, %135
   br i1 %211, label %212, label %246
 
 212:                                              ; preds = %210
@@ -8835,7 +8835,7 @@ _ZSt11min_elementIPSt4pairIfiEET_S3_S3_.exit239.us: ; preds = %_ZNK9__gnu_cxx5__
 
 370:                                              ; preds = %342, %335, %334
   %.2137.us = phi i32 [ %366, %342 ], [ %.1136.us, %335 ], [ %.1136.us, %334 ]
-  %371 = icmp ult i64 %indvars.iv571, %295
+  %371 = icmp samesign ult i64 %indvars.iv571, %295
   br i1 %371, label %372, label %406
 
 372:                                              ; preds = %370
@@ -10701,7 +10701,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %37 = sub nsw i32 %34, %36
   %38 = mul nsw i32 %37, %37
   %39 = add nuw nsw i32 %38, %33
-  %40 = icmp ult i32 %39, %19
+  %40 = icmp samesign ult i32 %39, %19
   br i1 %40, label %.preheader131.us.preheader, label %.loopexit.us
 
 .preheader131.us.preheader:                       ; preds = %28
@@ -12353,7 +12353,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us112
   %indvars.iv126 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next127, %._crit_edge.us112 ]
   %103 = mul nuw nsw i64 %indvars.iv126, %101
-  %104 = icmp ult i64 %indvars.iv126, %102
+  %104 = icmp samesign ult i64 %indvars.iv126, %102
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %105 = trunc nuw i64 %103 to i32
   %invariant.op = add nuw i32 %105, 1
@@ -12364,7 +12364,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
   %indvars.iv121 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next122, %269 ]
   %indvars123 = trunc i64 %indvars.iv121 to i32
   %107 = add nuw nsw i64 %indvars.iv121, %103
-  %108 = icmp ult i64 %indvars.iv121, %100
+  %108 = icmp samesign ult i64 %indvars.iv121, %100
   br i1 %108, label %109, label %185
 
 109:                                              ; preds = %106
@@ -13136,7 +13136,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us138
   %indvars.iv152 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next153, %._crit_edge.us138 ]
   %115 = mul nuw nsw i64 %indvars.iv152, %113
-  %116 = icmp ult i64 %indvars.iv152, %114
+  %116 = icmp samesign ult i64 %indvars.iv152, %114
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %117 = trunc nuw i64 %115 to i32
   %invariant.op = add nuw i32 %117, 1
@@ -13147,7 +13147,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
   %indvars.iv147 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next148, %331 ]
   %indvars149 = trunc i64 %indvars.iv147 to i32
   %119 = add nuw nsw i64 %indvars.iv147, %115
-  %120 = icmp ult i64 %indvars.iv147, %112
+  %120 = icmp samesign ult i64 %indvars.iv147, %112
   br i1 %120, label %121, label %220
 
 121:                                              ; preds = %118
@@ -16799,7 +16799,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %69 = mul nsw i32 %66, %66
   %70 = mul nsw i32 %68, %68
   %71 = add nuw nsw i32 %70, %69
-  %72 = icmp ult i32 %45, %71
+  %72 = icmp samesign ult i32 %45, %71
   %spec.select = select i1 %72, i64 %18, i64 %16
   %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
   %74 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.036
@@ -16925,7 +16925,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   %59 = mul nsw i32 %56, %56
   %60 = mul nsw i32 %58, %58
   %61 = add nuw nsw i32 %60, %59
-  %62 = icmp ult i32 %38, %61
+  %62 = icmp samesign ult i32 %38, %61
   br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %9
@@ -17015,7 +17015,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   %56 = mul nsw i32 %53, %53
   %57 = mul nsw i32 %55, %55
   %58 = add nuw nsw i32 %57, %56
-  %59 = icmp ult i32 %32, %58
+  %59 = icmp samesign ult i32 %32, %58
   %60 = load i64, ptr %3, align 8
   %61 = getelementptr inbounds %"class.cv::Point_", ptr %5, i64 %60
   %62 = getelementptr inbounds %"class.cv::Mat", ptr %4, i64 %60
@@ -17053,7 +17053,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   br i1 %59, label %86, label %103
 
 86:                                               ; preds = %6
-  %87 = icmp ult i32 %58, %85
+  %87 = icmp samesign ult i32 %58, %85
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %86
@@ -17068,7 +17068,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   br label %120
 
 93:                                               ; preds = %86
-  %94 = icmp ult i32 %32, %85
+  %94 = icmp samesign ult i32 %32, %85
   %95 = load i64, ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %94, label %97, label %100
@@ -17092,7 +17092,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   br label %120
 
 103:                                              ; preds = %6
-  %104 = icmp ult i32 %32, %85
+  %104 = icmp samesign ult i32 %32, %85
   br i1 %104, label %105, label %110
 
 105:                                              ; preds = %103
@@ -17107,7 +17107,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   br label %120
 
 110:                                              ; preds = %103
-  %111 = icmp ult i32 %58, %85
+  %111 = icmp samesign ult i32 %58, %85
   %112 = load i64, ptr %0, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %111, label %114, label %117
@@ -17213,7 +17213,7 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %57 = mul nsw i32 %54, %54
   %58 = mul nsw i32 %56, %56
   %59 = add nuw nsw i32 %58, %57
-  %60 = icmp ult i32 %59, %32
+  %60 = icmp samesign ult i32 %59, %32
   %61 = getelementptr inbounds i8, ptr %.sroa.029.1, i64 16
   br i1 %60, label %33, label %.preheader, !llvm.loop !232
 
@@ -17258,7 +17258,7 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %87 = mul nsw i32 %84, %84
   %88 = mul nsw i32 %86, %86
   %89 = add nuw nsw i32 %88, %87
-  %90 = icmp ult i32 %32, %89
+  %90 = icmp samesign ult i32 %32, %89
   br i1 %90, label %63, label %91, !llvm.loop !233
 
 91:                                               ; preds = %63
@@ -17367,7 +17367,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %57 = mul nsw i32 %54, %54
   %58 = mul nsw i32 %56, %56
   %59 = add nuw nsw i32 %58, %57
-  %60 = icmp ult i32 %34, %59
+  %60 = icmp samesign ult i32 %34, %59
   br i1 %60, label %61, label %.preheader
 
 61:                                               ; preds = %8
@@ -17460,7 +17460,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS
   %111 = mul nsw i32 %108, %108
   %112 = mul nsw i32 %110, %110
   %113 = add nuw nsw i32 %112, %111
-  %114 = icmp ult i32 %87, %113
+  %114 = icmp samesign ult i32 %87, %113
   %115 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 8
   br i1 %114, label %116, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_.exit
 
@@ -17571,7 +17571,7 @@ define linkonce_odr hidden void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17_
   %52 = mul nsw i32 %49, %49
   %53 = mul nsw i32 %51, %51
   %54 = add nuw nsw i32 %53, %52
-  %55 = icmp ult i32 %28, %54
+  %55 = icmp samesign ult i32 %28, %54
   %56 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 8
   br i1 %55, label %57, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_.exit
 

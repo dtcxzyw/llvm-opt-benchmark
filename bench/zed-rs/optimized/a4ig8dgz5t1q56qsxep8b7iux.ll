@@ -3686,7 +3686,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
 
 "_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7f6f442aa32744f0E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i.i.i", %16
   %22 = load i8, ptr %6, align 8, !range !528, !alias.scope !529, !noalias !512, !noundef !7
-  %switch.i.i.i = icmp ult i8 %22, 10
+  %switch.i.i.i = icmp samesign ult i8 %22, 10
   br i1 %switch.i.i.i, label %.body.thread, label %23
 
 23:                                               ; preds = %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7f6f442aa32744f0E.exit.i"
@@ -3696,7 +3696,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
 
 25:                                               ; preds = %10
   %26 = load i8, ptr %8, align 8, !range !528, !alias.scope !534, !noundef !7
-  %switch.i.i.i9 = icmp ult i8 %26, 10
+  %switch.i.i.i9 = icmp samesign ult i8 %26, 10
   br i1 %switch.i.i.i9, label %"_ZN4core3ptr127drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7381f7f68ccf75aeE.exit", label %27
 
 27:                                               ; preds = %25
@@ -3762,7 +3762,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %36 = load i8, ptr %2, align 8, !range !528, !alias.scope !541, !noundef !7
-  %switch.i.i = icmp ult i8 %36, 10
+  %switch.i.i = icmp samesign ult i8 %36, 10
   br i1 %switch.i.i, label %.body.thread, label %37
 
 37:                                               ; preds = %35

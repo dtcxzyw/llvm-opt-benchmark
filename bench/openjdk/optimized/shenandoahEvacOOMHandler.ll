@@ -110,7 +110,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonn
   %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 128)
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
   %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %8 = sub nuw nsw i32 32, %7
   %9 = shl nuw nsw i32 1, %8
@@ -146,7 +146,7 @@ define hidden noundef range(i32 1, 257) i32 @_ZN24ShenandoahEvacOOMHandler17calc
   %2 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 128)
   %3 = tail call noundef i32 @llvm.smax.i32(i32 %2, i32 1)
   %4 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
-  %5 = icmp ult i32 %4, 2
+  %5 = icmp samesign ult i32 %4, 2
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %7 = sub nuw nsw i32 32, %6
   %8 = shl nuw nsw i32 1, %7

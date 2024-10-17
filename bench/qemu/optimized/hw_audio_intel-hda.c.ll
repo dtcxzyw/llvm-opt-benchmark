@@ -2025,7 +2025,7 @@ for.inc:                                          ; preds = %if.then, %for.body
   %add38 = add i64 %addr.031, 16
   %20 = load i32, ptr %bentries, align 8
   %21 = zext i32 %20 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry

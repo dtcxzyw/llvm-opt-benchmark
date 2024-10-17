@@ -75,7 +75,7 @@ define dso_local range(i32 -4095, 1) i32 @i915_gem_mmap_ioctl(ptr nocapture noun
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
-  %19 = icmp ugt i32 %18, 3072
+  %19 = icmp samesign ugt i32 %18, 3072
   br i1 %19, label %116, label %20
 
 20:                                               ; preds = %10
@@ -2231,7 +2231,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr nocapture nounde
   %157 = trunc i64 %156 to i32
   %158 = call i32 @llvm.umin.i32(i32 %150, i32 %157)
   store i32 %158, ptr %54, align 4, !alias.scope !44
-  %.not = icmp ugt i64 %155, %151
+  %.not = icmp samesign ugt i64 %155, %151
   br i1 %.not, label %160, label %159
 
 159:                                              ; preds = %149

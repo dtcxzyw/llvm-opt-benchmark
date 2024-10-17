@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 0, 2) i32 @_match_feature(ptr noundef %0, ptr n
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i32
-  %16 = icmp ult i32 %.02969, %15
+  %16 = icmp samesign ult i32 %.02969, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.lr.ph
@@ -1164,7 +1164,7 @@ define internal fastcc range(i32 0, 2) i32 @_match_feature(ptr noundef %0, ptr n
   %.13248 = phi i32 [ %.03168, %35 ], [ %.1325059, %.thread54 ], [ %.1324965, %.thread60 ], [ %.03168, %32 ], [ %.03168, %29 ]
   %38 = load i16, ptr %13, align 8
   %39 = zext i16 %38 to i32
-  %40 = icmp ugt i32 %.02969, %39
+  %40 = icmp samesign ugt i32 %.02969, %39
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %37
@@ -1378,7 +1378,7 @@ define dso_local void @filter_by_node_owner(ptr nocapture noundef readonly %0, p
   br i1 %27, label %.backedge, label %28
 
 28:                                               ; preds = %22
-  %29 = icmp ugt i32 %26, 2
+  %29 = icmp samesign ugt i32 %26, 2
   %30 = and i32 %25, 32768
   %31 = icmp eq i32 %30, 0
   %or.cond = and i1 %29, %31
@@ -6932,7 +6932,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = load i16, ptr %32, align 8
   %34 = zext i16 %33 to i32
-  %35 = icmp ult i32 %.074122, %34
+  %35 = icmp samesign ult i32 %.074122, %34
   br i1 %35, label %36, label %53
 
 36:                                               ; preds = %30
@@ -7036,7 +7036,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
   %spec.select = select i1 %.not91, i1 true, i1 %.069124
   %68 = load i16, ptr %32, align 8
   %69 = zext i16 %68 to i32
-  %70 = icmp ugt i32 %.074122, %69
+  %70 = icmp samesign ugt i32 %.074122, %69
   br i1 %70, label %71, label %82
 
 71:                                               ; preds = %65

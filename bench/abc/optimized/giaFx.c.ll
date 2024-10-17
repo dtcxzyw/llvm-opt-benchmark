@@ -417,7 +417,7 @@ Vec_WrdAlloc.exit:                                ; preds = %4, %15
   %indvars.iv10.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next11.i, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph5.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
-  %43 = icmp ult i64 %indvars.iv.next11.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next11.i, %42
   br i1 %43, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph5.i
@@ -1774,7 +1774,7 @@ Vec_IntStart.exit73:                              ; preds = %Vec_IntAlloc.exit.t
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %43, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %52 = icmp ult i64 %indvars.iv.next101, %38
+  %52 = icmp samesign ult i64 %indvars.iv.next101, %38
   br i1 %52, label %39, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %49, %Vec_IntStart.exit73

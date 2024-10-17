@@ -1968,7 +1968,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %69 = load i64, ptr %13, align 4
   %70 = lshr i64 %69, 24
   %71 = and i64 %70, 255
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %60, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %60, %67, %.preheader
@@ -2045,7 +2045,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %.val98 = load i64, ptr %13, align 4
   %114 = trunc i64 %.val98 to i32
   %115 = lshr i32 %114, 24
-  %116 = icmp ugt i32 %115, %113
+  %116 = icmp samesign ugt i32 %115, %113
   br i1 %116, label %117, label %126
 
 117:                                              ; preds = %110
@@ -2210,7 +2210,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %193 = load i8, ptr %90, align 1
   %194 = zext i8 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next159, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next159, %194
   br i1 %195, label %95, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %189, %85, %.critedge
@@ -2369,7 +2369,7 @@ define ptr @Abc_NodeFromIf_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %33 = load i64, ptr %14, align 4
   %34 = lshr i64 %33, 24
   %35 = and i64 %34, 255
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %23, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph309, %23, %.lr.ph, %.preheader254
@@ -2611,7 +2611,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %152 = load i64, ptr %138, align 4
   %153 = lshr i64 %152, 24
   %154 = and i64 %153, 255
-  %155 = icmp ult i64 %indvars.iv.next285, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next285, %154
   br i1 %155, label %143, label %.critedge2, !llvm.loop !28
 
 156:                                              ; preds = %.lr.ph267, %163
@@ -2634,7 +2634,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %165 = load i64, ptr %138, align 4
   %166 = lshr i64 %165, 24
   %167 = and i64 %166, 255
-  %168 = icmp ult i64 %indvars.iv.next288, %167
+  %168 = icmp samesign ult i64 %indvars.iv.next288, %167
   br i1 %168, label %156, label %.critedge2, !llvm.loop !29
 
 .critedge2:                                       ; preds = %131, %124, %143, %150, %156, %163, %116, %.preheader250, %.preheader249
@@ -3021,7 +3021,7 @@ If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.
   %368 = add nuw nsw i32 %.4269, 1
   %369 = trunc i64 %367 to i32
   %370 = lshr i32 %369, 24
-  %371 = icmp ult i32 %368, %370
+  %371 = icmp samesign ult i32 %368, %370
   br i1 %371, label %355, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %366, %348
@@ -3095,7 +3095,7 @@ If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.
   %408 = load i64, ptr %393, align 4
   %409 = lshr i64 %408, 24
   %410 = and i64 %409, 255
-  %411 = icmp ult i64 %indvars.iv.next.i, %410
+  %411 = icmp samesign ult i64 %indvars.iv.next.i, %410
   br i1 %411, label %397, label %.critedge.i, !llvm.loop !31
 
 .critedge.i:                                      ; preds = %404, %397, %389
@@ -3142,7 +3142,7 @@ If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.
   %431 = load i64, ptr %393, align 4
   %432 = lshr i64 %431, 24
   %433 = and i64 %432, 255
-  %434 = icmp ult i64 %indvars.iv.next54.i, %433
+  %434 = icmp samesign ult i64 %indvars.iv.next54.i, %433
   br i1 %434, label %422, label %.critedge2.i, !llvm.loop !32
 
 .critedge2.i:                                     ; preds = %429, %422, %.preheader.i

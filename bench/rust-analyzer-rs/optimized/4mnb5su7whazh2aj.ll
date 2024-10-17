@@ -258,15 +258,15 @@ _ZN5serde2de7Visitor9visit_f3217hdf0f65e76a6ac525E.exit: ; preds = %56, %62
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !59
-  %72 = icmp ult i32 %71, 128
+  %72 = icmp samesign ult i32 %71, 128
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %69
-  %74 = icmp ult i32 %71, 2048
+  %74 = icmp samesign ult i32 %71, 2048
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %71, 65536
+  %76 = icmp samesign ult i32 %71, 65536
   br i1 %76, label %86, label %97
 
 77:                                               ; preds = %69

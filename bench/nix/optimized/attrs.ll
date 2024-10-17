@@ -3265,7 +3265,7 @@ define noundef zeroext i1 @_ZN3nix8fetchers11getBoolAttrERKSt3mapINSt7__cxx1112b
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = tail call i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not = icmp ult i16 %5, 256
+  %.not = icmp samesign ult i16 %5, 256
   br i1 %.not, label %6, label %14
 
 6:                                                ; preds = %2
@@ -5458,7 +5458,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i
@@ -7272,7 +7272,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !75
 
 .critedge:                                        ; preds = %27
@@ -16104,7 +16104,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %31
   %.0.lcssa.i = phi i64 [ %1, %31 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp ugt i64 %.0.lcssa.i, 9
+  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %._crit_edge.i
@@ -18519,7 +18519,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 ._crit_edge.i95:                                  ; preds = %.lr.ph.i, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i
   %.1.lcssa.i = phi i64 [ %358, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i ], [ %387, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %384, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i ], [ %393, %.lr.ph.i ]
-  %395 = icmp ugt i64 %.1.lcssa.i, 9
+  %395 = icmp samesign ugt i64 %.1.lcssa.i, 9
   br i1 %395, label %396, label %403
 
 396:                                              ; preds = %._crit_edge.i95
@@ -18826,7 +18826,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 ._crit_edge.i122:                                 ; preds = %.lr.ph.i127, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i120
   %.1.lcssa.i123 = phi i64 [ %521, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i120 ], [ %550, %.lr.ph.i127 ]
   %.0.lcssa.i124 = phi ptr [ %547, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i120 ], [ %556, %.lr.ph.i127 ]
-  %558 = icmp ugt i64 %.1.lcssa.i123, 9
+  %558 = icmp samesign ugt i64 %.1.lcssa.i123, 9
   br i1 %558, label %559, label %566
 
 559:                                              ; preds = %._crit_edge.i122
@@ -18978,7 +18978,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 ._crit_edge.i137:                                 ; preds = %.lr.ph.i142, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i135
   %.1.lcssa.i138 = phi i64 [ %600, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i135 ], [ %629, %.lr.ph.i142 ]
   %.0.lcssa.i139 = phi ptr [ %626, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32.i135 ], [ %635, %.lr.ph.i142 ]
-  %637 = icmp ugt i64 %.1.lcssa.i138, 9
+  %637 = icmp samesign ugt i64 %.1.lcssa.i138, 9
   br i1 %637, label %638, label %645
 
 638:                                              ; preds = %._crit_edge.i137
@@ -20006,7 +20006,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32
   %.1.lcssa = phi i64 [ %.025, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32 ], [ %52, %.lr.ph ]
   %.0.lcssa = phi ptr [ %49, %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit32 ], [ %58, %.lr.ph ]
-  %60 = icmp ugt i64 %.1.lcssa, 9
+  %60 = icmp samesign ugt i64 %.1.lcssa, 9
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %._crit_edge
@@ -20282,7 +20282,7 @@ define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail9dtoa_impl13format_b
   %.0.i = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
   %.023.i = getelementptr i8, ptr %.pn, i64 3
   store i8 %storemerge.i, ptr %45, align 1
-  %47 = icmp ult i32 %.0.i, 10
+  %47 = icmp samesign ult i32 %.0.i, 10
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %44
@@ -20295,7 +20295,7 @@ define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail9dtoa_impl13format_b
   br label %_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit
 
 53:                                               ; preds = %44
-  %54 = icmp ult i32 %.0.i, 100
+  %54 = icmp samesign ult i32 %.0.i, 100
   %55 = getelementptr i8, ptr %.pn, i64 4
   br i1 %54, label %56, label %62
 

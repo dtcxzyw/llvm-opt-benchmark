@@ -1100,7 +1100,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher8Mihasher8populateE
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %91, %94
   tail call void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup12insert_valueERSt6vectorIjSaIjEEij(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %68, i32 noundef %95, i32 noundef %57)
-  %96 = icmp ult i32 %79, %90
+  %96 = icmp samesign ult i32 %79, %90
   br i1 %96, label %.lr.ph.preheader.i19, label %_ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup6insertEij.exit
 
 .lr.ph.preheader.i19:                             ; preds = %._crit_edge18.i
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %25, %_ZNSt6vectorIi
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %17
   %.2 = phi i32 [ %.01221, %17 ], [ %52, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = icmp ult i64 %indvars.iv, %16
+  %58 = icmp samesign ult i64 %indvars.iv, %16
   %59 = icmp sgt i32 %.2, 0
   %60 = select i1 %58, i1 %59, i1 false
   br i1 %60, label %17, label %._crit_edge, !llvm.loop !12
@@ -1715,7 +1715,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.10.3 = phi ptr [ %.sroa.10.2, %135 ], [ %.sroa.10.5, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %135 ], [ %163, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %169 = icmp ult i64 %indvars.iv.i, 256
+  %169 = icmp samesign ult i64 %indvars.iv.i, 256
   %170 = icmp sgt i32 %.2.i, 0
   %171 = select i1 %169, i1 %170, i1 false
   br i1 %171, label %135, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -2423,7 +2423,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.10.3 = phi ptr [ %.sroa.10.2, %105 ], [ %.sroa.10.5, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %105 ], [ %133, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %139 = icmp ult i64 %indvars.iv.i, 256
+  %139 = icmp samesign ult i64 %indvars.iv.i, 256
   %140 = icmp sgt i32 %.2.i, 0
   %141 = select i1 %139, i1 %140, i1 false
   br i1 %141, label %105, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -2965,7 +2965,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.10.3 = phi ptr [ %.sroa.10.2, %.lr.ph22.i ], [ %.sroa.10.5, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %.lr.ph22.i ], [ %168, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %174 = icmp ult i64 %indvars.iv.i, 256
+  %174 = icmp samesign ult i64 %indvars.iv.i, 256
   %175 = icmp sgt i32 %.2.i, 0
   %176 = select i1 %174, i1 %175, i1 false
   br i1 %176, label %.lr.ph22.i, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -3606,7 +3606,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.10.4 = phi ptr [ %.sroa.10.3, %.lr.ph22.i ], [ %.sroa.10.6, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %.lr.ph22.i ], [ %194, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %200 = icmp ult i64 %indvars.iv.i, 256
+  %200 = icmp samesign ult i64 %indvars.iv.i, 256
   %201 = icmp sgt i32 %.2.i, 0
   %202 = select i1 %200, i1 %201, i1 false
   br i1 %202, label %.lr.ph22.i, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -4074,7 +4074,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.11.2 = phi ptr [ %.sroa.11.1, %.lr.ph22.i ], [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %.lr.ph22.i ], [ %103, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %109 = icmp ult i64 %indvars.iv.i, 256
+  %109 = icmp samesign ult i64 %indvars.iv.i, 256
   %110 = icmp sgt i32 %.2.i, 0
   %111 = select i1 %109, i1 %110, i1 false
   br i1 %111, label %.lr.ph22.i, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -4662,7 +4662,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.090.5 = phi ptr [ %.sroa.090.4, %.lr.ph22.i ], [ %.sroa.090.7, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.2.i = phi i32 [ %.01221.i, %.lr.ph22.i ], [ %111, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = icmp ult i64 %indvars.iv.i, 256
+  %117 = icmp samesign ult i64 %indvars.iv.i, 256
   %118 = icmp sgt i32 %.2.i, 0
   %119 = select i1 %117, i1 %118, i1 false
   br i1 %119, label %.lr.ph22.i, label %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit, !llvm.loop !12
@@ -5462,7 +5462,7 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
   %189 = add nuw nsw i32 %188, %180
   %190 = add nuw nsw i32 %189, %186
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 16
-  %.not.i = icmp ugt i64 %indvars.iv.next.i119, %158
+  %.not.i = icmp samesign ugt i64 %indvars.iv.next.i119, %158
   br i1 %.not.i, label %.preheader.loopexit.i, label %.lr.ph.i117, !llvm.loop !57
 
 .lr.ph36.i:                                       ; preds = %.lr.ph36.i, %.lr.ph36.preheader.i
@@ -6236,7 +6236,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup6inser
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %27, %30
   tail call void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup12insert_valueERSt6vectorIjSaIjEEij(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %31, i32 noundef %2)
-  %32 = icmp ult i32 %15, %26
+  %32 = icmp samesign ult i32 %15, %26
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge18

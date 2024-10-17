@@ -1871,7 +1871,7 @@ define void @_Z6gatherP5t_matfP10t_clusters(ptr nocapture noundef readonly %0, f
   %indvars.iv = phi i64 [ 1, %.lr.ph164 ], [ %indvars.iv.next, %.loopexit159 ]
   %.091162 = phi i32 [ 0, %.lr.ph164 ], [ %.192.lcssa, %.loopexit159 ]
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %21 = icmp ult i64 %indvars.iv.next196, %18
+  %21 = icmp samesign ult i64 %indvars.iv.next196, %18
   br i1 %21, label %.lr.ph, label %.loopexit159
 
 .lr.ph:                                           ; preds = %20
@@ -3489,7 +3489,7 @@ define linkonce_odr void @_ZSt11__make_heapIP9t_clustidN9__gnu_cxx5__ops15_Iter_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -4960,7 +4960,7 @@ _ZL8dump_nnbP8_IO_FILEPKciP5t_nnb.exit:           ; preds = %._crit_edge.i, %91,
   %154 = shl nuw nsw i64 %153, 1
   %155 = xor i64 %154, 126
   tail call void @_ZSt16__introsort_loopIP5t_nnblN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_T0_T1_(ptr noundef nonnull %12, ptr noundef nonnull %152, i64 noundef %155, ptr nonnull @_ZL9nrnb_compRK5t_nnbS1_)
-  %156 = icmp ugt i32 %.169.lcssa, 16
+  %156 = icmp samesign ugt i32 %.169.lcssa, 16
   br i1 %156, label %157, label %174
 
 157:                                              ; preds = %.critedge
@@ -5535,7 +5535,7 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp
   %.sroa.0.0.copyload20 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ult i64 %12, %15
+  %16 = icmp samesign ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

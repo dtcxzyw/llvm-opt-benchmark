@@ -165,7 +165,7 @@ get_txb_high.exit:                                ; preds = %get_txb_wide.exit, 
   %86 = select i1 %85, i32 0, i32 32768
   %87 = load i16, ptr %69, align 2
   %88 = zext i16 %87 to i32
-  %89 = icmp ult i32 %86, %88
+  %89 = icmp samesign ult i32 %86, %88
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %74
@@ -728,7 +728,7 @@ aom_read_symbol_.exit288:                         ; preds = %update_cdf.exit.i34
   %427 = select i1 %426, i32 0, i32 32768
   %428 = load i16, ptr %412, align 2
   %429 = zext i16 %428 to i32
-  %430 = icmp ult i32 %427, %429
+  %430 = icmp samesign ult i32 %427, %429
   br i1 %430, label %431, label %436
 
 431:                                              ; preds = %415
@@ -998,7 +998,7 @@ aom_read_symbol_.exit379:                         ; preds = %540, %update_cdf.ex
   %574 = add nsw i32 %541, %.1262417
   %575 = icmp sgt i32 %541, 2
   %576 = add nuw nsw i32 %.0260418, 3
-  %577 = icmp ult i32 %.0260418, 9
+  %577 = icmp samesign ult i32 %.0260418, 9
   %or.cond443 = select i1 %575, i1 %577, i1 false
   br i1 %or.cond443, label %540, label %.loopexit, !llvm.loop !7
 
@@ -1244,7 +1244,7 @@ aom_read_symbol_.exit48.i:                        ; preds = %update_cdf.exit.i46
   %724 = add nsw i32 %691, %.149.i
   %725 = icmp sgt i32 %691, 2
   %726 = add nuw nsw i32 %.02950.i, 3
-  %727 = icmp ult i32 %.02950.i, 9
+  %727 = icmp samesign ult i32 %.02950.i, 9
   %or.cond.i = select i1 %725, i1 %727, i1 false
   br i1 %or.cond.i, label %690, label %.loopexit.i, !llvm.loop !8
 
@@ -1326,7 +1326,7 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %585, 
   %770 = select i1 %769, i32 0, i32 32768
   %771 = load i16, ptr %755, align 2
   %772 = zext i16 %771 to i32
-  %773 = icmp ult i32 %770, %772
+  %773 = icmp samesign ult i32 %770, %772
   br i1 %773, label %774, label %779
 
 774:                                              ; preds = %758
@@ -1379,7 +1379,7 @@ aom_read_symbol_.exit390:                         ; preds = %update_cdf.exit.i38
   br label %.lr.ph.i394
 
 .loopexit.i393:                                   ; preds = %.preheader
-  %794 = icmp ugt i32 %.011.i, 1
+  %794 = icmp samesign ugt i32 %.011.i, 1
   br i1 %794, label %.lr.ph.i394, label %read_golomb.exit
 
 .lr.ph.i394:                                      ; preds = %.loopexit.i393, %.loopexit.thread.i
@@ -1456,7 +1456,7 @@ get_dqv.exit:                                     ; preds = %803, %815
   %.2 = phi i32 [ %.0255420, %735 ], [ %832, %get_dqv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %835 = zext i16 %834 to i64
-  %836 = icmp ult i64 %indvars.iv.next, %835
+  %836 = icmp samesign ult i64 %indvars.iv.next, %835
   br i1 %836, label %735, label %set_dc_sign.exit, !llvm.loop !12
 
 set_dc_sign.exit:                                 ; preds = %833
@@ -1999,7 +1999,7 @@ aom_read_symbol_.exit159:                         ; preds = %235, %update_cdf.ex
   %269 = add nsw i32 %236, %.1160
   %270 = icmp sgt i32 %236, 2
   %271 = add nuw nsw i32 %.0141161, 3
-  %272 = icmp ult i32 %.0141161, 9
+  %272 = icmp samesign ult i32 %.0141161, 9
   %or.cond163 = select i1 %270, i1 %272, i1 false
   br i1 %or.cond163, label %235, label %.loopexit, !llvm.loop !13
 

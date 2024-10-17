@@ -5405,7 +5405,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.cond58.preheader:                             ; preds = %for.inc
   %4 = zext i8 %6 to i64
-  %cmp6122 = icmp ult i64 %inc, %4
+  %cmp6122 = icmp samesign ult i64 %inc, %4
   br i1 %cmp6122, label %for.body63, label %for.body77.preheader
 
 for.body77.preheader:                             ; preds = %for.cond58, %for.cond.preheader, %for.cond58.preheader
@@ -5427,16 +5427,16 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.020, 1
   %6 = load i8, ptr %new_cid, align 1
   %conv43 = zext i8 %6 to i64
-  %cmp44 = icmp ult i64 %inc, %conv43
-  %cmp46 = icmp ult i64 %i.020, 19
-  %7 = and i1 %cmp46, %cmp44
+  %cmp44 = icmp samesign ult i64 %inc, %conv43
+  %cmp46 = icmp samesign ult i64 %i.020, 19
+  %7 = select i1 %cmp44, i1 %cmp46, i1 false
   br i1 %7, label %for.body, label %for.cond58.preheader, !llvm.loop !13
 
 for.cond58:                                       ; preds = %for.body63
   %inc72 = add nuw nsw i64 %i.123, 1
   %8 = load i8, ptr %new_cid, align 1
   %conv60 = zext i8 %8 to i64
-  %cmp61 = icmp ult i64 %inc72, %conv60
+  %cmp61 = icmp samesign ult i64 %inc72, %conv60
   br i1 %cmp61, label %for.body63, label %for.body77.preheader, !llvm.loop !14
 
 for.body63:                                       ; preds = %for.cond58.preheader, %for.cond58

@@ -53,7 +53,7 @@ define void @Abc_TtNormalizeSmallTruth(ptr nocapture noundef %0, i32 noundef %1)
   %12 = shl i64 %9, %indvars.iv
   %13 = or i64 %11, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %7
-  %14 = icmp ult i64 %indvars.iv.next, 64
+  %14 = icmp samesign ult i64 %indvars.iv.next, 64
   br i1 %14, label %.lr.ph, label %..loopexit_crit_edge, !llvm.loop !4
 
 ..loopexit_crit_edge:                             ; preds = %.lr.ph
@@ -359,7 +359,7 @@ define i32 @Abc_TtScc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_ad
   %16 = shl i64 %13, %indvars.iv.i
   %17 = or i64 %15, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %11
-  %18 = icmp ult i64 %indvars.iv.next.i, 64
+  %18 = icmp samesign ult i64 %indvars.iv.next.i, 64
   br i1 %18, label %.lr.ph.i, label %..loopexit_crit_edge.i, !llvm.loop !4
 
 ..loopexit_crit_edge.i:                           ; preds = %.lr.ph.i
@@ -681,7 +681,7 @@ define void @Abc_TtCofactorTest10(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond25.not.i.us, label %Abc_TtCopy.exit.us, label %.lr.ph18.i.us, !llvm.loop !18
 
 Abc_TtCopy.exit.us:                               ; preds = %.lr.ph18.i.us
-  %15 = icmp ult i64 %indvars.iv, 5
+  %15 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %15, label %.lr.ph64.i.us, label %16
 
 16:                                               ; preds = %Abc_TtCopy.exit.us
@@ -689,7 +689,7 @@ Abc_TtCopy.exit.us:                               ; preds = %.lr.ph18.i.us
   br i1 %17, label %.lr.ph.i.us, label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %16
-  %18 = icmp ult i64 %indvars.iv, 7
+  %18 = icmp samesign ult i64 %indvars.iv, 7
   %19 = trunc i64 %indvars.iv to i32
   %20 = add i32 %19, -6
   %21 = shl nuw i32 1, %20
@@ -3521,7 +3521,7 @@ select.unfold:                                    ; preds = %26, %35
   br label %52
 
 52:                                               ; preds = %47, %45
-  %.not62 = icmp ult i32 %22, 4
+  %.not62 = icmp samesign ult i32 %22, 4
   br i1 %.not62, label %Abc_TtCopy.exit72, label %53
 
 53:                                               ; preds = %52
@@ -3773,7 +3773,7 @@ select.unfold.i:                                  ; preds = %106, %115
   %126 = select i1 %.not61.i, i32 0, i32 %125
   %127 = xor i32 %126, %123
   %.8 = xor i32 %127, %.296108
-  %.not62.i = icmp ult i32 %.0112.i99, 4
+  %.not62.i = icmp samesign ult i32 %.0112.i99, 4
   br i1 %.not62.i, label %Abc_TtCofactorPerm.exit, label %128
 
 128:                                              ; preds = %select.unfold.i
@@ -4005,7 +4005,7 @@ select.unfold.i52:                                ; preds = %228, %237
   %248 = select i1 %.not61.i54, i32 0, i32 %247
   %249 = xor i32 %248, %245
   %.12 = xor i32 %249, %.4113
-  %.not62.i55 = icmp ult i32 %.0112.i70102, 4
+  %.not62.i55 = icmp samesign ult i32 %.0112.i70102, 4
   br i1 %.not62.i55, label %Abc_TtCofactorPerm.exit69, label %250
 
 250:                                              ; preds = %select.unfold.i52
@@ -4232,7 +4232,7 @@ Abc_TtFlip.exit.us:                               ; preds = %.lr.ph222.split.spl
   br i1 %.not240, label %75, label %112
 
 75:                                               ; preds = %.lr.ph222.split.split
-  %76 = icmp ult i64 %indvars.iv246, 6
+  %76 = icmp samesign ult i64 %indvars.iv246, 6
   br i1 %76, label %77, label %91
 
 77:                                               ; preds = %75
@@ -4431,7 +4431,7 @@ define i32 @Abc_TtCanonicizePerm(ptr noundef %0, i32 noundef %1, ptr nocapture n
 ._crit_edge66.us:                                 ; preds = %40
   %18 = icmp ne i32 %.3.us, 0
   %19 = add nuw nsw i32 %.03870.us, 1
-  %20 = icmp ult i32 %.03870.us, 4
+  %20 = icmp samesign ult i32 %.03870.us, 4
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %.lr.ph59.us, label %.split72.us, !llvm.loop !47
 
@@ -6065,7 +6065,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i181, %Abc_T
   br label %Abc_TtFlip.exit
 
 83:                                               ; preds = %70
-  %84 = icmp ult i64 %indvars.iv249, 6
+  %84 = icmp samesign ult i64 %indvars.iv249, 6
   br i1 %84, label %85, label %99
 
 85:                                               ; preds = %83
@@ -6469,7 +6469,7 @@ define i32 @Abc_TtCanonicizeWrap(ptr nocapture noundef readonly %0, ptr noundef 
   %21 = shl i64 %18, %indvars.iv.i
   %22 = or i64 %20, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %16
-  %23 = icmp ult i64 %indvars.iv.next.i, 64
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, 64
   br i1 %23, label %.lr.ph.i, label %..loopexit_crit_edge.i, !llvm.loop !4
 
 ..loopexit_crit_edge.i:                           ; preds = %.lr.ph.i
@@ -7031,7 +7031,7 @@ Abc_TgReorderFGrps.exit.i.i:                      ; preds = %.critedge.i.i.i, %1
   %168 = shl i64 %165, %indvars.iv.i.i.i.i
   %169 = or i64 %167, %168
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, %163
-  %170 = icmp ult i64 %indvars.iv.next.i.i.i.i, 64
+  %170 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, 64
   br i1 %170, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !4
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
@@ -7216,7 +7216,7 @@ grayFlip.exit.i.i:                                ; preds = %226
   %251 = shl i64 %248, %indvars.iv.i.i59.i.i
   %252 = or i64 %250, %251
   %indvars.iv.next.i.i60.i.i = add nuw nsw i64 %indvars.iv.i.i59.i.i, %246
-  %253 = icmp ult i64 %indvars.iv.next.i.i60.i.i, 64
+  %253 = icmp samesign ult i64 %indvars.iv.next.i.i60.i.i, 64
   br i1 %253, label %.lr.ph.i.i58.i.i, label %..loopexit_crit_edge.i.i61.i.i, !llvm.loop !4
 
 ..loopexit_crit_edge.i.i61.i.i:                   ; preds = %.lr.ph.i.i58.i.i
@@ -7705,7 +7705,7 @@ Abc_TtFlip.exit.us:                               ; preds = %.lr.ph.split.us
 
 73:                                               ; preds = %.lr.ph.split
   %74 = load ptr, ptr %0, align 8
-  %75 = icmp ult i64 %indvars.iv, 6
+  %75 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %73
@@ -10870,7 +10870,7 @@ Abc_TgReorderFGrps.exit:                          ; preds = %.critedge.i, %50
   %92 = shl i64 %89, %indvars.iv.i.i
   %93 = or i64 %91, %92
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, %87
-  %94 = icmp ult i64 %indvars.iv.next.i.i, 64
+  %94 = icmp samesign ult i64 %indvars.iv.next.i.i, 64
   br i1 %94, label %.lr.ph.i.i, label %..loopexit_crit_edge.i.i, !llvm.loop !4
 
 ..loopexit_crit_edge.i.i:                         ; preds = %.lr.ph.i.i
@@ -11144,7 +11144,7 @@ grayFlip.exit:                                    ; preds = %191
   %216 = shl i64 %213, %indvars.iv.i.i112
   %217 = or i64 %215, %216
   %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i112, %211
-  %218 = icmp ult i64 %indvars.iv.next.i.i113, 64
+  %218 = icmp samesign ult i64 %indvars.iv.next.i.i113, 64
   br i1 %218, label %.lr.ph.i.i111, label %..loopexit_crit_edge.i.i114, !llvm.loop !4
 
 ..loopexit_crit_edge.i.i114:                      ; preds = %.lr.ph.i.i111
@@ -12393,7 +12393,7 @@ Abc_TtNormalizeSmallTruth.exit.thread.i:          ; preds = %11
   %21 = shl i64 %18, %indvars.iv.i.i
   %22 = or i64 %20, %21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, %16
-  %23 = icmp ult i64 %indvars.iv.next.i.i, 64
+  %23 = icmp samesign ult i64 %indvars.iv.next.i.i, 64
   br i1 %23, label %.lr.ph.i.i, label %Abc_TtNormalizeSmallTruth.exit.i, !llvm.loop !4
 
 Abc_TtNormalizeSmallTruth.exit.i:                 ; preds = %.lr.ph.i.i

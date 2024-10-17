@@ -1811,7 +1811,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 .preheader1450:                                   ; preds = %._crit_edge2927, %740
   %.11089 = phi i16 [ %748, %740 ], [ %736, %._crit_edge2927 ]
   %.01085 = phi i32 [ %741, %740 ], [ 1048576, %._crit_edge2927 ]
-  %738 = icmp ult i32 %.01085, 2
+  %738 = icmp samesign ult i32 %.01085, 2
   br i1 %738, label %739, label %740
 
 739:                                              ; preds = %.preheader1450
@@ -1839,7 +1839,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %753 = zext i8 %752 to i32
   %754 = shl i32 %.181025.lcssa, %753
   %755 = sub nsw i32 %.181064.lcssa, %753
-  %756 = icmp ult i16 %.01088, 256
+  %756 = icmp samesign ult i16 %.01088, 256
   br i1 %756, label %757, label %763
 
 757:                                              ; preds = %.loopexit1451
@@ -2002,7 +2002,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 .preheader1447:                                   ; preds = %._crit_edge2937, %838
   %.31091 = phi i16 [ %846, %838 ], [ %834, %._crit_edge2937 ]
   %.11086 = phi i32 [ %839, %838 ], [ 1048576, %._crit_edge2937 ]
-  %836 = icmp ult i32 %.11086, 2
+  %836 = icmp samesign ult i32 %.11086, 2
   br i1 %836, label %837, label %838
 
 837:                                              ; preds = %.preheader1447
@@ -2252,7 +2252,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 .preheader1443:                                   ; preds = %._crit_edge2969, %959
   %.51093 = phi i16 [ %967, %959 ], [ %955, %._crit_edge2969 ]
   %.21087 = phi i32 [ %960, %959 ], [ 33554432, %._crit_edge2969 ]
-  %957 = icmp ult i32 %.21087, 2
+  %957 = icmp samesign ult i32 %.21087, 2
   br i1 %957, label %958, label %959
 
 958:                                              ; preds = %.preheader1443
@@ -3387,7 +3387,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 .preheader101.us:                                 ; preds = %.preheader103.split.us
   %14 = add nuw nsw i16 %.087113.us, 1
-  %15 = icmp ult i16 %14, %9
+  %15 = icmp samesign ult i16 %14, %9
   br i1 %15, label %.preheader103.split.us, label %.split.us
 
 .preheader103.split:                              ; preds = %.preheader103, %..loopexit102_crit_edge
@@ -3418,14 +3418,14 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 ..loopexit102_crit_edge:                          ; preds = %.preheader101, %.preheader103.split
   %.2 = phi i32 [ %.174115, %.preheader103.split ], [ %20, %.preheader101 ]
   %26 = add nuw nsw i16 %.087113, 1
-  %27 = icmp ult i16 %26, %8
+  %27 = icmp samesign ult i16 %26, %8
   br i1 %27, label %.preheader103.split, label %.split.us
 
 .split.us:                                        ; preds = %..loopexit102_crit_edge, %.preheader101.us
   %.us-phi = phi i32 [ %.073117, %.preheader101.us ], [ %.2, %..loopexit102_crit_edge ]
   %28 = lshr i32 %.0118, 1
   %29 = add nuw nsw i8 %.075116, 1
-  %.not.not = icmp ult i8 %.075116, %7
+  %.not.not = icmp samesign ult i8 %.075116, %7
   br i1 %.not.not, label %.preheader103, label %30
 
 30:                                               ; preds = %.split.us
@@ -3434,7 +3434,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 32:                                               ; preds = %30
   %33 = and i32 %.us-phi, 65535
-  %34 = icmp ugt i32 %.fr141, %33
+  %34 = icmp samesign ugt i32 %.fr141, %33
   br i1 %34, label %.lr.ph.preheader, label %.preheader.preheader
 
 .lr.ph.preheader:                                 ; preds = %32
@@ -3448,7 +3448,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   store i16 -1, ptr %37, align 2
   %38 = add i16 %.188119, 1
   %39 = zext i16 %38 to i32
-  %40 = icmp ugt i32 %.fr141, %39
+  %40 = icmp samesign ugt i32 %.fr141, %39
   br i1 %40, label %.lr.ph, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph, %32
@@ -3491,7 +3491,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.284.us = phi i16 [ %.183128.us, %.preheader.split.us ], [ %.486.us, %._crit_edge125.us ]
   %.5.us = phi i32 [ %.4129.us, %.preheader.split.us ], [ %77, %._crit_edge125.us ]
   %54 = add nuw nsw i16 %.289127.us, 1
-  %55 = icmp ult i16 %54, %46
+  %55 = icmp samesign ult i16 %54, %46
   br i1 %55, label %.preheader.split.us, label %.split131.us
 
 56:                                               ; preds = %.lr.ph124.us, %70
@@ -3894,7 +3894,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr nocapture
 .preheader380:                                    ; preds = %._crit_edge587, %169
   %.1261 = phi i16 [ %177, %169 ], [ %164, %._crit_edge587 ]
   %.0258 = phi i32 [ %170, %169 ], [ 67108864, %._crit_edge587 ]
-  %166 = icmp ult i32 %.0258, 2
+  %166 = icmp samesign ult i32 %.0258, 2
   br i1 %166, label %167, label %169
 
 167:                                              ; preds = %.preheader380
@@ -4456,7 +4456,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr nocapture
 .preheader377:                                    ; preds = %._crit_edge608, %443
   %.3263 = phi i16 [ %451, %443 ], [ %438, %._crit_edge608 ]
   %.1259 = phi i32 [ %444, %443 ], [ 67108864, %._crit_edge608 ]
-  %440 = icmp ult i32 %.1259, 2
+  %440 = icmp samesign ult i32 %.1259, 2
   br i1 %440, label %441, label %443
 
 441:                                              ; preds = %.preheader377

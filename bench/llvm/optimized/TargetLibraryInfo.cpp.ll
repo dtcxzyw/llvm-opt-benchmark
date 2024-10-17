@@ -8479,7 +8479,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   %42 = add nuw nsw i64 %.013.i, 1
   %43 = load i32, ptr %3, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %.lr.ph.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E8copyFromISD_EEvRKNS0_IT_jS7_S9_SC_EE.exit, !llvm.loop !31
 
 46:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit

@@ -1986,15 +1986,15 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i: 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit"
 
 170:                                              ; preds = %168
-  %171 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 128
+  %171 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 128
   br i1 %171, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %172
 
 172:                                              ; preds = %170
-  %173 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 2048
+  %173 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 2048
   br i1 %173, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %174
 
 174:                                              ; preds = %172
-  %175 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 65536
+  %175 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 65536
   %..i.i = select i1 %175, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i"
 
@@ -11939,7 +11939,7 @@ define hidden void @_ZN4just6config6Config3run17he1130453730da7c3E(ptr noalias n
 
 19:                                               ; preds = %25, %34
   %.val18 = load i32, ptr %7, align 8, !range !2388, !noundef !13
-  %switch.i = icmp ult i32 %.val18, 2
+  %switch.i = icmp samesign ult i32 %.val18, 2
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$ctrlc..error..Error$GT$17h8181452d016d927aE.exit", label %20
 
 20:                                               ; preds = %19
@@ -11969,7 +11969,7 @@ define hidden void @_ZN4just6config6Config3run17he1130453730da7c3E(ptr noalias n
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %switch.selectcmp13 = icmp ugt i64 %26, 1
+  %switch.selectcmp13 = icmp samesign ugt i64 %26, 1
   br i1 %switch.selectcmp13, label %28, label %19
 
 28:                                               ; preds = %25

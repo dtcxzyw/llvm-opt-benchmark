@@ -594,7 +594,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal26NonlinearConj
   %37 = fsub <2 x double> %34, %36
   store <2 x double> %37, ptr %32, align 16
   %38 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
-  %39 = icmp ult i64 %38, %31
+  %39 = icmp samesign ult i64 %38, %31
   br i1 %39, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.noexc.thread, %.noexc
@@ -773,7 +773,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %133 = fsub <2 x double> %130, %132
   store <2 x double> %133, ptr %128, align 16
   %134 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i32, 2
-  %135 = icmp ult i64 %134, %127
+  %135 = icmp samesign ult i64 %134, %127
   br i1 %135, label %.lr.ph.i.i.i.i.i.i.i.i31, label %._crit_edge.i.i.i.i.i.i.i.i27, !llvm.loop !19
 
 ._crit_edge.i.i.i.i.i.i.i.i27:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i31, %.noexc33.thread, %.noexc33
@@ -1445,7 +1445,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal5LBFGS13NextDir
   %53 = fmul <2 x double> %49, %52
   store <2 x double> %53, ptr %50, align 16
   %54 = add nuw nsw i64 %.011.i.i.i.i.i.i48, 2
-  %55 = icmp ult i64 %54, %48
+  %55 = icmp samesign ult i64 %54, %48
   br i1 %55, label %.lr.ph.i.i.i.i.i.i47, label %._crit_edge.i.i.i.i.i.i42, !llvm.loop !29
 
 ._crit_edge.i.i.i.i.i.i42:                        ; preds = %.lr.ph.i.i.i.i.i.i47, %.thread68, %.thread, %46
@@ -2128,7 +2128,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal4BFGS13NextDire
   %69 = fmul <2 x double> %65, %68
   store <2 x double> %69, ptr %66, align 16
   %70 = add nuw nsw i64 %.011.i.i.i.i.i.i115, 2
-  %71 = icmp ult i64 %70, %64
+  %71 = icmp samesign ult i64 %70, %64
   br i1 %71, label %.lr.ph.i.i.i.i.i.i114, label %._crit_edge.i.i.i.i.i.i109, !llvm.loop !29
 
 ._crit_edge.i.i.i.i.i.i109:                       ; preds = %.lr.ph.i.i.i.i.i.i114, %.thread192, %.thread, %62
@@ -4406,7 +4406,7 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_6Mat
 
 _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS8_EEKNS6_ISJ_Li0ESA_EEEEEENS0_13add_assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.us.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.us.preheader.i, %.lr.ph.i.us.i
   %.0.i.i.i.i.i.i.i17.i.us.i = phi i64 [ %43, %.lr.ph.i.us.i ], [ 1, %.lr.ph.i.i.i.i.i.i.i.i.us.preheader.i ]
-  %51 = icmp ugt i64 %44, 1
+  %51 = icmp samesign ugt i64 %44, 1
   br i1 %51, label %.lr.ph.i.preheader.i.i.i.i.i.i.us.i, label %._crit_edge.i.i.i.i.i.i.i.us.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.us.i:              ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS8_EEKNS6_ISJ_Li0ESA_EEEEEENS0_13add_assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.us.i
@@ -4427,7 +4427,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %60, label %.lr.ph.i.i.i.i.i.i.i.us.i, label %._crit_edge.i.i.i.i.i.i.i.us.i, !llvm.loop !94
 
 ._crit_edge.i.i.i.i.i.i.i.us.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.us.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS8_EEKNS6_ISJ_Li0ESA_EEEEEENS0_13add_assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.us.i
-  %.not.i.us.i = icmp ugt i64 %46, %.014.i.us.i
+  %.not.i.us.i = icmp samesign ugt i64 %46, %.014.i.us.i
   br i1 %.not.i.us.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEpLINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSA_18scalar_constant_opIdEEKS3_EEKNS1_ISG_Li0ES5_EEEEEERS6_RKNS0_IT_EE.exit.i.us.i, label %.lr.ph.i17.i.i.i.i.i.i.i.us.i
 
 .lr.ph.i17.i.i.i.i.i.i.i.us.i:                    ; preds = %._crit_edge.i.i.i.i.i.i.i.us.i, %.lr.ph.i17.i.i.i.i.i.i.i.us.i

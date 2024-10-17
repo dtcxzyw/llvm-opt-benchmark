@@ -262,7 +262,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %84 = urem i8 %82, 5
   %.zext39.i = zext nneg i8 %84 to i32
   %85 = add nuw nsw i32 %.zext39.i, %81
-  %86 = icmp ugt i32 %85, 4
+  %86 = icmp samesign ugt i32 %85, 4
   br i1 %86, label %Lzma2Dec_UpdateState.exit, label %87
 
 87:                                               ; preds = %79

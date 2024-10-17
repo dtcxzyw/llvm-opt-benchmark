@@ -3429,7 +3429,7 @@ parse_digits.exit448:                             ; preds = %.lr.ph.split.i438, 
   %.014.lcssa.i444 = phi ptr [ %438, %443 ], [ %450, %.lr.ph.split.i438 ]
   %.013.lcssa.i445 = phi i64 [ 0, %443 ], [ %spec.select.i441, %.lr.ph.split.i438 ]
   store ptr %.014.lcssa.i444, ptr %13, align 8
-  %453 = icmp ult i64 %.013.lcssa.i445, %.013.lcssa.i432
+  %453 = icmp samesign ult i64 %.013.lcssa.i445, %.013.lcssa.i432
   br i1 %453, label %455, label %parse_digits.exit448._crit_edge
 
 parse_digits.exit448._crit_edge:                  ; preds = %parse_digits.exit448
@@ -3900,7 +3900,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
 .thread41:                                        ; preds = %.thread41.sink.split, %20, %29
   %.02837 = phi i32 [ %.028, %29 ], [ %19, %20 ], [ %.02837.ph, %.thread41.sink.split ]
   %31 = icmp eq ptr %.0, %0
-  %32 = icmp ult i32 %.02837, 128
+  %32 = icmp samesign ult i32 %.02837, 128
   br i1 %31, label %33, label %44
 
 33:                                               ; preds = %.thread41
@@ -3960,7 +3960,7 @@ lre_js_is_ident_next.exit:                        ; preds = %45, %53
   br i1 %62, label %.loopexit, label %63
 
 63:                                               ; preds = %59
-  %64 = icmp ult i32 %.02837, 128
+  %64 = icmp samesign ult i32 %.02837, 128
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63

@@ -4878,7 +4878,7 @@ define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr nocapture nou
 
 45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  %46 = icmp ugt i64 %28, 10
+  %46 = icmp samesign ugt i64 %28, 10
   br i1 %46, label %.lr.ph58.i.i, label %extract_text_urls.exit.i
 
 .lr.ph58.i.i:                                     ; preds = %45, %75
@@ -4929,8 +4929,8 @@ define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr nocapture nou
   %69 = add nuw nsw i64 %.04145.i.i, 1
   %70 = add i64 %69, %.056.i.i
   %71 = icmp ult i64 %70, %28
-  %72 = icmp ult i64 %.04145.i.i, 1022
-  %73 = and i1 %72, %71
+  %72 = icmp samesign ult i64 %.04145.i.i, 1022
+  %73 = select i1 %71, i1 %72, i1 false
   br i1 %73, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %68, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %62

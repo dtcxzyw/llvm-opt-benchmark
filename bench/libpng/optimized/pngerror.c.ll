@@ -331,8 +331,8 @@ define void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef %1, ptr
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
-  %17 = icmp ult i64 %.219.i, 30
-  %18 = and i1 %17, %16
+  %17 = icmp samesign ult i64 %.219.i, 30
+  %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %9
@@ -377,8 +377,8 @@ define void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 nounde
   store i8 %15, ptr %18, align 1
   %19 = load i8, ptr %16, align 1
   %20 = icmp ne i8 %19, 0
-  %21 = icmp ult i64 %.219.i.i, 30
-  %22 = and i1 %21, %20
+  %21 = icmp samesign ult i64 %.219.i.i, 30
+  %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %13
@@ -440,8 +440,8 @@ define void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef 
   store i8 %21, ptr %24, align 1
   %25 = load i8, ptr %22, align 1
   %26 = icmp ne i8 %25, 0
-  %27 = icmp ult i64 %.219.i.i, 30
-  %28 = and i1 %27, %26
+  %27 = icmp samesign ult i64 %.219.i.i, 30
+  %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %19
@@ -501,12 +501,12 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %or.cond42, label %.critedge2, label %.preheader, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.preheader
-  %15 = icmp ult i64 %indvars.iv, 8
+  %15 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %15, label %16, label %.critedge2._crit_edge
 
 16:                                               ; preds = %.critedge2
   %17 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv
-  %18 = icmp ult i64 %.03148, 191
+  %18 = icmp samesign ult i64 %.03148, 191
   br i1 %18, label %.lr.ph.preheader, label %.critedge4
 
 .lr.ph.preheader:                                 ; preds = %16
@@ -519,8 +519,8 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   %.029.ptr = getelementptr inbounds i8, ptr %17, i64 %.029.idx45
   %20 = load i8, ptr %.029.ptr, align 1
   %.not41 = icmp ne i8 %20, 0
-  %21 = icmp ult i64 %.029.idx45, 32
-  %or.cond43 = and i1 %.not41, %21
+  %21 = icmp samesign ult i64 %.029.idx45, 32
+  %or.cond43 = select i1 %.not41, i1 %21, i1 false
   br i1 %or.cond43, label %22, label %.critedge4
 
 22:                                               ; preds = %.lr.ph
@@ -1483,8 +1483,8 @@ define void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef reado
   store i8 %8, ptr %11, align 1
   %12 = load i8, ptr %9, align 1
   %13 = icmp ne i8 %12, 0
-  %14 = icmp ult i64 %.219.i, 62
-  %15 = and i1 %14, %13
+  %14 = icmp samesign ult i64 %.219.i, 62
+  %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.lr.ph.i, label %png_safecat.exit, !llvm.loop !4
 
 png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.preheader.i
@@ -1544,8 +1544,8 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   store i8 %33, ptr %36, align 1
   %37 = load i8, ptr %34, align 1
   %38 = icmp ne i8 %37, 0
-  %39 = icmp ult i64 %.219.i27, 62
-  %40 = and i1 %39, %38
+  %39 = icmp samesign ult i64 %.219.i27, 62
+  %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %.lr.ph.i25, label %png_safecat.exit28, !llvm.loop !4
 
 png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.preheader.i23
@@ -1588,8 +1588,8 @@ define void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef rea
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
-  %17 = icmp ult i64 %.219.i, 62
-  %18 = and i1 %17, %16
+  %17 = icmp samesign ult i64 %.219.i, 62
+  %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph.i, label %png_safecat.exit, !llvm.loop !4
 
 png_safecat.exit:                                 ; preds = %.lr.ph.i, %8, %.preheader.i

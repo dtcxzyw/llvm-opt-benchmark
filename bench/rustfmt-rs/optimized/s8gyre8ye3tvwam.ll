@@ -616,7 +616,7 @@ define hidden noundef zeroext i1 @"_ZN13fluent_bundle8resolver10expression111_$L
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN13fluent_bundle8resolver17inline_expression119_$LT$impl$u20$fluent_bundle..resolver..ResolveValue$u20$for$u20$fluent_syntax..ast..InlineExpression$LT$$RF$str$GT$$GT$7resolve17h83dc54f38433032fE"(ptr noalias nocapture noundef nonnull sret({ i64, [14 x i64] }) align 8 dereferenceable(120) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %10, ptr noalias noundef nonnull align 8 dereferenceable(80) %2)
   %11 = load i64, ptr %6, align 8, !range !155, !noundef !9
-  %switch = icmp ult i64 %11, 4
+  %switch = icmp samesign ult i64 %11, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val8 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5126,7 +5126,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %196 = getelementptr inbounds ptr, ptr %194, i64 %175
   store ptr %.sroa.1175.1143161, ptr %196, align 8, !alias.scope !988, !noalias !991
   store i16 %173, ptr %165, align 2, !noalias !991
-  %197 = icmp ult i64 %175, %195
+  %197 = icmp samesign ult i64 %175, %195
   br i1 %197, label %.lr.ph.i.i.i.preheader, label %.loopexit
 
 .lr.ph.i.i.i.preheader:                           ; preds = %193
@@ -5136,7 +5136,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %199, %.lr.ph.i.i.i ], [ %175, %.lr.ph.i.i.i.preheader ]
   %199 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
-  %200 = icmp ult i64 %.sroa.0.06.i.i.i, 12
+  %200 = icmp samesign ult i64 %.sroa.0.06.i.i.i, 12
   tail call void @llvm.assume(i1 %200)
   %201 = getelementptr inbounds ptr, ptr %198, i64 %.sroa.0.06.i.i.i
   %202 = load ptr, ptr %201, align 8, !noalias !991, !nonnull !9, !noundef !9
@@ -5295,10 +5295,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 260:                                              ; preds = %260, %258
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %258 ], [ %spec.select7.i.i.i.i, %260 ]
-  %261 = icmp ult i64 %.sroa.0.011.i.i.i.i, %250
+  %261 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, %250
   %262 = zext i1 %261 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %262
-  %263 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
+  %263 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %263)
   %264 = getelementptr inbounds ptr, ptr %251, i64 %.sroa.0.011.i.i.i.i
   %265 = load ptr, ptr %264, align 8, !alias.scope !1015, !noalias !1018, !nonnull !9, !noundef !9
@@ -5307,7 +5307,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %267 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %268 = getelementptr inbounds i8, ptr %265, i64 976
   store i16 %267, ptr %268, align 8, !noalias !1018
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %250
+  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i, %250
   %or.cond.i.not.i.i.i = select i1 %261, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %260, label %272
 
@@ -5747,7 +5747,7 @@ default.unreachable:                              ; preds = %"_ZN80_$LT$rustfmt_
 
 42:                                               ; preds = %"_ZN80_$LT$rustfmt_nightly..config..file_lines..FileName$u20$as$u20$core..cmp..Ord$GT$3cmp17he512b44b7158ec5aE.exit.thread.loopexit70.i.i.loopexit31"
   %43 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 984
-  %44 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph.ph, 12
+  %44 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph.ph, 12
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds ptr, ptr %43, i64 %.sroa.4.0.i.ph.sink.i.ph.ph
   %46 = load ptr, ptr %45, align 8, !nonnull !9, !noundef !9
@@ -12899,7 +12899,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items30rewrite_bounds_
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %.0.val, align 8, !range !216, !noundef !9
-  %switch = icmp ult i64 %5, 2
+  %switch = icmp samesign ult i64 %5, 2
   %spec.select = select i1 %switch, i64 48, i64 24
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 %spec.select
   %.sroa.0.0 = load i64, ptr %6, align 8
@@ -12986,7 +12986,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items20rewrite_where_c
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %.0.val, align 8, !range !216, !noundef !9
-  %switch = icmp ult i64 %5, 2
+  %switch = icmp samesign ult i64 %5, 2
   %spec.select = select i1 %switch, i64 48, i64 24
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 %spec.select
   %.sroa.0.0 = load i64, ptr %6, align 8
@@ -21742,7 +21742,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %17 = load ptr, ptr %16, align 8, !nonnull !9, !align !1457, !noundef !9
   %18 = load i32, ptr %17, align 4, !noundef !9
   %19 = load i64, ptr %2, align 8, !range !216, !noundef !9
-  %switch.i = icmp ult i64 %19, 2
+  %switch.i = icmp samesign ult i64 %19, 2
   %spec.select.i = select i1 %switch.i, i64 48, i64 24
   %20 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
   %.sroa.0.0.i = load i64, ptr %20, align 8
@@ -21878,7 +21878,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 
 65:                                               ; preds = %58
   %66 = load i64, ptr %..val, align 8, !range !216, !noundef !9
-  %switch.i46 = icmp ult i64 %66, 2
+  %switch.i46 = icmp samesign ult i64 %66, 2
   %spec.select.i47 = select i1 %switch.i46, i64 48, i64 24
   %67 = getelementptr inbounds i8, ptr %..val, i64 %spec.select.i47
   %.sroa.0.0.i48 = load i64, ptr %67, align 8
@@ -26956,7 +26956,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %17 = load ptr, ptr %16, align 8, !nonnull !9, !align !1457, !noundef !9
   %18 = load i32, ptr %17, align 4, !noundef !9
   %19 = load i64, ptr %2, align 8, !range !216, !noundef !9
-  %switch.i = icmp ult i64 %19, 2
+  %switch.i = icmp samesign ult i64 %19, 2
   %spec.select.i = select i1 %switch.i, i64 48, i64 24
   %20 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
   %.sroa.0.0.i = load i64, ptr %20, align 8
@@ -27092,7 +27092,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 
 65:                                               ; preds = %58
   %66 = load i64, ptr %..val, align 8, !range !216, !noundef !9
-  %switch.i44 = icmp ult i64 %66, 2
+  %switch.i44 = icmp samesign ult i64 %66, 2
   %spec.select.i45 = select i1 %switch.i44, i64 48, i64 24
   %67 = getelementptr inbounds i8, ptr %..val, i64 %spec.select.i45
   %.sroa.0.0.i46 = load i64, ptr %67, align 8

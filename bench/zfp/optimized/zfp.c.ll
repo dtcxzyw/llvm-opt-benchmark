@@ -2530,7 +2530,7 @@ define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef rea
   %8 = tail call i64 @zfp_encode_block_int32_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 16
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -2564,7 +2564,7 @@ define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef rea
   %8 = tail call i64 @zfp_encode_block_int64_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 32
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -2598,7 +2598,7 @@ define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef rea
   %8 = tail call i64 @zfp_encode_block_float_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 16
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -2632,7 +2632,7 @@ define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef re
   %8 = tail call i64 @zfp_encode_block_double_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 32
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -9538,7 +9538,7 @@ define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef r
   %8 = tail call i64 @zfp_decode_block_int32_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 16
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -9572,7 +9572,7 @@ define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef r
   %8 = tail call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 32
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -9606,7 +9606,7 @@ define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef r
   %8 = tail call i64 @zfp_decode_block_float_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 16
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -9640,7 +9640,7 @@ define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef 
   %8 = tail call i64 @zfp_decode_block_double_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
   %10 = getelementptr inbounds i8, ptr %.01416, i64 32
-  %11 = icmp ult i64 %9, %7
+  %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -11909,7 +11909,7 @@ default.unreachable:                              ; preds = %24
 .thread:                                          ; preds = %73, %79
   %.02340 = phi i64 [ %83, %79 ], [ %76, %73 ]
   %.339 = phi i64 [ %84, %79 ], [ %77, %73 ]
-  %86 = icmp ult i64 %.02340, 2048
+  %86 = icmp samesign ult i64 %.02340, 2048
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %.thread
@@ -11918,7 +11918,7 @@ default.unreachable:                              ; preds = %24
   br label %116
 
 90:                                               ; preds = %.thread
-  %91 = icmp ult i64 %.02340, 2176
+  %91 = icmp samesign ult i64 %.02340, 2176
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %90

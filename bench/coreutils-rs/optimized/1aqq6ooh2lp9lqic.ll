@@ -451,7 +451,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %79, label %115, label %111, !prof !55
 
 .critedge.thread:                                 ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit, %.critedge
-  %80 = icmp ult i32 %.sroa.4.0.i.ph10.i9, 160
+  %80 = icmp samesign ult i32 %.sroa.4.0.i.ph10.i9, 160
   br i1 %80, label %_ZN6uu_fmt9parasplit10char_width17h89b124dc9ee24b16E.exit, label %81
 
 81:                                               ; preds = %.critedge.thread
@@ -640,7 +640,7 @@ define void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..trai
   ]
 
 61:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
-  %62 = icmp ugt i32 %60, 127
+  %62 = icmp samesign ugt i32 %60, 127
   br i1 %62, label %63, label %87
 
 63:                                               ; preds = %61
@@ -845,7 +845,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   ]
 
 160:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i95"
-  %161 = icmp ugt i32 %159, 127
+  %161 = icmp samesign ugt i32 %159, 127
   br i1 %161, label %162, label %183
 
 162:                                              ; preds = %160
@@ -2559,7 +2559,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   ]
 
 171:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i.i"
-  %172 = icmp ugt i32 %.sroa.4.0.i.ph10.i10.i.i.i, 127
+  %172 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i10.i.i.i, 127
   br i1 %172, label %173, label %224
 
 173:                                              ; preds = %171
@@ -2602,7 +2602,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   br i1 %193, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hcd20992df7e863bbE.exit", label %.thread6.i.i.i.i.i
 
 .thread6.i.i.i.i.i:                               ; preds = %192, %173
-  %194 = icmp ult i32 %.sroa.4.0.i.ph10.i10.i.i.i, 160
+  %194 = icmp samesign ult i32 %.sroa.4.0.i.ph10.i10.i.i.i, 160
   br i1 %194, label %224, label %195
 
 195:                                              ; preds = %.thread6.i.i.i.i.i

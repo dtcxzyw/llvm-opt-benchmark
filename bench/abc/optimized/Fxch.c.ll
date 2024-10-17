@@ -1481,7 +1481,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 153:                                              ; preds = %52, %151
   %.3 = phi i32 [ %152, %151 ], [ %.266, %52 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %154 = icmp ult i64 %indvars.iv73, 31
+  %154 = icmp samesign ult i64 %indvars.iv73, 31
   %155 = icmp ne i32 %.3, 0
   %156 = select i1 %154, i1 %155, i1 false
   br i1 %156, label %52, label %157, !llvm.loop !22

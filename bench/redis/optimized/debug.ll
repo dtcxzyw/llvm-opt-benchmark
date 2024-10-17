@@ -2138,12 +2138,12 @@ while.body.us:                                    ; preds = %entry, %while.cond.
 
 while.cond.us:                                    ; preds = %while.body.us
   %div16.us = lshr i64 %sz.017.us, 1
-  %cmp4.not.us = icmp ult i64 %sz.017.us, 2
+  %cmp4.not.us = icmp samesign ult i64 %sz.017.us, 2
   br i1 %cmp4.not.us, label %while.end, label %while.body.us, !llvm.loop !16
 
 while.cond:                                       ; preds = %if.end23
   %div16 = lshr i64 %sz.017, 1
-  %cmp4.not = icmp ult i64 %sz.017, 2
+  %cmp4.not = icmp samesign ult i64 %sz.017, 2
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.preheader, %while.cond

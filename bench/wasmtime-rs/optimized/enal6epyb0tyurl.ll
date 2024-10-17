@@ -474,7 +474,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   br i1 %38, label %.loopexit30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.i.i.i.i.i", %37
-  %.not.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.5.0.i.i.i.i, 2
+  %.not.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.5.0.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i.i, label %42, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i"
@@ -654,7 +654,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   br i1 %38, label %.loopexit30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.i.i.i.i.i", %37
-  %.not.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.5.0.i.i.i.i, 2
+  %.not.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.5.0.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i.i, label %42, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h375fd9078e4a8ec3E.exit.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit.thread.i.i.i.i.i"
@@ -9924,7 +9924,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i32, i32 } @_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566(i32 noundef %0, i32 %1, i32 noundef %2, i32 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %5 = icmp ult i32 %0, %2
+  %5 = icmp samesign ult i32 %0, %2
   br i1 %5, label %.thread23, label %6
 
 6:                                                ; preds = %4
@@ -9950,7 +9950,7 @@ _ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit: ; preds = %6
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %5 = icmp ult i64 %0, %2
+  %5 = icmp samesign ult i64 %0, %2
   br i1 %5, label %.thread23, label %6
 
 6:                                                ; preds = %4
@@ -38749,7 +38749,7 @@ define hidden void @_ZN8wasmtime7runtime9resources17ResourcesRequired3add17h5734
   %11 = load i64, ptr %1, align 8, !range !777, !noundef !4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %8, %11
+  %14 = icmp samesign ult i64 %8, %11
   br i1 %14, label %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit, label %15
 
 15:                                               ; preds = %2
@@ -38784,7 +38784,7 @@ _ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit: ; preds 
   %30 = load i32, ptr %29, align 8, !range !380, !noundef !4
   %31 = getelementptr inbounds i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
-  %33 = icmp ult i32 %26, %30
+  %33 = icmp samesign ult i32 %26, %30
   br i1 %33, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit, label %34
 
 34:                                               ; preds = %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit

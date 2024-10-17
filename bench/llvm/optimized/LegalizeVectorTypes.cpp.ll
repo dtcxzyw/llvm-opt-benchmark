@@ -18616,7 +18616,7 @@ _ZNK4llvm14SmallBitVector5countEv.exit:           ; preds = %._crit_edge355.thre
   %.not.i240418 = phi i1 [ false, %._crit_edge355.thread ], [ true, %_ZNK4llvm9BitVector5countEv.exit.loopexit.i ]
   %.sroa.0287.0.lcssa416 = phi i64 [ %.sroa.0287.0.lcssa417, %._crit_edge355.thread ], [ %.sroa.0287.1, %_ZNK4llvm9BitVector5countEv.exit.loopexit.i ]
   %.0.i241 = phi i64 [ %272, %._crit_edge355.thread ], [ %283, %_ZNK4llvm9BitVector5countEv.exit.loopexit.i ]
-  %284 = icmp ugt i64 %.0.i241, 1
+  %284 = icmp samesign ugt i64 %.0.i241, 1
   br i1 %284, label %285, label %_ZN4llvm11SmallVectorINS0_ISt4pairIjiELj2EEELj1EED2Ev.exit
 
 285:                                              ; preds = %_ZNK4llvm14SmallBitVector5countEv.exit
@@ -30028,7 +30028,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %169 = add i64 %168, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %169) #14
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
-  %170 = icmp ult i64 %indvars.iv.next228, %149
+  %170 = icmp samesign ult i64 %indvars.iv.next228, %149
   br i1 %170, label %153, label %.preheader.loopexit, !llvm.loop !186
 
 .lr.ph216:                                        ; preds = %.preheader, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit169
@@ -33342,7 +33342,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %119 = add i64 %118, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %119) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = icmp ult i64 %indvars.iv.next, %99
+  %120 = icmp samesign ult i64 %indvars.iv.next, %99
   br i1 %120, label %103, label %.preheader.loopexit, !llvm.loop !192
 
 .lr.ph152:                                        ; preds = %.preheader, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit130
@@ -39487,7 +39487,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit215:    ; preds = %_ZNK4llvm3MVT20getV
   store ptr %.fca.0.extract42, ptr %185, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %185, i64 8
   store i32 %.fca.1.extract43, ptr %.sroa.250.0..sroa_idx, align 8
-  %186 = icmp ult i64 %indvars.iv.next339, %173
+  %186 = icmp samesign ult i64 %indvars.iv.next339, %173
   br i1 %186, label %.lr.ph314, label %._crit_edge315, !llvm.loop !216
 
 ._crit_edge315:                                   ; preds = %.lr.ph314, %.preheader
@@ -39683,7 +39683,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit245: ; preds = %244, %247
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %252, i64 8
   store i32 %.fca.1.extract7, ptr %.sroa.214.0..sroa_idx, align 8
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %253 = icmp ult i64 %indvars.iv.next342, %250
+  %253 = icmp samesign ult i64 %indvars.iv.next342, %250
   br i1 %253, label %.lr.ph317, label %.loopexit, !llvm.loop !218
 
 .loopexit:                                        ; preds = %.lr.ph317, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit245, %_ZNK4llvm3EVT20getVectorNumElementsEv.exit243
@@ -51852,7 +51852,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit121:           ; preds = %65, %69
 79:                                               ; preds = %75
   %.not.i.i = icmp ugt i32 %63, %39
   %80 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %77)
-  %81 = icmp ugt i32 %80, 1
+  %81 = icmp samesign ugt i32 %80, 1
   %or.cond175.not205 = select i1 %.not.i.i, i1 true, i1 %81
   %or.cond188 = icmp ult i32 %invariant.umax, %63
   %or.cond200 = or i1 %or.cond175.not205, %or.cond188
@@ -51960,7 +51960,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %114
 121:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread
   %.not.i.i144 = icmp ugt i32 %99, %39
   %122 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %119)
-  %123 = icmp ugt i32 %122, 1
+  %123 = icmp samesign ugt i32 %122, 1
   %or.cond179.not207 = select i1 %.not.i.i144, i1 true, i1 %123
   %or.cond189 = icmp ult i32 %invariant.umax199, %99
   %or.cond201 = or i1 %or.cond179.not207, %or.cond189
@@ -57432,7 +57432,7 @@ _ZNK4llvm3EVT6bitsGTES0_.exit.thread:             ; preds = %42, %_ZNK4llvm3EVT6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %0, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %37, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm3EVT6bitsGTES0_.exit.thread, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit

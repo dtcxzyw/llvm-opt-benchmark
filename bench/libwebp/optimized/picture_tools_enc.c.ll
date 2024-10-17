@@ -603,7 +603,7 @@ SmoothenBlock.exit218.preheader:                  ; preds = %.lr.ph292
 
 SmoothenBlock.exit218.us:                         ; preds = %._crit_edge.us72.i216.us, %._crit_edge64.i207.us
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 8
-  %.not138.us = icmp ugt i64 %indvars.iv.next309, %172
+  %.not138.us = icmp samesign ugt i64 %indvars.iv.next309, %172
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 8
   br i1 %.not138.us, label %._crit_edge293.loopexit, label %.preheader54.lr.ph.i.us, !llvm.loop !19
 

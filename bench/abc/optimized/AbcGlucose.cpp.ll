@@ -216,7 +216,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %12, %.preheader.i.i
   %19 = and i32 %18, 1073741822
   %20 = add nuw nsw i32 %19, 2
   %21 = xor i32 %17, 2147483647
-  %22 = icmp ugt i32 %20, %21
+  %22 = icmp samesign ugt i32 %20, %21
   br i1 %22, label %.loopexit29, label %23
 
 23:                                               ; preds = %16
@@ -344,7 +344,7 @@ define noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolve
   %11 = and i32 %10, 1073741822
   %12 = add nuw nsw i32 %11, 2
   %13 = xor i32 %9, 2147483647
-  %14 = icmp ugt i32 %12, %13
+  %14 = icmp samesign ugt i32 %12, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %8
@@ -864,7 +864,7 @@ _ZN5Gluco3vecIiE5clearEb.exit:                    ; preds = %22, %.preheader.i
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
   %41 = add nuw nsw i32 %40, 2
   %42 = sub nsw i32 2147483647, %34
-  %43 = icmp ugt i32 %41, %42
+  %43 = icmp samesign ugt i32 %41, %42
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %37
@@ -1328,7 +1328,7 @@ _ZN5Gluco10SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit: ; preds = %.lr.ph.i.i
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = add nuw nsw i32 %57, 2
   %59 = sub nsw i32 2147483647, %51
-  %60 = icmp ugt i32 %58, %59
+  %60 = icmp samesign ugt i32 %58, %59
   br i1 %60, label %.loopexit56, label %61
 
 61:                                               ; preds = %54
@@ -1730,7 +1730,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %22, %.preheader.i
   %37 = call i32 @llvm.smax.i32(i32 %36, i32 0)
   %38 = add nuw nsw i32 %37, 2
   %39 = sub nsw i32 2147483647, %31
-  %40 = icmp ugt i32 %38, %39
+  %40 = icmp samesign ugt i32 %38, %39
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %34
@@ -2673,7 +2673,7 @@ bmcg_sat_solver_set_nvars.exit:                   ; preds = %.lr.ph.i, %20
   %57 = and i32 %56, 1073741822
   %58 = add nuw nsw i32 %57, 2
   %59 = xor i32 %55, 2147483647
-  %60 = icmp ugt i32 %58, %59
+  %60 = icmp samesign ugt i32 %58, %59
   br i1 %60, label %.loopexit29.i, label %61
 
 61:                                               ; preds = %54
@@ -5815,7 +5815,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr n
   %18 = call i32 @llvm.smax.i32(i32 %17, i32 0)
   %19 = add nuw nsw i32 %18, 2
   %20 = sub nsw i32 2147483647, %8
-  %21 = icmp ugt i32 %19, %20
+  %21 = icmp samesign ugt i32 %19, %20
   br i1 %21, label %33, label %22
 
 22:                                               ; preds = %15

@@ -212,7 +212,7 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
   %45 = and i64 %42, 4294967295
-  %46 = icmp ult i64 %45, 25
+  %46 = icmp samesign ult i64 %45, 25
   %47 = or i1 %44, %46
   br i1 %47, label %48, label %50
 

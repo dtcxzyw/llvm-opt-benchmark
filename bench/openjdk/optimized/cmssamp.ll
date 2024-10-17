@@ -589,7 +589,7 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef r
   %4 = alloca %struct.cmsMAT3, align 8
   %5 = alloca %struct.cmsVEC3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
-  %7 = icmp ult i32 %0, 4
+  %7 = icmp samesign ult i32 %0, 4
   br i1 %7, label %60, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3

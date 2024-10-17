@@ -3593,7 +3593,7 @@ define hidden void @_ZN15deltalake_mount4file23MountFileStorageBackend7try_new17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN68_$LT$deltalake_mount..error..Error$u20$as$u20$core..error..Error$GT$6source17hcd418eb44e180285E"(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #13 {
   %2 = load i64, ptr %0, align 8, !range !58, !noundef !38
-  %switch.not = icmp ult i64 %2, 16
+  %switch.not = icmp samesign ult i64 %2, 16
   br i1 %switch.not, label %3, label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
 
 3:                                                ; preds = %1

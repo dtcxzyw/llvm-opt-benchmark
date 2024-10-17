@@ -260,7 +260,7 @@ Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.e
   %148 = load i32, ptr %.0137236, align 8
   %149 = lshr i32 %148, 28
   %150 = zext nneg i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next, %150
   br i1 %151, label %.lr.ph, label %._crit_edge.loopexit.split.loop.exit271, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit271:          ; preds = %.lr.ph284
@@ -313,7 +313,7 @@ Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.e
   br i1 %exitcond.not, label %.critedge, label %162, !llvm.loop !7
 
 .critedge:                                        ; preds = %162
-  %171 = icmp ugt i32 %spec.select, 2
+  %171 = icmp samesign ugt i32 %spec.select, 2
   br i1 %171, label %.critedge6, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %155, %.critedge
@@ -1266,7 +1266,7 @@ define void @Rwr_ScoresReport(ptr nocapture noundef readonly %0) local_unnamed_a
 
 .critedge:                                        ; preds = %20, %11
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %28 = icmp ult i64 %indvars.iv.next66, %10
+  %28 = icmp samesign ult i64 %indvars.iv.next66, %10
   br i1 %28, label %11, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.critedge, %1

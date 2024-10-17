@@ -153,7 +153,7 @@ define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr nocapture noundef r
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 63
-  %5 = icmp ult i8 %4, 9
+  %5 = icmp samesign ult i8 %4, 9
   br i1 %5, label %switch.lookup, label %6
 
 6:                                                ; preds = %1

@@ -828,7 +828,7 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
   %52 = getelementptr inbounds i8, ptr %0, i64 3322
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, -2
-  %55 = icmp ugt i8 %.sink115123, 1
+  %55 = icmp samesign ugt i8 %.sink115123, 1
   %56 = zext i1 %55 to i16
   %57 = or disjoint i16 %54, %56
   %58 = icmp eq i8 %.sink115123, 1

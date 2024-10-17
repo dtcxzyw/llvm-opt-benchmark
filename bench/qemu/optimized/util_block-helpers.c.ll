@@ -23,7 +23,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = tail call range(i64 0, 23) i64 @llvm.ctpop.i64(i64 %value)
-  %cmp2.not = icmp ult i64 %1, 2
+  %cmp2.not = icmp samesign ult i64 %1, 2
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end

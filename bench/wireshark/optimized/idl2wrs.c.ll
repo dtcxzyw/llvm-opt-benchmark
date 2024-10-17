@@ -5613,7 +5613,7 @@ sub_0:                                            ; preds = %113
   %133 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %126, ptr noundef nonnull @.str.354, ptr noundef nonnull %4) #15
   %134 = load i32, ptr %4, align 4
   %135 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %134)
-  %.not101 = icmp ult i32 %135, 2
+  %.not101 = icmp samesign ult i32 %135, 2
   br i1 %.not101, label %141, label %138
 
 .tail.thread:                                     ; preds = %sub_0, %.tail

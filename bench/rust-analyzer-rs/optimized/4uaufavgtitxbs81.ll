@@ -6257,15 +6257,15 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
   br i1 %104, label %"_ZN13project_model3env29parse_output_cargo_config_env28_$u7b$$u7b$closure$u7d$$u7d$17h2db201762574feecE.exit.thread.i.i", label %105
 
 105:                                              ; preds = %103
-  %106 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
+  %106 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
   br i1 %106, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i", label %107
 
 107:                                              ; preds = %105
-  %108 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
+  %108 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
   br i1 %108, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i", label %109
 
 109:                                              ; preds = %107
-  %110 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
+  %110 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i = select i1 %110, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i"
 

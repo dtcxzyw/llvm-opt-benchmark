@@ -490,7 +490,7 @@ _ZN4Node8init_reqEjPS_.exit188:                   ; preds = %.lr.ph319, %239, %2
   %257 = getelementptr inbounds i8, ptr %256, i64 24
   %258 = load i32, ptr %257, align 8
   %259 = zext i32 %258 to i64
-  %260 = icmp ult i64 %indvars.iv.next347, %259
+  %260 = icmp samesign ult i64 %indvars.iv.next347, %259
   br i1 %260, label %.lr.ph319, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit188, %.preheader

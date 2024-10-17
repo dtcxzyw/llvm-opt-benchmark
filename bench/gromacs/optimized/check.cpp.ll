@@ -880,7 +880,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit130.i:     ; preds = %188, %185
 
 238:                                              ; preds = %234, %232
   %.0100.i = phi ptr [ @.str.73, %234 ], [ @.str.72, %232 ]
-  %239 = icmp ugt i32 %.0107.i, 1
+  %239 = icmp samesign ugt i32 %.0107.i, 1
   br i1 %239, label %240, label %259
 
 240:                                              ; preds = %238
@@ -1376,7 +1376,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %fputc113.i = call i32 @fputc(i32 10, ptr %503)
   %504 = load ptr, ptr @stderr, align 8
   %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %504, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, i32 noundef %.sroa.064.1.i) #23
-  %506 = icmp ugt i32 %.sroa.064.1.i, 1
+  %506 = icmp samesign ugt i32 %.sroa.064.1.i, 1
   %or.cond.i = select i1 %.1102.i, i1 %506, i1 false
   %507 = load ptr, ptr @stderr, align 8
   br i1 %or.cond.i, label %508, label %515
@@ -1397,7 +1397,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 516:                                              ; preds = %515, %508
   %517 = load ptr, ptr @stderr, align 8
   %518 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %517, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.79, i32 noundef %.sroa.7.1.i) #23
-  %519 = icmp ugt i32 %.sroa.7.1.i, 1
+  %519 = icmp samesign ugt i32 %.sroa.7.1.i, 1
   %or.cond5.i = select i1 %.1102.i, i1 %519, i1 false
   %520 = load ptr, ptr @stderr, align 8
   br i1 %or.cond5.i, label %521, label %528
@@ -1418,7 +1418,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 529:                                              ; preds = %528, %521
   %530 = load ptr, ptr @stderr, align 8
   %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.80, i32 noundef %.sroa.14.1.i) #23
-  %532 = icmp ugt i32 %.sroa.14.1.i, 1
+  %532 = icmp samesign ugt i32 %.sroa.14.1.i, 1
   %or.cond8.i = select i1 %.1102.i, i1 %532, i1 false
   %533 = load ptr, ptr @stderr, align 8
   br i1 %or.cond8.i, label %534, label %541
@@ -1439,7 +1439,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 542:                                              ; preds = %541, %534
   %543 = load ptr, ptr @stderr, align 8
   %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %543, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.81, i32 noundef %.sroa.21.1.i) #23
-  %545 = icmp ugt i32 %.sroa.21.1.i, 1
+  %545 = icmp samesign ugt i32 %.sroa.21.1.i, 1
   %or.cond11.i = select i1 %.1102.i, i1 %545, i1 false
   %546 = load ptr, ptr @stderr, align 8
   br i1 %or.cond11.i, label %547, label %554
@@ -1460,7 +1460,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 555:                                              ; preds = %554, %547
   %556 = load ptr, ptr @stderr, align 8
   %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %556, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.82, i32 noundef %.sroa.28.1.i) #23
-  %558 = icmp ugt i32 %.sroa.28.1.i, 1
+  %558 = icmp samesign ugt i32 %.sroa.28.1.i, 1
   %or.cond14.i = select i1 %.1102.i, i1 %558, i1 false
   %559 = load ptr, ptr @stderr, align 8
   br i1 %or.cond14.i, label %560, label %567
@@ -1481,7 +1481,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 568:                                              ; preds = %567, %560
   %569 = load ptr, ptr @stderr, align 8
   %570 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %569, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.83, i32 noundef %.sroa.35.1.i) #23
-  %571 = icmp ugt i32 %.sroa.35.1.i, 1
+  %571 = icmp samesign ugt i32 %.sroa.35.1.i, 1
   %or.cond17.i = select i1 %.1102.i, i1 %571, i1 false
   %572 = load ptr, ptr @stderr, align 8
   br i1 %or.cond17.i, label %573, label %580
@@ -1502,7 +1502,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
 581:                                              ; preds = %580, %573
   %582 = load ptr, ptr @stderr, align 8
   %583 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %582, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.84, i32 noundef %.sroa.42.1.i) #23
-  %584 = icmp ugt i32 %.sroa.42.1.i, 1
+  %584 = icmp samesign ugt i32 %.sroa.42.1.i, 1
   %or.cond20.i = select i1 %.1102.i, i1 %584, i1 false
   %585 = load ptr, ptr @stderr, align 8
   br i1 %or.cond20.i, label %586, label %593
@@ -2663,7 +2663,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   %.02848 = phi float [ -1.000000e+00, %.lr.ph ], [ %53, %52 ]
   %.02947 = phi float [ 0.000000e+00, %.lr.ph ], [ %.13045, %52 ]
   %.03146 = phi i1 [ false, %.lr.ph ], [ true, %52 ]
-  %21 = icmp ugt i32 %.051, 1
+  %21 = icmp samesign ugt i32 %.051, 1
   %22 = load double, ptr %17, align 8
   br i1 %21, label %23, label %43
 
@@ -2730,8 +2730,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   %.0.lcssa = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %54, %52 ]
   %56 = load ptr, ptr @stderr, align 8
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.97, i32 noundef %.0.lcssa) #23
-  %58 = icmp ugt i32 %.0.lcssa, 1
-  %or.cond = and i1 %.026.lcssa, %58
+  %58 = icmp samesign ugt i32 %.0.lcssa, 1
+  %or.cond = select i1 %.026.lcssa, i1 %58, i1 false
   br i1 %or.cond, label %59, label %67
 
 59:                                               ; preds = %._crit_edge
@@ -2866,7 +2866,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %22, %25
   %.pre343 = trunc nuw i8 %52 to i1
   %.pre345 = select i1 %.pre342, i1 %.pre343, i1 false
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %55 = icmp uge i64 %indvars.iv.next292, %33
+  %55 = icmp samesign uge i64 %indvars.iv.next292, %33
   %or.cond = select i1 %55, i1 true, i1 %.pre345
   br i1 %or.cond, label %.critedge.preheader, label %.preheader239, !llvm.loop !30
 
@@ -2882,7 +2882,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %22, %25
   %58 = load float, ptr %57, align 4
   %59 = fcmp une float %58, 0.000000e+00
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %60 = icmp ugt i64 %indvars.iv293, 1
+  %60 = icmp samesign ugt i64 %indvars.iv293, 1
   %.not209 = select i1 %60, i1 true, i1 %59
   br i1 %.not209, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !31
 
@@ -2893,7 +2893,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %22, %25
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader238
   %.1184.lcssa = phi i8 [ %.0183253, %.preheader238 ], [ %61, %.critedge.loopexit ]
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %62 = icmp ugt i64 %indvars.iv296, 1
+  %62 = icmp samesign ugt i64 %indvars.iv296, 1
   %63 = trunc nuw i8 %.1184.lcssa to i1
   %.not200 = select i1 %62, i1 true, i1 %63
   br i1 %.not200, label %64, label %.preheader238, !llvm.loop !32
@@ -3385,7 +3385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
   %297 = load float, ptr %296, align 4
   %298 = fcmp ogt float %293, %297
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
-  %299 = icmp ugt i64 %indvars.iv321, 1
+  %299 = icmp samesign ugt i64 %indvars.iv321, 1
   %.not202 = select i1 %299, i1 true, i1 %298
   br i1 %.not202, label %300, label %291, !llvm.loop !38
 

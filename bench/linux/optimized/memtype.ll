@@ -315,7 +315,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %8 = add i64 %1, 4503599627370495
   %9 = and i64 %8, 4503599627370495
   %10 = add nuw nsw i64 %9, 1
-  %11 = icmp ugt i64 %7, %9
+  %11 = icmp samesign ugt i64 %7, %9
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %4
@@ -414,7 +414,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %47 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %47, align 4
   %48 = call i64 @llvm.umax.i64(i64 %43, i64 256)
-  %49 = icmp ult i64 %48, %45
+  %49 = icmp samesign ult i64 %48, %45
   br i1 %49, label %50, label %.thread
 
 .thread:                                          ; preds = %42
@@ -459,7 +459,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 60:                                               ; preds = %59, %56
   %61 = phi i32 [ 2, %59 ], [ %2, %56 ]
   %62 = lshr i64 %10, 12
-  %63 = icmp ult i64 %43, %62
+  %63 = icmp samesign ult i64 %43, %62
   br i1 %63, label %64, label %.loopexit21
 
 64:                                               ; preds = %60
@@ -684,7 +684,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
   %15 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %15, align 4
   %16 = tail call i64 @llvm.umax.i64(i64 %11, i64 256)
-  %17 = icmp ult i64 %16, %13
+  %17 = icmp samesign ult i64 %16, %13
   br i1 %17, label %18, label %.thread
 
 .thread:                                          ; preds = %10
@@ -709,7 +709,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
 
 24:                                               ; preds = %22
   %25 = lshr i64 %7, 12
-  %26 = icmp ult i64 %11, %25
+  %26 = icmp samesign ult i64 %11, %25
   br i1 %26, label %.preheader7, label %.loopexit8
 
 .preheader7:                                      ; preds = %24, %.loopexit
@@ -808,7 +808,7 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
   %11 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %11, align 4
   %12 = tail call i64 @llvm.umax.i64(i64 %7, i64 256)
-  %13 = icmp ult i64 %12, %9
+  %13 = icmp samesign ult i64 %12, %9
   br i1 %13, label %14, label %.thread
 
 .thread:                                          ; preds = %6
@@ -1133,7 +1133,7 @@ define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, pt
   %14 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %14, align 4
   %15 = tail call i64 @llvm.umax.i64(i64 %10, i64 256)
-  %16 = icmp ult i64 %15, %12
+  %16 = icmp samesign ult i64 %15, %12
   br i1 %16, label %17, label %.thread
 
 .thread:                                          ; preds = %4
@@ -1475,7 +1475,7 @@ define dso_local void @untrack_pfn(ptr noundef %0, i64 noundef %1, i64 noundef %
   %36 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %36, align 4
   %37 = call i64 @llvm.umax.i64(i64 %32, i64 256)
-  %38 = icmp ult i64 %37, %34
+  %38 = icmp samesign ult i64 %37, %34
   br i1 %38, label %39, label %.thread
 
 .thread:                                          ; preds = %28

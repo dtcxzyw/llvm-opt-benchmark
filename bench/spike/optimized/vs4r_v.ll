@@ -1795,7 +1795,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %51, i64 noundef 1536)
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = icmp ugt i64 %53, 15
+  %54 = icmp samesign ugt i64 %53, 15
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -2207,7 +2207,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %51, i64 noundef 1536)
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = icmp ugt i64 %53, 15
+  %54 = icmp samesign ugt i64 %53, 15
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -2617,7 +2617,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %51, i64 noundef 1536)
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = icmp ugt i64 %53, 15
+  %54 = icmp samesign ugt i64 %53, 15
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -3029,7 +3029,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %51, i64 noundef 1536)
   %52 = lshr i64 %1, 15
   %53 = and i64 %52, 31
-  %54 = icmp ugt i64 %53, 15
+  %54 = icmp samesign ugt i64 %53, 15
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

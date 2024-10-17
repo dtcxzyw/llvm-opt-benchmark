@@ -65,7 +65,7 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
   %20 = urem i64 %.0, %.fr
   %21 = icmp ugt i64 %20, 15
   %22 = and i64 %20, 15
-  %23 = icmp ult i64 %22, 8
+  %23 = icmp samesign ult i64 %22, 8
   %24 = shl nuw nsw i64 %22, 1
   %25 = add nsw i64 %24, -15
   %.0.i.i = select i1 %23, i64 %24, i64 %25
@@ -179,7 +179,7 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
   %19 = sub nuw i64 %.018, %18
   %20 = icmp ugt i64 %18, 15
   %21 = and i64 %18, 15
-  %22 = icmp ult i64 %21, 8
+  %22 = icmp samesign ult i64 %21, 8
   %23 = shl nuw nsw i64 %21, 1
   %24 = add nsw i64 %23, -15
   %.0.i.i = select i1 %22, i64 %23, i64 %24
@@ -686,7 +686,7 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN5faiss22pq4_get_packed_elementEPKh
   %12 = urem i64 %3, %1
   %13 = icmp ugt i64 %12, 15
   %14 = and i64 %12, 15
-  %15 = icmp ult i64 %14, 8
+  %15 = icmp samesign ult i64 %14, 8
   %16 = shl nuw nsw i64 %14, 1
   %17 = add nsw i64 %16, -15
   %.0.i = select i1 %15, i64 %16, i64 %17
@@ -715,7 +715,7 @@ define void @_ZN5faiss22pq4_set_packed_elementEPhhmmmm(ptr nocapture noundef %0,
   %13 = urem i64 %4, %2
   %14 = icmp ugt i64 %13, 15
   %15 = and i64 %13, 15
-  %16 = icmp ult i64 %15, 8
+  %16 = icmp samesign ult i64 %15, 8
   %17 = shl nuw nsw i64 %15, 1
   %18 = add nsw i64 %17, -15
   %.0.i = select i1 %16, i64 %17, i64 %18
@@ -792,7 +792,7 @@ define void @_ZN5faiss12pq4_pack_LUTEiiPKhPh(i32 noundef %0, i32 noundef %1, ptr
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %23 = icmp ult i64 %indvars.iv.next, %8
+  %23 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %23, label %10, label %._crit_edge.us, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %10
@@ -909,7 +909,7 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %52 = getelementptr inbounds i8, ptr %36, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %53 = icmp ult i64 %indvars.iv.next.i, %28
+  %53 = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %53, label %40, label %._crit_edge.us.i, !llvm.loop !19
 
 ._crit_edge.us.i:                                 ; preds = %40
@@ -1038,7 +1038,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %56 = getelementptr inbounds i8, ptr %2, i64 %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull readonly align 1 dereferenceable(16) %56, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %57 = icmp ult i64 %indvars.iv.next.i, %29
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %57, label %44, label %._crit_edge.us.i, !llvm.loop !23
 
 ._crit_edge.us.i:                                 ; preds = %44

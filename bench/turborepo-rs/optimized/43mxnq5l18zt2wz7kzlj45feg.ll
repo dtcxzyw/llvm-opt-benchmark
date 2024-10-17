@@ -716,7 +716,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   %27 = ptrtoint ptr %.sroa.0.0 to i64
   %28 = sub nuw i64 %15, %27
   %29 = udiv exact i64 %28, 36
-  %.not.i.not.i = icmp ult i64 %.sroa.15.0, %29
+  %.not.i.not.i = icmp samesign ult i64 %.sroa.15.0, %29
   %30 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %.sroa.0.0, i64 %.sroa.15.0
   %31 = getelementptr inbounds i8, ptr %30, i64 36
   %32 = add i64 %.sroa.10.0, %.sroa.15.0
@@ -1173,7 +1173,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   %158 = ptrtoint ptr %.sroa.0.0 to i64
   %159 = sub nuw i64 %49, %158
   %160 = udiv exact i64 %159, 36
-  %.not.i.not.i = icmp ult i64 %.sroa.15.0178, %160
+  %.not.i.not.i = icmp samesign ult i64 %.sroa.15.0178, %160
   %161 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %.sroa.0.0, i64 %.sroa.15.0178
   %162 = getelementptr inbounds i8, ptr %161, i64 36
   %163 = add i64 %.sroa.10.0, %.sroa.15.0178

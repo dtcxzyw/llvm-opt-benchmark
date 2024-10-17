@@ -1358,7 +1358,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i: ; preds = %_ZN4llvm9Str
   br i1 %19, label %_ZNK4llvm9StringRef7compareES0_.exit, label %20
 
 20:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i
-  %21 = icmp ult i64 %7, %12
+  %21 = icmp samesign ult i64 %7, %12
   %22 = select i1 %21, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 

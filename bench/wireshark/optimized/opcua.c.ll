@@ -359,8 +359,8 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
   store ptr %.02636, ptr %10, align 8
   %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.34, ptr noundef nonnull %6) #11
   %12 = icmp ne ptr %11, null
-  %13 = icmp ult i64 %indvars.iv, 3
-  %14 = and i1 %12, %13
+  %13 = icmp samesign ult i64 %indvars.iv, 3
+  %14 = select i1 %12, i1 %13, i1 false
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph

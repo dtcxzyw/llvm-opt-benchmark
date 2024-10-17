@@ -210,7 +210,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
   store i32 0, ptr %61, align 8
   %65 = add nuw nsw i64 %53, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %.split.us, !prof !11, !llvm.loop !12
 
 .split:                                           ; preds = %42, %.loopexit
@@ -259,7 +259,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
 .loopexit:                                        ; preds = %86
   %94 = add nuw nsw i64 %74, 1
   %95 = and i64 %94, 127
-  %96 = icmp ugt i64 %95, 63
+  %96 = icmp samesign ugt i64 %95, 63
   br i1 %96, label %.thread, label %.split, !prof !11, !llvm.loop !12
 
 97:                                               ; preds = %39, %20
@@ -344,7 +344,7 @@ define internal void @fq_flush_timeout(ptr noundef %0) #1 align 16 {
   tail call fastcc void @fq_ring_free(ptr noundef %2, ptr noundef %34)
   %35 = add nuw nsw i64 %24, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread, label %.preheader, !prof !11, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %27, %23, %16
@@ -541,7 +541,7 @@ define dso_local void @iommu_put_dma_cookie(ptr nocapture noundef %0) local_unna
 .loopexit8:                                       ; preds = %69, %55
   %78 = add nuw nsw i64 %52, 1
   %79 = and i64 %78, 127
-  %80 = icmp ugt i64 %79, 63
+  %80 = icmp samesign ugt i64 %79, 63
   br i1 %80, label %.thread, label %45, !prof !11, !llvm.loop !18
 
 .thread:                                          ; preds = %45, %.loopexit8, %51
@@ -1575,7 +1575,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %19 = sub i64 %17, %18
   %20 = lshr i64 %19, 12
   %21 = sub nuw nsw i64 %8, %10
-  %22 = icmp ugt i64 %20, %21
+  %22 = icmp samesign ugt i64 %20, %21
   br i1 %22, label %49, label %23
 
 23:                                               ; preds = %15
@@ -3461,7 +3461,7 @@ define internal fastcc i64 @iommu_dma_alloc_iova(ptr nocapture noundef readonly 
   %52 = and i8 %51, -3
   store i8 %52, ptr %50, align 4
   %53 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35), !range !73
-  %54 = icmp ult i64 %53, 2
+  %54 = icmp samesign ult i64 %53, 2
   %55 = add i64 %35, -1
   %56 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %55, i32 -1) #18
   %57 = select i1 %54, i32 2, i32 1

@@ -832,7 +832,7 @@ if.then98:                                        ; preds = %lor.lhs.false90, %i
   br i1 %tobool103.not, label %end, label %if.end107
 
 if.end107:                                        ; preds = %lor.lhs.false90, %if.then98, %if.end79
-  %cmp108 = icmp ugt i64 %indvars.iv, 1
+  %cmp108 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp108, label %land.lhs.true110, label %if.end132
 
 land.lhs.true110:                                 ; preds = %if.end107

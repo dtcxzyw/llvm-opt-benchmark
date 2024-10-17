@@ -128,7 +128,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoIdentifyStream(ptr noundef %0, ptr no
   br label %ParseFtyp.exit.thread.thread.thread
 
 38:                                               ; preds = %24
-  %39 = icmp ult i32 %.01429.i, 129
+  %39 = icmp samesign ult i32 %.01429.i, 129
   br i1 %39, label %40, label %.thread20
 
 .thread20:                                        ; preds = %38
@@ -1528,7 +1528,7 @@ AvifInfoInternalSkip.exit.i:                      ; preds = %496, %._crit_edge.i
   %.0.i.ph = phi i32 [ %20, %17 ], [ %498, %AvifInfoInternalSkip.exit.i ]
   %.0.i.ph.fr = freeze i32 %.0.i.ph
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
-  %or.cond.i21 = icmp ult i32 %.0.i.ph.fr, 3
+  %or.cond.i21 = icmp samesign ult i32 %.0.i.ph.fr, 3
   %500 = icmp eq i32 %.0.i.ph.fr, 3
   %. = select i1 %500, i32 2, i32 3
   br i1 %or.cond.i21, label %501, label %.thread52
@@ -1556,7 +1556,7 @@ ParseFile.exit.thread17:                          ; preds = %53, %ParseIprp.exit
   %.0.i.i.ph.fr = freeze i32 %.0.i.i.ph
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
-  %or.cond.i24 = icmp ult i32 %.0.i.i.ph.fr, 3
+  %or.cond.i24 = icmp samesign ult i32 %.0.i.i.ph.fr, 3
   %502 = icmp eq i32 %.0.i.i.ph.fr, 3
   %.65 = select i1 %502, i32 2, i32 3
   %spec.select = select i1 %or.cond.i24, i32 1, i32 %.65
@@ -1995,7 +1995,7 @@ define internal fastcc range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr 
   %80 = phi i8 [ %.pre, %._crit_edge ], [ %70, %69 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %81 = zext i8 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next103, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next103, %81
   br i1 %82, label %69, label %.loopexit
 
 .loopexit:                                        ; preds = %67, %50, %75, %79, %.preheader

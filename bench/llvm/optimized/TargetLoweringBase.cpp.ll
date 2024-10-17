@@ -3428,7 +3428,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %_ZNK4llvm3EVT8isVec
   %45 = trunc i64 %44 to i32
   %46 = icmp ugt i32 %45, 7
   %47 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %45)
-  %48 = icmp ult i32 %47, 2
+  %48 = icmp samesign ult i32 %47, 2
   %or.cond = select i1 %46, i1 %48, i1 false
   br i1 %or.cond, label %76, label %49
 
@@ -3656,7 +3656,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %114, %120
   %.sroa.0.0.in.i.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i.i, %114 ], [ %121, %120 ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.in.i.i.i to i32
   %122 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i.i)
-  %.not.i78 = icmp ult i32 %122, 2
+  %.not.i78 = icmp samesign ult i32 %122, 2
   br i1 %.not.i78, label %144, label %123
 
 123:                                              ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit
@@ -4022,7 +4022,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit137:        ; preds = %.split291.us
   %262 = call i64 @_ZNK4llvm3EVT29getExtendedVectorElementCountEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
   %.sroa.0.0.extract.trunc.i.i135 = trunc i64 %262 to i32
   %263 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i.i135)
-  %.not.i136 = icmp ult i32 %263, 2
+  %.not.i136 = icmp samesign ult i32 %263, 2
   br i1 %.not.i136, label %_ZNK4llvm3EVT21getVectorElementCountEv.exit145, label %269
 
 _ZNK4llvm3EVT16isPow2VectorTypeEv.exit137.thread: ; preds = %.split291.us
@@ -4031,7 +4031,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit137.thread: ; preds = %.split291.us
   %266 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %265
   %267 = load i16, ptr %266, align 2
   %268 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %267)
-  %.not.i136274 = icmp ult i16 %268, 2
+  %.not.i136274 = icmp samesign ult i16 %268, 2
   br i1 %.not.i136274, label %.thread, label %269
 
 269:                                              ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit137.thread, %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit137
@@ -4238,7 +4238,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %2
   %4 = tail call i64 @_ZNK4llvm3EVT29getExtendedVectorElementCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %4 to i32
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i.i)
-  %.not.i = icmp ult i32 %5, 2
+  %.not.i = icmp samesign ult i32 %5, 2
   br i1 %.not.i, label %34, label %19
 
 _ZNK4llvm3EVT16isPow2VectorTypeEv.exit.thread:    ; preds = %2
@@ -4247,7 +4247,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit.thread:    ; preds = %2
   %8 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %9)
-  %.not.i20 = icmp ult i16 %10, 2
+  %.not.i20 = icmp samesign ult i16 %10, 2
   br i1 %.not.i20, label %34, label %11
 
 11:                                               ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit.thread
@@ -4638,7 +4638,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %110 = call noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %109) #26
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %79, ptr noundef nonnull align 8 dereferenceable(1041) %14, ptr noundef nonnull align 8 dereferenceable(32) %104) #26
   %111 = zext i32 %110 to i64
-  %112 = icmp ugt i64 %indvars.iv, %111
+  %112 = icmp samesign ugt i64 %indvars.iv, %111
   br i1 %112, label %113, label %147
 
 113:                                              ; preds = %108
@@ -4726,7 +4726,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i24, ptr %19, align 8
   %149 = zext i24 %148 to i64
-  %150 = icmp ult i64 %indvars.iv.next, %149
+  %150 = icmp samesign ult i64 %indvars.iv.next, %149
   br i1 %150, label %102, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %147, %_ZN4llvm8DebugLocD2Ev.exit
@@ -5004,7 +5004,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %86
   %138 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %99, i64 %137, i32 1
   %139 = load i32, ptr %138, align 4
   %140 = lshr i32 %139, 3
-  %.not25 = icmp ugt i32 %131, %140
+  %.not25 = icmp samesign ugt i32 %131, %140
   br i1 %.not25, label %141, label %_ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetRegisterClassE.exit
 
 141:                                              ; preds = %119
@@ -5044,7 +5044,7 @@ _ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetR
 
 156:                                              ; preds = %_ZNK4llvm18TargetLoweringBase9isLegalRCERKNS_18TargetRegisterInfoERKNS_19TargetRegisterClassE.exit
   %157 = lshr i32 %154, 6
-  %.not32.i.i.i.i = icmp ugt i32 %157, %111
+  %.not32.i.i.i.i = icmp samesign ugt i32 %157, %111
   br i1 %.not32.i.i.i.i, label %._crit_edge71, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %156
@@ -5456,7 +5456,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit121: ; preds = %151, %34
 
 .preheader279:                                    ; preds = %160
   %171 = select i1 %spec.select.i.i, i64 168, i64 87
-  %.not101293.not = icmp ult i64 %indvars.iv329, %171
+  %.not101293.not = icmp samesign ult i64 %indvars.iv329, %171
   br i1 %.not101293.not, label %.lr.ph295, label %.loopexit
 
 .lr.ph295:                                        ; preds = %.preheader279
@@ -5522,7 +5522,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit128: ; preds = %_ZNK4llv
 
 .critedge:                                        ; preds = %186, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit128, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
-  %.not101.not = icmp ult i64 %indvars.iv323, %171
+  %.not101.not = icmp samesign ult i64 %indvars.iv323, %171
   br i1 %.not101.not, label %175, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.critedge, %.preheader279, %160
@@ -5531,7 +5531,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit128: ; preds = %_ZNK4llv
   br i1 %or.cond257, label %.preheader278, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 .preheader278:                                    ; preds = %.loopexit
-  %200 = icmp ult i64 %indvars.iv329, 189
+  %200 = icmp samesign ult i64 %indvars.iv329, 189
   br i1 %200, label %.lr.ph299, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit139.thread
 
 .lr.ph299:                                        ; preds = %.preheader278, %.critedge2
@@ -5632,14 +5632,14 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit139.thread: ; preds = %.
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit139.thread
   %.pre.i = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %.sroa.051.sroa.0.0.extract.trunc.i)
-  %238 = icmp ugt i32 %.pre.i, 1
+  %238 = icmp samesign ugt i32 %.pre.i, 1
   br label %241
 
 _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit139.thread
   %.not.i.i.i = icmp ne i16 %165, 0
   call void @llvm.assume(i1 %.not.i.i.i)
   %239 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %.sroa.051.sroa.0.0.extract.trunc.i)
-  %240 = icmp ult i32 %239, 2
+  %240 = icmp samesign ult i32 %239, 2
   call void @llvm.assume(i1 %240)
   br label %241
 
@@ -5650,7 +5650,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %_ZNK4llvm18TargetLo
   %.sroa.051.sroa.0.0.i = select i1 %or.cond.not86.i, i32 1, i32 %.sroa.051.sroa.0.0.extract.trunc.i
   %narrow.not.i = or i1 %spec.select.i.i.i140, %or.cond.not86.i
   %.024.i = select i1 %or.cond.not86.i, i16 %165, i16 1
-  %242 = icmp ugt i32 %.sroa.051.sroa.0.0.i, 1
+  %242 = icmp samesign ugt i32 %.sroa.051.sroa.0.0.i, 1
   br i1 %242, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %241
@@ -5673,7 +5673,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.us.i: ; preds = %_ZN4ll
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread.us.i: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.us.i, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.us.i
   %247 = lshr i32 %.sroa.051.sroa.0.187.us.i, 1
   %248 = shl i16 %.188.us.i, 1
-  %249 = icmp ugt i32 %.sroa.051.sroa.0.187.us.i, 3
+  %249 = icmp samesign ugt i32 %.sroa.051.sroa.0.187.us.i, 3
   br i1 %249, label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.us.i, label %.critedge.i, !llvm.loop !41
 
 _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %.lr.ph.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread.i
@@ -5693,7 +5693,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZN4llvm3
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread.i: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
   %254 = lshr i32 %.sroa.051.sroa.0.187.i, 1
   %255 = shl i16 %.188.i, 1
-  %256 = icmp ugt i32 %.sroa.051.sroa.0.187.i, 3
+  %256 = icmp samesign ugt i32 %.sroa.051.sroa.0.187.i, 3
   br i1 %256, label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i, label %.critedge.i, !llvm.loop !41
 
 .critedge.i:                                      ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread.us.i, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.us.i, %241
@@ -5859,7 +5859,7 @@ _ZL25getVectorTypeBreakdownMVTN4llvm3MVTERS0_RjS1_PNS_18TargetLoweringBaseE.exit
   %313 = getelementptr inbounds [233 x %"class.llvm::MVT"], ptr %7, i64 0, i64 %indvars.iv329
   store i16 %.sroa.01.0.copyload.i.i, ptr %313, align 2
   %314 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %165)
-  %.not.i.i142 = icmp ult i16 %314, 2
+  %.not.i.i142 = icmp samesign ult i16 %314, 2
   br i1 %.not.i.i142, label %_ZNK4llvm3MVT17getPow2VectorTypeEv.exit147.thread, label %315
 
 315:                                              ; preds = %_ZL25getVectorTypeBreakdownMVTN4llvm3MVTERS0_RjS1_PNS_18TargetLoweringBaseE.exit
@@ -8728,7 +8728,7 @@ define linkonce_odr hidden noundef zeroext i8 @_ZNK4llvm18TargetLoweringBase24ge
 
 10:                                               ; preds = %2
   %11 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %6)
-  %.not.i = icmp ult i16 %11, 2
+  %.not.i = icmp samesign ult i16 %11, 2
   %. = select i1 %.not.i, i8 1, i8 7
   br label %12
 

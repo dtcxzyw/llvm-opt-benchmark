@@ -3569,7 +3569,7 @@ cond.false.i.i.i.i:                               ; preds = %if.end74.i
           to label %call2.i.i.i.i.noexc unwind label %lpad59.loopexit.split-lp.loopexit.split-lp
 
 call2.i.i.i.i.noexc:                              ; preds = %"_ZZNK8QuantLib21HestonBlackVolSurface12blackVolImplEddENK3$_0clEd.exit.i.i"
-  %cmp10.not124.i.i = icmp ugt i64 %solver.sroa.78.0, 9999
+  %cmp10.not124.i.i = icmp samesign ugt i64 %solver.sroa.78.0, 9999
   br i1 %cmp10.not124.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %call2.i.i.i.i.noexc

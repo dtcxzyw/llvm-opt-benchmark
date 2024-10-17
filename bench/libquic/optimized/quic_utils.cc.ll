@@ -1509,7 +1509,7 @@ for.body.preheader:                               ; preds = %while.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp5 = icmp ult i64 %indvars.iv, %1
+  %cmp5 = icmp samesign ult i64 %indvars.iv, %1
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body

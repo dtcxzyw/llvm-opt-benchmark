@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %23 = load i32, ptr %0, align 4
   %24 = shl i32 %23, 1
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %22, %25
+  %26 = icmp samesign ult i64 %22, %25
   br i1 %26, label %.preheader14, label %17, !llvm.loop !14
 
 .preheader13:                                     ; preds = %17, %51
@@ -617,7 +617,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %53 = phi i32 [ %49, %34 ], [ %29, %.preheader13 ]
   %54 = add nuw nsw i64 %28, 1
   %55 = zext i32 %52 to i64
-  %56 = icmp ult i64 %54, %55
+  %56 = icmp samesign ult i64 %54, %55
   br i1 %56, label %.preheader13, label %57, !llvm.loop !15
 
 57:                                               ; preds = %51
@@ -900,7 +900,7 @@ define internal fastcc i64 @__e820__range_update(ptr nocapture noundef %0, i64 n
   %59 = add nuw nsw i64 %21, 1
   %60 = load i32, ptr %0, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %20, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %57, %8
@@ -1249,7 +1249,7 @@ define dso_local void @e820__register_nosave_regions(i64 noundef %0) local_unnam
   %16 = load i64, ptr %15, align 1
   %17 = add i64 %16, 4095
   %18 = lshr i64 %17, 12
-  %19 = icmp ult i64 %11, %18
+  %19 = icmp samesign ult i64 %11, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %.preheader
@@ -1394,11 +1394,11 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
   %22 = load i64, ptr %21, align 1
   %23 = add i64 %22, %19
   %24 = lshr i64 %23, 12
-  %25 = icmp ult i64 %20, %0
+  %25 = icmp samesign ult i64 %20, %0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %18
-  %27 = icmp ugt i64 %24, %0
+  %27 = icmp samesign ugt i64 %24, %0
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26

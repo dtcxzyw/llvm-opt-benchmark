@@ -2334,7 +2334,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %153 = load i32, ptr %138, align 8
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next169.i, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next169.i, %154
   br i1 %155, label %147, label %._crit_edge146.i, !llvm.loop !22
 
 ._crit_edge146.i:                                 ; preds = %147, %142
@@ -2428,7 +2428,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
   %197 = load i32, ptr %172, align 8
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next94.i.i, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next94.i.i, %198
   br i1 %199, label %194, label %._crit_edge.i.loopexit.i, !llvm.loop !24
 
 ._crit_edge.i.loopexit.i:                         ; preds = %194
@@ -2509,7 +2509,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %indvars.iv.next97.i.i = add nuw nsw i64 %indvars.iv96.i.i, 1
   %242 = load i32, ptr %167, align 8
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next97.i.i, %243
+  %244 = icmp samesign ult i64 %indvars.iv.next97.i.i, %243
   br i1 %244, label %216, label %._crit_edge88.loopexit.i.i, !llvm.loop !25
 
 ._crit_edge88.loopexit.i.i:                       ; preds = %236
@@ -2912,7 +2912,7 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit: ; preds = %39, %_ZNSt6ve
   %70 = getelementptr inbounds i8, ptr %69, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %33, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit
@@ -3118,7 +3118,7 @@ define void @_Z38mde_delta_h_coll_restore_energyhistoryP18t_mde_delta_h_collPK17
   %46 = getelementptr inbounds i8, ptr %45, i64 48
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph31

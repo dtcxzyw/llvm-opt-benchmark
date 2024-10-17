@@ -159,12 +159,12 @@ define hidden zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %0, i16 
   %6 = zext i16 %3 to i32
   %7 = shl nuw nsw i32 %6, 1
   %8 = zext i16 %1 to i32
-  %.not.i = icmp ugt i32 %7, %8
+  %.not.i = icmp samesign ugt i32 %7, %8
   br i1 %.not.i, label %23, label %9
 
 9:                                                ; preds = %4
   %10 = zext i16 %5 to i32
-  %11 = icmp ult i32 %7, %10
+  %11 = icmp samesign ult i32 %7, %10
   br i1 %11, label %inv_recenter_finite_nonneg.exit, label %12
 
 12:                                               ; preds = %9
@@ -190,7 +190,7 @@ define hidden zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %0, i16 
   %26 = zext i16 %5 to i32
   %27 = zext i16 %25 to i32
   %28 = shl nuw nsw i32 %27, 1
-  %29 = icmp ult i32 %28, %26
+  %29 = icmp samesign ult i32 %28, %26
   br i1 %29, label %inv_recenter_nonneg.exit11.i, label %30
 
 30:                                               ; preds = %23

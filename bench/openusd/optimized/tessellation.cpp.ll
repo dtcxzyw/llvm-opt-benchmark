@@ -3722,7 +3722,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %42 = add nsw i64 %indvars.iv, -1
   %43 = mul nsw i64 %42, %39
   %44 = getelementptr inbounds i32, ptr %1, i64 %43
-  %45 = icmp ult i64 %indvars.iv, %40
+  %45 = icmp samesign ult i64 %indvars.iv, %40
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = select i1 %45, i32 %46, i32 0
   %48 = getelementptr i32, ptr %44, i64 %38
@@ -4900,7 +4900,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   %20 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.reass.i.i = add i32 %21, -1
-  %22 = icmp ult i64 %indvars.iv.i, %16
+  %22 = icmp samesign ult i64 %indvars.iv.i, %16
   %23 = select i1 %22, i32 %21, i32 0
   %24 = getelementptr i32, ptr %20, i64 %14
   %25 = getelementptr i8, ptr %24, i64 -4
@@ -5017,7 +5017,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store i32 %.sink, ptr %17, align 4
   store i32 %storemerge61.i, ptr %18, align 4
   store i32 %storemerge.i, ptr %20, align 4
-  %36 = icmp ult i64 %indvars.iv.i, %28
+  %36 = icmp samesign ult i64 %indvars.iv.i, %28
   %37 = add nsw i32 %.sink, %34
   %38 = add nsw i32 %storemerge.i, %.sroa.speculated.i
   %.sink43 = select i1 %36, i32 %37, i32 0
@@ -6384,7 +6384,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   %27 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %26
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.reass.i.i = add i32 %invariant.op.i.i, %28
-  %29 = icmp ult i64 %indvars.iv.i, %23
+  %29 = icmp samesign ult i64 %indvars.iv.i, %23
   %30 = select i1 %29, i32 %28, i32 0
   %31 = add nsw i32 %30, %2
   %32 = getelementptr i32, ptr %27, i64 %21

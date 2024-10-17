@@ -739,7 +739,7 @@ tailrecurse.i:                                    ; preds = %hb_set_elem.exit37.
   %ret.known.tr.i = phi i1 [ false, %if.end12 ], [ true, %hb_set_elem.exit37.i ]
   %shr.i = lshr i64 %start.tr.i, 6
   %shr1.i = lshr i64 %last.tr.i, 6
-  %cmp.i = icmp ult i64 %shr.i, %shr1.i
+  %cmp.i = icmp samesign ult i64 %shr.i, %shr1.i
   %idxprom.i = zext nneg i32 %level.tr.i to i64
   br i1 %cmp.i, label %if.then.i, label %if.end25.i
 
@@ -1029,7 +1029,7 @@ tailrecurse.i:                                    ; preds = %if.then34.i, %if.en
   %ret.known.tr.i = phi i1 [ false, %if.end25 ], [ true, %if.then34.i ]
   %shr.i = lshr i64 %start.tr.i, 6
   %shr1.i = lshr i64 %last.tr.i, 6
-  %cmp.i = icmp ult i64 %shr.i, %shr1.i
+  %cmp.i = icmp samesign ult i64 %shr.i, %shr1.i
   %idxprom.i = zext nneg i32 %level.tr.i to i64
   br i1 %cmp.i, label %if.then.i, label %if.end21.i
 

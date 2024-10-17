@@ -787,7 +787,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.then.i.i.i118
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then5.i.i, label %while.body.i.i.i.i, !llvm.loop !29
 
 if.then.i.i.i118:                                 ; preds = %while.body.i.i.i.i
@@ -1373,7 +1373,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i
   %cmp4.i.i.i.i.i.i.i.i = icmp uge i32 %4, %1
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ult i32 %and.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, label %while.cond.i.i.i.i.preheader
 
@@ -1408,7 +1408,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %lor.rhs.i.i.i.i.i9.
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES5_bE11KindedEntryNS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
   %cmp4.i.i.i.i.i.i.i.i.i = icmp uge i32 %7, %1
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %and.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i
 
@@ -1467,7 +1467,7 @@ land.rhs.i.i.i.i.i.i13.i.i:                       ; preds = %lor.rhs.i.i.i.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES5_bE11KindedEntryNS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i15.i.i: ; preds = %land.rhs.i.i.i.i.i.i13.i.i
   %cmp4.i.i.i.i.i.i.i16.i.i = icmp uge i32 %10, %__val.sroa.3.0.copyload.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i17.i.i = icmp ult i32 %and.i.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i10.i.i
+  %cmp.i.i.i.i.i.i.i.i17.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i.i.i, %and.i.i3.i.i.i.i10.i.i
   %spec.select.i.i.i.i18.i.i = select i1 %cmp4.i.i.i.i.i.i.i16.i.i, i1 %cmp.i.i.i.i.i.i.i.i17.i.i, i1 false
   br i1 %spec.select.i.i.i.i18.i.i, label %while.body.i.i22.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i
 
@@ -1525,7 +1525,7 @@ land.rhs.i.i.i.i.i42.i.i:                         ; preds = %lor.rhs.i.i.i.i.i40
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i44.i.i: ; preds = %land.rhs.i.i.i.i.i42.i.i
   %cmp4.i.i.i.i.i.i45.i.i = icmp uge i32 %16, %13
-  %cmp.i.i.i.i.i.i.i46.i.i = icmp ult i32 %and.i.i.i.i.i37.i.i, %and.i.i3.i.i.i38.i.i
+  %cmp.i.i.i.i.i.i.i46.i.i = icmp samesign ult i32 %and.i.i.i.i.i37.i.i, %and.i.i3.i.i.i38.i.i
   %spec.select.i.i.i47.i.i = select i1 %cmp4.i.i.i.i.i.i45.i.i, i1 %cmp.i.i.i.i.i.i.i46.i.i, i1 false
   br i1 %spec.select.i.i.i47.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i71.i.i, label %while.cond.i.i49.i.i.preheader
 
@@ -1562,7 +1562,7 @@ land.rhs.i.i.i.i.i.i58.i.i:                       ; preds = %lor.rhs.i.i.i.i.i9.
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES5_bE11KindedEntryNS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i60.i.i: ; preds = %land.rhs.i.i.i.i.i.i58.i.i
   %cmp4.i.i.i.i.i.i.i61.i.i = icmp uge i32 %19, %13
-  %cmp.i.i.i.i.i.i.i.i62.i.i = icmp ult i32 %and.i.i.i.i.i37.i.i, %and.i.i3.i.i.i.i54.i.i
+  %cmp.i.i.i.i.i.i.i.i62.i.i = icmp samesign ult i32 %and.i.i.i.i.i37.i.i, %and.i.i3.i.i.i.i54.i.i
   %spec.select.i.i.i.i63.i.i = select i1 %cmp4.i.i.i.i.i.i.i61.i.i, i1 %cmp.i.i.i.i.i.i.i.i62.i.i, i1 false
   br i1 %spec.select.i.i.i.i63.i.i, label %while.body.i.i70.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i64.i.i
 
@@ -4536,7 +4536,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i: ; preds = %land.rhs.i.i.i.i.i.i
   %cmp4.i.i.i.i.i.i.i = icmp uge i32 %3, %0
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
@@ -4560,7 +4560,7 @@ land.rhs.i.i.i.i10.i.i:                           ; preds = %lor.rhs.i.i.i.i8.i.
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16.i.i: ; preds = %land.rhs.i.i.i.i10.i.i
   %cmp4.i.i.i.i.i13.i.i = icmp uge i32 %6, %3
-  %cmp.i.i.i.i.i.i14.i.i = icmp ult i32 %and.i.i3.i.i.i.i, %and.i.i3.i.i6.i.i
+  %cmp.i.i.i.i.i.i14.i.i = icmp samesign ult i32 %and.i.i3.i.i.i.i, %and.i.i3.i.i6.i.i
   %spec.select.i.i15.i.i = select i1 %cmp4.i.i.i.i.i13.i.i, i1 %cmp.i.i.i.i.i.i14.i.i, i1 false
   br i1 %spec.select.i.i15.i.i, label %if.then12.i.i, label %if.else.i.i
 
@@ -4586,7 +4586,7 @@ land.rhs.i.i.i.i26.i.i:                           ; preds = %lor.rhs.i.i.i.i24.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit32.i.i: ; preds = %land.rhs.i.i.i.i26.i.i
   %cmp4.i.i.i.i.i29.i.i = icmp uge i32 %6, %0
-  %cmp.i.i.i.i.i.i30.i.i = icmp ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i6.i.i
+  %cmp.i.i.i.i.i.i30.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i6.i.i
   %spec.select.i.i31.i.i = select i1 %cmp4.i.i.i.i.i29.i.i, i1 %cmp.i.i.i.i.i.i30.i.i, i1 false
   br i1 %spec.select.i.i31.i.i, label %if.then22.i.i, label %if.else27.i.i
 
@@ -4626,7 +4626,7 @@ land.rhs.i.i.i.i44.i.i:                           ; preds = %lor.rhs.i.i.i.i42.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit50.i.i: ; preds = %land.rhs.i.i.i.i44.i.i
   %cmp4.i.i.i.i.i47.i.i = icmp uge i32 %9, %0
-  %cmp.i.i.i.i.i.i48.i.i = icmp ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i40.i.i
+  %cmp.i.i.i.i.i.i48.i.i = icmp samesign ult i32 %and.i.i.i.i.i.i, %and.i.i3.i.i40.i.i
   %spec.select.i.i49.i.i = select i1 %cmp4.i.i.i.i.i47.i.i, i1 %cmp.i.i.i.i.i.i48.i.i, i1 false
   br i1 %spec.select.i.i49.i.i, label %if.then39.i.i, label %if.else44.i.i
 
@@ -4652,7 +4652,7 @@ land.rhs.i.i.i.i61.i.i:                           ; preds = %lor.rhs.i.i.i.i59.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit67.i.i: ; preds = %land.rhs.i.i.i.i61.i.i
   %cmp4.i.i.i.i.i64.i.i = icmp uge i32 %9, %3
-  %cmp.i.i.i.i.i.i65.i.i = icmp ult i32 %and.i.i3.i.i.i.i, %and.i.i3.i.i40.i.i
+  %cmp.i.i.i.i.i.i65.i.i = icmp samesign ult i32 %and.i.i3.i.i.i.i, %and.i.i3.i.i40.i.i
   %spec.select.i.i66.i.i = select i1 %cmp4.i.i.i.i.i64.i.i, i1 %cmp.i.i.i.i.i.i65.i.i, i1 false
   br i1 %spec.select.i.i66.i.i, label %if.then50.i.i, label %if.else55.i.i
 
@@ -4708,7 +4708,7 @@ land.rhs.i.i.i.i.i18.i:                           ; preds = %lor.rhs.i.i.i.i.i16
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i20.i: ; preds = %land.rhs.i.i.i.i.i18.i
   %cmp4.i.i.i.i.i.i21.i = icmp uge i32 %12, %15
-  %cmp.i.i.i.i.i.i.i22.i = icmp ult i32 %and.i.i.i.i.i14.i, %and.i.i3.i.i.i11.i
+  %cmp.i.i.i.i.i.i.i22.i = icmp samesign ult i32 %and.i.i.i.i.i14.i, %and.i.i3.i.i.i11.i
   %spec.select.i.i.i23.i = select i1 %cmp4.i.i.i.i.i.i21.i, i1 %cmp.i.i.i.i.i.i.i22.i, i1 false
   br i1 %spec.select.i.i.i23.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
@@ -4738,7 +4738,7 @@ land.rhs.i.i.i.i11.i.i:                           ; preds = %lor.rhs.i.i.i.i9.i.
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.i.i: ; preds = %land.rhs.i.i.i.i11.i.i
   %cmp4.i.i.i.i.i14.i.i = icmp uge i32 %18, %12
-  %cmp.i.i.i.i.i.i15.i.i = icmp ult i32 %and.i.i3.i.i.i11.i, %and.i.i3.i.i7.i.i
+  %cmp.i.i.i.i.i.i15.i.i = icmp samesign ult i32 %and.i.i3.i.i.i11.i, %and.i.i3.i.i7.i.i
   %spec.select.i.i16.i.i = select i1 %cmp4.i.i.i.i.i14.i.i, i1 %cmp.i.i.i.i.i.i15.i.i, i1 false
   br i1 %spec.select.i.i16.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
@@ -4809,7 +4809,7 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %land.rhs.i.i.i.i
   %cmp4.i.i.i.i.i = icmp uge i32 %3, %0
-  %cmp.i.i.i.i.i.i = icmp ult i32 %and.i.i.i.i, %and.i.i3.i.i
+  %cmp.i.i.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i, %and.i.i3.i.i
   %spec.select.i.i = select i1 %cmp4.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
   %cond.fr = freeze i1 %spec.select.i.i
   br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread32
@@ -4881,7 +4881,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i28
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i: ; preds = %land.rhs.i.i.i.i.i
   %cmp4.i.i.i.i.i.i = icmp ule i32 %7, %__value.sroa.0.sroa.3.0.extract.trunc.i
-  %cmp.i.i.i.i.i.i.i = icmp ult i32 %and.i.i.i.i.i, %and.i.i3.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i.i, %and.i.i3.i.i.i
   %spec.select.i.i.i = select i1 %cmp4.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit
 

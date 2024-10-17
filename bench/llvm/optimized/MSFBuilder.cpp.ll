@@ -1085,7 +1085,7 @@ _ZNK4llvm9BitVector10find_firstEv.exit:           ; preds = %_ZNK4llvm9BitVector
   %182 = lshr i32 %178, 6
   %183 = add i32 %179, -1
   %184 = lshr i32 %183, 6
-  %.not32.i.i = icmp ugt i32 %182, %184
+  %.not32.i.i = icmp samesign ugt i32 %182, %184
   br i1 %.not32.i.i, label %_ZNK4llvm9BitVector9find_nextEj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %181
@@ -3013,7 +3013,7 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit24.i:   ; preds = %_ZNSt16_Sp_counted_
   %indvars.iv = phi i64 [ %indvars.iv.next, %246 ], [ %231, %.lr.ph.i ]
   %.01731.i = phi i32 [ %251, %246 ], [ 0, %.lr.ph.i ]
   %235 = phi i8 [ %250, %246 ], [ 0, %.lr.ph.i ]
-  %236 = icmp ult i64 %indvars.iv, %233
+  %236 = icmp samesign ult i64 %indvars.iv, %233
   br i1 %236, label %237, label %246
 
 237:                                              ; preds = %234

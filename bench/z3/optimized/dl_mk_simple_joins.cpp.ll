@@ -10013,7 +10013,7 @@ if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
   %retval.0.i.i.i.i = phi i64 [ %10, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %cmp.i.i58 = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
+  %cmp.i.i58 = icmp samesign ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
   br i1 %cmp.i.i58, label %for.body.i.i, label %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit
 
 for.body.i.i:                                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -10115,7 +10115,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv211 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next212, %for.cond.loopexit ]
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.cond.loopexit ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %cmp7192 = icmp ult i64 %indvars.iv.next212, %23
+  %cmp7192 = icmp samesign ult i64 %indvars.iv.next212, %23
   br i1 %cmp7192, label %for.body8, label %for.cond.loopexit
 
 for.body8:                                        ; preds = %for.body, %for.inc

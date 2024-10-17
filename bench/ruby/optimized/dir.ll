@@ -2555,7 +2555,7 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
 36:                                               ; preds = %19, %15, %11
   %37 = tail call fastcc ptr @find_dirsep(ptr noundef nonnull %.073114144, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
   %38 = tail call fastcc i32 @has_magic(ptr noundef nonnull %.073114144, ptr noundef %37, i32 noundef %2, ptr noundef %3)
-  %39 = icmp ugt i32 %38, 1
+  %39 = icmp samesign ugt i32 %38, 1
   %40 = icmp ne i32 %.077112146, 0
   %or.cond = select i1 %39, i1 true, i1 %40
   br i1 %or.cond, label %.critedge5, label %41
@@ -2570,7 +2570,7 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
   %43 = getelementptr i8, ptr %.176, i64 1
   %44 = tail call fastcc ptr @find_dirsep(ptr noundef %43, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
   %45 = tail call fastcc i32 @has_magic(ptr noundef %43, ptr noundef %44, i32 noundef %2, ptr noundef %3)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   br i1 %46, label %47, label %.critedge5
 
 47:                                               ; preds = %.preheader99
@@ -3594,7 +3594,7 @@ ruby_nonempty_memcpy.exit.i380:                   ; preds = %350, %349
   br i1 %.0289.lcssa549, label %363, label %do_lstat.exit391.thread
 
 363:                                              ; preds = %356
-  %364 = icmp ult i32 %.0275, %303
+  %364 = icmp samesign ult i32 %.0275, %303
   %365 = icmp eq i32 %spec.select, -2
   %or.cond11 = and i1 %364, %365
   br i1 %or.cond11, label %366, label %do_lstat.exit391.thread
@@ -3669,7 +3669,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
 .lr.ph519:                                        ; preds = %.preheader
   %387 = and i32 %.2278.fr, -5
   %or.cond13 = icmp eq i32 %387, 0
-  %388 = icmp ult i32 %.0275, %303
+  %388 = icmp samesign ult i32 %.0275, %303
   br i1 %or.cond13, label %.lr.ph519.split.us, label %.lr.ph519.split
 
 .lr.ph519.split.us:                               ; preds = %.lr.ph519, %411
@@ -6191,7 +6191,7 @@ rb_array_len.exit:                                ; preds = %13
 rb_array_len.exit.thread:                         ; preds = %13
   %18 = lshr i64 %14, 15
   %19 = and i64 %18, 127
-  %20 = icmp ult i64 %.0, %19
+  %20 = icmp samesign ult i64 %.0, %19
   br i1 %20, label %RARRAY_AREF.exit, label %33
 
 21:                                               ; preds = %rb_array_len.exit

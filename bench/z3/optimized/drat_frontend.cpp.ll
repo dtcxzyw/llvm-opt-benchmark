@@ -1022,7 +1022,7 @@ if.end.i5.i:                                      ; preds = %for.cond.i
 
 _ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i: ; preds = %if.end.i5.i, %for.cond.i
   %retval.0.i7.i = phi i64 [ %6, %if.end.i5.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i7.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i7.i
   br i1 %cmp.i, label %for.body.i, label %_ZN12drup_checker9add_unitsEv.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i

@@ -934,7 +934,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
 
 26:                                               ; preds = %23, %18
   %.028.i = phi i32 [ 5, %23 ], [ 3, %18 ]
-  %27 = icmp ult i32 %.028.i, %9
+  %27 = icmp samesign ult i32 %.028.i, %9
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %26

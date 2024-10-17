@@ -6220,7 +6220,7 @@ while.body.i.i.i2740:                             ; preds = %while.body.i.i.i274
   %call.i.i.i10.i.i.i = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %pPtrArrayCurrent.016.i.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.016.i.i.i.idx, 8
   store ptr %call.i.i.i10.i.i.i, ptr %pPtrArrayCurrent.016.i.i.i.ptr, align 8
-  %cmp.i.i.i2742 = icmp ult i64 %pPtrArrayCurrent.016.i.i.i.idx, 120
+  %cmp.i.i.i2742 = icmp samesign ult i64 %pPtrArrayCurrent.016.i.i.i.idx, 120
   br i1 %cmp.i.i.i2742, label %while.body.i.i.i2740, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i, !llvm.loop !143
 
 _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i: ; preds = %while.body.i.i.i2740
@@ -6256,7 +6256,7 @@ while.body.i.i2745:                               ; preds = %_ZN5eastl9DequeBase
   %464 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i.i, i32 0, i64 64, ptr %463) #13, !srcloc !52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i)
   %pPtrArrayCurrent.09.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.09.i.i.idx, 8
-  %cmp.i.i2747 = icmp ult i64 %pPtrArrayCurrent.09.i.i.idx, 120
+  %cmp.i.i2747 = icmp samesign ult i64 %pPtrArrayCurrent.09.i.i.idx, 120
   br i1 %cmp.i.i2747, label %while.body.i.i2745, label %_ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit, !llvm.loop !144
 
 _ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i.i2745
@@ -15619,7 +15619,7 @@ while.body.i.i7.i.i.i:                            ; preds = %_ZN5eastl7advanceIN
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i, label %while.body.i.i7.i.i.i, !llvm.loop !547
 
 _ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i: ; preds = %while.body.i.i7.i.i.i
-  %cmp3.not14.i.i.i = icmp ult i64 %n.03.i.i.i.i.i, 3
+  %cmp3.not14.i.i.i = icmp samesign ult i64 %n.03.i.i.i.i.i, 3
   br i1 %cmp3.not14.i.i.i, label %while.body.i.i8501.preheader, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %_ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i
@@ -15759,7 +15759,7 @@ while.body.i.i7.i.i.i8543:                        ; preds = %_ZN5eastl7advanceIN
   br i1 %cmp.i.not.i.i.i.i.i8546, label %_ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i8547, label %while.body.i.i7.i.i.i8543, !llvm.loop !547
 
 _ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i8547: ; preds = %while.body.i.i7.i.i.i8543
-  %cmp3.not14.i.i.i8549 = icmp ult i64 %n.03.i.i.i.i.i8544, 3
+  %cmp3.not14.i.i.i8549 = icmp samesign ult i64 %n.03.i.i.i.i.i8544, 3
   br i1 %cmp3.not14.i.i.i8549, label %invoke.cont4459, label %for.body.i.preheader.i.i8550
 
 for.body.i.preheader.i.i8550:                     ; preds = %_ZN5eastl8distanceINS_13SListIteratorIcPcRcEEEENS_15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i.i8547
@@ -19580,7 +19580,7 @@ _ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.i: ; preds = %for.inc5425, 
   call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i10895, i8 0, i64 %mul.i.i.i10894, i1 false)
   %add.ptr.i10909 = getelementptr inbounds i8, ptr %call.i.i.i.i.i10895, i64 %mul.i.i.i10894
   %sub.ptr.lhs.cast.i11892 = ptrtoint ptr %add.ptr.i10909 to i64
-  %cmp7.i11895 = icmp ult i64 %s.013874, 32
+  %cmp7.i11895 = icmp samesign ult i64 %s.013874, 32
   %add.ptr.i.i.i.i15.i11932 = getelementptr inbounds i8, ptr %add.ptr.i10909, i64 -4
   %1979 = ptrtoint ptr %call.i.i.i.i.i10895 to i64
   %1980 = ptrtoint ptr %add.ptr.i.i.i.i15.i11932 to i64
@@ -19779,7 +19779,7 @@ _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit10944:  ; preds = %for.end5471, %_ZN5e
   %shr.i.i10954 = lshr i64 %mul.i.i10953, 32
   %add.i10956 = add nuw nsw i64 %s.013874, 50
   %add5476 = add nuw nsw i64 %add.i10956, %shr.i.i10954
-  %cmp5429 = icmp ult i64 %add5476, 500
+  %cmp5429 = icmp samesign ult i64 %add5476, 500
   br i1 %cmp5429, label %_ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.i, label %for.cond5479.preheader, !llvm.loop !611
 
 for.cond5534.preheader:                           ; preds = %_ZN5eastl5dequeIiNS_9allocatorELj64EED2Ev.exit11154
@@ -19870,7 +19870,7 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i11017: ; preds = %if.then.i.i1102
   br i1 %cmp.not.i11018, label %invoke.cont5495, label %for.body.i11011, !llvm.loop !615
 
 invoke.cont5495:                                  ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i11017
-  %cmp.i.i.i.i11041 = icmp ult i64 %i5485.013876, 64
+  %cmp.i.i.i.i11041 = icmp samesign ult i64 %i5485.013876, 64
   br i1 %cmp.i.i.i.i11041, label %if.then.i.i.i.i11056, label %if.else.i.i.i.i11042
 
 if.then.i.i.i.i11056:                             ; preds = %invoke.cont5495
@@ -20061,7 +20061,7 @@ _ZN5eastl5dequeIiNS_9allocatorELj64EED2Ev.exit11154: ; preds = %for.end5526, %_Z
   %shr.i.i11164 = lshr i64 %mul.i.i11163, 32
   %add.i11166 = add nuw nsw i64 %s5478.013878, 50
   %add5531 = add nuw nsw i64 %add.i11166, %shr.i.i11164
-  %cmp5480 = icmp ult i64 %add5531, 500
+  %cmp5480 = icmp samesign ult i64 %add5531, 500
   br i1 %cmp5480, label %for.body5481, label %for.cond5534.preheader, !llvm.loop !627
 
 for.body5536:                                     ; preds = %for.cond5534.preheader, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit11225
@@ -20309,7 +20309,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit11225:    ; preds = %_ZN5eastl9allocator
   %shr.i.i11235 = lshr i64 %mul.i.i11234, 32
   %add.i11237 = add nuw nsw i64 %s5533.013883, 50
   %add5582 = add nuw nsw i64 %add.i11237, %shr.i.i11235
-  %cmp5535 = icmp ult i64 %add5582, 500
+  %cmp5535 = icmp samesign ult i64 %add5582, 500
   br i1 %cmp5535, label %for.body5536, label %for.body5587, !llvm.loop !694
 
 for.body5587:                                     ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit11225, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit11313
@@ -20523,7 +20523,7 @@ _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit11313:   ; preds = %_ZN5eastl9SListBase
   %shr.i.i11323 = lshr i64 %mul.i.i11322, 32
   %add.i11325 = add nuw nsw i64 %s5584.013888, 50
   %add5636 = add nuw nsw i64 %add.i11325, %shr.i.i11323
-  %cmp5586 = icmp ult i64 %add5636, 500
+  %cmp5586 = icmp samesign ult i64 %add5636, 500
   br i1 %cmp5586, label %for.body5587, label %_ZN5eastl6vectorINS_10unique_ptrIiNS_14default_deleteIiEEEENS_9allocatorEED2Ev.exit, !llvm.loop !743
 
 _ZN5eastl6vectorINS_10unique_ptrIiNS_14default_deleteIiEEEENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit11313
@@ -20666,14 +20666,14 @@ for.body.i.i.i11514:                              ; preds = %for.body.i.i.i11514
   %n.addr.04.i.i.i11516 = phi i64 [ %shr.i.i.i11517, %for.body.i.i.i11514 ], [ %sub.ptr.div.i.i11513, %.noexc11505 ]
   %shr.i.i.i11517 = lshr i64 %n.addr.04.i.i.i11516, 1
   %inc.i.i.i11518 = add nuw nsw i32 %i.05.i.i.i11515, 1
-  %tobool.not.i.i.i11519 = icmp ult i64 %n.addr.04.i.i.i11516, 2
+  %tobool.not.i.i.i11519 = icmp samesign ult i64 %n.addr.04.i.i.i11516, 2
   br i1 %tobool.not.i.i.i11519, label %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11520, label %for.body.i.i.i11514, !llvm.loop !746
 
 _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11520:   ; preds = %for.body.i.i.i11514
   %2078 = shl nuw i32 %i.05.i.i.i11515, 1
   %mul.i.i11521 = zext i32 %2078 to i64
   call fastcc void @"_ZN5eastl8Internal22quick_sort_impl_helperIPNS_10unique_ptrIiNS_14default_deleteIiEEEElZ13TestAlgorithmvE4$_44S5_EEvT_S8_T0_T1_"(ptr noundef %call.i.i.i.i12063, ptr noundef nonnull %incdec.ptr.i12060.ptr.ptr, i64 noundef %mul.i.i11521)
-  %cmp5.i.i11522 = icmp ugt i64 %retval.sroa.0.08.i.i.i.i12039.idx, 208
+  %cmp5.i.i11522 = icmp samesign ugt i64 %retval.sroa.0.08.i.i.i.i12039.idx, 208
   br i1 %cmp5.i.i11522, label %for.body.i13.i.i11551, label %for.body.i24.i.i11526.preheader
 
 for.body.i13.i.i11551:                            ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11520, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit22.i.i.i11567

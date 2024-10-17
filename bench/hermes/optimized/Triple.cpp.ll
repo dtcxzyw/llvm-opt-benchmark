@@ -2928,7 +2928,7 @@ if.end105:                                        ; preds = %_ZNK4llvh9StringRef
   %Environment.5285 = phi i32 [ %Environment.3324, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.3324, %sw.bb73 ], [ %Environment.3324, %sw.bb ], [ %Environment.3324, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %call93, %sw.bb91 ]
   %ObjectFormat.5284 = phi i32 [ %ObjectFormat.3323, %sw.epilog ], [ %call99, %if.then97 ], [ %ObjectFormat.3323, %sw.bb73 ], [ %ObjectFormat.3323, %sw.bb ], [ %ObjectFormat.3323, %_ZNK4llvh9StringRef10startswithES0_.exit590 ], [ %ObjectFormat.3323, %sw.bb91 ]
   %21 = zext i32 %Idx.0322 to i64
-  %cmp106 = icmp ult i64 %indvars.iv378, %21
+  %cmp106 = icmp samesign ult i64 %indvars.iv378, %21
   br i1 %cmp106, label %if.then107, label %if.else
 
 if.then107:                                       ; preds = %if.end105
@@ -2988,7 +2988,7 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %cmp.i643.not, label %if.end166, label %while.cond.preheader, !llvm.loop !76
 
 if.else:                                          ; preds = %if.end105
-  %cmp122 = icmp ugt i64 %indvars.iv378, %21
+  %cmp122 = icmp samesign ugt i64 %indvars.iv378, %21
   br i1 %cmp122, label %do.body, label %if.end166
 
 do.body:                                          ; preds = %if.else, %do.cond
@@ -3085,7 +3085,7 @@ land.rhs157:                                      ; preds = %while.cond152
 do.cond:                                          ; preds = %land.rhs157, %while.cond152.do.cond_crit_edge
   %.pre-phi = phi i64 [ %.pre391, %while.cond152.do.cond_crit_edge ], [ %conv154, %land.rhs157 ]
   %inc153.lcssa = phi i32 [ %umax374, %while.cond152.do.cond_crit_edge ], [ %inc153, %land.rhs157 ]
-  %cmp164 = icmp ult i64 %.pre-phi, %indvars.iv378
+  %cmp164 = icmp samesign ult i64 %.pre-phi, %indvars.iv378
   br i1 %cmp164, label %do.body, label %if.end166, !llvm.loop !80
 
 if.end166:                                        ; preds = %do.cond, %while.end, %if.then107, %if.else

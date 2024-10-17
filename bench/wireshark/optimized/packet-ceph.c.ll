@@ -4950,7 +4950,7 @@ c_dissect_osdmap_inc.exit.i:                      ; preds = %764, %763, %c_warn_
   %847 = tail call i32 @tvb_reported_length(ptr noundef %125) #8
   %848 = sub i32 %847, %846
   %849 = udiv i32 %848, 34
-  %850 = icmp ult i32 %849, %842
+  %850 = icmp samesign ult i32 %849, %842
   br i1 %850, label %851, label %854
 
 851:                                              ; preds = %794
@@ -7462,7 +7462,7 @@ define internal fastcc noundef i32 @c_dissect_encoded(ptr noundef %0, ptr nocapt
   %12 = zext i8 %11 to i32
   %13 = zext nneg i8 %2 to i32
   %14 = zext nneg i8 %3 to i32
-  %.not.i = icmp ugt i8 %2, %3
+  %.not.i = icmp samesign ugt i8 %2, %3
   br i1 %.not.i, label %15, label %18
 
 15:                                               ; preds = %7

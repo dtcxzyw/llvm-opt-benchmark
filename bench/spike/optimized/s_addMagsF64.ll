@@ -60,7 +60,7 @@ define i64 @softfloat_addMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   %31 = shl nuw nsw i64 %6, 10
   %.053 = select i1 %.not67, i64 %31, i64 %30
   %32 = sub nsw i64 0, %10
-  %33 = icmp ult i64 %32, 63
+  %33 = icmp samesign ult i64 %32, 63
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %29
@@ -90,7 +90,7 @@ define i64 @softfloat_addMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   %48 = or disjoint i64 %22, 2305843009213693952
   %49 = shl nuw nsw i64 %9, 10
   %.156 = select i1 %.not65, i64 %49, i64 %48
-  %50 = icmp ult i64 %10, 63
+  %50 = icmp samesign ult i64 %10, 63
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %47

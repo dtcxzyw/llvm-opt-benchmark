@@ -470,7 +470,7 @@ entry:
   %lnot.ext17 = zext i1 %tobool13 to i32
   %add = add nuw nsw i32 %lnot.ext17, %lnot.ext
   %add18 = add nuw nsw i32 %add, %lnot.ext12
-  %cmp = icmp ugt i32 %add18, 1
+  %cmp = icmp samesign ugt i32 %add18, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

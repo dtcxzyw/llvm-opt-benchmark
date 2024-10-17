@@ -752,7 +752,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull 
   %.not26.i.i.i = icmp eq i8 %40, 0
   %41 = load i32, ptr %0, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ugt i64 %38, %42
+  %43 = icmp samesign ugt i64 %38, %42
   br i1 %.not26.i.i.i, label %46, label %44
 
 44:                                               ; preds = %35
@@ -942,7 +942,7 @@ x86_stack_alignment.exit.thread19.i.i:            ; preds = %x86_stack_alignment
   %.not26.i.i = icmp eq i8 %137, 0
   %138 = load i32, ptr %0, align 4
   %139 = zext i32 %138 to i64
-  %140 = icmp ugt i64 %135, %139
+  %140 = icmp samesign ugt i64 %135, %139
   br i1 %.not26.i.i, label %143, label %141
 
 141:                                              ; preds = %132

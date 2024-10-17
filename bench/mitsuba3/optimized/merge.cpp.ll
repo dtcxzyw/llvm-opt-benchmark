@@ -1825,7 +1825,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_valu
 
 30:                                               ; preds = %5
   %31 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
-  %.not.i = icmp ult i64 %31, 2
+  %.not.i = icmp samesign ult i64 %31, 2
   br i1 %.not.i, label %32, label %35
 
 32:                                               ; preds = %30
@@ -2062,7 +2062,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
   %160 = shl i64 %29, 1
   %161 = icmp ult i64 %29, 3
   %162 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
-  %.not.i56 = icmp ugt i64 %162, 1
+  %.not.i56 = icmp samesign ugt i64 %162, 1
   %.not71 = select i1 %161, i1 true, i1 %.not.i56
   %163 = zext i1 %.not71 to i64
   %164 = or disjoint i64 %160, %163
@@ -2075,7 +2075,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
 
 169:                                              ; preds = %159
   %170 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
-  %.not.i.i = icmp ult i64 %170, 2
+  %.not.i.i = icmp samesign ult i64 %170, 2
   br i1 %.not.i.i, label %.noexc, label %171
 
 171:                                              ; preds = %169
@@ -2095,7 +2095,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
 177:                                              ; preds = %175
   %178 = icmp ugt i64 %173, 2
   %179 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %173)
-  %.not.i.i.i = icmp ult i64 %179, 2
+  %.not.i.i.i = icmp samesign ult i64 %179, 2
   %180 = select i1 %178, i1 %.not.i.i.i, i1 false
   %181 = load i64, ptr %150, align 8
   %182 = uitofp i64 %181 to float
@@ -2132,7 +2132,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
 _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEE3KeyENS2_3refINS2_4MeshIfS8_EEEEEENS_22__unordered_map_hasherISA_SF_NS9_10key_hasherENS_8equal_toISA_EELb1EEENS_21__unordered_map_equalISA_SF_SJ_SH_Lb1EEENS_9allocatorISF_EEE15__rehash_uniqueB8ne190000Em.exit: ; preds = %.noexc57, %175, %.sink.split.i.i
   %198 = load i64, ptr %28, align 8
   %199 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %198)
-  %.not.i59 = icmp ult i64 %199, 2
+  %.not.i59 = icmp samesign ult i64 %199, 2
   br i1 %.not.i59, label %200, label %203
 
 200:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEE3KeyENS2_3refINS2_4MeshIfS8_EEEEEENS_22__unordered_map_hasherISA_SF_NS9_10key_hasherENS_8equal_toISA_EELb1EEENS_21__unordered_map_equalISA_SF_SJ_SH_Lb1EEENS_9allocatorISF_EEE15__rehash_uniqueB8ne190000Em.exit
@@ -2179,7 +2179,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %205, %203, %200, %_
   %220 = getelementptr inbounds i8, ptr %218, i64 8
   %221 = load i64, ptr %220, align 8
   %222 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
-  %.not.i61 = icmp ult i64 %222, 2
+  %.not.i61 = icmp samesign ult i64 %222, 2
   br i1 %.not.i61, label %223, label %226
 
 223:                                              ; preds = %219
@@ -2304,7 +2304,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
-  %.not.i47 = icmp ult i64 %21, 2
+  %.not.i47 = icmp samesign ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
 22:                                               ; preds = %18

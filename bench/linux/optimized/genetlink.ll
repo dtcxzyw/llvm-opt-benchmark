@@ -877,7 +877,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %325 = add nuw nsw i32 %320, 1
   %326 = load i8, ptr %165, align 8
   %327 = zext i8 %326 to i32
-  %328 = icmp ult i32 %325, %327
+  %328 = icmp samesign ult i32 %325, %327
   br i1 %328, label %.preheader, label %.loopexit35, !llvm.loop !64
 
 .loopexit35:                                      ; preds = %.preheader, %313
@@ -908,7 +908,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %342 = add nuw nsw i64 %336, 1
   %343 = load i8, ptr %165, align 8
   %344 = zext i8 %343 to i64
-  %345 = icmp ult i64 %342, %344
+  %345 = icmp samesign ult i64 %342, %344
   br i1 %345, label %335, label %.loopexit, !llvm.loop !65
 
 .thread32:                                        ; preds = %265, %260, %317, %181, %185, %.loopexit35
@@ -1311,7 +1311,7 @@ define dso_local noundef range(i32 -2, 1) i32 @genl_unregister_family(ptr nounde
   %33 = add nuw nsw i32 %29, 1
   %34 = load i8, ptr %13, align 8
   %35 = zext i8 %34 to i32
-  %36 = icmp ult i32 %33, %35
+  %36 = icmp samesign ult i32 %33, %35
   br i1 %36, label %28, label %.loopexit7, !llvm.loop !81
 
 .loopexit8:                                       ; preds = %.loopexit7, %.split9.us, %9
@@ -1349,7 +1349,7 @@ define dso_local noundef range(i32 -2, 1) i32 @genl_unregister_family(ptr nounde
   %53 = add nuw nsw i64 %44, 1
   %54 = load i8, ptr %37, align 8
   %55 = zext i8 %54 to i64
-  %56 = icmp ult i64 %53, %55
+  %56 = icmp samesign ult i64 %53, %55
   br i1 %56, label %43, label %.loopexit6, !llvm.loop !82
 
 .loopexit6:                                       ; preds = %.split, %.loopexit8
@@ -2302,7 +2302,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   store i16 %194, ptr %171, align 2
   %195 = load i8, ptr %146, align 8
   %196 = zext i8 %195 to i64
-  %197 = icmp ult i64 %167, %196
+  %197 = icmp samesign ult i64 %167, %196
   br i1 %197, label %.lr.ph19, label %._crit_edge20, !llvm.loop !95
 
 ._crit_edge20:                                    ; preds = %186, %160
@@ -3283,7 +3283,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %.thread13
-  %93 = icmp ult i8 %1, 4
+  %93 = icmp samesign ult i8 %1, 4
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %92

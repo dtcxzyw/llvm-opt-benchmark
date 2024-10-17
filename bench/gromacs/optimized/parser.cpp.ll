@@ -746,7 +746,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %309 = load ptr, ptr @stderr, align 8
   %310 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #25
   %311 = load ptr, ptr @stderr, align 8
-  %312 = icmp ult i32 %306, 49
+  %312 = icmp samesign ult i32 %306, 49
   %.str.18..str.19.i = select i1 %312, ptr @.str.18, ptr @.str.19
   %313 = zext nneg i32 %306 to i64
   %314 = getelementptr inbounds [75 x ptr], ptr @_ZL7yytname, i64 0, i64 %313

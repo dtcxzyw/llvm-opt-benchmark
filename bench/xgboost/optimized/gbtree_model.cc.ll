@@ -5362,7 +5362,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %92 = getelementptr inbounds i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next, %94
+  %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %68

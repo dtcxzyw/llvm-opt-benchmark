@@ -723,7 +723,7 @@ define internal i32 @e100_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %62 = getelementptr inbounds i8, ptr %22, i64 12
   %63 = load i16, ptr %62, align 4
   %64 = and i16 %63, 16383
-  %65 = icmp ugt i16 %64, 1522
+  %65 = icmp samesign ugt i16 %64, 1522
   br i1 %65, label %66, label %67, !prof !11
 
 66:                                               ; preds = %60
@@ -777,7 +777,7 @@ define internal i32 @e100_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 98:                                               ; preds = %84
   %99 = add nuw nsw i32 %61, 1518
-  %100 = icmp ult i32 %99, %90
+  %100 = icmp samesign ult i32 %99, %90
   br i1 %100, label %101, label %114
 
 101:                                              ; preds = %98
@@ -797,7 +797,7 @@ define internal i32 @e100_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 108:                                              ; preds = %104
   %109 = add nuw nsw i32 %61, 1518
-  %110 = icmp ult i32 %109, %90
+  %110 = icmp samesign ult i32 %109, %90
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
@@ -963,7 +963,7 @@ define internal i32 @e100_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 213:                                              ; preds = %207
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %214 = icmp ugt i32 %208, 20
+  %214 = icmp samesign ugt i32 %208, 20
   br i1 %214, label %215, label %216, !prof !11
 
 215:                                              ; preds = %213
@@ -1158,7 +1158,7 @@ define internal fastcc void @e100_get_defaults(ptr nocapture noundef %0) unnamed
   store i32 128, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 841
   store i8 -32, ptr %20, align 1
-  %21 = icmp ugt i32 %12, 3
+  %21 = icmp samesign ugt i32 %12, 3
   %spec.select4 = select i1 %21, i16 7948, i16 8204
   %22 = getelementptr inbounds i8, ptr %0, i64 584
   store i16 %spec.select4, ptr %22, align 8
@@ -1507,7 +1507,7 @@ define internal void @e100_watchdog(ptr noundef %0) #2 align 16 {
 
 223:                                              ; preds = %217
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %224 = icmp ugt i32 %218, 20
+  %224 = icmp samesign ugt i32 %218, 20
   br i1 %224, label %225, label %226, !prof !11
 
 225:                                              ; preds = %223
@@ -1738,7 +1738,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nocap
   %24 = add i16 %23, %14
   %25 = add nuw nsw i64 %13, 1
   %26 = zext i16 %19 to i64
-  %27 = icmp ult i64 %25, %26
+  %27 = icmp samesign ult i64 %25, %26
   br i1 %27, label %12, label %28, !llvm.loop !22
 
 28:                                               ; preds = %12
@@ -2137,7 +2137,7 @@ define internal noundef range(i32 0, 17) i32 @e100_xmit_frame(ptr noundef %0, pt
 
 18:                                               ; preds = %12
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %19 = icmp ugt i32 %13, 20
+  %19 = icmp samesign ugt i32 %13, 20
   br i1 %19, label %20, label %21, !prof !11
 
 20:                                               ; preds = %18
@@ -2490,7 +2490,7 @@ define internal fastcc i32 @e100_up(ptr noundef %0) unnamed_addr #2 align 16 {
   %23 = phi i64 [ 0, %20 ], [ %25, %38 ]
   %24 = phi ptr [ %15, %20 ], [ %53, %38 ]
   %25 = add nuw nsw i64 %23, 1
-  %26 = icmp ult i64 %25, %21
+  %26 = icmp samesign ult i64 %25, %21
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %22
@@ -2936,7 +2936,7 @@ define internal fastcc i32 @e100_hw_init(ptr noundef %0) unnamed_addr #2 align 1
 
 37:                                               ; preds = %31
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %38 = icmp ugt i32 %32, 20
+  %38 = icmp samesign ugt i32 %32, 20
   br i1 %38, label %39, label %40, !prof !11
 
 39:                                               ; preds = %37
@@ -2977,7 +2977,7 @@ e100_exec_cmd.exit.thread:                        ; preds = %40, %43
 
 57:                                               ; preds = %51
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %58 = icmp ugt i32 %52, 20
+  %58 = icmp samesign ugt i32 %52, 20
   br i1 %58, label %59, label %60, !prof !11
 
 59:                                               ; preds = %57
@@ -3411,7 +3411,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_exec_cmd(ptr noundef 
 
 13:                                               ; preds = %7
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
-  %14 = icmp ugt i32 %8, 20
+  %14 = icmp samesign ugt i32 %8, 20
   br i1 %14, label %15, label %16, !prof !11
 
 15:                                               ; preds = %13
@@ -4934,7 +4934,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr nocapture nou
   %30 = and i32 %22, 65535
   %31 = add nuw nsw i32 %30, %29
   %32 = and i32 %26, 65535
-  %33 = icmp ult i32 %31, %32
+  %33 = icmp samesign ult i32 %31, %32
   br i1 %33, label %34, label %73
 
 34:                                               ; preds = %9
@@ -4968,7 +4968,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr nocapture nou
   tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %45, i16 noundef zeroext %48)
   %49 = add i16 %45, 1
   %50 = zext i16 %49 to i32
-  %51 = icmp ugt i32 %31, %50
+  %51 = icmp samesign ugt i32 %31, %50
   br i1 %51, label %44, label %.loopexit.loopexit, !llvm.loop !44
 
 52:                                               ; preds = %52, %42
@@ -5153,7 +5153,7 @@ define internal void @e100_diag_test(ptr noundef %0, ptr nocapture noundef %1, p
   %32 = add i16 %31, %22
   %33 = add nuw nsw i64 %21, 1
   %34 = zext i16 %27 to i64
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp samesign ult i64 %33, %34
   br i1 %35, label %20, label %36, !llvm.loop !22
 
 36:                                               ; preds = %20
@@ -5629,7 +5629,7 @@ define internal fastcc i32 @e100_loopback_test(ptr noundef %0, i32 noundef range
   %24 = phi i64 [ 0, %21 ], [ %26, %39 ]
   %25 = phi ptr [ %16, %21 ], [ %54, %39 ]
   %26 = add nuw nsw i64 %24, 1
-  %27 = icmp ult i64 %26, %22
+  %27 = icmp samesign ult i64 %26, %22
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23

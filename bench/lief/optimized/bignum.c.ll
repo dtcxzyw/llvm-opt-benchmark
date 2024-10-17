@@ -564,7 +564,7 @@ split:                                            ; preds = %7
   %.068.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %12 ]
   %14 = lshr i64 %.09.i, 1
   %15 = add nuw nsw i64 %.068.i, 1
-  %16 = icmp ult i64 %.068.i, 63
+  %16 = icmp samesign ult i64 %.068.i, 63
   %17 = and i64 %14, %13
   %.not.i = icmp eq i64 %17, 0
   %or.cond.i = select i1 %16, i1 %.not.i, i1 false
@@ -628,7 +628,7 @@ split.i:                                          ; preds = %7
   %.068.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ 0, %12 ]
   %14 = lshr i64 %.09.i.i, 1
   %15 = add nuw nsw i64 %.068.i.i, 1
-  %16 = icmp ult i64 %.068.i.i, 63
+  %16 = icmp samesign ult i64 %.068.i.i, 63
   %17 = and i64 %14, %13
   %.not.i.i = icmp eq i64 %17, 0
   %or.cond.i.i = select i1 %16, i1 %.not.i.i, i1 false
@@ -709,7 +709,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef %0, i32
   %33 = icmp ne i64 %32, 0
   %34 = zext i1 %33 to i64
   %35 = add nuw nsw i64 %31, %34
-  %36 = icmp ugt i64 %35, 10000
+  %36 = icmp samesign ugt i64 %35, 10000
   br i1 %36, label %mbedtls_mpi_grow.exit, label %37
 
 37:                                               ; preds = %30
@@ -808,7 +808,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %62
   %78 = add nsw i32 %70, -87
   %79 = zext nneg i32 %78 to i64
   %storemerge25.i = select i1 %or.cond8.i, i64 %79, i64 %storemerge24.i
-  %.not.i68 = icmp ult i64 %storemerge25.i, 16
+  %.not.i68 = icmp samesign ult i64 %storemerge25.i, 16
   br i1 %.not.i68, label %80, label %mbedtls_mpi_grow.exit
 
 80:                                               ; preds = %.lr.ph99
@@ -901,7 +901,7 @@ mbedtls_mpi_lset.exit75:                          ; preds = %._crit_edge.i70, %1
   %124 = add nsw i32 %116, -87
   %125 = zext nneg i32 %124 to i64
   %storemerge25.i81 = select i1 %or.cond8.i80, i64 %125, i64 %storemerge24.i79
-  %.not.i82 = icmp ult i64 %storemerge25.i81, %108
+  %.not.i82 = icmp samesign ult i64 %storemerge25.i81, %108
   br i1 %.not.i82, label %126, label %mbedtls_mpi_grow.exit
 
 126:                                              ; preds = %113
@@ -1212,7 +1212,7 @@ split.i:                                          ; preds = %16
   %.068.i.i = phi i64 [ %24, %.lr.ph.i.i ], [ 0, %21 ]
   %23 = lshr i64 %.09.i.i, 1
   %24 = add nuw nsw i64 %.068.i.i, 1
-  %25 = icmp ult i64 %.068.i.i, 63
+  %25 = icmp samesign ult i64 %.068.i.i, 63
   %26 = and i64 %23, %22
   %.not.i.i = icmp eq i64 %26, 0
   %or.cond.i.i = select i1 %25, i1 %.not.i.i, i1 false
@@ -1621,7 +1621,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 n
   %36 = add nsw i32 %28, -87
   %37 = zext nneg i32 %36 to i64
   %storemerge25.i = select i1 %or.cond8.i, i64 %37, i64 %storemerge24.i
-  %.not.i = icmp ult i64 %storemerge25.i, %22
+  %.not.i = icmp samesign ult i64 %storemerge25.i, %22
   br i1 %.not.i, label %23, label %38, !llvm.loop !24
 
 38:                                               ; preds = %25, %23
@@ -2047,7 +2047,7 @@ split.i:                                          ; preds = %10
   %.068.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %15 ]
   %17 = lshr i64 %.09.i.i, 1
   %18 = add nuw nsw i64 %.068.i.i, 1
-  %19 = icmp ult i64 %.068.i.i, 63
+  %19 = icmp samesign ult i64 %.068.i.i, 63
   %20 = and i64 %17, %16
   %.not.i.i = icmp eq i64 %20, 0
   %or.cond.i.i = select i1 %19, i1 %.not.i.i, i1 false
@@ -2075,7 +2075,7 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %2, %mbedtls_clz.exi
   %28 = icmp ne i64 %27, 0
   %29 = zext i1 %28 to i64
   %30 = add nuw nsw i64 %26, %29
-  %31 = icmp ugt i64 %30, 10000
+  %31 = icmp samesign ugt i64 %30, 10000
   br i1 %31, label %mbedtls_mpi_grow.exit, label %32
 
 32:                                               ; preds = %25
@@ -4628,7 +4628,7 @@ split.i:                                          ; preds = %40
   %.068.i.i = phi i64 [ %48, %.lr.ph.i.i202 ], [ 0, %45 ]
   %47 = lshr i64 %.09.i.i, 1
   %48 = add nuw nsw i64 %.068.i.i, 1
-  %49 = icmp ult i64 %.068.i.i, 63
+  %49 = icmp samesign ult i64 %.068.i.i, 63
   %50 = and i64 %47, %46
   %.not.i.i203 = icmp eq i64 %50, 0
   %or.cond.i.i204 = select i1 %49, i1 %.not.i.i203, i1 false
@@ -4671,7 +4671,7 @@ split.i211:                                       ; preds = %54
   %.068.i.i219 = phi i64 [ %61, %.lr.ph.i.i217 ], [ 0, %._crit_edge.i224 ]
   %60 = lshr i64 %.09.i.i218, 1
   %61 = add nuw nsw i64 %.068.i.i219, 1
-  %62 = icmp ult i64 %.068.i.i219, 63
+  %62 = icmp samesign ult i64 %.068.i.i219, 63
   %63 = and i64 %60, %59
   %.not.i.i220 = icmp eq i64 %63, 0
   %or.cond.i.i221 = select i1 %62, i1 %.not.i.i220, i1 false
@@ -4697,7 +4697,7 @@ mbedtls_mpi_bitlen.exit226.thread:                ; preds = %mbedtls_mpi_bitlen.
   %73 = sub i64 2, %72
   %74 = mul i64 %73, %.0101.i
   %75 = lshr i32 %.02.i, 1
-  %76 = icmp ugt i32 %.02.i, 15
+  %76 = icmp samesign ugt i32 %.02.i, 15
   br i1 %76, label %71, label %mpi_montg_init.exit, !llvm.loop !56
 
 mpi_montg_init.exit:                              ; preds = %71
@@ -4754,7 +4754,7 @@ split.i233:                                       ; preds = %84
   %.068.i.i241 = phi i64 [ %92, %.lr.ph.i.i239 ], [ 0, %89 ]
   %91 = lshr i64 %.09.i.i240, 1
   %92 = add nuw nsw i64 %.068.i.i241, 1
-  %93 = icmp ult i64 %.068.i.i241, 63
+  %93 = icmp samesign ult i64 %.068.i.i241, 63
   %94 = and i64 %91, %90
   %.not.i.i242 = icmp eq i64 %94, 0
   %or.cond.i.i243 = select i1 %93, i1 %.not.i.i242, i1 false
@@ -6081,7 +6081,7 @@ split.i:                                          ; preds = %14
   %.068.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %19 ]
   %21 = lshr i64 %.09.i.i, 1
   %22 = add nuw nsw i64 %.068.i.i, 1
-  %23 = icmp ult i64 %.068.i.i, 63
+  %23 = icmp samesign ult i64 %.068.i.i, 63
   %24 = and i64 %21, %20
   %.not.i.i = icmp eq i64 %24, 0
   %or.cond.i.i = select i1 %23, i1 %.not.i.i, i1 false
@@ -7281,7 +7281,7 @@ mbedtls_mpi_lsb.exit:                             ; preds = %33, %27, %20
 mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
   store i32 1, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %62 = icmp ugt i64 %44, 10000
+  %62 = icmp samesign ugt i64 %44, 10000
   br i1 %62, label %mbedtls_mpi_fill_random.exit.thread, label %63
 
 63:                                               ; preds = %mbedtls_mpi_free.exit12.i
@@ -7376,7 +7376,7 @@ split.i:                                          ; preds = %90
   %.068.i.i = phi i64 [ %98, %.lr.ph.i.i ], [ 0, %95 ]
   %97 = lshr i64 %.09.i.i, 1
   %98 = add nuw nsw i64 %.068.i.i, 1
-  %99 = icmp ult i64 %.068.i.i, 63
+  %99 = icmp samesign ult i64 %.068.i.i, 63
   %100 = and i64 %97, %96
   %.not.i.i45 = icmp eq i64 %100, 0
   %or.cond.i.i = select i1 %99, i1 %.not.i.i45, i1 false
@@ -7433,7 +7433,7 @@ split.i52:                                        ; preds = %105
   %.068.i.i60 = phi i64 [ %113, %.lr.ph.i.i58 ], [ 0, %110 ]
   %112 = lshr i64 %.09.i.i59, 1
   %113 = add nuw nsw i64 %.068.i.i60, 1
-  %114 = icmp ult i64 %.068.i.i60, 63
+  %114 = icmp samesign ult i64 %.068.i.i60, 63
   %115 = and i64 %112, %111
   %.not.i.i61 = icmp eq i64 %115, 0
   %or.cond.i.i62 = select i1 %114, i1 %.not.i.i61, i1 false

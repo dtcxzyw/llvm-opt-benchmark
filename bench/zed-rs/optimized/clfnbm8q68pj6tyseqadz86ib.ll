@@ -479,7 +479,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.58.0.copyload = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %.noexc, %16
@@ -1321,7 +1321,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %19, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
-  %20 = icmp ugt i64 %11, %14
+  %20 = icmp samesign ugt i64 %11, %14
   br i1 %20, label %40, label %21
 
 21:                                               ; preds = %.noexc, %16
@@ -2863,7 +2863,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = trunc nuw i64 %indvars.iv.next.i to i8
   store i8 %10, ptr %3, align 1, !alias.scope !647, !noalias !645
-  %11 = icmp ult i64 %indvars.iv.i, 10
+  %11 = icmp samesign ult i64 %indvars.iv.i, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !647, !noalias !645, !noundef !4
@@ -2899,7 +2899,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = trunc nuw i64 %indvars.iv.next.i to i8
   store i8 %10, ptr %3, align 1, !alias.scope !669, !noalias !667
-  %11 = icmp ult i64 %indvars.iv.i, 10
+  %11 = icmp samesign ult i64 %indvars.iv.i, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !669, !noalias !667, !noundef !4
@@ -4045,14 +4045,14 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h4393d313135daa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %10, ptr %3, align 1, !alias.scope !894
-  %11 = icmp ult i64 %indvars.iv, 10
+  %11 = icmp samesign ult i64 %indvars.iv, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !894, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !908)
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb6925b2b09262392E.llvm.193548883091242491"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i8 noundef %13), !noalias !909
-  %14 = icmp ult i64 %indvars.iv.next, %9
+  %14 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %14, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit", label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.thread"
 
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.thread": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit", %2
@@ -4079,14 +4079,14 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hc599757de2b2f5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %10, ptr %3, align 1, !alias.scope !910
-  %11 = icmp ult i64 %indvars.iv, 10
+  %11 = icmp samesign ult i64 %indvars.iv, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !910, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !924)
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb6925b2b09262392E.llvm.193548883091242491"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i8 noundef %13), !noalias !925
-  %14 = icmp ult i64 %indvars.iv.next, %9
+  %14 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %14, label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit", label %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.thread"
 
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.thread": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit", %2
@@ -4254,7 +4254,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hc7d77bf5c4acdc
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i.i"
   %indvars.iv.i.i.i.i = phi i64 [ %66, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i.i" ], [ %indvars.iv.next.i.i.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i" ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %68 = icmp ult i64 %indvars.iv.i.i.i.i, 10
+  %68 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 10
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i.i.i
   %70 = load i8, ptr %69, align 1, !range !660, !alias.scope !948, !noalias !953, !noundef !4
@@ -4432,7 +4432,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf1e330e833e8f4
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i.i"
   %indvars.iv.i.i.i.i = phi i64 [ %66, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i.i" ], [ %indvars.iv.next.i.i.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i.i" ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %68 = icmp ult i64 %indvars.iv.i.i.i.i, 10
+  %68 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 10
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i.i.i
   %70 = load i8, ptr %69, align 1, !range !660, !alias.scope !986, !noalias !991, !noundef !4
@@ -4540,7 +4540,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i"
   %indvars.iv.i.i.i = phi i64 [ %26, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i" ], [ %indvars.iv.next.i.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i" ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %28 = icmp ult i64 %indvars.iv.i.i.i, 10
+  %28 = icmp samesign ult i64 %indvars.iv.i.i.i, 10
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i.i.i
   %30 = load i8, ptr %29, align 1, !range !660, !alias.scope !1030, !noalias !1035, !noundef !4
@@ -4646,7 +4646,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i"
   %indvars.iv.i.i.i = phi i64 [ %26, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i.i" ], [ %indvars.iv.next.i.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i.i" ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %28 = icmp ult i64 %indvars.iv.i.i.i, 10
+  %28 = icmp samesign ult i64 %indvars.iv.i.i.i, 10
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i.i.i
   %30 = load i8, ptr %29, align 1, !range !660, !alias.scope !1067, !noalias !1072, !noundef !4
@@ -4684,7 +4684,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i"
   %indvars.iv.i.i = phi i64 [ %9, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i" ], [ %indvars.iv.next.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i" ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = icmp ult i64 %indvars.iv.i.i, 10
+  %11 = icmp samesign ult i64 %indvars.iv.i.i, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !1086, !noalias !1091, !noundef !4
@@ -4721,7 +4721,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i": ; preds = %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i", %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i"
   %indvars.iv.i.i = phi i64 [ %9, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.lr.ph.i.i" ], [ %indvars.iv.next.i.i, %"_ZN84_$LT$core..char..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf46cdc773d481f6E.exit.i.i" ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = icmp ult i64 %indvars.iv.i.i, 10
+  %11 = icmp samesign ult i64 %indvars.iv.i.i, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
   %13 = load i8, ptr %12, align 1, !range !660, !alias.scope !1113, !noalias !1118, !noundef !4

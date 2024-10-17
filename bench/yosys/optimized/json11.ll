@@ -5144,7 +5144,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6json115ValueILNS_4Json4TypeE2EbE4le
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
-  %9 = icmp ult i8 %5, %8
+  %9 = icmp samesign ult i8 %5, %8
   ret i1 %9
 }
 

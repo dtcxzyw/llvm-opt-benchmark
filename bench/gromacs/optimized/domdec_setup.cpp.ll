@@ -119,7 +119,7 @@ define noundef float @_Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t(
   %23 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv59
   %24 = load float, ptr %23, align 4
   %25 = fadd float %.03648, %24
-  %26 = icmp ult i64 %indvars.iv59, 2
+  %26 = icmp samesign ult i64 %indvars.iv59, 2
   br i1 %26, label %.lr.ph46, label %.loopexit38
 
 .lr.ph46:                                         ; preds = %22, %.loopexit
@@ -2470,7 +2470,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %47 = mul nsw i32 %45, %46
   store i32 %47, ptr %29, align 4
   %48 = add nuw nsw i32 %.08192, 1
-  %49 = icmp ult i32 %48, %.082103
+  %49 = icmp samesign ult i32 %48, %.082103
   br i1 %49, label %.lr.ph93, label %.preheader87, !llvm.loop !19
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
@@ -2522,7 +2522,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %69 = sdiv i32 %67, %68
   store i32 %69, ptr %29, align 4
   %70 = add nuw nsw i32 %.078100, 1
-  %71 = icmp ult i32 %70, %.082103
+  %71 = icmp samesign ult i32 %70, %.082103
   br i1 %71, label %.lr.ph101, label %._crit_edge102, !llvm.loop !22
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
@@ -2838,7 +2838,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %.loopexit.us ], [ 0, %148 ]
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.loopexit.us ], [ 1, %148 ]
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %153 = icmp ult i64 %indvars.iv297, 2
+  %153 = icmp samesign ult i64 %indvars.iv297, 2
   br i1 %153, label %.lr.ph238.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %171, %.split.us
@@ -2885,7 +2885,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.loopexit ], [ 0, %148 ]
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.loopexit ], [ 1, %148 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
-  %172 = icmp ult i64 %indvars.iv287, 2
+  %172 = icmp samesign ult i64 %indvars.iv287, 2
   br i1 %172, label %.lr.ph238, label %.loopexit
 
 .lr.ph238:                                        ; preds = %.split

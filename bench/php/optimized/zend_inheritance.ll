@@ -1283,7 +1283,7 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
 369:                                              ; preds = %354
   %370 = and i32 %340, 7
   %371 = and i32 %335, 3
-  %372 = icmp ugt i32 %370, %371
+  %372 = icmp samesign ugt i32 %370, %371
   br i1 %372, label %373, label %385
 
 373:                                              ; preds = %369
@@ -2726,7 +2726,7 @@ do_implement_interface.exit:                      ; preds = %.do_implement_inter
   %77 = icmp ne ptr %0, %59
   tail call void @llvm.assume(i1 %77)
   %78 = zext i32 %76 to i64
-  %79 = icmp ult i64 %indvars.iv.next48, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next48, %78
   br i1 %79, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %do_implement_interface.exit, %._crit_edge38
@@ -2969,7 +2969,7 @@ define internal fastcc noundef zeroext i1 @do_inherit_constant_check(ptr noundef
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 7
   %42 = and i32 %.pre, 7
-  %43 = icmp ugt i32 %41, %42
+  %43 = icmp samesign ugt i32 %41, %42
   br i1 %43, label %44, label %60
 
 44:                                               ; preds = %.thread
@@ -3914,7 +3914,7 @@ define ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
   %91 = load i32, ptr %42, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next674, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next674, %92
   br i1 %93, label %58, label %.loopexit412
 
 .loopexit412:                                     ; preds = %90, %41, %54
@@ -3989,7 +3989,7 @@ check_unrecoverable_load_failure.exit395:         ; preds = %104, %106
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
   %128 = load i32, ptr %94, align 8
   %129 = zext i32 %128 to i64
-  %130 = icmp ult i64 %indvars.iv.next677, %129
+  %130 = icmp samesign ult i64 %indvars.iv.next677, %129
   br i1 %130, label %97, label %.loopexit
 
 .loopexit:                                        ; preds = %127, %.loopexit412
@@ -4292,7 +4292,7 @@ zend_check_trait_usage.exit.i.i:                  ; preds = %.lr.ph.i.i.i
   %266 = add nuw nsw i64 %.0194338.i.i, 1
   %267 = load i32, ptr %256, align 8
   %268 = zext i32 %267 to i64
-  %269 = icmp ult i64 %266, %268
+  %269 = icmp samesign ult i64 %266, %268
   br i1 %269, label %270, label %._crit_edge.i.i
 
 270:                                              ; preds = %265, %.lr.ph.i.i
@@ -4650,7 +4650,7 @@ zend_check_trait_usage.exit252.i.i:               ; preds = %.lr.ph.i247.i.i
   %436 = add nuw nsw i64 %.1195345.i.i, 1
   %437 = load i32, ptr %198, align 4
   %438 = zext i32 %437 to i64
-  %439 = icmp ult i64 %436, %438
+  %439 = icmp samesign ult i64 %436, %438
   br i1 %439, label %.lr.ph347.i.i, label %._crit_edge348.i.i
 
 ._crit_edge348.i.i:                               ; preds = %435
@@ -4785,7 +4785,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %496 = load i32, ptr %198, align 4
   %497 = zext i32 %496 to i64
-  %498 = icmp ult i64 %indvars.iv.next.i.i, %497
+  %498 = icmp samesign ult i64 %indvars.iv.next.i.i, %497
   br i1 %498, label %.lr.ph92.i.i, label %.loopexit86.i.i
 
 .lr.ph98.i.i:                                     ; preds = %.preheader.i15.i, %.loopexit.i.i
@@ -4838,7 +4838,7 @@ zend_traits_init_trait_structures.exit.i:         ; preds = %461, %356, %350
   %521 = phi i32 [ %.pre.i.i, %.loopexit.loopexit.i.i ], [ %499, %502 ], [ %499, %.lr.ph98.i.i ]
   %indvars.iv.next109.i.i = add nuw nsw i64 %indvars.iv108.i.i, 1
   %522 = zext i32 %521 to i64
-  %523 = icmp ult i64 %indvars.iv.next109.i.i, %522
+  %523 = icmp samesign ult i64 %indvars.iv.next109.i.i, %522
   br i1 %523, label %.lr.ph98.i.i, label %.loopexit86.i.i
 
 .loopexit86.i.i:                                  ; preds = %495, %.loopexit.i.i, %.preheader.i15.i, %.preheader87.i.i
@@ -5390,7 +5390,7 @@ do_trait_constant_check.exit.i.i:                 ; preds = %735
   %.pr.i = phi i32 [ %.pre.i20.i, %.loopexit.loopexit.i19.i ], [ %571, %574 ], [ %571, %570 ]
   %812 = add nuw nsw i64 %.0120155.i.i, 1
   %813 = zext i32 %.pr.i to i64
-  %814 = icmp ult i64 %812, %813
+  %814 = icmp samesign ult i64 %812, %813
   br i1 %814, label %570, label %zend_do_traits_constant_binding.exit.i
 
 zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
@@ -5860,7 +5860,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
   %1072 = phi i32 [ %.pre268.i.i, %.loopexit.loopexit.i35.i ], [ %823, %826 ], [ %823, %822 ]
   %1073 = add nuw nsw i64 %.0183248.i.i, 1
   %1074 = zext i32 %1072 to i64
-  %1075 = icmp ult i64 %1073, %1074
+  %1075 = icmp samesign ult i64 %1073, %1074
   br i1 %1075, label %822, label %zend_do_bind_traits.exit
 
 zend_do_bind_traits.exit:                         ; preds = %.loopexit.i36.i, %zend_do_traits_constant_binding.exit.thread.i, %zend_do_traits_constant_binding.exit.i
@@ -6072,7 +6072,7 @@ add_dependency_obligation.exit.i:                 ; preds = %1124, %1119
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %1173 = load i32, ptr %1077, align 8
   %1174 = zext i32 %1173 to i64
-  %1175 = icmp ult i64 %indvars.iv.next153.i, %1174
+  %1175 = icmp samesign ult i64 %indvars.iv.next153.i, %1174
   br i1 %1175, label %1110, label %._crit_edge130.i
 
 ._crit_edge130.i:                                 ; preds = %.thread.i
@@ -6146,7 +6146,7 @@ add_dependency_obligation.exit.i:                 ; preds = %1124, %1119
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %1209 = load i32, ptr %1077, align 8
   %1210 = zext i32 %1209 to i64
-  %1211 = icmp ult i64 %indvars.iv.next156.i, %1210
+  %1211 = icmp samesign ult i64 %indvars.iv.next156.i, %1210
   br i1 %1211, label %1182, label %._crit_edge133.i
 
 ._crit_edge133.i:                                 ; preds = %1208, %.preheader110.i, %._crit_edge130.thread.i
@@ -7693,8 +7693,8 @@ define ptr @zend_try_early_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %115 = and i32 %114, 16
   %.not315.i = icmp ne i32 %115, 0
   %116 = and i32 %113, 64
-  %117 = icmp ugt i32 %116, %107
-  %or.cond326.i = or i1 %117, %.not315.i
+  %117 = icmp samesign ugt i32 %116, %107
+  %or.cond326.i = select i1 %.not315.i, i1 true, i1 %117
   br i1 %or.cond326.i, label %zend_can_early_bind.exit.thread, label %118
 
 118:                                              ; preds = %111
@@ -7715,7 +7715,7 @@ define ptr @zend_try_early_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0269.i = phi ptr [ %97, %118 ], [ %..i, %119 ]
   %126 = and i32 %113, 7
   %127 = and i32 %106, 7
-  %128 = icmp ugt i32 %126, %127
+  %128 = icmp samesign ugt i32 %126, %127
   br i1 %128, label %zend_can_early_bind.exit.thread, label %129
 
 129:                                              ; preds = %125
@@ -8999,7 +8999,7 @@ define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %19, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %21, %25
@@ -9031,7 +9031,7 @@ define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr nound
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %42 = load i32, ptr %19, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next69, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next69, %43
   br i1 %44, label %.lr.ph59, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %39, %41, %18, %.thread, %2, %8
@@ -9547,7 +9547,7 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
 
 104:                                              ; preds = %40
   %105 = and i32 %42, 64
-  %106 = icmp ugt i32 %105, %10
+  %106 = icmp samesign ugt i32 %105, %10
   br i1 %106, label %107, label %137
 
 107:                                              ; preds = %104
@@ -9699,7 +9699,7 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
 187:                                              ; preds = %186
   %188 = and i32 %42, 7
   %189 = and i32 %9, 7
-  %190 = icmp ugt i32 %188, %189
+  %190 = icmp samesign ugt i32 %188, %189
   br i1 %190, label %191, label %224
 
 191:                                              ; preds = %187
@@ -9857,7 +9857,7 @@ define internal fastcc range(i32 -1, 3) i32 @zend_do_perform_implementation_chec
 53:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %.06495 = phi i32 [ 2, %.lr.ph ], [ %.1, %86 ]
-  %54 = icmp uge i64 %indvars.iv, %51
+  %54 = icmp samesign uge i64 %indvars.iv, %51
   %brmerge102.not = and i1 %54, %.not75
   br i1 %brmerge102.not, label %57, label %.sink.split
 
@@ -9869,7 +9869,7 @@ define internal fastcc range(i32 -1, 3) i32 @zend_do_perform_implementation_chec
 
 57:                                               ; preds = %53, %.sink.split
   %58 = phi ptr [ %56, %.sink.split ], [ null, %53 ]
-  %59 = icmp ult i64 %indvars.iv, %52
+  %59 = icmp samesign ult i64 %indvars.iv, %52
   %brmerge103 = or i1 %59, %.not77
   br i1 %brmerge103, label %60, label %.thread
 
@@ -12175,7 +12175,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
 
 200:                                              ; preds = %156
   %201 = and i32 %158, 64
-  %202 = icmp ugt i32 %201, %131
+  %202 = icmp samesign ugt i32 %201, %131
   br i1 %202, label %203, label %223
 
 203:                                              ; preds = %200
@@ -12233,7 +12233,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %.0377 = phi ptr [ %.0379442, %227 ], [ %.0379., %228 ]
   %235 = and i32 %158, 7
   %236 = and i32 %130, 7
-  %237 = icmp ugt i32 %235, %236
+  %237 = icmp samesign ugt i32 %235, %236
   br i1 %237, label %238, label %266
 
 238:                                              ; preds = %234

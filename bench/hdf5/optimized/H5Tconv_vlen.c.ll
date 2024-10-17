@@ -1105,7 +1105,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(ptr noun
   %26 = getelementptr inbounds i8, ptr %25, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %.lr.ph30, label %.loopexit
 
 .lr.ph30:                                         ; preds = %.preheader, %24

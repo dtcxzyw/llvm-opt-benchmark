@@ -17255,7 +17255,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %20 = add nuw nsw i64 %storemerge26.i.i, 1
   %21 = lshr i64 %20, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !110
 
 22:                                               ; preds = %.lr.ph.i.i

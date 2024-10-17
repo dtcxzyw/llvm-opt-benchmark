@@ -1681,7 +1681,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
 
 183:                                              ; preds = %182, %180, %180
   %184 = phi i64 [ 524288, %182 ], [ 33554432, %180 ], [ 33554432, %180 ]
-  %185 = icmp ult i64 %181, %184
+  %185 = icmp samesign ult i64 %181, %184
   br i1 %185, label %186, label %.thread27
 
 186:                                              ; preds = %183
@@ -1694,7 +1694,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
 
 189:                                              ; preds = %188, %186, %186
   %190 = phi i64 [ 2048, %188 ], [ 131072, %186 ], [ 131072, %186 ]
-  %191 = icmp ult i64 %187, %190
+  %191 = icmp samesign ult i64 %187, %190
   br i1 %191, label %192, label %202, !prof !11
 
 192:                                              ; preds = %189
@@ -2300,7 +2300,7 @@ define internal fastcc void @_vm_unmap_aliases(i64 noundef range(i64 1, 0) %0, i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   %82 = add nuw nsw i64 %19, 1
   %83 = and i64 %82, 127
-  %84 = icmp ugt i64 %83, 63
+  %84 = icmp samesign ugt i64 %83, 63
   br i1 %84, label %.thread, label %9, !prof !85, !llvm.loop !86
 
 .thread:                                          ; preds = %9, %.loopexit7, %18
@@ -3360,7 +3360,7 @@ define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 
   %13 = icmp eq i64 %1, 0
   %14 = or i1 %13, %12
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1), !range !125
-  %16 = icmp ugt i64 %15, 1
+  %16 = icmp samesign ugt i64 %15, 1
   %17 = select i1 %14, i1 true, i1 %16
   br i1 %17, label %444, label %18, !prof !126
 
@@ -4999,7 +4999,7 @@ define internal noundef range(i32 -22, 1) i32 @vmap_pfn_apply(ptr noundef %0, i6
 
 15:                                               ; preds = %14, %12, %12
   %16 = phi i64 [ 524288, %14 ], [ 33554432, %12 ], [ 33554432, %12 ]
-  %17 = icmp ult i64 %13, %16
+  %17 = icmp samesign ult i64 %13, %16
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -5012,7 +5012,7 @@ define internal noundef range(i32 -22, 1) i32 @vmap_pfn_apply(ptr noundef %0, i6
 
 21:                                               ; preds = %20, %18, %18
   %22 = phi i64 [ 2048, %20 ], [ 131072, %18 ], [ 131072, %18 ]
-  %23 = icmp ult i64 %19, %22
+  %23 = icmp samesign ult i64 %19, %22
   br i1 %23, label %24, label %34, !prof !11
 
 24:                                               ; preds = %21
@@ -5372,7 +5372,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %141 = trunc i64 %140 to i32
   %142 = and i64 %140, 4294967295
   %143 = shl nuw nsw i64 %142, 3
-  %144 = icmp ugt i64 %142, 512
+  %144 = icmp samesign ugt i64 %142, 512
   br i1 %144, label %145, label %156
 
 145:                                              ; preds = %.split.us
@@ -6211,7 +6211,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %194 = and i64 %193, 4294967295
   %195 = tail call i64 @_find_next_zero_bit(ptr noundef %188, i64 noundef 1024, i64 noundef %194) #21
   %196 = and i64 %192, 4294967295
-  %197 = icmp ult i64 %196, 1024
+  %197 = icmp samesign ult i64 %196, 1024
   br i1 %197, label %198, label %.loopexit68
 
 198:                                              ; preds = %191
@@ -6409,7 +6409,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %327 = and i64 %326, 4294967295
   %328 = tail call i64 @_find_next_zero_bit(ptr noundef %188, i64 noundef 1024, i64 noundef %327) #21
   %329 = and i64 %325, 4294967295
-  %330 = icmp ult i64 %329, 1024
+  %330 = icmp samesign ult i64 %329, 1024
   br i1 %330, label %200, label %.loopexit68, !llvm.loop !216
 
 .loopexit68:                                      ; preds = %.thread39, %191, %187
@@ -6802,7 +6802,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr nocapture noundef readonly %0, ptr n
   %18 = icmp ne i64 %3, 0
   %19 = and i1 %18, %17
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3), !range !125
-  %21 = icmp ult i64 %20, 2
+  %21 = icmp samesign ult i64 %20, 2
   %22 = select i1 %19, i1 %21, i1 false
   br i1 %22, label %23, label %27, !prof !219
 
@@ -6861,7 +6861,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr nocapture noundef readonly %0, ptr n
   %47 = trunc nuw nsw i64 %indvars.iv277 to i32
   %48 = select i1 %46, i32 %47, i32 %29
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %49 = icmp ult i64 %indvars.iv.next278, %26
+  %49 = icmp samesign ult i64 %indvars.iv.next278, %26
   br i1 %49, label %.preheader149, label %.loopexit150
 
 50:                                               ; preds = %.preheader149
@@ -8539,7 +8539,7 @@ free_vmap_block.exit:                             ; preds = %96, %99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #21
   %102 = add nuw nsw i64 %10, 1
   %103 = and i64 %102, 127
-  %104 = icmp ugt i64 %103, 63
+  %104 = icmp samesign ugt i64 %103, 63
   br i1 %104, label %.thread, label %3, !prof !85, !llvm.loop !252
 
 .thread:                                          ; preds = %3, %.loopexit, %9
@@ -8719,7 +8719,7 @@ define dso_local void @vmalloc_init() local_unnamed_addr #7 section ".init.text"
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = add nuw nsw i64 %9, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %2, !prof !85, !llvm.loop !254
 
 .preheader12:                                     ; preds = %.thread, %47

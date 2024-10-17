@@ -2029,7 +2029,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %indvars.iv1170.i.i = phi i64 [ 1, %.preheader269.i.loopexit.i ], [ %indvars.iv.next1171.i.i, %451 ]
   %indvars.iv1168.i.i = phi i64 [ %432, %.preheader269.i.loopexit.i ], [ %indvars.iv.next1169.i.i, %451 ]
   %indvars.iv.next1169.i.i = add nsw i64 %indvars.iv1168.i.i, 1
-  %443 = icmp ult i64 %indvars.iv1170.i.i, %indvars.iv1181.i.i
+  %443 = icmp samesign ult i64 %indvars.iv1170.i.i, %indvars.iv1181.i.i
   br i1 %443, label %444, label %451
 
 444:                                              ; preds = %442
@@ -3496,7 +3496,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1120 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %indvars.iv388.i.i.i
   store double %1119, ptr %1120, align 16
   %indvars.iv.next389.i.i.i = add nuw nsw i64 %indvars.iv388.i.i.i, 2
-  %1121 = icmp ult i64 %indvars.iv388.i.i.i, 7
+  %1121 = icmp samesign ult i64 %indvars.iv388.i.i.i, 7
   br i1 %1121, label %1106, label %.preheader9.i1342.i.i, !llvm.loop !81
 
 .preheader9.i1342.i.i:                            ; preds = %1106, %.preheader9.i1342.i.i
@@ -3582,7 +3582,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1169 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %indvars.iv396.i.i.i
   store double %1168, ptr %1169, align 16
   %indvars.iv.next397.i.i.i = add nuw nsw i64 %indvars.iv396.i.i.i, 2
-  %1170 = icmp ult i64 %indvars.iv396.i.i.i, 7
+  %1170 = icmp samesign ult i64 %indvars.iv396.i.i.i, 7
   br i1 %1170, label %1155, label %.preheader265.i.i, !llvm.loop !84
 
 .preheader265.i.i:                                ; preds = %1155, %.preheader265.i.i
@@ -5300,7 +5300,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %indvars.iv606 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next607, %248 ]
   %indvars.iv604 = phi i64 [ %238, %.preheader ], [ %indvars.iv.next605, %248 ]
   %indvars.iv.next605 = add nsw i64 %indvars.iv604, 1
-  %240 = icmp ult i64 %indvars.iv606, %indvars.iv617
+  %240 = icmp samesign ult i64 %indvars.iv606, %indvars.iv617
   br i1 %240, label %241, label %248
 
 241:                                              ; preds = %239

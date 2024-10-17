@@ -3826,15 +3826,15 @@ _ZN4core3str11validations15next_code_point17hd8bbc18ea736ad00E.exit.thread.i.i: 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i"
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 128
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 128
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 2048
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 2048
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 65536
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 65536
   %..i.i = select i1 %76, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i"
 
@@ -19884,7 +19884,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h8ed6034fba61cfe1E.llvm.98513474
   call void @llvm.experimental.noalias.scope.decl(metadata !5143)
   %224 = getelementptr inbounds i8, ptr %35, i64 20
   %225 = load i32, ptr %224, align 4, !range !5146, !alias.scope !5147, !noalias !5152, !noundef !9
-  %switch171.not = icmp ult i32 %225, 2
+  %switch171.not = icmp samesign ult i32 %225, 2
   br i1 %switch171.not, label %_ZN4core3ops8function6FnOnce9call_once17h25a231285036a9d5E.exit.thread18.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h0196868d77ef7832E.exit.thread.i.i.i
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h0196868d77ef7832E.exit.thread.i.i.i: ; preds = %223
@@ -20481,7 +20481,7 @@ _ZN3hir3Adt2ty17h0ad737db2b0eed3dE.exit.i:        ; preds = %315, %313, %296, %2
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !5260
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !5260
-  %switch.not.i = icmp ult i32 %376, 2
+  %switch.not.i = icmp samesign ult i32 %376, 2
   br i1 %switch.not.i, label %377, label %381
 
 377:                                              ; preds = %375

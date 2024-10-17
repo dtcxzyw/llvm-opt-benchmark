@@ -1150,7 +1150,7 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %112, %106, %99
   %128 = load i32, ptr %64, align 8
   %129 = mul nsw i32 %128, %128
   %130 = zext nneg i32 %129 to i64
-  %131 = icmp ult i64 %indvars.iv.next, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next, %130
   br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 132:                                              ; preds = %82
@@ -1742,8 +1742,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %24, %27
 52:                                               ; preds = %40
   %spec.select = call i32 @llvm.smin.i32(i32 %51, i32 %.01830)
   %53 = add nuw nsw i32 %.01731, 1
-  %54 = icmp ult i32 %.01731, 3
-  %55 = and i1 %3, %54
+  %54 = icmp samesign ult i32 %.01731, 3
+  %55 = select i1 %3, i1 %54, i1 false
   br i1 %55, label %40, label %59, !llvm.loop !22
 
 56:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit

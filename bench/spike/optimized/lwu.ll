@@ -408,7 +408,7 @@ define noundef i64 @_Z14fast_rv64e_lwuP11processor_t6insn_tm(ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   %8 = lshr i64 %1, 15
   %9 = and i64 %8, 31
-  %10 = icmp ugt i64 %9, 15
+  %10 = icmp samesign ugt i64 %9, 15
   br i1 %10, label %11, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 11:                                               ; preds = %3
@@ -499,7 +499,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %3
 .critedge2:                                       ; preds = %55, %50, %36, %39
   %57 = lshr i64 %1, 7
   %58 = and i64 %57, 31
-  %59 = icmp ugt i64 %58, 15
+  %59 = icmp samesign ugt i64 %58, 15
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %.critedge2
@@ -552,7 +552,7 @@ define noundef i64 @_Z16logged_rv64e_lwuP11processor_t6insn_tm(ptr noundef %0, i
   %7 = load ptr, ptr %6, align 8
   %8 = lshr i64 %1, 15
   %9 = and i64 %8, 31
-  %10 = icmp ugt i64 %9, 15
+  %10 = icmp samesign ugt i64 %9, 15
   br i1 %10, label %11, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 11:                                               ; preds = %3
@@ -702,7 +702,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %57, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %85 = icmp ugt i64 %60, 15
+  %85 = icmp samesign ugt i64 %60, 15
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

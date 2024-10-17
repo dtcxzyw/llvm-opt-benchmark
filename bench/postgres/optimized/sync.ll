@@ -194,7 +194,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %55 = load ptr, ptr %54, align 8
   call void @pfree(ptr noundef %55) #9
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %56 = icmp ult i64 %indvars.iv.next46, %51
+  %56 = icmp samesign ult i64 %indvars.iv.next46, %51
   br i1 %56, label %.lr.ph40, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph40

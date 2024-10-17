@@ -140,7 +140,7 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   %17 = add nuw nsw i64 %13, 1
   %18 = load i8, ptr %10, align 1
   %19 = zext i8 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !8
 
 .loopexit7.loopexit:                              ; preds = %.preheader6
@@ -229,14 +229,14 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   %64 = add nuw nsw i64 %37, 1
   %65 = load i8, ptr %31, align 4
   %66 = zext i8 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %36, label %.loopexit4, !llvm.loop !12
 
 .loopexit4:                                       ; preds = %.thread, %.preheader
   %68 = add nuw nsw i64 %26, 1
   %69 = load i8, ptr %23, align 1
   %70 = zext i8 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %.preheader, label %.loopexit5, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %.loopexit4, %22
@@ -533,7 +533,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %150, label %.loopexit130, label %143, !llvm.loop !15
 
 151:                                              ; preds = %143
-  %152 = icmp ult i64 %149, %142
+  %152 = icmp samesign ult i64 %149, %142
   br i1 %152, label %.thread89, label %.loopexit130
 
 .thread89:                                        ; preds = %138, %151
@@ -685,7 +685,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %232, label %233, label %.preheader128, !llvm.loop !17
 
 233:                                              ; preds = %228
-  %234 = icmp ult i64 %226, %219
+  %234 = icmp samesign ult i64 %226, %219
   br i1 %234, label %235, label %.loopexit129
 
 .loopexit129:                                     ; preds = %.preheader128, %233
@@ -978,7 +978,7 @@ split:                                            ; preds = %82, %._crit_edge321
 417:                                              ; preds = %408
   %418 = load i8, ptr %372, align 4
   %419 = zext i8 %418 to i32
-  %420 = icmp ugt i32 %386, %419
+  %420 = icmp samesign ugt i32 %386, %419
   br i1 %420, label %421, label %779
 
 421:                                              ; preds = %417
@@ -1070,7 +1070,7 @@ split:                                            ; preds = %82, %._crit_edge321
 
 .loopexit108:                                     ; preds = %.loopexit107, %426
   %478 = add nuw nsw i64 %427, 1
-  %479 = icmp ult i64 %478, %425
+  %479 = icmp samesign ult i64 %478, %425
   %480 = icmp eq i64 %478, %425
   br i1 %480, label %.loopexit, label %426, !llvm.loop !25
 
@@ -1217,7 +1217,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %565 = getelementptr inbounds i8, ptr %495, i64 4
   %566 = load i16, ptr %565, align 1
   %567 = and i16 %566, 2047
-  %568 = icmp ugt i16 %567, 8
+  %568 = icmp samesign ugt i16 %567, 8
   br i1 %568, label %569, label %570
 
 569:                                              ; preds = %560
@@ -1287,7 +1287,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %602 = getelementptr i16, ptr %597, i64 %601
   %603 = load i16, ptr %602, align 2
   %604 = zext i16 %603 to i32
-  %605 = icmp ugt i32 %596, %604
+  %605 = icmp samesign ugt i32 %596, %604
   br i1 %605, label %606, label %610
 
 606:                                              ; preds = %594
@@ -1847,7 +1847,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   %21 = load i8, ptr %20, align 4
   %22 = zext i8 %21 to i32
   tail call void @kfree(ptr noundef nonnull %4) #10
-  %23 = icmp ult i32 %19, %11
+  %23 = icmp samesign ult i32 %19, %11
   br i1 %23, label %116, label %24
 
 24:                                               ; preds = %16
@@ -1946,7 +1946,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   %77 = shl i32 %76, 2
   %78 = and i32 %77, 124
   %79 = add nuw nsw i32 %78, 16
-  %80 = icmp ugt i32 %79, %53
+  %80 = icmp samesign ugt i32 %79, %53
   br i1 %80, label %90, label %81
 
 81:                                               ; preds = %74

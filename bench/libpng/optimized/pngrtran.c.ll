@@ -912,7 +912,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %186 = sub nsw i32 %182, %185
   %187 = tail call i32 @llvm.abs.i32(i32 %186, i1 true)
   %188 = add nuw nsw i32 %180, %187
-  %.not411 = icmp ugt i32 %188, %.0370505
+  %.not411 = icmp samesign ugt i32 %188, %.0370505
   br i1 %.not411, label %199, label %189
 
 189:                                              ; preds = %165
@@ -1351,7 +1351,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 413:                                              ; preds = %.lr.ph515, %450
   %indvars.iv623 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next624, %450 ]
   %indvars625 = trunc i64 %indvars.iv623 to i32
-  %414 = icmp ugt i64 %indvars.iv623, %412
+  %414 = icmp samesign ugt i64 %indvars.iv623, %412
   %415 = sub nuw nsw i32 %indvars625, %400
   %416 = sub nuw nsw i64 %412, %indvars.iv623
   %417 = trunc nuw nsw i64 %416 to i32
@@ -1362,7 +1362,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 420:                                              ; preds = %413, %449
   %indvars.iv619 = phi i64 [ 0, %413 ], [ %indvars.iv.next620, %449 ]
   %indvars621 = trunc i64 %indvars.iv619 to i32
-  %421 = icmp ugt i64 %indvars.iv619, %411
+  %421 = icmp samesign ugt i64 %indvars.iv619, %411
   %422 = sub nuw nsw i32 %indvars621, %404
   %423 = sub nuw nsw i64 %411, %indvars.iv619
   %424 = trunc nuw nsw i64 %423 to i32
@@ -1377,7 +1377,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv615 = phi i64 [ 0, %420 ], [ %indvars.iv.next616, %448 ]
   %indvars617 = trunc i64 %indvars.iv615 to i32
   %431 = add nuw nsw i64 %indvars.iv615, %429
-  %432 = icmp ugt i64 %indvars.iv615, %410
+  %432 = icmp samesign ugt i64 %indvars.iv615, %410
   %433 = sub nuw nsw i32 %indvars617, %408
   %434 = sub nuw nsw i64 %410, %indvars.iv615
   %435 = trunc nuw nsw i64 %434 to i32
@@ -1388,7 +1388,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %440 = getelementptr inbounds i8, ptr %395, i64 %431
   %441 = load i8, ptr %440, align 1
   %442 = zext i8 %441 to i32
-  %443 = icmp ult i32 %439, %442
+  %443 = icmp samesign ult i32 %439, %442
   br i1 %443, label %444, label %448
 
 444:                                              ; preds = %430
@@ -2551,7 +2551,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %485 ]
   %381 = load i16, ptr %372, align 8
   %382 = zext i16 %381 to i64
-  %383 = icmp ult i64 %indvars.iv, %382
+  %383 = icmp samesign ult i64 %indvars.iv, %382
   br i1 %383, label %384, label %466
 
 384:                                              ; preds = %380

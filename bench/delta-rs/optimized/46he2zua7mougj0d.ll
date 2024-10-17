@@ -14763,7 +14763,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h79d56a0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4401)
   %2 = load i8, ptr %0, align 8, !range !962, !alias.scope !4404, !noundef !5
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h0bf1f83dff6223f4E.exit", label %3
 
 3:                                                ; preds = %1
@@ -16444,7 +16444,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$h2..share..PingPong$GT$17hda
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17hc4e3a4d60c824be6E.llvm.6150823513714300492"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !5037, !noundef !5
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17h50c0d3ad57cfa9bdE.llvm.6150823513714300492.exit", label %3
 
 3:                                                ; preds = %1
@@ -17239,7 +17239,7 @@ define hidden void @"_ZN4core3ptr419drop_in_place$LT$futures_util..stream..strea
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hdd25e2ee58c4025dE.llvm.6150823513714300492"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5451)
   %2 = load i8, ptr %0, align 8, !range !5037, !alias.scope !5451, !noundef !5
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17hc4e3a4d60c824be6E.llvm.6150823513714300492.exit", label %3
 
 3:                                                ; preds = %1
@@ -17267,7 +17267,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17he
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5464)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5467)
   %3 = load i8, ptr %2, align 8, !range !5037, !alias.scope !5470, !noundef !5
-  %switch.i.i = icmp ult i8 %3, 10
+  %switch.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hdd25e2ee58c4025dE.llvm.6150823513714300492.exit", label %4
 
 4:                                                ; preds = %1
@@ -20056,7 +20056,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h0bf1f83dff6223f4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6901)
   %2 = load i8, ptr %0, align 8, !range !962, !alias.scope !6901, !noundef !5
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h2920e09f24ade35cE.llvm.6150823513714300492.exit", label %3
 
 3:                                                ; preds = %1
@@ -20288,7 +20288,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17h2920e09f24ade35cE.llvm.6150823513714300492"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !962, !noundef !5
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %16, label %3
 
 3:                                                ; preds = %1

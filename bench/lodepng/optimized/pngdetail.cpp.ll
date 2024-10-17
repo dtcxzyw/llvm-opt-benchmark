@@ -1327,7 +1327,7 @@ if.else:                                          ; preds = %entry
   %conv14 = trunc nuw i32 %div39 to i8
   store i8 %conv14, ptr %l, align 1
   %mul = mul nsw i32 %sub, 255
-  %cmp16.not.not = icmp ult i32 %add, 256
+  %cmp16.not.not = icmp samesign ult i32 %add, 256
   %sub17 = sub nuw nsw i32 512, %add
   %cond = select i1 %cmp16.not.not, i32 %add, i32 %sub17
   %div18 = sdiv i32 %mul, %cond
@@ -1660,43 +1660,43 @@ if.then31:                                        ; preds = %_Z8RGBtoHSLhhhPhS_S
   br i1 %or.cond.i, label %_Z11HueToLetteri.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then31
-  %cmp3.i = icmp ult i32 %and5.i, 32
+  %cmp3.i = icmp samesign ult i32 %and5.i, 32
   br i1 %cmp3.i, label %_Z11HueToLetteri.exit, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i
-  %cmp8.i = icmp ult i32 %and5.i, 53
+  %cmp8.i = icmp samesign ult i32 %and5.i, 53
   br i1 %cmp8.i, label %_Z11HueToLetteri.exit, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.else5.i
-  %cmp13.i = icmp ult i32 %and5.i, 74
+  %cmp13.i = icmp samesign ult i32 %and5.i, 74
   br i1 %cmp13.i, label %_Z11HueToLetteri.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.else10.i
-  %cmp18.i = icmp ult i32 %and5.i, 96
+  %cmp18.i = icmp samesign ult i32 %and5.i, 96
   br i1 %cmp18.i, label %_Z11HueToLetteri.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else15.i
-  %cmp23.i = icmp ult i32 %and5.i, 117
+  %cmp23.i = icmp samesign ult i32 %and5.i, 117
   br i1 %cmp23.i, label %_Z11HueToLetteri.exit, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.else20.i
-  %cmp28.i = icmp ult i32 %and5.i, 138
+  %cmp28.i = icmp samesign ult i32 %and5.i, 138
   br i1 %cmp28.i, label %_Z11HueToLetteri.exit, label %if.else30.i
 
 if.else30.i:                                      ; preds = %if.else25.i
-  %cmp33.i = icmp ult i32 %and5.i, 159
+  %cmp33.i = icmp samesign ult i32 %and5.i, 159
   br i1 %cmp33.i, label %_Z11HueToLetteri.exit, label %if.else35.i
 
 if.else35.i:                                      ; preds = %if.else30.i
-  %cmp38.i = icmp ult i32 %and5.i, 181
+  %cmp38.i = icmp samesign ult i32 %and5.i, 181
   br i1 %cmp38.i, label %_Z11HueToLetteri.exit, label %if.else40.i
 
 if.else40.i:                                      ; preds = %if.else35.i
-  %cmp43.i = icmp ult i32 %and5.i, 202
+  %cmp43.i = icmp samesign ult i32 %and5.i, 202
   br i1 %cmp43.i, label %_Z11HueToLetteri.exit, label %if.else45.i
 
 if.else45.i:                                      ; preds = %if.else40.i
-  %cmp48.i = icmp ult i32 %and5.i, 223
+  %cmp48.i = icmp samesign ult i32 %and5.i, 223
   %spec.select.i = select i1 %cmp48.i, i8 77, i8 70
   br label %_Z11HueToLetteri.exit
 
@@ -1770,7 +1770,7 @@ if.else.i70:                                      ; preds = %if.else46
   %div39.i = lshr i32 %add.i72, 1
   %conv14.i74 = trunc nuw i32 %div39.i to i8
   %mul.i75 = mul nsw i32 %sub.i73, 255
-  %cmp16.not.not.i = icmp ult i32 %add.i72, 256
+  %cmp16.not.not.i = icmp samesign ult i32 %add.i72, 256
   %sub17.i = sub nuw nsw i32 512, %add.i72
   %cond.i76 = select i1 %cmp16.not.not.i, i32 %add.i72, i32 %sub17.i
   %div18.i = sdiv i32 %mul.i75, %cond.i76
@@ -1814,43 +1814,43 @@ _Z8RGBtoHSLhhhPhS_S_.exit:                        ; preds = %cond.true22.i, %con
   br i1 %or.cond.i77, label %_Z11HueToLetteri.exit100, label %if.else.i78
 
 if.else.i78:                                      ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit
-  %cmp3.i79 = icmp ult i32 %10, 32
+  %cmp3.i79 = icmp samesign ult i32 %10, 32
   br i1 %cmp3.i79, label %_Z11HueToLetteri.exit100, label %if.else5.i80
 
 if.else5.i80:                                     ; preds = %if.else.i78
-  %cmp8.i81 = icmp ult i32 %10, 53
+  %cmp8.i81 = icmp samesign ult i32 %10, 53
   br i1 %cmp8.i81, label %_Z11HueToLetteri.exit100, label %if.else10.i82
 
 if.else10.i82:                                    ; preds = %if.else5.i80
-  %cmp13.i83 = icmp ult i32 %10, 74
+  %cmp13.i83 = icmp samesign ult i32 %10, 74
   br i1 %cmp13.i83, label %_Z11HueToLetteri.exit100, label %if.else15.i84
 
 if.else15.i84:                                    ; preds = %if.else10.i82
-  %cmp18.i85 = icmp ult i32 %10, 96
+  %cmp18.i85 = icmp samesign ult i32 %10, 96
   br i1 %cmp18.i85, label %_Z11HueToLetteri.exit100, label %if.else20.i86
 
 if.else20.i86:                                    ; preds = %if.else15.i84
-  %cmp23.i87 = icmp ult i32 %10, 117
+  %cmp23.i87 = icmp samesign ult i32 %10, 117
   br i1 %cmp23.i87, label %_Z11HueToLetteri.exit100, label %if.else25.i88
 
 if.else25.i88:                                    ; preds = %if.else20.i86
-  %cmp28.i89 = icmp ult i32 %10, 138
+  %cmp28.i89 = icmp samesign ult i32 %10, 138
   br i1 %cmp28.i89, label %_Z11HueToLetteri.exit100, label %if.else30.i90
 
 if.else30.i90:                                    ; preds = %if.else25.i88
-  %cmp33.i91 = icmp ult i32 %10, 159
+  %cmp33.i91 = icmp samesign ult i32 %10, 159
   br i1 %cmp33.i91, label %_Z11HueToLetteri.exit100, label %if.else35.i92
 
 if.else35.i92:                                    ; preds = %if.else30.i90
-  %cmp38.i93 = icmp ult i32 %10, 181
+  %cmp38.i93 = icmp samesign ult i32 %10, 181
   br i1 %cmp38.i93, label %_Z11HueToLetteri.exit100, label %if.else40.i94
 
 if.else40.i94:                                    ; preds = %if.else35.i92
-  %cmp43.i95 = icmp ult i32 %10, 202
+  %cmp43.i95 = icmp samesign ult i32 %10, 202
   br i1 %cmp43.i95, label %_Z11HueToLetteri.exit100, label %if.else45.i96
 
 if.else45.i96:                                    ; preds = %if.else40.i94
-  %cmp48.i97 = icmp ult i32 %10, 223
+  %cmp48.i97 = icmp samesign ult i32 %10, 223
   %spec.select.i98 = select i1 %cmp48.i97, i8 77, i8 70
   br label %_Z11HueToLetteri.exit100
 
@@ -2017,7 +2017,7 @@ for.body201.us.us.us:                             ; preds = %for.body201.us.us.u
   %add.ptr.i139.us.us.us = getelementptr inbounds i8, ptr %2, i64 %12
   store i8 %11, ptr %add.ptr.i139.us.us.us, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp200.us.us.us = icmp ult i64 %indvars.iv.next, %3
+  %cmp200.us.us.us = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp200.us.us.us, label %for.body201.us.us.us, label %for.cond199.for.inc211_crit_edge.us.us.us, !llvm.loop !14
 
 for.cond199.for.inc211_crit_edge.us.us.us:        ; preds = %for.body201.us.us.us
@@ -2573,43 +2573,43 @@ if.then31.i:                                      ; preds = %_Z8RGBtoHSLhhhPhS_S
   br i1 %or.cond.i.i, label %_Z11HueToLetteri.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then31.i
-  %cmp3.i.i = icmp ult i32 %and5.i.i, 32
+  %cmp3.i.i = icmp samesign ult i32 %and5.i.i, 32
   br i1 %cmp3.i.i, label %_Z11HueToLetteri.exit.i, label %if.else5.i.i
 
 if.else5.i.i:                                     ; preds = %if.else.i.i
-  %cmp8.i.i = icmp ult i32 %and5.i.i, 53
+  %cmp8.i.i = icmp samesign ult i32 %and5.i.i, 53
   br i1 %cmp8.i.i, label %_Z11HueToLetteri.exit.i, label %if.else10.i.i
 
 if.else10.i.i:                                    ; preds = %if.else5.i.i
-  %cmp13.i.i = icmp ult i32 %and5.i.i, 74
+  %cmp13.i.i = icmp samesign ult i32 %and5.i.i, 74
   br i1 %cmp13.i.i, label %_Z11HueToLetteri.exit.i, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else10.i.i
-  %cmp18.i.i = icmp ult i32 %and5.i.i, 96
+  %cmp18.i.i = icmp samesign ult i32 %and5.i.i, 96
   br i1 %cmp18.i.i, label %_Z11HueToLetteri.exit.i, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %if.else15.i.i
-  %cmp23.i.i = icmp ult i32 %and5.i.i, 117
+  %cmp23.i.i = icmp samesign ult i32 %and5.i.i, 117
   br i1 %cmp23.i.i, label %_Z11HueToLetteri.exit.i, label %if.else25.i.i
 
 if.else25.i.i:                                    ; preds = %if.else20.i.i
-  %cmp28.i.i = icmp ult i32 %and5.i.i, 138
+  %cmp28.i.i = icmp samesign ult i32 %and5.i.i, 138
   br i1 %cmp28.i.i, label %_Z11HueToLetteri.exit.i, label %if.else30.i.i
 
 if.else30.i.i:                                    ; preds = %if.else25.i.i
-  %cmp33.i.i = icmp ult i32 %and5.i.i, 159
+  %cmp33.i.i = icmp samesign ult i32 %and5.i.i, 159
   br i1 %cmp33.i.i, label %_Z11HueToLetteri.exit.i, label %if.else35.i.i
 
 if.else35.i.i:                                    ; preds = %if.else30.i.i
-  %cmp38.i.i = icmp ult i32 %and5.i.i, 181
+  %cmp38.i.i = icmp samesign ult i32 %and5.i.i, 181
   br i1 %cmp38.i.i, label %_Z11HueToLetteri.exit.i, label %if.else40.i.i
 
 if.else40.i.i:                                    ; preds = %if.else35.i.i
-  %cmp43.i.i = icmp ult i32 %and5.i.i, 202
+  %cmp43.i.i = icmp samesign ult i32 %and5.i.i, 202
   br i1 %cmp43.i.i, label %_Z11HueToLetteri.exit.i, label %if.else45.i.i
 
 if.else45.i.i:                                    ; preds = %if.else40.i.i
-  %cmp48.i.i = icmp ult i32 %and5.i.i, 223
+  %cmp48.i.i = icmp samesign ult i32 %and5.i.i, 223
   %spec.select.i.i = select i1 %cmp48.i.i, i8 77, i8 70
   br label %_Z11HueToLetteri.exit.i
 
@@ -3560,7 +3560,7 @@ invoke.cont11:                                    ; preds = %for.body
   %10 = load i32, ptr %h, align 4
   %mul = mul i32 %10, %9
   %conv = zext i32 %mul to i64
-  %cmp8 = icmp ult i64 %inc20, %conv
+  %cmp8 = icmp samesign ult i64 %inc20, %conv
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !35
 
 lpad.loopexit:                                    ; preds = %for.body58, %invoke.cont63, %invoke.cont65, %if.then72
@@ -3706,7 +3706,7 @@ for.inc76:                                        ; preds = %if.then72.for.inc76
   %21 = load i32, ptr %h, align 4
   %mul55 = mul i32 %21, %20
   %conv56 = zext i32 %mul55 to i64
-  %cmp57 = icmp ult i64 %inc77, %conv56
+  %cmp57 = icmp samesign ult i64 %inc77, %conv56
   br i1 %cmp57, label %for.body58, label %if.end83, !llvm.loop !37
 
 if.else:                                          ; preds = %invoke.cont1
@@ -7224,7 +7224,7 @@ invoke.cont331:                                   ; preds = %invoke.cont329
 
 for.inc335:                                       ; preds = %invoke.cont331
   %add336 = add nuw nsw i64 %j324.0738, 4
-  %cmp326 = icmp ult i64 %add336, %conv178
+  %cmp326 = icmp samesign ult i64 %add336, %conv178
   br i1 %cmp326, label %for.body327, label %if.end338, !llvm.loop !65
 
 if.end338:                                        ; preds = %for.inc335, %for.cond325.preheader, %if.end318
@@ -7396,7 +7396,7 @@ invoke.cont393:                                   ; preds = %if.then392
   %cmp.i724 = icmp eq i32 %call.i723, 0
   %conv399 = select i1 %cmp.i724, i64 28, i64 8
   %invariant.gep = getelementptr i8, ptr %icc, i64 %or14.i473
-  %cmp401741 = icmp ult i64 %conv399, %conv178
+  %cmp401741 = icmp samesign ult i64 %conv399, %conv178
   br i1 %cmp401741, label %for.body402.preheader, label %if.end416
 
 for.body402.preheader:                            ; preds = %invoke.cont393
@@ -8045,7 +8045,7 @@ for.inc:                                          ; preds = %if.then238, %if.the
   %inc = add nuw nsw i64 %i.0106, 1
   %77 = load i32, ptr %iccp_profile_size233, align 8
   %conv234 = zext i32 %77 to i64
-  %cmp235 = icmp ult i64 %inc, %conv234
+  %cmp235 = icmp samesign ult i64 %inc, %conv234
   br i1 %cmp235, label %for.body, label %for.end, !llvm.loop !70
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

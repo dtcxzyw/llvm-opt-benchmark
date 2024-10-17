@@ -1148,8 +1148,8 @@ if.then7.i:                                       ; preds = %if.end5.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %cmp10.i = icmp eq i32 %len.031.i, 1
-  %cmp11.i = icmp ugt i32 %len.031.i, 4
-  %or.cond.i = or i1 %cmp10.i, %cmp11.i
+  %cmp11.i = icmp samesign ugt i32 %len.031.i, 4
+  %or.cond.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i
@@ -2846,7 +2846,7 @@ cond.end111.us:                                   ; preds = %for.body92.us
   %indvars.iv.next915 = add nuw nsw i64 %indvars.iv914, 1
   %89 = load i32, ptr %cond.i.i299, align 4
   %90 = zext i32 %89 to i64
-  %cmp91.us = icmp ult i64 %indvars.iv.next915, %90
+  %cmp91.us = icmp samesign ult i64 %indvars.iv.next915, %90
   br i1 %cmp91.us, label %for.body92.us, label %for.end, !llvm.loop !28
 
 lpad88.loopexit.split.us:                         ; preds = %for.body92.us
@@ -2875,7 +2875,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %cond.i.i299, align 4
   %95 = zext i32 %94 to i64
-  %cmp91 = icmp ult i64 %indvars.iv.next, %95
+  %cmp91 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %cmp91, label %for.body92, label %for.end, !llvm.loop !28
 
 lpad85:                                           ; preds = %for.inc.preheader.i.i.i.i.i
@@ -2967,7 +2967,7 @@ invoke.cont143:                                   ; preds = %invoke.cont140
   %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
   %101 = load i32, ptr %cond.i.i299, align 4
   %102 = zext i32 %101 to i64
-  %cmp137 = icmp ult i64 %indvars.iv.next918, %102
+  %cmp137 = icmp samesign ult i64 %indvars.iv.next918, %102
   br i1 %cmp137, label %invoke.cont140, label %for.end150, !llvm.loop !29
 
 lpad130:                                          ; preds = %for.inc.preheader.i.i.i.i.i430
@@ -3110,7 +3110,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %120 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
@@ -3653,7 +3653,7 @@ if.then.i.i.i.i.i711:                             ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i715 = ptrtoint ptr %190 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i716 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i714, %sub.ptr.rhs.cast.i.i.i.i.i.i.i715
   %conv.i.i.i.i.i.i717 = and i64 %sub.ptr.sub.i.i.i.i.i.i.i716, 4294967295
-  %cmp.i.i.i.i.i.i718 = icmp ult i64 %conv.i.i.i.i.i.i717, %and.i.i.i.i708
+  %cmp.i.i.i.i.i.i718 = icmp samesign ult i64 %conv.i.i.i.i.i.i717, %and.i.i.i.i708
   br i1 %cmp.i.i.i.i.i.i718, label %if.then.i.i.i.i.i.i730, label %for.body.preheader.i.i.i.i719
 
 if.then.i.i.i.i.i.i730:                           ; preds = %if.then.i.i.i.i.i711
@@ -4183,7 +4183,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ugt i64 %and.i.i.i, %conv.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %and.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -4510,7 +4510,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i, %and.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -4575,7 +4575,7 @@ if.then.i.i:                                      ; preds = %if.then.i.i.i4.i, %
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %conv.i.i.i = and i64 %sub.ptr.sub.i.i.i.i, 4294967295
-  %cmp.i.i.i15 = icmp ult i64 %conv.i.i.i, %conv8
+  %cmp.i.i.i15 = icmp samesign ult i64 %conv.i.i.i, %conv8
   br i1 %cmp.i.i.i15, label %if.then.i.i.i16, label %_ZN11flatbuffers15vector_downwardIjE8fill_bigEm.exit
 
 if.then.i.i.i16:                                  ; preds = %if.then.i.i
@@ -5779,7 +5779,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 1
   %155 = load i32, ptr %call40.i, align 4
   %156 = zext i32 %155 to i64
-  %cmp.i402 = icmp ult i64 %indvars.iv.next885, %156
+  %cmp.i402 = icmp samesign ult i64 %indvars.iv.next885, %156
   br i1 %cmp.i402, label %for.body.i, label %for.inc, !llvm.loop !41
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
@@ -5868,7 +5868,7 @@ for.cond67.i:                                     ; preds = %for.body70.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = load i32, ptr %call53.i, align 4
   %169 = zext i32 %168 to i64
-  %cmp69.i = icmp ult i64 %indvars.iv.next, %169
+  %cmp69.i = icmp samesign ult i64 %indvars.iv.next, %169
   br i1 %cmp69.i, label %for.body70.i, label %for.inc, !llvm.loop !42
 
 for.body70.i:                                     ; preds = %for.body70.i.lr.ph, %for.cond67.i
@@ -6267,7 +6267,7 @@ for.inc:                                          ; preds = %for.cond67.i, %for.
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext3.i.i.i
   %233 = load i32, ptr %add.ptr4.i.i.i, align 4
   %234 = zext i32 %233 to i64
-  %cmp = icmp ult i64 %indvars.iv.next888, %234
+  %cmp = icmp samesign ult i64 %indvars.iv.next888, %234
   br i1 %cmp, label %_ZNK10reflection6Object6fieldsEv.exit70, label %for.end.loopexit, !llvm.loop !43
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -6986,7 +6986,7 @@ for.inc.us:                                       ; preds = %_ZN11flatbuffers13R
   %93 = phi i32 [ %.pre311, %_ZN11flatbuffers13ResizeContext8StraddleIjLi1EEEvPKvS3_Pv.exit263.us ], [ %82, %for.body62.us ]
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %94 = zext i32 %93 to i64
-  %cmp61.us = icmp ult i64 %indvars.iv.next309, %94
+  %cmp61.us = icmp samesign ult i64 %indvars.iv.next309, %94
   br i1 %cmp61.us, label %for.body62.us, label %for.inc80, !llvm.loop !47
 
 for.body62:                                       ; preds = %for.body62.lr.ph.thread, %for.inc
@@ -7036,7 +7036,7 @@ for.inc:                                          ; preds = %if.then.i253, %if.e
   %106 = phi i32 [ %.pre, %if.then.i253 ], [ %95, %if.end69 ], [ %95, %for.body62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = zext i32 %106 to i64
-  %cmp61 = icmp ult i64 %indvars.iv.next, %107
+  %cmp61 = icmp samesign ult i64 %indvars.iv.next, %107
   br i1 %cmp61, label %for.body62, label %for.inc80, !llvm.loop !47
 
 sw.bb76:                                          ; preds = %_ZN11flatbuffers13ResizeContext8StraddleIjLi1EEEvPKvS3_Pv.exit
@@ -7886,7 +7886,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 1
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -7990,7 +7990,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8094,7 +8094,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 3
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8198,7 +8198,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8302,7 +8302,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 3
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8459,7 +8459,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8781,7 +8781,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -8885,7 +8885,7 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
   %5 = load i64, ptr %max_size.i, align 8
   %div.i2 = lshr i64 %5, 2
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ugt i64 %div.i2, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div.i2, %conv.i
   br i1 %cmp.i, label %if.end5.i, label %lor.end
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -9316,7 +9316,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ugt i64 %and.i.i.i, %conv.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %and.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -9426,7 +9426,7 @@ if.then.i.i.i.i19:                                ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i23 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i.i23
   %conv.i.i.i.i.i25 = and i64 %sub.ptr.sub.i.i.i.i.i.i24, 4294967295
-  %cmp.i.i.i.i.i26 = icmp ult i64 %conv.i.i.i.i.i25, %and.i.i.i16
+  %cmp.i.i.i.i.i26 = icmp samesign ult i64 %conv.i.i.i.i.i25, %and.i.i.i16
   br i1 %cmp.i.i.i.i.i26, label %if.then.i.i.i.i.i44, label %for.body.preheader.i.i.i27
 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i19
@@ -9699,7 +9699,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
@@ -9786,7 +9786,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i, %and.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -9840,7 +9840,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i12 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i11, %sub.ptr.rhs.cast.i.i.i.i.i.i12
   %conv.i.i.i.i.i14 = and i64 %sub.ptr.sub.i.i.i.i.i.i13, 4294967295
-  %cmp.i.i.i.i.i15 = icmp ult i64 %conv.i.i.i.i.i14, %and.i.i.i5
+  %cmp.i.i.i.i.i15 = icmp samesign ult i64 %conv.i.i.i.i.i14, %and.i.i.i5
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
@@ -9944,7 +9944,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i.i, %and.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
@@ -10031,7 +10031,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i, %and.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -10085,7 +10085,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i12 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i11, %sub.ptr.rhs.cast.i.i.i.i.i.i12
   %conv.i.i.i.i.i14 = and i64 %sub.ptr.sub.i.i.i.i.i.i13, 4294967295
-  %cmp.i.i.i.i.i15 = icmp ult i64 %conv.i.i.i.i.i14, %and.i.i.i5
+  %cmp.i.i.i.i.i15 = icmp samesign ult i64 %conv.i.i.i.i.i14, %and.i.i.i5
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
@@ -10183,7 +10183,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %conv.i.i.i.i.i, %and.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i

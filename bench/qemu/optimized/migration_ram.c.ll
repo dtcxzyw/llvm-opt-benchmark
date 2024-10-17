@@ -3233,7 +3233,7 @@ migration_clear_memory_region_dirty_bitmap_range.exit: ; preds = %migration_clea
   br i1 %tobool.not.i.i, label %bitmap_count_one.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %migration_clear_memory_region_dirty_bitmap_range.exit
-  %cmp.i.i = icmp ult i64 %add.i19, 65
+  %cmp.i.i = icmp samesign ult i64 %add.i19, 65
   br i1 %cmp.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
@@ -5601,7 +5601,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
   br i1 %tobool.not.i.i, label %bitmap_count_one.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %cmp.i.i = icmp ult i64 %add.i11, 65
+  %cmp.i.i = icmp samesign ult i64 %add.i11, 65
   br i1 %cmp.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i

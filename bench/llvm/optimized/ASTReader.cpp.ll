@@ -29043,7 +29043,7 @@ define internal fastcc i64 @_ZL21readULEBKeyDataLengthRPKh(ptr nocapture noundef
 
 10:                                               ; preds = %5
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %7, 1
+  %.not.i.i = icmp samesign ugt i8 %7, 1
   %11 = icmp ne i8 %7, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %11
   br i1 %or.cond36.i.i, label %19, label %12
@@ -29087,7 +29087,7 @@ _ZL8readULEBRPKh.exit:                            ; preds = %12
 
 32:                                               ; preds = %27
   %.not37.i.i5 = icmp eq i32 %.026.i.i3, 63
-  %.not.i.i6 = icmp ugt i8 %29, 1
+  %.not.i.i6 = icmp samesign ugt i8 %29, 1
   %33 = icmp ne i8 %29, 0
   %or.cond36.i.i7 = select i1 %.not37.i.i5, i1 %.not.i.i6, i1 %33
   br i1 %or.cond36.i.i7, label %41, label %34
@@ -29900,7 +29900,7 @@ define dso_local noundef nonnull ptr @_ZN5clang13serialization6reader24ASTIdenti
 
 35:                                               ; preds = %26
   %36 = icmp eq i32 %33, 65534
-  %37 = icmp ult i32 %33, 37
+  %37 = icmp samesign ult i32 %33, 37
   %.not10.i.i = or i1 %37, %36
   br i1 %.not10.i.i, label %38, label %41
 
@@ -62371,7 +62371,7 @@ _ZN5clang16ASTFileSignature6createIPKcEES0_T_S4_.exit69: ; preds = %95, %.lr.ph.
 140:                                              ; preds = %130, %125
   %141 = add nuw nsw i32 %.01319.i, 1
   %142 = add nuw i32 %.118.i, 1
-  %143 = icmp ult i32 %.01319.i, 7
+  %143 = icmp samesign ult i32 %.01319.i, 7
   %144 = icmp ult i32 %142, %121
   %145 = select i1 %143, i1 %144, i1 false
   br i1 %145, label %125, label %146, !llvm.loop !1102
@@ -62442,7 +62442,7 @@ _ZN5clang9ASTReader13ReadBitVectorERKN4llvm11SmallVectorImLj64EEENS1_9StringRefE
 177:                                              ; preds = %167, %162
   %178 = add nuw nsw i32 %.01319.i74, 1
   %179 = add nuw i32 %.118.i75, 1
-  %180 = icmp ult i32 %.01319.i74, 7
+  %180 = icmp samesign ult i32 %.01319.i74, 7
   %181 = icmp ult i32 %179, %158
   %182 = select i1 %180, i1 %181, i1 false
   br i1 %182, label %162, label %183, !llvm.loop !1102
@@ -63365,7 +63365,7 @@ define dso_local void @_ZN5clang9ASTReader13ReadBitVectorERKN4llvm11SmallVectorI
 28:                                               ; preds = %13, %18
   %29 = add nuw nsw i32 %.01319, 1
   %30 = add nuw i32 %.118, 1
-  %31 = icmp ult i32 %.01319, 7
+  %31 = icmp samesign ult i32 %.01319, 7
   %32 = icmp ult i32 %30, %7
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %13, label %34, !llvm.loop !1102
@@ -68966,7 +68966,7 @@ _ZN4llvm5ErrorD2Ev.exit149:                       ; preds = %201, %197
 .lr.ph291:                                        ; preds = %.lr.ph291.preheader, %_ZN4llvm8ExpectedIjED2Ev.exit174
   %indvars.iv = phi i64 [ 0, %.lr.ph291.preheader ], [ %indvars.iv.next, %_ZN4llvm8ExpectedIjED2Ev.exit174 ]
   %.sroa.0229.4288 = phi i64 [ %.sroa.0229.0298, %.lr.ph291.preheader ], [ %.sroa.0229.8, %_ZN4llvm8ExpectedIjED2Ev.exit174 ]
-  %264 = icmp uge i64 %indvars.iv, %262
+  %264 = icmp samesign uge i64 %indvars.iv, %262
   %.not131 = xor i1 %264, true
   %brmerge = or i1 %118, %.not131
   br i1 %brmerge, label %265, label %.loopexit279
@@ -72746,7 +72746,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i: ; preds = %67, %
   %.0.i.i.i.i = phi ptr [ %66, %64 ], [ %68, %67 ]
   %69 = load i32, ptr %.0.i.i.i.i, align 8
   %70 = and i32 %69, 2147483647
-  %71 = icmp ult i32 %62, %70
+  %71 = icmp samesign ult i32 %62, %70
   br i1 %71, label %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread19, label %72
 
 72:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i
@@ -72770,7 +72770,7 @@ _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit: ; 
   %83 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %58, i32 noundef %63, ptr noundef null)
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 2147483647
-  %86 = icmp ult i32 %62, %85
+  %86 = icmp samesign ult i32 %62, %85
   br i1 %86, label %_ZNK5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileEmPNS_22SourceLocationSequenceE.exit.thread, label %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread19
 
 _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread19: ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i, %79, %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit
@@ -87532,7 +87532,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
 
 148:                                              ; preds = %143
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i55 = icmp ugt i8 %145, 1
+  %.not.i.i.i55 = icmp samesign ugt i8 %145, 1
   %149 = icmp ne i8 %145, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i55, i1 %149
   br i1 %or.cond36.i.i.i, label %157, label %150
@@ -87570,7 +87570,7 @@ _ZL8readULEBRPKh.exit.i:                          ; preds = %150
 
 168:                                              ; preds = %163
   %.not37.i.i5.i = icmp eq i32 %.026.i.i3.i, 63
-  %.not.i.i6.i = icmp ugt i8 %165, 1
+  %.not.i.i6.i = icmp samesign ugt i8 %165, 1
   %169 = icmp ne i8 %165, 0
   %or.cond36.i.i7.i = select i1 %.not37.i.i5.i, i1 %.not.i.i6.i, i1 %169
   br i1 %or.cond36.i.i7.i, label %177, label %170
@@ -88430,7 +88430,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
 
 115:                                              ; preds = %110
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i48 = icmp ugt i8 %112, 1
+  %.not.i.i.i48 = icmp samesign ugt i8 %112, 1
   %116 = icmp ne i8 %112, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i48, i1 %116
   br i1 %or.cond36.i.i.i, label %124, label %117
@@ -88468,7 +88468,7 @@ _ZL8readULEBRPKh.exit.i:                          ; preds = %117
 
 135:                                              ; preds = %130
   %.not37.i.i5.i = icmp eq i32 %.026.i.i3.i, 63
-  %.not.i.i6.i = icmp ugt i8 %132, 1
+  %.not.i.i6.i = icmp samesign ugt i8 %132, 1
   %136 = icmp ne i8 %132, 0
   %or.cond36.i.i7.i = select i1 %.not37.i.i5.i, i1 %.not.i.i6.i, i1 %136
   br i1 %or.cond36.i.i7.i, label %144, label %137
@@ -88817,7 +88817,7 @@ _ZN4llvm30OnDiskIterableChainedHashTableIN5clang13serialization6reader29ASTDeclC
 
 315:                                              ; preds = %310
   %.not37.i.i.i67 = icmp eq i32 %.026.i.i.i54, 63
-  %.not.i.i.i68 = icmp ugt i8 %312, 1
+  %.not.i.i.i68 = icmp samesign ugt i8 %312, 1
   %316 = icmp ne i8 %312, 0
   %or.cond36.i.i.i69 = select i1 %.not37.i.i.i67, i1 %.not.i.i.i68, i1 %316
   br i1 %or.cond36.i.i.i69, label %324, label %317
@@ -88855,7 +88855,7 @@ _ZL8readULEBRPKh.exit.i56:                        ; preds = %317
 
 335:                                              ; preds = %330
   %.not37.i.i5.i63 = icmp eq i32 %.026.i.i3.i58, 63
-  %.not.i.i6.i64 = icmp ugt i8 %332, 1
+  %.not.i.i6.i64 = icmp samesign ugt i8 %332, 1
   %336 = icmp ne i8 %332, 0
   %or.cond36.i.i7.i65 = select i1 %.not37.i.i5.i63, i1 %.not.i.i6.i64, i1 %336
   br i1 %or.cond36.i.i7.i65, label %344, label %337
@@ -93513,7 +93513,7 @@ _ZNK5clang9ASTReader28translateIdentifierIDToIndexEm.exit: ; preds = %5
 
 57:                                               ; preds = %50
   %58 = icmp eq i32 %55, 65534
-  %59 = icmp ult i32 %55, 37
+  %59 = icmp samesign ult i32 %55, 37
   %.not10.i.i = or i1 %59, %58
   br i1 %.not10.i.i, label %60, label %63
 
@@ -98244,7 +98244,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i: ; preds = %2
   %.0.i.i.i.i.i.i = phi ptr [ %207, %205 ], [ %265, %261 ], [ %258, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i.i51 ], [ %260, %259 ]
   %266 = load i32, ptr %.0.i.i.i.i.i.i, align 8
   %267 = and i32 %266, 2147483647
-  %268 = icmp ult i32 %202, %267
+  %268 = icmp samesign ult i32 %202, %267
   br i1 %268, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i, label %269
 
 269:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i
@@ -98268,7 +98268,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i: ; preds = %
   %280 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %201, i32 noundef %204, ptr noundef null)
   %281 = load i32, ptr %280, align 8
   %282 = and i32 %281, 2147483647
-  %283 = icmp ult i32 %202, %282
+  %283 = icmp samesign ult i32 %202, %282
   br i1 %283, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i, %276, %269
@@ -147458,7 +147458,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjiEN9__gnu_cxx5__ops15_Iter
   %.sroa.02.0.copyload14 = load i64, ptr %11, align 4
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -158040,7 +158040,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
 
 77:                                               ; preds = %72
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i46 = icmp ugt i8 %74, 1
+  %.not.i.i.i46 = icmp samesign ugt i8 %74, 1
   %78 = icmp ne i8 %74, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i46, i1 %78
   br i1 %or.cond36.i.i.i, label %86, label %79
@@ -158078,7 +158078,7 @@ _ZL8readULEBRPKh.exit.i:                          ; preds = %79
 
 97:                                               ; preds = %92
   %.not37.i.i5.i = icmp eq i32 %.026.i.i3.i, 63
-  %.not.i.i6.i = icmp ugt i8 %94, 1
+  %.not.i.i6.i = icmp samesign ugt i8 %94, 1
   %98 = icmp ne i8 %94, 0
   %or.cond36.i.i7.i = select i1 %.not37.i.i5.i, i1 %.not.i.i6.i, i1 %98
   br i1 %or.cond36.i.i7.i, label %106, label %99
@@ -158527,7 +158527,7 @@ _ZN4llvm30OnDiskIterableChainedHashTableIN5clang13serialization6reader29ASTDeclC
 
 332:                                              ; preds = %327
   %.not37.i.i.i68 = icmp eq i32 %.026.i.i.i55, 63
-  %.not.i.i.i69 = icmp ugt i8 %329, 1
+  %.not.i.i.i69 = icmp samesign ugt i8 %329, 1
   %333 = icmp ne i8 %329, 0
   %or.cond36.i.i.i70 = select i1 %.not37.i.i.i68, i1 %.not.i.i.i69, i1 %333
   br i1 %or.cond36.i.i.i70, label %341, label %334
@@ -158565,7 +158565,7 @@ _ZL8readULEBRPKh.exit.i57:                        ; preds = %334
 
 352:                                              ; preds = %347
   %.not37.i.i5.i64 = icmp eq i32 %.026.i.i3.i59, 63
-  %.not.i.i6.i65 = icmp ugt i8 %349, 1
+  %.not.i.i6.i65 = icmp samesign ugt i8 %349, 1
   %353 = icmp ne i8 %349, 0
   %or.cond36.i.i7.i66 = select i1 %.not37.i.i5.i64, i1 %.not.i.i6.i65, i1 %353
   br i1 %or.cond36.i.i7.i66, label %361, label %354

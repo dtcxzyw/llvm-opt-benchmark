@@ -952,7 +952,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 ._crit_edge187.i:                                 ; preds = %.lr.ph186.i, %.preheader.i
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 16
   %414 = or disjoint i64 %indvars.iv.next264.i, 15
-  %415 = icmp ult i64 %414, %67
+  %415 = icmp samesign ult i64 %414, %67
   br i1 %415, label %68, label %._crit_edge190.i, !llvm.loop !8
 
 ._crit_edge190.i:                                 ; preds = %._crit_edge187.i, %.preheader10.i
@@ -1324,7 +1324,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 ._crit_edge89.i:                                  ; preds = %.lr.ph88.i, %.preheader11.i
   %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 8
   %638 = or disjoint i64 %indvars.iv.next260.i, 7
-  %639 = icmp ult i64 %638, %443
+  %639 = icmp samesign ult i64 %638, %443
   br i1 %639, label %444, label %._crit_edge92.i, !llvm.loop !12
 
 ._crit_edge92.i:                                  ; preds = %._crit_edge89.i, %.preheader13.i
@@ -1422,7 +1422,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 ._crit_edge.us.i:                                 ; preds = %.lr.ph33.us.i, %..preheader14_crit_edge.us.i
   %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 4
   %692 = or disjoint i64 %indvars.iv.next256.i, 3
-  %693 = icmp ult i64 %692, %666
+  %693 = icmp samesign ult i64 %692, %666
   br i1 %693, label %.lr.ph.us.i, label %._crit_edge36.i, !llvm.loop !13
 
 .lr.ph33.us.i:                                    ; preds = %..preheader14_crit_edge.us.i, %.lr.ph33.us.i
@@ -1553,7 +1553,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
 ._crit_edge.i.loopexit.us:                        ; preds = %.lr.ph33.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
   %769 = or disjoint i64 %indvars.iv.next.i.us, 3
-  %770 = icmp ult i64 %769, %666
+  %770 = icmp samesign ult i64 %769, %666
   br i1 %770, label %.preheader14.i.us, label %._crit_edge36.i, !llvm.loop !13
 
 771:                                              ; preds = %658

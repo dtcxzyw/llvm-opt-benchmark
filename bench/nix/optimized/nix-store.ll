@@ -4487,7 +4487,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !18
 
 .critedge:                                        ; preds = %27
@@ -37733,7 +37733,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i
@@ -47143,7 +47143,7 @@ define internal fastcc void @"_ZZN9nix_storeL7opServeENSt7__cxx114listINS0_12bas
 32:                                               ; preds = %27, %0
   %33 = phi i32 [ %.pre, %27 ], [ %25, %0 ]
   %34 = and i32 %33, 255
-  %35 = icmp ugt i32 %34, 2
+  %35 = icmp samesign ugt i32 %34, 2
   br i1 %35, label %36, label %.thread7
 
 36:                                               ; preds = %32
@@ -47193,7 +47193,7 @@ define internal fastcc void @"_ZZN9nix_storeL7opServeENSt7__cxx114listINS0_12bas
   call void %50(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7096), ptr noundef nonnull align 1 dereferenceable(1) %6)
   %.pre5 = load i32, ptr %.8.val, align 4
   %.pre6 = and i32 %.pre5, 255
-  %51 = icmp ugt i32 %.pre6, 6
+  %51 = icmp samesign ugt i32 %.pre6, 6
   br i1 %51, label %52, label %.thread7
 
 52:                                               ; preds = %47

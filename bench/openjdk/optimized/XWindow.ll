@@ -456,7 +456,7 @@ define internal fastcc signext range(i8 0, 2) i8 @keyboardHasKanaLockKey() unnam
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %28 = icmp ugt i32 %spec.select, 10
+  %28 = icmp samesign ugt i32 %spec.select, 10
   %29 = zext i1 %28 to i8
   br label %._crit_edge
 

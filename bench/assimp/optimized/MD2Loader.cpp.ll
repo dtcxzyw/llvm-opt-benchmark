@@ -426,7 +426,7 @@ if.end91:                                         ; preds = %if.end81
   %mul102 = zext nneg i32 %23 to i64
   %add103 = add nuw nsw i64 %conv98, %mul102
   %conv105 = zext i32 %11 to i64
-  %cmp106.not = icmp ult i64 %add103, %conv105
+  %cmp106.not = icmp samesign ult i64 %add103, %conv105
   br i1 %cmp106.not, label %lor.lhs.false, label %if.then141
 
 lor.lhs.false:                                    ; preds = %if.end91
@@ -436,7 +436,7 @@ lor.lhs.false:                                    ; preds = %if.end91
   %25 = shl nuw nsw i32 %17, 2
   %mul112 = zext nneg i32 %25 to i64
   %add113 = add nuw nsw i64 %conv108, %mul112
-  %cmp116.not = icmp ult i64 %add113, %conv105
+  %cmp116.not = icmp samesign ult i64 %add113, %conv105
   br i1 %cmp116.not, label %lor.lhs.false117, label %if.then141
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false
@@ -446,7 +446,7 @@ lor.lhs.false117:                                 ; preds = %lor.lhs.false
   %narrow = mul nuw nsw i32 %19, 12
   %mul123 = zext nneg i32 %narrow to i64
   %add124 = add nuw nsw i64 %conv119, %mul123
-  %cmp127.not = icmp ult i64 %add124, %conv105
+  %cmp127.not = icmp samesign ult i64 %add124, %conv105
   br i1 %cmp127.not, label %lor.lhs.false128, label %if.then141
 
 lor.lhs.false128:                                 ; preds = %lor.lhs.false117
@@ -783,7 +783,7 @@ invoke.cont11:                                    ; preds = %if.end
   %fileSize = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %conv, ptr %fileSize, align 8
   %conv14 = and i64 %call12, 4294967295
-  %cmp = icmp ult i64 %conv14, 68
+  %cmp = icmp samesign ult i64 %conv14, 68
   br i1 %cmp, label %if.then15, label %if.then.i.i.i.i.i
 
 if.then15:                                        ; preds = %invoke.cont11
@@ -1404,7 +1404,7 @@ for.end:                                          ; preds = %if.end323
   %numTriangles215 = getelementptr inbounds i8, ptr %97, i64 32
   %98 = load i32, ptr %numTriangles215, align 1
   %99 = zext i32 %98 to i64
-  %cmp216 = icmp ult i64 %indvars.iv.next172, %99
+  %cmp216 = icmp samesign ult i64 %indvars.iv.next172, %99
   br i1 %cmp216, label %for.body, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, !llvm.loop !7
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %for.end, %if.end213

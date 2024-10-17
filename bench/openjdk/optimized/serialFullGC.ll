@@ -4428,7 +4428,7 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   %224 = ptrtoint ptr %222 to i64
   %225 = sub i64 %223, %224
   %226 = lshr i64 %225, 3
-  %.not9.i44 = icmp ugt i64 %213, %226
+  %.not9.i44 = icmp samesign ugt i64 %213, %226
   br i1 %.not9.i44, label %.lr.ph.i50, label %._crit_edge.i45
 
 ._crit_edge.i45:                                  ; preds = %.lr.ph.i50, %214
@@ -4474,7 +4474,7 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   %252 = ptrtoint ptr %250 to i64
   %253 = sub i64 %251, %252
   %254 = lshr i64 %253, 3
-  %.not.i51 = icmp ugt i64 %213, %254
+  %.not.i51 = icmp samesign ugt i64 %213, %254
   br i1 %.not.i51, label %.lr.ph.i50, label %._crit_edge.i45, !llvm.loop !13
 
 255:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, %209
@@ -4511,7 +4511,7 @@ _ZN9Compacter5allocEm.exit52:                     ; preds = %238, %229, %._crit_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %263 = load i32, ptr %2, align 8
   %264 = zext i32 %263 to i64
-  %265 = icmp ult i64 %indvars.iv.next, %264
+  %265 = icmp samesign ult i64 %indvars.iv.next, %264
   br i1 %265, label %6, label %._crit_edge73, !llvm.loop !18
 
 ._crit_edge73:                                    ; preds = %262, %1
@@ -4667,7 +4667,7 @@ _ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit: ; preds = %42, 
   %87 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %4, %.lr.ph20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %89, label %.lr.ph20, label %._crit_edge21, !llvm.loop !20
 
 ._crit_edge21:                                    ; preds = %._crit_edge, %1
@@ -4834,7 +4834,7 @@ _ZN9Compacter8relocateEPP12HeapWordImpl.exit:     ; preds = %53, %56, %63, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load i32, ptr %2, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next, %93
   br i1 %94, label %.lr.ph20, label %._crit_edge21, !llvm.loop !22
 
 ._crit_edge21:                                    ; preds = %._crit_edge, %1
@@ -8027,7 +8027,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop20AdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -8254,7 +8254,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %49, %53
   %.025.i.i.i.i.i = phi i64 [ %51, %53 ], [ %43, %49 ]
   %51 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %52 = icmp ult i64 %51, %41
+  %52 = icmp samesign ult i64 %51, %41
   br i1 %52, label %53, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc20AdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 53:                                               ; preds = %.preheader.i.i.i
@@ -12684,7 +12684,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader
@@ -13162,7 +13162,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
 .preheader:                                       ; preds = %16, %20
   %.025.i.i = phi i64 [ %18, %20 ], [ %9, %16 ]
   %18 = add nuw nsw i64 %.025.i.i, 1
-  %19 = icmp ult i64 %18, %7
+  %19 = icmp samesign ult i64 %18, %7
   br i1 %19, label %20, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 20:                                               ; preds = %.preheader

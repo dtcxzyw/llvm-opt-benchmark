@@ -331,7 +331,7 @@ define dso_local i32 @archive_read_open1(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = load i32, ptr %24, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next.i, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next.i, %32
   br i1 %33, label %.lr.ph.i, label %read_client_close_proxy.exit, !llvm.loop !5
 
 34:                                               ; preds = %14, %11
@@ -2358,7 +2358,7 @@ define dso_local i64 @__archive_read_filter_seek(ptr nocapture noundef %0, i64 n
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %42 = load i32, ptr %29, align 8
   %43 = zext i32 %42 to i64
-  %.not158 = icmp ult i64 %indvars.iv.next262, %43
+  %.not158 = icmp samesign ult i64 %indvars.iv.next262, %43
   br i1 %.not158, label %44, label %._crit_edge229.loopexit
 
 44:                                               ; preds = %41
@@ -2520,7 +2520,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %20, align 8
   %127 = zext i32 %126 to i64
-  %.not153 = icmp ult i64 %indvars.iv.next, %127
+  %.not153 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %.not153, label %128, label %._crit_edge.loopexit
 
 128:                                              ; preds = %125
@@ -3395,7 +3395,7 @@ define internal range(i32 -2147483648, 1) i32 @client_close_proxy(ptr nocapture 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = load i32, ptr %7, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next.i, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %18, label %10, label %read_client_close_proxy.exit, !llvm.loop !5
 
 read_client_close_proxy.exit:                     ; preds = %10, %1, %.preheader.i

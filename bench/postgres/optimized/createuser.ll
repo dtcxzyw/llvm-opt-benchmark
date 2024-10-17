@@ -547,7 +547,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %137, label %.sink.split266, label %138
 
 138:                                              ; preds = %136
-  %139 = icmp ult i32 %.099, 2
+  %139 = icmp samesign ult i32 %.099, 2
   br i1 %139, label %.sink.split266, label %140
 
 .sink.split266:                                   ; preds = %138, %136
@@ -560,7 +560,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %141, label %.sink.split267, label %142
 
 142:                                              ; preds = %140
-  %143 = icmp ult i32 %.097, 2
+  %143 = icmp samesign ult i32 %.097, 2
   br i1 %143, label %.sink.split267, label %144
 
 .sink.split267:                                   ; preds = %142, %140

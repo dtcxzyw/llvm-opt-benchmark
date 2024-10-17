@@ -699,7 +699,7 @@ for.inc:                                          ; preds = %arenas_i2a_impl.exi
   %narenas24 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i32, ptr %narenas24, align 8
   %34 = zext i32 %33 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next, %34
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %cmp25, label %for.body, label %do.body, !llvm.loop !5
 
 do.body:                                          ; preds = %for.inc, %if.end22
@@ -1262,7 +1262,7 @@ for.body:                                         ; preds = %arenas_i.exit, %for
   %narenas1 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i32, ptr %narenas1, align 8
   %25 = zext i32 %24 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %25
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !10
 
 for.body6:                                        ; preds = %for.cond3.preheader, %for.inc17
@@ -1323,7 +1323,7 @@ for.inc17:                                        ; preds = %arenas_i.exit32, %i
   %narenas4 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i32, ptr %narenas4, align 8
   %37 = zext i32 %36 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next45, %37
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next45, %37
   br i1 %cmp5, label %for.body6, label %for.end19, !llvm.loop !11
 
 for.end19:                                        ; preds = %for.inc17, %arenas_i.exit, %for.cond3.preheader
@@ -9982,7 +9982,7 @@ malloc_mutex_lock.exit246:                        ; preds = %if.end.i238, %if.th
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %n_shards, align 4
   %45 = zext i32 %44 to i64
-  %cmp77 = icmp ult i64 %indvars.iv.next, %45
+  %cmp77 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp77, label %for.body79, label %for.inc83, !llvm.loop !26
 
 for.inc83:                                        ; preds = %malloc_mutex_lock.exit246, %for.cond76.preheader

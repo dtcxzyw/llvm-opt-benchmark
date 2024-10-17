@@ -389,7 +389,7 @@ define internal void @EvaluateCurves(ptr nocapture noundef readonly %0, ptr noca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %5, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %7, %3
@@ -428,7 +428,7 @@ define internal ptr @CurveSetDup(ptr nocapture noundef readonly %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %19, label %.loopexit, !llvm.loop !12
 
 19:                                               ; preds = %.lr.ph, %15
@@ -469,7 +469,7 @@ define internal ptr @CurveSetDup(ptr nocapture noundef readonly %0) #0 {
   %37 = phi i32 [ %31, %.lr.ph39 ], [ %.pre, %35 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next45, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next45, %38
   br i1 %39, label %.lr.ph39, label %.thread.loopexit, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %36
@@ -525,7 +525,7 @@ define internal void @CurveSetElemTypeFree(ptr nocapture noundef readonly %0) #0
   %15 = phi i32 [ %9, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %14
@@ -762,7 +762,7 @@ define internal void @EvaluateMatrix(ptr nocapture noundef readonly %0, ptr noca
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %32 = load i32, ptr %6, align 4
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next32, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next32, %33
   br i1 %34, label %.preheader, label %._crit_edge27, !llvm.loop !18
 
 ._crit_edge27:                                    ; preds = %29, %3
@@ -2621,7 +2621,7 @@ define internal void @Clipper(ptr nocapture noundef readonly %0, ptr nocapture n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -4012,7 +4012,7 @@ EuclideanDistance.exit:                           ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %12, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader51

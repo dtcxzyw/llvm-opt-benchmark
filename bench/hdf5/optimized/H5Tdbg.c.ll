@@ -338,7 +338,7 @@ switch.lookup:                                    ; preds = %23
   %133 = getelementptr inbounds i8, ptr %132, i64 52
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %indvars.iv.next146, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next146, %135
   br i1 %136, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -452,7 +452,7 @@ switch.lookup:                                    ; preds = %23
   %199 = getelementptr inbounds i8, ptr %198, i64 52
   %200 = load i32, ptr %199, align 4
   %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %indvars.iv.next, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next, %201
   br i1 %202, label %.lr.ph.us, label %._crit_edge134
 
 .lr.ph133.split:                                  ; preds = %.lr.ph133, %.lr.ph133.split
@@ -468,7 +468,7 @@ switch.lookup:                                    ; preds = %23
   %210 = getelementptr inbounds i8, ptr %209, i64 52
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %indvars.iv.next143, %212
+  %213 = icmp samesign ult i64 %indvars.iv.next143, %212
   br i1 %213, label %.lr.ph133.split, label %._crit_edge134
 
 ._crit_edge134:                                   ; preds = %._crit_edge.us, %.lr.ph133.split, %167

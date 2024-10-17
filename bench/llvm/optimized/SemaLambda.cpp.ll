@@ -6489,7 +6489,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang11ParmVarDeclELb1EE9push_backES3_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %248 = load i32, ptr %220, align 8
   %249 = zext i32 %248 to i64
-  %250 = icmp ult i64 %indvars.iv.next, %249
+  %250 = icmp samesign ult i64 %indvars.iv.next, %249
   br i1 %250, label %223, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread, !llvm.loop !62
 
 _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread: ; preds = %164, %164, %164, %164, %164, %164, %168, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11ParmVarDeclELb1EE9push_backES3_.exit, %_ZN4llvm15SmallVectorImplIPN5clang11ParmVarDeclEE7reserveEm.exit, %_ZL13getLambdaTypeRN5clang4SemaERNS_16LambdaIntroducerERNS_10DeclaratorEPNS_5ScopeENS_14SourceLocationERb.exit, %_ZN5clang25FTIHasSingleVoidParameterERKNS_15DeclaratorChunk16FunctionTypeInfoE.exit
@@ -13037,7 +13037,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
   %48 = load i32, ptr %11, align 8
   %49 = select i1 %.not.i.i, i32 %48, i32 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %45, %50
+  %51 = icmp samesign ult i64 %45, %50
   br i1 %51, label %15, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %.critedge, %2

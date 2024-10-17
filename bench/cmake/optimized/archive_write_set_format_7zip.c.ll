@@ -1035,7 +1035,7 @@ enc_uint64.exit206.i:                             ; preds = %104
   %.01217.i209.i = phi i64 [ %113, %110 ], [ %124, %122 ]
   %115 = phi i8 [ 0, %110 ], [ %126, %122 ]
   %116 = zext nneg i32 %.01118.i208.i to i64
-  %117 = icmp ult i64 %.01217.i209.i, %116
+  %117 = icmp samesign ult i64 %.01217.i209.i, %116
   %118 = trunc i64 %.01217.i209.i to i8
   br i1 %117, label %119, label %122
 
@@ -1152,7 +1152,7 @@ enc_uint64.exit222.i:                             ; preds = %._crit_edge.thread.
   %.01217.i225.i = phi i64 [ %163, %160 ], [ %174, %172 ]
   %165 = phi i8 [ 0, %160 ], [ %176, %172 ]
   %166 = zext nneg i32 %.01118.i224.i to i64
-  %167 = icmp ult i64 %.01217.i225.i, %166
+  %167 = icmp samesign ult i64 %.01217.i225.i, %166
   %168 = trunc i64 %.01217.i225.i to i8
   br i1 %167, label %169, label %172
 

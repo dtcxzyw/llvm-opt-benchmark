@@ -3595,7 +3595,7 @@ define dso_local noundef range(i32 -3, 1) i32 @xfrm_policy_flush(ptr noundef %0,
   %16 = getelementptr i8, ptr %11, i64 -168
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 7
-  %19 = icmp ugt i32 %18, 2
+  %19 = icmp samesign ugt i32 %18, 2
   br i1 %19, label %73, label %20
 
 20:                                               ; preds = %15
@@ -3794,7 +3794,7 @@ define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef
   %16 = getelementptr i8, ptr %11, i64 -168
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 7
-  %19 = icmp ugt i32 %18, 2
+  %19 = icmp samesign ugt i32 %18, 2
   br i1 %19, label %73, label %20
 
 20:                                               ; preds = %15
@@ -5758,7 +5758,7 @@ select.unfold:                                    ; preds = %.thread59, %56, %.t
   %100 = add nuw nsw i64 %30, 1
   %101 = load i8, ptr %16, align 4
   %102 = zext i8 %101 to i64
-  %103 = icmp ult i64 %100, %102
+  %103 = icmp samesign ult i64 %100, %102
   br i1 %103, label %29, label %.loopexit96, !llvm.loop !58
 
 104:                                              ; preds = %.thread63, %94
@@ -9164,7 +9164,7 @@ define internal fastcc i32 @jhash2(ptr nocapture noundef readonly %0, i32 nounde
   %4 = shl nuw nsw i32 %1, 2
   %5 = add nuw nsw i32 %4, -559038737
   %6 = add i32 %5, %2
-  %7 = icmp ugt i32 %1, 3
+  %7 = icmp samesign ugt i32 %1, 3
   br i1 %7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -13130,7 +13130,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
   %38 = getelementptr i8, ptr %32, i64 -168
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 7
-  %41 = icmp ugt i32 %40, 2
+  %41 = icmp samesign ugt i32 %40, 2
   br i1 %41, label %65, label %42
 
 42:                                               ; preds = %37
@@ -13310,7 +13310,7 @@ define internal void @xfrm_hash_rebuild(ptr noundef %0) #1 align 16 {
   %149 = getelementptr i8, ptr %143, i64 -168
   %150 = load i32, ptr %149, align 8
   %151 = and i32 %150, 7
-  %152 = icmp ugt i32 %151, 2
+  %152 = icmp samesign ugt i32 %151, 2
   br i1 %152, label %205, label %153
 
 153:                                              ; preds = %148

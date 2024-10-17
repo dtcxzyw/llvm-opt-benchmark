@@ -6586,7 +6586,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
 
 land.lhs.true26:                                  ; preds = %cond.true.i
   %12 = or disjoint i64 %indvars.iv, 1
-  %cmp5.i14 = icmp ult i64 %12, %8
+  %cmp5.i14 = icmp samesign ult i64 %12, %8
   br i1 %cmp5.i14, label %cond.true.i17, label %_ZNK6icu_759UVector3210elementAtiEi.exit21
 
 cond.true.i17:                                    ; preds = %land.lhs.true26
@@ -6890,7 +6890,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
 
 land.lhs.true26.i:                                ; preds = %cond.true.i.i
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %cmp5.i14.i = icmp ult i64 %12, %8
+  %cmp5.i14.i = icmp samesign ult i64 %12, %8
   br i1 %cmp5.i14.i, label %cond.true.i17.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit21.i
 
 cond.true.i17.i:                                  ; preds = %land.lhs.true26.i

@@ -193,7 +193,7 @@ for.body10:                                       ; preds = %for.cond7.preheader
   %len = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %len, align 8
   %10 = zext i32 %9 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %10
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %10
   %tobool9 = trunc nuw i8 %spec.select to i1
   %11 = select i1 %cmp8, i1 %tobool9, i1 false
   br i1 %11, label %for.body10, label %if.end14, !llvm.loop !6
@@ -225,7 +225,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %cmp29 = icmp eq i64 %16, %call4
   %spec.select20 = select i1 %cmp29, i8 0, i8 %skip.530
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %cmp22 = icmp ult i64 %indvars.iv.next36, %15
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next36, %15
   %tobool24 = trunc nuw i8 %spec.select20 to i1
   %17 = select i1 %cmp22, i1 %tobool24, i1 false
   br i1 %17, label %for.body26, label %if.end35, !llvm.loop !7
@@ -296,7 +296,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %len = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %len, align 8
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry

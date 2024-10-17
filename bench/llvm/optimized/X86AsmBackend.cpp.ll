@@ -3454,7 +3454,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_113X86AsmBackend12writeNopD
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.023, i64 %12)
   %16 = trunc nuw i64 %.sroa.speculated to i32
   %17 = and i32 %16, 255
-  %18 = icmp ult i32 %17, 11
+  %18 = icmp samesign ult i32 %17, 11
   %19 = add i32 %16, 246
   %20 = and i32 %19, 255
   %21 = select i1 %18, i32 0, i32 %20
@@ -4853,7 +4853,7 @@ _ZSt7reverseIPjEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i
 
 .preheader.i:                                     ; preds = %._crit_edge43.i, %.preheader.preheader.i
   %indvars.iv53.i = phi i64 [ %130, %.preheader.preheader.i ], [ %indvars.iv.next54.i, %._crit_edge43.i ]
-  %131 = icmp ugt i64 %indvars.iv53.i, %130
+  %131 = icmp samesign ugt i64 %indvars.iv53.i, %130
   %132 = getelementptr inbounds [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv53.i
   %133 = load i32, ptr %132, align 4
   br i1 %131, label %.lr.ph42.i, label %._crit_edge43.i

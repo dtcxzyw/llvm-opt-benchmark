@@ -1112,7 +1112,7 @@ if.end408.i:                                      ; preds = %if.then397.i, %land
   %96 = lshr i8 %bf.load410.i, 2
   %.lobit223.i = and i8 %96, 1
   %narrow224.i = add nuw nsw i8 %narrow.i, %.lobit223.i
-  %cmp437.i = icmp ugt i8 %narrow224.i, 1
+  %cmp437.i = icmp samesign ugt i8 %narrow224.i, 1
   br i1 %cmp437.i, label %if.then439.i, label %if.end452.i
 
 if.then439.i:                                     ; preds = %if.end408.i

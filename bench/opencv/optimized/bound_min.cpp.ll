@@ -594,7 +594,7 @@ _ZN2cv3mcc9CBoundMin12validateLineERKSt6vectorINS_7Point3_IfEESaIS4_EES4_iRi.exi
   %220 = load i32, ptr %219, align 4
   %221 = sub nsw i32 %218, %220
   %222 = call i32 @llvm.abs.i32(i32 %221, i1 true)
-  %223 = icmp ult i32 %222, 2
+  %223 = icmp samesign ult i32 %222, 2
   br i1 %223, label %224, label %225
 
 224:                                              ; preds = %216
@@ -613,7 +613,7 @@ _ZN2cv3mcc9CBoundMin12validateLineERKSt6vectorINS_7Point3_IfEESaIS4_EES4_iRi.exi
   %230 = load i32, ptr %182, align 4
   %231 = sub nsw i32 %229, %230
   %232 = call i32 @llvm.abs.i32(i32 %231, i1 true)
-  %233 = icmp ugt i32 %232, 2
+  %233 = icmp samesign ugt i32 %232, 2
   %234 = add nuw i64 %.0137579, 1
   %exitcond614.not619 = icmp eq i64 %234, %umax613
   %or.cond = select i1 %233, i1 true, i1 %exitcond614.not619
@@ -667,7 +667,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i221:           ; preds = %239
   %256 = ashr exact i64 %255, 2
   %257 = icmp ult i64 %256, 2305843009213693952
   call void @llvm.assume(i1 %257)
-  %.not28.i336 = icmp ult i64 %256, 4
+  %.not28.i336 = icmp samesign ult i64 %256, 4
   br i1 %.not28.i336, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i340, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i337
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i337: ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i221

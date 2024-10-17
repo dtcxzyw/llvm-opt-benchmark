@@ -958,14 +958,14 @@ _ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread: ; preds = %24, %16, %20
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %switch.early.test, %switch.early.test, %8, %switch.early.test25, %switch.early.test25
   %34 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %35 = icmp ugt i32 %34, 1
+  %35 = icmp samesign ugt i32 %34, 1
   %.old13 = icmp ugt i32 %0, 64
   %or.cond56 = or i1 %35, %.old13
   br i1 %or.cond56, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread50, label %42
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %12
   %36 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %37 = icmp ult i32 %36, 2
+  %37 = icmp samesign ult i32 %36, 2
   br i1 %37, label %38, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread50
 
 38:                                               ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.thread
@@ -3873,7 +3873,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit291:       ; preds = %119
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 22
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
-  %.not.i.i293 = icmp ult i32 %127, %130
+  %.not.i.i293 = icmp samesign ult i32 %127, %130
   br i1 %.not.i.i293, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread469.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %125
@@ -3947,7 +3947,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit296:       ; preds = %.thread469.thread, 
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 22
   %156 = load i16, ptr %155, align 2
   %157 = zext i16 %156 to i32
-  %.not.i.i298 = icmp ult i32 %154, %157
+  %.not.i.i298 = icmp samesign ult i32 %154, %157
   br i1 %.not.i.i298, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit299, label %_ZNK4llvm3EVTeqES0_.exit302.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit299: ; preds = %152
@@ -4559,7 +4559,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit370: ; preds = %.prehe
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 22
   %371 = load i16, ptr %370, align 2
   %372 = zext i16 %371 to i32
-  %.not.i.i369 = icmp ult i32 %369, %372
+  %.not.i.i369 = icmp samesign ult i32 %369, %372
   call void @llvm.assume(i1 %.not.i.i369)
   %373 = and i32 %367, 7
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 8
@@ -5345,7 +5345,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit157:       ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 22
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
-  %.not.i.i158 = icmp ult i32 %98, %101
+  %.not.i.i158 = icmp samesign ult i32 %98, %101
   br i1 %.not.i.i158, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %96
@@ -5419,7 +5419,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit165:       ; preds = %.thread.thread, %.t
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 22
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
-  %.not.i.i167 = icmp ult i32 %124, %127
+  %.not.i.i167 = icmp samesign ult i32 %124, %127
   br i1 %.not.i.i167, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit168, label %_ZNK4llvm3EVTeqES0_.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit168: ; preds = %122

@@ -570,7 +570,7 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %28 = add nuw nsw i64 %12, 1
   %29 = load i32, ptr %1, align 4, !tbaa !6
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %11, label %9
 
 32:                                               ; preds = %9

@@ -107,7 +107,7 @@ sw.bb22.i:                                        ; preds = %sw.bb17.i, %sw.bb17
 
 sw.bb23.i:                                        ; preds = %sw.bb17.i
   %and25.i = and i32 %asmresult.i.i1, 15
-  %cmp26.i = icmp ult i32 %and25.i, 5
+  %cmp26.i = icmp samesign ult i32 %and25.i, 5
   %..i4 = select i1 %cmp26.i, i32 8, i32 7
   br label %return
 

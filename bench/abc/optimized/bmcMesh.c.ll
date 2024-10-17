@@ -85,7 +85,7 @@ define i32 @Bmc_MeshAddOneHotness(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.02136 = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %.loopexit ]
   %indvars.iv39 = add i32 %indvars.iv39.in, -1
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %19 = icmp ult i64 %indvars.iv.next44, %16
+  %19 = icmp samesign ult i64 %indvars.iv.next44, %16
   br i1 %19, label %.lr.ph33, label %.loopexit
 
 .lr.ph33:                                         ; preds = %18
@@ -1006,7 +1006,7 @@ Abc_Clock.exit465:                                ; preds = %345, %349
   %.02136.i481.us = phi i32 [ 0, %.preheader.i476.us ], [ %.1.lcssa.i485.us, %.loopexit.i484.us ]
   %indvars.iv39.i482.us = add i32 %indvars.iv39.in.i479.us, -1
   %indvars.iv.next44.i483.us = add nuw nsw i64 %indvars.iv43.i478.us, 1
-  %395 = icmp ult i64 %indvars.iv.next44.i483.us, %393
+  %395 = icmp samesign ult i64 %indvars.iv.next44.i483.us, %393
   br i1 %395, label %.lr.ph33.i488.us, label %.loopexit.i484.us
 
 .lr.ph33.i488.us:                                 ; preds = %394
@@ -1083,7 +1083,7 @@ Bmc_MeshAddOneHotness.exit493.us:                 ; preds = %.loopexit.i484.us, 
   %.02136.i507.us = phi i32 [ 0, %.preheader.i502.us ], [ %.1.lcssa.i511.us, %.loopexit.i510.us ]
   %indvars.iv39.i508.us = add i32 %indvars.iv39.in.i505.us, -1
   %indvars.iv.next44.i509.us = add nuw nsw i64 %indvars.iv43.i504.us, 1
-  %418 = icmp ult i64 %indvars.iv.next44.i509.us, %416
+  %418 = icmp samesign ult i64 %indvars.iv.next44.i509.us, %416
   br i1 %418, label %.lr.ph33.i514.us, label %.loopexit.i510.us
 
 .lr.ph33.i514.us:                                 ; preds = %417
@@ -1161,7 +1161,7 @@ Bmc_MeshAddOneHotness.exit519.us:                 ; preds = %.loopexit.i510.us, 
   %.02136.i533.us = phi i32 [ 0, %.preheader.i528.us ], [ %.1.lcssa.i537.us, %.loopexit.i536.us ]
   %indvars.iv39.i534.us = add i32 %indvars.iv39.in.i531.us, -1
   %indvars.iv.next44.i535.us = add nuw nsw i64 %indvars.iv43.i530.us, 1
-  %441 = icmp ult i64 %indvars.iv.next44.i535.us, %439
+  %441 = icmp samesign ult i64 %indvars.iv.next44.i535.us, %439
   br i1 %441, label %.lr.ph33.i540.us, label %.loopexit.i536.us
 
 .lr.ph33.i540.us:                                 ; preds = %440
@@ -1248,7 +1248,7 @@ Bmc_MeshAddOneHotness.exit545.us:                 ; preds = %.loopexit.i536.us, 
   %.02136.i.us = phi i32 [ 0, %.preheader.i.us ], [ %.1.lcssa.i.us, %.loopexit.i.us ]
   %indvars.iv39.i.us = add i32 %indvars.iv39.in.i.us, -1
   %indvars.iv.next44.i.us = add nuw nsw i64 %indvars.iv43.i.us, 1
-  %468 = icmp ult i64 %indvars.iv.next44.i.us, %466
+  %468 = icmp samesign ult i64 %indvars.iv.next44.i.us, %466
   br i1 %468, label %.lr.ph33.i.us, label %.loopexit.i.us
 
 .lr.ph33.i.us:                                    ; preds = %467

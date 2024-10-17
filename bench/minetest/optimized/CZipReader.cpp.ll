@@ -786,7 +786,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 for.body.i.i142.preheader:                        ; preds = %if.then.i
   %xtraiter = and i64 %call.i.i.i140, 3
-  %24 = icmp ult i64 %conv.i19.i, 4
+  %24 = icmp samesign ult i64 %conv.i19.i, 4
   br i1 %24, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i142.preheader.new
 
 for.body.i.i142.preheader.new:                    ; preds = %for.body.i.i142.preheader
@@ -1278,7 +1278,7 @@ if.end:                                           ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end
   %xtraiter = and i64 %call.i.i, 3
-  %8 = icmp ult i64 %conv.i, 4
+  %8 = icmp samesign ult i64 %conv.i, 4
   br i1 %8, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

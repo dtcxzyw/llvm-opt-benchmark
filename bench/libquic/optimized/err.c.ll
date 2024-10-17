@@ -622,7 +622,7 @@ ERR_lib_error_string.exit:                        ; preds = %if.end
   br i1 %cmp.i22, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %ERR_lib_error_string.exit
-  %cmp2.i = icmp ult i32 %and1, 127
+  %cmp2.i = icmp samesign ult i32 %and1, 127
   br i1 %cmp2.i, label %if.then3.i, label %ERR_reason_error_string.exit
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -631,7 +631,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.end4.i:                                        ; preds = %if.end, %ERR_lib_error_string.exit
   %retval.0.i38 = phi ptr [ %0, %ERR_lib_error_string.exit ], [ null, %if.end ]
-  %cmp5.i = icmp ult i32 %and1, 33
+  %cmp5.i = icmp samesign ult i32 %and1, 33
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end4.i
@@ -641,7 +641,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %ERR_reason_error_string.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
-  %cmp8.i = icmp ult i32 %and1, 100
+  %cmp8.i = icmp samesign ult i32 %and1, 100
   br i1 %cmp8.i, label %if.then9.i, label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -672,8 +672,8 @@ if.end14.i:                                       ; preds = %if.end7.i
   %2 = load i64, ptr @kOpenSSLReasonValuesLen, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %search_key.i.i)
   %cmp.i.i = icmp ugt i32 %packed_error, 1073741823
-  %cmp1.i.i = icmp ugt i32 %and1, 2047
-  %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
+  %cmp1.i.i = icmp samesign ugt i32 %and1, 2047
+  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %or.cond.i.i, label %err_string_lookup.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end14.i
@@ -786,7 +786,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp ult i32 %and1, 127
+  %cmp2 = icmp samesign ult i32 %and1, 127
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.then
@@ -794,7 +794,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %cmp5 = icmp ult i32 %and1, 33
+  %cmp5 = icmp samesign ult i32 %and1, 33
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -804,7 +804,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %cmp8 = icmp ult i32 %and1, 100
+  %cmp8 = icmp samesign ult i32 %and1, 100
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end7
@@ -816,8 +816,8 @@ if.end14:                                         ; preds = %if.end7
   %2 = load i64, ptr @kOpenSSLReasonValuesLen, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %search_key.i)
   %cmp.i = icmp ugt i32 %packed_error, 1073741823
-  %cmp1.i = icmp ugt i32 %and1, 2047
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %cmp1.i = icmp samesign ugt i32 %and1, 2047
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   br i1 %or.cond.i, label %err_string_lookup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14

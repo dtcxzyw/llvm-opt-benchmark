@@ -295,7 +295,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6formatltERKNS0_17JsModuleReferenc
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i8 %5, %8
+  %10 = icmp samesign ult i8 %5, %8
   br label %_ZN4llvmgtENS_9StringRefES0_.exit
 
 11:                                               ; preds = %2
@@ -812,7 +812,7 @@ _ZN5clang6format17JsModuleReferenceC2ERKS1_.exit: ; preds = %97, %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %93, ptr noundef nonnull align 8 dereferenceable(20) %104, i64 20, i1 false)
   call void @_ZN5clang6format22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_17JsModuleReferenceE(ptr noundef nonnull align 8 dereferenceable(4624) %1, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(132) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = icmp ult i64 %indvars.iv.next, %96
+  %105 = icmp samesign ult i64 %indvars.iv.next, %96
   br i1 %105, label %106, label %122
 
 106:                                              ; preds = %_ZN5clang6format17JsModuleReferenceC2ERKS1_.exit
@@ -4945,7 +4945,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPN5clang6format17JsModuleReference
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !31
 
 .thread:                                          ; preds = %select.unfold.i.i, %4
@@ -5664,7 +5664,7 @@ _ZSt22__chunk_insertion_sortIPN5clang6format17JsModuleReferenceElN9__gnu_cxx5__o
   br i1 %.not.i57, label %28, label %24
 
 24:                                               ; preds = %.lr.ph.i32
-  %25 = icmp ult i8 %20, %23
+  %25 = icmp samesign ult i8 %20, %23
   %26 = getelementptr inbounds nuw i8, ptr %.031.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.031.i, i64 112
   br i1 %25, label %85, label %92
@@ -5911,7 +5911,7 @@ _ZSt17__merge_sort_loopIPN5clang6format17JsModuleReferenceES3_lN9__gnu_cxx5__ops
   br i1 %.not.i58, label %149, label %145
 
 145:                                              ; preds = %.lr.ph.i50
-  %146 = icmp ult i8 %141, %144
+  %146 = icmp samesign ult i8 %141, %144
   %147 = getelementptr inbounds nuw i8, ptr %.031.i51, i64 56
   %148 = getelementptr inbounds nuw i8, ptr %.031.i51, i64 112
   br i1 %146, label %206, label %213
@@ -7398,7 +7398,7 @@ define linkonce_odr hidden void @_ZN4llvm11stable_sortIRNS_11SmallVectorIN5clang
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %10
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN5clang6format16JsImportedSymbolES2_EC2ES3_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
 
 10:                                               ; preds = %.lr.ph.i.i.i.i
@@ -7542,7 +7542,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -7566,7 +7566,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15

@@ -406,7 +406,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   br label %_ZN4llvm11raw_ostreamlsEc.exit53
 
 _ZN4llvm11raw_ostreamlsEc.exit53:                 ; preds = %105, %103, %95
-  %.not35 = icmp ult i16 %39, 2048
+  %.not35 = icmp samesign ult i16 %39, 2048
   br i1 %.not35, label %_ZN4llvm11raw_ostreamlsEc.exit56, label %107
 
 107:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit53
@@ -4671,7 +4671,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %spec.select43 = getelementptr inbounds i16, ptr %66, i64 %spec.select43.idx
   %.idx4.i = shl nuw nsw i64 %spec.select, 1
   %85 = getelementptr inbounds i8, ptr %spec.select43, i64 %.idx4.i
-  %.not48 = icmp ult i64 %spec.select, 4
+  %.not48 = icmp samesign ult i64 %spec.select, 4
   br i1 %.not48, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %81
@@ -8395,7 +8395,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i343: ; preds = %_ZN
 
 .critedge.i.i.i407:                               ; preds = %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i343
   %1007 = or disjoint i64 %994, 31
-  %1008 = icmp ugt i64 %1007, 65536
+  %1008 = icmp samesign ugt i64 %1007, 65536
   br i1 %1008, label %1009, label %1024
 
 1009:                                             ; preds = %.critedge.i.i.i407
@@ -12119,7 +12119,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i89: ; preds = %_ZN4
 
 .critedge.i.i.i:                                  ; preds = %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i89
   %335 = or disjoint i64 %322, 31
-  %336 = icmp ugt i64 %335, 65536
+  %336 = icmp samesign ugt i64 %335, 65536
   br i1 %336, label %337, label %352
 
 337:                                              ; preds = %.critedge.i.i.i

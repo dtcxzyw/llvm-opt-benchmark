@@ -337,7 +337,7 @@ _ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds =
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
   %78 = and i64 %77, 4294967295
-  %79 = icmp ult i64 %indvars.iv.next, %78
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %65
@@ -520,7 +520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
   %148 = and i64 %147, 4294967295
-  %149 = icmp ult i64 %indvars.iv.next85, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next85, %148
   br i1 %149, label %.lr.ph68, label %._crit_edge69, !llvm.loop !23
 
 ._crit_edge69:                                    ; preds = %146, %_ZNSt5dequeIPN4llvm6RegionESaIS2_EE4backEv.exit
@@ -570,7 +570,7 @@ _ZNSt5dequeIPN4llvm6RegionESaIS2_EE8pop_backEv.exit: ; preds = %152, %154
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %172 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
   %173 = and i64 %172, 4294967295
-  %174 = icmp ult i64 %indvars.iv.next87, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next87, %173
   br i1 %174, label %.lr.ph76, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph76, %.preheader, %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit
@@ -709,7 +709,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   %32 = and i64 %31, 4294967295
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %24, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit

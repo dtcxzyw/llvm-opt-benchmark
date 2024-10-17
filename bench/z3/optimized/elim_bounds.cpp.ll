@@ -1585,7 +1585,7 @@ for.inc151:                                       ; preds = %if.then.i.i384, %if
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %m_pos.i.i, align 8
   %113 = zext i32 %112 to i64
-  %cmp129 = icmp ult i64 %indvars.iv.next, %113
+  %cmp129 = icmp samesign ult i64 %indvars.iv.next, %113
   br i1 %cmp129, label %for.body130, label %for.end153, !llvm.loop !10
 
 for.end153:                                       ; preds = %for.inc151

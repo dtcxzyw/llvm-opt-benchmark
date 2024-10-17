@@ -958,7 +958,7 @@ for.body48:                                       ; preds = %for.end39, %for.bod
   call fastcc void @fe_mul(ptr noundef %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef %T.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 2
-  %cmp46 = icmp ult i64 %indvars.iv71, 62
+  %cmp46 = icmp samesign ult i64 %indvars.iv71, 62
   br i1 %cmp46, label %for.body48, label %for.end53, !llvm.loop !7
 
 for.end53:                                        ; preds = %for.body48
@@ -1003,7 +1003,7 @@ for.body57:                                       ; preds = %for.end53, %for.bod
   call fastcc void @fe_mul(ptr noundef %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef %T.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 2
-  %cmp55 = icmp ult i64 %indvars.iv75, 62
+  %cmp55 = icmp samesign ult i64 %indvars.iv75, 62
   br i1 %cmp55, label %for.body57, label %for.end63, !llvm.loop !8
 
 for.end63:                                        ; preds = %for.body57
@@ -2743,8 +2743,8 @@ for.body9.i:                                      ; preds = %for.body.i, %for.in
   %arrayidx11.i = getelementptr inbounds i8, ptr %aslide, i64 %indvars.iv79.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %tobool.not.i = icmp ne i8 %2, 0
-  %cmp1555.i = icmp ult i64 %indvars.iv79.i, 255
-  %or.cond.i = and i1 %cmp1555.i, %tobool.not.i
+  %cmp1555.i = icmp samesign ult i64 %indvars.iv79.i, 255
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp1555.i, i1 false
   br i1 %or.cond.i, label %for.body17.preheader.i, label %for.inc92.i
 
 for.body17.preheader.i:                           ; preds = %for.body9.i
@@ -2840,8 +2840,8 @@ for.body9.i28:                                    ; preds = %for.body.i17, %for.
   %arrayidx11.i32 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv79.i29
   %10 = load i8, ptr %arrayidx11.i32, align 1
   %tobool.not.i33 = icmp ne i8 %10, 0
-  %cmp1555.i34 = icmp ult i64 %indvars.iv79.i29, 255
-  %or.cond.i35 = and i1 %cmp1555.i34, %tobool.not.i33
+  %cmp1555.i34 = icmp samesign ult i64 %indvars.iv79.i29, 255
+  %or.cond.i35 = select i1 %tobool.not.i33, i1 %cmp1555.i34, i1 false
   br i1 %or.cond.i35, label %for.body17.preheader.i41, label %for.inc92.i36
 
 for.body17.preheader.i41:                         ; preds = %for.body9.i28

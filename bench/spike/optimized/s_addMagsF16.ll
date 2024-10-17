@@ -39,8 +39,8 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %18 = add nuw nsw i64 %17, %10
   %19 = and i64 %18, 1
   %20 = icmp eq i64 %19, 0
-  %21 = icmp ult i8 %5, 30
-  %or.cond = and i1 %21, %20
+  %21 = icmp samesign ult i8 %5, 30
+  %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %22, label %25
 
 22:                                               ; preds = %16

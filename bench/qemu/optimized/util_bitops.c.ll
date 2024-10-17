@@ -73,7 +73,7 @@ while.end:                                        ; preds = %if.end21, %if.end10
   %p.1.lcssa = phi ptr [ %p.0, %if.end10 ], [ %add.ptr22, %if.end21 ]
   %result.3.lcssa = phi i64 [ %result.0, %if.end10 ], [ %add23, %if.end21 ]
   %size.addr.2.lcssa = phi i64 [ %size.addr.0, %if.end10 ], [ %sub24, %if.end21 ]
-  %cmp2654 = icmp ugt i64 %size.addr.2.lcssa, 63
+  %cmp2654 = icmp samesign ugt i64 %size.addr.2.lcssa, 63
   br i1 %cmp2654, label %while.body27.preheader, label %while.end34
 
 while.body27.preheader:                           ; preds = %if.end17, %while.end

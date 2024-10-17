@@ -732,7 +732,7 @@ define internal fastcc i32 @_get_exit_code(ptr nocapture noundef readonly %0) un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %5, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %8, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %59, %26, %29, %46
@@ -2065,7 +2065,7 @@ _need_join_container.exit.i:                      ; preds = %165, %162
   %253 = phi i32 [ %244, %243 ], [ %.pre.i, %251 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %indvars.iv.next.i, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next.i, %254
   br i1 %255, label %243, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %252, %.preheader.i, %225
@@ -2204,7 +2204,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %293, %291
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %326 = load i32, ptr %314, align 8
   %327 = zext i32 %326 to i64
-  %328 = icmp ult i64 %indvars.iv.next159.i, %327
+  %328 = icmp samesign ult i64 %indvars.iv.next159.i, %327
   br i1 %328, label %318, label %._crit_edge154.i, !llvm.loop !18
 
 ._crit_edge154.i:                                 ; preds = %325, %._crit_edge.i
@@ -2618,7 +2618,7 @@ _setup_normal_io.exit.thread.i:                   ; preds = %479
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %501 = load i32, ptr %497, align 8
   %502 = zext i32 %501 to i64
-  %503 = icmp ult i64 %indvars.iv.next.i.i, %502
+  %503 = icmp samesign ult i64 %indvars.iv.next.i.i, %502
   br i1 %503, label %504, label %._crit_edge.i.i, !llvm.loop !19
 
 504:                                              ; preds = %500, %.lr.ph.i.i
@@ -2707,7 +2707,7 @@ _setup_normal_io.exit.thread.i:                   ; preds = %479
   %indvars.iv.next88.i.i = add nuw nsw i64 %indvars.iv87.i.i, 1
   %552 = load i32, ptr %548, align 8
   %553 = zext i32 %552 to i64
-  %554 = icmp ult i64 %indvars.iv.next88.i.i, %553
+  %554 = icmp samesign ult i64 %indvars.iv.next88.i.i, %553
   br i1 %554, label %555, label %.loopexit.i.i, !llvm.loop !20
 
 555:                                              ; preds = %551, %.lr.ph80.i.i
@@ -3447,7 +3447,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
   %927 = load i32, ptr %752, align 8
   %928 = zext i32 %927 to i64
-  %929 = icmp ult i64 %indvars.iv.next.i152, %928
+  %929 = icmp samesign ult i64 %indvars.iv.next.i152, %928
   br i1 %929, label %762, label %._crit_edge.i153, !llvm.loop !22
 
 ._crit_edge.i153:                                 ; preds = %926, %751
@@ -3630,7 +3630,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   %indvars.iv.next278.i = add nuw nsw i64 %indvars.iv277.i, 1
   %1033 = load i32, ptr %752, align 8
   %1034 = zext i32 %1033 to i64
-  %1035 = icmp ult i64 %indvars.iv.next278.i, %1034
+  %1035 = icmp samesign ult i64 %indvars.iv.next278.i, %1034
   br i1 %1035, label %946, label %._crit_edge252.i, !llvm.loop !23
 
 ._crit_edge252.i:                                 ; preds = %1032, %940
@@ -3651,7 +3651,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   %indvars.iv.next281.i = add nuw nsw i64 %indvars.iv280.i, 1
   %1041 = load i32, ptr %752, align 8
   %1042 = zext i32 %1041 to i64
-  %1043 = icmp ult i64 %indvars.iv.next281.i, %1042
+  %1043 = icmp samesign ult i64 %indvars.iv.next281.i, %1042
   br i1 %1043, label %.lr.ph255.i, label %._crit_edge256.i, !llvm.loop !24
 
 .lr.ph255.i:                                      ; preds = %1038, %1040
@@ -4209,7 +4209,7 @@ define internal fastcc void @_send_launch_resp(ptr nocapture noundef readonly %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %30, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %44, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %44, %15
@@ -4409,7 +4409,7 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   %.1 = phi i1 [ %.02231, %20 ], [ true, %27 ], [ true, %28 ], [ %.02231, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %12, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %34

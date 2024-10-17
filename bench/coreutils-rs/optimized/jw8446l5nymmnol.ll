@@ -304,15 +304,15 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %93, label %.thread, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %95 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %95, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %97 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %97, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i", label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %99 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %99, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 

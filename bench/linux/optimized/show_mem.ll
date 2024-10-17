@@ -273,7 +273,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %67 = add i64 %48, %66
   %68 = add nuw nsw i64 %53, 1
   %69 = and i64 %68, 127
-  %70 = icmp ugt i64 %69, 63
+  %70 = icmp samesign ugt i64 %69, 63
   br i1 %70, label %.thread, label %46, !prof !12, !llvm.loop !13
 
 .thread:                                          ; preds = %46, %56, %52, %37, %21, %15
@@ -509,7 +509,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %243 = add i64 %224, %242
   %244 = add nuw nsw i64 %229, 1
   %245 = and i64 %244, 127
-  %246 = icmp ugt i64 %245, 63
+  %246 = icmp samesign ugt i64 %245, 63
   br i1 %246, label %.thread30, label %222, !prof !12, !llvm.loop !17
 
 .thread30:                                        ; preds = %222, %232, %228

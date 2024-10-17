@@ -415,7 +415,7 @@ if.then198:                                       ; preds = %for.end187
   %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or201, i1 true)
   %cast.i126 = trunc nuw nsw i64 %49 to i32
   %50 = add nuw nsw i32 %cast.i126, %cast.i
-  %cmp207 = icmp ult i32 %50, 48
+  %cmp207 = icmp samesign ult i32 %50, 48
   %cmp209 = icmp ugt i64 %div204124, 65534
   %or.cond = select i1 %cmp207, i1 true, i1 %cmp209
   br i1 %or.cond, label %if.then211, label %if.else217

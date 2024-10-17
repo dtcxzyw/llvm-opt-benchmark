@@ -1359,8 +1359,8 @@ vaarg.end579:                                     ; preds = %vaarg.in_mem575, %v
   %or.cond6 = icmp eq i64 %148, 2
   %cmp592 = icmp ne i64 %and581, 0
   %or.cond7 = or i1 %or.cond6, %cmp592
-  %cmp598 = icmp ugt i64 %and582, 524287
-  %or.cond9 = or i1 %cmp598, %or.cond7
+  %cmp598 = icmp samesign ugt i64 %and582, 524287
+  %or.cond9 = select i1 %or.cond7, i1 true, i1 %cmp598
   br i1 %or.cond9, label %return, label %if.end601
 
 if.end601:                                        ; preds = %vaarg.end579

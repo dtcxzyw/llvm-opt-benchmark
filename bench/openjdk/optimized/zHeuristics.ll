@@ -26,7 +26,7 @@ define hidden void @_ZN11ZHeuristics20set_medium_page_sizeEv() local_unnamed_add
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 33554432)
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %8 = xor i64 %7, 63
-  %9 = icmp ugt i64 %8, 21
+  %9 = icmp samesign ugt i64 %8, 21
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %0

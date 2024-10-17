@@ -462,7 +462,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   unreachable
 
 108:                                              ; preds = %.preheader.i.i
-  %109 = icmp ugt i32 %.01830.i.i, 1
+  %109 = icmp samesign ugt i32 %.01830.i.i, 1
   br i1 %109, label %.thread.i.i, label %117
 
 .thread.i.i:                                      ; preds = %103, %108

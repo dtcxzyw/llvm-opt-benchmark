@@ -1499,7 +1499,7 @@ for.body191:                                      ; preds = %for.cond189
   %29 = trunc i64 %indvars.iv264 to i32
   %30 = sub i32 %num_primes, %29
   %div202 = udiv i32 %add200, %30
-  %cmp224226 = icmp ugt i64 %indvars.iv264, 2
+  %cmp224226 = icmp samesign ugt i64 %indvars.iv264, 2
   %cmp240.not = icmp ne i64 %25, 0
   %cmp259.not = icmp eq i64 %indvars.iv264, %23
   br i1 %cmp224226, label %for.cond203.outer.us, label %for.cond203.outer

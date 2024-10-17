@@ -262,7 +262,7 @@ define hidden void @_ZN29ShenandoahJavaThreadsIterator10threads_doEP13ThreadClos
   %30 = add i32 %29, %.0810
   %31 = call noundef i32 @llvm.umin.i32(i32 %28, i32 %30)
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -646,7 +646,7 @@ _ZN17StackWatermarkSet3getI24ShenandoahStackWatermarkEEPT_P10JavaThread18StackWa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %6, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %9, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %5
@@ -844,7 +844,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = 
   %72 = add i32 %71, %.0810.i
   %73 = call noundef i32 @llvm.umin.i32(i32 %70, i32 %72)
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next.i, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next.i, %74
   br i1 %75, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i

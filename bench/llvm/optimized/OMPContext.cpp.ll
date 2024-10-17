@@ -735,7 +735,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
   %136 = lshr i32 %133, 6
   %137 = add i32 %132, -1
   %138 = lshr i32 %137, 6
-  %.not32.i.i.i.i = icmp ugt i32 %136, %138
+  %.not32.i.i.i.i = icmp samesign ugt i32 %136, %138
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %135
@@ -1209,7 +1209,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %112, %110, %108, %1
   %118 = lshr i32 %114, 6
   %119 = add i32 %115, -1
   %120 = lshr i32 %119, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %118, %120
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %118, %120
   br i1 %.not32.i.i.i.i.i, label %._crit_edge.i, label %.lr.ph.i.i.i.i32.i
 
 .lr.ph.i.i.i.i32.i:                               ; preds = %117
@@ -1504,7 +1504,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %33
 
 66:                                               ; preds = %63
   %67 = lshr i32 %64, 6
-  %.not32.i.i.i.i = icmp ugt i32 %67, %46
+  %.not32.i.i.i.i = icmp samesign ugt i32 %67, %46
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %66

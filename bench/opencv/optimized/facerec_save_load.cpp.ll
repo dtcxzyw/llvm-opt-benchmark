@@ -1450,7 +1450,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit138:                 ; preds = %554, %552, %532
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #20
   %559 = add nuw nsw i32 %.0161, 15
-  %560 = icmp ult i32 %.0161, 285
+  %560 = icmp samesign ult i32 %.0161, 285
   br i1 %560, label %518, label %564, !llvm.loop !11
 
 561:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit140, %546, %545, %539

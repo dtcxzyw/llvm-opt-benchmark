@@ -16361,7 +16361,7 @@ invoke.cont392:                                   ; preds = %_ZN5eastl9bitvector
   %or.i1184 = or i64 %314, %shl.i1164
   store i64 %or.i1184, ptr %add.ptr10.sink.i.i.i.i1175, align 8
   %add = add nuw nsw i64 %i381.03729, 5
-  %cmp383 = icmp ult i64 %i381.03729, 95
+  %cmp383 = icmp samesign ult i64 %i381.03729, 95
   br i1 %cmp383, label %invoke.cont392, label %for.end397, !llvm.loop !50
 
 lpad342:                                          ; preds = %invoke.cont343
@@ -16824,7 +16824,7 @@ for.end527:                                       ; preds = %invoke.cont508
   br i1 %cmp5313738, label %for.body532.preheader, label %invoke.cont550
 
 for.body532.preheader:                            ; preds = %for.end527
-  %cmp.i.i1395 = icmp ugt i64 %it.sroa.24.2, 1
+  %cmp.i.i1395 = icmp samesign ugt i64 %it.sroa.24.2, 1
   %add.i.i = add nsw i64 %it.sroa.24.2, -2
   %sub6.i.i = sub nuw nsw i64 1, %it.sroa.24.2
   %sub12.i.i = xor i64 %sub6.i.i, 63

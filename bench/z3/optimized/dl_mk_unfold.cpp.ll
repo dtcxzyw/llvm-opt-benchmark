@@ -166,7 +166,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit:   ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %8, %if.end.i ], [ 0, %for.cond ]
-  %cmp5 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp5 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp5, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit

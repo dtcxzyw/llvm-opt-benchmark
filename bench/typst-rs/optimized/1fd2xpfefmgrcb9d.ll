@@ -565,7 +565,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_hex17hf6342b81b181442bE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i", %34
   %35 = phi i64 [ %.pre.i6.i, %34 ], [ %31, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i" ]
   %36 = and i8 %19, 15
-  %37 = icmp ult i8 %36, 10
+  %37 = icmp samesign ult i8 %36, 10
   %38 = or disjoint i8 %36, 48
   %39 = add nuw nsw i8 %36, 55
   %.02.i = select i1 %37, i8 %38, i8 %39
@@ -610,7 +610,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_hex17hf6342b81b181442bE.exit17": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i13", %59
   %60 = phi i64 [ %.pre.i6.i15, %59 ], [ %56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i13" ]
   %61 = and i8 %44, 15
-  %62 = icmp ult i8 %61, 10
+  %62 = icmp samesign ult i8 %61, 10
   %63 = or disjoint i8 %61, 48
   %64 = add nuw nsw i8 %61, 55
   %.02.i14 = select i1 %62, i8 %63, i8 %64
@@ -817,7 +817,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_hex17hf6342b81b181442bE.exit27": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i23", %166
   %167 = phi i64 [ %.pre.i6.i25, %166 ], [ %163, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i23" ]
   %168 = and i8 %151, 15
-  %169 = icmp ult i8 %168, 10
+  %169 = icmp samesign ult i8 %168, 10
   %170 = or disjoint i8 %168, 48
   %171 = add nuw nsw i8 %168, 55
   %.02.i24 = select i1 %169, i8 %170, i8 %171
@@ -862,7 +862,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_hex17hf6342b81b181442bE.exit33": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i29", %191
   %192 = phi i64 [ %.pre.i6.i31, %191 ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.15772558698018558306.exit.i29" ]
   %193 = and i8 %176, 15
-  %194 = icmp ult i8 %193, 10
+  %194 = icmp samesign ult i8 %193, 10
   %195 = or disjoint i8 %193, 48
   %196 = add nuw nsw i8 %193, 55
   %.02.i30 = select i1 %194, i8 %195, i8 %196
@@ -1098,9 +1098,9 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
 42:                                               ; preds = %34
   %43 = extractvalue { i16, i1 } %35, 0
   %44 = zext i16 %30 to i64
-  %45 = icmp uge i64 %indvars.iv, %44
+  %45 = icmp samesign uge i64 %indvars.iv, %44
   %46 = zext i16 %43 to i64
-  %47 = icmp ult i64 %indvars.iv, %46
+  %47 = icmp samesign ult i64 %indvars.iv, %46
   %or.cond = and i1 %45, %47
   br i1 %or.cond, label %48, label %.thread80
 
@@ -1362,9 +1362,9 @@ default.unreachable58:                            ; preds = %3
 58:                                               ; preds = %50
   %59 = extractvalue { i16, i1 } %51, 0
   %60 = zext i16 %46 to i64
-  %61 = icmp uge i64 %indvars.iv.i, %60
+  %61 = icmp samesign uge i64 %indvars.iv.i, %60
   %62 = zext i16 %59 to i64
-  %63 = icmp ult i64 %indvars.iv.i, %62
+  %63 = icmp samesign ult i64 %indvars.iv.i, %62
   %or.cond.i = and i1 %61, %63
   br i1 %or.cond.i, label %64, label %.thread80.i
 
@@ -2660,15 +2660,15 @@ _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i: ; preds = %"_ZN91_$LT$
 
 _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i.i.i: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i.i.i"
   %39 = phi i32 [ %38, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i ], [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i.i.i" ], [ %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i.i.i" ]
-  %40 = icmp ult i32 %39, 128
+  %40 = icmp samesign ult i32 %39, 128
   br i1 %40, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i, label %41
 
 41:                                               ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i.i.i
-  %42 = icmp ult i32 %39, 2048
+  %42 = icmp samesign ult i32 %39, 2048
   br i1 %42, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %39, 65536
+  %44 = icmp samesign ult i32 %39, 65536
   %..i.i.i = select i1 %44, i64 3, i64 4
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i
 
@@ -2753,15 +2753,15 @@ _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i.i: ; preds = %"_ZN91_$L
 
 _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i.i.i.i: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i.i.i.i"
   %82 = phi i32 [ %81, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i.i ], [ %71, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i.i.i.i" ], [ %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i.i.i.i" ]
-  %83 = icmp ult i32 %82, 128
+  %83 = icmp samesign ult i32 %82, 128
   br i1 %83, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i.i, label %84
 
 84:                                               ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i.i.i.i
-  %85 = icmp ult i32 %82, 2048
+  %85 = icmp samesign ult i32 %82, 2048
   br i1 %85, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i.i, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ult i32 %82, 65536
+  %87 = icmp samesign ult i32 %82, 65536
   %..i.i.i.i = select i1 %87, i64 3, i64 4
   br label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i.i
 
@@ -2787,7 +2787,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br i1 %or.cond.i.i, label %.critedge.i.i, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ugt i32 %47, 127
+  %95 = icmp samesign ugt i32 %47, 127
   br i1 %95, label %96, label %.critedge14.i.i
 
 96:                                               ; preds = %94
@@ -2904,7 +2904,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   ]
 
 154:                                              ; preds = %153
-  %155 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i, 127
+  %155 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i, 127
   br i1 %155, label %156, label %.loopexit.i.i
 
 156:                                              ; preds = %154
@@ -3044,7 +3044,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   ]
 
 224:                                              ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i"
-  %225 = icmp ugt i32 %.sroa.4.1.i.ph10.i9.i.i.i.i, 127
+  %225 = icmp samesign ugt i32 %.sroa.4.1.i.ph10.i9.i.i.i.i, 127
   br i1 %225, label %226, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.i.i
 
 226:                                              ; preds = %224
@@ -6888,15 +6888,15 @@ _ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !1080
-  %95 = icmp ult i32 %0, 128
+  %95 = icmp samesign ult i32 %0, 128
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = icmp ult i32 %0, 2048
+  %97 = icmp samesign ult i32 %0, 2048
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i32 %0, 65536
+  %99 = icmp samesign ult i32 %0, 65536
   br i1 %99, label %109, label %120
 
 100:                                              ; preds = %93

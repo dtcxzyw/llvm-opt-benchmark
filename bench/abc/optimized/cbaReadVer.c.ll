@@ -5009,7 +5009,7 @@ Cba_NtkRangeRight.exit112:                        ; preds = %54, %60
 define range(i32 -2147483648, 2147483645) i32 @Prs_CreateBitSignal(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = ashr i32 %1, 2
   %4 = and i32 %1, 3
-  %or.cond = icmp ult i32 %4, 2
+  %or.cond = icmp samesign ult i32 %4, 2
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
@@ -5258,7 +5258,7 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
 60:                                               ; preds = %57
   %61 = ashr i32 %.052.lcssa, 2
   %62 = and i32 %.052.lcssa, 3
-  %or.cond.i = icmp ult i32 %62, 2
+  %or.cond.i = icmp samesign ult i32 %62, 2
   br i1 %or.cond.i, label %Prs_CreateBitSignal.exit, label %63
 
 63:                                               ; preds = %60
@@ -5357,7 +5357,7 @@ Prs_CreateBitSignal.exit:                         ; preds = %.lr.ph.i, %90, %60,
   %.034.i = phi i32 [ -1, %60 ], [ 6, %74 ], [ %spec.select.i, %75 ], [ -4, %76 ], [ %92, %.critedge.loopexit.i ], [ -1, %90 ], [ -1, %.lr.ph.i ]
   %93 = ashr i32 %.057.lcssa, 2
   %94 = and i32 %.057.lcssa, 3
-  %or.cond.i83 = icmp ult i32 %94, 2
+  %or.cond.i83 = icmp samesign ult i32 %94, 2
   br i1 %or.cond.i83, label %Prs_CreateBitSignal.exit108.thread, label %95
 
 95:                                               ; preds = %Prs_CreateBitSignal.exit

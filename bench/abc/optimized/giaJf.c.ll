@@ -2925,7 +2925,7 @@ Jf_CutIsTriv.exit.thread:                         ; preds = %21, %Jf_CutIsTriv.e
   %.val20 = load i32, ptr %1, align 4
   %41 = and i32 %.val20, 15
   %42 = zext nneg i32 %41 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %42
+  %.not.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not.not, label %10, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %10, %40, %2
@@ -3008,7 +3008,7 @@ Jf_CutIsTriv.exit.thread:                         ; preds = %21, %Jf_CutIsTriv.e
   %.val20 = load i32, ptr %1, align 4
   %41 = and i32 %.val20, 15
   %42 = zext nneg i32 %41 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %42
+  %.not.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not.not, label %10, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %10, %40, %2
@@ -3159,7 +3159,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val22 = load i32, ptr %1, align 4
   %74 = and i32 %.val22, 15
   %75 = zext nneg i32 %74 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %75
+  %.not.not = icmp samesign ult i64 %indvars.iv, %75
   br i1 %.not.not, label %11, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %11, %Vec_IntPush.exit, %2
@@ -3309,7 +3309,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val23 = load i32, ptr %1, align 4
   %73 = and i32 %.val23, 15
   %74 = zext nneg i32 %73 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %74
+  %.not.not = icmp samesign ult i64 %indvars.iv, %74
   br i1 %.not.not, label %10, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %10, %Vec_IntPush.exit, %2
@@ -3481,7 +3481,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val28 = load i32, ptr %1, align 4
   %90 = and i32 %.val28, 15
   %91 = zext nneg i32 %90 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %91
+  %.not.not = icmp samesign ult i64 %indvars.iv, %91
   br i1 %.not.not, label %10, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %76, %89, %10, %3
@@ -3913,7 +3913,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %144, %Abc_TtHasVar.
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i72, %Abc_TtHasVar.exit.thread.i ]
   %.038.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %.1.i71, %Abc_TtHasVar.exit.thread.i ]
-  %146 = icmp ult i64 %indvars.iv.i70, 6
+  %146 = icmp samesign ult i64 %indvars.iv.i70, 6
   br i1 %146, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i
@@ -7203,7 +7203,7 @@ define i32 @Jf_ManComputeRefs(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val5.i = load i32, ptr %69, align 4
   %80 = and i32 %.val5.i, 15
   %81 = zext nneg i32 %80 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv.i, %81
+  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %81
   br i1 %.not.not.i, label %.lr.ph.i, label %Jf_CutRef.exit, !llvm.loop !77
 
 Jf_CutRef.exit:                                   ; preds = %.lr.ph.i, %58
@@ -8454,7 +8454,7 @@ Vec_IntPush.exit255:                              ; preds = %.Vec_IntGrow.exit10
   %.val211 = load i32, ptr %154, align 4
   %234 = and i32 %.val211, 15
   %235 = zext nneg i32 %234 to i64
-  %.not172.not = icmp ult i64 %indvars.iv337, %235
+  %.not172.not = icmp samesign ult i64 %indvars.iv337, %235
   %.val180.pre.pre359.pr = load i32, ptr %57, align 4
   br i1 %.not172.not, label %.lr.ph320, label %.critedge4, !llvm.loop !86
 
@@ -8929,7 +8929,7 @@ Vec_IntFree.exit288:                              ; preds = %Vec_IntFree.exit286
 
 445:                                              ; preds = %439, %443
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
-  %446 = icmp ult i64 %indvars.iv.next350, %438
+  %446 = icmp samesign ult i64 %indvars.iv.next350, %438
   br i1 %446, label %439, label %.critedge10, !llvm.loop !90
 
 .critedge10:                                      ; preds = %445, %435
@@ -9730,7 +9730,7 @@ Vec_IntPush.exit56:                               ; preds = %.Vec_IntGrow.exit10
   %.val43 = load i32, ptr %82, align 4
   %144 = and i32 %.val43, 15
   %145 = zext nneg i32 %144 to i64
-  %.not34.not = icmp ult i64 %indvars.iv, %145
+  %.not34.not = icmp samesign ult i64 %indvars.iv, %145
   br i1 %.not34.not, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit56, %Vec_IntPush.exit
@@ -10232,7 +10232,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val162 = load i32, ptr %138, align 4
   %218 = and i32 %.val162, 15
   %219 = zext nneg i32 %218 to i64
-  %.not133.not = icmp ult i64 %indvars.iv222, %219
+  %.not133.not = icmp samesign ult i64 %indvars.iv222, %219
   br i1 %.not133.not, label %.lr.ph204, label %.critedge4.loopexit, !llvm.loop !96
 
 .critedge4.loopexit:                              ; preds = %Vec_IntPush.exit, %.lr.ph204
@@ -10333,7 +10333,7 @@ Vec_IntPush.exit190:                              ; preds = %.Vec_IntGrow.exit10
   %.val161 = load i32, ptr %138, align 4
   %260 = and i32 %.val161, 15
   %261 = zext nneg i32 %260 to i64
-  %.not136.not = icmp ult i64 %indvars.iv225, %261
+  %.not136.not = icmp samesign ult i64 %indvars.iv225, %261
   br i1 %.not136.not, label %.lr.ph209, label %.critedge6, !llvm.loop !97
 
 .critedge6:                                       ; preds = %.lr.ph209, %Vec_IntPush.exit190, %Abc_TtCopy.exit
@@ -10857,7 +10857,7 @@ Jf_ManPropagateFlow.exit:                         ; preds = %40, %66, %33
   %130 = lshr i64 %128, %129
   %131 = trunc i64 %130 to i32
   %132 = and i32 %131, 15
-  %133 = icmp ult i32 %132, 10
+  %133 = icmp samesign ult i32 %132, 10
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %127

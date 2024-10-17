@@ -4492,7 +4492,7 @@ _ZN10QByteArrayD2Ev.exit152:                      ; preds = %_ZN7QStringD2Ev.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %313 = load i32, ptr %9, align 4
   %314 = zext i32 %313 to i64
-  %315 = icmp ult i64 %indvars.iv.next, %314
+  %315 = icmp samesign ult i64 %indvars.iv.next, %314
   br i1 %315, label %139, label %._crit_edge, !llvm.loop !84
 
 316:                                              ; preds = %288, %287, %278
@@ -4741,7 +4741,7 @@ _ZNSt6vectorIN3vcg3tri2io14CorrespondenceESaIS3_EE9push_backERKS3_.exit: ; preds
   %405 = getelementptr inbounds i8, ptr %.sroa.0179.0233, i64 48
   %406 = load i32, ptr %10, align 4
   %407 = zext i32 %406 to i64
-  %408 = icmp ult i64 %indvars.iv.next247, %407
+  %408 = icmp samesign ult i64 %indvars.iv.next247, %407
   br i1 %408, label %336, label %._crit_edge236, !llvm.loop !91
 
 ._crit_edge236:                                   ; preds = %._crit_edge231, %333
@@ -10223,7 +10223,7 @@ _ZNSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE6resizeEm.exit: ; preds = %5
 
 .outer164:                                        ; preds = %73, %65
   %.010.i.ph = phi i32 [ %74, %73 ], [ 0, %65 ]
-  %66 = icmp ult i32 %.010.i.ph, 999
+  %66 = icmp samesign ult i32 %.010.i.ph, 999
   br label %67
 
 67:                                               ; preds = %.outer164, %71
@@ -10473,7 +10473,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN10QByteArrayD2Ev
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = load i32, ptr %10, align 4
   %184 = zext i32 %183 to i64
-  %185 = icmp ult i64 %indvars.iv.next, %184
+  %185 = icmp samesign ult i64 %indvars.iv.next, %184
   br i1 %185, label %65, label %._crit_edge, !llvm.loop !180
 
 186:                                              ; preds = %81
@@ -10516,7 +10516,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN10QByteArrayD2Ev
 
 .outer161:                                        ; preds = %204, %._crit_edge
   %.010.i84.ph = phi i32 [ %205, %204 ], [ 0, %._crit_edge ]
-  %197 = icmp ult i32 %.010.i84.ph, 999
+  %197 = icmp samesign ult i32 %.010.i84.ph, 999
   br label %198
 
 198:                                              ; preds = %.outer161, %202
@@ -10551,7 +10551,7 @@ _ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit87: ; preds = %1
 
 .outer:                                           ; preds = %217, %_ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit87
   %.010.i88.ph = phi i32 [ %218, %217 ], [ 0, %_ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit87 ]
-  %210 = icmp ult i32 %.010.i88.ph, 999
+  %210 = icmp samesign ult i32 %.010.i88.ph, 999
   br label %211
 
 211:                                              ; preds = %.outer, %215
@@ -10850,7 +10850,7 @@ _ZNSt6vectorIN3vcg3tri2io14CorrespondenceESaIS3_EE9push_backERKS3_.exit: ; preds
   %338 = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 48
   %339 = load i32, ptr %11, align 4
   %340 = zext i32 %339 to i64
-  %341 = icmp ult i64 %indvars.iv.next157, %340
+  %341 = icmp samesign ult i64 %indvars.iv.next157, %340
   br i1 %341, label %245, label %._crit_edge151, !llvm.loop !186
 
 ._crit_edge151:                                   ; preds = %._crit_edge147, %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
@@ -10992,7 +10992,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterNVMI6CMeshOE10Re
 
 .outer18:                                         ; preds = %14, %2
   %.010.i.ph = phi i32 [ %15, %14 ], [ 0, %2 ]
-  %7 = icmp ult i32 %.010.i.ph, 999
+  %7 = icmp samesign ult i32 %.010.i.ph, 999
   br label %8
 
 8:                                                ; preds = %.outer18, %12
@@ -11035,7 +11035,7 @@ _ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit: ; preds = %8, 
 
 .outer16:                                         ; preds = %30, %22
   %.010.i5.ph = phi i32 [ %31, %30 ], [ 0, %22 ]
-  %23 = icmp ult i32 %.010.i5.ph, 999
+  %23 = icmp samesign ult i32 %.010.i5.ph, 999
   br label %24
 
 24:                                               ; preds = %.outer16, %28
@@ -11070,7 +11070,7 @@ _ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit8: ; preds = %24
 
 .outer:                                           ; preds = %43, %_ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit8
   %.010.i9.ph = phi i32 [ %44, %43 ], [ 0, %_ZN3vcg3tri2io11ImporterNVMI6CMeshOE8readlineEP8_IO_FILEPci.exit8 ]
-  %36 = icmp ult i32 %.010.i9.ph, 999
+  %36 = icmp samesign ult i32 %.010.i9.ph, 999
   br label %37
 
 37:                                               ; preds = %.outer, %41
@@ -12828,7 +12828,7 @@ _ZN7QStringD2Ev.exit378:                          ; preds = %571, %_ZN9QtPrivate
   store float %612, ptr %614, align 4
   %615 = getelementptr inbounds i8, ptr %.sroa.0901.01175, i64 8
   %616 = icmp eq ptr %615, %583
-  %617 = icmp ugt i64 %indvars.iv, 14
+  %617 = icmp samesign ugt i64 %indvars.iv, 14
   %or.cond = select i1 %616, i1 true, i1 %617
   br i1 %or.cond, label %._crit_edge1178.loopexit, label %.lr.ph1177
 

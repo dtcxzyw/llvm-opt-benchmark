@@ -5162,7 +5162,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6inser
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %10, %13
+  %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %8
@@ -5370,7 +5370,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit: ; preds = %
   %99 = add nuw nsw i64 %.04479, 1
   %100 = load i32, ptr %33, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %99, %101
+  %102 = icmp samesign ult i64 %99, %101
   br i1 %102, label %.lr.ph80, label %._crit_edge81.loopexit, !llvm.loop !32
 
 ._crit_edge81.loopexit:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit
@@ -5542,7 +5542,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit74: ; preds =
   %181 = add nuw nsw i64 %.078, 1
   %182 = load i32, ptr %118, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %181, %183
+  %184 = icmp samesign ult i64 %181, %183
   br i1 %184, label %121, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit74, %.thread

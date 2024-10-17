@@ -500,7 +500,7 @@ sha256_finish_ctx.exit447:                        ; preds = %220
   %238 = load i8, ptr %4, align 4
   %239 = zext i8 %238 to i64
   %240 = add nuw nsw i64 %239, 16
-  %241 = icmp ult i64 %237, %240
+  %241 = icmp samesign ult i64 %237, %240
   br i1 %241, label %236, label %242
 
 242:                                              ; preds = %236
@@ -1354,7 +1354,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   %46 = getelementptr inbounds [128 x i8], ptr %45, i64 0, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %.170, i64 %.15869, i1 false)
   %47 = add nuw nsw i64 %.15869, %44
-  %48 = icmp ugt i64 %47, 63
+  %48 = icmp samesign ugt i64 %47, 63
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %.thread

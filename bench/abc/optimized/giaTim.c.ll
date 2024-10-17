@@ -5120,7 +5120,7 @@ Vec_IntSum.exit:                                  ; preds = %448
   %switch.select346 = select i1 %switch.selectcmp345, i8 48, i8 %switch.select
   store i8 %switch.select346, ptr %464, align 1
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
-  %465 = icmp ult i64 %indvars.iv.next340, %459
+  %465 = icmp samesign ult i64 %indvars.iv.next340, %459
   br i1 %465, label %460, label %._crit_edge312, !llvm.loop !60
 
 ._crit_edge312:                                   ; preds = %461, %460, %452

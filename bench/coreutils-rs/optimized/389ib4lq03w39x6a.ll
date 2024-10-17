@@ -2063,7 +2063,7 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   br i1 %39, label %_ZN6uucore6parser10parse_glob12fix_negation17h99365c49fc9b1722E.exit, label %.lr.ph.i.i
 
 40:                                               ; preds = %.lr.ph.i.i
-  %41 = icmp ult i64 %.011.i.i, %31
+  %41 = icmp samesign ult i64 %.011.i.i, %31
   tail call void @llvm.assume(i1 %41)
   store i32 33, ptr %25, align 4, !noalias !322
   %42 = add i64 %.03671.i, 4

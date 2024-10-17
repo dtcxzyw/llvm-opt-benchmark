@@ -1462,7 +1462,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i8, ptr %txq_num.i.i, align 8
   %10 = zext i8 %9 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %10
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %cmp.i.i, label %for.body.i.i, label %for.cond6.preheader.i.i, !llvm.loop !12
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body10.lr.ph.i.i
@@ -1477,7 +1477,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %12 = load i8, ptr %rxq_num.i.i, align 4
   %13 = zext i8 %12 to i64
-  %cmp8.i.i = icmp ult i64 %indvars.iv.next26.i.i, %13
+  %cmp8.i.i = icmp samesign ult i64 %indvars.iv.next26.i.i, %13
   br i1 %cmp8.i.i, label %for.body10.i.i, label %sw.epilog, !llvm.loop !13
 
 do.end9.i:                                        ; preds = %do.end14
@@ -1843,7 +1843,7 @@ vmxnet3_ring_init.exit.i.i:                       ; preds = %for.body.i.i.i.i, %
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %55 = load i8, ptr %txq_num.i14.i, align 8
   %56 = zext i8 %55 to i64
-  %cmp76.i.i = icmp ult i64 %indvars.iv.next.i23.i, %56
+  %cmp76.i.i = icmp samesign ult i64 %indvars.iv.next.i23.i, %56
   br i1 %cmp76.i.i, label %for.body.i18.i, label %do.end131.loopexit.i.i, !llvm.loop !15
 
 do.end131.loopexit.i.i:                           ; preds = %vmxnet3_ring_init.exit.i.i
@@ -1998,7 +1998,7 @@ vmxnet3_ring_init.exit246.i.i:                    ; preds = %for.body.i.i240.i.i
   %indvars.iv.next271.i.i = add nuw nsw i64 %indvars.iv270.i.i, 1
   %73 = load i8, ptr %rxq_num.i15.i, align 4
   %74 = zext i8 %73 to i64
-  %cmp136.i.i = icmp ult i64 %indvars.iv.next271.i.i, %74
+  %cmp136.i.i = icmp samesign ult i64 %indvars.iv.next271.i.i, %74
   br i1 %cmp136.i.i, label %for.body138.i.i, label %for.end210.i.i, !llvm.loop !17
 
 for.end210.i.i:                                   ; preds = %vmxnet3_ring_init.exit246.i.i, %do.end131.i.i
@@ -2008,7 +2008,7 @@ for.end210.i.i:                                   ; preds = %vmxnet3_ring_init.e
   %76 = load i8, ptr %event_int_idx.i.i, align 2
   %conv.i249.i.i = zext i8 %76 to i32
   %cond.i.i.i.i = select i1 %tobool.i248.i.i, i32 25, i32 1
-  %cmp.not.i.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv.i249.i.i
+  %cmp.not.i.i.i.i = icmp samesign ugt i32 %cond.i.i.i.i, %conv.i249.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.preheader.i.i.i, label %if.then.i.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %for.end210.i.i
@@ -2045,7 +2045,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %intr_idx.i.i.i = getelementptr i8, ptr %78, i64 %intr_idx.idx.i.i.i
   %80 = load i8, ptr %intr_idx.i.i.i, align 16
   %conv3.i.i.i = zext i8 %80 to i32
-  %cmp.not.i14.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv3.i.i.i
+  %cmp.not.i14.i.i.i = icmp samesign ugt i32 %cond.i.i.i.i, %conv3.i.i.i
   br i1 %cmp.not.i14.i.i.i, label %for.cond.i.i.i, label %if.then.i15.i.i.i
 
 if.then.i15.i.i.i:                                ; preds = %for.body.i.i.i
@@ -2063,7 +2063,7 @@ for.body12.i.i.i:                                 ; preds = %for.cond8.i.i.i, %f
   %intr_idx16.i.i.i = getelementptr i8, ptr %79, i64 %intr_idx16.idx.i.i.i
   %81 = load i8, ptr %intr_idx16.i.i.i, align 8
   %conv17.i.i.i = zext i8 %81 to i32
-  %cmp.not.i18.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv17.i.i.i
+  %cmp.not.i18.i.i.i = icmp samesign ugt i32 %cond.i.i.i.i, %conv17.i.i.i
   br i1 %cmp.not.i18.i.i.i, label %for.cond8.i.i.i, label %if.then.i19.i.i.i
 
 if.then.i19.i.i.i:                                ; preds = %for.body12.i.i.i
@@ -3471,7 +3471,7 @@ if.end2:                                          ; preds = %if.end7.i
   %7 = load i8, ptr %event_int_idx.i, align 2
   %conv.i = zext i8 %7 to i32
   %cond.i.i = select i1 %tobool.i, i32 25, i32 1
-  %cmp.not.i.i = icmp ugt i32 %cond.i.i, %conv.i
+  %cmp.not.i.i = icmp samesign ugt i32 %cond.i.i, %conv.i
   br i1 %cmp.not.i.i, label %for.cond.preheader.i, label %if.then.i.i
 
 for.cond.preheader.i:                             ; preds = %if.end2
@@ -3507,7 +3507,7 @@ for.body.i8:                                      ; preds = %for.cond.i, %for.bo
   %intr_idx.i = getelementptr i8, ptr %8, i64 %intr_idx.idx.i
   %10 = load i8, ptr %intr_idx.i, align 16
   %conv3.i = zext i8 %10 to i32
-  %cmp.not.i14.i = icmp ugt i32 %cond.i.i, %conv3.i
+  %cmp.not.i14.i = icmp samesign ugt i32 %cond.i.i, %conv3.i
   br i1 %cmp.not.i14.i, label %for.cond.i, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %for.body.i8
@@ -3525,7 +3525,7 @@ for.body12.i:                                     ; preds = %for.cond8.i, %for.b
   %intr_idx16.i = getelementptr i8, ptr %9, i64 %intr_idx16.idx.i
   %11 = load i8, ptr %intr_idx16.i, align 8
   %conv17.i = zext i8 %11 to i32
-  %cmp.not.i18.i = icmp ugt i32 %cond.i.i, %conv17.i
+  %cmp.not.i18.i = icmp samesign ugt i32 %cond.i.i, %conv17.i
   br i1 %cmp.not.i18.i, label %for.cond8.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %for.body12.i

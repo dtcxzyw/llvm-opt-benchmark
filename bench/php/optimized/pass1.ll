@@ -611,7 +611,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %309 = load i64, ptr %308, align 8
   %310 = icmp sgt i64 %309, -1
   call void @llvm.assume(i1 %310)
-  %311 = icmp ult i64 %309, 2
+  %311 = icmp samesign ult i64 %309, 2
   br i1 %311, label %.critedge488, label %312
 
 312:                                              ; preds = %302

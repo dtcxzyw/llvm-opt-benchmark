@@ -3302,7 +3302,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %268 = and i64 %267, 1
   %269 = add nuw nsw i64 %268, %267
   %270 = lshr i64 %269, 1
-  %271 = icmp ugt i64 %269, 16777215
+  %271 = icmp samesign ugt i64 %269, 16777215
   %272 = zext i1 %271 to i32
   br label %288
 
@@ -3322,7 +3322,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %282 = and i64 %.sroa.0594.0, 1
   %283 = add nuw nsw i64 %282, %.sroa.0594.0
   %284 = lshr i64 %283, 1
-  %.not554 = icmp ugt i64 %283, 33554431
+  %.not554 = icmp samesign ugt i64 %283, 33554431
   %285 = zext i1 %.not554 to i32
   %.sroa.18601.0 = add nuw nsw i32 %260, %285
   %286 = and i64 %284, 58720255
@@ -3423,7 +3423,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %350 = and i64 %349, 1
   %351 = add nuw nsw i64 %350, %349
   %352 = lshr i64 %351, 1
-  %353 = icmp ugt i64 %351, 16777215
+  %353 = icmp samesign ugt i64 %351, 16777215
   %354 = zext i1 %353 to i32
   br label %370
 
@@ -3443,7 +3443,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %364 = and i64 %.sroa.0585.0, 1
   %365 = add nuw nsw i64 %364, %.sroa.0585.0
   %366 = lshr i64 %365, 1
-  %.not558 = icmp ugt i64 %365, 33554431
+  %.not558 = icmp samesign ugt i64 %365, 33554431
   %367 = zext i1 %.not558 to i32
   %.sroa.18.0 = add nuw nsw i32 %342, %367
   %368 = and i64 %366, 58720255
@@ -3523,7 +3523,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
 .preheader29.i:                                   ; preds = %.lr.ph.i, %413
   %.023.lcssa.i = phi i32 [ %.pre-phi, %413 ], [ %418, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %.5493, %413 ], [ %417, %.lr.ph.i ]
-  %416 = icmp ugt i64 %.0.lcssa.i, 99
+  %416 = icmp samesign ugt i64 %.0.lcssa.i, 99
   br i1 %416, label %.lr.ph35.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %413, %.lr.ph.i
@@ -3537,7 +3537,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
 .preheader.i:                                     ; preds = %.lr.ph35.i, %.preheader29.i
   %.124.lcssa.i = phi i32 [ %.023.lcssa.i, %.preheader29.i ], [ %422, %.lr.ph35.i ]
   %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %.preheader29.i ], [ %421, %.lr.ph35.i ]
-  %420 = icmp ugt i64 %.1.lcssa.i, 9
+  %420 = icmp samesign ugt i64 %.1.lcssa.i, 9
   br i1 %420, label %.lr.ph40.i, label %._crit_edge.i
 
 .lr.ph35.i:                                       ; preds = %.preheader29.i, %.lr.ph35.i
@@ -3935,7 +3935,7 @@ define linkonce_odr hidden void @_ZN10fast_float14parse_mantissaERNS_6bigintERNS
   %81 = add nuw nsw i64 %.022.i.i, 1
   %82 = load i16, ptr %23, align 8
   %83 = zext i16 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %71, label %._crit_edge.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %71
@@ -3961,7 +3961,7 @@ _ZN10fast_float6bigint3mulEm.exit:                ; preds = %67, %._crit_edge.i.
   %.01825.i.i = phi i64 [ %98, %92 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit ]
   %89 = load i16, ptr %23, align 8
   %90 = zext i16 %89 to i64
-  %91 = icmp ult i64 %.01825.i.i, %90
+  %91 = icmp samesign ult i64 %.01825.i.i, %90
   br i1 %91, label %92, label %.critedge.i.i
 
 92:                                               ; preds = %.lr.ph.i.i290
@@ -4090,7 +4090,7 @@ _ZN10fast_float6bigint3addEm.exit:                ; preds = %92, %_ZN10fast_floa
   %138 = add nuw nsw i64 %.022.i.i294, 1
   %139 = load i16, ptr %23, align 8
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %138, %140
+  %141 = icmp samesign ult i64 %138, %140
   br i1 %141, label %.lr.ph.i.i293, label %._crit_edge.i.i296, !llvm.loop !49
 
 ._crit_edge.i.i296:                               ; preds = %.lr.ph.i.i293
@@ -4114,7 +4114,7 @@ _ZN10fast_float6bigint3mulEm.exit301:             ; preds = %_ZN10fast_float6big
   %.01825.i.i304 = phi i64 [ %155, %149 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit301.preheader ]
   %146 = load i16, ptr %23, align 8
   %147 = zext i16 %146 to i64
-  %148 = icmp ult i64 %.01825.i.i304, %147
+  %148 = icmp samesign ult i64 %.01825.i.i304, %147
   br i1 %148, label %149, label %.critedge.i.i305
 
 149:                                              ; preds = %_ZN10fast_float6bigint3mulEm.exit301
@@ -4164,7 +4164,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i307: ; preds = %.crite
   %174 = add nuw nsw i64 %.022.i.i311, 1
   %175 = load i16, ptr %23, align 8
   %176 = zext i16 %175 to i64
-  %177 = icmp ult i64 %174, %176
+  %177 = icmp samesign ult i64 %174, %176
   br i1 %177, label %164, label %._crit_edge.i.i313, !llvm.loop !49
 
 ._crit_edge.i.i313:                               ; preds = %164
@@ -4190,7 +4190,7 @@ _ZN10fast_float6bigint3mulEm.exit318:             ; preds = %160, %._crit_edge.i
   %.01825.i.i322 = phi i64 [ %191, %185 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit318 ]
   %182 = load i16, ptr %23, align 8
   %183 = zext i16 %182 to i64
-  %184 = icmp ult i64 %.01825.i.i322, %183
+  %184 = icmp samesign ult i64 %.01825.i.i322, %183
   br i1 %184, label %185, label %.critedge.i.i323
 
 185:                                              ; preds = %.lr.ph.i.i320
@@ -4406,7 +4406,7 @@ _ZN10fast_float6bigint3addEm.exit326:             ; preds = %185, %_ZN10fast_flo
   %276 = add nuw nsw i64 %.022.i.i329, 1
   %277 = load i16, ptr %218, align 8
   %278 = zext i16 %277 to i64
-  %279 = icmp ult i64 %276, %278
+  %279 = icmp samesign ult i64 %276, %278
   br i1 %279, label %266, label %._crit_edge.i.i331, !llvm.loop !49
 
 ._crit_edge.i.i331:                               ; preds = %266
@@ -4432,7 +4432,7 @@ _ZN10fast_float6bigint3mulEm.exit336:             ; preds = %262, %._crit_edge.i
   %.01825.i.i340 = phi i64 [ %293, %287 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit336 ]
   %284 = load i16, ptr %218, align 8
   %285 = zext i16 %284 to i64
-  %286 = icmp ult i64 %.01825.i.i340, %285
+  %286 = icmp samesign ult i64 %.01825.i.i340, %285
   br i1 %286, label %287, label %.critedge.i.i341
 
 287:                                              ; preds = %.lr.ph.i.i338
@@ -4513,7 +4513,7 @@ _ZN10fast_float6bigint3addEm.exit344:             ; preds = %287, %_ZN10fast_flo
   %319 = add nuw nsw i64 %.022.i.i347, 1
   %320 = load i16, ptr %218, align 8
   %321 = zext i16 %320 to i64
-  %322 = icmp ult i64 %319, %321
+  %322 = icmp samesign ult i64 %319, %321
   br i1 %322, label %.lr.ph.i.i346, label %._crit_edge.i.i349, !llvm.loop !49
 
 ._crit_edge.i.i349:                               ; preds = %.lr.ph.i.i346
@@ -4537,7 +4537,7 @@ _ZN10fast_float6bigint3mulEm.exit354:             ; preds = %_ZN10fast_float6big
   %.01825.i.i357 = phi i64 [ %336, %330 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit354.preheader ]
   %327 = load i16, ptr %218, align 8
   %328 = zext i16 %327 to i64
-  %329 = icmp ult i64 %.01825.i.i357, %328
+  %329 = icmp samesign ult i64 %.01825.i.i357, %328
   br i1 %329, label %330, label %.critedge.i.i358
 
 330:                                              ; preds = %_ZN10fast_float6bigint3mulEm.exit354
@@ -4587,7 +4587,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i360: ; preds = %.crite
   %355 = add nuw nsw i64 %.022.i.i364, 1
   %356 = load i16, ptr %218, align 8
   %357 = zext i16 %356 to i64
-  %358 = icmp ult i64 %355, %357
+  %358 = icmp samesign ult i64 %355, %357
   br i1 %358, label %345, label %._crit_edge.i.i366, !llvm.loop !49
 
 ._crit_edge.i.i366:                               ; preds = %345
@@ -4613,7 +4613,7 @@ _ZN10fast_float6bigint3mulEm.exit371:             ; preds = %341, %._crit_edge.i
   %.01825.i.i375 = phi i64 [ %372, %366 ], [ 0, %_ZN10fast_float6bigint3mulEm.exit371 ]
   %363 = load i16, ptr %218, align 8
   %364 = zext i16 %363 to i64
-  %365 = icmp ult i64 %.01825.i.i375, %364
+  %365 = icmp samesign ult i64 %.01825.i.i375, %364
   br i1 %365, label %366, label %.critedge.i.i376
 
 366:                                              ; preds = %.lr.ph.i.i373
@@ -4683,7 +4683,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19positive_digit_compIfE
   %17 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %18 = load i16, ptr %10, align 8
   %19 = zext i16 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
@@ -4713,7 +4713,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
 27:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
   %28 = zext i16 %.pre to i64
   %29 = add nuw nsw i64 %7, %28
-  %30 = icmp ult i64 %29, 63
+  %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %.pre, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
   br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
@@ -4800,7 +4800,7 @@ _ZNK10fast_float6bigint10bit_lengthEv.exit:       ; preds = %_ZNK10fast_float6bi
   %67 = trunc nuw nsw i64 %.pre-phi64 to i32
   %68 = xor i1 %.053, true
   %69 = and i64 %.027.i54, 1099511627775
-  %70 = icmp ult i64 %69, 549755813889
+  %70 = icmp samesign ult i64 %69, 549755813889
   %71 = icmp ne i64 %69, 549755813888
   %brmerge = select i1 %71, i1 true, i1 %68
   %or.cond82 = select i1 %70, i1 %brmerge, i1 false
@@ -4823,7 +4823,7 @@ _ZZN10fast_float19positive_digit_compIfEENS_17adjusted_mantissaERNS_6bigintEiENK
   %77 = shl nuw nsw i32 %.tr.i, 6
   %78 = sub nsw i32 %77, %.0.i.i72
   %79 = add nuw nsw i64 %75, %76
-  %.not20 = icmp ult i64 %79, 16777216
+  %.not20 = icmp samesign ult i64 %79, 16777216
   %spec.select.v = select i1 %.not20, i32 126, i32 127
   %spec.select = add nsw i32 %spec.select.v, %78
   %80 = and i64 %79, 25165823
@@ -4937,7 +4937,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIfE
   %55 = add nuw nsw i64 %.01721.i.i.i, 1
   %56 = load i16, ptr %33, align 8
   %57 = zext i16 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
@@ -4966,7 +4966,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bi
   %66 = load i16, ptr %33, align 8
   %67 = zext i16 %66 to i64
   %68 = add nuw nsw i64 %46, %67
-  %69 = icmp ult i64 %68, 63
+  %69 = icmp samesign ult i64 %68, 63
   %70 = icmp ne i16 %66, 0
   %or.cond.not.i.i.i = and i1 %70, %69
   br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
@@ -5021,7 +5021,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i:      ; preds = %65
   %94 = add nuw nsw i64 %.01721.i.i.i103, 1
   %95 = load i16, ptr %87, align 8
   %96 = zext i16 %95 to i64
-  %97 = icmp ult i64 %94, %96
+  %97 = icmp samesign ult i64 %94, %96
   br i1 %97, label %.lr.ph.i.i.i101, label %._crit_edge.i.i.i104, !llvm.loop !57
 
 ._crit_edge.i.i.i104:                             ; preds = %.lr.ph.i.i.i101
@@ -5051,7 +5051,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i64
   %108 = add nuw nsw i64 %84, %107
-  %109 = icmp ult i64 %108, 63
+  %109 = icmp samesign ult i64 %108, 63
   %110 = icmp ne i16 %106, 0
   %or.cond.not.i.i.i109 = and i1 %110, %109
   br i1 %or.cond.not.i.i.i109, label %.lr.ph.i.i.i.i.preheader.i.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
@@ -5138,7 +5138,7 @@ _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_i
   %narrow168 = select i1 %134, i1 true, i1 %..i.i120
   %.0.i.i121 = zext i1 %narrow168 to i64
   %147 = add nuw nsw i64 %144, %.0.i.i121
-  %.not95 = icmp ult i64 %147, 16777216
+  %.not95 = icmp samesign ult i64 %147, 16777216
   %spec.select159.v = select i1 %.not95, i32 40, i32 41
   %spec.select159 = add nsw i32 %spec.select159.v, %2
   %148 = and i64 %147, 25165823
@@ -5169,7 +5169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10fast_float6bigint4pow5Ej(ptr
 
 .preheader:                                       ; preds = %11, %2
   %.011.lcssa = phi i32 [ %1, %2 ], [ %12, %11 ]
-  %4 = icmp ugt i32 %.011.lcssa, 26
+  %4 = icmp samesign ugt i32 %.011.lcssa, 26
   br i1 %4, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
@@ -5217,7 +5217,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread.us.preheader
   %24 = add nuw nsw i64 %.022.i, 1
   %25 = load i16, ptr %5, align 8
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %24, %26
+  %27 = icmp samesign ult i64 %24, %26
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -5277,7 +5277,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread: ; preds = %
   %52 = add nuw nsw i64 %.022.i14, 1
   %53 = load i16, ptr %36, align 8
   %54 = zext i16 %53 to i64
-  %55 = icmp ult i64 %52, %54
+  %55 = icmp samesign ult i64 %52, %54
   br i1 %55, label %42, label %._crit_edge.i16, !llvm.loop !49
 
 ._crit_edge.i16:                                  ; preds = %42
@@ -5358,7 +5358,7 @@ _ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit: ; preds = %3
   %24 = add nuw nsw i64 %.022.i, 1
   %25 = load i16, ptr %6, align 8
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %24, %26
+  %27 = icmp samesign ult i64 %24, %26
   br i1 %27, label %14, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %14
@@ -5427,7 +5427,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
   %51 = add nuw nsw i64 %.022.i22.us, 1
   %52 = load i16, ptr %32, align 8
   %53 = zext i16 %52 to i64
-  %54 = icmp ult i64 %51, %53
+  %54 = icmp samesign ult i64 %51, %53
   br i1 %54, label %41, label %._crit_edge.i24.us, !llvm.loop !49
 
 ._crit_edge.i24.us:                               ; preds = %41
@@ -6205,7 +6205,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %268 = and i64 %267, 1
   %269 = add nuw nsw i64 %268, %267
   %270 = lshr i64 %269, 1
-  %271 = icmp ugt i64 %269, 9007199254740991
+  %271 = icmp samesign ugt i64 %269, 9007199254740991
   %272 = zext i1 %271 to i32
   br label %288
 
@@ -6225,7 +6225,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %282 = and i64 %.sroa.0602.0, 1
   %283 = add nuw nsw i64 %282, %.sroa.0602.0
   %284 = lshr i64 %283, 1
-  %.not562 = icmp ugt i64 %283, 18014398509481983
+  %.not562 = icmp samesign ugt i64 %283, 18014398509481983
   %285 = zext i1 %.not562 to i32
   %.sroa.18609.0 = add nuw nsw i32 %260, %285
   %286 = and i64 %284, 9218868437227405311
@@ -6326,7 +6326,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %350 = and i64 %349, 1
   %351 = add nuw nsw i64 %350, %349
   %352 = lshr i64 %351, 1
-  %353 = icmp ugt i64 %351, 9007199254740991
+  %353 = icmp samesign ugt i64 %351, 9007199254740991
   %354 = zext i1 %353 to i32
   br label %370
 
@@ -6346,7 +6346,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %364 = and i64 %.sroa.0593.0, 1
   %365 = add nuw nsw i64 %364, %.sroa.0593.0
   %366 = lshr i64 %365, 1
-  %.not566 = icmp ugt i64 %365, 18014398509481983
+  %.not566 = icmp samesign ugt i64 %365, 18014398509481983
   %367 = zext i1 %.not566 to i32
   %.sroa.18.0 = add nuw nsw i32 %342, %367
   %368 = and i64 %366, 9218868437227405311
@@ -6426,7 +6426,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
 .preheader29.i:                                   ; preds = %.lr.ph.i, %413
   %.023.lcssa.i = phi i32 [ %.pre-phi, %413 ], [ %418, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %.5501, %413 ], [ %417, %.lr.ph.i ]
-  %416 = icmp ugt i64 %.0.lcssa.i, 99
+  %416 = icmp samesign ugt i64 %.0.lcssa.i, 99
   br i1 %416, label %.lr.ph35.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %413, %.lr.ph.i
@@ -6440,7 +6440,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
 .preheader.i:                                     ; preds = %.lr.ph35.i, %.preheader29.i
   %.124.lcssa.i = phi i32 [ %.023.lcssa.i, %.preheader29.i ], [ %422, %.lr.ph35.i ]
   %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %.preheader29.i ], [ %421, %.lr.ph35.i ]
-  %420 = icmp ugt i64 %.1.lcssa.i, 9
+  %420 = icmp samesign ugt i64 %.1.lcssa.i, 9
   br i1 %420, label %.lr.ph40.i, label %._crit_edge.i
 
 .lr.ph35.i:                                       ; preds = %.preheader29.i, %.lr.ph35.i
@@ -6686,7 +6686,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19positive_digit_compIdE
   %17 = add nuw nsw i64 %.01721.i.i.i.i, 1
   %18 = load i16, ptr %10, align 8
   %19 = zext i16 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
@@ -6716,7 +6716,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
 27:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
   %28 = zext i16 %.pre to i64
   %29 = add nuw nsw i64 %7, %28
-  %30 = icmp ult i64 %29, 63
+  %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %.pre, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
   br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
@@ -6803,7 +6803,7 @@ _ZNK10fast_float6bigint10bit_lengthEv.exit:       ; preds = %_ZNK10fast_float6bi
   %67 = trunc nuw nsw i64 %.pre-phi64 to i32
   %68 = xor i1 %.053, true
   %69 = and i64 %.027.i54, 2047
-  %70 = icmp ult i64 %69, 1025
+  %70 = icmp samesign ult i64 %69, 1025
   %71 = icmp ne i64 %69, 1024
   %brmerge = select i1 %71, i1 true, i1 %68
   %or.cond82 = select i1 %70, i1 %brmerge, i1 false
@@ -6826,7 +6826,7 @@ _ZZN10fast_float19positive_digit_compIdEENS_17adjusted_mantissaERNS_6bigintEiENK
   %77 = shl nuw nsw i32 %.tr.i, 6
   %78 = sub nsw i32 %77, %.0.i.i72
   %79 = add nuw nsw i64 %75, %76
-  %.not20 = icmp ult i64 %79, 9007199254740992
+  %.not20 = icmp samesign ult i64 %79, 9007199254740992
   %spec.select.v = select i1 %.not20, i32 1022, i32 1023
   %spec.select = add nsw i32 %spec.select.v, %78
   %80 = and i64 %79, 13510798882111487
@@ -6940,7 +6940,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIdE
   %56 = add nuw nsw i64 %.01721.i.i.i, 1
   %57 = load i16, ptr %34, align 8
   %58 = zext i16 %57 to i64
-  %59 = icmp ult i64 %56, %58
+  %59 = icmp samesign ult i64 %56, %58
   br i1 %59, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
@@ -6969,7 +6969,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bi
   %67 = load i16, ptr %34, align 8
   %68 = zext i16 %67 to i64
   %69 = add nuw nsw i64 %47, %68
-  %70 = icmp ult i64 %69, 63
+  %70 = icmp samesign ult i64 %69, 63
   %71 = icmp ne i16 %67, 0
   %or.cond.not.i.i.i = and i1 %71, %70
   br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
@@ -7024,7 +7024,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i:      ; preds = %66
   %95 = add nuw nsw i64 %.01721.i.i.i103, 1
   %96 = load i16, ptr %88, align 8
   %97 = zext i16 %96 to i64
-  %98 = icmp ult i64 %95, %97
+  %98 = icmp samesign ult i64 %95, %97
   br i1 %98, label %.lr.ph.i.i.i101, label %._crit_edge.i.i.i104, !llvm.loop !57
 
 ._crit_edge.i.i.i104:                             ; preds = %.lr.ph.i.i.i101
@@ -7054,7 +7054,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float
   %107 = load i16, ptr %106, align 8
   %108 = zext i16 %107 to i64
   %109 = add nuw nsw i64 %85, %108
-  %110 = icmp ult i64 %109, 63
+  %110 = icmp samesign ult i64 %109, 63
   %111 = icmp ne i16 %107, 0
   %or.cond.not.i.i.i109 = and i1 %111, %110
   br i1 %or.cond.not.i.i.i109, label %.lr.ph.i.i.i.i.preheader.i.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
@@ -7141,7 +7141,7 @@ _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_i
   %narrow168 = select i1 %135, i1 true, i1 %..i.i120
   %.0.i.i121 = zext i1 %narrow168 to i64
   %148 = add nuw nsw i64 %145, %.0.i.i121
-  %.not95 = icmp ult i64 %148, 9007199254740992
+  %.not95 = icmp samesign ult i64 %148, 9007199254740992
   %spec.select159.v = select i1 %.not95, i32 11, i32 12
   %spec.select159 = add nsw i32 %spec.select159.v, %2
   %149 = and i64 %148, 13510798882111487

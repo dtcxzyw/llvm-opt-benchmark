@@ -1580,7 +1580,7 @@ if.end26.i:                                       ; preds = %if.end20.i
   %max_append_sectors.i = getelementptr inbounds i8, ptr %call.i25, i64 16564
   %15 = load i32, ptr %max_append_sectors.i, align 4
   %conv29.i = zext i32 %15 to i64
-  %cmp30.i = icmp ugt i64 %div2720.i, %conv29.i
+  %cmp30.i = icmp samesign ugt i64 %div2720.i, %conv29.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end
 
 if.then32.i:                                      ; preds = %if.end26.i
@@ -2788,7 +2788,7 @@ if.then20:                                        ; preds = %if.end16
 
 is_power_of_2.exit:                               ; preds = %if.end16
   %3 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %2)
-  %tobool1.not.i = icmp ugt i16 %3, 1
+  %tobool1.not.i = icmp samesign ugt i16 %3, 1
   %cmp29 = icmp ugt i16 %2, 1024
   %or.cond83 = or i1 %cmp29, %tobool1.not.i
   br i1 %or.cond83, label %if.then31, label %if.end34
@@ -2902,7 +2902,7 @@ for.body:                                         ; preds = %if.end91, %for.body
   %inc = add nuw nsw i32 %i.086, 1
   %19 = load i16, ptr %num_queues, align 4
   %conv103 = zext i16 %19 to i32
-  %cmp104 = icmp ult i32 %inc, %conv103
+  %cmp104 = icmp samesign ult i32 %inc, %conv103
   br i1 %cmp104, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end91
@@ -2930,7 +2930,7 @@ for.body123:                                      ; preds = %if.then117, %for.bo
   %inc125 = add nuw nsw i32 %i.189, 1
   %23 = load i16, ptr %num_queues, align 4
   %conv120 = zext i16 %23 to i32
-  %cmp121 = icmp ult i32 %inc125, %conv120
+  %cmp121 = icmp samesign ult i32 %inc125, %conv120
   br i1 %cmp121, label %for.body123, label %for.end126, !llvm.loop !16
 
 for.end126:                                       ; preds = %for.body123, %if.then117
@@ -2985,7 +2985,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw nsw i32 %i.017, 1
   %3 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %3 to i32
-  %cmp = icmp ult i32 %inc, %conv
+  %cmp = icmp samesign ult i32 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
@@ -3701,7 +3701,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %4 = load i16, ptr %num_queues, align 4
   %5 = zext i16 %4 to i32
-  %cmp = icmp ult i32 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i32 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader, %entry, %lor.lhs.false
@@ -3739,7 +3739,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %4 = load i16, ptr %num_queues, align 4
   %5 = zext i16 %4 to i32
-  %cmp = icmp ult i32 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i32 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader, %entry, %lor.lhs.false

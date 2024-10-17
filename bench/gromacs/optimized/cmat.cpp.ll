@@ -394,7 +394,7 @@ define void @_Z13low_rmsd_distPKcfiPPfPK16gmx_output_env_t(ptr noundef %0, float
   %indvars.iv47 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next48, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph42.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %16 = icmp ult i64 %indvars.iv.next48, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next48, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph42

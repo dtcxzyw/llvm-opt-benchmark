@@ -631,7 +631,7 @@ define dso_local noundef i32 @rb_cloexec_open(ptr nocapture noundef readonly %0,
   %7 = tail call ptr @rb_errno_ptr() #24
   %8 = load i32, ptr %7, align 4
   %9 = icmp ne i32 %8, 11
-  %10 = icmp ugt i32 %.01418, 9999
+  %10 = icmp samesign ugt i32 %.01418, 9999
   %or.cond16 = select i1 %9, i1 true, i1 %10
   br i1 %or.cond16, label %.thread, label %11
 
@@ -7420,7 +7420,7 @@ rb_array_len.exit:                                ; preds = %14
 rb_array_len.exit.thread:                         ; preds = %14
   %19 = lshr i64 %15, 15
   %20 = and i64 %19, 127
-  %21 = icmp ult i64 %.0, %20
+  %21 = icmp samesign ult i64 %.0, %20
   br i1 %21, label %RARRAY_AREF.exit, label %.loopexit
 
 22:                                               ; preds = %rb_array_len.exit
@@ -7446,7 +7446,7 @@ declare i64 @rb_obj_as_string(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rb_io_writev(i64 noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = icmp ugt i32 %1, 1
+  %5 = icmp samesign ugt i32 %1, 1
   br i1 %5, label %6, label %51
 
 6:                                                ; preds = %3
@@ -14815,7 +14815,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_io_check_writabl
 
 79:                                               ; preds = %RSTRING_PTR.exit
   call void @rb_str_tmp_frozen_release(i64 noundef %.035, i64 noundef %61) #24
-  %80 = icmp ult i64 %72, 4611686018427387904
+  %80 = icmp samesign ult i64 %72, 4611686018427387904
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %79
@@ -27617,7 +27617,7 @@ rb_array_len.exit.i:                              ; preds = %Check_Type.exit.i
 rb_array_len.exit.thread.i:                       ; preds = %Check_Type.exit.i
   %30 = lshr i64 %26, 15
   %31 = and i64 %30, 127
-  %32 = icmp ult i64 %.0128.i, %31
+  %32 = icmp samesign ult i64 %.0128.i, %31
   br i1 %32, label %RARRAY_AREF.exit.i, label %69
 
 33:                                               ; preds = %rb_array_len.exit.i
@@ -27755,7 +27755,7 @@ rb_array_len.exit166.i:                           ; preds = %Check_Type.exit163.
 rb_array_len.exit166.thread.i:                    ; preds = %Check_Type.exit163.i
   %90 = lshr i64 %86, 15
   %91 = and i64 %90, 127
-  %92 = icmp ult i64 %.1129.i, %91
+  %92 = icmp samesign ult i64 %.1129.i, %91
   br i1 %92, label %RARRAY_AREF.exit169.i, label %.loopexit349.i
 
 93:                                               ; preds = %rb_array_len.exit166.i
@@ -27880,7 +27880,7 @@ rb_array_len.exit181.i:                           ; preds = %Check_Type.exit178.
 rb_array_len.exit181.thread.i:                    ; preds = %Check_Type.exit178.i
   %145 = lshr i64 %141, 15
   %146 = and i64 %145, 127
-  %147 = icmp ult i64 %.2.i, %146
+  %147 = icmp samesign ult i64 %.2.i, %146
   br i1 %147, label %RARRAY_AREF.exit184.i, label %.loopexit348.i
 
 148:                                              ; preds = %rb_array_len.exit181.i

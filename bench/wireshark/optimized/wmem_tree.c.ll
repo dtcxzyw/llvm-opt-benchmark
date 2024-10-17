@@ -1606,7 +1606,7 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
   %67 = load i32, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = zext i32 %64 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %8, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %63
@@ -1685,7 +1685,7 @@ wmem_tree_lookup32.exit13:                        ; preds = %.lr.ph.i6
   %23 = getelementptr i32, ptr %22, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = icmp ult i64 %indvars.iv.next.i, %7
+  %25 = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %25, label %8, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %._crit_edge48.i
@@ -1849,7 +1849,7 @@ wmem_tree_lookup32_le.exit16:                     ; preds = %.lr.ph.i6, %25, %.p
   %51 = getelementptr i32, ptr %50, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = icmp ult i64 %indvars.iv.next.i, %7
+  %53 = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %53, label %8, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %._crit_edge48.i

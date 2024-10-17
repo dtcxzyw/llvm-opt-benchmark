@@ -6166,7 +6166,7 @@ default.unreachable583:                           ; preds = %1285, %1251, %1240,
   %121 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %122 = icmp ult i64 %121, 6
   tail call void @llvm.assume(i1 %122)
-  %switch.i206 = icmp ugt i64 %121, 2
+  %switch.i206 = icmp samesign ugt i64 %121, 2
   br i1 %switch.i206, label %123, label %139
 
 123:                                              ; preds = %114
@@ -52220,7 +52220,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !2262, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -52229,14 +52229,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !2262, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
 
@@ -72113,7 +72113,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr55drop
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %375, ptr noundef nonnull align 8 dereferenceable(24) %370, i64 24, i1 false), !noalias !19064
   %376 = getelementptr inbounds i8, ptr %1, i64 160
   %377 = load ptr, ptr %376, align 8, !noalias !19064, !nonnull !4, !align !5, !noundef !4
-  %switch.i84 = icmp ult i8 %374, 2
+  %switch.i84 = icmp samesign ult i8 %374, 2
   %.pre.i85 = load i64, ptr %375, align 8, !noalias !19064
   %378 = icmp eq i64 %.pre.i85, 0
   br i1 %switch.i84, label %381, label %379
@@ -78489,7 +78489,7 @@ define void @_ZN9extension9wasm_host28parse_wasm_extension_version17hd5273accb2e
 
 43:                                               ; preds = %35, %35
   %44 = load i32, ptr %18, align 8, !range !602, !alias.scope !20188, !noalias !20193, !noundef !4
-  %switch.i = icmp ult i32 %44, 2
+  %switch.i = icmp samesign ult i32 %44, 2
   %45 = load i32, ptr %19, align 4, !alias.scope !20188, !noalias !20193
   %46 = load i32, ptr %20, align 8, !alias.scope !20188, !noalias !20193
   %.sroa.613.0.i = select i1 %switch.i, i32 undef, i32 %45

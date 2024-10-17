@@ -315,7 +315,7 @@ if.then271:                                       ; preds = %if.else267
 if.end275:                                        ; preds = %if.else267, %if.then271, %if.then265
   %b.0 = phi i8 [ %6, %if.then265 ], [ %7, %if.then271 ], [ 0, %if.else267 ]
   %inc276 = add i64 %k.2182, 1
-  %8 = icmp uge i64 %j.0183, %rem
+  %8 = icmp samesign uge i64 %j.0183, %rem
   %and158172 = and i1 %4, %8
   %9 = icmp ugt i64 %j.0183, %rem
   %and285159173 = and i1 %4, %9
@@ -330,7 +330,7 @@ if.end275:                                        ; preds = %if.else267, %if.the
   %conv3.i = trunc nuw i32 %or.i.i to i8
   %and290 = select i1 %and285159173, i8 0, i8 %conv3.i
   %and296 = and i8 %and290, %or
-  %cmp299.not = icmp ult i64 %j.0183, %sub298
+  %cmp299.not = icmp samesign ult i64 %j.0183, %sub298
   br i1 %cmp299.not, label %if.end306, label %if.then301
 
 if.then301:                                       ; preds = %if.end275

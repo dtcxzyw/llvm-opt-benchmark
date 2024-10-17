@@ -1291,7 +1291,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 769:                                              ; preds = %786, %764
   %770 = phi i64 [ 1, %764 ], [ %787, %786 ]
-  %771 = icmp ult i64 %770, %766
+  %771 = icmp samesign ult i64 %770, %766
   br i1 %771, label %772, label %786
 
 772:                                              ; preds = %769
@@ -1531,7 +1531,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 910:                                              ; preds = %927, %905
   %911 = phi i64 [ 1, %905 ], [ %928, %927 ]
-  %912 = icmp ult i64 %911, %907
+  %912 = icmp samesign ult i64 %911, %907
   br i1 %912, label %913, label %927
 
 913:                                              ; preds = %910
@@ -1647,7 +1647,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 976:                                              ; preds = %993, %971
   %977 = phi i64 [ 1, %971 ], [ %994, %993 ]
-  %978 = icmp ult i64 %977, %973
+  %978 = icmp samesign ult i64 %977, %973
   br i1 %978, label %979, label %993
 
 979:                                              ; preds = %976
@@ -1841,7 +1841,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
 
 1082:                                             ; preds = %1099, %1077
   %1083 = phi i64 [ 1, %1077 ], [ %1100, %1099 ]
-  %1084 = icmp ult i64 %1083, %1079
+  %1084 = icmp samesign ult i64 %1083, %1079
   br i1 %1084, label %1085, label %1099
 
 1085:                                             ; preds = %1082
@@ -1938,7 +1938,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
 
 1135:                                             ; preds = %1152, %1130
   %1136 = phi i64 [ 1, %1130 ], [ %1153, %1152 ]
-  %1137 = icmp ult i64 %1136, %1132
+  %1137 = icmp samesign ult i64 %1136, %1132
   br i1 %1137, label %1138, label %1152
 
 1138:                                             ; preds = %1135
@@ -2100,7 +2100,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
 
 1231:                                             ; preds = %1248, %1226
   %1232 = phi i64 [ 1, %1226 ], [ %1249, %1248 ]
-  %1233 = icmp ult i64 %1232, %1228
+  %1233 = icmp samesign ult i64 %1232, %1228
   br i1 %1233, label %1234, label %1248
 
 1234:                                             ; preds = %1231
@@ -2153,7 +2153,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
 
 1261:                                             ; preds = %1278, %1256
   %1262 = phi i64 [ 1, %1256 ], [ %1279, %1278 ]
-  %1263 = icmp ult i64 %1262, %1258
+  %1263 = icmp samesign ult i64 %1262, %1258
   br i1 %1263, label %1264, label %1278
 
 1264:                                             ; preds = %1261

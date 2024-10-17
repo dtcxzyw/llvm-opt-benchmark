@@ -1290,7 +1290,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   %.1598 = phi ptr [ %520, %526 ], [ %537, %536 ]
   %.16 = phi i32 [ %523, %526 ], [ %.8589.ph, %536 ]
   %543 = call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %.7676)
-  %544 = icmp ult i32 %543, 2
+  %544 = icmp samesign ult i32 %543, 2
   br i1 %544, label %552, label %.preheader886
 
 .preheader886:                                    ; preds = %542
@@ -1812,7 +1812,7 @@ define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapt
   %33 = zext i8 %27 to i32
   %.148 = add nuw nsw i32 %33, 1
   %34 = zext i8 %23 to i32
-  %35 = icmp ult i32 %.148, %34
+  %35 = icmp samesign ult i32 %.148, %34
   br i1 %35, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %32
@@ -1827,7 +1827,7 @@ define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i8, ptr %.239, align 1
   %40 = zext i8 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %29

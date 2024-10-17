@@ -1052,8 +1052,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25EmitObjCCollec
 68:                                               ; preds = %63
   %.not.i = icmp ne i32 %66, 10
   %69 = and i64 %65, 9223372032559808512
-  %70 = icmp ugt i64 %69, 47244640255
-  %or.cond = or i1 %.not.i, %70
+  %70 = icmp samesign ugt i64 %69, 47244640255
+  %or.cond = select i1 %.not.i, i1 true, i1 %70
   br i1 %or.cond, label %_ZNK5clang11ObjCRuntime19hasEmptyCollectionsEv.exit.thread399, label %_ZNK5clang11ObjCRuntime19hasEmptyCollectionsEv.exit.thread
 
 71:                                               ; preds = %58
@@ -2245,8 +2245,8 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime38GeneratePossiblySpecial
 33:                                               ; preds = %28
   %.not11.i.i = icmp ne i32 %31, 10
   %34 = and i64 %30, 9223372028264841216
-  %35 = icmp ugt i64 %34, 42949672959
-  %or.cond.i = or i1 %.not11.i.i, %35
+  %35 = icmp samesign ugt i64 %34, 42949672959
+  %or.cond.i = select i1 %.not11.i.i, i1 true, i1 %35
   br i1 %or.cond.i, label %_ZNK5clang11ObjCRuntime33shouldUseRuntimeFunctionsForAllocEv.exit.thread.i, label %185
 
 36:                                               ; preds = %26
@@ -3307,7 +3307,7 @@ _ZL14findWeakLValuePKN5clang4ExprE.exit.thread:   ; preds = %_ZNK5clang8QualType
   br i1 %.not19.i.i, label %123, label %_ZNK5clang11ObjCRuntime44shouldUseRuntimeFunctionForCombinedAllocInitEv.exit.thread59.i
 
 123:                                              ; preds = %122
-  %124 = icmp ult i32 %118, 14
+  %124 = icmp samesign ult i32 %118, 14
   br i1 %124, label %259, label %125
 
 125:                                              ; preds = %123
@@ -5340,7 +5340,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %32, %36
 
 _ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit: ; preds = %53
   %57 = and i64 %55, 9223372032559808512
-  %58 = icmp ugt i64 %57, 30064771071
+  %58 = icmp samesign ugt i64 %57, 30064771071
   br i1 %58, label %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread, label %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread141
 
 _ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread: ; preds = %53, %50, %50, %50, %50, %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit
@@ -7278,7 +7278,7 @@ _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread: ; preds = %100, %_
 147:                                              ; preds = %.thread
   %148 = load i64, ptr %5, align 8
   %149 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %148)
-  %150 = icmp ult i64 %149, 2
+  %150 = icmp samesign ult i64 %149, 2
   br i1 %150, label %154, label %151
 
 151:                                              ; preds = %147
@@ -8334,7 +8334,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit104: ; 
 
 _ZL18UseOptimizedSetterRN5clang7CodeGen13CodeGenModuleE.exit: ; preds = %316
   %320 = and i64 %318, 9223372032559808512
-  %321 = icmp ugt i64 %320, 30064771071
+  %321 = icmp samesign ugt i64 %320, 30064771071
   br i1 %321, label %_ZL18UseOptimizedSetterRN5clang7CodeGen13CodeGenModuleE.exit.thread468, label %_ZL18UseOptimizedSetterRN5clang7CodeGen13CodeGenModuleE.exit.thread
 
 _ZL18UseOptimizedSetterRN5clang7CodeGen13CodeGenModuleE.exit.thread468: ; preds = %305, %316, %302, %311, %_ZL18UseOptimizedSetterRN5clang7CodeGen13CodeGenModuleE.exit
@@ -9932,7 +9932,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %30, %34
 
 _ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit: ; preds = %51
   %55 = and i64 %53, 9223372032559808512
-  %56 = icmp ugt i64 %55, 30064771071
+  %56 = icmp samesign ugt i64 %55, 30064771071
   br i1 %56, label %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread, label %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread131
 
 _ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit.thread: ; preds = %51, %48, %48, %48, %48, %_ZNK5clang11ObjCRuntime19hasAtomicCopyHelperEv.exit
@@ -13905,8 +13905,8 @@ define internal fastcc noundef ptr @_ZL15getARCIntrinsicjRN5clang7CodeGen13CodeG
 15:                                               ; preds = %10
   %.not17.i.i = icmp ne i32 %13, 10
   %16 = and i64 %12, 9223372032559808512
-  %17 = icmp ugt i64 %16, 30064771071
-  %or.cond.i = or i1 %.not17.i.i, %17
+  %17 = icmp samesign ugt i64 %16, 30064771071
+  %or.cond.i = select i1 %.not17.i.i, i1 true, i1 %17
   br i1 %or.cond.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEPN4llvm5ValueE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i
 
 18:                                               ; preds = %7
@@ -13919,8 +13919,8 @@ define internal fastcc noundef ptr @_ZL15getARCIntrinsicjRN5clang7CodeGen13CodeG
 23:                                               ; preds = %18
   %.not15.i.i = icmp ne i32 %21, 10
   %24 = and i64 %20, 9223372032559808512
-  %25 = icmp ugt i64 %24, 30064771071
-  %or.cond7.i = or i1 %.not15.i.i, %25
+  %25 = icmp samesign ugt i64 %24, 30064771071
+  %or.cond7.i = select i1 %.not15.i.i, i1 true, i1 %25
   br i1 %or.cond7.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEPN4llvm5ValueE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i
 
 26:                                               ; preds = %7
@@ -13944,7 +13944,7 @@ define internal fastcc noundef ptr @_ZL15getARCIntrinsicjRN5clang7CodeGen13CodeG
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i:   ; preds = %31
   %36 = and i64 %33, 9223372028264841216
-  %37 = icmp ugt i64 %36, 25769803775
+  %37 = icmp samesign ugt i64 %36, 25769803775
   br i1 %37, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEPN4llvm5ValueE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i: ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i, %31, %26, %23, %18, %15, %10, %7
@@ -14841,8 +14841,8 @@ _ZN5clang7CodeGen15CodeGenFunction13getInvokeDestEv.exit: ; preds = %2
 41:                                               ; preds = %36
   %.not17.i.i.i = icmp ne i32 %39, 10
   %42 = and i64 %38, 9223372032559808512
-  %43 = icmp ugt i64 %42, 30064771071
-  %or.cond.i.i = or i1 %.not17.i.i.i, %43
+  %43 = icmp samesign ugt i64 %42, 30064771071
+  %or.cond.i.i = select i1 %.not17.i.i.i, i1 true, i1 %43
   br i1 %or.cond.i.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 44:                                               ; preds = %33
@@ -14855,8 +14855,8 @@ _ZN5clang7CodeGen15CodeGenFunction13getInvokeDestEv.exit: ; preds = %2
 49:                                               ; preds = %44
   %.not15.i.i.i = icmp ne i32 %47, 10
   %50 = and i64 %46, 9223372032559808512
-  %51 = icmp ugt i64 %50, 30064771071
-  %or.cond7.i.i = or i1 %.not15.i.i.i, %51
+  %51 = icmp samesign ugt i64 %50, 30064771071
+  %or.cond7.i.i = select i1 %.not15.i.i.i, i1 true, i1 %51
   br i1 %or.cond7.i.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 52:                                               ; preds = %33
@@ -14880,7 +14880,7 @@ _ZN5clang7CodeGen15CodeGenFunction13getInvokeDestEv.exit: ; preds = %2
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i.i: ; preds = %57
   %62 = and i64 %59, 9223372028264841216
-  %63 = icmp ugt i64 %62, 25769803775
+  %63 = icmp samesign ugt i64 %62, 25769803775
   br i1 %63, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i: ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i.i, %57, %52, %49, %44, %41, %36, %33
@@ -15674,8 +15674,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitObjCReleaseEPN4ll
 41:                                               ; preds = %36
   %.not17.i.i.i = icmp ne i32 %39, 10
   %42 = and i64 %38, 9223372032559808512
-  %43 = icmp ugt i64 %42, 30064771071
-  %or.cond.i.i = or i1 %.not17.i.i.i, %43
+  %43 = icmp samesign ugt i64 %42, 30064771071
+  %or.cond.i.i = select i1 %.not17.i.i.i, i1 true, i1 %43
   br i1 %or.cond.i.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 44:                                               ; preds = %33
@@ -15688,8 +15688,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitObjCReleaseEPN4ll
 49:                                               ; preds = %44
   %.not15.i.i.i = icmp ne i32 %47, 10
   %50 = and i64 %46, 9223372032559808512
-  %51 = icmp ugt i64 %50, 30064771071
-  %or.cond7.i.i = or i1 %.not15.i.i.i, %51
+  %51 = icmp samesign ugt i64 %50, 30064771071
+  %or.cond7.i.i = select i1 %.not15.i.i.i, i1 true, i1 %51
   br i1 %or.cond7.i.i, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 52:                                               ; preds = %33
@@ -15713,7 +15713,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitObjCReleaseEPN4ll
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i.i: ; preds = %57
   %62 = and i64 %59, 9223372028264841216
-  %63 = icmp ugt i64 %62, 25769803775
+  %63 = icmp samesign ugt i64 %62, 25769803775
   br i1 %63, label %_ZL28setARCRuntimeFunctionLinkageRN5clang7CodeGen13CodeGenModuleEN4llvm14FunctionCalleeE.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread3.i.i: ; preds = %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.i.i, %57, %52, %49, %44, %41, %36, %33
@@ -15823,8 +15823,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction28EmitARCReclaim
 21:                                               ; preds = %16
   %.not.i = icmp ne i32 %19, 10
   %22 = and i64 %18, 9223372032559808512
-  %23 = icmp ugt i64 %22, 47244640255
-  %or.cond = or i1 %.not.i, %23
+  %23 = icmp samesign ugt i64 %22, 47244640255
+  %or.cond = select i1 %.not.i, i1 true, i1 %23
   br i1 %or.cond, label %_ZNK5clang11ObjCRuntime40hasARCUnsafeClaimAutoreleasedReturnValueEv.exit.thread7, label %_ZNK5clang11ObjCRuntime40hasARCUnsafeClaimAutoreleasedReturnValueEv.exit.thread
 
 24:                                               ; preds = %9
@@ -16439,8 +16439,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitObjCAutoreleasePo
 51:                                               ; preds = %46
   %.not17.i = icmp ne i32 %49, 10
   %52 = and i64 %48, 9223372032559808512
-  %53 = icmp ugt i64 %52, 30064771071
-  %or.cond = or i1 %.not17.i, %53
+  %53 = icmp samesign ugt i64 %52, 30064771071
+  %or.cond = select i1 %.not17.i, i1 true, i1 %53
   br i1 %or.cond, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread28
 
 54:                                               ; preds = %15
@@ -16453,8 +16453,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitObjCAutoreleasePo
 59:                                               ; preds = %54
   %.not15.i = icmp ne i32 %57, 10
   %60 = and i64 %56, 9223372032559808512
-  %61 = icmp ugt i64 %60, 30064771071
-  %or.cond32 = or i1 %.not15.i, %61
+  %61 = icmp samesign ugt i64 %60, 30064771071
+  %or.cond32 = select i1 %.not15.i, i1 true, i1 %61
   br i1 %or.cond32, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread28
 
 62:                                               ; preds = %15
@@ -16478,7 +16478,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitObjCAutoreleasePo
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit:     ; preds = %67
   %72 = and i64 %69, 9223372028264841216
-  %73 = icmp ugt i64 %72, 25769803775
+  %73 = icmp samesign ugt i64 %72, 25769803775
   br i1 %73, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread28
 
 _ZNK5clang11ObjCRuntime12hasNativeARCEv.exit.thread: ; preds = %67, %59, %51, %15, %15, %62, %_ZNK5clang11ObjCRuntime12hasNativeARCEv.exit
@@ -17622,7 +17622,7 @@ _ZL44isFoundationNeededForDarwinAvailabilityCheckRKN4llvm6TripleERKNS_12VersionT
   %31 = trunc nuw i64 %30 to i32
   %32 = and i32 %31, 2147483647
   %33 = icmp uge i32 %25, %24
-  %34 = icmp ult i32 %32, %29
+  %34 = icmp samesign ult i32 %32, %29
   %spec.select.i = select i1 %33, i1 %34, i1 false
   br i1 %spec.select.i, label %_ZL44isFoundationNeededForDarwinAvailabilityCheckRKN4llvm6TripleERKNS_12VersionTupleE.exit.thread, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
@@ -17954,7 +17954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang11ObjCRuntime37shouldUs
 
 9:                                                ; preds = %8
   %10 = and i64 %5, 9223372028264841216
-  %11 = icmp ugt i64 %10, 42949672959
+  %11 = icmp samesign ugt i64 %10, 42949672959
   br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
 12:                                               ; preds = %1

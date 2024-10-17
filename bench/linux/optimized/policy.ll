@@ -182,7 +182,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   %64 = getelementptr inbounds i8, ptr %129, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next, %66
   br i1 %67, label %.preheader23, label %.loopexit24, !llvm.loop !16
 
 .preheader23:                                     ; preds = %.loopexit26, %63
@@ -753,7 +753,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   store i16 %166, ptr %33, align 2
   %167 = trunc i64 %165 to i32
   %168 = and i32 %167, 65535
-  %169 = icmp ult i32 %26, %168
+  %169 = icmp samesign ult i32 %26, %168
   br i1 %169, label %170, label %184, !prof !5
 
 170:                                              ; preds = %158

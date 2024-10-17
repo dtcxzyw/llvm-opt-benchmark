@@ -1720,7 +1720,7 @@ invoke.cont29:                                    ; preds = %if.then.i.i.i.i66, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %this, align 8, !tbaa !7
   %23 = zext i32 %22 to i64
-  %cmp24 = icmp ult i64 %indvars.iv.next, %23
+  %cmp24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp24, label %for.body, label %if.end, !llvm.loop !117
 
 if.end:                                           ; preds = %invoke.cont29, %invoke.cont22, %entry

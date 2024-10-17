@@ -747,7 +747,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 _ZL10isAlefCharDs.exit:                           ; preds = %for.body, %for.body, %for.body, %for.body
-  %cmp21 = icmp ult i64 %indvars.iv, %2
+  %cmp21 = icmp samesign ult i64 %indvars.iv, %2
   br i1 %cmp21, label %land.lhs.true22, label %lor.lhs.false26
 
 land.lhs.true22:                                  ; preds = %_ZL10isAlefCharDs.exit
@@ -777,7 +777,7 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %arrayidx40 = getelementptr inbounds i16, ptr %source, i64 %indvars.iv72
   %6 = load i16, ptr %arrayidx40, align 2
   %cmp42 = icmp eq i16 %6, 1604
-  %cmp45 = icmp ult i64 %indvars.iv72, %3
+  %cmp45 = icmp samesign ult i64 %indvars.iv72, %3
   %or.cond41 = select i1 %cmp42, i1 %cmp45, i1 false
   br i1 %or.cond41, label %land.lhs.true46, label %lor.lhs.false52
 
@@ -1927,7 +1927,7 @@ if.else.us.us:                                    ; preds = %for.body.us.us
   ]
 
 land.lhs.true22.us.us:                            ; preds = %if.else.us.us, %if.else.us.us
-  %cmp24.us.us = icmp ult i64 %indvars.iv98, %0
+  %cmp24.us.us = icmp samesign ult i64 %indvars.iv98, %0
   br i1 %cmp24.us.us, label %land.lhs.true25.us.us, label %if.else34.us.us
 
 land.lhs.true25.us.us:                            ; preds = %land.lhs.true22.us.us
@@ -1948,7 +1948,7 @@ if.else34.us.us:                                  ; preds = %land.lhs.true25.us.
   %switch.selectcmp.case1.i.us.us = icmp eq i16 %1, -397
   %switch.selectcmp.case2.i.us.us = icmp eq i16 %1, 8203
   %switch.selectcmp.i.us.us = or i1 %switch.selectcmp.case1.i.us.us, %switch.selectcmp.case2.i.us.us
-  %cmp41.us.us = icmp ult i64 %indvars.iv98, %0
+  %cmp41.us.us = icmp samesign ult i64 %indvars.iv98, %0
   %or.cond43.us.us = select i1 %switch.selectcmp.i.us.us, i1 %cmp41.us.us, i1 false
   br i1 %or.cond43.us.us, label %land.lhs.true42.us.us, label %if.else51.us.us
 
@@ -2020,7 +2020,7 @@ if.else.us:                                       ; preds = %for.body.us
   %switch.selectcmp.case1.i.us = icmp eq i16 %14, -397
   %switch.selectcmp.case2.i.us = icmp eq i16 %14, 8203
   %switch.selectcmp.i.us = or i1 %switch.selectcmp.case1.i.us, %switch.selectcmp.case2.i.us
-  %cmp41.us = icmp ult i64 %indvars.iv93, %0
+  %cmp41.us = icmp samesign ult i64 %indvars.iv93, %0
   %or.cond43.us = select i1 %switch.selectcmp.i.us, i1 %cmp41.us, i1 false
   br i1 %or.cond43.us, label %land.lhs.true42.us, label %if.else51.us
 
@@ -2103,7 +2103,7 @@ if.else.us58:                                     ; preds = %for.body.us51
   ]
 
 land.lhs.true22.us60:                             ; preds = %if.else.us58, %if.else.us58
-  %cmp24.us61 = icmp ult i64 %indvars.iv88, %26
+  %cmp24.us61 = icmp samesign ult i64 %indvars.iv88, %26
   br i1 %cmp24.us61, label %land.lhs.true25.us62, label %if.else34.us65
 
 land.lhs.true25.us62:                             ; preds = %land.lhs.true22.us60
@@ -2891,7 +2891,7 @@ for.body.i110:                                    ; preds = %for.inc.i113, %for.
   ]
 
 _ZL10isAlefCharDs.exit.i:                         ; preds = %for.body.i110, %for.body.i110, %for.body.i110, %for.body.i110
-  %cmp21.i = icmp ult i64 %indvars.iv.i111, %61
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.i111, %61
   br i1 %cmp21.i, label %land.lhs.true22.i, label %lor.lhs.false26.i
 
 land.lhs.true22.i:                                ; preds = %_ZL10isAlefCharDs.exit.i
@@ -2921,7 +2921,7 @@ for.body38.i:                                     ; preds = %for.inc60.i, %for.b
   %arrayidx40.i = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv72.i
   %65 = load i16, ptr %arrayidx40.i, align 2
   %cmp42.i = icmp eq i16 %65, 1604
-  %cmp45.i = icmp ult i64 %indvars.iv72.i, %62
+  %cmp45.i = icmp samesign ult i64 %indvars.iv72.i, %62
   %or.cond41.i = select i1 %cmp42.i, i1 %cmp45.i, i1 false
   br i1 %or.cond41.i, label %land.lhs.true46.i, label %lor.lhs.false52.i
 
@@ -3025,7 +3025,7 @@ if.end94:                                         ; preds = %while.body, %if.the
   store i16 %.sink, ptr %arrayidx93, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc96 = add nsw i32 %j.0138.sink, 1
-  %cmp74 = icmp ult i64 %indvars.iv.next, %72
+  %cmp74 = icmp samesign ult i64 %indvars.iv.next, %72
   %cmp75 = icmp slt i32 %inc96, %destSize.addr.5.i
   %77 = select i1 %cmp74, i1 %cmp75, i1 false
   br i1 %77, label %while.body, label %if.then101, !llvm.loop !28

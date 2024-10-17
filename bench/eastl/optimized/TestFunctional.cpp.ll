@@ -2699,7 +2699,7 @@ while.end.i660:                                   ; preds = %if.end.i664, %for.b
   %.lcssa.i661 = phi i32 [ %102, %for.body100 ], [ %105, %if.end.i664 ]
   %conv6.i = and i32 %.lcssa10.i, 255
   %conv7.i = and i32 %.lcssa.i661, 255
-  %cmp8.i = icmp ult i32 %conv6.i, %conv7.i
+  %cmp8.i = icmp samesign ult i32 %conv6.i, %conv7.i
   br label %_ZNK5eastl8str_lessIPKwEclES2_S2_.exit
 
 _ZNK5eastl8str_lessIPKwEclES2_S2_.exit:           ; preds = %while.body.i663, %while.end.i660

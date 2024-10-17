@@ -2802,7 +2802,7 @@ for.body6:                                        ; preds = %do.body, %for.cond4
   %indvars.iv75 = phi i64 [ 1, %do.body ], [ %indvars.iv.next76, %for.cond4.loopexit ]
   %er.059 = phi double [ 0.000000e+00, %do.body ], [ %er.1.lcssa, %for.cond4.loopexit ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %cmp856 = icmp ult i64 %indvars.iv82, 2
+  %cmp856 = icmp samesign ult i64 %indvars.iv82, 2
   br i1 %cmp856, label %for.body9.lr.ph, label %for.cond4.loopexit
 
 for.body9.lr.ph:                                  ; preds = %for.body6
@@ -2841,7 +2841,7 @@ for.body25:                                       ; preds = %for.end17, %for.con
   %ip.070 = phi i32 [ %ip.1.lcssa, %for.cond23.loopexit ], [ 0, %for.end17 ]
   %max_element.069 = phi double [ %max_element.1.lcssa, %for.cond23.loopexit ], [ 0.000000e+00, %for.end17 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %cmp2961 = icmp ult i64 %indvars.iv94, 2
+  %cmp2961 = icmp samesign ult i64 %indvars.iv94, 2
   br i1 %cmp2961, label %for.body30.lr.ph, label %for.cond23.loopexit
 
 for.body30.lr.ph:                                 ; preds = %for.body25
@@ -21914,7 +21914,7 @@ for.body:                                         ; preds = %entry, %for.cond.lo
   %2 = tail call double @llvm.fabs.f64(double %1)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %invariant.gep = getelementptr inbounds double, ptr %temp, i64 %indvars.iv161
-  %cmp3123 = icmp ult i64 %indvars.iv161, 3
+  %cmp3123 = icmp samesign ult i64 %indvars.iv161, 3
   %3 = trunc nuw nsw i64 %indvars.iv161 to i32
   br i1 %cmp3123, label %for.body4, label %for.end
 

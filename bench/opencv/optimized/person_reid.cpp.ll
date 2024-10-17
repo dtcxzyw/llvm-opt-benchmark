@@ -1465,7 +1465,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %496, %494, %490, %4
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i11.i.i, %505
   %.0.lcssa.i.i.i = phi i32 [ %483, %505 ], [ %510, %.lr.ph.i11.i.i ]
-  %525 = icmp ugt i32 %.0.lcssa.i.i.i, 9
+  %525 = icmp samesign ugt i32 %.0.lcssa.i.i.i, 9
   br i1 %525, label %526, label %536
 
 526:                                              ; preds = %._crit_edge.i.i.i

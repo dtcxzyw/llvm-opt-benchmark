@@ -1184,7 +1184,7 @@ switch.early.test123:                             ; preds = %47
   br i1 %.not103, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %78, %79
-  %81 = icmp ult i32 %.081133, %.082
+  %81 = icmp samesign ult i32 %.081133, %.082
   br i1 %81, label %82, label %.thread114
 
 82:                                               ; preds = %.thread
@@ -1196,7 +1196,7 @@ switch.early.test123:                             ; preds = %47
   %84 = add nuw nsw i32 %.081133, 1
   %85 = getelementptr inbounds i8, ptr %.179134, i64 16
   %.not100 = icmp eq i32 %.184, 0
-  %86 = icmp ult i32 %.081133, %.082
+  %86 = icmp samesign ult i32 %.081133, %.082
   %87 = select i1 %.not100, i1 %86, i1 false
   br i1 %87, label %25, label %.loopexit, !llvm.loop !20
 

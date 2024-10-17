@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef range(i32 0, 7) i32 @_Z36ObjectAlignmentInBytesConstraintFuncib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 0
   %4 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
-  %5 = icmp ult i32 %4, 2
+  %5 = icmp samesign ult i32 %4, 2
   %or.cond = select i1 %3, i1 %5, i1 false
   br i1 %or.cond, label %6, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

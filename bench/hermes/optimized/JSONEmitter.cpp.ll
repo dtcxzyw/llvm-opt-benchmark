@@ -462,7 +462,7 @@ if.then7.i.i:                                     ; preds = %if.then.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i
   %and9.i.i = shl nsw i32 %conv.i.i, 6
   %shl.i.i = and i32 %and9.i.i, 1984
-  %cmp11.i.i = icmp ult i32 %shl.i.i, 128
+  %cmp11.i.i = icmp samesign ult i32 %shl.i.i, 128
   br i1 %cmp11.i.i, label %if.then13.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit"
 
 if.then13.i.i:                                    ; preds = %if.end.i.i
@@ -504,7 +504,7 @@ if.end44.i.i:                                     ; preds = %if.end31.i.i
   %and48.i.i = shl nsw i32 %conv22.i.i, 6
   %shl49.i.i = and i32 %and48.i.i, 4032
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
-  %cmp53.i.i = icmp ult i32 %or50.i.i, 2048
+  %cmp53.i.i = icmp samesign ult i32 %or50.i.i, 2048
   br i1 %cmp53.i.i, label %if.then55.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147"
 
 if.then55.i.i:                                    ; preds = %if.end44.i.i
@@ -564,7 +564,7 @@ if.end112.i.i:                                    ; preds = %if.end99.i.i
   %and116.i.i = shl nsw i32 %conv74.i.i, 12
   %shl117.i.i = and i32 %and116.i.i, 258048
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
-  %cmp124.i.i = icmp ult i32 %or118.i.i, 65536
+  %cmp124.i.i = icmp samesign ult i32 %or118.i.i, 65536
   br i1 %cmp124.i.i, label %if.then126.i.i, label %if.end128.i.i
 
 if.then126.i.i:                                   ; preds = %if.end112.i.i
@@ -578,7 +578,7 @@ if.end128.i.i:                                    ; preds = %if.end112.i.i
   %15 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %15, %or118.i.i
   %add.ptr113.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 4
-  %cmp129.i.i = icmp ugt i32 %or118.i.i, 1114111
+  %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   br i1 %cmp129.i.i, label %if.then131.i.i, label %if.then
 
 if.then131.i.i:                                   ; preds = %if.end128.i.i

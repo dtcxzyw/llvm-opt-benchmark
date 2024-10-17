@@ -2255,7 +2255,7 @@ hexval.exit38:                                    ; preds = %42
   %46 = shl i32 %.274, 4
   %47 = or i32 %45, %46
   %48 = add nuw nsw i32 %.02775, 1
-  %49 = icmp ult i32 %.02775, 3
+  %49 = icmp samesign ult i32 %.02775, 3
   %50 = icmp slt i64 %indvars.iv.next, %5
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !15

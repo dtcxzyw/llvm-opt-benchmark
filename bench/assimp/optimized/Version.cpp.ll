@@ -168,7 +168,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   %6 = phi i32 [ %3, %for.body ], [ %.pre, %delete.notnull6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.inc, %land.lhs.true, %delete.end
@@ -212,7 +212,7 @@ for.inc27:                                        ; preds = %for.body20, %delete
   %14 = phi i32 [ %11, %for.body20 ], [ %.pre62, %delete.notnull25 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %15 = zext i32 %14 to i64
-  %cmp19 = icmp ult i64 %indvars.iv.next48, %15
+  %cmp19 = icmp samesign ult i64 %indvars.iv.next48, %15
   br i1 %cmp19, label %for.body20, label %if.end30, !llvm.loop !6
 
 if.end30:                                         ; preds = %for.inc27, %land.lhs.true13, %delete.end11
@@ -256,7 +256,7 @@ for.inc50:                                        ; preds = %for.body43, %delete
   %22 = phi i32 [ %19, %for.body43 ], [ %.pre63, %delete.notnull48 ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %23 = zext i32 %22 to i64
-  %cmp42 = icmp ult i64 %indvars.iv.next51, %23
+  %cmp42 = icmp samesign ult i64 %indvars.iv.next51, %23
   br i1 %cmp42, label %for.body43, label %if.end53, !llvm.loop !7
 
 if.end53:                                         ; preds = %for.inc50, %land.lhs.true36, %delete.end34
@@ -309,7 +309,7 @@ for.inc73:                                        ; preds = %for.body66, %_ZN9ai
   %31 = phi i32 [ %27, %for.body66 ], [ %.pre64, %_ZN9aiTextureD2Ev.exit ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %32 = zext i32 %31 to i64
-  %cmp65 = icmp ult i64 %indvars.iv.next54, %32
+  %cmp65 = icmp samesign ult i64 %indvars.iv.next54, %32
   br i1 %cmp65, label %for.body66, label %if.end76, !llvm.loop !8
 
 if.end76:                                         ; preds = %for.inc73, %land.lhs.true59, %delete.end57
@@ -352,7 +352,7 @@ for.inc96:                                        ; preds = %for.body89, %delete
   %39 = phi i32 [ %36, %for.body89 ], [ %.pre65, %delete.notnull94 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %40 = zext i32 %39 to i64
-  %cmp88 = icmp ult i64 %indvars.iv.next57, %40
+  %cmp88 = icmp samesign ult i64 %indvars.iv.next57, %40
   br i1 %cmp88, label %for.body89, label %if.end99, !llvm.loop !9
 
 if.end99:                                         ; preds = %for.inc96, %land.lhs.true82, %delete.end80
@@ -395,7 +395,7 @@ for.inc119:                                       ; preds = %for.body112, %delet
   %47 = phi i32 [ %44, %for.body112 ], [ %.pre66, %delete.notnull117 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %48 = zext i32 %47 to i64
-  %cmp111 = icmp ult i64 %indvars.iv.next60, %48
+  %cmp111 = icmp samesign ult i64 %indvars.iv.next60, %48
   br i1 %cmp111, label %for.body112, label %if.end122, !llvm.loop !10
 
 if.end122:                                        ; preds = %for.inc119, %land.lhs.true105, %delete.end103
@@ -614,7 +614,7 @@ for.inc60:                                        ; preds = %_ZNSt13unordered_se
   %15 = phi i32 [ %.pre, %_ZNSt13unordered_setIPK6aiBoneSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE6insertERKS2_.exit ], [ %12, %for.body50 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %16 = zext i32 %15 to i64
-  %cmp49 = icmp ult i64 %indvars.iv.next49, %16
+  %cmp49 = icmp samesign ult i64 %indvars.iv.next49, %16
   br i1 %cmp49, label %for.body50, label %for.end62, !llvm.loop !14
 
 for.end62:                                        ; preds = %for.inc60
@@ -714,7 +714,7 @@ for.inc98:                                        ; preds = %for.body91, %delete
   %31 = phi i32 [ %28, %for.body91 ], [ %.pre55, %delete.notnull96 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %32 = zext i32 %31 to i64
-  %cmp90 = icmp ult i64 %indvars.iv.next52, %32
+  %cmp90 = icmp samesign ult i64 %indvars.iv.next52, %32
   br i1 %cmp90, label %for.body91, label %for.end100, !llvm.loop !16
 
 for.end100:                                       ; preds = %for.inc98
@@ -841,7 +841,7 @@ for.inc:                                          ; preds = %for.body, %_ZN10aiN
   %8 = phi i32 [ %2, %for.body ], [ %.pre, %_ZN10aiNodeAnimD2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
@@ -893,7 +893,7 @@ for.inc24:                                        ; preds = %for.body17, %_ZN10a
   %16 = phi i32 [ %12, %for.body17 ], [ %.pre33, %_ZN10aiMeshAnimD2Ev.exit ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %17 = zext i32 %16 to i64
-  %cmp16 = icmp ult i64 %indvars.iv.next27, %17
+  %cmp16 = icmp samesign ult i64 %indvars.iv.next27, %17
   br i1 %cmp16, label %for.body17, label %for.end26, !llvm.loop !18
 
 for.end26:                                        ; preds = %for.inc24
@@ -989,7 +989,7 @@ for.inc47:                                        ; preds = %for.body40, %_ZN15a
   %30 = phi i32 [ %20, %for.body40 ], [ %.pre35, %_ZN15aiMeshMorphAnimD2Ev.exit ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %31 = zext i32 %30 to i64
-  %cmp39 = icmp ult i64 %indvars.iv.next30, %31
+  %cmp39 = icmp samesign ult i64 %indvars.iv.next30, %31
   br i1 %cmp39, label %for.body40, label %for.end49, !llvm.loop !19
 
 for.end49:                                        ; preds = %for.inc47
@@ -1510,7 +1510,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %this, align 8
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc

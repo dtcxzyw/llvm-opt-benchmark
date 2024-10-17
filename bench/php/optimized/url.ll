@@ -661,8 +661,8 @@ php_replace_controlchars_ex.exit885:              ; preds = %140, %118
   %.0793.add = add nuw nsw i64 %.0793.idx941, 1
   %.0793.ptr = getelementptr inbounds i8, ptr %10, i64 %.0793.add
   %180 = icmp ult ptr %.0793.ptr, %9
-  %181 = icmp ult i64 %.0793.idx941, 6
-  %or.cond866 = and i1 %181, %180
+  %181 = icmp samesign ult i64 %.0793.idx941, 6
+  %or.cond866 = select i1 %180, i1 %181, i1 false
   br i1 %or.cond866, label %173, label %.critedge2
 
 .critedge2:                                       ; preds = %173, %179

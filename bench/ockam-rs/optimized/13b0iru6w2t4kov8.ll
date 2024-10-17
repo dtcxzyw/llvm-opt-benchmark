@@ -4220,7 +4220,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3fbedbea664bac
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %7
-  %switch.not.i.i.i = icmp ult i8 %8, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %switch.not.i.i.i, label %7, label %9
 
 9:                                                ; preds = %.noexc.i

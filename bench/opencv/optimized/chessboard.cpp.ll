@@ -957,7 +957,7 @@ define hidden void @_ZNK2cv7details5FastX14calcFeatureMapERKNS_3MatERS2_(ptr noc
   %39 = lshr exact i32 %21, 3
   %40 = and i32 %39, 511
   %41 = add nuw nsw i32 %40, 1
-  %42 = icmp ult i32 %40, 3
+  %42 = icmp samesign ult i32 %40, 3
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %36
@@ -1250,7 +1250,7 @@ define hidden void @_ZNK2cv7details5FastX10calcAnglesERKSt6vectorINS_3MatESaIS3_
 41:                                               ; preds = %.lr.ph
   %42 = load i32, ptr %.sroa.029.034, align 8
   %43 = and i32 %42, 4088
-  %44 = icmp ult i32 %43, 24
+  %44 = icmp samesign ult i32 %43, 24
   br i1 %44, label %45, label %29
 
 45:                                               ; preds = %41

@@ -581,7 +581,7 @@ _Z7inRangePKfS0_ff.exit83:                        ; preds = %226
   %243 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.051 = load i32, ptr %243, align 4
-  %244 = icmp ult i64 %indvars.iv.next, %238
+  %244 = icmp samesign ult i64 %indvars.iv.next, %238
   %245 = icmp ne i32 %.051, %168
   %246 = select i1 %244, i1 %245, i1 false
   br i1 %246, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !7
@@ -2052,7 +2052,7 @@ _Z7inRangePKfS0_ff.exit42:                        ; preds = %168
   %187 = getelementptr inbounds [256 x i32], ptr %91, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.025 = load i32, ptr %187, align 4
-  %188 = icmp ult i64 %indvars.iv.next, %182
+  %188 = icmp samesign ult i64 %indvars.iv.next, %182
   %189 = icmp ne i32 %.025, %178
   %190 = select i1 %188, i1 %189, i1 false
   br i1 %190, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !12

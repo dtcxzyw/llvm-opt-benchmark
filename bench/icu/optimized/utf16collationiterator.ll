@@ -1546,7 +1546,7 @@ if.end8:                                          ; preds = %_ZNK6icu_7515Normal
 
 land.lhs.true11:                                  ; preds = %if.end8
   %14 = and i16 %prevCC.0, 255
-  %cmp14 = icmp ugt i16 %14, %13
+  %cmp14 = icmp samesign ugt i16 %14, %13
   br i1 %cmp14, label %do.body.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true11
@@ -2260,7 +2260,7 @@ if.end7:                                          ; preds = %_ZNK6icu_7515Normal
 
 land.lhs.true10:                                  ; preds = %if.end7
   %cmp12.not = icmp ne i32 %nextCC.0, 0
-  %cmp16 = icmp ult i32 %nextCC.0, %conv3
+  %cmp16 = icmp samesign ult i32 %nextCC.0, %conv3
   %or.cond13 = select i1 %cmp12.not, i1 %cmp16, i1 false
   br i1 %or.cond13, label %do.body.preheader, label %lor.lhs.false
 

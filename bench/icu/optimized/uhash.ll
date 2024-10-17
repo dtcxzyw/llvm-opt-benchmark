@@ -1357,8 +1357,8 @@ cond.false:                                       ; preds = %if.end
   %2 = ptrtoint ptr %value.coerce to i64
   %3 = and i64 %2, 4294967295
   %cmp3 = icmp eq i64 %3, 0
-  %cmp6 = icmp ult i8 %hint, 4
-  %or.cond27 = and i1 %cmp6, %cmp3
+  %cmp6 = icmp samesign ult i8 %hint, 4
+  %or.cond27 = select i1 %cmp3, i1 %cmp6, i1 false
   br i1 %or.cond27, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %cond.false, %cond.true

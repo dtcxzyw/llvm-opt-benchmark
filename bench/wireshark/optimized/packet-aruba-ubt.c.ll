@@ -831,7 +831,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 295:                                              ; preds = %291
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %296 = icmp ult i64 %indvars.iv, 224
+  %296 = icmp samesign ult i64 %indvars.iv, 224
   br i1 %296, label %267, label %297, !llvm.loop !7
 
 297:                                              ; preds = %295
@@ -911,7 +911,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 334:                                              ; preds = %330
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 32
-  %335 = icmp ult i64 %indvars.iv610, 224
+  %335 = icmp samesign ult i64 %indvars.iv610, 224
   br i1 %335, label %306, label %336, !llvm.loop !9
 
 336:                                              ; preds = %334
@@ -991,7 +991,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 373:                                              ; preds = %369
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 32
-  %374 = icmp ult i64 %indvars.iv614, 224
+  %374 = icmp samesign ult i64 %indvars.iv614, 224
   br i1 %374, label %345, label %375, !llvm.loop !11
 
 375:                                              ; preds = %373

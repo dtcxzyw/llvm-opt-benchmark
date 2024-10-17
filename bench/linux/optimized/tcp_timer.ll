@@ -1394,7 +1394,7 @@ define dso_local void @tcp_write_timer_handler(ptr noundef %0) local_unnamed_add
   %84 = select i1 %74, i32 8, i32 0
   %85 = select i1 %83, i32 %84, i32 %82
   %86 = zext i8 %71 to i32
-  %87 = icmp ugt i32 %85, %86
+  %87 = icmp samesign ugt i32 %85, %86
   %88 = select i1 %74, i1 true, i1 %87
   br i1 %88, label %89, label %.thread
 

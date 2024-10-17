@@ -124350,7 +124350,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker14cmp_macc_por
   br i1 %.not46, label %33, label %31
 
 31:                                               ; preds = %24
-  %32 = icmp ult i8 %27, %30
+  %32 = icmp samesign ult i8 %27, %30
   br label %50
 
 33:                                               ; preds = %24
@@ -124364,7 +124364,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker14cmp_macc_por
   br i1 %.not47, label %42, label %40
 
 40:                                               ; preds = %33
-  %41 = icmp ult i8 %36, %39
+  %41 = icmp samesign ult i8 %36, %39
   br label %50
 
 42:                                               ; preds = %33

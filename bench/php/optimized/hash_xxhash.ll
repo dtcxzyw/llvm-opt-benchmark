@@ -289,7 +289,7 @@ define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 15
   %32 = zext nneg i32 %31 to i64
-  %33 = icmp ugt i32 %31, 3
+  %33 = icmp samesign ugt i32 %31, 3
   br i1 %33, label %.lr.ph.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %25
@@ -659,7 +659,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %50 = add i64 %.0.i, %3
   %51 = getelementptr inbounds i8, ptr %1, i64 40
   %52 = and i64 %3, 31
-  %53 = icmp ugt i64 %52, 7
+  %53 = icmp samesign ugt i64 %52, 7
   br i1 %53, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.i.i
@@ -683,7 +683,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.025.lcssa.i.i = phi i64 [ %52, %49 ], [ %62, %.lr.ph.i.i ]
   %.022.lcssa.i.i = phi ptr [ %51, %49 ], [ %57, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %50, %49 ], [ %61, %.lr.ph.i.i ]
-  %64 = icmp ugt i64 %.025.lcssa.i.i, 3
+  %64 = icmp samesign ugt i64 %.025.lcssa.i.i, 3
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %._crit_edge.i.i
@@ -2252,11 +2252,11 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
-  %5 = icmp ult i64 %1, 17
+  %5 = icmp samesign ult i64 %1, 17
   br i1 %5, label %6, label %110
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i64 %1, 8
+  %7 = icmp samesign ugt i64 %1, 8
   br i1 %7, label %8, label %36
 
 8:                                                ; preds = %6
@@ -2296,7 +2296,7 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   br label %XXH3_len_0to16_64b.exit
 
 36:                                               ; preds = %6
-  %37 = icmp ugt i64 %1, 3
+  %37 = icmp samesign ugt i64 %1, 3
   br i1 %37, label %38, label %66
 
 38:                                               ; preds = %36
@@ -2389,22 +2389,22 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   br label %XXH3_len_0to16_64b.exit
 
 110:                                              ; preds = %4
-  %111 = icmp ult i64 %1, 129
+  %111 = icmp samesign ult i64 %1, 129
   %112 = mul i64 %1, -7046029288634856825
   br i1 %111, label %113, label %249
 
 113:                                              ; preds = %110
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  %114 = icmp ugt i64 %1, 32
+  %114 = icmp samesign ugt i64 %1, 32
   br i1 %114, label %115, label %XXH3_len_17to128_64b.exit
 
 115:                                              ; preds = %113
-  %116 = icmp ugt i64 %1, 64
+  %116 = icmp samesign ugt i64 %1, 64
   br i1 %116, label %117, label %183
 
 117:                                              ; preds = %115
-  %118 = icmp ugt i64 %1, 96
+  %118 = icmp samesign ugt i64 %1, 96
   br i1 %118, label %119, label %151
 
 119:                                              ; preds = %117
@@ -2692,11 +2692,11 @@ XXH3_len_0to16_64b.exit:                          ; preds = %97, %67, %38, %8, %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
-  %5 = icmp ult i64 %1, 17
+  %5 = icmp samesign ult i64 %1, 17
   br i1 %5, label %6, label %163
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i64 %1, 8
+  %7 = icmp samesign ugt i64 %1, 8
   br i1 %7, label %8, label %51
 
 8:                                                ; preds = %6
@@ -2751,7 +2751,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   br label %XXH3_len_0to16_128b.exit
 
 51:                                               ; preds = %6
-  %52 = icmp ugt i64 %1, 3
+  %52 = icmp samesign ugt i64 %1, 3
   br i1 %52, label %53, label %90
 
 53:                                               ; preds = %51
@@ -2891,22 +2891,22 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   br label %471
 
 163:                                              ; preds = %4
-  %164 = icmp ult i64 %1, 129
+  %164 = icmp samesign ult i64 %1, 129
   %165 = mul i64 %1, -7046029288634856825
   br i1 %164, label %166, label %330
 
 166:                                              ; preds = %163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %167 = icmp ugt i64 %1, 32
+  %167 = icmp samesign ugt i64 %1, 32
   br i1 %167, label %168, label %XXH3_len_17to128_128b.exit
 
 168:                                              ; preds = %166
-  %169 = icmp ugt i64 %1, 64
+  %169 = icmp samesign ugt i64 %1, 64
   br i1 %169, label %170, label %243
 
 170:                                              ; preds = %168
-  %171 = icmp ugt i64 %1, 96
+  %171 = icmp samesign ugt i64 %1, 96
   br i1 %171, label %172, label %207
 
 172:                                              ; preds = %170

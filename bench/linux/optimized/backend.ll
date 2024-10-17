@@ -190,7 +190,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i64 %20, %25
-  %27 = icmp ult i64 %22, 8
+  %27 = icmp samesign ult i64 %22, 8
   %28 = and i1 %27, %26
   %29 = add nuw nsw i64 %22, 1
   br i1 %28, label %21, label %30, !llvm.loop !7

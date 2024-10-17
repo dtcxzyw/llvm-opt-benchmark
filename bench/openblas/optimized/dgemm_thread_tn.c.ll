@@ -195,7 +195,7 @@ define noundef i32 @dgemm_thread_tn(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %119, label %.preheader, label %.thread
 
 120:                                              ; preds = %140
-  %121 = icmp ult i64 %125, 15
+  %121 = icmp samesign ult i64 %125, 15
   br i1 %121, label %.thread, label %.loopexit23.preheader
 
 .thread:                                          ; preds = %117, %120
@@ -318,7 +318,7 @@ define noundef i32 @dgemm_thread_tn(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %198
 
 194:                                              ; preds = %215
-  %195 = icmp ult i64 %200, 15
+  %195 = icmp samesign ult i64 %200, 15
   br i1 %195, label %.thread21, label %.loopexit.preheader
 
 .thread21:                                        ; preds = %188, %194

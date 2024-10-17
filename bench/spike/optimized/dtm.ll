@@ -318,7 +318,7 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr nocapture noundef nonnull align 8 d
   br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %2
-  %16 = icmp ult i32 %14, 5
+  %16 = icmp samesign ult i32 %14, 5
   br i1 %16, label %17, label %_ZN5dtm_t3dieEj.exit
 
 17:                                               ; preds = %15
@@ -523,7 +523,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr nocapture noundef nonnull align 8 der
   br i1 %.not, label %34, label %23
 
 23:                                               ; preds = %15
-  %24 = icmp ult i32 %22, 5
+  %24 = icmp samesign ult i32 %22, 5
   br i1 %24, label %25, label %_ZN5dtm_t3dieEj.exit
 
 25:                                               ; preds = %23
@@ -606,7 +606,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr nocapture noundef nonnull align 8 de
   br i1 %.not, label %48, label %37
 
 37:                                               ; preds = %30
-  %38 = icmp ult i32 %36, 5
+  %38 = icmp samesign ult i32 %36, 5
   br i1 %38, label %39, label %_ZN5dtm_t3dieEj.exit
 
 39:                                               ; preds = %37
@@ -662,7 +662,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
   br i1 %.not26, label %77, label %68
 
 68:                                               ; preds = %55
-  %69 = icmp ult i32 %67, 5
+  %69 = icmp samesign ult i32 %67, 5
   br i1 %69, label %70, label %_ZN5dtm_t3dieEj.exit29
 
 70:                                               ; preds = %68
@@ -751,7 +751,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr nocapture noundef nonnull align 8 
   br i1 %.not, label %48, label %37
 
 37:                                               ; preds = %30
-  %38 = icmp ult i32 %36, 5
+  %38 = icmp samesign ult i32 %36, 5
   br i1 %38, label %39, label %_ZN5dtm_t3dieEj.exit
 
 39:                                               ; preds = %37
@@ -790,7 +790,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
   br i1 %.not31, label %71, label %60
 
 60:                                               ; preds = %48
-  %61 = icmp ult i32 %59, 5
+  %61 = icmp samesign ult i32 %59, 5
   br i1 %61, label %62, label %_ZN5dtm_t3dieEj.exit36
 
 62:                                               ; preds = %60
@@ -885,7 +885,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
   br i1 %.not33, label %114, label %105
 
 105:                                              ; preds = %102
-  %106 = icmp ult i32 %104, 5
+  %106 = icmp samesign ult i32 %104, 5
   br i1 %106, label %107, label %_ZN5dtm_t3dieEj.exit42
 
 107:                                              ; preds = %105
@@ -969,7 +969,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr nocapture noundef nonnull align 8 der
   br i1 %.not, label %38, label %27
 
 27:                                               ; preds = %3
-  %28 = icmp ult i32 %26, 5
+  %28 = icmp samesign ult i32 %26, 5
   br i1 %28, label %29, label %_ZN5dtm_t3dieEj.exit
 
 29:                                               ; preds = %27
@@ -1021,7 +1021,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %27, %29
   br i1 %.not18, label %69, label %58
 
 58:                                               ; preds = %38
-  %59 = icmp ult i32 %57, 5
+  %59 = icmp samesign ult i32 %57, 5
   br i1 %59, label %60, label %_ZN5dtm_t3dieEj.exit21
 
 60:                                               ; preds = %58
@@ -1109,7 +1109,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nocap
   br i1 %.not, label %53, label %42
 
 42:                                               ; preds = %4
-  %43 = icmp ult i32 %41, 5
+  %43 = icmp samesign ult i32 %41, 5
   br i1 %43, label %44, label %_ZN5dtm_t3dieEj.exit
 
 44:                                               ; preds = %42
@@ -1374,7 +1374,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %21
   br i1 %.not, label %36, label %27
 
 27:                                               ; preds = %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit
-  %28 = icmp ult i32 %26, 5
+  %28 = icmp samesign ult i32 %26, 5
   br i1 %28, label %29, label %_ZN5dtm_t3dieEj.exit
 
 29:                                               ; preds = %27

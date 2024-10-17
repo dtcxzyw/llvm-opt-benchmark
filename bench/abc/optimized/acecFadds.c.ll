@@ -91,7 +91,7 @@ Gia_ObjIsXor.exit:                                ; preds = %17
   %24 = lshr i64 %.val170, 32
   %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
-  %.not195 = icmp ult i32 %23, %26
+  %.not195 = icmp samesign ult i32 %23, %26
   br i1 %.not195, label %27, label %Gia_ObjIsXor.exit.thread
 
 27:                                               ; preds = %Gia_ObjIsXor.exit
@@ -850,7 +850,7 @@ Gia_ObjIsXor.exit:                                ; preds = %4
   %20 = lshr i64 %.val, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
-  %.not33 = icmp ult i32 %19, %22
+  %.not33 = icmp samesign ult i32 %19, %22
   br i1 %.not33, label %23, label %Gia_ObjIsXor.exit.thread
 
 23:                                               ; preds = %Gia_ObjIsXor.exit
@@ -2780,7 +2780,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp ult i64 %indvars.iv.next, %19
+  %25 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %25, label %20, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %20, %Vec_IntStartFull.exit
@@ -3285,7 +3285,7 @@ Vec_BitStart.exit:                                ; preds = %Vec_WecAlloc.exit, 
 
 51:                                               ; preds = %36, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = icmp ult i64 %indvars.iv.next, %35
+  %52 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %52, label %36, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %51, %Vec_BitStart.exit
@@ -3477,7 +3477,7 @@ define void @Gia_ManPrintChains(ptr nocapture readnone %0, ptr nocapture noundef
   %11 = getelementptr i8, ptr %10, i64 4
   %.val29 = load i32, ptr %11, align 4
   %12 = add nsw i32 %.val29, %.039
-  %13 = icmp ult i64 %indvars.iv44, 10
+  %13 = icmp samesign ult i64 %indvars.iv44, 10
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %9
@@ -3654,7 +3654,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %40 = getelementptr inbounds i32, ptr %.val28, i64 %39
   store i32 %.pre-phi45, ptr %40, align 4
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %41 = icmp ult i64 %indvars.iv.next39, %21
+  %41 = icmp samesign ult i64 %indvars.iv.next39, %21
   br i1 %41, label %22, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.critedge2, %Vec_IntStartFull.exit

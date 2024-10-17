@@ -240,8 +240,8 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   %indvars.iv.next = add nsw i64 %indvars.iv, -8
   %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %47 = icmp ugt i64 %46, %indvars.iv.next64
-  %48 = icmp ult i64 %indvars.iv63, 2
-  %49 = and i1 %48, %47
+  %48 = icmp samesign ult i64 %indvars.iv63, 2
+  %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %40, %22

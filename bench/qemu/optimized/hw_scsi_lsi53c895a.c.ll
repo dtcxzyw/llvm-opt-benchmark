@@ -4181,7 +4181,7 @@ if.then17:                                        ; preds = %if.end14
 
 again.backedge:                                   ; preds = %if.then17, %if.then645
   %inc2 = add nuw nsw i32 %inc2887, 1
-  %cmp = icmp ugt i32 %inc2887, 9999
+  %cmp = icmp samesign ugt i32 %inc2887, 9999
   %20 = load i32, ptr @lsi_execute_script.reentrancy_level, align 4
   %cmp4 = icmp sgt i32 %20, 8
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
@@ -5835,7 +5835,7 @@ sw.epilog153:                                     ; preds = %sw.epilog98.i, %sw.
 sw.bb171:                                         ; preds = %trace_lsi_execute_script.exit
   %shr172 = lshr i32 %18, 27
   %and173 = and i32 %shr172, 7
-  %cmp174 = icmp ult i32 %and173, 5
+  %cmp174 = icmp samesign ult i32 %and173, 5
   br i1 %cmp174, label %if.then176, label %if.else354
 
 if.then176:                                       ; preds = %sw.bb171

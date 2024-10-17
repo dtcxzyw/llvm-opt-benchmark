@@ -990,7 +990,7 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next312, %158
-  %160 = and i1 %136, %159
+  %160 = and i1 %159, %136
   br i1 %160, label %.lr.ph279, label %._crit_edge280, !llvm.loop !14
 
 ._crit_edge280:                                   ; preds = %156, %.preheader

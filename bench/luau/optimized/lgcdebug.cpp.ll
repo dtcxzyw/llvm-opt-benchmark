@@ -273,7 +273,7 @@ _ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %23, %7
   %60 = getelementptr inbounds i8, ptr %54, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 15
-  %63 = icmp ugt i32 %62, 4
+  %63 = icmp samesign ugt i32 %62, 4
   %64 = icmp sgt i32 %56, 4
   %or.cond.i.i = or i1 %64, %63
   br i1 %or.cond.i.i, label %65, label %84
@@ -289,7 +289,7 @@ _ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %23, %7
 
 68:                                               ; preds = %66, %65
   %.pre-phi.i.i = phi i32 [ %.pre47.i.i, %66 ], [ %62, %65 ]
-  %69 = icmp ugt i32 %.pre-phi.i.i, 4
+  %69 = icmp samesign ugt i32 %.pre-phi.i.i, 4
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %68
@@ -1267,7 +1267,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nocapt
   %84 = getelementptr inbounds i8, ptr %79, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 15
-  %87 = icmp ult i32 %86, 5
+  %87 = icmp samesign ult i32 %86, 5
   br i1 %87, label %97, label %88
 
 88:                                               ; preds = %83
@@ -1310,7 +1310,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nocapt
   %110 = getelementptr inbounds i8, ptr %104, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 15
-  %113 = icmp ugt i32 %112, 4
+  %113 = icmp samesign ugt i32 %112, 4
   %114 = icmp sgt i32 %106, 4
   %or.cond.i.i = or i1 %114, %113
   br i1 %or.cond.i.i, label %115, label %152

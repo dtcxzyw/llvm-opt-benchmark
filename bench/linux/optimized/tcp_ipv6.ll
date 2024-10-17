@@ -1589,7 +1589,7 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   %33 = load i16, ptr %32, align 4
   %34 = lshr i16 %33, 4
   %35 = and i16 %34, 15
-  %36 = icmp ult i16 %35, 5
+  %36 = icmp samesign ult i16 %35, 5
   br i1 %36, label %37, label %38, !prof !20
 
 37:                                               ; preds = %29
@@ -3413,7 +3413,7 @@ define dso_local void @tcp_v6_early_demux(ptr noundef %0) local_unnamed_addr #1 
   %39 = getelementptr inbounds i8, ptr %38, i64 12
   %40 = load i16, ptr %39, align 4
   %41 = and i16 %40, 240
-  %42 = icmp ult i16 %41, 80
+  %42 = icmp samesign ult i16 %41, 80
   br i1 %42, label %dst_check.exit.thread, label %43
 
 43:                                               ; preds = %36

@@ -2856,7 +2856,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !882)
   %32 = load i64, ptr %31, align 8, !range !885, !alias.scope !882, !noundef !4
-  %switch.i = icmp ult i64 %32, 11
+  %switch.i = icmp samesign ult i64 %32, 11
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %33
 
 33:                                               ; preds = %30
@@ -6733,7 +6733,7 @@ default.unreachable21.i:                          ; preds = %22
   %63 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2358)
   %64 = load i64, ptr %63, align 8, !range !885, !alias.scope !2361, !noalias !2362, !noundef !4
-  %switch.i = icmp ult i64 %64, 11
+  %switch.i = icmp samesign ult i64 %64, 11
   br i1 %switch.i, label %94, label %65
 
 65:                                               ; preds = %62
@@ -7326,7 +7326,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %.sroa.4.0.insert.shift.i.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i, 8
   %.sroa.4.0.insert.insert.i.i = or disjoint i32 %273, %.sroa.4.0.insert.shift.i.i
   %274 = call i32 @llvm.bswap.i32(i32 %.sroa.4.0.insert.insert.i.i)
-  %275 = icmp ugt i32 %274, 65535
+  %275 = icmp samesign ugt i32 %274, 65535
   br i1 %275, label %298, label %276
 
 276:                                              ; preds = %266
@@ -8256,7 +8256,7 @@ define void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noal
   %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i, 8
   %.sroa.4.0.insert.insert.i = or disjoint i32 %13, %.sroa.4.0.insert.shift.i
   %14 = tail call i32 @llvm.bswap.i32(i32 %.sroa.4.0.insert.insert.i)
-  %15 = icmp ugt i32 %14, 65535
+  %15 = icmp samesign ugt i32 %14, 65535
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %7
@@ -9560,7 +9560,7 @@ define { ptr, ptr } @"_ZN103_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigningKe
 define { i8, i8 } @"_ZN103_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h6e9fb202cb62eeecE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8, !range !133, !alias.scope !2992, !noundef !4
-  %4 = icmp ult i16 %3, 13
+  %4 = icmp samesign ult i16 %3, 13
   br i1 %4, label %switch.lookup, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit
 
 switch.lookup:                                    ; preds = %1
@@ -9585,7 +9585,7 @@ define noundef zeroext i1 @"_ZN85_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSign
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i16, ptr %5, align 8, !range !133, !alias.scope !2995, !noundef !4
-  %7 = icmp ult i16 %6, 13
+  %7 = icmp samesign ult i16 %6, 13
   br i1 %7, label %switch.lookup, label %"_ZN103_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h6e9fb202cb62eeecE.exit"
 
 switch.lookup:                                    ; preds = %2
@@ -10233,7 +10233,7 @@ define { ptr, ptr } @"_ZN105_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519Signing
 define { i8, i8 } @"_ZN105_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h16a41c8558cf22e8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8, !range !133, !alias.scope !3131, !noundef !4
-  %4 = icmp ult i16 %3, 13
+  %4 = icmp samesign ult i16 %3, 13
   br i1 %4, label %switch.lookup, label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit
 
 switch.lookup:                                    ; preds = %1
@@ -10258,7 +10258,7 @@ define noundef zeroext i1 @"_ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519Si
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i16, ptr %5, align 8, !range !133, !alias.scope !3134, !noundef !4
-  %7 = icmp ult i16 %6, 13
+  %7 = icmp samesign ult i16 %6, 13
   br i1 %7, label %switch.lookup, label %"_ZN105_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h16a41c8558cf22e8E.exit"
 
 switch.lookup:                                    ; preds = %2

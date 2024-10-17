@@ -72,11 +72,11 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %20, label %136, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i32 %.0196240, 4
+  %22 = icmp samesign ult i32 %.0196240, 4
   %23 = fmul double %18, 2.000000e-01
   %24 = fmul double %23, 6.250000e-02
   %.0195 = select i1 %22, double %24, double 0.000000e+00
-  %25 = icmp ugt i32 %.0196240, 4
+  %25 = icmp samesign ugt i32 %.0196240, 4
   br label %.lr.ph237
 
 .loopexit:                                        ; preds = %127
@@ -182,7 +182,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br label %84
 
 .preheader213:                                    ; preds = %84, %67
-  %.not.not201229 = icmp ult i64 %indvars.iv.next279, %indvars.iv266
+  %.not.not201229 = icmp samesign ult i64 %indvars.iv.next279, %indvars.iv266
   br i1 %.not.not201229, label %.lr.ph231, label %.preheader212
 
 .lr.ph231:                                        ; preds = %.preheader213
@@ -207,7 +207,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %exitcond258.not, label %.preheader213, label %84, !llvm.loop !11
 
 .preheader212:                                    ; preds = %96, %.preheader213
-  %94 = icmp ult i64 %indvars.iv266, 3
+  %94 = icmp samesign ult i64 %indvars.iv266, 3
   %95 = fneg double %70
   br i1 %94, label %.lr.ph233, label %.preheader.preheader
 
@@ -317,7 +317,7 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr nocapture noundef %0, ptr n
   %4 = getelementptr inbounds double, ptr %0, i64 %indvars.iv54
   %5 = load double, ptr %4, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %6 = icmp ult i64 %indvars.iv54, 3
+  %6 = icmp samesign ult i64 %indvars.iv54, 3
   %7 = trunc nuw nsw i64 %indvars.iv54 to i32
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -383,7 +383,7 @@ define noundef i32 @_ZN9NR_Jacobi9transposeEPA4_d(ptr nocapture noundef %0) loca
   %indvars.iv23 = phi i64 [ 0, %1 ], [ %indvars.iv.next24, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %3 = icmp ult i64 %indvars.iv23, 3
+  %3 = icmp samesign ult i64 %indvars.iv23, 3
   br i1 %3, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph

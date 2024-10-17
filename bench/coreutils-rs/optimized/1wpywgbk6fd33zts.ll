@@ -76,7 +76,7 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
 "_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17h59e1efbb092fea7dE.exit":
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !range !14, !noundef !15
-  %switch = icmp ult i64 %4, 2
+  %switch = icmp samesign ult i64 %4, 2
   %.sroa.611.0.ph = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %.sroa.611.0.ph, align 8
   %.sroa.4.0.i = select i1 %switch, i64 %5, i64 undef

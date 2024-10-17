@@ -1764,7 +1764,7 @@ _ZN6icu_759BytesTrie9skipValueEPKhi.exit:         ; preds = %if.else, %if.then2.
 if.end12:                                         ; preds = %_ZN6icu_759BytesTrie9skipValueEPKhi.exit, %if.end4
   %pos.0 = phi ptr [ %incdec.ptr9, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit ], [ %incdec.ptr, %if.end4 ]
   %node.0 = phi i32 [ %conv10, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit ], [ %conv5, %if.end4 ]
-  %cmp13 = icmp ult i32 %node.0, 16
+  %cmp13 = icmp samesign ult i32 %node.0, 16
   br i1 %cmp13, label %if.then14, label %if.else20
 
 if.then14:                                        ; preds = %if.end12

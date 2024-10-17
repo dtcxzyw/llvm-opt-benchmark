@@ -90,7 +90,7 @@ define void @memory_usage_gc() local_unnamed_addr #1 {
   %9 = phi i32 [ %2, %.lr.ph ], [ %.pre, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %8, %0

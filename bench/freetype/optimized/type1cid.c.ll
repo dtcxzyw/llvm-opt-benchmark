@@ -351,7 +351,7 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 ._crit_edge.i.i:                                  ; preds = %86, %63
   %.1132.lcssa.i.i = phi i64 [ %.0131.i.i, %63 ], [ %.2133.i.i, %86 ]
-  %89 = icmp ult i64 %67, 10
+  %89 = icmp samesign ult i64 %67, 10
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %._crit_edge.i.i
@@ -864,7 +864,7 @@ cid_parse_dict.exit.i:                            ; preds = %259
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %324 = load i32, ptr %178, align 8
   %325 = zext i32 %324 to i64
-  %326 = icmp ult i64 %indvars.iv.next.i, %325
+  %326 = icmp samesign ult i64 %indvars.iv.next.i, %325
   br i1 %326, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %323
@@ -1192,7 +1192,7 @@ define internal void @cid_face_done(ptr noundef %0) #2 {
   %20 = phi i32 [ %11, %.lr.ph ], [ %.pre, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %19
@@ -2447,7 +2447,7 @@ cid_get_offset.exit:                              ; preds = %54, %._crit_edge.lo
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %121 = getelementptr inbounds i8, ptr %.0113164, i64 16
   %122 = zext i32 %120 to i64
-  %123 = icmp ult i64 %indvars.iv.next191, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next191, %122
   br i1 %123, label %21, label %.loopexit146, !llvm.loop !19
 
 .loopexit146:                                     ; preds = %119, %.preheader145, %.loopexit147, %._crit_edge169, %1
@@ -2502,7 +2502,7 @@ cid_get_offset.exit:                              ; preds = %54, %._crit_edge.lo
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %139 = load i32, ptr %9, align 8
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next194, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next194, %140
   br i1 %141, label %.lr.ph168, label %._crit_edge169.loopexit, !llvm.loop !20
 
 ._crit_edge169.loopexit:                          ; preds = %135
@@ -2588,7 +2588,7 @@ define internal void @parse_fd_array(ptr nocapture noundef %0, ptr noundef %1) #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %22, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %11, %17, %2

@@ -594,7 +594,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %46, %44, %.lr.ph.i
   %55 = lshr i32 %51, 6
   %56 = add i32 %52, -1
   %57 = lshr i32 %56, 6
-  %.not32.i.i.i = icmp ugt i32 %55, %57
+  %.not32.i.i.i = icmp samesign ugt i32 %55, %57
   br i1 %.not32.i.i.i, label %._crit_edge.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %54
@@ -1416,7 +1416,7 @@ define dso_local void @_ZN4llvm9safestack11StackLayout13computeLayoutEv(ptr noun
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %16
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 .thread.i.i.i:                                    ; preds = %select.unfold.i.i.i.i.i, %11

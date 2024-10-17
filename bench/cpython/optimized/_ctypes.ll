@@ -1416,7 +1416,7 @@ if.then13:                                        ; preds = %if.end10
 
 for.body:                                         ; preds = %if.then13, %for.body
   %indvars.iv = phi i64 [ 0, %if.then13 ], [ %indvars.iv.next, %for.body ]
-  %cmp17 = icmp ult i64 %indvars.iv, %0
+  %cmp17 = icmp samesign ult i64 %indvars.iv, %0
   %arrayidx20 = getelementptr i64, ptr %shape, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx20, align 8
   %.str.1..str.2 = select i1 %cmp17, ptr @.str.1, ptr @.str.2

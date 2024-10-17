@@ -644,7 +644,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
 60:                                               ; preds = %47, %47, %47, %47
   %61 = add nuw nsw i64 %indvars.iv, 1
   %62 = zext i32 %48 to i64
-  %63 = icmp ult i64 %61, %62
+  %63 = icmp samesign ult i64 %61, %62
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %60
@@ -666,7 +666,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
 72:                                               ; preds = %69
   %73 = add nuw nsw i64 %indvars.iv, 1
   %74 = zext i32 %48 to i64
-  %75 = icmp ult i64 %73, %74
+  %75 = icmp samesign ult i64 %73, %74
   br i1 %75, label %76, label %.thread
 
 76:                                               ; preds = %72
@@ -792,7 +792,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
 148:                                              ; preds = %47
   %149 = add nuw nsw i64 %indvars.iv, 1
   %150 = zext i32 %48 to i64
-  %151 = icmp ult i64 %149, %150
+  %151 = icmp samesign ult i64 %149, %150
   br i1 %151, label %152, label %.thread
 
 152:                                              ; preds = %148
@@ -824,7 +824,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   %170 = add nuw nsw i64 %indvars.iv, 1
   %171 = load i32, ptr %7, align 4
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %170, %172
+  %173 = icmp samesign ult i64 %170, %172
   br i1 %173, label %174, label %.thread
 
 174:                                              ; preds = %157
@@ -1136,7 +1136,7 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %355 = load i32, ptr %7, align 4
   %356 = zext i32 %355 to i64
-  %357 = icmp ult i64 %indvars.iv.next, %356
+  %357 = icmp samesign ult i64 %indvars.iv.next, %356
   br i1 %357, label %47, label %._crit_edge820
 
 ._crit_edge820:                                   ; preds = %.thread
@@ -1376,7 +1376,7 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
   %indvars.iv.next857 = add nuw nsw i64 %indvars.iv856, 1
   %473 = load i32, ptr %7, align 4
   %474 = zext i32 %473 to i64
-  %475 = icmp ult i64 %indvars.iv.next857, %474
+  %475 = icmp samesign ult i64 %indvars.iv.next857, %474
   br i1 %475, label %.lr.ph831, label %._crit_edge832.loopexit
 
 ._crit_edge832.loopexit:                          ; preds = %472
@@ -2236,7 +2236,7 @@ define void @zend_cfg_compute_dominators_tree(ptr nocapture noundef readnone %0,
   %82 = getelementptr inbounds %struct._zend_basic_block, ptr %5, i64 %81, i32 10
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
-  %or.cond = icmp ult i64 %indvars.iv198, %84
+  %or.cond = icmp samesign ult i64 %indvars.iv198, %84
   br i1 %or.cond, label %85, label %.preheader144
 
 85:                                               ; preds = %80
@@ -2254,7 +2254,7 @@ define void @zend_cfg_compute_dominators_tree(ptr nocapture noundef readnone %0,
   %91 = getelementptr inbounds %struct._zend_basic_block, ptr %5, i64 %90, i32 11
   %92 = load i32, ptr %91, align 8
   %93 = zext i32 %92 to i64
-  %or.cond142 = icmp ugt i64 %indvars.iv198, %93
+  %or.cond142 = icmp samesign ugt i64 %indvars.iv198, %93
   br i1 %or.cond142, label %.preheader144, label %.critedge
 
 .critedge:                                        ; preds = %.preheader144
@@ -2492,7 +2492,7 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
 
 .lr.ph:                                           ; preds = %52, %78
   %.0160248 = phi i32 [ %.0160, %78 ], [ %.0160247, %52 ]
-  %60 = icmp ult i32 %.0160248, %22
+  %60 = icmp samesign ult i32 %.0160248, %22
   tail call void @llvm.assume(i1 %60)
   %61 = zext nneg i32 %.0160248 to i64
   %62 = lshr i64 %61, 6
@@ -2541,7 +2541,7 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
 88:                                               ; preds = %81
   %89 = icmp sgt i32 %83, -1
   tail call void @llvm.assume(i1 %89)
-  %90 = icmp ult i32 %83, %22
+  %90 = icmp samesign ult i32 %83, %22
   tail call void @llvm.assume(i1 %90)
   %91 = zext nneg i32 %83 to i64
   %92 = lshr i64 %91, 6
@@ -2725,7 +2725,7 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
 165:                                              ; preds = %160, %156
   %166 = icmp sgt i32 %140, -1
   tail call void @llvm.assume(i1 %166)
-  %167 = icmp ult i32 %140, %22
+  %167 = icmp samesign ult i32 %140, %22
   tail call void @llvm.assume(i1 %167)
   %168 = zext nneg i32 %140 to i64
   %169 = lshr i64 %168, 6
@@ -2836,7 +2836,7 @@ zend_worklist_push.exit190:                       ; preds = %175, %165, %198, %1
   %232 = load i32, ptr %231, align 4
   %233 = icmp sgt i32 %232, -1
   tail call void @llvm.assume(i1 %233)
-  %234 = icmp ult i32 %232, %22
+  %234 = icmp samesign ult i32 %232, %22
   tail call void @llvm.assume(i1 %234)
   %235 = zext nneg i32 %232 to i64
   %236 = lshr i64 %235, 6

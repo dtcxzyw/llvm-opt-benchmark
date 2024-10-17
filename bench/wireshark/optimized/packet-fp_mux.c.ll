@@ -205,7 +205,7 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 72:                                               ; preds = %67
-  %73 = icmp ult i16 %.094, 128
+  %73 = icmp samesign ult i16 %.094, 128
   %or.cond = and i1 %36, %73
   br i1 %or.cond, label %74, label %76
 
@@ -405,7 +405,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
 37:                                               ; preds = %33, %30
   %.046 = phi i16 [ %32, %30 ], [ %36, %33 ]
   %.043 = phi i32 [ 2, %30 ], [ 1, %33 ]
-  %38 = icmp ult i16 %.046, 3
+  %38 = icmp samesign ult i16 %.046, 3
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %37

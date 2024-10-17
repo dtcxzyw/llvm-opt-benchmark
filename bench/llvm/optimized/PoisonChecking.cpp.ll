@@ -555,7 +555,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %222 = load i32, ptr %162, align 4
   %223 = and i32 %222, 134217727
   %224 = zext nneg i32 %223 to i64
-  %225 = icmp ult i64 %indvars.iv.next, %224
+  %225 = icmp samesign ult i64 %indvars.iv.next, %224
   br i1 %225, label %174, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit, %.lr.ph766
@@ -4228,7 +4228,7 @@ _ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit: ; preds = %_ZN4llvm3Use14r
   %1884 = load i32, ptr %1829, align 4
   %1885 = and i32 %1884, 134217727
   %1886 = zext nneg i32 %1885 to i64
-  %1887 = icmp ult i64 %indvars.iv.next948, %1886
+  %1887 = icmp samesign ult i64 %indvars.iv.next948, %1886
   br i1 %1887, label %1839, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E5countEPKS2_.exit170.thread, !llvm.loop !28
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E5countEPKS2_.exit170.thread: ; preds = %.lr.ph.i.i.i.i164, %_ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_EixEOS3_.exit183, %.lr.ph843

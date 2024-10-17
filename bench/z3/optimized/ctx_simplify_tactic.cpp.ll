@@ -1979,7 +1979,7 @@ sw.bb7.i.i.i40:                                   ; preds = %while.body.i.i.i36
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %sw.bb7.i.i.i40, %sw.bb5.i.i.i64, %sw.bb3.i.i.i66
   %retval.0.i.i.i41 = phi i32 [ %41, %sw.bb7.i.i.i40 ], [ %sub.i.i.i65, %sw.bb5.i.i.i64 ], [ %add.i.i.i67, %sw.bb3.i.i.i66 ]
   %42 = zext i32 %retval.0.i.i.i41 to i64
-  %cmp.i42 = icmp ult i64 %indvars.iv, %42
+  %cmp.i42 = icmp samesign ult i64 %indvars.iv, %42
   br i1 %cmp.i42, label %cond.true.i44, label %invoke.cont20
 
 cond.true.i44:                                    ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
@@ -2168,7 +2168,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %invoke.cont34, %if.
   %bf.load.i18 = load i32, ptr %m_proofs_enabled.i, align 8
   %71 = and i32 %bf.load.i18, 536870912
   %tobool.i19 = icmp ne i32 %71, 0
-  %cmp = icmp uge i64 %indvars.iv.next, %12
+  %cmp = icmp samesign uge i64 %indvars.iv.next, %12
   %.not = select i1 %tobool.i19, i1 true, i1 %cmp
   br i1 %.not, label %for.end, label %cond.false.i, !llvm.loop !15
 
@@ -3870,7 +3870,7 @@ invoke.cont:                                      ; preds = %sw.bb12.i.i.i, %if.
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %cmp6 = icmp ult i64 %indvars.iv, %13
+  %cmp6 = icmp samesign ult i64 %indvars.iv, %13
   %.pre = load ptr, ptr %r, align 8
   br i1 %cmp6, label %land.lhs.true, label %if.end
 
@@ -4110,7 +4110,7 @@ for.inc:                                          ; preds = %invoke.cont26
   %bf.load.i = load i32, ptr %m_inconsistent.i, align 8
   %61 = and i32 %bf.load.i, 536870912
   %tobool.i = icmp ne i32 %61, 0
-  %cmp = icmp uge i64 %indvars.iv.next, %14
+  %cmp = icmp samesign uge i64 %indvars.iv.next, %14
   %.not = select i1 %tobool.i, i1 true, i1 %cmp
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !19
 
@@ -4698,7 +4698,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !22
 
@@ -5823,7 +5823,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %7 = load i32, ptr %m_num_args.i, align 8
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv, %8
+  %cmp = icmp samesign ult i64 %indvars.iv, %8
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
@@ -6106,7 +6106,7 @@ invoke.cont7:                                     ; preds = %for.body
   %8 = load ptr, ptr %new_arg, align 8
   %cmp10.not = icmp ne ptr %8, %6
   %spec.select = select i1 %cmp10.not, i1 true, i1 %modified.0532
-  %cmp11 = icmp ult i64 %indvars.iv, %5
+  %cmp11 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp11, label %land.lhs.true, label %if.end33
 
 lpad.loopexit504:                                 ; preds = %for.body.i89
@@ -7650,7 +7650,7 @@ invoke.cont7:                                     ; preds = %for.body
   %8 = load ptr, ptr %new_arg, align 8
   %cmp10.not = icmp ne ptr %8, %6
   %spec.select = select i1 %cmp10.not, i1 true, i1 %modified.0532
-  %cmp11 = icmp ult i64 %indvars.iv, %5
+  %cmp11 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp11, label %land.lhs.true, label %if.end31
 
 lpad.loopexit504:                                 ; preds = %for.body.i89
@@ -11045,7 +11045,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !50
 

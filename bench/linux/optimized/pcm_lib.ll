@@ -3224,7 +3224,7 @@ define dso_local i32 @snd_pcm_hw_param_value(ptr nocapture noundef readonly %0, 
 
 16:                                               ; preds = %9
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14), !range !25
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %19 = icmp eq i32 %12, 0
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %21, label %.loopexit
@@ -3384,7 +3384,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
 
 17:                                               ; preds = %10
   %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %15), !range !25
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %20 = icmp eq i32 %13, 0
   %21 = select i1 %19, i1 %20, i1 false
   br i1 %21, label %22, label %.preheader
@@ -3514,7 +3514,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
 
 103:                                              ; preds = %96
   %104 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %101), !range !25
-  %105 = icmp ult i32 %104, 2
+  %105 = icmp samesign ult i32 %104, 2
   %106 = icmp eq i32 %99, 0
   %107 = select i1 %105, i1 %106, i1 false
   br i1 %107, label %108, label %.thread15
@@ -3633,7 +3633,7 @@ define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 
 
 17:                                               ; preds = %10
   %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %15), !range !25
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   %20 = icmp eq i32 %13, 0
   %21 = select i1 %19, i1 %20, i1 false
   br i1 %21, label %22, label %.preheader
@@ -3765,7 +3765,7 @@ define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 
 
 105:                                              ; preds = %98
   %106 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %103), !range !25
-  %107 = icmp ult i32 %106, 2
+  %107 = icmp samesign ult i32 %106, 2
   %108 = icmp eq i32 %101, 0
   %109 = select i1 %107, i1 %108, i1 false
   br i1 %109, label %110, label %.thread15
@@ -5553,7 +5553,7 @@ define internal noundef range(i32 -22, 1) i32 @pcm_chmap_ctl_get(ptr nocapture n
   %77 = add nuw nsw i64 %72, 1
   %78 = load i8, ptr %57, align 1
   %79 = zext i8 %78 to i64
-  %80 = icmp ult i64 %77, %79
+  %80 = icmp samesign ult i64 %77, %79
   br i1 %80, label %71, label %.thread, !llvm.loop !56
 
 81:                                               ; preds = %63, %60, %55
@@ -5688,7 +5688,7 @@ define internal range(i32 -22, 1) i32 @pcm_chmap_ctl_tlv(ptr nocapture noundef r
   %90 = add nuw nsw i64 %76, 1
   %91 = load i8, ptr %32, align 1
   %92 = zext i8 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.preheader, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %88, %29, %39, %68

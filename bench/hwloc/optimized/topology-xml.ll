@@ -2189,13 +2189,13 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
 651:                                              ; preds = %737, %.lr.ph23.i
   %652 = phi i32 [ %643, %.lr.ph23.i ], [ %738, %737 ]
   %indvars.iv28.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next29.i, %737 ]
-  %or.cond.i = icmp ult i64 %indvars.iv28.i, 2
+  %or.cond.i = icmp samesign ult i64 %indvars.iv28.i, 2
   br i1 %or.cond.i, label %737, label %653
 
 653:                                              ; preds = %651
   %654 = load ptr, ptr %644, align 8
   %655 = getelementptr inbounds %struct.hwloc_internal_memattr_s, ptr %654, i64 %indvars.iv28.i
-  %656 = icmp ult i64 %indvars.iv28.i, 8
+  %656 = icmp samesign ult i64 %indvars.iv28.i, 8
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %653
@@ -2311,7 +2311,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %616, %632
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %715 = load i32, ptr %675, align 8
   %716 = zext i32 %715 to i64
-  %717 = icmp ult i64 %indvars.iv.next.i.i, %716
+  %717 = icmp samesign ult i64 %indvars.iv.next.i.i, %716
   br i1 %717, label %680, label %hwloc__xml_export_memattr_target.exit.i, !llvm.loop !7
 
 718:                                              ; preds = %671
@@ -2343,7 +2343,7 @@ hwloc__xml_export_memattr_target.exit.i:          ; preds = %713, %718, %.prehea
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %733 = load i32, ptr %668, align 4
   %734 = zext i32 %733 to i64
-  %735 = icmp ult i64 %indvars.iv.next.i, %734
+  %735 = icmp samesign ult i64 %indvars.iv.next.i, %734
   br i1 %735, label %671, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %hwloc__xml_export_memattr_target.exit.i, %660
@@ -2356,7 +2356,7 @@ hwloc__xml_export_memattr_target.exit.i:          ; preds = %713, %718, %.prehea
   %738 = phi i32 [ %652, %657 ], [ %652, %651 ], [ %.pre.i21, %._crit_edge.i ]
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %739 = zext i32 %738 to i64
-  %740 = icmp ult i64 %indvars.iv.next29.i, %739
+  %740 = icmp samesign ult i64 %indvars.iv.next29.i, %739
   br i1 %740, label %651, label %hwloc__xml_export_memattrs.exit, !llvm.loop !9
 
 hwloc__xml_export_memattrs.exit:                  ; preds = %737, %641
@@ -2527,7 +2527,7 @@ hwloc__xml_export_info_attr.exit.i:               ; preds = %798, %hwloc__xml_ex
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %803 = load i32, ptr %765, align 8
   %804 = zext i32 %803 to i64
-  %805 = icmp ult i64 %indvars.iv.next.i27, %804
+  %805 = icmp samesign ult i64 %indvars.iv.next.i27, %804
   br i1 %805, label %768, label %._crit_edge.i28, !llvm.loop !11
 
 ._crit_edge.i28:                                  ; preds = %hwloc__xml_export_info_attr.exit.i, %764
@@ -2536,7 +2536,7 @@ hwloc__xml_export_info_attr.exit.i:               ; preds = %798, %hwloc__xml_ex
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %807 = load i32, ptr %741, align 8
   %808 = zext i32 %807 to i64
-  %809 = icmp ult i64 %indvars.iv.next27.i, %808
+  %809 = icmp samesign ult i64 %indvars.iv.next27.i, %808
   br i1 %809, label %750, label %hwloc__xml_export_cpukinds.exit, !llvm.loop !12
 
 hwloc__xml_export_cpukinds.exit:                  ; preds = %._crit_edge.i28, %hwloc__xml_export_memattrs.exit
@@ -2568,7 +2568,7 @@ hwloc__xml_export_cpukinds.exit:                  ; preds = %._crit_edge.i28, %h
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %821 = load i32, ptr %812, align 8
   %822 = zext i32 %821 to i64
-  %823 = icmp ult i64 %indvars.iv.next.i32, %822
+  %823 = icmp samesign ult i64 %indvars.iv.next.i32, %822
   br i1 %823, label %815, label %hwloc__xml_export_infos.exit, !llvm.loop !13
 
 hwloc__xml_export_infos.exit:                     ; preds = %815, %811, %hwloc__xml_export_cpukinds.exit
@@ -2875,7 +2875,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 8
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next.i, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next.i, %143
   br i1 %144, label %123, label %.loopexit252.i, !llvm.loop !14
 
 145:                                              ; preds = %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i, %hwloc__xml_export_safestrdup.exit245.thread.i
@@ -3158,7 +3158,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
   %320 = load i32, ptr %311, align 8
   %321 = zext i32 %320 to i64
-  %322 = icmp ult i64 %indvars.iv.next266.i, %321
+  %322 = icmp samesign ult i64 %indvars.iv.next266.i, %321
   br i1 %322, label %314, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %314, %.loopexit252.i
@@ -3191,7 +3191,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
   %335 = load i32, ptr %326, align 8
   %336 = zext i32 %335 to i64
-  %337 = icmp ult i64 %indvars.iv.next269.i, %336
+  %337 = icmp samesign ult i64 %indvars.iv.next269.i, %336
   br i1 %337, label %329, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %329, %.preheader.i, %323
@@ -4636,8 +4636,8 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %indvars = trunc i64 %indvars.iv.next to i32
   %76 = add i32 %.07592, %indvars
   %77 = icmp ult i32 %76, %15
-  %78 = icmp ult i64 %indvars.iv, 9
-  %79 = and i1 %78, %77
+  %78 = icmp samesign ult i64 %indvars.iv, 9
+  %79 = select i1 %77, i1 %78, i1 false
   br i1 %79, label %61, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %61
@@ -4673,8 +4673,8 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
   %97 = add i32 %.07295, %indvars113
   %98 = icmp ult i32 %97, %15
-  %99 = icmp ult i64 %indvars.iv111, 9
-  %100 = and i1 %99, %98
+  %99 = icmp samesign ult i64 %indvars.iv111, 9
+  %100 = select i1 %98, i1 %99, i1 false
   br i1 %100, label %86, label %101, !llvm.loop !28
 
 101:                                              ; preds = %86
@@ -4723,8 +4723,8 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %indvars117 = trunc i64 %indvars.iv.next116 to i32
   %125 = add i32 %.06999, %indvars117
   %126 = icmp ult i32 %125, %106
-  %127 = icmp ult i64 %indvars.iv115, 9
-  %128 = and i1 %127, %126
+  %127 = icmp samesign ult i64 %indvars.iv115, 9
+  %128 = select i1 %126, i1 %127, i1 false
   br i1 %128, label %114, label %129, !llvm.loop !30
 
 129:                                              ; preds = %114
@@ -6440,7 +6440,7 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %719 = load i32, ptr %682, align 8
   %720 = zext i32 %719 to i64
-  %721 = icmp ult i64 %indvars.iv.next, %720
+  %721 = icmp samesign ult i64 %indvars.iv.next, %720
   br i1 %721, label %.lr.ph214, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.tail.thread, %681
@@ -9119,7 +9119,7 @@ sub_1379:                                         ; preds = %sub_0378
   %1189 = icmp eq i32 %1187, 1
   %or.cond3.i.i = or i1 %or.cond.i.i, %1189
   %1190 = icmp ult i16 %1185, 256
-  %or.cond5.i.i = or i1 %1190, %or.cond3.i.i
+  %or.cond5.i.i = select i1 %or.cond3.i.i, i1 true, i1 %1190
   %1191 = icmp eq i32 %1187, 11
   %or.cond7.i.i = or i1 %1191, %or.cond5.i.i
   %1192 = and i32 %1186, 65533

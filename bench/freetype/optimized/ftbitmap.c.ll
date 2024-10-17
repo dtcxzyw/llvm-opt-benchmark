@@ -616,7 +616,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %225 = add nuw nsw i32 %224, %220
   %226 = load i16, ptr %192, align 8
   %227 = zext i16 %226 to i32
-  %.not128.us = icmp ult i32 %225, %227
+  %.not128.us = icmp samesign ult i32 %225, %227
   br i1 %.not128.us, label %228, label %.split.us
 
 228:                                              ; preds = %219
@@ -685,7 +685,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %263 = add nuw nsw i32 %262, %258
   %264 = load i16, ptr %192, align 8
   %265 = zext i16 %264 to i32
-  %.not128 = icmp ult i32 %263, %265
+  %.not128 = icmp samesign ult i32 %263, %265
   br i1 %.not128, label %268, label %.split.us
 
 .split.us:                                        ; preds = %257, %219

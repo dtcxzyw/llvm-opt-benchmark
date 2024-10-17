@@ -5149,7 +5149,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i702.not = icmp ult i16 %call121, 256
+  %tobool.i702.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i702.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -5745,7 +5745,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185: ; preds = %if.end.i177, %
   br i1 %tobool.i156, label %_ZNKR2v85MaybeIbE8FromJustEv.exit732, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit732:             ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185
-  %tobool.i730.not = icmp ult i16 %call83, 256
+  %tobool.i730.not = icmp samesign ult i16 %call83, 256
   br i1 %tobool.i730.not, label %if.then88, label %lor.lhs.false.i
 
 if.then88:                                        ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit732
@@ -5781,7 +5781,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i719.not = icmp ult i16 %call102, 256
+  %tobool.i719.not = icmp samesign ult i16 %call102, 256
   br i1 %tobool.i719.not, label %if.then107, label %do.end109
 
 if.then107:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -6155,7 +6155,7 @@ if.then91:                                        ; preds = %if.end18.i138
 do.end93:                                         ; preds = %if.end18.i138, %if.end5.i.i146
   %end.0.ph.ph = phi i64 [ 0, %if.end5.i.i146 ], [ %67, %if.end18.i138 ]
   %sub = sub nsw i64 %end.0.ph.ph, %start.0.ph.ph
-  %cmp94 = icmp ugt i64 %start.0.ph.ph, %end.0.ph.ph
+  %cmp94 = icmp samesign ugt i64 %start.0.ph.ph, %end.0.ph.ph
   %cmp95 = icmp ugt i64 %end.0.ph.ph, %call38
   %or.cond118 = or i1 %cmp94, %cmp95
   br i1 %or.cond118, label %if.then.i1360, label %lor.lhs.false.i507
@@ -10885,7 +10885,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -11208,7 +11208,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -11531,7 +11531,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -11854,7 +11854,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -12177,7 +12177,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -12500,7 +12500,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -12823,7 +12823,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %tobool.i506.not = icmp ult i16 %call121, 256
+  %tobool.i506.not = icmp samesign ult i16 %call121, 256
   br i1 %tobool.i506.not, label %if.then126, label %do.end128
 
 if.then126:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit

@@ -202,7 +202,7 @@ if.end24:                                         ; preds = %lor.lhs.false20
 lor.lhs.false36:                                  ; preds = %if.end24
   %conv34 = zext i16 %call30 to i64
   %add = add nuw nsw i64 %conv34, 4
-  %cmp39 = icmp ugt i64 %add, %conv31
+  %cmp39 = icmp samesign ugt i64 %add, %conv31
   br i1 %cmp39, label %if.then45, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false36
@@ -828,7 +828,7 @@ lor.lhs.false44:                                  ; preds = %if.end38
   %conv42 = zext i16 %infoSize.0 to i64
   %conv39 = zext i16 %headerSize.0 to i64
   %add = add nuw nsw i64 %conv42, 4
-  %cmp47 = icmp ugt i64 %add, %conv39
+  %cmp47 = icmp samesign ugt i64 %add, %conv39
   %conv51 = zext i16 %headerSize.0 to i32
   %or.cond28 = icmp ult i32 %length, %conv51
   %or.cond30 = or i1 %cmp47, %or.cond28

@@ -1142,7 +1142,7 @@ if.end6:                                          ; preds = %while.body
   %and10 = and i64 %size.addr.017, 127
   %shr12 = lshr i64 %size.addr.017, 7
   %inc = add nuw nsw i32 %n.018, 1
-  %tobool.not = icmp ult i64 %size.addr.017, 128
+  %tobool.not = icmp samesign ult i64 %size.addr.017, 128
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end6, %if.end

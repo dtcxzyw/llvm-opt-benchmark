@@ -382,7 +382,7 @@ define internal i64 @usbdev_read(ptr nocapture noundef readonly %0, ptr noundef 
   %54 = phi i64 [ %41, %45 ], [ %.ph, %98 ]
   %55 = load i8, ptr %46, align 1
   %56 = zext i8 %55 to i64
-  %57 = icmp ult i64 %50, %56
+  %57 = icmp samesign ult i64 %50, %56
   br i1 %57, label %58, label %.loopexit
 
 58:                                               ; preds = %49
@@ -1200,7 +1200,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @usbdev_ioctl(ptr nocaptu
   %338 = lshr i32 %1, 16
   %339 = and i32 %338, 16383
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
-  %340 = icmp ult i32 %339, 4
+  %340 = icmp samesign ult i32 %339, 4
   br i1 %340, label %388, label %341
 
 341:                                              ; preds = %337
@@ -1702,7 +1702,7 @@ define internal noundef i32 @usbdev_release(ptr nocapture readnone %0, ptr nocap
   %37 = add nuw nsw i64 %15, 1
   %38 = load i64, ptr %12, align 8
   %39 = icmp ne i64 %38, 0
-  %40 = icmp ult i64 %15, 63
+  %40 = icmp samesign ult i64 %15, 63
   %41 = select i1 %39, i1 %40, i1 false
   br i1 %41, label %.preheader7, label %.loopexit8, !llvm.loop !32
 
@@ -2194,7 +2194,7 @@ define internal fastcc i32 @proc_resetdevice(ptr noundef %0) unnamed_addr #1 ali
   %46 = phi i8 [ %.pre, %._crit_edge ], [ %19, %18 ]
   %47 = add nuw nsw i64 %20, 1
   %48 = zext i8 %46 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %18, label %.loopexit.loopexit, !llvm.loop !41
 
 .loopexit.loopexit:                               ; preds = %45
@@ -3837,7 +3837,7 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl(ptr nocapture noundef
   %81 = add nuw nsw i64 %86, 1
   %82 = load i32, ptr %7, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %85, label %.loopexit3, !llvm.loop !62
 
 85:                                               ; preds = %80, %77
@@ -4075,7 +4075,7 @@ define internal fastcc range(i32 -14, 1) i32 @copy_urb_data_to_user(ptr noundef 
   %50 = add nuw nsw i64 %26, 1
   %51 = load i32, ptr %9, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %50, %52
+  %53 = icmp samesign ult i64 %50, %52
   %54 = icmp ne i32 %49, 0
   %55 = and i1 %54, %53
   br i1 %55, label %25, label %.loopexit, !llvm.loop !67
@@ -4281,7 +4281,7 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl_compat(ptr nocapture 
   %81 = add nuw nsw i64 %86, 1
   %82 = load i32, ptr %7, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %85, label %.loopexit3, !llvm.loop !71
 
 85:                                               ; preds = %80, %77
@@ -4842,7 +4842,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
   br i1 %154, label %155, label %.thread21.thread27
 
 155:                                              ; preds = %151
-  %156 = icmp ugt i32 %153, 63
+  %156 = icmp samesign ugt i32 %153, 63
   br i1 %156, label %.thread21.thread27, label %157
 
 157:                                              ; preds = %155

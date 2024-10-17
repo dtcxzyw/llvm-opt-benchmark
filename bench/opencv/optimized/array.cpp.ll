@@ -5895,7 +5895,7 @@ define void @cvScalarToRawData(ptr noundef readonly %0, ptr noundef %1, i32 noun
   br label %118
 
 24:                                               ; preds = %4
-  %25 = icmp ugt i32 %12, 3
+  %25 = icmp samesign ugt i32 %12, 3
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
@@ -6912,7 +6912,7 @@ define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr
   %spec.select = select i1 %90, i32 1024, i32 %91
   %92 = add nsw i32 %spec.select, -1
   %93 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %spec.select)
-  %94 = icmp ult i32 %93, 2
+  %94 = icmp samesign ult i32 %93, 2
   br i1 %94, label %102, label %95
 
 95:                                               ; preds = %89

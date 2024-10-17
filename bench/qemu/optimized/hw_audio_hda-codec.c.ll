@@ -451,8 +451,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %or = or i32 %shl, %response.0159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add = add nuw nsw i32 %shift.0160, 8
-  %cmp25 = icmp ult i64 %indvars.iv.next, %21
-  %cmp26 = icmp ult i32 %shift.0160, 24
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next, %21
+  %cmp26 = icmp samesign ult i32 %shift.0160, 24
   %23 = select i1 %cmp25, i1 %cmp26, i1 false
   br i1 %23, label %while.body, label %return, !llvm.loop !9
 
@@ -576,11 +576,11 @@ if.end96:                                         ; preds = %sw.bb86
   %format = getelementptr inbounds i8, ptr %add.ptr91, i64 28
   store i32 %and5, ptr %format, align 4
   %as = getelementptr inbounds i8, ptr %add.ptr91, i64 44
-  %tobool.not.i = icmp ult i32 %and5, 32768
+  %tobool.not.i = icmp samesign ult i32 %and5, 32768
   br i1 %tobool.not.i, label %if.end.i, label %hda_codec_parse_fmt.exit
 
 if.end.i:                                         ; preds = %if.end96
-  %tobool2.not.i = icmp ult i32 %and5, 16384
+  %tobool2.not.i = icmp samesign ult i32 %and5, 16384
   %cond.i = select i1 %tobool2.not.i, i32 48000, i32 44100
   store i32 %cond.i, ptr %as, align 4
   %and3.i = lshr i32 %and5, 11
@@ -760,7 +760,7 @@ if.then149:                                       ; preds = %do.body145
   %65 = load ptr, ptr %node140, align 8
   %name153 = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load ptr, ptr %name153, align 8
-  %tobool155.not = icmp ult i32 %and5, 32768
+  %tobool155.not = icmp samesign ult i32 %and5, 32768
   %cond156 = select i1 %tobool155.not, ptr @.str.13, ptr @.str.12
   %and157 = and i32 %and5, 16384
   %tobool158.not = icmp eq i32 %and157, 0
@@ -2133,7 +2133,7 @@ if.end16:                                         ; preds = %for.body.i
   %11 = load i32, ptr %val, align 4
   %and = lshr i32 %11, 20
   %shr = and i32 %and, 15
-  %switch = icmp ult i32 %shr, 2
+  %switch = icmp samesign ult i32 %shr, 2
   br i1 %switch, label %sw.bb, label %for.inc
 
 sw.bb:                                            ; preds = %if.end16
@@ -2186,7 +2186,7 @@ for.inc:                                          ; preds = %for.cond.i, %for.bo
   %nnodes = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load i32, ptr %nnodes, align 8
   %16 = zext i32 %15 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next, %16
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %do.end, %entry

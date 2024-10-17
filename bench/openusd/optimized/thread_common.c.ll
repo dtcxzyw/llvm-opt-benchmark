@@ -952,7 +952,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 
 88:                                               ; preds = %113, %.lr.ph112.i.i
   %indvars.iv140.i.i = phi i64 [ 0, %.lr.ph112.i.i ], [ %indvars.iv.next141.i.i, %113 ]
-  %89 = icmp ult i64 %indvars.iv140.i.i, %87
+  %89 = icmp samesign ult i64 %indvars.iv140.i.i, %87
   br i1 %89, label %90, label %106
 
 90:                                               ; preds = %88

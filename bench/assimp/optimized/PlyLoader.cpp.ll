@@ -765,7 +765,7 @@ for.body:                                         ; preds = %invoke.cont163, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %mNumMaterials, align 8
   %53 = zext i32 %52 to i64
-  %cmp166 = icmp ult i64 %indvars.iv.next, %53
+  %cmp166 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %cmp166, label %for.body, label %for.end, !llvm.loop !6
 
 lpad157:                                          ; preds = %invoke.cont182, %invoke.cont173, %for.end, %invoke.cont158, %if.end155
@@ -823,7 +823,7 @@ for.body197:                                      ; preds = %invoke.cont188, %fo
   %mNumMeshes195 = getelementptr inbounds i8, ptr %61, i64 1120
   %62 = load i32, ptr %mNumMeshes195, align 8
   %63 = zext i32 %62 to i64
-  %cmp196 = icmp ult i64 %indvars.iv.next172, %63
+  %cmp196 = icmp samesign ult i64 %indvars.iv.next172, %63
   br i1 %cmp196, label %for.body197, label %for.end204, !llvm.loop !7
 
 lpad181:                                          ; preds = %invoke.cont179
@@ -1576,7 +1576,7 @@ for.inc60:                                        ; preds = %_ZNSt13unordered_se
   %15 = phi i32 [ %.pre, %_ZNSt13unordered_setIPK6aiBoneSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE6insertERKS2_.exit ], [ %12, %for.body50 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %16 = zext i32 %15 to i64
-  %cmp49 = icmp ult i64 %indvars.iv.next49, %16
+  %cmp49 = icmp samesign ult i64 %indvars.iv.next49, %16
   br i1 %cmp49, label %for.body50, label %for.end62, !llvm.loop !19
 
 for.end62:                                        ; preds = %for.inc60
@@ -1676,7 +1676,7 @@ for.inc98:                                        ; preds = %for.body91, %delete
   %31 = phi i32 [ %28, %for.body91 ], [ %.pre55, %delete.notnull96 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %32 = zext i32 %31 to i64
-  %cmp90 = icmp ult i64 %indvars.iv.next52, %32
+  %cmp90 = icmp samesign ult i64 %indvars.iv.next52, %32
   br i1 %cmp90, label %for.body91, label %for.end100, !llvm.loop !21
 
 for.end100:                                       ; preds = %for.inc98

@@ -2056,7 +2056,7 @@ define internal fastcc void @cli_elf_sectionlog(i32 noundef %0, i32 noundef rang
   br label %26
 
 26:                                               ; preds = %25, %23
-  %.not5 = icmp ult i32 %1, 4
+  %.not5 = icmp samesign ult i32 %1, 4
   br i1 %.not5, label %28, label %27
 
 27:                                               ; preds = %26

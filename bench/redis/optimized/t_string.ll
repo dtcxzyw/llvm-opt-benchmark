@@ -237,7 +237,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %27 = load ptr, ptr %arrayidx67, align 8
   %ptr = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %ptr, align 8
-  %cmp68 = icmp ugt i64 %indvars.iv, 2
+  %cmp68 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp68, label %land.lhs.true70, label %if.end106
 
 land.lhs.true70:                                  ; preds = %for.body

@@ -203,7 +203,7 @@ define noundef range(i64 0, 256) i64 @_ZN5nblib19findNumEnergyGroupsEN3gmx8Array
   %9 = trunc i64 %8 to i32
   %10 = and i32 %7, 255
   %11 = and i32 %9, 255
-  %12 = icmp ult i32 %10, %11
+  %12 = icmp samesign ult i32 %10, %11
   %13 = select i1 %12, i64 %8, i64 %5
   %spec.select.i.i = select i1 %12, ptr %6, ptr %.sroa.07.111.i.i
   %14 = getelementptr inbounds i8, ptr %6, i64 8

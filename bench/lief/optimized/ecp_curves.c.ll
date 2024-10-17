@@ -1872,7 +1872,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %295 = load i64, ptr %294, align 8
   %296 = icmp ne i64 %295, 0
   %297 = add nuw nsw i64 %.1.i, 1
-  %.not22.i = icmp ugt i64 %.1.i, 2
+  %.not22.i = icmp samesign ugt i64 %.1.i, 2
   %or.cond.i = or i1 %.not22.i, %296
   br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %288, !llvm.loop !7
 
@@ -2551,7 +2551,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %525 = load i64, ptr %524, align 8
   %526 = icmp ne i64 %525, 0
   %527 = add nuw nsw i64 %.1.i, 1
-  %.not22.i = icmp ugt i64 %.1.i, 3
+  %.not22.i = icmp samesign ugt i64 %.1.i, 3
   %or.cond.i = or i1 %.not22.i, %526
   br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %518, !llvm.loop !7
 
@@ -3460,7 +3460,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %719 = load i64, ptr %718, align 8
   %720 = icmp ne i64 %719, 0
   %721 = add nuw nsw i64 %.1.i, 1
-  %.not22.i = icmp ugt i64 %.1.i, 5
+  %.not22.i = icmp samesign ugt i64 %.1.i, 5
   %or.cond.i = or i1 %.not22.i, %720
   br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %712, !llvm.loop !7
 

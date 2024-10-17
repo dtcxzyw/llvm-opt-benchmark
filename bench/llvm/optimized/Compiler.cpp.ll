@@ -12789,7 +12789,7 @@ _ZZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE13visitInitListEN4llvm8ArrayRe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #14
   %203 = and i64 %202, 4294967295
-  %204 = icmp ult i64 %indvars.iv.next, %203
+  %204 = icmp samesign ult i64 %indvars.iv.next, %203
   br i1 %204, label %.lr.ph330, label %.critedge2.loopexit, !llvm.loop !58
 
 .critedge2.loopexit:                              ; preds = %201, %.lr.ph330
@@ -13526,7 +13526,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq i24 %7, 0
-  %or.cond = icmp ult i24 %7, 2
+  %or.cond = icmp samesign ult i24 %7, 2
   br i1 %or.cond, label %13, label %83
 
 13:                                               ; preds = %2
@@ -14357,7 +14357,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %27, %16
   %46 = load i64, ptr %45, align 8, !noalias !68
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %44, ptr %47, align 8, !alias.scope !68
-  %48 = icmp ult i32 %44, 65
+  %48 = icmp samesign ult i32 %44, 65
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %42
@@ -19794,7 +19794,7 @@ _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE9getRecordENS_8QualTypeE.exit: 
   %84 = load i64, ptr %83, align 8, !noalias !106
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %82, ptr %85, align 8, !alias.scope !106
-  %86 = icmp ult i32 %82, 65
+  %86 = icmp samesign ult i32 %82, 65
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %80
@@ -19904,7 +19904,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6APSIntD2Ev
   %142 = load i64, ptr %141, align 8, !noalias !109
   %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %140, ptr %143, align 8, !alias.scope !109
-  %144 = icmp ult i32 %140, 65
+  %144 = icmp samesign ult i32 %140, 65
   br i1 %144, label %145, label %153
 
 145:                                              ; preds = %138
@@ -38902,7 +38902,7 @@ _ZZN5clang6interp8CompilerINS0_11EvalEmitterEE13visitInitListEN4llvm8ArrayRefIPK
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #14
   %203 = and i64 %202, 4294967295
-  %204 = icmp ult i64 %indvars.iv.next, %203
+  %204 = icmp samesign ult i64 %indvars.iv.next, %203
   br i1 %204, label %.lr.ph330, label %.critedge2.loopexit, !llvm.loop !173
 
 .critedge2.loopexit:                              ; preds = %201, %.lr.ph330
@@ -39637,7 +39637,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq i24 %7, 0
-  %or.cond = icmp ult i24 %7, 2
+  %or.cond = icmp samesign ult i24 %7, 2
   br i1 %or.cond, label %13, label %83
 
 13:                                               ; preds = %2
@@ -40342,7 +40342,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit.i:  ; preds = %27, %16
   %46 = load i64, ptr %45, align 8, !noalias !182
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %44, ptr %47, align 8, !alias.scope !182
-  %48 = icmp ult i32 %44, 65
+  %48 = icmp samesign ult i32 %44, 65
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %42
@@ -45584,7 +45584,7 @@ _ZN5clang6interp8CompilerINS0_11EvalEmitterEE9getRecordENS_8QualTypeE.exit: ; pr
   %84 = load i64, ptr %83, align 8, !noalias !211
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %82, ptr %85, align 8, !alias.scope !211
-  %86 = icmp ult i32 %82, 65
+  %86 = icmp samesign ult i32 %82, 65
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %80
@@ -45694,7 +45694,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6APSIntD2Ev
   %142 = load i64, ptr %141, align 8, !noalias !214
   %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %140, ptr %143, align 8, !alias.scope !214
-  %144 = icmp ult i32 %140, 65
+  %144 = icmp samesign ult i32 %140, 65
   br i1 %144, label %145, label %153
 
 145:                                              ; preds = %138

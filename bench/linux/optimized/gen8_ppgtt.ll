@@ -128,7 +128,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   %84 = add nuw nsw i64 %71, 1
   %85 = load i8, ptr %13, align 1
   %86 = zext i8 %85 to i64
-  %87 = icmp ult i64 %71, %86
+  %87 = icmp samesign ult i64 %71, %86
   br i1 %87, label %70, label %.thread39, !llvm.loop !8
 
 88:                                               ; preds = %59, %53, %7
@@ -215,7 +215,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   %140 = add nuw nsw i64 %112, 1
   %141 = load i8, ptr %13, align 1
   %142 = zext i8 %141 to i64
-  %143 = icmp ult i64 %112, %142
+  %143 = icmp samesign ult i64 %112, %142
   br i1 %143, label %.preheader, label %.thread39, !llvm.loop !14
 
 144:                                              ; preds = %.thread, %.thread37
@@ -677,7 +677,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
-  %28 = icmp ugt i32 %27, 3121
+  %28 = icmp samesign ugt i32 %27, 3121
   %29 = getelementptr inbounds i8, ptr %0, i64 584
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 %30(i64 noundef 0, i32 noundef %2, i32 noundef %3) #7
@@ -884,8 +884,8 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
   %185 = phi i32 [ %153, %150 ], [ %172, %174 ]
   %186 = icmp uge i32 %185, %124
   %187 = zext i16 %145 to i32
-  %188 = icmp ugt i32 %126, %187
-  %189 = and i1 %188, %186
+  %188 = icmp samesign ugt i32 %126, %187
+  %189 = select i1 %186, i1 %188, i1 false
   br i1 %189, label %132, label %.thread, !llvm.loop !26
 
 .thread:                                          ; preds = %155, %181, %174, %170, %167
@@ -1063,7 +1063,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
   %324 = zext i32 %319 to i64
   %325 = add i64 %323, %324
   %326 = icmp ne i32 %292, -1
-  %327 = icmp ult i64 %291, 511
+  %327 = icmp samesign ult i64 %291, 511
   %328 = and i1 %327, %326
   br i1 %328, label %329, label %340
 
@@ -1080,7 +1080,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
 335:                                              ; preds = %332
   %336 = shl nuw nsw i64 %291, 12
   %337 = xor i64 %336, 2093056
-  %338 = icmp ugt i64 %337, %324
+  %338 = icmp samesign ugt i64 %337, %324
   br i1 %338, label %339, label %340
 
 339:                                              ; preds = %335, %329
@@ -1099,7 +1099,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
   %348 = phi i32 [ %292, %287 ], [ %341, %340 ]
   %349 = phi i32 [ %300, %287 ], [ %319, %340 ]
   %350 = icmp uge i32 %349, %278
-  %351 = icmp ult i64 %291, 511
+  %351 = icmp samesign ult i64 %291, 511
   %352 = and i1 %351, %350
   br i1 %352, label %287, label %.thread33, !llvm.loop !28
 

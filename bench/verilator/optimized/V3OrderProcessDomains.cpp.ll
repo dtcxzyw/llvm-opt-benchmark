@@ -4736,7 +4736,7 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortISt15_Deque_iteratorINSt7
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %46 = add nuw nsw i64 %storemerge26.i.i, 1
   %47 = lshr i64 %46, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !47
 
 48:                                               ; preds = %.lr.ph.i.i

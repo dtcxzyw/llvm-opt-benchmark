@@ -2831,7 +2831,7 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
   %47 = tail call i64 @g_strlcat(ptr noundef %5, ptr noundef %46, i64 noundef 225) #6
   %48 = add nuw nsw i32 %37, 1
   %49 = and i32 %48, 65535
-  %50 = icmp ult i32 %49, %34
+  %50 = icmp samesign ult i32 %49, %34
   br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
@@ -2855,7 +2855,7 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
 63:                                               ; preds = %.lr.ph.split, %58
   %64 = add nuw nsw i32 %51, 1
   %65 = and i32 %64, 65535
-  %66 = icmp ult i32 %65, %34
+  %66 = icmp samesign ult i32 %65, %34
   br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %63, %.lr.ph.split.us, %3

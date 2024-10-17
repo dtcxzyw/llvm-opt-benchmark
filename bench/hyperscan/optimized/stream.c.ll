@@ -1246,7 +1246,7 @@ do.body.i:                                        ; preds = %if.end36.i, %do.end
 
 if.then.i178:                                     ; preds = %do.body.i
   %sub.i179 = sub nuw nsw i64 %conv.i173, %1
-  %cmp9.i.not = icmp ult i64 %sub.i179, %conv39
+  %cmp9.i.not = icmp samesign ult i64 %sub.i179, %conv39
   br i1 %cmp9.i.not, label %if.end23.i, label %next_nfa.i
 
 if.else.i175:                                     ; preds = %do.body.i
@@ -2159,7 +2159,7 @@ while.body.i2539:                                 ; preds = %while.body.i2539.ba
   %key_rem.i.1 = phi i64 [ 0, %if.else.i2156 ], [ %key_rem.i.1.be, %while.body.i2539.backedge ]
   %key.i2530.1 = phi i32 [ 0, %if.else.i2156 ], [ %key.i2530.1.be, %while.body.i2539.backedge ]
   %level.i2529.1 = phi i32 [ 0, %if.else.i2156 ], [ %level.i2529.1.be, %while.body.i2539.backedge ]
-  %cmp3.i = icmp ult i64 %key_rem.i.1, 64
+  %cmp3.i = icmp samesign ult i64 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i2544, label %if.end19.i
 
 if.then5.i2544:                                   ; preds = %while.body.i2539
@@ -2385,11 +2385,11 @@ if.then38.i2452:                                  ; preds = %mmbit_get_flat_bloc
 if.else.i2444:                                    ; preds = %mmbit_get_flat_block.exit132.i2432
   %conv41.i2445 = zext i32 %mul.i2405 to i64
   %add42.i2446 = add nuw nsw i64 %conv41.i2445, 64
-  %cmp44.i2448.not = icmp ult i64 %add42.i2446, %conv.i2317
+  %cmp44.i2448.not = icmp samesign ult i64 %add42.i2446, %conv.i2317
   br i1 %cmp44.i2448.not, label %for.cond.i2326.preheader, label %roseSaveNfaStreamState.exit
 
 for.cond.i2326.preheader:                         ; preds = %if.else.i2444
-  %cmp52.i23272674 = icmp ugt i32 %div.i23212357, %341
+  %cmp52.i23272674 = icmp samesign ugt i32 %div.i23212357, %341
   br i1 %cmp52.i23272674, label %for.body.i2381, label %for.end.i2328
 
 for.body.i2381:                                   ; preds = %for.cond.i2326.preheader, %if.end67.i2386
@@ -5227,7 +5227,7 @@ if.then5.i1948:                                   ; preds = %if.end.i1936
 
 if.then.i3830:                                    ; preds = %if.then5.i1948
   %sub.i3833 = sub nuw nsw i64 %conv.i1940, %779
-  %cmp4.i3834 = icmp ugt i64 %sub.i3833, 23
+  %cmp4.i3834 = icmp samesign ugt i64 %sub.i3833, 23
   %hbuf.i3844 = getelementptr inbounds i8, ptr %scratch, i64 304
   %781 = load ptr, ptr %hbuf.i3844, align 8
   %add.ptr.i3846 = getelementptr inbounds i8, ptr %781, i64 %780

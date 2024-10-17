@@ -18867,7 +18867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %if.
   %inc = add nuw nsw i64 %index.054, 1
   %26 = load i16, ptr %count, align 2, !tbaa !51
   %conv = zext i16 %26 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !505
 
 if.then22:                                        ; preds = %for.cond.cleanup

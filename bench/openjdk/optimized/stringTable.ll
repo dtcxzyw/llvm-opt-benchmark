@@ -3352,7 +3352,7 @@ _ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compac
   %51 = and i32 %50, 1073741823
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %12, i64 %52
-  %54 = icmp ult i32 %11, %51
+  %54 = icmp samesign ult i32 %11, %51
   br i1 %54, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %47, %_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6decodeEj.exit27
@@ -3575,7 +3575,7 @@ _ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compac
   %57 = and i32 %56, 1073741823
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %18, i64 %58
-  %60 = icmp ult i32 %16, %57
+  %60 = icmp samesign ult i32 %16, %57
   br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %54, %96
@@ -9283,7 +9283,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
 84:                                               ; preds = %81
   %85 = icmp sgt i32 %.sroa.0.2, -1
   %86 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %83)
-  %87 = icmp ult i32 %86, 2
+  %87 = icmp samesign ult i32 %86, 2
   %or.cond.i.i.i.i = select i1 %85, i1 %87, i1 false
   %88 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %83, i1 true)
   %89 = sub nuw nsw i32 32, %88

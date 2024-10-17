@@ -58,7 +58,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
   %25 = zext i16 %24 to i32
   %26 = mul nuw nsw i32 %spec.select, %25
   %27 = urem i32 %2, %26
-  %28 = icmp ult i32 %27, 1024
+  %28 = icmp samesign ult i32 %27, 1024
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %19
@@ -202,7 +202,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
 85:                                               ; preds = %83, %80
   %.086.in = phi i64 [ %82, %80 ], [ %84, %83 ]
   %86 = and i64 %.086.in, 4294967295
-  %87 = icmp ult i64 %86, 1024
+  %87 = icmp samesign ult i64 %86, 1024
   br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %85
@@ -377,8 +377,8 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1
   %26 = tail call zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %25) #7
   %27 = zext i16 %26 to i32
   %28 = icmp eq i32 %.013, %27
-  %29 = icmp ult i64 %indvars.iv, 1024
-  %or.cond = and i1 %29, %28
+  %29 = icmp samesign ult i64 %indvars.iv, 1024
+  %or.cond = select i1 %28, i1 %29, i1 false
   br i1 %or.cond, label %30, label %37
 
 30:                                               ; preds = %.lr.ph

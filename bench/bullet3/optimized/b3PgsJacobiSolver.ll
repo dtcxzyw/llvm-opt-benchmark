@@ -5727,31 +5727,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i.i = add i64 %mul.i.i, 1013904223
   %and.i.i = and i64 %add.i.i, 4294967295
   store i64 %and.i.i, ptr %m_btSeed2.i.i, align 8
-  %cmp.i = icmp ult i64 %indvars.iv, 65536
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 65536
   br i1 %cmp.i, label %if.then.i, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit
 
 if.then.i:                                        ; preds = %for.body
   %shr.i = lshr i64 %and.i.i, 16
   %xor.i = xor i64 %shr.i, %and.i.i
-  %cmp2.i = icmp ult i64 %indvars.iv, 256
+  %cmp2.i = icmp samesign ult i64 %indvars.iv, 256
   br i1 %cmp2.i, label %if.then3.i, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit
 
 if.then3.i:                                       ; preds = %if.then.i
   %shr4.i = lshr i64 %xor.i, 8
   %xor5.i = xor i64 %shr4.i, %xor.i
-  %cmp6.i = icmp ult i64 %indvars.iv, 16
+  %cmp6.i = icmp samesign ult i64 %indvars.iv, 16
   br i1 %cmp6.i, label %if.then7.i, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit
 
 if.then7.i:                                       ; preds = %if.then3.i
   %shr8.i = lshr i64 %xor5.i, 4
   %xor9.i = xor i64 %shr8.i, %xor5.i
-  %cmp10.i = icmp ult i64 %indvars.iv, 4
+  %cmp10.i = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp10.i, label %if.then11.i, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit
 
 if.then11.i:                                      ; preds = %if.then7.i
   %shr12.i = lshr i64 %xor9.i, 2
   %xor13.i = xor i64 %shr12.i, %xor9.i
-  %cmp14.i = icmp ult i64 %indvars.iv, 2
+  %cmp14.i = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp14.i, label %if.then15.i, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit
 
 if.then15.i:                                      ; preds = %if.then11.i
@@ -5808,31 +5808,31 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %add.i.i142 = add i64 %mul.i.i141, 1013904223
   %and.i.i143 = and i64 %add.i.i142, 4294967295
   store i64 %and.i.i143, ptr %m_btSeed2.i.i140, align 8
-  %cmp.i144 = icmp ult i64 %indvars.iv395, 65536
+  %cmp.i144 = icmp samesign ult i64 %indvars.iv395, 65536
   br i1 %cmp.i144, label %if.then.i149, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit168
 
 if.then.i149:                                     ; preds = %for.body17
   %shr.i150 = lshr i64 %and.i.i143, 16
   %xor.i151 = xor i64 %shr.i150, %and.i.i143
-  %cmp2.i152 = icmp ult i64 %indvars.iv395, 256
+  %cmp2.i152 = icmp samesign ult i64 %indvars.iv395, 256
   br i1 %cmp2.i152, label %if.then3.i153, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit168
 
 if.then3.i153:                                    ; preds = %if.then.i149
   %shr4.i154 = lshr i64 %xor.i151, 8
   %xor5.i155 = xor i64 %shr4.i154, %xor.i151
-  %cmp6.i156 = icmp ult i64 %indvars.iv395, 16
+  %cmp6.i156 = icmp samesign ult i64 %indvars.iv395, 16
   br i1 %cmp6.i156, label %if.then7.i157, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit168
 
 if.then7.i157:                                    ; preds = %if.then3.i153
   %shr8.i158 = lshr i64 %xor5.i155, 4
   %xor9.i159 = xor i64 %shr8.i158, %xor5.i155
-  %cmp10.i160 = icmp ult i64 %indvars.iv395, 4
+  %cmp10.i160 = icmp samesign ult i64 %indvars.iv395, 4
   br i1 %cmp10.i160, label %if.then11.i161, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit168
 
 if.then11.i161:                                   ; preds = %if.then7.i157
   %shr12.i162 = lshr i64 %xor9.i159, 2
   %xor13.i163 = xor i64 %shr12.i162, %xor9.i159
-  %cmp14.i164 = icmp ult i64 %indvars.iv395, 2
+  %cmp14.i164 = icmp samesign ult i64 %indvars.iv395, 2
   br i1 %cmp14.i164, label %if.then15.i165, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit168
 
 if.then15.i165:                                   ; preds = %if.then11.i161
@@ -5863,31 +5863,31 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %add.i.i183 = add i64 %mul.i.i182, 1013904223
   %and.i.i184 = and i64 %add.i.i183, 4294967295
   store i64 %and.i.i184, ptr %m_btSeed2.i.i181, align 8
-  %cmp.i185 = icmp ult i64 %indvars.iv400, 65536
+  %cmp.i185 = icmp samesign ult i64 %indvars.iv400, 65536
   br i1 %cmp.i185, label %if.then.i190, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit209
 
 if.then.i190:                                     ; preds = %for.body35
   %shr.i191 = lshr i64 %and.i.i184, 16
   %xor.i192 = xor i64 %shr.i191, %and.i.i184
-  %cmp2.i193 = icmp ult i64 %indvars.iv400, 256
+  %cmp2.i193 = icmp samesign ult i64 %indvars.iv400, 256
   br i1 %cmp2.i193, label %if.then3.i194, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit209
 
 if.then3.i194:                                    ; preds = %if.then.i190
   %shr4.i195 = lshr i64 %xor.i192, 8
   %xor5.i196 = xor i64 %shr4.i195, %xor.i192
-  %cmp6.i197 = icmp ult i64 %indvars.iv400, 16
+  %cmp6.i197 = icmp samesign ult i64 %indvars.iv400, 16
   br i1 %cmp6.i197, label %if.then7.i198, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit209
 
 if.then7.i198:                                    ; preds = %if.then3.i194
   %shr8.i199 = lshr i64 %xor5.i196, 4
   %xor9.i200 = xor i64 %shr8.i199, %xor5.i196
-  %cmp10.i201 = icmp ult i64 %indvars.iv400, 4
+  %cmp10.i201 = icmp samesign ult i64 %indvars.iv400, 4
   br i1 %cmp10.i201, label %if.then11.i202, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit209
 
 if.then11.i202:                                   ; preds = %if.then7.i198
   %shr12.i203 = lshr i64 %xor9.i200, 2
   %xor13.i204 = xor i64 %shr12.i203, %xor9.i200
-  %cmp14.i205 = icmp ult i64 %indvars.iv400, 2
+  %cmp14.i205 = icmp samesign ult i64 %indvars.iv400, 2
   br i1 %cmp14.i205, label %if.then15.i206, label %_ZN17b3PgsJacobiSolver10b3RandInt2Ei.exit209
 
 if.then15.i206:                                   ; preds = %if.then11.i202

@@ -12735,8 +12735,8 @@ if.end7206:                                       ; preds = %if.then7201
 
 if.else7213:                                      ; preds = %if.end7206
   %and7216 = zext nneg i16 %1447 to i32
-  %cmp7217 = icmp ult i16 %1447, 4
-  %cmp7221 = icmp ult i16 %1447, 11
+  %cmp7217 = icmp samesign ult i16 %1447, 4
+  %cmp7221 = icmp samesign ult i16 %1447, 11
   %inc7224 = zext i1 %cmp7221 to i32
   %spec.select = add nuw nsw i32 %inc7224, %and7216
   %backoff.0 = select i1 %cmp7217, i32 4, i32 %spec.select

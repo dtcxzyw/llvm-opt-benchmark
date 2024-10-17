@@ -308,7 +308,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPmlN9__gnu_cxx5__ops15_Iter_
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %13, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ult i64 %15, %19
+  %20 = icmp samesign ult i64 %15, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -771,7 +771,7 @@ define void @_ZN5faiss21fvec_argsort_parallelEmPKfPm(i64 noundef %0, ptr noundef
   %21 = phi ptr [ %20, %.lr.ph ], [ %17, %3 ]
   %22 = add nuw nsw i32 %.01424, 1
   %23 = lshr i32 %22, 1
-  %24 = icmp ugt i32 %.01424, 2
+  %24 = icmp samesign ugt i32 %.01424, 2
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -856,7 +856,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EEC2EmRKS3_.exit.thread
   %50 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::SegmentS", ptr %.val, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %51 = icmp ult i64 %indvars.iv.next, %47
+  %51 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %51, label %.lr.ph28, label %._crit_edge29, !llvm.loop !20
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %.lr.ph31
@@ -865,7 +865,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EEC2EmRKS3_.exit.thread
   %53 = load ptr, ptr %5, align 8
   store ptr %53, ptr %6, align 8
   store ptr %52, ptr %5, align 8
-  %54 = icmp ugt i32 %38, 2
+  %54 = icmp samesign ugt i32 %38, 2
   br i1 %54, label %.lr.ph31, label %._crit_edge32, !llvm.loop !21
 
 ._crit_edge32:                                    ; preds = %._crit_edge29, %.loopexit
@@ -1242,7 +1242,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EE17_S_check_init_lenEmRKS3_.e
   %116 = getelementptr inbounds i8, ptr %106, i64 8
   store i64 %115, ptr %116, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = icmp ult i64 %indvars.iv.next.i, %105
+  %117 = icmp samesign ult i64 %indvars.iv.next.i, %105
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %.lr.ph.i

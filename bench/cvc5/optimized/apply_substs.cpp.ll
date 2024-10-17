@@ -162,7 +162,7 @@ cond.end25:                                       ; preds = %for.body
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %10 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %10, 1048575
-  %cmp.i.i124 = icmp ult i32 %bf.cast.i.i, 1048574
+  %cmp.i.i124 = icmp samesign ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i124, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.end25

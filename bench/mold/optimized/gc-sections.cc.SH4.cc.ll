@@ -4978,7 +4978,7 @@ land.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i, i64 %end.07.i.i.i.i.i.i.i.i.i.i.i.i
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv5.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %cmp8.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %conv5.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp8.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %conv5.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp8.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9CieRecordINS0_3SH4EE8get_relsEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5646,7 +5646,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %add.ptr.i5.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i, i64 %end.012.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i5.i, align 1
   %conv7.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp10.i = icmp ugt i64 %add.i, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i, %conv7.i
   br i1 %cmp10.i, label %while.body.i, label %_ZNK4mold3elf9FdeRecordINS0_3SH4EE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i

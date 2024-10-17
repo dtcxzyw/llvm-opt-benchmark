@@ -328,7 +328,7 @@ _ZN9CDSConfig12num_archivesEPKc.exit:             ; preds = %.lr.ph.i
   %43 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
   %44 = trunc i8 %43 to i1
   %45 = select i1 %42, i1 true, i1 %44
-  %46 = icmp ugt i32 %spec.select.i, 1
+  %46 = icmp samesign ugt i32 %spec.select.i, 1
   %or.cond = and i1 %46, %45
   br i1 %or.cond, label %47, label %48
 
@@ -358,7 +358,7 @@ _ZN9CDSConfig12num_archivesEPKc.exit:             ; preds = %.lr.ph.i
   br label %.thread23
 
 56:                                               ; preds = %48
-  %57 = icmp ugt i32 %spec.select.i, 2
+  %57 = icmp samesign ugt i32 %spec.select.i, 2
   br i1 %57, label %.thread19, label %58
 
 .thread19:                                        ; preds = %56

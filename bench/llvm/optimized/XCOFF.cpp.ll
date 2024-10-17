@@ -238,7 +238,7 @@ define dso_local void @_ZN4llvm5XCOFF14parseParmsTypeEjjj(ptr dead_on_unwind noa
   %.123 = phi i32 [ %23, %22 ], [ %.02242, %15 ]
   %25 = shl i32 %.044, %.sink57
   %26 = add nuw nsw i32 %.02640, %.sink57
-  %27 = icmp ult i32 %26, 31
+  %27 = icmp samesign ult i32 %26, 31
   %28 = icmp ult i32 %11, %10
   %29 = and i1 %27, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -452,7 +452,7 @@ default.unreachable:                              ; preds = %15
   %.1 = phi i32 [ %.02552, %24 ], [ %.02552, %22 ], [ %21, %20 ], [ %.02552, %18 ]
   %27 = shl i32 %.02354, 2
   %28 = add nuw nsw i32 %.055, 2
-  %29 = icmp ult i32 %.055, 30
+  %29 = icmp samesign ult i32 %.055, 30
   %30 = icmp ult i32 %13, %12
   %31 = and i1 %30, %29
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !12

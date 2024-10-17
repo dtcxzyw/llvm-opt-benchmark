@@ -428,7 +428,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 224:                                              ; preds = %.preheader86
   %225 = and i64 %150, 3
-  %226 = icmp ult i64 %144, 3
+  %226 = icmp samesign ult i64 %144, 3
   br i1 %226, label %.loopexit85, label %227
 
 227:                                              ; preds = %224
@@ -1040,7 +1040,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 659:                                              ; preds = %654, %638
   %660 = phi i32 [ %658, %654 ], [ %640, %638 ]
   %661 = add nuw nsw i64 %639, 1
-  %662 = icmp ult i64 %639, 19
+  %662 = icmp samesign ult i64 %639, 19
   %663 = icmp slt i32 %660, 4
   %664 = select i1 %662, i1 %663, i1 false
   br i1 %664, label %638, label %665
@@ -1080,7 +1080,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 689:                                              ; preds = %684, %668
   %690 = phi i32 [ %688, %684 ], [ %670, %668 ]
   %691 = add nuw nsw i64 %669, 1
-  %692 = icmp ult i64 %669, 19
+  %692 = icmp samesign ult i64 %669, 19
   %693 = icmp slt i32 %690, 4
   %694 = select i1 %692, i1 %693, i1 false
   br i1 %694, label %668, label %695
@@ -1120,7 +1120,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 719:                                              ; preds = %714, %698
   %720 = phi i32 [ %718, %714 ], [ %700, %698 ]
   %721 = add nuw nsw i64 %699, 1
-  %722 = icmp ult i64 %699, 19
+  %722 = icmp samesign ult i64 %699, 19
   %723 = icmp slt i32 %720, 4
   %724 = select i1 %722, i1 %723, i1 false
   br i1 %724, label %698, label %725
@@ -1160,7 +1160,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 749:                                              ; preds = %744, %728
   %750 = phi i32 [ %748, %744 ], [ %730, %728 ]
   %751 = add nuw nsw i64 %729, 1
-  %752 = icmp ult i64 %729, 19
+  %752 = icmp samesign ult i64 %729, 19
   %753 = icmp slt i32 %750, 4
   %754 = select i1 %752, i1 %753, i1 false
   br i1 %754, label %728, label %755
@@ -1200,7 +1200,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 779:                                              ; preds = %774, %758
   %780 = phi i32 [ %778, %774 ], [ %760, %758 ]
   %781 = add nuw nsw i64 %759, 1
-  %782 = icmp ult i64 %759, 19
+  %782 = icmp samesign ult i64 %759, 19
   %783 = icmp slt i32 %780, 4
   %784 = select i1 %782, i1 %783, i1 false
   br i1 %784, label %758, label %785
@@ -1240,7 +1240,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 809:                                              ; preds = %804, %788
   %810 = phi i32 [ %808, %804 ], [ %790, %788 ]
   %811 = add nuw nsw i64 %789, 1
-  %812 = icmp ult i64 %789, 19
+  %812 = icmp samesign ult i64 %789, 19
   %813 = icmp slt i32 %810, 4
   %814 = select i1 %812, i1 %813, i1 false
   br i1 %814, label %788, label %635
@@ -1472,8 +1472,8 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %1018 = select <8 x i1> %1017, <8 x float> %992, <8 x float> %997
   %1019 = select <8 x i1> %1010, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i1> %1006
   %1020 = select <8 x i1> %1019, <8 x float> %994, <8 x float> %998
-  %1021 = icmp uge <8 x i32> %1013, %897
-  %1022 = icmp uge <8 x i32> %1016, %897
+  %1021 = icmp samesign uge <8 x i32> %1013, %897
+  %1022 = icmp samesign uge <8 x i32> %1016, %897
   %1023 = select <8 x i1> %923, <8 x i1> %1021, <8 x i1> zeroinitializer
   %1024 = select <8 x i1> %924, <8 x i1> %1022, <8 x i1> zeroinitializer
   %1025 = getelementptr i8, ptr %916, i64 32
@@ -1691,7 +1691,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %1157 = shufflevector <8 x i64> %1156, <8 x i64> poison, <8 x i32> zeroinitializer
   %1158 = insertelement <8 x float> poison, float %1155, i64 0
   %1159 = shufflevector <8 x float> %1158, <8 x float> poison, <8 x i32> zeroinitializer
-  %1160 = icmp uge <8 x i64> %1157, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>
+  %1160 = icmp samesign uge <8 x i64> %1157, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>
   %1161 = getelementptr inbounds float, ptr %1106, <8 x i64> <i64 -2, i64 -4, i64 -6, i64 -8, i64 -10, i64 -12, i64 -14, i64 -16>
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1159, <8 x ptr> %1161, i32 4, <8 x i1> %1160), !tbaa !36
   %1162 = add nsw i32 %1105, 1

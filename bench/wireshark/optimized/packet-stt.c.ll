@@ -482,7 +482,7 @@ dissect_tcp_tree.exit.i:                          ; preds = %.thread.i.i.i, %110
   %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20) #4
   %130 = zext i16 %128 to i32
   %131 = and i32 %129, 65535
-  %132 = icmp ult i32 %131, %130
+  %132 = icmp samesign ult i32 %131, %130
   br i1 %132, label %133, label %.thread69.i
 
 133:                                              ; preds = %dissect_tcp_tree.exit.i

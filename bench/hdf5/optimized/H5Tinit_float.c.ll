@@ -728,7 +728,7 @@ H5T__byte_cmp.exit256.thread:                     ; preds = %317, %H5T__byte_cmp
   %360 = getelementptr inbounds i32, ptr %45, i64 %359
   store i32 %358, ptr %360, align 8
   %indvars.iv.next.i258 = add nuw nsw i64 %indvars.iv.i257, 2
-  %361 = icmp ult i64 %indvars.iv.i257, 6
+  %361 = icmp samesign ult i64 %indvars.iv.i257, 6
   br i1 %361, label %354, label %.loopexit
 
 362:                                              ; preds = %321
@@ -1593,7 +1593,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   %58 = getelementptr inbounds i32, ptr %2, i64 %57
   store i32 %56, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %59 = icmp ult i64 %indvars.iv.next, %49
+  %59 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %59, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %50, %36, %24, %43, %6

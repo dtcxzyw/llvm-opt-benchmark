@@ -3024,7 +3024,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = icmp ult i64 %3, 4
+  %11 = icmp samesign ult i64 %3, 4
   br i1 %11, label %.preheader, label %.preheader320
 
 .preheader320:                                    ; preds = %10
@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %47 = add i32 %.0237342, 4
   %48 = zext i16 %46 to i32
   %49 = add i32 %47, %48
-  %50 = icmp ugt i32 %49, %31
+  %50 = icmp samesign ugt i32 %49, %31
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %38
@@ -3573,7 +3573,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
 299:                                              ; preds = %.sink.split376, %291, %280
   %.0 = phi i32 [ %292, %291 ], [ 0, %280 ], [ %.0.ph, %.sink.split376 ]
   %300 = add nuw nsw i32 %.0, 5
-  %.not277 = icmp ugt i32 %300, %48
+  %.not277 = icmp samesign ugt i32 %300, %48
   br i1 %.not277, label %.thread, label %301
 
 301:                                              ; preds = %299
@@ -3599,7 +3599,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
 
 313:                                              ; preds = %301
   %314 = add nuw nsw i32 %.0, 7
-  %.not278 = icmp ugt i32 %314, %48
+  %.not278 = icmp samesign ugt i32 %314, %48
   br i1 %.not278, label %.thread, label %315
 
 315:                                              ; preds = %313
@@ -6255,7 +6255,7 @@ define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr nocapture noundef wri
   %.not19 = icmp ne i16 %.val23, %.val
   %14 = add i32 %8, %6
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %2, %15
+  %16 = icmp samesign ult i64 %2, %15
   %or.cond = select i1 %.not19, i1 true, i1 %16
   br i1 %or.cond, label %23, label %17
 

@@ -1662,10 +1662,10 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1210 = urem i64 %1208, %197
   %1211 = urem i64 %1209, %180
   %1212 = urem i64 %1209, %181
-  %1213 = icmp ult i64 %1211, %1212
+  %1213 = icmp samesign ult i64 %1211, %1212
   %1214 = urem i64 %1210, %180
   %1215 = urem i64 %1210, %181
-  %1216 = icmp ult i64 %1214, %1215
+  %1216 = icmp samesign ult i64 %1214, %1215
   br i1 %1213, label %1217, label %1221
 
 1217:                                             ; preds = %1207

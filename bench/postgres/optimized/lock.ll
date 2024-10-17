@@ -972,7 +972,7 @@ GrantLock.exit.i:                                 ; preds = %242, %225
   %258 = getelementptr inbounds i8, ptr %257, i64 32
   %259 = load i32, ptr %258, align 8
   %260 = zext i32 %259 to i64
-  %.not53.i = icmp ult i64 %indvars.iv.next62.i, %260
+  %.not53.i = icmp samesign ult i64 %indvars.iv.next62.i, %260
   br i1 %.not53.i, label %.lr.ph.i191, label %.thread, !llvm.loop !14
 
 261:                                              ; preds = %222

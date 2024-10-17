@@ -17591,7 +17591,7 @@ if.end74.i:                                       ; preds = %if.end69.i
   %add77.i = fadd double %25, %26
   %div.i = fmul double %add77.i, 5.000000e-01
   %call.i.i82.i = tail call double @log(double noundef %div.i) #35, !tbaa !50
-  %cmp10.not116.i.i = icmp ugt i64 %storemerge298.i, 99
+  %cmp10.not116.i.i = icmp samesign ugt i64 %storemerge298.i, 99
   br i1 %cmp10.not116.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end74.i
@@ -18481,7 +18481,7 @@ if.end74.i122:                                    ; preds = %if.end69.i121
   %add77.i123 = fadd double %142, %143
   %div.i124 = fmul double %add77.i123, 5.000000e-01
   %call.i.i87.i = tail call double @log(double noundef %div.i124) #35, !tbaa !50
-  %cmp10.not120.i.i = icmp ugt i64 %storemerge308.i, 99
+  %cmp10.not120.i.i = icmp samesign ugt i64 %storemerge308.i, 99
   br i1 %cmp10.not120.i.i, label %do.body.i.i169, label %while.body.lr.ph.i.i132
 
 while.body.lr.ph.i.i132:                          ; preds = %if.end74.i122

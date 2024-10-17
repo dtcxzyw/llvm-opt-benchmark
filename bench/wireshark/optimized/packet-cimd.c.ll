@@ -679,7 +679,7 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef %23) #4
   %28 = lshr i32 %23, 4
   %29 = and i32 %28, 15
-  %30 = icmp ult i32 %29, 8
+  %30 = icmp samesign ult i32 %29, 8
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %5
@@ -698,7 +698,7 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
 41:                                               ; preds = %5
   %42 = load i32, ptr @hf_cimd_dcs_coding_group_indicatorF0, align 4
   %43 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %42, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23) #4
-  %44 = icmp ugt i32 %29, 11
+  %44 = icmp samesign ugt i32 %29, 11
   %45 = icmp ne i32 %29, 15
   %or.cond = and i1 %44, %45
   br i1 %or.cond, label %.sink.split.sink.split, label %46

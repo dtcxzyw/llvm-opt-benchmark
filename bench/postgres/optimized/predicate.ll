@@ -4762,7 +4762,7 @@ define internal fastcc noundef zeroext i1 @XidIsConcurrent(i32 noundef %0) unnam
 
 40:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %41 = icmp ult i64 %indvars.iv.next.i, %18
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %41, label %.lr.ph.i, label %.preheader.loopexit.i, !llvm.loop !37
 
 .lr.ph45.i:                                       ; preds = %.lr.ph45.i, %.lr.ph45.preheader.i

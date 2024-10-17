@@ -1566,7 +1566,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
 
 219:                                              ; preds = %187
   %220 = and i16 %136, 255
-  %221 = icmp ult i16 %220, 4
+  %221 = icmp samesign ult i16 %220, 4
   br i1 %221, label %222, label %.thread22
 
 222:                                              ; preds = %219
@@ -2233,7 +2233,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %105 = add nuw nsw i64 %104, 1
   %106 = load i8, ptr %94, align 4
   %107 = zext i8 %106 to i64
-  %108 = icmp ult i64 %105, %107
+  %108 = icmp samesign ult i64 %105, %107
   br i1 %108, label %109, label %.loopexit41, !llvm.loop !50
 
 109:                                              ; preds = %.preheader
@@ -2290,7 +2290,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %143 = add nuw nsw i64 %153, 1
   %144 = load i8, ptr %137, align 4
   %145 = zext i8 %144 to i64
-  %146 = icmp ult i64 %143, %145
+  %146 = icmp samesign ult i64 %143, %145
   br i1 %146, label %152, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %142, %135
@@ -2318,7 +2318,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   %162 = add nuw nsw i64 %167, 1
   %163 = load i8, ptr %147, align 4
   %164 = zext i8 %163 to i64
-  %165 = icmp ult i64 %162, %164
+  %165 = icmp samesign ult i64 %162, %164
   br i1 %165, label %166, label %.thread33, !llvm.loop !52
 
 166:                                              ; preds = %161, %150

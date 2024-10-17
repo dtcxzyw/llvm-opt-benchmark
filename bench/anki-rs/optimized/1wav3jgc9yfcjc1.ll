@@ -4,9 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3std4path6Prefix11is_verbatim17h55238ad06f2bc8e6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden zeroext i1 @_ZN3std4path6Prefix11is_verbatim17h55238ad06f2bc8e6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  %switch = icmp ult i8 %2, 3
+  %switch = icmp samesign ult i8 %2, 3
   ret i1 %switch
 }
 

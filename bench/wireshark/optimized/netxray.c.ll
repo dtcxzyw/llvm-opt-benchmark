@@ -984,7 +984,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br i1 %85, label %.sink.split, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ugt i8 %80, 16
+  %87 = icmp samesign ugt i8 %80, 16
   br i1 %87, label %88, label %96
 
 88:                                               ; preds = %86
@@ -996,7 +996,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br i1 %91, label %.sink.split, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ugt i8 %80, 24
+  %93 = icmp samesign ugt i8 %80, 24
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92

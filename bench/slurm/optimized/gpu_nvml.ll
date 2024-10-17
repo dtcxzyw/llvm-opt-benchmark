@@ -524,7 +524,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %103 = load i32, ptr %31, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next.i, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next.i, %104
   br i1 %105, label %90, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %102, %84
@@ -556,7 +556,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   %120 = getelementptr inbounds i8, ptr %119, i64 4232
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next127.i, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next127.i, %122
   br i1 %123, label %.lr.ph95.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.lr.ph95.i, %108, %._crit_edge.i
@@ -1652,7 +1652,7 @@ _nvml_print_gfx_freqs.exit42.i.i:                 ; preds = %533, %.lr.ph.i78.i
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i79.i, 1
   %535 = load i32, ptr %8, align 4
   %536 = zext i32 %535 to i64
-  %537 = icmp ult i64 %indvars.iv.next.i80.i, %536
+  %537 = icmp samesign ult i64 %indvars.iv.next.i80.i, %536
   br i1 %537, label %.lr.ph.i78.i, label %_nvml_print_freqs.exit.i, !llvm.loop !14
 
 _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_freqs.exit42.i.i, %_nvml_print_gfx_freqs.exit41.i.i, %.preheader.i.i, %483
@@ -1708,7 +1708,7 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %551 = load i32, ptr %31, align 4
   %552 = zext i32 %551 to i64
-  %553 = icmp ult i64 %indvars.iv.next130.i, %552
+  %553 = icmp samesign ult i64 %indvars.iv.next130.i, %552
   br i1 %553, label %.lr.ph110.i, label %._crit_edge111.i, !llvm.loop !16
 
 ._crit_edge111.i:                                 ; preds = %.lr.ph110.i, %548

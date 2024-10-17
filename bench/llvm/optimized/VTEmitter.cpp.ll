@@ -1618,7 +1618,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %774, %773, %771
 
 792:                                              ; preds = %790
   %793 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %732)
-  %794 = icmp ult i64 %793, 2
+  %794 = icmp samesign ult i64 %793, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit.i.i
 
 _ZN4llvm13isPowerOf2_64Em.exit.i.i:               ; preds = %792, %790

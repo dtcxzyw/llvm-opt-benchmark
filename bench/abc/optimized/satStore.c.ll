@@ -469,7 +469,7 @@ define void @Sto_ManDumpClauses(ptr nocapture noundef readonly %0, ptr noundef %
   %31 = lshr i32 %30, 3
   %32 = and i32 %31, 16777215
   %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %21, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %21, %.preheader

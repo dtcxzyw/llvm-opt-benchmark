@@ -4396,7 +4396,7 @@ thread-pre-split37:                               ; preds = %18
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = tail call i64 @atoll(ptr nocapture noundef nonnull %32) #28
   %34 = and i64 %33, 255
-  %or.cond5 = icmp ugt i64 %34, 2
+  %or.cond5 = icmp samesign ugt i64 %34, 2
   %35 = trunc i64 %33 to i8
   %spec.select = select i1 %or.cond5, i8 1, i8 %35
   br label %36

@@ -609,7 +609,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -765,7 +765,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -3882,7 +3882,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   ]
 
 48:                                               ; preds = %42
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %49, label %50, label %_ZN4core3str7pattern8Searcher11next_reject17h9a19a498eec6998fE.llvm.2345482801186077863.exit
 
 50:                                               ; preds = %48
@@ -4014,7 +4014,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h9a19a498eec6998fE.llvm.234548280118
   ]
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %115 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %115, label %116, label %136
 
 116:                                              ; preds = %114
@@ -4207,7 +4207,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h73
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -4367,7 +4367,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h9a19a498eec6998
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -9770,7 +9770,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -11816,15 +11816,15 @@ _ZN3vim6motion13start_of_line17h687701147029b972E.exit: ; preds = %522, %530
 563:                                              ; preds = %561
   %564 = getelementptr inbounds i8, ptr %30, i64 1208
   %565 = load i64, ptr %564, align 8, !alias.scope !2395, !noalias !2392, !noundef !4
-  %566 = icmp ult i32 %558, 128
+  %566 = icmp samesign ult i32 %558, 128
   br i1 %566, label %580, label %567
 
 567:                                              ; preds = %563
-  %568 = icmp ult i32 %558, 2048
+  %568 = icmp samesign ult i32 %558, 2048
   br i1 %568, label %580, label %569
 
 569:                                              ; preds = %567
-  %570 = icmp ult i32 %558, 65536
+  %570 = icmp samesign ult i32 %558, 65536
   %..i.i.i = select i1 %570, i64 3, i64 4
   br label %580
 
@@ -11883,15 +11883,15 @@ _ZN3vim6motion13start_of_line17h687701147029b972E.exit: ; preds = %522, %530
   br i1 %589, label %596, label %590
 
 590:                                              ; preds = %587
-  %591 = icmp ult i32 %588, 128
+  %591 = icmp samesign ult i32 %588, 128
   br i1 %591, label %598, label %592
 
 592:                                              ; preds = %590
-  %593 = icmp ult i32 %588, 2048
+  %593 = icmp samesign ult i32 %588, 2048
   br i1 %593, label %598, label %594
 
 594:                                              ; preds = %592
-  %595 = icmp ult i32 %588, 65536
+  %595 = icmp samesign ult i32 %588, 65536
   %..i.i32.i = select i1 %595, i64 -3, i64 -4
   br label %598
 
@@ -11955,15 +11955,15 @@ _ZN3vim6motion13start_of_line17h687701147029b972E.exit: ; preds = %522, %530
   br i1 %615, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hfc2130a7d777f8b1E.exit.i.i", label %616
 
 616:                                              ; preds = %.noexc33.i
-  %617 = icmp ult i32 %614, 128
+  %617 = icmp samesign ult i32 %614, 128
   br i1 %617, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i.i", label %618
 
 618:                                              ; preds = %616
-  %619 = icmp ult i32 %614, 2048
+  %619 = icmp samesign ult i32 %614, 2048
   br i1 %619, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i.i", label %620
 
 620:                                              ; preds = %618
-  %621 = icmp ult i32 %614, 65536
+  %621 = icmp samesign ult i32 %614, 65536
   %..i.i.i.i.i.i = select i1 %621, i64 -3, i64 -4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i.i"
 
@@ -12156,15 +12156,15 @@ _ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit: ; preds = %596, %63
 
 683:                                              ; preds = %681
   %684 = load i64, ptr %676, align 8, !alias.scope !2506, !noalias !2453, !noundef !4
-  %685 = icmp ult i32 %680, 128
+  %685 = icmp samesign ult i32 %680, 128
   br i1 %685, label %690, label %686
 
 686:                                              ; preds = %683
-  %687 = icmp ult i32 %680, 2048
+  %687 = icmp samesign ult i32 %680, 2048
   br i1 %687, label %690, label %688
 
 688:                                              ; preds = %686
-  %689 = icmp ult i32 %680, 65536
+  %689 = icmp samesign ult i32 %680, 65536
   %..i.i44.us.i = select i1 %689, i64 3, i64 4
   br label %690
 
@@ -12209,15 +12209,15 @@ _ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit: ; preds = %596, %63
 699:                                              ; preds = %.noexc.i
   %700 = getelementptr inbounds i8, ptr %26, i64 1208
   %701 = load i64, ptr %700, align 8, !alias.scope !2516, !noalias !2525, !noundef !4
-  %702 = icmp ult i32 %697, 128
+  %702 = icmp samesign ult i32 %697, 128
   br i1 %702, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i.i", label %703
 
 703:                                              ; preds = %699
-  %704 = icmp ult i32 %697, 2048
+  %704 = icmp samesign ult i32 %697, 2048
   br i1 %704, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i.i", label %705
 
 705:                                              ; preds = %703
-  %706 = icmp ult i32 %697, 65536
+  %706 = icmp samesign ult i32 %697, 65536
   %..i.i.i.i.i.i252 = select i1 %706, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i.i"
 
@@ -12258,15 +12258,15 @@ _ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit: ; preds = %596, %63
 
 716:                                              ; preds = %714
   %717 = load i64, ptr %676, align 8, !alias.scope !2506, !noalias !2453, !noundef !4
-  %718 = icmp ult i32 %713, 128
+  %718 = icmp samesign ult i32 %713, 128
   br i1 %718, label %724, label %719
 
 719:                                              ; preds = %716
-  %720 = icmp ult i32 %713, 2048
+  %720 = icmp samesign ult i32 %713, 2048
   br i1 %720, label %724, label %721
 
 721:                                              ; preds = %719
-  %722 = icmp ult i32 %713, 65536
+  %722 = icmp samesign ult i32 %713, 65536
   %..i.i44.i = select i1 %722, i64 3, i64 4
   br label %724
 
@@ -12307,15 +12307,15 @@ _ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit: ; preds = %596, %63
 
 735:                                              ; preds = %.noexc50.i
   %736 = load i64, ptr %676, align 8, !alias.scope !2532, !noalias !2541, !noundef !4
-  %737 = icmp ult i32 %733, 128
+  %737 = icmp samesign ult i32 %733, 128
   br i1 %737, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i46.i", label %738
 
 738:                                              ; preds = %735
-  %739 = icmp ult i32 %733, 2048
+  %739 = icmp samesign ult i32 %733, 2048
   br i1 %739, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i46.i", label %740
 
 740:                                              ; preds = %738
-  %741 = icmp ult i32 %733, 65536
+  %741 = icmp samesign ult i32 %733, 65536
   %..i.i.i.i.i45.i = select i1 %741, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i46.i"
 
@@ -12449,15 +12449,15 @@ _ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit: ; preds = %596, %63
 
 780:                                              ; preds = %.noexc57.i
   %781 = load i64, ptr %676, align 8, !alias.scope !2581, !noalias !2590, !noundef !4
-  %782 = icmp ult i32 %778, 128
+  %782 = icmp samesign ult i32 %778, 128
   br i1 %782, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i53.i", label %783
 
 783:                                              ; preds = %780
-  %784 = icmp ult i32 %778, 2048
+  %784 = icmp samesign ult i32 %778, 2048
   br i1 %784, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i53.i", label %785
 
 785:                                              ; preds = %783
-  %786 = icmp ult i32 %778, 65536
+  %786 = icmp samesign ult i32 %778, 65536
   %..i.i.i.i.i52.i = select i1 %786, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i53.i"
 
@@ -15277,12 +15277,12 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.e
 
 59:                                               ; preds = %57
   %60 = load i64, ptr %52, align 8, !alias.scope !2866, !noundef !4
-  %61 = icmp ult i32 %54, 128
+  %61 = icmp samesign ult i32 %54, 128
   br i1 %61, label %74, label %.thread
 
 .thread:                                          ; preds = %59
-  %62 = icmp ult i32 %54, 2048
-  %63 = icmp ult i32 %54, 65536
+  %62 = icmp samesign ult i32 %54, 2048
+  %63 = icmp samesign ult i32 %54, 65536
   %..i.i = select i1 %63, i64 3, i64 4
   %.sroa.0.0.i.i.ph = select i1 %62, i64 2, i64 %..i.i
   %64 = add i64 %60, %.sroa.0.0.i.i.ph
@@ -15512,15 +15512,15 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.e
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %8, i64 1208
   %46 = load i64, ptr %45, align 8, !alias.scope !2990, !noundef !4
-  %47 = icmp ult i32 %39, 128
+  %47 = icmp samesign ult i32 %39, 128
   br i1 %47, label %61, label %48
 
 48:                                               ; preds = %44
-  %49 = icmp ult i32 %39, 2048
+  %49 = icmp samesign ult i32 %39, 2048
   br i1 %49, label %61, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %39, 65536
+  %51 = icmp samesign ult i32 %39, 65536
   %..i.i = select i1 %51, i64 3, i64 4
   br label %61
 
@@ -15617,12 +15617,12 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.e
   br i1 %89, label %"_ZN4core3ptr496drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..reverse_buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd5dc93408196f0dfE.exit26", label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i32 %71, 128
+  %91 = icmp samesign ult i32 %71, 128
   br i1 %91, label %97, label %.thread
 
 .thread:                                          ; preds = %90
-  %92 = icmp ult i32 %71, 2048
-  %93 = icmp ult i32 %71, 65536
+  %92 = icmp samesign ult i32 %71, 2048
+  %93 = icmp samesign ult i32 %71, 65536
   %..i.i22 = select i1 %93, i64 -3, i64 -4
   %.sroa.0.0.neg.i.i.ph = select i1 %92, i64 -2, i64 %..i.i22
   %94 = load i64, ptr %6, align 8, !alias.scope !3076, !noundef !4
@@ -15892,15 +15892,15 @@ define internal fastcc noundef i64 @_ZN3vim6motion14next_non_blank17h63db9bf05c1
 
 22:                                               ; preds = %9
   %23 = load i64, ptr %4, align 8, !alias.scope !3177, !noundef !4
-  %24 = icmp ult i32 %6, 128
+  %24 = icmp samesign ult i32 %6, 128
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp ult i32 %6, 2048
+  %26 = icmp samesign ult i32 %6, 2048
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %6, 65536
+  %28 = icmp samesign ult i32 %6, 65536
   %..i.i = select i1 %28, i64 3, i64 4
   br label %30
 
@@ -15953,7 +15953,7 @@ define internal fastcc noundef i64 @_ZN3vim6motion14next_non_blank17h63db9bf05c1
   br label %5
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i32 %6, 127
+  %43 = icmp samesign ugt i32 %6, 127
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %42
@@ -16028,15 +16028,15 @@ define internal fastcc { i64, i64 } @_ZN3vim6motion22start_of_next_sentence17h34
 
 9:                                                ; preds = %7
   %10 = load i64, ptr %4, align 8, !alias.scope !3213, !noundef !4
-  %11 = icmp ult i32 %6, 128
+  %11 = icmp samesign ult i32 %6, 128
   br i1 %11, label %.split30.us, label %12
 
 12:                                               ; preds = %9
-  %13 = icmp ult i32 %6, 2048
+  %13 = icmp samesign ult i32 %6, 2048
   br i1 %13, label %.split30.us, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %6, 65536
+  %15 = icmp samesign ult i32 %6, 65536
   %..i.i.us = select i1 %15, i64 3, i64 4
   br label %.split30.us
 
@@ -16103,15 +16103,15 @@ define internal fastcc { i64, i64 } @_ZN3vim6motion22start_of_next_sentence17h34
 
 33:                                               ; preds = %21
   %34 = load i64, ptr %4, align 8, !alias.scope !3213, !noundef !4
-  %35 = icmp ult i32 %18, 128
+  %35 = icmp samesign ult i32 %18, 128
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %33
-  %37 = icmp ult i32 %18, 2048
+  %37 = icmp samesign ult i32 %18, 2048
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %18, 65536
+  %39 = icmp samesign ult i32 %18, 65536
   %..i.i = select i1 %39, i64 3, i64 4
   br label %43
 
@@ -16178,7 +16178,7 @@ define internal fastcc { i64, i64 } @_ZN3vim6motion22start_of_next_sentence17h34
   br label %.outer
 
 56:                                               ; preds = %.loopexit
-  %57 = icmp ugt i32 %55, 127
+  %57 = icmp samesign ugt i32 %55, 127
   br i1 %57, label %58, label %.thread14
 
 58:                                               ; preds = %56
@@ -16690,7 +16690,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i: ;
   br i1 %or.cond10.not.i, label %179, label %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit
 
 179:                                              ; preds = %174
-  %180 = icmp ugt i32 %175, 127
+  %180 = icmp samesign ugt i32 %175, 127
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %179
@@ -17434,7 +17434,7 @@ define hidden void @_ZN3vim6normal9increment11find_number17h6fb1a5e86b0817daE(pt
   br i1 %or.cond2, label %56, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit136"
 
 56:                                               ; preds = %47
-  %57 = icmp ult i32 %45, 128
+  %57 = icmp samesign ult i32 %45, 128
   br i1 %57, label %238, label %234
 
 .thread183:                                       ; preds = %41, %.noexc, %.noexc129, %210
@@ -17794,7 +17794,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread: ; preds = %.thread
   br i1 %.not268, label %.thread235, label %176
 
 _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %194
-  %193 = icmp ult i32 %.sroa.081.0, 128
+  %193 = icmp samesign ult i32 %.sroa.081.0, 128
   br i1 %193, label %200, label %196
 
 194:                                              ; preds = %176
@@ -17810,11 +17810,11 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread359: ; preds = %"_ZN
 196:                                              ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread260, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit
   %.sroa.022.5266 = phi i64 [ 1, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread260 ], [ 0, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit ]
   %.sroa.8.5265 = phi i64 [ %.sroa.8.4, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread260 ], [ %.sroa.8.0, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit ]
-  %197 = icmp ult i32 %.sroa.081.0, 2048
+  %197 = icmp samesign ult i32 %.sroa.081.0, 2048
   br i1 %197, label %200, label %198
 
 198:                                              ; preds = %196
-  %199 = icmp ult i32 %.sroa.081.0, 65536
+  %199 = icmp samesign ult i32 %.sroa.081.0, 65536
   %.123 = select i1 %199, i64 3, i64 4
   br label %200
 
@@ -17953,11 +17953,11 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread359: ; preds = %"_ZN
   br label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit"
 
 234:                                              ; preds = %56
-  %235 = icmp ult i32 %45, 2048
+  %235 = icmp samesign ult i32 %45, 2048
   br i1 %235, label %238, label %236
 
 236:                                              ; preds = %234
-  %237 = icmp ult i32 %45, 65536
+  %237 = icmp samesign ult i32 %45, 65536
   %.126 = select i1 %237, i64 -3, i64 -4
   br label %238
 
@@ -19664,15 +19664,15 @@ _ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hdca1852e9f1b03cfE.e
 51:                                               ; preds = %40
   %52 = getelementptr inbounds i8, ptr %13, i64 1208
   %53 = load i64, ptr %52, align 8, !alias.scope !4286, !noundef !4
-  %54 = icmp ult i32 %37, 128
+  %54 = icmp samesign ult i32 %37, 128
   br i1 %54, label %118, label %55
 
 55:                                               ; preds = %51
-  %56 = icmp ult i32 %37, 2048
+  %56 = icmp samesign ult i32 %37, 2048
   br i1 %56, label %118, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %37, 65536
+  %58 = icmp samesign ult i32 %37, 65536
   %..i.i = select i1 %58, i64 3, i64 4
   br label %118
 
@@ -20800,15 +20800,15 @@ define hidden void @_ZN3vim6object8sentence17h94a89c13799fc866E.llvm.23454828011
 19:                                               ; preds = %.noexc
   %20 = getelementptr inbounds i8, ptr %13, i64 1208
   %21 = load i64, ptr %20, align 8, !alias.scope !4567, !noalias !4562, !noundef !4
-  %22 = icmp ult i32 %17, 128
+  %22 = icmp samesign ult i32 %17, 128
   br i1 %22, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %23
 
 23:                                               ; preds = %19
-  %24 = icmp ult i32 %17, 2048
+  %24 = icmp samesign ult i32 %17, 2048
   br i1 %24, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %17, 65536
+  %26 = icmp samesign ult i32 %17, 65536
   %..i.i.i.i.i = select i1 %26, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
@@ -20856,7 +20856,7 @@ define hidden void @_ZN3vim6object8sentence17h94a89c13799fc866E.llvm.23454828011
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load i8, ptr %31, align 1, !range !623, !alias.scope !4576, !noundef !4
-  %switch.not.i.i = icmp ult i8 %38, 2
+  %switch.not.i.i = icmp samesign ult i8 %38, 2
   br i1 %switch.not.i.i, label %39, label %.thread
 
 39:                                               ; preds = %36
@@ -20906,15 +20906,15 @@ define hidden void @_ZN3vim6object8sentence17h94a89c13799fc866E.llvm.23454828011
   br i1 %57, label %"_ZN4core3ptr591drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$LP$char$C$usize$RP$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..reverse_buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb8cba37905d0f2b6E.exit35", label %58
 
 58:                                               ; preds = %.noexc30
-  %59 = icmp ult i32 %56, 128
+  %59 = icmp samesign ult i32 %56, 128
   br i1 %59, label %.thread63.sink.split, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %56, 2048
+  %61 = icmp samesign ult i32 %56, 2048
   br i1 %61, label %.thread63.sink.split, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %56, 65536
+  %63 = icmp samesign ult i32 %56, 65536
   %..i.i.i.i.i29 = select i1 %63, i64 -3, i64 -4
   br label %.thread63.sink.split
 
@@ -20945,7 +20945,7 @@ define hidden void @_ZN3vim6object8sentence17h94a89c13799fc866E.llvm.23454828011
   ]
 
 69:                                               ; preds = %68
-  %70 = icmp ugt i32 %.sroa.02.0.i66, 127
+  %70 = icmp samesign ugt i32 %.sroa.02.0.i66, 127
   br i1 %70, label %71, label %_ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit
 
 71:                                               ; preds = %69
@@ -21039,15 +21039,15 @@ _ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit: ; preds = %
 
 104:                                              ; preds = %102
   %105 = load i64, ptr %95, align 8, !alias.scope !4649, !noundef !4
-  %106 = icmp ult i32 %101, 128
+  %106 = icmp samesign ult i32 %101, 128
   br i1 %106, label %111, label %107
 
 107:                                              ; preds = %104
-  %108 = icmp ult i32 %101, 2048
+  %108 = icmp samesign ult i32 %101, 2048
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %107
-  %110 = icmp ult i32 %101, 65536
+  %110 = icmp samesign ult i32 %101, 65536
   %..i.i.us = select i1 %110, i64 3, i64 4
   br label %111
 
@@ -21064,15 +21064,15 @@ _ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43.thread.us:
   br i1 %113, label %120, label %114
 
 114:                                              ; preds = %_ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43.thread.us
-  %115 = icmp ult i32 %.sroa.017.0.us, 128
+  %115 = icmp samesign ult i32 %.sroa.017.0.us, 128
   br i1 %115, label %.thread85.us, label %.thread86.us
 
 .thread86.us:                                     ; preds = %114
-  %116 = icmp ult i32 %.sroa.017.0.us, 2048
+  %116 = icmp samesign ult i32 %.sroa.017.0.us, 2048
   br i1 %116, label %.thread85.us, label %117
 
 117:                                              ; preds = %.thread86.us
-  %118 = icmp ult i32 %.sroa.017.0.us, 65536
+  %118 = icmp samesign ult i32 %.sroa.017.0.us, 65536
   %..us = select i1 %118, i64 3, i64 4
   br label %.thread85.us
 
@@ -21126,15 +21126,15 @@ _ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43.thread.us:
 
 134:                                              ; preds = %132
   %135 = load i64, ptr %95, align 8, !alias.scope !4649, !noundef !4
-  %136 = icmp ult i32 %129, 128
+  %136 = icmp samesign ult i32 %129, 128
   br i1 %136, label %149, label %137
 
 137:                                              ; preds = %134
-  %138 = icmp ult i32 %129, 2048
+  %138 = icmp samesign ult i32 %129, 2048
   br i1 %138, label %149, label %139
 
 139:                                              ; preds = %137
-  %140 = icmp ult i32 %129, 65536
+  %140 = icmp samesign ult i32 %129, 65536
   %..i.i = select i1 %140, i64 3, i64 4
   br label %149
 
@@ -21182,7 +21182,7 @@ _ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43.thread.us:
   ]
 
 152:                                              ; preds = %151
-  %153 = icmp ugt i32 %.sroa.017.0, 127
+  %153 = icmp samesign ugt i32 %.sroa.017.0, 127
   br i1 %153, label %154, label %_ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43
 
 154:                                              ; preds = %152
@@ -21237,11 +21237,11 @@ _ZN3vim6object26is_possible_sentence_start17hb641939da19d6ddeE.exit43.thread83: 
           to label %181 unwind label %.split
 
 .thread86:                                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i41
-  %177 = icmp ult i32 %.sroa.017.0, 2048
+  %177 = icmp samesign ult i32 %.sroa.017.0, 2048
   br i1 %177, label %.thread85, label %178
 
 178:                                              ; preds = %.thread86
-  %179 = icmp ult i32 %.sroa.017.0, 65536
+  %179 = icmp samesign ult i32 %.sroa.017.0, 65536
   %. = select i1 %179, i64 3, i64 4
   br label %.thread85
 
@@ -21342,12 +21342,12 @@ define internal fastcc noundef zeroext i1 @_ZN3vim6object15is_sentence_end17h199
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %5, i64 1208
   %15 = load i64, ptr %14, align 8, !alias.scope !4687, !noundef !4
-  %16 = icmp ult i32 %8, 128
+  %16 = icmp samesign ult i32 %8, 128
   br i1 %16, label %20, label %.thread
 
 .thread:                                          ; preds = %13
-  %17 = icmp ult i32 %8, 2048
-  %18 = icmp ult i32 %8, 65536
+  %17 = icmp samesign ult i32 %8, 2048
+  %18 = icmp samesign ult i32 %8, 65536
   %..i.i = select i1 %18, i64 3, i64 4
   %.sroa.0.0.i.i.ph = select i1 %17, i64 2, i64 %..i.i
   %19 = add i64 %15, %.sroa.0.0.i.i.ph
@@ -21384,15 +21384,15 @@ define internal fastcc noundef zeroext i1 @_ZN3vim6object15is_sentence_end17h199
 
 29:                                               ; preds = %.noexc
   %30 = load i64, ptr %14, align 8, !alias.scope !4697, !noalias !4692, !noundef !4
-  %31 = icmp ult i32 %27, 128
+  %31 = icmp samesign ult i32 %27, 128
   br i1 %31, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %32
 
 32:                                               ; preds = %29
-  %33 = icmp ult i32 %27, 2048
+  %33 = icmp samesign ult i32 %27, 2048
   br i1 %33, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i", label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ult i32 %27, 65536
+  %35 = icmp samesign ult i32 %27, 65536
   %..i.i.i.i.i = select i1 %35, i64 3, i64 4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
@@ -21500,15 +21500,15 @@ define internal fastcc noundef zeroext i1 @_ZN3vim6object15is_sentence_end17h199
   br i1 %71, label %"_ZN4core3ptr514drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hded627592f6b0eaeE.exit", label %78
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %51, 128
+  %73 = icmp samesign ult i32 %51, 128
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i32 %51, 2048
+  %75 = icmp samesign ult i32 %51, 2048
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp ult i32 %51, 65536
+  %77 = icmp samesign ult i32 %51, 65536
   %..i.i24 = select i1 %77, i64 -3, i64 -4
   br label %83
 
@@ -21633,15 +21633,15 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
 
 28:                                               ; preds = %26
   %29 = load i64, ptr %18, align 8, !alias.scope !4869, !noundef !4
-  %30 = icmp ult i32 %23, 128
+  %30 = icmp samesign ult i32 %23, 128
   br i1 %30, label %43, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp ult i32 %23, 2048
+  %32 = icmp samesign ult i32 %23, 2048
   br i1 %32, label %43, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i32 %23, 65536
+  %34 = icmp samesign ult i32 %23, 65536
   %..i.i = select i1 %34, i64 3, i64 4
   br label %43
 
@@ -21752,15 +21752,15 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
   br i1 %77, label %.thread35, label %78
 
 78:                                               ; preds = %.split.us
-  %79 = icmp ult i32 %76, 128
+  %79 = icmp samesign ult i32 %76, 128
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %76, 2048
+  %81 = icmp samesign ult i32 %76, 2048
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %76, 65536
+  %83 = icmp samesign ult i32 %76, 65536
   %..i.i26.us = select i1 %83, i64 -3, i64 -4
   br label %84
 
@@ -21779,7 +21779,7 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
   ]
 
 87:                                               ; preds = %84
-  %88 = icmp ugt i32 %76, 127
+  %88 = icmp samesign ugt i32 %76, 127
   br i1 %88, label %89, label %.thread35
 
 89:                                               ; preds = %87
@@ -21848,15 +21848,15 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
   br i1 %122, label %.thread35, label %123
 
 123:                                              ; preds = %.split
-  %124 = icmp ult i32 %121, 128
+  %124 = icmp samesign ult i32 %121, 128
   br i1 %124, label %129, label %125
 
 125:                                              ; preds = %123
-  %126 = icmp ult i32 %121, 2048
+  %126 = icmp samesign ult i32 %121, 2048
   br i1 %126, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ult i32 %121, 65536
+  %128 = icmp samesign ult i32 %121, 65536
   %..i.i26 = select i1 %128, i64 -3, i64 -4
   br label %129
 
@@ -21879,7 +21879,7 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
   ]
 
 132:                                              ; preds = %129
-  %133 = icmp ugt i32 %121, 127
+  %133 = icmp samesign ugt i32 %121, 127
   br i1 %133, label %134, label %.thread35
 
 134:                                              ; preds = %132
@@ -22200,15 +22200,15 @@ define hidden void @_ZN3vim6object19surrounding_markers17h2513321c2cc5b622E.llvm
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %25, i64 1208
   %39 = load i64, ptr %38, align 8, !alias.scope !4912, !noalias !4917, !noundef !4
-  %40 = icmp ult i32 %32, 128
+  %40 = icmp samesign ult i32 %32, 128
   br i1 %40, label %.thread302, label %41
 
 41:                                               ; preds = %37
-  %42 = icmp ult i32 %32, 2048
+  %42 = icmp samesign ult i32 %32, 2048
   br i1 %42, label %.thread302, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %32, 65536
+  %44 = icmp samesign ult i32 %32, 65536
   %..i.i171 = select i1 %44, i64 3, i64 4
   br label %.thread302
 
@@ -22288,15 +22288,15 @@ define hidden void @_ZN3vim6object19surrounding_markers17h2513321c2cc5b622E.llvm
 
 64:                                               ; preds = %.noexc
   %65 = load i64, ptr %.sroa.390.0..sroa_idx, align 8, !alias.scope !4951, !noalias !4960, !noundef !4
-  %66 = icmp ult i32 %62, 128
+  %66 = icmp samesign ult i32 %62, 128
   br i1 %66, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he648e838cde810f9E.exit.thread85.i", label %67
 
 67:                                               ; preds = %64
-  %68 = icmp ult i32 %62, 2048
+  %68 = icmp samesign ult i32 %62, 2048
   br i1 %68, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he648e838cde810f9E.exit.thread85.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he648e838cde810f9E.exit.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he648e838cde810f9E.exit.i": ; preds = %67
-  %69 = icmp ult i32 %62, 65536
+  %69 = icmp samesign ult i32 %62, 65536
   %..i.i.i.i = select i1 %69, i64 -3, i64 -4
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he648e838cde810f9E.exit.thread85.i"
 
@@ -22338,15 +22338,15 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.
 
 77:                                               ; preds = %.noexc174
   %78 = load i64, ptr %.sroa.390.0..sroa_idx, align 8, !alias.scope !4973, !noalias !4980, !noundef !4
-  %79 = icmp ult i32 %75, 128
+  %79 = icmp samesign ult i32 %75, 128
   br i1 %79, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.i5.thread.i.i, label %80
 
 80:                                               ; preds = %77
-  %81 = icmp ult i32 %75, 2048
+  %81 = icmp samesign ult i32 %75, 2048
   br i1 %81, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.i5.thread.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit.i.i": ; preds = %80
-  %82 = icmp ult i32 %75, 65536
+  %82 = icmp samesign ult i32 %75, 65536
   %..i.i.i.i.i.i.i.i.i = select i1 %82, i64 -3, i64 -4
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.i5.thread.i.i
 
@@ -22369,15 +22369,15 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.
 
 85:                                               ; preds = %.noexc175
   %86 = load i64, ptr %.sroa.390.0..sroa_idx, align 8, !alias.scope !4997, !noalias !5004, !noundef !4
-  %87 = icmp ult i32 %83, 128
+  %87 = icmp samesign ult i32 %83, 128
   br i1 %87, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit13.thread89.i.i", label %88
 
 88:                                               ; preds = %85
-  %89 = icmp ult i32 %83, 2048
+  %89 = icmp samesign ult i32 %83, 2048
   br i1 %89, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit13.thread89.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit13.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit13.i.i": ; preds = %88
-  %90 = icmp ult i32 %83, 65536
+  %90 = icmp samesign ult i32 %83, 65536
   %..i.i.i.i.i.i.i8.i.i = select i1 %90, i64 -3, i64 -4
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfeab57d0f014691E.exit13.thread89.i.i"
 
@@ -22505,15 +22505,15 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 124:                                              ; preds = %121
   %125 = load i64, ptr %118, align 8, !alias.scope !5070, !noalias !5075, !noundef !4
-  %126 = icmp ult i32 %122, 128
+  %126 = icmp samesign ult i32 %122, 128
   br i1 %126, label %131, label %127
 
 127:                                              ; preds = %124
-  %128 = icmp ult i32 %122, 2048
+  %128 = icmp samesign ult i32 %122, 2048
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ult i32 %122, 65536
+  %130 = icmp samesign ult i32 %122, 65536
   %..i.i183 = select i1 %130, i64 -3, i64 -4
   br label %131
 
@@ -22554,15 +22554,15 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 141:                                              ; preds = %.noexc190
   %142 = load i64, ptr %118, align 8, !alias.scope !5083, !noalias !5092, !noundef !4
-  %143 = icmp ult i32 %139, 128
+  %143 = icmp samesign ult i32 %139, 128
   br i1 %143, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hcbcec066c3dbe9b9E.exit.i.i.i", label %144
 
 144:                                              ; preds = %141
-  %145 = icmp ult i32 %139, 2048
+  %145 = icmp samesign ult i32 %139, 2048
   br i1 %145, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hcbcec066c3dbe9b9E.exit.i.i.i", label %146
 
 146:                                              ; preds = %144
-  %147 = icmp ult i32 %139, 65536
+  %147 = icmp samesign ult i32 %139, 65536
   %..i.i.i.i.i = select i1 %147, i64 -3, i64 -4
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hcbcec066c3dbe9b9E.exit.i.i.i"
 
@@ -22636,15 +22636,15 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 167:                                              ; preds = %165
   %168 = load i64, ptr %160, align 8, !alias.scope !5097, !noalias !5102, !noundef !4
-  %169 = icmp ult i32 %162, 128
+  %169 = icmp samesign ult i32 %162, 128
   br i1 %169, label %.thread319, label %170
 
 170:                                              ; preds = %167
-  %171 = icmp ult i32 %162, 2048
+  %171 = icmp samesign ult i32 %162, 2048
   br i1 %171, label %.thread319, label %172
 
 172:                                              ; preds = %170
-  %173 = icmp ult i32 %162, 65536
+  %173 = icmp samesign ult i32 %162, 65536
   %..i.i191 = select i1 %173, i64 3, i64 4
   br label %.thread319
 
@@ -22728,15 +22728,15 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 194:                                              ; preds = %193
   %195 = load i64, ptr %191, align 8, !alias.scope !5136, !noalias !5141, !noundef !4
-  %196 = icmp ult i32 %192, 128
+  %196 = icmp samesign ult i32 %192, 128
   br i1 %196, label %201, label %197
 
 197:                                              ; preds = %194
-  %198 = icmp ult i32 %192, 2048
+  %198 = icmp samesign ult i32 %192, 2048
   br i1 %198, label %201, label %199
 
 199:                                              ; preds = %197
-  %200 = icmp ult i32 %192, 65536
+  %200 = icmp samesign ult i32 %192, 65536
   %..i.i208.us = select i1 %200, i64 3, i64 4
   br label %201
 
@@ -22793,12 +22793,12 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 217:                                              ; preds = %215
   %218 = load i64, ptr %191, align 8, !alias.scope !5136, !noalias !5141, !noundef !4
-  %219 = icmp ult i32 %212, 128
+  %219 = icmp samesign ult i32 %212, 128
   br i1 %219, label %223, label %.thread400
 
 .thread400:                                       ; preds = %217
-  %220 = icmp ult i32 %212, 2048
-  %221 = icmp ult i32 %212, 65536
+  %220 = icmp samesign ult i32 %212, 2048
+  %221 = icmp samesign ult i32 %212, 65536
   %..i.i208 = select i1 %221, i64 3, i64 4
   %.sroa.0.0.i.i209.ph = select i1 %220, i64 2, i64 %..i.i208
   %222 = add i64 %.sroa.0.0.i.i209.ph, %218
@@ -22906,15 +22906,15 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 255:                                              ; preds = %253
   %256 = load i64, ptr %248, align 8, !alias.scope !5175, !noalias !5180, !noundef !4
-  %257 = icmp ult i32 %250, 128
+  %257 = icmp samesign ult i32 %250, 128
   br i1 %257, label %262, label %258
 
 258:                                              ; preds = %255
-  %259 = icmp ult i32 %250, 2048
+  %259 = icmp samesign ult i32 %250, 2048
   br i1 %259, label %262, label %260
 
 260:                                              ; preds = %258
-  %261 = icmp ult i32 %250, 65536
+  %261 = icmp samesign ult i32 %250, 65536
   %..i.i214 = select i1 %261, i64 3, i64 4
   br label %262
 
@@ -22963,7 +22963,7 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
   br i1 %or.cond3, label %297, label %274
 
 274:                                              ; preds = %272
-  %275 = icmp ugt i32 %250, 127
+  %275 = icmp samesign ugt i32 %250, 127
   br i1 %275, label %276, label %.thread334
 
 276:                                              ; preds = %274
@@ -23024,15 +23024,15 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 303:                                              ; preds = %300
   %304 = load i64, ptr %12, align 8, !alias.scope !5214, !noalias !5219, !noundef !4
-  %305 = icmp ult i32 %301, 128
+  %305 = icmp samesign ult i32 %301, 128
   br i1 %305, label %310, label %306
 
 306:                                              ; preds = %303
-  %307 = icmp ult i32 %301, 2048
+  %307 = icmp samesign ult i32 %301, 2048
   br i1 %307, label %310, label %308
 
 308:                                              ; preds = %306
-  %309 = icmp ult i32 %301, 65536
+  %309 = icmp samesign ult i32 %301, 65536
   %..i.i224 = select i1 %309, i64 -3, i64 -4
   br label %310
 
@@ -23058,7 +23058,7 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
   br i1 %or.cond7, label %337, label %314
 
 314:                                              ; preds = %312
-  %315 = icmp ugt i32 %301, 127
+  %315 = icmp samesign ugt i32 %301, 127
   br i1 %315, label %316, label %.thread339
 
 316:                                              ; preds = %314
@@ -23126,12 +23126,12 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 344:                                              ; preds = %342
   %345 = getelementptr inbounds i8, ptr %11, i64 1208
   %346 = load i64, ptr %345, align 8, !alias.scope !5222, !noalias !5227, !noundef !4
-  %347 = icmp ult i32 %339, 128
+  %347 = icmp samesign ult i32 %339, 128
   br i1 %347, label %351, label %.thread363
 
 .thread363:                                       ; preds = %344
-  %348 = icmp ult i32 %339, 2048
-  %349 = icmp ult i32 %339, 65536
+  %348 = icmp samesign ult i32 %339, 2048
+  %349 = icmp samesign ult i32 %339, 65536
   %..i.i233 = select i1 %349, i64 3, i64 4
   %.sroa.0.0.i.i234.ph = select i1 %348, i64 2, i64 %..i.i233
   %350 = add i64 %346, %.sroa.0.0.i.i234.ph
@@ -23188,15 +23188,15 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
 
 366:                                              ; preds = %363
   %367 = load i64, ptr %9, align 8, !alias.scope !5261, !noalias !5266, !noundef !4
-  %368 = icmp ult i32 %364, 128
+  %368 = icmp samesign ult i32 %364, 128
   br i1 %368, label %373, label %369
 
 369:                                              ; preds = %366
-  %370 = icmp ult i32 %364, 2048
+  %370 = icmp samesign ult i32 %364, 2048
   br i1 %370, label %373, label %371
 
 371:                                              ; preds = %369
-  %372 = icmp ult i32 %364, 65536
+  %372 = icmp samesign ult i32 %364, 65536
   %..i.i243 = select i1 %372, i64 -3, i64 -4
   br label %373
 
@@ -23219,7 +23219,7 @@ thread-pre-split.outer.backedge:                  ; preds = %155, %152
   br i1 %or.cond14, label %400, label %377
 
 377:                                              ; preds = %375
-  %378 = icmp ugt i32 %364, 127
+  %378 = icmp samesign ugt i32 %364, 127
   br i1 %378, label %379, label %.thread366
 
 379:                                              ; preds = %377

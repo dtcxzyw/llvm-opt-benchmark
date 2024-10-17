@@ -964,7 +964,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit:                 ; preds = %_ZNKSt6bitsetILm256
   %34 = phi i8 [ %23, %_ZNKSt6bitsetILm256EE4testEm.exit ], [ %.pre, %_ZNSt6bitsetILm256EE3setEmb.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = zext i8 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %_ZNKSt6bitsetILm256EE4testEm.exit, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %33, %18, %15
@@ -5111,7 +5111,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i330.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %708, %.lr.ph.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i330.i.i.i.i ]
-  %715 = icmp ugt i64 %indvars.iv.i.i.i.i.i, 255
+  %715 = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i, 255
   br i1 %715, label %716, label %_ZNSt6bitsetILm256EE3setEmb.exit.i330.i.i.i.i
 
 716:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -5128,7 +5128,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i330.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i.i
   %723 = or i64 %722, %719
   store i64 %723, ptr %721, align 8, !noalias !45
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %724 = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %709
+  %724 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %709
   br i1 %724, label %.lr.ph.i.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 725:                                              ; preds = %.lr.ph.i.i.i
@@ -5407,7 +5407,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit352.i.i.i.i: ;
 
 .lr.ph.i355.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i357.i.i.i.i, %.lr.ph.preheader.i354.i.i.i.i
   %indvars.iv.i356.i.i.i.i = phi i64 [ %868, %.lr.ph.preheader.i354.i.i.i.i ], [ %indvars.iv.next.i358.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i357.i.i.i.i ]
-  %875 = icmp ugt i64 %indvars.iv.i356.i.i.i.i, 255
+  %875 = icmp samesign ugt i64 %indvars.iv.i356.i.i.i.i, 255
   br i1 %875, label %876, label %_ZNSt6bitsetILm256EE3setEmb.exit.i357.i.i.i.i
 
 876:                                              ; preds = %.lr.ph.i355.i.i.i.i
@@ -5424,7 +5424,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i357.i.i.i.i:    ; preds = %.lr.ph.i355.i.i.i.i
   %883 = or i64 %882, %879
   store i64 %883, ptr %881, align 8, !noalias !45
   %indvars.iv.next.i358.i.i.i.i = add nuw nsw i64 %indvars.iv.i356.i.i.i.i, 1
-  %884 = icmp ult i64 %indvars.iv.next.i358.i.i.i.i, %869
+  %884 = icmp samesign ult i64 %indvars.iv.next.i358.i.i.i.i, %869
   br i1 %884, label %.lr.ph.i355.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 885:                                              ; preds = %.lr.ph.i.i.i
@@ -5498,7 +5498,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit63.i.i.i: ; pr
 
 .lr.ph.i55.i.i.i:                                 ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i57.i.i.i, %.lr.ph.preheader.i54.i.i.i
   %indvars.iv.i56.i.i.i = phi i64 [ %923, %.lr.ph.preheader.i54.i.i.i ], [ %indvars.iv.next.i58.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i57.i.i.i ]
-  %925 = icmp ugt i64 %indvars.iv.i56.i.i.i, 255
+  %925 = icmp samesign ugt i64 %indvars.iv.i56.i.i.i, 255
   br i1 %925, label %926, label %_ZNSt6bitsetILm256EE3setEmb.exit.i57.i.i.i
 
 926:                                              ; preds = %.lr.ph.i55.i.i.i
@@ -5515,7 +5515,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i57.i.i.i:       ; preds = %.lr.ph.i55.i.i.i
   %933 = or i64 %932, %929
   store i64 %933, ptr %931, align 8, !noalias !45
   %indvars.iv.next.i58.i.i.i = add nuw nsw i64 %indvars.iv.i56.i.i.i, 1
-  %934 = icmp ult i64 %indvars.iv.next.i58.i.i.i, %924
+  %934 = icmp samesign ult i64 %indvars.iv.next.i58.i.i.i, %924
   br i1 %934, label %.lr.ph.i55.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 935:                                              ; preds = %894
@@ -5676,7 +5676,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i42.i.i.i:     ; preds = %_ZNKSt6bitsetILm256
   %1017 = phi i8 [ %1006, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i38.i.i.i ], [ %.pre.i.i43.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i.i42.i.i.i ]
   %indvars.iv.next.i.i41.i.i.i = add nuw nsw i64 %indvars.iv.i.i39.i.i.i, 1
   %1018 = zext i8 %1017 to i64
-  %1019 = icmp ult i64 %indvars.iv.next.i.i41.i.i.i, %1018
+  %1019 = icmp samesign ult i64 %indvars.iv.next.i.i41.i.i.i, %1018
   br i1 %1019, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i38.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit44.i.i.i, !llvm.loop !11
 
 _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit44.i.i.i: ; preds = %1016, %1001, %1000
@@ -5707,7 +5707,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit44.i.i.i: ; pred
 
 .lr.ph.i29.i.i.i:                                 ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i31.i.i.i, %.lr.ph.preheader.i28.i.i.i
   %indvars.iv.i30.i.i.i = phi i64 [ %1031, %.lr.ph.preheader.i28.i.i.i ], [ %indvars.iv.next.i32.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i31.i.i.i ]
-  %1033 = icmp ugt i64 %indvars.iv.i30.i.i.i, 255
+  %1033 = icmp samesign ugt i64 %indvars.iv.i30.i.i.i, 255
   br i1 %1033, label %1034, label %_ZNSt6bitsetILm256EE3setEmb.exit.i31.i.i.i
 
 1034:                                             ; preds = %.lr.ph.i29.i.i.i
@@ -5724,7 +5724,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i31.i.i.i:       ; preds = %.lr.ph.i29.i.i.i
   %1041 = or i64 %1040, %1037
   store i64 %1041, ptr %1039, align 8, !noalias !45
   %indvars.iv.next.i32.i.i.i = add nuw nsw i64 %indvars.iv.i30.i.i.i, 1
-  %1042 = icmp ult i64 %indvars.iv.next.i32.i.i.i, %1032
+  %1042 = icmp samesign ult i64 %indvars.iv.next.i32.i.i.i, %1032
   br i1 %1042, label %.lr.ph.i29.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 1043:                                             ; preds = %.lr.ph.i.i.i
@@ -5965,7 +5965,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i13.i.i.i:     ; preds = %_ZNKSt6bitsetILm256
   %1160 = phi i8 [ %1149, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i10.i.i.i ], [ %.pre.i.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i.i13.i.i.i ]
   %indvars.iv.next.i.i12.i.i.i = add nuw nsw i64 %indvars.iv.i.i11.i.i.i, 1
   %1161 = zext i8 %1160 to i64
-  %1162 = icmp ult i64 %indvars.iv.next.i.i12.i.i.i, %1161
+  %1162 = icmp samesign ult i64 %indvars.iv.next.i.i12.i.i.i, %1161
   br i1 %1162, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i10.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit.i.i.i, !llvm.loop !11
 
 _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit.i.i.i: ; preds = %1159, %1144, %1143
@@ -6003,7 +6003,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit.i.i.i: ; preds 
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %1175, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i ]
-  %1177 = icmp ugt i64 %indvars.iv.i.i.i.i, 255
+  %1177 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 255
   br i1 %1177, label %1178, label %_ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i
 
 1178:                                             ; preds = %.lr.ph.i.i.i.i
@@ -6020,7 +6020,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i:         ; preds = %.lr.ph.i.i.i.i
   %1185 = or i64 %1184, %1181
   store i64 %1185, ptr %1183, align 8, !noalias !45
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %1186 = icmp ult i64 %indvars.iv.next.i.i.i.i, %1176
+  %1186 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %1176
   br i1 %1186, label %.lr.ph.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 1187:                                             ; preds = %.lr.ph.i.i.i
@@ -6143,7 +6143,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit369.i.i.i.i: ;
 
 .lr.ph.i372.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i374.i.i.i.i, %.lr.ph.preheader.i371.i.i.i.i
   %indvars.iv.i373.i.i.i.i = phi i64 [ %1233, %.lr.ph.preheader.i371.i.i.i.i ], [ %indvars.iv.next.i375.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i374.i.i.i.i ]
-  %1240 = icmp ugt i64 %indvars.iv.i373.i.i.i.i, 255
+  %1240 = icmp samesign ugt i64 %indvars.iv.i373.i.i.i.i, 255
   br i1 %1240, label %1241, label %_ZNSt6bitsetILm256EE3setEmb.exit.i374.i.i.i.i
 
 1241:                                             ; preds = %.lr.ph.i372.i.i.i.i
@@ -6160,7 +6160,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i374.i.i.i.i:    ; preds = %.lr.ph.i372.i.i.i.i
   %1248 = or i64 %1247, %1244
   store i64 %1248, ptr %1246, align 8, !noalias !45
   %indvars.iv.next.i375.i.i.i.i = add nuw nsw i64 %indvars.iv.i373.i.i.i.i, 1
-  %1249 = icmp ult i64 %indvars.iv.next.i375.i.i.i.i, %1234
+  %1249 = icmp samesign ult i64 %indvars.iv.next.i375.i.i.i.i, %1234
   br i1 %1249, label %.lr.ph.i372.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 1250:                                             ; preds = %.lr.ph.i.i.i
@@ -6175,7 +6175,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i374.i.i.i.i:    ; preds = %.lr.ph.i372.i.i.i.i
 
 1257:                                             ; preds = %1269, %1250
   %indvars.iv.i379.i.i.i.i = phi i64 [ %1255, %1250 ], [ %indvars.iv.next.i382.i.i.i.i, %1269 ]
-  %1258 = icmp ugt i64 %indvars.iv.i379.i.i.i.i, 255
+  %1258 = icmp samesign ugt i64 %indvars.iv.i379.i.i.i.i, 255
   br i1 %1258, label %1259, label %_ZNKSt6bitsetILm256EE4testEm.exit.i380.i.i.i.i
 
 1259:                                             ; preds = %1257
@@ -6246,7 +6246,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit385.i.i.i.i: ;
 
 .lr.ph.i388.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i390.i.i.i.i, %.lr.ph.preheader.i387.i.i.i.i
   %indvars.iv.i389.i.i.i.i = phi i64 [ %1291, %.lr.ph.preheader.i387.i.i.i.i ], [ %indvars.iv.next.i391.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i390.i.i.i.i ]
-  %1293 = icmp ugt i64 %indvars.iv.i389.i.i.i.i, 255
+  %1293 = icmp samesign ugt i64 %indvars.iv.i389.i.i.i.i, 255
   br i1 %1293, label %1294, label %_ZNSt6bitsetILm256EE3setEmb.exit.i390.i.i.i.i
 
 1294:                                             ; preds = %.lr.ph.i388.i.i.i.i
@@ -6263,7 +6263,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i390.i.i.i.i:    ; preds = %.lr.ph.i388.i.i.i.i
   %1301 = or i64 %1300, %1297
   store i64 %1301, ptr %1299, align 8, !noalias !45
   %indvars.iv.next.i391.i.i.i.i = add nuw nsw i64 %indvars.iv.i389.i.i.i.i, 1
-  %1302 = icmp ult i64 %indvars.iv.next.i391.i.i.i.i, %1292
+  %1302 = icmp samesign ult i64 %indvars.iv.next.i391.i.i.i.i, %1292
   br i1 %1302, label %.lr.ph.i388.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 1303:                                             ; preds = %.lr.ph.i.i.i
@@ -6501,7 +6501,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit420.i.i.i.i: ;
 
 .lr.ph.i423.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i425.i.i.i.i, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit420.i.i.i.i
   %indvars.iv.i424.i.i.i.i = phi i64 [ %1424, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit420.i.i.i.i ], [ %indvars.iv.next.i426.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i425.i.i.i.i ]
-  %1426 = icmp ugt i64 %indvars.iv.i424.i.i.i.i, 255
+  %1426 = icmp samesign ugt i64 %indvars.iv.i424.i.i.i.i, 255
   br i1 %1426, label %1427, label %_ZNSt6bitsetILm256EE3setEmb.exit.i425.i.i.i.i
 
 1427:                                             ; preds = %.lr.ph.i423.i.i.i.i
@@ -6556,7 +6556,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i425.i.i.i.i:    ; preds = %.lr.ph.i423.i.i.i.i
 
 .lr.ph.i430.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i432.i.i.i.i, %.lr.ph.preheader.i429.i.i.i.i
   %indvars.iv.i431.i.i.i.i = phi i64 [ %1447, %.lr.ph.preheader.i429.i.i.i.i ], [ %indvars.iv.next.i433.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i432.i.i.i.i ]
-  %1454 = icmp ugt i64 %indvars.iv.i431.i.i.i.i, 255
+  %1454 = icmp samesign ugt i64 %indvars.iv.i431.i.i.i.i, 255
   br i1 %1454, label %1455, label %_ZNSt6bitsetILm256EE3setEmb.exit.i432.i.i.i.i
 
 1455:                                             ; preds = %.lr.ph.i430.i.i.i.i
@@ -6573,7 +6573,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i432.i.i.i.i:    ; preds = %.lr.ph.i430.i.i.i.i
   %1462 = or i64 %1461, %1458
   store i64 %1462, ptr %1460, align 8, !noalias !45
   %indvars.iv.next.i433.i.i.i.i = add nuw nsw i64 %indvars.iv.i431.i.i.i.i, 1
-  %1463 = icmp ult i64 %indvars.iv.next.i433.i.i.i.i, %1448
+  %1463 = icmp samesign ult i64 %indvars.iv.next.i433.i.i.i.i, %1448
   br i1 %1463, label %.lr.ph.i430.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i, !llvm.loop !48
 
 1464:                                             ; preds = %.lr.ph.i.i.i
@@ -6611,7 +6611,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit436.i.i.i.i: ;
 
 1484:                                             ; preds = %1496, %1477
   %indvars.iv.i439.i.i.i.i = phi i64 [ %1482, %1477 ], [ %indvars.iv.next.i442.i.i.i.i, %1496 ]
-  %1485 = icmp ugt i64 %indvars.iv.i439.i.i.i.i, 255
+  %1485 = icmp samesign ugt i64 %indvars.iv.i439.i.i.i.i, 255
   br i1 %1485, label %1486, label %_ZNKSt6bitsetILm256EE4testEm.exit.i440.i.i.i.i
 
 1486:                                             ; preds = %1484
@@ -6650,7 +6650,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation8useRangeEii.exit444.i.i.i.i: ; pre
 
 .lr.ph.i447.i.i.i.i:                              ; preds = %_ZNSt6bitsetILm256EE3setEmb.exit.i449.i.i.i.i, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8useRangeEii.exit444.i.i.i.i
   %indvars.iv.i448.i.i.i.i = phi i64 [ %1499, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8useRangeEii.exit444.i.i.i.i ], [ %indvars.iv.next.i450.i.i.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i449.i.i.i.i ]
-  %1501 = icmp ugt i64 %indvars.iv.i448.i.i.i.i, 255
+  %1501 = icmp samesign ugt i64 %indvars.iv.i448.i.i.i.i, 255
   br i1 %1501, label %1502, label %_ZNSt6bitsetILm256EE3setEmb.exit.i449.i.i.i.i
 
 1502:                                             ; preds = %.lr.ph.i447.i.i.i.i
@@ -7179,7 +7179,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i:             ; preds = %_ZNKSt6bitsetILm256
   %1747 = phi i8 [ %1736, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i ], [ %.pre.i115.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1748 = zext i8 %1747 to i64
-  %1749 = icmp ult i64 %indvars.iv.next.i.i, %1748
+  %1749 = icmp samesign ult i64 %indvars.iv.next.i.i, %1748
   br i1 %1749, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, label %_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i.preheader, !llvm.loop !11
 
 _ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i.preheader: ; preds = %1746, %1731, %1728, %_ZNSt6bitsetILm256EEoRERKS0_.exit114.i
@@ -7564,7 +7564,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i:             ; preds = %_ZNKSt6bitsetILm256
   %45 = phi i8 [ %34, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i ], [ %.pre.i.i, %_ZNSt6bitsetILm256EE3setEmb.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %46 = zext i8 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next.i.i, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next.i.i, %46
   br i1 %47, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit, !llvm.loop !11
 
 _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit: ; preds = %44, %26, %29

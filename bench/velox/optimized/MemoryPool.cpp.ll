@@ -3399,7 +3399,7 @@ if.then.i29:                                      ; preds = %if.end8.i
   unreachable
 
 _ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit: ; preds = %if.end8.i
-  %cmp11.i = icmp ugt i32 %numAttempts.i.0.lcssa, 1
+  %cmp11.i = icmp samesign ugt i32 %numAttempts.i.0.lcssa, 1
   br i1 %cmp11.i, label %if.then12.i, label %if.end6
 
 if.end9.i:                                        ; preds = %if.end.i17
@@ -6640,7 +6640,7 @@ for.inc:                                          ; preds = %invoke.cont15
 
 for.end:                                          ; preds = %if.end10
   %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #28
-  %cmp28 = icmp ugt i32 %numAttempts.065, 1
+  %cmp28 = icmp samesign ugt i32 %numAttempts.065, 1
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %for.end

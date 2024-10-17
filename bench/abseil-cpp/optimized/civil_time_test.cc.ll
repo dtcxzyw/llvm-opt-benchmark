@@ -64691,7 +64691,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
   %2 = phi i64 [ 1970, %entry ], [ %34, %_ZN7testing15AssertionResultD2Ev.exit ]
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %or.cond3.i = icmp ult i64 %indvars.iv, 29
+  %or.cond3.i = icmp samesign ult i64 %indvars.iv, 29
   br i1 %or.cond3.i, label %_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body

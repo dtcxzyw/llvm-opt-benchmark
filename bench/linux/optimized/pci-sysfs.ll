@@ -1730,7 +1730,7 @@ define internal i64 @pci_read_config(ptr noundef %0, ptr noundef %1, ptr nocaptu
 .loopexit:                                        ; preds = %.preheader, %63
   %88 = phi i64 [ %64, %63 ], [ %84, %.preheader ]
   %89 = phi i32 [ %65, %63 ], [ %85, %.preheader ]
-  %90 = icmp ugt i32 %89, 1
+  %90 = icmp samesign ugt i32 %89, 1
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.loopexit
@@ -1882,7 +1882,7 @@ define internal i64 @pci_write_config(ptr nocapture readnone %0, ptr noundef %1,
 .loopexit:                                        ; preds = %.preheader, %60
   %74 = phi i32 [ %61, %60 ], [ %72, %.preheader ]
   %75 = phi i64 [ %62, %60 ], [ %71, %.preheader ]
-  %76 = icmp ugt i32 %74, 1
+  %76 = icmp samesign ugt i32 %74, 1
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %.loopexit

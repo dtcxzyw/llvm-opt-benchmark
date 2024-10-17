@@ -5557,7 +5557,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %119 = or disjoint i8 %118, 48
   %120 = zext nneg i8 %119 to i32
   %121 = and i32 %95, 8191
-  %122 = icmp ult i32 %121, 5864
+  %122 = icmp samesign ult i32 %121, 5864
   %123 = lshr i32 %121, 3
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds [733 x i8], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.89, i64 0, i64 %124
@@ -5650,7 +5650,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %192 = add nuw nsw i32 %190, %191
   %.lhs.trunc.i106 = trunc nuw nsw i32 %192 to i16
   %193 = urem i16 %.lhs.trunc.i106, 7
-  %194 = icmp ult i32 %189, 5864
+  %194 = icmp samesign ult i32 %189, 5864
   %195 = lshr i32 %189, 3
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds [733 x i8], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.89, i64 0, i64 %196
@@ -5813,7 +5813,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.lhs.trunc.i187 = trunc nuw nsw i32 %305 to i16
   %306 = urem i16 %.lhs.trunc.i187, 7
   %307 = and i32 %.val279.i, 8191
-  %308 = icmp ult i32 %307, 5864
+  %308 = icmp samesign ult i32 %307, 5864
   %309 = lshr i32 %307, 3
   %310 = zext nneg i32 %309 to i64
   %311 = getelementptr inbounds [733 x i8], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.89, i64 0, i64 %310
@@ -5957,27 +5957,27 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %406 = sext i32 %narrow261.i to i64
   %407 = mul nsw i64 %406, 86400
   %408 = add nsw i64 %323, %407
-  %409 = icmp ult i16 %193, 6
+  %409 = icmp samesign ult i16 %193, 6
   %narrow = add nuw nsw i16 %193, 1
   %narrow251 = select i1 %409, i16 %narrow, i16 0
   %410 = zext nneg i16 %narrow251 to i64
   %411 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.140, i64 0, i64 %410
-  %412 = icmp ult i16 %306, 6
+  %412 = icmp samesign ult i16 %306, 6
   %narrow252 = add nuw nsw i16 %306, 1
   %narrow253 = select i1 %412, i16 %narrow252, i16 0
   %413 = zext nneg i16 %narrow253 to i64
   %414 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.131, i64 0, i64 %413
   %415 = getelementptr inbounds i8, ptr %414, i64 8
-  %416 = icmp ult i16 %306, 6
+  %416 = icmp samesign ult i16 %306, 6
   %narrow254 = add nuw nsw i16 %306, 1
   %narrow255 = select i1 %416, i16 %narrow254, i16 0
   %417 = zext nneg i16 %narrow255 to i64
   %418 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.01d8cbf55cc9b6926c328beaecf9b12f.140, i64 0, i64 %417
   %. = select i1 %90, i64 %408, i64 %397
-  %419 = icmp ult i16 %306, 6
+  %419 = icmp samesign ult i16 %306, 6
   %narrow256 = add nuw nsw i16 %306, 1
   %switch.offset241 = zext nneg i16 %narrow256 to i64
-  %420 = icmp ult i16 %306, 6
+  %420 = icmp samesign ult i16 %306, 6
   %narrow257 = add nuw nsw i16 %306, 1
   %switch.offset = zext nneg i16 %narrow257 to i64
   br label %424
@@ -7341,7 +7341,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i111: ; preds = 
   %808 = add i32 %807, %184
   %809 = lshr i32 %808, 4
   %810 = and i32 %809, 31
-  %811 = icmp ult i32 %810, 10
+  %811 = icmp samesign ult i32 %810, 10
   br i1 %811, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.i108, label %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread.i
 
 _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread.i: ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i111
@@ -7641,11 +7641,11 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.i: ; pred
   %903 = shl nuw nsw i32 %902, 3
   %904 = add nuw nsw i32 %903, %121
   %905 = lshr i32 %904, 9
-  %.cmp.i = icmp ugt i32 %904, 5119
+  %.cmp.i = icmp samesign ugt i32 %904, 5119
   %906 = zext i1 %.cmp.i to i32
   %907 = or disjoint i32 %906, 48
   %.urem.i = add nuw nsw i32 %905, 246
-  %.cmp229.i = icmp ult i32 %904, 5120
+  %.cmp229.i = icmp samesign ult i32 %904, 5120
   %spec.select.i = select i1 %.cmp229.i, i32 %905, i32 %.urem.i
   %908 = and i32 %spec.select.i, 207
   %909 = or disjoint i32 %908, 48
@@ -8156,9 +8156,9 @@ define noundef nonnull ptr @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChun
   br i1 %17, label %.critedge59, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 3
+  %20 = icmp samesign ult i64 %16, 3
   br i1 %20, label %21, label %.critedge59
 
 21:                                               ; preds = %18
@@ -8205,7 +8205,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 3
+  %42 = icmp samesign ult i64 %40, 3
   br i1 %42, label %76, label %.critedge61
 
 .critedge61:                                      ; preds = %39
@@ -8360,7 +8360,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %91 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1423
   %92 = icmp ult i64 %91, 6
   call void @llvm.assume(i1 %92)
-  %93 = icmp ult i64 %91, 3
+  %93 = icmp samesign ult i64 %91, 3
   br i1 %93, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5stats28_$u7b$$u7b$closure$u7d$$u7d$17hea86226b9697af2fE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %90
@@ -8424,9 +8424,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$influxdb3_writ
   br i1 %17, label %.critedge59, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 3
+  %20 = icmp samesign ult i64 %16, 3
   br i1 %20, label %21, label %.critedge59
 
 21:                                               ; preds = %18
@@ -8473,7 +8473,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 3
+  %42 = icmp samesign ult i64 %40, 3
   br i1 %42, label %76, label %.critedge61
 
 .critedge61:                                      ; preds = %39
@@ -8618,7 +8618,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %88 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1438
   %89 = icmp ult i64 %88, 6
   call void @llvm.assume(i1 %89)
-  %90 = icmp ult i64 %88, 3
+  %90 = icmp samesign ult i64 %88, 3
   br i1 %90, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$6schema28_$u7b$$u7b$closure$u7d$$u7d$17h3663677c1d08403dE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %87
@@ -8682,9 +8682,9 @@ define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN84_$LT$influxdb3_wri
   br i1 %17, label %.critedge59, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 3
+  %20 = icmp samesign ult i64 %16, 3
   br i1 %20, label %21, label %.critedge59
 
 21:                                               ; preds = %18
@@ -8731,7 +8731,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 3
+  %42 = icmp samesign ult i64 %40, 3
   br i1 %42, label %76, label %.critedge61
 
 .critedge61:                                      ; preds = %39
@@ -8875,7 +8875,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1453
   %88 = icmp ult i64 %87, 6
   call void @llvm.assume(i1 %88)
-  %89 = icmp ult i64 %87, 3
+  %89 = icmp samesign ult i64 %87, 3
   br i1 %89, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$12partition_id28_$u7b$$u7b$closure$u7d$$u7d$17he9040b726b385688E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %86
@@ -8939,9 +8939,9 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN84_$LT$influxdb3_writ
   br i1 %17, label %.critedge60, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 3
+  %20 = icmp samesign ult i64 %16, 3
   br i1 %20, label %21, label %.critedge60
 
 21:                                               ; preds = %18
@@ -8988,7 +8988,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 3
+  %42 = icmp samesign ult i64 %40, 3
   br i1 %42, label %76, label %.critedge62
 
 .critedge62:                                      ; preds = %39
@@ -9136,7 +9136,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %90 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1468
   %91 = icmp ult i64 %90, 6
   call void @llvm.assume(i1 %91)
-  %92 = icmp ult i64 %90, 3
+  %92 = icmp samesign ult i64 %90, 3
   br i1 %92, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$8sort_key28_$u7b$$u7b$closure$u7d$$u7d$17h75df54484a5a346aE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %89
@@ -9200,9 +9200,9 @@ define void @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$io
   br i1 %18, label %.critedge59, label %19
 
 19:                                               ; preds = %2
-  %20 = icmp ult i64 %17, 5
+  %20 = icmp samesign ult i64 %17, 5
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i64 %17, 3
+  %21 = icmp samesign ult i64 %17, 3
   br i1 %21, label %22, label %.critedge59
 
 22:                                               ; preds = %19
@@ -9249,7 +9249,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %41 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %42 = icmp ult i64 %41, 6
   tail call void @llvm.assume(i1 %42)
-  %43 = icmp ult i64 %41, 3
+  %43 = icmp samesign ult i64 %41, 3
   br i1 %43, label %77, label %.critedge61
 
 .critedge61:                                      ; preds = %40
@@ -9395,7 +9395,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %89 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1483
   %90 = icmp ult i64 %89, 6
   call void @llvm.assume(i1 %90)
-  %91 = icmp ult i64 %89, 3
+  %91 = icmp samesign ult i64 %89, 3
   br i1 %91, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$2id28_$u7b$$u7b$closure$u7d$$u7d$17h55ff16e01bd0c64dE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %88
@@ -9465,9 +9465,9 @@ define void @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$io
   br i1 %19, label %.critedge64, label %20
 
 20:                                               ; preds = %2
-  %21 = icmp ult i64 %18, 5
+  %21 = icmp samesign ult i64 %18, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i64 %18, 3
+  %22 = icmp samesign ult i64 %18, 3
   br i1 %22, label %23, label %.critedge64
 
 23:                                               ; preds = %20
@@ -9514,7 +9514,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %43 = icmp ult i64 %42, 6
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %42, 3
+  %44 = icmp samesign ult i64 %42, 3
   br i1 %44, label %78, label %.critedge66
 
 .critedge66:                                      ; preds = %41
@@ -9673,7 +9673,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %97 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1503
   %98 = icmp ult i64 %97, 6
   call void @llvm.assume(i1 %98)
-  %99 = icmp ult i64 %97, 3
+  %99 = icmp samesign ult i64 %97, 3
   br i1 %99, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$4data28_$u7b$$u7b$closure$u7d$$u7d$17he9d22aab4f5be5d0E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %96
@@ -9747,9 +9747,9 @@ define noundef i64 @"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as
   br i1 %17, label %.critedge59, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 3
+  %20 = icmp samesign ult i64 %16, 3
   br i1 %20, label %21, label %.critedge59
 
 21:                                               ; preds = %18
@@ -9796,7 +9796,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 3
+  %42 = icmp samesign ult i64 %40, 3
   br i1 %42, label %76, label %.critedge61
 
 .critedge61:                                      ; preds = %39
@@ -9942,7 +9942,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %89 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !1518
   %90 = icmp ult i64 %89, 6
   call void @llvm.assume(i1 %90)
-  %91 = icmp ult i64 %89, 3
+  %91 = icmp samesign ult i64 %89, 3
   br i1 %91, label %"_ZN84_$LT$influxdb3_write..write_buffer..BufferChunk$u20$as$u20$iox_query..QueryChunk$GT$5order28_$u7b$$u7b$closure$u7d$$u7d$17h3f9f696a30c52d2cE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %88
@@ -14001,9 +14001,9 @@ switch.lookup445:                                 ; preds = %983
   br i1 %1203, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread249, label %1204
 
 1204:                                             ; preds = %1201
-  %1205 = icmp ult i64 %1202, 5
+  %1205 = icmp samesign ult i64 %1202, 5
   call void @llvm.assume(i1 %1205)
-  %1206 = icmp ult i64 %1202, 2
+  %1206 = icmp samesign ult i64 %1202, 2
   br i1 %1206, label %1207, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread249
 
 1207:                                             ; preds = %1204
@@ -14056,7 +14056,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %1228 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8
   %1229 = icmp ult i64 %1228, 6
   call void @llvm.assume(i1 %1229)
-  %switch.selectcmp88 = icmp ugt i64 %1228, 3
+  %switch.selectcmp88 = icmp samesign ugt i64 %1228, 3
   br i1 %switch.selectcmp88, label %1230, label %1266
 
 1230:                                             ; preds = %1227
@@ -14237,7 +14237,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.th
   %1286 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h9d1329c71f63e600E monotonic, align 8, !noalias !2187
   %1287 = icmp ult i64 %1286, 6
   call void @llvm.assume(i1 %1287)
-  %1288 = icmp ult i64 %1286, 4
+  %1288 = icmp samesign ult i64 %1286, 4
   br i1 %1288, label %"_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catalog28_$u7b$$u7b$closure$u7d$$u7d$17h5c81f8e5019664d3E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %1285

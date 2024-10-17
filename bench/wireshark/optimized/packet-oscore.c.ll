@@ -1178,7 +1178,7 @@ oscore_context_derive_params.exit:                ; preds = %cborencoder_put_uns
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %290 = load i32, ptr @num_oscore_contexts, align 4
   %291 = zext i32 %290 to i64
-  %292 = icmp ult i64 %indvars.iv.next, %291
+  %292 = icmp samesign ult i64 %indvars.iv.next, %291
   br i1 %292, label %7, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %oscore_context_derive_params.exit, %0

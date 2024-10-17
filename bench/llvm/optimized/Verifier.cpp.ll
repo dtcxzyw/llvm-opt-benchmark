@@ -4061,7 +4061,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.i.i:   ; preds = %.lr.ph326.i.i
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %734, %731
   %.0.i.i.i.i = phi i64 [ %736, %734 ], [ %733, %731 ]
-  %737 = icmp ult i64 %indvars.iv.i.i, %.0.i.i.i.i
+  %737 = icmp samesign ult i64 %indvars.iv.i.i, %.0.i.i.i.i
   br i1 %737, label %738, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i
 
 738:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i
@@ -14328,7 +14328,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread: ; pr
 62:                                               ; preds = %57
   %narrow = add nuw nsw i32 %61, 255
   %63 = and i32 %narrow, 255
-  %64 = icmp ult i32 %63, 33
+  %64 = icmp samesign ult i32 %63, 33
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %62
@@ -15850,7 +15850,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %151, %
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AttributeListEJPKNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 241:                                              ; preds = %237
-  %or.cond = icmp ult i64 %indvars.iv, 2
+  %or.cond = icmp samesign ult i64 %indvars.iv, 2
   br i1 %or.cond, label %245, label %242
 
 242:                                              ; preds = %241
@@ -16138,7 +16138,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %151, %
   %361 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr nonnull @.str.142, i64 20) #23
   %362 = zext i1 %361 to i32
   %363 = add nuw nsw i32 %360, %362
-  %364 = icmp ult i32 %363, 2
+  %364 = icmp samesign ult i32 %363, 2
   br i1 %364, label %368, label %365
 
 365:                                              ; preds = %349
@@ -16165,7 +16165,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %151, %
   %380 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr nonnull @.str.148, i64 21) #23
   %381 = zext i1 %380 to i32
   %382 = add nuw nsw i32 %379, %381
-  %383 = icmp ult i32 %382, 2
+  %383 = icmp samesign ult i32 %382, 2
   br i1 %383, label %387, label %384
 
 384:                                              ; preds = %368
@@ -16309,7 +16309,7 @@ _ZN4llvm12is_containedINS_11AllocFnKindES1_EEbSt16initializer_listIT_ERKT0_.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %436
   %443 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %438)
-  %444 = icmp ult i32 %443, 2
+  %444 = icmp samesign ult i32 %443, 2
   br i1 %444, label %448, label %445
 
 445:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
@@ -22369,7 +22369,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   %91 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 76) #23
   %92 = zext i1 %91 to i32
   %93 = add nuw nsw i32 %90, %92
-  %94 = icmp ult i32 %93, 2
+  %94 = icmp samesign ult i32 %93, 2
   br i1 %94, label %98, label %95
 
 95:                                               ; preds = %85
@@ -22598,8 +22598,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   %190 = and i16 %189, 256
   %.not78 = icmp eq i16 %190, 0
   %191 = and i16 %189, 255
-  %192 = icmp ult i16 %191, 33
-  %193 = or i1 %.not78, %192
+  %192 = icmp samesign ult i16 %191, 33
+  %193 = select i1 %.not78, i1 true, i1 %192
   br i1 %193, label %197, label %194
 
 194:                                              ; preds = %188
@@ -44507,7 +44507,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds 
   %2192 = getelementptr inbounds nuw i8, ptr %836, i64 2
   %2193 = load i16, ptr %2192, align 2
   %2194 = and i16 %2193, 63
-  %2195 = icmp ult i16 %2194, 33
+  %2195 = icmp samesign ult i16 %2194, 33
   br i1 %2195, label %2197, label %2196
 
 2196:                                             ; preds = %2191
@@ -44624,7 +44624,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitAllocaERNS_10AllocaInstE
   %2229 = getelementptr inbounds nuw i8, ptr %836, i64 2
   %2230 = load i16, ptr %2229, align 2
   %2231 = and i16 %2230, 126
-  %2232 = icmp ult i16 %2231, 66
+  %2232 = icmp samesign ult i16 %2231, 66
   br i1 %2232, label %2234, label %2233
 
 2233:                                             ; preds = %2226
@@ -44814,7 +44814,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit:
   %2279 = getelementptr inbounds nuw i8, ptr %836, i64 2
   %2280 = load i16, ptr %2279, align 2
   %2281 = and i16 %2280, 126
-  %2282 = icmp ult i16 %2281, 66
+  %2282 = icmp samesign ult i16 %2281, 66
   br i1 %2282, label %2284, label %2283
 
 2283:                                             ; preds = %2274
@@ -46015,7 +46015,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i: ; preds = %267
 
 2674:                                             ; preds = %2658
   call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef %836)
-  %2675 = icmp ult i16 %2602, 17
+  %2675 = icmp samesign ult i16 %2602, 17
   br i1 %2675, label %2677, label %2676
 
 2676:                                             ; preds = %2674
@@ -53353,7 +53353,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i: ; preds = %217, %_ZNK4llvm8C
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load i32, ptr %231, align 8
   %233 = zext i32 %232 to i64
-  %.not.i.i.i290 = icmp ult i64 %indvars.iv, %233
+  %.not.i.i.i290 = icmp samesign ult i64 %indvars.iv, %233
   br i1 %.not.i.i.i290, label %.split.thread, label %_ZNK4llvm8CallBase15isBundleOperandEj.exit.i.i
 
 _ZNK4llvm8CallBase15isBundleOperandEj.exit.i.i:   ; preds = %226
@@ -53367,7 +53367,7 @@ _ZNK4llvm8CallBase15isBundleOperandEj.exit.i.i:   ; preds = %226
   %240 = getelementptr inbounds i8, ptr %239, i64 -4
   %241 = load i32, ptr %240, align 4
   %242 = zext i32 %241 to i64
-  %243 = icmp ult i64 %indvars.iv, %242
+  %243 = icmp samesign ult i64 %indvars.iv, %242
   br i1 %243, label %.split, label %.split.thread
 
 .split:                                           ; preds = %_ZNK4llvm8CallBase15isBundleOperandEj.exit.i.i
@@ -56407,7 +56407,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit51:        ; preds = %123, %126
   %.0.i.i50 = phi i64 [ %129, %126 ], [ %125, %123 ]
-  %130 = icmp ult i64 %indvars.iv, %.0.i.i50
+  %130 = icmp samesign ult i64 %indvars.iv, %.0.i.i50
   br i1 %130, label %131, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread60
 
 131:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit51
@@ -61255,7 +61255,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit274.thread: ; preds = %_ZN4llvm16dyn
   %451 = sub i64 %449, %450
   %452 = lshr exact i64 %451, 5
   %453 = and i64 %452, 4294967295
-  %454 = icmp ult i64 %indvars.iv.next423, %453
+  %454 = icmp samesign ult i64 %indvars.iv.next423, %453
   br i1 %454, label %381, label %.loopexit347, !llvm.loop !353
 
 .loopexit347:                                     ; preds = %442, %.preheader, %._crit_edge383
@@ -71380,7 +71380,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -78719,7 +78719,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %27, %25
 
 31:                                               ; preds = %3
   %32 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %13)
-  %.not = icmp ult i32 %32, 2
+  %.not = icmp samesign ult i32 %32, 2
   br i1 %.not, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_4TypeEJPKNS_11InstructionEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %33
 
 33:                                               ; preds = %31

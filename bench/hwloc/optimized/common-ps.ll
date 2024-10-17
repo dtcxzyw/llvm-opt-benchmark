@@ -644,7 +644,7 @@ define hidden void @hwloc_ps_free_process(ptr nocapture noundef readonly %0) loc
   %12 = phi i32 [ %6, %5 ], [ %.pre, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %5, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %1
@@ -743,7 +743,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %44 = phi i32 [ %38, %.lr.ph.i ], [ %.pre.i, %42 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next.i, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
   br i1 %46, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !9
 
 hwloc_ps_free_process.exit:                       ; preds = %43, %36
@@ -833,7 +833,7 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   %38 = phi i32 [ %32, %.lr.ph.i ], [ %.pre.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next.i, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %40, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !9
 
 hwloc_ps_free_process.exit:                       ; preds = %37, %30

@@ -1430,7 +1430,7 @@ pmix_pointer_array_get_item.exit343.thread:       ; preds = %166, %170, %pmix_po
   %243 = getelementptr inbounds i8, ptr %242, i64 460
   %244 = load i32, ptr %243, align 4
   %245 = zext i32 %244 to i64
-  %246 = icmp ult i64 %indvars.iv.next, %245
+  %246 = icmp samesign ult i64 %indvars.iv.next, %245
   br i1 %246, label %.lr.ph, label %.preheader378, !llvm.loop !12
 
 pmix_pointer_array_get_item.exit346:              ; preds = %.preheader378, %257

@@ -15055,7 +15055,7 @@ define hidden void @_ZN7channel14channel_buffer13ChannelBuffer10disconnect17h26c
   %9 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %10 = icmp ult i64 %9, 6
   tail call void @llvm.assume(i1 %10)
-  %switch = icmp ult i64 %9, 3
+  %switch = icmp samesign ult i64 %9, 3
   br i1 %switch, label %22, label %11
 
 11:                                               ; preds = %2

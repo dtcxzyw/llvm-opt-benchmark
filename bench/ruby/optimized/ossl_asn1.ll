@@ -1933,7 +1933,7 @@ define internal i64 @ossl_asn1cons_to_der(i64 noundef %0) #0 {
 rb_array_len.exit.thread.us:                      ; preds = %.split.us
   %16 = lshr i64 %14, 15
   %17 = and i64 %16, 127
-  %18 = icmp ult i64 %.0.us, %17
+  %18 = icmp samesign ult i64 %.0.us, %17
   br i1 %18, label %rb_array_const_ptr.exit.us, label %.loopexit
 
 rb_array_len.exit.us:                             ; preds = %.split.us
@@ -1980,7 +1980,7 @@ rb_array_len.exit:                                ; preds = %.split
 rb_array_len.exit.thread:                         ; preds = %.split
   %38 = lshr i64 %34, 15
   %39 = and i64 %38, 127
-  %40 = icmp ult i64 %.0, %39
+  %40 = icmp samesign ult i64 %.0, %39
   br i1 %40, label %rb_array_const_ptr.exit, label %.loopexit
 
 41:                                               ; preds = %rb_array_len.exit

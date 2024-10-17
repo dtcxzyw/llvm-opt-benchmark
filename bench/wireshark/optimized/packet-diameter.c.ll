@@ -2827,7 +2827,7 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   br label %50
 
 27:                                               ; preds = %16
-  %28 = icmp ult i32 %spec.select, 16
+  %28 = icmp samesign ult i32 %spec.select, 16
   br i1 %28, label %29, label %50
 
 29:                                               ; preds = %27

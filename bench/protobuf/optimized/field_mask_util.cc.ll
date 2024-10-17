@@ -2021,7 +2021,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %.noexc65.i, %if.end
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %.noexc66.i
   %conv20.i.i.i.i.i.i.i = zext i8 %add16.i.i.i.i.i.i.i to i32
   %add22.i.i.i.i.i.i.i = add nuw nsw i32 %conv.i.i.i.i.i.i.i, 1
-  %cmp23.i.i.i.i.i.i.i = icmp ult i32 %add22.i.i.i.i.i.i.i, %conv20.i.i.i.i.i.i.i
+  %cmp23.i.i.i.i.i.i.i = icmp samesign ult i32 %add22.i.i.i.i.i.i.i, %conv20.i.i.i.i.i.i.i
   br i1 %cmp23.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSN_EESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES15_DpOT_.exit.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %land.lhs.true.i.i.i.i.i.i.i
@@ -2040,7 +2040,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i20.i.i.i.i.i.i.i = getelementptr i8, ptr %52, i64 8
   store i8 %j.03.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i20.i.i.i.i.i.i.i, align 1, !noalias !37
   %conv26.i.i.i.i.i.i.i = zext i8 %sub31.i.i.i.i.i.i.i to i32
-  %cmp29.i.i.i.i.i.i.i = icmp ult i32 %add22.i.i.i.i.i.i.i, %conv26.i.i.i.i.i.i.i
+  %cmp29.i.i.i.i.i.i.i = icmp samesign ult i32 %add22.i.i.i.i.i.i.i, %conv26.i.i.i.i.i.i.i
   br i1 %cmp29.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSN_EESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES15_DpOT_.exit.i.i.i.i.i, !llvm.loop !51
 
 _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSN_EESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES15_DpOT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i, %.noexc66.i
@@ -3837,7 +3837,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE10value_initIJRKSt21piecewise_construct_tSt5tupleIJRSt17basic_string_viewIcS7_EEESW_IJEEEEEvhPSP_DpOT_.exit.i.i.i.i.i
   %conv20.i.i.i.i.i = zext i8 %add16.i.i.i.i.i to i32
   %add22.i.i.i.i.i = add nuw nsw i32 %conv.i.i.i.i.i, 1
-  %cmp23.i.i.i.i.i = icmp ult i32 %add22.i.i.i.i.i, %conv20.i.i.i.i.i
+  %cmp23.i.i.i.i.i = icmp samesign ult i32 %add22.i.i.i.i.i, %conv20.i.i.i.i.i
   br i1 %cmp23.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSt17basic_string_viewIcS7_EEESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES17_DpOT_.exit.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i
@@ -3856,7 +3856,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %add.ptr.i.i.i.i20.i.i.i.i.i = getelementptr i8, ptr %21, i64 8
   store i8 %j.03.i.i.i.i.i, ptr %add.ptr.i.i.i.i20.i.i.i.i.i, align 1, !noalias !93
   %conv26.i.i.i.i.i = zext i8 %sub31.i.i.i.i.i to i32
-  %cmp29.i.i.i.i.i = icmp ult i32 %add22.i.i.i.i.i, %conv26.i.i.i.i.i
+  %cmp29.i.i.i.i.i = icmp samesign ult i32 %add22.i.i.i.i.i, %conv26.i.i.i.i.i
   br i1 %cmp29.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSt17basic_string_viewIcS7_EEESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES17_DpOT_.exit.i.i.i, !llvm.loop !103
 
 _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSt17basic_string_viewIcS7_EEESW_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EES17_DpOT_.exit.i.i.i: ; preds = %for.body.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE10value_initIJRKSt21piecewise_construct_tSt5tupleIJRSt17basic_string_viewIcS7_EEESW_IJEEEEEvhPSP_DpOT_.exit.i.i.i.i.i
@@ -3945,13 +3945,13 @@ if.then15:                                        ; preds = %if.then7
   %sub18 = sub nuw nsw i8 6, %call11.val90
   %4 = load i32, ptr %position_, align 4
   %conv20 = and i32 %4, 254
-  %cmp21 = icmp ult i32 %conv20, 6
+  %cmp21 = icmp samesign ult i32 %conv20, 6
   %5 = zext i1 %cmp21 to i8
   %div69 = lshr i8 %sub18, %5
   %.sroa.speculated113 = tail call i8 @llvm.umax.i8(i8 %div69, i8 1)
   %conv26 = and i32 %4, 255
   %conv27 = zext nneg i8 %.sroa.speculated113 to i32
-  %cmp31.not = icmp uge i32 %conv26, %conv27
+  %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated113, %call11.val90
   %cmp36 = icmp ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
@@ -4819,7 +4819,7 @@ if.end.i:                                         ; preds = %for.body.i.i, %_ZN4
 land.lhs.true.i:                                  ; preds = %if.end.i
   %conv16.i = zext i8 %add12.i to i32
   %add18.i = add nuw nsw i32 %conv.i39, 1
-  %cmp19.i = icmp ult i32 %add18.i, %conv16.i
+  %cmp19.i = icmp samesign ult i32 %add18.i, %conv16.i
   br i1 %cmp19.i, label %for.body.lr.ph.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS9_SJ_EEEEEvhPSP_DpOT_.exit
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true.i
@@ -4838,7 +4838,7 @@ for.body.i41:                                     ; preds = %for.body.i41, %for.
   %add.ptr.i.i.i.i20.i = getelementptr i8, ptr %11, i64 8
   store i8 %j.03.i, ptr %add.ptr.i.i.i.i20.i, align 1
   %conv22.i = zext i8 %sub27.i to i32
-  %cmp25.i = icmp ult i32 %add18.i, %conv22.i
+  %cmp25.i = icmp samesign ult i32 %add18.i, %conv22.i
   br i1 %cmp25.i, label %for.body.i41, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS9_SJ_EEEEEvhPSP_DpOT_.exit, !llvm.loop !113
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS9_SJ_EEEEEvhPSP_DpOT_.exit: ; preds = %for.body.i41, %if.end.i, %land.lhs.true.i
@@ -5581,7 +5581,7 @@ if.then.i:                                        ; preds = %if.end10
   %add.i = add nuw nsw i32 %conv12.i, 1
   %conv15.i = zext nneg i8 %.val4 to i32
   %add16.i = add nuw nsw i32 %add.i, %conv15.i
-  %cmp17.i = icmp ult i32 %add16.i, 7
+  %cmp17.i = icmp samesign ult i32 %add16.i, 7
   br i1 %cmp17.i, label %if.then18.i, label %if.end25.i
 
 if.then18.i:                                      ; preds = %if.then.i
@@ -5607,7 +5607,7 @@ if.then32.i:                                      ; preds = %if.end25.i
   %call38.val55.i = load i8, ptr %12, align 1
   %conv44.i = zext i8 %call38.val55.i to i32
   %add45.i = add nuw nsw i32 %add42.i, %conv44.i
-  %cmp46.i = icmp ult i32 %add45.i, 7
+  %cmp46.i = icmp samesign ult i32 %add45.i, 7
   br i1 %cmp46.i, label %if.then47.i, label %if.end49.i
 
 if.then47.i:                                      ; preds = %if.then32.i

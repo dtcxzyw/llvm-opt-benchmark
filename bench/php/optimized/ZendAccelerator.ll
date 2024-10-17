@@ -1379,7 +1379,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %151 = getelementptr inbounds i8, ptr %.0202, i64 -1
   store i8 %150, ptr %151, align 1
   %152 = udiv i64 %.0203, 10
-  %.not240 = icmp ult i64 %.0203, 10
+  %.not240 = icmp samesign ult i64 %.0203, 10
   br i1 %.not240, label %153, label %147
 
 153:                                              ; preds = %147
@@ -1619,7 +1619,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   %275 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %274, ptr %275, align 1
   %276 = udiv i64 %.0190, 10
-  %.not252 = icmp ult i64 %.0190, 10
+  %.not252 = icmp samesign ult i64 %.0190, 10
   br i1 %.not252, label %277, label %271
 
 277:                                              ; preds = %271
@@ -6589,7 +6589,7 @@ define internal ptr @accel_init_interned_string_for_php(ptr nocapture noundef re
   %.0180.lcssa = phi i64 [ 5381, %.preheader195 ], [ %45, %.lr.ph ]
   %.0177.lcssa = phi i64 [ %1, %.preheader195 ], [ %46, %.lr.ph ]
   %.0176.lcssa = phi ptr [ %0, %.preheader195 ], [ %47, %.lr.ph ]
-  %49 = icmp ugt i64 %.0177.lcssa, 3
+  %49 = icmp samesign ugt i64 %.0177.lcssa, 3
   br i1 %49, label %50, label %72
 
 50:                                               ; preds = %._crit_edge
@@ -7242,14 +7242,14 @@ define internal ptr @zend_accel_inheritance_cache_get(ptr nocapture noundef read
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %39 = load i32, ptr %28, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %indvars.iv.next132, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next132, %40
   br i1 %41, label %.lr.ph104, label %.preheader._crit_edge
 
 .thread:                                          ; preds = %37
   %indvars.iv.next132139 = add nuw nsw i64 %indvars.iv131, 1
   %42 = load i32, ptr %28, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next132139, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next132139, %43
   br i1 %44, label %.lr.ph104.outer, label %.preheader._crit_edge.thread141
 
 .preheader._crit_edge.thread141:                  ; preds = %.thread
@@ -7337,7 +7337,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread8
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %81 = load i32, ptr %28, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next134, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next134, %82
   br i1 %83, label %.lr.ph111, label %.thread79.backedge
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %80
@@ -7453,7 +7453,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = add i32 %54, %55
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph, label %.loopexit177
 
 .loopexit177:                                     ; preds = %53, %.preheader176, %37
@@ -7525,7 +7525,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %87 = load i32, ptr %96, align 8
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next227, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next227, %88
   br i1 %89, label %.lr.ph187.us, label %.loopexit
 
 90:                                               ; preds = %.lr.ph184.us, %75
@@ -7672,7 +7672,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   %161 = load i32, ptr %114, align 8
   %162 = add i32 %161, %160
   %163 = zext i32 %162 to i64
-  %164 = icmp ult i64 %indvars.iv.next229, %163
+  %164 = icmp samesign ult i64 %indvars.iv.next229, %163
   br i1 %164, label %156, label %._crit_edge204
 
 ._crit_edge204:                                   ; preds = %156, %137
@@ -11191,7 +11191,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %79 = load i32, ptr %75, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next.i, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next.i, %80
   br i1 %81, label %82, label %.loopexit79.i
 
 82:                                               ; preds = %78, %.lr.ph.i
@@ -11218,7 +11218,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %92 = load i32, ptr %88, align 4
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next93.i, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next93.i, %93
   br i1 %94, label %95, label %.loopexit329
 
 95:                                               ; preds = %91, %.lr.ph85.i
@@ -11606,7 +11606,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %.4.i = phi i8 [ %.390.i, %.lr.ph91.i ], [ %spec.select78.i, %270 ]
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i286, 1
   %279 = zext i32 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next.i287, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next.i287, %279
   br i1 %280, label %.lr.ph91.i, label %._crit_edge92.i
 
 ._crit_edge92.i:                                  ; preds = %277
@@ -11848,7 +11848,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %indvars.iv.next.i298 = add nuw nsw i64 %indvars.iv.i296, 1
   %381 = load i32, ptr %377, align 8
   %382 = zext i32 %381 to i64
-  %383 = icmp ult i64 %indvars.iv.next.i298, %382
+  %383 = icmp samesign ult i64 %indvars.iv.next.i298, %382
   br i1 %383, label %384, label %.loopexit79.i299
 
 384:                                              ; preds = %380, %.lr.ph.i295
@@ -11880,7 +11880,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %indvars.iv.next93.i304 = add nuw nsw i64 %indvars.iv92.i302, 1
   %397 = load i32, ptr %393, align 4
   %398 = zext i32 %397 to i64
-  %399 = icmp ult i64 %indvars.iv.next93.i304, %398
+  %399 = icmp samesign ult i64 %indvars.iv.next93.i304, %398
   br i1 %399, label %400, label %.loopexit327
 
 400:                                              ; preds = %396, %.lr.ph85.i301

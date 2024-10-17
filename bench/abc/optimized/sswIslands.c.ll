@@ -855,7 +855,7 @@ Vec_PtrPush.exit145:                              ; preds = %.Vec_PtrGrow.exit11
   %225 = add nuw nsw i32 %.065157, 1
   %226 = trunc i64 %224 to i32
   %227 = lshr i32 %226, 6
-  %228 = icmp ult i32 %225, %227
+  %228 = icmp samesign ult i32 %225, %227
   br i1 %228, label %159, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %223, %155, %20, %14, %26

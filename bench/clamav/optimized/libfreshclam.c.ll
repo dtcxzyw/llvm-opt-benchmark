@@ -1186,7 +1186,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
 39:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
   %40 = load i32, ptr @g_maxAttempts, align 4
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %.03971.us, %41
+  %42 = icmp samesign ult i64 %.03971.us, %41
   br i1 %42, label %46, label %.split113.us
 
 .split113.us:                                     ; preds = %39
@@ -1204,7 +1204,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
   %50 = add nuw nsw i64 %.03971.us, 1
   %51 = load i32, ptr @g_maxAttempts, align 4
   %52 = zext i32 %51 to i64
-  %.not50.us.not = icmp ult i64 %.03971.us, %52
+  %.not50.us.not = icmp samesign ult i64 %.03971.us, %52
   br i1 %.not50.us.not, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
@@ -1253,7 +1253,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
 64:                                               ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
   %65 = load i32, ptr @g_maxAttempts, align 4
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %.03971, %66
+  %67 = icmp samesign ult i64 %.03971, %66
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %64
@@ -1394,7 +1394,7 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   %125 = add nuw nsw i64 %.03971, 1
   %126 = load i32, ptr @g_maxAttempts, align 4
   %127 = zext i32 %126 to i64
-  %.not50.not = icmp ult i64 %.03971, %127
+  %.not50.not = icmp samesign ult i64 %.03971, %127
   br i1 %.not50.not, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %124, %49, %.preheader
@@ -1612,7 +1612,7 @@ define range(i32 19, 18) i32 @fc_download_url_database(ptr noundef %0, ptr nound
 33:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %34 = load i32, ptr @g_maxAttempts, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %.02238, %35
+  %36 = icmp samesign ult i64 %.02238, %35
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %33
@@ -1621,7 +1621,7 @@ define range(i32 19, 18) i32 @fc_download_url_database(ptr noundef %0, ptr nound
   %40 = add nuw nsw i64 %.02238, 1
   %41 = load i32, ptr @g_maxAttempts, align 4
   %42 = zext i32 %41 to i64
-  %.not29.not = icmp ult i64 %.02238, %42
+  %.not29.not = icmp samesign ult i64 %.02238, %42
   br i1 %.not29.not, label %.lr.ph, label %.loopexit
 
 43:                                               ; preds = %33

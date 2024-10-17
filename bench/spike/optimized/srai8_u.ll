@@ -643,7 +643,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_srai8_uP11
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -663,7 +663,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_srai8_uP11
   %22 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -781,7 +781,7 @@ define noundef i64 @_Z18fast_rv64e_srai8_uP11processor_t6insn_tm(ptr nocapture n
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -801,7 +801,7 @@ define noundef i64 @_Z18fast_rv64e_srai8_uP11processor_t6insn_tm(ptr nocapture n
   %22 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -915,7 +915,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_srai8_uP
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -935,7 +935,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_srai8_uP
   %22 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -1110,7 +1110,7 @@ define noundef i64 @_Z20logged_rv64e_srai8_uP11processor_t6insn_tm(ptr noundef %
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -1130,7 +1130,7 @@ define noundef i64 @_Z20logged_rv64e_srai8_uP11processor_t6insn_tm(ptr noundef %
   %22 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = icmp ugt i64 %24, 15
+  %25 = icmp samesign ugt i64 %24, 15
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20

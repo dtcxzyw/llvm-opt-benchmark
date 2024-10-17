@@ -715,7 +715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -947,7 +947,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr nocapture noundef %0) local_unna
   %.06992 = phi i32 [ 2, %22 ], [ %spec.select, %59 ]
   %29 = shl i32 %.06794, 1
   %30 = zext i32 %29 to i64
-  %.not = icmp uge i64 %indvars.iv123, %30
+  %.not = icmp samesign uge i64 %indvars.iv123, %30
   %31 = zext i1 %.not to i32
   %spec.select = add i32 %.06992, %31
   %spec.select78 = select i1 %.not, i32 %29, i32 %.06794

@@ -511,7 +511,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !range !16, !alias.scope !17, !noalias !18, !noundef !25
-  %19 = icmp ult i32 %18, 1000000002
+  %19 = icmp samesign ult i32 %18, 1000000002
   %switch4.i.i.i.i.i = icmp eq i32 %18, 1000000003
   %switch.i.i.i.i.i = or i1 %19, %switch4.i.i.i.i.i
   br i1 %switch.i.i.i.i.i, label %20, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h42dc5fe0a401132eE.exit.thread.i.i.i.i"
@@ -6536,7 +6536,7 @@ define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr180drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$util..LogErrorFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h0b0d2cbf33207be9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !62, !noundef !25
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %4, label %"_ZN4core3ptr129drop_in_place$LT$util..LogErrorFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17he4968abe5fd3511bE.exit"
 
 "_ZN4core3ptr129drop_in_place$LT$util..LogErrorFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17he4968abe5fd3511bE.exit": ; preds = %10, %9, %5, %4, %1
@@ -7149,7 +7149,7 @@ define internal fastcc void @"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_state
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr224drop_in_place$LT$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h34933ff6b6711f21E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !62, !noundef !25
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %4, label %"_ZN4core3ptr166drop_in_place$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4fdaf02384e3afd3E.exit"
 
 "_ZN4core3ptr166drop_in_place$LT$futures_util..future..try_future..into_future..IntoFuture$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4fdaf02384e3afd3E.exit": ; preds = %10, %9, %5, %4, %1
@@ -30612,7 +30612,7 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6053)
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !range !16, !alias.scope !6056, !noalias !6057, !noundef !25
-  %24 = icmp ult i32 %23, 1000000002
+  %24 = icmp samesign ult i32 %23, 1000000002
   %switch4.i.i.i.i = icmp eq i32 %23, 1000000003
   %switch.i.i.i.i = or i1 %24, %switch4.i.i.i.i
   br i1 %switch.i.i.i.i, label %25, label %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h42dc5fe0a401132eE.exit.thread.i.i.i"

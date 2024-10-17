@@ -644,7 +644,7 @@ define internal fastcc void @e1000_phy_init_script(ptr nocapture noundef readonl
   %137 = load i16, ptr %3, align 2
   %138 = and i16 %137, 3968
   %139 = and i16 %137, 112
-  %140 = icmp ugt i16 %139, 64
+  %140 = icmp samesign ugt i16 %139, 64
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %135
@@ -3383,7 +3383,7 @@ e1000_shift_out_mdi_bits.exit:                    ; preds = %70
   %110 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109) #7, !srcloc !5
   tail call void @__const_udelay(i64 noundef 42950) #7
   %111 = lshr i32 %94, 1
-  %112 = icmp ult i32 %94, 2
+  %112 = icmp samesign ult i32 %94, 2
   br i1 %112, label %e1000_shift_out_mdi_bits.exit8, label %93, !llvm.loop !28
 
 e1000_shift_out_mdi_bits.exit8:                   ; preds = %93
@@ -4228,7 +4228,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
   %63 = and i16 %62, 255
   %64 = zext nneg i16 %63 to i32
   %65 = add nuw nsw i32 %56, %64
-  %66 = icmp ugt i32 %65, 5
+  %66 = icmp samesign ugt i32 %65, 5
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %61
@@ -5306,19 +5306,19 @@ e1000_check_polarity.exit:                        ; preds = %15, %23, %31
   %72 = load i16, ptr %5, align 2
   %73 = zext i16 %72 to i32
   %74 = add nuw nsw i32 %73, %71
-  %75 = icmp ult i32 %74, 102
+  %75 = icmp samesign ult i32 %74, 102
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %69
-  %77 = icmp ult i32 %74, 162
+  %77 = icmp samesign ult i32 %74, 162
   br i1 %77, label %83, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %74, 222
+  %79 = icmp samesign ult i32 %74, 222
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %74, 282
+  %81 = icmp samesign ult i32 %74, 282
   %82 = select i1 %81, i32 3, i32 4
   br label %83
 
@@ -5892,7 +5892,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr nocapture
   %17 = getelementptr [6 x i8], ptr %3, i64 0, i64 %16
   store i8 %15, ptr %17, align 1
   %18 = add nuw nsw i64 %5, 2
-  %19 = icmp ult i64 %5, 4
+  %19 = icmp samesign ult i64 %5, 4
   br i1 %19, label %4, label %20, !llvm.loop !43
 
 20:                                               ; preds = %10
@@ -6792,7 +6792,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr nocaptur
 
 ._crit_edge:                                      ; preds = %24, %30
   %58 = phi i32 [ %28, %24 ], [ -2, %30 ]
-  %59 = icmp ugt i64 %35, 2
+  %59 = icmp samesign ugt i64 %35, 2
   br i1 %59, label %63, label %.thread
 
 60:                                               ; preds = %23, %22, %21, %20, %16
@@ -6850,7 +6850,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_acquire_eeprom(ptr no
   %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #7, !srcloc !5
   %23 = and i32 %22, 128
   %24 = icmp eq i32 %23, 0
-  %25 = icmp ult i32 %18, 999
+  %25 = icmp samesign ult i32 %18, 999
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.preheader, label %27, !llvm.loop !45
 
@@ -6954,12 +6954,12 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_spi_eeprom_ready(ptr nocaptur
   tail call void @__const_udelay(i64 noundef 21475) #7
   %39 = add nuw nsw i16 %5, 5
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %40 = icmp ult i16 %5, 4995
+  %40 = icmp samesign ult i16 %5, 4995
   br i1 %40, label %4, label %41, !llvm.loop !46
 
 41:                                               ; preds = %38, %35
   %42 = phi i16 [ 5000, %38 ], [ %5, %35 ]
-  %43 = icmp ugt i16 %42, 4999
+  %43 = icmp samesign ugt i16 %42, 4999
   %44 = sext i1 %43 to i32
   ret i32 %44
 }

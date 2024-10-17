@@ -4301,7 +4301,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5MF__close_shrink_eoa(ptr noundef 
 
 23:                                               ; preds = %22, %19
   %.248 = phi i32 [ %., %22 ], [ %.14771, %19 ]
-  %24 = icmp ult i64 %indvars.iv, 7
+  %24 = icmp samesign ult i64 %indvars.iv, 7
   %25 = add nsw i32 %.04272, -6
   %26 = select i1 %24, i32 %20, i32 %25
   store i32 %26, ptr %7, align 8

@@ -5218,7 +5218,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit:            ; preds = %14, %2, %_ZN4llvm10
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 134217727
-  %23 = icmp ult i32 %22, 3
+  %23 = icmp samesign ult i32 %22, 3
   br i1 %23, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNK4llvm11Instruction7isEHPadEv.exit
@@ -10225,7 +10225,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %15, %18
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %15 ], [ %20, %18 ]
   %.idx125 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %24 = getelementptr inbounds i8, ptr %23, i64 %.idx125
-  %.not = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN4llvm4User8operandsEv.exit

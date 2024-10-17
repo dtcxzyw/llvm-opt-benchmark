@@ -382,7 +382,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
   %180 = load i32, ptr %179, align 4
   %181 = lshr i32 %180, 17
   %182 = zext nneg i32 %181 to i64
-  %183 = icmp ult i64 %indvars.iv.next, %182
+  %183 = icmp samesign ult i64 %indvars.iv.next, %182
   br i1 %183, label %.lr.ph, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %.lr.ph, %Amap_OutputStructAlloc.exit132

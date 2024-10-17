@@ -4547,43 +4547,43 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.pre.i = load i32, ptr %3, align 4, !range !4
   br label %7
 
-._crit_edge:                                      ; preds = %16, %4
-  %.019.lcssa = phi i64 [ 0, %4 ], [ %.022, %16 ]
+._crit_edge:                                      ; preds = %15, %4
+  %.019.lcssa = phi i64 [ 0, %4 ], [ %.022, %15 ]
   %6 = icmp ule i64 %.019.lcssa, %1
   tail call void @llvm.assume(i1 %6)
   br label %.loopexit
 
-7:                                                ; preds = %.lr.ph, %16
-  %.028 = phi i64 [ %1, %.lr.ph ], [ %19, %16 ]
-  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.022, %16 ]
-  %.02026 = phi i64 [ %1, %.lr.ph ], [ %.021, %16 ]
+7:                                                ; preds = %.lr.ph, %15
+  %.028 = phi i64 [ %1, %.lr.ph ], [ %18, %15 ]
+  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.022, %15 ]
+  %.02026 = phi i64 [ %1, %.lr.ph ], [ %.021, %15 ]
   %8 = lshr i64 %.028, 1
   %9 = add i64 %8, %.01927
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 %9
   %.val24 = load i32, ptr %11, align 8, !range !4, !noundef !5
-  %.not.i = icmp ugt i32 %5, %.val24
-  %.not2.i = icmp ule i32 %.val24, %.pre.i
-  %12 = xor i1 %.not.i, true
-  %13 = and i1 %.not2.i, %12
-  br i1 %13, label %.loopexit, label %16
+  %.not.i = icmp samesign ugt i32 %5, %.val24
+  %.not2.i = icmp samesign ule i32 %.val24, %.pre.i
+  %not..not2.i = xor i1 %.not2.i, true
+  %12 = select i1 %not..not2.i, i1 true, i1 %.not.i
+  br i1 %12, label %15, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %._crit_edge
   %.sroa.3.0 = phi i64 [ %.019.lcssa, %._crit_edge ], [ %9, %7 ]
   %.sroa.0.0 = phi i64 [ 1, %._crit_edge ], [ 0, %7 ]
-  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %15
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %14
 
-16:                                               ; preds = %7
+15:                                               ; preds = %7
   %.021 = select i1 %.not2.i, i64 %.02026, i64 %9
-  %17 = and i1 %.not.i, %.not2.i
-  %18 = add nuw i64 %9, 1
-  %.022 = select i1 %17, i64 %18, i64 %.01927
-  %19 = sub i64 %.021, %.022
-  %20 = icmp ult i64 %.022, %.021
-  br i1 %20, label %7, label %._crit_edge
+  %16 = select i1 %.not2.i, i1 %.not.i, i1 false
+  %17 = add nuw i64 %9, 1
+  %.022 = select i1 %16, i64 %17, i64 %.01927
+  %18 = sub i64 %.021, %.022
+  %19 = icmp ult i64 %.022, %.021
+  br i1 %19, label %7, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
@@ -4613,8 +4613,8 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val23 = load i32, ptr %10, align 4, !range !4, !noundef !5
   %11 = getelementptr i8, ptr %10, i64 4
   %.val24 = load i32, ptr %11, align 4
-  %.not.i = icmp ule i32 %.val23, %4
-  %.not2.i = icmp ugt i32 %4, %.val24
+  %.not.i = icmp samesign ule i32 %.val23, %4
+  %.not2.i = icmp samesign ugt i32 %4, %.val24
   %not..not.i = xor i1 %.not.i, true
   %12 = select i1 %not..not.i, i1 true, i1 %.not2.i
   br i1 %12, label %15, label %.loopexit
@@ -5491,9 +5491,9 @@ define hidden { ptr, i64 } @_ZN12regex_syntax7unicode16SimpleCaseFolder7mapping1
   br i1 %32, label %45, label %33
 
 33:                                               ; preds = %.lr.ph.i.i.i
-  %34 = icmp ugt i32 %.val23.i.i.i, %1
+  %34 = icmp samesign ugt i32 %.val23.i.i.i, %1
   %.021.i.i.i = select i1 %34, i64 %29, i64 %.02025.i.i.i
-  %35 = icmp ult i32 %.val23.i.i.i, %1
+  %35 = icmp samesign ult i32 %.val23.i.i.i, %1
   %36 = add nuw i64 %29, 1
   %.022.i.i.i = select i1 %35, i64 %36, i64 %.01926.i.i.i
   %37 = sub i64 %.021.i.i.i, %.022.i.i.i
@@ -5563,7 +5563,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit"
 
 .lr.ph.i:                                         ; preds = %5, %15
-  %.028.i = phi i64 [ %17, %15 ], [ %8, %5 ]
+  %.028.i = phi i64 [ %18, %15 ], [ %8, %5 ]
   %.01927.i = phi i64 [ %.022.i, %15 ], [ 0, %5 ]
   %.02026.i = phi i64 [ %.021.i, %15 ], [ %8, %5 ]
   %10 = lshr i64 %.028.i, 1
@@ -5572,22 +5572,24 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %6, i64 %11
   %.val24.i = load i32, ptr %13, align 8, !range !4, !alias.scope !75, !noalias !78, !noundef !5
-  %.not.i.i = icmp ule i32 %1, %.val24.i
-  %.not2.i.i = icmp ule i32 %.val24.i, %2
-  %14 = and i1 %.not2.i.i, %.not.i.i
-  br i1 %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit", label %15
+  %.not.i.i = icmp samesign ugt i32 %1, %.val24.i
+  %.not2.i.i = icmp samesign ule i32 %.val24.i, %2
+  %not..not2.i.i = xor i1 %.not2.i.i, true
+  %14 = select i1 %not..not2.i.i, i1 true, i1 %.not.i.i
+  br i1 %14, label %15, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit"
 
 15:                                               ; preds = %.lr.ph.i
   %.021.i = select i1 %.not2.i.i, i64 %.02026.i, i64 %11
-  %16 = add nuw i64 %11, 1
-  %.022.i = select i1 %.not.i.i, i64 %.01927.i, i64 %16
-  %17 = sub i64 %.021.i, %.022.i
-  %18 = icmp ult i64 %.022.i, %.021.i
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.i
+  %16 = select i1 %.not2.i.i, i1 %.not.i.i, i1 false
+  %17 = add nuw i64 %11, 1
+  %.022.i = select i1 %16, i64 %17, i64 %.01927.i
+  %18 = sub i64 %.021.i, %.022.i
+  %19 = icmp ult i64 %.022.i, %.021.i
+  br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit": ; preds = %.lr.ph.i, %._crit_edge.i
-  %19 = phi i1 [ false, %._crit_edge.i ], [ true, %.lr.ph.i ]
-  ret i1 %19
+  %20 = phi i1 [ false, %._crit_edge.i ], [ true, %.lr.ph.i ]
+  ret i1 %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5856,15 +5858,15 @@ default.unreachable220:                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !138
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !138
-  %36 = icmp ult i32 %35, 128
+  %36 = icmp samesign ult i32 %35, 128
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %33
-  %38 = icmp ult i32 %35, 2048
+  %38 = icmp samesign ult i32 %35, 2048
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i32 %35, 65536
+  %40 = icmp samesign ult i32 %35, 65536
   br i1 %40, label %50, label %61
 
 41:                                               ; preds = %33
@@ -6180,7 +6182,7 @@ _ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit.thread: ; pr
   br label %.loopexit.sink.split
 
 192:                                              ; preds = %155
-  %193 = icmp ult i64 %.022.i.i.i.i101.i, 8
+  %193 = icmp samesign ult i64 %.022.i.i.i.i101.i, 8
   br label %.loopexit.sink.split
 
 194:                                              ; preds = %.lr.ph.i.i.i
@@ -6432,7 +6434,7 @@ default.unreachable:                              ; preds = %253
   br i1 %280, label %264, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %275
-  %281 = icmp ult i64 %.022.i.i.i.i.i70, 61
+  %281 = icmp samesign ult i64 %.022.i.i.i.i.i70, 61
   call void @llvm.assume(i1 %281)
   br label %288
 
@@ -6559,7 +6561,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   br i1 %316, label %300, label %.thread31.i
 
 .thread31.i:                                      ; preds = %311
-  %317 = icmp ult i64 %.022.i.i.i.i, 38
+  %317 = icmp samesign ult i64 %.022.i.i.i.i, 38
   call void @llvm.assume(i1 %317), !noalias !317
   br label %349
 
@@ -6603,7 +6605,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   br i1 %335, label %319, label %.thread31.i.i
 
 .thread31.i.i:                                    ; preds = %330
-  %336 = icmp ult i64 %.022.i.i.i.i.i83, 38
+  %336 = icmp samesign ult i64 %.022.i.i.i.i.i83, 38
   call void @llvm.assume(i1 %336), !noalias !365
   br label %353
 
@@ -6736,7 +6738,7 @@ _ZN12regex_syntax7unicode6gencat17h7a12ab031675e367E.exit: ; preds = %297, %299,
   br i1 %377, label %361, label %.thread.i.i96
 
 .thread.i.i96:                                    ; preds = %372
-  %378 = icmp ult i64 %.022.i.i.i.i.i95, 164
+  %378 = icmp samesign ult i64 %.022.i.i.i.i.i95, 164
   call void @llvm.assume(i1 %378)
   br label %385
 
@@ -6902,7 +6904,7 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %3
   br i1 %426, label %410, label %.thread.i.i122
 
 .thread.i.i122:                                   ; preds = %421
-  %427 = icmp ult i64 %.022.i.i.i.i.i121, 164
+  %427 = icmp samesign ult i64 %.022.i.i.i.i.i121, 164
   call void @llvm.assume(i1 %427)
   br label %434
 
@@ -6981,7 +6983,7 @@ _ZN12regex_syntax7unicode16script_extension17h2b5084373c71ae02E.exit: ; preds = 
   br label %446
 
 449:                                              ; preds = %"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hbae9bc061ef2f1e1E.exit.i.i.i"
-  %450 = icmp ult i64 %.014.i.i.i, 25
+  %450 = icmp samesign ult i64 %.014.i.i.i, 25
   call void @llvm.assume(i1 %450)
   %451 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4146, i64 %.014.i.i.i
   %452 = getelementptr inbounds i8, ptr %451, i64 32
@@ -7236,8 +7238,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %.val23.i.i = load i32, ptr %14, align 4, !range !4, !alias.scope !579, !noalias !582, !noundef !5
   %15 = getelementptr i8, ptr %14, i64 4
   %.val24.i.i = load i32, ptr %15, align 4, !alias.scope !579, !noalias !582
-  %.not.i.i.i = icmp ule i32 %.val23.i.i, %0
-  %.not2.i.i.i = icmp ugt i32 %0, %.val24.i.i
+  %.not.i.i.i = icmp samesign ule i32 %.val23.i.i, %0
+  %.not2.i.i.i = icmp samesign ugt i32 %0, %.val24.i.i
   %not..not.i.i.i = xor i1 %.not.i.i.i, true
   %16 = select i1 %not..not.i.i.i, i1 true, i1 %.not2.i.i.i
   br i1 %16, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit.i"
@@ -7298,8 +7300,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %.val23.i = load i32, ptr %14, align 4, !range !4, !alias.scope !584, !noalias !587, !noundef !5
   %15 = getelementptr i8, ptr %14, i64 4
   %.val24.i = load i32, ptr %15, align 4, !alias.scope !584, !noalias !587
-  %.not.i.i = icmp ule i32 %.val23.i, %0
-  %.not2.i.i = icmp ugt i32 %0, %.val24.i
+  %.not.i.i = icmp samesign ule i32 %.val23.i, %0
+  %.not2.i.i = icmp samesign ugt i32 %0, %.val24.i
   %not..not.i.i = xor i1 %.not.i.i, true
   %16 = select i1 %not..not.i.i, i1 true, i1 %.not2.i.i
   br i1 %16, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit"
@@ -7381,7 +7383,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   br i1 %22, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit27.thread", label %23
 
 23:                                               ; preds = %17
-  %24 = icmp ult i64 %.022.i.i.i.i, 8
+  %24 = icmp samesign ult i64 %.022.i.i.i.i, 8
   tail call void @llvm.assume(i1 %24)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.ee024262027212e939cdd9996d089225.2966, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee024262027212e939cdd9996d089225.2967) #23
   unreachable
@@ -7488,7 +7490,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   br i1 %20, label %4, label %21
 
 21:                                               ; preds = %15
-  %22 = icmp ult i64 %.022.i.i.i.i, 8
+  %22 = icmp samesign ult i64 %.022.i.i.i.i, 8
   tail call void @llvm.assume(i1 %22)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.ee024262027212e939cdd9996d089225.2966, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee024262027212e939cdd9996d089225.2971) #23
   unreachable
@@ -7602,7 +7604,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode3gcb17hb8ef32ba6d8eed21E(p
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16
-  %22 = icmp ult i64 %.022.i.i.i.i, 14
+  %22 = icmp samesign ult i64 %.022.i.i.i.i, 14
   tail call void @llvm.assume(i1 %22)
   br label %29
 
@@ -7680,7 +7682,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2wb17hc0a5a8cc8ed468edE(pt
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16
-  %22 = icmp ult i64 %.022.i.i.i.i, 19
+  %22 = icmp samesign ult i64 %.022.i.i.i.i, 19
   tail call void @llvm.assume(i1 %22)
   br label %29
 
@@ -7758,7 +7760,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2sb17h2baa8a68179ef89cE(pt
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16
-  %22 = icmp ult i64 %.022.i.i.i.i, 15
+  %22 = icmp samesign ult i64 %.022.i.i.i.i, 15
   tail call void @llvm.assume(i1 %22)
   br label %29
 

@@ -575,7 +575,7 @@ if.then167.i:                                     ; preds = %if.end147.i
 
 ftp_pl_get_permission.exit:                       ; preds = %if.end147.i, %if.then152.i, %if.then159.i, %if.then167.i
   %permissions.8.i = phi i32 [ %or153.i, %if.then152.i ], [ %or161.i, %if.then159.i ], [ %or168.i, %if.then167.i ], [ %permissions.7.i, %if.end147.i ]
-  %tobool157.not = icmp ult i32 %permissions.8.i, 16777216
+  %tobool157.not = icmp samesign ult i32 %permissions.8.i, 16777216
   br i1 %tobool157.not, label %if.end160, label %if.then158
 
 if.then158:                                       ; preds = %if.end147.i, %ftp_pl_get_permission.exit

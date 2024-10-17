@@ -3578,7 +3578,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %83
 147:                                              ; preds = %108, %139
   %.1 = phi i32 [ %.0125, %108 ], [ %.2, %139 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %148 = icmp ult i64 %indvars.iv.next131, %103
+  %148 = icmp samesign ult i64 %indvars.iv.next131, %103
   br i1 %148, label %108, label %.critedge2.preheader, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.lr.ph128, %.critedge2

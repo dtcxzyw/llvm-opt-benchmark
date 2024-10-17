@@ -297,7 +297,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
 
 60:                                               ; preds = %34
   %61 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %57)
-  %.not85.i = icmp ult i32 %61, 2
+  %.not85.i = icmp samesign ult i32 %61, 2
   br i1 %.not85.i, label %63, label %62
 
 62:                                               ; preds = %60
@@ -672,7 +672,7 @@ switch.lookup:
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.40, ptr noundef %5, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %77, i32 noundef %78) #12
   %79 = load i16, ptr %56, align 1
   %80 = zext i16 %79 to i32
-  %81 = icmp ugt i32 %switch.load, %80
+  %81 = icmp samesign ugt i32 %switch.load, %80
   %82 = icmp ugt i16 %79, -32768
   %or.cond = or i1 %82, %81
   br i1 %or.cond, label %.sink.split, label %83
@@ -698,7 +698,7 @@ switch.lookup:
 90:                                               ; preds = %87
   %91 = zext nneg i16 %88 to i32
   %92 = lshr i32 %80, 1
-  %93 = icmp ult i32 %92, %91
+  %93 = icmp samesign ult i32 %92, %91
   br i1 %93, label %.sink.split, label %96
 
 94:                                               ; preds = %86
@@ -976,7 +976,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   %132 = and i32 %131, 65535
   %133 = add nuw nsw i32 %132, %117
   %134 = add nuw nsw i32 %133, 4
-  %.not298 = icmp ult i32 %134, %101
+  %.not298 = icmp samesign ult i32 %134, %101
   br i1 %.not298, label %136, label %135
 
 135:                                              ; preds = %120
@@ -984,7 +984,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   br label %.preheader.thread
 
 136:                                              ; preds = %120
-  %137 = icmp ugt i32 %132, 5
+  %137 = icmp samesign ugt i32 %132, 5
   br i1 %137, label %138, label %156
 
 138:                                              ; preds = %136
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 
 163:                                              ; preds = %156
   %164 = add nuw nsw i64 %158, 248
-  %.not304 = icmp ult i64 %164, %102
+  %.not304 = icmp samesign ult i64 %164, %102
   br i1 %.not304, label %166, label %165
 
 165:                                              ; preds = %163
@@ -1272,7 +1272,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
 267:                                              ; preds = %249
   %268 = zext i16 %261 to i64
   %269 = add nuw nsw i64 %268, 14
-  %.not135.i = icmp ult i64 %269, %248
+  %.not135.i = icmp samesign ult i64 %269, %248
   br i1 %.not135.i, label %273, label %270
 
 270:                                              ; preds = %267
@@ -1292,7 +1292,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
   %275 = zext i16 %rev.i375 to i32
   %276 = add nuw nsw i32 %262, 4
   %277 = add nuw nsw i32 %276, %275
-  %.not140.i = icmp ult i32 %277, %247
+  %.not140.i = icmp samesign ult i32 %277, %247
   br i1 %.not140.i, label %281, label %278
 
 278:                                              ; preds = %273
@@ -1305,7 +1305,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
   %rev139.i = call i16 @llvm.bswap.i16(i16 %.sroa.16.0.copyload.i)
   %282 = zext i16 %rev139.i to i64
   %283 = add nuw nsw i64 %269, %282
-  %.not141.i = icmp ult i64 %283, %248
+  %.not141.i = icmp samesign ult i64 %283, %248
   br i1 %.not141.i, label %286, label %284
 
 284:                                              ; preds = %281
@@ -1918,7 +1918,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %507 = add nuw nsw i64 %spec.store.select, %.0208483
   %508 = load i32, ptr %463, align 1
   %509 = zext i32 %508 to i64
-  %510 = icmp ult i64 %507, %509
+  %510 = icmp samesign ult i64 %507, %509
   br i1 %510, label %.lr.ph486, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit76, %.preheader77
@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %70 = select i1 %68, i64 %22, i64 0
   %.069 = add nuw nsw i64 %70, %67
   %71 = add i32 %.070, %.06717
-  %72 = icmp ugt i32 %71, %35
+  %72 = icmp samesign ugt i32 %71, %35
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %64
@@ -2454,7 +2454,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 
 90:                                               ; preds = %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %89, i64 %spec.select.i, i1 false)
-  %91 = icmp ult i64 %spec.select.i, 2147483648
+  %91 = icmp samesign ult i64 %spec.select.i, 2147483648
   %92 = select i1 %91, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit
 

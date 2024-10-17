@@ -4757,7 +4757,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef nonnul
   br i1 %or.cond.us, label %.loopexit, label %65
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %.075114.us, 1
+  %66 = icmp samesign ugt i32 %.075114.us, 1
   %67 = fcmp ogt double %62, 2.000000e+00
   %or.cond3.us = and i1 %66, %67
   br i1 %or.cond3.us, label %.loopexit, label %68
@@ -4857,7 +4857,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef nonnul
 .critedge:                                        ; preds = %117, %86
   %.us-phi111 = phi i32 [ %.075114.us, %86 ], [ %.075114, %117 ]
   %.us-phi112 = phi double [ %.074115.us, %86 ], [ %.074115, %117 ]
-  %120 = icmp ult i32 %.us-phi111, 3
+  %120 = icmp samesign ult i32 %.us-phi111, 3
   br i1 %120, label %cvYddNorm.exit, label %.loopexit
 
 .split:                                           ; preds = %116
@@ -4902,7 +4902,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef nonnul
   br i1 %or.cond, label %.loopexit, label %145
 
 145:                                              ; preds = %141
-  %146 = icmp ugt i32 %.075114, 1
+  %146 = icmp samesign ugt i32 %.075114, 1
   %147 = fcmp ogt double %142, 2.000000e+00
   %or.cond3 = and i1 %146, %147
   br i1 %or.cond3, label %.loopexit, label %148

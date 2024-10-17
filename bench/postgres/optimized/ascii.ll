@@ -101,7 +101,7 @@ define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned %0, i32
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = icmp ugt i32 %.0.i, %19
+  %22 = icmp samesign ugt i32 %.0.i, %19
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %21

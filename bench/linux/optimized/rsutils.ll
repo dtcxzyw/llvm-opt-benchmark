@@ -210,7 +210,7 @@ define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0
   %7 = add nuw nsw i32 %6, 3
   %8 = zext i16 %1 to i32
   %9 = add nuw nsw i32 %8, 1
-  %10 = icmp ugt i32 %7, %9
+  %10 = icmp samesign ugt i32 %7, %9
   br i1 %10, label %11, label %45
 
 11:                                               ; preds = %5

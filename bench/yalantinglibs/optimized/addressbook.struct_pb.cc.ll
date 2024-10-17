@@ -824,7 +824,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %v.addr.i.0 = phi i64 [ %conv, %if.end ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i

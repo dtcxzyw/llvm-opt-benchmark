@@ -197,7 +197,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60: ; preds = %.noexc64
   %59 = getelementptr inbounds double, ptr %22, i64 %.043110
   store double %58, ptr %59, align 8
   %60 = add nuw nsw i64 %.043110, 1
-  %61 = icmp ult i64 %60, %34
+  %61 = icmp samesign ult i64 %60, %34
   br i1 %61, label %.preheader107, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %._crit_edge.us, %.preheader107

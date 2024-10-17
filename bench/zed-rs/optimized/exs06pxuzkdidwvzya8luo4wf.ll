@@ -19626,7 +19626,7 @@ default.unreachable1.i.i.i:                       ; preds = %37
 
 61:                                               ; preds = %56, %21
   %62 = load i64, ptr %6, align 8, !range !678, !alias.scope !4958, !noalias !4964, !noundef !5
-  %63 = icmp ult i64 %62, 13
+  %63 = icmp samesign ult i64 %62, 13
   br i1 %63, label %64, label %88
 
 64:                                               ; preds = %61

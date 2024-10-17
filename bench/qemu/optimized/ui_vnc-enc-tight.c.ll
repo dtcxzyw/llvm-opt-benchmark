@@ -2154,7 +2154,7 @@ if.else62:                                        ; preds = %if.end33
   store i32 %conv15.i, ptr %arrayidx16.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %stats.i, i8 0, i64 1024, i1 false)
   %sub23.i = add nsw i32 %w, -7
-  %cmp90.i = icmp ugt i32 %w, %h
+  %cmp90.i = icmp samesign ugt i32 %w, %h
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.end89.i, %if.else62
@@ -2777,7 +2777,7 @@ for.body6.us.i:                                   ; preds = %for.cond4.preheader
 
 if.end11.us.i:                                    ; preds = %for.body6.us.i
   %shr.us.i = lshr i32 128, %bg_bits.037.us.i
-  %cmp1438.us.i = icmp ult i32 %bg_bits.037.us.i, 7
+  %cmp1438.us.i = icmp samesign ult i32 %bg_bits.037.us.i, 7
   br i1 %cmp1438.us.i, label %for.body15.us.i, label %for.end23.us.i
 
 for.end23.us.i:                                   ; preds = %for.body15.us.i, %if.end11.us.i
@@ -2918,7 +2918,7 @@ for.body6.us.i63:                                 ; preds = %for.cond4.preheader
 
 if.end14.us.i:                                    ; preds = %for.body6.us.i63
   %shr.us.i67 = lshr i32 128, %bg_bits.037.us.i64
-  %cmp1738.us.i = icmp ult i32 %bg_bits.037.us.i64, 7
+  %cmp1738.us.i = icmp samesign ult i32 %bg_bits.037.us.i64, 7
   br i1 %cmp1738.us.i, label %for.body19.us.i, label %for.end30.us.i
 
 for.end30.us.i:                                   ; preds = %for.body19.us.i, %if.end14.us.i
@@ -3059,7 +3059,7 @@ for.body6.us.i130:                                ; preds = %for.cond4.preheader
 
 if.end14.us.i135:                                 ; preds = %for.body6.us.i130
   %shr.us.i136 = lshr i32 128, %bg_bits.037.us.i131
-  %cmp1738.us.i137 = icmp ult i32 %bg_bits.037.us.i131, 7
+  %cmp1738.us.i137 = icmp samesign ult i32 %bg_bits.037.us.i131, 7
   br i1 %cmp1738.us.i137, label %for.body19.us.preheader.i, label %for.end30.us.i138
 
 for.body19.us.preheader.i:                        ; preds = %if.end14.us.i135
@@ -3493,7 +3493,7 @@ entry:
   %conv = zext nneg i8 %0 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %stats, i8 0, i64 1024, i1 false)
   %sub9 = add nsw i32 %w, -7
-  %cmp65 = icmp ugt i32 %w, %h
+  %cmp65 = icmp samesign ugt i32 %w, %h
   br label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %entry, %for.end64
@@ -3690,7 +3690,7 @@ entry:
   store i32 %conv15, ptr %arrayidx16, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %stats, i8 0, i64 1024, i1 false)
   %sub23 = add nsw i32 %w, -7
-  %cmp88 = icmp ugt i32 %w, %h
+  %cmp88 = icmp samesign ugt i32 %w, %h
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry, %for.end87

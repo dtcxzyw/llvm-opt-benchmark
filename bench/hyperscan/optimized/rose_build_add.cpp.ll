@@ -2888,7 +2888,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %add.i.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i.i, 1
   %div5.i.i.i.i.i = lshr i64 %add.i.i.i.i.i, 1
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i.i, 2
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i.i.i, 2
   br i1 %cmp1.not.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEESt6vectorISA_SaISA_EEEESA_EC2ESF_l.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !104
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.i
@@ -24938,7 +24938,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = tail call ptr @__cxa_begin_catch(ptr %10) #23
-  %cmp912 = icmp ugt i64 %__i.011, 1
+  %cmp912 = icmp samesign ugt i64 %__i.011, 1
   br i1 %cmp912, label %for.body10, label %for.end17
 
 for.body10:                                       ; preds = %lpad, %for.body10

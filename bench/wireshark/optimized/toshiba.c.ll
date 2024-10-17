@@ -47,7 +47,7 @@ define hidden range(i32 -1, 2) i32 @toshiba_open(ptr nocapture noundef %0, ptr n
 13:                                               ; preds = %6
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %15 = and i64 %14, 4294967295
-  %16 = icmp ugt i64 %15, 12
+  %16 = icmp samesign ugt i64 %15, 12
   br i1 %16, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %13, %26

@@ -3317,7 +3317,7 @@ default.unreachable:                              ; preds = %301, %_ZN16wasmtime
 _ZN16wasmtime_runtime5table5Table4size17h635fa7356c642d1dE.exit.i.i: ; preds = %.split8.i.i.i, %.split4.i.i.i, %59
   %.0.i18.i.i = phi i32 [ %70, %.split4.i.i.i ], [ %71, %.split8.i.i.i ], [ %61, %59 ]
   %72 = zext i32 %.0.i18.i.i to i64
-  %.not.i.i = icmp ugt i64 %57, %72
+  %.not.i.i = icmp samesign ugt i64 %57, %72
   br i1 %.not.i.i, label %73, label %26
 
 73:                                               ; preds = %_ZN16wasmtime_runtime5table5Table4size17h635fa7356c642d1dE.exit.i.i
@@ -4458,7 +4458,7 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = 
   %.sink11.i8791 = phi i64 [ %73, %71 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h3ec9979f0ffb7cfbE.exit.thread" ]
   store i64 %.sink11.i8791, ptr %22, align 8
   %76 = zext i32 %25 to i64
-  %.not42 = icmp ult i64 %.sink11.i8791, %76
+  %.not42 = icmp samesign ult i64 %.sink11.i8791, %76
   br i1 %.not42, label %78, label %88
 
 77:                                               ; preds = %71
@@ -4522,7 +4522,7 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = 
   %.sink11.i5695100 = phi i64 [ %91, %89 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hf0ec39db5eea52bcE.exit.thread" ]
   store i64 %.sink11.i5695100, ptr %18, align 8
   %94 = zext i32 %25 to i64
-  %.not = icmp ult i64 %.sink11.i5695100, %94
+  %.not = icmp samesign ult i64 %.sink11.i5695100, %94
   br i1 %.not, label %96, label %106
 
 95:                                               ; preds = %89
@@ -4792,7 +4792,7 @@ default.unreachable44:                            ; preds = %89, %62, %35, %33, 
 _ZN16wasmtime_runtime5table5Table4size17h635fa7356c642d1dE.exit: ; preds = %18, %.split4.i, %.split8.i
   %.0.i = phi i32 [ %29, %.split4.i ], [ %30, %.split8.i ], [ %20, %18 ]
   %31 = zext i32 %.0.i to i64
-  %32 = icmp ugt i64 %16, %31
+  %32 = icmp samesign ugt i64 %16, %31
   br i1 %32, label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h306a920140e6aedaE.exit", label %33
 
 33:                                               ; preds = %_ZN16wasmtime_runtime5table5Table4size17h635fa7356c642d1dE.exit
@@ -6201,12 +6201,12 @@ _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us
   %150 = add nuw nsw i64 %.sroa.8.087.us.us.us160.us.i, 1
   %151 = add nuw nsw i64 %.sroa.8.087.us.us.us160.us.i, %60
   %152 = add nuw nsw i64 %.sroa.8.087.us.us.us160.us.i, %57
-  %153 = icmp ult i64 %151, %138
+  %153 = icmp samesign ult i64 %151, %138
   br i1 %153, label %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us.us.us.us.i, label %.split94.us.i, !prof !102
 
 _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us.us.us.us.i: ; preds = %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i
   %154 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i18.i, i64 0, i64 %151
-  %155 = icmp ult i64 %152, %144
+  %155 = icmp samesign ult i64 %152, %144
   br i1 %155, label %156, label %.split106.us.i, !prof !102
 
 156:                                              ; preds = %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us.us.us.us.i
@@ -6254,7 +6254,7 @@ _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.i:
   %170 = add nuw nsw i64 %.sroa.8.087.us.us.i, 1
   %171 = add nuw nsw i64 %.sroa.8.087.us.us.i, %60
   %172 = add nuw nsw i64 %.sroa.8.087.us.us.i, %57
-  %173 = icmp ult i64 %171, %138
+  %173 = icmp samesign ult i64 %171, %138
   br i1 %173, label %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us.us.i, label %.split94.us.i, !prof !102
 
 _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us.us.i: ; preds = %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.i
@@ -6336,7 +6336,7 @@ _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us109.us
 
 _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us111.us.i: ; preds = %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us109.us.i
   %195 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i18.i, i64 0, i64 %192
-  %196 = icmp ult i64 %193, %144
+  %196 = icmp samesign ult i64 %193, %144
   br i1 %196, label %197, label %.split106.us.i, !prof !102
 
 197:                                              ; preds = %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit41.us111.us.i

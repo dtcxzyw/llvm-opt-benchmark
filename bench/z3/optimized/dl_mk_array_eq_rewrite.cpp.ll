@@ -528,7 +528,7 @@ while.cond.i.i:                                   ; preds = %_ZNK16basic_union_f
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %52 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %53 = zext i32 %52 to i64
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.i.i, %53
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.i.i, %53
   br i1 %cmp.not.i.i.i, label %_ZNK16basic_union_find7is_rootEj.exit.i.i, label %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i
 
 _ZNK16basic_union_find7is_rootEj.exit.i.i:        ; preds = %land.rhs.i.i
@@ -628,7 +628,7 @@ if.end.i.i135:                                    ; preds = %for.cond78
 
 invoke.cont79:                                    ; preds = %if.end.i.i135, %for.cond78
   %retval.0.i.i137 = phi i64 [ %70, %if.end.i.i135 ], [ 0, %for.cond78 ]
-  %cmp81 = icmp ult i64 %indvars.iv455, %retval.0.i.i137
+  %cmp81 = icmp samesign ult i64 %indvars.iv455, %retval.0.i.i137
   br i1 %cmp81, label %invoke.cont84, label %for.inc98
 
 invoke.cont84:                                    ; preds = %invoke.cont79

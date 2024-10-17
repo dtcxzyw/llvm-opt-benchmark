@@ -91,7 +91,7 @@ cond.true:                                        ; preds = %entry
 
 if.else.lr.ph.i.i:                                ; preds = %cond.true
   %and17.i.i = and i32 %conv.i.i, 63
-  %cmp.i.i = icmp ult i32 %and17.i.i, 48
+  %cmp.i.i = icmp samesign ult i32 %and17.i.i, 48
   %cmp2.us.i.i = icmp ult i16 %.fr.i.i, 64
   br i1 %cmp.i.i, label %if.else.us.i.i, label %if.else.lr.ph.split.i.i, !llvm.loop !4
 
@@ -197,7 +197,7 @@ cond.false:                                       ; preds = %entry
 
 if.else.lr.ph.i.i10:                              ; preds = %cond.false
   %and17.i.i11 = and i32 %conv.i.i8, 63
-  %cmp.i.i12 = icmp ult i32 %and17.i.i11, 48
+  %cmp.i.i12 = icmp samesign ult i32 %and17.i.i11, 48
   %cmp2.us.i.i13 = icmp ult i16 %.fr.i.i7, 64
   br i1 %cmp.i.i12, label %if.else.us.i.i42, label %if.else.lr.ph.split.i.i14, !llvm.loop !4
 
@@ -353,7 +353,7 @@ if.end11:                                         ; preds = %if.end
 
 if.else.lr.ph.i:                                  ; preds = %if.end11
   %and17.i = and i32 %conv, 63
-  %cmp.i = icmp ult i32 %and17.i, 48
+  %cmp.i = icmp samesign ult i32 %and17.i, 48
   %cmp2.us.i = icmp ult i16 %.fr.i, 64
   br i1 %cmp.i, label %if.else.us.i, label %if.else.lr.ph.split.i, !llvm.loop !4
 
@@ -643,7 +643,7 @@ if.end39:                                         ; preds = %do.body
   %incdec.ptr.i43 = getelementptr inbounds i8, ptr %pos.addr.3, i64 4
   %15 = load i16, ptr %incdec.ptr10, align 2
   %16 = and i16 %15, 32767
-  %cmp.i.i = icmp ugt i16 %16, 16383
+  %cmp.i.i = icmp samesign ugt i16 %16, 16383
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6icu_7510UCharsTrie9skipValueEPKDs.exit
 
 if.then.i.i:                                      ; preds = %if.end39
@@ -705,7 +705,7 @@ entry:
 
 if.else.lr.ph:                                    ; preds = %entry
   %and17 = and i32 %conv, 63
-  %cmp = icmp ult i32 %and17, 48
+  %cmp = icmp samesign ult i32 %and17, 48
   %cmp2.us = icmp ult i16 %.fr, 64
   br i1 %cmp, label %if.else.us, label %if.else.lr.ph.split, !llvm.loop !4
 
@@ -992,7 +992,7 @@ for.cond66.outer:                                 ; preds = %if.end90, %if.end62
 for.cond66:                                       ; preds = %for.cond66.outer, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit
   %pos.4 = phi ptr [ %pos.addr.0.i, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %pos.4.ph, %for.cond66.outer ]
   %node63.0 = phi i32 [ %and107, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %node63.0.ph, %for.cond66.outer ]
-  %cmp67 = icmp ult i32 %node63.0, 48
+  %cmp67 = icmp samesign ult i32 %node63.0, 48
   br i1 %cmp67, label %if.then68, label %if.else94
 
 if.then68:                                        ; preds = %for.cond66
@@ -1034,7 +1034,7 @@ if.end90:                                         ; preds = %if.end87
   br label %for.cond66.outer, !llvm.loop !10
 
 if.else94:                                        ; preds = %for.cond66
-  %cmp95 = icmp ult i32 %node63.0, 64
+  %cmp95 = icmp samesign ult i32 %node63.0, 64
   br i1 %cmp95, label %if.then96, label %if.else103
 
 if.then96:                                        ; preds = %if.else94
@@ -1052,7 +1052,7 @@ if.end100:                                        ; preds = %if.then96
   br label %for.cond, !llvm.loop !11
 
 if.else103:                                       ; preds = %if.else94
-  %tobool.not = icmp ult i32 %node63.0, 32768
+  %tobool.not = icmp samesign ult i32 %node63.0, 32768
   br i1 %tobool.not, label %if.else105, label %if.then104
 
 if.then104:                                       ; preds = %if.else103
@@ -1060,11 +1060,11 @@ if.then104:                                       ; preds = %if.else103
   br label %return
 
 if.else105:                                       ; preds = %if.else103
-  %cmp.i55 = icmp ugt i32 %node63.0, 16447
+  %cmp.i55 = icmp samesign ugt i32 %node63.0, 16447
   br i1 %cmp.i55, label %if.then.i, label %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit
 
 if.then.i:                                        ; preds = %if.else105
-  %cmp1.i = icmp ult i32 %node63.0, 32704
+  %cmp1.i = icmp samesign ult i32 %node63.0, 32704
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i56
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -1171,7 +1171,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %5 = load i16, ptr %incdec.ptr5, align 2
   %6 = and i16 %5, 32767
   %and = zext nneg i16 %6 to i32
-  %cmp.i31 = icmp ult i16 %6, 16384
+  %cmp.i31 = icmp samesign ult i16 %6, 16384
   br i1 %cmp.i31, label %_ZN6icu_7510UCharsTrie9skipValueEPKDsi.exit, label %if.else.i32
 
 if.else.i32:                                      ; preds = %do.body
@@ -1256,7 +1256,7 @@ for.cond.outer:                                   ; preds = %for.cond.outer.back
 for.cond:                                         ; preds = %for.cond.outer, %if.then11
   %pos.addr.0 = phi ptr [ %incdec.ptr13, %if.then11 ], [ %pos.addr.0.ph, %for.cond.outer ]
   %node.0 = phi i32 [ %conv14, %if.then11 ], [ %node.0.ph, %for.cond.outer ]
-  %cmp = icmp ult i32 %node.0, 48
+  %cmp = icmp samesign ult i32 %node.0, 48
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.cond
@@ -1290,7 +1290,7 @@ for.cond.outer.backedge:                          ; preds = %if.end7, %_ZN6icu_7
   br label %for.cond.outer, !llvm.loop !14
 
 if.else:                                          ; preds = %for.cond
-  %cmp10 = icmp ult i32 %node.0, 64
+  %cmp10 = icmp samesign ult i32 %node.0, 64
   br i1 %cmp10, label %if.then11, label %if.else15
 
 if.then11:                                        ; preds = %if.else
@@ -1303,12 +1303,12 @@ if.then11:                                        ; preds = %if.else
   br label %for.cond, !llvm.loop !14
 
 if.else15:                                        ; preds = %if.else
-  %tobool.not = icmp ult i32 %node.0, 32768
+  %tobool.not = icmp samesign ult i32 %node.0, 32768
   br i1 %tobool.not, label %if.else19, label %if.then17
 
 if.then17:                                        ; preds = %if.else15
   %and = and i32 %node.0, 32767
-  %cmp.i = icmp ult i32 %and, 16384
+  %cmp.i = icmp samesign ult i32 %and, 16384
   br i1 %cmp.i, label %if.end21, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then17
@@ -1334,7 +1334,7 @@ if.else3.i:                                       ; preds = %if.else.i
   br label %if.end21
 
 if.else19:                                        ; preds = %if.else15
-  %cmp.i24 = icmp ult i32 %node.0, 16448
+  %cmp.i24 = icmp samesign ult i32 %node.0, 16448
   br i1 %cmp.i24, label %if.then.i, label %if.else.i25
 
 if.then.i:                                        ; preds = %if.else19
@@ -1343,7 +1343,7 @@ if.then.i:                                        ; preds = %if.else19
   br label %if.end21
 
 if.else.i25:                                      ; preds = %if.else19
-  %cmp1.i26 = icmp ult i32 %node.0, 32704
+  %cmp1.i26 = icmp samesign ult i32 %node.0, 32704
   br i1 %cmp1.i26, label %if.then2.i28, label %if.else4.i
 
 if.then2.i28:                                     ; preds = %if.else.i25
@@ -1384,11 +1384,11 @@ if.end28:                                         ; preds = %if.then23, %if.else
   br i1 %tobool.not, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %cmp.i33 = icmp ugt i32 %node.0, 16447
+  %cmp.i33 = icmp samesign ugt i32 %node.0, 16447
   br i1 %cmp.i33, label %if.then.i34, label %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit
 
 if.then.i34:                                      ; preds = %if.end31
-  %cmp1.i35 = icmp ult i32 %node.0, 32704
+  %cmp1.i35 = icmp samesign ult i32 %node.0, 32704
   br i1 %cmp1.i35, label %if.then2.i37, label %if.else.i36
 
 if.then2.i37:                                     ; preds = %if.then.i34
@@ -1466,7 +1466,7 @@ _ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %if.else, %if.then2.
 if.end11:                                         ; preds = %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit, %if.end4
   %pos.0 = phi ptr [ %pos.addr.0.i, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %incdec.ptr, %if.end4 ]
   %node.0 = phi i32 [ %and9, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %conv, %if.end4 ]
-  %cmp12 = icmp ult i32 %node.0, 48
+  %cmp12 = icmp samesign ult i32 %node.0, 48
   br i1 %cmp12, label %if.then13, label %if.else22
 
 if.then13:                                        ; preds = %if.end11
@@ -1589,7 +1589,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %incdec.ptr.i20 = getelementptr inbounds i8, ptr %pos.addr.1, i64 4
   %7 = load i16, ptr %incdec.ptr3, align 2
   %8 = and i16 %7, 32767
-  %cmp.i.i = icmp ugt i16 %8, 16383
+  %cmp.i.i = icmp samesign ugt i16 %8, 16383
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6icu_7510UCharsTrie9skipValueEPKDs.exit
 
 if.then.i.i:                                      ; preds = %do.body

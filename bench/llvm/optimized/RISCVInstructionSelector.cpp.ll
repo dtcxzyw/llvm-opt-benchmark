@@ -965,7 +965,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionSelector
 
 13:                                               ; preds = %12
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %15 = icmp ugt i64 %14, 62
+  %15 = icmp samesign ugt i64 %14, 62
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 16:                                               ; preds = %4
@@ -978,7 +978,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionSelector
 
 19:                                               ; preds = %17
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ugt i32 %20, 30
+  %21 = icmp samesign ugt i32 %20, 30
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 22:                                               ; preds = %3
@@ -993,7 +993,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionSelector
 
 27:                                               ; preds = %25
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
-  %29 = icmp ugt i32 %28, 30
+  %29 = icmp samesign ugt i32 %28, 30
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 30:                                               ; preds = %3
@@ -1011,7 +1011,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionSelector
 
 _ZN4llvm13isPowerOf2_64Em.exit116:                ; preds = %38
   %39 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %40 = icmp ult i64 %39, 2
+  %40 = icmp samesign ult i64 %39, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 41:                                               ; preds = %30
@@ -1024,7 +1024,7 @@ _ZN4llvm13isPowerOf2_64Em.exit116:                ; preds = %38
 
 44:                                               ; preds = %42
   %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %43)
-  %46 = icmp ult i32 %45, 2
+  %46 = icmp samesign ult i32 %45, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 47:                                               ; preds = %3
@@ -1039,7 +1039,7 @@ _ZN4llvm13isPowerOf2_64Em.exit116:                ; preds = %38
 
 52:                                               ; preds = %50
   %53 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %51)
-  %54 = icmp ult i32 %53, 2
+  %54 = icmp samesign ult i32 %53, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 55:                                               ; preds = %3
@@ -1099,7 +1099,7 @@ _ZN4llvm13isPowerOf2_64Em.exit116:                ; preds = %38
 
 82:                                               ; preds = %79
   %83 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %81)
-  %84 = icmp ult i32 %83, 2
+  %84 = icmp samesign ult i32 %83, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 85:                                               ; preds = %3
@@ -9098,12 +9098,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit114._crit_edge: ; preds = %_ZNK4llvm3LLT13get
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit133:           ; preds = %154, %158
   %.sroa.012.0.in.i125 = phi i64 [ %160, %158 ], [ %157, %154 ]
-  %161 = icmp ult i64 %.sroa.012.0.in.i125, 65
+  %161 = icmp samesign ult i64 %.sroa.012.0.in.i125, 65
   br i1 %161, label %.critedge, label %170
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223: ; preds = %151
   %162 = and i64 %1, 34359738360
-  %163 = icmp ult i64 %162, 520
+  %163 = icmp samesign ult i64 %162, 520
   br i1 %163, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread:    ; preds = %144
@@ -9117,7 +9117,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread:    ; preds = %144
   %.0.in.i6.i124 = select i1 %.not1.i8.i122, i64 %.sroa.0.0.insert.ext.i.i.i120, i64 %spec.select.i10.i123
   %168 = mul nuw nsw i64 %.0.in.i6.i124, %.sroa.0.0.insert.ext.i.i.i120
   %.sroa.012.0.i127208 = and i64 %168, 4294967295
-  %169 = icmp ult i64 %.sroa.012.0.i127208, 65
+  %169 = icmp samesign ult i64 %.sroa.012.0.i127208, 65
   br i1 %169, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread
 
 170:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit133
@@ -9343,7 +9343,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %.044119 = phi ptr [ undef, %.lr.ph ], [ %.145, %95 ]
   %.sroa.0113.0118 = phi i32 [ 43, %.lr.ph ], [ %.sroa.015.0, %95 ]
-  %52 = icmp ult i64 %indvars.iv, %50
+  %52 = icmp samesign ult i64 %indvars.iv, %50
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51
@@ -11785,7 +11785,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vE
   %450 = load i32, ptr %449, align 8
   %451 = zext i32 %450 to i64
   %452 = zext i16 %.0.copyload.i.i1219 to i64
-  %453 = icmp uge i64 %451, %452
+  %453 = icmp samesign uge i64 %451, %452
   %454 = zext i16 %.0.copyload.i.i1220 to i32
   %.not692 = icmp ult i32 %450, %454
   %or.cond699 = and i1 %.not692, %453
@@ -14150,12 +14150,12 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502: ; preds = %1804
 1828:                                             ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502.thread, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502
   %.sroa.012.0.i.i14973288 = phi i64 [ %.sroa.012.0.i.i14973287, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502.thread ], [ %.sroa.012.0.i.i1497, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502 ]
   %1829 = trunc nuw i8 %.sroa.3.0.i to i1
-  %1830 = icmp ult i64 %.sroa.012.0.i.i14973288, %.sroa.012.0.i
+  %1830 = icmp samesign ult i64 %.sroa.012.0.i.i14973288, %.sroa.012.0.i
   %or.cond2622.not = select i1 %1829, i1 true, i1 %1830
   br i1 %or.cond2622.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread2552
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1502
-  %.old.not = icmp ult i64 %.sroa.012.0.i.i1497, %.sroa.012.0.i
+  %.old.not = icmp samesign ult i64 %.sroa.012.0.i.i1497, %.sroa.012.0.i
   br i1 %.old.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread2552
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread2552: ; preds = %1828, %1800, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit

@@ -1350,7 +1350,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %81
   %101 = load i64, ptr %100, align 8
   %102 = lshr i64 %101, 32
   %103 = zext i16 %96 to i64
-  %104 = icmp ugt i64 %102, %103
+  %104 = icmp samesign ugt i64 %102, %103
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -5142,7 +5142,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %4
   %37 = load i64, ptr %36, align 8
   %38 = lshr i64 %37, 32
   %39 = zext i16 %31 to i64
-  %40 = icmp ugt i64 %38, %39
+  %40 = icmp samesign ugt i64 %38, %39
   br i1 %40, label %_ZN5clang6Parser12ConsumeBraceEv.exit, label %45
 
 _ZN5clang6Parser12ConsumeBraceEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -8823,7 +8823,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %2
   %33 = load i64, ptr %32, align 8
   %34 = lshr i64 %33, 32
   %35 = zext i16 %27 to i64
-  %36 = icmp ugt i64 %34, %35
+  %36 = icmp samesign ugt i64 %34, %35
   br i1 %36, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %41
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -10214,7 +10214,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %4
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 32
   %34 = zext i16 %26 to i64
-  %35 = icmp ugt i64 %33, %34
+  %35 = icmp samesign ugt i64 %33, %34
   br i1 %35, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %40
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -15403,7 +15403,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %2
   %67 = load i64, ptr %66, align 8
   %68 = lshr i64 %67, 32
   %69 = zext i16 %61 to i64
-  %70 = icmp ugt i64 %68, %69
+  %70 = icmp samesign ugt i64 %68, %69
   br i1 %70, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %75
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -15590,7 +15590,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %2
   %70 = load i64, ptr %69, align 8
   %71 = lshr i64 %70, 32
   %72 = zext i16 %65 to i64
-  %73 = icmp ugt i64 %71, %72
+  %73 = icmp samesign ugt i64 %71, %72
   br i1 %73, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %76
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -15766,7 +15766,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %2
   %70 = load i64, ptr %69, align 8
   %71 = lshr i64 %70, 32
   %72 = zext i16 %65 to i64
-  %73 = icmp ugt i64 %71, %72
+  %73 = icmp samesign ugt i64 %71, %72
   br i1 %73, label %_ZN5clang6Parser12ConsumeParenEv.exit, label %76
 
 _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -15974,7 +15974,7 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %57
   %78 = load i64, ptr %77, align 8
   %79 = lshr i64 %78, 32
   %80 = zext i16 %73 to i64
-  %81 = icmp ugt i64 %79, %80
+  %81 = icmp samesign ugt i64 %79, %80
   br i1 %81, label %_ZN5clang6Parser12ConsumeParenEv.exit59, label %84
 
 _ZN5clang6Parser12ConsumeParenEv.exit59:          ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -19714,7 +19714,7 @@ _ZNSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %2, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %5, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_EE5resetEPS4_.exit, %1

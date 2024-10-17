@@ -26379,7 +26379,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   %inc = add nuw nsw i32 %i.0108, 1
   %15 = load i16, ptr %fixed_length, align 8
   %conv = zext i16 %15 to i32
-  %cmp15 = icmp ult i32 %inc, %conv
+  %cmp15 = icmp samesign ult i32 %inc, %conv
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !488
 
 lpad12:                                           ; preds = %call.i.noexc43, %sw.bb

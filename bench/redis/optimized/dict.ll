@@ -3532,7 +3532,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %not.i = xor i64 %xor.i, -1
   %and3.i = and i64 %shl2.i, %not.i
   %or.i = or i64 %and.i, %and3.i
-  %cmp.not.i = icmp ult i64 %s.010.i, 4
+  %cmp.not.i = icmp samesign ult i64 %s.010.i, 4
   br i1 %cmp.not.i, label %rev.exit, label %while.body.i, !llvm.loop !30
 
 rev.exit:                                         ; preds = %while.body.i
@@ -3552,7 +3552,7 @@ while.body.i85:                                   ; preds = %while.body.i85, %re
   %not.i95 = xor i64 %xor.i91, -1
   %and3.i96 = and i64 %shl2.i94, %not.i95
   %or.i97 = or i64 %and.i93, %and3.i96
-  %cmp.not.i98 = icmp ult i64 %s.010.i87, 4
+  %cmp.not.i98 = icmp samesign ult i64 %s.010.i87, 4
   br i1 %cmp.not.i98, label %if.end169, label %while.body.i85, !llvm.loop !30
 
 if.else:                                          ; preds = %if.end
@@ -3704,7 +3704,7 @@ while.body.i124:                                  ; preds = %while.body.i124, %w
   %not.i134 = xor i64 %xor.i130, -1
   %and3.i135 = and i64 %shl2.i133, %not.i134
   %or.i136 = or i64 %and.i132, %and3.i135
-  %cmp.not.i137 = icmp ult i64 %s.010.i126, 4
+  %cmp.not.i137 = icmp samesign ult i64 %s.010.i126, 4
   br i1 %cmp.not.i137, label %rev.exit138, label %while.body.i124, !llvm.loop !30
 
 rev.exit138:                                      ; preds = %while.body.i124
@@ -3724,7 +3724,7 @@ while.body.i139:                                  ; preds = %while.body.i139, %r
   %not.i149 = xor i64 %xor.i145, -1
   %and3.i150 = and i64 %shl2.i148, %not.i149
   %or.i151 = or i64 %and.i147, %and3.i150
-  %cmp.not.i152 = icmp ult i64 %s.010.i141, 4
+  %cmp.not.i152 = icmp samesign ult i64 %s.010.i141, 4
   br i1 %cmp.not.i152, label %rev.exit153, label %while.body.i139, !llvm.loop !30
 
 rev.exit153:                                      ; preds = %while.body.i139

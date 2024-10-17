@@ -6300,7 +6300,7 @@ _ZN3vcg17LocalOptimizationI6CMeshOED2Ev.exit.us:  ; preds = %.preheader121.split
   %138 = load double, ptr %120, align 8
   %139 = fcmp uge double %138, 1.000000e-03
   %140 = add nuw nsw i32 %storemerge123.us, 1
-  %141 = icmp ult i32 %storemerge123.us, 999
+  %141 = icmp samesign ult i32 %storemerge123.us, 999
   %or.cond = select i1 %139, i1 %141, i1 false
   br i1 %or.cond, label %.preheader121.split.us, label %.split.us, !llvm.loop !79
 
@@ -6570,7 +6570,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStre
 
 _ZN3vcg17LocalOptimizationI6CMeshOED2Ev.exit:     ; preds = %211, %._crit_edge.i, %142
   %225 = add nuw nsw i32 %storemerge123, 1
-  %226 = icmp ult i32 %storemerge123, 999
+  %226 = icmp samesign ult i32 %storemerge123, 999
   %or.cond125 = select i1 %147, i1 %226, i1 false
   br i1 %or.cond125, label %.preheader121.split, label %.split.us, !llvm.loop !79
 
@@ -22222,7 +22222,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i

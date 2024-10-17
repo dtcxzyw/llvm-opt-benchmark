@@ -574,7 +574,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
 
 50:                                               ; preds = %41, %.preheader
   %51 = add nuw nsw i64 %35, 1
-  %52 = icmp ult i64 %35, 6
+  %52 = icmp samesign ult i64 %35, 6
   %53 = icmp eq i64 %51, 7
   br i1 %53, label %54, label %.preheader, !llvm.loop !35
 

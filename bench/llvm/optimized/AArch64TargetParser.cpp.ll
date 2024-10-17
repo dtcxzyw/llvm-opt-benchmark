@@ -4623,20 +4623,20 @@ _ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread4:  ; preds = %2, %_ZNK4llvm7AArch
   %36 = lshr i64 %33, 32
   %37 = trunc nuw i64 %36 to i32
   %38 = and i32 %37, 2147483647
-  %39 = icmp ult i32 %21, %31
+  %39 = icmp samesign ult i32 %21, %31
   br i1 %39, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit, label %40
 
 40:                                               ; preds = %18
-  %41 = icmp ult i32 %31, %21
+  %41 = icmp samesign ult i32 %31, %21
   br i1 %41, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %25, %35
+  %43 = icmp samesign ult i32 %25, %35
   br i1 %43, label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp uge i32 %35, %25
-  %46 = icmp ult i32 %28, %38
+  %45 = icmp samesign uge i32 %35, %25
+  %46 = icmp samesign ult i32 %28, %38
   %spec.select.i.i.i = select i1 %45, i1 %46, i1 false
   br label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit
 

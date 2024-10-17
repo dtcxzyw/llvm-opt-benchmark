@@ -891,7 +891,7 @@ define void @strsm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .loopexit462:                                     ; preds = %306, %297
   %indvars.iv.next658 = add nuw nsw i64 %indvars.iv657, 1
-  %309 = icmp ult i64 %indvars.iv.next658, %264
+  %309 = icmp samesign ult i64 %indvars.iv.next658, %264
   br i1 %309, label %.lr.ph470, label %._crit_edge
 
 .loopexit462.thread:                              ; preds = %298

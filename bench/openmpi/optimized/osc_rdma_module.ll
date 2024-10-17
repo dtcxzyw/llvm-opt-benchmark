@@ -776,7 +776,7 @@ opal_obj_run_destructors.exit195:                 ; preds = %opal_obj_run_destru
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %341 = load i8, ptr %309, align 8
   %342 = zext i8 %341 to i64
-  %343 = icmp ult i64 %indvars.iv.next225, %342
+  %343 = icmp samesign ult i64 %indvars.iv.next225, %342
   br i1 %343, label %.lr.ph216, label %._crit_edge217, !llvm.loop !11
 
 ._crit_edge217:                                   ; preds = %339, %.preheader

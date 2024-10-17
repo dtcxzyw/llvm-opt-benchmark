@@ -421,7 +421,7 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
 
 26:                                               ; preds = %.lr.ph137, %33
   %.4136 = phi i32 [ 0, %.lr.ph137 ], [ %34, %33 ]
-  %.not111 = icmp uge i32 %.4136, %.0105148
+  %.not111 = icmp samesign uge i32 %.4136, %.0105148
   %27 = icmp slt i32 %.4136, %25
   %or.cond = select i1 %.not111, i1 %27, i1 false
   br i1 %or.cond, label %28, label %31
@@ -3492,7 +3492,7 @@ Vec_IntPush.exit191:                              ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge217:                                   ; preds = %Vec_IntPush.exit191, %Vec_IntPush.exit184
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 2
-  %330 = icmp ult i64 %indvars.iv.next238, %199
+  %330 = icmp samesign ult i64 %indvars.iv.next238, %199
   br i1 %330, label %.preheader199, label %._crit_edge219, !llvm.loop !85
 
 ._crit_edge219:                                   ; preds = %._crit_edge217, %._crit_edge207

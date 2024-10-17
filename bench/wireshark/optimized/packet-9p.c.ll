@@ -1184,7 +1184,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %176
 
 176:                                              ; preds = %170, %165
-  %177 = icmp ult i32 %.011441183, 250
+  %177 = icmp samesign ult i32 %.011441183, 250
   br i1 %177, label %178, label %189
 
 178:                                              ; preds = %176

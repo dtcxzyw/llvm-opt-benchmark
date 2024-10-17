@@ -203,7 +203,7 @@ if.end50:                                         ; preds = %if.then46, %while.b
 
 for.inc:                                          ; preds = %if.end28, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp22 = icmp ult i64 %indvars.iv.next, %2
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp22, label %for.body, label %return, !llvm.loop !6
 
 if.end.i:                                         ; preds = %if.end50, %while.cond.preheader, %if.end8
@@ -285,7 +285,7 @@ define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr nocapture noundef non
 entry:
   %0 = load i32, ptr %st, align 8
   %sub = sub nsw i32 2147483647, %0
-  %cmp = icmp ugt i32 %n, %sub
+  %cmp = icmp samesign ugt i32 %n, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

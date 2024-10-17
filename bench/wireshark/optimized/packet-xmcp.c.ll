@@ -778,7 +778,7 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
   %190 = add i16 %189, 4
   %191 = zext i16 %190 to i32
   %192 = add nuw nsw i32 %180, %191
-  %193 = icmp ugt i32 %192, %108
+  %193 = icmp samesign ugt i32 %192, %108
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %168
@@ -1457,7 +1457,7 @@ decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread388.i,
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %6)
   %517 = add nuw nsw i32 %176, %191
   %518 = and i32 %517, 65535
-  %519 = icmp ult i32 %518, %108
+  %519 = icmp samesign ult i32 %518, %108
   br i1 %519, label %168, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %decode_xmcp_attr_value.exit, %194, %proto_item_set_generated.exit

@@ -1149,7 +1149,7 @@ define ptr @gres_p_prep_build_env(ptr nocapture noundef readonly %0) local_unnam
   %23 = phi i32 [ %14, %.lr.ph.split ], [ %14, %15 ], [ %.pre, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %1

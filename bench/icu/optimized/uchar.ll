@@ -2174,7 +2174,7 @@ if.then70:                                        ; preds = %if.else68
   %and73 = and i32 %shr44, 31
   %add74 = add nuw nsw i32 %and73, 2
   %conv75 = uitofp nneg i32 %sub72 to double
-  %cmp7643 = icmp ugt i32 %and73, 1
+  %cmp7643 = icmp samesign ugt i32 %and73, 1
   br i1 %cmp7643, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then70, %while.body
@@ -2629,15 +2629,15 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.true.i, %cond.
   %shr.i8 = and i32 %and.i, 768
   %and1.i = and i32 %7, 255
   %or.i = or disjoint i32 %shr.i8, %and1.i
-  %cmp6 = icmp ult i32 %and, 4194304
+  %cmp6 = icmp samesign ult i32 %and, 4194304
   br i1 %cmp6, label %return, label %if.else
 
 if.else:                                          ; preds = %u_getUnicodeProperties_75.exit
-  %cmp8 = icmp ult i32 %and, 8388608
+  %cmp8 = icmp samesign ult i32 %and, 8388608
   br i1 %cmp8, label %return, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %cmp11 = icmp ult i32 %and, 12582912
+  %cmp11 = icmp samesign ult i32 %and, 12582912
   br i1 %cmp11, label %return, label %if.else13
 
 if.else13:                                        ; preds = %if.else10
@@ -2713,7 +2713,7 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
   %shr.i10 = and i32 %and.i, 768
   %and1.i = and i32 %6, 255
   %or.i = or disjoint i32 %shr.i10, %and1.i
-  %cmp = icmp ult i32 %and, 4194304
+  %cmp = icmp samesign ult i32 %and, 4194304
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %u_getUnicodeProperties_75.exit
@@ -2723,7 +2723,7 @@ if.then:                                          ; preds = %u_getUnicodePropert
 if.end:                                           ; preds = %u_getUnicodeProperties_75.exit
   %idx.ext = zext nneg i32 %or.i to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext
-  %cmp3 = icmp ugt i32 %and, 12582911
+  %cmp3 = icmp samesign ugt i32 %and, 12582911
   br i1 %cmp3, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
@@ -2841,7 +2841,7 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
   %shr.i20 = and i32 %and.i, 768
   %and1.i = and i32 %7, 255
   %or.i = or disjoint i32 %shr.i20, %and1.i
-  %cmp9 = icmp ult i32 %and, 4194304
+  %cmp9 = icmp samesign ult i32 %and, 4194304
   br i1 %cmp9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %u_getUnicodeProperties_75.exit
@@ -2859,7 +2859,7 @@ if.else:                                          ; preds = %if.then10
 if.end14:                                         ; preds = %u_getUnicodeProperties_75.exit
   %idx.ext = zext nneg i32 %or.i to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext
-  %cmp15 = icmp ugt i32 %and, 12582911
+  %cmp15 = icmp samesign ugt i32 %and, 12582911
   br i1 %cmp15, label %if.then16, label %do.body.preheader
 
 if.then16:                                        ; preds = %if.end14

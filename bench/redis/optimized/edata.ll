@@ -79,7 +79,7 @@ if.end.i24:                                       ; preds = %if.then4.i, %if.the
   %and.i.i.i = and i64 %a.val.i, 4095
   %and.i3.i.i = and i64 %b.val.i, 4095
   %cmp.not.i = icmp eq i64 %and.i.i.i, %and.i3.i.i
-  %17 = icmp ult i64 %and.i.i.i, %and.i3.i.i
+  %17 = icmp samesign ult i64 %and.i.i.i, %and.i3.i.i
   %cmp1.i.i = icmp ult ptr %3, %9
   %spec.select = select i1 %cmp.not.i, i1 %cmp1.i.i, i1 %17
   br i1 %spec.select, label %if.then6.i64, label %if.else7.i61
@@ -163,7 +163,7 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %and.i.i.i246 = and i64 %a.val.i244, 4095
   %and.i3.i.i247 = and i64 %b.val.i245, 4095
   %cmp.not.i249 = icmp eq i64 %and.i.i.i246, %and.i3.i.i247
-  %34 = icmp ult i64 %and.i.i.i246, %and.i3.i.i247
+  %34 = icmp samesign ult i64 %and.i.i.i246, %and.i3.i.i247
   %cmp1.i.i254 = icmp ult ptr %phn0.i.1290, %26
   %spec.select286 = select i1 %cmp.not.i249, i1 %cmp1.i.i254, i1 %34
   br i1 %spec.select286, label %if.then6.i, label %if.else7.i
@@ -260,7 +260,7 @@ if.else4.i40:                                     ; preds = %while.body20.i
   %and.i.i.i260 = and i64 %a.val.i258, 4095
   %and.i3.i.i261 = and i64 %b.val.i259, 4095
   %cmp.not.i263 = icmp eq i64 %and.i.i.i260, %and.i3.i.i261
-  %55 = icmp ult i64 %and.i.i.i260, %and.i3.i.i261
+  %55 = icmp samesign ult i64 %and.i.i.i260, %and.i3.i.i261
   %cmp1.i.i268 = icmp ult ptr %phn0.i.3, %phn1.i.0
   %spec.select287 = select i1 %cmp.not.i263, i1 %cmp1.i.i268, i1 %55
   br i1 %spec.select287, label %if.then6.i46, label %if.else7.i43
@@ -335,7 +335,7 @@ if.else4.i76:                                     ; preds = %phn_merge_siblings.
   %and.i.i.i274 = and i64 %a.val.i272, 4095
   %and.i3.i.i275 = and i64 %b.val.i273, 4095
   %cmp.not.i277 = icmp eq i64 %and.i.i.i274, %and.i3.i.i275
-  %70 = icmp ult i64 %and.i.i.i274, %and.i3.i.i275
+  %70 = icmp samesign ult i64 %and.i.i.i274, %and.i3.i.i275
   %cmp1.i.i282 = icmp ult ptr %67, %phn0.i.0
   %spec.select288 = select i1 %cmp.not.i277, i1 %cmp1.i.i282, i1 %70
   br i1 %spec.select288, label %if.then6.i82, label %if.else7.i79
@@ -449,7 +449,7 @@ if.else.i:                                        ; preds = %entry
   %and.i.i.i = and i64 %a.val.i, 4095
   %and.i3.i.i = and i64 %b.val.i, 4095
   %cmp.not.i = icmp eq i64 %and.i.i.i, %and.i3.i.i
-  %5 = icmp ult i64 %and.i.i.i, %and.i3.i.i
+  %5 = icmp samesign ult i64 %and.i.i.i, %and.i3.i.i
   %cmp1.i.i = icmp ult ptr %phn, %2
   %spec.select = select i1 %cmp.not.i, i1 %cmp1.i.i, i1 %5
   br i1 %spec.select, label %if.then5.i, label %if.end.i
@@ -557,7 +557,7 @@ if.end5.i:                                        ; preds = %if.end.i69
   %and.i.i.i115 = and i64 %a.val.i113, 4095
   %and.i3.i.i116 = and i64 %b.val.i114, 4095
   %cmp.not.i118 = icmp eq i64 %and.i.i.i115, %and.i3.i.i116
-  %38 = icmp ult i64 %and.i.i.i115, %and.i3.i.i116
+  %38 = icmp samesign ult i64 %and.i.i.i115, %and.i3.i.i116
   %cmp1.i.i123 = icmp ult ptr %29, %32
   %spec.select127 = select i1 %cmp.not.i118, i1 %cmp1.i.i123, i1 %38
   br i1 %spec.select127, label %if.then6.i.i, label %if.else7.i.i
@@ -625,7 +625,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %50 = load ptr, ptr %ph, align 8
   store ptr %50, ptr %.pre-phi131, align 8
   %inc29.i = add nuw nsw i32 %i.i.0129, 1
-  %cmp27.i = icmp uge i32 %inc29.i, %25
+  %cmp27.i = icmp samesign uge i32 %inc29.i, %25
   %.not = or i1 %cmp8.i.not, %cmp27.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !7
 
@@ -694,7 +694,7 @@ if.end.i26:                                       ; preds = %if.then4.i, %if.the
   %and.i.i.i = and i64 %a.val.i, 4095
   %and.i3.i.i = and i64 %b.val.i, 4095
   %cmp.not.i = icmp eq i64 %and.i.i.i, %and.i3.i.i
-  %17 = icmp ult i64 %and.i.i.i, %and.i3.i.i
+  %17 = icmp samesign ult i64 %and.i.i.i, %and.i3.i.i
   %cmp1.i.i = icmp ult ptr %3, %9
   %spec.select = select i1 %cmp.not.i, i1 %cmp1.i.i, i1 %17
   br i1 %spec.select, label %if.then6.i66, label %if.else7.i63
@@ -778,7 +778,7 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %and.i.i.i441 = and i64 %a.val.i439, 4095
   %and.i3.i.i442 = and i64 %b.val.i440, 4095
   %cmp.not.i444 = icmp eq i64 %and.i.i.i441, %and.i3.i.i442
-  %34 = icmp ult i64 %and.i.i.i441, %and.i3.i.i442
+  %34 = icmp samesign ult i64 %and.i.i.i441, %and.i3.i.i442
   %cmp1.i.i449 = icmp ult ptr %phn0.i.1530, %26
   %spec.select523 = select i1 %cmp.not.i444, i1 %cmp1.i.i449, i1 %34
   br i1 %spec.select523, label %if.then6.i, label %if.else7.i
@@ -875,7 +875,7 @@ if.else4.i42:                                     ; preds = %while.body20.i
   %and.i.i.i455 = and i64 %a.val.i453, 4095
   %and.i3.i.i456 = and i64 %b.val.i454, 4095
   %cmp.not.i458 = icmp eq i64 %and.i.i.i455, %and.i3.i.i456
-  %55 = icmp ult i64 %and.i.i.i455, %and.i3.i.i456
+  %55 = icmp samesign ult i64 %and.i.i.i455, %and.i3.i.i456
   %cmp1.i.i463 = icmp ult ptr %phn0.i.3, %phn1.i.0
   %spec.select524 = select i1 %cmp.not.i458, i1 %cmp1.i.i463, i1 %55
   br i1 %spec.select524, label %if.then6.i48, label %if.else7.i45
@@ -956,7 +956,7 @@ if.else4.i78:                                     ; preds = %phn_merge_siblings.
   %and.i.i.i469 = and i64 %a.val.i467, 4095
   %and.i3.i.i470 = and i64 %b.val.i468, 4095
   %cmp.not.i472 = icmp eq i64 %and.i.i.i469, %and.i3.i.i470
-  %70 = icmp ult i64 %and.i.i.i469, %and.i3.i.i470
+  %70 = icmp samesign ult i64 %and.i.i.i469, %and.i3.i.i470
   %cmp1.i.i477 = icmp ult ptr %67, %phn0.i.0
   %spec.select525 = select i1 %cmp.not.i472, i1 %cmp1.i.i477, i1 %70
   br i1 %spec.select525, label %if.then6.i84, label %if.else7.i81
@@ -1062,7 +1062,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   %and.i.i.i483 = and i64 %a.val.i481, 4095
   %and.i3.i.i484 = and i64 %b.val.i482, 4095
   %cmp.not.i486 = icmp eq i64 %and.i.i.i483, %and.i3.i.i484
-  %97 = icmp ult i64 %and.i.i.i483, %and.i3.i.i484
+  %97 = icmp samesign ult i64 %and.i.i.i483, %and.i3.i.i484
   %cmp1.i.i491 = icmp ult ptr %86, %89
   %spec.select526 = select i1 %cmp.not.i486, i1 %cmp1.i.i491, i1 %97
   br i1 %spec.select526, label %if.then6.i41.i, label %if.else7.i38.i
@@ -1146,7 +1146,7 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   %and.i.i.i497 = and i64 %a.val.i495, 4095
   %and.i3.i.i498 = and i64 %b.val.i496, 4095
   %cmp.not.i500 = icmp eq i64 %and.i.i.i497, %and.i3.i.i498
-  %114 = icmp ult i64 %and.i.i.i497, %and.i3.i.i498
+  %114 = icmp samesign ult i64 %and.i.i.i497, %and.i3.i.i498
   %cmp1.i.i505 = icmp ult ptr %phn0.i.i.1533, %106
   %spec.select527 = select i1 %cmp.not.i500, i1 %cmp1.i.i505, i1 %114
   br i1 %spec.select527, label %if.then6.i.i, label %if.else7.i.i
@@ -1243,7 +1243,7 @@ if.else4.i17.i:                                   ; preds = %while.body20.i.i
   %and.i.i.i511 = and i64 %a.val.i509, 4095
   %and.i3.i.i512 = and i64 %b.val.i510, 4095
   %cmp.not.i514 = icmp eq i64 %and.i.i.i511, %and.i3.i.i512
-  %135 = icmp ult i64 %and.i.i.i511, %and.i3.i.i512
+  %135 = icmp samesign ult i64 %and.i.i.i511, %and.i3.i.i512
   %cmp1.i.i519 = icmp ult ptr %phn0.i.i.3, %phn1.i.i.0
   %spec.select528 = select i1 %cmp.not.i514, i1 %cmp1.i.i519, i1 %135
   br i1 %spec.select528, label %if.then6.i23.i, label %if.else7.i20.i
@@ -1395,7 +1395,7 @@ if.end.i100:                                      ; preds = %if.then4.i, %if.the
   %and.i.i.i = and i64 %a.val.i, 4095
   %and.i3.i.i = and i64 %b.val.i, 4095
   %cmp.not.i = icmp eq i64 %and.i.i.i, %and.i3.i.i
-  %21 = icmp ult i64 %and.i.i.i, %and.i3.i.i
+  %21 = icmp samesign ult i64 %and.i.i.i, %and.i3.i.i
   %cmp1.i.i = icmp ult ptr %7, %13
   %spec.select832 = select i1 %cmp.not.i, i1 %cmp1.i.i, i1 %21
   br i1 %spec.select832, label %if.then6.i143, label %if.else7.i140
@@ -1479,7 +1479,7 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %and.i.i.i702 = and i64 %a.val.i700, 4095
   %and.i3.i.i703 = and i64 %b.val.i701, 4095
   %cmp.not.i705 = icmp eq i64 %and.i.i.i702, %and.i3.i.i703
-  %38 = icmp ult i64 %and.i.i.i702, %and.i3.i.i703
+  %38 = icmp samesign ult i64 %and.i.i.i702, %and.i3.i.i703
   %cmp1.i.i710 = icmp ult ptr %phn0.i.1843, %30
   %spec.select833 = select i1 %cmp.not.i705, i1 %cmp1.i.i710, i1 %38
   br i1 %spec.select833, label %if.then6.i, label %if.else7.i
@@ -1576,7 +1576,7 @@ if.else4.i119:                                    ; preds = %while.body20.i
   %and.i.i.i716 = and i64 %a.val.i714, 4095
   %and.i3.i.i717 = and i64 %b.val.i715, 4095
   %cmp.not.i719 = icmp eq i64 %and.i.i.i716, %and.i3.i.i717
-  %59 = icmp ult i64 %and.i.i.i716, %and.i3.i.i717
+  %59 = icmp samesign ult i64 %and.i.i.i716, %and.i3.i.i717
   %cmp1.i.i724 = icmp ult ptr %phn0.i.3, %phn1.i.0
   %spec.select834 = select i1 %cmp.not.i719, i1 %cmp1.i.i724, i1 %59
   br i1 %spec.select834, label %if.then6.i125, label %if.else7.i122
@@ -1651,7 +1651,7 @@ if.else4.i155:                                    ; preds = %phn_merge_siblings.
   %and.i.i.i730 = and i64 %a.val.i728, 4095
   %and.i3.i.i731 = and i64 %b.val.i729, 4095
   %cmp.not.i733 = icmp eq i64 %and.i.i.i730, %and.i3.i.i731
-  %74 = icmp ult i64 %and.i.i.i730, %and.i3.i.i731
+  %74 = icmp samesign ult i64 %and.i.i.i730, %and.i3.i.i731
   %cmp1.i.i738 = icmp ult ptr %71, %phn0.i.0
   %spec.select835 = select i1 %cmp.not.i733, i1 %cmp1.i.i738, i1 %74
   br i1 %spec.select835, label %if.then6.i161, label %if.else7.i158
@@ -1754,7 +1754,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   %and.i.i.i744 = and i64 %a.val.i742, 4095
   %and.i3.i.i745 = and i64 %b.val.i743, 4095
   %cmp.not.i747 = icmp eq i64 %and.i.i.i744, %and.i3.i.i745
-  %100 = icmp ult i64 %and.i.i.i744, %and.i3.i.i745
+  %100 = icmp samesign ult i64 %and.i.i.i744, %and.i3.i.i745
   %cmp1.i.i752 = icmp ult ptr %89, %92
   %spec.select836 = select i1 %cmp.not.i747, i1 %cmp1.i.i752, i1 %100
   br i1 %spec.select836, label %if.then6.i41.i, label %if.else7.i38.i
@@ -1838,7 +1838,7 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   %and.i.i.i758 = and i64 %a.val.i756, 4095
   %and.i3.i.i759 = and i64 %b.val.i757, 4095
   %cmp.not.i761 = icmp eq i64 %and.i.i.i758, %and.i3.i.i759
-  %117 = icmp ult i64 %and.i.i.i758, %and.i3.i.i759
+  %117 = icmp samesign ult i64 %and.i.i.i758, %and.i3.i.i759
   %cmp1.i.i766 = icmp ult ptr %phn0.i.i.1850, %109
   %spec.select837 = select i1 %cmp.not.i761, i1 %cmp1.i.i766, i1 %117
   br i1 %spec.select837, label %if.then6.i.i, label %if.else7.i.i
@@ -1935,7 +1935,7 @@ if.else4.i17.i:                                   ; preds = %while.body20.i.i
   %and.i.i.i772 = and i64 %a.val.i770, 4095
   %and.i3.i.i773 = and i64 %b.val.i771, 4095
   %cmp.not.i775 = icmp eq i64 %and.i.i.i772, %and.i3.i.i773
-  %138 = icmp ult i64 %and.i.i.i772, %and.i3.i.i773
+  %138 = icmp samesign ult i64 %and.i.i.i772, %and.i3.i.i773
   %cmp1.i.i780 = icmp ult ptr %phn0.i.i.3, %phn1.i.i.0
   %spec.select838 = select i1 %cmp.not.i775, i1 %cmp1.i.i780, i1 %138
   br i1 %spec.select838, label %if.then6.i23.i, label %if.else7.i20.i
@@ -2062,7 +2062,7 @@ if.end.i.i980:                                    ; preds = %if.then4.i.i1137, %
   %and.i.i.i786 = and i64 %a.val.i784, 4095
   %and.i3.i.i787 = and i64 %b.val.i785, 4095
   %cmp.not.i789 = icmp eq i64 %and.i.i.i786, %and.i3.i.i787
-  %167 = icmp ult i64 %and.i.i.i786, %and.i3.i.i787
+  %167 = icmp samesign ult i64 %and.i.i.i786, %and.i3.i.i787
   %cmp1.i.i794 = icmp ult ptr %156, %159
   %spec.select839 = select i1 %cmp.not.i789, i1 %cmp1.i.i794, i1 %167
   br i1 %spec.select839, label %if.then6.i41.i1123, label %if.else7.i38.i993
@@ -2146,7 +2146,7 @@ if.end13.i.i1075:                                 ; preds = %if.then12.i.i1119, 
   %and.i.i.i800 = and i64 %a.val.i798, 4095
   %and.i3.i.i801 = and i64 %b.val.i799, 4095
   %cmp.not.i803 = icmp eq i64 %and.i.i.i800, %and.i3.i.i801
-  %184 = icmp ult i64 %and.i.i.i800, %and.i3.i.i801
+  %184 = icmp samesign ult i64 %and.i.i.i800, %and.i3.i.i801
   %cmp1.i.i808 = icmp ult ptr %phn0.i.i959.1846, %176
   %spec.select840 = select i1 %cmp.not.i803, i1 %cmp1.i.i808, i1 %184
   br i1 %spec.select840, label %if.then6.i.i1105, label %if.else7.i.i1088
@@ -2243,7 +2243,7 @@ if.else4.i17.i1024:                               ; preds = %while.body20.i.i101
   %and.i.i.i814 = and i64 %a.val.i812, 4095
   %and.i3.i.i815 = and i64 %b.val.i813, 4095
   %cmp.not.i817 = icmp eq i64 %and.i.i.i814, %and.i3.i.i815
-  %205 = icmp ult i64 %and.i.i.i814, %and.i3.i.i815
+  %205 = icmp samesign ult i64 %and.i.i.i814, %and.i3.i.i815
   %cmp1.i.i822 = icmp ult ptr %phn0.i.i959.3, %phn1.i.i960.0
   %spec.select841 = select i1 %cmp.not.i817, i1 %cmp1.i.i822, i1 %205
   br i1 %spec.select841, label %if.then6.i23.i1049, label %if.else7.i20.i1027
@@ -3089,7 +3089,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %56 = load ptr, ptr %ph, align 8
   store ptr %56, ptr %.pre-phi128, align 8
   %inc29.i = add nuw nsw i32 %i.i.0126, 1
-  %cmp27.i = icmp uge i32 %inc29.i, %28
+  %cmp27.i = icmp samesign uge i32 %inc29.i, %28
   %.not = or i1 %cmp8.i.not, %cmp27.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !7
 

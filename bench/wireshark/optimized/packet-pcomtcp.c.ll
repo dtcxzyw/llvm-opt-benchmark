@@ -426,7 +426,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %63 = add i32 %.3126, %.0
   %64 = add i8 %.0104127, 1
   %65 = zext i8 %64 to i32
-  %66 = icmp ugt i32 %60, %65
+  %66 = icmp samesign ugt i32 %60, %65
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 67:                                               ; preds = %40
@@ -449,7 +449,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %75 = add i32 %.4128, %.0
   %76 = add i8 %.1129, 1
   %77 = zext i8 %76 to i32
-  %78 = icmp ugt i32 %72, %77
+  %78 = icmp samesign ugt i32 %72, %77
   br i1 %78, label %.lr.ph130, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph130, %56, %68, %55, %67, %24

@@ -4310,7 +4310,7 @@ rb_array_len.exit112:                             ; preds = %196
 rb_array_len.exit112.thread:                      ; preds = %196
   %201 = lshr i64 %197, 15
   %202 = and i64 %201, 127
-  %203 = icmp ult i64 %.0102, %202
+  %203 = icmp samesign ult i64 %.0102, %202
   br i1 %203, label %RARRAY_AREF.exit, label %.loopexit
 
 204:                                              ; preds = %rb_array_len.exit112
@@ -7351,7 +7351,7 @@ wquo.exit.i:                                      ; preds = %143, %140, %135, %q
   %171 = trunc i64 %67 to i32
   %172 = lshr i32 %171, 10
   %173 = and i32 %172, 15
-  %174 = icmp ugt i32 %173, 11
+  %174 = icmp samesign ugt i32 %173, 11
   br i1 %174, label %175, label %200
 
 175:                                              ; preds = %170
@@ -7552,7 +7552,7 @@ quor.exit.i136.i:                                 ; preds = %248, %245, %239
 290:                                              ; preds = %287
   %291 = zext i8 %288 to i32
   %292 = and i32 %291, 15
-  %293 = icmp ugt i32 %292, 9
+  %293 = icmp samesign ugt i32 %292, 9
   br i1 %293, label %310, label %294
 
 294:                                              ; preds = %290
@@ -12960,7 +12960,7 @@ addv.exit:                                        ; preds = %199, %202, %214, %.
   br i1 %.not56, label %264, label %259
 
 259:                                              ; preds = %254
-  %.cmp114 = icmp ult i16 %258, 6
+  %.cmp114 = icmp samesign ult i16 %258, 6
   %.v = select i1 %.cmp114, i16 1, i16 -6
   %260 = add nsw i16 %.v, %258
   %261 = shl nuw nsw i16 %260, 6
@@ -14769,7 +14769,7 @@ define internal fastcc void @validate_vtm(ptr nocapture noundef readonly %0) unn
 14:                                               ; preds = %9
   %15 = lshr i32 %3, 18
   %16 = and i32 %15, 31
-  %17 = icmp ugt i32 %16, 24
+  %17 = icmp samesign ugt i32 %16, 24
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
@@ -14782,7 +14782,7 @@ define internal fastcc void @validate_vtm(ptr nocapture noundef readonly %0) unn
   %22 = and i32 %21, 63
   %23 = icmp eq i32 %16, 24
   %24 = select i1 %23, i32 0, i32 59
-  %25 = icmp ugt i32 %22, %24
+  %25 = icmp samesign ugt i32 %22, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20
@@ -14796,7 +14796,7 @@ define internal fastcc void @validate_vtm(ptr nocapture noundef readonly %0) unn
   %31 = and i16 %30, 63
   %32 = zext nneg i16 %31 to i32
   %33 = select i1 %23, i32 0, i32 60
-  %34 = icmp ult i32 %33, %32
+  %34 = icmp samesign ult i32 %33, %32
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %28
@@ -16974,7 +16974,7 @@ leap_year_p.exit.thread90:                        ; preds = %137, %leap_year_p.e
   %142 = load i32, ptr %7, align 8
   %143 = lshr i32 %142, 13
   %144 = and i32 %143, 31
-  %145 = icmp ugt i32 %144, %141
+  %145 = icmp samesign ugt i32 %144, %141
   br i1 %145, label %146, label %163
 
 146:                                              ; preds = %leap_year_p.exit.thread90
@@ -17653,7 +17653,7 @@ cmp.exit.i:                                       ; preds = %.critedge.i.i, %153
   br i1 %.not38.i, label %170, label %168
 
 168:                                              ; preds = %159
-  %169 = icmp ult i32 %163, %167
+  %169 = icmp samesign ult i32 %163, %167
   br i1 %169, label %select.unfold113, label %cmp.exit.thread.i
 
 170:                                              ; preds = %159
@@ -17665,7 +17665,7 @@ cmp.exit.i:                                       ; preds = %.critedge.i.i, %153
   br i1 %.not39.i, label %177, label %175
 
 175:                                              ; preds = %170
-  %176 = icmp ult i32 %172, %174
+  %176 = icmp samesign ult i32 %172, %174
   br i1 %176, label %select.unfold113, label %cmp.exit.thread.i
 
 177:                                              ; preds = %170
@@ -17677,7 +17677,7 @@ cmp.exit.i:                                       ; preds = %.critedge.i.i, %153
   br i1 %.not40.i, label %184, label %182
 
 182:                                              ; preds = %177
-  %183 = icmp ult i32 %179, %181
+  %183 = icmp samesign ult i32 %179, %181
   br i1 %183, label %select.unfold113, label %cmp.exit.thread.i
 
 184:                                              ; preds = %177
@@ -17689,7 +17689,7 @@ cmp.exit.i:                                       ; preds = %.critedge.i.i, %153
   br i1 %.not41.i, label %191, label %189
 
 189:                                              ; preds = %184
-  %190 = icmp ult i32 %186, %188
+  %190 = icmp samesign ult i32 %186, %188
   br i1 %190, label %select.unfold113, label %cmp.exit.thread.i
 
 191:                                              ; preds = %184
@@ -17703,7 +17703,7 @@ cmp.exit.i:                                       ; preds = %.critedge.i.i, %153
   br i1 %.not42.i, label %200, label %198
 
 198:                                              ; preds = %191
-  %199 = icmp ult i16 %194, %197
+  %199 = icmp samesign ult i16 %194, %197
   br i1 %199, label %select.unfold113, label %cmp.exit.thread.i
 
 200:                                              ; preds = %191
@@ -18019,7 +18019,7 @@ cmp.exit.thread32:                                ; preds = %43, %cmp.exit, %cmp
   br i1 %.not27, label %75, label %71
 
 71:                                               ; preds = %64
-  %72 = icmp ult i32 %67, %70
+  %72 = icmp samesign ult i32 %67, %70
   %73 = select i1 %72, i32 -86400, i32 86400
   %74 = add nsw i32 %73, %29
   br label %84
@@ -18033,7 +18033,7 @@ cmp.exit.thread32:                                ; preds = %43, %cmp.exit, %cmp
   br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %77, %79
+  %81 = icmp samesign ult i32 %77, %79
   %82 = select i1 %81, i32 -86400, i32 86400
   %83 = add nsw i32 %82, %29
   br label %84

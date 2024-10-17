@@ -136,7 +136,7 @@ define void @_ZN2cv11minAreaRectERKNS_11_InputArrayE(ptr dead_on_unwind noalias 
   %44 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %44, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i.i = icmp ugt i32 %36, 88
+  %.not.i.i.i = icmp samesign ugt i32 %36, 88
   store i64 %43, ptr %45, align 8
   br i1 %.not.i.i.i, label %46, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
 
@@ -184,7 +184,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %41
   %.1240.i = select i1 %57, float %.sroa.8.0278.i, float %.0239279.i
   %.1224.i = select i1 %57, i32 %54, i32 %.0223285.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = icmp ult i64 %indvars.iv.next.i, %50
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %50
   %59 = and i64 %indvars.iv.next.i, 4294967295
   %60 = select i1 %58, i64 %59, i64 0
   %61 = getelementptr inbounds %"class.cv::Point_", ptr %39, i64 %60

@@ -5735,9 +5735,9 @@ add_group_mask_entry.exit236.i:                   ; preds = %238, %230
   %indvars.iv.i244.i = phi i64 [ 0, %389 ], [ %.pre.i.i, %._crit_edge.i.i ]
   %401 = shl nuw nsw i64 %indvars.iv.i244.i, 1
   %402 = add nuw nsw i64 %401, 200
-  %.not.i.i = icmp ult i64 %402, %.val
+  %.not.i.i = icmp samesign ult i64 %402, %.val
   %403 = add nuw nsw i64 %398, %402
-  %.not36.i.i = icmp ugt i64 %403, %399
+  %.not36.i.i = icmp samesign ugt i64 %403, %399
   %or.cond39.i.i = select i1 %.not.i.i, i1 true, i1 %.not36.i.i
   %.pre.i.i = add nuw nsw i64 %indvars.iv.i244.i, 1
   br i1 %or.cond39.i.i, label %._crit_edge.i.i, label %404
@@ -5887,7 +5887,7 @@ add_group_mask_entry.exit.i100:                   ; preds = %457, %447
   %indvars.iv.i35.i = phi i64 [ 0, %473 ], [ %.pre.i.i107, %._crit_edge.i.i108 ]
   %483 = shl nuw nsw i64 %indvars.iv.i35.i, 3
   %484 = add nuw nsw i64 %483, 8
-  %.not.i.i104 = icmp ult i64 %484, %.val75
+  %.not.i.i104 = icmp samesign ult i64 %484, %.val75
   %485 = trunc i64 %483 to i32
   %reass.sub237 = sub i32 %485, %445
   %486 = add i32 %reass.sub237, 16
@@ -7171,7 +7171,7 @@ dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1160, %1157, %1134,
   br label %1183
 
 1183:                                             ; preds = %1180, %1175
-  %1184 = icmp ugt i32 %1173, 4
+  %1184 = icmp samesign ugt i32 %1173, 4
   %1185 = sub nuw nsw i32 8, %1173
   %.not.i.i188 = icmp ugt i32 %1185, %4
   %or.cond43.i.i = select i1 %1184, i1 true, i1 %.not.i.i188
@@ -7184,7 +7184,7 @@ dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1160, %1157, %1134,
   br label %1190
 
 1190:                                             ; preds = %1186, %1183
-  %1191 = icmp ugt i32 %1173, 8
+  %1191 = icmp samesign ugt i32 %1173, 8
   %1192 = sub nuw nsw i32 12, %1173
   %.not38.i.i = icmp ugt i32 %1192, %4
   %or.cond44.i.i = select i1 %1191, i1 true, i1 %.not38.i.i
@@ -7196,7 +7196,7 @@ dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1160, %1157, %1134,
   br label %1196
 
 1196:                                             ; preds = %1193, %1190
-  %1197 = icmp ugt i32 %1173, 12
+  %1197 = icmp samesign ugt i32 %1173, 12
   %1198 = sub nuw nsw i32 14, %1173
   %.not39.i.i = icmp ugt i32 %1198, %4
   %or.cond45.i.i = select i1 %1197, i1 true, i1 %.not39.i.i
@@ -10367,7 +10367,7 @@ define internal fastcc void @dissect_nvme_get_logpage_ify_rcrd_resp(ptr noundef 
   br label %16
 
 16:                                               ; preds = %13, %6
-  %17 = icmp ugt i32 %3, 1
+  %17 = icmp samesign ugt i32 %3, 1
   %18 = sub nuw nsw i32 2, %3
   %.not104 = icmp ugt i32 %18, %5
   %or.cond = select i1 %17, i1 true, i1 %.not104
@@ -10381,7 +10381,7 @@ define internal fastcc void @dissect_nvme_get_logpage_ify_rcrd_resp(ptr noundef 
   br label %23
 
 23:                                               ; preds = %19, %16
-  %24 = icmp ugt i32 %3, 2
+  %24 = icmp samesign ugt i32 %3, 2
   %25 = sub nuw nsw i32 3, %3
   %.not105 = icmp ugt i32 %25, %5
   %or.cond116 = select i1 %24, i1 true, i1 %.not105
@@ -10395,7 +10395,7 @@ define internal fastcc void @dissect_nvme_get_logpage_ify_rcrd_resp(ptr noundef 
   br label %30
 
 30:                                               ; preds = %26, %23
-  %31 = icmp ugt i32 %3, 3
+  %31 = icmp samesign ugt i32 %3, 3
   %32 = sub nuw nsw i32 4, %3
   %.not106 = icmp ugt i32 %32, %5
   %or.cond117 = select i1 %31, i1 true, i1 %.not106
@@ -10420,7 +10420,7 @@ define internal fastcc void @dissect_nvme_get_logpage_ify_rcrd_resp(ptr noundef 
   br i1 %exitcond.not.i, label %add_group_mask_entry.exit, label %40, !llvm.loop !6
 
 add_group_mask_entry.exit:                        ; preds = %40, %30
-  %44 = icmp ugt i32 %3, 4
+  %44 = icmp samesign ugt i32 %3, 4
   %45 = sub nuw nsw i32 6, %3
   %.not107 = icmp ugt i32 %45, %5
   %or.cond118 = select i1 %44, i1 true, i1 %.not107
@@ -10434,7 +10434,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %50
 
 50:                                               ; preds = %46, %add_group_mask_entry.exit
-  %51 = icmp ugt i32 %3, 6
+  %51 = icmp samesign ugt i32 %3, 6
   %52 = sub nuw nsw i32 8, %3
   %.not108 = icmp ugt i32 %52, %5
   %or.cond119 = select i1 %51, i1 true, i1 %.not108
@@ -10448,7 +10448,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %57
 
 57:                                               ; preds = %53, %50
-  %58 = icmp ugt i32 %3, 8
+  %58 = icmp samesign ugt i32 %3, 8
   %59 = sub nuw nsw i32 10, %3
   %.not109 = icmp ugt i32 %59, %5
   %or.cond120 = select i1 %58, i1 true, i1 %.not109
@@ -10462,7 +10462,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %64
 
 64:                                               ; preds = %60, %57
-  %65 = icmp ugt i32 %3, 10
+  %65 = icmp samesign ugt i32 %3, 10
   %66 = sub nuw nsw i32 32, %3
   %.not110 = icmp ugt i32 %66, %5
   %or.cond121 = select i1 %65, i1 true, i1 %.not110
@@ -10476,7 +10476,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %71
 
 71:                                               ; preds = %67, %64
-  %72 = icmp ugt i32 %3, 32
+  %72 = icmp samesign ugt i32 %3, 32
   %73 = sub nuw nsw i32 62, %3
   %.not111 = icmp ugt i32 %73, %5
   %or.cond122 = select i1 %72, i1 true, i1 %.not111
@@ -10490,7 +10490,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %78
 
 78:                                               ; preds = %74, %71
-  %79 = icmp ugt i32 %3, 64
+  %79 = icmp samesign ugt i32 %3, 64
   %80 = sub nuw nsw i32 256, %3
   %.not112 = icmp ugt i32 %80, %5
   %or.cond123 = select i1 %79, i1 true, i1 %.not112
@@ -10504,7 +10504,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %85
 
 85:                                               ; preds = %81, %78
-  %86 = icmp ugt i32 %3, 256
+  %86 = icmp samesign ugt i32 %3, 256
   %87 = sub nuw nsw i32 512, %3
   %.not113 = icmp ugt i32 %87, %5
   %or.cond124 = select i1 %86, i1 true, i1 %.not113
@@ -10518,7 +10518,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %92
 
 92:                                               ; preds = %88, %85
-  %93 = icmp ugt i32 %3, 512
+  %93 = icmp samesign ugt i32 %3, 512
   %94 = sub nuw nsw i32 768, %3
   %.not114 = icmp ugt i32 %94, %5
   %or.cond125 = select i1 %93, i1 true, i1 %.not114
@@ -10532,7 +10532,7 @@ add_group_mask_entry.exit:                        ; preds = %40, %30
   br label %99
 
 99:                                               ; preds = %95, %92
-  %100 = icmp ugt i32 %3, 768
+  %100 = icmp samesign ugt i32 %3, 768
   %101 = sub nuw nsw i32 1024, %3
   %.not115 = icmp ugt i32 %101, %5
   %or.cond126 = select i1 %100, i1 true, i1 %.not115

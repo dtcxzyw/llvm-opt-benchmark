@@ -868,7 +868,7 @@ for.end:                                          ; preds = %for.body.preheader,
   %sub173 = add i32 %85, 7
   %div17495 = lshr i32 %sub173, 3
   %add175 = add nuw nsw i32 %div17495, %add165
-  %cmp177225 = icmp ult i32 %n145.0.lcssa, %add175
+  %cmp177225 = icmp samesign ult i32 %n145.0.lcssa, %add175
   br i1 %cmp177225, label %for.body179.preheader, label %for.end185
 
 for.body179.preheader:                            ; preds = %for.end

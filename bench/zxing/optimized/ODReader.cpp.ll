@@ -1567,7 +1567,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0297.0388, i64 120
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 4
-  %215 = icmp ult i32 %.sroa.speculated.i, %.sroa.speculated.i164
+  %215 = icmp samesign ult i32 %.sroa.speculated.i, %.sroa.speculated.i164
   br i1 %215, label %227, label %216
 
 216:                                              ; preds = %204
@@ -1581,7 +1581,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
   %222 = call i32 @llvm.abs.i32(i32 %.sroa.0292.0.extract.trunc, i1 true)
   %223 = call i32 @llvm.abs.i32(i32 %.sroa.2293.0.extract.trunc, i1 true)
   %224 = add nuw nsw i32 %223, %222
-  %225 = icmp ugt i32 %221, %224
+  %225 = icmp samesign ugt i32 %221, %224
   %226 = xor i1 %4, %225
   br i1 %226, label %227, label %229
 

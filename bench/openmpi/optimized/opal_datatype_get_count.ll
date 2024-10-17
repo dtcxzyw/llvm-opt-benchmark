@@ -522,8 +522,8 @@ define i64 @opal_datatype_compute_remote_size(ptr nocapture noundef %0, ptr noca
   %.1 = phi i64 [ %32, %25 ], [ %.01925, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = icmp ne i32 %.121, 0
-  %36 = icmp ult i64 %indvars.iv, 27
-  %37 = and i1 %35, %36
+  %36 = icmp samesign ult i64 %indvars.iv, 27
+  %37 = select i1 %35, i1 %36, i1 false
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %34, %21, %7

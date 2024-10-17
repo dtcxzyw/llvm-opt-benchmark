@@ -1229,7 +1229,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %83 = load i8, ptr %82, align 1
   %84 = and i8 %83, 1
   %narrow26 = add nuw nsw i8 %narrow, %84
-  %85 = icmp ugt i8 %narrow26, 1
+  %85 = icmp samesign ugt i8 %narrow26, 1
   br i1 %85, label %86, label %98
 
 86:                                               ; preds = %75

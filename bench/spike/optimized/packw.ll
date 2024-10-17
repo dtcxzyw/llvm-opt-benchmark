@@ -331,13 +331,13 @@ define noundef i64 @_Z16fast_rv64e_packwP11processor_t6insn_tm(ptr nocapture nou
 .critedge:                                        ; preds = %._crit_edge
   %15 = lshr i64 %1, 15
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %23, label %28
 
 .critedge.thread:                                 ; preds = %3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %23, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread
@@ -360,7 +360,7 @@ define noundef i64 @_Z16fast_rv64e_packwP11processor_t6insn_tm(ptr nocapture nou
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = getelementptr inbounds [32 x i64], ptr %29, i64 0, i64 %16
-  %31 = icmp ugt i64 %5, 15
+  %31 = icmp samesign ugt i64 %5, 15
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %28
@@ -379,7 +379,7 @@ define noundef i64 @_Z16fast_rv64e_packwP11processor_t6insn_tm(ptr nocapture nou
   %.in = phi ptr [ %22, %.thread ], [ %30, %28 ]
   %38 = lshr i64 %1, 7
   %39 = and i64 %38, 31
-  %40 = icmp ugt i64 %39, 15
+  %40 = icmp samesign ugt i64 %39, 15
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %37
@@ -463,13 +463,13 @@ define noundef i64 @_Z18logged_rv64e_packwP11processor_t6insn_tm(ptr noundef %0,
 .critedge:                                        ; preds = %._crit_edge
   %15 = lshr i64 %1, 15
   %16 = and i64 %15, 31
-  %17 = icmp ugt i64 %16, 15
+  %17 = icmp samesign ugt i64 %16, 15
   br i1 %17, label %23, label %28
 
 .critedge.thread:                                 ; preds = %3
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = icmp ugt i64 %19, 15
+  %20 = icmp samesign ugt i64 %19, 15
   br i1 %20, label %23, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread
@@ -492,7 +492,7 @@ define noundef i64 @_Z18logged_rv64e_packwP11processor_t6insn_tm(ptr noundef %0,
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = getelementptr inbounds [32 x i64], ptr %29, i64 0, i64 %16
-  %31 = icmp ugt i64 %5, 15
+  %31 = icmp samesign ugt i64 %5, 15
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %28
@@ -577,7 +577,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %45, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %73 = icmp ugt i64 %48, 15
+  %73 = icmp samesign ugt i64 %48, 15
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

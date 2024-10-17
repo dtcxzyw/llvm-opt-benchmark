@@ -4933,7 +4933,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 define internal fastcc ptr @nameOf(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
-  %switch = icmp ult i32 %5, 2
+  %switch = icmp samesign ult i32 %5, 2
   br i1 %switch, label %6, label %8
 
 6:                                                ; preds = %3

@@ -3144,7 +3144,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc220, %168
   %358 = call i32 @llvm.abs.i32(i32 %357, i1 true)
   %359 = shl nuw nsw i32 %358, 15
   %360 = mul nuw nsw i32 %356, 13573
-  %361 = icmp ult i32 %359, %360
+  %361 = icmp samesign ult i32 %359, %360
   br i1 %361, label %362, label %382
 
 362:                                              ; preds = %350
@@ -5955,7 +5955,7 @@ _ZNSt11_Deque_baseIPhSaIS0_EE16_M_allocate_nodeEv.exit: ; preds = %.lr.ph
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #15
-  %51 = icmp ugt i64 %.01422, 1
+  %51 = icmp samesign ugt i64 %.01422, 1
   br i1 %51, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %47, %.lr.ph25
@@ -6437,7 +6437,7 @@ _ZNSt11_Deque_baseIPhSaIS0_EE16_M_allocate_nodeEv.exit: ; preds = %.lr.ph
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = tail call ptr @__cxa_begin_catch(ptr %50) #15
-  %52 = icmp ugt i64 %.01423, 1
+  %52 = icmp samesign ugt i64 %.01423, 1
   br i1 %52, label %.lr.ph26, label %._crit_edge27
 
 .lr.ph26:                                         ; preds = %48, %.lr.ph26

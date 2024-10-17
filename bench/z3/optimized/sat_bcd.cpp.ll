@@ -1644,7 +1644,7 @@ if.end.i.i11:                                     ; preds = %for.cond5
 
 invoke.cont7:                                     ; preds = %if.end.i.i11, %for.cond5
   %retval.0.i.i13 = phi i64 [ %7, %if.end.i.i11 ], [ 0, %for.cond5 ]
-  %cmp9 = icmp ult i64 %indvars.iv, %retval.0.i.i13
+  %cmp9 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i13
   br i1 %cmp9, label %invoke.cont15, label %for.end177
 
 invoke.cont15:                                    ; preds = %invoke.cont7
@@ -3198,7 +3198,7 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i: ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i64 [ %7, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.i8 = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp.i8 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i8, label %for.body.i, label %invoke.cont16
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i
@@ -3252,7 +3252,7 @@ _ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i14.thread: ; preds = %invoke.c
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %16, i64 -4
   %17 = load i32, ptr %arrayidx.i.i13, align 4
   %18 = zext i32 %17 to i64
-  %cmp.i1642 = icmp ult i64 %indvars.iv.i1049, %18
+  %cmp.i1642 = icmp samesign ult i64 %indvars.iv.i1049, %18
   br i1 %cmp.i1642, label %for.body.i17, label %if.then.i.i.i
 
 for.body.i17:                                     ; preds = %_ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i14.thread
@@ -4849,7 +4849,7 @@ if.end.i.i212:                                    ; preds = %for.cond.i
 
 _ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i: ; preds = %if.end.i.i212, %for.cond.i
   %retval.0.i.i214 = phi i64 [ %129, %if.end.i.i212 ], [ 0, %for.cond.i ]
-  %cmp.i215 = icmp ult i64 %indvars.iv.i, %retval.0.i.i214
+  %cmp.i215 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i214
   br i1 %cmp.i215, label %for.body.i217, label %if.end79
 
 for.body.i217:                                    ; preds = %_ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i

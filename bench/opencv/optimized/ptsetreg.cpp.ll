@@ -7971,7 +7971,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %.lr.ph125, %119
   %126 = phi i32 [ %125, %119 ], [ 0, %.lr.ph125 ]
   %.idx109 = shl nuw nsw i64 %indvars.iv144, 2
   %127 = getelementptr inbounds i8, ptr %25, i64 %.idx109
-  %.not108 = icmp ult i64 %indvars.iv144, 4
+  %.not108 = icmp samesign ult i64 %indvars.iv144, 4
   %128 = lshr i64 %indvars.iv144, 2
   %129 = and i64 %.idx109, 8589934576
   %scevgep.i.i.i = getelementptr i8, ptr %25, i64 %129
@@ -9742,7 +9742,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

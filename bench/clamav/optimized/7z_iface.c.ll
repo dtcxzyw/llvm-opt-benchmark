@@ -285,7 +285,7 @@ select.unfold:                                    ; preds = %118, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = load i32, ptr %30, align 8
   %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %indvars.iv.next, %125
+  %126 = icmp samesign ult i64 %indvars.iv.next, %125
   br i1 %126, label %37, label %.loopexit
 
 .thread117:                                       ; preds = %27, %2, %21

@@ -5312,7 +5312,7 @@ define hidden void @_ZN4llvm16InstCombinerImpl18matchSymmetricPairEPNS_5ValueES2
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4, !noalias !24
   %18 = and i32 %17, 134217727
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   br i1 %19, label %_ZL26matchSymmetricPhiNodesPairPN4llvm7PHINodeES1_.exit, label %20
 
 20:                                               ; preds = %15
@@ -11921,7 +11921,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %162 = load i32, ptr %161, align 4
   %163 = and i32 %162, 134217727
   %164 = zext nneg i32 %163 to i64
-  %165 = icmp ult i64 %indvars.iv.next, %164
+  %165 = icmp samesign ult i64 %indvars.iv.next, %164
   br i1 %165, label %107, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit, %91
@@ -13097,7 +13097,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %330, %340
   %362 = icmp eq i8 %361, 13
   %.not111.us = icmp eq ptr %360, %351
   %or.cond.us = or i1 %.not111.us, %362
-  %.not112.us = icmp ult i64 %indvars.iv363, %345
+  %.not112.us = icmp samesign ult i64 %indvars.iv363, %345
   %or.cond120.us = and i1 %.not112.us, %or.cond.us
   br i1 %or.cond120.us, label %363, label %.loopexit
 
@@ -13106,7 +13106,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %330, %340
   br label %364
 
 364:                                              ; preds = %363, %.lr.ph.split.us
-  %.not113.us = icmp ult i64 %indvars.iv363, %345
+  %.not113.us = icmp samesign ult i64 %indvars.iv363, %345
   br i1 %.not113.us, label %365, label %368
 
 365:                                              ; preds = %364
@@ -13154,7 +13154,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %330, %340
   %389 = icmp eq i8 %388, 13
   %.not111 = icmp eq ptr %387, %378
   %or.cond = or i1 %.not111, %389
-  %.not112 = icmp ult i64 %indvars.iv, %345
+  %.not112 = icmp samesign ult i64 %indvars.iv, %345
   %or.cond120 = and i1 %.not112, %or.cond
   br i1 %or.cond120, label %390, label %.loopexit
 
@@ -13163,7 +13163,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %330, %340
   br label %391
 
 391:                                              ; preds = %390, %.lr.ph.split
-  %.not113 = icmp ult i64 %indvars.iv, %345
+  %.not113 = icmp samesign ult i64 %indvars.iv, %345
   br i1 %.not113, label %392, label %395
 
 392:                                              ; preds = %391
@@ -17941,7 +17941,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i369:
   br i1 %492, label %493, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 493:                                              ; preds = %491
-  %494 = icmp ugt i32 %.0282549, 1
+  %494 = icmp samesign ugt i32 %.0282549, 1
   br i1 %494, label %495, label %500
 
 495:                                              ; preds = %493
@@ -28006,7 +28006,7 @@ _ZL10isCatchAllN4llvm13EHPersonalityEPNS_8ConstantE.exit.thread: ; preds = %.cri
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm8ConstantES2_EC2ES3_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !263
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %246
@@ -30612,7 +30612,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.ex
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4llvm17DbgVariableRecordES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !311
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %72
@@ -49151,7 +49151,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm20DbgVariableIntrin
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

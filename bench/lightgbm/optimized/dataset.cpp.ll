@@ -11116,7 +11116,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
   %69 = getelementptr inbounds double, ptr %42, i64 %68
   store double %67, ptr %69, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %70 = icmp ult i64 %indvars.iv.next, %60
+  %70 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !65
 
 71:                                               ; preds = %28
@@ -12257,7 +12257,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
   %68 = getelementptr inbounds double, ptr %42, i64 %67
   store double %66, ptr %68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %69 = icmp ult i64 %indvars.iv.next, %59
+  %69 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 70:                                               ; preds = %28
@@ -23828,7 +23828,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIiS
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !155
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %151
@@ -40283,13 +40283,13 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 .thread385:                                       ; preds = %741, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS6_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i, %781
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %783 = icmp ult i32 %.0135, 10
+  %783 = icmp samesign ult i32 %.0135, 10
   br i1 %783, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread385, %795
   %.02230.i.i = phi i32 [ %796, %795 ], [ %.0135, %.thread385 ]
   %.02329.i.i = phi i32 [ %797, %795 ], [ 1, %.thread385 ]
-  %784 = icmp ult i32 %.02230.i.i, 100
+  %784 = icmp samesign ult i32 %.02230.i.i, 100
   br i1 %784, label %785, label %787
 
 785:                                              ; preds = %.lr.ph.i.i
@@ -40297,7 +40297,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 787:                                              ; preds = %.lr.ph.i.i
-  %788 = icmp ult i32 %.02230.i.i, 1000
+  %788 = icmp samesign ult i32 %.02230.i.i, 1000
   br i1 %788, label %789, label %791
 
 789:                                              ; preds = %787
@@ -40305,7 +40305,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 791:                                              ; preds = %787
-  %792 = icmp ult i32 %.02230.i.i, 10000
+  %792 = icmp samesign ult i32 %.02230.i.i, 10000
   br i1 %792, label %793, label %795
 
 793:                                              ; preds = %791
@@ -40315,7 +40315,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 795:                                              ; preds = %791
   %796 = udiv i32 %.02230.i.i, 10000
   %797 = add i32 %.02329.i.i, 4
-  %798 = icmp ult i32 %.02230.i.i, 100000
+  %798 = icmp samesign ult i32 %.02230.i.i, 100000
   br i1 %798, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !385
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %795, %793, %789, %785, %.thread385
@@ -40331,7 +40331,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %795, %793, %789, %7
           to label %802 unwind label %836
 
 802:                                              ; preds = %800
-  %803 = icmp ugt i32 %.0135, 99
+  %803 = icmp samesign ugt i32 %.0135, 99
   br i1 %803, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %802
@@ -40359,12 +40359,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %795, %793, %789, %7
   %819 = getelementptr inbounds i8, ptr %801, i64 %818
   store i8 %816, ptr %819, align 1
   %820 = add i32 %.01819.i.i, -2
-  %821 = icmp ugt i32 %.020.i.i, 9999
+  %821 = icmp samesign ugt i32 %.020.i.i, 9999
   br i1 %821, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !389
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %802
   %.0.lcssa.i.i = phi i32 [ %.0135, %802 ], [ %807, %.lr.ph.i11.i ]
-  %822 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %822 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %822, label %823, label %833
 
 823:                                              ; preds = %._crit_edge.i.i

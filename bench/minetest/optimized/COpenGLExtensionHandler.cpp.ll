@@ -1050,7 +1050,7 @@ entry:
   %Version = getelementptr inbounds i8, ptr %this, i64 56
   store i16 %conv, ptr %Version, align 8, !tbaa !27
   %conv8 = and i32 %add, 65534
-  %cmp = icmp ugt i32 %conv8, 101
+  %cmp = icmp samesign ugt i32 %conv8, 101
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -7615,7 +7615,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   %2 = phi i8 [ %3, %if.end8.i ], [ %1, %while.cond.preheader.i ]
   %intValue.052.i = phi i32 [ %add.i, %if.end8.i ], [ 0, %while.cond.preheader.i ]
   %in.addr.051.i = phi ptr [ %incdec.ptr.i, %if.end8.i ], [ %in.addr.0, %while.cond.preheader.i ]
-  %cmp5.i = icmp ugt i8 %2, 57
+  %cmp5.i = icmp samesign ugt i8 %2, 57
   %cmp6.i = icmp ugt i32 %intValue.052.i, 429496718
   %or.cond.i = select i1 %cmp5.i, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %while.end.loopexit.i, label %if.end8.i
@@ -7677,7 +7677,7 @@ land.rhs.i61:                                     ; preds = %if.then8, %if.end8.
   %10 = phi i8 [ %11, %if.end8.i67 ], [ %9, %if.then8 ]
   %intValue.052.i62 = phi i32 [ %add.i71, %if.end8.i67 ], [ 0, %if.then8 ]
   %in.addr.051.i63 = phi ptr [ %incdec.ptr.i72, %if.end8.i67 ], [ %incdec.ptr9, %if.then8 ]
-  %cmp5.i64 = icmp ugt i8 %10, 57
+  %cmp5.i64 = icmp samesign ugt i8 %10, 57
   %cmp6.i65 = icmp ugt i32 %intValue.052.i62, 429496718
   %or.cond.i66 = select i1 %cmp5.i64, i1 true, i1 %cmp6.i65
   br i1 %or.cond.i66, label %while.end.loopexit.i74, label %if.end8.i67

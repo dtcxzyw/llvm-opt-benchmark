@@ -5080,7 +5080,7 @@ common.ret46:                                     ; preds = %11, %13, %2, %.lr.p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %1, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %.lr.ph, label %common.ret46
 }
 
@@ -7293,7 +7293,7 @@ define internal fastcc void @close_member_types(ptr nocapture noundef nonnull re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %0, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16

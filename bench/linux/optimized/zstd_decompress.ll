@@ -2241,7 +2241,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   br i1 %88, label %.thread19, label %76, !llvm.loop !15
 
 89:                                               ; preds = %76
-  %90 = icmp ugt i64 %85, 1
+  %90 = icmp samesign ugt i64 %85, 1
   br i1 %90, label %.thread19, label %.thread18
 
 .thread19:                                        ; preds = %.preheader, %89

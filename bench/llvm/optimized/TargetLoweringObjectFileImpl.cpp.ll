@@ -1319,7 +1319,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit174:           ; preds = %151, %155
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit192:       ; preds = %220, %223
   %.0.i.i191 = phi i64 [ %225, %223 ], [ %222, %220 ]
-  %226 = icmp ult i64 %.0120, %.0.i.i191
+  %226 = icmp samesign ult i64 %.0120, %.0.i.i191
   br i1 %226, label %227, label %281
 
 227:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit192
@@ -4451,7 +4451,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %5, %18, %14
   %34 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %33, ptr %34, align 1, !noalias !103
   %35 = udiv i64 %.0810.i, 10
-  %.not.i19 = icmp ult i64 %.0810.i, 10
+  %.not.i19 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i19, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !106
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -8979,7 +8979,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileWasm20getStatic
   %22 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %21, ptr %22, align 1, !noalias !174
   %23 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !106
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.thread.i
@@ -11143,7 +11143,7 @@ _ZL25getSectionPrefixForGlobalN4llvm11SectionKindEb.exit: ; preds = %21, %26, %3
   %58 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %57, ptr %58, align 1, !noalias !208
   %59 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !106
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -11227,7 +11227,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit22:                 ; preds = %.lr.ph.i16
   %85 = getelementptr inbounds i8, ptr %.111.i24, i64 -1
   store i8 %84, ptr %85, align 1, !noalias !214
   %86 = udiv i64 %.0810.i25, 10
-  %.not.i26 = icmp ult i64 %.0810.i25, 10
+  %.not.i26 = icmp samesign ult i64 %.0810.i25, 10
   br i1 %.not.i26, label %_ZN4llvm6utostrB5cxx11Emb.exit29, label %.lr.ph.i23, !llvm.loop !106
 
 _ZN4llvm6utostrB5cxx11Emb.exit29:                 ; preds = %.lr.ph.i23, %.thread.i28

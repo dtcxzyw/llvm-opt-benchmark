@@ -464,7 +464,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 22
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
-  %.not.i.i.i = icmp ult i32 %151, %154
+  %.not.i.i.i = icmp samesign ult i32 %151, %154
   br i1 %.not.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i: ; preds = %149
@@ -482,7 +482,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i: ; preds = %149
 
 164:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i
   %165 = lshr i32 %142, 3
-  %.not.i4.i.i = icmp ult i32 %165, %154
+  %.not.i4.i.i = icmp samesign ult i32 %165, %154
   br i1 %.not.i4.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit: ; preds = %164
@@ -634,7 +634,7 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit:         ; preds = %249
 
 264:                                              ; preds = %_ZNK4llvm12LiveRegUnits9availableEt.exit
   %265 = lshr i32 %262, 6
-  %.not32.i.i.i.i = icmp ugt i32 %265, %230
+  %.not32.i.i.i.i = icmp samesign ugt i32 %265, %230
   br i1 %.not32.i.i.i.i, label %.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %264

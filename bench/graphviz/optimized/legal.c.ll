@@ -1172,7 +1172,7 @@ gt.exit.thread.i:                                 ; preds = %76, %69
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %515, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %516 = icmp ult i64 %indvars.iv.next113.i, %512
+  %516 = icmp samesign ult i64 %indvars.iv.next113.i, %512
   br i1 %516, label %.lr.ph.i81, label %.loopexit.i79
 
 .lr.ph.i81:                                       ; preds = %.lr.ph107.i

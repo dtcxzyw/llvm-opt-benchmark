@@ -631,7 +631,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit.i: ; pred
   %235 = zext i16 %234 to i32
   %236 = and i32 %235, 8
   %237 = or disjoint i32 %228, %236
-  %238 = icmp ult i32 %112, 3
+  %238 = icmp samesign ult i32 %112, 3
   %239 = add i32 %231, -292
   %240 = icmp ult i32 %239, 96
   %or.cond.i290.i = or i1 %238, %240
@@ -692,7 +692,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit295.i: ; p
   %288 = and i32 %287, 8
   %289 = and i32 %163, -9
   %290 = or disjoint i32 %288, %289
-  %291 = icmp ult i32 %112, 3
+  %291 = icmp samesign ult i32 %112, 3
   %292 = add i32 %281, -292
   %293 = icmp ult i32 %292, 96
   %or.cond.i294.i = or i1 %291, %293
@@ -943,7 +943,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit315.i: ; p
   %485 = and i32 %484, 8
   %486 = and i32 %477, -9
   %487 = or disjoint i32 %485, %486
-  %488 = icmp ult i32 %112, 3
+  %488 = icmp samesign ult i32 %112, 3
   %489 = add i32 %480, -292
   %490 = icmp ult i32 %489, 96
   %or.cond.i314.i = or i1 %488, %490
@@ -1037,7 +1037,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i: ; p
   %563 = zext i16 %562 to i32
   %564 = and i32 %563, 8
   %565 = or disjoint i32 %556, %564
-  %566 = icmp ult i32 %112, 3
+  %566 = icmp samesign ult i32 %112, 3
   %567 = add i32 %559, -292
   %568 = icmp ult i32 %567, 96
   %or.cond.i321.i = or i1 %566, %568
@@ -1119,7 +1119,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit332.i: ; p
   %636 = zext i16 %635 to i32
   %637 = and i32 %636, 8
   %638 = or disjoint i32 %629, %637
-  %639 = icmp ult i32 %112, 3
+  %639 = icmp samesign ult i32 %112, 3
   %640 = add i32 %632, -292
   %641 = icmp ult i32 %640, 96
   %or.cond.i331.i = or i1 %639, %641
@@ -1224,7 +1224,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit340.i: ; p
   %710 = and i32 %709, 8
   %711 = and i32 %701, -9
   %712 = or disjoint i32 %710, %711
-  %713 = icmp ult i32 %112, 3
+  %713 = icmp samesign ult i32 %112, 3
   %714 = add i32 %705, -292
   %715 = icmp ult i32 %714, 96
   %or.cond.i339.i = or i1 %713, %715
@@ -1405,7 +1405,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit353.i: ; p
   br i1 %845, label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i, label %850
 
 850:                                              ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit353.i
-  %851 = icmp ult i32 %112, 3
+  %851 = icmp samesign ult i32 %112, 3
   %storemerge49.i = select i1 %851, i32 %849, i32 %843
   %852 = lshr i16 %839, 2
   %853 = and i16 %852, 4
@@ -1491,7 +1491,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit357.i: ; p
   %914 = zext i16 %913 to i32
   %915 = and i32 %914, 8
   %916 = or disjoint i32 %906, %915
-  %917 = icmp ult i32 %112, 3
+  %917 = icmp samesign ult i32 %112, 3
   %918 = add i32 %910, -292
   %919 = icmp ult i32 %918, 96
   %or.cond.i356.i = or i1 %917, %919
@@ -1622,7 +1622,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i: ; p
   br i1 %1013, label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit371.i, label %1018
 
 1018:                                             ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i
-  %1019 = icmp ult i32 %112, 3
+  %1019 = icmp samesign ult i32 %112, 3
   %storemerge47.i = select i1 %1019, i32 %1017, i32 %1011
   %1020 = lshr i16 %1007, 2
   %1021 = and i16 %1020, 4
@@ -1822,7 +1822,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit385.i: ; p
   br i1 %1163, label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit386.i, label %1168
 
 1168:                                             ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit385.i
-  %1169 = icmp ult i32 %112, 3
+  %1169 = icmp samesign ult i32 %112, 3
   %storemerge46.i = select i1 %1169, i32 %1167, i32 %1161
   %1170 = lshr i16 %1157, 2
   %1171 = and i16 %1170, 4

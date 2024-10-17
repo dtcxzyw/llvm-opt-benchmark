@@ -16726,7 +16726,7 @@ define internal fastcc void @hugetlb_hstate_alloc_pages_onenode(ptr noundef %0, 
   %28 = add nuw nsw i64 %12, 1
   %29 = load i32, ptr %6, align 4
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %11, label %.loopexit, !llvm.loop !178
 
 .loopexit:                                        ; preds = %26, %.split1, %15

@@ -1668,7 +1668,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %66
   br label %73
 
 .preheader81:                                     ; preds = %Vec_StrPush.exit65
-  %.not8089.not = icmp ult i32 %.188, %51
+  %.not8089.not = icmp samesign ult i32 %.188, %51
   br i1 %.not8089.not, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader81
@@ -1760,7 +1760,7 @@ Vec_StrPush.exit65:                               ; preds = %.Vec_StrGrow.exit10
   %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
   %115 = add nuw nsw i32 %114, 1
   %116 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smin.i32(i32 %52, i32 %115)
-  %117 = icmp ult i32 %112, %116
+  %117 = icmp samesign ult i32 %112, %116
   br i1 %117, label %73, label %.preheader81, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Vec_StrPush.exit72

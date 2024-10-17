@@ -4425,7 +4425,7 @@ define internal fastcc i32 @_controller_index() unnamed_addr #4 {
   %21 = phi ptr [ %5, %.lr.ph ], [ %5, %8 ], [ %.pre, %._crit_edge31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %20 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %19, %0
@@ -4827,7 +4827,7 @@ define internal fastcc void @_shutdown_backup_controller() unnamed_addr #4 {
   %72 = phi i32 [ %.pre, %._crit_edge90 ], [ %14, %17 ], [ %14, %22 ], [ %14, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = zext i32 %71 to i64
-  %74 = icmp ult i64 %indvars.iv.next, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %70, %10
@@ -7558,7 +7558,7 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   %.1.i = phi double [ %111, %106 ], [ %.01618.i, %99 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %114 = zext i16 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i, %114
   br i1 %115, label %99, label %_set_node_billing_tres.exit, !llvm.loop !43
 
 _set_node_billing_tres.exit:                      ; preds = %112, %90

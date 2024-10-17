@@ -22215,7 +22215,7 @@ for.body:                                         ; preds = %entry, %for.cond.lo
   %2 = tail call double @llvm.fabs.f64(double %1)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %invariant.gep = getelementptr inbounds double, ptr %temp, i64 %indvars.iv161
-  %cmp3123 = icmp ult i64 %indvars.iv161, 3
+  %cmp3123 = icmp samesign ult i64 %indvars.iv161, 3
   %3 = trunc nuw nsw i64 %indvars.iv161 to i32
   br i1 %cmp3123, label %for.body4, label %for.end
 

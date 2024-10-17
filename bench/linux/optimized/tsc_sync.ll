@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
 32:                                               ; preds = %41, %30
   %33 = phi i64 [ 0, %30 ], [ %47, %41 ]
   %34 = and i64 %33, 4294967295
-  %35 = icmp ugt i64 %34, 63
+  %35 = icmp samesign ugt i64 %34, 63
   br i1 %35, label %.thread, label %36, !prof !15
 
 36:                                               ; preds = %32

@@ -1149,7 +1149,7 @@ if.then:                                          ; preds = %entry
   %2 = load i8, ptr %1, align 1
   %tobool.not = icmp eq i8 %2, 0
   %cond = select i1 %tobool.not, ptr @.str.12, ptr @.str.11
-  %cmp.not3.i = icmp ult i32 %0, 10
+  %cmp.not3.i = icmp samesign ult i32 %0, 10
   br i1 %cmp.not3.i, label %digits_in_number.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i

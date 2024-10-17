@@ -3622,7 +3622,7 @@ btmesh_deobfuscate.exit:                          ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = load i32, ptr @num_btmesh_uat, align 4
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next, %134
   br i1 %135, label %25, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %75, %132, %5, %122
@@ -6956,7 +6956,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %51 = phi i32 [ %.pre153.i, %.loopexit109.us.loopexit.i ], [ %33, %44 ], [ %33, %39 ], [ %33, %.lr.ph113.split.us.i ]
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next136.i, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next136.i, %52
   br i1 %53, label %.lr.ph113.split.us.i, label %thread-pre-split.i, !llvm.loop !11
 
 54:                                               ; preds = %.lr.ph.us.i, %71
@@ -6995,7 +6995,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %73 = phi ptr [ %.pre149.i, %._crit_edge151.i ], [ %56, %61 ], [ %56, %54 ]
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %74 = zext i32 %72 to i64
-  %75 = icmp ult i64 %indvars.iv.next133.i, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next133.i, %74
   br i1 %75, label %54, label %.loopexit109.us.loopexit.i, !llvm.loop !12
 
 .lr.ph.us.i:                                      ; preds = %44
@@ -7044,7 +7044,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %99 = phi ptr [ %78, %.lr.ph113.split.i ], [ %.pre.i, %._crit_edge.i ], [ %78, %88 ], [ %78, %83 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = zext i32 %98 to i64
-  %101 = icmp ult i64 %indvars.iv.next.i, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
   br i1 %101, label %.lr.ph113.split.i, label %thread-pre-split.i, !llvm.loop !11
 
 thread-pre-split.i:                               ; preds = %97, %.loopexit109.us.i, %.preheader110.i
@@ -7094,7 +7094,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %122 = phi i32 [ %.pre, %.loopexit.us.i.loopexit ], [ %111, %117 ], [ %111, %.lr.ph116.split.us.i ]
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %indvars.iv.next145.i, %123
+  %124 = icmp samesign ult i64 %indvars.iv.next145.i, %123
   br i1 %124, label %.lr.ph116.split.us.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !13
 
 125:                                              ; preds = %.lr.ph.us117.i, %142
@@ -7133,7 +7133,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %144 = phi ptr [ %.pre154.i, %._crit_edge156.i ], [ %127, %132 ], [ %127, %125 ]
   %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
   %145 = zext i32 %143 to i64
-  %146 = icmp ult i64 %indvars.iv.next142.i, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next142.i, %145
   br i1 %146, label %125, label %.loopexit.us.i.loopexit, !llvm.loop !14
 
 .lr.ph.us117.i:                                   ; preds = %117
@@ -7184,7 +7184,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %168 = load i32, ptr @num_btmesh_dev_key_uat, align 4
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next139.i, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next139.i, %169
   br i1 %170, label %.lr.ph116.split.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !13
 
 .loopexit107.sink.split.i:                        ; preds = %93, %67, %163, %156, %138

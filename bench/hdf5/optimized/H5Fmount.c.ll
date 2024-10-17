@@ -890,7 +890,7 @@ define internal fastcc void @H5F__mount_count_ids_recurse(ptr noundef readonly %
   %46 = getelementptr inbounds i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44, %10
@@ -949,7 +949,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__flush_mounts_recurse(ptr nound
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph

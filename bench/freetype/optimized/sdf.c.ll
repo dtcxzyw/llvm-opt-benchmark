@@ -2112,7 +2112,7 @@ define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr nocapture noundef n
   %41 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
   %42 = lshr i32 %41, 9
   %43 = icmp sgt i32 %39, 0
-  %44 = icmp ugt i32 %41, 65535
+  %44 = icmp samesign ugt i32 %41, 65535
   %or.cond.i.us = select i1 %43, i1 %44, i1 false
   %spec.store.select4.i.us = select i1 %or.cond.i.us, i32 127, i32 %42
   %45 = tail call i32 @llvm.umin.i32(i32 %spec.store.select4.i.us, i32 128)
@@ -2680,7 +2680,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
   %.14091.i = phi i32 [ %63, %.lr.ph.i ], [ %.039.i, %43 ]
   %63 = lshr i32 %.14091.i, 2
   %64 = shl i32 %.092.i, 1
-  %65 = icmp ugt i32 %.14091.i, 35
+  %65 = icmp samesign ugt i32 %.14091.i, 35
   br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
@@ -2817,7 +2817,7 @@ split_sdf_shape.exit.thread:                      ; preds = %.lr.ph96.i, %72, %s
   %114 = getelementptr inbounds i8, ptr %13, i64 8
   %115 = and i64 %.fr242.i, 4294967295
   %116 = icmp eq i64 %115, 1
-  %.not162.i = icmp ult i64 %.fr242.i, 1099511627776
+  %.not162.i = icmp samesign ult i64 %.fr242.i, 1099511627776
   %117 = sext i32 %102 to i64
   br label %172
 
@@ -2872,7 +2872,7 @@ split_sdf_shape.exit.thread:                      ; preds = %.lr.ph96.i, %72, %s
   %138 = call i32 @llvm.abs.i32(i32 %136, i1 true)
   %139 = lshr i32 %138, 9
   %140 = icmp sgt i32 %136, 0
-  %141 = icmp ugt i32 %138, 65535
+  %141 = icmp samesign ugt i32 %138, 65535
   %or.cond.i.us.us.us.i = select i1 %140, i1 %141, i1 false
   %spec.store.select4.i.us.us.us.i = select i1 %or.cond.i.us.us.us.i, i32 127, i32 %139
   %142 = call i32 @llvm.umin.i32(i32 %spec.store.select4.i.us.us.us.i, i32 128)
@@ -2925,7 +2925,7 @@ split_sdf_shape.exit.thread:                      ; preds = %.lr.ph96.i, %72, %s
   %163 = call i32 @llvm.abs.i32(i32 %161, i1 true)
   %164 = lshr i32 %163, 9
   %165 = icmp sgt i32 %161, 0
-  %166 = icmp ugt i32 %163, 65535
+  %166 = icmp samesign ugt i32 %163, 65535
   %or.cond.i.us234.i = select i1 %165, i1 %166, i1 false
   %spec.store.select4.i.us235.i = select i1 %or.cond.i.us234.i, i32 127, i32 %164
   %167 = call i32 @llvm.umin.i32(i32 %spec.store.select4.i.us235.i, i32 128)
@@ -3285,7 +3285,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %392 = sub i32 %.0125158.i.i.us.i, %391
   %or.cond3.i30.i.us.i = icmp ult i32 %392, 65537
   %393 = add nuw nsw i16 %.0124159.i.i.us.i, 1
-  %394 = icmp ult i16 %.0124159.i.i.us.i, 3
+  %394 = icmp samesign ult i16 %.0124159.i.i.us.i, 3
   %or.cond.i31.i.us.i = select i1 %or.cond3.i30.i.us.i, i1 %394, i1 false
   br i1 %or.cond.i31.i.us.i, label %258, label %395, !llvm.loop !33
 
@@ -3546,7 +3546,7 @@ get_min_distance_cubic.exit.i.us.i:               ; preds = %449, %396
   %581 = sub i32 %.093120.i.i.us.i, %580
   %or.cond3.i19.i.us.i = icmp ult i32 %581, 65537
   %582 = add nuw nsw i16 %.092121.i.i.us.i, 1
-  %583 = icmp ult i16 %.092121.i.i.us.i, 3
+  %583 = icmp samesign ult i16 %.092121.i.i.us.i, 3
   %or.cond.i.i.us.i = select i1 %or.cond3.i19.i.us.i, i1 %583, i1 false
   br i1 %or.cond.i.i.us.i, label %494, label %584, !llvm.loop !35
 
@@ -3787,7 +3787,7 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
   %744 = load i32, ptr %739, align 4
   %745 = sub nsw i32 %744, %.sroa.0.sroa.0.0.ph.us.i
   %746 = call i32 @llvm.abs.i32(i32 %745, i1 true)
-  %747 = icmp ult i32 %746, 33
+  %747 = icmp samesign ult i32 %746, 33
   br i1 %747, label %751, label %748
 
 748:                                              ; preds = %743
@@ -3815,7 +3815,7 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
   %.sroa.012.sroa.2.0.extract.trunc.i.us.i = trunc nuw i64 %.sroa.012.sroa.2.0.extract.shift.i.us.i to i32
   %752 = call i32 @llvm.abs.i32(i32 %.sroa.012.sroa.2.0.extract.trunc.i.us.i, i1 true)
   %753 = call i32 @llvm.abs.i32(i32 %.sroa.0.sroa.10.0.ph.us.i, i1 true)
-  %754 = icmp ugt i32 %752, %753
+  %754 = icmp samesign ugt i32 %752, %753
   %..i.us.i = select i1 %754, i64 %.sroa.020.0.copyload.us.i, i64 %.sroa.0.sroa.0.0.insert.insert.us.i
   %.22.i.us.i = select i1 %754, i8 %741, i8 %spec.select201.us.i
   store i64 %..i.us.i, ptr %739, align 4
@@ -4361,7 +4361,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   %18 = load i64, ptr %12, align 16
   %19 = add nsw i64 %17, %18
   %20 = tail call i64 @llvm.abs.i64(i64 %19, i1 true)
-  %21 = icmp ult i64 %20, 16
+  %21 = icmp samesign ult i64 %20, 16
   br i1 %21, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
@@ -4385,7 +4385,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   %30 = load i64, ptr %29, align 8
   %31 = add nsw i64 %28, %30
   %32 = tail call i64 @llvm.abs.i64(i64 %31, i1 true)
-  %33 = icmp ult i64 %32, 16
+  %33 = icmp samesign ult i64 %32, 16
   br i1 %33, label %34, label %74
 
 34:                                               ; preds = %22
@@ -4395,7 +4395,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   %37 = add i64 %36, %14
   %38 = add i64 %37, %.neg36
   %39 = tail call i64 @llvm.abs.i64(i64 %38, i1 true)
-  %40 = icmp ult i64 %39, 16
+  %40 = icmp samesign ult i64 %39, 16
   br i1 %40, label %41, label %74
 
 41:                                               ; preds = %34
@@ -4406,7 +4406,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   %45 = add i64 %44, %24
   %46 = add i64 %45, %.neg37
   %47 = tail call i64 @llvm.abs.i64(i64 %46, i1 true)
-  %48 = icmp ult i64 %47, 16
+  %48 = icmp samesign ult i64 %47, 16
   br i1 %48, label %49, label %74
 
 49:                                               ; preds = %41
@@ -4505,7 +4505,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   %125 = sdiv i32 %124, 8
   %126 = sext i32 %125 to i64
   store i64 %126, ptr %101, align 8
-  %127 = icmp ult i32 %2, 3
+  %127 = icmp samesign ult i32 %2, 3
   br i1 %127, label %133, label %128
 
 128:                                              ; preds = %74

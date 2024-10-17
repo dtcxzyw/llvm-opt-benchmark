@@ -153,7 +153,7 @@ if.then:                                          ; preds = %while.body
   %8 = getelementptr inbounds i8, ptr %7, i64 %mul.i2562
   %arrayidx2.i = getelementptr inbounds i8, ptr %8, i64 %conv.i2561
   %cond.i2569 = tail call i64 @llvm.umin.i64(i64 %max_length, i64 %conv6)
-  %cmp.i33861543 = icmp ugt i64 %cond.i2569, 7
+  %cmp.i33861543 = icmp samesign ugt i64 %cond.i2569, 7
   br i1 %cmp.i33861543, label %for.body.i3403, label %while.cond.i3388.preheader
 
 while.cond.i3388.preheader:                       ; preds = %if.end.i3409, %if.then
@@ -289,7 +289,7 @@ if.then57:                                        ; preds = %land.lhs.true51
 
 if.end62:                                         ; preds = %if.then30, %land.lhs.true, %land.lhs.true40, %land.lhs.true45, %land.lhs.true51, %if.then57, %if.end
   %has_found_match.2 = phi i32 [ %has_found_match.1, %if.end ], [ 1, %if.then57 ], [ 1, %land.lhs.true51 ], [ 1, %land.lhs.true45 ], [ 1, %land.lhs.true40 ], [ 1, %land.lhs.true ], [ 1, %if.then30 ]
-  %cmp63 = icmp ugt i8 %4, 9
+  %cmp63 = icmp samesign ugt i8 %4, 9
   %sub66 = add nsw i64 %conv6, -9
   %cond.i = tail call i64 @llvm.umax.i64(i64 %min_length, i64 %sub66)
   %minlen.0 = select i1 %cmp63, i64 %cond.i, i64 %min_length
@@ -1328,7 +1328,7 @@ land.rhs.i2949:                                   ; preds = %land.lhs.true34.i29
   %arrayidx41.i2950 = getelementptr inbounds i8, ptr %arrayidx8.i2895, i64 1
   %sub.i2953 = add nuw nsw i64 %conv6, 4294967295
   %conv45.i2954 = and i64 %sub.i2953, 4294967295
-  %cmp.i29991505 = icmp ugt i64 %conv45.i2954, 7
+  %cmp.i29991505 = icmp samesign ugt i64 %conv45.i2954, 7
   br i1 %cmp.i29991505, label %for.body.i3016, label %while.cond.i3001.preheader
 
 while.cond.i3001.preheader:                       ; preds = %if.end.i3022, %land.rhs.i2949
@@ -1687,7 +1687,7 @@ if.else.i2789:                                    ; preds = %if.then1096
   %175 = load ptr, ptr %data7.i2704, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 %mul.i2797
   %arrayidx8.i2800 = getelementptr inbounds i8, ptr %176, i64 %conv3.i2793
-  %cmp.i30421621 = icmp ugt i8 %173, 7
+  %cmp.i30421621 = icmp samesign ugt i8 %173, 7
   br i1 %cmp.i30421621, label %for.body.i3059, label %while.cond.i3044.preheader
 
 while.cond.i3044.preheader:                       ; preds = %if.end.i3065, %if.else.i2789
@@ -1946,7 +1946,7 @@ land.rhs.i2759:                                   ; preds = %land.lhs.true34.i27
   %arrayidx41.i2760 = getelementptr inbounds i8, ptr %arrayidx8.i2705, i64 1
   %sub.i2763 = add nuw nsw i64 %conv1071, 4294967295
   %conv45.i2764 = and i64 %sub.i2763, 4294967295
-  %cmp.i31711608 = icmp ugt i64 %conv45.i2764, 7
+  %cmp.i31711608 = icmp samesign ugt i64 %conv45.i2764, 7
   br i1 %cmp.i31711608, label %for.body.i3188, label %while.cond.i3173.preheader
 
 while.cond.i3173.preheader:                       ; preds = %if.end.i3194, %land.rhs.i2759
@@ -2255,7 +2255,7 @@ if.else.i2599:                                    ; preds = %while.body1390
   %229 = load ptr, ptr %data7.i2609, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 %mul.i2607
   %arrayidx8.i2610 = getelementptr inbounds i8, ptr %230, i64 %conv3.i2603
-  %cmp.i32141674 = icmp ugt i8 %225, 7
+  %cmp.i32141674 = icmp samesign ugt i8 %225, 7
   br i1 %cmp.i32141674, label %for.body.i3231, label %while.cond.i3216.preheader
 
 while.cond.i3216.preheader:                       ; preds = %if.end.i3237, %if.else.i2599
@@ -2475,7 +2475,7 @@ if.else.i:                                        ; preds = %while.body1538
   %256 = load ptr, ptr %data7.i, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 %mul.i2585
   %arrayidx8.i = getelementptr inbounds i8, ptr %257, i64 %conv3.i
-  %cmp.i33001694 = icmp ugt i8 %252, 7
+  %cmp.i33001694 = icmp samesign ugt i8 %252, 7
   br i1 %cmp.i33001694, label %for.body.i3317, label %while.cond.i3302.preheader
 
 while.cond.i3302.preheader:                       ; preds = %if.end.i3323, %if.else.i

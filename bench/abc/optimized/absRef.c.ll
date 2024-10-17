@@ -1768,7 +1768,7 @@ tailrecurse.backedge:                             ; preds = %162, %192, %193, %1
   %189 = and i32 %188, 16777215
   %190 = lshr i32 %180, 4
   %191 = and i32 %190, 16777215
-  %.not100 = icmp ugt i32 %189, %191
+  %.not100 = icmp samesign ugt i32 %189, %191
   br i1 %.not100, label %193, label %192
 
 192:                                              ; preds = %187

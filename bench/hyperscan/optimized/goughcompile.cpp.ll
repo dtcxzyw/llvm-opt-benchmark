@@ -6847,7 +6847,7 @@ for.body43.lr.ph.i:                               ; preds = %_ZNK3ue29CharReach1
   %idxprom.i626 = zext i32 %add44.i625 to i64
   %arrayidx.i627 = getelementptr inbounds i32, ptr %edge_blocks.sroa.0.0, i64 %idxprom.i626
   store i32 %prog_offset.0.i, ptr %arrayidx.i627, align 4
-  %cmp.not.i.i.i363628 = icmp ult i64 %conv42126.i, 256
+  %cmp.not.i.i.i363628 = icmp samesign ult i64 %conv42126.i, 256
   br i1 %cmp.not.i.i.i363628, label %if.end.i.i.i368, label %for.end.i364
 
 if.end.i.i.i368:                                  ; preds = %for.body43.lr.ph.i, %_ZNK3ue29CharReach9find_nextEm.exit.i
@@ -6875,7 +6875,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.body.i.i99.i
   %i.0.in.i.i.i = phi i64 [ %i.0.i.i.i, %for.body.i.i99.i ], [ %div1.i.i.i.i, %for.cond.i.i.i.preheader ]
-  %cmp14.i.i.i = icmp ult i64 %i.0.in.i.i.i, 3
+  %cmp14.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i, 3
   br i1 %cmp14.i.i.i, label %for.body.i.i99.i, label %for.end.i364
 
 for.body.i.i99.i:                                 ; preds = %for.cond.i.i.i

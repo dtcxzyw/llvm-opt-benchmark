@@ -57481,7 +57481,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   %27 = and i8 %26, 1
   %28 = load i8, ptr %.0.i.i.i, align 1, !noalias !3963
   %29 = and i8 %28, 1
-  %30 = icmp ult i8 %27, %29
+  %30 = icmp samesign ult i8 %27, %29
   %31 = zext i1 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -68038,7 +68038,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   %27 = and i8 %26, 1
   %28 = load i8, ptr %.0.i.i.i, align 1, !noalias !4560
   %29 = and i8 %28, 1
-  %30 = icmp ule i8 %27, %29
+  %30 = icmp samesign ule i8 %27, %29
   %31 = zext i1 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -78593,7 +78593,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   %27 = and i8 %26, 1
   %28 = load i8, ptr %.0.i.i.i, align 1, !noalias !5157
   %29 = and i8 %28, 1
-  %30 = icmp ugt i8 %27, %29
+  %30 = icmp samesign ugt i8 %27, %29
   %31 = zext i1 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -89148,7 +89148,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   %27 = and i8 %26, 1
   %28 = load i8, ptr %.0.i.i.i, align 1, !noalias !5754
   %29 = and i8 %28, 1
-  %30 = icmp uge i8 %27, %29
+  %30 = icmp samesign uge i8 %27, %29
   %31 = zext i1 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)

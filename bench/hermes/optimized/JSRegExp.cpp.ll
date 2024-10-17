@@ -1577,7 +1577,7 @@ entry:
   %input.sroa.8.8.extract.shift = lshr i64 %1, 32
   %input.sroa.8.8.extract.trunc = trunc nuw i64 %input.sroa.8.8.extract.shift to i32
   %conv = zext i32 %searchStartOffset to i64
-  %cmp = icmp ult i64 %input.sroa.8.8.extract.shift, %conv
+  %cmp = icmp samesign ult i64 %input.sroa.8.8.extract.shift, %conv
   br i1 %cmp, label %_ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEC2IS7_vEEOT_.exit, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit24
 
 _ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEC2IS7_vEEOT_.exit: ; preds = %entry
@@ -2772,7 +2772,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %1, 2147483647
-  %cmp.i = icmp ugt i32 %and.i, 32
+  %cmp.i = icmp samesign ugt i32 %and.i, 32
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
 
 if.then.i:                                        ; preds = %entry

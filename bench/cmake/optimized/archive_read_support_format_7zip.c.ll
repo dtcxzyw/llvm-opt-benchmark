@@ -173,7 +173,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_7zip_bid(ptr noundef 
 
 25:                                               ; preds = %22
   %26 = lshr i64 %.025, 1
-  %27 = icmp ult i64 %.025, 128
+  %27 = icmp samesign ult i64 %.025, 128
   br i1 %27, label %check_7zip_header_in_sfx.exit, label %19, !llvm.loop !5
 
 28:                                               ; preds = %22
@@ -4959,7 +4959,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
   %.6256 = phi i64 [ %.2173, %.lr.ph258.preheader ], [ %210, %.lr.ph258 ]
   %210 = add nuw i64 %.6256, 1
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %211 = icmp ult i64 %indvars.iv296, 3
+  %211 = icmp samesign ult i64 %indvars.iv296, 3
   %212 = icmp ult i64 %210, %2
   %213 = select i1 %211, i1 %212, i1 false
   br i1 %213, label %.lr.ph258, label %._crit_edge259, !llvm.loop !36

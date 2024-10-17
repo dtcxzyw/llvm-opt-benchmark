@@ -1498,7 +1498,7 @@ extend_span_with_token.exit.i45:                  ; preds = %78, %77
   %98 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %90, %89 ]
   %99 = lshr i16 %98, 10
   %100 = and i16 %99, 15
-  %101 = icmp ult i16 %100, 3
+  %101 = icmp samesign ult i16 %100, 3
   br i1 %101, label %switch.lookup, label %123
 
 switch.lookup:                                    ; preds = %97
@@ -1780,7 +1780,7 @@ parse_vector_type_index.exit.backedge:            ; preds = %.critedge44.i, %223
   %237 = load i16, ptr %.038, align 8
   %238 = lshr i16 %237, 10
   %239 = and i16 %238, 15
-  %240 = icmp ult i16 %239, 3
+  %240 = icmp samesign ult i16 %239, 3
   br i1 %240, label %switch.lookup76, label %241
 
 241:                                              ; preds = %236

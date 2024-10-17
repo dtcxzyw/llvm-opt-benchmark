@@ -28705,7 +28705,7 @@ invoke.cont667:                                   ; preds = %if.then649.invoke.c
   %cond.in.i.i.i.v = select i1 %cmp.i.i.i, i32 -719434, i32 -719438
   %cond.in.i.i.i = add nsw i32 %add26.i.i.i.i2062, %cond.in.i.i.i.v
   %cond.i.i.i2065 = urem i32 %cond.in.i.i.i, 7
-  %cmp4.i.i = icmp ult i32 %cond.i.i.i2065, 4
+  %cmp4.i.i = icmp samesign ult i32 %cond.i.i.i2065, 4
   %cond.i.i2068.v = select i1 %cmp4.i.i, i32 -10, i32 -4
   %cond.i.i2068 = add nsw i32 %cond.i.i.i2065, %cond.i.i2068.v
   %cond.fr.i.i = freeze i32 %cond.i.i2068
@@ -30147,7 +30147,7 @@ invoke.cont1712:                                  ; preds = %if.end1697
   %cond.in.i.i.i2106.v = select i1 %cmp.i.i.i2104, i32 -719434, i32 -719438
   %cond.in.i.i.i2106 = add nsw i32 %add26.i.i.i.i2102, %cond.in.i.i.i2106.v
   %cond.i.i.i2107 = urem i32 %cond.in.i.i.i2106, 7
-  %cmp4.i.i2113 = icmp ult i32 %cond.i.i.i2107, 4
+  %cmp4.i.i2113 = icmp samesign ult i32 %cond.i.i.i2107, 4
   %cond.i.i2114.v = select i1 %cmp4.i.i2113, i32 -10, i32 -4
   %cond.i.i2114 = add nsw i32 %cond.i.i.i2107, %cond.i.i2114.v
   %cond.fr.i.i2115 = freeze i32 %cond.i.i2114
@@ -30180,7 +30180,7 @@ if.then1749:                                      ; preds = %invoke.cont1712
   %cond.in.i.i.i2164.v = select i1 %cmp.i.i.i2162, i32 -719434, i32 -719438
   %cond.in.i.i.i2164 = add nsw i32 %add26.i.i.i.i2160, %cond.in.i.i.i2164.v
   %cond.i.i.i2165 = urem i32 %cond.in.i.i.i2164, 7
-  %cmp4.i.i2171 = icmp ult i32 %cond.i.i.i2165, 4
+  %cmp4.i.i2171 = icmp samesign ult i32 %cond.i.i.i2165, 4
   %cond.i.i2172.v = select i1 %cmp4.i.i2171, i32 -10, i32 -4
   %cond.i.i2172 = add nsw i32 %cond.i.i.i2165, %cond.i.i2172.v
   %cond.fr.i.i2173 = freeze i32 %cond.i.i2172
@@ -30454,7 +30454,7 @@ if.then1951:                                      ; preds = %if.end1944
   %cond.i.i1.i.i1844 = urem i32 %cond.in.i.i.i.i1843, 7
   %sub.i.i.i1846 = sub nsw i32 1, %cond.i.i1.i.i1844
   %sub3.i.i.i1847 = sub nuw nsw i32 -5, %cond.i.i1.i.i1844
-  %cmp4.i.i.i1848 = icmp ugt i32 %cond.i.i1.i.i1844, 1
+  %cmp4.i.i.i1848 = icmp samesign ugt i32 %cond.i.i1.i.i1844, 1
   %cond.i.i.i1849 = select i1 %cmp4.i.i.i1848, i32 %sub3.i.i.i1847, i32 %sub.i.i.i1846
   %cond.fr.i.i.i1850 = freeze i32 %cond.i.i.i1849
   %258 = srem i32 %cond.fr.i.i.i1850, 7
@@ -30645,7 +30645,7 @@ if.then2165:                                      ; preds = %if.end2156
   %rem2166.lhs.trunc = trunc nuw i32 %268 to i16
   %rem21662237 = urem i16 %rem2166.lhs.trunc, 100
   %rem2166.zext = zext nneg i16 %rem21662237 to i32
-  %cmp2167 = icmp ult i16 %rem21662237, 10
+  %cmp2167 = icmp samesign ult i16 %rem21662237, 10
   br i1 %cmp2167, label %if.then2168, label %if.end2171.invoke
 
 if.then2168:                                      ; preds = %if.then2165
@@ -30893,7 +30893,7 @@ invoke.cont2318:                                  ; preds = %if.then2288
           to label %if.end2328 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end2328:                                       ; preds = %invoke.cont2318
-  %cmp.i2018 = icmp ult i64 %spec.select.i2014, 600
+  %cmp.i2018 = icmp samesign ult i64 %spec.select.i2014, 600
   br i1 %cmp.i2018, label %if.then2334, label %if.end2337
 
 if.then2334:                                      ; preds = %if.end2328
@@ -33589,7 +33589,7 @@ invoke.cont646:                                   ; preds = %if.then628.invoke.c
   %cond.in.i.i.i.v = select i1 %cmp.i.i.i, i32 -719434, i32 -719438
   %cond.in.i.i.i = add nsw i32 %add26.i.i.i.i2064, %cond.in.i.i.i.v
   %cond.i.i.i2067 = urem i32 %cond.in.i.i.i, 7
-  %cmp4.i.i = icmp ult i32 %cond.i.i.i2067, 4
+  %cmp4.i.i = icmp samesign ult i32 %cond.i.i.i2067, 4
   %cond.i.i2070.v = select i1 %cmp4.i.i, i32 -10, i32 -4
   %cond.i.i2070 = add nsw i32 %cond.i.i.i2067, %cond.i.i2070.v
   %cond.fr.i.i = freeze i32 %cond.i.i2070
@@ -35033,7 +35033,7 @@ invoke.cont1678:                                  ; preds = %if.end1663
   %cond.in.i.i.i2108.v = select i1 %cmp.i.i.i2106, i32 -719434, i32 -719438
   %cond.in.i.i.i2108 = add nsw i32 %add26.i.i.i.i2104, %cond.in.i.i.i2108.v
   %cond.i.i.i2109 = urem i32 %cond.in.i.i.i2108, 7
-  %cmp4.i.i2115 = icmp ult i32 %cond.i.i.i2109, 4
+  %cmp4.i.i2115 = icmp samesign ult i32 %cond.i.i.i2109, 4
   %cond.i.i2116.v = select i1 %cmp4.i.i2115, i32 -10, i32 -4
   %cond.i.i2116 = add nsw i32 %cond.i.i.i2109, %cond.i.i2116.v
   %cond.fr.i.i2117 = freeze i32 %cond.i.i2116
@@ -35066,7 +35066,7 @@ if.then1714:                                      ; preds = %invoke.cont1678
   %cond.in.i.i.i2166.v = select i1 %cmp.i.i.i2164, i32 -719434, i32 -719438
   %cond.in.i.i.i2166 = add nsw i32 %add26.i.i.i.i2162, %cond.in.i.i.i2166.v
   %cond.i.i.i2167 = urem i32 %cond.in.i.i.i2166, 7
-  %cmp4.i.i2173 = icmp ult i32 %cond.i.i.i2167, 4
+  %cmp4.i.i2173 = icmp samesign ult i32 %cond.i.i.i2167, 4
   %cond.i.i2174.v = select i1 %cmp4.i.i2173, i32 -10, i32 -4
   %cond.i.i2174 = add nsw i32 %cond.i.i.i2167, %cond.i.i2174.v
   %cond.fr.i.i2175 = freeze i32 %cond.i.i2174
@@ -35340,7 +35340,7 @@ if.then1915:                                      ; preds = %if.end1908
   %cond.i.i1.i.i1846 = urem i32 %cond.in.i.i.i.i1845, 7
   %sub.i.i.i1848 = sub nsw i32 1, %cond.i.i1.i.i1846
   %sub3.i.i.i1849 = sub nuw nsw i32 -5, %cond.i.i1.i.i1846
-  %cmp4.i.i.i1850 = icmp ugt i32 %cond.i.i1.i.i1846, 1
+  %cmp4.i.i.i1850 = icmp samesign ugt i32 %cond.i.i1.i.i1846, 1
   %cond.i.i.i1851 = select i1 %cmp4.i.i.i1850, i32 %sub3.i.i.i1849, i32 %sub.i.i.i1848
   %cond.fr.i.i.i1852 = freeze i32 %cond.i.i.i1851
   %258 = srem i32 %cond.fr.i.i.i1852, 7
@@ -35531,7 +35531,7 @@ if.then2127:                                      ; preds = %if.end2118
   %rem2128.lhs.trunc = trunc nuw i32 %268 to i16
   %rem21282239 = urem i16 %rem2128.lhs.trunc, 100
   %rem2128.zext = zext nneg i16 %rem21282239 to i32
-  %cmp2129 = icmp ult i16 %rem21282239, 10
+  %cmp2129 = icmp samesign ult i16 %rem21282239, 10
   br i1 %cmp2129, label %if.then2130, label %if.end2133.invoke
 
 if.then2130:                                      ; preds = %if.then2127
@@ -35779,7 +35779,7 @@ invoke.cont2279:                                  ; preds = %if.then2250
           to label %if.end2288 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end2288:                                       ; preds = %invoke.cont2279
-  %cmp.i2020 = icmp ult i64 %spec.select.i2016, 600
+  %cmp.i2020 = icmp samesign ult i64 %spec.select.i2016, 600
   br i1 %cmp.i2020, label %if.then2293, label %if.end2296
 
 if.then2293:                                      ; preds = %if.end2288
@@ -38523,7 +38523,7 @@ invoke.cont646:                                   ; preds = %if.then628.invoke.c
   %cond.in.i.i.i.v = select i1 %cmp.i.i.i, i32 -719434, i32 -719438
   %cond.in.i.i.i = add nsw i32 %add26.i.i.i.i2064, %cond.in.i.i.i.v
   %cond.i.i.i2067 = urem i32 %cond.in.i.i.i, 7
-  %cmp4.i.i = icmp ult i32 %cond.i.i.i2067, 4
+  %cmp4.i.i = icmp samesign ult i32 %cond.i.i.i2067, 4
   %cond.i.i2070.v = select i1 %cmp4.i.i, i32 -10, i32 -4
   %cond.i.i2070 = add nsw i32 %cond.i.i.i2067, %cond.i.i2070.v
   %cond.fr.i.i = freeze i32 %cond.i.i2070
@@ -39967,7 +39967,7 @@ invoke.cont1678:                                  ; preds = %if.end1663
   %cond.in.i.i.i2108.v = select i1 %cmp.i.i.i2106, i32 -719434, i32 -719438
   %cond.in.i.i.i2108 = add nsw i32 %add26.i.i.i.i2104, %cond.in.i.i.i2108.v
   %cond.i.i.i2109 = urem i32 %cond.in.i.i.i2108, 7
-  %cmp4.i.i2115 = icmp ult i32 %cond.i.i.i2109, 4
+  %cmp4.i.i2115 = icmp samesign ult i32 %cond.i.i.i2109, 4
   %cond.i.i2116.v = select i1 %cmp4.i.i2115, i32 -10, i32 -4
   %cond.i.i2116 = add nsw i32 %cond.i.i.i2109, %cond.i.i2116.v
   %cond.fr.i.i2117 = freeze i32 %cond.i.i2116
@@ -40000,7 +40000,7 @@ if.then1714:                                      ; preds = %invoke.cont1678
   %cond.in.i.i.i2166.v = select i1 %cmp.i.i.i2164, i32 -719434, i32 -719438
   %cond.in.i.i.i2166 = add nsw i32 %add26.i.i.i.i2162, %cond.in.i.i.i2166.v
   %cond.i.i.i2167 = urem i32 %cond.in.i.i.i2166, 7
-  %cmp4.i.i2173 = icmp ult i32 %cond.i.i.i2167, 4
+  %cmp4.i.i2173 = icmp samesign ult i32 %cond.i.i.i2167, 4
   %cond.i.i2174.v = select i1 %cmp4.i.i2173, i32 -10, i32 -4
   %cond.i.i2174 = add nsw i32 %cond.i.i.i2167, %cond.i.i2174.v
   %cond.fr.i.i2175 = freeze i32 %cond.i.i2174
@@ -40274,7 +40274,7 @@ if.then1915:                                      ; preds = %if.end1908
   %cond.i.i1.i.i1846 = urem i32 %cond.in.i.i.i.i1845, 7
   %sub.i.i.i1848 = sub nsw i32 1, %cond.i.i1.i.i1846
   %sub3.i.i.i1849 = sub nuw nsw i32 -5, %cond.i.i1.i.i1846
-  %cmp4.i.i.i1850 = icmp ugt i32 %cond.i.i1.i.i1846, 1
+  %cmp4.i.i.i1850 = icmp samesign ugt i32 %cond.i.i1.i.i1846, 1
   %cond.i.i.i1851 = select i1 %cmp4.i.i.i1850, i32 %sub3.i.i.i1849, i32 %sub.i.i.i1848
   %cond.fr.i.i.i1852 = freeze i32 %cond.i.i.i1851
   %258 = srem i32 %cond.fr.i.i.i1852, 7
@@ -40465,7 +40465,7 @@ if.then2127:                                      ; preds = %if.end2118
   %rem2128.lhs.trunc = trunc nuw i32 %268 to i16
   %rem21282239 = urem i16 %rem2128.lhs.trunc, 100
   %rem2128.zext = zext nneg i16 %rem21282239 to i32
-  %cmp2129 = icmp ult i16 %rem21282239, 10
+  %cmp2129 = icmp samesign ult i16 %rem21282239, 10
   br i1 %cmp2129, label %if.then2130, label %if.end2133.invoke
 
 if.then2130:                                      ; preds = %if.then2127
@@ -40713,7 +40713,7 @@ invoke.cont2279:                                  ; preds = %if.then2250
           to label %if.end2288 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end2288:                                       ; preds = %invoke.cont2279
-  %cmp.i2020 = icmp ult i64 %spec.select.i2016, 600
+  %cmp.i2020 = icmp samesign ult i64 %spec.select.i2016, 600
   br i1 %cmp.i2020, label %if.then2293, label %if.end2296
 
 if.then2293:                                      ; preds = %if.end2288
@@ -43185,7 +43185,7 @@ invoke.cont646:                                   ; preds = %if.then628.invoke.c
   %cond.in.i.i.i.v = select i1 %cmp.i.i.i, i32 -719434, i32 -719438
   %cond.in.i.i.i = add nsw i32 %add26.i.i.i.i2064, %cond.in.i.i.i.v
   %cond.i.i.i2067 = urem i32 %cond.in.i.i.i, 7
-  %cmp4.i.i = icmp ult i32 %cond.i.i.i2067, 4
+  %cmp4.i.i = icmp samesign ult i32 %cond.i.i.i2067, 4
   %cond.i.i2070.v = select i1 %cmp4.i.i, i32 -10, i32 -4
   %cond.i.i2070 = add nsw i32 %cond.i.i.i2067, %cond.i.i2070.v
   %cond.fr.i.i = freeze i32 %cond.i.i2070
@@ -44629,7 +44629,7 @@ invoke.cont1678:                                  ; preds = %if.end1663
   %cond.in.i.i.i2108.v = select i1 %cmp.i.i.i2106, i32 -719434, i32 -719438
   %cond.in.i.i.i2108 = add nsw i32 %add26.i.i.i.i2104, %cond.in.i.i.i2108.v
   %cond.i.i.i2109 = urem i32 %cond.in.i.i.i2108, 7
-  %cmp4.i.i2115 = icmp ult i32 %cond.i.i.i2109, 4
+  %cmp4.i.i2115 = icmp samesign ult i32 %cond.i.i.i2109, 4
   %cond.i.i2116.v = select i1 %cmp4.i.i2115, i32 -10, i32 -4
   %cond.i.i2116 = add nsw i32 %cond.i.i.i2109, %cond.i.i2116.v
   %cond.fr.i.i2117 = freeze i32 %cond.i.i2116
@@ -44662,7 +44662,7 @@ if.then1714:                                      ; preds = %invoke.cont1678
   %cond.in.i.i.i2166.v = select i1 %cmp.i.i.i2164, i32 -719434, i32 -719438
   %cond.in.i.i.i2166 = add nsw i32 %add26.i.i.i.i2162, %cond.in.i.i.i2166.v
   %cond.i.i.i2167 = urem i32 %cond.in.i.i.i2166, 7
-  %cmp4.i.i2173 = icmp ult i32 %cond.i.i.i2167, 4
+  %cmp4.i.i2173 = icmp samesign ult i32 %cond.i.i.i2167, 4
   %cond.i.i2174.v = select i1 %cmp4.i.i2173, i32 -10, i32 -4
   %cond.i.i2174 = add nsw i32 %cond.i.i.i2167, %cond.i.i2174.v
   %cond.fr.i.i2175 = freeze i32 %cond.i.i2174
@@ -44936,7 +44936,7 @@ if.then1915:                                      ; preds = %if.end1908
   %cond.i.i1.i.i1846 = urem i32 %cond.in.i.i.i.i1845, 7
   %sub.i.i.i1848 = sub nsw i32 1, %cond.i.i1.i.i1846
   %sub3.i.i.i1849 = sub nuw nsw i32 -5, %cond.i.i1.i.i1846
-  %cmp4.i.i.i1850 = icmp ugt i32 %cond.i.i1.i.i1846, 1
+  %cmp4.i.i.i1850 = icmp samesign ugt i32 %cond.i.i1.i.i1846, 1
   %cond.i.i.i1851 = select i1 %cmp4.i.i.i1850, i32 %sub3.i.i.i1849, i32 %sub.i.i.i1848
   %cond.fr.i.i.i1852 = freeze i32 %cond.i.i.i1851
   %258 = srem i32 %cond.fr.i.i.i1852, 7
@@ -45127,7 +45127,7 @@ if.then2127:                                      ; preds = %if.end2118
   %rem2128.lhs.trunc = trunc nuw i32 %268 to i16
   %rem21282239 = urem i16 %rem2128.lhs.trunc, 100
   %rem2128.zext = zext nneg i16 %rem21282239 to i32
-  %cmp2129 = icmp ult i16 %rem21282239, 10
+  %cmp2129 = icmp samesign ult i16 %rem21282239, 10
   br i1 %cmp2129, label %if.then2130, label %if.end2133.invoke
 
 if.then2130:                                      ; preds = %if.then2127
@@ -45375,7 +45375,7 @@ invoke.cont2279:                                  ; preds = %if.then2250
           to label %if.end2288 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end2288:                                       ; preds = %invoke.cont2279
-  %cmp.i2020 = icmp ult i64 %spec.select.i2016, 600
+  %cmp.i2020 = icmp samesign ult i64 %spec.select.i2016, 600
   br i1 %cmp.i2020, label %if.then2293, label %if.end2296
 
 if.then2293:                                      ; preds = %if.end2288

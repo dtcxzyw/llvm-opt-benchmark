@@ -2061,7 +2061,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   store i64 %50, ptr %20, align 8
   %51 = load i16, ptr %33, align 2, !noundef !3
   %52 = zext i16 %51 to i64
-  %53 = icmp ult i64 %40, %52
+  %53 = icmp samesign ult i64 %40, %52
   br i1 %53, label %36, label %._crit_edge128
 
 54:                                               ; preds = %58, %29
@@ -2138,7 +2138,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   br label %58
 
 76:                                               ; preds = %69
-  %77 = icmp ult i64 %.sroa.5.0124, 11
+  %77 = icmp samesign ult i64 %.sroa.5.0124, 11
   call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds ptr, ptr %24, i64 %71
   %79 = load ptr, ptr %78, align 8, !nonnull !3, !noundef !3
@@ -2197,7 +2197,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   store i64 %99, ptr %66, align 8
   %100 = load i16, ptr %64, align 2, !noundef !3
   %101 = zext i16 %100 to i64
-  %102 = icmp ult i64 %71, %101
+  %102 = icmp samesign ult i64 %71, %101
   br i1 %102, label %67, label %._crit_edge128
 
 ._crit_edge128:                                   ; preds = %96, %48, %60, %31

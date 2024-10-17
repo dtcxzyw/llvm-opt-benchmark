@@ -215,7 +215,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   %27 = tail call ptr @v9fs_get_trans_by_name(ptr noundef %26)
   %28 = add nuw nsw i64 %24, 1
   %29 = icmp eq ptr %27, null
-  %30 = icmp ult i64 %24, 5
+  %30 = icmp samesign ult i64 %24, 5
   %31 = and i1 %30, %29
   br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !10
 

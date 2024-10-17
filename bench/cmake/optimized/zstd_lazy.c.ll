@@ -103,7 +103,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
 
 65:                                               ; preds = %62, %59, %56, %53, %49
   %.0139 = phi i64 [ %52, %49 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %64, %62 ]
-  %.not164 = icmp ult i64 %indvars.iv, %43
+  %.not164 = icmp samesign ult i64 %indvars.iv, %43
   %.pre = and i64 %.0139, 4294967295
   br i1 %.not164, label %._crit_edge249, label %66
 
@@ -120,7 +120,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   %72 = trunc nuw i64 %indvars.iv to i32
   store i32 %72, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = icmp ult i64 %indvars.iv.next, %44
+  %73 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %73, label %46, label %.preheader188, !llvm.loop !5
 
 74:                                               ; preds = %.preheader188, %.thread
@@ -144,7 +144,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   %81 = add nuw nsw i32 %.0147195, 1
   %.0143 = load i32, ptr %80, align 4
   %82 = icmp uge i32 %.0143, %36
-  %83 = icmp ult i32 %.0147195, 2
+  %83 = icmp samesign ult i32 %.0147195, 2
   %84 = select i1 %82, i1 %83, i1 false
   br i1 %84, label %.lr.ph198, label %._crit_edge, !llvm.loop !7
 
@@ -325,7 +325,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   %165 = trunc nuw i64 %indvars.iv246 to i32
   store i32 %165, ptr %164, align 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %166 = icmp ult i64 %indvars.iv.next247, %134
+  %166 = icmp samesign ult i64 %indvars.iv.next247, %134
   br i1 %166, label %135, label %._crit_edge220, !llvm.loop !12
 
 ._crit_edge220:                                   ; preds = %163, %126
@@ -386,7 +386,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   store i32 %32, ptr %36, align 4
   store i32 %33, ptr %31, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %37 = icmp ult i64 %indvars.iv.next91, %27
+  %37 = icmp samesign ult i64 %indvars.iv.next91, %27
   br i1 %37, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split.us70:                                ; preds = %.lr.ph, %.lr.ph.split.us70
@@ -404,7 +404,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   store i32 %42, ptr %46, align 4
   store i32 %43, ptr %41, align 4
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %47 = icmp ult i64 %indvars.iv.next88, %27
+  %47 = icmp samesign ult i64 %indvars.iv.next88, %27
   br i1 %47, label %.lr.ph.split.us70, label %._crit_edge
 
 .lr.ph.split.us73:                                ; preds = %.lr.ph, %.lr.ph.split.us73
@@ -422,7 +422,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   store i32 %52, ptr %56, align 4
   store i32 %53, ptr %51, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %57 = icmp ult i64 %indvars.iv.next85, %27
+  %57 = icmp samesign ult i64 %indvars.iv.next85, %27
   br i1 %57, label %.lr.ph.split.us73, label %._crit_edge
 
 .lr.ph.split.us76:                                ; preds = %.lr.ph, %.lr.ph.split.us76
@@ -440,7 +440,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   store i32 %62, ptr %66, align 4
   store i32 %63, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = icmp ult i64 %indvars.iv.next, %27
+  %67 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %67, label %.lr.ph.split.us76, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -459,7 +459,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   store i32 %73, ptr %77, align 4
   store i32 %74, ptr %72, align 4
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %78 = icmp ult i64 %indvars.iv.next94, %27
+  %78 = icmp samesign ult i64 %indvars.iv.next94, %27
   br i1 %78, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us76, %.lr.ph.split.us73, %.lr.ph.split.us70, %.lr.ph.split.us, %.lr.ph.split, %2
@@ -589,7 +589,7 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %52 = trunc nuw i64 %indvars.iv334 to i32
   store i32 %52, ptr %51, align 4
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %53 = icmp ult i64 %indvars.iv.next335, %28
+  %53 = icmp samesign ult i64 %indvars.iv.next335, %28
   br i1 %53, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split.us328:                               ; preds = %.lr.ph, %.lr.ph.split.us328
@@ -623,7 +623,7 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %77 = trunc nuw i64 %indvars.iv to i32
   store i32 %77, ptr %76, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = icmp ult i64 %indvars.iv.next, %28
+  %78 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %78, label %.lr.ph.split.us328, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -657,7 +657,7 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %102 = trunc nuw i64 %indvars.iv337 to i32
   store i32 %102, ptr %101, align 4
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
-  %103 = icmp ult i64 %indvars.iv.next338, %28
+  %103 = icmp samesign ult i64 %indvars.iv.next338, %28
   br i1 %103, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us328, %.lr.ph.split.us, %.lr.ph.split, %2
@@ -28733,7 +28733,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_4(ptr no
   store i32 %51, ptr %55, align 4
   store i32 %52, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp ult i64 %indvars.iv.next, %45
+  %56 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %56, label %.lr.ph, label %.split352.us
 
 .split:                                           ; preds = %4
@@ -29138,7 +29138,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_5(ptr no
   store i32 %51, ptr %55, align 4
   store i32 %52, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp ult i64 %indvars.iv.next, %46
+  %56 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %56, label %.lr.ph, label %.split352.us
 
 .split:                                           ; preds = %4
@@ -29541,7 +29541,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_6(ptr no
   store i32 %51, ptr %55, align 4
   store i32 %52, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp ult i64 %indvars.iv.next, %46
+  %56 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %56, label %.lr.ph, label %.split352.us
 
 .split:                                           ; preds = %4
@@ -30088,7 +30088,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
   %151 = getelementptr inbounds i32, ptr %138, i64 %149
   store i32 %131, ptr %151, align 4
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %152 = icmp ult i64 %indvars.iv.next953, %119
+  %152 = icmp samesign ult i64 %indvars.iv.next953, %119
   br i1 %152, label %120, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %120, %.loopexit
@@ -30582,7 +30582,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
   %154 = getelementptr inbounds i32, ptr %141, i64 %152
   store i32 %134, ptr %154, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %155 = icmp ult i64 %indvars.iv.next955, %121
+  %155 = icmp samesign ult i64 %indvars.iv.next955, %121
   br i1 %155, label %122, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %122, %.loopexit
@@ -31085,7 +31085,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %159 = icmp ult i64 %indvars.iv.next955, %124
+  %159 = icmp samesign ult i64 %indvars.iv.next955, %124
   br i1 %159, label %125, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %125, %.loopexit
@@ -31604,7 +31604,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
   %151 = getelementptr inbounds i32, ptr %138, i64 %149
   store i32 %131, ptr %151, align 4
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %152 = icmp ult i64 %indvars.iv.next953, %120
+  %152 = icmp samesign ult i64 %indvars.iv.next953, %120
   br i1 %152, label %121, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %121, %.loopexit
@@ -32099,7 +32099,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
   %154 = getelementptr inbounds i32, ptr %141, i64 %152
   store i32 %134, ptr %154, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %155 = icmp ult i64 %indvars.iv.next955, %122
+  %155 = icmp samesign ult i64 %indvars.iv.next955, %122
   br i1 %155, label %123, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %123, %.loopexit
@@ -32603,7 +32603,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %159 = icmp ult i64 %indvars.iv.next955, %125
+  %159 = icmp samesign ult i64 %indvars.iv.next955, %125
   br i1 %159, label %126, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %126, %.loopexit
@@ -33123,7 +33123,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
   %151 = getelementptr inbounds i32, ptr %138, i64 %149
   store i32 %131, ptr %151, align 4
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %152 = icmp ult i64 %indvars.iv.next953, %120
+  %152 = icmp samesign ult i64 %indvars.iv.next953, %120
   br i1 %152, label %121, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %121, %.loopexit
@@ -33618,7 +33618,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
   %154 = getelementptr inbounds i32, ptr %141, i64 %152
   store i32 %134, ptr %154, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %155 = icmp ult i64 %indvars.iv.next955, %122
+  %155 = icmp samesign ult i64 %indvars.iv.next955, %122
   br i1 %155, label %123, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %123, %.loopexit
@@ -34122,7 +34122,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
-  %159 = icmp ult i64 %indvars.iv.next955, %125
+  %159 = icmp samesign ult i64 %indvars.iv.next955, %125
   br i1 %159, label %126, label %._crit_edge925, !llvm.loop !13
 
 ._crit_edge925:                                   ; preds = %126, %.loopexit
@@ -34505,7 +34505,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr n
   store i32 %58, ptr %62, align 4
   store i32 %59, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = icmp ult i64 %indvars.iv.next, %52
+  %63 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %63, label %.lr.ph, label %.split355.us
 
 .split:                                           ; preds = %4
@@ -34783,7 +34783,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr n
   store i32 %58, ptr %62, align 4
   store i32 %59, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = icmp ult i64 %indvars.iv.next, %53
+  %63 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %63, label %.lr.ph, label %.split355.us
 
 .split:                                           ; preds = %4
@@ -35059,7 +35059,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr n
   store i32 %58, ptr %62, align 4
   store i32 %59, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = icmp ult i64 %indvars.iv.next, %53
+  %63 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %63, label %.lr.ph, label %.split355.us
 
 .split:                                           ; preds = %4
@@ -35479,7 +35479,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
-  %159 = icmp ult i64 %indvars.iv.next957, %126
+  %159 = icmp samesign ult i64 %indvars.iv.next957, %126
   br i1 %159, label %127, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %127, %.loopexit
@@ -36000,7 +36000,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
   %161 = getelementptr inbounds i32, ptr %148, i64 %159
   store i32 %141, ptr %161, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %162 = icmp ult i64 %indvars.iv.next959, %128
+  %162 = icmp samesign ult i64 %indvars.iv.next959, %128
   br i1 %162, label %129, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %129, %.loopexit
@@ -36530,7 +36530,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
   %165 = getelementptr inbounds i32, ptr %152, i64 %163
   store i32 %145, ptr %165, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %166 = icmp ult i64 %indvars.iv.next959, %131
+  %166 = icmp samesign ult i64 %indvars.iv.next959, %131
   br i1 %166, label %132, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %132, %.loopexit
@@ -37076,7 +37076,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
-  %159 = icmp ult i64 %indvars.iv.next957, %127
+  %159 = icmp samesign ult i64 %indvars.iv.next957, %127
   br i1 %159, label %128, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %128, %.loopexit
@@ -37598,7 +37598,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
   %161 = getelementptr inbounds i32, ptr %148, i64 %159
   store i32 %141, ptr %161, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %162 = icmp ult i64 %indvars.iv.next959, %129
+  %162 = icmp samesign ult i64 %indvars.iv.next959, %129
   br i1 %162, label %130, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %130, %.loopexit
@@ -38129,7 +38129,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
   %165 = getelementptr inbounds i32, ptr %152, i64 %163
   store i32 %145, ptr %165, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %166 = icmp ult i64 %indvars.iv.next959, %132
+  %166 = icmp samesign ult i64 %indvars.iv.next959, %132
   br i1 %166, label %133, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %133, %.loopexit
@@ -38676,7 +38676,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
   %158 = getelementptr inbounds i32, ptr %145, i64 %156
   store i32 %138, ptr %158, align 4
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
-  %159 = icmp ult i64 %indvars.iv.next957, %127
+  %159 = icmp samesign ult i64 %indvars.iv.next957, %127
   br i1 %159, label %128, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %128, %.loopexit
@@ -39198,7 +39198,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
   %161 = getelementptr inbounds i32, ptr %148, i64 %159
   store i32 %141, ptr %161, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %162 = icmp ult i64 %indvars.iv.next959, %129
+  %162 = icmp samesign ult i64 %indvars.iv.next959, %129
   br i1 %162, label %130, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %130, %.loopexit
@@ -39729,7 +39729,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
   %165 = getelementptr inbounds i32, ptr %152, i64 %163
   store i32 %145, ptr %165, align 4
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %166 = icmp ult i64 %indvars.iv.next959, %132
+  %166 = icmp samesign ult i64 %indvars.iv.next959, %132
   br i1 %166, label %133, label %._crit_edge929, !llvm.loop !13
 
 ._crit_edge929:                                   ; preds = %133, %.loopexit
@@ -40131,7 +40131,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
   store i32 %57, ptr %61, align 4
   store i32 %58, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = icmp ult i64 %indvars.iv.next, %51
+  %62 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %62, label %.lr.ph, label %.split360.us
 
 .split:                                           ; preds = %4
@@ -40560,7 +40560,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
   store i32 %57, ptr %61, align 4
   store i32 %58, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = icmp ult i64 %indvars.iv.next, %52
+  %62 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %62, label %.lr.ph, label %.split360.us
 
 .split:                                           ; preds = %4
@@ -40987,7 +40987,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
   store i32 %57, ptr %61, align 4
   store i32 %58, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = icmp ult i64 %indvars.iv.next, %52
+  %62 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %62, label %.lr.ph, label %.split360.us
 
 .split:                                           ; preds = %4
@@ -41577,7 +41577,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %173 = getelementptr inbounds i32, ptr %160, i64 %171
   store i32 %153, ptr %173, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %174 = icmp ult i64 %indvars.iv.next987, %141
+  %174 = icmp samesign ult i64 %indvars.iv.next987, %141
   br i1 %174, label %142, label %._crit_edge940, !llvm.loop !13
 
 ._crit_edge940:                                   ; preds = %142, %.loopexit
@@ -42215,7 +42215,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %177 = getelementptr inbounds i32, ptr %164, i64 %175
   store i32 %157, ptr %177, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %178 = icmp ult i64 %indvars.iv.next987, %144
+  %178 = icmp samesign ult i64 %indvars.iv.next987, %144
   br i1 %178, label %145, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %145, %.loopexit
@@ -42866,7 +42866,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %183 = getelementptr inbounds i32, ptr %170, i64 %181
   store i32 %163, ptr %183, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %184 = icmp ult i64 %indvars.iv.next987, %149
+  %184 = icmp samesign ult i64 %indvars.iv.next987, %149
   br i1 %184, label %150, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %150, %.loopexit
@@ -43555,7 +43555,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %173 = getelementptr inbounds i32, ptr %160, i64 %171
   store i32 %153, ptr %173, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %174 = icmp ult i64 %indvars.iv.next987, %142
+  %174 = icmp samesign ult i64 %indvars.iv.next987, %142
   br i1 %174, label %143, label %._crit_edge940, !llvm.loop !13
 
 ._crit_edge940:                                   ; preds = %143, %.loopexit
@@ -44194,7 +44194,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %177 = getelementptr inbounds i32, ptr %164, i64 %175
   store i32 %157, ptr %177, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %178 = icmp ult i64 %indvars.iv.next987, %145
+  %178 = icmp samesign ult i64 %indvars.iv.next987, %145
   br i1 %178, label %146, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %146, %.loopexit
@@ -44846,7 +44846,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %183 = getelementptr inbounds i32, ptr %170, i64 %181
   store i32 %163, ptr %183, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %184 = icmp ult i64 %indvars.iv.next987, %150
+  %184 = icmp samesign ult i64 %indvars.iv.next987, %150
   br i1 %184, label %151, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %151, %.loopexit
@@ -45536,7 +45536,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %173 = getelementptr inbounds i32, ptr %160, i64 %171
   store i32 %153, ptr %173, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %174 = icmp ult i64 %indvars.iv.next987, %142
+  %174 = icmp samesign ult i64 %indvars.iv.next987, %142
   br i1 %174, label %143, label %._crit_edge940, !llvm.loop !13
 
 ._crit_edge940:                                   ; preds = %143, %.loopexit
@@ -46175,7 +46175,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %177 = getelementptr inbounds i32, ptr %164, i64 %175
   store i32 %157, ptr %177, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %178 = icmp ult i64 %indvars.iv.next987, %145
+  %178 = icmp samesign ult i64 %indvars.iv.next987, %145
   br i1 %178, label %146, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %146, %.loopexit
@@ -46827,7 +46827,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %183 = getelementptr inbounds i32, ptr %170, i64 %181
   store i32 %163, ptr %183, align 4
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %184 = icmp ult i64 %indvars.iv.next987, %150
+  %184 = icmp samesign ult i64 %indvars.iv.next987, %150
   br i1 %184, label %151, label %._crit_edge935, !llvm.loop !13
 
 ._crit_edge935:                                   ; preds = %151, %.loopexit
@@ -47366,7 +47366,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
   store i32 %67, ptr %71, align 4
   store i32 %68, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = icmp ult i64 %indvars.iv.next, %61
+  %72 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %72, label %.lr.ph, label %.split371.us
 
 .split:                                           ; preds = %4
@@ -47803,7 +47803,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
   store i32 %67, ptr %71, align 4
   store i32 %68, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = icmp ult i64 %indvars.iv.next, %62
+  %72 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %72, label %.lr.ph, label %.split371.us
 
 .split:                                           ; preds = %4
@@ -48238,7 +48238,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
   store i32 %67, ptr %71, align 4
   store i32 %68, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = icmp ult i64 %indvars.iv.next, %62
+  %72 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %72, label %.lr.ph, label %.split371.us
 
 .split:                                           ; preds = %4
@@ -48821,7 +48821,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %171 = getelementptr inbounds i32, ptr %158, i64 %169
   store i32 %151, ptr %171, align 4
   %indvars.iv.next1000 = add nuw nsw i64 %indvars.iv999, 1
-  %172 = icmp ult i64 %indvars.iv.next1000, %139
+  %172 = icmp samesign ult i64 %indvars.iv.next1000, %139
   br i1 %172, label %140, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %140, %.loopexit932
@@ -49502,7 +49502,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %174 = getelementptr inbounds i32, ptr %161, i64 %172
   store i32 %154, ptr %174, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %175 = icmp ult i64 %indvars.iv.next1002, %141
+  %175 = icmp samesign ult i64 %indvars.iv.next1002, %141
   br i1 %175, label %142, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %142, %.loopexit932
@@ -50192,7 +50192,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %178 = getelementptr inbounds i32, ptr %165, i64 %176
   store i32 %158, ptr %178, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %179 = icmp ult i64 %indvars.iv.next1002, %144
+  %179 = icmp samesign ult i64 %indvars.iv.next1002, %144
   br i1 %179, label %145, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %145, %.loopexit932
@@ -50898,7 +50898,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %171 = getelementptr inbounds i32, ptr %158, i64 %169
   store i32 %151, ptr %171, align 4
   %indvars.iv.next1000 = add nuw nsw i64 %indvars.iv999, 1
-  %172 = icmp ult i64 %indvars.iv.next1000, %140
+  %172 = icmp samesign ult i64 %indvars.iv.next1000, %140
   br i1 %172, label %141, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %141, %.loopexit932
@@ -51580,7 +51580,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %174 = getelementptr inbounds i32, ptr %161, i64 %172
   store i32 %154, ptr %174, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %175 = icmp ult i64 %indvars.iv.next1002, %142
+  %175 = icmp samesign ult i64 %indvars.iv.next1002, %142
   br i1 %175, label %143, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %143, %.loopexit932
@@ -52271,7 +52271,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %178 = getelementptr inbounds i32, ptr %165, i64 %176
   store i32 %158, ptr %178, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %179 = icmp ult i64 %indvars.iv.next1002, %145
+  %179 = icmp samesign ult i64 %indvars.iv.next1002, %145
   br i1 %179, label %146, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %146, %.loopexit932
@@ -52978,7 +52978,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %171 = getelementptr inbounds i32, ptr %158, i64 %169
   store i32 %151, ptr %171, align 4
   %indvars.iv.next1000 = add nuw nsw i64 %indvars.iv999, 1
-  %172 = icmp ult i64 %indvars.iv.next1000, %140
+  %172 = icmp samesign ult i64 %indvars.iv.next1000, %140
   br i1 %172, label %141, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %141, %.loopexit932
@@ -53660,7 +53660,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %174 = getelementptr inbounds i32, ptr %161, i64 %172
   store i32 %154, ptr %174, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %175 = icmp ult i64 %indvars.iv.next1002, %142
+  %175 = icmp samesign ult i64 %indvars.iv.next1002, %142
   br i1 %175, label %143, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %143, %.loopexit932
@@ -54351,7 +54351,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %178 = getelementptr inbounds i32, ptr %165, i64 %176
   store i32 %158, ptr %178, align 4
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %179 = icmp ult i64 %indvars.iv.next1002, %145
+  %179 = icmp samesign ult i64 %indvars.iv.next1002, %145
   br i1 %179, label %146, label %._crit_edge946, !llvm.loop !13
 
 ._crit_edge946:                                   ; preds = %146, %.loopexit932

@@ -129,7 +129,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .preheader:                                       ; preds = %.split.loop.exit128
   %69 = zext i32 %.084.in.lcssa to i64
-  %.not8997 = icmp ugt i64 %indvars.iv114, %69
+  %.not8997 = icmp samesign ugt i64 %indvars.iv114, %69
   br i1 %.not8997, label %.loopexit, label %.lr.ph99
 
 70:                                               ; preds = %.split.loop.exit128

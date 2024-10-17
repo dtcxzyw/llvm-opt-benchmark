@@ -210,7 +210,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %div.i = udiv i64 %i.011.i, 10
   %dec.i = add nsw i64 %idx.010.i, -1
-  %cmp1.i = icmp ugt i64 %i.011.i, 9
+  %cmp1.i = icmp samesign ugt i64 %i.011.i, 9
   %cmp2.i = icmp ne i64 %idx.010.i, 0
   %2 = and i1 %cmp1.i, %cmp2.i
   br i1 %2, label %while.body.i, label %while.end.i, !llvm.loop !7
@@ -265,8 +265,8 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 lor.rhs:                                          ; preds = %while.cond
   %cmp3 = fcmp ogt double %d.1, 0.000000e+00
-  %cmp4 = icmp ult i64 %i.0, 20
-  %1 = and i1 %cmp4, %cmp3
+  %cmp4 = icmp samesign ult i64 %i.0, 20
+  %1 = select i1 %cmp3, i1 %cmp4, i1 false
   br i1 %1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond, %lor.rhs
@@ -372,7 +372,7 @@ while.body:                                       ; preds = %_ZN4cvc58internal10
   %idx.018 = phi i64 [ %dec, %while.body ], [ 19, %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit ]
   %0 = trunc i64 %i.addr.019 to i32
   %conv = and i32 %0, 15
-  %cmp4 = icmp ult i32 %conv, 10
+  %cmp4 = icmp samesign ult i32 %conv, 10
   %1 = trunc nuw nsw i32 %conv to i8
   %conv7 = or disjoint i8 %1, 48
   %conv10 = add nuw nsw i8 %1, 87

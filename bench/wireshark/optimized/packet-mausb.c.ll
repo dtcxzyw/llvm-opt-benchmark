@@ -1279,8 +1279,8 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %32 = lshr i16 %.fr, 5
   %33 = and i16 %32, 63
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ugt i16 %33, 8
-  %36 = icmp ugt i16 %33, 16
+  %35 = icmp samesign ugt i16 %33, 8
+  %36 = icmp samesign ugt i16 %33, 16
   br i1 %35, label %.lr.ph.split.us.split.split.us.preheader, label %.lr.ph.split.us.split.split.preheader
 
 .lr.ph:                                           ; preds = %18

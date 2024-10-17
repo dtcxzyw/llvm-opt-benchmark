@@ -820,7 +820,7 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 -128, ptr %add.ptr, align 1
   %sub = xor i32 %and, 63
-  %cmp = icmp ult i32 %sub, 8
+  %cmp = icmp samesign ult i32 %sub, 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -949,7 +949,7 @@ entry:
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 -128, ptr %add.ptr.i, align 1
   %sub.i = xor i32 %and.i, 63
-  %cmp.i = icmp ult i32 %sub.i, 8
+  %cmp.i = icmp samesign ult i32 %sub.i, 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1025,7 +1025,7 @@ entry:
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   store i8 -128, ptr %add.ptr.i, align 1
   %sub.i = xor i32 %and.i, 63
-  %cmp.i = icmp ult i32 %sub.i, 8
+  %cmp.i = icmp samesign ult i32 %sub.i, 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1213,7 +1213,7 @@ entry:
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
   store i8 -128, ptr %add.ptr.i.i, align 1
   %sub.i.i = xor i32 %and.i.i, 63
-  %cmp.i.i = icmp ult i32 %sub.i.i, 8
+  %cmp.i.i = icmp samesign ult i32 %sub.i.i, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -1352,7 +1352,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i: ; preds = %if.end
   br i1 %or.cond32.i, label %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUloE_clEo.exit, label %while.body.i.preheader.i
 
 while.cond.i.preheader.i:                         ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i
-  %cmp.i1521.i = icmp ugt i64 %i.i.020.i, 2
+  %cmp.i1521.i = icmp samesign ugt i64 %i.i.020.i, 2
   br i1 %cmp.i1521.i, label %while.body.i.preheader.i, label %while.end.i.i
 
 while.body.i.preheader.i:                         ; preds = %while.cond.i.preheader.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i
@@ -1474,7 +1474,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i41: ; preds = %if.e
   br i1 %or.cond32.i47, label %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUloE_clEo.exit79, label %while.body.i.preheader.i48
 
 while.cond.i.preheader.i77:                       ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i69
-  %cmp.i1521.i78 = icmp ugt i64 %i.i.020.i35, 2
+  %cmp.i1521.i78 = icmp samesign ugt i64 %i.i.020.i35, 2
   br i1 %cmp.i1521.i78, label %while.body.i.preheader.i48, label %while.end.i.i59
 
 while.body.i.preheader.i48:                       ; preds = %while.cond.i.preheader.i77, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i41
@@ -1572,7 +1572,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i102: ; preds = %if.
   br i1 %or.cond32.i108, label %return, label %while.body.i.preheader.i109
 
 while.cond.i.preheader.i138:                      ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i130
-  %cmp.i1521.i139 = icmp ugt i64 %i.i.020.i96, 2
+  %cmp.i1521.i139 = icmp samesign ugt i64 %i.i.020.i96, 2
   br i1 %cmp.i1521.i139, label %while.body.i.preheader.i109, label %while.end.i.i120
 
 while.body.i.preheader.i109:                      ; preds = %while.cond.i.preheader.i138, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i102
@@ -2486,7 +2486,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i.i, i64 1)
-  %cmp.i3.i16.i.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i.i, 2
+  %cmp.i3.i16.i.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i.i, 2
   br i1 %cmp.i3.i16.i.i.i.i.i.i.i, label %while.body.i.i.preheader.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.preheader.i.i.i.i.i.i.i:           ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i
@@ -2815,12 +2815,12 @@ if.end.i9.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %while.body.i.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !29
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 66
+  %cmp1.i.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 66
   br i1 %cmp1.i.i.i.i, label %_ZN5folly16to_ascii_decimalEPcPKcm.exit, label %while.cond.i.preheader.i.i.i
 
 while.cond.i.preheader.i.i.i:                     ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
   %add.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.019.i.i.i, i64 1)
-  %cmp.i1320.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 2
+  %cmp.i1320.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 2
   br i1 %cmp.i1320.i.i.i, label %while.body.i.preheader.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %if.end.i9.i.i.i, %while.cond.i.preheader.i.i.i
@@ -2949,7 +2949,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK5f
   %dec.i = add i64 %bufLen.addr.0.lcssa.i, -1
   %arrayidx16.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i
   store i8 %24, ptr %arrayidx16.i, align 1
-  %cmp.i64 = icmp ugt i32 %v.addr.0.lcssa.i, 7
+  %cmp.i64 = icmp samesign ugt i32 %v.addr.0.lcssa.i, 7
   br i1 %cmp.i64, label %if.end.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 if.end.i:                                         ; preds = %for.end.i
@@ -2958,7 +2958,7 @@ if.end.i:                                         ; preds = %for.end.i
   %dec20.i = add i64 %bufLen.addr.0.lcssa.i, -2
   %arrayidx21.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec20.i
   store i8 %25, ptr %arrayidx21.i, align 1
-  %cmp22.i = icmp ugt i32 %v.addr.0.lcssa.i, 63
+  %cmp22.i = icmp samesign ugt i32 %v.addr.0.lcssa.i, 63
   br i1 %cmp22.i, label %if.then23.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 if.then23.i:                                      ; preds = %if.end.i
@@ -3026,7 +3026,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %_ZNK
   %dec.i.i = add i64 %bufLen.addr.0.lcssa.i.i, -1
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i
   store i8 %32, ptr %arrayidx11.i.i, align 1
-  %cmp.i.i = icmp ugt i32 %v.addr.0.lcssa.i.i, 15
+  %cmp.i.i = icmp samesign ugt i32 %v.addr.0.lcssa.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -3096,7 +3096,7 @@ for.end.i.i88:                                    ; preds = %for.body.i.i76, %_Z
   %dec.i.i94 = add i64 %bufLen.addr.0.lcssa.i.i90, -1
   %arrayidx11.i.i95 = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i94
   store i8 %39, ptr %arrayidx11.i.i95, align 1
-  %cmp.i.i96 = icmp ugt i32 %v.addr.0.lcssa.i.i89, 15
+  %cmp.i.i96 = icmp samesign ugt i32 %v.addr.0.lcssa.i.i89, 15
   br i1 %cmp.i.i96, label %if.then.i.i98, label %_ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit
 
 if.then.i.i98:                                    ; preds = %for.end.i.i88
@@ -4007,12 +4007,12 @@ if.end.i9.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %while.body.i.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !29
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp1.i.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 66
+  %cmp1.i.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 66
   br i1 %cmp1.i.i.i.i, label %_ZN5folly16to_ascii_decimalEPcPKcm.exit, label %while.cond.i.preheader.i.i.i
 
 while.cond.i.preheader.i.i.i:                     ; preds = %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
   %add.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.019.i.i.i, i64 1)
-  %cmp.i1320.i.i.i = icmp ugt i64 %i.i.019.i.i.i, 2
+  %cmp.i1320.i.i.i = icmp samesign ugt i64 %i.i.019.i.i.i, 2
   br i1 %cmp.i1320.i.i.i, label %while.body.i.preheader.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %if.end.i9.i.i.i, %while.cond.i.preheader.i.i.i

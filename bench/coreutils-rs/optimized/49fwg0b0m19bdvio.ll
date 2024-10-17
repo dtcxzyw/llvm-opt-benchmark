@@ -89,7 +89,7 @@ define internal fastcc void @_ZN10bigdecimal10ten_to_the17h6fca0c83621867e5E(ptr
   %spec.select.i = mul i64 %30, %.01315.i
   %31 = lshr i32 %.017.i, 1
   %32 = mul i64 %.01216.i, %.01216.i
-  %33 = icmp ugt i32 %.017.i, 3
+  %33 = icmp samesign ugt i32 %.017.i, 3
   br i1 %33, label %.lr.ph.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit": ; preds = %.lr.ph.i

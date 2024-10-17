@@ -413,7 +413,7 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %7
   %134 = getelementptr inbounds i8, ptr %86, i64 20
   %135 = load i32, ptr %134, align 4
   %136 = lshr i32 %135, 12
-  %137 = icmp ult i32 %133, %136
+  %137 = icmp samesign ult i32 %133, %136
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %131
@@ -918,7 +918,7 @@ Vec_IntFillExtra.exit312.i:                       ; preds = %._crit_edge.i302.i,
   %354 = getelementptr inbounds i8, ptr %306, i64 20
   %355 = load i32, ptr %354, align 4
   %356 = lshr i32 %355, 12
-  %357 = icmp ult i32 %353, %356
+  %357 = icmp samesign ult i32 %353, %356
   br i1 %357, label %358, label %362
 
 358:                                              ; preds = %351
@@ -1164,7 +1164,7 @@ Vec_IntFillExtra.exit326.i:                       ; preds = %._crit_edge.i316.i,
   %466 = getelementptr inbounds i8, ptr %418, i64 20
   %467 = load i32, ptr %466, align 4
   %468 = lshr i32 %467, 12
-  %469 = icmp ult i32 %465, %468
+  %469 = icmp samesign ult i32 %465, %468
   br i1 %469, label %470, label %474
 
 470:                                              ; preds = %463
@@ -1413,7 +1413,7 @@ Vec_IntFillExtra.exit340.i:                       ; preds = %._crit_edge.i330.i,
   %578 = getelementptr inbounds i8, ptr %530, i64 20
   %579 = load i32, ptr %578, align 4
   %580 = lshr i32 %579, 12
-  %581 = icmp ult i32 %577, %580
+  %581 = icmp samesign ult i32 %577, %580
   br i1 %581, label %582, label %586
 
 582:                                              ; preds = %575
@@ -1711,7 +1711,7 @@ Vec_IntFillExtra.exit.i118:                       ; preds = %._crit_edge.i.i117,
 713:                                              ; preds = %Vec_IntFillExtra.exit.i118
   %714 = load i32, ptr %648, align 4
   %715 = lshr i32 %714, 12
-  %716 = icmp ult i32 %715, %668
+  %716 = icmp samesign ult i32 %715, %668
   br i1 %716, label %717, label %721
 
 717:                                              ; preds = %713
@@ -2223,7 +2223,7 @@ Vec_IntFillExtra.exit315.i:                       ; preds = %._crit_edge.i305.i,
 936:                                              ; preds = %Vec_IntFillExtra.exit315.i
   %937 = load i32, ptr %871, align 4
   %938 = lshr i32 %937, 12
-  %939 = icmp ult i32 %938, %891
+  %939 = icmp samesign ult i32 %938, %891
   br i1 %939, label %940, label %944
 
 940:                                              ; preds = %936
@@ -2473,7 +2473,7 @@ Vec_IntFillExtra.exit329.i:                       ; preds = %._crit_edge.i319.i,
 1053:                                             ; preds = %Vec_IntFillExtra.exit329.i
   %1054 = load i32, ptr %988, align 4
   %1055 = lshr i32 %1054, 12
-  %1056 = icmp ult i32 %1055, %1008
+  %1056 = icmp samesign ult i32 %1055, %1008
   br i1 %1056, label %1057, label %1061
 
 1057:                                             ; preds = %1053
@@ -2729,7 +2729,7 @@ Vec_IntFillExtra.exit343.i:                       ; preds = %._crit_edge.i333.i,
 1168:                                             ; preds = %Vec_IntFillExtra.exit343.i
   %1169 = load i32, ptr %1103, align 4
   %1170 = lshr i32 %1169, 12
-  %1171 = icmp ult i32 %1170, %1123
+  %1171 = icmp samesign ult i32 %1170, %1123
   br i1 %1171, label %1172, label %1176
 
 1172:                                             ; preds = %1168
@@ -2957,7 +2957,7 @@ Vec_PtrPush.exit.i:                               ; preds = %51, %Vec_PtrGrow.ex
   %87 = icmp eq i32 %86, 7
   %88 = zext i1 %87 to i32
   %89 = add nuw nsw i32 %85, %88
-  %90 = icmp ugt i32 %83, %89
+  %90 = icmp samesign ugt i32 %83, %89
   %91 = and i32 %89, 1048575
   %spec.select.i = select i1 %90, i32 %83, i32 %91
   %92 = shl nuw i32 %spec.select.i, 12
@@ -3041,7 +3041,7 @@ Vec_PtrPush.exit.i:                               ; preds = %51, %Vec_PtrGrow.ex
   %129 = icmp eq i32 %128, 7
   %130 = zext i1 %129 to i32
   %131 = add nuw nsw i32 %127, %130
-  %132 = icmp ugt i32 %125, %131
+  %132 = icmp samesign ugt i32 %125, %131
   %133 = and i32 %131, 1048575
   %spec.select90.i = select i1 %132, i32 %125, i32 %133
   %134 = shl nuw i32 %spec.select90.i, 12
@@ -3280,7 +3280,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %212, %Vec_PtrGrow.e
   %248 = icmp eq i32 %247, 7
   %249 = zext i1 %248 to i32
   %250 = add nuw nsw i32 %246, %249
-  %251 = icmp ugt i32 %244, %250
+  %251 = icmp samesign ugt i32 %244, %250
   %252 = and i32 %250, 1048575
   %spec.select.i48 = select i1 %251, i32 %244, i32 %252
   %253 = shl nuw i32 %spec.select.i48, 12
@@ -3364,7 +3364,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %212, %Vec_PtrGrow.e
   %290 = icmp eq i32 %289, 7
   %291 = zext i1 %290 to i32
   %292 = add nuw nsw i32 %288, %291
-  %293 = icmp ugt i32 %286, %292
+  %293 = icmp samesign ugt i32 %286, %292
   %294 = and i32 %292, 1048575
   %spec.select90.i39 = select i1 %293, i32 %286, i32 %294
   %295 = shl nuw i32 %spec.select90.i39, 12

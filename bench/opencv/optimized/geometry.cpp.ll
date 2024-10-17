@@ -2490,7 +2490,7 @@ define internal fastcc { i64, i64 } @_ZL16maskBoundingRectRKN2cv3MatE(ptr nocapt
   %.3120 = select i1 %.not151, i32 %.1118174, i32 %.2119
   %.1 = select i1 %.not151, i32 %.0103176, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = icmp ult i64 %indvars.iv.next, %48
+  %52 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31

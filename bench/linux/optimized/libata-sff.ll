@@ -1729,7 +1729,7 @@ define dso_local void @ata_sff_drain_fifo(ptr noundef readonly %0) #1 align 16 {
   %26 = tail call zeroext i8 %25(ptr noundef %8) #13
   %27 = and i8 %26, 8
   %28 = icmp ne i8 %27, 0
-  %29 = icmp ult i32 %19, 65534
+  %29 = icmp samesign ult i32 %19, 65534
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %18, label %.loopexit, !llvm.loop !28
 
@@ -3734,7 +3734,7 @@ __ata_sff_port_intr.exit:                         ; preds = %66, %70, %.thread5.
   %122 = phi i32 [ %113, %110 ], [ %12, %__ata_sff_port_intr.exit ], [ %12, %114 ]
   %123 = add nuw nsw i64 %11, 1
   %124 = zext i32 %119 to i64
-  %125 = icmp ult i64 %123, %124
+  %125 = icmp samesign ult i64 %123, %124
   br i1 %125, label %.preheader7, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %118
@@ -3797,7 +3797,7 @@ __ata_sff_port_intr.exit:                         ; preds = %66, %70, %.thread5.
   %163 = add nuw nsw i64 %129, 1
   %164 = load i32, ptr %4, align 8
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %163, %165
+  %166 = icmp samesign ult i64 %163, %165
   br i1 %166, label %.preheader, label %167, !llvm.loop !103
 
 167:                                              ; preds = %161
@@ -5753,7 +5753,7 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   %50 = phi i32 [ %41, %38 ], [ %12, %35 ], [ %12, %42 ]
   %51 = add nuw nsw i64 %11, 1
   %52 = zext i32 %47 to i64
-  %53 = icmp ult i64 %51, %52
+  %53 = icmp samesign ult i64 %51, %52
   br i1 %53, label %.preheader7, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %46
@@ -5816,7 +5816,7 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   %91 = add nuw nsw i64 %57, 1
   %92 = load i32, ptr %4, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %91, %93
+  %94 = icmp samesign ult i64 %91, %93
   br i1 %94, label %.preheader, label %95, !llvm.loop !103
 
 95:                                               ; preds = %89

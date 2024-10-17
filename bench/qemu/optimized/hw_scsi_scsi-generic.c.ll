@@ -281,7 +281,7 @@ if.end.i:                                         ; preds = %entry
   %or.i = or disjoint i64 %shl.i, %conv9.i
   %cond.i = call i64 @llvm.umin.i64(i64 %or.i, i64 246)
   %conv13.i = trunc nuw nsw i64 %cond.i to i32
-  %cmp14.not60.i = icmp ult i64 %or.i, 3
+  %cmp14.not60.i = icmp samesign ult i64 %or.i, 3
   br i1 %cmp14.not60.i, label %scsi_generic_read_device_identification.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
@@ -1575,7 +1575,7 @@ if.then:                                          ; preds = %land.lhs.true
   %5 = and i8 %4, 7
   %and4 = zext nneg i8 %5 to i32
   store i32 %and4, ptr %scsi_version, align 8
-  %cmp7 = icmp ugt i8 %5, 2
+  %cmp7 = icmp samesign ugt i8 %5, 2
   br i1 %cmp7, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.then
@@ -1694,7 +1694,7 @@ if.then85:                                        ; preds = %land.lhs.true81
   %conv90 = zext nneg i16 %27 to i32
   %28 = tail call i32 @llvm.umin.i32(i32 %conv90, i32 %24)
   %conv99 = trunc nuw i32 %28 to i8
-  %cmp10160 = icmp ugt i32 %28, 4
+  %cmp10160 = icmp samesign ugt i32 %28, 4
   br i1 %cmp10160, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %if.then85, %if.end123

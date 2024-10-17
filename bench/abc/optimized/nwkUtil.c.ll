@@ -1484,7 +1484,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %200, label %238, label %201
 
 201:                                              ; preds = %196, %192
-  %202 = icmp ult i64 %indvars.iv196, 10
+  %202 = icmp samesign ult i64 %indvars.iv196, 10
   %203 = trunc nuw nsw i64 %indvars.iv196 to i32
   br i1 %202, label %204, label %206
 
@@ -2033,7 +2033,7 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
   %indvars.iv63 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next64, %.critedge39.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph52 ], [ %indvars.iv.next, %.critedge39.loopexit ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %.not3749 = icmp ult i64 %indvars.iv.next64, %24
+  %.not3749 = icmp samesign ult i64 %indvars.iv.next64, %24
   br i1 %.not3749, label %.lr.ph, label %.critedge39.loopexit
 
 .lr.ph:                                           ; preds = %25

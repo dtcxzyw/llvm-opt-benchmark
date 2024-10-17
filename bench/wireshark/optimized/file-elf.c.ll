@@ -2068,7 +2068,7 @@ value_guard.exit169.i:                            ; preds = %value_guard.exit168
   %651 = or i64 %650, %.0171.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
   %652 = icmp slt i8 %645, 0
-  %653 = icmp ult i64 %indvars.iv.i.i, 57
+  %653 = icmp samesign ult i64 %indvars.iv.i.i, 57
   %654 = select i1 %652, i1 %653, i1 false
   br i1 %654, label %644, label %dissect_leb128.exit.i, !llvm.loop !8
 
@@ -2402,7 +2402,7 @@ get_dwarf_extension_length.exit123.i:             ; preds = %785, %784, %783, %7
   %795 = add nuw i32 %.0.i124.i, 1
   %indvars.iv.next.i.i1068 = add nuw nsw i64 %indvars.iv.i.i1067, 7
   %796 = icmp slt i8 %794, 0
-  %797 = icmp ult i64 %indvars.iv.i.i1067, 57
+  %797 = icmp samesign ult i64 %indvars.iv.i.i1067, 57
   %798 = select i1 %796, i1 %797, i1 false
   br i1 %798, label %.preheader12.i, label %dissect_leb128.exit.i1069, !llvm.loop !8
 
@@ -2438,7 +2438,7 @@ dissect_leb128.exit.i1069:                        ; preds = %.preheader12.i
   %812 = or i64 %811, %.05.i
   %indvars.iv.next.i127.i = add nuw nsw i64 %indvars.iv.i125.i, 7
   %813 = icmp slt i8 %806, 0
-  %814 = icmp ult i64 %indvars.iv.i125.i, 57
+  %814 = icmp samesign ult i64 %indvars.iv.i125.i, 57
   %815 = select i1 %813, i1 %814, i1 false
   br i1 %815, label %.preheader11.i, label %dissect_leb128.exit130.i, !llvm.loop !8
 
@@ -2540,7 +2540,7 @@ dissect_leb128.exit130.i:                         ; preds = %.preheader11.i
   %853 = add i32 %.0.i132.i, 1
   %indvars.iv.next.i133.i = add nuw nsw i64 %indvars.iv.i131.i, 7
   %854 = icmp slt i8 %852, 0
-  %855 = icmp ult i64 %indvars.iv.i131.i, 57
+  %855 = icmp samesign ult i64 %indvars.iv.i131.i, 57
   %856 = select i1 %854, i1 %855, i1 false
   br i1 %856, label %.preheader.i, label %dissect_leb128.exit136.i, !llvm.loop !8
 
@@ -3154,7 +3154,7 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
   %indvars.iv1320 = phi i64 [ 1, %.lr.ph1276.preheader ], [ %indvars.iv.next1321, %.loopexit ]
   %1141 = getelementptr %struct._segment_info_t, ptr %164, i64 %indvars.iv1325
   %indvars.iv.next1326 = add nuw nsw i64 %indvars.iv1325, 1
-  %1142 = icmp ult i64 %indvars.iv.next1326, %1140
+  %1142 = icmp samesign ult i64 %indvars.iv.next1326, %1140
   br i1 %1142, label %.lr.ph1274, label %.loopexit
 
 .lr.ph1274:                                       ; preds = %.lr.ph1276, %1147

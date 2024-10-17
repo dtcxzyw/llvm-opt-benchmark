@@ -10027,7 +10027,7 @@ invoke.cont37:                                    ; preds = %if.end36
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 168
   %28 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %28
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %cmp, label %if.then, label %nrvo.skipdtor, !llvm.loop !166
 
 ehcleanup38:                                      ; preds = %ehcleanup34, %ehcleanup22, %lpad10.loopexit.split-lp, %lpad10.loopexit, %ehcleanup

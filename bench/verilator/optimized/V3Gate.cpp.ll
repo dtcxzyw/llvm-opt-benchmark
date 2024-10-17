@@ -6111,7 +6111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -7924,7 +7924,7 @@ _ZN17AstUser2AllocatorI7AstNodeSt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4
   br i1 %.not.i.i.i.i, label %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
 _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %20 = icmp ugt i64 %.06.i.i.i.i, 576460752303423486
+  %20 = icmp samesign ugt i64 %.06.i.i.i.i, 576460752303423486
   br i1 %20, label %21, label %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i
 
 21:                                               ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i

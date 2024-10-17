@@ -245,7 +245,7 @@ if.end58:                                         ; preds = %if.else50, %if.else
 
 if.then61:                                        ; preds = %if.end58
   %conv62 = and i32 %uniChar.0.in, 65535
-  %cmp63 = icmp ult i32 %conv62, 65534
+  %cmp63 = icmp samesign ult i32 %conv62, 65534
   br i1 %cmp63, label %if.then64, label %if.else75
 
 if.then64:                                        ; preds = %if.then61
@@ -1332,7 +1332,7 @@ land.lhs.true.i479:                               ; preds = %if.then228
 if.then9.i482:                                    ; preds = %land.lhs.true.i479
   store i8 %grp_ix.0659, ptr %pLMBCS.1600, align 1
   %cmp10.i484 = icmp eq i32 %call.i470, 1
-  %cmp13.i485 = icmp ugt i8 %grp_ix.0659, 15
+  %cmp13.i485 = icmp samesign ugt i8 %grp_ix.0659, 15
   %or.cond.i486 = and i1 %cmp13.i485, %cmp10.i484
   br i1 %or.cond.i486, label %if.then14.i518, label %if.end17.i487
 
@@ -1409,7 +1409,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %bytes_written.9 = phi i32 [ 0, %for.body ], [ %retval.0.i474, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520 ], [ 0, %land.lhs.true224 ]
   %inc = add nuw nsw i8 %grp_ix.0659, 1
   %conv216 = zext nneg i8 %inc to i32
-  %cmp218 = icmp uge i32 %spec.select134, %conv216
+  %cmp218 = icmp samesign uge i32 %spec.select134, %conv216
   %tobool220.not = icmp eq i32 %bytes_written.9, 0
   %88 = select i1 %cmp218, i1 %tobool220.not, i1 false
   br i1 %88, label %for.body, label %for.end, !llvm.loop !8

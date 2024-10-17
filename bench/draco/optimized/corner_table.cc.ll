@@ -205,7 +205,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
   %39 = sub i64 %37, %38
   %40 = sdiv exact i64 %39, 12
   %41 = and i64 %40, 4294967295
-  %42 = icmp ult i64 %indvars.iv.next20, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next20, %41
   br i1 %42, label %.preheader, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %34, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
@@ -404,7 +404,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIi
   %73 = sub i64 %71, %72
   %74 = lshr exact i64 %73, 2
   %75 = and i64 %74, 4294967295
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %43, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
@@ -1826,7 +1826,7 @@ _ZNK5draco11CornerTable13IsDegeneratedENS_9IndexTypeIjNS_19FaceIndex_tag_type_EE
   %264 = ashr exact i64 %263, 2
   %265 = udiv i64 %264, 3
   %266 = and i64 %265, 4294967295
-  %267 = icmp ult i64 %indvars.iv.next219, %266
+  %267 = icmp samesign ult i64 %indvars.iv.next219, %266
   br i1 %267, label %64, label %._crit_edge.loopexit, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK5draco11CornerTable13IsDegeneratedENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE.exit.thread

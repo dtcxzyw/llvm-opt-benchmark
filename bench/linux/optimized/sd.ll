@@ -1006,7 +1006,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   %64 = icmp ne i32 %63, 0
   %65 = icmp ugt i64 %36, 4294967295
   %66 = select i1 %64, i1 true, i1 %65
-  %67 = icmp ugt i64 %41, 65535
+  %67 = icmp samesign ugt i64 %41, 65535
   %68 = select i1 %66, i1 true, i1 %67
   br i1 %68, label %69, label %71
 
@@ -5537,7 +5537,7 @@ define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr nound
   %108 = lshr i8 %104, 1
   %109 = and i8 %108, 7
   %110 = add nuw nsw i8 %109, 1
-  %111 = icmp ugt i8 %109, 2
+  %111 = icmp samesign ugt i8 %109, 2
   br i1 %111, label %112, label %121
 
 112:                                              ; preds = %107
@@ -6914,7 +6914,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @sd_setup_rw6_cmnd(ptr
   br label %26
 
 8:                                                ; preds = %5
-  %9 = icmp ult i8 %4, 8
+  %9 = icmp samesign ult i8 %4, 8
   br i1 %9, label %11, label %10, !prof !40
 
 10:                                               ; preds = %8

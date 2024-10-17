@@ -221,7 +221,7 @@ for.inc:                                          ; preds = %if.end99, %for.body
   %18 = load i32, ptr %n_blocks, align 4
   %add66 = add i32 %18, 1
   %19 = zext i32 %add66 to i64
-  %cmp67 = icmp ult i64 %indvars.iv.next, %19
+  %cmp67 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp67, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.inc

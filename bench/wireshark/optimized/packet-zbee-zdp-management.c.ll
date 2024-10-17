@@ -119,7 +119,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwk_disc(ptr noundef %0, ptr nound
   %14 = shl nuw nsw i32 2, %.2
   %15 = and i32 %14, %5
   %16 = icmp ne i32 %15, 0
-  %17 = icmp ult i32 %.2, 26
+  %17 = icmp samesign ult i32 %.2, 26
   %18 = and i1 %17, %16
   %19 = add nuw nsw i32 %.2, 1
   br i1 %18, label %.preheader, label %20, !llvm.loop !4

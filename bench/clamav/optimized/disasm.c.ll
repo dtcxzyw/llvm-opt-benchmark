@@ -1118,7 +1118,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 330:                                              ; preds = %322
   %.mask614.i = and i16 %35, 255
-  %331 = icmp ult i16 %.mask614.i, 216
+  %331 = icmp samesign ult i16 %.mask614.i, 216
   br i1 %331, label %333, label %332
 
 332:                                              ; preds = %330
@@ -1367,7 +1367,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 448:                                              ; preds = %._crit_edge740.thread.i
   %.mask.i = and i16 %35, 255
-  %449 = icmp ult i16 %.mask.i, 216
+  %449 = icmp samesign ult i16 %.mask.i, 216
   br i1 %449, label %451, label %450
 
 450:                                              ; preds = %448

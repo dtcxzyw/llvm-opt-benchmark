@@ -926,7 +926,7 @@ define internal fastcc void @dissect_lapd_full(ptr noundef %0, ptr noundef %1, p
   br i1 %.not113, label %33, label %23
 
 23:                                               ; preds = %21
-  %.not118 = icmp ult i32 %3, 32
+  %.not118 = icmp samesign ult i32 %3, 32
   %24 = select i1 %.not118, ptr @.str.79, ptr @.str.78
   %25 = and i32 %3, 16
   %.not119 = icmp eq i32 %25, 0
@@ -942,7 +942,7 @@ define internal fastcc void @dissect_lapd_full(ptr noundef %0, ptr noundef %1, p
   %30 = and i32 %3, 16
   %.not114 = icmp eq i32 %30, 0
   %31 = select i1 %.not114, ptr @.str.81, ptr @.str.80
-  %.not115 = icmp ult i32 %3, 32
+  %.not115 = icmp samesign ult i32 %3, 32
   %32 = select i1 %.not115, ptr @.str.79, ptr @.str.78
   br label %33
 

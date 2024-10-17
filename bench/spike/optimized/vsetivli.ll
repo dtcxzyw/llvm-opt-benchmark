@@ -530,7 +530,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsetivliP1
   %30 = lshr i64 %1, 20
   %31 = and i64 %30, 1023
   %32 = tail call noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr noundef nonnull align 8 dereferenceable(202) %24, i32 noundef %27, i32 noundef -1, i64 noundef %29, i64 noundef %31)
-  %33 = icmp ugt i64 %26, 15
+  %33 = icmp samesign ugt i64 %26, 15
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %22
@@ -614,7 +614,7 @@ define noundef i64 @_Z19fast_rv64e_vsetivliP11processor_t6insn_tm(ptr noundef %0
   %30 = lshr i64 %1, 20
   %31 = and i64 %30, 1023
   %32 = tail call noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr noundef nonnull align 8 dereferenceable(202) %24, i32 noundef %27, i32 noundef -1, i64 noundef %29, i64 noundef %31)
-  %33 = icmp ugt i64 %26, 15
+  %33 = icmp samesign ugt i64 %26, 15
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %22
@@ -753,7 +753,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %32, ptr %.0.i.i21, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %58 = icmp ugt i64 %26, 15
+  %58 = icmp samesign ugt i64 %26, 15
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -894,7 +894,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %32, ptr %.0.i.i21, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %58 = icmp ugt i64 %26, 15
+  %58 = icmp samesign ugt i64 %26, 15
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

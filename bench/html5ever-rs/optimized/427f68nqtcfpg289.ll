@@ -851,7 +851,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %197 = getelementptr inbounds ptr, ptr %195, i64 %173
   store ptr %154, ptr %197, align 8, !alias.scope !127, !noalias !118
   store i16 %171, ptr %163, align 2, !noalias !118
-  %198 = icmp ult i64 %173, %196
+  %198 = icmp samesign ult i64 %173, %196
   br i1 %198, label %.lr.ph.i.i.i.preheader, label %.thread86
 
 .lr.ph.i.i.i.preheader:                           ; preds = %194
@@ -861,7 +861,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %200, %.lr.ph.i.i.i ], [ %173, %.lr.ph.i.i.i.preheader ]
   %200 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
-  %201 = icmp ult i64 %.sroa.0.06.i.i.i, 12
+  %201 = icmp samesign ult i64 %.sroa.0.06.i.i.i, 12
   tail call void @llvm.assume(i1 %201)
   %202 = getelementptr inbounds ptr, ptr %199, i64 %.sroa.0.06.i.i.i
   %203 = load ptr, ptr %202, align 8, !noalias !118, !nonnull !4, !noundef !4
@@ -1021,10 +1021,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 262:                                              ; preds = %262, %260
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %260 ], [ %spec.select7.i.i.i.i, %262 ]
-  %263 = icmp ult i64 %.sroa.0.011.i.i.i.i, %252
+  %263 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, %252
   %264 = zext i1 %263 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %264
-  %265 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
+  %265 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %265)
   %266 = getelementptr inbounds ptr, ptr %253, i64 %.sroa.0.011.i.i.i.i
   %267 = load ptr, ptr %266, align 8, !alias.scope !150, !noalias !153, !nonnull !4, !noundef !4
@@ -1032,7 +1032,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %268 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %269 = getelementptr inbounds i8, ptr %267, i64 184
   store i16 %268, ptr %269, align 8, !noalias !153
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %252
+  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i, %252
   %or.cond.i.not.i.i.i = select i1 %263, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %262, label %273
 
@@ -1291,7 +1291,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 
 17:                                               ; preds = %.loopexit.loopexit.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 192
-  %19 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %19 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds ptr, ptr %18, i64 %.sroa.4.0.i.ph.sink.i.ph
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
@@ -1352,7 +1352,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 
 17:                                               ; preds = %.loopexit.loopexit.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 192
-  %19 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %19 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds ptr, ptr %18, i64 %.sroa.4.0.i.ph.sink.i.ph
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
@@ -1847,7 +1847,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
 22:                                               ; preds = %13
   %23 = lshr i64 %3, 4
   %24 = and i64 %23, 15
-  %25 = icmp ugt i64 %24, 7
+  %25 = icmp samesign ugt i64 %24, 7
   br i1 %25, label %26, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i"
 
 26:                                               ; preds = %22
@@ -1903,7 +1903,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
 50:                                               ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit.i"
   %51 = lshr i64 %5, 4
   %52 = and i64 %51, 15
-  %53 = icmp ugt i64 %52, 7
+  %53 = icmp samesign ugt i64 %52, 7
   br i1 %53, label %54, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i3.i"
 
 54:                                               ; preds = %50

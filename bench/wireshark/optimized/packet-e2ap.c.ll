@@ -4433,7 +4433,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   %.1 = phi i32 [ %29, %27 ], [ %.034, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %20, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %32, %.preheader
@@ -8554,7 +8554,7 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
 
 .critedge:                                        ; preds = %19, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp ugt i64 %indvars.iv, 2
+  %30 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %30, label %49, label %9, !llvm.loop !14
 
 31:                                               ; preds = %26

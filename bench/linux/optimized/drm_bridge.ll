@@ -1040,7 +1040,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   %48 = add nuw nsw i64 %52, 1
   %49 = load i32, ptr %4, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.preheader, label %.thread18, !llvm.loop !42
 
 .thread18:                                        ; preds = %47
@@ -1457,7 +1457,7 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
   %53 = add nuw nsw i64 %48, 1
   %54 = load i32, ptr %6, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %53, %55
+  %56 = icmp samesign ult i64 %53, %55
   br i1 %56, label %.preheader, label %.thread, !llvm.loop !56
 
 57:                                               ; preds = %.preheader

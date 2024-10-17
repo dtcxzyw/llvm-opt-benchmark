@@ -916,7 +916,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %28 = load i32, ptr %1, align 8
   %29 = lshr i32 %28, 28
   %30 = zext nneg i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next172, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next172, %30
   br i1 %31, label %32, label %.loopexit, !llvm.loop !24
 
 32:                                               ; preds = %.lr.ph141, %27
@@ -960,7 +960,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %54 = load i32, ptr %1, align 8
   %55 = lshr i32 %54, 28
   %56 = zext nneg i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next169, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next169, %56
   br i1 %57, label %38, label %._crit_edge138, !llvm.loop !25
 
 ._crit_edge138:                                   ; preds = %53, %.preheader112
@@ -1036,7 +1036,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %82 = lshr i32 %81, 28
   %83 = zext nneg i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next151, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next151, %83
   br i1 %84, label %.preheader116, label %.preheader115.loopexit, !llvm.loop !27
 
 .preheader114:                                    ; preds = %87, %.preheader115
@@ -1059,7 +1059,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %91 = load i32, ptr %1, align 8
   %92 = lshr i32 %91, 28
   %93 = zext nneg i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next154, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next154, %93
   br i1 %94, label %87, label %.preheader114, !llvm.loop !28
 
 .lr.ph129.preheader:                              ; preds = %._crit_edge130, %.lr.ph133.preheader
@@ -1192,7 +1192,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %34 = load i32, ptr %1, align 8
   %35 = lshr i32 %34, 28
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next357, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next357, %36
   br i1 %37, label %30, label %._crit_edge296, !llvm.loop !32
 
 ._crit_edge296:                                   ; preds = %30, %._crit_edge292
@@ -1322,7 +1322,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %88 = load i32, ptr %1, align 8
   %89 = lshr i32 %88, 28
   %90 = zext nneg i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next349, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next349, %90
   br i1 %91, label %84, label %._crit_edge288, !llvm.loop !37
 
 ._crit_edge288:                                   ; preds = %84, %80
@@ -1551,7 +1551,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %189 = load i32, ptr %1, align 8
   %190 = lshr i32 %189, 28
   %191 = zext nneg i32 %190 to i64
-  %.not223.not = icmp ult i64 %indvars.iv331, %191
+  %.not223.not = icmp samesign ult i64 %indvars.iv331, %191
   br i1 %.not223.not, label %160, label %192, !llvm.loop !42
 
 192:                                              ; preds = %188
@@ -1636,7 +1636,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %234 = load i32, ptr %1, align 8
   %235 = lshr i32 %234, 28
   %236 = zext nneg i32 %235 to i64
-  %.not228.not = icmp ult i64 %indvars.iv328, %236
+  %.not228.not = icmp samesign ult i64 %indvars.iv328, %236
   br i1 %.not228.not, label %197, label %237, !llvm.loop !43
 
 237:                                              ; preds = %233

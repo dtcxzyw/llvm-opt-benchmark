@@ -2752,7 +2752,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %switch.i.i = icmp ult i8 %31, 3
+  %switch.i.i = icmp samesign ult i8 %31, 3
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 8, !range !640, !noundef !4
   %36 = icmp eq i8 %35, 6
@@ -2761,14 +2761,14 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !640, !noundef !4
-  %switch.i.i3453 = icmp ult i8 %38, 3
+  %switch.i.i3453 = icmp samesign ult i8 %38, 3
   br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit"
 
 39:                                               ; preds = %33
-  %switch.i.i34 = icmp ult i8 %35, 3
+  %switch.i.i34 = icmp samesign ult i8 %35, 3
   %40 = xor i1 %switch.i.i, %switch.i.i34
   br i1 %40, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit"
 
@@ -23621,7 +23621,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h805c4937ae3f9886E.exit: ; preds = %849
 
 _ZN13project_panel12ProjectPanel21should_show_scrollbar17h611b48c47da428b9E.exit.i: ; preds = %.noexc178, %.noexc176
   %.sroa.03.0.i.i = phi i8 [ %868, %.noexc178 ], [ %862, %.noexc176 ]
-  %switch.i.i = icmp ult i8 %.sroa.03.0.i.i, 3
+  %switch.i.i = icmp samesign ult i8 %.sroa.03.0.i.i, 3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49), !noalias !4519
   br i1 %switch.i.i, label %869, label %_ZN13project_panel12ProjectPanel25render_vertical_scrollbar17hd619fa14f10ef1e4E.exit
 
@@ -24290,7 +24290,7 @@ _ZN13project_panel12ProjectPanel25render_vertical_scrollbar17hd619fa14f10ef1e4E.
 
 _ZN13project_panel12ProjectPanel21should_show_scrollbar17h611b48c47da428b9E.exit.i186: ; preds = %.noexc210, %.noexc208
   %.sroa.03.0.i.i187 = phi i8 [ %1086, %.noexc210 ], [ %1080, %.noexc208 ]
-  %switch.i.i188 = icmp ult i8 %.sroa.03.0.i.i187, 3
+  %switch.i.i188 = icmp samesign ult i8 %.sroa.03.0.i.i187, 3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !4631
   br i1 %switch.i.i188, label %1087, label %1293
 

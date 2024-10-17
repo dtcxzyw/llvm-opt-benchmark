@@ -1495,7 +1495,7 @@ for.inc:                                          ; preds = %_ZN6vectorIP4exprLb
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %95 = load i32, ptr %m_num_args.i, align 8
   %96 = zext i32 %95 to i64
-  %cmp47 = icmp ult i64 %indvars.iv.next397, %96
+  %cmp47 = icmp samesign ult i64 %indvars.iv.next397, %96
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
@@ -1690,7 +1690,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry.if.end_crit_e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %m_num_patterns.i, align 8
   %127 = zext i32 %126 to i64
-  %cmp94 = icmp ult i64 %indvars.iv.next, %127
+  %cmp94 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %cmp94, label %invoke.cont97, label %for.end104, !llvm.loop !18
 
 lpad84:                                           ; preds = %sw.bb80

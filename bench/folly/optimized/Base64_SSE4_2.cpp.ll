@@ -45,7 +45,7 @@ _ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_Platfo
   %o.addr.0.i.lcssa = phi ptr [ %o, %entry ], [ %add.ptr6.i, %invoke.cont5.i ]
   %f.addr.0.i.lcssa = phi ptr [ %f, %entry ], [ %add.ptr.i, %invoke.cont5.i ]
   %sub.ptr.sub.i.lcssa = phi i64 [ %sub.ptr.sub.i5, %entry ], [ %sub.ptr.sub.i, %invoke.cont5.i ]
-  %cmp46.i.i = icmp ugt i64 %sub.ptr.sub.i.lcssa, 2
+  %cmp46.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.lcssa, 2
   br i1 %cmp46.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit, %while.body.i.i
@@ -198,7 +198,7 @@ _ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_Platfo
   %o.addr.0.i.lcssa = phi ptr [ %o, %entry ], [ %add.ptr6.i, %invoke.cont5.i ]
   %f.addr.0.i.lcssa = phi ptr [ %f, %entry ], [ %add.ptr.i, %invoke.cont5.i ]
   %sub.ptr.sub.i.lcssa = phi i64 [ %sub.ptr.sub.i5, %entry ], [ %sub.ptr.sub.i, %invoke.cont5.i ]
-  %cmp46.i.i = icmp ugt i64 %sub.ptr.sub.i.lcssa, 2
+  %cmp46.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.lcssa, 2
   br i1 %cmp46.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, %while.body.i.i

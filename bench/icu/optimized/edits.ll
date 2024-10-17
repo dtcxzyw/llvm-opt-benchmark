@@ -2386,7 +2386,7 @@ if.then77:                                        ; preds = %if.else73
 if.else81:                                        ; preds = %if.end61
   %shr82 = lshr i32 %u.0, 6
   %and83 = and i32 %shr82, 63
-  %cmp.i39 = icmp ult i32 %and83, 61
+  %cmp.i39 = icmp samesign ult i32 %and83, 61
   br i1 %cmp.i39, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else81
@@ -2426,7 +2426,7 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit:     ; preds = %if.else81, %if.then
   %oldLength_85 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %retval.0.i, ptr %oldLength_85, align 8
   %and86 = and i32 %u.0, 63
-  %cmp.i40 = icmp ult i32 %and86, 61
+  %cmp.i40 = icmp samesign ult i32 %and86, 61
   br i1 %cmp.i40, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit63, label %if.else.i41
 
 if.else.i41:                                      ; preds = %_ZN6icu_755Edits8Iterator10readLengthEi.exit
@@ -2514,7 +2514,7 @@ if.then110:                                       ; preds = %while.body106
 if.else123:                                       ; preds = %while.body106
   %shr124 = lshr i32 %conv103, 6
   %and125 = and i32 %shr124, 63
-  %cmp.i64 = icmp ult i32 %and125, 61
+  %cmp.i64 = icmp samesign ult i32 %and125, 61
   br i1 %cmp.i64, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit87, label %if.else.i65
 
 if.else.i65:                                      ; preds = %if.else123
@@ -2554,7 +2554,7 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit87:   ; preds = %if.else123, %if.the
   %add128 = add nuw nsw i32 %37, %retval.0.i80
   store i32 %add128, ptr %oldLength_127, align 8
   %and129 = and i32 %conv103, 63
-  %cmp.i88 = icmp ult i32 %and129, 61
+  %cmp.i88 = icmp samesign ult i32 %and129, 61
   br i1 %cmp.i88, label %if.end133, label %if.else.i89
 
 if.else.i89:                                      ; preds = %_ZN6icu_755Edits8Iterator10readLengthEi.exit87
@@ -2978,7 +2978,7 @@ if.then142:                                       ; preds = %if.else140
   store i32 %add21.i117119, ptr %index26, align 8
   %shr146 = lshr i32 %conv120, 6
   %and147 = and i32 %shr146, 63
-  %cmp.i75 = icmp ult i32 %and147, 61
+  %cmp.i75 = icmp samesign ult i32 %and147, 61
   br i1 %cmp.i75, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then142
@@ -3017,7 +3017,7 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit:     ; preds = %if.then142, %if.the
   %add150 = add nsw i32 %43, %retval.0.i
   store i32 %add150, ptr %oldLength_149, align 8
   %and151 = and i32 %conv120, 63
-  %cmp.i76 = icmp ult i32 %and151, 61
+  %cmp.i76 = icmp samesign ult i32 %and151, 61
   br i1 %cmp.i76, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit99, label %if.else.i77
 
 if.else.i77:                                      ; preds = %_ZN6icu_755Edits8Iterator10readLengthEi.exit

@@ -1142,7 +1142,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %33, %39
   %55 = lshr i64 %54, 32
   %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 2147483647
-  %58 = icmp ult i32 %57, 65
+  %58 = icmp samesign ult i32 %57, 65
   br i1 %58, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %50
@@ -1346,7 +1346,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang16TemplateArgument18structurallyE
   %52 = lshr i64 %51, 32
   %53 = trunc nuw i64 %52 to i32
   %54 = and i32 %53, 2147483647
-  %55 = icmp ult i32 %54, 65
+  %55 = icmp samesign ult i32 %54, 65
   br i1 %55, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %50
@@ -1392,7 +1392,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %_ZN4llvm5APIntD2E
   %78 = lshr i64 %77, 32
   %79 = trunc nuw i64 %78 to i32
   %80 = and i32 %79, 2147483647
-  %81 = icmp ult i32 %80, 65
+  %81 = icmp samesign ult i32 %80, 65
   br i1 %81, label %_ZN4llvm5APIntD2Ev.exit.i34, label %_ZN4llvm5APIntD2Ev.exit1.i28
 
 _ZN4llvm5APIntD2Ev.exit.i34:                      ; preds = %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit
@@ -1978,7 +1978,7 @@ _ZL27needsAmpersandOnTemplateArgN5clang8QualTypeES0_.exit.thread: ; preds = %79,
   %181 = lshr i64 %180, 32
   %182 = trunc nuw i64 %181 to i32
   %183 = and i32 %182, 2147483647
-  %184 = icmp ult i32 %183, 65
+  %184 = icmp samesign ult i32 %183, 65
   br i1 %184, label %_ZN4llvm5APIntD2Ev.exit.i.i, label %_ZN4llvm5APIntD2Ev.exit1.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %173
@@ -3055,7 +3055,7 @@ _ZN5clanglsERKNS_19StreamingDiagnosticEPKc.exit35.i: ; preds = %_ZNK5clang19Stre
   %94 = lshr i64 %93, 32
   %95 = trunc nuw i64 %94 to i32
   %96 = and i32 %95, 2147483647
-  %97 = icmp ult i32 %96, 65
+  %97 = icmp samesign ult i32 %96, 65
   br i1 %97, label %_ZN4llvm5APIntD2Ev.exit.i.i, label %_ZN4llvm5APIntD2Ev.exit1.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %92

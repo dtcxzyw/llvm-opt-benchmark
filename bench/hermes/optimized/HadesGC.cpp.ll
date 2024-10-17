@@ -821,7 +821,7 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit: ; preds = 
   br i1 %cmp.i.i.not.i, label %if.then.i3, label %_ZN6hermes2vm7HadesGC6OldGen17addCellToFreelistEPNS2_12FreelistCellEPNS2_13SegmentBucketE.exit
 
 if.then.i3:                                       ; preds = %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit
-  %cmp.i.i = icmp ult i32 %bf.load.i.i.i, 2048
+  %cmp.i.i = icmp samesign ult i32 %bf.load.i.i.i, 2048
   %shr.i.i = lshr i32 %bf.load.i.i.i, 3
   %8 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %bf.load.i.i.i, i1 true)
   %sub.i.i = sub nuw nsw i32 276, %8
@@ -907,7 +907,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 16777215
-  %cmp.i = icmp ult i32 %bf.clear.i.i, 2048
+  %cmp.i = icmp samesign ult i32 %bf.clear.i.i, 2048
   %shr.i = lshr i32 %bf.clear.i.i, 3
   %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %bf.clear.i.i, i1 true)
   %sub.i = sub nuw nsw i32 276, %5
@@ -7750,7 +7750,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -11119,7 +11119,7 @@ entry:
   %sub.i = sub nuw nsw i32 276, %0
   %retval.0.i = select i1 %cmp.i, i32 %shr.i, i32 %sub.i
   %conv = zext nneg i32 %retval.0.i to i64
-  %cmp = icmp ult i32 %retval.0.i, 256
+  %cmp = icmp samesign ult i32 %retval.0.i, 256
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
@@ -11214,7 +11214,7 @@ if.end9:                                          ; preds = %if.end, %entry
   %shl.i.i = shl nsw i64 -1, %rem.i.i
   %and.i.i = and i64 %shl.i.i, %14
   %tobool.not12.i.i = icmp eq i64 %and.i.i, 0
-  %cmp13.i.i = icmp ult i64 %bucket.0, 256
+  %cmp13.i.i = icmp samesign ult i64 %bucket.0, 256
   %15 = and i1 %cmp13.i.i, %tobool.not12.i.i
   br i1 %15, label %while.body.i.i, label %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit
 
@@ -11224,8 +11224,8 @@ while.body.i.i:                                   ; preds = %if.end9, %while.bod
   %arrayidx.i.i9.i.i = getelementptr inbounds [5 x i64], ptr %freelistBucketBitArray_, i64 0, i64 %wordIdx.0.i.i
   %16 = load i64, ptr %arrayidx.i.i9.i.i, align 8
   %tobool.not.i.i41 = icmp eq i64 %16, 0
-  %cmp.i.i = icmp ult i64 %wordIdx.0.in14.i.i, 3
-  %17 = and i1 %cmp.i.i, %tobool.not.i.i41
+  %cmp.i.i = icmp samesign ult i64 %wordIdx.0.in14.i.i, 3
+  %17 = select i1 %tobool.not.i.i41, i1 %cmp.i.i, i1 false
   br i1 %17, label %while.body.i.i, label %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit, !llvm.loop !156
 
 _ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit: ; preds = %while.body.i.i, %if.end9
@@ -11234,7 +11234,7 @@ _ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit: ; preds = %while.bo
   %mul.i.i = shl nuw nsw i64 %wordIdx.0.in.lcssa.i.i, 6
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %currentWord.0.lcssa.i.i, i1 false)
   %add.i.i40 = add nuw nsw i64 %mul.i.i, %18
-  %cmp11167 = icmp ult i64 %add.i.i40, 267
+  %cmp11167 = icmp samesign ult i64 %add.i.i40, 267
   br i1 %cmp11167, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit
@@ -11305,7 +11305,7 @@ if.then.i.i49:                                    ; preds = %if.then26
 _ZN6hermes2vm7HadesGC6OldGen12FreelistCell5carveEj.exit: ; preds = %if.then26, %if.then.i.i49
   %bf.load.i.i50 = phi i32 [ %bf.value.i.i.i, %if.then26 ], [ %28, %if.then.i.i49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %boundary.i.i)
-  %cmp.i52 = icmp ult i32 %bf.load.i.i50, 2048
+  %cmp.i52 = icmp samesign ult i32 %bf.load.i.i50, 2048
   %shr.i53 = lshr i32 %bf.load.i.i50, 3
   %29 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %bf.load.i.i50, i1 true)
   %sub.i54 = sub nuw nsw i32 276, %29
@@ -11388,7 +11388,7 @@ _ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressed
 
 if.then.i72:                                      ; preds = %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit
   %bf.clear.i.i.i73 = and i32 %bf.load.i.i.i66, 16777215
-  %cmp.i.i74 = icmp ult i32 %bf.clear.i.i.i73, 2048
+  %cmp.i.i74 = icmp samesign ult i32 %bf.clear.i.i.i73, 2048
   %shr.i.i = lshr i32 %bf.clear.i.i.i73, 3
   %44 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %bf.clear.i.i.i73, i1 true)
   %sub.i.i = sub nuw nsw i32 276, %44
@@ -11707,7 +11707,7 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i: ; preds 
   br i1 %cmp.i.i.not.i.i, label %if.then.i3.i, label %if.end
 
 if.then.i3.i:                                     ; preds = %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i
-  %cmp.i.i.i45 = icmp ult i32 %bf.load.i.i.i.i, 2048
+  %cmp.i.i.i45 = icmp samesign ult i32 %bf.load.i.i.i.i, 2048
   %shr.i.i.i = lshr i32 %bf.load.i.i.i.i, 3
   %30 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %bf.load.i.i.i.i, i1 true)
   %sub.i.i.i = sub nuw nsw i32 276, %30
@@ -11795,8 +11795,8 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %arrayidx.i.i9.i = getelementptr inbounds [5 x i64], ptr %this, i64 0, i64 %wordIdx.0.i
   %2 = load i64, ptr %arrayidx.i.i9.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
-  %cmp.i = icmp ult i64 %wordIdx.0.in14.i, 3
-  %3 = and i1 %cmp.i, %tobool.not.i
+  %cmp.i = icmp samesign ult i64 %wordIdx.0.in14.i, 3
+  %3 = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   br i1 %3, label %while.body.i, label %_ZNK6hermes8BitArrayILm267ELm8EE15findNextBitImplILb1EEEmm.exit, !llvm.loop !156
 
 _ZNK6hermes8BitArrayILm267ELm8EE15findNextBitImplILb1EEEmm.exit: ; preds = %while.body.i, %entry
@@ -16064,7 +16064,7 @@ for.cond3.preheader:                              ; preds = %_ZN6hermes2vm11Slot
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %1 = load i8, ptr %endGCHermesValue, align 1
   %conv4103 = zext i8 %1 to i64
-  %cmp5104 = icmp ult i64 %i.0.lcssa, %conv4103
+  %cmp5104 = icmp samesign ult i64 %i.0.lcssa, %conv4103
   br i1 %cmp5104, label %for.body6.lr.ph, label %for.cond15.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
@@ -16134,7 +16134,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_13GCPointe
   %inc = add nuw nsw i64 %i.0102, 1
   %14 = load i8, ptr %offsets, align 1
   %conv = zext i8 %14 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !254
 
 for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_17GCHermesValueBaseINS0_11HermesValueEEEEEvPc.exit, %for.cond3.preheader
@@ -16142,7 +16142,7 @@ for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11Slot
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %15 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv16107 = zext i8 %15 to i64
-  %cmp17108 = icmp ult i64 %i.1.lcssa, %conv16107
+  %cmp17108 = icmp samesign ult i64 %i.1.lcssa, %conv16107
   br i1 %cmp17108, label %for.body18.lr.ph, label %for.cond27.preheader
 
 for.body18.lr.ph:                                 ; preds = %for.cond15.preheader
@@ -16236,7 +16236,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_17GCHermes
   %inc13 = add nuw nsw i64 %i.1105, 1
   %29 = load i8, ptr %endGCHermesValue, align 1
   %conv4 = zext i8 %29 to i64
-  %cmp5 = icmp ult i64 %inc13, %conv4
+  %cmp5 = icmp samesign ult i64 %inc13, %conv4
   br i1 %cmp5, label %for.body6, label %for.cond15.preheader, !llvm.loop !255
 
 for.cond27.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_17GCHermesValueBaseINS0_13HermesValue32EEEEEvPc.exit, %for.cond15.preheader
@@ -16244,7 +16244,7 @@ for.cond27.preheader:                             ; preds = %_ZN6hermes2vm11Slot
   %endGCSymbolID = getelementptr inbounds i8, ptr %offsets, i64 3
   %30 = load i8, ptr %endGCSymbolID, align 1
   %conv28111 = zext i8 %30 to i64
-  %cmp29112 = icmp ult i64 %i.2.lcssa, %conv28111
+  %cmp29112 = icmp samesign ult i64 %i.2.lcssa, %conv28111
   br i1 %cmp29112, label %for.body30.lr.ph, label %for.end38
 
 for.body30.lr.ph:                                 ; preds = %for.cond27.preheader
@@ -16345,7 +16345,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_17GCHermes
   %inc25 = add nuw nsw i64 %i.2109, 1
   %46 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv16 = zext i8 %46 to i64
-  %cmp17 = icmp ult i64 %inc25, %conv16
+  %cmp17 = icmp samesign ult i64 %inc25, %conv16
   br i1 %cmp17, label %for.body18, label %for.cond27.preheader, !llvm.loop !256
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_10GCSymbolIDEEEvPc.exit
@@ -16384,7 +16384,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_10GCSymbol
   %54 = phi i8 [ %47, %for.body30 ], [ %.pre, %if.end.i.i.i91 ]
   %inc37 = add nuw nsw i64 %i.3113, 1
   %conv28 = zext i8 %54 to i64
-  %cmp29 = icmp ult i64 %inc37, %conv28
+  %cmp29 = icmp samesign ult i64 %inc37, %conv28
   br i1 %cmp29, label %for.body30, label %for.end38, !llvm.loop !257
 
 for.end38:                                        ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12MarkAcceptorEE9visitSlotINS0_10GCSymbolIDEEEvPc.exit, %for.cond27.preheader
@@ -19744,7 +19744,7 @@ for.cond3.preheader.i:                            ; preds = %_ZN6hermes2vm7Hades
   %endGCHermesValue.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i63, i64 1
   %16 = load i8, ptr %endGCHermesValue.i, align 1
   %conv432.i = zext i8 %16 to i64
-  %cmp533.i = icmp ult i64 %i.0.lcssa.i, %conv432.i
+  %cmp533.i = icmp samesign ult i64 %i.0.lcssa.i, %conv432.i
   br i1 %cmp533.i, label %for.body6.lr.ph.i, label %for.cond15.preheader.i
 
 for.body6.lr.ph.i:                                ; preds = %for.cond3.preheader.i
@@ -19852,7 +19852,7 @@ _ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv
   %inc.i = add nuw nsw i64 %i.031.i, 1
   %33 = load i8, ptr %arrayidx.i.i.i63, align 8
   %conv.i97 = zext i8 %33 to i64
-  %cmp.i98 = icmp ult i64 %inc.i, %conv.i97
+  %cmp.i98 = icmp samesign ult i64 %inc.i, %conv.i97
   br i1 %cmp.i98, label %for.body.i, label %for.cond3.preheader.i, !llvm.loop !280
 
 for.cond15.preheader.i:                           ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GCHermesValueBaseINS0_11HermesValueEEEEEvPc.exit.i, %for.cond3.preheader.i
@@ -19860,7 +19860,7 @@ for.cond15.preheader.i:                           ; preds = %_ZN6hermes2vm11Slot
   %endGCSmallHermesValue.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i63, i64 2
   %34 = load i8, ptr %endGCSmallHermesValue.i, align 2
   %conv1636.i = zext i8 %34 to i64
-  %cmp1737.i = icmp ult i64 %i.1.lcssa.i, %conv1636.i
+  %cmp1737.i = icmp samesign ult i64 %i.1.lcssa.i, %conv1636.i
   br i1 %cmp1737.i, label %for.body18.lr.ph.i, label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit
 
 for.body18.lr.ph.i:                               ; preds = %for.cond15.preheader.i
@@ -19985,7 +19985,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GC
   %60 = phi i8 [ %35, %for.body6.i ], [ %.pre.i, %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapEPNS0_6GCCellEPv.exit279 ]
   %inc13.i = add nuw nsw i64 %i.134.i, 1
   %conv4.i = zext i8 %60 to i64
-  %cmp5.i = icmp ult i64 %inc13.i, %conv4.i
+  %cmp5.i = icmp samesign ult i64 %inc13.i, %conv4.i
   br i1 %cmp5.i, label %for.body6.i, label %for.cond15.preheader.i, !llvm.loop !281
 
 for.body18.i:                                     ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GCHermesValueBaseINS0_13HermesValue32EEEEEvPc.exit.i, %for.body18.lr.ph.i
@@ -20103,7 +20103,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GC
   %80 = phi i8 [ %61, %for.body18.i ], [ %.pre40.i, %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptHeapENS0_17CompressedPointerEPv.exit231 ]
   %inc25.i = add nuw nsw i64 %i.238.i, 1
   %conv16.i = zext i8 %80 to i64
-  %cmp17.i = icmp ult i64 %inc25.i, %conv16.i
+  %cmp17.i = icmp samesign ult i64 %inc25.i, %conv16.i
   br i1 %cmp17.i, label %for.body18.i, label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit, !llvm.loop !282
 
 _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit: ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GCHermesValueBaseINS0_13HermesValue32EEEEEvPc.exit.i, %for.cond15.preheader.i
@@ -20578,7 +20578,7 @@ for.inc:                                          ; preds = %for.body, %if.end8
   %4 = phi i8 [ %1, %for.body ], [ %.pre, %if.end8 ]
   %inc = add nuw nsw i64 %i.049, 1
   %conv = zext i8 %4 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !288
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
@@ -20586,7 +20586,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %5 = load i8, ptr %endGCHermesValue, align 1
   %conv1052 = zext i8 %5 to i64
-  %cmp1153 = icmp ult i64 %i.1, %conv1052
+  %cmp1153 = icmp samesign ult i64 %i.1, %conv1052
   br i1 %cmp1153, label %for.body12.lr.ph, label %for.end29
 
 for.body12.lr.ph:                                 ; preds = %for.end
@@ -20630,7 +20630,7 @@ for.inc27:                                        ; preds = %if.then.i.i, %if.en
   %13 = phi i8 [ %.pre66, %if.then.i.i ], [ %6, %if.end26 ], [ %6, %for.body12 ]
   %inc28 = add nuw nsw i64 %i.254, 1
   %conv10 = zext i8 %13 to i64
-  %cmp11 = icmp ult i64 %inc28, %conv10
+  %cmp11 = icmp samesign ult i64 %inc28, %conv10
   br i1 %cmp11, label %for.body12, label %for.end29, !llvm.loop !289
 
 for.end29:                                        ; preds = %for.inc27, %if.end21, %for.end
@@ -20837,7 +20837,7 @@ for.cond3.preheader:                              ; preds = %for.body, %entry
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %1 = load i8, ptr %endGCHermesValue, align 1
   %conv432 = zext i8 %1 to i64
-  %cmp533 = icmp ult i64 %i.0.lcssa, %conv432
+  %cmp533 = icmp samesign ult i64 %i.0.lcssa, %conv432
   br i1 %cmp533, label %for.body6.lr.ph, label %for.cond15.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
@@ -20857,7 +20857,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw nsw i64 %i.031, 1
   %4 = load i8, ptr %offsets, align 1
   %conv = zext i8 %4 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !280
 
 for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GCHermesValueBaseINS0_11HermesValueEEEEEvPc.exit, %for.cond3.preheader
@@ -20865,7 +20865,7 @@ for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11Slot
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %5 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv1636 = zext i8 %5 to i64
-  %cmp1737 = icmp ult i64 %i.1.lcssa, %conv1636
+  %cmp1737 = icmp samesign ult i64 %i.1.lcssa, %conv1636
   br i1 %cmp1737, label %for.body18.lr.ph, label %for.cond27.preheader
 
 for.body18.lr.ph:                                 ; preds = %for.cond15.preheader
@@ -20900,7 +20900,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GC
   %13 = phi i8 [ %6, %for.body6 ], [ %.pre, %if.then.i.i ]
   %inc13 = add nuw nsw i64 %i.134, 1
   %conv4 = zext i8 %13 to i64
-  %cmp5 = icmp ult i64 %inc13, %conv4
+  %cmp5 = icmp samesign ult i64 %inc13, %conv4
   br i1 %cmp5, label %for.body6, label %for.cond15.preheader, !llvm.loop !281
 
 for.cond27.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GCHermesValueBaseINS0_13HermesValue32EEEEEvPc.exit, %for.cond15.preheader
@@ -20933,7 +20933,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb1EEEE9visitSlotINS0_17GC
   %19 = phi i8 [ %14, %for.body18 ], [ %.pre40, %if.then.i.i25 ]
   %inc25 = add nuw nsw i64 %i.238, 1
   %conv16 = zext i8 %19 to i64
-  %cmp17 = icmp ult i64 %inc25, %conv16
+  %cmp17 = icmp samesign ult i64 %inc25, %conv16
   br i1 %cmp17, label %for.body18, label %for.cond27.preheader, !llvm.loop !282
 }
 
@@ -22132,7 +22132,7 @@ for.cond3.preheader.i:                            ; preds = %_ZN6hermes2vm11Slot
   %endGCHermesValue.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i63, i64 1
   %16 = load i8, ptr %endGCHermesValue.i, align 1
   %conv428.i = zext i8 %16 to i64
-  %cmp529.i = icmp ult i64 %i.0.lcssa.i, %conv428.i
+  %cmp529.i = icmp samesign ult i64 %i.0.lcssa.i, %conv428.i
   br i1 %cmp529.i, label %for.body6.lr.ph.i, label %for.cond15.preheader.i
 
 for.body6.lr.ph.i:                                ; preds = %for.cond3.preheader.i
@@ -22218,7 +22218,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GC
   %inc.i = add nuw nsw i64 %i.027.i, 1
   %31 = load i8, ptr %arrayidx.i.i.i63, align 8
   %conv.i98 = zext i8 %31 to i64
-  %cmp.i99 = icmp ult i64 %inc.i, %conv.i98
+  %cmp.i99 = icmp samesign ult i64 %inc.i, %conv.i98
   br i1 %cmp.i99, label %for.body.i, label %for.cond3.preheader.i, !llvm.loop !298
 
 for.cond15.preheader.i:                           ; preds = %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEE.exit231, %for.cond3.preheader.i
@@ -22226,7 +22226,7 @@ for.cond15.preheader.i:                           ; preds = %_ZN6hermes2vm7Hades
   %endGCSmallHermesValue.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i63, i64 2
   %32 = load i8, ptr %endGCSmallHermesValue.i, align 2
   %conv1632.i = zext i8 %32 to i64
-  %cmp1733.i = icmp ult i64 %i.1.lcssa.i, %conv1632.i
+  %cmp1733.i = icmp samesign ult i64 %i.1.lcssa.i, %conv1632.i
   br i1 %cmp1733.i, label %for.body18.lr.ph.i, label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit
 
 for.body18.lr.ph.i:                               ; preds = %for.cond15.preheader.i
@@ -22330,7 +22330,7 @@ _ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_17GCHermesValueBaseINS0_11
   %54 = phi i8 [ %33, %for.body6.i ], [ %.pre, %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE10acceptHeapEPNS0_6GCCellEPv.exit.i195 ]
   %inc13.i = add nuw nsw i64 %i.130.i, 1
   %conv4.i = zext i8 %54 to i64
-  %cmp5.i = icmp ult i64 %inc13.i, %conv4.i
+  %cmp5.i = icmp samesign ult i64 %inc13.i, %conv4.i
   br i1 %cmp5.i, label %for.body6.i, label %for.cond15.preheader.i, !llvm.loop !299
 
 for.body18.i:                                     ; preds = %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE.exit187, %for.body18.lr.ph.i
@@ -22427,7 +22427,7 @@ _ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_17GCHermesValueBaseINS0_13
   %72 = phi i8 [ %55, %for.body18.i ], [ %.pre246, %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE10acceptHeapENS0_17CompressedPointerEPv.exit.i152 ]
   %inc25.i = add nuw nsw i64 %i.234.i, 1
   %conv16.i = zext i8 %72 to i64
-  %cmp17.i = icmp ult i64 %inc25.i, %conv16.i
+  %cmp17.i = icmp samesign ult i64 %inc25.i, %conv16.i
   br i1 %cmp17.i, label %for.body18.i, label %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit, !llvm.loop !300
 
 _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit: ; preds = %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE.exit187, %for.cond15.preheader.i
@@ -22900,7 +22900,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6herm
   %16 = phi i8 [ %1, %for.body ], [ %.pre, %_ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GCPointerBaseEEEvPc.exit ]
   %inc = add nuw nsw i64 %i.045, 1
   %conv = zext i8 %16 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !306
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
@@ -22908,7 +22908,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %17 = load i8, ptr %endGCHermesValue, align 1
   %conv1048 = zext i8 %17 to i64
-  %cmp1149 = icmp ult i64 %i.1, %conv1048
+  %cmp1149 = icmp samesign ult i64 %i.1, %conv1048
   br i1 %cmp1149, label %for.body12.lr.ph, label %for.end29
 
 for.body12.lr.ph:                                 ; preds = %for.end
@@ -22940,7 +22940,7 @@ for.inc27:                                        ; preds = %for.body12, %if.end
   %21 = phi i8 [ %18, %for.body12 ], [ %.pre62, %if.end26 ]
   %inc28 = add nuw nsw i64 %i.250, 1
   %conv10 = zext i8 %21 to i64
-  %cmp11 = icmp ult i64 %inc28, %conv10
+  %cmp11 = icmp samesign ult i64 %inc28, %conv10
   br i1 %cmp11, label %for.body12, label %for.end29, !llvm.loop !307
 
 for.end29:                                        ; preds = %for.inc27, %if.end21, %for.end
@@ -23183,7 +23183,7 @@ for.cond3.preheader:                              ; preds = %_ZN6hermes2vm11Slot
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %1 = load i8, ptr %endGCHermesValue, align 1
   %conv428 = zext i8 %1 to i64
-  %cmp529 = icmp ult i64 %i.0.lcssa, %conv428
+  %cmp529 = icmp samesign ult i64 %i.0.lcssa, %conv428
   br i1 %cmp529, label %for.body6.lr.ph, label %for.cond15.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
@@ -23269,7 +23269,7 @@ _ZN6hermes2vm11SlotVisitorINS0_7HadesGC12EvacAcceptorILb0EEEE9visitSlotINS0_13GC
   %inc = add nuw nsw i64 %i.027, 1
   %16 = load i8, ptr %offsets, align 1
   %conv = zext i8 %16 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !298
 
 for.cond15.preheader:                             ; preds = %for.body6, %for.cond3.preheader
@@ -23277,7 +23277,7 @@ for.cond15.preheader:                             ; preds = %for.body6, %for.con
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %17 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv1632 = zext i8 %17 to i64
-  %cmp1733 = icmp ult i64 %i.1.lcssa, %conv1632
+  %cmp1733 = icmp samesign ult i64 %i.1.lcssa, %conv1632
   br i1 %cmp1733, label %for.body18.lr.ph, label %for.cond27.preheader
 
 for.body18.lr.ph:                                 ; preds = %for.cond15.preheader
@@ -23295,7 +23295,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %inc13 = add nuw nsw i64 %i.130, 1
   %20 = load i8, ptr %endGCHermesValue, align 1
   %conv4 = zext i8 %20 to i64
-  %cmp5 = icmp ult i64 %inc13, %conv4
+  %cmp5 = icmp samesign ult i64 %inc13, %conv4
   br i1 %cmp5, label %for.body6, label %for.cond15.preheader, !llvm.loop !299
 
 for.cond27.preheader:                             ; preds = %for.body18, %for.cond15.preheader
@@ -23312,7 +23312,7 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   %inc25 = add nuw nsw i64 %i.234, 1
   %23 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv16 = zext i8 %23 to i64
-  %cmp17 = icmp ult i64 %inc25, %conv16
+  %cmp17 = icmp samesign ult i64 %inc25, %conv16
   br i1 %cmp17, label %for.body18, label %for.cond27.preheader, !llvm.loop !300
 }
 
@@ -23757,7 +23757,7 @@ for.cond3.preheader:                              ; preds = %_ZN6hermes2vm11Slot
   %endGCHermesValue = getelementptr inbounds i8, ptr %offsets, i64 1
   %1 = load i8, ptr %endGCHermesValue, align 1
   %conv4106 = zext i8 %1 to i64
-  %cmp5107 = icmp ult i64 %i.0.lcssa, %conv4106
+  %cmp5107 = icmp samesign ult i64 %i.0.lcssa, %conv4106
   br i1 %cmp5107, label %for.body6.lr.ph, label %for.cond15.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
@@ -23829,7 +23829,7 @@ _ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptor
   %inc = add nuw nsw i64 %i.0105, 1
   %15 = load i8, ptr %offsets, align 1
   %conv = zext i8 %15 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !312
 
 for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEEE9visitSlotINS0_17GCHermesValueBaseINS0_11HermesValueEEEEEvPc.exit, %for.cond3.preheader
@@ -23837,7 +23837,7 @@ for.cond15.preheader:                             ; preds = %_ZN6hermes2vm11Slot
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %16 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv16110 = zext i8 %16 to i64
-  %cmp17111 = icmp ult i64 %i.1.lcssa, %conv16110
+  %cmp17111 = icmp samesign ult i64 %i.1.lcssa, %conv16110
   br i1 %cmp17111, label %for.body18.lr.ph, label %for.cond27.preheader
 
 for.body18.lr.ph:                                 ; preds = %for.cond15.preheader
@@ -23933,7 +23933,7 @@ _ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptor
   %inc13 = add nuw nsw i64 %i.1108, 1
   %31 = load i8, ptr %endGCHermesValue, align 1
   %conv4 = zext i8 %31 to i64
-  %cmp5 = icmp ult i64 %inc13, %conv4
+  %cmp5 = icmp samesign ult i64 %inc13, %conv4
   br i1 %cmp5, label %for.body6, label %for.cond15.preheader, !llvm.loop !313
 
 for.cond27.preheader:                             ; preds = %_ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEEE9visitSlotINS0_17GCHermesValueBaseINS0_13HermesValue32EEEEEvPc.exit, %for.cond15.preheader
@@ -23941,7 +23941,7 @@ for.cond27.preheader:                             ; preds = %_ZN6hermes2vm11Slot
   %endGCSymbolID = getelementptr inbounds i8, ptr %offsets, i64 3
   %32 = load i8, ptr %endGCSymbolID, align 1
   %conv28114 = zext i8 %32 to i64
-  %cmp29115 = icmp ult i64 %i.2.lcssa, %conv28114
+  %cmp29115 = icmp samesign ult i64 %i.2.lcssa, %conv28114
   br i1 %cmp29115, label %for.body30.lr.ph, label %for.end38
 
 for.body30.lr.ph:                                 ; preds = %for.cond27.preheader
@@ -24044,7 +24044,7 @@ _ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptor
   %inc25 = add nuw nsw i64 %i.2112, 1
   %49 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv16 = zext i8 %49 to i64
-  %cmp17 = icmp ult i64 %inc25, %conv16
+  %cmp17 = icmp samesign ult i64 %inc25, %conv16
   br i1 %cmp17, label %for.body18, label %for.cond27.preheader, !llvm.loop !314
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %_ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEEE9visitSlotINS0_10GCSymbolIDEEEvPc.exit
@@ -24085,7 +24085,7 @@ _ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptor
   %58 = phi i8 [ %50, %for.body30 ], [ %.pre, %if.end.i.i.i.i94 ]
   %inc37 = add nuw nsw i64 %i.3116, 1
   %conv28 = zext i8 %58 to i64
-  %cmp29 = icmp ult i64 %inc37, %conv28
+  %cmp29 = icmp samesign ult i64 %inc37, %conv28
   br i1 %cmp29, label %for.body30, label %for.end38, !llvm.loop !315
 
 for.end38:                                        ; preds = %_ZN6hermes2vm11SlotVisitorINS0_20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEEE9visitSlotINS0_10GCSymbolIDEEEvPc.exit, %for.cond27.preheader

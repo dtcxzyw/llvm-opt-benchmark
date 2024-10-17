@@ -384,7 +384,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %51 = extractelement <2 x i64> %50, i64 0
   store i64 %51, ptr %29, align 1
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 8
-  %.not116 = icmp ugt i64 %indvars.iv.next184, %21
+  %.not116 = icmp samesign ugt i64 %indvars.iv.next184, %21
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 8
   br i1 %.not116, label %.preheader.loopexit, label %.lr.ph169, !llvm.loop !7
 
@@ -509,7 +509,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %139 = extractelement <2 x i64> %138, i64 0
   store i64 %139, ptr %119, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp ugt i64 %indvars.iv.next, %82
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %82
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 8
   br i1 %.not, label %.preheader161.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -660,7 +660,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
   %83 = extractelement <2 x i64> %82, i64 0
   store i64 %83, ptr %59, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not134 = icmp ugt i64 %indvars.iv.next, %28
+  %.not134 = icmp samesign ugt i64 %indvars.iv.next, %28
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 8
   br i1 %.not134, label %.preheader174.loopexit, label %.lr.ph, !llvm.loop !11
 
@@ -750,7 +750,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   store i64 %137, ptr %115, align 1
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 8
-  %.not133 = icmp ugt i64 %indvars.iv.next197, %106
+  %.not133 = icmp samesign ugt i64 %indvars.iv.next197, %106
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 8
   br i1 %.not133, label %.preheader.loopexit, label %.lr.ph182, !llvm.loop !13
 

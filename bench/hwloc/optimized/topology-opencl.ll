@@ -393,7 +393,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %189 = load i32, ptr %10, align 4
   %190 = zext i32 %189 to i64
-  %191 = icmp ult i64 %indvars.iv.next, %190
+  %191 = icmp samesign ult i64 %indvars.iv.next, %190
   br i1 %191, label %.lr.ph, label %.sink.split, !llvm.loop !4
 
 .sink.split:                                      ; preds = %188, %58
@@ -406,7 +406,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %193 = load i32, ptr %9, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next171, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next171, %194
   br i1 %195, label %49, label %._crit_edge165, !llvm.loop !6
 
 ._crit_edge165:                                   ; preds = %192

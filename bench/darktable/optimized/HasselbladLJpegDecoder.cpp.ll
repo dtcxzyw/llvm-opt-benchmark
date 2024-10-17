@@ -415,7 +415,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladLJpegDecoder10decodeScanEv(pt
   %62 = load i32, ptr %61, align 8, !tbaa !123
   %63 = getelementptr inbounds i8, ptr %0, i64 112
   %64 = load i32, ptr %63, align 8, !tbaa !124
-  %65 = icmp uge i32 %64, %62
+  %65 = icmp samesign uge i32 %64, %62
   tail call void @llvm.assume(i1 %65)
   %66 = icmp sgt i32 %64, -1
   tail call void @llvm.assume(i1 %66)
@@ -426,7 +426,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladLJpegDecoder10decodeScanEv(pt
   %70 = zext i32 %68 to i64
   %71 = add nuw nsw i64 %70, %69
   %72 = zext nneg i32 %64 to i64
-  %73 = icmp ugt i64 %71, %72
+  %73 = icmp samesign ugt i64 %71, %72
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %60

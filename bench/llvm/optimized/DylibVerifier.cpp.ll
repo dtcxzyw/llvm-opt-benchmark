@@ -3874,7 +3874,7 @@ define dso_local void @_ZN5clang10installapi13DylibVerifier18visitObjCInterfaceE
   %18 = or disjoint i8 %.1.i, 4
   %.2.i = select i1 %.not4.i, i8 %.1.i, i8 %18
   store i8 %.2.i, ptr %11, align 8
-  %19 = icmp ugt i8 %.2.i, 4
+  %19 = icmp samesign ugt i8 %.2.i, 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %21 = load i8, ptr %20, align 2
   %.not22 = icmp eq i8 %21, 0
@@ -10444,20 +10444,20 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_
   br i1 %42, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread11.i, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %32, %12
+  %44 = icmp samesign ult i32 %32, %12
   br i1 %44, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread.i, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i32 %12, %32
+  %46 = icmp samesign ult i32 %12, %32
   br i1 %46, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread11.i, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %36, %16
+  %48 = icmp samesign ult i32 %36, %16
   br i1 %48, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread.i, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.i: ; preds = %47
-  %49 = icmp uge i32 %16, %36
-  %50 = icmp ult i32 %39, %19
+  %49 = icmp samesign uge i32 %16, %36
+  %50 = icmp samesign ult i32 %39, %19
   %spec.select.i.i.i.i = select i1 %49, i1 %50, i1 false
   br i1 %spec.select.i.i.i.i, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread.i, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread11.i
 
@@ -10508,20 +10508,20 @@ _ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_Id
   br i1 %75, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread7, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp ult i32 %12, %65
+  %77 = icmp samesign ult i32 %12, %65
   br i1 %77, label %_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.thread, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %65, %12
+  %79 = icmp samesign ult i32 %65, %12
   br i1 %79, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread7, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %16, %69
+  %81 = icmp samesign ult i32 %16, %69
   br i1 %81, label %_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.thread, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit
 
 _ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit: ; preds = %80
-  %82 = icmp uge i32 %69, %16
-  %83 = icmp ult i32 %19, %72
+  %82 = icmp samesign uge i32 %69, %16
+  %83 = icmp samesign ult i32 %19, %72
   %spec.select.i.i.i = select i1 %82, i1 %83, i1 false
   br i1 %spec.select.i.i.i, label %_ZNKSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.thread, label %_ZNKSt4lessISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEEEclERKS5_S8_.exit.thread7
 

@@ -620,7 +620,7 @@ Abc_SclFindMaxAreaCell.exit.us:                   ; preds = %.lr.ph, %22
 
 22:                                               ; preds = %24
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %23 = icmp ult i64 %indvars.iv.next33, %18
+  %23 = icmp samesign ult i64 %indvars.iv.next33, %18
   br i1 %23, label %Abc_SclFindMaxAreaCell.exit.us, label %.critedge, !llvm.loop !11
 
 24:                                               ; preds = %24, %Abc_SclFindMaxAreaCell.exit.us
@@ -676,7 +676,7 @@ Abc_SclFindMaxAreaCell.exit.loopexit:             ; preds = %35
 
 49:                                               ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = icmp ult i64 %indvars.iv.next, %18
+  %50 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %49, %22, %Vec_IntStartFull.exit

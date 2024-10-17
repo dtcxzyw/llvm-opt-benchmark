@@ -446,7 +446,7 @@ _load_job_records.exit:                           ; preds = %95
   %116 = getelementptr inbounds i8, ptr %.04860.i, i64 432
   %117 = load i32, ptr %116, align 8
   %118 = and i32 %117, 255
-  %119 = icmp ugt i32 %118, 2
+  %119 = icmp samesign ugt i32 %118, 2
   %120 = getelementptr inbounds i8, ptr %.04860.i, i64 412
   br i1 %119, label %.sink.split, label %121
 
@@ -562,7 +562,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %176 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 136), align 8
   %177 = zext i16 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next.i33, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next.i33, %177
   br i1 %178, label %127, label %._crit_edge.i34, !llvm.loop !12
 
 ._crit_edge.i34:                                  ; preds = %175
@@ -660,7 +660,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   %.1.i = phi i32 [ %.066.i, %.lr.ph67.i ], [ 1, %.thread.i ]
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %223 = zext i16 %221 to i64
-  %224 = icmp ult i64 %indvars.iv.next73.i, %223
+  %224 = icmp samesign ult i64 %indvars.iv.next73.i, %223
   br i1 %224, label %.lr.ph67.i, label %_verify_job_ids.exit, !llvm.loop !14
 
 _verify_job_ids.exit:                             ; preds = %220, %_load_job_records.exit, %.preheader.i35
@@ -729,7 +729,7 @@ _verify_job_ids.exit:                             ; preds = %220, %_load_job_rec
   %255 = getelementptr inbounds i8, ptr %.058117.i, i64 432
   %256 = load i32, ptr %255, align 8
   %257 = and i32 %256, 255
-  %258 = icmp ugt i32 %257, 2
+  %258 = icmp samesign ugt i32 %257, 2
   %259 = getelementptr inbounds i8, ptr %.058117.i, i64 412
   br i1 %258, label %.thread.i44, label %260
 
@@ -1711,7 +1711,7 @@ define internal fastcc void @_cancel_jobs_by_state(i32 noundef range(i32 0, 13) 
   %31 = getelementptr inbounds i8, ptr %.0169.i, i64 432
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 255
-  %34 = icmp ugt i32 %33, 2
+  %34 = icmp samesign ugt i32 %33, 2
   %35 = getelementptr inbounds i8, ptr %.0169.i, i64 412
   br i1 %34, label %.sink.split, label %36
 
@@ -2137,7 +2137,7 @@ _build_jobid_str.exit.i:                          ; preds = %140, %137, %131
   %230 = phi i16 [ %.pre214.i, %.loopexit.loopexit.i ], [ %14, %25 ], [ %14, %20 ], [ %14, %13 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %231 = zext i16 %230 to i64
-  %232 = icmp ult i64 %indvars.iv.next.i, %231
+  %232 = icmp samesign ult i64 %indvars.iv.next.i, %231
   br i1 %232, label %13, label %_cancel_jobid_by_state.exit, !llvm.loop !22
 
 _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
@@ -2157,7 +2157,7 @@ _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
 .lr.ph141:                                        ; preds = %233
   %237 = getelementptr inbounds i8, ptr %234, i64 24
   %238 = load ptr, ptr %237, align 8
-  %239 = icmp ugt i32 %0, 11
+  %239 = icmp samesign ugt i32 %0, 11
   br label %240
 
 240:                                              ; preds = %.lr.ph141, %341
@@ -2166,7 +2166,7 @@ _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
   %241 = getelementptr inbounds i8, ptr %.046137, i64 432
   %242 = load i32, ptr %241, align 8
   %243 = and i32 %242, 255
-  %244 = icmp ugt i32 %243, 2
+  %244 = icmp samesign ugt i32 %243, 2
   %245 = getelementptr inbounds i8, ptr %.046137, i64 412
   br i1 %244, label %.thread, label %246
 
@@ -2180,7 +2180,7 @@ _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
   %248 = getelementptr inbounds i8, ptr %.046137, i64 412
   %.not60 = icmp eq i32 %242, %0
   %or.cond = or i1 %239, %.not60
-  %or.cond266 = and i1 %247, %or.cond
+  %or.cond266 = select i1 %247, i1 %or.cond, i1 false
   br i1 %or.cond266, label %249, label %341
 
 249:                                              ; preds = %246

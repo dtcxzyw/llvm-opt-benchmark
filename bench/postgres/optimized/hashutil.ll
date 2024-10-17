@@ -98,7 +98,7 @@ define dso_local range(i32 0, 102) i32 @_hash_spareindex(i32 noundef %0) local_u
   %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %5 = sub nuw nsw i32 32, %4
   %.0.i = select i1 %2, i32 0, i32 %5
-  %6 = icmp ult i32 %.0.i, 10
+  %6 = icmp samesign ult i32 %.0.i, 10
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
@@ -462,7 +462,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %22 = getelementptr i8, ptr %.0.i.i, i64 76
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %24 = sub nuw nsw i32 32, %23
-  %25 = icmp ult i32 %6, 512
+  %25 = icmp samesign ult i32 %6, 512
   br i1 %25, label %_hash_spareindex.exit, label %26
 
 26:                                               ; preds = %21
@@ -539,7 +539,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i, i1 true)
   %32 = sub nuw nsw i32 32, %31
   %.0.i.i12 = select i1 %30, i32 0, i32 %32
-  %33 = icmp ult i32 %.0.i.i12, 10
+  %33 = icmp samesign ult i32 %.0.i.i12, 10
   br i1 %33, label %_hash_spareindex.exit, label %34
 
 34:                                               ; preds = %27

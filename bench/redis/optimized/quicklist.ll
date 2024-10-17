@@ -453,7 +453,7 @@ while.cond:                                       ; preds = %lor.lhs.false, %lor
   %bf.load27 = load i64, ptr %compress, align 8
   %7 = trunc i64 %bf.load27 to i32
   %8 = lshr i32 %7, 16
-  %cmp31 = icmp ult i32 %depth.0, %8
+  %cmp31 = icmp samesign ult i32 %depth.0, %8
   br i1 %cmp31, label %do.body, label %while.end
 
 do.body:                                          ; preds = %while.cond
@@ -895,7 +895,7 @@ if.else.i:                                        ; preds = %if.end10
   %bf.clear18 = and i32 %bf.load3, 65535
   %add19 = add nuw nsw i32 %bf.clear18, %bf.clear15
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
-  %cmp7.i = icmp ugt i64 %conv13, 8192
+  %cmp7.i = icmp samesign ugt i64 %conv13, 8192
   %cmp10.i = icmp ugt i32 %add19, %cond.i.i
   %spec.select.i = or i1 %cmp10.i, %cmp7.i
   br label %quicklistNodeExceedsLimit.exit
@@ -2166,7 +2166,7 @@ _quicklistNodeAllowMerge.exit:                    ; preds = %if.end10.i
   %bf.clear18.i = and i32 %bf.load3.i, 65535
   %add19.i = add nuw nsw i32 %bf.clear18.i, %bf.clear15.i
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
-  %cmp7.i.i = icmp ugt i64 %conv13.i, 8192
+  %cmp7.i.i = icmp samesign ugt i64 %conv13.i, 8192
   %cmp10.i.i = icmp ugt i32 %add19.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.end26, label %if.then24
@@ -2220,7 +2220,7 @@ _quicklistNodeAllowMerge.exit67:                  ; preds = %if.end10.i43
   %bf.clear18.i61 = and i32 %bf.load3.i41, 65535
   %add19.i62 = add nuw nsw i32 %bf.clear18.i61, %bf.clear15.i60
   %cond.i.i.i63 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
-  %cmp7.i.i64 = icmp ugt i64 %conv13.i48, 8192
+  %cmp7.i.i64 = icmp samesign ugt i64 %conv13.i48, 8192
   %cmp10.i.i65 = icmp ugt i32 %add19.i62, %cond.i.i.i63
   %spec.select.i.i66 = or i1 %cmp10.i.i65, %cmp7.i.i64
   br i1 %spec.select.i.i66, label %if.end31, label %if.then29
@@ -2273,7 +2273,7 @@ _quicklistNodeAllowMerge.exit104:                 ; preds = %if.end10.i80
   %bf.clear18.i98 = and i32 %bf.load3.i78, 65535
   %add19.i99 = add nuw nsw i32 %bf.clear18.i98, %bf.clear15.i97
   %cond.i.i.i100 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
-  %cmp7.i.i101 = icmp ugt i64 %conv13.i85, 8192
+  %cmp7.i.i101 = icmp samesign ugt i64 %conv13.i85, 8192
   %cmp10.i.i102 = icmp ugt i32 %add19.i99, %cond.i.i.i100
   %spec.select.i.i103 = or i1 %cmp10.i.i102, %cmp7.i.i101
   br i1 %spec.select.i.i103, label %if.end38, label %if.then35
@@ -2330,7 +2330,7 @@ _quicklistNodeAllowMerge.exit141:                 ; preds = %if.end10.i117
   %bf.clear18.i135 = and i32 %bf.load3.i115, 65535
   %add19.i136 = add nuw nsw i32 %bf.clear18.i135, %bf.clear15.i134
   %cond.i.i.i137 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
-  %cmp7.i.i138 = icmp ugt i64 %conv13.i122, 8192
+  %cmp7.i.i138 = icmp samesign ugt i64 %conv13.i122, 8192
   %cmp10.i.i139 = icmp ugt i32 %add19.i136, %cond.i.i.i137
   %spec.select.i.i140 = or i1 %cmp10.i.i139, %cmp7.i.i138
   br i1 %spec.select.i.i140, label %if.end45, label %if.then42

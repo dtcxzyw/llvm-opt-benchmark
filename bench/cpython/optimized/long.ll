@@ -646,7 +646,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.inc41.i.i, %ent
 
 for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i.i, %for.cond1.preheader.i.i
   %j.01.i.i = phi i32 [ 0, %for.cond1.preheader.i.i ], [ %inc.i.i, %Py_DECREF.exit245.i.i ]
-  %cmp4.i.i = icmp ult i32 %j.01.i.i, 3
+  %cmp4.i.i = icmp samesign ult i32 %j.01.i.i, 3
   %cond.i.i = select i1 %cmp4.i.i, i64 %base.03.i.i, i64 %sub.i.i
   %rem.urem.i.i = add nsw i32 %j.01.i.i, -3
   %rem.i.i = select i1 %cmp4.i.i, i32 %j.01.i.i, i32 %rem.urem.i.i
@@ -1832,7 +1832,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.inc41.i.i, %ent
 
 for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i.i, %for.cond1.preheader.i.i
   %j.01.i.i = phi i32 [ 0, %for.cond1.preheader.i.i ], [ %inc.i.i, %Py_DECREF.exit245.i.i ]
-  %cmp4.i.i = icmp ult i32 %j.01.i.i, 3
+  %cmp4.i.i = icmp samesign ult i32 %j.01.i.i, 3
   %cond.i.i = select i1 %cmp4.i.i, i64 %base.03.i.i, i64 %sub.i.i
   %rem.urem.i.i = add nsw i32 %j.01.i.i, -3
   %rem.i.i = select i1 %cmp4.i.i, i32 %j.01.i.i, i32 %rem.urem.i.i

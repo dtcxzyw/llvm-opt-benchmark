@@ -82,7 +82,7 @@ for.end:                                          ; preds = %for.body, %if.then
   %c.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor30.i, %for.body ]
   %d.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor33.i, %for.body ]
   %u.sroa.0.0.lcssa = phi ptr [ %message, %if.then ], [ %add.ptr8, %for.body ]
-  %cmp9 = icmp ugt i64 %rem, 15
+  %cmp9 = icmp samesign ugt i64 %rem, 15
   br i1 %cmp9, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %for.end

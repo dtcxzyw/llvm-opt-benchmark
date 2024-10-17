@@ -1340,7 +1340,7 @@ sw.bb96.i:                                        ; preds = %do.end74.i
   %bProtocolNum.i.i = getelementptr inbounds i8, ptr %call.i, i64 9175
   %19 = load i8, ptr %bProtocolNum.i.i, align 1
   %20 = and i8 %19, 3
-  %or.cond.i.i = icmp ugt i8 %20, 1
+  %or.cond.i.i = icmp samesign ugt i8 %20, 1
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb96.i
@@ -1801,7 +1801,7 @@ if.then5:                                         ; preds = %atr_get_protocol_nu
   br label %do.end
 
 do.end:                                           ; preds = %atr_get_protocol_num.exit, %if.then5
-  %cmp10 = icmp ult i8 %retval.0.i26, 2
+  %cmp10 = icmp samesign ult i8 %retval.0.i26, 2
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %do.end

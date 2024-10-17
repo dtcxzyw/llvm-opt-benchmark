@@ -333,7 +333,7 @@ if.else20.i:                                      ; preds = %if.end.i246
   %48 = load i32, ptr %size21.i, align 4
   %49 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %xor.i = xor i32 %49, 31
-  %cmp22.i = icmp ult i32 %xor.i, 4
+  %cmp22.i = icmp samesign ult i32 %xor.i, 4
   br i1 %cmp22.i, label %crec_ct2irt.exit, label %if.then247
 
 crec_ct2irt.exit:                                 ; preds = %if.else20.i
@@ -849,7 +849,7 @@ if.then8:                                         ; preds = %if.then5
 if.else20:                                        ; preds = %if.then5
   %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %xor = xor i32 %4, 31
-  %cmp22 = icmp ult i32 %xor, 4
+  %cmp22 = icmp samesign ult i32 %xor, 4
   br i1 %cmp22, label %if.then24, label %return
 
 if.then24:                                        ; preds = %if.else20
@@ -1106,7 +1106,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.else20.i:                                      ; preds = %if.then5.i
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %xor.i = xor i32 %6, 31
-  %cmp22.i = icmp ult i32 %xor.i, 4
+  %cmp22.i = icmp samesign ult i32 %xor.i, 4
   br i1 %cmp22.i, label %if.then24.i, label %crec_ct2irt.exit
 
 if.then24.i:                                      ; preds = %if.else20.i
@@ -1739,7 +1739,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
 if.else20.i.i:                                    ; preds = %if.then5.i.i
   %51 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
   %xor.i.i = xor i32 %51, 31
-  %cmp22.i.i = icmp ult i32 %xor.i.i, 4
+  %cmp22.i.i = icmp samesign ult i32 %xor.i.i, 4
   br i1 %cmp22.i.i, label %if.then24.i.i, label %crec_ct2irt.exit.i
 
 if.then24.i.i:                                    ; preds = %if.else20.i.i
@@ -1814,7 +1814,7 @@ if.then8.i247.i:                                  ; preds = %if.then5.i243.i
 if.else20.i252.i:                                 ; preds = %if.then5.i243.i
   %58 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
   %xor.i253.i = xor i32 %58, 31
-  %cmp22.i254.i = icmp ult i32 %xor.i253.i, 4
+  %cmp22.i254.i = icmp samesign ult i32 %xor.i253.i, 4
   br i1 %cmp22.i254.i, label %if.then24.i255.i, label %crec_ct2irt.exit266.i
 
 if.then24.i255.i:                                 ; preds = %if.else20.i252.i
@@ -2547,7 +2547,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
 if.else20.i.i:                                    ; preds = %if.then5.i.i
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %xor.i.i = xor i32 %28, 31
-  %cmp22.i.i = icmp ult i32 %xor.i.i, 4
+  %cmp22.i.i = icmp samesign ult i32 %xor.i.i, 4
   br i1 %cmp22.i.i, label %if.then24.i.i, label %crec_ct2irt.exit.i
 
 if.then24.i.i:                                    ; preds = %if.else20.i.i
@@ -3812,7 +3812,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.else20.i:                                      ; preds = %if.then5.i
   %14 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %xor.i = xor i32 %14, 31
-  %cmp22.i = icmp ult i32 %xor.i, 4
+  %cmp22.i = icmp samesign ult i32 %xor.i, 4
   br i1 %cmp22.i, label %if.then24.i, label %crec_ct2irt.exit
 
 if.then24.i:                                      ; preds = %if.else20.i
@@ -3913,7 +3913,7 @@ if.then8.i193:                                    ; preds = %if.then5.i189
 if.else20.i198:                                   ; preds = %if.then5.i189
   %24 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %xor.i199 = xor i32 %24, 31
-  %cmp22.i200 = icmp ult i32 %xor.i199, 4
+  %cmp22.i200 = icmp samesign ult i32 %xor.i199, 4
   br i1 %cmp22.i200, label %if.then24.i201, label %if.end76
 
 if.then24.i201:                                   ; preds = %if.else20.i198
@@ -4864,7 +4864,7 @@ if.then229:                                       ; preds = %land.lhs.true225
   %add.ptr234 = getelementptr inbounds i8, ptr %150, i64 -4
   %151 = load i32, ptr %add.ptr234, align 4
   %and235 = and i32 %151, 252
-  %cmp236 = icmp ult i32 %and235, 12
+  %cmp236 = icmp samesign ult i32 %and235, 12
   br i1 %cmp236, label %if.then238, label %if.end243
 
 if.then238:                                       ; preds = %if.then229
@@ -5443,7 +5443,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.else20.i:                                      ; preds = %if.then5.i
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %xor.i = xor i32 %11, 31
-  %cmp22.i = icmp ult i32 %xor.i, 4
+  %cmp22.i = icmp samesign ult i32 %xor.i, 4
   br i1 %cmp22.i, label %if.then24.i, label %if.end.i43
 
 if.then24.i:                                      ; preds = %if.else20.i
@@ -5569,7 +5569,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
 if.else20.i.i:                                    ; preds = %if.then5.i.i
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %xor.i.i = xor i32 %23, 31
-  %cmp22.i.i = icmp ult i32 %xor.i.i, 4
+  %cmp22.i.i = icmp samesign ult i32 %xor.i.i, 4
   br i1 %cmp22.i.i, label %if.then24.i.i, label %fallback
 
 if.then24.i.i:                                    ; preds = %if.else20.i.i
@@ -5750,13 +5750,13 @@ for.body.i:                                       ; preds = %if.end.i58, %if.the
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %add.i54 = add i32 %rwin.039.i, 1
   %cmp14.i = icmp ult i32 %add.i54, 4
-  %cmp16.not.i = icmp ult i64 %indvars.iv.next46.i, %33
+  %cmp16.not.i = icmp samesign ult i64 %indvars.iv.next46.i, %33
   %or.cond.i55 = select i1 %cmp14.i, i1 %cmp16.not.i, i1 false
   br i1 %or.cond.i55, label %if.end.i58, label %for.cond18.preheader.i
 
 for.cond18.preheader.i:                           ; preds = %for.body.i
   %37 = zext i32 %j.040.i to i64
-  %cmp19.not37.i = icmp ult i64 %indvars.iv45.i, %37
+  %cmp19.not37.i = icmp samesign ult i64 %indvars.iv45.i, %37
   br i1 %cmp19.not37.i, label %if.end.i58, label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.cond18.preheader.i, %for.body21.i

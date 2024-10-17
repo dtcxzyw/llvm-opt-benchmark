@@ -253,7 +253,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
   %93 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %93, ptr %16, align 8
   %94 = getelementptr inbounds i8, ptr %16, i64 8
-  %.not.i.i.i = icmp ugt i32 %31, 132
+  %.not.i.i.i = icmp samesign ugt i32 %31, 132
   store i64 %92, ptr %94, align 8
   br i1 %.not.i.i.i, label %95, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
 

@@ -16119,15 +16119,15 @@ _ZN4core3str11validations15next_code_point17had883a534e617695E.exit.thread.i.i: 
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i"
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 128
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 128
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 2048
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 2048
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 65536
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 65536
   %..i.i = select i1 %76, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i"
 
@@ -18832,7 +18832,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   %9 = sub i64 %3, %7
   %10 = lshr i64 %9, 5
   %11 = and i64 %1, 31
-  %12 = icmp ugt i64 %10, %11
+  %12 = icmp samesign ugt i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   br label %14
 
@@ -18937,7 +18937,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$5close17h3d91e4193616d
   %10 = sub i64 %4, %8
   %11 = lshr i64 %10, 5
   %12 = and i64 %3, 31
-  %13 = icmp ugt i64 %11, %12
+  %13 = icmp samesign ugt i64 %11, %12
   br label %14
 
 14:                                               ; preds = %26, %.lr.ph.i
@@ -25694,7 +25694,7 @@ define hidden void @_ZN9itertools9Itertools4join17h29d7056ab67a2c90E.llvm.868592
   %74 = phi i64 [ %27, %.lr.ph.i.i.i.i.i18 ], [ %75, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h216570ca1955d1afE.exit.i.i.i.i.i" ]
   %75 = add nuw nsw i64 %74, 1
   store i64 %75, ptr %19, align 8, !alias.scope !5212, !noalias !5215
-  %76 = icmp ult i64 %74, 2
+  %76 = icmp samesign ult i64 %74, 2
   call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %74
   %78 = load ptr, ptr %77, align 8, !alias.scope !5212, !noalias !5215, !nonnull !13, !align !14, !noundef !13

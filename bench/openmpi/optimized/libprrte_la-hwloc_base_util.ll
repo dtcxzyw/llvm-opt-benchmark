@@ -847,7 +847,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %26, %prte_hwloc_bas
   %71 = load i32, ptr %45, align 8
   %72 = add i32 %71, -1
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next71, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next71, %73
   br i1 %74, label %.lr.ph59, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %.._crit_edge_crit_edge
@@ -2015,7 +2015,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
   %45 = phi i32 [ %23, %22 ], [ %.pre39, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %22, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %44, %.preheader, %.lr.ph36
@@ -3793,7 +3793,7 @@ define internal fastcc void @print_hwloc_obj(ptr nocapture noundef nonnull %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %13, align 8
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %77, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %77, %67

@@ -587,7 +587,7 @@ _ZN4llvm11SmallVectorIN5clang8QualTypeELj4EED2Ev.exit._crit_edge: ; preds = %_ZN
   %173 = load i64, ptr %172, align 8, !noalias !6
   %174 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %171, ptr %174, align 8, !alias.scope !6
-  %175 = icmp ult i32 %171, 65
+  %175 = icmp samesign ult i32 %171, 65
   br i1 %175, label %176, label %184
 
 176:                                              ; preds = %169
@@ -6224,7 +6224,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff30InitializeNonTypeD
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 2147483647
-  %30 = icmp ult i32 %29, 65
+  %30 = icmp samesign ult i32 %29, 65
   br i1 %30, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %25
@@ -6450,7 +6450,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit: ; preds = 
   %155 = lshr i64 %154, 32
   %156 = trunc nuw i64 %155 to i32
   %157 = and i32 %156, 2147483647
-  %158 = icmp ult i32 %157, 65
+  %158 = icmp samesign ult i32 %157, 65
   br i1 %158, label %_ZN4llvm5APIntD2Ev.exit.i61, label %_ZN4llvm5APIntD2Ev.exit1.i55
 
 _ZN4llvm5APIntD2Ev.exit.i61:                      ; preds = %153

@@ -5399,7 +5399,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIPN3eu
   %arrayidx.i26 = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i26, align 4
   %15 = zext i32 %14 to i64
-  %cmp85 = icmp ult i64 %indvars.iv, %15
+  %cmp85 = icmp samesign ult i64 %indvars.iv, %15
   br i1 %cmp85, label %for.body11, label %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit
 
 for.body11:                                       ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread

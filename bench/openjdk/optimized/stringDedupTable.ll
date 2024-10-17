@@ -416,7 +416,7 @@ define hidden noundef range(i32 -536870910, -1610612735) i32 @_ZN11StringDedup5T
 3:                                                ; preds = %1
   %4 = icmp sgt i32 %0, 0
   %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
-  %6 = icmp ult i32 %5, 2
+  %6 = icmp samesign ult i32 %5, 2
   %or.cond.i = select i1 %4, i1 %6, i1 false
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %8 = sub nuw nsw i32 32, %7
@@ -449,7 +449,7 @@ define hidden void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr nocaptur
 _ZN11StringDedup5Table6Bucket15needed_capacityEi.exit: ; preds = %6
   %9 = icmp sgt i32 %2, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %7)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -2355,7 +2355,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table13start_resizerEbm(i1 no
 19:                                               ; preds = %2
   %20 = icmp sgt i32 %17, 0
   %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   %or.cond.i.i = select i1 %20, i1 %22, i1 false
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %24 = sub nuw nsw i32 32, %23
@@ -2649,7 +2649,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 _ZN13GrowableArrayImE8allocateEv.exit.i:          ; preds = %36
   %37 = icmp sgt i32 %35, -1
   %38 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.pre)
-  %39 = icmp ult i32 %38, 2
+  %39 = icmp samesign ult i32 %38, 2
   %or.cond.i.i.i.i = select i1 %37, i1 %39, i1 false
   %40 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre, i1 true)
   %41 = sub nuw nsw i32 32, %40
@@ -3864,7 +3864,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIj18Growa
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -3965,7 +3965,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI10WeakHa
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12

@@ -380,7 +380,7 @@ define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = load i32, ptr %5, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i, %42
   br i1 %43, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !8
 
 string_walk.exit:                                 ; preds = %40, %3, %.preheader.i
@@ -499,7 +499,7 @@ define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = load i32, ptr %5, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next.i, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next.i, %42
   br i1 %43, label %.lr.ph3.i, label %string_walk.exit, !llvm.loop !8
 
 string_walk.exit:                                 ; preds = %40, %3, %.preheader.i
@@ -633,7 +633,7 @@ define internal noundef zeroext i1 @df_func_string(ptr nocapture noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %6, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %.preheader, %3
@@ -814,7 +814,7 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next.i, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
@@ -922,7 +922,7 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next.i, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next.i, %16
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
@@ -990,7 +990,7 @@ define internal zeroext i1 @df_func_abs(ptr nocapture noundef readonly %0, i32 %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %7, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %20, %.preheader
@@ -1147,7 +1147,7 @@ define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %4, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %41, %.preheader, %2

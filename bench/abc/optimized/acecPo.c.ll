@@ -1421,7 +1421,7 @@ define void @Gia_PolynPrintStats(ptr nocapture noundef readonly %0) local_unname
 
 Vec_IntAlloc.exit.i:                              ; preds = %8
   %14 = add nuw nsw i32 %13, 1
-  %or.cond.i.i = icmp ult i32 %13, 15
+  %or.cond.i.i = icmp samesign ult i32 %13, 15
   %spec.select = select i1 %or.cond.i.i, i32 16, i32 %14
   %15 = zext nneg i32 %spec.select to i64
   %16 = shl nuw nsw i64 %15, 2
@@ -1474,7 +1474,7 @@ Vec_IntStart.exit64:                              ; preds = %Vec_IntAlloc.exit.i
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %36 = icmp ult i64 %indvars.iv.next79, %26
+  %36 = icmp samesign ult i64 %indvars.iv.next79, %26
   br i1 %36, label %27, label %.lr.ph74.preheader, !llvm.loop !23
 
 .lr.ph74.preheader:                               ; preds = %27, %Vec_IntStart.exit64
@@ -5173,7 +5173,7 @@ Vec_IntGrow.exit26.i37.i:                         ; preds = %Vec_IntGrow.exit26t
   %376 = getelementptr inbounds i32, ptr %375, i64 %indvars.iv.next.i41.i
   %377 = load i32, ptr %376, align 4
   %378 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %377, i1 true)
-  %379 = icmp ult i32 %378, %372
+  %379 = icmp samesign ult i32 %378, %372
   br i1 %379, label %380, label %._crit_edge.loopexit.split.loop.exit.i42.i
 
 380:                                              ; preds = %374
@@ -5266,7 +5266,7 @@ Vec_IntGrow.exit26.i.i:                           ; preds = %Vec_IntGrow.exit26t
   %417 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.next.i34.i
   %418 = load i32, ptr %417, align 4
   %419 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %418, i1 true)
-  %420 = icmp ult i32 %419, %413
+  %420 = icmp samesign ult i32 %419, %413
   br i1 %420, label %421, label %._crit_edge.loopexit.split.loop.exit.i.i334
 
 421:                                              ; preds = %415
@@ -5901,7 +5901,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_IntPushUniqueOr
   %678 = lshr i64 %.val303, 32
   %679 = trunc nuw i64 %678 to i32
   %680 = and i32 %679, 536870911
-  %.not446 = icmp ult i32 %677, %680
+  %.not446 = icmp samesign ult i32 %677, %680
   br i1 %.not446, label %717, label %Gia_ObjIsXor.exit.thread
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Vec_IntPushUniqueOrder.exit372, %Gia_ObjIsXor.exit
@@ -7016,7 +7016,7 @@ Vec_IntGrow.exit26:                               ; preds = %Vec_IntGrow.exit26t
   %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next
   %38 = load i32, ptr %37, align 4
   %39 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = icmp ult i32 %39, %33
+  %40 = icmp samesign ult i32 %39, %33
   br i1 %40, label %41, label %._crit_edge.loopexit.split.loop.exit
 
 41:                                               ; preds = %35

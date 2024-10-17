@@ -5376,7 +5376,7 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit77.i.i.i: ; preds 
   %636 = zext nneg i8 %635 to i64
   %.idx4.i.i.i.i.i = shl nuw nsw i64 %636, 2
   %637 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.idx4.i.i.i.i.i
-  %.not.i78.i.i.i = icmp ult i8 %635, 4
+  %.not.i78.i.i.i = icmp samesign ult i8 %635, 4
   br i1 %.not.i78.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %620
@@ -6283,7 +6283,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15
   %1168 = zext nneg i8 %1167 to i64
   %.idx4.i.i.i.i.i.i = shl nuw nsw i64 %1168, 2
   %1169 = getelementptr inbounds i8, ptr %.val.i.i.i40.i, i64 %.idx4.i.i.i.i.i.i
-  %.not.i.i141.i.i.i = icmp ult i8 %1167, 4
+  %.not.i.i141.i.i.i = icmp samesign ult i8 %1167, 4
   br i1 %.not.i.i141.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %1153
@@ -6507,7 +6507,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15
   %1269 = zext nneg i8 %1268 to i64
   %.idx1.i.i.i.i.i.i = shl nuw nsw i64 %1269, 2
   %1270 = getelementptr inbounds i8, ptr %.val9.i138.i.i.i, i64 %.idx1.i.i.i.i.i.i
-  %.not.i23.i.i.i.i = icmp ult i8 %1268, 4
+  %.not.i23.i.i.i.i = icmp samesign ult i8 %1268, 4
   br i1 %.not.i23.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %1254
@@ -8690,7 +8690,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit.i.i: ; preds = %907, %_ZNSt10un
 .lr.ph.i143.i:                                    ; preds = %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit.i.i
   %.idx4.i.i.i.i.i = shl nuw nsw i64 %909, 2
   %911 = getelementptr inbounds i8, ptr %.sroa.020.0.i.i, i64 %.idx4.i.i.i.i.i
-  %.not.i.i43.i.i = icmp ult i8 %901, 4
+  %.not.i.i43.i.i = icmp samesign ult i8 %901, 4
   %912 = lshr i64 %909, 2
   %913 = and i64 %.idx4.i.i.i.i.i, 240
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.sroa.020.0.i.i, i64 %913
@@ -16402,7 +16402,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   %115 = zext nneg i8 %112 to i64
   %.idx4.i.i.i = shl nuw nsw i64 %115, 2
   %116 = getelementptr inbounds i8, ptr %.val88, i64 %.idx4.i.i.i
-  %.not.i.i93 = icmp ult i8 %112, 4
+  %.not.i.i93 = icmp samesign ult i8 %112, 4
   br i1 %.not.i.i93, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %114
@@ -24038,7 +24038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4ll
   %47 = zext nneg i8 %44 to i64
   %.idx4.i.i.i = shl nuw nsw i64 %47, 2
   %48 = getelementptr inbounds i8, ptr %.val56, i64 %.idx4.i.i.i
-  %.not.i.i = icmp ult i8 %44, 4
+  %.not.i.i = icmp samesign ult i8 %44, 4
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %46

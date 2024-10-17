@@ -799,7 +799,7 @@ slurm_print_job_info.exit:                        ; preds = %.lr.ph, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %9, align 8
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %slurm_print_job_info.exit, %3
@@ -1817,7 +1817,7 @@ _sprint_range.exit580:                            ; preds = %306, %308
   %474 = getelementptr inbounds i8, ptr %473, i64 8
   %475 = load i32, ptr %474, align 8
   %476 = zext i32 %475 to i64
-  %477 = icmp ult i64 %indvars.iv.next.i, %476
+  %477 = icmp samesign ult i64 %indvars.iv.next.i, %476
   br i1 %477, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %472, %466, %455
@@ -1919,7 +1919,7 @@ _threads_per_core.exit:                           ; preds = %428, %.loopexit.i
 505:                                              ; preds = %503
   %506 = load i32, ptr %425, align 8
   %507 = zext i32 %506 to i64
-  %508 = icmp ult i64 %indvars.iv658, %507
+  %508 = icmp samesign ult i64 %indvars.iv658, %507
   br i1 %508, label %509, label %514
 
 509:                                              ; preds = %505
@@ -1967,7 +1967,7 @@ _threads_per_core.exit:                           ; preds = %428, %.loopexit.i
   %527 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6) #19
   %528 = load i32, ptr %425, align 8
   %529 = zext i32 %528 to i64
-  %530 = icmp ult i64 %indvars.iv658, %529
+  %530 = icmp samesign ult i64 %indvars.iv658, %529
   br i1 %530, label %531, label %535
 
 531:                                              ; preds = %526
@@ -2023,7 +2023,7 @@ _threads_per_core.exit:                           ; preds = %428, %.loopexit.i
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
   %558 = load i32, ptr %420, align 8
   %559 = zext i32 %558 to i64
-  %560 = icmp ult i64 %indvars.iv.next659, %559
+  %560 = icmp samesign ult i64 %indvars.iv.next659, %559
   br i1 %560, label %428, label %._crit_edge627.loopexit, !llvm.loop !14
 
 ._crit_edge627.loopexit:                          ; preds = %540, %557
@@ -3253,7 +3253,7 @@ define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull 
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %185 = load i32, ptr %134, align 8
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next215, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next215, %186
   br i1 %187, label %.lr.ph181, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %184, %.loopexit

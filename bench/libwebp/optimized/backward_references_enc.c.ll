@@ -1466,7 +1466,7 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   %351 = add nsw i32 %350, 1
   %352 = icmp ne i32 %342, %351
   %indvars.iv.next248.i.i = add nuw nsw i64 %indvars.iv247.i.i, 1
-  %353 = icmp ult i64 %indvars.iv.next248.i.i, %340
+  %353 = icmp samesign ult i64 %indvars.iv.next248.i.i, %340
   %354 = select i1 %353, i1 %352, i1 false
   br i1 %354, label %348, label %._crit_edge.us.i.i, !llvm.loop !23
 
@@ -1590,7 +1590,7 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   %405 = zext i16 %396 to i32
   %406 = add nuw nsw i32 %.0141.i.i, %405
   %407 = add nuw nsw i32 %.0140.i.i, %405
-  %408 = icmp ult i32 %406, 4096
+  %408 = icmp samesign ult i32 %406, 4096
   %409 = icmp slt i32 %407, %90
   %or.cond.i124.i = select i1 %408, i1 %409, i1 false
   br i1 %or.cond.i124.i, label %410, label %.critedge.i.i
@@ -2120,7 +2120,7 @@ VP8LRefsCursorInit.exit.thread.i.i:               ; preds = %596
   %629 = add nuw nsw i32 %.06.i.i, 1
   %630 = load i16, ptr %605, align 2
   %631 = zext i16 %630 to i32
-  %632 = icmp ult i32 %629, %631
+  %632 = icmp samesign ult i32 %629, %631
   br i1 %632, label %.lr.ph.i143.i, label %.loopexit.loopexit.i.i, !llvm.loop !46
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i143.i
@@ -2601,7 +2601,7 @@ VP8LClearBackwardRefs.exit:                       ; preds = %5, %9
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 12
   %24 = and i32 %22, 4095
-  %25 = icmp ugt i32 %24, 3
+  %25 = icmp samesign ugt i32 %24, 3
   br i1 %25, label %26, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %19
@@ -2635,7 +2635,7 @@ VP8LClearBackwardRefs.exit:                       ; preds = %5, %9
   %33 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv.next
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 4095
-  %36 = icmp ugt i32 %35, 3
+  %36 = icmp samesign ugt i32 %35, 3
   %37 = select i1 %36, i32 %35, i32 1
   %38 = trunc i64 %indvars.iv.next to i32
   %39 = add nsw i32 %37, %38

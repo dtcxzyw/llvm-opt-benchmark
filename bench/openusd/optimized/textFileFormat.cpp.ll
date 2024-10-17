@@ -16155,7 +16155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %44 = and i32 %43, 31
   %45 = add nuw nsw i32 %33, 5
   %46 = and i32 %45, 31
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %49, label %64
 
 .critedge.i.i:                                    ; preds = %36, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
@@ -16289,7 +16289,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
@@ -16555,7 +16555,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -16707,7 +16707,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %42 = and i32 %41, 31
   %43 = add nuw nsw i32 %31, 5
   %44 = and i32 %43, 31
-  %45 = icmp ult i32 %42, %44
+  %45 = icmp samesign ult i32 %42, %44
   br i1 %45, label %47, label %.preheader
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i, %34
@@ -16784,7 +16784,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %85 = and i32 %84, 31
   %86 = add nuw nsw i32 %74, 5
   %87 = and i32 %86, 31
-  %88 = icmp ult i32 %85, %87
+  %88 = icmp samesign ult i32 %85, %87
   br i1 %88, label %.backedge, label %90
 
 .backedge:                                        ; preds = %83, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
@@ -17054,7 +17054,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
   %41 = and i32 %40, 31
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -25112,7 +25112,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %71 = and i32 %70, 31
   %72 = add nuw nsw i32 %60, 5
   %73 = and i32 %72, 31
-  %74 = icmp ult i32 %71, %73
+  %74 = icmp samesign ult i32 %71, %73
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 .critedge.i:                                      ; preds = %63, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread1

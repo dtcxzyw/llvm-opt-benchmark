@@ -4292,7 +4292,7 @@ _ZN3gmx12_GLOBAL__N_115detectX86VendorEv.exit.i:  ; preds = %1559, %1543
   %1568 = and i32 %1567, 15
   %1569 = add nuw nsw i32 %1566, %1568
   %1570 = call { i32, i32, i32, i32 } asm sideeffect "cpuid            \0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647, i32 0, i32 0, i32 0) #17, !noalias !19, !srcloc !5
-  %1571 = icmp ugt i32 %1569, 22
+  %1571 = icmp samesign ugt i32 %1569, 22
   br i1 %1571, label %1572, label %.loopexit26.i.i
 
 1572:                                             ; preds = %_ZN3gmx12_GLOBAL__N_115detectX86VendorEv.exit.i
@@ -4344,7 +4344,7 @@ _ZN3gmx12_GLOBAL__N_115detectX86VendorEv.exit.i:  ; preds = %1559, %1543
 _ZN3gmx12_GLOBAL__N_121detectAmdApicIdLayoutEj.exit.i: ; preds = %1593, %.loopexit26.i.i
   %.sroa.5.0.i.i = phi i32 [ %1589, %.loopexit26.i.i ], [ %.sroa.5.1.i.i, %1593 ]
   %.sroa.013.0.extract.trunc.i = trunc nuw i64 %.sroa.0.0.i.i to i32
-  %1596 = icmp ugt i64 %.sroa.0.0.i.i, 1
+  %1596 = icmp samesign ugt i64 %.sroa.0.0.i.i, 1
   br i1 %1596, label %_ZN3gmx12_GLOBAL__N_126detectX86LogicalProcessorsEv.exit, label %1597
 
 1597:                                             ; preds = %_ZN3gmx12_GLOBAL__N_121detectAmdApicIdLayoutEj.exit.i, %1527
@@ -4374,7 +4374,7 @@ _ZN3gmx12_GLOBAL__N_121detectAmdApicIdLayoutEj.exit.i: ; preds = %1593, %.loopex
   %1602 = phi ptr [ %1641, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i ], [ null, %.lr.ph.i.i ]
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i ], [ 0, %.lr.ph.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !noalias !24
-  %1603 = icmp ult i64 %indvars.iv40.i.i, 1024
+  %1603 = icmp samesign ult i64 %indvars.iv40.i.i, 1024
   br i1 %1603, label %1604, label %1611
 
 1604:                                             ; preds = %.lr.ph.split.us.i.i
@@ -4475,7 +4475,7 @@ _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.us.i.i: ;
   %1642 = phi ptr [ %1683, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.i.i ], [ null, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE9push_backEOS2_.exit.i.i ], [ 0, %.lr.ph.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !noalias !24
-  %1643 = icmp ult i64 %indvars.iv.i.i, 1024
+  %1643 = icmp samesign ult i64 %indvars.iv.i.i, 1024
   br i1 %1643, label %1644, label %1651
 
 1644:                                             ; preds = %.lr.ph.split.i.i

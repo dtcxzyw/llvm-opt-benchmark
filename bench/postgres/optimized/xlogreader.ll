@@ -688,7 +688,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   br label %55
 
 50:                                               ; preds = %40
-  %51 = icmp ult i32 %38, %45
+  %51 = icmp samesign ult i32 %38, %45
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
@@ -717,7 +717,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   %63 = and i64 %.2.i, 8191
   %64 = getelementptr i8, ptr %41, i64 %63
   %65 = load i32, ptr %64, align 8
-  %66 = icmp ult i32 %.0216.i, 8169
+  %66 = icmp samesign ult i32 %.0216.i, 8169
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %62
@@ -1469,7 +1469,7 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef %0, i64 noundef %1) local_u
   %28 = and i64 %27, 8589934584
   %29 = sub nuw nsw i32 8192, %17
   %30 = zext nneg i32 %29 to i64
-  %.not38 = icmp ult i64 %28, %30
+  %.not38 = icmp samesign ult i64 %28, %30
   br i1 %.not38, label %35, label %31
 
 31:                                               ; preds = %23
@@ -1683,7 +1683,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   %55 = and i16 %54, 2
   %.not71 = icmp eq i16 %55, 0
   %56 = select i1 %.not71, i64 24, i64 40
-  %57 = icmp ugt i64 %56, %51
+  %57 = icmp samesign ugt i64 %56, %51
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %50

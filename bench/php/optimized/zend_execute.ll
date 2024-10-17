@@ -263,7 +263,7 @@ define dso_local void @zend_vm_stack_init_ex(i64 noundef %0) local_unnamed_addr 
   %2 = icmp ne i64 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
-  %4 = icmp ult i64 %3, 2
+  %4 = icmp samesign ult i64 %3, 2
   tail call void @llvm.assume(i1 %4)
   store i64 %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 480), align 8
   %5 = tail call noalias ptr @_emalloc(i64 noundef %0) #26
@@ -5978,7 +5978,7 @@ define dso_local ptr @zend_unfinished_execution_gc_ex(ptr noundef readonly %0, p
   %181 = phi i32 [ %148, %158 ], [ %.pre183, %173 ], [ %148, %164 ], [ %148, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %182 = zext i32 %181 to i64
-  %183 = icmp ult i64 %indvars.iv.next, %182
+  %183 = icmp samesign ult i64 %indvars.iv.next, %182
   br i1 %183, label %147, label %.loopexit
 
 .loopexit:                                        ; preds = %147, %180, %136, %132
@@ -188660,8 +188660,8 @@ define dso_local void @zend_serialize_opcode_handler(ptr nocapture noundef %0) l
   %14 = call ptr @zend_hash_index_add(ptr noundef %9, i64 noundef %13, ptr noundef nonnull %2) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.b.i = load i1, ptr @zend_handlers_count, align 4
-  %15 = icmp ult i64 %indvars.iv.i, 3481
-  %16 = and i1 %15, %.b.i
+  %15 = icmp samesign ult i64 %indvars.iv.i, 3481
+  %16 = select i1 %.b.i, i1 %15, i1 false
   br i1 %16, label %.lr.ph.i, label %init_opcode_serialiser.exit
 
 init_opcode_serialiser.exit:                      ; preds = %.lr.ph.i, %4

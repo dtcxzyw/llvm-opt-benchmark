@@ -4459,7 +4459,7 @@ define dso_local noundef i32 @tcp_v4_early_demux(ptr noundef %0) local_unnamed_a
   %39 = getelementptr inbounds i8, ptr %38, i64 12
   %40 = load i16, ptr %39, align 4
   %41 = and i16 %40, 240
-  %42 = icmp ult i16 %41, 80
+  %42 = icmp samesign ult i16 %41, 80
   br i1 %42, label %dst_check.exit.thread, label %43
 
 43:                                               ; preds = %36
@@ -4697,7 +4697,7 @@ define dso_local noundef zeroext i1 @tcp_add_backlog(ptr noundef %0, ptr noundef
   %93 = and i32 %92, %87
   %94 = icmp ne i32 %93, 0
   %95 = xor i32 %87, %84
-  %96 = icmp ult i32 %95, 64
+  %96 = icmp samesign ult i32 %95, 64
   %97 = and i1 %94, %96
   br i1 %97, label %98, label %223
 
@@ -5055,7 +5055,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   %33 = load i16, ptr %32, align 4
   %34 = lshr i16 %33, 4
   %35 = and i16 %34, 15
-  %36 = icmp ult i16 %35, 5
+  %36 = icmp samesign ult i16 %35, 5
   br i1 %36, label %37, label %38, !prof !8
 
 37:                                               ; preds = %29
@@ -7845,7 +7845,7 @@ define dso_local void @tcp_v4_init() local_unnamed_addr #10 section ".init.text"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #21
   %26 = add nuw nsw i64 %9, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %2, !prof !102, !llvm.loop !103
 
 .thread:                                          ; preds = %2, %16, %8

@@ -880,7 +880,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
   %351 = getelementptr inbounds i8, ptr %350, i64 34
   %352 = load i16, ptr %351, align 2
   %353 = zext i16 %352 to i64
-  %354 = icmp ult i64 %indvars.iv.next336, %353
+  %354 = icmp samesign ult i64 %indvars.iv.next336, %353
   br i1 %354, label %.lr.ph280, label %.loopexit.loopexit, !llvm.loop !23
 
 .preheader201:                                    ; preds = %.preheader202, %._crit_edge287
@@ -1154,7 +1154,7 @@ _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i,
   %479 = getelementptr inbounds i8, ptr %478, i64 34
   %480 = load i16, ptr %479, align 2
   %481 = zext i16 %480 to i64
-  %482 = icmp ult i64 %indvars.iv.next.i174, %481
+  %482 = icmp samesign ult i64 %indvars.iv.next.i174, %481
   br i1 %482, label %.lr.ph.i172, label %_find_desc_switches.exit, !llvm.loop !29
 
 _find_desc_switches.exit:                         ; preds = %_merge_switches_array.exit32.i, %_merge_switches_array.exit.i, %.lr.ph290
@@ -1308,7 +1308,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %550 = getelementptr inbounds %struct.switch_record_t, ptr %549, i64 %indvars.iv54.i, i32 5
   %551 = load i16, ptr %550, align 8
   %552 = zext i16 %551 to i64
-  %553 = icmp ult i64 %indvars.iv.next52.i, %552
+  %553 = icmp samesign ult i64 %indvars.iv.next52.i, %552
   br i1 %553, label %.lr.ph42.i, label %._crit_edge43.i, !llvm.loop !35
 
 ._crit_edge43.i:                                  ; preds = %.lr.ph42.i, %.preheader.i180

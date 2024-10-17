@@ -45,7 +45,7 @@ define dso_local noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7Cmp
   %10 = load i16, ptr %3, align 8
   %11 = and i16 %10, 255
   %12 = icmp eq i16 %7, 1
-  %switch36 = icmp ult i16 %11, 2
+  %switch36 = icmp samesign ult i16 %11, 2
   %or.cond = select i1 %12, i1 true, i1 %switch36
   br i1 %or.cond, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit, label %13
 
@@ -1127,7 +1127,7 @@ _ZNK4llvm13ConstantRangeeqERKS0_.exit.thread:     ; preds = %44, %_ZNK4llvm5APIn
   %69 = or disjoint i16 %35, %68
   store i16 %69, ptr %0, align 8
   %70 = zext nneg i16 %67 to i64
-  %71 = icmp ult i64 %.sroa.33.0.extract.shift, %70
+  %71 = icmp samesign ult i64 %.sroa.33.0.extract.shift, %70
   br i1 %71, label %72, label %90
 
 72:                                               ; preds = %65

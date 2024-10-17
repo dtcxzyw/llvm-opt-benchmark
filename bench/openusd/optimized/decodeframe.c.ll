@@ -3681,7 +3681,7 @@ rb_read_uniform.exit.i.i:                         ; preds = %1035, %1025
   %1043 = sub nsw i32 %.096.i.i, %1040
   %indvars.iv.next.i.i726 = add nuw nsw i64 %indvars.iv.i.i725, 1
   %1044 = icmp sgt i32 %1043, 0
-  %1045 = icmp ult i64 %indvars.iv.i.i725, 63
+  %1045 = icmp samesign ult i64 %indvars.iv.i.i725, 63
   %1046 = select i1 %1044, i1 %1045, i1 false
   br i1 %1046, label %1025, label %._crit_edge.loopexit.i.i, !llvm.loop !32
 
@@ -3774,7 +3774,7 @@ rb_read_uniform.exit90.i.i:                       ; preds = %1081, %1071
   %1089 = sub nsw i32 %.079103.i.i, %1086
   %indvars.iv.next118.i.i = add nuw nsw i64 %indvars.iv117.i.i, 1
   %1090 = icmp sgt i32 %1089, 0
-  %1091 = icmp ult i64 %indvars.iv117.i.i, 63
+  %1091 = icmp samesign ult i64 %indvars.iv117.i.i, 63
   %1092 = select i1 %1090, i1 %1091, i1 false
   br i1 %1092, label %1071, label %._crit_edge107.loopexit.i.i, !llvm.loop !34
 
@@ -4568,8 +4568,8 @@ is_coded_lossless.exit:                           ; preds = %1400
 
 1477:                                             ; preds = %1473
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
-  %1478 = icmp ult i64 %indvars.iv85.i, 7
-  %1479 = and i1 %.not.i750, %1478
+  %1478 = icmp samesign ult i64 %indvars.iv85.i, 7
+  %1479 = select i1 %.not.i750, i1 %1478, i1 false
   br i1 %1479, label %1429, label %setup_segmentation_dequant.exit, !llvm.loop !44
 
 setup_segmentation_dequant.exit:                  ; preds = %1477
@@ -10360,8 +10360,8 @@ is_interintra_pred.exit.i:                        ; preds = %92
 
 is_interintra_pred.exit.thread.i:                 ; preds = %100, %is_interintra_pred.exit.i, %92, %88, %72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %111 = icmp ult i64 %indvars.iv.i, 2
-  %112 = and i1 %.not.i.i, %111
+  %111 = icmp samesign ult i64 %indvars.iv.i, 2
+  %112 = select i1 %.not.i.i, i1 %111, i1 false
   br i1 %112, label %68, label %dec_build_inter_predictor.exit, !llvm.loop !97
 
 dec_build_inter_predictor.exit:                   ; preds = %69, %is_interintra_pred.exit.thread.i
@@ -10539,7 +10539,7 @@ is_neighbor_overlappable.exit.thread.i.i.i:       ; preds = %is_neighbor_overlap
 212:                                              ; preds = %205
   %213 = add nsw i32 %210, 1
   %214 = lshr i32 %202, %213
-  %215 = icmp ult i32 %214, 4
+  %215 = icmp samesign ult i32 %214, 4
   %216 = lshr i32 64, %213
   %217 = call i32 @llvm.umin.i32(i32 %214, i32 %216)
   %218 = select i1 %215, i32 4, i32 %217
@@ -10748,7 +10748,7 @@ is_neighbor_overlappable.exit.thread.i.i28.i:     ; preds = %is_neighbor_overlap
 334:                                              ; preds = %327
   %335 = add nsw i32 %330, 1
   %336 = lshr i32 %324, %335
-  %337 = icmp ult i32 %336, 4
+  %337 = icmp samesign ult i32 %336, 4
   %338 = lshr i32 64, %335
   %339 = call i32 @llvm.umin.i32(i32 %336, i32 %338)
   %340 = select i1 %337, i32 4, i32 %339
@@ -12241,7 +12241,7 @@ read_sgrproj_filter.exit330:                      ; preds = %182, %201, %205
   %230 = select i1 %229, i32 0, i32 32768
   %231 = load i16, ptr %215, align 2
   %232 = zext i16 %231 to i32
-  %233 = icmp ult i32 %230, %232
+  %233 = icmp samesign ult i32 %230, %232
   br i1 %233, label %234, label %239
 
 234:                                              ; preds = %218
@@ -12381,7 +12381,7 @@ read_wiener_filter.exit:                          ; preds = %254, %274
   %317 = select i1 %316, i32 0, i32 32768
   %318 = load i16, ptr %302, align 2
   %319 = zext i16 %318 to i32
-  %320 = icmp ult i32 %317, %319
+  %320 = icmp samesign ult i32 %317, %319
   br i1 %320, label %321, label %326
 
 321:                                              ; preds = %305
@@ -12506,8 +12506,8 @@ loop_restoration_read_sb_coeffs.exit:             ; preds = %79, %aom_read_symbo
 
 .loopexit358:                                     ; preds = %._crit_edge, %.lr.ph363, %51, %48
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %384 = icmp ult i64 %indvars.iv375, 2
-  %385 = and i1 %.not.i, %384
+  %384 = icmp samesign ult i64 %indvars.iv375, 2
+  %385 = select i1 %.not.i, i1 %384, i1 false
   br i1 %385, label %48, label %386, !llvm.loop !108
 
 386:                                              ; preds = %.loopexit358
@@ -14249,11 +14249,11 @@ set_inter_tx_size.exit:                           ; preds = %._crit_edge.us.i
   %115 = load i32, ptr %114, align 4
   %116 = zext i8 %.val to i32
   %117 = and i32 %113, 255
-  %118 = icmp ugt i32 %117, %116
+  %118 = icmp samesign ugt i32 %117, %116
   %119 = zext i1 %118 to i64
   %120 = zext i8 %.val113 to i32
   %121 = and i32 %115, 255
-  %122 = icmp ugt i32 %121, %120
+  %122 = icmp samesign ugt i32 %121, %120
   %123 = zext i1 %122 to i64
   %124 = icmp eq i8 %2, 0
   br i1 %124, label %txfm_partition_context.exit, label %125
@@ -14325,7 +14325,7 @@ txfm_partition_context.exit:                      ; preds = %102, %get_sqr_tx_si
   %159 = select i1 %158, i32 0, i32 32768
   %160 = load i16, ptr %142, align 2
   %161 = zext i16 %160 to i32
-  %162 = icmp ult i32 %159, %161
+  %162 = icmp samesign ult i32 %159, %161
   br i1 %162, label %163, label %168
 
 163:                                              ; preds = %147
@@ -15010,8 +15010,8 @@ define internal fastcc void @set_mi_row_col(ptr nocapture noundef %0, ptr nocapt
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 7875
   store i8 %32, ptr %34, align 1
   %.not = icmp eq i32 %25, 0
-  %35 = icmp ugt i32 %5, 1
-  %or.cond99.not = or i1 %35, %.not
+  %35 = icmp samesign ugt i32 %5, 1
+  %or.cond99.not = select i1 %.not, i1 true, i1 %35
   br i1 %or.cond99.not, label %41, label %36
 
 36:                                               ; preds = %8
@@ -15025,8 +15025,8 @@ define internal fastcc void @set_mi_row_col(ptr nocapture noundef %0, ptr nocapt
 41:                                               ; preds = %36, %8
   %42 = phi i1 [ %39, %36 ], [ %30, %8 ]
   %43 = icmp ne i32 %27, 0
-  %44 = icmp ult i32 %3, 2
-  %or.cond100 = and i1 %44, %43
+  %44 = icmp samesign ult i32 %3, 2
+  %or.cond100 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond100, label %45, label %50
 
 45:                                               ; preds = %41
@@ -15152,7 +15152,7 @@ define internal fastcc void @set_mi_row_col(ptr nocapture noundef %0, ptr nocapt
   store i8 %113, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 10632
   store i8 0, ptr %115, align 8
-  %116 = icmp ult i32 %5, %3
+  %116 = icmp samesign ult i32 %5, %3
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %110
@@ -15168,7 +15168,7 @@ define internal fastcc void @set_mi_row_col(ptr nocapture noundef %0, ptr nocapt
 121:                                              ; preds = %117, %120, %110
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 10633
   store i8 0, ptr %122, align 1
-  %123 = icmp ugt i32 %5, %3
+  %123 = icmp samesign ugt i32 %5, %3
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %121
@@ -15444,12 +15444,12 @@ define internal void @set_color_index_map_offset(ptr nocapture noundef %0, i32 n
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %11, %19
   %21 = icmp sgt i32 %1, 0
-  %22 = icmp ult i32 %20, 4
+  %22 = icmp samesign ult i32 %20, 4
   %23 = select i1 %21, i1 %22, i1 false
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = lshr i32 %14, %25
-  %27 = icmp ult i32 %26, 4
+  %27 = icmp samesign ult i32 %26, 4
   %28 = select i1 %21, i1 %27, i1 false
   %29 = select i1 %28, i32 2, i32 0
   %30 = add nuw nsw i32 %29, %26

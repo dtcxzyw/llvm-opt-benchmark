@@ -544,7 +544,7 @@ for.cond.cleanup14.i.i:                           ; preds = %_ZN5boost14dynamic_
   %indvars.iv.next255.i.i = add nuw nsw i64 %indvars.iv254.i.i, 1
   %25 = load i32, ptr %size.i, align 4
   %26 = zext i32 %25 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next255.i.i, %26
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next255.i.i, %26
   br i1 %cmp.i.i, label %for.body.i.i, label %for.cond.cleanup.i.i.loopexit, !llvm.loop !8
 
 for.body15.i.i:                                   ; preds = %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit210.i.i, %_ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit248.i.i
@@ -1287,7 +1287,7 @@ _ZNSt6vectorIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graph
   %indvars.iv.next332.i.i = add nuw nsw i64 %indvars.iv331.i.i, 1
   %85 = load i32, ptr %size.i, align 4
   %86 = zext i32 %85 to i64
-  %cmp.i46.i = icmp ult i64 %indvars.iv.next332.i.i, %86
+  %cmp.i46.i = icmp samesign ult i64 %indvars.iv.next332.i.i, %86
   br i1 %cmp.i46.i, label %for.body24.i.i, label %for.cond.cleanup23.i.i, !llvm.loop !54
 
 lpad27.i.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEE8allocateERSE_m.exit.i.i.i.i.i.i.i
@@ -1305,7 +1305,7 @@ for.body32.i.i:                                   ; preds = %cleanup.i.i, %for.b
   %tobool.not.i.i = icmp eq i8 %90, 0
   %91 = load i32, ptr %edit_distance.i, align 8
   %92 = zext i32 %91 to i64
-  %cmp37.i.i = icmp ult i64 %indvars.iv.i41.i, %92
+  %cmp37.i.i = icmp samesign ult i64 %indvars.iv.i41.i, %92
   %or.cond189.i.i = select i1 %tobool.not.i.i, i1 %cmp37.i.i, i1 false
   br i1 %or.cond189.i.i, label %invoke.cont41.i.i, label %if.end.i.i
 
@@ -1424,7 +1424,7 @@ lpad88.i.i:                                       ; preds = %if.end11.i.i.i
 if.end98.i.i:                                     ; preds = %if.then95.i.i, %invoke.cont89.i.i
   %114 = load i32, ptr %edit_distance.i, align 8
   %115 = zext i32 %114 to i64
-  %cmp100.i.i = icmp ult i64 %indvars.iv.i41.i, %115
+  %cmp100.i.i = icmp samesign ult i64 %indvars.iv.i41.i, %115
   br i1 %cmp100.i.i, label %land.lhs.true101.i.i, label %if.end118.i.i
 
 land.lhs.true101.i.i:                             ; preds = %if.end98.i.i
@@ -1750,7 +1750,7 @@ for.cond.cleanup38.i.i:                           ; preds = %if.end66.i.i
   %.pre1075.i.i = load i32, ptr %size.i, align 4
   %indvars.iv.next1062.i.i = add nuw nsw i64 %indvars.iv1061.i.i, 1
   %153 = zext i32 %.pre1075.i.i to i64
-  %cmp33.i.i = icmp ult i64 %indvars.iv.next1062.i.i, %153
+  %cmp33.i.i = icmp samesign ult i64 %indvars.iv.next1062.i.i, %153
   br i1 %cmp33.i.i, label %for.body39.lr.ph.i.i, label %for.cond.cleanup34.i.i, !llvm.loop !68
 
 for.body39.i.i:                                   ; preds = %if.end66.i.i, %for.body39.lr.ph.i.i
@@ -3086,7 +3086,7 @@ for.inc165.i.i:                                   ; preds = %_ZN3ue28flat_setIjS
   %305 = load i32, ptr %edit_distance.i, align 8
   %sub150.i.i = sub i32 %305, %pd.01025.i.i
   %306 = zext i32 %sub150.i.i to i64
-  %cmp151.i.i = icmp ult i64 %indvars.iv.next1068.i.i, %306
+  %cmp151.i.i = icmp samesign ult i64 %indvars.iv.next1068.i.i, %306
   br i1 %cmp151.i.i, label %for.body153.i.i, label %for.cond.cleanup152.i.i, !llvm.loop !152
 
 lpad157.loopexit.i.i.loopexit:                    ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i1203
@@ -4006,7 +4006,7 @@ for.inc310.i.i:                                   ; preds = %_ZN3ue28flat_setIjS
   %398 = load i32, ptr %edit_distance.i, align 8
   %sub295.i.i = sub i32 %398, %pd266.01044.i.i
   %399 = zext i32 %sub295.i.i to i64
-  %cmp296.i.i = icmp ult i64 %indvars.iv.next1071.i.i, %399
+  %cmp296.i.i = icmp samesign ult i64 %indvars.iv.next1071.i.i, %399
   br i1 %cmp296.i.i, label %for.body298.i.i, label %for.cond.cleanup297.i.i, !llvm.loop !207
 
 lpad302.loopexit.i.i.loopexit:                    ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i1331
@@ -7616,7 +7616,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check221 = icmp ult i64 %5, 3
+  %min.iters.check221 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check221, label %for.body.i.i.i.preheader, label %vector.ph222
 
 vector.ph222:                                     ; preds = %invoke.cont20
@@ -7796,7 +7796,7 @@ if.end.i.i.i.i.i162:                              ; preds = %_ZNSt16allocator_tr
   %32 = add nuw nsw i64 %__n, 2305843009213693951
   %33 = and i64 %32, 2305843009213693951
   %34 = add nuw nsw i64 %33, 1
-  %min.iters.check237 = icmp ult i64 %33, 3
+  %min.iters.check237 = icmp samesign ult i64 %33, 3
   br i1 %min.iters.check237, label %for.body.i.i.i.i.i.i.i164.preheader, label %vector.ph238
 
 vector.ph238:                                     ; preds = %if.end.i.i.i.i.i162

@@ -244,7 +244,7 @@ define dso_local i32 @acpi_ds_resolve_operands(ptr noundef %0) local_unnamed_add
   %7 = add nuw nsw i64 %11, 1
   %8 = load i8, ptr %3, align 1
   %9 = zext i8 %8 to i64
-  %10 = icmp ult i64 %7, %9
+  %10 = icmp samesign ult i64 %7, %9
   br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .preheader:                                       ; preds = %1, %6
@@ -282,7 +282,7 @@ define dso_local void @acpi_ds_clear_operands(ptr nocapture noundef %0) local_un
   %11 = add nuw nsw i64 %8, 1
   %12 = load i8, ptr %2, align 1
   %13 = zext i8 %12 to i64
-  %14 = icmp ult i64 %11, %13
+  %14 = icmp samesign ult i64 %11, %13
   br i1 %14, label %7, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %7, %1

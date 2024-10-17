@@ -961,7 +961,7 @@ shift_copy.exit45.i:                              ; preds = %19, %16
   %29 = getelementptr inbounds [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %29, ptr noundef nonnull align 16 dereferenceable(64) @wedge_master_vertical, i64 64, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp ult i64 %indvars.iv.i, 62
+  %30 = icmp samesign ult i64 %indvars.iv.i, 62
   br i1 %30, label %1, label %.preheader.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %shift_copy.exit45.i, %56
@@ -1545,7 +1545,7 @@ get_relative_dist.exit77:                         ; preds = %55, %58
   %.0.i76 = phi i32 [ %72, %58 ], [ 0, %55 ]
   %74 = tail call i32 @llvm.abs.i32(i32 %.0.i76, i1 true)
   %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 31)
-  %76 = icmp uge i32 %74, %73
+  %76 = icmp samesign uge i32 %74, %73
   %77 = icmp eq i32 %73, 0
   %78 = icmp eq i32 %.0.i76, 0
   %or.cond = select i1 %77, i1 true, i1 %78
@@ -1555,7 +1555,7 @@ get_relative_dist.exit77:                         ; preds = %55, %58
   %79 = zext i1 %76 to i64
   %80 = xor i1 %76, true
   %81 = zext i1 %80 to i64
-  %82 = icmp ult i32 %74, %73
+  %82 = icmp samesign ult i32 %74, %73
   br label %91
 
 83:                                               ; preds = %get_relative_dist.exit77
@@ -1759,8 +1759,8 @@ is_sub8x8_inter.exit:                             ; preds = %60
   %.sroa.4101.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 156
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 160
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %115 = icmp ult i32 %66, 5
-  %116 = icmp ult i32 %71, 5
+  %115 = icmp samesign ult i32 %66, 5
+  %116 = icmp samesign ult i32 %71, 5
   %117 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %118 = getelementptr inbounds i8, ptr %16, i64 112
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -1905,13 +1905,13 @@ av1_init_inter_params.exit.us.i:                  ; preds = %172, %get_ref_frame
   call void @av1_build_one_inter_predictor(ptr noundef %137, i32 noundef %133, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %1, i32 noundef %186, i32 noundef %124, i32 noundef 0, ptr noundef %9, ptr noundef readonly %10)
   %187 = add nsw i32 %.088105.us.i, 1
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, %121
-  %188 = icmp ult i64 %indvars.iv.next.i24, %122
+  %188 = icmp samesign ult i64 %indvars.iv.next.i24, %122
   br i1 %188, label %get_ref_frame_map_idx.exit.i.us.i, label %._crit_edge.us.i, !llvm.loop !32
 
 ._crit_edge.us.i:                                 ; preds = %av1_init_inter_params.exit.us.i
   %189 = add nsw i32 %.0107.us.i, 1
   %190 = add nuw nsw i32 %.087106.us.i, %71
-  %191 = icmp ult i32 %190, %81
+  %191 = icmp samesign ult i32 %190, %81
   br i1 %191, label %.preheader.us.i, label %build_inter_predictors_sub8x8.exit, !llvm.loop !33
 
 build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i

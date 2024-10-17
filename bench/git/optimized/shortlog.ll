@@ -256,7 +256,7 @@ strbuf_setlen.exit.i16:                           ; preds = %if.then4.i.i15, %fo
   call void @repo_format_commit_message(ptr noundef %17, ptr noundef %commit, ptr noundef %18, ptr noundef nonnull %buf.i10, ptr noundef nonnull %ctx) #16
   %19 = load i32, ptr %groups.i.i, align 8
   %20 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
-  %tobool.not.i.i = icmp ult i32 %20, 2
+  %tobool.not.i.i = icmp samesign ult i32 %20, 2
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %lor.lhs.false.i
 
 lor.lhs.false.i.i:                                ; preds = %strbuf_setlen.exit.i16
@@ -712,7 +712,7 @@ if.end126:                                        ; preds = %_.exit, %if.then120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %oneline.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_from_stdin.oneline, i64 24, i1 false)
   %15 = load i32, ptr %groups, align 8
   %16 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
-  %tobool.not.i13 = icmp ult i32 %16, 2
+  %tobool.not.i13 = icmp samesign ult i32 %16, 2
   br i1 %tobool.not.i13, label %if.end.i16, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.end126

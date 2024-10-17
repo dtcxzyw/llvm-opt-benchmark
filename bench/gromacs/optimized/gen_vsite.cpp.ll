@@ -702,7 +702,7 @@ define void @_Z9do_vsitesN3gmx8ArrayRefIK17PreprocessResidueEEP22PreprocessingAt
   %293 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %spec.select.i.i = select i1 %.not.i.i, i32 %293, i32 %.08.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %294 = icmp ult i64 %indvars.iv.i.i, 8
+  %294 = icmp samesign ult i64 %indvars.iv.i.i, 8
   %295 = icmp slt i32 %spec.select.i.i, 0
   %296 = select i1 %294, i1 %295, i1 false
   br i1 %296, label %290, label %_ZL12ddb_name2dirPc.exit.i, !llvm.loop !5
@@ -4057,7 +4057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit669: ;
   %.6 = phi i32 [ %.3504.lcssa, %1241 ], [ %.25032754, %.critedge624.thread ]
   %.1 = phi i32 [ %1243, %1241 ], [ -409203, %.critedge624.thread ]
   %indvars.iv.next3437 = add nuw nsw i64 %indvars.iv3436, 1
-  %1245 = icmp ult i64 %indvars.iv3436, 3
+  %1245 = icmp samesign ult i64 %indvars.iv3436, 3
   %1246 = icmp eq i32 %.1, -409203
   %1247 = and i1 %1245, %1246
   br i1 %1247, label %1022, label %1248, !llvm.loop !16
@@ -7391,7 +7391,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit804:     ; preds = %2387
   %2528 = getelementptr inbounds i8, ptr %2527, i64 %indvars.iv3461
   %2529 = load i8, ptr %2528, align 1
   %2530 = icmp ne i8 %2529, 0
-  %2531 = and i1 %2520, %2530
+  %2531 = and i1 %2530, %2520
   br i1 %2531, label %.lr.ph2790, label %._crit_edge2791.loopexit, !llvm.loop !42
 
 ._crit_edge2791.loopexit:                         ; preds = %2523
@@ -18206,9 +18206,9 @@ define internal fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8Array
   %56 = and i64 %indvars.iv, 2147483645
   %57 = icmp ne i64 %56, 5
   %or.cond3 = and i1 %55, %57
-  %or.cond5 = icmp ult i64 %indvars.iv, 9
-  %or.cond = or i1 %8, %or.cond5
-  %or.cond146 = and i1 %or.cond, %or.cond3
+  %or.cond5 = icmp samesign ult i64 %indvars.iv, 9
+  %or.cond = select i1 %8, i1 true, i1 %or.cond5
+  %or.cond146 = select i1 %or.cond3, i1 %or.cond, i1 false
   br i1 %or.cond146, label %58, label %69
 
 58:                                               ; preds = %47

@@ -3769,7 +3769,7 @@ get_nfd.exit:                                     ; preds = %298
   %304 = load i32, ptr %303, align 4
   %305 = getelementptr inbounds i8, ptr %293, i64 8
   %306 = load i32, ptr %305, align 4
-  %307 = icmp ult i32 %indvars9981410, 10
+  %307 = icmp samesign ult i32 %indvars9981410, 10
   br i1 %307, label %.preheader511, label %.preheader514
 
 .preheader514:                                    ; preds = %get_nfd.exit, %332, %.lr.ph1411, %.lr.ph1411, %.lr.ph1411, %302, %.critedge489
@@ -3861,7 +3861,7 @@ get_nfd.exit:                                     ; preds = %298
   %355 = load i8, ptr %354, align 1
   %356 = zext i8 %355 to i32
   %357 = icmp ne i8 %355, 0
-  %358 = icmp ult i64 %indvars.iv1006, 10
+  %358 = icmp samesign ult i64 %indvars.iv1006, 10
   %or.cond5 = select i1 %357, i1 %358, i1 false
   br i1 %or.cond5, label %359, label %.critedge.loopexit
 
@@ -5087,7 +5087,7 @@ get_nfc.exit.thread:                              ; preds = %get_nfc.exit, %372
   %.lcssa1802 = phi i32 [ %467, %465 ], [ %471, %469 ], [ %473, %494 ]
   %.1620 = phi i32 [ 0, %465 ], [ %495, %494 ], [ %495, %469 ]
   %504 = trunc nuw nsw i64 %indvars.iv.lcssa to i32
-  %505 = icmp ugt i64 %indvars.iv.lcssa, 9
+  %505 = icmp samesign ugt i64 %indvars.iv.lcssa, 9
   %..0664 = select i1 %505, i32 -1, i32 %.0664975.lcssa
   %..0587 = select i1 %505, i32 10, i32 %504
   %506 = icmp sgt i32 %..0587, 1
@@ -5181,14 +5181,14 @@ get_nfc.exit775:                                  ; preds = %532
 
 get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit775
   %indvars.iv.next1382 = add nuw nsw i64 %indvars.iv1381, 1
-  %540 = icmp ult i64 %indvars.iv.next1382, %509
+  %540 = icmp samesign ult i64 %indvars.iv.next1382, %509
   br i1 %540, label %510, label %.outer._crit_edge, !llvm.loop !46
 
 541:                                              ; preds = %get_nfc.exit775
   %542 = trunc nuw nsw i64 %indvars.iv1381 to i32
   store i32 %538, ptr %5, align 4
   %543 = add nuw nsw i32 %542, 1
-  %544 = icmp ult i32 %543, %.1607.ph1124
+  %544 = icmp samesign ult i32 %543, %.1607.ph1124
   br i1 %544, label %.lr.ph1088.preheader, label %._crit_edge1089
 
 .lr.ph1088.preheader:                             ; preds = %541
@@ -5215,7 +5215,7 @@ get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit7
 
 ._crit_edge1089:                                  ; preds = %.lr.ph1088, %541
   %553 = add nsw i32 %.1607.ph1124, -1
-  %554 = icmp ugt i32 %.1607.ph1124, 1
+  %554 = icmp samesign ugt i32 %.1607.ph1124, 1
   br i1 %554, label %555, label %.preheader798
 
 555:                                              ; preds = %._crit_edge1089
@@ -5231,7 +5231,7 @@ get_nfc.exit775.thread:                           ; preds = %536, %get_nfc.exit7
   %561 = zext nneg i32 %560 to i64
   %562 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %561
   %563 = load i32, ptr %562, align 4
-  %564 = icmp ult i32 %.1607.ph1124, 11
+  %564 = icmp samesign ult i32 %.1607.ph1124, 11
   br i1 %564, label %.lr.ph1096.preheader, label %._crit_edge1097
 
 .lr.ph1096.preheader:                             ; preds = %559
@@ -6338,7 +6338,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_to_utf8(ptr noundef %0, 
   %66 = shl nsw i32 %56, 6
   %67 = and i32 %66, 4032
   %68 = or disjoint i32 %67, %65
-  %69 = icmp ult i32 %68, 2048
+  %69 = icmp samesign ult i32 %68, 2048
   br i1 %69, label %utf8_to_unicode.exit.thread126, label %113
 
 70:                                               ; preds = %40
@@ -6578,8 +6578,8 @@ cesu8_to_unicode.exit:                            ; preds = %171, %175, %.thread
   %spec.select94 = select i1 %.inv, i32 %.074, i32 -1
   %180 = icmp ugt i32 %.2106, 1114111
   %spec.store.select.i = select i1 %180, i32 65533, i32 %.2106
-  %181 = icmp ult i32 %spec.store.select.i, 128
-  %182 = icmp ult i32 %spec.store.select.i, 65536
+  %181 = icmp samesign ult i32 %spec.store.select.i, 128
+  %182 = icmp samesign ult i32 %spec.store.select.i, 65536
   %183 = add i64 %.1.lcssa, 1
   br i1 %181, label %.split.us, label %.split
 
@@ -6626,7 +6626,7 @@ unicode_to_utf8.exit.thread.us:                   ; preds = %unicode_to_utf8.exi
   br label %unicode_to_utf8.exit
 
 .split:                                           ; preds = %179
-  %205 = icmp ult i32 %spec.store.select.i, 2048
+  %205 = icmp samesign ult i32 %spec.store.select.i, 2048
   br i1 %205, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
@@ -7052,7 +7052,7 @@ define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr no
   %49 = or disjoint i32 %48, %46
   %50 = and i32 %42, 63
   %51 = or disjoint i32 %50, %49
-  %52 = icmp ult i32 %49, 2048
+  %52 = icmp samesign ult i32 %49, 2048
   br i1 %52, label %.loopexit, label %.thread
 
 53:                                               ; preds = %21
@@ -7269,7 +7269,7 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr nocapture noundef wr
 define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #18 {
   %4 = icmp ugt i32 %2, 1114111
   %spec.store.select = select i1 %4, i32 65533, i32 %2
-  %5 = icmp ult i32 %spec.store.select, 128
+  %5 = icmp samesign ult i32 %spec.store.select, 128
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
@@ -7283,7 +7283,7 @@ define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef
   br label %63
 
 11:                                               ; preds = %3
-  %12 = icmp ult i32 %spec.store.select, 2048
+  %12 = icmp samesign ult i32 %spec.store.select, 2048
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %11
@@ -7304,7 +7304,7 @@ define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef
   br label %63
 
 24:                                               ; preds = %11
-  %25 = icmp ult i32 %spec.store.select, 65536
+  %25 = icmp samesign ult i32 %spec.store.select, 65536
   br i1 %25, label %26, label %42
 
 26:                                               ; preds = %24

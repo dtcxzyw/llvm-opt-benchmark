@@ -348,7 +348,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 2
   %78 = add nuw nsw i32 %77, 8
-  %79 = icmp ugt i32 %78, %71
+  %79 = icmp samesign ugt i32 %78, %71
   br i1 %79, label %.split51.us, label %80
 
 80:                                               ; preds = %70
@@ -449,7 +449,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %148 = and i16 %147, 508
   %149 = add nuw nsw i16 %148, 10
   %150 = zext i8 %136 to i16
-  %151 = icmp ugt i16 %149, %150
+  %151 = icmp samesign ugt i16 %149, %150
   br i1 %151, label %.split61.us, label %152
 
 152:                                              ; preds = %144
@@ -944,7 +944,7 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr nocapture nounde
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %46, 1
   %61 = add nuw nsw i32 %60, 2
-  %62 = icmp ult i32 %61, %59
+  %62 = icmp samesign ult i32 %61, %59
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %36

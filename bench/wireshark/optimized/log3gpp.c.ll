@@ -997,7 +997,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   %33 = getelementptr i8, ptr %0, i64 %indvars.iv.next267
   %34 = load i8, ptr %33, align 1
   %35 = icmp ne i8 %34, 46
-  %36 = icmp ult i64 %indvars.iv264, 16
+  %36 = icmp samesign ult i64 %indvars.iv264, 16
   %or.cond = select i1 %35, i1 %36, i1 false
   %37 = trunc nuw i64 %indvars.iv.next267 to i32
   %38 = icmp sgt i32 %1, %37
@@ -1005,7 +1005,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   br i1 %or.cond166, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %31
-  %39 = icmp ult i64 %indvars.iv264, 16
+  %39 = icmp samesign ult i64 %indvars.iv264, 16
   %or.cond167 = and i1 %38, %39
   br i1 %or.cond167, label %41, label %.loopexit
 
@@ -1073,7 +1073,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   %65 = getelementptr i8, ptr %0, i64 %indvars.iv.next272
   %66 = load i8, ptr %65, align 1
   %67 = icmp ne i8 %66, 32
-  %68 = icmp ult i64 %indvars.iv273, 3
+  %68 = icmp samesign ult i64 %indvars.iv273, 3
   %or.cond3 = select i1 %67, i1 %68, i1 false
   %69 = icmp slt i64 %indvars.iv.next272, %12
   %or.cond168 = and i1 %69, %or.cond3
@@ -1155,7 +1155,7 @@ switch.early.test:                                ; preds = %.lr.ph229
   %109 = getelementptr i8, ptr %0, i64 %indvars.iv.next278
   %110 = load i8, ptr %109, align 1
   %111 = icmp ne i8 %110, 32
-  %112 = icmp ult i64 %indvars.iv275, 63
+  %112 = icmp samesign ult i64 %indvars.iv275, 63
   %or.cond7 = select i1 %111, i1 %112, i1 false
   %113 = icmp slt i64 %indvars.iv.next278, %12
   %or.cond170 = and i1 %113, %or.cond7
@@ -1239,7 +1239,7 @@ switch.early.test:                                ; preds = %.lr.ph229
   %141 = getelementptr i8, ptr %0, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = icmp ne i8 %142, 36
-  %144 = icmp ult i64 %indvars.iv282, 65
+  %144 = icmp samesign ult i64 %indvars.iv282, 65
   %or.cond13 = select i1 %143, i1 %144, i1 false
   br i1 %or.cond13, label %145, label %.critedge11.loopexit
 

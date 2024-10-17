@@ -462,7 +462,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr nocapture noundef
   %325 = add i64 %313, %323
   store i64 %325, ptr %4, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 8
-  %326 = icmp ult i64 %indvars.iv91, 72
+  %326 = icmp samesign ult i64 %indvars.iv91, 72
   br i1 %326, label %86, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %86
@@ -586,7 +586,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %7 = and i64 %3, 127
   %8 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %7
   store i8 -128, ptr %8, align 1
-  %9 = icmp ult i32 %5, 112
+  %9 = icmp samesign ult i32 %5, 112
   %10 = and i64 %3, 127
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 1
@@ -1126,7 +1126,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) loca
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.be, %.backedge.backedge ]
   %indvars77 = trunc i64 %indvars.iv to i32
   %.urem = add nsw i32 %indvars77, -3
-  %.cmp = icmp ult i64 %indvars.iv, 3
+  %.cmp = icmp samesign ult i64 %indvars.iv, 3
   %20 = select i1 %.cmp, i32 %indvars77, i32 %.urem
   %21 = zext i1 %.cmp to i32
   br i1 %.not37, label %26, label %22

@@ -6195,7 +6195,7 @@ define linkonce_odr void @_ZN4llvm22BlockFrequencyInfoImplINS_10BasicBlockEE14in
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8Function4sizeEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !82
 
 _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i
-  %20 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %20 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %_ZNK4llvm8Function4sizeEv.exit
@@ -12894,7 +12894,7 @@ _ZNSt5queueIPKN4llvm10BasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit122: ; pre
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8Function4sizeEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !82
 
 _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i
-  %328 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
+  %328 = icmp samesign ugt i64 %.06.i.i.i.i, 1152921504606846974
   br i1 %328, label %329, label %330
 
 329:                                              ; preds = %_ZNK4llvm8Function4sizeEv.exit

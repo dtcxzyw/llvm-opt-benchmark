@@ -183,7 +183,7 @@ for.inc.i:                                        ; preds = %if.then11.i, %if.th
   %max_range.sroa.0.2.i = phi i32 [ %max_range.sroa.0.024.i, %if.then.i ], [ %spec.select.i, %if.then11.i ]
   %max_range.sroa.3.2.i = phi i32 [ %max_range.sroa.3.025.i, %if.then.i ], [ %spec.select21.i, %if.then11.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %cmp.i = icmp ult i64 %indvars.iv.i, 14
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 14
   br i1 %cmp.i, label %for.body.i, label %for.cond.preheader, !llvm.loop !9
 
 for.cond.preheader:                               ; preds = %for.inc.i
@@ -477,7 +477,7 @@ lor.lhs.false32.for.inc_crit_edge.i:              ; preds = %lor.lhs.false32.i
   br label %for.cond.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %if.end12.i
-  %cmp408.i = icmp ult i32 %cur_component.0.i.ph, 3
+  %cmp408.i = icmp samesign ult i32 %cur_component.0.i.ph, 3
   br i1 %cmp408.i, label %while.body.preheader.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit
 
 while.body.preheader.i:                           ; preds = %for.end.i
@@ -583,7 +583,7 @@ lor.lhs.false32.for.inc_crit_edge.i:              ; preds = %lor.lhs.false32.i
   br label %for.cond.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %if.end12.i
-  %cmp418.i = icmp ult i32 %cur_component.0.i.ph, 3
+  %cmp418.i = icmp samesign ult i32 %cur_component.0.i.ph, 3
   br i1 %cmp418.i, label %while.body.preheader.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit
 
 while.body.preheader.i:                           ; preds = %for.end.i
@@ -1029,7 +1029,7 @@ lor.lhs.false32.for.inc_crit_edge.i.i.i:          ; preds = %lor.lhs.false32.i.i
   br label %for.cond.i.i.i, !llvm.loop !12
 
 for.end.i.i.i:                                    ; preds = %if.end12.i.i.i
-  %cmp408.i.i.i = icmp ult i32 %cur_component.0.i.i.i.ph, 3
+  %cmp408.i.i.i = icmp samesign ult i32 %cur_component.0.i.i.i.ph, 3
   br i1 %cmp408.i.i.i, label %while.body.preheader.i.i.i, label %for.body.i.preheader
 
 while.body.preheader.i.i.i:                       ; preds = %for.end.i.i.i
@@ -1377,7 +1377,7 @@ lor.lhs.false32.for.inc_crit_edge.i.i.i:          ; preds = %lor.lhs.false32.i.i
   br label %for.cond.i.i.i, !llvm.loop !14
 
 for.end.i.i.i:                                    ; preds = %if.end12.i.i.i
-  %cmp418.i.i.i = icmp ult i32 %cur_component.0.i.i.i.ph, 3
+  %cmp418.i.i.i = icmp samesign ult i32 %cur_component.0.i.i.i.ph, 3
   br i1 %cmp418.i.i.i, label %while.body.preheader.i.i.i, label %for.body.i.preheader
 
 while.body.preheader.i.i.i:                       ; preds = %for.end.i.i.i

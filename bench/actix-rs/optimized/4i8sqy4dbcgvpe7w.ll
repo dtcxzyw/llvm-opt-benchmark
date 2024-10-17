@@ -3205,7 +3205,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
   %695 = add nuw i64 %.22311351.us1387.i.i, 1
   %696 = load i32, ptr %683, align 4, !noundef !4
   %697 = zext i32 %696 to i64
-  %698 = icmp ult i64 %694, %697
+  %698 = icmp samesign ult i64 %694, %697
   br i1 %698, label %.lr.ph1389.i.i, label %.split1357.us.i.i
 
 .loopexit.i.i:                                    ; preds = %.noexc360.i.i
@@ -3791,7 +3791,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; pred
   %914 = add nuw i64 %.42331190.us1308.i.i, 1
   %915 = load i32, ptr %902, align 4, !noundef !4
   %916 = zext i32 %915 to i64
-  %917 = icmp ult i64 %913, %916
+  %917 = icmp samesign ult i64 %913, %916
   br i1 %917, label %.lr.ph1309.i.i, label %.split.us.i161.i
 
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370._crit_edge.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i
@@ -3966,7 +3966,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   %970 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %234, i64 0, i64 %.1114382.us.i.i, i32 1
   %971 = load i64, ptr %970, align 8, !alias.scope !757, !noalias !760, !noundef !4
   %972 = and i64 %971, 4294967295
-  %973 = icmp ult i64 %972, 256
+  %973 = icmp samesign ult i64 %972, 256
   br i1 %973, label %977, label %974
 
 974:                                              ; preds = %969
@@ -4489,7 +4489,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %1176 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %234, i64 0, i64 %.1114382.i.i, i32 1
   %1177 = load i64, ptr %1176, align 8, !alias.scope !757, !noalias !760, !noundef !4
   %1178 = and i64 %1177, 4294967295
-  %1179 = icmp ult i64 %1178, 256
+  %1179 = icmp samesign ult i64 %1178, 256
   br i1 %1179, label %1183, label %1180
 
 1180:                                             ; preds = %.preheader343.split.preheader.i.i
@@ -6469,7 +6469,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
   %1821 = add nuw nsw i64 %.02361382.us1424.i.i, 1
   %1822 = load i32, ptr %1806, align 4, !noundef !4
   %1823 = zext i32 %1822 to i64
-  %1824 = icmp ult i64 %1821, %1823
+  %1824 = icmp samesign ult i64 %1821, %1823
   br i1 %1824, label %.lr.ph1425.i.i, label %.split1389.us.i.i
 
 .loopexit.i.i328:                                 ; preds = %.noexc360.i.i327
@@ -7062,7 +7062,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; pred
   %2044 = add nuw nsw i64 %.02101209.us1339.i.i, 1
   %2045 = load i32, ptr %2029, align 4, !noundef !4
   %2046 = zext i32 %2045 to i64
-  %2047 = icmp ult i64 %2044, %2046
+  %2047 = icmp samesign ult i64 %2044, %2046
   br i1 %2047, label %.lr.ph1341.i.i, label %.split.us.i163.i
 
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370._crit_edge.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i
@@ -7236,7 +7236,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   %2099 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %1350, i64 0, i64 %.1114382.us.i.i122, i32 1
   %2100 = load i64, ptr %2099, align 8, !alias.scope !1486, !noalias !1489, !noundef !4
   %2101 = and i64 %2100, 4294967295
-  %2102 = icmp ult i64 %2101, 256
+  %2102 = icmp samesign ult i64 %2101, 256
   br i1 %2102, label %2106, label %2103
 
 2103:                                             ; preds = %2098
@@ -7759,7 +7759,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %2305 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %1350, i64 0, i64 %.1114382.i.i403, i32 1
   %2306 = load i64, ptr %2305, align 8, !alias.scope !1486, !noalias !1489, !noundef !4
   %2307 = and i64 %2306, 4294967295
-  %2308 = icmp ult i64 %2307, 256
+  %2308 = icmp samesign ult i64 %2307, 256
   br i1 %2308, label %2312, label %2309
 
 2309:                                             ; preds = %.preheader343.split.preheader.i.i402
@@ -9753,7 +9753,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
   %2953 = add nuw nsw i64 %.02361382.us1424.i.i862, 1
   %2954 = load i32, ptr %2938, align 4, !noundef !4
   %2955 = zext i32 %2954 to i64
-  %2956 = icmp ult i64 %2953, %2955
+  %2956 = icmp samesign ult i64 %2953, %2955
   br i1 %2956, label %.lr.ph1425.i.i861, label %.split1389.us.i.i875
 
 .loopexit.i.i896:                                 ; preds = %.noexc360.i.i895
@@ -10346,7 +10346,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; pred
   %3176 = add nuw nsw i64 %.02101209.us1339.i.i776, 1
   %3177 = load i32, ptr %3161, align 4, !noundef !4
   %3178 = zext i32 %3177 to i64
-  %3179 = icmp ult i64 %3176, %3178
+  %3179 = icmp samesign ult i64 %3176, %3178
   br i1 %3179, label %.lr.ph1341.i.i774, label %.split.us.i163.i780
 
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370._crit_edge.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i
@@ -10520,7 +10520,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   %3231 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %2482, i64 0, i64 %.1114382.us.i.i528, i32 1
   %3232 = load i64, ptr %3231, align 8, !alias.scope !2214, !noalias !2217, !noundef !4
   %3233 = and i64 %3232, 4294967295
-  %3234 = icmp ult i64 %3233, 256
+  %3234 = icmp samesign ult i64 %3233, 256
   br i1 %3234, label %3238, label %3235
 
 3235:                                             ; preds = %3230
@@ -11043,7 +11043,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %3437 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %2482, i64 0, i64 %.1114382.i.i1023, i32 1
   %3438 = load i64, ptr %3437, align 8, !alias.scope !2214, !noalias !2217, !noundef !4
   %3439 = and i64 %3438, 4294967295
-  %3440 = icmp ult i64 %3439, 256
+  %3440 = icmp samesign ult i64 %3439, 256
   br i1 %3440, label %3444, label %3441
 
 3441:                                             ; preds = %.preheader343.split.preheader.i.i1022

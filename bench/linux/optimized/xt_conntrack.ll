@@ -191,7 +191,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %48, label %56, label %49
 
 49:                                               ; preds = %.thread2
-  %50 = icmp ult i32 %7, 3
+  %50 = icmp samesign ult i32 %7, 3
   %51 = getelementptr inbounds i8, ptr %5, i64 148
   %52 = load i16, ptr %51, align 4
   %53 = and i16 %52, 4096

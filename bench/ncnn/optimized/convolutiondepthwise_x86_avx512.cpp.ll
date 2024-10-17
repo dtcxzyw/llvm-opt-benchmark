@@ -4812,7 +4812,7 @@ define hidden noundef i32 @_ZNK4ncnn31ConvolutionDepthWise_x86_avx5127forwardERK
   br label %877
 
 877:                                              ; preds = %845, %875
-  %878 = icmp ult i32 %.01222, %.01256
+  %878 = icmp samesign ult i32 %.01222, %.01256
   br i1 %878, label %879, label %898
 
 879:                                              ; preds = %877
@@ -7856,7 +7856,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2718:                ; preds = %_ZNSt6vectorIfSaIfE
   br label %1338
 
 1338:                                             ; preds = %1306, %1336
-  %1339 = icmp ult i32 %.01987, %.01990
+  %1339 = icmp samesign ult i32 %.01987, %.01990
   br i1 %1339, label %1340, label %1358
 
 1340:                                             ; preds = %1338

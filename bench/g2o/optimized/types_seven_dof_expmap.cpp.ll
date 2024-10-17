@@ -4187,7 +4187,7 @@ _ZN5Eigen12PartialPivLUINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE7computeIS2_EERS3_RKN
   %228 = load <2 x i64>, ptr %224, align 8
   %229 = and <2 x i64> %228, <i64 9223372036854775807, i64 9223372036854775807>
   %230 = bitcast <2 x i64> %229 to <2 x double>
-  %231 = icmp ult i64 %.045.i, 4
+  %231 = icmp samesign ult i64 %.045.i, 4
   br i1 %231, label %._crit_edge.i.i.i.i.i.i, label %244
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %227
@@ -4196,7 +4196,7 @@ _ZN5Eigen12PartialPivLUINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE7computeIS2_EERS3_RKN
   %234 = and <2 x i64> %233, <i64 9223372036854775807, i64 9223372036854775807>
   %235 = bitcast <2 x i64> %234 to <2 x double>
   %236 = fadd <2 x double> %230, %235
-  %237 = icmp ugt i64 %226, %225
+  %237 = icmp samesign ugt i64 %226, %225
   br i1 %237, label %238, label %244
 
 238:                                              ; preds = %._crit_edge.i.i.i.i.i.i

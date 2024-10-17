@@ -647,7 +647,7 @@ Vec_BitStart.exit133:                             ; preds = %3, %10
 
 .critedge2:                                       ; preds = %93, %130, %126
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %137 = icmp ult i64 %indvars.iv.next154, %53
+  %137 = icmp samesign ult i64 %indvars.iv.next154, %53
   br i1 %137, label %.lr.ph144, label %.critedge4, !llvm.loop !10
 
 .critedge4:                                       ; preds = %.lr.ph144, %.critedge2, %.critedge2.preheader
@@ -1800,7 +1800,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
 
 .critedge2:                                       ; preds = %26, %21
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %42 = icmp ult i64 %indvars.iv.next122, %17
+  %42 = icmp samesign ult i64 %indvars.iv.next122, %17
   br i1 %42, label %21, label %.lr.ph115, !llvm.loop !27
 
 43:                                               ; preds = %.lr.ph115, %.critedge6
@@ -1855,7 +1855,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
 
 .critedge6:                                       ; preds = %61, %43
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %64 = icmp ult i64 %indvars.iv.next131, %20
+  %64 = icmp samesign ult i64 %indvars.iv.next131, %20
   br i1 %64, label %43, label %.critedge4, !llvm.loop !30
 
 .critedge4:                                       ; preds = %.critedge6, %Vec_IntStartFull.exit
@@ -2138,7 +2138,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .critedge2:                                       ; preds = %26, %21
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %36 = icmp ult i64 %indvars.iv.next31, %20
+  %36 = icmp samesign ult i64 %indvars.iv.next31, %20
   br i1 %36, label %21, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %.critedge2, %Vec_IntStartFull.exit
@@ -2956,7 +2956,7 @@ Acec_TreeFindTrees_rec.exit:                      ; preds = %Vec_WecPushLevel.ex
   %108 = tail call noundef i32 @llvm.smin.i32(i32 %.089, i32 %107)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %109 = or disjoint i64 %indvars.iv.next, 1
-  %110 = icmp ult i64 %109, %102
+  %110 = icmp samesign ult i64 %109, %102
   br i1 %110, label %104, label %.lr.ph92, !llvm.loop !40
 
 .critedge3:                                       ; preds = %.lr.ph92, %.critedge3
@@ -3538,7 +3538,7 @@ define range(i32 0, -2147483648) i32 @Acec_CreateBoxMaxRank(ptr nocapture nounde
   %10 = tail call noundef i32 @llvm.smax.i32(i32 %.014, i32 %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %11 = or disjoint i64 %indvars.iv.next, 1
-  %12 = icmp ult i64 %11, %5
+  %12 = icmp samesign ult i64 %11, %5
   br i1 %12, label %6, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %6, %1
@@ -3568,7 +3568,7 @@ define noalias noundef ptr @Acec_CreateBox(ptr noundef %0, ptr nocapture noundef
   %12 = tail call noundef i32 @llvm.smax.i32(i32 %.014.i, i32 %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = or disjoint i64 %indvars.iv.next.i, 1
-  %14 = icmp ult i64 %13, %7
+  %14 = icmp samesign ult i64 %13, %7
   br i1 %14, label %8, label %Acec_CreateBoxMaxRank.exit, !llvm.loop !50
 
 Acec_CreateBoxMaxRank.exit:                       ; preds = %8, %3

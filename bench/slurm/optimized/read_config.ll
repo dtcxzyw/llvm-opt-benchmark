@@ -1704,7 +1704,7 @@ define internal range(i32 -1, 2) i32 @_parse_nodename(ptr nocapture noundef writ
   %231 = zext i16 %230 to i32
   %232 = mul nuw nsw i32 %231, %229
   %233 = udiv i32 %227, %232
-  %.not252 = icmp ugt i32 %232, %227
+  %.not252 = icmp samesign ugt i32 %232, %227
   br i1 %.not252, label %249, label %234
 
 234:                                              ; preds = %225
@@ -1815,7 +1815,7 @@ define internal range(i32 -1, 2) i32 @_parse_nodename(ptr nocapture noundef writ
   %295 = zext i16 %292 to i32
   %296 = zext i16 %291 to i32
   %297 = mul nuw nsw i32 %296, %295
-  %.not257 = icmp ugt i32 %297, %294
+  %.not257 = icmp samesign ugt i32 %297, %294
   br i1 %.not257, label %301, label %298
 
 298:                                              ; preds = %290
@@ -3867,7 +3867,7 @@ define internal fastcc void @_init_slurmd_nodehash() unnamed_addr #0 {
 
 _register_front_ends.exit:                        ; preds = %.lr.ph23, %39, %.thread40.i, %.thread.thread50.i, %.thread.thread.i
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %66 = icmp ult i64 %indvars.iv.next26, %33
+  %66 = icmp samesign ult i64 %indvars.iv.next26, %33
   br i1 %66, label %.lr.ph23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_register_front_ends.exit, %._crit_edge, %0
@@ -11060,7 +11060,7 @@ gethostname_short.exit.thread.i:                  ; preds = %gethostname_short.e
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %179 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next31.i, %180
+  %181 = icmp samesign ult i64 %indvars.iv.next31.i, %180
   br i1 %181, label %.lr.ph16.i, label %.loopexit18, !llvm.loop !52
 
 182:                                              ; preds = %174, %.loopexit6.i, %126, %111, %100
@@ -11087,7 +11087,7 @@ gethostname_short.exit.thread.i:                  ; preds = %gethostname_short.e
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %190 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next34.i, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next34.i, %191
   br i1 %192, label %.lr.ph18.i, label %._crit_edge19.i, !llvm.loop !53
 
 ._crit_edge19.i:                                  ; preds = %.lr.ph18.i, %.preheader.i
@@ -13331,7 +13331,7 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
   %1147 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 892), align 4
   %1148 = zext i32 %1147 to i64
   %1149 = add nuw nsw i64 %1146, %1148
-  %1150 = icmp ugt i64 %1149, 4294967295
+  %1150 = icmp samesign ugt i64 %1149, 4294967295
   br i1 %1150, label %1151, label %1153
 
 1151:                                             ; preds = %1132
@@ -14755,7 +14755,7 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
 1785:                                             ; preds = %1765
   %1786 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1488), align 8
   %1787 = zext i16 %1786 to i32
-  %1788 = icmp ugt i32 %1769, %1787
+  %1788 = icmp samesign ugt i32 %1769, %1787
   br i1 %1788, label %1789, label %1805
 
 1789:                                             ; preds = %1785

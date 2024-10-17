@@ -6091,7 +6091,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then5.i.i.i.i
 
 for.cond.i.i26.i.i:                               ; preds = %for.cond.i.i26.i.i.preheader, %for.body.i.i27.i.i
   %i.0.in.i.i.i.i = phi i64 [ %i.0.i.i.i.i, %for.body.i.i27.i.i ], [ %div1.i.i.i21.i.i, %for.cond.i.i26.i.i.preheader ]
-  %cmp14.i.i.i.i = icmp ult i64 %i.0.in.i.i.i.i, 3
+  %cmp14.i.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i.i, 3
   br i1 %cmp14.i.i.i.i, label %for.body.i.i27.i.i, label %invoke.cont26.i
 
 for.body.i.i27.i.i:                               ; preds = %for.cond.i.i26.i.i
@@ -6453,7 +6453,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.body.i.i129.i
   %i.0.in.i.i.i = phi i64 [ %i.0.i.i.i, %for.body.i.i129.i ], [ %div1.i.i.i124.i, %for.cond.i.i.i.preheader ]
-  %cmp14.i.i.i = icmp ult i64 %i.0.in.i.i.i, 3
+  %cmp14.i.i.i = icmp samesign ult i64 %i.0.in.i.i.i, 3
   br i1 %cmp14.i.i.i, label %for.body.i.i129.i, label %next_work_elem.i
 
 for.body.i.i129.i:                                ; preds = %for.cond.i.i.i
@@ -9574,7 +9574,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i32
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i32 ], [ %div1.i.i.i27, %for.cond.i.i.preheader ]
-  %cmp14.i.i = icmp ult i64 %i.0.in.i.i, 3
+  %cmp14.i.i = icmp samesign ult i64 %i.0.in.i.i, 3
   br i1 %cmp14.i.i, label %for.body.i.i32, label %for.end
 
 for.body.i.i32:                                   ; preds = %for.cond.i.i

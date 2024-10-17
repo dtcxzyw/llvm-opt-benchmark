@@ -620,7 +620,7 @@ define void @_ZN3gmx26linearArrayIndexToMultiDimEiiPKiPi(i32 noundef %0, i32 nou
   %indvars.iv = phi i64 [ 1, %.lr.ph26.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.01923 = phi i32 [ %0, %.lr.ph26.preheader ], [ %.recomposed, %._crit_edge ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %7 = icmp ult i64 %indvars.iv.next32, %6
+  %7 = icmp samesign ult i64 %indvars.iv.next32, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph26, %.lr.ph
@@ -686,7 +686,7 @@ define void @_ZN3gmx25linearGridindexToMultiDimERKNS_8BiasGridEiPi(ptr nocapture
   %indvars.iv.i = phi i64 [ 1, %.lr.ph26.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.01923.i = phi i32 [ %1, %.lr.ph26.preheader.i ], [ %.recomposed, %._crit_edge.i ]
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %19 = icmp ult i64 %indvars.iv.next32.i, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next32.i, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph26.i, %.lr.ph.i

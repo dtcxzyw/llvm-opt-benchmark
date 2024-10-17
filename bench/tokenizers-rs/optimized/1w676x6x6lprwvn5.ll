@@ -2278,7 +2278,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %6 = load ptr, ptr %2, align 8, !alias.scope !250, !noalias !236, !nonnull !9, !align !216, !noundef !9
   %7 = load i32, ptr %6, align 4, !range !245, !noalias !251, !noundef !9
-  %8 = icmp ult i32 %5, %7
+  %8 = icmp samesign ult i32 %5, %7
   ret i1 %8
 }
 
@@ -3016,7 +3016,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
   %6 = load ptr, ptr %2, align 8, !alias.scope !462, !nonnull !9, !align !216, !noundef !9
   %7 = load i32, ptr %6, align 4, !range !245, !noalias !462, !noundef !9
-  %8 = icmp ult i32 %5, %7
+  %8 = icmp samesign ult i32 %5, %7
   ret i1 %8
 }
 
@@ -4437,7 +4437,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1edc8a9e9bcda560E.exit.i.i.i
   %.030.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 10, %_ZN10serde_json3ser9Formatter18begin_object_value17h1edc8a9e9bcda560E.exit.i.i.i.i.i.i.i.i ], [ %216, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %28, %_ZN10serde_json3ser9Formatter18begin_object_value17h1edc8a9e9bcda560E.exit.i.i.i.i.i.i.i.i ], [ %209, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
   %206 = zext nneg i32 %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %207 = icmp ugt i32 %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %207 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %207, label %223, label %232
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h1edc8a9e9bcda560E.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4481,7 +4481,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1edc8a9e9bcda560E.exit.i.i.i
 232:                                              ; preds = %223, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
   %.032.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.zext40.i.i.i.i.i.i.i.i.i.i.i.i, %223 ], [ %206, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.131.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %228, %223 ], [ %.030.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %233 = icmp ult i64 %.032.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %233 = icmp samesign ult i64 %.032.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %233, label %240, label %234
 
 234:                                              ; preds = %232
@@ -6686,7 +6686,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %37
   %.030.lcssa.i.i.i.i.i.i = phi i64 [ 20, %37 ], [ %49, %.lr.ph.i.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i.i = phi i64 [ %.val11, %37 ], [ %42, %.lr.ph.i.i.i.i.i.i ]
-  %40 = icmp ugt i64 %.1.lcssa.i.i.i.i.i.i, 99
+  %40 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i.i.i, 99
   br i1 %40, label %56, label %65
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %37, %.lr.ph.i.i.i.i.i.i
@@ -6730,7 +6730,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 65:                                               ; preds = %56, %._crit_edge.i.i.i.i.i.i
   %.032.i.i.i.i.i.i = phi i64 [ %.zext38.i.i.i.i.i.i, %56 ], [ %.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.131.i.i.i.i.i.i = phi i64 [ %61, %56 ], [ %.030.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %66 = icmp ult i64 %.032.i.i.i.i.i.i, 10
+  %66 = icmp samesign ult i64 %.032.i.i.i.i.i.i, 10
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %65
@@ -11881,15 +11881,15 @@ define hidden void @_ZN10tokenizers6models7unigram5model7Unigram14populate_nodes
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit"
   %88 = phi i32 [ %86, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i" ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i" ]
-  %89 = icmp ult i32 %88, 128
+  %89 = icmp samesign ult i32 %88, 128
   br i1 %89, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread", label %90
 
 90:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread"
-  %91 = icmp ult i32 %88, 2048
+  %91 = icmp samesign ult i32 %88, 2048
   br i1 %91, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread", label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ult i32 %88, 65536
+  %93 = icmp samesign ult i32 %88, 65536
   %. = select i1 %93, i64 3, i64 4
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread"
 
@@ -12297,7 +12297,7 @@ define hidden void @_ZN10tokenizers6models7unigram5model7Unigram14populate_nodes
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2891
   %219 = trunc nuw i8 %.044 to i1
   %220 = icmp ne i64 %152, %.043
-  %or.cond.not = or i1 %220, %219
+  %or.cond.not = select i1 %219, i1 true, i1 %220
   %spec.store.select = select i1 %or.cond.not, i8 %.044, i8 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %94
@@ -14010,15 +14010,15 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i190.i: ; preds = %
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i"
   %634 = phi i32 [ %632, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i" ], [ %621, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i" ], [ %611, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i" ]
-  %635 = icmp ult i32 %634, 128
+  %635 = icmp samesign ult i32 %634, 128
   br i1 %635, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread.i", label %636
 
 636:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i"
-  %637 = icmp ult i32 %634, 2048
+  %637 = icmp samesign ult i32 %634, 2048
   br i1 %637, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread.i", label %638
 
 638:                                              ; preds = %636
-  %639 = icmp ult i32 %634, 65536
+  %639 = icmp samesign ult i32 %634, 65536
   %..i = select i1 %639, i64 3, i64 4
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.thread.i"
 
@@ -14500,7 +14500,7 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i190.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3300
   %799 = trunc nuw i8 %.0106.i to i1
   %800 = icmp ne i64 %698, %.0105.i
-  %or.cond.not.i = or i1 %800, %799
+  %or.cond.not.i = select i1 %799, i1 true, i1 %800
   %spec.store.select.i = select i1 %or.cond.not.i, i8 %.0106.i, i8 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !3040
   br label %640
@@ -21563,7 +21563,7 @@ define { i64, i64 } @_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token1
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit": ; preds = %.lr.ph.i
-  %25 = icmp ult i64 %.013.i, %15
+  %25 = icmp samesign ult i64 %.013.i, %15
   tail call void @llvm.assume(i1 %25)
   %26 = add i64 %.013.i, %5
   br label %.loopexit
@@ -21623,7 +21623,7 @@ define { i32, i32 } @_ZN10tokenizers9tokenizer8encoding8Encoding12char_to_word17
   br i1 %25, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread, label %.lr.ph.i.i
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = icmp ult i64 %.013.i.i, %16
+  %27 = icmp samesign ult i64 %.013.i.i, %16
   tail call void @llvm.assume(i1 %27)
   %28 = add i64 %.013.i.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4684)

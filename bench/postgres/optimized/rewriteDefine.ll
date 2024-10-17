@@ -276,7 +276,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 99:                                               ; preds = %94
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %100 = icmp ult i64 %indvars.iv.next167, %93
+  %100 = icmp samesign ult i64 %indvars.iv.next167, %93
   br i1 %100, label %94, label %._crit_edge137
 
 .lr.ph136.split.split:                            ; preds = %.lr.ph136

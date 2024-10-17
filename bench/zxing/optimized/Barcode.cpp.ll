@@ -1087,7 +1087,7 @@ define noundef zeroext i1 @_ZNK5ZXing6ResulteqERKS0_(ptr noundef nonnull align 8
   %177 = tail call noundef i32 @llvm.umax.i32(i32 %175, i32 %176)
   %178 = tail call i32 @llvm.umin.i32(i32 %167, i32 %157)
   %179 = lshr i32 %177, 1
-  %180 = icmp ult i32 %178, %179
+  %180 = icmp samesign ult i32 %178, %179
   br i1 %180, label %181, label %197
 
 181:                                              ; preds = %140
@@ -1105,7 +1105,7 @@ define noundef zeroext i1 @_ZNK5ZXing6ResulteqERKS0_(ptr noundef nonnull align 8
   %193 = sub nsw i32 %177, %192
   %194 = tail call i32 @llvm.abs.i32(i32 %193, i1 true)
   %195 = udiv i32 %177, 5
-  %196 = icmp ult i32 %194, %195
+  %196 = icmp samesign ult i32 %194, %195
   br label %197
 
 197:                                              ; preds = %181, %140, %138, %116, %110, %104, %99, %91, %83, %80, %64, %63, %48, %38, %12

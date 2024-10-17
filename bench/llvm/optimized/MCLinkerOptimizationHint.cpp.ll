@@ -29,7 +29,7 @@ define dso_local void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERN
 9:                                                ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %4
   %.019.i = phi i64 [ %6, %4 ], [ %10, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %10 = lshr i64 %.019.i, 7
-  %.not.i = icmp ugt i64 %.019.i, 127
+  %.not.i = icmp samesign ugt i64 %.019.i, 127
   %11 = trunc i64 %.019.i to i8
   %12 = or i8 %11, -128
   %.0.i = select i1 %.not.i, i8 %12, i8 %11

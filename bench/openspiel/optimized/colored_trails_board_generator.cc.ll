@@ -1387,7 +1387,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %605 = add nsw i32 %604, -1
   %.not.i55.i.i = icmp eq i32 %.fr.i.i, 0
   %606 = call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %604)
-  %607 = icmp ult i32 %606, 2
+  %607 = icmp samesign ult i32 %606, 2
   %608 = zext nneg i32 %604 to i64
   %609 = sub nsw i32 0, %604
   %.sroa.2.0.insert.ext.i.i.i63.i.i = zext i32 %605 to i64

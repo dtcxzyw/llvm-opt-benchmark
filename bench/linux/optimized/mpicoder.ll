@@ -167,7 +167,7 @@ define dso_local ptr @mpi_read_from_buffer(ptr nocapture noundef readonly %0, pt
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = icmp ugt i32 %12, 16384
+  %13 = icmp samesign ugt i32 %12, 16384
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %5
@@ -1549,7 +1549,7 @@ twocompl.exit13:                                  ; preds = %188, %244, %238
   %341 = getelementptr i8, ptr %331, i64 1
   store i8 %340, ptr %331, align 1
   %342 = and i8 %335, 15
-  %343 = icmp ult i8 %342, 10
+  %343 = icmp samesign ult i8 %342, 10
   %344 = or disjoint i8 %342, 48
   %345 = add nuw nsw i8 %342, 55
   %346 = select i1 %343, i8 %344, i8 %345

@@ -52500,20 +52500,20 @@ if.end28:                                         ; preds = %if.then
 
 if.end43:                                         ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1338)
-  %cmp2.i.i = icmp ult i64 %length, 129
+  %cmp2.i.i = icmp samesign ult i64 %length, 129
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %if.end43
   %mul.i.i.i = mul i64 %length, -7046029288634856825
-  %cmp3.i.i.i = icmp ugt i64 %length, 32
+  %cmp3.i.i.i = icmp samesign ugt i64 %length, 32
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
-  %cmp4.i.i.i = icmp ugt i64 %length, 64
+  %cmp4.i.i.i = icmp samesign ugt i64 %length, 64
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end23.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp6.i.i.i = icmp ugt i64 %length, 96
+  %cmp6.i.i.i = icmp samesign ugt i64 %length, 96
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -52644,7 +52644,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if
   br label %return
 
 if.end5.i.i:                                      ; preds = %if.end43
-  %cmp6.i.i = icmp ult i64 %length, 241
+  %cmp6.i.i = icmp samesign ult i64 %length, 241
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
@@ -52757,7 +52757,7 @@ if.end9.i.i:                                      ; preds = %if.end5.i.i
   %sub1.i.i.i.i = add nsw i64 %length, -1
   %div2.i.i.i.i = udiv i64 %sub1.i.i.i.i, 576
   %sub10.i.i.i.i.recomposed = urem i64 %sub1.i.i.i.i, 576
-  %cmp31.not.i.i.i.i = icmp ult i64 %length, 577
+  %cmp31.not.i.i.i.i = icmp samesign ult i64 %length, 577
   br i1 %cmp31.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end9.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i
@@ -52850,7 +52850,7 @@ for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleA
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1407)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1409)
-  %cmp5.not.i33.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 64
+  %cmp5.not.i33.i.i.i.i = icmp samesign ult i64 %sub10.i.i.i.i.recomposed, 64
   br i1 %cmp5.not.i33.i.i.i.i, label %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit59.i.i.i.i, label %for.body.i37.i.i.i.i
 
 for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i56.i.i.i.i

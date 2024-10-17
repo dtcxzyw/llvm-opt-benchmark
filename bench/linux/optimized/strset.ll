@@ -85,7 +85,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr nocaptur
   %34 = load i16, ptr %32, align 2
   %35 = icmp ult i16 %34, 4
   %36 = zext i16 %34 to i32
-  %.not = icmp ult i32 %33, %36
+  %.not = icmp samesign ult i32 %33, %36
   %or.cond = or i1 %35, %.not
   br i1 %or.cond, label %.critedge, label %37
 
@@ -772,7 +772,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   %122 = add nuw nsw i64 %89, 1
   %123 = load i32, ptr %53, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %88, label %.loopexit9, !llvm.loop !22
 
 126:                                              ; preds = %104, %100

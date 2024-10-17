@@ -189,7 +189,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %36 = load i32, ptr %12, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next79, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next79, %37
   br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -204,7 +204,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %43 = fadd double %.056, %42
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %44 = zext i32 %40 to i64
-  %45 = icmp ult i64 %indvars.iv.next84, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next84, %44
   br i1 %45, label %.lr.ph58.split, label %._crit_edge59, !llvm.loop !7
 
 ._crit_edge59:                                    ; preds = %._crit_edge
@@ -270,7 +270,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %.3 = phi double [ %.261, %.lr.ph63 ], [ %78, %67 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next90, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next90, %82
   br i1 %83, label %.lr.ph63, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %79, %48
@@ -278,7 +278,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %.147 = phi double [ %.04665, %48 ], [ %.3, %79 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next93, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next93, %85
   br i1 %86, label %48, label %._crit_edge69, !llvm.loop !10
 
 ._crit_edge69:                                    ; preds = %.loopexit, %9, %._crit_edge59
@@ -325,7 +325,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
   %.04050 = phi i32 [ %21, %.lr.ph ], [ %.zext, %.lr.ph.preheader ]
   %21 = lshr i32 %.04050, 1
   %22 = add nuw nsw i32 %.03951, 1
-  %.not = icmp ult i32 %.04050, 4
+  %.not = icmp samesign ult i32 %.04050, 4
   br i1 %.not, label %.preheader48, label %.lr.ph, !llvm.loop !11
 
 .preheader47:                                     ; preds = %.lr.ph55, %.preheader48
@@ -406,7 +406,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %55 = load i32, ptr %14, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next73, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next73, %56
   br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !15
 
 58:                                               ; preds = %._crit_edge62

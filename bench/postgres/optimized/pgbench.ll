@@ -9111,7 +9111,7 @@ define internal fastcc void @accumStats(ptr nocapture noundef %0, i1 noundef zer
   br label %78
 
 11:                                               ; preds = %6
-  %12 = icmp ugt i64 %5, 1
+  %12 = icmp samesign ugt i64 %5, 1
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %11
@@ -9729,7 +9729,7 @@ makeVariableValue.exit:                           ; preds = %54, %99, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = getelementptr inbounds i8, ptr %.0134.i75, i64 8
   %130 = load ptr, ptr %129, align 8
-  %131 = icmp ult i64 %indvars.iv, 15
+  %131 = icmp samesign ult i64 %indvars.iv, 15
   %132 = icmp ne ptr %130, null
   %133 = select i1 %131, i1 %132, i1 false
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !67
@@ -11517,7 +11517,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 9223372036854775807) i64 @permute(i64 noundef %0, i64 noundef range(i64 1, -9223372036854775808) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pg_prng_state, align 8
-  %5 = icmp ult i64 %1, 2
+  %5 = icmp samesign ult i64 %1, 2
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
@@ -11536,7 +11536,7 @@ define internal fastcc range(i64 0, 9223372036854775807) i64 @permute(i64 nounde
   %.051 = phi i32 [ 0, %6 ], [ %43, %40 ]
   %13 = call i64 @pg_prng_uint64(ptr noundef nonnull %4) #26
   %14 = call i64 @pg_prng_uint64(ptr noundef nonnull %4) #26
-  %.not = icmp ugt i64 %.04452, %9
+  %.not = icmp samesign ugt i64 %.04452, %9
   br i1 %.not, label %25, label %15
 
 15:                                               ; preds = %12

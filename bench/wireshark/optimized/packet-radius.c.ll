@@ -1627,7 +1627,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %208, %2
   br i1 %.not464, label %227, label %.thread
 
 227:                                              ; preds = %224
-  %.not465 = icmp ult i32 %.0419, 128
+  %.not465 = icmp samesign ult i32 %.0419, 128
   br i1 %.not465, label %273, label %245
 
 .thread:                                          ; preds = %224
@@ -1651,7 +1651,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %208, %2
   %243 = load i32, ptr %242, align 8
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 8
-  %.not465479 = icmp ult i32 %.0419, 128
+  %.not465479 = icmp samesign ult i32 %.0419, 128
   br i1 %.not465479, label %261, label %.thread480
 
 245:                                              ; preds = %227

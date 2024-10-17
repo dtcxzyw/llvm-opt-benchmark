@@ -4517,7 +4517,7 @@ define internal fastcc void @__io_flush_post_cqes(ptr noundef %0) unnamed_addr #
   %33 = add nuw nsw i64 %10, 1
   %34 = load i32, ptr %2, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %33, %35
+  %36 = icmp samesign ult i64 %33, %35
   br i1 %36, label %9, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %32, %1
@@ -15297,7 +15297,7 @@ define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, p
   %10 = add nuw nsw i64 %3, 4095
   %11 = lshr i64 %10, 12
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = icmp ugt i64 %3, 268431360
+  %13 = icmp samesign ugt i64 %3, 268431360
   br i1 %13, label %68, label %14
 
 14:                                               ; preds = %9

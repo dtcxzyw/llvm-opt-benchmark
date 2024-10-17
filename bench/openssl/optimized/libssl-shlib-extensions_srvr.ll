@@ -162,8 +162,8 @@ if.then:                                          ; preds = %lor.lhs.false.i, %e
 PACKET_get_1.exit:                                ; preds = %lor.lhs.false
   %2 = load i8, ptr %add.ptr.i2.i.i, align 1
   %cmp5 = icmp ne i8 %2, 0
-  %cmp.i.i.i27 = icmp ult i64 %or.i.i.i, 3
-  %or.cond57 = or i1 %cmp.i.i.i27, %cmp5
+  %cmp.i.i.i27 = icmp samesign ult i64 %or.i.i.i, 3
+  %or.cond57 = select i1 %cmp5, i1 true, i1 %cmp.i.i.i27
   br i1 %or.cond57, label %if.then9, label %lor.lhs.false.i28
 
 lor.lhs.false.i28:                                ; preds = %PACKET_get_1.exit
@@ -930,7 +930,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false.i
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 0, ptr %tmp.sroa.8.0.pkt.sroa_idx.i, align 8
-  %cmp6 = icmp ult i64 %or.i.i.i, 2
+  %cmp6 = icmp samesign ult i64 %or.i.i.i, 2
   br i1 %cmp6, label %if.then7, label %lor.lhs.false.i12
 
 if.then7:                                         ; preds = %lor.lhs.false.i, %if.end, %lor.lhs.false4
@@ -1520,7 +1520,7 @@ if.end5:                                          ; preds = %lor.lhs.false.i
   store i64 0, ptr %tmp.sroa.8.0.pkt.sroa_idx.i, align 8
   store ptr %add.ptr.i2.i.i, ptr %cookie, align 8
   %remaining.i = getelementptr inbounds i8, ptr %cookie, i64 8
-  %cmp8 = icmp ult i64 %or.i.i.i, 32
+  %cmp8 = icmp samesign ult i64 %or.i.i.i, 32
   br i1 %cmp8, label %if.then12, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end5
@@ -2323,8 +2323,8 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
 land.lhs.true24:                                  ; preds = %if.end22
   %12 = load ptr, ptr %psk_server_callback, align 8
   %cmp25 = icmp ne ptr %12, null
-  %cmp27 = icmp ult i64 %or.i.i.i92, 257
-  %or.cond = and i1 %cmp27, %cmp25
+  %cmp27 = icmp samesign ult i64 %or.i.i.i92, 257
+  %or.cond = select i1 %cmp25, i1 %cmp27, i1 false
   br i1 %or.cond, label %if.then28, label %if.end67
 
 if.then28:                                        ; preds = %land.lhs.true24

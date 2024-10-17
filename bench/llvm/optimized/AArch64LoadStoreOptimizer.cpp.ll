@@ -2646,7 +2646,7 @@ _ZN4llvm10next_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET
   %399 = getelementptr inbounds nuw i8, ptr %397, i64 22
   %400 = load i16, ptr %399, align 2
   %401 = zext i16 %400 to i32
-  %.not.i.i64.i.i = icmp ult i32 %398, %401
+  %.not.i.i64.i.i = icmp samesign ult i32 %398, %401
   br i1 %.not.i.i64.i.i, label %402, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i
 
 402:                                              ; preds = %391
@@ -9405,7 +9405,7 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit225:      ; preds = %_ZN4llvm17MCRegUnit
 535:                                              ; preds = %.loopexit377
   %536 = load ptr, ptr %104, align 8
   %537 = call fastcc i32 @_ZL31findRenameRegForSameLdStRegPairSt8optionalIbERN4llvm12MachineInstrES3_NS1_8RegisterERNS1_12LiveRegUnitsES6_RNS1_15SmallPtrSetImplIPKNS1_19TargetRegisterClassEEEPKNS1_18TargetRegisterInfoE(i16 %.sroa.3321.0.insert.shift323, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0336.0396, i32 %72, ptr noundef nonnull align 8 dereferenceable(80) %132, ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %536)
-  %.not370 = icmp ult i32 %537, 65536
+  %.not370 = icmp samesign ult i32 %537, 65536
   br i1 %.not370, label %538, label %543
 
 538:                                              ; preds = %535
@@ -9566,7 +9566,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i254:        ; preds = %610
 _ZNK4llvm12LiveRegUnits9availableEt.exit256:      ; preds = %610
   %626 = load ptr, ptr %104, align 8
   %627 = call fastcc i32 @_ZL31findRenameRegForSameLdStRegPairSt8optionalIbERN4llvm12MachineInstrES3_NS1_8RegisterERNS1_12LiveRegUnitsES6_RNS1_15SmallPtrSetImplIPKNS1_19TargetRegisterClassEEEPKNS1_18TargetRegisterInfoE(i16 %.sroa.3321.0.insert.shift323, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0336.0396, i32 %72, ptr noundef nonnull align 8 dereferenceable(80) %132, ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %626)
-  %.not371 = icmp ult i32 %627, 65536
+  %.not371 = icmp samesign ult i32 %627, 65536
   br i1 %.not371, label %_ZNK4llvm12LiveRegUnits9availableEt.exit240, label %628
 
 628:                                              ; preds = %_ZNK4llvm12LiveRegUnits9availableEt.exit256
@@ -10959,7 +10959,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 22
   %509 = load i16, ptr %508, align 2, !noalias !287
   %510 = zext i16 %509 to i32
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %507, %510
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %507, %510
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_1clEtENKUlSC_E_clESC_EUltE_EclINS2_15concat_iteratorIKtJNS2_16MCSubRegIteratorENS2_18MCSuperRegIteratorEEEEEEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_1clEtENKUlSC_E_clESC_EUltE_EclINS2_15concat_iteratorIKtJNS2_16MCSubRegIteratorENS2_18MCSuperRegIteratorEEEEEEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_1clEtENKUlSC_E_clESC_EUltE_EclINS2_15concat_iteratorIKtJNS2_16MCSubRegIteratorENS2_18MCSuperRegIteratorEEEEEEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %505
@@ -12477,7 +12477,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ;
   %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 1
   %59 = load i24, ptr %6, align 8
   %60 = zext i24 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next103.i.i.i, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next103.i.i.i, %60
   br i1 %61, label %22, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !330
 
 62:                                               ; preds = %.critedge2.i.i.i, %.lr.ph.i.i.i
@@ -12550,7 +12550,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i:
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %92 = load i24, ptr %6, align 8
   %93 = zext i24 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next.i.i.i, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %93
   br i1 %94, label %62, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !331
 
 "_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %.critedge2.i.i.i, %.critedge.i.i.i, %.preheader91.i.i.i, %.preheader.i.i.i
@@ -12704,7 +12704,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 22
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
-  %.not.i.i5 = icmp ult i32 %51, %54
+  %.not.i.i5 = icmp samesign ult i32 %51, %54
   br i1 %.not.i.i5, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.preheader
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %49

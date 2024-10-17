@@ -13666,7 +13666,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -25742,7 +25742,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i4, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -31449,7 +31449,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
 while.end.i149:                                   ; preds = %while.body.i, %if.end8.i
   %abs_value.1.lcssa.i = phi i64 [ %128, %if.end8.i ], [ %div.i, %while.body.i ]
   %buffer_ptr.0.lcssa.i = phi ptr [ %add.ptr.i148, %if.end8.i ], [ %incdec.ptr16.i, %while.body.i ]
-  %cmp17.i = icmp ugt i64 %abs_value.1.lcssa.i, 9
+  %cmp17.i = icmp samesign ugt i64 %abs_value.1.lcssa.i, 9
   br i1 %cmp17.i, label %if.then18.i, label %if.else29.i
 
 if.then18.i:                                      ; preds = %while.end.i149
@@ -31756,7 +31756,7 @@ while.body.i286:                                  ; preds = %if.end8.i262, %whil
 while.end.i267:                                   ; preds = %while.body.i286, %if.end8.i262
   %abs_value.1.lcssa.i268 = phi i64 [ %175, %if.end8.i262 ], [ %div.i290, %while.body.i286 ]
   %buffer_ptr.0.lcssa.i269 = phi ptr [ %add.ptr.i265, %if.end8.i262 ], [ %incdec.ptr16.i294, %while.body.i286 ]
-  %cmp17.i270 = icmp ugt i64 %abs_value.1.lcssa.i268, 9
+  %cmp17.i270 = icmp samesign ugt i64 %abs_value.1.lcssa.i268, 9
   br i1 %cmp17.i270, label %if.then18.i281, label %if.else29.i271
 
 if.then18.i281:                                   ; preds = %while.end.i267
@@ -31908,7 +31908,7 @@ while.body.i347:                                  ; preds = %if.end8.i323, %whil
 while.end.i328:                                   ; preds = %while.body.i347, %if.end8.i323
   %abs_value.1.lcssa.i329 = phi i64 [ %193, %if.end8.i323 ], [ %div.i351, %while.body.i347 ]
   %buffer_ptr.0.lcssa.i330 = phi ptr [ %add.ptr.i326, %if.end8.i323 ], [ %incdec.ptr16.i355, %while.body.i347 ]
-  %cmp17.i331 = icmp ugt i64 %abs_value.1.lcssa.i329, 9
+  %cmp17.i331 = icmp samesign ugt i64 %abs_value.1.lcssa.i329, 9
   br i1 %cmp17.i331, label %if.then18.i342, label %if.else29.i332
 
 if.then18.i342:                                   ; preds = %while.end.i328
@@ -32729,7 +32729,7 @@ while.body:                                       ; preds = %if.end8, %while.bod
 while.end:                                        ; preds = %while.body, %if.end8
   %abs_value.1.lcssa = phi i64 [ %abs_value.0, %if.end8 ], [ %div, %while.body ]
   %buffer_ptr.0.lcssa = phi ptr [ %add.ptr, %if.end8 ], [ %incdec.ptr16, %while.body ]
-  %cmp17 = icmp ugt i64 %abs_value.1.lcssa, 9
+  %cmp17 = icmp samesign ugt i64 %abs_value.1.lcssa, 9
   br i1 %cmp17, label %if.then18, label %if.else29
 
 if.then18:                                        ; preds = %while.end
@@ -33095,7 +33095,7 @@ if.end60:                                         ; preds = %if.end48, %if.else
   %e.addr.0.i = tail call i32 @llvm.abs.i32(i32 %sub61, i1 true)
   %buf.addr.0.i = getelementptr i8, ptr %buf.pn, i64 3
   store i8 %storemerge.i, ptr %incdec.ptr, align 1
-  %cmp2.i = icmp ult i32 %e.addr.0.i, 10
+  %cmp2.i = icmp samesign ult i32 %e.addr.0.i, 10
   br i1 %cmp2.i, label %if.then3.i, label %if.else6.i
 
 if.then3.i:                                       ; preds = %if.end60
@@ -33108,7 +33108,7 @@ if.then3.i:                                       ; preds = %if.end60
   br label %return
 
 if.else6.i:                                       ; preds = %if.end60
-  %cmp7.i = icmp ult i32 %e.addr.0.i, 100
+  %cmp7.i = icmp samesign ult i32 %e.addr.0.i, 100
   %incdec.ptr11.i = getelementptr i8, ptr %buf.pn, i64 4
   br i1 %cmp7.i, label %if.then8.i, label %if.else15.i
 
@@ -34429,7 +34429,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
   br i1 %cmp.i3.not.i.i.i.i.i.i, label %_ZSt8distanceISt20_List_const_iteratorIbEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !336
 
 _ZSt8distanceISt20_List_const_iteratorIbEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.i, 576460752303423486
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i, 576460752303423486
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE8allocateERSF_m.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt8distanceISt20_List_const_iteratorIbEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i
@@ -34505,7 +34505,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !338
 
 _ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i.i.i, 576460752303423486
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.05.i.i.i.i.i.i.i, 576460752303423486
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i
@@ -35003,7 +35003,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !342
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i.i, 576460752303423486
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.05.i.i.i.i.i.i, 576460752303423486
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE8allocateERSF_m.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i.i.i
@@ -35665,7 +35665,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZSt8distanceINSt8__detail20_Node_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !348
 
 _ZSt8distanceINSt8__detail20_Node_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i.i, 576460752303423486
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.05.i.i.i.i.i.i, 576460752303423486
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE8allocateERSF_m.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt8distanceINSt8__detail20_Node_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i.i.i

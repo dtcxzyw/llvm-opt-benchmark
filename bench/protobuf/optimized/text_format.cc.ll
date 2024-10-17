@@ -8454,7 +8454,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i51
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then7.i.i, label %while.body.i.i.i.i, !llvm.loop !105
 
 if.then7.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i
@@ -11560,7 +11560,7 @@ _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
   %conv.i.i.i = and i64 %agg.tmp.sroa.2.0.copyload.i.i, 255
-  %cmp.not.i.i.i = icmp ugt i64 %conv.i.i.i, %sub3.i.i.i.i
+  %cmp.not.i.i.i = icmp samesign ugt i64 %conv.i.i.i, %sub3.i.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i

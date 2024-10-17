@@ -79,13 +79,13 @@ if.then29:                                        ; preds = %if.end27
   %and35 = shl nsw i32 %conv, 6
   %shl36 = and i32 %and35, 4032
   %or37 = or disjoint i32 %shl36, %shl33
-  %cmp41 = icmp ugt i32 %or37, 55295
-  %cmp42 = icmp ult i8 %4, 14
-  %or.cond = and i1 %cmp42, %cmp41
+  %cmp41 = icmp samesign ugt i32 %or37, 55295
+  %cmp42 = icmp samesign ult i8 %4, 14
+  %or.cond = select i1 %cmp41, i1 %cmp42, i1 false
   br i1 %or.cond, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.then29
-  %cmp45 = icmp ult i32 %or37, 2048
+  %cmp45 = icmp samesign ult i32 %or37, 2048
   %cond46 = select i1 %cmp45, i32 -3, i32 3
   br label %return
 

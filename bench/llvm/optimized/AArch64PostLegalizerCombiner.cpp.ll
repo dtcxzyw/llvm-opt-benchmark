@@ -9132,7 +9132,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vE
   %425 = load i32, ptr %424, align 8
   %426 = zext i32 %425 to i64
   %427 = zext i16 %.0.copyload.i.i1219 to i64
-  %428 = icmp uge i64 %426, %427
+  %428 = icmp samesign uge i64 %426, %427
   %429 = zext i16 %.0.copyload.i.i1220 to i32
   %.not692 = icmp ult i32 %425, %429
   %or.cond699 = and i1 %.not692, %428
@@ -11497,12 +11497,12 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499: ; preds = %1779
 1803:                                             ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499.thread, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499
   %.sroa.012.0.i.i14941082 = phi i64 [ %.sroa.012.0.i.i14941081, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499.thread ], [ %.sroa.012.0.i.i1494, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499 ]
   %1804 = trunc nuw i8 %.sroa.3.0.i to i1
-  %1805 = icmp ult i64 %.sroa.012.0.i.i14941082, %.sroa.012.0.i
+  %1805 = icmp samesign ult i64 %.sroa.012.0.i.i14941082, %.sroa.012.0.i
   %or.cond416.not = select i1 %1804, i1 true, i1 %1805
   br i1 %or.cond416.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1499
-  %.old.not = icmp ult i64 %.sroa.012.0.i.i1494, %.sroa.012.0.i
+  %.old.not = icmp samesign ult i64 %.sroa.012.0.i.i1494, %.sroa.012.0.i
   br i1 %.old.not, label %.critedge4, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread346: ; preds = %1803, %1775, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit

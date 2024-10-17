@@ -294,7 +294,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   %178 = getelementptr i8, ptr %176, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
-  %181 = icmp ugt i64 %164, %180
+  %181 = icmp samesign ugt i64 %164, %180
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %173

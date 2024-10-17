@@ -807,7 +807,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126RISCVGatherScatter
   %30 = load ptr, ptr %29, align 8
   %31 = tail call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(408123) %28, ptr noundef nonnull align 8 dereferenceable(512) %30, ptr noundef %2, i1 noundef zeroext false)
   %32 = extractvalue { i16, ptr } %31, 0
-  %.not92 = icmp ult i16 %.sroa.0.0.insert.insert.i, 256
+  %.not92 = icmp samesign ult i16 %.sroa.0.0.insert.insert.i, 256
   br i1 %.not92, label %_ZN4llvm9IRBuilderINS_18InstSimplifyFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, label %33
 
 33:                                               ; preds = %5

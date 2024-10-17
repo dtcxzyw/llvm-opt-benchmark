@@ -469,7 +469,7 @@ ZSTD_customFree.exit:                             ; preds = %do.end4, %if.then1.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %totalBuffers, align 8
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %do.end4, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %ZSTD_customFree.exit

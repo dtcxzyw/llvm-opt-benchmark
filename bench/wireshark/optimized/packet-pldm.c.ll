@@ -905,7 +905,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %175 = icmp eq i32 %.015712.i, 64
   %spec.select.i = select i1 %175, i64 1, i64 %.015811.i
   %176 = lshr i32 %.015712.i, 6
-  %177 = icmp ugt i32 %.015712.i, 7
+  %177 = icmp samesign ugt i32 %.015712.i, 7
   %178 = and i32 %.015712.i, 7
   %179 = icmp eq i32 %178, 0
   %or.cond170.i = and i1 %177, %179
@@ -940,7 +940,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %.015210.i = phi i32 [ 0, %192 ], [ %207, %206 ]
   %.01539.i = phi i32 [ 1, %192 ], [ %209, %206 ]
   %.48.i = phi i8 [ %.0154.i, %192 ], [ %.5.i, %206 ]
-  %197 = icmp ugt i32 %.015210.i, 7
+  %197 = icmp samesign ugt i32 %.015210.i, 7
   %198 = and i32 %.015210.i, 7
   %199 = icmp eq i32 %198, 0
   %or.cond172.i = and i1 %197, %199
@@ -972,7 +972,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %.07.i = phi i32 [ 0, %210 ], [ %224, %223 ]
   %.01506.i = phi i64 [ 1, %210 ], [ %225, %223 ]
   %.65.i = phi i8 [ %.0154.i, %210 ], [ %.7.i, %223 ]
-  %214 = icmp ugt i32 %.07.i, 7
+  %214 = icmp samesign ugt i32 %.07.i, 7
   %215 = and i32 %.07.i, 7
   %216 = icmp eq i32 %215, 0
   %or.cond174.i = and i1 %214, %216

@@ -630,7 +630,7 @@ Vec_IntGrow.exit49:                               ; preds = %.preheader.i, %19
 
 .preheader.i50:                                   ; preds = %.preheader5.i, %.loopexit.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %.loopexit.i.i ], [ 0, %.preheader5.i ]
-  %60 = icmp ult i64 %indvars.iv12.i.i, 6
+  %60 = icmp samesign ult i64 %indvars.iv12.i.i, 6
   br i1 %60, label %.preheader.i.i, label %.preheader1.i.i
 
 .preheader1.i.i:                                  ; preds = %.preheader.i50
@@ -693,7 +693,7 @@ If_ManDsdTtElems.exit:                            ; preds = %.loopexit.i.i, %Vec
 
 82:                                               ; preds = %.lr.ph, %Vec_MemHashAlloc.exit
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %Vec_MemHashAlloc.exit ]
-  %83 = icmp ult i64 %indvars.iv, 7
+  %83 = icmp samesign ult i64 %indvars.iv, 7
   %84 = trunc i64 %indvars.iv to i32
   %85 = add i32 %84, -6
   %86 = shl nuw i32 1, %85
@@ -1246,7 +1246,7 @@ define void @If_DsdManFree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4
   %52 = lshr i64 %50, %51
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 15
-  %55 = icmp ult i32 %54, 10
+  %55 = icmp samesign ult i32 %54, 10
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %49
@@ -2463,9 +2463,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
   %30 = getelementptr i8, ptr %18, i64 8
-  %31 = icmp ugt i64 %indvars.iv65, 5
+  %31 = icmp samesign ugt i64 %indvars.iv65, 5
   %32 = getelementptr inbounds i8, ptr %.val41, i64 -4
-  %.mux = or i1 %.not35, %31
+  %.mux = select i1 %.not35, i1 true, i1 %31
   %33 = trunc nuw nsw i64 %indvars.iv65 to i32
   %.mux63 = select i1 %.not35, i32 %11, i32 %33
   %34 = icmp ult i32 %.mux63, 7
@@ -2581,7 +2581,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %97 = lshr i64 %94, %96
   %98 = trunc i64 %97 to i32
   %99 = and i32 %98, 15
-  %100 = icmp ult i32 %99, 10
+  %100 = icmp samesign ult i32 %99, 10
   %101 = or disjoint i32 %99, 48
   %102 = add nuw nsw i32 %99, 55
   %.0.i18.us.i = select i1 %100, i32 %101, i32 %102
@@ -2758,7 +2758,7 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %26, 
   %52 = load i64, ptr %25, align 8
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 15
-  %55 = icmp ult i32 %54, 10
+  %55 = icmp samesign ult i32 %54, 10
   %56 = or disjoint i32 %54, 48
   %57 = add nuw nsw i32 %54, 55
   %.0.i.i = select i1 %55, i32 %56, i32 %57
@@ -2768,7 +2768,7 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %26, 
 .thread:                                          ; preds = %If_DsdManComputeTruthPtr.exit, %47
   %58 = phi i1 [ %49, %47 ], [ true, %If_DsdManComputeTruthPtr.exit ]
   %59 = phi i32 [ %48, %47 ], [ %11, %If_DsdManComputeTruthPtr.exit ]
-  %60 = icmp ult i32 %59, 7
+  %60 = icmp samesign ult i32 %59, 7
   %61 = add nsw i32 %59, -6
   %62 = shl nuw i32 1, %61
   %63 = select i1 %60, i32 1, i32 %62
@@ -2798,7 +2798,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %72 = lshr i64 %69, %71
   %73 = trunc i64 %72 to i32
   %74 = and i32 %73, 15
-  %75 = icmp ult i32 %74, 10
+  %75 = icmp samesign ult i32 %74, 10
   %76 = or disjoint i32 %74, 48
   %77 = add nuw nsw i32 %74, 55
   %.0.i18.us.i = select i1 %75, i32 %76, i32 %77
@@ -3032,7 +3032,7 @@ If_DsdObjTruth.exit:                              ; preds = %33, %40
   %67 = load i64, ptr %61, align 8
   %68 = trunc i64 %67 to i32
   %69 = and i32 %68, 15
-  %70 = icmp ult i32 %69, 10
+  %70 = icmp samesign ult i32 %69, 10
   %71 = or disjoint i32 %69, 48
   %72 = add nuw nsw i32 %69, 55
   %.0.i.i = select i1 %70, i32 %71, i32 %72
@@ -3067,7 +3067,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %84 = lshr i64 %81, %83
   %85 = trunc i64 %84 to i32
   %86 = and i32 %85, 15
-  %87 = icmp ult i32 %86, 10
+  %87 = icmp samesign ult i32 %86, 10
   %88 = or disjoint i32 %86, 48
   %89 = add nuw nsw i32 %86, 55
   %.0.i18.us.i = select i1 %87, i32 %88, i32 %89
@@ -3113,7 +3113,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loop
   %.val44 = load i32, ptr %13, align 4
   %101 = lshr i32 %.val44, 27
   %102 = zext nneg i32 %101 to i64
-  %103 = icmp ult i64 %indvars.iv.next, %102
+  %103 = icmp samesign ult i64 %indvars.iv.next, %102
   br i1 %103, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph55, %.lr.ph, %.lr.ph.preheader, %Abc_TtPrintHexRev.exit
@@ -3253,7 +3253,7 @@ define void @If_DsdManPrintDecs(ptr nocapture noundef %0, ptr nocapture noundef 
 .lr.ph.split.split.split.i.us:                    ; preds = %.lr.ph.split.i.us, %Abc_TtHasVar.exit.thread.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %Abc_TtHasVar.exit.thread.i.us ], [ 0, %.lr.ph.split.i.us ]
   %.022.i.us = phi i32 [ %72, %Abc_TtHasVar.exit.thread.i.us ], [ 0, %.lr.ph.split.i.us ]
-  %42 = icmp ult i64 %indvars.iv.i.us, 6
+  %42 = icmp samesign ult i64 %indvars.iv.i.us, 6
   br i1 %42, label %.lr.ph.i.i.us, label %.preheader.lr.ph.i.i.us
 
 .preheader.lr.ph.i.i.us:                          ; preds = %.lr.ph.split.split.split.i.us
@@ -3424,7 +3424,7 @@ Abc_TtHasVar.exit.us.i122:                        ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i97:                     ; preds = %.lr.ph.split.i93, %Abc_TtHasVar.exit.thread.i109
   %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i110, %Abc_TtHasVar.exit.thread.i109 ], [ 0, %.lr.ph.split.i93 ]
   %.022.i99 = phi i32 [ %150, %Abc_TtHasVar.exit.thread.i109 ], [ 0, %.lr.ph.split.i93 ]
-  %120 = icmp ult i64 %indvars.iv.i98, 6
+  %120 = icmp samesign ult i64 %indvars.iv.i98, 6
   br i1 %120, label %.lr.ph.i.i115, label %.preheader.lr.ph.i.i100
 
 .lr.ph.i.i115:                                    ; preds = %.lr.ph.split.split.split.i97
@@ -3636,7 +3636,7 @@ define void @If_DsdManPrintOccurs(ptr nocapture noundef %0, ptr nocapture nounde
 
 .critedge:                                        ; preds = %7
   %16 = uitofp nneg i32 %14 to double
-  %17 = icmp ult i32 %15, 2
+  %17 = icmp samesign ult i32 %15, 2
   br i1 %17, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge
@@ -3709,7 +3709,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %39 = load i32, ptr %38, align 4
   %40 = lshr i32 %39, 9
   %41 = and i32 %40, 262143
-  %42 = icmp ult i32 %41, 10
+  %42 = icmp samesign ult i32 %41, 10
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %35
@@ -3721,7 +3721,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %81
 
 48:                                               ; preds = %35
-  %49 = icmp ult i32 %41, 100
+  %49 = icmp samesign ult i32 %41, 100
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %48
@@ -3735,7 +3735,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %81
 
 55:                                               ; preds = %48
-  %56 = icmp ult i32 %41, 1000
+  %56 = icmp samesign ult i32 %41, 1000
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -3749,7 +3749,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %81
 
 62:                                               ; preds = %55
-  %63 = icmp ult i32 %41, 10000
+  %63 = icmp samesign ult i32 %41, 10000
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %62
@@ -3763,7 +3763,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %81
 
 69:                                               ; preds = %62
-  %70 = icmp ult i32 %41, 100000
+  %70 = icmp samesign ult i32 %41, 100000
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %69
@@ -3809,7 +3809,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %89, label %119, label %90
 
 90:                                               ; preds = %86
-  %91 = icmp ult i64 %indvars.iv114, 10
+  %91 = icmp samesign ult i64 %indvars.iv114, 10
   %92 = trunc nuw nsw i64 %indvars.iv114 to i32
   br i1 %91, label %93, label %95
 
@@ -4164,25 +4164,25 @@ define range(i32 -1, 2) i32 @If_DsdObjCompare(ptr nocapture noundef readonly %0,
   %16 = getelementptr i8, ptr %13, i64 4
   %.val44 = load i32, ptr %16, align 4
   %17 = and i32 %.val44, 7
-  %18 = icmp ult i32 %15, %17
+  %18 = icmp samesign ult i32 %15, %17
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %4
-  %20 = icmp ugt i32 %15, %17
+  %20 = icmp samesign ugt i32 %15, %17
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i32 %15, 3
+  %22 = icmp samesign ult i32 %15, 3
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i32 %.val45, 27
   %25 = lshr i32 %.val44, 27
-  %26 = icmp ult i32 %24, %25
+  %26 = icmp samesign ult i32 %24, %25
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %23
-  %28 = icmp ugt i32 %24, %25
+  %28 = icmp samesign ugt i32 %24, %25
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %27
@@ -4279,11 +4279,11 @@ If_DsdObjTruthId.exit59:                          ; preds = %If_DsdObjTruthId.ex
 ._crit_edge:                                      ; preds = %68, %65
   %75 = and i32 %2, 1
   %76 = and i32 %3, 1
-  %77 = icmp ugt i32 %75, %76
+  %77 = icmp samesign ugt i32 %75, %76
   br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %._crit_edge
-  %79 = icmp ult i32 %75, %76
+  %79 = icmp samesign ult i32 %75, %76
   %. = zext i1 %79 to i32
   br label %.loopexit
 
@@ -7755,7 +7755,7 @@ define void @If_DsdManFilter_rec(ptr noundef %0, ptr nocapture noundef readonly 
   %.val45 = load i32, ptr %16, align 4
   %23 = lshr i32 %.val45, 27
   %24 = zext nneg i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %.lr.ph69, %.lr.ph, %.lr.ph.preheader, %11
@@ -7994,7 +7994,7 @@ define void @If_DsdManCollect_rec(ptr nocapture noundef readonly %0, i32 noundef
   %.val22 = load i32, ptr %10, align 4
   %22 = lshr i32 %.val22, 27
   %23 = zext nneg i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %.lr.ph, %20, %15
@@ -8356,7 +8356,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i109, %.lr.p
   %.val98 = load i32, ptr %15, align 4
   %89 = lshr i32 %.val98, 27
   %90 = zext nneg i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next173, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next173, %90
   br i1 %91, label %69, label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %69, %Abc_TtAnd.exit, %Abc_TtConst1.exit
@@ -8397,7 +8397,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i109, %.lr.p
   %.val97 = load i32, ptr %15, align 4
   %103 = lshr i32 %.val97, 27
   %104 = zext nneg i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next170, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next170, %104
   br i1 %105, label %.lr.ph154, label %.critedge2, !llvm.loop !92
 
 .critedge2:                                       ; preds = %.lr.ph154, %101, %.preheader
@@ -8468,7 +8468,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i121, %.crit
   %.val96 = load i32, ptr %15, align 4
   %132 = lshr i32 %.val96, 27
   %133 = zext nneg i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %.critedge4, !llvm.loop !94
 
 .critedge4:                                       ; preds = %.lr.ph191, %.lr.ph, %.lr.ph.preheader
@@ -10088,7 +10088,7 @@ define i32 @If_DsdSign_rec(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.val16 = load i32, ptr %4, align 4
   %24 = lshr i32 %.val16, 27
   %25 = zext nneg i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %14, label %.critedge, !llvm.loop !112
 
 .critedge:                                        ; preds = %21, %14, %.preheader, %9
@@ -10153,7 +10153,7 @@ define void @If_DsdManGetSuppSizes(ptr nocapture noundef readonly %0, ptr nocapt
   %.val = load i32, ptr %5, align 4
   %19 = lshr i32 %.val, 27
   %20 = zext nneg i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %7, label %.critedge, !llvm.loop !113
 
 .critedge:                                        ; preds = %7, %14, %3
@@ -10231,7 +10231,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %29, %36
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %.loopexit173.us ], [ 0, %If_DsdManGetSuppSizes.exit ]
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.loopexit173.us ], [ 1, %If_DsdManGetSuppSizes.exit ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %47 = icmp ult i64 %indvars.iv.next233, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next233, %46
   br i1 %47, label %.lr.ph.us, label %.loopexit173.us
 
 .loopexit173.us:                                  ; preds = %57, %.lr.ph178.split.us
@@ -10269,7 +10269,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %29, %36
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.loopexit173 ], [ 0, %If_DsdManGetSuppSizes.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit173 ], [ 1, %If_DsdManGetSuppSizes.exit ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %58 = icmp ult i64 %indvars.iv.next221, %46
+  %58 = icmp samesign ult i64 %indvars.iv.next221, %46
   br i1 %58, label %.lr.ph, label %.loopexit173
 
 .lr.ph:                                           ; preds = %.lr.ph178.split
@@ -10389,7 +10389,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %indvars.iv267 = phi i64 [ 1, %.lr.ph188.split.us.preheader ], [ %indvars.iv.next268, %.loopexit171.us ]
   %indvars.iv258 = phi i64 [ 2, %.lr.ph188.split.us.preheader ], [ %indvars.iv.next259, %.loopexit171.us ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %117 = icmp ult i64 %indvars.iv.next275, %114
+  %117 = icmp samesign ult i64 %indvars.iv.next275, %114
   br i1 %117, label %.lr.ph185.us, label %.loopexit171.us
 
 .loopexit171.us:                                  ; preds = %.loopexit168.us.us, %.lr.ph188.split.us
@@ -10406,7 +10406,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.loopexit168.us.us ], [ %indvars.iv267, %.lr.ph185.us ]
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %.loopexit168.us.us ], [ %indvars.iv258, %.lr.ph185.us ]
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %120 = icmp ult i64 %indvars.iv.next270, %114
+  %120 = icmp samesign ult i64 %indvars.iv.next270, %114
   br i1 %120, label %.lr.ph181.us.us, label %.loopexit168.us.us
 
 .loopexit168.us.us:                               ; preds = %132, %119
@@ -10448,7 +10448,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.loopexit171 ], [ 1, %.lr.ph188 ]
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.loopexit171 ], [ 2, %.lr.ph188 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
-  %133 = icmp ult i64 %indvars.iv.next254, %114
+  %133 = icmp samesign ult i64 %indvars.iv.next254, %114
   br i1 %133, label %.lr.ph185, label %.loopexit171
 
 .lr.ph185:                                        ; preds = %.lr.ph188.split
@@ -10466,7 +10466,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %indvars.iv248 = phi i64 [ %indvars.iv246, %.lr.ph185 ], [ %indvars.iv.next249, %.loopexit168 ]
   %indvars.iv239 = phi i64 [ %indvars.iv237, %.lr.ph185 ], [ %indvars.iv.next240, %.loopexit168 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %138 = icmp ult i64 %indvars.iv.next249, %114
+  %138 = icmp samesign ult i64 %indvars.iv.next249, %114
   br i1 %138, label %.lr.ph181, label %.loopexit168
 
 .lr.ph181:                                        ; preds = %137
@@ -10603,7 +10603,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv322 = phi i64 [ 2, %.lr.ph202.split.us.preheader ], [ %indvars.iv.next323, %.loopexit166.us ]
   %indvars.iv311 = phi i64 [ 3, %.lr.ph202.split.us.preheader ], [ %indvars.iv.next312, %.loopexit166.us ]
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
-  %208 = icmp ult i64 %indvars.iv.next339, %205
+  %208 = icmp samesign ult i64 %indvars.iv.next339, %205
   br i1 %208, label %.lr.ph200.us, label %.loopexit166.us
 
 .loopexit166.us:                                  ; preds = %.loopexit165.us.us, %.lr.ph202.split.us
@@ -10622,7 +10622,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %.loopexit165.us.us ], [ %indvars.iv322, %.lr.ph200.us ]
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %.loopexit165.us.us ], [ %indvars.iv311, %.lr.ph200.us ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %211 = icmp ult i64 %indvars.iv.next334, %205
+  %211 = icmp samesign ult i64 %indvars.iv.next334, %205
   br i1 %211, label %.lr.ph196.us.us, label %.loopexit165.us.us
 
 .loopexit165.us.us:                               ; preds = %.loopexit.us.us.us, %210
@@ -10639,7 +10639,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %.loopexit.us.us.us ], [ %indvars.iv324, %.lr.ph196.us.us ]
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.loopexit.us.us.us ], [ %indvars.iv313, %.lr.ph196.us.us ]
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
-  %214 = icmp ult i64 %indvars.iv.next327, %205
+  %214 = icmp samesign ult i64 %indvars.iv.next327, %205
   br i1 %214, label %.lr.ph192.us.us.us, label %.loopexit.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %228, %213
@@ -10685,7 +10685,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %.loopexit166 ], [ 2, %.lr.ph202 ]
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %.loopexit166 ], [ 3, %.lr.ph202 ]
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %229 = icmp ult i64 %indvars.iv.next307, %205
+  %229 = icmp samesign ult i64 %indvars.iv.next307, %205
   br i1 %229, label %.lr.ph200, label %.loopexit166
 
 .lr.ph200:                                        ; preds = %.lr.ph202.split
@@ -10705,7 +10705,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv292 = phi i64 [ %indvars.iv290, %.lr.ph200 ], [ %indvars.iv.next293, %.loopexit165 ]
   %indvars.iv281 = phi i64 [ %indvars.iv279, %.lr.ph200 ], [ %indvars.iv.next282, %.loopexit165 ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %234 = icmp ult i64 %indvars.iv.next302, %205
+  %234 = icmp samesign ult i64 %indvars.iv.next302, %205
   br i1 %234, label %.lr.ph196, label %.loopexit165
 
 .lr.ph196:                                        ; preds = %233
@@ -10723,7 +10723,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %158, %156
   %indvars.iv294 = phi i64 [ %indvars.iv292, %.lr.ph196 ], [ %indvars.iv.next295, %.loopexit ]
   %indvars.iv283 = phi i64 [ %indvars.iv281, %.lr.ph196 ], [ %indvars.iv.next284, %.loopexit ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %239 = icmp ult i64 %indvars.iv.next295, %205
+  %239 = icmp samesign ult i64 %indvars.iv.next295, %205
   br i1 %239, label %.lr.ph192, label %.loopexit
 
 .lr.ph192:                                        ; preds = %238
@@ -11242,7 +11242,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %39, %46, %.critedge
 
 85:                                               ; preds = %._crit_edge.us.us
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %86 = icmp ult i64 %indvars.iv.next132, %59
+  %86 = icmp samesign ult i64 %indvars.iv.next132, %59
   br i1 %86, label %.lr.ph.us.us, label %.critedge, !llvm.loop !124
 
 .unreachabledefault:                              ; preds = %62
@@ -12175,7 +12175,7 @@ define i32 @If_CutDsdBalancePinDelays_rec(ptr noundef %0, i32 noundef %1, ptr no
   %.val89 = load i32, ptr %18, align 4
   %44 = lshr i32 %.val89, 27
   %45 = zext nneg i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next162, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next162, %45
   br i1 %46, label %.lr.ph143, label %.critedge.loopexit, !llvm.loop !132
 
 .critedge.loopexit:                               ; preds = %39, %.lr.ph143
@@ -12350,7 +12350,7 @@ If_DsdObjTruthId.exit:                            ; preds = %108
   %.val88 = load i32, ptr %18, align 4
   %134 = lshr i32 %.val88, 27
   %135 = zext nneg i32 %134 to i64
-  %136 = icmp ult i64 %indvars.iv.next, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next, %135
   br i1 %136, label %.lr.ph, label %.critedge2, !llvm.loop !134
 
 .critedge2:                                       ; preds = %.lr.ph, %129, %If_DsdObjTruthId.exit
@@ -12538,7 +12538,7 @@ If_LogCounterPinDelays.exit:                      ; preds = %.preheader.split.i,
   %.val87 = load i32, ptr %18, align 4
   %226 = lshr i32 %.val87, 27
   %227 = zext nneg i32 %226 to i64
-  %228 = icmp ult i64 %indvars.iv.next173, %227
+  %228 = icmp samesign ult i64 %indvars.iv.next173, %227
   br i1 %228, label %139, label %.critedge4.loopexit, !llvm.loop !135
 
 .critedge4.loopexit:                              ; preds = %If_LogCounterPinDelays.exit, %139
@@ -12865,7 +12865,7 @@ define i32 @If_CutDsdBalanceEval_rec(ptr noundef %0, i32 noundef %1, ptr noundef
   %.val138 = load i32, ptr %21, align 4
   %53 = lshr i32 %.val138, 27
   %54 = zext nneg i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next175, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next175, %54
   br i1 %55, label %38, label %.critedge, !llvm.loop !142
 
 .critedge:                                        ; preds = %38, %52, %.preheader
@@ -12964,7 +12964,7 @@ If_DsdObjTruthId.exit:                            ; preds = %81, %88
   %.val137.us = load i32, ptr %21, align 4
   %110 = lshr i32 %.val137.us, 27
   %111 = zext nneg i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next172, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next172, %111
   br i1 %112, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !143
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %121
@@ -12992,7 +12992,7 @@ If_DsdObjTruthId.exit:                            ; preds = %81, %88
   %.val137 = load i32, ptr %21, align 4
   %125 = lshr i32 %.val137, 27
   %126 = zext nneg i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next, %126
+  %127 = icmp samesign ult i64 %indvars.iv.next, %126
   br i1 %127, label %.lr.ph.split, label %.critedge2, !llvm.loop !143
 
 .critedge2:                                       ; preds = %.lr.ph.split, %121, %.lr.ph.split.us, %109, %.preheader143
@@ -13109,7 +13109,7 @@ If_LogCounterAddAig.exit:                         ; preds = %.preheader.i, %.loo
   %.val136 = load i32, ptr %21, align 4
   %178 = lshr i32 %.val136, 27
   %179 = zext nneg i32 %178 to i64
-  %180 = icmp ult i64 %indvars.iv.next180, %179
+  %180 = icmp samesign ult i64 %indvars.iv.next180, %179
   br i1 %180, label %135, label %.critedge4, !llvm.loop !144
 
 .critedge4:                                       ; preds = %135, %177, %.lr.ph157, %129
@@ -15305,7 +15305,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %74, %70, %63
   %.val77 = load i32, ptr %75, align 4
   %76 = lshr i32 %.val77, 3
   %77 = and i32 %76, 31
-  %78 = icmp ugt i32 %77, 8
+  %78 = icmp samesign ugt i32 %77, 8
   br i1 %78, label %207, label %79
 
 79:                                               ; preds = %Extra_ProgressBarUpdate.exit
@@ -15380,7 +15380,7 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %84, 
   br i1 %.not.i80, label %Abc_TtIsUnate.exit.thread92, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %107
-  %108 = icmp ult i32 %77, 7
+  %108 = icmp samesign ult i32 %77, 7
   %109 = add nsw i32 %77, -6
   %110 = shl nuw nsw i32 1, %109
   %111 = zext nneg i32 %110 to i64
@@ -15427,7 +15427,7 @@ Abc_TtNegVar.exit.thread22.us.i:                  ; preds = %Abc_TtPosVar.exit.u
 
 .lr.ph.split.i:                                   ; preds = %Abc_TtNegVar.exit.thread22.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtNegVar.exit.thread22.i ]
-  %129 = icmp ult i64 %indvars.iv.i, 6
+  %129 = icmp samesign ult i64 %indvars.iv.i, 6
   %130 = trunc i64 %indvars.iv.i to i32
   br i1 %129, label %131, label %.preheader.lr.ph.i.i
 

@@ -1375,7 +1375,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %264 = add nuw nsw i64 %143, 1
   %265 = load i8, ptr %127, align 4
   %266 = zext i8 %265 to i64
-  %267 = icmp ult i64 %264, %266
+  %267 = icmp samesign ult i64 %264, %266
   br i1 %267, label %142, label %.loopexit29, !llvm.loop !21
 
 .loopexit29:                                      ; preds = %263, %126

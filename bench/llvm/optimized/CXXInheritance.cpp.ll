@@ -250,7 +250,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang8QualTypeENS2_12CXXBasePaths31I
   %43 = lshr i32 %.sroa.0.0.copyload, 1
   %44 = and i32 %.sroa.0.0.copyload, 1
   %45 = add nuw nsw i32 %43, %44
-  %46 = icmp ugt i32 %45, 1
+  %46 = icmp samesign ugt i32 %45, 1
   ret i1 %46
 }
 

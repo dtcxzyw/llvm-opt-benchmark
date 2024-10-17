@@ -3277,7 +3277,7 @@ land.rhs:                                         ; preds = %if.end
 
 do.end:                                           ; preds = %if.end, %land.rhs
   %count.1 = phi i32 [ 10, %land.rhs ], [ %count.0, %if.end ]
-  %cmp9 = icmp ult i32 %count.1, 10
+  %cmp9 = icmp samesign ult i32 %count.1, 10
   %. = zext i1 %cmp9 to i32
   br label %return
 

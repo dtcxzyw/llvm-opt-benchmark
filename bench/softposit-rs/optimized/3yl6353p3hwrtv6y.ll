@@ -139,7 +139,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %30 = trunc nuw nsw i16 %29 to i8
   %31 = or i16 %.2.i, 16384
   %32 = shl i16 %.034, 2
-  %33 = icmp ult i16 %.034, 16384
+  %33 = icmp samesign ult i16 %.034, 16384
   %34 = icmp sgt i16 %32, -1
   br i1 %33, label %.preheader.i57, label %.preheader12.i51
 
@@ -182,12 +182,12 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %47 = zext nneg i16 %31 to i32
   %48 = zext nneg i16 %44 to i32
   %49 = mul nuw nsw i32 %48, %47
-  %50 = icmp ugt i8 %46, 1
+  %50 = icmp samesign ugt i8 %46, 1
   %51 = xor i8 %46, 2
   %52 = zext i1 %50 to i8
   %.040 = add i8 %45, %52
   %.037 = select i1 %50, i8 %51, i8 %46
-  %53 = icmp ult i32 %49, 536870912
+  %53 = icmp samesign ult i32 %49, 536870912
   br i1 %53, label %55, label %62
 
 .sink.split:                                      ; preds = %4, %78

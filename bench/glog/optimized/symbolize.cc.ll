@@ -848,9 +848,9 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 .critedge.i.i:                                    ; preds = %179, %.lr.ph.i.i
   %storemerge.idx.lcssa.ph.i.i = phi i64 [ %storemerge.idx185.i.i, %.lr.ph.i.i ], [ %177, %179 ]
   %storemerge.ptr.lcssa.ph.i.i = phi ptr [ %storemerge.ptr186.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %179 ]
-  %180 = icmp ult i64 %storemerge.idx.lcssa.ph.i.i, 5
+  %180 = icmp samesign ult i64 %storemerge.idx.lcssa.ph.i.i, 5
   %181 = icmp eq ptr %storemerge.ptr.lcssa.ph.i.i, %126
-  %or.cond53.i.i = or i1 %180, %181
+  %or.cond53.i.i = select i1 %181, i1 true, i1 %180
   br i1 %or.cond53.i.i, label %.loopexit144.i.i, label %182
 
 182:                                              ; preds = %.critedge.i.i
@@ -1952,7 +1952,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._c
 
 ._crit_edge:                                      ; preds = %36, %.thread
   %43 = add nuw nsw i64 %35, %.02439
-  %44 = icmp ult i64 %43, %7
+  %44 = icmp samesign ult i64 %43, %7
   br i1 %44, label %.lr.ph41.split, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, !llvm.loop !22
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds = %._crit_edge, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i", %24, %5, %42
@@ -2042,7 +2042,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread5: ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
-  %.not = icmp ugt i64 %41, %.sroa.speculated
+  %.not = icmp samesign ugt i64 %41, %.sroa.speculated
   br i1 %.not, label %43, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread5
@@ -2147,7 +2147,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread: ; pre
 82:                                               ; preds = %.lr.ph, %48
   %83 = add i32 %.04517, 1
   %84 = zext i32 %83 to i64
-  %85 = icmp ugt i64 %41, %84
+  %85 = icmp samesign ugt i64 %41, %84
   br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %82, %.preheader

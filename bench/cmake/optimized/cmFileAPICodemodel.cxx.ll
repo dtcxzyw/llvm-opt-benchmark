@@ -11502,7 +11502,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 select.unfold.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i126.i.i.i
   %2190 = add nuw nsw i64 %storemerge28.i.i.i.i.i.i.i, 1
   %2191 = lshr i64 %2190, 1
-  %.not12.i.i.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.i.i.i.i.i, 2
+  %.not12.i.i.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.i.i.i.i.i, 2
   br i1 %.not12.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESA_EC2ESF_l.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i126.i.i.i, !llvm.loop !288
 
 2192:                                             ; preds = %.lr.ph.i.i.i.i126.i.i.i

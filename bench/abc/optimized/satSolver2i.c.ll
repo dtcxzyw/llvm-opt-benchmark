@@ -505,7 +505,7 @@ define i32 @Int2_ManChainStart(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = lshr i32 %52, 11
   %54 = zext nneg i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %27, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %51, %.preheader
@@ -616,7 +616,7 @@ define i32 @Int2_ManChainResolve(ptr nocapture noundef readonly %0, ptr nocaptur
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = lshr i32 %54, 11
   %56 = zext nneg i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next.i, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %56
   br i1 %57, label %29, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %53, %.preheader.i

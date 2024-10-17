@@ -49,7 +49,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %17 = tail call i8 @llvm.umin.i8(i8 %.val7.i, i8 %.val9.i)
   %.0.sroa.speculated.i1.i.i = zext i8 %17 to i32
   %18 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i, 1
-  %.not.i = icmp ult i32 %18, %.0.sroa.speculated.i.i.i
+  %.not.i = icmp samesign ult i32 %18, %.0.sroa.speculated.i.i.i
   br i1 %.not.i, label %6, label %19
 
 19:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i
@@ -121,7 +121,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %48 = call i8 @llvm.umin.i8(i8 %43, i8 %46)
   %.0.sroa.speculated.i1.i.i31 = zext i8 %48 to i32
   %49 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i31, 1
-  %.not.i32.not = icmp ult i32 %49, %.0.sroa.speculated.i.i.i30
+  %.not.i32.not = icmp samesign ult i32 %49, %.0.sroa.speculated.i.i.i30
   br i1 %.not.i32.not, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, label %53
 
 50:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, %.preheader.split
@@ -204,7 +204,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %.val8.i = load i32, ptr %10, align 4, !range !21, !noundef !4
   %12 = getelementptr i8, ptr %.sroa.0.0.i, i64 12
   %.val9.i = load i32, ptr %12, align 4
-  %13 = icmp ult i32 %.val.i, %.val8.i
+  %13 = icmp samesign ult i32 %.val.i, %.val8.i
   br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i
 
 _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i: ; preds = %8
@@ -217,7 +217,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.val.i, i32 %.val8.i)
   %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.val7.i, i32 %.val9.i)
   %16 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i, 1
-  %.not.i = icmp ugt i32 %.0.sroa.speculated.i.i.i, %16
+  %.not.i = icmp samesign ugt i32 %.0.sroa.speculated.i.i.i, %16
   br i1 %.not.i, label %6, label %17
 
 17:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i
@@ -287,7 +287,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   %.0.sroa.speculated.i.i.i28 = call noundef i32 @llvm.umax.i32(i32 %39, i32 %42)
   %.0.sroa.speculated.i1.i.i29 = call noundef i32 @llvm.umin.i32(i32 %41, i32 %44)
   %45 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i29, 1
-  %.not.i30 = icmp ugt i32 %.0.sroa.speculated.i.i.i28, %45
+  %.not.i30 = icmp samesign ugt i32 %.0.sroa.speculated.i.i.i28, %45
   br i1 %.not.i30, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit
 
 _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread: ; preds = %34, %.preheader.split

@@ -186,7 +186,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   %6 = getelementptr inbounds i8, ptr %5, i64 18
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 2047
-  %9 = icmp ult i16 %8, 3
+  %9 = icmp samesign ult i16 %8, 3
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3

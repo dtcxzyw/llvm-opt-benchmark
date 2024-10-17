@@ -2930,7 +2930,7 @@ _ZN25ServiceResponseTimeDialog11addSrtTableEPK15_srt_stat_table.exit: ; preds = 
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN25ServiceResponseTimeDialog11addSrtTableEPK15_srt_stat_table.exit, %1
@@ -6473,7 +6473,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_srtED2Ev.exit.i: ; preds = %135, %_Z
   %137 = add nuw nsw i64 %.01418.i, 1
   %138 = load i8, ptr %107, align 8
   %139 = zext i8 %138 to i64
-  %140 = icmp ult i64 %137, %139
+  %140 = icmp samesign ult i64 %137, %139
   br i1 %140, label %116, label %.preheader.loopexit.i, !llvm.loop !31
 
 141:                                              ; preds = %141, %.preheader.i
@@ -6643,7 +6643,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_srtED2Ev.exit: ; preds = %_ZN12QHash
   %31 = add nuw nsw i64 %.01418, 1
   %32 = load i8, ptr %2, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %9, label %.preheader.loopexit, !llvm.loop !31
 
 35:                                               ; preds = %.preheader, %35
@@ -6901,7 +6901,7 @@ _ZN12QHashPrivate4NodeIK7QStringP12register_srtED2Ev.exit.i37: ; preds = %118, %
   %120 = add nuw nsw i64 %.01418.i, 1
   %121 = load i8, ptr %90, align 8
   %122 = zext i8 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %99, label %.preheader.loopexit.i, !llvm.loop !31
 
 124:                                              ; preds = %124, %.preheader.i38

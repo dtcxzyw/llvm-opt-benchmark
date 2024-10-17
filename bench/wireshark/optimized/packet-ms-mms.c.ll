@@ -566,7 +566,7 @@ dissect_msmms_data_udp_command.exit:              ; preds = %.lr.ph.i, %115
 143:                                              ; preds = %.thread
   %144 = zext i16 %140 to i32
   %145 = and i32 %141, 65535
-  %146 = icmp ult i32 %145, %144
+  %146 = icmp samesign ult i32 %145, %144
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %143

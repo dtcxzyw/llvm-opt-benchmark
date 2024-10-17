@@ -586,7 +586,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit107:                ; preds = %_ZN5zxing3RefINS_6q
 
 ._crit_edge168.us:                                ; preds = %174
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %187 = icmp ult i64 %indvars.iv.next218, %172
+  %187 = icmp samesign ult i64 %indvars.iv.next218, %172
   br i1 %187, label %.preheader143.us, label %.preheader142.loopexit, !llvm.loop !10
 
 .preheader142.loopexit:                           ; preds = %._crit_edge168.us

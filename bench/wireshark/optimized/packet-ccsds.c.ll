@@ -452,7 +452,7 @@ embedded_time_to_string.exit:                     ; preds = %41, %67
   %141 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0192217) #3
   %142 = add i16 %141, %.0190218
   %143 = add nuw nsw i32 %.0192217, 2
-  %144 = icmp ult i32 %143, %139
+  %144 = icmp samesign ult i32 %143, %139
   br i1 %144, label %140, label %145, !llvm.loop !6
 
 145:                                              ; preds = %140

@@ -105,7 +105,7 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
   %41 = add nuw nsw i32 %30, %38
   %42 = load i16, ptr %13, align 2
   %43 = zext i16 %42 to i32
-  %44 = icmp ugt i32 %41, %43
+  %44 = icmp samesign ugt i32 %41, %43
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %40

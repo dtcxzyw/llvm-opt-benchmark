@@ -734,7 +734,7 @@ uncompress_debug_section.exit:                    ; preds = %123
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %131 = load i16, ptr %62, align 4
   %132 = zext i16 %131 to i64
-  %133 = icmp ult i64 %indvars.iv.next601, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next601, %132
   br i1 %133, label %81, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit336, %50
@@ -2722,7 +2722,7 @@ uleb128.exit.i.i309:                              ; preds = %._crit_edge.loopexi
   %.0.lcssa.i64.i.i = phi i32 [ 0, %1038 ], [ %1048, %.lr.ph.i63.i.i ]
   %.lcssa16.i.i.i = phi i8 [ %1040, %1038 ], [ %1051, %.lr.ph.i63.i.i ]
   %.lcssa.i65.i.i = phi i32 [ %1041, %1038 ], [ %1052, %.lr.ph.i63.i.i ]
-  %.not.i.i.i304 = icmp ult i8 %.lcssa16.i.i.i, 64
+  %.not.i.i.i304 = icmp samesign ult i8 %.lcssa16.i.i.i, 64
   %.neg.i.i = add nsw i32 %.lcssa.i65.i.i, -128
   %spec.select.i.i305 = select i1 %.not.i.i.i304, i32 %.lcssa.i65.i.i, i32 %.neg.i.i
   %.neg166.pn.i.i = shl i32 %spec.select.i.i305, %.013.lcssa.i.i.i
@@ -3077,7 +3077,7 @@ append_obj.exit:                                  ; preds = %9, %19
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @follow_debuglink_build_id(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp ugt i64 %1, 2032
+  %10 = icmp samesign ugt i64 %1, 2032
   br i1 %10, label %39, label %11
 
 11:                                               ; preds = %8
@@ -4320,7 +4320,7 @@ uleb128.exit:                                     ; preds = %68, %._crit_edge.lo
   %.0.lcssa.i.i = phi i64 [ 0, %118 ], [ %138, %.lr.ph.i.i ]
   %.lcssa16.i.i = phi i8 [ %121, %118 ], [ %141, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i32 [ %122, %118 ], [ %142, %.lr.ph.i.i ]
-  %.not.i.i = icmp ult i8 %.lcssa16.i.i, 64
+  %.not.i.i = icmp samesign ult i8 %.lcssa16.i.i, 64
   br i1 %.not.i.i, label %129, label %124
 
 124:                                              ; preds = %._crit_edge.i.i
@@ -4952,7 +4952,7 @@ read_uint.exit219:                                ; preds = %416, %419
   %.0.lcssa.i223 = phi i64 [ 0, %428 ], [ %448, %.lr.ph.i222 ]
   %.lcssa16.i = phi i8 [ %431, %428 ], [ %451, %.lr.ph.i222 ]
   %.lcssa.i224 = phi i32 [ %432, %428 ], [ %452, %.lr.ph.i222 ]
-  %.not.i = icmp ult i8 %.lcssa16.i, 64
+  %.not.i = icmp samesign ult i8 %.lcssa16.i, 64
   br i1 %.not.i, label %439, label %434
 
 434:                                              ; preds = %._crit_edge.i

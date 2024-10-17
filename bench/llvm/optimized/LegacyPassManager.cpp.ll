@@ -1535,7 +1535,7 @@ _ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit:  ; preds = %.lr.ph22.i, %2, %._
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #27
   %54 = and i64 %53, 4294967295
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %.lr.ph22, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %.preheader
@@ -1840,14 +1840,14 @@ define dso_local void @_ZN4llvm6legacy23FunctionPassManagerImpl21releaseMemoryOn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
   %24 = and i64 %23, 4294967295
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph11
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
   %27 = and i64 %26, 4294967295
-  %28 = icmp ult i64 %indvars.iv.next16, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next16, %27
   br i1 %28, label %.lr.ph11, label %._crit_edge12, !llvm.loop !25
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %.preheader
@@ -1891,7 +1891,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy23FunctionPassManagerImpl3ru
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %19 = and i64 %18, 4294967295
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !26
 
 .lr.ph16:                                         ; preds = %.preheader, %_ZN4llvm13FPPassManager7cleanupEv.exit
@@ -1929,14 +1929,14 @@ _ZN4llvm16AnalysisResolver18clearAnalysisImplsEv.exit.i: ; preds = %38, %.lr.ph.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #27
   %40 = and i64 %39, 4294967295
-  %41 = icmp ult i64 %indvars.iv.next.i, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
   br i1 %41, label %.lr.ph.i, label %_ZN4llvm13FPPassManager7cleanupEv.exit, !llvm.loop !27
 
 _ZN4llvm13FPPassManager7cleanupEv.exit:           ; preds = %_ZN4llvm16AnalysisResolver18clearAnalysisImplsEv.exit.i, %.lr.ph16
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %43 = and i64 %42, 4294967295
-  %44 = icmp ult i64 %indvars.iv.next19, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next19, %43
   br i1 %44, label %.lr.ph16, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13FPPassManager7cleanupEv.exit, %.preheader
@@ -2318,7 +2318,7 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %_ZN4llvm13PMDataMan
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #27
   %115 = and i64 %114, 4294967295
-  %116 = icmp ult i64 %indvars.iv.next, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next, %115
   br i1 %116, label %52, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZN4llvm14TimeTraceScopeD2Ev.exit, %_ZN4llvm14TimeTraceScopeC2ENS_9StringRefES1_.exit
@@ -2410,7 +2410,7 @@ _ZN4llvm16AnalysisResolver18clearAnalysisImplsEv.exit: ; preds = %.lr.ph, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   %15 = and i64 %14, 4294967295
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN4llvm16AnalysisResolver18clearAnalysisImplsEv.exit, %1
@@ -2675,7 +2675,7 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefES1_.exit.i: ; preds = %120, %111
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #27
   %145 = and i64 %144, 4294967295
-  %146 = icmp ult i64 %indvars.iv.next.i, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next.i, %145
   br i1 %146, label %.lr.ph112.i, label %._crit_edge.i32, !llvm.loop !43
 
 ._crit_edge.i32:                                  ; preds = %.lr.ph112.i, %.preheader.i
@@ -3728,7 +3728,7 @@ _ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE.exit.i: ; preds = %3
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
   %611 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #27
   %612 = and i64 %611, 4294967295
-  %613 = icmp ult i64 %indvars.iv.next147.i, %612
+  %613 = icmp samesign ult i64 %indvars.iv.next147.i, %612
   br i1 %613, label %164, label %._crit_edge120.i, !llvm.loop !52
 
 ._crit_edge120.i:                                 ; preds = %_ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE.exit.i, %156
@@ -3809,14 +3809,14 @@ _ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE.exit.i: ; preds = %3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %652 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %643) #27
   %653 = and i64 %652, 4294967295
-  %654 = icmp ult i64 %indvars.iv.next.i.i, %653
+  %654 = icmp samesign ult i64 %indvars.iv.next.i.i, %653
   br i1 %654, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !24
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph11.i.i
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %655 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %634) #27
   %656 = and i64 %655, 4294967295
-  %657 = icmp ult i64 %indvars.iv.next16.i.i, %656
+  %657 = icmp samesign ult i64 %indvars.iv.next16.i.i, %656
   br i1 %657, label %.lr.ph11.i.i, label %._crit_edge12.i.i, !llvm.loop !25
 
 ._crit_edge12.i.i:                                ; preds = %._crit_edge.i.i, %.preheader.i.i
@@ -3890,7 +3890,7 @@ _ZN12_GLOBAL__N_113MPPassManager11runOnModuleERN4llvm6ModuleE.exit: ; preds = %_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %681 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #27
   %682 = and i64 %681, 4294967295
-  %683 = icmp ult i64 %indvars.iv.next, %682
+  %683 = icmp samesign ult i64 %indvars.iv.next, %682
   br i1 %683, label %111, label %._crit_edge166, !llvm.loop !54
 
 ._crit_edge166:                                   ; preds = %_ZN12_GLOBAL__N_113MPPassManager11runOnModuleERN4llvm6ModuleE.exit, %._crit_edge
@@ -11862,7 +11862,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #27
   %32 = and i64 %31, 4294967295
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %24, label %._crit_edge, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -11921,7 +11921,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13FPPassManager16doInitializationER
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   %15 = and i64 %14, 4294967295
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -12814,7 +12814,7 @@ define linkonce_odr hidden void @_ZN4llvm6legacy23FunctionPassManagerImpl17dumpP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   %16 = and i64 %15, 4294967295
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -14005,7 +14005,7 @@ _ZN4llvm9MapVectorIPNS_4PassEPNS_6legacy23FunctionPassManagerImplENS_8DenseMapIS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
   %81 = and i64 %80, 4294967295
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %28, label %._crit_edge, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %79, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -14147,14 +14147,14 @@ define internal void @_ZN12_GLOBAL__N_113MPPassManager15getOnTheFlyPassEPN4llvm4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #27
   %32 = and i64 %31, 4294967295
-  %33 = icmp ult i64 %indvars.iv.next.i, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next.i, %32
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph11.i
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
   %35 = and i64 %34, 4294967295
-  %36 = icmp ult i64 %indvars.iv.next16.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next16.i, %35
   br i1 %36, label %.lr.ph11.i, label %._crit_edge12.i, !llvm.loop !25
 
 ._crit_edge12.i:                                  ; preds = %._crit_edge.i, %.preheader.i

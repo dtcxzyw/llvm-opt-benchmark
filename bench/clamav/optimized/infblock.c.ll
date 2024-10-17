@@ -264,15 +264,15 @@ inflate_flush.exit:                               ; preds = %75
 
 118:                                              ; preds = %117, %124
   %indvars.iv1595 = phi i64 [ 0, %117 ], [ %indvars.iv.next1596, %124 ]
-  %119 = icmp ugt i64 %indvars.iv1595, 143
+  %119 = icmp samesign ugt i64 %indvars.iv1595, 143
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %118
-  %121 = icmp ult i64 %indvars.iv1595, 256
+  %121 = icmp samesign ult i64 %indvars.iv1595, 256
   br i1 %121, label %124, label %122
 
 122:                                              ; preds = %120
-  %123 = icmp ult i64 %indvars.iv1595, 280
+  %123 = icmp samesign ult i64 %indvars.iv1595, 280
   %spec.select = select i1 %123, i32 7, i32 8
   br label %124
 
@@ -395,7 +395,7 @@ inflate_flush.exit797:                            ; preds = %149
   %173 = shl nuw nsw i64 %172, %indvars.iv1592
   %174 = or i64 %173, %.sroa.54.101260
   %indvars.iv.next1593 = add nuw nsw i64 %indvars.iv1592, 8
-  %175 = icmp ult i64 %indvars.iv1592, 8
+  %175 = icmp samesign ult i64 %indvars.iv1592, 8
   br i1 %175, label %.lr.ph1261, label %._crit_edge1262
 
 ._crit_edge1262:                                  ; preds = %168, %.preheader875
@@ -605,7 +605,7 @@ inflate_flush.exit802:                            ; preds = %243
   %267 = shl nuw nsw i64 %266, %indvars.iv
   %268 = or i64 %267, %.sroa.54.111138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %269 = icmp ult i64 %indvars.iv, 6
+  %269 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %269, label %.lr.ph1139, label %._crit_edge1140.loopexit
 
 ._crit_edge1140.loopexit:                         ; preds = %262
@@ -1038,7 +1038,7 @@ inflate_flush.exit817:                            ; preds = %432
   %456 = shl i64 %455, %indvars.iv1587
   %457 = or i64 %456, %.sroa.54.171221
   %indvars.iv.next1588 = add nuw nsw i64 %indvars.iv1587, 8
-  %458 = icmp ult i64 %indvars.iv.next1588, %422
+  %458 = icmp samesign ult i64 %indvars.iv.next1588, %422
   br i1 %458, label %.lr.ph1223, label %._crit_edge1224.loopexit
 
 ._crit_edge1224.loopexit:                         ; preds = %451

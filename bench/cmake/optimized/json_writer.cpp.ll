@@ -1103,7 +1103,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   %121 = and i8 %120, 63
   %122 = zext nneg i8 %121 to i32
   %123 = or disjoint i32 %118, %122
-  %124 = icmp ult i32 %118, 128
+  %124 = icmp samesign ult i32 %118, 128
   br i1 %124, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 125:                                              ; preds = %110
@@ -1126,9 +1126,9 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   %138 = shl nuw nsw i32 %137, 6
   %139 = or disjoint i32 %138, %133
   %140 = getelementptr inbounds i8, ptr %storemerge101, i64 2
-  %141 = icmp ugt i32 %139, 55295
-  %142 = icmp ult i32 %133, 57344
-  %or.cond.i = and i1 %142, %141
+  %141 = icmp samesign ugt i32 %139, 55295
+  %142 = icmp samesign ult i32 %133, 57344
+  %or.cond.i = select i1 %141, i1 %142, i1 false
   br i1 %or.cond.i, label %.thread64, label %143
 
 143:                                              ; preds = %131
@@ -1136,7 +1136,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   %145 = and i8 %144, 63
   %146 = zext nneg i8 %145 to i32
   %147 = or disjoint i32 %139, %146
-  %148 = icmp ult i32 %139, 2048
+  %148 = icmp samesign ult i32 %139, 2048
   br i1 %148, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 149:                                              ; preds = %125
@@ -1167,13 +1167,13 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   %171 = zext nneg i8 %170 to i32
   %172 = or disjoint i32 %167, %171
   %173 = or disjoint i32 %172, %162
-  %174 = icmp ult i32 %162, 65536
+  %174 = icmp samesign ult i32 %162, 65536
   br i1 %174, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %107
   %.1 = phi ptr [ %storemerge101, %107 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
   %.0.i = phi i32 [ %108, %107 ], [ %123, %116 ], [ %147, %143 ], [ %173, %154 ]
-  %175 = icmp ult i32 %.0.i, 32
+  %175 = icmp samesign ult i32 %.0.i, 32
   br i1 %175, label %.invoke145, label %177
 
 .invoke145:                                       ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit, %189
@@ -1182,7 +1182,7 @@ _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %1
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
 177:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
-  %178 = icmp ult i32 %.0.i, 128
+  %178 = icmp samesign ult i32 %.0.i, 128
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -1191,7 +1191,7 @@ _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %1
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
 182:                                              ; preds = %177
-  %183 = icmp ult i32 %.0.i, 65536
+  %183 = icmp samesign ult i32 %.0.i, 65536
   br i1 %183, label %.thread64, label %184
 
 .thread64:                                        ; preds = %154, %143, %116, %149, %131, %127, %112, %182

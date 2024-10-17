@@ -736,7 +736,7 @@ for.body.i.i:                                     ; preds = %if.end160.i.i, %for
   %43 = load i16, ptr %arrayidx9.i245.i, align 2
   %add.i.i = add nuw nsw i32 %conv83.i.i, %conv85.i.i
   %add100.i.i = add nuw nsw i32 %add.i.i, %conv88.i.i
-  %cmp101.i.i = icmp ugt i32 %add100.i.i, 30
+  %cmp101.i.i = icmp samesign ugt i32 %add100.i.i, 30
   br i1 %cmp101.i.i, label %if.then103.i.i, label %if.end104.i.i
 
 if.then103.i.i:                                   ; preds = %for.body.i.i
@@ -780,7 +780,7 @@ if.end104.i.i:                                    ; preds = %if.then103.i.i, %fo
   %shl.i273.i = shl i64 %and.i.i270.i, %sh_prom.i272.i
   %or.i274.i = or i64 %or.i265.i, %shl.i273.i
   %add.i275.i = add nuw nsw i32 %add.i266.i, %conv88.i.i
-  %cmp123.i.i = icmp ugt i32 %add100.i.i, 56
+  %cmp123.i.i = icmp samesign ugt i32 %add100.i.i, 56
   br i1 %cmp123.i.i, label %if.then125.i.i, label %if.end126.i.i
 
 if.then125.i.i:                                   ; preds = %if.end104.i.i
@@ -1272,7 +1272,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %43 = load i16, ptr %arrayidx9.i245, align 2
   %add.i = add nuw nsw i32 %conv83.i, %conv85.i
   %add100.i = add nuw nsw i32 %add.i, %conv88.i
-  %cmp101.i = icmp ugt i32 %add100.i, 30
+  %cmp101.i = icmp samesign ugt i32 %add100.i, 30
   br i1 %cmp101.i, label %if.then103.i, label %if.end104.i
 
 if.then103.i:                                     ; preds = %for.body.i
@@ -1316,7 +1316,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %for.
   %shl.i273 = shl i64 %and.i.i270, %sh_prom.i272
   %or.i274 = or i64 %or.i265, %shl.i273
   %add.i275 = add nuw nsw i32 %add.i266, %conv88.i
-  %cmp123.i = icmp ugt i32 %add100.i, 56
+  %cmp123.i = icmp samesign ugt i32 %add100.i, 56
   br i1 %cmp123.i, label %if.then125.i, label %if.end126.i
 
 if.then125.i:                                     ; preds = %if.end104.i

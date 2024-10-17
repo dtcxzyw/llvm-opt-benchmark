@@ -420,7 +420,7 @@ define void @H5HF_iblock_print(ptr nocapture noundef readonly %0, i1 noundef zer
   %.0132 = phi i64 [ 0, %.lr.ph134 ], [ %78, %._crit_edge ]
   %43 = load i32, ptr %19, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %.0132, %44
+  %45 = icmp samesign ult i64 %.0132, %44
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %42
@@ -469,14 +469,14 @@ define void @H5HF_iblock_print(ptr nocapture noundef readonly %0, i1 noundef zer
   %74 = add nuw nsw i64 %.0121131, 1
   %75 = load i32, ptr %25, align 8
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %74, %76
+  %77 = icmp samesign ult i64 %74, %76
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %73, %46
   %78 = add nuw nsw i64 %.0132, 1
   %79 = load i32, ptr %26, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %78, %80
+  %81 = icmp samesign ult i64 %78, %80
   br i1 %81, label %42, label %.critedge
 
 .critedge:                                        ; preds = %42, %._crit_edge, %5
@@ -635,14 +635,14 @@ H5VM_log2_gen.exit:                               ; preds = %117, %123, %129, %1
   %180 = add nuw nsw i64 %.1122136, 1
   %181 = load i32, ptr %25, align 8
   %182 = zext i32 %181 to i64
-  %183 = icmp ult i64 %180, %182
+  %183 = icmp samesign ult i64 %180, %182
   br i1 %183, label %.lr.ph137, label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %.lr.ph137, %H5VM_log2_gen.exit
   %184 = add nuw nsw i64 %.1139, 1
   %185 = load i32, ptr %19, align 8
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %184, %186
+  %187 = icmp samesign ult i64 %184, %186
   br i1 %187, label %109, label %.loopexit
 
 188:                                              ; preds = %.critedge

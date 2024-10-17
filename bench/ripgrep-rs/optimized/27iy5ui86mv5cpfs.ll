@@ -463,7 +463,7 @@ _ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.thread.i.i: ; preds = %58
   %storemerge.i.i.i.i = phi i32 [ %73, %69 ], [ %79, %74 ]
   %81 = zext i8 %67 to i64
   %82 = add nuw nsw i64 %.025.i.i.i, %81
-  %83 = icmp ult i64 %82, 108
+  %83 = icmp samesign ult i64 %82, 108
   br i1 %83, label %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i, label %84, !prof !57
 
 84:                                               ; preds = %80

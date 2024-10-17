@@ -2127,7 +2127,7 @@ for.body48:                                       ; preds = %for.end39, %for.bod
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %T.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 2
-  %cmp46 = icmp ult i64 %indvars.iv71, 62
+  %cmp46 = icmp samesign ult i64 %indvars.iv71, 62
   br i1 %cmp46, label %for.body48, label %for.end53, !llvm.loop !33
 
 for.end53:                                        ; preds = %for.body48
@@ -2172,7 +2172,7 @@ for.body57:                                       ; preds = %for.end53, %for.bod
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %T.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 2
-  %cmp55 = icmp ult i64 %indvars.iv75, 62
+  %cmp55 = icmp samesign ult i64 %indvars.iv75, 62
   br i1 %cmp55, label %for.body57, label %for.end63, !llvm.loop !34
 
 for.end63:                                        ; preds = %for.body57
@@ -3147,7 +3147,7 @@ for.body:                                         ; preds = %x25519_ge_p3_to_cac
   call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef nonnull %arrayidx3)
   %arrayidx5 = getelementptr inbounds [16 x %struct.ge_cached], ptr %Ai, i64 0, i64 %indvars.iv
   call fastcc void @ge_p1p1_to_cached(ptr noundef %arrayidx5, ptr noundef %t)
-  %cmp6 = icmp ult i64 %indvars.iv, 8
+  %cmp6 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -3164,7 +3164,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %8 = or disjoint i64 %indvars.iv, 1
   %arrayidx12 = getelementptr inbounds [16 x %struct.ge_cached], ptr %Ai, i64 0, i64 %8
   call fastcc void @ge_p1p1_to_cached(ptr noundef %arrayidx12, ptr noundef %t)
-  %cmp13 = icmp ult i64 %indvars.iv, 7
+  %cmp13 = icmp samesign ult i64 %indvars.iv, 7
   br i1 %cmp13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %if.end
@@ -3178,7 +3178,7 @@ if.then14:                                        ; preds = %if.end
 
 for.inc:                                          ; preds = %if.end, %if.then14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 14
+  %cmp = icmp samesign ult i64 %indvars.iv, 14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc
@@ -3328,7 +3328,7 @@ for.end39:                                        ; preds = %cmov_cached.exit
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i44, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i38)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i45, ptr noundef nonnull readonly %Z.i38, ptr noundef nonnull readonly %T.i36)
   %add41 = add nuw nsw i32 %i.187, 4
-  %cmp21 = icmp ult i32 %i.187, 252
+  %cmp21 = icmp samesign ult i32 %i.187, 252
   br i1 %cmp21, label %for.body22, label %for.end42, !llvm.loop !37
 
 for.end42:                                        ; preds = %for.end39
@@ -5381,8 +5381,8 @@ for.body9.i.i:                                    ; preds = %for.body.i.i, %for.
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %aslide.i, i64 %indvars.iv79.i.i
   %5 = load i8, ptr %arrayidx11.i.i, align 1
   %tobool.not.i.i = icmp ne i8 %5, 0
-  %cmp1555.i.i = icmp ult i64 %indvars.iv79.i.i, 255
-  %or.cond.i.i = and i1 %cmp1555.i.i, %tobool.not.i.i
+  %cmp1555.i.i = icmp samesign ult i64 %indvars.iv79.i.i, 255
+  %or.cond.i.i = select i1 %tobool.not.i.i, i1 %cmp1555.i.i, i1 false
   br i1 %or.cond.i.i, label %for.body17.preheader.i.i, label %for.inc92.i.i
 
 for.body17.preheader.i.i:                         ; preds = %for.body9.i.i
@@ -5478,8 +5478,8 @@ for.body9.i28.i:                                  ; preds = %for.body.i17.i, %fo
   %arrayidx11.i32.i = getelementptr inbounds i8, ptr %bslide.i, i64 %indvars.iv79.i29.i
   %13 = load i8, ptr %arrayidx11.i32.i, align 1
   %tobool.not.i33.i = icmp ne i8 %13, 0
-  %cmp1555.i34.i = icmp ult i64 %indvars.iv79.i29.i, 255
-  %or.cond.i35.i = and i1 %cmp1555.i34.i, %tobool.not.i33.i
+  %cmp1555.i34.i = icmp samesign ult i64 %indvars.iv79.i29.i, 255
+  %or.cond.i35.i = select i1 %tobool.not.i33.i, i1 %cmp1555.i34.i, i1 false
   br i1 %or.cond.i35.i, label %for.body17.preheader.i41.i, label %for.inc92.i36.i
 
 for.body17.preheader.i41.i:                       ; preds = %for.body9.i28.i

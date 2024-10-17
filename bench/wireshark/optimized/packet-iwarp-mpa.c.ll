@@ -665,7 +665,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %65
   %137 = icmp ult i32 %136, %.1.i.i.i.i.i
   %138 = sub nuw i32 %.1.i.i.i.i.i, %136
   %139 = lshr i32 %138, 9
-  %140 = icmp uge i32 %139, %.0.i99.i.i
+  %140 = icmp samesign uge i32 %139, %.0.i99.i.i
   %141 = select i1 %137, i1 %140, i1 false
   br i1 %141, label %142, label %dissect_mpa_fpdu.exit.i
 

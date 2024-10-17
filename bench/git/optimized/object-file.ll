@@ -1033,7 +1033,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp = icmp ugt i32 %depth, 5
+  %cmp = icmp samesign ugt i32 %depth, 5
   br i1 %cmp, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
@@ -5202,7 +5202,7 @@ if.then:                                          ; preds = %entry
   br label %if.end30
 
 if.else:                                          ; preds = %entry
-  %cmp = icmp ult i64 %size, 32769
+  %cmp = icmp samesign ult i64 %size, 32769
   br i1 %cmp, label %if.then1, label %if.else24
 
 if.then1:                                         ; preds = %if.else

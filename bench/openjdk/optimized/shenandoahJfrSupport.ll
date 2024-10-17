@@ -333,7 +333,7 @@ define linkonce_odr hidden void @_ZN33ShenandoahHeapRegionStateConstant9serializ
 .lr.ph:                                           ; preds = %8, %switch.lookup
   %indvars.iv = phi i64 [ %indvars.iv.next, %switch.lookup ], [ 0, %8 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #10
-  %11 = icmp ult i64 %indvars.iv, 10
+  %11 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %11, label %switch.lookup, label %12
 
 12:                                               ; preds = %.lr.ph
@@ -349,7 +349,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr @_ZZN33ShenandoahHeapRegionStateConstant9serializeER19JfrCheckpointWriterE11nof_entries, align 4
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %switch.lookup, %8
@@ -1673,7 +1673,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

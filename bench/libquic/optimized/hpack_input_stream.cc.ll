@@ -369,7 +369,7 @@ if.end48:                                         ; preds = %if.end33
   %add = add i32 %7, %shl43
   store i32 %add, ptr %I, align 4
   %add49 = add nuw nsw i64 %shift.032, 7
-  %cmp25 = icmp ult i64 %shift.032, 25
+  %cmp25 = icmp samesign ult i64 %shift.032, 25
   %8 = select i1 %cmp36, i1 %cmp25, i1 false
   br i1 %8, label %while.body, label %while.end.loopexit, !llvm.loop !5
 

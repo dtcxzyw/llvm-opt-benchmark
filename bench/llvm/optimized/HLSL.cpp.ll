@@ -798,7 +798,7 @@ _ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread186.i: ; preds 
 
 _ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i: ; preds = %100
   %101 = and i64 %79, 9223372032559808512
-  %102 = icmp ugt i64 %101, 21474836479
+  %102 = icmp samesign ugt i64 %101, 21474836479
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !10
   br i1 %102, label %103, label %104
@@ -2389,20 +2389,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvmleERKNS_12VersionTupleES2
   br i1 %29, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %7, %19
+  %31 = icmp samesign ult i32 %7, %19
   br i1 %31, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ult i32 %19, %7
+  %33 = icmp samesign ult i32 %19, %7
   br i1 %33, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ult i32 %11, %23
+  %35 = icmp samesign ult i32 %11, %23
   br i1 %35, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %23, %11
-  %38 = icmp uge i32 %14, %26
+  %37 = icmp samesign ult i32 %23, %11
+  %38 = icmp samesign uge i32 %14, %26
   %spec.select.i.not = select i1 %37, i1 true, i1 %38
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit
 

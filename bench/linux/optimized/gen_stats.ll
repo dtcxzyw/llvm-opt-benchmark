@@ -207,7 +207,7 @@ define dso_local void @gnet_stats_add_basic(ptr noundef %0, ptr noundef %1, ptr 
   %37 = add i64 %35, %19
   %38 = add nuw nsw i64 %24, 1
   %39 = and i64 %38, 127
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread3, label %16, !prof !12, !llvm.loop !13
 
 .thread3:                                         ; preds = %16, %27, %23
@@ -280,7 +280,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(pt
   %32 = add i64 %30, %14
   %33 = add nuw nsw i64 %19, 1
   %34 = and i64 %33, 127
-  %35 = icmp ugt i64 %34, 63
+  %35 = icmp samesign ugt i64 %34, 63
   br i1 %35, label %.thread, label %11, !prof !12, !llvm.loop !17
 
 36:                                               ; preds = %4
@@ -532,7 +532,7 @@ define dso_local void @gnet_stats_add_queue(ptr nocapture noundef %0, ptr nounde
   store i32 %45, ptr %10, align 4
   %46 = add nuw nsw i64 %18, 1
   %47 = and i64 %46, 127
-  %48 = icmp ugt i64 %47, 63
+  %48 = icmp samesign ugt i64 %47, 63
   br i1 %48, label %.thread, label %11, !prof !12, !llvm.loop !19
 
 49:                                               ; preds = %3
@@ -629,7 +629,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_queue(ptr nocaptu
   store i32 %45, ptr %13, align 4
   %46 = add nuw nsw i64 %25, 1
   %47 = and i64 %46, 127
-  %48 = icmp ugt i64 %47, 63
+  %48 = icmp samesign ugt i64 %47, 63
   br i1 %48, label %.thread, label %15, !prof !12, !llvm.loop !19
 
 49:                                               ; preds = %4

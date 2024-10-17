@@ -281,7 +281,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %refcount_table_size, align 8
   %18 = zext i32 %17 to i64
-  %cmp38 = icmp ult i64 %indvars.iv.next, %18
+  %cmp38 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp38, label %for.body, label %while.cond.i.preheader, !llvm.loop !5
 
 while.cond.i.preheader:                           ; preds = %for.body, %for.cond.preheader
@@ -2725,7 +2725,7 @@ for.end124:                                       ; preds = %for.inc122, %for.co
   %44 = load ptr, ptr %l2_table_cache, align 8
   call void @qcow2_cache_put(ptr noundef %44, ptr noundef nonnull %l2_slice) #17
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %cmp45 = icmp ult i64 %indvars.iv.next233, %13
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next233, %13
   br i1 %cmp45, label %for.body47, label %for.end128, !llvm.loop !22
 
 for.end128:                                       ; preds = %for.end124, %for.cond44.preheader
@@ -3412,7 +3412,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %inc53 = add nuw nsw i64 %i.085, 1
   %23 = load i32, ptr %nb_snapshots21, align 4
   %conv22 = zext i32 %23 to i64
-  %cmp23 = icmp ult i64 %inc53, %conv22
+  %cmp23 = icmp samesign ult i64 %inc53, %conv22
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %if.end20
@@ -4124,7 +4124,7 @@ if.else77:                                        ; preds = %if.then74
   %refcount_table_size.i = getelementptr inbounds i8, ptr %31, i64 136
   %38 = load i32, ptr %refcount_table_size.i, align 8
   %conv.i = zext i32 %38 to i64
-  %cmp.not.i = icmp ult i64 %shr.i, %conv.i
+  %cmp.not.i = icmp samesign ult i64 %shr.i, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %if.end86.thr_comm
 
 if.end.i:                                         ; preds = %if.else77
@@ -5362,7 +5362,7 @@ for.inc84:                                        ; preds = %for.inc80, %for.con
   %inc85 = add nuw nsw i64 %reftable_index.0147, 1
   %30 = load i32, ptr %refcount_table_size, align 8
   %conv = zext i32 %30 to i64
-  %cmp = icmp ult i64 %inc85, %conv
+  %cmp = icmp samesign ult i64 %inc85, %conv
   br i1 %cmp, label %for.body, label %for.end86, !llvm.loop !48
 
 for.end86:                                        ; preds = %for.inc84
@@ -6804,7 +6804,7 @@ for.inc:                                          ; preds = %if.end72, %if.then8
   %inc94 = add nuw nsw i64 %i.070, 1
   %31 = load i32, ptr %refcount_table_size, align 8
   %conv = zext i32 %31 to i64
-  %cmp = icmp ult i64 %inc94, %conv
+  %cmp = icmp samesign ult i64 %inc94, %conv
   br i1 %cmp, label %for.body, label %return, !llvm.loop !58
 
 return:                                           ; preds = %if.end58, %if.then75, %for.inc, %entry, %if.then52

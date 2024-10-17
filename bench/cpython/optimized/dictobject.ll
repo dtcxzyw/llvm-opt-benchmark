@@ -2783,11 +2783,11 @@ if.end4:                                          ; preds = %if.end
   %div.i5.lhs.trunc = trunc i64 %shl1.i to i32
   %div.i544 = udiv i32 %div.i5.lhs.trunc, 3
   %div.i5.zext = zext nneg i32 %div.i544 to i64
-  %cmp.i = icmp ult i64 %or.i.i, 129
+  %cmp.i = icmp samesign ult i64 %or.i.i, 129
   br i1 %cmp.i, label %if.else32.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4
-  %cmp6.i = icmp ult i64 %or.i.i, 32769
+  %cmp6.i = icmp samesign ult i64 %or.i.i, 32769
   br i1 %cmp6.i, label %if.then8.i, label %if.else17.i
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -11203,7 +11203,7 @@ return:                                           ; preds = %if.then5, %if.then3
 define internal ptr @dict_vectorcall(ptr noundef %type, ptr nocapture noundef readonly %args, i64 noundef %nargsf, ptr noundef readonly %kwnames) #0 {
 entry:
   %and.i = and i64 %nargsf, 9223372036854775807
-  %cmp1 = icmp ult i64 %and.i, 2
+  %cmp1 = icmp samesign ult i64 %and.i, 2
   br i1 %cmp1, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

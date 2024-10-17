@@ -2026,7 +2026,7 @@ define dso_local void @softirq_init() local_unnamed_addr #11 section ".init.text
   store ptr %20, ptr %21, align 8
   %22 = add nuw nsw i64 %8, 1
   %23 = and i64 %22, 127
-  %24 = icmp ugt i64 %23, 63
+  %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread, label %2, !prof !63, !llvm.loop !97
 
 .thread:                                          ; preds = %2, %11, %7

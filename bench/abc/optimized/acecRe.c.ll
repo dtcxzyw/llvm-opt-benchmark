@@ -63,7 +63,7 @@ define void @Ree_TruthPrecompute() local_unnamed_addr #0 {
   %16 = lshr i64 %14, %15
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 15
-  %19 = icmp ult i32 %18, 10
+  %19 = icmp samesign ult i32 %18, 10
   %20 = or disjoint i32 %18, 48
   %21 = add nuw nsw i32 %18, 55
   %.0.i.i = select i1 %19, i32 %20, i32 %21
@@ -120,7 +120,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %22
   %46 = lshr i64 %44, %45
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 15
-  %49 = icmp ult i32 %48, 10
+  %49 = icmp samesign ult i32 %48, 10
   %50 = or disjoint i32 %48, 48
   %51 = add nuw nsw i32 %48, 55
   %.0.i.i12 = select i1 %49, i32 %50, i32 %51
@@ -208,7 +208,7 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .preheader:                                       ; preds = %.lr.ph
   %8 = trunc nuw i64 %indvars.iv.next to i32
-  %9 = icmp ult i64 %indvars.iv, 4
+  %9 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %9, label %.lr.ph11.preheader, label %._crit_edge
 
 .lr.ph11.preheader:                               ; preds = %4, %.preheader
@@ -249,7 +249,7 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %22 = lshr i64 %20, %21
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 15
-  %25 = icmp ult i32 %24, 10
+  %25 = icmp samesign ult i32 %24, 10
   %26 = or disjoint i32 %24, 48
   %27 = add nuw nsw i32 %24, 55
   %.0.i.i = select i1 %25, i32 %26, i32 %27
@@ -776,7 +776,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Ree_ManCutTruthOne.
   %223 = lshr i64 %.val.i, 32
   %224 = trunc nuw i64 %223 to i32
   %225 = and i32 %224, 536870911
-  %226 = icmp uge i32 %222, %225
+  %226 = icmp samesign uge i32 %222, %225
   %227 = xor i32 %213, %217
   %228 = and i32 %213, %217
   %cond.fr.i = freeze i1 %226
@@ -786,7 +786,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Ree_ManCutTruthOne.
 Ree_ManCutTruth.exit:                             ; preds = %Gia_ObjIsXor.exit.thread.i, %Gia_ObjIsXor.exit.i
   %229 = phi i32 [ %221, %Gia_ObjIsXor.exit.thread.i ], [ %spec.select.i, %Gia_ObjIsXor.exit.i ]
   %230 = and i32 %229, 255
-  %.not122 = icmp ult i32 %230, 128
+  %.not122 = icmp samesign ult i32 %230, 128
   %231 = xor i32 %230, 255
   %spec.select = select i1 %.not122, i32 %230, i32 %231
   %232 = icmp eq i32 %spec.select, 102

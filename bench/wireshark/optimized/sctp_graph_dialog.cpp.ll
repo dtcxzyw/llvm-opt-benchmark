@@ -2990,7 +2990,7 @@ define void @_ZN15SCTPGraphDialog15drawNRSACKGraphEPK16_sctp_assoc_info(ptr noun
   br i1 %.not87471, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
-  %.not88 = icmp ult i32 %indvars.iv, %65
+  %.not88 = icmp samesign ult i32 %indvars.iv, %65
   %72 = add nuw nsw i32 %71, 1
   br i1 %.not88, label %.lr.ph.split.us, label %.lr.ph.split
 

@@ -263,7 +263,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   %77 = phi i32 [ 0, %.loopexit5 ], [ %31, %.preheader ]
   %78 = phi i32 [ %28, %.loopexit5 ], [ %11, %.preheader ]
   %79 = icmp sgt i32 %70, -1
-  %80 = icmp ugt i32 %4, %70
+  %80 = icmp samesign ugt i32 %4, %70
   tail call void @llvm.assume(i1 %79)
   tail call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %75, %4
@@ -413,7 +413,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   %77 = phi i32 [ 0, %.loopexit1 ], [ %31, %.preheader ]
   %78 = phi i32 [ %28, %.loopexit1 ], [ %11, %.preheader ]
   %79 = icmp sgt i32 %70, -1
-  %80 = icmp ugt i32 %4, %70
+  %80 = icmp samesign ugt i32 %4, %70
   tail call void @llvm.assume(i1 %79)
   tail call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %75, %4
@@ -797,7 +797,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %189 = mul nuw nsw i64 %188, %187
   %190 = zext nneg i32 %97 to i64
   %191 = mul nuw nsw i64 %88, %190
-  %192 = icmp ult i64 %189, %191
+  %192 = icmp samesign ult i64 %189, %191
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %186, %148, %133, %112, %108, %101, %92, %76
@@ -1158,7 +1158,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %22, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp uge i32 %22, %17
+  %28 = icmp samesign uge i32 %22, %17
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i32 %17, 0
   %30 = icmp ne i32 %19, 0
@@ -1280,9 +1280,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   store i48 %107, ptr %7, align 8
   tail call void @llvm.assume(i1 %30)
-  %108 = icmp ule i32 %17, %23
+  %108 = icmp samesign ule i32 %17, %23
   tail call void @llvm.assume(i1 %108)
-  %109 = icmp ugt i32 %17, 5
+  %109 = icmp samesign ugt i32 %17, 5
   tail call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   %110 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1292,7 +1292,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   store i64 0, ptr %8, align 8
   %114 = icmp sgt i32 %113, -1
   tail call void @llvm.assume(i1 %114)
-  %115 = icmp ult i32 %113, 8
+  %115 = icmp samesign ult i32 %113, 8
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %106
@@ -1397,7 +1397,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %192 = phi i32 [ 0, %.loopexit43 ], [ %146, %.preheader41 ]
   %193 = phi i32 [ %143, %.loopexit43 ], [ %126, %.preheader41 ]
   %194 = icmp sgt i32 %185, -1
-  %195 = icmp ugt i32 %119, %185
+  %195 = icmp samesign ugt i32 %119, %185
   tail call void @llvm.assume(i1 %194)
   tail call void @llvm.assume(i1 %195)
   %196 = icmp eq i32 %190, %119
@@ -1684,11 +1684,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %349)
   %376 = icmp sgt i32 %364, -1
   call void @llvm.assume(i1 %376)
-  %377 = icmp uge i32 %17, %364
+  %377 = icmp samesign uge i32 %17, %364
   call void @llvm.assume(i1 %377)
   %378 = mul nuw nsw i32 %364, 6
   %379 = add nuw nsw i32 %378, 6
-  %380 = icmp ule i32 %379, %17
+  %380 = icmp samesign ule i32 %379, %17
   call void @llvm.assume(i1 %380)
   %381 = zext nneg i32 %378 to i64
   %382 = getelementptr inbounds i16, ptr %351, i64 %381
@@ -1733,7 +1733,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %409 = phi i32 [ %399, %397 ], [ %555, %677 ]
   %410 = phi i32 [ %400, %397 ], [ %679, %677 ]
   %411 = phi i64 [ %401, %397 ], [ %678, %677 ]
-  %412 = icmp ult i64 %408, 4
+  %412 = icmp samesign ult i64 %408, 4
   %413 = shl i64 %408, 32
   %414 = add nsw i64 %413, -12884901888
   %415 = ashr exact i64 %414, 32
@@ -1748,12 +1748,12 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %422)
   %423 = icmp sgt i32 %409, -1
   call void @llvm.assume(i1 %423)
-  %424 = icmp ult i32 %410, 32
+  %424 = icmp samesign ult i32 %410, 32
   br i1 %424, label %425, label %552
 
 425:                                              ; preds = %407
   %426 = add nuw nsw i32 %409, 8
-  %427 = icmp ugt i32 %426, %113
+  %427 = icmp samesign ugt i32 %426, %113
   br i1 %427, label %431, label %428
 
 428:                                              ; preds = %425
@@ -1762,7 +1762,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %443
 
 431:                                              ; preds = %425
-  %432 = icmp ugt i32 %409, %227
+  %432 = icmp samesign ugt i32 %409, %227
   br i1 %432, label %433, label %434
 
 433:                                              ; preds = %431
@@ -1937,7 +1937,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %560 = load i32, ptr %559, align 4, !tbaa !11
   %561 = ashr i32 %560, 9
   %562 = and i32 %560, 255
-  %563 = icmp ult i32 %562, 33
+  %563 = icmp samesign ult i32 %562, 33
   call void @llvm.assume(i1 %563)
   %564 = sub nuw nsw i32 %554, %562
   %565 = zext nneg i32 %562 to i64
@@ -2107,7 +2107,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %686 = and i64 %685, 2147483648
   %687 = icmp eq i64 %686, 0
   call void @llvm.assume(i1 %687)
-  %688 = icmp ult i64 %685, %230
+  %688 = icmp samesign ult i64 %685, %230
   call void @llvm.assume(i1 %688)
   call void @llvm.assume(i1 %345)
   call void @llvm.assume(i1 %346)
@@ -2151,7 +2151,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %22, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp uge i32 %22, %17
+  %28 = icmp samesign uge i32 %22, %17
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i32 %17, 0
   %30 = icmp ne i32 %19, 0
@@ -2273,9 +2273,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   store i48 %107, ptr %7, align 8
   tail call void @llvm.assume(i1 %30)
-  %108 = icmp ule i32 %17, %23
+  %108 = icmp samesign ule i32 %17, %23
   tail call void @llvm.assume(i1 %108)
-  %109 = icmp ugt i32 %17, 3
+  %109 = icmp samesign ugt i32 %17, 3
   tail call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   %110 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2285,7 +2285,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   store i64 0, ptr %8, align 8
   %114 = icmp sgt i32 %113, -1
   tail call void @llvm.assume(i1 %114)
-  %115 = icmp ult i32 %113, 8
+  %115 = icmp samesign ult i32 %113, 8
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %106
@@ -2390,7 +2390,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %192 = phi i32 [ 0, %.loopexit43 ], [ %146, %.preheader41 ]
   %193 = phi i32 [ %143, %.loopexit43 ], [ %126, %.preheader41 ]
   %194 = icmp sgt i32 %185, -1
-  %195 = icmp ugt i32 %119, %185
+  %195 = icmp samesign ugt i32 %119, %185
   tail call void @llvm.assume(i1 %194)
   tail call void @llvm.assume(i1 %195)
   %196 = icmp eq i32 %190, %119
@@ -2677,11 +2677,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %349)
   %376 = icmp sgt i32 %364, -1
   call void @llvm.assume(i1 %376)
-  %377 = icmp uge i32 %17, %364
+  %377 = icmp samesign uge i32 %17, %364
   call void @llvm.assume(i1 %377)
   %378 = shl nuw nsw i32 %364, 2
   %379 = add nuw nsw i32 %378, 4
-  %380 = icmp ule i32 %379, %17
+  %380 = icmp samesign ule i32 %379, %17
   call void @llvm.assume(i1 %380)
   %381 = zext nneg i32 %378 to i64
   %382 = getelementptr inbounds i16, ptr %351, i64 %381
@@ -2726,7 +2726,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %409 = phi i32 [ %399, %397 ], [ %555, %677 ]
   %410 = phi i32 [ %400, %397 ], [ %679, %677 ]
   %411 = phi i64 [ %401, %397 ], [ %678, %677 ]
-  %412 = icmp ult i64 %408, 2
+  %412 = icmp samesign ult i64 %408, 2
   %413 = shl i64 %408, 32
   %414 = add nsw i64 %413, -4294967296
   %415 = ashr exact i64 %414, 32
@@ -2741,12 +2741,12 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %422)
   %423 = icmp sgt i32 %409, -1
   call void @llvm.assume(i1 %423)
-  %424 = icmp ult i32 %410, 32
+  %424 = icmp samesign ult i32 %410, 32
   br i1 %424, label %425, label %552
 
 425:                                              ; preds = %407
   %426 = add nuw nsw i32 %409, 8
-  %427 = icmp ugt i32 %426, %113
+  %427 = icmp samesign ugt i32 %426, %113
   br i1 %427, label %431, label %428
 
 428:                                              ; preds = %425
@@ -2755,7 +2755,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %443
 
 431:                                              ; preds = %425
-  %432 = icmp ugt i32 %409, %227
+  %432 = icmp samesign ugt i32 %409, %227
   br i1 %432, label %433, label %434
 
 433:                                              ; preds = %431
@@ -2930,7 +2930,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %560 = load i32, ptr %559, align 4, !tbaa !11
   %561 = ashr i32 %560, 9
   %562 = and i32 %560, 255
-  %563 = icmp ult i32 %562, 33
+  %563 = icmp samesign ult i32 %562, 33
   call void @llvm.assume(i1 %563)
   %564 = sub nuw nsw i32 %554, %562
   %565 = zext nneg i32 %562 to i64
@@ -3100,7 +3100,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %686 = and i64 %685, 2147483648
   %687 = icmp eq i64 %686, 0
   call void @llvm.assume(i1 %687)
-  %688 = icmp ult i64 %685, %230
+  %688 = icmp samesign ult i64 %685, %230
   call void @llvm.assume(i1 %688)
   call void @llvm.assume(i1 %345)
   call void @llvm.assume(i1 %346)
@@ -3144,7 +3144,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %22, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp uge i32 %22, %17
+  %28 = icmp samesign uge i32 %22, %17
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i32 %17, 0
   %30 = icmp ne i32 %19, 0
@@ -3261,9 +3261,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %106 = trunc nuw i32 %105 to i16
   store i16 %106, ptr %7, align 2
   tail call void @llvm.assume(i1 %30)
-  %107 = icmp ule i32 %17, %23
+  %107 = icmp samesign ule i32 %17, %23
   tail call void @llvm.assume(i1 %107)
-  %108 = icmp ugt i32 %17, 1
+  %108 = icmp samesign ugt i32 %17, 1
   tail call void @llvm.assume(i1 %108)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   %109 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3273,7 +3273,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   store i64 0, ptr %8, align 8
   %113 = icmp sgt i32 %112, -1
   tail call void @llvm.assume(i1 %113)
-  %114 = icmp ult i32 %112, 8
+  %114 = icmp samesign ult i32 %112, 8
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %102
@@ -3378,7 +3378,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %191 = phi i32 [ 0, %.loopexit42 ], [ %145, %.preheader40 ]
   %192 = phi i32 [ %142, %.loopexit42 ], [ %125, %.preheader40 ]
   %193 = icmp sgt i32 %184, -1
-  %194 = icmp ugt i32 %118, %184
+  %194 = icmp samesign ugt i32 %118, %184
   tail call void @llvm.assume(i1 %193)
   tail call void @llvm.assume(i1 %194)
   %195 = icmp eq i32 %189, %118
@@ -3665,11 +3665,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %347)
   %375 = icmp sgt i32 %362, -1
   call void @llvm.assume(i1 %375)
-  %376 = icmp uge i32 %17, %362
+  %376 = icmp samesign uge i32 %17, %362
   call void @llvm.assume(i1 %376)
   %377 = shl nuw nsw i32 %362, 1
   %378 = add nuw nsw i32 %377, 2
-  %379 = icmp ule i32 %378, %17
+  %379 = icmp samesign ule i32 %378, %17
   call void @llvm.assume(i1 %379)
   %380 = zext nneg i32 %377 to i64
   %381 = getelementptr inbounds i16, ptr %349, i64 %380
@@ -3726,7 +3726,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %417)
   %418 = icmp ult i32 %413, 65
   call void @llvm.assume(i1 %418)
-  %419 = icmp ult i32 %413, 32
+  %419 = icmp samesign ult i32 %413, 32
   br i1 %419, label %420, label %547
 
 420:                                              ; preds = %407
@@ -3915,7 +3915,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %555 = load i32, ptr %554, align 4, !tbaa !11
   %556 = ashr i32 %555, 9
   %557 = and i32 %555, 255
-  %558 = icmp ult i32 %557, 33
+  %558 = icmp samesign ult i32 %557, 33
   call void @llvm.assume(i1 %558)
   %559 = sub nuw nsw i32 %549, %557
   %560 = zext nneg i32 %557 to i64
@@ -4082,7 +4082,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   store i16 %678, ptr %409, align 2, !tbaa !170
   %679 = or disjoint i64 %411, %404
   call void @llvm.assume(i1 %398)
-  %680 = icmp ult i64 %679, %229
+  %680 = icmp samesign ult i64 %679, %229
   call void @llvm.assume(i1 %680)
   call void @llvm.assume(i1 %343)
   call void @llvm.assume(i1 %344)
@@ -4124,7 +4124,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %26)
   %27 = icmp sgt i32 %22, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp uge i32 %22, %17
+  %28 = icmp samesign uge i32 %22, %17
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i32 %17, 0
   %30 = icmp ne i32 %19, 0
@@ -4234,9 +4234,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i64 %95, ptr %7, align 8
   tail call void @llvm.assume(i1 %30)
-  %96 = icmp ule i32 %17, %23
+  %96 = icmp samesign ule i32 %17, %23
   tail call void @llvm.assume(i1 %96)
-  %97 = icmp ugt i32 %17, 3
+  %97 = icmp samesign ugt i32 %17, 3
   tail call void @llvm.assume(i1 %97)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   %98 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4246,7 +4246,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   store i64 0, ptr %8, align 8
   %102 = icmp sgt i32 %101, -1
   tail call void @llvm.assume(i1 %102)
-  %103 = icmp ult i32 %101, 8
+  %103 = icmp samesign ult i32 %101, 8
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %94
@@ -4351,7 +4351,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %180 = phi i32 [ 0, %.loopexit43 ], [ %134, %.preheader41 ]
   %181 = phi i32 [ %131, %.loopexit43 ], [ %114, %.preheader41 ]
   %182 = icmp sgt i32 %173, -1
-  %183 = icmp ugt i32 %107, %173
+  %183 = icmp samesign ugt i32 %107, %173
   tail call void @llvm.assume(i1 %182)
   tail call void @llvm.assume(i1 %183)
   %184 = icmp eq i32 %178, %107
@@ -4634,11 +4634,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %336)
   %361 = icmp sgt i32 %351, -1
   call void @llvm.assume(i1 %361)
-  %362 = icmp uge i32 %17, %351
+  %362 = icmp samesign uge i32 %17, %351
   call void @llvm.assume(i1 %362)
   %363 = shl nuw nsw i32 %351, 2
   %364 = add nuw nsw i32 %363, 4
-  %365 = icmp ule i32 %364, %17
+  %365 = icmp samesign ule i32 %364, %17
   call void @llvm.assume(i1 %365)
   %366 = zext nneg i32 %363 to i64
   %367 = getelementptr inbounds i16, ptr %338, i64 %366
@@ -4691,7 +4691,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %401)
   %402 = icmp ult i32 %395, 65
   call void @llvm.assume(i1 %402)
-  %403 = icmp ult i32 %395, 32
+  %403 = icmp samesign ult i32 %395, 32
   br i1 %403, label %404, label %531
 
 404:                                              ; preds = %392
@@ -4880,7 +4880,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %539 = load i32, ptr %538, align 4, !tbaa !11
   %540 = ashr i32 %539, 9
   %541 = and i32 %539, 255
-  %542 = icmp ult i32 %541, 33
+  %542 = icmp samesign ult i32 %541, 33
   call void @llvm.assume(i1 %542)
   %543 = sub nuw nsw i32 %533, %541
   %544 = zext nneg i32 %541 to i64
@@ -5050,7 +5050,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %665 = and i64 %664, 2147483648
   %666 = icmp eq i64 %665, 0
   call void @llvm.assume(i1 %666)
-  %667 = icmp ult i64 %664, %218
+  %667 = icmp samesign ult i64 %664, %218
   call void @llvm.assume(i1 %667)
   call void @llvm.assume(i1 %332)
   call void @llvm.assume(i1 %333)

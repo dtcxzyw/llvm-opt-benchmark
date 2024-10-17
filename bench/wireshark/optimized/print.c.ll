@@ -1391,7 +1391,7 @@ define internal fastcc void @write_specified_fields(i32 noundef range(i32 0, 4) 
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %22, %32
+  %33 = icmp samesign ult i64 %22, %32
   br i1 %33, label %.lr.ph, label %.loopexit6, !llvm.loop !7
 
 .loopexit6:                                       ; preds = %28, %12, %5
@@ -1552,7 +1552,7 @@ format_field_values.exit:                         ; preds = %66, %90, %.critedge
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %57, %107
+  %108 = icmp samesign ult i64 %57, %107
   br i1 %108, label %52, label %._crit_edge14, !llvm.loop !9
 
 ._crit_edge14:                                    ; preds = %103, %44
@@ -1638,7 +1638,7 @@ format_field_values.exit:                         ; preds = %66, %90, %.critedge
   %147 = add nuw nsw i64 %.014834, 1
   %148 = load i32, ptr %135, align 8
   %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %147, %149
+  %150 = icmp samesign ult i64 %147, %149
   br i1 %150, label %.lr.ph36, label %._crit_edge37, !llvm.loop !10
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %137
@@ -1686,7 +1686,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load i32, ptr %172, align 8
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %170, %174
+  %175 = icmp samesign ult i64 %170, %174
   br i1 %175, label %125, label %.loopexit, !llvm.loop !11
 
 .lr.ph33:                                         ; preds = %.preheader2, %197
@@ -1719,7 +1719,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %190 = add nuw nsw i64 %.014929, 1
   %191 = load i32, ptr %183, align 8
   %192 = zext i32 %191 to i64
-  %193 = icmp ult i64 %190, %192
+  %193 = icmp samesign ult i64 %190, %192
   br i1 %193, label %.lr.ph30, label %._crit_edge31, !llvm.loop !12
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %.preheader1
@@ -1736,7 +1736,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %200 = getelementptr inbounds i8, ptr %198, i64 8
   %201 = load i32, ptr %200, align 8
   %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %199, %202
+  %203 = icmp samesign ult i64 %199, %202
   br i1 %203, label %.lr.ph33, label %.loopexit, !llvm.loop !13
 
 204:                                              ; preds = %._crit_edge14
@@ -1776,7 +1776,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %221 = add nuw nsw i64 %.014721, 1
   %222 = load i32, ptr %216, align 8
   %223 = zext i32 %222 to i64
-  %224 = icmp ult i64 %221, %223
+  %224 = icmp samesign ult i64 %221, %223
   br i1 %224, label %.lr.ph23, label %._crit_edge24, !llvm.loop !14
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %212
@@ -1794,7 +1794,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %231 = getelementptr inbounds i8, ptr %229, i64 8
   %232 = load i32, ptr %231, align 8
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %230, %233
+  %234 = icmp samesign ult i64 %230, %233
   br i1 %234, label %.lr.ph27, label %._crit_edge28, !llvm.loop !15
 
 ._crit_edge28:                                    ; preds = %228, %204
@@ -1830,7 +1830,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %248 = add nuw nsw i64 %.015, 1
   %249 = load i32, ptr %243, align 8
   %250 = zext i32 %249 to i64
-  %251 = icmp ult i64 %248, %250
+  %251 = icmp samesign ult i64 %248, %250
   br i1 %251, label %.lr.ph17, label %._crit_edge18, !llvm.loop !16
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %239
@@ -1848,7 +1848,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %258 = getelementptr inbounds i8, ptr %256, i64 8
   %259 = load i32, ptr %258, align 8
   %260 = zext i32 %259 to i64
-  %261 = icmp ult i64 %257, %260
+  %261 = icmp samesign ult i64 %257, %260
   br i1 %261, label %.lr.ph20, label %.loopexit, !llvm.loop !17
 
 default.unreachable55:                            ; preds = %._crit_edge14
@@ -3394,7 +3394,7 @@ define void @output_fields_free(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %24, %28
+  %29 = icmp samesign ult i64 %24, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
@@ -3846,7 +3846,7 @@ define void @output_fields_prime_edt(ptr noundef %0, ptr nocapture noundef %1) l
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %28, %32
+  %33 = icmp samesign ult i64 %28, %32
   br i1 %33, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %25
@@ -3977,7 +3977,7 @@ define void @write_fields_preamble(ptr nocapture noundef readonly %0, ptr nocapt
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %25, %29
+  %30 = icmp samesign ult i64 %25, %29
   br i1 %30, label %14, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %23, %.preheader

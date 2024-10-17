@@ -2223,7 +2223,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %257, %_ZNSt6vectorI
   %280 = add nuw nsw i32 %.0181, 1
   %281 = load i8, ptr %207, align 2
   %282 = zext i8 %281 to i32
-  %283 = icmp ult i32 %280, %282
+  %283 = icmp samesign ult i32 %280, %282
   br i1 %283, label %.lr.ph, label %.loopexit, !llvm.loop !113
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIhSaIhEE9push_backERKh.exit, %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %_ZN4llvm5ErrorD2Ev.exit31

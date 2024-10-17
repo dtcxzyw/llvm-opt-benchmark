@@ -1252,7 +1252,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %853 = xor i32 %.sroa.23.0606, %.sroa.61.0604
   %854 = xor i32 %.sroa.61.0604, %.sroa.96.0602
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %855 = icmp ult i64 %indvars.iv, 6
+  %855 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %855, label %9, label %.thread
 
 .thread:                                          ; preds = %9, %850

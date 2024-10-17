@@ -240,7 +240,7 @@ for.inc102:                                       ; preds = %if.then83, %if.else
   %inc103 = add nuw nsw i64 %i.132, 1
   %conv66 = zext nneg i32 %len.3 to i64
   %cmp67 = icmp ne i32 %len.3, 10
-  %cmp70 = icmp ult i64 %i.132, 99
+  %cmp70 = icmp samesign ult i64 %i.132, 99
   %15 = select i1 %cmp67, i1 %cmp70, i1 false
   br i1 %15, label %for.body73, label %for.end104, !llvm.loop !8
 
@@ -467,7 +467,7 @@ if.end33:                                         ; preds = %land.lhs.true
   br i1 %cmp34, label %if.then36, label %while.body82.preheader
 
 if.then36:                                        ; preds = %if.end33
-  %cmp.i = icmp ult i64 %or.i.i.i, 4
+  %cmp.i = icmp samesign ult i64 %or.i.i.i, 4
   %7 = and i64 %or.i.i.i, 65534
   %cmp.i.i = icmp eq i64 %7, 4
   %or.cond272 = or i1 %cmp.i, %cmp.i.i
@@ -570,7 +570,7 @@ if.end66:                                         ; preds = %lor.lhs.false.i116
   br i1 %cmp67, label %land.lhs.true69, label %while.cond56, !llvm.loop !9
 
 land.lhs.true69:                                  ; preds = %if.end66
-  %cmp.i.i133 = icmp ult i64 %or.i.i.i122, 2
+  %cmp.i.i133 = icmp samesign ult i64 %or.i.i.i122, 2
   br i1 %cmp.i.i133, label %return, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %land.lhs.true69

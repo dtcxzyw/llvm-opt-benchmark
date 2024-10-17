@@ -1608,7 +1608,7 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   store i8 %36, ptr %39, align 1
   %41 = add i8 %.0231298, 1
   %42 = zext i8 %41 to i32
-  %43 = icmp ugt i32 %31, %42
+  %43 = icmp samesign ugt i32 %31, %42
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph

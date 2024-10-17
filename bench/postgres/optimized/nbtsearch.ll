@@ -2253,7 +2253,7 @@ _bt_savepostingitem.exit:                         ; preds = %.lr.ph241, %174
   %.val165 = load i16, ptr %107, align 2
   %176 = and i16 %.val165, 4095
   %177 = zext nneg i16 %176 to i64
-  %178 = icmp ult i64 %indvars.iv.next267, %177
+  %178 = icmp samesign ult i64 %indvars.iv.next267, %177
   br i1 %178, label %.lr.ph241, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_bt_savepostingitem.exit, %_bt_setuppostingitems.exit, %_bt_saveitem.exit, %.split.us233
@@ -2372,7 +2372,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %187, %BTreeTupleIsP
   %234 = load i32, ptr %45, align 4
   %235 = icmp eq i32 %234, 0
   %236 = select i1 %235, i32 1, i32 2
-  %237 = icmp ult i32 %236, %233
+  %237 = icmp samesign ult i32 %236, %233
   br i1 %237, label %238, label %.split.us
 
 238:                                              ; preds = %232
@@ -2534,7 +2534,7 @@ _bt_savepostingitem.exit194:                      ; preds = %.lr.ph220, %322
   %.val166 = load i16, ptr %253, align 2
   %324 = and i16 %.val166, 4095
   %325 = zext nneg i16 %324 to i64
-  %326 = icmp ult i64 %indvars.iv.next, %325
+  %326 = icmp samesign ult i64 %indvars.iv.next, %325
   br i1 %326, label %.lr.ph220, label %_bt_saveitem.exit183, !llvm.loop !14
 
 _bt_saveitem.exit183:                             ; preds = %_bt_savepostingitem.exit194, %_bt_setuppostingitems.exit190, %260, %BTreeTupleIsPosting.exit180.thread, %.split.us

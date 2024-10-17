@@ -391,7 +391,7 @@ define dso_local i32 @hsu_dma_probe(ptr nocapture noundef %0) #0 align 16 {
   %43 = add nuw nsw i64 %32, 1
   %44 = load i16, ptr %19, align 8
   %45 = zext i16 %44 to i64
-  %46 = icmp ult i64 %43, %45
+  %46 = icmp samesign ult i64 %43, %45
   br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %27
@@ -1134,7 +1134,7 @@ define dso_local noundef i32 @hsu_dma_remove(ptr nocapture noundef readonly %0) 
   %13 = add nuw nsw i64 %10, 1
   %14 = load i16, ptr %4, align 8
   %15 = zext i16 %14 to i64
-  %16 = icmp ult i64 %13, %15
+  %16 = icmp samesign ult i64 %13, %15
   br i1 %16, label %9, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %9, %1

@@ -581,7 +581,7 @@ for.cond.i63:                                     ; preds = %invoke.cont84.i
 
 for.body.i54:                                     ; preds = %for.cond.i63, %for.cond.preheader.i52
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i52 ], [ %indvars.iv.next.i, %for.cond.i63 ]
-  %cmp9.i = icmp ult i64 %indvars.iv.i, 50
+  %cmp9.i = icmp samesign ult i64 %indvars.iv.i, 50
   br i1 %cmp9.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %for.body.i54
@@ -2916,7 +2916,7 @@ for.cond:                                         ; preds = %invoke.cont96
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.056 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond ]
-  %cmp24 = icmp ult i32 %i.056, 51
+  %cmp24 = icmp samesign ult i32 %i.056, 51
   br i1 %cmp24, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %for.body
@@ -3318,7 +3318,7 @@ for.cond:                                         ; preds = %invoke.cont135
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
-  %cmp39 = icmp ult i64 %indvars.iv, 50
+  %cmp39 = icmp samesign ult i64 %indvars.iv, 50
   br i1 %cmp39, label %if.then40, label %if.else
 
 if.then40:                                        ; preds = %for.body
@@ -6614,7 +6614,7 @@ for.body:                                         ; preds = %lor.lhs.false, %for
   %3 = phi ptr [ %.pr.pre.pre, %for.inc144 ], [ %call4, %lor.lhs.false ]
   %4 = phi ptr [ %12, %for.inc144 ], [ %call, %lor.lhs.false ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc144 ], [ 0, %lor.lhs.false ]
-  %cmp9 = icmp ult i64 %indvars.iv, 8
+  %cmp9 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %for.body

@@ -311,7 +311,7 @@ define void @_ZN4pkpy12LineProfiler9_step_endEiPNS_5FrameEi(ptr nocapture nounde
   %18 = load i32, ptr %15, align 8
   %19 = sub nsw i32 %1, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %4
@@ -788,7 +788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -1287,7 +1287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i12.i, %142
   %.0.lcssa.i.i = phi i32 [ %118, %142 ], [ %147, %.lr.ph.i12.i ]
-  %162 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %162 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %162, label %163, label %173
 
 163:                                              ; preds = %._crit_edge.i.i
@@ -2074,7 +2074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i

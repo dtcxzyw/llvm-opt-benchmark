@@ -4391,7 +4391,7 @@ for.inc.i93:                                      ; preds = %if.then11.i, %for.b
   %80 = phi i32 [ %76, %for.body.i90 ], [ %.pre.i101, %if.then11.i ]
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i91, 1
   %81 = zext i32 %80 to i64
-  %cmp9.i = icmp ult i64 %indvars.iv.next.i94, %81
+  %cmp9.i = icmp samesign ult i64 %indvars.iv.next.i94, %81
   br i1 %cmp9.i, label %for.body.i90, label %for.end.i95, !llvm.loop !18
 
 for.end.i95:                                      ; preds = %for.inc.i93, %if.end3.i
@@ -5991,7 +5991,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %bc
   %idxprom = zext nneg i32 %op.0188 to i64
   %arrayidx = getelementptr inbounds [15 x %struct.anon.4], ptr @priority, i64 0, i64 %idxprom
   %61 = load i8, ptr %arrayidx, align 2
-  %cmp1 = icmp ugt i8 %61, %60
+  %cmp1 = icmp samesign ugt i8 %61, %60
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -10026,7 +10026,7 @@ land.rhs.i:                                       ; preds = %for.cond.i26
   %nactvar.i27 = getelementptr inbounds i8, ptr %bl.0.i, i64 12
   %7 = load i8, ptr %nactvar.i27, align 4
   %conv.i = zext i8 %7 to i32
-  %cmp.i28 = icmp ult i32 %indvars.i, %conv.i
+  %cmp.i28 = icmp samesign ult i32 %indvars.i, %conv.i
   br i1 %cmp.i28, label %for.cond.i26, label %if.then.i, !llvm.loop !29
 
 if.then.i:                                        ; preds = %land.rhs.i

@@ -112,7 +112,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
   %79 = icmp eq i32 %2, 2
   %80 = icmp eq i32 %2, 3
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp samesign ult i32 %2, 2
   store i32 -1, ptr %25, align 8
   %81 = getelementptr inbounds i8, ptr %25, i64 20
   store i32 0, ptr %81, align 4
@@ -269,7 +269,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %12, i64 32
   store i8 0, ptr %138, align 8
-  %.not.i = icmp ugt i32 %2, 1
+  %.not.i = icmp samesign ugt i32 %2, 1
   store i32 -1, ptr %13, align 8
   %139 = getelementptr inbounds i8, ptr %13, i64 20
   store i32 0, ptr %139, align 4
@@ -580,7 +580,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %.not.i760 = icmp ugt i32 %spec.select759, 1
+  %.not.i760 = icmp samesign ugt i32 %spec.select759, 1
   br label %247
 
 .preheader.i:                                     ; preds = %256
@@ -1653,7 +1653,7 @@ define internal fastcc void @_ZL20big_case_loop_helperbiR5LabelS0_8RegisterS1_S1
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %28, i64 32
   store i8 0, ptr %41, align 8
-  %.not = icmp ult i32 %6, 2
+  %.not = icmp samesign ult i32 %6, 2
   tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 11, i32 noundef -1) #6
   tail call fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16StrIntrinsicNode11ArgEncodingEP14MacroAssembler(i1 noundef zeroext %0, i32 noundef %1, i32 12, i32 15, i32 noundef %6, ptr noundef nonnull %7)
   tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 10, i32 noundef 31) #6
@@ -2048,7 +2048,7 @@ define internal fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 0, ptr %13, align 8
-  %.not = icmp ult i32 %4, 2
+  %.not = icmp samesign ult i32 %4, 2
   %14 = select i1 %.not, i32 2, i32 4
   br i1 %0, label %15, label %.thread
 
@@ -2149,7 +2149,7 @@ define internal fastcc void @_ZL26compare_haystack_to_needlebiR5Label8RegisterS1
   %15 = alloca %class.Address, align 8
   %16 = alloca %class.Address, align 8
   %17 = alloca %class.Address, align 8
-  %.not = icmp ult i32 %5, 2
+  %.not = icmp samesign ult i32 %5, 2
   %18 = select i1 %.not, i32 1, i32 2
   br i1 %0, label %19, label %21
 
@@ -2382,7 +2382,7 @@ define internal fastcc void @_ZL19byte_compare_helperiR5LabelS0_8RegisterS1_S1_S
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %10, i64 32
   store i8 0, ptr %21, align 8
-  %.not = icmp ult i32 %7, 2
+  %.not = icmp samesign ult i32 %7, 2
   %.neg = select i1 %.not, i32 -3, i32 -6
   %22 = select i1 %.not, i32 2, i32 4
   %23 = add i32 %.neg, %0

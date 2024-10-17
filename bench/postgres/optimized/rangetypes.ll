@@ -1336,7 +1336,7 @@ range_parse_flags.exit:                           ; preds = %61, %62
   %82 = getelementptr inbounds i8, ptr %3, i64 8
   %83 = and i8 %79, 1
   store i8 %83, ptr %82, align 8
-  %84 = icmp ugt i8 %.1.i, 3
+  %84 = icmp samesign ugt i8 %.1.i, 3
   %85 = getelementptr inbounds i8, ptr %3, i64 9
   %86 = zext i1 %84 to i8
   store i8 %86, ptr %85, align 1

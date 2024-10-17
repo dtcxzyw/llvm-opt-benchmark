@@ -5764,7 +5764,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %257 = load i32, ptr %50, align 4
   %258 = sub i32 %256, %257
   %259 = zext i32 %258 to i64
-  %260 = icmp ugt i64 %252, %259
+  %260 = icmp samesign ugt i64 %252, %259
   br i1 %260, label %261, label %.thread
 
 261:                                              ; preds = %255
@@ -6228,7 +6228,7 @@ define dso_local range(i32 0, -2147483648) i32 @tcp_orphan_count_sum() local_unn
   %19 = add i32 %18, %4
   %20 = add nuw nsw i64 %9, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %2, !prof !73, !llvm.loop !74
 
 .thread:                                          ; preds = %2, %12, %8
@@ -9105,7 +9105,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
 40:                                               ; preds = %19
   %41 = load i32, ptr %6, align 4
   %42 = and i32 %41, 65535
-  %43 = icmp ult i32 %42, 15
+  %43 = icmp samesign ult i32 %42, 15
   %44 = icmp ult i32 %41, 983040
   %45 = and i1 %44, %43
   br i1 %45, label %46, label %.loopexit
@@ -9159,7 +9159,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
 
 72:                                               ; preds = %.critedge
   %73 = and i64 %65, 281470681743360
-  %74 = icmp ult i64 %73, 64424509440
+  %74 = icmp samesign ult i64 %73, 64424509440
   %75 = icmp ult i64 %65, 4222124650659840
   %76 = and i1 %75, %74
   br i1 %76, label %77, label %.loopexit
@@ -11753,7 +11753,7 @@ thread-pre-split:                                 ; preds = %148, %157
   %289 = add nuw nsw i64 %288, 4096
   %290 = load i32, ptr %262, align 8
   %291 = zext i32 %290 to i64
-  %292 = icmp ugt i64 %289, %291
+  %292 = icmp samesign ugt i64 %289, %291
   br i1 %292, label %.thread56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %280, %464
@@ -12041,7 +12041,7 @@ tcp_zerocopy_vm_insert_batch.exit:                ; preds = %447
   %468 = add nuw nsw i64 %467, 4096
   %469 = load i32, ptr %262, align 8
   %470 = zext i32 %469 to i64
-  %471 = icmp ugt i64 %468, %470
+  %471 = icmp samesign ugt i64 %468, %470
   br i1 %471, label %.thread56, label %.lr.ph
 
 .thread56:                                        ; preds = %464, %301, %351, %357, %344, %.loopexit, %.preheader60, %280, %435
@@ -13153,7 +13153,7 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %46 = add nuw nsw i64 %37, 1
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @tcp_hashinfo, i64 56), align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %36, label %50, !llvm.loop !112
 
 50:                                               ; preds = %36
@@ -13240,7 +13240,7 @@ define internal void @tcp_orphan_update(ptr nocapture readnone %0) #0 align 16 {
   %20 = add i32 %19, %5
   %21 = add nuw nsw i64 %10, 1
   %22 = and i64 %21, 127
-  %23 = icmp ugt i64 %22, 63
+  %23 = icmp samesign ugt i64 %22, 63
   br i1 %23, label %.thread, label %3, !prof !73, !llvm.loop !74
 
 .thread:                                          ; preds = %3, %13, %9

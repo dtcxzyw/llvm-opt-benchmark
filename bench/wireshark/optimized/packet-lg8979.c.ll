@@ -573,7 +573,7 @@ define internal i32 @dissect_lg8979(ptr noundef %0, ptr nocapture noundef readon
   br i1 %16, label %200, label %17
 
 17:                                               ; preds = %4
-  %18 = icmp ugt i32 %15, 5
+  %18 = icmp samesign ugt i32 %15, 5
   br i1 %18, label %19, label %classify_lg8979_packet.exit
 
 19:                                               ; preds = %17
@@ -595,7 +595,7 @@ define internal i32 @dissect_lg8979(ptr noundef %0, ptr nocapture noundef readon
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 7
-  %30 = icmp ugt i32 %15, %29
+  %30 = icmp samesign ugt i32 %15, %29
   br i1 %30, label %200, label %31
 
 31:                                               ; preds = %25

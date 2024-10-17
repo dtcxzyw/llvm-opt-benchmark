@@ -145,7 +145,7 @@ define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 80:                                               ; preds = %78
   %81 = sub nsw i64 32, %76
-  %82 = icmp ult i64 %81, 63
+  %82 = icmp samesign ult i64 %81, 63
   br i1 %82, label %83, label %softfloat_shiftRightJam64.exit
 
 83:                                               ; preds = %80
@@ -164,7 +164,7 @@ softfloat_shiftRightJam64.exit:                   ; preds = %80, %83
   br label %111
 
 93:                                               ; preds = %78
-  %94 = icmp ult i64 %76, 63
+  %94 = icmp samesign ult i64 %76, 63
   br i1 %94, label %95, label %softfloat_shiftRightJam64.exit171
 
 95:                                               ; preds = %93
@@ -206,7 +206,7 @@ softfloat_shiftRightJam64.exit171:                ; preds = %93, %95
 
 119:                                              ; preds = %116
   %120 = sub nsw i64 0, %76
-  %121 = icmp ult i64 %120, 63
+  %121 = icmp samesign ult i64 %120, 63
   br i1 %121, label %122, label %softfloat_shiftRightJam64.exit172
 
 122:                                              ; preds = %119
@@ -242,7 +242,7 @@ softfloat_shiftRightJam64.exit172:                ; preds = %119, %122
   br label %150
 
 138:                                              ; preds = %131
-  %139 = icmp ult i64 %76, 63
+  %139 = icmp samesign ult i64 %76, 63
   br i1 %139, label %140, label %softfloat_shiftRightJam64.exit173
 
 140:                                              ; preds = %138

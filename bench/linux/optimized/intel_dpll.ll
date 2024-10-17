@@ -3371,7 +3371,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %68, %.thread.i, %10
   br i1 %40, label %.split41, label %39, !llvm.loop !52
 
 .split41:                                         ; preds = %intel_pll_is_valid.exit.thread
-  %121 = icmp ugt i32 %.sroa.15.0, 10
+  %121 = icmp samesign ugt i32 %.sroa.15.0, 10
   %122 = select i1 %121, i32 -2, i32 -1
   %123 = add nsw i32 %122, %.sroa.15.0
   %124 = icmp sgt i32 %123, 1

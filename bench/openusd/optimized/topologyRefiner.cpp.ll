@@ -1752,7 +1752,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner14RefineAdaptiveENS2_15A
   store i16 %55, ptr %5, align 4
   %56 = load i32, ptr %5, align 4
   store i32 %56, ptr %6, align 4
-  %57 = icmp ult i32 %.sroa.speculated, %37
+  %57 = icmp samesign ult i32 %.sroa.speculated, %37
   %58 = trunc i32 %56 to i16
   br i1 %57, label %59, label %_ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15TopologyRefiner15AdaptiveOptionsE.exit
 
@@ -1880,9 +1880,9 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
   %.048 = phi ptr [ %105, %104 ], [ %111, %110 ]
   store ptr %.048, ptr %7, align 8
   store i8 0, ptr %93, align 8
-  %.not50 = icmp ugt i64 %indvars.iv93, %95
+  %.not50 = icmp samesign ugt i64 %indvars.iv93, %95
   %. = select i1 %.not50, ptr %6, ptr %5
-  %115 = icmp ugt i64 %indvars.iv93, 1
+  %115 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
@@ -2459,7 +2459,7 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
 8:                                                ; preds = %7
   %9 = lshr i16 %0, 7
   %10 = and i16 %9, 15
-  %.not20.i = icmp ult i16 %10, 8
+  %.not20.i = icmp samesign ult i16 %10, 8
   br i1 %.not20.i, label %14, label %11
 
 11:                                               ; preds = %8
@@ -2468,7 +2468,7 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
 14:                                               ; preds = %8
-  %.not21.i = icmp ult i16 %10, 4
+  %.not21.i = icmp samesign ult i16 %10, 4
   br i1 %.not21.i, label %20, label %15
 
 15:                                               ; preds = %14
@@ -2550,7 +2550,7 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
 50:                                               ; preds = %49
   %51 = lshr i16 %0, 7
   %52 = and i16 %51, 15
-  %.not20.i38 = icmp ult i16 %52, 8
+  %.not20.i38 = icmp samesign ult i16 %52, 8
   br i1 %.not20.i38, label %56, label %53
 
 53:                                               ; preds = %50
@@ -2559,7 +2559,7 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
 56:                                               ; preds = %50
-  %.not21.i40 = icmp ult i16 %52, 4
+  %.not21.i40 = icmp samesign ult i16 %52, 4
   br i1 %.not21.i40, label %60, label %57
 
 57:                                               ; preds = %56
@@ -2624,11 +2624,11 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
 84:                                               ; preds = %83
   %85 = lshr i16 %81, 7
   %86 = and i16 %85, 14
-  %.not20.i48.us = icmp ult i16 %86, 8
+  %.not20.i48.us = icmp samesign ult i16 %86, 8
   br i1 %.not20.i48.us, label %87, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
 
 87:                                               ; preds = %84
-  %.not21.i50.us = icmp ult i16 %86, 4
+  %.not21.i50.us = icmp samesign ult i16 %86, 4
   br i1 %.not21.i50.us, label %92, label %88
 
 88:                                               ; preds = %87
@@ -2693,11 +2693,11 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8
 107:                                              ; preds = %106
   %108 = lshr i16 %104, 7
   %109 = and i16 %108, 14
-  %.not20.i48.us29 = icmp ult i16 %109, 8
+  %.not20.i48.us29 = icmp samesign ult i16 %109, 8
   br i1 %.not20.i48.us29, label %110, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
 110:                                              ; preds = %107
-  %.not21.i50.us30 = icmp ult i16 %109, 4
+  %.not21.i50.us30 = icmp samesign ult i16 %109, 4
   br i1 %.not21.i50.us30, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %111
 
 111:                                              ; preds = %110
@@ -2753,11 +2753,11 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8
 128:                                              ; preds = %127
   %129 = lshr i16 %125, 7
   %130 = and i16 %129, 14
-  %.not20.i48 = icmp ult i16 %130, 8
+  %.not20.i48 = icmp samesign ult i16 %130, 8
   br i1 %.not20.i48, label %131, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
 131:                                              ; preds = %128
-  %.not21.i50 = icmp ult i16 %130, 4
+  %.not21.i50 = icmp samesign ult i16 %130, 4
   br i1 %.not21.i50, label %136, label %132
 
 132:                                              ; preds = %131

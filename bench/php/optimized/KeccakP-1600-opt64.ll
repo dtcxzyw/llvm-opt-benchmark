@@ -1217,7 +1217,7 @@ define hidden void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 no
   %490 = xor i64 %489, %409
   %491 = xor i64 %490, %451
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %492 = icmp ult i64 %indvars.iv, 22
+  %492 = icmp samesign ult i64 %indvars.iv, 22
   br i1 %492, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %214

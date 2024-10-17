@@ -3306,7 +3306,7 @@ for.cond23.preheader:                             ; preds = %for.cond23.preheade
   br i1 %cmp3053.not, label %for.body39.preheader, label %for.body31
 
 for.cond52.preheader:                             ; preds = %for.inc49
-  %cmp5463 = icmp ult i32 %i.060, 3
+  %cmp5463 = icmp samesign ult i32 %i.060, 3
   br i1 %cmp5463, label %for.body55.preheader, label %try.cont
 
 for.body55.preheader:                             ; preds = %for.cond.preheader, %for.cond52.preheader
@@ -3321,7 +3321,7 @@ for.body55.preheader:                             ; preds = %for.cond.preheader,
   br label %try.cont
 
 for.cond36.preheader:                             ; preds = %for.inc
-  %cmp3856 = icmp ult i32 %j.054, 3
+  %cmp3856 = icmp samesign ult i32 %j.054, 3
   br i1 %cmp3856, label %for.body39.preheader, label %for.inc49
 
 for.body39.preheader:                             ; preds = %for.cond23.preheader, %for.cond36.preheader
@@ -3348,7 +3348,7 @@ for.inc:                                          ; preds = %for.body31
   %conv24 = zext nneg i32 %inc to i64
   %36 = load i64, ptr %arrayidx26, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %36, i64 4)
-  %cmp30 = icmp ugt i64 %.sroa.speculated, %conv24
+  %cmp30 = icmp samesign ugt i64 %.sroa.speculated, %conv24
   br i1 %cmp30, label %for.body31, label %for.cond36.preheader, !llvm.loop !4
 
 for.inc49:                                        ; preds = %for.body39.preheader, %for.cond36.preheader
@@ -3356,7 +3356,7 @@ for.inc49:                                        ; preds = %for.body39.preheade
   %conv19 = zext nneg i32 %inc50 to i64
   %37 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated48 = call i64 @llvm.umin.i64(i64 %37, i64 4)
-  %cmp = icmp ugt i64 %.sroa.speculated48, %conv19
+  %cmp = icmp samesign ugt i64 %.sroa.speculated48, %conv19
   br i1 %cmp, label %for.cond23.preheader, label %for.cond52.preheader, !llvm.loop !6
 
 lpad65:                                           ; preds = %call.i.noexc29, %catch
@@ -3592,7 +3592,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2542 = icmp ult i32 %i.040, 31
+  %cmp2542 = icmp samesign ult i32 %i.040, 31
   br i1 %cmp2542, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -3616,7 +3616,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 32)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !7
 
 lpad36:                                           ; preds = %call.i.noexc21, %catch
@@ -6804,7 +6804,7 @@ lpad.i28:                                         ; preds = %if.then.i27
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2539 = icmp ult i32 %i.037, 31
+  %cmp2539 = icmp samesign ult i32 %i.037, 31
   br i1 %cmp2539, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -6828,7 +6828,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 32)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !8
 }
 
@@ -7221,7 +7221,7 @@ lpad.i28:                                         ; preds = %if.then.i27
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2539 = icmp ult i32 %i.037, 2
+  %cmp2539 = icmp samesign ult i32 %i.037, 2
   br i1 %cmp2539, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -7247,7 +7247,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %29 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !9
 }
 
@@ -8081,7 +8081,7 @@ for.cond22.preheader:                             ; preds = %for.cond22.preheade
   br i1 %cmp2850.not, label %for.inc46.loopexit.critedge.critedge, label %for.body29
 
 for.cond49.preheader:                             ; preds = %for.inc46
-  %cmp5160 = icmp ult i32 %i.057, 3
+  %cmp5160 = icmp samesign ult i32 %i.057, 3
   br i1 %cmp5160, label %for.body52.preheader, label %try.cont
 
 for.body52.preheader:                             ; preds = %for.cond.preheader, %for.cond49.preheader
@@ -8116,7 +8116,7 @@ for.inc:                                          ; preds = %for.body29
   %conv23 = zext nneg i32 %inc to i64
   %30 = load i64, ptr %arrayidx25, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %30, i64 2)
-  %cmp28 = icmp ugt i64 %.sroa.speculated, %conv23
+  %cmp28 = icmp samesign ugt i64 %.sroa.speculated, %conv23
   br i1 %cmp28, label %for.body29, label %for.cond34.preheader, !llvm.loop !11
 
 for.inc46.loopexit.critedge.critedge:             ; preds = %for.cond22.preheader
@@ -8134,7 +8134,7 @@ for.inc46:                                        ; preds = %for.body37.preheade
   %conv19 = zext nneg i32 %inc47 to i64
   %31 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated45 = call i64 @llvm.umin.i64(i64 %31, i64 4)
-  %cmp = icmp ugt i64 %.sroa.speculated45, %conv19
+  %cmp = icmp samesign ugt i64 %.sroa.speculated45, %conv19
   br i1 %cmp, label %for.cond22.preheader, label %for.cond49.preheader, !llvm.loop !12
 
 lpad62:                                           ; preds = %catch
@@ -8366,7 +8366,7 @@ lpad.i28:                                         ; preds = %if.then.i27
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2540 = icmp ult i32 %i.038, 3
+  %cmp2540 = icmp samesign ult i32 %i.038, 3
   br i1 %cmp2540, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -8392,7 +8392,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %29 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 4)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !13
 
 lpad35:                                           ; preds = %catch
@@ -10812,7 +10812,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond15.preheader:                             ; preds = %for.inc
-  %cmp1643 = icmp ult i64 %i.042, 17
+  %cmp1643 = icmp samesign ult i64 %i.042, 17
   br i1 %cmp1643, label %for.inc21.preheader, label %for.body41.preheader
 
 for.body41.preheader:                             ; preds = %for.inc21.preheader, %for.cond15.preheader
@@ -10836,7 +10836,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.042, 1
   %12 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %12, i64 18)
-  %cmp = icmp ult i64 %inc, %.sroa.speculated
+  %cmp = icmp samesign ult i64 %inc, %.sroa.speculated
   br i1 %cmp, label %for.body, label %for.cond15.preheader, !llvm.loop !15
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -15656,7 +15656,7 @@ lpad.i28:                                         ; preds = %if.then.i27
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2539 = icmp ult i32 %i.037, 2
+  %cmp2539 = icmp samesign ult i32 %i.037, 2
   br i1 %cmp2539, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -15682,7 +15682,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %29 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !31
 
 lpad35:                                           ; preds = %catch
@@ -15918,7 +15918,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2542 = icmp ult i32 %i.040, 2
+  %cmp2542 = icmp samesign ult i32 %i.040, 2
   br i1 %cmp2542, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -15944,7 +15944,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %29 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !32
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
@@ -16285,7 +16285,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %25 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %25, i64 2)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !34
 }
 
@@ -17756,7 +17756,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2542 = icmp ult i32 %i.040, 1023
+  %cmp2542 = icmp samesign ult i32 %i.040, 1023
   br i1 %cmp2542, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -17780,7 +17780,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 1024)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !35
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
@@ -18835,7 +18835,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2542 = icmp ult i32 %i.040, 239
+  %cmp2542 = icmp samesign ult i32 %i.040, 239
   br i1 %cmp2542, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -18859,7 +18859,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 240)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !36
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
@@ -19091,7 +19091,7 @@ lpad.i28:                                         ; preds = %if.then.i27
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2539 = icmp ult i32 %i.037, 239
+  %cmp2539 = icmp samesign ult i32 %i.037, 239
   br i1 %cmp2539, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -19115,7 +19115,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 240)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !37
 
 lpad35:                                           ; preds = %catch
@@ -20431,7 +20431,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2543 = icmp ult i32 %i.041, 41
+  %cmp2543 = icmp samesign ult i32 %i.041, 41
   br i1 %cmp2543, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -20457,7 +20457,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %29 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 42)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !38
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
@@ -21297,7 +21297,7 @@ lpad.i31:                                         ; preds = %if.then.i30
   br label %catch.dispatch
 
 for.cond23.preheader:                             ; preds = %for.inc
-  %cmp2542 = icmp ult i32 %i.040, 63
+  %cmp2542 = icmp samesign ult i32 %i.040, 63
   br i1 %cmp2542, label %for.body26.preheader, label %try.cont
 
 for.body26.preheader:                             ; preds = %for.cond.preheader, %for.cond23.preheader
@@ -21321,7 +21321,7 @@ for.inc:                                          ; preds = %for.body
   %conv18 = zext nneg i32 %inc to i64
   %27 = load i64, ptr %array_sizes, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 64)
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv18
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !41
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch

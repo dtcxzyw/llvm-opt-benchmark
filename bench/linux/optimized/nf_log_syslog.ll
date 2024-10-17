@@ -525,7 +525,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture nound
   %81 = add nuw nsw i32 %75, 1
   %82 = load i16, ptr %47, align 4
   %83 = zext i16 %82 to i32
-  %84 = icmp ult i32 %81, %83
+  %84 = icmp samesign ult i32 %81, %83
   br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %69, %56
@@ -716,7 +716,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 119:                                              ; preds = %116
   %120 = load i8, ptr %38, align 4
   %121 = and i8 %120, 14
-  %122 = icmp ugt i8 %121, 5
+  %122 = icmp samesign ugt i8 %121, 5
   br i1 %122, label %123, label %161
 
 123:                                              ; preds = %119
@@ -1398,7 +1398,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %117 = load i16, ptr %57, align 4
   %118 = lshr i16 %117, 2
   %119 = and i16 %118, 60
-  %120 = icmp ugt i16 %119, 20
+  %120 = icmp samesign ugt i16 %119, 20
   br i1 %120, label %121, label %156
 
 121:                                              ; preds = %116

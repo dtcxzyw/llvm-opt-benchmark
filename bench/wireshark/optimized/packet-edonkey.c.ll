@@ -1874,7 +1874,7 @@ dissect_emule_address_list.exit:                  ; preds = %.lr.ph.i.i, %25
   br label %dissect_edonkey_file_status.exit.i
 
 dissect_edonkey_file_status.exit.i:               ; preds = %223, %217
-  %229 = icmp ult i32 %.0.i, 65536
+  %229 = icmp samesign ult i32 %.0.i, 65536
   br i1 %229, label %230, label %236
 
 230:                                              ; preds = %dissect_edonkey_file_status.exit.i

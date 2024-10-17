@@ -5442,7 +5442,7 @@ define dso_local range(i64 -14, 1) i64 @__ia32_compat_sys_sysinfo(ptr nocapture 
   %18 = phi i32 [ %19, %.preheader ], [ %15, %13 ]
   %19 = shl nuw nsw i32 %18, 1
   %20 = add i32 %17, 1
-  %21 = icmp ult i32 %18, 2048
+  %21 = icmp samesign ult i32 %18, 2048
   br i1 %21, label %.preheader, label %22, !llvm.loop !54
 
 22:                                               ; preds = %.preheader

@@ -1340,7 +1340,7 @@ define internal void @pcapng_close(ptr nocapture noundef readonly %0) #0 {
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -1953,7 +1953,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br i1 %.not86, label %70, label %45
 
 45:                                               ; preds = %42
-  %46 = icmp ugt i8 %44, 63
+  %46 = icmp samesign ugt i8 %44, 63
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
@@ -1966,45 +1966,45 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 50:                                               ; preds = %45
   %51 = zext nneg i8 %44 to i64
   %52 = shl nuw i64 1, %51
-  %53 = icmp ugt i8 %44, 29
+  %53 = icmp samesign ugt i8 %44, 29
   br i1 %53, label %78, label %54
 
 54:                                               ; preds = %50
-  %55 = icmp ugt i8 %44, 26
+  %55 = icmp samesign ugt i8 %44, 26
   br i1 %55, label %78, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ugt i8 %44, 23
+  %57 = icmp samesign ugt i8 %44, 23
   br i1 %57, label %78, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ugt i8 %44, 19
+  %59 = icmp samesign ugt i8 %44, 19
   br i1 %59, label %78, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i8 %44, 16
+  %61 = icmp samesign ugt i8 %44, 16
   br i1 %61, label %78, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ugt i8 %44, 13
+  %63 = icmp samesign ugt i8 %44, 13
   br i1 %63, label %78, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ugt i8 %44, 9
+  %65 = icmp samesign ugt i8 %44, 9
   br i1 %65, label %78, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ugt i8 %44, 6
+  %67 = icmp samesign ugt i8 %44, 6
   br i1 %67, label %78, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ugt i8 %44, 3
+  %69 = icmp samesign ugt i8 %44, 3
   %. = zext i1 %69 to i32
   br label %78
 
 70:                                               ; preds = %42
   %71 = zext nneg i8 %44 to i32
-  %72 = icmp ugt i8 %44, 19
+  %72 = icmp samesign ugt i8 %44, 19
   br i1 %72, label %73, label %.preheader
 
 .preheader:                                       ; preds = %70
@@ -2027,7 +2027,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.067.lcssa = phi i64 [ 1, %.preheader ], [ %75, %.lr.ph ]
-  %77 = icmp ult i8 %44, 10
+  %77 = icmp samesign ult i8 %44, 10
   %.89 = select i1 %77, i32 %71, i32 9
   br label %78
 
@@ -4576,7 +4576,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader28, %53
@@ -4607,7 +4607,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next39, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next39, %72
   br i1 %73, label %.lr.ph32, label %.loopexit, !llvm.loop !14
 
 .lr.ph32:                                         ; preds = %.preheader, %68
@@ -4809,7 +4809,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
-  %103 = icmp ult i64 %indvars.iv.next, %102
+  %103 = icmp samesign ult i64 %indvars.iv.next, %102
   br i1 %103, label %81, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i.split.loop.exit75:                  ; preds = %95
@@ -5418,7 +5418,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i8, ptr %27, align 8
   %32 = zext i8 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %34, label %._crit_edge, !llvm.loop !16
 
 34:                                               ; preds = %.lr.ph, %30
@@ -5504,7 +5504,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %52, %write_options.
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next30, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next30, %60
   br i1 %61, label %21, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %pcapng_write_interface_statistics_block.exit, %.preheader, %pcapng_write_interface_statistics_block.exit.thread, %3
@@ -5707,7 +5707,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr nou
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit69, !llvm.loop !18
 
 .loopexit69:                                      ; preds = %19, %7, %2
@@ -5792,7 +5792,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next82, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next82, %68
   br i1 %69, label %37, label %.loopexit67, !llvm.loop !19
 
 .loopexit67:                                      ; preds = %62, %29, %.loopexit69
@@ -5894,7 +5894,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %122 = getelementptr inbounds i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %indvars.iv.next85, %124
+  %125 = icmp samesign ult i64 %indvars.iv.next85, %124
   br i1 %125, label %.lr.ph75, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %.lr.ph75, %118, %106, %pcapng_write_meta_event_block.exit.thread, %103, %85

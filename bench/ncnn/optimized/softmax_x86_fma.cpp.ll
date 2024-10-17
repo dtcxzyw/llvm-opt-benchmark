@@ -4611,7 +4611,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Softmax_x86_fma15forwar
   %2739 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %.0998213206, <8 x float> %2738)
   %indvars.iv.next14047 = add nuw nsw i64 %indvars.iv14046, 8
   %2740 = or disjoint i64 %indvars.iv.next14047, 7
-  %2741 = icmp ult i64 %2740, %2736
+  %2741 = icmp samesign ult i64 %2740, %2736
   br i1 %2741, label %.lr.ph13208, label %._crit_edge13209.loopexit, !llvm.loop !82
 
 ._crit_edge13209.loopexit:                        ; preds = %.lr.ph13208
@@ -4727,7 +4727,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Softmax_x86_fma15forwar
   %2802 = fadd fast <8 x float> %2801, %.0997413226
   %indvars.iv.next14058 = add nuw nsw i64 %indvars.iv14057, 8
   %2803 = or disjoint i64 %indvars.iv.next14058, 7
-  %2804 = icmp ult i64 %2803, %2775
+  %2804 = icmp samesign ult i64 %2803, %2775
   br i1 %2804, label %.lr.ph13228, label %._crit_edge13229.loopexit, !llvm.loop !85
 
 ._crit_edge13229.loopexit:                        ; preds = %.lr.ph13228
@@ -4846,7 +4846,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Softmax_x86_fma15forwar
   store <8 x float> %2867, ptr %2865, align 32
   %indvars.iv.next14069 = add nuw nsw i64 %indvars.iv14068, 8
   %2868 = or disjoint i64 %indvars.iv.next14069, 7
-  %2869 = icmp ult i64 %2868, %2864
+  %2869 = icmp samesign ult i64 %2868, %2864
   br i1 %2869, label %.lr.ph13247, label %._crit_edge13248.loopexit, !llvm.loop !88
 
 ._crit_edge13248.loopexit:                        ; preds = %.lr.ph13247

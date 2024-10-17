@@ -3388,7 +3388,7 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %storemerge36 = phi i32 [ %47, %.preheader ], [ 0, %.preheader.preheader ]
-  %44 = icmp ugt i32 %storemerge36, 4
+  %44 = icmp samesign ugt i32 %storemerge36, 4
   %45 = shl nuw nsw i32 256, %storemerge36
   %46 = icmp eq i32 %45, %.025
   %or.cond42 = select i1 %44, i1 true, i1 %46

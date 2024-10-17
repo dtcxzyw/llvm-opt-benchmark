@@ -1189,7 +1189,7 @@ _ZN2cv10AutoBufferIcLm1032EE8allocateEm.exit:     ; preds = %87, %.noexc, %81
   br label %.loopexit.split-lp
 
 351:                                              ; preds = %341
-  %352 = icmp ult i32 %82, 4
+  %352 = icmp samesign ult i32 %82, 4
   %or.cond.not = select i1 %51, i1 true, i1 %352
   %353 = getelementptr inbounds i8, ptr %0, i64 272
   %354 = load ptr, ptr %353, align 8

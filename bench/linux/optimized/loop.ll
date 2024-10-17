@@ -2794,7 +2794,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %361 = add i64 %3, -512
   %362 = icmp ult i64 %361, 3585
   %363 = tail call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %3), !range !41
-  %364 = icmp ult i64 %363, 2
+  %364 = icmp samesign ult i64 %363, 2
   %or.cond = select i1 %362, i1 %364, i1 false
   br i1 %or.cond, label %365, label %.thread40
 
@@ -3427,7 +3427,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %91 = add nsw i64 %90, -512
   %92 = icmp ult i64 %91, 3585
   %93 = tail call range(i64 1, 14) i64 @llvm.ctpop.i64(i64 %90), !range !41
-  %94 = icmp ult i64 %93, 2
+  %94 = icmp samesign ult i64 %93, 2
   %or.cond = select i1 %92, i1 %94, i1 false
   br i1 %or.cond, label %95, label %.thread24
 

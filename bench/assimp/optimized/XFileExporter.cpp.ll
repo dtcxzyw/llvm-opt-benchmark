@@ -1558,7 +1558,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw nsw i64 %i.020, 1
   %10 = load i32, ptr %mNumMeshes, align 8
   %conv = zext i32 %10 to i64
-  %cmp21 = icmp ult i64 %inc, %conv
+  %cmp21 = icmp samesign ult i64 %inc, %conv
   br i1 %cmp21, label %for.body, label %for.cond25.preheader, !llvm.loop !4
 
 lpad13:                                           ; preds = %invoke.cont16, %invoke.cont14, %if.end
@@ -1576,7 +1576,7 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %inc31 = add nuw nsw i64 %i24.023, 1
   %14 = load i32, ptr %mNumChildren, align 8
   %conv26 = zext i32 %14 to i64
-  %cmp27 = icmp ult i64 %inc31, %conv26
+  %cmp27 = icmp samesign ult i64 %inc31, %conv26
   br i1 %cmp27, label %for.body28, label %for.end32, !llvm.loop !6
 
 for.end32:                                        ; preds = %for.body28, %for.cond25.preheader
@@ -1842,14 +1842,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = load i32, ptr %mNumVertices, align 4
   %sub = add i32 %6, -1
   %conv33 = zext i32 %sub to i64
-  %cmp34 = icmp ult i64 %a.0101, %conv33
+  %cmp34 = icmp samesign ult i64 %a.0101, %conv33
   %.str.77..str.84 = select i1 %cmp34, ptr @.str.77, ptr @.str.84
   %call37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84)
   %call39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc = add nuw nsw i64 %a.0101, 1
   %7 = load i32, ptr %mNumVertices, align 4
   %conv = zext i32 %7 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont4, %invoke.cont, %entry
@@ -1898,27 +1898,27 @@ for.body70:                                       ; preds = %for.body70.lr.ph, %
   %16 = load i32, ptr %arrayidx59, align 8
   %sub76 = add i32 %16, -1
   %conv77 = zext i32 %sub76 to i64
-  %cmp78 = icmp ult i64 %b.0104, %conv77
+  %cmp78 = icmp samesign ult i64 %b.0104, %conv77
   %.str.77..str.84134 = select i1 %cmp78, ptr @.str.77, ptr @.str.84
   %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84134)
   %inc89 = add nuw nsw i64 %b.0104, 1
   %17 = load i32, ptr %arrayidx59, align 8
   %conv68 = zext i32 %17 to i64
-  %cmp69 = icmp ult i64 %inc89, %conv68
+  %cmp69 = icmp samesign ult i64 %inc89, %conv68
   br i1 %cmp69, label %for.body70, label %for.end90, !llvm.loop !9
 
 for.end90:                                        ; preds = %for.body70, %for.body58
   %18 = load i32, ptr %mNumFaces, align 8
   %sub92 = add i32 %18, -1
   %conv93 = zext i32 %sub92 to i64
-  %cmp94 = icmp ult i64 %a53.0107, %conv93
+  %cmp94 = icmp samesign ult i64 %a53.0107, %conv93
   %.str.77..str.84135 = select i1 %cmp94, ptr @.str.77, ptr @.str.84
   %call98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84135)
   %call100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call98, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc109 = add nuw nsw i64 %a53.0107, 1
   %19 = load i32, ptr %mNumFaces, align 8
   %conv56 = zext i32 %19 to i64
-  %cmp57 = icmp ult i64 %inc109, %conv56
+  %cmp57 = icmp samesign ult i64 %inc109, %conv56
   br i1 %cmp57, label %for.body58, label %for.end110, !llvm.loop !10
 
 for.end110:                                       ; preds = %for.end90, %for.end
@@ -1968,7 +1968,7 @@ for.body151:                                      ; preds = %if.then116, %for.in
   %29 = load i32, ptr %mNumFaces, align 8
   %sub156 = add i32 %29, -1
   %conv157 = zext i32 %sub156 to i64
-  %cmp158 = icmp ult i64 %a146.0110, %conv157
+  %cmp158 = icmp samesign ult i64 %a146.0110, %conv157
   br i1 %cmp158, label %if.then159, label %if.else163
 
 if.then159:                                       ; preds = %for.body151
@@ -1984,7 +1984,7 @@ for.inc170:                                       ; preds = %if.then159, %if.els
   %inc171 = add nuw nsw i64 %a146.0110, 1
   %30 = load i32, ptr %mNumFaces, align 8
   %conv149 = zext i32 %30 to i64
-  %cmp150 = icmp ult i64 %inc171, %conv149
+  %cmp150 = icmp samesign ult i64 %inc171, %conv149
   br i1 %cmp150, label %for.body151, label %for.end172, !llvm.loop !11
 
 for.end172:                                       ; preds = %for.inc170, %if.then116
@@ -2069,14 +2069,14 @@ for.body258:                                      ; preds = %if.then234, %for.bo
   %40 = load i32, ptr %mNumVertices, align 4
   %sub277 = add i32 %40, -1
   %conv278 = zext i32 %sub277 to i64
-  %cmp279 = icmp ult i64 %a253.0113, %conv278
+  %cmp279 = icmp samesign ult i64 %a253.0113, %conv278
   %.str.77..str.84136 = select i1 %cmp279, ptr @.str.77, ptr @.str.84
   %call283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84136)
   %call285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call283, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc294 = add nuw nsw i64 %a253.0113, 1
   %41 = load i32, ptr %mNumVertices, align 4
   %conv256 = zext i32 %41 to i64
-  %cmp257 = icmp ult i64 %inc294, %conv256
+  %cmp257 = icmp samesign ult i64 %inc294, %conv256
   br i1 %cmp257, label %for.body258, label %for.end295, !llvm.loop !12
 
 for.end295:                                       ; preds = %for.body258, %if.then234
@@ -2118,27 +2118,27 @@ for.body326:                                      ; preds = %for.body326.lr.ph, 
   %49 = load i32, ptr %arrayidx313, align 8
   %sub333 = add i32 %49, -1
   %conv334 = zext i32 %sub333 to i64
-  %cmp335 = icmp ult i64 %b321.0116, %conv334
+  %cmp335 = icmp samesign ult i64 %b321.0116, %conv334
   %.str.77..str.84137 = select i1 %cmp335, ptr @.str.77, ptr @.str.84
   %call339 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84137)
   %inc346 = add nuw nsw i64 %b321.0116, 1
   %50 = load i32, ptr %arrayidx313, align 8
   %conv324 = zext i32 %50 to i64
-  %cmp325 = icmp ult i64 %inc346, %conv324
+  %cmp325 = icmp samesign ult i64 %inc346, %conv324
   br i1 %cmp325, label %for.body326, label %for.end347, !llvm.loop !13
 
 for.end347:                                       ; preds = %for.body326, %for.body310
   %51 = load i32, ptr %mNumFaces, align 8
   %sub349 = add i32 %51, -1
   %conv350 = zext i32 %sub349 to i64
-  %cmp351 = icmp ult i64 %a305.0119, %conv350
+  %cmp351 = icmp samesign ult i64 %a305.0119, %conv350
   %.str.77..str.84138 = select i1 %cmp351, ptr @.str.77, ptr @.str.84
   %call355 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84138)
   %call357 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call355, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc366 = add nuw nsw i64 %a305.0119, 1
   %52 = load i32, ptr %mNumFaces, align 8
   %conv308 = zext i32 %52 to i64
-  %cmp309 = icmp ult i64 %inc366, %conv308
+  %cmp309 = icmp samesign ult i64 %inc366, %conv308
   br i1 %cmp309, label %for.body310, label %for.end367, !llvm.loop !14
 
 for.end367:                                       ; preds = %for.end347, %for.end295
@@ -2184,14 +2184,14 @@ for.body401:                                      ; preds = %if.then377, %for.bo
   %61 = load i32, ptr %mNumVertices, align 4
   %sub412 = add i32 %61, -1
   %conv413 = zext i32 %sub412 to i64
-  %cmp414 = icmp ult i64 %a396.0122, %conv413
+  %cmp414 = icmp samesign ult i64 %a396.0122, %conv413
   %.str.97..str.78 = select i1 %cmp414, ptr @.str.97, ptr @.str.78
   %call418 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.97..str.78)
   %call420 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call418, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc429 = add nuw nsw i64 %a396.0122, 1
   %62 = load i32, ptr %mNumVertices, align 4
   %conv399 = zext i32 %62 to i64
-  %cmp400 = icmp ult i64 %inc429, %conv399
+  %cmp400 = icmp samesign ult i64 %inc429, %conv399
   br i1 %cmp400, label %for.body401, label %for.end430, !llvm.loop !15
 
 for.end430:                                       ; preds = %for.body401, %if.then377
@@ -2249,14 +2249,14 @@ for.body464:                                      ; preds = %if.then440, %for.bo
   %73 = load i32, ptr %mNumVertices, align 4
   %sub485 = add i32 %73, -1
   %conv486 = zext i32 %sub485 to i64
-  %cmp487 = icmp ult i64 %a459.0125, %conv486
+  %cmp487 = icmp samesign ult i64 %a459.0125, %conv486
   %.str.77..str.84139 = select i1 %cmp487, ptr @.str.77, ptr @.str.84
   %call491 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %.str.77..str.84139)
   %call493 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call491, ptr noundef nonnull align 8 dereferenceable(32) %endstr)
   %inc502 = add nuw nsw i64 %a459.0125, 1
   %74 = load i32, ptr %mNumVertices, align 4
   %conv462 = zext i32 %74 to i64
-  %cmp463 = icmp ult i64 %inc502, %conv462
+  %cmp463 = icmp samesign ult i64 %inc502, %conv462
   br i1 %cmp463, label %for.body464, label %for.end503, !llvm.loop !16
 
 for.end503:                                       ; preds = %for.body464, %if.then440

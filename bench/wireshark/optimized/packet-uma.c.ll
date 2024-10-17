@@ -851,7 +851,7 @@ define internal i32 @dissect_uma_urlc_udp(ptr noundef %0, ptr noundef %1, ptr no
   %24 = load i32, ptr @hf_uma_urlc_seq_nr, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %24, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0) #3
   %26 = and i32 %21, 65535
-  %27 = icmp ugt i32 %26, 6
+  %27 = icmp samesign ugt i32 %26, 6
   br i1 %27, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %20, %.lr.ph

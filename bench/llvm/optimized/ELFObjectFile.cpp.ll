@@ -19870,7 +19870,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -53858,7 +53858,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   %10 = and i32 %2, 32767
   %11 = zext nneg i32 %10 to i64
   store i64 %11, ptr %7, align 8
-  %or.cond = icmp ult i32 %10, 2
+  %or.cond = icmp samesign ult i32 %10, 2
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %6
@@ -54439,7 +54439,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %165
   %205 = add nuw nsw i32 %.0108, 1
   %.0.copyload.i.i.i66 = load i16, ptr %192, align 1
   %206 = zext i16 %.0.copyload.i.i.i66 to i32
-  %207 = icmp ult i32 %205, %206
+  %207 = icmp samesign ult i32 %205, %206
   br i1 %207, label %208, label %._crit_edge, !llvm.loop !8402
 
 208:                                              ; preds = %.lr.ph, %204
@@ -55529,7 +55529,7 @@ _ZN4llvm5ErrorD2Ev.exit168:                       ; preds = %276
   %347 = add nuw nsw i32 %.068219, 1
   %.0.copyload.i.i.i112 = load i16, ptr %212, align 1
   %348 = zext i16 %.0.copyload.i.i.i112 to i32
-  %349 = icmp ult i32 %347, %348
+  %349 = icmp samesign ult i32 %347, %348
   br i1 %349, label %239, label %._crit_edge, !llvm.loop !8587
 
 ._crit_edge:                                      ; preds = %343, %233
@@ -58873,7 +58873,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   %10 = and i32 %2, 32767
   %11 = zext nneg i32 %10 to i64
   store i64 %11, ptr %7, align 8
-  %or.cond = icmp ult i32 %10, 2
+  %or.cond = icmp samesign ult i32 %10, 2
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %6
@@ -59403,7 +59403,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %166
   %.0.copyload.i.i.i70 = load i16, ptr %193, align 1
   %rev.i.i.i.i.i.i.i71 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i70)
   %209 = zext i16 %rev.i.i.i.i.i.i.i71 to i32
-  %210 = icmp ult i32 %208, %209
+  %210 = icmp samesign ult i32 %208, %209
   br i1 %210, label %211, label %._crit_edge, !llvm.loop !9082
 
 211:                                              ; preds = %.lr.ph, %207
@@ -60514,7 +60514,7 @@ _ZN4llvm5ErrorD2Ev.exit173:                       ; preds = %280
   %.0.copyload.i.i.i114 = load i16, ptr %213, align 1
   %rev.i.i.i.i.i.i.i115 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i114)
   %356 = zext i16 %rev.i.i.i.i.i.i.i115 to i32
-  %357 = icmp ult i32 %355, %356
+  %357 = icmp samesign ult i32 %355, %356
   br i1 %357, label %242, label %._crit_edge, !llvm.loop !9267
 
 ._crit_edge:                                      ; preds = %350, %235
@@ -62237,7 +62237,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   %10 = and i32 %2, 32767
   %11 = zext nneg i32 %10 to i64
   store i64 %11, ptr %7, align 8
-  %or.cond = icmp ult i32 %10, 2
+  %or.cond = icmp samesign ult i32 %10, 2
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %6
@@ -62757,7 +62757,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %165
   %205 = add nuw nsw i32 %.0108, 1
   %.0.copyload.i.i.i66 = load i16, ptr %192, align 1
   %206 = zext i16 %.0.copyload.i.i.i66 to i32
-  %207 = icmp ult i32 %205, %206
+  %207 = icmp samesign ult i32 %205, %206
   br i1 %207, label %208, label %._crit_edge, !llvm.loop !9700
 
 208:                                              ; preds = %.lr.ph, %204
@@ -63847,7 +63847,7 @@ _ZN4llvm5ErrorD2Ev.exit168:                       ; preds = %276
   %347 = add nuw nsw i32 %.068219, 1
   %.0.copyload.i.i.i112 = load i16, ptr %212, align 1
   %348 = zext i16 %.0.copyload.i.i.i112 to i32
-  %349 = icmp ult i32 %347, %348
+  %349 = icmp samesign ult i32 %347, %348
   br i1 %349, label %239, label %._crit_edge, !llvm.loop !9885
 
 ._crit_edge:                                      ; preds = %343, %233
@@ -65548,7 +65548,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   %10 = and i32 %2, 32767
   %11 = zext nneg i32 %10 to i64
   store i64 %11, ptr %7, align 8
-  %or.cond = icmp ult i32 %10, 2
+  %or.cond = icmp samesign ult i32 %10, 2
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %6
@@ -66078,7 +66078,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %166
   %.0.copyload.i.i.i70 = load i16, ptr %193, align 1
   %rev.i.i.i.i.i.i.i71 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i70)
   %209 = zext i16 %rev.i.i.i.i.i.i.i71 to i32
-  %210 = icmp ult i32 %208, %209
+  %210 = icmp samesign ult i32 %208, %209
   br i1 %210, label %211, label %._crit_edge, !llvm.loop !10318
 
 211:                                              ; preds = %.lr.ph, %207
@@ -67189,7 +67189,7 @@ _ZN4llvm5ErrorD2Ev.exit173:                       ; preds = %280
   %.0.copyload.i.i.i114 = load i16, ptr %213, align 1
   %rev.i.i.i.i.i.i.i115 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i114)
   %356 = zext i16 %rev.i.i.i.i.i.i.i115 to i32
-  %357 = icmp ult i32 %355, %356
+  %357 = icmp samesign ult i32 %355, %356
   br i1 %357, label %242, label %._crit_edge, !llvm.loop !10503
 
 ._crit_edge:                                      ; preds = %350, %235

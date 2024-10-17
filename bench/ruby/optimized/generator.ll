@@ -6133,7 +6133,7 @@ define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 
   %9 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
   store i8 %8, ptr %.0.i.i, align 1
   %10 = udiv i64 %.113.i.i, 10
-  %.not.i.i = icmp ult i64 %.113.i.i, 10
+  %.not.i.i = icmp samesign ult i64 %.113.i.i, 10
   br i1 %.not.i.i, label %11, label %5, !llvm.loop !38
 
 11:                                               ; preds = %5

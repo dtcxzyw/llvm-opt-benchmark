@@ -840,7 +840,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 29:                                               ; preds = %24
   %30 = load i64, ptr %7, align 8, !range !6, !alias.scope !7, !noundef !4
-  %switch.i = icmp ult i64 %30, 2
+  %switch.i = icmp samesign ult i64 %30, 2
   br i1 %switch.i, label %"_ZN4core3ptr88drop_in_place$LT$futures_util..future..try_join_all..FinalState$LT$anyhow..Error$GT$$GT$17h4ea00f01a303c62dE.exit", label %31
 
 31:                                               ; preds = %29
@@ -849,7 +849,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 32:                                               ; preds = %26
   %33 = load i64, ptr %7, align 8, !range !6, !alias.scope !10, !noundef !4
-  %switch.i21 = icmp ult i64 %33, 2
+  %switch.i21 = icmp samesign ult i64 %33, 2
   br i1 %switch.i21, label %.thread43, label %34
 
 34:                                               ; preds = %32
@@ -9463,7 +9463,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h863890d8086aea60E.exit: ; preds = %3
-  %switch.i.i = icmp ugt i8 %.val, 1
+  %switch.i.i = icmp samesign ugt i8 %.val, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h83a96ffb5f6e57a3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %10, ptr noundef nonnull %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %8, i1 noundef zeroext %switch.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1978
   ret void
@@ -9506,7 +9506,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h41b01c4697e7cbe1E.exit: ; preds = %3
-  %switch.i.i = icmp ugt i8 %.val, 1
+  %switch.i.i = icmp samesign ugt i8 %.val, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h767c511b4a4ff5a9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %10, ptr noundef nonnull %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %8, i1 noundef zeroext %switch.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2001
   ret void
@@ -10651,7 +10651,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17hfbdfb969128bb390E.exit: ; preds = %3
-  %switch.i.i = icmp ugt i8 %.val, 1
+  %switch.i.i = icmp samesign ugt i8 %.val, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h37ebc05f5fa50d53E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %10, ptr noundef nonnull %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %8, i1 noundef zeroext %switch.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2359
   ret void
@@ -116659,7 +116659,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 73:                                               ; preds = %70
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -24
   %74 = lshr exact i64 %gepdiff.i, 5
-  %.not.i.i13 = icmp ult i64 %.sroa.11.0.i, %74
+  %.not.i.i13 = icmp samesign ult i64 %.sroa.11.0.i, %74
   %75 = shl nuw nsw i64 %.sroa.11.0.i, 5
   %.sroa.6.0.add.i = sub i64 %.sroa.6.0.idx.i, %75
   br i1 %.not.i.i13, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52e086dfd3d35f8fE.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9next_leaf17hbe4b46202024aa2fE.exit.thread"
@@ -116939,7 +116939,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 73:                                               ; preds = %70
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -24
   %74 = lshr exact i64 %gepdiff.i, 5
-  %.not.i.i13 = icmp ult i64 %.sroa.11.0.i, %74
+  %.not.i.i13 = icmp samesign ult i64 %.sroa.11.0.i, %74
   %75 = shl nuw nsw i64 %.sroa.11.0.i, 5
   %.sroa.6.0.add.i = sub i64 %.sroa.6.0.idx.i, %75
   br i1 %.not.i.i13, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99bbb44875b294c1E.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9next_leaf17h02110db39c6e8f1bE.exit.thread"
@@ -117219,7 +117219,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 73:                                               ; preds = %70
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -24
   %74 = lshr exact i64 %gepdiff.i, 5
-  %.not.i.i13 = icmp ult i64 %.sroa.11.0.i, %74
+  %.not.i.i13 = icmp samesign ult i64 %.sroa.11.0.i, %74
   %75 = shl nuw nsw i64 %.sroa.11.0.i, 5
   %.sroa.6.0.add.i = sub i64 %.sroa.6.0.idx.i, %75
   br i1 %.not.i.i13, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a94a835ca96ea55E.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9next_leaf17hb10aa4354445f2a0E.exit.thread"
@@ -117477,7 +117477,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 63:                                               ; preds = %60
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -24
   %64 = lshr exact i64 %gepdiff.i, 5
-  %.not.i.i14 = icmp ult i64 %.sroa.11.0.i, %64
+  %.not.i.i14 = icmp samesign ult i64 %.sroa.11.0.i, %64
   %65 = shl nuw nsw i64 %.sroa.11.0.i, 5
   %.sroa.6.0.add.i = sub i64 %.sroa.6.0.idx.i, %65
   br i1 %.not.i.i14, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3e7e85083103d04E.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9prev_leaf17h1bfbed2bea8f3f66E.exit.thread"
@@ -117745,7 +117745,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 63:                                               ; preds = %60
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -24
   %64 = lshr exact i64 %gepdiff.i, 5
-  %.not.i.i14 = icmp ult i64 %.sroa.11.0.i, %64
+  %.not.i.i14 = icmp samesign ult i64 %.sroa.11.0.i, %64
   %65 = shl nuw nsw i64 %.sroa.11.0.i, 5
   %.sroa.6.0.add.i = sub i64 %.sroa.6.0.idx.i, %65
   br i1 %.not.i.i14, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99bbb44875b294c1E.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9prev_leaf17h495382be4c069c1fE.exit.thread"
@@ -118012,7 +118012,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 62:                                               ; preds = %59
   %gepdiff.i = add nsw i64 %.sroa.6.0.idx.i, -8
   %63 = udiv exact i64 %gepdiff.i, 24
-  %.not.i.i14 = icmp ult i64 %.sroa.11.0.i, %63
+  %.not.i.i14 = icmp samesign ult i64 %.sroa.11.0.i, %63
   %.idx15.i = mul nuw nsw i64 %.sroa.11.0.i, -24
   %.sroa.6.0.add.i = add nsw i64 %.idx15.i, %.sroa.6.0.idx.i
   br i1 %.not.i.i14, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0aa225614709f7aE.exit.i", label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$9prev_leaf17hc10e3d75f23f9b52E.exit.thread"
@@ -121513,7 +121513,7 @@ common.resume:                                    ; preds = %.thread, %"_ZN4core
 
 87:                                               ; preds = %"_ZN68_$LT$editor..git..blame..GitRemote$u20$as$u20$core..clone..Clone$GT$5clone17hc4b1deececcac1e2E.exit.i"
   %88 = load i64, ptr %26, align 8, !range !1230, !noalias !26971, !noundef !4
-  %or.cond.not.i = icmp ult i64 %88, 2
+  %or.cond.not.i = icmp samesign ult i64 %88, 2
   br i1 %or.cond.not.i, label %90, label %89
 
 89:                                               ; preds = %87
@@ -122705,7 +122705,7 @@ define hidden void @"_ZN106_$LT$editor..editor_settings_controls..BufferFontLiga
   unreachable
 
 _ZN8settings24editable_setting_control22EditableSettingControl5write17hc99f9f3506d84762E.exit: ; preds = %3
-  %switch = icmp ugt i8 %5, 1
+  %switch = icmp samesign ugt i8 %5, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h83a96ffb5f6e57a3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %11, ptr noundef nonnull %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %9, i1 noundef zeroext %switch)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !27315
   ret void
@@ -122748,7 +122748,7 @@ define hidden void @"_ZN101_$LT$editor..editor_settings_controls..InlineGitBlame
   unreachable
 
 _ZN8settings24editable_setting_control22EditableSettingControl5write17h5e38c8ad100d5ff5E.exit: ; preds = %3
-  %switch = icmp ugt i8 %5, 1
+  %switch = icmp samesign ugt i8 %5, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h37ebc05f5fa50d53E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %11, ptr noundef nonnull %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %9, i1 noundef zeroext %switch)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !27327
   ret void
@@ -122791,7 +122791,7 @@ define hidden void @"_ZN98_$LT$editor..editor_settings_controls..LineNumbersCont
   unreachable
 
 _ZN8settings24editable_setting_control22EditableSettingControl5write17h2d7f908d102e3c90E.exit: ; preds = %3
-  %switch = icmp ugt i8 %5, 1
+  %switch = icmp samesign ugt i8 %5, 1
   tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h767c511b4a4ff5a9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %11, ptr noundef nonnull %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %9, i1 noundef zeroext %switch)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !27339
   ret void
@@ -139638,7 +139638,7 @@ define hidden void @_ZN6editor7element13EditorElement16diff_hunk_bounds17h6fd268
 32:                                               ; preds = %5
   %33 = getelementptr inbounds i8, ptr %4, i64 1
   %34 = load i8, ptr %33, align 1, !range !136, !noundef !4
-  %switch4 = icmp ult i8 %34, 2
+  %switch4 = icmp samesign ult i8 %34, 2
   %35 = getelementptr inbounds i8, ptr %4, i64 24
   %36 = load i32, ptr %35, align 8, !noundef !4
   br i1 %switch4, label %41, label %53
@@ -144405,7 +144405,7 @@ define hidden { i32, float } @_ZN6editor7element13EditorElement8rem_size17ha579d
 _ZN4gpui3app10entity_map9EntityMap4read17hde10707e8232858aE.exit: ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4da5186df1c82bbcE.exit.i"
   %24 = getelementptr inbounds i8, ptr %13, i64 4048
   %25 = load i8, ptr %24, align 8, !range !136, !noundef !4
-  %switch = icmp ult i8 %25, 2
+  %switch = icmp samesign ult i8 %25, 2
   br i1 %switch, label %31, label %26
 
 26:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17hde10707e8232858aE.exit

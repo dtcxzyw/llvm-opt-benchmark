@@ -61,7 +61,7 @@ cond.false.i:                                     ; preds = %if.end
 
 cond.end.i:                                       ; preds = %if.end
   %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %size)
-  %cmp1.i = icmp ult i64 %0, 2
+  %cmp1.i = icmp samesign ult i64 %0, 2
   br i1 %cmp1.i, label %if.end.i, label %cond.false3.i
 
 cond.false3.i:                                    ; preds = %cond.end.i
@@ -74,7 +74,7 @@ if.end.i:                                         ; preds = %cond.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %minsize)
-  %cmp16.i = icmp ult i64 %1, 2
+  %cmp16.i = icmp samesign ult i64 %1, 2
   br i1 %cmp16.i, label %if.end26.i, label %cond.false18.i
 
 cond.false18.i:                                   ; preds = %if.else.i
@@ -96,7 +96,7 @@ for.body.i:                                       ; preds = %if.end26.i, %for.bo
   %inc312829.i = phi i64 [ %inc31.i, %for.body.i ], [ -1, %if.end26.i ]
   %inc31.i = add nsw i64 %inc312829.i, 1
   %shr32.i = lshr i64 %i.030.i, 1
-  %tobool.not.i = icmp ult i64 %i.030.i, 2
+  %tobool.not.i = icmp samesign ult i64 %i.030.i, 2
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i

@@ -524,7 +524,7 @@ default.unreachable26:                            ; preds = %60
   %100 = add nuw nsw i64 %54, 1
   %101 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %102 = zext i32 %101 to i64
-  %103 = icmp ult i64 %100, %102
+  %103 = icmp samesign ult i64 %100, %102
   br i1 %103, label %.preheader, label %.thread19, !llvm.loop !5
 
 104:                                              ; preds = %94
@@ -761,7 +761,7 @@ define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
   %7 = add nuw nsw i64 %4, 1
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %7, %9
+  %10 = icmp samesign ult i64 %7, %9
   br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %0

@@ -4559,7 +4559,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   tail call void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18reservePatchArraysEi(ptr noundef nonnull align 8 dereferenceable(273) %40, i32 noundef %27)
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  %.not151183 = icmp ugt i32 %25, %23
+  %.not151183 = icmp samesign ugt i32 %25, %23
   br i1 %.not151183, label %._crit_edge, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %33
@@ -4755,7 +4755,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %146 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %145, i64 %indvars.iv260
   %147 = load ptr, ptr %146, align 8
   %148 = load i32, ptr %147, align 8
-  %.not155 = icmp uge i64 %indvars.iv260, %141
+  %.not155 = icmp samesign uge i64 %indvars.iv260, %141
   %149 = icmp sgt i32 %148, 0
   %or.cond222 = select i1 %.not155, i1 %149, i1 false
   br i1 %or.cond222, label %.lr.ph208.preheader, label %.loopexit177

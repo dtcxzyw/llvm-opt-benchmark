@@ -2120,7 +2120,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit:      ; preds = %.lr.ph
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %.noexc, %30, %25, %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit
   %.sroa.056.1 = phi ptr [ %1, %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit ], [ %24, %25 ], [ %24, %30 ], [ null, %.noexc ]
-  %.not27 = icmp ugt i64 %indvars.iv77, %indvars.iv
+  %.not27 = icmp samesign ugt i64 %indvars.iv77, %indvars.iv
   %38 = load ptr, ptr %19, align 8
   br i1 %.not27, label %49, label %39
 

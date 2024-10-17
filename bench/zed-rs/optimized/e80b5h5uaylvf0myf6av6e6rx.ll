@@ -198,7 +198,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 21:                                               ; preds = %2
   %22 = lshr i64 %12, 4
   %23 = and i64 %22, 15
-  %24 = icmp ugt i64 %23, 7
+  %24 = icmp samesign ugt i64 %23, 7
   br i1 %24, label %25, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h83d47bc93467cd73E.exit.i.i"
 
 25:                                               ; preds = %21

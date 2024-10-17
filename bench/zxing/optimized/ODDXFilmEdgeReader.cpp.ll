@@ -227,7 +227,7 @@ _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE
   %82 = shl nuw nsw i32 %81, 2
   %83 = udiv i32 %82, 3
   %84 = add nuw nsw i32 %83, 1
-  %.not.i.not.i = icmp ult i32 %84, %.sroa.2.0.insert.ext.i.i.i.i
+  %.not.i.not.i = icmp samesign ult i32 %84, %.sroa.2.0.insert.ext.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.3.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.6.i.i)
@@ -299,9 +299,9 @@ _ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %"_ZZNK5ZXing4OneD16
   %117 = shl nuw nsw i32 %116, 2
   %118 = udiv i32 %117, 3
   %119 = add nuw nsw i32 %118, 1
-  %.not.i17.i = icmp uge i32 %119, %.sroa.2.0.insert.ext.i.i.i16.i
+  %.not.i17.i = icmp samesign uge i32 %119, %.sroa.2.0.insert.ext.i.i.i16.i
   %120 = lshr i32 %116, 1
-  %121 = icmp ult i32 %120, %93
+  %121 = icmp samesign ult i32 %120, %93
   %122 = and i1 %121, %.not.i17.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.i6.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.3.i7.i)
@@ -1944,7 +1944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i

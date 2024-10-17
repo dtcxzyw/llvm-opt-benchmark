@@ -1194,7 +1194,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %.not713, label %.thread879, label %277
 
 277:                                              ; preds = %275
-  %278 = icmp ugt i32 %276, 308
+  %278 = icmp samesign ugt i32 %276, 308
   br i1 %278, label %.thread872, label %282
 
 .thread872:                                       ; preds = %277, %._crit_edge1124
@@ -1234,7 +1234,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.sroa.0103.6 = phi double [ %289, %286 ], [ %.sroa.0103.51121, %.lr.ph1123 ]
   %indvars.iv.next1267 = add nuw nsw i64 %indvars.iv1266, 1
   %291 = lshr i32 %.06341119, 1
-  %292 = icmp ugt i32 %.06341119, 3
+  %292 = icmp samesign ugt i32 %.06341119, 3
   br i1 %292, label %.lr.ph1123, label %._crit_edge1124.loopexit, !llvm.loop !26
 
 ._crit_edge1124.loopexit:                         ; preds = %290
@@ -1258,11 +1258,11 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.sroa.0103.4.extract.shift166 = lshr i64 %300, 32
   %.sroa.0103.4.extract.trunc167 = trunc nuw i64 %.sroa.0103.4.extract.shift166 to i32
   %301 = and i32 %.sroa.0103.4.extract.trunc167, 2146435072
-  %302 = icmp ugt i32 %301, 2090860544
+  %302 = icmp samesign ugt i32 %301, 2090860544
   br i1 %302, label %.thread872, label %303
 
 303:                                              ; preds = %._crit_edge1124
-  %304 = icmp ugt i32 %301, 2089811968
+  %304 = icmp samesign ugt i32 %301, 2089811968
   br i1 %304, label %.thread879, label %305
 
 305:                                              ; preds = %303
@@ -1325,7 +1325,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.sroa.0103.10 = phi double [ %329, %326 ], [ %.sroa.0103.91114, %.lr.ph1116 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %331 = lshr i32 %.16351112, 1
-  %.not1128 = icmp ult i32 %.16351112, 2
+  %.not1128 = icmp samesign ult i32 %.16351112, 2
   br i1 %.not1128, label %._crit_edge1117, label %.lr.ph1116, !llvm.loop !27
 
 ._crit_edge1117:                                  ; preds = %330, %322
@@ -1338,15 +1338,15 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %334 = trunc nuw nsw i64 %sum.shift to i32
   %335 = and i32 %334, 2047
   %336 = sub nsw i32 107, %335
-  %337 = icmp ult i32 %335, 107
+  %337 = icmp samesign ult i32 %335, 107
   br i1 %337, label %338, label %351
 
 338:                                              ; preds = %332
-  %339 = icmp ult i32 %335, 76
+  %339 = icmp samesign ult i32 %335, 76
   br i1 %339, label %340, label %347
 
 340:                                              ; preds = %338
-  %341 = icmp ult i32 %335, 55
+  %341 = icmp samesign ult i32 %335, 55
   br i1 %341, label %.thread879, label %342
 
 342:                                              ; preds = %340
@@ -1911,8 +1911,8 @@ cmp.exit.thread891:                               ; preds = %617, %cmp.exit
   %627 = and i32 %.sroa.0103.4.extract.trunc195, 1048575
   %.not724 = icmp ne i32 %627, 0
   %628 = and i32 %.sroa.0103.4.extract.trunc195, 2146435072
-  %629 = icmp ult i32 %628, 112197633
-  %or.cond756 = or i1 %.not724, %629
+  %629 = icmp samesign ult i32 %628, 112197633
+  %or.cond756 = select i1 %.not724, i1 true, i1 %629
   br i1 %or.cond756, label %cmp.exit785.thread, label %630
 
 630:                                              ; preds = %626
@@ -1980,7 +1980,7 @@ cmp.exit785:                                      ; preds = %634
 
 661:                                              ; preds = %660
   %662 = and i32 %.sroa.0103.4.extract.trunc201, 2146435072
-  %663 = icmp ult i32 %662, 111149057
+  %663 = icmp samesign ult i32 %662, 111149057
   br i1 %663, label %664, label %668
 
 664:                                              ; preds = %661
@@ -2014,11 +2014,11 @@ cmp.exit785.thread895:                            ; preds = %650, %673, %cmp.exi
   %.sroa.0103.4.extract.shift217 = lshr i64 %.pre, 32
   %.sroa.0103.4.extract.trunc218 = trunc nuw i64 %.sroa.0103.4.extract.shift217 to i32
   %676 = and i32 %.sroa.0103.4.extract.trunc218, 2146435072
-  %677 = icmp ult i32 %676, 112197633
+  %677 = icmp samesign ult i32 %676, 112197633
   br i1 %677, label %678, label %cmp.exit785.thread895._crit_edge
 
 678:                                              ; preds = %675
-  %679 = icmp ugt i32 %676, 57671680
+  %679 = icmp samesign ugt i32 %676, 57671680
   br i1 %679, label %.thread909, label %.loopexit
 
 cmp.exit785.thread895._crit_edge:                 ; preds = %cmp.exit785.thread895, %675
@@ -2082,7 +2082,7 @@ cmp.exit785.thread895._crit_edge:                 ; preds = %cmp.exit785.thread8
   %spec.select27.i.i.i = select i1 %.not25.i.i.i, i32 32, i32 %704
   %.not2428.i.i.i = icmp slt i32 %.319.i.i.i, 0
   %.020.i.i.i = select i1 %.not2428.i.i.i, i32 %.3.i.i.i, i32 %spec.select27.i.i.i
-  %705 = icmp ult i32 %.020.i.i.i, 11
+  %705 = icmp samesign ult i32 %.020.i.i.i, 11
   br i1 %705, label %706, label %719
 
 706:                                              ; preds = %.thread897
@@ -2172,7 +2172,7 @@ b2d.exit.i:                                       ; preds = %736, %724, %713
   %spec.select27.i.i21.i = select i1 %.not25.i.i20.i, i32 32, i32 %753
   %.not2428.i.i22.i = icmp slt i32 %.319.i.i18.i, 0
   %.020.i.i23.i = select i1 %.not2428.i.i22.i, i32 %.3.i.i19.i, i32 %spec.select27.i.i21.i
-  %754 = icmp ult i32 %.020.i.i23.i, 11
+  %754 = icmp samesign ult i32 %.020.i.i23.i, 11
   br i1 %754, label %755, label %768
 
 755:                                              ; preds = %b2d.exit.i
@@ -2315,7 +2315,7 @@ ratio.exit:                                       ; preds = %762, %773, %785
   %826 = fadd double %825, %822
   %827 = bitcast double %826 to i64
   %828 = and i64 %827, 9214364837600034816
-  %829 = icmp ugt i64 %828, 8980177652681801728
+  %829 = icmp samesign ugt i64 %828, 8980177652681801728
   br i1 %829, label %830, label %833
 
 830:                                              ; preds = %820
@@ -2333,8 +2333,8 @@ ratio.exit:                                       ; preds = %762, %773, %785
   br label %854
 
 836:                                              ; preds = %816
-  %837 = icmp ult i32 %818, 111149057
-  %or.cond35 = and i1 %445, %837
+  %837 = icmp samesign ult i32 %818, 111149057
+  %or.cond35 = select i1 %445, i1 %837, i1 false
   br i1 %or.cond35, label %838, label %849
 
 838:                                              ; preds = %836
@@ -2900,7 +2900,7 @@ Balloc.exit:                                      ; preds = %14, %35
   %.sroa.0.4.insert.insert = bitcast double %43 to i64
   %sum.shift = lshr i64 %.sroa.0.4.insert.insert, 52
   %44 = trunc nuw nsw i64 %sum.shift to i32
-  %.not = icmp ult i64 %.sroa.0.4.insert.insert, 4503599627370496
+  %.not = icmp samesign ult i64 %.sroa.0.4.insert.insert, 4503599627370496
   %45 = or disjoint i32 %42, 1048576
   %spec.select = select i1 %.not, i32 %42, i32 %45
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.4.insert.insert to i32
@@ -3132,7 +3132,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
 10:                                               ; preds = %4, %2
   %.030 = phi ptr [ %9, %4 ], [ %0, %2 ]
   %11 = lshr i32 %1, 2
-  %.not42 = icmp ult i32 %1, 4
+  %.not42 = icmp samesign ult i32 %1, 4
   br i1 %.not42, label %.loopexit, label %12
 
 12:                                               ; preds = %10
@@ -3314,7 +3314,7 @@ Bfree.exit:                                       ; preds = %Bfree.exit.backedge
 Bfree.exit52:                                     ; preds = %88, %80, %73, %Bfree.exit
   %.2 = phi ptr [ %.131, %Bfree.exit ], [ %74, %73 ], [ %74, %80 ], [ %74, %88 ]
   %94 = lshr i32 %.032, 1
-  %.not46 = icmp ult i32 %.032, 2
+  %.not46 = icmp samesign ult i32 %.032, 2
   br i1 %.not46, label %.loopexit, label %95
 
 95:                                               ; preds = %Bfree.exit52
@@ -3695,7 +3695,7 @@ Balloc.exit:                                      ; preds = %35, %65
   %70 = getelementptr inbounds i8, ptr %.2.i, i64 16
   store i32 0, ptr %70, align 8
   %71 = getelementptr i8, ptr %.2.i, i64 24
-  %.not62 = icmp ult i32 %1, 32
+  %.not62 = icmp samesign ult i32 %1, 32
   br i1 %.not62, label %._crit_edge60, label %.lr.ph59.preheader
 
 .lr.ph59.preheader:                               ; preds = %Balloc.exit
@@ -4254,7 +4254,7 @@ select.unfold:                                    ; preds = %62
   %.1487 = phi i32 [ %.0486, %75 ], [ %78, %77 ]
   %or.cond3 = icmp ugt i32 %1, 9
   %spec.store.select27 = select i1 %or.cond3, i32 0, i32 %1
-  %81 = icmp ult i32 %spec.store.select27, 6
+  %81 = icmp samesign ult i32 %spec.store.select27, 6
   %82 = add nsw i32 %spec.store.select27, -4
   %spec.select = select i1 %81, i32 %spec.store.select27, i32 %82
   switch i32 %spec.select, label %default.unreachable [
@@ -4342,7 +4342,7 @@ default.unreachable:                              ; preds = %80
   %.1440 = phi double [ %110, %106 ], [ %.0439880, %.lr.ph881 ]
   %112 = lshr i32 %.1526879, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not584 = icmp ult i32 %.1526879, 2
+  %.not584 = icmp samesign ult i32 %.1526879, 2
   br i1 %.not584, label %._crit_edge, label %.lr.ph881, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %111, %96
@@ -4907,7 +4907,7 @@ i2b.exit655:                                      ; preds = %362, %383
   %395 = or i32 %394, %.sroa.088.0.extract.trunc131
   %396 = icmp ne i32 %395, 0
   %or.cond623.not753 = or i1 %396, %or.cond20.not591
-  %.not593 = icmp ult i64 %.pre-phi, 9007199254740992
+  %.not593 = icmp samesign ult i64 %.pre-phi, 9007199254740992
   %or.cond624 = or i1 %.not593, %or.cond623.not753
   %not.or.cond624 = xor i1 %or.cond624, true
   %397 = zext i1 %not.or.cond624 to i32
@@ -4958,7 +4958,7 @@ i2b.exit655:                                      ; preds = %362, %383
   %.not595 = icmp eq i32 %418, 0
   %419 = sub nuw nsw i32 32, %418
   %spec.select625 = select i1 %.not595, i32 0, i32 %419
-  %420 = icmp ugt i32 %spec.select625, 4
+  %420 = icmp samesign ugt i32 %spec.select625, 4
   br i1 %420, label %421, label %426
 
 421:                                              ; preds = %415

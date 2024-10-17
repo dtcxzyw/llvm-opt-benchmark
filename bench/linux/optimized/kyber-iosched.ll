@@ -972,7 +972,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %32 = add nuw nsw i64 %21, 1
   %33 = load i16, ptr %9, align 2
   %34 = zext i16 %33 to i64
-  %35 = icmp ult i64 %32, %34
+  %35 = icmp samesign ult i64 %32, %34
   br i1 %35, label %.preheader4, label %.loopexit5, !llvm.loop !21
 
 36:                                               ; preds = %53, %.loopexit5
@@ -1490,7 +1490,7 @@ define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1
 
 10:                                               ; preds = %.lr.ph10
   %11 = add nuw nsw i64 %20, 1
-  %12 = icmp ult i64 %20, 3
+  %12 = icmp samesign ult i64 %20, 3
   %13 = icmp eq i64 %11, 4
   br i1 %13, label %.critedge, label %14, !llvm.loop !39
 
@@ -1713,7 +1713,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 51:                                               ; preds = %48
   %52 = add nuw nsw i64 %11, 1
   %53 = and i64 %52, 127
-  %54 = icmp ult i64 %53, 64
+  %54 = icmp samesign ult i64 %53, 64
   br i1 %54, label %4, label %.thread, !prof !49, !llvm.loop !50
 
 55:                                               ; preds = %61

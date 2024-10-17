@@ -6002,7 +6002,7 @@ default.unreachable4:                             ; preds = %1
 define hidden void @"_ZN4core3ptr38drop_in_place$LT$qoi..error..Error$GT$17h2eda9b9ba9aa2caaE.llvm.9742654456972663382"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i8, ptr %0, align 8, !range !806, !noundef !4
-  %switch = icmp ult i8 %3, 8
+  %switch = icmp samesign ult i8 %3, 8
   br i1 %switch, label %10, label %4
 
 4:                                                ; preds = %1
@@ -26155,7 +26155,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   br i1 %.not88, label %92, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit107.preheader"
 
 78:                                               ; preds = %67
-  %.not87 = icmp ult i64 %68, 8
+  %.not87 = icmp samesign ult i64 %68, 8
   br i1 %.not87, label %74, label %79
 
 79:                                               ; preds = %78
@@ -26165,7 +26165,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %83 = zext nneg i32 %70 to i64
   %narrow94 = sub nuw nsw i32 8, %82
   %84 = zext nneg i32 %narrow94 to i64
-  %85 = icmp ugt i32 %70, %narrow94
+  %85 = icmp samesign ugt i32 %70, %narrow94
   br i1 %85, label %86, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb63d7078fb44c618E.exit"
 
 86:                                               ; preds = %79
@@ -26942,7 +26942,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %25 = phi i64 [ %21, %20 ], [ %122, %121 ]
   %26 = phi i8 [ %22, %20 ], [ %123, %121 ]
   %.0.lcssa = phi i32 [ %23, %20 ], [ %124, %121 ]
-  %27 = icmp ugt i32 %.0.lcssa, 4
+  %27 = icmp samesign ugt i32 %.0.lcssa, 4
   br i1 %27, label %58, label %47
 
 .lr.ph:                                           ; preds = %20, %121
@@ -29725,7 +29725,7 @@ _ZN5image6codecs3ico7decoder8DirEntry18matches_dimensions17h326bb5d15c82cfc4E.ex
   %indvars.iv = phi i64 [ %indvars.iv.next, %173 ], [ %154, %152 ]
   %.sroa.4205.0279.us = phi i32 [ %157, %173 ], [ 8, %152 ]
   %157 = add nsw i32 %.sroa.4205.0279.us, -1
-  %.not66.us = icmp ult i64 %indvars.iv, %142
+  %.not66.us = icmp samesign ult i64 %indvars.iv, %142
   br i1 %.not66.us, label %158, label %.thread246.us
 
 .thread246.us:                                    ; preds = %173, %156
@@ -30464,7 +30464,7 @@ _ZN5image6codecs3ico7decoder8DirEntry18matches_dimensions17h326bb5d15c82cfc4E.ex
   %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ %160, %157 ]
   %.sroa.4207.0283.us = phi i32 [ %163, %179 ], [ 8, %157 ]
   %163 = add nsw i32 %.sroa.4207.0283.us, -1
-  %.not66.us = icmp ult i64 %indvars.iv, %140
+  %.not66.us = icmp samesign ult i64 %indvars.iv, %140
   br i1 %.not66.us, label %164, label %.thread242.us
 
 .thread242.us:                                    ; preds = %179, %162
@@ -37409,7 +37409,7 @@ define internal fastcc void @_ZN5image6codecs4webp8extended16read_alpha_chunk17h
   br label %129
 
 42:                                               ; preds = %31
-  %switch113 = icmp ult i8 %36, 2
+  %switch113 = icmp samesign ult i8 %36, 2
   br i1 %switch113, label %63, label %53
 
 43:                                               ; preds = %31
@@ -37517,7 +37517,7 @@ common.resume:                                    ; preds = %135, %92, %69, %58,
   br label %129
 
 63:                                               ; preds = %42
-  %switch114 = icmp ult i8 %39, 2
+  %switch114 = icmp samesign ult i8 %39, 2
   br i1 %switch114, label %74, label %64
 
 64:                                               ; preds = %63

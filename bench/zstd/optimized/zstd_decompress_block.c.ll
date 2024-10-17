@@ -169,12 +169,12 @@ do.body75:                                        ; preds = %sw.default, %sw.bb6
   br i1 %or.cond, label %sw.epilog508, label %do.body91
 
 do.body91:                                        ; preds = %do.body75
-  %cmp92 = icmp ult i64 %cond.i, %litSize.0
+  %cmp92 = icmp samesign ult i64 %cond.i, %litSize.0
   br i1 %cmp92, label %sw.epilog508, label %do.end104
 
 do.end104:                                        ; preds = %do.body91
-  %cmp108 = icmp ult i32 %litSize.0.in, 6
-  %or.cond4 = and i1 %singleStream.0, %cmp108
+  %cmp108 = icmp samesign ult i32 %litSize.0.in, 6
+  %or.cond4 = select i1 %singleStream.0, i1 %cmp108, i1 false
   br i1 %or.cond4, label %sw.epilog508, label %do.body122
 
 do.body122:                                       ; preds = %do.end104
@@ -183,7 +183,7 @@ do.body122:                                       ; preds = %do.end104
   br i1 %cmp124, label %sw.epilog508, label %do.body137
 
 do.body137:                                       ; preds = %do.body122
-  %cmp138 = icmp ult i64 %cond, %litSize.0
+  %cmp138 = icmp samesign ult i64 %cond, %litSize.0
   br i1 %cmp138, label %sw.epilog508, label %do.end150
 
 do.end150:                                        ; preds = %do.body137
@@ -215,7 +215,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %ZSTD_allocateLiteralsBuffer.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %ZSTD_blockSizeMax.exit.i
-  %cmp7.i = icmp ult i32 %litSize.0.in, 65537
+  %cmp7.i = icmp samesign ult i32 %litSize.0.in, 65537
   br i1 %cmp7.i, label %if.then8.i, label %if.else14.i
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -244,8 +244,8 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %if.then.i, %if.then
   %ddictIsCold = getelementptr inbounds i8, ptr %dctx, i64 30204
   %15 = load i32, ptr %ddictIsCold, align 4
   %tobool151 = icmp ne i32 %15, 0
-  %cmp153 = icmp ugt i32 %litSize.0.in, 768
-  %or.cond1 = and i1 %cmp153, %tobool151
+  %cmp153 = icmp samesign ugt i32 %litSize.0.in, 768
+  %or.cond1 = select i1 %tobool151, i1 %cmp153, i1 false
   br i1 %or.cond1, label %do.body156, label %if.end161
 
 do.body156:                                       ; preds = %ZSTD_allocateLiteralsBuffer.exit
@@ -258,7 +258,7 @@ for.body:                                         ; preds = %do.body156, %for.bo
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %_pos.0260
   tail call void @llvm.prefetch.p0(ptr %add.ptr, i32 0, i32 2, i32 1)
   %add159 = add nuw nsw i64 %_pos.0260, 64
-  %cmp157 = icmp ult i64 %_pos.0260, 16324
+  %cmp157 = icmp samesign ult i64 %_pos.0260, 16324
   br i1 %cmp157, label %for.body, label %if.end161, !llvm.loop !4
 
 if.end161:                                        ; preds = %for.body, %ZSTD_allocateLiteralsBuffer.exit
@@ -384,7 +384,7 @@ do.body278:                                       ; preds = %sw.default249, %sw.
   br i1 %or.cond2, label %sw.epilog508, label %do.body295
 
 do.body295:                                       ; preds = %do.body278
-  %cmp296 = icmp ugt i64 %litSize234.0, %cond.i
+  %cmp296 = icmp samesign ugt i64 %litSize234.0, %cond.i
   br i1 %cmp296, label %sw.epilog508, label %do.body309
 
 do.body309:                                       ; preds = %do.body295
@@ -420,7 +420,7 @@ if.then.i211:                                     ; preds = %land.lhs.true.i207
   br label %ZSTD_allocateLiteralsBuffer.exit216
 
 if.else.i190:                                     ; preds = %land.lhs.true.i207, %ZSTD_blockSizeMax.exit.i187
-  %cmp7.i191 = icmp ult i64 %litSize234.0, 65537
+  %cmp7.i191 = icmp samesign ult i64 %litSize234.0, 65537
   br i1 %cmp7.i191, label %if.then8.i203, label %if.else14.i192
 
 if.then8.i203:                                    ; preds = %if.else.i190
@@ -545,7 +545,7 @@ do.body431:                                       ; preds = %sw.default388, %do.
   br i1 %or.cond3, label %sw.epilog508, label %do.body448
 
 do.body448:                                       ; preds = %do.body431
-  %cmp449 = icmp ugt i64 %litSize378.0, %cond.i
+  %cmp449 = icmp samesign ugt i64 %litSize378.0, %cond.i
   br i1 %cmp449, label %sw.epilog508, label %do.body462
 
 do.body462:                                       ; preds = %do.body448
@@ -578,7 +578,7 @@ if.then.i249:                                     ; preds = %land.lhs.true.i245
   br label %if.else488
 
 if.else.i228:                                     ; preds = %land.lhs.true.i245, %ZSTD_blockSizeMax.exit.i225
-  %cmp7.i229 = icmp ult i64 %litSize378.0, 65537
+  %cmp7.i229 = icmp samesign ult i64 %litSize378.0, 65537
   br i1 %cmp7.i229, label %if.then8.i241, label %if.then479
 
 if.then8.i241:                                    ; preds = %if.else.i228
@@ -756,7 +756,7 @@ for.body51.i.i:                                   ; preds = %for.body51.i.i, %fo
   %add.ptr53.i.i = getelementptr inbounds i8, ptr %add.ptr47.i.i, i64 %indvars.iv111.i
   store i64 %sv.i.097.i, ptr %add.ptr53.i.i, align 1
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 8
-  %cmp49.i.i = icmp ult i64 %indvars.iv.next112.i, %4
+  %cmp49.i.i = icmp samesign ult i64 %indvars.iv.next112.i, %4
   br i1 %cmp49.i.i, label %for.body51.i.i, label %for.end56.i.i, !llvm.loop !7
 
 for.end56.i.i:                                    ; preds = %for.body51.i.i, %for.body43.i.i
@@ -792,7 +792,7 @@ for.end81.i.i:                                    ; preds = %for.body72.i.i
   %add83.i.i = add nuw nsw i64 %position.i.0101.i, %mul82.i.i
   %and84.i.i = and i64 %add83.i.i, %conv33.i134.i
   %add86.i.i = add nuw nsw i64 %s63.i.0100.i, 2
-  %cmp66.i.i = icmp ult i64 %add86.i.i, %conv65.i.i
+  %cmp66.i.i = icmp samesign ult i64 %add86.i.i, %conv65.i.i
   br i1 %cmp66.i.i, label %for.cond69.i.preheader.i, label %if.end127.i.i, !llvm.loop !10
 
 if.else88.i.i:                                    ; preds = %for.end.i.i
@@ -993,7 +993,7 @@ for.body51.i:                                     ; preds = %for.body51.i.prehea
   %add.ptr53.i = getelementptr inbounds i8, ptr %add.ptr47.i, i64 %indvars.iv111
   store i64 %sv.i.097, ptr %add.ptr53.i, align 1
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 8
-  %cmp49.i = icmp ult i64 %indvars.iv.next112, %4
+  %cmp49.i = icmp samesign ult i64 %indvars.iv.next112, %4
   br i1 %cmp49.i, label %for.body51.i, label %for.end56.i, !llvm.loop !7
 
 for.end56.i:                                      ; preds = %for.body51.i, %for.body43.i
@@ -1029,7 +1029,7 @@ for.end81.i:                                      ; preds = %for.body72.i
   %add83.i = add nuw nsw i64 %position.i.0101, %mul82.i
   %and84.i = and i64 %add83.i, %conv33.i134
   %add86.i = add nuw nsw i64 %s63.i.0100, 2
-  %cmp66.i = icmp ult i64 %add86.i, %conv65.i
+  %cmp66.i = icmp samesign ult i64 %add86.i, %conv65.i
   br i1 %cmp66.i, label %for.cond69.i.preheader, label %if.end127.i, !llvm.loop !10
 
 for.body101.i.lr.ph:                              ; preds = %for.end.i
@@ -1252,8 +1252,8 @@ do.body27.i:                                      ; preds = %do.end85
 
 do.end39.i:                                       ; preds = %do.body27.i
   %tobool40.i = icmp ne i32 %4, 0
-  %cmp41.i = icmp ugt i32 %nbSeq.0153, 24
-  %or.cond.i = and i1 %cmp41.i, %tobool40.i
+  %cmp41.i = icmp samesign ugt i32 %nbSeq.0153, 24
+  %or.cond.i = select i1 %tobool40.i, i1 %cmp41.i, i1 false
   br i1 %or.cond.i, label %if.then43.i, label %do.end111
 
 if.then43.i:                                      ; preds = %do.end39.i
@@ -1265,7 +1265,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %_pos.017.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr.i, i32 0, i32 2, i32 1)
   %add48.i = add nuw nsw i64 %_pos.017.i, 64
-  %cmp46.i = icmp ult i64 %_pos.017.i, 4040
+  %cmp46.i = icmp samesign ult i64 %_pos.017.i, 4040
   br i1 %cmp46.i, label %for.body.i, label %do.end111, !llvm.loop !15
 
 sw.bb51.i:                                        ; preds = %do.end85
@@ -1364,8 +1364,8 @@ do.body27.i77:                                    ; preds = %do.end111
 
 do.end39.i79:                                     ; preds = %do.body27.i77
   %tobool40.i80 = icmp ne i32 %12, 0
-  %cmp41.i81 = icmp ugt i32 %nbSeq.0153, 24
-  %or.cond.i82 = and i1 %cmp41.i81, %tobool40.i80
+  %cmp41.i81 = icmp samesign ugt i32 %nbSeq.0153, 24
+  %or.cond.i82 = select i1 %tobool40.i80, i1 %cmp41.i81, i1 false
   br i1 %or.cond.i82, label %if.then43.i83, label %do.end137
 
 if.then43.i83:                                    ; preds = %do.end39.i79
@@ -1377,7 +1377,7 @@ for.body.i84:                                     ; preds = %for.body.i84, %if.t
   %add.ptr.i86 = getelementptr inbounds i8, ptr %17, i64 %_pos.017.i85
   call void @llvm.prefetch.p0(ptr %add.ptr.i86, i32 0, i32 2, i32 1)
   %add48.i87 = add nuw nsw i64 %_pos.017.i85, 64
-  %cmp46.i88 = icmp ult i64 %_pos.017.i85, 1992
+  %cmp46.i88 = icmp samesign ult i64 %_pos.017.i85, 1992
   br i1 %cmp46.i88, label %for.body.i84, label %do.end137, !llvm.loop !15
 
 sw.bb51.i67:                                      ; preds = %do.end111
@@ -1471,8 +1471,8 @@ do.body27.i120:                                   ; preds = %do.end137
 
 do.end39.i122:                                    ; preds = %do.body27.i120
   %tobool40.i123 = icmp ne i32 %21, 0
-  %cmp41.i124 = icmp ugt i32 %nbSeq.0153, 24
-  %or.cond.i125 = and i1 %cmp41.i124, %tobool40.i123
+  %cmp41.i124 = icmp samesign ugt i32 %nbSeq.0153, 24
+  %or.cond.i125 = select i1 %tobool40.i123, i1 %cmp41.i124, i1 false
   br i1 %or.cond.i125, label %if.then43.i126, label %do.end163
 
 if.then43.i126:                                   ; preds = %do.end39.i122
@@ -1484,7 +1484,7 @@ for.body.i127:                                    ; preds = %for.body.i127, %if.
   %add.ptr.i129 = getelementptr inbounds i8, ptr %25, i64 %_pos.017.i128
   call void @llvm.prefetch.p0(ptr %add.ptr.i129, i32 0, i32 2, i32 1)
   %add48.i130 = add nuw nsw i64 %_pos.017.i128, 64
-  %cmp46.i131 = icmp ult i64 %_pos.017.i128, 4040
+  %cmp46.i131 = icmp samesign ult i64 %_pos.017.i128, 4040
   br i1 %cmp46.i131, label %for.body.i127, label %do.end163, !llvm.loop !15
 
 sw.bb51.i110:                                     ; preds = %do.end137
@@ -6101,7 +6101,7 @@ ZSTD_execSequence.exit547.i.i:                    ; preds = %do.body11.i1652.i.i
 if.end96.i.i:                                     ; preds = %ZSTD_execSequence.exit547.i.i
   %add.ptr94.i.i = getelementptr inbounds i8, ptr %op.i.3.i, i64 %retval.i450.i.0.i
   %dec95.i.i = add nsw i32 %nbSeq.addr.i.01346.i, -1
-  %cmp97.i.i = icmp ugt i32 %nbSeq.addr.i.01346.i, 1
+  %cmp97.i.i = icmp samesign ugt i32 %nbSeq.addr.i.01346.i, 1
   br i1 %cmp97.i.i, label %for.body102.i.lr.ph.i, label %if.end119.i.i
 
 for.body102.i.lr.ph.i:                            ; preds = %if.end96.i.i
@@ -12675,7 +12675,7 @@ ZSTD_execSequence.exit547.i:                      ; preds = %do.body11.i1652.i, 
 if.end96.i:                                       ; preds = %ZSTD_execSequence.exit547.i
   %add.ptr94.i = getelementptr inbounds i8, ptr %op.i.3, i64 %retval.i450.i.0
   %dec95.i = add nsw i32 %nbSeq.addr.i.01346, -1
-  %cmp97.i = icmp ugt i32 %nbSeq.addr.i.01346, 1
+  %cmp97.i = icmp samesign ugt i32 %nbSeq.addr.i.01346, 1
   br i1 %cmp97.i, label %for.body102.i.lr.ph, label %if.end119.i
 
 for.body102.i.lr.ph:                              ; preds = %if.end96.i

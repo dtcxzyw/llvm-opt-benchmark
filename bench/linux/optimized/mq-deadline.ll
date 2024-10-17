@@ -842,7 +842,7 @@ define internal ptr @dd_dispatch_request(ptr nocapture noundef readonly %0) #2 a
   %27 = icmp ne i32 %24, %26
   %28 = zext i1 %27 to i32
   %29 = add nuw nsw i32 %22, %28
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   br i1 %30, label %.preheader.preheader, label %31
 
 31:                                               ; preds = %1
@@ -920,7 +920,7 @@ define internal zeroext i1 @dd_has_work(ptr nocapture noundef readonly %0) #2 al
 
 16:                                               ; preds = %42
   %17 = add nuw nsw i64 %34, 1
-  %18 = icmp ult i64 %34, 2
+  %18 = icmp samesign ult i64 %34, 2
   %19 = icmp eq i64 %17, 3
   br i1 %19, label %.loopexit, label %20, !llvm.loop !37
 

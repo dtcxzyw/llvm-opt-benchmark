@@ -2477,9 +2477,9 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17ha08df6ef0667368aE.llvm
   br i1 %309, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread324, label %310
 
 310:                                              ; preds = %307
-  %311 = icmp ult i64 %308, 5
+  %311 = icmp samesign ult i64 %308, 5
   call void @llvm.assume(i1 %311)
-  %312 = icmp ult i64 %308, 2
+  %312 = icmp samesign ult i64 %308, 2
   br i1 %312, label %313, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread324
 
 313:                                              ; preds = %310
@@ -2532,7 +2532,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %334 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %335 = icmp ult i64 %334, 6
   call void @llvm.assume(i1 %335)
-  %switch.selectcmp134 = icmp ugt i64 %334, 3
+  %switch.selectcmp134 = icmp samesign ugt i64 %334, 3
   br i1 %switch.selectcmp134, label %336, label %372
 
 336:                                              ; preds = %333
@@ -2711,7 +2711,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %389 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !655
   %390 = icmp ult i64 %389, 6
   call void @llvm.assume(i1 %390)
-  %391 = icmp ult i64 %389, 4
+  %391 = icmp samesign ult i64 %389, 4
   br i1 %391, label %"_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_valid_uri28_$u7b$$u7b$closure$u7d$$u7d$17h181a6930949d86ddE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %388

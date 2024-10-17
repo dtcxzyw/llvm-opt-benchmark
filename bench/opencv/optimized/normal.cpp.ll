@@ -10388,7 +10388,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIfE11computeImplItlEENS_3Ma
   %106 = zext i16 %105 to i64
   %107 = sub nsw i64 %106, %100
   %108 = call noundef i64 @llvm.abs.i64(i64 %107, i1 true)
-  %109 = icmp ugt i64 %108, 50
+  %109 = icmp samesign ugt i64 %108, 50
   br i1 %109, label %128, label %110
 
 110:                                              ; preds = %101
@@ -11635,7 +11635,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIdE11computeImplItlEENS_3Ma
   %106 = zext i16 %105 to i64
   %107 = sub nsw i64 %106, %100
   %108 = call noundef i64 @llvm.abs.i64(i64 %107, i1 true)
-  %109 = icmp ugt i64 %108, 50
+  %109 = icmp samesign ugt i64 %108, 50
   br i1 %109, label %128, label %110
 
 110:                                              ; preds = %101

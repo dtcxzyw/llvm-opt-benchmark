@@ -212,7 +212,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %23 = fptoui double %22 to i64
   %24 = tail call i64 @llvm.umax.i64(i64 %23, i64 2)
   %25 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %26 = icmp ult i64 %25, 2
+  %26 = icmp samesign ult i64 %25, 2
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %28 = sub nuw nsw i64 64, %27
   %29 = shl nuw i64 1, %28
@@ -233,7 +233,7 @@ memoize_compute_size.exit.i.i:                    ; preds = %8
   %36 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %35, ptr %36, align 8
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i, i1 true)
   %40 = sub nuw nsw i64 64, %39
   %41 = shl nuw i64 1, %40
@@ -348,7 +348,7 @@ prepare_probe_slot.exit.i:                        ; preds = %74, %55
   %105 = load ptr, ptr %91, align 8
   %106 = tail call i64 @llvm.umax.i64(i64 %104, i64 2)
   %107 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %106)
-  %108 = icmp ult i64 %107, 2
+  %108 = icmp samesign ult i64 %107, 2
   %109 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %106, i1 true)
   %110 = sub nuw nsw i64 64, %109
   %111 = shl nuw i64 1, %110
@@ -369,7 +369,7 @@ memoize_compute_size.exit.i.i.i.i:                ; preds = %103
   %117 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i.i, i64 noundef %112, i32 noundef 5) #10
   store ptr %117, ptr %91, align 8
   %118 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i.i)
-  %119 = icmp ult i64 %118, 2
+  %119 = icmp samesign ult i64 %118, 2
   %120 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i.i, i1 true)
   %121 = sub nuw nsw i64 64, %120
   %122 = shl nuw i64 1, %121

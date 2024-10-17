@@ -201,7 +201,7 @@ define hidden void @_ZN12StringConcat26eliminate_unneeded_controlEv(ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %2, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %80, %1
@@ -507,7 +507,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %31, %35
   %40 = phi i32 [ %23, %22 ], [ %.pre, %_ZN9Node_List4pushEP4Node.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %22, label %.preheader61, !llvm.loop !9
 
 .preheader60:                                     ; preds = %73, %.preheader61
@@ -565,7 +565,7 @@ _ZN9Node_List4pushEP4Node.exit51:                 ; preds = %65, %69
   %74 = phi i32 [ %57, %56 ], [ %.pre94, %_ZN9Node_List4pushEP4Node.exit51 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next80, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next80, %75
   br i1 %76, label %56, label %.preheader60, !llvm.loop !10
 
 77:                                               ; preds = %.lr.ph68, %.loopexit
@@ -622,7 +622,7 @@ _ZN12StringConcat15argument_uncastEi.exit:        ; preds = %77, %86
   %104 = add nsw i32 %100, 1
   %105 = icmp sgt i32 %100, -1
   %106 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %104)
-  %107 = icmp ult i32 %106, 2
+  %107 = icmp samesign ult i32 %106, 2
   %or.cond.i.i.i.i.i = select i1 %105, i1 %107, i1 false
   %108 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %104, i1 true)
   %109 = sub nuw nsw i32 32, %108
@@ -745,7 +745,7 @@ _ZN12StringConcat6appendEP4Nodei.exit:            ; preds = %.lr.ph66._ZN12Strin
   %163 = add nsw i32 %159, 1
   %164 = icmp sgt i32 %159, -1
   %165 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %163)
-  %166 = icmp ult i32 %165, 2
+  %166 = icmp samesign ult i32 %165, 2
   %or.cond.i.i.i.i.i52 = select i1 %164, i1 %166, i1 false
   %167 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %163, i1 true)
   %168 = sub nuw nsw i32 32, %167
@@ -828,7 +828,7 @@ _ZN12StringConcat15add_constructorEP4Node.exit:   ; preds = %195, %202
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %206 = load i32, ptr %181, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next89, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next89, %207
   br i1 %208, label %195, label %.preheader, !llvm.loop !15
 
 209:                                              ; preds = %.lr.ph73, %_ZN12StringConcat15add_constructorEP4Node.exit57
@@ -855,7 +855,7 @@ _ZN12StringConcat15add_constructorEP4Node.exit57: ; preds = %209, %216
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %220 = load i32, ptr %188, align 8
   %221 = zext i32 %220 to i64
-  %222 = icmp ult i64 %indvars.iv.next92, %221
+  %222 = icmp samesign ult i64 %indvars.iv.next92, %221
   br i1 %222, label %209, label %._crit_edge74, !llvm.loop !16
 
 ._crit_edge74:                                    ; preds = %_ZN12StringConcat15add_constructorEP4Node.exit57, %.preheader
@@ -1244,7 +1244,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %69, %73
   %81 = getelementptr inbounds i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %49, label %.preheader47, !llvm.loop !17
 
 85:                                               ; preds = %.lr.ph53, %.loopexit
@@ -1418,7 +1418,7 @@ _ZN9Node_List4pushEP4Node.exit42:                 ; preds = %160, %167
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %172 = load i32, ptr %140, align 4
   %173 = zext i32 %172 to i64
-  %174 = icmp ult i64 %indvars.iv.next56, %173
+  %174 = icmp samesign ult i64 %indvars.iv.next56, %173
   br i1 %174, label %.lr.ph50, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %171, %.preheader, %136
@@ -1828,7 +1828,7 @@ _ZN12StringConcat11add_controlEP4Node.exit116:    ; preds = %218, %222
   %247 = add nsw i32 %243, 1
   %248 = icmp sgt i32 %243, -1
   %249 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %247)
-  %250 = icmp ult i32 %249, 2
+  %250 = icmp samesign ult i32 %249, 2
   %or.cond.i.i.i.i.i.i = select i1 %248, i1 %250, i1 false
   %251 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %247, i1 true)
   %252 = sub nuw nsw i32 32, %251
@@ -1874,7 +1874,7 @@ _ZN12StringConcat11add_controlEP4Node.exit116:    ; preds = %218, %222
   %270 = add nsw i32 %266, 1
   %271 = icmp sgt i32 %266, -1
   %272 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %270)
-  %273 = icmp ult i32 %272, 2
+  %273 = icmp samesign ult i32 %272, 2
   %or.cond.i.i.i.i.i.i124 = select i1 %271, i1 %273, i1 false
   %274 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %270, i1 true)
   %275 = sub nuw nsw i32 32, %274
@@ -1971,7 +1971,7 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %309, %313
   %326 = add nsw i32 %322, 1
   %327 = icmp sgt i32 %322, -1
   %328 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %326)
-  %329 = icmp ult i32 %328, 2
+  %329 = icmp samesign ult i32 %328, 2
   %or.cond.i.i.i.i.i.i136 = select i1 %327, i1 %329, i1 false
   %330 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %326, i1 true)
   %331 = sub nuw nsw i32 32, %330
@@ -2027,7 +2027,7 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %309, %313
   %349 = add nsw i32 %345, 1
   %350 = icmp sgt i32 %345, -1
   %351 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %349)
-  %352 = icmp ult i32 %351, 2
+  %352 = icmp samesign ult i32 %351, 2
   %or.cond.i.i.i.i.i.i147 = select i1 %350, i1 %352, i1 false
   %353 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %349, i1 true)
   %354 = sub nuw nsw i32 32, %353
@@ -2082,7 +2082,7 @@ define linkonce_odr hidden void @_ZN12StringConcat22push_string_null_checkEP4Nod
   %11 = add nsw i32 %6, 1
   %12 = icmp sgt i32 %6, -1
   %13 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %or.cond.i.i.i.i.i = select i1 %12, i1 %14, i1 false
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %16 = sub nuw nsw i32 32, %15
@@ -2143,7 +2143,7 @@ define linkonce_odr hidden void @_ZN12StringConcat23push_negative_int_checkEP4No
   %11 = add nsw i32 %6, 1
   %12 = icmp sgt i32 %6, -1
   %13 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %or.cond.i.i.i.i.i = select i1 %12, i1 %14, i1 false
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %16 = sub nuw nsw i32 32, %15
@@ -2570,7 +2570,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit169:        ; preds = %_ZN9Node_List4pushE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %204 = load i32, ptr %46, align 8
   %205 = zext i32 %204 to i64
-  %206 = icmp ult i64 %indvars.iv.next, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next, %205
   br i1 %206, label %50, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit169, %_ZN16Unique_Node_ListC2Ev.exit
@@ -3249,7 +3249,7 @@ _ZN9Node_List4pushEP4Node.exit196:                ; preds = %578, %582
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %586 = load i32, ptr %46, align 8
   %587 = zext i32 %586 to i64
-  %588 = icmp ult i64 %indvars.iv.next336, %587
+  %588 = icmp samesign ult i64 %indvars.iv.next336, %587
   br i1 %588, label %553, label %.preheader, !llvm.loop !26
 
 589:                                              ; preds = %.outer, %_ZN9VectorSet8test_setEj.exit198
@@ -3728,7 +3728,7 @@ _ZN13GrowableArrayIP12StringConcatE8allocateEv.exit.i: ; preds = %50
   %52 = add nsw i32 %.sroa.17.0128, 1
   %53 = icmp sgt i32 %.sroa.17.0128, -1
   %54 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
-  %55 = icmp ult i32 %54, 2
+  %55 = icmp samesign ult i32 %54, 2
   %or.cond.i.i.i.i.i = select i1 %53, i1 %55, i1 false
   %56 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %57 = sub nuw nsw i32 32, %56
@@ -4130,13 +4130,13 @@ _ZN12StringConcat17validate_mem_flowEv.exit:      ; preds = %201, %_ZNK9Node_Lis
   %263 = getelementptr inbounds ptr, ptr %.sroa.24.1, i64 %indvars.iv
   %.034133160 = trunc i64 %indvars.iv to i32
   %.0140166 = trunc i64 %indvars.iv173 to i32
-  %264 = icmp ult i32 %.0140166, %.034133160
+  %264 = icmp samesign ult i32 %.0140166, %.034133160
   br i1 %264, label %265, label %274
 
 265:                                              ; preds = %_ZN12StringConcat17validate_mem_flowEv.exit
   %.06.i = add nuw i64 %indvars.iv, 1
   %266 = and i64 %.06.i, 4294967295
-  %267 = icmp ult i64 %266, %indvars.iv184
+  %267 = icmp samesign ult i64 %266, %indvars.iv184
   br i1 %267, label %.lr.ph.i41, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit
 
 .lr.ph.i41:                                       ; preds = %265
@@ -4151,7 +4151,7 @@ _ZN12StringConcat17validate_mem_flowEv.exit:      ; preds = %201, %_ZNK9Node_Lis
   %272 = getelementptr inbounds ptr, ptr %.sroa.24.1, i64 %indvars.iv10.i
   store ptr %271, ptr %272, align 8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
-  %273 = icmp ult i64 %indvars.iv.next.i43, %indvars.iv184
+  %273 = icmp samesign ult i64 %indvars.iv.next.i43, %indvars.iv184
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   br i1 %273, label %269, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit, !llvm.loop !36
 
@@ -4162,7 +4162,7 @@ _ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit: ; preds = %269, %265
 274:                                              ; preds = %_ZN12StringConcat17validate_mem_flowEv.exit
   %.06.i44 = add nuw i64 %indvars.iv173, 1
   %275 = and i64 %.06.i44, 4294967295
-  %276 = icmp ult i64 %275, %indvars.iv184
+  %276 = icmp samesign ult i64 %275, %indvars.iv184
   br i1 %276, label %.lr.ph.i47, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52
 
 .lr.ph.i47:                                       ; preds = %274
@@ -4177,7 +4177,7 @@ _ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit: ; preds = %269, %265
   %281 = getelementptr inbounds ptr, ptr %.sroa.24.1, i64 %indvars.iv10.i48
   store ptr %280, ptr %281, align 8
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
-  %282 = icmp ult i64 %indvars.iv.next.i50, %indvars.iv184
+  %282 = icmp samesign ult i64 %indvars.iv.next.i50, %indvars.iv184
   %indvars.iv.next11.i51 = add nuw nsw i64 %indvars.iv10.i48, 1
   br i1 %282, label %278, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52, !llvm.loop !36
 
@@ -4394,7 +4394,7 @@ _ZN4Node8init_reqEjPS_.exit209:                   ; preds = %.lr.ph, %82, %93
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %99 = tail call noundef i32 @_ZNK8JVMState11debug_startEv(ptr noundef nonnull align 8 dereferenceable(64) %19) #11
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next504, %100
+  %101 = icmp samesign ult i64 %indvars.iv.next504, %100
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit209, %.preheader
@@ -4458,7 +4458,7 @@ _ZN4Node8init_reqEjPS_.exit213:                   ; preds = %108, %116, %127
   %134 = getelementptr inbounds i8, ptr %133, i64 24
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %indvars.iv.next507, %136
+  %137 = icmp samesign ult i64 %indvars.iv.next507, %136
   br i1 %137, label %108, label %._crit_edge477, !llvm.loop !43
 
 ._crit_edge477:                                   ; preds = %_ZN4Node8init_reqEjPS_.exit213, %._crit_edge
@@ -17386,7 +17386,7 @@ _ZN4Node8init_reqEjPS_.exit28:                    ; preds = %87, %92, %103
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %115 = load i32, ptr %4, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next33, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next33, %116
   br i1 %117, label %9, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit28, %3

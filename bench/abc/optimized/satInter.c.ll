@@ -102,7 +102,7 @@ define i32 @Int_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_a
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16777215
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %11, label %.loopexit65, !llvm.loop !6
 
 .critedge:                                        ; preds = %5, %.loopexit65, %1
@@ -191,7 +191,7 @@ define i32 @Int_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_a
   %64 = lshr i32 %63, 3
   %65 = and i32 %64, 16777215
   %66 = zext nneg i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next96, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next96, %66
   br i1 %67, label %51, label %.loopexit61, !llvm.loop !8
 
 .loopexit61:                                      ; preds = %62, %47
@@ -682,7 +682,7 @@ define void @Int_ManPrintClause(ptr nocapture noundef readonly %0, ptr nocapture
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16777215
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14, %2
@@ -953,7 +953,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
-  %51 = icmp ugt i32 %50, 2
+  %51 = icmp samesign ugt i32 %50, 2
   br i1 %51, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -1012,7 +1012,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 .loopexit.i:                                      ; preds = %62, %.preheader.i
   %.pre-phi78.i = phi i32 [ %.pre77.i, %62 ], [ %50, %.preheader.i ]
   %.058.i = phi i32 [ %64, %62 ], [ 2, %.preheader.i ]
-  %80 = icmp ult i32 %.058.i, %.pre-phi78.i
+  %80 = icmp samesign ult i32 %.058.i, %.pre-phi78.i
   br i1 %80, label %94, label %.loopexit.i..loopexit.thread.i_crit_edge
 
 .loopexit.i..loopexit.thread.i_crit_edge:         ; preds = %.loopexit.i
@@ -1175,7 +1175,7 @@ define void @Int_ManProofWriteOne(ptr nocapture noundef %0, ptr nocapture nounde
   %34 = lshr i32 %33, 3
   %35 = and i32 %34, 16777215
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %23, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %12
@@ -1256,7 +1256,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %41 = lshr i32 %40, 3
   %42 = and i32 %41, 16777215
   %43 = zext nneg i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %33, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %33, %27
@@ -1376,7 +1376,7 @@ Int_ManTruthCopy.exit:                            ; preds = %.lr.ph.i, %48, %._c
   %113 = lshr i32 %112, 3
   %114 = and i32 %113, 16777215
   %115 = zext nneg i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next304, %115
+  %116 = icmp samesign ult i64 %indvars.iv.next304, %115
   br i1 %116, label %105, label %._crit_edge257, !llvm.loop !23
 
 ._crit_edge257:                                   ; preds = %105, %.preheader247
@@ -1629,7 +1629,7 @@ Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.p
   %237 = lshr i32 %236, 3
   %238 = and i32 %237, 16777215
   %239 = zext nneg i32 %238 to i64
-  %240 = icmp ult i64 %indvars.iv.next318, %239
+  %240 = icmp samesign ult i64 %indvars.iv.next318, %239
   br i1 %240, label %.preheader242, label %.loopexit244, !llvm.loop !29
 
 .loopexit244:                                     ; preds = %235, %.preheader243, %Int_ManTruthOr.exit, %96, %87
@@ -1716,7 +1716,7 @@ Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.p
   %277 = lshr i32 %276, 3
   %278 = and i32 %277, 16777215
   %279 = zext nneg i32 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next.i220, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next.i220, %279
   br i1 %280, label %272, label %Int_ManPrintClause.exit, !llvm.loop !13
 
 Int_ManPrintClause.exit:                          ; preds = %272, %.preheader240._crit_edge
@@ -1764,7 +1764,7 @@ Int_ManPrintResolvent.exit:                       ; preds = %.lr.ph.i223, %Int_M
   %300 = lshr i32 %299, 3
   %301 = and i32 %300, 16777215
   %302 = zext nneg i32 %301 to i64
-  %303 = icmp ult i64 %indvars.iv.next.i230, %302
+  %303 = icmp samesign ult i64 %indvars.iv.next.i230, %302
   br i1 %303, label %.lr.ph.i228, label %Int_ManPrintClause.exit232, !llvm.loop !13
 
 Int_ManPrintClause.exit232:                       ; preds = %.lr.ph.i228, %Int_ManPrintResolvent.exit
@@ -1989,7 +1989,7 @@ Int_ManEnqueue.exit:                              ; preds = %30
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next114, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next114, %51
   br i1 %52, label %30, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %47, %.preheader87
@@ -2007,7 +2007,7 @@ Int_ManEnqueue.exit:                              ; preds = %30
   %62 = load i32, ptr %61, align 4
   %63 = lshr i32 %62, 3
   %64 = and i32 %63, 16777215
-  %.not = icmp ult i32 %60, %64
+  %.not = icmp samesign ult i32 %60, %64
   br i1 %.not, label %98, label %.preheader86
 
 .preheader86:                                     ; preds = %57
@@ -2523,7 +2523,7 @@ Int_ManTruthOrNot.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
   %68 = lshr i32 %67, 3
   %69 = and i32 %68, 16777215
   %70 = zext nneg i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %32, label %Int_ManTruthFill.exit, !llvm.loop !43
 
 Int_ManTruthFill.exit:                            ; preds = %Int_ManTruthOrNot.exit, %Int_ManTruthClear.exit, %.lr.ph.preheader.i, %13

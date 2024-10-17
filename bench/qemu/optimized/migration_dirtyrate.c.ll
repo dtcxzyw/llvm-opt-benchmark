@@ -1710,7 +1710,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %mul1.i28.i = mul i64 %or.i.i27.i, -7046029288634856825
   %add15.i = add i32 %i.037.i, 4
   %conv.i = zext i32 %add15.i to i64
-  %cmp.i = icmp ugt i64 %div16.i, %conv.i
+  %cmp.i = icmp samesign ugt i64 %div16.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %compute_page_hash.exit, !llvm.loop !36
 
 compute_page_hash.exit:                           ; preds = %for.body.i, %entry

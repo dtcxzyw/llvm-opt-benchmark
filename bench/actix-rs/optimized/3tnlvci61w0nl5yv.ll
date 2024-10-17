@@ -3299,7 +3299,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %251 = landingpad { ptr, i32 }
           cleanup
   %252 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !range !38, !alias.scope !595, !noundef !9
-  %switch.not.i.i = icmp ult i64 %252, 2
+  %switch.not.i.i = icmp samesign ult i64 %252, 2
   br i1 %switch.not.i.i, label %253, label %common.resume
 
 253:                                              ; preds = %250
@@ -3309,7 +3309,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
 
 "_ZN4core3ptr107drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$17h98b92f421fa5028dE.llvm.11632439649900387884.exit.i": ; preds = %247
   %255 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !range !38, !alias.scope !600, !noundef !9
-  %switch.not.i1.i = icmp ult i64 %255, 2
+  %switch.not.i1.i = icmp samesign ult i64 %255, 2
   br i1 %switch.not.i1.i, label %256, label %"_ZN4core3ptr155drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$$GT$17h7512a82b3d4640dcE.exit"
 
 256:                                              ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$17h98b92f421fa5028dE.llvm.11632439649900387884.exit.i"
@@ -3396,7 +3396,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %280 = landingpad { ptr, i32 }
           cleanup
   %281 = load i64, ptr %.sroa.456.0..sroa_idx, align 8, !range !38, !alias.scope !603, !noundef !9
-  %switch.not.i.i141 = icmp ult i64 %281, 2
+  %switch.not.i.i141 = icmp samesign ult i64 %281, 2
   br i1 %switch.not.i.i141, label %282, label %.body146
 
 282:                                              ; preds = %279
@@ -3406,7 +3406,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
 
 "_ZN4core3ptr107drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$17h98b92f421fa5028dE.llvm.11632439649900387884.exit.i143": ; preds = %278
   %284 = load i64, ptr %.sroa.456.0..sroa_idx, align 8, !range !38, !alias.scope !608, !noundef !9
-  %switch.not.i1.i144 = icmp ult i64 %284, 2
+  %switch.not.i1.i144 = icmp samesign ult i64 %284, 2
   br i1 %switch.not.i1.i144, label %285, label %"_ZN4core3ptr155drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$$GT$17h7512a82b3d4640dcE.exit148"
 
 285:                                              ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$regex..regex..string..CaptureMatches$GT$$GT$17h98b92f421fa5028dE.llvm.11632439649900387884.exit.i143"

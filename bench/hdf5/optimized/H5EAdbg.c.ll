@@ -277,7 +277,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i8, ptr %51, align 2
   %62 = zext i8 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %64, label %.loopexit122
 
 64:                                               ; preds = %.lr.ph, %60

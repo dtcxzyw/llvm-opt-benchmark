@@ -270,7 +270,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_ed
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i.i.i": ; preds = %64
   %71 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %69
-  %or.cond.i.i.i.i = icmp ult i8 %61, 9
+  %or.cond.i.i.i.i = icmp samesign ult i8 %61, 9
   br i1 %or.cond.i.i.i.i, label %72, label %.invoke
 
 72:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i.i.i"
@@ -441,7 +441,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node1
   %144 = icmp ne ptr %.sroa.0.sroa.8.0.copyload.i.i, null
   call void @llvm.assume(i1 %144)
   %145 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %142
-  %or.cond.i.i46.i.i = icmp ult i8 %134, 9
+  %or.cond.i.i46.i.i = icmp samesign ult i8 %134, 9
   br i1 %or.cond.i.i46.i.i, label %146, label %.invoke
 
 146:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i45.i.i"
@@ -917,7 +917,7 @@ define hidden void @"_ZN3fst3raw24StreamWithState$LT$A$GT$3new17hbf9bd9af3ff6551
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   %29 = load i64, ptr %16, align 8, !range !22, !alias.scope !113, !noalias !110, !noundef !4
-  %switch29.i = icmp ugt i64 %29, 1
+  %switch29.i = icmp samesign ugt i64 %29, 1
   %.sroa.0.0.in.in.in.i = getelementptr inbounds i8, ptr %16, i64 24
   %.sroa.0.0.in.in.i = load i64, ptr %.sroa.0.0.in.in.in.i, align 8, !alias.scope !113, !noalias !110
   %.sroa.0.0.in.i = icmp eq i64 %.sroa.0.0.in.in.i, 0
@@ -1204,7 +1204,7 @@ default.unreachable.i.i:                          ; preds = %132
   br i1 %159, label %.invoke1031.i, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i.i"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i.i": ; preds = %153
-  %or.cond.i.i85.i = icmp ult i8 %150, 9
+  %or.cond.i.i85.i = icmp samesign ult i8 %150, 9
   br i1 %or.cond.i.i85.i, label %160, label %.invoke1029.i
 
 160:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i.i"
@@ -1324,7 +1324,7 @@ default.unreachable.i.i:                          ; preds = %132
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i109.i": ; preds = %207
   %214 = icmp ne ptr %.sroa.0276.0.copyload.i, null
   call void @llvm.assume(i1 %214)
-  %or.cond.i.i110.i = icmp ult i8 %204, 9
+  %or.cond.i.i110.i = icmp samesign ult i8 %204, 9
   br i1 %or.cond.i.i110.i, label %215, label %.invoke1029.i
 
 215:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i109.i"
@@ -1518,7 +1518,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
   %296 = zext nneg i8 %295 to i64
   %297 = icmp eq i8 %295, 0
   %298 = lshr i8 %294, 4
-  %or.cond.i.i.i.i.i = icmp ult i8 %295, 9
+  %or.cond.i.i.i.i.i = icmp samesign ult i8 %295, 9
   %299 = zext nneg i8 %298 to i64
   %.neg3.i240.i = select i1 %288, i64 -2, i64 -1
   %.neg348.i = sub i64 %286, %283
@@ -1744,7 +1744,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i166.i": ; preds = %377
   %384 = getelementptr inbounds i8, ptr %368, i64 %382
-  %or.cond.i.i167.i = icmp ult i8 %374, 9
+  %or.cond.i.i167.i = icmp samesign ult i8 %374, 9
   br i1 %or.cond.i.i167.i, label %385, label %.invoke1029.i
 
 385:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i166.i"
@@ -1884,7 +1884,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i203.i": ; preds = %440
   %443 = load ptr, ptr %13, align 8, !alias.scope !213, !noalias !122, !nonnull !4, !align !67, !noundef !4
   %444 = getelementptr inbounds i8, ptr %443, i64 %441
-  %or.cond.i.i204.i = icmp ult i8 %437, 9
+  %or.cond.i.i204.i = icmp samesign ult i8 %437, 9
   br i1 %or.cond.i.i204.i, label %445, label %.invoke1029.i
 
 445:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i203.i"

@@ -2890,7 +2890,7 @@ for.inc.us.us.i:                                  ; preds = %if.end22.us.us.i, %
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %27 = zext i32 %26 to i64
-  %cmp.us.us.i = icmp ult i64 %indvars.iv.next37.i, %27
+  %cmp.us.us.i = icmp samesign ult i64 %indvars.iv.next37.i, %27
   br i1 %cmp.us.us.i, label %for.body.us.us.i.backedge, label %do_reupdate.exit
 
 for.body.us.us.i.backedge:                        ; preds = %for.inc.us.us.i, %redo.backedge.us.i
@@ -2962,7 +2962,7 @@ for.inc.i:                                        ; preds = %if.end22.i, %lor.lh
   %38 = phi i32 [ %.pre39.i, %lor.lhs.false.for.inc_crit_edge.i ], [ %36, %if.end22.i ], [ %28, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = zext i32 %38 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %39
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %39
   br i1 %cmp.i, label %for.body.i.backedge, label %do_reupdate.exit
 
 for.body.i.backedge:                              ; preds = %for.inc.i, %redo.backedge.i

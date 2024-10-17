@@ -145,7 +145,7 @@ extcap_loaded_interfaces.exit:                    ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %21, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph39, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph39, %19
@@ -652,7 +652,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   %.4.i = phi i1 [ %216, %213 ], [ %.350.i, %207 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %indvars.iv.next.i, %219
+  %220 = icmp samesign ult i64 %indvars.iv.next.i, %219
   br i1 %220, label %207, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %217, %process_new_extcap.exit.i, %78
@@ -690,7 +690,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %234 = load i32, ptr %225, align 8
   %235 = zext i32 %234 to i64
-  %236 = icmp ult i64 %indvars.iv.next.i.i, %235
+  %236 = icmp samesign ult i64 %indvars.iv.next.i.i, %235
   br i1 %236, label %228, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %228, %.lr.ph22.i.i

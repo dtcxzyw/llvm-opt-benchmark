@@ -1342,7 +1342,7 @@ define void @_ZN7Minisat6Solver10releaseVarENS_3LitE(ptr noundef nonnull align 8
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %32 = add nuw nsw i32 %31, 2
   %33 = sub nsw i32 2147483647, %24
-  %34 = icmp ugt i32 %32, %33
+  %34 = icmp samesign ugt i32 %32, %33
   br i1 %34, label %46, label %35
 
 35:                                               ; preds = %28
@@ -1416,7 +1416,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %._ZN7Minisat3vecINS
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %14 = add nuw nsw i32 %13, 2
   %15 = sub nsw i32 2147483647, %5
-  %16 = icmp ugt i32 %14, %15
+  %16 = icmp samesign ugt i32 %14, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %10
@@ -1618,7 +1618,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %6, %._crit_edge, %.
   %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
   %92 = add nuw nsw i32 %91, 2
   %93 = sub nsw i32 2147483647, %84
-  %94 = icmp ugt i32 %92, %93
+  %94 = icmp samesign ugt i32 %92, %93
   br i1 %94, label %106, label %95
 
 95:                                               ; preds = %88
@@ -1970,7 +1970,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %150 = tail call i32 @llvm.smax.i32(i32 %149, i32 0)
   %151 = add nuw nsw i32 %150, 2
   %152 = sub nsw i32 2147483647, %143
-  %153 = icmp ugt i32 %151, %152
+  %153 = icmp samesign ugt i32 %151, %152
   br i1 %153, label %.loopexit106, label %154
 
 154:                                              ; preds = %147
@@ -2269,7 +2269,7 @@ define void @_ZN7Minisat6Solver12attachClauseEj(ptr nocapture noundef nonnull al
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
   %23 = add nuw nsw i32 %22, 2
   %24 = sub nsw i32 2147483647, %15
-  %25 = icmp ugt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %19
@@ -2333,7 +2333,7 @@ _ZN7Minisat3vecINS_6Solver7WatcherEiE4pushERKS2_.exit: ; preds = %._ZN7Minisat3v
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = add nuw nsw i32 %56, 2
   %58 = sub nsw i32 2147483647, %49
-  %59 = icmp ugt i32 %57, %58
+  %59 = icmp samesign ugt i32 %57, %58
   br i1 %59, label %71, label %60
 
 60:                                               ; preds = %53
@@ -2563,7 +2563,7 @@ _ZN7MinisatL6removeINS_3vecINS_6Solver7WatcherEiEES3_EEvRT_RKT0_.exit39: ; preds
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %82 = add nuw nsw i32 %81, 2
   %83 = sub nsw i32 2147483647, %74
-  %84 = icmp ugt i32 %82, %83
+  %84 = icmp samesign ugt i32 %82, %83
   br i1 %84, label %96, label %85
 
 85:                                               ; preds = %78
@@ -2635,7 +2635,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
   %121 = add nuw nsw i32 %120, 2
   %122 = sub nsw i32 2147483647, %113
-  %123 = icmp ugt i32 %121, %122
+  %123 = icmp samesign ugt i32 %121, %122
   br i1 %123, label %135, label %124
 
 124:                                              ; preds = %117
@@ -3264,7 +3264,7 @@ define void @_ZN7Minisat6Solver7analyzeEjRNS_3vecINS_3LitEiEERi(ptr noundef nonn
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %14 = add nuw nsw i32 %13, 2
   %15 = sub nsw i32 2147483647, %6
-  %16 = icmp ugt i32 %14, %15
+  %16 = icmp samesign ugt i32 %14, %15
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %10
@@ -3392,7 +3392,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
   %95 = icmp ne i32 %.sroa.0131.0, -2
   %96 = zext i1 %95 to i32
   %97 = lshr i32 %94, 5
-  %98 = icmp ugt i32 %97, %96
+  %98 = icmp samesign ugt i32 %97, %96
   br i1 %98, label %.lr.ph, label %.preheader139
 
 .lr.ph:                                           ; preds = %_ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit
@@ -3558,7 +3558,7 @@ _ZN7Minisat6Solver15varBumpActivityEi.exit:       ; preds = %135, %_ZNK7Minisat4
   %185 = tail call i32 @llvm.smax.i32(i32 %184, i32 0)
   %186 = add nuw nsw i32 %185, 2
   %187 = sub nsw i32 2147483647, %179
-  %188 = icmp ugt i32 %186, %187
+  %188 = icmp samesign ugt i32 %186, %187
   br i1 %188, label %.loopexit140, label %189
 
 189:                                              ; preds = %182
@@ -3604,7 +3604,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %207 = load i32, ptr %57, align 4
   %208 = lshr i32 %207, 5
   %209 = zext nneg i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next, %209
   br i1 %210, label %104, label %.preheader139, !llvm.loop !25
 
 211:                                              ; preds = %.preheader139, %211
@@ -3994,7 +3994,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE5clearEb.exit: ; preds = %2, %.pre
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %52 = add nuw nsw i32 %51, 2
   %53 = sub nsw i32 2147483647, %44
-  %54 = icmp ugt i32 %52, %53
+  %54 = icmp samesign ugt i32 %52, %53
   br i1 %54, label %66, label %55
 
 55:                                               ; preds = %48
@@ -4071,7 +4071,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit: ; preds = %._ZN7
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
   %94 = add nuw nsw i32 %93, 2
   %95 = sub nsw i32 2147483647, %87
-  %96 = icmp ugt i32 %94, %95
+  %96 = icmp samesign ugt i32 %94, %95
   br i1 %96, label %.loopexit60, label %97
 
 97:                                               ; preds = %90
@@ -4133,7 +4133,7 @@ _ZN7Minisat3vecINS_3LitEiE4pushERKS1_.exit:       ; preds = %._ZN7Minisat3vecINS
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = add nuw nsw i32 %123, 2
   %125 = sub nsw i32 2147483647, %44
-  %126 = icmp ugt i32 %124, %125
+  %126 = icmp samesign ugt i32 %124, %125
   br i1 %126, label %.loopexit61, label %127
 
 127:                                              ; preds = %120
@@ -4208,7 +4208,7 @@ _ZN7Minisat3vecINS_6Solver15ShrinkStackElemEiE4pushERKS2_.exit49: ; preds = %._Z
   %164 = tail call i32 @llvm.smax.i32(i32 %163, i32 0)
   %165 = add nuw nsw i32 %164, 2
   %166 = sub nsw i32 2147483647, %158
-  %167 = icmp ugt i32 %165, %166
+  %167 = icmp samesign ugt i32 %165, %166
   br i1 %167, label %.loopexit62, label %168
 
 168:                                              ; preds = %161
@@ -4415,7 +4415,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = lshr i32 %72, 5
   %74 = zext nneg i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %59, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %71, %52, %50
@@ -4477,7 +4477,7 @@ define linkonce_odr void @_ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE6insertES1
   %19 = call i32 @llvm.smax.i32(i32 %18, i32 0)
   %20 = add nuw nsw i32 %19, 2
   %21 = sub nsw i32 2147483647, %12
-  %22 = icmp ugt i32 %20, %21
+  %22 = icmp samesign ugt i32 %20, %21
   br i1 %22, label %34, label %23
 
 23:                                               ; preds = %16
@@ -4998,7 +4998,7 @@ define void @_ZN7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = add nuw nsw i32 %34, 2
   %36 = sub nsw i32 2147483647, %13
-  %37 = icmp ugt i32 %35, %36
+  %37 = icmp samesign ugt i32 %35, %36
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %31
@@ -5159,7 +5159,7 @@ _ZN7Minisat3vecIiiE5clearEb.exit:                 ; preds = %._crit_edge, %.preh
   %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
   %42 = add nuw nsw i32 %41, 2
   %43 = sub nsw i32 2147483647, %35
-  %44 = icmp ugt i32 %42, %43
+  %44 = icmp samesign ugt i32 %42, %43
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %38
@@ -5561,7 +5561,7 @@ define internal fastcc void @_ZN7MinisatL6appendIiEEvRKNS_3vecIT_iEERS3_(ptr noc
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
   %16 = add nuw nsw i32 %15, 2
   %17 = sub nsw i32 2147483647, %9
-  %18 = icmp ugt i32 %16, %17
+  %18 = icmp samesign ugt i32 %16, %17
   br i1 %18, label %.loopexit.i, label %19
 
 19:                                               ; preds = %12
@@ -5817,7 +5817,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = add nuw nsw i32 %96, 2
   %98 = sub nsw i32 2147483647, %90
-  %99 = icmp ugt i32 %97, %98
+  %99 = icmp samesign ugt i32 %97, %98
   br i1 %99, label %.invoke, label %100
 
 100:                                              ; preds = %93
@@ -6188,7 +6188,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread79: ; preds = %243
   %319 = tail call i32 @llvm.smax.i32(i32 %318, i32 0)
   %320 = add nuw nsw i32 %319, 2
   %321 = sub nsw i32 2147483647, %292
-  %322 = icmp ugt i32 %320, %321
+  %322 = icmp samesign ugt i32 %320, %321
   br i1 %322, label %.invoke, label %323
 
 323:                                              ; preds = %316
@@ -6274,7 +6274,7 @@ _ZN7Minisat6Solver16newDecisionLevelEv.exit:      ; preds = %._ZN7Minisat3vecIii
   %362 = tail call i32 @llvm.smax.i32(i32 %361, i32 0)
   %363 = add nuw nsw i32 %362, 2
   %364 = sub nsw i32 2147483647, %355
-  %365 = icmp ugt i32 %363, %364
+  %365 = icmp samesign ugt i32 %363, %364
   br i1 %365, label %.invoke, label %366
 
 366:                                              ; preds = %359
@@ -6794,7 +6794,7 @@ define noundef zeroext i1 @_ZN7Minisat6Solver7impliesERKNS_3vecINS_3LitEiEERS3_(
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %17 = add nuw nsw i32 %16, 2
   %18 = sub nsw i32 2147483647, %9
-  %19 = icmp ugt i32 %17, %18
+  %19 = icmp samesign ugt i32 %17, %18
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %13
@@ -6955,7 +6955,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %87, %.preheader.i
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
   %105 = add nuw nsw i32 %104, 2
   %106 = sub nsw i32 2147483647, %98
-  %107 = icmp ugt i32 %105, %106
+  %107 = icmp samesign ugt i32 %105, %106
   br i1 %107, label %.loopexit26, label %108
 
 108:                                              ; preds = %101
@@ -7126,7 +7126,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit:            ; preds = %54, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = lshr i32 %68, 5
   %70 = zext nneg i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %31, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %67, %5
@@ -7399,7 +7399,7 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %.loopexit.split-lp,
   %124 = add nuw nsw i32 %123, 2
   %125 = tail call noundef i32 @llvm.smax.i32(i32 %121, i32 %124)
   %126 = sub nuw nsw i32 2147483647, %90
-  %127 = icmp ugt i32 %125, %126
+  %127 = icmp samesign ugt i32 %125, %126
   br i1 %127, label %138, label %128
 
 128:                                              ; preds = %118
@@ -7470,7 +7470,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit:            ; preds = %.noexc, %112, %.lr.
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %156 = lshr i32 %150, 5
   %157 = zext nneg i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next124, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next124, %157
   br i1 %158, label %.lr.ph95, label %_ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit55.loopexit, !llvm.loop !62
 
 _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit55.loopexit: ; preds = %_ZL6mapVariRN7Minisat3vecIiiEERi.exit
@@ -7950,7 +7950,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
   %143 = load i32, ptr %83, align 4
   %144 = lshr i32 %143, 5
   %145 = zext nneg i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next.i.i62, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next.i.i62, %145
   br i1 %146, label %140, label %._crit_edge.i.i63, !llvm.loop !68
 
 ._crit_edge.i.i63:                                ; preds = %140, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
@@ -8350,7 +8350,7 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %5, %12, %14
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
   %23 = add nuw nsw i32 %22, 2
   %24 = sub nsw i32 2147483647, %16
-  %25 = icmp ugt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %19
@@ -8934,7 +8934,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexD
   %17 = call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = add nuw nsw i32 %17, 2
   %19 = sub nsw i32 2147483647, %7
-  %20 = icmp ugt i32 %18, %19
+  %20 = icmp samesign ugt i32 %18, %19
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %14
@@ -9177,7 +9177,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
   %36 = load i32, ptr %1, align 4
   %37 = lshr i32 %36, 5
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next.i, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %38
   br i1 %39, label %33, label %._crit_edge.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %33, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit

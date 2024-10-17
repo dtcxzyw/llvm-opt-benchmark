@@ -2074,8 +2074,8 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %394, label %395, label %408
 
 395:                                              ; preds = %391
-  %396 = icmp ult i32 %275, %134
-  %397 = icmp ult i32 %276, %137
+  %396 = icmp samesign ult i32 %275, %134
+  %397 = icmp samesign ult i32 %276, %137
   %398 = select i1 %396, i1 true, i1 %397
   br i1 %398, label %399, label %408
 
@@ -3281,7 +3281,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   %151 = zext i8 %150 to i32
   %152 = add nuw nsw i32 %151, 1
   %153 = tail call i32 @llvm.umax.i32(i32 %148, i32 %152)
-  %154 = icmp ugt i32 %153, 15
+  %154 = icmp samesign ugt i32 %153, 15
   br i1 %142, label %405, label %155
 
 155:                                              ; preds = %139
@@ -5961,7 +5961,7 @@ define dso_local i32 @intel_psr_debug_set(ptr noundef %0, i64 noundef %1) local_
   %7 = trunc i64 %1 to i32
   %8 = and i32 %7, 15
   %9 = icmp ugt i64 %1, 31
-  %10 = icmp ugt i32 %8, 4
+  %10 = icmp samesign ugt i32 %8, 4
   %11 = or i1 %9, %10
   br i1 %11, label %12, label %19
 
@@ -7744,7 +7744,7 @@ define internal fastcc void @tgl_psr2_disable_dc3co(ptr nocapture noundef readon
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 1
   %13 = tail call i32 @llvm.umax.i32(i32 %8, i32 %12)
-  %14 = icmp ugt i32 %13, 15
+  %14 = icmp samesign ugt i32 %13, 15
   br i1 %14, label %15, label %28, !prof !8
 
 15:                                               ; preds = %1
@@ -8461,7 +8461,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %234 = getelementptr [3 x i32], ptr %3, i64 0, i64 %.zext
   store i32 %233, ptr %234, align 4
   %235 = add nuw nsw i64 %217, 3
-  %236 = icmp ult i64 %217, 5
+  %236 = icmp samesign ult i64 %217, 5
   br i1 %236, label %216, label %237, !llvm.loop !141
 
 237:                                              ; preds = %216

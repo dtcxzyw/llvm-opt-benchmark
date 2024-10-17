@@ -1251,7 +1251,7 @@ define hidden void @_ZN4nori9memStringB5cxx11Emb(ptr dead_on_unwind noalias writ
   %.01011 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
   %7 = fmul double %.012, 0x3F50000000000000
   %8 = add nuw nsw i32 %.01011, 1
-  %9 = icmp ult i32 %.01011, 4
+  %9 = icmp samesign ult i32 %.01011, 4
   %10 = fcmp ogt double %7, 1.024000e+03
   %11 = select i1 %9, i1 %10, i1 false
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !21

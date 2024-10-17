@@ -883,7 +883,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   %.1.us = phi i32 [ %.023.us, %.split.us ], [ %.0.lcssa.i.us, %WaitBufHdrUnlocked.exit.us ]
   %24 = add nuw i32 %.1.us, 1
   %25 = and i32 %24, 3932160
-  %26 = icmp ult i32 %25, 1310720
+  %26 = icmp samesign ult i32 %25, 1310720
   %27 = add nuw i32 %.1.us, 262145
   %spec.select.us = select i1 %26, i32 %27, i32 %24
   %28 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.1.us, i32 %spec.select.us, ptr nonnull elementtype(i32) %11) #14, !srcloc !10
@@ -1770,7 +1770,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %54 = zext nneg i32 %.3230.i to i64
   %55 = add nuw nsw i64 %53, %54
   %56 = zext i32 %5 to i64
-  %57 = icmp ugt i64 %55, %56
+  %57 = icmp samesign ugt i64 %55, %56
   %58 = sub i32 %5, %50
   %spec.select169.i = select i1 %57, i32 %58, i32 %.3230.i
   %.1.i = select i1 %52, i32 0, i32 %spec.select169.i
@@ -1818,7 +1818,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %.0.i = phi i32 [ %.3230.i, %._crit_edge225.i ], [ %spec.select169.i, %._crit_edge185.i ]
   %75 = zext i32 %.0.i to i64
   %76 = add nuw nsw i64 %.pre-phi.i, %75
-  %77 = icmp ugt i64 %76, 4294967293
+  %77 = icmp samesign ugt i64 %76, 4294967293
   br i1 %77, label %106, label %.preheader.i
 
 .preheader.i:                                     ; preds = %74
@@ -2406,7 +2406,7 @@ RelationGetSmgr.exit:                             ; preds = %13, %18
   %.04253 = phi i32 [ %53, %.lr.ph55 ], [ %67, %.loopexit ]
   %61 = zext i32 %.04253 to i64
   %62 = add nuw nsw i64 %61, 64
-  %63 = icmp ugt i64 %62, %57
+  %63 = icmp samesign ugt i64 %62, %57
   %64 = sub nuw i32 %4, %.04253
   %spec.select48 = select i1 %63, i32 %64, i32 64
   %65 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %spec.select, i32 noundef %spec.select48, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %7)
@@ -7293,11 +7293,11 @@ define internal fastcc void @sort_pending_writebacks(ptr noundef %0, i64 noundef
   br i1 %20, label %buffertag_comparator.exit.thread208, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %22 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %24 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   br i1 %24, label %buffertag_comparator.exit.thread208, label %25
 
 25:                                               ; preds = %23
@@ -7366,11 +7366,11 @@ buffertag_comparator.exit.thread208:              ; preds = %33, %19, %23, %31, 
   br i1 %49, label %buffertag_comparator.exit168.thread212, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i64 %.sroa.230.0.extract.shift.i158, %.sroa.2.0.extract.shift.i161
+  %51 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i158, %.sroa.2.0.extract.shift.i161
   br i1 %51, label %buffertag_comparator.exit168.thread, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ugt i64 %.sroa.230.0.extract.shift.i158, %.sroa.2.0.extract.shift.i161
+  %53 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i158, %.sroa.2.0.extract.shift.i161
   br i1 %53, label %buffertag_comparator.exit168.thread212, label %54
 
 54:                                               ; preds = %52
@@ -7480,11 +7480,11 @@ buffertag_comparator.exit168.thread212._crit_edge: ; preds = %buffertag_comparat
   br i1 %99, label %.critedge2, label %100
 
 100:                                              ; preds = %98
-  %101 = icmp ult i64 %.sroa.230.0.extract.shift.i172, %.sroa.2.0.extract.shift.i175
+  %101 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i172, %.sroa.2.0.extract.shift.i175
   br i1 %101, label %119, label %102
 
 102:                                              ; preds = %100
-  %103 = icmp ugt i64 %.sroa.230.0.extract.shift.i172, %.sroa.2.0.extract.shift.i175
+  %103 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i172, %.sroa.2.0.extract.shift.i175
   br i1 %103, label %.critedge2, label %104
 
 104:                                              ; preds = %102
@@ -7558,11 +7558,11 @@ buffertag_comparator.exit182:                     ; preds = %111
   br i1 %126, label %.thread222, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ult i64 %.sroa.230.0.extract.shift.i186, %.sroa.2.0.extract.shift.i189
+  %128 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i186, %.sroa.2.0.extract.shift.i189
   br i1 %128, label %147, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ugt i64 %.sroa.230.0.extract.shift.i186, %.sroa.2.0.extract.shift.i189
+  %130 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i186, %.sroa.2.0.extract.shift.i189
   br i1 %130, label %.thread222, label %131
 
 131:                                              ; preds = %129
@@ -9120,11 +9120,11 @@ define internal fastcc ptr @sort_pending_writebacks_med3(ptr noundef readonly %0
   br i1 %10, label %buffertag_comparator.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %12 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   br i1 %12, label %29, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
+  %14 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i
   br i1 %14, label %buffertag_comparator.exit, label %15
 
 15:                                               ; preds = %13
@@ -9169,11 +9169,11 @@ rlocator_comparator.exit.i:                       ; preds = %15
   br i1 %34, label %buffertag_comparator.exit28, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
+  %36 = icmp samesign ult i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
   br i1 %36, label %buffertag_comparator.exit41, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
+  %38 = icmp samesign ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
   br i1 %38, label %buffertag_comparator.exit28, label %39
 
 39:                                               ; preds = %37
@@ -9213,11 +9213,11 @@ buffertag_comparator.exit28:                      ; preds = %47, %45, %rlocator_
   br i1 %55, label %buffertag_comparator.exit41, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
+  %57 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
   br i1 %57, label %buffertag_comparator.exit41, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
+  %59 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i21
   br i1 %59, label %buffertag_comparator.exit41, label %60
 
 60:                                               ; preds = %58
@@ -9263,11 +9263,11 @@ buffertag_comparator.exit:                        ; preds = %23, %21, %rlocator_
   br i1 %78, label %buffertag_comparator.exit41, label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
+  %80 = icmp samesign ult i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
   br i1 %80, label %buffertag_comparator.exit54.thread, label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
+  %82 = icmp samesign ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
   br i1 %82, label %buffertag_comparator.exit41, label %83
 
 83:                                               ; preds = %81
@@ -9307,11 +9307,11 @@ buffertag_comparator.exit54.thread:               ; preds = %buffertag_comparato
   br i1 %99, label %buffertag_comparator.exit41, label %100
 
 100:                                              ; preds = %98
-  %101 = icmp ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
+  %101 = icmp samesign ult i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
   br i1 %101, label %buffertag_comparator.exit41, label %102
 
 102:                                              ; preds = %100
-  %103 = icmp ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
+  %103 = icmp samesign ugt i64 %.sroa.230.0.extract.shift.i, %.sroa.2.0.extract.shift.i47
   br i1 %103, label %buffertag_comparator.exit41, label %104
 
 104:                                              ; preds = %102

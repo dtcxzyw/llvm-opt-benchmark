@@ -3010,7 +3010,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_St
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
@@ -3056,7 +3056,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_St
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
@@ -3109,7 +3109,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %.not = icmp ult i64 %26, %30
+  %.not = icmp samesign ult i64 %26, %30
   br i1 %.not, label %31, label %37
 
 31:                                               ; preds = %22
@@ -3154,7 +3154,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_St
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
@@ -3200,7 +3200,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_St
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
@@ -3253,7 +3253,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %.not = icmp ult i64 %26, %30
+  %.not = icmp samesign ult i64 %26, %30
   br i1 %.not, label %31, label %37
 
 31:                                               ; preds = %22
@@ -3298,7 +3298,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP1
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
@@ -3351,7 +3351,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %.not = icmp ult i64 %26, %30
+  %.not = icmp samesign ult i64 %26, %30
   br i1 %.not, label %31, label %36
 
 31:                                               ; preds = %22
@@ -3395,7 +3395,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP1
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %.not = icmp ult i64 %21, %25
+  %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %30
 
 26:                                               ; preds = %17
@@ -3447,7 +3447,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %.not = icmp ult i64 %26, %30
+  %.not = icmp samesign ult i64 %26, %30
   br i1 %.not, label %31, label %35
 
 31:                                               ; preds = %22

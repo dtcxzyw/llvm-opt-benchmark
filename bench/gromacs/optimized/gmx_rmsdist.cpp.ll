@@ -1722,7 +1722,7 @@ _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i, %6
 .loopexit.i201.i:                                 ; preds = %719, %._crit_edge.i200.i
   %.3.i.i = phi i8 [ %.1.lcssa.mux.i.i, %._crit_edge.i200.i ], [ %720, %719 ]
   %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
-  %726 = icmp uge i64 %indvars.iv.next74.i.i, %643
+  %726 = icmp samesign uge i64 %indvars.iv.next74.i.i, %643
   %727 = trunc nuw i8 %.3.i.i to i1
   %.not46.i.i = select i1 %726, i1 true, i1 %727
   br i1 %.not46.i.i, label %._crit_edge61.i.i, label %.preheader48.i.i, !llvm.loop !24
@@ -2145,7 +2145,7 @@ _ZL13gmx_snew_implIP5t_noeEvPKcS3_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_sn
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph65.preheader.i ], [ %indvars.iv.next80.i, %.loopexit.i213 ]
   %indvars.iv72.i = phi i64 [ 1, %.lr.ph65.preheader.i ], [ %indvars.iv.next73.i, %.loopexit.i213 ]
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
-  %928 = icmp ult i64 %indvars.iv.next80.i, %885
+  %928 = icmp samesign ult i64 %indvars.iv.next80.i, %885
   br i1 %928, label %.lr.ph63.i, label %.loopexit.i213
 
 .lr.ph63.i:                                       ; preds = %.lr.ph65.i
@@ -3172,7 +3172,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit328:       ; preds = %1125, %1128
   %.sroa.813.0..sroa_idx.i = getelementptr inbounds i8, ptr %1154, i64 24
   %.sroa.813.0.copyload.i = load ptr, ptr %.sroa.813.0..sroa_idx.i, align 8
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %1155 = icmp ult i64 %indvars.iv.next90.i, %1152
+  %1155 = icmp samesign ult i64 %indvars.iv.next90.i, %1152
   br i1 %1155, label %.lr.ph.i333, label %.loopexit.i331
 
 .lr.ph.i333:                                      ; preds = %.lr.ph82.i
@@ -3324,7 +3324,7 @@ _ZL9noe2scalefff.exit.i:                          ; preds = %.lr.ph23.preheader.
 
 1226:                                             ; preds = %1224, %1222
   %1227 = add nuw nsw i32 %.185.i, 3
-  %1228 = icmp ult i32 %.185.i, 4
+  %1228 = icmp samesign ult i32 %.185.i, 4
   br i1 %1228, label %1216, label %1229, !llvm.loop !40
 
 1229:                                             ; preds = %1226

@@ -10795,15 +10795,15 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3e275620d77fcc7b
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %6 = icmp ult i32 %1, 128
+  %6 = icmp samesign ult i32 %1, 128
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 2048
+  %8 = icmp samesign ult i32 %1, 2048
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %1, 65536
+  %10 = icmp samesign ult i32 %1, 65536
   %11 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %10, label %22, label %34
 
@@ -18222,7 +18222,7 @@ _ZN8terminal8pty_info14PtyProcessInfo4load17hc5b4736f28166e90E.exit: ; preds = %
   br i1 %150, label %.thread.i.i, label %151
 
 151:                                              ; preds = %147
-  %switch.i.i.i.i = icmp ult i8 %149, 3
+  %switch.i.i.i.i = icmp samesign ult i8 %149, 3
   %152 = getelementptr inbounds i8, ptr %5, i64 16
   %153 = load i8, ptr %152, align 8, !range !6583, !alias.scope !6581, !noalias !6578, !noundef !9
   %154 = icmp eq i8 %153, 6
@@ -18231,14 +18231,14 @@ _ZN8terminal8pty_info14PtyProcessInfo4load17hc5b4736f28166e90E.exit: ; preds = %
 .thread.i.i:                                      ; preds = %147
   %155 = getelementptr inbounds i8, ptr %5, i64 16
   %156 = load i8, ptr %155, align 8, !range !6583, !alias.scope !6581, !noalias !6578, !noundef !9
-  %switch.i.i3453.i.i = icmp ult i8 %156, 3
+  %switch.i.i3453.i.i = icmp samesign ult i8 %156, 3
   br i1 %switch.i.i3453.i.i, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %151
   br i1 %switch.i.i.i.i, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"
 
 157:                                              ; preds = %151
-  %switch.i.i34.i.i = icmp ult i8 %153, 3
+  %switch.i.i34.i.i = icmp samesign ult i8 %153, 3
   %158 = xor i1 %switch.i.i.i.i, %switch.i.i34.i.i
   br i1 %158, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"
 

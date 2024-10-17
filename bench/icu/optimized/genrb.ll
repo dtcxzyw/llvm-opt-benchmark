@@ -1270,7 +1270,7 @@ if.end272:                                        ; preds = %if.end263
   store ptr %add.ptr274, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 8), align 8
   %112 = load i32, ptr %add.ptr274, align 4
   %and276 = and i32 %112, 255
-  %cmp277 = icmp ult i32 %and276, 8
+  %cmp277 = icmp samesign ult i32 %and276, 8
   br i1 %cmp277, label %if.then278, label %if.end283
 
 if.then278:                                       ; preds = %if.end272

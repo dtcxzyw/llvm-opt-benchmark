@@ -1254,7 +1254,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm12
   %86 = load i32, ptr %35, align 4
   %87 = and i32 %86, 134217727
   %88 = zext nneg i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next, %88
   br i1 %89, label %42, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit
@@ -10048,7 +10048,7 @@ _ZN4llvm10SuffixTree25RepeatedSubstringIteratorD2Ev.exit22: ; preds = %_ZN4llvm1
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %76
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !281
 
 .thread.i.i.i:                                    ; preds = %select.unfold.i.i.i.i.i, %68
@@ -21700,8 +21700,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIN9__gn
   store i8 %47, ptr %.2.ptr55, align 1
   %48 = getelementptr inbounds i8, ptr %.sroa.029.254, i64 1
   %.not45 = icmp eq ptr %48, %1
-  %.not46 = icmp ugt i64 %.2.idx53, 62
-  %or.cond47 = or i1 %.not45, %.not46
+  %.not46 = icmp samesign ugt i64 %.2.idx53, 62
+  %or.cond47 = select i1 %.not45, i1 true, i1 %.not46
   br i1 %or.cond47, label %.critedge2, label %46, !llvm.loop !430
 
 .critedge2:                                       ; preds = %46

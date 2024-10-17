@@ -572,7 +572,7 @@ define internal fastcc i32 @__io_remove_buffers(ptr noundef %0, ptr noundef %1, 
   %48 = add nuw nsw i64 %44, 1
   %49 = load i16, ptr %41, align 2
   %50 = zext i16 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %.preheader, label %52, !llvm.loop !16
 
 52:                                               ; preds = %.preheader
@@ -1245,7 +1245,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
 
 35:                                               ; preds = %31
   %36 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %33), !range !29
-  %37 = icmp ugt i32 %36, 1
+  %37 = icmp samesign ugt i32 %36, 1
   %38 = icmp ugt i32 %33, 65535
   %39 = or i1 %38, %37
   br i1 %39, label %.thread, label %40

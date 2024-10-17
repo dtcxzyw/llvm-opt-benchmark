@@ -1282,7 +1282,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %cmp6 = icmp ugt i64 %and.i, 5
+  %cmp6 = icmp samesign ugt i64 %and.i, 5
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5

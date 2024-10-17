@@ -633,7 +633,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener26InnerListener$LT$T$C$B$G
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !75, !noundef !4
   %7 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h154284127556ab1aE.llvm.5114091958698501191"(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %6), !range !76
-  %switch = icmp ult i8 %7, 2
+  %switch = icmp samesign ult i8 %7, 2
   br i1 %switch, label %9, label %8
 
 8:                                                ; preds = %2
@@ -4078,7 +4078,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17hc34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %6 = load i64, ptr %5, align 8, !range !1003, !alias.scope !1004, !noundef !4
-  %switch.i.i.i = icmp ult i64 %6, 2
+  %switch.i.i.i = icmp samesign ult i64 %6, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit", label %7
 
 7:                                                ; preds = %4
@@ -4211,7 +4211,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17hc34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1092)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1095)
   %61 = load i64, ptr %60, align 8, !range !1003, !alias.scope !1098, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %61, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %61, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zbus_names..error_name..OwnedErrorName$GT$17h69f02081a45447d3E.exit", label %62
 
 62:                                               ; preds = %59
@@ -4714,7 +4714,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17hc34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1819)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1822)
   %321 = load i64, ptr %320, align 8, !range !1003, !alias.scope !1825, !noundef !4
-  %switch.i.i.i13 = icmp ult i64 %321, 2
+  %switch.i.i.i13 = icmp samesign ult i64 %321, 2
   br i1 %switch.i.i.i13, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %322
 
 322:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit"
@@ -4805,7 +4805,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$ashpd..error..Error$GT$17hf3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1865)
   %16 = load i64, ptr %15, align 8, !range !1003, !alias.scope !1868, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %16, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr67drop_in_place$LT$zbus_names..interface_name..OwnedInterfaceName$GT$17haf555c2231fe17dcE.exit", label %17
 
 17:                                               ; preds = %14
@@ -4970,7 +4970,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1956)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1959)
   %32 = load i64, ptr %31, align 8, !range !1003, !alias.scope !1962, !noundef !4
-  %switch.i.i = icmp ult i64 %32, 2
+  %switch.i.i = icmp samesign ult i64 %32, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %33
 
 33:                                               ; preds = %30
@@ -5010,7 +5010,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Error$GT$17
 51:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1979)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1982)
-  %switch.i.i1 = icmp ult i64 %3, 2
+  %switch.i.i1 = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit2", label %52
 
 52:                                               ; preds = %51
@@ -5452,7 +5452,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_nam
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2346)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2349)
   %6 = load i64, ptr %4, align 8, !range !1003, !alias.scope !2352, !noundef !4
-  %switch.i.i.i = icmp ult i64 %6, 2
+  %switch.i.i.i = icmp samesign ult i64 %6, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17hc6d0ee30fffc553cE.exit", label %7
 
 7:                                                ; preds = %5
@@ -5494,7 +5494,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_nam
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2375)
   %26 = load i64, ptr %4, align 8, !range !1003, !alias.scope !2378, !noundef !4
-  %switch.i.i.i1 = icmp ult i64 %26, 2
+  %switch.i.i.i1 = icmp samesign ult i64 %26, 2
   br i1 %switch.i.i.i1, label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17hc6d0ee30fffc553cE.exit", label %27
 
 27:                                               ; preds = %25
@@ -5777,7 +5777,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2504)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2510)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit", label %5
 
 5:                                                ; preds = %4
@@ -5899,7 +5899,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2560)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2563)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2566)
-  %switch.i.i.i = icmp ult i64 %2, 2
+  %switch.i.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit", label %5
 
 5:                                                ; preds = %4
@@ -9106,7 +9106,7 @@ common.ret:                                       ; preds = %293, %123, %31
   %178 = getelementptr inbounds i8, ptr %1, i64 128
   %179 = add nuw nsw i64 %176, %177
   store i64 %179, ptr %178, align 8
-  %180 = icmp ugt i64 %179, 134217728
+  %180 = icmp samesign ugt i64 %179, 134217728
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %170
@@ -10409,7 +10409,7 @@ common.ret:                                       ; preds = %293, %123, %31
   %178 = getelementptr inbounds i8, ptr %1, i64 128
   %179 = add nuw nsw i64 %176, %177
   store i64 %179, ptr %178, align 8
-  %180 = icmp ugt i64 %179, 134217728
+  %180 = icmp samesign ugt i64 %179, 134217728
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %170
@@ -11523,7 +11523,7 @@ common.ret:                                       ; preds = %163, %"_ZN4core3ptr
   %57 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %58 = icmp ult i64 %57, 6
   tail call void @llvm.assume(i1 %58)
-  %switch.i95 = icmp ugt i64 %57, 4
+  %switch.i95 = icmp samesign ugt i64 %57, 4
   br i1 %switch.i95, label %61, label %101
 
 59:                                               ; preds = %61
@@ -11946,7 +11946,7 @@ common.ret:                                       ; preds = %163, %"_ZN4core3ptr
   %213 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %214 = icmp ult i64 %213, 6
   call void @llvm.assume(i1 %214)
-  %switch.i118 = icmp ugt i64 %213, 4
+  %switch.i118 = icmp samesign ugt i64 %213, 4
   br i1 %switch.i118, label %217, label %258
 
 215:                                              ; preds = %217
@@ -12396,7 +12396,7 @@ common.ret:                                       ; preds = %163, %"_ZN4core3ptr
   %57 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %58 = icmp ult i64 %57, 6
   tail call void @llvm.assume(i1 %58)
-  %switch.i95 = icmp ugt i64 %57, 4
+  %switch.i95 = icmp samesign ugt i64 %57, 4
   br i1 %switch.i95, label %61, label %101
 
 59:                                               ; preds = %61
@@ -12819,7 +12819,7 @@ common.ret:                                       ; preds = %163, %"_ZN4core3ptr
   %213 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %214 = icmp ult i64 %213, 6
   call void @llvm.assume(i1 %214)
-  %switch.i118 = icmp ugt i64 %213, 4
+  %switch.i118 = icmp samesign ugt i64 %213, 4
   br i1 %switch.i118, label %217, label %258
 
 215:                                              ; preds = %217
@@ -13774,7 +13774,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4034)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4037)
   %43 = load i64, ptr %.sroa.479.0..sroa_idx, align 8, !range !1003, !alias.scope !4040, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %43, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %43, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h10011c0f9d6a62c5E.exit", label %44
 
 44:                                               ; preds = %42
@@ -13816,7 +13816,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4060)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4063)
   %63 = load i64, ptr %.sroa.479.0..sroa_idx, align 8, !range !1003, !alias.scope !4066, !noundef !4
-  %switch.i.i.i1.i = icmp ult i64 %63, 2
+  %switch.i.i.i1.i = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i1.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h10011c0f9d6a62c5E.exit", label %64
 
 64:                                               ; preds = %62
@@ -13895,7 +13895,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4089)
-  %switch.i.i.i = icmp ult i64 %.sroa.027.0.copyload, 2
+  %switch.i.i.i = icmp samesign ult i64 %.sroa.027.0.copyload, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit", label %89
 
 89:                                               ; preds = %88
@@ -13971,7 +13971,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4117)
-  %switch.i.i.i.i187 = icmp ult i64 %116, 2
+  %switch.i.i.i.i187 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i.i187, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zvariant..object_path..ObjectPath$GT$$GT$17h98154b3b8abad830E.exit", label %119
 
 119:                                              ; preds = %118
@@ -14030,7 +14030,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4148)
-  %switch.i.i.i.i188 = icmp ult i64 %144, 2
+  %switch.i.i.i.i188 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i.i188, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$zbus_names..interface_name..InterfaceName$GT$$GT$17h542c97e1b09cd99eE.exit", label %147
 
 147:                                              ; preds = %146
@@ -14410,7 +14410,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4212)
   %43 = load i64, ptr %.sroa.479.0..sroa_idx, align 8, !range !1003, !alias.scope !4215, !noundef !4
-  %switch.i.i.i.i = icmp ult i64 %43, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %43, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h10011c0f9d6a62c5E.exit", label %44
 
 44:                                               ; preds = %42
@@ -14452,7 +14452,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4235)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4238)
   %63 = load i64, ptr %.sroa.479.0..sroa_idx, align 8, !range !1003, !alias.scope !4241, !noundef !4
-  %switch.i.i.i1.i = icmp ult i64 %63, 2
+  %switch.i.i.i1.i = icmp samesign ult i64 %63, 2
   br i1 %switch.i.i.i1.i, label %"_ZN4core3ptr50drop_in_place$LT$zbus_names..bus_name..BusName$GT$17h10011c0f9d6a62c5E.exit", label %64
 
 64:                                               ; preds = %62
@@ -14531,7 +14531,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4261)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4264)
-  %switch.i.i.i = icmp ult i64 %.sroa.027.0.copyload, 2
+  %switch.i.i.i = icmp samesign ult i64 %.sroa.027.0.copyload, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit", label %89
 
 89:                                               ; preds = %88
@@ -14607,7 +14607,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4286)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4292)
-  %switch.i.i.i.i187 = icmp ult i64 %116, 2
+  %switch.i.i.i.i187 = icmp samesign ult i64 %116, 2
   br i1 %switch.i.i.i.i187, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zvariant..object_path..ObjectPath$GT$$GT$17h98154b3b8abad830E.exit", label %119
 
 119:                                              ; preds = %118
@@ -14666,7 +14666,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$14build_internal17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4317)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4320)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4323)
-  %switch.i.i.i.i188 = icmp ult i64 %144, 2
+  %switch.i.i.i.i188 = icmp samesign ult i64 %144, 2
   br i1 %switch.i.i.i.i188, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$zbus_names..interface_name..InterfaceName$GT$$GT$17h542c97e1b09cd99eE.exit", label %147
 
 147:                                              ; preds = %146
@@ -14955,7 +14955,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$4path17h8393cb695ab
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4362)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4368)
-  %switch.i.i.i.i = icmp ult i64 %14, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %14, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zvariant..object_path..ObjectPath$GT$$GT$17h98154b3b8abad830E.exit", label %17
 
 17:                                               ; preds = %16
@@ -15067,7 +15067,7 @@ define hidden void @"_ZN4zbus5proxy7builder16Builder$LT$T$GT$9interface17hbe3e0f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4390)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4393)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4396)
-  %switch.i.i.i.i = icmp ult i64 %16, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %16, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$zbus_names..interface_name..InterfaceName$GT$$GT$17h542c97e1b09cd99eE.exit", label %19
 
 19:                                               ; preds = %18

@@ -1282,7 +1282,7 @@ define hidden void @_ZN6cvtest3addERKN2cv3MatEdS3_dNS0_7Scalar_IdEERS1_ib(ptr no
   %125 = trunc i64 %123 to i32
   %.rhs.trunc = trunc nuw nsw i32 %122 to i16
   %126 = udiv i16 12, %.rhs.trunc
-  %127 = icmp ugt i32 %121, 11
+  %127 = icmp samesign ugt i32 %121, 11
   %narrow = mul nuw nsw i16 %126, 144
   %128 = zext nneg i16 %narrow to i32
   %129 = select i1 %127, i32 144, i32 %128
@@ -6887,7 +6887,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit.preheader:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %11 = load i32, ptr %1, align 8
   %12 = and i32 %11, 7
-  %13 = icmp ult i32 %12, 5
+  %13 = icmp samesign ult i32 %12, 5
   %14 = select i1 %13, double 0x3DF0000000000000, double 1.000000e+00
   br label %15
 
@@ -20825,7 +20825,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN6cvtest5checkERKN2cv3MatEddPSt6ve
   %21 = load i64, ptr %20, align 8
   %22 = load i32, ptr %0, align 8
   %23 = and i32 %22, 7
-  %24 = icmp ult i32 %23, 5
+  %24 = icmp samesign ult i32 %23, 5
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %13
@@ -21270,7 +21270,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
 63:                                               ; preds = %55, %41
   %64 = load i32, ptr %8, align 8
   %65 = and i32 %64, 7
-  %66 = icmp ult i32 %65, 5
+  %66 = icmp samesign ult i32 %65, 5
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %63
@@ -21335,7 +21335,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
 93:                                               ; preds = %92, %80
   %94 = load i32, ptr %8, align 8
   %95 = and i32 %94, 7
-  %96 = icmp ult i32 %95, 5
+  %96 = icmp samesign ult i32 %95, 5
   %brmerge = or i1 %5, %96
   br i1 %brmerge, label %109, label %97
 
@@ -22248,7 +22248,7 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 2
   %or.cond5 = select i1 %or.cond, i1 %92, i1 false
-  %93 = icmp ult i32 %74, 2
+  %93 = icmp samesign ult i32 %74, 2
   %or.cond7 = and i1 %93, %or.cond5
   br i1 %or.cond7, label %102, label %94
 
@@ -31856,7 +31856,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 82:                                               ; preds = %.critedge.i.i.i, %72
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %83 = icmp ult i64 %indvars.iv.next.i.i.i, %48
+  %83 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %48
   %84 = select i1 %83, ptr @.str.67, ptr @.str.28
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %84)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %48
@@ -31891,7 +31891,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 99:                                               ; preds = %.critedge.i51.i.i, %89
   %indvars.iv.next.i52.i.i = add nuw nsw i64 %indvars.iv.i50.i.i, 1
-  %100 = icmp ult i64 %indvars.iv.next.i52.i.i, %48
+  %100 = icmp samesign ult i64 %indvars.iv.next.i52.i.i, %48
   %101 = select i1 %100, ptr @.str.67, ptr @.str.28
   %102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %101)
   %exitcond.not.i53.i.i = icmp eq i64 %indvars.iv.next.i52.i.i, %48
@@ -31926,7 +31926,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 116:                                              ; preds = %.critedge.i58.i.i, %106
   %indvars.iv.next.i59.i.i = add nuw nsw i64 %indvars.iv.i57.i.i, 1
-  %117 = icmp ult i64 %indvars.iv.next.i59.i.i, %48
+  %117 = icmp samesign ult i64 %indvars.iv.next.i59.i.i, %48
   %118 = select i1 %117, ptr @.str.67, ptr @.str.28
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %118)
   %exitcond.not.i60.i.i = icmp eq i64 %indvars.iv.next.i59.i.i, %48
@@ -31961,7 +31961,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 133:                                              ; preds = %.critedge.i65.i.i, %123
   %indvars.iv.next.i66.i.i = add nuw nsw i64 %indvars.iv.i64.i.i, 1
-  %134 = icmp ult i64 %indvars.iv.next.i66.i.i, %48
+  %134 = icmp samesign ult i64 %indvars.iv.next.i66.i.i, %48
   %135 = select i1 %134, ptr @.str.67, ptr @.str.28
   %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %135)
   %exitcond.not.i67.i.i = icmp eq i64 %indvars.iv.next.i66.i.i, %48
@@ -31994,7 +31994,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 148:                                              ; preds = %.critedge.i72.i.i, %140
   %indvars.iv.next.i73.i.i = add nuw nsw i64 %indvars.iv.i71.i.i, 1
-  %149 = icmp ult i64 %indvars.iv.next.i73.i.i, %48
+  %149 = icmp samesign ult i64 %indvars.iv.next.i73.i.i, %48
   %150 = select i1 %149, ptr @.str.67, ptr @.str.28
   %151 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %150)
   %exitcond.not.i74.i.i = icmp eq i64 %indvars.iv.next.i73.i.i, %48
@@ -32033,7 +32033,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 167:                                              ; preds = %.critedge.i79.i.i, %159
   %indvars.iv.next.i80.i.i = add nuw nsw i64 %indvars.iv.i78.i.i, 1
-  %168 = icmp ult i64 %indvars.iv.next.i80.i.i, %48
+  %168 = icmp samesign ult i64 %indvars.iv.next.i80.i.i, %48
   %169 = select i1 %168, ptr @.str.67, ptr @.str.28
   %170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %169)
   %exitcond.not.i81.i.i = icmp eq i64 %indvars.iv.next.i80.i.i, %48
@@ -32072,7 +32072,7 @@ common.resume.i:                                  ; preds = %195, %193, %30, %28
 
 186:                                              ; preds = %.critedge.i86.i.i, %178
   %indvars.iv.next.i87.i.i = add nuw nsw i64 %indvars.iv.i85.i.i, 1
-  %187 = icmp ult i64 %indvars.iv.next.i87.i.i, %48
+  %187 = icmp samesign ult i64 %indvars.iv.next.i87.i.i, %48
   %188 = select i1 %187, ptr @.str.67, ptr @.str.28
   %189 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %188)
   %exitcond.not.i88.i.i = icmp eq i64 %indvars.iv.next.i87.i.i, %48

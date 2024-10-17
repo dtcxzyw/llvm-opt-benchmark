@@ -530,7 +530,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %exitcond.not.i.i15, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hf010e2b40b73118dE.exit.sink.split.i", label %.lr.ph.i4.i
 
 111:                                              ; preds = %97
-  %112 = icmp ult i64 %22, 29
+  %112 = icmp samesign ult i64 %22, 29
   br i1 %112, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hf010e2b40b73118dE.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %111, %122

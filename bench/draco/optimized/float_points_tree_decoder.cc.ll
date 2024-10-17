@@ -2761,7 +2761,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %11, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %.preheader152, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader152, %217
@@ -2862,7 +2862,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next185, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -4264,7 +4264,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %142 = load i32, ptr %10, align 4
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next, %143
   br i1 %144, label %.lr.ph, label %.preheader157, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader157, %227
@@ -4365,7 +4365,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %207 = load i32, ptr %10, align 4
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next189, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next189, %208
   br i1 %209, label %.lr.ph171, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -5448,7 +5448,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %11, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %.preheader152, !llvm.loop !49
 
 .preheader:                                       ; preds = %.preheader152, %217
@@ -5549,7 +5549,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next185, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -6600,7 +6600,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = load i32, ptr %11, align 4
   %142 = zext i32 %141 to i64
-  %143 = icmp ult i64 %indvars.iv.next, %142
+  %143 = icmp samesign ult i64 %indvars.iv.next, %142
   br i1 %143, label %.lr.ph, label %.preheader153, !llvm.loop !65
 
 .preheader:                                       ; preds = %.preheader153, %226
@@ -6701,7 +6701,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %206 = load i32, ptr %11, align 4
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next185, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next185, %207
   br i1 %208, label %.lr.ph167, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -7749,7 +7749,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %11, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %.preheader152, !llvm.loop !82
 
 .preheader:                                       ; preds = %.preheader152, %217
@@ -7850,7 +7850,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next185, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -8918,7 +8918,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = load i32, ptr %10, align 4
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %indvars.iv.next, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next, %141
   br i1 %142, label %.lr.ph, label %.preheader156, !llvm.loop !98
 
 .preheader:                                       ; preds = %.preheader156, %225
@@ -9019,7 +9019,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %205 = load i32, ptr %10, align 4
   %206 = zext i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next193, %206
+  %207 = icmp samesign ult i64 %indvars.iv.next193, %206
   br i1 %207, label %.lr.ph175, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -10080,7 +10080,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %11, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %.preheader152, !llvm.loop !115
 
 .preheader:                                       ; preds = %.preheader152, %217
@@ -10181,7 +10181,7 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next185, %198
+  %199 = icmp samesign ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader

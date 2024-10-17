@@ -2482,8 +2482,8 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
 
 8:                                                ; preds = %2
   %9 = lshr i64 %.120.val, 12
-  %.not = icmp ugt i64 %3, %4
-  %.not26 = icmp ugt i64 %4, %9
+  %.not = icmp samesign ugt i64 %3, %4
+  %.not26 = icmp samesign ugt i64 %4, %9
   %or.cond31 = select i1 %.not, i1 true, i1 %.not26
   br i1 %or.cond31, label %26, label %10
 
@@ -2495,7 +2495,7 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
   %14 = getelementptr inbounds i8, ptr %.promoted, i64 16
   %15 = ptrtoint ptr %14 to i64
   %16 = lshr i64 %15, 12
-  %.not271 = icmp ugt i64 %16, %6
+  %.not271 = icmp samesign ugt i64 %16, %6
   br i1 %.not271, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %22
@@ -2514,7 +2514,7 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
   %23 = getelementptr inbounds i8, ptr %19, i64 16
   %24 = ptrtoint ptr %23 to i64
   %25 = lshr i64 %24, 12
-  %.not27 = icmp ugt i64 %25, %6
+  %.not27 = icmp samesign ugt i64 %25, %6
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %10

@@ -823,7 +823,7 @@ define hidden void @_ZN4core3ops8function2Fn4call17h4e488629406d3738E.llvm.11494
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %1, i64 528
   %10 = load i8, ptr %9, align 8, !range !102, !alias.scope !97, !noalias !103
-  %switch.i.i = icmp ugt i8 %10, 2
+  %switch.i.i = icmp samesign ugt i8 %10, 2
   %..i = select i1 %switch.i.i, i64 1, i64 2
   %.sink.i = select i1 %switch.i, i64 %..i, i64 %8
   store i64 %.sink.i, ptr %5, align 8, !noalias !100
@@ -922,7 +922,7 @@ define hidden void @_ZN4core3ops8function2Fn4call17ha356ea696fed63a0E.llvm.11494
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %1, i64 528
   %10 = load i8, ptr %9, align 8, !range !102, !alias.scope !113, !noalias !118
-  %switch.i.i = icmp ugt i8 %10, 2
+  %switch.i.i = icmp samesign ugt i8 %10, 2
   %..i = select i1 %switch.i.i, i64 1, i64 2
   %.sink.i = select i1 %switch.i, i64 %..i, i64 %8
   store i64 %.sink.i, ptr %5, align 8, !noalias !116
@@ -37051,7 +37051,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..option..Opti
   %3 = icmp eq i64 %2, -9223372036854775808
   br i1 %3, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit", label %4
 
-"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit": ; preds = %17, %13, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.i", %1
+"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit": ; preds = %16, %13, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.i", %1
   ret void
 
 4:                                                ; preds = %1
@@ -37080,11 +37080,11 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..option..Opti
   %15 = icmp ugt i8 %14, 22
   %cond1.i.i.i = icmp eq i8 %14, 7
   %cond.i.i.i = or i1 %15, %cond1.i.i.i
-  %16 = icmp ult i8 %11, 39
-  %or.cond.i.i.i = and i1 %16, %cond.i.i.i
-  br i1 %or.cond.i.i.i, label %17, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
+  %or.cond.i.i.i.i = icmp samesign ult i8 %11, 39
+  %or.cond.i.i.i = select i1 %cond.i.i.i, i1 %or.cond.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %16, label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
 
-17:                                               ; preds = %13
+16:                                               ; preds = %13
   tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E"(ptr noalias noundef readonly align 8 dereferenceable(56) %10)
   br label %"_ZN4core3ptr181drop_in_place$LT$$LP$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$C$vim..state..Mode$C$core..option..Option$LT$vim..state..Operator$GT$$RP$$GT$17hcf2c179d87ac4c27E.exit"
 }
@@ -48989,7 +48989,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
   %3 = icmp eq i8 %2, 65
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit", label %4
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit": ; preds = %8, %4, %1
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit": ; preds = %7, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -48997,11 +48997,11 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
   %6 = icmp ugt i8 %5, 22
   %cond1.i = icmp eq i8 %5, 7
   %cond.i = or i1 %6, %cond1.i
-  %7 = icmp ult i8 %2, 39
-  %or.cond.i = and i1 %7, %cond.i
-  br i1 %or.cond.i, label %8, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
+  %or.cond.i.i = icmp samesign ult i8 %2, 39
+  %or.cond.i = select i1 %cond.i, i1 %or.cond.i.i, i1 false
+  br i1 %or.cond.i, label %7, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
 
-8:                                                ; preds = %4
+7:                                                ; preds = %4
   tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.exit"
 }
@@ -70314,7 +70314,7 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$
   store i64 %13, ptr %14, align 8, !noalias !16066
   store i8 1, ptr %5, align 1, !noalias !16066
   %15 = load i8, ptr %7, align 8, !range !102, !alias.scope !16068, !noalias !16071, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i.i, label %16, label %"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d$$u7d$17h4865f34f13cd0ad1E.llvm.11494769183469379903.exit"
 
 16:                                               ; preds = %10
@@ -70387,7 +70387,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %12, %4
   store i64 %storemerge.i, ptr %6, align 8, !noalias !16080
   %17 = getelementptr inbounds i8, ptr %2, i64 528
   %18 = load i8, ptr %17, align 8, !range !102, !alias.scope !16082, !noalias !16085, !noundef !4
-  %switch.i.i = icmp ugt i8 %18, 2
+  %switch.i.i = icmp samesign ugt i8 %18, 2
   br i1 %switch.i.i, label %.sink.split.i, label %19
 
 19:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -70408,7 +70408,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %12, %4
   call void @_ZN3vim3Vim13update_editor17h18099d0f57661d13E(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(536) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !16080
   %24 = load i8, ptr %17, align 8, !range !102, !alias.scope !16086, !noalias !16085, !noundef !4
-  %switch.i1.i = icmp ugt i8 %24, 2
+  %switch.i1.i = icmp samesign ugt i8 %24, 2
   br i1 %switch.i1.i, label %25, label %"_ZN3vim6normal8register28_$u7b$$u7b$closure$u7d$$u7d$17h91e5db3f8ae78ce6E.llvm.11494769183469379903.exit"
 
 25:                                               ; preds = %23
@@ -70430,7 +70430,7 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$
 define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d25e013bf421779E.llvm.11494769183469379903"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias noundef align 8 dereferenceable(536) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %2, i64 528
   %6 = load i8, ptr %5, align 8, !range !102, !alias.scope !16089, !noalias !16096, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %6, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %6, 2
   br i1 %switch.i.i.i.i, label %7, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h429c83f7edf756c5E.llvm.11494769183469379903.exit"
 
 7:                                                ; preds = %4
@@ -70467,7 +70467,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %12, %4
   store i8 0, ptr %6, align 1, !noalias !16108
   %14 = getelementptr inbounds i8, ptr %2, i64 528
   %15 = load i8, ptr %14, align 8, !range !102, !alias.scope !16110, !noalias !16113, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i.i, label %16, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h636cbc8fa8b3623cE.llvm.11494769183469379903.exit"
 
 16:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -70654,7 +70654,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %11, %4
   store i64 %storemerge.i, ptr %5, align 8, !noalias !16153
   %16 = getelementptr inbounds i8, ptr %2, i64 528
   %17 = load i8, ptr %16, align 8, !range !102, !alias.scope !16155, !noalias !16158, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %17, 2
+  %switch.i.i.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i.i.i, label %18, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
 
 18:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -70664,7 +70664,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %11, %4
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i": ; preds = %18, %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
   %19 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17hf7ba1cd3acb75d4dE(ptr noalias noundef nonnull align 8 dereferenceable(536) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   %20 = load i8, ptr %16, align 8, !range !102, !alias.scope !16160, !noalias !16163, !noundef !4
-  %switch.i.i = icmp ugt i8 %20, 2
+  %switch.i.i = icmp samesign ugt i8 %20, 2
   br i1 %switch.i.i, label %21, label %"_ZN3vim6indent8register28_$u7b$$u7b$closure$u7d$$u7d$17h52801aa305ddcc45E.llvm.11494769183469379903.exit"
 
 21:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
@@ -71058,7 +71058,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %11, %4
   store i64 %storemerge.i, ptr %5, align 8, !noalias !16265
   %16 = getelementptr inbounds i8, ptr %2, i64 528
   %17 = load i8, ptr %16, align 8, !range !102, !alias.scope !16267, !noalias !16270, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %17, 2
+  %switch.i.i.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i.i.i, label %18, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
 
 18:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -71068,7 +71068,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %11, %4
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i": ; preds = %18, %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
   %19 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h5f9ed0c4e1fbe8b2E(ptr noalias noundef nonnull align 8 dereferenceable(536) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   %20 = load i8, ptr %16, align 8, !range !102, !alias.scope !16272, !noalias !16275, !noundef !4
-  %switch.i.i = icmp ugt i8 %20, 2
+  %switch.i.i = icmp samesign ugt i8 %20, 2
   br i1 %switch.i.i, label %21, label %"_ZN3vim6indent8register28_$u7b$$u7b$closure$u7d$$u7d$17h67bbaf79bce4c9f5E.llvm.11494769183469379903.exit"
 
 21:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
@@ -71135,7 +71135,7 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %2, i64 528
   %10 = load i8, ptr %9, align 8, !range !102, !alias.scope !16297, !noalias !16298
-  %switch.i.i.i = icmp ugt i8 %10, 2
+  %switch.i.i.i = icmp samesign ugt i8 %10, 2
   %..i.i = select i1 %switch.i.i.i, i64 1, i64 2
   %.sink.i.i = select i1 %switch.i.i, i64 %..i.i, i64 %8
   store i64 %.sink.i.i, ptr %5, align 8, !noalias !16294
@@ -71239,7 +71239,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %10, %4
   %12 = tail call { i64, i64 } @_ZN3vim3Vim10take_count17h6898fe041cab8e11E(ptr noalias noundef nonnull align 8 dereferenceable(536) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %13 = getelementptr inbounds i8, ptr %2, i64 528
   %14 = load i8, ptr %13, align 8, !range !102, !alias.scope !16334, !noalias !16339, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %14, 2
+  %switch.i.i.i = icmp samesign ugt i8 %14, 2
   br i1 %switch.i.i.i, label %15, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
 
 15:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -71249,7 +71249,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %10, %4
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i": ; preds = %15, %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
   %16 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h66080f820f34fdf5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %17 = load i8, ptr %13, align 8, !range !102, !alias.scope !16342, !noalias !16345, !noundef !4
-  %switch.i.i = icmp ugt i8 %17, 2
+  %switch.i.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i.i, label %18, label %"_ZN3vim6rewrap8register28_$u7b$$u7b$closure$u7d$$u7d$17h3a5be6acc1df4f85E.llvm.11494769183469379903.exit"
 
 18:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i"
@@ -71297,7 +71297,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i: ; preds = %12, %4
   store i8 1, ptr %6, align 1, !noalias !16354
   %14 = getelementptr inbounds i8, ptr %2, i64 528
   %15 = load i8, ptr %14, align 8, !range !102, !alias.scope !16356, !noalias !16359, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i.i, label %16, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h649f525d4f1713b3E.llvm.11494769183469379903.exit"
 
 16:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i
@@ -71333,7 +71333,7 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %2, i64 528
   %10 = load i8, ptr %9, align 8, !range !102, !alias.scope !16376, !noalias !16377
-  %switch.i.i.i = icmp ugt i8 %10, 2
+  %switch.i.i.i = icmp samesign ugt i8 %10, 2
   %..i.i = select i1 %switch.i.i.i, i64 1, i64 2
   %.sink.i.i = select i1 %switch.i.i, i64 %..i.i, i64 %8
   store i64 %.sink.i.i, ptr %5, align 8, !noalias !16373
@@ -71627,7 +71627,7 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$
   store i64 %9, ptr %13, align 8, !noalias !16472
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %5, align 1, !noalias !16472
-  %switch.i.i.i.i = icmp ugt i8 %11, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %11, 2
   br i1 %switch.i.i.i.i, label %15, label %"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d$$u7d$17h0371460cce770c51E.llvm.11494769183469379903.exit"
 
 15:                                               ; preds = %4
@@ -92068,7 +92068,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82bb98ccc1d8e800E.exit: ; preds = %3
   br i1 %switch.i.i, label %64, label %"_ZN3vim3Vim11switch_mode28_$u7b$$u7b$closure$u7d$$u7d$17h476b08d16d82bd45E.exit.i"
 
 48:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9219cb83a98541fcE.exit"
-  %switch.i.i.i = icmp ugt i8 %46, 2
+  %switch.i.i.i = icmp samesign ugt i8 %46, 2
   br i1 %switch.i.i.i, label %49, label %47
 
 49:                                               ; preds = %48
@@ -98759,7 +98759,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hf9f6d6927ee7e4faE.exit: ; preds = %4
   %44 = extractvalue { i64, i64 } %42, 1
   %45 = getelementptr inbounds i8, ptr %15, i64 528
   %46 = load i8, ptr %45, align 1, !range !102, !alias.scope !21481, !noalias !21482
-  %switch.i.i.i.i = icmp ugt i8 %46, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %46, 2
   %..i.i.i = select i1 %switch.i.i.i.i, i64 1, i64 2
   %.sink.i.i.i = select i1 %switch.i.i.i, i64 %..i.i.i, i64 %44
   store i64 %.sink.i.i.i, ptr %5, align 8, !noalias !21477
@@ -101927,7 +101927,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hf9f6d6927ee7e4faE.exit: ; preds = %4
   %44 = extractvalue { i64, i64 } %42, 1
   %45 = getelementptr inbounds i8, ptr %15, i64 528
   %46 = load i8, ptr %45, align 1, !range !102, !alias.scope !22066, !noalias !22067
-  %switch.i.i.i.i = icmp ugt i8 %46, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %46, 2
   %..i.i.i = select i1 %switch.i.i.i.i, i64 1, i64 2
   %.sink.i.i.i = select i1 %switch.i.i.i, i64 %..i.i.i, i64 %44
   store i64 %.sink.i.i.i, ptr %5, align 8, !noalias !22062
@@ -102627,7 +102627,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %48, 
   store i8 0, ptr %6, align 1, !noalias !22207
   %50 = getelementptr inbounds i8, ptr %16, i64 528
   %51 = load i8, ptr %50, align 1, !range !102, !alias.scope !22209, !noalias !22212, !noundef !4
-  %switch.i.i.i.i.i = icmp ugt i8 %51, 2
+  %switch.i.i.i.i.i = icmp samesign ugt i8 %51, 2
   br i1 %switch.i.i.i.i.i, label %52, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h636cbc8fa8b3623cE.llvm.11494769183469379903.exit.i"
 
 52:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i
@@ -105340,7 +105340,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %48, 
   store i64 %storemerge.i.i, ptr %6, align 8, !noalias !22782
   %53 = getelementptr inbounds i8, ptr %16, i64 528
   %54 = load i8, ptr %53, align 1, !range !102, !alias.scope !22785, !noalias !22788, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %54, 2
+  %switch.i.i.i = icmp samesign ugt i8 %54, 2
   br i1 %switch.i.i.i, label %.sink.split.i.i, label %55
 
 55:                                               ; preds = %.noexc11
@@ -105364,7 +105364,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %48, 
 .noexc12:                                         ; preds = %59
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !22782
   %60 = load i8, ptr %53, align 1, !range !102, !alias.scope !22789, !noalias !22788, !noundef !4
-  %switch.i1.i.i = icmp ugt i8 %60, 2
+  %switch.i1.i.i = icmp samesign ugt i8 %60, 2
   br i1 %switch.i1.i.i, label %61, label %62
 
 61:                                               ; preds = %.noexc12
@@ -107861,7 +107861,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hf9f6d6927ee7e4faE.exit: ; preds = %4
   store i64 %48, ptr %49, align 8, !noalias !23294
   store i8 1, ptr %5, align 1, !noalias !23294
   %50 = load i8, ptr %43, align 1, !range !102, !alias.scope !23296, !noalias !23299, !noundef !4
-  %switch.i.i.i.i.i = icmp ugt i8 %50, 2
+  %switch.i.i.i.i.i = icmp samesign ugt i8 %50, 2
   br i1 %switch.i.i.i.i.i, label %51, label %"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d$$u7d$17h4865f34f13cd0ad1E.llvm.11494769183469379903.exit.i"
 
 51:                                               ; preds = %.noexc10
@@ -111453,7 +111453,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hf9f6d6927ee7e4faE.exit: ; preds = %4
 "_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd8ea0ecc8b09abfdE.exit": ; preds = %.noexc6
   %41 = getelementptr inbounds i8, ptr %14, i64 528
   %42 = load i8, ptr %41, align 1, !range !102, !alias.scope !23966, !noalias !23975, !noundef !4
-  %switch.i.i.i.i.i = icmp ugt i8 %42, 2
+  %switch.i.i.i.i.i = icmp samesign ugt i8 %42, 2
   br i1 %switch.i.i.i.i.i, label %43, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h429c83f7edf756c5E.llvm.11494769183469379903.exit.i"
 
 43:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd8ea0ecc8b09abfdE.exit"
@@ -120013,7 +120013,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hf9f6d6927ee7e4faE.exit: ; preds = %4
   store i64 %45, ptr %49, align 8, !noalias !25495
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %5, align 1, !noalias !25495
-  %switch.i.i.i.i.i = icmp ugt i8 %47, 2
+  %switch.i.i.i.i.i = icmp samesign ugt i8 %47, 2
   br i1 %switch.i.i.i.i.i, label %51, label %"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d$$u7d$17h0371460cce770c51E.llvm.11494769183469379903.exit.i"
 
 51:                                               ; preds = %.noexc9
@@ -120799,7 +120799,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %48, 
   store i8 1, ptr %6, align 1, !noalias !25624
   %50 = getelementptr inbounds i8, ptr %16, i64 528
   %51 = load i8, ptr %50, align 1, !range !102, !alias.scope !25626, !noalias !25629, !noundef !4
-  %switch.i.i.i.i.i = icmp ugt i8 %51, 2
+  %switch.i.i.i.i.i = icmp samesign ugt i8 %51, 2
   br i1 %switch.i.i.i.i.i, label %52, label %"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h649f525d4f1713b3E.llvm.11494769183469379903.exit.i"
 
 52:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i
@@ -124392,7 +124392,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %47, 
   store i64 %storemerge.i.i, ptr %5, align 8, !noalias !26399
   %52 = getelementptr inbounds i8, ptr %15, i64 528
   %53 = load i8, ptr %52, align 1, !range !102, !alias.scope !26402, !noalias !26405, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %53, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %53, 2
   br i1 %switch.i.i.i.i, label %54, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
 
 54:                                               ; preds = %.noexc11
@@ -124405,7 +124405,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %47, 
 
 .noexc13:                                         ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
   %56 = load i8, ptr %52, align 1, !range !102, !alias.scope !26407, !noalias !26410, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %56, 2
+  %switch.i.i.i = icmp samesign ugt i8 %56, 2
   br i1 %switch.i.i.i, label %57, label %58
 
 57:                                               ; preds = %.noexc13
@@ -124554,7 +124554,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %47, 
   store i64 %storemerge.i.i, ptr %5, align 8, !noalias !26431
   %52 = getelementptr inbounds i8, ptr %15, i64 528
   %53 = load i8, ptr %52, align 1, !range !102, !alias.scope !26434, !noalias !26437, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %53, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %53, 2
   br i1 %switch.i.i.i.i, label %54, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
 
 54:                                               ; preds = %.noexc11
@@ -124567,7 +124567,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %47, 
 
 .noexc13:                                         ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
   %56 = load i8, ptr %52, align 1, !range !102, !alias.scope !26439, !noalias !26442, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %56, 2
+  %switch.i.i.i = icmp samesign ugt i8 %56, 2
   br i1 %switch.i.i.i, label %57, label %58
 
 57:                                               ; preds = %.noexc13
@@ -127287,7 +127287,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %46, 
 .noexc11:                                         ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i
   %49 = getelementptr inbounds i8, ptr %14, i64 528
   %50 = load i8, ptr %49, align 1, !range !102, !alias.scope !27023, !noalias !27030, !noundef !4
-  %switch.i.i.i.i = icmp ugt i8 %50, 2
+  %switch.i.i.i.i = icmp samesign ugt i8 %50, 2
   br i1 %switch.i.i.i.i, label %51, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
 
 51:                                               ; preds = %.noexc11
@@ -127300,7 +127300,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit.i.i: ; preds = %46, 
 
 .noexc13:                                         ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit.i.i"
   %53 = load i8, ptr %49, align 1, !range !102, !alias.scope !27034, !noalias !27037, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %53, 2
+  %switch.i.i.i = icmp samesign ugt i8 %53, 2
   br i1 %switch.i.i.i, label %54, label %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb61d1a0502e7453bE.llvm.11494769183469379903.exit"
 
 54:                                               ; preds = %.noexc13
@@ -138959,7 +138959,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %11
   store i64 %storemerge, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 528
   %17 = load i8, ptr %16, align 8, !range !102, !alias.scope !28919, !noalias !28922, !noundef !4
-  %switch.i.i = icmp ugt i8 %17, 2
+  %switch.i.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i.i, label %18, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
 
 18:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -138969,7 +138969,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %11
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit": ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit, %18
   %19 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17hf7ba1cd3acb75d4dE(ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   %20 = load i8, ptr %16, align 8, !range !102, !alias.scope !28924, !noundef !4
-  %switch.i = icmp ugt i8 %20, 2
+  %switch.i = icmp samesign ugt i8 %20, 2
   br i1 %switch.i, label %21, label %22
 
 21:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
@@ -139024,7 +139024,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %11
   store i64 %storemerge, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 528
   %17 = load i8, ptr %16, align 8, !range !102, !alias.scope !28936, !noalias !28939, !noundef !4
-  %switch.i.i = icmp ugt i8 %17, 2
+  %switch.i.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i.i, label %18, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
 
 18:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -139034,7 +139034,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %11
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit": ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit, %18
   %19 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h5f9ed0c4e1fbe8b2E(ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   %20 = load i8, ptr %16, align 8, !range !102, !alias.scope !28941, !noundef !4
-  %switch.i = icmp ugt i8 %20, 2
+  %switch.i = icmp samesign ugt i8 %20, 2
   br i1 %switch.i, label %21, label %22
 
 21:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
@@ -140070,7 +140070,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %14
   store i64 %.sroa.02.0, ptr %8, align 8, !noalias !29040
   store i32 0, ptr %7, align 4, !noalias !29040
   %22 = load i8, ptr %21, align 8, !range !102, !alias.scope !29042, !noalias !29045, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %22, 2
+  %switch.i.i.i = icmp samesign ugt i8 %22, 2
   br i1 %switch.i.i.i, label %23, label %"_ZN3vim6normal9increment26_$LT$impl$u20$vim..Vim$GT$9increment17ha6dd17dfb84fd842E.exit"
 
 23:                                               ; preds = %.split4
@@ -140091,7 +140091,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %14
   store i64 %.sroa.02.0, ptr %6, align 8, !noalias !29050
   store i32 1, ptr %5, align 4, !noalias !29050
   %25 = load i8, ptr %21, align 8, !range !102, !alias.scope !29052, !noalias !29055, !noundef !4
-  %switch.i.i.i5 = icmp ugt i8 %25, 2
+  %switch.i.i.i5 = icmp samesign ugt i8 %25, 2
   br i1 %switch.i.i.i5, label %26, label %"_ZN3vim6normal9increment26_$LT$impl$u20$vim..Vim$GT$9increment17ha6dd17dfb84fd842E.exit6"
 
 26:                                               ; preds = %.split
@@ -140143,7 +140143,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
   store i32 %.sroa.01.0, ptr %5, align 4, !noalias !29060
   %20 = getelementptr inbounds i8, ptr %1, i64 528
   %21 = load i8, ptr %20, align 8, !range !102, !alias.scope !29062, !noalias !29065, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %21, 2
+  %switch.i.i.i = icmp samesign ugt i8 %21, 2
   br i1 %switch.i.i.i, label %22, label %"_ZN3vim6normal9increment26_$LT$impl$u20$vim..Vim$GT$9increment17ha6dd17dfb84fd842E.exit"
 
 22:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -141715,7 +141715,7 @@ define hidden void @"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d
   store i64 %9, ptr %13, align 8, !noalias !29335
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %5, align 1, !noalias !29335
-  %switch.i.i.i = icmp ugt i8 %11, 2
+  %switch.i.i.i = icmp samesign ugt i8 %11, 2
   br i1 %switch.i.i.i, label %15, label %"_ZN3vim6normal10substitute26_$LT$impl$u20$vim..Vim$GT$10substitute17h7972b01ee7007d92E.exit"
 
 15:                                               ; preds = %4
@@ -141758,7 +141758,7 @@ define hidden void @"_ZN3vim6normal10substitute8register28_$u7b$$u7b$closure$u7d
   store i64 %13, ptr %14, align 8, !noalias !29342
   store i8 1, ptr %5, align 1, !noalias !29342
   %15 = load i8, ptr %7, align 8, !range !102, !alias.scope !29344, !noalias !29347, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i, label %16, label %"_ZN3vim6normal10substitute26_$LT$impl$u20$vim..Vim$GT$10substitute17h7972b01ee7007d92E.exit"
 
 16:                                               ; preds = %10
@@ -142129,7 +142129,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
   store i64 %storemerge, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 528
   %18 = load i8, ptr %17, align 8, !range !102, !alias.scope !29387, !noundef !4
-  %switch.i = icmp ugt i8 %18, 2
+  %switch.i = icmp samesign ugt i8 %18, 2
   br i1 %switch.i, label %.sink.split, label %19
 
 19:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -142150,7 +142150,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
   call void @_ZN3vim3Vim13update_editor17h18099d0f57661d13E(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %24 = load i8, ptr %17, align 8, !range !102, !alias.scope !29390, !noundef !4
-  %switch.i1 = icmp ugt i8 %24, 2
+  %switch.i1 = icmp samesign ugt i8 %24, 2
   br i1 %switch.i1, label %25, label %26
 
 25:                                               ; preds = %23
@@ -142959,7 +142959,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %10
   %12 = tail call { i64, i64 } @_ZN3vim3Vim10take_count17h6898fe041cab8e11E(ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %13 = getelementptr inbounds i8, ptr %1, i64 528
   %14 = load i8, ptr %13, align 8, !range !102, !alias.scope !29548, !noalias !29551, !noundef !4
-  %switch.i.i = icmp ugt i8 %14, 2
+  %switch.i.i = icmp samesign ugt i8 %14, 2
   br i1 %switch.i.i, label %15, label %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
 
 15:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -142969,7 +142969,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %10
 "_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit": ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit, %15
   %16 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17h66080f820f34fdf5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %17 = load i8, ptr %13, align 8, !range !102, !alias.scope !29553, !noundef !4
-  %switch.i = icmp ugt i8 %17, 2
+  %switch.i = icmp samesign ugt i8 %17, 2
   br i1 %switch.i, label %18, label %19
 
 18:                                               ; preds = %"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$18store_visual_marks17h3f34e4e671494ad8E.exit"
@@ -143084,7 +143084,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
   store i8 0, ptr %6, align 1, !noalias !29574
   %14 = getelementptr inbounds i8, ptr %1, i64 528
   %15 = load i8, ptr %14, align 8, !range !102, !alias.scope !29576, !noalias !29579, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i, label %16, label %"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$13visual_delete17h278f0d9430a889f5E.exit"
 
 16:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -143123,7 +143123,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
   store i8 1, ptr %6, align 1, !noalias !29584
   %14 = getelementptr inbounds i8, ptr %1, i64 528
   %15 = load i8, ptr %14, align 8, !range !102, !alias.scope !29586, !noalias !29589, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %15, 2
+  %switch.i.i.i = icmp samesign ugt i8 %15, 2
   br i1 %switch.i.i.i, label %16, label %"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$13visual_delete17h278f0d9430a889f5E.exit"
 
 16:                                               ; preds = %_ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit
@@ -143143,7 +143143,7 @@ _ZN3vim3Vim21record_current_action17h1dbe4dbeda580145E.exit: ; preds = %4, %12
 define hidden void @"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h429c83f7edf756c5E.llvm.11494769183469379903"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(536) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 528
   %6 = load i8, ptr %5, align 8, !range !102, !alias.scope !29591, !noalias !29596, !noundef !4
-  %switch.i.i.i = icmp ugt i8 %6, 2
+  %switch.i.i.i = icmp samesign ugt i8 %6, 2
   br i1 %switch.i.i.i, label %7, label %"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$11visual_yank17hb84e46c90808cef9E.exit"
 
 7:                                                ; preds = %4
@@ -143393,7 +143393,7 @@ define hidden void @"_ZN3vim6visual8register28_$u7b$$u7b$closure$u7d$$u7d$17h145
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h190101c34d60586eE.llvm.3225449011375112997"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %8)
   %97 = getelementptr inbounds i8, ptr %1, i64 528
   %98 = load i8, ptr %97, align 8, !range !102, !noundef !4
-  %switch.i = icmp ugt i8 %98, 2
+  %switch.i = icmp samesign ugt i8 %98, 2
   br i1 %switch.i, label %99, label %100
 
 99:                                               ; preds = %86

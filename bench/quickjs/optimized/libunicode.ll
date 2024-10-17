@@ -193,7 +193,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr nocapture no
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp ugt i32 %13, 1
+  %26 = icmp samesign ugt i32 %13, 1
   %27 = icmp eq i32 %2, 2
   %or.cond = and i1 %27, %26
   br i1 %or.cond, label %28, label %160
@@ -1367,11 +1367,11 @@ get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.
   %71 = load i8, ptr %.0.i.i, align 1
   %72 = zext i8 %71 to i32
   %73 = and i32 %72, 63
-  %74 = icmp ult i32 %73, 48
+  %74 = icmp samesign ult i32 %73, 48
   br i1 %74, label %96, label %75
 
 75:                                               ; preds = %69
-  %76 = icmp ult i32 %73, 56
+  %76 = icmp samesign ult i32 %73, 56
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %75
@@ -1515,11 +1515,11 @@ get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.
   %149 = load i8, ptr %.0.i53.i, align 1
   %150 = zext i8 %149 to i32
   %151 = and i32 %150, 63
-  %152 = icmp ult i32 %151, 48
+  %152 = icmp samesign ult i32 %151, 48
   br i1 %152, label %174, label %153
 
 153:                                              ; preds = %147
-  %154 = icmp ult i32 %151, 56
+  %154 = icmp samesign ult i32 %151, 56
   br i1 %154, label %155, label %162
 
 155:                                              ; preds = %153
@@ -1858,7 +1858,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef nonnull %0, ptr nocapture no
 
 42:                                               ; preds = %36
   %43 = and i32 %31, 1
-  %44 = icmp ult i32 %3, %43
+  %44 = icmp samesign ult i32 %3, %43
   br i1 %44, label %unicode_decomp_char.exit.thread, label %unicode_decomp_char.exit
 
 45:                                               ; preds = %40, %34
@@ -1959,11 +1959,11 @@ get_index_pos.exit.thread41:                      ; preds = %1, %get_index_pos.e
   %34 = load i8, ptr %.0, align 1
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 63
-  %37 = icmp ult i32 %36, 48
+  %37 = icmp samesign ult i32 %36, 48
   br i1 %37, label %59, label %38
 
 38:                                               ; preds = %32
-  %39 = icmp ult i32 %36, 56
+  %39 = icmp samesign ult i32 %36, 56
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %38
@@ -2128,11 +2128,11 @@ unicode_find_name.exit:                           ; preds = %15
   %32 = load i8, ptr %.095262, align 1
   %33 = and i8 %32, 127
   %34 = zext nneg i8 %33 to i32
-  %35 = icmp ult i8 %33, 96
+  %35 = icmp samesign ult i8 %33, 96
   br i1 %35, label %54, label %36
 
 36:                                               ; preds = %30
-  %37 = icmp ult i8 %33, 112
+  %37 = icmp samesign ult i8 %33, 112
   %38 = getelementptr i8, ptr %.095262, i64 2
   %39 = load i8, ptr %31, align 1
   %40 = zext i8 %39 to i32
@@ -3144,7 +3144,7 @@ cr_realloc.exit.thread.i:                         ; preds = %36
   %55 = getelementptr i32, ptr %51, i64 %54
   store i32 %.reass, ptr %55, align 4
   %56 = add nuw nsw i32 %.1112, 2
-  %57 = icmp ult i32 %56, %24
+  %57 = icmp samesign ult i32 %56, %24
   br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 58:                                               ; preds = %27
@@ -4798,7 +4798,7 @@ unicode_get_short_code.exit157:                   ; preds = %154, %163, %165
   br i1 %.not, label %184, label %181
 
 181:                                              ; preds = %179
-  %182 = icmp ult i32 %.0120, 256
+  %182 = icmp samesign ult i32 %.0120, 256
   %183 = add nsw i32 %.0120, -1040
   %or.cond.i = icmp ult i32 %183, 32
   %or.cond8.i = select i1 %182, i1 true, i1 %or.cond.i

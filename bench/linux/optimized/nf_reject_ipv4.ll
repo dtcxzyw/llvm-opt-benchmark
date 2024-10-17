@@ -67,7 +67,7 @@ define dso_local ptr @nf_reject_skb_v4_tcp_reset(ptr noundef %0, ptr noundef %1,
   %24 = getelementptr i8, ptr %20, i64 %23
   %25 = load i8, ptr %24, align 4
   %26 = and i8 %25, 15
-  %27 = icmp ugt i8 %26, 4
+  %27 = icmp samesign ugt i8 %26, 4
   %28 = and i8 %25, -16
   %29 = icmp eq i8 %28, 64
   %30 = and i1 %27, %29
@@ -85,7 +85,7 @@ define dso_local ptr @nf_reject_skb_v4_tcp_reset(ptr noundef %0, ptr noundef %1,
 38:                                               ; preds = %31
   %39 = shl i8 %25, 2
   %40 = zext nneg i8 %39 to i32
-  %41 = icmp ult i32 %35, %40
+  %41 = icmp samesign ult i32 %35, %40
   br i1 %41, label %nf_reject_iphdr_validate.exit.thread, label %42
 
 42:                                               ; preds = %38
@@ -453,7 +453,7 @@ define dso_local ptr @nf_reject_skb_v4_unreach(ptr noundef %0, ptr noundef %1, p
   %25 = getelementptr i8, ptr %21, i64 %24
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 15
-  %28 = icmp ugt i8 %27, 4
+  %28 = icmp samesign ugt i8 %27, 4
   %29 = and i8 %26, -16
   %30 = icmp eq i8 %29, 64
   %31 = and i1 %28, %30
@@ -471,7 +471,7 @@ define dso_local ptr @nf_reject_skb_v4_unreach(ptr noundef %0, ptr noundef %1, p
 39:                                               ; preds = %32
   %40 = shl i8 %26, 2
   %41 = zext nneg i8 %40 to i32
-  %42 = icmp ult i32 %36, %41
+  %42 = icmp samesign ult i32 %36, %41
   br i1 %42, label %nf_reject_iphdr_validate.exit.thread, label %43
 
 43:                                               ; preds = %39

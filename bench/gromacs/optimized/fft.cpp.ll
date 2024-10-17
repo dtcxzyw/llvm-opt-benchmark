@@ -85,7 +85,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   %indvars.iv291 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next292, %.loopexit ]
   %indvars.iv284 = phi i64 [ 1, %.lr.ph266.preheader ], [ %indvars.iv.next285, %.loopexit ]
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %30 = icmp ult i64 %indvars.iv.next292, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next292, %29
   br i1 %30, label %.lr.ph264, label %.loopexit
 
 .lr.ph264:                                        ; preds = %.lr.ph266

@@ -2331,7 +2331,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %41 = add nuw i32 %.06281, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp ult i32 %41, %.1
-  %43 = icmp ult i64 %indvars.iv.next, %37
+  %43 = icmp samesign ult i64 %indvars.iv.next, %37
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !13
 

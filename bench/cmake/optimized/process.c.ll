@@ -822,7 +822,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   %39 = getelementptr inbounds [2 x i32], ptr %2, i64 %indvars.iv, i64 1
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %or.cond = icmp ugt i64 %indvars.iv, %41
+  %or.cond = icmp samesign ugt i64 %indvars.iv, %41
   br i1 %or.cond, label %42, label %55
 
 42:                                               ; preds = %.lr.ph
@@ -1133,8 +1133,8 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   %176 = getelementptr inbounds i8, ptr %174, i64 %indvars.iv169
   %177 = load i8, ptr %176, align 1
   %.not107 = icmp ne i8 %177, 0
-  %178 = icmp ult i64 %indvars.iv169, 1024
-  %or.cond112 = and i1 %178, %.not107
+  %178 = icmp samesign ult i64 %indvars.iv169, 1024
+  %or.cond112 = select i1 %.not107, i1 %178, i1 false
   br i1 %or.cond112, label %179, label %186
 
 179:                                              ; preds = %175

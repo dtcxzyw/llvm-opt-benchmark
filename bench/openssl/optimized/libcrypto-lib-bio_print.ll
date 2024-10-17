@@ -2093,8 +2093,8 @@ do.body:                                          ; preds = %do.body, %if.end14
   store i8 %0, ptr %arrayidx30, align 1
   %div = udiv i64 %uvalue.1, %conv
   %tobool32 = icmp uge i64 %uvalue.1, %conv
-  %cmp33 = icmp ult i64 %indvars.iv, 25
-  %1 = and i1 %tobool32, %cmp33
+  %cmp33 = icmp samesign ult i64 %indvars.iv, 25
+  %1 = select i1 %tobool32, i1 %cmp33, i1 false
   br i1 %1, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body
@@ -2420,8 +2420,8 @@ do.body:                                          ; preds = %do.body, %pow_10.ex
   store i8 %2, ptr %arrayidx88, align 1
   %div89 = udiv i64 %intpart.1, 10
   %tobool90 = icmp ugt i64 %intpart.1, 9
-  %cmp91 = icmp ult i64 %indvars.iv, 19
-  %3 = and i1 %cmp91, %tobool90
+  %cmp91 = icmp samesign ult i64 %indvars.iv, 19
+  %3 = select i1 %tobool90, i1 %cmp91, i1 false
   br i1 %3, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
@@ -2519,8 +2519,8 @@ do.body142:                                       ; preds = %do.body142, %if.the
   store i8 %9, ptr %arrayidx148, align 1
   %div149208 = udiv i32 %tmpexp.1, 10
   %cmp151 = icmp sgt i32 %tmpexp.1, 9
-  %cmp154 = icmp ult i64 %indvars.iv300, 19
-  %10 = and i1 %cmp154, %cmp151
+  %cmp154 = icmp samesign ult i64 %indvars.iv300, 19
+  %10 = select i1 %cmp151, i1 %cmp154, i1 false
   br i1 %10, label %do.body142, label %do.end157, !llvm.loop !19
 
 do.end157:                                        ; preds = %do.body142

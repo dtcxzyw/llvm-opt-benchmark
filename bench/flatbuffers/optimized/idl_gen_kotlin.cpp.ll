@@ -27567,7 +27567,7 @@ for.inc97:                                        ; preds = %for.inc, %for.body
   %99 = phi ptr [ %21, %for.body ], [ %incdec.ptr.i.i, %for.inc ]
   %100 = phi ptr [ %22, %for.body ], [ %96, %for.inc ]
   %div16 = lshr i64 %size.0142, 1
-  %tobool18.not = icmp ult i64 %size.0142, 2
+  %tobool18.not = icmp samesign ult i64 %size.0142, 2
   br i1 %tobool18.not, label %for.end98, label %for.body, !llvm.loop !221
 
 for.end98:                                        ; preds = %for.inc97, %invoke.cont13

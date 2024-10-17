@@ -4830,7 +4830,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket4lockEv.
 84:                                               ; preds = %81
   %85 = icmp sgt i32 %.sroa.0.2, -1
   %86 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %83)
-  %87 = icmp ult i32 %86, 2
+  %87 = icmp samesign ult i32 %86, 2
   %or.cond.i.i.i.i = select i1 %85, i1 %87, i1 false
   %88 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %83, i1 true)
   %89 = sub nuw nsw i32 32, %88

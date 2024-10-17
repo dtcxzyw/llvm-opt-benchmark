@@ -186,7 +186,7 @@ define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, 
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %69
   %76 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
-  %77 = icmp ugt i32 %76, %70
+  %77 = icmp samesign ugt i32 %76, %70
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %68
@@ -1679,7 +1679,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
   %229 = phi i32 [ %218, %217 ], [ %.pre.i146, %222 ]
   %230 = add nuw nsw i64 %.041.i, 1
   %231 = zext i32 %229 to i64
-  %232 = icmp ult i64 %230, %231
+  %232 = icmp samesign ult i64 %230, %231
   br i1 %232, label %217, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %228, %213
@@ -4358,7 +4358,7 @@ define internal fastcc void @send_request_pml_complete(ptr noundef %0) unnamed_a
   %23 = phi i32 [ %12, %11 ], [ %.pre.i, %16 ]
   %24 = add nuw nsw i64 %.013.i, 1
   %25 = zext i32 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %11, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !33
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %22, %6

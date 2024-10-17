@@ -447,7 +447,7 @@ if.end26:                                         ; preds = %if.then22, %if.then
 
 if.end31:                                         ; preds = %if.end26
   store i32 %newCapacity.0, ptr %capacity_, align 4
-  %cmp.i.i = icmp ugt i32 %newCapacity.0, 1027070
+  %cmp.i.i = icmp samesign ugt i32 %newCapacity.0, 1027070
   br i1 %cmp.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end31
@@ -1778,7 +1778,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE9setNonPtrILNS3_6InlineE0EE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %capacity_, align 4
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE9setNonPtrILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit, %for.cond.preheader.for.end_crit_edge

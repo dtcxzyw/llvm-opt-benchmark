@@ -597,7 +597,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %.loopexit, label %5, !llvm.loop !29
 
 12:                                               ; preds = %5
-  %13 = icmp ult i64 %9, 49
+  %13 = icmp samesign ult i64 %9, 49
   %14 = trunc i64 %10 to i32
   br label %.loopexit
 
@@ -643,7 +643,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %28
   %37 = trunc nuw nsw i64 %29 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
-  %38 = icmp ugt i64 %29, 561
+  %38 = icmp samesign ugt i64 %29, 561
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %36
@@ -696,7 +696,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %17
   %5 = phi i64 [ %18, %17 ], [ 0, %0 ]
-  %6 = icmp ult i64 %5, 50
+  %6 = icmp samesign ult i64 %5, 50
   br i1 %6, label %7, label %11, !prof !25
 
 7:                                                ; preds = %.preheader

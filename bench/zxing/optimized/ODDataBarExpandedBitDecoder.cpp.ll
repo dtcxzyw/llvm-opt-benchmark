@@ -1095,19 +1095,19 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   %17 = sdiv i32 %12, 100000
   %18 = srem i32 %12, 100000
   %19 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %20 = icmp ult i32 %19, 10
+  %20 = icmp samesign ult i32 %19, 10
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %13
-  %22 = icmp ult i32 %19, 100
+  %22 = icmp samesign ult i32 %19, 100
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %19, 1000
+  %24 = icmp samesign ult i32 %19, 1000
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %19, 10000
+  %26 = icmp samesign ult i32 %19, 10000
   %27 = select i1 %26, i32 4, i32 5
   br label %28
 
@@ -2672,7 +2672,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
 
 .loopexit:                                        ; preds = %7, %3
   %27 = phi i32 [ %2, %3 ], [ %12, %7 ]
-  %28 = icmp ugt i32 %27, 9
+  %28 = icmp samesign ugt i32 %27, 9
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %.loopexit

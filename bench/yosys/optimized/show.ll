@@ -77703,7 +77703,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL5StateESt6vectorIS4_SaI
   %182 = phi i1 [ true, %.thread273 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i166 ], [ false, %179 ], [ true, %164 ]
   %.0114270283 = phi i32 [ %135, %.thread273 ], [ %.0114270.ph, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i166 ], [ %.0114270.ph, %179 ], [ %135, %164 ]
   %.0112272281 = phi i32 [ %139, %.thread273 ], [ %.0112272.ph, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i166 ], [ %.0112272.ph, %179 ], [ %139, %164 ]
-  %183 = icmp ult i32 %.0110.lcssa, 2
+  %183 = icmp samesign ult i32 %.0110.lcssa, 2
   br i1 %183, label %185, label %184
 
 184:                                              ; preds = %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEESA_EbT_SB_T0_.exit

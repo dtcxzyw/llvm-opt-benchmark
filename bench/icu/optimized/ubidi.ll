@@ -2341,7 +2341,7 @@ if.end269:                                        ; preds = %if.end269.loopexit,
   %nextLevel.1 = phi i8 [ %227, %cond.true262 ], [ %conv.i308, %ubidi_getParaLevelAtIndex_75.exit318 ], [ %221, %if.end269.loopexit ]
   %235 = and i8 %nextLevel.0, 127
   %236 = and i8 %nextLevel.1, 127
-  %cmp274 = icmp ult i8 %235, %236
+  %cmp274 = icmp samesign ult i8 %235, %236
   %nextLevel.1.nextLevel.0 = select i1 %cmp274, i8 %nextLevel.1, i8 %nextLevel.0
   %eor.2 = and i8 %nextLevel.1.nextLevel.0, 1
   %tobool286.not = icmp sgt i8 %nextLevel.0, -1
@@ -3258,7 +3258,7 @@ if.end.i:                                         ; preds = %if.then208
   %idxprom.i = sext i32 %110 to i64
   %arrayidx.i311 = getelementptr inbounds [127 x %struct.IsoRun], ptr %isoRuns.i227, i64 0, i64 %idxprom.i
   %111 = and i8 %embeddingLevel.0454, 127
-  %cmp.i312 = icmp ugt i8 %111, %106
+  %cmp.i312 = icmp samesign ugt i8 %111, %106
   %spec.select.i = select i1 %cmp.i312, i8 %embeddingLevel.0454, i8 %previousLevel.0456
   %start.i313 = getelementptr inbounds i8, ptr %arrayidx.i311, i64 4
   %112 = load i16, ptr %start.i313, align 4
@@ -3374,7 +3374,7 @@ if.end.i337:                                      ; preds = %if.then261
   %arrayidx.i341 = getelementptr inbounds [127 x %struct.IsoRun], ptr %isoRuns.i227, i64 0, i64 %idxprom.i340
   %127 = and i8 %embeddingLevel.0454, 127
   %128 = and i8 %previousLevel.0456, 127
-  %cmp.i342 = icmp ugt i8 %127, %128
+  %cmp.i342 = icmp samesign ugt i8 %127, %128
   %spec.select.i343 = select i1 %cmp.i342, i8 %embeddingLevel.0454, i8 %previousLevel.0456
   %start.i344 = getelementptr inbounds i8, ptr %arrayidx.i341, i64 4
   %129 = load i16, ptr %start.i344, align 4
@@ -3518,7 +3518,7 @@ cond.end324:                                      ; preds = %ubidi_getParaLevelA
   %arrayidx327 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store i8 %cond325, ptr %arrayidx327, align 1
   %152 = add nuw nsw i64 %indvars.iv, 1
-  %cmp329 = icmp ult i64 %152, %93
+  %cmp329 = icmp samesign ult i64 %152, %93
   br i1 %cmp329, label %if.then330, label %for.inc407
 
 if.then330:                                       ; preds = %cond.end324
@@ -3634,7 +3634,7 @@ if.end.i406:                                      ; preds = %if.then372
   %idxprom.i409 = sext i32 %173 to i64
   %arrayidx.i410 = getelementptr inbounds [127 x %struct.IsoRun], ptr %isoRuns.i227, i64 0, i64 %idxprom.i409
   %174 = and i8 %embeddingLevel.0454, 127
-  %cmp.i411 = icmp ugt i8 %174, %169
+  %cmp.i411 = icmp samesign ugt i8 %174, %169
   %spec.select.i412 = select i1 %cmp.i411, i8 %embeddingLevel.0454, i8 %previousLevel.0456
   %start.i413 = getelementptr inbounds i8, ptr %arrayidx.i410, i64 4
   %175 = load i16, ptr %start.i413, align 4
@@ -3843,8 +3843,8 @@ if.end41:                                         ; preds = %if.then31, %land.lh
   %16 = and i8 %6, 127
   %conv47 = zext nneg i8 %16 to i32
   %cmp48 = icmp sgt i32 %currentParaLevel.1, %conv47
-  %cmp51 = icmp ugt i8 %16, 125
-  %or.cond1 = or i1 %cmp51, %cmp48
+  %cmp51 = icmp samesign ugt i8 %16, 125
+  %or.cond1 = select i1 %cmp48, i1 true, i1 %cmp51
   br i1 %or.cond1, label %if.then52, label %if.end69
 
 if.then52:                                        ; preds = %if.end41
@@ -5644,7 +5644,7 @@ if.else56.i:                                      ; preds = %if.end29.i
   store i32 %sub57.i, ptr %match.i, align 4
   %29 = load i16, ptr %start, align 4
   %conv6152.i = zext i16 %29 to i32
-  %cmp62.not.not53.i = icmp ugt i32 %13, %conv6152.i
+  %cmp62.not.not53.i = icmp samesign ugt i32 %13, %conv6152.i
   br i1 %cmp62.not.not53.i, label %land.rhs63.i, label %while.end77.i
 
 land.rhs63.i:                                     ; preds = %if.else56.i, %while.body71.i
@@ -5696,7 +5696,7 @@ for.inc.i:                                        ; preds = %if.then90.i, %if.en
   %40 = phi i16 [ %36, %if.end87.i ], [ %.pre.i, %if.then90.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = zext i16 %40 to i64
-  %cmp80.i = icmp ult i64 %indvars.iv.next.i, %41
+  %cmp80.i = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %cmp80.i, label %for.body.i, label %_ZL21bracketProcessClosingP11BracketDataii.exit, !llvm.loop !37
 
 _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %for.body.i, %for.inc.i, %while.cond.i, %land.rhs.i, %if.then39.i, %while.end77.i
@@ -5963,7 +5963,7 @@ for.inc232:                                       ; preds = %for.body216, %if.th
   %75 = phi i16 [ %71, %for.body216 ], [ %.pre158, %if.then222 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %76 = zext i16 %75 to i64
-  %cmp215 = icmp ult i64 %indvars.iv.next155, %76
+  %cmp215 = icmp samesign ult i64 %indvars.iv.next155, %76
   br i1 %cmp215, label %for.body216, label %return, !llvm.loop !39
 
 return:                                           ; preds = %for.inc232, %if.then201, %if.end195.thread132, %if.end195, %if.end92, %if.then86, %if.then78, %if.end49
@@ -6100,7 +6100,7 @@ entry:
   %limit = getelementptr i8, ptr %3, i64 %limit.idx
   %4 = load i16, ptr %limit, align 2
   %conv25 = zext i16 %4 to i32
-  %cmp26 = icmp ult i32 %add, %conv25
+  %cmp26 = icmp samesign ult i32 %add, %conv25
   br i1 %cmp26, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
@@ -6156,7 +6156,7 @@ for.inc:                                          ; preds = %if.end7, %for.body,
   %inc = add nuw nsw i32 %k.027, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %qOpening.028, i64 24
   %conv = zext i16 %12 to i32
-  %cmp = icmp ult i32 %inc, %conv
+  %cmp = icmp samesign ult i32 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %if.end, %if.end10, %entry

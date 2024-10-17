@@ -541,7 +541,7 @@ _ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_Ri
 while.end16.i:                                    ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i, %while.end.i
   %to.addr.1.lcssa.i = phi ptr [ %to.addr.0.lcssa.i, %while.end.i ], [ %9, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
   %bytes.addr.1.lcssa.i = phi i32 [ %bytes.addr.0.lcssa.i, %while.end.i ], [ %sub.i13.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
-  %cmp.i17.i = icmp ugt i32 %bytes.addr.1.lcssa.i, 3
+  %cmp.i17.i = icmp samesign ugt i32 %bytes.addr.1.lcssa.i, 3
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end20.i
 
 if.then.i19.i:                                    ; preds = %while.end16.i
@@ -651,7 +651,7 @@ _ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_Ri
 while.end16.i19:                                  ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45, %while.end.i15
   %to.addr.1.lcssa.i20 = phi ptr [ %to.addr.0.lcssa.i16, %while.end.i15 ], [ %23, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
   %bytes.addr.1.lcssa.i21 = phi i32 [ %bytes.addr.0.lcssa.i17, %while.end.i15 ], [ %sub.i13.i43, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
-  %cmp.i17.i22 = icmp ugt i32 %bytes.addr.1.lcssa.i21, 3
+  %cmp.i17.i22 = icmp samesign ugt i32 %bytes.addr.1.lcssa.i21, 3
   br i1 %cmp.i17.i22, label %if.then.i19.i35, label %if.end20.i23
 
 if.then.i19.i35:                                  ; preds = %while.end16.i19

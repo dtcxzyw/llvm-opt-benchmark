@@ -238,7 +238,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %51 = phi i16 [ %37, %36 ], [ %.pre.i.i, %46 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %52 = zext i16 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next.i.i, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next.i.i, %52
   br i1 %53, label %36, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 54:                                               ; preds = %._crit_edge.i, %16
@@ -359,7 +359,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %107 = phi i16 [ %93, %92 ], [ %.pre.i55.i, %102 ]
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %108 = zext i16 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next.i54.i, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next.i54.i, %108
   br i1 %109, label %92, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 110:                                              ; preds = %._crit_edge17.i, %74
@@ -417,7 +417,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %139 = phi i16 [ %125, %124 ], [ %.pre.i63.i, %134 ]
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next.i62.i, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next.i62.i, %140
   br i1 %141, label %124, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 142:                                              ; preds = %7
@@ -1149,7 +1149,7 @@ _ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread184: ; preds 
 
 48:                                               ; preds = %43
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %45, 1
+  %.not.i.i.i = icmp samesign ugt i8 %45, 1
   %49 = icmp ne i8 %45, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %49
   br i1 %or.cond36.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit, label %50
@@ -1201,7 +1201,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit:    ; preds = %48, %50
 
 79:                                               ; preds = %74
   %.not37.i.i.i61 = icmp eq i32 %.026.i.i.i57, 63
-  %.not.i.i.i62 = icmp ugt i8 %76, 1
+  %.not.i.i.i62 = icmp samesign ugt i8 %76, 1
   %80 = icmp ne i8 %76, 0
   %or.cond36.i.i.i63 = select i1 %.not37.i.i.i61, i1 %.not.i.i.i62, i1 %80
   br i1 %or.cond36.i.i.i63, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit64, label %81
@@ -1254,7 +1254,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit64:  ; preds = %79, %81
 
 110:                                              ; preds = %105
   %.not37.i.i.i71 = icmp eq i32 %.026.i.i.i67, 63
-  %.not.i.i.i72 = icmp ugt i8 %107, 1
+  %.not.i.i.i72 = icmp samesign ugt i8 %107, 1
   %111 = icmp ne i8 %107, 0
   %or.cond36.i.i.i73 = select i1 %.not37.i.i.i71, i1 %.not.i.i.i72, i1 %111
   br i1 %or.cond36.i.i.i73, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit74, label %112
@@ -1302,7 +1302,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit74:  ; preds = %110, %112
 
 139:                                              ; preds = %134
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %136, 1
+  %.not.i = icmp samesign ugt i8 %136, 1
   %140 = icmp ne i8 %136, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %140
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %141
@@ -1355,7 +1355,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %139, %141
 
 170:                                              ; preds = %165
   %.not37.i.i.i84 = icmp eq i32 %.026.i.i.i80, 63
-  %.not.i.i.i85 = icmp ugt i8 %167, 1
+  %.not.i.i.i85 = icmp samesign ugt i8 %167, 1
   %171 = icmp ne i8 %167, 0
   %or.cond36.i.i.i86 = select i1 %.not37.i.i.i84, i1 %.not.i.i.i85, i1 %171
   br i1 %or.cond36.i.i.i86, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit87.thread, label %182
@@ -2882,7 +2882,7 @@ _ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread: ; preds = %
 
 862:                                              ; preds = %857
   %.not37.i.i.i96 = icmp eq i32 %.026.i.i.i92, 63
-  %.not.i.i.i97 = icmp ugt i8 %859, 1
+  %.not.i.i.i97 = icmp samesign ugt i8 %859, 1
   %863 = icmp ne i8 %859, 0
   %or.cond36.i.i.i98 = select i1 %.not37.i.i.i96, i1 %.not.i.i.i97, i1 %863
   br i1 %or.cond36.i.i.i98, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit99, label %864
@@ -2918,7 +2918,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit99:  ; preds = %862, %864
 
 881:                                              ; preds = %876
   %.not37.i.i.i106 = icmp eq i32 %.026.i.i.i102, 63
-  %.not.i.i.i107 = icmp ugt i8 %878, 1
+  %.not.i.i.i107 = icmp samesign ugt i8 %878, 1
   %882 = icmp ne i8 %878, 0
   %or.cond36.i.i.i108 = select i1 %.not37.i.i.i106, i1 %.not.i.i.i107, i1 %882
   br i1 %or.cond36.i.i.i108, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit109, label %883
@@ -2959,7 +2959,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit109: ; preds = %881, %883
 
 902:                                              ; preds = %897
   %.not37.i.i.i116 = icmp eq i32 %.026.i.i.i112, 63
-  %.not.i.i.i117 = icmp ugt i8 %899, 1
+  %.not.i.i.i117 = icmp samesign ugt i8 %899, 1
   %903 = icmp ne i8 %899, 0
   %or.cond36.i.i.i118 = select i1 %.not37.i.i.i116, i1 %.not.i.i.i117, i1 %903
   br i1 %or.cond36.i.i.i118, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit119, label %904
@@ -2996,7 +2996,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit119: ; preds = %902, %904
 
 922:                                              ; preds = %917
   %.not37.i.i.i126 = icmp eq i32 %.026.i.i.i122, 63
-  %.not.i.i.i127 = icmp ugt i8 %919, 1
+  %.not.i.i.i127 = icmp samesign ugt i8 %919, 1
   %923 = icmp ne i8 %919, 0
   %or.cond36.i.i.i128 = select i1 %.not37.i.i.i126, i1 %.not.i.i.i127, i1 %923
   br i1 %or.cond36.i.i.i128, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129, label %924
@@ -3076,7 +3076,7 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %951, %955
 
 964:                                              ; preds = %959
   %.not37.i.i.i136 = icmp eq i32 %.026.i.i.i132, 63
-  %.not.i.i.i137 = icmp ugt i8 %961, 1
+  %.not.i.i.i137 = icmp samesign ugt i8 %961, 1
   %965 = icmp ne i8 %961, 0
   %or.cond36.i.i.i138 = select i1 %.not37.i.i.i136, i1 %.not.i.i.i137, i1 %965
   br i1 %or.cond36.i.i.i138, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit139, label %966
@@ -3112,7 +3112,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit139: ; preds = %964, %966
 
 983:                                              ; preds = %978
   %.not37.i.i.i146 = icmp eq i32 %.026.i.i.i142, 63
-  %.not.i.i.i147 = icmp ugt i8 %980, 1
+  %.not.i.i.i147 = icmp samesign ugt i8 %980, 1
   %984 = icmp ne i8 %980, 0
   %or.cond36.i.i.i148 = select i1 %.not37.i.i.i146, i1 %.not.i.i.i147, i1 %984
   br i1 %or.cond36.i.i.i148, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit149, label %985

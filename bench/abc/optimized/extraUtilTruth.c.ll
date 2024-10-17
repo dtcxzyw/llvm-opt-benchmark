@@ -32,7 +32,7 @@ define ptr @Extra_TruthElementary(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph33.split.us.split.us:                       ; preds = %.lr.ph33.split.us.split.us.preheader, %..loopexit27_crit_edge.us.us
   %indvars.iv49 = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader ], [ %indvars.iv.next50, %..loopexit27_crit_edge.us.us ]
-  %9 = icmp ult i64 %indvars.iv49, 5
+  %9 = icmp samesign ult i64 %indvars.iv49, 5
   br i1 %9, label %.preheader.us.us, label %.preheader26.us.us
 
 10:                                               ; preds = %.preheader26.us.us, %10
@@ -236,7 +236,7 @@ define void @Extra_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr
   %80 = getelementptr inbounds i32, ptr %0, i64 %69
   store i32 %79, ptr %80, align 4
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %81 = icmp ult i64 %indvars.iv.next165, %33
+  %81 = icmp samesign ult i64 %indvars.iv.next165, %33
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph, %20, %.preheader87.lr.ph, %34, %.preheader, %10
@@ -381,7 +381,7 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   %65 = getelementptr inbounds i32, ptr %1, i64 %54
   store i32 %64, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %66 = icmp ult i64 %indvars.iv.next, %10
+  %66 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 67:                                               ; preds = %4
@@ -651,7 +651,7 @@ define void @Extra_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef 
   %89 = getelementptr inbounds i32, ptr %.12738, i64 %78
   store i32 %88, ptr %89, align 4
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %90 = icmp ult i64 %indvars.iv.next165.i, %13
+  %90 = icmp samesign ult i64 %indvars.iv.next165.i, %13
   br i1 %90, label %.lr.ph.i, label %Extra_TruthSwapAdjacentVars.exit, !llvm.loop !14
 
 Extra_TruthSwapAdjacentVars.exit:                 ; preds = %._crit_edge.us.i, %.lr.ph.i, %30, %21, %.preheader.i, %43, %.preheader87.lr.ph.i
@@ -891,7 +891,7 @@ define void @Extra_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %
   %87 = getelementptr inbounds i32, ptr %.12641, i64 %76
   store i32 %86, ptr %87, align 4
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %88 = icmp ult i64 %indvars.iv.next165.i, %12
+  %88 = icmp samesign ult i64 %indvars.iv.next165.i, %12
   br i1 %88, label %.lr.ph.i, label %Extra_TruthSwapAdjacentVars.exit, !llvm.loop !14
 
 Extra_TruthSwapAdjacentVars.exit:                 ; preds = %._crit_edge.us.i, %.lr.ph.i, %28, %19, %.preheader.i, %41, %.preheader87.lr.ph.i
@@ -2738,9 +2738,9 @@ Extra_TruthSupport.exit51:                        ; preds = %Extra_TruthVarInSup
   %175 = lshr i32 %173, 16
   %176 = add nuw nsw i32 %174, %175
   %177 = icmp sgt i32 %.030150, %176
-  %178 = icmp ult i32 %84, 6
+  %178 = icmp samesign ult i32 %84, 6
   %or.cond = select i1 %177, i1 %178, i1 false
-  %179 = icmp ult i32 %156, 6
+  %179 = icmp samesign ult i32 %156, 6
   %or.cond3 = select i1 %or.cond, i1 %179, i1 false
   %spec.select = select i1 %or.cond3, i32 %.0151, i32 %.031149
   %spec.select37 = select i1 %or.cond3, i32 %176, i32 %.030150
@@ -3524,7 +3524,7 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   %71 = load i16, ptr %70, align 2
   store i16 %71, ptr %67, align 2
   store i16 %68, ptr %70, align 2
-  %72 = icmp ult i64 %indvars.iv142, 4
+  %72 = icmp samesign ult i64 %indvars.iv142, 4
   br i1 %72, label %123, label %73
 
 73:                                               ; preds = %58
@@ -3634,7 +3634,7 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   %121 = getelementptr inbounds i32, ptr %.197124.us, i64 %110
   store i32 %120, ptr %121, align 4
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %122 = icmp ult i64 %indvars.iv.next165.i.us, %50
+  %122 = icmp samesign ult i64 %indvars.iv.next165.i.us, %50
   br i1 %122, label %.lr.ph.i.us, label %Extra_TruthSwapAdjacentVars.exit.us, !llvm.loop !14
 
 123:                                              ; preds = %58

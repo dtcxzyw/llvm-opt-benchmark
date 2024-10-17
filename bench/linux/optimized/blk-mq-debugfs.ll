@@ -209,7 +209,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = icmp ult i64 %19, 28
+  %29 = icmp samesign ult i64 %19, 28
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28
@@ -258,7 +258,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   br label %55
 
 55:                                               ; preds = %54, %51
-  %56 = icmp ult i64 %46, 24
+  %56 = icmp samesign ult i64 %46, 24
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -668,7 +668,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr nocapture noundef readon
   %62 = add nuw nsw i64 %37, 1
   %63 = load i16, ptr %31, align 2
   %64 = zext i16 %63 to i64
-  %65 = icmp ult i64 %62, %64
+  %65 = icmp samesign ult i64 %62, %64
   br i1 %65, label %36, label %.loopexit3, !llvm.loop !16
 
 .loopexit3:                                       ; preds = %.loopexit, %.loopexit4, %2
@@ -1138,7 +1138,7 @@ define internal noundef i32 @queue_state_show(ptr nocapture noundef readonly %0,
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = icmp ult i64 %6, 32
+  %16 = icmp samesign ult i64 %6, 32
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
@@ -1322,7 +1322,7 @@ define internal noundef i32 @hctx_state_show(ptr nocapture noundef readonly %0, 
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = icmp ult i64 %6, 4
+  %16 = icmp samesign ult i64 %6, 4
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
@@ -1388,7 +1388,7 @@ define internal noundef i32 @hctx_flags_show(ptr nocapture noundef readonly %0, 
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = icmp ult i64 %16, 7
+  %26 = icmp samesign ult i64 %16, 7
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25

@@ -440,7 +440,7 @@ regcache_hw_init.exit.thread13:                   ; preds = %135
   %208 = add nuw nsw i64 %160, 1
   %209 = load i32, ptr %63, align 8
   %210 = zext i32 %209 to i64
-  %211 = icmp ult i64 %208, %210
+  %211 = icmp samesign ult i64 %208, %210
   br i1 %211, label %159, label %regcache_hw_init.exit.thread, !llvm.loop !17
 
 regcache_hw_init.exit.thread:                     ; preds = %206, %121, %.thread8.i

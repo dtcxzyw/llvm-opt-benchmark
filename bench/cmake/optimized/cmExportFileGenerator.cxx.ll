@@ -738,7 +738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %97 = urem i32 %96, 100000000
   %98 = zext nneg i32 %97 to i64
   %99 = add nuw nsw i64 %94, %98
-  %100 = icmp ult i64 %99, 300900000000
+  %100 = icmp samesign ult i64 %99, 300900000000
   br i1 %100, label %101, label %_ZN21cmExportFileGenerator23SetRequiredCMakeVersionEjjj.exit
 
 101:                                              ; preds = %84
@@ -950,7 +950,7 @@ define dso_local void @_ZN21cmExportFileGenerator23SetRequiredCMakeVersionEjjj(p
   %26 = urem i32 %25, 100000000
   %27 = zext nneg i32 %26 to i64
   %28 = add nuw nsw i64 %23, %27
-  %29 = icmp ugt i64 %13, %28
+  %29 = icmp samesign ugt i64 %13, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %4
@@ -6742,7 +6742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
-  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  %47 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
@@ -8119,7 +8119,7 @@ _ZN18cmFindPackageStackD2Ev.exit:                 ; preds = %85, %103, %116, %_Z
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !102
 
 _ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %126 = icmp ugt i64 %.06.i.i.i.i, 115292150460684696
+  %126 = icmp samesign ugt i64 %.06.i.i.i.i, 115292150460684696
   br i1 %126, label %127, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEEEE8allocateERSA_m.exit.i.i.i
 
 127:                                              ; preds = %_ZSt8distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i

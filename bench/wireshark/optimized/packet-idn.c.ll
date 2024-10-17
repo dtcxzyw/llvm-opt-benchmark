@@ -1280,7 +1280,7 @@ dissect_idn_laser_gts.exit179.i.i.i:              ; preds = %454
   %483 = load i8, ptr %.077.i.i.i, align 8
   %484 = zext i8 %483 to i64
   %485 = shl nuw nsw i64 %484, 1
-  %.not.not.i.i.i = icmp ult i64 %indvars.iv.i.i.i, %485
+  %.not.not.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i, %485
   br i1 %.not.not.i.i.i, label %328, label %dissect_idn_laser_dictionary.exit.i.i, !llvm.loop !9
 
 dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, %320
@@ -1539,7 +1539,7 @@ dissect_idn_chunk_header.exit.thread.i:           ; preds = %531, %.thread105.i
   %628 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %622, i64 noundef %624, ptr noundef nonnull @.str.258, i32 noundef %627) #7
   %629 = add i32 %628, %.04551.i.i
   %630 = add nuw nsw i32 %.04352.i.i, 1
-  %631 = icmp ult i32 %.04352.i.i, 15
+  %631 = icmp samesign ult i32 %.04352.i.i, 15
   %632 = icmp slt i32 %629, 1948
   %633 = select i1 %631, i1 %632, i1 false
   br i1 %633, label %620, label %634, !llvm.loop !10
@@ -1693,7 +1693,7 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %655, %._crit_edge.i
   %714 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %.053.i.i, i32 noundef %712, ptr noundef %0, i32 noundef %.051.i.i.i, i32 noundef 16, i32 noundef 16, ptr noundef nonnull @.str.263, i32 noundef %713, ptr noundef nonnull %6) #7
   %715 = add i32 %.051.i.i.i, 16
   %716 = add nuw nsw i32 %699, 16
-  %.not.i.i65.i = icmp ugt i32 %716, %.pre-phi.i.i
+  %.not.i.i65.i = icmp samesign ugt i32 %716, %.pre-phi.i.i
   br i1 %.not.i.i65.i, label %._crit_edge.i.i.i, label %.preheader46.i.i.i, !llvm.loop !14
 
 ._crit_edge.i.i.i:                                ; preds = %711, %698
@@ -1734,7 +1734,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %731, %._crit_edge.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %736 = load i8, ptr %.077.ph.ph.i, align 8
   %737 = zext i8 %736 to i64
-  %738 = icmp ult i64 %indvars.iv.next.i.i, %737
+  %738 = icmp samesign ult i64 %indvars.iv.next.i.i, %737
   br i1 %738, label %.lr.ph.i.i, label %dissect_idn_servicemap_response.exit, !llvm.loop !16
 
 739:                                              ; preds = %.thread111.i

@@ -1139,7 +1139,7 @@ for.body:                                         ; preds = %_ZNSt7__cxx1112basi
   %7 = and i16 %rev.i.i59, -1024
   %or.cond = icmp eq i16 %7, -10240
   %add22 = add nuw nsw i32 %conv9, 1
-  %cmp24 = icmp ult i32 %add22, %conv5
+  %cmp24 = icmp samesign ult i32 %add22, %conv5
   %or.cond56 = select i1 %or.cond, i1 %cmp24, i1 false
   br i1 %or.cond56, label %if.then25, label %if.end38
 

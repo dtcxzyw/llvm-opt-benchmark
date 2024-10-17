@@ -844,7 +844,7 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %5, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %43, label %.lr.ph44.split, label %._crit_edge45, !llvm.loop !10
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %._crit_edge.us, %2

@@ -177,7 +177,7 @@ define internal i32 @dissector_wimax_harq_map_decoder(ptr noundef %0, ptr nounde
 
 54:                                               ; preds = %48, %.loopexit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.27) #3
-  %55 = icmp ugt i32 %29, 3
+  %55 = icmp samesign ugt i32 %29, 3
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %54

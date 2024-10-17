@@ -140,7 +140,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
   %74 = phi i16 [ %57, %54 ], [ %61, %58 ], [ %68, %65 ], [ %72, %69 ], [ 0, %40 ]
   %75 = shl nuw nsw i16 1, %74
   %76 = and i16 %75, 255
-  %77 = icmp ult i16 %76, 9
+  %77 = icmp samesign ult i16 %76, 9
   br i1 %77, label %acpi_hw_get_access_bit_width.exit, label %78
 
 78:                                               ; preds = %73
@@ -299,7 +299,7 @@ define dso_local i32 @acpi_hw_read(ptr nocapture noundef %0, ptr noundef %1) loc
   %65 = phi i16 [ %48, %45 ], [ %52, %49 ], [ %59, %56 ], [ %63, %60 ], [ 0, %31 ]
   %66 = shl nuw nsw i16 1, %65
   %67 = and i16 %66, 255
-  %68 = icmp ult i16 %67, 9
+  %68 = icmp samesign ult i16 %67, 9
   br i1 %68, label %acpi_hw_get_access_bit_width.exit, label %69
 
 69:                                               ; preds = %64
@@ -500,7 +500,7 @@ define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef %1) local_unname
   %63 = phi i16 [ %46, %43 ], [ %50, %47 ], [ %57, %54 ], [ %61, %58 ], [ 0, %29 ]
   %64 = shl nuw nsw i16 1, %63
   %65 = and i16 %64, 255
-  %66 = icmp ult i16 %65, 9
+  %66 = icmp samesign ult i16 %65, 9
   br i1 %66, label %acpi_hw_get_access_bit_width.exit, label %67
 
 67:                                               ; preds = %62

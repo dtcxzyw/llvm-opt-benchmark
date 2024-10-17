@@ -430,7 +430,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
 
 .critedge2.preheader:                             ; preds = %Vec_IntPush.exit
   %231 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %232 = icmp ult i64 %indvars.iv, 3
+  %232 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %232, label %.lr.ph205.preheader, label %.critedge2._crit_edge
 
 .lr.ph205.preheader:                              ; preds = %224, %.critedge2.preheader

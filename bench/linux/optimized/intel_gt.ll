@@ -577,7 +577,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = or disjoint i32 %59, %62
-  %64 = icmp ugt i32 %63, 3121
+  %64 = icmp samesign ugt i32 %63, 3121
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %56
@@ -718,7 +718,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
-  %12 = icmp ugt i32 %11, 3121
+  %12 = icmp samesign ugt i32 %11, 3121
   br i1 %12, label %13, label %47
 
 13:                                               ; preds = %1

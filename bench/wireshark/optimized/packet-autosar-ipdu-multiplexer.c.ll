@@ -961,7 +961,7 @@ define internal void @post_update_ipdum_can_mapping_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @ipdum_can_mapping_num, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %8
@@ -1099,7 +1099,7 @@ define internal void @post_update_ipdum_flexray_mapping_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr @ipdum_flexray_mapping_num, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %3
@@ -1195,7 +1195,7 @@ define internal void @post_update_ipdum_lin_mapping_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr @ipdum_lin_mapping_num, align 4
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %8
@@ -1288,7 +1288,7 @@ define internal void @post_update_ipdum_pdu_transport_mapping_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr @ipdum_pdu_transport_mapping_num, align 4
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %8
@@ -1829,7 +1829,7 @@ get_message_config.exit:                          ; preds = %4, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %22, align 4
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %29, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %79, %26

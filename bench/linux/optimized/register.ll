@@ -142,7 +142,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_uring
   %8 = trunc i64 %3 to i32
   %9 = icmp sgt i32 %6, -1
   %10 = and i32 %6, 2147483647
-  %11 = icmp ugt i32 %10, 26
+  %11 = icmp samesign ugt i32 %10, 26
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %4
@@ -961,7 +961,7 @@ define internal fastcc i32 @io_register_restrictions(ptr noundef %0, ptr noundef
 
 53:                                               ; preds = %50, %47, %45, %39
   %54 = add nuw nsw i64 %31, 1
-  %55 = icmp ult i64 %54, %26
+  %55 = icmp samesign ult i64 %54, %26
   %56 = icmp eq i64 %54, %26
   br i1 %56, label %57, label %30, !llvm.loop !40
 

@@ -598,7 +598,7 @@ define internal fastcc ptr @fiddle_handle_find_func(ptr noundef %0, i64 noundef 
 
 18:                                               ; preds = %21
   %19 = add nuw nsw i32 %.050, 4
-  %20 = icmp ult i32 %.050, 252
+  %20 = icmp samesign ult i32 %.050, 252
   br i1 %20, label %21, label %25, !llvm.loop !6
 
 21:                                               ; preds = %8, %18
@@ -621,7 +621,7 @@ define internal fastcc ptr @fiddle_handle_find_func(ptr noundef %0, i64 noundef 
 
 28:                                               ; preds = %31
   %29 = add nuw nsw i32 %.151, 4
-  %30 = icmp ult i32 %.151, 252
+  %30 = icmp samesign ult i32 %.151, 252
   br i1 %30, label %31, label %.loopexit, !llvm.loop !8
 
 31:                                               ; preds = %25, %28

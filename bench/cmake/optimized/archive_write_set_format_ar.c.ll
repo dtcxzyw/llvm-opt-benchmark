@@ -554,12 +554,12 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   %184 = udiv i64 %.029.i121, 10
   %185 = add nsw i32 %.025.i123, -1
   %186 = icmp ugt i32 %.025.i123, 1
-  %187 = icmp ugt i64 %.029.i121, 9
+  %187 = icmp samesign ugt i64 %.029.i121, 9
   %188 = select i1 %186, i1 %187, i1 false
   br i1 %188, label %.preheader, label %189, !llvm.loop !7
 
 189:                                              ; preds = %.preheader
-  %190 = icmp ult i64 %.029.i121, 10
+  %190 = icmp samesign ult i64 %.029.i121, 10
   br i1 %190, label %191, label %.preheader32.preheader.i124
 
 .preheader32.preheader.i124:                      ; preds = %189
@@ -865,12 +865,12 @@ define internal fastcc range(i32 -1, 1) i32 @format_octal(i64 noundef range(i64 
   %9 = lshr i64 %.029, 3
   %10 = add nsw i32 %.025, -1
   %11 = icmp ugt i32 %.025, 1
-  %12 = icmp ugt i64 %.029, 7
+  %12 = icmp samesign ugt i64 %.029, 7
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %4, label %14, !llvm.loop !8
 
 14:                                               ; preds = %4
-  %15 = icmp ult i64 %.029, 8
+  %15 = icmp samesign ult i64 %.029, 8
   br i1 %15, label %16, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %14

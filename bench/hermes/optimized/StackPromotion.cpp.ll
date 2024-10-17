@@ -8774,7 +8774,7 @@ if.then.i.i:                                      ; preds = %if.then16.i
   %or10.i.i.i.i = or i64 %shr9.i.i.i.i, %or8.i.i.i.i
   %add.i.i.i55.i = add nuw nsw i64 %or10.i.i.i.i, 1
   %conv4.i.i.i = and i64 %add.i.i.i55.i, 4294967295
-  %cmp.not.i.i.i = icmp ugt i64 %conv4.i.i.i, %conv.i1.i.i
+  %cmp.not.i.i.i = icmp samesign ugt i64 %conv4.i.i.i, %conv.i1.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i

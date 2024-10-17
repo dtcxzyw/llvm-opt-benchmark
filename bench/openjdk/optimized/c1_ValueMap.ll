@@ -354,7 +354,7 @@ _ZN13GrowableArrayIP13ValueMapEntryE8allocateEv.exit.i: ; preds = %_ZN8ValueMap9
   %38 = add nsw i32 %.sroa.11.183, 1
   %39 = icmp sgt i32 %.sroa.11.183, -1
   %40 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %38)
-  %41 = icmp ult i32 %40, 2
+  %41 = icmp samesign ult i32 %40, 2
   %or.cond.i.i.i.i.i = select i1 %39, i1 %41, i1 false
   %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %38, i1 true)
   %43 = sub nuw nsw i32 32, %42
@@ -1832,7 +1832,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %68 = add nsw i32 %54, 1
   %69 = icmp sgt i32 %54, -1
   %70 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
-  %71 = icmp ult i32 %70, 2
+  %71 = icmp samesign ult i32 %70, 2
   %or.cond.i.i.i.i25 = select i1 %69, i1 %71, i1 false
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
   %73 = sub nuw nsw i32 32, %72

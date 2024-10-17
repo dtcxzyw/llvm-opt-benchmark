@@ -1314,7 +1314,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.i:    ; preds = %411, %404
   %415 = load ptr, ptr %28, align 8
   %416 = call noundef i32 @_ZNK4llvm19TargetTransformInfo16getCacheLineSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %415) #16
   %417 = zext i32 %416 to i64
-  %418 = icmp ult i64 %414, %417
+  %418 = icmp samesign ult i64 %414, %417
   br i1 %418, label %419, label %452
 
 419:                                              ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i

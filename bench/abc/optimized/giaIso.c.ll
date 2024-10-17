@@ -3819,7 +3819,7 @@ Abc_Clock.exit206:                                ; preds = %Abc_Clock.exit204, 
   %.not189 = icmp eq i32 %137, 0
   %159 = add nsw i32 %.0162306, 1
   %160 = select i1 %.not189, i32 %159, i32 0
-  %161 = icmp ult i32 %.0163305, 9999
+  %161 = icmp samesign ult i32 %.0163305, 9999
   %162 = icmp slt i32 %160, 2
   %163 = select i1 %161, i1 %162, i1 false
   br i1 %163, label %.backedge.backedge, label %.critedge
@@ -3849,7 +3849,7 @@ Abc_Clock.exit206:                                ; preds = %Abc_Clock.exit204, 
   %.not189356 = icmp eq i32 %137, 0
   %178 = add nsw i32 %.0162306, 1
   %179 = select i1 %.not189356, i32 %178, i32 0
-  %180 = icmp ult i32 %.0163305, 9999
+  %180 = icmp samesign ult i32 %.0163305, 9999
   %181 = icmp slt i32 %179, 2
   %182 = select i1 %180, i1 %181, i1 false
   br i1 %182, label %.backedge.backedge, label %.thread357
@@ -7526,7 +7526,7 @@ Abc_Clock.exit283:                                ; preds = %491, %494
 
 .critedge.i284:                                   ; preds = %529, %.lr.ph.i285, %.lr.ph.preheader.i, %.preheader.i
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %533 = icmp ult i64 %indvars.iv.next35.i, %505
+  %533 = icmp samesign ult i64 %indvars.iv.next35.i, %505
   br i1 %533, label %.preheader.i, label %Vec_VecPrintInt.exit, !llvm.loop !65
 
 Vec_VecPrintInt.exit:                             ; preds = %.critedge.i284, %Abc_Clock.exit283
@@ -7574,7 +7574,7 @@ Vec_PtrFree.exit.i302:                            ; preds = %542, %539
 
 543:                                              ; preds = %Vec_PtrFree.exit.i302, %.lr.ph.i296
   %indvars.iv.next.i305 = add nuw nsw i64 %indvars.iv.i298, 1
-  %544 = icmp ult i64 %indvars.iv.next.i305, %536
+  %544 = icmp samesign ult i64 %indvars.iv.next.i305, %536
   br i1 %544, label %.lr.ph.i296, label %.critedge.i294.thread, !llvm.loop !56
 
 .critedge.i294:                                   ; preds = %.thread411, %535
@@ -7883,7 +7883,7 @@ Gia_IsoTestGenPerm.exit:                          ; preds = %.lr.ph.i
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %32)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
-  %34 = icmp ult i64 %indvars.iv.next.i29, %30
+  %34 = icmp samesign ult i64 %indvars.iv.next.i29, %30
   br i1 %34, label %.lr.ph.i27, label %Vec_IntPrint.exit, !llvm.loop !68
 
 Vec_IntPrint.exit.critedge:                       ; preds = %Vec_IntAlloc.exit.i.i

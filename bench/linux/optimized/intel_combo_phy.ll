@@ -216,7 +216,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
 43:                                               ; preds = %33
   %44 = and i64 %38, 216
   %45 = icmp eq i64 %44, 0
-  %46 = icmp ult i64 %10, 2
+  %46 = icmp samesign ult i64 %10, 2
   %47 = or i1 %46, %45
   br i1 %47, label %48, label %84
 

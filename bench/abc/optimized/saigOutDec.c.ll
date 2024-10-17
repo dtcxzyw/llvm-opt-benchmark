@@ -743,7 +743,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.074.lcssa = phi ptr [ %.val89, %108 ], [ %127, %Aig_ManObj.exit ]
   %130 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %8, ptr noundef %.074.lcssa) #9
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %131 = icmp ult i64 %indvars.iv.next142, %107
+  %131 = icmp samesign ult i64 %indvars.iv.next142, %107
   br i1 %131, label %108, label %.critedge6, !llvm.loop !14
 
 .critedge6:                                       ; preds = %.critedge8, %.preheader, %.critedge4

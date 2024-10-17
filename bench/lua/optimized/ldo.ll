@@ -1711,7 +1711,7 @@ entry:
   %add = add i32 %0, %inc
   store i32 %add, ptr %nCcalls, align 8
   %and = and i32 %add, 65528
-  %cmp = icmp ugt i32 %and, 199
+  %cmp = icmp samesign ugt i32 %and, 199
   br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
@@ -1891,7 +1891,7 @@ cond.end:                                         ; preds = %if.end21
   %and = and i32 %14, 65535
   %nCcalls22 = getelementptr inbounds i8, ptr %L, i64 176
   store i32 %and, ptr %nCcalls22, align 8
-  %cmp25 = icmp ugt i32 %and, 199
+  %cmp25 = icmp samesign ugt i32 %and, 199
   br i1 %cmp25, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %cond.end

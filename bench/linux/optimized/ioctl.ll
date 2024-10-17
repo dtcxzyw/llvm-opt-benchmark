@@ -1360,7 +1360,7 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
   %225 = zext i16 %219 to i64
   %226 = shl nuw nsw i64 %225, 5
   %227 = or disjoint i64 %226, 24
-  %228 = icmp ugt i64 %227, 4096
+  %228 = icmp samesign ugt i64 %227, 4096
   br i1 %228, label %244, label %229
 
 229:                                              ; preds = %224

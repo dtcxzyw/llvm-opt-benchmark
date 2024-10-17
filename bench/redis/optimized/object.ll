@@ -4801,7 +4801,7 @@ if.end36:                                         ; preds = %if.then26
   %bf.load = load i32, ptr %call.i.i34, align 8
   %bf.lshr = lshr i32 %bf.load, 4
   %bf.clear = and i32 %bf.lshr, 15
-  %13 = icmp ult i32 %bf.clear, 12
+  %13 = icmp samesign ult i32 %bf.clear, 12
   br i1 %13, label %switch.lookup, label %strEncoding.exit
 
 switch.lookup:                                    ; preds = %if.end36

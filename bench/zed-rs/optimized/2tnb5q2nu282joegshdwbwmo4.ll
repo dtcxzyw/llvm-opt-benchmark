@@ -4864,7 +4864,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h1889741c2
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %14 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %14 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %14, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17hcefdecaa13562760E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -7465,7 +7465,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h927ff307d
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %12 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %12 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %12, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h565ca64a3afecaf5E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -7777,7 +7777,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17haf271fdf3
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %12 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %12 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %12, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17hf58f1974edb9d05bE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -11532,7 +11532,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -11545,7 +11545,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

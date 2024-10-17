@@ -73,7 +73,7 @@ define dso_local void @blk_mq_sysfs_deinit(ptr nocapture noundef readonly %0) lo
   tail call void @kobject_put(ptr noundef %21) #5
   %22 = add nuw nsw i64 %10, 1
   %23 = and i64 %22, 127
-  %24 = icmp ugt i64 %23, 63
+  %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread, label %3, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %3, %13, %9
@@ -128,7 +128,7 @@ define dso_local void @blk_mq_sysfs_init(ptr nocapture noundef readonly %0) loca
   tail call void @kobject_init(ptr noundef %25, ptr noundef nonnull @blk_mq_ctx_ktype) #5
   %26 = add nuw nsw i64 %12, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %5, !prof !6, !llvm.loop !10
 
 .thread:                                          ; preds = %5, %15, %11
@@ -214,7 +214,7 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   %46 = add nuw nsw i64 %41, 1
   %47 = load i16, ptr %35, align 2
   %48 = zext i16 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %40, label %50, !llvm.loop !12
 
 50:                                               ; preds = %40
@@ -298,13 +298,13 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
 33:                                               ; preds = %20
   %34 = add nuw nsw i64 %21, 1
   %35 = zext i16 %30 to i64
-  %36 = icmp ult i64 %34, %35
+  %36 = icmp samesign ult i64 %34, %35
   br i1 %36, label %20, label %.loopexit5, !llvm.loop !14
 
 .preheader:                                       ; preds = %31, %45
   %37 = phi i16 [ %46, %45 ], [ %30, %31 ]
   %38 = phi i64 [ %47, %45 ], [ 0, %31 ]
-  %39 = icmp ult i64 %38, %21
+  %39 = icmp samesign ult i64 %38, %21
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %.preheader
@@ -320,7 +320,7 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   %46 = phi i16 [ %.pre, %40 ], [ %37, %.preheader ]
   %47 = add nuw nsw i64 %38, 1
   %48 = zext i16 %46 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %45, %31
@@ -371,7 +371,7 @@ define dso_local void @blk_mq_sysfs_unregister(ptr nocapture noundef readonly %0
   %20 = add nuw nsw i64 %15, 1
   %21 = load i16, ptr %9, align 2
   %22 = zext i16 %21 to i64
-  %23 = icmp ult i64 %20, %22
+  %23 = icmp samesign ult i64 %20, %22
   br i1 %23, label %14, label %24, !llvm.loop !12
 
 24:                                               ; preds = %14
@@ -436,7 +436,7 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
   %23 = add nuw nsw i64 %18, 1
   %24 = load i16, ptr %12, align 2
   %25 = zext i16 %24 to i64
-  %26 = icmp ult i64 %23, %25
+  %26 = icmp samesign ult i64 %23, %25
   br i1 %26, label %17, label %27, !llvm.loop !12
 
 27:                                               ; preds = %17
@@ -611,7 +611,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_sho
   %24 = add i32 %20, %6
   %25 = add nuw nsw i64 %13, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread, label %4, !prof !6, !llvm.loop !22
 
 .thread:                                          ; preds = %4, %23, %16, %12

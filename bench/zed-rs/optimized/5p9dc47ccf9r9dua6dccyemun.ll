@@ -17253,7 +17253,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %51 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %52 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
-  %53 = icmp ult i32 %.sroa.07.0.i, 309
+  %53 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %53, label %._crit_edge.i, label %.lr.ph.i
 
 54:                                               ; preds = %48
@@ -17752,7 +17752,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %65 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %66 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %67 = icmp ult i32 %.sroa.07.0.i, 309
+  %67 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %67, label %._crit_edge.i, label %.lr.ph.i
 
 68:                                               ; preds = %62
@@ -18371,7 +18371,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
   %35 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %36 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %37 = icmp ult i32 %.sroa.07.0.i, 309
+  %37 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 38:                                               ; preds = %32
@@ -18494,7 +18494,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$2
   %31 = fdiv double %.sroa.08.024.i, 1.000000e+308
   %32 = add nsw i32 %.sroa.0.025.i, 308
   %.sroa.07.0.i = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %33 = icmp ult i32 %.sroa.07.0.i, 309
+  %33 = icmp samesign ult i32 %.sroa.07.0.i, 309
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %28
@@ -46936,7 +46936,7 @@ define hidden void @"_ZN201_$LT$language_model..settings.._..$LT$impl$u20$serde.
   %.sroa.7300.3390 = phi ptr [ %168, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h0d63fd5cd32f3d31E.exit" ], [ %.sroa.7300.0519, %162 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.754, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.11, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.11)
-  %switch.not.i = icmp ult i64 %171, 2
+  %switch.not.i = icmp samesign ult i64 %171, 2
   br i1 %switch.not.i, label %172, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$language_model..settings..OpenAiSettingsContent$GT$$GT$$GT$17h875acdaf737f81a8E.exit"
 
 172:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h0d63fd5cd32f3d31E.exit.thread387"
@@ -47050,7 +47050,7 @@ define hidden void @"_ZN201_$LT$language_model..settings.._..$LT$impl$u20$serde.
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h331cc9c0312b3ab3E.exit._crit_edge": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h331cc9c0312b3ab3E.exit"
   %.pre = load i64, ptr %11, align 8, !range !520, !alias.scope !13551
-  %199 = icmp ugt i64 %.pre, 1
+  %199 = icmp samesign ugt i64 %.pre, 1
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h331cc9c0312b3ab3E.exit.thread403"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h331cc9c0312b3ab3E.exit.thread403": ; preds = %182, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h331cc9c0312b3ab3E.exit._crit_edge"
@@ -47123,7 +47123,7 @@ define hidden void @"_ZN201_$LT$language_model..settings.._..$LT$impl$u20$serde.
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc0f24418a88c4cb7E.exit._crit_edge": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc0f24418a88c4cb7E.exit"
   %.pre568 = load i64, ptr %10, align 8, !range !520, !alias.scope !13577
-  %215 = icmp ult i64 %.pre568, 2
+  %215 = icmp samesign ult i64 %.pre568, 2
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc0f24418a88c4cb7E.exit.thread417"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc0f24418a88c4cb7E.exit.thread417": ; preds = %208, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hc0f24418a88c4cb7E.exit._crit_edge"
@@ -47288,7 +47288,7 @@ select.unfold:                                    ; preds = %.noexc271
 
 251:                                              ; preds = %select.unfold, %230, %.loopexit432, %212, %.loopexit431, %196, %176, %169, %.loopexit433, %141, %120, %72
   %252 = load i64, ptr %10, align 8, !range !520, !noundef !5
-  %switch.not = icmp ult i64 %252, 2
+  %switch.not = icmp samesign ult i64 %252, 2
   br i1 %switch.not, label %258, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..GoogleSettingsContent$GT$$GT$17hed7753e227b56be6E.exit"
 
 253:                                              ; preds = %344, %343, %347, %346, %345
@@ -47304,7 +47304,7 @@ select.unfold:                                    ; preds = %.noexc271
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..GoogleSettingsContent$GT$$GT$17hed7753e227b56be6E.exit": ; preds = %251, %258
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %255 = load i64, ptr %11, align 8, !range !520, !noundef !5
-  %switch426.not = icmp ugt i64 %255, 1
+  %switch426.not = icmp samesign ugt i64 %255, 1
   %256 = load i64, ptr %20, align 8, !range !24
   %257 = icmp eq i64 %256, -9223372036854775808
   %or.cond614 = select i1 %switch426.not, i1 true, i1 %257
@@ -47317,7 +47317,7 @@ select.unfold:                                    ; preds = %.noexc271
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..GoogleSettingsContent$GT$$GT$17hed7753e227b56be6E.exit282": ; preds = %340, %343, %262, %44
   %.pn223 = phi { ptr, i32 } [ %263, %262 ], [ %.pn.ph, %44 ], [ %.pn347, %343 ], [ %.pn347, %340 ]
   %259 = load i64, ptr %11, align 8, !range !520, !noundef !5
-  %switch428.not = icmp ugt i64 %259, 1
+  %switch428.not = icmp samesign ugt i64 %259, 1
   %260 = load i64, ptr %20, align 8, !range !24
   %261 = icmp eq i64 %260, -9223372036854775808
   %or.cond616 = select i1 %switch428.not, i1 true, i1 %261
@@ -47331,7 +47331,7 @@ select.unfold:                                    ; preds = %.noexc271
 "_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$language_model..settings..ZedDotDevSettingsContent$GT$$GT$17h60ea88794ba7e732E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..GoogleSettingsContent$GT$$GT$17hed7753e227b56be6E.exit", %265
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %264 = load i64, ptr %12, align 8, !range !520, !noundef !5
-  %switch430.not = icmp ult i64 %264, 2
+  %switch430.not = icmp samesign ult i64 %264, 2
   br i1 %switch430.not, label %271, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..OpenAiSettingsContent$GT$$GT$17h11dbcf83f8841248E.exit"
 
 265:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$language_model..settings..GoogleSettingsContent$GT$$GT$17hed7753e227b56be6E.exit"

@@ -2018,7 +2018,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   %.354 = phi i64 [ %55, %.split.us ], [ %.05177, %25 ], [ %spec.select.us, %._crit_edge.us ], [ %.05177, %56 ]
   %.3 = phi i32 [ %.us-phi, %.split.us ], [ -1, %25 ], [ %spec.select58.us, %._crit_edge.us ], [ -1, %56 ]
   %60 = add nuw nsw i32 %.04878, 1
-  %61 = icmp ult i32 %60, %.049
+  %61 = icmp samesign ult i32 %60, %.049
   %62 = icmp eq i32 %.3, -1
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %22, label %64, !llvm.loop !57

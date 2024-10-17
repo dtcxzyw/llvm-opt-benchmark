@@ -446,7 +446,7 @@ cond.end:                                         ; preds = %for.end, %cond.true
   br label %next
 
 next:                                             ; preds = %if.end100, %cond.end
-  %tobool179.not = icmp ult i32 %perform.0, 2
+  %tobool179.not = icmp samesign ult i32 %perform.0, 2
   br i1 %tobool179.not, label %end, label %if.end181
 
 if.end181:                                        ; preds = %next

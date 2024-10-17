@@ -1933,7 +1933,7 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   store i32 %92, ptr %83, align 4
   store i32 %89, ptr %81, align 4
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 2
-  %.not164 = icmp ugt i64 %indvars.iv.next211, %68
+  %.not164 = icmp samesign ugt i64 %indvars.iv.next211, %68
   br i1 %.not164, label %.preheader, label %.lr.ph189, !llvm.loop !38
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
@@ -3073,7 +3073,7 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
 37:                                               ; preds = %.lr.ph76, %Wlc_BlastFullAdder.exit
   %indvars.iv88 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next89, %Wlc_BlastFullAdder.exit ]
   %.06973 = phi i32 [ %36, %.lr.ph76 ], [ %.170, %Wlc_BlastFullAdder.exit ]
-  %38 = icmp ult i64 %indvars.iv88, %25
+  %38 = icmp samesign ult i64 %indvars.iv88, %25
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %37
@@ -4371,8 +4371,8 @@ Vec_IntFill.exit78:                               ; preds = %42
 63:                                               ; preds = %.preheader, %Wlc_BlastFullAdder.exit
   %indvars.iv107 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next108, %Wlc_BlastFullAdder.exit ]
   %.19399 = phi i32 [ %.092102, %.preheader ], [ %spec.select, %Wlc_BlastFullAdder.exit ]
-  %64 = icmp ugt i64 %indvars.iv107, 1
-  %65 = icmp ult i64 %indvars.iv107, %59
+  %64 = icmp samesign ugt i64 %indvars.iv107, 1
+  %65 = icmp samesign ult i64 %indvars.iv107, %59
   %or.cond = select i1 %64, i1 %65, i1 false
   %66 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv107
   %67 = load i32, ptr %66, align 4
@@ -4442,7 +4442,7 @@ Wlc_BlastFullAdder.exit:                          ; preds = %Wlc_BlastFullAdder.
   %.294 = phi i32 [ %90, %69 ], [ %108, %Wlc_BlastFullAdder.exit.sink.split ]
   %109 = add nuw i64 %indvars.iv107, 4294967295
   %110 = and i64 %109, 4294967295
-  %or.cond68.not = icmp uge i64 %110, %indvars.iv123
+  %or.cond68.not = icmp samesign uge i64 %110, %indvars.iv123
   %111 = zext i1 %or.cond68.not to i32
   %spec.select = xor i32 %.294, %111
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -4627,7 +4627,7 @@ Vec_IntFill.exit64:                               ; preds = %42
   %indvars.iv94 = phi i64 [ 1, %.preheader75.preheader ], [ %indvars.iv.next95, %._crit_edge84 ]
   %indvars.iv = phi i64 [ 0, %.preheader75.preheader ], [ %indvars.iv.next, %._crit_edge84 ]
   %.07286 = phi i32 [ 1, %.preheader75.preheader ], [ %.274, %._crit_edge84 ]
-  %52 = icmp ugt i64 %indvars.iv, 1
+  %52 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %52, label %.preheader.thread, label %.preheader
 
 .preheader.thread:                                ; preds = %.preheader75
@@ -4653,7 +4653,7 @@ Vec_IntFill.exit64:                               ; preds = %42
   %60 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv91
   store i32 %59, ptr %60, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %61 = icmp ult i64 %indvars.iv.next92, %56
+  %61 = icmp samesign ult i64 %indvars.iv.next92, %56
   br i1 %61, label %.lr.ph78, label %.lr.ph83.preheader.loopexit, !llvm.loop !73
 
 .lr.ph83.preheader.loopexit:                      ; preds = %.lr.ph78
@@ -5143,7 +5143,7 @@ Vec_WecSizeSize.exit:                             ; preds = %80, %Vec_WrdStart.e
   %98 = load i32, ptr %97, align 4
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %98)
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i77, 1
-  %100 = icmp ult i64 %indvars.iv.next.i79, %96
+  %100 = icmp samesign ult i64 %indvars.iv.next.i79, %96
   br i1 %100, label %.lr.ph.i76, label %Vec_IntPrint.exit, !llvm.loop !82
 
 Vec_IntPrint.exit:                                ; preds = %.lr.ph.i76, %Vec_WecSizeSize.exit
@@ -9002,7 +9002,7 @@ Vec_WecStart.exit41:                              ; preds = %Vec_WecStart.exit, 
   br i1 %31, label %150, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ult i64 %indvars.iv96, %indvars.iv
+  %33 = icmp samesign ult i64 %indvars.iv96, %indvars.iv
   br i1 %33, label %34, label %258
 
 34:                                               ; preds = %32
@@ -14188,7 +14188,7 @@ Wlc_ObjFaninId.exit3101:                          ; preds = %1662, %Wlc_ObjHasAr
   %1680 = getelementptr inbounds i32, ptr %.val2767, i64 %1679
   %1681 = icmp eq i32 %.val27164844, 3
   %1682 = zext nneg i32 %1675 to i64
-  %.not4585 = icmp ugt i64 %indvars.iv5250, %1682
+  %.not4585 = icmp samesign ugt i64 %indvars.iv5250, %1682
   br i1 %1681, label %1683, label %1718
 
 1683:                                             ; preds = %1667
@@ -15934,7 +15934,7 @@ Vec_IntPush.exit3361:                             ; preds = %.Vec_IntGrow.exit10
   br label %.lr.ph4765
 
 .preheader4662:                                   ; preds = %Vec_IntPush.exit3368
-  %.not45684767 = icmp ugt i32 %562, %441
+  %.not45684767 = icmp samesign ugt i32 %562, %441
   br i1 %.not45684767, label %.critedge28, label %.lr.ph4769.preheader
 
 .lr.ph4769.preheader:                             ; preds = %2469, %.preheader4662
@@ -16988,7 +16988,7 @@ Wlc_ObjFaninId.exit3530:                          ; preds = %Wlc_ObjFaninId.exit
 
 2845:                                             ; preds = %Vec_IntPush.exit.i3538, %Wlc_ObjFaninId.exit3530
   %indvars.iv.i3535 = phi i64 [ 0, %Wlc_ObjFaninId.exit3530 ], [ %indvars.iv.next.i3539, %Vec_IntPush.exit.i3538 ]
-  %2846 = icmp ult i64 %indvars.iv.i3535, %2844
+  %2846 = icmp samesign ult i64 %indvars.iv.i3535, %2844
   br i1 %2846, label %2847, label %2850
 
 2847:                                             ; preds = %2845
@@ -17073,7 +17073,7 @@ Wlc_VecLoadFanins.exit:                           ; preds = %Vec_IntPush.exit.i3
 
 2882:                                             ; preds = %Vec_IntPush.exit.i3551, %Wlc_VecLoadFanins.exit
   %indvars.iv.i3548 = phi i64 [ 0, %Wlc_VecLoadFanins.exit ], [ %indvars.iv.next.i3552, %Vec_IntPush.exit.i3551 ]
-  %2883 = icmp ult i64 %indvars.iv.i3548, %2881
+  %2883 = icmp samesign ult i64 %indvars.iv.i3548, %2881
   br i1 %2883, label %2884, label %2887
 
 2884:                                             ; preds = %2882
@@ -20785,7 +20785,7 @@ Vec_IntFree.exit3948.cont.thread:                 ; preds = %Vec_IntFree.exit394
 
 4649:                                             ; preds = %.cont
   %4650 = zext nneg i32 %.else.val to i64
-  %4651 = icmp ult i64 %indvars.iv5362, %4650
+  %4651 = icmp samesign ult i64 %indvars.iv5362, %4650
   br i1 %4651, label %.critedge4598, label %.cont4340
 
 .cont4340:                                        ; preds = %4649

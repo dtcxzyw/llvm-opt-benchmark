@@ -5491,7 +5491,7 @@ if.then15:                                        ; preds = %if.end
   %rem34.lhs.trunc = sub nuw nsw i16 256, %conv2.i
   %rem3435 = urem i16 %rem34.lhs.trunc, %conv2.i
   %7 = and i16 %mul.i, 255
-  %cmp2536 = icmp ugt i16 %rem3435, %7
+  %cmp2536 = icmp samesign ugt i16 %rem3435, %7
   br i1 %cmp2536, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
@@ -5529,7 +5529,7 @@ _ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13ra
   %conv1.i30 = and i16 %conv.i.i22, 255
   %mul.i32 = mul nuw i16 %conv1.i30, %conv2.i
   %13 = and i16 %mul.i32, 255
-  %cmp25 = icmp ugt i16 %rem3435, %13
+  %cmp25 = icmp samesign ugt i16 %rem3435, %13
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !79
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29, %if.then15, %if.end
@@ -5710,7 +5710,7 @@ if.then15:                                        ; preds = %if.end
   %add19 = sub nuw nsw i32 65536, %conv4
   %rem35 = urem i32 %add19, %conv4
   %conv2336 = and i32 %mul.i, 65535
-  %cmp2537 = icmp ugt i32 %rem35, %conv2336
+  %cmp2537 = icmp samesign ugt i32 %rem35, %conv2336
   br i1 %cmp2537, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
@@ -5748,7 +5748,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
   %conv.i31 = and i32 %conv.i.i23, 65535
   %mul.i33 = mul nuw i32 %conv.i31, %conv4
   %conv23 = and i32 %mul.i33, 65535
-  %cmp25 = icmp ugt i32 %rem35, %conv23
+  %cmp25 = icmp samesign ugt i32 %rem35, %conv23
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !81
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30, %if.then15, %if.end

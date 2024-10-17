@@ -1357,7 +1357,7 @@ Ndr_DataResize.exit:                              ; preds = %Ndr_AddModule.exit
   %212 = getelementptr inbounds i32, ptr %.val158291, i64 %indvars.iv259
   store i32 %210, ptr %212, align 4
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %213 = icmp ult i64 %indvars.iv.next262, %207
+  %213 = icmp samesign ult i64 %indvars.iv.next262, %207
   br i1 %213, label %208, label %..critedge5_crit_edge, !llvm.loop !13
 
 ..critedge5_crit_edge:                            ; preds = %208
@@ -1621,7 +1621,7 @@ Acb_Type2Oper.exit:                               ; preds = %302, %switch.lookup
 315:                                              ; preds = %298, %Acb_Type2Oper.exit
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 2
   %316 = or disjoint i64 %indvars.iv.next280, 1
-  %317 = icmp ult i64 %316, %sext
+  %317 = icmp samesign ult i64 %316, %sext
   br i1 %317, label %298, label %.critedge13.preheader, !llvm.loop !17
 
 .critedge13:                                      ; preds = %.critedge13.preheader, %.critedge13
@@ -2861,7 +2861,7 @@ Vec_IntPush.exit301:                              ; preds = %.Vec_IntGrow.exit10
 259:                                              ; preds = %245, %249
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 2
   %260 = or disjoint i64 %indvars.iv.next383, 1
-  %261 = icmp ult i64 %260, %244
+  %261 = icmp samesign ult i64 %260, %244
   br i1 %261, label %245, label %.critedge5, !llvm.loop !25
 
 .critedge5:                                       ; preds = %259, %Vec_IntPush.exit301
@@ -14247,7 +14247,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %.val208 = load ptr, ptr %211, align 8
   %216 = getelementptr inbounds i32, ptr %.val208, i64 %indvars.iv284
   %217 = load i32, ptr %216, align 4
-  %218 = icmp ugt i64 %indvars.iv284, 1
+  %218 = icmp samesign ugt i64 %indvars.iv284, 1
   %219 = select i1 %218, ptr @.str.71, ptr @.str.23
   %220 = sext i32 %217 to i64
   %221 = getelementptr inbounds ptr, ptr %.val229, i64 %220
@@ -14725,7 +14725,7 @@ Abc_UtilStrsav.exit:                              ; preds = %32, %35
   %41 = getelementptr inbounds ptr, ptr %.val45, i64 %indvars.iv
   store ptr %40, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i64 %indvars.iv.next, %25
+  %42 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %42, label %32, label %.critedge.preheader, !llvm.loop !160
 
 .critedge2.preheader:                             ; preds = %Abc_UtilStrsav.exit58, %.critedge.preheader..critedge2.preheader_crit_edge
@@ -14763,7 +14763,7 @@ Abc_UtilStrsav.exit58:                            ; preds = %46, %53
   %60 = getelementptr inbounds ptr, ptr %.val45, i64 %59
   store ptr %58, ptr %60, align 8
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %61 = icmp ult i64 %indvars.iv.next70, %31
+  %61 = icmp samesign ult i64 %indvars.iv.next70, %31
   br i1 %61, label %46, label %.critedge2.preheader, !llvm.loop !161
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.critedge2
@@ -15070,7 +15070,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.tail
   %.val124 = load ptr, ptr %70, align 8
   %75 = getelementptr inbounds i32, ptr %.val124, i64 %indvars.iv180
   %76 = load i32, ptr %75, align 4
-  %77 = icmp ugt i64 %indvars.iv180, 1
+  %77 = icmp samesign ugt i64 %indvars.iv180, 1
   %78 = select i1 %77, ptr @.str.71, ptr @.str.23
   %79 = sext i32 %76 to i64
   %80 = getelementptr inbounds ptr, ptr %.val128, i64 %79

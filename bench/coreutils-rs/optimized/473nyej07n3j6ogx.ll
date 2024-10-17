@@ -2147,7 +2147,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread:
   br i1 %or.cond, label %.critedge.thread, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ugt i32 %.sroa.4.1.i.ph, 127
+  %63 = icmp samesign ugt i32 %.sroa.4.1.i.ph, 127
   br i1 %63, label %64, label %.critedge49.backedge
 
 64:                                               ; preds = %62
@@ -2190,11 +2190,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %83, label %.critedge, label %.critedge49.backedge
 
 .critedge:                                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
-  %84 = icmp ult i32 %.sroa.4.1.i.ph, 2048
+  %84 = icmp samesign ult i32 %.sroa.4.1.i.ph, 2048
   br i1 %84, label %.critedge.thread, label %85
 
 85:                                               ; preds = %.critedge
-  %86 = icmp ult i32 %.sroa.4.1.i.ph, 65536
+  %86 = icmp samesign ult i32 %.sroa.4.1.i.ph, 65536
   %. = select i1 %86, i64 -3, i64 -4
   br label %.critedge.thread
 
@@ -2302,7 +2302,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   ]
 
 49:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
-  %50 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %50 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %50, label %51, label %71
 
 51:                                               ; preds = %49
@@ -2461,7 +2461,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   ]
 
 135:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18"
-  %136 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i20, 127
+  %136 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i20, 127
   br i1 %136, label %137, label %159
 
 137:                                              ; preds = %135
@@ -2712,15 +2712,15 @@ define void @_ZN12uu_dircolors6escape17h0970d982198a26fdE(ptr noalias nocapture 
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !557
-  %53 = icmp ult i32 %.sroa.4.0.i.ph41, 128
+  %53 = icmp samesign ult i32 %.sroa.4.0.i.ph41, 128
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ult i32 %.sroa.4.0.i.ph41, 2048
+  %55 = icmp samesign ult i32 %.sroa.4.0.i.ph41, 2048
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i32 %.sroa.4.0.i.ph41, 65536
+  %57 = icmp samesign ult i32 %.sroa.4.0.i.ph41, 65536
   br i1 %57, label %67, label %78
 
 58:                                               ; preds = %.thread43, %52

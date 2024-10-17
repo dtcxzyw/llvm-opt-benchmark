@@ -92,7 +92,7 @@ define dso_local range(i32 -2147483648, 1) i32 @icl_pcode_restrict_qgv_points(pt
 
 31:                                               ; preds = %17
   %32 = tail call range(i64 1, 9) i64 @llvm.ctpop.i64(i64 %29), !range !5
-  %33 = icmp ugt i64 %32, 1
+  %33 = icmp samesign ugt i64 %32, 1
   %34 = select i1 %33, i32 2, i32 1
   br label %35
 
@@ -273,7 +273,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
   %35 = getelementptr inbounds i8, ptr %3, i64 102
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i32
-  %38 = icmp ult i32 %27, %37
+  %38 = icmp samesign ult i32 %27, %37
   %39 = icmp ugt i16 %19, 11
   %40 = and i1 %39, %38
   br i1 %40, label %41, label %47
@@ -289,7 +289,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
 
 47:                                               ; preds = %41, %26
   %48 = phi i8 [ %46, %41 ], [ %34, %26 ]
-  %49 = icmp ugt i32 %27, %37
+  %49 = icmp samesign ugt i32 %27, %37
   %50 = and i1 %39, %49
   br i1 %50, label %51, label %58
 
@@ -394,7 +394,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
   br i1 %125, label %136, label %126
 
 126:                                              ; preds = %116
-  %127 = icmp ult i32 %124, %101
+  %127 = icmp samesign ult i32 %124, %101
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %126
@@ -1343,7 +1343,7 @@ define dso_local i32 @intel_bw_calc_min_cdclk(ptr noundef %0, ptr nocapture noun
 
 234:                                              ; preds = %228, %193
   %235 = add nuw nsw i64 %194, 1
-  %236 = icmp ult i64 %194, 3
+  %236 = icmp samesign ult i64 %194, 3
   %237 = icmp eq i64 %235, 4
   br i1 %237, label %.loopexit, label %193, !llvm.loop !26
 
@@ -1913,14 +1913,14 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %243 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %242
   %244 = getelementptr inbounds i8, ptr %243, i64 76
   %245 = load i8, ptr %244, align 4
-  %246 = icmp ugt i8 %245, %237
+  %246 = icmp samesign ugt i8 %245, %237
   br i1 %246, label %247, label %.thread38
 
 247:                                              ; preds = %241
   %248 = getelementptr inbounds i8, ptr %243, i64 78
   %249 = load i8, ptr %248, align 2
   %250 = zext i8 %249 to i32
-  %251 = icmp ugt i32 %221, %250
+  %251 = icmp samesign ugt i32 %221, %250
   br i1 %251, label %238, label %252
 
 252:                                              ; preds = %247
@@ -2084,14 +2084,14 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %343 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %342
   %344 = getelementptr inbounds i8, ptr %343, i64 76
   %345 = load i8, ptr %344, align 4
-  %346 = icmp ugt i8 %345, %338
+  %346 = icmp samesign ugt i8 %345, %338
   br i1 %346, label %347, label %.thread45
 
 347:                                              ; preds = %.preheader
   %348 = getelementptr inbounds i8, ptr %343, i64 78
   %349 = load i8, ptr %348, align 2
   %350 = zext i8 %349 to i32
-  %351 = icmp ugt i32 %307, %350
+  %351 = icmp samesign ugt i32 %307, %350
   br i1 %351, label %339, label %.loopexit50
 
 352:                                              ; preds = %360
@@ -2104,14 +2104,14 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %356 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 76
   %358 = load i8, ptr %357, align 4
-  %359 = icmp ugt i8 %358, %338
+  %359 = icmp samesign ugt i8 %358, %338
   br i1 %359, label %360, label %.thread45
 
 360:                                              ; preds = %.preheader51
   %361 = getelementptr inbounds i8, ptr %356, i64 78
   %362 = load i8, ptr %361, align 2
   %363 = zext i8 %362 to i32
-  %364 = icmp ult i32 %307, %363
+  %364 = icmp samesign ult i32 %307, %363
   br i1 %364, label %352, label %.loopexit50
 
 .loopexit50:                                      ; preds = %360, %347
@@ -2499,7 +2499,7 @@ define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr nocapture nou
   %99 = add nuw nsw i64 %104, 1
   %100 = load i8, ptr %8, align 1
   %101 = zext i8 %100 to i64
-  %102 = icmp ult i64 %99, %101
+  %102 = icmp samesign ult i64 %99, %101
   br i1 %102, label %103, label %.loopexit, !llvm.loop !46
 
 103:                                              ; preds = %87, %81
@@ -2750,7 +2750,7 @@ thread-pre-split8:                                ; preds = %145, %162
   %258 = add nuw nsw i64 %253, 1
   %259 = load i8, ptr %11, align 2
   %260 = zext i8 %259 to i64
-  %261 = icmp ult i64 %258, %260
+  %261 = icmp samesign ult i64 %258, %260
   br i1 %261, label %.split.us, label %.thread14, !llvm.loop !48
 
 .split:                                           ; preds = %250, %.split
@@ -2764,7 +2764,7 @@ thread-pre-split8:                                ; preds = %145, %162
   %268 = add nuw nsw i64 %262, 1
   %269 = load i8, ptr %11, align 2
   %270 = zext i8 %269 to i64
-  %271 = icmp ult i64 %268, %270
+  %271 = icmp samesign ult i64 %268, %270
   br i1 %271, label %.split, label %.thread14, !llvm.loop !48
 
 .thread14:                                        ; preds = %thread-pre-split8, %.split, %.split.us, %218, %.thread16, %248, %.loopexit, %27

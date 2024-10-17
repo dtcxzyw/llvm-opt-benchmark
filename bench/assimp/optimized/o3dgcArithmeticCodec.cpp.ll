@@ -1096,7 +1096,7 @@ for.body.i18:                                     ; preds = %for.body.i18, %if.t
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %data_symbols.i, align 4
   %26 = zext i32 %25 to i64
-  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %26
+  %cmp3.i = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %cmp3.i, label %for.body.i18, label %if.end.i, !llvm.loop !10
 
 if.end.i:                                         ; preds = %for.body.i18, %if.then31.if.end.i_crit_edge
@@ -1122,7 +1122,7 @@ for.body16.i:                                     ; preds = %if.end.i, %for.body
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %32 = load i32, ptr %data_symbols14.i, align 4
   %33 = zext i32 %32 to i64
-  %cmp15.i = icmp ult i64 %indvars.iv.next45.i, %33
+  %cmp15.i = icmp samesign ult i64 %indvars.iv.next45.i, %33
   br i1 %cmp15.i, label %for.body16.i, label %_ZN5o3dgc19Adaptive_Data_Model6updateEb.exit.loopexit, !llvm.loop !11
 
 _ZN5o3dgc19Adaptive_Data_Model6updateEb.exit.loopexit: ; preds = %for.body16.i
@@ -1179,7 +1179,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %data_symbols, align 4
   %7 = zext i32 %6 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %7
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp3, label %for.body, label %if.end, !llvm.loop !10
 
 if.end:                                           ; preds = %for.body, %entry
@@ -1236,7 +1236,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %16 = load i32, ptr %data_symbols14, align 4
   %17 = zext i32 %16 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next45, %17
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next45, %17
   br i1 %cmp15, label %for.body16, label %if.end64, !llvm.loop !11
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.inc48
@@ -1281,7 +1281,7 @@ for.inc48:                                        ; preds = %while.body, %for.bo
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %27 = load i32, ptr %data_symbols28, align 4
   %28 = zext i32 %27 to i64
-  %cmp29 = icmp ult i64 %indvars.iv.next42, %28
+  %cmp29 = icmp samesign ult i64 %indvars.iv.next42, %28
   br i1 %cmp29, label %for.body30, label %for.end50, !llvm.loop !13
 
 for.end50:                                        ; preds = %for.inc48
@@ -2163,7 +2163,7 @@ for.inc.us:                                       ; preds = %while.body56.us, %i
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %13 = load i32, ptr %data_symbols, align 8
   %14 = zext i32 %13 to i64
-  %cmp33.us = icmp ult i64 %indvars.iv.next49, %14
+  %cmp33.us = icmp samesign ult i64 %indvars.iv.next49, %14
   br i1 %cmp33.us, label %for.body.us, label %for.end, !llvm.loop !21
 
 while.body56.lr.ph.us:                            ; preds = %if.end49.us
@@ -2229,7 +2229,7 @@ for.inc:                                          ; preds = %while.body56, %if.e
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %26 = load i32, ptr %data_symbols, align 8
   %27 = zext i32 %26 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next41, %27
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next41, %27
   br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end29
@@ -2397,7 +2397,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i32, ptr %data_symbols, align 4
   %8 = zext i32 %7 to i64
-  %cmp4.i = icmp ult i64 %indvars.iv.next.i, %8
+  %cmp4.i = icmp samesign ult i64 %indvars.iv.next.i, %8
   br i1 %cmp4.i, label %for.body.i, label %for.end.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i
@@ -2453,7 +2453,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %data_symbols, align 4
   %3 = zext i32 %2 to i64
-  %cmp4 = icmp ult i64 %indvars.iv.next, %3
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %3
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body

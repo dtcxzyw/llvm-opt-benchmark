@@ -1400,7 +1400,7 @@ if.end.i187:                                      ; preds = %if.end13
 
 for.body.i193.preheader:                          ; preds = %if.end.i187
   %xtraiter = and i64 %call.i.i188, 3
-  %18 = icmp ult i64 %conv.i189, 4
+  %18 = icmp samesign ult i64 %conv.i189, 4
   br i1 %18, label %if.end20.loopexit.unr-lcssa, label %for.body.i193.preheader.new
 
 for.body.i193.preheader.new:                      ; preds = %for.body.i193.preheader
@@ -1832,7 +1832,7 @@ _ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exi
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !124
   %inc = add nuw nsw i32 %i.0260, 1
   %conv111 = zext i8 %97 to i32
-  %cmp112 = icmp ult i32 %inc, %conv111
+  %cmp112 = icmp samesign ult i32 %inc, %conv111
   br i1 %cmp112, label %for.body, label %for.cond115.preheader, !llvm.loop !176
 
 if.then128:                                       ; preds = %for.cond115.preheader
@@ -2560,7 +2560,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !187
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !190, !noalias !187
-  %cmp.i11.i.i = icmp ugt i64 %spec.select.i.i.i, 15
+  %cmp.i11.i.i = icmp samesign ugt i64 %spec.select.i.i.i, 15
   br i1 %cmp.i11.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
 
 if.then.i12.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -2940,7 +2940,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %FrameBufferCount.i78, align 8, !tbaa !210
   %26 = zext i32 %25 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %26
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %26
   br i1 %cmp11.i, label %for.body.i, label %for.cond.cleanup.i80, !llvm.loop !223
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit: ; preds = %for.cond.cleanup.i80, %lor.lhs.false7.i
@@ -3369,7 +3369,7 @@ for.inc:                                          ; preds = %if.then, %for.body
   %11 = phi i8 [ %2, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i8 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !244
 
 sw.bb8:                                           ; preds = %entry
@@ -5752,7 +5752,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %conv8.i, ptr %incdec.ptr9.i, align 1, !tbaa !102
   %incdec.ptr = getelementptr inbounds i8, ptr %p.080, i64 36
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 4
-  %cmp = icmp ult i64 %indvars.iv.next88, %conv.i
+  %cmp = icmp samesign ult i64 %indvars.iv.next88, %conv.i
   br i1 %cmp, label %for.body, label %sw.epilog, !llvm.loop !312
 
 for.body7:                                        ; preds = %for.cond5.preheader, %for.body7
@@ -5781,7 +5781,7 @@ for.body7:                                        ; preds = %for.cond5.preheader
   store i8 %conv8.i56, ptr %incdec.ptr9.i57, align 1, !tbaa !102
   %incdec.ptr11 = getelementptr inbounds i8, ptr %p4.077, i64 44
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 4
-  %cmp6 = icmp ult i64 %indvars.iv.next85, %conv.i
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next85, %conv.i
   br i1 %cmp6, label %for.body7, label %sw.epilog, !llvm.loop !313
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.body19
@@ -5810,7 +5810,7 @@ for.body19:                                       ; preds = %for.cond17.preheade
   store i8 %conv8.i68, ptr %incdec.ptr9.i69, align 1, !tbaa !102
   %incdec.ptr23 = getelementptr inbounds i8, ptr %p16.074, i64 60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp18 = icmp ult i64 %indvars.iv.next, %conv.i
+  %cmp18 = icmp samesign ult i64 %indvars.iv.next, %conv.i
   br i1 %cmp18, label %for.body19, label %sw.epilog, !llvm.loop !314
 
 sw.epilog:                                        ; preds = %for.body19, %for.body7, %for.body, %for.cond.preheader, %for.cond5.preheader, %for.cond17.preheader, %entry
@@ -6676,7 +6676,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %33 = zext i32 %32 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %33
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %cmp11.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !223
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit: ; preds = %for.cond.cleanup.i, %lor.lhs.false7.i
@@ -6731,7 +6731,7 @@ for.body.i136:                                    ; preds = %for.body.i136, %for
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
   %43 = load i32, ptr %FrameBufferCount.i134, align 8, !tbaa !210
   %44 = zext i32 %43 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i138, %44
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i138, %44
   br i1 %cmp2.i, label %for.body.i136, label %for.cond.cleanup.i139, !llvm.loop !344
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE16setBlendEquationEj.exit: ; preds = %for.cond.cleanup.i139, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit
@@ -7614,11 +7614,11 @@ for.body:                                         ; preds = %_ZN3irr5video23COpe
   %TextureCache.i = getelementptr inbounds i8, ptr %2, i64 16
   %DriverType.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %DriverType.i, align 8, !tbaa !319
-  %cmp.i = icmp ult i64 %indvars.iv, 4
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 4
   %TextureCount.i = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load i32, ptr %TextureCount.i, align 8
   %5 = zext i32 %4 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv, %5
+  %cmp2.i = icmp samesign ult i64 %indvars.iv, %5
   %or.cond83.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %or.cond83.i, label %if.then.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit
 
@@ -7701,7 +7701,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
   %23 = zext i8 %22 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !350
 }
 
@@ -10815,7 +10815,7 @@ for.inc:                                          ; preds = %do.end.i, %_ZNK3irr
   %sub.ptr.sub.i.i189 = sub i64 %sub.ptr.lhs.cast.i.i187, %sub.ptr.rhs.cast.i.i188
   %sub.ptr.div.i.i190 = lshr exact i64 %sub.ptr.sub.i.i189, 3
   %63 = and i64 %sub.ptr.div.i.i190, 4294967295
-  %cmp25 = icmp ult i64 %indvars.iv.next, %63
+  %cmp25 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %cmp25, label %for.body, label %if.end69, !llvm.loop !390
 
 if.end69:                                         ; preds = %for.inc, %_ZN3irr4core5arrayIPNS_5video6IImageEE8set_usedEj.exit, %lor.lhs.false20
@@ -10915,7 +10915,7 @@ for.body104:                                      ; preds = %if.end98, %for.body
   %sub.ptr.sub.i.i273 = sub i64 %sub.ptr.lhs.cast.i.i271, %sub.ptr.rhs.cast.i.i272
   %sub.ptr.div.i.i274 = lshr exact i64 %sub.ptr.sub.i.i273, 3
   %93 = and i64 %sub.ptr.div.i.i274, 4294967295
-  %cmp102 = icmp ult i64 %indvars.iv.next384, %93
+  %cmp102 = icmp samesign ult i64 %indvars.iv.next384, %93
   br i1 %cmp102, label %for.body104, label %for.cond.cleanup103, !llvm.loop !395
 
 for.body121:                                      ; preds = %for.cond117.preheader, %for.body121
@@ -10938,7 +10938,7 @@ for.body121:                                      ; preds = %for.cond117.prehead
   %sub.ptr.sub.i.i281 = sub i64 %sub.ptr.lhs.cast.i.i279, %sub.ptr.rhs.cast.i.i280
   %sub.ptr.div.i.i282 = lshr exact i64 %sub.ptr.sub.i.i281, 3
   %101 = and i64 %sub.ptr.div.i.i282, 4294967295
-  %cmp119 = icmp ult i64 %indvars.iv.next387, %101
+  %cmp119 = icmp samesign ult i64 %indvars.iv.next387, %101
   br i1 %cmp119, label %for.body121, label %if.end129, !llvm.loop !396
 
 if.end129:                                        ; preds = %for.body121, %for.cond117.preheader, %for.cond.cleanup103
@@ -11006,7 +11006,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i338 = sub i64 %sub.ptr.lhs.cast.i.i336, %sub.ptr.rhs.cast.i.i337
   %sub.ptr.div.i.i339 = lshr exact i64 %sub.ptr.sub.i.i338, 3
   %113 = and i64 %sub.ptr.div.i.i339, 4294967295
-  %cmp137 = icmp ult i64 %indvars.iv.next390, %113
+  %cmp137 = icmp samesign ult i64 %indvars.iv.next390, %113
   br i1 %cmp137, label %for.body139, label %for.cond.cleanup138, !llvm.loop !397
 
 if.end149:                                        ; preds = %_ZN3irr4core5arrayIPNS_5video6IImageEE5clearEv.exit, %if.end129
@@ -11260,7 +11260,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   %.pre = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = zext i8 %.pre to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %35
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %cmp, label %if.end, label %for.cond.cleanup, !llvm.loop !398
 }
 
@@ -12637,7 +12637,7 @@ lor.rhs56.i:                                      ; preds = %land.rhs.i
 _ZNK3irr5video14SMaterialLayerneERKS1_.exit:      ; preds = %lor.rhs56.i, %if.else.i
   %retval.0.i = phi i1 [ false, %if.else.i ], [ %lnot.i.i, %lor.rhs56.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp196 = icmp ugt i64 %indvars.iv, 2
+  %cmp196 = icmp samesign ugt i64 %indvars.iv, 2
   %.not = or i1 %cmp196, %retval.0.i
   br i1 %.not, label %for.cond.cleanup, label %for.body, !llvm.loop !417
 }
@@ -13674,7 +13674,7 @@ for.body.i:                                       ; preds = %if.then.i979, %for.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %127 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %128 = zext i32 %127 to i64
-  %cmp21.i = icmp ult i64 %indvars.iv.next.i, %128
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.next.i, %128
   br i1 %cmp21.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !430
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit: ; preds = %for.cond.cleanup.i, %if.end449
@@ -13810,7 +13810,7 @@ for.body.i1006:                                   ; preds = %for.body.i1006, %fo
   %indvars.iv.next.i1008 = add nuw nsw i64 %indvars.iv.i1007, 1
   %150 = load i32, ptr %FrameBufferCount.i1004, align 8, !tbaa !210
   %151 = zext i32 %150 to i64
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i1008, %151
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i1008, %151
   br i1 %cmp2.i, label %for.body.i1006, label %for.cond.cleanup.i1009, !llvm.loop !344
 
 sw.bb472:                                         ; preds = %if.then464
@@ -13865,7 +13865,7 @@ for.body.i1025:                                   ; preds = %for.body.i1025, %fo
   %indvars.iv.next.i1028 = add nuw nsw i64 %indvars.iv.i1026, 1
   %161 = load i32, ptr %FrameBufferCount.i1022, align 8, !tbaa !210
   %162 = zext i32 %161 to i64
-  %cmp2.i1029 = icmp ult i64 %indvars.iv.next.i1028, %162
+  %cmp2.i1029 = icmp samesign ult i64 %indvars.iv.next.i1028, %162
   br i1 %cmp2.i1029, label %for.body.i1025, label %for.cond.cleanup.i1030, !llvm.loop !344
 
 sw.bb474:                                         ; preds = %if.then464
@@ -13920,7 +13920,7 @@ for.body.i1050:                                   ; preds = %for.body.i1050, %fo
   %indvars.iv.next.i1053 = add nuw nsw i64 %indvars.iv.i1051, 1
   %172 = load i32, ptr %FrameBufferCount.i1047, align 8, !tbaa !210
   %173 = zext i32 %172 to i64
-  %cmp2.i1054 = icmp ult i64 %indvars.iv.next.i1053, %173
+  %cmp2.i1054 = icmp samesign ult i64 %indvars.iv.next.i1053, %173
   br i1 %cmp2.i1054, label %for.body.i1050, label %for.cond.cleanup.i1055, !llvm.loop !344
 
 sw.bb476:                                         ; preds = %if.then464
@@ -13975,7 +13975,7 @@ for.body.i1075:                                   ; preds = %for.body.i1075, %fo
   %indvars.iv.next.i1078 = add nuw nsw i64 %indvars.iv.i1076, 1
   %183 = load i32, ptr %FrameBufferCount.i1072, align 8, !tbaa !210
   %184 = zext i32 %183 to i64
-  %cmp2.i1079 = icmp ult i64 %indvars.iv.next.i1078, %184
+  %cmp2.i1079 = icmp samesign ult i64 %indvars.iv.next.i1078, %184
   br i1 %cmp2.i1079, label %for.body.i1075, label %for.cond.cleanup.i1080, !llvm.loop !344
 
 sw.bb478:                                         ; preds = %if.then464
@@ -14036,7 +14036,7 @@ for.body.i1100:                                   ; preds = %for.body.i1100, %fo
   %indvars.iv.next.i1103 = add nuw nsw i64 %indvars.iv.i1101, 1
   %195 = load i32, ptr %FrameBufferCount.i1097, align 8, !tbaa !210
   %196 = zext i32 %195 to i64
-  %cmp2.i1104 = icmp ult i64 %indvars.iv.next.i1103, %196
+  %cmp2.i1104 = icmp samesign ult i64 %indvars.iv.next.i1103, %196
   br i1 %cmp2.i1104, label %for.body.i1100, label %for.cond.cleanup.i1105, !llvm.loop !344
 
 if.else485:                                       ; preds = %sw.bb478
@@ -14101,7 +14101,7 @@ for.body.i1125:                                   ; preds = %for.body.i1125, %fo
   %indvars.iv.next.i1128 = add nuw nsw i64 %indvars.iv.i1126, 1
   %207 = load i32, ptr %FrameBufferCount.i1122, align 8, !tbaa !210
   %208 = zext i32 %207 to i64
-  %cmp2.i1129 = icmp ult i64 %indvars.iv.next.i1128, %208
+  %cmp2.i1129 = icmp samesign ult i64 %indvars.iv.next.i1128, %208
   br i1 %cmp2.i1129, label %for.body.i1125, label %for.cond.cleanup.i1130, !llvm.loop !344
 
 if.else495:                                       ; preds = %sw.bb488
@@ -14166,7 +14166,7 @@ for.body.i1150:                                   ; preds = %for.body.i1150, %fo
   %indvars.iv.next.i1153 = add nuw nsw i64 %indvars.iv.i1151, 1
   %219 = load i32, ptr %FrameBufferCount.i1147, align 8, !tbaa !210
   %220 = zext i32 %219 to i64
-  %cmp2.i1154 = icmp ult i64 %indvars.iv.next.i1153, %220
+  %cmp2.i1154 = icmp samesign ult i64 %indvars.iv.next.i1153, %220
   br i1 %cmp2.i1154, label %for.body.i1150, label %for.cond.cleanup.i1155, !llvm.loop !344
 
 if.else505:                                       ; preds = %sw.bb498
@@ -14238,7 +14238,7 @@ for.body.i1175:                                   ; preds = %for.body.i1175, %fo
   %indvars.iv.next.i1178 = add nuw nsw i64 %indvars.iv.i1176, 1
   %233 = load i32, ptr %FrameBufferCount.i1172, align 8, !tbaa !210
   %234 = zext i32 %233 to i64
-  %cmp2.i1179 = icmp ult i64 %indvars.iv.next.i1178, %234
+  %cmp2.i1179 = icmp samesign ult i64 %indvars.iv.next.i1178, %234
   br i1 %cmp2.i1179, label %for.body.i1175, label %for.cond.cleanup.i1180, !llvm.loop !344
 
 if.else521:                                       ; preds = %sw.bb514
@@ -14304,7 +14304,7 @@ for.body.i1200:                                   ; preds = %for.body.i1200, %fo
   %indvars.iv.next.i1203 = add nuw nsw i64 %indvars.iv.i1201, 1
   %246 = load i32, ptr %FrameBufferCount.i1197, align 8, !tbaa !210
   %247 = zext i32 %246 to i64
-  %cmp2.i1204 = icmp ult i64 %indvars.iv.next.i1203, %247
+  %cmp2.i1204 = icmp samesign ult i64 %indvars.iv.next.i1203, %247
   br i1 %cmp2.i1204, label %for.body.i1200, label %for.cond.cleanup.i1205, !llvm.loop !344
 
 if.end534:                                        ; preds = %for.cond.cleanup.i1205, %sw.default530, %if.then526, %if.else521, %for.cond.cleanup.i1180, %if.then519, %if.then510, %if.else505, %for.cond.cleanup.i1155, %if.then503, %if.else495, %for.cond.cleanup.i1130, %if.then493, %if.else485, %for.cond.cleanup.i1105, %if.then483, %for.cond.cleanup.i1080, %sw.bb476, %for.cond.cleanup.i1055, %sw.bb474, %for.cond.cleanup.i1030, %sw.bb472, %for.cond.cleanup.i1009, %sw.bb470, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit999, %for.cond.cleanup.i986, %if.then459
@@ -14474,7 +14474,7 @@ for.body.i1285:                                   ; preds = %for.body.i1285, %fo
   %indvars.iv.next.i1287 = add nuw nsw i64 %indvars.iv.i1286, 1
   %278 = load i32, ptr %FrameBufferCount.i1283, align 8, !tbaa !210
   %279 = zext i32 %278 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i1287, %279
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i1287, %279
   br i1 %cmp11.i, label %for.body.i1285, label %for.cond.cleanup.i1288, !llvm.loop !223
 
 if.end555:                                        ; preds = %for.cond.cleanup.i1288, %lor.lhs.false7.i, %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1254, %if.end534
@@ -14739,7 +14739,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %FrameBufferCount, align 8, !tbaa !210
   %9 = zext i32 %8 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next, %9
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp2, label %for.body, label %for.cond.cleanup, !llvm.loop !344
 
 if.end:                                           ; preds = %for.cond.cleanup, %entry
@@ -14834,7 +14834,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %FrameBufferCount, align 8, !tbaa !210
   %18 = zext i32 %17 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next, %18
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp15, label %for.body, label %if.end28.sink.split, !llvm.loop !433
 
 if.else:                                          ; preds = %entry
@@ -14896,7 +14896,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %33 = zext i32 %32 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i, %33
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i, %33
   br i1 %cmp11.i, label %for.body.i, label %if.end28.sink.split, !llvm.loop !223
 
 if.end28.sink.split:                              ; preds = %for.body, %for.body.i, %if.then.i, %_ZN3irr5video23COpenGLExtensionHandler22irrGlBlendFuncSeparateEjjjj.exit
@@ -16590,7 +16590,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.080.i, i64 36
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 4
-  %cmp.i = icmp ult i64 %indvars.iv87.i, 92
+  %cmp.i = icmp samesign ult i64 %indvars.iv87.i, 92
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !312
 
 if.end:                                           ; preds = %for.body.i, %entry
@@ -18292,7 +18292,7 @@ for.inc56:                                        ; preds = %_ZN3irr5video23COpe
   %sub.ptr.sub.i.i193 = sub i64 %sub.ptr.lhs.cast.i.i191, %sub.ptr.rhs.cast.i.i192
   %sub.ptr.div.i.i194 = lshr exact i64 %sub.ptr.sub.i.i193, 2
   %34 = and i64 %sub.ptr.div.i.i194, 4294967295
-  %cmp42 = icmp ult i64 %indvars.iv.next291, %34
+  %cmp42 = icmp samesign ult i64 %indvars.iv.next291, %34
   br i1 %cmp42, label %for.body44, label %for.cond.cleanup43, !llvm.loop !483
 
 if.end60:                                         ; preds = %for.cond.cleanup43, %if.then
@@ -18573,7 +18573,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %9 = zext i32 %8 to i64
-  %cmp21.i = icmp ult i64 %indvars.iv.next.i, %9
+  %cmp21.i = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %cmp21.i, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !430
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit: ; preds = %for.cond.cleanup.i, %if.then
@@ -18680,7 +18680,7 @@ for.body.i58:                                     ; preds = %if.then.i54, %for.b
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
   %21 = load i32, ptr %FrameBufferCount.i56, align 8, !tbaa !210
   %22 = zext i32 %21 to i64
-  %cmp21.i62 = icmp ult i64 %indvars.iv.next.i61, %22
+  %cmp21.i62 = icmp samesign ult i64 %indvars.iv.next.i61, %22
   br i1 %cmp21.i62, label %for.body.i58, label %for.cond.cleanup.i63, !llvm.loop !430
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit64: ; preds = %for.cond.cleanup.i63, %if.end31
@@ -20164,7 +20164,7 @@ for.body.i36:                                     ; preds = %for.body.i36, %for.
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %63 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %64 = zext i32 %63 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i38, %64
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i38, %64
   br i1 %cmp11.i, label %for.body.i36, label %for.cond.cleanup.i, !llvm.loop !223
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit: ; preds = %for.cond.cleanup.i, %lor.lhs.false7.i
@@ -21017,7 +21017,7 @@ for.body.i25:                                     ; preds = %for.body.i25, %for.
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %63 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !210
   %64 = zext i32 %63 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i27, %64
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i27, %64
   br i1 %cmp11.i, label %for.body.i25, label %for.cond.cleanup.i, !llvm.loop !223
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setBlendFuncEjj.exit: ; preds = %for.cond.cleanup.i, %lor.lhs.false7.i
@@ -21658,7 +21658,7 @@ for.body.i121:                                    ; preds = %for.body.i121, %for
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %85 = load i32, ptr %FrameBufferCount.i119, align 8, !tbaa !210
   %86 = zext i32 %85 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next.i123, %86
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next.i123, %86
   br i1 %cmp11.i, label %for.body.i121, label %for.cond.cleanup.i124, !llvm.loop !223
 
 if.end31:                                         ; preds = %for.cond.cleanup.i124, %lor.lhs.false7.i, %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit91
@@ -22672,7 +22672,7 @@ if.end35:                                         ; preds = %if.else, %if.then26
   %sub.ptr.sub.i.i189 = sub i64 %sub.ptr.lhs.cast.i.i187, %sub.ptr.rhs.cast.i.i188
   %sub.ptr.div.i.i190 = lshr exact i64 %sub.ptr.sub.i.i189, 3
   %46 = and i64 %sub.ptr.div.i.i190, 4294967295
-  %cmp14 = icmp ult i64 %indvars.iv.next, %46
+  %cmp14 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %cmp14, label %for.body, label %for.cond37.preheader, !llvm.loop !502
 
 for.cond.cleanup40:                               ; preds = %for.cond37.preheader
@@ -23170,7 +23170,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %number, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -23590,7 +23590,7 @@ for.inc:                                          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %19 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp6 = icmp ult i64 %indvars.iv.next, %19
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %cmp6, label %for.body, label %for.cond.cleanup, !llvm.loop !515
 
 if.then19:                                        ; preds = %for.cond.cleanup
@@ -23855,7 +23855,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %cond.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -25001,7 +25001,7 @@ while.body.i133:                                  ; preds = %while.cond.i131
   %cmp9.i = icmp eq i32 %spec.select.i135, 1
   %cmp11.i = icmp eq i32 %result.sroa.8.1.i, 1
   %or.cond.i138 = select i1 %cmp9.i, i1 %cmp11.i, i1 false
-  %cmp13.i = icmp ult i32 %inc.i137, %conv34
+  %cmp13.i = icmp samesign ult i32 %inc.i137, %conv34
   %or.cond27.i = and i1 %cmp13.i, %or.cond.i138
   br i1 %or.cond27.i, label %_ZN3irr5video6IImage14getMipMapsSizeERKNS_4core11dimension2dIjEEj.exit, label %while.cond.i131, !llvm.loop !533
 
@@ -25576,7 +25576,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %cmp14.i = icmp eq i32 %spec.select.i, 1
   %cmp17.i = icmp eq i32 %mipSize.sroa.8.1.i, 1
   %or.cond26.i = and i1 %cmp17.i, %cmp14.i
-  %cmp19.i = icmp ult i32 %inc.i, %conv
+  %cmp19.i = icmp samesign ult i32 %inc.i, %conv
   %or.cond38.i = and i1 %cmp19.i, %or.cond26.i
   br i1 %or.cond38.i, label %if.end, label %while.cond.i, !llvm.loop !532
 
@@ -25613,7 +25613,7 @@ while.body.i29.us:                                ; preds = %while.cond.i23.us
   %cmp14.i44.us = icmp eq i32 %spec.select.i32.us, 1
   %cmp17.i45.us = icmp eq i32 %mipSize.sroa.8.1.i35.us, 1
   %or.cond26.i46.us = and i1 %cmp17.i45.us, %cmp14.i44.us
-  %cmp19.i47.us = icmp ult i32 %inc.i43.us, %conv
+  %cmp19.i47.us = icmp samesign ult i32 %inc.i43.us, %conv
   %or.cond38.i48.us = and i1 %cmp19.i47.us, %or.cond26.i46.us
   br i1 %or.cond38.i48.us, label %return, label %while.cond.i23.us, !llvm.loop !532
 
@@ -25635,7 +25635,7 @@ while.body.i29:                                   ; preds = %while.cond.i23
   %cmp14.i44 = icmp eq i32 %spec.select.i32, 1
   %cmp17.i45 = icmp eq i32 %mipSize.sroa.8.1.i35, 1
   %or.cond26.i46 = and i1 %cmp17.i45, %cmp14.i44
-  %cmp19.i47 = icmp ult i32 %inc.i43, %conv
+  %cmp19.i47 = icmp samesign ult i32 %inc.i43, %conv
   %or.cond38.i48 = and i1 %cmp19.i47, %or.cond26.i46
   br i1 %or.cond38.i48, label %return, label %while.cond.i23, !llvm.loop !532
 
@@ -25806,7 +25806,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit30:        ; preds = %delete.notnull.i27,
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %28 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %28
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !540
 }
 

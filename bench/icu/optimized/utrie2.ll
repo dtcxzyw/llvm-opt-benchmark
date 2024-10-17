@@ -1183,7 +1183,7 @@ if.else69:                                        ; preds = %if.end56
   %shr76 = lshr i32 %tempLimit.1, 5
   %and77 = and i32 %shr76, 63
   %i2Limit.0 = select i1 %cmp74, i32 %and77, i32 64
-  %cmp81174 = icmp ult i32 %and71, %i2Limit.0
+  %cmp81174 = icmp samesign ult i32 %and71, %i2Limit.0
   br i1 %cmp81174, label %for.body82.preheader, label %if.end147
 
 for.body82.preheader:                             ; preds = %if.else69

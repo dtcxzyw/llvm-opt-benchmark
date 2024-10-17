@@ -4245,7 +4245,7 @@ _ZL9cos_anglePKfS0_.exit64.i:                     ; preds = %1093, %1088
   %1101 = fpext float %1100 to double
   %1102 = fadd double %.096.i, %1101
   %indvars.iv.next125.i858 = add nuw nsw i64 %indvars.iv124.i856, 1
-  %1103 = icmp ult i64 %indvars.iv.next125.i858, %609
+  %1103 = icmp samesign ult i64 %indvars.iv.next125.i858, %609
   %or.cond.i = select i1 %10, i1 %1103, i1 false
   br i1 %or.cond.i, label %.lr.ph.i862, label %.loopexit.i859
 

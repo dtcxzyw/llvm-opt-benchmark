@@ -5703,7 +5703,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 54:                                               ; preds = %.preheader.i.i.i
@@ -6225,7 +6225,7 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
 .preheader.i.i:                                   ; preds = %39, %43
   %.025.i.i.i.i = phi i64 [ %41, %43 ], [ %33, %39 ]
   %41 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %42 = icmp ult i64 %41, %28
+  %42 = icmp samesign ult i64 %41, %28
   br i1 %42, label %43, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
 
 43:                                               ; preds = %.preheader.i.i
@@ -8701,7 +8701,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %55, %59
   %.025.i.i.i.i.i = phi i64 [ %57, %59 ], [ %49, %55 ]
   %57 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %58 = icmp ult i64 %57, %46
+  %58 = icmp samesign ult i64 %57, %46
   br i1 %58, label %59, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 59:                                               ; preds = %.preheader.i.i.i
@@ -11119,7 +11119,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %45, %49
   %.025.i.i.i.i = phi i64 [ %47, %49 ], [ %39, %45 ]
   %47 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %48 = icmp ult i64 %47, %28
+  %48 = icmp samesign ult i64 %47, %28
   br i1 %48, label %49, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop22PSCheckForUnmarkedOopsEEEbPT_mm.exit
 
 49:                                               ; preds = %.preheader.i.i
@@ -11267,7 +11267,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %54, %58
   %.025.i.i.i.i.i = phi i64 [ %56, %58 ], [ %48, %54 ]
   %56 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %57 = icmp ult i64 %56, %41
+  %57 = icmp samesign ult i64 %56, %41
   br i1 %57, label %58, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22PSCheckForUnmarkedOopsEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 58:                                               ; preds = %.preheader.i.i.i

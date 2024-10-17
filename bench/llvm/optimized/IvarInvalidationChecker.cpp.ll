@@ -1895,7 +1895,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127Iva
   %510 = add nuw nsw i64 %.021.i.i.i.i.i, 1
   %.val15.i.i.i.i.i = load i32, ptr %467, align 8
   %511 = zext i32 %.val15.i.i.i.i.i to i64
-  %512 = icmp ult i64 %510, %511
+  %512 = icmp samesign ult i64 %510, %511
   br i1 %512, label %.lr.ph.i5.i.i.i.i, label %_ZN4llvm8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2ERKSD_.exit.i.i, !llvm.loop !32
 
 513:                                              ; preds = %491

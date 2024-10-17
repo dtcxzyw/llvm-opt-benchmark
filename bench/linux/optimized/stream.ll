@@ -406,7 +406,7 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, 200
   %32 = and i32 %31, 248
-  %33 = icmp ult i32 %32, 56
+  %33 = icmp samesign ult i32 %32, 56
   br i1 %33, label %28, label %34
 
 34:                                               ; preds = %28

@@ -145,7 +145,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %85 = load double, ptr %84, align 8, !tbaa !7
   %86 = fdiv double 1.000000e+00, %85
   store double %86, ptr %84, align 8, !tbaa !7
-  %87 = icmp ugt i32 %76, 1
+  %87 = icmp samesign ugt i32 %76, 1
   br i1 %87, label %88, label %133
 
 88:                                               ; preds = %82
@@ -188,7 +188,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %115 = fdiv double %102, %103
   %116 = fdiv double %115, %112
   store double %116, ptr %99, align 8, !tbaa !7
-  %117 = icmp ugt i32 %76, 1
+  %117 = icmp samesign ugt i32 %76, 1
   br i1 %117, label %118, label %131
 
 118:                                              ; preds = %95

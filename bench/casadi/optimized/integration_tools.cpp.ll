@@ -11491,7 +11491,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 25:                                               ; preds = %19, %23
   %26 = add nuw nsw i64 %.013, 1
-  %27 = icmp ult i64 %26, %18
+  %27 = icmp samesign ult i64 %26, %18
   br i1 %27, label %19, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %25, %.loopexit.thread

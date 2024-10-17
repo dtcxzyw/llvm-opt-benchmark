@@ -203,7 +203,7 @@ define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %21, %1

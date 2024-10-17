@@ -366,7 +366,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 
 .preheader:                                       ; preds = %.loopexit95.us, %46
   %.2.lcssa = phi i32 [ %37, %46 ], [ %.4.us, %.loopexit95.us ]
-  %66 = icmp ugt i32 %41, 2
+  %66 = icmp samesign ugt i32 %41, 2
   br i1 %66, label %.lr.ph126, label %.loopexit
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
@@ -897,7 +897,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.08.i = phi i32 [ 0, %.lr.ph.split.split.preheader.i ], [ %.1.i, %.loopexit.i ]
   %.0237.i = phi i32 [ 0, %.lr.ph.split.split.preheader.i ], [ %.124.i, %.loopexit.i ]
-  %41 = icmp ult i64 %indvars.iv.i, 6
+  %41 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %41, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.i

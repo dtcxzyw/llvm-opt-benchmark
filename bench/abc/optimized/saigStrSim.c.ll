@@ -2074,7 +2074,7 @@ Aig_ManObj.exit:                                  ; preds = %39, %43
   %51 = load i64, ptr %13, align 8
   %52 = trunc i64 %51 to i32
   %53 = lshr i32 %52, 6
-  %54 = icmp ult i32 %50, %53
+  %54 = icmp samesign ult i32 %50, %53
   br i1 %54, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
 
 .critedge.loopexit:                               ; preds = %Aig_ManObj.exit
@@ -2752,7 +2752,7 @@ Aig_ObjRepr.exit157.thread:                       ; preds = %Saig_ObjIsLi.exit.t
   %235 = add nuw nsw i32 %.070185, 1
   %236 = trunc i64 %234 to i32
   %237 = lshr i32 %236, 6
-  %238 = icmp ult i32 %235, %237
+  %238 = icmp samesign ult i32 %235, %237
   br i1 %238, label %167, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %Aig_ObjRepr.exit157.thread, %Aig_ObjRepr.exit135.thread, %21, %15, %Aig_ObjRepr.exit

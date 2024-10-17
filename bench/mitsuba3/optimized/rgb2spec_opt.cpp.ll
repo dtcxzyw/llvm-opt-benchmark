@@ -185,7 +185,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr nocapture
 
 36:                                               ; preds = %24, %22
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %37 = icmp ult i64 %indvars.iv.next94, %8
+  %37 = icmp samesign ult i64 %indvars.iv.next94, %8
   br i1 %37, label %.lr.ph88, label %.loopexit
 
 .lr.ph88:                                         ; preds = %36
@@ -1096,7 +1096,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 
 78:                                               ; preds = %66, %64
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %79 = icmp ult i64 %indvars.iv93.i, 2
+  %79 = icmp samesign ult i64 %indvars.iv93.i, 2
   br i1 %79, label %.lr.ph88.i, label %.loopexit.i
 
 .lr.ph88.i:                                       ; preds = %78

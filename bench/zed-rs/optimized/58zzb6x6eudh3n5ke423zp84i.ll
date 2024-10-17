@@ -98093,7 +98093,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27491)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27494)
   %5 = load i64, ptr %4, align 8, !range !4388, !alias.scope !27497, !noundef !14
-  %switch.i.i.i = icmp ult i64 %5, 2
+  %switch.i.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit", label %6
 
 6:                                                ; preds = %3
@@ -98321,7 +98321,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27704)
   %89 = load i64, ptr %88, align 8, !range !4388, !alias.scope !27707, !noundef !14
-  %switch.i.i.i.i = icmp ult i64 %89, 2
+  %switch.i.i.i.i = icmp samesign ult i64 %89, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$zbus_names..error_name..OwnedErrorName$GT$17h69f02081a45447d3E.exit", label %90
 
 90:                                               ; preds = %87
@@ -99280,7 +99280,7 @@ common.resume:                                    ; preds = %411, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28645)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28648)
   %422 = load i64, ptr %421, align 8, !range !4388, !alias.scope !28651, !noundef !14
-  %switch.i.i.i17 = icmp ult i64 %422, 2
+  %switch.i.i.i17 = icmp samesign ult i64 %422, 2
   br i1 %switch.i.i.i17, label %common.resume, label %423
 
 423:                                              ; preds = %419
@@ -99303,7 +99303,7 @@ common.resume:                                    ; preds = %411, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28662)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28665)
   %430 = load i64, ptr %429, align 8, !range !4388, !alias.scope !28668, !noundef !14
-  %switch.i.i.i19 = icmp ult i64 %430, 2
+  %switch.i.i.i19 = icmp samesign ult i64 %430, 2
   br i1 %switch.i.i.i19, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %431
 
 431:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit"
@@ -99602,7 +99602,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Er
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29016)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29019)
   %20 = load i64, ptr %19, align 8, !range !4388, !alias.scope !29022, !noundef !14
-  %switch.i.i = icmp ult i64 %20, 2
+  %switch.i.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit", label %21
 
 21:                                               ; preds = %18
@@ -99622,7 +99622,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$zvariant..error..Er
 27:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29033)
-  %switch.i.i1 = icmp ult i64 %2, 2
+  %switch.i.i1 = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i1, label %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit2", label %28
 
 28:                                               ; preds = %27

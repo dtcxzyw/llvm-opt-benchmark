@@ -291,7 +291,7 @@ x64_mulmod.exit:                                  ; preds = %if.then.i48, %if.th
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
   %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i = lshr i64 %exp.addr.07.i, 1
-  %cmp.not.i = icmp ult i64 %exp.addr.07.i, 2
+  %cmp.not.i = icmp samesign ult i64 %exp.addr.07.i, 2
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
@@ -985,7 +985,7 @@ x64_mulmod.exit:                                  ; preds = %if.then.i48, %if.th
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
   %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i = lshr i64 %exp.addr.07.i, 1
-  %cmp.not.i = icmp ult i64 %exp.addr.07.i, 2
+  %cmp.not.i = icmp samesign ult i64 %exp.addr.07.i, 2
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
@@ -1337,7 +1337,7 @@ x64_mulmod.exit357:                               ; preds = %if.then.i289, %if.t
   store i64 %spec.select93.i241, ptr %arrayidx, align 8
   store i64 %spec.select93.i164, ptr %arrayidx14, align 8
   %add23 = add nuw nsw i64 %k.0449, 2
-  %cmp9 = icmp ult i64 %add23, %div
+  %cmp9 = icmp samesign ult i64 %add23, %div
   br i1 %cmp9, label %for.body10, label %for.inc25, !llvm.loop !11
 
 for.inc25:                                        ; preds = %x64_mulmod.exit357, %x64_powmod.exit

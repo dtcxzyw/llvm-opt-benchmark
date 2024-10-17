@@ -689,7 +689,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %7
   %12 = shl i64 %indvars.iv.i, 2
   %.idx = and i64 %12, 8589934588
   %13 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %.not = icmp ult i64 %.idx, 8
+  %.not = icmp samesign ult i64 %.idx, 8
   %spec.select.idx = select i1 %.not, i64 0, i64 -4
   %spec.select = getelementptr inbounds i8, ptr %13, i64 %spec.select.idx
   br label %_Z11PointToNamePKw.exit.thread

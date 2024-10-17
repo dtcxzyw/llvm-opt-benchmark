@@ -4345,7 +4345,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl(ptr nocapt
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %15
-  %22 = icmp ult i32 %17, 193
+  %22 = icmp samesign ult i32 %17, 193
   br i1 %22, label %24, label %23, !prof !29
 
 23:                                               ; preds = %21
@@ -4379,7 +4379,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl(ptr nocapt
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %35, %34, %34
-  %38 = icmp ult i32 %17, 193
+  %38 = icmp samesign ult i32 %17, 193
   br i1 %38, label %40, label %39, !prof !29
 
 39:                                               ; preds = %37

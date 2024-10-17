@@ -6529,7 +6529,7 @@ _ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit: ; preds 
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 36
   %15 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp2 = icmp ult i64 %indvars.iv.next, %15
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp2, label %for.body, label %for.cond.cleanup, !llvm.loop !257
 
 if.end:                                           ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEE5clearEv.exit, %entry

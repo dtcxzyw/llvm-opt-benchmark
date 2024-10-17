@@ -4307,12 +4307,12 @@ if.end11.i.i:                                     ; preds = %if.then7.i.i
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie, ptr noundef nonnull %7, ptr noundef nonnull %call8.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
   %cmp.i12.i.i = icmp slt i32 %9, 1
-  %cmp.i.i = icmp ult i64 %indvars.iv.i, 6
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i, 6
   %or.cond.i.i = and i1 %cmp.i.i, %cmp.i12.i.i
   br i1 %or.cond.i.i, label %for.body.backedge.i.i, label %_ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %cmp.old.i.i = icmp ult i64 %indvars.iv.i, 6
+  %cmp.old.i.i = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %cmp.old.i.i, label %for.body.backedge.i.i, label %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
 
 for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge: ; preds = %for.inc.i.i
@@ -4395,12 +4395,12 @@ if.end11.i.i25:                                   ; preds = %if.then7.i.i22
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie22, ptr noundef nonnull %17, ptr noundef nonnull %call8.i.i23, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %19 = load i32, ptr %status, align 4
   %cmp.i12.i.i31 = icmp slt i32 %19, 1
-  %cmp.i.i32 = icmp ult i64 %indvars.iv.i19, 6
+  %cmp.i.i32 = icmp samesign ult i64 %indvars.iv.i19, 6
   %or.cond.i.i33 = and i1 %cmp.i.i32, %cmp.i12.i.i31
   br i1 %or.cond.i.i33, label %for.body.backedge.i.i34, label %_ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit
 
 for.inc.i.i43:                                    ; preds = %for.body.i.i18
-  %cmp.old.i.i44 = icmp ult i64 %indvars.iv.i19, 6
+  %cmp.old.i.i44 = icmp samesign ult i64 %indvars.iv.i19, 6
   br i1 %cmp.old.i.i44, label %for.body.backedge.i.i34, label %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
 
 for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge: ; preds = %for.inc.i.i43

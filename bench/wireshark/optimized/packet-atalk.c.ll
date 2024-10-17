@@ -1239,7 +1239,7 @@ define internal i32 @dissect_atp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %35 = call ptr @wmem_map_lookup(ptr noundef %34, ptr noundef nonnull %5) #8
   %36 = icmp eq ptr %35, null
   %or.cond = select i1 %36, i1 %27, i1 false
-  %37 = icmp ugt i8 %.0155.lcssa, 1
+  %37 = icmp samesign ugt i8 %.0155.lcssa, 1
   %or.cond5 = select i1 %or.cond, i1 %37, i1 false
   br i1 %or.cond5, label %38, label %45
 

@@ -4133,7 +4133,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 for.body56:                                       ; preds = %land.rhs
   %58 = add nsw i64 %indvars.iv, %53
-  %cmp.i = icmp ult i64 %indvars.iv, 8
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 8
   %59 = load ptr, ptr %values_.i, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %59, i64 %indvars.iv
   %60 = getelementptr i64, ptr %57, i64 %indvars.iv
@@ -6792,7 +6792,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont5.i.preh
   %__trip_count.074.i189 = phi i64 [ %dec.i120, %invoke.cont.i116 ], [ %shr.i, %invoke.cont5.i.preheader ]
   %agg.tmp.sroa.2.0.copyload.i188 = phi i64 [ %inc.i33.i, %invoke.cont.i116 ], [ 0, %invoke.cont5.i.preheader ]
   %inc.i.i = or disjoint i64 %agg.tmp.sroa.2.0.copyload.i188, 1
-  %cmp.i.i.i5.i = icmp ult i64 %agg.tmp.sroa.2.0.copyload.i188, 8
+  %cmp.i.i.i5.i = icmp samesign ult i64 %agg.tmp.sroa.2.0.copyload.i188, 8
   %retval.0.i.i.i10.i.v = select i1 %cmp.i.i.i5.i, ptr %41, ptr %invariant.gep
   %retval.0.i.i.i10.i = getelementptr i64, ptr %retval.0.i.i.i10.i.v, i64 %inc.i.i
   %45 = load i64, ptr %retval.0.i.i.i10.i, align 8, !noalias !105

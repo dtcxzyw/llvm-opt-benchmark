@@ -88,7 +88,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_ad
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %40 = icmp ugt i32 %39, 3126
+  %40 = icmp samesign ugt i32 %39, 3126
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %33
@@ -3846,7 +3846,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef %0) local_unnam
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = or disjoint i32 %195, 3072
-  %197 = icmp ult i32 %196, 3122
+  %197 = icmp samesign ult i32 %196, 3122
   br i1 %197, label %198, label %203
 
 198:                                              ; preds = %192
@@ -6471,7 +6471,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
-  %135 = icmp ult i32 %134, 3122
+  %135 = icmp samesign ult i32 %134, 3122
   %136 = icmp ugt i8 %123, 11
   %137 = select i1 %136, ptr @mcr_ranges_gen12, ptr @mcr_ranges_gen8
   %138 = select i1 %135, i1 %124, i1 false
@@ -6559,7 +6559,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %190 = load i8, ptr %180, align 1
   %191 = zext i8 %190 to i32
   %192 = or disjoint i32 %189, %191
-  %193 = icmp ugt i32 %192, 3121
+  %193 = icmp samesign ugt i32 %192, 3121
   br i1 %193, label %198, label %194
 
 194:                                              ; preds = %181
@@ -6696,7 +6696,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i32
   %277 = or disjoint i32 %273, %276
-  %278 = icmp ugt i32 %277, 3121
+  %278 = icmp samesign ugt i32 %277, 3121
   br i1 %278, label %283, label %279
 
 279:                                              ; preds = %263
@@ -6774,7 +6774,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %326 = add nuw nsw i64 %265, 1
   %327 = getelementptr i8, ptr %267, i64 20
   %328 = zext i32 %324 to i64
-  %329 = icmp ult i64 %326, %328
+  %329 = icmp samesign ult i64 %326, %328
   br i1 %329, label %263, label %.loopexit65, !llvm.loop !195
 
 .loopexit65:                                      ; preds = %.loopexit57, %257

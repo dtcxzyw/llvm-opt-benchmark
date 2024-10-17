@@ -64,7 +64,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEP
   %18 = getelementptr inbounds i8, ptr %.01521, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = lshr i8 %19, 3
-  %.not1618 = icmp ugt i8 %17, %20
+  %.not1618 = icmp samesign ugt i8 %17, %20
   br i1 %.not1618, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph23
@@ -82,7 +82,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEP
   %26 = load i8, ptr %18, align 1
   %27 = lshr i8 %26, 3
   %28 = zext nneg i8 %27 to i32
-  %.not16.not = icmp ult i32 %.019, %28
+  %.not16.not = icmp samesign ult i32 %.019, %28
   br i1 %.not16.not, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph23

@@ -3323,7 +3323,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   br i1 %36, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE4findERKj.exit.i.i, label %37
 
 37:                                               ; preds = %.preheader.i
-  %38 = icmp ult i64 %indvars.iv, %35
+  %38 = icmp samesign ult i64 %indvars.iv, %35
   %.1.in.v.i.i.i = select i1 %38, i64 8, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.01112.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
@@ -3711,7 +3711,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   br i1 %67, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE4findERKj.exit.i.i, label %68
 
 68:                                               ; preds = %.preheader.i
-  %69 = icmp ult i64 %indvars.iv, %66
+  %69 = icmp samesign ult i64 %indvars.iv, %66
   %.1.in.v.i.i.i = select i1 %69, i64 8, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.01112.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
@@ -8638,7 +8638,7 @@ _ZNK5clang7AnyCall10parametersEv.exit:            ; preds = %108, %112, %114
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %135
-  %141 = icmp ult i64 %indvars.iv, %138
+  %141 = icmp samesign ult i64 %indvars.iv, %138
   %.1.in.v.i.i = select i1 %141, i64 8, i64 16
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 %.1.in.v.i.i
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
@@ -11630,7 +11630,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18ret
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit49: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, %10
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
-  %16 = icmp ugt i32 %9, %15
+  %16 = icmp samesign ugt i32 %9, %15
   br i1 %16, label %17, label %46
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit49
@@ -11660,7 +11660,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18ret
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit51, %27
   %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit51 ]
-  %.not47 = icmp ult i32 %26, %31
+  %.not47 = icmp samesign ult i32 %26, %31
   br i1 %.not47, label %36, label %32
 
 32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit53
@@ -11683,7 +11683,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18ret
 
 46:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit49
   %47 = add nuw nsw i32 %9, 2
-  %48 = icmp ugt i32 %14, %47
+  %48 = icmp samesign ugt i32 %14, %47
   br i1 %48, label %49, label %78
 
 49:                                               ; preds = %46
@@ -11713,7 +11713,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18ret
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit55, %59
   %63 = phi i32 [ %62, %59 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit55 ]
-  %.not = icmp ult i32 %58, %63
+  %.not = icmp samesign ult i32 %58, %63
   br i1 %.not, label %68, label %64
 
 64:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_18retaincountchecker6RefValEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit57

@@ -1342,7 +1342,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %77, %73
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %84, i64 %88
   store i32 %.02732.i.i, ptr %89, align 4
-  %90 = icmp ugt i32 %.02732.i.i, 3
+  %90 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %90, label %.lr.ph.i.i, label %Vec_QuePush.exit, !llvm.loop !18
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %81, %Vec_QuePrio.exit.i.i
@@ -4063,7 +4063,7 @@ Vec_IntUniqifyPairs.exit319:                      ; preds = %896, %._crit_edge.i
   %988 = load i32, ptr %987, align 4
   %989 = icmp eq i32 %986, %988
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
-  %990 = icmp ult i64 %indvars.iv.next395, %976
+  %990 = icmp samesign ult i64 %indvars.iv.next395, %976
   %991 = select i1 %990, i1 %989, i1 false
   br i1 %991, label %.lr.ph350, label %._crit_edge, !llvm.loop !47
 
@@ -4497,7 +4497,7 @@ Vec_IntDup.exit181:                               ; preds = %Vec_IntDup.exit, %4
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %73, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = icmp ult i64 %indvars.iv.next, %71
+  %77 = icmp samesign ult i64 %indvars.iv.next, %71
   %78 = select i1 %77, i1 %76, i1 false
   br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 

@@ -3762,7 +3762,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i87: ; preds = %252
   %266 = load i16, ptr %265, align 2, !range !9, !noalias !572, !noundef !4
   %267 = zext nneg i16 %266 to i64
   %268 = lshr i64 %267, 6
-  %269 = icmp ult i16 %266, 192
+  %269 = icmp samesign ult i16 %266, 192
   br i1 %269, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i87._crit_edge, label %271, !prof !573
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i87._crit_edge: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i87
@@ -4306,7 +4306,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125: ; preds = %429
   %443 = load i16, ptr %442, align 2, !range !9, !noalias !676, !noundef !4
   %444 = zext nneg i16 %443 to i64
   %445 = lshr i64 %444, 6
-  %446 = icmp ult i16 %443, 192
+  %446 = icmp samesign ult i16 %443, 192
   br i1 %446, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125._crit_edge, label %448, !prof !573
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125._crit_edge: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125

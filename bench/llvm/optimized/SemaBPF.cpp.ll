@@ -161,7 +161,7 @@ switch.lookup:                                    ; preds = %29
 55:                                               ; preds = %48
   %56 = load i32, ptr %53, align 16
   %57 = and i32 %56, 267911168
-  %58 = icmp ugt i32 %57, 256901120
+  %58 = icmp samesign ugt i32 %57, 256901120
   br i1 %58, label %_ZN5clangL26isValidPreserveTypeInfoArgEPNS_4ExprE.exit.thread70, label %59
 
 59:                                               ; preds = %55, %48
@@ -194,7 +194,7 @@ _ZN5clangL27isValidPreserveFieldInfoArgEPNS_4ExprE.exit: ; preds = %59
 75:                                               ; preds = %68
   %76 = load i32, ptr %73, align 16
   %77 = and i32 %76, 267911168
-  %78 = icmp ugt i32 %77, 256901120
+  %78 = icmp samesign ugt i32 %77, 256901120
   br i1 %78, label %_ZN5clangL26isValidPreserveTypeInfoArgEPNS_4ExprE.exit.thread70, label %79
 
 79:                                               ; preds = %75, %68
@@ -258,7 +258,7 @@ _ZN5clangL27isValidPreserveFieldInfoArgEPNS_4ExprE.exit: ; preds = %59
 108:                                              ; preds = %101
   %109 = load i32, ptr %106, align 16
   %110 = and i32 %109, 267911168
-  %111 = icmp ugt i32 %110, 256901120
+  %111 = icmp samesign ugt i32 %110, 256901120
   br i1 %111, label %_ZN5clangL26isValidPreserveTypeInfoArgEPNS_4ExprE.exit.thread70, label %112
 
 112:                                              ; preds = %108, %101

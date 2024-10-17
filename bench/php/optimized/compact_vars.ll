@@ -334,7 +334,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %193 = load i32, ptr %30, align 4
   %194 = zext i32 %193 to i64
-  %195 = icmp ult i64 %indvars.iv.next295, %194
+  %195 = icmp samesign ult i64 %indvars.iv.next295, %194
   br i1 %195, label %148, label %._crit_edge275.loopexit
 
 ._crit_edge275.loopexit:                          ; preds = %192

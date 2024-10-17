@@ -268,7 +268,7 @@ define hidden void @proto_reg_handoff_etch() #0 {
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i.i, %29
   br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %20

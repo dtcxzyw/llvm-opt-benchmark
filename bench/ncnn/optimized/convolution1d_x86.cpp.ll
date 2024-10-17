@@ -584,7 +584,7 @@ define hidden noundef i32 @_ZN4ncnn17Convolution1D_x8615create_pipelineERKNS_6Op
 ._crit_edge644.i:                                 ; preds = %._crit_edge.us645.i, %.preheader584.lr.ph.i, %.preheader583.lr.ph.i, %.preheader585.i
   %indvars.iv.next830.i = add nuw nsw i64 %indvars.iv829.i, 4
   %221 = or disjoint i64 %indvars.iv.next830.i, 3
-  %222 = icmp ult i64 %221, %105
+  %222 = icmp samesign ult i64 %221, %105
   br i1 %222, label %125, label %.preheader581.loopexit.i, !llvm.loop !13
 
 .preheader575.loopexit.i:                         ; preds = %._crit_edge692.i

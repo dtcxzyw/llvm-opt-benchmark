@@ -124,7 +124,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %65 = phi i32 [ %104, %93 ], [ 0, %57 ]
   %66 = zext i32 %65 to i64
   %67 = add nuw nsw i64 %66, 12
-  %68 = icmp ult i64 %67, %60
+  %68 = icmp samesign ult i64 %67, %60
   br i1 %68, label %69, label %.thread11
 
 69:                                               ; preds = %.preheader
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
 
 .thread11:                                        ; preds = %93, %.preheader, %57, %51, %46
   %105 = add nuw nsw i64 %47, 1
-  %106 = icmp ult i64 %105, %45
+  %106 = icmp samesign ult i64 %105, %45
   br i1 %106, label %46, label %.thread, !llvm.loop !10
 
 107:                                              ; preds = %32
@@ -227,7 +227,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %136 = phi i32 [ %175, %164 ], [ 0, %128 ]
   %137 = zext i32 %136 to i64
   %138 = add nuw nsw i64 %137, 12
-  %139 = icmp ult i64 %138, %131
+  %139 = icmp samesign ult i64 %138, %131
   br i1 %139, label %140, label %.thread15
 
 140:                                              ; preds = %.preheader16
@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
 
 .thread15:                                        ; preds = %164, %.preheader16, %128, %123, %118
   %176 = add nuw nsw i64 %119, 1
-  %177 = icmp ult i64 %176, %117
+  %177 = icmp samesign ult i64 %176, %117
   br i1 %177, label %118, label %.thread, !llvm.loop !13
 
 .thread.sink.split:                               ; preds = %155, %84
@@ -376,7 +376,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse_buf(ptr nocapture
   %6 = phi i32 [ 0, %3 ], [ %44, %33 ]
   %7 = zext i32 %6 to i64
   %8 = add nuw nsw i64 %7, 12
-  %9 = icmp ult i64 %8, %4
+  %9 = icmp samesign ult i64 %8, %4
   br i1 %9, label %10, label %.thread1
 
 10:                                               ; preds = %5

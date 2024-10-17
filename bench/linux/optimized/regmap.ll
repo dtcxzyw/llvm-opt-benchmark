@@ -4072,7 +4072,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i32 %134, ptr %135, align 4
   %136 = sext i32 %134 to i64
   %137 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %136), !range !38
-  %138 = icmp ult i64 %137, 2
+  %138 = icmp samesign ult i64 %137, 2
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %98
@@ -9720,7 +9720,7 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   %40 = load i32, ptr %39, align 8
   %41 = urem i32 %38, %40
   %42 = udiv i32 %38, %40
-  %43 = icmp ugt i64 %37, 1
+  %43 = icmp samesign ugt i64 %37, 1
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %33

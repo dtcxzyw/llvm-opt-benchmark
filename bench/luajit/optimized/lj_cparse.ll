@@ -4114,7 +4114,7 @@ if.end98:                                         ; preds = %switch.early.test, 
 if.then100:                                       ; preds = %if.end98
   %20 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %size.0, i1 true)
   %xor101 = xor i32 %20, 31
-  %cmp102.not = icmp ult i32 %and79, %xor101
+  %cmp102.not = icmp samesign ult i32 %and79, %xor101
   br i1 %cmp102.not, label %if.end214, label %if.then104
 
 if.then104:                                       ; preds = %if.then100
@@ -4240,7 +4240,7 @@ if.end199:                                        ; preds = %if.end187, %if.end1
   %size.2 = phi i32 [ %conv197, %if.end196 ], [ -1, %if.end187 ], [ %1, %if.then169 ]
   %and200 = and i32 %cinfo.0, 983040
   %and201 = and i32 %.fr, 983040
-  %cmp202 = icmp ugt i32 %and200, %and201
+  %cmp202 = icmp samesign ugt i32 %and200, %and201
   %and205 = and i32 %.fr, 1072758783
   %or207 = or disjoint i32 %and205, %and200
   %info.2 = select i1 %cmp202, i32 %or207, i32 %.fr

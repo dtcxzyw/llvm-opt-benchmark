@@ -355,7 +355,7 @@ define hidden void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr nou
   %26 = add nsw i32 %21, 1
   %27 = icmp sgt i32 %21, -1
   %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %26)
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   %or.cond.i.i.i.i.i.i = select i1 %27, i1 %29, i1 false
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
   %31 = sub nuw nsw i32 32, %30

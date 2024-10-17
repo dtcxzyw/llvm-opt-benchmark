@@ -311,7 +311,7 @@ _get_local_node_info.exit._crit_edge:             ; preds = %_get_local_node_inf
 101:                                              ; preds = %92, %98
   %102 = add i16 %.07098, 1
   %103 = zext i16 %102 to i32
-  %104 = icmp ugt i32 %78, %103
+  %104 = icmp samesign ugt i32 %78, %103
   br i1 %104, label %92, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %101, %_get_local_node_info.exit._crit_edge
@@ -2941,7 +2941,7 @@ define internal fastcc void @_expand_masks(i16 noundef zeroext %0, i32 noundef r
 32:                                               ; preds = %31, %.lr.ph.i
   %33 = add i16 %.02230.i, 1
   %34 = zext i16 %33 to i32
-  %35 = icmp ugt i32 %28, %34
+  %35 = icmp samesign ugt i32 %28, %34
   br i1 %35, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %32, %23, %.lr.ph33.i
@@ -2964,7 +2964,7 @@ _blot_mask.exit:                                  ; preds = %.loopexit.i, %16, %
   %39 = zext i16 %5 to i32
   %40 = zext i16 %4 to i32
   %41 = mul nuw nsw i32 %39, %40
-  %42 = icmp ugt i32 %41, 1
+  %42 = icmp samesign ugt i32 %41, 1
   %43 = icmp ne i32 %1, 0
   %or.cond40 = and i1 %42, %43
   br i1 %or.cond40, label %.lr.ph39, label %.loopexit
@@ -3024,7 +3024,7 @@ _blot_mask.exit:                                  ; preds = %.loopexit.i, %16, %
 67:                                               ; preds = %65, %.lr.ph.i30
   %68 = add i16 %.02530.i, 1
   %69 = zext i16 %68 to i32
-  %70 = icmp ugt i32 %62, %69
+  %70 = icmp samesign ugt i32 %62, %69
   br i1 %70, label %.lr.ph.i30, label %.loopexit.i32, !llvm.loop !42
 
 .loopexit.i32:                                    ; preds = %67, %.lr.ph32.i

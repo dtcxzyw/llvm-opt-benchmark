@@ -516,7 +516,7 @@ for.body.i:                                       ; preds = %for.body.i, %call5.
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %5 = load i32, ptr %mNumMaterials.i, align 8
   %conv7.i = zext i32 %5 to i64
-  %cmp8.i = icmp ult i64 %inc.i, %conv7.i
+  %cmp8.i = icmp samesign ult i64 %inc.i, %conv7.i
   br i1 %cmp8.i, label %for.body.i, label %if.then.i.i.i15, !llvm.loop !7
 
 invoke.cont13:                                    ; preds = %for.end
@@ -1778,7 +1778,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add nuw nsw i64 %i.012, 1
   %6 = load i32, ptr %mNumMaterials, align 8
   %conv7 = zext i32 %6 to i64
-  %cmp8 = icmp ult i64 %inc, %conv7
+  %cmp8 = icmp samesign ult i64 %inc, %conv7
   br i1 %cmp8, label %for.body, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body, %entry
@@ -1952,7 +1952,7 @@ for.body.i:                                       ; preds = %for.body.i, %call5.
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %5 = load i32, ptr %mNumMaterials.i, align 8
   %conv7.i = zext i32 %5 to i64
-  %cmp8.i = icmp ult i64 %inc.i, %conv7.i
+  %cmp8.i = icmp samesign ult i64 %inc.i, %conv7.i
   br i1 %cmp8.i, label %for.body.i, label %if.then.i.i.i15, !llvm.loop !7
 
 invoke.cont14:                                    ; preds = %for.end

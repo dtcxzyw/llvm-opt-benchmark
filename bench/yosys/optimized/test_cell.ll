@@ -19403,7 +19403,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit724:             ; preds = %1435, %1440, %1447
   store i32 0, ptr %1451, align 4
   %1452 = getelementptr inbounds i8, ptr %1434, i64 88
   store i8 1, ptr %1452, align 8
-  %1453 = icmp ugt i32 %1425, 3
+  %1453 = icmp samesign ugt i32 %1425, 3
   %1454 = getelementptr inbounds i8, ptr %57, i64 8
   %1455 = getelementptr inbounds i8, ptr %57, i64 72
   %1456 = getelementptr inbounds i8, ptr %57, i64 16
@@ -23836,7 +23836,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1219: ; preds = %3212, %.lr.ph13
   %.sroa.21275.0..sroa_idx = getelementptr inbounds i8, ptr %3220, i64 8
   store i8 %3208, ptr %.sroa.21275.0..sroa_idx, align 8
   %indvars.iv.next1408 = add nuw nsw i64 %indvars.iv1407, 1
-  %3221 = icmp ult i64 %indvars.iv.next1408, %3199
+  %3221 = icmp samesign ult i64 %indvars.iv.next1408, %3199
   br i1 %3221, label %.lr.ph1380, label %.loopexit, !llvm.loop !403
 
 3222:                                             ; preds = %3179

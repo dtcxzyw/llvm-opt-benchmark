@@ -2325,7 +2325,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %57 = getelementptr inbounds i8, ptr %.0567.i, i64 -1
   store i8 %56, ptr %57, align 1
   %58 = udiv i64 %.0568.i, 10
-  %.not658.i = icmp ult i64 %.0568.i, 10
+  %.not658.i = icmp samesign ult i64 %.0568.i, 10
   br i1 %.not658.i, label %59, label %53
 
 59:                                               ; preds = %53
@@ -3488,7 +3488,7 @@ _build_trace_string.exit:                         ; preds = %.thread.i, %563
   %595 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %594, ptr %595, align 1
   %596 = udiv i64 %.0121, 10
-  %.not148 = icmp ult i64 %.0121, 10
+  %.not148 = icmp samesign ult i64 %.0121, 10
   br i1 %.not148, label %597, label %591
 
 597:                                              ; preds = %591

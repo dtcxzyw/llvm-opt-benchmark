@@ -376,7 +376,7 @@ define hidden noundef i64 @_ZN13G1AllocRegion23fill_up_remaining_spaceEP12G1Heap
   %19 = ptrtoint ptr %16 to i64
   %20 = sub i64 %18, %19
   %21 = lshr i64 %20, 3
-  %.not.i.i = icmp ult i64 %21, %.01728
+  %.not.i.i = icmp samesign ult i64 %21, %.01728
   br i1 %.not.i.i, label %_ZN13G1AllocRegion12par_allocateEP12G1HeapRegionm.exit.thread, label %22
 
 22:                                               ; preds = %15
@@ -457,7 +457,7 @@ define hidden noundef i64 @_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb(
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %20, %21
   %23 = lshr i64 %22, 3
-  %.not.i.i.i = icmp ult i64 %23, %.01728.i
+  %.not.i.i.i = icmp samesign ult i64 %23, %.01728.i
   br i1 %.not.i.i.i, label %_ZN13G1AllocRegion12par_allocateEP12G1HeapRegionm.exit.thread.i, label %24
 
 24:                                               ; preds = %17
@@ -551,7 +551,7 @@ define hidden noundef i64 @_ZN13G1AllocRegion6retireEb(ptr noundef nonnull align
   %24 = ptrtoint ptr %21 to i64
   %25 = sub i64 %23, %24
   %26 = lshr i64 %25, 3
-  %.not.i.i.i.i = icmp ult i64 %26, %.01728.i.i
+  %.not.i.i.i.i = icmp samesign ult i64 %26, %.01728.i.i
   br i1 %.not.i.i.i.i, label %_ZN13G1AllocRegion12par_allocateEP12G1HeapRegionm.exit.thread.i.i, label %27
 
 27:                                               ; preds = %20
@@ -867,7 +867,7 @@ _ZN18MutatorAllocRegion13should_retainEP12G1HeapRegion.exit: ; preds = %20, %17
   %49 = ptrtoint ptr %46 to i64
   %50 = sub i64 %48, %49
   %51 = lshr i64 %50, 3
-  %.not.i.i.i.i = icmp ult i64 %51, %.01728.i.i
+  %.not.i.i.i.i = icmp samesign ult i64 %51, %.01728.i.i
   br i1 %.not.i.i.i.i, label %_ZN13G1AllocRegion12par_allocateEP12G1HeapRegionm.exit.thread.i.i, label %52
 
 52:                                               ; preds = %45
@@ -949,7 +949,7 @@ _ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit: ; preds = %_ZN13G1All
   %84 = ptrtoint ptr %81 to i64
   %85 = sub i64 %83, %84
   %86 = lshr i64 %85, 3
-  %.not.i.i.i.i16 = icmp ult i64 %86, %.01728.i.i14
+  %.not.i.i.i.i16 = icmp samesign ult i64 %86, %.01728.i.i14
   br i1 %.not.i.i.i.i16, label %_ZN13G1AllocRegion12par_allocateEP12G1HeapRegionm.exit.thread.i.i26, label %87
 
 87:                                               ; preds = %80
@@ -7228,7 +7228,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7474,7 +7474,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

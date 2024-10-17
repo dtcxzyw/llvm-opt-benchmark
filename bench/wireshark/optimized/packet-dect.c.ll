@@ -1788,7 +1788,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   %51 = add i32 %.lcssa120.us, %.1124.us
   %52 = add nuw nsw i32 %41, 16
   %53 = and i32 %52, 65535
-  %54 = icmp ult i32 %53, %.094.ph
+  %54 = icmp samesign ult i32 %53, %.094.ph
   br i1 %54, label %40, label %._crit_edge.us, !llvm.loop !7
 
 55:                                               ; preds = %46

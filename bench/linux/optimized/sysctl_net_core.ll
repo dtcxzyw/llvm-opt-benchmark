@@ -494,7 +494,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
 52:                                               ; preds = %49, %41, %40, %39
   %53 = add nuw nsw i64 %24, 1
   %54 = and i64 %53, 127
-  %55 = icmp ugt i64 %54, 63
+  %55 = icmp samesign ugt i64 %54, 63
   br i1 %55, label %.thread, label %17, !prof !13, !llvm.loop !14
 
 .thread:                                          ; preds = %17, %52, %42, %23
@@ -541,7 +541,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
   %79 = phi i64 [ %.pre, %77 ], [ %59, %68 ]
   %80 = add nuw nsw i64 %65, 1
   %81 = and i64 %80, 127
-  %82 = icmp ugt i64 %81, 63
+  %82 = icmp samesign ugt i64 %81, 63
   br i1 %82, label %.thread11, label %58, !prof !13, !llvm.loop !16
 
 .thread11:                                        ; preds = %58, %78, %64

@@ -2216,7 +2216,7 @@ validate_uri_ialpha.exit.thread:                  ; preds = %.lr.ph.i.i, %34, %5
   br i1 %or.cond.i, label %76, label %in_tld_set.exit.thread
 
 76:                                               ; preds = %69
-  %switch.i.i = icmp ult i32 %74, 6
+  %switch.i.i = icmp samesign ult i32 %74, 6
   br i1 %switch.i.i, label %tld_hash.exit.i, label %77
 
 77:                                               ; preds = %76
@@ -2245,7 +2245,7 @@ tld_hash.exit.i:                                  ; preds = %77, %76
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = add nuw nsw i32 %91, %97
-  %99 = icmp ult i32 %98, 988
+  %99 = icmp samesign ult i32 %98, 988
   br i1 %99, label %100, label %in_tld_set.exit.thread
 
 100:                                              ; preds = %tld_hash.exit.i
@@ -2359,7 +2359,7 @@ validate_uri_xpalphas_nodot.exit:                 ; preds = %140
   br i1 %or.cond.i116, label %145, label %184
 
 145:                                              ; preds = %142
-  %switch.i.i118 = icmp ult i32 %143, 6
+  %switch.i.i118 = icmp samesign ult i32 %143, 6
   br i1 %switch.i.i118, label %tld_hash.exit.i119, label %146
 
 146:                                              ; preds = %145
@@ -2388,7 +2388,7 @@ tld_hash.exit.i119:                               ; preds = %146, %145
   %165 = load i16, ptr %164, align 2
   %166 = zext i16 %165 to i32
   %167 = add nuw nsw i32 %160, %166
-  %168 = icmp ult i32 %167, 988
+  %168 = icmp samesign ult i32 %167, 988
   br i1 %168, label %169, label %184
 
 169:                                              ; preds = %tld_hash.exit.i119
@@ -2456,7 +2456,7 @@ in_tld_set.exit123:                               ; preds = %184, %180
   br i1 %or.cond.i124, label %203, label %in_tld_set.exit131
 
 203:                                              ; preds = %197
-  %switch.i.i126 = icmp ult i32 %201, 6
+  %switch.i.i126 = icmp samesign ult i32 %201, 6
   br i1 %switch.i.i126, label %tld_hash.exit.i127, label %204
 
 204:                                              ; preds = %203
@@ -2485,7 +2485,7 @@ tld_hash.exit.i127:                               ; preds = %204, %203
   %223 = load i16, ptr %222, align 2
   %224 = zext i16 %223 to i32
   %225 = add nuw nsw i32 %218, %224
-  %226 = icmp ult i32 %225, 988
+  %226 = icmp samesign ult i32 %225, 988
   br i1 %226, label %227, label %in_tld_set.exit131
 
 227:                                              ; preds = %tld_hash.exit.i127
@@ -3661,7 +3661,7 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2
   br i1 %or.cond.i, label %37, label %.critedge79
 
 37:                                               ; preds = %33
-  %switch.i.i = icmp ult i32 %35, 6
+  %switch.i.i = icmp samesign ult i32 %35, 6
   br i1 %switch.i.i, label %tld_hash.exit.i, label %38
 
 38:                                               ; preds = %37
@@ -3690,7 +3690,7 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   %59 = add nuw nsw i32 %52, %58
-  %60 = icmp ult i32 %59, 988
+  %60 = icmp samesign ult i32 %59, 988
   br i1 %60, label %61, label %.critedge79
 
 61:                                               ; preds = %tld_hash.exit.i
@@ -3831,7 +3831,7 @@ string_assign.exit:                               ; preds = %7, %13, %16
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = add nuw nsw i32 %31, %36
-  %38 = icmp ult i32 %37, 476
+  %38 = icmp samesign ult i32 %37, 476
   br i1 %38, label %39, label %in_tld_set.exit
 
 39:                                               ; preds = %25
@@ -3927,7 +3927,7 @@ rfind.exit:                                       ; preds = %.lr.ph.i
   br i1 %or.cond.i44, label %81, label %.preheader
 
 81:                                               ; preds = %rfind.exit
-  %switch.i.i = icmp ult i32 %79, 6
+  %switch.i.i = icmp samesign ult i32 %79, 6
   br i1 %switch.i.i, label %tld_hash.exit.i, label %82
 
 82:                                               ; preds = %81
@@ -3956,7 +3956,7 @@ tld_hash.exit.i:                                  ; preds = %82, %81
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = add nuw nsw i32 %96, %102
-  %104 = icmp ult i32 %103, 988
+  %104 = icmp samesign ult i32 %103, 988
   br i1 %104, label %105, label %.preheader
 
 105:                                              ; preds = %tld_hash.exit.i

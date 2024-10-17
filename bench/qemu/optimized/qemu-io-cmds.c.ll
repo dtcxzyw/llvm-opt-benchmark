@@ -1610,7 +1610,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %conv7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr i8, ptr %p.121, i64 1
-  %cmp2 = icmp ult i64 %indvars.iv, 15
+  %cmp2 = icmp samesign ult i64 %indvars.iv, 15
   %add3 = or disjoint i64 %i.026, %indvars.iv.next
   %cmp4 = icmp ult i64 %add3, %len
   %or.cond = select i1 %cmp2, i1 %cmp4, i1 false
@@ -2418,7 +2418,7 @@ if.end44:                                         ; preds = %if.end37
   %tobool48 = trunc nuw i8 %sflag.0 to i1
   %narrow = add nuw nsw i8 %zflag.0, %sflag.0
   %narrow69 = add nuw nsw i8 %narrow, %Pflag.0
-  %cmp51 = icmp ugt i8 %narrow69, 1
+  %cmp51 = icmp samesign ugt i8 %narrow69, 1
   br i1 %cmp51, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %if.end44
@@ -2551,7 +2551,7 @@ if.end123.thread:                                 ; preds = %if.then103
 
 if.then126:                                       ; preds = %if.end123.thread, %if.end123
   %buf.0112 = phi ptr [ null, %if.end123.thread ], [ %buf.0, %if.end123 ]
-  %cmp.i83 = icmp ugt i64 %call66, 2147483647
+  %cmp.i83 = icmp samesign ugt i64 %call66, 2147483647
   br i1 %cmp.i83, label %if.then144, label %if.end.i84
 
 if.end.i84:                                       ; preds = %if.then126
@@ -2580,7 +2580,7 @@ if.end.i93:                                       ; preds = %if.then134
   br i1 %cmp1.i95, label %if.then144, label %if.end148
 
 if.else136:                                       ; preds = %if.else132
-  %cmp.i97 = icmp ugt i64 %call66, 2147483647
+  %cmp.i97 = icmp samesign ugt i64 %call66, 2147483647
   br i1 %cmp.i97, label %if.then144, label %if.end.i98
 
 if.end.i98:                                       ; preds = %if.else136

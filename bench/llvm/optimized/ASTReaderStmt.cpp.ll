@@ -4422,7 +4422,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitCoroutineBodyStmtEPNS_17Co
   %22 = load i32, ptr %8, align 8
   %23 = add i32 %22, 12
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -23806,7 +23806,7 @@ _ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE.exit: ; preds = %1
   %160 = load i32, ptr %13, align 8
   %161 = and i32 %160, 2147483647
   %162 = zext nneg i32 %161 to i64
-  %163 = icmp ult i64 %indvars.iv.next, %162
+  %163 = icmp samesign ult i64 %indvars.iv.next, %162
   br i1 %163, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %_ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE.exit, %_ZN5clang15ASTRecordReader8readStmtEv.exit21

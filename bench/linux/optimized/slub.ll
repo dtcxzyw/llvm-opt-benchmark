@@ -5277,7 +5277,7 @@ define internal fastcc void @flush_all_cpus_locked(ptr noundef %0) unnamed_addr 
 39:                                               ; preds = %31, %29
   %40 = add nuw nsw i64 %9, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.preheader.preheader, label %2, !prof !103, !llvm.loop !104
 
 .preheader:                                       ; preds = %.preheader.preheader, %63
@@ -5314,7 +5314,7 @@ define internal fastcc void @flush_all_cpus_locked(ptr noundef %0) unnamed_addr 
   %64 = phi i64 [ %.pre, %61 ], [ %43, %52 ]
   %65 = add nuw nsw i64 %49, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %.preheader, !prof !103, !llvm.loop !107
 
 .thread:                                          ; preds = %.preheader, %63, %48
@@ -6593,7 +6593,7 @@ thread-pre-split:                                 ; preds = %132, %158
   store i64 %292, ptr %297, align 8
   %298 = add nuw nsw i64 %286, 1
   %299 = and i64 %298, 127
-  %300 = icmp ugt i64 %299, 63
+  %300 = icmp samesign ugt i64 %299, 63
   br i1 %300, label %.thread24, label %280, !prof !103, !llvm.loop !141
 
 .thread20:                                        ; preds = %249, %238, %.thread, %27, %2
@@ -7772,7 +7772,7 @@ define internal fastcc ptr @___slab_alloc(ptr noundef nonnull %0, i32 noundef %1
   %265 = and i64 %264, 1023
   %266 = load i32, ptr %183, align 8
   %267 = zext i32 %266 to i64
-  %268 = icmp ugt i64 %265, %267
+  %268 = icmp samesign ugt i64 %265, %267
   br i1 %268, label %.thread20, label %.preheader25
 
 .preheader25:                                     ; preds = %262, %333
@@ -8699,7 +8699,7 @@ define internal fastcc noundef ptr @new_slab(ptr noundef %0, i32 noundef %1, i32
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = lshr i32 %33, 16
-  %35 = icmp ugt i32 %.pre10, %34
+  %35 = icmp samesign ugt i32 %.pre10, %34
   br i1 %35, label %36, label %._crit_edge
 
 36:                                               ; preds = %31
@@ -10743,7 +10743,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @check_slab(ptr nocapture nou
 
 28:                                               ; preds = %16
   %29 = and i32 %23, 65535
-  %30 = icmp ugt i32 %29, %25
+  %30 = icmp samesign ugt i32 %29, %25
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
@@ -12038,8 +12038,8 @@ define internal fastcc range(i32 0, 2) i32 @calculate_sizes(ptr nocapture nounde
   %.ph = phi i32 [ %121, %120 ], [ %127, %126 ]
   %129 = icmp ule i32 %.ph, %95
   %130 = lshr i32 %119, 1
-  %131 = icmp ult i32 %119, 4
-  %or.cond = or i1 %129, %131
+  %131 = icmp samesign ult i32 %119, 4
+  %or.cond = select i1 %129, i1 true, i1 %131
   br i1 %or.cond, label %.split11.us.split, label %.preheader, !llvm.loop !225
 
 .split11.us.split:                                ; preds = %.loopexit
@@ -12497,7 +12497,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = icmp ult i64 %2, 16
+  %13 = icmp samesign ult i64 %2, 16
   %14 = and i64 %2, 8
   %15 = icmp eq i64 %14, 0
   br label %16
@@ -12603,7 +12603,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects
   %78 = phi i64 [ %18, %27 ], [ %73, %70 ], [ %54, %51 ]
   %79 = add nuw nsw i64 %24, 1
   %80 = and i64 %79, 127
-  %81 = icmp ugt i64 %80, 63
+  %81 = icmp samesign ugt i64 %80, 63
   br i1 %81, label %.thread, label %16, !prof !103, !llvm.loop !234
 
 .thread:                                          ; preds = %16, %77, %23, %9
@@ -12619,11 +12619,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %0, i64 192
-  %90 = icmp ult i64 %2, 16
+  %90 = icmp samesign ult i64 %2, 16
   br i1 %90, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %88
-  %91 = icmp ult i64 %2, 8
+  %91 = icmp samesign ult i64 %2, 8
   br i1 %91, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %107
@@ -12745,7 +12745,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects
 
 174:                                              ; preds = %168
   %175 = getelementptr inbounds i8, ptr %0, i64 192
-  %176 = icmp ult i64 %2, 16
+  %176 = icmp samesign ult i64 %2, 16
   %177 = and i64 %2, 8
   %178 = icmp eq i64 %177, 0
   br label %179
@@ -13033,7 +13033,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @slabs_cpu_partial_show(p
   %30 = phi i32 [ %28, %25 ], [ %6, %14 ]
   %31 = add nuw nsw i64 %11, 1
   %32 = and i64 %31, 127
-  %33 = icmp ugt i64 %32, 63
+  %33 = icmp samesign ugt i64 %32, 63
   br i1 %33, label %.thread, label %4, !prof !103, !llvm.loop !238
 
 .thread:                                          ; preds = %4, %29, %10
@@ -13092,7 +13092,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @slabs_cpu_partial_show(p
   %73 = phi i32 [ %70, %62 ], [ %43, %51 ]
   %74 = add nuw nsw i64 %48, 1
   %75 = and i64 %74, 127
-  %76 = icmp ugt i64 %75, 63
+  %76 = icmp samesign ugt i64 %75, 63
   br i1 %76, label %.thread8, label %40, !prof !103, !llvm.loop !239
 
 .thread8:                                         ; preds = %40, %71, %47

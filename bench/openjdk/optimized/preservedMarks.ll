@@ -647,7 +647,7 @@ _ZN6PaddedI14PreservedMarksLm128EED2Ev.exit:      ; preds = %_ZN5StackI13Preserv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %2, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
   br i1 %36, label %5, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit, %1

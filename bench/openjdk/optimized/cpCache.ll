@@ -1003,7 +1003,7 @@ _ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDa
   %50 = getelementptr inbounds i8, ptr %28, i64 19
   store i8 %49, ptr %50, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = icmp ult i64 %indvars.iv.next.i, %25
+  %51 = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %51, label %26, label %_ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, !llvm.loop !7
 
 _ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit: ; preds = %26, %6, %_ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.preheader.i
@@ -1169,7 +1169,7 @@ _ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderD
   %120 = getelementptr inbounds i8, ptr %98, i64 23
   store i8 %119, ptr %120, align 1
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
-  %121 = icmp ult i64 %indvars.iv.next.i34, %95
+  %121 = icmp samesign ult i64 %indvars.iv.next.i34, %95
   br i1 %121, label %96, label %_ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, !llvm.loop !10
 
 _ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit: ; preds = %96, %79, %_ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.preheader.i31
@@ -2630,7 +2630,7 @@ define hidden noundef ptr @_ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi
   %29 = add nsw i32 %24, 1
   %30 = icmp sgt i32 %24, -1
   %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp ult i32 %31, 2
+  %32 = icmp samesign ult i32 %31, 2
   %or.cond.i.i.i.i.i.i = select i1 %30, i1 %32, i1 false
   %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %34 = sub nuw nsw i32 32, %33

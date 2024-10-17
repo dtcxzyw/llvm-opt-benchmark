@@ -304,7 +304,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %result.1.i.i = phi double [ %mul.i.i, %if.then.i.i ], [ %result.06.i.i, %for.body.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %power.07.i.i, i64 8
   %shr.i.i = lshr i32 %mask.05.i.i, 1
-  %tobool.not.i.i = icmp ult i32 %mask.05.i.i, 2
+  %tobool.not.i.i = icmp samesign ult i32 %mask.05.i.i, 2
   br i1 %tobool.not.i.i, label %_ZL6_pow10j.exit.i, label %for.body.i.i, !llvm.loop !7
 
 _ZL6_pow10j.exit.i:                               ; preds = %for.inc.i.i
@@ -359,7 +359,7 @@ for.inc.i51.i:                                    ; preds = %if.then.i49.i, %for
   %result.1.i52.i = phi double [ %mul.i50.i, %if.then.i49.i ], [ %result.06.i45.i, %for.body.i43.i ]
   %incdec.ptr.i53.i = getelementptr inbounds i8, ptr %power.07.i44.i, i64 8
   %shr.i54.i = lshr i32 %mask.05.i46.i, 1
-  %tobool.not.i55.i = icmp ult i32 %mask.05.i46.i, 2
+  %tobool.not.i55.i = icmp samesign ult i32 %mask.05.i46.i, 2
   br i1 %tobool.not.i55.i, label %_ZL6_pow10j.exit56.i, label %for.body.i43.i, !llvm.loop !7
 
 _ZL6_pow10j.exit56.i:                             ; preds = %for.inc.i51.i
@@ -383,7 +383,7 @@ for.inc.i65.i:                                    ; preds = %if.then.i63.i, %for
   %result.1.i66.i = phi double [ %mul.i64.i, %if.then.i63.i ], [ %result.06.i59.i, %for.body.i57.i ]
   %incdec.ptr.i67.i = getelementptr inbounds i8, ptr %power.07.i58.i, i64 8
   %shr.i68.i = lshr i32 %mask.05.i60.i, 1
-  %tobool.not.i69.i = icmp ult i32 %mask.05.i60.i, 2
+  %tobool.not.i69.i = icmp samesign ult i32 %mask.05.i60.i, 2
   br i1 %tobool.not.i69.i, label %_ZL6_pow10j.exit70.i, label %for.body.i57.i, !llvm.loop !7
 
 _ZL6_pow10j.exit70.i:                             ; preds = %for.inc.i65.i

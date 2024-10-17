@@ -1806,7 +1806,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %627 = load i32, ptr %516, align 8
   %628 = zext i32 %627 to i64
-  %629 = icmp ult i64 %indvars.iv.next, %628
+  %629 = icmp samesign ult i64 %indvars.iv.next, %628
   br i1 %629, label %520, label %.preheader434, !llvm.loop !21
 
 .lr.ph443:                                        ; preds = %.preheader434, %640
@@ -2386,7 +2386,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   %908 = phi i32 [ %654, %.lr.ph449 ], [ %.pre471, %906 ]
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %909 = zext i32 %908 to i64
-  %910 = icmp ult i64 %indvars.iv.next455, %909
+  %910 = icmp samesign ult i64 %indvars.iv.next455, %909
   br i1 %910, label %.lr.ph449, label %._crit_edge450, !llvm.loop !24
 
 ._crit_edge450:                                   ; preds = %907, %._crit_edge
@@ -3286,7 +3286,7 @@ define ptr @slurm_ctl_conf_2_key_pairs(ptr noundef %0) local_unnamed_addr #1 {
 
 554:                                              ; preds = %552, %394
   %555 = phi i16 [ %553, %552 ], [ %551, %394 ]
-  %556 = icmp ult i16 %555, 8
+  %556 = icmp samesign ult i16 %555, 8
   br i1 %556, label %switch.lookup, label %560
 
 switch.lookup:                                    ; preds = %554
@@ -4219,7 +4219,7 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1148 = load i32, ptr %1119, align 8
   %1149 = zext i32 %1148 to i64
-  %1150 = icmp ult i64 %indvars.iv.next, %1149
+  %1150 = icmp samesign ult i64 %indvars.iv.next, %1149
   br i1 %1150, label %1123, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %1147, %1094

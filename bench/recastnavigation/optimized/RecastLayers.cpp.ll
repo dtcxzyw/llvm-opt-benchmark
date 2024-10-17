@@ -279,7 +279,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 134:                                              ; preds = %75, %132
   %.2531 = phi i8 [ %.1530821, %75 ], [ %.3, %132 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = icmp ult i64 %indvars.iv.next, %73
+  %135 = icmp samesign ult i64 %indvars.iv.next, %73
   br i1 %135, label %75, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %134, %62
@@ -366,7 +366,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 171:                                              ; preds = %.lr.ph834, %167
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
-  %172 = icmp ult i64 %indvars.iv.next945, %164
+  %172 = icmp samesign ult i64 %indvars.iv.next945, %164
   br i1 %172, label %.lr.ph834, label %._crit_edge835, !llvm.loop !8
 
 ._crit_edge835:                                   ; preds = %171, %154
@@ -673,7 +673,7 @@ _ZL9addUniquePhRhih.exit.us:                      ; preds = %.lr.ph.i.i.us, %.lo
 .loopexit806.us:                                  ; preds = %_ZL9addUniquePhRhih.exit.us, %.lr.ph851.us
   %.1557.us = phi i32 [ %.0556849.us, %.lr.ph851.us ], [ %.2558.us, %_ZL9addUniquePhRhih.exit.us ]
   %indvars.iv.next965 = add nuw nsw i64 %indvars.iv964, 1
-  %288 = icmp ult i64 %indvars.iv.next965, %202
+  %288 = icmp samesign ult i64 %indvars.iv.next965, %202
   br i1 %288, label %.lr.ph851.us, label %.preheader807.us, !llvm.loop !15
 
 .loopexit805.us:                                  ; preds = %_ZL9addUniquePhRhih.exit669.thread.us
@@ -892,7 +892,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
   %364 = phi i8 [ %362, %.loopexit.i678.thread ], [ %352, %.lr.ph.i.i674 ]
   %indvars.iv.next993 = add nuw nsw i64 %indvars.iv992, 1
   %365 = zext i8 %363 to i64
-  %366 = icmp ult i64 %indvars.iv.next993, %365
+  %366 = icmp samesign ult i64 %indvars.iv.next993, %365
   br i1 %366, label %.lr.ph869, label %._crit_edge870.loopexit, !llvm.loop !20
 
 ._crit_edge870.loopexit:                          ; preds = %.loopexit800
@@ -1097,7 +1097,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %441 = phi i8 [ %439, %.loopexit.i698.thread ], [ %429, %.lr.ph.i.i694 ]
   %indvars.iv.next1015 = add nuw nsw i64 %indvars.iv1014, 1
   %442 = zext i8 %440 to i64
-  %443 = icmp ult i64 %indvars.iv.next1015, %442
+  %443 = icmp samesign ult i64 %indvars.iv.next1015, %442
   br i1 %443, label %.lr.ph884, label %._crit_edge885.loopexit, !llvm.loop !25
 
 ._crit_edge885.loopexit:                          ; preds = %.loopexit794
@@ -1583,7 +1583,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
 
 692:                                              ; preds = %620, %594, %588
   %indvars.iv.next1049 = add nuw nsw i64 %indvars.iv1048, 1
-  %693 = icmp ult i64 %indvars.iv.next1049, %700
+  %693 = icmp samesign ult i64 %indvars.iv.next1049, %700
   br i1 %693, label %588, label %._crit_edge912.us, !llvm.loop !34
 
 .lr.ph911.us:                                     ; preds = %582

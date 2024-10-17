@@ -3801,7 +3801,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !49
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
@@ -7099,7 +7099,7 @@ _ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4
 
 _ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmRKNS0_6SymbolIT_EE.exit: ; preds = %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit.i
   %retval.0.i = phi i64 [ %conv.i4.i, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit.i ], [ 117440512, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit ]
-  %cmp18 = icmp ugt i64 %retval.0.i, %conv.i
+  %cmp18 = icmp samesign ugt i64 %retval.0.i, %conv.i
   br i1 %cmp18, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmRKNS0_6SymbolIT_EE.exit
@@ -7323,7 +7323,7 @@ sw.epilog.i5.i71:                                 ; preds = %_ZZN4mold3elf10Obje
 _ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhhE_clEhh.exit76: ; preds = %_ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhE_clEh.exit.i, %sw.bb2.i4.i70, %sw.bb3.i2.i67
   %retval.0.i3.i68 = phi i32 [ 3, %sw.bb3.i2.i67 ], [ 2, %sw.bb2.i4.i70 ], [ 1, %_ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhE_clEh.exit.i ]
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i1.i65)
-  %cmp.i69 = icmp ult i32 %retval.0.i.i, %retval.0.i3.i68
+  %cmp.i69 = icmp samesign ult i32 %retval.0.i.i, %retval.0.i3.i68
   br i1 %cmp.i69, label %_ZNSt13__atomic_baseIhE21compare_exchange_weakERhhSt12memory_orderS2_.exit.i.i31, label %if.end
 
 _ZNSt13__atomic_baseIhE21compare_exchange_weakERhhSt12memory_orderS2_.exit.i.i31: ; preds = %_ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhhE_clEhh.exit76
@@ -7861,7 +7861,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %add.ptr.i.i22 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i, i64 %end.07.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i22, align 1
   %conv5.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_11LOONGARCH32EE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -11615,7 +11615,7 @@ _ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4
 
 _ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmRKNS0_6SymbolIT_EE.exit: ; preds = %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit.i
   %retval.0.i = phi i64 [ %conv.i4.i, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit.i ], [ 117440512, %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmPNS0_9InputFileIT_EERKNS0_6ElfSymIS4_EEb.exit ]
-  %cmp8 = icmp ugt i64 %retval.0.i, %conv.i
+  %cmp8 = icmp samesign ugt i64 %retval.0.i, %conv.i
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %_ZN4mold3elfL8get_rankINS0_11LOONGARCH32EEEmRKNS0_6SymbolIT_EE.exit
@@ -16933,7 +16933,7 @@ entry:
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i.i = icmp ugt i64 %str.coerce0, 8
+  %cmp1.i.i.i = icmp samesign ugt i64 %str.coerce0, 8
   br i1 %cmp1.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -16963,7 +16963,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp2.i.i.i = icmp ugt i64 %str.coerce0, 3
+  %cmp2.i.i.i = icmp samesign ugt i64 %str.coerce0, 3
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -17029,15 +17029,15 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i.i = mul i64 %str.coerce0, -7046029288634856825
-  %cmp3.i.i.i = icmp ugt i64 %str.coerce0, 32
+  %cmp3.i.i.i = icmp samesign ugt i64 %str.coerce0, 32
   br i1 %cmp3.i.i.i, label %if.then.i20.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then3.i.i
-  %cmp4.i.i.i = icmp ugt i64 %str.coerce0, 64
+  %cmp4.i.i.i = icmp samesign ugt i64 %str.coerce0, 64
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end23.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i20.i.i
-  %cmp6.i.i.i = icmp ugt i64 %str.coerce0, 96
+  %cmp6.i.i.i = icmp samesign ugt i64 %str.coerce0, 96
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end.i21.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -19910,7 +19910,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.not.i.i = icmp ult i64 %storemerge27.i.i.in.in, 3
+  %cmp1.not.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in, 3
   br i1 %cmp1.not.i.i, label %if.then7, label %while.body.i.i, !llvm.loop !311
 
 if.then.i:                                        ; preds = %while.body.i.i
@@ -22575,7 +22575,7 @@ sw.epilog.i5:                                     ; preds = %_ZZN4mold3elf10Obje
 _ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhE_clEh.exit9: ; preds = %_ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhE_clEh.exit, %sw.bb2.i4, %sw.bb3.i2
   %retval.0.i3 = phi i32 [ 3, %sw.bb3.i2 ], [ 2, %sw.bb2.i4 ], [ 1, %_ZZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE16merge_visibilityERNS0_7ContextIS2_EERNS0_6SymbolIS2_EEhENKUlhE_clEh.exit ]
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i1)
-  %cmp = icmp ult i32 %retval.0.i, %retval.0.i3
+  %cmp = icmp samesign ult i32 %retval.0.i, %retval.0.i3
   ret i1 %cmp
 }
 

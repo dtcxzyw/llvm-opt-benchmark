@@ -130,7 +130,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %39 = sext i8 %38 to i32
   %40 = and i32 %39, 255
   %41 = zext nneg i32 %40 to i64
-  %memchr.bounds = icmp ugt i32 %40, 63
+  %memchr.bounds = icmp samesign ugt i32 %40, 63
   %42 = shl nuw i64 1, %41
   %43 = and i64 %42, 8497025859452929
   %memchr.bits = icmp eq i64 %43, 0
@@ -187,8 +187,8 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %spec.select = getelementptr inbounds i8, ptr %.1, i64 %spec.select.idx
   %62 = load i8, ptr %spec.select, align 1
   %63 = icmp ne i8 %62, 0
-  %64 = icmp ult i64 %indvars.iv174, 3
-  %65 = and i1 %63, %64
+  %64 = icmp samesign ult i64 %indvars.iv174, 3
+  %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %.lr.ph160, label %.loopexit150.loopexit, !llvm.loop !8
 
 .loopexit150.loopexit:                            ; preds = %.critedge

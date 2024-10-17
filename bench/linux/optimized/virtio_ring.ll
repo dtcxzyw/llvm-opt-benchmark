@@ -309,7 +309,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br i1 %74, label %.loopexit75, label %75
 
 75:                                               ; preds = %69
-  %76 = icmp ult i64 %70, %66
+  %76 = icmp samesign ult i64 %70, %66
   %77 = select i1 %76, i32 1, i32 2
   %78 = select i1 %76, i16 0, i16 2
   br label %79
@@ -607,7 +607,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br i1 %272, label %.loopexit72, label %273
 
 273:                                              ; preds = %263
-  %274 = icmp ult i64 %264, %260
+  %274 = icmp samesign ult i64 %264, %260
   %275 = select i1 %274, i32 1, i32 2
   %276 = select i1 %274, i16 0, i16 2
   br label %277
@@ -2647,7 +2647,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %121 = load i16, ptr %88, align 8
   %122 = sub i16 %120, %121
   %123 = zext i16 %122 to i32
-  %124 = icmp uge i32 %93, %123
+  %124 = icmp samesign uge i32 %93, %123
   br label %125
 
 125:                                              ; preds = %116, %55
@@ -4671,7 +4671,7 @@ define internal fastcc void @detach_buf_packed(ptr nocapture noundef %0, i32 nou
   %38 = add nuw nsw i32 %31, 1
   %39 = load i16, ptr %17, align 8
   %40 = zext i16 %39 to i32
-  %41 = icmp ult i32 %38, %40
+  %41 = icmp samesign ult i32 %38, %40
   br i1 %41, label %.preheader, label %.loopexit4, !llvm.loop !81
 
 .loopexit4:                                       ; preds = %.preheader, %26, %3

@@ -4351,7 +4351,7 @@ define internal void @"_ZN4core3ptr57drop_in_place$LT$$RF$cpp_demangle..ast..Dis
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.llvm.5281577753466666573"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !619, !noundef !4
-  %switch = icmp ult i64 %2, 4
+  %switch = icmp samesign ult i64 %2, 4
   br i1 %switch, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime..runtime..memory..SharedMemory$GT$17h59a4fb346b94c8cbE.exit", label %3
 
 3:                                                ; preds = %1
@@ -4692,7 +4692,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wasm
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !708)
-  %switch.i = icmp ult i64 %2, 4
+  %switch.i = icmp samesign ult i64 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..externals..Extern$GT$17hd2b682076d69a360E.llvm.5281577753466666573.exit", label %5
 
 5:                                                ; preds = %4
@@ -16526,7 +16526,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i.i38: ; pre
 
 69:                                               ; preds = %67
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i33 = icmp ugt i64 %.sroa.6.0.ph21.i, %.sroa.7.8.insert.ext.i
+  %.not.i33 = icmp samesign ugt i64 %.sroa.6.0.ph21.i, %.sroa.7.8.insert.ext.i
   br i1 %.not.i33, label %70, label %88
 
 70:                                               ; preds = %69
@@ -16711,7 +16711,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hddde92c7c1e54887E.exit.i.i.i37: ; pre
 
 57:                                               ; preds = %55
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i32 = icmp ugt i64 %.sroa.6.0212730.i, %.sroa.7.8.insert.ext.i
+  %.not.i32 = icmp samesign ugt i64 %.sroa.6.0212730.i, %.sroa.7.8.insert.ext.i
   br i1 %.not.i32, label %58, label %73
 
 58:                                               ; preds = %57
@@ -25707,7 +25707,7 @@ _ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hb7c1d4f822f694
   %69 = sub nuw i64 %45, %65
   %70 = load i32, ptr %64, align 4, !noundef !4
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %73, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit"
 
 73:                                               ; preds = %68

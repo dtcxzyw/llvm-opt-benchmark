@@ -551,7 +551,7 @@ for.inc129:                                       ; preds = %invoke.cont125
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %64 = load i32, ptr %m_pos.i.i149, align 8
   %65 = zext i32 %64 to i64
-  %cmp120 = icmp ult i64 %indvars.iv.next244, %65
+  %cmp120 = icmp samesign ult i64 %indvars.iv.next244, %65
   br i1 %cmp120, label %for.body121, label %for.end131, !llvm.loop !7
 
 lpad114.loopexit:                                 ; preds = %for.body121, %invoke.cont125

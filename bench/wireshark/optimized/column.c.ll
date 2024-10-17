@@ -1322,7 +1322,7 @@ get_custom_field_tooltip.exit:                    ; preds = %30, %33, %39, %50, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = call i32 @g_strv_length(ptr noundef nonnull %15) #13
   %60 = zext i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %19, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %58, %12
@@ -1484,7 +1484,7 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = call i32 @g_strv_length(ptr noundef nonnull %24) #13
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %27, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %49, %22
@@ -1849,7 +1849,7 @@ define void @column_register_fields() local_unnamed_addr #1 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i32, ptr @hf_cols_cleanup, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next.i, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
   br i1 %21, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

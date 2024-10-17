@@ -1028,8 +1028,8 @@ define hidden void @_ZN16PlaceholderTable8print_onEP12outputStream(ptr noundef n
   %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %15, %.lr.ph.i ]
   %.0.add.i = add nuw nsw i64 %.0.idx18.i, 8
   %16 = icmp sgt i32 %.1.lcssa.i, 0
-  %17 = icmp ult i64 %.0.idx18.i, 4016
-  %or.cond.i = and i1 %17, %16
+  %17 = icmp samesign ult i64 %.0.idx18.i, 4016
+  %or.cond.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit", !llvm.loop !13
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %1

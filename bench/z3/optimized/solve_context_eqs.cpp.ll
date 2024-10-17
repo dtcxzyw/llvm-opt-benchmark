@@ -1441,7 +1441,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i37, %if.e
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %add.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i, 1
   %div5.i.i.i.i = lshr i64 %add.i.i.i.i, 1
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i, 2
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i.i, 2
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !9
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i.i
@@ -2289,7 +2289,7 @@ _ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vect
   %arrayidx.i60 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i60, align 4
   %10 = zext i32 %9 to i64
-  %cmp310 = icmp ult i64 %indvars.iv, %10
+  %cmp310 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp310, label %for.body, label %if.then.i.i.i
 
 for.body:                                         ; preds = %_ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.thread
@@ -4676,7 +4676,7 @@ if.end.i.us:                                      ; preds = %for.cond.us
 
 _ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.us: ; preds = %if.end.i.us, %for.cond.us
   %retval.0.i.us = phi i64 [ %14, %if.end.i.us ], [ 0, %for.cond.us ]
-  %cmp17.us.not.not.not = icmp uge i64 %indvars.iv106, %retval.0.i.us
+  %cmp17.us.not.not.not = icmp samesign uge i64 %indvars.iv106, %retval.0.i.us
   br i1 %cmp17.us.not.not.not, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %_ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.us

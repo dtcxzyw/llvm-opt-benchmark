@@ -104,7 +104,7 @@ define noundef ptr @If_ManStart(ptr noundef %0) local_unnamed_addr #0 {
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = icmp ult i64 %indvars.iv, 7
+  %39 = icmp samesign ult i64 %indvars.iv, 7
   %40 = trunc i64 %indvars.iv to i32
   %41 = add i32 %40, -6
   %42 = shl nuw i32 1, %41
@@ -123,7 +123,7 @@ define noundef ptr @If_ManStart(ptr noundef %0) local_unnamed_addr #0 {
 46:                                               ; preds = %.preheader273, %Vec_MemAllocForTT.exit
   %indvars.iv310 = phi i64 [ 6, %.preheader273 ], [ %indvars.iv.next311, %Vec_MemAllocForTT.exit ]
   %47 = load i32, ptr %36, align 8
-  %48 = icmp ult i64 %indvars.iv310, 7
+  %48 = icmp samesign ult i64 %indvars.iv310, 7
   %49 = trunc i64 %indvars.iv310 to i32
   %50 = add nsw i32 %49, -6
   %51 = shl nuw i32 1, %50
@@ -230,7 +230,7 @@ Vec_MemAllocForTT.exit:                           ; preds = %84, %85
   %88 = load i32, ptr %87, align 8
   %89 = tail call noundef i32 @llvm.smax.i32(i32 %88, i32 6)
   %90 = zext nneg i32 %89 to i64
-  %.not182.not = icmp ult i64 %indvars.iv310, %90
+  %.not182.not = icmp samesign ult i64 %indvars.iv310, %90
   br i1 %.not182.not, label %46, label %.preheader271, !llvm.loop !8
 
 91:                                               ; preds = %.preheader271, %91
@@ -272,7 +272,7 @@ Vec_MemAllocForTT.exit:                           ; preds = %84, %85
   %108 = load i32, ptr %87, align 8
   %109 = tail call noundef i32 @llvm.smax.i32(i32 %108, i32 6)
   %110 = zext nneg i32 %109 to i64
-  %.not184.not = icmp ult i64 %indvars.iv317, %110
+  %.not184.not = icmp samesign ult i64 %indvars.iv317, %110
   br i1 %.not184.not, label %102, label %.preheader270, !llvm.loop !10
 
 .preheader268:                                    ; preds = %Vec_WecInit.exit
@@ -324,7 +324,7 @@ Vec_WecInit.exit:                                 ; preds = %.preheader270, %123
   %133 = load i32, ptr %132, align 8
   %134 = tail call noundef i32 @llvm.smax.i32(i32 %133, i32 6)
   %135 = zext nneg i32 %134 to i64
-  %.not185.not = icmp ult i64 %indvars.iv320, %135
+  %.not185.not = icmp samesign ult i64 %indvars.iv320, %135
   br i1 %.not185.not, label %.preheader270, label %.preheader268, !llvm.loop !11
 
 136:                                              ; preds = %.preheader268, %136
@@ -576,7 +576,7 @@ Vec_IntPush.exit212:                              ; preds = %.preheader267, %Vec
   %291 = getelementptr inbounds [16 x ptr], ptr %278, i64 0, i64 %indvars.iv327
   store ptr %287, ptr %291, align 8
   %292 = shl nuw nsw i64 %indvars.iv327, 1
-  %.not.i.i213 = icmp ugt i64 %indvars.iv327, 5000
+  %.not.i.i213 = icmp samesign ugt i64 %indvars.iv327, 5000
   br i1 %.not.i.i213, label %293, label %Vec_IntPush.exit212.Vec_StrGrow.exit.i_crit_edge
 
 Vec_IntPush.exit212.Vec_StrGrow.exit.i_crit_edge: ; preds = %Vec_IntPush.exit212
@@ -629,7 +629,7 @@ Vec_StrFill.exit:                                 ; preds = %301
   %311 = load i32, ptr %310, align 8
   %312 = tail call noundef i32 @llvm.smax.i32(i32 %311, i32 6)
   %313 = zext nneg i32 %312 to i64
-  %.not197.not = icmp ult i64 %indvars.iv327, %313
+  %.not197.not = icmp samesign ult i64 %indvars.iv327, %313
   br i1 %.not197.not, label %Vec_IntPush.exit212, label %.preheader265, !llvm.loop !14
 
 314:                                              ; preds = %.preheader265, %314
@@ -820,7 +820,7 @@ Vec_IntPush.exit228:                              ; preds = %Vec_IntPush.exit228
   %383 = load i32, ptr %369, align 8
   %384 = tail call noundef i32 @llvm.smax.i32(i32 %383, i32 6)
   %385 = zext nneg i32 %384 to i64
-  %.not199.not = icmp ult i64 %indvars.iv334, %385
+  %.not199.not = icmp samesign ult i64 %indvars.iv334, %385
   br i1 %.not199.not, label %377, label %.preheader263, !llvm.loop !17
 
 386:                                              ; preds = %.preheader263, %386
@@ -971,7 +971,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %452 = load i32, ptr %451, align 8
   %453 = tail call noundef i32 @llvm.smax.i32(i32 %452, i32 6)
   %454 = zext nneg i32 %453 to i64
-  %.not200.not = icmp ult i64 %indvars.iv341, %454
+  %.not200.not = icmp samesign ult i64 %indvars.iv341, %454
   br i1 %.not200.not, label %.preheader261, label %.loopexit262, !llvm.loop !19
 
 .loopexit262:                                     ; preds = %Vec_IntPushTwo.exit, %.loopexit266
@@ -1008,7 +1008,7 @@ Vec_StrPush.exit242:                              ; preds = %.preheader260, %Vec
   %466 = load i32, ptr %455, align 8
   %467 = tail call noundef i32 @llvm.smax.i32(i32 %466, i32 6)
   %468 = zext nneg i32 %467 to i64
-  %.not202.not = icmp ult i64 %indvars.iv344, %468
+  %.not202.not = icmp samesign ult i64 %indvars.iv344, %468
   br i1 %.not202.not, label %Vec_StrPush.exit242, label %.preheader258, !llvm.loop !20
 
 469:                                              ; preds = %.preheader258, %469
@@ -1052,7 +1052,7 @@ Vec_IntPush.exit256:                              ; preds = %.preheader257, %Vec
   %481 = load i32, ptr %455, align 8
   %482 = tail call noundef i32 @llvm.smax.i32(i32 %481, i32 6)
   %483 = zext nneg i32 %482 to i64
-  %.not204.not = icmp ult i64 %indvars.iv351, %483
+  %.not204.not = icmp samesign ult i64 %indvars.iv351, %483
   br i1 %.not204.not, label %Vec_IntPush.exit256, label %.preheader, !llvm.loop !22
 
 484:                                              ; preds = %.preheader, %484
@@ -1885,7 +1885,7 @@ Vec_IntFreeP.exit268:                             ; preds = %254, %261, %.thread
   %266 = load i32, ptr %265, align 8
   %267 = tail call noundef i32 @llvm.smax.i32(i32 %266, i32 6)
   %268 = zext nneg i32 %267 to i64
-  %.not190.not = icmp ult i64 %indvars.iv374, %268
+  %.not190.not = icmp samesign ult i64 %indvars.iv374, %268
   br i1 %.not190.not, label %254, label %.preheader346, !llvm.loop !27
 
 .preheader345:                                    ; preds = %Vec_StrFreeP.exit
@@ -1926,7 +1926,7 @@ Vec_StrFreeP.exit:                                ; preds = %270, %277, %.thread
   %282 = load i32, ptr %281, align 8
   %283 = tail call noundef i32 @llvm.smax.i32(i32 %282, i32 6)
   %284 = zext nneg i32 %283 to i64
-  %.not191.not = icmp ult i64 %indvars.iv377, %284
+  %.not191.not = icmp samesign ult i64 %indvars.iv377, %284
   br i1 %.not191.not, label %270, label %.preheader345, !llvm.loop !28
 
 .preheader344:                                    ; preds = %Vec_StrFreeP.exit277
@@ -1967,7 +1967,7 @@ Vec_StrFreeP.exit277:                             ; preds = %286, %293, %.thread
   %298 = load i32, ptr %297, align 8
   %299 = tail call noundef i32 @llvm.smax.i32(i32 %298, i32 6)
   %300 = zext nneg i32 %299 to i64
-  %.not192.not = icmp ult i64 %indvars.iv380, %300
+  %.not192.not = icmp samesign ult i64 %indvars.iv380, %300
   br i1 %.not192.not, label %286, label %.preheader344, !llvm.loop !29
 
 301:                                              ; preds = %.preheader344, %Vec_IntFreeP.exit282
@@ -2004,7 +2004,7 @@ Vec_IntFreeP.exit282:                             ; preds = %301, %308, %.thread
   %313 = load i32, ptr %312, align 8
   %314 = tail call noundef i32 @llvm.smax.i32(i32 %313, i32 6)
   %315 = zext nneg i32 %314 to i64
-  %.not193.not = icmp ult i64 %indvars.iv383, %315
+  %.not193.not = icmp samesign ult i64 %indvars.iv383, %315
   br i1 %.not193.not, label %301, label %316, !llvm.loop !30
 
 316:                                              ; preds = %Vec_IntFreeP.exit282
@@ -2275,7 +2275,7 @@ Vec_MemHashFree.exit:                             ; preds = %391, %Vec_IntFreeP.
   %417 = load i32, ptr %416, align 8
   %418 = tail call noundef i32 @llvm.smax.i32(i32 %417, i32 6)
   %419 = zext nneg i32 %418 to i64
-  %.not195.not = icmp ult i64 %indvars.iv386, %419
+  %.not195.not = icmp samesign ult i64 %indvars.iv386, %419
   br i1 %.not195.not, label %391, label %.preheader343, !llvm.loop !31
 
 .preheader342:                                    ; preds = %Vec_MemFreeP.exit
@@ -2346,7 +2346,7 @@ Vec_MemFreeP.exit:                                ; preds = %.preheader343, %Vec
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %444 = tail call noundef i32 @llvm.smax.i32(i32 %443, i32 6)
   %445 = zext nneg i32 %444 to i64
-  %.not196.not = icmp ult i64 %indvars.iv389, %445
+  %.not196.not = icmp samesign ult i64 %indvars.iv389, %445
   br i1 %.not196.not, label %.preheader343, label %.preheader342, !llvm.loop !33
 
 .preheader:                                       ; preds = %Vec_WecFreeP.exit
@@ -2416,7 +2416,7 @@ Vec_WecFreeP.exit:                                ; preds = %447, %Vec_WecFree.e
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %472 = tail call noundef i32 @llvm.smax.i32(i32 %471, i32 6)
   %473 = zext nneg i32 %472 to i64
-  %.not197.not = icmp ult i64 %indvars.iv392, %473
+  %.not197.not = icmp samesign ult i64 %indvars.iv392, %473
   br i1 %.not197.not, label %447, label %.preheader, !llvm.loop !35
 
 474:                                              ; preds = %.preheader, %Vec_IntFreeP.exit319
@@ -2453,7 +2453,7 @@ Vec_IntFreeP.exit319:                             ; preds = %474, %481, %.thread
   %486 = load i32, ptr %485, align 8
   %487 = tail call noundef i32 @llvm.smax.i32(i32 %486, i32 6)
   %488 = zext nneg i32 %487 to i64
-  %.not198.not = icmp ult i64 %indvars.iv395, %488
+  %.not198.not = icmp samesign ult i64 %indvars.iv395, %488
   br i1 %.not198.not, label %474, label %489, !llvm.loop !36
 
 489:                                              ; preds = %Vec_IntFreeP.exit319

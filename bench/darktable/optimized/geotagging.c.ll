@@ -913,7 +913,7 @@ define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nocap
   br i1 %23, label %94, label %103
 
 94:                                               ; preds = %83
-  %95 = icmp ult i64 %77, 3
+  %95 = icmp samesign ult i64 %77, 3
   %96 = select i1 %95, ptr @.str.42, ptr @.str.43
   %97 = load ptr, ptr %86, align 8, !tbaa !13
   %98 = tail call ptr @dt_action_define(ptr noundef %3, ptr noundef null, ptr noundef nonnull %96, ptr noundef %97, ptr noundef nonnull @dt_action_def_entry) #16
@@ -946,7 +946,7 @@ define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nocap
   br label %125
 
 114:                                              ; preds = %105
-  %115 = icmp ugt i64 %77, 2
+  %115 = icmp samesign ugt i64 %77, 2
   %116 = or i1 %22, %115
   br i1 %116, label %117, label %125
 
@@ -1985,7 +1985,7 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
   %57 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %24) #16
   call void @gtk_entry_set_text(ptr noundef %57, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  %58 = icmp ugt i64 %15, 8639999999999
+  %58 = icmp samesign ugt i64 %15, 8639999999999
   br i1 %58, label %59, label %80
 
 59:                                               ; preds = %8, %6

@@ -1015,7 +1015,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %.noexc158 unwind label %.loopexit204
 
 .noexc158:                                        ; preds = %304
-  %309 = icmp ult i64 %indvars.iv.i, %303
+  %309 = icmp samesign ult i64 %indvars.iv.i, %303
   br i1 %309, label %310, label %.noexc159
 
 310:                                              ; preds = %.noexc158

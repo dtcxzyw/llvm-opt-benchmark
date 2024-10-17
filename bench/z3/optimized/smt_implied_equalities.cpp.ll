@@ -1333,7 +1333,7 @@ if.end.i.i:                                       ; preds = %for.cond35.i
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i, %for.cond35.i
   %retval.0.i.i = phi i64 [ %109, %if.end.i.i ], [ 0, %for.cond35.i ]
-  %cmp38.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp38.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp38.i, label %for.body39.i, label %for.inc51.i
 
 for.body39.i:                                     ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
@@ -3189,7 +3189,7 @@ if.end.i:                                         ; preds = %for.cond15
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit: ; preds = %for.cond15, %if.end.i
   %retval.0.i = phi i64 [ %30, %if.end.i ], [ 0, %for.cond15 ]
-  %cmp18 = icmp ult i64 %indvars.iv449, %retval.0.i
+  %cmp18 = icmp samesign ult i64 %indvars.iv449, %retval.0.i
   br i1 %cmp18, label %invoke.cont25, label %for.end46
 
 invoke.cont25:                                    ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
@@ -3298,7 +3298,7 @@ if.end.i.i93:                                     ; preds = %for.cond.i
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i93, %for.cond.i
   %retval.0.i.i95 = phi i64 [ %46, %if.end.i.i93 ], [ 0, %for.cond.i ]
-  %cmp.i96 = icmp ult i64 %indvars.iv.i, %retval.0.i.i95
+  %cmp.i96 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i95
   br i1 %cmp.i96, label %for.body.i, label %invoke.cont47
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
@@ -3769,7 +3769,7 @@ if.end.i141:                                      ; preds = %for.cond102
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144: ; preds = %for.cond102, %if.end.i141
   %retval.0.i143 = phi i64 [ %102, %if.end.i141 ], [ 0, %for.cond102 ]
-  %cmp105 = icmp ult i64 %indvars.iv455, %retval.0.i143
+  %cmp105 = icmp samesign ult i64 %indvars.iv455, %retval.0.i143
   br i1 %cmp105, label %for.body106, label %for.end189
 
 for.body106:                                      ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144
@@ -4108,7 +4108,7 @@ for.cond23.i.i:                                   ; preds = %call29.i.i.noexc
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %161 = load i32, ptr %m_arity.i.i.i, align 8
   %162 = zext i32 %161 to i64
-  %cmp25.i.i = icmp ult i64 %indvars.iv.next.i.i, %162
+  %cmp25.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %162
   br i1 %cmp25.i.i, label %for.body26.i.i, label %for.end.i.i, !llvm.loop !28
 
 for.body26.i.i:                                   ; preds = %for.cond23.i.i, %for.body26.lr.ph.i.i
@@ -4495,7 +4495,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %_ZN7svectorIjjED2Ev
   %arrayidx.i250 = getelementptr inbounds i8, ptr %203, i64 -4
   %204 = load i32, ptr %arrayidx.i250, align 4
   %205 = zext i32 %204 to i64
-  %cmp140389 = icmp ult i64 %indvars.iv452525, %205
+  %cmp140389 = icmp samesign ult i64 %indvars.iv452525, %205
   br i1 %cmp140389, label %for.body141, label %lor.lhs.false.i
 
 for.body141:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
@@ -4991,7 +4991,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit

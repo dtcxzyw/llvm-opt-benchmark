@@ -1472,7 +1472,7 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %
   ]
 
 108:                                              ; preds = %cops_c_type_to_str.exit75.i
-  %109 = icmp ugt i32 %107, 3
+  %109 = icmp samesign ugt i32 %107, 3
   br i1 %109, label %110, label %dissect_cops_object.exit
 
 110:                                              ; preds = %108
@@ -2277,7 +2277,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %23 = alloca i8, align 1
   %24 = load i32, ptr @ett_cops_pr_obj, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %24) #9
-  %26 = icmp ugt i32 %4, 3
+  %26 = icmp samesign ugt i32 %4, 3
   br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
@@ -5022,7 +5022,7 @@ define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, pt
 
 69:                                               ; preds = %64, %5
   %.0165 = phi i32 [ %68, %64 ], [ %63, %5 ]
-  %70 = icmp ult i32 %2, 56
+  %70 = icmp samesign ult i32 %2, 56
   br i1 %70, label %172, label %71
 
 71:                                               ; preds = %69
@@ -5081,7 +5081,7 @@ define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, pt
 
 121:                                              ; preds = %116, %71
   %.1 = phi i32 [ %120, %116 ], [ %115, %71 ]
-  %122 = icmp ult i32 %2, 80
+  %122 = icmp samesign ult i32 %2, 80
   br i1 %122, label %172, label %123
 
 123:                                              ; preds = %121
@@ -5217,7 +5217,7 @@ define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noun
 
 73:                                               ; preds = %68, %5
   %.0177 = phi i32 [ %72, %68 ], [ %67, %5 ]
-  %74 = icmp ult i32 %2, 64
+  %74 = icmp samesign ult i32 %2, 64
   br i1 %74, label %184, label %75
 
 75:                                               ; preds = %73
@@ -5280,7 +5280,7 @@ define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noun
 
 129:                                              ; preds = %124, %75
   %.1 = phi i32 [ %128, %124 ], [ %123, %75 ]
-  %130 = icmp ult i32 %2, 92
+  %130 = icmp samesign ult i32 %2, 92
   br i1 %130, label %184, label %131
 
 131:                                              ; preds = %129
@@ -5416,7 +5416,7 @@ define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef 
 
 69:                                               ; preds = %64, %5
   %.0165 = phi i32 [ %68, %64 ], [ %63, %5 ]
-  %70 = icmp ult i32 %2, 64
+  %70 = icmp samesign ult i32 %2, 64
   br i1 %70, label %172, label %71
 
 71:                                               ; preds = %69
@@ -5475,7 +5475,7 @@ define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef 
 
 121:                                              ; preds = %116, %71
   %.1 = phi i32 [ %120, %116 ], [ %115, %71 ]
-  %122 = icmp ult i32 %2, 92
+  %122 = icmp samesign ult i32 %2, 92
   br i1 %122, label %172, label %123
 
 123:                                              ; preds = %121
@@ -5598,7 +5598,7 @@ define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef 
 
 60:                                               ; preds = %55, %5
   %.0141 = phi i32 [ %59, %55 ], [ %54, %5 ]
-  %61 = icmp ult i32 %2, 40
+  %61 = icmp samesign ult i32 %2, 40
   br i1 %61, label %145, label %62
 
 62:                                               ; preds = %60
@@ -5648,7 +5648,7 @@ define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef 
 
 103:                                              ; preds = %98, %62
   %.1 = phi i32 [ %102, %98 ], [ %97, %62 ]
-  %104 = icmp ult i32 %2, 56
+  %104 = icmp samesign ult i32 %2, 56
   br i1 %104, label %145, label %105
 
 105:                                              ; preds = %103
@@ -5770,7 +5770,7 @@ define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr nounde
 
 68:                                               ; preds = %63, %5
   %.0165 = phi i32 [ %67, %63 ], [ %62, %5 ]
-  %69 = icmp ult i32 %2, 56
+  %69 = icmp samesign ult i32 %2, 56
   br i1 %69, label %169, label %70
 
 70:                                               ; preds = %68
@@ -5828,7 +5828,7 @@ define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr nounde
 
 119:                                              ; preds = %114, %70
   %.1 = phi i32 [ %118, %114 ], [ %113, %70 ]
-  %120 = icmp ult i32 %2, 80
+  %120 = icmp samesign ult i32 %2, 80
   br i1 %120, label %169, label %121
 
 121:                                              ; preds = %119
@@ -5968,7 +5968,7 @@ define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr
 
 78:                                               ; preds = %73, %5
   %.0189 = phi i32 [ %77, %73 ], [ %72, %5 ]
-  %79 = icmp ult i32 %2, 56
+  %79 = icmp samesign ult i32 %2, 56
   br i1 %79, label %199, label %80
 
 80:                                               ; preds = %78
@@ -6036,7 +6036,7 @@ define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr
 
 139:                                              ; preds = %134, %80
   %.1 = phi i32 [ %138, %134 ], [ %133, %80 ]
-  %140 = icmp ult i32 %2, 80
+  %140 = icmp samesign ult i32 %2, 80
   br i1 %140, label %199, label %141
 
 141:                                              ; preds = %139

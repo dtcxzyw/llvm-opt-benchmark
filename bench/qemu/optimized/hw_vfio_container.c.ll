@@ -225,10 +225,10 @@ while.end.i.i.i.i:                                ; preds = %if.then.i.i
   br label %rcu_read_auto_lock.exit.i.i
 
 rcu_read_auto_lock.exit.i.i:                      ; preds = %while.end.i.i.i.i, %if.then.i.i
-  %cmp1878.not.i.i = icmp ult i64 %sub.i.i, 64
+  %cmp1878.i.i = icmp ugt i64 %sub.i.i, 63
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %blocks.i.i, i64 16
   %arrayidx46.i.i = getelementptr inbounds i8, ptr %blocks.i.i, i64 8
-  br i1 %cmp1878.not.i.i, label %while.end.i.i, label %while.end.us.i.i
+  br i1 %cmp1878.i.i, label %while.end.us.i.i, label %while.end.i.i
 
 if.end.i.i.us.i.i:                                ; preds = %for.cond17.for.inc62_crit_edge.us.i.i
   %dec.i.i.us.i.i = add i32 %30, -1
@@ -306,8 +306,8 @@ if.end52.us.i.i:                                  ; preds = %if.then45.us.i.i, %
   %inc57.us.i.i = zext i1 %cmp54.us.i.i to i64
   %spec.select49.us.i.i = add i64 %idx.181.us.i.i, %inc57.us.i.i
   %inc60.us.i.i = add nuw nsw i64 %k.079.us.i.i, 1
-  %exitcond96.not.i.i = icmp eq i64 %inc60.us.i.i, %div44.i.i
-  br i1 %exitcond96.not.i.i, label %for.cond17.for.inc62_crit_edge.us.i.i, label %for.body19.us.i.i, !llvm.loop !7
+  %exitcond97.not.i.i = icmp eq i64 %inc60.us.i.i, %div44.i.i
+  br i1 %exitcond97.not.i.i, label %for.cond17.for.inc62_crit_edge.us.i.i, label %for.body19.us.i.i, !llvm.loop !7
 
 while.end.us.i.i:                                 ; preds = %rcu_read_auto_lock.exit.i.i, %while.end.us.i.i
   %i.077.us.i.i = phi i64 [ %inc.us.i.i, %while.end.us.i.i ], [ 0, %rcu_read_auto_lock.exit.i.i ]
@@ -319,8 +319,8 @@ while.end.us.i.i:                                 ; preds = %rcu_read_auto_lock.
   %arrayidx16.us.i.i = getelementptr [3 x ptr], ptr %blocks.i.i, i64 0, i64 %i.077.us.i.i
   store ptr %blocks15.us.i.i, ptr %arrayidx16.us.i.i, align 8
   %inc.us.i.i = add nuw nsw i64 %i.077.us.i.i, 1
-  %exitcond95.not.i.i = icmp eq i64 %inc.us.i.i, 3
-  br i1 %exitcond95.not.i.i, label %for.body19.us.i.i, label %while.end.us.i.i, !llvm.loop !10
+  %exitcond96.not.i.i = icmp eq i64 %inc.us.i.i, 3
+  br i1 %exitcond96.not.i.i, label %for.body19.us.i.i, label %while.end.us.i.i, !llvm.loop !10
 
 for.cond17.for.inc62_crit_edge.us.i.i:            ; preds = %if.end52.us.i.i
   %call.i.i51.us.i.i = call ptr @get_ptr_rcu_reader() #15
@@ -346,8 +346,8 @@ while.end.i.i:                                    ; preds = %rcu_read_auto_lock.
   %arrayidx16.i.i = getelementptr [3 x ptr], ptr %blocks.i.i, i64 0, i64 %i.077.i.i
   store ptr %blocks15.i.i, ptr %arrayidx16.i.i, align 8
   %inc.i.i = add nuw nsw i64 %i.077.i.i, 1
-  %exitcond97.not.i.i = icmp eq i64 %inc.i.i, 3
-  br i1 %exitcond97.not.i.i, label %for.cond17.preheader.i.i, label %while.end.i.i, !llvm.loop !10
+  %exitcond95.not.i.i = icmp eq i64 %inc.i.i, 3
+  br i1 %exitcond95.not.i.i, label %for.cond17.preheader.i.i, label %while.end.i.i, !llvm.loop !10
 
 if.else.i.i.i.i:                                  ; preds = %for.cond17.preheader.i.i, %for.cond17.for.inc62_crit_edge.us.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #18
@@ -462,7 +462,7 @@ while.end.us.i.us.us.i.i:                         ; preds = %while.end.us.i.us.u
   br i1 %exitcond71.not.i.us.us.i.i, label %for.end.us.i.us.us.i.i, label %while.end.us.i.us.us.i.i, !llvm.loop !13
 
 for.end.us.i.us.us.i.i:                           ; preds = %while.end.us.i.us.us.i.i
-  %cmp1035.us.i.us.us.i.i = icmp ult i64 %shr2.i.us.us.i.i, %shr.i.us.us.i.i
+  %cmp1035.us.i.us.us.i.i = icmp samesign ult i64 %shr2.i.us.us.i.i, %shr.i.us.us.i.i
   br i1 %cmp1035.us.i.us.us.i.i, label %while.body11.lr.ph.us.i.us.us.i.i, label %for.inc59.us.i.us.us.i.i
 
 while.body11.lr.ph.us.i.us.us.i.i:                ; preds = %for.end.us.i.us.us.i.i
@@ -487,7 +487,7 @@ while.body11.us.us43.i.us.us64.i.i:               ; preds = %while.body11.lr.ph.
   %sub39.us.us.i.us.us72.i.i = sub nsw i64 %cond.us.us49.i.us.us70.i.i, %page.139.us.us44.i.us.us65.i.i
   call void @bitmap_set_atomic(ptr noundef %48, i64 noundef %offset.037.us.us46.i.us.us67.i.i, i64 noundef %sub39.us.us.i.us.us72.i.i) #15
   %inc56.us.us52.i.us.us73.i.i = add nuw nsw i64 %idx.038.us.us45.i.us.us66.i.i, 1
-  %cmp10.us.us53.i.us.us74.i.i = icmp ult i64 %add12.us.us48.i.us.us69.i.i, %shr.i.us.us.i.i
+  %cmp10.us.us53.i.us.us74.i.i = icmp samesign ult i64 %add12.us.us48.i.us.us69.i.i, %shr.i.us.us.i.i
   br i1 %cmp10.us.us53.i.us.us74.i.i, label %while.body11.us.us43.i.us.us64.i.i, label %for.inc59.us.i.us.us.i.i, !llvm.loop !14
 
 for.inc59.us.i.us.us.i.i:                         ; preds = %while.body11.us.us43.i.us.us64.i.i, %while.body11.us.us43.i.us.us.us.i.i, %for.end.us.i.us.us.i.i
@@ -537,7 +537,7 @@ while.body11.us.us43.i.us.us.us.i.i:              ; preds = %while.body11.lr.ph.
   %52 = load ptr, ptr %arrayidx53.us.us50.i.us.us.us.i.i, align 8
   call void @bitmap_set_atomic(ptr noundef %52, i64 noundef %offset.037.us.us46.i.us.us.us.i.i, i64 noundef %sub39.us.us.i.us.us.us.i.i) #15
   %inc56.us.us52.i.us.us.us.i.i = add nuw nsw i64 %idx.038.us.us45.i.us.us.us.i.i, 1
-  %cmp10.us.us53.i.us.us.us.i.i = icmp ult i64 %add12.us.us48.i.us.us.us.i.i, %shr.i.us.us.i.i
+  %cmp10.us.us53.i.us.us.us.i.i = icmp samesign ult i64 %add12.us.us48.i.us.us.us.i.i, %shr.i.us.us.i.i
   br i1 %cmp10.us.us53.i.us.us.us.i.i, label %while.body11.us.us43.i.us.us.us.i.i, label %for.inc59.us.i.us.us.i.i, !llvm.loop !14
 
 for.body77.i.i:                                   ; preds = %for.body77.lr.ph.i.i, %for.inc114.i.i
@@ -609,7 +609,7 @@ while.end.i.i.i:                                  ; preds = %while.end.i.i.i.pre
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %while.end.i.i.i, !llvm.loop !13
 
 for.end.i.i.i:                                    ; preds = %while.end.i.i.i
-  %cmp1035.i.i.i = icmp ult i64 %shr2.i.i.i, %shr.i.i.i
+  %cmp1035.i.i.i = icmp samesign ult i64 %shr2.i.i.i, %shr.i.i.i
   br i1 %cmp1035.i.i.i, label %while.body11.lr.ph.i.i.i, label %for.inc59.i.i.i
 
 while.body11.lr.ph.i.i.i:                         ; preds = %for.end.i.i.i
@@ -642,7 +642,7 @@ while.body11.i.i.us.i:                            ; preds = %while.body11.lr.ph.
   %67 = load ptr, ptr %arrayidx53.i.i.us.i, align 8
   call void @bitmap_set_atomic(ptr noundef %67, i64 noundef %offset.037.i.i.us.i, i64 noundef %sub24.i.i.us.i) #15
   %inc56.i.i.us.i = add nuw nsw i64 %idx.038.i.i.us.i, 1
-  %cmp10.i.i.us.i = icmp ult i64 %add12.i.i.us.i, %shr.i.i.i
+  %cmp10.i.i.us.i = icmp samesign ult i64 %add12.i.i.us.i, %shr.i.i.i
   br i1 %cmp10.i.i.us.i, label %while.body11.i.i.us.i, label %for.inc59.i.i.i, !llvm.loop !14
 
 while.body11.i.i.i:                               ; preds = %while.body11.lr.ph.i.i.i, %while.body11.i.i.i
@@ -660,7 +660,7 @@ while.body11.i.i.i:                               ; preds = %while.body11.lr.ph.
   %69 = load ptr, ptr %arrayidx38.i.i.i, align 8
   call void @bitmap_set_atomic(ptr noundef %69, i64 noundef %offset.037.i.i.i, i64 noundef %sub24.i.i.i) #15
   %inc56.i.i.i = add nuw nsw i64 %idx.038.i.i.i, 1
-  %cmp10.i.i.i = icmp ult i64 %add12.i.i.i, %shr.i.i.i
+  %cmp10.i.i.i = icmp samesign ult i64 %add12.i.i.i, %shr.i.i.i
   br i1 %cmp10.i.i.i, label %while.body11.i.i.i, label %for.inc59.i.i.i, !llvm.loop !14
 
 for.inc59.i.i.i:                                  ; preds = %while.body11.i.i.i, %while.body11.i.i.us.i, %for.end.i.i.i
@@ -2425,7 +2425,7 @@ if.end:                                           ; preds = %entry, %if.then7
   %3 = load ptr, ptr %info, align 8
   %4 = load i32, ptr %3, align 8
   %conv5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %argsz.013, %conv5
+  %cmp = icmp samesign ult i64 %argsz.013, %conv5
   br i1 %cmp, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end

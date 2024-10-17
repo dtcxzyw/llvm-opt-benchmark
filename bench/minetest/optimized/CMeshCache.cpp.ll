@@ -1347,7 +1347,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %23 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !47
 
 for.end:                                          ; preds = %for.inc, %if.then.i.i.i3.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i.i.i.i.i.i, %for.cond.preheader, %entry
@@ -1419,7 +1419,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %9 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp.not = icmp ult i64 %indvars.iv.next, %9
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp.not, label %for.body, label %cleanup, !llvm.loop !48
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %for.body
@@ -2238,7 +2238,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %10 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp.not = icmp ult i64 %indvars.iv.next, %10
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp.not, label %for.body, label %return, !llvm.loop !62
 
 return:                                           ; preds = %for.inc, %if.then14, %for.cond.preheader, %entry
@@ -3021,7 +3021,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %14 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp.not = icmp ult i64 %indvars.iv.next, %14
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp.not, label %for.body, label %cleanup, !llvm.loop !72
 
 cleanup:                                          ; preds = %for.inc, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.i, %if.then, %entry
@@ -3151,7 +3151,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %16 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !73
 }
 

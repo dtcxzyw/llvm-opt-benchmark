@@ -440,7 +440,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr nocaptu
   br i1 %.not24.i, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ult i32 %19, %21
+  %23 = icmp samesign ult i32 %19, %21
   %24 = select i1 %23, i32 -1, i32 1
   br label %CompareTSQ.exit
 
@@ -521,7 +521,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr nocapture noundef readonly 
   br i1 %.not24.i, label %23, label %21
 
 21:                                               ; preds = %16
-  %22 = icmp ult i32 %18, %20
+  %22 = icmp samesign ult i32 %18, %20
   br label %CompareTSQ.exit
 
 23:                                               ; preds = %16
@@ -602,7 +602,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_le(ptr nocapture noundef readonly 
   br i1 %.not24.i, label %23, label %21
 
 21:                                               ; preds = %16
-  %22 = icmp ult i32 %18, %20
+  %22 = icmp samesign ult i32 %18, %20
   br label %CompareTSQ.exit
 
 23:                                               ; preds = %16
@@ -756,7 +756,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr nocapture noundef readonly 
   br i1 %.not24.i, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ult i32 %19, %21
+  %23 = icmp samesign ult i32 %19, %21
   %24 = select i1 %23, i32 -1, i32 1
   br label %CompareTSQ.exit
 
@@ -839,7 +839,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr nocapture noundef readonly 
   br i1 %.not24.i, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = icmp ult i32 %19, %21
+  %23 = icmp samesign ult i32 %19, %21
   %24 = select i1 %23, i32 -1, i32 1
   br label %CompareTSQ.exit
 

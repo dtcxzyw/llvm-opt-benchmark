@@ -1154,7 +1154,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %42
   %63 = load i64, ptr %62, align 8, !noalias !13
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %61, ptr %64, align 8, !alias.scope !13
-  %65 = icmp ult i32 %61, 65
+  %65 = icmp samesign ult i32 %61, 65
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %59
@@ -2857,7 +2857,7 @@ _ZNK5clang4Decl7getAttrINS_16HLSLWaveSizeAttrEEEPT_v.exit94.thread: ; preds = %1
 
 199:                                              ; preds = %.loopexit139
   %.not127 = icmp eq i32 %194, 6
-  %200 = icmp ult i32 %197, 6
+  %200 = icmp samesign ult i32 %197, 6
   %or.cond130 = select i1 %.not127, i1 %200, i1 false
   br i1 %or.cond130, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit, label %204
 
@@ -2877,7 +2877,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %199, %.loopexit139
   %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 1
   %or.cond.not171 = and i1 %.not127, %207
-  %208 = icmp ult i32 %197, 8
+  %208 = icmp samesign ult i32 %197, 8
   %or.cond131 = select i1 %or.cond.not171, i1 %208, i1 false
   br i1 %or.cond131, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit96, label %.critedge
 
@@ -4918,7 +4918,7 @@ define dso_local void @_ZN5clang8SemaHLSL18handleWaveSizeAttrEPNS_4DeclERKNS_10P
 
 24:                                               ; preds = %18
   store i32 0, ptr %5, align 4
-  %25 = icmp ugt i32 %16, 1
+  %25 = icmp samesign ugt i32 %16, 1
   br i1 %25, label %26, label %90
 
 26:                                               ; preds = %24
@@ -4951,7 +4951,7 @@ define dso_local void @_ZN5clang8SemaHLSL18handleWaveSizeAttrEPNS_4DeclERKNS_10P
 
 _ZL20isValidWaveSizeValuej.exit:                  ; preds = %39
   %41 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %40)
-  %42 = icmp ult i32 %41, 2
+  %42 = icmp samesign ult i32 %41, 2
   %43 = add i32 %40, -4
   %44 = icmp ult i32 %43, 125
   %spec.select.i = and i1 %44, %42
@@ -4998,7 +4998,7 @@ _ZL20isValidWaveSizeValuej.exit.thread:           ; preds = %39, %_ZL20isValidWa
 
 _ZL20isValidWaveSizeValuej.exit49:                ; preds = %65
   %67 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %66)
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   %69 = add i32 %66, -4
   %70 = icmp ult i32 %69, 125
   %spec.select.i48 = and i1 %70, %68
@@ -5054,7 +5054,7 @@ _ZL20isValidWaveSizeValuej.exit49.thread:         ; preds = %65, %_ZL20isValidWa
 
 _ZL20isValidWaveSizeValuej.exit55:                ; preds = %90
   %92 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %91)
-  %93 = icmp ult i32 %92, 2
+  %93 = icmp samesign ult i32 %92, 2
   %94 = add i32 %91, -4
   %95 = icmp ult i32 %94, 125
   %spec.select.i54 = and i1 %95, %93
@@ -8655,7 +8655,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit50.thread.us.thread: ; preds =
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %46, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !45
 
 72:                                               ; preds = %.lr.ph.split.us.split
@@ -8727,7 +8727,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit50.thread.us82: ; preds = %_ZN
   %111 = phi i32 [ %.pre, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit50.us80._ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit50.thread.us82_crit_edge ], [ %81, %.lr.ph.split.split.us ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next108, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next108, %112
   br i1 %113, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !45
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit50.thread.us
@@ -9184,7 +9184,7 @@ define dso_local noundef zeroext i1 @_Z24CheckArgsTypesAreCorrectPN5clang4SemaEP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %12, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %5, %14
@@ -35570,7 +35570,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -43870,7 +43870,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -44477,7 +44477,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -52127,7 +52127,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -52569,7 +52569,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -52712,7 +52712,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -53323,20 +53323,20 @@ _ZN12_GLOBAL__N_124DiagnoseHLSLAvailability28HasMatchingEnvironmentOrNoneEPKN5cl
   br i1 %174, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, label %175
 
 175:                                              ; preds = %173
-  %176 = icmp ult i32 %157, %166
+  %176 = icmp samesign ult i32 %157, %166
   br i1 %176, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ult i32 %166, %157
+  %178 = icmp samesign ult i32 %166, %157
   br i1 %178, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, label %179
 
 179:                                              ; preds = %177
-  %180 = icmp ult i32 %159, %168
+  %180 = icmp samesign ult i32 %159, %168
   br i1 %180, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i, label %181
 
 181:                                              ; preds = %179
-  %182 = icmp uge i32 %168, %159
-  %183 = icmp ult i32 %162, %171
+  %182 = icmp samesign uge i32 %168, %159
+  %183 = icmp samesign ult i32 %162, %171
   %spec.select.i.not.i.not.i = select i1 %182, i1 %183, i1 false
   br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
 

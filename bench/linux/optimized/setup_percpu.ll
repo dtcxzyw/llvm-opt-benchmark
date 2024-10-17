@@ -165,7 +165,7 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
 75:                                               ; preds = %74, %67
   %76 = add nuw nsw i64 %29, 1
   %77 = and i64 %76, 127
-  %78 = icmp ugt i64 %77, 63
+  %78 = icmp samesign ugt i64 %77, 63
   br i1 %78, label %.thread9, label %22, !prof !6, !llvm.loop !7
 
 .thread9:                                         ; preds = %22, %75, %28

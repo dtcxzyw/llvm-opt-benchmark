@@ -56,7 +56,7 @@ for.body18.us:                                    ; preds = %if.then.us, %for.bo
   %add29.us = fadd float %add.us, %conv28.us
   %add.ptr.us = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv37
   store float %add29.us, ptr %add.ptr.us, align 4
-  %cmp31.us = icmp ugt i32 %j.025.us, 1
+  %cmp31.us = icmp samesign ugt i32 %j.025.us, 1
   %conv42.us = uitofp i1 %cmp31.us to float
   %add43.us = fadd float %add14.us, %conv42.us
   %add.ptr46.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 4
@@ -114,7 +114,7 @@ for.body18:                                       ; preds = %if.then, %for.body1
   %add29 = fadd float %add, %conv28
   %add.ptr = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv
   store float %add29, ptr %add.ptr, align 4
-  %cmp31 = icmp ugt i32 %j.025, 1
+  %cmp31 = icmp samesign ugt i32 %j.025, 1
   %cond41 = select i1 %cmp31, i32 %and, i32 0
   %conv42 = uitofp nneg i32 %cond41 to float
   %add43 = fadd float %add14, %conv42
@@ -276,7 +276,7 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   %add29.us.i = fadd float %add.us.i, %conv28.us.i
   %add.ptr.us.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv37.i
   store float %add29.us.i, ptr %add.ptr.us.i, align 4
-  %cmp31.us.i = icmp ugt i32 %j.025.us.i, 1
+  %cmp31.us.i = icmp samesign ugt i32 %j.025.us.i, 1
   %conv42.us.i = uitofp i1 %cmp31.us.i to float
   %add43.us.i = fadd float %add14.us.i, %conv42.us.i
   %add.ptr46.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 4
@@ -345,7 +345,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   %add29.i = fadd float %add.i, %conv28.i
   %add.ptr.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv.i
   store float %add29.i, ptr %add.ptr.i, align 4
-  %cmp31.i = icmp ugt i32 %j.025.i, 1
+  %cmp31.i = icmp samesign ugt i32 %j.025.i, 1
   %cond41.i = select i1 %cmp31.i, i32 %and.i, i32 0
   %conv42.i = uitofp nneg i32 %cond41.i to float
   %add43.i = fadd float %add14.i, %conv42.i

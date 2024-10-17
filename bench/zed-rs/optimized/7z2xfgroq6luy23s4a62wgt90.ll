@@ -18091,7 +18091,7 @@ define void @_ZN5theme8settings16SystemAppearance4init17hdbfb664809238d5bE(ptr n
   unreachable
 
 _ZN4gpui3app10AppContext14default_global17hd37063730c1c13e0E.exit: ; preds = %15
-  %switch.i = icmp ugt i8 %5, 1
+  %switch.i = icmp samesign ugt i8 %5, 1
   %28 = zext i1 %switch.i to i8
   store i8 %28, ptr %17, align 1
   ret void

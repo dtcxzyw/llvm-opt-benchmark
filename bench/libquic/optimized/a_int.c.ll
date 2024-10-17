@@ -607,7 +607,7 @@ if.end23:                                         ; preds = %if.end23.preheader,
   store i8 %conv24, ptr %arrayidx, align 1
   %shr = lshr i64 %d.122, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp18 = icmp ugt i64 %indvars.iv, 6
+  %cmp18 = icmp samesign ugt i64 %indvars.iv, 6
   %cmp20 = icmp ult i64 %d.122, 256
   %or.cond = select i1 %cmp18, i1 true, i1 %cmp20
   br i1 %or.cond, label %for.body30.preheader, label %if.end23, !llvm.loop !13

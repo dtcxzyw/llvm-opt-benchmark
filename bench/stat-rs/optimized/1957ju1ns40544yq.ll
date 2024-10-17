@@ -589,7 +589,7 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
 
 _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit: ; preds = %29, %38
   %.sroa.0.0.i.i = phi i1 [ %41, %38 ], [ false, %29 ]
-  %42 = icmp ugt i32 %.sroa.014.0, 6
+  %42 = icmp samesign ugt i32 %.sroa.014.0, 6
   %or.cond.not = or i1 %42, %.sroa.0.0.i.i
   br i1 %or.cond.not, label %.preheader.preheader, label %22
 
@@ -631,7 +631,7 @@ _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit: ; preds = %29, %38
 
 _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25: ; preds = %50, %59
   %.sroa.0.0.i.i23 = phi i1 [ %62, %59 ], [ false, %50 ]
-  %63 = icmp ugt i32 %.sroa.017.0, 2
+  %63 = icmp samesign ugt i32 %.sroa.017.0, 2
   %or.cond5.not = or i1 %63, %.sroa.0.0.i.i23
   br i1 %or.cond5.not, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %.preheader
 

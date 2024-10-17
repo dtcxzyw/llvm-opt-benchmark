@@ -3527,7 +3527,7 @@ define noundef i32 @_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15Interactio
 28:                                               ; preds = %.lr.ph, %22, %26
   %.2 = phi i32 [ %27, %26 ], [ %.118, %22 ], [ %.118, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %29 = icmp ult i64 %indvars.iv.next, %15
+  %29 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %28, %.preheader
@@ -4158,7 +4158,7 @@ _ZNSt6vectorIN3gmx11ListOfListsIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 172:                                              ; preds = %170, %166, %.lr.ph.i48
   %.2.i = phi i32 [ %171, %170 ], [ %.118.i, %166 ], [ %.118.i, %.lr.ph.i48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %173 = icmp ult i64 %indvars.iv.next.i, %159
+  %173 = icmp samesign ult i64 %indvars.iv.next.i, %159
   br i1 %173, label %.lr.ph.i48, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %172, %.preheader.i

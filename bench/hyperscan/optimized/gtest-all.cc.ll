@@ -7481,7 +7481,7 @@ if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i.i, %10
   %exitcond14.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i.loopexit, label %if.end.i.i.i.i.i.i.i, !llvm.loop !52
 
@@ -7585,7 +7585,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %10
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.loopexit, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 
@@ -7734,7 +7734,7 @@ if.end.i.preheader.i.i.i.i:                       ; preds = %land.rhs.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %cmp.not.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %9
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %9
   %exitcond14.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %9
   br i1 %exitcond14.not.i.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit.loopexit.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !52
 
@@ -7817,7 +7817,7 @@ if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %6
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %6
   %exitcond14.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %6
   br i1 %exitcond14.not.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit.loopexit.i.i, label %if.end.i.i.i.i, !llvm.loop !52
 
@@ -7913,7 +7913,7 @@ if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %9
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %9
   %exitcond14.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %9
   br i1 %exitcond14.not.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.loopexit, label %if.end.i.i.i.i, !llvm.loop !52
 
@@ -7995,7 +7995,7 @@ if.end.i.preheader.i.i:                           ; preds = %land.rhs.i
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %6
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %6
   %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %6
   br i1 %exitcond14.not.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.loopexit, label %if.end.i.i.i, !llvm.loop !52
 
@@ -18371,7 +18371,7 @@ if.end.i.preheader:                               ; preds = %entry
 
 for.cond:                                         ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.not = icmp ult i64 %indvars.iv.next, %2
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %2
   %exitcond14.not = icmp eq i64 %indvars.iv.next, %2
   br i1 %exitcond14.not, label %cleanup, label %if.end.i, !llvm.loop !52
 
@@ -24961,7 +24961,7 @@ if.end.i.preheader.i.i:                           ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %2
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %2
   %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
   br i1 %exitcond14.not.i.i, label %_ZNK7testing10TestResult6PassedEv.exit, label %if.end.i.i.i, !llvm.loop !52
 
@@ -25014,7 +25014,7 @@ if.end.i.preheader.i:                             ; preds = %if.end
 
 for.cond.i:                                       ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.not.i = icmp ult i64 %indvars.iv.next.i, %8
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv.next.i, %8
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond14.not.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %if.end.i.i, !llvm.loop !52
 
@@ -25395,7 +25395,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %10
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.loopexit, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 
@@ -25512,7 +25512,7 @@ if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %27
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %27
   %exitcond14.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %27
   br i1 %exitcond14.not.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.loopexit, label %if.end.i.i.i.i, !llvm.loop !52
 
@@ -25615,7 +25615,7 @@ if.end.i.preheader.i.i:                           ; preds = %lor.lhs.false16
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %40
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %40
   %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %40
   br i1 %exitcond14.not.i.i, label %_ZNK7testing10TestResult6PassedEv.exit, label %if.end.i.i.i, !llvm.loop !52
 
@@ -25792,7 +25792,7 @@ if.end.i.preheader.i.i.i.i:                       ; preds = %land.rhs.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %cmp.not.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %10
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i, %10
   %exitcond14.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.loopexit, label %if.end.i.i.i.i.i, !llvm.loop !52
 
@@ -26178,7 +26178,7 @@ if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i41
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i, %47
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i.i, %47
   %exitcond14.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %47
   br i1 %exitcond14.not.i.i.i.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit.loopexit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, !llvm.loop !52
 
@@ -26297,7 +26297,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %65
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %65
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %65
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.loopexit, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 
@@ -26398,7 +26398,7 @@ if.end.i.preheader.i.i.i.i.i179:                  ; preds = %land.rhs.i.i.i.i159
 
 for.cond.i.i.i.i.i187:                            ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i184
   %indvars.iv.next.i.i.i.i.i188 = add nuw nsw i64 %indvars.iv.i.i.i.i.i181, 1
-  %cmp.not.i.i.i.i.i189 = icmp ult i64 %indvars.iv.next.i.i.i.i.i188, %78
+  %cmp.not.i.i.i.i.i189 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i188, %78
   %exitcond14.not.i.i.i.i.i190 = icmp eq i64 %indvars.iv.next.i.i.i.i.i188, %78
   br i1 %exitcond14.not.i.i.i.i.i190, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i168.loopexit, label %if.end.i.i.i.i.i.i180, !llvm.loop !52
 
@@ -26623,7 +26623,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %10
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit.loopexit.i.i.i.i, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 
@@ -28550,7 +28550,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %32
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %32
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %32
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.loopexit, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 
@@ -34775,7 +34775,7 @@ if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp.not.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %36
+  %cmp.not.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %36
   %exitcond14.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %36
   br i1 %exitcond14.not.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.loopexit, label %if.end.i.i.i.i, !llvm.loop !52
 
@@ -37113,7 +37113,7 @@ if.end.i.preheader.i.i.i.i.i.i.i:                 ; preds = %land.rhs.i.i.i.i.i.
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i.i, %11
+  %cmp.not.i.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i.i.i, %11
   %exitcond14.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, %11
   br i1 %exitcond14.not.i.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i.i.loopexit, label %if.end.i.i.i.i.i.i.i.i, !llvm.loop !52
 
@@ -37219,7 +37219,7 @@ if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i, %11
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i.i, %11
   %exitcond14.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %11
   br i1 %exitcond14.not.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i.loopexit, label %if.end.i.i.i.i.i.i.i, !llvm.loop !52
 
@@ -37473,7 +37473,7 @@ if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i.i, %10
   %exitcond14.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %10
   br i1 %exitcond14.not.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i.loopexit, label %if.end.i.i.i.i.i.i.i, !llvm.loop !52
 
@@ -37540,7 +37540,7 @@ if.end.i.preheader.i:                             ; preds = %lor.rhs
 
 for.cond.i:                                       ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.not.i = icmp ult i64 %indvars.iv.next.i, %17
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv.next.i, %17
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next.i, %17
   br i1 %exitcond14.not.i, label %lor.end, label %if.end.i.i, !llvm.loop !52
 
@@ -41765,7 +41765,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %i.021.i = phi i32 [ %add.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %str.addr.020.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %19, %for.cond.preheader.i ]
   %conv22.i = sext i8 %21 to i32
-  %cmp2.i = icmp ugt i32 %i.021.i, 249
+  %cmp2.i = icmp samesign ugt i32 %i.021.i, 249
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %for.body.i
@@ -41832,7 +41832,7 @@ for.body.i74:                                     ; preds = %for.cond.preheader.
   %i.021.i75 = phi i32 [ %add.i85, %for.inc.i83 ], [ 0, %for.cond.preheader.i72 ]
   %str.addr.020.i76 = phi ptr [ %incdec.ptr.i86, %for.inc.i83 ], [ %27, %for.cond.preheader.i72 ]
   %conv22.i77 = sext i8 %29 to i32
-  %cmp2.i78 = icmp ugt i32 %i.021.i75, 249
+  %cmp2.i78 = icmp samesign ugt i32 %i.021.i75, 249
   br i1 %cmp2.i78, label %if.then3.i90, label %if.end.i79
 
 if.then3.i90:                                     ; preds = %for.body.i74
@@ -68296,7 +68296,7 @@ if.end.i.preheader.i.i:                           ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %3
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %3
   %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %3
   br i1 %exitcond14.not.i.i, label %_ZNK7testing10TestResult6PassedEv.exit, label %if.end.i.i.i, !llvm.loop !52
 
@@ -68933,7 +68933,7 @@ if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %cmp.not.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i, %7
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %7
   %exitcond14.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %7
   br i1 %exitcond14.not.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.loopexit, label %if.end.i.i.i.i.i.i, !llvm.loop !52
 

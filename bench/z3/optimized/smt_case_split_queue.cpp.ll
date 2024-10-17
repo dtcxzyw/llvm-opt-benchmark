@@ -6566,7 +6566,7 @@ entry:
   %add.i.i = add i32 %mul.i.i, 2531011
   store i32 %add.i.i, ptr %m_random.i, align 4
   %2 = and i32 %add.i.i, 2147418112
-  %cmp = icmp ult i32 %2, 42926080
+  %cmp = icmp samesign ult i32 %2, 42926080
   br i1 %cmp, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry
@@ -7830,7 +7830,7 @@ if.end.i24:                                       ; preds = %for.cond
 
 _ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i24
   %retval.0.i26 = phi i64 [ %10, %if.end.i24 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i26
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i26
   br i1 %cmp, label %for.body, label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeEv.exit
@@ -8211,7 +8211,7 @@ for.inc19:                                        ; preds = %for.body11, %_ZN4he
   %78 = phi i32 [ %53, %for.body11 ], [ %.pre, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %79 = zext i32 %78 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next113, %79
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next113, %79
   br i1 %cmp10, label %for.body11, label %for.end21.loopexit, !llvm.loop !30
 
 for.end21.loopexit:                               ; preds = %for.inc19
@@ -9662,7 +9662,7 @@ for.inc:                                          ; preds = %.noexc35, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %m_num_args.i, align 8
   %25 = zext i32 %24 to i64
-  %cmp21 = icmp ult i64 %indvars.iv.next, %25
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %cmp21, label %for.body, label %if.end26, !llvm.loop !38
 
 if.end26:                                         ; preds = %for.inc, %for.cond.preheader, %if.then, %if.else

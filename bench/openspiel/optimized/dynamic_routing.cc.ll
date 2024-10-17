@@ -15201,7 +15201,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10set_p
   %.sroa.speculated81 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %.not72 = icmp sge i32 %24, %.sroa.speculated81
   %28 = add nuw nsw i32 %.sroa.speculated81, %22
-  %29 = icmp ult i32 %28, 7
+  %29 = icmp samesign ult i32 %28, 7
   %or.cond = select i1 %.not72, i1 true, i1 %29
   br i1 %or.cond, label %30, label %39
 
@@ -15778,7 +15778,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112b
 55:                                               ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE19transfer_n_backwardElllPSE_PSC_.exit.i
   %56 = zext i8 %52 to i64
   %57 = add nuw nsw i64 %33, 1
-  %58 = icmp ult i64 %57, %56
+  %58 = icmp samesign ult i64 %57, %56
   br i1 %58, label %.lr.ph.i28, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE13emplace_valueIJPS9_EEEvlPSC_DpOT_.exit
 
 .lr.ph.i28:                                       ; preds = %55
@@ -15842,7 +15842,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112b
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %92 = load i8, ptr %17, align 1
   %93 = zext i8 %92 to i64
-  %.not.not = icmp ult i64 %indvars.iv32, %93
+  %.not.not = icmp samesign ult i64 %indvars.iv32, %93
   br i1 %.not.not, label %86, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %86, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE13emplace_valueIJPS9_EEEvlPSC_DpOT_.exit

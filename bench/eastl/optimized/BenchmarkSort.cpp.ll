@@ -1076,7 +1076,7 @@ for.body.i.i295:                                  ; preds = %_ZN5eastl11adjust_h
   store i32 %62, ptr %add.ptr.i.i.i, align 4
   %sub.ptr.div.i.i.i296 = lshr exact i64 %sub.ptr.sub8.i.i, 2
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i296, -1
-  %cmp22.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i.i, 12
+  %cmp22.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i.i, 12
   br i1 %cmp22.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i295, %for.body.i.i.i.i.i
@@ -1631,7 +1631,7 @@ if.end.i.i:                                       ; preds = %for.body3.i.i484, %
   br i1 %cmp9.i.i, label %for.inc90.i.i, label %if.else.i.i479
 
 if.else.i.i479:                                   ; preds = %if.end.i.i
-  %cmp11.i.i = icmp ugt i32 %j.061.i.i, 23
+  %cmp11.i.i = icmp samesign ugt i32 %j.061.i.i, 23
   store i32 0, ptr %bucketPosition.i.i, align 16
   br i1 %cmp11.i.i, label %for.body17.i.i, label %for.body48.i.i
 
@@ -1718,7 +1718,7 @@ for.inc90.i.i:                                    ; preds = %if.end84.i.i, %if.e
   %srcFirst.1.i.i = phi ptr [ %buffer.addr.064.i.i, %if.end84.i.i ], [ %srcFirst.062.i.i, %if.end.i.i ]
   %buffer.addr.1.i.i = phi ptr [ %srcFirst.062.i.i, %if.end84.i.i ], [ %buffer.addr.064.i.i, %if.end.i.i ]
   %last.addr.1.i.i = phi ptr [ %add.ptr.i.i480, %if.end84.i.i ], [ %last.addr.065.i.i, %if.end.i.i ]
-  %cmp.i.i481 = icmp ult i32 %j.061.i.i, 24
+  %cmp.i.i481 = icmp samesign ult i32 %j.061.i.i, 24
   br i1 %cmp.i.i481, label %for.body.i.i473, label %for.end92.i.i, !llvm.loop !37
 
 for.end92.i.i:                                    ; preds = %for.inc90.i.i
@@ -1962,7 +1962,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i561
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i560, label %while.body.i.i.i.i, !llvm.loop !42
 
 if.then2.i.i560:                                  ; preds = %if.end4.i.i.i.i
@@ -2077,7 +2077,7 @@ delete.notnull:                                   ; preds = %invoke.cont182
 
 for.cond190.preheader:                            ; preds = %delete.notnull, %for.inc231
   %indvars.iv2339 = phi i64 [ 0, %delete.notnull ], [ %indvars.iv.next2340, %for.inc231 ]
-  %160 = icmp ult i64 %indvars.iv2339, 4
+  %160 = icmp samesign ult i64 %indvars.iv2339, 4
   %switch.gep2492 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2339
   br label %for.body192
 
@@ -3577,7 +3577,7 @@ for.cond3.for.cond.loopexit_crit_edge.split.us35.i: ; preds = %for.inc.us.i
 
 for.cond.loopexit.i908:                           ; preds = %for.body5.us.preheader.i, %for.body.i900
   %.us-phi22.i = phi i32 [ %381, %for.body5.us.preheader.i ], [ %.us-phi2325.i, %for.body.i900 ]
-  %cmp.i909 = icmp ugt i64 %spec.store.select.i906, 1
+  %cmp.i909 = icmp samesign ugt i64 %spec.store.select.i906, 1
   br i1 %cmp.i909, label %for.body.i900, label %invoke.cont387.invoke, !llvm.loop !67
 
 for.body.i900:                                    ; preds = %for.cond.loopexit.i908, %for.body.preheader.i899
@@ -4500,7 +4500,7 @@ while.body.i.i.i.i1094:                           ; preds = %while.body.i.i.i.i1
   br i1 %cmp2.not.i.i.i.i1100, label %if.end4.i.i.i.i1102, label %if.else.i.i1101
 
 if.end4.i.i.i.i1102:                              ; preds = %while.body.i.i.i.i1094
-  %cmp1.not.i.i.i.i1103 = icmp ult i64 %storemerge27.i.i.in.in.i.i1095, 3
+  %cmp1.not.i.i.i.i1103 = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i1095, 3
   br i1 %cmp1.not.i.i.i.i1103, label %if.then2.i.i1090, label %while.body.i.i.i.i1094, !llvm.loop !78
 
 if.then2.i.i1090:                                 ; preds = %if.end4.i.i.i.i1102
@@ -4638,7 +4638,7 @@ lpad250.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body451.us.
 
 for.cond449.preheader:                            ; preds = %delete.notnull442, %for.inc490.split
   %indvars.iv2352 = phi i64 [ %indvars.iv.next2353, %for.inc490.split ], [ 0, %delete.notnull442 ]
-  %522 = icmp ult i64 %indvars.iv2352, 4
+  %522 = icmp samesign ult i64 %indvars.iv2352, 4
   %switch.gep2498 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2352
   br label %for.body451
 
@@ -5521,7 +5521,7 @@ for.body.i.i1404:                                 ; preds = %_ZN5eastl8pop_heapI
   store i32 %call1.val.i.i.i, ptr %add.ptr.i.i.i1405, align 4
   %sub.ptr.div.i.i.i1406 = lshr exact i64 %sub.ptr.sub10.i.i, 2
   %sub.i.i.i1407 = add nsw i64 %sub.ptr.div.i.i.i1406, -1
-  %cmp25.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub10.i.i, 12
+  %cmp25.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub10.i.i, 12
   br i1 %cmp25.i.i.i.i.i, label %for.body.i.i.i.i.i1419, label %for.end.i.i.i.i.i1408
 
 for.body.i.i.i.i.i1419:                           ; preds = %for.body.i.i1404, %for.body.i.i.i.i.i1419
@@ -6169,7 +6169,7 @@ if.end.i.i1692:                                   ; preds = %for.body3.i.i1735, 
   br i1 %cmp9.i.i1703, label %for.inc92.i.i, label %if.else.i.i1705
 
 if.else.i.i1705:                                  ; preds = %if.end.i.i1692
-  %cmp11.i.i1706 = icmp ugt i32 %j.077.i.i, 23
+  %cmp11.i.i1706 = icmp samesign ugt i32 %j.077.i.i, 23
   store i32 0, ptr %bucketPosition.i.i1690, align 16
   br i1 %cmp11.i.i1706, label %for.body17.i.i1718, label %for.body49.i.i
 
@@ -6271,7 +6271,7 @@ for.inc92.i.i:                                    ; preds = %if.end86.i.i, %if.e
   %srcFirst.1.i.i1712 = phi ptr [ %buffer.addr.080.i.i, %if.end86.i.i ], [ %srcFirst.078.i.i, %if.end.i.i1692 ]
   %buffer.addr.1.i.i1713 = phi ptr [ %srcFirst.078.i.i, %if.end86.i.i ], [ %buffer.addr.080.i.i, %if.end.i.i1692 ]
   %last.addr.1.i.i1714 = phi ptr [ %add.ptr.i.i1711, %if.end86.i.i ], [ %last.addr.081.i.i, %if.end.i.i1692 ]
-  %cmp.i.i1715 = icmp ult i32 %j.077.i.i, 24
+  %cmp.i.i1715 = icmp samesign ult i32 %j.077.i.i, 24
   br i1 %cmp.i.i1715, label %for.body.i.i1691, label %for.end94.i.i, !llvm.loop !115
 
 for.end94.i.i:                                    ; preds = %for.inc92.i.i
@@ -6542,7 +6542,7 @@ while.body.i.i.i.i1808:                           ; preds = %while.body.i.i.i.i1
   br i1 %cmp2.not.i.i.i.i1814, label %if.end4.i.i.i.i1818, label %if.then.i.i.i1815
 
 if.end4.i.i.i.i1818:                              ; preds = %while.body.i.i.i.i1808
-  %cmp1.not.i.i.i.i1819 = icmp ult i64 %storemerge27.i.i.in.in.i.i1809, 3
+  %cmp1.not.i.i.i.i1819 = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i1809, 3
   br i1 %cmp1.not.i.i.i.i1819, label %if.then2.i.i1806, label %while.body.i.i.i.i1808, !llvm.loop !121
 
 if.then.i.i.i1815:                                ; preds = %while.body.i.i.i.i1808
@@ -6716,7 +6716,7 @@ lpad511.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body716.us.
 
 for.cond714.preheader:                            ; preds = %delete.notnull707, %for.inc755.split
   %indvars.iv2368 = phi i64 [ %indvars.iv.next2369, %for.inc755.split ], [ 0, %delete.notnull707 ]
-  %651 = icmp ult i64 %indvars.iv2368, 4
+  %651 = icmp samesign ult i64 %indvars.iv2368, 4
   %switch.gep2504 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2368
   br label %for.body716
 
@@ -9808,7 +9808,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
 
 for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i, %for.inc265.i
   %i.0518.i = phi i32 [ %inc266.i, %for.inc265.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ]
-  %12 = icmp ult i32 %i.0518.i, 4
+  %12 = icmp samesign ult i32 %i.0518.i, 4
   %13 = zext nneg i32 %i.0518.i to i64
   %switch.gep55 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %13
   br label %for.body23.lr.ph.i
@@ -10497,7 +10497,7 @@ for.body.i.i198.i:                                ; preds = %for.body.i.i198.i.p
   store i32 %68, ptr %add.ptr.i.i.i.i, align 4
   %sub.ptr.div.i.i.i199.i = lshr exact i64 %sub.ptr.sub8.i.i.i, 2
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i199.i, -1
-  %cmp22.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i.i.i, 12
+  %cmp22.i.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i.i.i, 12
   br i1 %cmp22.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i198.i, %for.body.i.i.i.i.i.i
@@ -11287,7 +11287,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body219.i, %if.
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i397.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then2.i.i396.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 if.then2.i.i396.i:                                ; preds = %if.end4.i.i.i.i.i, %for.body219.i
@@ -11662,7 +11662,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i91:         ; preds = %_ZN2EA4StdC9Stopwat
 
 for.body.i97:                                     ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i91, %for.inc262.i134
   %i.0744.i = phi i32 [ %inc263.i, %for.inc262.i134 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i91 ]
-  %191 = icmp ult i32 %i.0744.i, 4
+  %191 = icmp samesign ult i32 %i.0744.i, 4
   %192 = zext nneg i32 %i.0744.i to i64
   %switch.gep61 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %192
   br label %for.body20.lr.ph.i
@@ -12945,7 +12945,7 @@ for.body5.us.preheader.i.us.i:                    ; preds = %for.body.i.us.i
 for.cond.loopexit.i.us.i186:                      ; preds = %for.body5.us.preheader.i.us.i, %for.body.i.us.i
   %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted21.i.us772.i = phi i32 [ %371, %for.body5.us.preheader.i.us.i ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted21.i.us773.i, %for.body.i.us.i ]
   %.us-phi22.i.us.i = phi i32 [ %371, %for.body5.us.preheader.i.us.i ], [ %.us-phi2325.i.us.i, %for.body.i.us.i ]
-  %cmp.i268.us.i = icmp ugt i64 %spec.store.select.i.us.i185, 1
+  %cmp.i268.us.i = icmp samesign ugt i64 %spec.store.select.i.us.i185, 1
   br i1 %cmp.i268.us.i, label %for.body.i.us.i, label %_ZN5eastl9comb_sortIPiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_T0_.exit.us.i, !llvm.loop !67
 
 for.body.us.i269.us.i:                            ; preds = %for.body141.us.i, %for.cond.loopexit.us.i.us.i
@@ -13923,7 +13923,7 @@ while.body.i.i.i.i.i152:                          ; preds = %for.body216.i, %if.
   br i1 %cmp2.not.i.i.i.i.i158, label %if.end4.i.i.i.i.i159, label %if.else.i.i404.i
 
 if.end4.i.i.i.i.i159:                             ; preds = %while.body.i.i.i.i.i152
-  %cmp1.not.i.i.i.i.i160 = icmp ult i64 %storemerge27.i.i.in.in.i.i.i153, 3
+  %cmp1.not.i.i.i.i.i160 = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i153, 3
   br i1 %cmp1.not.i.i.i.i.i160, label %if.then2.i.i403.i, label %while.body.i.i.i.i.i152, !llvm.loop !78
 
 if.then2.i.i403.i:                                ; preds = %if.end4.i.i.i.i.i159, %for.body216.i
@@ -15069,7 +15069,7 @@ for.body.i.i225.i:                                ; preds = %_ZN5eastl8pop_heapI
   store i32 %call1.val.i.i.i.i, ptr %add.ptr.i.i.i.i458, align 4
   %sub.ptr.div.i.i.i226.i = lshr exact i64 %sub.ptr.sub10.i.i.i, 2
   %sub.i.i.i.i459 = add nsw i64 %sub.ptr.div.i.i.i226.i, -1
-  %cmp25.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub10.i.i.i, 12
+  %cmp25.i.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub10.i.i.i, 12
   br i1 %cmp25.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i471, label %for.end.i.i.i.i.i.i460
 
 for.body.i.i.i.i.i.i471:                          ; preds = %for.body.i.i225.i, %for.body.i.i.i.i.i.i471
@@ -16001,7 +16001,7 @@ while.body.i.i.i.i.i384:                          ; preds = %for.body218.i, %if.
   br i1 %cmp2.not.i.i.i.i.i390, label %if.end4.i.i.i.i.i391, label %if.then.i.i.i447.i
 
 if.end4.i.i.i.i.i391:                             ; preds = %while.body.i.i.i.i.i384
-  %cmp1.not.i.i.i.i450.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i385, 3
+  %cmp1.not.i.i.i.i450.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i385, 3
   br i1 %cmp1.not.i.i.i.i450.i, label %if.then2.i.i446.i, label %while.body.i.i.i.i.i384, !llvm.loop !121
 
 if.then.i.i.i447.i:                               ; preds = %while.body.i.i.i.i.i384
@@ -17504,7 +17504,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div11, %div.i5557
+  %cmp23.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -21421,7 +21421,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl9make_heap
   store i64 %17, ptr %add.ptr.i.i20.i, align 4
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub8.i.i, 3
   %sub.i.i21.i = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp24.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i.i, 24
+  %cmp24.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i.i, 24
   br i1 %cmp24.i.i.i.i.i, label %for.body.i.i.i.i26.i, label %for.end.i.i.i.i.i
 
 for.body.i.i.i.i26.i:                             ; preds = %for.body.i.i, %for.body.i.i.i.i26.i
@@ -22329,7 +22329,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   store i32 %20, ptr %add.ptr.i.i14, align 4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 2
   %sub.i.i15 = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp22.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i, 12
+  %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i, 12
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i20, label %for.end.i.i.i.i
 
 for.body.i.i.i.i20:                               ; preds = %for.body.i, %for.body.i.i.i.i20
@@ -24882,7 +24882,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   store i32 %20, ptr %add.ptr.i.i17, align 4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 2
   %sub.i.i18 = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp22.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i, 12
+  %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i, 12
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i23, label %for.end.i.i.i.i
 
 for.body.i.i.i.i23:                               ; preds = %for.body.i, %for.body.i.i.i.i23
@@ -25948,7 +25948,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div11, %div.i5557
+  %cmp23.i = icmp samesign ult i64 %div11, %div.i5557
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -27731,7 +27731,7 @@ for.body.i:                                       ; preds = %for.end, %_ZN5eastl
   store i32 %20, ptr %add.ptr.i.i14, align 4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 2
   %sub.i.i15 = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp22.i.i.i.i = icmp ugt i64 %sub.ptr.sub8.i, 12
+  %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub8.i, 12
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i20, label %for.end.i.i.i.i
 
 for.body.i.i.i.i20:                               ; preds = %for.body.i, %for.body.i.i.i.i20
@@ -31273,7 +31273,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl9make_heap
   store i32 %call1.val.i.i.i, ptr %add.ptr.i.i19.i, align 4
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub10.i.i, 2
   %sub.i.i20.i = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp24.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub10.i.i, 12
+  %cmp24.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub10.i.i, 12
   br i1 %cmp24.i.i.i.i.i, label %for.body.i.i.i.i25.i, label %for.end.i.i.i.i.i
 
 for.body.i.i.i.i25.i:                             ; preds = %for.body.i.i, %for.body.i.i.i.i25.i
@@ -31579,7 +31579,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl9make_heap
   store i32 %call1.val.i.i.i, ptr %add.ptr.i.i17.i, align 4
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub10.i.i, 2
   %sub.i.i18.i = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp25.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub10.i.i, 12
+  %cmp25.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub10.i.i, 12
   br i1 %cmp25.i.i.i.i.i, label %for.body.i.i.i.i23.i, label %for.end.i.i.i.i.i
 
 for.body.i.i.i.i23.i:                             ; preds = %for.body.i.i, %for.body.i.i.i.i23.i

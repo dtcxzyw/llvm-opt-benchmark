@@ -23,22 +23,22 @@ if.end:                                           ; preds = %entry
   %shr = lshr i32 %value, 16
   %spec.select = select i1 %cmp1, i32 %shr, i32 %value
   %spec.select17 = select i1 %cmp1, i8 16, i8 0
-  %cmp5 = icmp ugt i32 %spec.select, 255
+  %cmp5 = icmp samesign ugt i32 %spec.select, 255
   %shr7 = lshr i32 %spec.select, 8
   %0 = or disjoint i8 %spec.select17, 8
   %value.addr.1 = select i1 %cmp5, i32 %shr7, i32 %spec.select
   %bit.1 = select i1 %cmp5, i8 %0, i8 %spec.select17
-  %cmp12 = icmp ugt i32 %value.addr.1, 15
+  %cmp12 = icmp samesign ugt i32 %value.addr.1, 15
   %shr14 = lshr i32 %value.addr.1, 4
   %narrow = or disjoint i8 %bit.1, 4
   %value.addr.2 = select i1 %cmp12, i32 %shr14, i32 %value.addr.1
   %bit.2 = select i1 %cmp12, i8 %narrow, i8 %bit.1
-  %cmp19 = icmp ugt i32 %value.addr.2, 3
+  %cmp19 = icmp samesign ugt i32 %value.addr.2, 3
   %shr21 = lshr i32 %value.addr.2, 2
   %narrow16 = or disjoint i8 %bit.2, 2
   %value.addr.3 = select i1 %cmp19, i32 %shr21, i32 %value.addr.2
   %bit.3 = select i1 %cmp19, i8 %narrow16, i8 %bit.2
-  %cmp26 = icmp ugt i32 %value.addr.3, 1
+  %cmp26 = icmp samesign ugt i32 %value.addr.3, 1
   %add30 = zext i1 %cmp26 to i8
   %bit.4 = add nuw nsw i8 %bit.3, %add30
   br label %return
@@ -71,7 +71,7 @@ while.body:                                       ; preds = %entry, %while.body
   %3 = load i32, ptr %arrayidx3, align 4
   %cmp4.not = icmp slt i32 %ch, %3
   %spec.select9 = select i1 %cmp4.not, i32 %index.112, i32 %add
-  %cmp1 = icmp ugt i32 %probe.011, 3
+  %cmp1 = icmp samesign ugt i32 %probe.011, 3
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry
@@ -176,7 +176,7 @@ while.body.i:                                     ; preds = %if.end35, %while.bo
   %14 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp slt i32 %ch.0, %14
   %spec.select9.i = select i1 %cmp4.not.i, i32 %index.112.i, i32 %add.i
-  %cmp1.i = icmp ugt i32 %probe.011.i, 3
+  %cmp1.i = icmp samesign ugt i32 %probe.011.i, 3
   br i1 %cmp1.i, label %while.body.i, label %_ZN6icu_759ScriptRun12getPairIndexEi.exit, !llvm.loop !5
 
 _ZN6icu_759ScriptRun12getPairIndexEi.exit:        ; preds = %while.body.i, %if.end35

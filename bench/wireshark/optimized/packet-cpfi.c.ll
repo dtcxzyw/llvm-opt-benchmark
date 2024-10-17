@@ -285,7 +285,7 @@ define internal i32 @dissect_cpfi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %46 = tail call i32 @tvb_get_ntohl(ptr noundef %39, i32 noundef 0) #6
   %47 = lshr i32 %46, 8
   %48 = and i32 %47, 1023
-  %49 = icmp ugt i32 %48, 895
+  %49 = icmp samesign ugt i32 %48, 895
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45
@@ -328,7 +328,7 @@ define internal i32 @dissect_cpfi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0.i = phi i32 [ 0, %50 ], [ %72, %56 ]
   %75 = lshr i32 %46, 18
   %76 = and i32 %75, 1023
-  %77 = icmp ugt i32 %76, 895
+  %77 = icmp samesign ugt i32 %76, 895
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74

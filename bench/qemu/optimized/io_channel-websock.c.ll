@@ -2294,7 +2294,7 @@ if.then56.i:                                      ; preds = %if.end54.i
   br label %return
 
 if.end57.i:                                       ; preds = %if.end54.i
-  %cmp58.i = icmp ult i8 %11, 126
+  %cmp58.i = icmp samesign ult i8 %11, 126
   br i1 %cmp58.i, label %if.end99.i, label %if.else62.i
 
 if.else62.i:                                      ; preds = %if.end57.i

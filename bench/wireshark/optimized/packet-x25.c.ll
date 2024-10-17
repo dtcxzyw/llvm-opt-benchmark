@@ -2125,7 +2125,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnu
   %.06679 = phi ptr [ %.167, %49 ], [ %9, %4 ]
   %.06878 = phi ptr [ %.169, %49 ], [ %7, %4 ]
   %.07077 = phi i32 [ %50, %49 ], [ 0, %4 ]
-  %27 = icmp ult i32 %.07077, %12
+  %27 = icmp samesign ult i32 %.07077, %12
   %28 = and i32 %.07077, 1
   %.not76 = icmp eq i32 %28, 0
   br i1 %27, label %29, label %39
@@ -2267,7 +2267,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonn
   %.07593 = phi ptr [ %.176, %49 ], [ %10, %22 ]
   %.07792 = phi ptr [ %.178, %49 ], [ %8, %22 ]
   %.07991 = phi i32 [ %50, %49 ], [ 0, %22 ]
-  %27 = icmp ult i32 %.07991, %14
+  %27 = icmp samesign ult i32 %.07991, %14
   %28 = and i32 %.07991, 1
   %.not90 = icmp eq i32 %28, 0
   br i1 %27, label %29, label %39
@@ -2711,7 +2711,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture nound
   %208 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %207) #4
   %209 = zext i8 %208 to i32
   %210 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %169, i32 noundef %189, ptr noundef %2, i32 noundef %192, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.502, i32 noundef %194, i32 noundef %199, i32 noundef %204, i32 noundef %209) #4
-  %211 = icmp ult i32 %201, %176
+  %211 = icmp samesign ult i32 %201, %176
   br i1 %211, label %.preheader, label %.loopexit, !llvm.loop !7
 
 212:                                              ; preds = %185
@@ -2734,7 +2734,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture nound
   %223 = add i32 %222, %221
   %224 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %220, ptr noundef %2, i32 noundef %223, i32 noundef 4, i32 noundef 0) #4
   %225 = add nuw nsw i32 %.0354430, 8
-  %226 = icmp ult i32 %225, %176
+  %226 = icmp samesign ult i32 %225, %176
   br i1 %226, label %.preheader417, label %.loopexit, !llvm.loop !8
 
 227:                                              ; preds = %185
@@ -2796,14 +2796,14 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture nound
   %264 = lshr i8 %261, 4
   %265 = or disjoint i8 %264, 48
   store i8 %265, ptr %262, align 1
-  %266 = icmp ugt i8 %265, 57
+  %266 = icmp samesign ugt i8 %265, 57
   br i1 %266, label %.sink.split.i, label %271
 
 267:                                              ; preds = %.lr.ph.i
   %268 = and i8 %261, 15
   %269 = or disjoint i8 %268, 48
   store i8 %269, ptr %262, align 1
-  %270 = icmp ugt i8 %269, 57
+  %270 = icmp samesign ugt i8 %269, 57
   br i1 %270, label %.sink.split.i, label %271
 
 .sink.split.i:                                    ; preds = %267, %263
@@ -2842,7 +2842,7 @@ dte_address_util.exit:                            ; preds = %271, %243
   %283 = add nuw nsw i32 %.0429, 2
   %284 = add i32 %283, %282
   %285 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %281, ptr noundef %2, i32 noundef %284, i32 noundef 2, i32 noundef 0) #4
-  %286 = icmp ult i32 %283, %176
+  %286 = icmp samesign ult i32 %283, %176
   br i1 %286, label %.preheader419, label %.loopexit, !llvm.loop !10
 
 287:                                              ; preds = %185
@@ -2885,14 +2885,14 @@ dte_address_util.exit:                            ; preds = %271, %243
   %311 = lshr i8 %308, 4
   %312 = or disjoint i8 %311, 48
   store i8 %312, ptr %309, align 1
-  %313 = icmp ugt i8 %312, 57
+  %313 = icmp samesign ugt i8 %312, 57
   br i1 %313, label %.sink.split.i384, label %318
 
 314:                                              ; preds = %.lr.ph.i378
   %315 = and i8 %308, 15
   %316 = or disjoint i8 %315, 48
   store i8 %316, ptr %309, align 1
-  %317 = icmp ugt i8 %316, 57
+  %317 = icmp samesign ugt i8 %316, 57
   br i1 %317, label %.sink.split.i384, label %318
 
 .sink.split.i384:                                 ; preds = %314, %310
@@ -2971,14 +2971,14 @@ dte_address_util.exit387:                         ; preds = %318, %289
   %359 = lshr i8 %356, 4
   %360 = or disjoint i8 %359, 48
   store i8 %360, ptr %357, align 1
-  %361 = icmp ugt i8 %360, 57
+  %361 = icmp samesign ugt i8 %360, 57
   br i1 %361, label %.sink.split.i397, label %366
 
 362:                                              ; preds = %.lr.ph.i391
   %363 = and i8 %356, 15
   %364 = or disjoint i8 %363, 48
   store i8 %364, ptr %357, align 1
-  %365 = icmp ugt i8 %364, 57
+  %365 = icmp samesign ugt i8 %364, 57
   br i1 %365, label %.sink.split.i397, label %366
 
 .sink.split.i397:                                 ; preds = %362, %358
@@ -3080,14 +3080,14 @@ dte_address_util.exit400:                         ; preds = %366, %337
   %425 = lshr i8 %422, 4
   %426 = or disjoint i8 %425, 48
   store i8 %426, ptr %423, align 1
-  %427 = icmp ugt i8 %426, 57
+  %427 = icmp samesign ugt i8 %426, 57
   br i1 %427, label %.sink.split.i410, label %432
 
 428:                                              ; preds = %.lr.ph.i404
   %429 = and i8 %422, 15
   %430 = or disjoint i8 %429, 48
   store i8 %430, ptr %423, align 1
-  %431 = icmp ugt i8 %430, 57
+  %431 = icmp samesign ugt i8 %430, 57
   br i1 %431, label %.sink.split.i410, label %432
 
 .sink.split.i410:                                 ; preds = %428, %424

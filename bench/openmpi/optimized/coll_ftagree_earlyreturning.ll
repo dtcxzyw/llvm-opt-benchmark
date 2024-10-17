@@ -6831,7 +6831,7 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   %.0.ph.be.in = trunc i64 %indvars.iv to i32
   %.0.ph.be = add nsw i32 %.0.ph.be.in, 1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %46 = icmp ult i64 %indvars.iv.next126, %20
+  %46 = icmp samesign ult i64 %indvars.iv.next126, %20
   %47 = icmp slt i32 %.056.ph.be, %1
   %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.lr.ph.split.preheader, label %.preheader64.loopexit105, !llvm.loop !51

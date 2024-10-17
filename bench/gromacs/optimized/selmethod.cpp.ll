@@ -381,27 +381,27 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 16:                                               ; preds = %14
   %17 = icmp sgt i32 %2, 0
-  br i1 %17, label %.lr.ph264.preheader, label %._crit_edge
+  br i1 %17, label %.lr.ph262.preheader, label %._crit_edge
 
-.lr.ph264.preheader:                              ; preds = %16
-  %wide.trip.count276 = zext nneg i32 %2 to i64
-  br label %.lr.ph264
+.lr.ph262.preheader:                              ; preds = %16
+  %wide.trip.count274 = zext nneg i32 %2 to i64
+  br label %.lr.ph262
 
-.lr.ph264:                                        ; preds = %.lr.ph264.preheader, %164
-  %indvars.iv274 = phi i64 [ 0, %.lr.ph264.preheader ], [ %indvars.iv.next275, %164 ]
-  %.0193263 = phi i1 [ true, %.lr.ph264.preheader ], [ %.1, %164 ]
-  %18 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv274
+.lr.ph262:                                        ; preds = %.lr.ph262.preheader, %164
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph262.preheader ], [ %indvars.iv.next273, %164 ]
+  %.0193261 = phi i1 [ true, %.lr.ph262.preheader ], [ %.1, %164 ]
+  %18 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv272
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  %21 = icmp ne i64 %indvars.iv274, 0
+  %21 = icmp ne i64 %indvars.iv272, 0
   %or.cond5 = and i1 %21, %20
   br i1 %or.cond5, label %22, label %.preheader250
 
-.preheader250:                                    ; preds = %.lr.ph264
-  %.not265 = icmp eq i64 %indvars.iv274, 0
-  br i1 %.not265, label %.loopexit251, label %.lr.ph
+.preheader250:                                    ; preds = %.lr.ph262
+  %.not263 = icmp eq i64 %indvars.iv272, 0
+  br i1 %.not263, label %.loopexit251, label %.lr.ph
 
-22:                                               ; preds = %.lr.ph264
+22:                                               ; preds = %.lr.ph262
   call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8)
   br label %164
 
@@ -425,11 +425,11 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 31:                                               ; preds = %26, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv274
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv272
   br i1 %exitcond.not, label %.loopexit251, label %.lr.ph, !llvm.loop !5
 
 .loopexit251:                                     ; preds = %31, %.preheader250, %29
-  %.2 = phi i1 [ false, %29 ], [ %.0193263, %.preheader250 ], [ %.0193263, %31 ]
+  %.2 = phi i1 [ false, %29 ], [ %.0193261, %.preheader250 ], [ %.0193261, %31 ]
   %32 = getelementptr inbounds i8, ptr %18, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
@@ -493,11 +493,11 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 60:                                               ; preds = %57
   %61 = load ptr, ptr %18, align 8
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %61, ptr noundef nonnull @.str.13)
-  %.pre278 = load i32, ptr %32, align 8
+  %.pre276 = load i32, ptr %32, align 8
   br label %62
 
 62:                                               ; preds = %60, %57, %54
-  %63 = phi i32 [ %55, %54 ], [ %.pre278, %60 ], [ %55, %57 ]
+  %63 = phi i32 [ %55, %54 ], [ %.pre276, %60 ], [ %55, %57 ]
   %.5 = phi i1 [ %.4, %54 ], [ false, %60 ], [ %.4, %57 ]
   %64 = and i32 %63, 32
   %.not221 = icmp eq i32 %64, 0
@@ -506,11 +506,11 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 65:                                               ; preds = %62
   %66 = load ptr, ptr %18, align 8
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %66, ptr noundef nonnull @.str.14)
-  %.pre279 = load i32, ptr %32, align 8
+  %.pre277 = load i32, ptr %32, align 8
   br label %67
 
 67:                                               ; preds = %62, %65, %39
-  %68 = phi i32 [ %.pre279, %65 ], [ %63, %62 ], [ %40, %39 ]
+  %68 = phi i32 [ %.pre277, %65 ], [ %63, %62 ], [ %40, %39 ]
   %.3 = phi i1 [ false, %65 ], [ %.5, %62 ], [ %.2, %39 ]
   %69 = and i32 %68, 48
   %or.cond245.not = icmp eq i32 %69, 48
@@ -519,11 +519,11 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 70:                                               ; preds = %67
   %71 = load ptr, ptr %18, align 8
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %71, ptr noundef nonnull @.str.15)
-  %.pre280 = load i32, ptr %32, align 8
+  %.pre278 = load i32, ptr %32, align 8
   br label %72
 
 72:                                               ; preds = %70, %67
-  %73 = phi i32 [ %.pre280, %70 ], [ %68, %67 ]
+  %73 = phi i32 [ %.pre278, %70 ], [ %68, %67 ]
   %.6 = phi i1 [ false, %70 ], [ %.3, %67 ]
   %74 = and i32 %73, 128
   %.not224 = icmp eq i32 %74, 0
@@ -680,8 +680,8 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %164
 
 .preheader:                                       ; preds = %138, %148
-  %indvars.iv271 = phi i64 [ %indvars.iv.next272, %148 ], [ 1, %138 ]
-  %143 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv271
+  %indvars.iv269 = phi i64 [ %indvars.iv.next270, %148 ], [ 1, %138 ]
+  %143 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv269
   %144 = load i8, ptr %143, align 1
   switch i8 %144, label %145 [
     i8 0, label %.loopexit.thread
@@ -695,20 +695,20 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not239, label %.loopexit, label %148
 
 148:                                              ; preds = %.preheader, %145
-  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   br label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %145
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %136, ptr noundef nonnull @.str.26)
-  %.pre281 = load ptr, ptr %18, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre281, i64 %indvars.iv271
-  %.pre282 = load i8, ptr %.phi.trans.insert, align 1
-  %149 = icmp eq i8 %.pre282, 0
+  %.pre279 = load ptr, ptr %18, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre279, i64 %indvars.iv269
+  %.pre280 = load i8, ptr %.phi.trans.insert, align 1
+  %149 = icmp eq i8 %.pre280, 0
   br i1 %149, label %.loopexit.thread, label %164
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.13285 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
-  %150 = phi ptr [ %.pre281, %.loopexit ], [ %136, %.preheader ]
+  %.13283 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
+  %150 = phi ptr [ %.pre279, %.loopexit ], [ %136, %.preheader ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %151 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %160
@@ -761,10 +761,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %194
 
 164:                                              ; preds = %157, %158, %.loopexit, %135, %142, %22
-  %.1 = phi i1 [ false, %22 ], [ %.12, %135 ], [ false, %.loopexit ], [ false, %158 ], [ %.13285, %157 ], [ false, %142 ]
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %exitcond277.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count276
-  br i1 %exitcond277.not, label %._crit_edge, label %.lr.ph264, !llvm.loop !8
+  %.1 = phi i1 [ false, %22 ], [ %.12, %135 ], [ false, %.loopexit ], [ false, %158 ], [ %.13283, %157 ], [ false, %142 ]
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count274
+  br i1 %exitcond275.not, label %._crit_edge, label %.lr.ph262, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %164, %.thread, %16
   %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.1, %164 ]

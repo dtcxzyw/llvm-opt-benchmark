@@ -5967,7 +5967,7 @@ for.end.if.end15_crit_edge:                       ; preds = %for.end
 
 if.then8:                                         ; preds = %for.inc, %for.end
   %index.0.lcssa27 = phi i64 [ %index.0.lcssa, %for.end ], [ %consts.val, %for.inc ]
-  %cmp9 = icmp ugt i64 %consts.val, 2147483645
+  %cmp9 = icmp samesign ugt i64 %consts.val, 2147483645
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then8

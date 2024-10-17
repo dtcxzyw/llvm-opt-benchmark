@@ -5484,14 +5484,14 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i258:    ; preds = %_ZNK5clang17Diagnos
 
 196:                                              ; preds = %193
   %197 = tail call i64 @_ZN5clang28StructuralEquivalenceContext30findUntaggedStructOrUnionIndexEPNS_10RecordDeclE(ptr noundef nonnull %1)
-  %.not537 = icmp ult i64 %197, 4294967296
+  %.not537 = icmp samesign ult i64 %197, 4294967296
   br i1 %.not537, label %.critedge, label %198
 
 198:                                              ; preds = %196
   %.sroa.0510.0.extract.trunc = trunc i64 %197 to i32
   %199 = tail call i64 @_ZN5clang28StructuralEquivalenceContext30findUntaggedStructOrUnionIndexEPNS_10RecordDeclE(ptr noundef nonnull %2)
   %.sroa.0509.0.extract.trunc = trunc i64 %199 to i32
-  %.not538 = icmp ult i64 %199, 4294967296
+  %.not538 = icmp samesign ult i64 %199, 4294967296
   %.not = icmp eq i32 %.sroa.0510.0.extract.trunc, %.sroa.0509.0.extract.trunc
   %or.cond527 = or i1 %.not538, %.not
   br i1 %or.cond527, label %.critedge, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
@@ -9283,7 +9283,7 @@ define linkonce_odr hidden void @_ZNK5clang17ConstantArrayType7getSizeEv(ptr dea
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %21, align 8
-  %22 = icmp ult i32 %18, 65
+  %22 = icmp samesign ult i32 %18, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %16
@@ -9976,7 +9976,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %33 = lshr i64 %32, 32
   %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 2147483647
-  %36 = icmp ult i32 %35, 65
+  %36 = icmp samesign ult i32 %35, 65
   br i1 %36, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %31
@@ -10022,7 +10022,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %_ZN4llvm5APIntD2E
   %57 = lshr i64 %56, 32
   %58 = trunc nuw i64 %57 to i32
   %59 = and i32 %58, 2147483647
-  %60 = icmp ult i32 %59, 65
+  %60 = icmp samesign ult i32 %59, 65
   br i1 %60, label %_ZN4llvm5APIntD2Ev.exit.i41, label %_ZN4llvm5APIntD2Ev.exit1.i35
 
 _ZN4llvm5APIntD2Ev.exit.i41:                      ; preds = %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit

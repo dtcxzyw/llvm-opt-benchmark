@@ -106,7 +106,7 @@ define internal fastcc void @do_unexpected_cp(ptr nocapture noundef readonly %0,
   %9 = select i1 %8, ptr @.str.4, ptr @.str.3
   %10 = and i64 %1, 32767
   %11 = and i64 %1, 32766
-  %12 = icmp ugt i64 %11, 5
+  %12 = icmp samesign ugt i64 %11, 5
   %13 = select i1 %12, i64 0, i64 %10
   %14 = getelementptr [6 x [10 x i8]], ptr @cp_err, i64 0, i64 %13
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %9, ptr noundef %14) #6
@@ -139,7 +139,7 @@ define internal fastcc void @do_kernel_cp_fault(ptr noundef %0, i64 noundef %1) 
   %11 = icmp eq i64 %10, 0
   %12 = select i1 %11, ptr @.str.4, ptr @.str.3
   %13 = and i64 %1, 32766
-  %14 = icmp ugt i64 %13, 5
+  %14 = icmp samesign ugt i64 %13, 5
   %15 = select i1 %14, i64 0, i64 %3
   %16 = getelementptr [6 x [10 x i8]], ptr @cp_err, i64 0, i64 %15
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef %16) #6

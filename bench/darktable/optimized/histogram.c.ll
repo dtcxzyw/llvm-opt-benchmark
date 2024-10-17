@@ -5501,7 +5501,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   %892 = fmul reassoc nsz arcp contract afn float %891, 5.000000e-01
   %893 = fcmp reassoc nsz arcp contract afn olt float %802, %892
   %894 = select reassoc nsz arcp contract afn i1 %893, float %802, float %892
-  %895 = icmp ult i64 %876, %819
+  %895 = icmp samesign ult i64 %876, %819
   %896 = add nuw nsw i64 %876, 1
   br i1 %895, label %897, label %904
 

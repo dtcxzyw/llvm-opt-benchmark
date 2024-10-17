@@ -1164,7 +1164,7 @@ define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef
   %38 = tail call ptr @timelib_time_ctor() #19
   %39 = load i32, ptr %11, align 4
   %40 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
-  %41 = icmp ult i32 %40, 2
+  %41 = icmp samesign ult i32 %40, 2
   %.pre.i.i = load ptr, ptr %9, align 8
   br i1 %41, label %42, label %add_error.exit
 
@@ -1304,7 +1304,7 @@ add_error.exit:                                   ; preds = %37, %42
   %112 = getelementptr inbounds i8, ptr %110, i64 20
   %113 = load i32, ptr %112, align 4
   %114 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %113)
-  %115 = icmp ult i32 %114, 2
+  %115 = icmp samesign ult i32 %114, 2
   %.pre.i.i111 = load ptr, ptr %111, align 8
   br i1 %115, label %116, label %alloc_error_message.exit.i112
 
@@ -1378,7 +1378,7 @@ add_warning.exit:                                 ; preds = %alloc_error_message
   %157 = getelementptr inbounds i8, ptr %155, i64 20
   %158 = load i32, ptr %157, align 4
   %159 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %158)
-  %160 = icmp ult i32 %159, 2
+  %160 = icmp samesign ult i32 %159, 2
   %.pre.i.i117 = load ptr, ptr %156, align 8
   br i1 %160, label %161, label %alloc_error_message.exit.i118
 
@@ -1470,7 +1470,7 @@ define internal fastcc void @add_error(ptr nocapture noundef nonnull readonly %0
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   %.pre.i = load ptr, ptr %5, align 8
   br i1 %9, label %10, label %alloc_error_message.exit
 
@@ -1896,7 +1896,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   %187 = getelementptr inbounds i8, ptr %186, i64 16
   %188 = load i32, ptr %187, align 4
   %189 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %188)
-  %190 = icmp ult i32 %189, 2
+  %190 = icmp samesign ult i32 %189, 2
   %.pre.i.i = load ptr, ptr %186, align 8
   br i1 %190, label %191, label %alloc_error_message.exit.i
 
@@ -3476,7 +3476,7 @@ add_error.exit:                                   ; preds = %209, %213
   %784 = getelementptr inbounds i8, ptr %783, i64 16
   %785 = load i32, ptr %784, align 4
   %786 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %785)
-  %787 = icmp ult i32 %786, 2
+  %787 = icmp samesign ult i32 %786, 2
   %.pre.i.i17413 = load ptr, ptr %783, align 8
   br i1 %787, label %788, label %alloc_error_message.exit.i17414
 
@@ -3525,7 +3525,7 @@ alloc_error_message.exit.i17414:                  ; preds = %788, %782
   %813 = getelementptr inbounds i8, ptr %811, i64 20
   %814 = load i32, ptr %813, align 4
   %815 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %814)
-  %816 = icmp ult i32 %815, 2
+  %816 = icmp samesign ult i32 %815, 2
   %.pre.i.i17420 = load ptr, ptr %812, align 8
   br i1 %816, label %817, label %alloc_error_message.exit.i17421
 
@@ -3647,7 +3647,7 @@ timelib_eat_spaces.exit:                          ; preds = %848, %851, %855, %8
   %876 = getelementptr inbounds i8, ptr %875, i64 16
   %877 = load i32, ptr %876, align 4
   %878 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %877)
-  %879 = icmp ult i32 %878, 2
+  %879 = icmp samesign ult i32 %878, 2
   %.pre.i.i17426 = load ptr, ptr %875, align 8
   br i1 %879, label %880, label %alloc_error_message.exit.i17427
 
@@ -6080,15 +6080,15 @@ add_error.exit17432:                              ; preds = %898, %902
 .lr.ph23897:                                      ; preds = %.lr.ph23897.preheader, %1958
   %.923896 = phi ptr [ %1954, %1958 ], [ %.923896.ph, %.lr.ph23897.preheader ]
   %.01433923895 = phi i8 [ %1959, %1958 ], [ %.01433923895.ph, %.lr.ph23897.preheader ]
-  %1961 = icmp ult i8 %.01433923895, 72
+  %1961 = icmp samesign ult i8 %.01433923895, 72
   br i1 %1961, label %1962, label %1977
 
 1962:                                             ; preds = %.lr.ph23897
-  %1963 = icmp ult i8 %.01433923895, 47
+  %1963 = icmp samesign ult i8 %.01433923895, 47
   br i1 %1963, label %1964, label %1972
 
 1964:                                             ; preds = %1962
-  %1965 = icmp ult i8 %.01433923895, 32
+  %1965 = icmp samesign ult i8 %.01433923895, 32
   br i1 %1965, label %1966, label %1968
 
 1966:                                             ; preds = %1964
@@ -6100,11 +6100,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1969, label %1953, label %1970
 
 1970:                                             ; preds = %1968
-  %1971 = icmp ult i8 %.01433923895, 45
+  %1971 = icmp samesign ult i8 %.01433923895, 45
   br i1 %1971, label %.thread, label %4829
 
 1972:                                             ; preds = %1962
-  %1973 = icmp ult i8 %.01433923895, 68
+  %1973 = icmp samesign ult i8 %.01433923895, 68
   br i1 %1973, label %1974, label %1976
 
 1974:                                             ; preds = %1972
@@ -6118,11 +6118,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 1977:                                             ; preds = %.lr.ph23897
-  %1978 = icmp ult i8 %.01433923895, 79
+  %1978 = icmp samesign ult i8 %.01433923895, 79
   br i1 %1978, label %1979, label %1985
 
 1979:                                             ; preds = %1977
-  %1980 = icmp ult i8 %.01433923895, 75
+  %1980 = icmp samesign ult i8 %.01433923895, 75
   br i1 %1980, label %1981, label %1982
 
 1981:                                             ; preds = %1979
@@ -6132,7 +6132,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 1982:                                             ; preds = %1979
-  %1983 = icmp ult i8 %.01433923895, 77
+  %1983 = icmp samesign ult i8 %.01433923895, 77
   br i1 %1983, label %.thread, label %1984
 
 1984:                                             ; preds = %1982
@@ -6140,7 +6140,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17218, label %2209, label %2193
 
 1985:                                             ; preds = %1977
-  %1986 = icmp ult i8 %.01433923895, 84
+  %1986 = icmp samesign ult i8 %.01433923895, 84
   br i1 %1986, label %1987, label %1988
 
 1987:                                             ; preds = %1985
@@ -6154,7 +6154,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1989, label %2231, label %1990
 
 1990:                                             ; preds = %1988
-  %1991 = icmp ult i8 %.01433923895, 86
+  %1991 = icmp samesign ult i8 %.01433923895, 86
   br i1 %1991, label %2241, label %1992
 
 1992:                                             ; preds = %1990
@@ -7066,15 +7066,15 @@ add_error.exit17432:                              ; preds = %898, %902
 .lr.ph23884:                                      ; preds = %.lr.ph23884.preheader, %2353
   %.2223883 = phi ptr [ %2349, %2353 ], [ %.2223883.ph, %.lr.ph23884.preheader ]
   %.11434023882 = phi i8 [ %2354, %2353 ], [ %.11434023882.ph, %.lr.ph23884.preheader ]
-  %2356 = icmp ult i8 %.11434023882, 72
+  %2356 = icmp samesign ult i8 %.11434023882, 72
   br i1 %2356, label %2357, label %2372
 
 2357:                                             ; preds = %.lr.ph23884
-  %2358 = icmp ult i8 %.11434023882, 47
+  %2358 = icmp samesign ult i8 %.11434023882, 47
   br i1 %2358, label %2359, label %2367
 
 2359:                                             ; preds = %2357
-  %2360 = icmp ult i8 %.11434023882, 32
+  %2360 = icmp samesign ult i8 %.11434023882, 32
   br i1 %2360, label %2361, label %2363
 
 2361:                                             ; preds = %2359
@@ -7086,11 +7086,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2364, label %2348, label %2365
 
 2365:                                             ; preds = %2363
-  %2366 = icmp ult i8 %.11434023882, 45
+  %2366 = icmp samesign ult i8 %.11434023882, 45
   br i1 %2366, label %.thread, label %4829
 
 2367:                                             ; preds = %2357
-  %2368 = icmp ult i8 %.11434023882, 68
+  %2368 = icmp samesign ult i8 %.11434023882, 68
   br i1 %2368, label %2369, label %2371
 
 2369:                                             ; preds = %2367
@@ -7104,11 +7104,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2372:                                             ; preds = %.lr.ph23884
-  %2373 = icmp ult i8 %.11434023882, 80
+  %2373 = icmp samesign ult i8 %.11434023882, 80
   br i1 %2373, label %2374, label %2380
 
 2374:                                             ; preds = %2372
-  %2375 = icmp ult i8 %.11434023882, 75
+  %2375 = icmp samesign ult i8 %.11434023882, 75
   br i1 %2375, label %2376, label %2377
 
 2376:                                             ; preds = %2374
@@ -7118,7 +7118,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2377:                                             ; preds = %2374
-  %2378 = icmp ult i8 %.11434023882, 77
+  %2378 = icmp samesign ult i8 %.11434023882, 77
   br i1 %2378, label %.thread, label %2379
 
 2379:                                             ; preds = %2377
@@ -7128,7 +7128,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2380:                                             ; preds = %2372
-  %2381 = icmp ult i8 %.11434023882, 84
+  %2381 = icmp samesign ult i8 %.11434023882, 84
   br i1 %2381, label %2382, label %2383
 
 2382:                                             ; preds = %2380
@@ -7142,7 +7142,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2384, label %2231, label %2385
 
 2385:                                             ; preds = %2383
-  %2386 = icmp ult i8 %.11434023882, 86
+  %2386 = icmp samesign ult i8 %.11434023882, 86
   br i1 %2386, label %2241, label %2387
 
 2387:                                             ; preds = %2385
@@ -25956,15 +25956,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 .lr.ph23890:                                      ; preds = %.lr.ph23890.preheader, %11022
   %.32523889 = phi ptr [ %11018, %11022 ], [ %.325.ph34596, %.lr.ph23890.preheader ]
   %.61434523888 = phi i8 [ %11023, %11022 ], [ %.614345.ph34595, %.lr.ph23890.preheader ]
-  %11025 = icmp ult i8 %.61434523888, 72
+  %11025 = icmp samesign ult i8 %.61434523888, 72
   br i1 %11025, label %11026, label %11041
 
 11026:                                            ; preds = %.lr.ph23890
-  %11027 = icmp ult i8 %.61434523888, 47
+  %11027 = icmp samesign ult i8 %.61434523888, 47
   br i1 %11027, label %11028, label %11036
 
 11028:                                            ; preds = %11026
-  %11029 = icmp ult i8 %.61434523888, 32
+  %11029 = icmp samesign ult i8 %.61434523888, 32
   br i1 %11029, label %11030, label %11032
 
 11030:                                            ; preds = %11028
@@ -25976,11 +25976,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11033, label %11017, label %11034
 
 11034:                                            ; preds = %11032
-  %11035 = icmp ult i8 %.61434523888, 45
+  %11035 = icmp samesign ult i8 %.61434523888, 45
   br i1 %11035, label %.thread, label %13154
 
 11036:                                            ; preds = %11026
-  %11037 = icmp ult i8 %.61434523888, 68
+  %11037 = icmp samesign ult i8 %.61434523888, 68
   br i1 %11037, label %11038, label %11040
 
 11038:                                            ; preds = %11036
@@ -25994,11 +25994,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11041:                                            ; preds = %.lr.ph23890
-  %11042 = icmp ult i8 %.61434523888, 79
+  %11042 = icmp samesign ult i8 %.61434523888, 79
   br i1 %11042, label %11043, label %11049
 
 11043:                                            ; preds = %11041
-  %11044 = icmp ult i8 %.61434523888, 75
+  %11044 = icmp samesign ult i8 %.61434523888, 75
   br i1 %11044, label %11045, label %11046
 
 11045:                                            ; preds = %11043
@@ -26008,7 +26008,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11046:                                            ; preds = %11043
-  %11047 = icmp ult i8 %.61434523888, 77
+  %11047 = icmp samesign ult i8 %.61434523888, 77
   br i1 %11047, label %.thread, label %11048
 
 11048:                                            ; preds = %11046
@@ -26016,7 +26016,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17135, label %11263, label %11247
 
 11049:                                            ; preds = %11041
-  %11050 = icmp ult i8 %.61434523888, 84
+  %11050 = icmp samesign ult i8 %.61434523888, 84
   br i1 %11050, label %11051, label %11052
 
 11051:                                            ; preds = %11049
@@ -26030,7 +26030,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11053, label %2231, label %11054
 
 11054:                                            ; preds = %11052
-  %11055 = icmp ult i8 %.61434523888, 86
+  %11055 = icmp samesign ult i8 %.61434523888, 86
   br i1 %11055, label %2241, label %11056
 
 11056:                                            ; preds = %11054
@@ -40589,7 +40589,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
 .lr.ph28738:                                      ; preds = %.lr.ph28738.preheader, %17777
   %.59728737 = phi ptr [ %17771, %17777 ], [ %17295, %.lr.ph28738.preheader ]
   %.111435028736 = phi i8 [ %17778, %17777 ], [ %17296, %.lr.ph28738.preheader ]
-  %17780 = icmp ult i8 %.111435028736, 33
+  %17780 = icmp samesign ult i8 %.111435028736, 33
   br i1 %17780, label %17781, label %17782
 
 17781:                                            ; preds = %.lr.ph28738
@@ -40769,11 +40769,11 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
 .lr.ph28732:                                      ; preds = %.lr.ph28732.preheader, %17859
   %.60028731 = phi ptr [ %17853, %17859 ], [ %17324, %.lr.ph28732.preheader ]
   %.121435128730 = phi i8 [ %17860, %17859 ], [ %17325, %.lr.ph28732.preheader ]
-  %17862 = icmp ult i8 %.121435128730, 40
+  %17862 = icmp samesign ult i8 %.121435128730, 40
   br i1 %17862, label %17863, label %17868
 
 17863:                                            ; preds = %.lr.ph28732
-  %17864 = icmp ult i8 %.121435128730, 10
+  %17864 = icmp samesign ult i8 %.121435128730, 10
   br i1 %17864, label %17865, label %17866
 
 17865:                                            ; preds = %17863
@@ -40785,7 +40785,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17867, label %17852, label %.thread17467
 
 17868:                                            ; preds = %.lr.ph28732
-  %17869 = icmp ult i8 %.121435128730, 44
+  %17869 = icmp samesign ult i8 %.121435128730, 44
   br i1 %17869, label %17870, label %17871
 
 17870:                                            ; preds = %17868
@@ -44217,7 +44217,7 @@ define internal fastcc void @add_warning(ptr nocapture noundef nonnull readonly 
   %7 = getelementptr inbounds i8, ptr %5, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
-  %10 = icmp ult i32 %9, 2
+  %10 = icmp samesign ult i32 %9, 2
   %.pre.i = load ptr, ptr %6, align 8
   br i1 %10, label %11, label %alloc_error_message.exit
 
@@ -44387,7 +44387,7 @@ define hidden ptr @timelib_parse_from_format_with_map(ptr nocapture noundef read
   %49 = getelementptr inbounds i8, ptr %.val, i64 16
   %50 = load i32, ptr %49, align 4
   %51 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
-  %52 = icmp ult i32 %51, 2
+  %52 = icmp samesign ult i32 %51, 2
   %.pre.i.i = load ptr, ptr %.val, align 8
   br i1 %52, label %53, label %add_pbf_error.exit
 
@@ -44560,7 +44560,7 @@ timelib_lookup_format.exit:                       ; preds = %.lr.ph1040
   %103 = getelementptr inbounds i8, ptr %.val444, i64 16
   %104 = load i32, ptr %103, align 4
   %105 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %104)
-  %106 = icmp ult i32 %105, 2
+  %106 = icmp samesign ult i32 %105, 2
   %.pre.i.i495 = load ptr, ptr %.val444, align 8
   br i1 %106, label %107, label %add_pbf_error.exit498
 
@@ -44624,7 +44624,7 @@ add_pbf_error.exit498:                            ; preds = %102, %107
   %138 = getelementptr inbounds i8, ptr %.val445, i64 16
   %139 = load i32, ptr %138, align 4
   %140 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %139)
-  %141 = icmp ult i32 %140, 2
+  %141 = icmp samesign ult i32 %140, 2
   %.pre.i.i499 = load ptr, ptr %.val445, align 8
   br i1 %141, label %142, label %add_pbf_error.exit502
 
@@ -44726,7 +44726,7 @@ timelib_get_nr.exit:                              ; preds = %.lr.ph.i.i
   %184 = getelementptr inbounds i8, ptr %.val446, i64 16
   %185 = load i32, ptr %184, align 4
   %186 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %185)
-  %187 = icmp ult i32 %186, 2
+  %187 = icmp samesign ult i32 %186, 2
   %.pre.i.i504 = load ptr, ptr %.val446, align 8
   br i1 %187, label %188, label %add_pbf_error.exit507
 
@@ -44818,7 +44818,7 @@ add_pbf_error.exit507:                            ; preds = %183, %188
   %232 = getelementptr inbounds i8, ptr %.val447, i64 16
   %233 = load i32, ptr %232, align 4
   %234 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %233)
-  %235 = icmp ult i32 %234, 2
+  %235 = icmp samesign ult i32 %234, 2
   %.pre.i.i509 = load ptr, ptr %.val447, align 8
   br i1 %235, label %236, label %add_pbf_error.exit512
 
@@ -44865,7 +44865,7 @@ add_pbf_error.exit512:                            ; preds = %231, %236
   %260 = getelementptr inbounds i8, ptr %.val448, i64 16
   %261 = load i32, ptr %260, align 4
   %262 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %261)
-  %263 = icmp ult i32 %262, 2
+  %263 = icmp samesign ult i32 %262, 2
   %.pre.i.i513 = load ptr, ptr %.val448, align 8
   br i1 %263, label %264, label %add_pbf_error.exit516
 
@@ -44937,7 +44937,7 @@ add_pbf_error.exit516:                            ; preds = %259, %264
   %295 = load i8, ptr %293, align 1
   %296 = add i8 %295, -48
   %or.cond31.i.i523 = icmp ult i8 %296, 10
-  %297 = icmp ult i32 %.038.i.i522, 2
+  %297 = icmp samesign ult i32 %.038.i.i522, 2
   %or.cond32.i.i524 = select i1 %or.cond31.i.i523, i1 %297, i1 false
   br i1 %or.cond32.i.i524, label %.lr.ph.i.i521, label %timelib_get_nr.exit532
 
@@ -44963,7 +44963,7 @@ timelib_get_nr.exit532.thread:                    ; preds = %timelib_get_nr.exit
   %302 = getelementptr inbounds i8, ptr %.val449, i64 16
   %303 = load i32, ptr %302, align 4
   %304 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %303)
-  %305 = icmp ult i32 %304, 2
+  %305 = icmp samesign ult i32 %304, 2
   %.pre.i.i533 = load ptr, ptr %.val449, align 8
   br i1 %305, label %306, label %add_pbf_error.exit536
 
@@ -45032,7 +45032,7 @@ add_pbf_error.exit536:                            ; preds = %timelib_get_nr.exit
   %340 = getelementptr inbounds i8, ptr %.val450, i64 16
   %341 = load i32, ptr %340, align 4
   %342 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %341)
-  %343 = icmp ult i32 %342, 2
+  %343 = icmp samesign ult i32 %342, 2
   %.pre.i.i537 = load ptr, ptr %.val450, align 8
   br i1 %343, label %344, label %add_pbf_error.exit540
 
@@ -45134,7 +45134,7 @@ timelib_get_nr.exit556:                           ; preds = %.lr.ph.i.i545
   %386 = getelementptr inbounds i8, ptr %.val451, i64 16
   %387 = load i32, ptr %386, align 4
   %388 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %387)
-  %389 = icmp ult i32 %388, 2
+  %389 = icmp samesign ult i32 %388, 2
   %.pre.i.i557 = load ptr, ptr %.val451, align 8
   br i1 %389, label %390, label %add_pbf_error.exit560
 
@@ -45233,7 +45233,7 @@ timelib_lookup_month.exit:                        ; preds = %433
   %437 = getelementptr inbounds i8, ptr %.val452, i64 16
   %438 = load i32, ptr %437, align 4
   %439 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %438)
-  %440 = icmp ult i32 %439, 2
+  %440 = icmp samesign ult i32 %439, 2
   %.pre.i.i563 = load ptr, ptr %.val452, align 8
   br i1 %440, label %441, label %add_pbf_error.exit566
 
@@ -45290,7 +45290,7 @@ add_pbf_error.exit566:                            ; preds = %436, %441
   %468 = getelementptr inbounds i8, ptr %.val453, i64 16
   %469 = load i32, ptr %468, align 4
   %470 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %469)
-  %471 = icmp ult i32 %470, 2
+  %471 = icmp samesign ult i32 %470, 2
   %.pre.i.i567 = load ptr, ptr %.val453, align 8
   br i1 %471, label %472, label %add_pbf_error.exit570
 
@@ -45386,7 +45386,7 @@ timelib_get_nr_ex.exit:                           ; preds = %.lr.ph.i571
   %513 = getelementptr inbounds i8, ptr %.val454, i64 16
   %514 = load i32, ptr %513, align 4
   %515 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %514)
-  %516 = icmp ult i32 %515, 2
+  %516 = icmp samesign ult i32 %515, 2
   %.pre.i.i575 = load ptr, ptr %.val454, align 8
   br i1 %516, label %517, label %add_pbf_error.exit578
 
@@ -45463,7 +45463,7 @@ add_pbf_error.exit578:                            ; preds = %512, %517
   %555 = getelementptr inbounds i8, ptr %.val455, i64 16
   %556 = load i32, ptr %555, align 4
   %557 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %556)
-  %558 = icmp ult i32 %557, 2
+  %558 = icmp samesign ult i32 %557, 2
   %.pre.i.i579 = load ptr, ptr %.val455, align 8
   br i1 %558, label %559, label %add_pbf_error.exit582
 
@@ -45538,7 +45538,7 @@ timelib_get_nr.exit598.thread:                    ; preds = %.critedge.i.i596
   %592 = load i8, ptr %590, align 1
   %593 = add i8 %592, -48
   %or.cond31.i.i589 = icmp ult i8 %593, 10
-  %594 = icmp ult i32 %.038.i.i588, 3
+  %594 = icmp samesign ult i32 %.038.i.i588, 3
   %or.cond32.i.i590 = select i1 %or.cond31.i.i589, i1 %594, i1 false
   br i1 %or.cond32.i.i590, label %.lr.ph.i.i587, label %timelib_get_nr.exit598
 
@@ -45561,7 +45561,7 @@ timelib_get_nr.exit598:                           ; preds = %.lr.ph.i.i587
   %601 = getelementptr inbounds i8, ptr %.val456, i64 16
   %602 = load i32, ptr %601, align 4
   %603 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %602)
-  %604 = icmp ult i32 %603, 2
+  %604 = icmp samesign ult i32 %603, 2
   %.pre.i.i599 = load ptr, ptr %.val456, align 8
   br i1 %604, label %605, label %add_pbf_error.exit602
 
@@ -45617,7 +45617,7 @@ add_pbf_error.exit602:                            ; preds = %600, %605
   %632 = getelementptr inbounds i8, ptr %.val457, i64 16
   %633 = load i32, ptr %632, align 4
   %634 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %633)
-  %635 = icmp ult i32 %634, 2
+  %635 = icmp samesign ult i32 %634, 2
   %.pre.i.i603 = load ptr, ptr %.val457, align 8
   br i1 %635, label %636, label %add_pbf_error.exit606
 
@@ -45665,7 +45665,7 @@ add_pbf_error.exit606:                            ; preds = %631, %636
   %660 = getelementptr inbounds i8, ptr %.val458, i64 16
   %661 = load i32, ptr %660, align 4
   %662 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %661)
-  %663 = icmp ult i32 %662, 2
+  %663 = icmp samesign ult i32 %662, 2
   %.pre.i.i607 = load ptr, ptr %.val458, align 8
   br i1 %663, label %664, label %add_pbf_error.exit610
 
@@ -45721,7 +45721,7 @@ add_pbf_error.exit610:                            ; preds = %659, %664
   %691 = getelementptr inbounds i8, ptr %.val459, i64 16
   %692 = load i32, ptr %691, align 4
   %693 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %692)
-  %694 = icmp ult i32 %693, 2
+  %694 = icmp samesign ult i32 %693, 2
   %.pre.i.i611 = load ptr, ptr %.val459, align 8
   br i1 %694, label %695, label %add_pbf_error.exit614
 
@@ -45819,7 +45819,7 @@ timelib_get_nr.exit630:                           ; preds = %.lr.ph.i.i619
   %738 = getelementptr inbounds i8, ptr %.val460, i64 16
   %739 = load i32, ptr %738, align 4
   %740 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %739)
-  %741 = icmp ult i32 %740, 2
+  %741 = icmp samesign ult i32 %740, 2
   %.pre.i.i631 = load ptr, ptr %.val460, align 8
   br i1 %741, label %742, label %add_pbf_error.exit634
 
@@ -45867,7 +45867,7 @@ add_pbf_error.exit634:                            ; preds = %737, %742
   %767 = getelementptr inbounds i8, ptr %.val461, i64 16
   %768 = load i32, ptr %767, align 4
   %769 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %768)
-  %770 = icmp ult i32 %769, 2
+  %770 = icmp samesign ult i32 %769, 2
   %.pre.i.i635 = load ptr, ptr %.val461, align 8
   br i1 %770, label %771, label %add_pbf_error.exit638
 
@@ -45922,7 +45922,7 @@ add_pbf_error.exit638:                            ; preds = %766, %771
   %797 = getelementptr inbounds i8, ptr %.val462, i64 16
   %798 = load i32, ptr %797, align 4
   %799 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %798)
-  %800 = icmp ult i32 %799, 2
+  %800 = icmp samesign ult i32 %799, 2
   %.pre.i.i639 = load ptr, ptr %.val462, align 8
   br i1 %800, label %801, label %add_pbf_error.exit642
 
@@ -46020,7 +46020,7 @@ timelib_get_nr.exit658:                           ; preds = %.lr.ph.i.i647
   %844 = getelementptr inbounds i8, ptr %.val463, i64 16
   %845 = load i32, ptr %844, align 4
   %846 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %845)
-  %847 = icmp ult i32 %846, 2
+  %847 = icmp samesign ult i32 %846, 2
   %.pre.i.i659 = load ptr, ptr %.val463, align 8
   br i1 %847, label %848, label %add_pbf_error.exit662
 
@@ -46074,7 +46074,7 @@ add_pbf_error.exit662:                            ; preds = %843, %848
   %876 = getelementptr inbounds i8, ptr %.val464, i64 16
   %877 = load i32, ptr %876, align 4
   %878 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %877)
-  %879 = icmp ult i32 %878, 2
+  %879 = icmp samesign ult i32 %878, 2
   %.pre.i.i663 = load ptr, ptr %.val464, align 8
   br i1 %879, label %880, label %add_pbf_error.exit666
 
@@ -46185,7 +46185,7 @@ add_pbf_error.exit666:                            ; preds = %875, %880
   %922 = getelementptr inbounds i8, ptr %.val465, i64 16
   %923 = load i32, ptr %922, align 4
   %924 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %923)
-  %925 = icmp ult i32 %924, 2
+  %925 = icmp samesign ult i32 %924, 2
   %.pre.i.i672 = load ptr, ptr %.val465, align 8
   br i1 %925, label %926, label %add_pbf_error.exit675
 
@@ -46249,7 +46249,7 @@ add_pbf_error.exit675:                            ; preds = %.loopexit967, %926
   %955 = getelementptr inbounds i8, ptr %.val466, i64 16
   %956 = load i32, ptr %955, align 4
   %957 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %956)
-  %958 = icmp ult i32 %957, 2
+  %958 = icmp samesign ult i32 %957, 2
   %.pre.i.i676 = load ptr, ptr %.val466, align 8
   br i1 %958, label %959, label %add_pbf_error.exit679
 
@@ -46341,7 +46341,7 @@ timelib_get_nr_ex.exit696.thread:                 ; preds = %.critedge.i694, %ti
   %999 = getelementptr inbounds i8, ptr %.val467, i64 16
   %1000 = load i32, ptr %999, align 4
   %1001 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1000)
-  %1002 = icmp ult i32 %1001, 2
+  %1002 = icmp samesign ult i32 %1001, 2
   %.pre.i.i697 = load ptr, ptr %.val467, align 8
   br i1 %1002, label %1003, label %add_pbf_error.exit700
 
@@ -46399,7 +46399,7 @@ add_pbf_error.exit700:                            ; preds = %timelib_get_nr_ex.e
   %1031 = getelementptr inbounds i8, ptr %.val468, i64 16
   %1032 = load i32, ptr %1031, align 4
   %1033 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1032)
-  %1034 = icmp ult i32 %1033, 2
+  %1034 = icmp samesign ult i32 %1033, 2
   %.pre.i.i701 = load ptr, ptr %.val468, align 8
   br i1 %1034, label %1035, label %add_pbf_error.exit704
 
@@ -46491,7 +46491,7 @@ timelib_get_nr_ex.exit721.thread:                 ; preds = %.critedge.i719, %ti
   %1075 = getelementptr inbounds i8, ptr %.val469, i64 16
   %1076 = load i32, ptr %1075, align 4
   %1077 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1076)
-  %1078 = icmp ult i32 %1077, 2
+  %1078 = icmp samesign ult i32 %1077, 2
   %.pre.i.i722 = load ptr, ptr %.val469, align 8
   br i1 %1078, label %1079, label %add_pbf_error.exit725
 
@@ -46549,7 +46549,7 @@ add_pbf_error.exit725:                            ; preds = %timelib_get_nr_ex.e
   %1107 = getelementptr inbounds i8, ptr %.val470, i64 16
   %1108 = load i32, ptr %1107, align 4
   %1109 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1108)
-  %1110 = icmp ult i32 %1109, 2
+  %1110 = icmp samesign ult i32 %1109, 2
   %.pre.i.i726 = load ptr, ptr %.val470, align 8
   br i1 %1110, label %1111, label %add_pbf_error.exit729
 
@@ -46619,7 +46619,7 @@ add_pbf_error.exit729:                            ; preds = %1106, %1111
   %1143 = load i8, ptr %1141, align 1
   %1144 = add i8 %1143, -48
   %or.cond31.i.i736 = icmp ult i8 %1144, 10
-  %1145 = icmp ult i32 %.038.i.i735, 5
+  %1145 = icmp samesign ult i32 %.038.i.i735, 5
   %or.cond32.i.i737 = select i1 %or.cond31.i.i736, i1 %1145, i1 false
   br i1 %or.cond32.i.i737, label %.lr.ph.i.i734, label %timelib_get_nr.exit745
 
@@ -46647,7 +46647,7 @@ timelib_get_nr.exit745.thread:                    ; preds = %.critedge.i.i743, %
   %1155 = getelementptr inbounds i8, ptr %.val471, i64 16
   %1156 = load i32, ptr %1155, align 4
   %1157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1156)
-  %1158 = icmp ult i32 %1157, 2
+  %1158 = icmp samesign ult i32 %1157, 2
   %.pre.i.i746 = load ptr, ptr %.val471, align 8
   br i1 %1158, label %1159, label %add_pbf_error.exit749
 
@@ -46708,7 +46708,7 @@ add_pbf_error.exit749:                            ; preds = %timelib_get_nr.exit
   %1191 = getelementptr inbounds i8, ptr %.val472, i64 16
   %1192 = load i32, ptr %1191, align 4
   %1193 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1192)
-  %1194 = icmp ult i32 %1193, 2
+  %1194 = icmp samesign ult i32 %1193, 2
   %.pre.i.i750 = load ptr, ptr %.val472, align 8
   br i1 %1194, label %1195, label %add_pbf_error.exit753
 
@@ -46778,7 +46778,7 @@ add_pbf_error.exit753:                            ; preds = %1190, %1195
   %1227 = load i8, ptr %1225, align 1
   %1228 = add i8 %1227, -48
   %or.cond31.i.i760 = icmp ult i8 %1228, 10
-  %1229 = icmp ult i32 %.038.i.i759, 2
+  %1229 = icmp samesign ult i32 %.038.i.i759, 2
   %or.cond32.i.i761 = select i1 %or.cond31.i.i760, i1 %1229, i1 false
   br i1 %or.cond32.i.i761, label %.lr.ph.i.i758, label %timelib_get_nr.exit769
 
@@ -46806,7 +46806,7 @@ timelib_get_nr.exit769.thread:                    ; preds = %.critedge.i.i767, %
   %1239 = getelementptr inbounds i8, ptr %.val473, i64 16
   %1240 = load i32, ptr %1239, align 4
   %1241 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1240)
-  %1242 = icmp ult i32 %1241, 2
+  %1242 = icmp samesign ult i32 %1241, 2
   %.pre.i.i770 = load ptr, ptr %.val473, align 8
   br i1 %1242, label %1243, label %add_pbf_error.exit773
 
@@ -46903,7 +46903,7 @@ add_pbf_error.exit773:                            ; preds = %timelib_get_nr.exit
   %1292 = getelementptr inbounds i8, ptr %.val474, i64 16
   %1293 = load i32, ptr %1292, align 4
   %1294 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1293)
-  %1295 = icmp ult i32 %1294, 2
+  %1295 = icmp samesign ult i32 %1294, 2
   %.pre.i.i775 = load ptr, ptr %.val474, align 8
   br i1 %1295, label %1296, label %add_pbf_error.exit778
 
@@ -46981,7 +46981,7 @@ timelib_lookup_format.exit785.thread:             ; preds = %.lr.ph.i780, %timel
   %1331 = getelementptr inbounds i8, ptr %.val475, i64 16
   %1332 = load i32, ptr %1331, align 4
   %1333 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1332)
-  %1334 = icmp ult i32 %1333, 2
+  %1334 = icmp samesign ult i32 %1333, 2
   %.pre.i.i786 = load ptr, ptr %.val475, align 8
   br i1 %1334, label %1335, label %add_pbf_error.exit789
 
@@ -47031,7 +47031,7 @@ add_pbf_error.exit789:                            ; preds = %timelib_lookup_form
   %1358 = getelementptr inbounds i8, ptr %.val476, i64 16
   %1359 = load i32, ptr %1358, align 4
   %1360 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1359)
-  %1361 = icmp ult i32 %1360, 2
+  %1361 = icmp samesign ult i32 %1360, 2
   %.pre.i.i790 = load ptr, ptr %.val476, align 8
   br i1 %1361, label %1362, label %add_pbf_error.exit793
 
@@ -47171,7 +47171,7 @@ add_pbf_error.exit793:                            ; preds = %1357, %1362
   %1430 = getelementptr inbounds i8, ptr %.val477, i64 16
   %1431 = load i32, ptr %1430, align 4
   %1432 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1431)
-  %1433 = icmp ult i32 %1432, 2
+  %1433 = icmp samesign ult i32 %1432, 2
   %.pre.i.i794 = load ptr, ptr %.val477, align 8
   br i1 %1433, label %1434, label %add_pbf_error.exit797
 
@@ -47216,7 +47216,7 @@ add_pbf_error.exit797:                            ; preds = %1429, %1434
   %1455 = getelementptr inbounds i8, ptr %.val478, i64 16
   %1456 = load i32, ptr %1455, align 4
   %1457 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1456)
-  %1458 = icmp ult i32 %1457, 2
+  %1458 = icmp samesign ult i32 %1457, 2
   %.pre.i.i798 = load ptr, ptr %.val478, align 8
   br i1 %1458, label %1459, label %add_pbf_error.exit801
 
@@ -47302,7 +47302,7 @@ add_pbf_error.exit801:                            ; preds = %1454, %1459
   %1496 = load i8, ptr %1494, align 1
   %1497 = add i8 %1496, -48
   %or.cond31.i.i808 = icmp ult i8 %1497, 10
-  %1498 = icmp ult i32 %.038.i.i807, 3
+  %1498 = icmp samesign ult i32 %.038.i.i807, 3
   %or.cond32.i.i809 = select i1 %or.cond31.i.i808, i1 %1498, i1 false
   br i1 %or.cond32.i.i809, label %.lr.ph.i.i806, label %timelib_get_nr.exit817
 
@@ -47324,7 +47324,7 @@ timelib_get_nr.exit817.thread:                    ; preds = %.critedge.i.i815, %
   %1504 = getelementptr inbounds i8, ptr %.val479, i64 16
   %1505 = load i32, ptr %1504, align 4
   %1506 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1505)
-  %1507 = icmp ult i32 %1506, 2
+  %1507 = icmp samesign ult i32 %1506, 2
   %.pre.i.i818 = load ptr, ptr %.val479, align 8
   br i1 %1507, label %1508, label %add_pbf_error.exit821
 
@@ -47418,7 +47418,7 @@ timelib_get_nr.exit837.thread:                    ; preds = %.critedge.i.i835, %
   %1549 = getelementptr inbounds i8, ptr %.val480, i64 16
   %1550 = load i32, ptr %1549, align 4
   %1551 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1550)
-  %1552 = icmp ult i32 %1551, 2
+  %1552 = icmp samesign ult i32 %1551, 2
   %.pre.i.i838 = load ptr, ptr %.val480, align 8
   br i1 %1552, label %1553, label %add_pbf_error.exit841
 
@@ -47464,7 +47464,7 @@ add_pbf_error.exit841:                            ; preds = %timelib_get_nr.exit
   %1575 = getelementptr inbounds i8, ptr %.val481, i64 16
   %1576 = load i32, ptr %1575, align 4
   %1577 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1576)
-  %1578 = icmp ult i32 %1577, 2
+  %1578 = icmp samesign ult i32 %1577, 2
   %.pre.i.i842 = load ptr, ptr %.val481, align 8
   br i1 %1578, label %1579, label %add_pbf_error.exit845
 
@@ -47543,7 +47543,7 @@ timelib_get_nr.exit861.thread:                    ; preds = %.critedge.i.i859, %
   %1616 = getelementptr inbounds i8, ptr %.val482, i64 16
   %1617 = load i32, ptr %1616, align 4
   %1618 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1617)
-  %1619 = icmp ult i32 %1618, 2
+  %1619 = icmp samesign ult i32 %1618, 2
   %.pre.i.i862 = load ptr, ptr %.val482, align 8
   br i1 %1619, label %1620, label %add_pbf_error.exit865
 
@@ -47589,7 +47589,7 @@ add_pbf_error.exit865:                            ; preds = %timelib_get_nr.exit
   %1642 = getelementptr inbounds i8, ptr %.val483, i64 16
   %1643 = load i32, ptr %1642, align 4
   %1644 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1643)
-  %1645 = icmp ult i32 %1644, 2
+  %1645 = icmp samesign ult i32 %1644, 2
   %.pre.i.i866 = load ptr, ptr %.val483, align 8
   br i1 %1645, label %1646, label %add_pbf_error.exit869
 
@@ -47649,7 +47649,7 @@ add_pbf_error.exit869:                            ; preds = %1641, %1646
   %1678 = getelementptr inbounds i8, ptr %.val484, i64 16
   %1679 = load i32, ptr %1678, align 4
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
-  %1681 = icmp ult i32 %1680, 2
+  %1681 = icmp samesign ult i32 %1680, 2
   %.pre.i.i870 = load ptr, ptr %.val484, align 8
   br i1 %1681, label %1682, label %add_pbf_error.exit873
 
@@ -47754,7 +47754,7 @@ timelib_parse_tz_minutes.exit:                    ; preds = %1704, %1715, %.sink
   %1730 = getelementptr inbounds i8, ptr %.val485, i64 16
   %1731 = load i32, ptr %1730, align 4
   %1732 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1731)
-  %1733 = icmp ult i32 %1732, 2
+  %1733 = icmp samesign ult i32 %1732, 2
   %.pre.i.i877 = load ptr, ptr %.val485, align 8
   br i1 %1733, label %1734, label %add_pbf_error.exit880
 
@@ -47804,7 +47804,7 @@ timelib_lookup_format.exit.thread:                ; preds = %.lr.ph.i, %.lr.ph.i
   %1756 = getelementptr inbounds i8, ptr %.val486, i64 16
   %1757 = load i32, ptr %1756, align 4
   %1758 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1757)
-  %1759 = icmp ult i32 %1758, 2
+  %1759 = icmp samesign ult i32 %1758, 2
   %.pre.i.i881 = load ptr, ptr %.val486, align 8
   br i1 %1759, label %1760, label %add_pbf_error.exit884
 
@@ -47885,7 +47885,7 @@ timelib_skip_day_suffix.exit..critedge.loopexit1085_crit_edge: ; preds = %timeli
   %1786 = getelementptr inbounds i8, ptr %.val491, i64 20
   %1787 = load i32, ptr %1786, align 4
   %1788 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1787)
-  %1789 = icmp ult i32 %1788, 2
+  %1789 = icmp samesign ult i32 %1788, 2
   %.pre.i.i885 = load ptr, ptr %1785, align 8
   br i1 %1789, label %1790, label %add_pbf_warning.exit
 
@@ -47917,7 +47917,7 @@ add_pbf_warning.exit:                             ; preds = %1784, %1790
   %1799 = getelementptr inbounds i8, ptr %.val487, i64 16
   %1800 = load i32, ptr %1799, align 4
   %1801 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1800)
-  %1802 = icmp ult i32 %1801, 2
+  %1802 = icmp samesign ult i32 %1801, 2
   %.pre.i.i888 = load ptr, ptr %.val487, align 8
   br i1 %1802, label %1803, label %add_pbf_error.exit891
 
@@ -48102,7 +48102,7 @@ timelib_lookup_format.exit898.thread:             ; preds = %.lr.ph.i893.prehead
   %1877 = getelementptr inbounds i8, ptr %.val488, i64 16
   %1878 = load i32, ptr %1877, align 4
   %1879 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1878)
-  %1880 = icmp ult i32 %1879, 2
+  %1880 = icmp samesign ult i32 %1879, 2
   %.pre.i.i900 = load ptr, ptr %.val488, align 8
   br i1 %1880, label %1881, label %timelib_time_reset_unset_fields.exit899.thread
 
@@ -48230,7 +48230,7 @@ timelib_time_reset_unset_fields.exit899:          ; preds = %1876, %1872, %timel
   %1939 = getelementptr inbounds i8, ptr %.val489, i64 16
   %1940 = load i32, ptr %1939, align 4
   %1941 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1940)
-  %1942 = icmp ult i32 %1941, 2
+  %1942 = icmp samesign ult i32 %1941, 2
   %.pre.i.i904 = load ptr, ptr %.val489, align 8
   br i1 %1942, label %1943, label %add_pbf_error.exit907
 
@@ -48294,7 +48294,7 @@ add_pbf_error.exit907:                            ; preds = %1938, %1943
   %1974 = getelementptr inbounds i8, ptr %.val490, i64 16
   %1975 = load i32, ptr %1974, align 4
   %1976 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1975)
-  %1977 = icmp ult i32 %1976, 2
+  %1977 = icmp samesign ult i32 %1976, 2
   %.pre.i.i908 = load ptr, ptr %.val490, align 8
   br i1 %1977, label %1978, label %add_pbf_error.exit911
 
@@ -48358,7 +48358,7 @@ add_pbf_error.exit911:                            ; preds = %1973, %1978
   %2011 = getelementptr inbounds i8, ptr %.val492, i64 20
   %2012 = load i32, ptr %2011, align 4
   %2013 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2012)
-  %2014 = icmp ult i32 %2013, 2
+  %2014 = icmp samesign ult i32 %2013, 2
   %.pre.i.i912 = load ptr, ptr %2010, align 8
   br i1 %2014, label %2015, label %add_pbf_warning.exit915
 
@@ -48425,7 +48425,7 @@ add_pbf_warning.exit915:                          ; preds = %2009, %2015
   %2049 = getelementptr inbounds i8, ptr %.val493, i64 20
   %2050 = load i32, ptr %2049, align 4
   %2051 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2050)
-  %2052 = icmp ult i32 %2051, 2
+  %2052 = icmp samesign ult i32 %2051, 2
   %.pre.i.i916 = load ptr, ptr %2048, align 8
   br i1 %2052, label %2053, label %add_pbf_warning.exit919
 
@@ -48492,7 +48492,7 @@ add_pbf_warning.exit919:                          ; preds = %2047, %2053
   %2086 = getelementptr inbounds i8, ptr %.val494, i64 20
   %2087 = load i32, ptr %2086, align 4
   %2088 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2087)
-  %2089 = icmp ult i32 %2088, 2
+  %2089 = icmp samesign ult i32 %2088, 2
   %.pre.i.i920 = load ptr, ptr %2085, align 8
   br i1 %2089, label %2090, label %add_pbf_warning.exit923
 
@@ -48637,7 +48637,7 @@ define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32
   %15 = load i8, ptr %13, align 1
   %16 = add i8 %15, -48
   %or.cond31.i = icmp ult i8 %16, 10
-  %17 = icmp ult i32 %14, %1
+  %17 = icmp samesign ult i32 %14, %1
   %or.cond32.i = select i1 %or.cond31.i, i1 %17, i1 false
   br i1 %or.cond32.i, label %.lr.ph.i, label %.critedge2.i
 
@@ -48795,7 +48795,7 @@ define internal fastcc i64 @timelib_get_nr_ex(ptr nocapture noundef nonnull %0, 
   %16 = load i8, ptr %14, align 1
   %17 = add i8 %16, -48
   %or.cond31 = icmp ult i8 %17, 10
-  %18 = icmp ult i32 %15, %1
+  %18 = icmp samesign ult i32 %15, %1
   %or.cond32 = select i1 %or.cond31, i1 %18, i1 false
   br i1 %or.cond32, label %.lr.ph, label %.critedge2
 
@@ -48850,7 +48850,7 @@ define internal fastcc i64 @timelib_get_signed_nr(ptr nocapture noundef nonnull 
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
-  %17 = icmp ult i32 %16, 2
+  %17 = icmp samesign ult i32 %16, 2
   %.pre.i.i = load ptr, ptr %13, align 8
   br i1 %17, label %18, label %alloc_error_message.exit.i
 
@@ -48946,7 +48946,7 @@ add_error.exit:                                   ; preds = %38, %42
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 4
   %64 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %63)
-  %65 = icmp ult i32 %64, 2
+  %65 = icmp samesign ult i32 %64, 2
   %.pre.i.i51 = load ptr, ptr %61, align 8
   br i1 %65, label %66, label %alloc_error_message.exit.i52
 
@@ -49030,7 +49030,7 @@ add_error.exit57:                                 ; preds = %86, %90
   %105 = load i8, ptr %102, align 1
   %106 = add i8 %105, -48
   %or.cond49 = icmp ult i8 %106, 10
-  %107 = icmp ult i32 %104, %2
+  %107 = icmp samesign ult i32 %104, %2
   %or.cond50 = select i1 %or.cond49, i1 %107, i1 false
   br i1 %or.cond50, label %.lr.ph78, label %.critedge4
 
@@ -49049,7 +49049,7 @@ add_error.exit57:                                 ; preds = %86, %90
   %115 = getelementptr inbounds i8, ptr %114, i64 16
   %116 = load i32, ptr %115, align 4
   %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %116)
-  %118 = icmp ult i32 %117, 2
+  %118 = icmp samesign ult i32 %117, 2
   %.pre.i.i58 = load ptr, ptr %114, align 8
   br i1 %118, label %119, label %alloc_error_message.exit.i59
 
@@ -49793,7 +49793,7 @@ timelib_lookup_relunit.exit.thread:               ; preds = %21
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 4
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp samesign ult i32 %44, 2
   %.pre.i.i.i = load ptr, ptr %41, align 8
   br i1 %45, label %46, label %alloc_error_message.exit.i.i
 
@@ -49872,7 +49872,7 @@ add_error.exit.i:                                 ; preds = %70, %66
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 4
   %93 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92)
-  %94 = icmp ult i32 %93, 2
+  %94 = icmp samesign ult i32 %93, 2
   %.pre.i.i.i59 = load ptr, ptr %90, align 8
   br i1 %94, label %95, label %alloc_error_message.exit.i.i60
 
@@ -49951,7 +49951,7 @@ add_error.exit.i63:                               ; preds = %119, %115
   %140 = getelementptr inbounds i8, ptr %139, i64 16
   %141 = load i32, ptr %140, align 4
   %142 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %141)
-  %143 = icmp ult i32 %142, 2
+  %143 = icmp samesign ult i32 %142, 2
   %.pre.i.i.i67 = load ptr, ptr %139, align 8
   br i1 %143, label %144, label %alloc_error_message.exit.i.i68
 
@@ -50030,7 +50030,7 @@ add_error.exit.i71:                               ; preds = %168, %164
   %189 = getelementptr inbounds i8, ptr %188, i64 16
   %190 = load i32, ptr %189, align 4
   %191 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
-  %192 = icmp ult i32 %191, 2
+  %192 = icmp samesign ult i32 %191, 2
   %.pre.i.i.i75 = load ptr, ptr %188, align 8
   br i1 %192, label %193, label %alloc_error_message.exit.i.i76
 
@@ -50109,7 +50109,7 @@ add_error.exit.i79:                               ; preds = %217, %213
   %238 = getelementptr inbounds i8, ptr %237, i64 16
   %239 = load i32, ptr %238, align 4
   %240 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %239)
-  %241 = icmp ult i32 %240, 2
+  %241 = icmp samesign ult i32 %240, 2
   %.pre.i.i.i83 = load ptr, ptr %237, align 8
   br i1 %241, label %242, label %alloc_error_message.exit.i.i84
 
@@ -50188,7 +50188,7 @@ add_error.exit.i87:                               ; preds = %266, %262
   %287 = getelementptr inbounds i8, ptr %286, i64 16
   %288 = load i32, ptr %287, align 4
   %289 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %288)
-  %290 = icmp ult i32 %289, 2
+  %290 = icmp samesign ult i32 %289, 2
   %.pre.i.i.i91 = load ptr, ptr %286, align 8
   br i1 %290, label %291, label %alloc_error_message.exit.i.i92
 
@@ -50267,7 +50267,7 @@ add_error.exit.i95:                               ; preds = %315, %311
   %336 = getelementptr inbounds i8, ptr %335, i64 16
   %337 = load i32, ptr %336, align 4
   %338 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %337)
-  %339 = icmp ult i32 %338, 2
+  %339 = icmp samesign ult i32 %338, 2
   %.pre.i.i.i99 = load ptr, ptr %335, align 8
   br i1 %339, label %340, label %alloc_error_message.exit.i.i100
 

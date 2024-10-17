@@ -481,7 +481,7 @@ if.end.i63:                                       ; preds = %for.cond102
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %for.cond102, %if.end.i63
   %retval.0.i65 = phi i64 [ %40, %if.end.i63 ], [ 0, %for.cond102 ]
-  %cmp105 = icmp ult i64 %indvars.iv100, %retval.0.i65
+  %cmp105 = icmp samesign ult i64 %indvars.iv100, %retval.0.i65
   br i1 %cmp105, label %for.body106, label %for.end120
 
 for.body106:                                      ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
@@ -3058,7 +3058,7 @@ if.end.i.i:                                       ; preds = %for.cond4
 
 _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond4, %if.end.i.i
   %retval.0.i.i = phi i64 [ %6, %if.end.i.i ], [ 0, %for.cond4 ]
-  %cmp8 = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp8 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp8, label %invoke.cont11, label %for.end
 
 invoke.cont11:                                    ; preds = %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -4161,7 +4161,7 @@ if.end.i.i:                                       ; preds = %for.cond51
 
 _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond51, %if.end.i.i
   %retval.0.i.i = phi i64 [ %24, %if.end.i.i ], [ 0, %for.cond51 ]
-  %cmp54 = icmp ult i64 %indvars.iv99, %retval.0.i.i
+  %cmp54 = icmp samesign ult i64 %indvars.iv99, %retval.0.i.i
   br i1 %cmp54, label %invoke.cont57, label %for.end89
 
 invoke.cont57:                                    ; preds = %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -4192,7 +4192,7 @@ if.end.i57:                                       ; preds = %for.cond73
 
 _ZNK6vectorIP11constructorLb0EjE4sizeEv.exit60:   ; preds = %for.cond73, %if.end.i57
   %retval.0.i59 = phi i64 [ %29, %if.end.i57 ], [ 0, %for.cond73 ]
-  %cmp76 = icmp ult i64 %indvars.iv96, %retval.0.i59
+  %cmp76 = icmp samesign ult i64 %indvars.iv96, %retval.0.i59
   br i1 %cmp76, label %for.body77, label %for.inc87
 
 for.body77:                                       ; preds = %_ZNK6vectorIP11constructorLb0EjE4sizeEv.exit60

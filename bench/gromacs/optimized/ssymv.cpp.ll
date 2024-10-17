@@ -136,7 +136,7 @@ define void @ssymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %67 = getelementptr inbounds float, ptr %5, i64 %66
   %68 = load float, ptr %67, align 4
   %69 = fmul float %18, %68
-  %70 = icmp ugt i64 %indvars.iv435, 1
+  %70 = icmp samesign ugt i64 %indvars.iv435, 1
   br i1 %70, label %.lr.ph336, label %._crit_edge337
 
 .lr.ph336:                                        ; preds = %65
@@ -190,7 +190,7 @@ define void @ssymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %gep325 = getelementptr float, ptr %invariant.gep324, i64 %indvars.iv421
   %97 = load float, ptr %gep325, align 4
   %98 = fmul float %18, %97
-  %99 = icmp ugt i64 %indvars.iv417, 1
+  %99 = icmp samesign ugt i64 %indvars.iv417, 1
   %100 = add nsw i64 %indvars.iv417, -1
   br i1 %99, label %.lr.ph321, label %._crit_edge322
 
@@ -283,7 +283,7 @@ define void @ssymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store float %145, ptr %143, align 4
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
   %invariant.op = add i64 %139, 4294967295
-  %.not246302.not = icmp ult i64 %indvars.iv399, %134
+  %.not246302.not = icmp samesign ult i64 %indvars.iv399, %134
   br i1 %.not246302.not, label %.lr.ph306.preheader, label %._crit_edge307
 
 .lr.ph306.preheader:                              ; preds = %.lr.ph311
@@ -343,7 +343,7 @@ define void @ssymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %169 = tail call float @llvm.fmuladd.f32(float %162, float %167, float %168)
   store float %169, ptr %gep296, align 4
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
-  %.not244287.not = icmp ult i64 %indvars.iv383, %131
+  %.not244287.not = icmp samesign ult i64 %indvars.iv383, %131
   br i1 %.not244287.not, label %.lr.ph292, label %._crit_edge
 
 .lr.ph292:                                        ; preds = %160

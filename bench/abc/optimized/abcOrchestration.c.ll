@@ -1594,7 +1594,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %34 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv74.i
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp ult i64 %indvars.iv74.i, 5
+  %36 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %36, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 37:                                               ; preds = %.preheader26.us.us.i, %37
@@ -5252,7 +5252,7 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   %887 = getelementptr inbounds i8, ptr %886, i64 56
   %888 = load ptr, ptr %887, align 8
   %indvars.iv.next295.i = add nuw nsw i64 %indvars.iv294.i, 1
-  %889 = icmp ult i64 %indvars.iv.next295.i, %874
+  %889 = icmp samesign ult i64 %indvars.iv.next295.i, %874
   br i1 %889, label %.lr.ph212.i, label %.critedge2.loopexit.i
 
 .lr.ph212.i:                                      ; preds = %881
@@ -5513,7 +5513,7 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   %1017 = getelementptr inbounds i8, ptr %1016, i64 56
   %1018 = load ptr, ptr %1017, align 8
   %indvars.iv.next323.i = add nuw nsw i64 %indvars.iv322.i, 1
-  %1019 = icmp ult i64 %indvars.iv.next323.i, %880
+  %1019 = icmp samesign ult i64 %indvars.iv.next323.i, %880
   br i1 %1019, label %.lr.ph235.i, label %.critedge.loopexit.i
 
 .lr.ph235.i:                                      ; preds = %1011
@@ -21159,7 +21159,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %28 = getelementptr inbounds i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
   %indvars.iv.next843 = add nuw nsw i64 %indvars.iv842, 1
-  %30 = icmp ult i64 %indvars.iv.next843, %13
+  %30 = icmp samesign ult i64 %indvars.iv.next843, %13
   br i1 %30, label %.lr.ph644, label %.critedge2.loopexit
 
 .lr.ph644:                                        ; preds = %22
@@ -21369,7 +21369,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %141 = lshr i32 %140, 12
   %142 = tail call i32 @llvm.umax.i32(i32 %138, i32 %141)
   %143 = tail call i32 @llvm.umax.i32(i32 %136, i32 %142)
-  %.not543.us.us = icmp ult i32 %136, %142
+  %.not543.us.us = icmp samesign ult i32 %136, %142
   %.0396.us.us = select i1 %.not543.us.us, ptr null, ptr %.fr
   %.3385.us.us = select i1 %.not543.us.us, ptr %.2384627.us.us, ptr %34
   %.3371.us.us = select i1 %.not543.us.us, ptr %.2370628.us.us, ptr %51
@@ -21662,7 +21662,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %266 = lshr i32 %265, 12
   %267 = tail call i32 @llvm.umax.i32(i32 %263, i32 %266)
   %268 = tail call i32 @llvm.umax.i32(i32 %261, i32 %267)
-  %.not543 = icmp ult i32 %261, %267
+  %.not543 = icmp samesign ult i32 %261, %267
   %.0396 = select i1 %.not543, ptr null, ptr %.fr
   %.3385 = select i1 %.not543, ptr %.2384627, ptr %156
   %.3371 = select i1 %.not543, ptr %.2370628, ptr %173
@@ -21729,7 +21729,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %285 = getelementptr inbounds i8, ptr %284, i64 56
   %286 = load ptr, ptr %285, align 8
   %indvars.iv.next916 = add nuw nsw i64 %indvars.iv915, 1
-  %287 = icmp ult i64 %indvars.iv.next916, %21
+  %287 = icmp samesign ult i64 %indvars.iv.next916, %21
   br i1 %287, label %.lr.ph722, label %.critedge.loopexit
 
 .lr.ph722:                                        ; preds = %279
@@ -21939,7 +21939,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %398 = lshr i32 %397, 12
   %399 = tail call i32 @llvm.umax.i32(i32 %395, i32 %398)
   %400 = tail call i32 @llvm.umax.i32(i32 %393, i32 %399)
-  %.not542.us.us = icmp ult i32 %393, %399
+  %.not542.us.us = icmp samesign ult i32 %393, %399
   %.3399.us.us = select i1 %.not542.us.us, ptr null, ptr %.fr740
   %.10392.us.us = select i1 %.not542.us.us, ptr %.9391702.us.us, ptr %291
   %.10378.us.us = select i1 %.not542.us.us, ptr %.9377703.us.us, ptr %308
@@ -22232,7 +22232,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %523 = lshr i32 %522, 12
   %524 = tail call i32 @llvm.umax.i32(i32 %520, i32 %523)
   %525 = tail call i32 @llvm.umax.i32(i32 %518, i32 %524)
-  %.not542 = icmp ult i32 %518, %524
+  %.not542 = icmp samesign ult i32 %518, %524
   %.3399 = select i1 %.not542, ptr null, ptr %.fr740
   %.10392 = select i1 %.not542, ptr %.9391702, ptr %413
   %.10378 = select i1 %.not542, ptr %.9377703, ptr %430
@@ -24853,7 +24853,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noun
   %37 = and i32 %36, 4
   %38 = or disjoint i32 %37, %34
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
-  %39 = icmp ult i64 %indvars.iv.next543, %16
+  %39 = icmp samesign ult i64 %indvars.iv.next543, %16
   br i1 %39, label %.lr.ph416.preheader, label %.critedge2.loopexit
 
 .lr.ph416.preheader:                              ; preds = %17

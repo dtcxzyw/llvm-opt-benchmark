@@ -997,7 +997,7 @@ dissect_spdy_data_payload.exit:                   ; preds = %spdy_get_num_data_f
   br label %551
 
 308:                                              ; preds = %103
-  %309 = icmp ult i16 %68, 3
+  %309 = icmp samesign ult i16 %68, 3
   br i1 %309, label %310, label %311
 
 310:                                              ; preds = %308

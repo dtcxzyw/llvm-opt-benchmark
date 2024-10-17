@@ -410,7 +410,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %3, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %7, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -670,7 +670,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 103:                                              ; preds = %96
   %104 = load i8, ptr %33, align 8
   %105 = zext i8 %104 to i64
-  %106 = icmp ugt i64 %indvars.iv, %105
+  %106 = icmp samesign ugt i64 %indvars.iv, %105
   br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %103

@@ -4494,7 +4494,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit173:     ; preds = %82
   %.5135266 = phi i32 [ %.3133321, %94 ], [ 0, %92 ], [ %.3133321, %80 ], [ %.3133321, %78 ], [ %91, %90 ]
   %.5141265 = phi i32 [ %.3139320, %94 ], [ %93, %92 ], [ %.3139320, %80 ], [ %.3139320, %78 ], [ %.3139320, %90 ]
   %100 = zext i32 %.0143319 to i64
-  %101 = icmp ult i64 %indvars.iv372, %100
+  %101 = icmp samesign ult i64 %indvars.iv372, %100
   br i1 %101, label %102, label %121
 
 102:                                              ; preds = %.thread
@@ -4554,7 +4554,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit173:     ; preds = %82
   br i1 %120, label %.loopexit, label %.preheader287, !llvm.loop !76
 
 121:                                              ; preds = %.thread
-  %122 = icmp ugt i64 %indvars.iv372, %100
+  %122 = icmp samesign ugt i64 %indvars.iv372, %100
   br i1 %122, label %.preheader288, label %.loopexit
 
 .preheader288:                                    ; preds = %121, %.critedge4
@@ -4658,7 +4658,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 .critedge4:                                       ; preds = %152, %..critedge4_crit_edge
   %.pre-phi = phi i64 [ %.pre375, %..critedge4_crit_edge ], [ %154, %152 ]
   %.lcssa367 = phi i32 [ %umax368, %..critedge4_crit_edge ], [ %153, %152 ]
-  %158 = icmp ult i64 %.pre-phi, %indvars.iv372
+  %158 = icmp samesign ult i64 %.pre-phi, %indvars.iv372
   br i1 %158, label %.preheader288, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.critedge4, %.critedge, %102, %121
@@ -7776,20 +7776,20 @@ define dso_local void @_ZNK4llvm6Triple5mergeB5cxx11ERKS0_(ptr dead_on_unwind no
   br i1 %34, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread4, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i32 %17, %26
+  %36 = icmp samesign ult i32 %17, %26
   br i1 %36, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i32 %26, %17
+  %38 = icmp samesign ult i32 %26, %17
   br i1 %38, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread4, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i32 %19, %28
+  %40 = icmp samesign ult i32 %19, %28
   br i1 %40, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit
 
 _ZNK4llvm6Triple13isOSVersionLTERKS0_.exit:       ; preds = %39
-  %41 = icmp uge i32 %28, %19
-  %42 = icmp ult i32 %22, %31
+  %41 = icmp samesign uge i32 %28, %19
+  %42 = icmp samesign ult i32 %22, %31
   %spec.select.i.i = select i1 %41, i1 %42, i1 false
   br i1 %spec.select.i.i, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread, label %_ZNK4llvm6Triple13isOSVersionLTERKS0_.exit.thread4
 
@@ -7839,7 +7839,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr
   %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 2147483647
   %27 = icmp uge i32 %1, %20
-  %28 = icmp ult i32 %26, %23
+  %28 = icmp samesign ult i32 %26, %23
   %spec.select.i = select i1 %27, i1 %28, i1 false
   br label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 
@@ -7861,12 +7861,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr
   br i1 %41, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %34, %37
+  %43 = icmp samesign ult i32 %34, %37
   br i1 %43, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp uge i32 %37, %34
-  %46 = icmp ult i32 %36, %38
+  %45 = icmp samesign uge i32 %37, %34
+  %46 = icmp samesign ult i32 %36, %38
   %spec.select27.i = select i1 %45, i1 %46, i1 false
   br label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 
@@ -7892,7 +7892,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr
   %59 = trunc nuw i64 %58 to i32
   %60 = and i32 %59, 2147483647
   %61 = icmp uge i32 %50, %54
-  %62 = icmp ult i32 %60, %57
+  %62 = icmp samesign ult i32 %60, %57
   %spec.select.i11 = select i1 %61, i1 %62, i1 false
   br label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 
@@ -7925,7 +7925,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr
   %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 2147483647
   %83 = icmp uge i32 %64, %76
-  %84 = icmp ult i32 %82, %79
+  %84 = icmp samesign ult i32 %82, %79
   %spec.select.i16 = select i1 %83, i1 %84, i1 false
   br label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 
@@ -7947,12 +7947,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr
   br i1 %97, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i32 %90, %93
+  %99 = icmp samesign ult i32 %90, %93
   br i1 %99, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, label %100
 
 100:                                              ; preds = %98
-  %101 = icmp uge i32 %93, %90
-  %102 = icmp ult i32 %92, %94
+  %101 = icmp samesign uge i32 %93, %90
+  %102 = icmp samesign ult i32 %92, %94
   %spec.select27.i14 = select i1 %101, i1 %102, i1 false
   br label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 

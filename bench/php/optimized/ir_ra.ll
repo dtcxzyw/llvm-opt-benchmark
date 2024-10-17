@@ -1820,7 +1820,7 @@ ir_add_use_pos.exit:                              ; preds = %.critedge.i765, %.c
   %851 = getelementptr inbounds i8, ptr %692, i64 2
   %852 = load i16, ptr %851, align 2
   %853 = zext i16 %852 to i32
-  %.not737864 = icmp ugt i32 %spec.select749, %853
+  %.not737864 = icmp samesign ugt i32 %spec.select749, %853
   br i1 %.not737864, label %ir_add_use_pos.exit772, label %.lr.ph868
 
 .lr.ph868:                                        ; preds = %ir_add_use_pos.exit
@@ -1842,7 +1842,7 @@ ir_add_use_pos.exit:                              ; preds = %.critedge.i765, %.c
   %862 = load i32, ptr %.1681867, align 4
   %863 = load i8, ptr %347, align 1
   %864 = zext i8 %863 to i64
-  %865 = icmp ult i64 %indvars.iv899, %864
+  %865 = icmp samesign ult i64 %indvars.iv899, %864
   br i1 %865, label %866, label %.thread
 
 866:                                              ; preds = %861
@@ -2506,7 +2506,7 @@ ir_add_tmp.exit.i:                                ; preds = %1210, %1209, %1199,
   %1220 = and i32 %1218, 512
   %.not179.i = icmp eq i32 %1220, 0
   %spec.select185.i = select i1 %.not179.i, i32 1, i32 2
-  %.not180199.i = icmp ugt i32 %spec.select185.i, %1219
+  %.not180199.i = icmp samesign ugt i32 %spec.select185.i, %1219
   br i1 %.not180199.i, label %._crit_edge.i788, label %.lr.ph203.i
 
 .lr.ph203.i:                                      ; preds = %.loopexit.i
@@ -2538,7 +2538,7 @@ ir_add_tmp.exit.i:                                ; preds = %1210, %1209, %1199,
 1233:                                             ; preds = %1228
   %1234 = load i8, ptr %349, align 1
   %1235 = zext i8 %1234 to i64
-  %1236 = icmp ult i64 %indvars.iv206.i, %1235
+  %1236 = icmp samesign ult i64 %indvars.iv206.i, %1235
   br i1 %1236, label %1237, label %1240
 
 1237:                                             ; preds = %1233
@@ -3060,7 +3060,7 @@ ir_add_use_pos.exit786:                           ; preds = %.thread, %1517, %15
   %1519 = getelementptr inbounds i8, ptr %.1681867, i64 4
   %1520 = load i16, ptr %851, align 2
   %1521 = zext i16 %1520 to i64
-  %.not737.not = icmp ult i64 %indvars.iv899, %1521
+  %.not737.not = icmp samesign ult i64 %indvars.iv899, %1521
   br i1 %.not737.not, label %861, label %ir_add_use_pos.exit772
 
 ir_add_use_pos.exit772:                           ; preds = %ir_add_use_pos.exit786, %ir_add_use_pos.exit, %.critedge.i770, %.critedge21.i771, %523, %525, %530
@@ -3316,7 +3316,7 @@ ir_add_use_pos.exit772:                           ; preds = %ir_add_use_pos.exit
 ir_add_osr_entry_loads.exit:                      ; preds = %1534, %.outer._crit_edge.i, %.outer._crit_edge.thread178.i
   %1646 = load i32, ptr %49, align 8
   %1647 = zext i32 %1646 to i64
-  %1648 = icmp ult i64 %indvars.iv.next906, %1647
+  %1648 = icmp samesign ult i64 %indvars.iv.next906, %1647
   br i1 %1648, label %1534, label %._crit_edge880
 
 ._crit_edge880:                                   ; preds = %ir_add_osr_entry_loads.exit, %.preheader

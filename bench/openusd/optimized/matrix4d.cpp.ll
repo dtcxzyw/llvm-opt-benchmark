@@ -4195,11 +4195,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7Gf
   br i1 %23, label %140, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ult i32 %.0179213, 3
+  %25 = icmp samesign ult i32 %.0179213, 3
   %26 = fmul double %21, 2.000000e-01
   %27 = fdiv double %26, 9.000000e+00
   %28 = select i1 %25, double %27, double 0.000000e+00
-  %29 = icmp ugt i32 %.0179213, 3
+  %29 = icmp samesign ugt i32 %.0179213, 3
   br label %30
 
 .loopexit193:                                     ; preds = %.loopexit, %30
@@ -4211,7 +4211,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7Gf
   %indvars.iv237 = phi i64 [ 0, %24 ], [ %indvars.iv.next238, %.loopexit193 ]
   %indvars.iv223 = phi i64 [ 1, %24 ], [ %indvars.iv.next224, %.loopexit193 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %31 = icmp ult i64 %indvars.iv237, 2
+  %31 = icmp samesign ult i64 %indvars.iv237, 2
   br i1 %31, label %.lr.ph210, label %.loopexit193
 
 .lr.ph210:                                        ; preds = %30
@@ -4322,7 +4322,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7Gf
 
 .preheader192:                                    ; preds = %.preheader192.loopexit, %75
   %invariant.gep = getelementptr inbounds double, ptr %4, i64 %indvars.iv233
-  %97 = icmp ult i64 %indvars.iv.next238, %indvars.iv233
+  %97 = icmp samesign ult i64 %indvars.iv.next238, %indvars.iv233
   br i1 %97, label %.lr.ph204, label %.preheader191
 
 .lr.ph204:                                        ; preds = %.preheader192
@@ -4330,7 +4330,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7Gf
   br label %112
 
 .preheader191:                                    ; preds = %112, %.preheader192
-  %99 = icmp ult i64 %indvars.iv233, 2
+  %99 = icmp samesign ult i64 %indvars.iv233, 2
   br i1 %99, label %.lr.ph206, label %.preheader191..preheader_crit_edge
 
 .preheader191..preheader_crit_edge:               ; preds = %.preheader191

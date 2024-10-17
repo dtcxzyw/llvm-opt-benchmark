@@ -400,7 +400,7 @@ define dso_local void @drm_dp_encode_sideband_req(ptr nocapture noundef readonly
   %53 = zext i8 %52 to i32
   %54 = lshr i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = icmp ult i64 %51, %55
+  %56 = icmp samesign ult i64 %51, %55
   br i1 %56, label %37, label %57, !llvm.loop !5
 
 57:                                               ; preds = %37
@@ -566,7 +566,7 @@ define dso_local void @drm_dp_encode_sideband_req(ptr nocapture noundef readonly
   %180 = load i8, ptr %133, align 8
   %181 = and i8 %180, 3
   %182 = zext nneg i8 %181 to i64
-  %183 = icmp ult i64 %179, %182
+  %183 = icmp samesign ult i64 %179, %182
   br i1 %183, label %146, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %146, %132
@@ -902,7 +902,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr n
   %160 = add nuw nsw i64 %127, 1
   %161 = load i8, ptr %119, align 8
   %162 = zext i8 %161 to i64
-  %163 = icmp ult i64 %160, %162
+  %163 = icmp samesign ult i64 %160, %162
   br i1 %163, label %.preheader7, label %.loopexit8, !llvm.loop !19
 
 164:                                              ; preds = %.preheader7
@@ -923,7 +923,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr n
   %170 = add nuw nsw i64 %168, 1
   %171 = load i8, ptr %119, align 8
   %172 = zext i8 %171 to i64
-  %173 = icmp ult i64 %170, %172
+  %173 = icmp samesign ult i64 %170, %172
   br i1 %173, label %167, label %.thread6, !llvm.loop !20
 
 .loopexit8:                                       ; preds = %147, %118
@@ -1171,7 +1171,7 @@ define dso_local void @drm_dp_dump_sideband_msg_req_body(ptr noundef %0, i32 nou
   %101 = add nuw nsw i64 %85, 1
   %102 = load i8, ptr %67, align 8
   %103 = zext i8 %102 to i64
-  %104 = icmp ult i64 %101, %103
+  %104 = icmp samesign ult i64 %101, %103
   br i1 %104, label %84, label %.loopexit, !llvm.loop !22
 
 105:                                              ; preds = %17
@@ -3832,7 +3832,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 383:                                              ; preds = %380, %376
   %384 = phi ptr [ %382, %380 ], [ null, %376 ]
   %385 = zext nneg i8 %71 to i32
-  %386 = icmp ugt i8 %71, 56
+  %386 = icmp samesign ugt i8 %71, 56
   br i1 %386, label %395, label %387
 
 387:                                              ; preds = %383
@@ -4113,7 +4113,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 553:                                              ; preds = %550, %546
   %554 = phi ptr [ %552, %550 ], [ null, %546 ]
   %555 = zext nneg i8 %472 to i32
-  %556 = icmp ugt i8 %472, 56
+  %556 = icmp samesign ugt i8 %472, 56
   br i1 %556, label %565, label %557
 
 557:                                              ; preds = %553
@@ -5730,7 +5730,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
 
 .preheader:                                       ; preds = %168, %185
   %183 = phi i64 [ %186, %185 ], [ 0, %168 ]
-  %184 = icmp ugt i64 %183, 47
+  %184 = icmp samesign ugt i64 %183, 47
   br i1 %184, label %193, label %185, !llvm.loop !80
 
 185:                                              ; preds = %.preheader
@@ -8793,7 +8793,7 @@ define internal fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef %0, ptr
   %67 = add nuw nsw i64 %64, 1
   %68 = load i8, ptr %56, align 8
   %69 = zext i8 %68 to i64
-  %70 = icmp ult i64 %67, %69
+  %70 = icmp samesign ult i64 %67, %69
   br i1 %70, label %63, label %.loopexit, !llvm.loop !108
 
 71:                                               ; preds = %53
@@ -9150,7 +9150,7 @@ define internal fastcc noundef range(i32 -5, 2) i32 @process_single_tx_qlock(ptr
 
 196:                                              ; preds = %182
   %197 = icmp eq i32 %194, -5
-  %198 = icmp ult i32 %181, 5
+  %198 = icmp samesign ult i32 %181, 5
   %199 = select i1 %197, i1 %198, i1 false
   %200 = add nuw nsw i32 %181, 1
   br i1 %199, label %180, label %201
@@ -10452,7 +10452,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %111 = add nuw nsw i64 %75, 1
   %112 = load i8, ptr %67, align 4
   %113 = zext i8 %112 to i64
-  %114 = icmp ult i64 %111, %113
+  %114 = icmp samesign ult i64 %111, %113
   br i1 %114, label %74, label %.loopexit59, !llvm.loop !133
 
 .loopexit59:                                      ; preds = %82, %65
@@ -11021,7 +11021,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %452 = add nuw nsw i64 %178, 1
   %453 = load i8, ptr %67, align 4
   %454 = zext i8 %453 to i64
-  %455 = icmp ult i64 %452, %454
+  %455 = icmp samesign ult i64 %452, %454
   br i1 %455, label %177, label %456, !llvm.loop !137
 
 456:                                              ; preds = %449

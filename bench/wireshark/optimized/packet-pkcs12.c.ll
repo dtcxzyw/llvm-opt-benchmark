@@ -585,10 +585,10 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture nou
   store i8 %35, ptr %32, align 1
   %37 = add i32 %.05773, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %.05699, %38
+  %39 = icmp samesign ult i64 %.05699, %38
   %spec.store.select = select i1 %39, i32 0, i32 %37
   %40 = add nuw nsw i32 %.15375, 2
-  %41 = icmp ult i32 %.15375, 62
+  %41 = icmp samesign ult i32 %.15375, 62
   br i1 %41, label %.preheader68, label %.loopexit69, !llvm.loop !7
 
 42:                                               ; preds = %31

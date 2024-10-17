@@ -2041,7 +2041,7 @@ while.body.i.i.i.i32:                             ; preds = %do.end, %while.body
   br i1 %cmp.i.not.i.i.i.i37, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i, label %while.body.i.i.i.i32, !llvm.loop !40
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i: ; preds = %while.body.i.i.i.i32
-  %cmp.i.i.i38 = icmp ugt i64 %__n.05.i.i.i.i33, 1152921504606846974
+  %cmp.i.i.i38 = icmp samesign ugt i64 %__n.05.i.i.i.i33, 1152921504606846974
   br i1 %cmp.i.i.i38, label %if.then.i.i.i, label %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i

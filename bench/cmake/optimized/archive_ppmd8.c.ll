@@ -23,7 +23,7 @@ define dso_local void @Ppmd8_Construct(ptr nocapture noundef writeonly %0) #0 {
 5:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %.02936 = phi i32 [ 0, %1 ], [ %13, %17 ]
-  %6 = icmp ugt i64 %indvars.iv, 11
+  %6 = icmp samesign ugt i64 %indvars.iv, 11
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, 1
@@ -295,7 +295,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
   %75 = getelementptr inbounds i16, ptr %73, i64 %indvars.iv93
   store i16 %72, ptr %75, align 2
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 8
-  %76 = icmp ult i64 %indvars.iv93, 56
+  %76 = icmp samesign ult i64 %indvars.iv93, 56
   br i1 %76, label %74, label %77, !llvm.loop !12
 
 77:                                               ; preds = %74
@@ -376,7 +376,7 @@ define dso_local nonnull ptr @Ppmd8_MakeEscFreq(ptr noundef %0, i32 noundef %1, 
   %20 = zext i16 %19 to i32
   %21 = mul nuw nsw i32 %7, 11
   %22 = add nuw nsw i32 %21, 11
-  %23 = icmp ult i32 %22, %20
+  %23 = icmp samesign ult i32 %22, %20
   %24 = zext i1 %23 to i64
   %25 = getelementptr inbounds %struct.CPpmd_See, ptr %17, i64 %24
   %26 = shl nuw nsw i32 %7, 1
@@ -559,7 +559,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   %43 = getelementptr inbounds i8, ptr %.198, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
-  %46 = icmp ugt i32 %40, %45
+  %46 = icmp samesign ugt i32 %40, %45
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %33
@@ -578,7 +578,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %.0100, i64 -11
   %53 = load i8, ptr %52, align 1
-  %54 = icmp ult i8 %53, %41
+  %54 = icmp samesign ult i8 %53, %41
   br i1 %54, label %49, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %49, %51
@@ -639,7 +639,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   %84 = udiv i32 %83, %72
   %85 = trunc i32 %84 to i8
   %86 = and i32 %84, 254
-  %87 = icmp ugt i32 %86, 41
+  %87 = icmp samesign ugt i32 %86, 41
   %spec.select = select i1 %87, i8 41, i8 %85
   %88 = getelementptr inbounds i8, ptr %0, i64 166
   %89 = add nuw nsw i32 %71, 2
@@ -791,7 +791,7 @@ define dso_local void @Ppmd8_Update1_0(ptr noundef %0) local_unnamed_addr #7 {
   %9 = getelementptr inbounds i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 1
   %11 = zext i16 %10 to i32
-  %12 = icmp uge i32 %7, %11
+  %12 = icmp samesign uge i32 %7, %11
   %13 = zext i1 %12 to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %13, ptr %14, align 8
@@ -1504,7 +1504,7 @@ AllocUnits.exit._crit_edge:                       ; preds = %AllocUnits.exit
   %334 = load i16, ptr %333, align 1
   %335 = mul nuw nsw i32 %252, 3
   %336 = add nuw nsw i32 %335, 1
-  %337 = icmp ult i32 %336, %228
+  %337 = icmp samesign ult i32 %336, %228
   %338 = zext i1 %337 to i16
   %339 = add i16 %334, %338
   br label %381
@@ -1784,7 +1784,7 @@ RangeDec_Decode.exit:                             ; preds = %39
   %61 = getelementptr inbounds i8, ptr %60, i64 2
   %62 = load i16, ptr %61, align 1
   %63 = zext i16 %62 to i32
-  %64 = icmp uge i32 %59, %63
+  %64 = icmp samesign uge i32 %59, %63
   %65 = zext i1 %64 to i32
   %66 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %65, ptr %66, align 8
@@ -2386,7 +2386,7 @@ RangeDec_Decode.exit194:                          ; preds = %349
   %448 = zext i16 %447 to i32
   %449 = mul nuw nsw i32 %415, 11
   %450 = add nuw nsw i32 %449, 11
-  %451 = icmp ult i32 %450, %448
+  %451 = icmp samesign ult i32 %450, %448
   %452 = zext i1 %451 to i64
   %453 = getelementptr inbounds %struct.CPpmd_See, ptr %445, i64 %452
   %454 = shl nuw nsw i32 %415, 1
@@ -2397,7 +2397,7 @@ RangeDec_Decode.exit194:                          ; preds = %349
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i32
   %461 = add nuw nsw i32 %460, %401
-  %462 = icmp ult i32 %454, %461
+  %462 = icmp samesign ult i32 %454, %461
   %463 = select i1 %462, i64 2, i64 0
   %464 = getelementptr inbounds %struct.CPpmd_See, ptr %453, i64 %463
   %465 = getelementptr inbounds i8, ptr %411, i64 1
@@ -3253,7 +3253,7 @@ Refresh.exit:                                     ; preds = %89
   %119 = zext i8 %108 to i32
   %120 = shl nuw nsw i32 %119, 2
   %121 = add nuw nsw i32 %120, 128
-  %122 = icmp ult i32 %121, %118
+  %122 = icmp samesign ult i32 %121, %118
   br i1 %122, label %123, label %172
 
 123:                                              ; preds = %114

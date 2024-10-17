@@ -268,7 +268,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   %spec.store.select4 = select i1 %or.cond3, i32 0, i32 %4
   %33 = and i32 %spec.store.select4, 1
   %.not295 = icmp eq i32 %33, 0
-  %.not = icmp ult i32 %spec.store.select4, 2
+  %.not = icmp samesign ult i32 %spec.store.select4, 2
   %.not296 = icmp eq ptr %9, null
   %.not297 = icmp eq ptr %10, null
   %34 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #6

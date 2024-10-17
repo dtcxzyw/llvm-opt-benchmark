@@ -61,7 +61,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1
   %.050 = phi i64 [ %11, %6 ], [ %3, %4 ]
   %.lhs.trunc134 = trunc i32 %.051 to i16
   %13 = urem i16 %.lhs.trunc134, 400
-  %14 = icmp ugt i16 %13, 300
+  %14 = icmp samesign ugt i16 %13, 300
   %.0.i106 = select i1 %14, i64 3155760000, i64 3155673600
   %.not107 = icmp ult i64 %.050, %.0.i106
   br i1 %.not107, label %.preheader100, label %.lr.ph
@@ -1010,7 +1010,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110
   br i1 %5, label %.lr.ph, label %20
 
 .preheader:                                       ; preds = %.lr.ph
-  %6 = icmp ult i32 %.020, 8
+  %6 = icmp samesign ult i32 %.020, 8
   br i1 %6, label %.lr.ph25, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1018,7 +1018,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110
   %.020 = phi i32 [ %13, %.lr.ph ], [ 0, %2 ]
   %.01319 = phi i32 [ %.114, %.lr.ph ], [ 0, %2 ]
   %.01618 = phi ptr [ %14, %.lr.ph ], [ %0, %2 ]
-  %8 = icmp ult i32 %.020, 9
+  %8 = icmp samesign ult i32 %.020, 9
   %9 = mul nsw i32 %.01319, 10
   %10 = zext nneg i8 %7 to i32
   %11 = add i32 %9, -48

@@ -279,7 +279,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %44 = load i32, ptr %15, align 8
   %45 = and i32 %44, 2147483647
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next32, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next32, %46
   br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph

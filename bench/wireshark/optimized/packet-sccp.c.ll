@@ -1238,11 +1238,11 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
   br i1 %6, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i8 %10, 2
+  %12 = icmp samesign ugt i8 %10, 2
   br i1 %12, label %35, label %15
 
 13:                                               ; preds = %8
-  %14 = icmp ugt i8 %10, 4
+  %14 = icmp samesign ugt i8 %10, 4
   br i1 %14, label %35, label %15
 
 15:                                               ; preds = %13, %11
@@ -3422,7 +3422,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %or.cond.i, label %.critedge.i, label %79
 
 78:                                               ; preds = %67, %67, %67, %67, %67, %67
-  %or.cond5.i = icmp ult i8 %69, 2
+  %or.cond5.i = icmp samesign ult i8 %69, 2
   br i1 %or.cond5.i, label %.critedge.thread46.i, label %79
 
 79:                                               ; preds = %78, %76, %75, %74
@@ -3430,7 +3430,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %79, %76, %67
-  %or.cond8.i = icmp ult i8 %69, 2
+  %or.cond8.i = icmp samesign ult i8 %69, 2
   br i1 %or.cond8.i, label %.critedge.thread46.i, label %dissect_sccp_dlr_param.exit
 
 .critedge.thread46.i:                             ; preds = %.critedge.i, %78
@@ -3716,7 +3716,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
 
 242:                                              ; preds = %239, %225
   %.0.i = phi i32 [ 2, %239 ], [ 1, %225 ]
-  %243 = icmp ult i32 %.0.i, %11
+  %243 = icmp samesign ult i32 %.0.i, %11
   br i1 %243, label %.lr.ph.i, label %dissect_sccp_dlr_param.exit
 
 .lr.ph.i:                                         ; preds = %242, %.lr.ph.i
@@ -3727,7 +3727,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   %247 = load i32, ptr @hf_sccp_ansi_isni_cluster, align 4
   %248 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %247, ptr noundef %12, i32 noundef %246, i32 noundef 1, i32 noundef 0) #9
   %249 = add nuw nsw i32 %.134.i, 2
-  %250 = icmp ult i32 %249, %11
+  %250 = icmp samesign ult i32 %249, %11
   br i1 %250, label %.lr.ph.i, label %dissect_sccp_dlr_param.exit, !llvm.loop !11
 
 251:                                              ; preds = %10
@@ -4212,7 +4212,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %58 = phi ptr [ %.pre, %53 ], [ %39, %.lr.ph.split.split.us ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %59 = zext i32 %57 to i64
-  %60 = icmp ult i64 %indvars.iv.next118, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next118, %59
   br i1 %60, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
@@ -4258,7 +4258,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr @num_sccp_users, align 4
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph.split.split, label %.thread, !llvm.loop !13
 
 .split.us:                                        ; preds = %70, %78, %48
@@ -4547,7 +4547,7 @@ switch.early.test:                                ; preds = %37
   br i1 %or.cond12, label %76, label %85
 
 76:                                               ; preds = %73
-  %77 = icmp ult i32 %3, 3
+  %77 = icmp samesign ult i32 %3, 3
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
@@ -4566,7 +4566,7 @@ switch.early.test:                                ; preds = %37
   br i1 %86, label %87, label %96
 
 87:                                               ; preds = %85
-  %88 = icmp ult i32 %3, 3
+  %88 = icmp samesign ult i32 %3, 3
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
@@ -4581,7 +4581,7 @@ switch.early.test:                                ; preds = %37
   br label %114
 
 96:                                               ; preds = %85
-  %97 = icmp ult i32 %3, 4
+  %97 = icmp samesign ult i32 %3, 4
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %96

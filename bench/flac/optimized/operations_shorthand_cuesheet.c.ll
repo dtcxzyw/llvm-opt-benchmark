@@ -291,7 +291,7 @@ for.body47.i:                                     ; preds = %for.body47.i, %for.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i8, ptr %num_indices.i, align 1
   %37 = zext i8 %36 to i64
-  %cmp45.i = icmp ult i64 %indvars.iv.next.i, %37
+  %cmp45.i = icmp samesign ult i64 %indvars.iv.next.i, %37
   br i1 %cmp45.i, label %for.body47.i, label %for.inc51.loopexit.i, !llvm.loop !7
 
 for.inc51.loopexit.i:                             ; preds = %for.body47.i
@@ -302,7 +302,7 @@ for.inc51.i:                                      ; preds = %for.inc51.loopexit.
   %38 = phi i32 [ %.pre.i, %for.inc51.loopexit.i ], [ %30, %for.body.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %39 = zext i32 %38 to i64
-  %cmp43.i = icmp ult i64 %indvars.iv.next40.i, %39
+  %cmp43.i = icmp samesign ult i64 %indvars.iv.next40.i, %39
   br i1 %cmp43.i, label %for.body.i, label %import_cs_from.exit, !llvm.loop !8
 
 import_cs_from.exit.thread:                       ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.then25.i

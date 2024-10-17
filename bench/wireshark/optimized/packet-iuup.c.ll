@@ -3868,7 +3868,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %58 = load i32, ptr %5, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next8, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next8, %59
   br i1 %60, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -3891,7 +3891,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %5, align 4
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
   br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12

@@ -213,7 +213,7 @@ Vec_IntGrow.exit.thread:                          ; preds = %50, %52
   br label %Vec_IntPush.exit
 
 62:                                               ; preds = %Vec_IntGrow.exit
-  %63 = icmp ult i32 %46, 16
+  %63 = icmp samesign ult i32 %46, 16
   br i1 %63, label %.thread, label %72
 
 .thread:                                          ; preds = %Vec_IntGrow.exit.thread, %62
@@ -3054,7 +3054,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.pre271 = lshr i64 %.val156, 32
   %.pre273 = trunc nuw i64 %.pre271 to i32
   %.pre275 = and i32 %.pre273, 536870911
-  %.not246 = icmp ult i32 %.pre269, %.pre275
+  %.not246 = icmp samesign ult i32 %.pre269, %.pre275
   %or.cond = select i1 %narrow.i.not.i.not295, i1 %.not246, i1 false
   %.val150 = load ptr, ptr %0, align 8
   %82 = getelementptr i8, ptr %0, i64 56
@@ -5936,7 +5936,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr nocapture noundef %0, i32 noundef
   %107 = zext nneg i32 %106 to i64
   %108 = shl i64 %.032.i, %107
   %109 = xor i64 %108, %.032.i
-  %.not.i = icmp ult i32 %.02831.i, 2
+  %.not.i = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i, label %.preheader.i231, label %.preheader.i, !llvm.loop !64
 
 .preheader.i231:                                  ; preds = %105, %128
@@ -5974,7 +5974,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr nocapture noundef %0, i32 noundef
   %130 = zext nneg i32 %129 to i64
   %131 = shl i64 %.032.i232, %130
   %132 = xor i64 %131, %.032.i232
-  %.not.i237 = icmp ult i32 %.02831.i233, 2
+  %.not.i237 = icmp samesign ult i32 %.02831.i233, 2
   br i1 %.not.i237, label %.preheader.i239, label %.preheader.i231, !llvm.loop !64
 
 .preheader.i239:                                  ; preds = %128, %151
@@ -6012,7 +6012,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr nocapture noundef %0, i32 noundef
   %153 = zext nneg i32 %152 to i64
   %154 = shl i64 %.032.i240, %153
   %155 = xor i64 %154, %.032.i240
-  %.not.i245 = icmp ult i32 %.02831.i241, 2
+  %.not.i245 = icmp samesign ult i32 %.02831.i241, 2
   br i1 %.not.i245, label %Sbd_TransposeMatrix64.exit246.preheader, label %.preheader.i239, !llvm.loop !64
 
 Sbd_TransposeMatrix64.exit246.preheader:          ; preds = %151
@@ -6349,14 +6349,14 @@ Sbd_TransposeMatrix64.exit246:                    ; preds = %177, %.loopexit407,
 Sbd_ManAddCube1.exit.us:                          ; preds = %.lr.ph.i252.us, %.lr.ph46.preheader.i.us, %292
   %.036.i.us = phi i32 [ %.2.i250.us, %292 ], [ %.2.i250.us, %.lr.ph46.preheader.i.us ], [ %.1165303.us, %.lr.ph.i252.us ]
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
-  %301 = icmp ult i64 %indvars.iv.next362, %260
+  %301 = icmp samesign ult i64 %indvars.iv.next362, %260
   %302 = icmp slt i32 %.036.i.us, 32
   %303 = and i1 %301, %302
   br i1 %303, label %266, label %._crit_edge306.us, !llvm.loop !75
 
 ._crit_edge306.us:                                ; preds = %Sbd_ManAddCube1.exit.us
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
-  %304 = icmp ult i64 %indvars.iv.next365, %261
+  %304 = icmp samesign ult i64 %indvars.iv.next365, %261
   %305 = and i1 %304, %302
   br i1 %305, label %.preheader288.us, label %.preheader, !llvm.loop !76
 
@@ -6426,7 +6426,7 @@ Sbd_ManCoverReverseOrder.exit:                    ; preds = %306
   %337 = zext nneg i32 %336 to i64
   %338 = shl i64 %.032.i264, %337
   %339 = xor i64 %338, %.032.i264
-  %.not.i269 = icmp ult i32 %.02831.i265, 2
+  %.not.i269 = icmp samesign ult i32 %.02831.i265, 2
   br i1 %.not.i269, label %Sbd_TransposeMatrix64.exit270, label %.preheader.i263, !llvm.loop !64
 
 Sbd_TransposeMatrix64.exit270:                    ; preds = %335, %Sbd_TransposeMatrix64.exit270
@@ -6781,7 +6781,7 @@ Abc_Clock.exit285:                                ; preds = %Abc_Clock.exit283, 
 Sbd_ManCoverReverseOrder.exit274:                 ; preds = %441, %._crit_edge326
   %.3167 = phi i32 [ %.2166327, %441 ], [ %484, %._crit_edge326 ]
   %495 = add nuw nsw i32 %.0160328, 1
-  %496 = icmp ult i32 %.0160328, 31
+  %496 = icmp samesign ult i32 %.0160328, 31
   %497 = icmp slt i32 %.3167, 64
   %498 = select i1 %496, i1 %497, i1 false
   br i1 %498, label %358, label %.loopexit, !llvm.loop !83
@@ -7772,7 +7772,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv240 = phi i64 [ 1, %.lr.ph171.preheader ], [ %indvars.iv.next241, %.loopexit129 ]
   %indvars.iv231 = phi i64 [ 2, %.lr.ph171.preheader ], [ %indvars.iv.next232, %.loopexit129 ]
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %431 = icmp ult i64 %indvars.iv.next248, %426
+  %431 = icmp samesign ult i64 %indvars.iv.next248, %426
   br i1 %431, label %.lr.ph167, label %.loopexit129
 
 .lr.ph167:                                        ; preds = %.lr.ph171
@@ -7788,7 +7788,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv242 = phi i64 [ %indvars.iv240, %.lr.ph167 ], [ %indvars.iv.next243, %.loopexit128 ]
   %indvars.iv233 = phi i64 [ %indvars.iv231, %.lr.ph167 ], [ %indvars.iv.next234, %.loopexit128 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
-  %434 = icmp ult i64 %indvars.iv.next243, %425
+  %434 = icmp samesign ult i64 %indvars.iv.next243, %425
   br i1 %434, label %.lr.ph164, label %.loopexit128
 
 .lr.ph164:                                        ; preds = %433
@@ -7842,7 +7842,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv264 = phi i64 [ 2, %.lr.ph183.preheader ], [ %indvars.iv.next265, %.loopexit126 ]
   %indvars.iv253 = phi i64 [ 3, %.lr.ph183.preheader ], [ %indvars.iv.next254, %.loopexit126 ]
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
-  %458 = icmp ult i64 %indvars.iv.next281, %429
+  %458 = icmp samesign ult i64 %indvars.iv.next281, %429
   br i1 %458, label %.lr.ph180, label %.loopexit126
 
 .lr.ph180:                                        ; preds = %.lr.ph183
@@ -7860,7 +7860,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv266 = phi i64 [ %indvars.iv264, %.lr.ph180 ], [ %indvars.iv.next267, %.loopexit125 ]
   %indvars.iv255 = phi i64 [ %indvars.iv253, %.lr.ph180 ], [ %indvars.iv.next256, %.loopexit125 ]
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
-  %461 = icmp ult i64 %indvars.iv.next276, %428
+  %461 = icmp samesign ult i64 %indvars.iv.next276, %428
   br i1 %461, label %.lr.ph177, label %.loopexit125
 
 .lr.ph177:                                        ; preds = %460
@@ -8615,7 +8615,7 @@ Abc_Clock.exit192:                                ; preds = %Abc_Clock.exit190, 
 322:                                              ; preds = %249, %._crit_edge232
   %.3136 = phi i32 [ %.2135233, %249 ], [ %307, %._crit_edge232 ]
   %323 = add nuw nsw i32 %.0129234, 1
-  %324 = icmp ult i32 %.0129234, 31
+  %324 = icmp samesign ult i32 %.0129234, 31
   %325 = icmp slt i32 %.3136, 64
   %326 = select i1 %324, i1 %325, i1 false
   br i1 %326, label %166, label %.loopexit, !llvm.loop !115
@@ -9945,7 +9945,7 @@ Abc_Clock.exit519:                                ; preds = %Abc_Clock.exit517, 
 
 .loopexit:                                        ; preds = %.lr.ph684, %622, %._crit_edge681
   %indvar.next839 = add nuw nsw i64 %indvar838, 1
-  %623 = icmp ult i64 %indvar.next839, %612
+  %623 = icmp samesign ult i64 %indvar.next839, %612
   br i1 %623, label %616, label %._crit_edge688, !llvm.loop !135
 
 ._crit_edge688:                                   ; preds = %.loopexit, %._crit_edge677
@@ -13501,7 +13501,7 @@ Gia_ObjIsXor.exit:                                ; preds = %16
   %28 = lshr i64 %.val42, 32
   %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
-  %.not44 = icmp ult i32 %27, %30
+  %.not44 = icmp samesign ult i32 %27, %30
   br i1 %.not44, label %31, label %Gia_ObjIsXor.exit.thread
 
 31:                                               ; preds = %Gia_ObjIsXor.exit

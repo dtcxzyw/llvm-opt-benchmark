@@ -758,7 +758,7 @@ for.inc:                                          ; preds = %.noexc42, %lor.lhs.
   %m_num_bindings43 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i32, ptr %m_num_bindings43, align 8
   %42 = zext i32 %41 to i64
-  %cmp44 = icmp ult i64 %indvars.iv.next, %42
+  %cmp44 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %cmp44, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit

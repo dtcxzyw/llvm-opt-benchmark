@@ -4412,7 +4412,7 @@ _ZNSt8optionalIN12_GLOBAL__N_127SinkingInstructionCandidateEED2Ev.exit: ; preds 
   br i1 %.not.i.i.i.i.i92, label %select.unfold.i.i.i.i.i, label %1572
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i91
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i91, !llvm.loop !103
 
 1572:                                             ; preds = %.lr.ph.i.i.i.i.i91
@@ -5384,7 +5384,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %2027, %2024
   %.pre-phi2.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i, %2024 ], [ %2029, %2027 ]
   %.idx8.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
   %2033 = getelementptr inbounds i8, ptr %2032, i64 %.idx8.i.i
-  %.not7.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i, 4
+  %.not7.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i, 4
   br i1 %.not7.i.i, label %._crit_edge.i.i.i.i.i.i113.i, label %.lr.ph.i.i.i.i.i.i106.i
 
 .lr.ph.i.i.i.i.i.i106.i:                          ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i

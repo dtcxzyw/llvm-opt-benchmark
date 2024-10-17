@@ -254,22 +254,22 @@ define internal fastcc double @mcelem_array_contain_overlap_selec(ptr nocapture 
   %21 = lshr i32 %1, 16
   %spec.select.i = select i1 %20, i32 %21, i32 %1
   %spec.select23.i = select i1 %20, i32 16, i32 0
-  %22 = icmp ugt i32 %spec.select.i, 255
+  %22 = icmp samesign ugt i32 %spec.select.i, 255
   %23 = lshr i32 %spec.select.i, 8
   %24 = or disjoint i32 %spec.select23.i, 8
   %.118.i = select i1 %22, i32 %23, i32 %spec.select.i
   %.1.i = select i1 %22, i32 %24, i32 %spec.select23.i
-  %25 = icmp ugt i32 %.118.i, 15
+  %25 = icmp samesign ugt i32 %.118.i, 15
   %26 = lshr i32 %.118.i, 4
   %27 = or disjoint i32 %.1.i, 4
   %.219.i = select i1 %25, i32 %26, i32 %.118.i
   %.2.i = select i1 %25, i32 %27, i32 %.1.i
-  %28 = icmp ugt i32 %.219.i, 3
+  %28 = icmp samesign ugt i32 %.219.i, 3
   %29 = lshr i32 %.219.i, 2
   %30 = or disjoint i32 %.2.i, 2
   %.320.i = select i1 %28, i32 %29, i32 %.219.i
   %.3.i = select i1 %28, i32 %30, i32 %.2.i
-  %31 = icmp ugt i32 %.320.i, 1
+  %31 = icmp samesign ugt i32 %.320.i, 1
   %32 = zext i1 %31 to i32
   %.4.i = add nuw nsw i32 %.3.i, %32
   %33 = freeze i32 %.4.i
@@ -709,7 +709,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
 
 118:                                              ; preds = %130, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %130 ]
-  %119 = icmp ult i64 %indvars.iv.i, %indvars.iv93.i
+  %119 = icmp samesign ult i64 %indvars.iv.i, %indvars.iv93.i
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %118
@@ -779,7 +779,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
 
 140:                                              ; preds = %152, %.lr.ph.i155
   %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.i155 ], [ %indvars.iv.next.i161, %152 ]
-  %141 = icmp ult i64 %indvars.iv.i157, %indvars.iv93.i145
+  %141 = icmp samesign ult i64 %indvars.iv.i157, %indvars.iv93.i145
   br i1 %141, label %142, label %146
 
 142:                                              ; preds = %140

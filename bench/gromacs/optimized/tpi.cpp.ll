@@ -3783,7 +3783,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit614:    ; preds = %1585, %1589
   %storemerge4621144 = phi i32 [ %1633, %.lr.ph1146 ], [ 0, %.preheader917 ]
   %1618 = load ptr, ptr %870, align 8
   %1619 = getelementptr inbounds i8, ptr %1618, i64 432
-  %1620 = icmp ult i32 %storemerge4621144, %562
+  %1620 = icmp samesign ult i32 %storemerge4621144, %562
   %1621 = mul nuw nsw i32 %storemerge4621144, %555
   %1622 = add nuw nsw i32 %1621, %562
   %1623 = add nuw nsw i32 %storemerge4621144, %875
@@ -3808,7 +3808,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit614:    ; preds = %1585, %1589
   %storemerge4611140 = phi i32 [ %1649, %.lr.ph1142 ], [ 0, %.preheader919 ]
   %1634 = load ptr, ptr %870, align 8
   %1635 = getelementptr inbounds i8, ptr %1634, i64 408
-  %1636 = icmp ult i32 %storemerge4611140, %562
+  %1636 = icmp samesign ult i32 %storemerge4611140, %562
   %1637 = mul nuw nsw i32 %storemerge4611140, %555
   %1638 = add nuw nsw i32 %1637, %562
   %1639 = add nuw nsw i32 %storemerge4611140, %875
@@ -3870,7 +3870,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit614:    ; preds = %1585, %1589
   %storemerge4631148 = phi i32 [ 0, %.lr.ph1150.preheader ], [ %1679, %.lr.ph1150 ]
   %1664 = load ptr, ptr %870, align 8
   %1665 = getelementptr inbounds i8, ptr %1664, i64 384
-  %1666 = icmp ult i32 %storemerge4631148, %562
+  %1666 = icmp samesign ult i32 %storemerge4631148, %562
   %1667 = mul nuw nsw i32 %storemerge4631148, %555
   %1668 = add nuw nsw i32 %1667, %562
   %1669 = add nuw nsw i32 %storemerge4631148, %875
@@ -4212,8 +4212,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit626:       ; preds = %1781, %1783
 1826:                                             ; preds = %1821
   %1827 = urem i32 %1815, 10
   %1828 = icmp eq i32 %1827, 0
-  %1829 = icmp ult i32 %.0348, 9
-  %or.cond3 = or i1 %1829, %1828
+  %1829 = icmp samesign ult i32 %.0348, 9
+  %or.cond3 = select i1 %1828, i1 true, i1 %1829
   br i1 %or.cond3, label %1830, label %1841
 
 1830:                                             ; preds = %1826, %1821
@@ -4371,7 +4371,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit626:       ; preds = %1781, %1783
   %1919 = call i32 @llvm.smax.i32(i32 %1916, i32 %1918)
   store i32 %1919, ptr %32, align 4
   %indvars.iv.next.i632 = add nuw nsw i64 %indvars.iv.i631, 1
-  %1920 = icmp ult i64 %indvars.iv.next.i632, %1915
+  %1920 = icmp samesign ult i64 %indvars.iv.next.i632, %1915
   br i1 %1920, label %.lr.ph.i630, label %._crit_edge.i627, !llvm.loop !43
 
 ._crit_edge.i627:                                 ; preds = %.lr.ph.i630, %.noexc634

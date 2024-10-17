@@ -930,7 +930,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
   br i1 %.not65, label %25, label %16
 
 16:                                               ; preds = %15
-  %17 = icmp ugt i32 %spec.select, 1
+  %17 = icmp samesign ugt i32 %spec.select, 1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16

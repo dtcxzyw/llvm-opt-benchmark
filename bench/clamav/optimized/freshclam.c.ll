@@ -938,7 +938,7 @@ string_list_add.exit:                             ; preds = %60, %41
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %70 = load i32, ptr %8, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next202, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next202, %71
   br i1 %72, label %.preheader128, label %.preheader127
 
 .preheader:                                       ; preds = %.preheader.preheader, %string_list_add.exit74

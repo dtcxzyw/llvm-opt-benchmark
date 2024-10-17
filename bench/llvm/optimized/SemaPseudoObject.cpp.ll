@@ -1814,7 +1814,7 @@ _ZN5clang4Sema21CurFPFeatureOverridesEv.exit:     ; preds = %28, %40
   %.not.i = icmp eq i8 %49, 13
   %50 = load i32, ptr %48, align 16
   %51 = and i32 %50, 266338304
-  %52 = icmp ugt i32 %51, 257425408
+  %52 = icmp samesign ugt i32 %51, 257425408
   %.0.i = select i1 %.not.i, i1 %52, i1 false
   br i1 %.0.i, label %53, label %60
 
@@ -2273,7 +2273,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_115PseudoOpBuilder24buildAssignmentO
   %.not.i.i = icmp eq i8 %19, 13
   %20 = load i32, ptr %18, align 16
   %21 = and i32 %20, 267911168
-  %22 = icmp ugt i32 %21, 256901120
+  %22 = icmp samesign ugt i32 %21, 256901120
   %.0.i.i = select i1 %.not.i.i, i1 %22, i1 false
   br i1 %.0.i.i, label %26, label %23
 

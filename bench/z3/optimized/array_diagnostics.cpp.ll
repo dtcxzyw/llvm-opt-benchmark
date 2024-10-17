@@ -123,7 +123,7 @@ if.end.i.i16:                                     ; preds = %for.cond
 
 _ZNK3euf13th_euf_solver12get_num_varsEv.exit19:   ; preds = %for.cond, %if.end.i.i16
   %retval.0.i.i18 = phi i64 [ %4, %if.end.i.i16 ], [ 0, %for.cond ]
-  %cmp4 = icmp ult i64 %indvars.iv, %retval.0.i.i18
+  %cmp4 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i18
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit19
@@ -911,7 +911,7 @@ for.inc35:                                        ; preds = %.noexc63, %lor.lhs.
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %22 = load i32, ptr %m_num_args.i, align 8
   %23 = zext i32 %22 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next133, %23
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next133, %23
   br i1 %cmp28, label %for.body29, label %for.end37, !llvm.loop !7
 
 lpad17.loopexit:                                  ; preds = %if.then.i75

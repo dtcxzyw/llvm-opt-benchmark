@@ -452,7 +452,7 @@ if.end.i27:                                       ; preds = %for.cond27
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit30:   ; preds = %for.cond27, %if.end.i27
   %retval.0.i29 = phi i64 [ %23, %if.end.i27 ], [ 0, %for.cond27 ]
-  %cmp30 = icmp ult i64 %indvars.iv, %retval.0.i29
+  %cmp30 = icmp samesign ult i64 %indvars.iv, %retval.0.i29
   br i1 %cmp30, label %for.body31, label %for.end
 
 for.body31:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit30

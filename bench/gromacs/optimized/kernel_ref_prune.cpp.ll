@@ -167,7 +167,7 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
 
 100:                                              ; preds = %85
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %101 = icmp ugt i64 %indvars.iv124, 2
+  %101 = icmp samesign ugt i64 %indvars.iv124, 2
   %.not96 = select i1 %101, i1 true, i1 %.294
   br i1 %.not96, label %102, label %.preheader, !llvm.loop !9
 

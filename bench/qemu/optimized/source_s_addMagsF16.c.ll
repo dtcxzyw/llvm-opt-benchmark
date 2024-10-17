@@ -40,8 +40,8 @@ if.end21:                                         ; preds = %if.then
   %add27 = add nuw nsw i64 %add26, %and9
   %and28 = and i64 %add27, 1
   %tobool29 = icmp eq i64 %and28, 0
-  %cmp31 = icmp ult i8 %conv2, 30
-  %or.cond = and i1 %cmp31, %tobool29
+  %cmp31 = icmp samesign ult i8 %conv2, 30
+  %or.cond = select i1 %tobool29, i1 %cmp31, i1 false
   br i1 %or.cond, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end21

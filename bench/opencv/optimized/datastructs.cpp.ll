@@ -11940,7 +11940,7 @@ define void @cvGraphRemoveEdgeByPtr(ptr noundef readonly %0, ptr noundef %1, ptr
   %29 = and i32 %28, 67108863
   %30 = load i32, ptr %2, align 8
   %31 = and i32 %30, 67108863
-  %32 = icmp ugt i32 %29, %31
+  %32 = icmp samesign ugt i32 %29, %31
   %spec.select = select i1 %32, ptr %1, ptr %2
   %spec.select93 = select i1 %32, ptr %2, ptr %1
   br label %33
@@ -12371,7 +12371,7 @@ define ptr @cvFindGraphEdgeByPtr(ptr noundef readonly %0, ptr noundef readonly %
   %25 = and i32 %24, 67108863
   %26 = load i32, ptr %2, align 8
   %27 = and i32 %26, 67108863
-  %28 = icmp ugt i32 %25, %27
+  %28 = icmp samesign ugt i32 %25, %27
   %spec.select = select i1 %28, ptr %2, ptr %1
   %spec.select43 = select i1 %28, ptr %1, ptr %2
   br label %29
@@ -12679,7 +12679,7 @@ define range(i32 0, 2) i32 @cvGraphAddEdgeByPtr(ptr noundef %0, ptr noundef %1, 
   %25 = and i32 %24, 67108863
   %26 = load i32, ptr %2, align 8
   %27 = and i32 %26, 67108863
-  %28 = icmp ugt i32 %25, %27
+  %28 = icmp samesign ugt i32 %25, %27
   %spec.select = select i1 %28, ptr %1, ptr %2
   %spec.select75 = select i1 %28, ptr %2, ptr %1
   br label %29

@@ -978,8 +978,8 @@ getdatafield.exit:                                ; preds = %99
 166:                                              ; preds = %165
   %167 = and i64 %162, 7
   %168 = icmp eq i64 %167, 0
-  %169 = icmp ult i64 %.pre163, 1025
-  %or.cond7 = and i1 %168, %169
+  %169 = icmp samesign ult i64 %.pre163, 1025
+  %or.cond7 = select i1 %168, i1 %169, i1 false
   br i1 %or.cond7, label %170, label %.loopexit.sink.split
 
 170:                                              ; preds = %166
@@ -1294,8 +1294,8 @@ getdatafield.exit:                                ; preds = %78
 132:                                              ; preds = %127
   %133 = and i64 %1, 7
   %134 = icmp eq i64 %133, 0
-  %135 = icmp ult i64 %128, 1025
-  %or.cond9 = and i1 %134, %135
+  %135 = icmp samesign ult i64 %128, 1025
+  %or.cond9 = select i1 %134, i1 %135, i1 false
   br i1 %or.cond9, label %136, label %.loopexit102.sink.split
 
 136:                                              ; preds = %132

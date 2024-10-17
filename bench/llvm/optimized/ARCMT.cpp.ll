@@ -2184,7 +2184,7 @@ _ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit.thread64: ; preds = %158, %
 
 _ZL13HasARCRuntimeRN5clang18CompilerInvocationE.exit: ; preds = %163
   %170 = and i64 %160, 9223372032559808512
-  %171 = icmp ugt i64 %170, 30064771071
+  %171 = icmp samesign ugt i64 %170, 30064771071
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)

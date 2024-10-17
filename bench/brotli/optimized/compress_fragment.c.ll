@@ -177,7 +177,7 @@ emit_commands.i.i:                                ; preds = %emit_commands.i.loo
   %input.addr.i.0.i = phi ptr [ %metablock_start.i.0.ph.i, %emit_commands.i.outer.i ], [ %add.ptr.i.i, %emit_commands.i.loopexit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %cmd_histo4.i.i, ptr noundef nonnull align 16 dereferenceable(512) @kCmdHistoSeed, i64 512, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %input.addr.i.0.i, i64 %block_size.i.0.i
-  %cmp25.i.i = icmp ugt i64 %block_size.i.0.i, 15
+  %cmp25.i.i = icmp samesign ugt i64 %block_size.i.0.i, 15
   br i1 %cmp25.i.i, label %if.then.i.i, label %emit_remainder.i.i
 
 if.then.i.i:                                      ; preds = %emit_commands.i.i
@@ -1455,7 +1455,7 @@ emit_remainder.i.i:                               ; preds = %EmitCopyLenLastDist
 
 land.lhs.true.i.i:                                ; preds = %emit_remainder.i.i
   %add258.i.i = add nuw nsw i64 %cond.i13.i, %total_block_size.i.0.i
-  %cmp259.i.i = icmp ult i64 %add258.i.i, 1048577
+  %cmp259.i.i = icmp samesign ult i64 %add258.i.i, 1048577
   br i1 %cmp259.i.i, label %land.lhs.true261.i.i, label %if.end268.i.i
 
 land.lhs.true261.i.i:                             ; preds = %land.lhs.true.i.i
@@ -1472,7 +1472,7 @@ for.body.i775.i:                                  ; preds = %for.body.i775.i, %l
   %inc.i779.i = add i32 %214, 1
   store i32 %inc.i779.i, ptr %arrayidx1.i778.i, align 4
   %add.i780.i = add nuw nsw i64 %i.019.i.i, 43
-  %cmp.i781.i = icmp ult i64 %add.i780.i, %cond.i13.i
+  %cmp.i781.i = icmp samesign ult i64 %add.i780.i, %cond.i13.i
   br i1 %cmp.i781.i, label %for.body.i775.i, label %for.end.i782.i, !llvm.loop !12
 
 for.end.i782.i:                                   ; preds = %for.body.i775.i
@@ -2186,7 +2186,7 @@ emit_commands.i.i141:                             ; preds = %emit_commands.i.loo
   %input.addr.i.0.i146 = phi ptr [ %metablock_start.i.0.ph.i136, %emit_commands.i.outer.i132 ], [ %add.ptr.i.i147, %emit_commands.i.loopexit.i502 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %cmd_histo4.i.i63, ptr noundef nonnull align 16 dereferenceable(512) @kCmdHistoSeed, i64 512, i1 false)
   %add.ptr.i.i147 = getelementptr inbounds i8, ptr %input.addr.i.0.i146, i64 %block_size.i.0.i143
-  %cmp25.i.i148 = icmp ugt i64 %block_size.i.0.i143, 15
+  %cmp25.i.i148 = icmp samesign ugt i64 %block_size.i.0.i143, 15
   br i1 %cmp25.i.i148, label %if.then.i.i509, label %emit_remainder.i.i149
 
 if.then.i.i509:                                   ; preds = %emit_commands.i.i141
@@ -3464,7 +3464,7 @@ emit_remainder.i.i149:                            ; preds = %EmitCopyLenLastDist
 
 land.lhs.true.i.i154:                             ; preds = %emit_remainder.i.i149
   %add258.i.i155 = add nuw nsw i64 %cond.i13.i152, %total_block_size.i.0.i142
-  %cmp259.i.i156 = icmp ult i64 %add258.i.i155, 1048577
+  %cmp259.i.i156 = icmp samesign ult i64 %add258.i.i155, 1048577
   br i1 %cmp259.i.i156, label %land.lhs.true261.i.i433, label %if.end268.i.i157
 
 land.lhs.true261.i.i433:                          ; preds = %land.lhs.true.i.i154
@@ -3481,7 +3481,7 @@ for.body.i775.i434:                               ; preds = %for.body.i775.i434,
   %inc.i779.i439 = add i32 %515, 1
   store i32 %inc.i779.i439, ptr %arrayidx1.i778.i438, align 4
   %add.i780.i440 = add nuw nsw i64 %i.019.i.i435, 43
-  %cmp.i781.i441 = icmp ult i64 %add.i780.i440, %cond.i13.i152
+  %cmp.i781.i441 = icmp samesign ult i64 %add.i780.i440, %cond.i13.i152
   br i1 %cmp.i781.i441, label %for.body.i775.i434, label %for.end.i782.i442, !llvm.loop !12
 
 for.end.i782.i442:                                ; preds = %for.body.i775.i434
@@ -4195,7 +4195,7 @@ emit_commands.i.i1418:                            ; preds = %emit_commands.i.loo
   %input.addr.i.0.i1423 = phi ptr [ %metablock_start.i.0.ph.i1413, %emit_commands.i.outer.i1409 ], [ %add.ptr.i.i1424, %emit_commands.i.loopexit.i1779 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %cmd_histo4.i.i1340, ptr noundef nonnull align 16 dereferenceable(512) @kCmdHistoSeed, i64 512, i1 false)
   %add.ptr.i.i1424 = getelementptr inbounds i8, ptr %input.addr.i.0.i1423, i64 %block_size.i.0.i1420
-  %cmp25.i.i1425 = icmp ugt i64 %block_size.i.0.i1420, 15
+  %cmp25.i.i1425 = icmp samesign ugt i64 %block_size.i.0.i1420, 15
   br i1 %cmp25.i.i1425, label %if.then.i.i1786, label %emit_remainder.i.i1426
 
 if.then.i.i1786:                                  ; preds = %emit_commands.i.i1418
@@ -5473,7 +5473,7 @@ emit_remainder.i.i1426:                           ; preds = %EmitCopyLenLastDist
 
 land.lhs.true.i.i1431:                            ; preds = %emit_remainder.i.i1426
   %add258.i.i1432 = add nuw nsw i64 %cond.i13.i1429, %total_block_size.i.0.i1419
-  %cmp259.i.i1433 = icmp ult i64 %add258.i.i1432, 1048577
+  %cmp259.i.i1433 = icmp samesign ult i64 %add258.i.i1432, 1048577
   br i1 %cmp259.i.i1433, label %land.lhs.true261.i.i1710, label %if.end268.i.i1434
 
 land.lhs.true261.i.i1710:                         ; preds = %land.lhs.true.i.i1431
@@ -5490,7 +5490,7 @@ for.body.i775.i1711:                              ; preds = %for.body.i775.i1711
   %inc.i779.i1716 = add i32 %816, 1
   store i32 %inc.i779.i1716, ptr %arrayidx1.i778.i1715, align 4
   %add.i780.i1717 = add nuw nsw i64 %i.019.i.i1712, 43
-  %cmp.i781.i1718 = icmp ult i64 %add.i780.i1717, %cond.i13.i1429
+  %cmp.i781.i1718 = icmp samesign ult i64 %add.i780.i1717, %cond.i13.i1429
   br i1 %cmp.i781.i1718, label %for.body.i775.i1711, label %for.end.i782.i1719, !llvm.loop !12
 
 for.end.i782.i1719:                               ; preds = %for.body.i775.i1711
@@ -6204,7 +6204,7 @@ emit_commands.i.i2695:                            ; preds = %emit_commands.i.loo
   %input.addr.i.0.i2700 = phi ptr [ %metablock_start.i.0.ph.i2690, %emit_commands.i.outer.i2686 ], [ %add.ptr.i.i2701, %emit_commands.i.loopexit.i3056 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %cmd_histo4.i.i2617, ptr noundef nonnull align 16 dereferenceable(512) @kCmdHistoSeed, i64 512, i1 false)
   %add.ptr.i.i2701 = getelementptr inbounds i8, ptr %input.addr.i.0.i2700, i64 %block_size.i.0.i2697
-  %cmp25.i.i2702 = icmp ugt i64 %block_size.i.0.i2697, 15
+  %cmp25.i.i2702 = icmp samesign ugt i64 %block_size.i.0.i2697, 15
   br i1 %cmp25.i.i2702, label %if.then.i.i3063, label %emit_remainder.i.i2703
 
 if.then.i.i3063:                                  ; preds = %emit_commands.i.i2695
@@ -7482,7 +7482,7 @@ emit_remainder.i.i2703:                           ; preds = %EmitCopyLenLastDist
 
 land.lhs.true.i.i2708:                            ; preds = %emit_remainder.i.i2703
   %add258.i.i2709 = add nuw nsw i64 %cond.i13.i2706, %total_block_size.i.0.i2696
-  %cmp259.i.i2710 = icmp ult i64 %add258.i.i2709, 1048577
+  %cmp259.i.i2710 = icmp samesign ult i64 %add258.i.i2709, 1048577
   br i1 %cmp259.i.i2710, label %land.lhs.true261.i.i2987, label %if.end268.i.i2711
 
 land.lhs.true261.i.i2987:                         ; preds = %land.lhs.true.i.i2708
@@ -7499,7 +7499,7 @@ for.body.i775.i2988:                              ; preds = %for.body.i775.i2988
   %inc.i779.i2993 = add i32 %1117, 1
   store i32 %inc.i779.i2993, ptr %arrayidx1.i778.i2992, align 4
   %add.i780.i2994 = add nuw nsw i64 %i.019.i.i2989, 43
-  %cmp.i781.i2995 = icmp ult i64 %add.i780.i2994, %cond.i13.i2706
+  %cmp.i781.i2995 = icmp samesign ult i64 %add.i780.i2994, %cond.i13.i2706
   br i1 %cmp.i781.i2995, label %for.body.i775.i2988, label %for.end.i782.i2996, !llvm.loop !12
 
 for.end.i782.i2996:                               ; preds = %for.body.i775.i2988

@@ -8583,12 +8583,12 @@ for.body.i.i.i.i.i.i.i303:                        ; preds = %for.inc.i.i.i.i.i.i
   %event.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i.i.i.i.i.i.i, i64 20
   %261 = load i8, ptr %__i.sroa.0.045.i.ptr.i.i.i.i.i.i, align 1, !range !151, !noundef !80
   %262 = load i8, ptr %triggers.i.sroa.0.1, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i.i.i.i.i.i.i304 = icmp ult i8 %261, %262
+  %cmp.i.i.i.i.i.i.i.i.i.i.i304 = icmp samesign ult i8 %261, %262
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i304, label %if.then9.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i.i303
   %queue.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i.i.i.i.i.i.i, i64 16
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %262, %261
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %262, %261
   %__val.sroa.513.0.copyload.i.pre.i.i.i.i.i.i.i = load i32, ptr %queue.i.i.i.i.i.i.i.i.i, align 4
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.if.else_crit_edge.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8635,11 +8635,11 @@ while.cond.i.i.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i.
   %queue4.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %__last.sroa.0.0.i.i.i.i.i.i.i.i, i64 -8
   %event5.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %__last.sroa.0.0.i.i.i.i.i.i.i.i, i64 -4
   %265 = load i8, ptr %__next.sroa.0.0.i.i.i.i.i.i.i.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i30.i.i.i.i.i.i.i = icmp ult i8 %261, %265
+  %cmp.i.i.i.i.i30.i.i.i.i.i.i.i = icmp samesign ult i8 %261, %265
   br i1 %cmp.i.i.i.i.i30.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i31.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i31.i.i.i.i.i.i.i:                ; preds = %while.cond.i.i.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %265, %261
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %265, %261
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", label %land.rhs.i.i.i.i.i32.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i32.i.i.i.i.i.i.i:               ; preds = %lor.rhs.i.i.i.i.i31.i.i.i.i.i.i.i
@@ -8753,12 +8753,12 @@ for.body.i55.i.i.i.i.i.i:                         ; preds = %for.inc.i92.i.i.i.i
   %event.i.i.i58.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i57.i.i.i.i.i.i, i64 20
   %271 = load i8, ptr %__i.sroa.0.045.i56.i.i.i.i.i.i, align 1, !range !151, !noundef !80
   %272 = load i8, ptr %triggers.i.sroa.0.1, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i59.i.i.i.i.i.i = icmp ult i8 %271, %272
+  %cmp.i.i.i.i.i59.i.i.i.i.i.i = icmp samesign ult i8 %271, %272
   br i1 %cmp.i.i.i.i.i59.i.i.i.i.i.i, label %if.then9.i96.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i60.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i60.i.i.i.i.i.i:                  ; preds = %for.body.i55.i.i.i.i.i.i
   %queue.i.i.i61.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i57.i.i.i.i.i.i, i64 16
-  %cmp10.i.i.i.i.i62.i.i.i.i.i.i = icmp ult i8 %272, %271
+  %cmp10.i.i.i.i.i62.i.i.i.i.i.i = icmp samesign ult i8 %272, %271
   %__val.sroa.513.0.copyload.i.pre.i63.i.i.i.i.i.i = load i32, ptr %queue.i.i.i61.i.i.i.i.i.i, align 4
   br i1 %cmp10.i.i.i.i.i62.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.if.else_crit_edge.i105.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i64.i.i.i.i.i.i
 
@@ -8807,11 +8807,11 @@ while.cond.i.i74.i.i.i.i.i.i:                     ; preds = %while.body.i.i95.i.
   %queue4.i.i.i.i77.i.i.i.i.i.i = getelementptr i8, ptr %__last.sroa.0.0.i.i75.i.i.i.i.i.i, i64 -8
   %event5.i.i.i.i78.i.i.i.i.i.i = getelementptr i8, ptr %__last.sroa.0.0.i.i75.i.i.i.i.i.i, i64 -4
   %275 = load i8, ptr %__next.sroa.0.0.i.i76.i.i.i.i.i.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i30.i79.i.i.i.i.i.i = icmp ult i8 %271, %275
+  %cmp.i.i.i.i.i30.i79.i.i.i.i.i.i = icmp samesign ult i8 %271, %275
   br i1 %cmp.i.i.i.i.i30.i79.i.i.i.i.i.i, label %while.body.i.i95.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i31.i80.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i31.i80.i.i.i.i.i.i:              ; preds = %while.cond.i.i74.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i81.i.i.i.i.i.i = icmp ult i8 %275, %271
+  %cmp10.i.i.i.i.i.i81.i.i.i.i.i.i = icmp samesign ult i8 %275, %271
   br i1 %cmp10.i.i.i.i.i.i81.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_T0_.exit.i88.i.i.i.i.i.i", label %land.rhs.i.i.i.i.i32.i82.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i32.i82.i.i.i.i.i.i:             ; preds = %lor.rhs.i.i.i.i.i31.i80.i.i.i.i.i.i
@@ -21332,7 +21332,7 @@ if.then.i:                                        ; preds = %entry
   %3 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %2), !range !202
   %4 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %3)
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4), !range !202
-  %tobool.not.i.i = icmp ult i64 %5, 2
+  %tobool.not.i.i = icmp samesign ult i64 %5, 2
   br i1 %tobool.not.i.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i, label %if.end.i19
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i: ; preds = %if.then.i
@@ -21376,7 +21376,7 @@ if.end.i19:                                       ; preds = %_ZN3ue2L14checkReac
   %13 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %8), !range !202
   %14 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %13)
   %15 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14), !range !202
-  %tobool.not.i14.i = icmp ult i64 %15, 2
+  %tobool.not.i14.i = icmp samesign ult i64 %15, 2
   br i1 %tobool.not.i14.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i: ; preds = %if.end.i19
@@ -21692,7 +21692,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %56 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %55), !range !202
   %57 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %56)
   %58 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57), !range !202
-  %tobool.not.i.i71 = icmp ult i64 %58, 2
+  %tobool.not.i.i71 = icmp samesign ult i64 %58, 2
   br i1 %tobool.not.i.i71, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i98, label %if.end.i72
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i98: ; preds = %for.body.i
@@ -21733,7 +21733,7 @@ if.end.i72:                                       ; preds = %_ZN3ue2L14checkReac
   %66 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %61), !range !202
   %67 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %66)
   %68 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %67), !range !202
-  %tobool.not.i14.i76 = icmp ult i64 %68, 2
+  %tobool.not.i14.i76 = icmp samesign ult i64 %68, 2
   br i1 %tobool.not.i14.i76, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i79, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i77
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i77: ; preds = %if.end.i72
@@ -21946,7 +21946,7 @@ for.body.i108:                                    ; preds = %for.body.i108.prehe
   %91 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %90), !range !202
   %92 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %91)
   %93 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %92), !range !202
-  %tobool.not.i.i161 = icmp ult i64 %93, 2
+  %tobool.not.i.i161 = icmp samesign ult i64 %93, 2
   br i1 %tobool.not.i.i161, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i188, label %if.end.i162
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i188: ; preds = %for.body.i108
@@ -21987,7 +21987,7 @@ if.end.i162:                                      ; preds = %_ZN3ue2L14checkReac
   %101 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %96), !range !202
   %102 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %101)
   %103 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %102), !range !202
-  %tobool.not.i14.i166 = icmp ult i64 %103, 2
+  %tobool.not.i14.i166 = icmp samesign ult i64 %103, 2
   br i1 %tobool.not.i14.i166, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i169, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i167
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i167: ; preds = %if.end.i162
@@ -22217,7 +22217,7 @@ for.body.i152:                                    ; preds = %for.body.i152.prehe
   %132 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %131), !range !202
   %133 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %132)
   %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %133), !range !202
-  %tobool.not.i.i251 = icmp ult i64 %134, 2
+  %tobool.not.i.i251 = icmp samesign ult i64 %134, 2
   br i1 %tobool.not.i.i251, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i278, label %if.end.i252
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i278: ; preds = %for.body.i152
@@ -22258,7 +22258,7 @@ if.end.i252:                                      ; preds = %_ZN3ue2L14checkReac
   %142 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %137), !range !202
   %143 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %142)
   %144 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143), !range !202
-  %tobool.not.i14.i256 = icmp ult i64 %144, 2
+  %tobool.not.i14.i256 = icmp samesign ult i64 %144, 2
   br i1 %tobool.not.i14.i256, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i259, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i257
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i257: ; preds = %if.end.i252
@@ -23842,11 +23842,11 @@ while.body.i.i.i.i181:                            ; preds = %for.body41.i, %.thr
   %79 = mul nuw nsw <2 x i32> %78, %66
   %80 = extractelement <2 x i32> %79, i64 0
   %81 = extractelement <2 x i32> %79, i64 1
-  %cmp.i.i.i35 = icmp ult i32 %80, %81
+  %cmp.i.i.i35 = icmp samesign ult i32 %80, %81
   br i1 %cmp.i.i.i35, label %.thread, label %call2.i.i.i.i.noexc
 
 call2.i.i.i.i.noexc:                              ; preds = %while.body.i.i.i.i181
-  %cmp4.i.i.i = icmp uge i32 %81, %80
+  %cmp4.i.i.i = icmp samesign uge i32 %81, %80
   %cmp.i.i.i.i37 = icmp ult i32 %50, %48
   %spec.select.i = and i1 %cmp.i.i.i.i37, %cmp4.i.i.i
   %cond.fr = freeze i1 %spec.select.i
@@ -23900,11 +23900,11 @@ lor.rhs.i192:                                     ; preds = %_ZNSt3mapIjSt6vecto
   %113 = mul nuw nsw <2 x i32> %112, %100
   %114 = extractelement <2 x i32> %113, i64 0
   %115 = extractelement <2 x i32> %113, i64 1
-  %cmp.i.i.i38 = icmp ult i32 %114, %115
+  %cmp.i.i.i38 = icmp samesign ult i32 %114, %115
   br i1 %cmp.i.i.i38, label %if.then.i197, label %call7.i.noexc
 
 call7.i.noexc:                                    ; preds = %lor.rhs.i192
-  %cmp4.i.i.i40 = icmp uge i32 %115, %114
+  %cmp4.i.i.i40 = icmp samesign uge i32 %115, %114
   %cmp.i.i.i.i41 = icmp ult i32 %48, %84
   %spec.select.i42 = and i1 %cmp.i.i.i.i41, %cmp4.i.i.i40
   br i1 %spec.select.i42, label %if.then.i197, label %invoke.cont48.i
@@ -23972,11 +23972,11 @@ lor.rhs.i.i.i54:                                  ; preds = %if.then.i49
   %148 = mul nuw nsw <2 x i32> %147, %135
   %149 = extractelement <2 x i32> %148, i64 0
   %150 = extractelement <2 x i32> %148, i64 1
-  %cmp.i.i.i.i56 = icmp ult i32 %149, %150
+  %cmp.i.i.i.i56 = icmp samesign ult i32 %149, %150
   br i1 %cmp.i.i.i.i56, label %cleanup.thread.i58, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i54
-  %cmp4.i.i.i.i = icmp uge i32 %150, %149
+  %cmp4.i.i.i.i = icmp samesign uge i32 %150, %149
   %cmp.i.i.i.i.i57 = icmp ult i32 %118, %119
   %spec.select.i.i = and i1 %cmp.i.i.i.i.i57, %cmp4.i.i.i.i
   br label %cleanup.thread.i58
@@ -24724,7 +24724,7 @@ if.then.i137:                                     ; preds = %for.body.i134
 for.inc.i145:                                     ; preds = %if.then.i137, %for.body.i134
   %shr.i146 = lshr i32 %data.addr.0.i131523, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.not.i133 = icmp ult i32 %data.addr.0.i131523, 2
+  %cmp.not.i133 = icmp samesign ult i32 %data.addr.0.i131523, 2
   br i1 %cmp.not.i133, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit155.loopexit, label %for.body.i134, !llvm.loop !569
 
 _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit155.loopexit: ; preds = %for.inc.i145
@@ -24765,7 +24765,7 @@ if.then.i123:                                     ; preds = %for.body.i121
 for.inc.i:                                        ; preds = %if.then.i123, %for.body.i121
   %shr.i126 = lshr i32 %data.addr.0.i526, 1
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
-  %cmp.not.i = icmp ult i32 %data.addr.0.i526, 2
+  %cmp.not.i = icmp samesign ult i32 %data.addr.0.i526, 2
   br i1 %cmp.not.i, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit.loopexit, label %for.body.i121, !llvm.loop !569
 
 _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit.loopexit: ; preds = %for.inc.i
@@ -25364,11 +25364,11 @@ land.lhs.true:                                    ; preds = %if.then
   %32 = mul nuw nsw <2 x i32> %31, %19
   %33 = extractelement <2 x i32> %32, i64 0
   %34 = extractelement <2 x i32> %32, i64 1
-  %cmp.i.i.i = icmp ult i32 %33, %34
+  %cmp.i.i.i = icmp samesign ult i32 %33, %34
   br i1 %cmp.i.i.i, label %cleanup80, label %_ZNK3ue29cmpNibbleclEjj.exit
 
 _ZNK3ue29cmpNibbleclEjj.exit:                     ; preds = %land.lhs.true
-  %cmp4.i.i.i = icmp uge i32 %34, %33
+  %cmp4.i.i.i = icmp samesign uge i32 %34, %33
   %cmp.i.i.i.i = icmp ult i32 %2, %3
   %spec.select.i1 = and i1 %cmp.i.i.i.i, %cmp4.i.i.i
   br i1 %spec.select.i1, label %cleanup80, label %if.else
@@ -25418,11 +25418,11 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %65 = mul nuw nsw <2 x i32> %64, %52
   %66 = extractelement <2 x i32> %65, i64 0
   %67 = extractelement <2 x i32> %65, i64 1
-  %cmp.i.i.i2 = icmp ult i32 %66, %67
+  %cmp.i.i.i2 = icmp samesign ult i32 %66, %67
   br i1 %cmp.i.i.i2, label %.thread, label %_ZNK3ue29cmpNibbleclEjj.exit7
 
 _ZNK3ue29cmpNibbleclEjj.exit7:                    ; preds = %while.body.i
-  %cmp4.i.i.i4 = icmp uge i32 %67, %66
+  %cmp4.i.i.i4 = icmp samesign uge i32 %67, %66
   %cmp.i.i.i.i5 = icmp ult i32 %35, %37
   %spec.select.i6 = and i1 %cmp.i.i.i.i5, %cmp4.i.i.i4
   %cond.fr = freeze i1 %spec.select.i6
@@ -25495,11 +25495,11 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %99 = mul nuw nsw <2 x i32> %98, %86
   %100 = extractelement <2 x i32> %99, i64 0
   %101 = extractelement <2 x i32> %99, i64 1
-  %cmp.i.i.i8 = icmp ult i32 %100, %101
+  %cmp.i.i.i8 = icmp samesign ult i32 %100, %101
   br i1 %cmp.i.i.i8, label %cleanup80, label %_ZNK3ue29cmpNibbleclEjj.exit13
 
 _ZNK3ue29cmpNibbleclEjj.exit13:                   ; preds = %if.end12.i
-  %cmp4.i.i.i10 = icmp uge i32 %101, %100
+  %cmp4.i.i.i10 = icmp samesign uge i32 %101, %100
   %cmp.i.i.i.i11 = icmp ult i32 %70, %69
   %spec.select.i12 = and i1 %cmp.i.i.i.i11, %cmp4.i.i.i10
   %cond.fr66 = freeze i1 %spec.select.i12
@@ -25542,11 +25542,11 @@ if.else12:                                        ; preds = %entry
   %132 = mul nuw nsw <2 x i32> %131, %119
   %133 = extractelement <2 x i32> %132, i64 0
   %134 = extractelement <2 x i32> %132, i64 1
-  %cmp.i.i.i14 = icmp ult i32 %133, %134
+  %cmp.i.i.i14 = icmp samesign ult i32 %133, %134
   br i1 %cmp.i.i.i14, label %if.then18, label %_ZNK3ue29cmpNibbleclEjj.exit19
 
 _ZNK3ue29cmpNibbleclEjj.exit19:                   ; preds = %if.else12
-  %cmp4.i.i.i16 = icmp uge i32 %134, %133
+  %cmp4.i.i.i16 = icmp samesign uge i32 %134, %133
   %cmp.i.i.i.i17 = icmp ult i32 %102, %103
   %spec.select.i18 = and i1 %cmp.i.i.i.i17, %cmp4.i.i.i16
   br i1 %spec.select.i18, label %if.then18, label %if.else44
@@ -25592,11 +25592,11 @@ if.else25:                                        ; preds = %if.then18
   %165 = mul nuw nsw <2 x i32> %164, %152
   %166 = extractelement <2 x i32> %165, i64 0
   %167 = extractelement <2 x i32> %165, i64 1
-  %cmp.i.i.i20 = icmp ult i32 %166, %167
+  %cmp.i.i.i20 = icmp samesign ult i32 %166, %167
   br i1 %cmp.i.i.i20, label %if.then32, label %_ZNK3ue29cmpNibbleclEjj.exit25
 
 _ZNK3ue29cmpNibbleclEjj.exit25:                   ; preds = %if.else25
-  %cmp4.i.i.i22 = icmp uge i32 %167, %166
+  %cmp4.i.i.i22 = icmp samesign uge i32 %167, %166
   %cmp.i.i.i.i23 = icmp ult i32 %136, %102
   %spec.select.i24 = and i1 %cmp.i.i.i.i23, %cmp4.i.i.i22
   br i1 %spec.select.i24, label %if.then32, label %if.else42
@@ -25649,11 +25649,11 @@ while.body.i103:                                  ; preds = %if.else42, %while.b
   %197 = mul nuw nsw <2 x i32> %196, %184
   %198 = extractelement <2 x i32> %197, i64 0
   %199 = extractelement <2 x i32> %197, i64 1
-  %cmp.i.i.i26 = icmp ult i32 %198, %199
+  %cmp.i.i.i26 = icmp samesign ult i32 %198, %199
   br i1 %cmp.i.i.i26, label %.thread74, label %_ZNK3ue29cmpNibbleclEjj.exit31
 
 _ZNK3ue29cmpNibbleclEjj.exit31:                   ; preds = %while.body.i103
-  %cmp4.i.i.i28 = icmp uge i32 %199, %198
+  %cmp4.i.i.i28 = icmp samesign uge i32 %199, %198
   %cmp.i.i.i.i29 = icmp ult i32 %102, %169
   %spec.select.i30 = and i1 %cmp.i.i.i.i29, %cmp4.i.i.i28
   %cond.fr72 = freeze i1 %spec.select.i30
@@ -25722,11 +25722,11 @@ if.end12.i113:                                    ; preds = %if.else.i128, %whil
   %229 = mul nuw nsw <2 x i32> %228, %216
   %230 = extractelement <2 x i32> %229, i64 0
   %231 = extractelement <2 x i32> %229, i64 1
-  %cmp.i.i.i32 = icmp ult i32 %230, %231
+  %cmp.i.i.i32 = icmp samesign ult i32 %230, %231
   br i1 %cmp.i.i.i32, label %cleanup80, label %_ZNK3ue29cmpNibbleclEjj.exit37
 
 _ZNK3ue29cmpNibbleclEjj.exit37:                   ; preds = %if.end12.i113
-  %cmp4.i.i.i34 = icmp uge i32 %231, %230
+  %cmp4.i.i.i34 = icmp samesign uge i32 %231, %230
   %cmp.i.i.i.i35 = icmp ult i32 %200, %102
   %spec.select.i36 = and i1 %cmp.i.i.i.i35, %cmp4.i.i.i34
   %cond.fr78 = freeze i1 %spec.select.i36
@@ -25766,11 +25766,11 @@ if.else44:                                        ; preds = %_ZNK3ue29cmpNibblec
   %260 = mul nuw nsw <2 x i32> %259, %247
   %261 = extractelement <2 x i32> %260, i64 0
   %262 = extractelement <2 x i32> %260, i64 1
-  %cmp.i.i.i38 = icmp ult i32 %261, %262
+  %cmp.i.i.i38 = icmp samesign ult i32 %261, %262
   br i1 %cmp.i.i.i38, label %if.then50, label %_ZNK3ue29cmpNibbleclEjj.exit43
 
 _ZNK3ue29cmpNibbleclEjj.exit43:                   ; preds = %if.else44
-  %cmp4.i.i.i40 = icmp uge i32 %262, %261
+  %cmp4.i.i.i40 = icmp samesign uge i32 %262, %261
   %cmp.i.i.i.i41 = icmp ult i32 %103, %102
   %spec.select.i42 = and i1 %cmp.i.i.i.i41, %cmp4.i.i.i40
   br i1 %spec.select.i42, label %if.then50, label %cleanup80
@@ -25815,11 +25815,11 @@ if.else57:                                        ; preds = %if.then50
   %292 = mul nuw nsw <2 x i32> %291, %279
   %293 = extractelement <2 x i32> %292, i64 0
   %294 = extractelement <2 x i32> %292, i64 1
-  %cmp.i.i.i44 = icmp ult i32 %293, %294
+  %cmp.i.i.i44 = icmp samesign ult i32 %293, %294
   br i1 %cmp.i.i.i44, label %if.then64, label %_ZNK3ue29cmpNibbleclEjj.exit49
 
 _ZNK3ue29cmpNibbleclEjj.exit49:                   ; preds = %if.else57
-  %cmp4.i.i.i46 = icmp uge i32 %294, %293
+  %cmp4.i.i.i46 = icmp samesign uge i32 %294, %293
   %cmp.i.i.i.i47 = icmp ult i32 %102, %264
   %spec.select.i48 = and i1 %cmp.i.i.i.i47, %cmp4.i.i.i46
   br i1 %spec.select.i48, label %if.then64, label %if.else74
@@ -25872,11 +25872,11 @@ while.body.i144:                                  ; preds = %if.else74, %while.b
   %324 = mul nuw nsw <2 x i32> %323, %311
   %325 = extractelement <2 x i32> %324, i64 0
   %326 = extractelement <2 x i32> %324, i64 1
-  %cmp.i.i.i50 = icmp ult i32 %325, %326
+  %cmp.i.i.i50 = icmp samesign ult i32 %325, %326
   br i1 %cmp.i.i.i50, label %.thread86, label %_ZNK3ue29cmpNibbleclEjj.exit55
 
 _ZNK3ue29cmpNibbleclEjj.exit55:                   ; preds = %while.body.i144
-  %cmp4.i.i.i52 = icmp uge i32 %326, %325
+  %cmp4.i.i.i52 = icmp samesign uge i32 %326, %325
   %cmp.i.i.i.i53 = icmp ult i32 %102, %296
   %spec.select.i54 = and i1 %cmp.i.i.i.i53, %cmp4.i.i.i52
   %cond.fr84 = freeze i1 %spec.select.i54
@@ -25947,11 +25947,11 @@ if.end12.i154:                                    ; preds = %if.else.i169, %whil
   %357 = mul nuw nsw <2 x i32> %356, %344
   %358 = extractelement <2 x i32> %357, i64 0
   %359 = extractelement <2 x i32> %357, i64 1
-  %cmp.i.i.i56 = icmp ult i32 %358, %359
+  %cmp.i.i.i56 = icmp samesign ult i32 %358, %359
   br i1 %cmp.i.i.i56, label %cleanup80, label %_ZNK3ue29cmpNibbleclEjj.exit61
 
 _ZNK3ue29cmpNibbleclEjj.exit61:                   ; preds = %if.end12.i154
-  %cmp4.i.i.i58 = icmp uge i32 %359, %358
+  %cmp4.i.i.i58 = icmp samesign uge i32 %359, %358
   %cmp.i.i.i.i59 = icmp ult i32 %328, %102
   %spec.select.i60 = and i1 %cmp.i.i.i.i59, %cmp4.i.i.i58
   %cond.fr90 = freeze i1 %spec.select.i60
@@ -26772,11 +26772,11 @@ if.end:                                           ; preds = %while.body
   %event5.i.i.i.i = getelementptr inbounds %"struct.ue2::TriggerInfo", ptr %__first.coerce, i64 %div.i, i32 2
   %0 = load i8, ptr %add.ptr.i29.i, align 1, !range !151, !noundef !80
   %1 = load i8, ptr %add.ptr.i.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i.i = icmp ult i8 %0, %1
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %0, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %if.end
-  %cmp10.i.i.i.i.i.i = icmp ult i8 %1, %0
+  %cmp10.i.i.i.i.i.i = icmp samesign ult i8 %1, %0
   br i1 %cmp10.i.i.i.i.i.i, label %if.else33.i.i, label %land.rhs.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
@@ -26799,11 +26799,11 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %queue4.i.i65.i.i = getelementptr i8, ptr %storemerge34, i64 -8
   %event5.i.i66.i.i = getelementptr i8, ptr %storemerge34, i64 -4
   %6 = load i8, ptr %add.ptr.i30.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i67.i.i = icmp ult i8 %1, %6
+  %cmp.i.i.i.i67.i.i = icmp samesign ult i8 %1, %6
   br i1 %cmp.i.i.i.i67.i.i, label %if.then12.i.i, label %lor.rhs.i.i.i.i68.i.i
 
 lor.rhs.i.i.i.i68.i.i:                            ; preds = %if.then.i.i
-  %cmp10.i.i.i.i69.i.i = icmp ult i8 %6, %1
+  %cmp10.i.i.i.i69.i.i = icmp samesign ult i8 %6, %1
   br i1 %cmp10.i.i.i.i69.i.i, label %if.else.i.i, label %land.rhs.i.i.i.i70.i.i
 
 land.rhs.i.i.i.i70.i.i:                           ; preds = %lor.rhs.i.i.i.i68.i.i
@@ -26831,11 +26831,11 @@ if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   br label %while.body.i.i25.preheader
 
 if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27addInfixTriggerInstructionsESt6vectorINS2_11TriggerInfoESaIS4_EERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPS4_S6_EESE_EEbT_T0_.exit76.i.i", %lor.rhs.i.i.i.i.i72.i.i, %lor.rhs.i.i.i.i68.i.i
-  %cmp.i.i.i.i81.i.i = icmp ult i8 %0, %6
+  %cmp.i.i.i.i81.i.i = icmp samesign ult i8 %0, %6
   br i1 %cmp.i.i.i.i81.i.i, label %if.then22.i.i, label %lor.rhs.i.i.i.i82.i.i
 
 lor.rhs.i.i.i.i82.i.i:                            ; preds = %if.else.i.i
-  %cmp10.i.i.i.i83.i.i = icmp ult i8 %6, %0
+  %cmp10.i.i.i.i83.i.i = icmp samesign ult i8 %6, %0
   br i1 %cmp10.i.i.i.i83.i.i, label %if.else27.i.i, label %land.rhs.i.i.i.i84.i.i
 
 land.rhs.i.i.i.i84.i.i:                           ; preds = %lor.rhs.i.i.i.i82.i.i
@@ -26874,11 +26874,11 @@ if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %queue4.i.i95.i.i = getelementptr i8, ptr %storemerge34, i64 -8
   %event5.i.i96.i.i = getelementptr i8, ptr %storemerge34, i64 -4
   %15 = load i8, ptr %add.ptr.i30.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i97.i.i = icmp ult i8 %0, %15
+  %cmp.i.i.i.i97.i.i = icmp samesign ult i8 %0, %15
   br i1 %cmp.i.i.i.i97.i.i, label %if.then39.i.i, label %lor.rhs.i.i.i.i98.i.i
 
 lor.rhs.i.i.i.i98.i.i:                            ; preds = %if.else33.i.i
-  %cmp10.i.i.i.i99.i.i = icmp ult i8 %15, %0
+  %cmp10.i.i.i.i99.i.i = icmp samesign ult i8 %15, %0
   br i1 %cmp10.i.i.i.i99.i.i, label %if.else44.i.i, label %land.rhs.i.i.i.i100.i.i
 
 land.rhs.i.i.i.i100.i.i:                          ; preds = %lor.rhs.i.i.i.i98.i.i
@@ -26906,11 +26906,11 @@ if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   br label %while.body.i.i25.preheader
 
 if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27addInfixTriggerInstructionsESt6vectorINS2_11TriggerInfoESaIS4_EERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPS4_S6_EESE_EEbT_T0_.exit106.i.i", %lor.rhs.i.i.i.i.i102.i.i, %lor.rhs.i.i.i.i98.i.i
-  %cmp.i.i.i.i112.i.i = icmp ult i8 %1, %15
+  %cmp.i.i.i.i112.i.i = icmp samesign ult i8 %1, %15
   br i1 %cmp.i.i.i.i112.i.i, label %if.then50.i.i, label %lor.rhs.i.i.i.i113.i.i
 
 lor.rhs.i.i.i.i113.i.i:                           ; preds = %if.else44.i.i
-  %cmp10.i.i.i.i114.i.i = icmp ult i8 %15, %1
+  %cmp10.i.i.i.i114.i.i = icmp samesign ult i8 %15, %1
   br i1 %cmp10.i.i.i.i114.i.i, label %if.else55.i.i, label %land.rhs.i.i.i.i115.i.i
 
 land.rhs.i.i.i.i115.i.i:                          ; preds = %lor.rhs.i.i.i.i113.i.i
@@ -26959,11 +26959,11 @@ while.cond3.i.i:                                  ; preds = %while.body7.i.i, %w
   %queue.i.i.i35.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 4
   %event.i.i.i36.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 8
   %25 = load i8, ptr %__first.sroa.0.1.i.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i.i37.i = icmp ult i8 %25, %24
+  %cmp.i.i.i.i.i37.i = icmp samesign ult i8 %25, %24
   br i1 %cmp.i.i.i.i.i37.i, label %while.body7.i.i, label %lor.rhs.i.i.i.i.i38.i
 
 lor.rhs.i.i.i.i.i38.i:                            ; preds = %while.cond3.i.i
-  %cmp10.i.i.i.i.i39.i = icmp ult i8 %24, %25
+  %cmp10.i.i.i.i.i39.i = icmp samesign ult i8 %24, %25
   br i1 %cmp10.i.i.i.i.i39.i, label %while.cond10.i.i.preheader, label %land.rhs.i.i.i.i.i40.i
 
 while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27addInfixTriggerInstructionsESt6vectorINS2_11TriggerInfoESaIS4_EERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPS4_S6_EESE_EEbT_T0_.exit.i44.i", %lor.rhs.i.i.i.i.i.i42.i, %lor.rhs.i.i.i.i.i38.i
@@ -26995,11 +26995,11 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i.ba
   %queue4.i.i29.i.i = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %event5.i.i30.i.i = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -4
   %30 = load i8, ptr %__last.sroa.0.1.i.i, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i31.i.i = icmp ult i8 %24, %30
+  %cmp.i.i.i.i31.i.i = icmp samesign ult i8 %24, %30
   br i1 %cmp.i.i.i.i31.i.i, label %while.cond10.i.i.backedge, label %lor.rhs.i.i.i.i32.i.i
 
 lor.rhs.i.i.i.i32.i.i:                            ; preds = %while.cond10.i.i
-  %cmp10.i.i.i.i33.i.i = icmp ult i8 %30, %24
+  %cmp10.i.i.i.i33.i.i = icmp samesign ult i8 %30, %24
   br i1 %cmp10.i.i.i.i33.i.i, label %while.end18.i.i, label %land.rhs.i.i.i.i34.i.i
 
 land.rhs.i.i.i.i34.i.i:                           ; preds = %lor.rhs.i.i.i.i32.i.i
@@ -27066,11 +27066,11 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %event5.i.i = getelementptr inbounds %"struct.ue2::TriggerInfo", ptr %__first.coerce, i64 %sub3, i32 2
   %0 = load i8, ptr %add.ptr.i, align 1, !range !151, !noundef !80
   %1 = load i8, ptr %add.ptr.i53, align 1, !range !151, !noundef !80
-  %cmp.i.i.i.i = icmp ult i8 %0, %1
+  %cmp.i.i.i.i = icmp samesign ult i8 %0, %1
   br i1 %cmp.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27addInfixTriggerInstructionsESt6vectorINS2_11TriggerInfoESaIS4_EERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPS4_S6_EESE_EEbT_T0_.exit.thread", label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body
-  %cmp10.i.i.i.i = icmp ult i8 %1, %0
+  %cmp10.i.i.i.i = icmp samesign ult i8 %1, %0
   br i1 %cmp10.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27addInfixTriggerInstructionsESt6vectorINS2_11TriggerInfoESaIS4_EERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPS4_S6_EESE_EEbT_T0_.exit.thread69", label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i

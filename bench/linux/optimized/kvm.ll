@@ -724,7 +724,7 @@ define internal noundef i32 @kvm_alloc_cpumask() #10 section ".init.text" align 
   store i64 0, ptr %30, align 8
   %31 = add nuw nsw i64 %22, 1
   %32 = and i64 %31, 127
-  %33 = icmp ugt i64 %32, 63
+  %33 = icmp samesign ugt i64 %32, 63
   br i1 %33, label %.thread, label %15, !prof !50, !llvm.loop !51
 
 .thread:                                          ; preds = %15, %25, %21, %13, %5
@@ -770,7 +770,7 @@ define dso_local zeroext i1 @kvm_para_available() #1 align 16 {
 
 22:                                               ; preds = %14
   %23 = add nuw nsw i32 %15, 256
-  %24 = icmp ult i32 %15, 1073807104
+  %24 = icmp samesign ult i32 %15, 1073807104
   br i1 %24, label %14, label %25, !llvm.loop !53
 
 25:                                               ; preds = %22, %14
@@ -828,7 +828,7 @@ define dso_local i32 @kvm_arch_para_features() local_unnamed_addr #1 align 16 {
 
 22:                                               ; preds = %14
   %23 = add nuw nsw i32 %15, 256
-  %24 = icmp ult i32 %15, 1073807104
+  %24 = icmp samesign ult i32 %15, 1073807104
   br i1 %24, label %14, label %25, !llvm.loop !53
 
 25:                                               ; preds = %22, %14
@@ -888,7 +888,7 @@ define dso_local i32 @kvm_arch_para_hints() #1 align 16 {
 
 22:                                               ; preds = %14
   %23 = add nuw nsw i32 %15, 256
-  %24 = icmp ult i32 %15, 1073807104
+  %24 = icmp samesign ult i32 %15, 1073807104
   br i1 %24, label %14, label %25, !llvm.loop !53
 
 25:                                               ; preds = %22, %14
@@ -1203,7 +1203,7 @@ define dso_local void @arch_haltpoll_enable(i32 noundef %0) #1 align 16 {
 
 23:                                               ; preds = %15
   %24 = add nuw nsw i32 %16, 256
-  %25 = icmp ult i32 %16, 1073807104
+  %25 = icmp samesign ult i32 %16, 1073807104
   br i1 %25, label %15, label %26, !llvm.loop !53
 
 26:                                               ; preds = %23, %15
@@ -1310,7 +1310,7 @@ define dso_local void @arch_haltpoll_disable(i32 noundef %0) #1 align 16 {
 
 23:                                               ; preds = %15
   %24 = add nuw nsw i32 %16, 256
-  %25 = icmp ult i32 %16, 1073807104
+  %25 = icmp samesign ult i32 %16, 1073807104
   br i1 %25, label %15, label %26, !llvm.loop !53
 
 26:                                               ; preds = %23, %15
@@ -1410,7 +1410,7 @@ define internal fastcc zeroext i1 @pv_tlb_flush_supported() unnamed_addr #1 alig
 
 24:                                               ; preds = %16
   %25 = add nuw nsw i32 %17, 256
-  %26 = icmp ult i32 %17, 1073807104
+  %26 = icmp samesign ult i32 %17, 1073807104
   br i1 %26, label %16, label %27, !llvm.loop !53
 
 27:                                               ; preds = %24, %16
@@ -1469,7 +1469,7 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
 
 58:                                               ; preds = %50
   %59 = add nuw nsw i32 %51, 256
-  %60 = icmp ult i32 %51, 1073807104
+  %60 = icmp samesign ult i32 %51, 1073807104
   br i1 %60, label %50, label %61, !llvm.loop !53
 
 61:                                               ; preds = %58, %50
@@ -1528,7 +1528,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %40, %43, %61
 
 92:                                               ; preds = %84
   %93 = add nuw nsw i32 %85, 256
-  %94 = icmp ult i32 %85, 1073807104
+  %94 = icmp samesign ult i32 %85, 1073807104
   br i1 %94, label %84, label %95, !llvm.loop !53
 
 95:                                               ; preds = %92, %84
@@ -1607,7 +1607,7 @@ define internal fastcc zeroext i1 @pv_ipi_supported() unnamed_addr #1 align 16 {
 
 22:                                               ; preds = %14
   %23 = add nuw nsw i32 %15, 256
-  %24 = icmp ult i32 %15, 1073807104
+  %24 = icmp samesign ult i32 %15, 1073807104
   br i1 %24, label %14, label %25, !llvm.loop !53
 
 25:                                               ; preds = %22, %14
@@ -1675,7 +1675,7 @@ define internal fastcc range(i32 0, 1073807360) i32 @__kvm_cpuid_base() unnamed_
 
 19:                                               ; preds = %11
   %20 = add nuw nsw i32 %12, 256
-  %21 = icmp ult i32 %12, 1073807104
+  %21 = icmp samesign ult i32 %12, 1073807104
   br i1 %21, label %11, label %22, !llvm.loop !53
 
 22:                                               ; preds = %19, %11
@@ -1857,7 +1857,7 @@ define internal fastcc void @__send_ipi_mask(ptr nocapture noundef readonly %0, 
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %64) #17, !srcloc !66
   %65 = add nuw nsw i64 %21, 1
   %66 = and i64 %65, 127
-  %67 = icmp ugt i64 %66, 63
+  %67 = icmp samesign ugt i64 %66, 63
   br i1 %67, label %.thread, label %12, !prof !50, !llvm.loop !67
 
 .thread:                                          ; preds = %12, %60, %20
@@ -2048,7 +2048,7 @@ define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr
 33:                                               ; preds = %32, %26, %16
   %34 = add nuw nsw i64 %13, 1
   %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %6, !prof !50, !llvm.loop !81
 
 .thread:                                          ; preds = %6, %33, %12
@@ -2089,7 +2089,7 @@ define internal void @kvm_smp_send_call_func_ipi(ptr noundef %0) #1 align 16 {
   %13 = tail call i32 @idle_cpu(i32 noundef %10) #17
   %14 = add nuw nsw i64 %9, 1
   %15 = and i64 %14, 127
-  %16 = icmp ugt i64 %15, 63
+  %16 = icmp samesign ugt i64 %15, 63
   br i1 %16, label %.thread, label %2, !prof !50, !llvm.loop !82
 
 .thread:                                          ; preds = %2, %12, %8
@@ -2230,7 +2230,7 @@ define internal fastcc void @kvm_guest_cpu_offline(i1 noundef zeroext %0) unname
 
 28:                                               ; preds = %20
   %29 = add nuw nsw i32 %21, 256
-  %30 = icmp ult i32 %21, 1073807104
+  %30 = icmp samesign ult i32 %21, 1073807104
   br i1 %30, label %20, label %31, !llvm.loop !53
 
 31:                                               ; preds = %28, %20
@@ -2298,7 +2298,7 @@ __kvm_cpuid_base.exit:                            ; preds = %10, %13, %31
 
 64:                                               ; preds = %56
   %65 = add nuw nsw i32 %57, 256
-  %66 = icmp ult i32 %57, 1073807104
+  %66 = icmp samesign ult i32 %57, 1073807104
   br i1 %66, label %56, label %67, !llvm.loop !53
 
 67:                                               ; preds = %64, %56
@@ -2465,7 +2465,7 @@ define internal fastcc void @kvm_guest_cpu_init() unnamed_addr #1 align 16 {
 
 24:                                               ; preds = %16
   %25 = add nuw nsw i32 %17, 256
-  %26 = icmp ult i32 %17, 1073807104
+  %26 = icmp samesign ult i32 %17, 1073807104
   br i1 %26, label %16, label %27, !llvm.loop !53
 
 27:                                               ; preds = %24, %16
@@ -2539,7 +2539,7 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
 
 65:                                               ; preds = %57
   %66 = add nuw nsw i32 %58, 256
-  %67 = icmp ult i32 %58, 1073807104
+  %67 = icmp samesign ult i32 %58, 1073807104
   br i1 %67, label %57, label %68, !llvm.loop !53
 
 68:                                               ; preds = %65, %57
@@ -2622,7 +2622,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
 
 108:                                              ; preds = %100
   %109 = add nuw nsw i32 %101, 256
-  %110 = icmp ult i32 %101, 1073807104
+  %110 = icmp samesign ult i32 %101, 1073807104
   br i1 %110, label %100, label %111, !llvm.loop !53
 
 111:                                              ; preds = %108, %100
@@ -2747,7 +2747,7 @@ define internal noundef i32 @kvm_suspend() #1 align 16 {
 
 22:                                               ; preds = %14
   %23 = add nuw nsw i32 %15, 256
-  %24 = icmp ult i32 %15, 1073807104
+  %24 = icmp samesign ult i32 %15, 1073807104
   br i1 %24, label %14, label %25, !llvm.loop !53
 
 25:                                               ; preds = %22, %14
@@ -2851,7 +2851,7 @@ define internal void @kvm_resume() #1 align 16 {
 
 29:                                               ; preds = %21
   %30 = add nuw nsw i32 %22, 256
-  %31 = icmp ult i32 %22, 1073807104
+  %31 = icmp samesign ult i32 %22, 1073807104
   br i1 %31, label %21, label %32, !llvm.loop !53
 
 32:                                               ; preds = %29, %21

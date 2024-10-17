@@ -178,7 +178,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %18 = lshr i32 %17, 9
   %19 = zext nneg i32 %18 to i64
   %20 = add nuw nsw i64 %14, 10
-  %.not = icmp ult i64 %20, %19
+  %.not = icmp samesign ult i64 %20, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   br i1 %.not, label %.preheader, label %.preheader81
@@ -387,7 +387,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %18 = lshr i32 %17, 9
   %19 = zext nneg i32 %18 to i64
   %20 = add nuw nsw i64 %14, 10
-  %.not = icmp ult i64 %20, %19
+  %.not = icmp samesign ult i64 %20, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   br i1 %.not, label %.preheader, label %.preheader71

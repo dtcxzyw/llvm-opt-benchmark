@@ -40289,7 +40289,7 @@ _ZNK7testing8TestCase10type_paramEv.exit47:       ; preds = %40
   %.014.i = phi i32 [ %56, %55 ], [ 0, %.preheader.i ]
   %.0813.i = phi ptr [ %57, %55 ], [ %43, %.preheader.i ]
   %46 = sext i8 %45 to i32
-  %47 = icmp ugt i32 %.014.i, 249
+  %47 = icmp samesign ugt i32 %.014.i, 249
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.i
@@ -40355,7 +40355,7 @@ _ZNK7testing8TestInfo11value_paramEv.exit53:      ; preds = %66
   %.014.i58 = phi i32 [ %82, %81 ], [ 0, %.preheader.i55 ]
   %.0813.i59 = phi ptr [ %83, %81 ], [ %69, %.preheader.i55 ]
   %72 = sext i8 %71 to i32
-  %73 = icmp ugt i32 %.014.i58, 249
+  %73 = icmp samesign ugt i32 %.014.i58, 249
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %.lr.ph.i57

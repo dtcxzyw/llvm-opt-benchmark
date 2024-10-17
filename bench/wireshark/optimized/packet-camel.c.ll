@@ -5674,7 +5674,7 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %15 = load i32, ptr @hf_digit, align 4
   %16 = lshr i32 %12, 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %15, ptr noundef %1, i32 noundef %indvars.iv, i32 noundef 1, i32 noundef %16) #8
-  %18 = icmp ult i32 %13, 10
+  %18 = icmp samesign ult i32 %13, 10
   %19 = trunc nuw nsw i32 %13 to i8
   %20 = or disjoint i8 %19, 48
   %21 = add nuw nsw i8 %19, 55

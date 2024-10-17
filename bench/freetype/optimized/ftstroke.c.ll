@@ -606,7 +606,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 
 101:                                              ; preds = %100
   %102 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
-  %103 = icmp ugt i64 %102, 57
+  %103 = icmp samesign ugt i64 %102, 57
   br i1 %103, label %117, label %177
 
 .thread77.i:                                      ; preds = %100, %80
@@ -977,7 +977,7 @@ define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   %.0109.idx.ph176 = phi i64 [ 0, %36 ], [ %.0109.add129, %.outer ]
   %.not133 = phi i1 [ false, %36 ], [ true, %.outer ]
   %51 = load i64, ptr %0, align 8
-  %52 = icmp ult i64 %.0109.idx.ph176, 480
+  %52 = icmp samesign ult i64 %.0109.idx.ph176, 480
   br i1 %52, label %.lr.ph190, label %ft_conic_is_small_enough.exit._crit_edge
 
 .lr.ph190:                                        ; preds = %.lr.ph, %90
@@ -1031,7 +1031,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %80, %77, %78, %82
   %.1 = phi i64 [ %53, %77 ], [ %79, %78 ], [ %83, %82 ], [ %81, %80 ]
   %84 = call i64 @FT_Angle_Diff(i64 noundef %.1160, i64 noundef %.1) #11
   %85 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %84, i1 true)
-  %86 = icmp ugt i64 %85, 1966079
+  %86 = icmp samesign ugt i64 %85, 1966079
   br i1 %86, label %87, label %ft_conic_is_small_enough.exit._crit_edge
 
 87:                                               ; preds = %ft_conic_is_small_enough.exit
@@ -1099,7 +1099,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   %116 = load i64, ptr %0, align 8
   %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0159) #11
   %118 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %117, i1 true)
-  %119 = icmp ugt i64 %118, 491520
+  %119 = icmp samesign ugt i64 %118, 491520
   br i1 %119, label %120, label %.thread
 
 120:                                              ; preds = %115
@@ -1196,7 +1196,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   %176 = call i64 @FT_Atan2(i64 noundef %173, i64 noundef %175) #11
   %177 = call i64 @FT_Angle_Diff(i64 noundef %.0112, i64 noundef %176) #11
   %178 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %177, i1 true)
-  %179 = icmp ugt i64 %178, 5898240
+  %179 = icmp samesign ugt i64 %178, 5898240
   br i1 %179, label %180, label %215
 
 180:                                              ; preds = %165
@@ -1475,7 +1475,7 @@ define i32 @FT_Stroker_CubicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   %.0128.idx.ph215 = phi i64 [ 0, %48 ], [ %.0128.add151, %.outer ]
   %.not155 = phi i1 [ false, %48 ], [ true, %.outer ]
   %65 = load i64, ptr %0, align 8
-  %66 = icmp ult i64 %.0128.idx.ph215, 512
+  %66 = icmp samesign ult i64 %.0128.idx.ph215, 512
   br i1 %66, label %.lr.ph227, label %ft_cubic_is_small_enough.exit._crit_edge
 
 .lr.ph227:                                        ; preds = %.lr.ph, %130
@@ -1568,8 +1568,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %117, %111, %105, %1
   %122 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %121, i1 true)
   %123 = call i64 @FT_Angle_Diff(i64 noundef %.1192, i64 noundef %.1) #11
   %124 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %123, i1 true)
-  %125 = icmp ugt i64 %122, 1474559
-  %126 = icmp ugt i64 %124, 1474559
+  %125 = icmp samesign ugt i64 %122, 1474559
+  %126 = icmp samesign ugt i64 %124, 1474559
   %.not199 = select i1 %125, i1 true, i1 %126
   br i1 %.not199, label %127, label %ft_cubic_is_small_enough.exit._crit_edge
 
@@ -1655,7 +1655,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   %168 = load i64, ptr %0, align 8
   %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0193) #11
   %170 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %169, i1 true)
-  %171 = icmp ugt i64 %170, 368640
+  %171 = icmp samesign ugt i64 %170, 368640
   br i1 %171, label %172, label %.thread
 
 172:                                              ; preds = %167
@@ -1772,7 +1772,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   %249 = call i64 @FT_Atan2(i64 noundef %246, i64 noundef %248) #11
   %250 = call i64 @FT_Angle_Diff(i64 noundef %.0131, i64 noundef %249) #11
   %251 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %250, i1 true)
-  %252 = icmp ugt i64 %251, 5898240
+  %252 = icmp samesign ugt i64 %251, 5898240
   br i1 %252, label %253, label %288
 
 253:                                              ; preds = %238
@@ -3300,7 +3300,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = load i16, ptr %1, align 8
   %129 = zext i16 %128 to i64
-  %130 = icmp ult i64 %indvars.iv.next, %129
+  %130 = icmp samesign ult i64 %indvars.iv.next, %129
   br i1 %130, label %35, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !18
 
 FT_Stroker_BeginSubPath.exit.thread:              ; preds = %127, %125, %123, %41, %112, %109, %79, %94, %118, %.lr.ph, %96, %FT_Stroker_Rewind.exit, %12, %3

@@ -573,7 +573,7 @@ if.else.i:                                        ; preds = %entry
 
 do.end.i:                                         ; preds = %entry
   %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %bit, i1 true)
-  %cmp2.i = icmp ult i32 %0, 22
+  %cmp2.i = icmp samesign ult i32 %0, 22
   br i1 %cmp2.i, label %riscv_validate_misa_info_idx.exit, label %if.else5.i
 
 if.else5.i:                                       ; preds = %do.end.i
@@ -607,7 +607,7 @@ if.else.i:                                        ; preds = %entry
 
 do.end.i:                                         ; preds = %entry
   %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %bit, i1 true)
-  %cmp2.i = icmp ult i32 %0, 22
+  %cmp2.i = icmp samesign ult i32 %0, 22
   br i1 %cmp2.i, label %riscv_validate_misa_info_idx.exit, label %if.else5.i
 
 if.else5.i:                                       ; preds = %do.end.i

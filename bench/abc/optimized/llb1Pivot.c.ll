@@ -46,7 +46,7 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %8
   %18 = load i64, ptr %9, align 8
   %19 = trunc i64 %18 to i32
   %20 = lshr i32 %19, 6
-  %21 = icmp ult i32 %17, %20
+  %21 = icmp samesign ult i32 %17, %20
   br i1 %21, label %22, label %.critedge.loopexit, !llvm.loop !4
 
 22:                                               ; preds = %.lr.ph, %16

@@ -910,7 +910,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %6 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp.i.i12 = icmp ugt i64 %6, 256
+  %cmp.i.i12 = icmp samesign ugt i64 %6, 256
   br i1 %cmp.i.i12, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
@@ -2561,7 +2561,7 @@ _ZNK6hermes2vm9CodeBlock12getFrameSizeEv.exit:    ; preds = %if.then.i.i, %if.el
   %conv.i.i = and i64 %sub.ptr.div.i.i.i, 4294967295
   %conv2.i.i = zext i32 %add to i64
   %add.i.i = add nuw nsw i64 %conv2.i.i, 32
-  %cmp.i.i2356.not = icmp ugt i64 %add.i.i, %conv.i.i
+  %cmp.i.i2356.not = icmp samesign ugt i64 %add.i.i, %conv.i.i
   br i1 %cmp.i.i2356.not, label %stackOverflow, label %if.end15
 
 if.end15:                                         ; preds = %_ZNK6hermes2vm9CodeBlock12getFrameSizeEv.exit
@@ -5525,7 +5525,7 @@ while.body:                                       ; preds = %while.body.preheade
   %agg.tmp.sroa.0.0.copyload.i.i3337 = load i64, ptr %arrayidx1654, align 8
   %and.i.i.i.i.i3338 = and i64 %agg.tmp.sroa.0.0.copyload.i.i3337, 281474976710655
   %486 = inttoptr i64 %and.i.i.i.i.i3338 to ptr
-  %cmp.i3339 = icmp ult i64 %indvars.iv, 4096
+  %cmp.i3339 = icmp samesign ult i64 %indvars.iv, 4096
   br i1 %cmp.i3339, label %if.then.i3346, label %if.else.i
 
 if.then.i3346:                                    ; preds = %while.body

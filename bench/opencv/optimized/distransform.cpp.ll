@@ -515,7 +515,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %184 = icmp ugt i64 %indvars.iv.i, 65535
+  %184 = icmp samesign ugt i64 %indvars.iv.i, 65535
   %185 = trunc nuw nsw i64 %indvars.iv.i to i32
   %186 = mul i32 %185, %185
   %187 = select i1 %184, i32 -1, i32 %186
@@ -602,7 +602,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
   %216 = fptrunc double %215 to float
   %217 = getelementptr inbounds float, ptr %211, i64 %indvars.iv124.i
   store float %216, ptr %217, align 4
-  %218 = icmp ugt i64 %indvars.iv124.i, 65535
+  %218 = icmp samesign ugt i64 %indvars.iv124.i, 65535
   %219 = mul i32 %213, %213
   %220 = select i1 %218, i32 -1, i32 %219
   %221 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv124.i

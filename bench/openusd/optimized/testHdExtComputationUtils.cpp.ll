@@ -10618,7 +10618,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit: ; preds = %.loopexit,
   %1528 = add nuw nsw i64 %.0731474, 1
   %1529 = load i32, ptr %75, align 8
   %1530 = zext i32 %1529 to i64
-  %1531 = icmp ult i64 %1528, %1530
+  %1531 = icmp samesign ult i64 %1528, %1530
   br i1 %1531, label %1326, label %.loopexit791, !llvm.loop !101
 
 .loopexit791:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit, %1320

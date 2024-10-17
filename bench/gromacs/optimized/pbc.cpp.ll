@@ -4042,7 +4042,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
 
 37:                                               ; preds = %36
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 3
-  %38 = icmp ult i64 %indvars.iv116, 3
+  %38 = icmp samesign ult i64 %indvars.iv116, 3
   br i1 %38, label %11, label %.preheader85, !llvm.loop !80
 
 .preheader85:                                     ; preds = %37, %66
@@ -4101,7 +4101,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
 
 66:                                               ; preds = %65
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 6
-  %67 = icmp ult i64 %indvars.iv131, 8
+  %67 = icmp samesign ult i64 %indvars.iv131, 8
   br i1 %67, label %.preheader85, label %.preheader83, !llvm.loop !83
 
 .preheader83:                                     ; preds = %66, %91
@@ -4157,7 +4157,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
 
 91:                                               ; preds = %90
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 2
-  %92 = icmp ult i64 %indvars.iv146, 10
+  %92 = icmp samesign ult i64 %indvars.iv146, 10
   br i1 %92, label %.preheader83, label %93, !llvm.loop !86
 
 93:                                               ; preds = %91

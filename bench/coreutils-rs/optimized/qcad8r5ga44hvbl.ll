@@ -4503,7 +4503,7 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   %113 = udiv i64 %.218.i, 10000000000
   %.08.i.i.i = select i1 %112, i32 10, i32 0
   %.0.i.i.i = select i1 %112, i64 %113, i64 %.218.i
-  %114 = icmp ugt i64 %.0.i.i.i, 99999
+  %114 = icmp samesign ugt i64 %.0.i.i.i, 99999
   br i1 %114, label %115, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i"
 
 115:                                              ; preds = %111

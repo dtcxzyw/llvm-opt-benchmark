@@ -1752,7 +1752,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
 728:                                              ; preds = %727
   %729 = lshr i32 %723, 5
   %730 = and i32 %729, 2047
-  %731 = icmp ugt i32 %730, 254
+  %731 = icmp samesign ugt i32 %730, 254
   br i1 %731, label %732, label %733
 
 732:                                              ; preds = %728
@@ -1792,7 +1792,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
   store i32 %748, ptr %318, align 8
   %749 = lshr i32 %723, 5
   %750 = and i32 %749, 2047
-  %751 = icmp ult i32 %750, %748
+  %751 = icmp samesign ult i32 %750, %748
   %752 = icmp eq i8 %747, 0
   %or.cond344.i.i = or i1 %752, %751
   br i1 %or.cond344.i.i, label %753, label %verify_opcode_operands.exit.i
@@ -3773,9 +3773,9 @@ define internal fastcc void @run_dataflow(ptr noundef nonnull %0) unnamed_addr #
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 65535
   %88 = icmp eq i32 %87, %.046.ph.i.us
-  %89 = icmp ugt i32 %87, 31
+  %89 = icmp samesign ugt i32 %87, 31
   %or.cond.i.us = and i1 %.ph.i.us, %89
-  %or.cond52.i.us = or i1 %88, %or.cond.i.us
+  %or.cond52.i.us = select i1 %88, i1 true, i1 %or.cond.i.us
   br i1 %or.cond52.i.us, label %check_flags.exit.us, label %90
 
 90:                                               ; preds = %83
@@ -4229,7 +4229,7 @@ pop_and_free.exit.i.us:                           ; preds = %195, %194, %191, %1
 
 275:                                              ; preds = %273
   %276 = and i32 %209, 65535
-  %277 = icmp ugt i32 %276, 31
+  %277 = icmp samesign ugt i32 %276, 31
   %278 = icmp eq i32 %276, 12
   %or.cond.i33.us = and i1 %202, %278
   %or.cond473.i.us = or i1 %277, %or.cond.i33.us
@@ -7245,7 +7245,7 @@ pop_and_free.exit:                                ; preds = %6, %pop_and_free.ex
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %pop_and_free.exit
-  %78 = icmp ugt i32 %.042, 255
+  %78 = icmp samesign ugt i32 %.042, 255
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
@@ -7327,7 +7327,7 @@ define internal fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 nou
 12:                                               ; preds = %7
   %13 = and i32 %2, 65535
   %14 = lshr i32 %13, 5
-  %15 = icmp ult i32 %13, 32
+  %15 = icmp samesign ult i32 %13, 32
   %16 = and i32 %2, 31
   %.not256 = icmp ne i32 %16, 9
   %or.cond276.not = and i1 %.not256, %15

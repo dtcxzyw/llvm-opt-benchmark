@@ -609,7 +609,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
   %91 = tail call i64 @llvm.bswap.i64(i64 %90)
   store i64 %91, ptr %80, align 8
   %92 = lshr i32 %74, 1
-  %93 = icmp ult i32 %74, 2
+  %93 = icmp samesign ult i32 %74, 2
   br i1 %93, label %40, label %73, !llvm.loop !15
 
 .loopexit:                                        ; preds = %68, %18, %1
@@ -713,7 +713,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
   %27 = tail call i64 @llvm.bswap.i64(i64 %26)
   store i64 %27, ptr %10, align 8
   %28 = lshr i32 %8, 1
-  %29 = icmp ult i32 %8, 2
+  %29 = icmp samesign ult i32 %8, 2
   br i1 %29, label %.preheader, label %7, !llvm.loop !17
 
 .preheader:                                       ; preds = %7, %50

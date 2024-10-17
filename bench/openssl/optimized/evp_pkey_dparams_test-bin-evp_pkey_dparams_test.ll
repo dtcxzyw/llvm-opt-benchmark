@@ -187,7 +187,7 @@ for.inc.thread:                                   ; preds = %if.end57
 
 for.inc:                                          ; preds = %if.end57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp16 = icmp ult i64 %indvars.iv, 9
+  %cmp16 = icmp samesign ult i64 %indvars.iv, 9
   br i1 %cmp16, label %land.rhs18, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %land.rhs18, %for.inc, %if.end, %for.inc.thread, %land.end

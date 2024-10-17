@@ -1309,7 +1309,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8consumed19ConsumedStmtVisitor10ha
   %28 = sub nuw nsw i64 %indvars.iv, %26
   %29 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %3) #16
   %30 = zext i32 %29 to i64
-  %.not = icmp ult i64 %28, %30
+  %.not = icmp samesign ult i64 %28, %30
   br i1 %.not, label %31, label %._crit_edge
 
 31:                                               ; preds = %27
@@ -1778,7 +1778,7 @@ _ZL18isSetOnReadPtrTypeRKN5clang8QualTypeE.exit:  ; preds = %.lr.ph.i4.i.i.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %262 = load i32, ptr %18, align 8
   %263 = zext i32 %262 to i64
-  %264 = icmp ult i64 %indvars.iv.next, %263
+  %264 = icmp samesign ult i64 %indvars.iv.next, %263
   br i1 %264, label %27, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.critedge2, %27, %17

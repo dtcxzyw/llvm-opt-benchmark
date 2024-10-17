@@ -428,7 +428,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %consistentDepth.054 = phi i8 [ 1, %for.body.preheader ], [ %consistentDepth.2, %for.inc ]
   %consistentWidth.053 = phi i8 [ 1, %for.body.preheader ], [ %consistentWidth.2, %for.inc ]
-  %or.cond.i = icmp ugt i64 %indvars.iv, 7
+  %or.cond.i = icmp samesign ugt i64 %indvars.iv, 7
   br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader8BitDepthEi.exit, label %if.end.i38
 
 if.end.i38:                                       ; preds = %for.body

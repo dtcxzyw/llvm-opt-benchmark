@@ -1078,7 +1078,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %78 = load i32, ptr %13, align 4
   %79 = lshr i32 %78, 26
   %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next72, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next72, %80
   br i1 %81, label %32, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
@@ -1335,7 +1335,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %22 = load i32, ptr %13, align 4
   %23 = lshr i32 %22, 26
   %24 = zext nneg i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %17, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %17, %.preheader39
@@ -1358,7 +1358,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
 .loopexit:                                        ; preds = %.loopexit.loopexit, %32
   %.pre-phi63 = phi i64 [ %.pre62, %.loopexit.loopexit ], [ %35, %32 ]
   %30 = phi i32 [ %116, %.loopexit.loopexit ], [ %33, %32 ]
-  %31 = icmp ult i64 %indvars.iv.next55, %.pre-phi63
+  %31 = icmp samesign ult i64 %indvars.iv.next55, %.pre-phi63
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   br i1 %31, label %32, label %Kit_DsdNtkObj.exit.thread, !llvm.loop !24
 
@@ -1369,7 +1369,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %34 = lshr i32 %33, 26
   %35 = zext nneg i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next55, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next55, %35
   br i1 %36, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %32
@@ -1394,7 +1394,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %49 = lshr i32 %42, 1
   %50 = load i16, ptr %0, align 8
   %51 = zext i16 %50 to i32
-  %52 = icmp ult i32 %49, %51
+  %52 = icmp samesign ult i32 %49, %51
   br i1 %52, label %Kit_DsdNtkObj.exit37.thread, label %Kit_DsdNtkObj.exit37
 
 Kit_DsdNtkObj.exit37:                             ; preds = %48
@@ -1408,7 +1408,7 @@ Kit_DsdNtkObj.exit37:                             ; preds = %48
 
 Kit_DsdNtkObj.exit37.thread:                      ; preds = %48, %Kit_DsdNtkObj.exit37
   %59 = lshr i32 %45, 1
-  %60 = icmp ult i32 %59, %51
+  %60 = icmp samesign ult i32 %59, %51
   br i1 %60, label %Kit_DsdNtkObj.exit38.thread, label %Kit_DsdNtkObj.exit38
 
 Kit_DsdNtkObj.exit38:                             ; preds = %Kit_DsdNtkObj.exit37.thread
@@ -1529,7 +1529,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %118 = lshr i32 %117, 26
   %119 = zext nneg i32 %118 to i64
-  %120 = icmp ult i64 %indvars.iv.next52, %119
+  %120 = icmp samesign ult i64 %indvars.iv.next52, %119
   br i1 %120, label %38, label %.loopexit.loopexit, !llvm.loop !25
 
 Kit_DsdNtkObj.exit.thread:                        ; preds = %.loopexit, %3, %.critedge, %Kit_DsdNtkObj.exit

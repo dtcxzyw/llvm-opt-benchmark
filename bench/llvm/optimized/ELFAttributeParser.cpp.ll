@@ -912,7 +912,7 @@ define dso_local void @_ZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10e
   %41 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %40, ptr %41, align 1, !noalias !82
   %42 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !85
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread

@@ -54,7 +54,7 @@ define hidden noundef i32 @_ZN17G1SurvivorRegions3addEP12G1HeapRegion(ptr nounde
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %14 = sub nuw nsw i32 32, %13

@@ -20,7 +20,7 @@ define dso_local void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0,
   %10 = shl nuw nsw i64 %wide.trip.count, 2
   %11 = sext i32 %2 to i64
   %12 = add i32 %2, 1
-  %13 = icmp ult i32 %2, 260
+  %13 = icmp samesign ult i32 %2, 260
   %14 = icmp sgt i32 %2, 1
   %15 = zext nneg i32 %2 to i64
   %16 = getelementptr inbounds i8, ptr %5, i64 4
@@ -118,7 +118,7 @@ define dso_local void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0,
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %9, align 4
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1
-  %.not132148 = icmp ugt i64 %indvars.iv198, 2
+  %.not132148 = icmp samesign ugt i64 %indvars.iv198, 2
   br i1 %.not132148, label %.lr.ph151, label %._crit_edge152.thread
 
 ._crit_edge152.thread:                            ; preds = %.lr.ph171

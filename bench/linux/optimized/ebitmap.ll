@@ -175,7 +175,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture nounde
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = tail call i64 @_find_first_bit(ptr noundef %7, i64 noundef 384) #12
   %9 = and i64 %8, 4294967168
-  %10 = icmp ult i64 %9, 384
+  %10 = icmp samesign ult i64 %9, 384
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %.preheader13
@@ -262,7 +262,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture nounde
   %64 = zext i32 %63 to i64
   %65 = tail call i64 @_find_next_bit(ptr noundef %59, i64 noundef 384, i64 noundef %64) #12
   %66 = and i64 %65, 4294967168
-  %67 = icmp ult i64 %66, 384
+  %67 = icmp samesign ult i64 %66, 384
   br i1 %67, label %68, label %.preheader
 
 68:                                               ; preds = %.critedge
@@ -281,7 +281,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture nounde
   %76 = getelementptr inbounds i8, ptr %73, i64 8
   %77 = tail call i64 @_find_first_bit(ptr noundef %76, i64 noundef 384) #12
   %78 = and i64 %77, 4294967168
-  %79 = icmp ult i64 %78, 384
+  %79 = icmp samesign ult i64 %78, 384
   br i1 %79, label %80, label %.preheader, !llvm.loop !16
 
 80:                                               ; preds = %75
@@ -435,7 +435,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr nocapture no
   store i64 %46, ptr %44, align 8
   %47 = tail call i64 @_find_first_bit(ptr noundef %43, i64 noundef 384) #12
   %48 = and i64 %47, 4294967168
-  %49 = icmp ugt i64 %48, 383
+  %49 = icmp samesign ugt i64 %48, 383
   br i1 %49, label %50, label %102
 
 50:                                               ; preds = %36
@@ -662,7 +662,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = add nuw nsw i64 %27, 384
-  %29 = icmp ugt i64 %28, %24
+  %29 = icmp samesign ugt i64 %28, %24
   br i1 %29, label %42, label %30
 
 30:                                               ; preds = %23, %21
@@ -1025,7 +1025,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef %0, ptr
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = add nuw nsw i64 %53, 384
-  %55 = icmp ugt i64 %54, %50
+  %55 = icmp samesign ugt i64 %54, %50
   br i1 %55, label %65, label %56
 
 56:                                               ; preds = %49, %47
@@ -1140,7 +1140,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = tail call i64 @_find_first_bit(ptr noundef %6, i64 noundef 384) #12
   %8 = and i64 %7, 4294967168
-  %9 = icmp ult i64 %8, 384
+  %9 = icmp samesign ult i64 %8, 384
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %.preheader33
@@ -1183,7 +1183,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %37 = zext i32 %36 to i64
   %38 = tail call i64 @_find_next_bit(ptr noundef %32, i64 noundef 384, i64 noundef %37) #12
   %39 = and i64 %38, 4294967168
-  %40 = icmp ult i64 %39, 384
+  %40 = icmp samesign ult i64 %39, 384
   br i1 %40, label %41, label %.preheader31
 
 41:                                               ; preds = %.preheader32
@@ -1202,7 +1202,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %49 = getelementptr inbounds i8, ptr %46, i64 8
   %50 = tail call i64 @_find_first_bit(ptr noundef %49, i64 noundef 384) #12
   %51 = and i64 %50, 4294967168
-  %52 = icmp ult i64 %51, 384
+  %52 = icmp samesign ult i64 %51, 384
   br i1 %52, label %53, label %.preheader31, !llvm.loop !16
 
 53:                                               ; preds = %48
@@ -1258,7 +1258,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = tail call i64 @_find_first_bit(ptr noundef %85, i64 noundef 384) #12
   %87 = and i64 %86, 4294967168
-  %88 = icmp ult i64 %87, 384
+  %88 = icmp samesign ult i64 %87, 384
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %.preheader30
@@ -1344,7 +1344,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %142 = zext i32 %141 to i64
   %143 = tail call i64 @_find_next_bit(ptr noundef %137, i64 noundef 384, i64 noundef %142) #12
   %144 = and i64 %143, 4294967168
-  %145 = icmp ult i64 %144, 384
+  %145 = icmp samesign ult i64 %144, 384
   br i1 %145, label %146, label %.preheader
 
 146:                                              ; preds = %134
@@ -1363,7 +1363,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef read
   %154 = getelementptr inbounds i8, ptr %151, i64 8
   %155 = tail call i64 @_find_first_bit(ptr noundef %154, i64 noundef 384) #12
   %156 = and i64 %155, 4294967168
-  %157 = icmp ult i64 %156, 384
+  %157 = icmp samesign ult i64 %156, 384
   br i1 %157, label %158, label %.preheader, !llvm.loop !16
 
 158:                                              ; preds = %153

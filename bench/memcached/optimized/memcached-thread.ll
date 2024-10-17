@@ -1604,7 +1604,7 @@ for.body34:                                       ; preds = %if.end26, %for.body
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %7 = load i32, ptr @item_lock_count, align 4
   %8 = zext i32 %7 to i64
-  %cmp32 = icmp ult i64 %indvars.iv.next54, %8
+  %cmp32 = icmp samesign ult i64 %indvars.iv.next54, %8
   br i1 %cmp32, label %for.body34, label %for.end40, !llvm.loop !19
 
 for.end40:                                        ; preds = %for.body34

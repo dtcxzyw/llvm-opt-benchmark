@@ -45,7 +45,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %17, 5
+  %19 = icmp samesign ult i64 %17, 5
   br i1 %19, label %20, label %.critedge33
 
 20:                                               ; preds = %.critedge, %.critedge33
@@ -110,7 +110,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %39 = icmp ult i64 %38, 6
   call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %38, 5
+  %40 = icmp samesign ult i64 %38, 5
   br i1 %40, label %41, label %.critedge37
 
 41:                                               ; preds = %.critedge35, %.critedge37

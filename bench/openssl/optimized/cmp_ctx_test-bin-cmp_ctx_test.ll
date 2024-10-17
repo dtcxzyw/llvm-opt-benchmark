@@ -929,7 +929,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %expected_size.05.i = phi i32 [ 13, %if.else.i ], [ %add44.i, %while.body.i ]
   tail call void @ERR_add_error_txt(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120) #6
   %add44.i = add nuw nsw i32 %expected_size.05.i, 514
-  %cmp41.i = icmp ult i32 %expected_size.05.i, 3582
+  %cmp41.i = icmp samesign ult i32 %expected_size.05.i, 3582
   br i1 %cmp41.i, label %while.body.i, label %while.end.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i

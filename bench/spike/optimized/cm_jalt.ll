@@ -180,7 +180,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
   %.sroa.023.0.copyload = load i32, ptr %44, align 4
-  %45 = icmp ugt i64 %25, 31
+  %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -313,7 +313,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
   %.sroa.023.0.copyload = load i64, ptr %42, align 8
-  %43 = icmp ugt i64 %23, 31
+  %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -432,7 +432,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
   %.sroa.026.0.copyload = load i32, ptr %44, align 4
-  %45 = icmp ugt i64 %25, 31
+  %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %72
 
 46:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -606,7 +606,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
   %.sroa.026.0.copyload = load i64, ptr %42, align 8
-  %43 = icmp ugt i64 %23, 31
+  %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %70
 
 44:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -781,7 +781,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
   %.sroa.023.0.copyload = load i32, ptr %44, align 4
-  %45 = icmp ugt i64 %25, 31
+  %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -899,7 +899,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
   %.sroa.023.0.copyload = load i64, ptr %42, align 8
-  %43 = icmp ugt i64 %23, 31
+  %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -1018,7 +1018,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %38, %41
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %38 ], [ %43, %41 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %31
   %.sroa.026.0.copyload = load i32, ptr %44, align 4
-  %45 = icmp ugt i64 %25, 31
+  %45 = icmp samesign ugt i64 %25, 31
   br i1 %45, label %46, label %72
 
 46:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit
@@ -1192,7 +1192,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %36, %39
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %36 ], [ %41, %39 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %29
   %.sroa.026.0.copyload = load i64, ptr %42, align 8
-  %43 = icmp ugt i64 %23, 31
+  %43 = icmp samesign ugt i64 %23, 31
   br i1 %43, label %44, label %70
 
 44:                                               ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit

@@ -4217,7 +4217,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %.noexc
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
@@ -15077,7 +15077,7 @@ if.then1658:                                      ; preds = %cleanup.done1652
   %div1662 = udiv i32 %conv1629, %dim1659.sroa.0.0.copyload
   %div1664 = udiv i32 %conv1629, %dim1659.sroa.5.0.copyload
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %div1662, i32 %div1664)
-  %cmp1666 = icmp ugt i32 %.sroa.speculated, 1
+  %cmp1666 = icmp samesign ugt i32 %.sroa.speculated, 1
   br i1 %cmp1666, label %if.then1667, label %if.end2791
 
 if.then1667:                                      ; preds = %if.then1658

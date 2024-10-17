@@ -915,7 +915,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %.pn = phi ptr [ %77, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %54, %58 ]
   %.sroa.25.3 = phi ptr [ %79, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.25.2, %58 ]
   %.sroa.12.3 = getelementptr inbounds i8, ptr %.pn, i64 4
-  %.not.i = icmp ult i64 %.02361.i, 2
+  %.not.i = icmp samesign ult i64 %.02361.i, 2
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %53
 
 .loopexit.i:                                      ; preds = %70

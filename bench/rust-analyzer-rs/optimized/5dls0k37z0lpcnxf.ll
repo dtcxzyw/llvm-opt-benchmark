@@ -831,7 +831,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7101337052389852799.exit.
 
 .lr.ph.i.i20:                                     ; preds = %128, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i21, %.thread.i.i.i ], [ 0, %128 ]
-  %132 = icmp ult i32 %.02.i.i, 7
+  %132 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %132, label %.preheader.i.i.i, label %133
 
 133:                                              ; preds = %.lr.ph.i.i20
@@ -839,7 +839,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7101337052389852799.exit.
           to label %.thread.i.i.i unwind label %.loopexit
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %133
-  %134 = icmp ult i32 %.02.i.i, 11
+  %134 = icmp samesign ult i32 %.02.i.i, 11
   %135 = zext i1 %134 to i32
   %spec.select.i.i21 = add nuw nsw i32 %.02.i.i, %135
   %136 = load atomic i8, ptr %129 acquire, align 1, !noalias !118
@@ -1521,7 +1521,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7101337052389852799.exit.
           to label %.preheader.split.us.i unwind label %.loopexit.split-lp.loopexit
 
 70:                                               ; preds = %67
-  %71 = icmp ult i32 %.0.i, 7
+  %71 = icmp samesign ult i32 %.0.i, 7
   br i1 %71, label %.preheader.i.i, label %.thread.i.thread.i
 
 .thread.i.thread.i:                               ; preds = %70
@@ -1626,7 +1626,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7101337052389852799.exit.
 
 .lr.ph.i:                                         ; preds = %.loopexit119, %.thread.i.i31
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i31 ], [ 0, %.loopexit119 ]
-  %102 = icmp ult i32 %.02.i, 7
+  %102 = icmp samesign ult i32 %.02.i, 7
   br i1 %102, label %.preheader.i.i32, label %103
 
 103:                                              ; preds = %.lr.ph.i
@@ -1634,7 +1634,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7101337052389852799.exit.
           to label %.thread.i.i31 unwind label %.loopexit
 
 .thread.i.i31:                                    ; preds = %.preheader.i.i32, %103
-  %104 = icmp ult i32 %.02.i, 11
+  %104 = icmp samesign ult i32 %.02.i, 11
   %105 = zext i1 %104 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %105
   %106 = load atomic i8, ptr %17 acquire, align 8

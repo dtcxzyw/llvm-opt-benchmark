@@ -669,7 +669,7 @@ Vec_IntStart.exit183:                             ; preds = %Vec_IntAlloc.exit.t
   %50 = add nsw i32 %44, 1
   store i32 %50, ptr %43, align 4
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %51 = icmp ult i64 %indvars.iv.next232, %38
+  %51 = icmp samesign ult i64 %indvars.iv.next232, %38
   br i1 %51, label %39, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %49, %Vec_IntStart.exit183
@@ -1044,7 +1044,7 @@ define range(i32 0, 2) i32 @Abc_NtkFxCheck(ptr nocapture noundef readonly %0) lo
   %indvars.iv22.i = phi i64 [ 0, %.lr.ph17.i ], [ %indvars.iv.next23.i, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph17.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %21 = icmp ult i64 %indvars.iv.next23.i, %19
+  %21 = icmp samesign ult i64 %indvars.iv.next23.i, %19
   br i1 %21, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %20
@@ -1124,7 +1124,7 @@ define range(i32 0, 2) i32 @Abc_NtkFxPerform(ptr noundef %0, i32 noundef %1, i32
   %indvars.iv22.i.i = phi i64 [ 0, %.lr.ph17.i.i ], [ %indvars.iv.next23.i.i, %.loopexit.i.i ]
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph17.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
-  %26 = icmp ult i64 %indvars.iv.next23.i.i, %24
+  %26 = icmp samesign ult i64 %indvars.iv.next23.i.i, %24
   br i1 %26, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %25
@@ -3582,7 +3582,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %192, %188
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i32, ptr %199, i64 %203
   store i32 %.02732.i.i, ptr %204, align 4
-  %205 = icmp ugt i32 %.02732.i.i, 3
+  %205 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %205, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread13.i, !llvm.loop !45
 
 Vec_QueMoveUp.exit.thread13.i:                    ; preds = %198
@@ -4499,7 +4499,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %46, %42
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i32, ptr %53, i64 %57
   store i32 %.02732.i, ptr %58, align 4
-  %59 = icmp ugt i32 %.02732.i, 3
+  %59 = icmp samesign ugt i32 %.02732.i, 3
   br i1 %59, label %.lr.ph.i, label %Vec_QueMoveUp.exit, !llvm.loop !45
 
 Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i, %50, %Vec_QuePrio.exit.i
@@ -5042,7 +5042,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %262, %258
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds i32, ptr %269, i64 %273
   store i32 %.02732.i.i, ptr %274, align 4
-  %275 = icmp ugt i32 %.02732.i.i, 3
+  %275 = icmp samesign ugt i32 %.02732.i.i, 3
   br i1 %275, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread13.i, !llvm.loop !45
 
 Vec_QueMoveUp.exit.thread13.i:                    ; preds = %268
@@ -6131,7 +6131,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i,
   %74 = icmp slt i32 %.2736, 0
   %or.cond744.not749 = select i1 %73, i1 true, i1 %74
   %indvars.iv.next.i418 = add nuw nsw i64 %indvars.iv.i417, 1
-  %75 = icmp ult i64 %indvars.iv.next.i418, %65
+  %75 = icmp samesign ult i64 %indvars.iv.next.i418, %65
   %or.cond746 = select i1 %or.cond744.not749, i1 %75, i1 false
   br i1 %or.cond746, label %thread-pre-split.i, label %Fx_ManDivFindPivots.exit, !llvm.loop !65
 
@@ -8861,8 +8861,8 @@ Vec_IntTwoRemove.exit:                            ; preds = %.lr.ph7.i, %.prehea
   store i32 %1390, ptr %1354, align 4
   %1391 = load i32, ptr %914, align 4
   %1392 = icmp ne i32 %1391, 0
-  %1393 = icmp ugt i64 %indvars.iv879, 1
-  %or.cond27 = and i1 %1393, %1392
+  %1393 = icmp samesign ugt i64 %indvars.iv879, 1
+  %or.cond27 = select i1 %1392, i1 %1393, i1 false
   br i1 %or.cond27, label %1396, label %1394
 
 1394:                                             ; preds = %Vec_IntTwoRemove.exit
@@ -8997,8 +8997,8 @@ define internal fastcc void @Fx_ManDivRemoveLits(ptr nocapture noundef %0, ptr n
   %13 = getelementptr inbounds i32, ptr %.val16, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i64 %indvars.iv, 1
-  %17 = and i1 %7, %16
+  %16 = icmp samesign ugt i64 %indvars.iv, 1
+  %17 = select i1 %7, i1 %16, i1 false
   %18 = zext i1 %17 to i32
   %19 = xor i32 %15, %18
   %20 = icmp sgt i32 %12, 1

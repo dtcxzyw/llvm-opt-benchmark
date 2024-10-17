@@ -2334,7 +2334,7 @@ for.body.i41.i:                                   ; preds = %for.body.i41.i, %lo
   %arrayidx.i43.i = getelementptr [10 x i8], ptr %all_events.i, i64 0, i64 %indvars.iv.i42.i
   %15 = load i8, ptr %arrayidx.i43.i, align 1
   %16 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %15)
-  %cmp1.i.i = icmp ugt i8 %16, 1
+  %cmp1.i.i = icmp samesign ugt i8 %16, 1
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i42.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 10
   %or.cond.i.i = select i1 %cmp1.i.i, i1 true, i1 %exitcond.not.i45.i
@@ -2541,7 +2541,7 @@ for.body.i66.i:                                   ; preds = %for.body.i66.i, %fo
   %44 = load i32, ptr %_co_firsttraceable, align 8
   %45 = sext i32 %44 to i64
   %cmp.i70.i = icmp slt i64 %indvars.iv.next.i69.i, %45
-  %cmp3.i71.i = icmp ult i64 %indvars.iv.next.i69.i, %43
+  %cmp3.i71.i = icmp samesign ult i64 %indvars.iv.next.i69.i, %43
   %46 = select i1 %cmp.i70.i, i1 %cmp3.i71.i, i1 false
   br i1 %46, label %for.body.i66.i, label %for.cond9.preheader.i.i, !llvm.loop !12
 

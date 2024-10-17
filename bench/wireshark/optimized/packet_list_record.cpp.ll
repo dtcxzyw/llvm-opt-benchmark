@@ -3469,7 +3469,7 @@ _ZN6QCacheIj5QListI7QStringEE4NodeD2Ev.exit:      ; preds = %9, %_ZN5QListI7QStr
   %45 = add nuw nsw i64 %.01417, 1
   %46 = load i8, ptr %2, align 8
   %47 = zext i8 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %9, label %.preheader.loopexit, !llvm.loop !22
 
 49:                                               ; preds = %.preheader, %49
@@ -3760,7 +3760,7 @@ _ZN6QCacheIj5QListI7QStringEE4NodeD2Ev.exit.i:    ; preds = %_ZN5QListI7QStringE
   %138 = add nuw nsw i64 %.01417.i, 1
   %139 = load i8, ptr %93, align 8
   %140 = zext i8 %139 to i64
-  %141 = icmp ult i64 %138, %140
+  %141 = icmp samesign ult i64 %138, %140
   br i1 %141, label %102, label %.preheader.loopexit.i, !llvm.loop !22
 
 142:                                              ; preds = %142, %.preheader.i

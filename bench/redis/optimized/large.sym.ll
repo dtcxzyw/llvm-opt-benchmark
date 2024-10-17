@@ -917,7 +917,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i113
 
 sz_size2index.exit.i114:                          ; preds = %if.end5.i.i, %if.then.i.i117
   %retval.i.0.i = phi i32 [ %conv.i.i.i121, %if.then.i.i117 ], [ %add23.i.i, %if.end5.i.i ]
-  %cmp.i115 = icmp ult i32 %retval.i.0.i, 39
+  %cmp.i115 = icmp samesign ult i32 %retval.i.0.i, 39
   br i1 %cmp.i115, label %if.then.i, label %if.else.i116
 
 if.then.i:                                        ; preds = %sz_size2index.exit.i114
@@ -1004,7 +1004,7 @@ if.end5.i:                                        ; preds = %if.end.i.i
 sz_size2index.exit.i:                             ; preds = %if.end5.i, %if.then.i.i
   %retval.i.i.0 = phi i32 [ %conv.i.i.i, %if.then.i.i ], [ %add23.i, %if.end5.i ]
   %conv7.i = zext nneg i32 %retval.i.i.0 to i64
-  %cmp8.i = icmp ult i32 %retval.i.i.0, 39
+  %cmp8.i = icmp samesign ult i32 %retval.i.i.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i

@@ -12536,9 +12536,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h710d621caac76404E.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -25474,7 +25474,7 @@ default.unreachable:                              ; preds = %3
           to label %.noexc.i unwind label %67, !noalias !7094
 
 .noexc.i:                                         ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ide_db..documentation..Documentation$GT$$GT$17h8325f2e33e666404E.llvm.15544646111798989001.exit"
-  %or.cond.not.i.i = icmp ult i8 %61, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %61, 3
   br i1 %or.cond.not.i.i, label %62, label %69
 
 62:                                               ; preds = %.noexc.i
@@ -26479,7 +26479,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i unwind label %165, !noalias !7324
 
 .noexc.i:                                         ; preds = %145
-  %or.cond.not.i.i = icmp ult i8 %159, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %159, 3
   br i1 %or.cond.not.i.i, label %160, label %167
 
 160:                                              ; preds = %.noexc.i
@@ -26566,7 +26566,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i76 unwind label %191, !noalias !7333
 
 .noexc.i76:                                       ; preds = %171
-  %or.cond.not.i.i77 = icmp ult i8 %185, 3
+  %or.cond.not.i.i77 = icmp samesign ult i8 %185, 3
   br i1 %or.cond.not.i.i77, label %186, label %193
 
 186:                                              ; preds = %.noexc.i76
@@ -26655,7 +26655,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i85 unwind label %218, !noalias !7342
 
 .noexc.i85:                                       ; preds = %197
-  %or.cond.not.i.i86 = icmp ult i8 %212, 3
+  %or.cond.not.i.i86 = icmp samesign ult i8 %212, 3
   br i1 %or.cond.not.i.i86, label %213, label %220
 
 213:                                              ; preds = %.noexc.i85
@@ -26742,7 +26742,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i94 unwind label %244, !noalias !7351
 
 .noexc.i94:                                       ; preds = %224
-  %or.cond.not.i.i95 = icmp ult i8 %238, 3
+  %or.cond.not.i.i95 = icmp samesign ult i8 %238, 3
   br i1 %or.cond.not.i.i95, label %239, label %246
 
 239:                                              ; preds = %.noexc.i94
@@ -26829,7 +26829,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i103 unwind label %270, !noalias !7360
 
 .noexc.i103:                                      ; preds = %250
-  %or.cond.not.i.i104 = icmp ult i8 %264, 3
+  %or.cond.not.i.i104 = icmp samesign ult i8 %264, 3
   br i1 %or.cond.not.i.i104, label %265, label %272
 
 265:                                              ; preds = %.noexc.i103
@@ -26916,7 +26916,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i112 unwind label %296, !noalias !7369
 
 .noexc.i112:                                      ; preds = %276
-  %or.cond.not.i.i113 = icmp ult i8 %290, 3
+  %or.cond.not.i.i113 = icmp samesign ult i8 %290, 3
   br i1 %or.cond.not.i.i113, label %291, label %298
 
 291:                                              ; preds = %.noexc.i112
@@ -27003,7 +27003,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i121 unwind label %322, !noalias !7378
 
 .noexc.i121:                                      ; preds = %302
-  %or.cond.not.i.i122 = icmp ult i8 %316, 3
+  %or.cond.not.i.i122 = icmp samesign ult i8 %316, 3
   br i1 %or.cond.not.i.i122, label %317, label %324
 
 317:                                              ; preds = %.noexc.i121
@@ -27090,7 +27090,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i130 unwind label %348, !noalias !7387
 
 .noexc.i130:                                      ; preds = %328
-  %or.cond.not.i.i131 = icmp ult i8 %342, 3
+  %or.cond.not.i.i131 = icmp samesign ult i8 %342, 3
   br i1 %or.cond.not.i.i131, label %343, label %350
 
 343:                                              ; preds = %.noexc.i130
@@ -27177,7 +27177,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i139 unwind label %374, !noalias !7396
 
 .noexc.i139:                                      ; preds = %354
-  %or.cond.not.i.i140 = icmp ult i8 %368, 3
+  %or.cond.not.i.i140 = icmp samesign ult i8 %368, 3
   br i1 %or.cond.not.i.i140, label %369, label %376
 
 369:                                              ; preds = %.noexc.i139
@@ -27266,7 +27266,7 @@ common.resume:                                    ; preds = %123, %94
           to label %.noexc.i148 unwind label %401, !noalias !7405
 
 .noexc.i148:                                      ; preds = %380
-  %or.cond.not.i.i149 = icmp ult i8 %395, 3
+  %or.cond.not.i.i149 = icmp samesign ult i8 %395, 3
   br i1 %or.cond.not.i.i149, label %396, label %403
 
 396:                                              ; preds = %.noexc.i148
@@ -29418,7 +29418,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8030
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -29678,7 +29678,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %54, !noalias !8087
 
 .noexc.i:                                         ; preds = %34
-  %or.cond.not.i.i = icmp ult i8 %48, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %48, 3
   br i1 %or.cond.not.i.i, label %49, label %56
 
 49:                                               ; preds = %.noexc.i
@@ -29937,7 +29937,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8144
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -30197,7 +30197,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8201
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -30457,7 +30457,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8258
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -30717,7 +30717,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8315
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -30977,7 +30977,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8372
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -31237,7 +31237,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8429
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -31497,7 +31497,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8486
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -31757,7 +31757,7 @@ define hidden void @"_ZN54_$LT$D$u20$as$u20$ide..navigation_target..TryToNav$GT$
           to label %.noexc.i unwind label %55, !noalias !8543
 
 .noexc.i:                                         ; preds = %35
-  %or.cond.not.i.i = icmp ult i8 %49, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %49, 3
   br i1 %or.cond.not.i.i, label %50, label %57
 
 50:                                               ; preds = %.noexc.i
@@ -32289,7 +32289,7 @@ define hidden void @"_ZN73_$LT$hir..ExternCrateDecl$u20$as$u20$ide..navigation_t
           to label %.noexc.i unwind label %95, !noalias !8667
 
 .noexc.i:                                         ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ide_db..documentation..Documentation$GT$$GT$17h8325f2e33e666404E.llvm.15544646111798989001.exit"
-  %or.cond.not.i.i = icmp ult i8 %89, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %89, 3
   br i1 %or.cond.not.i.i, label %90, label %97
 
 90:                                               ; preds = %.noexc.i
@@ -32706,7 +32706,7 @@ define hidden void @"_ZN63_$LT$hir..Field$u20$as$u20$ide..navigation_target..Try
           to label %.noexc.i unwind label %53, !noalias !8767
 
 .noexc.i:                                         ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ide_db..documentation..Documentation$GT$$GT$17h8325f2e33e666404E.llvm.15544646111798989001.exit"
-  %or.cond.not.i.i = icmp ult i8 %47, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %47, 3
   br i1 %or.cond.not.i.i, label %48, label %55
 
 48:                                               ; preds = %.noexc.i
@@ -45639,7 +45639,7 @@ default.unreachable:                              ; preds = %67
   br label %86
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91da1eb08c69b7c5E.exit.i": ; preds = %67
-  %81 = icmp ult i8 %68, 24
+  %81 = icmp samesign ult i8 %68, 24
   call void @llvm.assume(i1 %81)
   %82 = zext nneg i8 %68 to i64
   %83 = getelementptr inbounds i8, ptr %10, i64 1
@@ -46302,7 +46302,7 @@ define hidden void @_ZN3ide6rename14rename_to_self17h7cdbdbea08c8965bE(ptr noali
   br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i64 %42, 5
+  %44 = icmp samesign ult i64 %42, 5
   tail call void @llvm.assume(i1 %44)
   %45 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN3ide6rename14rename_to_self10__CALLSITE17h4d45e7e0bb015c39E, i64 16) monotonic, align 8
   switch i8 %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
@@ -51260,7 +51260,7 @@ default.unreachable:                              ; preds = %258, %110, %41
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91da1eb08c69b7c5E.exit.i": ; preds = %41
-  %57 = icmp ult i8 %44, 24
+  %57 = icmp samesign ult i8 %44, 24
   tail call void @llvm.assume(i1 %57)
   %58 = zext nneg i8 %44 to i64
   %59 = getelementptr inbounds i8, ptr %0, i64 49
@@ -51276,7 +51276,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %46, %52, %"_ZN106_
   %.0.lcssa.i.i = phi i64 [ %42, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit ], [ %64, %.lr.ph.i.i ]
   %.sroa.11.0.lcssa.i.i = phi i64 [ %.sroa.4.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit ], [ %65, %.lr.ph.i.i ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %.sroa.0.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit ], [ %66, %.lr.ph.i.i ]
-  %61 = icmp ugt i64 %.sroa.11.0.lcssa.i.i, 3
+  %61 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i, 3
   br i1 %61, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i", label %74
 
 .lr.ph.i.i:                                       ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit, %.lr.ph.i.i
@@ -51388,7 +51388,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit: ; preds = %82, %83
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91da1eb08c69b7c5E.exit.i19": ; preds = %110
-  %123 = icmp ult i8 %104, 24
+  %123 = icmp samesign ult i8 %104, 24
   tail call void @llvm.assume(i1 %123)
   %124 = zext nneg i8 %104 to i64
   %125 = getelementptr inbounds i8, ptr %0, i64 73
@@ -51404,7 +51404,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23: ; preds = %112, %118, %"_ZN
   %.0.lcssa.i.i25 = phi i64 [ %109, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23 ], [ %130, %.lr.ph.i.i40 ]
   %.sroa.11.0.lcssa.i.i26 = phi i64 [ %.sroa.4.0.i20, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23 ], [ %131, %.lr.ph.i.i40 ]
   %.sroa.0.0.lcssa.i.i27 = phi ptr [ %.sroa.0.0.i21, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23 ], [ %132, %.lr.ph.i.i40 ]
-  %127 = icmp ugt i64 %.sroa.11.0.lcssa.i.i26, 3
+  %127 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i26, 3
   br i1 %127, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i38", label %140
 
 .lr.ph.i.i40:                                     ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23, %.lr.ph.i.i40
@@ -51493,7 +51493,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit45: ; preds = %148, %149
   %.0.lcssa.i.i47 = phi i64 [ %165, %166 ], [ %175, %.lr.ph.i.i62 ]
   %.sroa.11.0.lcssa.i.i48 = phi i64 [ %170, %166 ], [ %176, %.lr.ph.i.i62 ]
   %.sroa.0.0.lcssa.i.i49 = phi ptr [ %168, %166 ], [ %177, %.lr.ph.i.i62 ]
-  %172 = icmp ugt i64 %.sroa.11.0.lcssa.i.i48, 3
+  %172 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i48, 3
   br i1 %172, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i60", label %185
 
 .lr.ph.i.i62:                                     ; preds = %166, %.lr.ph.i.i62
@@ -51583,7 +51583,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit67: ; preds = %193, %194
   %.0.lcssa.i.i69 = phi i64 [ %211, %212 ], [ %221, %.lr.ph.i.i84 ]
   %.sroa.11.0.lcssa.i.i70 = phi i64 [ %216, %212 ], [ %222, %.lr.ph.i.i84 ]
   %.sroa.0.0.lcssa.i.i71 = phi ptr [ %214, %212 ], [ %223, %.lr.ph.i.i84 ]
-  %218 = icmp ugt i64 %.sroa.11.0.lcssa.i.i70, 3
+  %218 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i70, 3
   br i1 %218, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i82", label %231
 
 .lr.ph.i.i84:                                     ; preds = %212, %.lr.ph.i.i84
@@ -51686,7 +51686,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit89: ; preds = %239, %240
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91da1eb08c69b7c5E.exit.i91": ; preds = %258
-  %271 = icmp ult i8 %252, 24
+  %271 = icmp samesign ult i8 %252, 24
   tail call void @llvm.assume(i1 %271)
   %272 = zext nneg i8 %252 to i64
   %273 = getelementptr inbounds i8, ptr %0, i64 97
@@ -51704,7 +51704,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95: ; preds = %260, %266, %"_ZN
   %.0.lcssa.i.i97 = phi i64 [ %257, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95 ], [ %278, %.lr.ph.i.i112 ]
   %.sroa.11.0.lcssa.i.i98 = phi i64 [ %.sroa.4.0.i92, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95 ], [ %279, %.lr.ph.i.i112 ]
   %.sroa.0.0.lcssa.i.i99 = phi ptr [ %.sroa.0.0.i93, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95 ], [ %280, %.lr.ph.i.i112 ]
-  %275 = icmp ugt i64 %.sroa.11.0.lcssa.i.i98, 3
+  %275 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i98, 3
   br i1 %275, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i110", label %288
 
 .lr.ph.i.i112:                                    ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95, %.lr.ph.i.i112

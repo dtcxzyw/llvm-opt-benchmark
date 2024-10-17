@@ -1537,7 +1537,7 @@ portcmp.exit.thread:                              ; preds = %762, %portcmp.exit.
 
 getmainedge.exit453:                              ; preds = %.preheader.i450
   store ptr %.1.i451, ptr %774, align 8
-  %785 = icmp ugt i32 %.0327.lcssa, 1
+  %785 = icmp samesign ugt i32 %.0327.lcssa, 1
   br i1 %785, label %.lr.ph878, label %._crit_edge879
 
 .lr.ph878:                                        ; preds = %getmainedge.exit453, %.lr.ph878
@@ -1755,7 +1755,7 @@ getmainedge.exit453:                              ; preds = %.preheader.i450
 924:                                              ; preds = %903, %894
   %925 = phi ptr [ %34, %903 ], [ %897, %894 ]
   %.0177.i = phi ptr [ %35, %903 ], [ %895, %894 ]
-  %926 = icmp ugt i32 %.0327.lcssa, 1
+  %926 = icmp samesign ugt i32 %.0327.lcssa, 1
   br i1 %926, label %.lr.ph846.preheader, label %._crit_edge847
 
 .lr.ph846.preheader:                              ; preds = %924
@@ -3966,7 +3966,7 @@ make_flat_edge.exit:                              ; preds = %2069, %make_flat_ad
   %2098 = load i32, ptr %2097, align 8
   %2099 = sub nsw i32 %2089, %2098
   %2100 = call i32 @llvm.abs.i32(i32 %2099, i1 true)
-  %2101 = icmp ugt i32 %2100, 1
+  %2101 = icmp samesign ugt i32 %2100, 1
   %2102 = getelementptr inbounds i8, ptr %2078, i64 16
   %2103 = load ptr, ptr %2102, align 8
   br i1 %2101, label %2104, label %2171
@@ -6233,11 +6233,11 @@ define internal range(i32 -1, 2) i32 @edgecmp(ptr nocapture noundef readonly %0,
   %16 = getelementptr inbounds i8, ptr %15, i64 220
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 15
-  %19 = icmp ult i32 %13, %18
+  %19 = icmp samesign ult i32 %13, %18
   br i1 %19, label %portcmp.exit.thread, label %20
 
 20:                                               ; preds = %2
-  %21 = icmp ugt i32 %13, %18
+  %21 = icmp samesign ugt i32 %13, %18
   br i1 %21, label %portcmp.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %20, %.preheader
@@ -6321,11 +6321,11 @@ getmainedge.exit179:                              ; preds = %.preheader.i176
   %75 = sub nsw i32 %66, %74
   %76 = call i32 @llvm.abs.i32(i32 %56, i1 true)
   %77 = call i32 @llvm.abs.i32(i32 %75, i1 true)
-  %78 = icmp ult i32 %76, %77
+  %78 = icmp samesign ult i32 %76, %77
   br i1 %78, label %portcmp.exit.thread, label %79
 
 79:                                               ; preds = %getmainedge.exit179
-  %80 = icmp ugt i32 %76, %77
+  %80 = icmp samesign ugt i32 %76, %77
   br i1 %80, label %portcmp.exit.thread, label %81
 
 81:                                               ; preds = %79
@@ -6343,21 +6343,21 @@ getmainedge.exit179:                              ; preds = %.preheader.i176
   %93 = call i32 @llvm.abs.i32(i32 %92, i1 true)
   %94 = fptosi double %91 to i32
   %95 = call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %96 = icmp ult i32 %93, %95
+  %96 = icmp samesign ult i32 %93, %95
   br i1 %96, label %portcmp.exit.thread, label %97
 
 97:                                               ; preds = %81
-  %98 = icmp ugt i32 %93, %95
+  %98 = icmp samesign ugt i32 %93, %95
   br i1 %98, label %portcmp.exit.thread, label %99
 
 99:                                               ; preds = %97
   %100 = lshr i32 %38, 4
   %101 = lshr i32 %57, 4
-  %102 = icmp ult i32 %100, %101
+  %102 = icmp samesign ult i32 %100, %101
   br i1 %102, label %portcmp.exit.thread, label %103
 
 103:                                              ; preds = %99
-  %104 = icmp ugt i32 %100, %101
+  %104 = icmp samesign ugt i32 %100, %101
   br i1 %104, label %portcmp.exit.thread, label %105
 
 105:                                              ; preds = %103
@@ -6600,11 +6600,11 @@ portcmp.exit183:                                  ; preds = %206, %216
   %224 = getelementptr inbounds i8, ptr %223, i64 220
   %225 = load i32, ptr %224, align 4
   %226 = and i32 %225, 192
-  %227 = icmp ult i32 %222, %226
+  %227 = icmp samesign ult i32 %222, %226
   br i1 %227, label %portcmp.exit.thread, label %228
 
 228:                                              ; preds = %218
-  %229 = icmp ugt i32 %222, %226
+  %229 = icmp samesign ugt i32 %222, %226
   br i1 %229, label %portcmp.exit.thread, label %230
 
 230:                                              ; preds = %228
@@ -6612,11 +6612,11 @@ portcmp.exit183:                                  ; preds = %206, %216
   %232 = lshr i32 %231, 4
   %233 = load i32, ptr %8, align 8
   %234 = lshr i32 %233, 4
-  %235 = icmp ult i32 %232, %234
+  %235 = icmp samesign ult i32 %232, %234
   br i1 %235, label %portcmp.exit.thread, label %236
 
 236:                                              ; preds = %230
-  %237 = icmp ugt i32 %232, %234
+  %237 = icmp samesign ugt i32 %232, %234
   %. = zext i1 %237 to i32
   br label %portcmp.exit.thread
 

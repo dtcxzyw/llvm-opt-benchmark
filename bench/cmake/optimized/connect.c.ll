@@ -676,8 +676,8 @@ addr_first_match.exit85.i:                        ; preds = %69, %.lr.ph.i81.i, 
   br i1 %97, label %98, label %91, !llvm.loop !8
 
 98:                                               ; preds = %94, %91
-  %99 = icmp ugt i64 %spec.select, 600
-  %or.cond.i.i = and i1 %99, %.not8.i.not.i.not.not.not.i.not.not.not.not.not
+  %99 = icmp samesign ugt i64 %spec.select, 600
+  %or.cond.i.i = select i1 %.not8.i.not.i.not.not.not.i.not.not.not.not.not, i1 %99, i1 false
   %100 = zext i1 %or.cond.i.i to i64
   %101 = lshr i64 %spec.select, %100
   %102 = getelementptr inbounds i8, ptr %80, i64 80
@@ -752,8 +752,8 @@ addr_first_match.exit85.i:                        ; preds = %69, %.lr.ph.i81.i, 
   %.06.i.i89.i = phi ptr [ %.05.lcssa.i84.i, %127 ], [ %141, %142 ]
   %140 = getelementptr inbounds i8, ptr %.06.i.i89.i, i64 40
   %141 = load ptr, ptr %140, align 8
-  %.not8.i.not.i90.not.not.not.i.not.not.not.not.not = icmp ne ptr %141, null
-  br i1 %.not8.i.not.i90.not.not.not.i.not.not.not.not.not, label %142, label %146
+  %.not8.i.not.i90.not.not.not.i = icmp eq ptr %141, null
+  br i1 %.not8.i.not.i90.not.not.not.i, label %146, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds i8, ptr %141, i64 4
@@ -762,7 +762,7 @@ addr_first_match.exit85.i:                        ; preds = %69, %.lr.ph.i81.i, 
   br i1 %145, label %146, label %139, !llvm.loop !8
 
 146:                                              ; preds = %142, %139
-  %or.cond.i92.i = and i1 %99, %.not8.i.not.i90.not.not.not.i.not.not.not.not.not
+  %or.cond.i92.i = phi i1 [ false, %139 ], [ %99, %142 ]
   %147 = zext i1 %or.cond.i92.i to i64
   %148 = lshr i64 %spec.select, %147
   %149 = getelementptr inbounds i8, ptr %126, i64 80

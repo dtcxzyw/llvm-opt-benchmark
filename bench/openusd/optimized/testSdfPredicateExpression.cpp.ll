@@ -16267,7 +16267,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %14
   %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %18
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -16280,7 +16280,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2
   %21 = lshr i64 %.01114.i.i, %.015.i.i
   %22 = or i64 %21, %.01114.i.i
   %23 = shl nuw nsw i64 %.015.i.i, 1
-  %24 = icmp ult i64 %.015.i.i, 32
+  %24 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %24, label %20, label %25, !llvm.loop !140
 
 25:                                               ; preds = %20
@@ -26123,7 +26123,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i.i: ; preds = %13
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br i1 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit.i, label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i.i
@@ -26136,7 +26136,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2
   %20 = lshr i64 %.01114.i.i.i, %.015.i.i.i
   %21 = or i64 %20, %.01114.i.i.i
   %22 = shl nuw nsw i64 %.015.i.i.i, 1
-  %23 = icmp ult i64 %.015.i.i.i, 32
+  %23 = icmp samesign ult i64 %.015.i.i.i, 32
   br i1 %23, label %19, label %24, !llvm.loop !140
 
 24:                                               ; preds = %19

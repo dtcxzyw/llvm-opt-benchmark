@@ -846,12 +846,12 @@ switch.early.test:                                ; preds = %36
   %68 = getelementptr i8, ptr %0, i64 %indvars.iv.next671
   %69 = load i8, ptr %68, align 1
   %70 = icmp ne i8 %69, 47
-  %71 = icmp ult i64 %indvars.iv668, 2
-  %or.cond = and i1 %70, %71
+  %71 = icmp samesign ult i64 %indvars.iv668, 2
+  %or.cond = select i1 %70, i1 %71, i1 false
   br i1 %or.cond, label %59, label %.critedge3, !llvm.loop !8
 
 .critedge3:                                       ; preds = %66
-  %72 = icmp ugt i64 %indvars.iv668, 1
+  %72 = icmp samesign ugt i64 %indvars.iv668, 1
   br i1 %72, label %.critedge25, label %.critedge3.thread
 
 .critedge3.thread:                                ; preds = %.critedge3
@@ -922,7 +922,7 @@ switch.early.test453:                             ; preds = %90
   %98 = getelementptr i8, ptr %0, i64 %indvars.iv.next677
   %99 = load i8, ptr %98, align 1
   %100 = icmp ne i8 %99, 47
-  %101 = icmp ult i64 %indvars.iv674, 63
+  %101 = icmp samesign ult i64 %indvars.iv674, 63
   %or.cond5 = select i1 %100, i1 %101, i1 false
   %102 = icmp slt i64 %indvars.iv.next677, %89
   %or.cond439 = and i1 %102, %or.cond5
@@ -988,13 +988,13 @@ switch.early.test453:                             ; preds = %90
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 8
   %134 = icmp ne i16 %133, 0
-  %135 = icmp ult i64 %indvars.iv678854, 16
-  %or.cond9 = and i1 %134, %135
+  %135 = icmp samesign ult i64 %indvars.iv678854, 16
+  %or.cond9 = select i1 %134, i1 %135, i1 false
   br i1 %or.cond9, label %.lr.ph564, label %.critedge11, !llvm.loop !10
 
 .critedge11:                                      ; preds = %.lr.ph855
   %136 = trunc nuw nsw i64 %indvars.iv.next679 to i32
-  %137 = icmp ugt i64 %indvars.iv678854, 15
+  %137 = icmp samesign ugt i64 %indvars.iv678854, 15
   br i1 %137, label %.critedge25, label %.critedge11..critedge11.thread_crit_edge
 
 .critedge11..critedge11.thread_crit_edge:         ; preds = %111, %.critedge11
@@ -1065,7 +1065,7 @@ switch.early.test453:                             ; preds = %90
 
 163:                                              ; preds = %.preheader485
   %164 = icmp eq i8 %158, 44
-  %165 = icmp ult i64 %indvars.iv680, 257
+  %165 = icmp samesign ult i64 %indvars.iv680, 257
   %or.cond13 = select i1 %164, i1 %165, i1 false
   br i1 %or.cond13, label %167, label %..critedge15_crit_edge
 
@@ -1074,7 +1074,7 @@ switch.early.test453:                             ; preds = %90
   br label %.critedge15
 
 166:                                              ; preds = %.preheader485
-  %.old12 = icmp ult i64 %indvars.iv680, 257
+  %.old12 = icmp samesign ult i64 %indvars.iv680, 257
   br i1 %.old12, label %167, label %.critedge25
 
 167:                                              ; preds = %163, %166
@@ -1096,7 +1096,7 @@ switch.early.test453:                             ; preds = %90
 
 .critedge15:                                      ; preds = %167, %..critedge15_crit_edge
   %.pre-phi716 = phi i32 [ %.pre715, %..critedge15_crit_edge ], [ %168, %167 ]
-  %173 = icmp ult i64 %indvars.iv680, 257
+  %173 = icmp samesign ult i64 %indvars.iv680, 257
   %.not403 = icmp slt i32 %.pre-phi716, %1
   %or.cond444 = and i1 %173, %.not403
   br i1 %or.cond444, label %174, label %.critedge25
@@ -1277,8 +1277,8 @@ sub_1470:                                         ; preds = %sub_0469
 
 260:                                              ; preds = %256
   %261 = icmp ult i8 %258, 64
-  %262 = icmp ult i64 %indvars.iv683, 12
-  %or.cond40 = and i1 %261, %262
+  %262 = icmp samesign ult i64 %indvars.iv683, 12
+  %or.cond40 = select i1 %261, i1 %262, i1 false
   br i1 %or.cond40, label %263, label %.critedge17
 
 263:                                              ; preds = %260
@@ -1485,7 +1485,7 @@ sub_1470:                                         ; preds = %sub_0469
   %342 = getelementptr i8, ptr %0, i64 %indvars.iv.next706
   %343 = load i8, ptr %342, align 1
   %344 = icmp ne i8 %343, 46
-  %345 = icmp ult i64 %indvars.iv702, 16
+  %345 = icmp samesign ult i64 %indvars.iv702, 16
   %or.cond28 = select i1 %344, i1 %345, i1 false
   %346 = icmp slt i64 %indvars.iv.next706, %334
   %or.cond449 = and i1 %346, %or.cond28
@@ -1493,7 +1493,7 @@ sub_1470:                                         ; preds = %sub_0469
 
 .critedge30:                                      ; preds = %340
   %347 = trunc nsw i64 %indvars.iv.next706 to i32
-  %348 = icmp ult i64 %indvars.iv702, 16
+  %348 = icmp samesign ult i64 %indvars.iv702, 16
   %or.cond450 = and i1 %346, %348
   br i1 %or.cond450, label %349, label %.critedge25
 
@@ -1564,7 +1564,7 @@ sub_1470:                                         ; preds = %sub_0469
   %375 = getelementptr i8, ptr %0, i64 %indvars.iv.next711
   %376 = load i8, ptr %375, align 1
   %377 = icmp ne i8 %376, 32
-  %378 = icmp ult i64 %indvars.iv712, 4
+  %378 = icmp samesign ult i64 %indvars.iv712, 4
   %or.cond33 = select i1 %377, i1 %378, i1 false
   %379 = icmp slt i64 %indvars.iv.next711, %367
   %or.cond451 = and i1 %379, %or.cond33
@@ -2037,7 +2037,7 @@ define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, 
   %123 = getelementptr i8, ptr %70, i64 %122
   store i8 %118, ptr %123, align 1
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 2
-  %124 = icmp ult i64 %indvars.iv.next109, %111
+  %124 = icmp samesign ult i64 %indvars.iv.next109, %111
   br i1 %124, label %112, label %.loopexit, !llvm.loop !22
 
 125:                                              ; preds = %.lr.ph, %125
@@ -2551,7 +2551,7 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %144 = load i32, ptr %138, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next166, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next166, %145
   br i1 %146, label %147, label %.loopexit, !llvm.loop !31
 
 147:                                              ; preds = %.lr.ph155, %143

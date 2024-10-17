@@ -176,7 +176,7 @@ define dso_local zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 %1, i32 nou
 
 48:                                               ; preds = %39, %31
   %49 = add nuw nsw i64 %32, 1
-  %50 = icmp ult i64 %32, 3
+  %50 = icmp samesign ult i64 %32, 3
   %51 = icmp eq i64 %49, 4
   br i1 %51, label %52, label %31, !llvm.loop !8
 

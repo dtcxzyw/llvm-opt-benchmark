@@ -392,7 +392,7 @@ lor.rhs.i.i:                                      ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %and.i.i.i
   %div7.i.i = lshr i64 %sub.ptr.sub.i.i, 4
-  %cmp1.i.i = icmp ult i64 %div7.i.i, %conv.i
+  %cmp1.i.i = icmp samesign ult i64 %div7.i.i, %conv.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
@@ -426,7 +426,7 @@ lor.rhs.i.i22:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i23, %and.i.i.i17
   %div7.i.i25 = lshr i64 %sub.ptr.sub.i.i24, 2
-  %cmp1.i.i26 = icmp ult i64 %div7.i.i25, %conv.i19
+  %cmp1.i.i26 = icmp samesign ult i64 %div7.i.i25, %conv.i19
   br i1 %cmp1.i.i26, label %if.then.i.i29, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
 
 if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
@@ -460,7 +460,7 @@ lor.rhs.i.i37:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i38, %and.i.i.i32
   %div7.i.i40 = lshr i64 %sub.ptr.sub.i.i39, 2
-  %cmp1.i.i41 = icmp ult i64 %div7.i.i40, %conv.i34
+  %cmp1.i.i41 = icmp samesign ult i64 %div7.i.i40, %conv.i34
   br i1 %cmp1.i.i41, label %if.then.i.i44, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
 
 if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
@@ -494,7 +494,7 @@ lor.rhs.i.i52:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i53, %and.i.i.i47
   %div7.i.i55 = lshr i64 %sub.ptr.sub.i.i54, 2
-  %cmp1.i.i56 = icmp ult i64 %div7.i.i55, %conv.i49
+  %cmp1.i.i56 = icmp samesign ult i64 %div7.i.i55, %conv.i49
   br i1 %cmp1.i.i56, label %if.then.i.i59, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
 
 if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
@@ -528,7 +528,7 @@ lor.rhs.i.i67:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i68, %and.i.i.i62
   %div7.i.i70 = lshr i64 %sub.ptr.sub.i.i69, 3
-  %cmp1.i.i71 = icmp ult i64 %div7.i.i70, %conv.i64
+  %cmp1.i.i71 = icmp samesign ult i64 %div7.i.i70, %conv.i64
   br i1 %cmp1.i.i71, label %if.then.i.i74, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
 
 if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
@@ -682,7 +682,7 @@ lor.rhs.i.i133:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %68 to i64
   %sub.ptr.sub.i.i135 = sub i64 %sub.ptr.lhs.cast.i.i134, %and.i.i.i128
   %div7.i.i136 = lshr i64 %sub.ptr.sub.i.i135, 3
-  %cmp1.i.i137 = icmp ult i64 %div7.i.i136, %conv.i130
+  %cmp1.i.i137 = icmp samesign ult i64 %div7.i.i136, %conv.i130
   br i1 %cmp1.i.i137, label %if.then.i.i140, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
 
 if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit
@@ -746,7 +746,7 @@ lor.rhs.i.i161:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %82 to i64
   %sub.ptr.sub.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i162, %and.i.i.i156
   %div7.i.i164 = lshr i64 %sub.ptr.sub.i.i163, 3
-  %cmp1.i.i165 = icmp ult i64 %div7.i.i164, %conv.i158
+  %cmp1.i.i165 = icmp samesign ult i64 %div7.i.i164, %conv.i158
   br i1 %cmp1.i.i165, label %if.then.i.i168, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
 
 if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit
@@ -817,7 +817,7 @@ lor.rhs.i.i186:                                   ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i187 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i.i188 = sub i64 %sub.ptr.lhs.cast.i.i187, %and.i.i.i184
   %div7.i.i189 = lshr i64 %sub.ptr.sub.i.i188, 3
-  %cmp1.i.i190 = icmp ult i64 %div7.i.i189, %conv8.i
+  %cmp1.i.i190 = icmp samesign ult i64 %div7.i.i189, %conv8.i
   br i1 %cmp1.i.i190, label %if.then.i.i191, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i.i191:                                   ; preds = %lor.rhs.i.i186, %if.then.i
@@ -831,7 +831,7 @@ lor.rhs.i2.i:                                     ; preds = %if.else.i
   %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %and.i.i.i184
   %div7.i6.i = lshr i64 %sub.ptr.sub.i5.i, 3
-  %cmp1.i7.i = icmp ult i64 %div7.i6.i, %conv8.i
+  %cmp1.i7.i = icmp samesign ult i64 %div7.i6.i, %conv8.i
   br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.else.i
@@ -867,7 +867,7 @@ lor.rhs.i.i199:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i201 = sub i64 %sub.ptr.lhs.cast.i.i200, %and.i.i.i194
   %div7.i.i202 = lshr i64 %sub.ptr.sub.i.i201, 3
-  %cmp1.i.i203 = icmp ult i64 %div7.i.i202, %conv.i196
+  %cmp1.i.i203 = icmp samesign ult i64 %div7.i.i202, %conv.i196
   br i1 %cmp1.i.i203, label %if.then.i.i206, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
 
 if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
@@ -935,7 +935,7 @@ lor.rhs.i.i:                                      ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %and.i.i.i
   %div7.i.i = lshr i64 %sub.ptr.sub.i.i, 4
-  %cmp1.i.i = icmp ult i64 %div7.i.i, %conv.i
+  %cmp1.i.i = icmp samesign ult i64 %div7.i.i, %conv.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
@@ -969,7 +969,7 @@ lor.rhs.i.i22:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i23, %and.i.i.i17
   %div7.i.i25 = lshr i64 %sub.ptr.sub.i.i24, 2
-  %cmp1.i.i26 = icmp ult i64 %div7.i.i25, %conv.i19
+  %cmp1.i.i26 = icmp samesign ult i64 %div7.i.i25, %conv.i19
   br i1 %cmp1.i.i26, label %if.then.i.i29, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
 
 if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
@@ -1003,7 +1003,7 @@ lor.rhs.i.i37:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i38, %and.i.i.i32
   %div7.i.i40 = lshr i64 %sub.ptr.sub.i.i39, 2
-  %cmp1.i.i41 = icmp ult i64 %div7.i.i40, %conv.i34
+  %cmp1.i.i41 = icmp samesign ult i64 %div7.i.i40, %conv.i34
   br i1 %cmp1.i.i41, label %if.then.i.i44, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
 
 if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
@@ -1037,7 +1037,7 @@ lor.rhs.i.i52:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i53, %and.i.i.i47
   %div7.i.i55 = lshr i64 %sub.ptr.sub.i.i54, 2
-  %cmp1.i.i56 = icmp ult i64 %div7.i.i55, %conv.i49
+  %cmp1.i.i56 = icmp samesign ult i64 %div7.i.i55, %conv.i49
   br i1 %cmp1.i.i56, label %if.then.i.i59, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
 
 if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
@@ -1071,7 +1071,7 @@ lor.rhs.i.i67:                                    ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i68, %and.i.i.i62
   %div7.i.i70 = lshr i64 %sub.ptr.sub.i.i69, 3
-  %cmp1.i.i71 = icmp ult i64 %div7.i.i70, %conv.i64
+  %cmp1.i.i71 = icmp samesign ult i64 %div7.i.i70, %conv.i64
   br i1 %cmp1.i.i71, label %if.then.i.i74, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
 
 if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
@@ -1225,7 +1225,7 @@ lor.rhs.i.i133:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %68 to i64
   %sub.ptr.sub.i.i135 = sub i64 %sub.ptr.lhs.cast.i.i134, %and.i.i.i128
   %div7.i.i136 = lshr i64 %sub.ptr.sub.i.i135, 3
-  %cmp1.i.i137 = icmp ult i64 %div7.i.i136, %conv.i130
+  %cmp1.i.i137 = icmp samesign ult i64 %div7.i.i136, %conv.i130
   br i1 %cmp1.i.i137, label %if.then.i.i140, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
 
 if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit
@@ -1289,7 +1289,7 @@ lor.rhs.i.i161:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %82 to i64
   %sub.ptr.sub.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i162, %and.i.i.i156
   %div7.i.i164 = lshr i64 %sub.ptr.sub.i.i163, 3
-  %cmp1.i.i165 = icmp ult i64 %div7.i.i164, %conv.i158
+  %cmp1.i.i165 = icmp samesign ult i64 %div7.i.i164, %conv.i158
   br i1 %cmp1.i.i165, label %if.then.i.i168, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
 
 if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit
@@ -1360,7 +1360,7 @@ lor.rhs.i.i186:                                   ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i187 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i.i188 = sub i64 %sub.ptr.lhs.cast.i.i187, %and.i.i.i184
   %div7.i.i189 = lshr i64 %sub.ptr.sub.i.i188, 3
-  %cmp1.i.i190 = icmp ult i64 %div7.i.i189, %conv8.i
+  %cmp1.i.i190 = icmp samesign ult i64 %div7.i.i189, %conv8.i
   br i1 %cmp1.i.i190, label %if.then.i.i191, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i.i191:                                   ; preds = %lor.rhs.i.i186, %if.then.i
@@ -1374,7 +1374,7 @@ lor.rhs.i2.i:                                     ; preds = %if.else.i
   %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %and.i.i.i184
   %div7.i6.i = lshr i64 %sub.ptr.sub.i5.i, 3
-  %cmp1.i7.i = icmp ult i64 %div7.i6.i, %conv8.i
+  %cmp1.i7.i = icmp samesign ult i64 %div7.i6.i, %conv8.i
   br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.else.i
@@ -1410,7 +1410,7 @@ lor.rhs.i.i199:                                   ; preds = %_ZZN6hermes3hbc18By
   %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i201 = sub i64 %sub.ptr.lhs.cast.i.i200, %and.i.i.i194
   %div7.i.i202 = lshr i64 %sub.ptr.sub.i.i201, 3
-  %cmp1.i.i203 = icmp ult i64 %div7.i.i202, %conv.i196
+  %cmp1.i.i203 = icmp samesign ult i64 %div7.i.i202, %conv.i196
   br i1 %cmp1.i.i203, label %if.then.i.i206, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
 
 if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
@@ -2124,7 +2124,7 @@ lor.rhs.i:                                        ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %div7.i = lshr i64 %sub.ptr.sub.i, 3
-  %cmp1.i = icmp ult i64 %div7.i, %conv
+  %cmp1.i = icmp samesign ult i64 %div7.i, %conv
   br i1 %cmp1.i, label %if.then.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS_16StringTableEntryEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit
 
 if.then.i:                                        ; preds = %lor.rhs.i, %entry
@@ -2380,7 +2380,7 @@ lor.rhs.i:                                        ; preds = %if.then14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %div.i = udiv i64 %sub.ptr.sub.i, 12
-  %cmp1.i = icmp ult i64 %div.i, %conv
+  %cmp1.i = icmp samesign ult i64 %div.i, %conv
   br i1 %cmp1.i, label %if.then.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit
 
 if.then.i:                                        ; preds = %lor.rhs.i, %if.then14
@@ -2755,7 +2755,7 @@ lor.rhs.i.i:                                      ; preds = %if.then14.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %div.i.i = udiv i64 %sub.ptr.sub.i.i, 12
-  %cmp1.i.i = icmp ult i64 %div.i.i, %conv.i
+  %cmp1.i.i = icmp samesign ult i64 %div.i.i, %conv.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %if.then14.i
@@ -2828,7 +2828,7 @@ lor.rhs.i.i:                                      ; preds = %if.then14.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %div.i.i = udiv i64 %sub.ptr.sub.i.i, 12
-  %cmp1.i.i = icmp ult i64 %div.i.i, %conv.i
+  %cmp1.i.i = icmp samesign ult i64 %div.i.i, %conv.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %if.then14.i

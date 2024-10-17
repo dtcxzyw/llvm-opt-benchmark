@@ -1029,7 +1029,7 @@ entry:
   %and.i = and i32 %id.coerce, 268435455
   %add.i = add nuw nsw i32 %and.i, 2
   %scale_.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %cmp.i5.i.i.i = icmp ult i32 %and.i, 65534
+  %cmp.i5.i.i.i = icmp samesign ult i32 %and.i, 65534
   br i1 %cmp.i5.i.i.i, label %entry.split.us.i.i, label %while.cond.i.preheader.i
 
 while.cond.i.preheader.i:                         ; preds = %entry
@@ -1038,7 +1038,7 @@ while.cond.i.preheader.i:                         ; preds = %entry
   br i1 %switch.i2.i, label %while.body.i.i, label %sw.bb5.i.i.i
 
 entry.split.us.i.i:                               ; preds = %entry
-  %cmp.i.i.i.i = icmp ult i32 %and.i, 254
+  %cmp.i.i.i.i = icmp samesign ult i32 %and.i, 254
   br i1 %cmp.i.i.i.i, label %while.cond.us.us.i.i, label %while.cond.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %entry.split.us.i.i

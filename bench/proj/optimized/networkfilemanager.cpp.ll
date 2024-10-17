@@ -728,8 +728,8 @@ _ZNSt10unique_ptrIN5osgeo4proj10SQLite3VFSESt14default_deleteIS2_EED2Ev.exit: ; 
           to label %60 unwind label %.loopexit
 
 60:                                               ; preds = %59
-  %61 = icmp ult i32 %.012, 10
-  %62 = icmp ult i32 %.012, 20
+  %61 = icmp samesign ult i32 %.012, 10
+  %62 = icmp samesign ult i32 %.012, 20
   %63 = select i1 %62, i32 10000, i32 100000
   %64 = select i1 %61, i32 5000, i32 %63
   %65 = invoke i32 @usleep(i32 noundef %64)

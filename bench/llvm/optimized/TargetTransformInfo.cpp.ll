@@ -3368,7 +3368,7 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit64:      ; preds = %99, %102
 
 122:                                              ; preds = %119
   %123 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %120)
-  %124 = icmp ult i64 %123, 2
+  %124 = icmp samesign ult i64 %123, 2
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit69
 
 125:                                              ; preds = %114
@@ -6175,7 +6175,7 @@ define internal noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOB
 
 17:                                               ; preds = %15
   %18 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   br label %_ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit
 
 _ZNK4llvm27TargetTransformInfoImplBase14isLegalNTStoreEPNS_4TypeENS_5AlignE.exit: ; preds = %3, %15, %17
@@ -6213,7 +6213,7 @@ define internal noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOB
 
 17:                                               ; preds = %15
   %18 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
-  %19 = icmp ult i32 %18, 2
+  %19 = icmp samesign ult i32 %18, 2
   br label %_ZNK4llvm27TargetTransformInfoImplBase13isLegalNTLoadEPNS_4TypeENS_5AlignE.exit
 
 _ZNK4llvm27TargetTransformInfoImplBase13isLegalNTLoadEPNS_4TypeENS_5AlignE.exit: ; preds = %3, %15, %17

@@ -1682,7 +1682,7 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
   %storemerge.i.i.i = phi i32 [ 0, %625 ], [ %624, %623 ]
   store i32 %storemerge.i.i.i, ptr %593, align 4
   %631 = add nuw i64 %indvars.iv.i31, 1
-  %632 = icmp ult i64 %indvars.iv.i31, 2
+  %632 = icmp samesign ult i64 %indvars.iv.i31, 2
   br i1 %632, label %603, label %.loopexit311.i.thread
 
 .loopexit311.i.thread:                            ; preds = %.loopexit311.i, %630
@@ -1757,7 +1757,7 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
 
 675:                                              ; preds = %670
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %660, ptr nonnull align 1 %674, i64 %spec.select.i.i.i, i1 false)
-  %676 = icmp ult i64 %spec.select.i.i.i, 2147483648
+  %676 = icmp samesign ult i64 %spec.select.i.i.i, 2147483648
   br i1 %676, label %.fmap_readn.exit_crit_edge.i.i, label %getd.exit.thread.i
 
 .fmap_readn.exit_crit_edge.i.i:                   ; preds = %675
@@ -1892,7 +1892,7 @@ getd.exit.i:                                      ; preds = %681, %647
 
 757:                                              ; preds = %752
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %742, ptr nonnull align 1 %756, i64 %spec.select.i.i224.i, i1 false)
-  %758 = icmp ult i64 %spec.select.i.i224.i, 2147483648
+  %758 = icmp samesign ult i64 %spec.select.i.i224.i, 2147483648
   br i1 %758, label %.fmap_readn.exit_crit_edge.i226.i, label %getd.exit228.thread.i
 
 .fmap_readn.exit_crit_edge.i226.i:                ; preds = %757
@@ -2027,7 +2027,7 @@ getd.exit228.i:                                   ; preds = %763, %729
 
 839:                                              ; preds = %834
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %824, ptr nonnull align 1 %838, i64 %spec.select.i.i236.i, i1 false)
-  %840 = icmp ult i64 %spec.select.i.i236.i, 2147483648
+  %840 = icmp samesign ult i64 %spec.select.i.i236.i, 2147483648
   br i1 %840, label %.fmap_readn.exit_crit_edge.i238.i, label %getd.exit240.thread.i
 
 .fmap_readn.exit_crit_edge.i238.i:                ; preds = %839
@@ -2099,7 +2099,7 @@ fmap_readn.exit.i234.i:                           ; preds = %.fmap_readn.exit_cr
 
 880:                                              ; preds = %875
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %865, ptr nonnull align 1 %879, i64 %spec.select.i.i248.i, i1 false)
-  %881 = icmp ult i64 %spec.select.i.i248.i, 2147483648
+  %881 = icmp samesign ult i64 %spec.select.i.i248.i, 2147483648
   br i1 %881, label %.fmap_readn.exit_crit_edge.i250.i, label %getd.exit240.thread.i
 
 .fmap_readn.exit_crit_edge.i250.i:                ; preds = %880
@@ -2170,7 +2170,7 @@ fmap_readn.exit.i246.i:                           ; preds = %.fmap_readn.exit_cr
 
 921:                                              ; preds = %916
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %906, ptr nonnull align 1 %920, i64 %spec.select.i.i260.i, i1 false)
-  %922 = icmp ult i64 %spec.select.i.i260.i, 2147483648
+  %922 = icmp samesign ult i64 %spec.select.i.i260.i, 2147483648
   br i1 %922, label %.fmap_readn.exit_crit_edge.i262.i, label %getd.exit240.thread.i
 
 .fmap_readn.exit_crit_edge.i262.i:                ; preds = %921
@@ -2296,7 +2296,7 @@ getd.exit264.i:                                   ; preds = %927, %._crit_edge.i
 
 1004:                                             ; preds = %999
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %978, ptr nonnull align 1 %1003, i64 %spec.select.i.i41, i1 false)
-  %1005 = icmp ult i64 %spec.select.i.i41, 2147483648
+  %1005 = icmp samesign ult i64 %spec.select.i.i41, 2147483648
   %1006 = trunc nuw i64 %spec.select.i.i41 to i32
   %1007 = select i1 %1005, i32 %1006, i32 -1
   br label %fmap_readn.exit.i39
@@ -2571,7 +2571,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0,
 
 16:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %15, i64 %spec.select, i1 false)
-  %17 = icmp ult i64 %spec.select, 2147483648
+  %17 = icmp samesign ult i64 %spec.select, 2147483648
   %18 = select i1 %17, i64 %spec.select, i64 -1
   br label %19
 
@@ -2697,7 +2697,7 @@ fmap_readn.exit.thread:                           ; preds = %14, %9, %fmap_readn
   %23 = getelementptr inbounds i8, ptr %7, i64 %22
   store i8 %21, ptr %23, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %24 = icmp ult i64 %indvars.iv.next, %11
+  %24 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %24, label %.preheader, label %25
 
 25:                                               ; preds = %.preheader
@@ -2782,7 +2782,7 @@ define internal fastcc range(i32 0, 2) i32 @getfield(ptr nocapture noundef nonnu
 
 34:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %33, i64 %spec.select.i.i, i1 false)
-  %35 = icmp ult i64 %spec.select.i.i, 2147483648
+  %35 = icmp samesign ult i64 %spec.select.i.i, 2147483648
   br i1 %35, label %.fmap_readn.exit_crit_edge.i, label %.thread
 
 .fmap_readn.exit_crit_edge.i:                     ; preds = %34
@@ -2909,7 +2909,7 @@ define internal fastcc range(i32 0, 2) i32 @getsize(ptr nocapture noundef nonnul
 
 38:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %37, i64 %spec.select.i.i, i1 false)
-  %39 = icmp ult i64 %spec.select.i.i, 2147483648
+  %39 = icmp samesign ult i64 %spec.select.i.i, 2147483648
   br i1 %39, label %.fmap_readn.exit_crit_edge.i, label %getd.exit.thread
 
 .fmap_readn.exit_crit_edge.i:                     ; preds = %38

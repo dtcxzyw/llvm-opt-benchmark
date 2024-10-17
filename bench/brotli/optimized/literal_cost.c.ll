@@ -42,7 +42,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i.i
   br i1 %cmp1.i.i.i, label %UTF8Position.exit.i.i, label %if.else3.i.i.i
 
 if.else3.i.i.i:                                   ; preds = %if.else.i.i.i
-  %cmp4.i.i.i = icmp ult i64 %last_c.05.i.i, 224
+  %cmp4.i.i.i = icmp samesign ult i64 %last_c.05.i.i, 224
   %.clamp.i.i.i = select i1 %cmp4.i.i.i, i64 0, i64 2
   br label %UTF8Position.exit.i.i
 
@@ -105,7 +105,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   br i1 %cmp1.i.i, label %UTF8Position.exit.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %cmp4.i.i = icmp ult i64 %last_c.0137.i, 224
+  %cmp4.i.i = icmp samesign ult i64 %last_c.0137.i, 224
   %.clamp.i.i = select i1 %cmp4.i.i, i64 0, i64 %4
   br label %UTF8Position.exit.i
 

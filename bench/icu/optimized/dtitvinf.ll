@@ -2456,7 +2456,7 @@ land.rhs.i:                                       ; preds = %if.else.i
 _ZNK6icu_7513UnicodeStringeqERKS0_.exit:          ; preds = %if.then.i, %land.rhs.i
   %retval.0.i = phi i1 [ %tobool3.i, %if.then.i ], [ %tobool9.i, %land.rhs.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   %7 = and i1 %retval.0.i, %cmp
   br i1 %7, label %for.body, label %for.end, !llvm.loop !12
 

@@ -831,7 +831,7 @@ define dso_local void @ata_scsi_cmd_error_handler(ptr nocapture readnone %0, ptr
 
 37:                                               ; preds = %33, %25
   %38 = add nuw nsw i64 %26, 1
-  %39 = icmp ult i64 %26, 31
+  %39 = icmp samesign ult i64 %26, 31
   %40 = icmp eq i64 %38, 32
   br i1 %40, label %41, label %25, !llvm.loop !27
 
@@ -6362,7 +6362,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   br i1 %650, label %651, label %.thread47
 
 651:                                              ; preds = %648
-  %652 = icmp ult i64 %191, %172
+  %652 = icmp samesign ult i64 %191, %172
   %653 = load ptr, ptr %0, align 64
   %654 = getelementptr inbounds i8, ptr %653, i64 14728
   %655 = load i32, ptr %654, align 8

@@ -46,7 +46,7 @@ MD4_Update.exit:                                  ; preds = %3, %15
   %24 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %21
   store i8 -128, ptr %24, align 1
   %25 = xor i64 %21, 63
-  %26 = icmp ult i64 %25, 8
+  %26 = icmp samesign ult i64 %25, 8
   br i1 %26, label %27, label %MD4_Final.exit
 
 27:                                               ; preds = %MD4_Update.exit

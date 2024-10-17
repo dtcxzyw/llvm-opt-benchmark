@@ -3589,7 +3589,7 @@ _ZN13GrowableArrayIP8_jobjectEC2Ei.exit.thread:   ; preds = %12
   %47 = add nsw i32 %43, 1
   %48 = icmp sgt i32 %43, -1
   %49 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %47)
-  %50 = icmp ult i32 %49, 2
+  %50 = icmp samesign ult i32 %49, 2
   %or.cond.i.i.i.i = select i1 %48, i1 %50, i1 false
   %51 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
   %52 = sub nuw nsw i32 32, %51
@@ -4077,7 +4077,7 @@ _ZN13GrowableArrayIP8_jobjectEC2Ei.exit:          ; preds = %12
   %45 = add nsw i32 %41, 1
   %46 = icmp sgt i32 %41, -1
   %47 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %45)
-  %48 = icmp ult i32 %47, 2
+  %48 = icmp samesign ult i32 %47, 2
   %or.cond.i.i.i.i = select i1 %46, i1 %48, i1 false
   %49 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %50 = sub nuw nsw i32 32, %49
@@ -10121,7 +10121,7 @@ define linkonce_odr hidden void @_ZN18constantPoolHandleC2EP6ThreadP12ConstantPo
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
   %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %18 = sub nuw nsw i32 32, %17
@@ -10173,7 +10173,7 @@ define linkonce_odr hidden void @_ZN30JvmtiConstantPoolReconstituterD2Ev(ptr nou
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader12
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 8
-  %7 = icmp ult i64 %.0.idx11.i.i.i, 2040
+  %7 = icmp samesign ult i64 %.0.idx11.i.i.i, 2040
   br i1 %7, label %.preheader12, label %_ZN12ConstantPool10SymbolHashD2Ev.exit, !llvm.loop !37
 
 _ZN12ConstantPool10SymbolHashD2Ev.exit:           ; preds = %._crit_edge.i.i.i
@@ -10204,7 +10204,7 @@ _ZN12ConstantPool10SymbolHashD2Ev.exit:           ; preds = %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i9:                               ; preds = %.lr.ph.i.i.i6, %.preheader
   %.0.add.i.i.i10 = add nuw nsw i64 %.0.idx11.i.i.i3, 8
-  %14 = icmp ult i64 %.0.idx11.i.i.i3, 2040
+  %14 = icmp samesign ult i64 %.0.idx11.i.i.i3, 2040
   br i1 %14, label %.preheader, label %_ZN12ConstantPool10SymbolHashD2Ev.exit11, !llvm.loop !37
 
 _ZN12ConstantPool10SymbolHashD2Ev.exit11:         ; preds = %._crit_edge.i.i.i9
@@ -11113,7 +11113,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv12GetBytecodesEP6Method
   %18 = add nsw i32 %13, 1
   %19 = icmp sgt i32 %13, -1
   %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %or.cond.i.i.i.i.i.i = select i1 %19, i1 %21, i1 false
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %23 = sub nuw nsw i32 32, %22
@@ -11413,7 +11413,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv15RawMonitorEnterEP15JvmtiRawMonitor(ptr 
   %12 = add nsw i32 %7, 1
   %13 = icmp sgt i32 %7, -1
   %14 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %12)
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   %or.cond.i.i.i.i.i = select i1 %13, i1 %15, i1 false
   %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %17 = sub nuw nsw i32 32, %16
@@ -13707,7 +13707,7 @@ define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EPK5ArrayIhEP12ConstantPo
   %23 = add nsw i32 %18, 1
   %24 = icmp sgt i32 %18, -1
   %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
-  %26 = icmp ult i32 %25, 2
+  %26 = icmp samesign ult i32 %25, 2
   %or.cond.i.i.i.i.i.i = select i1 %24, i1 %26, i1 false
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %28 = sub nuw nsw i32 32, %27
@@ -15541,7 +15541,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25

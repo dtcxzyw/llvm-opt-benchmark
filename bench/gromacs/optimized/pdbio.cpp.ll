@@ -465,7 +465,7 @@ define void @_Z21write_pdbfile_indexedP8_IO_FILEPKcPK7t_atomsPA3_Kf7PbcTypeS8_ci
   %78 = load float, ptr %77, align 4
   %79 = fcmp oeq float %78, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = icmp ult i64 %indvars.iv.next, %72
+  %80 = icmp samesign ult i64 %indvars.iv.next, %72
   %81 = select i1 %80, i1 %79, i1 false
   br i1 %81, label %73, label %.loopexit179, !llvm.loop !5
 

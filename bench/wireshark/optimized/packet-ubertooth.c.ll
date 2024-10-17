@@ -3029,7 +3029,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %117 = sext i8 %116 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.909, i32 noundef %115, i32 noundef %117) #2
   %118 = add nuw nsw i32 %.0199203, 3
-  %119 = icmp ult i32 %.0199203, 45
+  %119 = icmp samesign ult i32 %.0199203, 45
   br i1 %119, label %.preheader, label %120, !llvm.loop !6
 
 120:                                              ; preds = %.preheader

@@ -726,7 +726,7 @@ if.end19:                                         ; preds = %FASTCOVER_selectSeg
   %sub21 = sub i32 %add20, %retval.sroa.0.sroa.0.0.lcssa.i
   %conv22 = zext i32 %sub21 to i64
   %conv22.tail.0 = tail call i64 @llvm.umin.i64(i64 %tail.04, i64 %conv22)
-  %cmp34 = icmp ult i64 %conv22.tail.0, %conv33
+  %cmp34 = icmp samesign ult i64 %conv22.tail.0, %conv33
   br i1 %cmp34, label %for.end, label %if.end37
 
 if.end37:                                         ; preds = %if.end19

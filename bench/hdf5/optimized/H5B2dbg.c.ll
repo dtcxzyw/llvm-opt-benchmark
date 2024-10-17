@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_debug(ptr noundef %0, i64 noundef %1, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i16, ptr %34, align 4
   %73 = zext i16 %72 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %73
+  %.not.not = icmp samesign ult i64 %indvars.iv, %73
   br i1 %.not.not, label %61, label %74
 
 74:                                               ; preds = %61
@@ -257,7 +257,7 @@ define range(i32 -1, 1) i32 @H5B2__int_debug(ptr noundef %0, i64 noundef %1, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i16, ptr %45, align 8
   %81 = zext i16 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %58, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %58
@@ -403,7 +403,7 @@ define range(i32 -1, 1) i32 @H5B2__leaf_debug(ptr noundef %0, i64 noundef %1, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i16, ptr %43, align 8
   %71 = zext i16 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %58, label %.loopexit
 
 .thread70:                                        ; preds = %9

@@ -390,7 +390,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
 
 127:                                              ; preds = %116, %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %128 = icmp ult i64 %indvars.iv.next, %111
+  %128 = icmp samesign ult i64 %indvars.iv.next, %111
   br i1 %128, label %116, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %127

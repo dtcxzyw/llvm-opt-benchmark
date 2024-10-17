@@ -481,7 +481,7 @@ _ZN4llvh9StringRefC2EPKc.exit.us:                 ; preds = %entry.split.us, %fo
 
 for.inc.us:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %cmp.us = icmp ult i64 %indvars.iv18, 25
+  %cmp.us = icmp samesign ult i64 %indvars.iv18, 25
   tail call void @llvm.assume(i1 %cmp.us)
   %arrayidx.us = getelementptr inbounds [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv.next19
   %2 = load ptr, ptr %arrayidx.us, align 8
@@ -490,7 +490,7 @@ for.inc.us:                                       ; preds = %_ZN4llvh9StringRefC
 
 for.cond:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   tail call void @llvm.assume(i1 %cmp)
   %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
@@ -580,7 +580,7 @@ _ZN4llvh9StringRefC2EPKc.exit.us.i:               ; preds = %entry.split.us.i, %
 
 for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us.i
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %cmp.us.i = icmp ult i64 %indvars.iv18.i, 25
+  %cmp.us.i = icmp samesign ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
   %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
@@ -589,7 +589,7 @@ for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC
 
 for.cond.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, 26
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 26
   tail call void @llvm.assume(i1 %cmp.i)
   %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -645,7 +645,7 @@ _ZN4llvh9StringRefC2EPKc.exit.us.i:               ; preds = %entry.split.us.i, %
 
 for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us.i
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %cmp.us.i = icmp ult i64 %indvars.iv18.i, 25
+  %cmp.us.i = icmp samesign ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
   %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
@@ -654,7 +654,7 @@ for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC
 
 for.cond.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, 26
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 26
   tail call void @llvm.assume(i1 %cmp.i)
   %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -1106,14 +1106,14 @@ if.then:                                          ; preds = %while.body
   tail call void @_ZN6hermes11Instruction13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %mul.i.i) #15
   %call.i = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %div1.i = lshr i32 %call.i, 1
-  %cmp = icmp ult i32 %i.0.ph11, %div1.i
+  %cmp = icmp samesign ult i32 %i.0.ph11, %div1.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 if.end:                                           ; preds = %while.body
   %inc = add nuw nsw i32 %i.0.ph11, 1
   %call.i5 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %div1.i6 = lshr i32 %call.i5, 1
-  %cmp7 = icmp ult i32 %inc, %div1.i6
+  %cmp7 = icmp samesign ult i32 %inc, %div1.i6
   br i1 %cmp7, label %while.body.lr.ph, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end, %if.then, %entry

@@ -9996,7 +9996,7 @@ decompress_snappy.exit:                           ; preds = %.thread86.i, %85, %
   %94 = load ptr, ptr %93, align 8
   %95 = zext nneg i32 %3 to i64
   %96 = tail call ptr @tvb_memdup(ptr noundef %94, ptr noundef %0, i32 noundef %2, i64 noundef %95) #6
-  %97 = icmp ugt i32 %3, 7
+  %97 = icmp samesign ugt i32 %3, 7
   br i1 %97, label %98, label %135
 
 98:                                               ; preds = %92
@@ -10005,7 +10005,7 @@ decompress_snappy.exit:                           ; preds = %.thread86.i, %85, %
   %101 = and i8 %100, 8
   %.not.i40 = icmp eq i8 %101, 0
   %spec.select.i = select i1 %.not.i40, i32 6, i32 14
-  %102 = icmp ult i32 %spec.select.i, %3
+  %102 = icmp samesign ult i32 %spec.select.i, %3
   br i1 %102, label %103, label %135
 
 103:                                              ; preds = %98

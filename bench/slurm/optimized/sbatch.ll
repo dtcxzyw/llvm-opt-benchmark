@@ -1106,7 +1106,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %313
 449:                                              ; preds = %445, %447, %448
   %.str.11.sink = phi ptr [ @.str.11, %447 ], [ @.str.12, %448 ], [ @.str.10, %445 ]
   store ptr %.str.11.sink, ptr @main.msg, align 8
-  %450 = icmp ugt i32 %.093, 14
+  %450 = icmp samesign ugt i32 %.093, 14
   br i1 %450, label %.loopexit, label %453
 
 .loopexit:                                        ; preds = %449, %.thread226
@@ -1271,7 +1271,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %313
   %519 = getelementptr inbounds i8, ptr %.02232.i, i64 432
   %520 = load i32, ptr %519, align 8
   %521 = and i32 %520, 255
-  %522 = icmp ugt i32 %521, 2
+  %522 = icmp samesign ugt i32 %521, 2
   br i1 %522, label %523, label %531
 
 523:                                              ; preds = %.lr.ph.i159

@@ -393,7 +393,7 @@ sub_0.i:                                          ; preds = %15
   %64 = add nuw nsw i64 %68, 1
   %65 = load i32, ptr %6, align 4
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %.preheader, label %.loopexit12, !llvm.loop !11
 
 .preheader:                                       ; preds = %60, %63
@@ -995,7 +995,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %11, 17
+  %32 = icmp samesign ugt i32 %11, 17
   br i1 %32, label %.thread7, label %33, !prof !15
 
 33:                                               ; preds = %31
@@ -3864,7 +3864,7 @@ define internal fastcc void @retrieve_status(ptr nocapture noundef nonnull reado
   %34 = phi ptr [ %25, %24 ], [ %87, %78 ]
   %35 = load i32, ptr %21, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %31, %36
+  %37 = icmp samesign ult i64 %31, %36
   br i1 %37, label %39, label %38, !prof !31
 
 38:                                               ; preds = %30

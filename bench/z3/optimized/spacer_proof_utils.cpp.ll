@@ -1871,7 +1871,7 @@ _ZN9parameterC2EOS_.exit.i.i.i:                   ; preds = %if.else.i.i.i.i.i, 
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %150 = load i32, ptr %m_pos.i176.i, align 8, !noalias !11
   %151 = zext i32 %150 to i64
-  %cmp.i.i183.i = icmp ult i64 %indvars.iv.next.i.i.i, %151
+  %cmp.i.i183.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %151
   br i1 %cmp.i.i183.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !19
 
 for.end.i.i.i:                                    ; preds = %_ZN9parameterC2EOS_.exit.i.i.i, %call.i.i.noexc.i
@@ -2016,7 +2016,7 @@ _ZN9parameterC2EOS_.exit.i.i212.i:                ; preds = %if.else.i.i.i.i211.
   %indvars.iv.next.i.i214.i = add nuw nsw i64 %indvars.iv.i.i206.i, 1
   %166 = load i32, ptr %m_pos.i176.i, align 8, !noalias !11
   %167 = zext i32 %166 to i64
-  %cmp.i.i215.i = icmp ult i64 %indvars.iv.next.i.i214.i, %167
+  %cmp.i.i215.i = icmp samesign ult i64 %indvars.iv.next.i.i214.i, %167
   br i1 %cmp.i.i215.i, label %for.body.i.i205.i, label %for.end.i.i216.i, !llvm.loop !19
 
 for.end.i.i216.i:                                 ; preds = %_ZN9parameterC2EOS_.exit.i.i212.i, %call.i.i.noexc235.i
@@ -2116,7 +2116,7 @@ _ZN9parameterC2EOS_.exit.i.i254.i:                ; preds = %if.else.i.i.i.i253.
   %indvars.iv.next.i.i256.i = add nuw nsw i64 %indvars.iv.i.i248.i, 1
   %179 = load i32, ptr %m_pos.i176.i, align 8, !noalias !11
   %180 = zext i32 %179 to i64
-  %cmp.i.i257.i = icmp ult i64 %indvars.iv.next.i.i256.i, %180
+  %cmp.i.i257.i = icmp samesign ult i64 %indvars.iv.next.i.i256.i, %180
   br i1 %cmp.i.i257.i, label %for.body.i.i247.i, label %for.end.i.i258.i, !llvm.loop !19
 
 for.end.i.i258.i:                                 ; preds = %_ZN9parameterC2EOS_.exit.i.i254.i, %call.i.i.noexc271.i
@@ -2597,7 +2597,7 @@ _ZN9parameterC2EOS_.exit.i.i.i270:                ; preds = %if.else.i.i.i.i.i26
   %indvars.iv.next.i.i.i272 = add nuw nsw i64 %indvars.iv.i.i.i264, 1
   %244 = load i32, ptr %m_pos.i.i223, align 8, !noalias !22
   %245 = zext i32 %244 to i64
-  %cmp.i.i.i273 = icmp ult i64 %indvars.iv.next.i.i.i272, %245
+  %cmp.i.i.i273 = icmp samesign ult i64 %indvars.iv.next.i.i.i272, %245
   br i1 %cmp.i.i.i273, label %for.body.i.i.i263, label %for.end.i.i.i274, !llvm.loop !19
 
 for.end.i.i.i274:                                 ; preds = %_ZN9parameterC2EOS_.exit.i.i.i270, %call.i.i.noexc.i261
@@ -6842,7 +6842,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIP3appLb0
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !50
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i

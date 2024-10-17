@@ -1096,8 +1096,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %58 = zext nneg i32 %57 to i64
   %.not223 = icmp sgt i64 %.0192.lcssa, %58
   %59 = add nuw nsw i32 %.3199281, 4
-  %60 = icmp ult i32 %.3199281, 60
-  %or.cond = and i1 %.not223, %60
+  %60 = icmp samesign ult i32 %.3199281, 60
+  %or.cond = select i1 %.not223, i1 %60, i1 false
   br i1 %or.cond, label %56, label %61, !llvm.loop !15
 
 61:                                               ; preds = %56

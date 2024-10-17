@@ -1040,7 +1040,7 @@ _ZL13days_in_monthmm.exit.i:                      ; preds = %1
   %26 = zext i1 %or.cond.i.i to i32
   %spec.select.i.i = add i32 %19, %26
   %27 = zext i32 %spec.select.i.i to i64
-  %28 = icmp ugt i64 %spec.store.select1.i, 1
+  %28 = icmp samesign ugt i64 %spec.store.select1.i, 1
   %. = tail call i64 @llvm.umin.i64(i64 %15, i64 %27)
   br i1 %28, label %_ZL13days_in_monthmm.exit32.us.i, label %_ZL17daynumber_in_yearmmm.exit
 
@@ -1049,7 +1049,7 @@ _ZL13days_in_monthmm.exit.thread.i:               ; preds = %1
   %30 = zext i1 %29 to i32
   %spec.select.i34.i = add i32 %19, %30
   %31 = zext i32 %spec.select.i34.i to i64
-  %32 = icmp ugt i64 %spec.store.select1.i, 1
+  %32 = icmp samesign ugt i64 %spec.store.select1.i, 1
   %.26 = tail call i64 @llvm.umin.i64(i64 %15, i64 %31)
   br i1 %32, label %_ZL13days_in_monthmm.exit32.i, label %_ZL17daynumber_in_yearmmm.exit
 

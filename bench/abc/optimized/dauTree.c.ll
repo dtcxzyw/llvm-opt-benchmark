@@ -345,7 +345,7 @@ define void @Dss_NtkPrint_rec(ptr nocapture noundef readonly %0, ptr noundef rea
   %22 = load i64, ptr %15, align 8
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 15
-  %25 = icmp ult i32 %24, 10
+  %25 = icmp samesign ult i32 %24, 10
   %26 = or disjoint i32 %24, 48
   %27 = add nuw nsw i32 %24, 55
   %.0.i.i = select i1 %25, i32 %26, i32 %27
@@ -380,7 +380,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %39 = lshr i64 %36, %38
   %40 = trunc i64 %39 to i32
   %41 = and i32 %40, 15
-  %42 = icmp ult i32 %41, 10
+  %42 = icmp samesign ult i32 %41, 10
   %43 = or disjoint i32 %41, 48
   %44 = add nuw nsw i32 %41, 55
   %.0.i18.us.i = select i1 %42, i32 %43, i32 %44
@@ -446,7 +446,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loop
   %.val = load i32, ptr %3, align 4
   %75 = lshr i32 %.val, 27
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next, %76
   br i1 %77, label %61, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph32, %61, %.lr.ph, %Abc_TtPrintHexRev.exit
@@ -1145,25 +1145,25 @@ define range(i32 -1, 2) i32 @Dss_ObjCompare(ptr nocapture noundef readonly %0, p
   %12 = getelementptr i8, ptr %9, i64 4
   %.val36 = load i32, ptr %12, align 4
   %13 = and i32 %.val36, 7
-  %14 = icmp ult i32 %11, %13
+  %14 = icmp samesign ult i32 %11, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i32 %11, %13
+  %16 = icmp samesign ugt i32 %11, %13
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %11, 3
+  %18 = icmp samesign ult i32 %11, 3
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %17
   %20 = lshr i32 %.val35, 27
   %21 = lshr i32 %.val36, 27
-  %22 = icmp ult i32 %20, %21
+  %22 = icmp samesign ult i32 %20, %21
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %20, %21
+  %24 = icmp samesign ugt i32 %20, %21
   br i1 %24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %23
@@ -1216,11 +1216,11 @@ define range(i32 -1, 2) i32 @Dss_ObjCompare(ptr nocapture noundef readonly %0, p
   %54 = and i32 %53, 1
   %55 = trunc i64 %7 to i32
   %56 = and i32 %55, 1
-  %57 = icmp ult i32 %54, %56
+  %57 = icmp samesign ult i32 %54, %56
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %._crit_edge
-  %59 = icmp ugt i32 %54, %56
+  %59 = icmp samesign ugt i32 %54, %56
   %. = zext i1 %59 to i32
   br label %.loopexit
 
@@ -1419,7 +1419,7 @@ define range(i32 0, 2) i32 @Dss_NtkCollectPerm_rec(ptr nocapture noundef readonl
   %.val = load i32, ptr %8, align 4
   %50 = lshr i32 %.val, 27
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %52, label %30, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %49, %30, %.preheader, %14
@@ -1572,7 +1572,7 @@ define void @Dss_NtkTransform(ptr nocapture noundef %0, ptr nocapture noundef wr
   %72 = getelementptr inbounds [0 x i32], ptr %25, i64 0, i64 %indvars.iv54
   store i32 %71, ptr %72, align 4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %73 = icmp ult i64 %indvars.iv.next55, %60
+  %73 = icmp samesign ult i64 %indvars.iv.next55, %60
   br i1 %73, label %61, label %.loopexit.loopexit, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %61
@@ -2520,7 +2520,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
 
 .preheader.i16:                                   ; preds = %.preheader5.i, %.loopexit.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %.loopexit.i.i ], [ 0, %.preheader5.i ]
-  %48 = icmp ult i64 %indvars.iv12.i.i, 6
+  %48 = icmp samesign ult i64 %indvars.iv12.i.i, 6
   br i1 %48, label %.preheader.i.i, label %.preheader1.i.i
 
 .preheader1.i.i:                                  ; preds = %.preheader.i16
@@ -2802,7 +2802,7 @@ define void @Dss_ManPrint_rec(ptr nocapture noundef %0, ptr nocapture noundef re
   %37 = load i64, ptr %30, align 8
   %38 = trunc i64 %37 to i32
   %39 = and i32 %38, 15
-  %40 = icmp ult i32 %39, 10
+  %40 = icmp samesign ult i32 %39, 10
   %41 = or disjoint i32 %39, 48
   %42 = add nuw nsw i32 %39, 55
   %.0.i.i = select i1 %40, i32 %41, i32 %42
@@ -2837,7 +2837,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %54 = lshr i64 %51, %53
   %55 = trunc i64 %54 to i32
   %56 = and i32 %55, 15
-  %57 = icmp ult i32 %56, 10
+  %57 = icmp samesign ult i32 %56, 10
   %58 = or disjoint i32 %56, 48
   %59 = add nuw nsw i32 %56, 55
   %.0.i18.us.i = select i1 %57, i32 %58, i32 %59
@@ -2903,7 +2903,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loop
   %.val = load i32, ptr %6, align 4
   %89 = lshr i32 %.val, 27
   %90 = zext nneg i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next, %90
   br i1 %91, label %76, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph50, %76, %.lr.ph, %Abc_TtPrintHexRev.exit
@@ -3108,7 +3108,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i
 
 50:                                               ; preds = %47
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, %45
-  %51 = icmp ult i64 %indvars.iv.next27.i, %46
+  %51 = icmp samesign ult i64 %indvars.iv.next27.i, %46
   br i1 %51, label %.preheader.i, label %Abc_TtStretch6.exit, !llvm.loop !41
 
 Abc_TtStretch6.exit:                              ; preds = %50, %Abc_TtCopy.exit, %34
@@ -3125,7 +3125,7 @@ Abc_TtStretch6.exit:                              ; preds = %50, %Abc_TtCopy.exi
   %59 = load i64, ptr %2, align 16
   %60 = trunc i64 %59 to i32
   %61 = and i32 %60, 15
-  %62 = icmp ult i32 %61, 10
+  %62 = icmp samesign ult i32 %61, 10
   %63 = or disjoint i32 %61, 48
   %64 = add nuw nsw i32 %61, 55
   %.0.i.i = select i1 %62, i32 %63, i32 %64
@@ -3159,7 +3159,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %75 = lshr i64 %72, %74
   %76 = trunc i64 %75 to i32
   %77 = and i32 %76, 15
-  %78 = icmp ult i32 %77, 10
+  %78 = icmp samesign ult i32 %77, 10
   %79 = or disjoint i32 %77, 48
   %80 = add nuw nsw i32 %77, 55
   %.0.i18.us.i = select i1 %78, i32 %79, i32 %80
@@ -3617,7 +3617,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i105, %.lr.p
   %.val91 = load i32, ptr %19, align 4
   %100 = lshr i32 %.val91, 27
   %101 = zext nneg i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next, %101
   br i1 %102, label %70, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %70, %Abc_TtAnd.exit, %Abc_TtConst1.exit
@@ -3666,7 +3666,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i105, %.lr.p
   %.val90 = load i32, ptr %19, align 4
   %123 = lshr i32 %.val90, 27
   %124 = zext nneg i32 %123 to i64
-  %125 = icmp ult i64 %indvars.iv.next169, %124
+  %125 = icmp samesign ult i64 %indvars.iv.next169, %124
   br i1 %125, label %107, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %107, %119, %.preheader141
@@ -3739,7 +3739,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i117
   %.val = load i32, ptr %19, align 4
   %160 = lshr i32 %.val, 27
   %161 = zext nneg i32 %160 to i64
-  %162 = icmp ult i64 %indvars.iv.next172, %161
+  %162 = icmp samesign ult i64 %indvars.iv.next172, %161
   br i1 %162, label %143, label %.critedge4, !llvm.loop !52
 
 .critedge4:                                       ; preds = %.lr.ph187, %143, %.lr.ph154, %.preheader
@@ -3987,7 +3987,7 @@ define i32 @Dss_NtkRebuild_rec(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv96, 1
   %67 = lshr i32 %58, 27
   %68 = zext nneg i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %29, label %.critedge.loopexit.loopexit, !llvm.loop !53
 
 .critedge.loopexit.loopexit:                      ; preds = %66, %29
@@ -5229,7 +5229,7 @@ define void @Dss_EntPrint(ptr nocapture noundef readonly %0, ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i64, ptr %3, align 8
   %24 = lshr i64 %23, 59
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %13, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %13, %2
@@ -6066,7 +6066,7 @@ Abc_Clock.exit137:                                ; preds = %184, %190
   %219 = load i32, ptr %.1114, align 4
   %220 = lshr i32 %219, 26
   %221 = zext nneg i32 %220 to i64
-  %222 = icmp ult i64 %indvars.iv.next, %221
+  %222 = icmp samesign ult i64 %indvars.iv.next, %221
   br i1 %222, label %197, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %215
@@ -6110,7 +6110,7 @@ Abc_Clock.exit137:                                ; preds = %184, %190
   %235 = load i32, ptr %.1114, align 4
   %236 = lshr i32 %235, 26
   %237 = zext nneg i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next179, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next179, %237
   br i1 %238, label %.lr.ph166, label %.preheader, !llvm.loop !74
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %251
@@ -6521,7 +6521,7 @@ Abc_Clock.exit54:                                 ; preds = %160, %165
   %185 = load i32, ptr %162, align 4
   %186 = lshr i32 %185, 26
   %187 = zext nneg i32 %186 to i64
-  %188 = icmp ult i64 %indvars.iv.next, %187
+  %188 = icmp samesign ult i64 %indvars.iv.next, %187
   br i1 %188, label %180, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %180, %Abc_Clock.exit54

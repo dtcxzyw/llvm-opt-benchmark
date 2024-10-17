@@ -942,7 +942,7 @@ for.inc.i.i:                                      ; preds = %if.else.i30.i.i, %i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %80 = load i32, ptr %num_objects.i.i, align 8
   %81 = zext i32 %80 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %81
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %81
   br i1 %cmp.i.i, label %if.else.i.i.i, label %for.end.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.then9.i
@@ -3108,7 +3108,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   store i8 %or3.i.i.i, ptr %arrayidx7.i.i.i, align 1
   %and8.i.i.i = and i64 %s.029.i.i.i, 127
   %shr10.i.i.i = lshr i64 %s.029.i.i.i, 7
-  %tobool.not.i.i.i178 = icmp ult i64 %s.029.i.i.i, 128
+  %tobool.not.i.i.i178 = icmp samesign ult i64 %s.029.i.i.i, 128
   br i1 %tobool.not.i.i.i178, label %while.end.loopexit.i.i.i, label %while.body.i.i.i, !llvm.loop !22
 
 while.end.loopexit.i.i.i:                         ; preds = %while.body.i.i.i

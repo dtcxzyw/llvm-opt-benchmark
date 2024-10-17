@@ -8658,7 +8658,7 @@ invoke.cont.thread:                               ; preds = %"_ZSt8count_ifIN9__
   br label %_ZN8QuantLib5ArrayC2Em.exit57
 
 cond.true.i45:                                    ; preds = %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEZNK8QuantLib30AndreasenHugeVolatilityInterpl17buildCostFunctionEmNS8_6Option4TypeERKNS8_5ArrayEE3$_0ENSt15iterator_traitsIT_E15difference_typeESH_SH_T0_.exit"
-  %14 = icmp ugt i64 %spec.select.i.i, 2305843009213693951
+  %14 = icmp samesign ugt i64 %spec.select.i.i, 2305843009213693951
   %15 = shl nuw i64 %spec.select.i.i, 3
   %16 = select i1 %14, i64 -1, i64 %15
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #36
@@ -32657,7 +32657,7 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIdEENSt15iterator_traitsIT_E15differenc
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIdEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -32827,7 +32827,7 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEEENSt15iterator_traits
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then

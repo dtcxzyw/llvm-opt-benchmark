@@ -655,7 +655,7 @@ define dso_local void @MD5Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 -128, ptr %9, align 1
   %11 = xor i32 %7, 63
-  %12 = icmp ult i32 %11, 8
+  %12 = icmp samesign ult i32 %11, 8
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2

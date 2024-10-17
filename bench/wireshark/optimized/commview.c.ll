@@ -88,7 +88,7 @@ define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr nocapture noundef %0, 
   %40 = load i8, ptr %39, align 4
   %.not55 = icmp sgt i8 %40, -1
   %41 = and i8 %40, 15
-  %switch = icmp ult i8 %41, 3
+  %switch = icmp samesign ult i8 %41, 3
   %or.cond = and i1 %.not55, %switch
   br i1 %or.cond, label %42, label %53
 

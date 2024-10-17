@@ -1250,8 +1250,8 @@ define dso_local void @uv_disable_stdio_inheritance() local_unnamed_addr #0 {
 uv__cloexec.exit:                                 ; preds = %4, %..critedge_crit_edge.i
   %8 = phi i32 [ %.pre, %..critedge_crit_edge.i ], [ %6, %4 ]
   %9 = icmp ne i32 %8, 0
-  %10 = icmp ugt i32 %.0, 15
-  %or.cond = and i1 %10, %9
+  %10 = icmp samesign ugt i32 %.0, 15
+  %or.cond = select i1 %9, i1 %10, i1 false
   br i1 %or.cond, label %12, label %uv__cloexec.exit.thread
 
 uv__cloexec.exit.thread:                          ; preds = %2, %uv__cloexec.exit

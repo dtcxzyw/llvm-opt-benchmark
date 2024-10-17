@@ -1307,9 +1307,10 @@ entry:
   %mul1 = mul i32 %div27, %mul
   %conv = sext i32 %mul1 to i64
   %cmp = icmp ne i32 %bpp_out, 8
-  %0 = add nsw i32 %zywrle_level, -1
-  %1 = icmp ult i32 %0, 127
-  %or.cond28 = and i1 %cmp, %1
+  %cmp3 = icmp ne i32 %zywrle_level, 0
+  %or.cond = and i1 %cmp, %cmp3
+  %tobool.not = icmp samesign ult i32 %zywrle_level, 128
+  %or.cond28 = select i1 %or.cond, i1 %tobool.not, i1 false
   %sh_prom = zext nneg i32 %zywrle_level to i64
   %shr = select i1 %or.cond28, i64 %sh_prom, i64 0
   %estimated_bytes.0 = lshr i64 %conv, %shr
@@ -1332,8 +1333,8 @@ if.end14:                                         ; preds = %if.then13, %entry
 
 if.then17:                                        ; preds = %if.end14
   %call20 = tail call i64 @palette_size(ptr noundef %palette) #9
-  %2 = trunc i64 %call20 to i32
-  %conv22 = mul i32 %div27, %2
+  %0 = trunc i64 %call20 to i32
+  %conv22 = mul i32 %div27, %0
   %mul23 = shl i32 %runs, 1
   %add24 = add i32 %mul23, %single_pixels
   %add25 = add i32 %add24, %conv22
@@ -1354,13 +1355,13 @@ if.end31:                                         ; preds = %if.then29, %if.then
 
 if.then35:                                        ; preds = %if.end31
   %call38 = tail call i64 @palette_size(ptr noundef %palette) #9
-  %3 = trunc i64 %call38 to i32
-  %conv40 = mul i32 %div27, %3
+  %1 = trunc i64 %call38 to i32
+  %conv40 = mul i32 %div27, %1
   %call42 = tail call i64 @palette_size(ptr noundef %palette) #9
   %sub = add i64 %call42, -1
   %arrayidx = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub
-  %4 = load i32, ptr %arrayidx, align 4
-  %mul43 = mul i32 %4, %mul
+  %2 = load i32, ptr %arrayidx, align 4
+  %mul43 = mul i32 %2, %mul
   %div44 = sdiv i32 %mul43, 8
   %add45 = add i32 %div44, %conv40
   %conv46 = sext i32 %add45 to i64
@@ -2168,7 +2169,7 @@ while.body.i:                                     ; preds = %while.body, %harr.e
   %4 = load i8, ptr %add.ptr5.i, align 1
   %conv119.i.i = zext i8 %4 to i32
   %xor.i.i = xor i32 %conv119.i.i, %conv18.i.i
-  %tobool.not.i.i = icmp ult i32 %xor.i.i, 128
+  %tobool.not.i.i = icmp samesign ult i32 %xor.i.i, 128
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
@@ -2202,7 +2203,7 @@ harr.exit.i:                                      ; preds = %if.else.i.i, %if.th
   %6 = load i8, ptr %add.ptr7.i, align 1
   %conv119.i19.i = zext i8 %6 to i32
   %xor.i20.i = xor i32 %conv119.i19.i, %conv18.i18.i
-  %tobool.not.i21.i = icmp ult i32 %xor.i20.i, 128
+  %tobool.not.i21.i = icmp samesign ult i32 %xor.i20.i, 128
   br i1 %tobool.not.i21.i, label %if.else.i33.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %harr.exit.i
@@ -2236,7 +2237,7 @@ harr.exit39.i:                                    ; preds = %if.else.i33.i, %if.
   %8 = load i8, ptr %add.ptr10.i, align 1
   %conv119.i41.i = zext i8 %8 to i32
   %xor.i42.i = xor i32 %conv119.i41.i, %conv18.i40.i
-  %tobool.not.i43.i = icmp ult i32 %xor.i42.i, 128
+  %tobool.not.i43.i = icmp samesign ult i32 %xor.i42.i, 128
   br i1 %tobool.not.i43.i, label %if.else.i55.i, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %harr.exit39.i
@@ -2307,7 +2308,7 @@ while.body.i38:                                   ; preds = %while.body9, %harr.
   %13 = load i8, ptr %add.ptr5.i40, align 1
   %conv119.i.i42 = zext i8 %13 to i32
   %xor.i.i43 = xor i32 %conv119.i.i42, %conv18.i.i41
-  %tobool.not.i.i44 = icmp ult i32 %xor.i.i43, 128
+  %tobool.not.i.i44 = icmp samesign ult i32 %xor.i.i43, 128
   br i1 %tobool.not.i.i44, label %if.else.i.i107, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %while.body.i38
@@ -2341,7 +2342,7 @@ harr.exit.i52:                                    ; preds = %if.else.i.i107, %if
   %15 = load i8, ptr %add.ptr7.i58, align 1
   %conv119.i19.i60 = zext i8 %15 to i32
   %xor.i20.i61 = xor i32 %conv119.i19.i60, %conv18.i18.i59
-  %tobool.not.i21.i62 = icmp ult i32 %xor.i20.i61, 128
+  %tobool.not.i21.i62 = icmp samesign ult i32 %xor.i20.i61, 128
   br i1 %tobool.not.i21.i62, label %if.else.i33.i101, label %if.then.i22.i63
 
 if.then.i22.i63:                                  ; preds = %harr.exit.i52
@@ -2375,7 +2376,7 @@ harr.exit39.i70:                                  ; preds = %if.else.i33.i101, %
   %17 = load i8, ptr %add.ptr10.i76, align 1
   %conv119.i41.i78 = zext i8 %17 to i32
   %xor.i42.i79 = xor i32 %conv119.i41.i78, %conv18.i40.i77
-  %tobool.not.i43.i80 = icmp ult i32 %xor.i42.i79, 128
+  %tobool.not.i43.i80 = icmp samesign ult i32 %xor.i42.i79, 128
   br i1 %tobool.not.i43.i80, label %if.else.i55.i95, label %if.then.i44.i81
 
 if.then.i44.i81:                                  ; preds = %harr.exit39.i70
@@ -2444,7 +2445,7 @@ for.body.us.us.i:                                 ; preds = %for.cond10.for.inc4
   %narrow.us.us.i = select i1 %tobool.not.us.us.i, i32 0, i32 %shr.i116
   %h.0.idx.us.us.i = sext i32 %narrow.us.us.i to i64
   %h.0.us.us.i = getelementptr i32, ptr %buf, i64 %h.0.idx.us.us.i
-  %tobool4.not.us.us.i = icmp ult i32 %r.032.us.us.i, 2
+  %tobool4.not.us.us.i = icmp samesign ult i32 %r.032.us.us.i, 2
   %narrow25.us.us.i = select i1 %tobool4.not.us.us.i, i32 0, i32 %mul.i117
   %h.1.idx.us.us.i = sext i32 %narrow25.us.us.i to i64
   %h.1.us.us.i = getelementptr i32, ptr %h.0.us.us.i, i64 %h.1.idx.us.us.i
@@ -5200,7 +5201,7 @@ do.body.i:                                        ; preds = %while.body.i, %do.b
   %sub12.i = sub nsw i32 %conv.i, %conv7.i
   %shr14.i = ashr i32 %sub.i, 1
   %shr15.i = ashr i32 %sub12.i, 1
-  %cmp18.i = icmp ult i32 %add11.i, 4
+  %cmp18.i = icmp samesign ult i32 %add11.i, 4
   %6 = trunc nuw i32 %shr.i to i8
   %7 = xor i8 %6, -128
   %cmp21.i = icmp eq i32 %shr14.i, -128
@@ -5997,7 +5998,7 @@ do.body.i:                                        ; preds = %while.body.i, %do.b
   %sub12.i = sub nsw i32 %conv.i, %conv7.i
   %shr14.i = ashr i32 %sub.i, 1
   %shr15.i = ashr i32 %sub12.i, 1
-  %cmp18.i = icmp ult i32 %add11.i, 4
+  %cmp18.i = icmp samesign ult i32 %add11.i, 4
   %6 = trunc nuw i32 %shr.i to i8
   %7 = xor i8 %6, -128
   %cmp21.i = icmp eq i32 %shr14.i, -128

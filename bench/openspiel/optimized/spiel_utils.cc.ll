@@ -300,7 +300,7 @@ define noundef range(i64 0, 2147483647) i64 @_ZN10open_spiel19RankActionMixedBas
   store i64 %82, ptr %23, align 8
   store i32 %83, ptr %24, align 4
   %84 = zext nneg i32 %83 to i64
-  %85 = icmp ult i64 %82, %84
+  %85 = icmp samesign ult i64 %82, %84
   br i1 %85, label %53, label %86, !llvm.loop !4
 
 86:                                               ; preds = %79

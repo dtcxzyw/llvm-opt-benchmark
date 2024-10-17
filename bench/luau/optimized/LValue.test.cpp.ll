@@ -11475,7 +11475,7 @@ _ZNSt13unordered_setIPKN4Luau4TypeESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertER
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8distanceINSt8__detail14_Node_iteratorIPKN4Luau4TypeELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !142
 
 _ZSt8distanceINSt8__detail14_Node_iteratorIPKN4Luau4TypeELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %86 = icmp ugt i64 %.06.i.i.i.i.i.i.i, 1152921504606846974
+  %86 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i, 1152921504606846974
   br i1 %86, label %87, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i
 
 87:                                               ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIPKN4Luau4TypeELb1ELb0EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i.i.i.i

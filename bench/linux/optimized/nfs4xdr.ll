@@ -9865,7 +9865,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr nocapture readnone %0, ptr noundef 
   %172 = getelementptr inbounds i8, ptr %171, i64 52
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
-  %175 = icmp ugt i64 %170, %174
+  %175 = icmp samesign ugt i64 %170, %174
   br i1 %175, label %176, label %.thread24
 
 176:                                              ; preds = %169, %161
@@ -13998,7 +13998,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr nocapture no
   br label %91
 
 83:                                               ; preds = %91
-  %84 = icmp ult i64 %92, 2
+  %84 = icmp samesign ult i64 %92, 2
   br i1 %84, label %.thread25, label %100
 
 .thread25:                                        ; preds = %76, %83

@@ -343,7 +343,7 @@ define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr nounde
   %19 = add nsw i64 %18, 63
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 2305843009213693944
-  %22 = icmp ugt i64 %21, 42
+  %22 = icmp samesign ugt i64 %21, 42
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %9
@@ -1074,7 +1074,7 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr nocapture noundef read
   %355 = add nuw nsw i64 %.ph110, %354
   %356 = call i64 @local_clock() #9
   %357 = lshr i64 %356, 10
-  %358 = icmp ult i64 %355, %357
+  %358 = icmp samesign ult i64 %355, %357
   br i1 %358, label %359, label %.critedge, !llvm.loop !26
 
 359:                                              ; preds = %353, %350, %342, %341
@@ -2622,7 +2622,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   %209 = add nuw nsw i64 %.ph61, %208
   %210 = call i64 @local_clock() #9
   %211 = lshr i64 %210, 10
-  %212 = icmp ult i64 %209, %211
+  %212 = icmp samesign ult i64 %209, %211
   br i1 %212, label %213, label %111, !llvm.loop !42
 
 213:                                              ; preds = %207, %204, %196, %194

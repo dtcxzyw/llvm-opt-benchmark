@@ -3327,7 +3327,7 @@ for.inc156:                                       ; preds = %for.inc, %if.end78,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %argCount_.i, align 8
   %58 = zext i32 %57 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %58
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %cmp33, label %for.body, label %for.end158, !llvm.loop !52
 
 for.end158:                                       ; preds = %for.inc156, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit
@@ -4478,7 +4478,7 @@ if.then.i:                                        ; preds = %if.end116
   %or10.i.i.i = or i64 %shr9.i.i.i, %or8.i.i.i
   %add.i.i.i = add nuw nsw i64 %or10.i.i.i, 1
   %conv4.i.i = and i64 %add.i.i.i, 4294967295
-  %cmp.not.i.i = icmp ugt i64 %conv4.i.i, %conv.i1.i
+  %cmp.not.i.i = icmp samesign ugt i64 %conv4.i.i, %conv.i1.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i115
 
 if.then.i.i115:                                   ; preds = %if.then.i
@@ -6218,7 +6218,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13
@@ -6438,7 +6438,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

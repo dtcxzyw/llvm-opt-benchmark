@@ -3056,7 +3056,7 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38:   ; preds = %.lr.ph.i.i34
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38
   tail call void @_ZdlPv(ptr noundef nonnull %44) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %60 = icmp ult i64 %indvars.iv.next, %27
+  %60 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit
@@ -6090,7 +6090,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr nocapture
   %26 = add nsw i32 %.0123241, %22
   %27 = icmp sgt i32 %26, -1
   %28 = tail call i32 @llvm.abs.i32(i32 %.0123241, i1 true)
-  %29 = icmp ult i32 %28, 3
+  %29 = icmp samesign ult i32 %28, 3
   %30 = icmp eq i32 %28, 2
   %31 = icmp eq i32 %28, 4
   %32 = zext nneg i32 %26 to i64
@@ -6121,7 +6121,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr nocapture
   br i1 %or.cond152, label %54, label %43
 
 43:                                               ; preds = %40
-  %44 = icmp ult i32 %41, 3
+  %44 = icmp samesign ult i32 %41, 3
   %or.cond154 = select i1 %44, i1 %30, i1 false
   %or.cond156 = select i1 %or.cond154, i1 true, i1 %31
   %45 = icmp eq i32 %41, 4

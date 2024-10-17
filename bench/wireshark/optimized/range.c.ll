@@ -301,7 +301,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %115 = phi i32 [ %107, %106 ], [ %.pre, %113 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
   br i1 %117, label %106, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %114, %.preheader
@@ -535,7 +535,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
 47:                                               ; preds = %36, %38
   %.1 = phi i32 [ %.04971, %36 ], [ %46, %38 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %48 = icmp ult i64 %indvars.iv.next85, %35
+  %48 = icmp samesign ult i64 %indvars.iv.next85, %35
   br i1 %48, label %36, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %47, %22
@@ -659,7 +659,7 @@ define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr
   %16 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %8, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %3
@@ -703,7 +703,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %1, align 4
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %6, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %14, %.preheader, %2

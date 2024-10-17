@@ -2361,7 +2361,7 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %mNumRotationKeys, align 8
   %83 = zext i32 %82 to i64
-  %cmp119 = icmp ult i64 %indvars.iv.next, %83
+  %cmp119 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %cmp119, label %invoke.cont144, label %if.then.i.i.i163, !llvm.loop !34
 
 lpad100:                                          ; preds = %invoke.cont101, %if.then94

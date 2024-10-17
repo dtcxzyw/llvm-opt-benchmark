@@ -17954,7 +17954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -23542,7 +23542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i
@@ -24390,7 +24390,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %212, %209
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i, %219, %162
   %.0208 = phi i64 [ 0, %162 ], [ 1, %219 ], [ 1, %_ZNSt13_Bit_iteratorppEi.exit.i ]
-  %220 = icmp ult i64 %.0208, %.sroa.speculated
+  %220 = icmp samesign ult i64 %.0208, %.sroa.speculated
   br i1 %220, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit
@@ -46680,7 +46680,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %52 = getelementptr inbounds i8, ptr %8, i64 94
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
-  %55 = icmp ugt i32 %51, %54
+  %55 = icmp samesign ugt i32 %51, %54
   br i1 %55, label %56, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 56:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i
@@ -50495,7 +50495,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %50 = getelementptr inbounds i8, ptr %6, i64 94
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
-  %53 = icmp ugt i32 %49, %52
+  %53 = icmp samesign ugt i32 %49, %52
   br i1 %53, label %54, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 54:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i
@@ -50717,7 +50717,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %50 = getelementptr inbounds i8, ptr %6, i64 94
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
-  %53 = icmp ugt i32 %49, %52
+  %53 = icmp samesign ugt i32 %49, %52
   br i1 %53, label %54, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 54:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i
@@ -50940,7 +50940,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %52 = getelementptr inbounds i8, ptr %8, i64 94
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
-  %55 = icmp ugt i32 %51, %54
+  %55 = icmp samesign ugt i32 %51, %54
   br i1 %55, label %56, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 56:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i
@@ -51188,7 +51188,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %51 = getelementptr inbounds i8, ptr %7, i64 94
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = icmp ugt i32 %50, %53
+  %54 = icmp samesign ugt i32 %50, %53
   br i1 %54, label %55, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 55:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i
@@ -52874,7 +52874,7 @@ _ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i: ;
   %47 = getelementptr inbounds i8, ptr %6, i64 94
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
-  %50 = icmp ugt i32 %46, %49
+  %50 = icmp samesign ugt i32 %46, %49
   br i1 %50, label %51, label %_ZN8pybind116detail17process_attributeINS_8pos_onlyEvE4initERKS2_PNS0_15function_recordE.exit
 
 51:                                               ; preds = %_ZN8pybind116detail25append_self_arg_if_neededEPNS0_15function_recordE.exit.i

@@ -9234,7 +9234,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ArgumentELb1EE9push_backES3_.exit.i: ; p
   %3246 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %3245, ptr %3246, align 1, !noalias !176
   %3247 = udiv i64 %.0810.i.i, 10
-  %.not.i.i1141 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i1141 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i1141, label %_ZN4llvm6utostrB5cxx11Emb.exit.i, label %.lr.ph.i.i1140, !llvm.loop !179
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i1140, %.thread.i.i
@@ -12939,7 +12939,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12AttributeSetELb1EE9push_backES1_.exit: ; 
   %4817 = sub i64 %4815, %4816
   %4818 = lshr exact i64 %4817, 5
   %4819 = and i64 %4818, 4294967295
-  %4820 = icmp ult i64 %indvars.iv.next2394, %4819
+  %4820 = icmp samesign ult i64 %indvars.iv.next2394, %4819
   br i1 %4820, label %.lr.ph2154, label %._crit_edge2155, !llvm.loop !214
 
 ._crit_edge2155:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12AttributeSetELb1EE9push_backES1_.exit, %_ZL26allocaWouldBeStaticInEntryPKN4llvm10AllocaInstE.exit._crit_edge

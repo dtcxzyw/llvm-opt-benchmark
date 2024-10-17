@@ -254,7 +254,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond95.not, label %67, label %60
 
 67:                                               ; preds = %64
-  %68 = icmp ugt i32 %.0, 3
+  %68 = icmp samesign ugt i32 %.0, 3
   br i1 %68, label %69, label %.loopexit
 
 69:                                               ; preds = %67
@@ -2135,7 +2135,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %268 = getelementptr inbounds i32, ptr %265, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 255
-  %271 = icmp ult i32 %270, 106
+  %271 = icmp samesign ult i32 %270, 106
   %272 = add nsw i32 %270, -106
   %273 = zext nneg i32 %272 to i64
   %274 = getelementptr inbounds [0 x ptr], ptr @ir_rule_name, i64 0, i64 %273

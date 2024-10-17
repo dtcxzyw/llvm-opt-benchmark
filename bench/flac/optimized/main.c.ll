@@ -869,7 +869,7 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   %16 = phi ptr [ %13, %for.body.i ], [ %.pre.i, %if.then3.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = zext i32 %15 to i64
-  %cmp1.i = icmp ult i64 %indvars.iv.next.i, %17
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
@@ -899,7 +899,7 @@ for.body12.i:                                     ; preds = %if.end9.i, %for.bod
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6848), align 8
   %23 = zext i32 %22 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next14.i, %23
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next14.i, %23
   br i1 %cmp11.i, label %for.body12.i, label %free_options.exit, !llvm.loop !9
 
 free_options.exit:                                ; preds = %for.body12.i, %if.end9.i
@@ -1896,7 +1896,7 @@ for.inc:                                          ; preds = %for.body.tail, %if.
   %retval1.1 = phi i32 [ %or, %if.end230 ], [ %retval1.0172, %for.body.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = zext i32 %74 to i64
-  %cmp224 = icmp ult i64 %indvars.iv.next, %76
+  %cmp224 = icmp samesign ult i64 %indvars.iv.next, %76
   br i1 %cmp224, label %for.body, label %return, !llvm.loop !10
 
 if.else235:                                       ; preds = %if.end214
@@ -1968,7 +1968,7 @@ for.inc267:                                       ; preds = %if.end258, %for.bod
   %retval1.4 = phi i32 [ %retval1.3176, %for.body250.tail ], [ %retval1.3., %if.end258 ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %90 = zext i32 %88 to i64
-  %cmp249 = icmp ult i64 %indvars.iv.next188, %90
+  %cmp249 = icmp samesign ult i64 %indvars.iv.next188, %90
   br i1 %cmp249, label %for.body250, label %for.end269, !llvm.loop !11
 
 for.end269:                                       ; preds = %for.inc267
@@ -2020,7 +2020,7 @@ for.inc293:                                       ; preds = %if.end287, %if.then
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %102 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6312), align 8
   %103 = zext i32 %102 to i64
-  %cmp276 = icmp ult i64 %indvars.iv.next191, %103
+  %cmp276 = icmp samesign ult i64 %indvars.iv.next191, %103
   br i1 %cmp276, label %for.body278, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.inc, %for.inc293, %if.then274, %if.then218, %for.end269, %if.then241, %if.then8, %if.then10, %if.then284, %if.then208, %if.then204, %if.then200, %if.then192, %if.then184, %if.then178, %if.then162, %if.then155, %if.then151, %if.then147, %if.then140, %if.then136, %if.then132, %if.then128, %if.then121, %if.then117, %if.then113, %if.then108, %if.then104, %if.then96, %if.then70, %if.then62, %if.then49, %if.then41, %if.then33, %if.then29, %if.then25, %if.then21, %if.then15, %if.then6, %if.then3, %if.then

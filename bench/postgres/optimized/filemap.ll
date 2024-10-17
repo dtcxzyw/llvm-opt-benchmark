@@ -233,7 +233,7 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
   %19 = load ptr, ptr %8, align 8
   %20 = tail call i64 @llvm.umax.i64(i64 %18, i64 2)
   %21 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %20)
-  %22 = icmp ult i64 %21, 2
+  %22 = icmp samesign ult i64 %21, 2
   %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   %24 = sub nuw nsw i64 64, %23
   %25 = shl nuw i64 1, %24
@@ -251,7 +251,7 @@ filehash_compute_size.exit.i.i.i:                 ; preds = %17
   %29 = tail call ptr @pg_malloc0(i64 noundef %26) #11
   store ptr %29, ptr %8, align 8
   %30 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
-  %31 = icmp ult i64 %30, 2
+  %31 = icmp samesign ult i64 %30, 2
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i, i1 true)
   %33 = sub nuw nsw i64 64, %32
   %34 = shl nuw i64 1, %33

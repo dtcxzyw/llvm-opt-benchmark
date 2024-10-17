@@ -93,7 +93,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %26 = sub i64 %24, %25
   %27 = icmp sgt i64 %26, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 16
+  %28 = icmp samesign ugt i64 %26, 16
   br i1 %28, label %.split.us.i, label %29
 
 29:                                               ; preds = %22, %16
@@ -142,7 +142,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
   tail call void @llvm.assume(i1 %45)
-  %46 = icmp ugt i64 %44, 16
+  %46 = icmp samesign ugt i64 %44, 16
   br i1 %46, label %.split.us.i, label %47
 
 .split.us.i:                                      ; preds = %40, %22
@@ -161,7 +161,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   br i1 %48, label %.loopexit30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.i.i.i.i.i", %47
-  %.not.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.5.0.i.i.i.i, 2
+  %.not.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.5.0.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i.i, label %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd1805197c97011fbE.exit.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd1805197c97011fbE.exit.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i"
@@ -283,7 +283,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %26 = sub i64 %24, %25
   %27 = icmp sgt i64 %26, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 16
+  %28 = icmp samesign ugt i64 %26, 16
   br i1 %28, label %.split.us.i, label %29
 
 29:                                               ; preds = %22, %16
@@ -332,7 +332,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
   tail call void @llvm.assume(i1 %45)
-  %46 = icmp ugt i64 %44, 16
+  %46 = icmp samesign ugt i64 %44, 16
   br i1 %46, label %.split.us.i, label %47
 
 .split.us.i:                                      ; preds = %40, %22
@@ -351,7 +351,7 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   br i1 %48, label %.loopexit30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.i.i.i.i.i", %47
-  %.not.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.5.0.i.i.i.i, 2
+  %.not.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.5.0.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i.i, label %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd1805197c97011fbE.exit.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd1805197c97011fbE.exit.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.thread.i.i.i.i.i"

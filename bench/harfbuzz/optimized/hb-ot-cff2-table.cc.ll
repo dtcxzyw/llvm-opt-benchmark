@@ -5712,7 +5712,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %for.con
   %d.sroa.0.0162 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %add.i.i.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %indvars.iv
   %3 = or disjoint i64 %indvars.iv, 1
-  %cmp.not.i.i24 = icmp ult i64 %3, 11
+  %cmp.not.i.i24 = icmp samesign ult i64 %3, 11
   br i1 %cmp.not.i.i24, label %if.end.i.i28, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -5731,7 +5731,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %if.th
   %add.i.i.i = fadd double %d.sroa.0.0162, %5
   %add.i.i1.i = fadd double %d.sroa.4.0163, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp1 = icmp ult i64 %indvars.iv, 8
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp1, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit134, !llvm.loop !25
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit134: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32
@@ -6666,7 +6666,7 @@ for.body.preheader:                               ; preds = %if.end6
 for.body:                                         ; preds = %for.body.preheader, %if.end22
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end22 ]
   %v.034 = phi float [ 1.000000e+00, %for.body.preheader ], [ %mul23, %if.end22 ]
-  %cmp11 = icmp ult i64 %indvars.iv, %5
+  %cmp11 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
@@ -8224,7 +8224,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pt1, ptr noundef nonnull align 8 dereferenceable(16) %pt.i, i64 16, i1 false)
   %4 = load i32, ptr %count.i, align 4
   %5 = zext i32 %4 to i64
-  %cmp.not.i.i = icmp ult i64 %indvars.iv110, %5
+  %cmp.not.i.i = icmp samesign ult i64 %indvars.iv110, %5
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -8239,7 +8239,7 @@ if.end.i.i:                                       ; preds = %for.body
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
   %6 = or disjoint i64 %indvars.iv110, 1
-  %cmp.not.i.i25 = icmp ult i64 %6, %5
+  %cmp.not.i.i25 = icmp samesign ult i64 %6, %5
   br i1 %cmp.not.i.i25, label %if.end.i.i29, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -9982,7 +9982,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %for.con
   %d.sroa.0.0162 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %add.i.i.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %arrayidx.i.i = getelementptr inbounds [513 x %"struct.CFF::number_t"], ptr %elements.i.i, i64 0, i64 %indvars.iv
   %3 = or disjoint i64 %indvars.iv, 1
-  %cmp.not.i.i24 = icmp ult i64 %3, 11
+  %cmp.not.i.i24 = icmp samesign ult i64 %3, 11
   br i1 %cmp.not.i.i24, label %if.end.i.i28, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
@@ -10001,7 +10001,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %if.th
   %add.i.i.i = fadd double %d.sroa.0.0162, %5
   %add.i.i1.i = fadd double %d.sroa.4.0163, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp1 = icmp ult i64 %indvars.iv, 8
+  %cmp1 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp1, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit134, !llvm.loop !41
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit134: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32

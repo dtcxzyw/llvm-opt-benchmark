@@ -6150,7 +6150,7 @@ define void @_ZN14wasmtime_cache21ModuleCacheEntryInner8get_data17h59d81fc0c5bd9
   %26 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %27 = icmp ult i64 %26, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = icmp ugt i64 %26, 4
+  %28 = icmp samesign ugt i64 %26, 4
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %4, %48
@@ -6325,7 +6325,7 @@ _ZN3std2fs4read17h0d159999040cccebE.exit:         ; preds = %29
   %86 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1500
   %87 = icmp ult i64 %86, 6
   call void @llvm.assume(i1 %87)
-  %88 = icmp ugt i64 %86, 1
+  %88 = icmp samesign ugt i64 %86, 1
   br i1 %88, label %96, label %89
 
 89:                                               ; preds = %102, %84
@@ -6543,7 +6543,7 @@ define noundef zeroext i1 @_ZN14wasmtime_cache21ModuleCacheEntryInner11update_da
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ugt i64 %40, 4
+  %42 = icmp samesign ugt i64 %40, 4
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %5, %62
@@ -6676,7 +6676,7 @@ define noundef zeroext i1 @_ZN14wasmtime_cache21ModuleCacheEntryInner11update_da
   %88 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1587
   %89 = icmp ult i64 %88, 6
   call void @llvm.assume(i1 %89)
-  %90 = icmp ugt i64 %88, 1
+  %90 = icmp samesign ugt i64 %88, 1
   br i1 %90, label %98, label %91
 
 91:                                               ; preds = %104, %86
@@ -6819,7 +6819,7 @@ define noundef zeroext i1 @_ZN14wasmtime_cache21ModuleCacheEntryInner11update_da
   %136 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %137 = icmp ult i64 %136, 6
   call void @llvm.assume(i1 %137)
-  %138 = icmp ugt i64 %136, 3
+  %138 = icmp samesign ugt i64 %136, 3
   br i1 %138, label %139, label %131
 
 139:                                              ; preds = %135
@@ -6884,7 +6884,7 @@ define noundef zeroext i1 @_ZN14wasmtime_cache21ModuleCacheEntryInner11update_da
   %160 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1640
   %161 = icmp ult i64 %160, 6
   call void @llvm.assume(i1 %161)
-  %162 = icmp ugt i64 %160, 1
+  %162 = icmp samesign ugt i64 %160, 1
   br i1 %162, label %170, label %163
 
 163:                                              ; preds = %179, %159
@@ -7021,7 +7021,7 @@ define noundef zeroext i1 @_ZN14wasmtime_cache21ModuleCacheEntryInner11update_da
   %207 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %208 = icmp ult i64 %207, 6
   call void @llvm.assume(i1 %208)
-  %209 = icmp ugt i64 %207, 1
+  %209 = icmp samesign ugt i64 %207, 1
   br i1 %209, label %210, label %199
 
 210:                                              ; preds = %206

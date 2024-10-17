@@ -389,21 +389,21 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i:                      ; preds = %while.cond.i.i.i.i.
 land.rhs.i.i.i.i.i.i.i.i.i.i:                     ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i
   %25 = load i8, ptr %unbounded4.i.i.i.i.i.i.i.i, align 1
   %26 = and i8 %25, 1
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %22, %26
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %22, %26
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %26, %22
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %26, %22
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_15pcompEEEEvT_T0_.exit.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i.i
   %27 = load i8, ptr %simple_exhaust5.i.i.i.i.i.i.i.i, align 1
   %28 = and i8 %27, 1
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %23, %28
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %23, %28
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %28, %23
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %28, %23
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_15pcompEEEEvT_T0_.exit.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS2_8raw_puffENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS2_8raw_puffENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1650,11 +1650,11 @@ do.body8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %auto_restart.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.04.i.i.i, i64 72
   %5 = load i8, ptr %auto_restart.i.i.i.i.i, align 8
   %6 = and i8 %5, 1
-  %cmp12.i.i.i.i.i = icmp ult i8 %6, %3
+  %cmp12.i.i.i.i.i = icmp samesign ult i8 %6, %3
   br i1 %cmp12.i.i.i.i.i, label %if.end.i.i.i, label %if.end14.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %do.body8.i.i.i.i.i
-  %cmp21.i.i.i.i.i = icmp ult i8 %3, %6
+  %cmp21.i.i.i.i.i = icmp samesign ult i8 %3, %6
   br i1 %cmp21.i.i.i.i.i, label %if.end.i.i.i, label %do.body25.i.i.i.i.i
 
 do.body25.i.i.i.i.i:                              ; preds = %if.end14.i.i.i.i.i
@@ -1703,11 +1703,11 @@ do.body8.i.i:                                     ; preds = %if.end.i.i
   %auto_restart9.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
   %11 = load i8, ptr %auto_restart9.i.i, align 8
   %12 = and i8 %11, 1
-  %cmp12.i.i = icmp ult i8 %3, %12
+  %cmp12.i.i = icmp samesign ult i8 %3, %12
   br i1 %cmp12.i.i, label %if.then, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %do.body8.i.i
-  %cmp21.i.i = icmp ult i8 %12, %3
+  %cmp21.i.i = icmp samesign ult i8 %12, %3
   br i1 %cmp21.i.i, label %if.end, label %do.body25.i.i
 
 do.body25.i.i:                                    ; preds = %if.end14.i.i
@@ -1766,11 +1766,11 @@ do.body8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %auto_restart9.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 72
   %21 = load i8, ptr %auto_restart9.i.i.i.i, align 8
   %22 = and i8 %21, 1
-  %cmp12.i.i.i.i = icmp ult i8 %20, %22
+  %cmp12.i.i.i.i = icmp samesign ult i8 %20, %22
   br i1 %cmp12.i.i.i.i, label %if.then.i, label %if.end14.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %do.body8.i.i.i.i
-  %cmp21.i.i.i.i = icmp ult i8 %22, %20
+  %cmp21.i.i.i.i = icmp samesign ult i8 %22, %20
   br i1 %cmp21.i.i.i.i, label %if.else.i.i, label %do.body25.i.i.i.i
 
 do.body25.i.i.i.i:                                ; preds = %if.end14.i.i.i.i
@@ -1818,11 +1818,11 @@ do.body8.i.i15.i.i:                               ; preds = %if.end.i.i13.i.i
   %auto_restart9.i.i17.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i37, i64 72
   %31 = load i8, ptr %auto_restart9.i.i17.i.i, align 8
   %32 = and i8 %31, 1
-  %cmp12.i.i18.i.i = icmp ult i8 %30, %32
+  %cmp12.i.i18.i.i = icmp samesign ult i8 %30, %32
   br i1 %cmp12.i.i18.i.i, label %if.then18.i.i, label %if.end14.i.i19.i.i
 
 if.end14.i.i19.i.i:                               ; preds = %do.body8.i.i15.i.i
-  %cmp21.i.i20.i.i = icmp ult i8 %32, %30
+  %cmp21.i.i20.i.i = icmp samesign ult i8 %32, %30
   br i1 %cmp21.i.i20.i.i, label %if.then50.i.i, label %do.body25.i.i21.i.i
 
 do.body25.i.i21.i.i:                              ; preds = %if.end14.i.i19.i.i
@@ -1870,11 +1870,11 @@ do.body8.i.i43.i.i:                               ; preds = %if.end.i.i41.i.i
   %auto_restart9.i.i45.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 72
   %39 = load i8, ptr %auto_restart9.i.i45.i.i, align 8
   %40 = and i8 %39, 1
-  %cmp12.i.i46.i.i = icmp ult i8 %38, %40
+  %cmp12.i.i46.i.i = icmp samesign ult i8 %38, %40
   br i1 %cmp12.i.i46.i.i, label %if.then32.i.i, label %if.end14.i.i47.i.i
 
 if.end14.i.i47.i.i:                               ; preds = %do.body8.i.i43.i.i
-  %cmp21.i.i48.i.i = icmp ult i8 %40, %38
+  %cmp21.i.i48.i.i = icmp samesign ult i8 %40, %38
   br i1 %cmp21.i.i48.i.i, label %if.else42.i.i, label %do.body25.i.i49.i.i
 
 do.body25.i.i49.i.i:                              ; preds = %if.end14.i.i47.i.i
@@ -1950,11 +1950,11 @@ do.body8.i.i99.i.i:                               ; preds = %if.end.i.i97.i.i
   %auto_restart9.i.i101.i.i = getelementptr inbounds i8, ptr %call.i94.i.i, i64 72
   %52 = load i8, ptr %auto_restart9.i.i101.i.i, align 8
   %53 = and i8 %52, 1
-  %cmp12.i.i102.i.i = icmp ult i8 %51, %53
+  %cmp12.i.i102.i.i = icmp samesign ult i8 %51, %53
   br i1 %cmp12.i.i102.i.i, label %if.then64.i.i, label %if.end14.i.i103.i.i
 
 if.end14.i.i103.i.i:                              ; preds = %do.body8.i.i99.i.i
-  %cmp21.i.i104.i.i = icmp ult i8 %53, %51
+  %cmp21.i.i104.i.i = icmp samesign ult i8 %53, %51
   br i1 %cmp21.i.i104.i.i, label %if.else74.i.i, label %do.body25.i.i105.i.i
 
 do.body25.i.i105.i.i:                             ; preds = %if.end14.i.i103.i.i
@@ -2024,11 +2024,11 @@ do.body8.i.i.i.i.i13:                             ; preds = %if.end.i.i.i.i.i11
   %auto_restart9.i.i.i.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.12.0.i7.i, i64 72
   %63 = load i8, ptr %auto_restart9.i.i.i.i.i15, align 8
   %64 = and i8 %63, 1
-  %cmp12.i.i.i.i.i16 = icmp ult i8 %62, %64
+  %cmp12.i.i.i.i.i16 = icmp samesign ult i8 %62, %64
   br i1 %cmp12.i.i.i.i.i16, label %cleanup.i, label %if.end14.i.i.i.i.i17
 
 if.end14.i.i.i.i.i17:                             ; preds = %do.body8.i.i.i.i.i13
-  %cmp21.i.i.i.i.i18 = icmp ult i8 %64, %62
+  %cmp21.i.i.i.i.i18 = icmp samesign ult i8 %64, %62
   br i1 %cmp21.i.i.i.i.i18, label %cleanup.i, label %do.body25.i.i.i.i.i19
 
 do.body25.i.i.i.i.i19:                            ; preds = %if.end14.i.i.i.i.i17
@@ -2113,11 +2113,11 @@ do.body8.i.i:                                     ; preds = %if.end.i.i
   %auto_restart9.i.i = getelementptr inbounds i8, ptr %__x.044, i64 72
   %5 = load i8, ptr %auto_restart9.i.i, align 8
   %6 = and i8 %5, 1
-  %cmp12.i.i = icmp ult i8 %3, %6
+  %cmp12.i.i = icmp samesign ult i8 %3, %6
   br i1 %cmp12.i.i, label %cond.end, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %do.body8.i.i
-  %cmp21.i.i = icmp ult i8 %6, %3
+  %cmp21.i.i = icmp samesign ult i8 %6, %3
   br i1 %cmp21.i.i, label %cond.end, label %do.body25.i.i
 
 do.body25.i.i:                                    ; preds = %if.end14.i.i
@@ -2182,11 +2182,11 @@ do.body8.i.i10:                                   ; preds = %if.end.i.i8
   %auto_restart9.i.i12 = getelementptr inbounds i8, ptr %__k, i64 40
   %15 = load i8, ptr %auto_restart9.i.i12, align 8
   %16 = and i8 %15, 1
-  %cmp12.i.i13 = icmp ult i8 %14, %16
+  %cmp12.i.i13 = icmp samesign ult i8 %14, %16
   br i1 %cmp12.i.i13, label %return, label %if.end14.i.i14
 
 if.end14.i.i14:                                   ; preds = %do.body8.i.i10
-  %cmp21.i.i15 = icmp ult i8 %16, %14
+  %cmp21.i.i15 = icmp samesign ult i8 %16, %14
   br i1 %cmp21.i.i15, label %return, label %do.body25.i.i16
 
 do.body25.i.i16:                                  ; preds = %if.end14.i.i14
@@ -2311,11 +2311,11 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
   %3 = and i8 %2, 1
   %4 = load i8, ptr %unbounded4.i.i.i.i, align 1
   %5 = and i8 %4, 1
-  %cmp.i.i.i.i.i.i.i = icmp ult i8 %3, %5
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i8 %3, %5
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i.i = icmp ult i8 %5, %3
+  %cmp10.i.i.i.i.i.i.i = icmp samesign ult i8 %5, %3
   br i1 %cmp10.i.i.i.i.i.i.i, label %if.else33.i.i, label %land.rhs.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i.i
@@ -2323,11 +2323,11 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i
   %7 = and i8 %6, 1
   %8 = load i8, ptr %simple_exhaust5.i.i.i.i, align 1
   %9 = and i8 %8, 1
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i8 %7, %9
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %7, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i, label %lor.rhs.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i.i.i = icmp ult i8 %9, %7
+  %cmp10.i.i.i.i.i.i.i.i = icmp samesign ult i8 %9, %7
   br i1 %cmp10.i.i.i.i.i.i.i.i, label %if.else33.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i
@@ -2353,11 +2353,11 @@ land.rhs.i.i.i.i10.i.i:                           ; preds = %lor.rhs.i.i.i.i8.i.
   %14 = and i8 %13, 1
   %15 = load i8, ptr %unbounded4.i.i4.i.i, align 1
   %16 = and i8 %15, 1
-  %cmp.i.i.i.i.i11.i.i = icmp ult i8 %14, %16
+  %cmp.i.i.i.i.i11.i.i = icmp samesign ult i8 %14, %16
   br i1 %cmp.i.i.i.i.i11.i.i, label %if.then12.i.i, label %lor.rhs.i.i.i.i.i12.i.i
 
 lor.rhs.i.i.i.i.i12.i.i:                          ; preds = %land.rhs.i.i.i.i10.i.i
-  %cmp10.i.i.i.i.i13.i.i = icmp ult i8 %16, %14
+  %cmp10.i.i.i.i.i13.i.i = icmp samesign ult i8 %16, %14
   br i1 %cmp10.i.i.i.i.i13.i.i, label %if.else.i.i, label %land.rhs.i.i.i.i.i14.i.i
 
 land.rhs.i.i.i.i.i14.i.i:                         ; preds = %lor.rhs.i.i.i.i.i12.i.i
@@ -2365,11 +2365,11 @@ land.rhs.i.i.i.i.i14.i.i:                         ; preds = %lor.rhs.i.i.i.i.i12
   %18 = and i8 %17, 1
   %19 = load i8, ptr %simple_exhaust5.i.i5.i.i, align 1
   %20 = and i8 %19, 1
-  %cmp.i.i.i.i.i.i15.i.i = icmp ult i8 %18, %20
+  %cmp.i.i.i.i.i.i15.i.i = icmp samesign ult i8 %18, %20
   br i1 %cmp.i.i.i.i.i.i15.i.i, label %if.then12.i.i, label %lor.rhs.i.i.i.i.i.i16.i.i
 
 lor.rhs.i.i.i.i.i.i16.i.i:                        ; preds = %land.rhs.i.i.i.i.i14.i.i
-  %cmp10.i.i.i.i.i.i17.i.i = icmp ult i8 %20, %18
+  %cmp10.i.i.i.i.i.i17.i.i = icmp samesign ult i8 %20, %18
   br i1 %cmp10.i.i.i.i.i.i17.i.i, label %if.else.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit20.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit20.i.i: ; preds = %lor.rhs.i.i.i.i.i.i16.i.i
@@ -2399,11 +2399,11 @@ land.rhs.i.i.i.i30.i.i:                           ; preds = %lor.rhs.i.i.i.i28.i
   %24 = and i8 %23, 1
   %25 = load i8, ptr %unbounded4.i.i4.i.i, align 1
   %26 = and i8 %25, 1
-  %cmp.i.i.i.i.i31.i.i = icmp ult i8 %24, %26
+  %cmp.i.i.i.i.i31.i.i = icmp samesign ult i8 %24, %26
   br i1 %cmp.i.i.i.i.i31.i.i, label %if.then22.i.i, label %lor.rhs.i.i.i.i.i32.i.i
 
 lor.rhs.i.i.i.i.i32.i.i:                          ; preds = %land.rhs.i.i.i.i30.i.i
-  %cmp10.i.i.i.i.i33.i.i = icmp ult i8 %26, %24
+  %cmp10.i.i.i.i.i33.i.i = icmp samesign ult i8 %26, %24
   br i1 %cmp10.i.i.i.i.i33.i.i, label %if.else27.i.i, label %land.rhs.i.i.i.i.i34.i.i
 
 land.rhs.i.i.i.i.i34.i.i:                         ; preds = %lor.rhs.i.i.i.i.i32.i.i
@@ -2411,11 +2411,11 @@ land.rhs.i.i.i.i.i34.i.i:                         ; preds = %lor.rhs.i.i.i.i.i32
   %28 = and i8 %27, 1
   %29 = load i8, ptr %simple_exhaust5.i.i5.i.i, align 1
   %30 = and i8 %29, 1
-  %cmp.i.i.i.i.i.i35.i.i = icmp ult i8 %28, %30
+  %cmp.i.i.i.i.i.i35.i.i = icmp samesign ult i8 %28, %30
   br i1 %cmp.i.i.i.i.i.i35.i.i, label %if.then22.i.i, label %lor.rhs.i.i.i.i.i.i36.i.i
 
 lor.rhs.i.i.i.i.i.i36.i.i:                        ; preds = %land.rhs.i.i.i.i.i34.i.i
-  %cmp10.i.i.i.i.i.i37.i.i = icmp ult i8 %30, %28
+  %cmp10.i.i.i.i.i.i37.i.i = icmp samesign ult i8 %30, %28
   br i1 %cmp10.i.i.i.i.i.i37.i.i, label %if.else27.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit40.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit40.i.i: ; preds = %lor.rhs.i.i.i.i.i.i36.i.i
@@ -2457,11 +2457,11 @@ land.rhs.i.i.i.i52.i.i:                           ; preds = %lor.rhs.i.i.i.i50.i
   %35 = and i8 %34, 1
   %36 = load i8, ptr %unbounded4.i.i46.i.i, align 1
   %37 = and i8 %36, 1
-  %cmp.i.i.i.i.i53.i.i = icmp ult i8 %35, %37
+  %cmp.i.i.i.i.i53.i.i = icmp samesign ult i8 %35, %37
   br i1 %cmp.i.i.i.i.i53.i.i, label %if.then39.i.i, label %lor.rhs.i.i.i.i.i54.i.i
 
 lor.rhs.i.i.i.i.i54.i.i:                          ; preds = %land.rhs.i.i.i.i52.i.i
-  %cmp10.i.i.i.i.i55.i.i = icmp ult i8 %37, %35
+  %cmp10.i.i.i.i.i55.i.i = icmp samesign ult i8 %37, %35
   br i1 %cmp10.i.i.i.i.i55.i.i, label %if.else44.i.i, label %land.rhs.i.i.i.i.i56.i.i
 
 land.rhs.i.i.i.i.i56.i.i:                         ; preds = %lor.rhs.i.i.i.i.i54.i.i
@@ -2469,11 +2469,11 @@ land.rhs.i.i.i.i.i56.i.i:                         ; preds = %lor.rhs.i.i.i.i.i54
   %39 = and i8 %38, 1
   %40 = load i8, ptr %simple_exhaust5.i.i47.i.i, align 1
   %41 = and i8 %40, 1
-  %cmp.i.i.i.i.i.i57.i.i = icmp ult i8 %39, %41
+  %cmp.i.i.i.i.i.i57.i.i = icmp samesign ult i8 %39, %41
   br i1 %cmp.i.i.i.i.i.i57.i.i, label %if.then39.i.i, label %lor.rhs.i.i.i.i.i.i58.i.i
 
 lor.rhs.i.i.i.i.i.i58.i.i:                        ; preds = %land.rhs.i.i.i.i.i56.i.i
-  %cmp10.i.i.i.i.i.i59.i.i = icmp ult i8 %41, %39
+  %cmp10.i.i.i.i.i.i59.i.i = icmp samesign ult i8 %41, %39
   br i1 %cmp10.i.i.i.i.i.i59.i.i, label %if.else44.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit62.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit62.i.i: ; preds = %lor.rhs.i.i.i.i.i.i58.i.i
@@ -2503,11 +2503,11 @@ land.rhs.i.i.i.i73.i.i:                           ; preds = %lor.rhs.i.i.i.i71.i
   %45 = and i8 %44, 1
   %46 = load i8, ptr %unbounded4.i.i46.i.i, align 1
   %47 = and i8 %46, 1
-  %cmp.i.i.i.i.i74.i.i = icmp ult i8 %45, %47
+  %cmp.i.i.i.i.i74.i.i = icmp samesign ult i8 %45, %47
   br i1 %cmp.i.i.i.i.i74.i.i, label %if.then50.i.i, label %lor.rhs.i.i.i.i.i75.i.i
 
 lor.rhs.i.i.i.i.i75.i.i:                          ; preds = %land.rhs.i.i.i.i73.i.i
-  %cmp10.i.i.i.i.i76.i.i = icmp ult i8 %47, %45
+  %cmp10.i.i.i.i.i76.i.i = icmp samesign ult i8 %47, %45
   br i1 %cmp10.i.i.i.i.i76.i.i, label %if.else55.i.i, label %land.rhs.i.i.i.i.i77.i.i
 
 land.rhs.i.i.i.i.i77.i.i:                         ; preds = %lor.rhs.i.i.i.i.i75.i.i
@@ -2515,11 +2515,11 @@ land.rhs.i.i.i.i.i77.i.i:                         ; preds = %lor.rhs.i.i.i.i.i75
   %49 = and i8 %48, 1
   %50 = load i8, ptr %simple_exhaust5.i.i47.i.i, align 1
   %51 = and i8 %50, 1
-  %cmp.i.i.i.i.i.i78.i.i = icmp ult i8 %49, %51
+  %cmp.i.i.i.i.i.i78.i.i = icmp samesign ult i8 %49, %51
   br i1 %cmp.i.i.i.i.i.i78.i.i, label %if.then50.i.i, label %lor.rhs.i.i.i.i.i.i79.i.i
 
 lor.rhs.i.i.i.i.i.i79.i.i:                        ; preds = %land.rhs.i.i.i.i.i77.i.i
-  %cmp10.i.i.i.i.i.i80.i.i = icmp ult i8 %51, %49
+  %cmp10.i.i.i.i.i.i80.i.i = icmp samesign ult i8 %51, %49
   br i1 %cmp10.i.i.i.i.i.i80.i.i, label %if.else55.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit83.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit83.i.i: ; preds = %lor.rhs.i.i.i.i.i.i79.i.i
@@ -2574,11 +2574,11 @@ land.rhs.i.i.i.i.i15.i:                           ; preds = %lor.rhs.i.i.i.i.i13
   %57 = and i8 %56, 1
   %58 = load i8, ptr %unbounded4.i.i.i6.i, align 1
   %59 = and i8 %58, 1
-  %cmp.i.i.i.i.i.i16.i = icmp ult i8 %57, %59
+  %cmp.i.i.i.i.i.i16.i = icmp samesign ult i8 %57, %59
   br i1 %cmp.i.i.i.i.i.i16.i, label %while.body7.i.i, label %lor.rhs.i.i.i.i.i.i17.i
 
 lor.rhs.i.i.i.i.i.i17.i:                          ; preds = %land.rhs.i.i.i.i.i15.i
-  %cmp10.i.i.i.i.i.i18.i = icmp ult i8 %59, %57
+  %cmp10.i.i.i.i.i.i18.i = icmp samesign ult i8 %59, %57
   br i1 %cmp10.i.i.i.i.i.i18.i, label %while.cond10.i.i.preheader, label %land.rhs.i.i.i.i.i.i19.i
 
 land.rhs.i.i.i.i.i.i19.i:                         ; preds = %lor.rhs.i.i.i.i.i.i17.i
@@ -2586,11 +2586,11 @@ land.rhs.i.i.i.i.i.i19.i:                         ; preds = %lor.rhs.i.i.i.i.i.i
   %61 = and i8 %60, 1
   %62 = load i8, ptr %simple_exhaust5.i.i.i7.i, align 1
   %63 = and i8 %62, 1
-  %cmp.i.i.i.i.i.i.i20.i = icmp ult i8 %61, %63
+  %cmp.i.i.i.i.i.i.i20.i = icmp samesign ult i8 %61, %63
   br i1 %cmp.i.i.i.i.i.i.i20.i, label %while.body7.i.i, label %lor.rhs.i.i.i.i.i.i.i21.i
 
 lor.rhs.i.i.i.i.i.i.i21.i:                        ; preds = %land.rhs.i.i.i.i.i.i19.i
-  %cmp10.i.i.i.i.i.i.i22.i = icmp ult i8 %63, %61
+  %cmp10.i.i.i.i.i.i.i22.i = icmp samesign ult i8 %63, %61
   br i1 %cmp10.i.i.i.i.i.i.i22.i, label %while.cond10.i.i.preheader, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i23.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i23.i: ; preds = %lor.rhs.i.i.i.i.i.i.i21.i
@@ -2622,11 +2622,11 @@ land.rhs.i.i.i.i11.i.i:                           ; preds = %lor.rhs.i.i.i.i9.i.
   %68 = and i8 %67, 1
   %69 = load i8, ptr %unbounded4.i.i5.i.i, align 1
   %70 = and i8 %69, 1
-  %cmp.i.i.i.i.i12.i.i = icmp ult i8 %68, %70
+  %cmp.i.i.i.i.i12.i.i = icmp samesign ult i8 %68, %70
   br i1 %cmp.i.i.i.i.i12.i.i, label %while.cond10.i.i.backedge, label %lor.rhs.i.i.i.i.i13.i.i
 
 lor.rhs.i.i.i.i.i13.i.i:                          ; preds = %land.rhs.i.i.i.i11.i.i
-  %cmp10.i.i.i.i.i14.i.i = icmp ult i8 %70, %68
+  %cmp10.i.i.i.i.i14.i.i = icmp samesign ult i8 %70, %68
   br i1 %cmp10.i.i.i.i.i14.i.i, label %while.end18.i.i, label %land.rhs.i.i.i.i.i15.i.i
 
 land.rhs.i.i.i.i.i15.i.i:                         ; preds = %lor.rhs.i.i.i.i.i13.i.i
@@ -2634,11 +2634,11 @@ land.rhs.i.i.i.i.i15.i.i:                         ; preds = %lor.rhs.i.i.i.i.i13
   %72 = and i8 %71, 1
   %73 = load i8, ptr %simple_exhaust5.i.i6.i.i, align 1
   %74 = and i8 %73, 1
-  %cmp.i.i.i.i.i.i16.i.i = icmp ult i8 %72, %74
+  %cmp.i.i.i.i.i.i16.i.i = icmp samesign ult i8 %72, %74
   br i1 %cmp.i.i.i.i.i.i16.i.i, label %while.cond10.i.i.backedge, label %lor.rhs.i.i.i.i.i.i17.i.i
 
 lor.rhs.i.i.i.i.i.i17.i.i:                        ; preds = %land.rhs.i.i.i.i.i15.i.i
-  %cmp10.i.i.i.i.i.i18.i.i = icmp ult i8 %74, %72
+  %cmp10.i.i.i.i.i.i18.i.i = icmp samesign ult i8 %74, %72
   br i1 %cmp10.i.i.i.i.i.i18.i.i, label %while.end18.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit21.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit21.i.i: ; preds = %lor.rhs.i.i.i.i.i.i17.i.i
@@ -2709,11 +2709,11 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
   %3 = and i8 %2, 1
   %4 = load i8, ptr %unbounded4.i.i, align 1
   %5 = and i8 %4, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %3, %5
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %3, %5
   br i1 %cmp.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i
-  %cmp10.i.i.i.i.i = icmp ult i8 %5, %3
+  %cmp10.i.i.i.i.i = icmp samesign ult i8 %5, %3
   br i1 %cmp10.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread46, label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
@@ -2721,11 +2721,11 @@ land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
   %7 = and i8 %6, 1
   %8 = load i8, ptr %simple_exhaust5.i.i, align 1
   %9 = and i8 %8, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %7, %9
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %7, %9
   br i1 %cmp.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i = icmp ult i8 %9, %7
+  %cmp10.i.i.i.i.i.i = icmp samesign ult i8 %9, %7
   br i1 %cmp10.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit: ; preds = %lor.rhs.i.i.i.i.i.i
@@ -2806,21 +2806,21 @@ lor.rhs.i.i.i.i.i24:                              ; preds = %land.rhs.i
 land.rhs.i.i.i.i.i25:                             ; preds = %lor.rhs.i.i.i.i.i24
   %16 = load i8, ptr %unbounded.i.i.i, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i.i.i.i.i26 = icmp ult i8 %17, %13
+  %cmp.i.i.i.i.i.i26 = icmp samesign ult i8 %17, %13
   br i1 %cmp.i.i.i.i.i.i26, label %while.body.i, label %lor.rhs.i.i.i.i.i.i27
 
 lor.rhs.i.i.i.i.i.i27:                            ; preds = %land.rhs.i.i.i.i.i25
-  %cmp10.i.i.i.i.i.i28 = icmp ult i8 %13, %17
+  %cmp10.i.i.i.i.i.i28 = icmp samesign ult i8 %13, %17
   br i1 %cmp10.i.i.i.i.i.i28, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_RT2_.exit, label %land.rhs.i.i.i.i.i.i29
 
 land.rhs.i.i.i.i.i.i29:                           ; preds = %lor.rhs.i.i.i.i.i.i27
   %18 = load i8, ptr %simple_exhaust.i.i.i, align 1
   %19 = and i8 %18, 1
-  %cmp.i.i.i.i.i.i.i30 = icmp ult i8 %19, %14
+  %cmp.i.i.i.i.i.i.i30 = icmp samesign ult i8 %19, %14
   br i1 %cmp.i.i.i.i.i.i.i30, label %while.body.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i.i.i29
-  %cmp10.i.i.i.i.i.i.i = icmp ult i8 %14, %19
+  %cmp10.i.i.i.i.i.i.i = icmp samesign ult i8 %14, %19
   br i1 %cmp10.i.i.i.i.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i: ; preds = %lor.rhs.i.i.i.i.i.i.i
@@ -2902,11 +2902,11 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
   %3 = and i8 %2, 1
   %4 = load i8, ptr %unbounded4.i.i, align 1
   %5 = and i8 %4, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %3, %5
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %3, %5
   br i1 %cmp.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i
-  %cmp10.i.i.i.i.i = icmp ult i8 %5, %3
+  %cmp10.i.i.i.i.i = icmp samesign ult i8 %5, %3
   br i1 %cmp10.i.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
@@ -2914,11 +2914,11 @@ land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
   %7 = and i8 %6, 1
   %8 = load i8, ptr %simple_exhaust5.i.i, align 1
   %9 = and i8 %8, 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %7, %9
+  %cmp.i.i.i.i.i.i = icmp samesign ult i8 %7, %9
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i = icmp ult i8 %9, %7
+  %cmp10.i.i.i.i.i.i = icmp samesign ult i8 %9, %7
   br i1 %cmp10.i.i.i.i.i.i, label %if.else, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit: ; preds = %lor.rhs.i.i.i.i.i.i
@@ -2970,21 +2970,21 @@ lor.rhs.i.i.i.i.i4:                               ; preds = %while.cond.i
 land.rhs.i.i.i.i.i5:                              ; preds = %lor.rhs.i.i.i.i.i4
   %14 = load i8, ptr %unbounded4.i.i.i, align 1
   %15 = and i8 %14, 1
-  %cmp.i.i.i.i.i.i6 = icmp ult i8 %.pre-phi, %15
+  %cmp.i.i.i.i.i.i6 = icmp samesign ult i8 %.pre-phi, %15
   br i1 %cmp.i.i.i.i.i.i6, label %while.body.i, label %lor.rhs.i.i.i.i.i.i7
 
 lor.rhs.i.i.i.i.i.i7:                             ; preds = %land.rhs.i.i.i.i.i5
-  %cmp10.i.i.i.i.i.i8 = icmp ult i8 %15, %.pre-phi
+  %cmp10.i.i.i.i.i.i8 = icmp samesign ult i8 %15, %.pre-phi
   br i1 %cmp10.i.i.i.i.i.i8, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_15pcompEEEEvT_T0_.exit, label %land.rhs.i.i.i.i.i.i9
 
 land.rhs.i.i.i.i.i.i9:                            ; preds = %lor.rhs.i.i.i.i.i.i7
   %16 = load i8, ptr %simple_exhaust5.i.i.i, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i.i.i.i.i.i10 = icmp ult i8 %12, %17
+  %cmp.i.i.i.i.i.i.i10 = icmp samesign ult i8 %12, %17
   br i1 %cmp.i.i.i.i.i.i.i10, label %while.body.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i.i.i9
-  %cmp10.i.i.i.i.i.i.i = icmp ult i8 %17, %12
+  %cmp10.i.i.i.i.i.i.i = icmp samesign ult i8 %17, %12
   br i1 %cmp10.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_15pcompEEEEvT_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS2_8raw_puffENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS2_8raw_puffENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i.i.i.i

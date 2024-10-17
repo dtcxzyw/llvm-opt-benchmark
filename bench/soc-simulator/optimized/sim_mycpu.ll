@@ -4912,7 +4912,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t12update_inputERS_(ptr nounde
   %33 = zext i8 %32 to i64
   %34 = add nuw nsw i64 %33, 7
   %35 = lshr i64 %34, 3
-  %36 = icmp ult i64 %31, %35
+  %36 = icmp samesign ult i64 %31, %35
   br i1 %36, label %.preheader, label %.loopexit10, !llvm.loop !440
 
 .loopexit10:                                      ; preds = %.preheader, %.loopexit11
@@ -4965,7 +4965,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t12update_inputERS_(ptr nounde
   %71 = zext i8 %70 to i64
   %72 = add nuw nsw i64 %71, 7
   %73 = lshr i64 %72, 3
-  %74 = icmp ult i64 %69, %73
+  %74 = icmp samesign ult i64 %69, %73
   br i1 %74, label %62, label %.loopexit8, !llvm.loop !442
 
 .loopexit8:                                       ; preds = %62, %.loopexit9
@@ -5096,7 +5096,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t12update_inputERS_(ptr nounde
   %168 = zext i8 %167 to i64
   %169 = add nuw nsw i64 %168, 7
   %170 = lshr i64 %169, 3
-  %171 = icmp ult i64 %166, %170
+  %171 = icmp samesign ult i64 %166, %170
   br i1 %171, label %159, label %.loopexit5, !llvm.loop !445
 
 .loopexit5:                                       ; preds = %159, %.loopexit6
@@ -5147,7 +5147,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t12update_inputERS_(ptr nounde
   %204 = zext i8 %203 to i64
   %205 = add nuw nsw i64 %204, 7
   %206 = lshr i64 %205, 3
-  %207 = icmp ult i64 %202, %206
+  %207 = icmp samesign ult i64 %202, %206
   br i1 %207, label %195, label %.loopexit, !llvm.loop !447
 
 .loopexit:                                        ; preds = %195, %.loopexit4
@@ -5286,7 +5286,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t13update_outputERS_(ptr nound
   %47 = zext i8 %46 to i64
   %48 = add nuw nsw i64 %47, 7
   %49 = lshr i64 %48, 3
-  %50 = icmp ult i64 %45, %49
+  %50 = icmp samesign ult i64 %45, %49
   br i1 %50, label %38, label %.loopexit4, !llvm.loop !450
 
 .loopexit4:                                       ; preds = %38, %.loopexit5
@@ -5355,7 +5355,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_t13update_outputERS_(ptr nound
   %98 = zext i8 %97 to i64
   %99 = add nuw nsw i64 %98, 7
   %100 = lshr i64 %99, 3
-  %101 = icmp ult i64 %96, %100
+  %101 = icmp samesign ult i64 %96, %100
   br i1 %101, label %89, label %.loopexit2, !llvm.loop !452
 
 .loopexit2:                                       ; preds = %89, %.loopexit3
@@ -12754,7 +12754,7 @@ define linkonce_odr dso_local void @_ZN8axi4_slv18output_transactionER10axi4_ptr
   %89 = zext i8 %88 to i64
   %90 = add nuw nsw i64 %89, 7
   %91 = lshr i64 %90, 3
-  %92 = icmp ult i64 %87, %91
+  %92 = icmp samesign ult i64 %87, %91
   br i1 %92, label %80, label %.loopexit4, !llvm.loop !452
 
 .loopexit4:                                       ; preds = %80, %67
@@ -12875,7 +12875,7 @@ define linkonce_odr dso_local void @_ZN8axi4_slv18output_transactionER10axi4_ptr
   %178 = zext i8 %177 to i64
   %179 = add nuw nsw i64 %178, 7
   %180 = lshr i64 %179, 3
-  %181 = icmp ult i64 %176, %180
+  %181 = icmp samesign ult i64 %176, %180
   br i1 %181, label %169, label %.loopexit, !llvm.loop !450
 
 .loopexit:                                        ; preds = %169, %159
@@ -14769,7 +14769,7 @@ define linkonce_odr dso_local void @_ZN8axi4_slv10ar_processER9ar_packet(ptr nou
   %303 = add nuw nsw i32 %285, 1
   %304 = load i8, ptr %28, align 8, !tbaa !624
   %305 = zext i8 %304 to i32
-  %306 = icmp ult i32 %285, %305
+  %306 = icmp samesign ult i32 %285, %305
   br i1 %306, label %284, label %260, !llvm.loop !666
 
 307:                                              ; preds = %284
@@ -19441,7 +19441,7 @@ define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EE10ar_processE
   %303 = add nuw nsw i32 %285, 1
   %304 = load i8, ptr %28, align 8, !tbaa !624
   %305 = zext i8 %304 to i32
-  %306 = icmp ult i32 %285, %305
+  %306 = icmp samesign ult i32 %285, %305
   br i1 %306, label %284, label %260, !llvm.loop !729
 
 307:                                              ; preds = %284

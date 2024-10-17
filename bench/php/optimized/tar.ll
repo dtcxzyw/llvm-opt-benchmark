@@ -102,7 +102,7 @@ define hidden range(i32 0, 2) i32 @phar_is_tar(ptr nocapture noundef %0, ptr nou
   br i1 %exitcond.not.i, label %phar_tar_number.exit, label %4
 
 .critedge.i:                                      ; preds = %4
-  %10 = icmp ult i64 %.019.i, 8
+  %10 = icmp samesign ult i64 %.019.i, 8
   br i1 %10, label %.lr.ph.i, label %phar_tar_number.exit
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %14
@@ -192,7 +192,7 @@ define internal fastcc i32 @phar_tar_number(ptr nocapture noundef readonly %0, i
   br i1 %exitcond.not, label %.critedge2, label %3
 
 .critedge:                                        ; preds = %3
-  %9 = icmp ult i64 %.019, %1
+  %9 = icmp samesign ult i64 %.019, %1
   br i1 %9, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.critedge, %13
@@ -427,7 +427,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %.lr.ph.i598.preheader, label %82
 
 .critedge.i:                                      ; preds = %82
-  %88 = icmp ult i64 %.019.i, 8
+  %88 = icmp samesign ult i64 %.019.i, 8
   br i1 %88, label %.lr.ph.i, label %.lr.ph.i598.preheader
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %92
@@ -533,7 +533,7 @@ phar_tar_checksum.exit608:                        ; preds = %.lr.ph.i604
   br i1 %exitcond.not.i618, label %phar_tar_number.exit619, label %115
 
 .critedge.i610:                                   ; preds = %115
-  %121 = icmp ult i64 %.019.i609, 12
+  %121 = icmp samesign ult i64 %.019.i609, 12
   br i1 %121, label %.lr.ph.i612, label %phar_tar_number.exit619
 
 .lr.ph.i612:                                      ; preds = %.critedge.i610, %125
@@ -997,7 +997,7 @@ phar_tar_checksum.exit624:                        ; preds = %.lr.ph.i620
   br i1 %exitcond.not.i634, label %phar_tar_number.exit635, label %.preheader825
 
 .critedge.i626:                                   ; preds = %.preheader825
-  %329 = icmp ult i64 %.019.i625, 8
+  %329 = icmp samesign ult i64 %.019.i625, 8
   br i1 %329, label %.lr.ph.i628, label %phar_tar_number.exit635
 
 .lr.ph.i628:                                      ; preds = %.critedge.i626, %333
@@ -1040,7 +1040,7 @@ phar_tar_number.exit635:                          ; preds = %327, %.lr.ph.i628, 
   br i1 %exitcond.not.i645, label %phar_tar_number.exit646, label %341
 
 .critedge.i637:                                   ; preds = %341
-  %347 = icmp ult i64 %.019.i636, 12
+  %347 = icmp samesign ult i64 %.019.i636, 12
   br i1 %347, label %.lr.ph.i639, label %phar_tar_number.exit646
 
 .lr.ph.i639:                                      ; preds = %.critedge.i637, %351
@@ -3185,7 +3185,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_tar_writeheaders_int(ptr nounde
   br i1 %75, label %68, label %76
 
 76:                                               ; preds = %68
-  %77 = icmp ult i32 %.01315.i, 8
+  %77 = icmp samesign ult i32 %.01315.i, 8
   br i1 %77, label %phar_tar_octal.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %76

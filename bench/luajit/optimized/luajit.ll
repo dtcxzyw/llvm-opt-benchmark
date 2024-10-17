@@ -353,7 +353,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end15
-  %cmp45.i = icmp ugt i32 %retval.0.i8893, 1
+  %cmp45.i = icmp samesign ugt i32 %retval.0.i8893, 1
   br i1 %cmp45.i, label %for.body.i37, label %if.end25
 
 for.body.i37:                                     ; preds = %if.end19, %for.inc.i47

@@ -719,7 +719,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %pkt_idx.017.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.cond.i.i.i ]
   %have_deferred.016.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %84, %for.cond.i.i.i ]
   %cmp3.i.i.i = icmp ult i64 %pkt.val20.i.i.i, 7
-  %cmp4.i.i.i = icmp ugt i64 %pkt_idx.017.i.i.i, 63
+  %cmp4.i.i.i = icmp samesign ugt i64 %pkt_idx.017.i.i.i, 63
   %or.cond.i.i.i = select i1 %cmp3.i.i.i, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %qrx_process_datagram.exit.i.i, label %if.end6.i.i.i
 

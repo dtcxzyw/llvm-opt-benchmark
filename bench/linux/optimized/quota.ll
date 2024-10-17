@@ -106,7 +106,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   %12 = lshr i32 %8, 8
   %13 = and i32 %8, 255
-  %14 = icmp ugt i32 %13, 2
+  %14 = icmp samesign ugt i32 %13, 2
   br i1 %14, label %117, label %15
 
 15:                                               ; preds = %4
@@ -398,7 +398,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br i1 %14, label %48, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ugt i32 %10, 2
+  %16 = icmp samesign ugt i32 %10, 2
   br i1 %16, label %41, label %17
 
 17:                                               ; preds = %15

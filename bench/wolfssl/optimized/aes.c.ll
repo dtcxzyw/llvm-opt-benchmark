@@ -93,7 +93,7 @@ for.body9.i.i:                                    ; preds = %for.body9.i.i, %for
   %or.i16.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i.i)
   store i32 %or.i16.i.i, ptr %add.ptr.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %cmp8.i.i = icmp ult i64 %indvars.iv.next.i.i, %3
+  %cmp8.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %3
   br i1 %cmp8.i.i, label %for.body9.i.i, label %ByteReverseWords.exit.i, !llvm.loop !6
 
 ByteReverseWords.exit.i:                          ; preds = %for.body9.i.i, %for.body.i.i
@@ -135,7 +135,7 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %f
   %or.i16.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i.i.i)
   store i32 %or.i16.i.i.i, ptr %add.ptr.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 4
-  %cmp8.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %5
+  %cmp8.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %5
   br i1 %cmp8.i.i.i, label %for.body9.i.i.i, label %ByteReverseWords.exit.i.i, !llvm.loop !6
 
 ByteReverseWords.exit.i.i:                        ; preds = %for.body9.i.i.i, %for.body.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %if.else.i.i.thread.i
@@ -456,7 +456,7 @@ for.body.i27.i:                                   ; preds = %if.then207.i.i, %fo
   %indvars.iv.next186.i.i = add nuw nsw i64 %indvars.iv185.i.i, 4
   %sub.i.i = add i32 %j.0169.i.i, -4
   %58 = zext i32 %sub.i.i to i64
-  %cmp210.i.i = icmp ult i64 %indvars.iv.next186.i.i, %58
+  %cmp210.i.i = icmp samesign ult i64 %indvars.iv.next186.i.i, %58
   br i1 %cmp210.i.i, label %for.body.i27.i, label %for.end.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.body.i27.i, %if.then207.i.i
@@ -5357,7 +5357,7 @@ if.end34.i:                                       ; preds = %IncrementGcmCounter
   br i1 %cmp.i68.i, label %while.end.i89.i, label %for.body.preheader.i69.i
 
 while.end.i89.i:                                  ; preds = %if.end34.i
-  %cmp2.not.i.i90.i = icmp ult i32 %rem.i, 8
+  %cmp2.not.i.i90.i = icmp samesign ult i32 %rem.i, 8
   br i1 %cmp2.not.i.i90.i, label %if.end.i100.i, label %for.body.i.i91.preheader.i
 
 for.body.i.i91.preheader.i:                       ; preds = %while.end.i89.i

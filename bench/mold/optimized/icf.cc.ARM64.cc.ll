@@ -9091,7 +9091,7 @@ _ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit:
   %conv4.i.i = zext i32 %add.i.i to i64
   %sub.i.i7 = sub nuw i64 %9, %conv2.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i7, i64 %conv4.i.i)
-  %cmp.i.i8 = icmp ult i64 %.sroa.speculated.i.i, 8
+  %cmp.i.i8 = icmp samesign ult i64 %.sroa.speculated.i.i, 8
   br i1 %cmp.i.i8, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i:                                      ; preds = %_ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit
@@ -9126,7 +9126,7 @@ entry:
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i.i = icmp ugt i64 %str.coerce0, 8
+  %cmp1.i.i.i = icmp samesign ugt i64 %str.coerce0, 8
   br i1 %cmp1.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -9156,7 +9156,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp2.i.i.i = icmp ugt i64 %str.coerce0, 3
+  %cmp2.i.i.i = icmp samesign ugt i64 %str.coerce0, 3
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -9222,15 +9222,15 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i.i = mul i64 %str.coerce0, -7046029288634856825
-  %cmp3.i.i.i = icmp ugt i64 %str.coerce0, 32
+  %cmp3.i.i.i = icmp samesign ugt i64 %str.coerce0, 32
   br i1 %cmp3.i.i.i, label %if.then.i20.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then3.i.i
-  %cmp4.i.i.i = icmp ugt i64 %str.coerce0, 64
+  %cmp4.i.i.i = icmp samesign ugt i64 %str.coerce0, 64
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end23.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i20.i.i
-  %cmp6.i.i.i = icmp ugt i64 %str.coerce0, 96
+  %cmp6.i.i.i = icmp samesign ugt i64 %str.coerce0, 96
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end.i21.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -10242,7 +10242,7 @@ _ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit:
   %conv4.i.i = zext i32 %add.i.i to i64
   %sub.i.i35 = sub nuw i64 %14, %conv2.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i35, i64 %conv4.i.i)
-  %cmp.i.i36 = icmp ult i64 %.sroa.speculated.i.i, 8
+  %cmp.i.i36 = icmp samesign ult i64 %.sroa.speculated.i.i, 8
   br i1 %cmp.i.i36, label %if.then.i.i41, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i41:                                    ; preds = %_ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit
@@ -10279,7 +10279,7 @@ _ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit5
   %conv4.i.i53 = zext i32 %add.i.i52 to i64
   %sub.i.i54 = sub nuw i64 %20, %conv2.i47
   %.sroa.speculated.i.i55 = tail call i64 @llvm.umin.i64(i64 %sub.i.i54, i64 %conv4.i.i53)
-  %cmp.i.i60 = icmp ult i64 %.sroa.speculated.i.i55, 8
+  %cmp.i.i60 = icmp samesign ult i64 %.sroa.speculated.i.i55, 8
   br i1 %cmp.i.i60, label %if.then.i.i66, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit67
 
 if.then.i.i66:                                    ; preds = %_ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit59
@@ -10958,7 +10958,7 @@ _ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.
   %conv4.i.i.i.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i.i.i to i64
   %sub.i.i7.i.i.i.i.i.i = sub nuw i64 %23, %conv2.i.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i7.i.i.i.i.i.i, i64 %conv4.i.i.i.i.i.i.i.i)
-  %cmp.i.i8.i7.i.i.i.i.i = icmp ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i, 8
+  %cmp.i.i8.i7.i.i.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i, 8
   br i1 %cmp.i.i8.i7.i.i.i.i.i, label %if.then.i.i.i8.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i
 
 if.then.i.i.i8.i.i.i.i.i:                         ; preds = %_ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i
@@ -13950,7 +13950,7 @@ _ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.
   %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %sub.i.i87.i.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %37, %conv2.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i87.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i88.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
+  %cmp.i.i88.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   br i1 %cmp.i.i88.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK4mold3elf9FdeRecordINS0_5ARM64EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -14160,7 +14160,7 @@ if.then.i21.i.i.i.i.i:                            ; preds = %_ZN4mold3elf9InputF
 
 _ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit172.i.i.i.i.i.i.thread.i.i.i.i.i: ; preds = %_ZN4mold3elf9InputFileINS0_5ARM64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i18.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i6.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i41.i.i.i.i.i = icmp ult i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i, %div.i24.i.i.i.i.i
+  %cmp.i.i.i.i.i.i41.i.i.i.i.i = icmp samesign ult i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i, %div.i24.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i41.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit185.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5ARM64EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i
 
 _ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit185.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit172.i.i.i.i.i.i.thread.i.i.i.i.i
@@ -14964,7 +14964,7 @@ _ZN4mold3elf9InputFileINS0_5ARM64EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm1844
 
 _ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4mold3elf9InputFileINS0_5ARM64EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit31.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %div.i24.i.i.i.i.i, %_ZN4mold3elf9InputFileINS0_5ARM64EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit31.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i.i.i.i.i.i ]
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %j.0.i.i.i.i.i.i.i.i.i.i, %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %j.0.i.i.i.i.i.i.i.i.i.i, %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL12gather_edgesINS4_5ARM64EEEvRNS4_7ContextIT_EESt4spanIPNS4_12InputSectionIS8_EELm18446744073709551615EERSt6vectorIjSaIjEESJ_EUllE_JRlEEENSt13invoke_resultIS8_JDpT0_EE4typeEOS8_DpOSP_.exit.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZNK4mold3elf12InputSectionINS0_5ARM64EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i

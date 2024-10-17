@@ -3205,7 +3205,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %44, %47
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %44 ], [ %49, %47 ]
   %.idx80 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %53 = getelementptr inbounds i8, ptr %52, i64 %.idx80
-  %.not79 = icmp ult i64 %.pre-phi2.i.i, 4
+  %.not79 = icmp samesign ult i64 %.pre-phi2.i.i, 4
   br i1 %.not79, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN4llvm4User8operandsEv.exit
@@ -13706,7 +13706,7 @@ _ZN4llvm5APIntD2Ev.exit155.i:                     ; preds = %1866, %1863, %_ZN4l
   %1925 = and i64 %.020.i.i, 4294967295
   call void @_ZN4llvm5APInt10insertBitsEmjj(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef %1925, i32 noundef %.02358.i.i, i32 noundef 8) #17
   %1926 = add nuw nsw i32 %.02358.i.i, 8
-  %1927 = icmp ult i32 %.02358.i.i, 24
+  %1927 = icmp samesign ult i32 %.02358.i.i, 24
   br i1 %1927, label %1900, label %1928, !llvm.loop !113
 
 1928:                                             ; preds = %1924

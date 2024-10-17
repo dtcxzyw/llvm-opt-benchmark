@@ -730,7 +730,7 @@ switch.early.test:                                ; preds = %93, %97, %101
   br i1 %.not250, label %332, label %135
 
 135:                                              ; preds = %132
-  %136 = icmp ugt i64 %indvars.iv, %131
+  %136 = icmp samesign ugt i64 %indvars.iv, %131
   br i1 %136, label %137, label %154
 
 137:                                              ; preds = %135
@@ -4351,7 +4351,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct(ptr noundef %0
 88:                                               ; preds = %85
   %89 = load i32, ptr %67, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next, %90
   br i1 %91, label %.lr.ph.i, label %vec_erase_ptr_at.exit
 
 .lr.ph.i:                                         ; preds = %88, %.lr.ph.i
@@ -4377,12 +4377,12 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   store i32 %98, ptr %67, align 4
   %99 = add i32 %.1, -1
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv, %100
+  %101 = icmp samesign ult i64 %indvars.iv, %100
   br i1 %101, label %71, label %.loopexit
 
 102:                                              ; preds = %85
   %103 = zext i32 %.1 to i64
-  %104 = icmp ult i64 %indvars.iv.next, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next, %103
   br i1 %104, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %102, %vec_erase_ptr_at.exit, %64
@@ -8088,7 +8088,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
   %105 = getelementptr inbounds i8, ptr %2, i64 96
   %106 = load i32, ptr %105, align 8
   %107 = zext i32 %106 to i64
-  %.not162 = icmp ugt i64 %90, %107
+  %.not162 = icmp samesign ugt i64 %90, %107
   br i1 %.not162, label %219, label %108
 
 108:                                              ; preds = %104
@@ -8423,7 +8423,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_union_members(ptr nounde
 30:                                               ; preds = %27
   %31 = load i32, ptr %10, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph.i, label %vec_erase_ptr_at.exit
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
@@ -8449,7 +8449,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   store i32 %40, ptr %10, align 4
   %41 = add i32 %.190, -1
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv, %42
+  %43 = icmp samesign ult i64 %indvars.iv, %42
   br i1 %43, label %14, label %.loopexit117
 
 44:                                               ; preds = %27
@@ -8494,7 +8494,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   %70 = and i64 %69, -4294967296
   store i64 %70, ptr %68, align 8
   %71 = zext i32 %.190 to i64
-  %72 = icmp ult i64 %indvars.iv.next, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
   br i1 %72, label %.preheader, label %.loopexit117, !llvm.loop !41
 
 .loopexit117:                                     ; preds = %58, %vec_erase_ptr_at.exit, %2, %7

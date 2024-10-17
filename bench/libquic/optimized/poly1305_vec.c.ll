@@ -330,7 +330,7 @@ if.then49:                                        ; preds = %if.end47
   %sub.ptr.lhs.cast.i103 = ptrtoint ptr %m.addr.3 to i64
   %sub.ptr.rhs.cast.i104 = ptrtoint ptr %add.ptr53 to i64
   %sub.ptr.sub.i105 = sub i64 %sub.ptr.lhs.cast.i103, %sub.ptr.rhs.cast.i104
-  %tobool.not.i107 = icmp ult i64 %bytes.addr.3, 32
+  %tobool.not.i107 = icmp samesign ult i64 %bytes.addr.3, 32
   br i1 %tobool.not.i107, label %if.end.i113, label %if.then.i108
 
 if.then.i108:                                     ; preds = %if.then49
@@ -1472,7 +1472,7 @@ if.end120:                                        ; preds = %poly1305_donna_atmo
   store i8 1, ptr %arrayidx121, align 1
   %add.ptr122 = getelementptr inbounds i8, ptr %m.1, i64 %inc
   %sub123 = xor i64 %leftover.1, 15
-  %tobool.not.i = icmp ult i64 %sub123, 8
+  %tobool.not.i = icmp samesign ult i64 %sub123, 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i286
 
 if.then.i286:                                     ; preds = %if.end120

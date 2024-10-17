@@ -1256,8 +1256,8 @@ define internal fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipher
   %14 = load i64, ptr %13, align 8, !noundef !9
   %15 = and i64 %14, 15
   %16 = icmp ne i64 %15, 0
-  %17 = icmp uge i64 %15, %12
-  %18 = and i1 %16, %17
+  %17 = icmp samesign uge i64 %15, %12
+  %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %47, label %19
 
 19:                                               ; preds = %2

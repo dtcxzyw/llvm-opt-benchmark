@@ -135,7 +135,7 @@ define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef %0) local_u
   %80 = add nuw nsw i64 %.04752, 1
   %81 = load i32, ptr %22, align 4
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %80, %82
+  %83 = icmp samesign ult i64 %80, %82
   br i1 %83, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %72, %68, %60, %52, %44
@@ -473,7 +473,7 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   %33 = mul i64 %32, %27
   %34 = add i64 %33, %.140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = icmp ult i64 %indvars.iv.next, %29
+  %35 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %35, label %30, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %30

@@ -1477,7 +1477,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   %.1.i = phi i32 [ 0, %.lr.ph.i ], [ %322, %318 ], [ 0, %315 ], [ %296, %291 ], [ %290, %285 ], [ 0, %297 ], [ %304, %301 ], [ 0, %305 ], [ %314, %309 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %327 = zext i32 %325 to i64
-  %328 = icmp ult i64 %indvars.iv.next.i, %327
+  %328 = icmp samesign ult i64 %indvars.iv.next.i, %327
   %.not.i386 = icmp eq i32 %.1.i, 0
   %329 = select i1 %328, i1 %.not.i386, i1 false
   br i1 %329, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9

@@ -1488,7 +1488,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hfa0f96b2a0473caaE.exit48"
 
 76:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hfa0f96b2a0473caaE.exit"
-  %77 = icmp ult i64 %9, 29
+  %77 = icmp samesign ult i64 %9, 29
   br i1 %77, label %.lr.ph.i51, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %87, %76
@@ -10066,7 +10066,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -15252,7 +15252,7 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
   %6 = alloca [24 x i8], align 8
   %. = select i1 %4, i64 2015, i64 223
   %7 = trunc nuw nsw i64 %. to i32
-  %switch15 = icmp uge i32 %2, %7
+  %switch15 = icmp samesign uge i32 %2, %7
   %switch = icmp uge i64 %1, %.
   %or.cond17 = or i1 %switch, %switch15
   br i1 %or.cond17, label %8, label %9
@@ -15364,8 +15364,8 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
   br label %51
 
 51:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0c7b3f31586b9f8aE.exit", %.noexc19
-  %switch12 = icmp ugt i32 %2, 94
-  %or.cond14 = and i1 %switch12, %4
+  %switch12 = icmp samesign ugt i32 %2, 94
+  %or.cond14 = select i1 %4, i1 %switch12, i1 false
   br i1 %or.cond14, label %62, label %52
 
 52:                                               ; preds = %51

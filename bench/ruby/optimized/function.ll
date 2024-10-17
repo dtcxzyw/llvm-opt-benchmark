@@ -547,7 +547,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
   %184 = add nsw i32 %spec.select, 1
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %185 = icmp slt i32 %184, %0
-  %186 = icmp ult i64 %indvars.iv.next189, %124
+  %186 = icmp samesign ult i64 %indvars.iv.next189, %124
   %187 = select i1 %185, i1 %186, i1 false
   br i1 %187, label %125, label %._crit_edge177.loopexit, !llvm.loop !10
 

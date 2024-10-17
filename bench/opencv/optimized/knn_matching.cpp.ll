@@ -175,7 +175,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %18, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %44 = phi ptr [ %20, %18 ], [ %41, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ]
-  %.not = icmp ult i64 %.02361, 2
+  %.not = icmp samesign ult i64 %.02361, 2
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit, label %12
 
 .loopexit:                                        ; preds = %33

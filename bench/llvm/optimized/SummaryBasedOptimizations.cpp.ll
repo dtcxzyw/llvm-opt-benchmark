@@ -2539,7 +2539,7 @@ _ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i.i: ; preds = %27, %25
   br i1 %.not13.i, label %32, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit"
 
 32:                                               ; preds = %29
-  %33 = icmp ult i16 %30, -16437
+  %33 = icmp samesign ult i16 %30, -16437
   br i1 %33, label %"_ZZN4llvm22computeSyntheticCountsERNS_18ModuleSummaryIndexEENK3$_0clENS_9ValueInfoERSt4pairIS3_NS_10CalleeInfoEE.exit", label %34
 
 34:                                               ; preds = %32

@@ -28860,7 +28860,7 @@ _ZN2cvL14initInterTab1DEiPfi.exit:                ; preds = %_ZN2cvL19interpolat
   %.2121172 = phi ptr [ %.0119, %_ZN2cvL14initInterTab1DEiPfi.exit ], [ %174, %176 ]
   %.2124171 = phi ptr [ %.0122, %_ZN2cvL14initInterTab1DEiPfi.exit ], [ %175, %176 ]
   %106 = shl nuw nsw i64 %indvars.iv196, 5
-  %107 = icmp ult i64 %indvars.iv196, 16
+  %107 = icmp samesign ult i64 %indvars.iv196, 16
   %108 = zext i1 %107 to i8
   %109 = mul nuw nsw i64 %indvars.iv196, %104
   br label %110
@@ -28869,7 +28869,7 @@ _ZN2cvL14initInterTab1DEiPfi.exit:                ; preds = %_ZN2cvL19interpolat
   %indvars.iv192 = phi i64 [ 0, %.preheader150 ], [ %indvars.iv.next193, %173 ]
   %.3169 = phi ptr [ %.2121172, %.preheader150 ], [ %174, %173 ]
   %.3125168 = phi ptr [ %.2124171, %.preheader150 ], [ %175, %173 ]
-  %111 = icmp ult i64 %indvars.iv192, 16
+  %111 = icmp samesign ult i64 %indvars.iv192, 16
   %112 = zext i1 %111 to i8
   %113 = add nuw nsw i64 %indvars.iv192, %106
   %114 = getelementptr inbounds [1024 x [2 x i8]], ptr @_ZN2cvL12NNDeltaTab_iE, i64 0, i64 %113
@@ -34692,7 +34692,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %118
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %164 = icmp ult i64 %indvars.iv.next249, %117
+  %164 = icmp samesign ult i64 %indvars.iv.next249, %117
   br i1 %164, label %118, label %.loopexit207, !llvm.loop !518
 
 165:                                              ; preds = %113
@@ -34790,7 +34790,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %104
 
 ._crit_edge222:                                   ; preds = %.lr.ph221, %178
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
-  %222 = icmp ult i64 %indvars.iv.next255, %170
+  %222 = icmp samesign ult i64 %indvars.iv.next255, %170
   br i1 %222, label %178, label %.loopexit207, !llvm.loop !520
 
 .loopexit207.sink.split:                          ; preds = %173, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
@@ -35010,7 +35010,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit174:            ; preds = %250
 
 .loopexit:                                        ; preds = %.lr.ph227, %.lr.ph230, %.lr.ph233, %280, %320, %252
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %351 = icmp ult i64 %indvars.iv.next267, %230
+  %351 = icmp samesign ult i64 %indvars.iv.next267, %230
   br i1 %351, label %231, label %._crit_edge237, !llvm.loop !524
 
 ._crit_edge237:                                   ; preds = %.loopexit, %.preheader
@@ -35309,7 +35309,7 @@ define linkonce_odr hidden void @_ZNK2cv17WarpAffineInvokerclERKNS_5RangeE(ptr n
 
 .loopexit.us:                                     ; preds = %.lr.ph141.us, %.preheader.us
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %134 = icmp ult i64 %indvars.iv.next162, %94
+  %134 = icmp samesign ult i64 %indvars.iv.next162, %94
   br i1 %134, label %.preheader.us, label %._crit_edge, !llvm.loop !529
 
 .lr.ph143.split:                                  ; preds = %.lr.ph143
@@ -35377,12 +35377,12 @@ define linkonce_odr hidden void @_ZNK2cv17WarpAffineInvokerclERKNS_5RangeE(ptr n
   %183 = getelementptr inbounds i16, ptr %157, i64 %indvars.iv
   store i16 %182, ptr %183, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %184 = icmp ult i64 %indvars.iv.next, %135
+  %184 = icmp samesign ult i64 %indvars.iv.next, %135
   br i1 %184, label %158, label %..loopexit136_crit_edge.us, !llvm.loop !530
 
 ..loopexit136_crit_edge.us:                       ; preds = %158
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %185 = icmp ult i64 %indvars.iv.next156, %137
+  %185 = icmp samesign ult i64 %indvars.iv.next156, %137
   br i1 %185, label %.lr.ph.us, label %._crit_edge, !llvm.loop !529
 
 186:                                              ; preds = %2
@@ -35797,7 +35797,7 @@ define linkonce_odr hidden void @_ZNK2cv22WarpPerspectiveInvokerclERKNS_5RangeE(
 
 .loopexit185.us:                                  ; preds = %.lr.ph.us, %.lr.ph192.split.us200
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %144 = icmp ult i64 %indvars.iv.next214, %159
+  %144 = icmp samesign ult i64 %indvars.iv.next214, %159
   br i1 %144, label %.lr.ph192.split.us200, label %._crit_edge.us, !llvm.loop !535
 
 .preheader186.us:                                 ; preds = %63
@@ -35895,7 +35895,7 @@ define linkonce_odr hidden void @_ZNK2cv22WarpPerspectiveInvokerclERKNS_5RangeE(
 
 .loopexit.us.us:                                  ; preds = %.lr.ph190.us.us, %.preheader.us.us
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %217 = icmp ult i64 %indvars.iv.next220, %159
+  %217 = icmp samesign ult i64 %indvars.iv.next220, %159
   br i1 %217, label %.preheader.us.us, label %._crit_edge.us, !llvm.loop !535
 
 ._crit_edge195.us:                                ; preds = %75

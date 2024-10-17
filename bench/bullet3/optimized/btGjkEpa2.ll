@@ -260,7 +260,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit31: ; preds = %mempt
   %rank = getelementptr inbounds i8, ptr %60, i64 48
   %61 = load i32, ptr %rank, align 8
   %62 = zext i32 %61 to i64
-  %cmp6 = icmp ult i64 %indvars.iv.next, %62
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit31, %for.cond.preheader
@@ -1492,7 +1492,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit: ; preds = %memptr.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %rank, align 8
   %24 = zext i32 %23 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next, %24
+  %cmp9 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit, %for.cond.preheader
@@ -1957,7 +1957,7 @@ for.body101:                                      ; preds = %for.cond98.preheade
   %conv107 = zext i8 %66 to i32
   %call108 = call noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 8 dereferenceable(28800) %this, i32 noundef %inc91, ptr noundef nonnull %arrayidx90, ptr noundef %65, i32 noundef %conv107, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp99 = icmp ult i64 %indvars.iv, 2
+  %cmp99 = icmp samesign ult i64 %indvars.iv, 2
   %67 = and i1 %cmp99, %call108
   br i1 %67, label %for.body101, label %for.end, !llvm.loop !25
 
@@ -2531,7 +2531,7 @@ invoke.cont51:                                    ; preds = %_ZNK12gjkepa2_impl1
   %rank = getelementptr inbounds i8, ptr %60, i64 48
   %61 = load i32, ptr %rank, align 8
   %62 = zext i32 %61 to i64
-  %cmp22 = icmp ult i64 %indvars.iv.next, %62
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %cmp22, label %for.body, label %invoke.cont71, !llvm.loop !26
 
 lpad.loopexit:                                    ; preds = %_ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i, %_ZNK12gjkepa2_impl13MinkowskiDiff8Support1ERK9btVector3.exit.i

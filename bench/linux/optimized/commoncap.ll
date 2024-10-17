@@ -629,7 +629,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(p
 
 17:                                               ; preds = %15
   %18 = and i64 %13, 2147483647
-  %19 = icmp ult i64 %18, 4
+  %19 = icmp samesign ult i64 %18, 4
   br i1 %19, label %63, label %20
 
 20:                                               ; preds = %17

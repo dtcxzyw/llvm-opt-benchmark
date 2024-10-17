@@ -5802,7 +5802,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr20isEquivalentDbgIns
   %60 = sub i64 %58, %59
   %61 = lshr exact i64 %60, 5
   %62 = and i64 %61, 4294967295
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.preheader, %50
@@ -6918,7 +6918,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit: ; preds =
 _ZNK4llvm12MachineInstr38getRegClassConstraintEffectForVRegImplEjNS_8RegisterEPKNS_19TargetRegisterClassEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE.exit23: ; preds = %121, %127, %140, %144, %148, %149
   %.0.i19 = phi ptr [ %.229, %121 ], [ %.229, %127 ], [ %143, %140 ], [ %147, %144 ], [ %150, %149 ], [ %.229, %148 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %151 = icmp ult i64 %indvars.iv.next, %120
+  %151 = icmp samesign ult i64 %indvars.iv.next, %120
   %152 = icmp ne ptr %.0.i19, null
   %153 = and i1 %151, %152
   br i1 %153, label %121, label %.loopexit, !llvm.loop !32
@@ -10216,7 +10216,7 @@ define dso_local noundef i32 @_ZNK4llvm12MachineInstr18isConstantValuePHIEv(ptr 
 
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %14 = icmp ult i64 %indvars.iv.next, %12
+  %14 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
@@ -10542,7 +10542,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr22hasComplexRegister
 17:                                               ; preds = %12
   %18 = load i16, ptr %10, align 2
   %19 = zext i16 %18 to i64
-  %20 = icmp ult i64 %indvars.iv, %19
+  %20 = icmp samesign ult i64 %indvars.iv, %19
   br i1 %20, label %21, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit
 
 21:                                               ; preds = %17
@@ -10912,7 +10912,7 @@ _ZL18tryToGetTargetInfoRKN4llvm12MachineInstrERPKNS_18TargetRegisterInfoERPKNS_1
 51:                                               ; preds = %46
   %52 = load i16, ptr %44, align 2
   %53 = zext i16 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.i, %53
+  %54 = icmp samesign ult i64 %indvars.iv.i, %53
   br i1 %54, label %55, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i
 
 55:                                               ; preds = %51

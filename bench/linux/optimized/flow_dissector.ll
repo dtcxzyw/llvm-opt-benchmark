@@ -766,7 +766,7 @@ define dso_local i32 @bpf_flow_dissect(ptr noundef %0, ptr noundef %1, i16 nound
   %33 = load i16, ptr %7, align 4
   %34 = zext i16 %33 to i32
   %35 = and i32 %4, 65535
-  %36 = icmp ugt i32 %35, %34
+  %36 = icmp samesign ugt i32 %35, %34
   %37 = and i32 %3, 65535
   %38 = tail call i32 @llvm.umax.i32(i32 %37, i32 %34)
   %39 = select i1 %36, i32 %38, i32 %35
@@ -774,7 +774,7 @@ define dso_local i32 @bpf_flow_dissect(ptr noundef %0, ptr noundef %1, i16 nound
   store i16 %40, ptr %7, align 4
   %41 = load i16, ptr %11, align 2
   %42 = zext i16 %41 to i32
-  %43 = icmp ugt i32 %35, %42
+  %43 = icmp samesign ugt i32 %35, %42
   %44 = tail call i32 @llvm.umax.i32(i32 %39, i32 %42)
   %45 = select i1 %43, i32 %44, i32 %4
   %46 = trunc i32 %45 to i16
@@ -1234,7 +1234,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %301 = phi ptr [ %299, %297 ], [ %28, %294 ]
   %302 = load i8, ptr %301, align 4
   %303 = and i8 %302, 15
-  %304 = icmp ult i8 %303, 5
+  %304 = icmp samesign ult i8 %303, 5
   br i1 %304, label %.thread71, label %305
 
 305:                                              ; preds = %.thread72
@@ -2173,7 +2173,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 832:                                              ; preds = %.thread120
   %833 = lshr i16 %829, 8
   %834 = and i16 %833, 7
-  %835 = icmp ugt i16 %834, 1
+  %835 = icmp samesign ugt i16 %834, 1
   br i1 %835, label %.thread119, label %836
 
 836:                                              ; preds = %832
@@ -2525,7 +2525,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %1022 = getelementptr inbounds i8, ptr %1021, i64 12
   %1023 = load i16, ptr %1022, align 4
   %1024 = and i16 %1023, 240
-  %1025 = icmp ult i16 %1024, 80
+  %1025 = icmp samesign ult i16 %1024, 80
   br i1 %1025, label %.thread149, label %1026, !prof !5
 
 1026:                                             ; preds = %.thread150

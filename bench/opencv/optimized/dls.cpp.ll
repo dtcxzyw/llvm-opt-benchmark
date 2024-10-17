@@ -32655,7 +32655,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition6orthesEv(ptr no
 
 .preheader171:                                    ; preds = %.preheader171.lr.ph, %._crit_edge.thread
   %indvars.iv = phi i64 [ 1, %.preheader171.lr.ph ], [ %indvars.iv.next, %._crit_edge.thread ]
-  %.not153.not172 = icmp ult i64 %indvars.iv, %7
+  %.not153.not172 = icmp samesign ult i64 %indvars.iv, %7
   br i1 %.not153.not172, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader171
@@ -33960,7 +33960,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %534 = load ptr, ptr %533, align 8
   %535 = getelementptr inbounds double, ptr %534, i64 %indvars.iv1124
   store double 1.000000e+00, ptr %535, align 8
-  %536 = icmp ugt i64 %indvars.iv1124.in, 1
+  %536 = icmp samesign ugt i64 %indvars.iv1124.in, 1
   br i1 %536, label %.lr.ph990, label %.preheader821.us.preheader
 
 .lr.ph990:                                        ; preds = %531
@@ -34215,7 +34215,7 @@ _ZN2cv23EigenvalueDecomposition4cdivEdddd.exit:   ; preds = %665, %673
   %695 = load ptr, ptr %694, align 8
   %696 = getelementptr inbounds double, ptr %695, i64 %indvars.iv1124
   store double 1.000000e+00, ptr %696, align 8
-  %697 = icmp ugt i64 %indvars.iv1124.in, 2
+  %697 = icmp samesign ugt i64 %indvars.iv1124.in, 2
   br i1 %697, label %.preheader828.lr.ph, label %.loopexit829
 
 .preheader828.lr.ph:                              ; preds = %686

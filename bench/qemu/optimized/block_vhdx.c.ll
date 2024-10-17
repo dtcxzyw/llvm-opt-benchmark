@@ -970,7 +970,7 @@ for.inc.i93:                                      ; preds = %for.inc.sink.split.
   %inc.i94 = add nuw nsw i32 %i.097.i, 1
   %52 = load i16, ptr %entry_count.i84, align 2
   %conv18.i = zext i16 %52 to i32
-  %cmp19.i95 = icmp ult i32 %inc.i94, %conv18.i
+  %cmp19.i95 = icmp samesign ult i32 %inc.i94, %conv18.i
   br i1 %cmp19.i95, label %for.body.i87, label %for.end.i96, !llvm.loop !8
 
 for.end.i96:                                      ; preds = %for.inc.i93
@@ -1060,9 +1060,9 @@ if.end260.i:                                      ; preds = %if.end238.i
   %chunk_ratio.i = getelementptr inbounds i8, ptr %0, i64 424
   store i64 %div253.i, ptr %chunk_ratio.i, align 8
   %72 = call range(i32 0, 21) i32 @llvm.ctpop.i32(i32 %div87.i)
-  %tobool265.not.i = icmp ult i32 %72, 2
+  %tobool265.not.i = icmp samesign ult i32 %72, 2
   %73 = call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %div253.i)
-  %tobool272.not.i = icmp ult i64 %73, 2
+  %tobool272.not.i = icmp samesign ult i64 %73, 2
   %or.cond93.i = select i1 %tobool265.not.i, i1 %tobool272.not.i, i1 false
   br i1 %or.cond93.i, label %if.end274.i, label %vhdx_parse_metadata.exit.thread
 
@@ -1070,7 +1070,7 @@ if.end274.i:                                      ; preds = %if.end260.i
   %block_size277.i = getelementptr inbounds i8, ptr %0, i64 388
   store i32 %69, ptr %block_size277.i, align 4
   %74 = call range(i32 0, 30) i32 @llvm.ctpop.i32(i32 %69)
-  %tobool282.not.i = icmp ult i32 %74, 2
+  %tobool282.not.i = icmp samesign ult i32 %74, 2
   br i1 %tobool282.not.i, label %if.end28, label %vhdx_parse_metadata.exit.thread
 
 vhdx_parse_metadata.exit.thread:                  ; preds = %if.end133.i, %if.then119.i, %if.then100.i, %if.then81.i, %if.then62.i, %if.then43.i, %if.then27.i, %if.end24, %if.end144.i, %if.end178.i, %if.end191.i, %if.end204.i, %if.end.i, %if.end8.i, %for.end.i96, %if.then171.i, %if.end217.i, %if.end238.i, %if.end260.i, %if.end274.i, %for.cond.preheader.i
@@ -1114,7 +1114,7 @@ if.end28:                                         ; preds = %if.end274.i
   %83 = load i32, ptr %length, align 8
   %conv31 = zext i32 %83 to i64
   %div57 = lshr i64 %conv31, 3
-  %cmp32 = icmp ult i64 %div57, %conv
+  %cmp32 = icmp samesign ult i64 %div57, %conv
   br i1 %cmp32, label %fail, label %if.end35
 
 if.end35:                                         ; preds = %if.end28
@@ -1368,7 +1368,7 @@ if.then59:                                        ; preds = %if.end50
 
 if.end60:                                         ; preds = %if.end50
   %12 = tail call range(i64 1, 13) i64 @llvm.ctpop.i64(i64 %conv51)
-  %tobool1.not.i = icmp ult i64 %12, 2
+  %tobool1.not.i = icmp samesign ult i64 %12, 2
   br i1 %tobool1.not.i, label %if.end63, label %if.then62
 
 if.then62:                                        ; preds = %if.end60
@@ -2015,7 +2015,7 @@ error_bat_restore:                                ; preds = %sw.bb60, %if.end70
   br i1 %bat_update.0, label %if.then99, label %exit
 
 if.then99:                                        ; preds = %error_bat_restore
-  %or.cond2.i = icmp ult i32 %conv, 4
+  %or.cond2.i = icmp samesign ult i32 %conv, 4
   %spec.select93 = select i1 %or.cond2.i, i64 0, i64 %bat_prior_offset.1
   %37 = load ptr, ptr %bat.i, align 8
   %arrayidx9.i54 = getelementptr i64, ptr %37, i64 %idxprom.i
@@ -2281,7 +2281,7 @@ for.inc:                                          ; preds = %for.inc.i, %if.then
   %inc64 = add nuw nsw i64 %i.046, 1
   %16 = load i32, ptr %bat_entries, align 8
   %conv2 = zext i32 %16 to i64
-  %cmp3 = icmp ult i64 %inc64, %conv2
+  %cmp3 = icmp samesign ult i64 %inc64, %conv2
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %if.then54, %if.then37, %if.then29, %if.then23, %for.inc, %if.end, %if.then
@@ -2757,7 +2757,7 @@ while.body.lr.ph:                                 ; preds = %if.end43
   %sectors_per_block_bits.i = getelementptr inbounds i8, ptr %s, i64 400
   %chunk_ratio_bits.i = getelementptr inbounds i8, ptr %s, i64 432
   %add53 = add i64 %add1, 1048575
-  %or.cond2.i = icmp ult i32 %cond48, 4
+  %or.cond2.i = icmp samesign ult i32 %cond48, 4
   %conv.i43 = zext nneg i32 %cond48 to i64
   br i1 %or.cond2.i, label %while.body.us, label %while.body
 

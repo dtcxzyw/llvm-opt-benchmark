@@ -3906,7 +3906,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %161, %89, %.prehead
 
 208:                                              ; preds = %204
   %209 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %210 = icmp ugt i64 %indvars.iv.i.i.i, 15
+  %210 = icmp samesign ugt i64 %indvars.iv.i.i.i, 15
   br i1 %210, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %211
 
 211:                                              ; preds = %208
@@ -3946,11 +3946,11 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   %235 = phi i32 [ %198, %195 ], [ %229, %228 ]
   %236 = phi i32 [ %200, %195 ], [ %231, %228 ]
   %.0135.i.i = phi i32 [ %201, %195 ], [ %234, %228 ]
-  %or.cond.i.i = icmp ugt i32 %.0135.i.i, 18
+  %or.cond.i.i = icmp samesign ugt i32 %.0135.i.i, 18
   br i1 %or.cond.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %237
 
 237:                                              ; preds = %_ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i
-  %238 = icmp ult i32 %.0135.i.i, 16
+  %238 = icmp samesign ult i32 %.0135.i.i, 16
   br i1 %238, label %239, label %244
 
 239:                                              ; preds = %237
@@ -4142,7 +4142,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
 
 326:                                              ; preds = %322
   %327 = trunc nuw nsw i64 %indvars.iv.i.i55.i to i32
-  %328 = icmp ugt i64 %indvars.iv.i.i55.i, 15
+  %328 = icmp samesign ugt i64 %indvars.iv.i.i55.i, 15
   br i1 %328, label %_ZL10decompressPci.exit, label %329
 
 329:                                              ; preds = %326
@@ -4182,7 +4182,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i: ; preds = %346, %313
   %353 = phi i32 [ %316, %313 ], [ %347, %346 ]
   %.pr.i = phi i32 [ %318, %313 ], [ %349, %346 ]
   %.0.i49.i = phi i32 [ %319, %313 ], [ %352, %346 ]
-  %354 = icmp ult i32 %.0.i49.i, 256
+  %354 = icmp samesign ult i32 %.0.i49.i, 256
   br i1 %354, label %355, label %360
 
 355:                                              ; preds = %_ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i
@@ -4287,7 +4287,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
 
 406:                                              ; preds = %402
   %407 = trunc nuw nsw i64 %indvars.iv.i120.i.i to i32
-  %408 = icmp ugt i64 %indvars.iv.i120.i.i, 15
+  %408 = icmp samesign ugt i64 %indvars.iv.i120.i.i, 15
   br i1 %408, label %_ZL10decompressPci.exit, label %409
 
 409:                                              ; preds = %406
@@ -4713,7 +4713,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %63 = zext i16 %rev to i32
   %64 = sub nuw nsw i32 16, %40
   %65 = lshr i32 %63, %64
-  %66 = icmp ult i32 %65, 512
+  %66 = icmp samesign ult i32 %65, 512
   br i1 %66, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %62
@@ -4727,7 +4727,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %71 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv102
   store i16 %56, ptr %71, align 2
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, %69
-  %72 = icmp ult i64 %indvars.iv.next103, 512
+  %72 = icmp samesign ult i64 %indvars.iv.next103, 512
   br i1 %72, label %70, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %70, %62, %41

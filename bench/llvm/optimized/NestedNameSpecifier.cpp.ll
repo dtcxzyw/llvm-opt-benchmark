@@ -641,7 +641,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19NestedNameSpecifier31containsUn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang19NestedNameSpecifier14containsErrorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef zeroext i8 @_ZNK5clang19NestedNameSpecifier13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %3 = icmp ugt i8 %2, 7
+  %3 = icmp samesign ugt i8 %2, 7
   ret i1 %3
 }
 

@@ -1178,7 +1178,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %size.sroa.0.0110 = phi i64 [ %conv.i, %for.body.lr.ph ], [ %add.i, %if.end63 ]
   %23 = load i32, ptr %argCount_.i, align 8
   %24 = zext i32 %23 to i64
-  %cmp.i39 = icmp ult i64 %indvars.iv, %24
+  %cmp.i39 = icmp samesign ult i64 %indvars.iv, %24
   %25 = load ptr, ptr %args, align 8
   %idx.neg.i.i.i = sub nsw i64 0, %indvars.iv
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %25, i64 %idx.neg.i.i.i
@@ -1216,7 +1216,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_
   %and.i49 = and i32 %31, 2147483647
   %conv.i50 = zext nneg i32 %and.i49 to i64
   %add.i = add nuw nsw i64 %size.sroa.0.0110, %conv.i50
-  %cmp.i53.not = icmp ult i64 %add.i, 4294967296
+  %cmp.i53.not = icmp samesign ult i64 %add.i, 4294967296
   br i1 %cmp.i53.not, label %if.end63, label %if.then61
 
 if.then61:                                        ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit
@@ -3888,7 +3888,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit ]
   %13 = load i32, ptr %argCount_.i, align 8
   %14 = zext i32 %13 to i64
-  %cmp.i13 = icmp ult i64 %indvars.iv, %14
+  %cmp.i13 = icmp samesign ult i64 %indvars.iv, %14
   %15 = load ptr, ptr %args, align 8
   %idx.neg.i.i.i = sub nsw i64 0, %indvars.iv
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 %idx.neg.i.i.i
@@ -4085,7 +4085,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   store ptr %incdec.ptr.i.i.i.i.i.i18, ptr %next_.i, align 8
   %5 = load i32, ptr %argCount_.i, align 8
   %6 = zext i32 %5 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %6
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %6
   br i1 %cmp.i, label %cond.true.i, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
 
 cond.true.i:                                      ; preds = %for.body
@@ -8324,7 +8324,7 @@ if.end154:                                        ; preds = %if.end128
 
 if.then156:                                       ; preds = %if.end154
   %call163 = call fastcc i64 @_ZN6hermes2vmL10splitMatchERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEjS5_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i75, i32 noundef 0, ptr %retval.0.i.i.i.i.i.i106)
-  %tobool.i.not = icmp ult i64 %call163, 4294967296
+  %tobool.i.not = icmp samesign ult i64 %call163, 4294967296
   br i1 %tobool.i.not, label %if.end170, label %if.then165
 
 if.then165:                                       ; preds = %if.then156
@@ -8381,7 +8381,7 @@ while.body:                                       ; preds = %_ZN6hermes2vm13Muta
   store ptr %43, ptr %next_.i, align 8
   %call207 = call fastcc i64 @_ZN6hermes2vmL10splitMatchERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEEjS5_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i75, i32 noundef %q.0201, ptr %retval.0.i.i.i.i.i.i106)
   %matchResult200.sroa.0.0.extract.trunc = trunc i64 %call207 to i32
-  %tobool.i144.not = icmp ult i64 %call207, 4294967296
+  %tobool.i144.not = icmp samesign ult i64 %call207, 4294967296
   br i1 %tobool.i144.not, label %while.end, label %if.end213
 
 if.end213:                                        ; preds = %while.body
@@ -9308,7 +9308,7 @@ if.end.i:                                         ; preds = %if.end56
   %15 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %15, 2147483647
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %cmp.i.i3.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i3.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i3.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -11231,7 +11231,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -11656,7 +11656,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13

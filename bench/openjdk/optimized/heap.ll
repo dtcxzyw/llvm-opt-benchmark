@@ -1064,7 +1064,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %35
   %42 = getelementptr inbounds i8, ptr %40, i64 %36
-  %43 = icmp ult i64 %25, 255
+  %43 = icmp samesign ult i64 %25, 255
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %38

@@ -1858,7 +1858,7 @@ _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit
   %indvars.iv.next795 = add nuw nsw i64 %indvars.iv794, 1
   %67 = load i32, ptr %61, align 4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next795, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next795, %68
   br i1 %69, label %70, label %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit476
 
 70:                                               ; preds = %66
@@ -1882,7 +1882,7 @@ _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit
 
 _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit476: ; preds = %._ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit476_crit_edge, %66
   %.pre-phi = phi i64 [ %.pre839, %._ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit476_crit_edge ], [ %68, %66 ]
-  %72 = icmp ult i64 %indvars.iv.next795, %.pre-phi
+  %72 = icmp samesign ult i64 %indvars.iv.next795, %.pre-phi
   br i1 %72, label %.lr.ph736, label %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit._crit_edge, !llvm.loop !29
 
 _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit._crit_edge: ; preds = %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit476, %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit.preheader
@@ -2017,7 +2017,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %136 = load i32, ptr %117, align 4
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %indvars.iv.next827, %137
+  %138 = icmp samesign ult i64 %indvars.iv.next827, %137
   br i1 %138, label %.lr.ph770, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread, !llvm.loop !30
 
 .critedge:                                        ; preds = %99
@@ -2260,7 +2260,7 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit505: ; preds = %_ZN5drjit6gath
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
   %278 = load i32, ptr %181, align 4
   %279 = zext i32 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next814, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next814, %279
   br i1 %280, label %270, label %._crit_edge754.us, !llvm.loop !37
 
 .preheader722.us762:                              ; preds = %.preheader723.us, %._crit_edge754.us
@@ -2397,7 +2397,7 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds 
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
   %49 = load i32, ptr %27, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next826, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next826, %50
   br i1 %51, label %38, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, !llvm.loop !39
 
 _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge: ; preds = %4
@@ -2438,7 +2438,7 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread: ; preds = %_ZNK5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %68, align 4
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %.lr.ph, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge.loopexit, !llvm.loop !40
 
 _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge.loopexit: ; preds = %.lr.ph
@@ -2656,7 +2656,7 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit545.us745:
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
   %175 = load i32, ptr %68, align 4
   %176 = zext i32 %175 to i64
-  %177 = icmp ult i64 %indvars.iv.next805, %176
+  %177 = icmp samesign ult i64 %indvars.iv.next805, %176
   br i1 %177, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit545.us745, label %._crit_edge731.split.us748, !llvm.loop !47
 
 .lr.ph736.split.us752:                            ; preds = %.lr.ph736.us
@@ -2699,7 +2699,7 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit545.us.us.
   %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 1
   %195 = load i32, ptr %68, align 4
   %196 = zext i32 %195 to i64
-  %197 = icmp ult i64 %indvars.iv.next813, %196
+  %197 = icmp samesign ult i64 %indvars.iv.next813, %196
   br i1 %197, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit545.us.us.us, label %._crit_edge731.split.us.us.us, !llvm.loop !47
 
 ._crit_edge737.us:                                ; preds = %._crit_edge731.split.us748, %._crit_edge731.split.us.us.us, %.lr.ph736.us
@@ -6393,7 +6393,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %36 = getelementptr inbounds [11 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
   store i8 %35, ptr %36, align 1
   %37 = udiv i32 %.013.i.i, 10
-  %.not.i.i = icmp ult i32 %.013.i.i, 10
+  %.not.i.i = icmp samesign ult i32 %.013.i.i, 10
   br i1 %.not.i.i, label %38, label %31, !llvm.loop !70
 
 38:                                               ; preds = %31

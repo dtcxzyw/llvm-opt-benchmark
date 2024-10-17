@@ -2558,7 +2558,7 @@ _het_job_ready.exit:                              ; preds = %61, %58, %._crit_ed
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %220 = load i32, ptr %207, align 8
   %221 = zext i32 %220 to i64
-  %222 = icmp ult i64 %indvars.iv.next.i.i, %221
+  %222 = icmp samesign ult i64 %indvars.iv.next.i.i, %221
   br i1 %222, label %.lr.ph.i.i, label %_split_env.exit.i, !llvm.loop !16
 
 _split_env.exit.i:                                ; preds = %.lr.ph.i.i, %211
@@ -3640,7 +3640,7 @@ _test_dependency_state.exit:                      ; preds = %71, %73, %.sink.spl
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 255
   %117 = icmp eq i32 %116, 3
-  %118 = icmp ugt i32 %116, 2
+  %118 = icmp samesign ugt i32 %116, 2
   %119 = and i32 %115, 32768
   %120 = icmp eq i32 %119, 0
   %121 = and i1 %118, %120
@@ -3724,7 +3724,7 @@ _test_dependency_state.exit:                      ; preds = %71, %73, %.sink.spl
   %153 = getelementptr inbounds i8, ptr %151, i64 448
   %154 = load i32, ptr %153, align 8
   %155 = and i32 %154, 255
-  %156 = icmp ugt i32 %155, 2
+  %156 = icmp samesign ugt i32 %155, 2
   %157 = and i32 %154, 32768
   %158 = icmp eq i32 %157, 0
   %or.cond85.i = and i1 %156, %158
@@ -5794,7 +5794,7 @@ _depends_on_same_job.exit:                        ; preds = %.split.us
   %39 = getelementptr inbounds i8, ptr %22, i64 448
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 255
-  %42 = icmp ugt i32 %41, 2
+  %42 = icmp samesign ugt i32 %41, 2
   br i1 %42, label %.outer.backedge, label %43
 
 43:                                               ; preds = %38
@@ -8521,7 +8521,7 @@ define dso_local void @cleanup_completing(ptr noundef %0) local_unnamed_addr #0 
 30:                                               ; preds = %29, %22
   %.pre-phi = phi i32 [ %.pre18, %29 ], [ %27, %22 ]
   %31 = phi i32 [ %.pre, %29 ], [ %26, %22 ]
-  %32 = icmp ugt i32 %.pre-phi, 2
+  %32 = icmp samesign ugt i32 %.pre-phi, 2
   %33 = and i32 %31, 32768
   %34 = icmp eq i32 %33, 0
   %or.cond = and i1 %32, %34

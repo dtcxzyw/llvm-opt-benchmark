@@ -1302,7 +1302,7 @@ invoke.cont8:                                     ; preds = %_ZN7obj_mapI4exprPS
 for.inc:                                          ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp4 = icmp ult i64 %indvars.iv, 1998
+  %cmp4 = icmp samesign ult i64 %indvars.iv, 1998
   br i1 %cmp4, label %invoke.cont8, label %for.end, !llvm.loop !16
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i
@@ -1389,7 +1389,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %34, i64 -4
   %35 = load i32, ptr %arrayidx.i.i.i, align 4
   %36 = zext i32 %35 to i64
-  %cmp.i44 = icmp ult i64 %indvars.iv.i57, %36
+  %cmp.i44 = icmp samesign ult i64 %indvars.iv.i57, %36
   br i1 %cmp.i44, label %for.body.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.thread

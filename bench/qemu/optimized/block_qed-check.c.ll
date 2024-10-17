@@ -468,7 +468,7 @@ for.inc.i:                                        ; preds = %if.end23.i, %if.end
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = load i32, ptr %table_nelems.i, align 8
   %58 = zext i32 %57 to i64
-  %cmp.i85 = icmp ult i64 %indvars.iv.next.i, %58
+  %cmp.i85 = icmp samesign ult i64 %indvars.iv.next.i, %58
   br i1 %cmp.i85, label %for.body.i, label %qed_check_l2_table.exit, !llvm.loop !8
 
 qed_check_l2_table.exit:                          ; preds = %for.inc.i
@@ -500,7 +500,7 @@ for.inc:                                          ; preds = %if.end25, %qed_chec
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %table_nelems, align 8
   %64 = zext i32 %63 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %64
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc

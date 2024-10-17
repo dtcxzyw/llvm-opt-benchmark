@@ -3563,7 +3563,7 @@ if.end70.i:                                       ; preds = %if.then56.i
   br i1 %cmp77.not.i, label %return.sink.split, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end70.i
-  %cmp82.i = icmp ugt i16 %add73.i, 6553
+  %cmp82.i = icmp samesign ugt i16 %add73.i, 6553
   br i1 %cmp82.i, label %return, label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then78.i

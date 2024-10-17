@@ -2718,7 +2718,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 9:                                                ; preds = %tailrecurse
   %10 = load i32, ptr %.tr883, align 8
   %11 = and i32 %10, 16515072
-  %switch = icmp ult i32 %11, 8650752
+  %switch = icmp samesign ult i32 %11, 8650752
   br i1 %switch, label %.loopexit, label %22
 
 12:                                               ; preds = %tailrecurse
@@ -10094,7 +10094,7 @@ define internal fastcc { ptr, i8 } @_ZN5clang15StmtVisitorBaseIN4llvm14make_cons
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 16515072
-  %switch = icmp ult i32 %9, 8650752
+  %switch = icmp samesign ult i32 %9, 8650752
   br i1 %switch, label %.thread, label %11
 
 10:                                               ; preds = %2
@@ -11499,7 +11499,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoELb1EE9p
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %155
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !99
 
 155:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -15164,7 +15164,7 @@ _ZN5clang7CodeGen15ConstantEmitter23tryEmitPrivateForMemoryEPKNS_4ExprENS_8QualT
   %377 = sub i64 %375, %376
   %378 = lshr exact i64 %377, 3
   %379 = and i64 %378, 4294967295
-  %380 = icmp ult i64 %indvars.iv.next, %379
+  %380 = icmp samesign ult i64 %indvars.iv.next, %379
   br i1 %380, label %121, label %._crit_edge111, !llvm.loop !141
 
 ._crit_edge111:                                   ; preds = %372, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit29
@@ -16347,7 +16347,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %101, %105
   %135 = sub i64 %133, %134
   %136 = lshr exact i64 %135, 3
   %137 = and i64 %136, 4294967295
-  %138 = icmp ult i64 %indvars.iv, %137
+  %138 = icmp samesign ult i64 %indvars.iv, %137
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %130

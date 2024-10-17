@@ -279,7 +279,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %33, align 8
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %59, label %36, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %36, %4

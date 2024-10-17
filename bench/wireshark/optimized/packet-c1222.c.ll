@@ -1256,7 +1256,7 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
   %144 = and i32 %136, 15
   %spec.select.i.i = select i1 %143, i32 %144, i32 0
   %spec.select355.i.i = select i1 %143, i32 96, i32 %136
-  %145 = icmp ugt i32 %spec.select355.i.i, 31
+  %145 = icmp samesign ugt i32 %spec.select355.i.i, 31
   %146 = load i32, ptr @hf_c1222_cmd, align 4
   %147 = load i32, ptr @hf_c1222_err, align 4
   %148 = select i1 %145, i32 %146, i32 %147
@@ -2074,7 +2074,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
   %39 = icmp ugt i32 %17, 16777215
   %40 = zext i1 %39 to i32
   %.3.i.i.i = add nuw nsw i32 %.2.i.i.i, %40
-  %41 = icmp ugt i32 %.3.i.i.i, 4
+  %41 = icmp samesign ugt i32 %.3.i.i.i, 4
   br i1 %41, label %encode_ber_len.exit.i, label %42
 
 42:                                               ; preds = %26

@@ -2195,7 +2195,7 @@ while.cond.i:                                     ; preds = %invoke.cont12, %whi
   %i.0.i = phi i64 [ %inc.i, %while.cond.i ], [ 0, %invoke.cont12 ]
   %current.sroa.0.0.i = load ptr, ptr %current.sroa.0.0.in.i, align 8
   %cmp.i45 = icmp ne ptr %current.sroa.0.0.i, %listInt64
-  %cmp3.i = icmp ult i64 %i.0.i, 3
+  %cmp3.i = icmp samesign ult i64 %i.0.i, 3
   %10 = select i1 %cmp.i45, i1 %cmp3.i, i1 false
   %inc.i = add nuw nsw i64 %i.0.i, 1
   br i1 %10, label %while.cond.i, label %while.end.i, !llvm.loop !56

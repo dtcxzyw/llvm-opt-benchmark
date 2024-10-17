@@ -3373,7 +3373,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %833, ptr noundef nonnull @.str.1243, ptr noundef nonnull %835, i32 noundef %836) #5
   %837 = add nuw nsw i32 %829, 2
   %838 = and i32 %837, 255
-  %839 = icmp ult i32 %838, %822
+  %839 = icmp samesign ult i32 %838, %822
   br i1 %839, label %828, label %.loopexit.i, !llvm.loop !7
 
 840:                                              ; preds = %821
@@ -3406,7 +3406,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %855, ptr noundef nonnull @.str.1243, ptr noundef nonnull %857, i32 noundef %858) #5
   %859 = add nuw nsw i32 %851, 2
   %860 = and i32 %859, 255
-  %861 = icmp ult i32 %860, %844
+  %861 = icmp samesign ult i32 %860, %844
   br i1 %861, label %850, label %.loopexit.i, !llvm.loop !8
 
 862:                                              ; preds = %843
@@ -3439,7 +3439,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %877, ptr noundef nonnull @.str.1243, ptr noundef nonnull %879, i32 noundef %880) #5
   %881 = add nuw nsw i32 %873, 2
   %882 = and i32 %881, 255
-  %883 = icmp ult i32 %882, %866
+  %883 = icmp samesign ult i32 %882, %866
   br i1 %883, label %872, label %.loopexit.i, !llvm.loop !9
 
 884:                                              ; preds = %865
@@ -5196,7 +5196,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1846 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %1844, ptr noundef %0, i32 noundef %1845, i32 noundef 4, i32 noundef 0) #5
   %1847 = add nuw nsw i32 %1843, 4
   %1848 = and i32 %1847, 65535
-  %1849 = icmp ult i32 %1848, %1837
+  %1849 = icmp samesign ult i32 %1848, %1837
   br i1 %1849, label %.lr.ph, label %dissect_snmpv3_kickstart.exit, !llvm.loop !22
 
 1850:                                             ; preds = %1836

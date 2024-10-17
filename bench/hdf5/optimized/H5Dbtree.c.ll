@@ -792,7 +792,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %6
@@ -827,7 +827,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next34, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next34, %46
   br i1 %47, label %37, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %30, %._crit_edge
@@ -1241,7 +1241,7 @@ H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i44
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next, %106
   br i1 %107, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %H5D__chunk_disjoint.exit
@@ -1493,7 +1493,7 @@ define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %37, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52, %3
@@ -1530,7 +1530,7 @@ define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %13, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5

@@ -186,7 +186,7 @@ for.body39:                                       ; preds = %for.cond36.preheade
 
 for.inc55:                                        ; preds = %for.body39
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 4
-  %cmp33 = icmp ult i64 %indvars.iv.next176, %18
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next176, %18
   br i1 %cmp33, label %for.cond36.preheader, label %for.cond58.preheader.loopexit, !llvm.loop !9
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %for.body61
@@ -432,7 +432,7 @@ if.end:                                           ; preds = %entry
   %rankStart0 = getelementptr inbounds i8, ptr %workSpace, i64 676
   %add.ptr3 = getelementptr inbounds i8, ptr %workSpace, i64 680
   %rankStats = getelementptr inbounds i8, ptr %workSpace, i64 624
-  %cmp7 = icmp ugt i32 %conv, 12
+  %cmp7 = icmp samesign ugt i32 %conv, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %rankStats, i8 0, i64 112, i1 false)
   br i1 %cmp7, label %return, label %if.end10
 
@@ -683,7 +683,7 @@ for.body.i.us.us.i:                               ; preds = %for.body.i.us.us.i,
   %add.ptr15.i.us.us.i = getelementptr inbounds i8, ptr %add.ptr5.i.us.us.i, i64 24
   store i64 %add.i.i.us.us.i, ptr %add.ptr15.i.us.us.i, align 2
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 8
-  %cmp3.i.us.us.i = icmp ult i64 %indvars.iv.next.i.us.us.i, %22
+  %cmp3.i.us.us.i = icmp samesign ult i64 %indvars.iv.next.i.us.us.i, %22
   br i1 %cmp3.i.us.us.i, label %for.body.i.us.us.i, label %if.end.i.us.us.i, !llvm.loop !24
 
 if.end.i.us.us.i:                                 ; preds = %for.body.i.us.us.i, %for.cond.preheader.i.us.us.i, %sw.bb.i.us.us.i, %sw.bb1.i.us.us.i
@@ -742,7 +742,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 24
   store i64 %add.i.i.i, ptr %add.ptr15.i.i, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp3.i.i = icmp ult i64 %indvars.iv.next.i.i, %26
+  %cmp3.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %26
   br i1 %cmp3.i.i, label %for.body.i.i, label %if.end.i.i, !llvm.loop !24
 
 if.end.i.i:                                       ; preds = %for.body.i.i, %sw.bb1.i.i, %sw.bb.i.i, %for.cond.preheader.i.i, %for.body17.i
@@ -1266,7 +1266,7 @@ if.then.i1.i:                                     ; preds = %if.end.i.thread.i, 
   %bitD.i.sroa.0.9508602.i = phi i64 [ %bitD.i.sroa.0.8.i, %if.end.i.thread.i ], [ %memPtr.val.i.i.i, %if.end.i.i ]
   %bitD.i.sroa.93420.8509.idx601.i = phi i64 [ 0, %if.end.i.thread.i ], [ %add.ptr4.i.add.i, %if.end.i.i ]
   %19 = and i32 %retval.sroa.0.0.copyload.i613.i, 16515072
-  %cmp1.i.i = icmp ult i32 %19, 786432
+  %cmp1.i.i = icmp samesign ult i32 %19, 786432
   %sub.i250.i = sub nsw i32 0, %dtd.i.sroa.1.0.extract.shift614.i
   %and1.i.i = and i32 %sub.i250.i, 63
   %sh_prom2.i.i = zext nneg i32 %and1.i.i to i64
@@ -3009,7 +3009,7 @@ if.end232.i.i:                                    ; preds = %if.end220.i.i
   br i1 %cmp.i494.i.i, label %if.then.i534.i.i, label %if.else73.i495.i.i
 
 if.then.i534.i.i:                                 ; preds = %if.end232.i.i
-  %cmp1.i535.i.i = icmp ult i32 %conv23.i.i, 12
+  %cmp1.i535.i.i = icmp samesign ult i32 %conv23.i.i, 12
   %cmp.i605.i2570.i = icmp ugt i32 %bitD1.i.sroa.34.0.i, 64
   br i1 %cmp1.i535.i.i, label %while.cond.i577.i.preheader.i, label %while.cond30.i537.i.preheader.i
 
@@ -3476,7 +3476,7 @@ HUF_decodeStreamX2.exit603.i.i:                   ; preds = %if.then8.i.i.i, %if
   br i1 %cmp.i375.i.i, label %if.then.i415.i.i, label %if.else73.i376.i.i
 
 if.then.i415.i.i:                                 ; preds = %HUF_decodeStreamX2.exit603.i.i
-  %cmp1.i416.i.i = icmp ult i32 %conv23.i.i, 12
+  %cmp1.i416.i.i = icmp samesign ult i32 %conv23.i.i, 12
   %cmp.i783.i2609.i = icmp ugt i32 %bitD2.i.sroa.34.0.i, 64
   br i1 %cmp1.i416.i.i, label %while.cond.i458.i.preheader.i, label %while.cond30.i418.i.preheader.i
 
@@ -3942,7 +3942,7 @@ HUF_decodeStreamX2.exit484.i.i:                   ; preds = %if.then8.i2233.i.i,
   br i1 %cmp.i256.i.i, label %if.then.i296.i.i, label %if.else73.i257.i.i
 
 if.then.i296.i.i:                                 ; preds = %HUF_decodeStreamX2.exit484.i.i
-  %cmp1.i297.i.i = icmp ult i32 %conv23.i.i, 12
+  %cmp1.i297.i.i = icmp samesign ult i32 %conv23.i.i, 12
   %cmp.i999.i2648.i = icmp ugt i32 %bitD3.i.sroa.34.0.i, 64
   br i1 %cmp1.i297.i.i, label %while.cond.i339.i.preheader.i, label %while.cond30.i299.i.preheader.i
 
@@ -4408,7 +4408,7 @@ HUF_decodeStreamX2.exit365.i.i:                   ; preds = %if.then8.i2264.i.i,
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else73.i.i.i
 
 if.then.i.i.i:                                    ; preds = %HUF_decodeStreamX2.exit365.i.i
-  %cmp1.i.i.i = icmp ult i32 %conv23.i.i, 12
+  %cmp1.i.i.i = icmp samesign ult i32 %conv23.i.i, 12
   %bitsConsumed.i1213.i.i = getelementptr inbounds i8, ptr %bitD4.i.i, i64 8
   %217 = load i32, ptr %bitsConsumed.i1213.i.i, align 8
   %cmp.i1215.i2673.i = icmp ugt i32 %217, 64
@@ -6774,7 +6774,7 @@ if.then.i1:                                       ; preds = %if.end.i.thread, %i
   %bitD.i.sroa.0.9508602 = phi i64 [ %bitD.i.sroa.0.8, %if.end.i.thread ], [ %memPtr.val.i.i, %if.end.i ]
   %bitD.i.sroa.93420.8509.idx601 = phi i64 [ 0, %if.end.i.thread ], [ %add.ptr4.i.add, %if.end.i ]
   %19 = and i32 %retval.sroa.0.0.copyload.i613, 16515072
-  %cmp1.i = icmp ult i32 %19, 786432
+  %cmp1.i = icmp samesign ult i32 %19, 786432
   %sub.i250 = sub nsw i32 0, %dtd.i.sroa.1.0.extract.shift614
   %and1.i = and i32 %sub.i250, 63
   %sh_prom2.i = zext nneg i32 %and1.i to i64
@@ -8893,7 +8893,7 @@ if.end232.i:                                      ; preds = %if.end220.i
   br i1 %cmp.i494.i, label %if.then.i534.i, label %if.else73.i495.i
 
 if.then.i534.i:                                   ; preds = %if.end232.i
-  %cmp1.i535.i = icmp ult i32 %conv23.i, 12
+  %cmp1.i535.i = icmp samesign ult i32 %conv23.i, 12
   %cmp.i605.i2570 = icmp ugt i32 %bitD1.i.sroa.34.0, 64
   br i1 %cmp1.i535.i, label %while.cond.i577.i.preheader, label %while.cond30.i537.i.preheader
 
@@ -9360,7 +9360,7 @@ HUF_decodeStreamX2.exit603.i:                     ; preds = %if.then8.i.i, %if.t
   br i1 %cmp.i375.i, label %if.then.i415.i, label %if.else73.i376.i
 
 if.then.i415.i:                                   ; preds = %HUF_decodeStreamX2.exit603.i
-  %cmp1.i416.i = icmp ult i32 %conv23.i, 12
+  %cmp1.i416.i = icmp samesign ult i32 %conv23.i, 12
   %cmp.i783.i2609 = icmp ugt i32 %bitD2.i.sroa.34.0, 64
   br i1 %cmp1.i416.i, label %while.cond.i458.i.preheader, label %while.cond30.i418.i.preheader
 
@@ -9826,7 +9826,7 @@ HUF_decodeStreamX2.exit484.i:                     ; preds = %if.then8.i2233.i, %
   br i1 %cmp.i256.i, label %if.then.i296.i, label %if.else73.i257.i
 
 if.then.i296.i:                                   ; preds = %HUF_decodeStreamX2.exit484.i
-  %cmp1.i297.i = icmp ult i32 %conv23.i, 12
+  %cmp1.i297.i = icmp samesign ult i32 %conv23.i, 12
   %cmp.i999.i2648 = icmp ugt i32 %bitD3.i.sroa.34.0, 64
   br i1 %cmp1.i297.i, label %while.cond.i339.i.preheader, label %while.cond30.i299.i.preheader
 
@@ -10292,7 +10292,7 @@ HUF_decodeStreamX2.exit365.i:                     ; preds = %if.then8.i2264.i, %
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else73.i.i
 
 if.then.i.i:                                      ; preds = %HUF_decodeStreamX2.exit365.i
-  %cmp1.i.i = icmp ult i32 %conv23.i, 12
+  %cmp1.i.i = icmp samesign ult i32 %conv23.i, 12
   %bitsConsumed.i1213.i = getelementptr inbounds i8, ptr %bitD4.i, i64 8
   %217 = load i32, ptr %bitsConsumed.i1213.i, align 8
   %cmp.i1215.i2673 = icmp ugt i32 %217, 64

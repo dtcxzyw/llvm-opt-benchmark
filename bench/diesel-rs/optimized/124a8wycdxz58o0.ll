@@ -1282,7 +1282,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
 198:                                              ; preds = %159
   %199 = getelementptr inbounds i8, ptr %160, i64 5
   %200 = load i8, ptr %199, align 1, !range !50, !noalias !153, !noundef !5
-  %switch.not.i = icmp ult i8 %200, 2
+  %switch.not.i = icmp samesign ult i8 %200, 2
   br i1 %switch.not.i, label %202, label %201
 
 201:                                              ; preds = %210, %202, %198

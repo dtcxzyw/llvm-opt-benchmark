@@ -881,7 +881,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %20 = phi i32 [ 0, %14 ], [ %117, %.loopexit8 ]
   %21 = phi i32 [ 0, %14 ], [ %116, %.loopexit8 ]
   %22 = icmp ne i64 %19, 0
-  %23 = icmp ult i64 %19, %16
+  %23 = icmp samesign ult i64 %19, %16
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %25, label %31
 
@@ -1501,7 +1501,7 @@ define internal noundef i32 @dt_iop_zonesystem_preview_draw(ptr noundef %0, ptr 
   %67 = phi i32 [ 0, %60 ], [ %164, %.loopexit8 ]
   %68 = phi i32 [ 0, %60 ], [ %163, %.loopexit8 ]
   %69 = icmp ne i64 %66, 0
-  %70 = icmp ult i64 %66, %63
+  %70 = icmp samesign ult i64 %66, %63
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %72, label %78
 
@@ -1911,7 +1911,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
   %48 = phi i32 [ 0, %41 ], [ %145, %.loopexit9 ]
   %49 = phi i32 [ 0, %41 ], [ %144, %.loopexit9 ]
   %50 = icmp ne i64 %47, 0
-  %51 = icmp ult i64 %47, %44
+  %51 = icmp samesign ult i64 %47, %44
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %53, label %59
 
@@ -2247,7 +2247,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
   %31 = phi i32 [ 0, %24 ], [ %128, %.loopexit12 ]
   %32 = phi i32 [ 0, %24 ], [ %127, %.loopexit12 ]
   %33 = icmp ne i64 %30, 0
-  %34 = icmp ult i64 %30, %27
+  %34 = icmp samesign ult i64 %30, %27
   %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %36, label %42
 
@@ -2586,7 +2586,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
   %28 = phi i32 [ 0, %22 ], [ %125, %.loopexit6 ]
   %29 = phi i32 [ 0, %22 ], [ %124, %.loopexit6 ]
   %30 = icmp ne i64 %27, 0
-  %31 = icmp ult i64 %27, %24
+  %31 = icmp samesign ult i64 %27, %24
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %33, label %39
 

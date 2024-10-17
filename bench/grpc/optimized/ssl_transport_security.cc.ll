@@ -3222,7 +3222,7 @@ while.cond2.while.end_crit_edge.us.i:             ; preds = %if.end.us.i
   %sub.ptr.lhs.cast.us.i = ptrtoint ptr %add.ptr17.us.i to i64
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.i
   %conv1.us.i = and i64 %sub.ptr.sub.us.i, 4294967295
-  %cmp.us.i = icmp ult i64 %conv1.us.i, %conv
+  %cmp.us.i = icmp samesign ult i64 %conv1.us.i, %conv
   br i1 %cmp.us.i, label %while.body.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !27
 
 if.then.i:                                        ; preds = %land.lhs.true.us.i
@@ -4244,7 +4244,7 @@ land.lhs.true14:                                  ; preds = %while.cond.preheade
   %status.159 = phi i32 [ 0, %while.cond.preheader ], [ %status.2.lcssa, %while.end ]
   %2 = and i32 %status.159, -5
   %or.cond4 = icmp eq i32 %2, 0
-  %cmp18 = icmp ult i64 %number_bio_write_attempts.062, 100
+  %cmp18 = icmp samesign ult i64 %number_bio_write_attempts.062, 100
   %or.cond5 = select i1 %or.cond4, i1 %cmp18, i1 false
   br i1 %or.cond5, label %while.body, label %if.end29
 

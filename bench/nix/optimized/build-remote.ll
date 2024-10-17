@@ -4745,7 +4745,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %1369 = add nuw nsw i64 %.02221806, 1
   %1370 = load i32, ptr %940, align 8
   %1371 = zext i32 %1370 to i64
-  %1372 = icmp ult i64 %1369, %1371
+  %1372 = icmp samesign ult i64 %1369, %1371
   br i1 %1372, label %._crit_edge.i.i811, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %1368, %.preheader
@@ -4936,7 +4936,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i429: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i428
   %1444 = icmp ult i64 %1439, 16
   call void @llvm.assume(i1 %1444)
-  %.not.i.i.i430 = icmp ugt i64 %1441, 15
+  %.not.i.i.i430 = icmp samesign ugt i64 %1441, 15
   br i1 %.not.i.i.i430, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %1446
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i429.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i428
@@ -14667,7 +14667,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !88
 
 .critedge:                                        ; preds = %27

@@ -1167,7 +1167,7 @@ define hidden void @_ZN15G1PLABAllocator8PLABDataD2Ev(ptr nocapture noundef nonn
   %13 = phi i32 [ %6, %.lr.ph ], [ %.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %12
@@ -1205,7 +1205,7 @@ define hidden void @_ZN15G1PLABAllocator8PLABData10initializeEjmm(ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -1342,7 +1342,7 @@ _ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit: ; preds = %24, %_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = load i32, ptr %43, align 8
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next.i, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next.i, %52
   br i1 %53, label %.lr.ph.i, label %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit, !llvm.loop !16
 
 _ZN15G1PLABAllocator8PLABData10initializeEjmm.exit: ; preds = %.lr.ph.i, %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit
@@ -1673,7 +1673,7 @@ _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us: ; preds = %21, %_ZNK15G1P
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 4294967295
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %_ZNK15G1PLABAllocator12alloc_bufferEaj.exit.us, label %.split.us, !llvm.loop !18
 
 _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split: ; preds = %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit
@@ -7942,7 +7942,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -8191,7 +8191,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

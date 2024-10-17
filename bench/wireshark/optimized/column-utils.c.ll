@@ -3567,7 +3567,7 @@ get_frame_timestamp_precision.exit:               ; preds = %36, %42
   %spec.store.select.i = tail call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
   %46 = tail call i32 @format_fractional_part_nsecs(ptr noundef %32, i64 noundef %33, i32 noundef %.053, ptr noundef %2, i32 noundef %spec.store.select.i) #16
   %47 = zext i32 %46 to i64
-  %.not64 = icmp ugt i64 %33, %47
+  %.not64 = icmp samesign ugt i64 %33, %47
   br i1 %.not64, label %48, label %54
 
 48:                                               ; preds = %45

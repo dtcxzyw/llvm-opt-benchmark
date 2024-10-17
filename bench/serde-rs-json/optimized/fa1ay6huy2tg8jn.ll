@@ -195,7 +195,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.026.lcssa = phi i64 [ 20, %2 ], [ %14, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.0, %2 ], [ %7, %.lr.ph ]
-  %5 = icmp ugt i64 %.1.lcssa, 99
+  %5 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %5, label %21, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -239,7 +239,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 30:                                               ; preds = %._crit_edge, %21
   %.127 = phi i64 [ %26, %21 ], [ %.026.lcssa, %._crit_edge ]
   %.025 = phi i64 [ %.zext35, %21 ], [ %.1.lcssa, %._crit_edge ]
-  %31 = icmp ult i64 %.025, 10
+  %31 = icmp samesign ult i64 %.025, 10
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
@@ -287,7 +287,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i64 [ %0, %2 ], [ %6, %.lr.ph ]
-  %4 = icmp ugt i64 %.1.lcssa, 99
+  %4 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %4, label %20, label %29
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -331,7 +331,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 29:                                               ; preds = %._crit_edge, %20
   %.129 = phi i64 [ %25, %20 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext35, %20 ], [ %.1.lcssa, %._crit_edge ]
-  %30 = icmp ult i64 %.027, 10
+  %30 = icmp samesign ult i64 %.027, 10
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -756,7 +756,7 @@ default.unreachable22:                            ; preds = %2
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
   %.028.lcssa.i = phi i64 [ 20, %8 ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %9, %8 ], [ %13, %.lr.ph.i ]
-  %11 = icmp ugt i64 %.1.lcssa.i, 99
+  %11 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %11, label %27, label %36
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -800,7 +800,7 @@ default.unreachable22:                            ; preds = %2
 36:                                               ; preds = %27, %._crit_edge.i
   %.129.i = phi i64 [ %32, %27 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext35.i, %27 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %37 = icmp ult i64 %.027.i, 10
+  %37 = icmp samesign ult i64 %.027.i, 10
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
@@ -841,7 +841,7 @@ default.unreachable22:                            ; preds = %2
 ._crit_edge.i7:                                   ; preds = %.lr.ph.i12, %52
   %.026.lcssa.i = phi i64 [ 20, %52 ], [ %65, %.lr.ph.i12 ]
   %.1.lcssa.i8 = phi i64 [ %.0.i, %52 ], [ %58, %.lr.ph.i12 ]
-  %56 = icmp ugt i64 %.1.lcssa.i8, 99
+  %56 = icmp samesign ugt i64 %.1.lcssa.i8, 99
   br i1 %56, label %72, label %81
 
 .lr.ph.i12:                                       ; preds = %52, %.lr.ph.i12
@@ -885,7 +885,7 @@ default.unreachable22:                            ; preds = %2
 81:                                               ; preds = %72, %._crit_edge.i7
   %.127.i = phi i64 [ %77, %72 ], [ %.026.lcssa.i, %._crit_edge.i7 ]
   %.025.i = phi i64 [ %.zext35.i11, %72 ], [ %.1.lcssa.i8, %._crit_edge.i7 ]
-  %82 = icmp ult i64 %.025.i, 10
+  %82 = icmp samesign ult i64 %.025.i, 10
   br i1 %82, label %89, label %83
 
 83:                                               ; preds = %81

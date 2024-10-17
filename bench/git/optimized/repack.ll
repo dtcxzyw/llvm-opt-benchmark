@@ -1354,7 +1354,7 @@ geometry_pack_weight.exit.i:                      ; preds = %land.lhs.true.i114
   %74 = load i32, ptr %split_factor, align 4
   %conv10.i = sext i32 %74 to i64
   %div.i = udiv i64 4294967295, %conv10.i
-  %cmp11.i = icmp ult i64 %div.i, %conv.i117
+  %cmp11.i = icmp samesign ult i64 %div.i, %conv.i117
   br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %geometry_pack_weight.exit.i
@@ -1460,7 +1460,7 @@ for.body52.i:                                     ; preds = %geometry_pack_weigh
 land.lhs.true59.i:                                ; preds = %for.body52.i
   %conv61.i = sext i32 %86 to i64
   %div62.i = udiv i64 4294967295, %conv61.i
-  %cmp63.i = icmp ugt i64 %total_size.1117.i, %div62.i
+  %cmp63.i = icmp samesign ugt i64 %total_size.1117.i, %div62.i
   br i1 %cmp63.i, label %if.then65.i, label %if.end69.i
 
 if.then65.i:                                      ; preds = %land.lhs.true59.i
@@ -1519,7 +1519,7 @@ geometry_pack_weight.exit93.i:                    ; preds = %geometry_pack_weigh
   %add91.i = add nuw nsw i64 %total_size.1117.i, %conv90.i
   %90 = load i32, ptr %pack_nr50.i, align 8
   %91 = zext i32 %90 to i64
-  %cmp50.i = icmp ult i64 %indvars.iv.next143.i, %91
+  %cmp50.i = icmp samesign ult i64 %indvars.iv.next143.i, %91
   br i1 %cmp50.i, label %for.body52.i, label %for.end95.loopexit.i, !llvm.loop !11
 
 for.end95.loopexit.i:                             ; preds = %geometry_pack_weight.exit93.i, %geometry_pack_weight.exit79.i
@@ -1871,7 +1871,7 @@ for.body575:                                      ; preds = %if.then568, %for.bo
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %142 = load i32, ptr %split, align 8
   %143 = zext i32 %142 to i64
-  %cmp573 = icmp ult i64 %indvars.iv.next402, %143
+  %cmp573 = icmp samesign ult i64 %indvars.iv.next402, %143
   br i1 %cmp573, label %for.body575, label %for.cond584.preheader, !llvm.loop !14
 
 for.body587:                                      ; preds = %for.body587.preheader, %for.body587
@@ -2481,7 +2481,7 @@ for.inc31.i:                                      ; preds = %strbuf_strip_suffix
   %248 = phi i32 [ %242, %for.body24.i ], [ %.pre.i216, %strbuf_strip_suffix.exit.i215 ]
   %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i202, 1
   %249 = zext i32 %248 to i64
-  %cmp23.i = icmp ult i64 %indvars.iv.next.i217, %249
+  %cmp23.i = icmp samesign ult i64 %indvars.iv.next.i217, %249
   br i1 %cmp23.i, label %for.body24.i, label %if.end55.i, !llvm.loop !18
 
 if.else.i225:                                     ; preds = %for.end20.i
@@ -4085,7 +4085,7 @@ for.inc:                                          ; preds = %strbuf_strip_suffix
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %split, align 8
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry

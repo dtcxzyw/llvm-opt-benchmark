@@ -77,7 +77,7 @@ define hidden void @_ZNK11hb_ot_map_t15collect_lookupsEjP8hb_set_t(ptr nocapture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %7, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %18, label %11, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %11, %3
@@ -606,7 +606,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit: ; preds = %66, 
   %81 = phi i32 [ %34, %.lr.ph ], [ %.pre, %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %80
@@ -933,7 +933,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5qsortEPFiPKvS4_E.e
 107:                                              ; preds = %104
   %.not19.i.i = icmp sgt i32 %102, %105
   %108 = lshr i32 %105, 2
-  %.not20.i.i = icmp ult i32 %103, %108
+  %.not20.i.i = icmp samesign ult i32 %103, %108
   %or.cond22.i.i = or i1 %.not19.i.i, %.not20.i.i
   br i1 %or.cond22.i.i, label %.thread.i.i, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit.preheader
 
@@ -1089,7 +1089,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit: ; 
   %.0245415 = phi i32 [ 4, %.lr.ph417 ], [ %.1246, %295 ]
   %147 = load i32, ptr %37, align 4
   %148 = zext i32 %147 to i64
-  %.not.i281 = icmp ult i64 %indvars.iv461, %148
+  %.not.i281 = icmp samesign ult i64 %indvars.iv461, %148
   br i1 %.not.i281, label %150, label %149
 
 149:                                              ; preds = %146
@@ -1592,7 +1592,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i: ; preds = %38
   %399 = phi i32 [ %352, %.lr.ph.i293 ], [ %.pre.i, %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %400 = zext i32 %399 to i64
-  %401 = icmp ult i64 %indvars.iv.next.i, %400
+  %401 = icmp samesign ult i64 %indvars.iv.next.i, %400
   br i1 %401, label %.lr.ph.i293, label %._crit_edge.i295, !llvm.loop !13
 
 ._crit_edge.i295:                                 ; preds = %398
@@ -1772,7 +1772,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i307: ; preds = 
   %479 = phi i32 [ %432, %.lr.ph.i300 ], [ %.pre.i309, %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i307 ]
   %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i301, 1
   %480 = zext i32 %479 to i64
-  %481 = icmp ult i64 %indvars.iv.next.i303, %480
+  %481 = icmp samesign ult i64 %indvars.iv.next.i303, %480
   br i1 %481, label %.lr.ph.i300, label %._crit_edge.i304, !llvm.loop !13
 
 ._crit_edge.i304:                                 ; preds = %478
@@ -1871,7 +1871,7 @@ _ZN10hb_array_tIN11hb_ot_map_t12lookup_map_tEE5qsortEv.exit: ; preds = %._ZN10hb
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %528 = load i32, ptr %331, align 4
   %529 = zext i32 %528 to i64
-  %530 = icmp ult i64 %indvars.iv.next467, %529
+  %530 = icmp samesign ult i64 %indvars.iv.next467, %529
   br i1 %530, label %.lr.ph426, label %._crit_edge427.loopexit, !llvm.loop !23
 
 ._crit_edge427.loopexit:                          ; preds = %527
@@ -1895,7 +1895,7 @@ _ZN10hb_array_tIN11hb_ot_map_t12lookup_map_tEE5qsortEv.exit: ; preds = %._ZN10hb
 535:                                              ; preds = %532
   %.not19.i.i332 = icmp sgt i32 %.pre-phi, %533
   %536 = lshr i32 %533, 2
-  %.not20.i.i333 = icmp ult i32 %531, %536
+  %.not20.i.i333 = icmp samesign ult i32 %531, %536
   %or.cond22.i.i334 = or i1 %.not19.i.i332, %.not20.i.i333
   br i1 %or.cond22.i.i334, label %.thread.i.i335, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit
 

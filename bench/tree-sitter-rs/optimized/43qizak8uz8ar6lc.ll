@@ -1506,7 +1506,7 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !515
   %storemerge25.i.i.i.i = add nuw nsw i32 %28, 1
   store i32 %storemerge25.i.i.i.i, ptr %3, align 4, !noalias !515
-  %39 = icmp ult i32 %storemerge25.i.i.i.i, %30
+  %39 = icmp samesign ult i32 %storemerge25.i.i.i.i, %30
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 40:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha21ceb2ad8d01419E.exit.thread.i.i.i.i"
@@ -9733,7 +9733,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h925907478f50d824E.llvm.1039
   %.016.i.i6 = select i1 %33, i64 %34, i64 0
   %.0.i.i7 = select i1 %33, i64 4, i64 0
   %35 = or disjoint i64 %.0.i.i7, 1
-  %36 = icmp ult i64 %35, %.0.sroa.speculated.i.i5
+  %36 = icmp samesign ult i64 %35, %.0.sroa.speculated.i.i5
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %31
@@ -9811,7 +9811,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10: ; preds = %45, %43
   %.016.i13.i14 = phi i64 [ %91, %.thread ], [ 0, %58 ]
   %.0.i14.i15 = phi i64 [ 4, %.thread ], [ 0, %58 ]
   %85 = or disjoint i64 %.0.i14.i15, 1
-  %86 = icmp ult i64 %85, %80
+  %86 = icmp samesign ult i64 %85, %80
   br i1 %86, label %92, label %100
 
 .thread:                                          ; preds = %.lr.ph.i.i.i, %58
@@ -9875,7 +9875,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10: ; preds = %45, %43
   %.016.i.i = select i1 %120, i64 %121, i64 0
   %.0.i.i = select i1 %120, i64 4, i64 0
   %122 = or disjoint i64 %.0.i.i, 1
-  %123 = icmp ult i64 %122, %.0.sroa.speculated.i.i
+  %123 = icmp samesign ult i64 %122, %.0.sroa.speculated.i.i
   br i1 %123, label %124, label %130
 
 124:                                              ; preds = %118
@@ -9954,7 +9954,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %132, %130
   %.016.i13.i = phi i64 [ %178, %.thread52 ], [ 0, %145 ]
   %.0.i14.i = phi i64 [ 4, %.thread52 ], [ 0, %145 ]
   %172 = or disjoint i64 %.0.i14.i, 1
-  %173 = icmp ult i64 %172, %167
+  %173 = icmp samesign ult i64 %172, %167
   br i1 %173, label %179, label %187
 
 .thread52:                                        ; preds = %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17heca62c5414634a5fE.llvm.10393017446704266758.exit33", %145
@@ -22392,14 +22392,14 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %81, %76
   %.016.i13 = phi i64 [ %83, %81 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %81 ], [ 0, %76 ]
   %79 = or disjoint i64 %.0.i14, 1
-  %80 = icmp ult i64 %79, %44
+  %80 = icmp samesign ult i64 %79, %44
   br i1 %80, label %84, label %92
 
 81:                                               ; preds = %76

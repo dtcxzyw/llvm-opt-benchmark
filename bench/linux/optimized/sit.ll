@@ -414,7 +414,7 @@ define internal range(i32 -2147483648, 1) i32 @ipip6_newlink(ptr nocapture readn
   %90 = load i16, ptr %89, align 4
   %91 = zext i16 %90 to i64
   %92 = sub nuw nsw i64 65575, %91
-  %93 = icmp ult i64 %92, %88
+  %93 = icmp samesign ult i64 %92, %88
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %87
@@ -807,7 +807,7 @@ define internal i32 @ipip6_tunnel_init(ptr noundef %0) #4 align 16 {
 14:                                               ; preds = %22, %12
   %15 = phi i64 [ %26, %22 ], [ 0, %12 ]
   %16 = and i64 %15, 4294967295
-  %17 = icmp ugt i64 %16, 63
+  %17 = icmp samesign ugt i64 %16, 63
   br i1 %17, label %.thread, label %18, !prof !11
 
 18:                                               ; preds = %14
@@ -1703,7 +1703,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   %30 = icmp ne i32 %29, 0
   %31 = select i1 %28, i1 %30, i1 false
   %32 = select i1 %31, i32 1, i32 %27
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %24
@@ -1761,7 +1761,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load volatile ptr, ptr %58, align 8
   %66 = icmp ne ptr %65, null
-  %67 = icmp ult i64 %indvars.iv.next, %57
+  %67 = icmp samesign ult i64 %indvars.iv.next, %57
   %68 = select i1 %66, i1 %67, i1 false
   br i1 %68, label %.preheader.split.us.split.us, label %.split.us, !llvm.loop !27
 
@@ -3639,7 +3639,7 @@ default.unreachable73:                            ; preds = %238
   %300 = load i8, ptr %299, align 1
   %301 = add i8 %300, 1
   %302 = and i8 %301, 3
-  %303 = icmp ult i8 %302, 2
+  %303 = icmp samesign ult i8 %302, 2
   br i1 %303, label %.thread36, label %304
 
 304:                                              ; preds = %298

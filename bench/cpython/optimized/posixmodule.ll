@@ -10691,7 +10691,7 @@ for.body.i:                                       ; preds = %if.end24.i, %for.in
   %count.014.i = phi i32 [ %count.1.i, %for.inc.i ], [ %call25.i, %if.end24.i ]
   %conv26.i = sext i32 %cpu.015.i to i64
   %div2729.i = lshr i64 %conv26.i, 3
-  %cmp28.i = icmp ult i64 %div2729.i, %sub11.i
+  %cmp28.i = icmp samesign ult i64 %div2729.i, %sub11.i
   br i1 %cmp28.i, label %cond.true.i, label %for.inc.i
 
 cond.true.i:                                      ; preds = %for.body.i
@@ -23242,7 +23242,7 @@ return:                                           ; preds = %iov_cleanup.exit, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef nonnull %iov, ptr nocapture noundef nonnull %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
-  %cmp = icmp ugt i64 %cnt, 576460752303423487
+  %cmp = icmp samesign ugt i64 %cnt, 576460752303423487
   br i1 %cmp, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
@@ -23261,7 +23261,7 @@ if.then:                                          ; preds = %cond.end.thread, %c
   br label %return
 
 if.end:                                           ; preds = %cond.end
-  %cmp3 = icmp ugt i64 %cnt, 115292150460684697
+  %cmp3 = icmp samesign ugt i64 %cnt, 115292150460684697
   br i1 %cmp3, label %cond.end8.thread, label %cond.end8
 
 cond.end8.thread:                                 ; preds = %if.end

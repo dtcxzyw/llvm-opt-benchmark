@@ -289,7 +289,7 @@ sub_2:                                            ; preds = %sub_1
   %107 = load i8, ptr %4, align 8
   %108 = zext i8 %107 to i64
   %109 = add nuw nsw i64 %108, 16
-  %110 = icmp ult i64 %106, %109
+  %110 = icmp samesign ult i64 %106, %109
   br i1 %110, label %105, label %111
 
 111:                                              ; preds = %105
@@ -378,7 +378,7 @@ sub_2:                                            ; preds = %sub_1
   %.0471 = phi i32 [ %139, %133 ], [ %132, %._crit_edge556 ]
   %141 = call i32 @llvm.smax.i32(i32 %.0471, i32 0)
   %142 = zext nneg i32 %141 to i64
-  %143 = icmp ugt i64 %spec.select533, %142
+  %143 = icmp samesign ugt i64 %spec.select533, %142
   %.spec.select533 = call i64 @llvm.umin.i64(i64 %spec.select533, i64 %142)
   %144 = call ptr @__php_stpncpy(ptr noundef %.2485, ptr noundef %.2, i64 noundef %.spec.select533) #13
   %145 = trunc nuw nsw i64 %spec.select533 to i32

@@ -330,7 +330,7 @@ Abc_TtHasVar.exit:                                ; preds = %20, %29
   br i1 %46, label %Abc_TtStretch6.exit, label %47
 
 47:                                               ; preds = %.split36
-  %48 = icmp ult i32 %.03384, 7
+  %48 = icmp samesign ult i32 %.03384, 7
   %49 = add nsw i32 %.03384, -6
   %50 = shl nuw i32 1, %49
   %51 = select i1 %48, i32 1, i32 %50
@@ -394,7 +394,7 @@ define void @Abc_IsopBuildTruth(ptr nocapture noundef readonly %0, i32 noundef %
 
 .preheader.i:                                     ; preds = %.preheader5.i, %.loopexit.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %.loopexit.i.i ], [ 0, %.preheader5.i ]
-  %11 = icmp ult i64 %indvars.iv12.i.i, 6
+  %11 = icmp samesign ult i64 %indvars.iv12.i.i, 6
   br i1 %11, label %.preheader.i.i, label %.preheader1.i.i
 
 .preheader1.i.i:                                  ; preds = %.preheader.i
@@ -2229,7 +2229,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   ]
 
 285:                                              ; preds = %282
-  %286 = icmp ult i32 %.4333, 6
+  %286 = icmp samesign ult i32 %.4333, 6
   br i1 %286, label %.lr.ph.i217, label %.preheader.lr.ph.i
 
 .lr.ph.i217:                                      ; preds = %285
@@ -2352,7 +2352,7 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
   br label %382
 
 334:                                              ; preds = %282
-  %335 = icmp ult i32 %.4333, 6
+  %335 = icmp samesign ult i32 %.4333, 6
   br i1 %335, label %.lr.ph.i242, label %.preheader.lr.ph.i230
 
 .lr.ph.i242:                                      ; preds = %334

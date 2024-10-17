@@ -1832,7 +1832,7 @@ while.body.i.i.i.i120.i:                          ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.then.i.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i120.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %__len.addr.019.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %__len.addr.019.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then4.i.i.i, label %while.body.i.i.i.i120.i, !llvm.loop !50
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i120.i
@@ -2070,7 +2070,7 @@ while.body.i.i.i.i149.i:                          ; preds = %if.end.i.i142.i, %i
   br i1 %cmp2.not.i.i.i.i155.i, label %if.end4.i.i.i.i173.i, label %if.then.i.i.i156.i
 
 if.end4.i.i.i.i173.i:                             ; preds = %while.body.i.i.i.i149.i
-  %cmp1.not.i.i.i.i174.i = icmp ult i64 %__len.addr.019.i.i.in.in.i.i150.i, 3
+  %cmp1.not.i.i.i.i174.i = icmp samesign ult i64 %__len.addr.019.i.i.in.in.i.i150.i, 3
   br i1 %cmp1.not.i.i.i.i174.i, label %if.then3.i.i.i, label %while.body.i.i.i.i149.i, !llvm.loop !50
 
 if.then.i.i.i156.i:                               ; preds = %while.body.i.i.i.i149.i
@@ -2381,7 +2381,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 4611686018427387903
   %5 = and i64 %4, 4611686018427387903
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check221 = icmp ult i64 %5, 7
+  %min.iters.check221 = icmp samesign ult i64 %5, 7
   br i1 %min.iters.check221, label %for.body.i.i.i.preheader, label %vector.ph222
 
 vector.ph222:                                     ; preds = %invoke.cont20
@@ -2561,7 +2561,7 @@ if.end.i.i.i.i.i162:                              ; preds = %_ZNSt16allocator_tr
   %32 = add nuw nsw i64 %__n, 4611686018427387903
   %33 = and i64 %32, 4611686018427387903
   %34 = add nuw nsw i64 %33, 1
-  %min.iters.check237 = icmp ult i64 %33, 7
+  %min.iters.check237 = icmp samesign ult i64 %33, 7
   br i1 %min.iters.check237, label %for.body.i.i.i.i.i.i.i164.preheader, label %vector.ph238
 
 vector.ph238:                                     ; preds = %if.end.i.i.i.i.i162
@@ -8608,7 +8608,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.b
 if.end4.i:                                        ; preds = %while.body.i
   %add.i = add nuw nsw i64 %__len.addr.019.i, 1
   %div17.i = lshr i64 %add.i, 1
-  %cmp1.not.i = icmp ult i64 %__len.addr.019.i, 2
+  %cmp1.not.i = icmp samesign ult i64 %__len.addr.019.i, 2
   br i1 %cmp1.not.i, label %if.end, label %while.body.i, !llvm.loop !470
 
 if.then:                                          ; preds = %while.body.i
@@ -8981,7 +8981,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %cmp11.i.i = icmp ult i8 %3, %4
+  %cmp11.i.i = icmp samesign ult i8 %3, %4
   br i1 %cmp11.i.i, label %if.then9, label %if.else
 
 if.end.i.i:                                       ; preds = %for.body
@@ -9299,7 +9299,7 @@ while.cond.i:                                     ; preds = %_ZN3ue215ue2_case_s
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i11.i
 
 if.then.i.i11.i:                                  ; preds = %while.cond.i
-  %cmp11.i.i.i = icmp ult i8 %56, %57
+  %cmp11.i.i.i = icmp samesign ult i8 %56, %57
   br i1 %cmp11.i.i.i, label %while.body.i, label %while.end.i
 
 if.end.i.i.i:                                     ; preds = %while.cond.i
@@ -9563,7 +9563,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then5
-  %cmp11.i.i = icmp ult i8 %0, %1
+  %cmp11.i.i = icmp samesign ult i8 %0, %1
   br i1 %cmp11.i.i, label %if.then9, label %return
 
 if.end.i.i:                                       ; preds = %if.then5
@@ -9630,7 +9630,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i15.i
 
 if.then.i.i15.i:                                  ; preds = %while.body.i
-  %cmp11.i.i.i = icmp ult i8 %9, %6
+  %cmp11.i.i.i = icmp samesign ult i8 %9, %6
   br i1 %cmp11.i.i.i, label %if.then.i, label %if.end.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
@@ -9709,7 +9709,7 @@ while.body.i109:                                  ; preds = %if.end.i123, %while
   br i1 %cmp.not.i.i.i118, label %if.end.i.i.i127, label %if.then.i.i15.i119
 
 if.then.i.i15.i119:                               ; preds = %while.body.i109
-  %cmp11.i.i.i120 = icmp ult i8 %13, %16
+  %cmp11.i.i.i120 = icmp samesign ult i8 %13, %16
   br i1 %cmp11.i.i.i120, label %if.end.i123, label %if.else.i
 
 if.end.i.i.i127:                                  ; preds = %while.body.i109
@@ -10680,7 +10680,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
-  %cmp11.i.i.i = icmp ult i8 %20, %21
+  %cmp11.i.i.i = icmp samesign ult i8 %20, %21
   br i1 %cmp11.i.i.i, label %if.then.i, label %if.else.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
@@ -11302,7 +11302,7 @@ while.body.i169:                                  ; preds = %if.end33.i, %while.
   br i1 %cmp.not.i.i.i172, label %if.end.i.i.i201, label %if.then.i.i.i173
 
 if.then.i.i.i173:                                 ; preds = %while.body.i169
-  %cmp11.i.i.i174 = icmp ult i8 %126, %127
+  %cmp11.i.i.i174 = icmp samesign ult i8 %126, %127
   br i1 %cmp11.i.i.i174, label %if.then12.i, label %if.else27.i
 
 if.end.i.i.i201:                                  ; preds = %while.body.i169
@@ -11677,7 +11677,7 @@ while.body.i259:                                  ; preds = %if.end.i263, %while
   br i1 %cmp.not.i.i.i261, label %if.end.i.i.i267, label %if.then.i.i15.i
 
 if.then.i.i15.i:                                  ; preds = %while.body.i259
-  %cmp11.i.i.i262 = icmp ult i8 %195, %192
+  %cmp11.i.i.i262 = icmp samesign ult i8 %195, %192
   br i1 %cmp11.i.i.i262, label %if.then.i265, label %if.end.i263
 
 if.end.i.i.i267:                                  ; preds = %while.body.i259
@@ -11756,7 +11756,7 @@ while.body.i303:                                  ; preds = %if.end.i318, %while
   br i1 %cmp.not.i.i.i312, label %if.end.i.i.i322, label %if.then.i.i15.i313
 
 if.then.i.i15.i313:                               ; preds = %while.body.i303
-  %cmp11.i.i.i314 = icmp ult i8 %199, %202
+  %cmp11.i.i.i314 = icmp samesign ult i8 %199, %202
   br i1 %cmp11.i.i.i314, label %if.end.i318, label %if.else.i315
 
 if.end.i.i.i322:                                  ; preds = %while.body.i303
@@ -11845,7 +11845,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %cmp11.i.i = icmp ult i8 %0, %1
+  %cmp11.i.i = icmp samesign ult i8 %0, %1
   br i1 %cmp11.i.i, label %if.then, label %if.else
 
 if.end.i.i:                                       ; preds = %while.body
@@ -12342,7 +12342,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %cmp11.i.i = icmp ult i8 %1, %2
+  %cmp11.i.i = icmp samesign ult i8 %1, %2
   br i1 %cmp11.i.i, label %if.then, label %if.else
 
 if.end.i.i:                                       ; preds = %while.body
@@ -13971,11 +13971,11 @@ _ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT
   br i1 %cmp.not6.i.i.i.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit, label %iter.check
 
 iter.check:                                       ; preds = %_ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit67
-  %min.iters.check = icmp ult i64 %sub.ptr.sub.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.sub.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check69 = icmp ult i64 %sub.ptr.sub.i, 32
+  %min.iters.check69 = icmp samesign ult i64 %sub.ptr.sub.i, 32
   br i1 %min.iters.check69, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check

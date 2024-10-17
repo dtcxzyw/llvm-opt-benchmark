@@ -211,7 +211,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   %108 = zext i32 %107 to i64
   %109 = mul nuw nsw i64 %108, %106
   %110 = trunc i64 %109 to i32
-  %.not61 = icmp ult i64 %109, 2147483648
+  %.not61 = icmp samesign ult i64 %109, 2147483648
   br i1 %.not61, label %111, label %34
 
 111:                                              ; preds = %105

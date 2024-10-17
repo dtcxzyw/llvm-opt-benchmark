@@ -10626,7 +10626,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !79
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !82
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -10660,7 +10660,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %sw.
   %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %ptr.0.i.i20, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i23, align 1, !noalias !86
   %shr.i.i24 = lshr i64 %v.0.i.i21, 4
-  %cmp.not.i.i25 = icmp ult i64 %v.0.i.i21, 16
+  %cmp.not.i.i25 = icmp samesign ult i64 %v.0.i.i21, 16
   br i1 %cmp.not.i.i25, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i19, !llvm.loop !89
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i19
@@ -10694,7 +10694,7 @@ do.body.i.i33:                                    ; preds = %do.body.i.i33, %sw.
   %incdec.ptr.i.i38 = getelementptr inbounds i8, ptr %ptr.0.i.i34, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i38, align 1, !noalias !93
   %shr.i.i39 = lshr i64 %v.0.i.i35, 4
-  %cmp.not.i.i40 = icmp ult i64 %v.0.i.i35, 16
+  %cmp.not.i.i40 = icmp samesign ult i64 %v.0.i.i35, 16
   br i1 %cmp.not.i.i40, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit44, label %do.body.i.i33, !llvm.loop !89
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit44: ; preds = %do.body.i.i33
@@ -10816,7 +10816,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

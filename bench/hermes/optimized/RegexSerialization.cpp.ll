@@ -814,7 +814,7 @@ if.end.i:                                         ; preds = %if.else.i202, %if.t
   %inc.i = add nuw nsw i32 %i.025.i, 1
   %38 = load i8, ptr %charCount.i, align 1
   %conv.i201 = zext i8 %38 to i32
-  %cmp.i = icmp ult i32 %inc.i, %conv.i201
+  %cmp.i = icmp samesign ult i32 %inc.i, %conv.i201
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !28
 
 for.end.i:                                        ; preds = %if.end.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i189
@@ -907,7 +907,7 @@ if.end.i237:                                      ; preds = %if.else.i248, %if.t
   %inc.i239 = add nuw nsw i32 %i.025.i230, 1
   %47 = load i8, ptr %charCount.i218, align 1
   %conv.i240 = zext i8 %47 to i32
-  %cmp.i241 = icmp ult i32 %inc.i239, %conv.i240
+  %cmp.i241 = icmp samesign ult i32 %inc.i239, %conv.i240
   br i1 %cmp.i241, label %for.body.i229, label %for.end.i242, !llvm.loop !36
 
 for.end.i242:                                     ; preds = %if.end.i237, %_ZN4llvh11raw_ostreamlsEPKc.exit.i217
@@ -4870,7 +4870,7 @@ if.then:                                          ; preds = %entry
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv382, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ugt i32 %shl, 127
+  %cmp11 = icmp samesign ugt i32 %shl, 127
   tail call void @llvm.assume(i1 %cmp11)
   br label %return
 
@@ -4899,7 +4899,7 @@ if.then19:                                        ; preds = %if.else
   %and48 = shl nsw i32 %conv22, 6
   %shl49 = and i32 %and48, 4032
   %or50 = or disjoint i32 %shl49, %shl47
-  %cmp53 = icmp ugt i32 %or50, 2047
+  %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
   %and51 = and i32 %conv3383, 63
   %or52 = or disjoint i32 %or50, %and51
@@ -4939,9 +4939,9 @@ if.else68:                                        ; preds = %if.else
   %and122 = and i32 %conv10184, 63
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
-  %cmp124 = icmp ugt i32 %or118, 65535
+  %cmp124 = icmp samesign ugt i32 %or118, 65535
   tail call void @llvm.assume(i1 %cmp124)
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68
@@ -5152,7 +5152,7 @@ if.then:                                          ; preds = %entry
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv382, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ugt i32 %shl, 127
+  %cmp11 = icmp samesign ugt i32 %shl, 127
   tail call void @llvm.assume(i1 %cmp11)
   br label %return
 
@@ -5181,7 +5181,7 @@ if.then19:                                        ; preds = %if.else
   %and48 = shl nsw i32 %conv22, 6
   %shl49 = and i32 %and48, 4032
   %or50 = or disjoint i32 %shl49, %shl47
-  %cmp53 = icmp ugt i32 %or50, 2047
+  %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
   %and51 = and i32 %conv3383, 63
   %or52 = or disjoint i32 %or50, %and51
@@ -5221,9 +5221,9 @@ if.else68:                                        ; preds = %if.else
   %and122 = and i32 %conv10184, 63
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
-  %cmp124 = icmp ugt i32 %or118, 65535
+  %cmp124 = icmp samesign ugt i32 %or118, 65535
   tail call void @llvm.assume(i1 %cmp124)
-  %cmp129 = icmp ugt i32 %or118, 1114111
+  %cmp129 = icmp samesign ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68

@@ -17687,15 +17687,15 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7"
 
 71:                                               ; preds = %68
-  %72 = icmp ult i32 %.sroa.4.0.i.ph.i, 128
+  %72 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %72, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit", label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i, 2048
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 2048
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   %..i = select i1 %76, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit"
 
@@ -37238,7 +37238,7 @@ select.unfold:                                    ; preds = %"_ZN4core3ptr47drop
   call void @llvm.experimental.noalias.scope.decl(metadata !8251)
   call void @llvm.experimental.noalias.scope.decl(metadata !8254)
   %340 = load i64, ptr %33, align 8, !range !1683, !alias.scope !8257, !noundef !9
-  %switch.i.i157 = icmp ult i64 %340, 2
+  %switch.i.i157 = icmp samesign ult i64 %340, 2
   br i1 %switch.i.i157, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h10a68ab15e36f142E.exit", label %341
 
 341:                                              ; preds = %339

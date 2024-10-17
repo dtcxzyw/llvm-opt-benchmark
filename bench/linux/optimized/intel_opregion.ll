@@ -1133,7 +1133,7 @@ define internal void @asle_work(ptr noundef %0) #0 align 16 {
 
 53:                                               ; preds = %51
   %54 = and i32 %35, 2147483647
-  %55 = icmp ugt i32 %54, 255
+  %55 = icmp samesign ugt i32 %54, 255
   br i1 %55, label %76, label %56
 
 56:                                               ; preds = %53
@@ -1514,7 +1514,7 @@ define dso_local range(i32 -110, 16) i32 @intel_opregion_get_panel_type(ptr noun
   %6 = load i32, ptr %2, align 4
   %7 = lshr i32 %6, 8
   %8 = and i32 %7, 255
-  %9 = icmp ugt i32 %8, 16
+  %9 = icmp samesign ugt i32 %8, 16
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %5
@@ -1899,7 +1899,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   store i32 %77, ptr %81, align 1
   %82 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #12
   %83 = icmp eq ptr %82, null
-  %84 = icmp ugt i64 %74, 6
+  %84 = icmp samesign ugt i64 %74, 6
   %85 = or i1 %84, %83
   br i1 %85, label %86, label %.preheader, !llvm.loop !28
 

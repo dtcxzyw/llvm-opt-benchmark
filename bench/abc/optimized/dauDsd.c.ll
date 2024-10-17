@@ -411,7 +411,7 @@ define noundef nonnull ptr @Dau_DsdNormalizePerm(ptr noundef readonly %0, ptr no
   %indvars.iv49 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next50, %._crit_edge ]
   %indvars.iv42 = phi i64 [ 1, %.lr.ph37.preheader ], [ %indvars.iv.next43, %._crit_edge ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %8 = icmp ult i64 %indvars.iv.next50, %5
+  %8 = icmp samesign ult i64 %indvars.iv.next50, %5
   %9 = trunc nuw nsw i64 %indvars.iv49 to i32
   br i1 %8, label %.lr.ph35, label %._crit_edge
 
@@ -662,7 +662,7 @@ tailrecurse:                                      ; preds = %148, %3
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %._crit_edge.i ], [ 0, %.lr.ph.i ]
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %._crit_edge.i ], [ 1, %.lr.ph.i ]
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %62 = icmp ult i64 %indvars.iv.next50.i, %58
+  %62 = icmp samesign ult i64 %indvars.iv.next50.i, %58
   %63 = trunc nuw nsw i64 %indvars.iv49.i to i32
   br i1 %62, label %.lr.ph35.i, label %._crit_edge.i
 
@@ -2385,7 +2385,7 @@ define ptr @Dau_DsdToTruth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6
 
 .preheader.i:                                     ; preds = %.preheader5.i, %.loopexit.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %.loopexit.i.i ], [ 0, %.preheader5.i ]
-  %13 = icmp ult i64 %indvars.iv12.i.i, 6
+  %13 = icmp samesign ult i64 %indvars.iv12.i.i, 6
   br i1 %13, label %.preheader.i.i, label %.preheader1.i.i
 
 .preheader1.i.i:                                  ; preds = %.preheader.i
@@ -2834,7 +2834,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %indvars.iv427 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next428, %.loopexit ]
   %indvars.iv420 = phi i64 [ 1, %.lr.ph342.preheader ], [ %indvars.iv.next421, %.loopexit ]
   %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
-  %160 = icmp ult i64 %indvars.iv.next428, %51
+  %160 = icmp samesign ult i64 %indvars.iv.next428, %51
   br i1 %160, label %.lr.ph340, label %.loopexit
 
 .lr.ph340:                                        ; preds = %.lr.ph342
@@ -3425,7 +3425,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %Abc_TtHasVar.exit.thread.i
   %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %Abc_TtHasVar.exit.thread.i ], [ 0, %.lr.ph.split.i ]
   %.022.i = phi i32 [ %129, %Abc_TtHasVar.exit.thread.i ], [ 0, %.lr.ph.split.i ]
-  %99 = icmp ult i64 %indvars.iv.i55, 6
+  %99 = icmp samesign ult i64 %indvars.iv.i55, 6
   br i1 %99, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i
@@ -3619,7 +3619,7 @@ Abc_TtHasVar.exit.us.i104:                        ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i79:                     ; preds = %.lr.ph.split.i75, %Abc_TtHasVar.exit.thread.i91
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i92, %Abc_TtHasVar.exit.thread.i91 ], [ 0, %.lr.ph.split.i75 ]
   %.022.i81 = phi i32 [ %211, %Abc_TtHasVar.exit.thread.i91 ], [ 0, %.lr.ph.split.i75 ]
-  %181 = icmp ult i64 %indvars.iv.i80, 6
+  %181 = icmp samesign ult i64 %indvars.iv.i80, 6
   br i1 %181, label %.lr.ph.i.i97, label %.preheader.lr.ph.i.i82
 
 .lr.ph.i.i97:                                     ; preds = %.lr.ph.split.split.split.i79
@@ -5346,7 +5346,7 @@ define internal fastcc range(i32 1, 3) i32 @Dau_DsdWritePrime(ptr noundef %0, pt
   %29 = load i64, ptr %1, align 8
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 15
-  %32 = icmp ult i32 %31, 10
+  %32 = icmp samesign ult i32 %31, 10
   %33 = trunc nuw nsw i32 %31 to i8
   %34 = or disjoint i8 %33, 48
   %35 = add nuw nsw i8 %33, 55
@@ -5383,7 +5383,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %46 = lshr i64 %43, %45
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 15
-  %49 = icmp ult i32 %48, 10
+  %49 = icmp samesign ult i32 %48, 10
   %50 = trunc nuw nsw i32 %48 to i8
   %51 = or disjoint i8 %50, 48
   %52 = add nuw nsw i8 %50, 55
@@ -5672,7 +5672,7 @@ Dau_DsdWriteString.exit70:                        ; preds = %.lr.ph.i67, %Abc_Tt
   %192 = load i64, ptr %1, align 8
   %193 = trunc i64 %192 to i32
   %194 = and i32 %193, 15
-  %195 = icmp ult i32 %194, 10
+  %195 = icmp samesign ult i32 %194, 10
   %196 = trunc nuw nsw i32 %194 to i8
   %197 = or disjoint i8 %196, 48
   %198 = add nuw nsw i8 %196, 55
@@ -5711,7 +5711,7 @@ select.unfold.us.i83:                             ; preds = %select.unfold.us.i8
   %211 = lshr i64 %208, %210
   %212 = trunc i64 %211 to i32
   %213 = and i32 %212, 15
-  %214 = icmp ult i32 %213, 10
+  %214 = icmp samesign ult i32 %213, 10
   %215 = trunc nuw nsw i32 %213 to i8
   %216 = or disjoint i8 %215, 48
   %217 = add nuw nsw i8 %215, 55
@@ -7042,7 +7042,7 @@ Abc_TtCofactor0p.exit.thread587.i:                ; preds = %64
   br i1 %111, label %.preheader.us.i.i, label %Abc_TtCofactor0p.exit.thread.i, !llvm.loop !62
 
 Abc_TtCofactor0p.exit.thread.i:                   ; preds = %._crit_edge.us.i.i, %92, %99
-  %112 = icmp ult i64 %indvars.iv132, 6
+  %112 = icmp samesign ult i64 %indvars.iv132, 6
   br i1 %112, label %113, label %125
 
 113:                                              ; preds = %Abc_TtCofactor0p.exit.thread.i
@@ -7250,7 +7250,7 @@ Abc_TtCofactor1.exit.i:                           ; preds = %._crit_edge.us.i188
 
 .preheader.i.i:                                   ; preds = %.preheader5.i.i, %.loopexit.i.i.i
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %.loopexit.i.i.i ], [ 0, %.preheader5.i.i ]
-  %198 = icmp ult i64 %indvars.iv12.i.i.i, 6
+  %198 = icmp samesign ult i64 %indvars.iv12.i.i.i, 6
   br i1 %198, label %.preheader.i.i.i, label %.preheader1.i.i.i
 
 .preheader1.i.i.i:                                ; preds = %.preheader.i.i
@@ -7418,7 +7418,7 @@ Abc_TtCofactor0p.exit219.thread590.i:             ; preds = %230
   br i1 %281, label %.preheader.us.i207.i, label %Abc_TtCofactor0p.exit219.thread.i, !llvm.loop !62
 
 Abc_TtCofactor0p.exit219.thread.i:                ; preds = %._crit_edge.us.i213.i, %262, %269
-  %282 = icmp ult i64 %indvars.iv132, 6
+  %282 = icmp samesign ult i64 %indvars.iv132, 6
   br i1 %282, label %283, label %295
 
 283:                                              ; preds = %Abc_TtCofactor0p.exit219.thread.i
@@ -7626,7 +7626,7 @@ Abc_TtCofactor1.exit264.i:                        ; preds = %._crit_edge.us.i258
 
 .preheader.i269.i:                                ; preds = %.preheader5.i265.i, %.loopexit.i.i276.i
   %indvars.iv12.i.i270.i = phi i64 [ %indvars.iv.next13.i.i277.i, %.loopexit.i.i276.i ], [ 0, %.preheader5.i265.i ]
-  %368 = icmp ult i64 %indvars.iv12.i.i270.i, 6
+  %368 = icmp samesign ult i64 %indvars.iv12.i.i270.i, 6
   br i1 %368, label %.preheader.i.i279.i, label %.preheader1.i.i271.i
 
 .preheader1.i.i271.i:                             ; preds = %.preheader.i269.i
@@ -7792,7 +7792,7 @@ Abc_TtCofactor0p.exit309.thread593.i:             ; preds = %400
   br i1 %449, label %.preheader.us.i297.i, label %Abc_TtCofactor0p.exit309.thread.i, !llvm.loop !62
 
 Abc_TtCofactor0p.exit309.thread.i:                ; preds = %._crit_edge.us.i303.i, %430, %437
-  %450 = icmp ult i64 %indvars.iv132, 6
+  %450 = icmp samesign ult i64 %indvars.iv132, 6
   br i1 %450, label %451, label %463
 
 451:                                              ; preds = %Abc_TtCofactor0p.exit309.thread.i
@@ -8000,7 +8000,7 @@ Abc_TtCofactor0.exit361.i:                        ; preds = %._crit_edge.us.i355
 
 .preheader.i366.i:                                ; preds = %.preheader5.i362.i, %.loopexit.i.i373.i
   %indvars.iv12.i.i367.i = phi i64 [ %indvars.iv.next13.i.i374.i, %.loopexit.i.i373.i ], [ 0, %.preheader5.i362.i ]
-  %536 = icmp ult i64 %indvars.iv12.i.i367.i, 6
+  %536 = icmp samesign ult i64 %indvars.iv12.i.i367.i, 6
   br i1 %536, label %.preheader.i.i376.i, label %.preheader1.i.i368.i
 
 .preheader1.i.i368.i:                             ; preds = %.preheader.i366.i
@@ -8164,7 +8164,7 @@ Abc_TtCofactor0p.exit406.thread596.i:             ; preds = %568
   br i1 %615, label %.preheader.us.i394.i, label %Abc_TtCofactor0p.exit406.thread.i, !llvm.loop !62
 
 Abc_TtCofactor0p.exit406.thread.i:                ; preds = %._crit_edge.us.i400.i, %596, %603
-  %616 = icmp ult i64 %indvars.iv132, 6
+  %616 = icmp samesign ult i64 %indvars.iv132, 6
   br i1 %616, label %617, label %629
 
 617:                                              ; preds = %Abc_TtCofactor0p.exit406.thread.i
@@ -8372,7 +8372,7 @@ Abc_TtCofactor1.exit458.i:                        ; preds = %._crit_edge.us.i452
 
 .preheader.i463.i:                                ; preds = %.preheader5.i459.i, %.loopexit.i.i470.i
   %indvars.iv12.i.i464.i = phi i64 [ %indvars.iv.next13.i.i471.i, %.loopexit.i.i470.i ], [ 0, %.preheader5.i459.i ]
-  %702 = icmp ult i64 %indvars.iv12.i.i464.i, 6
+  %702 = icmp samesign ult i64 %indvars.iv12.i.i464.i, 6
   br i1 %702, label %.preheader.i.i473.i, label %.preheader1.i.i465.i
 
 .preheader1.i.i465.i:                             ; preds = %.preheader.i463.i
@@ -8540,7 +8540,7 @@ Abc_TtCofactor1p.exit503.thread599.i:             ; preds = %734
   br i1 %785, label %.preheader.us.i491.i, label %Abc_TtCofactor1p.exit503.thread.i, !llvm.loop !67
 
 Abc_TtCofactor1p.exit503.thread.i:                ; preds = %._crit_edge.us.i497.i, %766, %773
-  %786 = icmp ult i64 %indvars.iv132, 6
+  %786 = icmp samesign ult i64 %indvars.iv132, 6
   br i1 %786, label %787, label %799
 
 787:                                              ; preds = %Abc_TtCofactor1p.exit503.thread.i
@@ -8748,7 +8748,7 @@ Abc_TtCofactor0.exit555.i:                        ; preds = %._crit_edge.us.i549
 
 .preheader.i560.i:                                ; preds = %.preheader5.i556.i, %.loopexit.i.i567.i
   %indvars.iv12.i.i561.i = phi i64 [ %indvars.iv.next13.i.i568.i, %.loopexit.i.i567.i ], [ 0, %.preheader5.i556.i ]
-  %872 = icmp ult i64 %indvars.iv12.i.i561.i, 6
+  %872 = icmp samesign ult i64 %indvars.iv12.i.i561.i, 6
   br i1 %872, label %.preheader.i.i570.i, label %.preheader1.i.i562.i
 
 .preheader1.i.i562.i:                             ; preds = %.preheader.i560.i
@@ -9095,7 +9095,7 @@ Abc_TtCheckEqualCofs.exit214.thread216:           ; preds = %74
   br label %Abc_TtCheckEqualCofs.exit176
 
 96:                                               ; preds = %74
-  %97 = icmp ult i64 %indvars.iv, 6
+  %97 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %97, label %98, label %115
 
 98:                                               ; preds = %96
@@ -9445,7 +9445,7 @@ Abc_TtCheckEqualCofs.exit138.thread219:           ; preds = %226
   br i1 %.not115.i135, label %258, label %Abc_TtCheckEqualCofs.exit138.thread
 
 266:                                              ; preds = %248
-  %267 = icmp ult i64 %indvars.iv, 6
+  %267 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %267, label %268, label %284
 
 268:                                              ; preds = %266
@@ -9573,7 +9573,7 @@ Abc_TtCheckEqualCofs.exit138.thread:              ; preds = %._crit_edge124.spli
   br i1 %.not115.i, label %315, label %Abc_TtCheckEqualCofs.exit
 
 Abc_TtCheckEqualCofs.exit138.thread.thread:       ; preds = %Abc_TtCheckEqualCofs.exit138.thread
-  %322 = icmp ult i64 %indvars.iv, 6
+  %322 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %322, label %Abc_TtCheckEqualCofs.exit138.thread.thread.thread, label %Abc_TtCheckEqualCofs.exit138.thread.thread.thread376
 
 Abc_TtCheckEqualCofs.exit138.thread.thread.thread: ; preds = %Abc_TtCheckEqualCofs.exit138.thread.thread
@@ -10567,7 +10567,7 @@ Abc_TtEqual.exit203.thread.i:                     ; preds = %721, %666, %653, %A
 
 .preheader.i.i:                                   ; preds = %.preheader5.i.i, %.loopexit.i.i.i
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %.loopexit.i.i.i ], [ 0, %.preheader5.i.i ]
-  %735 = icmp ult i64 %indvars.iv12.i.i.i, 6
+  %735 = icmp samesign ult i64 %indvars.iv12.i.i.i, 6
   br i1 %735, label %.preheader.i.i.i, label %.preheader1.i.i.i
 
 .preheader1.i.i.i:                                ; preds = %.preheader.i.i
@@ -10882,7 +10882,7 @@ define i32 @Dau_DsdMinBase(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
   br i1 %8, label %Abc_TtHasVar.exit, label %9
 
 9:                                                ; preds = %.lr.ph38
-  %10 = icmp ult i64 %indvars.iv42, 7
+  %10 = icmp samesign ult i64 %indvars.iv42, 7
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %9
@@ -11700,7 +11700,7 @@ Abc_Clock.exit:                                   ; preds = %0, %19
 
 .preheader.i.i:                                   ; preds = %.preheader5.i.i, %.loopexit.i.i.i
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %.loopexit.i.i.i ], [ 0, %.preheader5.i.i ]
-  %56 = icmp ult i64 %indvars.iv12.i.i.i, 6
+  %56 = icmp samesign ult i64 %indvars.iv12.i.i.i, 6
   br i1 %56, label %.preheader.i.i.i, label %.preheader1.i.i.i
 
 .preheader1.i.i.i:                                ; preds = %.preheader.i.i
@@ -12070,7 +12070,7 @@ Dau_DsdNormalize.exit:                            ; preds = %Abc_Clock.exit49, %
 
 .preheader.i.i79:                                 ; preds = %.preheader5.i.i75, %.loopexit.i.i.i86
   %indvars.iv12.i.i.i80 = phi i64 [ %indvars.iv.next13.i.i.i87, %.loopexit.i.i.i86 ], [ 0, %.preheader5.i.i75 ]
-  %174 = icmp ult i64 %indvars.iv12.i.i.i80, 6
+  %174 = icmp samesign ult i64 %indvars.iv12.i.i.i80, 6
   br i1 %174, label %.preheader.i.i.i89, label %.preheader1.i.i.i81
 
 .preheader1.i.i.i81:                              ; preds = %.preheader.i.i79
@@ -12419,7 +12419,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCheckEqualCofs(ptr noundef rea
   br label %.loopexit
 
 35:                                               ; preds = %6
-  %36 = icmp ult i32 %3, 6
+  %36 = icmp samesign ult i32 %3, 6
   br i1 %36, label %37, label %66
 
 37:                                               ; preds = %35

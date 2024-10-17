@@ -1674,7 +1674,7 @@ define void @_ZN3nix13parseFeaturesERKSt3setINSt7__cxx1112basic_stringIcSt11char
 
 20:                                               ; preds = %14
   %.sroa.0.0.extract.trunc = trunc i64 %19 to i32
-  %.not = icmp ult i64 %19, 4294967296
+  %.not = icmp samesign ult i64 %19, 4294967296
   br i1 %.not, label %_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EE6insertERKS1_.exit, label %21
 
 21:                                               ; preds = %20
@@ -1953,7 +1953,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %17 unwind label %23
 
 17:                                               ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEcvT_IS8_TnNSt9enable_ifIXsr6detail11conjunctionINS_6detail8negationISt10is_pointerISD_EEENSH_ISt7is_sameISD_NSG_8json_refISC_EEEEENSH_ISL_ISD_cEEENSH_INSG_13is_basic_jsonISD_EEEENSH_ISL_ISD_St16initializer_listIcEEEENSH_ISL_ISD_St17basic_string_viewIcS6_EEEENSG_16is_detected_lazyINSG_21get_template_functionEJRKSC_SD_EEEEE5valueEiE4typeELi0EEEv.exit
-  %.not = icmp ult i64 %16, 4294967296
+  %.not = icmp samesign ult i64 %16, 4294967296
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %17
@@ -4305,7 +4305,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !38
 
 .critedge:                                        ; preds = %27
@@ -15560,7 +15560,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp ugt i32 %.0.lcssa.i, 9
+  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge.i

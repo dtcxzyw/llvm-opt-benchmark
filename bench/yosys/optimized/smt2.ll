@@ -51916,7 +51916,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %10044 = phi ptr [ %10035, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %10011, %.cont.i ]
   %10045 = phi ptr [ %10042, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %10010, %.cont.i ]
   %indvars.iv.next.i2945 = add nuw nsw i64 %indvars.iv.i2942, 1
-  %10046 = icmp ult i64 %indvars.iv.next.i2945, %10007
+  %10046 = icmp samesign ult i64 %indvars.iv.next.i2945, %10007
   br i1 %10046, label %10008, label %.loopexit5041.loopexit, !llvm.loop !301
 
 .loopexit.i2947:                                  ; preds = %10033

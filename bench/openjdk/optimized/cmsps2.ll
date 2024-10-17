@@ -911,7 +911,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
   %360 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 31, ptr noundef nonnull @.str.95, double noundef %359) #9
   store i8 0, ptr %345, align 1
   %361 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %14) #9
-  %362 = icmp ult i64 %indvars.iv.i.i.i15, %347
+  %362 = icmp samesign ult i64 %indvars.iv.i.i.i15, %347
   br i1 %362, label %363, label %364
 
 363:                                              ; preds = %355
@@ -1092,7 +1092,7 @@ EmitPQRStage.exit.i.i:                            ; preds = %434, %432, %419
 
 455:                                              ; preds = %454, %EmitPQRStage.exit.i.i
   %456 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.100, i32 noundef %382) #9
-  %457 = icmp ugt i32 %382, 1
+  %457 = icmp samesign ugt i32 %382, 1
   br i1 %457, label %.lr.ph.i24.i, label %._crit_edge.i21.i
 
 .lr.ph.i24.i:                                     ; preds = %455, %.lr.ph.i24.i
@@ -1354,7 +1354,7 @@ define internal fastcc void @Emit1Gamma(ptr noundef %0, ptr noundef %1) unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %23, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %29, %17
@@ -1475,7 +1475,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
   %35 = getelementptr inbounds i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
@@ -1662,7 +1662,7 @@ WriteByte.exit:                                   ; preds = %82, %96
   %101 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next61, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next61, %103
   br i1 %104, label %82, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %WriteByte.exit, %75, %20

@@ -8960,7 +8960,7 @@ if.end.i4241:                                     ; preds = %switch.lookup6007
   store i16 %mul.i4242, ptr %status_code.i4239, align 2
   %conv9.i = zext i16 %mul.i4242 to i32
   %sub.i4245 = xor i32 %switch.idx.cast6009, 65535
-  %cmp10.i = icmp ult i32 %sub.i4245, %conv9.i
+  %cmp10.i = icmp samesign ult i32 %sub.i4245, %conv9.i
   br i1 %cmp10.i, label %sw.bb3927, label %llhttp__internal__c_mul_add_status_code.exit
 
 llhttp__internal__c_mul_add_status_code.exit:     ; preds = %if.end.i4241
@@ -9002,7 +9002,7 @@ if.end.i4248:                                     ; preds = %switch.lookup6010
   store i16 %mul.i4249, ptr %status_code.i4246, align 2
   %conv9.i4251 = zext i16 %mul.i4249 to i32
   %sub.i4255 = xor i32 %switch.idx.cast6012, 65535
-  %cmp10.i4256 = icmp ult i32 %sub.i4255, %conv9.i4251
+  %cmp10.i4256 = icmp samesign ult i32 %sub.i4255, %conv9.i4251
   br i1 %cmp10.i4256, label %sw.bb3934, label %llhttp__internal__c_mul_add_status_code.exit4257
 
 llhttp__internal__c_mul_add_status_code.exit4257: ; preds = %if.end.i4248
@@ -9044,7 +9044,7 @@ if.end.i4260:                                     ; preds = %switch.lookup6013
   store i16 %mul.i4261, ptr %status_code.i4258, align 2
   %conv9.i4263 = zext i16 %mul.i4261 to i32
   %sub.i4267 = xor i32 %switch.idx.cast6015, 65535
-  %cmp10.i4268 = icmp ult i32 %sub.i4267, %conv9.i4263
+  %cmp10.i4268 = icmp samesign ult i32 %sub.i4267, %conv9.i4263
   br i1 %cmp10.i4268, label %sw.bb3941, label %llhttp__internal__c_mul_add_status_code.exit4269
 
 llhttp__internal__c_mul_add_status_code.exit4269: ; preds = %if.end.i4260

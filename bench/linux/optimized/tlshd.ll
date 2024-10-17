@@ -197,7 +197,7 @@ define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i3
   %41 = add nuw nsw i64 %37, 1
   %42 = load i32, ptr %3, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %41, %43
+  %44 = icmp samesign ult i64 %41, %43
   br i1 %44, label %36, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %36, %10
@@ -572,7 +572,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %17 = load i16, ptr %14, align 2
   %18 = icmp ult i16 %17, 4
   %19 = zext i16 %17 to i32
-  %.not = icmp ult i32 %16, %19
+  %.not = icmp samesign ult i32 %16, %19
   %or.cond = or i1 %18, %.not
   br i1 %or.cond, label %.critedge, label %20
 
@@ -609,7 +609,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %40 = load i16, ptr %37, align 2
   %41 = icmp ult i16 %40, 4
   %42 = zext i16 %40 to i32
-  %.not7 = icmp ult i32 %39, %42
+  %.not7 = icmp samesign ult i32 %39, %42
   %or.cond10 = or i1 %41, %.not7
   br i1 %or.cond10, label %.critedge9, label %43
 
@@ -683,7 +683,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
   %9 = add nuw nsw i64 %13, 1
   %10 = load i32, ptr %5, align 4
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %9, %11
+  %12 = icmp samesign ult i64 %9, %11
   br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %2, %8

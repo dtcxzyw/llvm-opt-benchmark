@@ -773,7 +773,7 @@ if.end92.i:                                       ; preds = %if.else.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load i32, ptr %nCerts.i, align 4
   %41 = zext i32 %40 to i64
-  %cmp29.i = icmp ult i64 %indvars.iv.next.i, %41
+  %cmp29.i = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %cmp29.i, label %for.body.i, label %qcrypto_tls_session_check_certificate.exit.thread, !llvm.loop !5
 
 error.i:                                          ; preds = %if.then89.i, %if.then85.i, %if.then76.i, %if.then73.i, %if.end64.i, %if.then50.i, %if.then46.i, %if.then42.i, %if.then37.i

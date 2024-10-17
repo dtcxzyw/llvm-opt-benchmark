@@ -91,7 +91,7 @@ define internal fastcc void @_ZN4core3ops8function6FnOnce9call_once17hcfe41dfb75
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !24, !noundef !4
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %4, label %"_ZN4core3ptr62drop_in_place$LT$meilisearch_types..settings..TypoSettings$GT$17hcd0af135ad3ce8c6E.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$meilisearch_types..settings..TypoSettings$GT$17hcd0af135ad3ce8c6E.exit": ; preds = %15, %"_ZN4core3ptr130drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17he8184b63d3c618c5E.llvm.7557364402226394005.exit.i", %1
@@ -145,7 +145,7 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..set
   %2 = alloca [24 x i8], align 8
   %3 = alloca [72 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !24, !noundef !4
-  %5 = icmp ult i64 %4, 3
+  %5 = icmp samesign ult i64 %4, 3
   br i1 %5, label %6, label %"_ZN4core3ptr66drop_in_place$LT$meilisearch_types..settings..FacetingSettings$GT$17h0828ec1f4f554302E.exit"
 
 "_ZN4core3ptr66drop_in_place$LT$meilisearch_types..settings..FacetingSettings$GT$17h0828ec1f4f554302E.exit": ; preds = %9, %6, %1
@@ -1512,7 +1512,7 @@ define internal fastcc void @"_ZN17meilisearch_types8settings17Settings$LT$T$GT$
 .lr.ph:                                           ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$8iter_mut17h464dde584963f455E.llvm.4369500097602845162.exit", %.backedge
   %19 = phi ptr [ %30, %.backedge ], [ %16, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$8iter_mut17h464dde584963f455E.llvm.4369500097602845162.exit" ]
   %20 = load i64, ptr %19, align 8, !range !24, !noundef !4
-  %21 = icmp ult i64 %20, 3
+  %21 = icmp samesign ult i64 %20, 3
   br i1 %21, label %23, label %.backedge
 
 22:                                               ; preds = %1, %._crit_edge
@@ -1616,7 +1616,7 @@ define hidden void @"_ZN17meilisearch_types8settings17Settings$LT$T$GT$12hide_se
 .lr.ph:                                           ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$8iter_mut17h464dde584963f455E.llvm.4369500097602845162.exit", %.backedge
   %19 = phi ptr [ %30, %.backedge ], [ %16, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$8iter_mut17h464dde584963f455E.llvm.4369500097602845162.exit" ]
   %20 = load i64, ptr %19, align 8, !range !24, !noundef !4
-  %21 = icmp ult i64 %20, 3
+  %21 = icmp samesign ult i64 %20, 3
   br i1 %21, label %23, label %.backedge
 
 22:                                               ; preds = %1, %._crit_edge
@@ -2237,7 +2237,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.i, i64 216, i1 false), !noalias !287
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %.sroa.6.i)
   %46 = load i64, ptr %33, align 8, !range !24, !alias.scope !294, !noundef !4
-  %47 = icmp ult i64 %46, 3
+  %47 = icmp samesign ult i64 %46, 3
   br i1 %47, label %48, label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i"
 
 48:                                               ; preds = %45
@@ -2457,7 +2457,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %119 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
   %120 = load i64, ptr %119, align 8, !range !24, !alias.scope !351, !noalias !282, !noundef !4
-  %121 = icmp ult i64 %120, 3
+  %121 = icmp samesign ult i64 %120, 3
   br i1 %121, label %122, label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$27validate_embedding_settings17h3d78226f106f8aa9E.exit"
 
 122:                                              ; preds = %.noexc98.i
@@ -2492,7 +2492,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
 131:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit.i.i", %152
   %132 = getelementptr inbounds i8, ptr %1, i64 272
   %133 = load i64, ptr %132, align 8, !range !24, !alias.scope !365, !noalias !282, !noundef !4
-  %134 = icmp ult i64 %133, 3
+  %134 = icmp samesign ult i64 %133, 3
   br i1 %134, label %135, label %.noexc98.i
 
 135:                                              ; preds = %131
@@ -3536,7 +3536,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i.i.i
 231:                                              ; preds = %230, %229, %223
   %232 = getelementptr inbounds i8, ptr %0, i64 504
   %233 = load i8, ptr %232, align 8, !range !113, !noundef !4
-  %.not = icmp ult i8 %233, 2
+  %.not = icmp samesign ult i8 %233, 2
   %234 = zext nneg i8 %233 to i64
   %235 = add nsw i64 %234, -1
   %236 = select i1 %.not, i64 0, i64 %235
@@ -3571,7 +3571,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i.i.i
 247:                                              ; preds = %240
   %248 = getelementptr inbounds i8, ptr %0, i64 340
   %249 = load i8, ptr %248, align 4, !range !113, !noundef !4
-  %.not119 = icmp ult i8 %249, 2
+  %.not119 = icmp samesign ult i8 %249, 2
   %250 = zext nneg i8 %249 to i64
   %251 = add nsw i64 %250, -1
   %252 = select i1 %.not119, i64 0, i64 %251
@@ -6361,7 +6361,7 @@ default.unreachable:                              ; preds = %18, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !range !68, !noundef !4
-  %switch = icmp ult i64 %3, 6
+  %switch = icmp samesign ult i64 %3, 6
   br i1 %switch, label %6, label %.sink.split
 
 .sink.split:                                      ; preds = %2

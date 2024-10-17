@@ -1157,7 +1157,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes2vm17GCHe
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %cmp44.not = icmp ugt i32 %cond, %div1.i47
+  %cmp44.not = icmp samesign ugt i32 %cond, %div1.i47
   br i1 %cmp44.not, label %if.end52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
@@ -1230,7 +1230,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE15allocateSegmentERNS0_7Run
   br label %if.end52
 
 if.end52:                                         ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE15allocateSegmentERNS0_7RuntimeENS0_6HandleIS3_EEj.exit, %land.lhs.true, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
-  %cmp54.not123.not = icmp ult i32 %cond, %div1.i47
+  %cmp54.not123.not = icmp samesign ult i32 %cond, %div1.i47
   br i1 %cmp54.not123.not, label %for.body.lr.ph, label %for.cond59.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end52
@@ -1310,7 +1310,7 @@ if.then.i.i.i90:                                  ; preds = %_ZN6hermes2vm18Segm
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE15allocateSegmentERNS0_7RuntimeENS0_6HandleIS3_EEj.exit95: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE7Segment6createERNS0_7RuntimeE.exit.i80, %if.then.i.i.i90
   store i64 %or.i.i.i.i.i86, ptr %add.ptr.i.i.i85, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp54.not.not = icmp ult i64 %indvars.iv, %23
+  %cmp54.not.not = icmp samesign ult i64 %indvars.iv, %23
   br i1 %cmp54.not.not, label %for.body, label %for.cond59.preheader, !llvm.loop !63
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE7Segment9setLengthERNS0_7RuntimeEj.exit
@@ -4059,7 +4059,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes2vm17GCHe
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %cmp44.not = icmp ugt i32 %cond, %div1.i47
+  %cmp44.not = icmp samesign ugt i32 %cond, %div1.i47
   br i1 %cmp44.not, label %if.end52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
@@ -4134,7 +4134,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE15allocateSegmentERNS0_7R
   br label %if.end52
 
 if.end52:                                         ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE15allocateSegmentERNS0_7RuntimeENS0_6HandleIS3_EEj.exit, %land.lhs.true, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
-  %cmp54.not125.not = icmp ult i32 %cond, %div1.i47
+  %cmp54.not125.not = icmp samesign ult i32 %cond, %div1.i47
   br i1 %cmp54.not125.not, label %for.body.lr.ph, label %for.cond59.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end52
@@ -4218,7 +4218,7 @@ if.then.i.i.i89:                                  ; preds = %_ZN6hermes2vm18Segm
 _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE15allocateSegmentERNS0_7RuntimeENS0_6HandleIS3_EEj.exit94: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE7Segment6createERNS0_7RuntimeE.exit.i78, %if.then.i.i.i89
   store i32 %conv.i.i.i.i.i.i85, ptr %add.ptr.i.i.i83, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp54.not.not = icmp ult i64 %indvars.iv, %27
+  %cmp54.not.not = icmp samesign ult i64 %indvars.iv, %27
   br i1 %cmp54.not.not, label %for.body, label %for.cond59.preheader, !llvm.loop !162
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE7Segment9setLengthERNS0_7RuntimeEj.exit

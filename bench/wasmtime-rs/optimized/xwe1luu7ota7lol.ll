@@ -4690,7 +4690,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %10 = phi ptr [ %11, %.lr.ph.i.i ], [ %1, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !3027, !noalias !3032, !noundef !11
-  %switch.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 2
   %spec.select.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
   %12 = add i64 %spec.select.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
@@ -5628,7 +5628,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %10 = phi ptr [ %11, %.lr.ph.i.i ], [ %1, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !3554, !noalias !3559, !noundef !11
-  %switch.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 2
   %spec.select.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
   %12 = add i64 %spec.select.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
@@ -7035,7 +7035,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %28 = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %19 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %28, align 4, !range !3026, !alias.scope !4412, !noalias !4417, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %30 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
   %31 = icmp eq ptr %29, %24
@@ -7985,7 +7985,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %28 = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %19 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %28, align 4, !range !3026, !alias.scope !5033, !noalias !5038, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %30 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
   %31 = icmp eq ptr %29, %24
@@ -8765,7 +8765,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$s
   %10 = phi ptr [ %11, %.lr.ph.i.i.i ], [ %0, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !5586, !noalias !5591, !noundef !11
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
   %12 = add i64 %spec.select.i.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
@@ -8932,7 +8932,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$s
   %10 = phi ptr [ %11, %.lr.ph.i.i.i ], [ %0, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !5745, !noalias !5750, !noundef !11
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
   %12 = add i64 %spec.select.i.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
@@ -9260,7 +9260,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   %12 = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %3, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %.val6.i.i.i.i = load i32, ptr %12, align 4, !range !3026, !alias.scope !6010, !noalias !6015, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %14 = add i64 %spec.select.i.i.i.i.i.i.i.i.i, %11
   %15 = icmp eq ptr %13, %6
@@ -9349,7 +9349,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   %12 = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %3, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %.val6.i.i.i.i = load i32, ptr %12, align 4, !range !3026, !alias.scope !6088, !noalias !6093, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %14 = add i64 %spec.select.i.i.i.i.i.i.i.i.i, %11
   %15 = icmp eq ptr %13, %6
@@ -11628,7 +11628,7 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %17 = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %10, %7 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %.val6.i.i.i.i.i = load i32, ptr %17, align 4, !range !3026, !alias.scope !7482, !noalias !7487, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %19 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %16
   %20 = icmp eq ptr %18, %13
@@ -11731,7 +11731,7 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %17 = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %10, %7 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %.val6.i.i.i.i.i = load i32, ptr %17, align 4, !range !3026, !alias.scope !7601, !noalias !7606, !noundef !11
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.val6.i.i.i.i.i, 2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i, 2
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
   %19 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %16
   %20 = icmp eq ptr %18, %13

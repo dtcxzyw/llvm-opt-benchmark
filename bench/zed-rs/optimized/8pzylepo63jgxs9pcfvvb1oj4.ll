@@ -3609,15 +3609,15 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   br i1 %128, label %.loopexit.i.i, label %180
 
 180:                                              ; preds = %178
-  %181 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %181 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %181, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %182
 
 182:                                              ; preds = %180
-  %183 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %183 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %183, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %184
 
 184:                                              ; preds = %182
-  %185 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %185 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %185, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 
@@ -3768,7 +3768,7 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   br i1 %238, label %222, label %239
 
 239:                                              ; preds = %233
-  %240 = icmp ult i64 %.sroa.013.0.i.i, 17
+  %240 = icmp samesign ult i64 %.sroa.013.0.i.i, 17
   call void @llvm.assume(i1 %240)
   store i64 2, ptr %0, align 8
   br label %241

@@ -262,7 +262,7 @@ define dso_local i32 @sr_cd_check(ptr noundef %0) local_unnamed_addr #3 align 16
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
-  %36 = icmp ult i32 %35, 10
+  %36 = icmp samesign ult i32 %35, 10
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %28

@@ -1302,7 +1302,7 @@ _ZN5YosysL8my_ilog2Ei.exit.loopexit:              ; preds = %_ZNSt6vectorIN5Yosy
   %206 = getelementptr inbounds i8, ptr %.sroa.0194.0286, i64 -1
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i32
-  %.not80 = icmp ule i32 %.069, %208
+  %.not80 = icmp samesign ule i32 %.069, %208
   %209 = icmp ult i8 %207, -16
   %or.cond248 = and i1 %209, %.not80
   br i1 %or.cond248, label %210, label %.preheader254

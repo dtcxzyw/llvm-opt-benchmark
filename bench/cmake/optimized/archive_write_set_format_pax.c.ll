@@ -2070,7 +2070,7 @@ define internal fastcc noundef nonnull ptr @build_ustar_entry_name(ptr noundef n
   %spec.select221 = select i1 %.not154, i64 99, i64 98
   %.0116.ptr.add170 = add nsw i64 %.0116.idx153, -1
   %.0118.ptr.ptr171 = getelementptr inbounds i8, ptr %1, i64 %.0116.ptr.add170
-  %25 = icmp ugt i64 %.0116.idx153, 1
+  %25 = icmp samesign ugt i64 %.0116.idx153, 1
   br i1 %25, label %.lr.ph175.preheader, label %.critedge
 
 .thread210:                                       ; preds = %.backedge, %.preheader
@@ -2406,7 +2406,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_pax_acl(ptr noundef %0, ptr no
   br i1 %.not19, label %9, label %10
 
 9:                                                ; preds = %7
-  %.not20 = icmp ult i32 %3, 512
+  %.not20 = icmp samesign ult i32 %3, 512
   br i1 %.not20, label %27, label %10
 
 10:                                               ; preds = %9, %7, %4
@@ -3028,7 +3028,7 @@ define internal fastcc void @add_pax_attr_binary(ptr noundef %0, ptr noundef %1,
   %12 = udiv i32 %.02223, 10
   %13 = add nuw nsw i32 %.02124, 1
   %14 = mul nuw nsw i32 %.025, 10
-  %.not27 = icmp ult i32 %.02223, 10
+  %.not27 = icmp samesign ult i32 %.02223, 10
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -3053,7 +3053,7 @@ define internal fastcc void @add_pax_attr_binary(ptr noundef %0, ptr noundef %1,
   %24 = getelementptr inbounds i8, ptr %.09.i, i64 -1
   store i8 %23, ptr %24, align 1
   %25 = udiv i64 %.1.i, 10
-  %.not.i = icmp ult i64 %.1.i, 10
+  %.not.i = icmp samesign ult i64 %.1.i, 10
   br i1 %.not.i, label %26, label %20, !llvm.loop !17
 
 26:                                               ; preds = %20

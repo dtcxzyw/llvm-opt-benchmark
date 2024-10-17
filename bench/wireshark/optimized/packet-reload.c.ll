@@ -1772,7 +1772,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   %277 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %276) #5
   %278 = zext i16 %272 to i32
   %279 = add nuw nsw i32 %278, 4
-  %280 = icmp ugt i32 %279, %15
+  %280 = icmp samesign ugt i32 %279, %15
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %264
@@ -2035,7 +2035,7 @@ define internal fastcc range(i32 0, 258) i32 @dissect_destination(i32 noundef %0
   %35 = load i32, ptr @hf_reload_length_uint8, align 4
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %35, ptr noundef %1, i32 noundef %22, i32 noundef 1, i32 noundef %24) #5
   %37 = zext i16 %5 to i32
-  %38 = icmp ugt i32 %25, %37
+  %38 = icmp samesign ugt i32 %25, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %29
@@ -2107,7 +2107,7 @@ define internal fastcc void @dissect_probereq(ptr noundef %0, ptr noundef %1, pt
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.649, i32 noundef %17) #5
   %18 = load i32, ptr @hf_reload_length_uint8, align 4
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %17) #5
-  %.not = icmp ult i32 %17, %8
+  %.not = icmp samesign ult i32 %17, %8
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %5
@@ -2153,7 +2153,7 @@ define internal fastcc void @dissect_probeans(ptr noundef %0, ptr noundef %1, pt
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #5
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %13, 2
-  %15 = icmp ugt i32 %14, %8
+  %15 = icmp samesign ugt i32 %14, %8
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %5
@@ -2190,7 +2190,7 @@ define internal fastcc void @dissect_probeans(ptr noundef %0, ptr noundef %1, pt
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 2
   %35 = zext i16 %28 to i32
-  %36 = icmp ugt i32 %34, %35
+  %36 = icmp samesign ugt i32 %34, %35
   %37 = load i32, ptr @hf_reload_probe_information, align 4
   br i1 %36, label %dissect_probe_information.exit, label %38
 
@@ -2294,7 +2294,7 @@ define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1
   %19 = add nuw nsw i32 %15, 2
   %20 = zext i8 %18 to i32
   %21 = add nuw nsw i32 %19, %20
-  %22 = icmp ugt i32 %21, %8
+  %22 = icmp samesign ugt i32 %21, %8
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %14
@@ -2309,7 +2309,7 @@ define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1
   %30 = add nuw nsw i32 %21, 1
   %31 = zext i8 %29 to i32
   %32 = add nuw nsw i32 %30, %31
-  %33 = icmp ugt i32 %32, %8
+  %33 = icmp samesign ugt i32 %32, %8
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %27
@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 2
   %10 = zext i16 %4 to i32
-  %11 = icmp ugt i32 %9, %10
+  %11 = icmp samesign ugt i32 %9, %10
   %12 = load i32, ptr @hf_reload_icecandidates, align 4
   br i1 %11, label %13, label %16
 
@@ -2438,7 +2438,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %55 = add i16 %.0217, %54
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %.0214243, %56
-  %58 = icmp ugt i32 %57, %8
+  %58 = icmp samesign ugt i32 %57, %8
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %48
@@ -2622,7 +2622,7 @@ dissect_opaque_string_or_data.exit:               ; preds = %119, %149
 dissect_opaque_string_or_data.exit233:            ; preds = %dissect_opaque_string_or_data.exit, %175
   %177 = add nuw nsw i32 %122, %.0218240
   %178 = add i32 %.0213241, 1
-  %179 = icmp ult i32 %177, %52
+  %179 = icmp samesign ult i32 %177, %52
   br i1 %179, label %105, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %dissect_opaque_string_or_data.exit233, %93, %117
@@ -2636,7 +2636,7 @@ dissect_opaque_string_or_data.exit233:            ; preds = %dissect_opaque_stri
   %183 = zext i16 %180 to i32
   %184 = add nuw nsw i32 %.0214243, %183
   %185 = add i32 %.0215242, 1
-  %186 = icmp ult i32 %184, %8
+  %186 = icmp samesign ult i32 %184, %8
   br i1 %186, label %23, label %.loopexit235, !llvm.loop !10
 
 .loopexit235:                                     ; preds = %182, %.loopexit, %16, %59
@@ -2671,7 +2671,7 @@ define internal fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, pt
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i8 %7 to i32
   %9 = zext i16 %4 to i32
-  %.not = icmp ult i32 %8, %9
+  %.not = icmp samesign ult i32 %8, %9
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %5
@@ -2682,7 +2682,7 @@ define internal fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, pt
 
 14:                                               ; preds = %5
   %15 = add nuw nsw i32 %8, 2
-  %16 = icmp ugt i32 %15, %9
+  %16 = icmp samesign ugt i32 %15, %9
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
@@ -2796,7 +2796,7 @@ define internal fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, pt
   %31 = add nuw nsw i32 %30, 14
   %32 = zext i16 %26 to i32
   %33 = and i32 %31, 65535
-  %34 = icmp ugt i32 %33, %32
+  %34 = icmp samesign ugt i32 %33, %32
   %35 = load i32, ptr @hf_reload_storekindresponse, align 4
   br i1 %34, label %36, label %39
 
@@ -2919,7 +2919,7 @@ define internal fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, pt
   %14 = zext i16 %12 to i32
   %15 = add nuw nsw i32 %13, %14
   %16 = zext i16 %4 to i32
-  %17 = icmp ugt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %6
@@ -2964,7 +2964,7 @@ define internal fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, pt
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %46, 14
   %48 = zext i16 %42 to i32
-  %49 = icmp ugt i32 %47, %48
+  %49 = icmp samesign ugt i32 %47, %48
   %50 = load i32, ptr @hf_reload_storeddataspecifier, align 4
   br i1 %49, label %dissect_storeddataspecifier.exit, label %51
 
@@ -3306,7 +3306,7 @@ define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr
   %13 = zext i16 %12 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.722, i32 noundef %13) #5
   %14 = add nuw nsw i32 %13, 2
-  %15 = icmp ugt i32 %14, %8
+  %15 = icmp samesign ugt i32 %14, %8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %5
@@ -3333,7 +3333,7 @@ define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 5
   %29 = add nuw nsw i32 %28, %.068
-  %30 = icmp ugt i32 %29, %13
+  %30 = icmp samesign ugt i32 %29, %13
   %31 = load i32, ptr @hf_reload_findkinddata, align 4
   br i1 %30, label %32, label %37
 
@@ -3421,7 +3421,7 @@ dissect_kindid.exit:                              ; preds = %getKindFromId.exit.
   %68 = trunc i32 %67 to i16
   %69 = tail call fastcc i32 @dissect_resourceid(i32 noundef %65, ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %66, i16 noundef zeroext %68)
   %70 = add i32 %.05767, 1
-  %71 = icmp ult i32 %29, %13
+  %71 = icmp samesign ult i32 %29, %13
   br i1 %71, label %23, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %dissect_kindid.exit, %18, %32
@@ -3632,7 +3632,7 @@ define internal fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1,
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i8 %7 to i32
   %9 = zext i16 %4 to i32
-  %.not = icmp ult i32 %8, %9
+  %.not = icmp samesign ult i32 %8, %9
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %5
@@ -4692,7 +4692,7 @@ dissect_destination_list.exit437:                 ; preds = %.lr.ph.i433, %138, 
   %193 = load i32, ptr @hf_reload_length_uint16, align 4
   %194 = call ptr @proto_tree_add_uint(ptr noundef %173, i32 noundef %193, ptr noundef %0, i32 noundef %163, i32 noundef 2, i32 noundef %166) #5
   %195 = zext i16 %158 to i32
-  %196 = icmp ugt i32 %167, %195
+  %196 = icmp samesign ugt i32 %167, %195
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %154
@@ -4724,7 +4724,7 @@ dissect_destination_list.exit437:                 ; preds = %.lr.ph.i433, %138, 
   %218 = zext i8 %217 to i32
   %219 = add nuw nsw i32 %214, 3
   %220 = add nuw nsw i32 %219, %218
-  %221 = icmp ugt i32 %220, %166
+  %221 = icmp samesign ugt i32 %220, %166
   %222 = trunc nuw nsw i32 %214 to i16
   br i1 %221, label %224, label %._crit_edge.i.i
 
@@ -5160,7 +5160,7 @@ proto_item_set_generated.exit441.thread:          ; preds = %proto_item_set_gene
   %460 = add nuw nsw i32 %.0385470, 3
   %461 = zext i16 %459 to i32
   %462 = add nuw nsw i32 %460, %461
-  %463 = icmp ugt i32 %462, %431
+  %463 = icmp samesign ugt i32 %462, %431
   br i1 %463, label %464, label %466
 
 464:                                              ; preds = %456
@@ -5197,7 +5197,7 @@ proto_item_set_generated.exit441.thread:          ; preds = %proto_item_set_gene
 485:                                              ; preds = %481, %477
   %486 = add nuw nsw i32 %468, %.0385470
   %487 = add i32 %.0384471, 1
-  %488 = icmp ult i32 %486, %431
+  %488 = icmp samesign ult i32 %486, %431
   br i1 %488, label %456, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %485, %423, %464
@@ -5364,7 +5364,7 @@ define internal fastcc range(i32 0, 257) i32 @dissect_resourceid(i32 noundef %0,
   %11 = zext i16 %5 to i32
   %12 = zext i8 %10 to i32
   %13 = add nuw nsw i32 %12, 1
-  %.not = icmp ult i32 %12, %11
+  %.not = icmp samesign ult i32 %12, %11
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %6
@@ -5848,7 +5848,7 @@ getDataValueLength.exit.i.i:                      ; preds = %110, %106
   %152 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %147) #5
   %153 = zext i16 %152 to i32
   %154 = add nuw nsw i32 %153, 2
-  %155 = icmp ugt i32 %154, %145
+  %155 = icmp samesign ugt i32 %154, %145
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %151
@@ -6080,7 +6080,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
   %spec.select136 = select i1 %72, i32 %71, i32 %0
   %73 = add nuw nsw i32 %70, 7
   %74 = zext i16 %5 to i32
-  %75 = icmp ugt i32 %73, %74
+  %75 = icmp samesign ugt i32 %73, %74
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %67
@@ -6171,7 +6171,7 @@ define internal fastcc void @dissect_signature(ptr noundef %0, ptr noundef %1, p
   %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #5
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 2
-  %50 = icmp ugt i32 %49, %10
+  %50 = icmp samesign ugt i32 %49, %10
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %45
@@ -6318,7 +6318,7 @@ define internal fastcc void @dissect_redirserviceprovider(ptr noundef %0, ptr no
   %8 = zext i16 %7 to i32
   %9 = add nuw nsw i32 %8, 2
   %10 = zext i16 %4 to i32
-  %11 = icmp ugt i32 %9, %10
+  %11 = icmp samesign ugt i32 %9, %10
   %12 = load i32, ptr @hf_reload_redirserviceprovider, align 4
   br i1 %11, label %13, label %16
 
@@ -6366,7 +6366,7 @@ define internal fastcc range(i32 2, 65538) i32 @dissect_nodeid_list(ptr noundef 
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %9, 2
   %11 = zext i16 %4 to i32
-  %12 = icmp ugt i32 %10, %11
+  %12 = icmp samesign ugt i32 %10, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %6
@@ -6401,7 +6401,7 @@ define internal fastcc range(i32 2, 65538) i32 @dissect_nodeid_list(ptr noundef 
 31:                                               ; preds = %.lr.ph
   %32 = add nuw nsw i32 %29, %.04044
   %33 = add i32 %.045, 1
-  %34 = icmp ult i32 %32, %9
+  %34 = icmp samesign ult i32 %32, %9
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %31, %.lr.ph, %16

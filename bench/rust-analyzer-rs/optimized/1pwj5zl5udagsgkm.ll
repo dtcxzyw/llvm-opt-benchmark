@@ -1016,9 +1016,9 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState46report_query_rea
   br i1 %15, label %.critedge27, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.critedge27
 
 19:                                               ; preds = %16

@@ -2422,7 +2422,7 @@ define linkonce_odr noundef double @_ZN3vcg4math6Perlin5NoiseEddd(double noundef
   %44 = getelementptr inbounds [512 x i32], ptr @_ZZN3vcg4math6Perlin1PEiE1p, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 15
-  %47 = icmp ult i32 %46, 4
+  %47 = icmp samesign ult i32 %46, 4
   br i1 %47, label %_ZN3vcg4math6Perlin4gradEiddd.exit, label %48
 
 48:                                               ; preds = %3
@@ -2438,7 +2438,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit:               ; preds = %3, %48
   %54 = load i32, ptr %53, align 4
   %55 = fadd double %13, -1.000000e+00
   %56 = and i32 %54, 15
-  %57 = icmp ult i32 %56, 4
+  %57 = icmp samesign ult i32 %56, 4
   br i1 %57, label %_ZN3vcg4math6Perlin4gradEiddd.exit63, label %58
 
 58:                                               ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit
@@ -2454,7 +2454,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit63:             ; preds = %_ZN3vcg4math6Perlin
   %64 = load i32, ptr %63, align 4
   %65 = fadd double %14, -1.000000e+00
   %66 = and i32 %64, 15
-  %67 = icmp ult i32 %66, 4
+  %67 = icmp samesign ult i32 %66, 4
   br i1 %67, label %_ZN3vcg4math6Perlin4gradEiddd.exit65, label %68
 
 68:                                               ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit63
@@ -2469,7 +2469,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit65:             ; preds = %_ZN3vcg4math6Perlin
   %73 = getelementptr inbounds [512 x i32], ptr @_ZZN3vcg4math6Perlin1PEiE1p, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %74, 15
-  %76 = icmp ult i32 %75, 4
+  %76 = icmp samesign ult i32 %75, 4
   br i1 %76, label %_ZN3vcg4math6Perlin4gradEiddd.exit67, label %77
 
 77:                                               ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit65
@@ -2486,7 +2486,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit67:             ; preds = %_ZN3vcg4math6Perlin
   %84 = load i32, ptr %83, align 4
   %85 = fadd double %15, -1.000000e+00
   %86 = and i32 %84, 15
-  %87 = icmp ult i32 %86, 4
+  %87 = icmp samesign ult i32 %86, 4
   br i1 %87, label %_ZN3vcg4math6Perlin4gradEiddd.exit69, label %88
 
 88:                                               ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit67
@@ -2502,7 +2502,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit69:             ; preds = %_ZN3vcg4math6Perlin
   %94 = getelementptr inbounds [512 x i32], ptr @_ZZN3vcg4math6Perlin1PEiE1p, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 15
-  %97 = icmp ult i32 %96, 4
+  %97 = icmp samesign ult i32 %96, 4
   br i1 %97, label %_ZN3vcg4math6Perlin4gradEiddd.exit71, label %98
 
 98:                                               ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit69
@@ -2518,7 +2518,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit71:             ; preds = %_ZN3vcg4math6Perlin
   %104 = getelementptr inbounds [512 x i32], ptr @_ZZN3vcg4math6Perlin1PEiE1p, i64 0, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 15
-  %107 = icmp ult i32 %106, 4
+  %107 = icmp samesign ult i32 %106, 4
   br i1 %107, label %_ZN3vcg4math6Perlin4gradEiddd.exit73, label %108
 
 108:                                              ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit71
@@ -2534,7 +2534,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit73:             ; preds = %_ZN3vcg4math6Perlin
   %114 = getelementptr inbounds [512 x i32], ptr @_ZZN3vcg4math6Perlin1PEiE1p, i64 0, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 15
-  %117 = icmp ult i32 %116, 4
+  %117 = icmp samesign ult i32 %116, 4
   br i1 %117, label %_ZN3vcg4math6Perlin4gradEiddd.exit75, label %118
 
 118:                                              ; preds = %_ZN3vcg4math6Perlin4gradEiddd.exit73
@@ -2547,7 +2547,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %121 = phi double [ %120, %118 ], [ %65, %_ZN3vcg4math6Perlin4gradEiddd.exit73 ]
   %122 = and i32 %105, 1
   %123 = icmp eq i32 %122, 0
-  %124 = icmp ult i32 %106, 8
+  %124 = icmp samesign ult i32 %106, 8
   %125 = select i1 %124, double %13, double %65
   %126 = fneg double %125
   %127 = select i1 %123, double %125, double %126
@@ -2563,7 +2563,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %137 = fmul double %134, %136
   %138 = and i32 %95, 1
   %139 = icmp eq i32 %138, 0
-  %140 = icmp ult i32 %96, 8
+  %140 = icmp samesign ult i32 %96, 8
   %141 = select i1 %140, double %55, double %14
   %142 = fneg double %141
   %143 = select i1 %139, double %141, double %142
@@ -2574,7 +2574,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %148 = fadd double %143, %147
   %149 = and i32 %84, 1
   %150 = icmp eq i32 %149, 0
-  %151 = icmp ult i32 %86, 8
+  %151 = icmp samesign ult i32 %86, 8
   %152 = select i1 %151, double %13, double %14
   %153 = fneg double %152
   %154 = select i1 %150, double %152, double %153
@@ -2592,7 +2592,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %166 = fmul double %163, %165
   %167 = and i32 %74, 1
   %168 = icmp eq i32 %167, 0
-  %169 = icmp ult i32 %75, 8
+  %169 = icmp samesign ult i32 %75, 8
   %170 = select i1 %169, double %55, double %65
   %171 = fneg double %170
   %172 = select i1 %168, double %170, double %171
@@ -2603,7 +2603,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %177 = fadd double %172, %176
   %178 = and i32 %64, 1
   %179 = icmp eq i32 %178, 0
-  %180 = icmp ult i32 %66, 8
+  %180 = icmp samesign ult i32 %66, 8
   %181 = select i1 %180, double %13, double %65
   %182 = fneg double %181
   %183 = select i1 %179, double %181, double %182
@@ -2616,7 +2616,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %190 = tail call noundef double @llvm.fmuladd.f64(double %137, double %189, double %188)
   %191 = and i32 %54, 1
   %192 = icmp eq i32 %191, 0
-  %193 = icmp ult i32 %56, 8
+  %193 = icmp samesign ult i32 %56, 8
   %194 = select i1 %193, double %55, double %14
   %195 = fneg double %194
   %196 = select i1 %192, double %194, double %195
@@ -2627,7 +2627,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %201 = fadd double %196, %200
   %202 = and i32 %45, 1
   %203 = icmp eq i32 %202, 0
-  %204 = icmp ult i32 %46, 8
+  %204 = icmp samesign ult i32 %46, 8
   %205 = select i1 %204, double %13, double %14
   %206 = fneg double %205
   %207 = select i1 %203, double %205, double %206
@@ -2645,7 +2645,7 @@ _ZN3vcg4math6Perlin4gradEiddd.exit75:             ; preds = %_ZN3vcg4math6Perlin
   %219 = tail call double @llvm.fmuladd.f64(double %15, double 6.000000e+00, double -1.500000e+01)
   %220 = tail call double @llvm.fmuladd.f64(double %15, double %219, double 1.000000e+01)
   %221 = fmul double %218, %220
-  %222 = icmp ult i32 %116, 8
+  %222 = icmp samesign ult i32 %116, 8
   %223 = select i1 %222, double %55, double %65
   %224 = and i32 %115, 1
   %225 = icmp eq i32 %224, 0

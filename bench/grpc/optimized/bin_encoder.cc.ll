@@ -486,7 +486,7 @@ _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_
   %or.i61 = or i32 %shl9.i59, %conv11.i60
   %or12.i62 = or i32 %or.i61, %shl.i57
   %add19.i64 = add nuw nsw i32 %add5.i56, %out.sroa.17.2
-  %cmp5.i.i65 = icmp ugt i32 %add19.i64, 8
+  %cmp5.i.i65 = icmp samesign ugt i32 %add19.i64, 8
   br i1 %cmp5.i.i65, label %while.body.i.i68, label %_ZL8enc_add2P8huff_outhhPj.exit74
 
 while.body.i.i68:                                 ; preds = %_ZL8enc_add2P8huff_outhhPj.exit, %while.body.i.i68
@@ -635,7 +635,7 @@ _ZL8enc_add2P8huff_outhhPj.exit138:               ; preds = %_ZL8enc_add2P8huff_
   %conv1.i = zext i16 %sa.sroa.0.0.copyload.i142 to i32
   %or.i147 = or i32 %shl.i146, %conv1.i
   %add5.i149 = add nuw nsw i32 %out.sroa.17.5, %conv.i145
-  %cmp5.i.i150 = icmp ugt i32 %add5.i149, 8
+  %cmp5.i.i150 = icmp samesign ugt i32 %add5.i149, 8
   br i1 %cmp5.i.i150, label %while.body.i.i153, label %_ZL8enc_add1P8huff_outhPj.exit
 
 while.body.i.i153:                                ; preds = %_ZL8enc_add2P8huff_outhhPj.exit138, %while.body.i.i153

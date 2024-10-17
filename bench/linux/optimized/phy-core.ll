@@ -439,7 +439,7 @@ define dso_local i64 @phy_speeds(ptr nocapture noundef %0, i64 noundef %1, ptr n
 26:                                               ; preds = %23, %19, %12, %.preheader
   %27 = phi i64 [ %24, %23 ], [ %7, %19 ], [ %7, %12 ], [ %7, %.preheader ]
   %28 = add nuw nsw i64 %6, 1
-  %29 = icmp ult i64 %6, 88
+  %29 = icmp samesign ult i64 %6, 88
   %30 = icmp ult i64 %27, %1
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !15

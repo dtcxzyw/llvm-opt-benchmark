@@ -8933,9 +8933,9 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional13initMatsRandU
   %25 = and i32 %3, 7
   %26 = icmp slt i32 %3, 0
   %27 = select i1 %26, i32 %24, i32 %25
-  %28 = icmp ugt i32 %24, 4
-  %29 = icmp ugt i32 %27, 4
-  %or.cond = or i1 %28, %29
+  %28 = icmp samesign ugt i32 %24, 4
+  %29 = icmp samesign ugt i32 %27, 4
+  %or.cond = select i1 %28, i1 true, i1 %29
   br i1 %or.cond, label %30, label %46
 
 30:                                               ; preds = %23
@@ -11880,9 +11880,9 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %23 = and i32 %3, 7
   %24 = icmp slt i32 %3, 0
   %25 = select i1 %24, i32 %22, i32 %23
-  %26 = icmp ugt i32 %22, 4
-  %27 = icmp ugt i32 %25, 4
-  %or.cond = or i1 %26, %27
+  %26 = icmp samesign ugt i32 %22, 4
+  %27 = icmp samesign ugt i32 %25, 4
+  %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %54, label %30
 
 28:                                               ; preds = %5
@@ -11914,7 +11914,7 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %50 = getelementptr inbounds i8, ptr %0, i64 392
   %51 = getelementptr inbounds i8, ptr %0, i64 400
   %52 = getelementptr inbounds i8, ptr %0, i64 408
-  %53 = icmp ult i32 %22, 4
+  %53 = icmp samesign ult i32 %22, 4
   br i1 %53, label %switch.lookup, label %.thread.sink.split
 
 54:                                               ; preds = %21
@@ -11934,7 +11934,7 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initMatrixRan
   %64 = load double, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 408
   store double %64, ptr %65, align 8
-  %66 = icmp ult i32 %22, 5
+  %66 = icmp samesign ult i32 %22, 5
   br i1 %66, label %.thread, label %89
 
 switch.lookup:                                    ; preds = %30
@@ -293024,7 +293024,7 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !1903
 
 12:                                               ; preds = %.lr.ph.i.i

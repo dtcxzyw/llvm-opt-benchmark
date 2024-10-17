@@ -223,7 +223,7 @@ Abc_TtFill.exit:                                  ; preds = %Vec_WrdStart.exit, 
   %36 = add nsw i32 %28, -6
   %37 = shl nuw i32 1, %36
   %38 = select i1 %35, i32 1, i32 %37
-  %39 = icmp ult i64 %indvars.iv, 6
+  %39 = icmp samesign ult i64 %indvars.iv, 6
   %40 = icmp sgt i32 %38, 0
   br i1 %39, label %.preheader.i, label %.preheader18.i
 
@@ -1142,7 +1142,7 @@ define range(i32 0, 2) i32 @Maj_ManAddCnfStart(ptr nocapture noundef readonly %0
   %indvars.iv125 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next126, %.loopexit84 ]
   %indvars.iv118 = phi i64 [ 1, %.lr.ph99.preheader ], [ %indvars.iv.next119, %.loopexit84 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %35 = icmp ult i64 %indvars.iv.next126, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next126, %34
   br i1 %35, label %.lr.ph97, label %.loopexit84
 
 .lr.ph97:                                         ; preds = %.lr.ph99
@@ -1296,7 +1296,7 @@ Maj_ManValue.exit.thread:                         ; preds = %2
 
 Maj_ManValue.exit:                                ; preds = %.lr.ph.i
   %12 = lshr i32 %5, 1
-  %13 = icmp ugt i32 %10, %12
+  %13 = icmp samesign ugt i32 %10, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 49192
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %15
@@ -1736,7 +1736,7 @@ Maj_ManFindFanin.exit.us.i:                       ; preds = %Maj_ManFindFanin.ex
 94:                                               ; preds = %90, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.022.i.i, %.lr.ph.i.i ], [ %spec.select19.i.i, %90 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %95 = icmp ult i64 %indvars.iv.next.i.i, %77
+  %95 = icmp samesign ult i64 %indvars.iv.next.i.i, %77
   br i1 %95, label %.lr.ph.i.i, label %Maj_ManFindFanin.exit.i, !llvm.loop !15
 
 Maj_ManFindFanin.exit.i:                          ; preds = %94
@@ -1949,7 +1949,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %30 = add nsw i32 %23, -6
   %31 = shl nuw i32 1, %30
   %32 = select i1 %29, i32 1, i32 %31
-  %33 = icmp ult i64 %indvars.iv, 6
+  %33 = icmp samesign ult i64 %indvars.iv, 6
   %34 = icmp sgt i32 %32, 0
   br i1 %33, label %.preheader.i, label %.preheader18.i
 
@@ -3044,7 +3044,7 @@ define range(i32 0, 2) i32 @Exa_ManAddCnfAdd(ptr nocapture noundef %0, ptr nocap
   %indvars.iv125 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next126, %.loopexit98 ]
   %indvars.iv120 = phi i64 [ 1, %.lr.ph110.preheader ], [ %indvars.iv.next121, %.loopexit98 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %41 = icmp ult i64 %indvars.iv.next126, %25
+  %41 = icmp samesign ult i64 %indvars.iv.next126, %25
   br i1 %41, label %.lr.ph108, label %.loopexit98
 
 .lr.ph108:                                        ; preds = %.lr.ph110
@@ -3457,7 +3457,7 @@ Exa_ManAddClause.exit:                            ; preds = %._crit_edge.thread,
   %indvars.iv267 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next268, %.loopexit202 ]
   %indvars.iv260 = phi i64 [ 1, %.lr.ph232.preheader ], [ %indvars.iv.next261, %.loopexit202 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
-  %69 = icmp ult i64 %indvars.iv.next268, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next268, %68
   br i1 %69, label %.lr.ph230, label %.loopexit202
 
 .lr.ph230:                                        ; preds = %.lr.ph232
@@ -4449,7 +4449,7 @@ Abc_Clock.exit38:                                 ; preds = %67, %80
 119:                                              ; preds = %115, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.022.i.i, %.lr.ph.i.i ], [ %spec.select19.i.i, %115 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %120 = icmp ult i64 %indvars.iv.next.i.i, %101
+  %120 = icmp samesign ult i64 %indvars.iv.next.i.i, %101
   br i1 %120, label %.lr.ph.i.i, label %Exa_ManFindFanin.exit.i, !llvm.loop !45
 
 Exa_ManFindFanin.exit.i:                          ; preds = %119
@@ -4499,7 +4499,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i64, ptr %.val55.val.i, i64 %136
   %138 = and i32 %.189.i, 1
-  %.not46.i = icmp ugt i32 %.189.i, 1
+  %.not46.i = icmp samesign ugt i32 %.189.i, 1
   %.not.i60.not.i = icmp eq i32 %138, 0
   %139 = icmp sgt i32 %.val54.i, 0
   br i1 %.not.i60.not.i, label %140, label %154
@@ -5449,7 +5449,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %232, %Exa3_ManMarku
   %251 = mul nsw i32 %227, %250
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds i64, ptr %.val10.val.i.us.i, i64 %252
-  %254 = icmp ult i64 %indvars.iv.i47.us.i, 6
+  %254 = icmp samesign ult i64 %indvars.iv.i47.us.i, 6
   br i1 %254, label %.preheader.i.i.us.i, label %.preheader18.i.i.us.i
 
 .preheader18.i.i.us.i:                            ; preds = %.lr.ph.i46.us.i
@@ -5724,7 +5724,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %334, %Ex
   %indvars.iv217.i = phi i64 [ 0, %.lr.ph170.preheader.i ], [ %indvars.iv.next218.i, %.loopexit143.i ]
   %indvars.iv210.i = phi i64 [ 1, %.lr.ph170.preheader.i ], [ %indvars.iv.next211.i, %.loopexit143.i ]
   %indvars.iv.next218.i = add nuw nsw i64 %indvars.iv217.i, 1
-  %375 = icmp ult i64 %indvars.iv.next218.i, %374
+  %375 = icmp samesign ult i64 %indvars.iv.next218.i, %374
   br i1 %375, label %.lr.ph168.i, label %.loopexit143.i
 
 .lr.ph168.i:                                      ; preds = %.lr.ph170.i
@@ -9133,7 +9133,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv535 = phi i64 [ 0, %.lr.ph447.preheader ], [ %indvars.iv.next536, %.loopexit428 ]
   %indvars.iv528 = phi i64 [ 1, %.lr.ph447.preheader ], [ %indvars.iv.next529, %.loopexit428 ]
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
-  %130 = icmp ult i64 %indvars.iv.next536, %129
+  %130 = icmp samesign ult i64 %indvars.iv.next536, %129
   br i1 %130, label %.lr.ph445, label %.loopexit428
 
 .lr.ph445:                                        ; preds = %.lr.ph447
@@ -9725,7 +9725,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %302, %._crit_edge.i
   %indvars.iv587 = phi i64 [ 0, %.lr.ph478.preheader ], [ %indvars.iv.next588, %.loopexit429 ]
   %indvars.iv580 = phi i64 [ 1, %.lr.ph478.preheader ], [ %indvars.iv.next581, %.loopexit429 ]
   %indvars.iv.next588 = add nuw nsw i64 %indvars.iv587, 1
-  %339 = icmp ult i64 %indvars.iv.next588, %50
+  %339 = icmp samesign ult i64 %indvars.iv.next588, %50
   br i1 %339, label %.lr.ph475, label %.loopexit429
 
 .lr.ph475:                                        ; preds = %.lr.ph478
@@ -10089,7 +10089,7 @@ Exa4_ManAddClause4.exit372:                       ; preds = %412, %._crit_edge.i
   %indvars.iv613 = phi i64 [ 0, %.lr.ph496.preheader ], [ %indvars.iv.next614, %.loopexit414 ]
   %indvars.iv606 = phi i64 [ 1, %.lr.ph496.preheader ], [ %indvars.iv.next607, %.loopexit414 ]
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
-  %468 = icmp ult i64 %indvars.iv.next614, %467
+  %468 = icmp samesign ult i64 %indvars.iv.next614, %467
   br i1 %468, label %.lr.ph494, label %.loopexit414
 
 .lr.ph494:                                        ; preds = %.lr.ph496
@@ -10250,7 +10250,7 @@ Exa4_ManAddClause4.exit392:                       ; preds = %476, %._crit_edge.i
   %indvars.iv646 = phi i64 [ 0, %.lr.ph514.preheader ], [ %indvars.iv.next647, %.loopexit ]
   %indvars.iv639 = phi i64 [ 1, %.lr.ph514.preheader ], [ %indvars.iv.next640, %.loopexit ]
   %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
-  %522 = icmp ult i64 %indvars.iv.next647, %521
+  %522 = icmp samesign ult i64 %indvars.iv.next647, %521
   br i1 %522, label %.lr.ph511, label %.loopexit
 
 .lr.ph511:                                        ; preds = %.lr.ph514
@@ -14181,7 +14181,7 @@ define noundef i32 @Exa5_ManGenStart(ptr noundef %0, i32 noundef %1, i32 %2, i32
   %71 = shl nsw i32 %68, 1
   %72 = or disjoint i32 %71, 1
   store i32 %72, ptr %12, align 16
-  %.not17.i = icmp ult i64 %indvars.iv, 2
+  %.not17.i = icmp samesign ult i64 %indvars.iv, 2
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.i
@@ -14282,7 +14282,7 @@ define noundef i32 @Exa5_ManGenStart(ptr noundef %0, i32 noundef %1, i32 %2, i32
   br label %Exa5_ManAddClause.exit
 
 Exa5_ManAddClause.exit:                           ; preds = %.lr.ph.i289, %._crit_edge.i294, %._crit_edge38.i
-  %103 = icmp ugt i64 %indvars.iv, 1
+  %103 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %103, label %.lr.ph15.i, label %Exa5_ManAddGroup.exit
 
 .loopexit.i:                                      ; preds = %Exa5_ManAddClause4.exit.i276, %.lr.ph15.i
@@ -14294,7 +14294,7 @@ Exa5_ManAddClause.exit:                           ; preds = %.lr.ph.i289, %._cri
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.loopexit.i ], [ 0, %Exa5_ManAddClause.exit ]
   %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i266, %.loopexit.i ], [ 1, %Exa5_ManAddClause.exit ]
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %104 = icmp ult i64 %indvars.iv.next20.i, %70
+  %104 = icmp samesign ult i64 %indvars.iv.next20.i, %70
   br i1 %104, label %.lr.ph.i267, label %.loopexit.i
 
 .lr.ph.i267:                                      ; preds = %.lr.ph15.i
@@ -15481,7 +15481,7 @@ define internal fastcc void @Exa5_ManAddOneHot(ptr nocapture noundef %0, ptr noc
   %indvars.iv19 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next20, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph15 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %15 = icmp ult i64 %indvars.iv.next20, %13
+  %15 = icmp samesign ult i64 %indvars.iv.next20, %13
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
@@ -15767,7 +15767,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %24
   %.073118 = phi i32 [ 0, %91 ], [ %150, %149 ]
   %111 = and i32 %.073118, 1
   %112 = xor i32 %102, %111
-  %113 = icmp ugt i32 %.073118, 1
+  %113 = icmp samesign ugt i32 %.073118, 1
   %114 = zext i1 %113 to i32
   %115 = xor i32 %105, %114
   %.not80 = icmp eq i32 %.073118, 0
@@ -17274,7 +17274,7 @@ define i64 @Abc_TtConvertEntry(i64 noundef %0) local_unnamed_addr #0 {
   %sext73 = ashr i32 %23, 31
   %24 = sext i32 %sext73 to i64
   %25 = xor i64 %22, %24
-  %26 = icmp ult i32 %10, %11
+  %26 = icmp samesign ult i32 %10, %11
   %27 = and i64 %25, %18
   %28 = xor i64 %25, %18
   %29 = select i1 %26, i64 %27, i64 %28
@@ -17323,7 +17323,7 @@ define i64 @Abc_TtConvertEntry(i64 noundef %0) local_unnamed_addr #0 {
   %sext75 = ashr i32 %54, 31
   %55 = sext i32 %sext75 to i64
   %56 = xor i64 %53, %55
-  %57 = icmp ult i32 %41, %42
+  %57 = icmp samesign ult i32 %41, %42
   %58 = and i64 %56, %49
   %59 = xor i64 %56, %49
   %60 = select i1 %57, i64 %58, i64 %59
@@ -20120,7 +20120,7 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv512 = phi i64 [ 0, %.lr.ph425.preheader ], [ %indvars.iv.next513, %.loopexit406 ]
   %indvars.iv505 = phi i64 [ 1, %.lr.ph425.preheader ], [ %indvars.iv.next506, %.loopexit406 ]
   %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
-  %129 = icmp ult i64 %indvars.iv.next513, %128
+  %129 = icmp samesign ult i64 %indvars.iv.next513, %128
   br i1 %129, label %.lr.ph423, label %.loopexit406
 
 .lr.ph423:                                        ; preds = %.lr.ph425
@@ -20720,7 +20720,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %307, %._crit_edge.i
   %indvars.iv564 = phi i64 [ 0, %.lr.ph456.preheader ], [ %indvars.iv.next565, %.loopexit407 ]
   %indvars.iv557 = phi i64 [ 1, %.lr.ph456.preheader ], [ %indvars.iv.next558, %.loopexit407 ]
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
-  %346 = icmp ult i64 %indvars.iv.next565, %47
+  %346 = icmp samesign ult i64 %indvars.iv.next565, %47
   br i1 %346, label %.lr.ph453, label %.loopexit407
 
 .lr.ph453:                                        ; preds = %.lr.ph456
@@ -21010,7 +21010,7 @@ Exa6_ManAddClause4.exit350:                       ; preds = %391, %._crit_edge.i
   %indvars.iv590 = phi i64 [ 0, %.lr.ph474.preheader ], [ %indvars.iv.next591, %.loopexit392 ]
   %indvars.iv583 = phi i64 [ 1, %.lr.ph474.preheader ], [ %indvars.iv.next584, %.loopexit392 ]
   %indvars.iv.next591 = add nuw nsw i64 %indvars.iv590, 1
-  %457 = icmp ult i64 %indvars.iv.next591, %456
+  %457 = icmp samesign ult i64 %indvars.iv.next591, %456
   br i1 %457, label %.lr.ph472, label %.loopexit392
 
 .lr.ph472:                                        ; preds = %.lr.ph474
@@ -21178,7 +21178,7 @@ Exa6_ManAddClause4.exit370:                       ; preds = %465, %._crit_edge.i
   %indvars.iv623 = phi i64 [ 0, %.lr.ph492.preheader ], [ %indvars.iv.next624, %.loopexit ]
   %indvars.iv616 = phi i64 [ 1, %.lr.ph492.preheader ], [ %indvars.iv.next617, %.loopexit ]
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
-  %513 = icmp ult i64 %indvars.iv.next624, %512
+  %513 = icmp samesign ult i64 %indvars.iv.next624, %512
   br i1 %513, label %.lr.ph489, label %.loopexit
 
 .lr.ph489:                                        ; preds = %.lr.ph492
@@ -21546,7 +21546,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4
 
 53:                                               ; preds = %Abc_Tt6FirstBit.exit
   %54 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %51)
-  %55 = icmp ugt i32 %54, 1
+  %55 = icmp samesign ugt i32 %54, 1
   br label %Abc_TtSuppOnlyOne.exit
 
 Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit.exit, %53
@@ -23203,7 +23203,7 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i77, %Mini_A
 44:                                               ; preds = %37, %33
   %.157 = phi i32 [ %38, %37 ], [ %.05694, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = icmp ult i64 %indvars.iv.next, %31
+  %45 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %45, label %33, label %.lr.ph98, !llvm.loop !356
 
 .preheader:                                       ; preds = %Mini_AigNodeIsAnd.exit.thread

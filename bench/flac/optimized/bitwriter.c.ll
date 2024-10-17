@@ -119,7 +119,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   %3 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i.i = shl nuw i32 1, %3
   %conv3.i.i = zext i32 %shl.i.i to i64
-  %cmp4.i.i = icmp ugt i64 %mul.i.i, %conv3.i.i
+  %cmp4.i.i = icmp samesign ugt i64 %mul.i.i, %conv3.i.i
   br i1 %cmp4.i.i, label %return, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
@@ -209,7 +209,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %3 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i = shl nuw i32 1, %3
   %conv3.i = zext i32 %shl.i to i64
-  %cmp4.i = icmp ugt i64 %mul.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i64 %mul.i, %conv3.i
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -307,7 +307,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   %3 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i.i = shl nuw i32 1, %3
   %conv3.i.i = zext i32 %shl.i.i to i64
-  %cmp4.i.i = icmp ugt i64 %mul.i.i, %conv3.i.i
+  %cmp4.i.i = icmp samesign ugt i64 %mul.i.i, %conv3.i.i
   br i1 %cmp4.i.i, label %return, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
@@ -422,7 +422,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %3 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i = shl nuw i32 1, %3
   %conv3.i = zext i32 %shl.i to i64
-  %cmp4.i = icmp ugt i64 %mul.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i64 %mul.i, %conv3.i
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -570,7 +570,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %4 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i = shl nuw i32 1, %4
   %conv3.i = zext i32 %shl.i to i64
-  %cmp4.i = icmp ugt i64 %mul.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i64 %mul.i, %conv3.i
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -818,7 +818,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %3 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i = shl nuw i32 1, %3
   %conv3.i = zext i32 %shl.i to i64
-  %cmp4.i = icmp ugt i64 %mul.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i64 %mul.i, %conv3.i
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -966,7 +966,7 @@ if.end.i:                                         ; preds = %land.lhs.true29
   %7 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i = shl nuw i32 1, %7
   %conv3.i = zext i32 %shl.i to i64
-  %cmp4.i = icmp ugt i64 %mul.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i64 %mul.i, %conv3.i
   br i1 %cmp4.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -1077,7 +1077,7 @@ land.lhs.true85:                                  ; preds = %if.then72
 if.end.i183:                                      ; preds = %land.lhs.true85
   %conv.i184 = zext i32 %add2.i179 to i64
   %mul.i185 = shl nuw nsw i64 %conv.i184, 3
-  %cmp4.i188 = icmp ugt i64 %mul.i185, %conv3.i187
+  %cmp4.i188 = icmp samesign ugt i64 %mul.i185, %conv3.i187
   br i1 %cmp4.i188, label %return, label %if.end7.i189
 
 if.end7.i189:                                     ; preds = %if.end.i183

@@ -1918,7 +1918,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit.i: ; pre
 
 340:                                              ; preds = %319
   %341 = load i8, ptr %28, align 1, !range !201, !noalias !97, !noundef !4
-  %switch39.i = icmp ult i8 %341, 2
+  %switch39.i = icmp samesign ult i8 %341, 2
   br i1 %switch39.i, label %385, label %403
 
 342:                                              ; preds = %320
@@ -3222,7 +3222,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit: ; preds
 
 333:                                              ; preds = %310
   %334 = load i8, ptr %29, align 1, !range !201, !noundef !4
-  %switch35 = icmp ult i8 %334, 2
+  %switch35 = icmp samesign ult i8 %334, 2
   br i1 %switch35, label %395, label %377
 
 335:                                              ; preds = %310
@@ -4284,7 +4284,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit: ; preds
 
 331:                                              ; preds = %308
   %332 = load i8, ptr %30, align 1, !range !201, !noundef !4
-  %switch35 = icmp ult i8 %332, 2
+  %switch35 = icmp samesign ult i8 %332, 2
   br i1 %switch35, label %393, label %375
 
 333:                                              ; preds = %308
@@ -5373,7 +5373,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit: ; preds
 
 337:                                              ; preds = %314
   %338 = load i8, ptr %29, align 1, !range !201, !noundef !4
-  %switch35 = icmp ult i8 %338, 2
+  %switch35 = icmp samesign ult i8 %338, 2
   br i1 %switch35, label %399, label %381
 
 339:                                              ; preds = %314
@@ -6455,7 +6455,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit: ; preds
 
 333:                                              ; preds = %310
   %334 = load i8, ptr %29, align 1, !range !201, !noundef !4
-  %switch35 = icmp ult i8 %334, 2
+  %switch35 = icmp samesign ult i8 %334, 2
   br i1 %switch35, label %395, label %377
 
 335:                                              ; preds = %310

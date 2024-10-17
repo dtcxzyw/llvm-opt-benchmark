@@ -6783,7 +6783,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core20should_notify_others17h01
   %102 = sub i32 %100, %101
   %103 = zext i32 %102 to i64
   %104 = add nuw nsw i64 %103, %94
-  %105 = icmp ugt i64 %104, 1
+  %105 = icmp samesign ugt i64 %104, 1
   br i1 %105, label %106, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$19notify_parked_local17hf8ecba4bb974b41cE.exit"
 
 106:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20should_notify_others17h01be8eeed5d71aeeE.exit

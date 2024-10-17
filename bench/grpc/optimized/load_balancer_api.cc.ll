@@ -470,7 +470,7 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i87, %if.en
   %inc = add nuw nsw i64 %i.091, 1
   %36 = load i64, ptr %drop_token_counts, align 8
   %shr.i.i = lshr i64 %36, 1
-  %cmp5 = icmp ult i64 %inc, %shr.i.i
+  %cmp5 = icmp samesign ult i64 %inc, %shr.i.i
   br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %upb_Arena_Malloc.exit, %for.cond.preheader, %grpc_lb_v1_ClientStats_mutable_timestamp.exit

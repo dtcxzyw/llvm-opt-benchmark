@@ -21972,7 +21972,7 @@ if.end65.i.i:                                     ; preds = %invoke.cont62.i.i, 
   %arrayidx.i.i325 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i115, i64 %.pre562.i.i
   %291 = load i8, ptr %arrayidx.i.i325, align 1, !noalias !391
   store i8 %291, ptr %current_index.i.i93, align 1, !noalias !391
-  %cmp70.not.i.i = icmp ult i8 %291, %275
+  %cmp70.not.i.i = icmp samesign ult i8 %291, %275
   br i1 %cmp70.not.i.i, label %invoke.cont76.i.i, label %if.then71.i.i
 
 if.then71.i.i:                                    ; preds = %if.end65.i.i
@@ -24763,7 +24763,7 @@ if.end65.i.i1413:                                 ; preds = %invoke.cont62.i.i14
   %arrayidx.i.i1415 = getelementptr inbounds i16, ptr %retval.0.i.i.i.i1150, i64 %.pre562.i.i1414
   %686 = load i16, ptr %arrayidx.i.i1415, align 2, !noalias !523
   store i16 %686, ptr %current_index.i.i1119, align 2, !noalias !523
-  %cmp70.not.i.i1416 = icmp ult i16 %686, %670
+  %cmp70.not.i.i1416 = icmp samesign ult i16 %686, %670
   br i1 %cmp70.not.i.i1416, label %invoke.cont76.i.i1422, label %if.then71.i.i1417
 
 if.then71.i.i1417:                                ; preds = %if.end65.i.i1413
@@ -87233,20 +87233,20 @@ if.end28:                                         ; preds = %if.then
 
 if.end43:                                         ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2807)
-  %cmp2.i.i = icmp ult i64 %length, 129
+  %cmp2.i.i = icmp samesign ult i64 %length, 129
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %if.end43
   %mul.i.i.i = mul i64 %length, -7046029288634856825
-  %cmp3.i.i.i = icmp ugt i64 %length, 32
+  %cmp3.i.i.i = icmp samesign ugt i64 %length, 32
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
-  %cmp4.i.i.i = icmp ugt i64 %length, 64
+  %cmp4.i.i.i = icmp samesign ugt i64 %length, 64
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end23.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp6.i.i.i = icmp ugt i64 %length, 96
+  %cmp6.i.i.i = icmp samesign ugt i64 %length, 96
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -87377,7 +87377,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if
   br label %return
 
 if.end5.i.i:                                      ; preds = %if.end43
-  %cmp6.i.i = icmp ult i64 %length, 241
+  %cmp6.i.i = icmp samesign ult i64 %length, 241
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
@@ -87490,7 +87490,7 @@ if.end9.i.i:                                      ; preds = %if.end5.i.i
   %sub1.i.i.i.i = add nsw i64 %length, -1
   %div2.i.i.i.i = udiv i64 %sub1.i.i.i.i, 576
   %sub10.i.i.i.i.recomposed = urem i64 %sub1.i.i.i.i, 576
-  %cmp31.not.i.i.i.i = icmp ult i64 %length, 577
+  %cmp31.not.i.i.i.i = icmp samesign ult i64 %length, 577
   br i1 %cmp31.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end9.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i
@@ -87583,7 +87583,7 @@ for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleA
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2873)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2876)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2878)
-  %cmp5.not.i33.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 64
+  %cmp5.not.i33.i.i.i.i = icmp samesign ult i64 %sub10.i.i.i.i.recomposed, 64
   br i1 %cmp5.not.i33.i.i.i.i, label %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit59.i.i.i.i, label %for.body.i37.i.i.i.i
 
 for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i56.i.i.i.i

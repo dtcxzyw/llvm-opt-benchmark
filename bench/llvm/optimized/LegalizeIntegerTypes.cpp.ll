@@ -44495,7 +44495,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69: ; pred
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %97 = load i16, ptr %81, align 8
   %98 = zext i16 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next99, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next99, %98
   br i1 %99, label %.lr.ph91, label %._crit_edge92, !llvm.loop !158
 
 ._crit_edge92:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit66
@@ -44527,7 +44527,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69: ; pred
   %114 = add nuw nsw i32 %.05793, 1
   %115 = load i16, ptr %105, align 2
   %116 = zext i16 %115 to i32
-  %117 = icmp ult i32 %114, %116
+  %117 = icmp samesign ult i32 %114, %116
   br i1 %117, label %113, label %.loopexit, !llvm.loop !159
 
 .loopexit:                                        ; preds = %113, %._crit_edge92, %_ZNK4llvm5APInt13getActiveBitsEv.exit
@@ -44757,7 +44757,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69: ; pred
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %97 = load i16, ptr %81, align 8
   %98 = zext i16 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next99, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next99, %98
   br i1 %99, label %.lr.ph91, label %._crit_edge92, !llvm.loop !161
 
 ._crit_edge92:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit66
@@ -44789,7 +44789,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit69: ; pred
   %114 = add nuw nsw i32 %.05793, 1
   %115 = load i16, ptr %105, align 2
   %116 = zext i16 %115 to i32
-  %117 = icmp ult i32 %114, %116
+  %117 = icmp samesign ult i32 %114, %116
   br i1 %117, label %113, label %.loopexit, !llvm.loop !162
 
 .loopexit:                                        ; preds = %113, %._crit_edge92, %_ZNK4llvm5APInt13getActiveBitsEv.exit

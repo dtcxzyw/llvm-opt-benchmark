@@ -45275,7 +45275,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit69: ; preds 
   %336 = load i64, ptr %291, align 16
   %337 = lshr i64 %336, 38
   %338 = and i64 %337, 65535
-  %339 = icmp ugt i64 %338, %indvars.iv295
+  %339 = icmp samesign ugt i64 %338, %indvars.iv295
   br i1 %339, label %340, label %343
 
 340:                                              ; preds = %335
@@ -47461,7 +47461,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit70: ; preds 
   %335 = load i64, ptr %295, align 16
   %336 = lshr i64 %335, 38
   %337 = and i64 %336, 65535
-  %338 = icmp ugt i64 %337, %indvars.iv296
+  %338 = icmp samesign ugt i64 %337, %indvars.iv296
   br i1 %338, label %339, label %342
 
 339:                                              ; preds = %334
@@ -53957,7 +53957,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit104: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %487 = load i32, ptr %154, align 8
   %488 = zext i32 %487 to i64
-  %489 = icmp ult i64 %indvars.iv.next, %488
+  %489 = icmp samesign ult i64 %indvars.iv.next, %488
   br i1 %489, label %181, label %._crit_edge, !llvm.loop !4576
 
 ._crit_edge:                                      ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit104, %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29
@@ -55198,7 +55198,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit105: ; preds = %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %483 = load i32, ptr %154, align 8
   %484 = zext i32 %483 to i64
-  %485 = icmp ult i64 %indvars.iv.next, %484
+  %485 = icmp samesign ult i64 %indvars.iv.next, %484
   br i1 %485, label %182, label %._crit_edge, !llvm.loop !4734
 
 ._crit_edge:                                      ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit105, %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29

@@ -22978,7 +22978,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_13LazyCallGraph3SCC
 
 _ZN4llvmeqENS_9StringRefES0_.exit1774.thread7148: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1755, %_ZN4llvmeqENS_9StringRefES0_.exit, %580, %_ZN4llvmeqENS_9StringRefES0_.exit1774
   %727 = tail call fastcc i24 @_ZL25parseFunctionPipelineNameN4llvm9StringRefE(ptr %.sroa.0907.0.copyload, i64 %.sroa.2908.0.copyload)
-  %.not8146 = icmp ult i24 %727, 65536
+  %.not8146 = icmp samesign ult i24 %727, 65536
   br i1 %.not8146, label %746, label %728
 
 728:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1774.thread7148
@@ -47191,7 +47191,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_13LazyCallGraph3SCC
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread4761:     ; preds = %393, %_ZN4llvmeqENS_9StringRefES0_.exit
   %427 = tail call fastcc i24 @_ZL25parseFunctionPipelineNameN4llvm9StringRefE(ptr %.sroa.0557.0.copyload, i64 %.sroa.2558.0.copyload)
-  %.not5379 = icmp ult i24 %427, 65536
+  %.not5379 = icmp samesign ult i24 %427, 65536
   br i1 %.not5379, label %486, label %428
 
 428:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread4761

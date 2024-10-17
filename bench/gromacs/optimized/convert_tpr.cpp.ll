@@ -745,7 +745,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN3gmx12_GLOBAL__N_110ConvertTpr3r
   %26 = load i8, ptr %25, align 8
   %.mask49 = and i8 %26, 1
   %narrow50 = add nuw nsw i8 %narrow, %.mask49
-  %27 = icmp ugt i8 %narrow50, 1
+  %27 = icmp samesign ugt i8 %narrow50, 1
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %20
@@ -1334,7 +1334,7 @@ _ZL18print_runtime_infoP10t_inputrec.exit75:      ; preds = %.noexc73
   %312 = zext i32 %311 to i64
   %313 = icmp ne i64 %indvars.iv116, %312
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %314 = icmp uge i64 %indvars.iv.next117, %308
+  %314 = icmp samesign uge i64 %indvars.iv.next117, %308
   %.not54 = select i1 %314, i1 true, i1 %313
   br i1 %.not54, label %._crit_edge108, label %309, !llvm.loop !11
 

@@ -1159,7 +1159,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %355 = load i32, ptr @hf_a11_ext_len, align 4
   %356 = tail call ptr @proto_tree_add_uint(ptr noundef %351, i32 noundef %355, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef 1, i32 noundef %.0227.i) #3
   %357 = add i32 %.0225293.i, 2
-  %358 = icmp ult i32 %.0227.i, 2
+  %358 = icmp samesign ult i32 %.0227.i, 2
   br i1 %358, label %371, label %373
 
 359:                                              ; preds = %347
@@ -1331,7 +1331,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   br label %dissect_a11_radius.exit.i
 
 449:                                              ; preds = %369, %369, %369, %369
-  %450 = icmp ult i32 %.0227.i, 4
+  %450 = icmp samesign ult i32 %.0227.i, 4
   br i1 %450, label %dissect_a11_radius.exit.i, label %451
 
 451:                                              ; preds = %449
@@ -1364,7 +1364,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   %469 = load i32, ptr @hf_a11_ext_len, align 4
   %470 = tail call ptr @proto_tree_add_uint(ptr noundef %351, i32 noundef %469, ptr noundef %0, i32 noundef %468, i32 noundef 2, i32 noundef %.0227.i) #3
   %471 = add i32 %.0225293.i, 4
-  %472 = icmp ult i32 %.0227.i, 4
+  %472 = icmp samesign ult i32 %.0227.i, 4
   br i1 %472, label %dissect_a11_radius.exit.i, label %473
 
 473:                                              ; preds = %.thread284.i
@@ -1381,7 +1381,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   br label %dissect_a11_radius.exit.i
 
 482:                                              ; preds = %369, %369
-  %483 = icmp ult i32 %.0227.i, 4
+  %483 = icmp samesign ult i32 %.0227.i, 4
   br i1 %483, label %dissect_a11_radius.exit.i, label %484
 
 484:                                              ; preds = %482
@@ -1421,7 +1421,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   br label %dissect_a11_radius.exit.i
 
 507:                                              ; preds = %369, %369
-  %508 = icmp ult i32 %.0227.i, 6
+  %508 = icmp samesign ult i32 %.0227.i, 6
   br i1 %508, label %dissect_a11_radius.exit.i, label %509
 
 509:                                              ; preds = %507
@@ -1702,7 +1702,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   %673 = add nuw nsw i32 %.0137151.i.i, 1
   %674 = add nuw nsw i32 %673, %.pre-phi.i.i
   %675 = add i32 %.pre-phi.i.i, %579
-  %676 = icmp ult i32 %674, %521
+  %676 = icmp samesign ult i32 %674, %521
   br i1 %676, label %.lr.ph154.i.i, label %dissect_ase.exit.i, !llvm.loop !8
 
 dissect_ase.exit.i:                               ; preds = %.loopexit.i.i, %578
@@ -2025,7 +2025,7 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %719, %699
   br i1 %exitcond.not.i273.i, label %dissect_a11_radius.exit.i, label %875, !llvm.loop !12
 
 894:                                              ; preds = %369
-  %895 = icmp ult i32 %.0227.i, 2
+  %895 = icmp samesign ult i32 %.0227.i, 2
   br i1 %895, label %896, label %898
 
 896:                                              ; preds = %894

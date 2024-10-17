@@ -8911,7 +8911,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v37adaptor16object_with_zoneI8m
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = shl nuw nsw i64 %.023.i.i, 1
-  %25 = icmp ult i64 %.023.i.i, 28
+  %25 = icmp samesign ult i64 %.023.i.i, 28
   br i1 %25, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %23, %.lr.ph.i.i, %20

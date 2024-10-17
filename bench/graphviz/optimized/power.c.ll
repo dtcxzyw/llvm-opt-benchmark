@@ -158,7 +158,7 @@ gv_calloc.exit78:                                 ; preds = %23
 ._crit_edge91.us:                                 ; preds = %54
   %62 = fcmp olt double %61, 9.999900e-01
   %63 = add nuw nsw i32 %.0.us, 1
-  %64 = icmp ult i32 %.0.us, 100
+  %64 = icmp samesign ult i32 %.0.us, 100
   %or.cond.us = select i1 %62, i1 %64, i1 false
   br i1 %or.cond.us, label %.preheader79.split.us, label %.critedge
 

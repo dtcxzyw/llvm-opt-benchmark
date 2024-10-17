@@ -3705,7 +3705,7 @@ Vec_StrPush.exit.i:                               ; preds = %88, %Vec_StrGrow.ex
   %94 = getelementptr inbounds i8, ptr %90, i64 %93
   store i8 %67, ptr %94, align 1
   %95 = lshr i32 %.012.i, 7
-  %96 = icmp ugt i32 %.012.i, 16383
+  %96 = icmp samesign ugt i32 %.012.i, 16383
   br i1 %96, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %Vec_StrPush.exit.i, %62
@@ -5184,7 +5184,7 @@ Vec_StrPush.exit.i151:                            ; preds = %279, %Vec_StrGrow.e
   %285 = getelementptr inbounds i8, ptr %281, i64 %284
   store i8 %258, ptr %285, align 1
   %286 = lshr i32 %.012.i, 7
-  %287 = icmp ugt i32 %.012.i, 16383
+  %287 = icmp samesign ugt i32 %.012.i, 16383
   br i1 %287, label %.lr.ph.i147, label %._crit_edge.i140, !llvm.loop !24
 
 ._crit_edge.i140:                                 ; preds = %Vec_StrPush.exit.i151, %Vec_StrPutS.exit139
@@ -5705,7 +5705,7 @@ Vec_StrPush.exit.i213:                            ; preds = %504, %Vec_StrGrow.e
   %510 = getelementptr inbounds i8, ptr %506, i64 %509
   store i8 %483, ptr %510, align 1
   %511 = lshr i32 %.012.i210, 7
-  %512 = icmp ugt i32 %.012.i210, 16383
+  %512 = icmp samesign ugt i32 %.012.i210, 16383
   br i1 %512, label %.lr.ph.i208, label %._crit_edge.i200, !llvm.loop !24
 
 ._crit_edge.i200:                                 ; preds = %Vec_StrPush.exit.i213, %Vec_StrPutS.exit199
@@ -5851,7 +5851,7 @@ Vec_StrPush.exit.i231:                            ; preds = %570, %Vec_StrGrow.e
   %576 = getelementptr inbounds i8, ptr %572, i64 %575
   store i8 %549, ptr %576, align 1
   %577 = lshr i32 %.012.i228, 7
-  %578 = icmp ugt i32 %.012.i228, 16383
+  %578 = icmp samesign ugt i32 %.012.i228, 16383
   br i1 %578, label %.lr.ph.i226, label %._crit_edge.i218, !llvm.loop !24
 
 ._crit_edge.i218:                                 ; preds = %Vec_StrPush.exit.i231, %542

@@ -3610,7 +3610,7 @@ _ZNK4llvm13ConstantRangeeqERKS0_.exit.thread:     ; preds = %44, %_ZNK4llvm5APIn
   %69 = or disjoint i16 %35, %68
   store i16 %69, ptr %0, align 8
   %70 = zext nneg i16 %67 to i64
-  %71 = icmp ult i64 %.sroa.33.0.extract.shift, %70
+  %71 = icmp samesign ult i64 %.sroa.33.0.extract.shift, %70
   br i1 %71, label %72, label %90
 
 72:                                               ; preds = %65
@@ -6571,7 +6571,7 @@ define dso_local void @_ZN4llvm15SCCPInstVisitor12visitPHINodeERNS_7PHINodeE(ptr
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 134217727
-  %22 = icmp ugt i32 %21, 64
+  %22 = icmp samesign ugt i32 %21, 64
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %18

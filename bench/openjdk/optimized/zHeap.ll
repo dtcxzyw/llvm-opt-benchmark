@@ -1052,7 +1052,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
   %18 = lshr i32 %17, 12
   %19 = and i32 %18, 15
   %20 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %19)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %16
@@ -1094,7 +1094,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %42
   %44 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %43)
-  %45 = icmp ugt i64 %44, 1
+  %45 = icmp samesign ugt i64 %44, 1
   %46 = icmp eq i64 %40, 0
   %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %.thread, label %_Z8is_valid8zpointerb.exit

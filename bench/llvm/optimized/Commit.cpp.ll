@@ -371,8 +371,8 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.i:     ; preds = %39
   %43 = icmp sge i32 %.sroa.025.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i.i.i
-  %44 = icmp ult i64 %41, %.sroa.24.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %43, %44
+  %44 = icmp samesign ult i64 %41, %.sroa.24.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %43, i1 %44, i1 false
   br i1 %spec.select.i.i.i, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i, label %.critedge.i
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i: ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %39
@@ -385,8 +385,8 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS
   %48 = add i32 %47, %42
   %.sroa.2.0.insert.ext.i.i = zext i32 %48 to i64
   %49 = icmp sge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.025.0.extract.trunc.i
-  %50 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.insert.ext.i.i
-  %spec.select.i.i = and i1 %49, %50
+  %50 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.insert.ext.i.i
+  %spec.select.i.i = select i1 %49, i1 %50, i1 false
   br i1 %spec.select.i.i, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %36, %33
@@ -525,8 +525,8 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.i:     ; preds = %52
   %56 = icmp sge i32 %.sroa.025.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i.i.i
-  %57 = icmp ult i64 %54, %.sroa.24.0.extract.shift.i.i.i
-  %spec.select.i.i.i = and i1 %56, %57
+  %57 = icmp samesign ult i64 %54, %.sroa.24.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %56, i1 %57, i1 false
   br i1 %spec.select.i.i.i, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i, label %.critedge.i
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i: ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %52
@@ -539,8 +539,8 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS
   %61 = add i32 %60, %55
   %.sroa.2.0.insert.ext.i.i = zext i32 %61 to i64
   %62 = icmp sge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.025.0.extract.trunc.i
-  %63 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.insert.ext.i.i
-  %spec.select.i.i = and i1 %62, %63
+  %63 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.insert.ext.i.i
+  %spec.select.i.i = select i1 %62, i1 %63, i1 false
   br i1 %spec.select.i.i, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %49, %46
@@ -764,8 +764,8 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit31: ; preds
   %.sroa.034.0.extract.trunc = trunc i64 %21 to i32
   %.sroa.235.0.extract.shift = lshr i64 %21, 32
   %22 = icmp ne i32 %.sroa.037.0.extract.trunc, %.sroa.034.0.extract.trunc
-  %23 = icmp ugt i64 %.sroa.3.0.extract.shift, %.sroa.235.0.extract.shift
-  %or.cond46 = or i1 %22, %23
+  %23 = icmp samesign ugt i64 %.sroa.3.0.extract.shift, %.sroa.235.0.extract.shift
+  %or.cond46 = select i1 %22, i1 true, i1 %23
   br i1 %or.cond46, label %.critedge, label %24
 
 24:                                               ; preds = %19
@@ -1327,16 +1327,16 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %26
   %.sroa.24.0.extract.shift.i = lshr i64 %.sroa.08.0.copyload, 32
   %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.09.0.copyload, 32
   %28 = icmp sge i32 %.sroa.03.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
-  %29 = icmp ult i64 %.sroa.2.0.extract.shift.i, %.sroa.24.0.extract.shift.i
-  %spec.select.i = and i1 %28, %29
+  %29 = icmp samesign ult i64 %.sroa.2.0.extract.shift.i, %.sroa.24.0.extract.shift.i
+  %spec.select.i = select i1 %28, i1 %29, i1 false
   %30 = icmp slt i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc.i
   %or.cond = or i1 %30, %spec.select.i
   br i1 %or.cond, label %.critedge, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit
   %31 = icmp sle i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc.i
-  %32 = icmp ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.insert.ext.i
-  %spec.select.i.i = and i1 %31, %32
+  %32 = icmp samesign ugt i64 %.sroa.2.0.extract.shift.i, %.sroa.2.0.insert.ext.i
+  %spec.select.i.i = select i1 %31, i1 %32, i1 false
   br i1 %spec.select.i.i, label %.critedge, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit41
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit41:     ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit
@@ -1652,7 +1652,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %10,
   %.0.i.i.i.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
   %12 = load i32, ptr %.0.i.i.i.i.i, align 8
   %13 = and i32 %12, 2147483647
-  %14 = icmp ult i32 %4, %13
+  %14 = icmp samesign ult i32 %4, %13
   br i1 %14, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %15
 
 15:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -1676,7 +1676,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %17
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %6, ptr noundef null)
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 2147483647
-  %29 = icmp ult i32 %4, %28
+  %29 = icmp samesign ult i32 %4, %28
   br i1 %29, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %22, %15
@@ -1757,8 +1757,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit17canInsertInOffsetENS
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit:       ; preds = %14
   %18 = icmp sge i32 %.sroa.025.0.extract.trunc, %.sroa.0.0.extract.trunc.i.i
-  %19 = icmp ult i64 %16, %.sroa.24.0.extract.shift.i.i
-  %spec.select.i.i = and i1 %18, %19
+  %19 = icmp samesign ult i64 %16, %.sroa.24.0.extract.shift.i.i
+  %spec.select.i.i = select i1 %18, i1 %19, i1 false
   br i1 %spec.select.i.i, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread, label %.critedge
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread: ; preds = %14, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit
@@ -1771,8 +1771,8 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editgtENS
   %23 = add i32 %22, %17
   %.sroa.2.0.insert.ext.i = zext i32 %23 to i64
   %24 = icmp sge i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.025.0.extract.trunc
-  %25 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.2.0.insert.ext.i
-  %spec.select.i = and i1 %24, %25
+  %25 = icmp samesign ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.2.0.insert.ext.i
+  %spec.select.i = select i1 %24, i1 %25, i1 false
   br i1 %spec.select.i, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %8, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit, %11, %_ZN5clang4editltENS0_10FileOffsetES1_.exit

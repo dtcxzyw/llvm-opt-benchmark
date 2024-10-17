@@ -1964,7 +1964,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %cmp10 = icmp ugt i64 %indvars.iv.i, 15
+  %cmp10 = icmp samesign ugt i64 %indvars.iv.i, 15
   br i1 %cmp10, label %cleanup, label %if.end13
 
 if.end13:                                         ; preds = %if.then9

@@ -2166,7 +2166,7 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
 .lr.ph42.i:                                       ; preds = %.loopexit.i, %.lr.ph42.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvar.next.i, %.loopexit.i ]
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
-  %54 = icmp ult i64 %indvar.next.i, %sext73
+  %54 = icmp samesign ult i64 %indvar.next.i, %sext73
   br i1 %54, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph42.i
@@ -2262,7 +2262,7 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
 .lr.ph42.i54:                                     ; preds = %.loopexit.i58, %.lr.ph42.preheader.i51
   %indvar.i55 = phi i64 [ 0, %.lr.ph42.preheader.i51 ], [ %indvar.next.i56, %.loopexit.i58 ]
   %indvar.next.i56 = add nuw nsw i64 %indvar.i55, 1
-  %94 = icmp ult i64 %indvar.next.i56, %sext
+  %94 = icmp samesign ult i64 %indvar.next.i56, %sext
   br i1 %94, label %.lr.ph.i60, label %.loopexit.i58
 
 .lr.ph.i60:                                       ; preds = %.lr.ph42.i54

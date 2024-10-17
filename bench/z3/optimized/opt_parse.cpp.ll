@@ -5090,7 +5090,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 land.lhs.true.i:                                  ; preds = %while.body, %if.end.i
   %2 = phi i32 [ %call.i.i, %if.end.i ], [ %1, %while.body ]
-  %cmp3.i = icmp ult i32 %2, 14
+  %cmp3.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i

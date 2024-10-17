@@ -14568,7 +14568,7 @@ if.end4:                                          ; preds = %if.end
   %div = sdiv i32 %4, 3
   %rem = srem i32 %4, 3
   %8 = tail call i32 @llvm.abs.i32(i32 %div, i1 true)
-  %cmp10 = icmp ult i32 %8, 64
+  %cmp10 = icmp samesign ult i32 %8, 64
   br i1 %cmp10, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.end4
@@ -16279,7 +16279,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %add5.i = fadd x86_fp80 %sum.112.i, %mul.i
   %cmp6.i = fcmp olt x86_fp80 %mul.i, 0xK3FF1D1B71758E2196800
   %inc.i = add nuw nsw i32 %i.014.i, 1
-  %cmp2.not.i = icmp ugt i32 %i.014.i, 99
+  %cmp2.not.i = icmp samesign ugt i32 %i.014.i, 99
   %or.cond.i = or i1 %cmp2.not.i, %cmp6.i
   br i1 %or.cond.i, label %_ZN5boost4math6detail11didonato_SNIeEET_S3_S3_jS3_.exit, label %for.body.i, !llvm.loop !162
 
@@ -17089,7 +17089,7 @@ if.end:                                           ; preds = %entry
   %4 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %5 = extractvalue { x86_fp80, i32 } %4, 1
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp2 = icmp ult i32 %6, 64
+  %cmp2 = icmp samesign ult i32 %6, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -17108,7 +17108,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %10
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !40
-  %cmp17 = icmp ugt i32 %6, 1024
+  %cmp17 = icmp samesign ugt i32 %6, 1024
   %cond18 = select i1 %cmp17, i32 8, i32 2
   %conv19 = uitofp nneg i32 %cond18 to x86_fp80
   %11 = load x86_fp80, ptr %f, align 16
@@ -17247,7 +17247,7 @@ if.end:                                           ; preds = %entry
   %3 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %4 = extractvalue { x86_fp80, i32 } %3, 1
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp ult i32 %5, 64
+  %cmp2 = icmp samesign ult i32 %5, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -17266,7 +17266,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %9
   %dec94 = add i64 %0, -1
   store i64 %dec94, ptr %count, align 8, !tbaa !40
-  %cmp16 = icmp ugt i32 %5, 1024
+  %cmp16 = icmp samesign ugt i32 %5, 1024
   %cond17 = select i1 %cmp16, i32 8, i32 2
   %conv18 = uitofp nneg i32 %cond17 to x86_fp80
   %10 = load x86_fp80, ptr %f, align 16
@@ -19366,7 +19366,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv83 to i32
   %conv28 = uitofp nneg i32 %3 to x86_fp80
-  %cmp3168 = icmp ugt i64 %indvars.iv83, 1
+  %cmp3168 = icmp samesign ugt i64 %indvars.iv83, 1
   br i1 %cmp3168, label %for.body33.lr.ph, label %for.cond.cleanup32
 
 for.body33.lr.ph:                                 ; preds = %for.body
@@ -21718,7 +21718,7 @@ if.end:                                           ; preds = %entry
   %4 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %5 = extractvalue { x86_fp80, i32 } %4, 1
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp2 = icmp ult i32 %6, 64
+  %cmp2 = icmp samesign ult i32 %6, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -21737,7 +21737,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %10
   %dec104 = add i64 %0, -1
   store i64 %dec104, ptr %count, align 8, !tbaa !40
-  %cmp17 = icmp ugt i32 %6, 1024
+  %cmp17 = icmp samesign ugt i32 %6, 1024
   %cond18 = select i1 %cmp17, i32 8, i32 2
   %conv19 = uitofp nneg i32 %cond18 to x86_fp80
   %11 = load x86_fp80, ptr %f, align 16
@@ -21878,7 +21878,7 @@ if.end:                                           ; preds = %entry
   %3 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %div1)
   %4 = extractvalue { x86_fp80, i32 } %3, 1
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %cmp2 = icmp ult i32 %5, 64
+  %cmp2 = icmp samesign ult i32 %5, 64
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -21897,7 +21897,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %cmp7 = fcmp olt x86_fp80 %8, %9
   %dec104 = add i64 %0, -1
   store i64 %dec104, ptr %count, align 8, !tbaa !40
-  %cmp16 = icmp ugt i32 %5, 1024
+  %cmp16 = icmp samesign ugt i32 %5, 1024
   %cond17 = select i1 %cmp16, i32 8, i32 2
   %conv18 = uitofp nneg i32 %cond17 to x86_fp80
   %10 = load x86_fp80, ptr %f, align 16
@@ -22451,7 +22451,7 @@ if.end4:                                          ; preds = %if.end
   %div = sdiv i32 %4, 3
   %rem = srem i32 %4, 3
   %8 = tail call i32 @llvm.abs.i32(i32 %div, i1 true)
-  %cmp10 = icmp ult i32 %8, 64
+  %cmp10 = icmp samesign ult i32 %8, 64
   br i1 %cmp10, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.end4
@@ -22968,7 +22968,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv83 to i32
   %conv28 = uitofp nneg i32 %3 to x86_fp80
-  %cmp3168 = icmp ugt i64 %indvars.iv83, 1
+  %cmp3168 = icmp samesign ugt i64 %indvars.iv83, 1
   br i1 %cmp3168, label %for.body33.lr.ph, label %for.cond.cleanup32
 
 for.body33.lr.ph:                                 ; preds = %for.body

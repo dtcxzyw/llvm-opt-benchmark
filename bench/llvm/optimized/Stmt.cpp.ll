@@ -14365,7 +14365,7 @@ _ZNK5clang10GCCAsmStmt14AsmStringPiece11getModifierEv.exit.thread: ; preds = %34
   %51 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %50, ptr %51, align 1, !noalias !898
   %52 = udiv i64 %.0810.i, 10
-  %.not.i15 = icmp ult i64 %.0810.i, 10
+  %.not.i15 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i15, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !901
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -14411,7 +14411,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %64 = getelementptr inbounds i8, ptr %.111.i17, i64 -1
   store i8 %63, ptr %64, align 1, !noalias !905
   %65 = udiv i64 %.0810.i18, 10
-  %.not.i19 = icmp ult i64 %.0810.i18, 10
+  %.not.i19 = icmp samesign ult i64 %.0810.i18, 10
   br i1 %.not.i19, label %_ZN4llvm6utostrB5cxx11Emb.exit22, label %.lr.ph.i16, !llvm.loop !901
 
 _ZN4llvm6utostrB5cxx11Emb.exit22:                 ; preds = %.lr.ph.i16, %.thread.i21

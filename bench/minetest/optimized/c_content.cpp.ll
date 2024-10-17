@@ -9992,7 +9992,7 @@ if.end209:                                        ; preds = %if.then207, %if.end
   %conv242 = trunc i32 %call241 to i8
   store i8 %conv242, ptr %light_source, align 1, !tbaa !349
   %conv245 = and i32 %call241, 255
-  %cmp246 = icmp ugt i32 %conv245, 14
+  %cmp246 = icmp samesign ugt i32 %conv245, 14
   br i1 %cmp246, label %if.then247, label %if.end259
 
 if.then247:                                       ; preds = %if.end209

@@ -50,7 +50,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.064 = tail call i64 @llvm.abs.i64(i64 %21, i1 true)
   %.062 = xor i1 %23, %24
   %25 = trunc nuw nsw i64 %.064 to i32
-  %26 = icmp ult i64 %.064, 65536
+  %26 = icmp samesign ult i64 %.064, 65536
   %27 = shl nuw i32 %25, 16
   %spec.select.i = select i1 %26, i32 %27, i32 %25
   %spec.select12.i = select i1 %26, i8 16, i8 0
@@ -133,7 +133,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.0 = phi i64 [ %62, %60 ], [ %69, %67 ]
   %.059 = add nuw nsw i64 %.059.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %73 = icmp ult i64 %.066, 31
+  %73 = icmp samesign ult i64 %.066, 31
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %72

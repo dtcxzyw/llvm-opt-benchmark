@@ -3458,7 +3458,7 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   %261 = add nuw nsw i32 %.0185277, 1
   %262 = load i16, ptr %206, align 2
   %263 = zext i16 %262 to i32
-  %264 = icmp ult i32 %261, %263
+  %264 = icmp samesign ult i32 %261, %263
   br i1 %264, label %239, label %.loopexit, !llvm.loop !9
 
 265:                                              ; preds = %211
@@ -3560,7 +3560,7 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   %326 = add nuw nsw i32 %.1186274, 1
   %327 = load i16, ptr %206, align 2
   %328 = zext i16 %327 to i32
-  %329 = icmp ult i32 %326, %328
+  %329 = icmp samesign ult i32 %326, %328
   br i1 %329, label %298, label %.loopexit, !llvm.loop !10
 
 330:                                              ; preds = %211
@@ -3694,7 +3694,7 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   %406 = add nuw nsw i32 %.2187271, 1
   %407 = load i16, ptr %206, align 2
   %408 = zext i16 %407 to i32
-  %409 = icmp ult i32 %406, %408
+  %409 = icmp samesign ult i32 %406, %408
   br i1 %409, label %383, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %405, %325, %260, %.preheader263, %.preheader261, %.preheader, %211, %235, %336, %348, %342, %352, %380, %288, %207

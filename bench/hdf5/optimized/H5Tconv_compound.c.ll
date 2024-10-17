@@ -333,7 +333,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
   %184 = getelementptr inbounds i8, ptr %183, i64 52
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
-  %187 = icmp ult i64 %indvars.iv.next, %186
+  %187 = icmp samesign ult i64 %indvars.iv.next, %186
   br i1 %187, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %182
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_free(ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %11, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45, %1
@@ -1573,7 +1573,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct_opt(ptr noundef %0, ptr noundef %1
   %245 = getelementptr inbounds i8, ptr %244, i64 52
   %246 = load i32, ptr %245, align 4
   %247 = zext i32 %246 to i64
-  %248 = icmp ult i64 %indvars.iv.next, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next, %247
   br i1 %248, label %180, label %._crit_edge286
 
 ._crit_edge286:                                   ; preds = %.loopexit270

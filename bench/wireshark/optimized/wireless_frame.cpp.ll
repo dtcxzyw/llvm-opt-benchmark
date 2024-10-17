@@ -2727,7 +2727,7 @@ _ZN7QStringD2Ev.exit95:                           ; preds = %_ZN7QStringD2Ev.exi
   %195 = getelementptr inbounds i8, ptr %194, i64 8
   %196 = load i32, ptr %195, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next, %197
   br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 199:                                              ; preds = %.body, %182
@@ -3323,7 +3323,7 @@ _ZN7QStringD2Ev.exit188:                          ; preds = %398, %_ZN17QArrayDa
   %405 = getelementptr inbounds i8, ptr %404, i64 8
   %406 = load i32, ptr %405, align 8
   %407 = zext i32 %406 to i64
-  %408 = icmp ult i64 %indvars.iv.next223, %407
+  %408 = icmp samesign ult i64 %indvars.iv.next223, %407
   br i1 %408, label %92, label %.invoke, !llvm.loop !11
 
 409:                                              ; preds = %.invoke

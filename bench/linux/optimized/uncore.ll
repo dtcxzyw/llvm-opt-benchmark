@@ -283,7 +283,7 @@ define dso_local i32 @uncore_device_to_die(ptr nocapture noundef readonly %0) lo
 39:                                               ; preds = %32, %22
   %40 = add nuw nsw i64 %19, 1
   %41 = and i64 %40, 127
-  %42 = icmp ult i64 %41, 64
+  %42 = icmp samesign ult i64 %41, 64
   br i1 %42, label %13, label %.thread, !prof !10, !llvm.loop !11
 
 .thread:                                          ; preds = %13, %39, %18, %.thread2
@@ -2993,7 +2993,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
 11:                                               ; preds = %20, %6
   %12 = phi i64 [ 0, %6 ], [ %26, %20 ]
   %13 = and i64 %12, 4294967295
-  %14 = icmp ult i64 %13, 64
+  %14 = icmp samesign ult i64 %13, 64
   br i1 %14, label %15, label %.thread, !prof !15
 
 15:                                               ; preds = %11

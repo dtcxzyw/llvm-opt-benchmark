@@ -436,7 +436,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr nocapture noundef readonly %0) loc
   %indvars.iv = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next, %.loopexit ]
   %.017 = phi i32 [ 0, %.lr.ph18.preheader ], [ %.1.lcssa, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = icmp ult i64 %indvars.iv.next, %5
+  %6 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph18

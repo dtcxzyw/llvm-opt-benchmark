@@ -1569,7 +1569,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
   %222 = phi i64 [ 0, %.thread ], [ %175, %200 ], [ 0, %182 ], [ %175, %167 ], [ %175, %208 ]
   %223 = phi i64 [ %166, %.thread ], [ %174, %200 ], [ %174, %182 ], [ %174, %167 ], [ %174, %208 ]
   %224 = phi i64 [ 0, %.thread ], [ %173, %200 ], [ %173, %182 ], [ %173, %167 ], [ %173, %208 ]
-  %225 = icmp ult i64 %224, %223
+  %225 = icmp samesign ult i64 %224, %223
   br i1 %225, label %226, label %242
 
 226:                                              ; preds = %.loopexit25
@@ -2060,7 +2060,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
   br i1 %525, label %526, label %.thread23
 
 526:                                              ; preds = %520
-  %527 = icmp ult i32 %419, 24
+  %527 = icmp samesign ult i32 %419, 24
   br i1 %527, label %528, label %530
 
 528:                                              ; preds = %526

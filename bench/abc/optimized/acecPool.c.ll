@@ -90,7 +90,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   store i32 %23, ptr %22, align 4
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %24 = mul nuw nsw i64 %indvars.iv.next15, 6
-  %25 = icmp ult i64 %24, %18
+  %25 = icmp samesign ult i64 %24, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   br i1 %25, label %19, label %._crit_edge, !llvm.loop !4
 
@@ -438,7 +438,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   store i32 %61, ptr %59, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = shl nsw i64 %indvars.iv.next, 2
-  %63 = icmp ult i64 %62, %25
+  %63 = icmp samesign ult i64 %62, %25
   %64 = trunc nsw i64 %62 to i32
   br i1 %63, label %27, label %.lr.ph37, !llvm.loop !8
 
@@ -871,7 +871,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   store i32 %59, ptr %58, align 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %60 = shl nsw i64 %indvars.iv.next151, 2
-  %61 = icmp ult i64 %60, %49
+  %61 = icmp samesign ult i64 %60, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   br i1 %61, label %54, label %.preheader, !llvm.loop !11
 
@@ -900,7 +900,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %76 = or i32 %75, %71
   store i32 %76, ptr %74, align 4
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %77 = icmp ult i64 %indvars.iv.next156, %53
+  %77 = icmp samesign ult i64 %indvars.iv.next156, %53
   br i1 %77, label %67, label %.critedge.preheader, !llvm.loop !12
 
 78:                                               ; preds = %.lr.ph146, %.critedge6
@@ -1928,7 +1928,7 @@ Vec_IntPushTwo.exit194:                           ; preds = %.Vec_IntGrow.exit10
   %319 = tail call noundef i32 @llvm.smax.i32(i32 %.0210, i32 %318)
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 2
   %320 = or disjoint i64 %indvars.iv.next238, 1
-  %321 = icmp ult i64 %320, %245
+  %321 = icmp samesign ult i64 %320, %245
   br i1 %321, label %.critedge4, label %.critedge6.preheader, !llvm.loop !23
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
@@ -1949,7 +1949,7 @@ Vec_IntPushTwo.exit194:                           ; preds = %.Vec_IntGrow.exit10
   %327 = tail call noundef i32 @llvm.smax.i32(i32 %.1213, i32 %326)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 2
   %328 = or disjoint i64 %indvars.iv.next241, 1
-  %329 = icmp ult i64 %328, %315
+  %329 = icmp samesign ult i64 %328, %315
   br i1 %329, label %.critedge6, label %.critedge8.preheader, !llvm.loop !24
 
 .critedge10.preheader.loopexit:                   ; preds = %.critedge8

@@ -1499,7 +1499,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   %126 = zext nneg i32 %123 to i64
   %127 = sub i32 %104, %123
   %128 = sext i32 %127 to i64
-  %129 = icmp ult i32 %123, 257
+  %129 = icmp samesign ult i32 %123, 257
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %125
@@ -1514,7 +1514,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %108, ptr align 1 %134, i64 %128, i1 false)
   %135 = getelementptr i8, ptr %108, i64 %128
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr nonnull align 1 %.034.i.i, i64 %126, i1 false)
-  %136 = icmp ugt i32 %123, 256
+  %136 = icmp samesign ugt i32 %123, 256
   br i1 %136, label %137, label %rrc_rotate.exit.i
 
 137:                                              ; preds = %133

@@ -158,7 +158,7 @@ define hidden void @_ZN8rawspeed7TiffIFD13parseIFDEntryEPNS_11NORangesSetINS_6Bu
   %11 = load i32, ptr %10, align 8, !tbaa !6
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !12
-  %14 = icmp uge i32 %11, %13
+  %14 = icmp samesign uge i32 %11, %13
   tail call void @llvm.assume(i1 %14)
   %15 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %15)
@@ -1178,7 +1178,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %87 = zext i32 %86 to i64
   %88 = add nuw nsw i64 %87, 4
   %89 = and i64 %82, 4294967295
-  %90 = icmp ugt i64 %88, %89
+  %90 = icmp samesign ugt i64 %88, %89
   br i1 %90, label %141, label %91
 
 91:                                               ; preds = %78
@@ -1217,7 +1217,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 112:                                              ; preds = %108
   %113 = zext nneg i32 %94 to i64
   %114 = add nuw nsw i64 %113, 2
-  %115 = icmp ugt i64 %114, %89
+  %115 = icmp samesign ugt i64 %114, %89
   br i1 %115, label %500, label %116
 
 116:                                              ; preds = %112
@@ -1272,7 +1272,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 141:                                              ; preds = %108, %104, %100, %91, %78
   %142 = add nuw nsw i64 %87, 6
-  %143 = icmp ugt i64 %142, %89
+  %143 = icmp samesign ugt i64 %142, %89
   br i1 %143, label %192, label %144
 
 144:                                              ; preds = %141
@@ -1281,7 +1281,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %146 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %146)
   %147 = add nuw nsw i32 %86, 6
-  %148 = icmp ule i32 %147, %83
+  %148 = icmp samesign ule i32 %147, %83
   call void @llvm.assume(i1 %148)
   %149 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %149)
@@ -1324,13 +1324,13 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %174 = sub nsw i32 %83, %86
   %175 = zext i32 %174 to i64
   %176 = add nuw nsw i64 %175, %87
-  %177 = icmp ugt i64 %176, %89
+  %177 = icmp samesign ugt i64 %176, %89
   br i1 %177, label %539, label %178
 
 178:                                              ; preds = %173
   %179 = icmp sgt i32 %174, -1
   call void @llvm.assume(i1 %179)
-  %180 = icmp ult i32 %174, 10
+  %180 = icmp samesign ult i32 %174, 10
   br i1 %180, label %500, label %181
 
 181:                                              ; preds = %178
@@ -1355,7 +1355,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 192:                                              ; preds = %169, %165, %161, %157, %153, %144, %141
   %193 = add nuw nsw i64 %87, 12
-  %194 = icmp ugt i64 %193, %89
+  %194 = icmp samesign ugt i64 %193, %89
   br i1 %194, label %256, label %195
 
 195:                                              ; preds = %192
@@ -1364,7 +1364,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %197 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %197)
   %198 = add nuw nsw i32 %86, 12
-  %199 = icmp ule i32 %198, %83
+  %199 = icmp samesign ule i32 %198, %83
   call void @llvm.assume(i1 %199)
   %200 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %200)
@@ -1443,18 +1443,18 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %249 = sub nsw i32 %83, %86
   %250 = zext i32 %249 to i64
   %251 = add nuw nsw i64 %250, %87
-  %252 = icmp ugt i64 %251, %89
+  %252 = icmp samesign ugt i64 %251, %89
   br i1 %252, label %539, label %253
 
 253:                                              ; preds = %248
   %254 = icmp sgt i32 %249, -1
   call void @llvm.assume(i1 %254)
-  %255 = icmp ult i32 %249, 12
+  %255 = icmp samesign ult i32 %249, 12
   br i1 %255, label %539, label %568
 
 256:                                              ; preds = %244, %240, %236, %232, %228, %224, %220, %216, %212, %208, %204, %195, %192
   %257 = add nuw nsw i64 %87, 7
-  %258 = icmp ugt i64 %257, %89
+  %258 = icmp samesign ugt i64 %257, %89
   br i1 %258, label %351, label %259
 
 259:                                              ; preds = %256
@@ -1463,7 +1463,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %261 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %261)
   %262 = add nuw nsw i32 %86, 7
-  %263 = icmp ule i32 %262, %83
+  %263 = icmp samesign ule i32 %262, %83
   call void @llvm.assume(i1 %263)
   %264 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %264)
@@ -1512,25 +1512,25 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 291:                                              ; preds = %287
   %292 = add nuw nsw i64 %87, 10
-  %293 = icmp ugt i64 %292, %89
+  %293 = icmp samesign ugt i64 %292, %89
   br i1 %293, label %539, label %294
 
 294:                                              ; preds = %291
   %295 = add nuw nsw i32 %86, 10
-  %296 = icmp ule i32 %295, %83
+  %296 = icmp samesign ule i32 %295, %83
   call void @llvm.assume(i1 %296)
   %297 = sub nsw i32 %83, %295
   %298 = zext nneg i32 %295 to i64
   %299 = zext i32 %297 to i64
   %300 = add nuw nsw i64 %299, %298
-  %301 = icmp ugt i64 %300, %89
+  %301 = icmp samesign ugt i64 %300, %89
   br i1 %301, label %539, label %302
 
 302:                                              ; preds = %294
   %303 = icmp sgt i32 %297, -1
   call void @llvm.assume(i1 %303)
   %304 = getelementptr inbounds i8, ptr %80, i64 %298
-  %305 = icmp ult i32 %297, 2
+  %305 = icmp samesign ult i32 %297, 2
   br i1 %305, label %500, label %306
 
 306:                                              ; preds = %302
@@ -1554,7 +1554,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 316:                                              ; preds = %312, %308
   %317 = phi i64 [ 57005, %308 ], [ 48879, %312 ]
-  %318 = icmp ult i32 %297, 8
+  %318 = icmp samesign ult i32 %297, 8
   br i1 %318, label %539, label %568
 
 319:                                              ; preds = %259
@@ -1597,18 +1597,18 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %344 = sub nsw i32 %83, %86
   %345 = zext i32 %344 to i64
   %346 = add nuw nsw i64 %345, %87
-  %347 = icmp ugt i64 %346, %89
+  %347 = icmp samesign ugt i64 %346, %89
   br i1 %347, label %539, label %348
 
 348:                                              ; preds = %343
   %349 = icmp sgt i32 %344, -1
   call void @llvm.assume(i1 %349)
-  %350 = icmp ult i32 %344, 12
+  %350 = icmp samesign ult i32 %344, 12
   br i1 %350, label %539, label %568
 
 351:                                              ; preds = %339, %335, %331, %327, %323, %319, %287, %283, %279, %275, %271, %267, %259, %256
   %352 = add nuw nsw i64 %87, 5
-  %353 = icmp ugt i64 %352, %89
+  %353 = icmp samesign ugt i64 %352, %89
   br i1 %353, label %379, label %354
 
 354:                                              ; preds = %351
@@ -1617,7 +1617,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %356 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %356)
   %357 = add nuw nsw i32 %86, 5
-  %358 = icmp ule i32 %357, %83
+  %358 = icmp samesign ule i32 %357, %83
   call void @llvm.assume(i1 %358)
   %359 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %359)
@@ -1652,7 +1652,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 379:                                              ; preds = %375, %371, %367, %363, %354, %351
   %380 = add nuw nsw i64 %87, 9
-  %381 = icmp ugt i64 %380, %89
+  %381 = icmp samesign ugt i64 %380, %89
   br i1 %381, label %423, label %382
 
 382:                                              ; preds = %379
@@ -1661,7 +1661,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %384 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %384)
   %385 = add nuw nsw i32 %86, 9
-  %386 = icmp ule i32 %385, %83
+  %386 = icmp samesign ule i32 %385, %83
   call void @llvm.assume(i1 %386)
   %387 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %387)
@@ -1727,7 +1727,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %426 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %426)
   %427 = add nuw nsw i32 %86, 5
-  %428 = icmp ule i32 %427, %83
+  %428 = icmp samesign ule i32 %427, %83
   call void @llvm.assume(i1 %428)
   %429 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %429)
@@ -1762,12 +1762,12 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 449:                                              ; preds = %445
   %450 = add nuw nsw i64 %87, 8
-  %451 = icmp ugt i64 %450, %89
+  %451 = icmp samesign ugt i64 %450, %89
   br i1 %451, label %539, label %452
 
 452:                                              ; preds = %449
   %453 = add nuw nsw i32 %86, 8
-  %454 = icmp ule i32 %453, %83
+  %454 = icmp samesign ule i32 %453, %83
   call void @llvm.assume(i1 %454)
   br label %568
 
@@ -1775,7 +1775,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %456 = add i32 %86, 6
   %457 = zext i32 %456 to i64
   %458 = add nuw nsw i64 %457, 4
-  %459 = icmp ugt i64 %458, %89
+  %459 = icmp samesign ugt i64 %458, %89
   br i1 %459, label %511, label %460
 
 460:                                              ; preds = %455
@@ -1815,7 +1815,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %482 = add i32 %86, 12
   %483 = zext i32 %482 to i64
   %484 = add nuw nsw i64 %483, 2
-  %485 = icmp ugt i64 %484, %89
+  %485 = icmp samesign ugt i64 %484, %89
   br i1 %485, label %500, label %486
 
 486:                                              ; preds = %481
@@ -1854,12 +1854,12 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 503:                                              ; preds = %496, %492
   %504 = phi i64 [ 57005, %492 ], [ 48879, %496 ]
   %505 = add nuw nsw i64 %87, 20
-  %506 = icmp ugt i64 %505, %89
+  %506 = icmp samesign ugt i64 %505, %89
   br i1 %506, label %539, label %507
 
 507:                                              ; preds = %503
   %508 = add nuw nsw i32 %86, 20
-  %509 = icmp ule i32 %508, %83
+  %509 = icmp samesign ule i32 %508, %83
   call void @llvm.assume(i1 %509)
   %510 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %510)
@@ -1888,7 +1888,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 526:                                              ; preds = %520, %419, %375
   %527 = phi i32 [ 8, %375 ], [ 16, %419 ], [ 0, %520 ]
-  %528 = icmp ule i32 %86, %83
+  %528 = icmp samesign ule i32 %86, %83
   call void @llvm.assume(i1 %528)
   %529 = icmp sgt i32 %83, -1
   call void @llvm.assume(i1 %529)
@@ -1897,7 +1897,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %531 = sub nsw i32 %83, %86
   %532 = zext i32 %531 to i64
   %533 = add nuw nsw i64 %532, %87
-  %534 = icmp ugt i64 %533, %89
+  %534 = icmp samesign ugt i64 %533, %89
   br i1 %534, label %539, label %535
 
 535:                                              ; preds = %526
@@ -1905,7 +1905,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   call void @llvm.assume(i1 %536)
   %537 = icmp sgt i32 %531, -1
   call void @llvm.assume(i1 %537)
-  %538 = icmp ugt i32 %527, %531
+  %538 = icmp samesign ugt i32 %527, %531
   br i1 %538, label %539, label %543
 
 539:                                              ; preds = %535, %526, %503, %449, %348, %343, %316, %294, %291, %253, %248, %173
@@ -1923,7 +1923,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 545:                                              ; preds = %520, %515
   %546 = add nuw nsw i64 %87, 2
-  %547 = icmp ugt i64 %546, %89
+  %547 = icmp samesign ugt i64 %546, %89
   br i1 %547, label %568, label %548
 
 548:                                              ; preds = %545
@@ -1964,7 +1964,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %570 = phi i64 [ %84, %543 ], [ %84, %545 ], [ %504, %507 ], [ %84, %452 ], [ 48879, %125 ], [ 57005, %121 ], [ 57005, %184 ], [ 48879, %188 ], [ 57005, %253 ], [ %317, %316 ], [ %84, %348 ], [ %560, %556 ], [ %84, %548 ], [ %566, %562 ]
   %571 = phi i32 [ %527, %543 ], [ %86, %545 ], [ %508, %507 ], [ %453, %452 ], [ %117, %125 ], [ %117, %121 ], [ 10, %184 ], [ 10, %188 ], [ 12, %253 ], [ 8, %316 ], [ 12, %348 ], [ %561, %556 ], [ %86, %548 ], [ %567, %562 ]
   %572 = phi ptr [ %544, %543 ], [ %80, %545 ], [ %80, %507 ], [ %80, %452 ], [ %80, %125 ], [ %80, %121 ], [ %150, %184 ], [ %150, %188 ], [ %201, %253 ], [ %304, %316 ], [ %265, %348 ], [ %80, %556 ], [ %80, %548 ], [ %80, %562 ]
-  %573 = icmp uge i32 %569, %571
+  %573 = icmp samesign uge i32 %569, %571
   call void @llvm.assume(i1 %573)
   %574 = icmp sgt i32 %569, -1
   call void @llvm.assume(i1 %574)
@@ -2493,7 +2493,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   tail call void @llvm.assume(i1 %48)
   %49 = zext nneg i32 %5 to i64
   %50 = add nuw nsw i64 %49, 2
-  %51 = icmp ugt i64 %50, %40
+  %51 = icmp samesign ugt i64 %50, %40
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %46
@@ -2508,7 +2508,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   %56 = and i64 %4, -4294967296
   %57 = icmp eq i64 %56, 244834610708480
   %58 = add nuw nsw i32 %5, 2
-  %59 = icmp ule i32 %58, %9
+  %59 = icmp samesign ule i32 %58, %9
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %3, i64 %49
   %61 = load i16, ptr %60, align 1
@@ -2521,7 +2521,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #30
   %67 = add nuw i32 %66, %5
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %40, %68
+  %69 = icmp samesign ult i64 %40, %68
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %54
@@ -2587,7 +2587,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   %96 = phi i32 [ %90, %89 ], [ %58, %87 ]
   %97 = zext i32 %96 to i64
   %98 = add nuw nsw i64 %97, 4
-  %99 = icmp ugt i64 %98, %94
+  %99 = icmp samesign ugt i64 %98, %94
   br i1 %99, label %100, label %108
 
 100:                                              ; preds = %93
@@ -2619,7 +2619,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   %112 = icmp sgt i32 %95, -1
   call void @llvm.assume(i1 %112)
   %113 = add nuw nsw i32 %96, 4
-  %114 = icmp ule i32 %113, %95
+  %114 = icmp samesign ule i32 %113, %95
   call void @llvm.assume(i1 %114)
   %115 = icmp sgt i32 %96, -1
   call void @llvm.assume(i1 %115)

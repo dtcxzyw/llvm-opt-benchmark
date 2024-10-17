@@ -701,7 +701,7 @@ sub_135:                                          ; preds = %.tail
 
 55:                                               ; preds = %51
   %56 = and i64 %52, 2147483647
-  %57 = icmp ugt i64 %56, 1023
+  %57 = icmp samesign ugt i64 %56, 1023
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55

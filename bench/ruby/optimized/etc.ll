@@ -1186,7 +1186,7 @@ define internal i64 @etc_nprocessors(i64 %0) #0 {
   %.021.i = phi i32 [ 64, %1 ], [ %21, %18 ]
   %4 = lshr exact i32 %.021.i, 3
   %5 = zext nneg i32 %4 to i64
-  %6 = icmp ugt i32 %.021.i, 8184
+  %6 = icmp samesign ugt i32 %.021.i, 8184
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3

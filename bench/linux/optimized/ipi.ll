@@ -526,7 +526,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
 29:                                               ; preds = %18, %16
   %30 = add nuw nsw i64 %13, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %.split.us, !prof !33, !llvm.loop !36
 
 .split:                                           ; preds = %2, %60
@@ -575,7 +575,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
 60:                                               ; preds = %.loopexit, %42
   %61 = add nuw nsw i64 %39, 1
   %62 = and i64 %61, 127
-  %63 = icmp ugt i64 %62, 63
+  %63 = icmp samesign ugt i64 %62, 63
   br i1 %63, label %.thread, label %.split, !prof !33, !llvm.loop !36
 
 .thread:                                          ; preds = %38, %60, %.split, %.split.us, %12, %29

@@ -7797,7 +7797,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %6, %17
   %29 = load i32, ptr %20, align 4
   %30 = add i32 %29, -1
   %31 = zext i32 %30 to i64
-  %.not = icmp ult i64 %indvars.iv, %31
+  %.not = icmp samesign ult i64 %indvars.iv, %31
   br i1 %.not, label %35, label %_ZSt4nextIPKPN4llvm5ValueEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
 
 _ZSt4nextIPKPN4llvm5ValueEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %28

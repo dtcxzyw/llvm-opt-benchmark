@@ -50,7 +50,7 @@ for.body12.preheader:                             ; preds = %while.cond.preheade
   br label %for.body12
 
 for.cond20.preheader:                             ; preds = %for.body12
-  %cmp2153 = icmp ult i64 %n.152, 15
+  %cmp2153 = icmp samesign ult i64 %n.152, 15
   br i1 %cmp2153, label %for.body23, label %for.end28
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
@@ -73,7 +73,7 @@ for.body23:                                       ; preds = %for.cond20.preheade
   %arrayidx25 = getelementptr inbounds i8, ptr %out.addr.0.lcssa62, i64 %n.254
   store i8 %6, ptr %arrayidx25, align 1
   %inc27 = add nuw nsw i64 %n.254, 1
-  %cmp21 = icmp ult i64 %n.254, 15
+  %cmp21 = icmp samesign ult i64 %n.254, 15
   br i1 %cmp21, label %for.body23, label %for.end28, !llvm.loop !7
 
 for.end28:                                        ; preds = %for.body23, %for.cond20.preheader
@@ -189,7 +189,7 @@ while.body32:                                     ; preds = %while.cond.preheade
   br label %for.body38
 
 for.cond53.preheader:                             ; preds = %for.body38
-  %cmp5480 = icmp ult i64 %n.279, 15
+  %cmp5480 = icmp samesign ult i64 %n.279, 15
   br i1 %cmp5480, label %for.body56, label %while.end66
 
 for.body38:                                       ; preds = %while.body32, %for.body38
@@ -215,7 +215,7 @@ for.body56:                                       ; preds = %for.cond53.preheade
   %arrayidx58 = getelementptr inbounds i8, ptr %ivec, i64 %n.381
   store i8 %13, ptr %arrayidx58, align 1
   %inc60 = add nuw nsw i64 %n.381, 1
-  %cmp54 = icmp ult i64 %n.381, 15
+  %cmp54 = icmp samesign ult i64 %n.381, 15
   br i1 %cmp54, label %for.body56, label %while.end66, !llvm.loop !11
 
 while.end66:                                      ; preds = %for.body56, %for.cond53.preheader, %entry, %while.cond31

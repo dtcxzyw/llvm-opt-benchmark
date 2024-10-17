@@ -499,7 +499,7 @@ define internal i32 @dissect_AllJoyn_name_server(ptr noundef %0, ptr nocapture n
   %22 = load ptr, ptr %5, align 8
   %23 = zext nneg i8 %21 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.255, i32 noundef %23) #5
-  %24 = icmp ugt i8 %21, 1
+  %24 = icmp samesign ugt i8 %21, 1
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %4
@@ -2495,7 +2495,7 @@ add_padding_item.exit455:                         ; preds = %403, %409, %412, %4
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %444, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %444
-  %.not22.i = icmp ult i32 %.017.i, %441
+  %.not22.i = icmp samesign ult i32 %.017.i, %441
   br i1 %.not22.i, label %append_struct_signature.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %457, %.critedge.i

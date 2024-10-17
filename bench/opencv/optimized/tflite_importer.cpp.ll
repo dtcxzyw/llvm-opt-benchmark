@@ -1087,7 +1087,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNK11flatbu
   %33 = zext i32 %32 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.off.i.i = or disjoint i64 %33, 3
-  %.not.i.i.i38 = icmp ult i64 %.off.i.i, 7
+  %.not.i.i.i38 = icmp samesign ult i64 %.off.i.i, 7
   br i1 %.not.i.i.i38, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.thread.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -5894,7 +5894,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %442, %433, %424
   %459 = add nuw nsw i64 %.050142, 1
   %460 = load i32, ptr %383, align 4
   %461 = zext i32 %460 to i64
-  %462 = icmp ult i64 %459, %461
+  %462 = icmp samesign ult i64 %459, %461
   br i1 %462, label %409, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %_ZN2cv3Mat2atIfEERT_i.exit, %_ZNK13opencv_tflite22QuantizationParameters5scaleEv.exit, %398
@@ -7102,7 +7102,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %453, %444, %435
   %470 = add nuw nsw i64 %.051146, 1
   %471 = load i32, ptr %394, align 4
   %472 = zext i32 %471 to i64
-  %473 = icmp ult i64 %470, %472
+  %473 = icmp samesign ult i64 %470, %472
   br i1 %473, label %420, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %_ZN2cv3Mat2atIfEERT_i.exit, %_ZNK13opencv_tflite22QuantizationParameters5scaleEv.exit, %409
@@ -12716,7 +12716,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i189: ; preds = %_ZNK
   %155 = getelementptr inbounds i8, ptr %152, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv, %157
+  %158 = icmp samesign ult i64 %indvars.iv, %157
   br i1 %158, label %159, label %.critedge
 
 159:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i189
@@ -20802,7 +20802,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %92 = load i64, ptr %91, align 8
   %93 = lshr i64 %92, 2
   %94 = zext i32 %90 to i64
-  %95 = icmp ugt i64 %93, %94
+  %95 = icmp samesign ugt i64 %93, %94
   br i1 %95, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite12OperatorCodeEEEjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite12OperatorCodeEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite12OperatorCodeEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %89
@@ -20832,7 +20832,7 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite12Op
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %110 = load i32, ptr %106, align 4
   %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next.i, %111
+  %112 = icmp samesign ult i64 %indvars.iv.next.i, %111
   br i1 %112, label %113, label %_ZNK13opencv_tflite5Model14operator_codesEv.exit31.thread.loopexit, !llvm.loop !207
 
 113:                                              ; preds = %109, %.lr.ph.i
@@ -21337,7 +21337,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -21372,7 +21372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !208
 
 9:                                                ; preds = %.lr.ph, %5
@@ -21482,7 +21482,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -21517,7 +21517,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !209
 
 9:                                                ; preds = %.lr.ph, %5
@@ -21569,7 +21569,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -21619,7 +21619,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -21654,7 +21654,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !210
 
 9:                                                ; preds = %.lr.ph, %5
@@ -21706,7 +21706,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -21741,7 +21741,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !211
 
 9:                                                ; preds = %.lr.ph, %5
@@ -22157,7 +22157,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite6TensorEEEjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite6TensorEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite6TensorEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -22187,7 +22187,7 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite6Ten
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %102 = load i32, ptr %98, align 4
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next.i, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next.i, %103
   br i1 %104, label %105, label %_ZNK13opencv_tflite8SubGraph7tensorsEv.exit21.thread.loopexit, !llvm.loop !212
 
 105:                                              ; preds = %101, %.lr.ph.i
@@ -22285,7 +22285,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i34: ; preds = %_ZNK11flatbuffers
   %160 = load i64, ptr %159, align 8
   %161 = lshr i64 %160, 2
   %162 = zext i32 %158 to i64
-  %163 = icmp ugt i64 %161, %162
+  %163 = icmp samesign ugt i64 %161, %162
   br i1 %163, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite6TensorEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %157
@@ -22465,7 +22465,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -22500,7 +22500,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !213
 
 9:                                                ; preds = %.lr.ph, %5
@@ -22651,7 +22651,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -22998,7 +22998,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -23033,7 +23033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !214
 
 9:                                                ; preds = %.lr.ph, %5
@@ -23184,7 +23184,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -23250,7 +23250,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i26: ; preds = %_ZNK1
   %120 = load i64, ptr %119, align 8
   %121 = lshr i64 %120, 2
   %122 = zext i32 %118 to i64
-  %123 = icmp ugt i64 %121, %122
+  %123 = icmp samesign ugt i64 %121, %122
   br i1 %123, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit31, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit31: ; preds = %117
@@ -23467,7 +23467,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -23517,7 +23517,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 3
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -23865,7 +23865,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -23931,7 +23931,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i21: ; preds = %_ZNK1
   %120 = load i64, ptr %119, align 8
   %121 = lshr i64 %120, 2
   %122 = zext i32 %118 to i64
-  %123 = icmp ugt i64 %121, %122
+  %123 = icmp samesign ugt i64 %121, %122
   br i1 %123, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26: ; preds = %117
@@ -24061,7 +24061,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 2
   %24 = zext i32 %20 to i64
-  %25 = icmp ugt i64 %23, %24
+  %25 = icmp samesign ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 26:                                               ; preds = %19
@@ -24096,7 +24096,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !215
 
 9:                                                ; preds = %.lr.ph, %5
@@ -24587,7 +24587,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -24740,7 +24740,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 1
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -25044,7 +25044,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -25251,7 +25251,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %92 = load i64, ptr %91, align 8
   %93 = lshr i64 %92, 2
   %94 = zext i32 %90 to i64
-  %95 = icmp ugt i64 %93, %94
+  %95 = icmp samesign ugt i64 %93, %94
   br i1 %95, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %89
@@ -25317,7 +25317,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i31: ; preds = %_ZNK1
   %128 = load i64, ptr %127, align 8
   %129 = lshr i64 %128, 2
   %130 = zext i32 %126 to i64
-  %131 = icmp ugt i64 %129, %130
+  %131 = icmp samesign ugt i64 %129, %130
   br i1 %131, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit36, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit36: ; preds = %125
@@ -32344,7 +32344,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %92 = load i64, ptr %91, align 8
   %93 = lshr i64 %92, 2
   %94 = zext i32 %90 to i64
-  %95 = icmp ugt i64 %93, %94
+  %95 = icmp samesign ugt i64 %93, %94
   br i1 %95, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %89
@@ -32410,7 +32410,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i21: ; preds = %_ZNK1
   %128 = load i64, ptr %127, align 8
   %129 = lshr i64 %128, 2
   %130 = zext i32 %126 to i64
-  %131 = icmp ugt i64 %129, %130
+  %131 = icmp samesign ugt i64 %129, %130
   br i1 %131, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26: ; preds = %125
@@ -34314,7 +34314,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -35382,7 +35382,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -39840,7 +39840,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -40429,7 +40429,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 2
   %86 = zext i32 %82 to i64
-  %87 = icmp ugt i64 %85, %86
+  %87 = icmp samesign ugt i64 %85, %86
   br i1 %87, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite9TensorMapEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
@@ -40459,7 +40459,7 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9Ten
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %102 = load i32, ptr %98, align 4
   %103 = zext i32 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next.i, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next.i, %103
   br i1 %104, label %105, label %_ZNK13opencv_tflite12SignatureDef6inputsEv.exit18.thread.loopexit, !llvm.loop !216
 
 105:                                              ; preds = %101, %.lr.ph.i
@@ -40557,7 +40557,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i31: ; preds = %_ZNK11flatbuffers
   %160 = load i64, ptr %159, align 8
   %161 = lshr i64 %160, 2
   %162 = zext i32 %158 to i64
-  %163 = icmp ugt i64 %161, %162
+  %163 = icmp samesign ugt i64 %161, %162
   br i1 %163, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit32, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite9TensorMapEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit32: ; preds = %157
@@ -40647,7 +40647,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11flatbuffers8Verifier20Verify
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %1, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %indvars.iv.next, %7
+  %8 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %8, label %9, label %.loopexit, !llvm.loop !216
 
 9:                                                ; preds = %.lr.ph, %5

@@ -1291,7 +1291,7 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
 
 .loopexit.i.i:                                    ; preds = %612
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %588 = icmp ult i64 %indvars.iv.next.i.i, %587
+  %588 = icmp samesign ult i64 %indvars.iv.next.i.i, %587
   %indvars.iv.next194.i.i = add nuw nsw i64 %indvars.iv193.i.i, 16
   br i1 %588, label %.lr.ph178.i.i, label %._crit_edge.i.i, !llvm.loop !17
 
@@ -2333,7 +2333,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr nocaptur
 
 16:                                               ; preds = %.preheader61
   %17 = tail call zeroext i1 @pg_isblank(i8 noundef signext %15) #16
-  %18 = icmp ugt i64 %indvars.iv, 78
+  %18 = icmp samesign ugt i64 %indvars.iv, 78
   %or.cond.not = select i1 %17, i1 true, i1 %18
   br i1 %or.cond.not, label %.critedge2, label %19
 
@@ -2399,8 +2399,8 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr nocaptur
   store i8 %36, ptr %38, align 1
   %39 = load i8, ptr %37, align 1
   %40 = icmp ne i8 %39, 13
-  %41 = icmp ult i64 %indvars.iv74, 511
-  %42 = and i1 %40, %41
+  %41 = icmp samesign ult i64 %indvars.iv74, 511
+  %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

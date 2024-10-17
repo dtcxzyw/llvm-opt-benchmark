@@ -392,7 +392,7 @@ if.end4:                                          ; preds = %entry
   %7 = load i64, ptr %arrayidx.i.i46.i.i.i, align 8
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %8
-  %cmp.i = icmp ugt i64 %add21.i.i.i, 2
+  %cmp.i = icmp samesign ugt i64 %add21.i.i.i, 2
   br i1 %cmp.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end4
@@ -504,7 +504,7 @@ if.else41:                                        ; preds = %invoke.cont24
   %23 = load i64, ptr %arrayidx.i.i46.i.i.i24, align 8
   %24 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
   %add21.i.i.i25 = add nuw nsw i64 %add15.i.i.i23, %24
-  %cmp.i26 = icmp ugt i64 %add21.i.i.i25, 2
+  %cmp.i26 = icmp samesign ugt i64 %add21.i.i.i25, 2
   br i1 %cmp.i26, label %cleanup, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.else41

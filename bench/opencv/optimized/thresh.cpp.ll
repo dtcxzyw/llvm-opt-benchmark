@@ -737,7 +737,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br i1 %or.cond3, label %302, label %326
 
 302:                                              ; preds = %291
-  %or.cond5 = icmp ult i32 %52, 2
+  %or.cond5 = icmp samesign ult i32 %52, 2
   br i1 %or.cond5, label %306, label %303
 
 303:                                              ; preds = %302
@@ -820,7 +820,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br i1 %or.cond13, label %341, label %365
 
 341:                                              ; preds = %329
-  %or.cond15 = icmp ult i32 %52, 2
+  %or.cond15 = icmp samesign ult i32 %52, 2
   br i1 %or.cond15, label %345, label %342
 
 342:                                              ; preds = %341
@@ -902,7 +902,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br i1 %or.cond23, label %379, label %403
 
 379:                                              ; preds = %368
-  %or.cond25 = icmp ult i32 %52, 2
+  %or.cond25 = icmp samesign ult i32 %52, 2
   br i1 %or.cond25, label %384, label %380
 
 380:                                              ; preds = %379

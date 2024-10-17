@@ -4631,8 +4631,8 @@ for.body.lr.ph:                                   ; preds = %_ZN6hermes2vm7JSArr
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
   %count.0127 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
-  %cmp.not.i = icmp uge i64 %indvars.iv, %10
-  %cmp2.i = icmp ult i64 %indvars.iv, %11
+  %cmp.not.i = icmp samesign uge i64 %indvars.iv, %10
+  %cmp2.i = icmp samesign ult i64 %indvars.iv, %11
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
@@ -4644,7 +4644,7 @@ cond.true.i:                                      ; preds = %for.body
   %12 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %12
   %13 = sub nuw nsw i64 %indvars.iv, %10
-  %cmp.i.i30 = icmp ult i64 %13, 4096
+  %cmp.i.i30 = icmp samesign ult i64 %13, 4096
   br i1 %cmp.i.i30, label %if.then.i.i31, label %if.else.i.i
 
 if.then.i.i31:                                    ; preds = %cond.true.i

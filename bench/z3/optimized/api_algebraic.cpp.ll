@@ -6583,7 +6583,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %20, %if.end.i ], [ 0, %for.cond ]
-  %cmp84 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp84 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp84, label %for.body, label %do.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit

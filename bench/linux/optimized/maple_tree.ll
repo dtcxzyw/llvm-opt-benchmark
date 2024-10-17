@@ -934,7 +934,7 @@ thread-pre-split3.thread:                         ; preds = %29
   br i1 %114, label %118, label %115, !prof !12
 
 115:                                              ; preds = %106
-  %116 = icmp ult i32 %48, 2
+  %116 = icmp samesign ult i32 %48, 2
   br i1 %116, label %117, label %39, !llvm.loop !20
 
 117:                                              ; preds = %115
@@ -1212,7 +1212,7 @@ define internal fastcc void @mas_state_walk(ptr nocapture noundef %0) unnamed_ad
   br i1 %120, label %127, label %121, !prof !12
 
 121:                                              ; preds = %112
-  %122 = icmp ult i32 %54, 2
+  %122 = icmp samesign ult i32 %54, 2
   br i1 %122, label %123, label %45, !llvm.loop !20
 
 123:                                              ; preds = %121
@@ -1406,7 +1406,7 @@ define dso_local i32 @mas_empty_area(ptr nocapture noundef %0, i64 noundef %1, i
 
 94:                                               ; preds = %92, %87
   %95 = phi ptr [ %93, %92 ], [ null, %87 ]
-  %switch = icmp ult i32 %80, 3
+  %switch = icmp samesign ult i32 %80, 3
   %96 = getelementptr inbounds i8, ptr %89, i64 128
   %spec.select = select i1 %switch, ptr %96, ptr null
   br label %97
@@ -2345,7 +2345,7 @@ define dso_local i32 @mas_empty_area_rev(ptr nocapture noundef %0, i64 noundef %
   br i1 %266, label %.thread41, label %267, !prof !24
 
 267:                                              ; preds = %264
-  %268 = icmp ult i32 %137, 2
+  %268 = icmp samesign ult i32 %137, 2
   br i1 %268, label %269, label %272, !prof !12
 
 269:                                              ; preds = %267
@@ -2802,7 +2802,7 @@ define internal fastcc void @mas_wr_store_entry(ptr noundef %0) unnamed_addr #4 
   store i8 %86, ptr %66, align 4
   %87 = load i8, ptr %68, align 1
   %88 = zext i8 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next.i, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next.i, %88
   br i1 %89, label %81, label %.loopexit.i, !llvm.loop !45
 
 .loopexit.i:                                      ; preds = %.preheader.i, %65
@@ -3465,7 +3465,7 @@ define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
   br i1 %123, label %130, label %124, !prof !12
 
 124:                                              ; preds = %115
-  %125 = icmp ult i32 %57, 2
+  %125 = icmp samesign ult i32 %57, 2
   br i1 %125, label %126, label %48, !llvm.loop !20
 
 126:                                              ; preds = %124
@@ -6286,7 +6286,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   br i1 %235, label %.critedge, label %236, !prof !12
 
 236:                                              ; preds = %227
-  %237 = icmp ult i32 %169, 2
+  %237 = icmp samesign ult i32 %169, 2
   br i1 %237, label %238, label %160, !llvm.loop !20
 
 238:                                              ; preds = %236
@@ -7542,7 +7542,7 @@ define dso_local ptr @mas_erase(ptr noundef %0) #1 align 16 {
   br i1 %114, label %.thread51, label %115, !prof !12
 
 115:                                              ; preds = %106
-  %116 = icmp ult i32 %48, 2
+  %116 = icmp samesign ult i32 %48, 2
   br i1 %116, label %117, label %39, !llvm.loop !20
 
 .thread51:                                        ; preds = %106
@@ -8118,7 +8118,7 @@ define dso_local ptr @mtree_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   br i1 %109, label %.thread6, label %110, !prof !12
 
 110:                                              ; preds = %101
-  %111 = icmp ult i32 %71, 2
+  %111 = icmp samesign ult i32 %71, 2
   br i1 %111, label %112, label %64, !llvm.loop !97
 
 .thread6:                                         ; preds = %101
@@ -8948,7 +8948,7 @@ define internal fastcc void @mas_dup_build(ptr nocapture noundef %0, ptr nocaptu
   %101 = trunc i64 %100 to i32
   %102 = lshr i32 %101, 3
   %103 = and i32 %102, 15
-  %104 = icmp ult i32 %103, 2
+  %104 = icmp samesign ult i32 %103, 2
   br i1 %104, label %173, label %105
 
 105:                                              ; preds = %84
@@ -9015,7 +9015,7 @@ define internal fastcc void @mas_dup_build(ptr nocapture noundef %0, ptr nocaptu
   %146 = tail call i32 @kmem_cache_alloc_bulk(ptr noundef %145, i32 noundef %2, i64 noundef %144, ptr noundef %141) #19
   %147 = and i32 %146, 255
   %148 = zext i8 %143 to i32
-  %149 = icmp ult i32 %147, %148
+  %149 = icmp samesign ult i32 %147, %148
   br i1 %149, label %.thread11, label %151, !prof !12
 
 .thread11:                                        ; preds = %140
@@ -10038,7 +10038,7 @@ define dso_local ptr @mt_find(ptr noundef %0, ptr nocapture noundef %1, i64 noun
   br i1 %148, label %152, label %149, !prof !12
 
 149:                                              ; preds = %140
-  %150 = icmp ult i32 %77, 2
+  %150 = icmp samesign ult i32 %77, 2
   br i1 %150, label %151, label %68, !llvm.loop !20
 
 151:                                              ; preds = %149
@@ -12967,7 +12967,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   %674 = load i32, ptr %673, align 4
   %675 = lshr i32 %674, 2
   %676 = and i32 %675, 31
-  %677 = icmp ugt i32 %676, 1
+  %677 = icmp samesign ugt i32 %676, 1
   br i1 %677, label %678, label %963
 
 678:                                              ; preds = %671
@@ -13433,7 +13433,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   %943 = sext i32 %932 to i64
   %944 = shl nsw i64 %943, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %865, ptr align 128 %942, i64 %944, i1 false)
-  %945 = icmp ult i32 %882, 2
+  %945 = icmp samesign ult i32 %882, 2
   br i1 %945, label %958, label %946
 
 946:                                              ; preds = %.thread90, %941
@@ -13900,7 +13900,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   %1197 = add nuw nsw i32 %1064, 1
   %1198 = load i8, ptr %1029, align 4
   %1199 = zext i8 %1198 to i32
-  %1200 = icmp ugt i32 %1064, %1199
+  %1200 = icmp samesign ugt i32 %1064, %1199
   br i1 %1200, label %.loopexit, label %1063, !llvm.loop !141
 
 .loopexit:                                        ; preds = %1192, %1190, %1182, %1071
@@ -14046,7 +14046,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   br i1 %1282, label %1287, label %1283, !prof !12
 
 1283:                                             ; preds = %1274
-  %1284 = icmp ult i32 %1216, 2
+  %1284 = icmp samesign ult i32 %1216, 2
   br i1 %1284, label %1285, label %1207, !llvm.loop !20
 
 1285:                                             ; preds = %1283
@@ -14214,7 +14214,7 @@ mtree_range_walk.exit:                            ; preds = %1285, %1287
   %1376 = shl nsw i64 %1375, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1336, ptr readonly align 8 %1374, i64 %1376, i1 false)
   %1377 = trunc i64 %1371 to i8
-  %1378 = icmp ult i32 %1324, 2
+  %1378 = icmp samesign ult i32 %1324, 2
   br i1 %1378, label %1406, label %1379, !prof !12
 
 1379:                                             ; preds = %.loopexit3.i
@@ -14523,7 +14523,7 @@ mtree_range_walk.exit:                            ; preds = %1285, %1287
   %1564 = shl nsw i64 %1563, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1524, ptr readonly align 8 %1562, i64 %1564, i1 false)
   %1565 = trunc i64 %1559 to i8
-  %1566 = icmp ult i32 %1512, 2
+  %1566 = icmp samesign ult i32 %1512, 2
   br i1 %1566, label %1594, label %1567, !prof !12
 
 1567:                                             ; preds = %.loopexit3.i68
@@ -15180,7 +15180,7 @@ define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr noca
   %88 = sext i32 %73 to i64
   %89 = shl nsw i64 %88, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 128 %86, i64 %89, i1 false)
-  %90 = icmp ult i32 %20, 2
+  %90 = icmp samesign ult i32 %20, 2
   br i1 %90, label %103, label %91
 
 91:                                               ; preds = %.thread11, %85
@@ -15445,7 +15445,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
   %37 = zext i8 %2 to i32
   %38 = tail call i8 @llvm.umin.i8(i8 %2, i8 %36)
   %39 = zext i8 %38 to i32
-  %40 = icmp ult i32 %32, %39
+  %40 = icmp samesign ult i32 %32, %39
   br i1 %40, label %41, label %70
 
 41:                                               ; preds = %31
@@ -15551,7 +15551,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
   %108 = sext i32 %94 to i64
   %109 = shl nsw i64 %108, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %107, i64 %109, i1 false)
-  %110 = icmp ult i32 %15, 2
+  %110 = icmp samesign ult i32 %15, 2
   br i1 %110, label %124, label %111
 
 111:                                              ; preds = %101
@@ -16487,7 +16487,7 @@ mas_set_split_parent.exit41:                      ; preds = %mas_set_split_paren
 
 529:                                              ; preds = %525, %.loopexit3.i
   %530 = trunc i64 %519 to i8
-  %531 = icmp ult i32 %472, 2
+  %531 = icmp samesign ult i32 %472, 2
   br i1 %531, label %559, label %532, !prof !12
 
 532:                                              ; preds = %529
@@ -16760,7 +16760,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %706 = sext i32 %691 to i64
   %707 = shl nsw i64 %706, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %705, ptr align 128 %704, i64 %707, i1 false)
-  %708 = icmp ult i32 %638, 2
+  %708 = icmp samesign ult i32 %638, 2
   br i1 %708, label %721, label %709
 
 709:                                              ; preds = %.thread81, %703
@@ -16802,7 +16802,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %736 = trunc i64 %735 to i32
   %737 = lshr i32 %736, 3
   %738 = and i32 %737, 15
-  %739 = icmp ult i32 %738, 2
+  %739 = icmp samesign ult i32 %738, 2
   br i1 %739, label %740, label %742
 
 740:                                              ; preds = %733
@@ -16870,7 +16870,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %782 = trunc i64 %781 to i32
   %783 = lshr i32 %782, 3
   %784 = and i32 %783, 15
-  %785 = icmp ult i32 %784, 2
+  %785 = icmp samesign ult i32 %784, 2
   br i1 %785, label %786, label %788
 
 786:                                              ; preds = %779
@@ -16942,7 +16942,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %829 = trunc i64 %828 to i32
   %830 = lshr i32 %829, 3
   %831 = and i32 %830, 15
-  %832 = icmp ult i32 %831, 2
+  %832 = icmp samesign ult i32 %831, 2
   br i1 %832, label %833, label %835
 
 833:                                              ; preds = %826
@@ -17287,7 +17287,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %1049 = load i64, ptr %1048, align 8
   store i64 %1049, ptr %14, align 8
   %1050 = trunc i64 %1042 to i8
-  %1051 = icmp ult i32 %995, 2
+  %1051 = icmp samesign ult i32 %995, 2
   br i1 %1051, label %1079, label %1052, !prof !12
 
 1052:                                             ; preds = %.loopexit3.i46
@@ -17694,7 +17694,7 @@ mab_mas_cp.exit52:                                ; preds = %1079, %.loopexit.i4
   br i1 %1293, label %1298, label %1294, !prof !12
 
 1294:                                             ; preds = %1285
-  %1295 = icmp ult i32 %1227, 2
+  %1295 = icmp samesign ult i32 %1227, 2
   br i1 %1295, label %1296, label %1218, !llvm.loop !20
 
 1296:                                             ; preds = %1294
@@ -18051,7 +18051,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
   %209 = sext i32 %193 to i64
   %210 = shl nsw i64 %209, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %208, ptr align 128 %206, i64 %210, i1 false)
-  %211 = icmp ult i32 %130, 2
+  %211 = icmp samesign ult i32 %130, 2
   br i1 %211, label %mas_mab_cp.exit, label %212
 
 212:                                              ; preds = %.thread18, %205
@@ -18456,7 +18456,7 @@ mas_mab_cp.exit:                                  ; preds = %.thread19, %205, %2
   %462 = sext i32 %447 to i64
   %463 = shl nsw i64 %462, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %461, ptr align 128 %460, i64 %463, i1 false)
-  %464 = icmp ult i32 %394, 2
+  %464 = icmp samesign ult i32 %394, 2
   br i1 %464, label %477, label %465
 
 465:                                              ; preds = %.thread24, %459
@@ -18871,7 +18871,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
   %54 = phi i64 [ %58, %57 ], [ %45, %42 ]
   %55 = getelementptr i64, ptr %24, i64 %53
   store i64 %51, ptr %55, align 8
-  %56 = icmp ult i64 %54, %46
+  %56 = icmp samesign ult i64 %54, %46
   br i1 %56, label %57, label %.loopexit3
 
 57:                                               ; preds = %50
@@ -18907,7 +18907,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
 
 77:                                               ; preds = %73, %.loopexit3
   %78 = trunc i64 %53 to i8
-  %79 = icmp ult i32 %11, 2
+  %79 = icmp samesign ult i32 %11, 2
   br i1 %79, label %107, label %80, !prof !12
 
 80:                                               ; preds = %77
@@ -20252,7 +20252,7 @@ define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture no
 36:                                               ; preds = %4
   %37 = zext i8 %13 to i32
   %38 = shl nuw nsw i32 %37, 1
-  %39 = icmp ugt i32 %38, %7
+  %39 = icmp samesign ugt i32 %38, %7
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %36
@@ -20608,7 +20608,7 @@ define internal fastcc void @mas_update_gap(ptr nocapture noundef readonly %0) u
   %18 = trunc i64 %10 to i32
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 15
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
@@ -20812,7 +20812,7 @@ define internal fastcc void @mt_destroy_walk(ptr noundef %0, i1 noundef zeroext 
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 15
-  %7 = icmp ult i32 %6, 2
+  %7 = icmp samesign ult i32 %6, 2
   br i1 %7, label %8, label %.preheader17
 
 8:                                                ; preds = %2
@@ -21883,7 +21883,7 @@ define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly
   %204 = getelementptr inbounds i8, ptr %143, i64 40
   store i64 %203, ptr %204, align 8
   %205 = trunc i64 %196 to i8
-  %206 = icmp ult i32 %149, 2
+  %206 = icmp samesign ult i32 %149, 2
   br i1 %206, label %234, label %207, !prof !12
 
 207:                                              ; preds = %.loopexit3.i
@@ -22314,7 +22314,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %227 = sext i32 %212 to i64
   %228 = shl nsw i64 %227, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %226, ptr align 128 %225, i64 %228, i1 false)
-  %229 = icmp ult i32 %85, 2
+  %229 = icmp samesign ult i32 %85, 2
   br i1 %229, label %242, label %230
 
 230:                                              ; preds = %.thread15, %224
@@ -22479,7 +22479,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %328 = sext i32 %312 to i64
   %329 = shl nsw i64 %328, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %327, ptr align 128 %325, i64 %329, i1 false)
-  %330 = icmp ult i32 %85, 2
+  %330 = icmp samesign ult i32 %85, 2
   br i1 %330, label %mas_mab_cp.exit, label %331
 
 331:                                              ; preds = %.thread19, %324
@@ -22703,7 +22703,7 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
   %68 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %67, ptr %68, align 8
   %69 = trunc i64 %60 to i8
-  %70 = icmp ult i32 %13, 2
+  %70 = icmp samesign ult i32 %13, 2
   br i1 %70, label %98, label %71, !prof !12
 
 71:                                               ; preds = %.loopexit3.i
@@ -23242,7 +23242,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
   %120 = sext i32 %105 to i64
   %121 = shl nsw i64 %120, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %119, ptr align 128 %118, i64 %121, i1 false)
-  %122 = icmp ult i32 %52, 2
+  %122 = icmp samesign ult i32 %52, 2
   br i1 %122, label %135, label %123
 
 123:                                              ; preds = %.thread11, %117
@@ -23291,7 +23291,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
   %156 = trunc i64 %155 to i32
   %157 = lshr i32 %156, 3
   %158 = and i32 %157, 15
-  %159 = icmp ult i32 %158, 2
+  %159 = icmp samesign ult i32 %158, 2
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %153
@@ -23375,7 +23375,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
   %212 = trunc i64 %211 to i32
   %213 = lshr i32 %212, 3
   %214 = and i32 %213, 15
-  %215 = icmp ult i32 %214, 2
+  %215 = icmp samesign ult i32 %214, 2
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %209

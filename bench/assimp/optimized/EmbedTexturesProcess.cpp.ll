@@ -264,7 +264,7 @@ for.inc32:                                        ; preds = %for.inc29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %mNumMaterials, align 8
   %16 = zext i32 %15 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %16
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp5, label %for.body, label %for.end34, !llvm.loop !7
 
 for.end34:                                        ; preds = %for.inc32, %if.end

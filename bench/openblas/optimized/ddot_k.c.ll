@@ -111,7 +111,7 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr nocapture noundef
   %47 = load <8 x double>, ptr %46, align 1, !tbaa !10
   %48 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %45, <8 x double> %47, <8 x double> %22)
   %49 = add nuw nsw i64 %21, 32
-  %50 = icmp ult i64 %49, %19
+  %50 = icmp samesign ult i64 %49, %19
   br i1 %50, label %20, label %51, !llvm.loop !11
 
 51:                                               ; preds = %20
@@ -136,7 +136,7 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr nocapture noundef
   %68 = shufflevector <8 x double> %57, <8 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %69 = shufflevector <8 x double> %57, <8 x double> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %70 = fadd <4 x double> %68, %69
-  %71 = icmp ult i64 %58, %12
+  %71 = icmp samesign ult i64 %58, %12
   br i1 %71, label %.preheader9, label %.loopexit10
 
 .preheader9:                                      ; preds = %53, %.preheader9
@@ -169,7 +169,7 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr nocapture noundef
   %98 = load <4 x double>, ptr %97, align 1, !tbaa !10
   %99 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %96, <4 x double> %98, <4 x double> %74)
   %100 = add nuw nsw i64 %72, 16
-  %101 = icmp ult i64 %100, %12
+  %101 = icmp samesign ult i64 %100, %12
   br i1 %101, label %.preheader9, label %.loopexit10, !llvm.loop !12
 
 .loopexit10:                                      ; preds = %.preheader9, %53
@@ -266,7 +266,7 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr nocapture noundef
   %173 = fadd double %158, %168
   %174 = fadd double %147, %173
   %175 = add nuw nsw i64 %144, 4
-  %176 = icmp ult i64 %175, %127
+  %176 = icmp samesign ult i64 %175, %127
   br i1 %176, label %143, label %133, !llvm.loop !14
 
 .preheader11:                                     ; preds = %136, %.preheader11

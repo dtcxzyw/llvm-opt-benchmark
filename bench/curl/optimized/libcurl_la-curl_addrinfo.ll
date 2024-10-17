@@ -81,9 +81,11 @@ if.end11:                                         ; preds = %cond.end, %if.then8
 lor.lhs.false:                                    ; preds = %if.end11
   %ai_addrlen = getelementptr inbounds i8, ptr %ai.055, i64 16
   %3 = load i32, ptr %ai_addrlen, align 8
+  %cmp13.not = icmp eq i32 %3, 0
   %conv = zext i32 %3 to i64
-  %cmp17 = icmp ugt i64 %ss_size.0, %conv
-  br i1 %cmp17, label %for.inc, label %if.end20
+  %cmp17 = icmp samesign ugt i64 %ss_size.0, %conv
+  %or.cond = select i1 %cmp13.not, i1 true, i1 %cmp17
+  br i1 %or.cond, label %for.inc, label %if.end20
 
 if.end20:                                         ; preds = %lor.lhs.false
   %4 = load ptr, ptr @Curl_cmalloc, align 8

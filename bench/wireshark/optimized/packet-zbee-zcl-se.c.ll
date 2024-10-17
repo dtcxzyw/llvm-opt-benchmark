@@ -6630,8 +6630,8 @@ define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr nocapture noundef r
   call void @proto_item_set_end(ptr noundef %125, ptr noundef %0, i32 noundef %124) #6
   %126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %124) #6
   %127 = icmp sgt i32 %126, 0
-  %128 = icmp ult i64 %indvars.iv.i, 29
-  %129 = and i1 %128, %127
+  %128 = icmp samesign ult i64 %indvars.iv.i, 29
+  %129 = select i1 %127, i1 %128, i1 false
   br i1 %129, label %106, label %dissect_zcl_pp_publish_top_up_log.exit, !llvm.loop !8
 
 dissect_zcl_pp_publish_top_up_log.exit:           ; preds = %106, %98
@@ -6680,8 +6680,8 @@ dissect_zcl_pp_publish_top_up_log.exit:           ; preds = %106, %98
   %158 = add i32 %139, 13
   %159 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %158) #6
   %160 = icmp sgt i32 %159, 0
-  %161 = icmp ult i64 %indvars.iv.i67, 29
-  %162 = and i1 %161, %160
+  %161 = icmp samesign ult i64 %indvars.iv.i67, 29
+  %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %138, label %dissect_zcl_pp_publish_debt_log.exit, !llvm.loop !9
 
 dissect_zcl_pp_publish_debt_log.exit:             ; preds = %138, %130
@@ -7133,7 +7133,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %158 = add nuw nsw i32 %.057.i, 1
   %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #6
   %160 = icmp sgt i32 %159, 2
-  %161 = icmp ult i32 %158, %146
+  %161 = icmp samesign ult i32 %158, %146
   %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %.lr.ph.i, label %dissect_zcl_calendar_publish_day_profile.exit, !llvm.loop !10
 
@@ -7261,7 +7261,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %267 = add nuw nsw i32 %.047.i, 1
   %268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %266) #6
   %269 = icmp sgt i32 %268, 4
-  %270 = icmp ult i32 %267, %244
+  %270 = icmp samesign ult i32 %267, %244
   %271 = select i1 %269, i1 %270, i1 false
   br i1 %271, label %.lr.ph.i55, label %dissect_zcl_calendar_publish_special_days.exit, !llvm.loop !12
 
@@ -7491,7 +7491,7 @@ define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr nocaptu
   %111 = add nuw nsw i32 %.049.us.i, 1
   %112 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %110) #6
   %113 = icmp sgt i32 %112, 3
-  %114 = icmp ult i32 %111, %99
+  %114 = icmp samesign ult i32 %111, %99
   %115 = select i1 %113, i1 %114, i1 false
   br i1 %115, label %.lr.ph.split.us.i, label %dissect_zcl_daily_schedule_publish_day_profile.exit, !llvm.loop !13
 
@@ -7504,7 +7504,7 @@ define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr nocaptu
   %119 = add nuw nsw i32 %.049.i, 1
   %120 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %118) #6
   %121 = icmp sgt i32 %120, 3
-  %122 = icmp ult i32 %119, %99
+  %122 = icmp samesign ult i32 %119, %99
   %123 = select i1 %121, i1 %122, i1 false
   br i1 %123, label %.lr.ph.split.i, label %dissect_zcl_daily_schedule_publish_day_profile.exit, !llvm.loop !13
 
@@ -7801,7 +7801,7 @@ define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noca
   %165 = add nuw nsw i32 %.047.i, 1
   %166 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %164) #6
   %167 = icmp sgt i32 %166, 0
-  %168 = icmp ult i32 %165, %159
+  %168 = icmp samesign ult i32 %165, %159
   %169 = select i1 %167, i1 %168, i1 false
   br i1 %169, label %.lr.ph.i50, label %dissect_zcl_device_management_set_event_configuration.exit, !llvm.loop !15
 
@@ -8112,8 +8112,8 @@ dissect_zcl_events_publish_event.exit:            ; preds = %68, %71
   call void @proto_item_set_end(ptr noundef %128, ptr noundef %0, i32 noundef %127) #6
   %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127) #6
   %130 = icmp sgt i32 %129, 0
-  %131 = icmp ult i64 %indvars.iv.i, 99
-  %132 = and i1 %131, %130
+  %131 = icmp samesign ult i64 %indvars.iv.i, 99
+  %132 = select i1 %130, i1 %131, i1 false
   br i1 %132, label %101, label %dissect_zcl_events_publish_event_log.exit, !llvm.loop !17
 
 dissect_zcl_events_publish_event_log.exit:        ; preds = %112, %89
@@ -8242,7 +8242,7 @@ define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr nocapture 
   %61 = add nuw nsw i32 %.026.i, 1
   %62 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #6
   %63 = icmp sgt i32 %62, 7
-  %64 = icmp ult i32 %61, %55
+  %64 = icmp samesign ult i32 %61, %55
   %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %.lr.ph.i, label %dissect_zcl_mdu_pairing_response.exit, !llvm.loop !18
 
@@ -9527,7 +9527,7 @@ define internal fastcc void @dissect_zcl_price_publish_tier_labels(ptr noundef %
   %47 = add nuw nsw i32 %.038, 1
   %48 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #6
   %49 = icmp sgt i32 %48, -1
-  %50 = icmp ult i32 %47, %34
+  %50 = icmp samesign ult i32 %47, %34
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 

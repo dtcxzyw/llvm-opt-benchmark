@@ -10,7 +10,7 @@ define i32 @f32_roundToInt(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   %4 = zext i32 %0 to i64
   %5 = lshr i64 %4, 23
   %6 = and i64 %5, 255
-  %7 = icmp ult i64 %6, 127
+  %7 = icmp samesign ult i64 %6, 127
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %3
@@ -62,7 +62,7 @@ define i32 @f32_roundToInt(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %56
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %6, 149
+  %25 = icmp samesign ugt i64 %6, 149
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24

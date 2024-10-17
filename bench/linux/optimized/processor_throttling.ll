@@ -113,7 +113,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 24:                                               ; preds = %20, %12
   %25 = add nuw nsw i64 %9, 1
   %26 = and i64 %25, 127
-  %27 = icmp ugt i64 %26, 63
+  %27 = icmp samesign ugt i64 %26, 63
   br i1 %27, label %.thread.preheader, label %3, !prof !6, !llvm.loop !7
 
 .thread.preheader:                                ; preds = %3, %24, %8
@@ -233,7 +233,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %96 = phi i64 [ %.pre, %94 ], [ %60, %80 ], [ %60, %72 ], [ %60, %70 ]
   %97 = add nuw nsw i64 %66, 1
   %98 = and i64 %97, 127
-  %99 = icmp ugt i64 %98, 63
+  %99 = icmp samesign ugt i64 %98, 63
   br i1 %99, label %.thread23, label %59, !prof !6, !llvm.loop !12
 
 100:                                              ; preds = %.thread23, %127
@@ -279,13 +279,13 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 127:                                              ; preds = %124, %119, %111, %109
   %128 = add nuw nsw i64 %106, 1
   %129 = and i64 %128, 127
-  %130 = icmp ugt i64 %129, 63
+  %130 = icmp samesign ugt i64 %129, 63
   br i1 %130, label %.thread25, label %100, !prof !6, !llvm.loop !13
 
 .thread25:                                        ; preds = %100, %127, %105, %49, %45, %37
   %131 = add nuw nsw i64 %34, 1
   %132 = and i64 %131, 127
-  %133 = icmp ugt i64 %132, 63
+  %133 = icmp samesign ugt i64 %132, 63
   br i1 %133, label %.thread25..thread19.split.us_crit_edge, label %.thread, !prof !6, !llvm.loop !14
 
 .thread25..thread19.split.us_crit_edge:           ; preds = %.thread25
@@ -312,7 +312,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 144:                                              ; preds = %140
   %145 = add nuw nsw i64 %141, 1
   %146 = and i64 %145, 127
-  %147 = icmp ugt i64 %146, 63
+  %147 = icmp samesign ugt i64 %146, 63
   br i1 %147, label %.thread27, label %135, !prof !6, !llvm.loop !15
 
 .thread19.split:                                  ; preds = %.thread19.split.preheader, %167
@@ -352,7 +352,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %168 = phi i64 [ %.pre33, %164 ], [ %148, %157 ]
   %169 = add nuw nsw i64 %154, 1
   %170 = and i64 %169, 127
-  %171 = icmp ugt i64 %170, 63
+  %171 = icmp samesign ugt i64 %170, 63
   br i1 %171, label %.thread27, label %.thread19.split, !prof !6, !llvm.loop !15
 
 .thread27:                                        ; preds = %153, %167, %.thread19.split, %135, %140, %144
@@ -642,7 +642,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   %74 = phi i32 [ %32, %42 ], [ %32, %50 ], [ %71, %68 ], [ %64, %55 ]
   %75 = add nuw nsw i64 %39, 1
   %76 = and i64 %75, 127
-  %77 = icmp ugt i64 %76, 63
+  %77 = icmp samesign ugt i64 %76, 63
   br i1 %77, label %.thread, label %29, !prof !6, !llvm.loop !20
 
 .thread:                                          ; preds = %29, %72, %38
@@ -707,7 +707,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   %115 = phi i32 [ %86, %96 ], [ %86, %104 ], [ %112, %109 ]
   %116 = add nuw nsw i64 %93, 1
   %117 = and i64 %116, 127
-  %118 = icmp ugt i64 %117, 63
+  %118 = icmp samesign ugt i64 %117, 63
   br i1 %118, label %.thread13, label %.split.us, !prof !6, !llvm.loop !21
 
 119:                                              ; preds = %.thread
@@ -823,7 +823,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   %192 = phi i32 [ %145, %156 ], [ %145, %164 ], [ %187, %184 ], [ %190, %188 ]
   %193 = add nuw nsw i64 %153, 1
   %194 = and i64 %193, 127
-  %195 = icmp ugt i64 %194, 63
+  %195 = icmp samesign ugt i64 %194, 63
   br i1 %195, label %.thread13, label %.split, !prof !6, !llvm.loop !21
 
 .thread13:                                        ; preds = %152, %191, %.split, %113, %92, %.split.us, %141, %137
@@ -871,7 +871,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 224:                                              ; preds = %222, %217, %209
   %225 = add nuw nsw i64 %206, 1
   %226 = and i64 %225, 127
-  %227 = icmp ugt i64 %226, 63
+  %227 = icmp samesign ugt i64 %226, 63
   br i1 %227, label %.thread15, label %198, !prof !6, !llvm.loop !22
 
 .thread15:                                        ; preds = %198, %224, %205, %20, %15, %13, %8, %4
@@ -964,7 +964,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, %56
-  %61 = icmp ugt i32 %60, 32
+  %61 = icmp samesign ugt i32 %60, 32
   br i1 %61, label %71, label %62
 
 62:                                               ; preds = %52
@@ -975,7 +975,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, %65
-  %70 = icmp ugt i32 %69, 32
+  %70 = icmp samesign ugt i32 %69, 32
   br i1 %70, label %71, label %.critedge15
 
 71:                                               ; preds = %62, %52, %38, %25, %21, %18, %15
@@ -1176,7 +1176,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %158 = zext i8 %157 to i32
   %159 = zext i8 %153 to i32
   %160 = add nuw nsw i32 %158, %159
-  %161 = icmp ugt i32 %160, 4
+  %161 = icmp samesign ugt i32 %160, 4
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %155

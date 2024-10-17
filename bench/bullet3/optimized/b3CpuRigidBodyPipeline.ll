@@ -1735,7 +1735,7 @@ if.then150:                                       ; preds = %for.body146
 
 for.inc158:                                       ; preds = %for.body146, %if.then150
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %cmp145 = icmp ult i64 %indvars.iv.next299, %264
+  %cmp145 = icmp samesign ult i64 %indvars.iv.next299, %264
   br i1 %cmp145, label %for.body146, label %for.inc162, !llvm.loop !16
 
 for.inc162:                                       ; preds = %for.inc158, %if.end140, %for.end120

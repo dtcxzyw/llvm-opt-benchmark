@@ -1953,7 +1953,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.mask211 = and i8 %.034241, 1
   %narrow = add nuw nsw i8 %.mask210, %.mask211
   %narrow212 = add nuw nsw i8 %narrow, %.mask
-  %131 = icmp ugt i8 %narrow212, 1
+  %131 = icmp samesign ugt i8 %narrow212, 1
   br i1 %131, label %.invoke, label %135
 
 132:                                              ; preds = %121

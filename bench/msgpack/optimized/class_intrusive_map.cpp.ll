@@ -9006,7 +9006,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_KcKNSt7
 
 18:                                               ; preds = %.lr.ph.i.i
   %19 = shl nuw nsw i64 %.023.i.i, 1
-  %20 = icmp ult i64 %.023.i.i, 52
+  %20 = icmp samesign ult i64 %.023.i.i, 52
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %18, %.lr.ph.i.i, %15

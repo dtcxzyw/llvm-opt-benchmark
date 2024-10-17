@@ -1222,7 +1222,7 @@ define dso_local void @release_lbr_buffers() local_unnamed_addr #0 align 16 {
 26:                                               ; preds = %25, %19, %11
   %27 = add nuw nsw i64 %8, 1
   %28 = and i64 %27, 127
-  %29 = icmp ugt i64 %28, 63
+  %29 = icmp samesign ugt i64 %28, 63
   br i1 %29, label %.thread, label %1, !prof !22, !llvm.loop !23
 
 .thread:                                          ; preds = %1, %26, %7, %0
@@ -1287,7 +1287,7 @@ define dso_local void @reserve_lbr_buffers() local_unnamed_addr #0 align 16 {
 31:                                               ; preds = %25, %19, %11
   %32 = add nuw nsw i64 %8, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %1, !prof !22, !llvm.loop !24
 
 .thread:                                          ; preds = %1, %31, %7, %0
@@ -2201,7 +2201,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr nocapture noundef %0) unna
           to label %30 [label %30, label %.thread], !srcloc !12
 
 30:                                               ; preds = %17, %17
-  %31 = icmp ult i32 %29, 6
+  %31 = icmp samesign ult i32 %29, 6
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %30

@@ -1741,8 +1741,8 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
 
 155:                                              ; preds = %160
   %156 = add nuw nsw i64 %161, 1
-  %157 = icmp ult i64 %156, %154
-  %158 = icmp ult i64 %161, 127
+  %157 = icmp samesign ult i64 %156, %154
+  %158 = icmp samesign ult i64 %161, 127
   %159 = and i1 %158, %157
   br i1 %159, label %160, label %.loopexit21, !llvm.loop !24
 
@@ -3497,7 +3497,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   tail call void @__mutex_init(ptr noundef %88, ptr noundef nonnull @.str.25, ptr noundef nonnull @uprobe_buffer_init.__key) #16
   %89 = add nuw nsw i64 %55, 1
   %90 = and i64 %89, 127
-  %91 = icmp ugt i64 %90, 63
+  %91 = icmp samesign ugt i64 %90, 63
   br i1 %91, label %.thread, label %.preheader27, !prof !75, !llvm.loop !76
 
 .preheader25:                                     ; preds = %68, %105
@@ -3534,7 +3534,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   tail call void @free_pages(i64 noundef %114, i32 noundef 0) #16
   %115 = add nuw nsw i64 %99, 1
   %116 = and i64 %115, 127
-  %117 = icmp ugt i64 %116, 63
+  %117 = icmp samesign ugt i64 %116, 63
   br i1 %117, label %.thread19, label %.preheader25, !prof !75, !llvm.loop !77
 
 .loopexit26:                                      ; preds = %98, %.thread19
@@ -3952,7 +3952,7 @@ define internal fastcc void @uprobe_buffer_disable() unnamed_addr #0 align 16 {
   tail call void @free_pages(i64 noundef %27, i32 noundef 0) #16
   %28 = add nuw nsw i64 %14, 1
   %29 = and i64 %28, 127
-  %30 = icmp ugt i64 %29, 63
+  %30 = icmp samesign ugt i64 %29, 63
   br i1 %30, label %.thread, label %.preheader, !prof !75, !llvm.loop !91
 
 .loopexit:                                        ; preds = %13, %.thread

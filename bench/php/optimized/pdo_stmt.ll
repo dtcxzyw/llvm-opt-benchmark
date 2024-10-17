@@ -1692,7 +1692,7 @@ define hidden void @zim_PDOStatement_fetch(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @pdo_stmt_verify_mode(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = and i64 %1, 65535
-  %6 = icmp ugt i64 %5, 13
+  %6 = icmp samesign ugt i64 %5, 13
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
@@ -1753,7 +1753,7 @@ define internal fastcc noundef zeroext i1 @pdo_stmt_verify_mode(ptr nocapture no
   br label %.thread
 
 27:                                               ; preds = %24
-  %28 = icmp ugt i64 %.021, 12
+  %28 = icmp samesign ugt i64 %.021, 12
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %27

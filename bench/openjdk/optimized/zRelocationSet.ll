@@ -579,7 +579,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -1160,7 +1160,7 @@ define linkonce_odr hidden void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZ
   %.not.i.i.i = icmp eq i64 %15, 0
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %14, i1 false)
   %spec.select = select i1 %.not.i.i.i, i64 %16, i64 0
-  %17 = icmp ult i64 %spec.select, 64
+  %17 = icmp samesign ult i64 %spec.select, 64
   br i1 %17, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12
@@ -1202,7 +1202,7 @@ define linkonce_odr hidden void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZ
 .preheader.i.i:                                   ; preds = %36, %40
   %.025.i.i.i.i = phi i64 [ %38, %40 ], [ %29, %36 ]
   %38 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %39 = icmp ult i64 %38, %28
+  %39 = icmp samesign ult i64 %38, %28
   br i1 %39, label %40, label %_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN25ZRelocationSetInstallTask7installEP11ZForwardingmEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSA_EUlmE_EEvmSA_.exit
 
 40:                                               ; preds = %.preheader.i.i
@@ -3784,7 +3784,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 52:                                               ; preds = %55, %49
   %.025.i.i.i.i.i = phi i64 [ %41, %49 ], [ %53, %55 ]
   %53 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %54 = icmp ult i64 %53, %51
+  %54 = icmp samesign ult i64 %53, %51
   br i1 %54, label %55, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP17stackChunkOopDescPT0_PlSD_.exit
 
 55:                                               ; preds = %52
@@ -3975,7 +3975,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.025.i.i.i.i.i = phi i64 [ %52, %54 ], [ %44, %50 ]
   %52 = add nuw nsw i64 %.025.i.i.i.i.i, 1
-  %53 = icmp ult i64 %52, %41
+  %53 = icmp samesign ult i64 %52, %41
   br i1 %53, label %54, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP17stackChunkOopDescPT0_PlSE_.exit
 
 54:                                               ; preds = %.preheader.i.i.i

@@ -155,7 +155,7 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
   %spec.store.select = select i1 %or.cond3, i32 0, i32 %4
   %33 = and i32 %spec.store.select, 1
   %.not231 = icmp eq i32 %33, 0
-  %.not = icmp ult i32 %spec.store.select, 2
+  %.not = icmp samesign ult i32 %spec.store.select, 2
   %.not232 = icmp eq ptr %7, null
   %.not233 = icmp eq ptr %8, null
   %34 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #4

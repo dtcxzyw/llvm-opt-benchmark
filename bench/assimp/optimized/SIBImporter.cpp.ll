@@ -832,7 +832,7 @@ for.body179:                                      ; preds = %for.body179.lr.ph, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %mNumMeshes161, align 8
   %52 = zext i32 %51 to i64
-  %cmp178 = icmp ult i64 %indvars.iv.next, %52
+  %cmp178 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %cmp178, label %for.body179, label %for.end, !llvm.loop !4
 
 lpad124:                                          ; preds = %invoke.cont122
@@ -1660,7 +1660,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i: ; preds = %_ZN6Assimp12Stre
   %sub.ptr.rhs.cast.i.i328 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %sub.ptr.sub.i.i329 = sub i64 %sub.ptr.lhs.cast.i.i327, %sub.ptr.rhs.cast.i.i328
   %conv2.i.i330 = and i64 %sub.ptr.sub.i.i329, 4294967295
-  %cmp.i331 = icmp ult i64 %conv2.i.i330, %conv.i326
+  %cmp.i331 = icmp samesign ult i64 %conv2.i.i330, %conv.i326
   br i1 %cmp.i331, label %if.then.i333, label %invoke.cont.i27
 
 if.then.i333:                                     ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i
@@ -2032,7 +2032,7 @@ _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i.i: ; preds = %if.
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i.i
 
 if.else.i702.i:                                   ; preds = %if.then.i.i.i39
-  %cmp.i.i703.i = icmp ult i64 %sub.i700.i, %sub.i.i.i
+  %cmp.i.i703.i = icmp samesign ult i64 %sub.i700.i, %sub.i.i.i
   br i1 %cmp.i.i703.i, label %if.then.i.i706.invoke.i, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i706.invoke.i:                          ; preds = %invoke.cont39.i, %if.else.i.i40.i.i, %if.else.i.i.i.i, %if.else.i702.i
@@ -3817,7 +3817,7 @@ for.inc.i:                                        ; preds = %_ZNSt6vectorI10aiVe
   %add.ptr.i35 = getelementptr inbounds i8, ptr %idx.0785.i, i64 12
   %305 = load i32, ptr %face.i, align 8
   %306 = zext i32 %305 to i64
-  %cmp80.i = icmp ult i64 %indvars.iv.next.i, %306
+  %cmp80.i = icmp samesign ult i64 %indvars.iv.next.i, %306
   br i1 %cmp80.i, label %for.body81.i, label %for.end.i, !llvm.loop !44
 
 lpad75.loopexit.i:                                ; preds = %cond.true.i.i.i507.i, %cond.true.i.i.i465.i, %cond.true.i.i.i.i
@@ -4128,7 +4128,7 @@ for.body186.i:                                    ; preds = %for.body186.i, %for
   %indvars.iv.next816.i = add nuw nsw i64 %indvars.iv815.i, 1
   %350 = load i32, ptr %mNumVertices.i.i, align 4
   %351 = zext i32 %350 to i64
-  %cmp185.i = icmp ult i64 %indvars.iv.next816.i, %351
+  %cmp185.i = icmp samesign ult i64 %indvars.iv.next816.i, %351
   br i1 %cmp185.i, label %for.body186.i, label %for.cond210.preheader.loopexit.i, !llvm.loop !46
 
 for.body213.i:                                    ; preds = %for.body213.i.preheader, %for.inc222.i
@@ -4177,7 +4177,7 @@ for.inc222.i:                                     ; preds = %if.else.i607.i, %ca
   %indvars.iv.next819.i = add nuw nsw i64 %indvars.iv818.i, 1
   %358 = load i32, ptr %mNumFaces.i.i, align 8
   %359 = zext i32 %358 to i64
-  %cmp212.i = icmp ult i64 %indvars.iv.next819.i, %359
+  %cmp212.i = icmp samesign ult i64 %indvars.iv.next819.i, %359
   br i1 %cmp212.i, label %for.body213.i, label %for.end224.i, !llvm.loop !47
 
 for.end224.i:                                     ; preds = %for.inc222.i, %for.body213.i.preheader, %for.cond210.preheader.i
@@ -4409,7 +4409,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i351: ; preds = %_ZN6Assimp12S
   %sub.ptr.rhs.cast.i.i354 = ptrtoint ptr %add.ptr.i.i4.i349 to i64
   %sub.ptr.sub.i.i355 = sub i64 %sub.ptr.lhs.cast.i.i353, %sub.ptr.rhs.cast.i.i354
   %conv2.i.i356 = and i64 %sub.ptr.sub.i.i355, 4294967295
-  %cmp.i357 = icmp ult i64 %conv2.i.i356, %conv.i352
+  %cmp.i357 = icmp samesign ult i64 %conv2.i.i356, %conv.i352
   br i1 %cmp.i357, label %if.then.i363, label %_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE.exit376
 
 if.then.i363:                                     ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i351
@@ -5419,7 +5419,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i384: ; preds = %_ZN6Assimp12S
   %sub.ptr.rhs.cast.i.i387 = ptrtoint ptr %add.ptr.i.i4.i382 to i64
   %sub.ptr.sub.i.i388 = sub i64 %sub.ptr.lhs.cast.i.i386, %sub.ptr.rhs.cast.i.i387
   %conv2.i.i389 = and i64 %sub.ptr.sub.i.i388, 4294967295
-  %cmp.i390 = icmp ult i64 %conv2.i.i389, %conv.i385
+  %cmp.i390 = icmp samesign ult i64 %conv2.i.i389, %conv.i385
   br i1 %cmp.i390, label %if.then.i396, label %_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE.exit409
 
 if.then.i396:                                     ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i384
@@ -6405,7 +6405,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11: ; preds = %_ZN6Assimp12Stream
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp = icmp ult i64 %conv2.i, %conv
+  %cmp = icmp samesign ult i64 %conv2.i, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11

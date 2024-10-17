@@ -381,7 +381,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %.0118.i = phi i32 [ %.1119.i, %217 ], [ 0, %204 ]
   %.0116.i = phi i32 [ %spec.select163.i, %217 ], [ %206, %204 ]
   %.0.i74 = phi i32 [ %221, %217 ], [ %203, %204 ]
-  %.not160.i = icmp ult i32 %.0.i74, 256
+  %.not160.i = icmp samesign ult i32 %.0.i74, 256
   br i1 %.not160.i, label %217, label %208
 
 208:                                              ; preds = %207

@@ -182,7 +182,7 @@ for.body.i:                                       ; preds = %_ZNSt10unique_ptrIA
   %6 = load i32, ptr %this, align 8
   %sub.i7 = add i32 %6, -1
   %7 = zext i32 %sub.i7 to i64
-  %cmp.i8 = icmp ult i64 %indvars.iv.next.i, %7
+  %cmp.i8 = icmp samesign ult i64 %indvars.iv.next.i, %7
   br i1 %cmp.i8, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
@@ -208,7 +208,7 @@ for.body12.i:                                     ; preds = %for.end.i, %for.bod
   %12 = load i32, ptr %this, align 8
   %sub10.i = add i32 %12, -1
   %13 = zext i32 %sub10.i to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next22.i, %13
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next22.i, %13
   br i1 %cmp11.i, label %for.body12.i, label %for.end16.loopexit.i, !llvm.loop !7
 
 for.end16.loopexit.i:                             ; preds = %for.body12.i
@@ -279,7 +279,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %this, align 8
   %sub = add i32 %3, -1
   %4 = zext i32 %sub to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -314,7 +314,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %10 = load i32, ptr %this, align 8
   %sub10 = add i32 %10, -1
   %11 = zext i32 %sub10 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next22, %11
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next22, %11
   br i1 %cmp11, label %for.body12, label %for.end16.loopexit, !llvm.loop !7
 
 for.end16.loopexit:                               ; preds = %for.body12

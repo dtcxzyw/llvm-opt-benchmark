@@ -72,7 +72,7 @@ if.then6:                                         ; preds = %if.end4
 
 is_power_of_2.exit:                               ; preds = %if.then6
   %5 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %4)
-  %tobool1.not.i = icmp ult i16 %5, 2
+  %tobool1.not.i = icmp samesign ult i16 %5, 2
   %cmp14 = icmp ult i16 %4, 1025
   %or.cond.not = and i1 %cmp14, %tobool1.not.i
   br i1 %or.cond.not, label %if.end18, label %if.then16
@@ -306,7 +306,7 @@ vduse_blk_disable_queue.exit.i:                   ; preds = %if.end.i.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %4 = load i16, ptr %num_queues.i, align 8
   %5 = zext i16 %4 to i32
-  %cmp.i = icmp ult i32 %indvars.iv.next.i, %5
+  %cmp.i = icmp samesign ult i32 %indvars.iv.next.i, %5
   br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !7
 
 vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_queue.exit.i, %entry
@@ -585,7 +585,7 @@ vduse_blk_disable_queue.exit.i:                   ; preds = %if.end.i.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %4 = load i16, ptr %num_queues.i, align 8
   %5 = zext i16 %4 to i32
-  %cmp.i = icmp ult i32 %indvars.iv.next.i, %5
+  %cmp.i = icmp samesign ult i32 %indvars.iv.next.i, %5
   br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !7
 
 vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_queue.exit.i, %entry
@@ -632,7 +632,7 @@ vduse_blk_enable_queue.exit.i:                    ; preds = %if.end.i.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %5 = load i16, ptr %num_queues.i, align 8
   %6 = zext i16 %5 to i32
-  %cmp.i = icmp ult i32 %indvars.iv.next.i, %6
+  %cmp.i = icmp samesign ult i32 %indvars.iv.next.i, %6
   br i1 %cmp.i, label %for.body.i, label %vduse_blk_start_virtqueues.exit, !llvm.loop !8
 
 vduse_blk_start_virtqueues.exit:                  ; preds = %vduse_blk_enable_queue.exit.i, %entry

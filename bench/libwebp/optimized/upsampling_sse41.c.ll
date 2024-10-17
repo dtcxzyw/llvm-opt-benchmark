@@ -54,7 +54,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -80,7 +80,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %69 = add nsw i32 %68, -17685
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 17685
+  %72 = icmp samesign ult i32 %68, 17685
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -108,7 +108,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %93 = add nsw i32 %92, -14234
   %94 = icmp ult i32 %93, 16384
   %95 = lshr i32 %93, 6
-  %96 = icmp ult i32 %92, 14234
+  %96 = icmp samesign ult i32 %92, 14234
   %97 = select i1 %96, i32 0, i32 255
   %98 = select i1 %94, i32 %95, i32 %97
   %99 = trunc i32 %98 to i8
@@ -134,7 +134,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %117 = add nsw i32 %116, -17685
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 17685
+  %120 = icmp samesign ult i32 %116, 17685
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -516,7 +516,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %45 = add nsw i32 %44, -17685
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 17685
+  %48 = icmp samesign ult i32 %44, 17685
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -542,7 +542,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %69 = add nsw i32 %68, -14234
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 14234
+  %72 = icmp samesign ult i32 %68, 14234
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -570,7 +570,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %93 = add nsw i32 %92, -17685
   %94 = icmp ult i32 %93, 16384
   %95 = lshr i32 %93, 6
-  %96 = icmp ult i32 %92, 17685
+  %96 = icmp samesign ult i32 %92, 17685
   %97 = select i1 %96, i32 0, i32 255
   %98 = select i1 %94, i32 %95, i32 %97
   %99 = trunc i32 %98 to i8
@@ -596,7 +596,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %117 = add nsw i32 %116, -14234
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 14234
+  %120 = icmp samesign ult i32 %116, 14234
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -963,7 +963,7 @@ define internal void @Yuv444ToRgb_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgb32_SSE41(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1010,7 +1010,7 @@ define internal void @Yuv444ToBgr_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToBgr32_SSE41(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

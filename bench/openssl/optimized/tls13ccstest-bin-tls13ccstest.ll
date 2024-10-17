@@ -929,7 +929,7 @@ if.then20:                                        ; preds = %if.end17
 
 lor.lhs.false23:                                  ; preds = %if.then20
   %12 = load i8, ptr %add.ptr.i2.i.i, align 1
-  %cmp.i.i.i45 = icmp ult i64 %or.i.i.i, 4
+  %cmp.i.i.i45 = icmp samesign ult i64 %or.i.i.i, 4
   br i1 %cmp.i.i.i45, label %return, label %lor.lhs.false.i46
 
 lor.lhs.false.i46:                                ; preds = %lor.lhs.false23
@@ -959,7 +959,7 @@ if.end27:                                         ; preds = %lor.lhs.false.i46
 if.then30:                                        ; preds = %if.end27
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr @chseen, align 4
-  %or.cond162 = icmp ult i64 %or7.i.i.i, 35
+  %or.cond162 = icmp samesign ult i64 %or7.i.i.i, 35
   br i1 %or.cond162, label %return, label %lor.lhs.false.i65
 
 lor.lhs.false.i65:                                ; preds = %if.then30
@@ -1000,7 +1000,7 @@ if.then56:                                        ; preds = %land.lhs.true, %if.
 if.then62:                                        ; preds = %if.end27
   %inc63 = add nsw i32 %1, 1
   store i32 %inc63, ptr @shseen, align 4
-  %or.cond163 = icmp ult i64 %or7.i.i.i, 35
+  %or.cond163 = icmp samesign ult i64 %or7.i.i.i, 35
   br i1 %or.cond163, label %return, label %lor.lhs.false.i89
 
 lor.lhs.false.i89:                                ; preds = %if.then62

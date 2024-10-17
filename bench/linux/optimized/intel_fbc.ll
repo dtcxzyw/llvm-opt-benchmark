@@ -1881,7 +1881,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
   %273 = and i32 %272, 196608
   %274 = icmp eq i32 %273, 0
   %275 = select i1 %274, i32 4, i32 1
-  %276 = icmp ugt i32 %271, %275
+  %276 = icmp samesign ugt i32 %271, %275
   br i1 %276, label %.thread, label %.preheader, !llvm.loop !59
 
 277:                                              ; preds = %.preheader
@@ -1889,7 +1889,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
   br i1 %278, label %.thread, label %279
 
 279:                                              ; preds = %277
-  %280 = icmp ugt i32 %264, %177
+  %280 = icmp samesign ugt i32 %264, %177
   br i1 %280, label %281, label %.thread16
 
 281:                                              ; preds = %279
@@ -2525,7 +2525,7 @@ define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr nocapture noundef readonl
   %37 = getelementptr inbounds i8, ptr %28, i64 396
   %38 = load i8, ptr %37, align 4
   %39 = zext i8 %38 to i32
-  %40 = icmp ugt i32 %36, %39
+  %40 = icmp samesign ugt i32 %36, %39
   br i1 %40, label %95, label %41
 
 41:                                               ; preds = %26

@@ -836,7 +836,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   br i1 %170, label %.lr.ph324, label %.critedge10
 
 .lr.ph324:                                        ; preds = %.critedge8.preheader
-  %171 = icmp ult i32 %.0159325, 300
+  %171 = icmp samesign ult i32 %.0159325, 300
   br label %193
 
 .lr.ph318:                                        ; preds = %.lr.ph318.preheader, %.lr.ph318

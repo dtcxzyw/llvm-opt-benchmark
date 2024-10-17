@@ -320,7 +320,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %194 = add nuw nsw i64 %176, 1
   %195 = load i8, ptr %51, align 8
   %196 = zext i8 %195 to i64
-  %197 = icmp ult i64 %194, %196
+  %197 = icmp samesign ult i64 %194, %196
   br i1 %197, label %175, label %198, !llvm.loop !15
 
 198:                                              ; preds = %175
@@ -508,7 +508,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %319 = add nuw nsw i64 %293, 1
   %320 = load i8, ptr %51, align 8
   %321 = zext i8 %320 to i64
-  %322 = icmp ult i64 %319, %321
+  %322 = icmp samesign ult i64 %319, %321
   br i1 %322, label %292, label %323, !llvm.loop !18
 
 323:                                              ; preds = %292

@@ -1601,7 +1601,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %33, %46
   %61 = or i32 %53, %60
   store i32 %61, ptr %11, align 4
   %62 = add nuw nsw i32 %storemerge6.i, 3
-  %63 = icmp ult i32 %storemerge6.i, 29
+  %63 = icmp samesign ult i32 %storemerge6.i, 29
   br i1 %63, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit16, label %64
 
 64:                                               ; preds = %56

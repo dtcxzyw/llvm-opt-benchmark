@@ -281,7 +281,7 @@ entry:
   store i32 %channels, ptr %value.addr.i153, align 4
   %call.i154 = call i64 @fwrite(ptr noundef nonnull %value.addr.i153, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %file)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i153)
-  %cmp = icmp ugt i32 %channels, 1
+  %cmp = icmp samesign ugt i32 %channels, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -336,7 +336,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store i32 1, ptr %value.addr.i186, align 4
   %call.i187 = call i64 @fwrite(ptr noundef nonnull %value.addr.i186, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %file)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i186)
-  %cmp26 = icmp ugt i32 %channels, 2
+  %cmp26 = icmp samesign ugt i32 %channels, 2
   %conv = select i1 %cmp26, i16 2, i16 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i189)
   store i16 %conv, ptr %value.addr.i189, align 2

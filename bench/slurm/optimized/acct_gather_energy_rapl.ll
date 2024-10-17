@@ -507,7 +507,7 @@ _read_msr.exit.i:                                 ; preds = %80, %77, %75
   %83 = getelementptr inbounds [256 x %union.anon], ptr @package_energy, i64 0, i64 %indvars.iv
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %82, %85
+  %86 = icmp samesign ult i64 %82, %85
   br i1 %86, label %87, label %_get_package_energy.exit
 
 87:                                               ; preds = %_read_msr.exit.i
@@ -564,7 +564,7 @@ _read_msr.exit.i53:                               ; preds = %107, %104, %101, %1
   %110 = getelementptr inbounds [256 x %union.anon], ptr @dram_energy, i64 0, i64 %indvars.iv
   %111 = load i32, ptr %110, align 8
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %109, %112
+  %113 = icmp samesign ult i64 %109, %112
   br i1 %113, label %114, label %_get_dram_energy.exit
 
 114:                                              ; preds = %_read_msr.exit.i53

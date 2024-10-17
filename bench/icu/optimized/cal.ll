@@ -884,7 +884,7 @@ while.end141.i.i:                                 ; preds = %while.end139.i.i, %
   %84 = load ptr, ptr @stdout, align 8
   %call142.i.i = call i32 @putc(i32 noundef 10, ptr noundef %84)
   %indvars.iv.next335.i.i = add nuw nsw i64 %indvars.iv334.i.i, 2
-  %cmp21.i.i = icmp ult i64 %indvars.iv334.i.i, 10
+  %cmp21.i.i = icmp samesign ult i64 %indvars.iv334.i.i, 10
   br i1 %cmp21.i.i, label %for.body22.i.i, label %for.body.i.i276.i.i, !llvm.loop !17
 
 for.body.i.i276.i.i:                              ; preds = %while.end141.i.i, %for.body.i.i276.i.i

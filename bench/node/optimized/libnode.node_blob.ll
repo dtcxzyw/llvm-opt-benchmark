@@ -822,7 +822,7 @@ for.inc:                                          ; preds = %if.end8.sink.split.
   %inc = add nuw nsw i64 %i.0154, 1
   %call23 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #22
   %conv24 = zext i32 %call23 to i64
-  %cmp = icmp ult i64 %inc, %conv24
+  %cmp = icmp samesign ult i64 %inc, %conv24
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EEC2EmRKS7_.exit

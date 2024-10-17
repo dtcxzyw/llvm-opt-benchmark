@@ -2438,7 +2438,7 @@ _ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.ex
   %9 = phi ptr [ %call.i, %if.then.i15 ], [ %8, %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit ]
   %call4.i = call i32 @uhash_iputi_75(ptr noundef %9, i32 noundef %6, i32 noundef 1, ptr noundef nonnull %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp11 = icmp uge i64 %indvars.iv.next, %2
+  %cmp11 = icmp samesign uge i64 %indvars.iv.next, %2
   %10 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %10, 0
   %or.cond18 = select i1 %cmp11, i1 true, i1 %cmp.i
@@ -2591,7 +2591,7 @@ _ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.ex
   %11 = phi ptr [ %call.i, %if.then.i13 ], [ %10, %if.end22 ]
   %call4.i = call i32 @uhash_iputi_75(ptr noundef %11, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp11 = icmp uge i64 %indvars.iv.next, %2
+  %cmp11 = icmp samesign uge i64 %indvars.iv.next, %2
   %12 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %12, 0
   %or.cond19 = select i1 %cmp11, i1 true, i1 %cmp.i

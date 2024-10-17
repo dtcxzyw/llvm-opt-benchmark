@@ -395,7 +395,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %196 = load i32, ptr %61, align 8
   %197 = zext i32 %196 to i64
-  %198 = icmp ult i64 %indvars.iv.next.i, %197
+  %198 = icmp samesign ult i64 %indvars.iv.next.i, %197
   br i1 %198, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %194
@@ -752,7 +752,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %94 = load i32, ptr %20, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next.i, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next.i, %95
   br i1 %96, label %44, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %93
@@ -843,7 +843,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %146 = load i32, ptr %20, align 8
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next131.i, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next131.i, %147
   br i1 %148, label %.lr.ph125.i, label %H5O__sdspace_encode.exit
 
 H5O__sdspace_encode.exit:                         ; preds = %145, %._crit_edge.i, %41, %37, %8, %11
@@ -1164,7 +1164,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr nocapture re
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %15, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %24, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %24, %20
@@ -1203,7 +1203,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr nocapture re
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %49 = load i32, ptr %15, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next10.i, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next10.i, %50
   br i1 %51, label %.lr.ph4.i, label %._crit_edge5.i
 
 ._crit_edge5.i:                                   ; preds = %48, %37

@@ -11376,7 +11376,7 @@ for.inc:                                          ; preds = %if.end14, %if.end23
   %j.1 = phi i32 [ %inc, %if.end23 ], [ %j.026, %if.end14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
-  %cmp.not = icmp ult i64 %indvars.iv.next, %15
+  %cmp.not = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp.not, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -11805,7 +11805,7 @@ lor.rhs:                                          ; preds = %sw.bb
   %bf.load.i24 = load i64, ptr %m_scope_lvl.i23, align 8
   %5 = trunc i64 %bf.load.i24 to i32
   %bf.cast.i25 = and i32 %5, 16777215
-  %cmp12 = icmp ugt i32 %bf.cast.i, %bf.cast.i25
+  %cmp12 = icmp samesign ugt i32 %bf.cast.i, %bf.cast.i25
   br i1 %cmp12, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %sw.bb, %lor.rhs
@@ -11834,7 +11834,7 @@ lor.rhs16:                                        ; preds = %sw.bb14
   %bf.load.i40 = load i64, ptr %m_scope_lvl.i39, align 8
   %7 = trunc i64 %bf.load.i40 to i32
   %bf.cast.i41 = and i32 %7, 16777215
-  %cmp24 = icmp ult i32 %bf.cast.i31, %bf.cast.i41
+  %cmp24 = icmp samesign ult i32 %bf.cast.i31, %bf.cast.i41
   br i1 %cmp24, label %if.then26, label %for.inc
 
 if.then26:                                        ; preds = %sw.bb14, %lor.rhs16
@@ -11884,7 +11884,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx.i1.i, align 4
   %conv3.i = zext i32 %3 to i64
-  %cmp4.not.i = icmp ult i64 %add.i, %conv3.i
+  %cmp4.not.i = icmp samesign ult i64 %add.i, %conv3.i
   br i1 %cmp4.not.i, label %_ZN3smt10watch_list13insert_clauseEPNS_6clauseE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -12437,7 +12437,7 @@ lor.lhs.false.i99:                                ; preds = %invoke.cont95
   %73 = load i32, ptr %arrayidx.i1.i, align 4
   %conv3.i = zext i32 %73 to i64
   %add.i = add nuw nsw i64 %conv3.i, 4
-  %cmp4.not.i = icmp ult i64 %add.i, %conv.i
+  %cmp4.not.i = icmp samesign ult i64 %add.i, %conv.i
   br i1 %cmp4.not.i, label %invoke.cont106, label %if.then.i101
 
 if.then.i101:                                     ; preds = %lor.lhs.false.i99, %invoke.cont95
@@ -12478,7 +12478,7 @@ lor.lhs.false.i111:                               ; preds = %invoke.cont106
   %81 = load i32, ptr %arrayidx.i1.i114, align 4
   %conv3.i115 = zext i32 %81 to i64
   %add.i116 = add nuw nsw i64 %conv3.i115, 4
-  %cmp4.not.i117 = icmp ult i64 %add.i116, %conv.i113
+  %cmp4.not.i117 = icmp samesign ult i64 %add.i116, %conv.i113
   br i1 %cmp4.not.i117, label %invoke.cont121, label %if.then.i118
 
 if.then.i118:                                     ; preds = %lor.lhs.false.i111, %invoke.cont106
@@ -12724,7 +12724,7 @@ lor.rhs.i:                                        ; preds = %sw.bb.i206
   %bf.load.i24.i = load i64, ptr %m_scope_lvl.i23.i, align 8
   %116 = trunc i64 %bf.load.i24.i to i32
   %bf.cast.i25.i = and i32 %116, 16777215
-  %cmp12.i = icmp ugt i32 %bf.cast.i.i211, %bf.cast.i25.i
+  %cmp12.i = icmp samesign ugt i32 %bf.cast.i.i211, %bf.cast.i25.i
   br i1 %cmp12.i, label %if.then.i212, label %for.inc.i200
 
 if.then.i212:                                     ; preds = %lor.rhs.i, %sw.bb.i206
@@ -12755,7 +12755,7 @@ lor.rhs16.i:                                      ; preds = %sw.bb14.i
   %bf.load.i40.i = load i64, ptr %m_scope_lvl.i39.i, align 8
   %120 = trunc i64 %bf.load.i40.i to i32
   %bf.cast.i41.i = and i32 %120, 16777215
-  %cmp24.i199 = icmp ult i32 %bf.cast.i31.i, %bf.cast.i41.i
+  %cmp24.i199 = icmp samesign ult i32 %bf.cast.i31.i, %bf.cast.i41.i
   br i1 %cmp24.i199, label %if.then26.i, label %for.inc.i200
 
 if.then26.i:                                      ; preds = %lor.rhs16.i, %sw.bb14.i
@@ -12828,7 +12828,7 @@ lor.rhs.i265:                                     ; preds = %sw.bb.i263
   %bf.load.i24.i277 = load i64, ptr %m_scope_lvl.i23.i276, align 8
   %129 = trunc i64 %bf.load.i24.i277 to i32
   %bf.cast.i25.i278 = and i32 %129, 16777215
-  %cmp12.i279 = icmp ugt i32 %bf.cast.i.i270, %bf.cast.i25.i278
+  %cmp12.i279 = icmp samesign ugt i32 %bf.cast.i.i270, %bf.cast.i25.i278
   br i1 %cmp12.i279, label %if.then.i280, label %for.inc.i250
 
 if.then.i280:                                     ; preds = %lor.rhs.i265, %sw.bb.i263
@@ -12859,7 +12859,7 @@ lor.rhs16.i235:                                   ; preds = %sw.bb14.i233
   %bf.load.i40.i247 = load i64, ptr %m_scope_lvl.i39.i246, align 8
   %133 = trunc i64 %bf.load.i40.i247 to i32
   %bf.cast.i41.i248 = and i32 %133, 16777215
-  %cmp24.i249 = icmp ult i32 %bf.cast.i31.i240, %bf.cast.i41.i248
+  %cmp24.i249 = icmp samesign ult i32 %bf.cast.i31.i240, %bf.cast.i41.i248
   br i1 %cmp24.i249, label %if.then26.i261, label %for.inc.i250
 
 if.then26.i261:                                   ; preds = %lor.rhs16.i235, %sw.bb14.i233
@@ -12942,7 +12942,7 @@ lor.lhs.false.i.i307:                             ; preds = %invoke.cont204
   %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %144, i64 -8
   %146 = load i32, ptr %arrayidx.i1.i.i, align 4
   %conv3.i.i = zext i32 %146 to i64
-  %cmp4.not.i.i = icmp ult i64 %add.i.i, %conv3.i.i
+  %cmp4.not.i.i = icmp samesign ult i64 %add.i.i, %conv3.i.i
   br i1 %cmp4.not.i.i, label %invoke.cont206, label %if.then.i.i309
 
 if.then.i.i309:                                   ; preds = %lor.lhs.false.i.i307, %invoke.cont204
@@ -12984,7 +12984,7 @@ lor.lhs.false.i.i321:                             ; preds = %invoke.cont206
   %arrayidx.i1.i.i325 = getelementptr inbounds i8, ptr %151, i64 -8
   %153 = load i32, ptr %arrayidx.i1.i.i325, align 4
   %conv3.i.i326 = zext i32 %153 to i64
-  %cmp4.not.i.i327 = icmp ult i64 %add.i.i324, %conv3.i.i326
+  %cmp4.not.i.i327 = icmp samesign ult i64 %add.i.i324, %conv3.i.i326
   br i1 %cmp4.not.i.i327, label %invoke.cont212, label %if.then.i.i328
 
 if.then.i.i328:                                   ; preds = %lor.lhs.false.i.i321, %invoke.cont206
@@ -13128,7 +13128,7 @@ lor.lhs.false.i.i390:                             ; preds = %invoke.cont258
   %arrayidx.i1.i.i394 = getelementptr inbounds i8, ptr %172, i64 -8
   %174 = load i32, ptr %arrayidx.i1.i.i394, align 4
   %conv3.i.i395 = zext i32 %174 to i64
-  %cmp4.not.i.i396 = icmp ult i64 %add.i.i393, %conv3.i.i395
+  %cmp4.not.i.i396 = icmp samesign ult i64 %add.i.i393, %conv3.i.i395
   br i1 %cmp4.not.i.i396, label %invoke.cont260, label %if.then.i.i397
 
 if.then.i.i397:                                   ; preds = %lor.lhs.false.i.i390, %invoke.cont258
@@ -13170,7 +13170,7 @@ lor.lhs.false.i.i416:                             ; preds = %invoke.cont260
   %arrayidx.i1.i.i420 = getelementptr inbounds i8, ptr %179, i64 -8
   %181 = load i32, ptr %arrayidx.i1.i.i420, align 4
   %conv3.i.i421 = zext i32 %181 to i64
-  %cmp4.not.i.i422 = icmp ult i64 %add.i.i419, %conv3.i.i421
+  %cmp4.not.i.i422 = icmp samesign ult i64 %add.i.i419, %conv3.i.i421
   br i1 %cmp4.not.i.i422, label %invoke.cont266, label %if.then.i.i423
 
 if.then.i.i423:                                   ; preds = %lor.lhs.false.i.i416, %invoke.cont260
@@ -17630,7 +17630,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i5759
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

@@ -125,7 +125,7 @@ define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr
   br i1 %.not52, label %MPLI_shm_ghnd_alloc.exit, label %46
 
 46:                                               ; preds = %44
-  %.not53 = icmp ult i32 %3, 4096
+  %.not53 = icmp samesign ult i32 %3, 4096
   br i1 %.not53, label %68, label %47
 
 47:                                               ; preds = %46

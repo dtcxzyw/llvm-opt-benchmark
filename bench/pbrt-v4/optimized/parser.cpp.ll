@@ -28145,7 +28145,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN4pbrt
   %sub.ptr.sub.i24 = sub i64 %sub.ptr.lhs.cast.i22, %sub.ptr.rhs.cast.i23
   %sub.ptr.div.i25 = ashr exact i64 %sub.ptr.sub.i24, 2
   %div97 = lshr i64 %sub.ptr.div.i25, 1
-  %cmp = icmp ult i64 %inc, %div97
+  %cmp = icmp samesign ult i64 %inc, %div97
   br i1 %cmp, label %invoke.cont14, label %for.end, !llvm.loop !302
 
 lpad6.loopexit:                                   ; preds = %cond.true.i.i.i.i

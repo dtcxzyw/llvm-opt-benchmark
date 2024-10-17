@@ -1636,7 +1636,7 @@ define internal fastcc range(i32 0, 18) i32 @udvm_state_access(ptr noundef %0, p
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %65, %63
   %67 = zext i16 %34 to i32
-  %68 = icmp ugt i32 %66, %67
+  %68 = icmp samesign ugt i32 %66, %67
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %62
@@ -1665,7 +1665,7 @@ define internal fastcc range(i32 0, 18) i32 @udvm_state_access(ptr noundef %0, p
   %89 = or disjoint i16 %85, %88
   %90 = icmp ne i16 %64, 0
   %91 = icmp ult i16 %5, -8
-  %92 = and i1 %91, %90
+  %92 = and i1 %90, %91
   br i1 %92, label %.lr.ph84.preheader, label %.loopexit
 
 .lr.ph84.preheader:                               ; preds = %72
@@ -1691,9 +1691,9 @@ define internal fastcc range(i32 0, 18) i32 @udvm_state_access(ptr noundef %0, p
   %104 = zext i16 %103 to i32
   %105 = add nuw nsw i32 %73, %104
   %106 = zext nneg i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next89, %106
-  %108 = icmp ult i64 %indvars.iv88, 65535
-  %109 = and i1 %108, %107
+  %107 = icmp samesign ult i64 %indvars.iv.next89, %106
+  %108 = icmp samesign ult i64 %indvars.iv88, 65535
+  %109 = select i1 %107, i1 %108, i1 false
   br i1 %109, label %.lr.ph84, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph84, %72, %69, %62, %.critedge, %10
@@ -1863,7 +1863,7 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   %indvars.iv.next3654 = add nuw nsw i64 %indvars.iv3653, 1
   %106 = add nuw nsw i32 %.024023250.us, 1
   %107 = icmp ugt i32 %82, %106
-  %108 = icmp ult i64 %indvars.iv3653, 65535
+  %108 = icmp samesign ult i64 %indvars.iv3653, 65535
   %109 = select i1 %107, i1 %108, i1 false
   br i1 %109, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
@@ -1880,7 +1880,7 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = add nuw nsw i32 %.024023250, 1
   %117 = icmp ugt i32 %82, %116
-  %118 = icmp ult i64 %indvars.iv, 65535
+  %118 = icmp samesign ult i64 %indvars.iv, 65535
   %119 = select i1 %117, i1 %118, i1 false
   br i1 %119, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
@@ -3779,7 +3779,7 @@ dissect_udvm_reference_operand_memory.exit2716:   ; preds = %1198
   %1244 = add nuw nsw i32 %.023823366, %.pre-phi3704
   %1245 = icmp ugt i32 %1244, 65535
   %1246 = add nuw nsw i32 %1238, %.pre-phi3704
-  %1247 = icmp ugt i32 %1246, 65535
+  %1247 = icmp samesign ugt i32 %1246, 65535
   %or.cond3032 = select i1 %1245, i1 true, i1 %1247
   %1248 = load ptr, ptr %27, align 8
   br i1 %or.cond3032, label %1249, label %1250
@@ -3824,7 +3824,7 @@ dissect_udvm_reference_operand_memory.exit2716:   ; preds = %1198
   %1268 = icmp eq i16 %1221, %1267
   %spec.select2600 = select i1 %1268, i32 %.pre-phi3794, i32 %1266
   %indvars.iv.next3668 = add nuw nsw i64 %indvars.iv3667, 2
-  %1269 = icmp ult i64 %indvars.iv3667, 18
+  %1269 = icmp samesign ult i64 %indvars.iv3667, 18
   br i1 %1269, label %1260, label %1270, !llvm.loop !12
 
 1270:                                             ; preds = %1260
@@ -6079,7 +6079,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2240, %2251, %2262
   %2550 = shl nuw nsw i32 %2549, 8
   %2551 = zext i8 %2547 to i32
   %2552 = or disjoint i32 %2550, %2551
-  %2553 = icmp ugt i32 %2552, 7
+  %2553 = icmp samesign ugt i32 %2552, 7
   br i1 %2553, label %2554, label %2555
 
 2554:                                             ; preds = %2546
@@ -6415,10 +6415,10 @@ thread-pre-split3006:                             ; preds = %2673
   %.pre-phi3894 = phi i32 [ %.pre3893, %._crit_edge3724 ], [ %2736, %2734 ]
   %2740 = load i16, ptr %47, align 2
   %2741 = zext i16 %2740 to i32
-  %2742 = icmp ult i32 %.pre-phi3894, %2741
+  %2742 = icmp samesign ult i32 %.pre-phi3894, %2741
   %2743 = load i16, ptr %48, align 2
   %2744 = zext i16 %2743 to i32
-  %2745 = icmp ugt i32 %.pre-phi3894, %2744
+  %2745 = icmp samesign ugt i32 %.pre-phi3894, %2744
   %or.cond2610 = select i1 %2742, i1 true, i1 %2745
   br i1 %or.cond2610, label %2768, label %2746
 

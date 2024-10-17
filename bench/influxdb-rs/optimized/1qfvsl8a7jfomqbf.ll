@@ -764,7 +764,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -11076,7 +11076,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h381b3
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %12 = load i64, ptr %11, align 8, !range !1276, !noalias !1797, !noundef !4
-  %13 = icmp ult i64 %12, 3
+  %13 = icmp samesign ult i64 %12, 3
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %3
@@ -11210,7 +11210,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %10 = load i64, ptr %9, align 8, !range !1276, !noalias !1814, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
@@ -11321,7 +11321,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %10 = load i64, ptr %9, align 8, !range !1276, !noalias !1829, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
@@ -11432,7 +11432,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %10 = load i64, ptr %9, align 8, !range !1276, !noalias !1844, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
@@ -11537,7 +11537,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !1276, !noundef !4
-  %8 = icmp ult i64 %7, 3
+  %8 = icmp samesign ult i64 %7, 3
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
@@ -11594,7 +11594,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !1276, !noundef !4
-  %8 = icmp ult i64 %7, 3
+  %8 = icmp samesign ult i64 %7, 3
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
@@ -11651,7 +11651,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = load i64, ptr %3, align 8, !range !1276, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
@@ -11708,7 +11708,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = load i64, ptr %2, align 8, !range !1276, !noundef !4
-  %8 = icmp ult i64 %7, 3
+  %8 = icmp samesign ult i64 %7, 3
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3

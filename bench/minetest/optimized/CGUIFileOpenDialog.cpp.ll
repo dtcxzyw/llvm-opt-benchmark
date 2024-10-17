@@ -348,7 +348,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %18 = load ptr, ptr %Text, align 8, !tbaa !47
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %title436
   %diff.check = icmp ult i64 %20, 32
@@ -484,7 +484,7 @@ if.end.i273:                                      ; preds = %if.end
 
 for.body.i278.preheader:                          ; preds = %if.end.i273
   %xtraiter440 = and i64 %call.i.i274, 3
-  %38 = icmp ult i64 %conv.i275, 4
+  %38 = icmp samesign ult i64 %conv.i275, 4
   br i1 %38, label %if.end.i.i.loopexit.unr-lcssa, label %for.body.i278.preheader.new
 
 for.body.i278.preheader.new:                      ; preds = %for.body.i278.preheader
@@ -554,7 +554,7 @@ if.end.i.i:                                       ; preds = %for.body.i278.epil,
 
 for.body.i.i.preheader:                           ; preds = %if.end.i.i
   %xtraiter442 = and i64 %call.i.i.i, 3
-  %51 = icmp ult i64 %conv.i.i, 4
+  %51 = icmp samesign ult i64 %conv.i.i, 4
   br i1 %51, label %_ZN3irr4core6stringIcEC2IcEEPKT_.exit.loopexit.unr-lcssa, label %for.body.i.i.preheader.new
 
 for.body.i.i.preheader.new:                       ; preds = %for.body.i.i.preheader
@@ -968,7 +968,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
@@ -1323,7 +1323,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %11 = load ptr, ptr %Text, align 8, !tbaa !47
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %title433
   %diff.check = icmp ult i64 %13, 32
@@ -1459,7 +1459,7 @@ if.end.i270:                                      ; preds = %if.end
 
 for.body.i275.preheader:                          ; preds = %if.end.i270
   %xtraiter437 = and i64 %call.i.i271, 3
-  %31 = icmp ult i64 %conv.i272, 4
+  %31 = icmp samesign ult i64 %conv.i272, 4
   br i1 %31, label %if.end.i.i.loopexit.unr-lcssa, label %for.body.i275.preheader.new
 
 for.body.i275.preheader.new:                      ; preds = %for.body.i275.preheader
@@ -1529,7 +1529,7 @@ if.end.i.i:                                       ; preds = %for.body.i275.epil,
 
 for.body.i.i.preheader:                           ; preds = %if.end.i.i
   %xtraiter439 = and i64 %call.i.i.i, 3
-  %44 = icmp ult i64 %conv.i.i, 4
+  %44 = icmp samesign ult i64 %conv.i.i, 4
   br i1 %44, label %_ZN3irr4core6stringIcEC2IcEEPKT_.exit.loopexit.unr-lcssa, label %for.body.i.i.preheader.new
 
 for.body.i.i.preheader.new:                       ; preds = %for.body.i.i.preheader
@@ -3008,7 +3008,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %_ZN3irr4core6stringIcEaSIwEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
@@ -3220,7 +3220,7 @@ if.end.i.i:                                       ; preds = %if.then21
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
   %19 = load ptr, ptr %ref.tmp22, align 8, !tbaa !47
-  %min.iters.check = icmp ult i64 %conv.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i.i, 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %14
   %diff.check = icmp ult i64 %21, 32
@@ -4008,7 +4008,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %Text, align 8, !tbaa !47
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -4144,7 +4144,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %3 = load ptr, ptr %ToolTipText, align 8, !tbaa !47
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %4 = ptrtoint ptr %3 to i64
   %5 = sub i64 %4, %text2
   %diff.check = icmp ult i64 %5, 32
@@ -4460,7 +4460,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %3 = icmp ult i64 %conv.i, 4
+  %3 = icmp samesign ult i64 %conv.i, 4
   br i1 %3, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

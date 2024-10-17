@@ -1046,7 +1046,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h341d15e4bbe7e9abE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h341d15e4bbe7e9abE.exit": ; preds = %.critedge.i, %148
-  %157 = icmp ugt i64 %137, 1
+  %157 = icmp samesign ugt i64 %137, 1
   %158 = icmp eq i64 %133, %.sroa.0.0.i
   %or.cond = select i1 %157, i1 true, i1 %158
   br i1 %or.cond, label %.thread75, label %159
@@ -1444,7 +1444,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h4962b118a9e42aafE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h4962b118a9e42aafE.exit": ; preds = %.critedge.i, %149
-  %158 = icmp ugt i64 %135, 1
+  %158 = icmp samesign ugt i64 %135, 1
   %159 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %158, i1 true, i1 %159
   br i1 %or.cond, label %161, label %160
@@ -66210,7 +66210,7 @@ define hidden void @_ZN9zune_jpeg7headers13parse_huffman17h071568ad749b3dbbE(ptr
   store i64 %61, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %22, i8 0, i64 17, i1 false)
-  %62 = icmp ugt i64 %61, 3
+  %62 = icmp samesign ugt i64 %61, 3
   br i1 %62, label %66, label %64
 
 63:                                               ; preds = %48
@@ -66671,7 +66671,7 @@ define hidden void @_ZN9zune_jpeg7headers13parse_huffman17h6bb6c359489e5ebaE(ptr
   store i64 %69, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %22, i8 0, i64 17, i1 false)
-  %70 = icmp ugt i8 %68, 3
+  %70 = icmp samesign ugt i8 %68, 3
   br i1 %70, label %74, label %72
 
 71:                                               ; preds = %51
@@ -68482,7 +68482,7 @@ _ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit: ; preds = %87
 96:                                               ; preds = %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit
   %97 = phi i64 [ %116, %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit ], [ %70, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit ]
   %.pr256 = phi i16 [ %102, %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit ], [ %82, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit ]
-  %98 = icmp ugt i64 %57, 3
+  %98 = icmp samesign ugt i64 %57, 3
   br i1 %98, label %118, label %119
 
 99:                                               ; preds = %67, %121, %118, %94, %65
@@ -68892,7 +68892,7 @@ _ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit: ; preds = %78
 87:                                               ; preds = %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit
   %88 = phi i64 [ %107, %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit ], [ %63, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit ]
   %.pr251 = phi i16 [ %93, %_ZN9zune_jpeg7headers10un_zig_zag17h7813b15c79e2c51fE.exit ], [ %73, %_ZN9zune_jpeg7headers10un_zig_zag17he2396bf83e067697E.exit ]
-  %89 = icmp ugt i64 %50, 3
+  %89 = icmp samesign ugt i64 %50, 3
   br i1 %89, label %109, label %110
 
 90:                                               ; preds = %60, %112, %109, %85, %58
@@ -69322,7 +69322,7 @@ define hidden void @_ZN9zune_jpeg7headers9parse_sos17hbd195dc1988a5684E(ptr dead
   %96 = getelementptr inbounds i8, ptr %1, i64 29134
   %97 = and i8 %84, 15
   store i8 %97, ptr %96, align 2
-  %98 = icmp ugt i8 %97, 13
+  %98 = icmp samesign ugt i8 %97, 13
   br i1 %98, label %102, label %101
 
 99:                                               ; preds = %92
@@ -69900,7 +69900,7 @@ define hidden void @_ZN9zune_jpeg7headers9parse_sos17hf4a9c2d11beedcc7E(ptr dead
   %106 = getelementptr inbounds i8, ptr %1, i64 29126
   %107 = and i8 %94, 15
   store i8 %107, ptr %106, align 2
-  %108 = icmp ugt i8 %107, 13
+  %108 = icmp samesign ugt i8 %107, 13
   br i1 %108, label %112, label %111
 
 109:                                              ; preds = %102
@@ -70455,7 +70455,7 @@ define internal noundef range(i64 0, 7) i64 @_ZN4repl7outputs14rank_mime_type17h
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 25
   %5 = select i1 %4, i64 %3, i64 11
-  %6 = icmp ult i64 %5, 12
+  %6 = icmp samesign ult i64 %5, 12
   br i1 %6, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %1

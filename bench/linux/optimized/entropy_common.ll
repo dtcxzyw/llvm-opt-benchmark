@@ -77,7 +77,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   tail call void @llvm.memset.p0.i64(ptr align 2 %0, i8 0, i64 %24, i1 false)
   %25 = load i32, ptr %3, align 1
   %26 = and i32 %25, 15
-  %27 = icmp ugt i32 %26, 10
+  %27 = icmp samesign ugt i32 %26, 10
   br i1 %27, label %193, label %28
 
 28:                                               ; preds = %22
@@ -108,7 +108,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %48 = xor i32 %43, -1
   %49 = or i32 %48, -2147483648
   %50 = tail call i32 @llvm.cttz.i32(i32 %49, i1 true), !range !5
-  %51 = icmp ugt i32 %50, 23
+  %51 = icmp samesign ugt i32 %50, 23
   br i1 %51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %47, %66
@@ -140,7 +140,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %71 = xor i32 %70, -1
   %72 = or i32 %71, -2147483648
   %73 = tail call i32 @llvm.cttz.i32(i32 %72, i1 true), !range !5
-  %74 = icmp ugt i32 %73, 23
+  %74 = icmp samesign ugt i32 %73, 23
   br i1 %74, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %66, %47
@@ -344,7 +344,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr nocapture noundef write
   tail call void @llvm.memset.p0.i64(ptr align 2 %0, i8 0, i64 %19, i1 false)
   %20 = load i32, ptr %3, align 1
   %21 = and i32 %20, 15
-  %22 = icmp ugt i32 %21, 10
+  %22 = icmp samesign ugt i32 %21, 10
   br i1 %22, label %188, label %23
 
 23:                                               ; preds = %17
@@ -375,7 +375,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr nocapture noundef write
   %43 = xor i32 %38, -1
   %44 = or i32 %43, -2147483648
   %45 = tail call i32 @llvm.cttz.i32(i32 %44, i1 true), !range !5
-  %46 = icmp ugt i32 %45, 23
+  %46 = icmp samesign ugt i32 %45, 23
   br i1 %46, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %42, %61
@@ -407,7 +407,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr nocapture noundef write
   %66 = xor i32 %65, -1
   %67 = or i32 %66, -2147483648
   %68 = tail call i32 @llvm.cttz.i32(i32 %67, i1 true), !range !5
-  %69 = icmp ugt i32 %68, 23
+  %69 = icmp samesign ugt i32 %68, 23
   br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %61, %42
@@ -712,7 +712,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
 73:                                               ; preds = %71
   %74 = tail call i32 @llvm.ctlz.i32(i32 %67, i1 true), !range !5
   %75 = xor i32 %74, 31
-  %76 = icmp ugt i32 %75, 11
+  %76 = icmp samesign ugt i32 %75, 11
   br i1 %76, label %.thread10, label %77
 
 77:                                               ; preds = %73
@@ -857,7 +857,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 68:                                               ; preds = %66
   %69 = tail call i32 @llvm.ctlz.i32(i32 %62, i1 true), !range !5
   %70 = xor i32 %69, 31
-  %71 = icmp ugt i32 %70, 11
+  %71 = icmp samesign ugt i32 %70, 11
   br i1 %71, label %.thread10, label %72
 
 72:                                               ; preds = %68

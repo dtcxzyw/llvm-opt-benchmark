@@ -1459,7 +1459,7 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %36, %44
   %55 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %54, ptr %55, align 1, !noalias !6
   %56 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -2458,7 +2458,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   %.023.i = phi i32 [ %55, %.lr.ph.i ], [ %46, %.lr.ph.preheader.i ]
   %.sroa.015.022.i = phi ptr [ %54, %.lr.ph.i ], [ %47, %.lr.ph.preheader.i ]
   %48 = urem i32 %.023.i, 36
-  %49 = icmp ult i32 %48, 10
+  %49 = icmp samesign ult i32 %48, 10
   %50 = or disjoint i32 %48, 48
   %51 = add nuw nsw i32 %48, 55
   %52 = select i1 %49, i32 %50, i32 %51
@@ -4449,7 +4449,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %79, %85
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 200
   %132 = load i16, ptr %131, align 8
   %133 = and i16 %132, 56
-  %134 = icmp ugt i16 %133, 36
+  %134 = icmp samesign ugt i16 %133, 36
   br i1 %134, label %135, label %144
 
 135:                                              ; preds = %127
@@ -6070,7 +6070,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %39, %41
   %57 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %57, align 8
   %58 = and i16 %.val.val.val.val, 56
-  %59 = icmp ult i16 %58, 24
+  %59 = icmp samesign ult i16 %58, 24
   br i1 %59, label %60, label %81
 
 60:                                               ; preds = %54
@@ -6442,7 +6442,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler17GetLocalClassDeclEPKN5clang4DeclE.exit: ; pre
   %62 = getelementptr i8, ptr %.val52.val.val, i64 200
   %.val52.val.val.val = load i16, ptr %62, align 8
   %63 = and i16 %.val52.val.val.val, 60
-  %64 = icmp ult i16 %63, 44
+  %64 = icmp samesign ult i16 %63, 44
   br i1 %64, label %65, label %.critedge
 
 65:                                               ; preds = %59, %_ZN12_GLOBAL__N_114CXXNameMangler17GetLocalClassDeclEPKN5clang4DeclE.exit
@@ -6459,7 +6459,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler17GetLocalClassDeclEPKN5clang4DeclE.exit: ; pre
   %68 = getelementptr i8, ptr %.val53.val.val, i64 200
   %.val53.val.val.val = load i16, ptr %68, align 8
   %69 = and i16 %.val53.val.val.val, 60
-  %70 = icmp ult i16 %69, 28
+  %70 = icmp samesign ult i16 %69, 28
   br i1 %70, label %129, label %71
 
 71:                                               ; preds = %.critedge
@@ -7015,7 +7015,7 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i:  ; preds = %40
 
 _ZNK5clang4Type11isImageTypeEv.exit.i.i:          ; preds = %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i
   %50 = and i32 %.fr34.i.i, 266338304
-  %switch.i.i.i = icmp ult i32 %50, 18874368
+  %switch.i.i.i = icmp samesign ult i32 %50, 18874368
   br i1 %switch.i.i.i, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %_ZNK5clang4Type11isImageTypeEv.exit.i.i
@@ -7044,7 +7044,7 @@ _ZNK5clang4Type20isOpenCLSpecificTypeEv.exit.i:   ; preds = %40
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
   %59 = load i16, ptr %58, align 8
   %60 = and i16 %59, 56
-  %61 = icmp ugt i16 %60, 36
+  %61 = icmp samesign ugt i16 %60, 36
   br i1 %61, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i, label %62
 
 62:                                               ; preds = %55, %53
@@ -7063,7 +7063,7 @@ _ZNK5clang4Type20isOpenCLSpecificTypeEv.exit.i:   ; preds = %40
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 200
   %73 = load i16, ptr %72, align 8
   %74 = and i16 %73, 60
-  %75 = icmp ugt i16 %74, 8
+  %75 = icmp samesign ugt i16 %74, 8
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 16
   %77 = load i8, ptr %76, align 16
   %78 = icmp eq i8 %77, 16
@@ -7614,7 +7614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %35, %33, %3
   %65 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %64, ptr %65, align 1, !noalias !35
   %66 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread
@@ -8195,7 +8195,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
   %31 = load i64, ptr %30, align 8, !noalias !41
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %29, ptr %32, align 8, !alias.scope !41
-  %33 = icmp ult i32 %29, 65
+  %33 = icmp samesign ult i32 %29, 65
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %27
@@ -10491,7 +10491,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5c
   %962 = getelementptr i8, ptr %.val74.val.val, i64 200
   %.val74.val.val.val = load i16, ptr %962, align 8
   %963 = and i16 %.val74.val.val.val, 56
-  %964 = icmp ult i16 %963, 40
+  %964 = icmp samesign ult i16 %963, 40
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %964, label %966, label %973
 
@@ -20356,7 +20356,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5c
   %8 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %8, align 8
   %9 = and i16 %.val.val.val.val, 56
-  %10 = icmp ult i16 %9, 40
+  %10 = icmp samesign ult i16 %9, 40
   br i1 %10, label %37, label %11
 
 11:                                               ; preds = %5
@@ -24457,7 +24457,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %42, %44
   %.023.i = phi i32 [ %65, %.lr.ph.i ], [ %56, %.lr.ph.preheader.i ]
   %.sroa.015.022.i = phi ptr [ %64, %.lr.ph.i ], [ %57, %.lr.ph.preheader.i ]
   %58 = urem i32 %.023.i, 36
-  %59 = icmp ult i32 %58, 10
+  %59 = icmp samesign ult i32 %58, 10
   %60 = or disjoint i32 %58, 48
   %61 = add nuw nsw i32 %58, 55
   %62 = select i1 %59, i32 %60, i32 %61
@@ -25357,7 +25357,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %107, %_ZNK5clang17D
   %129 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %129, align 8
   %130 = and i16 %.val.val.val.val, 56
-  %131 = icmp ult i16 %130, 24
+  %131 = icmp samesign ult i16 %130, 24
   br i1 %131, label %156, label %132
 
 132:                                              ; preds = %126
@@ -26710,7 +26710,7 @@ _ZN4llvm11raw_ostreamlsEc.exit649:                ; preds = %789, %791
   %796 = getelementptr i8, ptr %.val481.val.val, i64 200
   %.val481.val.val.val = load i16, ptr %796, align 8
   %797 = and i16 %.val481.val.val.val, 56
-  %798 = icmp ult i16 %797, 24
+  %798 = icmp samesign ult i16 %797, 24
   br i1 %798, label %820, label %799
 
 799:                                              ; preds = %793
@@ -27317,7 +27317,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleOperatorNameEN5clang22OverloadedOperato
   %1110 = getelementptr i8, ptr %.val482.val.val, i64 200
   %.val482.val.val.val = load i16, ptr %1110, align 8
   %1111 = and i16 %.val482.val.val.val, 56
-  %1112 = icmp ult i16 %1111, 40
+  %1112 = icmp samesign ult i16 %1111, 40
   br i1 %1112, label %1113, label %1136
 
 1113:                                             ; preds = %1107
@@ -28443,7 +28443,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler21mangleTemplateAr
   %5 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %5, align 8
   %6 = and i16 %.val.val.val.val, 56
-  %7 = icmp ult i16 %6, 24
+  %7 = icmp samesign ult i16 %6, 24
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
@@ -30124,7 +30124,7 @@ _ZN4llvm11raw_ostreamlsEc.exit429:                ; preds = %681, %683
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 200
   %776 = load i16, ptr %775, align 8
   %777 = and i16 %776, 56
-  %778 = icmp ult i16 %777, 24
+  %778 = icmp samesign ult i16 %777, 24
   br i1 %778, label %779, label %804
 
 779:                                              ; preds = %772
@@ -30287,7 +30287,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %839, %846
   %875 = getelementptr i8, ptr %.val226.val.val, i64 200
   %.val226.val.val.val = load i16, ptr %875, align 8
   %876 = and i16 %.val226.val.val.val, 56
-  %877 = icmp ult i16 %876, 24
+  %877 = icmp samesign ult i16 %876, 24
   br i1 %877, label %.critedge10._crit_edge, label %878
 
 878:                                              ; preds = %872
@@ -30546,7 +30546,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit.thread: ; preds = %993
   %1004 = getelementptr inbounds nuw i8, ptr %.0.i367517, i64 40
   %1005 = load i64, ptr %1004, align 8, !noalias !98
   store i32 %1003, ptr %967, align 8, !alias.scope !98
-  %1006 = icmp ult i32 %1003, 65
+  %1006 = icmp samesign ult i32 %1003, 65
   br i1 %1006, label %1007, label %1015
 
 1007:                                             ; preds = %1001
@@ -30894,7 +30894,7 @@ _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %1161, %11
   %1188 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %1188, align 8
   %1189 = and i16 %.val.val.val.val, 56
-  %1190 = icmp ult i16 %1189, 24
+  %1190 = icmp samesign ult i16 %1189, 24
   br i1 %1190, label %1195, label %1191
 
 1191:                                             ; preds = %1185
@@ -32252,7 +32252,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfoC2ERKS0_N5clang12Templ
   %110 = getelementptr i8, ptr %.val.val.val.i26, i64 200
   %.val.val.val.val.i27 = load i16, ptr %110, align 8
   %111 = and i16 %.val.val.val.val.i27, 56
-  %112 = icmp ult i16 %111, 40
+  %112 = icmp samesign ult i16 %111, 40
   br i1 %112, label %_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgERNS0_23TemplateArgManglingInfoEjN5clang16TemplateArgumentE.exit, label %113
 
 113:                                              ; preds = %107
@@ -32344,7 +32344,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo33getTrailingRequiresC
   %152 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %152, align 8
   %153 = and i16 %.val.val.val.val.i, 56
-  %154 = icmp ult i16 %153, 40
+  %154 = icmp samesign ult i16 %153, 40
   br i1 %154, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %155
 
 155:                                              ; preds = %149
@@ -34804,7 +34804,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %46, %48
   %63 = lshr i64 %62, 32
   %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 2147483647
-  %66 = icmp ult i32 %65, 65
+  %66 = icmp samesign ult i32 %65, 65
   br i1 %66, label %_ZN4llvm5APIntD2Ev.exit.i, label %_ZN4llvm5APIntD2Ev.exit1.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %58
@@ -34952,7 +34952,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %108, %115
   %147 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %147, align 8
   %148 = and i16 %.val.val.val.val, 56
-  %149 = icmp ult i16 %148, 24
+  %149 = icmp samesign ult i16 %148, 24
   br i1 %149, label %.critedge, label %150
 
 150:                                              ; preds = %144
@@ -37722,7 +37722,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfoC2ERKS0_N5clang12Templ
   %30 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %30, align 8
   %31 = and i16 %.val.val.val.val.i, 56
-  %32 = icmp ult i16 %31, 40
+  %32 = icmp samesign ult i16 %31, 40
   br i1 %32, label %_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgERNS0_23TemplateArgManglingInfoEjN5clang16TemplateArgumentE.exit, label %33
 
 33:                                               ; preds = %27
@@ -37815,7 +37815,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo33getTrailingRequiresC
   %74 = getelementptr i8, ptr %.val.val.val.i13, i64 200
   %.val.val.val.val.i14 = load i16, ptr %74, align 8
   %75 = and i16 %.val.val.val.val.i14, 56
-  %76 = icmp ult i16 %75, 40
+  %76 = icmp samesign ult i16 %75, 40
   br i1 %76, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %77
 
 77:                                               ; preds = %71
@@ -38322,7 +38322,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %20, %7
   %32 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %32, align 8
   %33 = and i16 %.val.val.val.val, 56
-  %34 = icmp ult i16 %33, 40
+  %34 = icmp samesign ult i16 %33, 40
   br i1 %34, label %51, label %35
 
 35:                                               ; preds = %29
@@ -38681,7 +38681,7 @@ _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %._crit_e
   %34 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %34, align 8
   %35 = and i16 %.val.val.val.val.i, 56
-  %36 = icmp ult i16 %35, 40
+  %36 = icmp samesign ult i16 %35, 40
   br i1 %36, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %37
 
 37:                                               ; preds = %31
@@ -39310,7 +39310,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler16mangleModuleNameEPKN5clang9NamedDeclE.exit: ;
   %43 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %43, align 8
   %44 = and i16 %.val.val.val.val, 56
-  %45 = icmp ult i16 %44, 40
+  %45 = icmp samesign ult i16 %44, 40
   br i1 %45, label %_ZN4llvm11raw_ostreamlsEc.exit, label %46
 
 46:                                               ; preds = %40
@@ -40580,7 +40580,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler12mangleLambdaEPKN
   %8 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %8, align 8
   %9 = and i16 %.val.val.val.val, 60
-  %10 = icmp ult i16 %9, 28
+  %10 = icmp samesign ult i16 %9, 28
   br i1 %10, label %11, label %_ZN4llvm11raw_ostreamlsEc.exit
 
 11:                                               ; preds = %5
@@ -41154,7 +41154,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfoC2ERKS0_N5clang12Templ
   %33 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %33, align 8
   %34 = and i16 %.val.val.val.val.i, 56
-  %35 = icmp ult i16 %34, 40
+  %35 = icmp samesign ult i16 %34, 40
   br i1 %35, label %_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgERNS0_23TemplateArgManglingInfoEjN5clang16TemplateArgumentE.exit, label %36
 
 36:                                               ; preds = %30
@@ -41246,7 +41246,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo33getTrailingRequiresC
   %75 = getelementptr i8, ptr %.val.val.val.i15, i64 200
   %.val.val.val.val.i16 = load i16, ptr %75, align 8
   %76 = and i16 %.val.val.val.val.i16, 56
-  %77 = icmp ult i16 %76, 40
+  %77 = icmp samesign ult i16 %76, 40
   br i1 %77, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %78
 
 78:                                               ; preds = %72
@@ -41540,7 +41540,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %25, %27
   %.023.i = phi i32 [ %50, %.lr.ph.i ], [ %41, %.lr.ph.preheader.i ]
   %.sroa.015.022.i = phi ptr [ %49, %.lr.ph.i ], [ %42, %.lr.ph.preheader.i ]
   %43 = urem i32 %.023.i, 36
-  %44 = icmp ult i32 %43, 10
+  %44 = icmp samesign ult i32 %43, 10
   %45 = or disjoint i32 %43, 48
   %46 = add nuw nsw i32 %43, 55
   %47 = select i1 %44, i32 %45, i32 %46
@@ -42446,7 +42446,7 @@ _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %10
   %22 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %22, align 8
   %23 = and i16 %.val.val.val.val.i, 56
-  %24 = icmp ult i16 %23, 40
+  %24 = icmp samesign ult i16 %23, 40
   br i1 %24, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %25
 
 25:                                               ; preds = %19
@@ -43205,7 +43205,7 @@ _ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit: ; preds = %353
   %365 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %365, align 8
   %366 = and i16 %.val.val.val.val.i, 56
-  %367 = icmp ult i16 %366, 40
+  %367 = icmp samesign ult i16 %366, 40
   br i1 %367, label %_ZN12_GLOBAL__N_114CXXNameMangler20mangleRequiresClauseEPKN5clang4ExprE.exit, label %368
 
 368:                                              ; preds = %362
@@ -44157,7 +44157,7 @@ _ZL10isTemplateN5clang10GlobalDeclERPKNS_20TemplateArgumentListE.exit.thread: ; 
   %69 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %69, align 8
   %70 = and i16 %.val.val.val.val, 60
-  %71 = icmp ult i16 %70, 28
+  %71 = icmp samesign ult i16 %70, 28
   br i1 %71, label %111, label %72
 
 72:                                               ; preds = %_ZL10isTemplateN5clang10GlobalDeclERPKNS_20TemplateArgumentListE.exit.thread
@@ -46626,7 +46626,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePr
   %13 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %13, align 8
   %14 = and i16 %.val.val.val.val, 56
-  %15 = icmp ult i16 %14, 24
+  %15 = icmp samesign ult i16 %14, 24
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %9
@@ -47037,7 +47037,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler17GetLocalClassDeclEPKN5clang4DeclE.exit168: ; 
   %91 = getelementptr i8, ptr %.val.val.val.i, i64 200
   %.val.val.val.val.i = load i16, ptr %91, align 8
   %92 = and i16 %.val.val.val.val.i, 60
-  %93 = icmp ult i16 %92, 28
+  %93 = icmp samesign ult i16 %92, 28
   br i1 %93, label %132, label %94
 
 94:                                               ; preds = %88
@@ -47390,7 +47390,7 @@ _ZN4llvm11raw_ostreamlsEc.exit109:                ; preds = %198, %200, %192, %2
   %267 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %267, align 8
   %268 = and i16 %.val.val.val.val, 60
-  %269 = icmp ult i16 %268, 28
+  %269 = icmp samesign ult i16 %268, 28
   br i1 %269, label %287, label %270
 
 270:                                              ; preds = %264
@@ -47907,7 +47907,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler22mangleUnqualifie
   %9 = getelementptr i8, ptr %.val.val.val, i64 200
   %.val.val.val.val = load i16, ptr %9, align 8
   %10 = and i16 %.val.val.val.val, 60
-  %11 = icmp ult i16 %10, 28
+  %11 = icmp samesign ult i16 %10, 28
   br i1 %11, label %12, label %_ZN4llvm11raw_ostreamlsEc.exit
 
 12:                                               ; preds = %6

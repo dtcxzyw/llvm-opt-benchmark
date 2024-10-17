@@ -15,7 +15,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   %9 = load i8, ptr %1, align 1
   %10 = zext i8 %9 to i64
   %11 = add nuw nsw i64 %6, %10
-  %12 = icmp ugt i64 %11, 65520
+  %12 = icmp samesign ugt i64 %11, 65520
   %13 = add nsw i64 %11, -65521
   %spec.select = select i1 %12, i64 %13, i64 %11
   %14 = add nuw nsw i64 %spec.select, %5
@@ -176,7 +176,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   br i1 %.not, label %214, label %.preheader201
 
 .preheader201:                                    ; preds = %._crit_edge
-  %123 = icmp ugt i32 %36, 15
+  %123 = icmp samesign ugt i32 %36, 15
   br i1 %123, label %.lr.ph216.preheader, label %.lr.ph226.preheader
 
 .lr.ph216.preheader:                              ; preds = %.preheader202, %.preheader201
@@ -338,13 +338,13 @@ define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef
   %16 = add nuw nsw i64 %15, %14
   %17 = sub nuw nsw i64 %16, %4
   %18 = add nuw nsw i64 %17, %.zext.i
-  %19 = icmp ugt i64 %10, 65520
+  %19 = icmp samesign ugt i64 %10, 65520
   %20 = add nsw i64 %10, -65521
   %spec.select.i = select i1 %19, i64 %20, i64 65520
   %21 = icmp ugt i64 %spec.select.i, 65520
   %22 = add nsw i64 %spec.select.i, -65521
   %.1.i = select i1 %21, i64 %22, i64 %spec.select.i
-  %23 = icmp ugt i64 %18, 131041
+  %23 = icmp samesign ugt i64 %18, 131041
   %24 = add nsw i64 %18, -131042
   %.021.i = select i1 %23, i64 %24, i64 %18
   %25 = icmp ugt i64 %.021.i, 65520
@@ -374,13 +374,13 @@ define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %0, i64 nound
   %16 = add nuw nsw i64 %15, %14
   %17 = sub nuw nsw i64 %16, %4
   %18 = add nuw nsw i64 %17, %.zext.i
-  %19 = icmp ugt i64 %10, 65520
+  %19 = icmp samesign ugt i64 %10, 65520
   %20 = add nsw i64 %10, -65521
   %spec.select.i = select i1 %19, i64 %20, i64 65520
   %21 = icmp ugt i64 %spec.select.i, 65520
   %22 = add nsw i64 %spec.select.i, -65521
   %.1.i = select i1 %21, i64 %22, i64 %spec.select.i
-  %23 = icmp ugt i64 %18, 131041
+  %23 = icmp samesign ugt i64 %18, 131041
   %24 = add nsw i64 %18, -131042
   %.021.i = select i1 %23, i64 %24, i64 %18
   %25 = icmp ugt i64 %.021.i, 65520

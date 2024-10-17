@@ -612,7 +612,7 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   tail call void @Kit_TruthExistNew(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %34) #7
-  %35 = icmp ult i64 %indvars.iv50, %17
+  %35 = icmp samesign ult i64 %indvars.iv50, %17
   br i1 %35, label %.lr.ph43.preheader, label %._crit_edge
 
 .lr.ph43.preheader:                               ; preds = %28

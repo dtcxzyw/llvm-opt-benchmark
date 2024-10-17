@@ -5907,7 +5907,7 @@ _ZN12_GLOBAL__N_114RISCVAsmParser18processInstructionERN4llvm6MCInstENS1_5SMLocE
 758:                                              ; preds = %749
   %759 = select i1 %.0176420, ptr @.str.178, ptr @.str.76
   %760 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull %759) #24
-  %761 = icmp ult i32 %.0177419, 112
+  %761 = icmp samesign ult i32 %.0177419, 112
   br i1 %761, label %switch.lookup, label %_ZL23getSubtargetFeatureNamem.exit
 
 switch.lookup:                                    ; preds = %758
@@ -6096,7 +6096,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6
   %.sroa.8.1.i = phi ptr [ %.sroa.8.053.i, %_ZNK4llvm13FeatureBitsetanERKS0_.exit.i ], [ %.sroa.8.053.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.sroa.8.053.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43.i ], [ %823, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %804, %803 ], [ %.sroa.8.053.i, %797 ]
   %.sroa.032.1.i = phi ptr [ %.sroa.032.054.i, %_ZNK4llvm13FeatureBitsetanERKS0_.exit.i ], [ %.sroa.032.054.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.sroa.032.054.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43.i ], [ %819, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.032.054.i, %803 ], [ %.sroa.032.054.i, %797 ]
   %.017.add.i = add nuw nsw i64 %.017.idx55.i, 14
-  %826 = icmp ult i64 %.017.idx55.i, 30996
+  %826 = icmp samesign ult i64 %.017.idx55.i, 30996
   br i1 %826, label %780, label %827, !llvm.loop !46
 
 827:                                              ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.i
@@ -7385,7 +7385,7 @@ define internal noundef range(i32 0, 5) i32 @_ZN12_GLOBAL__N_114RISCVAsmParser26
   %9 = lshr i32 %.sroa.0.0.copyload.i, 3
   %10 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
   %11 = zext i16 %10 to i32
-  %.not.i = icmp ult i32 %9, %11
+  %.not.i = icmp samesign ult i32 %9, %11
   br i1 %.not.i, label %12, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 12:                                               ; preds = %7
@@ -7404,7 +7404,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %7, %12
   %.0.i = phi i1 [ %21, %12 ], [ false, %7 ]
   %22 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
   %23 = zext i16 %22 to i32
-  %.not.i43 = icmp ult i32 %9, %23
+  %.not.i43 = icmp samesign ult i32 %9, %23
   br i1 %.not.i43, label %24, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit45
 
 24:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
@@ -7423,7 +7423,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit45: ; preds = %_ZNK4llv
   %.0.i44 = phi i1 [ %33, %24 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ]
   %34 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1334), align 2
   %35 = zext i16 %34 to i32
-  %.not.i46 = icmp ult i32 %9, %35
+  %.not.i46 = icmp samesign ult i32 %9, %35
   br i1 %.not.i46, label %36, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit48
 
 36:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit45
@@ -7560,7 +7560,7 @@ define internal noundef range(i32 4, 8) i32 @_ZN12_GLOBAL__N_114RISCVAsmParser25
   %27 = lshr i32 %26, 3
   %28 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 790), align 2
   %29 = zext i16 %28 to i32
-  %.not.i = icmp ult i32 %27, %29
+  %.not.i = icmp samesign ult i32 %27, %29
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %24
@@ -9350,7 +9350,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_117LessOpcodeOperandEEclIKN4ll
   br i1 %33, label %72, label %34
 
 34:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_117LessOpcodeOperandEEclIKN4llvm9StringRefEPKNS2_17OperandMatchEntryEEEbRT_T0_.exit.i.i.i, %32
-  %.not = icmp ult i64 %.017.i.i.i, 2
+  %.not = icmp samesign ult i64 %.017.i.i.i, 2
   br i1 %.not, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_117OperandMatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_17LessOpcodeOperandEEEET_SB_SB_RKT0_T1_.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %34, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_117LessOpcodeOperandEEclIPKNS2_17OperandMatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i.i
@@ -15364,7 +15364,7 @@ _ZN4llvm10MCAsmLexer3LexEv.exit15:                ; preds = %58, %72, %79, %82
   %.not = icmp eq i64 %110, 0
   %111 = select i1 %.not, i32 32, i32 64
   %112 = udiv i32 %111, %97
-  %113 = icmp ugt i32 %112, 7
+  %113 = icmp samesign ugt i32 %112, 7
   %114 = icmp ugt i32 %.pre, %112
   %or.cond13 = select i1 %113, i1 %114, i1 false
   br i1 %or.cond13, label %_ZN4llvmplERKNS_5TwineES2_.exit60, label %134
@@ -16399,7 +16399,7 @@ _ZNK4llvm8AsmToken13getIdentifierEv.exit:         ; preds = %33, %34
   %47 = lshr i32 %45, 3
   %48 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %49 = zext i16 %48 to i32
-  %.not.i = icmp ult i32 %47, %49
+  %.not.i = icmp samesign ult i32 %47, %49
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %46
@@ -17241,7 +17241,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %25, %21
 
 _ZN4llvm10RISCVVTypeL10isValidSEWEj.exit:         ; preds = %27
   %29 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %28)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %31 = add i32 %28, -8
   %32 = icmp ult i32 %31, 57
   %spec.select.i = and i1 %32, %30
@@ -17305,7 +17305,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit50.thread: ; preds = %44, %_ZN4ll
 
 _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %46
   %50 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %47)
-  %51 = icmp ugt i32 %50, 1
+  %51 = icmp samesign ugt i32 %50, 1
   %52 = icmp ugt i64 %45, 8
   %or.cond.i.not112 = or i1 %52, %51
   %53 = icmp eq i64 %45, 1
@@ -18829,7 +18829,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9Stri
   br i1 %131, label %170, label %132
 
 132:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i, %130
-  %.not32 = icmp ult i64 %.017.i.i, 2
+  %.not32 = icmp samesign ult i64 %.017.i.i, 2
   br i1 %.not32, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %132, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i
@@ -19109,7 +19109,7 @@ _ZN4llvm14SmallBitVector5resetEjj.exit:           ; preds = %206, %213
   %279 = load i32, ptr %278, align 8
   %280 = icmp eq i32 %279, 0
   %281 = icmp ult i8 %221, 4
-  %or.cond.i145 = and i1 %281, %280
+  %or.cond.i145 = select i1 %280, i1 %281, i1 false
   br i1 %or.cond.i145, label %282, label %288
 
 282:                                              ; preds = %277
@@ -19216,7 +19216,7 @@ _ZL16matchTokenStringN4llvm9StringRefE.exit.i:    ; preds = %284, %282
   %293 = lshr i32 %.val91.i, 3
   %294 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 438), align 2
   %295 = zext i16 %294 to i32
-  %.not.i.i631 = icmp ult i32 %293, %295
+  %.not.i.i631 = icmp samesign ult i32 %293, %295
   br i1 %.not.i.i631, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i633, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i632
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i633: ; preds = %292
@@ -19234,7 +19234,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i633: ; preds = %292
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i632: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i633, %292
   %304 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1398), align 2
   %305 = zext i16 %304 to i32
-  %.not.i2.i = icmp ult i32 %293, %305
+  %.not.i2.i = icmp samesign ult i32 %293, %305
   br i1 %.not.i2.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i632
@@ -19259,7 +19259,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegis
   %318 = lshr i32 %.val93.i, 3
   %319 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %320 = zext i16 %319 to i32
-  %.not.i.i629 = icmp ult i32 %318, %320
+  %.not.i.i629 = icmp samesign ult i32 %318, %320
   br i1 %.not.i.i629, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %317
@@ -19277,7 +19277,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %317
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %317
   %329 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1270), align 2
   %330 = zext i16 %329 to i32
-  %.not.i3.i = icmp ult i32 %318, %330
+  %.not.i3.i = icmp samesign ult i32 %318, %330
   br i1 %.not.i3.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
@@ -19295,7 +19295,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i: ; preds = %_ZNK4ll
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
   %339 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1334), align 2
   %340 = zext i16 %339 to i32
-  %.not.i6.i = icmp ult i32 %318, %340
+  %.not.i6.i = icmp samesign ult i32 %318, %340
   br i1 %.not.i6.i, label %_ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.thread.i
@@ -19516,7 +19516,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__
   %414 = lshr i32 %.val1.i588, 3
   %415 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %416 = zext i16 %415 to i32
-  %.not.i.i.i590 = icmp ult i32 %414, %416
+  %.not.i.i.i590 = icmp samesign ult i32 %414, %416
   br i1 %.not.i.i.i590, label %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit591, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit591: ; preds = %413
@@ -19545,7 +19545,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit591: ; preds = %413
   %434 = lshr i32 %.val1.i583, 3
   %435 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %436 = zext i16 %435 to i32
-  %.not.i.i.i585 = icmp ult i32 %434, %436
+  %.not.i.i.i585 = icmp samesign ult i32 %434, %436
   br i1 %.not.i.i.i585, label %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit586, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit586: ; preds = %433
@@ -19574,7 +19574,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit586: ; preds = %433
   %454 = lshr i32 %.val1.i, 3
   %455 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %456 = zext i16 %455 to i32
-  %.not.i.i.i581 = icmp ult i32 %454, %456
+  %.not.i.i.i581 = icmp samesign ult i32 %454, %456
   br i1 %.not.i.i.i581, label %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit: ; preds = %453
@@ -19603,7 +19603,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit: ; preds = %453
   %474 = lshr i32 %.val104.i, 3
   %475 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 790), align 2
   %476 = zext i16 %475 to i32
-  %.not.i.i.i = icmp ult i32 %474, %476
+  %.not.i.i.i = icmp samesign ult i32 %474, %476
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i: ; preds = %473
@@ -19628,7 +19628,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i: ; preds = %473
   %489 = lshr i32 %.val106.i, 3
   %490 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 790), align 2
   %491 = zext i16 %490 to i32
-  %.not.i.i179.i = icmp ult i32 %489, %491
+  %.not.i.i179.i = icmp samesign ult i32 %489, %491
   br i1 %.not.i.i179.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit180.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit180.i: ; preds = %488
@@ -20304,7 +20304,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit: ; preds = %_ZN12
   %720 = lshr i32 %.val102.i, 3
   %721 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 118), align 2
   %722 = zext i16 %721 to i32
-  %.not.i.i200.i = icmp ult i32 %720, %722
+  %.not.i.i200.i = icmp samesign ult i32 %720, %722
   br i1 %.not.i.i200.i, label %_ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i:  ; preds = %719
@@ -24075,15 +24075,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %135
 
 27:                                               ; preds = %4
-  %28 = icmp ult i32 %1, 62
+  %28 = icmp samesign ult i32 %1, 62
   br i1 %28, label %switch.lookup, label %135
 
 29:                                               ; preds = %4
-  %30 = icmp ult i32 %1, 62
+  %30 = icmp samesign ult i32 %1, 62
   br i1 %30, label %switch.lookup104, label %135
 
 31:                                               ; preds = %4
-  %32 = icmp ult i32 %1, 62
+  %32 = icmp samesign ult i32 %1, 62
   br i1 %32, label %switch.lookup109, label %135
 
 33:                                               ; preds = %4
@@ -24156,7 +24156,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br i1 %57, label %switch.lookup143, label %135
 
 58:                                               ; preds = %4
-  %59 = icmp ult i32 %1, 62
+  %59 = icmp samesign ult i32 %1, 62
   br i1 %59, label %switch.lookup149, label %135
 
 60:                                               ; preds = %4
@@ -24164,15 +24164,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %135
 
 62:                                               ; preds = %4
-  %63 = icmp ult i32 %1, 62
+  %63 = icmp samesign ult i32 %1, 62
   br i1 %63, label %switch.lookup154, label %135
 
 64:                                               ; preds = %4
-  %65 = icmp ult i32 %1, 62
+  %65 = icmp samesign ult i32 %1, 62
   br i1 %65, label %switch.lookup159, label %135
 
 66:                                               ; preds = %4
-  %67 = icmp ult i32 %1, 62
+  %67 = icmp samesign ult i32 %1, 62
   br i1 %67, label %switch.lookup164, label %135
 
 68:                                               ; preds = %4
@@ -24186,7 +24186,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %135
 
 72:                                               ; preds = %4
-  %73 = icmp ult i32 %1, 62
+  %73 = icmp samesign ult i32 %1, 62
   br i1 %73, label %switch.lookup175, label %135
 
 74:                                               ; preds = %4
@@ -24214,7 +24214,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br i1 %83, label %switch.lookup186, label %135
 
 84:                                               ; preds = %4
-  %85 = icmp ult i32 %1, 62
+  %85 = icmp samesign ult i32 %1, 62
   br i1 %85, label %switch.lookup192, label %135
 
 86:                                               ; preds = %4
@@ -24222,7 +24222,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %135
 
 88:                                               ; preds = %4
-  %89 = icmp ult i32 %1, 62
+  %89 = icmp samesign ult i32 %1, 62
   br i1 %89, label %switch.lookup197, label %135
 
 90:                                               ; preds = %4

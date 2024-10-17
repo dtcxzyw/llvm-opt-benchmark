@@ -2165,7 +2165,7 @@ define void @_ZN5Yosys12memhasher_doEv() local_unnamed_addr #6 {
   %7 = xor i32 %6, %5
   store i32 %7, ptr @_ZN5Yosys13memhasher_rngE, align 4
   %8 = and i32 %5, 7
-  %9 = icmp ult i32 %8, 4
+  %9 = icmp samesign ult i32 %8, 4
   br i1 %9, label %switch.lookup, label %11
 
 switch.lookup:                                    ; preds = %0
@@ -2178,7 +2178,7 @@ switch.lookup:                                    ; preds = %0
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %0 ]
   %12 = lshr i32 %7, 4
   %13 = and i32 %12, 65535
-  %14 = icmp ult i32 %13, 16
+  %14 = icmp samesign ult i32 %13, 16
   %15 = shl nuw nsw i32 %.0, 4
   %spec.select = select i1 %14, i32 %15, i32 %.0
   %16 = zext nneg i32 %13 to i64

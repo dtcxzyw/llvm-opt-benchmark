@@ -630,7 +630,7 @@ define internal zeroext i8 @sr_init_command(ptr noundef %0) #2 align 16 {
   %81 = udiv i32 %80, %71
   %82 = getelementptr i8, ptr %0, i64 165
   store i8 0, ptr %82, align 1
-  %83 = icmp ugt i32 %81, 65535
+  %83 = icmp samesign ugt i32 %81, 65535
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %79

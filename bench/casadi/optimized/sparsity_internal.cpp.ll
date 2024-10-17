@@ -8521,7 +8521,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc9
   %22 = getelementptr inbounds i64, ptr %10, i64 %21
   store i64 %.010, ptr %22, align 8
   %23 = add nuw nsw i64 %.010, 1
-  %24 = icmp ult i64 %23, %18
+  %24 = icmp samesign ult i64 %23, %18
   br i1 %24, label %19, label %._crit_edge, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %19, %16
@@ -25658,7 +25658,7 @@ _ZSt13mul_overflowsIxEbRKT_S2_.exit:              ; preds = %3
   %22 = sdiv i64 9223372036854775807, %17
   %23 = tail call noundef i64 @llvm.abs.i64(i64 %22, i1 true)
   %24 = tail call noundef i64 @llvm.abs.i64(i64 %19, i1 true)
-  %25 = icmp ult i64 %23, %24
+  %25 = icmp samesign ult i64 %23, %24
   br i1 %25, label %26, label %_ZSt13mul_overflowsIxEbRKT_S2_.exit.thread
 
 26:                                               ; preds = %_ZSt13mul_overflowsIxEbRKT_S2_.exit
@@ -28622,7 +28622,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc128
   %47 = getelementptr inbounds i64, ptr %39, i64 %46
   store i64 %.063154, ptr %47, align 8
   %48 = add nuw nsw i64 %.063154, 1
-  %49 = icmp ult i64 %48, %43
+  %49 = icmp samesign ult i64 %48, %43
   br i1 %49, label %44, label %.loopexit, !llvm.loop !434
 
 50:                                               ; preds = %.invoke, %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i, %.noexc14.i

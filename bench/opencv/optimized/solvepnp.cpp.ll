@@ -4699,7 +4699,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %374, %381, %387
   %400 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %400, ptr %.0.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %401 = icmp ult i64 %indvars.iv.next, %366
+  %401 = icmp samesign ult i64 %indvars.iv.next, %366
   br i1 %401, label %367, label %._crit_edge313, !llvm.loop !84
 
 ._crit_edge313:                                   ; preds = %_ZN2cv3Mat2atIiEERT_i.exit

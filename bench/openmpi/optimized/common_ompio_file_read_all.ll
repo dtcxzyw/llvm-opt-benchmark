@@ -1757,7 +1757,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 10:                                               ; preds = %3
   store i32 0, ptr %7, align 4
-  %11 = icmp ugt i32 %1, 1
+  %11 = icmp samesign ugt i32 %1, 1
   br i1 %11, label %.lr.ph, label %._crit_edge139
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
@@ -1815,7 +1815,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 36:                                               ; preds = %20, %35
   %.0104 = phi i32 [ %.0108132, %35 ], [ %21, %20 ]
-  %.not127.not = icmp ult i32 %19, %1
+  %.not127.not = icmp samesign ult i32 %19, %1
   br i1 %.not127.not, label %37, label %51
 
 37:                                               ; preds = %36

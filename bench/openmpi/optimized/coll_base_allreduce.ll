@@ -1772,7 +1772,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %147, %149
   %.0240.in = phi i32 [ %20, %.preheader ], [ %.0240, %ompi_coll_base_sendrecv.exit308 ]
   %.0240 = lshr i32 %.0240.in, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not366 = icmp ult i32 %.0240.in, 2
+  %.not366 = icmp samesign ult i32 %.0240.in, 2
   br i1 %.not366, label %.loopexit, label %166
 
 166:                                              ; preds = %165

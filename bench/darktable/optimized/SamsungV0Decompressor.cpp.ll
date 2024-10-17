@@ -155,7 +155,7 @@ define hidden void @_ZN8rawspeed21SamsungV0DecompressorC2ERKNS_8RawImageENS_10By
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !96, !noalias !97
   %60 = zext i32 %59 to i64
-  %61 = icmp ugt i64 %57, %60
+  %61 = icmp samesign ugt i64 %57, %60
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %51
@@ -170,7 +170,7 @@ define hidden void @_ZN8rawspeed21SamsungV0DecompressorC2ERKNS_8RawImageENS_10By
   %66 = icmp sgt i32 %59, -1
   tail call void @llvm.assume(i1 %66)
   %67 = add nuw nsw i32 %54, %52
-  %68 = icmp ule i32 %67, %59
+  %68 = icmp samesign ule i32 %67, %59
   tail call void @llvm.assume(i1 %68)
   %69 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %69)
@@ -344,7 +344,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   %68 = add nuw nsw i64 %67, 4
   %69 = load i32, ptr %20, align 8, !tbaa !96
   %70 = zext i32 %69 to i64
-  %71 = icmp ugt i64 %68, %70
+  %71 = icmp samesign ugt i64 %68, %70
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %61
@@ -361,7 +361,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   %78 = icmp sgt i32 %69, -1
   tail call void @llvm.assume(i1 %78)
   %79 = add nuw nsw i32 %66, 4
-  %80 = icmp ule i32 %79, %69
+  %80 = icmp samesign ule i32 %79, %69
   tail call void @llvm.assume(i1 %80)
   %81 = icmp sgt i32 %66, -1
   tail call void @llvm.assume(i1 %81)
@@ -511,7 +511,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   %166 = add nuw nsw i64 %164, %165
   %167 = load i32, ptr %25, align 8, !tbaa !96
   %168 = zext i32 %167 to i64
-  %169 = icmp ugt i64 %166, %168
+  %169 = icmp samesign ugt i64 %166, %168
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %160
@@ -525,7 +525,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   %173 = icmp sgt i32 %167, -1
   tail call void @llvm.assume(i1 %173)
   %174 = add nuw nsw i32 %163, %161
-  %175 = icmp ule i32 %174, %167
+  %175 = icmp samesign ule i32 %174, %167
   tail call void @llvm.assume(i1 %175)
   %176 = icmp sgt i32 %163, -1
   tail call void @llvm.assume(i1 %176)
@@ -581,7 +581,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   %204 = zext nneg i32 %190 to i64
   %205 = zext i32 %203 to i64
   %206 = add nuw nsw i64 %205, %204
-  %207 = icmp ugt i64 %206, %168
+  %207 = icmp samesign ugt i64 %206, %168
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %202
@@ -593,7 +593,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
 
 210:                                              ; preds = %202
   %211 = add nuw nsw i32 %203, %190
-  %212 = icmp ule i32 %211, %167
+  %212 = icmp samesign ule i32 %211, %167
   tail call void @llvm.assume(i1 %212)
   %213 = icmp sgt i32 %203, -1
   tail call void @llvm.assume(i1 %213)
@@ -818,14 +818,14 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nocap
   tail call void @llvm.assume(i1 %23)
   %24 = icmp sgt i32 %20, -1
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp uge i32 %20, %15
+  %25 = icmp samesign uge i32 %20, %15
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq i32 %15, 0
   %27 = icmp ne i32 %17, 0
   %28 = xor i1 %26, %27
   tail call void @llvm.assume(i1 %28)
-  %29 = icmp ugt i32 %17, 1
-  %30 = icmp ugt i32 %15, 1
+  %29 = icmp samesign ugt i32 %17, 1
+  %30 = icmp samesign ugt i32 %15, 1
   %31 = and i1 %29, %30
   br i1 %31, label %32, label %.loopexit
 
@@ -844,13 +844,13 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nocap
   %42 = phi i64 [ 0, %32 ], [ %63, %62 ]
   %43 = mul nuw nsw i64 %42, %39
   %44 = add nuw nsw i64 %43, %36
-  %45 = icmp ule i64 %44, %40
+  %45 = icmp samesign ule i64 %44, %40
   tail call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds i16, ptr %10, i64 %43
   %47 = or disjoint i64 %42, 1
   %48 = mul nuw nsw i64 %47, %39
   %49 = add nuw nsw i64 %48, %36
-  %50 = icmp ule i64 %49, %40
+  %50 = icmp samesign ule i64 %49, %40
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds i16, ptr %10, i64 %48
   br label %52
@@ -858,7 +858,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nocap
 52:                                               ; preds = %52, %41
   %53 = phi i64 [ 0, %41 ], [ %60, %52 ]
   %54 = or disjoint i64 %53, 1
-  %55 = icmp ult i64 %54, %36
+  %55 = icmp samesign ult i64 %54, %36
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds i16, ptr %46, i64 %54
   %57 = getelementptr inbounds i16, ptr %51, i64 %53
@@ -867,12 +867,12 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nocap
   store i16 %59, ptr %56, align 2, !tbaa !135
   store i16 %58, ptr %57, align 2, !tbaa !135
   %60 = add nuw nsw i64 %53, 2
-  %61 = icmp ult i64 %60, %37
+  %61 = icmp samesign ult i64 %60, %37
   br i1 %61, label %52, label %62, !llvm.loop !137
 
 62:                                               ; preds = %52
   %63 = add nuw nsw i64 %42, 2
-  %64 = icmp ult i64 %63, %38
+  %64 = icmp samesign ult i64 %63, %38
   br i1 %64, label %41, label %.loopexit, !llvm.loop !138
 
 65:                                               ; preds = %65, %6
@@ -918,7 +918,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp uge i32 %17, %12
+  %23 = icmp samesign uge i32 %17, %12
   tail call void @llvm.assume(i1 %23)
   %24 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %24)
@@ -929,7 +929,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %27 = load i32, ptr %26, align 8, !tbaa !87
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !96
-  %30 = icmp uge i32 %29, %27
+  %30 = icmp samesign uge i32 %29, %27
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %29, -1
   tail call void @llvm.assume(i1 %31)
@@ -940,7 +940,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %35 = zext i32 %33 to i64
   %36 = add nuw nsw i64 %35, %34
   %37 = zext nneg i32 %29 to i64
-  %38 = icmp ugt i64 %36, %37
+  %38 = icmp samesign ugt i64 %36, %37
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %3
@@ -953,7 +953,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %41, i64 %34
   store i32 0, ptr %4, align 4
-  %44 = icmp ult i32 %33, 4
+  %44 = icmp samesign ult i32 %33, 4
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
@@ -1004,7 +1004,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %82 = phi i64 [ 0, %46 ], [ %1848, %1846 ]
   %83 = icmp ult i32 %81, 65
   tail call void @llvm.assume(i1 %83)
-  %84 = icmp ult i32 %81, 32
+  %84 = icmp samesign ult i32 %81, 32
   br i1 %84, label %85, label %112
 
 85:                                               ; preds = %74
@@ -1267,7 +1267,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 228:                                              ; preds = %225
   %229 = add nuw nsw i32 %115, 4
-  %230 = icmp ugt i32 %229, %33
+  %230 = icmp samesign ugt i32 %229, %33
   br i1 %230, label %234, label %231
 
 231:                                              ; preds = %228
@@ -1276,7 +1276,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %246
 
 234:                                              ; preds = %228
-  %235 = icmp ugt i32 %115, %49
+  %235 = icmp samesign ugt i32 %115, %49
   br i1 %235, label %236, label %237
 
 236:                                              ; preds = %562, %519, %476, %430, %365, %322, %279, %234
@@ -1337,7 +1337,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 273:                                              ; preds = %255
   %274 = add nuw nsw i32 %256, 4
-  %275 = icmp ugt i32 %274, %33
+  %275 = icmp samesign ugt i32 %274, %33
   br i1 %275, label %279, label %276
 
 276:                                              ; preds = %273
@@ -1346,7 +1346,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %290
 
 279:                                              ; preds = %273
-  %280 = icmp ugt i32 %256, %49
+  %280 = icmp samesign ugt i32 %256, %49
   br i1 %280, label %236, label %281
 
 281:                                              ; preds = %279
@@ -1461,7 +1461,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 359:                                              ; preds = %342
   %360 = add nuw nsw i32 %343, 4
-  %361 = icmp ugt i32 %360, %33
+  %361 = icmp samesign ugt i32 %360, %33
   br i1 %361, label %365, label %362
 
 362:                                              ; preds = %359
@@ -1470,7 +1470,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %376
 
 365:                                              ; preds = %359
-  %366 = icmp ugt i32 %343, %49
+  %366 = icmp samesign ugt i32 %343, %49
   br i1 %366, label %236, label %367
 
 367:                                              ; preds = %365
@@ -1556,7 +1556,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 424:                                              ; preds = %420
   %425 = add nuw nsw i32 %397, 4
-  %426 = icmp ugt i32 %425, %33
+  %426 = icmp samesign ugt i32 %425, %33
   br i1 %426, label %430, label %427
 
 427:                                              ; preds = %424
@@ -1565,7 +1565,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %441
 
 430:                                              ; preds = %424
-  %431 = icmp ugt i32 %397, %49
+  %431 = icmp samesign ugt i32 %397, %49
   br i1 %431, label %236, label %432
 
 432:                                              ; preds = %430
@@ -1840,7 +1840,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 620:                                              ; preds = %616
   %621 = add nuw nsw i32 %594, 4
-  %622 = icmp ugt i32 %621, %33
+  %622 = icmp samesign ugt i32 %621, %33
   br i1 %622, label %626, label %623
 
 623:                                              ; preds = %620
@@ -1849,7 +1849,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %638
 
 626:                                              ; preds = %620
-  %627 = icmp ugt i32 %594, %49
+  %627 = icmp samesign ugt i32 %594, %49
   br i1 %627, label %628, label %629
 
 628:                                              ; preds = %948, %906, %864, %819, %756, %714, %672, %626
@@ -2120,7 +2120,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 813:                                              ; preds = %809
   %814 = add nuw nsw i32 %788, 4
-  %815 = icmp ugt i32 %814, %33
+  %815 = icmp samesign ugt i32 %814, %33
   br i1 %815, label %819, label %816
 
 816:                                              ; preds = %813
@@ -2129,7 +2129,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %830
 
 819:                                              ; preds = %813
-  %820 = icmp ugt i32 %788, %49
+  %820 = icmp samesign ugt i32 %788, %49
   br i1 %820, label %628, label %821
 
 821:                                              ; preds = %819
@@ -2404,7 +2404,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1004:                                             ; preds = %1001
   %1005 = add nuw nsw i32 %115, 4
-  %1006 = icmp ugt i32 %1005, %33
+  %1006 = icmp samesign ugt i32 %1005, %33
   br i1 %1006, label %1010, label %1007
 
 1007:                                             ; preds = %1004
@@ -2413,7 +2413,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1022
 
 1010:                                             ; preds = %1004
-  %1011 = icmp ugt i32 %115, %49
+  %1011 = icmp samesign ugt i32 %115, %49
   br i1 %1011, label %1012, label %1013
 
 1012:                                             ; preds = %1370, %1317, %1264, %1211, %1157, %1104, %1054, %1010
@@ -2473,7 +2473,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1048:                                             ; preds = %1031
   %1049 = add nuw nsw i32 %1032, 4
-  %1050 = icmp ugt i32 %1049, %33
+  %1050 = icmp samesign ugt i32 %1049, %33
   br i1 %1050, label %1054, label %1051
 
 1051:                                             ; preds = %1048
@@ -2482,7 +2482,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1065
 
 1054:                                             ; preds = %1048
-  %1055 = icmp ugt i32 %1032, %49
+  %1055 = icmp samesign ugt i32 %1032, %49
   br i1 %1055, label %1012, label %1056
 
 1056:                                             ; preds = %1054
@@ -2550,7 +2550,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1098:                                             ; preds = %1094
   %1099 = add nuw nsw i32 %1086, 4
-  %1100 = icmp ugt i32 %1099, %33
+  %1100 = icmp samesign ugt i32 %1099, %33
   br i1 %1100, label %1104, label %1101
 
 1101:                                             ; preds = %1098
@@ -2559,7 +2559,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1115
 
 1104:                                             ; preds = %1098
-  %1105 = icmp ugt i32 %1086, %49
+  %1105 = icmp samesign ugt i32 %1086, %49
   br i1 %1105, label %1012, label %1106
 
 1106:                                             ; preds = %1104
@@ -2630,7 +2630,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1151:                                             ; preds = %1147
   %1152 = add nuw nsw i32 %1139, 4
-  %1153 = icmp ugt i32 %1152, %33
+  %1153 = icmp samesign ugt i32 %1152, %33
   br i1 %1153, label %1157, label %1154
 
 1154:                                             ; preds = %1151
@@ -2639,7 +2639,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1168
 
 1157:                                             ; preds = %1151
-  %1158 = icmp ugt i32 %1139, %49
+  %1158 = icmp samesign ugt i32 %1139, %49
   br i1 %1158, label %1012, label %1159
 
 1159:                                             ; preds = %1157
@@ -2711,7 +2711,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1205:                                             ; preds = %1201
   %1206 = add nuw nsw i32 %1192, 4
-  %1207 = icmp ugt i32 %1206, %33
+  %1207 = icmp samesign ugt i32 %1206, %33
   br i1 %1207, label %1211, label %1208
 
 1208:                                             ; preds = %1205
@@ -2720,7 +2720,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1222
 
 1211:                                             ; preds = %1205
-  %1212 = icmp ugt i32 %1192, %49
+  %1212 = icmp samesign ugt i32 %1192, %49
   br i1 %1212, label %1012, label %1213
 
 1213:                                             ; preds = %1211
@@ -2791,7 +2791,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1258:                                             ; preds = %1254
   %1259 = add nuw nsw i32 %1246, 4
-  %1260 = icmp ugt i32 %1259, %33
+  %1260 = icmp samesign ugt i32 %1259, %33
   br i1 %1260, label %1264, label %1261
 
 1261:                                             ; preds = %1258
@@ -2800,7 +2800,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1275
 
 1264:                                             ; preds = %1258
-  %1265 = icmp ugt i32 %1246, %49
+  %1265 = icmp samesign ugt i32 %1246, %49
   br i1 %1265, label %1012, label %1266
 
 1266:                                             ; preds = %1264
@@ -2871,7 +2871,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1311:                                             ; preds = %1307
   %1312 = add nuw nsw i32 %1299, 4
-  %1313 = icmp ugt i32 %1312, %33
+  %1313 = icmp samesign ugt i32 %1312, %33
   br i1 %1313, label %1317, label %1314
 
 1314:                                             ; preds = %1311
@@ -2880,7 +2880,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1328
 
 1317:                                             ; preds = %1311
-  %1318 = icmp ugt i32 %1299, %49
+  %1318 = icmp samesign ugt i32 %1299, %49
   br i1 %1318, label %1012, label %1319
 
 1319:                                             ; preds = %1317
@@ -2951,7 +2951,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1364:                                             ; preds = %1360
   %1365 = add nuw nsw i32 %1352, 4
-  %1366 = icmp ugt i32 %1365, %33
+  %1366 = icmp samesign ugt i32 %1365, %33
   br i1 %1366, label %1370, label %1367
 
 1367:                                             ; preds = %1364
@@ -2960,7 +2960,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1381
 
 1370:                                             ; preds = %1364
-  %1371 = icmp ugt i32 %1352, %49
+  %1371 = icmp samesign ugt i32 %1352, %49
   br i1 %1371, label %1012, label %1372
 
 1372:                                             ; preds = %1370
@@ -3041,7 +3041,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1423:                                             ; preds = %1419
   %1424 = add nuw nsw i32 %1405, 4
-  %1425 = icmp ugt i32 %1424, %33
+  %1425 = icmp samesign ugt i32 %1424, %33
   br i1 %1425, label %1429, label %1426
 
 1426:                                             ; preds = %1423
@@ -3050,7 +3050,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1441
 
 1429:                                             ; preds = %1423
-  %1430 = icmp ugt i32 %1405, %49
+  %1430 = icmp samesign ugt i32 %1405, %49
   br i1 %1430, label %1431, label %1432
 
 1431:                                             ; preds = %1802, %1749, %1696, %1643, %1589, %1536, %1483, %1429
@@ -3125,7 +3125,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1477:                                             ; preds = %1473
   %1478 = add nuw nsw i32 %1465, 4
-  %1479 = icmp ugt i32 %1478, %33
+  %1479 = icmp samesign ugt i32 %1478, %33
   br i1 %1479, label %1483, label %1480
 
 1480:                                             ; preds = %1477
@@ -3134,7 +3134,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1494
 
 1483:                                             ; preds = %1477
-  %1484 = icmp ugt i32 %1465, %49
+  %1484 = icmp samesign ugt i32 %1465, %49
   br i1 %1484, label %1431, label %1485
 
 1485:                                             ; preds = %1483
@@ -3205,7 +3205,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1530:                                             ; preds = %1526
   %1531 = add nuw nsw i32 %1518, 4
-  %1532 = icmp ugt i32 %1531, %33
+  %1532 = icmp samesign ugt i32 %1531, %33
   br i1 %1532, label %1536, label %1533
 
 1533:                                             ; preds = %1530
@@ -3214,7 +3214,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1547
 
 1536:                                             ; preds = %1530
-  %1537 = icmp ugt i32 %1518, %49
+  %1537 = icmp samesign ugt i32 %1518, %49
   br i1 %1537, label %1431, label %1538
 
 1538:                                             ; preds = %1536
@@ -3285,7 +3285,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1583:                                             ; preds = %1579
   %1584 = add nuw nsw i32 %1571, 4
-  %1585 = icmp ugt i32 %1584, %33
+  %1585 = icmp samesign ugt i32 %1584, %33
   br i1 %1585, label %1589, label %1586
 
 1586:                                             ; preds = %1583
@@ -3294,7 +3294,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1600
 
 1589:                                             ; preds = %1583
-  %1590 = icmp ugt i32 %1571, %49
+  %1590 = icmp samesign ugt i32 %1571, %49
   br i1 %1590, label %1431, label %1591
 
 1591:                                             ; preds = %1589
@@ -3366,7 +3366,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1637:                                             ; preds = %1633
   %1638 = add nuw nsw i32 %1624, 4
-  %1639 = icmp ugt i32 %1638, %33
+  %1639 = icmp samesign ugt i32 %1638, %33
   br i1 %1639, label %1643, label %1640
 
 1640:                                             ; preds = %1637
@@ -3375,7 +3375,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1654
 
 1643:                                             ; preds = %1637
-  %1644 = icmp ugt i32 %1624, %49
+  %1644 = icmp samesign ugt i32 %1624, %49
   br i1 %1644, label %1431, label %1645
 
 1645:                                             ; preds = %1643
@@ -3446,7 +3446,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1690:                                             ; preds = %1686
   %1691 = add nuw nsw i32 %1678, 4
-  %1692 = icmp ugt i32 %1691, %33
+  %1692 = icmp samesign ugt i32 %1691, %33
   br i1 %1692, label %1696, label %1693
 
 1693:                                             ; preds = %1690
@@ -3455,7 +3455,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1707
 
 1696:                                             ; preds = %1690
-  %1697 = icmp ugt i32 %1678, %49
+  %1697 = icmp samesign ugt i32 %1678, %49
   br i1 %1697, label %1431, label %1698
 
 1698:                                             ; preds = %1696
@@ -3526,7 +3526,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1743:                                             ; preds = %1739
   %1744 = add nuw nsw i32 %1731, 4
-  %1745 = icmp ugt i32 %1744, %33
+  %1745 = icmp samesign ugt i32 %1744, %33
   br i1 %1745, label %1749, label %1746
 
 1746:                                             ; preds = %1743
@@ -3535,7 +3535,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1760
 
 1749:                                             ; preds = %1743
-  %1750 = icmp ugt i32 %1731, %49
+  %1750 = icmp samesign ugt i32 %1731, %49
   br i1 %1750, label %1431, label %1751
 
 1751:                                             ; preds = %1749
@@ -3606,7 +3606,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 
 1796:                                             ; preds = %1792
   %1797 = add nuw nsw i32 %1784, 4
-  %1798 = icmp ugt i32 %1797, %33
+  %1798 = icmp samesign ugt i32 %1797, %33
   br i1 %1798, label %1802, label %1799
 
 1799:                                             ; preds = %1796
@@ -3615,7 +3615,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   br label %1813
 
 1802:                                             ; preds = %1796
-  %1803 = icmp ugt i32 %1784, %49
+  %1803 = icmp samesign ugt i32 %1784, %49
   br i1 %1803, label %1431, label %1804
 
 1804:                                             ; preds = %1802
@@ -3708,7 +3708,7 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
   tail call void @llvm.assume(i1 %15)
   %16 = icmp ult i32 %1, 33
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i32 %6, %1
+  %17 = icmp samesign ult i32 %6, %1
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %4
@@ -3717,7 +3717,7 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
 
 20:                                               ; preds = %4
   %21 = add nuw nsw i32 %14, 4
-  %22 = icmp ugt i32 %21, %11
+  %22 = icmp samesign ugt i32 %21, %11
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %20
@@ -3727,7 +3727,7 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
 
 26:                                               ; preds = %20
   %27 = add nuw nsw i32 %11, 8
-  %28 = icmp ugt i32 %14, %27
+  %28 = icmp samesign ugt i32 %14, %27
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26

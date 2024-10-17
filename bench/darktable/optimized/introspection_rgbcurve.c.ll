@@ -401,7 +401,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   br i1 %57, label %58, label %.preheader13
 
 58:                                               ; preds = %52
-  %59 = icmp ult i64 %50, %43
+  %59 = icmp samesign ult i64 %50, %43
   br i1 %59, label %385, label %.thread
 
 .thread:                                          ; preds = %.preheader13, %58, %37
@@ -434,7 +434,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   br i1 %78, label %79, label %.preheader
 
 79:                                               ; preds = %73
-  %80 = icmp ult i64 %71, %64
+  %80 = icmp samesign ult i64 %71, %64
   br i1 %80, label %385, label %.thread19
 
 .thread19:                                        ; preds = %.preheader, %79, %.thread

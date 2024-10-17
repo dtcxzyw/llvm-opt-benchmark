@@ -5318,8 +5318,8 @@ switch.edge429:                                   ; preds = %488, %488, %488, %4
   %504 = load i16, ptr %503, align 2
   %505 = zext i16 %504 to i64
   %506 = mul nuw nsw i64 %501, %505
-  %507 = icmp ugt i64 %499, 524280
-  %508 = icmp ugt i64 %506, 65535
+  %507 = icmp samesign ugt i64 %499, 524280
+  %508 = icmp samesign ugt i64 %506, 65535
   %or.cond = select i1 %507, i1 true, i1 %508
   br i1 %or.cond, label %.thread438.sink.split, label %509
 

@@ -267,7 +267,7 @@ define dso_local noundef i32 @intel_execlists_submission_setup(ptr noundef %0) l
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %63, %66
-  %68 = icmp ugt i32 %67, 3121
+  %68 = icmp samesign ugt i32 %67, 3121
   %69 = and i32 %59, 4
   %70 = icmp eq i32 %69, 0
   %71 = getelementptr inbounds i8, ptr %0, i64 896
@@ -406,7 +406,7 @@ define dso_local noundef i32 @intel_execlists_submission_setup(ptr noundef %0) l
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = or disjoint i32 %154, %157
-  %159 = icmp ult i32 %158, 3122
+  %159 = icmp samesign ult i32 %158, 3122
   br i1 %159, label %160, label %173
 
 160:                                              ; preds = %152
@@ -1520,7 +1520,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   %685 = load i8, ptr %684, align 1
   %686 = zext i8 %685 to i32
   %687 = or disjoint i32 %683, %686
-  %688 = icmp ugt i32 %687, 3121
+  %688 = icmp samesign ugt i32 %687, 3121
   %689 = getelementptr inbounds i8, ptr %564, i64 104
   br i1 %688, label %690, label %697
 
@@ -2341,7 +2341,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef %1) unnamed_
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
-  %47 = icmp ugt i32 %46, 3121
+  %47 = icmp samesign ugt i32 %46, 3121
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %36
@@ -3147,13 +3147,13 @@ define internal fastcc void @post_process_csb(ptr noundef readonly %0, ptr nound
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
-  %49 = icmp ugt i32 %48, 3121
+  %49 = icmp samesign ugt i32 %48, 3121
   %50 = lshr i32 %39, 7
   %51 = and i32 %50, 65535
   %52 = lshr i32 %39, 5
   %53 = and i32 %52, 2047
   %54 = select i1 %49, i32 %51, i32 %53
-  %55 = icmp ult i32 %54, 64
+  %55 = icmp samesign ult i32 %54, 64
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %37
@@ -5622,7 +5622,7 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
   %30 = add nuw nsw i64 %35, 1
   %31 = load i32, ptr %23, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %34, label %.loopexit, !llvm.loop !103
 
 34:                                               ; preds = %29, %26
@@ -5869,7 +5869,7 @@ define internal void @virtual_context_enter(ptr nocapture noundef readonly %0) #
   %25 = add nuw nsw i64 %8, 1
   %26 = load i32, ptr %2, align 8
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %25, %27
+  %28 = icmp samesign ult i64 %25, %27
   br i1 %28, label %7, label %.loopexit3, !llvm.loop !105
 
 .loopexit3:                                       ; preds = %.loopexit, %1
@@ -5926,7 +5926,7 @@ define internal void @virtual_context_exit(ptr nocapture noundef readonly %0) #0
   %26 = add nuw nsw i64 %10, 1
   %27 = load i32, ptr %4, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %9, label %.loopexit3, !llvm.loop !106
 
 .loopexit3:                                       ; preds = %.loopexit, %1
@@ -6076,7 +6076,7 @@ define internal void @rcu_virtual_context_destroy(ptr noundef %0) #0 align 16 {
   %56 = phi i32 [ %.pre, %52 ], [ %27, %26 ]
   %57 = add nuw nsw i64 %28, 1
   %58 = zext i32 %56 to i64
-  %59 = icmp ult i64 %57, %58
+  %59 = icmp samesign ult i64 %57, %58
   br i1 %59, label %26, label %.loopexit, !llvm.loop !107
 
 .loopexit:                                        ; preds = %55, %16

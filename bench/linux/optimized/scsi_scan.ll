@@ -811,7 +811,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %99 = load i8, ptr %66, align 1
   %100 = icmp eq i8 %99, 0
   %101 = select i1 %98, i1 %100, i1 false
-  %102 = icmp ult i32 %79, 2
+  %102 = icmp samesign ult i32 %79, 2
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %110, label %181
 
@@ -822,7 +822,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 106:                                              ; preds = %104
   %107 = load i32, ptr %8, align 4
   %108 = icmp eq i32 %107, %75
-  %109 = icmp ult i32 %79, 2
+  %109 = icmp samesign ult i32 %79, 2
   %or.cond = select i1 %108, i1 %109, i1 false
   br i1 %or.cond, label %110, label %.loopexit
 
@@ -917,7 +917,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %168 = load i8, ptr %58, align 8
   %169 = zext i8 %168 to i32
   %170 = icmp ne i8 %168, 0
-  %171 = icmp ugt i32 %162, %169
+  %171 = icmp samesign ugt i32 %162, %169
   %172 = select i1 %170, i1 %171, i1 false
   br i1 %172, label %173, label %177
 
@@ -952,7 +952,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %185 = trunc i32 %184 to i8
   store i8 %185, ptr %58, align 8
   %186 = and i32 %184, 255
-  %187 = icmp ult i32 %186, 36
+  %187 = icmp samesign ult i32 %186, 36
   br i1 %187, label %188, label %201
 
 188:                                              ; preds = %183
@@ -982,7 +982,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %203 = and i8 %202, 15
   %204 = getelementptr inbounds i8, ptr %49, i64 177
   store i8 %203, ptr %204, align 1
-  %205 = icmp ugt i8 %203, 1
+  %205 = icmp samesign ugt i8 %203, 1
   br i1 %205, label %213, label %206
 
 206:                                              ; preds = %201
@@ -1966,7 +1966,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %114 = call i32 @llvm.bswap.i32(i32 %113)
   %115 = zext i32 %114 to i64
   %116 = add nuw nsw i64 %115, 8
-  %117 = icmp ugt i64 %116, %95
+  %117 = icmp samesign ugt i64 %116, %95
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %112
@@ -2098,7 +2098,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 191:                                              ; preds = %189, %187
   %192 = phi i32 [ %190, %189 ], [ %188, %187 ]
   %193 = zext nneg i32 %192 to i64
-  %194 = icmp ugt i32 %192, 1
+  %194 = icmp samesign ugt i32 %192, 1
   br i1 %194, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %191, %.preheader

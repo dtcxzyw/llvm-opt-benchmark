@@ -620,7 +620,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %m_result_sz, align 8
   %26 = zext i32 %25 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %26
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %cmp10, label %for.body, label %if.end, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
@@ -851,7 +851,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %m_result_sz, align 4
   %30 = zext i32 %29 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %30
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %cmp8, label %for.body, label %if.end, !llvm.loop !12
 
 if.else:                                          ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit

@@ -263,7 +263,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %encr
   %arrayidx6.i.i = getelementptr <2 x i64>, ptr %hx, i64 %add.i.i
   store <2 x i64> %xor.i.i27.i.i, ptr %arrayidx6.i.i, align 16
   %add7.i.i = add nuw nsw i64 %i.028.i.i, 2
-  %cmp.i.i = icmp ult i64 %i.028.i.i, 12
+  %cmp.i.i = icmp samesign ult i64 %i.028.i.i, 12
   br i1 %cmp.i.i, label %for.body.i.i, label %precomp_for_block_count.exit, !llvm.loop !6
 
 precomp_for_block_count.exit:                     ; preds = %for.body.i.i

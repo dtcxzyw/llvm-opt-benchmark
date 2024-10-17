@@ -662,7 +662,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i11.i
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
-  %tobool.not.i14.i = icmp ult i64 %r.addr.0.i8.i, 256
+  %tobool.not.i14.i = icmp samesign ult i64 %r.addr.0.i8.i, 256
   br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !9
 
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
@@ -817,7 +817,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
-  %tobool.not.i14.i.i = icmp ult i64 %r.addr.0.i8.i.i, 256
+  %tobool.not.i14.i.i = icmp samesign ult i64 %r.addr.0.i8.i.i, 256
   br i1 %tobool.not.i14.i.i, label %ASN1_INTEGER_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !9
 
 ASN1_INTEGER_set_int64.exit:                      ; preds = %do.body.i7.i.i, %do.body.i.i.i
@@ -1032,7 +1032,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %dec.i11.i
   store i8 %conv.i10.i, ptr %arrayidx.i12.i, align 1
   %shr.i13.i = lshr i64 %r.addr.0.i8.i, 8
-  %tobool.not.i14.i = icmp ult i64 %r.addr.0.i8.i, 256
+  %tobool.not.i14.i = icmp samesign ult i64 %r.addr.0.i8.i, 256
   br i1 %tobool.not.i14.i, label %asn1_string_set_int64.exit, label %do.body.i7.i, !llvm.loop !9
 
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
@@ -1079,7 +1079,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %dec.i11.i.i
   store i8 %conv.i10.i.i, ptr %arrayidx.i12.i.i, align 1
   %shr.i13.i.i = lshr i64 %r.addr.0.i8.i.i, 8
-  %tobool.not.i14.i.i = icmp ult i64 %r.addr.0.i8.i.i, 256
+  %tobool.not.i14.i.i = icmp samesign ult i64 %r.addr.0.i8.i.i, 256
   br i1 %tobool.not.i14.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %do.body.i7.i.i, !llvm.loop !9
 
 ASN1_ENUMERATED_set_int64.exit:                   ; preds = %do.body.i7.i.i, %do.body.i.i.i

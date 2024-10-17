@@ -1015,7 +1015,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %28,
   store i8 %51, ptr %.023.i, align 1
   %52 = lshr i32 %.022.i, 7
   %53 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %54 = icmp ugt i32 %.022.i, 16383
+  %54 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %54, label %49, label %55, !llvm.loop !6
 
 55:                                               ; preds = %49
@@ -1120,7 +1120,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88: ; preds = %8
   store i8 %103, ptr %.023.i90, align 1
   %104 = lshr i32 %.022.i91, 7
   %105 = getelementptr inbounds i8, ptr %.023.i90, i64 1
-  %106 = icmp ugt i32 %.022.i91, 16383
+  %106 = icmp samesign ugt i32 %.022.i91, 16383
   br i1 %106, label %101, label %107, !llvm.loop !6
 
 107:                                              ; preds = %101
@@ -1185,7 +1185,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit96: ; preds = %1
   store i8 %134, ptr %.023.i98, align 1
   %135 = lshr i32 %.022.i99, 7
   %136 = getelementptr inbounds i8, ptr %.023.i98, i64 1
-  %137 = icmp ugt i32 %.022.i99, 16383
+  %137 = icmp samesign ugt i32 %.022.i99, 16383
   br i1 %137, label %132, label %138, !llvm.loop !6
 
 138:                                              ; preds = %132
@@ -2801,7 +2801,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %30,
   store i8 %58, ptr %.023.i, align 1
   %59 = lshr i32 %.022.i, 7
   %60 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %61 = icmp ugt i32 %.022.i, 16383
+  %61 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %61, label %56, label %62, !llvm.loop !6
 
 62:                                               ; preds = %56
@@ -4168,7 +4168,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   store i8 %35, ptr %.023.i, align 1
   %36 = lshr i32 %.022.i, 7
   %37 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %38 = icmp ugt i32 %.022.i, 16383
+  %38 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %38, label %33, label %39, !llvm.loop !6
 
 39:                                               ; preds = %33

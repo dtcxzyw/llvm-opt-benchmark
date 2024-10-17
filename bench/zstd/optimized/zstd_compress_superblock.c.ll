@@ -523,7 +523,7 @@ if.end71.i.i.i:                                   ; preds = %if.end62.i.i.i
   %cmp75.i.i.i = icmp ugt i64 %add53.i.i.i, 16383
   %conv76.i.i.i = zext i1 %cmp75.i.i.i to i64
   %add77.i.i.i = add nuw nsw i64 %add74.i.i.i, %conv76.i.i.i
-  %cmp79.i.i.i = icmp ult i64 %add5.i.i.i, %add77.i.i.i
+  %cmp79.i.i.i = icmp samesign ult i64 %add5.i.i.i, %add77.i.i.i
   br i1 %cmp79.i.i.i, label %do.end83.i.i.i, label %do.end87.i.i.i
 
 do.end83.i.i.i:                                   ; preds = %if.end71.i.i.i

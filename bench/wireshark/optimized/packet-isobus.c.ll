@@ -4657,7 +4657,7 @@ define internal i32 @dissect_isobus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %36 = trunc i32 %35 to i8
   %37 = and i32 %.sroa.0.0.copyload, 255
   %38 = and i32 %33, 255
-  %39 = icmp ult i32 %38, 240
+  %39 = icmp samesign ult i32 %38, 240
   %.0286.v = select i1 %39, i32 261888, i32 262143
   %.0286 = and i32 %.0286.v, %35
   %40 = load i32, ptr @proto_isobus, align 4

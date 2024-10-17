@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %178 = zext i16 %177 to i32
   %179 = sub nsw i32 %175, %178
   %180 = call i32 @llvm.abs.i32(i32 %179, i1 true)
-  %181 = icmp ugt i32 %180, 165
+  %181 = icmp samesign ugt i32 %180, 165
   br i1 %181, label %193, label %182
 
 182:                                              ; preds = %168
@@ -320,13 +320,13 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %185 = zext i16 %184 to i32
   %186 = sub nsw i32 %175, %185
   %187 = call i32 @llvm.abs.i32(i32 %186, i1 true)
-  %188 = icmp ugt i32 %187, 165
+  %188 = icmp samesign ugt i32 %187, 165
   br i1 %188, label %193, label %189
 
 189:                                              ; preds = %182
   %190 = sub nsw i32 %178, %185
   %191 = call i32 @llvm.abs.i32(i32 %190, i1 true)
-  %192 = icmp ugt i32 %191, 165
+  %192 = icmp samesign ugt i32 %191, 165
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %189, %182, %168
@@ -375,7 +375,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %222 = zext i8 %221 to i32
   %223 = sub nsw i32 %219, %222
   %224 = call i32 @llvm.abs.i32(i32 %223, i1 true)
-  %225 = icmp ugt i32 %224, 2
+  %225 = icmp samesign ugt i32 %224, 2
   br i1 %225, label %237, label %226
 
 226:                                              ; preds = %212
@@ -384,13 +384,13 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %229 = zext i8 %228 to i32
   %230 = sub nsw i32 %219, %229
   %231 = call i32 @llvm.abs.i32(i32 %230, i1 true)
-  %232 = icmp ugt i32 %231, 2
+  %232 = icmp samesign ugt i32 %231, 2
   br i1 %232, label %237, label %233
 
 233:                                              ; preds = %226
   %234 = sub nsw i32 %222, %229
   %235 = call i32 @llvm.abs.i32(i32 %234, i1 true)
-  %236 = icmp ugt i32 %235, 2
+  %236 = icmp samesign ugt i32 %235, 2
   br i1 %236, label %237, label %238
 
 237:                                              ; preds = %233, %226, %212
@@ -649,7 +649,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %396 = add nuw nsw i64 %389, 1
   %.0..0..0..0.19 = load volatile i16, ptr %15, align 2, !tbaa !33
   %397 = zext i16 %.0..0..0..0.19 to i64
-  %398 = icmp ult i64 %396, %397
+  %398 = icmp samesign ult i64 %396, %397
   br i1 %398, label %.preheader182, label %.loopexit183
 
 .loopexit183:                                     ; preds = %.preheader182, %.thread
@@ -683,7 +683,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %414 = add nuw nsw i64 %407, 1
   %.0..0..0..0.23 = load volatile i16, ptr %15, align 2, !tbaa !33
   %415 = zext i16 %.0..0..0..0.23 to i64
-  %416 = icmp ult i64 %414, %415
+  %416 = icmp samesign ult i64 %414, %415
   br i1 %416, label %.preheader178, label %.loopexit179
 
 .loopexit179:                                     ; preds = %.preheader178, %.loopexit181
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %429 = add nuw nsw i64 %422, 1
   %.0..0..0..0.25 = load volatile i16, ptr %15, align 2, !tbaa !33
   %430 = zext i16 %.0..0..0..0.25 to i64
-  %431 = icmp ult i64 %429, %430
+  %431 = icmp samesign ult i64 %429, %430
   br i1 %431, label %.preheader180, label %.loopexit181
 
 432:                                              ; preds = %355
@@ -1169,7 +1169,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %708 = add nuw nsw i64 %706, 1
   %.0..0..0..0.51 = load volatile i16, ptr %15, align 2, !tbaa !33
   %709 = zext i16 %.0..0..0..0.51 to i64
-  %710 = icmp ult i64 %708, %709
+  %710 = icmp samesign ult i64 %708, %709
   br i1 %710, label %705, label %.loopexit143
 
 .loopexit143:                                     ; preds = %705, %.thread129
@@ -1203,7 +1203,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %725 = add nuw nsw i64 %723, 1
   %.0..0..0..0.55 = load volatile i16, ptr %15, align 2, !tbaa !33
   %726 = zext i16 %.0..0..0..0.55 to i64
-  %727 = icmp ult i64 %725, %726
+  %727 = icmp samesign ult i64 %725, %726
   br i1 %727, label %722, label %.loopexit133
 
 .loopexit133:                                     ; preds = %722, %.loopexit134
@@ -1221,7 +1221,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %735 = add nuw nsw i64 %733, 1
   %.0..0..0..0.57 = load volatile i16, ptr %15, align 2, !tbaa !33
   %736 = zext i16 %.0..0..0..0.57 to i64
-  %737 = icmp ult i64 %735, %736
+  %737 = icmp samesign ult i64 %735, %736
   br i1 %737, label %732, label %.loopexit134
 
 738:                                              ; preds = %677
@@ -1292,7 +1292,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %775 = add nuw nsw i64 %773, 1
   %.0..0..0..0.60 = load volatile i16, ptr %15, align 2, !tbaa !33
   %776 = zext i16 %.0..0..0..0.60 to i64
-  %777 = icmp ult i64 %775, %776
+  %777 = icmp samesign ult i64 %775, %776
   br i1 %777, label %772, label %.loopexit147
 
 .loopexit147:                                     ; preds = %772, %.thread130
@@ -1329,7 +1329,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %795 = add nuw nsw i64 %793, 1
   %.0..0..0..0.64 = load volatile i16, ptr %15, align 2, !tbaa !33
   %796 = zext i16 %.0..0..0..0.64 to i64
-  %797 = icmp ult i64 %795, %796
+  %797 = icmp samesign ult i64 %795, %796
   br i1 %797, label %792, label %.loopexit139
 
 .loopexit139:                                     ; preds = %792, %.loopexit140
@@ -1347,7 +1347,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %805 = add nuw nsw i64 %803, 1
   %.0..0..0..0.66 = load volatile i16, ptr %15, align 2, !tbaa !33
   %806 = zext i16 %.0..0..0..0.66 to i64
-  %807 = icmp ult i64 %805, %806
+  %807 = icmp samesign ult i64 %805, %806
   br i1 %807, label %802, label %.loopexit140
 
 808:                                              ; preds = %738
@@ -1388,7 +1388,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %827 = add nuw nsw i64 %825, 1
   %.0..0..0..0.68 = load volatile i16, ptr %15, align 2, !tbaa !33
   %828 = zext i16 %.0..0..0..0.68 to i64
-  %829 = icmp ult i64 %827, %828
+  %829 = icmp samesign ult i64 %827, %828
   br i1 %829, label %.preheader, label %.loopexit135
 
 830:                                              ; preds = %821
@@ -1402,7 +1402,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %834 = add nuw nsw i64 %832, 1
   %.0..0..0..0.69 = load volatile i16, ptr %15, align 2, !tbaa !33
   %835 = zext i16 %.0..0..0..0.69 to i64
-  %836 = icmp ult i64 %834, %835
+  %836 = icmp samesign ult i64 %834, %835
   br i1 %836, label %.preheader136, label %.loopexit135
 
 837:                                              ; preds = %830
@@ -1432,7 +1432,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %851 = add nuw nsw i64 %849, 1
   %.0..0..0..0.71 = load volatile i16, ptr %15, align 2, !tbaa !33
   %852 = zext i16 %.0..0..0..0.71 to i64
-  %853 = icmp ult i64 %851, %852
+  %853 = icmp samesign ult i64 %851, %852
   br i1 %853, label %848, label %.loopexit135
 
 854:                                              ; preds = %677
@@ -1506,7 +1506,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %890 = add nuw nsw i64 %878, 1
   %.0..0..0..0.74 = load volatile i16, ptr %15, align 2, !tbaa !33
   %891 = zext i16 %.0..0..0..0.74 to i64
-  %892 = icmp ult i64 %890, %891
+  %892 = icmp samesign ult i64 %890, %891
   br i1 %892, label %877, label %.loopexit141
 
 .loopexit141:                                     ; preds = %885, %.thread131
@@ -1555,7 +1555,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %916 = add nuw nsw i64 %904, 1
   %.0..0..0..0.78 = load volatile i16, ptr %15, align 2, !tbaa !33
   %917 = zext i16 %.0..0..0..0.78 to i64
-  %918 = icmp ult i64 %916, %917
+  %918 = icmp samesign ult i64 %916, %917
   br i1 %918, label %903, label %.loopexit
 
 .loopexit:                                        ; preds = %911, %.loopexit132
@@ -1589,7 +1589,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %936 = add nuw nsw i64 %924, 1
   %.0..0..0..0.80 = load volatile i16, ptr %15, align 2, !tbaa !33
   %937 = zext i16 %.0..0..0..0.80 to i64
-  %938 = icmp ult i64 %936, %937
+  %938 = icmp samesign ult i64 %936, %937
   br i1 %938, label %923, label %.loopexit132
 
 .loopexit150:                                     ; preds = %747, %811, %686, %860, %854, %808, %742, %680

@@ -2319,7 +2319,7 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i64 [ %20, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.i23 = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp.i23 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i23, label %for.body.i, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i

@@ -80,7 +80,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit9: ; preds = %7
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
-  %20 = icmp ult i64 %19, 2
+  %20 = icmp samesign ult i64 %19, 2
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit9
@@ -265,7 +265,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
 22:                                               ; preds = %25, %19
   %.025.i.i.i = phi i64 [ %10, %19 ], [ %23, %25 ]
   %23 = add nuw nsw i64 %.025.i.i.i, 1
-  %24 = icmp ult i64 %23, %21
+  %24 = icmp samesign ult i64 %23, %21
   br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
 
 25:                                               ; preds = %22
@@ -385,7 +385,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
 22:                                               ; preds = %25, %19
   %.025.i.i.i = phi i64 [ %9, %19 ], [ %23, %25 ]
   %23 = add nuw nsw i64 %.025.i.i.i, 1
-  %24 = icmp ult i64 %23, %21
+  %24 = icmp samesign ult i64 %23, %21
   br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
 
 25:                                               ; preds = %22
@@ -495,7 +495,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   %13 = udiv i64 %12, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #8
-  %.not34 = icmp ugt i64 %10, %13
+  %.not34 = icmp samesign ugt i64 %10, %13
   br i1 %.not34, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -538,7 +538,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
 36:                                               ; preds = %39, %33
   %.025.i.i.i = phi i64 [ %24, %33 ], [ %37, %39 ]
   %37 = add nuw nsw i64 %.025.i.i.i, 1
-  %38 = icmp ult i64 %37, %35
+  %38 = icmp samesign ult i64 %37, %35
   br i1 %38, label %39, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
 
 39:                                               ; preds = %36
@@ -589,7 +589,7 @@ _ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit: ; preds 
   %.227 = phi i64 [ %.02536, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %spec.select, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ], [ %spec.select, %53 ]
   %.2 = phi i1 [ false, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ], [ %.1, %53 ]
   %60 = add nuw nsw i64 %.038, 1
-  %.not.not = icmp ult i64 %.038, %13
+  %.not.not = icmp samesign ult i64 %.038, %13
   br i1 %.not.not, label %18, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !10
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit, %4
@@ -663,7 +663,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper16unco
   br label %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
 
 _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
-  %.not16 = icmp ugt i64 %9, %12
+  %.not16 = icmp samesign ugt i64 %9, %12
   br i1 %.not16, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
@@ -701,7 +701,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
 47:                                               ; preds = %50, %44
   %.025.i.i.i = phi i64 [ %35, %44 ], [ %48, %50 ]
   %48 = add nuw nsw i64 %.025.i.i.i, 1
-  %49 = icmp ult i64 %48, %46
+  %49 = icmp samesign ult i64 %48, %46
   br i1 %49, label %50, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
 
 50:                                               ; preds = %47
@@ -733,7 +733,7 @@ _ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread: ; pr
 
 59:                                               ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
   %60 = add nuw nsw i64 %.017, 1
-  %.not.not = icmp ult i64 %.017, %12
+  %.not.not = icmp samesign ult i64 %.017, %12
   br i1 %.not.not, label %29, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !11
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %59, %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit

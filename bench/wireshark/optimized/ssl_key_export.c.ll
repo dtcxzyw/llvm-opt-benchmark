@@ -245,7 +245,7 @@ define internal fastcc void @tls_export_client_randoms_func(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %6, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -288,7 +288,7 @@ g_string_append_c_inline.exit:                    ; preds = %21, %27
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %35 = load i32, ptr %29, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next26, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next26, %36
   br i1 %37, label %.lr.ph21, label %._crit_edge22, !llvm.loop !8
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %g_string_append_c_inline.exit

@@ -1600,7 +1600,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %187, %190
   %245 = sitofp i32 %184 to double
   %246 = load i32, ptr %30, align 8
   %247 = and i32 %246, 4095
-  %248 = icmp ult i32 %247, 5
+  %248 = icmp samesign ult i32 %247, 5
   %249 = shl nuw nsw i32 1, %.
   %250 = uitofp nneg i32 %249 to double
   %251 = fdiv double 1.000000e+00, %250
@@ -2894,7 +2894,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIiEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -3058,7 +3058,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIhEEvRPT_mt(pt
 
 40:                                               ; preds = %32
   %41 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %3)
-  %42 = icmp ult i16 %41, 2
+  %42 = icmp samesign ult i16 %41, 2
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40
@@ -3594,7 +3594,7 @@ _ZN2cvL13prefilterNormERKNS_3MatERS0_iiPi.exit:   ; preds = %._crit_edge196.i, %
   %.pn.i = select i1 %.not.us.i, i64 %281, i64 %282
   %283 = getelementptr inbounds i8, ptr %280, i64 %.pn.i
   %284 = getelementptr inbounds i8, ptr %280, i64 %281
-  %285 = icmp ult i64 %indvars.iv119.i, %274
+  %285 = icmp samesign ult i64 %indvars.iv119.i, %274
   %286 = shl i64 %281, 1
   %.idx.us.i = select i1 %285, i64 %286, i64 0
   %287 = getelementptr inbounds i8, ptr %280, i64 %.idx.us.i
@@ -3668,7 +3668,7 @@ _ZN2cvL13prefilterNormERKNS_3MatERS0_iiPi.exit:   ; preds = %._crit_edge196.i, %
 
 ._crit_edge.us.i14:                               ; preds = %297
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 2
-  %343 = icmp ult i64 %indvars.iv.next120.i, %275
+  %343 = icmp samesign ult i64 %indvars.iv.next120.i, %275
   br i1 %343, label %.lr.ph96.split.us.i, label %.preheader.loopexit.i, !llvm.loop !37
 
 .lr.ph96.split.split.us.preheader.i:              ; preds = %.lr.ph96.i
@@ -3691,7 +3691,7 @@ _ZN2cvL13prefilterNormERKNS_3MatERS0_iiPi.exit:   ; preds = %._crit_edge196.i, %
   store i8 %261, ptr %353, align 1
   store i8 %261, ptr %349, align 1
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 2
-  %354 = icmp ult i64 %indvars.iv.next113.i, %344
+  %354 = icmp samesign ult i64 %indvars.iv.next113.i, %344
   br i1 %354, label %.lr.ph96.split.split.us.i, label %.preheader.loopexit108.i, !llvm.loop !37
 
 .preheader.loopexit.i:                            ; preds = %._crit_edge.us.i14

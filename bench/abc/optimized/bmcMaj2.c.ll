@@ -1002,7 +1002,7 @@ Abc_TtFill.exit.i.i:                              ; preds = %.lr.ph.preheader.i.
   %456 = mul nsw i32 %455, %423
   %457 = sext i32 %456 to i64
   %458 = getelementptr inbounds i64, ptr %.val23.val.i.i, i64 %457
-  %459 = icmp ult i64 %indvars.iv.i35.i, 6
+  %459 = icmp samesign ult i64 %indvars.iv.i35.i, 6
   br i1 %459, label %.preheader.i.i41.i, label %.preheader18.i.i.i
 
 .preheader18.i.i.i:                               ; preds = %.lr.ph.i34.i
@@ -1404,7 +1404,7 @@ Maj_ManValue.exit.i:                              ; preds = %.lr.ph.i.i41
   br i1 %exitcond.not.i47, label %._crit_edge.i33.loopexit, label %604, !llvm.loop !32
 
 ._crit_edge.i33.loopexit:                         ; preds = %604
-  %610 = icmp ugt i32 %601, %603
+  %610 = icmp samesign ugt i32 %601, %603
   br label %._crit_edge.i33
 
 ._crit_edge.i33:                                  ; preds = %._crit_edge.i33.loopexit, %Maj_ManValue.exit.thread.i
@@ -2532,7 +2532,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %210, %Exa_ManMarkup
   %228 = mul nsw i32 %205, %227
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i64, ptr %.val10.val.i.us.i, i64 %229
-  %231 = icmp ult i64 %indvars.iv.i26.us.i, 6
+  %231 = icmp samesign ult i64 %indvars.iv.i26.us.i, 6
   br i1 %231, label %.preheader.i.i.us.i, label %.preheader18.i.i.us.i
 
 .preheader18.i.i.us.i:                            ; preds = %.lr.ph.i25.us.i
@@ -3344,7 +3344,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.
   %598 = sext i32 %597 to i64
   %599 = getelementptr inbounds i64, ptr %.val52.val.i, i64 %598
   %600 = and i32 %588, 1
-  %.not46.i = icmp ugt i64 %indvars.iv107.i, 1
+  %.not46.i = icmp samesign ugt i64 %indvars.iv107.i, 1
   %.not.i61.not.i = icmp eq i32 %600, 0
   %601 = icmp sgt i32 %.val51.i, 0
   br i1 %.not.i61.not.i, label %602, label %616
@@ -4454,7 +4454,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %227, %Exa3_ManMarku
   %245 = mul nsw i32 %222, %244
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds i64, ptr %.val10.val.i.us.i, i64 %246
-  %248 = icmp ult i64 %indvars.iv.i31.us.i, 6
+  %248 = icmp samesign ult i64 %indvars.iv.i31.us.i, 6
   br i1 %248, label %.preheader.i.i.us.i, label %.preheader18.i.i.us.i
 
 .preheader18.i.i.us.i:                            ; preds = %.lr.ph.i30.us.i

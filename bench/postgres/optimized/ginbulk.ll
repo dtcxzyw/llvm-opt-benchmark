@@ -304,7 +304,7 @@ ginInsertBAEntry.exit:                            ; preds = %38, %68
 
 ._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %32
   %79 = lshr i32 %.02831, 1
-  %.not = icmp ult i32 %.02831, 2
+  %.not = icmp samesign ult i32 %.02831, 2
   br i1 %.not, label %.loopexit, label %32, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %6

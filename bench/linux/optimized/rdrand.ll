@@ -43,7 +43,7 @@ define dso_local void @x86_init_rdrand(ptr noundef %0) local_unnamed_addr #0 ali
   %25 = zext i1 %24 to i64
   %26 = add i64 %8, %25
   %27 = add nuw nsw i64 %9, 1
-  %28 = icmp ult i64 %9, 7
+  %28 = icmp samesign ult i64 %9, 7
   %29 = icmp eq i64 %27, 8
   br i1 %29, label %30, label %.preheader, !llvm.loop !9
 

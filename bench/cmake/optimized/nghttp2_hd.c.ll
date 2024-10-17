@@ -746,7 +746,7 @@ count_encoded_length.exit.thread.thread17.thread.i: ; preds = %24
   br i1 %29, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !9
 
 count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
-  %30 = icmp ugt i64 %.016.i.i, 14
+  %30 = icmp samesign ugt i64 %.016.i.i, 14
   br i1 %30, label %emit_table_size.exit.thread, label %count_encoded_length.exit.thread.thread17.i
 
 emit_table_size.exit.thread:                      ; preds = %count_encoded_length.exit.i
@@ -823,7 +823,7 @@ count_encoded_length.exit.thread.thread17.thread.i33: ; preds = %43
   br i1 %48, label %.lr.ph.i.i42, label %count_encoded_length.exit.i45, !llvm.loop !9
 
 count_encoded_length.exit.i45:                    ; preds = %.lr.ph.i.i42
-  %49 = icmp ugt i64 %.016.i.i43, 14
+  %49 = icmp samesign ugt i64 %.016.i.i43, 14
   br i1 %49, label %emit_table_size.exit53.thread, label %count_encoded_length.exit.thread.thread17.i46
 
 emit_table_size.exit53.thread:                    ; preds = %count_encoded_length.exit.i45
@@ -1224,7 +1224,7 @@ count_encoded_length.exit.thread.thread17.thread.i.i: ; preds = %202
   br i1 %207, label %.lr.ph.i.i73.i, label %count_encoded_length.exit.i.i, !llvm.loop !9
 
 count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i73.i
-  %208 = icmp ugt i64 %.016.i.i.i, 14
+  %208 = icmp samesign ugt i64 %.016.i.i.i, 14
   br i1 %208, label %emit_indexed_block.exit.i, label %count_encoded_length.exit.thread.thread17.i.i
 
 count_encoded_length.exit.thread.thread17.i.i:    ; preds = %count_encoded_length.exit.i.i
@@ -1276,7 +1276,7 @@ search_hd_table.exit.thread.thread95.i:           ; preds = %182
   ]
 
 217:                                              ; preds = %search_hd_table.exit.thread.i
-  %218 = icmp ugt i64 %.sroa.024.0.i84.i, 60
+  %218 = icmp samesign ugt i64 %.sroa.024.0.i84.i, 60
   br i1 %218, label %219, label %228
 
 219:                                              ; preds = %217
@@ -3055,7 +3055,7 @@ define internal fastcc i32 @emit_indname_block(ptr noundef %0, i64 noundef %1, p
 
 count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %17 = add nuw nsw i64 %.016.i, 2
-  %18 = icmp ugt i64 %.016.i, 14
+  %18 = icmp samesign ugt i64 %.016.i, 14
   br i1 %18, label %42, label %count_encoded_length.exit.thread
 
 count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_encoded_length.exit
@@ -3187,7 +3187,7 @@ count_encoded_length.exit.thread.thread17.thread.i: ; preds = %7
   br i1 %12, label %.lr.ph.i.i, label %count_encoded_length.exit.i, !llvm.loop !9
 
 count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
-  %13 = icmp ugt i64 %.016.i.i, 14
+  %13 = icmp samesign ugt i64 %.016.i.i, 14
   br i1 %13, label %emit_table_size.exit, label %count_encoded_length.exit.thread.thread17.i
 
 count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_length.exit.i
@@ -4305,7 +4305,7 @@ count_encoded_length.exit.thread.thread:          ; preds = %3
   br i1 %16, label %.lr.ph.i, label %count_encoded_length.exit, !llvm.loop !9
 
 count_encoded_length.exit:                        ; preds = %.lr.ph.i
-  %17 = icmp ugt i64 %.016.i, 14
+  %17 = icmp samesign ugt i64 %.016.i, 14
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %count_encoded_length.exit

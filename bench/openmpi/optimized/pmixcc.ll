@@ -285,7 +285,7 @@ find_options_index.exit:                          ; preds = %.loopexit.i, %.lr.p
   %.011.i = phi i32 [ -1, %.lr.ph.split ], [ %81, %.loopexit12.loopexit.i ], [ -1, %.loopexit.i ]
   store i32 %.011.i, ptr @user_data_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = icmp ult i64 %indvars.iv.next, %55
+  %82 = icmp samesign ult i64 %indvars.iv.next, %55
   %83 = icmp slt i32 %.011.i, 0
   %84 = select i1 %82, i1 %83, i1 false
   br i1 %84, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !8

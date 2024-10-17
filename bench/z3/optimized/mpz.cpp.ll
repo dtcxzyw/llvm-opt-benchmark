@@ -628,7 +628,7 @@ for.inc.i:                                        ; preds = %entry, %for.inc.i
   %shr.i = lshr exact i64 %x.addr.06.i, 1
   %0 = and i64 %x.addr.06.i, 2
   %cmp.i = icmp eq i64 %0, 0
-  %cmp1.i = icmp ult i64 %r.07.i, 63
+  %cmp1.i = icmp samesign ult i64 %r.07.i, 63
   %1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %1, label %for.inc.i, label %_ZL17_trailing_zeros64m.exit.loopexit, !llvm.loop !4
 
@@ -724,7 +724,7 @@ for.inc.i:                                        ; preds = %if.end7, %for.inc.i
   %shr.i = lshr exact i64 %x.addr.06.i, 1
   %0 = and i64 %x.addr.06.i, 2
   %cmp.i = icmp eq i64 %0, 0
-  %cmp1.i = icmp ult i64 %r.07.i, 63
+  %cmp1.i = icmp samesign ult i64 %r.07.i, 63
   %1 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %1, label %for.inc.i, label %_ZL17_trailing_zeros64m.exit, !llvm.loop !4
 
@@ -741,7 +741,7 @@ for.inc.i4:                                       ; preds = %_ZL17_trailing_zero
   %shr.i8 = lshr exact i64 %x.addr.06.i6, 1
   %2 = and i64 %x.addr.06.i6, 2
   %cmp.i9 = icmp eq i64 %2, 0
-  %cmp1.i10 = icmp ult i64 %r.07.i5, 63
+  %cmp1.i10 = icmp samesign ult i64 %r.07.i5, 63
   %3 = select i1 %cmp.i9, i1 %cmp1.i10, i1 false
   br i1 %3, label %for.inc.i4, label %_ZL17_trailing_zeros64m.exit11, !llvm.loop !4
 
@@ -764,7 +764,7 @@ for.inc.i15:                                      ; preds = %do.body, %for.inc.i
   %shr.i19 = lshr exact i64 %x.addr.06.i17, 1
   %4 = and i64 %x.addr.06.i17, 2
   %cmp.i20 = icmp eq i64 %4, 0
-  %cmp1.i21 = icmp ult i64 %r.07.i16, 63
+  %cmp1.i21 = icmp samesign ult i64 %r.07.i16, 63
   %5 = select i1 %cmp.i20, i1 %cmp1.i21, i1 false
   br i1 %5, label %for.inc.i15, label %_ZL17_trailing_zeros64m.exit22, !llvm.loop !4
 
@@ -15151,7 +15151,7 @@ if.end5:                                          ; preds = %entry
   %2 = load i32, ptr %1, align 4
   %conv10 = zext i32 %2 to i64
   %mul11 = shl nuw nsw i64 %conv10, 5
-  %cmp13.not = icmp ugt i64 %mul11, %conv6
+  %cmp13.not = icmp samesign ugt i64 %mul11, %conv6
   br i1 %cmp13.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end5
@@ -29858,7 +29858,7 @@ if.end5:                                          ; preds = %entry
   %2 = load i32, ptr %1, align 4
   %conv10 = zext i32 %2 to i64
   %mul11 = shl nuw nsw i64 %conv10, 5
-  %cmp13.not = icmp ugt i64 %mul11, %conv6
+  %cmp13.not = icmp samesign ugt i64 %mul11, %conv6
   br i1 %cmp13.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end5

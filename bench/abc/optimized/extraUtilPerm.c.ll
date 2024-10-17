@@ -534,7 +534,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   %43 = and i32 %42, 2147483647
   %44 = load i32, ptr %41, align 4
   %45 = and i32 %44, 2147483647
-  %46 = icmp ult i32 %43, %45
+  %46 = icmp samesign ult i32 %43, %45
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -549,7 +549,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   br label %76
 
 56:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %57 = icmp ugt i32 %43, %45
+  %57 = icmp samesign ugt i32 %43, %45
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
@@ -668,7 +668,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %44 = and i32 %43, 2147483647
   %45 = load i32, ptr %42, align 4
   %46 = and i32 %45, 2147483647
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -680,7 +680,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br label %73
 
 54:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %55 = icmp ugt i32 %44, %46
+  %55 = icmp samesign ugt i32 %44, %46
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
@@ -805,7 +805,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %44 = and i32 %43, 2147483647
   %45 = load i32, ptr %42, align 4
   %46 = and i32 %45, 2147483647
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -817,7 +817,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br label %73
 
 54:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %55 = icmp ugt i32 %44, %46
+  %55 = icmp samesign ugt i32 %44, %46
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
@@ -943,7 +943,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %44 = and i32 %43, 2147483647
   %45 = load i32, ptr %42, align 4
   %46 = and i32 %45, 2147483647
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -955,7 +955,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br label %73
 
 54:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %55 = icmp ugt i32 %44, %46
+  %55 = icmp samesign ugt i32 %44, %46
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
@@ -1558,7 +1558,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %46 = and i32 %45, 2147483647
   %47 = load i32, ptr %44, align 4
   %48 = and i32 %47, 2147483647
-  %49 = icmp ult i32 %46, %48
+  %49 = icmp samesign ult i32 %46, %48
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -1571,7 +1571,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br label %83
 
 57:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %58 = icmp ugt i32 %46, %48
+  %58 = icmp samesign ugt i32 %46, %48
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %57
@@ -1707,7 +1707,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %46 = and i32 %45, 2147483647
   %47 = load i32, ptr %44, align 4
   %48 = and i32 %47, 2147483647
-  %49 = icmp ult i32 %46, %48
+  %49 = icmp samesign ult i32 %46, %48
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -1720,7 +1720,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br label %83
 
 57:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %58 = icmp ugt i32 %46, %48
+  %58 = icmp samesign ugt i32 %46, %48
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %57
@@ -3462,7 +3462,7 @@ define void @Abc_ZddPermTest() local_unnamed_addr #5 {
   %.036.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ 0, %0 ]
   %.03035.i = phi i32 [ %13, %.loopexit.i ], [ 0, %0 ]
   %13 = add nuw nsw i32 %.03035.i, 1
-  %14 = icmp ult i32 %.03035.i, 4
+  %14 = icmp samesign ult i32 %.03035.i, 4
   br i1 %14, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph37.i
@@ -3552,7 +3552,7 @@ Abc_Clock.exit:                                   ; preds = %0, %9
   %.036.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ 0, %Abc_Clock.exit ]
   %.03035.i = phi i32 [ %28, %.loopexit.i ], [ 0, %Abc_Clock.exit ]
   %28 = add nuw nsw i32 %.03035.i, 1
-  %29 = icmp ult i32 %.03035.i, 23
+  %29 = icmp samesign ult i32 %.03035.i, 23
   br i1 %29, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph37.i

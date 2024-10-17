@@ -1729,7 +1729,7 @@ define internal fastcc void @dissect_attr_sda(ptr noundef %0, ptr noundef %1, i3
   %56 = add nuw nsw i32 %52, 1
   %57 = add i32 %56, %.276
   %58 = add nuw nsw i32 %56, %.06975
-  %59 = icmp ult i32 %58, %49
+  %59 = icmp samesign ult i32 %58, %49
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %43
@@ -1860,7 +1860,7 @@ define internal fastcc void @dissect_attr_cipher_suite_info(ptr noundef %0, ptr 
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %1, i32 noundef %29, i32 noundef 1, i32 noundef 0) #4
   %32 = add i32 %.040, 2
   %33 = add nuw nsw i32 %.03739, 2
-  %34 = icmp ult i32 %33, %6
+  %34 = icmp samesign ult i32 %33, %6
   br i1 %34, label %26, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %26, %8
@@ -1902,7 +1902,7 @@ define internal fastcc void @dissect_attr_security_context_info(ptr noundef %0, 
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef %14, i32 noundef 0) #4
   %29 = add i32 %26, %14
   %30 = add nuw nsw i32 %15, %.03133
-  %31 = icmp ult i32 %30, %6
+  %31 = icmp samesign ult i32 %30, %6
   br i1 %31, label %12, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %12, %8
@@ -1956,7 +1956,7 @@ define internal fastcc void @dissect_attr_public_availability(ptr noundef %0, pt
   %29 = add i32 %26, %23
   %30 = add nuw nsw i32 %.03133, 4
   %31 = add nuw nsw i32 %30, %23
-  %32 = icmp ult i32 %31, %6
+  %32 = icmp samesign ult i32 %31, %6
   br i1 %32, label %14, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %14, %8
@@ -2003,7 +2003,7 @@ define internal fastcc void @dissect_attr_element_container(ptr noundef %0, ptr 
   %32 = call i32 @dissector_try_uint_new(ptr noundef %31, i32 noundef %17, ptr noundef %30, ptr noundef %4, ptr noundef %24, i32 noundef 1, ptr noundef nonnull %6) #4
   %33 = add i32 %29, %20
   %34 = add nuw nsw i32 %22, %.03637
-  %35 = icmp ult i32 %34, %11
+  %35 = icmp samesign ult i32 %34, %11
   br i1 %35, label %15, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %15, %5
@@ -2061,7 +2061,7 @@ define internal fastcc void @dissect_attr_ranging_setup(ptr noundef %0, ptr noun
   %38 = sub nsw i32 %6, %.061
   %39 = load i32, ptr @ett_ranging_setup_schedule_entries, align 4
   %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.709) #4
-  %41 = icmp ult i32 %.061, %6
+  %41 = icmp samesign ult i32 %.061, %6
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %37, %.lr.ph
@@ -2084,7 +2084,7 @@ define internal fastcc void @dissect_attr_ranging_setup(ptr noundef %0, ptr noun
   %56 = add i32 %53, %50
   %57 = add nuw nsw i32 %.16265, 4
   %58 = add nuw nsw i32 %57, %50
-  %59 = icmp ult i32 %58, %6
+  %59 = icmp samesign ult i32 %58, %6
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %36, %8
@@ -2776,7 +2776,7 @@ define internal fastcc void @dissect_attr_ndpe(ptr noundef %0, ptr noundef %1, i
 46:                                               ; preds = %.sink.split, %41
   %.195 = phi i32 [ 14, %41 ], [ %.sink, %.sink.split ]
   %.1 = phi i32 [ %38, %41 ], [ %45, %.sink.split ]
-  %47 = icmp ult i32 %.195, %6
+  %47 = icmp samesign ult i32 %.195, %6
   br i1 %47, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %46, %73
@@ -3212,7 +3212,7 @@ channel_number_valid.exit.thread:                 ; preds = %141, %channel_numbe
   %150 = add i32 %.06.i176, %125
   %151 = call i32 @llvm.umin.i32(i32 %150, i32 64)
   %152 = and i32 %.06.i176, 255
-  %153 = icmp ugt i32 %151, %152
+  %153 = icmp samesign ugt i32 %151, %152
   br i1 %153, label %.lr.ph.preheader, label %.loopexit179
 
 .lr.ph.preheader:                                 ; preds = %149
@@ -3273,7 +3273,7 @@ channel_number_valid.exit.thread:                 ; preds = %141, %channel_numbe
 ._crit_edge:                                      ; preds = %178, %60
   %.2.lcssa = phi i32 [ %75, %60 ], [ %.3, %178 ]
   %183 = add nuw nsw i32 %35, %.0151190
-  %184 = icmp ult i32 %183, %11
+  %184 = icmp samesign ult i32 %183, %11
   br i1 %184, label %25, label %.loopexit180, !llvm.loop !20
 
 .loopexit180:                                     ; preds = %._crit_edge, %13
@@ -3324,7 +3324,7 @@ define internal fastcc void @dissect_attr_ndc(ptr noundef %0, ptr noundef %1, i3
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %35, ptr noundef %1, i32 noundef %36, i32 noundef %22, i32 noundef 0) #4
   %38 = add i32 %23, %.037
   %39 = add nuw nsw i32 %23, %.03436
-  %40 = icmp ult i32 %39, %6
+  %40 = icmp samesign ult i32 %39, %6
   br i1 %40, label %19, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %19, %8

@@ -476,7 +476,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, %.028
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i64 %indvars.iv.next, %34
+  %42 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %42, label %35, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %35, %36, %Vec_IntStart.exit

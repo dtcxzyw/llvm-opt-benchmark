@@ -16825,7 +16825,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -65798,7 +65798,7 @@ invoke.cont97.preheader.us:                       ; preds = %invoke.cont97.prehe
   %49 = phi ptr [ %.pre402, %invoke.cont97.preheader.lr.ph ], [ %56, %for.inc131.us ]
   %indvars.iv395 = phi i64 [ 0, %invoke.cont97.preheader.lr.ph ], [ %indvars.iv.next396, %for.inc131.us ]
   %prev_bytes_read.2362.us = phi i64 [ %prev_bytes_read.0376, %invoke.cont97.preheader.lr.ph ], [ %prev_bytes_read.3.lcssa.us, %for.inc131.us ]
-  %cmp.i.i.us = icmp ult i64 %indvars.iv395, 8
+  %cmp.i.i.us = icmp samesign ult i64 %indvars.iv395, 8
   %arrayidx.i.i332.us = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %49, i64 %indvars.iv395
   %50 = getelementptr %"struct.rocksdb::LevelFilesBrief", ptr %48, i64 %indvars.iv395
   %add.ptr.i.i.i79333.us = getelementptr i8, ptr %50, i64 -128
@@ -65956,7 +65956,7 @@ invoke.cont97.preheader:                          ; preds = %invoke.cont97.prehe
   %84 = phi ptr [ %.pre, %invoke.cont97.preheader.lr.ph.thread ], [ %113, %for.inc131 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont97.preheader.lr.ph.thread ], [ %indvars.iv.next, %for.inc131 ]
   %prev_bytes_read.2362 = phi i64 [ %prev_bytes_read.0376, %invoke.cont97.preheader.lr.ph.thread ], [ %prev_bytes_read.3.lcssa, %for.inc131 ]
-  %cmp.i.i = icmp ult i64 %indvars.iv, 8
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv, 8
   %arrayidx.i.i332 = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %84, i64 %indvars.iv
   %85 = getelementptr %"struct.rocksdb::LevelFilesBrief", ptr %83, i64 %indvars.iv
   %add.ptr.i.i.i79333 = getelementptr i8, ptr %85, i64 -128

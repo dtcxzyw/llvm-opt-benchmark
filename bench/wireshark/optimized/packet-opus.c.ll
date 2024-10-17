@@ -342,7 +342,7 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   %.0.i220 = phi i32 [ %77, %73 ], [ %..i, %81 ], [ %89, %87 ], [ 2880, %83 ]
   %90 = icmp eq i32 %71, 0
   %91 = mul nuw nsw i32 %.0.i220, %71
-  %92 = icmp ugt i32 %91, 5760
+  %92 = icmp samesign ugt i32 %91, 5760
   %or.cond = select i1 %90, i1 true, i1 %92
   br i1 %or.cond, label %93, label %95
 

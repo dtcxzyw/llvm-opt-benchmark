@@ -6053,7 +6053,7 @@ _ZN12clap_builder7builder3arg3Arg11is_multiple17h26534e53669df396E.exit.thread: 
 1858:                                             ; preds = %1847
   call void @llvm.experimental.noalias.scope.decl(metadata !1540)
   %1859 = load i64, ptr %.05.i, align 8, !range !1543, !alias.scope !1544, !noalias !1545, !noundef !5
-  %switch.i.i588 = icmp ult i64 %1859, 4
+  %switch.i.i588 = icmp samesign ult i64 %1859, 4
   br i1 %switch.i.i588, label %1870, label %1860
 
 1860:                                             ; preds = %1858
@@ -6382,7 +6382,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   call void @llvm.experimental.noalias.scope.decl(metadata !1593)
   call void @llvm.experimental.noalias.scope.decl(metadata !1596)
   %1961 = load i64, ptr %193, align 8, !range !1543, !alias.scope !1599, !noundef !5
-  %switch.i.i604 = icmp ult i64 %1961, 4
+  %switch.i.i604 = icmp samesign ult i64 %1961, 4
   br i1 %switch.i.i604, label %.thread982, label %1962
 
 1962:                                             ; preds = %1960
@@ -7740,7 +7740,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
 2397:                                             ; preds = %2029
   call void @llvm.experimental.noalias.scope.decl(metadata !1891)
   call void @llvm.experimental.noalias.scope.decl(metadata !1894)
-  %switch.i.i676 = icmp ult i64 %2030, 4
+  %switch.i.i676 = icmp samesign ult i64 %2030, 4
   br i1 %switch.i.i676, label %"_ZN4core3ptr69drop_in_place$LT$clap_builder..builder..value_parser..ValueParser$GT$17h64fc3265e8ce61cfE.exit681", label %2398
 
 2398:                                             ; preds = %2397
@@ -10064,15 +10064,15 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
 373:                                              ; preds = %361
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %85)
   store i32 0, ptr %85, align 4
-  %374 = icmp ult i32 %360, 128
+  %374 = icmp samesign ult i32 %360, 128
   br i1 %374, label %380, label %375
 
 375:                                              ; preds = %373
-  %376 = icmp ult i32 %360, 2048
+  %376 = icmp samesign ult i32 %360, 2048
   br i1 %376, label %382, label %377
 
 377:                                              ; preds = %375
-  %378 = icmp ult i32 %360, 65536
+  %378 = icmp samesign ult i32 %360, 65536
   %379 = getelementptr inbounds i8, ptr %85, i64 1
   br i1 %378, label %390, label %402
 
@@ -10360,12 +10360,12 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
   ]
 
 493:                                              ; preds = %488
-  %switch186 = icmp ult i8 %2, 2
+  %switch186 = icmp samesign ult i8 %2, 2
   %or.cond187 = and i1 %switch186, %93
   br i1 %or.cond187, label %.critedge173, label %527
 
 494:                                              ; preds = %488
-  %switch188 = icmp ult i8 %2, 2
+  %switch188 = icmp samesign ult i8 %2, 2
   %or.cond189 = and i1 %switch188, %93
   br i1 %or.cond189, label %.critedge175, label %584
 

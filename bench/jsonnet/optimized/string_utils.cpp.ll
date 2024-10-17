@@ -2403,7 +2403,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   %12 = or disjoint i32 %11, %5
   %13 = or disjoint i32 %12, %9
   %14 = zext nneg i32 %13 to i64
-  %15 = icmp ult i32 %spec.store.select, 128
+  %15 = icmp samesign ult i32 %spec.store.select, 128
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
@@ -2411,7 +2411,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   br label %43
 
 18:                                               ; preds = %2
-  %19 = icmp ult i32 %spec.store.select, 2048
+  %19 = icmp samesign ult i32 %spec.store.select, 2048
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
@@ -2423,7 +2423,7 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112
   br label %43
 
 25:                                               ; preds = %18
-  %26 = icmp ult i32 %spec.store.select, 65536
+  %26 = icmp samesign ult i32 %spec.store.select, 65536
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25

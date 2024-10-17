@@ -223,7 +223,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
   %71 = add i32 %29, 1
   %72 = zext i32 %71 to i64
   %73 = udiv i64 %70, 24
-  %74 = icmp ugt i64 %73, %72
+  %74 = icmp samesign ugt i64 %73, %72
   br i1 %74, label %26, label %.thread, !llvm.loop !7
 
 75:                                               ; preds = %49, %51

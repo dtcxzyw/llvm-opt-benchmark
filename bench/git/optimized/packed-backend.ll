@@ -385,7 +385,7 @@ if.then13.i.i:                                    ; preds = %xsize_t.exit.i.i
   br label %load_contents.exit.thread.i
 
 if.else15.i.i:                                    ; preds = %xsize_t.exit.i.i
-  %cmp17.i.i = icmp ult i64 %17, 32769
+  %cmp17.i.i = icmp samesign ult i64 %17, 32769
   %buf.i.i = getelementptr inbounds i8, ptr %call.i6, i64 16
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.else29.i.i
 

@@ -375,7 +375,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_mop_r_NP11
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -430,7 +430,7 @@ define noundef i64 @_Z18fast_rv64e_mop_r_NP11processor_t6insn_tm(ptr nocapture n
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -537,7 +537,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %27, %22, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %23, %22 ], [ %37, %.loopexit.i.i ], [ %29, %27 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  %39 = icmp ugt i64 %14, 15
+  %39 = icmp samesign ugt i64 %14, 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i8 0, i64 16, i1 false)
   br i1 %39, label %40, label %45
 
@@ -647,7 +647,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %27, %22, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %23, %22 ], [ %37, %.loopexit.i.i ], [ %29, %27 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  %39 = icmp ugt i64 %14, 15
+  %39 = icmp samesign ugt i64 %14, 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i8 0, i64 16, i1 false)
   br i1 %39, label %40, label %45
 

@@ -2126,7 +2126,7 @@ for.inc176:                                       ; preds = %for.body160, %_ZN12
   %184 = phi i32 [ %156, %for.body160 ], [ %.pre795, %_ZN12substitution6insertEjjRK11expr_offset.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = zext i32 %184 to i64
-  %cmp159 = icmp ult i64 %indvars.iv.next, %185
+  %cmp159 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %cmp159, label %for.body160, label %for.inc179.loopexit, !llvm.loop !14
 
 for.inc179.loopexit:                              ; preds = %for.inc176
@@ -2140,7 +2140,7 @@ for.inc179:                                       ; preds = %for.inc179.loopexit
   %189 = phi i32 [ %184, %for.inc179.loopexit ], [ 0, %for.cond155.preheader ]
   %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
   %190 = zext i32 %186 to i64
-  %cmp152 = icmp ult i64 %indvars.iv.next779, %190
+  %cmp152 = icmp samesign ult i64 %indvars.iv.next779, %190
   br i1 %cmp152, label %for.cond155.preheader, label %for.end181, !llvm.loop !15
 
 for.end181:                                       ; preds = %for.inc179, %invoke.cont144
@@ -2331,7 +2331,7 @@ for.inc236:                                       ; preds = %.noexc321, %lor.lhs
   %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
   %216 = load i32, ptr %m_num_patterns.i, align 8
   %217 = zext i32 %216 to i64
-  %cmp227 = icmp ult i64 %indvars.iv.next782, %217
+  %cmp227 = icmp samesign ult i64 %indvars.iv.next782, %217
   br i1 %cmp227, label %invoke.cont230, label %for.cond240.preheader, !llvm.loop !16
 
 lpad224.loopexit:                                 ; preds = %invoke.cont246, %if.then.i705, %if.end.i702
@@ -2477,7 +2477,7 @@ for.inc252:                                       ; preds = %.noexc344, %lor.lhs
   %indvars.iv.next785 = add nuw nsw i64 %indvars.iv784, 1
   %230 = load i32, ptr %m_num_no_patterns.i, align 4
   %231 = zext i32 %230 to i64
-  %cmp243 = icmp ult i64 %indvars.iv.next785, %231
+  %cmp243 = icmp samesign ult i64 %indvars.iv.next785, %231
   br i1 %cmp243, label %invoke.cont246, label %for.end254, !llvm.loop !17
 
 for.end254:                                       ; preds = %for.inc252, %for.cond240.preheader

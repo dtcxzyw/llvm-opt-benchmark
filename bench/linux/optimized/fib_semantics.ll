@@ -171,7 +171,7 @@ define dso_local void @fib_nh_common_release(ptr nocapture noundef readonly %0) 
   %33 = phi i64 [ %.pre, %31 ], [ %14, %23 ]
   %34 = add nuw nsw i64 %20, 1
   %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %13, !prof !7, !llvm.loop !8
 
 .thread:                                          ; preds = %13, %32, %19
@@ -720,7 +720,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
 
 52:                                               ; preds = %48, %.thread.split.split
   %53 = phi i64 [ %51, %48 ], [ 1, %.thread.split.split ]
-  %54 = icmp ult i64 %indvars.iv, %53
+  %54 = icmp samesign ult i64 %indvars.iv, %53
   br i1 %54, label %55, label %.split.us
 
 55:                                               ; preds = %52
@@ -734,7 +734,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %61 = getelementptr inbounds i8, ptr %56, i64 8
   %62 = load i16, ptr %61, align 8
   %63 = zext i16 %62 to i64
-  %64 = icmp ult i64 %indvars.iv, %63
+  %64 = icmp samesign ult i64 %indvars.iv, %63
   br i1 %64, label %65, label %.thread6
 
 65:                                               ; preds = %60
@@ -1324,7 +1324,7 @@ define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr nocapture
   %44 = phi i64 [ %.pre, %42 ], [ %25, %34 ]
   %45 = add nuw nsw i64 %31, 1
   %46 = and i64 %45, 127
-  %47 = icmp ugt i64 %46, 63
+  %47 = icmp samesign ugt i64 %46, 63
   br i1 %47, label %.thread, label %24, !prof !7, !llvm.loop !8
 
 .thread:                                          ; preds = %24, %43, %30
@@ -1739,7 +1739,7 @@ define dso_local noundef zeroext i1 @fib_metrics_match(ptr nocapture noundef rea
   %16 = load i16, ptr %14, align 2
   %17 = icmp ult i16 %16, 4
   %18 = zext i16 %16 to i32
-  %.not = icmp ult i32 %15, %18
+  %.not = icmp samesign ult i32 %15, %18
   %or.cond = or i1 %17, %.not
   br i1 %or.cond, label %.critedge, label %19
 
@@ -1752,7 +1752,7 @@ define dso_local noundef zeroext i1 @fib_metrics_match(ptr nocapture noundef rea
   br i1 %24, label %.thread5, label %25
 
 25:                                               ; preds = %19
-  %26 = icmp ugt i16 %22, 17
+  %26 = icmp samesign ugt i16 %22, 17
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %25
@@ -2534,7 +2534,7 @@ define dso_local ptr @fib_create_info(ptr nocapture noundef readonly %0, ptr nou
   %131 = load i16, ptr %129, align 4
   %132 = icmp ult i16 %131, 8
   %133 = zext i16 %131 to i32
-  %.not = icmp ult i32 %130, %133
+  %.not = icmp samesign ult i32 %130, %133
   %or.cond = or i1 %132, %.not
   br i1 %or.cond, label %.critedge.thread, label %134
 
@@ -3966,7 +3966,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #4 align
 
 112:                                              ; preds = %108, %.split.split
   %113 = phi i32 [ %111, %108 ], [ 1, %.split.split ]
-  %114 = icmp ult i32 %102, %113
+  %114 = icmp samesign ult i32 %102, %113
   br i1 %114, label %120, label %.split7.us
 
 .split7.us:                                       ; preds = %112, %60, %.split.split.us.preheader, %88, %91, %98, %.split.us
@@ -6415,7 +6415,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node(pt
   %45 = add nuw nsw i64 %11, 1
   %46 = load i16, ptr %3, align 8
   %47 = zext i16 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %10, label %.loopexit, !llvm.loop !76
 
 49:                                               ; preds = %29, %10

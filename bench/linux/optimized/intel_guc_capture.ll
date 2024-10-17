@@ -935,7 +935,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %
 
 311:                                              ; preds = %314, %308
   %312 = phi i64 [ 0, %308 ], [ %325, %314 ]
-  %313 = icmp ult i64 %312, %310
+  %313 = icmp samesign ult i64 %312, %310
   br i1 %313, label %314, label %327
 
 314:                                              ; preds = %311
@@ -1026,8 +1026,8 @@ define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %
 370:                                              ; preds = %376, %362
   %371 = phi i64 [ %364, %362 ], [ %387, %376 ]
   %372 = phi i64 [ 0, %362 ], [ %388, %376 ]
-  %373 = icmp ult i64 %371, %368
-  %374 = icmp ult i64 %372, %369
+  %373 = icmp samesign ult i64 %371, %368
+  %374 = icmp samesign ult i64 %372, %369
   %375 = and i1 %374, %373
   br i1 %375, label %376, label %390
 
@@ -2352,7 +2352,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %370 = phi i32 [ %190, %.thread34 ], [ %258, %362 ]
   %371 = phi i32 [ %188, %.thread34 ], [ %224, %362 ]
   %372 = and i32 %370, 15
-  %373 = icmp ugt i32 %372, 2
+  %373 = icmp samesign ugt i32 %372, 2
   br i1 %373, label %374, label %386
 
 374:                                              ; preds = %366
@@ -2972,7 +2972,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
-  %50 = icmp ugt i32 %49, 3126
+  %50 = icmp samesign ugt i32 %49, 3126
   %51 = select i1 %50, i32 3, i32 2
   call void @intel_gt_mcr_get_ss_steering(ptr noundef %10, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %52 = getelementptr i8, ptr %0, i64 4504
@@ -2993,7 +2993,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %63, %66
-  %68 = icmp ugt i32 %67, 3121
+  %68 = icmp samesign ugt i32 %67, 3121
   br i1 %68, label %69, label %88
 
 69:                                               ; preds = %56
@@ -3004,7 +3004,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
 72:                                               ; preds = %69
   %73 = load i8, ptr %53, align 1
   %74 = zext i8 %73 to i64
-  %75 = icmp ult i64 %57, %74
+  %75 = icmp samesign ult i64 %57, %74
   br i1 %75, label %76, label %116
 
 76:                                               ; preds = %72
@@ -3131,7 +3131,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = or disjoint i32 %148, %151
-  %153 = icmp ugt i32 %152, 3121
+  %153 = icmp samesign ugt i32 %152, 3121
   br i1 %153, label %154, label %173
 
 154:                                              ; preds = %141
@@ -3142,7 +3142,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
 157:                                              ; preds = %154
   %158 = load i8, ptr %53, align 1
   %159 = zext i8 %158 to i64
-  %160 = icmp ult i64 %142, %159
+  %160 = icmp samesign ult i64 %142, %159
   br i1 %160, label %161, label %229
 
 161:                                              ; preds = %157

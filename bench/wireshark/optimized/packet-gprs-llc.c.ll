@@ -588,7 +588,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %146 = lshr i16 %144, 2
   %147 = and i16 %146, 511
   %148 = zext nneg i16 %145 to i32
-  %.not548 = icmp ult i16 %145, 2
+  %.not548 = icmp samesign ult i16 %145, 2
   %149 = and i32 %148, 1
   %150 = icmp eq i32 %149, 0
   %151 = tail call i32 @llvm.umin.i32(i32 %.0529, i32 7)
@@ -863,8 +863,8 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   %284 = load i32, ptr @ignore_cipher_bit, align 4
   %285 = icmp ne i32 %284, 0
   %or.cond9 = and i1 %204, %285
-  %.not551 = icmp ult i16 %.0525, 2
-  %or.cond558 = or i1 %.not551, %or.cond9
+  %.not551 = icmp samesign ult i16 %.0525, 2
+  %or.cond558 = select i1 %or.cond9, i1 true, i1 %.not551
   br i1 %or.cond558, label %286, label %322
 
 286:                                              ; preds = %281

@@ -781,7 +781,7 @@ _ZNK4llvm14SmallBitVector4sizeEv.exit:            ; preds = %27, %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted = load i32, ptr %35, align 8
   %36 = zext i32 %.promoted to i64
-  %37 = icmp ugt i64 %34, %36
+  %37 = icmp samesign ugt i64 %34, %36
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4llvm14SmallBitVector4sizeEv.exit
@@ -834,7 +834,7 @@ _ZNK4llvm14SmallBitVector4testEj.exit.us:         ; preds = %.lr.ph, %71
   %72 = add nuw i32 %48, 1
   store i32 %72, ptr %35, align 8
   %73 = zext i32 %72 to i64
-  %74 = icmp ugt i64 %34, %73
+  %74 = icmp samesign ugt i64 %34, %73
   br i1 %74, label %_ZNK4llvm14SmallBitVector4testEj.exit.us, label %._crit_edge, !llvm.loop !7
 
 _ZNK4llvm14SmallBitVector4testEj.exit:            ; preds = %_ZNK4llvm14SmallBitVector4testEj.exit.preheader, %110
@@ -901,7 +901,7 @@ _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %91, %98
   %111 = add nuw i32 %76, 1
   store i32 %111, ptr %35, align 8
   %112 = zext i32 %111 to i64
-  %113 = icmp ugt i64 %34, %112
+  %113 = icmp samesign ugt i64 %34, %112
   br i1 %113, label %_ZNK4llvm14SmallBitVector4testEj.exit, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %110, %71, %_ZNK4llvm14SmallBitVector4sizeEv.exit
@@ -8517,7 +8517,7 @@ _ZN4llvm23StatepointLoweringState11getLocationENS_7SDValueE.exit: ; preds = %_ZN
 _ZN4llvm23StatepointLoweringState11getLocationENS_7SDValueE.exit.thread: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i, %_ZN4llvm23StatepointLoweringState11getLocationENS_7SDValueE.exit
   %69 = call fastcc i64 @_ZL21findPreviousSpillSlotPKN4llvm5ValueERNS_19SelectionDAGBuilderEi(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(984) %1, i32 noundef 6)
   %.sroa.045.0.extract.trunc = trunc i64 %69 to i32
-  %.not58 = icmp ult i64 %69, 4294967296
+  %.not58 = icmp samesign ult i64 %69, 4294967296
   br i1 %.not58, label %206, label %70
 
 70:                                               ; preds = %_ZN4llvm23StatepointLoweringState11getLocationENS_7SDValueE.exit.thread
@@ -10680,7 +10680,7 @@ _ZNK4llvm7PHINode15incoming_valuesEv.exit:        ; preds = %106, %109
   %.sroa.043.075 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %120 ]
   %118 = load ptr, ptr %.077, align 8
   %119 = tail call fastcc i64 @_ZL21findPreviousSpillSlotPKN4llvm5ValueERNS_19SelectionDAGBuilderEi(ptr noundef %118, ptr noundef nonnull align 8 dereferenceable(984) %1, i32 noundef %116)
-  %.not = icmp ult i64 %119, 4294967296
+  %.not = icmp samesign ult i64 %119, 4294967296
   %.sroa.0.0.extract.trunc = trunc i64 %119 to i32
   %.not33 = icmp ne i32 %.sroa.043.075, %.sroa.0.0.extract.trunc
   %or.cond.not = and i1 %.not33, %.sroa.345.076

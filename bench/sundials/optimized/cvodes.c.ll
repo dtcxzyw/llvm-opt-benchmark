@@ -10184,7 +10184,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i99, %298
   br i1 %exitcond, label %cvYddNorm.exit.thread116, label %167
 
 cvYddNorm.exit.thread116:                         ; preds = %325
-  %328 = icmp ult i32 %.084137, 3
+  %328 = icmp samesign ult i32 %.084137, 3
   br i1 %328, label %329, label %.loopexit
 
 329:                                              ; preds = %cvYddNorm.exit.thread116
@@ -10235,7 +10235,7 @@ cvYddNorm.exit:                                   ; preds = %321, %314, %312
   br i1 %or.cond, label %.loopexit, label %349
 
 349:                                              ; preds = %345
-  %350 = icmp ugt i32 %.084137, 1
+  %350 = icmp samesign ugt i32 %.084137, 1
   %351 = fcmp ogt double %346, 2.000000e+00
   %or.cond3 = and i1 %350, %351
   br i1 %or.cond3, label %.loopexit, label %352

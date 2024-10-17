@@ -1074,7 +1074,7 @@ ZDICT_totalSampleSize.exit.i:                     ; preds = %.lr.ph.i.i
 .backedge.i.i:                                    ; preds = %ZDICT_analyzePos.exit.thread.i.i, %113
   %.096.be.i.i = add i32 %.096134.i.i, 1
   %117 = zext i32 %.096.be.i.i to i64
-  %118 = icmp ugt i64 %.0.lcssa.i.i, %117
+  %118 = icmp samesign ugt i64 %.0.lcssa.i.i, %117
   br i1 %118, label %113, label %ZDICT_trainBuffer_legacy.exit.i, !llvm.loop !26
 
 119:                                              ; preds = %113
@@ -1722,7 +1722,7 @@ ZDICT_insertDictItem.exit.i.i:                    ; preds = %ZDICT_removeDictIte
 .outer.i.i:                                       ; preds = %382, %373, %369, %ZDICT_insertDictItem.exit.i.i
   %.1.i.i = phi i64 [ %374, %382 ], [ %374, %373 ], [ %.093.ph142.i.i, %369 ], [ %.093.ph142.i.i, %ZDICT_insertDictItem.exit.i.i ]
   %385 = zext i32 %368 to i64
-  %386 = icmp ugt i64 %.0.lcssa.i.i, %385
+  %386 = icmp samesign ugt i64 %.0.lcssa.i.i, %385
   br i1 %386, label %.lr.ph135.i.i, label %ZDICT_trainBuffer_legacy.exit.i, !llvm.loop !26
 
 ZDICT_trainBuffer_legacy.exit.i:                  ; preds = %.outer.i.i, %.backedge.i.i, %.thread.i.i, %85, %60
@@ -1857,7 +1857,7 @@ ZDICT_dictSize.exit200.thread.critedge.i:         ; preds = %388
 450:                                              ; preds = %ZDICT_dictSize.exit200.i
   %451 = zext i32 %438 to i64
   %452 = lshr i64 %1, 2
-  %453 = icmp ugt i64 %452, %451
+  %453 = icmp samesign ugt i64 %452, %451
   %brmerge210.not.i = and i1 %54, %453
   br i1 %brmerge210.not.i, label %454, label %.critedge158.i
 
@@ -1950,7 +1950,7 @@ ZDICT_dictSize.exit200.thread.critedge.i:         ; preds = %388
   br i1 %exitcond275.not.i, label %.lr.ph246.preheader.i, label %.lr.ph238.i, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %.lr.ph238.i
-  %507 = icmp ugt i64 %indvars.iv271.i, 1
+  %507 = icmp samesign ugt i64 %indvars.iv271.i, 1
   br i1 %507, label %._crit_edge.i..lr.ph246.preheader.i_crit_edge, label %._crit_edge247.i
 
 ._crit_edge.i..lr.ph246.preheader.i_crit_edge:    ; preds = %._crit_edge.i
@@ -2189,7 +2189,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef nonnull %0, i64
   %29 = add i32 %28, %26
   store i32 %29, ptr %25, align 4
   %.sroa.0102.0.copyload = load i64, ptr %14, align 4
-  %30 = icmp ugt i64 %indvars.iv, 1
+  %30 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %30, label %.lr.ph201, label %.critedge
 
 .lr.ph201:                                        ; preds = %17, %36
@@ -2267,7 +2267,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef nonnull %0, i64
 66:                                               ; preds = %60, %52
   %.sroa.24.0.copyload135 = phi i32 [ %65, %60 ], [ %58, %52 ]
   %.sroa.0102.0.copyload112 = load i64, ptr %46, align 4
-  %67 = icmp ugt i64 %indvars.iv226, 1
+  %67 = icmp samesign ugt i64 %indvars.iv226, 1
   br i1 %67, label %.lr.ph197, label %.critedge2
 
 .lr.ph197:                                        ; preds = %66, %73

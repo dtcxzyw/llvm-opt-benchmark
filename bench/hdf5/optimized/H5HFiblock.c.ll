@@ -930,7 +930,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef
   %69 = load i32, ptr %32, align 8
   %70 = mul i32 %69, %68
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %67, %71
+  %72 = icmp samesign ult i64 %67, %71
   br i1 %72, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -1654,7 +1654,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %186 = load i32, ptr %14, align 8
   %187 = mul i32 %186, %185
   %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %182, %188
+  %189 = icmp samesign ult i64 %182, %188
   br i1 %189, label %171, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %171, %161
@@ -1717,7 +1717,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %222 = load i32, ptr %14, align 8
   %223 = mul i32 %222, %.132
   %224 = zext i32 %223 to i64
-  %225 = icmp ult i64 %221, %224
+  %225 = icmp samesign ult i64 %221, %224
   br i1 %225, label %.lr.ph145, label %.loopexit135.loopexit
 
 .loopexit135.loopexit:                            ; preds = %.lr.ph145
@@ -1776,7 +1776,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %258 = load i32, ptr %14, align 8
   %259 = mul i32 %258, %233
   %260 = zext i32 %259 to i64
-  %261 = icmp ult i64 %257, %260
+  %261 = icmp samesign ult i64 %257, %260
   br i1 %261, label %.lr.ph148, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph148
@@ -2971,7 +2971,7 @@ H5HF__man_iblock_protect.exit:                    ; preds = %17, %28
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %34, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %65
 
 49:                                               ; preds = %45
@@ -3038,7 +3038,7 @@ H5HF__man_iblock_protect.exit:                    ; preds = %17, %28
   %.151.lcssa = phi i32 [ %.05070, %.preheader ], [ %81, %._crit_edge.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = zext i32 %84 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.preheader, label %._crit_edge72, !llvm.loop !4
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %H5HF__man_iblock_protect.exit
@@ -3303,7 +3303,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr nocapture noundef readnon
   %117 = add nuw nsw i64 %.056, 1
   %118 = add i32 %.155, 1
   %119 = zext i32 %116 to i64
-  %120 = icmp ult i64 %117, %119
+  %120 = icmp samesign ult i64 %117, %119
   br i1 %120, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %115
@@ -3317,7 +3317,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr nocapture noundef readnon
   %.1.lcssa = phi i32 [ %.04158, %.preheader53 ], [ %118, %._crit_edge.loopexit ]
   %124 = add nuw nsw i64 %.04059, 1
   %125 = zext i32 %121 to i64
-  %126 = icmp ult i64 %124, %125
+  %126 = icmp samesign ult i64 %124, %125
   br i1 %126, label %.preheader53, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %._crit_edge, %111, %14

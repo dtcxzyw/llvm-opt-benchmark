@@ -1987,13 +1987,13 @@ define internal fastcc void @print_IO_APIC(i32 noundef %0) unnamed_addr #8 secti
   %6 = load ptr, ptr @x86_apic_ops, align 8
   %7 = tail call i32 %6(i32 noundef %0, i32 noundef 1) #25
   %8 = and i32 %7, 255
-  %9 = icmp ult i32 %8, 16
+  %9 = icmp samesign ult i32 %8, 16
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr @x86_apic_ops, align 8
   %12 = tail call i32 %11(i32 noundef %0, i32 noundef 2) #25
-  %13 = icmp ult i32 %8, 32
+  %13 = icmp samesign ult i32 %8, 32
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10

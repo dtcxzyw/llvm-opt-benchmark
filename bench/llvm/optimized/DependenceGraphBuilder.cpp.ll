@@ -8687,7 +8687,7 @@ define linkonce_odr void @_ZSt11__make_heapIPPN4llvm7DDGNodeEN9__gnu_cxx5__ops15
   store ptr %.sroa.0.0.copyload13, ptr %4, align 8
   %15 = add nsw i64 %9, -1
   %16 = lshr i64 %15, 1
-  %17 = icmp ult i64 %12, %16
+  %17 = icmp samesign ult i64 %12, %16
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

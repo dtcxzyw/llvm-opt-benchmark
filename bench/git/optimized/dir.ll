@@ -4902,7 +4902,7 @@ for.body.i.i:                                     ; preds = %if.end.i19.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = load i32, ptr %dirs_nr.i.i, align 8
   %30 = zext i32 %29 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %30
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %30
   br i1 %cmp.i.i, label %for.body.i.i, label %invalidate_directory.exit.i, !llvm.loop !27
 
 invalidate_directory.exit.i:                      ; preds = %for.body.i.i, %if.end.i19.i
@@ -6865,7 +6865,7 @@ for.body57:                                       ; preds = %for.body57.lr.ph, %
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %43 = load i32, ptr %untracked_nr28, align 8
   %44 = zext i32 %43 to i64
-  %cmp55 = icmp ult i64 %indvars.iv.next55, %44
+  %cmp55 = icmp samesign ult i64 %indvars.iv.next55, %44
   br i1 %cmp55, label %for.body57, label %for.cond69.preheader, !llvm.loop !46
 
 for.body73:                                       ; preds = %for.cond69.preheader, %for.inc88
@@ -6889,7 +6889,7 @@ for.inc88:                                        ; preds = %for.body73, %if.the
   %49 = phi i32 [ %45, %for.body73 ], [ %.pre, %if.then83 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %50 = zext i32 %49 to i64
-  %cmp71 = icmp ult i64 %indvars.iv.next58, %50
+  %cmp71 = icmp samesign ult i64 %indvars.iv.next58, %50
   br i1 %cmp71, label %for.body73, label %for.end90, !llvm.loop !47
 
 for.end90:                                        ; preds = %for.inc88, %for.cond69.preheader
@@ -6931,7 +6931,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %dirs_nr, align 8
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.cond1.preheader, !llvm.loop !48
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %for.body3
@@ -6943,7 +6943,7 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %f
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %8 = load i32, ptr %untracked_nr, align 8
   %9 = zext i32 %8 to i64
-  %cmp2 = icmp ult i64 %indvars.iv.next19, %9
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next19, %9
   br i1 %cmp2, label %for.body3, label %for.end8, !llvm.loop !49
 
 for.end8:                                         ; preds = %for.body3, %for.cond1.preheader
@@ -7393,7 +7393,7 @@ if.end49:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %ud.sroa.8.0.untracked.0..sroa_idx, align 8
   %9 = zext i32 %8 to i64
-  %cmp38 = icmp ult i64 %indvars.iv.next, %9
+  %cmp38 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !50
 
 for.end:                                          ; preds = %if.end49, %st_add.exit47
@@ -7415,7 +7415,7 @@ for.cond60:                                       ; preds = %for.body64
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %14 = load i32, ptr %ud.sroa.5.0.untracked.0..sroa_idx, align 8
   %15 = zext i32 %14 to i64
-  %cmp62 = icmp ult i64 %indvars.iv.next59, %15
+  %cmp62 = icmp samesign ult i64 %indvars.iv.next59, %15
   br i1 %cmp62, label %for.body64, label %return, !llvm.loop !51
 
 for.body64:                                       ; preds = %for.end, %for.cond60
@@ -8112,7 +8112,7 @@ for.body.lr.ph:                                   ; preds = %if.end17
   %and43.i = and i32 %flags, 2
   %tobool44.not.i = icmp eq i32 %and43.i, 0
   %conv57.i = sext i32 %sub to i64
-  %tobool74.not.i = icmp ult i32 %flags, 4
+  %tobool74.not.i = icmp samesign ult i32 %flags, 4
   %or.cond62.i.not96 = or i1 %tobool74.not.i, %tobool21.not
   %gep = getelementptr i8, ptr %invariant.gep, i64 %conv57.i
   %recursive60 = getelementptr inbounds i8, ptr %ps, i64 4
@@ -8284,7 +8284,7 @@ land.lhs.true66.i:                                ; preds = %if.end62.i
   %sub68.i = sub nsw i32 %22, %prefix
   %call69.i = tail call i32 @git_fnmatch(ptr noundef nonnull %add.ptr58, ptr noundef nonnull %add.ptr.i59, ptr noundef %add.ptr, i32 noundef %sub68.i)
   %tobool70.not.i = icmp eq i32 %call69.i, 0
-  %brmerge = or i1 %tobool70.not.i, %or.cond62.i.not96
+  %brmerge = select i1 %tobool70.not.i, i1 true, i1 %or.cond62.i.not96
   %.mux = select i1 %tobool70.not.i, i32 3, i32 0
   br i1 %brmerge, label %match_pathspec_item.exit, label %if.then78.i
 
@@ -8864,7 +8864,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %dirs_nr, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !58
 
 for.end:                                          ; preds = %for.body, %entry

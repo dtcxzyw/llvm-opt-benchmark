@@ -15288,7 +15288,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit43.i: ; preds = %1
   store i8 %140, ptr %.023.i.i, align 1
   %141 = lshr i32 %.022.i.i, 7
   %142 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
-  %143 = icmp ugt i32 %.022.i.i, 16383
+  %143 = icmp samesign ugt i32 %.022.i.i, 16383
   br i1 %143, label %138, label %144, !llvm.loop !49
 
 144:                                              ; preds = %138
@@ -15625,7 +15625,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %18,
   store i8 %40, ptr %.023.i, align 1
   %41 = lshr i32 %.022.i, 7
   %42 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %43 = icmp ugt i32 %.022.i, 16383
+  %43 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %43, label %38, label %44, !llvm.loop !49
 
 44:                                               ; preds = %38
@@ -15673,7 +15673,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   store i8 %65, ptr %.023.i.i, align 1
   %66 = lshr i64 %.022.i.i, 7
   %67 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
-  %68 = icmp ugt i64 %.022.i.i, 16383
+  %68 = icmp samesign ugt i64 %.022.i.i, 16383
   br i1 %68, label %63, label %69, !llvm.loop !53
 
 69:                                               ; preds = %63
@@ -15843,7 +15843,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit952: ; preds = %
   store i8 %139, ptr %.023.i.i953, align 1
   %140 = lshr i64 %.022.i.i954, 7
   %141 = getelementptr inbounds i8, ptr %.023.i.i953, i64 1
-  %142 = icmp ugt i64 %.022.i.i954, 16383
+  %142 = icmp samesign ugt i64 %.022.i.i954, 16383
   br i1 %142, label %137, label %143, !llvm.loop !53
 
 143:                                              ; preds = %137
@@ -15911,7 +15911,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit959: ; preds = %
   store i8 %172, ptr %.023.i960, align 1
   %173 = lshr i64 %.022.i961, 7
   %174 = getelementptr inbounds i8, ptr %.023.i960, i64 1
-  %175 = icmp ugt i64 %.022.i961, 16383
+  %175 = icmp samesign ugt i64 %.022.i961, 16383
   br i1 %175, label %170, label %176, !llvm.loop !53
 
 176:                                              ; preds = %170
@@ -15979,7 +15979,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit965: ; preds = %
   store i8 %205, ptr %.023.i966, align 1
   %206 = lshr i32 %.022.i967, 7
   %207 = getelementptr inbounds i8, ptr %.023.i966, i64 1
-  %208 = icmp ugt i32 %.022.i967, 16383
+  %208 = icmp samesign ugt i32 %.022.i967, 16383
   br i1 %208, label %203, label %209, !llvm.loop !49
 
 209:                                              ; preds = %203
@@ -16047,7 +16047,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit972: ; preds = %
   store i8 %238, ptr %.023.i973, align 1
   %239 = lshr i64 %.022.i974, 7
   %240 = getelementptr inbounds i8, ptr %.023.i973, i64 1
-  %241 = icmp ugt i64 %.022.i974, 16383
+  %241 = icmp samesign ugt i64 %.022.i974, 16383
   br i1 %241, label %236, label %242, !llvm.loop !53
 
 242:                                              ; preds = %236
@@ -16118,7 +16118,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit979: ; preds = %
   store i8 %274, ptr %.023.i980, align 1
   %275 = lshr i32 %.022.i981, 7
   %276 = getelementptr inbounds i8, ptr %.023.i980, i64 1
-  %277 = icmp ugt i32 %.022.i981, 16383
+  %277 = icmp samesign ugt i32 %.022.i981, 16383
   br i1 %277, label %272, label %278, !llvm.loop !49
 
 278:                                              ; preds = %272
@@ -16189,7 +16189,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit986: ; preds = %
   store i8 %310, ptr %.023.i987, align 1
   %311 = lshr i64 %.022.i988, 7
   %312 = getelementptr inbounds i8, ptr %.023.i987, i64 1
-  %313 = icmp ugt i64 %.022.i988, 16383
+  %313 = icmp samesign ugt i64 %.022.i988, 16383
   br i1 %313, label %308, label %314, !llvm.loop !53
 
 314:                                              ; preds = %308
@@ -16427,7 +16427,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1017: ; preds = 
   store i8 %422, ptr %.023.i.i1018, align 1
   %423 = lshr i64 %.022.i.i1019, 7
   %424 = getelementptr inbounds i8, ptr %.023.i.i1018, i64 1
-  %425 = icmp ugt i64 %.022.i.i1019, 16383
+  %425 = icmp samesign ugt i64 %.022.i.i1019, 16383
   br i1 %425, label %420, label %426, !llvm.loop !53
 
 426:                                              ; preds = %420
@@ -16839,7 +16839,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1024: ; preds = 
   store i8 %659, ptr %.023.i1025, align 1
   %660 = lshr i32 %.022.i1026, 7
   %661 = getelementptr inbounds i8, ptr %.023.i1025, i64 1
-  %662 = icmp ugt i32 %.022.i1026, 16383
+  %662 = icmp samesign ugt i32 %.022.i1026, 16383
   br i1 %662, label %.preheader2027, label %663, !llvm.loop !49
 
 663:                                              ; preds = %.preheader2027
@@ -16886,7 +16886,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1028: ; 
   store i8 %683, ptr %.023.i.i1029, align 1
   %684 = lshr i64 %.022.i.i1030, 7
   %685 = getelementptr inbounds i8, ptr %.023.i.i1029, i64 1
-  %686 = icmp ugt i64 %.022.i.i1030, 16383
+  %686 = icmp samesign ugt i64 %.022.i.i1030, 16383
   br i1 %686, label %681, label %687, !llvm.loop !53
 
 687:                                              ; preds = %681
@@ -16943,7 +16943,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1035: ; preds = 
   store i8 %707, ptr %.023.i1036, align 1
   %708 = lshr i32 %.022.i1037, 7
   %709 = getelementptr inbounds i8, ptr %.023.i1036, i64 1
-  %710 = icmp ugt i32 %.022.i1037, 16383
+  %710 = icmp samesign ugt i32 %.022.i1037, 16383
   br i1 %710, label %.preheader2029, label %711, !llvm.loop !49
 
 711:                                              ; preds = %.preheader2029
@@ -16989,7 +16989,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1039: ; 
   store i8 %730, ptr %.023.i1040, align 1
   %731 = lshr i64 %.022.i1041, 7
   %732 = getelementptr inbounds i8, ptr %.023.i1040, i64 1
-  %733 = icmp ugt i64 %.022.i1041, 16383
+  %733 = icmp samesign ugt i64 %.022.i1041, 16383
   br i1 %733, label %728, label %734, !llvm.loop !53
 
 734:                                              ; preds = %728
@@ -17046,7 +17046,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1046: ; preds = 
   store i8 %754, ptr %.023.i1047, align 1
   %755 = lshr i32 %.022.i1048, 7
   %756 = getelementptr inbounds i8, ptr %.023.i1047, i64 1
-  %757 = icmp ugt i32 %.022.i1048, 16383
+  %757 = icmp samesign ugt i32 %.022.i1048, 16383
   br i1 %757, label %.preheader2031, label %758, !llvm.loop !49
 
 758:                                              ; preds = %.preheader2031
@@ -17092,7 +17092,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1050: ; 
   store i8 %777, ptr %.023.i1051, align 1
   %778 = lshr i32 %.022.i1052, 7
   %779 = getelementptr inbounds i8, ptr %.023.i1051, i64 1
-  %780 = icmp ugt i32 %.022.i1052, 16383
+  %780 = icmp samesign ugt i32 %.022.i1052, 16383
   br i1 %780, label %775, label %781, !llvm.loop !49
 
 781:                                              ; preds = %775
@@ -17149,7 +17149,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1057: ; preds = 
   store i8 %801, ptr %.023.i1058, align 1
   %802 = lshr i32 %.022.i1059, 7
   %803 = getelementptr inbounds i8, ptr %.023.i1058, i64 1
-  %804 = icmp ugt i32 %.022.i1059, 16383
+  %804 = icmp samesign ugt i32 %.022.i1059, 16383
   br i1 %804, label %.preheader2033, label %805, !llvm.loop !49
 
 805:                                              ; preds = %.preheader2033
@@ -17195,7 +17195,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1061: ; 
   store i8 %824, ptr %.023.i1062, align 1
   %825 = lshr i64 %.022.i1063, 7
   %826 = getelementptr inbounds i8, ptr %.023.i1062, i64 1
-  %827 = icmp ugt i64 %.022.i1063, 16383
+  %827 = icmp samesign ugt i64 %.022.i1063, 16383
   br i1 %827, label %822, label %828, !llvm.loop !53
 
 828:                                              ; preds = %822
@@ -17252,7 +17252,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1068: ; preds = 
   store i8 %848, ptr %.023.i1069, align 1
   %849 = lshr i32 %.022.i1070, 7
   %850 = getelementptr inbounds i8, ptr %.023.i1069, i64 1
-  %851 = icmp ugt i32 %.022.i1070, 16383
+  %851 = icmp samesign ugt i32 %.022.i1070, 16383
   br i1 %851, label %.preheader2035, label %852, !llvm.loop !49
 
 852:                                              ; preds = %.preheader2035
@@ -17301,7 +17301,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1072: ; 
   store i8 %874, ptr %.023.i1073, align 1
   %875 = lshr i32 %.022.i1074, 7
   %876 = getelementptr inbounds i8, ptr %.023.i1073, i64 1
-  %877 = icmp ugt i32 %.022.i1074, 16383
+  %877 = icmp samesign ugt i32 %.022.i1074, 16383
   br i1 %877, label %872, label %878, !llvm.loop !49
 
 878:                                              ; preds = %872
@@ -17358,7 +17358,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1079: ; preds = 
   store i8 %898, ptr %.023.i1080, align 1
   %899 = lshr i32 %.022.i1081, 7
   %900 = getelementptr inbounds i8, ptr %.023.i1080, i64 1
-  %901 = icmp ugt i32 %.022.i1081, 16383
+  %901 = icmp samesign ugt i32 %.022.i1081, 16383
   br i1 %901, label %.preheader2037, label %902, !llvm.loop !49
 
 902:                                              ; preds = %.preheader2037
@@ -17407,7 +17407,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1083: ; 
   store i8 %924, ptr %.023.i1084, align 1
   %925 = lshr i64 %.022.i1085, 7
   %926 = getelementptr inbounds i8, ptr %.023.i1084, i64 1
-  %927 = icmp ugt i64 %.022.i1085, 16383
+  %927 = icmp samesign ugt i64 %.022.i1085, 16383
   br i1 %927, label %922, label %928, !llvm.loop !53
 
 928:                                              ; preds = %922
@@ -17464,7 +17464,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1090: ; preds = 
   store i8 %948, ptr %.023.i1091, align 1
   %949 = lshr i32 %.022.i1092, 7
   %950 = getelementptr inbounds i8, ptr %.023.i1091, i64 1
-  %951 = icmp ugt i32 %.022.i1092, 16383
+  %951 = icmp samesign ugt i32 %.022.i1092, 16383
   br i1 %951, label %.preheader2039, label %952, !llvm.loop !49
 
 952:                                              ; preds = %.preheader2039
@@ -17523,7 +17523,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1097: ; preds = 
   store i8 %973, ptr %.023.i1098, align 1
   %974 = lshr i32 %.022.i1099, 7
   %975 = getelementptr inbounds i8, ptr %.023.i1098, i64 1
-  %976 = icmp ugt i32 %.022.i1099, 16383
+  %976 = icmp samesign ugt i32 %.022.i1099, 16383
   br i1 %976, label %.preheader2041, label %977, !llvm.loop !49
 
 977:                                              ; preds = %.preheader2041
@@ -17582,7 +17582,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1104: ; preds = 
   store i8 %998, ptr %.023.i1105, align 1
   %999 = lshr i32 %.022.i1106, 7
   %1000 = getelementptr inbounds i8, ptr %.023.i1105, i64 1
-  %1001 = icmp ugt i32 %.022.i1106, 16383
+  %1001 = icmp samesign ugt i32 %.022.i1106, 16383
   br i1 %1001, label %.preheader2043, label %1002, !llvm.loop !49
 
 1002:                                             ; preds = %.preheader2043
@@ -17641,7 +17641,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1111: ; preds = 
   store i8 %1023, ptr %.023.i1112, align 1
   %1024 = lshr i32 %.022.i1113, 7
   %1025 = getelementptr inbounds i8, ptr %.023.i1112, i64 1
-  %1026 = icmp ugt i32 %.022.i1113, 16383
+  %1026 = icmp samesign ugt i32 %.022.i1113, 16383
   br i1 %1026, label %.preheader2045, label %1027, !llvm.loop !49
 
 1027:                                             ; preds = %.preheader2045
@@ -17700,7 +17700,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1118: ; preds = 
   store i8 %1048, ptr %.023.i1119, align 1
   %1049 = lshr i32 %.022.i1120, 7
   %1050 = getelementptr inbounds i8, ptr %.023.i1119, i64 1
-  %1051 = icmp ugt i32 %.022.i1120, 16383
+  %1051 = icmp samesign ugt i32 %.022.i1120, 16383
   br i1 %1051, label %.preheader2047, label %1052, !llvm.loop !49
 
 1052:                                             ; preds = %.preheader2047
@@ -17759,7 +17759,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1125: ; preds = 
   store i8 %1073, ptr %.023.i1126, align 1
   %1074 = lshr i32 %.022.i1127, 7
   %1075 = getelementptr inbounds i8, ptr %.023.i1126, i64 1
-  %1076 = icmp ugt i32 %.022.i1127, 16383
+  %1076 = icmp samesign ugt i32 %.022.i1127, 16383
   br i1 %1076, label %.preheader2049, label %1077, !llvm.loop !49
 
 1077:                                             ; preds = %.preheader2049
@@ -17818,7 +17818,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1132: ; preds = 
   store i8 %1098, ptr %.023.i1133, align 1
   %1099 = lshr i32 %.022.i1134, 7
   %1100 = getelementptr inbounds i8, ptr %.023.i1133, i64 1
-  %1101 = icmp ugt i32 %.022.i1134, 16383
+  %1101 = icmp samesign ugt i32 %.022.i1134, 16383
   br i1 %1101, label %.preheader2051, label %1102, !llvm.loop !49
 
 1102:                                             ; preds = %.preheader2051
@@ -17878,7 +17878,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1142: ; preds = 
   store i8 %1124, ptr %.023.i1143, align 1
   %1125 = lshr i32 %.022.i1144, 7
   %1126 = getelementptr inbounds i8, ptr %.023.i1143, i64 1
-  %1127 = icmp ugt i32 %.022.i1144, 16383
+  %1127 = icmp samesign ugt i32 %.022.i1144, 16383
   br i1 %1127, label %.preheader2053, label %1128, !llvm.loop !49
 
 1128:                                             ; preds = %.preheader2053
@@ -17925,7 +17925,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1146: ; 
   store i8 %1148, ptr %.023.i.i1147, align 1
   %1149 = lshr i64 %.022.i.i1148, 7
   %1150 = getelementptr inbounds i8, ptr %.023.i.i1147, i64 1
-  %1151 = icmp ugt i64 %.022.i.i1148, 16383
+  %1151 = icmp samesign ugt i64 %.022.i.i1148, 16383
   br i1 %1151, label %1146, label %1152, !llvm.loop !53
 
 1152:                                             ; preds = %1146
@@ -18006,7 +18006,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread: ; preds = %11
   store i8 %1183, ptr %.0918, align 1
   %1184 = lshr i32 %.0917, 7
   %1185 = getelementptr inbounds i8, ptr %.0918, i64 1
-  %1186 = icmp ugt i32 %.0917, 16383
+  %1186 = icmp samesign ugt i32 %.0917, 16383
   br i1 %1186, label %.preheader2055, label %1187, !llvm.loop !49
 
 1187:                                             ; preds = %.preheader2055
@@ -18097,7 +18097,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread: ; preds =
   store i8 %1224, ptr %.0915, align 1
   %1225 = lshr i32 %.0914, 7
   %1226 = getelementptr inbounds i8, ptr %.0915, i64 1
-  %1227 = icmp ugt i32 %.0914, 16383
+  %1227 = icmp samesign ugt i32 %.0914, 16383
   br i1 %1227, label %.preheader2057, label %1228, !llvm.loop !49
 
 1228:                                             ; preds = %.preheader2057
@@ -18169,7 +18169,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1160: ; preds = 
   store i8 %1258, ptr %.023.i1161, align 1
   %1259 = lshr i32 %.022.i1162, 7
   %1260 = getelementptr inbounds i8, ptr %.023.i1161, i64 1
-  %1261 = icmp ugt i32 %.022.i1162, 16383
+  %1261 = icmp samesign ugt i32 %.022.i1162, 16383
   br i1 %1261, label %.preheader2060, label %1262, !llvm.loop !49
 
 1262:                                             ; preds = %.preheader2060
@@ -18218,7 +18218,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1167: ; preds = 
   store i8 %1278, ptr %.023.i1168, align 1
   %1279 = lshr i32 %.022.i1169, 7
   %1280 = getelementptr inbounds i8, ptr %.023.i1168, i64 1
-  %1281 = icmp ugt i32 %.022.i1169, 16383
+  %1281 = icmp samesign ugt i32 %.022.i1169, 16383
   br i1 %1281, label %.preheader2059, label %1282, !llvm.loop !49
 
 1282:                                             ; preds = %.preheader2059
@@ -18282,7 +18282,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1174: ; preds = 
   store i8 %1307, ptr %.023.i1175, align 1
   %1308 = lshr i32 %.022.i1176, 7
   %1309 = getelementptr inbounds i8, ptr %.023.i1175, i64 1
-  %1310 = icmp ugt i32 %.022.i1176, 16383
+  %1310 = icmp samesign ugt i32 %.022.i1176, 16383
   br i1 %1310, label %.preheader2062, label %1311, !llvm.loop !49
 
 1311:                                             ; preds = %.preheader2062
@@ -18332,7 +18332,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1178: ; 
   store i8 %1334, ptr %.023.i1179, align 1
   %1335 = lshr i32 %.022.i1180, 7
   %1336 = getelementptr inbounds i8, ptr %.023.i1179, i64 1
-  %1337 = icmp ugt i32 %.022.i1180, 16383
+  %1337 = icmp samesign ugt i32 %.022.i1180, 16383
   br i1 %1337, label %1332, label %1338, !llvm.loop !49
 
 1338:                                             ; preds = %1332
@@ -18433,7 +18433,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1185: ; preds = 
   store i8 %1379, ptr %.023.i1186, align 1
   %1380 = lshr i32 %.022.i1187, 7
   %1381 = getelementptr inbounds i8, ptr %.023.i1186, i64 1
-  %1382 = icmp ugt i32 %.022.i1187, 16383
+  %1382 = icmp samesign ugt i32 %.022.i1187, 16383
   br i1 %1382, label %1377, label %1383, !llvm.loop !49
 
 1383:                                             ; preds = %1377
@@ -18480,7 +18480,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1189: ; 
   store i8 %1403, ptr %.023.i.i1190, align 1
   %1404 = lshr i64 %.022.i.i1191, 7
   %1405 = getelementptr inbounds i8, ptr %.023.i.i1190, i64 1
-  %1406 = icmp ugt i64 %.022.i.i1191, 16383
+  %1406 = icmp samesign ugt i64 %.022.i.i1191, 16383
   br i1 %1406, label %1401, label %1407, !llvm.loop !53
 
 1407:                                             ; preds = %1401
@@ -18537,7 +18537,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1196: ; preds = 
   store i8 %1432, ptr %.023.i1197, align 1
   %1433 = lshr i32 %.022.i1198, 7
   %1434 = getelementptr inbounds i8, ptr %.023.i1197, i64 1
-  %1435 = icmp ugt i32 %.022.i1198, 16383
+  %1435 = icmp samesign ugt i32 %.022.i1198, 16383
   br i1 %1435, label %1430, label %1436, !llvm.loop !49
 
 1436:                                             ; preds = %1430
@@ -18583,7 +18583,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1200: ; 
   store i8 %1455, ptr %.023.i1201, align 1
   %1456 = lshr i64 %.022.i1202, 7
   %1457 = getelementptr inbounds i8, ptr %.023.i1201, i64 1
-  %1458 = icmp ugt i64 %.022.i1202, 16383
+  %1458 = icmp samesign ugt i64 %.022.i1202, 16383
   br i1 %1458, label %1453, label %1459, !llvm.loop !53
 
 1459:                                             ; preds = %1453
@@ -18640,7 +18640,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1207: ; preds = 
   store i8 %1484, ptr %.023.i1208, align 1
   %1485 = lshr i32 %.022.i1209, 7
   %1486 = getelementptr inbounds i8, ptr %.023.i1208, i64 1
-  %1487 = icmp ugt i32 %.022.i1209, 16383
+  %1487 = icmp samesign ugt i32 %.022.i1209, 16383
   br i1 %1487, label %1482, label %1488, !llvm.loop !49
 
 1488:                                             ; preds = %1482
@@ -18686,7 +18686,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1211: ; 
   store i8 %1507, ptr %.023.i1212, align 1
   %1508 = lshr i32 %.022.i1213, 7
   %1509 = getelementptr inbounds i8, ptr %.023.i1212, i64 1
-  %1510 = icmp ugt i32 %.022.i1213, 16383
+  %1510 = icmp samesign ugt i32 %.022.i1213, 16383
   br i1 %1510, label %1505, label %1511, !llvm.loop !49
 
 1511:                                             ; preds = %1505
@@ -18743,7 +18743,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1218: ; preds = 
   store i8 %1536, ptr %.023.i1219, align 1
   %1537 = lshr i32 %.022.i1220, 7
   %1538 = getelementptr inbounds i8, ptr %.023.i1219, i64 1
-  %1539 = icmp ugt i32 %.022.i1220, 16383
+  %1539 = icmp samesign ugt i32 %.022.i1220, 16383
   br i1 %1539, label %1534, label %1540, !llvm.loop !49
 
 1540:                                             ; preds = %1534
@@ -18789,7 +18789,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1222: ; 
   store i8 %1559, ptr %.023.i1223, align 1
   %1560 = lshr i64 %.022.i1224, 7
   %1561 = getelementptr inbounds i8, ptr %.023.i1223, i64 1
-  %1562 = icmp ugt i64 %.022.i1224, 16383
+  %1562 = icmp samesign ugt i64 %.022.i1224, 16383
   br i1 %1562, label %1557, label %1563, !llvm.loop !53
 
 1563:                                             ; preds = %1557
@@ -18846,7 +18846,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1229: ; preds = 
   store i8 %1588, ptr %.023.i1230, align 1
   %1589 = lshr i32 %.022.i1231, 7
   %1590 = getelementptr inbounds i8, ptr %.023.i1230, i64 1
-  %1591 = icmp ugt i32 %.022.i1231, 16383
+  %1591 = icmp samesign ugt i32 %.022.i1231, 16383
   br i1 %1591, label %1586, label %1592, !llvm.loop !49
 
 1592:                                             ; preds = %1586
@@ -18895,7 +18895,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1233: ; 
   store i8 %1614, ptr %.023.i1234, align 1
   %1615 = lshr i32 %.022.i1235, 7
   %1616 = getelementptr inbounds i8, ptr %.023.i1234, i64 1
-  %1617 = icmp ugt i32 %.022.i1235, 16383
+  %1617 = icmp samesign ugt i32 %.022.i1235, 16383
   br i1 %1617, label %1612, label %1618, !llvm.loop !49
 
 1618:                                             ; preds = %1612
@@ -18952,7 +18952,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1240: ; preds = 
   store i8 %1643, ptr %.023.i1241, align 1
   %1644 = lshr i32 %.022.i1242, 7
   %1645 = getelementptr inbounds i8, ptr %.023.i1241, i64 1
-  %1646 = icmp ugt i32 %.022.i1242, 16383
+  %1646 = icmp samesign ugt i32 %.022.i1242, 16383
   br i1 %1646, label %1641, label %1647, !llvm.loop !49
 
 1647:                                             ; preds = %1641
@@ -19001,7 +19001,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1244: ; 
   store i8 %1669, ptr %.023.i1245, align 1
   %1670 = lshr i64 %.022.i1246, 7
   %1671 = getelementptr inbounds i8, ptr %.023.i1245, i64 1
-  %1672 = icmp ugt i64 %.022.i1246, 16383
+  %1672 = icmp samesign ugt i64 %.022.i1246, 16383
   br i1 %1672, label %1667, label %1673, !llvm.loop !53
 
 1673:                                             ; preds = %1667
@@ -19059,7 +19059,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1251: ; preds = 
   store i8 %1699, ptr %.023.i1252, align 1
   %1700 = lshr i32 %.022.i1253, 7
   %1701 = getelementptr inbounds i8, ptr %.023.i1252, i64 1
-  %1702 = icmp ugt i32 %.022.i1253, 16383
+  %1702 = icmp samesign ugt i32 %.022.i1253, 16383
   br i1 %1702, label %1697, label %1703, !llvm.loop !49
 
 1703:                                             ; preds = %1697
@@ -19123,7 +19123,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1258: ; preds = 
   store i8 %1730, ptr %.023.i1259, align 1
   %1731 = lshr i32 %.022.i1260, 7
   %1732 = getelementptr inbounds i8, ptr %.023.i1259, i64 1
-  %1733 = icmp ugt i32 %.022.i1260, 16383
+  %1733 = icmp samesign ugt i32 %.022.i1260, 16383
   br i1 %1733, label %1728, label %1734, !llvm.loop !49
 
 1734:                                             ; preds = %1728
@@ -19187,7 +19187,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1265: ; preds = 
   store i8 %1761, ptr %.023.i1266, align 1
   %1762 = lshr i32 %.022.i1267, 7
   %1763 = getelementptr inbounds i8, ptr %.023.i1266, i64 1
-  %1764 = icmp ugt i32 %.022.i1267, 16383
+  %1764 = icmp samesign ugt i32 %.022.i1267, 16383
   br i1 %1764, label %1759, label %1765, !llvm.loop !49
 
 1765:                                             ; preds = %1759
@@ -19251,7 +19251,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1272: ; preds = 
   store i8 %1792, ptr %.023.i1273, align 1
   %1793 = lshr i32 %.022.i1274, 7
   %1794 = getelementptr inbounds i8, ptr %.023.i1273, i64 1
-  %1795 = icmp ugt i32 %.022.i1274, 16383
+  %1795 = icmp samesign ugt i32 %.022.i1274, 16383
   br i1 %1795, label %1790, label %1796, !llvm.loop !49
 
 1796:                                             ; preds = %1790
@@ -19315,7 +19315,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1279: ; preds = 
   store i8 %1823, ptr %.023.i1280, align 1
   %1824 = lshr i32 %.022.i1281, 7
   %1825 = getelementptr inbounds i8, ptr %.023.i1280, i64 1
-  %1826 = icmp ugt i32 %.022.i1281, 16383
+  %1826 = icmp samesign ugt i32 %.022.i1281, 16383
   br i1 %1826, label %1821, label %1827, !llvm.loop !49
 
 1827:                                             ; preds = %1821
@@ -19379,7 +19379,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1286: ; preds = 
   store i8 %1854, ptr %.023.i1287, align 1
   %1855 = lshr i32 %.022.i1288, 7
   %1856 = getelementptr inbounds i8, ptr %.023.i1287, i64 1
-  %1857 = icmp ugt i32 %.022.i1288, 16383
+  %1857 = icmp samesign ugt i32 %.022.i1288, 16383
   br i1 %1857, label %1852, label %1858, !llvm.loop !49
 
 1858:                                             ; preds = %1852
@@ -19442,7 +19442,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1293: ; preds = 
   store i8 %1884, ptr %.023.i1294, align 1
   %1885 = lshr i32 %.022.i1295, 7
   %1886 = getelementptr inbounds i8, ptr %.023.i1294, i64 1
-  %1887 = icmp ugt i32 %.022.i1295, 16383
+  %1887 = icmp samesign ugt i32 %.022.i1295, 16383
   br i1 %1887, label %1882, label %1888, !llvm.loop !49
 
 1888:                                             ; preds = %1882
@@ -19506,7 +19506,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1303: ; preds = 
   store i8 %1915, ptr %.023.i1304, align 1
   %1916 = lshr i32 %.022.i1305, 7
   %1917 = getelementptr inbounds i8, ptr %.023.i1304, i64 1
-  %1918 = icmp ugt i32 %.022.i1305, 16383
+  %1918 = icmp samesign ugt i32 %.022.i1305, 16383
   br i1 %1918, label %1913, label %1919, !llvm.loop !49
 
 1919:                                             ; preds = %1913
@@ -19553,7 +19553,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1307: ; 
   store i8 %1939, ptr %.023.i.i1308, align 1
   %1940 = lshr i64 %.022.i.i1309, 7
   %1941 = getelementptr inbounds i8, ptr %.023.i.i1308, i64 1
-  %1942 = icmp ugt i64 %.022.i.i1309, 16383
+  %1942 = icmp samesign ugt i64 %.022.i.i1309, 16383
   br i1 %1942, label %1937, label %1943, !llvm.loop !53
 
 1943:                                             ; preds = %1937
@@ -19641,7 +19641,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1315.thread: ; preds =
   store i8 %1986, ptr %.0912, align 1
   %1987 = lshr i32 %.0910, 7
   %1988 = getelementptr inbounds i8, ptr %.0912, i64 1
-  %1989 = icmp ugt i32 %.0910, 16383
+  %1989 = icmp samesign ugt i32 %.0910, 16383
   br i1 %1989, label %1984, label %1990, !llvm.loop !49
 
 1990:                                             ; preds = %1984
@@ -19739,7 +19739,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1319.thread: ; preds =
   store i8 %2038, ptr %.0907, align 1
   %2039 = lshr i32 %.0892, 7
   %2040 = getelementptr inbounds i8, ptr %.0907, i64 1
-  %2041 = icmp ugt i32 %.0892, 16383
+  %2041 = icmp samesign ugt i32 %.0892, 16383
   br i1 %2041, label %2036, label %2042, !llvm.loop !49
 
 2042:                                             ; preds = %2036
@@ -19807,7 +19807,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1322: ; preds = 
   store i8 %2073, ptr %.023.i1323, align 1
   %2074 = lshr i32 %.022.i1324, 7
   %2075 = getelementptr inbounds i8, ptr %.023.i1323, i64 1
-  %2076 = icmp ugt i32 %.022.i1324, 16383
+  %2076 = icmp samesign ugt i32 %.022.i1324, 16383
   br i1 %2076, label %2071, label %2077, !llvm.loop !49
 
 2077:                                             ; preds = %2071
@@ -19866,7 +19866,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1329: ; preds = 
   store i8 %2102, ptr %.023.i1330, align 1
   %2103 = lshr i32 %.022.i1331, 7
   %2104 = getelementptr inbounds i8, ptr %.023.i1330, i64 1
-  %2105 = icmp ugt i32 %.022.i1331, 16383
+  %2105 = icmp samesign ugt i32 %.022.i1331, 16383
   br i1 %2105, label %2100, label %2106, !llvm.loop !49
 
 2106:                                             ; preds = %2100
@@ -19937,7 +19937,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1336: ; preds = 
   store i8 %2140, ptr %.023.i1337, align 1
   %2141 = lshr i32 %.022.i1338, 7
   %2142 = getelementptr inbounds i8, ptr %.023.i1337, i64 1
-  %2143 = icmp ugt i32 %.022.i1338, 16383
+  %2143 = icmp samesign ugt i32 %.022.i1338, 16383
   br i1 %2143, label %2138, label %2144, !llvm.loop !49
 
 2144:                                             ; preds = %2138
@@ -19987,7 +19987,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1340: ; 
   store i8 %2167, ptr %.023.i1341, align 1
   %2168 = lshr i32 %.022.i1342, 7
   %2169 = getelementptr inbounds i8, ptr %.023.i1341, i64 1
-  %2170 = icmp ugt i32 %.022.i1342, 16383
+  %2170 = icmp samesign ugt i32 %.022.i1342, 16383
   br i1 %2170, label %2165, label %2171, !llvm.loop !49
 
 2171:                                             ; preds = %2165
@@ -21832,7 +21832,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %24,
   store i8 %46, ptr %.023.i, align 1
   %47 = lshr i32 %.022.i, 7
   %48 = getelementptr inbounds i8, ptr %.023.i, i64 1
-  %49 = icmp ugt i32 %.022.i, 16383
+  %49 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %49, label %44, label %50, !llvm.loop !49
 
 50:                                               ; preds = %44
@@ -21898,7 +21898,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   store i8 %83, ptr %.023.i53, align 1
   %84 = lshr i32 %.022.i54, 7
   %85 = getelementptr inbounds i8, ptr %.023.i53, i64 1
-  %86 = icmp ugt i32 %.022.i54, 16383
+  %86 = icmp samesign ugt i32 %.022.i54, 16383
   br i1 %86, label %81, label %87, !llvm.loop !49
 
 87:                                               ; preds = %81

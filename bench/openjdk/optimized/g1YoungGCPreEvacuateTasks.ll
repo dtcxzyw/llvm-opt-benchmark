@@ -455,7 +455,7 @@ define hidden void @_ZN35G1PreEvacuateCollectionSetBatchTaskD2Ev(ptr noundef non
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %8, align 8, !noalias !6
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %16, label %11, label %_ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs10tlab_statsEv.exit, !llvm.loop !9
 
 _ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs10tlab_statsEv.exit: ; preds = %11, %1
@@ -481,7 +481,7 @@ _ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs10tla
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %26 = load i32, ptr %19, align 8, !noalias !11
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next.i8, %27
+  %28 = icmp samesign ult i64 %indvars.iv.next.i8, %27
   br i1 %28, label %22, label %_ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs16refinement_statsEv.exit, !llvm.loop !14
 
 _ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs16refinement_statsEv.exit: ; preds = %22, %_ZNK35G1PreEvacuateCollectionSetBatchTask32JavaThreadRetireTLABAndFlushLogs10tlab_statsEv.exit
@@ -725,7 +725,7 @@ define linkonce_odr hidden void @_ZN35G1PreEvacuateCollectionSetBatchTask32JavaT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %3, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -6770,7 +6770,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7019,7 +7019,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

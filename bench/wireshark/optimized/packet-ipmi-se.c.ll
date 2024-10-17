@@ -1684,7 +1684,7 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i64
-  %7 = icmp ult i8 %5, 16
+  %7 = icmp samesign ult i8 %5, 16
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -1693,7 +1693,7 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %13
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i8 %5, 95
+  %12 = icmp samesign ugt i8 %5, 95
   %.str.637..str.507 = select i1 %12, ptr @.str.637, ptr @.str.507
   br label %13
 
@@ -1734,7 +1734,7 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 6:                                                ; preds = %3
   %7 = and i32 %5, 127
-  %8 = icmp ult i32 %7, 16
+  %8 = icmp samesign ult i32 %7, 16
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
@@ -1744,7 +1744,7 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %15
 
 13:                                               ; preds = %6
-  %14 = icmp ugt i32 %7, 95
+  %14 = icmp samesign ugt i32 %7, 95
   %.str.637..str.507 = select i1 %14, ptr @.str.637, ptr @.str.507
   br label %15
 
@@ -1822,7 +1822,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %28 = load i32, ptr %4, align 4
   %29 = and i32 %28, 127
   store i32 %29, ptr %4, align 4
-  %30 = icmp ult i32 %29, 16
+  %30 = icmp samesign ult i32 %29, 16
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27
@@ -1832,7 +1832,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %37
 
 35:                                               ; preds = %27
-  %36 = icmp ugt i32 %29, 95
+  %36 = icmp samesign ugt i32 %29, 95
   %.str.637..str.507 = select i1 %36, ptr @.str.637, ptr @.str.507
   br label %37
 
@@ -3606,7 +3606,7 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %28 = add nuw nsw i32 %.033, 1
   %29 = icmp slt i32 %28, %6
-  %30 = icmp ult i64 %indvars.iv35, 3
+  %30 = icmp samesign ult i64 %indvars.iv35, 3
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 

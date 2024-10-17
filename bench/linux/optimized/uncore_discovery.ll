@@ -526,7 +526,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %302 = add nuw nsw i64 %288, 1
   %303 = load i16, ptr %243, align 2
   %304 = zext i16 %303 to i64
-  %305 = icmp ult i64 %302, %304
+  %305 = icmp samesign ult i64 %302, %304
   br i1 %305, label %287, label %306, !llvm.loop !13
 
 306:                                              ; preds = %301
@@ -563,7 +563,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %322 = trunc i64 %321 to i32
   %323 = lshr i32 %322, 16
   %324 = and i32 %323, 1023
-  %325 = icmp ult i32 %119, %324
+  %325 = icmp samesign ult i32 %119, %324
   br i1 %325, label %116, label %.loopexit42, !llvm.loop !14
 
 .loopexit42:                                      ; preds = %.thread38, %108, %96

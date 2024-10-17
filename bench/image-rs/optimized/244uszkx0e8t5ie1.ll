@@ -1962,13 +1962,13 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   %206 = getelementptr inbounds ptr, ptr %204, i64 %186
   store ptr %.sroa.11.184102.i, ptr %206, align 8, !alias.scope !294, !noalias !285
   store i16 %184, ptr %176, align 2, !noalias !285
-  %207 = icmp ult i64 %186, %205
+  %207 = icmp samesign ult i64 %186, %205
   br i1 %207, label %.lr.ph.i.i.i.i, label %.loopexit.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %203, %.lr.ph.i.i.i.i
   %.sroa.0.06.i.i.i.i = phi i64 [ %208, %.lr.ph.i.i.i.i ], [ %186, %203 ]
   %208 = add nuw nsw i64 %.sroa.0.06.i.i.i.i, 1
-  %209 = icmp ult i64 %.sroa.0.06.i.i.i.i, 12
+  %209 = icmp samesign ult i64 %.sroa.0.06.i.i.i.i, 12
   tail call void @llvm.assume(i1 %209)
   %210 = getelementptr inbounds ptr, ptr %204, i64 %.sroa.0.06.i.i.i.i
   %211 = load ptr, ptr %210, align 8, !noalias !285, !nonnull !7, !noundef !7
@@ -2123,10 +2123,10 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
 
 270:                                              ; preds = %270, %268
   %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %268 ], [ %spec.select7.i.i.i.i.i, %270 ]
-  %271 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, %260
+  %271 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, %260
   %272 = zext i1 %271 to i64
   %spec.select7.i.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i.i, %272
-  %273 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, 12
+  %273 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, 12
   tail call void @llvm.assume(i1 %273)
   %274 = getelementptr inbounds ptr, ptr %261, i64 %.sroa.0.011.i.i.i.i.i
   %275 = load ptr, ptr %274, align 8, !alias.scope !321, !noalias !324, !nonnull !7, !noundef !7
@@ -2134,7 +2134,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   %276 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i.i to i16
   %277 = getelementptr inbounds i8, ptr %275, i64 1240
   store i16 %276, ptr %277, align 8, !noalias !324
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i.i, %260
+  %.not.i.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i.i, %260
   %or.cond.i.not.i.i.i.i = select i1 %271, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i.i, label %270, label %281
 
@@ -2865,13 +2865,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %199 = getelementptr inbounds ptr, ptr %197, i64 %180
   store ptr %.sroa.11.184102.i, ptr %199, align 8, !alias.scope !448, !noalias !439
   store i16 %178, ptr %170, align 2, !noalias !439
-  %200 = icmp ult i64 %180, %198
+  %200 = icmp samesign ult i64 %180, %198
   br i1 %200, label %.lr.ph.i.i.i.i, label %.loopexit.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %196, %.lr.ph.i.i.i.i
   %.sroa.0.06.i.i.i.i = phi i64 [ %201, %.lr.ph.i.i.i.i ], [ %180, %196 ]
   %201 = add nuw nsw i64 %.sroa.0.06.i.i.i.i, 1
-  %202 = icmp ult i64 %.sroa.0.06.i.i.i.i, 12
+  %202 = icmp samesign ult i64 %.sroa.0.06.i.i.i.i, 12
   tail call void @llvm.assume(i1 %202)
   %203 = getelementptr inbounds ptr, ptr %197, i64 %.sroa.0.06.i.i.i.i
   %204 = load ptr, ptr %203, align 8, !noalias !439, !nonnull !7, !noundef !7
@@ -3025,10 +3025,10 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 
 262:                                              ; preds = %262, %260
   %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %260 ], [ %spec.select7.i.i.i.i.i, %262 ]
-  %263 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, %252
+  %263 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, %252
   %264 = zext i1 %263 to i64
   %spec.select7.i.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i.i, %264
-  %265 = icmp ult i64 %.sroa.0.011.i.i.i.i.i, 12
+  %265 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i.i, 12
   tail call void @llvm.assume(i1 %265)
   %266 = getelementptr inbounds ptr, ptr %253, i64 %.sroa.0.011.i.i.i.i.i
   %267 = load ptr, ptr %266, align 8, !alias.scope !475, !noalias !478, !nonnull !7, !noundef !7
@@ -3037,7 +3037,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %269 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i.i to i16
   %270 = getelementptr inbounds i8, ptr %267, i64 360
   store i16 %269, ptr %270, align 8, !noalias !478
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i.i, %252
+  %.not.i.i.i.i.i.i.i = icmp samesign ule i64 %spec.select7.i.i.i.i.i, %252
   %or.cond.i.not.i.i.i.i = select i1 %263, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i.i, label %262, label %274
 
@@ -3725,7 +3725,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !7
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %13
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -3733,7 +3733,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %8
+  %.not = icmp samesign ugt i64 %1, %8
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -3831,7 +3831,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit: ; pre
 65:                                               ; preds = %65, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit
   %.sroa.0.06.i = phi i64 [ 0, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit ], [ %66, %65 ]
   %66 = add nuw nsw i64 %.sroa.0.06.i, 1
-  %67 = icmp ult i64 %.sroa.0.06.i, 12
+  %67 = icmp samesign ult i64 %.sroa.0.06.i, 12
   tail call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds ptr, ptr %59, i64 %.sroa.0.06.i
   %69 = load ptr, ptr %68, align 8, !nonnull !7, !noundef !7
@@ -3858,7 +3858,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !7
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %8
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -3866,7 +3866,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %13
+  %.not = icmp samesign ugt i64 %1, %13
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -3953,7 +3953,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit: ; pre
 61:                                               ; preds = %61, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit
   %.sroa.0.06.i = phi i64 [ %38, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit ], [ %62, %61 ]
   %62 = add nuw nsw i64 %.sroa.0.06.i, 1
-  %63 = icmp ult i64 %.sroa.0.06.i, 12
+  %63 = icmp samesign ult i64 %.sroa.0.06.i, 12
   tail call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds ptr, ptr %56, i64 %.sroa.0.06.i
   %65 = load ptr, ptr %64, align 8, !nonnull !7, !noundef !7
@@ -3967,7 +3967,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit: ; pre
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit": ; preds = %61, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit"
   %.sroa.0.06.i63 = phi i64 [ %68, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit" ], [ 0, %61 ]
   %68 = add nuw nsw i64 %.sroa.0.06.i63, 1
-  %69 = icmp ult i64 %.sroa.0.06.i63, 12
+  %69 = icmp samesign ult i64 %.sroa.0.06.i63, 12
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds ptr, ptr %55, i64 %.sroa.0.06.i63
   %71 = load ptr, ptr %70, align 8, !nonnull !7, !noundef !7
@@ -4023,7 +4023,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -4115,7 +4115,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
 .lr.ph.i45.i:                                     ; preds = %.lr.ph.i45.i, %.lr.ph.i45.preheader.i
   %.sroa.0.06.i46.i = phi i64 [ %74, %.lr.ph.i45.i ], [ %25, %.lr.ph.i45.preheader.i ]
   %74 = add nuw nsw i64 %.sroa.0.06.i46.i, 1
-  %75 = icmp ult i64 %.sroa.0.06.i46.i, 12
+  %75 = icmp samesign ult i64 %.sroa.0.06.i46.i, 12
   tail call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds ptr, ptr %68, i64 %.sroa.0.06.i46.i
   %77 = load ptr, ptr %76, align 8, !noalias !600, !nonnull !7, !noundef !7
@@ -4338,7 +4338,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %65 = add nuw nsw i64 %64, 1
   %66 = zext nneg i16 %32 to i64
   %67 = add nuw nsw i64 %65, %66
-  %68 = icmp ult i64 %67, 12
+  %68 = icmp samesign ult i64 %67, 12
   br i1 %68, label %83, label %78
 
 69:                                               ; preds = %45
@@ -4350,7 +4350,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %74 = load i16, ptr %73, align 2, !noundef !7
   %75 = zext i16 %74 to i64
   %76 = add nuw nsw i64 %72, %75
-  %77 = icmp ult i64 %76, 12
+  %77 = icmp samesign ult i64 %76, 12
   br i1 %77, label %97, label %93
 
 78:                                               ; preds = %55
@@ -4548,7 +4548,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %125 = zext i16 %124 to i64
   %126 = add nuw nsw i64 %104, 1
   %127 = add nuw nsw i64 %126, %125
-  %128 = icmp ult i64 %127, 12
+  %128 = icmp samesign ult i64 %127, 12
   br i1 %128, label %._crit_edge166, label %138
 
 129:                                              ; preds = %111
@@ -4567,7 +4567,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %134 = load i16, ptr %133, align 2, !noalias !7, !noundef !7
   %135 = zext i16 %134 to i64
   %136 = add nuw nsw i64 %132, %135
-  %137 = icmp ult i64 %136, 12
+  %137 = icmp samesign ult i64 %136, 12
   br i1 %137, label %._crit_edge166.thread, label %140
 
 138:                                              ; preds = %116
@@ -4590,7 +4590,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !658
   %.pre172 = add nuw nsw i64 %125, 1
   %.pre174 = add nuw nsw i64 %.pre172, %104
-  %142 = icmp ult i64 %.pre174, 12
+  %142 = icmp samesign ult i64 %.pre174, 12
   br i1 %142, label %._crit_edge166.thread, label %.noexc44.i.invoke
 
 ._crit_edge166.thread:                            ; preds = %129, %._crit_edge166
@@ -4693,7 +4693,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 .lr.ph.i45.i:                                     ; preds = %.lr.ph.i45.i, %.lr.ph.i45.preheader.i
   %.sroa.0.06.i46.i = phi i64 [ %196, %.lr.ph.i45.i ], [ %.pre-phi173181, %.lr.ph.i45.preheader.i ]
   %196 = add nuw nsw i64 %.sroa.0.06.i46.i, 1
-  %197 = icmp ult i64 %.sroa.0.06.i46.i, 12
+  %197 = icmp samesign ult i64 %.sroa.0.06.i46.i, 12
   tail call void @llvm.assume(i1 %197)
   %198 = getelementptr inbounds ptr, ptr %187, i64 %.sroa.0.06.i46.i
   %199 = load ptr, ptr %198, align 8, !noalias !658, !nonnull !7, !noundef !7
@@ -4792,7 +4792,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN110_$LT$core..i
 
 16:                                               ; preds = %.loopexit.loopexit.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1248
-  %18 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %18 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds ptr, ptr %17, i64 %.sroa.4.0.i.ph.sink.i.ph
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
@@ -4857,7 +4857,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN110_$LT$core..i
 
 16:                                               ; preds = %.loopexit.loopexit.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 392
-  %18 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  %18 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds ptr, ptr %17, i64 %.sroa.4.0.i.ph.sink.i.ph
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
@@ -7927,7 +7927,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %15 = icmp eq i8 %2, 0
   %.0.in.sroa.speculate.load.3.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 100)
   %.0.in.sroa.speculated.i = select i1 %15, i8 1, i8 %.0.in.sroa.speculate.load.3.sroa.speculated.i
-  %16 = icmp ult i8 %.0.in.sroa.speculated.i, 50
+  %16 = icmp samesign ult i8 %.0.in.sroa.speculated.i, 50
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %10
@@ -7992,7 +7992,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %38 = mul nuw nsw i32 %storemerge, %37
   %39 = add nuw nsw i32 %38, 50
   %40 = udiv i32 %39, 100
-  %41 = icmp ult i32 %38, 50
+  %41 = icmp samesign ult i32 %38, 50
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
   %42 = trunc nuw i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i to i8
   %43 = select i1 %41, i8 1, i8 %42
@@ -12456,7 +12456,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter16s
   %37 = lshr i8 %.02, 1
   %38 = zext nneg i8 %37 to i32
   %39 = add nuw nsw i32 %36, %38
-  %40 = icmp ule i32 %39, %0
+  %40 = icmp samesign ule i32 %39, %0
   ret i1 %40
 
 41:                                               ; preds = %20
@@ -13459,7 +13459,7 @@ define noundef i8 @_ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77
   %46 = phi i64 [ %43, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %29, %37 ], [ %29, %.lr.ph.i ]
   %47 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ 0, %37 ], [ %35, %.lr.ph.i ]
   %48 = phi i32 [ %42, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %33, %37 ], [ %33, %.lr.ph.i ]
-  %49 = icmp ult i32 %31, 64
+  %49 = icmp samesign ult i32 %31, 64
   br i1 %49, label %.lr.ph.i, label %._crit_edge.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; preds = %25, %._crit_edge.i
@@ -13578,7 +13578,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5image6codecs4webp3vp810BoolReader23
   %46 = phi i64 [ %43, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %29, %37 ], [ %29, %.lr.ph.i.i ]
   %47 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ 0, %37 ], [ %35, %.lr.ph.i.i ]
   %48 = phi i32 [ %42, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %33, %37 ], [ %33, %.lr.ph.i.i ]
-  %49 = icmp ult i32 %31, 64
+  %49 = icmp samesign ult i32 %31, 64
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; preds = %._crit_edge.i.i, %25
@@ -13658,7 +13658,7 @@ _ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit: ; 
   %88 = phi i64 [ %86, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i19" ], [ %72, %80 ], [ %72, %.lr.ph.i.i17 ]
   %89 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i19" ], [ 0, %80 ], [ %78, %.lr.ph.i.i17 ]
   %90 = phi i32 [ %85, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i19" ], [ %76, %80 ], [ %76, %.lr.ph.i.i17 ]
-  %91 = icmp ult i32 %74, 64
+  %91 = icmp samesign ult i32 %74, 64
   br i1 %91, label %.lr.ph.i.i17, label %._crit_edge.i.i18
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i12: ; preds = %._crit_edge.i.i18, %69
@@ -13758,7 +13758,7 @@ define noundef range(i8 0, -127) i8 @_ZN5image6codecs4webp3vp810BoolReader14read
   %53 = phi i64 [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %36, %44 ], [ %36, %.lr.ph.i ]
   %54 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ 0, %44 ], [ %42, %.lr.ph.i ]
   %55 = phi i32 [ %49, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %40, %44 ], [ %40, %.lr.ph.i ]
-  %56 = icmp ult i32 %38, 64
+  %56 = icmp samesign ult i32 %38, 64
   br i1 %56, label %.lr.ph.i, label %._crit_edge.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; preds = %32, %._crit_edge.i
@@ -13860,7 +13860,7 @@ define noundef zeroext i1 @_ZN5image6codecs4webp3vp810BoolReader9read_flag17h680
   %37 = phi i64 [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %21, %29 ], [ %21, %.lr.ph.i.i ]
   %38 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ 0, %29 ], [ %27, %.lr.ph.i.i ]
   %39 = phi i32 [ %34, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %25, %29 ], [ %25, %.lr.ph.i.i ]
-  %40 = icmp ult i32 %23, 64
+  %40 = icmp samesign ult i32 %23, 64
   br i1 %40, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; preds = %._crit_edge.i.i, %18
@@ -14699,7 +14699,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$26up
   %53 = phi i64 [ %51, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %37, %45 ], [ %37, %.lr.ph.i ]
   %54 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ 0, %45 ], [ %43, %.lr.ph.i ]
   %55 = phi i32 [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i" ], [ %41, %45 ], [ %41, %.lr.ph.i ]
-  %56 = icmp ult i32 %39, 64
+  %56 = icmp samesign ult i32 %39, 64
   br i1 %56, label %.lr.ph.i, label %._crit_edge.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; preds = %34, %._crit_edge.i
@@ -14810,7 +14810,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; pred
   %95 = phi i64 [ %92, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %78, %86 ], [ %78, %.lr.ph.i.i ]
   %96 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ 0, %86 ], [ %84, %.lr.ph.i.i ]
   %97 = phi i32 [ %91, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %82, %86 ], [ %82, %.lr.ph.i.i ]
-  %98 = icmp ult i32 %80, 64
+  %98 = icmp samesign ult i32 %80, 64
   br i1 %98, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; preds = %._crit_edge.i.i, %73
@@ -14940,7 +14940,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$25re
   %43 = phi i64 [ %40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %26, %34 ], [ %26, %.lr.ph.i.i ]
   %44 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ 0, %34 ], [ %32, %.lr.ph.i.i ]
   %45 = phi i32 [ %39, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %30, %34 ], [ %30, %.lr.ph.i.i ]
-  %46 = icmp ult i32 %28, 64
+  %46 = icmp samesign ult i32 %28, 64
   br i1 %46, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; preds = %._crit_edge.i.i, %22
@@ -15012,7 +15012,7 @@ _ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit: ; 
   %79 = phi i64 [ %77, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %63, %71 ], [ %63, %.lr.ph.i.i.i ]
   %80 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ 0, %71 ], [ %69, %.lr.ph.i.i.i ]
   %81 = phi i32 [ %76, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %67, %71 ], [ %67, %.lr.ph.i.i.i ]
-  %82 = icmp ult i32 %65, 64
+  %82 = icmp samesign ult i32 %65, 64
   br i1 %82, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; preds = %60, %._crit_edge.i.i.i
@@ -15097,7 +15097,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
   %115 = phi i64 [ %113, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i26" ], [ %99, %107 ], [ %99, %.lr.ph.i.i.i24 ]
   %116 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i26" ], [ 0, %107 ], [ %105, %.lr.ph.i.i.i24 ]
   %117 = phi i32 [ %112, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i26" ], [ %103, %107 ], [ %103, %.lr.ph.i.i.i24 ]
-  %118 = icmp ult i32 %101, 64
+  %118 = icmp samesign ult i32 %101, 64
   br i1 %118, label %.lr.ph.i.i.i24, label %._crit_edge.i.i.i25
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit27: ; preds = %96, %._crit_edge.i.i.i25
@@ -15182,7 +15182,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit27: ; pr
   %151 = phi i64 [ %149, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i37" ], [ %135, %143 ], [ %135, %.lr.ph.i.i.i35 ]
   %152 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i37" ], [ 0, %143 ], [ %141, %.lr.ph.i.i.i35 ]
   %153 = phi i32 [ %148, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i37" ], [ %139, %143 ], [ %139, %.lr.ph.i.i.i35 ]
-  %154 = icmp ult i32 %137, 64
+  %154 = icmp samesign ult i32 %137, 64
   br i1 %154, label %.lr.ph.i.i.i35, label %._crit_edge.i.i.i36
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit38: ; preds = %132, %._crit_edge.i.i.i36
@@ -15267,7 +15267,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit38: ; pr
   %187 = phi i64 [ %185, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i48" ], [ %171, %179 ], [ %171, %.lr.ph.i.i.i46 ]
   %188 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i48" ], [ 0, %179 ], [ %177, %.lr.ph.i.i.i46 ]
   %189 = phi i32 [ %184, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i48" ], [ %175, %179 ], [ %175, %.lr.ph.i.i.i46 ]
-  %190 = icmp ult i32 %173, 64
+  %190 = icmp samesign ult i32 %173, 64
   br i1 %190, label %.lr.ph.i.i.i46, label %._crit_edge.i.i.i47
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit49: ; preds = %168, %._crit_edge.i.i.i47
@@ -15352,7 +15352,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit49: ; pr
   %223 = phi i64 [ %221, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i59" ], [ %207, %215 ], [ %207, %.lr.ph.i.i.i57 ]
   %224 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i59" ], [ 0, %215 ], [ %213, %.lr.ph.i.i.i57 ]
   %225 = phi i32 [ %220, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i59" ], [ %211, %215 ], [ %211, %.lr.ph.i.i.i57 ]
-  %226 = icmp ult i32 %209, 64
+  %226 = icmp samesign ult i32 %209, 64
   br i1 %226, label %.lr.ph.i.i.i57, label %._crit_edge.i.i.i58
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; preds = %204, %._crit_edge.i.i.i58
@@ -15457,7 +15457,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   br i1 %294, label %298, label %295
 
 295:                                              ; preds = %293, %298
-  %296 = icmp ult i64 %.sroa.06.088, 3
+  %296 = icmp samesign ult i64 %.sroa.06.088, 3
   %297 = and i1 %296, %232
   br i1 %297, label %236, label %235
 
@@ -15559,7 +15559,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$28re
   %38 = phi i64 [ %36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %22, %30 ], [ %22, %.lr.ph.i.i.i ]
   %39 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ 0, %30 ], [ %28, %.lr.ph.i.i.i ]
   %40 = phi i32 [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %26, %30 ], [ %26, %.lr.ph.i.i.i ]
-  %41 = icmp ult i32 %24, 64
+  %41 = icmp samesign ult i32 %24, 64
   br i1 %41, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; preds = %19, %._crit_edge.i.i.i
@@ -15643,7 +15643,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
   %75 = phi i64 [ %73, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i22" ], [ %59, %67 ], [ %59, %.lr.ph.i.i.i20 ]
   %76 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i22" ], [ 0, %67 ], [ %65, %.lr.ph.i.i.i20 ]
   %77 = phi i32 [ %72, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i22" ], [ %63, %67 ], [ %63, %.lr.ph.i.i.i20 ]
-  %78 = icmp ult i32 %61, 64
+  %78 = icmp samesign ult i32 %61, 64
   br i1 %78, label %.lr.ph.i.i.i20, label %._crit_edge.i.i.i21
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit23: ; preds = %56, %._crit_edge.i.i.i21
@@ -15716,7 +15716,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit23: ; pr
   %110 = phi i64 [ %108, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i33" ], [ %94, %102 ], [ %94, %.lr.ph.i.i.i31 ]
   %111 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i33" ], [ 0, %102 ], [ %100, %.lr.ph.i.i.i31 ]
   %112 = phi i32 [ %107, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i33" ], [ %98, %102 ], [ %98, %.lr.ph.i.i.i31 ]
-  %113 = icmp ult i32 %96, 64
+  %113 = icmp samesign ult i32 %96, 64
   br i1 %113, label %.lr.ph.i.i.i31, label %._crit_edge.i.i.i32
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit34: ; preds = %91, %._crit_edge.i.i.i32
@@ -15818,7 +15818,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$20re
   %38 = phi i64 [ %36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %22, %30 ], [ %22, %.lr.ph.i.i.i ]
   %39 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ 0, %30 ], [ %28, %.lr.ph.i.i.i ]
   %40 = phi i32 [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %26, %30 ], [ %26, %.lr.ph.i.i.i ]
-  %41 = icmp ult i32 %24, 64
+  %41 = icmp samesign ult i32 %24, 64
   br i1 %41, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; preds = %19, %._crit_edge.i.i.i
@@ -15885,7 +15885,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
   %71 = phi i64 [ %69, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i40" ], [ %55, %63 ], [ %55, %.lr.ph.i.i.i38 ]
   %72 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i40" ], [ 0, %63 ], [ %61, %.lr.ph.i.i.i38 ]
   %73 = phi i32 [ %68, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i40" ], [ %59, %63 ], [ %59, %.lr.ph.i.i.i38 ]
-  %74 = icmp ult i32 %57, 64
+  %74 = icmp samesign ult i32 %57, 64
   br i1 %74, label %.lr.ph.i.i.i38, label %._crit_edge.i.i.i39
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit41: ; preds = %52, %._crit_edge.i.i.i39
@@ -15971,7 +15971,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit41: ; pr
   %107 = phi i64 [ %105, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i51" ], [ %91, %99 ], [ %91, %.lr.ph.i.i.i49 ]
   %108 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i51" ], [ 0, %99 ], [ %97, %.lr.ph.i.i.i49 ]
   %109 = phi i32 [ %104, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i51" ], [ %95, %99 ], [ %95, %.lr.ph.i.i.i49 ]
-  %110 = icmp ult i32 %93, 64
+  %110 = icmp samesign ult i32 %93, 64
   br i1 %110, label %.lr.ph.i.i.i49, label %._crit_edge.i.i.i50
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit52: ; preds = %88, %._crit_edge.i.i.i50
@@ -16054,7 +16054,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit52: ; pr
   %146 = phi i64 [ %144, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i62" ], [ %130, %138 ], [ %130, %.lr.ph.i.i.i60 ]
   %147 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i62" ], [ 0, %138 ], [ %136, %.lr.ph.i.i.i60 ]
   %148 = phi i32 [ %143, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i62" ], [ %134, %138 ], [ %134, %.lr.ph.i.i.i60 ]
-  %149 = icmp ult i32 %132, 64
+  %149 = icmp samesign ult i32 %132, 64
   br i1 %149, label %.lr.ph.i.i.i60, label %._crit_edge.i.i.i61
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit63: ; preds = %127, %._crit_edge.i.i.i61
@@ -16127,7 +16127,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit63: ; pr
   %181 = phi i64 [ %179, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i73" ], [ %165, %173 ], [ %165, %.lr.ph.i.i.i71 ]
   %182 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i73" ], [ 0, %173 ], [ %171, %.lr.ph.i.i.i71 ]
   %183 = phi i32 [ %178, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i73" ], [ %169, %173 ], [ %169, %.lr.ph.i.i.i71 ]
-  %184 = icmp ult i32 %167, 64
+  %184 = icmp samesign ult i32 %167, 64
   br i1 %184, label %.lr.ph.i.i.i71, label %._crit_edge.i.i.i72
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit74: ; preds = %162, %._crit_edge.i.i.i72
@@ -16207,7 +16207,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit74: ; pr
   %218 = phi i64 [ %215, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i84" ], [ %201, %209 ], [ %201, %.lr.ph.i.i.i82 ]
   %219 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i84" ], [ 0, %209 ], [ %207, %.lr.ph.i.i.i82 ]
   %220 = phi i32 [ %214, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i84" ], [ %205, %209 ], [ %205, %.lr.ph.i.i.i82 ]
-  %221 = icmp ult i32 %203, 64
+  %221 = icmp samesign ult i32 %203, 64
   br i1 %221, label %.lr.ph.i.i.i82, label %._crit_edge.i.i.i83
 
 _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit85: ; preds = %197, %._crit_edge.i.i.i83
@@ -16291,7 +16291,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit85: ; pr
   %263 = phi i64 [ %259, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %245, %253 ], [ %245, %.lr.ph.i.i ]
   %264 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ 0, %253 ], [ %251, %.lr.ph.i.i ]
   %265 = phi i32 [ %258, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i" ], [ %249, %253 ], [ %249, %.lr.ph.i.i ]
-  %266 = icmp ult i32 %247, 64
+  %266 = icmp samesign ult i32 %247, 64
   br i1 %266, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; preds = %._crit_edge.i.i, %239
@@ -16365,7 +16365,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp3vp819Vp8Decode
   %. = zext i1 %13 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 712
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !align !1644, !noundef !7
-  %16 = icmp ult i64 %3, 8
+  %16 = icmp samesign ult i64 %3, 8
   %17 = getelementptr inbounds i8, ptr %0, i64 192
   %18 = getelementptr inbounds [8 x { { { i64, ptr }, i64 }, i64, i32, i32, i8, [7 x i8] }], ptr %17, i64 0, i64 %3
   %19 = getelementptr inbounds i8, ptr %18, i64 32
@@ -16651,7 +16651,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit71: ; pr
   %141 = getelementptr inbounds [16 x i8], ptr @_ZN5image6codecs4webp3vp86ZIGZAG17h62ba866b3f983077E, i64 0, i64 %.sroa.08.0131
   %142 = load i8, ptr %141, align 1, !noundef !7
   %143 = zext i8 %142 to i64
-  %144 = icmp ugt i64 %2, %143
+  %144 = icmp samesign ugt i64 %2, %143
   br i1 %144, label %146, label %151, !prof !838
 
 145:                                              ; preds = %.split126.us
@@ -17344,7 +17344,7 @@ common.resume:                                    ; preds = %1656, %1683, %1692,
   %262 = phi i64 [ %260, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i.i" ], [ %246, %254 ], [ %246, %.lr.ph.i.i.i.i ]
   %263 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i.i" ], [ 0, %254 ], [ %252, %.lr.ph.i.i.i.i ]
   %264 = phi i32 [ %259, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i.i" ], [ %250, %254 ], [ %250, %.lr.ph.i.i.i.i ]
-  %265 = icmp ult i32 %248, 64
+  %265 = icmp samesign ult i32 %248, 64
   br i1 %265, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 266:                                              ; preds = %223
@@ -17417,7 +17417,7 @@ common.resume:                                    ; preds = %1656, %1683, %1692,
   %304 = phi i64 [ %301, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %287, %295 ], [ %287, %.lr.ph.i.i.i ]
   %305 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ 0, %295 ], [ %293, %.lr.ph.i.i.i ]
   %306 = phi i32 [ %300, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i" ], [ %291, %295 ], [ %291, %.lr.ph.i.i.i ]
-  %307 = icmp ult i32 %289, 64
+  %307 = icmp samesign ult i32 %289, 64
   br i1 %307, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i.i: ; preds = %._crit_edge.i.i.i, %283
@@ -17483,7 +17483,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i.i: ; 
   %337 = phi i64 [ %334, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i156.i" ], [ %320, %328 ], [ %320, %.lr.ph.i.i154.i ]
   %338 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i156.i" ], [ 0, %328 ], [ %326, %.lr.ph.i.i154.i ]
   %339 = phi i32 [ %333, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i156.i" ], [ %324, %328 ], [ %324, %.lr.ph.i.i154.i ]
-  %340 = icmp ult i32 %322, 64
+  %340 = icmp samesign ult i32 %322, 64
   br i1 %340, label %.lr.ph.i.i154.i, label %._crit_edge.i.i155.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i151.i: ; preds = %._crit_edge.i.i155.i, %316
@@ -17594,7 +17594,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i151.i:
   %377 = phi i64 [ %375, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i167.i" ], [ %361, %369 ], [ %361, %.lr.ph.i.i.i165.i ]
   %378 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i167.i" ], [ 0, %369 ], [ %367, %.lr.ph.i.i.i165.i ]
   %379 = phi i32 [ %374, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i167.i" ], [ %365, %369 ], [ %365, %.lr.ph.i.i.i165.i ]
-  %380 = icmp ult i32 %363, 64
+  %380 = icmp samesign ult i32 %363, 64
   br i1 %380, label %.lr.ph.i.i.i165.i, label %._crit_edge.i.i.i166.i
 
 381:                                              ; preds = %344
@@ -17683,7 +17683,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i151.i:
   %418 = phi i64 [ %415, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i184.i" ], [ %401, %409 ], [ %401, %.lr.ph.i.i182.i ]
   %419 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i184.i" ], [ 0, %409 ], [ %407, %.lr.ph.i.i182.i ]
   %420 = phi i32 [ %414, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i184.i" ], [ %405, %409 ], [ %405, %.lr.ph.i.i182.i ]
-  %421 = icmp ult i32 %403, 64
+  %421 = icmp samesign ult i32 %403, 64
   br i1 %421, label %.lr.ph.i.i182.i, label %._crit_edge.i.i183.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i179.i: ; preds = %._crit_edge.i.i183.i, %397
@@ -17768,7 +17768,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i179.i:
   %461 = phi i64 [ %458, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i201.i" ], [ %444, %452 ], [ %444, %.lr.ph.i.i199.i ]
   %462 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i201.i" ], [ 0, %452 ], [ %450, %.lr.ph.i.i199.i ]
   %463 = phi i32 [ %457, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i201.i" ], [ %448, %452 ], [ %448, %.lr.ph.i.i199.i ]
-  %464 = icmp ult i32 %446, 64
+  %464 = icmp samesign ult i32 %446, 64
   br i1 %464, label %.lr.ph.i.i199.i, label %._crit_edge.i.i200.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i196.i: ; preds = %._crit_edge.i.i200.i, %440
@@ -17842,7 +17842,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i196.i:
   %498 = phi i64 [ %496, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i212.i" ], [ %482, %490 ], [ %482, %.lr.ph.i.i.i210.i ]
   %499 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i212.i" ], [ 0, %490 ], [ %488, %.lr.ph.i.i.i210.i ]
   %500 = phi i32 [ %495, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i.i212.i" ], [ %486, %490 ], [ %486, %.lr.ph.i.i.i210.i ]
-  %501 = icmp ult i32 %484, 64
+  %501 = icmp samesign ult i32 %484, 64
   br i1 %501, label %.lr.ph.i.i.i210.i, label %._crit_edge.i.i.i211.i
 
 502:                                              ; preds = %._crit_edge.i.i.i211.i, %479
@@ -17927,7 +17927,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i196.i:
   %539 = phi i64 [ %536, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i229.i" ], [ %522, %530 ], [ %522, %.lr.ph.i.i227.i ]
   %540 = phi i8 [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i229.i" ], [ 0, %530 ], [ %528, %.lr.ph.i.i227.i ]
   %541 = phi i32 [ %535, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.15109044229312055141.exit.i.i229.i" ], [ %526, %530 ], [ %526, %.lr.ph.i.i227.i ]
-  %542 = icmp ult i32 %524, 64
+  %542 = icmp samesign ult i32 %524, 64
   br i1 %542, label %.lr.ph.i.i227.i, label %._crit_edge.i.i228.i
 
 _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i224.i: ; preds = %._crit_edge.i.i228.i, %518
@@ -17961,7 +17961,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i224.i:
   store i8 %555, ptr %554, align 1, !alias.scope !1829, !noalias !1859
   %556 = and i64 %553, 255
   call void @llvm.experimental.noalias.scope.decl(metadata !2047)
-  %557 = icmp ugt i64 %556, 1
+  %557 = icmp samesign ugt i64 %556, 1
   br i1 %557, label %.noexc233.i, label %558
 
 558:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i", %550
@@ -19018,7 +19018,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit181
   %935 = lshr i8 %.02.i180, 1
   %936 = zext nneg i8 %935 to i32
   %937 = add nuw nsw i32 %934, %936
-  %.not379 = icmp ugt i32 %937, %890
+  %.not379 = icmp samesign ugt i32 %937, %890
   br i1 %.not379, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i, label %938
 
 938:                                              ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit181
@@ -19675,7 +19675,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit: ;
   %1253 = lshr i8 %.02.i, 1
   %1254 = zext nneg i8 %1253 to i32
   %1255 = add nuw nsw i32 %1252, %1254
-  %.not380 = icmp ugt i32 %1255, %1211
+  %.not380 = icmp samesign ugt i32 %1255, %1211
   br i1 %.not380, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit194.i, label %1256
 
 1256:                                             ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit
@@ -20077,7 +20077,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit.i:
   %1448 = lshr i8 %.02.i.i, 1
   %1449 = zext nneg i8 %1448 to i32
   %1450 = add nuw nsw i32 %1447, %1449
-  %.not294.i = icmp ugt i32 %1450, %1263
+  %.not294.i = icmp samesign ugt i32 %1450, %1263
   br i1 %.not294.i, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit204.i, label %_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E.exit.i
 
 _ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E.exit.i: ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit.i
@@ -20181,7 +20181,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit225
   %1506 = lshr i8 %.02.i224.i, 1
   %1507 = zext nneg i8 %1506 to i32
   %1508 = add nuw nsw i32 %1505, %1507
-  %.not293.i = icmp ugt i32 %1508, %951
+  %.not293.i = icmp samesign ugt i32 %1508, %951
   br i1 %.not293.i, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit205.i, label %_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E.exit222.i
 
 _ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E.exit222.i: ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit225.i
@@ -21628,7 +21628,7 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit138.preheader.i.p
   br label %_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit138.preheader.i
 
 .loopexit28.i:                                    ; preds = %_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit138.loopexit.i
-  %2018 = icmp ult i64 %spec.select26103.i, 2
+  %2018 = icmp samesign ult i64 %spec.select26103.i, 2
   %2019 = zext i1 %2018 to i64
   %spec.select26.i = add nuw nsw i64 %spec.select26103.i, %2019
   br i1 %2018, label %_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit138.preheader.i, label %.preheader.i129

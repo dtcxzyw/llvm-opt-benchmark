@@ -15381,7 +15381,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit121:                 ; preds = %471, %470
   br i1 %.not.i.i.i.i122, label %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKSt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !385
 
 _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKSt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %477 = icmp ugt i64 %.06.i.i.i.i, 288230376151711742
+  %477 = icmp samesign ugt i64 %.06.i.i.i.i, 288230376151711742
   br i1 %477, label %478, label %_ZNSt16allocator_traitsISaISt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEEE8allocateERS9_m.exit.i.i.i
 
 478:                                              ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKSt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.i.i

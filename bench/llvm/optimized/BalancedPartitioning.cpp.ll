@@ -718,7 +718,7 @@ _ZN4llvm20BalancedPartitioning12BPThreadPool4waitEv.exit: ; preds = %"_ZNSt18con
   br i1 %.not.i.i.i.i.i14, label %select.unfold.i.i.i.i.i, label %126
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !22
 
 .thread.i.i.i:                                    ; preds = %select.unfold.i.i.i.i.i, %121
@@ -5159,7 +5159,7 @@ define internal fastcc void @"_ZN4llvm11stable_sortIRNS_14iterator_rangeIN9__gnu
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %10
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !75
 
 10:                                               ; preds = %.lr.ph.i.i.i.i

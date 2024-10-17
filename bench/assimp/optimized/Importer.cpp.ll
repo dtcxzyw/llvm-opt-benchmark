@@ -7265,7 +7265,7 @@ for.body110:                                      ; preds = %if.then94, %for.bod
   %mNumBones108 = getelementptr inbounds i8, ptr %46, i64 216
   %47 = load i32, ptr %mNumBones108, align 8
   %48 = zext i32 %47 to i64
-  %cmp109 = icmp ult i64 %indvars.iv.next146, %48
+  %cmp109 = icmp samesign ult i64 %indvars.iv.next146, %48
   br i1 %cmp109, label %for.body110, label %if.end129, !llvm.loop !44
 
 if.end129:                                        ; preds = %for.body110, %if.then94, %for.end89
@@ -7279,7 +7279,7 @@ if.end129:                                        ; preds = %for.body110, %if.th
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %52 = load i32, ptr %mNumMeshes, align 8
   %53 = zext i32 %52 to i64
-  %cmp = icmp ult i64 %indvars.iv.next149, %53
+  %cmp = icmp samesign ult i64 %indvars.iv.next149, %53
   br i1 %cmp, label %for.body, label %for.end141, !llvm.loop !45
 
 for.end141:                                       ; preds = %if.end129, %if.end.for.end141_crit_edge
@@ -7326,7 +7326,7 @@ for.inc166:                                       ; preds = %if.then155, %if.els
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %62 = load i32, ptr %mNumTextures, align 8
   %63 = zext i32 %62 to i64
-  %cmp147 = icmp ult i64 %indvars.iv.next152, %63
+  %cmp147 = icmp samesign ult i64 %indvars.iv.next152, %63
   br i1 %cmp147, label %for.body148, label %for.end168, !llvm.loop !46
 
 for.end168:                                       ; preds = %for.inc166, %for.end141
@@ -7392,7 +7392,7 @@ for.body185:                                      ; preds = %for.body185.lr.ph, 
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %76 = load i32, ptr %mNumChannels, align 8
   %77 = zext i32 %76 to i64
-  %cmp184 = icmp ult i64 %indvars.iv.next155, %77
+  %cmp184 = icmp samesign ult i64 %indvars.iv.next155, %77
   br i1 %cmp184, label %for.body185, label %for.inc213, !llvm.loop !47
 
 for.inc213:                                       ; preds = %for.body185, %for.body175
@@ -7400,7 +7400,7 @@ for.inc213:                                       ; preds = %for.body185, %for.b
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %79 = load i32, ptr %mNumAnimations, align 8
   %80 = zext i32 %79 to i64
-  %cmp174 = icmp ult i64 %indvars.iv.next158, %80
+  %cmp174 = icmp samesign ult i64 %indvars.iv.next158, %80
   br i1 %cmp174, label %for.body175, label %for.end215, !llvm.loop !48
 
 for.end215:                                       ; preds = %for.inc213, %for.end168.for.end215_crit_edge
@@ -7476,7 +7476,7 @@ for.body251:                                      ; preds = %for.body235, %for.b
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %97 = load i32, ptr %mNumProperties, align 8
   %98 = zext i32 %97 to i64
-  %cmp250 = icmp ult i64 %indvars.iv.next161, %98
+  %cmp250 = icmp samesign ult i64 %indvars.iv.next161, %98
   br i1 %cmp250, label %for.body251, label %for.inc259, !llvm.loop !49
 
 for.inc259:                                       ; preds = %for.body251, %for.body235
@@ -7484,7 +7484,7 @@ for.inc259:                                       ; preds = %for.body251, %for.b
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %100 = load i32, ptr %mNumMaterials, align 8
   %101 = zext i32 %100 to i64
-  %cmp234 = icmp ult i64 %indvars.iv.next164, %101
+  %cmp234 = icmp samesign ult i64 %indvars.iv.next164, %101
   br i1 %cmp234, label %for.body235, label %for.end261, !llvm.loop !50
 
 for.end261:                                       ; preds = %for.inc259, %for.end215.for.end261_crit_edge
@@ -7534,7 +7534,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %mNumChildren, align 8
   %7 = zext i32 %6 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %7
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !51
 
 for.end:                                          ; preds = %for.body, %if.end, %entry

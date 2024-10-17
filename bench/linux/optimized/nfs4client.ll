@@ -1091,13 +1091,13 @@ define dso_local ptr @nfs4_create_server(ptr nocapture noundef readonly %0) loca
   %72 = call i32 @llvm.umin.i32(i32 %65, i32 1048576)
   %73 = select i1 %71, i32 4096, i32 %72
   %74 = icmp eq i32 %70, 17
-  %75 = icmp ult i32 %73, 4096
+  %75 = icmp samesign ult i32 %73, 4096
   %76 = or i1 %75, %74
   br i1 %76, label %77, label %89
 
 77:                                               ; preds = %67
   %78 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %73), !range !23
-  %79 = icmp ugt i32 %78, 1
+  %79 = icmp samesign ugt i32 %78, 1
   br i1 %79, label %.preheader11, label %91
 
 80:                                               ; preds = %.preheader11
@@ -1141,13 +1141,13 @@ define dso_local ptr @nfs4_create_server(ptr nocapture noundef readonly %0) loca
   %103 = call i32 @llvm.umin.i32(i32 %96, i32 1048576)
   %104 = select i1 %102, i32 4096, i32 %103
   %105 = icmp eq i32 %101, 17
-  %106 = icmp ult i32 %104, 4096
+  %106 = icmp samesign ult i32 %104, 4096
   %107 = or i1 %106, %105
   br i1 %107, label %108, label %120
 
 108:                                              ; preds = %98
   %109 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %104), !range !23
-  %110 = icmp ugt i32 %109, 1
+  %110 = icmp samesign ugt i32 %109, 1
   br i1 %110, label %.preheader, label %122
 
 111:                                              ; preds = %.preheader

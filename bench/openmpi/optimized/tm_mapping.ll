@@ -82,7 +82,7 @@ define hidden void @tm_print_1D_tab(ptr nocapture noundef readonly %0, i32 nound
   %7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %8)
-  %10 = icmp ult i64 %indvars.iv, %5
+  %10 = icmp samesign ult i64 %indvars.iv, %5
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6

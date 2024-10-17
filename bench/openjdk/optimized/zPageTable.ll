@@ -107,7 +107,7 @@ define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr nocapture noundef nonnull
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
   store volatile ptr %1, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp samesign ult i64 %15, %10
   br i1 %16, label %12, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, !llvm.loop !7
 
 _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
@@ -150,7 +150,7 @@ define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr nocapture noundef nonnull
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
   store volatile ptr null, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp samesign ult i64 %15, %10
   br i1 %16, label %12, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, !llvm.loop !7
 
 _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
@@ -181,7 +181,7 @@ define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr nocapture noundef non
   %15 = getelementptr inbounds ptr, ptr %14, i64 %.09.i.i
   store volatile ptr %2, ptr %15, align 8
   %16 = add nuw nsw i64 %.09.i.i, 1
-  %17 = icmp ult i64 %16, %11
+  %17 = icmp samesign ult i64 %16, %11
   br i1 %17, label %13, label %_ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit, !llvm.loop !7
 
 _ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit: ; preds = %13, %3

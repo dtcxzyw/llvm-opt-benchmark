@@ -519,7 +519,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %6
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %7 = and i8 %4, 15
-  %cmp.i11.i = icmp ult i8 %7, 10
+  %cmp.i11.i = icmp samesign ult i8 %7, 10
   %conv.i12.i = or disjoint i8 %7, 48
   %conv2.i13.i = add nuw nsw i8 %7, 87
   %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i
@@ -556,7 +556,7 @@ for.body.i15:                                     ; preds = %for.body.i15, %for.
   %arrayidx2.i22 = getelementptr inbounds i8, ptr %hex, i64 %11
   store i8 %retval.0.i.i21, ptr %arrayidx2.i22, align 2
   %12 = and i8 %9, 15
-  %cmp.i11.i23 = icmp ult i8 %12, 10
+  %cmp.i11.i23 = icmp samesign ult i8 %12, 10
   %conv.i12.i24 = or disjoint i8 %12, 48
   %conv2.i13.i25 = add nuw nsw i8 %12, 87
   %retval.0.i14.i26 = select i1 %cmp.i11.i23, i8 %conv.i12.i24, i8 %conv2.i13.i25
@@ -594,7 +594,7 @@ for.body.i37:                                     ; preds = %for.body.i37, %for.
   %arrayidx2.i44 = getelementptr inbounds i8, ptr %hex, i64 %16
   store i8 %retval.0.i.i43, ptr %arrayidx2.i44, align 2
   %17 = and i8 %14, 15
-  %cmp.i11.i45 = icmp ult i8 %17, 10
+  %cmp.i11.i45 = icmp samesign ult i8 %17, 10
   %conv.i12.i46 = or disjoint i8 %17, 48
   %conv2.i13.i47 = add nuw nsw i8 %17, 87
   %retval.0.i14.i48 = select i1 %cmp.i11.i45, i8 %conv.i12.i46, i8 %conv2.i13.i47
@@ -730,7 +730,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %12
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %13 = and i8 %10, 15
-  %cmp.i11.i = icmp ult i8 %13, 10
+  %cmp.i11.i = icmp samesign ult i8 %13, 10
   %conv.i12.i = or disjoint i8 %13, 48
   %conv2.i13.i = add nuw nsw i8 %13, 87
   %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i
@@ -776,7 +776,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
   store i8 %retval.0.i.i33, ptr %arrayidx2.i34, align 2
   %19 = load i8, ptr %arrayidx.i29, align 1
   %20 = and i8 %19, 15
-  %cmp.i11.i35 = icmp ult i8 %20, 10
+  %cmp.i11.i35 = icmp samesign ult i8 %20, 10
   %conv.i12.i36 = or disjoint i8 %20, 48
   %conv2.i13.i37 = add nuw nsw i8 %20, 87
   %retval.0.i14.i38 = select i1 %cmp.i11.i35, i8 %conv.i12.i36, i8 %conv2.i13.i37
@@ -3859,7 +3859,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %9
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %10 = and i8 %7, 15
-  %cmp.i11.i = icmp ult i8 %10, 10
+  %cmp.i11.i = icmp samesign ult i8 %10, 10
   %conv.i12.i = or disjoint i8 %10, 48
   %conv2.i13.i = add nuw nsw i8 %10, 87
   %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i

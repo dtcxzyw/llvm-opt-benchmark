@@ -551,7 +551,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
 63:                                               ; preds = %55, %59
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
-  %64 = icmp ult i64 %indvars.iv.next54, %16
+  %64 = icmp samesign ult i64 %indvars.iv.next54, %16
   br i1 %64, label %55, label %.loopexit.loopexit, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %63

@@ -3008,9 +3008,9 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %21 = phi i8 [ %32, %24 ], [ %16, %.lr.ph.preheader ]
   %.065 = phi i8 [ %26, %24 ], [ 0, %.lr.ph.preheader ]
   %.05964 = phi i32 [ %27, %24 ], [ 0, %.lr.ph.preheader ]
-  %22 = icmp ult i8 %21, 56
-  %23 = icmp ult i64 %indvars.iv, 3
-  %or.cond = and i1 %23, %22
+  %22 = icmp samesign ult i8 %21, 56
+  %23 = icmp samesign ult i64 %indvars.iv, 3
+  %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %.critedge.split.loop.exit74
 
 24:                                               ; preds = %.lr.ph

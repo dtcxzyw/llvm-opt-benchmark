@@ -224,7 +224,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %22 = load i64, ptr %21, align 8, !range !50, !alias.scope !47, !noundef !7
-  %switch.i = icmp ult i64 %22, 10
+  %switch.i = icmp samesign ult i64 %22, 10
   br i1 %switch.i, label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..ContentType$GT$$GT$17h04cb3744d59ca56bE.exit", label %23
 
 23:                                               ; preds = %20
@@ -801,7 +801,7 @@ define hidden { i64, i64 } @_ZN6rustls7anchors13RootCertStore25add_parsable_cert
   %39 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %40 = icmp ult i64 %39, 6
   call void @llvm.assume(i1 %40)
-  %switch = icmp ult i64 %39, 4
+  %switch = icmp samesign ult i64 %39, 4
   br i1 %switch, label %60, label %49
 
 41:                                               ; preds = %.lr.ph, %67
@@ -930,7 +930,7 @@ define hidden { i64, i64 } @_ZN6rustls7anchors13RootCertStore25add_parsable_cert
   %81 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %82 = icmp ult i64 %81, 6
   call void @llvm.assume(i1 %82)
-  %switch32 = icmp ult i64 %81, 4
+  %switch32 = icmp samesign ult i64 %81, 4
   br i1 %switch32, label %87, label %83
 
 83:                                               ; preds = %80

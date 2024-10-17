@@ -549,7 +549,7 @@ define internal noundef range(i32 -22, 2) i32 @sony_raw_event(ptr nocapture noun
   %105 = and i8 %104, 15
   %106 = lshr i8 %104, 4
   %107 = load ptr, ptr %60, align 8
-  %108 = icmp ugt i8 %105, %106
+  %108 = icmp samesign ugt i8 %105, %106
   %109 = tail call i8 @llvm.umax.i8(i8 %105, i8 %106)
   %110 = zext nneg i8 %109 to i32
   tail call void @input_event(ptr noundef %107, i32 noundef 3, i32 noundef 48, i32 noundef %110) #14
@@ -899,7 +899,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
   ]
 
 57:                                               ; preds = %54
-  %58 = icmp ugt i32 %51, 20
+  %58 = icmp samesign ugt i32 %51, 20
   br i1 %58, label %265, label %59
 
 59:                                               ; preds = %57
@@ -912,7 +912,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
   br i1 %65, label %73, label %265
 
 66:                                               ; preds = %54
-  %67 = icmp ugt i32 %51, 131
+  %67 = icmp samesign ugt i32 %51, 131
   br i1 %67, label %265, label %68
 
 68:                                               ; preds = %66
@@ -928,7 +928,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
   %76 = getelementptr inbounds i8, ptr %1, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 48
-  %79 = icmp ugt i32 %75, 767
+  %79 = icmp samesign ugt i32 %75, 767
   %80 = icmp eq ptr %78, null
   %81 = select i1 %79, i1 true, i1 %80, !prof !8
   br i1 %81, label %82, label %88, !prof !8
@@ -973,7 +973,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 
 101:                                              ; preds = %97
   %102 = and i32 %98, 65535
-  %103 = icmp ugt i32 %102, 17
+  %103 = icmp samesign ugt i32 %102, 17
   br i1 %103, label %265, label %104
 
 104:                                              ; preds = %101
@@ -1070,7 +1070,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 
 153:                                              ; preds = %151
   %154 = and i32 %98, 65535
-  %155 = icmp ugt i32 %154, 51
+  %155 = icmp samesign ugt i32 %154, 51
   br i1 %155, label %265, label %156
 
 156:                                              ; preds = %153
@@ -1124,7 +1124,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 
 184:                                              ; preds = %180
   %185 = and i32 %181, 65535
-  %186 = icmp ugt i32 %185, 17
+  %186 = icmp samesign ugt i32 %185, 17
   br i1 %186, label %265, label %187
 
 187:                                              ; preds = %184
@@ -1224,7 +1224,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 
 236:                                              ; preds = %234
   %237 = and i32 %181, 65535
-  %238 = icmp ugt i32 %237, 53
+  %238 = icmp samesign ugt i32 %237, 53
   br i1 %238, label %265, label %239
 
 239:                                              ; preds = %236
@@ -1958,7 +1958,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   %407 = add nuw nsw i64 %372, 1
   %408 = load i8, ptr %363, align 4
   %409 = zext i8 %408 to i64
-  %410 = icmp ult i64 %407, %409
+  %410 = icmp samesign ult i64 %407, %409
   br i1 %410, label %.split.us, label %.thread48, !llvm.loop !14
 
 .split:                                           ; preds = %366, %457
@@ -2043,7 +2043,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   %458 = add nuw nsw i64 %411, 1
   %459 = load i8, ptr %363, align 4
   %460 = zext i8 %459 to i64
-  %461 = icmp ult i64 %458, %460
+  %461 = icmp samesign ult i64 %458, %460
   br i1 %461, label %.split, label %.thread48, !llvm.loop !14
 
 .thread48:                                        ; preds = %457, %406, %361
@@ -3046,7 +3046,7 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   br i1 %44, label %.loopexit, label %38, !llvm.loop !18
 
 45:                                               ; preds = %38
-  %46 = icmp ult i64 %43, %35
+  %46 = icmp samesign ult i64 %43, %35
   %47 = and i64 %43, 4294967295
   br i1 %46, label %.thread, label %.loopexit
 

@@ -1820,7 +1820,7 @@ cond.end35:                                       ; preds = %cond.end25, %cond.t
   %shr65.mask = and i32 %shr59, 2147481600
   %cmp66 = icmp eq i32 %shr65.mask, 55296
   %shl68 = select i1 %cmp66, i32 128, i32 0
-  %cmp70 = icmp ugt i32 %shr59, 65535
+  %cmp70 = icmp samesign ugt i32 %shr59, 65535
   %shl72 = select i1 %cmp70, i32 256, i32 0
   %and76 = lshr i32 %conv44, 2
   %shr77 = and i32 %and76, 48
@@ -21553,7 +21553,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp ugt i32 %and.lobit.i, %and.lobit.i9
+  %cmp2 = icmp samesign ugt i32 %and.lobit.i, %and.lobit.i9
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -30518,7 +30518,7 @@ for.body159.lr.ph:                                ; preds = %land.lhs.true150
 
 for.body159:                                      ; preds = %for.body159.lr.ph, %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
   %indvars.iv189 = phi i64 [ 0, %for.body159.lr.ph ], [ %indvars.iv.next190, %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit ]
-  %cmp160 = icmp ult i64 %indvars.iv189, %59
+  %cmp160 = icmp samesign ult i64 %indvars.iv189, %59
   %.str.94..str.95 = select i1 %cmp160, ptr @.str.94, ptr @.str.95
   %60 = load ptr, ptr %Data.i127, align 8
   %arrayidx.i129 = getelementptr inbounds %struct.ImGuiInputEvent, ptr %60, i64 %indvars.iv189
@@ -33869,7 +33869,7 @@ if.end180.i:                                      ; preds = %for.body176.i
   %arrayidx183.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %indvars.iv72.i
   %cmp184.i = icmp eq i64 %indvars.iv72.i, 0
   %cmp185.i = icmp eq i64 %indvars.iv72.i, 1
-  %418 = icmp ugt i64 %indvars.iv72.i, 1
+  %418 = icmp samesign ugt i64 %indvars.iv72.i, 1
   %cond186.i = zext i1 %418 to i32
   %419 = load float, ptr %Pos656, align 8
   %420 = load float, ptr %342, align 4
@@ -37563,7 +37563,7 @@ land.lhs.true:                                    ; preds = %_ZL24IsWindowActive
   %parent_window.val = load i32, ptr %5, align 4
   %and.i10 = lshr i32 %parent_window.val, 25
   %and.lobit.i11 = and i32 %and.i10, 1
-  %cmp8.not = icmp ugt i32 %and.lobit.i, %and.lobit.i11
+  %cmp8.not = icmp samesign ugt i32 %and.lobit.i, %and.lobit.i11
   %spec.select = select i1 %cmp8.not, ptr %bottom_most_visible_window.018, ptr %7
   br label %for.inc
 
@@ -39526,7 +39526,7 @@ land.lhs.true.i40.i:                              ; preds = %_ZL24IsWindowActive
   %parent_window.val.i.i = load i32, ptr %26, align 4
   %and.i10.i.i = lshr i32 %parent_window.val.i.i, 25
   %and.lobit.i11.i.i = and i32 %and.i10.i.i, 1
-  %cmp8.not.i.i = icmp ugt i32 %and.lobit.i.i.i, %and.lobit.i11.i.i
+  %cmp8.not.i.i = icmp samesign ugt i32 %and.lobit.i.i.i, %and.lobit.i11.i.i
   %spec.select.i.i = select i1 %cmp8.not.i.i, ptr %bottom_most_visible_window.018.i.i, ptr %28
   br label %for.inc.i32.i
 
@@ -49998,7 +49998,7 @@ _ZL23GetRoutingIdFromOwnerIdj.exit:               ; preds = %if.end13, %cond.fal
   %RoutingNextScore = getelementptr inbounds i8, ptr %call14, i64 4
   %12 = load i8, ptr %RoutingNextScore, align 4
   %conv = zext i8 %12 to i32
-  %cmp16 = icmp ult i32 %retval.0.i20, %conv
+  %cmp16 = icmp samesign ult i32 %retval.0.i20, %conv
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %_ZL23GetRoutingIdFromOwnerIdj.exit
@@ -55796,7 +55796,7 @@ entry:
   br i1 %tobool.i, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %entry
-  %or.cond.i.i.i = icmp ult i32 %and, 11
+  %or.cond.i.i.i = icmp samesign ult i32 %and, 11
   br i1 %or.cond.i.i.i, label %if.end.i.i, label %land.lhs.true
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -55987,7 +55987,7 @@ cond.end:                                         ; preds = %if.then.i, %_Z9ImHa
   br i1 %tobool.i, label %land.rhs.i, label %if.end5
 
 land.rhs.i:                                       ; preds = %cond.end
-  %or.cond.i.i.i = icmp ult i32 %and, 11
+  %or.cond.i.i.i = icmp samesign ult i32 %and, 11
   br i1 %or.cond.i.i.i, label %if.end.i.i, label %land.lhs.true
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -56098,7 +56098,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %_Z9ImHashStrPKcmj.e
   br i1 %tobool.i, label %land.rhs.i, label %if.end9
 
 land.rhs.i:                                       ; preds = %_ZN11ImGuiWindow5GetIDEPKcS1_.exit
-  %or.cond.i.i.i = icmp ult i32 %and, 11
+  %or.cond.i.i.i = icmp samesign ult i32 %and, 11
   br i1 %or.cond.i.i.i, label %if.end.i.i, label %land.lhs.true
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -56294,7 +56294,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %_Z9ImHashStrPKcmj.e
   br i1 %tobool.i, label %land.rhs.i, label %if.end7
 
 land.rhs.i:                                       ; preds = %_ZN11ImGuiWindow5GetIDEPKcS1_.exit
-  %or.cond.i.i.i = icmp ult i32 %and, 11
+  %or.cond.i.i.i = icmp samesign ult i32 %and, 11
   br i1 %or.cond.i.i.i, label %if.end.i.i, label %land.lhs.true
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -63364,7 +63364,7 @@ if.end127:                                        ; preds = %if.then117, %if.end
 
 for.body131:                                      ; preds = %if.end127, %for.inc221
   %indvars.iv2033 = phi i64 [ 0, %if.end127 ], [ %indvars.iv.next2034, %for.inc221 ]
-  %cmp132 = icmp ugt i64 %indvars.iv2033, 5
+  %cmp132 = icmp samesign ugt i64 %indvars.iv2033, 5
   %138 = trunc nuw nsw i64 %indvars.iv2033 to i32
   br i1 %cmp132, label %if.then133, label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i539
 
@@ -65048,7 +65048,7 @@ if.then523:                                       ; preds = %if.end521
 
 for.body526:                                      ; preds = %if.then523, %for.inc537
   %indvars.iv2046 = phi i64 [ 0, %if.then523 ], [ %indvars.iv.next2047, %for.inc537 ]
-  %cmp.i951 = icmp ult i64 %indvars.iv2046, 512
+  %cmp.i951 = icmp samesign ult i64 %indvars.iv2046, 512
   br i1 %cmp.i951, label %_ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit, label %lor.lhs.false528
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit: ; preds = %for.body526
@@ -65228,7 +65228,7 @@ for.end539:                                       ; preds = %for.inc537
 
 for.body543:                                      ; preds = %for.end539, %for.inc552
   %indvars.iv2050 = phi i64 [ 0, %for.end539 ], [ %indvars.iv.next2051, %for.inc552 ]
-  %cmp.i1004 = icmp ult i64 %indvars.iv2050, 512
+  %cmp.i1004 = icmp samesign ult i64 %indvars.iv2050, 512
   br i1 %cmp.i1004, label %_ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit1010, label %lor.lhs.false545
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit1010: ; preds = %for.body543
@@ -65356,7 +65356,7 @@ for.end554:                                       ; preds = %for.inc552
 
 for.body558:                                      ; preds = %for.end554, %for.inc567
   %indvars.iv2054 = phi i64 [ 0, %for.end554 ], [ %indvars.iv.next2055, %for.inc567 ]
-  %cmp.i1054 = icmp ult i64 %indvars.iv2054, 512
+  %cmp.i1054 = icmp samesign ult i64 %indvars.iv2054, 512
   br i1 %cmp.i1054, label %_ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit1060, label %lor.lhs.false560
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit1060: ; preds = %for.body558

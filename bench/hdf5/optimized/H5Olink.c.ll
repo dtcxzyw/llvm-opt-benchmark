@@ -564,7 +564,7 @@ default.unreachable228:                           ; preds = %120
 
 297:                                              ; preds = %233
   %298 = or disjoint i32 %67, -256
-  %or.cond206 = icmp ult i32 %298, -192
+  %or.cond206 = icmp samesign ult i32 %298, -192
   br i1 %or.cond206, label %299, label %303
 
 299:                                              ; preds = %297
@@ -598,7 +598,7 @@ default.unreachable228:                           ; preds = %120
   %319 = or disjoint i64 %318, %314
   %320 = getelementptr inbounds i8, ptr %235, i64 2
   %321 = icmp eq i32 %67, 64
-  %322 = icmp ult i64 %319, 3
+  %322 = icmp samesign ult i64 %319, 3
   %or.cond5 = select i1 %321, i1 %322, i1 false
   br i1 %or.cond5, label %323, label %327
 

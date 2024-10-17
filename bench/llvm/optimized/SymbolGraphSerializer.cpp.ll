@@ -16273,7 +16273,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit44:               ; preds = %.thread, %_ZNKSt14d
   %64 = add nuw nsw i64 %.01951, 1
   %65 = load i32, ptr %11, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %15, label %._crit_edge, !llvm.loop !493
 
 ._crit_edge:                                      ; preds = %63, %2

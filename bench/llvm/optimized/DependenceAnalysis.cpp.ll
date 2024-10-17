@@ -1519,7 +1519,7 @@ _ZNK4llvm14FullDependence19isDirectionNegativeEv.exit: ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i16, ptr %3, align 8
   %34 = zext i16 %33 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %34
+  %.not.not = icmp samesign ult i64 %indvars.iv, %34
   br i1 %.not.not, label %18, label %_ZNK4llvm14FullDependence19isDirectionNegativeEv.exit.thread, !llvm.loop !22
 
 _ZNK4llvm14FullDependence19isDirectionNegativeEv.exit.thread: ; preds = %8, %32, %2, %_ZNK4llvm14FullDependence19isDirectionNegativeEv.exit
@@ -4564,7 +4564,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo15isKnownLessThanE
   %20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i31, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = lshr i32 %21, 8
-  %.not = icmp ult i32 %19, %22
+  %.not = icmp samesign ult i32 %19, %22
   %23 = select i1 %.not, ptr %spec.select.i.i31, ptr %spec.select.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -14887,7 +14887,7 @@ _ZNK4llvm14SmallBitVector8set_bitsEv.exit:        ; preds = %33
   %72 = and i64 %65, %71
   %73 = and i64 %72, %68
   %74 = icmp ne i64 %73, 0
-  %.not.i.i.i = icmp ugt i64 %66, %70
+  %.not.i.i.i = icmp samesign ugt i64 %66, %70
   %or.cond.i.i.i = and i1 %.not.i.i.i, %74
   br i1 %or.cond.i.i.i, label %75, label %._crit_edge
 
@@ -14908,7 +14908,7 @@ _ZNK4llvm14SmallBitVector8set_bitsEv.exit:        ; preds = %33
   %85 = lshr i32 %80, 6
   %86 = add i32 %82, -1
   %87 = lshr i32 %86, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %85, %87
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %85, %87
   br i1 %.not32.i.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %84
@@ -16350,7 +16350,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4
   %15 = and i64 %14, %8
   %16 = and i64 %15, %11
   %17 = icmp ne i64 %16, 0
-  %.not.i.i = icmp ugt i64 %9, %13
+  %.not.i.i = icmp samesign ugt i64 %9, %13
   %or.cond.i.i = and i1 %.not.i.i, %17
   br i1 %or.cond.i.i, label %18, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEE7advanceEv.exit
 
@@ -16371,7 +16371,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4
   %28 = lshr i32 %23, 6
   %29 = add i32 %25, -1
   %30 = lshr i32 %29, 6
-  %.not32.i.i.i.i = icmp ugt i32 %28, %30
+  %.not32.i.i.i.i = icmp samesign ugt i32 %28, %30
   br i1 %.not32.i.i.i.i, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEE7advanceEv.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %27
@@ -17867,7 +17867,7 @@ _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %182, %193
 
 .preheader453:                                    ; preds = %208
   %213 = add nuw nsw i64 %indvars.iv559, 1
-  %214 = icmp ult i64 %213, %207
+  %214 = icmp samesign ult i64 %213, %207
   br i1 %214, label %.lr.ph476, label %.critedge535
 
 215:                                              ; preds = %208
@@ -18413,7 +18413,7 @@ _ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE.exit.threa
   %475 = and i64 %468, %474
   %476 = and i64 %475, %471
   %477 = icmp ne i64 %476, 0
-  %.not.i.i.i = icmp ugt i64 %469, %473
+  %.not.i.i.i = icmp samesign ugt i64 %469, %473
   %or.cond.i.i.i = and i1 %.not.i.i.i, %477
   br i1 %or.cond.i.i.i, label %478, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit
 
@@ -18434,7 +18434,7 @@ _ZNK4llvm14DependenceInfo7testZIVEPKNS_4SCEVES3_RNS_14FullDependenceE.exit.threa
   %488 = lshr i32 %483, 6
   %489 = add i32 %485, -1
   %490 = lshr i32 %489, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %488, %490
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %488, %490
   br i1 %.not32.i.i.i.i.i, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %487
@@ -18686,7 +18686,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14DependenceInfo9SubscriptELb1EE9push_back
   %625 = and i64 %618, %624
   %626 = and i64 %625, %621
   %627 = icmp ne i64 %626, 0
-  %.not.i.i.i285 = icmp ugt i64 %619, %623
+  %.not.i.i.i285 = icmp samesign ugt i64 %619, %623
   %or.cond.i.i.i286 = and i1 %.not.i.i.i285, %627
   br i1 %or.cond.i.i.i286, label %628, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit297
 
@@ -18707,7 +18707,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14DependenceInfo9SubscriptELb1EE9push_back
   %638 = lshr i32 %633, 6
   %639 = add i32 %635, -1
   %640 = lshr i32 %639, 6
-  %.not32.i.i.i.i.i288 = icmp ugt i32 %638, %640
+  %.not32.i.i.i.i.i288 = icmp samesign ugt i32 %638, %640
   br i1 %.not32.i.i.i.i.i288, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit297, label %.lr.ph.i.i.i.i.i289
 
 .lr.ph.i.i.i.i.i289:                              ; preds = %637
@@ -18891,7 +18891,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit:            ; preds = %718, %728
   %750 = and i64 %743, %749
   %751 = and i64 %750, %746
   %752 = icmp ne i64 %751, 0
-  %.not.i.i.i312 = icmp ugt i64 %744, %748
+  %.not.i.i.i312 = icmp samesign ugt i64 %744, %748
   %or.cond.i.i.i313 = and i1 %.not.i.i.i312, %752
   br i1 %or.cond.i.i.i313, label %753, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit324
 
@@ -18912,7 +18912,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit:            ; preds = %718, %728
   %763 = lshr i32 %758, 6
   %764 = add i32 %760, -1
   %765 = lshr i32 %764, 6
-  %.not32.i.i.i.i.i315 = icmp ugt i32 %763, %765
+  %.not32.i.i.i.i.i315 = icmp samesign ugt i32 %763, %765
   br i1 %.not32.i.i.i.i.i315, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit324, label %.lr.ph.i.i.i.i.i316
 
 .lr.ph.i.i.i.i.i316:                              ; preds = %762
@@ -20421,7 +20421,7 @@ _ZN4llvm14SmallBitVectorC2Ejb.exit161:            ; preds = %._crit_edge
 
 .preheader475:                                    ; preds = %149
   %156 = add nuw nsw i64 %indvars.iv653, 1
-  %157 = icmp ult i64 %156, %148
+  %157 = icmp samesign ult i64 %156, %148
   br i1 %157, label %.lr.ph517, label %.critedge
 
 158:                                              ; preds = %149
@@ -21094,7 +21094,7 @@ _ZNK4llvm14SmallBitVector8set_bitsEv.exit:        ; preds = %464
   %501 = shl nsw i64 -1, %500
   %.reass = and i64 %501, %invariant.op
   %502 = icmp ne i64 %.reass, 0
-  %.not.i.i.i = icmp ugt i64 %477, %500
+  %.not.i.i.i = icmp samesign ugt i64 %477, %500
   %or.cond.i.i.i = and i1 %.not.i.i.i, %502
   br i1 %or.cond.i.i.i, label %503, label %._crit_edge526
 
@@ -21112,7 +21112,7 @@ _ZNK4llvm14SmallBitVector8set_bitsEv.exit:        ; preds = %464
   %510 = lshr i32 %498, 6
   %511 = add i32 %507, -1
   %512 = lshr i32 %511, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %510, %512
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %510, %512
   br i1 %.not32.i.i.i.i.i, label %._crit_edge526, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %509
@@ -21556,7 +21556,7 @@ _ZN4llvm14SmallBitVector3setEj.exit251:           ; preds = %756, %745, %732, %7
   %772 = shl nsw i64 -1, %771
   %.reass538 = and i64 %772, %invariant.op537
   %773 = icmp ne i64 %.reass538, 0
-  %.not.i.i.i255 = icmp ugt i64 %706, %771
+  %.not.i.i.i255 = icmp samesign ugt i64 %706, %771
   %or.cond.i.i.i256 = and i1 %.not.i.i.i255, %773
   br i1 %or.cond.i.i.i256, label %774, label %.preheader.preheader
 
@@ -21574,7 +21574,7 @@ _ZN4llvm14SmallBitVector3setEj.exit251:           ; preds = %756, %745, %732, %7
   %781 = lshr i32 %769, 6
   %782 = add i32 %778, -1
   %783 = lshr i32 %782, 6
-  %.not32.i.i.i.i.i258 = icmp ugt i32 %781, %783
+  %.not32.i.i.i.i.i258 = icmp samesign ugt i32 %781, %783
   br i1 %.not32.i.i.i.i.i258, label %.preheader.preheader, label %.lr.ph.i.i.i.i.i259
 
 .lr.ph.i.i.i.i.i259:                              ; preds = %780
@@ -21921,7 +21921,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit:            ; preds = %931, %941
   %963 = and i64 %956, %962
   %964 = and i64 %963, %959
   %965 = icmp ne i64 %964, 0
-  %.not.i.i.i320 = icmp ugt i64 %957, %961
+  %.not.i.i.i320 = icmp samesign ugt i64 %957, %961
   %or.cond.i.i.i321 = and i1 %.not.i.i.i320, %965
   br i1 %or.cond.i.i.i321, label %966, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit332.thread
 
@@ -21942,7 +21942,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit:            ; preds = %931, %941
   %976 = lshr i32 %971, 6
   %977 = add i32 %973, -1
   %978 = lshr i32 %977, 6
-  %.not32.i.i.i.i.i323 = icmp ugt i32 %976, %978
+  %.not32.i.i.i.i.i323 = icmp samesign ugt i32 %976, %978
   br i1 %.not32.i.i.i.i.i323, label %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit332.thread, label %.lr.ph.i.i.i.i.i324
 
 .lr.ph.i.i.i.i.i324:                              ; preds = %975
@@ -22227,7 +22227,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit355:         ; preds = %1134, %1124, %1086,
   %1158 = and i64 %1151, %1157
   %1159 = and i64 %1158, %1154
   %1160 = icmp ne i64 %1159, 0
-  %.not.i.i.i361 = icmp ugt i64 %1152, %1156
+  %.not.i.i.i361 = icmp samesign ugt i64 %1152, %1156
   %or.cond.i.i.i362 = and i1 %.not.i.i.i361, %1160
   br i1 %or.cond.i.i.i362, label %1161, label %.loopexit
 
@@ -22248,7 +22248,7 @@ _ZN4llvm14SmallBitVector5resetEj.exit355:         ; preds = %1134, %1124, %1086,
   %1171 = lshr i32 %1166, 6
   %1172 = add i32 %1168, -1
   %1173 = lshr i32 %1172, 6
-  %.not32.i.i.i.i.i364 = icmp ugt i32 %1171, %1173
+  %.not32.i.i.i.i.i364 = icmp samesign ugt i32 %1171, %1173
   br i1 %.not32.i.i.i.i.i364, label %.loopexit, label %.lr.ph.i.i.i.i.i365
 
 .lr.ph.i.i.i.i.i365:                              ; preds = %1170
@@ -22421,7 +22421,7 @@ _ZN4llvm14SmallBitVectorD2Ev.exit385:             ; preds = %_ZN4llvm14SmallBitV
   %1246 = shl nsw i64 -1, %1245
   %.reass595 = and i64 %1246, %invariant.op594
   %1247 = icmp ne i64 %.reass595, 0
-  %.not.i.i.i387 = icmp ugt i64 %623, %1245
+  %.not.i.i.i387 = icmp samesign ugt i64 %623, %1245
   %or.cond.i.i.i388 = and i1 %.not.i.i.i387, %1247
   br i1 %or.cond.i.i.i388, label %1248, label %._crit_edge589
 
@@ -22439,7 +22439,7 @@ _ZN4llvm14SmallBitVectorD2Ev.exit385:             ; preds = %_ZN4llvm14SmallBitV
   %1255 = lshr i32 %1243, 6
   %1256 = add i32 %1252, -1
   %1257 = lshr i32 %1256, 6
-  %.not32.i.i.i.i.i390 = icmp ugt i32 %1255, %1257
+  %.not32.i.i.i.i.i390 = icmp samesign ugt i32 %1255, %1257
   br i1 %.not32.i.i.i.i.i390, label %._crit_edge589, label %.lr.ph.i.i.i.i.i391
 
 .lr.ph.i.i.i.i.i391:                              ; preds = %1254

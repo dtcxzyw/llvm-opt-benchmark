@@ -287,7 +287,7 @@ nsis_detcomp.exit83.i.i:                          ; preds = %105, %101
 
 .loopexit.i.i:                                    ; preds = %122, %121
   %.05990.i.i = phi i32 [ %.05993.i.i, %121 ], [ %126, %122 ]
-  %129 = icmp ugt i32 %.05990.i.i, 1
+  %129 = icmp samesign ugt i32 %.05990.i.i, 1
   %or.cond.i.i = select i1 %59, i1 %129, i1 false
   br i1 %or.cond.i.i, label %132, label %.loopexit._crit_edge.i.i
 

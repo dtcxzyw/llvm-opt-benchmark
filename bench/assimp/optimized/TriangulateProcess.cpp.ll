@@ -65,7 +65,7 @@ for.inc:                                          ; preds = %if.then, %for.body
   %bHas.1 = phi i1 [ %bHas.07, %for.body ], [ %spec.select, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
@@ -1114,7 +1114,7 @@ for.inc476:                                       ; preds = %if.then.i254, %invo
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %158 = load i32, ptr %mNumFaces14, align 8
   %159 = zext i32 %158 to i64
-  %cmp61 = icmp ult i64 %indvars.iv.next547, %159
+  %cmp61 = icmp samesign ult i64 %indvars.iv.next547, %159
   br i1 %cmp61, label %for.body62, label %for.end478, !llvm.loop !20
 
 for.end478:                                       ; preds = %for.inc476, %for.cond59.preheader

@@ -71277,7 +71277,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data10ParserImplIjfE4NextEv(ptr
 .loopexit:                                        ; preds = %33, %31
   %46 = phi i64 [ %18, %31 ], [ %16, %33 ]
   %47 = zext i32 %13 to i64
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp samesign ult i64 %46, %47
   ret i1 %48
 }
 
@@ -75424,7 +75424,7 @@ define linkonce_odr noundef float @_ZN4dmlc10ParseFloatIfLb0EEET_PKcPPc(ptr noun
   %182 = phi i32 [ %195, %192 ], [ 0, %175 ]
   %183 = phi i64 [ %194, %192 ], [ 0, %175 ]
   %184 = phi i64 [ %193, %192 ], [ 1, %175 ]
-  %185 = icmp ult i32 %182, 19
+  %185 = icmp samesign ult i32 %182, 19
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %.preheader14
@@ -75546,7 +75546,7 @@ define linkonce_odr noundef float @_ZN4dmlc10ParseFloatIfLb0EEET_PKcPPc(ptr noun
   %262 = phi float [ poison, %253 ], [ %259, %.preheader10 ]
   %263 = phi i32 [ %251, %253 ], [ %256, %.preheader10 ]
   %264 = phi float [ %250, %253 ], [ %259, %.preheader10 ]
-  %265 = icmp ult i32 %251, 8
+  %265 = icmp samesign ult i32 %251, 8
   br i1 %265, label %.loopexit, label %.preheader9
 
 266:                                              ; preds = %266, %247
@@ -76965,7 +76965,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14ThreadedParserIjfE4NextEv
 .loopexit:                                        ; preds = %37, %32
   %49 = phi i64 [ %18, %32 ], [ %16, %37 ]
   %50 = zext i32 %13 to i64
-  %51 = icmp ult i64 %49, %50
+  %51 = icmp samesign ult i64 %49, %50
   ret i1 %51
 }
 
@@ -95590,7 +95590,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data10ParserImplIjiE4NextEv(ptr
 .loopexit:                                        ; preds = %33, %31
   %46 = phi i64 [ %18, %31 ], [ %16, %33 ]
   %47 = zext i32 %13 to i64
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp samesign ult i64 %46, %47
   ret i1 %48
 }
 
@@ -101695,7 +101695,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data10ParserImplIjlE4NextEv(ptr
 .loopexit:                                        ; preds = %33, %31
   %46 = phi i64 [ %18, %31 ], [ %16, %33 ]
   %47 = zext i32 %13 to i64
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp samesign ult i64 %46, %47
   ret i1 %48
 }
 

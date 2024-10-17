@@ -2720,7 +2720,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 40:                                               ; preds = %30, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = icmp ult i64 %indvars.iv.next, %23
+  %41 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %41, label %30, label %.critedge.preheader, !llvm.loop !35
 
 42:                                               ; preds = %.lr.ph131, %.critedge

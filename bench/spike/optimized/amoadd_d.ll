@@ -1297,7 +1297,7 @@ define noundef i64 @_Z19fast_rv64e_amoadd_dP11processor_t6insn_tm(ptr nocapture 
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = icmp ugt i64 %21, 15
+  %22 = icmp samesign ugt i64 %21, 15
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
@@ -1396,7 +1396,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %.sroa.042.0.copyload.i = load i64, ptr %6, align 8
   %70 = lshr i64 %1, 20
   %71 = and i64 %70, 31
-  %72 = icmp ugt i64 %71, 15
+  %72 = icmp samesign ugt i64 %71, 15
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %69
@@ -1765,7 +1765,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %262 = lshr i64 %1, 7
   %263 = and i64 %262, 31
-  %264 = icmp ugt i64 %263, 15
+  %264 = icmp samesign ugt i64 %263, 15
   br i1 %264, label %265, label %270
 
 265:                                              ; preds = %"_ZN5mmu_t3amoImZ19fast_rv64e_amoadd_dP11processor_t6insn_tmE3$_0EET_mT0_.exit"
@@ -1839,7 +1839,7 @@ define noundef i64 @_Z21logged_rv64e_amoadd_dP11processor_t6insn_tm(ptr noundef 
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = icmp ugt i64 %21, 15
+  %22 = icmp samesign ugt i64 %21, 15
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
@@ -1938,7 +1938,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %.sroa.042.0.copyload.i = load i64, ptr %6, align 8
   %70 = lshr i64 %1, 20
   %71 = and i64 %70, 31
-  %72 = icmp ugt i64 %71, 15
+  %72 = icmp samesign ugt i64 %71, 15
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %69
@@ -2364,7 +2364,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.sroa.042.0.copyload.i, ptr %.0.i.i16, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %288 = icmp ugt i64 %263, 15
+  %288 = icmp samesign ugt i64 %263, 15
   br i1 %288, label %289, label %294
 
 289:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

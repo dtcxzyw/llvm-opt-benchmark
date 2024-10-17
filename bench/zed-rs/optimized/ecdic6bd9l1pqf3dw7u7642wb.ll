@@ -9951,7 +9951,7 @@ _ZN8language6buffer6Buffer16diff_base_buffer17h15acb2d6178fe417E.exit.thread: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !1607)
   call void @llvm.experimental.noalias.scope.decl(metadata !1610)
   %61 = load i64, ptr %12, align 8, !range !23, !alias.scope !1613, !noundef !4
-  %switch.i.i = icmp ult i64 %61, 2
+  %switch.i.i = icmp samesign ult i64 %61, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h10a68ab15e36f142E.exit", label %62
 
 62:                                               ; preds = %60
@@ -11159,7 +11159,7 @@ define void @_ZN8language6buffer6Buffer12file_updated17h19165689e699cc37E(ptr no
   br i1 %87, label %.thread.i, label %88
 
 88:                                               ; preds = %84
-  %switch.i.i.i = icmp ult i8 %86, 3
+  %switch.i.i.i = icmp samesign ult i8 %86, 3
   %89 = getelementptr inbounds i8, ptr %10, i64 16
   %90 = load i8, ptr %89, align 8, !range !1818, !alias.scope !1816, !noalias !1813, !noundef !4
   %91 = icmp eq i8 %90, 6
@@ -11168,14 +11168,14 @@ define void @_ZN8language6buffer6Buffer12file_updated17h19165689e699cc37E(ptr no
 .thread.i:                                        ; preds = %84
   %92 = getelementptr inbounds i8, ptr %10, i64 16
   %93 = load i8, ptr %92, align 8, !range !1818, !alias.scope !1816, !noalias !1813, !noundef !4
-  %switch.i.i3454.i = icmp ult i8 %93, 3
+  %switch.i.i3454.i = icmp samesign ult i8 %93, 3
   br i1 %switch.i.i3454.i, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
 
 ._crit_edge.i:                                    ; preds = %88
   br i1 %switch.i.i.i, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
 
 94:                                               ; preds = %88
-  %switch.i.i34.i = icmp ult i8 %90, 3
+  %switch.i.i34.i = icmp samesign ult i8 %90, 3
   %95 = xor i1 %switch.i.i.i, %switch.i.i34.i
   br i1 %95, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
 
@@ -11297,7 +11297,7 @@ define void @_ZN8language6buffer6Buffer12file_updated17h19165689e699cc37E(ptr no
   %125 = zext nneg i8 %119 to i64
   %126 = add nsw i64 %125, -5
   %127 = select i1 %124, i64 %126, i64 0
-  %128 = icmp ult i8 %120, 6
+  %128 = icmp samesign ult i8 %120, 6
   %129 = zext nneg i8 %120 to i64
   %130 = add nsw i64 %129, -5
   %131 = select i1 %128, i64 0, i64 %130
@@ -38492,7 +38492,7 @@ _ZN8language10syntax_map21SyntaxMapMatchesLayer8sort_key17h848163f37dafcb1aE.llv
   br i1 %63, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h03e5829ceabc4ed7E.llvm.16711830050994594654.exit": ; preds = %56, %58, %"_ZN8language10syntax_map16SyntaxMapMatches7advance28_$u7b$$u7b$closure$u7d$$u7d$17h165dbb9a3f65a7beE.exit.i"
-  %64 = icmp ult i64 %.sroa.02.011.i, %36
+  %64 = icmp samesign ult i64 %.sroa.02.011.i, %36
   tail call void @llvm.assume(i1 %64)
   %65 = add nuw i64 %.sroa.02.011.i, 1
   br label %.loopexit
@@ -38828,7 +38828,7 @@ _ZN8language10syntax_map22SyntaxMapCapturesLayer8sort_key17h7dfd09bbd33c6ed2E.ex
   br i1 %56, label %.loopexit.i, label %.lr.ph.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h4d7afb6fcf83e7bfE.exit.i": ; preds = %"_ZN8language10syntax_map17SyntaxMapCaptures7advance28_$u7b$$u7b$closure$u7d$$u7d$17h6bc5572f1235ede5E.exit.i.i", %51, %49
-  %57 = icmp ult i64 %.sroa.02.011.i.i, %36
+  %57 = icmp samesign ult i64 %.sroa.02.011.i.i, %36
   tail call void @llvm.assume(i1 %57)
   %58 = add nuw i64 %.sroa.02.011.i.i, 1
   br label %.loopexit.i

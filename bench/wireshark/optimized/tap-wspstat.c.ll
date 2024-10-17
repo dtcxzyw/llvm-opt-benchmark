@@ -91,7 +91,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   br i1 %29, label %index2pdut.exit, label %30
 
 30:                                               ; preds = %.lr.ph46
-  %31 = icmp ult i64 %indvars.iv, 15
+  %31 = icmp samesign ult i64 %indvars.iv, 15
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
@@ -109,7 +109,7 @@ index2pdut.exit:                                  ; preds = %.lr.ph46, %32, %34
   %38 = getelementptr %struct._wsp_pdu_t, ptr %25, i64 %indvars.iv
   store ptr %37, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = icmp ult i64 %indvars.iv, 15
+  %39 = icmp samesign ult i64 %indvars.iv, 15
   br i1 %39, label %.lr.ph46, label %._crit_edge47, !llvm.loop !7
 
 ._crit_edge47:                                    ; preds = %index2pdut.exit
@@ -300,7 +300,7 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
   %19 = load i32, ptr %3, align 8
   %20 = zext i32 %19 to i64
-  %.wide = icmp ult i64 %11, %20
+  %.wide = icmp samesign ult i64 %11, %20
   br i1 %.wide, label %21, label %28
 
 21:                                               ; preds = %7
@@ -322,7 +322,7 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
   %31 = add i32 %30, 1
   %32 = lshr i32 %31, 1
   %33 = zext nneg i32 %32 to i64
-  %.not.not = icmp ult i64 %indvars.iv, %33
+  %.not.not = icmp samesign ult i64 %indvars.iv, %33
   br i1 %.not.not, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %29, %1

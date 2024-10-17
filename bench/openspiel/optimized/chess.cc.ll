@@ -3628,7 +3628,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.sroa.874.0.extract.trunc = trunc nuw nsw i64 %.sroa.874.0.extract.shift to i32
   store i32 %.sroa.874.0.extract.trunc, ptr %14, align 4
   store i32 73, ptr %15, align 4
-  %60 = icmp ult i64 %59, 313532612608
+  %60 = icmp samesign ult i64 %59, 313532612608
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %56
@@ -3647,7 +3647,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   br label %118
 
 65:                                               ; preds = %56
-  %66 = icmp ugt i64 %59, 38654705663
+  %66 = icmp samesign ugt i64 %59, 38654705663
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %65

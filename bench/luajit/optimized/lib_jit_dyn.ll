@@ -1681,7 +1681,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %22 = add nuw nsw i64 %indvars.iv, 2
   %23 = load i32, ptr %asize, align 8
   %24 = zext i32 %23 to i64
-  %cmp29 = icmp ult i64 %22, %24
+  %cmp29 = icmp samesign ult i64 %22, %24
   br i1 %cmp29, label %cond.true31, label %cond.false37
 
 cond.true31:                                      ; preds = %for.body

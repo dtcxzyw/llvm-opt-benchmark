@@ -1137,7 +1137,7 @@ entry:
   %ch.addr.i = alloca i8, align 1
   %or.cond = icmp ugt i32 %codePoint, 1114111
   %spec.store.select = select i1 %or.cond, i32 65533, i32 %codePoint
-  %cmp2 = icmp ult i32 %spec.store.select, 128
+  %cmp2 = icmp samesign ult i32 %spec.store.select, 128
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %entry
@@ -1149,7 +1149,7 @@ if.then3:                                         ; preds = %entry
   br label %if.end48
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ult i32 %spec.store.select, 2048
+  %cmp4 = icmp samesign ult i32 %spec.store.select, 2048
   br i1 %cmp4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else
@@ -1170,7 +1170,7 @@ if.then5:                                         ; preds = %if.else
   br label %if.end48
 
 if.else11:                                        ; preds = %if.else
-  %cmp12 = icmp ult i32 %spec.store.select, 65536
+  %cmp12 = icmp samesign ult i32 %spec.store.select, 65536
   br i1 %cmp12, label %if.then13, label %if.else27
 
 if.then13:                                        ; preds = %if.else11

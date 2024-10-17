@@ -1349,7 +1349,7 @@ invoke.cont25:                                    ; preds = %invoke.cont25.lr.ph
           to label %invoke.cont27 unwind label %lpad7.loopexit
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %cmp30 = icmp ult i64 %indvars.iv, %9
+  %cmp30 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %cmp30, label %if.then31, label %for.inc
 
 if.then31:                                        ; preds = %invoke.cont27
@@ -1476,7 +1476,7 @@ for.body67.lr.ph:                                 ; preds = %if.end59
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc170
   %indvars.iv135 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next136, %for.inc170 ]
-  %cmp69 = icmp ult i64 %indvars.iv135, %22
+  %cmp69 = icmp samesign ult i64 %indvars.iv135, %22
   br i1 %cmp69, label %if.then70, label %if.else113
 
 if.then70:                                        ; preds = %for.body67

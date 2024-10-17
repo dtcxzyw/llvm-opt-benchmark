@@ -153024,7 +153024,7 @@ define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Resu
   ]
 
 4:                                                ; preds = %1
-  %switch.not.i.i = icmp ult i8 %3, 2
+  %switch.not.i.i = icmp samesign ult i8 %3, 2
   br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$GT$17hc52ce20d3c15f1e4E.exit"
 
 5:                                                ; preds = %4

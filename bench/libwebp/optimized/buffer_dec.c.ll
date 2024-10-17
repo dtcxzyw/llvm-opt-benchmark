@@ -179,7 +179,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = mul nuw nsw i64 %58, %54
-  %60 = icmp ugt i64 %59, 2147483647
+  %60 = icmp samesign ugt i64 %59, 2147483647
   br i1 %60, label %WebPFlipBuffer.exit, label %61
 
 61:                                               ; preds = %53

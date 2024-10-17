@@ -4661,7 +4661,7 @@ default.unreachable.i:                            ; preds = %304, %117
   %120 = load i8, ptr %119, align 8, !range !4, !alias.scope !879, !noalias !884, !noundef !5
   %121 = getelementptr inbounds i8, ptr %38, i64 24
   %122 = load i8, ptr %121, align 8, !range !4, !alias.scope !882, !noalias !885, !noundef !5
-  %123 = icmp ult i8 %120, %122
+  %123 = icmp samesign ult i8 %120, %122
   br i1 %123, label %"_ZN61_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..Ord$GT$3cmp17hfca5242c774c5125E.exit.i", label %124
 
 124:                                              ; preds = %118
@@ -4734,7 +4734,7 @@ default.unreachable.i:                            ; preds = %304, %117
   %154 = load i8, ptr %153, align 8, !range !4, !alias.scope !886, !noalias !891, !noundef !5
   %155 = getelementptr inbounds i8, ptr %38, i64 24
   %156 = load i8, ptr %155, align 8, !range !4, !alias.scope !889, !noalias !892, !noundef !5
-  %157 = icmp ult i8 %154, %156
+  %157 = icmp samesign ult i8 %154, %156
   br i1 %157, label %"_ZN61_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..Ord$GT$3cmp17hfca5242c774c5125E.exit119.i", label %158
 
 158:                                              ; preds = %152
@@ -4871,7 +4871,7 @@ default.unreachable.i:                            ; preds = %304, %117
   %220 = load i8, ptr %219, align 8, !range !4, !alias.scope !917, !noalias !922, !noundef !5
   %221 = getelementptr inbounds i8, ptr %38, i64 24
   %222 = load i8, ptr %221, align 8, !range !4, !alias.scope !920, !noalias !923, !noundef !5
-  %223 = icmp ult i8 %220, %222
+  %223 = icmp samesign ult i8 %220, %222
   br i1 %223, label %"_ZN61_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..Ord$GT$3cmp17hfca5242c774c5125E.exit143.i", label %224
 
 224:                                              ; preds = %218
@@ -4944,7 +4944,7 @@ default.unreachable.i:                            ; preds = %304, %117
   %254 = load i8, ptr %253, align 8, !range !4, !alias.scope !924, !noalias !929, !noundef !5
   %255 = getelementptr inbounds i8, ptr %38, i64 24
   %256 = load i8, ptr %255, align 8, !range !4, !alias.scope !927, !noalias !930, !noundef !5
-  %257 = icmp ult i8 %254, %256
+  %257 = icmp samesign ult i8 %254, %256
   br i1 %257, label %"_ZN61_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..Ord$GT$3cmp17hfca5242c774c5125E.exit157.i", label %258
 
 258:                                              ; preds = %252
@@ -6335,7 +6335,7 @@ define internal fastcc void @_ZN7uu_expr11syntax_tree6Parser16parse_precedence17
   %10 = alloca { i64, [4 x i64] }, align 8
   %.sroa.6 = alloca [4 x i64], align 8
   %11 = alloca { i8, [31 x i8] }, align 8
-  %12 = icmp ugt i64 %2, 5
+  %12 = icmp samesign ugt i64 %2, 5
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %3

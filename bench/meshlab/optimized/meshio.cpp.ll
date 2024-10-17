@@ -2542,7 +2542,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %23
   %.0.lcssa.i = phi i32 [ %1, %23 ], [ %30, %.lr.ph.i2 ]
-  %45 = icmp ugt i32 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %._crit_edge.i
@@ -3856,7 +3856,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %74, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = load i32, ptr %58, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next, %134
   br i1 %135, label %100, label %.preheader206, !llvm.loop !45
 
 136:                                              ; preds = %.lr.ph233, %383
@@ -3985,7 +3985,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %74, %77
   %225 = trunc nuw i64 %indvars.iv244 to i32
   %spec.select = select i1 %224, i32 %225, i32 %.0162223
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
-  %226 = icmp uge i64 %indvars.iv.next245, %219
+  %226 = icmp samesign uge i64 %indvars.iv.next245, %219
   %.not184 = select i1 %224, i1 true, i1 %226
   br i1 %.not184, label %._crit_edge228, label %.lr.ph227, !llvm.loop !46
 
@@ -4244,7 +4244,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %74, %77
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %384 = load i32, ptr %43, align 8
   %385 = zext i32 %384 to i64
-  %386 = icmp ult i64 %indvars.iv.next254, %385
+  %386 = icmp samesign ult i64 %indvars.iv.next254, %385
   br i1 %386, label %136, label %._crit_edge234, !llvm.loop !49
 
 ._crit_edge234:                                   ; preds = %383, %.preheader206

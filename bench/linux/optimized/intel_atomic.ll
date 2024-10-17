@@ -327,7 +327,7 @@ define dso_local zeroext i1 @intel_any_crtc_needs_modeset(ptr nocapture noundef 
 
 24:                                               ; preds = %17, %11
   %25 = add nuw nsw i64 %12, 1
-  %26 = icmp ult i64 %25, %10
+  %26 = icmp samesign ult i64 %25, %10
   %27 = icmp eq i64 %25, %10
   br i1 %27, label %.loopexit, label %11, !llvm.loop !5
 

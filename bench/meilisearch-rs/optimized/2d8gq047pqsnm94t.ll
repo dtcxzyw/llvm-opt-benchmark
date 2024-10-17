@@ -506,7 +506,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !180
   %15 = load i64, ptr %14, align 8, !range !185, !alias.scope !186, !noalias !189, !noundef !40
-  %switch.i.i = icmp ult i64 %15, 6
+  %switch.i.i = icmp samesign ult i64 %15, 6
   br i1 %switch.i.i, label %17, label %"_ZN17meilisearch_types8settings129_$LT$impl$u20$core..convert..From$LT$meilisearch_types..settings..RankingRuleView$GT$$u20$for$u20$milli..criterion..Criterion$GT$4from17hd83a2683464770eeE.exit.sink.split.i.i.i"
 
 "_ZN17meilisearch_types8settings129_$LT$impl$u20$core..convert..From$LT$meilisearch_types..settings..RankingRuleView$GT$$u20$for$u20$milli..criterion..Criterion$GT$4from17hd83a2683464770eeE.exit.sink.split.i.i.i": ; preds = %13
@@ -595,7 +595,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !246
   %15 = load i64, ptr %14, align 8, !range !185, !alias.scope !251, !noalias !254, !noundef !40
-  %switch.i.i = icmp ult i64 %15, 6
+  %switch.i.i = icmp samesign ult i64 %15, 6
   br i1 %switch.i.i, label %17, label %"_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit.sink.split.i.i.i"
 
 "_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit.sink.split.i.i.i": ; preds = %13
@@ -3290,7 +3290,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1125)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1128
   %20 = load i64, ptr %19, align 8, !range !185, !alias.scope !1130, !noalias !1133, !noundef !40
-  %switch.i = icmp ult i64 %20, 6
+  %switch.i = icmp samesign ult i64 %20, 6
   br i1 %switch.i, label %22, label %"_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit.sink.split.i.i"
 
 "_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit.sink.split.i.i": ; preds = %18
@@ -3681,7 +3681,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1357)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1360
   %20 = load i64, ptr %19, align 8, !range !185, !alias.scope !1362, !noalias !1365, !noundef !40
-  %switch.i = icmp ult i64 %20, 6
+  %switch.i = icmp samesign ult i64 %20, 6
   br i1 %switch.i, label %22, label %"_ZN17meilisearch_types8settings129_$LT$impl$u20$core..convert..From$LT$meilisearch_types..settings..RankingRuleView$GT$$u20$for$u20$milli..criterion..Criterion$GT$4from17hd83a2683464770eeE.exit.sink.split.i.i"
 
 "_ZN17meilisearch_types8settings129_$LT$impl$u20$core..convert..From$LT$meilisearch_types..settings..RankingRuleView$GT$$u20$for$u20$milli..criterion..Criterion$GT$4from17hd83a2683464770eeE.exit.sink.split.i.i": ; preds = %18

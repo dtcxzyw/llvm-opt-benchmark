@@ -13823,9 +13823,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -17837,15 +17837,15 @@ _ZN4core3str11validations15next_code_point17h2d4461115af74b93E.exit.thread: ; pr
   br label %90
 
 80:                                               ; preds = %75
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %85, i64 3, i64 4
   br label %86
 
@@ -18362,7 +18362,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i26: ; preds = %81, %78
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h09d2f2acaf6b76edE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h6e4efce6411cb4fbE.llvm.15125219604780613101"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !3560
-  %or.cond.not = icmp ult i8 %4, 3
+  %or.cond.not = icmp samesign ult i8 %4, 3
   br i1 %or.cond.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -48990,7 +48990,7 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers17generate_constant17
   br i1 %or.cond.i.i.i, label %.backedge.i, label %125
 
 125:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
-  %126 = icmp ugt i32 %123, 127
+  %126 = icmp samesign ugt i32 %123, 127
   br i1 %126, label %127, label %.critedge5.i.i.i
 
 127:                                              ; preds = %125

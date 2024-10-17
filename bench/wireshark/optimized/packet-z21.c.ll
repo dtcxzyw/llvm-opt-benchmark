@@ -843,7 +843,7 @@ update_command_field.exit:                        ; preds = %32, %48
   %.0940 = phi ptr [ %39, %32 ], [ %50, %48 ]
   %.1 = phi i32 [ %.0939, %32 ], [ %.2, %48 ]
   %.0944 = and i32 %.0944.in, 255
-  %53 = icmp ult i32 %.1, 16777216
+  %53 = icmp samesign ult i32 %.1, 16777216
   %spec.select.i = select i1 %53, i32 6, i32 8
   %54 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0940, ptr noundef nonnull @.str.452, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef %.1) #2

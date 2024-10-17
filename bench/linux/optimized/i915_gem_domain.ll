@@ -584,7 +584,7 @@ define dso_local i32 @i915_gem_set_caching_ioctl(ptr nocapture noundef readonly 
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
-  %19 = icmp ugt i32 %18, 3141
+  %19 = icmp samesign ugt i32 %18, 3141
   br i1 %19, label %.thread11, label %20
 
 20:                                               ; preds = %10

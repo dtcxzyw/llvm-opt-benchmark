@@ -14537,7 +14537,7 @@ invoke.cont69:                                    ; preds = %for.cond.i.i.i.i220
 if.end78:                                         ; preds = %invoke.cont69
   %and = and i8 %node.sroa.6.0, 15
   %124 = lshr i8 %node.sroa.6.0, 4
-  %cmp84 = icmp ugt i8 %and, %124
+  %cmp84 = icmp samesign ugt i8 %and, %124
   br i1 %cmp84, label %if.then85, label %if.else
 
 if.then85:                                        ; preds = %if.end78

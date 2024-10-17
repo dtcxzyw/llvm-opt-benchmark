@@ -361,7 +361,7 @@ if.then35:                                        ; preds = %sw.bb31
 
 sw.bb40:                                          ; preds = %if.end9
   %and41 = and i64 %value, 255
-  %cmp42 = icmp ugt i64 %and41, 3
+  %cmp42 = icmp samesign ugt i64 %and41, 3
   br i1 %cmp42, label %if.then44, label %sw.epilog55
 
 if.then44:                                        ; preds = %sw.bb40

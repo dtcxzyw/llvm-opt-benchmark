@@ -453,7 +453,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
 52:                                               ; preds = %.lr.ph.i
   %53 = add nsw i32 %.05364.i, 2
   %54 = mul nsw i32 %53, %53
-  %55 = icmp ugt i32 %54, %.165.i
+  %55 = icmp samesign ugt i32 %54, %.165.i
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %52, %48
@@ -6179,7 +6179,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   %96 = getelementptr inbounds i32, ptr %.0, i64 %95
   store i32 %.reass286, ptr %96, align 4
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 4
-  %.not239 = icmp ugt i64 %indvars.iv.next336, %81
+  %.not239 = icmp samesign ugt i64 %indvars.iv.next336, %81
   br i1 %.not239, label %.loopexit268, label %.lr.ph290, !llvm.loop !57
 
 .lr.ph284.preheader:                              ; preds = %76
@@ -6232,7 +6232,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   %135 = getelementptr inbounds i32, ptr %.0, i64 %134
   store i32 %.reass, ptr %135, align 4
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 4
-  %136 = icmp ult i64 %indvars.iv.next333, %98
+  %136 = icmp samesign ult i64 %indvars.iv.next333, %98
   br i1 %136, label %.lr.ph284, label %.loopexit268, !llvm.loop !58
 
 .loopexit268:                                     ; preds = %.lr.ph284, %.lr.ph290, %78, %74
@@ -6383,13 +6383,13 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   %204 = trunc nuw nsw i64 %196 to i32
   store i32 %204, ptr %203, align 4
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 2
-  %205 = icmp ult i64 %indvars.iv.next350, %193
+  %205 = icmp samesign ult i64 %indvars.iv.next350, %193
   br i1 %205, label %.lr.ph305, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph305, %.thread262, %.loopexit267
   %.0210 = phi i32 [ %.2, %.loopexit267 ], [ 2, %.thread262 ], [ %.2, %.lr.ph305 ]
   %206 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %207 = icmp ult i32 %206, 2
+  %207 = icmp samesign ult i32 %206, 2
   br i1 %207, label %208, label %215
 
 208:                                              ; preds = %.loopexit
@@ -7060,7 +7060,7 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   store float %223, ptr %221, align 4
   store float %227, ptr %225, align 4
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 2
-  %.not667 = icmp ugt i64 %indvars.iv.next859, %220
+  %.not667 = icmp samesign ugt i64 %indvars.iv.next859, %220
   br i1 %.not667, label %._crit_edge747.loopexit, label %.lr.ph746, !llvm.loop !70
 
 ._crit_edge747.loopexit:                          ; preds = %.lr.ph746
@@ -8304,7 +8304,7 @@ define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   store float 0.000000e+00, ptr %72, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %73 = icmp ult i64 %indvars.iv.next, %53
+  %73 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %73, label %54, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %54, %47
@@ -8671,7 +8671,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %97 = getelementptr inbounds i8, ptr %96, i64 4
   store float %95, ptr %97, align 4
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 2
-  %98 = icmp ult i64 %indvars.iv.next264, %89
+  %98 = icmp samesign ult i64 %indvars.iv.next264, %89
   br i1 %98, label %.lr.ph246, label %.loopexit, !llvm.loop !93
 
 99:                                               ; preds = %52
@@ -8770,7 +8770,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 
 168:                                              ; preds = %147, %153
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 2
-  %169 = icmp ult i64 %indvars.iv.next267, %116
+  %169 = icmp samesign ult i64 %indvars.iv.next267, %116
   br i1 %169, label %118, label %._crit_edge254.loopexit, !llvm.loop !94
 
 ._crit_edge254.loopexit:                          ; preds = %168
@@ -8868,7 +8868,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   store float %220, ptr %218, align 4
   store float %224, ptr %222, align 4
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 2
-  %225 = icmp ult i64 %indvars.iv.next270, %216
+  %225 = icmp samesign ult i64 %indvars.iv.next270, %216
   br i1 %225, label %217, label %.loopexit, !llvm.loop !95
 
 .loopexit.sink.split:                             ; preds = %42, %44
@@ -9358,7 +9358,7 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   store double %211, ptr %209, align 8
   store double %215, ptr %213, align 8
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 2
-  %.not667 = icmp ugt i64 %indvars.iv.next872, %208
+  %.not667 = icmp samesign ugt i64 %indvars.iv.next872, %208
   br i1 %.not667, label %._crit_edge760.loopexit, label %.lr.ph759, !llvm.loop !100
 
 ._crit_edge760.loopexit:                          ; preds = %.lr.ph759
@@ -10598,7 +10598,7 @@ define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   store double 0.000000e+00, ptr %71, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %72 = icmp ult i64 %indvars.iv.next, %52
+  %72 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %72, label %53, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %53, %46
@@ -10964,7 +10964,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   store double %94, ptr %96, align 8
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 2
-  %97 = icmp ult i64 %indvars.iv.next264, %88
+  %97 = icmp samesign ult i64 %indvars.iv.next264, %88
   br i1 %97, label %.lr.ph246, label %.loopexit, !llvm.loop !123
 
 98:                                               ; preds = %51
@@ -11063,7 +11063,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 
 167:                                              ; preds = %146, %152
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 2
-  %168 = icmp ult i64 %indvars.iv.next267, %115
+  %168 = icmp samesign ult i64 %indvars.iv.next267, %115
   br i1 %168, label %117, label %._crit_edge254.loopexit, !llvm.loop !124
 
 ._crit_edge254.loopexit:                          ; preds = %167
@@ -11161,7 +11161,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
   store double %219, ptr %217, align 8
   store double %223, ptr %221, align 8
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 2
-  %224 = icmp ult i64 %indvars.iv.next270, %215
+  %224 = icmp samesign ult i64 %indvars.iv.next270, %215
   br i1 %224, label %216, label %.loopexit, !llvm.loop !125
 
 .loopexit.sink.split:                             ; preds = %41, %43
@@ -12935,7 +12935,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit333:            ; preds = %.lr.ph.i316, %.lr.p
   store i32 %547, ptr %549, align 4
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 2
   %550 = getelementptr inbounds i32, ptr %.17887.i, i64 %517
-  %551 = icmp ult i64 %indvars.iv.next97.i, %522
+  %551 = icmp samesign ult i64 %indvars.iv.next97.i, %522
   br i1 %551, label %.lr.ph89.i, label %_ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit, !llvm.loop !137
 
 .lr.ph.i334:                                      ; preds = %.preheader83.i, %.lr.ph.i334
@@ -12977,7 +12977,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit333:            ; preds = %.lr.ph.i316, %.lr.p
   store i32 %575, ptr %577, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %578 = getelementptr inbounds i32, ptr %.27985.i, i64 %517
-  %579 = icmp ult i64 %indvars.iv.next.i, %520
+  %579 = icmp samesign ult i64 %indvars.iv.next.i, %520
   br i1 %579, label %.lr.ph.i334, label %_ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit, !llvm.loop !138
 
 _ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit:       ; preds = %.lr.ph.i334, %.lr.ph89.i, %.lr.ph92.i, %529, %.preheader83.i, %.preheader81.i, %.preheader.i335
@@ -13120,7 +13120,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit355:            ; preds = %.lr.ph.i338, %.lr.p
   store i32 %633, ptr %635, align 4
   %indvars.iv.next97.i365 = add nuw nsw i64 %indvars.iv96.i364, 2
   %636 = getelementptr inbounds i32, ptr %.188.i, i64 %524
-  %637 = icmp ult i64 %indvars.iv.next97.i365, %522
+  %637 = icmp samesign ult i64 %indvars.iv.next97.i365, %522
   br i1 %637, label %.lr.ph89.i363, label %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit, !llvm.loop !140
 
 .lr.ph.i358:                                      ; preds = %.preheader83.i356, %.lr.ph.i358
@@ -13162,7 +13162,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit355:            ; preds = %.lr.ph.i338, %.lr.p
   store i32 %661, ptr %663, align 4
   %indvars.iv.next.i360 = add nuw nsw i64 %indvars.iv.i359, 4
   %664 = getelementptr inbounds i32, ptr %.286.i, i64 %524
-  %665 = icmp ult i64 %indvars.iv.next.i360, %520
+  %665 = icmp samesign ult i64 %indvars.iv.next.i360, %520
   br i1 %665, label %.lr.ph.i358, label %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit, !llvm.loop !141
 
 666:                                              ; preds = %_ZN2cvL10CopyColumnEPKhmPhmim.exit355
@@ -13811,7 +13811,7 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
 92:                                               ; preds = %.lr.ph.i
   %93 = add nsw i32 %.05364.i, 2
   %94 = mul nsw i32 %93, %93
-  %95 = icmp ugt i32 %94, %.165.i
+  %95 = icmp samesign ugt i32 %94, %.165.i
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %92, %88
@@ -14152,7 +14152,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95:   ; preds = %199, %_ZN2cv10AutoB
 
 222:                                              ; preds = %214
   %223 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.155)
-  %224 = icmp ult i32 %223, 2
+  %224 = icmp samesign ult i32 %223, 2
   br i1 %224, label %.preheader60.i, label %241
 
 .preheader60.i:                                   ; preds = %222, %.preheader60.i

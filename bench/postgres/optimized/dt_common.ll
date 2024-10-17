@@ -2808,7 +2808,7 @@ j2date.exit377:                                   ; preds = %532, %535
   store i32 0, ptr %13, align 4
   %577 = and i32 %.0266422, 14
   %.not300 = icmp eq i32 %577, 14
-  %.not301 = icmp ult i64 %indvars.iv, %30
+  %.not301 = icmp samesign ult i64 %indvars.iv, %30
   %or.cond341 = and i1 %.not301, %.not300
   br i1 %or.cond341, label %578, label %.loopexit
 
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %.pre = load i8, ptr %45, align 1
   %46 = icmp ne i8 %.pre, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp ult i64 %indvars.iv, 24
+  %47 = icmp samesign ult i64 %indvars.iv, 24
   %48 = select i1 %46, i1 %47, i1 false
   br i1 %48, label %.preheader91, label %._crit_edge, !llvm.loop !26
 

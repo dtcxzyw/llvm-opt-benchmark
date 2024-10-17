@@ -1131,9 +1131,9 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
 18:                                               ; preds = %16, %14
   %19 = phi i32 [ %.zext, %14 ], [ %17, %16 ]
   %20 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 %19)
-  %21 = icmp ult i32 %20, 2
-  %22 = icmp ult i32 %19, 9
-  %or.cond.i = and i1 %22, %21
+  %21 = icmp samesign ult i32 %20, 2
+  %22 = icmp samesign ult i32 %19, 9
+  %or.cond.i = select i1 %21, i1 %22, i1 false
   %23 = icmp ne i32 %19, 1
   %24 = or i1 %13, %23
   %or.cond = and i1 %24, %or.cond.i

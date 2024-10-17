@@ -1367,7 +1367,7 @@ H5O__alloc_find_best_null.exit:                   ; preds = %22, %72
   br label %173
 
 164:                                              ; preds = %142
-  %165 = icmp ult i32 %145, 2
+  %165 = icmp samesign ult i32 %145, 2
   %166 = icmp ugt i64 %160, 65535
   %or.cond240.i = select i1 %165, i1 %166, i1 false
   br i1 %or.cond240.i, label %167, label %169
@@ -4227,7 +4227,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   br i1 %or.cond3.i.i, label %991, label %985
 
 985:                                              ; preds = %966
-  %986 = icmp ugt i8 %980, 1
+  %986 = icmp samesign ugt i8 %980, 1
   %987 = icmp ult i64 %979, 65536
   %or.cond5.i.i = select i1 %986, i1 %987, i1 false
   br i1 %or.cond5.i.i, label %991, label %988

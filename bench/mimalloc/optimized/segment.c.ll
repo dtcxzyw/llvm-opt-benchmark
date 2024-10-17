@@ -378,7 +378,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then
   %dec.i.i.i.i = add nsw i64 %conv.i, -1
   %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %5, 63
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -590,7 +590,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then
   %dec.i.i.i.i = add nsw i64 %conv.i, -1
   %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %3, 63
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -1616,7 +1616,7 @@ if.then7.i:                                       ; preds = %_mi_segment_page_st
   %6 = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.i.i = add i64 %spec.store.select, -1
   %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %spec.store.select)
-  %cmp.i.i = icmp ult i64 %7, 2
+  %cmp.i.i = icmp samesign ult i64 %7, 2
   %add.i.i = add i64 %sub.i.i, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1729,7 +1729,7 @@ if.then7.i51:                                     ; preds = %land.lhs.true.i
   %15 = ptrtoint ptr %add.ptr.i.i.i45 to i64
   %sub.i.i52 = add nsw i64 %page_alignment, -1
   %16 = tail call range(i64 1, 26) i64 @llvm.ctpop.i64(i64 %page_alignment)
-  %cmp.i.i53 = icmp ult i64 %16, 2
+  %cmp.i.i53 = icmp samesign ult i64 %16, 2
   %add.i.i54 = add i64 %sub.i.i52, %15
   br i1 %cmp.i.i53, label %if.then.i.i63, label %if.else.i.i55
 
@@ -1765,7 +1765,7 @@ if.end25:                                         ; preds = %if.then7, %if.then1
 define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef range(i64 0, 16777217) %required, i64 noundef range(i64 0, 16777217) %block_size, ptr noundef %tld, ptr noundef %os_tld) unnamed_addr #4 {
 entry:
   %reclaimed.i = alloca i8, align 1
-  %cmp = icmp ugt i64 %required, 524288
+  %cmp = icmp samesign ugt i64 %required, 524288
   %cond.neg = select i1 %cmp, i64 -524288, i64 -65536
   %sub.i = select i1 %cmp, i64 524287, i64 65535
   %add.i = add nuw nsw i64 %sub.i, %required
@@ -1773,14 +1773,14 @@ entry:
   %div13 = lshr exact i64 %and1.i, 16
   %arena_id = getelementptr inbounds i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
-  %cmp.i.i.i.i = icmp ult i64 %and1.i, 131072
+  %cmp.i.i.i.i = icmp samesign ult i64 %and1.i, 131072
   br i1 %cmp.i.i.i.i, label %for.cond.preheader.preheader.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %dec.i.i.i.i = add nsw i64 %div13, -1
   %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %1, 63
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %mi_span_queue_for.exit.i.thread
 
 mi_span_queue_for.exit.i.thread:                  ; preds = %if.end.i.i.i.i
@@ -1793,7 +1793,7 @@ mi_span_queue_for.exit.i.thread:                  ; preds = %if.end.i.i.i.i
   br label %for.cond.preheader.preheader.i
 
 mi_span_queue_for.exit.i:                         ; preds = %if.end.i.i.i.i
-  %cmp1.not38.i = icmp ugt i64 %and1.i, 2293760
+  %cmp1.not38.i = icmp samesign ugt i64 %and1.i, 2293760
   br i1 %cmp1.not38.i, label %if.then, label %for.cond.preheader.preheader.i
 
 for.cond.preheader.preheader.i:                   ; preds = %mi_span_queue_for.exit.i.thread, %mi_span_queue_for.exit.i, %entry
@@ -1813,7 +1813,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %slice.036.i = phi ptr [ %slice.0.i, %for.inc.i ], [ %slice.034.i, %for.cond.preheader.i ]
   %2 = load i32, ptr %slice.036.i, align 8
   %conv.i = zext i32 %2 to i64
-  %cmp4.not.i = icmp ugt i64 %spec.store.select52.i, %conv.i
+  %cmp4.not.i = icmp samesign ugt i64 %spec.store.select52.i, %conv.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
@@ -1874,7 +1874,7 @@ mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.
   store i32 1, ptr %xblock_size.i.i, align 4
   %10 = load i32, ptr %slice.036.i, align 8
   %conv11.i = zext i32 %10 to i64
-  %cmp12.i = icmp ult i64 %spec.store.select52.i, %conv11.i
+  %cmp12.i = icmp samesign ult i64 %spec.store.select52.i, %conv11.i
   %sub.ptr.rhs.cast.neg.i.i.i = add i64 %3, -264
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.rhs.cast.neg.i.i.i, %and.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
@@ -1895,14 +1895,14 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i25.i
   br i1 %cmp.i.i.i29.i, label %cond.end.i.i.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
-  %cmp.i.i.i.i.i.i = icmp ult i64 %sub.i28.i, 2
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %sub.i28.i, 2
   br i1 %cmp.i.i.i.i.i.i, label %mi_span_queue_for.exit.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %cond.false.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %sub.i28.i, -1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i.i.i, i1 true)
   %sub.i.i.i.i.i.i.i = xor i64 %12, 63
-  %cmp1.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i.i, 3
+  %cmp1.i.i.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i.i.i, label %mi_span_queue_for.exit.i.i.i, label %if.end3.i.i.i.i.i.i
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
@@ -1927,7 +1927,7 @@ cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.e
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
   %slice_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i32 0, ptr %slice_offset.i.i.i, align 4
-  %cmp4.i.i.i = icmp ugt i64 %sub.i28.i, 1
+  %cmp4.i.i.i = icmp samesign ugt i64 %sub.i28.i, 1
   br i1 %cmp4.i.i.i, label %if.then6.i.i.i, label %if.end13.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %cond.end.i.i.i
@@ -1995,7 +1995,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %sq.0.add.i = add nuw nsw i64 %sq.0.idx39.i, 24
-  %cmp1.not.i = icmp ugt i64 %sq.0.idx39.i, 816
+  %cmp1.not.i = icmp samesign ugt i64 %sq.0.idx39.i, 816
   br i1 %cmp1.not.i, label %if.then, label %for.cond.preheader.i, !llvm.loop !26
 
 if.then:                                          ; preds = %for.end.i, %if.then22.i, %mi_span_queue_for.exit.i
@@ -2153,7 +2153,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i22.i.i
   %call5.i.i.i = tail call fastcc ptr @mi_segment_page_clear(ptr noundef nonnull %slice.020.i.i.i, ptr noundef %tld) #12
   %49 = load i32, ptr %call5.i.i.i, align 8
   %conv.i.i.i19 = zext i32 %49 to i64
-  %cmp6.not.i.i.i = icmp ule i64 %div13, %conv.i.i.i19
+  %cmp6.not.i.i.i = icmp samesign ule i64 %div13, %conv.i.i.i19
   %spec.select.i.i.i = select i1 %cmp6.not.i.i.i, i1 true, i1 %has_page.021.i.i.i
   br label %if.end24.i.i.i
 
@@ -2183,7 +2183,7 @@ mi_page_has_any_available.exit.thread.i.i.i:      ; preds = %mi_page_has_any_ava
 if.else17.i.i.i:                                  ; preds = %while.body.i.i.i
   %53 = load i32, ptr %slice.020.i.i.i, align 8
   %conv19.i.i.i = zext i32 %53 to i64
-  %cmp20.not.i.i.i = icmp ule i64 %div13, %conv19.i.i.i
+  %cmp20.not.i.i.i = icmp samesign ule i64 %div13, %conv19.i.i.i
   %spec.select15.i.i.i = select i1 %cmp20.not.i.i.i, i1 true, i1 %has_page.021.i.i.i
   br label %if.end24.i.i.i
 
@@ -2350,7 +2350,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then13
   %dec.i.i.i.i = add nsw i64 %conv12, -1
   %7 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %7, 63
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -2443,7 +2443,7 @@ if.end.i.i.i.i27:                                 ; preds = %if.then29
   %dec.i.i.i.i28 = add nsw i64 %conv26, -1
   %16 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i28, i1 true)
   %sub.i.i.i.i.i29 = xor i64 %16, 63
-  %cmp1.i.i.i.i30 = icmp ult i64 %sub.i.i.i.i.i29, 3
+  %cmp1.i.i.i.i30 = icmp samesign ult i64 %sub.i.i.i.i.i29, 3
   br i1 %cmp1.i.i.i.i30, label %mi_span_queue_for.exit.i38, label %if.end3.i.i.i.i31
 
 if.end3.i.i.i.i31:                                ; preds = %if.end.i.i.i.i27
@@ -2551,7 +2551,7 @@ if.end.i.i.i:                                     ; preds = %cond.false
   %dec.i.i.i = add i64 %slice_count, -1
   %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
   %sub.i.i.i.i = xor i64 %1, 63
-  %cmp1.i.i.i = icmp ult i64 %sub.i.i.i.i, 3
+  %cmp1.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, 3
   br i1 %cmp1.i.i.i, label %mi_span_queue_for.exit, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -2956,7 +2956,7 @@ if.end26:                                         ; preds = %if.end7
   %div36 = lshr exact i64 %start.1, 16
   %div2737 = lshr exact i64 %cond, 16
   %add28 = add nuw nsw i64 %div2737, %div36
-  %cmp29 = icmp ugt i64 %add28, 512
+  %cmp29 = icmp samesign ugt i64 %add28, 512
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end26
@@ -2989,7 +2989,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %ofs.017.i = phi i64 [ %rem.i, %if.else3.i ], [ 0, %while.body.i ]
   %sub.i = sub nuw nsw i64 64, %ofs.017.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %bitcount.addr.019.i, i64 %sub.i)
-  %cmp6.i = icmp ugt i64 %cond.i, 63
+  %cmp6.i = icmp samesign ugt i64 %cond.i, 63
   %notmask.i = shl nsw i64 -1, %cond.i
   %sub9.i = xor i64 %notmask.i, -1
   %shl10.i = shl i64 %sub9.i, %ofs.017.i
@@ -3036,7 +3036,7 @@ entry:
   %commit_mask.i = alloca %struct.mi_commit_mask_s, align 8
   %call.i = tail call i64 @_mi_os_page_size() #13
   %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i)
-  %cmp.i.i = icmp ult i64 %0, 2
+  %cmp.i.i = icmp samesign ult i64 %0, 2
   %add.i.i = add i64 %call.i, 41303
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3091,7 +3091,7 @@ if.then.i:                                        ; preds = %land.end6
   %add.i = add i64 %sub.i, %required
   %call.i.i = tail call i64 @_mi_os_page_size() #13
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i.i)
-  %cmp.i.i.i = icmp ult i64 %6, 2
+  %cmp.i.i.i = icmp samesign ult i64 %6, 2
   %add.i.i.i = add i64 %call.i.i, 41303
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -3325,7 +3325,7 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i
   %dec.i.i.i.i = add i64 %sub35, -1
   %26 = call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %26, 63
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i

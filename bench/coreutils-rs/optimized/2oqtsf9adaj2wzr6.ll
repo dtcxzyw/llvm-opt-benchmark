@@ -2121,7 +2121,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
   %62 = load i32, ptr %23, align 8, !range !480, !alias.scope !477, !noalias !474, !noundef !12
-  %switch.i.i = icmp ult i32 %62, 2
+  %switch.i.i = icmp samesign ult i32 %62, 2
   br i1 %switch.i.i, label %.body4.i, label %63
 
 63:                                               ; preds = %60
@@ -4325,7 +4325,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$uu_sort..SortError$GT$17h8
 define internal void @"_ZN4core3ptr40drop_in_place$LT$ctrlc..error..Error$GT$17hd59addc95207659cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i32, ptr %0, align 8, !range !480, !noundef !12
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   br i1 %switch, label %10, label %4
 
 4:                                                ; preds = %1
@@ -9362,7 +9362,7 @@ _ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !1836
   call void @llvm.experimental.noalias.scope.decl(metadata !1840)
   %96 = load i32, ptr %14, align 8, !range !480, !alias.scope !1843, !noalias !1819, !noundef !12
-  %switch.i.i.i.i = icmp ult i32 %96, 2
+  %switch.i.i.i.i = icmp samesign ult i32 %96, 2
   br i1 %switch.i.i.i.i, label %_ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17he99cfe12dbe3f725E.exit, label %.noexc33.i
 
 .noexc33.i:                                       ; preds = %95

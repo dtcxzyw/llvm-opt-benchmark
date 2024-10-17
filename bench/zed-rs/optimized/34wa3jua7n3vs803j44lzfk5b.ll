@@ -630,7 +630,7 @@ define hidden void @_ZN4core5slice4sort6stable14driftsort_main17h2b90dec85e88ba8
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 1000000)
   %.sroa.0.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umax.i64(i64 %6, i64 %.sroa.0.0.sroa.speculated.i)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
-  %7 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 513
+  %7 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i16, 513
   br i1 %7, label %20, label %.noexc
 
 .noexc:                                           ; preds = %3
@@ -1010,7 +1010,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf0
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %408 ], [ %391, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5885266e9932a235E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %16 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %16 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %16, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hfe630ed764a83274E.exit, label %17
 
 17:                                               ; preds = %.outer._crit_edge
@@ -1020,7 +1020,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf0
 
 20:                                               ; preds = %17
   %21 = lshr i64 %.sroa.12.0.lcssa, 1
-  %22 = icmp ugt i64 %.sroa.12.0.lcssa, 15
+  %22 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 15
   br i1 %22, label %26, label %24
 
 23:                                               ; preds = %17
@@ -1028,7 +1028,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf0
   unreachable
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %25 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %25, label %31, label %126
 
 26:                                               ; preds = %20

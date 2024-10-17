@@ -4086,7 +4086,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.0117180 = phi i32 [ %109, %108 ], [ 0, %.preheader161 ]
   %.0118179 = phi i64 [ %.1119, %108 ], [ 0, %.preheader161 ]
   %.0120178 = phi i64 [ %.1121, %108 ], [ 1, %.preheader161 ]
-  %101 = icmp ult i32 %.0117180, 19
+  %101 = icmp samesign ult i32 %.0117180, 19
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %.lr.ph182
@@ -15622,7 +15622,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   %55 = and i32 %54, 2147483647
   %56 = load i32, ptr %36, align 4
   %57 = and i32 %56, 2147483647
-  %.not.i.i = icmp ugt i32 %57, %55
+  %.not.i.i = icmp samesign ugt i32 %57, %55
   %58 = load float, ptr %35, align 8
   br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %59
 

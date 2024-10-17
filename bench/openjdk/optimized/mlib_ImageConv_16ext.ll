@@ -838,7 +838,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_s16(ptr nocapture noundef rea
   %463 = getelementptr inbounds double, ptr %61, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %463, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %464 = icmp ult i64 %indvars.iv.next.i, %456
+  %464 = icmp samesign ult i64 %indvars.iv.next.i, %456
   br i1 %464, label %.lr.ph.us90.us.i, label %..preheader6_crit_edge.us91.us.i, !llvm.loop !18
 
 ..preheader6_crit_edge.us91.us.i:                 ; preds = %.lr.ph.us90.us.i, %.lr.ph84.split.split.us.us.i

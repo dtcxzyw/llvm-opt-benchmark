@@ -379,7 +379,7 @@ if.end.i28.i:                                     ; preds = %if.end.i, %if.end.i
   store i32 %add.i.i, ptr @offset, align 4
   %48 = load i64, ptr @consumed_bytes, align 8
   %notsub.i = or i64 %48, -9223372036854775808
-  %cmp2.i.i = icmp ugt i64 %notsub.i, -13
+  %cmp2.i.i = icmp samesign ugt i64 %notsub.i, -13
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end5.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i28.i
@@ -1265,7 +1265,7 @@ unpack_one.exit.i:                                ; preds = %sw.default.i.i, %un
   call void @display_progress(ptr noundef %163, i64 noundef %indvars.iv.next.i) #13
   %164 = load i32, ptr @nr_objects, align 4
   %165 = zext i32 %164 to i64
-  %cmp18.i = icmp ult i64 %indvars.iv.next.i, %165
+  %cmp18.i = icmp samesign ult i64 %indvars.iv.next.i, %165
   br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %unpack_one.exit.i, %if.end15.i
@@ -1348,7 +1348,7 @@ for.inc.i:                                        ; preds = %if.then.i30, %for.b
   %186 = phi ptr [ %183, %for.body.i27 ], [ %.pre.i31, %if.then.i30 ]
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i28, 1
   %187 = zext i32 %185 to i64
-  %cmp.i33 = icmp ult i64 %indvars.iv.next.i32, %187
+  %cmp.i33 = icmp samesign ult i64 %indvars.iv.next.i32, %187
   br i1 %cmp.i33, label %for.body.i27, label %write_rest.exit, !llvm.loop !14
 
 write_rest.exit:                                  ; preds = %for.inc.i, %if.then53

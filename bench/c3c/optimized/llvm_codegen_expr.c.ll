@@ -6309,7 +6309,7 @@ define dso_local ptr @llvm_emit_coerce(ptr noundef %0, ptr noundef %1, ptr nound
   %50 = tail call i32 @llvm_store_size(ptr noundef %0, ptr noundef %49) #10
   %51 = zext i32 %50 to i64
   %52 = icmp ugt i32 %38, %50
-  %53 = icmp ugt i64 %.013.i, %51
+  %53 = icmp samesign ugt i64 %.013.i, %51
   %or.cond.i = select i1 %52, i1 %53, i1 false
   br i1 %or.cond.i, label %llvm_find_inner_struct_type_for_coerce.exit, label %44
 
@@ -6425,7 +6425,7 @@ define dso_local void @llvm_emit_coerce_store(ptr noundef %0, ptr noundef %1, i3
   %23 = tail call i32 @llvm_store_size(ptr noundef %0, ptr noundef %22) #10
   %24 = zext i32 %23 to i64
   %25 = icmp ugt i32 %11, %23
-  %26 = icmp ugt i64 %.013.i, %24
+  %26 = icmp samesign ugt i64 %.013.i, %24
   %or.cond.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.i, label %llvm_find_inner_struct_type_for_coerce.exit, label %17
 
@@ -6582,7 +6582,7 @@ define dso_local void @llvm_emit_vector_to_array_cast(ptr noundef %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %7, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %11, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %61, %4
@@ -6686,7 +6686,7 @@ define dso_local void @llvm_emit_array_to_vector_cast(ptr noundef %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %7, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %11, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %61, %4
@@ -9120,7 +9120,7 @@ llvm_bswap_non_integral.exit:                     ; preds = %bitstruct_requires_
 112:                                              ; preds = %llvm_bswap_non_integral.exit, %bitstruct_requires_bitswap.exit
   %.0121 = phi ptr [ %111, %llvm_bswap_non_integral.exit ], [ %97, %bitstruct_requires_bitswap.exit ]
   %113 = and i32 %42, 7
-  %.not128138 = icmp ugt i32 %93, %94
+  %.not128138 = icmp samesign ugt i32 %93, %94
   br i1 %.not128138, label %.loopexit, label %.lr.ph141
 
 .lr.ph141:                                        ; preds = %112
@@ -10522,7 +10522,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %llvm_emit_array_gep
   %159 = load ptr, ptr %118, align 8
   %160 = getelementptr inbounds [17 x ptr], ptr %22, i64 0, i64 %indvars.iv
   store ptr %159, ptr %160, align 8
-  %161 = icmp ult i64 %indvars.iv, %120
+  %161 = icmp samesign ult i64 %indvars.iv, %120
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %llvm_emit_array_gep_raw.exit
@@ -12631,7 +12631,7 @@ llvm_emit_coerce_alignment.exit:                  ; preds = %60, %66
   %80 = add nuw nsw i32 %.0221247, 1
   %81 = load i8, ptr %71, align 8
   %82 = zext i8 %81 to i32
-  %83 = icmp ult i32 %80, %82
+  %83 = icmp samesign ult i32 %80, %82
   br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 84:                                               ; preds = %6
@@ -13174,7 +13174,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %41, %47
   %59 = add nuw nsw i64 %.0.i1921, 1
   %60 = load i32, ptr %38, align 8
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %41, label %llvm_expand_array_to_args.exit, !llvm.loop !49
 
 llvm_expand_array_to_args.exit:                   ; preds = %llvm_emit_array_gep_raw.exit, %36
@@ -15343,7 +15343,7 @@ llvm_bswap_non_integral.exit:                     ; preds = %82, %78, %77
   %90 = lshr i32 %15, 3
   %91 = and i32 %13, 7
   %92 = tail call i32 @type_size(ptr noundef nonnull %19) #10
-  %.not310 = icmp ugt i32 %89, %90
+  %.not310 = icmp samesign ugt i32 %89, %90
   br i1 %.not310, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %llvm_bswap_non_integral.exit
@@ -18462,7 +18462,7 @@ bitstruct_requires_bitswap.exit.i:                ; preds = %79, %77
   %93 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %92) #10
   %94 = tail call i32 @type_size(ptr noundef %92) #10
   %95 = shl i32 %94, 3
-  %.not134.i = icmp ugt i32 %89, %90
+  %.not134.i = icmp samesign ugt i32 %89, %90
   br i1 %.not134.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bitstruct_requires_bitswap.exit.i
@@ -18726,7 +18726,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %192
 
 237:                                              ; preds = %234, %231
   %.2 = phi ptr [ %236, %234 ], [ %.1, %231 ]
-  %238 = icmp ugt i64 %206, %215
+  %238 = icmp samesign ugt i64 %206, %215
   br i1 %238, label %239, label %244
 
 239:                                              ; preds = %237
@@ -18737,7 +18737,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %192
   br label %269
 
 244:                                              ; preds = %237
-  %245 = icmp ult i64 %206, %215
+  %245 = icmp samesign ult i64 %206, %215
   br i1 %245, label %246, label %269
 
 246:                                              ; preds = %244

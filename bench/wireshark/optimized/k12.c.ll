@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
   %25 = or disjoint i32 %21, %24
   %26 = icmp eq i32 %25, 852000
   %27 = select i1 %26, i32 52, i32 32
-  %28 = icmp ugt i32 %27, %3
+  %28 = icmp samesign ugt i32 %27, %3
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %7
@@ -1147,7 +1147,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
   %.masked = and i32 %35, 7936
   %39 = or disjoint i32 %.masked, %38
   %40 = sub nuw nsw i32 %3, %27
-  %41 = icmp ugt i32 %39, %40
+  %41 = icmp samesign ugt i32 %39, %40
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %31
@@ -1297,7 +1297,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
 154:                                              ; preds = %.thread
   %155 = add nuw nsw i32 %27, 12
   %156 = add nuw nsw i32 %155, %39
-  %157 = icmp ult i32 %156, %3
+  %157 = icmp samesign ult i32 %156, %3
   br i1 %157, label %158, label %177
 
 158:                                              ; preds = %154

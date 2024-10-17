@@ -4749,7 +4749,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964: ; pre
   br i1 %.not1579, label %.preheader, label %2546
 
 .preheader:                                       ; preds = %2541
-  %.not2738 = icmp ult i32 %.021552435, 4
+  %.not2738 = icmp samesign ult i32 %.021552435, 4
   br i1 %.not2738, label %.backedge, label %.lr.ph2580
 
 2546:                                             ; preds = %2541
@@ -4835,7 +4835,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1969: ; pre
   br i1 %.not1576, label %.preheader2495, label %2586
 
 .preheader2495:                                   ; preds = %2581
-  %.not2737 = icmp ult i32 %.021542439, 8
+  %.not2737 = icmp samesign ult i32 %.021542439, 8
   br i1 %.not2737, label %.backedge, label %.lr.ph2578
 
 2586:                                             ; preds = %2581
@@ -4921,7 +4921,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1974: ; pre
   br i1 %.not1573, label %.preheader2498, label %2626
 
 .preheader2498:                                   ; preds = %2621
-  %.not2736 = icmp ult i32 %.021532443, 4
+  %.not2736 = icmp samesign ult i32 %.021532443, 4
   br i1 %.not2736, label %.backedge, label %.lr.ph2576
 
 2626:                                             ; preds = %2621
@@ -5013,7 +5013,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1979: ; pre
   br i1 %.not1570, label %.preheader2501, label %2667
 
 .preheader2501:                                   ; preds = %2662
-  %.not2735 = icmp ult i32 %.021522447, 8
+  %.not2735 = icmp samesign ult i32 %.021522447, 8
   br i1 %.not2735, label %.backedge, label %.lr.ph2574
 
 2667:                                             ; preds = %2662
@@ -5105,7 +5105,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1984: ; pre
   br i1 %.not1567, label %.preheader2504, label %2708
 
 .preheader2504:                                   ; preds = %2703
-  %.not2734 = icmp ult i32 %.021182451, 4
+  %.not2734 = icmp samesign ult i32 %.021182451, 4
   br i1 %.not2734, label %.backedge, label %.lr.ph2572
 
 2708:                                             ; preds = %2703
@@ -5198,7 +5198,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1989: ; pre
   br i1 %.not1564, label %.preheader2507, label %2750
 
 .preheader2507:                                   ; preds = %2745
-  %.not2733 = icmp ult i32 %.021172455, 8
+  %.not2733 = icmp samesign ult i32 %.021172455, 8
   br i1 %.not2733, label %.backedge, label %.lr.ph2570
 
 2750:                                             ; preds = %2745
@@ -5531,7 +5531,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %82 = zext i8 %81 to i32
   %83 = xor i32 %82, -1
   %84 = and i32 %83, %74
-  %85 = icmp ugt i32 %84, 127
+  %85 = icmp samesign ugt i32 %84, 127
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %80
@@ -10138,7 +10138,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968: ; pre
   br i1 %.not1579, label %.preheader, label %2559
 
 .preheader:                                       ; preds = %2554
-  %.not2744 = icmp ult i32 %.021612441, 4
+  %.not2744 = icmp samesign ult i32 %.021612441, 4
   br i1 %.not2744, label %.backedge, label %.lr.ph2586
 
 2559:                                             ; preds = %2554
@@ -10224,7 +10224,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973: ; pre
   br i1 %.not1576, label %.preheader2501, label %2599
 
 .preheader2501:                                   ; preds = %2594
-  %.not2743 = icmp ult i32 %.021602445, 8
+  %.not2743 = icmp samesign ult i32 %.021602445, 8
   br i1 %.not2743, label %.backedge, label %.lr.ph2584
 
 2599:                                             ; preds = %2594
@@ -10310,7 +10310,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978: ; pre
   br i1 %.not1573, label %.preheader2504, label %2639
 
 .preheader2504:                                   ; preds = %2634
-  %.not2742 = icmp ult i32 %.021592449, 4
+  %.not2742 = icmp samesign ult i32 %.021592449, 4
   br i1 %.not2742, label %.backedge, label %.lr.ph2582
 
 2639:                                             ; preds = %2634
@@ -10402,7 +10402,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983: ; pre
   br i1 %.not1570, label %.preheader2507, label %2680
 
 .preheader2507:                                   ; preds = %2675
-  %.not2741 = icmp ult i32 %.021252453, 8
+  %.not2741 = icmp samesign ult i32 %.021252453, 8
   br i1 %.not2741, label %.backedge, label %.lr.ph2580
 
 2680:                                             ; preds = %2675
@@ -10494,7 +10494,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988: ; pre
   br i1 %.not1567, label %.preheader2510, label %2721
 
 .preheader2510:                                   ; preds = %2716
-  %.not2740 = icmp ult i32 %.021242457, 4
+  %.not2740 = icmp samesign ult i32 %.021242457, 4
   br i1 %.not2740, label %.backedge, label %.lr.ph2578
 
 2721:                                             ; preds = %2716
@@ -10587,7 +10587,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993: ; pre
   br i1 %.not1564, label %.preheader2513, label %2763
 
 .preheader2513:                                   ; preds = %2758
-  %.not2739 = icmp ult i32 %.021232461, 8
+  %.not2739 = icmp samesign ult i32 %.021232461, 8
   br i1 %.not2739, label %.backedge, label %.lr.ph2576
 
 2763:                                             ; preds = %2758
@@ -10920,7 +10920,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %82 = zext i8 %81 to i32
   %83 = xor i32 %82, -1
   %84 = and i32 %83, %74
-  %85 = icmp ugt i32 %84, 127
+  %85 = icmp samesign ugt i32 %84, 127
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %80
@@ -15527,7 +15527,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968: ; pre
   br i1 %.not1579, label %.preheader, label %2559
 
 .preheader:                                       ; preds = %2554
-  %.not2745 = icmp ult i32 %.021612441, 4
+  %.not2745 = icmp samesign ult i32 %.021612441, 4
   br i1 %.not2745, label %.backedge, label %.lr.ph2587
 
 2559:                                             ; preds = %2554
@@ -15613,7 +15613,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973: ; pre
   br i1 %.not1576, label %.preheader2502, label %2599
 
 .preheader2502:                                   ; preds = %2594
-  %.not2744 = icmp ult i32 %.021602445, 8
+  %.not2744 = icmp samesign ult i32 %.021602445, 8
   br i1 %.not2744, label %.backedge, label %.lr.ph2585
 
 2599:                                             ; preds = %2594
@@ -15699,7 +15699,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978: ; pre
   br i1 %.not1573, label %.preheader2505, label %2639
 
 .preheader2505:                                   ; preds = %2634
-  %.not2743 = icmp ult i32 %.021592449, 4
+  %.not2743 = icmp samesign ult i32 %.021592449, 4
   br i1 %.not2743, label %.backedge, label %.lr.ph2583
 
 2639:                                             ; preds = %2634
@@ -15791,7 +15791,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983: ; pre
   br i1 %.not1570, label %.preheader2508, label %2680
 
 .preheader2508:                                   ; preds = %2675
-  %.not2742 = icmp ult i32 %.021252453, 8
+  %.not2742 = icmp samesign ult i32 %.021252453, 8
   br i1 %.not2742, label %.backedge, label %.lr.ph2581
 
 2680:                                             ; preds = %2675
@@ -15883,7 +15883,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988: ; pre
   br i1 %.not1567, label %.preheader2511, label %2721
 
 .preheader2511:                                   ; preds = %2716
-  %.not2741 = icmp ult i32 %.021242457, 4
+  %.not2741 = icmp samesign ult i32 %.021242457, 4
   br i1 %.not2741, label %.backedge, label %.lr.ph2579
 
 2721:                                             ; preds = %2716
@@ -15976,7 +15976,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993: ; pre
   br i1 %.not1564, label %.preheader2514, label %2763
 
 .preheader2514:                                   ; preds = %2758
-  %.not2740 = icmp ult i32 %.021232461, 8
+  %.not2740 = icmp samesign ult i32 %.021232461, 8
   br i1 %.not2740, label %.backedge, label %.lr.ph2577
 
 2763:                                             ; preds = %2758
@@ -16620,7 +16620,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
   store i8 %56, ptr %.023.i.i, align 1
   %57 = lshr i32 %.022.i.i, 7
   %58 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
-  %59 = icmp ugt i32 %.022.i.i, 16383
+  %59 = icmp samesign ugt i32 %.022.i.i, 16383
   br i1 %59, label %54, label %60, !llvm.loop !37
 
 60:                                               ; preds = %54
@@ -16677,7 +16677,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8: ; preds = %
   store i8 %83, ptr %.023.i.i10, align 1
   %84 = lshr i32 %.022.i.i11, 7
   %85 = getelementptr inbounds i8, ptr %.023.i.i10, i64 1
-  %86 = icmp ugt i32 %.022.i.i11, 16383
+  %86 = icmp samesign ugt i32 %.022.i.i11, 16383
   br i1 %86, label %81, label %87, !llvm.loop !37
 
 87:                                               ; preds = %81

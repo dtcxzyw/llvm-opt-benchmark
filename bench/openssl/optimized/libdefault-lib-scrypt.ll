@@ -313,7 +313,7 @@ if.end12:                                         ; preds = %land.lhs.true.if.en
   %cmp3.i = icmp ugt i64 %10, 1
   %or.cond1.not56.i = and i1 %cmp3.i, %or.cond.not57.i
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %tobool.not.i = icmp ult i64 %16, 2
+  %tobool.not.i = icmp samesign ult i64 %16, 2
   %or.cond49.i = select i1 %or.cond1.not56.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond49.i, label %if.end.i, label %return
 
@@ -674,7 +674,7 @@ if.then17:                                        ; preds = %if.end14
   %cmp20 = icmp ult i64 %8, 2
   %or.cond = select i1 %tobool19, i1 true, i1 %cmp20
   %9 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %8)
-  %cmp1.i45 = icmp ugt i64 %9, 1
+  %cmp1.i45 = icmp samesign ugt i64 %9, 1
   %or.cond55 = select i1 %or.cond, i1 true, i1 %cmp1.i45
   br i1 %or.cond55, label %return, label %if.end25
 

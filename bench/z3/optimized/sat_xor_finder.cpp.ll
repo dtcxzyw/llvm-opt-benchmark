@@ -1248,7 +1248,7 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %m_size.i24, align 4
   %22 = zext i32 %21 to i64
-  %cmp27 = icmp ult i64 %indvars.iv.next, %22
+  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %cmp27, label %for.body28, label %for.end31, !llvm.loop !13
 
 for.end31:                                        ; preds = %for.body28, %_ZN6vectorIjLb0EjE5resetEv.exit
@@ -1359,7 +1359,7 @@ for.inc64:                                        ; preds = %_ZN6vectorIjLb0EjE9
   %mask.1 = phi i32 [ %mask.081, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %or, %if.else ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %47 = zext i32 %45 to i64
-  %cmp50 = icmp ult i64 %indvars.iv.next86, %47
+  %cmp50 = icmp samesign ult i64 %indvars.iv.next86, %47
   br i1 %cmp50, label %for.body51, label %for.end66, !llvm.loop !14
 
 for.end66:                                        ; preds = %for.inc64, %for.cond48.preheader
@@ -1488,7 +1488,7 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit.i:   ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN6vectorIPN3sat6clauseELb0EjE6appendERKS3_.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit.i
@@ -1766,7 +1766,7 @@ for.inc:                                          ; preds = %if.then, %_ZN6vecto
   %mask.1 = phi i32 [ %or, %if.then ], [ %or17, %if.then12 ], [ %mask.025, %_ZN6vectorIjLb0EjE9push_backERKj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %_ZN6vectorIjLb0EjE5resetEv.exit

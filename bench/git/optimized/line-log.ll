@@ -245,7 +245,7 @@ for.inc:                                          ; preds = %if.else, %if.then33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %nr, align 4
   %10 = zext i32 %9 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %sane_qsort.exit
@@ -341,7 +341,7 @@ for.inc.i:                                        ; preds = %if.end11.for.inc_cr
   %found.1.i = phi i32 [ %found.026.i, %for.body.i ], [ %9, %if.end11.for.inc_crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = zext i32 %13 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %14
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -746,7 +746,7 @@ for.inc.i.i:                                      ; preds = %if.else.i39.i, %if.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %74 = load i32, ptr %nr.i.i, align 4
   %75 = zext i32 %74 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %75
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %75
   br i1 %cmp.i.i, label %for.body.i.i, label %sort_and_merge_range_set.exit.i, !llvm.loop !5
 
 sort_and_merge_range_set.exit.i:                  ; preds = %for.inc.i.i, %sane_qsort.exit.i.i
@@ -1302,7 +1302,7 @@ for.end213.i.i:                                   ; preds = %for.body207.i.i, %f
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %76 = load i32, ptr %nr53.i.i, align 4
   %77 = zext i32 %76 to i64
-  %cmp152.i.i = icmp ult i64 %indvars.iv.next.i, %77
+  %cmp152.i.i = icmp samesign ult i64 %indvars.iv.next.i, %77
   br i1 %cmp152.i.i, label %land.rhs153.i.i, label %while.end215.i.loopexit.i, !llvm.loop !18
 
 while.end215.i.loopexit.i:                        ; preds = %for.end213.i.i, %land.rhs153.i.i
@@ -1333,7 +1333,7 @@ for.inc226.i.i:                                   ; preds = %while.body.i.i, %fo
   %indvars.iv.next178.i.i = add nuw nsw i64 %indvars.iv177.i.i, 1
   %81 = load i32, ptr %nr.i.i, align 4
   %82 = zext i32 %81 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next178.i.i, %82
+  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next178.i.i, %82
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end228.i.i, !llvm.loop !20
 
 for.end228.i.i:                                   ; preds = %for.inc226.i.i, %cond.end.i.i
@@ -2434,7 +2434,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = load ptr, ptr %r.013.i, align 8
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %3
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %3
   %tobool.i = icmp ne ptr %6, null
   %7 = select i1 %cmp.i, i1 %tobool.i, i1 false
   br i1 %7, label %for.body.i, label %same_paths_in_pathspec_and_range.exit, !llvm.loop !32
@@ -2804,7 +2804,7 @@ for.inc.i.i.i:                                    ; preds = %range_set_append.ex
   %58 = phi i32 [ %26, %while.end.i.i.i ], [ %.pre.i.i.i, %range_set_append.exit42.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %59 = zext i32 %58 to i64
-  %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %59
+  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %59
   br i1 %cmp.i.i.i, label %while.cond.preheader.i.i.i, label %diff_ranges_filter_touched.exit.ithread-pre-split.i, !llvm.loop !36
 
 diff_ranges_filter_touched.exit.ithread-pre-split.i: ; preds = %for.inc.i.i.i, %if.end33.i
@@ -2957,7 +2957,7 @@ for.inc.i11.i.i:                                  ; preds = %if.end55.i.i.i, %ra
   %indvars.iv.next85.i.i.i = add nuw nsw i64 %indvars.iv84.i.i.i, 1
   %75 = load i32, ptr %nr.i, align 4
   %76 = zext i32 %75 to i64
-  %cmp.i12.i.i = icmp ult i64 %indvars.iv.next85.i.i.i, %76
+  %cmp.i12.i.i = icmp samesign ult i64 %indvars.iv.next85.i.i.i, %76
   br i1 %cmp.i12.i.i, label %for.body.i.i.i, label %range_set_difference.exit.i.i, !llvm.loop !39
 
 range_set_difference.exit.i.i:                    ; preds = %for.inc.i11.i.i

@@ -125,17 +125,17 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyper
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
-  %3 = icmp ult i32 %1, 128
+  %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %1, 2048
+  %5 = icmp samesign ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   br i1 %7, label %15, label %26
 
 8:                                                ; preds = %4
@@ -1424,15 +1424,15 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
   %.sroa.0 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %4 = icmp ult i32 %1, 128
+  %4 = icmp samesign ult i32 %1, 128
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %1, 2048
+  %6 = icmp samesign ult i32 %1, 2048
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %1, 65536
+  %8 = icmp samesign ult i32 %1, 65536
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2
@@ -2441,7 +2441,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %95 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %96 = icmp ult i64 %95, 6
   tail call void @llvm.assume(i1 %96)
-  %switch.selectcmp29 = icmp ugt i64 %95, 3
+  %switch.selectcmp29 = icmp samesign ugt i64 %95, 3
   br i1 %switch.selectcmp29, label %97, label %86
 
 97:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0eba119c2afbef38E.exit.thread"
@@ -2549,7 +2549,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %129 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %130 = icmp ult i64 %129, 6
   tail call void @llvm.assume(i1 %130)
-  %switch.selectcmp33 = icmp ugt i64 %129, 3
+  %switch.selectcmp33 = icmp samesign ugt i64 %129, 3
   br i1 %switch.selectcmp33, label %131, label %121
 
 131:                                              ; preds = %126

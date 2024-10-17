@@ -3249,7 +3249,7 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4
   %43 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 false)
   %44 = trunc nuw nsw i64 %43 to i32
   %45 = add nuw nsw i32 %44, %42
-  %46 = icmp ugt i32 %45, 63
+  %46 = icmp samesign ugt i32 %45, 63
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit
@@ -3376,7 +3376,7 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4
   %38 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = add nuw nsw i32 %39, %37
-  %41 = icmp ugt i32 %40, 63
+  %41 = icmp samesign ugt i32 %40, 63
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit
@@ -3893,7 +3893,7 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
 
 17:                                               ; preds = %12
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %14, 1
+  %.not.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %18
   br i1 %or.cond36.i, label %26, label %19
@@ -4640,7 +4640,7 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
 
 20:                                               ; preds = %15
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %17, 1
+  %.not.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %21
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread, label %22
@@ -10851,7 +10851,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof28SampleProfileReaderRa
 
 11:                                               ; preds = %6
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %8, 1
+  %.not.i = icmp samesign ugt i8 %8, 1
   %12 = icmp ne i8 %8, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %12
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %13
@@ -10893,7 +10893,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof28SampleProfileReaderEx
 
 11:                                               ; preds = %6
   %.not37.i = icmp eq i32 %.026.i, 63
-  %.not.i = icmp ugt i8 %8, 1
+  %.not.i = icmp samesign ugt i8 %8, 1
   %12 = icmp ne i8 %8, 0
   %or.cond36.i = select i1 %.not37.i, i1 %.not.i, i1 %12
   br i1 %or.cond36.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %13
@@ -12807,7 +12807,7 @@ define dso_local void @_ZN4llvm10sampleprof19SampleProfileReader6createERSt10uni
 
 23:                                               ; preds = %18
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %20, 1
+  %.not.i.i = icmp samesign ugt i8 %20, 1
   %24 = icmp ne i8 %20, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %24
   br i1 %or.cond36.i.i, label %_ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread.preheader, label %25
@@ -12891,7 +12891,7 @@ _ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBuffer
 
 61:                                               ; preds = %56
   %.not37.i.i29 = icmp eq i32 %.026.i.i26, 63
-  %.not.i.i30 = icmp ugt i8 %58, 1
+  %.not.i.i30 = icmp samesign ugt i8 %58, 1
   %62 = icmp ne i8 %58, 0
   %or.cond36.i.i31 = select i1 %.not37.i.i29, i1 %.not.i.i30, i1 %62
   br i1 %or.cond36.i.i31, label %_ZN4llvm10sampleprof28SampleProfileReaderExtBinary9hasFormatERKNS_12MemoryBufferE.exit.thread, label %63
@@ -14153,7 +14153,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %42 = icmp ugt i64 %.0.lcssa.i, 9
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %._crit_edge.i
@@ -16591,7 +16591,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_1
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit: ; preds = %.lr.ph, %12
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %12 ], [ %11, %.lr.ph ]
-  %.not56 = icmp ugt i64 %.047.idx61, 56
+  %.not56 = icmp samesign ugt i64 %.047.idx61, 56
   br i1 %.not56, label %.critedge, label %13
 
 13:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit
@@ -16697,7 +16697,7 @@ _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEE
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28: ; preds = %53, %57
   %.0.i.i.i.i27 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i26, %57 ], [ %56, %53 ]
-  %.not57 = icmp ugt i64 %.249.idx64, 56
+  %.not57 = icmp samesign ugt i64 %.249.idx64, 56
   br i1 %.not57, label %.critedge2, label %58
 
 58:                                               ; preds = %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28

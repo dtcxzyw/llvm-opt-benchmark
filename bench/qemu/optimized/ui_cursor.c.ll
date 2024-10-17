@@ -102,7 +102,7 @@ for.inc:                                          ; preds = %if.then, %if.then20
   %incdec.ptr = getelementptr i8, ptr %data.114, i64 4
   %6 = load i16, ptr %c, align 4
   %conv4 = zext i16 %6 to i32
-  %cmp5 = icmp ult i32 %inc, %conv4
+  %cmp5 = icmp samesign ult i32 %inc, %conv4
   br i1 %cmp5, label %for.body7, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.body
@@ -112,7 +112,7 @@ for.end:                                          ; preds = %for.inc, %for.body
   %inc28 = add nuw nsw i32 %y.019, 1
   %9 = load i16, ptr %height, align 2
   %conv = zext i16 %9 to i32
-  %cmp = icmp ult i32 %inc28, %conv
+  %cmp = icmp samesign ult i32 %inc28, %conv
   br i1 %cmp, label %for.body, label %for.end29, !llvm.loop !7
 
 for.end29:                                        ; preds = %for.end, %entry
@@ -417,7 +417,7 @@ for.end.us:                                       ; preds = %for.end.us.loopexit
   %add.ptr55.us = getelementptr i8, ptr %image.addr.0108.us, i64 %div1.i
   %inc57.us = add nuw nsw i32 %y.0102.us, 1
   %conv.us = zext i16 %4 to i32
-  %cmp2.us = icmp ult i32 %inc57.us, %conv.us
+  %cmp2.us = icmp samesign ult i32 %inc57.us, %conv.us
   br i1 %cmp2.us, label %for.cond4.preheader.us, label %if.end143, !llvm.loop !11
 
 for.body8.us.us:                                  ; preds = %for.cond4.preheader.us, %if.end46.us.us
@@ -450,7 +450,7 @@ if.end46.us.us:                                   ; preds = %for.body8.us.us, %i
   %incdec.ptr.us.us = getelementptr i8, ptr %data.171.us.us, i64 4
   %9 = load i16, ptr %c, align 4
   %conv5.us.us = zext i16 %9 to i32
-  %cmp6.us.us = icmp ult i32 %inc.us.us, %conv5.us.us
+  %cmp6.us.us = icmp samesign ult i32 %inc.us.us, %conv5.us.us
   br i1 %cmp6.us.us, label %for.body8.us.us, label %for.end.us.loopexit, !llvm.loop !12
 
 for.cond4.preheader.lr.ph.split:                  ; preds = %for.cond4.preheader.lr.ph
@@ -478,7 +478,7 @@ for.end.us121:                                    ; preds = %for.end.us121.loope
   %add.ptr55.us125 = getelementptr i8, ptr %image.addr.0108.us114, i64 %div1.i
   %inc57.us126 = add nuw nsw i32 %y.0102.us118, 1
   %conv.us127 = zext i16 %12 to i32
-  %cmp2.us128 = icmp ult i32 %inc57.us126, %conv.us127
+  %cmp2.us128 = icmp samesign ult i32 %inc57.us126, %conv.us127
   br i1 %cmp2.us128, label %for.cond4.preheader.us113, label %if.end143, !llvm.loop !11
 
 for.body8.us75.us:                                ; preds = %for.cond4.preheader.us113, %if.end46.us88.us
@@ -511,7 +511,7 @@ if.end46.us88.us:                                 ; preds = %if.else33.us80.us, 
   %incdec.ptr.us93.us = getelementptr i8, ptr %data.171.us77.us, i64 4
   %17 = load i16, ptr %c, align 4
   %conv5.us94.us = zext i16 %17 to i32
-  %cmp6.us95.us = icmp ult i32 %inc.us92.us, %conv5.us94.us
+  %cmp6.us95.us = icmp samesign ult i32 %inc.us92.us, %conv5.us94.us
   br i1 %cmp6.us95.us, label %for.body8.us75.us, label %for.end.us121.loopexit, !llvm.loop !12
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph.split, %for.end
@@ -554,7 +554,7 @@ for.body8:                                        ; preds = %for.cond4.preheader
   %incdec.ptr = getelementptr i8, ptr %data.171, i64 4
   %24 = load i16, ptr %c, align 4
   %conv5 = zext i16 %24 to i32
-  %cmp6 = icmp ult i32 %inc, %conv5
+  %cmp6 = icmp samesign ult i32 %inc, %conv5
   br i1 %cmp6, label %for.body8, label %for.end.loopexit, !llvm.loop !12
 
 for.end.loopexit:                                 ; preds = %for.body8
@@ -571,7 +571,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr55 = getelementptr i8, ptr %image.addr.0108, i64 %div1.i
   %inc57 = add nuw nsw i32 %y.0102, 1
   %conv = zext i16 %26 to i32
-  %cmp2 = icmp ult i32 %inc57, %conv
+  %cmp2 = icmp samesign ult i32 %inc57, %conv
   br i1 %cmp2, label %for.cond4.preheader, label %for.end58, !llvm.loop !11
 
 for.end58:                                        ; preds = %for.end
@@ -626,7 +626,7 @@ land.lhs.true80.us:                               ; preds = %land.lhs.true77.us
 
 lor.lhs.false.us:                                 ; preds = %land.lhs.true80.us, %land.lhs.true77.us
   %add.us = add nuw nsw i32 %x.1133.us, 1
-  %cmp86.us = icmp ult i32 %add.us, %conv71136.us
+  %cmp86.us = icmp samesign ult i32 %add.us, %conv71136.us
   br i1 %cmp86.us, label %land.lhs.true88.us, label %lor.lhs.false92.us
 
 land.lhs.true88.us:                               ; preds = %lor.lhs.false.us
@@ -638,7 +638,7 @@ land.lhs.true88.us:                               ; preds = %lor.lhs.false.us
 lor.lhs.false92.us:                               ; preds = %land.lhs.true88.us, %lor.lhs.false.us
   %36 = load i16, ptr %height, align 2
   %conv105.us = zext i16 %36 to i32
-  %cmp106.us = icmp ult i32 %add103, %conv105.us
+  %cmp106.us = icmp samesign ult i32 %add103, %conv105.us
   br i1 %cmp106.us, label %land.lhs.true108.us, label %for.inc117.us
 
 land.lhs.true108.us:                              ; preds = %lor.lhs.false92.us
@@ -658,7 +658,7 @@ for.inc117.us:                                    ; preds = %if.then114.us, %lan
   %inc118.us = add nuw nsw i32 %x.1133.us, 1
   %incdec.ptr119.us = getelementptr i8, ptr %data.3135.us, i64 4
   %conv71.us = zext i16 %38 to i32
-  %cmp72.us = icmp ult i32 %inc118.us, %conv71.us
+  %cmp72.us = icmp samesign ult i32 %inc118.us, %conv71.us
   br i1 %cmp72.us, label %for.body74.us, label %for.inc121, !llvm.loop !13
 
 for.cond126.preheader:                            ; preds = %for.inc121, %for.cond63.preheader
@@ -697,7 +697,7 @@ land.lhs.true80:                                  ; preds = %land.lhs.true77
 
 lor.lhs.false:                                    ; preds = %land.lhs.true80, %land.lhs.true77
   %add = add nuw nsw i32 %x.1133, 1
-  %cmp86 = icmp ult i32 %add, %conv71136
+  %cmp86 = icmp samesign ult i32 %add, %conv71136
   br i1 %cmp86, label %land.lhs.true88, label %lor.lhs.false92
 
 land.lhs.true88:                                  ; preds = %lor.lhs.false
@@ -717,7 +717,7 @@ lor.lhs.false92:                                  ; preds = %land.lhs.true88, %l
 lor.lhs.false102:                                 ; preds = %lor.lhs.false92
   %48 = load i16, ptr %height, align 2
   %conv105 = zext i16 %48 to i32
-  %cmp106 = icmp ult i32 %add103, %conv105
+  %cmp106 = icmp samesign ult i32 %add103, %conv105
   br i1 %cmp106, label %land.lhs.true108, label %for.inc117
 
 land.lhs.true108:                                 ; preds = %lor.lhs.false102
@@ -737,7 +737,7 @@ for.inc117:                                       ; preds = %for.body74, %lor.lh
   %inc118 = add nuw nsw i32 %x.1133, 1
   %incdec.ptr119 = getelementptr i8, ptr %data.3135, i64 4
   %conv71 = zext i16 %51 to i32
-  %cmp72 = icmp ult i32 %inc118, %conv71
+  %cmp72 = icmp samesign ult i32 %inc118, %conv71
   br i1 %cmp72, label %for.body74, label %for.inc121, !llvm.loop !13
 
 for.inc121:                                       ; preds = %for.inc117, %for.inc117.us, %for.cond69.preheader.for.inc121_crit_edge
@@ -748,7 +748,7 @@ for.inc121:                                       ; preds = %for.inc117, %for.in
   %data.3.lcssa = phi ptr [ %data.2142, %for.cond69.preheader.for.inc121_crit_edge ], [ %incdec.ptr119.us, %for.inc117.us ], [ %incdec.ptr119, %for.inc117 ]
   %55 = load i16, ptr %height, align 2
   %conv65 = zext i16 %55 to i32
-  %cmp66 = icmp ult i32 %inc122.pre-phi, %conv65
+  %cmp66 = icmp samesign ult i32 %inc122.pre-phi, %conv65
   br i1 %cmp66, label %for.cond69.preheader, label %for.cond126.preheader, !llvm.loop !14
 
 for.body133:                                      ; preds = %for.body133.lr.ph, %for.inc139
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %if.then, %for.body1
   %inc = add nuw nsw i32 %x.021, 1
   %incdec.ptr = getelementptr i8, ptr %data.119, i64 4
   %conv7 = zext i16 %9 to i32
-  %cmp8 = icmp ult i32 %inc, %conv7
+  %cmp8 = icmp samesign ult i32 %inc, %conv7
   br i1 %cmp8, label %for.body10, label %for.end.loopexit, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %if.end
@@ -859,7 +859,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr = getelementptr i8, ptr %image.addr.026, i64 %idx.ext
   %inc27 = add nuw nsw i32 %y.025, 1
   %conv4 = zext i16 %11 to i32
-  %cmp = icmp ult i32 %inc27, %conv4
+  %cmp = icmp samesign ult i32 %inc27, %conv4
   br i1 %cmp, label %for.cond6.preheader, label %for.end28, !llvm.loop !17
 
 for.end28:                                        ; preds = %for.end, %entry
@@ -915,7 +915,7 @@ for.end.us.us:                                    ; preds = %for.end.us.us.loope
   %add.ptr.us.us = getelementptr i8, ptr %mask.addr.053.us.us, i64 %idx.ext
   %inc39.us.us = add nuw nsw i32 %y.052.us.us, 1
   %conv4.us.us = zext i16 %6 to i32
-  %cmp.us.us = icmp ult i32 %inc39.us.us, %conv4.us.us
+  %cmp.us.us = icmp samesign ult i32 %inc39.us.us, %conv4.us.us
   br i1 %cmp.us.us, label %for.cond6.preheader.us.us, label %for.end40, !llvm.loop !18
 
 for.body10.us.us.us.us:                           ; preds = %for.cond6.preheader.us.us, %if.end30.us.us.us.us
@@ -945,7 +945,7 @@ if.end30.us.us.us.us:                             ; preds = %for.body10.us.us.us
   %inc.us.us.us.us = add nuw nsw i32 %x.026.us.us.us.us, 1
   %incdec.ptr.us.us.us.us = getelementptr i8, ptr %data.124.us.us.us.us, i64 4
   %conv7.us.us.us.us = zext i16 %12 to i32
-  %cmp8.us.us.us.us = icmp ult i32 %inc.us.us.us.us, %conv7.us.us.us.us
+  %cmp8.us.us.us.us = icmp samesign ult i32 %inc.us.us.us.us, %conv7.us.us.us.us
   br i1 %cmp8.us.us.us.us, label %for.body10.us.us.us.us, label %for.end.us.us.loopexit, !llvm.loop !19
 
 for.cond6.preheader:                              ; preds = %for.cond6.preheader.lr.ph, %for.end
@@ -985,7 +985,7 @@ if.end30:                                         ; preds = %for.body10, %if.the
   %inc = add nuw nsw i32 %x.026, 1
   %incdec.ptr = getelementptr i8, ptr %data.124, i64 4
   %conv7 = zext i16 %20 to i32
-  %cmp8 = icmp ult i32 %inc, %conv7
+  %cmp8 = icmp samesign ult i32 %inc, %conv7
   br i1 %cmp8, label %for.body10, label %for.end.loopexit, !llvm.loop !19
 
 for.end.loopexit:                                 ; preds = %if.end30
@@ -1000,7 +1000,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr = getelementptr i8, ptr %mask.addr.053, i64 %idx.ext
   %inc39 = add nuw nsw i32 %y.052, 1
   %conv4 = zext i16 %22 to i32
-  %cmp = icmp ult i32 %inc39, %conv4
+  %cmp = icmp samesign ult i32 %inc39, %conv4
   br i1 %cmp, label %for.cond6.preheader, label %for.end40, !llvm.loop !18
 
 for.end40:                                        ; preds = %for.end, %for.end.us.us, %entry

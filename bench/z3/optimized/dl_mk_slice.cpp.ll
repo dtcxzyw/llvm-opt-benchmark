@@ -901,7 +901,7 @@ for.inc:                                          ; preds = %for.body7, %land.lh
   %change.2 = phi i1 [ %change.1174, %for.body7 ], [ true, %if.then ], [ %change.1174, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
-  %cmp6 = icmp ult i64 %indvars.iv.next, %12
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp6, label %for.body7, label %for.inc11, !llvm.loop !9
 
 for.inc11:                                        ; preds = %for.inc, %for.body
@@ -909,7 +909,7 @@ for.inc11:                                        ; preds = %for.inc, %for.body
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %13 = load i32, ptr %m_uninterp_cnt.i, align 4
   %14 = zext i32 %13 to i64
-  %cmp = icmp ult i64 %indvars.iv.next184, %14
+  %cmp = icmp samesign ult i64 %indvars.iv.next184, %14
   br i1 %cmp, label %for.body, label %invoke.cont, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %for.inc11, %entry
@@ -1048,7 +1048,7 @@ if.end.i.i:                                       ; preds = %for.cond39
 
 invoke.cont40:                                    ; preds = %if.end.i.i, %for.cond39
   %retval.0.i.i = phi i64 [ %28, %if.end.i.i ], [ 0, %for.cond39 ]
-  %cmp42 = icmp ult i64 %indvars.iv185, %retval.0.i.i
+  %cmp42 = icmp samesign ult i64 %indvars.iv185, %retval.0.i.i
   br i1 %cmp42, label %for.body43, label %for.end102
 
 for.body43:                                       ; preds = %invoke.cont40
@@ -1231,7 +1231,7 @@ for.inc.i:                                        ; preds = %if.then.i, %land.lh
   %change.1.i = phi i1 [ %change.021.i, %land.lhs.true.i ], [ true, %if.then.i ], [ %change.021.i, %land.lhs.true8.i ], [ %change.021.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = zext i32 %59 to i64
-  %cmp.i115 = icmp ult i64 %indvars.iv.next.i, %60
+  %cmp.i115 = icmp samesign ult i64 %indvars.iv.next.i, %60
   br i1 %cmp.i115, label %for.body.i, label %invoke.cont105.loopexit, !llvm.loop !12
 
 invoke.cont105.loopexit:                          ; preds = %for.inc.i
@@ -1318,7 +1318,7 @@ for.inc.i137:                                     ; preds = %if.then.i154, %land
   %change.1.i138 = phi i1 [ %change.021.i131, %land.lhs.true.i142 ], [ true, %if.then.i154 ], [ %change.021.i131, %land.lhs.true8.i147 ], [ %change.021.i131, %for.body.i129 ]
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i130, 1
   %77 = zext i32 %76 to i64
-  %cmp.i140 = icmp ult i64 %indvars.iv.next.i139, %77
+  %cmp.i140 = icmp samesign ult i64 %indvars.iv.next.i139, %77
   br i1 %cmp.i140, label %for.body.i129, label %invoke.cont117.loopexit, !llvm.loop !12
 
 invoke.cont117.loopexit:                          ; preds = %for.inc.i137
@@ -1330,7 +1330,7 @@ invoke.cont117:                                   ; preds = %invoke.cont117.loop
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %79 = load i32, ptr %m_uninterp_cnt.i, align 4
   %80 = zext i32 %79 to i64
-  %cmp113 = icmp ult i64 %indvars.iv.next189, %80
+  %cmp113 = icmp samesign ult i64 %indvars.iv.next189, %80
   br i1 %cmp113, label %for.body114, label %for.end125, !llvm.loop !13
 
 for.end125:                                       ; preds = %invoke.cont117, %invoke.cont105
@@ -1596,7 +1596,7 @@ for.inc:                                          ; preds = %_ZN8uint_set6insert
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %m_num_args.i, align 8
   %24 = zext i32 %23 to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next, %24
+  %cmp7 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp7, label %invoke.cont11, label %for.inc25.loopexit, !llvm.loop !15
 
 for.inc25.loopexit:                               ; preds = %for.inc
@@ -1608,7 +1608,7 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
   %26 = phi ptr [ %22, %for.inc25.loopexit ], [ %2, %for.body ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %27 = zext i32 %25 to i64
-  %cmp = icmp ult i64 %indvars.iv.next37, %27
+  %cmp = icmp samesign ult i64 %indvars.iv.next37, %27
   br i1 %cmp, label %for.body, label %for.end27, !llvm.loop !16
 
 for.end27:                                        ; preds = %for.inc25
@@ -2036,7 +2036,7 @@ for.inc.i:                                        ; preds = %.noexc.i, %lor.lhs.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = load i32, ptr %m_tail_size.i.i, align 8, !noalias !19
   %17 = zext i32 %16 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %17
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !22
 
 lpad.loopexit.i:                                  ; preds = %if.then.i.i.i
@@ -2516,7 +2516,7 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %m_tail_size.i, align 8
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 lpad.loopexit:                                    ; preds = %if.then.i.i
@@ -3025,7 +3025,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont2:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont3, label %for.end
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -3437,7 +3437,7 @@ for.inc.us73.i:                                   ; preds = %if.then6.us55.i, %i
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %25 = load i32, ptr %m_num_args.i.i, align 8
   %26 = zext i32 %25 to i64
-  %cmp.us75.i = icmp ult i64 %indvars.iv.next81.i, %26
+  %cmp.us75.i = icmp samesign ult i64 %indvars.iv.next81.i, %26
   br i1 %cmp.us75.i, label %for.body.us39.i, label %_ZN7datalog8mk_slice9init_varsEP3appbb.exit, !llvm.loop !24
 
 _ZN7datalog8mk_slice9init_varsEP3appbb.exit:      ; preds = %for.inc.us73.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
@@ -3463,7 +3463,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %m_uninterp_cnt.i, align 4
   %32 = zext i32 %31 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %32
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body, %_ZN7datalog8mk_slice9init_varsEP3appbb.exit
@@ -3533,7 +3533,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %change.1 = phi i1 [ %change.021, %land.lhs.true ], [ true, %if.then ], [ %change.021, %land.lhs.true8 ], [ %change.021, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3662,7 +3662,7 @@ for.inc.us.us:                                    ; preds = %if.then6.us.us, %if
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %15 = load i32, ptr %m_num_args.i, align 8
   %16 = zext i32 %15 to i64
-  %cmp.us.us = icmp ult i64 %indvars.iv.next87, %16
+  %cmp.us.us = icmp samesign ult i64 %indvars.iv.next87, %16
   br i1 %cmp.us.us, label %for.body.us.us, label %for.end, !llvm.loop !24
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
@@ -3720,7 +3720,7 @@ for.inc.us:                                       ; preds = %if.then6.us, %if.el
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %30 = load i32, ptr %m_num_args.i, align 8
   %31 = zext i32 %30 to i64
-  %cmp.us = icmp ult i64 %indvars.iv.next84, %31
+  %cmp.us = icmp samesign ult i64 %indvars.iv.next84, %31
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !24
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
@@ -3780,7 +3780,7 @@ for.inc.us73:                                     ; preds = %if.then6.us55, %if.
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %44 = load i32, ptr %m_num_args.i, align 8
   %45 = zext i32 %44 to i64
-  %cmp.us75 = icmp ult i64 %indvars.iv.next81, %45
+  %cmp.us75 = icmp samesign ult i64 %indvars.iv.next81, %45
   br i1 %cmp.us75, label %for.body.us39, label %for.end, !llvm.loop !24
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
@@ -3837,7 +3837,7 @@ for.inc:                                          ; preds = %if.then6, %if.else2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %m_num_args.i, align 8
   %59 = zext i32 %58 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %59
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %for.inc.us73, %for.inc.us, %for.inc.us.us, %entry
@@ -4469,7 +4469,7 @@ for.inc:                                          ; preds = %_ZN6vectorIP4sortLb
   %20 = phi i32 [ %.pre, %_ZN6vectorIP4sortLb0EjE9push_backEOS1_.exit ], [ %6, %invoke.cont14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i32 %20 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %invoke.cont14, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %_ZN6vectorIP4sortLb0EjE5resetEv.exit
@@ -5268,7 +5268,7 @@ for.inc:                                          ; preds = %_ZN6vectorIP4exprLb
   %23 = phi i32 [ %.pre, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ], [ %11, %invoke.cont6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %23 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %24
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %cmp, label %invoke.cont6, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc
@@ -5532,7 +5532,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %invoke.cont21, %if.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %m_uninterp_cnt.i, align 4
   %23 = zext i32 %22 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %23
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38
 
 lpad:                                             ; preds = %if.then.i.i111, %if.else, %if.then72, %if.end68, %if.then
@@ -5623,7 +5623,7 @@ for.inc.i:                                        ; preds = %.noexc.i, %lor.lhs.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = load i32, ptr %m_tail_size.i.i, align 8, !noalias !39
   %43 = zext i32 %42 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %43
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %43
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !22
 
 lpad.loopexit.i:                                  ; preds = %if.then.i.i.i19
@@ -5712,7 +5712,7 @@ if.end.i.i:                                       ; preds = %for.cond27
 
 invoke.cont28:                                    ; preds = %if.end.i.i, %for.cond27
   %retval.0.i.i = phi i64 [ %53, %if.end.i.i ], [ 0, %for.cond27 ]
-  %cmp30 = icmp ult i64 %indvars.iv129, %retval.0.i.i
+  %cmp30 = icmp samesign ult i64 %indvars.iv129, %retval.0.i.i
   br i1 %cmp30, label %invoke.cont32, label %for.end42
 
 invoke.cont32:                                    ; preds = %invoke.cont28
@@ -6400,7 +6400,7 @@ if.end.i.i.i:                                     ; preds = %for.cond
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %2, %if.end.i.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit
@@ -6440,7 +6440,7 @@ if.end.i.i.i:                                     ; preds = %for.cond
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit
@@ -6646,7 +6646,7 @@ if.end.i.i.i.i:                                   ; preds = %for.cond.i
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit.i:    ; preds = %if.end.i.i.i.i, %for.cond.i
   %retval.0.i.i.i.i = phi i64 [ %24, %if.end.i.i.i.i ], [ 0, %for.cond.i ]
-  %cmp.i31 = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i.i
+  %cmp.i31 = icmp samesign ult i64 %indvars.iv.i, %retval.0.i.i.i.i
   br i1 %cmp.i31, label %for.body.i32, label %invoke.cont50
 
 for.body.i32:                                     ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit.i
@@ -11784,7 +11784,7 @@ if.end.i247:                                      ; preds = %for.cond98
 
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %for.cond98, %if.end.i247
   %retval.0.i = phi i64 [ %83, %if.end.i247 ], [ 0, %for.cond98 ]
-  %cmp102 = icmp ult i64 %indvars.iv511, %retval.0.i
+  %cmp102 = icmp samesign ult i64 %indvars.iv511, %retval.0.i
   br i1 %cmp102, label %for.body103, label %for.end109
 
 for.body103:                                      ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit
@@ -13699,7 +13699,7 @@ for.inc:                                          ; preds = %_ZN15ref_vector_cor
   %subst.sroa.3.2 = phi ptr [ %subst.sroa.3.0834, %invoke.cont41 ], [ %subst.sroa.3.3, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = zext i32 %44 to i64
-  %cmp38 = icmp ult i64 %indvars.iv.next, %45
+  %cmp38 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp38, label %invoke.cont41, label %for.end, !llvm.loop !98
 
 for.end:                                          ; preds = %for.inc, %_ZN9var_substC2ER11ast_managerb.exit
@@ -14225,7 +14225,7 @@ for.inc115:                                       ; preds = %for.inc115.sink.spl
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
   %94 = load i32, ptr %m_arity.i124, align 8
   %95 = zext i32 %94 to i64
-  %cmp88 = icmp ult i64 %indvars.iv.next945, %95
+  %cmp88 = icmp samesign ult i64 %indvars.iv.next945, %95
   br i1 %cmp88, label %invoke.cont90, label %for.end117, !llvm.loop !101
 
 for.end117:                                       ; preds = %for.inc115, %invoke.cont82

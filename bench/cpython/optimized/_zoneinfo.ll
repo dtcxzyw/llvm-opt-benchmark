@@ -5443,7 +5443,7 @@ if.end.i14.i:                                     ; preds = %for.body.i8.i
   br i1 %exitcond.not.i21.i, label %if.end20.i, label %for.body.i8.i, !llvm.loop !26
 
 parse_digits.exit26.i:                            ; preds = %for.body.i8.i
-  %cmp3.i24.i = icmp ugt i32 %i.08.i9.i, 1
+  %cmp3.i24.i = icmp samesign ugt i32 %i.08.i9.i, 1
   br i1 %cmp3.i24.i, label %if.end20.i, label %if.then11
 
 if.end20.i:                                       ; preds = %if.end.i14.i, %parse_digits.exit26.i
@@ -5481,7 +5481,7 @@ if.end.i34.i:                                     ; preds = %for.body.i28.i
   br i1 %exitcond.not.i41.i, label %if.end30.i, label %for.body.i28.i, !llvm.loop !26
 
 parse_digits.exit46.i:                            ; preds = %for.body.i28.i
-  %cmp3.i44.i = icmp ugt i32 %i.08.i29.i, 1
+  %cmp3.i44.i = icmp samesign ugt i32 %i.08.i29.i, 1
   br i1 %cmp3.i44.i, label %if.end30.i, label %if.then11
 
 if.end30.i:                                       ; preds = %if.end.i34.i, %parse_digits.exit46.i
@@ -5890,7 +5890,7 @@ if.end.i14.i.i:                                   ; preds = %for.body.i8.i.i
   br i1 %exitcond.not.i21.i.i, label %if.end20.i.i, label %for.body.i8.i.i, !llvm.loop !26
 
 parse_digits.exit26.i.i:                          ; preds = %for.body.i8.i.i
-  %cmp3.i24.i.i = icmp ugt i32 %i.08.i9.i.i, 1
+  %cmp3.i24.i.i = icmp samesign ugt i32 %i.08.i9.i.i, 1
   br i1 %cmp3.i24.i.i, label %if.end20.i.i, label %if.then47
 
 if.end20.i.i:                                     ; preds = %if.end.i14.i.i, %parse_digits.exit26.i.i
@@ -5933,7 +5933,7 @@ if.end.i34.i.i:                                   ; preds = %for.body.i28.i.i
   br i1 %exitcond.not.i41.i.i, label %if.end30.i.i, label %for.body.i28.i.i, !llvm.loop !26
 
 parse_digits.exit46.i.i:                          ; preds = %for.body.i28.i.i
-  %cmp3.i44.i.i = icmp ugt i32 %i.08.i29.i.i, 1
+  %cmp3.i44.i.i = icmp samesign ugt i32 %i.08.i29.i.i, 1
   br i1 %cmp3.i44.i.i, label %if.end30.i.i, label %if.then47
 
 if.end30.i.i:                                     ; preds = %if.end.i34.i.i, %parse_digits.exit46.i.i
@@ -6574,7 +6574,7 @@ if.end.i14:                                       ; preds = %for.body.i8
   br i1 %exitcond.not.i21, label %if.end20, label %for.body.i8, !llvm.loop !26
 
 parse_digits.exit26:                              ; preds = %for.body.i8
-  %cmp3.i24 = icmp ugt i32 %i.08.i9, 1
+  %cmp3.i24 = icmp samesign ugt i32 %i.08.i9, 1
   br i1 %cmp3.i24, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end.i14, %parse_digits.exit26
@@ -6617,7 +6617,7 @@ if.end.i34:                                       ; preds = %for.body.i28
   br i1 %exitcond.not.i41, label %if.end30, label %for.body.i28, !llvm.loop !26
 
 parse_digits.exit46:                              ; preds = %for.body.i28
-  %cmp3.i44 = icmp ugt i32 %i.08.i29, 1
+  %cmp3.i44 = icmp samesign ugt i32 %i.08.i29, 1
   br i1 %cmp3.i44, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end.i34, %parse_digits.exit46

@@ -57,7 +57,7 @@ for.body12:                                       ; preds = %for.end, %for.body1
   %i9.0100 = phi i32 [ 0, %for.end ], [ %add23, %for.body12 ]
   %call21 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.1)
   %add23 = add nuw nsw i32 %i9.0100, 1310
-  %cmp11 = icmp ult i32 %i9.0100, 62915
+  %cmp11 = icmp samesign ult i32 %i9.0100, 62915
   br i1 %cmp11, label %for.body12, label %for.end24, !llvm.loop !7
 
 for.end24:                                        ; preds = %for.body12

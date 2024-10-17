@@ -366,7 +366,7 @@ define dso_local ptr @d_absolute_path(ptr nocapture noundef readonly %0, ptr nou
   store i64 0, ptr %14, align 8, !annotation !6
   store i32 %.sink, ptr %13, align 8
   %15 = call fastcc i32 @prepend_path(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %16 = icmp ugt i32 %15, 1
+  %16 = icmp samesign ugt i32 %15, 1
   %17 = load i32, ptr %13, align 8
   %18 = icmp sgt i32 %17, -1
   %19 = load ptr, ptr %5, align 8

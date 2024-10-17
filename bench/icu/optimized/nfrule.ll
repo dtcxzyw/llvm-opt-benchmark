@@ -250,7 +250,7 @@ while.body29:                                     ; preds = %while.body29.lr.ph,
   %30 = load i32, ptr %fLength.i.i79, align 4
   %cond.i.i.i123 = select i1 %cmp.i.i.i.i120, i32 %30, i32 %shr.i.i.i.i121
   %31 = zext i32 %cond.i.i.i123 to i64
-  %cmp.i.i124 = icmp ult i64 %indvars.iv324, %31
+  %cmp.i.i124 = icmp samesign ult i64 %indvars.iv324, %31
   br i1 %cmp.i.i124, label %invoke.cont30, label %if.else46
 
 invoke.cont30:                                    ; preds = %while.body29
@@ -339,7 +339,7 @@ while.body70:                                     ; preds = %while.body70.lr.ph,
   %42 = load i32, ptr %fLength.i.i79, align 4
   %cond.i.i.i138 = select i1 %cmp.i.i.i.i135, i32 %42, i32 %shr.i.i.i.i136
   %43 = zext i32 %cond.i.i.i138 to i64
-  %cmp.i.i139 = icmp ult i64 %indvars.iv327, %43
+  %cmp.i.i139 = icmp samesign ult i64 %indvars.iv327, %43
   br i1 %cmp.i.i139, label %invoke.cont71, label %if.else88
 
 invoke.cont71:                                    ; preds = %while.body70

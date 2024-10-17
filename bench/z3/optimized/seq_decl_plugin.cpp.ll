@@ -950,7 +950,7 @@ invoke.cont18:                                    ; preds = %for.cond.preheader,
 
 invoke.cont20:                                    ; preds = %invoke.cont18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp17 = icmp ult i64 %indvars.iv.next, %1
+  %cmp17 = icmp samesign ult i64 %indvars.iv.next, %1
   %7 = select i1 %call21, i1 %cmp17, i1 false
   br i1 %7, label %invoke.cont18, label %for.end, !llvm.loop !7
 
@@ -1512,7 +1512,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %11 = load ptr, ptr %arrayidx.i.i46, align 8
   %call27 = tail call noundef zeroext i1 @_ZN15seq_decl_plugin5matchER10ptr_vectorI4sortEPS1_S4_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_binding, ptr noundef %9, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp21 = icmp ult i64 %indvars.iv.next, %4
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %4
   %12 = select i1 %call27, i1 %cmp21, i1 false
   br i1 %12, label %for.body, label %for.end, !llvm.loop !9
 
@@ -6304,7 +6304,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN15seq_decl_plugin4psigELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIPN15seq_decl_plugin4psigELb0EjE4sizeEv.exit
@@ -13380,7 +13380,7 @@ for.inc40:                                        ; preds = %invoke.cont36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %m_pos.i.i, align 8
   %31 = zext i32 %30 to i64
-  %cmp34 = icmp ult i64 %indvars.iv.next, %31
+  %cmp34 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %cmp34, label %invoke.cont36, label %cleanup, !llvm.loop !28
 
 if.else42:                                        ; preds = %invoke.cont27.if.else42_crit_edge, %if.else

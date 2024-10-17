@@ -3053,7 +3053,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN18ParametersTypeData18co
   %15 = add nsw i32 %10, 1
   %16 = icmp sgt i32 %10, -1
   %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %15)
-  %18 = icmp ult i32 %17, 2
+  %18 = icmp samesign ult i32 %17, 2
   %or.cond.i.i.i.i.i.i = select i1 %16, i1 %18, i1 false
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %20 = sub nuw nsw i32 32, %19
@@ -4988,7 +4988,7 @@ define hidden void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 de
   %33 = add nsw i32 %28, 1
   %34 = icmp sgt i32 %28, -1
   %35 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp samesign ult i32 %35, 2
   %or.cond.i.i.i.i.i.i = select i1 %34, i1 %36, i1 false
   %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %38 = sub nuw nsw i32 32, %37
@@ -5297,7 +5297,7 @@ define hidden void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferen
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -7856,7 +7856,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI22Argu
   %29 = add nsw i32 %22, 1
   %30 = icmp sgt i32 %22, -1
   %31 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp ult i32 %31, 2
+  %32 = icmp samesign ult i32 %31, 2
   %or.cond.i.i.i.i.i.i = select i1 %30, i1 %32, i1 false
   %33 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %34 = sub nuw nsw i32 32, %33
@@ -7937,7 +7937,7 @@ _ZN22ArgumentOffsetComputer7do_typeE9BasicType.exit: ; preds = %18, %21, %_ZN26G
   %75 = add nsw i32 %68, 1
   %76 = icmp sgt i32 %68, -1
   %77 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %75)
-  %78 = icmp ult i32 %77, 2
+  %78 = icmp samesign ult i32 %77, 2
   %or.cond.i.i.i.i.i.i6 = select i1 %76, i1 %78, i1 false
   %79 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %75, i1 true)
   %80 = sub nuw nsw i32 32, %79

@@ -1778,7 +1778,7 @@ define internal void @latitude_or_longitude_resolution(ptr nocapture noundef wri
   %3 = and i8 %1, 63
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 8, %4
-  %6 = icmp ult i8 %3, 8
+  %6 = icmp samesign ult i8 %3, 8
   br i1 %6, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -1813,8 +1813,8 @@ define internal void @latitude_or_longitude_resolution(ptr nocapture noundef wri
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %.preheader
   %.115.lcssa = phi double [ %.014.lcssa, %.preheader ], [ %12, %.lr.ph22 ]
-  %14 = icmp ugt i8 %3, 34
-  %15 = icmp ult i8 %3, 2
+  %14 = icmp samesign ugt i8 %3, 34
+  %15 = icmp samesign ult i8 %3, 2
   %spec.select = select i1 %15, ptr @.str.954, ptr @.str.952
   %.0 = select i1 %14, ptr @.str.953, ptr %spec.select
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.955, ptr noundef nonnull %.0, double noundef %.115.lcssa, i32 noundef %4) #8
@@ -1830,7 +1830,7 @@ define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noun
   %6 = sub nsw i64 0, %5
   %.0.i = select i1 %.not.i.not.i, i64 %3, i64 %6
   %.str.957..str.956.i = select i1 %.not.i.not.i, ptr @.str.957, ptr @.str.956
-  %7 = icmp ugt i64 %.0.i, 3019898880
+  %7 = icmp samesign ugt i64 %.0.i, 3019898880
   %spec.select14.i = select i1 %7, ptr @.str.958, ptr @.str.952
   %8 = and i64 %.0.i, 33554431
   %9 = mul nuw nsw i64 %8, 10000
@@ -1855,7 +1855,7 @@ define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 nou
   %6 = sub nsw i64 0, %5
   %.0.i = select i1 %.not.i.not.i, i64 %3, i64 %6
   %.str.960..str.959.i = select i1 %.not.i.not.i, ptr @.str.960, ptr @.str.959
-  %7 = icmp ugt i64 %.0.i, 6039797760
+  %7 = icmp samesign ugt i64 %.0.i, 6039797760
   %spec.select14.i = select i1 %7, ptr @.str.961, ptr @.str.952
   %8 = and i64 %.0.i, 33554431
   %9 = mul nuw nsw i64 %8, 10000
@@ -1876,7 +1876,7 @@ define internal void @altitude_resolution(ptr nocapture noundef writeonly %0, i8
   %3 = and i8 %1, 63
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 21, %4
-  %6 = icmp ult i8 %3, 21
+  %6 = icmp samesign ult i8 %3, 21
   br i1 %6, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -1911,8 +1911,8 @@ define internal void @altitude_resolution(ptr nocapture noundef writeonly %0, i8
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %.preheader
   %.115.lcssa = phi double [ %.014.lcssa, %.preheader ], [ %12, %.lr.ph22 ]
-  %14 = icmp ugt i8 %3, 30
-  %15 = icmp ult i8 %3, 2
+  %14 = icmp samesign ugt i8 %3, 30
+  %15 = icmp samesign ult i8 %3, 2
   %spec.select = select i1 %15, ptr @.str.954, ptr @.str.952
   %.0 = select i1 %14, ptr @.str.953, ptr %spec.select
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.965, ptr noundef nonnull %.0, double noundef %.115.lcssa, i32 noundef %4) #8
@@ -1924,7 +1924,7 @@ define internal void @altitude_base(ptr nocapture noundef writeonly %0, i32 noun
 get2sComplementAbsoluteValue.exit:
   %2 = and i32 %1, 1073741823
   %3 = zext nneg i32 %2 to i64
-  %.not.i = icmp ult i32 %2, 536870912
+  %.not.i = icmp samesign ult i32 %2, 536870912
   %.neg = sub nuw nsw i64 1073741824, %3
   %.0 = select i1 %.not.i, i64 %3, i64 %.neg
   %4 = and i64 %.0, 255
@@ -2579,7 +2579,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %361 = load i32, ptr @hf_lldp_tlv_len, align 4
   %362 = tail call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %361, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %363 = zext nneg i16 %225 to i32
-  %364 = icmp ult i16 %225, 4
+  %364 = icmp samesign ult i16 %225, 4
   br i1 %364, label %365, label %367
 
 365:                                              ; preds = %357
@@ -2783,7 +2783,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   %22 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %23 = load i32, ptr @hf_lldp_tlv_len, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
-  %25 = icmp ult i32 %14, 2
+  %25 = icmp samesign ult i32 %14, 2
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %13
@@ -2873,7 +2873,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br label %115
 
 78:                                               ; preds = %28
-  %79 = icmp ugt i32 %14, 256
+  %79 = icmp samesign ugt i32 %14, 256
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %78
@@ -2995,7 +2995,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   %22 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %23 = load i32, ptr @hf_lldp_tlv_len, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
-  %25 = icmp ult i32 %14, 2
+  %25 = icmp samesign ult i32 %14, 2
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %13
@@ -3082,7 +3082,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br label %113
 
 76:                                               ; preds = %28
-  %77 = icmp ugt i32 %14, 256
+  %77 = icmp samesign ugt i32 %14, 256
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -3413,7 +3413,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit1
 
 117:                                              ; preds = %39
-  %.not4 = icmp ult i16 %11, 10
+  %.not4 = icmp samesign ult i16 %11, 10
   br i1 %.not4, label %.loopexit1, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %117
@@ -4093,7 +4093,7 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
   %47 = add i32 %4, 65534
   %48 = and i32 %47, 65535
-  %49 = icmp ult i32 %48, 3
+  %49 = icmp samesign ult i32 %48, 3
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %44
@@ -4177,7 +4177,7 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
   %104 = add i32 %4, 65533
   %105 = zext i8 %103 to i32
   %106 = and i32 %104, 65535
-  %107 = icmp ult i32 %106, %105
+  %107 = icmp samesign ult i32 %106, %105
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %102

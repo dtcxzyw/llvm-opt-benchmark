@@ -708,7 +708,7 @@ comm_method.exit638:                              ; preds = %174, %163, %166, %1
   %.0554767 = phi i32 [ %274, %.lr.ph769 ], [ %.val627.val, %.preheader715 ]
   %273 = add nuw nsw i32 %.0550768, 1
   %274 = udiv i32 %.0554767, 10
-  %275 = icmp ugt i32 %.0554767, 99
+  %275 = icmp samesign ugt i32 %.0554767, 99
   br i1 %275, label %.lr.ph769, label %.preheader714, !llvm.loop !16
 
 .lr.ph773:                                        ; preds = %._crit_edge774, %.preheader713.lr.ph
@@ -1045,7 +1045,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
   %.0533826 = phi i32 [ %406, %.lr.ph829 ], [ %.val627.val, %394 ]
   %405 = add nuw nsw i32 %.0532827, 1
   %406 = udiv i32 %.0533826, 10
-  %407 = icmp ugt i32 %.0533826, 99
+  %407 = icmp samesign ugt i32 %.0533826, 99
   br i1 %407, label %.lr.ph829, label %.preheader710, !llvm.loop !26
 
 .preheader709:                                    ; preds = %.lr.ph832.preheader, %.preheader710
@@ -1840,7 +1840,7 @@ define internal fastcc void @abbreviate_list_into_string(ptr nocapture noundef %
   %.06185 = phi i32 [ %10, %.lr.ph ], [ 1, %4 ]
   %10 = add nuw nsw i32 %.06185, 1
   %11 = udiv i32 %.086, 10
-  %12 = icmp ugt i32 %.086, 99
+  %12 = icmp samesign ugt i32 %.086, 99
   br i1 %12, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2178,7 +2178,7 @@ mca_bml_base_get_endpoint.exit.thread.i:          ; preds = %mca_bml_base_get_en
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %88) #25
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %90 = icmp ult i64 %indvars.iv.next92, %81
+  %90 = icmp samesign ult i64 %indvars.iv.next92, %81
   br i1 %90, label %82, label %._crit_edge87, !llvm.loop !48
 
 ._crit_edge87:                                    ; preds = %82, %80

@@ -1176,7 +1176,7 @@ _ZN4core3cmp9PartialEq2ne17h9abf96e53a354328E.llvm.15137815808512737898.exit: ; 
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = load i64, ptr %.sroa.4.0..sroa_idx16, align 8, !range !426, !alias.scope !427, !noundef !9
-  %51 = icmp ult i64 %50, 3
+  %51 = icmp samesign ult i64 %50, 3
   br i1 %51, label %52, label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i"
 
 52:                                               ; preds = %48
@@ -1186,7 +1186,7 @@ _ZN4core3cmp9PartialEq2ne17h9abf96e53a354328E.llvm.15137815808512737898.exit: ; 
 53:                                               ; preds = %46, %43, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !417
   %54 = load i64, ptr %.sroa.4.0..sroa_idx16, align 8, !range !426, !alias.scope !430, !noundef !9
-  %55 = icmp ult i64 %54, 3
+  %55 = icmp samesign ult i64 %54, 3
   br i1 %55, label %56, label %"_ZN4core3ptr135drop_in_place$LT$$LP$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$RP$$GT$17h9ca6b9f41accae70E.exit"
 
 56:                                               ; preds = %53
@@ -2630,7 +2630,7 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -2643,7 +2643,7 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

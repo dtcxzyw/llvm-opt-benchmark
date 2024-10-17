@@ -1362,7 +1362,7 @@ define hidden void @_ZN6uucore8features5fsext9MountInfo3new17h822916f7b7997f76E(
   unreachable
 
 114:                                              ; preds = %"_ZN6uucore8features5fsext9MountInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h5f0c472466ea21d1E.exit.i"
-  %115 = icmp ult i64 %.013.i, %104
+  %115 = icmp samesign ult i64 %.013.i, %104
   tail call void @llvm.assume(i1 %115)
   %116 = add nuw i64 %.013.i, 8
   %117 = icmp ult i64 %116, %4
@@ -3272,7 +3272,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.615688637316
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit", label %21
 
 26:                                               ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i"
-  %27 = icmp ult i64 %.014.i, 32
+  %27 = icmp samesign ult i64 %.014.i, 32
   call void @llvm.assume(i1 %27)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit"
 

@@ -23,7 +23,7 @@ entry:
 
 lor.rhs:                                          ; preds = %entry
   %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp.i = icmp ugt i64 %0, 1
+  %cmp.i = icmp samesign ugt i64 %0, 1
   %cmp3 = icmp slt i64 %size, 0
   %or.cond = or i1 %cmp3, %cmp.i
   br i1 %or.cond, label %return, label %if.end12
@@ -60,11 +60,11 @@ if.end50:                                         ; preds = %if.end12, %if.then2
   br i1 %cmp.i17, label %land.lhs.true.i, label %if.end.thread.i
 
 land.lhs.true.i:                                  ; preds = %if.end50
-  %cmp3.i = icmp ult i64 %size, 129
+  %cmp3.i = icmp samesign ult i64 %size, 129
+  %or.cond.i = select i1 %cmp15, i1 %cmp3.i, i1 false
   %and.i = and i64 %sub, %size
   %cmp5.i = icmp eq i64 %and.i, 0
-  %6 = and i1 %cmp3.i, %cmp5.i
-  %or.cond36.i = and i1 %cmp15, %6
+  %or.cond36.i = and i1 %or.cond.i, %cmp5.i
   br i1 %or.cond36.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -94,28 +94,28 @@ if.else.i:                                        ; preds = %if.end.thread.i, %i
 if.end36.i:                                       ; preds = %if.else.i, %if.end20.i
   %cmp7.not.not.i = phi i1 [ true, %if.end20.i ], [ false, %if.else.i ]
   %p6.0.i = phi ptr [ %call23.i, %if.end20.i ], [ %call31.i, %if.else.i ]
-  %7 = ptrtoint ptr %p6.0.i to i64
-  %add37.i = add i64 %offset, %7
+  %6 = ptrtoint ptr %p6.0.i to i64
+  %add37.i = add i64 %offset, %6
   %and38.i = and i64 %add37.i, %sub
   %cmp39.i = icmp eq i64 %and38.i, 0
   %sub43.i = sub i64 %alignment, %and38.i
   %cond45.i = select i1 %cmp39.i, i64 0, i64 %sub43.i
-  %add46.i = add i64 %cond45.i, %7
-  %8 = inttoptr i64 %add46.i to ptr
-  %cmp47.not.i = icmp eq ptr %p6.0.i, %8
+  %add46.i = add i64 %cond45.i, %6
+  %7 = inttoptr i64 %add46.i to ptr
+  %cmp47.not.i = icmp eq ptr %p6.0.i, %7
   br i1 %cmp47.not.i, label %if.end52.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %if.end36.i
-  %sub.i.i.i = add i64 %7, -1
+  %sub.i.i.i = add i64 %6, -1
   %and.i.i.i = and i64 %sub.i.i.i, -33554432
-  %9 = inttoptr i64 %and.i.i.i to ptr
-  %sub.ptr.sub.i.i.i = sub i64 %7, %and.i.i.i
+  %8 = inttoptr i64 %and.i.i.i to ptr
+  %sub.ptr.sub.i.i.i = sub i64 %6, %and.i.i.i
   %shr.i.i.i = lshr i64 %sub.ptr.sub.i.i.i, 16
-  %slices.i.i.i = getelementptr inbounds i8, ptr %9, i64 264
+  %slices.i.i.i = getelementptr inbounds i8, ptr %8, i64 264
   %arrayidx.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %shr.i.i.i
   %slice_offset.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  %10 = load i32, ptr %slice_offset.i.i.i.i, align 4
-  %idx.ext.i.i.i.i = zext i32 %10 to i64
+  %9 = load i32, ptr %slice_offset.i.i.i.i, align 4
+  %idx.ext.i.i.i.i = zext i32 %9 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %idx.ext.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i.i
   %flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 14
@@ -131,13 +131,13 @@ if.end52.i:                                       ; preds = %if.then49.i, %if.en
   br i1 %brmerge.not.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.end52.i
-  %call58.i = tail call i64 @mi_usable_size(ptr noundef %8) #8
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %call58.i, i1 false)
+  %call58.i = tail call i64 @mi_usable_size(ptr noundef %7) #8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %call58.i, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then57.i, %if.end52.i, %if.else.i, %if.end20.i, %if.end.thread.i, %if.then.i, %entry, %lor.rhs, %if.then42
-  %retval.0 = phi ptr [ %call44, %if.then42 ], [ null, %lor.rhs ], [ null, %entry ], [ %call.i, %if.then.i ], [ null, %if.end20.i ], [ null, %if.else.i ], [ %8, %if.end52.i ], [ %8, %if.then57.i ], [ null, %if.end.thread.i ]
+  %retval.0 = phi ptr [ %call44, %if.then42 ], [ null, %lor.rhs ], [ null, %entry ], [ %call.i, %if.then.i ], [ null, %if.end20.i ], [ null, %if.else.i ], [ %7, %if.end52.i ], [ %7, %if.then57.i ], [ null, %if.end.thread.i ]
   ret ptr %retval.0
 }
 
@@ -150,7 +150,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
-  %cmp.i10 = icmp ult i64 %1, 2
+  %cmp.i10 = icmp samesign ult i64 %1, 2
   %cmp5.not = icmp uge i64 %size, %alignment
   %or.cond.not11 = and i1 %cmp.i10, %cmp5.not
   %cmp7 = icmp ult i64 %size, 1025
@@ -250,7 +250,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
-  %cmp.i10.i = icmp ult i64 %3, 2
+  %cmp.i10.i = icmp samesign ult i64 %3, 2
   %cmp5.not.i = icmp uge i64 %size, %alignment
   %or.cond.not11.i = and i1 %cmp.i10.i, %cmp5.not.i
   %cmp7.i = icmp ult i64 %size, 1025

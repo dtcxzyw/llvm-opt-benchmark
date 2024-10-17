@@ -519,7 +519,7 @@ define noundef i64 @_Z16fast_rv64e_c_jalP11processor_t6insn_tm(ptr nocapture nou
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 21:                                               ; preds = %19
@@ -702,7 +702,7 @@ define noundef i64 @_Z18logged_rv64e_c_jalP11processor_t6insn_tm(ptr noundef %0,
   unreachable
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i64 %13, 15
+  %20 = icmp samesign ugt i64 %13, 15
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %19

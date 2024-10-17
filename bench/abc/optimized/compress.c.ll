@@ -2264,7 +2264,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %exitcond2429.not.i, label %._crit_edge2173.i, label %.lr.ph2172.i, !llvm.loop !26
 
 ._crit_edge2173.i:                                ; preds = %.lr.ph2172.i
-  %1529 = icmp ugt i32 %spec.select1524.i, 17
+  %1529 = icmp samesign ugt i32 %spec.select1524.i, 17
   br i1 %1529, label %1530, label %1531
 
 1530:                                             ; preds = %._crit_edge2173.i
@@ -2653,7 +2653,7 @@ bsW.exit1569.i:                                   ; preds = %bsW.exit1569.loopex
   store i32 %1706, ptr %111, align 4
   %1709 = add nuw nsw i32 %.314682182.i, 1
   %1710 = zext i8 %1704 to i32
-  %1711 = icmp ult i32 %1709, %1710
+  %1711 = icmp samesign ult i32 %1709, %1710
   br i1 %1711, label %.lr.ph2183.i, label %._crit_edge2184.i, !llvm.loop !33
 
 ._crit_edge2184.i:                                ; preds = %bsW.exit1569.i, %.preheader1964.i
@@ -2950,7 +2950,7 @@ bsW.exit1604.i:                                   ; preds = %.lr.ph.i1601.i, %._
   %1854 = getelementptr inbounds [18002 x i8], ptr %455, i64 0, i64 %indvars.iv2475.i
   %1855 = load i8, ptr %1854, align 1
   %1856 = zext i8 %1855 to i32
-  %1857 = icmp ugt i32 %.01490.i, %1856
+  %1857 = icmp samesign ugt i32 %.01490.i, %1856
   br i1 %1857, label %1859, label %1858
 
 1858:                                             ; preds = %.lr.ph2206.i

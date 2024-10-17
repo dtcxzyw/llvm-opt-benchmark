@@ -390,7 +390,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
   store ptr null, ptr %21, align 8
   %22 = add nuw nsw i64 %12, 1
   %23 = and i64 %22, 127
-  %24 = icmp ult i64 %23, 64
+  %24 = icmp samesign ult i64 %23, 64
   br i1 %24, label %6, label %.preheader8.preheader.preheader, !prof !12, !llvm.loop !13
 
 .preheader8.preheader.preheader:                  ; preds = %6, %15, %11
@@ -428,7 +428,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
 .preheader8:                                      ; preds = %43, %34
   %45 = add nuw nsw i64 %31, 1
   %46 = and i64 %45, 127
-  %47 = icmp ult i64 %46, 64
+  %47 = icmp samesign ult i64 %46, 64
   br i1 %47, label %.preheader8.preheader, label %.preheader.preheader, !prof !12, !llvm.loop !16
 
 .preheader.preheader:                             ; preds = %.preheader8.preheader, %.preheader8, %30
@@ -453,7 +453,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
   tail call fastcc void @release_bts_buffer(i32 noundef %55)
   %58 = add nuw nsw i64 %54, 1
   %59 = and i64 %58, 127
-  %60 = icmp ult i64 %59, 64
+  %60 = icmp samesign ult i64 %59, 64
   br i1 %60, label %.preheader, label %.thread, !prof !12, !llvm.loop !17
 
 .thread:                                          ; preds = %.preheader, %57, %53, %0
@@ -564,7 +564,7 @@ define internal fastcc void @release_bts_buffer(i32 noundef range(i32 0, 64) %0)
   tail call void @cea_set_pte(ptr noundef %12, i64 noundef 0, i64 288) #14
   %14 = add nuw nsw i64 %13, 4096
   %15 = getelementptr i8, ptr %12, i64 4096
-  %16 = icmp ult i64 %13, 61440
+  %16 = icmp samesign ult i64 %13, 61440
   br i1 %16, label %11, label %17, !llvm.loop !20
 
 17:                                               ; preds = %11
@@ -628,7 +628,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   %14 = phi i32 [ %11, %5 ], [ %200, %198 ]
   %15 = phi i64 [ 0, %5 ], [ %202, %198 ]
   %16 = and i64 %15, 4294967295
-  %17 = icmp ult i64 %16, 64
+  %17 = icmp samesign ult i64 %16, 64
   br i1 %17, label %18, label %.thread, !prof !23
 
 18:                                               ; preds = %12
@@ -730,7 +730,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   %81 = add nuw nsw i64 %78, 4096
   %82 = add i64 %79, 4096
   %83 = getelementptr i8, ptr %80, i64 4096
-  %84 = icmp ult i64 %78, 61440
+  %84 = icmp samesign ult i64 %78, 61440
   br i1 %84, label %77, label %85, !llvm.loop !33
 
 85:                                               ; preds = %77
@@ -939,7 +939,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   tail call fastcc void @release_bts_buffer(i32 noundef %211)
   %214 = add nuw nsw i64 %210, 1
   %215 = and i64 %214, 127
-  %216 = icmp ult i64 %215, 64
+  %216 = icmp samesign ult i64 %215, 64
   br i1 %216, label %.preheader32, label %.thread23, !prof !12, !llvm.loop !37
 
 .thread23:                                        ; preds = %.preheader32, %213, %209, %.thread
@@ -966,7 +966,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   tail call fastcc void @release_pebs_buffer(i32 noundef %226)
   %229 = add nuw nsw i64 %225, 1
   %230 = and i64 %229, 127
-  %231 = icmp ult i64 %230, 64
+  %231 = icmp samesign ult i64 %230, 64
   br i1 %231, label %.preheader, label %.thread25, !prof !12, !llvm.loop !38
 
 .thread25:                                        ; preds = %.preheader, %228, %224
@@ -999,7 +999,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   store ptr null, ptr %249, align 8
   %250 = add nuw nsw i64 %240, 1
   %251 = and i64 %250, 127
-  %252 = icmp ult i64 %251, 64
+  %252 = icmp samesign ult i64 %251, 64
   br i1 %252, label %234, label %.thread28, !prof !12, !llvm.loop !39
 
 .thread26:                                        ; preds = %.thread23, %.thread25
@@ -1063,7 +1063,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   %290 = phi i64 [ %.pre, %283 ], [ %265, %274 ]
   %291 = add nuw nsw i64 %271, 1
   %292 = and i64 %291, 127
-  %293 = icmp ult i64 %292, 64
+  %293 = icmp samesign ult i64 %292, 64
   br i1 %293, label %264, label %.thread28, !prof !12, !llvm.loop !40
 
 .thread28:                                        ; preds = %234, %243, %239, %264, %289, %270, %0
@@ -1851,7 +1851,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr nocapture noundef %0) local_unn
 145:                                              ; preds = %143
   %146 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %147 = and i32 %146, 3840
-  %148 = icmp ult i32 %147, 1280
+  %148 = icmp samesign ult i32 %147, 1280
   %149 = add i32 %12, -24
   %150 = select i1 %148, i32 %149, i32 %12
   br label %151
@@ -1909,7 +1909,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr nocapture noundef %0) local_unn
   %190 = add nsw i32 %187, -32
   %191 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %192 = and i32 %191, 3840
-  %193 = icmp ult i32 %192, 1280
+  %193 = icmp samesign ult i32 %192, 1280
   %194 = add nsw i32 %187, -24
   %195 = select i1 %193, i32 %194, i32 %187
   %196 = zext nneg i32 %195 to i64
@@ -2271,7 +2271,7 @@ define dso_local void @intel_ds_init() local_unnamed_addr #7 section ".init.text
   %29 = select i1 %28, i8 45, i8 43
   %30 = lshr i32 %26, 8
   %31 = and i32 %30, 15
-  %32 = icmp ult i32 %31, 4
+  %32 = icmp samesign ult i32 %31, 4
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %25
@@ -2480,7 +2480,7 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
   %57 = and i32 %.fr, 3072
   %58 = icmp eq i32 %57, 0
   %59 = select i1 %58, i64 144, i64 16
-  %60 = icmp ugt i32 %48, 512
+  %60 = icmp samesign ugt i32 %48, 512
   br i1 %60, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %54, %66
@@ -2592,7 +2592,7 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
   %122 = and i32 %.fr29, 3072
   %123 = icmp eq i32 %122, 0
   %124 = select i1 %123, i64 144, i64 16
-  %125 = icmp ugt i32 %113, 512
+  %125 = icmp samesign ugt i32 %113, 512
   br i1 %125, label %.split22.us, label %.split22
 
 .split22.us:                                      ; preds = %119, %131
@@ -2772,7 +2772,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
   store i64 %60, ptr %9, align 8
   %61 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %62 = and i32 %61, 3840
-  %63 = icmp ugt i32 %62, 512
+  %63 = icmp samesign ugt i32 %62, 512
   br i1 %63, label %.preheader, label %78
 
 .preheader:                                       ; preds = %53
@@ -2967,7 +2967,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 180:                                              ; preds = %169
   %181 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %182 = and i32 %181, 3840
-  %183 = icmp ugt i32 %182, 512
+  %183 = icmp samesign ugt i32 %182, 512
   br i1 %183, label %.thread, label %184
 
 184:                                              ; preds = %180
@@ -3067,7 +3067,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 242:                                              ; preds = %231
   %243 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %244 = and i32 %243, 3840
-  %245 = icmp ugt i32 %244, 512
+  %245 = icmp samesign ugt i32 %244, 512
   br i1 %245, label %.thread15, label %246
 
 246:                                              ; preds = %242
@@ -3344,7 +3344,7 @@ define internal void @intel_pmu_drain_pebs_icl(ptr noundef %0, ptr noundef %1) #
 136:                                              ; preds = %125
   %137 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %138 = and i32 %137, 3840
-  %139 = icmp ugt i32 %138, 512
+  %139 = icmp samesign ugt i32 %138, 512
   br i1 %139, label %.thread, label %140
 
 140:                                              ; preds = %136
@@ -3444,7 +3444,7 @@ define internal void @intel_pmu_drain_pebs_icl(ptr noundef %0, ptr noundef %1) #
 198:                                              ; preds = %187
   %199 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %200 = and i32 %199, 3840
-  %201 = icmp ugt i32 %200, 512
+  %201 = icmp samesign ugt i32 %200, 512
   br i1 %201, label %.thread16, label %202
 
 202:                                              ; preds = %198
@@ -4048,7 +4048,7 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
 259:                                              ; preds = %240, %237, %224
   %260 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %261 = and i32 %260, 3840
-  %262 = icmp ugt i32 %261, 512
+  %262 = icmp samesign ugt i32 %261, 512
   br i1 %262, label %263, label %281
 
 263:                                              ; preds = %259

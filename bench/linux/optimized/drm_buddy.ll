@@ -54,7 +54,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr nocapture nou
   %5 = icmp ugt i64 %2, 4095
   %6 = and i1 %4, %5
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2), !range !5
-  %8 = icmp ult i64 %7, 2
+  %8 = icmp samesign ult i64 %7, 2
   %9 = select i1 %6, i1 %8, i1 false
   br i1 %9, label %10, label %.loopexit12
 
@@ -968,7 +968,7 @@ define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr nocapture nou
   %18 = icmp eq i64 %4, 0
   %19 = or i1 %18, %17
   %20 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4), !range !5
-  %21 = icmp ugt i64 %20, 1
+  %21 = icmp samesign ugt i64 %20, 1
   %22 = select i1 %19, i1 true, i1 %21
   %.sroa.gep1 = getelementptr inbounds i8, ptr %11, i64 8
   br i1 %22, label %425, label %23

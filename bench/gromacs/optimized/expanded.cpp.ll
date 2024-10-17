@@ -2482,7 +2482,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i: ; p
   %1046 = fsub double %1041, %1043
   %1047 = fptrunc double %1046 to float
   %indvars.iv.next442.i = add nuw nsw i64 %indvars.iv441.i, 1
-  %.not251.not.i = icmp ult i64 %indvars.iv441.i, %1039
+  %.not251.not.i = icmp samesign ult i64 %indvars.iv441.i, %1039
   br i1 %.not251.not.i, label %.lr.ph395.i, label %.loopexit.i158, !llvm.loop !44
 
 .lr.ph370.i:                                      ; preds = %.lr.ph370.i, %.lr.ph370.preheader.i
@@ -2675,7 +2675,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: 
 1173:                                             ; preds = %1171, %1164
   %.2215.i = phi float [ %1172, %1171 ], [ %.1214378.i, %1164 ]
   %indvars.iv.next429.i = add nuw nsw i64 %indvars.iv428.i, 1
-  %.not246.not.i = icmp ult i64 %indvars.iv428.i, %1162
+  %.not246.not.i = icmp samesign ult i64 %indvars.iv428.i, %1162
   br i1 %.not246.not.i, label %1164, label %._crit_edge380.loopexit.i, !llvm.loop !47
 
 ._crit_edge380.loopexit.split.loop.exit.i:        ; preds = %1169

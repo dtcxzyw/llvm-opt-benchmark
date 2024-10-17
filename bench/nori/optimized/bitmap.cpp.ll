@@ -965,7 +965,7 @@ _ZL17stbi__zlib_countmPhS_i.exit228:              ; preds = %162, %157, %._crit_
 
 173:                                              ; preds = %169
   %174 = trunc i64 %168 to i32
-  %175 = icmp ult i64 %indvars.iv719, 23
+  %175 = icmp samesign ult i64 %indvars.iv719, 23
   br i1 %175, label %.preheader591.preheader, label %215
 
 .preheader591.preheader:                          ; preds = %173
@@ -1316,7 +1316,7 @@ _ZL17stbi__zlib_flushfPhPjPi.exit283:             ; preds = %_ZL13stbi__sbgrowfP
   %.19559 = phi i32 [ %312, %_ZL17stbi__zlib_bitrevii.exit272 ], [ %341, %_ZL13stbi__sbgrowfPPvii.exit.i281 ]
   %.19 = phi i32 [ %313, %_ZL17stbi__zlib_bitrevii.exit272 ], [ %342, %_ZL13stbi__sbgrowfPPvii.exit.i281 ]
   %.0.lcssa.i274 = phi ptr [ %.3522, %_ZL17stbi__zlib_bitrevii.exit272 ], [ %.1.i282, %_ZL13stbi__sbgrowfPPvii.exit.i281 ]
-  %.not189 = icmp ult i64 %indvars.iv722, 4
+  %.not189 = icmp samesign ult i64 %indvars.iv722, 4
   br i1 %.not189, label %_ZL17stbi__zlib_flushfPhPjPi.exit294, label %344
 
 344:                                              ; preds = %_ZL17stbi__zlib_flushfPhPjPi.exit283
@@ -2417,10 +2417,10 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr nocapture nound
   %121 = tail call i32 @llvm.abs.i32(i32 %120, i1 true)
   %122 = sub nsw i32 %117, %115
   %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %.not.i203 = icmp ugt i32 %119, %121
-  %.not20.i204 = icmp ugt i32 %119, %123
+  %.not.i203 = icmp samesign ugt i32 %119, %121
+  %.not20.i204 = icmp samesign ugt i32 %119, %123
   %or.cond.i205 = select i1 %.not.i203, i1 true, i1 %.not20.i204
-  %.not21.i = icmp ugt i32 %121, %123
+  %.not21.i = icmp samesign ugt i32 %121, %123
   %..i = select i1 %.not21.i, i8 %114, i8 %110
   %.0.in.i206 = select i1 %or.cond.i205, i8 %..i, i8 %106
   %124 = sub i8 %103, %.0.in.i206

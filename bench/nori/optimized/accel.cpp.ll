@@ -780,7 +780,7 @@ _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit: ; preds = %23
   %44 = fadd <4 x float> %40, %43
   store <4 x float> %44, ptr %33, align 16
   %45 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 4
-  %46 = icmp ult i64 %45, %28
+  %46 = icmp samesign ult i64 %45, %28
   br i1 %46, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !14
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit.thread, %_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit

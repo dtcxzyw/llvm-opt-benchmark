@@ -311,7 +311,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bf.lshr = lshr i32 %bf.load50, 10
   %bf.clear51 = and i32 %bf.lshr, 15
   %conv52 = zext nneg i32 %bf.clear51 to i64
-  %cmp53 = icmp ult i64 %inc, %conv52
+  %cmp53 = icmp samesign ult i64 %inc, %conv52
   br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.then48

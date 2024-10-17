@@ -1817,7 +1817,7 @@ entry:
   %cond.i = tail call noundef i64 @llvm.abs.i64(i64 %sub, i1 true)
   %sub3 = sub nsw i64 %pt1a.coerce1, %pt1b.coerce1
   %cond.i11 = tail call noundef i64 @llvm.abs.i64(i64 %sub3, i1 true)
-  %cmp = icmp ugt i64 %cond.i, %cond.i11
+  %cmp = icmp samesign ugt i64 %cond.i, %cond.i11
   br i1 %cmp, label %if.then, label %if.else28
 
 if.then:                                          ; preds = %entry
@@ -6457,7 +6457,7 @@ _ZN10ClipperLib10PointCountEPNS_5OutPtE.exit:     ; preds = %do.body.i
   %20 = load i8, ptr %IsOpen, align 1
   %tobool = trunc i8 %20 to i1
   %or.cond31.v = select i1 %tobool, i32 1, i32 2
-  %or.cond31.not = icmp ult i32 %result.0.i, %or.cond31.v
+  %or.cond31.not = icmp samesign ult i32 %result.0.i, %or.cond31.v
   br i1 %or.cond31.not, label %for.inc28, label %if.end
 
 if.end:                                           ; preds = %_ZN10ClipperLib10PointCountEPNS_5OutPtE.exit
@@ -23689,7 +23689,7 @@ entry:
   %3 = load i64, ptr %Y2, align 8
   %sub3 = sub nsw i64 %2, %3
   %cond.i41 = tail call noundef i64 @llvm.abs.i64(i64 %sub3, i1 true)
-  %cmp = icmp ugt i64 %cond.i, %cond.i41
+  %cmp = icmp samesign ugt i64 %cond.i, %cond.i41
   br i1 %cmp, label %if.then, label %if.else31
 
 if.then:                                          ; preds = %entry

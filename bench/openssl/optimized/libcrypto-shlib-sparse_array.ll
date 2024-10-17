@@ -493,7 +493,7 @@ for.inc:                                          ; preds = %for.cond.preheader,
   %level.039 = phi i32 [ %inc, %for.inc ], [ 1, %for.cond.preheader ]
   %shr = lshr i64 %n.040, 4
   %inc = add nuw nsw i32 %level.039, 1
-  %cmp1 = icmp ugt i32 %level.039, 14
+  %cmp1 = icmp samesign ugt i32 %level.039, 14
   %cmp2 = icmp ult i64 %n.040, 256
   %or.cond = select i1 %cmp1, i1 true, i1 %cmp2
   br i1 %or.cond, label %for.cond5.preheader, label %for.inc, !llvm.loop !7

@@ -914,7 +914,7 @@ if.end42:                                         ; preds = %if.end37
   ]
 
 if.then50:                                        ; preds = %if.end42
-  %cmp52 = icmp ult i64 %nrec.0, 2305843009213693951
+  %cmp52 = icmp samesign ult i64 %nrec.0, 2305843009213693951
   br i1 %cmp52, label %cond.end59, label %abort
 
 cond.end59:                                       ; preds = %if.then50

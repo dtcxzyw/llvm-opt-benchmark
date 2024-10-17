@@ -1504,7 +1504,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %223, %220
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %220 ], [ %225, %223 ]
   %.idx3.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %229 = getelementptr inbounds i8, ptr %228, i64 %.idx3.i
-  %.not.i = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not.i = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN4llvm4User8operandsEv.exit.i
@@ -21531,7 +21531,7 @@ _ZN4llvm5APIntD2Ev.exit105.i:                     ; preds = %_ZNK4llvm5APInt8pop
 .lr.ph.i.i:                                       ; preds = %836, %.lr.ph.i.preheader.i
   %.0912.i.i = phi ptr [ %837, %836 ], [ %832, %.lr.ph.i.preheader.i ]
   %838 = load i8, ptr %.0912.i.i, align 1
-  %.not10.not.i.i = icmp ult i8 %838, %835
+  %.not10.not.i.i = icmp samesign ult i8 %838, %835
   br i1 %.not10.not.i.i, label %836, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i: ; preds = %.lr.ph.i.i
@@ -24261,7 +24261,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i:       ; preds = %2055, %2052
   %2061 = getelementptr inbounds i8, ptr %2060, i64 %.idx108.i
   %2062 = load ptr, ptr %557, align 8
   %2063 = load ptr, ptr %2062, align 8
-  %.not107.i = icmp ult i64 %.pre-phi2.i.i.i.i, 4
+  %.not107.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i, 4
   br i1 %.not107.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i61.i
 
 .lr.ph.i.i.i.i61.i:                               ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i
@@ -24568,7 +24568,7 @@ _ZL27forwardSwitchConditionToPHIPN4llvm10SwitchInstE.exit._crit_edge: ; preds = 
 .lr.ph.i.i126:                                    ; preds = %2174, %.lr.ph.i.preheader.i125
   %.0912.i.i127 = phi ptr [ %2175, %2174 ], [ %2170, %.lr.ph.i.preheader.i125 ]
   %2176 = load i8, ptr %.0912.i.i127, align 1
-  %.not10.not.i.i128 = icmp ult i8 %2176, %2173
+  %.not10.not.i.i128 = icmp samesign ult i8 %2176, %2173
   br i1 %.not10.not.i.i128, label %2174, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i129
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i129: ; preds = %.lr.ph.i.i126
@@ -29647,7 +29647,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i:                  ; preds = %_ZN4llvm5APIntC2ERK
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit.i.i.i.i:       ; preds = %401
   %408 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %403)
-  %409 = icmp ult i64 %408, 2
+  %409 = icmp samesign ult i64 %408, 2
   br i1 %409, label %_ZN4llvm5APIntC2ERKS0_.exit58.thread.i.i.i.i, label %.critedge53.thread.i.i.i.i
 
 _ZN4llvm5APIntC2ERKS0_.exit58.thread.i.i.i.i:     ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit.i.i.i.i
@@ -41783,7 +41783,7 @@ _ZStneIN4llvm20filter_iterator_implINS0_21ilist_iterator_w_bitsINS0_12ilist_deta
   %293 = trunc i16 %292 to i8
   %294 = lshr i8 %293, 1
   %295 = and i8 %294, 63
-  %.not6.i = icmp ult i8 %291, %295
+  %.not6.i = icmp samesign ult i8 %291, %295
   %spec.select1.i = select i1 %.not6.i, ptr null, ptr %279
   br label %.loopexit.i
 
@@ -41816,7 +41816,7 @@ _ZStneIN4llvm20filter_iterator_implINS0_21ilist_iterator_w_bitsINS0_12ilist_deta
   %314 = trunc i16 %313 to i8
   %315 = lshr i8 %314, 1
   %316 = and i8 %315, 63
-  %.not9.i = icmp ult i8 %312, %316
+  %.not9.i = icmp samesign ult i8 %312, %316
   br i1 %.not9.i, label %322, label %317
 
 317:                                              ; preds = %309
@@ -53352,7 +53352,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12Dense
   %574 = lshr i32 %570, 8
   %575 = icmp ugt i32 %570, 2047
   %576 = call range(i32 1, 25) i32 @llvm.ctpop.i32(i32 %574)
-  %577 = icmp ult i32 %576, 2
+  %577 = icmp samesign ult i32 %576, 2
   %or.cond.i.i = select i1 %575, i1 %577, i1 false
   br i1 %or.cond.i.i, label %578, label %_ZL25isTypeLegalForLookupTablePN4llvm4TypeERKNS_19TargetTransformInfoERKNS_10DataLayoutE.exit.i
 
@@ -53367,7 +53367,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12Dense
   %.0912.i.i.i = phi ptr [ %584, %.lr.ph.i.i.i323 ], [ %579, %578 ]
   %582 = load i8, ptr %.0912.i.i.i, align 1
   %583 = zext i8 %582 to i32
-  %.not10.not.i.not.i.i = icmp ugt i32 %574, %583
+  %.not10.not.i.not.i.i = icmp samesign ugt i32 %574, %583
   %584 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 1
   %.not.not.i.i.i = icmp ne ptr %584, %581
   %or.cond.not = select i1 %.not10.not.i.not.i.i, i1 %.not.not.i.i.i, i1 false
@@ -53459,7 +53459,7 @@ _ZL22shouldBuildLookupTablePN4llvm10SwitchInstEmRKNS_19TargetTransformInfoERKNS_
   %616 = zext i32 %615 to i64
   %617 = mul nuw nsw i64 %616, 100
   %618 = mul nuw nsw i64 %.0477, 40
-  %.not518 = icmp ult i64 %617, %618
+  %.not518 = icmp samesign ult i64 %617, %618
   br i1 %.not518, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit, label %_ZL22shouldBuildLookupTablePN4llvm10SwitchInstEmRKNS_19TargetTransformInfoERKNS_10DataLayoutERKNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SC_EEEE.exit.thread503
 
 _ZL22shouldBuildLookupTablePN4llvm10SwitchInstEmRKNS_19TargetTransformInfoERKNS_10DataLayoutERKNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SC_EEEE.exit.thread503: ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, %_ZN12_GLOBAL__N_117SwitchLookupTable18wouldFitInRegisterERKN4llvm10DataLayoutEmPNS1_4TypeE.exit._crit_edge.i, %_ZL22shouldBuildLookupTablePN4llvm10SwitchInstEmRKNS_19TargetTransformInfoERKNS_10DataLayoutERKNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SC_EEEE.exit
@@ -55753,7 +55753,7 @@ define internal fastcc noundef zeroext i1 @_ZL17reduceSwitchRangePN4llvm10Switch
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %26
   %.0912.i = phi ptr [ %27, %26 ], [ %22, %.lr.ph.i.preheader ]
   %28 = load i8, ptr %.0912.i, align 1
-  %.not10.not.i = icmp ult i8 %28, %25
+  %.not10.not.i = icmp samesign ult i8 %28, %25
   br i1 %.not10.not.i, label %26, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit: ; preds = %.lr.ph.i

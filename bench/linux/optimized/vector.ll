@@ -561,7 +561,7 @@ define dso_local void @lapic_online() local_unnamed_addr #0 align 16 {
 2:                                                ; preds = %19, %0
   %3 = phi i64 [ 0, %0 ], [ %22, %19 ]
   %4 = add nsw i64 %3, -48
-  %5 = icmp ult i64 %3, 48
+  %5 = icmp samesign ult i64 %3, 48
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
@@ -3141,7 +3141,7 @@ define internal fastcc void @print_local_APICs(i32 noundef range(i32 0, -2147483
   %17 = tail call i32 @smp_call_function_single(i32 noundef %12, ptr noundef nonnull @print_local_APIC, ptr noundef null, i32 noundef 1) #15
   %18 = add nuw nsw i64 %11, 1
   %19 = and i64 %18, 127
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %.thread, label %4, !prof !116, !llvm.loop !117
 
 .thread:                                          ; preds = %4, %16, %10
@@ -3182,7 +3182,7 @@ define internal void @print_local_APIC(ptr nocapture readnone %0) #9 section ".i
   %11 = and i32 %9, 252
   %12 = tail call i32 @lapic_get_maxlvt() #15
   %13 = tail call i32 @__SCT__apic_call_read(i32 noundef 128) #15
-  %14 = icmp ugt i32 %11, 19
+  %14 = icmp samesign ugt i32 %11, 19
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %1

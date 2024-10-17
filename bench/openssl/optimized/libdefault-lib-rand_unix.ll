@@ -607,8 +607,8 @@ for.inc:                                          ; preds = %get_random_device.e
   %bytes_needed17.1 = phi i64 [ %bytes_needed17.095, %get_random_device.exit ], [ %call57, %if.end56 ], [ %bytes_needed17.095, %get_random_device.exit.thread ]
   %inc = add nuw nsw i64 %i.096, 1
   %cmp20 = icmp ne i64 %bytes_needed17.1, 0
-  %cmp22 = icmp ult i64 %i.096, 3
-  %33 = and i1 %cmp20, %cmp22
+  %cmp22 = icmp samesign ult i64 %i.096, 3
+  %33 = select i1 %cmp20, i1 %cmp22, i1 false
   br i1 %33, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.then16

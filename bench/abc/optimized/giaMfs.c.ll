@@ -1571,7 +1571,7 @@ define internal fastcc i32 @Abc_TtMinBase(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %6, label %Abc_TtHasVar.exit, label %12
 
 12:                                               ; preds = %11
-  %13 = icmp ult i64 %indvars.iv, 6
+  %13 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %12
@@ -1702,7 +1702,7 @@ Abc_TtHasVar.exit.thread40:                       ; preds = %21, %36, %Abc_TtHas
   br label %Abc_TtSwapVars.exit
 
 83:                                               ; preds = %63
-  %84 = icmp ult i64 %indvars.iv, 6
+  %84 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %84, label %85, label %106
 
 85:                                               ; preds = %83
@@ -2063,7 +2063,7 @@ Vec_IntStartFull.exit357:                         ; preds = %Vec_IntAlloc.exit.t
 
 88:                                               ; preds = %80, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = icmp ult i64 %indvars.iv.next, %78
+  %89 = icmp samesign ult i64 %indvars.iv.next, %78
   br i1 %89, label %79, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %79, %88, %Vec_IntStartFull.exit357
@@ -2656,7 +2656,7 @@ Vec_IntPush.exit398:                              ; preds = %.Vec_IntGrow.exit10
   br label %Abc_TtCofactor0.exit.sink.split.i
 
 365:                                              ; preds = %354
-  %366 = icmp ult i64 %indvars.iv.i, 6
+  %366 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %366, label %367, label %379
 
 367:                                              ; preds = %365
@@ -2736,7 +2736,7 @@ Vec_IntPush.exit398:                              ; preds = %.Vec_IntGrow.exit10
   br label %Abc_TtCofactor0.exit.sink.split.i
 
 405:                                              ; preds = %394
-  %406 = icmp ult i64 %indvars.iv.i, 6
+  %406 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %406, label %407, label %419
 
 407:                                              ; preds = %405
@@ -2819,7 +2819,7 @@ Abc_TtCofactor0.exit.i:                           ; preds = %._crit_edge.us.i67.
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %.loopexit.i ], [ 0, %Abc_TtCofactor0.exit.i ]
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %.loopexit.i ], [ 1, %Abc_TtCofactor0.exit.i ]
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
-  %434 = icmp ult i64 %indvars.iv.next112.i, %wide.trip.count.i
+  %434 = icmp samesign ult i64 %indvars.iv.next112.i, %wide.trip.count.i
   br i1 %434, label %.lr.ph92.i, label %.loopexit.i
 
 .lr.ph92.i:                                       ; preds = %.lr.ph94.i
@@ -2970,7 +2970,7 @@ Abc_TtHasVar.exit.thread.us.i.i:                  ; preds = %Abc_TtHasVar.exit.t
   %indvars.iv.i75.i = phi i64 [ %indvars.iv.next.i76.i, %Abc_TtHasVar.exit.thread.i.i ], [ 0, %.lr.ph.split.i.i ]
   %.047.i.i = phi i32 [ %.1.i.i, %Abc_TtHasVar.exit.thread.i.i ], [ 0, %.lr.ph.split.i.i ]
   %.02346.i.i = phi i32 [ %.124.i.i, %Abc_TtHasVar.exit.thread.i.i ], [ 0, %.lr.ph.split.i.i ]
-  %512 = icmp ult i64 %indvars.iv.i75.i, 6
+  %512 = icmp samesign ult i64 %indvars.iv.i75.i, 6
   br i1 %512, label %.lr.ph.i.i.i, label %.preheader.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.split.i.i

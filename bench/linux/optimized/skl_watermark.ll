@@ -248,7 +248,7 @@ define dso_local void @intel_sagv_pre_plane_update(ptr noundef %0) local_unnamed
   %53 = getelementptr inbounds i8, ptr %47, i64 105
   %54 = load i8, ptr %53, align 1
   %55 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %54), !range !15
-  %56 = icmp ult i8 %55, 2
+  %56 = icmp samesign ult i8 %55, 2
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %52, %49
@@ -351,7 +351,7 @@ define dso_local void @intel_sagv_post_plane_update(ptr noundef %0) local_unname
   %53 = getelementptr inbounds i8, ptr %47, i64 105
   %54 = load i8, ptr %53, align 1
   %55 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %54), !range !15
-  %56 = icmp ult i8 %55, 2
+  %56 = icmp samesign ult i8 %55, 2
   br i1 %56, label %57, label %103
 
 57:                                               ; preds = %52, %49
@@ -448,7 +448,7 @@ define dso_local zeroext i1 @intel_can_enable_sagv(ptr nocapture noundef readonl
   %7 = getelementptr inbounds i8, ptr %1, i64 105
   %8 = load i8, ptr %7, align 1
   %9 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %8), !range !15
-  %10 = icmp ult i8 %9, 2
+  %10 = icmp samesign ult i8 %9, 2
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %6, %2
@@ -561,7 +561,7 @@ define dso_local void @skl_write_plane_wm(ptr nocapture noundef readonly %0, ptr
   %36 = add nuw nsw i64 %24, 1
   %37 = load i8, ptr %14, align 8
   %38 = zext i8 %37 to i64
-  %39 = icmp ult i64 %36, %38
+  %39 = icmp samesign ult i64 %36, %38
   br i1 %39, label %23, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %34, %2
@@ -879,7 +879,7 @@ define dso_local void @skl_write_cursor_wm(ptr nocapture noundef readonly %0, pt
   %31 = add nuw nsw i64 %19, 1
   %32 = load i8, ptr %10, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %18, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %26, %2
@@ -957,7 +957,7 @@ define dso_local zeroext i1 @skl_ddb_allocation_overlaps(ptr nocapture noundef r
 
 24:                                               ; preds = %20, %14, %10
   %25 = add nuw nsw i64 %11, 1
-  %26 = icmp ult i64 %25, %9
+  %26 = icmp samesign ult i64 %25, %9
   %27 = icmp eq i64 %25, %9
   br i1 %27, label %.loopexit, label %10, !llvm.loop !33
 
@@ -1281,7 +1281,7 @@ define dso_local void @intel_wm_state_verify(ptr nocapture noundef readonly %0, 
   %220 = phi i8 [ %.pre22, %201 ], [ %161, %195 ]
   %221 = add nuw nsw i64 %162, 1
   %222 = zext i8 %220 to i64
-  %223 = icmp ult i64 %221, %222
+  %223 = icmp samesign ult i64 %221, %222
   br i1 %223, label %.split.us, label %.loopexit, !llvm.loop !35
 
 .split:                                           ; preds = %157, %283
@@ -1368,7 +1368,7 @@ define dso_local void @intel_wm_state_verify(ptr nocapture noundef readonly %0, 
   %284 = phi i8 [ %.pre, %264 ], [ %224, %258 ]
   %285 = add nuw nsw i64 %225, 1
   %286 = zext i8 %284 to i64
-  %287 = icmp ult i64 %285, %286
+  %287 = icmp samesign ult i64 %285, %286
   br i1 %287, label %.split, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %283, %219, %154
@@ -1721,7 +1721,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr nocapture noundef read
   %57 = add nuw nsw i64 %37, 1
   %58 = load i8, ptr %7, align 8
   %59 = zext i8 %58 to i64
-  %60 = icmp ult i64 %57, %59
+  %60 = icmp samesign ult i64 %57, %59
   br i1 %60, label %.split.us, label %.loopexit, !llvm.loop !37
 
 .split:                                           ; preds = %33, %.split
@@ -1752,7 +1752,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr nocapture noundef read
   %81 = add nuw nsw i64 %61, 1
   %82 = load i8, ptr %7, align 8
   %83 = zext i8 %82 to i64
-  %84 = icmp ult i64 %81, %83
+  %84 = icmp samesign ult i64 %81, %83
   br i1 %84, label %.split, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.split, %.split.us, %29
@@ -3376,7 +3376,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %191 = add nuw nsw i64 %172, 1
   %192 = load i8, ptr %162, align 8
   %193 = zext i8 %192 to i64
-  %194 = icmp ult i64 %191, %193
+  %194 = icmp samesign ult i64 %191, %193
   br i1 %194, label %.split.us, label %.thread121, !llvm.loop !77
 
 .split:                                           ; preds = %165, %216
@@ -3417,7 +3417,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %219 = add nuw nsw i64 %195, 1
   %220 = load i8, ptr %162, align 8
   %221 = zext i8 %220 to i64
-  %222 = icmp ult i64 %219, %221
+  %222 = icmp samesign ult i64 %219, %221
   br i1 %222, label %.split, label %.thread121, !llvm.loop !77
 
 .thread121:                                       ; preds = %216, %188, %158
@@ -4021,7 +4021,7 @@ select.unfold:                                    ; preds = %279, %275
   %618 = trunc i32 %617 to i16
   %619 = and i32 %613, 65535
   %620 = and i32 %617, 65535
-  %621 = icmp ugt i32 %620, %619
+  %621 = icmp samesign ugt i32 %620, %619
   br i1 %621, label %623, label %622, !prof !29
 
 622:                                              ; preds = %605
@@ -4079,7 +4079,7 @@ select.unfold:                                    ; preds = %279, %275
   %656 = trunc i32 %655 to i16
   %657 = and i32 %652, 65535
   %658 = and i32 %655, 65535
-  %659 = icmp ugt i32 %658, %657
+  %659 = icmp samesign ugt i32 %658, %657
   br i1 %659, label %661, label %660, !prof !29
 
 660:                                              ; preds = %644
@@ -4387,7 +4387,7 @@ mbus_ddb_offset.exit:                             ; preds = %628, %661, %664
   %873 = add nuw nsw i64 %878, 1
   %874 = load i8, ptr %861, align 8
   %875 = zext i8 %874 to i64
-  %876 = icmp ult i64 %873, %875
+  %876 = icmp samesign ult i64 %873, %875
   br i1 %876, label %877, label %.loopexit200, !llvm.loop !105
 
 877:                                              ; preds = %871, %864
@@ -5422,7 +5422,7 @@ mbus_ddb_offset.exit:                             ; preds = %628, %661, %664
 1563:                                             ; preds = %1559
   %1564 = load i8, ptr %1553, align 1
   %1565 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1564), !range !15
-  %1566 = icmp ult i8 %1565, 2
+  %1566 = icmp samesign ult i8 %1565, 2
   br i1 %1566, label %.thread169, label %.thread169.thread
 
 1567:                                             ; preds = %1559
@@ -5437,13 +5437,13 @@ mbus_ddb_offset.exit:                             ; preds = %628, %661, %664
   %1573 = icmp eq i8 %1572, 0
   %1574 = load i8, ptr %1550, align 1
   %1575 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1574), !range !15
-  %1576 = icmp ult i8 %1575, 2
+  %1576 = icmp samesign ult i8 %1575, 2
   br i1 %1576, label %1583, label %._crit_edge
 
 .thread169.thread:                                ; preds = %1563
   %1577 = load i8, ptr %1550, align 1
   %1578 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1577), !range !15
-  %1579 = icmp ult i8 %1578, 2
+  %1579 = icmp samesign ult i8 %1578, 2
   br i1 %1579, label %.thread169.thread._crit_edge, label %._crit_edge.thread
 
 .thread169.thread._crit_edge:                     ; preds = %.thread169.thread
@@ -6844,7 +6844,7 @@ thread-pre-split.thread:                          ; preds = %121, %thread-pre-sp
   %183 = trunc i32 %182 to i16
   %184 = and i32 %179, 65535
   %185 = and i32 %182, 65535
-  %186 = icmp ugt i32 %185, %184
+  %186 = icmp samesign ugt i32 %185, %184
   br i1 %186, label %188, label %187, !prof !29
 
 187:                                              ; preds = %171
@@ -7030,7 +7030,7 @@ mbus_ddb_offset.exit:                             ; preds = %151, %188, %191
 
 305:                                              ; preds = %301, %295, %291
   %306 = add nuw nsw i64 %292, 1
-  %307 = icmp ult i64 %292, 3
+  %307 = icmp samesign ult i64 %292, 3
   %308 = icmp eq i64 %306, 4
   br i1 %308, label %309, label %291, !llvm.loop !33
 
@@ -7206,7 +7206,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
   %62 = add nuw nsw i64 %43, 1
   %63 = load i8, ptr %33, align 8
   %64 = zext i8 %63 to i64
-  %65 = icmp ult i64 %62, %64
+  %65 = icmp samesign ult i64 %62, %64
   br i1 %65, label %.split.us, label %.loopexit, !llvm.loop !77
 
 .split:                                           ; preds = %36, %87
@@ -7247,7 +7247,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
   %90 = add nuw nsw i64 %66, 1
   %91 = load i8, ptr %33, align 8
   %92 = zext i8 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.split, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %87, %59, %30

@@ -131,7 +131,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readn
   %48 = phi i32 [ %39, %.lr.ph.i ], [ %.pre.i, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %47
@@ -189,7 +189,7 @@ cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
   %70 = phi i32 [ %61, %.lr.ph.i269 ], [ %.pre.i272, %65 ]
   %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i270, 1
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next.i273, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next.i273, %71
   br i1 %72, label %.lr.ph.i269, label %._crit_edge.loopexit.i274
 
 ._crit_edge.loopexit.i274:                        ; preds = %69
@@ -269,7 +269,7 @@ cli_bcomp_freemeta.exit277:                       ; preds = %56, %._crit_edge.i2
   %103 = phi i32 [ %94, %.lr.ph.i282 ], [ %.pre.i285, %98 ]
   %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i283, 1
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next.i286, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next.i286, %104
   br i1 %105, label %.lr.ph.i282, label %._crit_edge.loopexit.i287
 
 ._crit_edge.loopexit.i287:                        ; preds = %102
@@ -737,7 +737,7 @@ cli_bcomp_freemeta.exit290:                       ; preds = %89, %._crit_edge.i2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %314 = load i32, ptr %278, align 8
   %315 = zext i32 %314 to i64
-  %316 = icmp ult i64 %indvars.iv.next, %315
+  %316 = icmp samesign ult i64 %indvars.iv.next, %315
   br i1 %316, label %284, label %._crit_edge303
 
 ._crit_edge303:                                   ; preds = %308, %.preheader
@@ -825,7 +825,7 @@ define void @cli_bcomp_freemeta(ptr noundef readonly %0, ptr noundef %1) local_u
   %21 = phi i32 [ %12, %11 ], [ %.pre, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %11, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %20
@@ -1014,7 +1014,7 @@ define i32 @cli_bcomp_scanbuf(ptr noundef %0, i64 noundef %1, ptr noundef %2, pt
   %82 = add nuw nsw i64 %.04766, 1
   %83 = load i32, ptr %11, align 8
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %82, %84
+  %85 = icmp samesign ult i64 %82, %84
   br i1 %85, label %24, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %56, %6, %10, %13, %18

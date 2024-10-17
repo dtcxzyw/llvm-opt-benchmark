@@ -82,7 +82,7 @@ define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, 
   %.215.i = phi i32 [ %16, %15 ], [ %.013.i, %22 ], [ %.013.i, %23 ], [ %.013.i, %24 ], [ %.013.i, %17 ], [ %.013.i, %21 ], [ %.013.i, %.fold.split.i ]
   %.2.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %spec.select25.i, %17 ], [ %.012.i, %21 ], [ %.012.i, %.fold.split.i ]
   %26 = add nuw nsw i64 %.0.i, 2
-  %27 = icmp ugt i64 %.0.i, 1073741821
+  %27 = icmp samesign ugt i64 %.0.i, 1073741821
   br i1 %27, label %detect_camins_file.exit, label %9, !llvm.loop !4
 
 28:                                               ; preds = %9

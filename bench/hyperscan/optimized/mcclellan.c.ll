@@ -1439,7 +1439,7 @@ for.end.i1272:                                    ; preds = %for.body.i1289
   %26 = zext i16 %25 to i32
   %not.i1276 = xor i32 %26, -1
   %27 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1276, i1 true)
-  %cmp39.i1280 = icmp ult i32 %27, 16
+  %cmp39.i1280 = icmp samesign ult i32 %27, 16
   br i1 %cmp39.i1280, label %if.end124.i1213.thread, label %if.end42.i1281
 
 if.end42.i1281:                                   ; preds = %for.end.i1272
@@ -1650,7 +1650,7 @@ while.body.i967:                                  ; preds = %while.cond.i964
   %idxprom.i969 = zext i8 %52 to i64
   %arrayidx.i970 = getelementptr inbounds [256 x i8], ptr %remap.i651, i64 0, i64 %idxprom.i969
   %53 = load i8, ptr %arrayidx.i970, align 1
-  %cmp5.i971 = icmp ult i32 %s.addr.i944.0, %conv.i956
+  %cmp5.i971 = icmp samesign ult i32 %s.addr.i944.0, %conv.i956
   br i1 %cmp5.i971, label %if.then.i991, label %if.else.i972
 
 if.then.i991:                                     ; preds = %while.body.i967
@@ -1907,7 +1907,7 @@ for.end.i1091:                                    ; preds = %for.body.i1096
   %88 = zext i16 %87 to i32
   %not.i = xor i32 %88, -1
   %89 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i, i1 true)
-  %cmp39.i = icmp ult i32 %89, 16
+  %cmp39.i = icmp samesign ult i32 %89, 16
   br i1 %cmp39.i, label %if.end124.i.thread, label %if.end42.i1094
 
 if.end42.i1094:                                   ; preds = %for.end.i1091
@@ -2118,7 +2118,7 @@ while.body.i907:                                  ; preds = %while.cond.i904
   %idxprom.i909 = zext i8 %114 to i64
   %arrayidx.i910 = getelementptr inbounds [256 x i8], ptr %remap.i733, i64 0, i64 %idxprom.i909
   %115 = load i8, ptr %arrayidx.i910, align 1
-  %cmp5.i911 = icmp ult i32 %s.addr.i884.0, %conv.i896
+  %cmp5.i911 = icmp samesign ult i32 %s.addr.i884.0, %conv.i896
   br i1 %cmp5.i911, label %if.then.i931, label %if.else.i912
 
 if.then.i931:                                     ; preds = %while.body.i907
@@ -2198,7 +2198,7 @@ land.lhs.true91.i:                                ; preds = %if.end.i915, %if.en
   %offset.i152.14 = phi i16 [ %offset.i152.13, %if.end34.i750.doNormalWide16.exit776_crit_edge ], [ %offset.i152.8, %if.end.i915 ]
   %c.i.4 = phi ptr [ %incdec.ptr.i751, %if.end34.i750.doNormalWide16.exit776_crit_edge ], [ %incdec.ptr.i916, %if.end.i915 ]
   %s.i151.5 = phi i32 [ %.pre1812, %if.end34.i750.doNormalWide16.exit776_crit_edge ], [ %s.addr.i884.2, %if.end.i915 ]
-  %tobool93.i.not = icmp ult i32 %s.i151.5, 32768
+  %tobool93.i.not = icmp samesign ult i32 %s.i151.5, 32768
   br i1 %tobool93.i.not, label %if.end128.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %land.lhs.true91.i
@@ -2238,7 +2238,7 @@ land.lhs.true.i31:                                ; preds = %if.end.i19
   %wide_limit.i32 = getelementptr inbounds i8, ptr %n, i64 94
   %128 = load i16, ptr %wide_limit.i32, align 2
   %conv7.i33 = zext i16 %128 to i32
-  %cmp8.i34.not = icmp ult i32 %s.i11.0, %conv7.i33
+  %cmp8.i34.not = icmp samesign ult i32 %s.i11.0, %conv7.i33
   br i1 %cmp8.i34.not, label %if.end11.i23, label %return
 
 if.end11.i23:                                     ; preds = %land.lhs.true.i31, %if.end.i19
@@ -2427,7 +2427,7 @@ for.end.i1672:                                    ; preds = %for.body.i1689
   %156 = zext i16 %155 to i32
   %not.i1676 = xor i32 %156, -1
   %157 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1676, i1 true)
-  %cmp39.i1680 = icmp ult i32 %157, 16
+  %cmp39.i1680 = icmp samesign ult i32 %157, 16
   br i1 %cmp39.i1680, label %if.end124.i1613.thread, label %if.end42.i1681
 
 if.end42.i1681:                                   ; preds = %for.end.i1672
@@ -2638,7 +2638,7 @@ while.body.i847:                                  ; preds = %while.cond.i844
   %idxprom.i849 = zext i8 %182 to i64
   %arrayidx.i850 = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i849
   %183 = load i8, ptr %arrayidx.i850, align 1
-  %cmp5.i851 = icmp ult i32 %s.addr.i824.0, %conv.i836
+  %cmp5.i851 = icmp samesign ult i32 %s.addr.i824.0, %conv.i836
   br i1 %cmp5.i851, label %if.then.i871, label %if.else.i852
 
 if.then.i871:                                     ; preds = %while.body.i847
@@ -2945,7 +2945,7 @@ for.end.i1472:                                    ; preds = %for.body.i1489
   %222 = zext i16 %221 to i32
   %not.i1476 = xor i32 %222, -1
   %223 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1476, i1 true)
-  %cmp39.i1480 = icmp ult i32 %223, 16
+  %cmp39.i1480 = icmp samesign ult i32 %223, 16
   br i1 %cmp39.i1480, label %if.end124.i1413.thread, label %if.end42.i1481
 
 if.end42.i1481:                                   ; preds = %for.end.i1472
@@ -3156,7 +3156,7 @@ while.body.i803:                                  ; preds = %while.cond.i800
   %idxprom.i805 = zext i8 %248 to i64
   %arrayidx.i806 = getelementptr inbounds [256 x i8], ptr %remap.i569, i64 0, i64 %idxprom.i805
   %249 = load i8, ptr %arrayidx.i806, align 1
-  %cmp5.i807 = icmp ult i32 %s.addr.i780.0, %conv.i792
+  %cmp5.i807 = icmp samesign ult i32 %s.addr.i780.0, %conv.i792
   br i1 %cmp5.i807, label %if.then.i816, label %if.else.i808
 
 if.then.i816:                                     ; preds = %while.body.i803
@@ -3236,7 +3236,7 @@ land.lhs.true91.i288:                             ; preds = %if.end.i810, %if.en
   %offset.i219.14 = phi i16 [ %offset.i219.13, %if.end34.i586.doNormalWide16.exit612_crit_edge ], [ %offset.i219.8, %if.end.i810 ]
   %c.i220.4 = phi ptr [ %incdec.ptr.i587, %if.end34.i586.doNormalWide16.exit612_crit_edge ], [ %incdec.ptr.i811, %if.end.i810 ]
   %s.i218.5 = phi i32 [ %.pre1807, %if.end34.i586.doNormalWide16.exit612_crit_edge ], [ %s.addr.i780.2, %if.end.i810 ]
-  %tobool93.i290.not = icmp ult i32 %s.i218.5, 32768
+  %tobool93.i290.not = icmp samesign ult i32 %s.i218.5, 32768
   br i1 %tobool93.i290.not, label %if.end128.i285, label %if.end100.i293
 
 if.end100.i293:                                   ; preds = %land.lhs.true91.i288
@@ -3323,7 +3323,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %wide_limit.i = getelementptr inbounds i8, ptr %n, i64 94
   %266 = load i16, ptr %wide_limit.i, align 2
   %conv7.i = zext i16 %266 to i32
-  %cmp8.i.not = icmp ult i32 %s.i.0, %conv7.i
+  %cmp8.i.not = icmp samesign ult i32 %s.i.0, %conv7.i
   br i1 %cmp8.i.not, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %land.lhs.true.i, %if.end.i
@@ -3698,7 +3698,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %51 = zext i16 %50 to i32
   %not.i456.i = xor i32 %51, -1
   %52 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %52, 16
+  %cmp39.i460.i = icmp samesign ult i32 %52, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -3921,7 +3921,7 @@ while.body.i188.i:                                ; preds = %while.cond.i185.i
   %idxprom.i190.i = zext i8 %77 to i64
   %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %78 = load i8, ptr %arrayidx.i191.i, align 1
-  %cmp5.i192.i = icmp ult i32 %s.addr.i165.0.i, %conv.i177.i
+  %cmp5.i192.i = icmp samesign ult i32 %s.addr.i165.0.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
 
 if.then.i212.i:                                   ; preds = %while.body.i188.i
@@ -4239,7 +4239,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %119 = zext i16 %118 to i32
   %not.i.i = xor i32 %119, -1
   %120 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %120, 16
+  %cmp39.i.i = icmp samesign ult i32 %120, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -4462,7 +4462,7 @@ while.body.i145.i:                                ; preds = %while.cond.i142.i
   %idxprom.i147.i = zext i8 %145 to i64
   %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %146 = load i8, ptr %arrayidx.i148.i, align 1
-  %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
+  %cmp5.i.i = icmp samesign ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
 
 if.then.i157.i:                                   ; preds = %while.body.i145.i
@@ -4542,7 +4542,7 @@ land.lhs.true91.i.i:                              ; preds = %if.end.i151.i, %if.
   %offset.i.14.i = phi i16 [ %offset.i.13.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %offset.i.8.i, %if.end.i151.i ]
   %c.i.4.i = phi ptr [ %incdec.ptr.i96.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %incdec.ptr.i152.i, %if.end.i151.i ]
   %s.i.5.i = phi i32 [ %.pre137.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %s.addr.i124.2.i, %if.end.i151.i ]
-  %tobool93.i.not.i = icmp ult i32 %s.i.5.i, 32768
+  %tobool93.i.not.i = icmp samesign ult i32 %s.i.5.i, 32768
   br i1 %tobool93.i.not.i, label %if.end128.i.i, label %if.end100.i.i
 
 if.end100.i.i:                                    ; preds = %land.lhs.true91.i.i
@@ -5806,7 +5806,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %51 = zext i16 %50 to i32
   %not.i456.i = xor i32 %51, -1
   %52 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %52, 16
+  %cmp39.i460.i = icmp samesign ult i32 %52, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -6025,7 +6025,7 @@ while.body.i188.i:                                ; preds = %while.cond.i185.i
   %idxprom.i190.i = zext i8 %77 to i64
   %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %78 = load i8, ptr %arrayidx.i191.i, align 1
-  %cmp5.i192.i = icmp ult i32 %s.addr.i165.0.i, %conv.i177.i
+  %cmp5.i192.i = icmp samesign ult i32 %s.addr.i165.0.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
 
 if.then.i212.i:                                   ; preds = %while.body.i188.i
@@ -6263,7 +6263,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %113 = zext i16 %112 to i32
   %not.i.i = xor i32 %113, -1
   %114 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %114, 16
+  %cmp39.i.i = icmp samesign ult i32 %114, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -6486,7 +6486,7 @@ while.body.i145.i:                                ; preds = %while.cond.i142.i
   %idxprom.i147.i = zext i8 %139 to i64
   %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %140 = load i8, ptr %arrayidx.i148.i, align 1
-  %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
+  %cmp5.i.i = icmp samesign ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
 
 if.then.i157.i:                                   ; preds = %while.body.i145.i
@@ -6566,7 +6566,7 @@ land.lhs.true91.i.i:                              ; preds = %if.end.i151.i, %if.
   %offset.i.14.i = phi i16 [ %offset.i.13.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %offset.i.8.i, %if.end.i151.i ]
   %c.i.4.i = phi ptr [ %incdec.ptr.i96.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %incdec.ptr.i152.i, %if.end.i151.i ]
   %s.i.5.i = phi i32 [ %.pre78.i, %if.end34.i95.doNormalWide16.exit120_crit_edge.i ], [ %s.addr.i124.2.i, %if.end.i151.i ]
-  %tobool93.i.not.i = icmp ult i32 %s.i.5.i, 32768
+  %tobool93.i.not.i = icmp samesign ult i32 %s.i.5.i, 32768
   br i1 %tobool93.i.not.i, label %if.end128.i.i, label %if.then97.i.i
 
 if.then97.i.i:                                    ; preds = %land.lhs.true91.i.i
@@ -7402,7 +7402,7 @@ for.end.i452.i:                                   ; preds = %for.body.i469.i
   %49 = zext i16 %48 to i32
   %not.i456.i = xor i32 %49, -1
   %50 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i456.i, i1 true)
-  %cmp39.i460.i = icmp ult i32 %50, 16
+  %cmp39.i460.i = icmp samesign ult i32 %50, 16
   br i1 %cmp39.i460.i, label %normal.i391.i, label %if.end42.i461.i
 
 if.end42.i461.i:                                  ; preds = %for.end.i452.i
@@ -7622,7 +7622,7 @@ while.body.i188.i:                                ; preds = %if.else.i.i, %if.en
   %idxprom.i190.i = zext i8 %76 to i64
   %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %77 = load i8, ptr %arrayidx.i191.i, align 1
-  %cmp5.i192.i = icmp ult i32 %s.addr.i165.048.i, %conv.i177.i
+  %cmp5.i192.i = icmp samesign ult i32 %s.addr.i165.048.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
 
 if.then.i212.i:                                   ; preds = %while.body.i188.i
@@ -7863,7 +7863,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %114 = zext i16 %113 to i32
   %not.i.i = xor i32 %114, -1
   %115 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i.i, i1 true)
-  %cmp39.i.i = icmp ult i32 %115, 16
+  %cmp39.i.i = icmp samesign ult i32 %115, 16
   br i1 %cmp39.i.i, label %normal.i.i, label %if.end42.i277.i
 
 if.end42.i277.i:                                  ; preds = %for.end.i.i
@@ -8087,7 +8087,7 @@ while.body.i145.i:                                ; preds = %while.cond.i142.i
   %idxprom.i147.i = zext i8 %141 to i64
   %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %142 = load i8, ptr %arrayidx.i148.i, align 1
-  %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
+  %cmp5.i.i = icmp samesign ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
 
 if.then.i157.i:                                   ; preds = %while.body.i145.i
@@ -9070,7 +9070,7 @@ for.end.i1502:                                    ; preds = %for.body.i1519
   %29 = zext i16 %28 to i32
   %not.i1506 = xor i32 %29, -1
   %30 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1506, i1 true)
-  %cmp39.i1510 = icmp ult i32 %30, 16
+  %cmp39.i1510 = icmp samesign ult i32 %30, 16
   br i1 %cmp39.i1510, label %normal.i1441, label %if.end42.i1511
 
 if.end42.i1511:                                   ; preds = %for.end.i1502
@@ -9293,7 +9293,7 @@ while.body.i690:                                  ; preds = %while.cond.i687
   %idxprom.i692 = zext i8 %55 to i64
   %arrayidx.i693 = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i692
   %56 = load i8, ptr %arrayidx.i693, align 1
-  %cmp5.i694 = icmp ult i32 %s.addr.i667.0, %conv.i679
+  %cmp5.i694 = icmp samesign ult i32 %s.addr.i667.0, %conv.i679
   br i1 %cmp5.i694, label %if.then.i714, label %if.else.i695
 
 if.then.i714:                                     ; preds = %while.body.i690
@@ -9560,7 +9560,7 @@ for.end.i1302:                                    ; preds = %for.body.i1319
   %92 = zext i16 %91 to i32
   %not.i1306 = xor i32 %92, -1
   %93 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1306, i1 true)
-  %cmp39.i1310 = icmp ult i32 %93, 16
+  %cmp39.i1310 = icmp samesign ult i32 %93, 16
   br i1 %cmp39.i1310, label %normal.i1241, label %if.end42.i1311
 
 if.end42.i1311:                                   ; preds = %for.end.i1302
@@ -9783,7 +9783,7 @@ while.body.i647:                                  ; preds = %while.cond.i644
   %idxprom.i649 = zext i8 %118 to i64
   %arrayidx.i650 = getelementptr inbounds [256 x i8], ptr %remap.i416, i64 0, i64 %idxprom.i649
   %119 = load i8, ptr %arrayidx.i650, align 1
-  %cmp5.i = icmp ult i32 %s.addr.i626.0, %conv.i638
+  %cmp5.i = icmp samesign ult i32 %s.addr.i626.0, %conv.i638
   br i1 %cmp5.i, label %if.then.i659, label %if.else.i651
 
 if.then.i659:                                     ; preds = %while.body.i647
@@ -9863,7 +9863,7 @@ land.lhs.true91.i140:                             ; preds = %if.end.i653, %if.en
   %offset.i71.14 = phi i16 [ %offset.i71.13, %if.end34.i433.doNormalWide16.exit459_crit_edge ], [ %offset.i71.8, %if.end.i653 ]
   %c.i72.4 = phi ptr [ %incdec.ptr.i434, %if.end34.i433.doNormalWide16.exit459_crit_edge ], [ %incdec.ptr.i654, %if.end.i653 ]
   %s.i70.5 = phi i32 [ %.pre1698, %if.end34.i433.doNormalWide16.exit459_crit_edge ], [ %s.addr.i626.2, %if.end.i653 ]
-  %tobool93.i142.not = icmp ult i32 %s.i70.5, 32768
+  %tobool93.i142.not = icmp samesign ult i32 %s.i70.5, 32768
   br i1 %tobool93.i142.not, label %if.end128.i137, label %if.then109.i209
 
 if.then109.i209:                                  ; preds = %land.lhs.true91.i140
@@ -10049,7 +10049,7 @@ for.end.i1102:                                    ; preds = %for.body.i1119
   %155 = zext i16 %154 to i32
   %not.i1106 = xor i32 %155, -1
   %156 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i1106, i1 true)
-  %cmp39.i1110 = icmp ult i32 %156, 16
+  %cmp39.i1110 = icmp samesign ult i32 %156, 16
   br i1 %cmp39.i1110, label %normal.i1041, label %if.end42.i1111
 
 if.end42.i1111:                                   ; preds = %for.end.i1102
@@ -10272,7 +10272,7 @@ while.body.i810:                                  ; preds = %while.cond.i807
   %idxprom.i812 = zext i8 %181 to i64
   %arrayidx.i813 = getelementptr inbounds [256 x i8], ptr %remap.i498, i64 0, i64 %idxprom.i812
   %182 = load i8, ptr %arrayidx.i813, align 1
-  %cmp5.i814 = icmp ult i32 %s.addr.i787.0, %conv.i799
+  %cmp5.i814 = icmp samesign ult i32 %s.addr.i787.0, %conv.i799
   br i1 %cmp5.i814, label %if.then.i834, label %if.else.i815
 
 if.then.i834:                                     ; preds = %while.body.i810
@@ -10589,7 +10589,7 @@ for.end.i:                                        ; preds = %for.body.i
   %222 = zext i16 %221 to i32
   %not.i = xor i32 %222, -1
   %223 = tail call range(i32 0, 17) i32 @llvm.cttz.i32(i32 %not.i, i1 true)
-  %cmp39.i = icmp ult i32 %223, 16
+  %cmp39.i = icmp samesign ult i32 %223, 16
   br i1 %cmp39.i, label %normal.i, label %if.end42.i927
 
 if.end42.i927:                                    ; preds = %for.end.i
@@ -10812,7 +10812,7 @@ while.body.i750:                                  ; preds = %while.cond.i747
   %idxprom.i752 = zext i8 %248 to i64
   %arrayidx.i753 = getelementptr inbounds [256 x i8], ptr %remap.i580, i64 0, i64 %idxprom.i752
   %249 = load i8, ptr %arrayidx.i753, align 1
-  %cmp5.i754 = icmp ult i32 %s.addr.i727.0, %conv.i739
+  %cmp5.i754 = icmp samesign ult i32 %s.addr.i727.0, %conv.i739
   br i1 %cmp5.i754, label %if.then.i774, label %if.else.i755
 
 if.then.i774:                                     ; preds = %while.body.i750
@@ -10892,7 +10892,7 @@ land.lhs.true91.i:                                ; preds = %if.end.i758, %if.en
   %offset.i.14 = phi i16 [ %offset.i.13, %if.end34.i597.doNormalWide16.exit622_crit_edge ], [ %offset.i.8, %if.end.i758 ]
   %c.i.4 = phi ptr [ %incdec.ptr.i598, %if.end34.i597.doNormalWide16.exit622_crit_edge ], [ %incdec.ptr.i759, %if.end.i758 ]
   %s.i.5 = phi i32 [ %.pre1693, %if.end34.i597.doNormalWide16.exit622_crit_edge ], [ %s.addr.i727.2, %if.end.i758 ]
-  %tobool93.i.not = icmp ult i32 %s.i.5, 32768
+  %tobool93.i.not = icmp samesign ult i32 %s.i.5, 32768
   br i1 %tobool93.i.not, label %if.end128.i, label %if.end100.i
 
 if.end100.i:                                      ; preds = %land.lhs.true91.i

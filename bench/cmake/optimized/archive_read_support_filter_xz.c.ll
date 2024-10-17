@@ -325,7 +325,7 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
 
 47:                                               ; preds = %38
   %48 = shl nuw nsw i32 1, %45
-  %49 = icmp ugt i32 %45, 12
+  %49 = icmp samesign ugt i32 %45, 12
   %50 = lshr i32 %48, 4
   %51 = lshr i32 %44, 5
   %52 = mul nuw nsw i32 %50, %51

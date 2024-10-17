@@ -2394,7 +2394,7 @@ _ZN3std2fs11OpenOptions4open17h7aae762681e1e4fdE.exit: ; preds = %20
 
 86:                                               ; preds = %85
   %87 = load i8, ptr %4, align 1, !range !20, !noundef !5
-  %switch40.not = icmp ult i8 %87, 2
+  %switch40.not = icmp samesign ult i8 %87, 2
   br i1 %switch40.not, label %.critedge, label %92
 
 .critedge:                                        ; preds = %86, %85

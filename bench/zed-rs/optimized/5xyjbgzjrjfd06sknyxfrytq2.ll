@@ -32933,7 +32933,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit141.i: ; preds = %309
   %410 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %411 = icmp ult i64 %410, 6
   call void @llvm.assume(i1 %411)
-  %switch.i34 = icmp ugt i64 %410, 1
+  %switch.i34 = icmp samesign ugt i64 %410, 1
   br i1 %switch.i34, label %412, label %399
 
 412:                                              ; preds = %.thread71
@@ -35005,7 +35005,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   br i1 %546, label %.thread.i.i.i.i, label %547
 
 547:                                              ; preds = %543
-  %switch.i.i.i.i.i.i = icmp ult i8 %545, 3
+  %switch.i.i.i.i.i.i = icmp samesign ult i8 %545, 3
   %548 = getelementptr inbounds i8, ptr %45, i64 16
   %549 = load i8, ptr %548, align 8, !range !9304, !alias.scope !9300, !noalias !9303, !noundef !9
   %550 = icmp eq i8 %549, 6
@@ -35014,14 +35014,14 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
 .thread.i.i.i.i:                                  ; preds = %543
   %551 = getelementptr inbounds i8, ptr %45, i64 16
   %552 = load i8, ptr %551, align 8, !range !9304, !alias.scope !9300, !noalias !9303, !noundef !9
-  %switch.i.i3453.i.i.i.i = icmp ult i8 %552, 3
+  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %552, 3
   br i1 %switch.i.i3453.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %547
   br i1 %switch.i.i.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
 553:                                              ; preds = %547
-  %switch.i.i34.i.i.i.i = icmp ult i8 %549, 3
+  %switch.i.i34.i.i.i.i = icmp samesign ult i8 %549, 3
   %554 = xor i1 %switch.i.i.i.i.i.i, %switch.i.i34.i.i.i.i
   br i1 %554, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
@@ -43234,15 +43234,15 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %129, label %.loopexit.i.i, label %181
 
 181:                                              ; preds = %179
-  %182 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %182 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %182, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %183
 
 183:                                              ; preds = %181
-  %184 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %184 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %184, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i", label %185
 
 185:                                              ; preds = %183
-  %186 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %186 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %186, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i"
 
@@ -43404,7 +43404,7 @@ common.resume:                                    ; preds = %240, %"_ZN63_$LT$al
   br label %common.resume
 
 243:                                              ; preds = %234
-  %244 = icmp ult i64 %.sroa.013.0.i.i, 123
+  %244 = icmp samesign ult i64 %.sroa.013.0.i.i, 123
   call void @llvm.assume(i1 %244)
   store i64 2, ptr %0, align 8
   br label %272

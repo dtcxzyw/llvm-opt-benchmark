@@ -478,7 +478,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and82 = and i32 %28, 61440
   %cmp83 = icmp eq i32 %and82, 40960
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp79 = icmp ult i64 %indvars.iv.next, %27
+  %cmp79 = icmp samesign ult i64 %indvars.iv.next, %27
   %29 = select i1 %cmp83, i1 %cmp79, i1 false
   br i1 %29, label %for.body, label %for.end, !llvm.loop !11
 
@@ -610,7 +610,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   %tobool173.not = icmp eq i32 %call172, 0
   call void @free(ptr noundef %call171) #13
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %cmp157 = icmp ult i64 %indvars.iv.next373, %45
+  %cmp157 = icmp samesign ult i64 %indvars.iv.next373, %45
   %49 = select i1 %tobool173.not, i1 %cmp157, i1 false
   br i1 %49, label %for.body160, label %if.end180.loopexit, !llvm.loop !13
 
@@ -3715,7 +3715,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %20 = load i8, ptr %arrayidx48, align 8
   %cmp50.not = icmp eq i8 %20, 65
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %cmp43 = icmp ult i64 %indvars.iv.next93, %19
+  %cmp43 = icmp samesign ult i64 %indvars.iv.next93, %19
   %21 = select i1 %cmp50.not, i1 %cmp43, i1 false
   br i1 %21, label %for.body45, label %for.end56, !llvm.loop !83
 

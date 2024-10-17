@@ -989,7 +989,7 @@ Vec_PtrPush.exit132.i.i.i.i:                      ; preds = %387, %Vec_PtrGrow.e
   %412 = getelementptr i8, ptr %410, i64 -8
   store ptr %411, ptr %412, align 8
   %indvars.iv.next20.i.i.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i.i.i, 1
-  %413 = icmp ult i64 %indvars.iv.next20.i.i.i.i.i, %397
+  %413 = icmp samesign ult i64 %indvars.iv.next20.i.i.i.i.i, %397
   br i1 %413, label %409, label %Vec_PtrRemove.exit.i.i.i.i, !llvm.loop !15
 
 Vec_PtrRemove.exit.i.i.i.i:                       ; preds = %409, %406

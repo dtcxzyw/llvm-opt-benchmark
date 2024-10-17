@@ -5672,7 +5672,7 @@ _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us:
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   %indvars.iv.next.i58.us = add nuw nsw i64 %indvars.iv.i57.us, 1
-  %149 = icmp ult i64 %indvars.iv.i57.us, 2
+  %149 = icmp samesign ult i64 %indvars.iv.i57.us, 2
   %150 = icmp eq i32 %.057.i.i.i.us.us.i.us, 0
   %151 = and i1 %149, %150
   br i1 %151, label %.preheader.us.i.us, label %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us, !llvm.loop !55
@@ -5737,7 +5737,7 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
   %175 = getelementptr inbounds [3 x double], ptr %168, i64 0, i64 %indvars.iv91.i
   %176 = call fastcc noundef i32 @_ZL14do_cpte_doubleI19StatePullCoordEntryEiP3XDRT_iPdP8_IO_FILE(ptr noundef %0, i32 noundef 2, i32 noundef 127, ptr noundef %175, ptr noundef %4)
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
-  %177 = icmp ult i64 %indvars.iv91.i, 2
+  %177 = icmp samesign ult i64 %indvars.iv91.i, 2
   %178 = icmp eq i32 %176, 0
   %179 = and i1 %177, %178
   br i1 %179, label %.preheader.i, label %.loopexit.i, !llvm.loop !57
@@ -5747,7 +5747,7 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
   %180 = getelementptr inbounds [3 x double], ptr %167, i64 0, i64 %indvars.iv88.i
   %181 = call fastcc noundef i32 @_ZL14do_cpte_doubleI19StatePullCoordEntryEiP3XDRT_iPdP8_IO_FILE(ptr noundef %0, i32 noundef 3, i32 noundef 127, ptr noundef %180, ptr noundef %4)
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %182 = icmp ult i64 %indvars.iv88.i, 2
+  %182 = icmp samesign ult i64 %indvars.iv88.i, 2
   %183 = icmp eq i32 %181, 0
   %184 = and i1 %182, %183
   br i1 %184, label %.preheader64.i, label %.loopexit.i, !llvm.loop !58
@@ -5757,7 +5757,7 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
   %185 = getelementptr inbounds [3 x double], ptr %166, i64 0, i64 %indvars.iv85.i
   %186 = call fastcc noundef i32 @_ZL14do_cpte_doubleI19StatePullCoordEntryEiP3XDRT_iPdP8_IO_FILE(ptr noundef %0, i32 noundef 4, i32 noundef 127, ptr noundef %185, ptr noundef %4)
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
-  %187 = icmp ult i64 %indvars.iv85.i, 2
+  %187 = icmp samesign ult i64 %indvars.iv85.i, 2
   %188 = icmp eq i32 %186, 0
   %189 = and i1 %187, %188
   br i1 %189, label %.preheader66.i, label %.loopexit.i, !llvm.loop !59
@@ -5771,7 +5771,7 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
   %192 = getelementptr inbounds [3 x double], ptr %164, i64 0, i64 %indvars.iv.i
   %193 = call fastcc noundef i32 @_ZL14do_cpte_doubleI19StatePullCoordEntryEiP3XDRT_iPdP8_IO_FILE(ptr noundef %0, i32 noundef 6, i32 noundef 127, ptr noundef %192, ptr noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %194 = icmp ult i64 %indvars.iv.i, 2
+  %194 = icmp samesign ult i64 %indvars.iv.i, 2
   %195 = icmp eq i32 %193, 0
   %196 = and i1 %194, %195
   br i1 %196, label %.preheader68.i, label %.loopexit.i, !llvm.loop !60
@@ -8773,7 +8773,7 @@ _ZL10do_cpt_intP3XDRPKcPiP8_IO_FILE.exit63.thread: ; preds = %82, %89, %58
   %104 = call noundef i32 @_Z10xdr_u_charP3XDRPh(ptr noundef %0, ptr noundef nonnull %103)
   %105 = and i32 %104, 1
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
-  %106 = icmp ult i64 %indvars.iv5.i, 15
+  %106 = icmp samesign ult i64 %indvars.iv5.i, 15
   %107 = icmp ne i32 %105, 0
   %108 = and i1 %106, %107
   br i1 %108, label %.lr.ph.split.us.i, label %_ZL14do_cpt_u_charsP3XDRPKciPhP8_IO_FILE.exit, !llvm.loop !84
@@ -8787,7 +8787,7 @@ _ZL10do_cpt_intP3XDRPKcPiP8_IO_FILE.exit63.thread: ; preds = %82, %89, %58
   %113 = zext i8 %112 to i32
   %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.231, i32 noundef %113) #22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %115 = icmp ult i64 %indvars.iv.i, 15
+  %115 = icmp samesign ult i64 %indvars.iv.i, 15
   %116 = icmp ne i32 %111, 0
   %117 = and i1 %115, %116
   br i1 %117, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !84

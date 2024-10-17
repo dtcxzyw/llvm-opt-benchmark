@@ -28646,7 +28646,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8
@@ -28781,7 +28781,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8
@@ -28916,7 +28916,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8
@@ -29051,7 +29051,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8
@@ -29187,7 +29187,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %66
 
 18:                                               ; preds = %9
@@ -29376,7 +29376,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = lshr i64 %15, 1
-  %.not4 = icmp ult i64 %13, %16
+  %.not4 = icmp samesign ult i64 %13, %16
   br i1 %.not4, label %17, label %44
 
 17:                                               ; preds = %8
@@ -29512,7 +29512,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %46
 
 18:                                               ; preds = %9
@@ -53928,9 +53928,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h83be8851d2617a9cE.exit3.i.i.
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17heff102b4de635078E.exit.i.i.i": ; preds = %83
   %92 = load i64, ptr %58, align 8, !range !14489, !alias.scope !16657, !noalias !16662, !noundef !4
-  %narrow63.i.i.i.i.i = icmp ult i64 %92, 4
+  %narrow63.i.i.i.i.i = icmp samesign ult i64 %92, 4
   %93 = load i64, ptr %53, align 8, !range !14489, !alias.scope !16657, !noalias !16662, !noundef !4
-  %narrow.i.i.i.i.i = icmp ult i64 %93, 4
+  %narrow.i.i.i.i.i = icmp samesign ult i64 %93, 4
   %.sroa.7.0.i.i.i.i.i = zext i1 %narrow.i.i.i.i.i to i64
   %94 = select i1 %narrow63.i.i.i.i.i, i64 2, i64 1
   %95 = add nuw nsw i64 %94, %.sroa.7.0.i.i.i.i.i
@@ -55427,9 +55427,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18

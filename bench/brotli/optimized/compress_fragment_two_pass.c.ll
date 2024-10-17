@@ -8886,7 +8886,7 @@ FastLog2.exit:                                    ; preds = %if.end.i23, %if.the
   %retval.i.0 = phi double [ %6, %if.then.i25 ], [ %call.i, %if.end.i23 ]
   %neg8.i = fneg double %conv6.i
   %7 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i.0, double %4)
-  %cmp.i18 = icmp ult i64 %population.addr.i14.1.idx35, 1016
+  %cmp.i18 = icmp samesign ult i64 %population.addr.i14.1.idx35, 1016
   br i1 %cmp.i18, label %while.body.i, label %while.end.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %FastLog2.exit
@@ -9129,7 +9129,7 @@ for.body36:                                       ; preds = %for.body36.preheade
   %30 = load i64, ptr %storage_ix, align 8
   %add.i86 = add i64 %30, %conv49
   store i64 %add.i86, ptr %storage_ix, align 8
-  %cmp51 = icmp ult i32 %and39, 24
+  %cmp51 = icmp samesign ult i32 %and39, 24
   br i1 %cmp51, label %if.then, label %for.inc71
 
 if.then:                                          ; preds = %for.body36

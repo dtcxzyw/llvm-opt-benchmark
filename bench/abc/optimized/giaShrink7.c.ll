@@ -1799,7 +1799,7 @@ Vec_StrStart.exit:                                ; preds = %2, %9
   %24 = getelementptr inbounds i8, ptr %.val18, i64 %23
   store i8 1, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %25 = icmp ult i64 %indvars.iv.next, %18
+  %25 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %25, label %20, label %.preheader, !llvm.loop !16
 
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %57

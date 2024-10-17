@@ -19496,8 +19496,8 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   %52 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef %51) #15
   %53 = add i32 %48, 2
   %54 = icmp eq i16 %49, 0
-  %55 = icmp ugt i32 %.066, %51
-  %or.cond83 = or i1 %54, %55
+  %55 = icmp samesign ugt i32 %.066, %51
+  %or.cond83 = select i1 %54, i1 true, i1 %55
   br i1 %or.cond83, label %115, label %56
 
 56:                                               ; preds = %47
@@ -22833,7 +22833,7 @@ define internal fastcc noundef i32 @dissect_write_mode(ptr noundef %0, ptr nound
   %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #15
   %9 = load i32, ptr @ett_smb_rawmode, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #15
-  %.not33 = icmp ult i32 %3, 128
+  %.not33 = icmp samesign ult i32 %3, 128
   br i1 %.not33, label %15, label %11
 
 11:                                               ; preds = %6
@@ -22954,8 +22954,8 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %8, i64 32
   store i32 -1, ptr %43, align 8
-  %44 = icmp ugt i32 %28, 59
-  %45 = icmp ugt i32 %30, 59
+  %44 = icmp samesign ugt i32 %28, 59
+  %45 = icmp samesign ugt i32 %30, 59
   %or.cond8 = select i1 %44, i1 true, i1 %45
   %46 = icmp ugt i16 %., -16385
   %or.cond11 = select i1 %or.cond8, i1 true, i1 %46
@@ -23207,7 +23207,7 @@ define internal fastcc noundef i32 @dissect_open_flags(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %24, %22
-  %.not31 = icmp ult i32 %3, 8
+  %.not31 = icmp samesign ult i32 %3, 8
   br i1 %.not31, label %33, label %29
 
 29:                                               ; preds = %28

@@ -684,7 +684,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %130 = or <8 x i32> %.sroa.01.0.copyload160, %.sroa.02.0.copyload159
   store <8 x i32> %130, ptr %127, align 32
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, %124
-  %131 = icmp ult i64 %indvars.iv.next195, 4
+  %131 = icmp samesign ult i64 %indvars.iv.next195, 4
   br i1 %131, label %126, label %132, !llvm.loop !17
 
 132:                                              ; preds = %126

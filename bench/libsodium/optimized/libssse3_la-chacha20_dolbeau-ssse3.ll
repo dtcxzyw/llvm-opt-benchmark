@@ -534,7 +534,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %xor.i1143629 = xor <4 x i32> %add.i916, %or.i1289628
   %or.i630 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i1143629, <4 x i32> %xor.i1143629, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add180 = add nuw nsw i32 %i.0644, 2
-  %cmp50 = icmp ult i32 %i.0644, 18
+  %cmp50 = icmp samesign ult i32 %i.0644, 18
   br i1 %cmp50, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
@@ -690,7 +690,7 @@ if.end314:                                        ; preds = %for.end, %entry
   %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %sub, %for.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %add.ptr312, %for.end ]
   %m.addr.0 = phi ptr [ %m, %entry ], [ %add.ptr313, %for.end ]
-  %cmp316658 = icmp ugt i64 %bytes.addr.0, 63
+  %cmp316658 = icmp samesign ugt i64 %bytes.addr.0, 63
   br i1 %cmp316658, label %while.body318.lr.ph, label %while.end423
 
 while.body318.lr.ph:                              ; preds = %if.end314
@@ -758,7 +758,7 @@ for.body342:                                      ; preds = %while.body318, %for
   %permil376 = shufflevector <4 x i32> %add.i844, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %xor.i1059602 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i1062601, <4 x i32> %xor.i1062601, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add381 = add nuw nsw i32 %i330.0657, 2
-  %cmp340 = icmp ult i32 %i330.0657, 18
+  %cmp340 = icmp samesign ult i32 %i330.0657, 18
   br i1 %cmp340, label %for.body342, label %for.end382, !llvm.loop !7
 
 for.end382:                                       ; preds = %for.body342
@@ -867,7 +867,7 @@ for.body448:                                      ; preds = %if.then426, %for.bo
   %permil483 = shufflevector <4 x i32> %add.i808, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %xor.i594 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i1014593, <4 x i32> %xor.i1014593, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add488 = add nuw nsw i32 %i436.0665, 2
-  %cmp446 = icmp ult i32 %i436.0665, 18
+  %cmp446 = icmp samesign ult i32 %i436.0665, 18
   br i1 %cmp446, label %for.body448, label %for.end489, !llvm.loop !9
 
 for.end489:                                       ; preds = %for.body448
@@ -896,7 +896,7 @@ for.body513:                                      ; preds = %for.end489, %for.bo
   store i8 %xor586, ptr %arrayidx521, align 1
   %inc523 = add i32 %i436.1666, 1
   %conv510 = zext i32 %inc523 to i64
-  %cmp511 = icmp ugt i64 %bytes.addr.2.lcssa, %conv510
+  %cmp511 = icmp samesign ugt i64 %bytes.addr.2.lcssa, %conv510
   br i1 %cmp511, label %for.body513, label %for.end524, !llvm.loop !10
 
 for.end524:                                       ; preds = %for.body513

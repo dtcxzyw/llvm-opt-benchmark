@@ -1028,7 +1028,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 
 51:                                               ; preds = %48, %26, %19, %.split.us
   %52 = add nuw nsw i64 %14, 1
-  %53 = icmp uge i64 %52, %13
+  %53 = icmp samesign uge i64 %52, %13
   %54 = icmp eq i64 %52, %13
   br i1 %54, label %.loopexit, label %.split.us, !llvm.loop !36
 
@@ -1058,7 +1058,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 
 67:                                               ; preds = %60, %.split.split.us
   %68 = add nuw nsw i64 %55, 1
-  %69 = icmp uge i64 %68, %13
+  %69 = icmp samesign uge i64 %68, %13
   %70 = icmp eq i64 %68, %13
   br i1 %70, label %.loopexit, label %.split.split.us, !llvm.loop !36
 
@@ -1081,7 +1081,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 
 83:                                               ; preds = %76, %.split.split.us12
   %84 = add nuw nsw i64 %71, 1
-  %85 = icmp uge i64 %84, %13
+  %85 = icmp samesign uge i64 %84, %13
   %86 = icmp eq i64 %84, %13
   br i1 %86, label %.loopexit, label %.split.split.us12, !llvm.loop !36
 
@@ -1115,7 +1115,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 
 100:                                              ; preds = %92, %.split.split
   %101 = add nuw nsw i64 %87, 1
-  %102 = icmp uge i64 %101, %13
+  %102 = icmp samesign uge i64 %101, %13
   %103 = icmp eq i64 %101, %13
   br i1 %103, label %.loopexit, label %.split.split, !llvm.loop !36
 
@@ -1204,7 +1204,7 @@ define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noun
 
 25:                                               ; preds = %21
   %26 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %23), !range !42
-  %27 = icmp ult i32 %26, 2
+  %27 = icmp samesign ult i32 %26, 2
   br label %28
 
 28:                                               ; preds = %25, %21, %17, %10
@@ -7348,7 +7348,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
 98:                                               ; preds = %93, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   %99 = add nuw nsw i32 %18, 1
-  %100 = icmp ult i32 %18, 2
+  %100 = icmp samesign ult i32 %18, 2
   %101 = icmp eq i32 %99, 3
   br i1 %101, label %102, label %16, !llvm.loop !216
 

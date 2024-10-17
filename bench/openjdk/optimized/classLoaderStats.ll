@@ -605,8 +605,8 @@ define hidden void @_ZN23ClassLoaderStatsClosure5printEv(ptr noundef nonnull ali
   %.1.lcssa.i.i = phi i32 [ %.01219.i.i, %.preheader.i.i ], [ %17, %15 ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx20.i.i, 8
   %18 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %19 = icmp ult i64 %.0.idx20.i.i, 2040
-  %or.cond.i.i = and i1 %19, %18
+  %19 = icmp samesign ult i64 %.0.idx20.i.i, 2040
+  %or.cond.i.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EP7oopDesc16ClassLoaderStatsES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE7iterateIS8_EEvPSC_.exit, !llvm.loop !10
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EP7oopDesc16ClassLoaderStatsES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE7iterateIS8_EEvPSC_.exit: ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %1
@@ -678,7 +678,7 @@ _ZN23ClassLoaderStatsClosureC2EP12outputStream.exit: ; preds = %1, %8
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 8
-  %16 = icmp ult i64 %.0.idx11.i.i.i, 2040
+  %16 = icmp samesign ult i64 %.0.idx11.i.i.i, 2040
   br i1 %16, label %.preheader.i, label %_ZN17ResourceHashtableIP7oopDesc16ClassLoaderStatsLj256ELN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit.i, !llvm.loop !12
 
 _ZN17ResourceHashtableIP7oopDesc16ClassLoaderStatsLj256ELN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit.i: ; preds = %._crit_edge.i.i.i

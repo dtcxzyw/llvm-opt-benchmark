@@ -548,7 +548,7 @@ Aig_ObjRepr.exit:                                 ; preds = %46, %47
 
 57:                                               ; preds = %16, %12, %Aig_ObjRepr.exit, %43, %37, %34, %28, %25, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = icmp ult i64 %indvars.iv.next, %11
+  %58 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %58, label %12, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %57, %Vec_IntFill.exit

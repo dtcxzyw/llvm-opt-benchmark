@@ -210,7 +210,7 @@ define internal void @iolatency_pd_init(ptr noundef %0) #2 align 16 {
 51:                                               ; preds = %50, %49
   %52 = add nuw nsw i64 %36, 1
   %53 = and i64 %52, 127
-  %54 = icmp ugt i64 %53, 63
+  %54 = icmp samesign ugt i64 %53, 63
   br i1 %54, label %.thread, label %29, !prof !13, !llvm.loop !14
 
 .thread:                                          ; preds = %29, %51, %35
@@ -449,7 +449,7 @@ define internal void @iolatency_pd_stat(ptr nocapture noundef readonly %0, ptr n
   %43 = phi i64 [ %.pre, %41 ], [ %14, %33 ]
   %44 = add nuw nsw i64 %20, 1
   %45 = and i64 %44, 127
-  %46 = icmp ugt i64 %45, 63
+  %46 = icmp samesign ugt i64 %45, 63
   br i1 %46, label %.thread, label %13, !prof !13, !llvm.loop !20
 
 .thread:                                          ; preds = %13, %42, %19
@@ -1566,7 +1566,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
 61:                                               ; preds = %58
   %62 = load i64, ptr %32, align 8
   %63 = and i64 %62, 2251799813685247
-  %64 = icmp ugt i64 %33, %63
+  %64 = icmp samesign ugt i64 %33, %63
   br i1 %64, label %65, label %102
 
 65:                                               ; preds = %61
@@ -1736,7 +1736,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
 156:                                              ; preds = %155, %154
   %157 = add nuw nsw i64 %132, 1
   %158 = and i64 %157, 127
-  %159 = icmp ugt i64 %158, 63
+  %159 = icmp samesign ugt i64 %158, 63
   br i1 %159, label %.thread, label %125, !prof !13, !llvm.loop !53
 
 .thread:                                          ; preds = %125, %156, %131
@@ -1983,7 +1983,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
 
 318:                                              ; preds = %302
   %319 = shl nuw nsw i64 %310, 1
-  %320 = icmp ult i64 %316, %319
+  %320 = icmp samesign ult i64 %316, %319
   br i1 %320, label %321, label %326
 
 321:                                              ; preds = %318

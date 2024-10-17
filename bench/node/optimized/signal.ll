@@ -1345,11 +1345,11 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   %flags7.i.i = getelementptr inbounds i8, ptr %tmp.013.i, i64 88
   %14 = load i32, ptr %flags7.i.i, align 8
   %and8.i.i = and i32 %14, 33554432
-  %cmp9.i.i = icmp ult i32 %and.i.i, %and8.i.i
+  %cmp9.i.i = icmp samesign ult i32 %and.i.i, %and8.i.i
   br i1 %cmp9.i.i, label %if.end5.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end6.i.i
-  %cmp12.i.i = icmp ugt i32 %and.i.i, %and8.i.i
+  %cmp12.i.i = icmp samesign ugt i32 %and.i.i, %and8.i.i
   br i1 %cmp12.i.i, label %if.end5.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end11.i.i

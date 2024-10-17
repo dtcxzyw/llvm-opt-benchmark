@@ -38895,12 +38895,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -47054,12 +47054,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -55447,12 +55447,12 @@ entry:
   %shr.i.i = and i32 %0, 268427264
   %h.signext.i.i = sext i16 %retval.sroa.0.0.copyload.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -55487,12 +55487,12 @@ _ZNK7openvdb5v11_04math8internal4halfcvfEv.exit:  ; preds = %if.then7.i.i, %if.e
   %shr.i.i5 = and i32 %2, 268427264
   %h.signext.i.i6 = sext i16 %retval.sroa.0.0.copyload.i.i3 to i32
   %shl3.i.i7 = and i32 %h.signext.i.i6, -2147483648
-  %cmp.i.i8 = icmp ugt i32 %shr.i.i5, 8388607
+  %cmp.i.i8 = icmp samesign ugt i32 %shr.i.i5, 8388607
   br i1 %cmp.i.i8, label %if.then.i.i19, label %if.else9.i.i9
 
 if.then.i.i19:                                    ; preds = %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit
   %or.i.i20 = or disjoint i32 %shr.i.i5, %shl3.i.i7
-  %cmp5.i.i21 = icmp ult i32 %shr.i.i5, 260046848
+  %cmp5.i.i21 = icmp samesign ult i32 %shr.i.i5, 260046848
   br i1 %cmp5.i.i21, label %if.then7.i.i24, label %if.else.i.i22
 
 if.then7.i.i24:                                   ; preds = %if.then.i.i19
@@ -55528,12 +55528,12 @@ _ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26: ; preds = %if.then7.i.i24, %i
   %shr.i.i30 = and i32 %4, 268427264
   %h.signext.i.i31 = sext i16 %retval.sroa.0.0.copyload.i.i28 to i32
   %shl3.i.i32 = and i32 %h.signext.i.i31, -2147483648
-  %cmp.i.i33 = icmp ugt i32 %shr.i.i30, 8388607
+  %cmp.i.i33 = icmp samesign ugt i32 %shr.i.i30, 8388607
   br i1 %cmp.i.i33, label %if.then.i.i44, label %if.else9.i.i34
 
 if.then.i.i44:                                    ; preds = %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26
   %or.i.i45 = or disjoint i32 %shr.i.i30, %shl3.i.i32
-  %cmp5.i.i46 = icmp ult i32 %shr.i.i30, 260046848
+  %cmp5.i.i46 = icmp samesign ult i32 %shr.i.i30, 260046848
   br i1 %cmp5.i.i46, label %if.then7.i.i49, label %if.else.i.i47
 
 if.then7.i.i49:                                   ; preds = %if.then.i.i44
@@ -64244,12 +64244,12 @@ entry:
   %shr.i.i = and i32 %0, 268427264
   %h.signext.i.i = sext i16 %retval.sroa.0.0.copyload.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -64286,12 +64286,12 @@ _ZNK7openvdb5v11_04math8internal4halfcvfEv.exit:  ; preds = %if.then7.i.i, %if.e
   %shr.i.i5 = and i32 %3, 268427264
   %h.signext.i.i6 = sext i16 %retval.sroa.0.0.copyload.i.i3 to i32
   %shl3.i.i7 = and i32 %h.signext.i.i6, -2147483648
-  %cmp.i.i8 = icmp ugt i32 %shr.i.i5, 8388607
+  %cmp.i.i8 = icmp samesign ugt i32 %shr.i.i5, 8388607
   br i1 %cmp.i.i8, label %if.then.i.i19, label %if.else9.i.i9
 
 if.then.i.i19:                                    ; preds = %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit
   %or.i.i20 = or disjoint i32 %shr.i.i5, %shl3.i.i7
-  %cmp5.i.i21 = icmp ult i32 %shr.i.i5, 260046848
+  %cmp5.i.i21 = icmp samesign ult i32 %shr.i.i5, 260046848
   br i1 %cmp5.i.i21, label %if.then7.i.i24, label %if.else.i.i22
 
 if.then7.i.i24:                                   ; preds = %if.then.i.i19
@@ -64329,12 +64329,12 @@ _ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26: ; preds = %if.then7.i.i24, %i
   %shr.i.i30 = and i32 %6, 268427264
   %h.signext.i.i31 = sext i16 %retval.sroa.0.0.copyload.i.i28 to i32
   %shl3.i.i32 = and i32 %h.signext.i.i31, -2147483648
-  %cmp.i.i33 = icmp ugt i32 %shr.i.i30, 8388607
+  %cmp.i.i33 = icmp samesign ugt i32 %shr.i.i30, 8388607
   br i1 %cmp.i.i33, label %if.then.i.i44, label %if.else9.i.i34
 
 if.then.i.i44:                                    ; preds = %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26
   %or.i.i45 = or disjoint i32 %shr.i.i30, %shl3.i.i32
-  %cmp5.i.i46 = icmp ult i32 %shr.i.i30, 260046848
+  %cmp5.i.i46 = icmp samesign ult i32 %shr.i.i30, 260046848
   br i1 %cmp5.i.i46, label %if.then7.i.i49, label %if.else.i.i47
 
 if.then7.i.i49:                                   ; preds = %if.then.i.i44
@@ -71886,7 +71886,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -71909,7 +71909,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -71927,7 +71927,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -71952,7 +71952,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i7: ; preds 
   %sub.i.i.i8 = add nsw i32 %2, %1
   %15 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %16 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i9 = icmp ugt i32 %15, %16
+  %cmp3.i.i.i9 = icmp samesign ugt i32 %15, %16
   %..i.i.i10 = select i1 %cmp3.i.i.i9, i32 %sub.i.i, i32 %1
   %div8.i.i.i11 = sdiv i32 %sub.i.i.i8, %..i.i.i10
   %cmp13.i.i.not.i12 = icmp eq i32 %div8.i.i.i11, 0
@@ -71968,7 +71968,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i17: ; pre
   %sub.i3.i.i18 = add nsw i32 %17, %13
   %18 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
-  %cmp3.i7.i.i19 = icmp ugt i32 %18, %19
+  %cmp3.i7.i.i19 = icmp samesign ugt i32 %18, %19
   %..i8.i.i20 = select i1 %cmp3.i7.i.i19, i32 %sub4.i.i, i32 %17
   %div8.i9.i.i21 = sdiv i32 %sub.i3.i.i18, %..i8.i.i20
   %cmp13.i12.i.not.i22 = icmp eq i32 %div8.i9.i.i21, 0
@@ -71984,7 +71984,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = 
   %sub.i14.i.i28 = add nsw i32 %20, %14
   %21 = tail call noundef i32 @llvm.abs.i32(i32 %14, i1 true)
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %20, i1 true)
-  %cmp3.i18.i.i29 = icmp ugt i32 %21, %22
+  %cmp3.i18.i.i29 = icmp samesign ugt i32 %21, %22
   %..i19.i.i30 = select i1 %cmp3.i18.i.i29, i32 %sub7.i.i, i32 %20
   %div8.i20.i.i31 = sdiv i32 %sub.i14.i.i28, %..i19.i.i30
   %cmp13.i23.i.i32 = icmp eq i32 %div8.i20.i.i31, 0
@@ -73855,7 +73855,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -73873,7 +73873,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -73891,7 +73891,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -73927,7 +73927,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i9: ; preds 
   %sub.i.i.i10 = add nsw i32 %18, %15
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %15, i1 true)
   %20 = tail call noundef i32 @llvm.abs.i32(i32 %18, i1 true)
-  %cmp3.i.i.i11 = icmp ugt i32 %19, %20
+  %cmp3.i.i.i11 = icmp samesign ugt i32 %19, %20
   %..i.i.i12 = select i1 %cmp3.i.i.i11, i32 %sub.i.i, i32 %18
   %div8.i.i.i13 = sdiv i32 %sub.i.i.i10, %..i.i.i12
   %cmp13.i.i.not.i14 = icmp eq i32 %div8.i.i.i13, 0
@@ -73943,7 +73943,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i19: ; pre
   %sub.i3.i.i20 = add nsw i32 %21, %16
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %16, i1 true)
   %23 = tail call noundef i32 @llvm.abs.i32(i32 %21, i1 true)
-  %cmp3.i7.i.i21 = icmp ugt i32 %22, %23
+  %cmp3.i7.i.i21 = icmp samesign ugt i32 %22, %23
   %..i8.i.i22 = select i1 %cmp3.i7.i.i21, i32 %sub4.i.i, i32 %21
   %div8.i9.i.i23 = sdiv i32 %sub.i3.i.i20, %..i8.i.i22
   %cmp13.i12.i.not.i24 = icmp eq i32 %div8.i9.i.i23, 0
@@ -73959,7 +73959,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = 
   %sub.i14.i.i30 = add nsw i32 %24, %17
   %25 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
   %26 = tail call noundef i32 @llvm.abs.i32(i32 %24, i1 true)
-  %cmp3.i18.i.i31 = icmp ugt i32 %25, %26
+  %cmp3.i18.i.i31 = icmp samesign ugt i32 %25, %26
   %..i19.i.i32 = select i1 %cmp3.i18.i.i31, i32 %sub7.i.i, i32 %24
   %div8.i20.i.i33 = sdiv i32 %sub.i14.i.i30, %..i19.i.i32
   %cmp13.i23.i.i34 = icmp eq i32 %div8.i20.i.i33, 0
@@ -74806,7 +74806,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -74824,7 +74824,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -74842,7 +74842,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -74878,7 +74878,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i9: ; preds 
   %sub.i.i.i10 = add nsw i32 %18, %15
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %15, i1 true)
   %20 = tail call noundef i32 @llvm.abs.i32(i32 %18, i1 true)
-  %cmp3.i.i.i11 = icmp ugt i32 %19, %20
+  %cmp3.i.i.i11 = icmp samesign ugt i32 %19, %20
   %..i.i.i12 = select i1 %cmp3.i.i.i11, i32 %sub.i.i, i32 %18
   %div8.i.i.i13 = sdiv i32 %sub.i.i.i10, %..i.i.i12
   %cmp13.i.i.not.i14 = icmp eq i32 %div8.i.i.i13, 0
@@ -74894,7 +74894,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i19: ; pre
   %sub.i3.i.i20 = add nsw i32 %21, %16
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %16, i1 true)
   %23 = tail call noundef i32 @llvm.abs.i32(i32 %21, i1 true)
-  %cmp3.i7.i.i21 = icmp ugt i32 %22, %23
+  %cmp3.i7.i.i21 = icmp samesign ugt i32 %22, %23
   %..i8.i.i22 = select i1 %cmp3.i7.i.i21, i32 %sub4.i.i, i32 %21
   %div8.i9.i.i23 = sdiv i32 %sub.i3.i.i20, %..i8.i.i22
   %cmp13.i12.i.not.i24 = icmp eq i32 %div8.i9.i.i23, 0
@@ -74910,7 +74910,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = 
   %sub.i14.i.i30 = add nsw i32 %24, %17
   %25 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
   %26 = tail call noundef i32 @llvm.abs.i32(i32 %24, i1 true)
-  %cmp3.i18.i.i31 = icmp ugt i32 %25, %26
+  %cmp3.i18.i.i31 = icmp samesign ugt i32 %25, %26
   %..i19.i.i32 = select i1 %cmp3.i18.i.i31, i32 %sub7.i.i, i32 %24
   %div8.i20.i.i33 = sdiv i32 %sub.i14.i.i30, %..i19.i.i32
   %cmp13.i23.i.i34 = icmp eq i32 %div8.i20.i.i33, 0
@@ -75755,7 +75755,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %7, %8
+  %cmp3.i.i.i = icmp samesign ugt i32 %7, %8
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %6, i32 %5
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -75773,7 +75773,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %11, %12
+  %cmp3.i7.i.i = icmp samesign ugt i32 %11, %12
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %10, i32 %9
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -75791,7 +75791,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %13, %14
   %15 = tail call noundef i32 @llvm.abs.i32(i32 %14, i1 true)
   %16 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %15, %16
+  %cmp3.i18.i.i = icmp samesign ugt i32 %15, %16
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %14, i32 %13
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -75871,7 +75871,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i20: ; preds
   %sub.i.i.i21 = add nsw i32 %28, %25
   %29 = tail call noundef i32 @llvm.abs.i32(i32 %25, i1 true)
   %30 = tail call noundef i32 @llvm.abs.i32(i32 %28, i1 true)
-  %cmp3.i.i.i22 = icmp ugt i32 %29, %30
+  %cmp3.i.i.i22 = icmp samesign ugt i32 %29, %30
   %..i.i.i23 = select i1 %cmp3.i.i.i22, i32 %sub.i.i, i32 %28
   %div8.i.i.i24 = sdiv i32 %sub.i.i.i21, %..i.i.i23
   %cmp13.i.i.not.i25 = icmp eq i32 %div8.i.i.i24, 0
@@ -75887,7 +75887,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i30: ; pre
   %sub.i3.i.i31 = add nsw i32 %31, %26
   %32 = tail call noundef i32 @llvm.abs.i32(i32 %26, i1 true)
   %33 = tail call noundef i32 @llvm.abs.i32(i32 %31, i1 true)
-  %cmp3.i7.i.i32 = icmp ugt i32 %32, %33
+  %cmp3.i7.i.i32 = icmp samesign ugt i32 %32, %33
   %..i8.i.i33 = select i1 %cmp3.i7.i.i32, i32 %sub4.i.i, i32 %31
   %div8.i9.i.i34 = sdiv i32 %sub.i3.i.i31, %..i8.i.i33
   %cmp13.i12.i.not.i35 = icmp eq i32 %div8.i9.i.i34, 0
@@ -75903,7 +75903,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = 
   %sub.i14.i.i41 = add nsw i32 %34, %27
   %35 = tail call noundef i32 @llvm.abs.i32(i32 %27, i1 true)
   %36 = tail call noundef i32 @llvm.abs.i32(i32 %34, i1 true)
-  %cmp3.i18.i.i42 = icmp ugt i32 %35, %36
+  %cmp3.i18.i.i42 = icmp samesign ugt i32 %35, %36
   %..i19.i.i43 = select i1 %cmp3.i18.i.i42, i32 %sub7.i.i, i32 %34
   %div8.i20.i.i44 = sdiv i32 %sub.i14.i.i41, %..i19.i.i43
   %cmp13.i23.i.i45 = icmp eq i32 %div8.i20.i.i44, 0
@@ -95834,7 +95834,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -95857,7 +95857,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -95875,7 +95875,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -95900,7 +95900,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i7: ; preds 
   %sub.i.i.i8 = add nsw i32 %2, %1
   %15 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %16 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i9 = icmp ugt i32 %15, %16
+  %cmp3.i.i.i9 = icmp samesign ugt i32 %15, %16
   %..i.i.i10 = select i1 %cmp3.i.i.i9, i32 %sub.i.i, i32 %1
   %div8.i.i.i11 = sdiv i32 %sub.i.i.i8, %..i.i.i10
   %cmp13.i.i.not.i12 = icmp eq i32 %div8.i.i.i11, 0
@@ -95916,7 +95916,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i17: ; pre
   %sub.i3.i.i18 = add nsw i32 %17, %13
   %18 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
-  %cmp3.i7.i.i19 = icmp ugt i32 %18, %19
+  %cmp3.i7.i.i19 = icmp samesign ugt i32 %18, %19
   %..i8.i.i20 = select i1 %cmp3.i7.i.i19, i32 %sub4.i.i, i32 %17
   %div8.i9.i.i21 = sdiv i32 %sub.i3.i.i18, %..i8.i.i20
   %cmp13.i12.i.not.i22 = icmp eq i32 %div8.i9.i.i21, 0
@@ -95932,7 +95932,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = 
   %sub.i14.i.i28 = add nsw i32 %20, %14
   %21 = tail call noundef i32 @llvm.abs.i32(i32 %14, i1 true)
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %20, i1 true)
-  %cmp3.i18.i.i29 = icmp ugt i32 %21, %22
+  %cmp3.i18.i.i29 = icmp samesign ugt i32 %21, %22
   %..i19.i.i30 = select i1 %cmp3.i18.i.i29, i32 %sub7.i.i, i32 %20
   %div8.i20.i.i31 = sdiv i32 %sub.i14.i.i28, %..i19.i.i30
   %cmp13.i23.i.i32 = icmp eq i32 %div8.i20.i.i31, 0
@@ -96774,7 +96774,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -96792,7 +96792,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -96810,7 +96810,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -96846,7 +96846,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i9: ; preds 
   %sub.i.i.i10 = add nsw i32 %18, %15
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %15, i1 true)
   %20 = tail call noundef i32 @llvm.abs.i32(i32 %18, i1 true)
-  %cmp3.i.i.i11 = icmp ugt i32 %19, %20
+  %cmp3.i.i.i11 = icmp samesign ugt i32 %19, %20
   %..i.i.i12 = select i1 %cmp3.i.i.i11, i32 %sub.i.i, i32 %18
   %div8.i.i.i13 = sdiv i32 %sub.i.i.i10, %..i.i.i12
   %cmp13.i.i.not.i14 = icmp eq i32 %div8.i.i.i13, 0
@@ -96862,7 +96862,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i19: ; pre
   %sub.i3.i.i20 = add nsw i32 %21, %16
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %16, i1 true)
   %23 = tail call noundef i32 @llvm.abs.i32(i32 %21, i1 true)
-  %cmp3.i7.i.i21 = icmp ugt i32 %22, %23
+  %cmp3.i7.i.i21 = icmp samesign ugt i32 %22, %23
   %..i8.i.i22 = select i1 %cmp3.i7.i.i21, i32 %sub4.i.i, i32 %21
   %div8.i9.i.i23 = sdiv i32 %sub.i3.i.i20, %..i8.i.i22
   %cmp13.i12.i.not.i24 = icmp eq i32 %div8.i9.i.i23, 0
@@ -96878,7 +96878,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = 
   %sub.i14.i.i30 = add nsw i32 %24, %17
   %25 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
   %26 = tail call noundef i32 @llvm.abs.i32(i32 %24, i1 true)
-  %cmp3.i18.i.i31 = icmp ugt i32 %25, %26
+  %cmp3.i18.i.i31 = icmp samesign ugt i32 %25, %26
   %..i19.i.i32 = select i1 %cmp3.i18.i.i31, i32 %sub7.i.i, i32 %24
   %div8.i20.i.i33 = sdiv i32 %sub.i14.i.i30, %..i19.i.i32
   %cmp13.i23.i.i34 = icmp eq i32 %div8.i20.i.i33, 0
@@ -97725,7 +97725,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %1, %2
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %2, i1 true)
   %4 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %3, %4
+  %cmp3.i.i.i = icmp samesign ugt i32 %3, %4
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %2, i32 %1
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -97743,7 +97743,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %7, %8
+  %cmp3.i7.i.i = icmp samesign ugt i32 %7, %8
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %6, i32 %5
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -97761,7 +97761,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %11, %12
+  %cmp3.i18.i.i = icmp samesign ugt i32 %11, %12
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %10, i32 %9
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -97797,7 +97797,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i9: ; preds 
   %sub.i.i.i10 = add nsw i32 %18, %15
   %19 = tail call noundef i32 @llvm.abs.i32(i32 %15, i1 true)
   %20 = tail call noundef i32 @llvm.abs.i32(i32 %18, i1 true)
-  %cmp3.i.i.i11 = icmp ugt i32 %19, %20
+  %cmp3.i.i.i11 = icmp samesign ugt i32 %19, %20
   %..i.i.i12 = select i1 %cmp3.i.i.i11, i32 %sub.i.i, i32 %18
   %div8.i.i.i13 = sdiv i32 %sub.i.i.i10, %..i.i.i12
   %cmp13.i.i.not.i14 = icmp eq i32 %div8.i.i.i13, 0
@@ -97813,7 +97813,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i19: ; pre
   %sub.i3.i.i20 = add nsw i32 %21, %16
   %22 = tail call noundef i32 @llvm.abs.i32(i32 %16, i1 true)
   %23 = tail call noundef i32 @llvm.abs.i32(i32 %21, i1 true)
-  %cmp3.i7.i.i21 = icmp ugt i32 %22, %23
+  %cmp3.i7.i.i21 = icmp samesign ugt i32 %22, %23
   %..i8.i.i22 = select i1 %cmp3.i7.i.i21, i32 %sub4.i.i, i32 %21
   %div8.i9.i.i23 = sdiv i32 %sub.i3.i.i20, %..i8.i.i22
   %cmp13.i12.i.not.i24 = icmp eq i32 %div8.i9.i.i23, 0
@@ -97829,7 +97829,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = 
   %sub.i14.i.i30 = add nsw i32 %24, %17
   %25 = tail call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
   %26 = tail call noundef i32 @llvm.abs.i32(i32 %24, i1 true)
-  %cmp3.i18.i.i31 = icmp ugt i32 %25, %26
+  %cmp3.i18.i.i31 = icmp samesign ugt i32 %25, %26
   %..i19.i.i32 = select i1 %cmp3.i18.i.i31, i32 %sub7.i.i, i32 %24
   %div8.i20.i.i33 = sdiv i32 %sub.i14.i.i30, %..i19.i.i32
   %cmp13.i23.i.i34 = icmp eq i32 %div8.i20.i.i33, 0
@@ -98674,7 +98674,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   %sub.i.i.i = sub nsw i32 %5, %6
   %7 = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = tail call noundef i32 @llvm.abs.i32(i32 %5, i1 true)
-  %cmp3.i.i.i = icmp ugt i32 %7, %8
+  %cmp3.i.i.i = icmp samesign ugt i32 %7, %8
   %..i.i.i = select i1 %cmp3.i.i.i, i32 %6, i32 %5
   %div8.i.i.i = sdiv i32 %sub.i.i.i, %..i.i.i
   %cmp13.i.i.not.i = icmp eq i32 %div8.i.i.i, 0
@@ -98692,7 +98692,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i: ; preds
   %sub.i3.i.i = sub nsw i32 %9, %10
   %11 = tail call noundef i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call noundef i32 @llvm.abs.i32(i32 %9, i1 true)
-  %cmp3.i7.i.i = icmp ugt i32 %11, %12
+  %cmp3.i7.i.i = icmp samesign ugt i32 %11, %12
   %..i8.i.i = select i1 %cmp3.i7.i.i, i32 %10, i32 %9
   %div8.i9.i.i = sdiv i32 %sub.i3.i.i, %..i8.i.i
   %cmp13.i12.i.not.i = icmp eq i32 %div8.i9.i.i, 0
@@ -98710,7 +98710,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit: ; preds = %l
   %sub.i14.i.i = sub nsw i32 %13, %14
   %15 = tail call noundef i32 @llvm.abs.i32(i32 %14, i1 true)
   %16 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
-  %cmp3.i18.i.i = icmp ugt i32 %15, %16
+  %cmp3.i18.i.i = icmp samesign ugt i32 %15, %16
   %..i19.i.i = select i1 %cmp3.i18.i.i, i32 %14, i32 %13
   %div8.i20.i.i = sdiv i32 %sub.i14.i.i, %..i19.i.i
   %cmp13.i23.i.i = icmp eq i32 %div8.i20.i.i, 0
@@ -98790,7 +98790,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit.i.i20: ; preds
   %sub.i.i.i21 = add nsw i32 %28, %25
   %29 = tail call noundef i32 @llvm.abs.i32(i32 %25, i1 true)
   %30 = tail call noundef i32 @llvm.abs.i32(i32 %28, i1 true)
-  %cmp3.i.i.i22 = icmp ugt i32 %29, %30
+  %cmp3.i.i.i22 = icmp samesign ugt i32 %29, %30
   %..i.i.i23 = select i1 %cmp3.i.i.i22, i32 %sub.i.i, i32 %28
   %div8.i.i.i24 = sdiv i32 %sub.i.i.i21, %..i.i.i23
   %cmp13.i.i.not.i25 = icmp eq i32 %div8.i.i.i24, 0
@@ -98806,7 +98806,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIiEEbRKT_S5_S5_S5_.exit13.i.i30: ; pre
   %sub.i3.i.i31 = add nsw i32 %31, %26
   %32 = tail call noundef i32 @llvm.abs.i32(i32 %26, i1 true)
   %33 = tail call noundef i32 @llvm.abs.i32(i32 %31, i1 true)
-  %cmp3.i7.i.i32 = icmp ugt i32 %32, %33
+  %cmp3.i7.i.i32 = icmp samesign ugt i32 %32, %33
   %..i8.i.i33 = select i1 %cmp3.i7.i.i32, i32 %sub4.i.i, i32 %31
   %div8.i9.i.i34 = sdiv i32 %sub.i3.i.i31, %..i8.i.i33
   %cmp13.i12.i.not.i35 = icmp eq i32 %div8.i9.i.i34, 0
@@ -98822,7 +98822,7 @@ _ZN7openvdb5v11_04math13isApproxEqualIiEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = 
   %sub.i14.i.i41 = add nsw i32 %34, %27
   %35 = tail call noundef i32 @llvm.abs.i32(i32 %27, i1 true)
   %36 = tail call noundef i32 @llvm.abs.i32(i32 %34, i1 true)
-  %cmp3.i18.i.i42 = icmp ugt i32 %35, %36
+  %cmp3.i18.i.i42 = icmp samesign ugt i32 %35, %36
   %..i19.i.i43 = select i1 %cmp3.i18.i.i42, i32 %sub7.i.i, i32 %34
   %div8.i20.i.i44 = sdiv i32 %sub.i14.i.i41, %..i19.i.i43
   %cmp13.i23.i.i45 = icmp eq i32 %div8.i20.i.i44, 0

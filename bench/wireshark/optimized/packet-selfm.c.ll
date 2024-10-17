@@ -3440,7 +3440,7 @@ proto_item_set_generated.exit:                    ; preds = %119, %116, %111, %1
   %indvars.iv.next263 = add nuw nsw i32 %indvars.iv262, 1
   %142 = load i8, ptr %45, align 2
   %143 = zext i8 %142 to i32
-  %144 = icmp ult i32 %indvars.iv.next263, %143
+  %144 = icmp samesign ult i32 %indvars.iv.next263, %143
   br i1 %144, label %50, label %.loopexit240, !llvm.loop !40
 
 .loopexit240:                                     ; preds = %141, %.preheader, %39
@@ -3569,7 +3569,7 @@ proto_item_set_generated.exit:                    ; preds = %119, %116, %111, %1
   %241 = add i32 %.7253, 1
   %242 = load i8, ptr %184, align 2
   %243 = zext i8 %242 to i32
-  %244 = icmp ult i32 %192, %243
+  %244 = icmp samesign ult i32 %192, %243
   br i1 %244, label %.lr.ph255, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph255, %186, %183

@@ -1563,7 +1563,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split", label %.lr.ph.i49
 
 84:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit"
-  %85 = icmp ult i64 %10, 29
+  %85 = icmp samesign ult i64 %10, 29
   br i1 %85, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h470430e36e06b18eE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %84, %95

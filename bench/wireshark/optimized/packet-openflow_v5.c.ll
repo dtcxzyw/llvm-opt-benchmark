@@ -4758,7 +4758,7 @@ dissect_openflow_meter_config_v5.exit:            ; preds = %.lr.ph.i160, %.lr.p
 .lr.ph200:                                        ; preds = %.preheader181, %.lr.ph200
   %.9199 = phi i32 [ %740, %.lr.ph200 ], [ %25, %.preheader181 ]
   %740 = tail call fastcc i32 @dissect_openflow_port_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9199, i16 noundef zeroext %4)
-  %741 = icmp ult i32 %740, %32
+  %741 = icmp samesign ult i32 %740, %32
   br i1 %741, label %.lr.ph200, label %.loopexit, !llvm.loop !32
 
 .lr.ph198:                                        ; preds = %.preheader183, %.lr.ph198

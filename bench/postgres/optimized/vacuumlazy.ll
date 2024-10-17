@@ -571,7 +571,7 @@ lazy_scan_skip.exit.i:                            ; preds = %250, %.loopexit.i.i
   %268 = add nuw nsw i64 %indvars.iv.i, 1
   %269 = load i32, ptr %136, align 8
   %270 = zext i32 %269 to i64
-  %271 = icmp ult i64 %268, %270
+  %271 = icmp samesign ult i64 %268, %270
   %272 = trunc nuw i64 %268 to i32
   br i1 %271, label %.lr.ph.i103.i, label %lazy_scan_skip.exit112.i
 

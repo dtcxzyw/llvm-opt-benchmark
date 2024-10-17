@@ -6097,7 +6097,7 @@ terminate.lpad.i243:                              ; preds = %if.then2.i.i.i242
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i236, %if.then2.i.i.i242
   %inc111 = add nuw nsw i32 %i.0288, 1
-  %cmp = icmp ult i32 %i.0288, 4
+  %cmp = icmp samesign ult i32 %i.0288, 4
   %127 = select i1 %cmp, i1 %updated.1.lcssa, i1 false
   br i1 %127, label %for.body, label %for.end112, !llvm.loop !10
 

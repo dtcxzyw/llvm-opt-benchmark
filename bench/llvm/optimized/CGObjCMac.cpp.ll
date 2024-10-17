@@ -27632,7 +27632,7 @@ switch.lookup:                                    ; preds = %278
   %288 = and i32 %281, 15
   %289 = add nuw nsw i32 %.068, %288
   %290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.192, i32 noundef %289)
-  %291 = icmp ult i64 %indvars.iv165, %276
+  %291 = icmp samesign ult i64 %indvars.iv165, %276
   br i1 %291, label %292, label %294
 
 292:                                              ; preds = %287

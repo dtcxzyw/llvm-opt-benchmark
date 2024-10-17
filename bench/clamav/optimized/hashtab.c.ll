@@ -1759,7 +1759,7 @@ cli_hashset_addkey_internal.exit.i:               ; preds = %108, %cli_hashset_s
   %.sroa.17.2.i = phi i32 [ %.sroa.17.152.i, %59 ], [ %113, %108 ], [ %.sroa.17.152.i, %cli_hashset_search.exit.i.i ]
   %115 = add nuw nsw i64 %.02453.i, 1
   %116 = zext i32 %114 to i64
-  %117 = icmp ult i64 %115, %116
+  %117 = icmp samesign ult i64 %115, %116
   br i1 %117, label %59, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %cli_hashset_addkey_internal.exit.i, %cli_hashset_init_pool.exit.i
@@ -2124,7 +2124,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
   %.1 = phi i64 [ %31, %27 ], [ %.01724, %18 ]
   %35 = add nuw nsw i64 %.01823, 1
   %36 = zext i32 %34 to i64
-  %37 = icmp ult i64 %35, %36
+  %37 = icmp samesign ult i64 %35, %36
   br i1 %37, label %13, label %.critedge
 
 .critedge:                                        ; preds = %33, %13, %.preheader, %2, %12
@@ -2901,7 +2901,7 @@ cli_hashtab_free.exit:                            ; preds = %._crit_edge.i.i, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %20, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %cli_hashtab_free.exit, %.preheader

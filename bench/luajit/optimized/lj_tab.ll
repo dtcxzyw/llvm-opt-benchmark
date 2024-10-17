@@ -2386,7 +2386,7 @@ land.rhs.i:                                       ; preds = %do.body.i.i, %cond.
 
 while.body.i:                                     ; preds = %land.rhs.i
   %add.i = shl nuw nsw i64 %hi.addr.0.i, 1
-  %cmp6.i = icmp ugt i64 %hi.addr.0.i, 1073741822
+  %cmp6.i = icmp samesign ugt i64 %hi.addr.0.i, 1073741822
   br i1 %cmp6.i, label %while.cond8.i, label %while.cond.i, !llvm.loop !29
 
 while.cond8.i:                                    ; preds = %while.body.i, %land.rhs25.i

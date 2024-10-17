@@ -103,7 +103,7 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 
 13:                                               ; preds = %16
   %14 = add nuw nsw i32 %.0611, 6
-  %15 = icmp ult i32 %.0611, 96
+  %15 = icmp samesign ult i32 %.0611, 96
   br i1 %15, label %16, label %18, !llvm.loop !4
 
 16:                                               ; preds = %9, %13
@@ -187,7 +187,7 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   %53 = load i32, ptr @hf_wol_mac, align 4
   %54 = call ptr @proto_tree_add_ether(ptr noundef %51, i32 noundef %53, ptr noundef %0, i32 noundef %.12, i32 noundef 6, ptr noundef %12) #2
   %55 = add nuw nsw i32 %.12, 6
-  %56 = icmp ult i32 %.12, 96
+  %56 = icmp samesign ult i32 %.12, 96
   br i1 %56, label %52, label %57, !llvm.loop !6
 
 57:                                               ; preds = %52

@@ -46,7 +46,7 @@ _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %if.end4
   br i1 %cmp6, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit
-  %cmp8 = icmp ult i32 %and, 65536
+  %cmp8 = icmp samesign ult i32 %and, 65536
   %cond = select i1 %cmp8, i32 1, i32 2
   %cmp9.not = icmp ugt i32 %cond, %capacity
   br i1 %cmp9.not, label %if.end25, label %if.then10

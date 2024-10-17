@@ -240,7 +240,7 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef 
 
 .loopexit:                                        ; preds = %10, %20
   %29 = phi i64 [ %23, %20 ], [ %.0.ph, %10 ]
-  %30 = icmp ugt i32 %.024.ph, 1
+  %30 = icmp samesign ugt i32 %.024.ph, 1
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %.loopexit

@@ -210,7 +210,7 @@ if.end.i.i:                                       ; preds = %if.end
 
 for.body.i.i.preheader:                           ; preds = %if.end.i.i
   %xtraiter = and i64 %call.i.i.i, 3
-  %5 = icmp ult i64 %conv.i.i, 4
+  %5 = icmp samesign ult i64 %conv.i.i, 4
   br i1 %5, label %_ZN3irr4core6stringIcEC2IcEEPKT_.exit.loopexit.unr-lcssa, label %for.body.i.i.preheader.new
 
 for.body.i.i.preheader.new:                       ; preds = %for.body.i.i.preheader

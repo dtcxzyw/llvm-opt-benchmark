@@ -556,7 +556,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   %arrayidx101 = getelementptr inbounds i64, ptr %10, i64 %23
   store i64 %24, ptr %arrayidx101, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp63 = icmp ult i64 %indvars.iv.next, %15
+  %cmp63 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp63, label %for.body65, label %for.cond106.preheader.loopexit, !llvm.loop !9
 
 for.body109:                                      ; preds = %for.body109.preheader, %for.body109

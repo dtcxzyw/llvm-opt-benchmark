@@ -557,11 +557,11 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #4
   %20 = load i32, ptr %6, align 4
   %21 = and i32 %20, 15
-  %22 = icmp ult i32 %21, 5
+  %22 = icmp samesign ult i32 %21, 5
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %4
-  %24 = icmp ult i32 %21, 7
+  %24 = icmp samesign ult i32 %21, 7
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
@@ -580,7 +580,7 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %29 = phi i1 [ true, %26 ], [ false, %27 ], [ true, %4 ], [ true, %23 ], [ true, %25 ]
   %.0140.i = phi i32 [ 2, %26 ], [ 4, %27 ], [ 2, %4 ], [ 2, %23 ], [ 2, %25 ]
   %.0139.i = phi i32 [ 24, %26 ], [ 28, %27 ], [ 15, %4 ], [ 19, %23 ], [ 23, %25 ]
-  %30 = icmp ult i32 %21, 10
+  %30 = icmp samesign ult i32 %21, 10
   %31 = and i32 %20, 240
   %.not.i = icmp eq i32 %31, 0
   %or.cond151.i = and i1 %30, %.not.i
@@ -591,7 +591,7 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %create_acdr_tree.exit
 
 34:                                               ; preds = %28
-  %35 = icmp ult i32 %21, 4
+  %35 = icmp samesign ult i32 %21, 4
   %36 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1) #4
   br i1 %35, label %37, label %42
 
@@ -697,7 +697,7 @@ add_cid.exit160.i:                                ; preds = %74, %71
   %93 = add nuw nsw i32 %78, 1
   %94 = load i32, ptr %6, align 4
   %95 = and i32 %94, 15
-  %96 = icmp ult i32 %95, 3
+  %96 = icmp samesign ult i32 %95, 3
   %97 = and i32 %80, 1
   %.not148.i = icmp eq i32 %97, 0
   %or.cond152.i = or i1 %.not148.i, %96
@@ -723,7 +723,7 @@ add_cid.exit160.i:                                ; preds = %74, %71
   %111 = add nuw nsw i32 %78, 3
   %112 = load i32, ptr %6, align 4
   %113 = and i32 %112, 15
-  %114 = icmp ult i32 %113, 5
+  %114 = icmp samesign ult i32 %113, 5
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %92
@@ -744,11 +744,11 @@ add_cid.exit160.i:                                ; preds = %74, %71
   %spec.select.i = select i1 %or.cond152.i, i32 %124, i32 %125
   %126 = load i32, ptr %6, align 4
   %127 = and i32 %126, 15
-  %128 = icmp ugt i32 %127, 4
+  %128 = icmp samesign ugt i32 %127, 4
   br i1 %128, label %129, label %create_full_session_id_subtree.exit.i
 
 129:                                              ; preds = %121
-  %130 = icmp ult i32 %127, 7
+  %130 = icmp samesign ult i32 %127, 7
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %129
@@ -1006,7 +1006,7 @@ create_full_session_id_subtree.exit.i:            ; preds = %.sink.split.i.i, %1
 
 235:                                              ; preds = %234, %234, %234, %234, %234, %234
   %236 = and i32 %191, 15
-  %237 = icmp ugt i32 %236, 2
+  %237 = icmp samesign ugt i32 %236, 2
   %or.cond4.i.i = and i1 %195, %237
   %..i163.i = select i1 %or.cond4.i.i, i32 16, i32 4
   %hf_acdr_ext_srcipv6.val.i.i = load i32, ptr @hf_acdr_ext_srcipv6, align 4
@@ -1043,7 +1043,7 @@ create_full_session_id_subtree.exit.i:            ; preds = %.sink.split.i.i, %1
 
 260:                                              ; preds = %234, %234, %234, %234, %234, %234, %234, %234, %234
   %261 = and i32 %191, 15
-  %262 = icmp ugt i32 %261, 2
+  %262 = icmp samesign ugt i32 %261, 2
   %or.cond15.i.i = and i1 %195, %262
   %.182.i.i = select i1 %or.cond15.i.i, i32 16, i32 4
   %hf_acdr_ext_dstipv6.val.i.i = load i32, ptr @hf_acdr_ext_dstipv6, align 4

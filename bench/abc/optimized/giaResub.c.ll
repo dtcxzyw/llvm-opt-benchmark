@@ -1730,7 +1730,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %84 = sext i32 %.val107 to i64
   tail call void @qsort(ptr noundef %.val108, i64 noundef %84, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #30
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %85 = icmp ult i64 %indvars.iv.next189, %28
+  %85 = icmp samesign ult i64 %indvars.iv.next189, %28
   br i1 %85, label %.critedge, label %.critedge4, !llvm.loop !16
 
 .critedge4:                                       ; preds = %.critedge, %.critedge.preheader
@@ -7304,7 +7304,7 @@ define void @Gia_ManFindUnatePairsInt(ptr nocapture noundef readonly %0, ptr noc
   %.0104 = phi i32 [ 0, %.lr.ph ], [ %146, %Abc_TtIntersectTwo.exit ]
   %29 = and i32 %.0104, 1
   %30 = or disjoint i32 %29, %26
-  %31 = icmp ugt i32 %.0104, 1
+  %31 = icmp samesign ugt i32 %.0104, 1
   %32 = icmp ne i32 %29, 0
   %or.cond.i = and i1 %31, %32
   br i1 %or.cond.i, label %.preheader.i, label %42
@@ -11707,7 +11707,7 @@ Vec_WrdPush.exit.us:                              ; preds = %Vec_WrdGrow.exit.i.
   %65 = lshr i64 %61, %64
   %66 = trunc i64 %65 to i32
   %67 = and i32 %66, 15
-  %68 = icmp ult i32 %67, 10
+  %68 = icmp samesign ult i32 %67, 10
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %.lr.ph.i.us.i
@@ -12775,7 +12775,7 @@ Vec_WrdPush.exit49.i:                             ; preds = %94, %Vec_WrdGrow.ex
 
 125:                                              ; preds = %124, %121
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %126 = icmp ult i64 %indvars.iv.i.i, 7
+  %126 = icmp samesign ult i64 %indvars.iv.i.i, 7
   br i1 %126, label %121, label %Vec_WecFree.exit, !llvm.loop !22
 
 Vec_WecFree.exit:                                 ; preds = %125
@@ -13299,7 +13299,7 @@ Vec_WrdStart.exit.i:                              ; preds = %37, %Vec_WrdFreeP.e
   %50 = shl i32 %49, %33
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i64, ptr %41, i64 %51
-  %53 = icmp ult i64 %indvars.iv73.i, 5
+  %53 = icmp samesign ult i64 %indvars.iv73.i, 5
   br i1 %53, label %.preheader.us.us.i, label %.preheader27.us.us.i
 
 54:                                               ; preds = %.preheader27.us.us.i, %54
@@ -14541,7 +14541,7 @@ define i32 @Gia_ManDeriveSimpleCost(ptr nocapture noundef readonly %0) local_unn
   %13 = add nsw i32 %12, %.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %14 = or disjoint i64 %indvars.iv.next, 1
-  %15 = icmp ult i64 %14, %5
+  %15 = icmp samesign ult i64 %14, %5
   br i1 %15, label %6, label %.critedge, !llvm.loop !133
 
 .critedge:                                        ; preds = %6, %1
@@ -14870,7 +14870,7 @@ Gia_ManDeriveShrink.exit:                         ; preds = %Abc_TtIsConst0.exit
   %76 = add nsw i32 %75, %.015.i
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 2
   %77 = or disjoint i64 %indvars.iv.next.i82, 1
-  %78 = icmp ult i64 %77, %68
+  %78 = icmp samesign ult i64 %77, %68
   br i1 %78, label %69, label %Gia_ManDeriveSimpleCost.exit, !llvm.loop !133
 
 Gia_ManDeriveSimpleCost.exit:                     ; preds = %69, %Gia_ManDeriveShrink.exit

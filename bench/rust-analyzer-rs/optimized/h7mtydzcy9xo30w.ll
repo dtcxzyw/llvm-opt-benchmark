@@ -688,7 +688,7 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h33acce07a8cae7a0E.exit": ; preds = %1
-  %15 = icmp ult i8 %2, 24
+  %15 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i8 %2 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 1
@@ -1152,7 +1152,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14670820910010612842.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h33acce07a8cae7a0E.exit.i": ; preds = %1
-  %15 = icmp ult i8 %2, 24
+  %15 = icmp samesign ult i8 %2, 24
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i8 %2 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 1
@@ -1381,7 +1381,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN69_$LT$base_db..input..CrateName$u20$as$u20$core..ops..deref..Deref$GT$5deref17h65a4df26c69dcf68E.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h33acce07a8cae7a0E.exit.i.i": ; preds = %1
-  %16 = icmp ult i8 %3, 24
+  %16 = icmp samesign ult i8 %3, 24
   tail call void @llvm.assume(i1 %16)
   %17 = zext nneg i8 %3 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 25
@@ -1929,9 +1929,9 @@ define void @_ZN7base_db5input10CrateGraph7add_dep17h5feec6028ffdace2E(ptr noali
   br label %.body.thread
 
 13:                                               ; preds = %4
-  %14 = icmp ult i64 %10, 5
+  %14 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %10, 3
+  %15 = icmp samesign ult i64 %10, 3
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13

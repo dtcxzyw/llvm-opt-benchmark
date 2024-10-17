@@ -190,7 +190,7 @@ define dso_local i32 @topology_phys_to_logical_pkg(i32 noundef %0) #1 align 16 {
 3:                                                ; preds = %15, %1
   %4 = phi i64 [ 0, %1 ], [ %23, %15 ]
   %5 = and i64 %4, 4294967295
-  %6 = icmp ugt i64 %5, 63
+  %6 = icmp samesign ugt i64 %5, 63
   br i1 %6, label %.thread, label %7, !prof !8
 
 7:                                                ; preds = %3
@@ -235,7 +235,7 @@ define dso_local noundef i32 @topology_update_package_map(i32 noundef %0, i32 no
 4:                                                ; preds = %16, %2
   %5 = phi i64 [ 0, %2 ], [ %24, %16 ]
   %6 = and i64 %5, 4294967295
-  %7 = icmp ugt i64 %6, 63
+  %7 = icmp samesign ugt i64 %6, 63
   br i1 %7, label %.thread6, label %8, !prof !8
 
 8:                                                ; preds = %4
@@ -347,7 +347,7 @@ define dso_local noundef i32 @topology_update_die_map(i32 noundef %0, i32 nounde
 33:                                               ; preds = %28, %20
   %34 = add nuw nsw i64 %17, 1
   %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
+  %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread6, label %11, !prof !13, !llvm.loop !14
 
 37:                                               ; preds = %28
@@ -760,7 +760,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 223:                                              ; preds = %216, %205, %.thread18
   %224 = add nuw nsw i64 %41, 1
   %225 = and i64 %224, 127
-  %226 = icmp ugt i64 %225, 63
+  %226 = icmp samesign ugt i64 %225, 63
   br i1 %226, label %.thread, label %34, !prof !13, !llvm.loop !22
 
 .thread:                                          ; preds = %34, %223, %40
@@ -889,7 +889,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %304 = phi i64 [ %.pre, %296 ], [ %.pre, %295 ], [ %254, %268 ]
   %305 = add nuw nsw i64 %260, 1
   %306 = and i64 %305, 127
-  %307 = icmp ugt i64 %306, 63
+  %307 = icmp samesign ugt i64 %306, 63
   br i1 %307, label %.thread22, label %.thread20.split.us, !prof !13, !llvm.loop !24
 
 308:                                              ; preds = %248
@@ -902,7 +902,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   store i8 %238, ptr %314, align 8
   %315 = add nuw nsw i64 %249, 1
   %316 = and i64 %315, 127
-  %317 = icmp ugt i64 %316, 63
+  %317 = icmp samesign ugt i64 %316, 63
   br i1 %317, label %.thread20, label %239, !prof !13, !llvm.loop !25
 
 .thread20.split:                                  ; preds = %.thread20, %358
@@ -969,7 +969,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 358:                                              ; preds = %.critedge28, %347, %339, %332
   %359 = add nuw nsw i64 %324, 1
   %360 = and i64 %359, 127
-  %361 = icmp ugt i64 %360, 63
+  %361 = icmp samesign ugt i64 %360, 63
   br i1 %361, label %.thread22, label %.thread20.split, !prof !13, !llvm.loop !24
 
 .thread22:                                        ; preds = %323, %358, %.thread20.split, %303, %259, %.thread20.split.us, %17
@@ -1758,7 +1758,7 @@ define dso_local void @smp_prepare_cpus_common() local_unnamed_addr #7 section "
   store i64 0, ptr %28, align 8
   %29 = add nuw nsw i64 %8, 1
   %30 = and i64 %29, 127
-  %31 = icmp ugt i64 %30, 63
+  %31 = icmp samesign ugt i64 %30, 63
   br i1 %31, label %.thread, label %1, !prof !13, !llvm.loop !36
 
 .thread:                                          ; preds = %1, %11, %7
@@ -1796,7 +1796,7 @@ define internal fastcc void @smp_cpu_index_default() unnamed_addr #8 section ".i
   store i16 %3, ptr %19, align 2
   %20 = add nuw nsw i64 %10, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %4, !prof !13, !llvm.loop !37
 
 .thread:                                          ; preds = %4, %13, %9
@@ -2037,7 +2037,7 @@ define dso_local void @native_smp_cpus_done(i32 noundef %0) local_unnamed_addr #
   %21 = add i64 %20, %5
   %22 = add nuw nsw i64 %10, 1
   %23 = and i64 %22, 127
-  %24 = icmp ugt i64 %23, 63
+  %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread, label %3, !prof !13, !llvm.loop !40
 
 .thread:                                          ; preds = %3, %13, %9
@@ -2218,7 +2218,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 39:                                               ; preds = %32, %19
   %40 = add nuw nsw i64 %16, 1
   %41 = and i64 %40, 127
-  %42 = icmp ugt i64 %41, 63
+  %42 = icmp samesign ugt i64 %41, 63
   br i1 %42, label %.preheader16.preheader.preheader, label %6, !prof !13, !llvm.loop !44
 
 .preheader16.preheader.preheader:                 ; preds = %6, %39, %15
@@ -2250,7 +2250,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %59, i64 %5) #23, !srcloc !43
   %60 = add nuw nsw i64 %52, 1
   %61 = and i64 %60, 127
-  %62 = icmp ugt i64 %61, 63
+  %62 = icmp samesign ugt i64 %61, 63
   br i1 %62, label %.preheader15.preheader.preheader, label %.preheader16.preheader, !prof !13, !llvm.loop !45
 
 .preheader15.preheader.preheader:                 ; preds = %.preheader16.preheader, %.preheader16, %51
@@ -2299,7 +2299,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
 .preheader15:                                     ; preds = %88, %75
   %92 = add nuw nsw i64 %72, 1
   %93 = and i64 %92, 127
-  %94 = icmp ugt i64 %93, 63
+  %94 = icmp samesign ugt i64 %93, 63
   br i1 %94, label %.preheader14.preheader.preheader, label %.preheader15.preheader, !prof !13, !llvm.loop !46
 
 .preheader14.preheader.preheader:                 ; preds = %.preheader15.preheader, %.preheader15, %71
@@ -2335,7 +2335,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %112, i64 %5) #23, !srcloc !43
   %113 = add nuw nsw i64 %104, 1
   %114 = and i64 %113, 127
-  %115 = icmp ugt i64 %114, 63
+  %115 = icmp samesign ugt i64 %114, 63
   br i1 %115, label %.preheader, label %.preheader14.preheader, !prof !13, !llvm.loop !47
 
 116:                                              ; preds = %.preheader, %129
@@ -2365,7 +2365,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
   %135 = add nuw nsw i64 %126, 1
   %136 = load i64, ptr %3, align 8
   %137 = and i64 %135, 127
-  %138 = icmp ugt i64 %137, 63
+  %138 = icmp samesign ugt i64 %137, 63
   br i1 %138, label %.thread, label %116, !prof !13, !llvm.loop !48
 
 .thread:                                          ; preds = %116, %129, %125
@@ -2425,7 +2425,7 @@ define dso_local void @cpu_disable_common() local_unnamed_addr #2 align 16 {
   %177 = tail call i32 @llvm.smax.i32(i32 %160, i32 %176)
   %178 = add nuw nsw i64 %165, 1
   %179 = and i64 %178, 127
-  %180 = icmp ugt i64 %179, 63
+  %180 = icmp samesign ugt i64 %179, 63
   br i1 %180, label %.thread13, label %158, !prof !13, !llvm.loop !49
 
 .thread13:                                        ; preds = %158, %168, %164
@@ -2531,7 +2531,7 @@ define dso_local void @smp_kick_mwait_play_dead() local_unnamed_addr #2 align 16
   %27 = add nuw nsw i32 %26, 1
   %28 = load volatile i32, ptr %20, align 4
   %29 = icmp ne i32 %28, 1243078317
-  %30 = icmp ult i32 %26, 999
+  %30 = icmp samesign ult i32 %26, 999
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !51
 
@@ -2552,7 +2552,7 @@ define dso_local void @smp_kick_mwait_play_dead() local_unnamed_addr #2 align 16
 38:                                               ; preds = %36, %34, %.loopexit, %14
   %39 = add nuw nsw i64 %11, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %1, !prof !13, !llvm.loop !52
 
 .thread:                                          ; preds = %1, %38, %10
@@ -2650,7 +2650,7 @@ define dso_local void @native_play_dead() local_unnamed_addr #2 align 16 {
   %32 = select i1 %31, i32 %26, i32 %30
   %33 = select i1 %31, i32 %25, i32 %27
   %34 = add nuw nsw i32 %27, 1
-  %35 = icmp ult i32 %27, 6
+  %35 = icmp samesign ult i32 %27, 6
   %36 = icmp ugt i32 %28, 255
   %37 = select i1 %35, i1 %36, i1 false
   br i1 %37, label %.preheader, label %38, !llvm.loop !66

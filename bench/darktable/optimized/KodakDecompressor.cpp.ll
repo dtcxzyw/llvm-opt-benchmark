@@ -149,7 +149,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressorC2ENS_8RawImageENS_10ByteStre
   %57 = getelementptr inbounds i8, ptr %0, i64 24
   %58 = load i32, ptr %57, align 8, !tbaa !89
   %59 = zext i32 %58 to i64
-  %60 = icmp ugt i64 %56, %59
+  %60 = icmp samesign ugt i64 %56, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %49
@@ -163,7 +163,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressorC2ENS_8RawImageENS_10ByteStre
   %64 = icmp sgt i32 %58, -1
   tail call void @llvm.assume(i1 %64)
   %65 = add nuw nsw i32 %54, %51
-  %66 = icmp ule i32 %65, %58
+  %66 = icmp samesign ule i32 %65, %58
   tail call void @llvm.assume(i1 %66)
   %67 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %67)
@@ -282,7 +282,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %22 = sub nsw i64 %19, %16
   %23 = tail call i64 @llvm.umin.i64(i64 %21, i64 %22)
   %24 = add nuw nsw i64 %23, 1
-  %25 = icmp ult i64 %23, 32
+  %25 = icmp samesign ult i64 %23, 32
   br i1 %25, label %.preheader24, label %31
 
 .preheader24:                                     ; preds = %31, %26, %3
@@ -477,7 +477,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %147 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %146
   store i8 %145, ptr %147, align 1, !tbaa !95
   %148 = add nuw nsw i64 %132, 2
-  %149 = icmp ult i64 %148, %17
+  %149 = icmp samesign ult i64 %148, %17
   br i1 %149, label %131, label %128, !llvm.loop !108
 
 150:                                              ; preds = %128
@@ -673,7 +673,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp uge i32 %18, %13
+  %24 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i32 %13, 0
   %26 = icmp ne i32 %15, 0
@@ -740,7 +740,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %70 = sub nsw i64 %67, %64
   %71 = call i64 @llvm.umin.i64(i64 %69, i64 %70)
   %72 = add nuw nsw i64 %71, 1
-  %73 = icmp ult i64 %71, 32
+  %73 = icmp samesign ult i64 %71, 32
   br i1 %73, label %.preheader35, label %80
 
 .preheader35:                                     ; preds = %80, %74, %49
@@ -927,7 +927,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %193 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %192
   store i8 %191, ptr %193, align 1, !tbaa !95, !noalias !120
   %194 = add nuw nsw i64 %178, 2
-  %195 = icmp ult i64 %194, %65
+  %195 = icmp samesign ult i64 %194, %65
   br i1 %195, label %177, label %174, !llvm.loop !108
 
 196:                                              ; preds = %174
@@ -1138,7 +1138,7 @@ _ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit: ; preds = %297
   %330 = and i64 %312, 2147483648
   %331 = icmp eq i64 %330, 0
   call void @llvm.assume(i1 %331)
-  %332 = icmp ult i64 %312, %34
+  %332 = icmp samesign ult i64 %312, %34
   call void @llvm.assume(i1 %332)
   call void @llvm.assume(i1 %47)
   %333 = getelementptr inbounds i16, ptr %48, i64 %312
@@ -1151,7 +1151,7 @@ _ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit: ; preds = %297
   %337 = and i64 %312, 2147483648
   %338 = icmp eq i64 %337, 0
   call void @llvm.assume(i1 %338)
-  %339 = icmp ult i64 %312, %34
+  %339 = icmp samesign ult i64 %312, %34
   call void @llvm.assume(i1 %339)
   call void @llvm.assume(i1 %47)
   %340 = getelementptr inbounds i16, ptr %48, i64 %312

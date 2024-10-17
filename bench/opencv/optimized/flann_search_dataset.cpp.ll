@@ -8380,8 +8380,8 @@ _ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit.thread44.i
 15:                                               ; preds = %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit.thread44.i
   %.sroa.3.0.extract.shift.i.i26.i = lshr i64 %.sroa.0.0.copyload.i24.i, 32
   %16 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i25.i
-  %17 = icmp ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i26.i
-  %or.cond.i = and i1 %16, %17
+  %17 = icmp samesign ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i26.i
+  %or.cond.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i, label %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit.thread.i, label %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit28.thread45.i
 
 _ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit28.thread45.i: ; preds = %15
@@ -8438,8 +8438,8 @@ _ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIiE9DistIndexES3_St9_IdentityIS3_ESt4le
 33:                                               ; preds = %.lr.ph.i29.i
   %.sroa.3.0.extract.shift.i.i.i32.i = lshr i64 %.sroa.0.0.copyload.i.i30.i, 32
   %34 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i.i31.i
-  %35 = icmp ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i.i32.i
-  %or.cond.i.i = and i1 %34, %35
+  %35 = icmp samesign ult i64 %.sroa.3.0.extract.shift.i.i.i, %.sroa.3.0.extract.shift.i.i.i32.i
+  %or.cond.i.i = select i1 %34, i1 %35, i1 false
   %spec.select.i.i = select i1 %or.cond.i.i, i64 16, i64 24
   %spec.select16.i.i = select i1 %or.cond.i.i, ptr %.015.i.i, ptr %.0814.i.i
   br label %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit.thread.i34.i
@@ -11168,7 +11168,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE21choo
   %40 = getelementptr inbounds i64, ptr %36, i64 %39
   %.not24.i.us = icmp ult i64 %37, 8
   %.not23.i.us = icmp eq i64 %38, 0
-  %41 = icmp ugt i64 %indvars.iv86, 1
+  %41 = icmp samesign ugt i64 %indvars.iv86, 1
   br label %47
 
 42:                                               ; preds = %._crit_edge69.us
@@ -14350,7 +14350,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -17275,15 +17275,15 @@ _ZNK7cvflann7HammingIhEclIPKhPhEEiT_T0_mi.exit:   ; preds = %._crit_edge.i, %34
   %40 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, %.1.i
-  %43 = icmp ult i64 %indvars.iv, %indvars.iv50
-  %44 = and i1 %43, %42
+  %43 = icmp samesign ult i64 %indvars.iv, %indvars.iv50
+  %44 = select i1 %42, i1 %43, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %44, label %39, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %39
   %45 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %46 = and i64 %indvars.iv, 4294967295
-  %47 = icmp ugt i64 %indvars.iv50, %46
+  %47 = icmp samesign ugt i64 %indvars.iv50, %46
   br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -18889,7 +18889,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %40 = getelementptr inbounds i64, ptr %36, i64 %39
   %.not24.i.us = icmp ult i64 %37, 8
   %.not23.i.us = icmp eq i64 %38, 0
-  %41 = icmp ugt i64 %indvars.iv86, 1
+  %41 = icmp samesign ugt i64 %indvars.iv86, 1
   br label %47
 
 42:                                               ; preds = %._crit_edge69.us
@@ -25305,7 +25305,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %23, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
   br i1 %71, label %.lr.ph44, label %._crit_edge45, !llvm.loop !224
 
 72:                                               ; preds = %._crit_edge

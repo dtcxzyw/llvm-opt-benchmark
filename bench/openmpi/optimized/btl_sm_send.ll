@@ -143,8 +143,8 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   fence acquire
   %80 = add i32 %79, -1
   %or.cond.i.i = icmp ult i32 %80, 31
-  %81 = icmp ule i32 %73, %61
-  %or.cond108.i.i = and i1 %81, %or.cond.i.i
+  %81 = icmp samesign ule i32 %73, %61
+  %or.cond108.i.i = select i1 %or.cond.i.i, i1 %81, i1 false
   br i1 %or.cond108.i.i, label %82, label %.critedge.i.i
 
 82:                                               ; preds = %69

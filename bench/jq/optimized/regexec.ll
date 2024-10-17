@@ -2028,7 +2028,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv.next2414 = add nuw nsw i64 %indvars.iv2413, 1
   %41 = load i32, ptr %30, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next2414, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next2414, %42
   br i1 %43, label %33, label %.loopexit, !llvm.loop !14
 
 44:                                               ; preds = %6
@@ -2296,7 +2296,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not1924, label %230, label %201
 
 201:                                              ; preds = %198
-  %202 = icmp ult i64 %indvars.iv2408, 32
+  %202 = icmp samesign ult i64 %indvars.iv2408, 32
   %203 = load i32, ptr %110, align 4
   %204 = trunc nuw nsw i64 %indvars.iv2408 to i32
   %205 = shl nuw i32 1, %204
@@ -9498,7 +9498,7 @@ onig_region_free.exit:                            ; preds = %38, %42
 
 43:                                               ; preds = %.lr.ph40, %onig_region_free.exit
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %44 = icmp ult i64 %indvars.iv.next45, %23
+  %44 = icmp samesign ult i64 %indvars.iv.next45, %23
   br i1 %44, label %.lr.ph40, label %._crit_edge41, !llvm.loop !61
 
 ._crit_edge41:                                    ; preds = %43, %.preheader
@@ -10073,7 +10073,7 @@ define noundef i32 @onig_init_for_match_at(ptr nocapture noundef readonly %0) lo
   %indvars.iv.next2414.i = add nuw nsw i64 %indvars.iv2413.i, 1
   %14 = load i32, ptr %2, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next2414.i, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next2414.i, %15
   br i1 %16, label %6, label %match_at.exit, !llvm.loop !14
 
 match_at.exit:                                    ; preds = %6, %1

@@ -847,7 +847,7 @@ _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i: ; preds = %57, %44
 _ZL16getPredClusterSURKN4llvm5SUnitE.exit.i:      ; preds = %.lr.ph.i.i
   %53 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %54 = icmp ne i64 %53, 0
-  %55 = icmp ult i32 %.0615.i, 2
+  %55 = icmp samesign ult i32 %.0615.i, 2
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %57, label %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit
 

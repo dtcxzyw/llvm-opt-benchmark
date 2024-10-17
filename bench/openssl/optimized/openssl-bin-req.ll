@@ -1327,7 +1327,7 @@ if.then461:                                       ; preds = %if.end455, %if.then
   %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
   %retval.0.i289 = and i32 %retval.0.v.i, %89
   %cmp464 = icmp eq i32 %retval.0.i289, 109
-  %cmp467 = icmp ult i32 %i.1925, 3
+  %cmp467 = icmp samesign ult i32 %i.1925, 3
   %or.cond6 = select i1 %cmp464, i1 %cmp467, i1 false
   br i1 %or.cond6, label %if.then469, label %if.then918
 
@@ -2916,7 +2916,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %if.e
   %conv106.i = trunc i64 %53 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i.i)
   %call.i124.i = call fastcc i32 @build_data(ptr noundef %52, ptr noundef nonnull %spec.store.select.i, ptr noundef %call78.i, i32 noundef %conv106.i, i32 noundef %conv107.i, ptr noundef %buf.i.i, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222)
-  %or.cond.i.i = icmp ult i32 %call.i124.i, 2
+  %or.cond.i.i = icmp samesign ult i32 %call.i124.i, 2
   br i1 %or.cond.i.i, label %add_DN_object.exit.i, label %if.end.i125.i
 
 if.end.i125.i:                                    ; preds = %if.end104.i
@@ -3075,7 +3075,7 @@ if.end189.i:                                      ; preds = %if.then188.i, %if.e
   %conv191.i = trunc i64 %72 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i172.i)
   %call.i173.i = call fastcc i32 @build_data(ptr noundef %71, ptr noundef nonnull %spec.store.select2.i, ptr noundef %call169.i, i32 noundef %conv191.i, i32 noundef %conv192.i, ptr noundef %buf.i172.i, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228)
-  %or.cond.i174.i = icmp ult i32 %call.i173.i, 2
+  %or.cond.i174.i = icmp samesign ult i32 %call.i173.i, 2
   br i1 %or.cond.i174.i, label %add_attribute_object.exit.i, label %if.end.i175.i
 
 if.end.i175.i:                                    ; preds = %if.end189.i

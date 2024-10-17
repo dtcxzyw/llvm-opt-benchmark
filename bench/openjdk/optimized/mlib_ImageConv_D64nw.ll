@@ -41,7 +41,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %29 = trunc nuw nsw i64 %28 to i32
   %.not.i = icmp ugt i32 %13, 8192
   %spec.store.select.i = select i1 %.not.i, i32 1, i32 %29
-  %30 = icmp ugt i32 %spec.store.select.i, 1600
+  %30 = icmp samesign ugt i32 %spec.store.select.i, 1600
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %22

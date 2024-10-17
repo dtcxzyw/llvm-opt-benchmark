@@ -13072,7 +13072,7 @@ _ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit.i: ; preds = %5117, %5113
   %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i395, 1
   %5122 = and i32 %5121, 134217727
   %5123 = zext nneg i32 %5122 to i64
-  %5124 = icmp ult i64 %indvars.iv.next.i396, %5123
+  %5124 = icmp samesign ult i64 %indvars.iv.next.i396, %5123
   br i1 %5124, label %5077, label %.loopexit.i394, !llvm.loop !272
 
 5125:                                             ; preds = %5068

@@ -288,7 +288,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i, %if.e
 invoke.cont:                                      ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
   %retval.0.i.i.i = phi i32 [ %9, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %10 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %10
+  %cmp = icmp samesign ult i64 %indvars.iv, %10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
@@ -461,7 +461,7 @@ sw.bb7.i.i.i47:                                   ; preds = %while.body.i.i.i43
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %sw.bb7.i.i.i47, %sw.bb5.i.i.i70, %sw.bb3.i.i.i72
   %retval.0.i.i.i48 = phi i32 [ %40, %sw.bb7.i.i.i47 ], [ %sub.i.i.i71, %sw.bb5.i.i.i70 ], [ %add.i.i.i73, %sw.bb3.i.i.i72 ]
   %41 = zext i32 %retval.0.i.i.i48 to i64
-  %cmp.i = icmp ult i64 %indvars.iv, %41
+  %cmp.i = icmp samesign ult i64 %indvars.iv, %41
   br i1 %cmp.i, label %cond.true.i50, label %invoke.cont6
 
 cond.true.i50:                                    ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
@@ -995,7 +995,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !10
 
@@ -2075,7 +2075,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !19
 

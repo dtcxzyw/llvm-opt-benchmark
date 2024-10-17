@@ -607,7 +607,7 @@ if.end16:                                         ; preds = %if.then11, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end16
-  %cmp24 = icmp ult i32 %conv19, 3
+  %cmp24 = icmp samesign ult i32 %conv19, 3
   br i1 %cmp24, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %sw.bb
@@ -649,7 +649,7 @@ if.end28:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end16
-  %cmp45 = icmp ult i32 %conv19, 2
+  %cmp45 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %sw.bb42
@@ -678,7 +678,7 @@ if.end50:                                         ; preds = %sw.bb42
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %if.end16
-  %cmp58 = icmp ult i32 %conv19, 2
+  %cmp58 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %sw.bb55
@@ -707,7 +707,7 @@ if.end63:                                         ; preds = %sw.bb55
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %if.end16
-  %cmp71 = icmp ult i32 %conv19, 2
+  %cmp71 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %sw.bb68
@@ -736,7 +736,7 @@ if.end76:                                         ; preds = %sw.bb68
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %if.end16
-  %cmp84 = icmp ult i32 %conv19, 2
+  %cmp84 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp84, label %if.then85, label %if.end89
 
 if.then85:                                        ; preds = %sw.bb81
@@ -765,7 +765,7 @@ if.end89:                                         ; preds = %sw.bb81
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %if.end16
-  %cmp97 = icmp ult i32 %conv19, 2
+  %cmp97 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp97, label %if.then98, label %if.end102
 
 if.then98:                                        ; preds = %sw.bb94
@@ -816,7 +816,7 @@ if.then116:                                       ; preds = %if.end112
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %if.end16
-  %cmp121 = icmp ult i32 %conv19, 4
+  %cmp121 = icmp samesign ult i32 %conv19, 4
   br i1 %cmp121, label %if.then122, label %if.end126
 
 if.then122:                                       ; preds = %sw.bb118
@@ -845,7 +845,7 @@ if.end126:                                        ; preds = %sw.bb118
   br label %sw.epilog
 
 sw.bb130:                                         ; preds = %if.end16
-  %cmp133 = icmp ult i32 %conv19, 2
+  %cmp133 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp133, label %if.then134, label %if.end138
 
 if.then134:                                       ; preds = %sw.bb130
@@ -944,7 +944,7 @@ if.else182:                                       ; preds = %if.end176
   br label %sw.epilog
 
 sw.bb185:                                         ; preds = %if.end16
-  %cmp188 = icmp ult i32 %conv19, 2
+  %cmp188 = icmp samesign ult i32 %conv19, 2
   br i1 %cmp188, label %if.then189, label %if.end193
 
 if.then189:                                       ; preds = %sw.bb185
@@ -1215,7 +1215,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %1, align 8
   %15 = zext i32 %14 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %15
+  %cmp12 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp12, label %for.body, label %if.end27, !llvm.loop !10
 
 if.else:                                          ; preds = %while.body

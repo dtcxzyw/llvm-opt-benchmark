@@ -1033,7 +1033,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   call void @llvm.assume(i1 %259)
   %260 = icmp sgt i32 %258, -1
   call void @llvm.assume(i1 %260)
-  %261 = icmp uge i32 %258, %252
+  %261 = icmp samesign uge i32 %258, %252
   call void @llvm.assume(i1 %261)
   %262 = icmp eq i32 %252, 0
   %263 = icmp ne i32 %255, 0
@@ -1061,7 +1061,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   call void @llvm.assume(i1 %278)
   %279 = icmp sgt i32 %277, -1
   call void @llvm.assume(i1 %279)
-  %280 = icmp uge i32 %277, %273
+  %280 = icmp samesign uge i32 %277, %273
   call void @llvm.assume(i1 %280)
   %281 = icmp eq i32 %273, 0
   %282 = icmp ne i32 %275, 0
@@ -1077,7 +1077,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 
 289:                                              ; preds = %243
   %290 = mul nuw nsw i32 %275, %273
-  %291 = icmp ule i32 %290, %271
+  %291 = icmp samesign ule i32 %290, %271
   call void @llvm.assume(i1 %291)
   %292 = icmp eq i32 %290, 0
   br i1 %292, label %.loopexit44, label %293
@@ -1233,7 +1233,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 420:                                              ; preds = %.loopexit35, %408
   %421 = phi i64 [ %488, %.loopexit35 ], [ 0, %408 ]
   %422 = phi double [ %487, %.loopexit35 ], [ 0.000000e+00, %408 ]
-  %423 = icmp ult i64 %421, %413
+  %423 = icmp samesign ult i64 %421, %413
   call void @llvm.assume(i1 %423)
   %424 = mul nuw nsw i64 %421, %414
   %425 = trunc i64 %424 to i32
@@ -1281,7 +1281,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %463 = uitofp i8 %462 to double
   %464 = fadd double %459, %463
   %465 = or disjoint i64 %429, 7
-  %466 = icmp ult i64 %465, %412
+  %466 = icmp samesign ult i64 %465, %412
   call void @llvm.assume(i1 %466)
   %467 = getelementptr inbounds i8, ptr %428, i64 %465
   %468 = load i8, ptr %467, align 1, !tbaa !17
@@ -1301,7 +1301,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %476 = phi i64 [ %484, %.preheader34 ], [ %474, %.loopexit37 ]
   %477 = phi double [ %483, %.preheader34 ], [ %475, %.loopexit37 ]
   %478 = phi i64 [ %485, %.preheader34 ], [ 0, %.loopexit37 ]
-  %479 = icmp ult i64 %476, %412
+  %479 = icmp samesign ult i64 %476, %412
   call void @llvm.assume(i1 %479)
   %480 = getelementptr inbounds i8, ptr %428, i64 %476
   %481 = load i8, ptr %480, align 1, !tbaa !17
@@ -1350,7 +1350,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 .preheader39.us:                                  ; preds = %.split.us, %.loopexit40.us
   %502 = phi i64 [ %520, %.loopexit40.us ], [ 0, %.split.us ]
   %503 = phi double [ %517, %.loopexit40.us ], [ 0.000000e+00, %.split.us ]
-  %504 = icmp ult i64 %502, %495
+  %504 = icmp samesign ult i64 %502, %495
   call void @llvm.assume(i1 %504)
   %505 = mul nuw nsw i64 %502, %496
   %506 = trunc i64 %505 to i32
@@ -1363,7 +1363,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 510:                                              ; preds = %.preheader39.us, %510
   %511 = phi i64 [ %518, %510 ], [ 0, %.preheader39.us ]
   %512 = phi double [ %517, %510 ], [ %503, %.preheader39.us ]
-  %513 = icmp ult i64 %511, %494
+  %513 = icmp samesign ult i64 %511, %494
   call void @llvm.assume(i1 %513)
   %514 = getelementptr inbounds i8, ptr %509, i64 %511
   %515 = load i8, ptr %514, align 1, !tbaa !17
@@ -1381,7 +1381,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 .preheader41:                                     ; preds = %490, %.loopexit40
   %522 = phi i64 [ %587, %.loopexit40 ], [ 0, %490 ]
   %523 = phi double [ %586, %.loopexit40 ], [ 0.000000e+00, %490 ]
-  %524 = icmp ult i64 %522, %495
+  %524 = icmp samesign ult i64 %522, %495
   call void @llvm.assume(i1 %524)
   %525 = mul nuw nsw i64 %522, %496
   %526 = trunc i64 %525 to i32
@@ -1429,7 +1429,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %565 = uitofp i8 %564 to double
   %566 = fadd double %561, %565
   %567 = or disjoint i64 %531, 7
-  %568 = icmp ult i64 %567, %494
+  %568 = icmp samesign ult i64 %567, %494
   call void @llvm.assume(i1 %568)
   %569 = getelementptr inbounds i8, ptr %529, i64 %567
   %570 = load i8, ptr %569, align 1, !tbaa !17
@@ -1446,7 +1446,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %575 = phi i64 [ %583, %.preheader39 ], [ %500, %.loopexit42 ]
   %576 = phi double [ %582, %.preheader39 ], [ %572, %.loopexit42 ]
   %577 = phi i64 [ %584, %.preheader39 ], [ 0, %.loopexit42 ]
-  %578 = icmp ult i64 %575, %494
+  %578 = icmp samesign ult i64 %575, %494
   call void @llvm.assume(i1 %578)
   %579 = getelementptr inbounds i8, ptr %529, i64 %575
   %580 = load i8, ptr %579, align 1, !tbaa !17
@@ -1540,7 +1540,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   call void @llvm.assume(i1 %636)
   %637 = icmp sgt i32 %633, -1
   call void @llvm.assume(i1 %637)
-  %638 = icmp uge i32 %633, %628
+  %638 = icmp samesign uge i32 %633, %628
   call void @llvm.assume(i1 %638)
   %639 = icmp eq i32 %628, 0
   %640 = icmp ne i32 %630, 0
@@ -1566,11 +1566,11 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 655:                                              ; preds = %.loopexit30, %644
   %656 = phi i64 [ 0, %644 ], [ %726, %.loopexit30 ]
   %657 = phi double [ 0.000000e+00, %644 ], [ %725, %.loopexit30 ]
-  %658 = icmp ult i64 %656, %647
+  %658 = icmp samesign ult i64 %656, %647
   call void @llvm.assume(i1 %658)
   %659 = mul nuw nsw i64 %656, %648
   %660 = add nuw nsw i64 %659, %646
-  %661 = icmp ule i64 %660, %649
+  %661 = icmp samesign ule i64 %660, %649
   call void @llvm.assume(i1 %661)
   %662 = getelementptr inbounds i16, ptr %624, i64 %659
   br i1 %652, label %.loopexit32, label %.preheader31
@@ -1616,7 +1616,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %699 = uitofp i16 %698 to double
   %700 = fadd double %695, %699
   %701 = or disjoint i64 %663, 7
-  %702 = icmp ult i64 %701, %646
+  %702 = icmp samesign ult i64 %701, %646
   call void @llvm.assume(i1 %702)
   %703 = getelementptr inbounds i16, ptr %662, i64 %701
   %704 = load i16, ptr %703, align 2, !tbaa !156
@@ -1639,7 +1639,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %715 = and i64 %712, 2147483648
   %716 = icmp eq i64 %715, 0
   call void @llvm.assume(i1 %716)
-  %717 = icmp ult i64 %712, %646
+  %717 = icmp samesign ult i64 %712, %646
   call void @llvm.assume(i1 %717)
   %718 = getelementptr inbounds i16, ptr %662, i64 %712
   %719 = load i16, ptr %718, align 2, !tbaa !156
@@ -1679,7 +1679,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   call void @llvm.assume(i1 %743)
   %744 = icmp sgt i32 %740, -1
   call void @llvm.assume(i1 %744)
-  %745 = icmp uge i32 %740, %735
+  %745 = icmp samesign uge i32 %740, %735
   call void @llvm.assume(i1 %745)
   %746 = icmp eq i32 %735, 0
   %747 = icmp ne i32 %737, 0
@@ -1705,11 +1705,11 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
 762:                                              ; preds = %.loopexit, %751
   %763 = phi i64 [ 0, %751 ], [ %833, %.loopexit ]
   %764 = phi double [ 0.000000e+00, %751 ], [ %832, %.loopexit ]
-  %765 = icmp ult i64 %763, %754
+  %765 = icmp samesign ult i64 %763, %754
   call void @llvm.assume(i1 %765)
   %766 = mul nuw nsw i64 %763, %755
   %767 = add nuw nsw i64 %766, %753
-  %768 = icmp ule i64 %767, %756
+  %768 = icmp samesign ule i64 %767, %756
   call void @llvm.assume(i1 %768)
   %769 = getelementptr inbounds float, ptr %731, i64 %766
   br i1 %759, label %.loopexit27, label %.preheader26
@@ -1755,7 +1755,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %806 = fpext float %805 to double
   %807 = fadd double %802, %806
   %808 = or disjoint i64 %770, 7
-  %809 = icmp ult i64 %808, %753
+  %809 = icmp samesign ult i64 %808, %753
   call void @llvm.assume(i1 %809)
   %810 = getelementptr inbounds float, ptr %769, i64 %808
   %811 = load float, ptr %810, align 4, !tbaa !133
@@ -1778,7 +1778,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %822 = and i64 %819, 2147483648
   %823 = icmp eq i64 %822, 0
   call void @llvm.assume(i1 %823)
-  %824 = icmp ult i64 %819, %753
+  %824 = icmp samesign ult i64 %819, %753
   call void @llvm.assume(i1 %824)
   %825 = getelementptr inbounds float, ptr %769, i64 %819
   %826 = load float, ptr %825, align 4, !tbaa !133

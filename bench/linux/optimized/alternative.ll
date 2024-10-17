@@ -267,7 +267,7 @@ define dso_local void @apply_alternatives(ptr noundef %0, ptr noundef %1) local_
   %51 = getelementptr inbounds i8, ptr %38, i64 8
   %52 = load i32, ptr %51, align 1
   %53 = and i32 %52, 65535
-  %54 = icmp ugt i32 %53, 735
+  %54 = icmp samesign ugt i32 %53, 735
   br i1 %54, label %55, label %56, !prof !9
 
 55:                                               ; preds = %50
@@ -452,7 +452,7 @@ optimize_nops.exit.i:                             ; preds = %77, %85, %65
   %153 = phi i8 [ 6, %136 ], [ %.pre21, %._crit_edge ]
   %154 = phi i32 [ %151, %136 ], [ %116, %._crit_edge ]
   %155 = zext i8 %153 to i32
-  %156 = icmp ult i32 %154, %155
+  %156 = icmp samesign ult i32 %154, %155
   br i1 %156, label %157, label %._crit_edge27
 
 157:                                              ; preds = %152
@@ -1610,7 +1610,7 @@ define dso_local void @apply_returns(ptr noundef %0, ptr noundef readnone %1) lo
   %64 = phi i32 [ 5, %52 ], [ 1, %51 ]
   %65 = load i8, ptr %11, align 2
   %66 = zext i8 %65 to i32
-  %67 = icmp ult i32 %64, %66
+  %67 = icmp samesign ult i32 %64, %66
   br i1 %67, label %.thread9, label %72
 
 .thread9:                                         ; preds = %63
@@ -2917,7 +2917,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr nocapture no
   %90 = zext nneg i8 %85 to i32
   %91 = and i32 %90, 1
   %92 = icmp eq i32 %91, 0
-  %93 = icmp ult i8 %85, 12
+  %93 = icmp samesign ult i8 %85, 12
   %94 = getelementptr inbounds i8, ptr %0, i64 144
   %95 = load i64, ptr %94, align 8
   br i1 %93, label %96, label %104
@@ -2938,7 +2938,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr nocapture no
   %107 = xor i64 %105, %106
   %108 = and i64 %107, 1
   %109 = trunc nuw nsw i64 %108 to i8
-  %110 = icmp ugt i8 %85, 13
+  %110 = icmp samesign ugt i8 %85, 13
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %104

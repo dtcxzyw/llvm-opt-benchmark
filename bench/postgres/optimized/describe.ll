@@ -1000,7 +1000,7 @@ define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef no
   br label %35
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i32 %9, 1
+  %21 = icmp samesign ugt i32 %9, 1
   %22 = add nsw i32 %9, -1
   %23 = icmp eq i32 %18, %22
   %or.cond = select i1 %21, i1 %23, i1 false

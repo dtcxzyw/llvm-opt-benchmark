@@ -1117,7 +1117,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %55 = and i32 %52, %54
   %56 = add nuw nsw i32 %54, 1
   %57 = lshr exact i32 %56, 1
-  %.not27.i.i.i = icmp ult i32 %55, %57
+  %.not27.i.i.i = icmp samesign ult i32 %55, %57
   %58 = select i1 %.not27.i.i.i, i32 0, i32 %56
   %.not9.i.i = icmp eq i32 %55, %58
   br i1 %.not9.i.i, label %_ZNK2OT13HintingDevice11get_x_deltaEP9hb_font_t.exit, label %59
@@ -1148,7 +1148,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not.i.i.i.i = icmp ult i32 %73, %81
+  %.not.i.i.i.i = icmp samesign ult i32 %73, %81
   br i1 %.not.i.i.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i, label %_ZNK2OT15VariationDevice11get_x_deltaEP9hb_font_tRKNS_14VariationStoreEPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i: ; preds = %66
@@ -1454,7 +1454,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijP
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
   %.02940 = phi float [ 1.000000e+00, %.lr.ph.preheader ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
-  %33 = icmp ult i64 %indvars.iv, %32
+  %33 = icmp samesign ult i64 %indvars.iv, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.lr.ph
@@ -1633,7 +1633,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %55 = and i32 %52, %54
   %56 = add nuw nsw i32 %54, 1
   %57 = lshr exact i32 %56, 1
-  %.not27.i.i.i = icmp ult i32 %55, %57
+  %.not27.i.i.i = icmp samesign ult i32 %55, %57
   %58 = select i1 %.not27.i.i.i, i32 0, i32 %56
   %.not9.i.i = icmp eq i32 %55, %58
   br i1 %.not9.i.i, label %_ZNK2OT13HintingDevice11get_y_deltaEP9hb_font_t.exit, label %59
@@ -1664,7 +1664,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not.i.i.i.i = icmp ult i32 %73, %81
+  %.not.i.i.i.i = icmp samesign ult i32 %73, %81
   br i1 %.not.i.i.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i, label %_ZNK2OT15VariationDevice11get_y_deltaEP9hb_font_tRKNS_14VariationStoreEPf.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i: ; preds = %66
@@ -1894,7 +1894,7 @@ _ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7Int
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = or disjoint i32 %86, %89
-  %.not.i = icmp ugt i32 %82, %90
+  %.not.i = icmp samesign ugt i32 %82, %90
   br i1 %.not.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %91
 
 91:                                               ; preds = %_ZNK2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE7bsearchIjEERKS5_RKT_SB_.exit.i
@@ -2230,7 +2230,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT8MathKern11get_entriesEjPjP23hb_o
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load i32, ptr %2, align 4
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next, %90
   br i1 %91, label %23, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %17, %5
@@ -2930,7 +2930,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitize
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = or disjoint i32 %52, %55
-  %57 = icmp ugt i32 %48, %56
+  %57 = icmp samesign ugt i32 %48, %56
   br i1 %57, label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i, label %58
 
 58:                                               ; preds = %41

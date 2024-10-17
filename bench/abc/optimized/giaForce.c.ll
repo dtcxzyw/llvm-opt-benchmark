@@ -2150,7 +2150,7 @@ define range(i32 0, 2) i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr no
   %27 = load i32, ptr %1, align 4
   %28 = lshr i32 %27, 4
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %18, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %18, %9, %2
@@ -2950,7 +2950,7 @@ define void @Frc_ManPlaceDfs_rec(ptr nocapture noundef readnone %0, ptr nocaptur
   %19 = load i32, ptr %1, align 4
   %20 = lshr i32 %19, 4
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %13, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %13, %10

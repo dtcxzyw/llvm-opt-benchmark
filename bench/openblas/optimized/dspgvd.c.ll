@@ -198,7 +198,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %122 = getelementptr double, ptr %114, i64 %121
   call void @dtpsv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %122, ptr noundef nonnull @c__1) #3
   %123 = add nuw nsw i64 %120, 1
-  %124 = icmp ult i64 %120, %118
+  %124 = icmp samesign ult i64 %120, %118
   br i1 %124, label %119, label %.loopexit, !llvm.loop !10
 
 125:                                              ; preds = %105
@@ -219,7 +219,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %135 = getelementptr double, ptr %127, i64 %134
   call void @dtpmv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %135, ptr noundef nonnull @c__1) #3
   %136 = add nuw nsw i64 %133, 1
-  %137 = icmp ult i64 %133, %131
+  %137 = icmp samesign ult i64 %133, %131
   br i1 %137, label %132, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %132, %119, %125, %112, %105, %93

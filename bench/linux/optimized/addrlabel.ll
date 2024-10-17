@@ -1070,7 +1070,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @ip6addrlbl_del(ptr noundef 
   %6 = lshr i32 %2, 3
   %7 = and i32 %2, 7
   %8 = zext nneg i32 %6 to i64
-  %9 = icmp ugt i32 %2, 127
+  %9 = icmp samesign ugt i32 %2, 127
   %10 = sub nuw nsw i64 16, %8
   %11 = select i1 %9, i64 0, i64 %10
   %12 = getelementptr i8, ptr %5, i64 %8

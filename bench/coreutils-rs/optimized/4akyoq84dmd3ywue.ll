@@ -2101,15 +2101,15 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %123, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread", label %124
 
 124:                                              ; preds = %122
-  %125 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
+  %125 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
   br i1 %125, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i", label %126
 
 126:                                              ; preds = %124
-  %127 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 2048
+  %127 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 2048
   br i1 %127, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i", label %128
 
 128:                                              ; preds = %126
-  %129 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 65536
+  %129 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %129, i64 -3, i64 -4
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h3350d34c5184bed3E.exit.i.i.i"
 
@@ -5253,7 +5253,7 @@ _ZN4rand3rng3Rng4fill17ha1d7fe16595929b4E.exit:   ; preds = %.noexc30
   %75 = getelementptr inbounds i8, ptr %.sroa.0.071, i64 1
   %76 = load i8, ptr %.sroa.0.071, align 1, !noundef !5
   %77 = urem i8 %76, 62
-  %78 = icmp ult i8 %77, 10
+  %78 = icmp samesign ult i8 %77, 10
   br i1 %78, label %117, label %115
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed6d6a014d65359bE.exit.thread": ; preds = %123, %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h83ac20d0144c646cE.exit35"
@@ -5384,7 +5384,7 @@ _ZN4rand3rng3Rng4fill17ha1d7fe16595929b4E.exit:   ; preds = %.noexc30
   ret void
 
 115:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed6d6a014d65359bE.exit"
-  %116 = icmp ult i8 %77, 36
+  %116 = icmp samesign ult i8 %77, 36
   br i1 %116, label %119, label %121
 
 117:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed6d6a014d65359bE.exit"

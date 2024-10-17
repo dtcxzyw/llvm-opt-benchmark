@@ -2035,7 +2035,7 @@ define void @Aig_ManDump(ptr noundef %0) local_unnamed_addr #1 {
 
 .critedge6.i:                                     ; preds = %.critedge4.i, %.critedge4.preheader.i
   %.2.lcssa.i = phi i32 [ %.1.lcssa.i, %.critedge4.preheader.i ], [ %61, %.critedge4.i ]
-  %65 = icmp ult i32 %.2.lcssa.i, 2
+  %65 = icmp samesign ult i32 %.2.lcssa.i, 2
   br i1 %65, label %Abc_Base10Log.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.critedge6.i
@@ -2531,7 +2531,7 @@ define void @Aig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge4.preheader ], [ %60, %.critedge4 ]
-  %64 = icmp ult i32 %.2.lcssa, 2
+  %64 = icmp samesign ult i32 %.2.lcssa, 2
   br i1 %64, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge6
@@ -3315,7 +3315,7 @@ define void @Aig_ManDumpVerilog(ptr noundef %0, ptr nocapture noundef readonly %
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge4.preheader ], [ %58, %.critedge4 ]
-  %62 = icmp ult i32 %.2.lcssa, 2
+  %62 = icmp samesign ult i32 %.2.lcssa, 2
   br i1 %62, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge6

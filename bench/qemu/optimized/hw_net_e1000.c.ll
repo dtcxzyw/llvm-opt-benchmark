@@ -1357,7 +1357,7 @@ do.body.i.i:                                      ; preds = %if.end123.i.i, %if.
   %addr.0.i.i = phi i64 [ %20, %if.then47.i.i ], [ %add108.i.i, %if.end123.i.i ]
   %split_size.0.i.i = phi i32 [ %and2.i.i, %if.then47.i.i ], [ %sub124.i.i, %if.end123.i.i ]
   %conv53.i.i = zext i16 %23 to i32
-  %cmp54.not.i.i = icmp ugt i32 %add.i23.i, %conv53.i.i
+  %cmp54.not.i.i = icmp samesign ugt i32 %add.i23.i, %conv53.i.i
   br i1 %cmp54.not.i.i, label %if.end57.i.i, label %eop.i.i
 
 if.end57.i.i:                                     ; preds = %do.body.i.i
@@ -1379,9 +1379,9 @@ if.end57.i.i:                                     ; preds = %do.body.i.i
   %add83.i.i = add nuw nsw i32 %conv82.i.i, %conv74.i.i
   %25 = load i8, ptr %hdr_len.i.i, align 4
   %conv86.i.i = zext i8 %25 to i32
-  %cmp87.not.i.i = icmp uge i32 %add83.i.i, %conv86.i.i
-  %cmp95.i.i = icmp ult i32 %conv82.i.i, %conv86.i.i
-  %or.cond89.i.i = and i1 %cmp87.not.i.i, %cmp95.i.i
+  %cmp87.not.i.i = icmp samesign uge i32 %add83.i.i, %conv86.i.i
+  %cmp95.i.i = icmp samesign ult i32 %conv82.i.i, %conv86.i.i
+  %or.cond89.i.i = select i1 %cmp87.not.i.i, i1 %cmp95.i.i, i1 false
   br i1 %or.cond89.i.i, label %if.then97.i.i, label %if.end104.i.i
 
 if.then97.i.i:                                    ; preds = %if.end57.i.i
@@ -1484,7 +1484,7 @@ txdesc_writeback.exit.i:                          ; preds = %if.end.i.i, %proces
   %mul22.i = shl nuw nsw i64 %conv21.i, 4
   %39 = load i32, ptr %arrayidx24.i, align 8
   %conv25.i = zext i32 %39 to i64
-  %cmp26.not.i = icmp ult i64 %mul22.i, %conv25.i
+  %cmp26.not.i = icmp samesign ult i64 %mul22.i, %conv25.i
   %spec.store.select.i = select i1 %cmp26.not.i, i32 %inc.i, i32 0
   store i32 %spec.store.select.i, ptr %arrayidx.i, align 16
   %cmp34.i = icmp ne i32 %spec.store.select.i, %1
@@ -1761,7 +1761,7 @@ if.then98:                                        ; preds = %if.end93
   %conv107 = zext i16 %31 to i32
   %tobool.not.i = icmp ne i16 %31, 0
   %cmp.i = icmp ult i16 %31, %29
-  %or.cond.i = and i1 %tobool.not.i, %cmp.i
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   %add.i = add nuw nsw i32 %conv107, 1
   %n.addr.0.i = select i1 %or.cond.i, i32 %add.i, i32 %conv102
   %sub.i = add nsw i32 %n.addr.0.i, -1
@@ -1805,7 +1805,7 @@ if.then113:                                       ; preds = %if.end108
   %conv121 = zext i16 %39 to i32
   %tobool.not.i76 = icmp ne i16 %39, 0
   %cmp.i77 = icmp ult i16 %39, %37
-  %or.cond.i78 = and i1 %tobool.not.i76, %cmp.i77
+  %or.cond.i78 = select i1 %tobool.not.i76, i1 %cmp.i77, i1 false
   %add.i79 = add nuw nsw i32 %conv121, 1
   %n.addr.0.i80 = select i1 %or.cond.i78, i32 %add.i79, i32 %conv117
   %sub.i81 = add nsw i32 %n.addr.0.i80, -1
@@ -2325,7 +2325,7 @@ if.end125:                                        ; preds = %if.end105, %do.body
   %mul139 = shl nuw nsw i64 %conv138, 4
   %46 = load i32, ptr %arrayidx141, align 8
   %conv142 = zext i32 %46 to i64
-  %cmp143.not = icmp ult i64 %mul139, %conv142
+  %cmp143.not = icmp samesign ult i64 %mul139, %conv142
   %spec.store.select = select i1 %cmp143.not, i32 %inc, i32 0
   store i32 %spec.store.select, ptr %arrayidx47, align 16
   %cmp151 = icmp ne i32 %spec.store.select, %23
@@ -2358,7 +2358,7 @@ do.end167:                                        ; preds = %do.cond164
   %51 = load i32, ptr %rxbuf_min_shift, align 4
   %shr = lshr i32 %.pre, %51
   %conv192 = zext i32 %shr to i64
-  %cmp193.not = icmp ugt i64 %mul189, %conv192
+  %cmp193.not = icmp samesign ugt i64 %mul189, %conv192
   %arrayidx.i127 = getelementptr i8, ptr %call, i64 11568
   %52 = load i32, ptr %arrayidx.i127, align 16
   br i1 %cmp193.not, label %if.end184.split, label %if.then195.split

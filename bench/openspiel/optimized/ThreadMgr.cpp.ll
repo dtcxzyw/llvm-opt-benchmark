@@ -294,7 +294,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %4, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %2
@@ -585,7 +585,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %3
   %61 = phi i32 [ %.pre28, %._crit_edge27 ], [ %42, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %41, label %._crit_edge22, !llvm.loop !12
 
 ._crit_edge22:                                    ; preds = %60, %.preheader

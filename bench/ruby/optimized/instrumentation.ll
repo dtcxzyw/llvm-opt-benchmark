@@ -181,7 +181,7 @@ event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr @timeline_cursor, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %event_symbol.exit, %5
@@ -253,7 +253,7 @@ define internal void @event_timeline_gc_mark(ptr nocapture readnone %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr @timeline_cursor, align 4
   %6 = zext i32 %5 to i64
-  %7 = icmp ult i64 %indvars.iv.next, %6
+  %7 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

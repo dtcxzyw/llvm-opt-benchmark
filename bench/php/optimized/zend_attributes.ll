@@ -1228,7 +1228,7 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %55 = load i32, ptr %35, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next59, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next59, %56
   br i1 %57, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
@@ -1273,7 +1273,7 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %35, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next, %76
   br i1 %77, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %73, %53, %34

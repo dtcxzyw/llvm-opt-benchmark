@@ -3695,7 +3695,7 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %tobool.not, i32 31, i32 63
   %1 = load i8, ptr %value, align 1
   %conv7 = zext i8 %1 to i32
-  %cmp.not.not = icmp ult i32 %spec.select, %conv7
+  %cmp.not.not = icmp samesign ult i32 %spec.select, %conv7
   br i1 %cmp.not.not, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end
@@ -4332,7 +4332,7 @@ if.then76.i:                                      ; preds = %lor.lhs.false74.i, 
 if.end77.i:                                       ; preds = %lor.lhs.false74.i
   %conv79.i = zext i16 %22 to i32
   %mul.i = shl nuw nsw i32 %conv60.i, 1
-  %cmp82.i = icmp ugt i32 %mul.i, %conv79.i
+  %cmp82.i = icmp samesign ugt i32 %mul.i, %conv79.i
   br i1 %cmp82.i, label %if.then84.i, label %if.end88.i
 
 if.then84.i:                                      ; preds = %if.end77.i
@@ -6534,7 +6534,7 @@ if.end78.i.i:                                     ; preds = %if.end57.i.i
   %conv81.i.i = zext nneg i32 %and.i245.i to i64
   %shr82.i.i = lshr i64 %bar.val.i.i, 48
   %and83.i.i = and i64 %shr82.i.i, 15
-  %cmp.i251.i = icmp ugt i64 %and83.i.i, %conv81.i.i
+  %cmp.i251.i = icmp samesign ugt i64 %and83.i.i, %conv81.i.i
   br i1 %cmp.i251.i, label %if.then91.i.i, label %if.end98.i.i
 
 if.then91.i.i:                                    ; preds = %if.end78.i.i
@@ -6546,7 +6546,7 @@ if.then91.i.i:                                    ; preds = %if.end78.i.i
 if.end98.i.i:                                     ; preds = %if.end78.i.i
   %shr102.i.i = lshr i64 %bar.val.i.i, 52
   %and103.i.i = and i64 %shr102.i.i, 15
-  %cmp104.i.i = icmp ult i64 %and103.i.i, %conv81.i.i
+  %cmp104.i.i = icmp samesign ult i64 %and103.i.i, %conv81.i.i
   br i1 %cmp104.i.i, label %if.then112.i.i, label %if.end119.i.i
 
 if.then112.i.i:                                   ; preds = %if.end98.i.i
@@ -8327,7 +8327,7 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %20 = load i8, ptr %sec_ctrl_list, align 8
   %21 = zext i8 %20 to i64
-  %cmp60 = icmp ult i64 %indvars.iv.next92, %21
+  %cmp60 = icmp samesign ult i64 %indvars.iv.next92, %21
   br i1 %cmp60, label %for.body62, label %for.end70, !llvm.loop !22
 
 for.end70:                                        ; preds = %for.body62, %for.cond59.preheader
@@ -10895,7 +10895,7 @@ lor.rhs30.i:                                      ; preds = %if.end28.i610
   %conv31.i = zext i16 %118 to i64
   %bar.val.i613 = load i64, ptr %bar.i, align 1
   %and.i614 = and i64 %bar.val.i613, 65535
-  %cmp33.i = icmp ult i64 %and.i614, %conv31.i
+  %cmp33.i = icmp samesign ult i64 %and.i614, %conv31.i
   br i1 %cmp33.i, label %if.then42.i, label %if.end43.i
 
 if.then42.i:                                      ; preds = %lor.rhs30.i, %if.end28.i610
@@ -11438,7 +11438,7 @@ lor.rhs37.i:                                      ; preds = %if.end35.i
   %conv38.i = zext i16 %198 to i64
   %bar.val.i = load i64, ptr %bar.i, align 1
   %and42.i = and i64 %bar.val.i, 65535
-  %cmp43.i = icmp ult i64 %and42.i, %conv38.i
+  %cmp43.i = icmp samesign ult i64 %and42.i, %conv38.i
   br i1 %cmp43.i, label %if.then52.i, label %if.end53.i460
 
 if.then52.i:                                      ; preds = %lor.rhs37.i, %if.end35.i
@@ -13140,7 +13140,7 @@ for.inc.i243:                                     ; preds = %if.then53.i, %sw.ep
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %460 = load i16, ptr %list.i, align 16
   %461 = zext i16 %460 to i64
-  %cmp23.i = icmp ult i64 %indvars.iv.next.i, %461
+  %cmp23.i = icmp samesign ult i64 %indvars.iv.next.i, %461
   br i1 %cmp23.i, label %for.body.i238, label %nvme_ns_attachment.exit, !llvm.loop !34
 
 nvme_ns_attachment.exit:                          ; preds = %for.body.i238, %if.end.i41.i, %if.end.i41.i, %if.end31.i, %nvme_ns.exit.i244, %land.lhs.true.i245, %nvme_ns.exit62.i, %for.inc.i243, %trace_pci_nvme_ns_attachment.exit.i, %if.end.i226, %nvme_subsys_ns.exit.i, %if.end11.i, %nvme_h2c.exit.i, %if.end15.i
@@ -13199,7 +13199,7 @@ if.else.i.i.i209:                                 ; preds = %if.then.i.i.i207
 
 trace_pci_nvme_virt_mngmt.exit.i:                 ; preds = %if.else.i.i.i209, %if.then8.i.i.i211, %land.lhs.true5.i.i.i204, %sw.bb45.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i184)
-  %or.cond.i195 = icmp ugt i32 %conv11.i190, 1
+  %or.cond.i195 = icmp samesign ugt i32 %conv11.i190, 1
   br i1 %or.cond.i195, label %if.then55, label %if.end.i196
 
 if.end.i196:                                      ; preds = %trace_pci_nvme_virt_mngmt.exit.i
@@ -13243,7 +13243,7 @@ if.end3.i.i:                                      ; preds = %if.end.i22.i
   %cond.in.in.i.i = getelementptr inbounds i8, ptr %0, i64 %cond.in.in.v.i.i
   %cond.in16.i.i = load i16, ptr %cond.in.in.i.i, align 4
   %conv10.i.i = zext i16 %cond.in16.i.i to i32
-  %cmp.i.i201 = icmp ugt i32 %and8.i188, %conv10.i.i
+  %cmp.i.i201 = icmp samesign ugt i32 %and8.i188, %conv10.i.i
   br i1 %cmp.i.i201, label %if.then55, label %if.end13.i.i202
 
 if.end13.i.i202:                                  ; preds = %if.end3.i.i
@@ -14866,7 +14866,7 @@ if.end31:                                         ; preds = %if.end
   %26 = load i8, ptr %msrc, align 8
   %conv34 = zext i8 %26 to i32
   %add35 = add nuw nsw i32 %conv34, 1
-  %cmp36 = icmp ult i32 %add35, %conv32
+  %cmp36 = icmp samesign ult i32 %add35, %conv32
   br i1 %cmp36, label %invalid, label %if.end39
 
 if.end39:                                         ; preds = %if.end31
@@ -15771,7 +15771,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and = and i32 %.fr112, 255
-  %or.cond = icmp ugt i32 %and, 1
+  %or.cond = icmp samesign ugt i32 %and, 1
   br i1 %or.cond, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
@@ -15787,7 +15787,7 @@ land.lhs.true10:                                  ; preds = %if.end8
 if.end13:                                         ; preds = %land.lhs.true10, %if.end8
   %shr = lshr i32 %.fr112, 8
   %and14 = and i32 %shr, 255
-  %cmp15 = icmp ugt i32 %and14, 7
+  %cmp15 = icmp samesign ugt i32 %and14, 7
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
@@ -16274,7 +16274,7 @@ for.body38.i:                                     ; preds = %for.body38.i, %for.
   %incdec.ptr.i = getelementptr i8, ptr %ruhsd.133.i, i64 32
   %22 = load i16, ptr %nrg.i, align 2
   %23 = zext i16 %22 to i64
-  %cmp36.i = icmp ult i64 %indvars.iv.next.i, %23
+  %cmp36.i = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %cmp36.i, label %for.body38.i, label %for.inc47.loopexit.i, !llvm.loop !44
 
 for.inc47.loopexit.i:                             ; preds = %for.body38.i
@@ -18044,7 +18044,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.then.i, %land.lhs.true.i, %if.then, %sw.bb1
-  %tobool2.not = icmp ugt i32 %flags, 1
+  %tobool2.not = icmp samesign ugt i32 %flags, 1
   %cond = zext i1 %tobool2.not to i32
   %call3 = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef %act.0, i32 noundef 1, i32 noundef %cond)
   %tobool4.not = icmp eq i16 %call3, 0
@@ -18306,7 +18306,7 @@ nvme_assign_zone_state.exit63:                    ; preds = %if.end18, %if.then.
   br label %sw.bb19
 
 sw.bb19:                                          ; preds = %nvme_assign_zone_state.exit63, %entry
-  %tobool21.not = icmp ult i32 %flags, 2
+  %tobool21.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %sw.bb19
@@ -21317,7 +21317,7 @@ if.then3:                                         ; preds = %if.else
   br i1 %tobool4.not114, label %if.end11, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then3
-  %tobool7.i = icmp ugt i32 %proc_mask, 3
+  %tobool7.i = icmp samesign ugt i32 %proc_mask, 3
   %frombool8.i = zext i1 %tobool7.i to i8
   %3 = trunc nuw nsw i32 %proc_mask to i8
   %4 = lshr i8 %3, 1
@@ -21374,7 +21374,7 @@ if.then14:                                        ; preds = %if.end11
   br i1 %tobool16.not116, label %for.end31, label %land.rhs17.lr.ph
 
 land.rhs17.lr.ph:                                 ; preds = %if.then14
-  %tobool7.i66 = icmp ugt i32 %proc_mask, 3
+  %tobool7.i66 = icmp samesign ugt i32 %proc_mask, 3
   %frombool8.i67 = zext i1 %tobool7.i66 to i8
   %10 = trunc nuw nsw i32 %proc_mask to i8
   %11 = lshr i8 %10, 1
@@ -21425,7 +21425,7 @@ for.end31:                                        ; preds = %for.cond15, %if.the
   br i1 %tobool33.not119, label %if.end70, label %land.rhs34.lr.ph
 
 land.rhs34.lr.ph:                                 ; preds = %for.end31
-  %tobool7.i80 = icmp ugt i32 %proc_mask, 3
+  %tobool7.i80 = icmp samesign ugt i32 %proc_mask, 3
   %frombool8.i81 = zext i1 %tobool7.i80 to i8
   %17 = trunc nuw nsw i32 %proc_mask to i8
   %18 = lshr i8 %17, 1
@@ -21471,7 +21471,7 @@ nvme_bulk_proc_zone.exit90:                       ; preds = %sw.epilog.i82
 if.end70:                                         ; preds = %for.cond32, %for.end31, %if.end11
   %zone.addr.2 = phi ptr [ %zone.addr.0, %if.end11 ], [ null, %for.end31 ], [ null, %for.cond32 ]
   %status.3 = phi i16 [ %status.0, %if.end11 ], [ %status.4.lcssa, %for.end31 ], [ %status.0.i85141, %for.cond32 ]
-  %tobool72.not = icmp ult i32 %proc_mask, 4
+  %tobool72.not = icmp samesign ult i32 %proc_mask, 4
   br i1 %tobool72.not, label %out, label %for.cond74.preheader
 
 for.cond74.preheader:                             ; preds = %if.end70
@@ -22841,7 +22841,7 @@ for.body.i:                                       ; preds = %for.inc.i, %while.c
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr i8, ptr %addr.addr.010.i, i64 8
   %add3.i = add nuw nsw i64 %result.011.i, 64
-  %cmp.i = icmp ult i64 %result.011.i, 193
+  %cmp.i = icmp samesign ult i64 %result.011.i, 193
   br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !58
 
 find_first_bit.exit:                              ; preds = %for.body.i
@@ -22849,7 +22849,7 @@ find_first_bit.exit:                              ; preds = %for.body.i
   %add.i = or disjoint i64 %7, %result.011.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 257)
   %conv5 = trunc nuw nsw i64 %cond.i to i32
-  %cmp6.not = icmp ugt i64 %add.i, 256
+  %cmp6.not = icmp samesign ugt i64 %add.i, 256
   br i1 %cmp6.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %find_first_bit.exit
@@ -25054,7 +25054,7 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   %ns.val.i = load i8, ptr %11, align 8
   %tobool.not.i.i = icmp eq i8 %ns.val.i, 0
   %conv1.i.i = select i1 %tobool.not.i.i, i64 8, i64 16
-  %cmp10.i = icmp ugt i64 %conv1.i.i, %conv9.i
+  %cmp10.i = icmp samesign ugt i64 %conv1.i.i, %conv9.i
   br i1 %cmp10.i, label %if.then23, label %if.end13.i
 
 if.end13.i:                                       ; preds = %land.lhs.true.i

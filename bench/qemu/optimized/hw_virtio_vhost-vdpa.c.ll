@@ -675,7 +675,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
   %len.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %17 to i64
-  %cmp.i10 = icmp ult i64 %inc.i, %conv.i
+  %cmp.i10 = icmp samesign ult i64 %inc.i, %conv.i
   br i1 %cmp.i10, label %for.body.i, label %vhost_vdpa_svq_cleanup.exit, !llvm.loop !7
 
 vhost_vdpa_svq_cleanup.exit:                      ; preds = %for.body.i, %if.end3
@@ -2169,7 +2169,7 @@ for.inc.i33:                                      ; preds = %if.end24.i
   %len.i = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i32, ptr %len.i, align 8
   %46 = zext i32 %45 to i64
-  %cmp.i34 = icmp ult i64 %indvars.iv.next.i, %46
+  %cmp.i34 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %cmp.i34, label %for.body.i23, label %vhost_vdpa_svqs_start.exit.thread, !llvm.loop !10
 
 err_map.i:                                        ; preds = %if.then34.i, %vhost_vdpa_svq_map_rings.exit.i, %vhost_vdpa_svq_map_rings.exit.thread.i
@@ -2333,7 +2333,7 @@ for.body.i50:                                     ; preds = %for.body.i50, %for.
   %len.i55 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load i32, ptr %len.i55, align 8
   %77 = zext i32 %76 to i64
-  %cmp.i56 = icmp ult i64 %indvars.iv.next.i54, %77
+  %cmp.i56 = icmp samesign ult i64 %indvars.iv.next.i54, %77
   br i1 %cmp.i56, label %for.body.i50, label %vhost_vdpa_svqs_stop.exit, !llvm.loop !12
 
 vhost_vdpa_svqs_stop.exit:                        ; preds = %for.body.i50, %vhost_vdpa_suspend.exit, %for.cond.preheader.i45

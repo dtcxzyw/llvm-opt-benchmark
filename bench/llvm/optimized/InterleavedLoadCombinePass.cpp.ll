@@ -603,7 +603,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126InterleavedLoadCom
   %175 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load i32, ptr %175, align 8
   %176 = zext i32 %.val.val.i to i64
-  %.not.i = icmp ult i64 %indvars.iv.next.i, %176
+  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %176
   br i1 %.not.i, label %177, label %_ZNK12_GLOBAL__N_110VectorInfo13isInterleavedEjRKN4llvm10DataLayoutE.exit.thread, !llvm.loop !13
 
 177:                                              ; preds = %174, %.lr.ph.i
@@ -4274,7 +4274,7 @@ _ZN12_GLOBAL__N_110PolynomialD2Ev.exit86.i:       ; preds = %165, %_ZN4llvm23Sma
   %175 = getelementptr inbounds nuw i8, ptr %.tr151.i, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = and i32 %176, 134217727
-  %178 = icmp ugt i32 %177, 1
+  %178 = icmp samesign ugt i32 %177, 1
   br i1 %178, label %.lr.ph153.preheader.i, label %._crit_edge.i
 
 .lr.ph153.preheader.i:                            ; preds = %173
@@ -5101,7 +5101,7 @@ _ZN12_GLOBAL__N_110PolynomialD2Ev.exit:           ; preds = %_ZN4llvm23SmallVect
   %522 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load i32, ptr %522, align 8
   %523 = zext i32 %.val.val to i64
-  %524 = icmp ult i64 %indvars.iv.next, %523
+  %524 = icmp samesign ult i64 %indvars.iv.next, %523
   br i1 %524, label %455, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit, %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %31, %29, %3
@@ -5485,7 +5485,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5A
 
 _ZN12_GLOBAL__N_110PolynomialD2Ev.exit.us:        ; preds = %156, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %157 = icmp ult i64 %indvars.iv.next, %80
+  %157 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %157, label %83, label %._crit_edge.us, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit.us

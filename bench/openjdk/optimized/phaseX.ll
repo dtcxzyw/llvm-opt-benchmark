@@ -1230,7 +1230,7 @@ _ZN9Node_ListC2Ej.exit:                           ; preds = %33, %35
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %9, align 8
   %91 = zext i32 %90 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %91
+  %.not.i = icmp samesign ult i64 %indvars.iv, %91
   br i1 %.not.i, label %_ZN10Type_Array3mapEjPK4Type.exit, label %92
 
 92:                                               ; preds = %78
@@ -1404,7 +1404,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %173, %177
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %182 = load i32, ptr %73, align 8
   %183 = zext i32 %182 to i64
-  %184 = icmp ult i64 %indvars.iv.next, %183
+  %184 = icmp samesign ult i64 %indvars.iv.next, %183
   br i1 %184, label %78, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %181, %72
@@ -1448,7 +1448,7 @@ _ZN9VectorSet3setEj.exit.i:                       ; preds = %198, %190
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %206 = load i32, ptr %186, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next.i, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next.i, %207
   br i1 %208, label %190, label %_ZN16Unique_Node_List17recompute_idx_setEv.exit, !llvm.loop !16
 
 _ZN16Unique_Node_List17recompute_idx_setEv.exit:  ; preds = %_ZN9VectorSet3setEj.exit.i, %._crit_edge
@@ -2596,7 +2596,7 @@ define hidden noundef zeroext i1 @_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b(p
   %38 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.015, i1 noundef zeroext %3) #16
   %39 = add nuw nsw i32 %.0, 1
   %40 = icmp eq ptr %38, null
-  %41 = icmp ugt i32 %.0, 98
+  %41 = icmp samesign ugt i32 %.0, 98
   %or.cond = select i1 %40, i1 true, i1 %41
   br i1 %or.cond, label %.loopexit, label %36, !llvm.loop !19
 
@@ -3088,7 +3088,7 @@ _ZN16Unique_Node_List3popEv.exit:                 ; preds = %78, %84
   %100 = sub i32 %97, %99
   %101 = zext i32 %100 to i64
   %102 = shl nuw nsw i64 %101, 10
-  %.not6 = icmp ugt i64 %102, %94
+  %.not6 = icmp samesign ugt i64 %102, %94
   br i1 %.not6, label %106, label %103
 
 103:                                              ; preds = %_ZN16Unique_Node_List3popEv.exit
@@ -4811,7 +4811,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit87:         ; preds = %_ZN9Node_List4pushE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %311 = load i32, ptr %78, align 8
   %312 = zext i32 %311 to i64
-  %313 = icmp ult i64 %indvars.iv.next, %312
+  %313 = icmp samesign ult i64 %indvars.iv.next, %312
   br i1 %313, label %82, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.loopexit
@@ -6950,7 +6950,7 @@ define hidden void @_ZN12PhaseIterGVN24remove_speculative_typesEv(ptr nocapture 
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(20) %11) #16
   %17 = load i32, ptr %7, align 8
   %18 = zext i32 %17 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %18
+  %.not.i = icmp samesign ult i64 %indvars.iv, %18
   br i1 %.not.i, label %_ZN10Type_Array3mapEjPK4Type.exit, label %19
 
 19:                                               ; preds = %12
@@ -7027,7 +7027,7 @@ _ZN10Type_Array3mapEjPK4Type.exit:                ; preds = %12, %_ZN10Type_Arra
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next, %57
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %53, %1
@@ -9487,7 +9487,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %_ZNK10Node_ArrayixE
 _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i:     ; preds = %_ZN10Node_Array3mapEjP4Node.exit
   %80 = trunc nuw i64 %79 to i32
   %81 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %80)
-  %82 = icmp ult i32 %81, 2
+  %82 = icmp samesign ult i32 %81, 2
   %83 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %80, i1 true)
   %84 = sub nuw nsw i32 32, %83
   %85 = shl nuw i32 1, %84
@@ -9578,7 +9578,7 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %117, %113
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_setEj.exit.i, %_ZN9Node_List4pushEP4Node.exit.i
   %121 = load i32, ptr %57, align 8
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %79, %122
+  %123 = icmp samesign ult i64 %79, %122
   br i1 %123, label %_ZNK10Node_ArrayixEj.exit, label %.lr.ph129, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit35, %124
@@ -9658,7 +9658,7 @@ _ZN10Node_Array3mapEjP4Node.exit25:               ; preds = %_ZNK10Node_ArrayixE
 _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i50:   ; preds = %_ZN10Node_Array3mapEjP4Node.exit25
   %158 = icmp sgt i32 %.sroa.0.2119, -1
   %159 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %157)
-  %160 = icmp ult i32 %159, 2
+  %160 = icmp samesign ult i32 %159, 2
   %or.cond.i.i.i.i.i26 = select i1 %158, i1 %160, i1 false
   %161 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
   %162 = sub nuw nsw i32 32, %161
@@ -10192,7 +10192,7 @@ _ZN12PhaseIterGVN12replace_nodeEP4NodeS1_.exit:   ; preds = %.lr.ph.i.i, %127, %
   %.2 = phi i32 [ %.14082, %.lr.ph ], [ %155, %_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %158 = zext i32 %157 to i64
-  %159 = icmp ult i64 %indvars.iv.next, %158
+  %159 = icmp samesign ult i64 %indvars.iv.next, %158
   br i1 %159, label %.lr.ph, label %.loopexit, !llvm.loop !69
 
 .loopexit76:                                      ; preds = %.loopexit, %.preheader, %_ZN4Node7set_reqEjPS_.exit, %87, %85
@@ -10561,7 +10561,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %20
   %39 = getelementptr inbounds i8, ptr %38, i64 64
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %.critedge, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.critedge19, %1
@@ -11008,7 +11008,7 @@ define hidden void @_ZN4Node10replace_byEPS_(ptr noundef nonnull readonly align 
 27:                                               ; preds = %21
   %28 = load i32, ptr %20, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv, %29
+  %30 = icmp samesign ult i64 %indvars.iv, %29
   br i1 %30, label %31, label %62
 
 31:                                               ; preds = %27
@@ -11091,7 +11091,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %43, %31
 69:                                               ; preds = %65
   %70 = icmp ne ptr %67, null
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %71 = icmp ult i64 %indvars.iv.next.i.i, %64
+  %71 = icmp samesign ult i64 %indvars.iv.next.i.i, %64
   %or.cond.i.i = select i1 %70, i1 %71, i1 false
   br i1 %or.cond.i.i, label %65, label %_ZN4Node14find_prec_edgeEPS_.exit.thread.i, !llvm.loop !72
 
@@ -11174,7 +11174,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %99, %_ZN4Node7del_o
   %.1 = phi i32 [ %105, %_ZN4Node7set_reqEjPS_.exit ], [ %.01828, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
   br i1 %109, label %21, label %._crit_edge.loopexit, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %106
@@ -11317,7 +11317,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8PhaseGVN12is_dominatorEP4Node
   %37 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.015.i, i1 noundef zeroext true) #16
   %38 = add nuw nsw i32 %.0.i, 1
   %39 = icmp eq ptr %37, null
-  %40 = icmp ugt i32 %.0.i, 98
+  %40 = icmp samesign ugt i32 %.0.i, 98
   %or.cond.i = select i1 %39, i1 true, i1 %40
   br i1 %or.cond.i, label %_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit, label %35, !llvm.loop !19
 
@@ -11467,7 +11467,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12PhaseIterGVN12is_dominatorEP
   %37 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.015.i, i1 noundef zeroext false) #16
   %38 = add nuw nsw i32 %.0.i, 1
   %39 = icmp eq ptr %37, null
-  %40 = icmp ugt i32 %.0.i, 98
+  %40 = icmp samesign ugt i32 %.0.i, 98
   %or.cond.i = select i1 %39, i1 true, i1 %40
   br i1 %or.cond.i, label %_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit, label %35, !llvm.loop !19
 

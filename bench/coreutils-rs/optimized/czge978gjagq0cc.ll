@@ -1271,9 +1271,9 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %.ph = phi i8 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted7.i, %1 ]
   %.ph10 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
   %.05.i.i = load i32, ptr %0, align 8, !range !445
-  %6 = icmp ult i32 %.05.i.i, 128
-  %7 = icmp ult i32 %.05.i.i, 2048
-  %8 = icmp ult i32 %.05.i.i, 65536
+  %6 = icmp samesign ult i32 %.05.i.i, 128
+  %7 = icmp samesign ult i32 %.05.i.i, 2048
+  %8 = icmp samesign ult i32 %.05.i.i, 65536
   %9 = lshr i32 %.05.i.i, 18
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -16
@@ -1469,9 +1469,9 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %.ph = phi i8 [ %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted7.i, %1 ]
   %.ph10 = phi i32 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i" ], [ %.promoted.i, %1 ]
   %.05.i.i = load i32, ptr %0, align 8, !range !445
-  %6 = icmp ult i32 %.05.i.i, 128
-  %7 = icmp ult i32 %.05.i.i, 2048
-  %8 = icmp ult i32 %.05.i.i, 65536
+  %6 = icmp samesign ult i32 %.05.i.i, 128
+  %7 = icmp samesign ult i32 %.05.i.i, 2048
+  %8 = icmp samesign ult i32 %.05.i.i, 65536
   %9 = lshr i32 %.05.i.i, 18
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -16

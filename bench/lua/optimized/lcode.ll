@@ -475,7 +475,7 @@ entry:
   %9 = load i32, ptr %pc, align 8
   %sub2.i = add nsw i32 %9, -1
   %10 = tail call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %cmp.i = icmp ugt i32 %10, 127
+  %cmp.i = icmp samesign ugt i32 %10, 127
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -1667,7 +1667,7 @@ freeexp.exit:                                     ; preds = %entry, %if.then.i, 
   %maxstacksize.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i8, ptr %maxstacksize.i.i, align 4
   %conv1.i.i = zext i8 %6 to i32
-  %cmp.i.i = icmp ugt i32 %add.i.i, %conv1.i.i
+  %cmp.i.i = icmp samesign ugt i32 %add.i.i, %conv1.i.i
   br i1 %cmp.i.i, label %if.then.i.i13, label %luaK_reserveregs.exit
 
 if.then.i.i13:                                    ; preds = %freeexp.exit
@@ -3901,7 +3901,7 @@ removelastlineinfo.exit:                          ; preds = %if.then.i, %if.else
   %sub.i = sub nsw i32 %line, %10
   %sub2.i = add nsw i32 %1, -1
   %11 = tail call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %cmp.i = icmp ugt i32 %11, 127
+  %cmp.i = icmp samesign ugt i32 %11, 127
   br i1 %cmp.i, label %if.then.i6, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %removelastlineinfo.exit

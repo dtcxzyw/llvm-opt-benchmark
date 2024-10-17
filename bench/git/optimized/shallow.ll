@@ -1620,7 +1620,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %11, ptr %arrayidx9, align 4
   %12 = load i32, ptr %nr_ours, align 8
   %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.cond11.preheader.loopexit, !llvm.loop !19
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.body15
@@ -1635,7 +1635,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %16 = load i32, ptr %nr_theirs, align 8
   %17 = zext i32 %16 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next269, %17
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next269, %17
   br i1 %cmp13, label %for.body15, label %for.end23.loopexit, !llvm.loop !20
 
 for.end23.loopexit:                               ; preds = %for.body15
@@ -1696,7 +1696,7 @@ for.body70.lr.ph:                                 ; preds = %for.cond65.preheade
   %23 = lshr i32 %sub.i, 3
   %24 = and i32 %23, 536870908
   %conv2.i.i = zext nneg i32 %24 to i64
-  %cmp4.i.i = icmp ugt i32 %24, 524288
+  %cmp4.i.i = icmp samesign ugt i32 %24, 524288
   %cmp79.not.i = icmp ult i32 %sub.i, 32
   %wide.trip.count.i = zext nneg i32 %div40.i to i64
   br label %for.body70

@@ -1706,7 +1706,7 @@ if.else:                                          ; preds = %e100_read_reg4.exit
 
 if.else22:                                        ; preds = %if.else
   %conv23 = and i32 %and8, 31
-  %cmp24 = icmp ugt i32 %conv23, 6
+  %cmp24 = icmp samesign ugt i32 %conv23, 6
   br i1 %cmp24, label %e100_write_reg4.exit, label %if.else27
 
 if.else27:                                        ; preds = %if.else22
@@ -1991,7 +1991,7 @@ for.body.i:                                       ; preds = %sw.bb48, %for.body.
   store i8 %conv17.i, ptr %arrayidx15.i, align 1
   %add19.i = add nuw nsw i32 %conv110.i, 6
   %conv1.i = and i32 %add19.i, 65535
-  %cmp.i = icmp ult i32 %conv1.i, %conv.i31
+  %cmp.i = icmp samesign ult i32 %conv1.i, %conv.i31
   br i1 %cmp.i, label %for.body.i, label %set_multicast_list.exit, !llvm.loop !10
 
 set_multicast_list.exit:                          ; preds = %for.body.i, %sw.bb48

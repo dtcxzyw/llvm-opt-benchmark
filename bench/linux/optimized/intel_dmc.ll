@@ -534,7 +534,7 @@ thread-pre-split:                                 ; preds = %27, %13
   %159 = add nuw nsw i64 %120, 1
   %160 = load i32, ptr %113, align 4
   %161 = zext i32 %160 to i64
-  %162 = icmp ult i64 %159, %161
+  %162 = icmp samesign ult i64 %159, %161
   br i1 %162, label %119, label %.loopexit23, !llvm.loop !39
 
 .loopexit23:                                      ; preds = %154, %110

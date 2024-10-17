@@ -812,7 +812,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %._crit_edge218
   %indvars.iv285 = phi i64 [ 0, %.lr.ph217.preheader ], [ %indvars.iv.next286, %._crit_edge218 ]
   %.0144227 = phi i32 [ 0, %.lr.ph217.preheader ], [ %.us-phi, %._crit_edge218 ]
-  %114 = icmp ult i64 %indvars.iv285, 2
+  %114 = icmp samesign ult i64 %indvars.iv285, 2
   br i1 %114, label %.lr.ph217.split.us.preheader, label %.lr.ph217.split
 
 .lr.ph217.split.us.preheader:                     ; preds = %.lr.ph217
@@ -1444,7 +1444,7 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nocapt
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.077 = phi i32 [ 0, %.preheader.preheader ], [ %.2, %._crit_edge ]
-  %10 = icmp ult i64 %indvars.iv, 2
+  %10 = icmp samesign ult i64 %indvars.iv, 2
   %cond = icmp eq i64 %indvars.iv, 2
   %11 = icmp eq i64 %indvars.iv, 4
   %12 = icmp eq i64 %indvars.iv, 5
@@ -3048,7 +3048,7 @@ _ZL13calc_fractionPKfi.exit:                      ; preds = %162, %.loopexit202
   br i1 %exitcond283.not, label %.loopexit194, label %.lr.ph233, !llvm.loop !45
 
 181:                                              ; preds = %.loopexit198
-  %182 = icmp ult i64 %indvars.iv299, 2
+  %182 = icmp samesign ult i64 %indvars.iv299, 2
   %brmerge248 = or i1 %182, %60
   br i1 %brmerge248, label %.loopexit194, label %.preheader185.lr.ph
 

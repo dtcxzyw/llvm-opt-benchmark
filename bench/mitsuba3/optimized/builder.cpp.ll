@@ -2586,7 +2586,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder10embedLabelERKNS
 
 10:                                               ; preds = %8
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2), !range !104
-  %12 = icmp ult i64 %11, 2
+  %12 = icmp samesign ult i64 %11, 2
   %13 = icmp ult i64 %2, 9
   %14 = and i1 %13, %12
   br i1 %14, label %17, label %15
@@ -2704,7 +2704,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder15embedLabelDelta
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3), !range !104
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   %14 = icmp ult i64 %3, 9
   %15 = and i1 %14, %13
   br i1 %15, label %18, label %16

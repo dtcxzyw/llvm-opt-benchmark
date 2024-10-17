@@ -38,7 +38,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   %21 = shl nuw nsw i32 %7, 6
   %.masked52 = and i32 %21, 1984
   %22 = or disjoint i32 %.masked52, %15
-  %23 = icmp ult i32 %22, 128
+  %23 = icmp samesign ult i32 %22, 128
   br i1 %23, label %58, label %59
 
 24:                                               ; preds = %16
@@ -62,7 +62,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   %35 = shl nuw nsw i32 %15, 6
   %.masked51 = and i32 %34, 61440
   %.masked50 = or disjoint i32 %35, %.masked51
-  %36 = icmp ult i32 %.masked50, 2048
+  %36 = icmp samesign ult i32 %.masked50, 2048
   %37 = and i32 %.masked50, 63488
   %or.cond = icmp eq i32 %37, 55296
   %or.cond53 = or i1 %36, %or.cond
@@ -138,7 +138,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %16 = shl nuw nsw i32 %4, 6
   %.masked46 = and i32 %16, 1984
   %17 = or disjoint i32 %.masked46, %10
-  %18 = icmp ult i32 %17, 128
+  %18 = icmp samesign ult i32 %17, 128
   br i1 %18, label %49, label %50
 
 19:                                               ; preds = %11
@@ -158,7 +158,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %28 = shl nuw nsw i32 %10, 6
   %.masked45 = and i32 %27, 61440
   %.masked44 = or disjoint i32 %28, %.masked45
-  %29 = icmp ult i32 %.masked44, 2048
+  %29 = icmp samesign ult i32 %.masked44, 2048
   %30 = and i32 %.masked44, 63488
   %or.cond = icmp eq i32 %30, 55296
   %or.cond47 = or i1 %29, %or.cond
@@ -249,7 +249,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr nocapture noundef writeonly
   %19 = and i64 %spec.store.select, 4294965248
   %or.cond = icmp eq i64 %19, 55296
   %spec.store.select2 = select i1 %or.cond, i64 65533, i64 %spec.store.select
-  %20 = icmp ult i64 %spec.store.select2, 65536
+  %20 = icmp samesign ult i64 %spec.store.select2, 65536
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
@@ -311,8 +311,8 @@ define dso_local range(i32 1, 5) i32 @runelen(i32 noundef %0) local_unnamed_addr
   %narrow.i = select i1 %6, i32 65533, i32 %0
   %7 = and i32 %narrow.i, 2095104
   %or.cond.i = icmp eq i32 %7, 55296
-  %8 = icmp ult i32 %narrow.i, 65536
-  %9 = or i1 %8, %or.cond.i
+  %8 = icmp samesign ult i32 %narrow.i, 65536
+  %9 = select i1 %or.cond.i, i1 true, i1 %8
   %. = select i1 %9, i32 3, i32 4
   br label %runetochar.exit
 

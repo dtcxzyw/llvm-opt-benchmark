@@ -161,7 +161,7 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom.
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @_ZN4futf8classify17h37de7dca78372bccE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 4294967296) %2, i64 noundef range(i64 0, 4294967295) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.not = icmp ult i64 %3, %2
+  %.not = icmp samesign ult i64 %3, %2
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %4
@@ -269,7 +269,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
   %43 = or disjoint i32 %39, %42
-  %44 = icmp ult i8 %37, 2
+  %44 = icmp samesign ult i8 %37, 2
   br i1 %44, label %97, label %81
 
 45:                                               ; preds = %35
@@ -286,7 +286,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %56 = and i8 %55, 63
   %57 = zext nneg i8 %56 to i32
   %58 = or disjoint i32 %53, %57
-  %59 = icmp ult i32 %53, 2048
+  %59 = icmp samesign ult i32 %53, 2048
   br i1 %59, label %97, label %86
 
 60:                                               ; preds = %35
@@ -309,7 +309,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %77 = zext nneg i8 %76 to i32
   %78 = or disjoint i32 %73, %77
   %79 = or disjoint i32 %78, %68
-  %80 = icmp ult i32 %68, 65536
+  %80 = icmp samesign ult i32 %68, 65536
   br i1 %80, label %97, label %81
 
 81:                                               ; preds = %88, %60, %36
@@ -327,9 +327,9 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   br i1 %or.cond3.i109, label %91, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ugt i32 %53, 56319
-  %90 = icmp ult i8 %46, 14
-  %or.cond5.i110 = and i1 %90, %89
+  %89 = icmp samesign ugt i32 %53, 56319
+  %90 = icmp samesign ult i8 %46, 14
+  %or.cond5.i110 = select i1 %89, i1 %90, i1 false
   br i1 %or.cond5.i110, label %94, label %81
 
 91:                                               ; preds = %86
@@ -445,7 +445,7 @@ select.unfold165:                                 ; preds = %116, %109, %113
   br label %98
 
 126:                                              ; preds = %select.unfold165
-  %127 = icmp ult i64 %104, %.sroa.7.0.i.ph
+  %127 = icmp samesign ult i64 %104, %.sroa.7.0.i.ph
   br i1 %127, label %128, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17ha338b70600f25811E.exit120.thread"
 
 128:                                              ; preds = %126
@@ -481,7 +481,7 @@ select.unfold165:                                 ; preds = %116, %109, %113
   %143 = and i8 %142, 63
   %144 = zext nneg i8 %143 to i32
   %145 = or disjoint i32 %140, %144
-  %146 = icmp ult i8 %138, 2
+  %146 = icmp samesign ult i8 %138, 2
   br i1 %146, label %201, label %185
 
 147:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17ha338b70600f25811E.exit120.thread"
@@ -499,7 +499,7 @@ select.unfold165:                                 ; preds = %116, %109, %113
   %159 = and i8 %158, 63
   %160 = zext nneg i8 %159 to i32
   %161 = or disjoint i32 %156, %160
-  %162 = icmp ult i32 %156, 2048
+  %162 = icmp samesign ult i32 %156, 2048
   br i1 %162, label %201, label %190
 
 163:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17ha338b70600f25811E.exit120.thread"
@@ -523,7 +523,7 @@ select.unfold165:                                 ; preds = %116, %109, %113
   %181 = zext nneg i8 %180 to i32
   %182 = or disjoint i32 %177, %181
   %183 = or disjoint i32 %182, %172
-  %184 = icmp ult i32 %172, 65536
+  %184 = icmp samesign ult i32 %172, 65536
   br i1 %184, label %201, label %185
 
 185:                                              ; preds = %192, %163, %137
@@ -541,9 +541,9 @@ select.unfold165:                                 ; preds = %116, %109, %113
   br i1 %or.cond3.i, label %195, label %192
 
 192:                                              ; preds = %190
-  %193 = icmp ugt i32 %156, 56319
-  %194 = icmp ult i8 %148, 14
-  %or.cond5.i = and i1 %194, %193
+  %193 = icmp samesign ugt i32 %156, 56319
+  %194 = icmp samesign ult i8 %148, 14
+  %or.cond5.i = select i1 %193, i1 %194, i1 false
   br i1 %or.cond5.i, label %198, label %185
 
 195:                                              ; preds = %190
@@ -1146,7 +1146,7 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %.sroa.4.0.i = select i1 %16, i64 %13, i64 %19
-  %20 = icmp ult i64 %.sroa.4.0.i, 3
+  %20 = icmp samesign ult i64 %.sroa.4.0.i, 3
   br i1 %20, label %.thread68, label %23
 
 21:                                               ; preds = %.loopexit, %.loopexit.split-lp, %78, %90

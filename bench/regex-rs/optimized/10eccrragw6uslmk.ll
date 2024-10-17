@@ -13422,7 +13422,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %97 = zext i32 %96 to i64
   %98 = sub nsw i64 %95, %97
   %99 = lshr i64 %98, 1
-  %.not.not.i.i = icmp ult i64 %99, %85
+  %.not.not.i.i = icmp samesign ult i64 %99, %85
   br i1 %.not.not.i.i, label %_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E.exit, label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
 
 _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i

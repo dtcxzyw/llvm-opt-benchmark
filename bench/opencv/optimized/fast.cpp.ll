@@ -691,7 +691,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %266 = getelementptr inbounds i8, ptr %.0154214, i64 %265
   %267 = load i8, ptr %266, align 1
   %268 = zext i8 %267 to i32
-  %269 = icmp ult i32 %261, %268
+  %269 = icmp samesign ult i32 %261, %268
   br i1 %269, label %270, label %283
 
 270:                                              ; preds = %262
@@ -1361,7 +1361,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %266 = getelementptr inbounds i8, ptr %.0154214, i64 %265
   %267 = load i8, ptr %266, align 1
   %268 = zext i8 %267 to i32
-  %269 = icmp ult i32 %261, %268
+  %269 = icmp samesign ult i32 %261, %268
   br i1 %269, label %270, label %283
 
 270:                                              ; preds = %262
@@ -2031,7 +2031,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %266 = getelementptr inbounds i8, ptr %.0154214, i64 %265
   %267 = load i8, ptr %266, align 1
   %268 = zext i8 %267 to i32
-  %269 = icmp ult i32 %261, %268
+  %269 = icmp samesign ult i32 %261, %268
   br i1 %269, label %270, label %283
 
 270:                                              ; preds = %262
@@ -2617,7 +2617,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIhEEvRPT_mt(pt
 
 40:                                               ; preds = %32
   %41 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %3)
-  %42 = icmp ult i16 %41, 2
+  %42 = icmp samesign ult i16 %41, 2
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40
@@ -2811,7 +2811,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIiEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52

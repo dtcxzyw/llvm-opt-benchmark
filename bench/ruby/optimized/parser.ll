@@ -3311,7 +3311,7 @@ unescape_unicode.exit:                            ; preds = %68
   br label %171
 
 146:                                              ; preds = %unescape_unicode.exit
-  %147 = icmp ult i64 %82, 8
+  %147 = icmp samesign ult i64 %82, 8
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %146
@@ -3320,7 +3320,7 @@ unescape_unicode.exit:                            ; preds = %68
   br label %convert_UTF32_to_UTF8.exit
 
 150:                                              ; preds = %146
-  %151 = icmp ult i64 %80, 128
+  %151 = icmp samesign ult i64 %80, 128
   br i1 %151, label %152, label %.thread103
 
 152:                                              ; preds = %150

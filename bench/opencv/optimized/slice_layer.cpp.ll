@@ -2477,7 +2477,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %578, %573
   %604 = call i32 @llvm.abs.i32(i32 %557, i1 true)
-  %605 = icmp ugt i32 %604, 1
+  %605 = icmp samesign ugt i32 %604, 1
   br i1 %605, label %606, label %607
 
 606:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit

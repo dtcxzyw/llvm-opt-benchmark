@@ -266,7 +266,7 @@ for.inc87:                                        ; preds = %if.end70, %if.then7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %cmdline, align 8
   %30 = zext i32 %29 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %30
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %cmp, label %for.body57, label %if.end89, !llvm.loop !10
 
 if.end89:                                         ; preds = %for.inc87, %for.cond56.preheader, %if.end48
@@ -588,7 +588,7 @@ for.inc:                                          ; preds = %if.end4.i.i, %land.
   %pending = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %pending, align 8
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %entry

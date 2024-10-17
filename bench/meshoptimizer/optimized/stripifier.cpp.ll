@@ -95,7 +95,7 @@ while.body8:                                      ; preds = %while.body8.prehead
   store i32 %8, ptr %arrayidx22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add24 = add i64 %index_offset.1350, 3
-  %cmp6 = icmp ult i64 %indvars.iv, 7
+  %cmp6 = icmp samesign ult i64 %indvars.iv, 7
   %cmp7 = icmp ult i64 %add24, %index_count
   %9 = and i1 %cmp6, %cmp7
   br i1 %9, label %while.body8, label %while.end.loopexit, !llvm.loop !7

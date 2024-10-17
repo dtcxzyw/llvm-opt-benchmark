@@ -570,7 +570,7 @@ Vec_StrFill.exit:                                 ; preds = %.lr.ph.i.preheader,
   %22 = getelementptr inbounds i8, ptr %.val15, i64 %21
   store i8 %20, ptr %22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp ult i64 %indvars.iv.next, %14
+  %23 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %23, label %15, label %.critedge.thread, !llvm.loop !12
 
 .critedge.thread:                                 ; preds = %15
@@ -1006,7 +1006,7 @@ Pla_CubeHashValue.exit.i:                         ; preds = %63
 .critedge2.i:                                     ; preds = %.critedge2.loopexit.i, %58
   %.promoted192 = phi i32 [ %97, %.critedge2.loopexit.i ], [ %.promoted, %58 ]
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %98 = icmp ult i64 %indvars.iv.next33.i, %57
+  %98 = icmp samesign ult i64 %indvars.iv.next33.i, %57
   br i1 %98, label %58, label %.lr.ph178, !llvm.loop !14
 
 .lr.ph178:                                        ; preds = %.critedge2.i, %Vec_WecSizeSize.exit.thread

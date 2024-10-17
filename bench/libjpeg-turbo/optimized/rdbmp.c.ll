@@ -1263,7 +1263,7 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %7, align 4
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %30, %2

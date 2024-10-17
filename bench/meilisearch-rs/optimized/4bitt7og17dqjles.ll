@@ -762,7 +762,7 @@ define hidden noundef align 8 ptr @"_ZN4time5serde90_$LT$impl$u20$serde..ser..Se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   %.val.i = load i64, ptr %13, align 8, !range !207, !alias.scope !204, !noundef !4
-  %switch.i.i = icmp ult i64 %.val.i, 2
+  %switch.i.i = icmp samesign ult i64 %.val.i, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$time..error..format..Format$GT$$GT$17h9c28583351a5c8cbE.exit", label %.noexc26
 
 .noexc26:                                         ; preds = %12
@@ -1592,7 +1592,7 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -1605,7 +1605,7 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
   %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81

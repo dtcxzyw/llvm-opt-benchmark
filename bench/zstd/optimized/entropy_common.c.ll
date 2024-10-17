@@ -84,7 +84,7 @@ if.end7.i.i:                                      ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr align 2 %normalizedCounter, i8 0, i64 %mul.i.i, i1 false)
   %memPtr.val.i8 = load i32, ptr %headerBuffer, align 1
   %and.i.i = and i32 %memPtr.val.i8, 15
-  %cmp11.i.i = icmp ugt i32 %and.i.i, 10
+  %cmp11.i.i = icmp samesign ugt i32 %and.i.i, 10
   br i1 %cmp11.i.i, label %FSE_readNCount_body_default.exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end7.i.i
@@ -115,7 +115,7 @@ if.then18.i.i:                                    ; preds = %for.cond.i.i
   %not.i.i = xor i32 %bitStream.i.0.i, -1
   %or.i.i = or i32 %not.i.i, -2147483648
   %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i.i, i1 true)
-  %cmp21.i.i11 = icmp ugt i32 %1, 23
+  %cmp21.i.i11 = icmp samesign ugt i32 %1, 23
   br i1 %cmp21.i.i11, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.then18.i.i, %while.body.i.i
@@ -138,7 +138,7 @@ while.body.i.i:                                   ; preds = %if.then18.i.i, %whi
   %not39.i.i = xor i32 %shr38.i.i, -1
   %or40.i.i = or i32 %not39.i.i, -2147483648
   %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
-  %cmp21.i.i = icmp ugt i32 %2, 23
+  %cmp21.i.i = icmp samesign ugt i32 %2, 23
   br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then18.i.i
@@ -344,7 +344,7 @@ if.end7.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr align 2 %normalizedCounter, i8 0, i64 %mul.i, i1 false)
   %memPtr.val.i = load i32, ptr %headerBuffer, align 1
   %and.i = and i32 %memPtr.val.i, 15
-  %cmp11.i = icmp ugt i32 %and.i, 10
+  %cmp11.i = icmp samesign ugt i32 %and.i, 10
   br i1 %cmp11.i, label %FSE_readNCount_body.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end7.i
@@ -375,7 +375,7 @@ if.then18.i:                                      ; preds = %for.cond.i
   %not.i = xor i32 %bitStream.i.0, -1
   %or.i = or i32 %not.i, -2147483648
   %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i, i1 true)
-  %cmp21.i113 = icmp ugt i32 %1, 23
+  %cmp21.i113 = icmp samesign ugt i32 %1, 23
   br i1 %cmp21.i113, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then18.i, %while.body.i
@@ -398,7 +398,7 @@ while.body.i:                                     ; preds = %if.then18.i, %while
   %not39.i = xor i32 %shr38.i, -1
   %or40.i = or i32 %not39.i, -2147483648
   %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
-  %cmp21.i = icmp ugt i32 %2, 23
+  %cmp21.i = icmp samesign ugt i32 %2, 23
   br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %if.then18.i
@@ -693,7 +693,7 @@ for.end66.i.i:                                    ; preds = %if.end54.i.i
 if.end70.i.i:                                     ; preds = %for.end66.i.i
   %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add63.i.i, i1 true)
   %sub.i49.i = xor i32 %11, 31
-  %cmp73.i.i = icmp ugt i32 %sub.i49.i, 11
+  %cmp73.i.i = icmp samesign ugt i32 %sub.i49.i, 11
   br i1 %cmp73.i.i, label %return, label %if.end76.i.i
 
 if.end76.i.i:                                     ; preds = %if.end70.i.i
@@ -841,7 +841,7 @@ for.end66.i:                                      ; preds = %if.end54.i
 if.end70.i:                                       ; preds = %for.end66.i
   %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add63.i, i1 true)
   %sub.i49 = xor i32 %11, 31
-  %cmp73.i = icmp ugt i32 %sub.i49, 11
+  %cmp73.i = icmp samesign ugt i32 %sub.i49, 11
   br i1 %cmp73.i, label %HUF_readStats_body.exit, label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.end70.i

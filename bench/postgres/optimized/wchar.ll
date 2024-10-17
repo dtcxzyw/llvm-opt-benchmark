@@ -408,7 +408,7 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr nocapture noundef readonly %0, 
 
 16:                                               ; preds = %7
   %17 = icmp eq i8 %5, -113
-  %18 = icmp ugt i32 %.03441.i, 2
+  %18 = icmp samesign ugt i32 %.03441.i, 2
   %or.cond3.i = and i1 %18, %17
   br i1 %or.cond3.i, label %19, label %30
 
@@ -701,7 +701,7 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond.i, label %pg_eucjp_verifychar.exit.thread, label %pg_eucjp_verifychar.exit
 
 14:                                               ; preds = %7
-  %15 = icmp ult i32 %.01316, 3
+  %15 = icmp samesign ult i32 %.01316, 3
   br i1 %15, label %pg_eucjp_verifychar.exit.thread, label %16
 
 16:                                               ; preds = %14
@@ -764,7 +764,7 @@ define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, 
 
 7:                                                ; preds = %.lr.ph
   %8 = icmp eq i8 %5, -114
-  %9 = icmp ugt i32 %.03643, 2
+  %9 = icmp samesign ugt i32 %.03643, 2
   %or.cond = and i1 %9, %8
   br i1 %or.cond, label %10, label %21
 
@@ -967,7 +967,7 @@ define internal i32 @pg_euckr2wchar_with_len(ptr nocapture noundef readonly %0, 
 
 16:                                               ; preds = %7
   %17 = icmp eq i8 %5, -113
-  %18 = icmp ugt i32 %.03441.i, 2
+  %18 = icmp samesign ugt i32 %.03441.i, 2
   %or.cond3.i = and i1 %18, %17
   br i1 %or.cond3.i, label %19, label %30
 
@@ -1076,7 +1076,7 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
 
 7:                                                ; preds = %.lr.ph
   %8 = icmp eq i8 %5, -114
-  %9 = icmp ugt i32 %.03845, 3
+  %9 = icmp samesign ugt i32 %.03845, 3
   %or.cond = and i1 %9, %8
   br i1 %or.cond, label %10, label %26
 
@@ -1102,7 +1102,7 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %7
   %27 = icmp eq i8 %5, -113
-  %28 = icmp ugt i32 %.03845, 2
+  %28 = icmp samesign ugt i32 %.03845, 2
   %or.cond3 = and i1 %28, %27
   br i1 %or.cond3, label %29, label %40
 
@@ -1275,7 +1275,7 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   ]
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %.01316, 4
+  %10 = icmp samesign ult i32 %.01316, 4
   br i1 %10, label %pg_euctw_verifychar.exit.thread, label %11
 
 11:                                               ; preds = %9
@@ -1374,7 +1374,7 @@ define internal i32 @pg_utf2wchar_with_len(ptr nocapture noundef readonly %0, pt
   br i1 %27, label %28, label %45
 
 28:                                               ; preds = %25
-  %29 = icmp ult i32 %.04348, 3
+  %29 = icmp samesign ult i32 %.04348, 3
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %28
@@ -1400,7 +1400,7 @@ define internal i32 @pg_utf2wchar_with_len(ptr nocapture noundef readonly %0, pt
   br i1 %47, label %48, label %71
 
 48:                                               ; preds = %45
-  %49 = icmp ult i32 %.04348, 4
+  %49 = icmp samesign ult i32 %.04348, 4
   br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %48
@@ -1892,7 +1892,7 @@ pg_utf_mblen_private.exit.thread:                 ; preds = %39, %34, %.fold.spl
 
 61:                                               ; preds = %58, %55, %51
   %.0.i34 = phi i32 [ 2, %51 ], [ 3, %55 ], [ %.11.i, %58 ]
-  %62 = icmp ugt i32 %.0.i34, %.32854
+  %62 = icmp samesign ugt i32 %.0.i34, %.32854
   br i1 %62, label %pg_utf8_verifychar.exit.thread, label %63
 
 63:                                               ; preds = %61
@@ -1957,12 +1957,12 @@ define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, p
 
 21:                                               ; preds = %19
   %22 = icmp eq i8 %5, -101
-  %23 = icmp ugt i32 %.05776, 2
+  %23 = icmp samesign ugt i32 %.05776, 2
   %or.cond3 = and i1 %23, %22
   br i1 %or.cond3, label %25, label %35
 
 24:                                               ; preds = %19
-  %.old2 = icmp ugt i32 %.05776, 2
+  %.old2 = icmp samesign ugt i32 %.05776, 2
   br i1 %.old2, label %25, label %.thread72
 
 25:                                               ; preds = %21, %24
@@ -2009,12 +2009,12 @@ define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, p
 
 53:                                               ; preds = %51
   %54 = icmp eq i8 %5, -99
-  %55 = icmp ugt i32 %.05776, 3
+  %55 = icmp samesign ugt i32 %.05776, 3
   %or.cond9 = and i1 %55, %54
   br i1 %or.cond9, label %57, label %.thread72
 
 56:                                               ; preds = %51
-  %.old8 = icmp ugt i32 %.05776, 3
+  %.old8 = icmp samesign ugt i32 %.05776, 3
   br i1 %.old8, label %57, label %.thread72
 
 57:                                               ; preds = %53, %56
@@ -2162,7 +2162,7 @@ define internal i32 @pg_wchar2mule_with_len(ptr nocapture noundef readonly %0, p
   br label %71
 
 55:                                               ; preds = %43
-  %56 = icmp ugt i32 %9, 244
+  %56 = icmp samesign ugt i32 %9, 244
   %57 = icmp ne i32 %9, 255
   %or.cond17 = and i1 %56, %57
   br i1 %or.cond17, label %58, label %68
@@ -2309,7 +2309,7 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 
 pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %.0.i.i = phi i32 [ 2, %7 ], [ 3, %9 ], [ %spec.select.i.i, %12 ]
-  %13 = icmp ult i32 %.01319, %.0.i.i
+  %13 = icmp samesign ult i32 %.01319, %.0.i.i
   br i1 %13, label %pg_mule_verifychar.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_mule_mblen.exit.i, %15
@@ -2498,7 +2498,7 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %8 = add nsw i8 %4, 95
   %or.cond.i.i = icmp ult i8 %8, 63
   %.0.i.i = select i1 %or.cond.i.i, i32 1, i32 2
-  %9 = icmp ult i32 %.01318, %.0.i.i
+  %9 = icmp samesign ult i32 %.01318, %.0.i.i
   %brmerge.i = or i1 %or.cond.i.i, %9
   br i1 %brmerge.i, label %pg_sjis_verifychar.exit, label %10
 
@@ -2962,7 +2962,7 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %pg_gb18030_verifychar.exit.thread, label %pg_gb18030_verifychar.exit
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ugt i32 %.01317, 3
+  %8 = icmp samesign ugt i32 %.01317, 3
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
@@ -3132,7 +3132,7 @@ define internal i32 @pg_johab_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %cond = icmp eq i8 %4, -113
   %spec.select = select i1 %cond, i32 3, i32 2
-  %7 = icmp ult i32 %.01319, %spec.select
+  %7 = icmp samesign ult i32 %.01319, %spec.select
   br i1 %7, label %pg_johab_verifychar.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_johab_mblen.exit.i, %9

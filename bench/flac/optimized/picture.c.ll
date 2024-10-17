@@ -994,7 +994,7 @@ if.else180:                                       ; preds = %if.then174
   %22 = load i8, ptr %arrayidx185, align 1
   %conv186 = zext i8 %22 to i32
   %or187 = or disjoint i32 %shl184, %conv186
-  %cmp188 = icmp ult i32 %or187, 8
+  %cmp188 = icmp samesign ult i32 %or187, 8
   %cmp191 = icmp ult i32 %dec176, %or187
   %or.cond114 = or i1 %cmp188, %cmp191
   br i1 %or.cond114, label %return, label %if.end194
@@ -1044,7 +1044,7 @@ if.else222:                                       ; preds = %if.else216
   %30 = load i8, ptr %arrayidx227, align 1
   %conv228 = zext i8 %30 to i32
   %or229 = or disjoint i32 %shl226, %conv228
-  %cmp230 = icmp ult i32 %or229, 2
+  %cmp230 = icmp samesign ult i32 %or229, 2
   %cmp233 = icmp ult i32 %dec218, %or229
   %or.cond115 = or i1 %cmp230, %cmp233
   %idx.ext237 = zext nneg i32 %or229 to i64

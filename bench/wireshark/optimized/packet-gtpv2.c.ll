@@ -3368,7 +3368,7 @@ define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef
 139:                                              ; preds = %125, %123
   %.6141 = phi i32 [ %.5140, %123 ], [ %132, %125 ]
   %.6 = phi ptr [ %.5, %123 ], [ %136, %125 ]
-  %.not84 = icmp ult i32 %5, 128
+  %.not84 = icmp samesign ult i32 %5, 128
   br i1 %.not84, label %156, label %140
 
 140:                                              ; preds = %139
@@ -3744,7 +3744,7 @@ define hidden void @dissect_gtpv2_mbms_service_area(ptr noundef %0, ptr nocaptur
 22:                                               ; preds = %21, %.lr.ph
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.9, i32 noundef %19) #10
   %23 = add nuw nsw i32 %.019, 2
-  %24 = icmp ult i32 %23, %14
+  %24 = icmp samesign ult i32 %23, %14
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %22, %8
@@ -6532,7 +6532,7 @@ define internal void @dissect_gtpv2_tra_info(ptr noundef %0, ptr noundef %1, ptr
   %115 = load i32, ptr @hf_gtpv2_ipv4_addr, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef 0) #10
   %117 = add nuw nsw i32 %113, 4
-  %.not = icmp ugt i32 %117, %112
+  %.not = icmp samesign ugt i32 %117, %112
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
@@ -8828,7 +8828,7 @@ define internal void @dissect_gtpv2_ran_nas_cause(ptr noundef %0, ptr nocapture 
   %14 = load i32, ptr @hf_gtpv2_ran_nas_cause_type, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %16 = and i8 %9, 15
-  %17 = icmp ult i8 %16, 5
+  %17 = icmp samesign ult i8 %16, 5
   br i1 %17, label %switch.lookup, label %dissect_gtpv2_s1ap_cause.exit
 
 switch.lookup:                                    ; preds = %13

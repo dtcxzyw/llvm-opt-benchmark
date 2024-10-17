@@ -1210,7 +1210,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 443:                                              ; preds = %429
-  %444 = icmp ult i64 %435, %426
+  %444 = icmp samesign ult i64 %435, %426
   br i1 %444, label %445, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 445:                                              ; preds = %443

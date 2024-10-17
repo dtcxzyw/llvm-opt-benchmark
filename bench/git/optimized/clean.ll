@@ -1125,7 +1125,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %dels, i64 24
   store i8 1, ptr %1, align 8
   store i32 1, ptr %dir_gone, align 4
-  %tobool.not = icmp ult i32 %force_flag, 2
+  %tobool.not = icmp samesign ult i32 %force_flag, 2
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry

@@ -587,11 +587,11 @@ for.cond.cleanup126:                              ; preds = %for.cond124.loopexi
   br i1 %cmp145, label %if.end306.thread, label %for.body155.lr.ph
 
 if.end306.thread:                                 ; preds = %for.cond.cleanup126
-  %cmp310536 = icmp ult i64 %ite.0, 100
+  %cmp310536 = icmp samesign ult i64 %ite.0, 100
   br i1 %cmp310536, label %do.end358, label %if.then314
 
 if.end306.thread.thread:                          ; preds = %do.body123
-  %cmp310536652 = icmp ult i64 %ite.0, 100
+  %cmp310536652 = icmp samesign ult i64 %ite.0, 100
   br i1 %cmp310536652, label %do.end358.thread, label %if.then314
 
 do.end358.thread:                                 ; preds = %if.end306.thread.thread
@@ -632,11 +632,11 @@ invoke.cont133:                                   ; preds = %invoke.cont133.lr.p
   br i1 %exitcond631.not, label %for.cond124.loopexit, label %invoke.cont133, !llvm.loop !29
 
 for.body155.lr.ph:                                ; preds = %for.cond.cleanup126
-  %cmp147 = icmp ult i64 %ite.0, 5
+  %cmp147 = icmp samesign ult i64 %ite.0, 5
   %mul = fmul double %sum.1.lcssa, 2.000000e-01
   %div = fdiv double %mul, %conv
   %threshold.0 = select i1 %cmp147, double %div, double 0.000000e+00
-  %cmp164 = icmp ugt i64 %ite.0, 5
+  %cmp164 = icmp samesign ugt i64 %ite.0, 5
   br label %for.body155
 
 for.cond152.loopexit:                             ; preds = %if.end274, %for.body155

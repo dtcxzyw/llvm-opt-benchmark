@@ -208,7 +208,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = lshr i32 %65, 9
   %67 = zext nneg i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %23, label %.critedge2.loopexit, !llvm.loop !4
 
 .critedge2.loopexit:                              ; preds = %64
@@ -256,7 +256,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 85:                                               ; preds = %81, %.lr.ph.i
   %.1.i = phi i32 [ %82, %81 ], [ %.01823.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = icmp ult i64 %indvars.iv.next.i, %76
+  %86 = icmp samesign ult i64 %indvars.iv.next.i, %76
   br i1 %86, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %85
@@ -458,7 +458,7 @@ Gla_ObjSatValue.exit:                             ; preds = %Vec_IntFillExtra.ex
 
 Gla_ObjSatValue.exit.thread:                      ; preds = %Vec_IntFillExtra.exit, %Gla_ObjSatValue.exit, %174
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %184 = icmp ult i64 %indvars.iv.next89, %106
+  %184 = icmp samesign ult i64 %indvars.iv.next89, %106
   br i1 %184, label %112, label %.critedge4, !llvm.loop !9
 
 .critedge4:                                       ; preds = %Gla_ObjSatValue.exit.thread, %112
@@ -1160,7 +1160,7 @@ Vec_IntPush.exit129:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %158 = lshr i32 %157, 9
   %159 = zext nneg i32 %158 to i64
-  %160 = icmp ult i64 %indvars.iv.next, %159
+  %160 = icmp samesign ult i64 %indvars.iv.next, %159
   br i1 %160, label %109, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %156, %106
@@ -2261,7 +2261,7 @@ tailrecurse.backedge:                             ; preds = %203, %199, %175, %2
   %196 = and i32 %195, 65535
   %197 = lshr i32 %187, 3
   %198 = and i32 %197, 65535
-  %.not106 = icmp ugt i32 %196, %198
+  %.not106 = icmp samesign ugt i32 %196, %198
   br i1 %.not106, label %200, label %199
 
 199:                                              ; preds = %194
@@ -8628,7 +8628,7 @@ Gla_ManObj.exit79:                                ; preds = %Gla_ManObj.exit79.l
   %66 = load i32, ptr %50, align 4
   %67 = lshr i32 %66, 9
   %68 = zext nneg i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
   br i1 %69, label %Gla_ManObj.exit79, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %Gla_ManObj.exit79, %Gia_ObjIsRo.exit.thread
@@ -8730,7 +8730,7 @@ Vec_IntStart.exit87:                              ; preds = %Vec_IntAlloc.exit.t
 
 112:                                              ; preds = %104, %107
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %113 = icmp ult i64 %indvars.iv.next102, %103
+  %113 = icmp samesign ult i64 %indvars.iv.next102, %103
   br i1 %113, label %104, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %112, %Vec_IntStart.exit87
@@ -8896,7 +8896,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = lshr i32 %58, 9
   %60 = zext nneg i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %Gla_ManObj.exit36, label %.critedge2.loopexit, !llvm.loop !66
 
 .critedge2.loopexit:                              ; preds = %57
@@ -9111,7 +9111,7 @@ Gla_ManObj.exit31:                                ; preds = %Gla_ManObj.exit31.l
   br i1 %exitcond50.not, label %.critedge2, label %Gla_ManObj.exit31, !llvm.loop !70
 
 .critedge2:                                       ; preds = %Gla_ManObj.exit31
-  %60 = icmp ult i32 %59, 2
+  %60 = icmp samesign ult i32 %59, 2
   br i1 %60, label %.critedge2.thread, label %61
 
 61:                                               ; preds = %.critedge2
@@ -12180,7 +12180,7 @@ Abc_Clock.exit439:                                ; preds = %752, %759
   br label %766
 
 766:                                              ; preds = %Abc_Clock.exit439, %Vec_IntFreeP.exit404
-  %767 = icmp ugt i32 %.0256575, 2
+  %767 = icmp samesign ugt i32 %.0256575, 2
   %768 = icmp ne i32 %.0258574, 0
   %or.cond3 = select i1 %767, i1 %768, i1 false
   %or.cond5 = and i1 %or.cond3, %748

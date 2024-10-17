@@ -92,7 +92,7 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr108drop_in_place$LT$http..request..Builder..method$LT$http..method..Method$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e69f7b3a1c692ccE.llvm.7295751119189476722"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !31, !alias.scope !32, !noundef !9
-  %switch.i.i = icmp ult i8 %2, 10
+  %switch.i.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h6acf3a42ca3122caE.exit", label %3
 
 3:                                                ; preds = %1
@@ -811,7 +811,7 @@ define hidden void @"_ZN4http7request23Request$LT$$LP$$RP$$GT$3get17h58e23f96571
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %8 = getelementptr inbounds i8, ptr %3, i64 184
   %9 = load i8, ptr %8, align 8, !range !31, !alias.scope !213, !noalias !219, !noundef !9
-  %switch.i.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i.i, label %"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17hb725f9a213b54f02E.llvm.7295751119189476722.exit.i", label %10
 
 10:                                               ; preds = %7
@@ -1298,7 +1298,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
   %95 = zext i16 %94 to i64
   %96 = sub i64 %.sroa.07.0.i.i.i, %95
   %97 = and i64 %96, %77
-  %98 = icmp ult i64 %97, %.sroa.03.0.i.i.i.ph
+  %98 = icmp samesign ult i64 %97, %.sroa.03.0.i.i.i.ph
   br i1 %98, label %107, label %104
 
 99:                                               ; preds = %88
@@ -1617,7 +1617,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
   %221 = sub i64 %.sroa.018.0.i, %220
   %222 = zext i16 %218 to i64
   %223 = and i64 %221, %222
-  %224 = icmp ult i64 %223, %.sroa.012.0.i.ph
+  %224 = icmp samesign ult i64 %223, %.sroa.012.0.i.ph
   br i1 %224, label %.noexc66.i, label %225
 
 225:                                              ; preds = %214
@@ -1838,7 +1838,7 @@ split.i:                                          ; preds = %242, %"_ZN71_$LT$ht
   unreachable
 
 .noexc66.i:                                       ; preds = %214
-  %318 = icmp ugt i64 %.sroa.012.0.i.ph, 511
+  %318 = icmp samesign ugt i64 %.sroa.012.0.i.ph, 511
   %319 = load i64, ptr %2, align 8, !range !37, !alias.scope !244, !noalias !255
   %320 = icmp ne i64 %319, 2
   %.sroa.010.0.i = select i1 %318, i1 %320, i1 false
@@ -2137,7 +2137,7 @@ split.i:                                          ; preds = %242, %"_ZN71_$LT$ht
 define hidden void @"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17hb725f9a213b54f02E.llvm.7295751119189476722"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(224) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 184
   %5 = load i8, ptr %4, align 8, !range !31, !alias.scope !522, !noundef !9
-  %switch.i.i = icmp ult i8 %5, 10
+  %switch.i.i = icmp samesign ult i8 %5, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h6acf3a42ca3122caE.exit", label %6
 
 6:                                                ; preds = %3
@@ -2196,7 +2196,7 @@ define hidden void @_ZN4http7request7Builder8and_then17h41f4795b8c581828E(ptr de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !527)
   %8 = getelementptr inbounds i8, ptr %4, i64 184
   %9 = load i8, ptr %8, align 8, !range !31, !alias.scope !530, !noalias !536, !noundef !9
-  %switch.i.i.i = icmp ult i8 %9, 10
+  %switch.i.i.i = icmp samesign ult i8 %9, 10
   br i1 %switch.i.i.i, label %"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17hb725f9a213b54f02E.llvm.7295751119189476722.exit", label %10
 
 10:                                               ; preds = %7
@@ -2237,7 +2237,7 @@ define hidden void @_ZN4http7request7Builder8and_then17h41f4795b8c581828E(ptr de
 
 17:                                               ; preds = %3
   %18 = load i8, ptr %5, align 8, !range !31, !alias.scope !540, !noundef !9
-  %switch.i.i.i10 = icmp ult i8 %18, 10
+  %switch.i.i.i10 = icmp samesign ult i8 %18, 10
   br i1 %switch.i.i.i10, label %"_ZN4core3ptr108drop_in_place$LT$http..request..Builder..method$LT$http..method..Method$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e69f7b3a1c692ccE.llvm.7295751119189476722.exit", label %19
 
 19:                                               ; preds = %17
@@ -4917,7 +4917,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit.i: ; preds = %27, %25
 
 76:                                               ; preds = %._crit_edge.i, %42
   %.sroa.04.0.lcssa.i = phi i64 [ %127, %._crit_edge.i ], [ %.sroa.0.0.i, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -4930,7 +4930,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit.i: ; preds = %27, %25
   %.sroa.011.0.i11.i = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.sroa.0.0.i12.i = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.sroa.0.0.i12.i, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -5950,7 +5950,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hddd31ebb0c5a042aE.exit: ; preds = %"_Z
   br i1 %or.cond.i.i, label %129, label %106
 
 106:                                              ; preds = %104
-  %107 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %107 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %107, label %108, label %.lr.ph.split.split.i.i.i.preheader
 
 108:                                              ; preds = %106
@@ -6584,7 +6584,7 @@ _ZN4text14BufferSnapshot14text_for_range17h7a31a193af91d49eE.exit.i: ; preds = %
   br i1 %279, label %.thread122.i, label %272
 
 280:                                              ; preds = %"_ZN10supermaven30supermaven_completion_provider26completion_state_from_diff28_$u7b$$u7b$closure$u7d$$u7d$17hf6dc1da92bf13c29E.exit.us.i.i"
-  %281 = icmp ult i64 %.sroa.02.019.us.i.i, %267
+  %281 = icmp samesign ult i64 %.sroa.02.019.us.i.i, %267
   call void @llvm.assume(i1 %281)
   %282 = icmp eq i64 %.sroa.02.019.us.i.i, 0
   br i1 %282, label %361, label %334

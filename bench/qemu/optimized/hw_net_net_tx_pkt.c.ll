@@ -470,7 +470,7 @@ if.end41.i:                                       ; preds = %iov_to_buf.exit72.i
   %conv44.i = zext nneg i32 %shl.i to i64
   %iov_len45.i = getelementptr i8, ptr %0, i64 40
   store i64 %conv44.i, ptr %iov_len45.i, align 8
-  %cmp47.i = icmp ult i32 %shl.i, 20
+  %cmp47.i = icmp samesign ult i32 %shl.i, 20
   br i1 %cmp47.i, label %if.then49.i, label %if.end51.i
 
 if.then49.i:                                      ; preds = %if.end41.i

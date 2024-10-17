@@ -1617,7 +1617,7 @@ if.end.i.i13.i:                                   ; preds = %for.cond4.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit16.i: ; preds = %if.end.i.i13.i, %for.cond4.i
   %retval.0.i.i15.i = phi i64 [ %37, %if.end.i.i13.i ], [ 0, %for.cond4.i ]
-  %cmp6.i = icmp ult i64 %indvars.iv41.i, %retval.0.i.i15.i
+  %cmp6.i = icmp samesign ult i64 %indvars.iv41.i, %retval.0.i.i15.i
   br i1 %cmp6.i, label %for.body7.i, label %if.then81
 
 for.body7.i:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit16.i
@@ -2588,7 +2588,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont3:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %7, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont5, label %for.cond43.preheader
 
 for.cond43.preheader:                             ; preds = %invoke.cont3
@@ -2782,7 +2782,7 @@ if.end.i.i26:                                     ; preds = %for.cond43
 
 invoke.cont44:                                    ; preds = %if.end.i.i26, %for.cond43
   %retval.0.i.i28 = phi i64 [ %39, %if.end.i.i26 ], [ 0, %for.cond43 ]
-  %cmp46 = icmp ult i64 %indvars.iv84, %retval.0.i.i28
+  %cmp46 = icmp samesign ult i64 %indvars.iv84, %retval.0.i.i28
   br i1 %cmp46, label %invoke.cont48, label %for.end76
 
 invoke.cont48:                                    ; preds = %invoke.cont44

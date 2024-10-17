@@ -164,7 +164,7 @@ define hidden noundef i32 @_ZN8nanobind6detail16nb_func_traverseEP7_objectPFiS2_
   %23 = phi i16 [ %.pre, %._crit_edge ], [ %16, %15 ]
   %24 = add nuw nsw i64 %.02031, 1
   %25 = zext i16 %23 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %15, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %22, %.preheader, %8
@@ -232,7 +232,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %20, %17, %13
   %21 = add nuw nsw i64 %.01724, 1
   %22 = load i16, ptr %10, align 4
   %23 = zext i16 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %13, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZL10_Py_DECREFP7_object.exit, %.preheader, %6
@@ -467,7 +467,7 @@ _ZL11_Py_XDECREFP7_object.exit41:                 ; preds = %_ZL11_Py_XDECREFP7_
   %112 = add nuw nsw i64 %.03346, 1
   %113 = load i16, ptr %92, align 4
   %114 = zext i16 %113 to i64
-  %115 = icmp ult i64 %112, %114
+  %115 = icmp samesign ult i64 %112, %114
   br i1 %115, label %95, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %_ZL11_Py_XDECREFP7_object.exit41
@@ -1308,7 +1308,7 @@ _ZN8nanobind6detail12malloc_checkEm.exit220:      ; preds = %304
   %314 = getelementptr inbounds i8, ptr %233, i64 60
   %315 = load i16, ptr %314, align 4
   %316 = zext i16 %315 to i32
-  %317 = icmp ult i32 %.lobit, %316
+  %317 = icmp samesign ult i32 %.lobit, %316
   br i1 %317, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %312
@@ -1326,7 +1326,7 @@ _ZN8nanobind6detail12malloc_checkEm.exit220:      ; preds = %304
   %323 = add nuw nsw i64 %.0170259, 1
   %324 = load i16, ptr %314, align 4
   %325 = zext i16 %324 to i64
-  %326 = icmp ult i64 %323, %325
+  %326 = icmp samesign ult i64 %323, %325
   br i1 %326, label %.lr.ph, label %.preheader, !llvm.loop !21
 
 .lr.ph261:                                        ; preds = %.preheader, %_ZL11_Py_XINCREFP7_object.exit
@@ -1396,7 +1396,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %353, %_ZN8nanobind6
   %356 = add nuw nsw i64 %.0169260, 1
   %357 = load i16, ptr %314, align 4
   %358 = zext i16 %357 to i64
-  %359 = icmp ult i64 %356, %358
+  %359 = icmp samesign ult i64 %356, %358
   br i1 %359, label %.lr.ph261, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZL11_Py_XINCREFP7_object.exit, %.preheader, %_ZN8nanobind6detail12malloc_checkEm.exit218
@@ -1596,9 +1596,9 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
   %.lobit.us = lshr exact i32 %50, 9
   %57 = sub nsw i32 %56, %.lobit.us
   %58 = sext i32 %57 to i64
-  %59 = icmp ule i64 %8, %53
+  %59 = icmp samesign ule i64 %8, %53
   %brmerge.us = select i1 %59, i1 true, i1 %.not200.us
-  %60 = icmp uge i64 %8, %53
+  %60 = icmp samesign uge i64 %8, %53
   %brmerge216.us = select i1 %60, i1 true, i1 %.not199.us
   %or.cond229.us = select i1 %brmerge.us, i1 %brmerge216.us, i1 false
   br i1 %or.cond229.us, label %61, label %.thread
@@ -1882,7 +1882,7 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
   br i1 %.not296, label %._crit_edge268.us, label %.lr.ph267.us
 
 .preheader233.us:                                 ; preds = %99
-  %180 = icmp ugt i64 %8, %53
+  %180 = icmp samesign ugt i64 %8, %53
   br i1 %180, label %.lr.ph264.us, label %._crit_edge265.us
 
 .lr.ph258.us:                                     ; preds = %61
@@ -2532,7 +2532,7 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %24, %27
   %.1 = phi i64 [ %64, %62 ], [ %.062106, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = zext i16 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %48, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %65, %.preheader
@@ -3237,7 +3237,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i227:  ; preds = %271
   store i8 0, ptr %292, align 1
   %293 = load i16, ptr %65, align 4
   %294 = zext i16 %293 to i32
-  %295 = icmp ult i32 %66, %294
+  %295 = icmp samesign ult i32 %66, %294
   br i1 %295, label %296, label %298
 
 296:                                              ; preds = %289
@@ -6644,7 +6644,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
 17:                                               ; preds = %_ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -6657,7 +6657,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %20 = lshr i64 %.01114.i.i, %.015.i.i
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
-  %23 = icmp ult i64 %.015.i.i, 32
+  %23 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %23, label %19, label %24, !llvm.loop !64
 
 24:                                               ; preds = %19

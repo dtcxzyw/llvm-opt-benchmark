@@ -2753,7 +2753,7 @@ define dso_local void @kfree_rcu_scheduler_running() local_unnamed_addr #9 secti
 schedule_delayed_monitor_work.exit:               ; preds = %54, %51, %45, %25
   %57 = add nuw nsw i64 %8, 1
   %58 = and i64 %57, 127
-  %59 = icmp ugt i64 %58, 63
+  %59 = icmp samesign ugt i64 %58, 63
   br i1 %59, label %.thread, label %1, !prof !129, !llvm.loop !130
 
 .thread:                                          ; preds = %1, %schedule_delayed_monitor_work.exit, %7
@@ -5874,7 +5874,7 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #9 section ".in
   store i8 1, ptr %38, align 8
   %39 = add nuw nsw i64 %14, 1
   %40 = and i64 %39, 127
-  %41 = icmp ugt i64 %40, 63
+  %41 = icmp samesign ugt i64 %40, 63
   br i1 %41, label %.thread, label %7, !prof !129, !llvm.loop !255
 
 .critedge:                                        ; preds = %.critedge, %17
@@ -6200,7 +6200,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   tail call fastcc void @rcu_boot_init_percpu_data(i32 noundef %140) #31
   %154 = add nuw nsw i64 %139, 1
   %155 = and i64 %154, 127
-  %156 = icmp ugt i64 %155, 63
+  %156 = icmp samesign ugt i64 %155, 63
   br i1 %156, label %.thread6, label %131, !prof !129, !llvm.loop !261
 
 .thread6:                                         ; preds = %131, %147, %138
@@ -6910,7 +6910,7 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %186 = add i64 %185, %170
   %187 = add nuw nsw i64 %175, 1
   %188 = and i64 %187, 127
-  %189 = icmp ugt i64 %188, 63
+  %189 = icmp samesign ugt i64 %188, 63
   br i1 %189, label %.thread11, label %168, !prof !129, !llvm.loop !273
 
 .thread11:                                        ; preds = %168, %178, %174
@@ -7018,7 +7018,7 @@ define dso_local void @rcu_fwd_progress_check(i64 %0) #17 align 16 {
   %59 = phi i64 [ %25, %44 ], [ %56, %52 ], [ %25, %34 ]
   %60 = add nuw nsw i64 %31, 1
   %61 = and i64 %60, 127
-  %62 = icmp ugt i64 %61, 63
+  %62 = icmp samesign ugt i64 %61, 63
   br i1 %62, label %.thread, label %22, !prof !129, !llvm.loop !278
 
 .thread:                                          ; preds = %22, %.thread4, %30
@@ -11071,7 +11071,7 @@ define internal fastcc void @print_cpu_stall(i64 noundef %0) unnamed_addr #1 ali
   %71 = add i64 %70, %48
   %72 = add nuw nsw i64 %53, 1
   %73 = and i64 %72, 127
-  %74 = icmp ugt i64 %73, 63
+  %74 = icmp samesign ugt i64 %73, 63
   br i1 %74, label %.thread, label %46, !prof !129, !llvm.loop !396
 
 .thread:                                          ; preds = %46, %69, %52
@@ -11564,7 +11564,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %243 = add i64 %242, %220
   %244 = add nuw nsw i64 %225, 1
   %245 = and i64 %244, 127
-  %246 = icmp ugt i64 %245, 63
+  %246 = icmp samesign ugt i64 %245, 63
   br i1 %246, label %.thread25, label %218, !prof !129, !llvm.loop !408
 
 .thread25:                                        ; preds = %218, %241, %224
@@ -14621,7 +14621,7 @@ define internal fastcc void @rcu_spawn_core_kthreads() unnamed_addr #9 section "
   store i8 0, ptr %16, align 1
   %17 = add nuw nsw i64 %8, 1
   %18 = and i64 %17, 127
-  %19 = icmp ugt i64 %18, 63
+  %19 = icmp samesign ugt i64 %18, 63
   br i1 %19, label %.thread, label %1, !prof !129, !llvm.loop !487
 
 .thread:                                          ; preds = %1, %11, %7
@@ -16999,7 +16999,7 @@ define internal i64 @kfree_rcu_shrink_count(ptr nocapture readnone %0, ptr nocap
   store volatile i32 1, ptr %37, align 4
   %38 = add nuw nsw i64 %11, 1
   %39 = and i64 %38, 127
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread, label %4, !prof !129, !llvm.loop !573
 
 .thread:                                          ; preds = %4, %30, %10
@@ -17018,7 +17018,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @kfree_rcu_shrink_scan(pt
   %5 = phi i32 [ 0, %2 ], [ %56, %.loopexit ]
   %6 = phi i64 [ 0, %2 ], [ %58, %.loopexit ]
   %7 = and i64 %6, 4294967295
-  %8 = icmp ugt i64 %7, 63
+  %8 = icmp samesign ugt i64 %7, 63
   br i1 %8, label %.thread, label %9, !prof !29
 
 9:                                                ; preds = %4

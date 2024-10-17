@@ -269,7 +269,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %25, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %26 = icmp ugt i64 %17, %20
+  %26 = icmp samesign ugt i64 %17, %20
   br i1 %26, label %138, label %27
 
 27:                                               ; preds = %.noexc, %22
@@ -1548,7 +1548,7 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h25d
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %7), !noalias !310
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %7, i8 0, i64 39, i1 false), !noalias !310
   %18 = and i64 %.sroa.018.0.copyload, 4294967295
-  %19 = icmp ult i64 %18, 40
+  %19 = icmp samesign ult i64 %18, 40
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
@@ -2533,7 +2533,7 @@ define hidden void @"_ZN57_$LT$R$u20$as$u20$num_bigint_dig..bigrand..RandBigInt$
   %11 = zext i1 %10 to i64
   %12 = add nuw nsw i64 %8, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  %13 = icmp ugt i64 %12, 4
+  %13 = icmp samesign ugt i64 %12, 4
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %3

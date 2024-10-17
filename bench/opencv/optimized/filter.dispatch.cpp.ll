@@ -4032,8 +4032,8 @@ define hidden void @_ZN2cv12cpu_baseline18getLinearRowFilterEiiRKNS_3MatEii(ptr 
   %28 = and i32 %27, 4088
   %29 = icmp ne i32 %28, 0
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %25, i32 4)
-  %.not = icmp ult i32 %26, %.sroa.speculated
-  %or.cond169 = or i1 %.not, %29
+  %.not = icmp samesign ult i32 %26, %.sroa.speculated
+  %or.cond169 = select i1 %29, i1 true, i1 %.not
   br i1 %or.cond169, label %.critedge, label %30
 
 30:                                               ; preds = %6
@@ -5134,8 +5134,8 @@ define hidden void @_ZN2cv12cpu_baseline21getLinearColumnFilterEiiRKNS_3MatEiidi
   %53 = and i32 %52, 4088
   %54 = icmp ne i32 %53, 0
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %51, i32 4)
-  %.not = icmp ult i32 %50, %.sroa.speculated
-  %or.cond358 = or i1 %54, %.not
+  %.not = icmp samesign ult i32 %50, %.sroa.speculated
+  %or.cond358 = select i1 %54, i1 true, i1 %.not
   br i1 %or.cond358, label %.critedge, label %55
 
 55:                                               ; preds = %8
@@ -7082,8 +7082,8 @@ define hidden void @_ZN2cv12cpu_baseline15getLinearFilterEiiRKNS_3MatENS_6Point_
   %36 = xor i32 %2, %1
   %37 = and i32 %36, 4088
   %38 = icmp ne i32 %37, 0
-  %.not = icmp ult i32 %35, %34
-  %or.cond84 = or i1 %.not, %38
+  %.not = icmp samesign ult i32 %35, %34
+  %or.cond84 = select i1 %38, i1 true, i1 %.not
   br i1 %or.cond84, label %41, label %49
 
 39:                                               ; preds = %49
@@ -9312,7 +9312,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiE
   %298 = and i32 %297, 7
   %299 = lshr i32 %297, 3
   %300 = and i32 %299, 511
-  %301 = icmp ugt i32 %300, 3
+  %301 = icmp samesign ugt i32 %300, 3
   %302 = shl nuw nsw i32 %300, 3
   %spec.select45 = select i1 %301, i32 24, i32 %302
   %303 = or disjoint i32 %spec.select45, %298
@@ -10755,7 +10755,7 @@ _ZNK2cv11_InputArray6getMatEi.exit106:            ; preds = %38, %41
 
 100:                                              ; preds = %97
   %101 = and i32 %90, %83
-  %102 = icmp ugt i32 %101, 7
+  %102 = icmp samesign ugt i32 %101, 7
   %103 = icmp eq i32 %45, 3
   %or.cond5 = and i1 %103, %102
   br i1 %or.cond5, label %104, label %176
@@ -14411,7 +14411,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %35 = getelementptr inbounds i32, ptr %2, i64 %30
   store i32 %33, ptr %35, align 4
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 2
-  %.not309 = icmp ugt i64 %indvars.iv.next448, %26
+  %.not309 = icmp samesign ugt i64 %indvars.iv.next448, %26
   br i1 %.not309, label %._crit_edge.loopexit, label %.lr.ph359, !llvm.loop !263
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph359
@@ -14485,7 +14485,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %75, ptr %77, align 4
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 2
   %78 = getelementptr inbounds i8, ptr %.1286346, i64 2
-  %.not308 = icmp ugt i64 %indvars.iv.next442, %51
+  %.not308 = icmp samesign ugt i64 %indvars.iv.next442, %51
   br i1 %.not308, label %.thread.loopexit412, label %52, !llvm.loop !264
 
 79:                                               ; preds = %39
@@ -14540,7 +14540,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %113, ptr %115, align 4
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 2
   %116 = getelementptr inbounds i8, ptr %.2287340, i64 2
-  %.not307 = icmp ugt i64 %indvars.iv.next439, %89
+  %.not307 = icmp samesign ugt i64 %indvars.iv.next439, %89
   br i1 %.not307, label %.thread.loopexit413, label %90, !llvm.loop !265
 
 .thread311:                                       ; preds = %39, %41, %79
@@ -14593,7 +14593,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %151, ptr %153, align 4
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 2
   %154 = getelementptr inbounds i8, ptr %.3288352, i64 2
-  %.not306 = icmp ugt i64 %indvars.iv.next445, %125
+  %.not306 = icmp samesign ugt i64 %indvars.iv.next445, %125
   br i1 %.not306, label %.thread.loopexit, label %126, !llvm.loop !266
 
 155:                                              ; preds = %21
@@ -14681,7 +14681,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %213, ptr %215, align 4
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 2
   %216 = getelementptr inbounds i8, ptr %.4289334, i64 2
-  %.not305 = icmp ugt i64 %indvars.iv.next436, %189
+  %.not305 = icmp samesign ugt i64 %indvars.iv.next436, %189
   br i1 %.not305, label %.thread.loopexit414, label %190, !llvm.loop !267
 
 217:                                              ; preds = %.lr.ph, %217
@@ -14736,7 +14736,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %260, ptr %262, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %263 = getelementptr inbounds i8, ptr %.5290330, i64 2
-  %.not304 = icmp ugt i64 %indvars.iv.next, %180
+  %.not304 = icmp samesign ugt i64 %indvars.iv.next, %180
   br i1 %.not304, label %.thread.loopexit415, label %217, !llvm.loop !268
 
 .thread.loopexit:                                 ; preds = %126
@@ -14894,7 +14894,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %330, ptr %332, align 4
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 2
   %333 = getelementptr inbounds i8, ptr %.7292387, i64 2
-  %.not302 = icmp ugt i64 %indvars.iv.next474, %315
+  %.not302 = icmp samesign ugt i64 %indvars.iv.next474, %315
   br i1 %.not302, label %.loopexit316.loopexit, label %316, !llvm.loop !271
 
 ._crit_edge490:                                   ; preds = %301
@@ -14937,7 +14937,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %359, ptr %361, align 4
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 2
   %362 = getelementptr inbounds i8, ptr %.8293380, i64 2
-  %.not301 = icmp ugt i64 %indvars.iv.next471, %342
+  %.not301 = icmp samesign ugt i64 %indvars.iv.next471, %342
   br i1 %.not301, label %.loopexit316.loopexit408, label %343, !llvm.loop !272
 
 363:                                              ; preds = %300
@@ -15011,7 +15011,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   store i32 %419, ptr %421, align 4
   %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 2
   %422 = getelementptr inbounds i8, ptr %.10295373, i64 2
-  %.not300 = icmp ugt i64 %indvars.iv.next468, %384
+  %.not300 = icmp samesign ugt i64 %indvars.iv.next468, %384
   br i1 %.not300, label %.loopexit316.loopexit409, label %385, !llvm.loop !273
 
 .loopexit316.loopexit:                            ; preds = %316
@@ -15485,7 +15485,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %33 = getelementptr inbounds float, ptr %2, i64 %29
   store float %31, ptr %33, align 4
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 2
-  %.not309 = icmp ugt i64 %indvars.iv.next439, %26
+  %.not309 = icmp samesign ugt i64 %indvars.iv.next439, %26
   br i1 %.not309, label %._crit_edge.loopexit, label %.lr.ph354, !llvm.loop !278
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph354
@@ -15549,7 +15549,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %68, ptr %70, align 4
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 2
   %71 = getelementptr inbounds i8, ptr %.1286347, i64 8
-  %.not308 = icmp ugt i64 %indvars.iv.next436, %52
+  %.not308 = icmp samesign ugt i64 %indvars.iv.next436, %52
   br i1 %.not308, label %.thread.loopexit, label %53, !llvm.loop !279
 
 72:                                               ; preds = %40, %37
@@ -15602,7 +15602,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %103, ptr %105, align 4
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 2
   %106 = getelementptr inbounds i8, ptr %.2287341, i64 8
-  %.not307 = icmp ugt i64 %indvars.iv.next433, %85
+  %.not307 = icmp samesign ugt i64 %indvars.iv.next433, %85
   br i1 %.not307, label %.thread.loopexit403, label %86, !llvm.loop !280
 
 ._crit_edge481:                                   ; preds = %72
@@ -15646,7 +15646,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %133, ptr %135, align 4
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 2
   %136 = getelementptr inbounds i8, ptr %.3288335, i64 8
-  %.not306 = icmp ugt i64 %indvars.iv.next430, %115
+  %.not306 = icmp samesign ugt i64 %indvars.iv.next430, %115
   br i1 %.not306, label %.thread.loopexit404, label %116, !llvm.loop !281
 
 137:                                              ; preds = %21
@@ -15726,7 +15726,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %187, ptr %189, align 4
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 2
   %190 = getelementptr inbounds i8, ptr %.4289329, i64 8
-  %.not305 = icmp ugt i64 %indvars.iv.next427, %171
+  %.not305 = icmp samesign ugt i64 %indvars.iv.next427, %171
   br i1 %.not305, label %.thread.loopexit405, label %172, !llvm.loop !282
 
 191:                                              ; preds = %.lr.ph, %191
@@ -15767,7 +15767,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %220, ptr %222, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %223 = getelementptr inbounds i8, ptr %.5290325, i64 8
-  %.not304 = icmp ugt i64 %indvars.iv.next, %162
+  %.not304 = icmp samesign ugt i64 %indvars.iv.next, %162
   br i1 %.not304, label %.thread.loopexit406, label %191, !llvm.loop !283
 
 .thread.loopexit:                                 ; preds = %53
@@ -15916,7 +15916,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %281, ptr %283, align 4
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 2
   %284 = getelementptr inbounds i8, ptr %.7292382, i64 8
-  %.not302 = icmp ugt i64 %indvars.iv.next465, %270
+  %.not302 = icmp samesign ugt i64 %indvars.iv.next465, %270
   br i1 %.not302, label %.loopexit311.loopexit, label %271, !llvm.loop !286
 
 ._crit_edge482:                                   ; preds = %256
@@ -15955,7 +15955,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %306, ptr %308, align 4
   %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 2
   %309 = getelementptr inbounds i8, ptr %.8293375, i64 8
-  %.not301 = icmp ugt i64 %indvars.iv.next462, %293
+  %.not301 = icmp samesign ugt i64 %indvars.iv.next462, %293
   br i1 %.not301, label %.loopexit311.loopexit399, label %294, !llvm.loop !287
 
 310:                                              ; preds = %255
@@ -16019,7 +16019,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   store float %356, ptr %358, align 4
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 2
   %359 = getelementptr inbounds i8, ptr %.10295368, i64 8
-  %.not300 = icmp ugt i64 %indvars.iv.next459, %331
+  %.not300 = icmp samesign ugt i64 %indvars.iv.next459, %331
   br i1 %.not300, label %.loopexit311.loopexit400, label %332, !llvm.loop !288
 
 .loopexit311.loopexit:                            ; preds = %271

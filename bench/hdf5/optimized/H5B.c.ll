@@ -1801,7 +1801,7 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %21, align 4
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   %61 = icmp eq i32 %.2, 0
   %62 = and i1 %61, %60
   br i1 %62, label %31, label %._crit_edge
@@ -2545,7 +2545,7 @@ define range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %29, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %indvars.iv.next, %34
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %.lr.ph, %32
@@ -2580,7 +2580,7 @@ define range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noun
   %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %57 ]
   %54 = load i32, ptr %49, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv61, %55
+  %56 = icmp samesign ult i64 %indvars.iv61, %55
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %53
@@ -2702,7 +2702,7 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %51 = getelementptr inbounds i64, ptr %46, i64 %.04756
   store i64 %50, ptr %51, align 8
   %52 = add nuw nsw i64 %.04756, 1
-  %53 = icmp ult i64 %52, %22
+  %53 = icmp samesign ult i64 %52, %22
   br i1 %53, label %.lr.ph, label %.thread
 
 54:                                               ; preds = %45

@@ -979,7 +979,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %251
   %.3102.i = phi i32 [ %.2101.us.i, %241 ], [ %.2101.i, %300 ]
   %.3.i = phi i32 [ %.2.us.i, %241 ], [ %.2.i79, %300 ]
   %305 = add nuw nsw i32 %.0158.i, 1
-  %306 = icmp ult i32 %305, %.055
+  %306 = icmp samesign ult i32 %305, %.055
   %307 = icmp ne i32 %.3.i, 0
   %308 = select i1 %306, i1 %307, i1 false
   br i1 %308, label %233, label %.preheader.i, !llvm.loop !15
@@ -3410,7 +3410,7 @@ define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef read
 
 23:                                               ; preds = %.lr.ph.split.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %24 = icmp ult i64 %indvars.iv.next21.i.i, %20
+  %24 = icmp samesign ult i64 %indvars.iv.next21.i.i, %20
   br i1 %24, label %.lr.ph.split.i.i, label %_rem_tot_job.exit, !llvm.loop !31
 
 .thread:                                          ; preds = %.lr.ph.split.i.i
@@ -3419,7 +3419,7 @@ define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef read
   %.pre.i.i = load i16, ptr %16, align 8
   %indvars.iv.next21.i.i142 = add nuw nsw i64 %indvars.iv20.i.i, 1
   %26 = zext i16 %.pre.i.i to i64
-  %27 = icmp ult i64 %indvars.iv.next21.i.i142, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next21.i.i142, %26
   br i1 %27, label %.lr.ph.split.i.i.outer, label %_rem_tot_job.exit.thread144, !llvm.loop !31
 
 _rem_tot_job.exit:                                ; preds = %23
@@ -3511,7 +3511,7 @@ _rem_tot_job.exit.thread144:                      ; preds = %.thread, %_rem_tot_
   %.1.i.i126 = phi i1 [ %.017.i.i124, %.lr.ph.split.i.i122 ], [ true, %65 ]
   %indvars.iv.next21.i.i127 = add nuw nsw i64 %indvars.iv20.i.i123, 1
   %68 = zext i16 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next21.i.i127, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next21.i.i127, %68
   br i1 %69, label %.lr.ph.split.i.i122, label %_rem_run_job.exit, !llvm.loop !34
 
 _rem_run_job.exit:                                ; preds = %66, %52, %57

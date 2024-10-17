@@ -1667,7 +1667,7 @@ for.inc:                                          ; preds = %if.else51, %cleanup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %e_phnum, align 8
   %30 = zext i16 %29 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next, %30
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.end10
@@ -1904,7 +1904,7 @@ for.inc245:                                       ; preds = %for.body158, %if.en
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %52 = load i16, ptr %e_phnum, align 8
   %53 = zext i16 %52 to i64
-  %cmp156 = icmp ult i64 %indvars.iv.next193, %53
+  %cmp156 = icmp samesign ult i64 %indvars.iv.next193, %53
   br i1 %cmp156, label %for.body158, label %for.end247, !llvm.loop !13
 
 for.end247:                                       ; preds = %for.inc245

@@ -358,7 +358,7 @@ for.inc55:                                        ; preds = %while.body.i.i.i, %
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %15 = load i32, ptr %mNumMaterials, align 8
   %16 = zext i32 %15 to i64
-  %cmp19 = icmp ult i64 %indvars.iv.next211, %16
+  %cmp19 = icmp samesign ult i64 %indvars.iv.next211, %16
   br i1 %cmp19, label %for.body20, label %for.end57, !llvm.loop !7
 
 for.end57:                                        ; preds = %for.inc55, %for.cond17.preheader
@@ -512,7 +512,7 @@ for.inc139:                                       ; preds = %for.end132.thread, 
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %35 = load i32, ptr %mNumMaterials, align 8
   %36 = zext i32 %35 to i64
-  %cmp80 = icmp ult i64 %indvars.iv.next222, %36
+  %cmp80 = icmp samesign ult i64 %indvars.iv.next222, %36
   br i1 %cmp80, label %invoke.cont84, label %for.end141, !llvm.loop !10
 
 for.end141:                                       ; preds = %for.inc139
@@ -611,7 +611,7 @@ for.inc192:                                       ; preds = %if.else, %if.then17
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %46 = load i32, ptr %mNumMaterials, align 8
   %47 = zext i32 %46 to i64
-  %cmp156 = icmp ult i64 %indvars.iv.next225, %47
+  %cmp156 = icmp samesign ult i64 %indvars.iv.next225, %47
   br i1 %cmp156, label %invoke.cont160, label %for.cond196.preheader, !llvm.loop !11
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %for.body199
@@ -628,7 +628,7 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %52 = load i32, ptr %mNumMeshes, align 8
   %53 = zext i32 %52 to i64
-  %cmp198 = icmp ult i64 %indvars.iv.next228, %53
+  %cmp198 = icmp samesign ult i64 %indvars.iv.next228, %53
   br i1 %cmp198, label %for.body199, label %for.end209, !llvm.loop !12
 
 for.end209:                                       ; preds = %for.body199, %for.cond196.preheader

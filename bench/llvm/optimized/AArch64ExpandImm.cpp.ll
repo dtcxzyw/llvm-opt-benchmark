@@ -57,7 +57,7 @@ define dso_local void @_ZN4llvm11AArch64_IMM12expandMOVImmEmjRNS_15SmallVectorIm
   %.185 = phi i32 [ %.084103, %13 ], [ %16, %15 ], [ %.084103, %.lr.ph ]
   %.1 = phi i32 [ %14, %13 ], [ %.0104, %15 ], [ %.0104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %18 = icmp ult i64 %indvars.iv.next, %10
+  %18 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %17, %3
@@ -259,7 +259,7 @@ _ZL23maximalLogicalImmWithinmm.exit25.i.i:        ; preds = %95, %93
   br label %.loopexit.i.i
 
 112:                                              ; preds = %.preheader37.i
-  %113 = icmp ugt i32 %.044.i.i, 5
+  %113 = icmp samesign ugt i32 %.044.i.i, 5
   br i1 %113, label %.preheader37.i, label %.loopexit.i.i, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %112, %110
@@ -356,7 +356,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit.i: ; preds = %144, %_ZN
   br label %.loopexit.i12.i
 
 167:                                              ; preds = %.preheader.i
-  %168 = icmp ugt i32 %.044.i9.i, 5
+  %168 = icmp samesign ugt i32 %.044.i9.i, 5
   br i1 %168, label %.preheader.i, label %.loopexit.i12.i, !llvm.loop !8
 
 .loopexit.i12.i:                                  ; preds = %167, %165
@@ -564,7 +564,7 @@ define internal fastcc void @_ZL18expandMOVImmSimplemjjjRN4llvm15SmallVectorImpl
   br label %.backedge
 
 .backedge:                                        ; preds = %42, %37
-  %45 = icmp ult i64 %indvars.iv.next, %36
+  %45 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %45, label %37, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.backedge, %30
@@ -876,7 +876,7 @@ _ZL23maximalLogicalImmWithinmm.exit25.i:          ; preds = %33, %31
   br label %.loopexit.i
 
 50:                                               ; preds = %.preheader36
-  %51 = icmp ugt i32 %.044.i, 5
+  %51 = icmp samesign ugt i32 %.044.i, 5
   br i1 %51, label %.preheader36, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %50, %48
@@ -972,7 +972,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit: ; preds = %40, %_ZN4ll
   br label %.loopexit.i12
 
 105:                                              ; preds = %.preheader
-  %106 = icmp ugt i32 %.044.i9, 5
+  %106 = icmp samesign ugt i32 %.044.i9, 5
   br i1 %106, label %.preheader, label %.loopexit.i12, !llvm.loop !8
 
 .loopexit.i12:                                    ; preds = %105, %103
@@ -1087,7 +1087,7 @@ define internal fastcc noundef zeroext i1 @_ZL25tryEorOfLogicalImmediatesmRN4llv
   br label %.loopexit79
 
 14:                                               ; preds = %5
-  %15 = icmp ugt i32 %.040, 5
+  %15 = icmp samesign ugt i32 %.040, 5
   br i1 %15, label %5, label %.loopexit79, !llvm.loop !11
 
 .loopexit79:                                      ; preds = %14, %12
@@ -1151,7 +1151,7 @@ define internal fastcc noundef zeroext i1 @_ZL25tryEorOfLogicalImmediatesmRN4llv
   br label %.loopexit.i
 
 52:                                               ; preds = %.preheader78
-  %53 = icmp ugt i32 %.044.i, 5
+  %53 = icmp samesign ugt i32 %.044.i, 5
   br i1 %53, label %.preheader78, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %52, %50
@@ -1229,7 +1229,7 @@ _ZN4llvm16isShiftedMask_64Em.exit54.i:            ; preds = %_ZN4llvm16isShifted
   br label %.loopexit.i55
 
 94:                                               ; preds = %.preheader
-  %95 = icmp ugt i32 %.044.i52, 5
+  %95 = icmp samesign ugt i32 %.044.i52, 5
   br i1 %95, label %.preheader, label %.loopexit.i55, !llvm.loop !8
 
 .loopexit.i55:                                    ; preds = %94, %92
@@ -1508,7 +1508,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   br label %.loopexit.i
 
 77:                                               ; preds = %.preheader49
-  %78 = icmp ugt i32 %.044.i, 5
+  %78 = icmp samesign ugt i32 %.044.i, 5
   br i1 %78, label %.preheader49, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %77, %75
@@ -1597,7 +1597,7 @@ _ZN4llvm16isShiftedMask_64Em.exit54.i:            ; preds = %_ZN4llvm16isShifted
 
 129:                                              ; preds = %126
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 16
-  %130 = icmp ult i64 %indvars.iv102, 48
+  %130 = icmp samesign ult i64 %indvars.iv102, 48
   br i1 %130, label %126, label %.split.loop.exit130, !llvm.loop !16
 
 .split.loop.exit:                                 ; preds = %126
@@ -1619,7 +1619,7 @@ _ZN4llvm16isShiftedMask_64Em.exit54.i:            ; preds = %_ZN4llvm16isShifted
 
 .preheader:                                       ; preds = %.split.loop.exit130
   %.13572 = add nuw nsw i32 %.034.lcssa, 16
-  %136 = icmp ult i32 %.034.lcssa, 48
+  %136 = icmp samesign ult i32 %.034.lcssa, 48
   br i1 %136, label %.lr.ph74.preheader, label %._crit_edge
 
 .lr.ph74.preheader:                               ; preds = %.preheader
@@ -1629,7 +1629,7 @@ _ZN4llvm16isShiftedMask_64Em.exit54.i:            ; preds = %_ZN4llvm16isShifted
 
 138:                                              ; preds = %.lr.ph74
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 16
-  %139 = icmp ult i64 %indvars.iv105, 48
+  %139 = icmp samesign ult i64 %indvars.iv105, 48
   br i1 %139, label %.lr.ph74, label %._crit_edge.loopexit, !llvm.loop !17
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %138
@@ -1875,7 +1875,7 @@ _ZL10isEndChunkm.exit.thread:                     ; preds = %_ZL10isEndChunkm.ex
   br label %.loopexit.i
 
 74:                                               ; preds = %.preheader
-  %75 = icmp ugt i32 %.044.i, 5
+  %75 = icmp samesign ugt i32 %.044.i, 5
   br i1 %75, label %.preheader, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %74, %72

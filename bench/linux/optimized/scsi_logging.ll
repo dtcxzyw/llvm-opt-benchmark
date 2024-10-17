@@ -305,7 +305,7 @@ define dso_local i64 @__scsi_format_command(ptr noundef %0, i64 noundef %1, ptr 
   %42 = sext i32 %41 to i64
   %43 = add i64 %35, %42
   %44 = add nuw nsw i64 %34, 1
-  %45 = icmp uge i64 %44, %32
+  %45 = icmp samesign uge i64 %44, %32
   %46 = icmp ugt i64 %43, %27
   %47 = select i1 %45, i1 true, i1 %46
   br i1 %47, label %.loopexit, label %33, !llvm.loop !15
@@ -609,7 +609,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
   %99 = add nuw nsw i64 %65, 16
   %100 = load i16, ptr %54, align 4
   %101 = zext i16 %100 to i64
-  %102 = icmp ult i64 %99, %101
+  %102 = icmp samesign ult i64 %99, %101
   br i1 %102, label %.preheader, label %.loopexit, !llvm.loop !33
 
 103:                                              ; preds = %53

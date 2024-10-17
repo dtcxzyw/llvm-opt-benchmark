@@ -8666,7 +8666,7 @@ do.body222:                                       ; preds = %do.body222, %if.end
   %112 = call double @llvm.fabs.f64(double %sub231)
   %cmp233 = fcmp ogt double %112, %accuracy
   %inc = add nuw nsw i64 %nIter.0, 1
-  %cmp234 = icmp ult i64 %inc, %conv
+  %cmp234 = icmp samesign ult i64 %inc, %conv
   %or.cond = select i1 %cmp233, i1 %cmp234, i1 false
   br i1 %or.cond, label %do.body222, label %do.body236, !llvm.loop !63
 

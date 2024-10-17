@@ -943,7 +943,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %57, %65, %72
   %84 = add nuw nsw i64 %.03346, 1
   %85 = load i32, ptr %36, align 4
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %84, %86
+  %87 = icmp samesign ult i64 %84, %86
   br i1 %87, label %45, label %._crit_edge.loopexit, !llvm.loop !13
 
 88:                                               ; preds = %11
@@ -963,7 +963,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %57, %65, %72
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader44
   %.1.lcssa = phi i32 [ %.03747, %.preheader44 ], [ %92, %._crit_edge.loopexit ]
   %93 = add nuw nsw i64 %.03448, 2
-  %94 = icmp ult i64 %93, %30
+  %94 = icmp samesign ult i64 %93, %30
   br i1 %94, label %.preheader44, label %.preheader43, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge52
@@ -1042,7 +1042,7 @@ _ZN2cv3Mat2atIfEERT_i.exit42:                     ; preds = %112, %120, %127
   %139 = add nuw nsw i64 %.050, 1
   %140 = load i32, ptr %96, align 4
   %141 = zext i32 %140 to i64
-  %142 = icmp ult i64 %139, %141
+  %142 = icmp samesign ult i64 %139, %141
   br i1 %142, label %100, label %._crit_edge52.loopexit, !llvm.loop !16
 
 ._crit_edge52.loopexit:                           ; preds = %_ZN2cv3Mat2atIfEERT_i.exit42
@@ -1052,7 +1052,7 @@ _ZN2cv3Mat2atIfEERT_i.exit42:                     ; preds = %112, %120, %127
 ._crit_edge52:                                    ; preds = %._crit_edge52.loopexit, %.preheader
   %.3.lcssa = phi i32 [ %.254, %.preheader ], [ %143, %._crit_edge52.loopexit ]
   %144 = add nuw nsw i64 %.03255, 2
-  %145 = icmp ult i64 %144, %40
+  %145 = icmp samesign ult i64 %144, %40
   br i1 %145, label %.preheader, label %._crit_edge56, !llvm.loop !17
 
 ._crit_edge56:                                    ; preds = %._crit_edge52, %.preheader43

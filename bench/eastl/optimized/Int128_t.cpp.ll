@@ -1499,7 +1499,7 @@ if.then92:                                        ; preds = %for.body
   %rem.i = and i32 %i.0149, 63
   %sh_prom.i = zext nneg i32 %rem.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %cmp.i = icmp ult i32 %i.0149, 64
+  %cmp.i = icmp samesign ult i32 %i.0149, 64
   br i1 %cmp.i, label %if.then.i, label %if.else6.i
 
 if.then.i:                                        ; preds = %if.then92
@@ -1508,7 +1508,7 @@ if.then.i:                                        ; preds = %if.then92
   br label %for.inc
 
 if.else6.i:                                       ; preds = %if.then92
-  %cmp7.i = icmp ult i32 %i.0149, 128
+  %cmp7.i = icmp samesign ult i32 %i.0149, 128
   br i1 %cmp7.i, label %if.then8.i, label %for.inc
 
 if.then8.i:                                       ; preds = %if.else6.i
@@ -1886,7 +1886,7 @@ if.then80:                                        ; preds = %for.body
   %rem.i = and i32 %i.0181, 63
   %sh_prom.i = zext nneg i32 %rem.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %cmp.i = icmp ult i32 %i.0181, 64
+  %cmp.i = icmp samesign ult i32 %i.0181, 64
   br i1 %cmp.i, label %if.then.i, label %if.else6.i
 
 if.then.i:                                        ; preds = %if.then80
@@ -1895,7 +1895,7 @@ if.then.i:                                        ; preds = %if.then80
   br label %for.inc
 
 if.else6.i:                                       ; preds = %if.then80
-  %cmp7.i = icmp ult i32 %i.0181, 128
+  %cmp7.i = icmp samesign ult i32 %i.0181, 128
   br i1 %cmp7.i, label %if.then8.i, label %for.inc
 
 if.then8.i:                                       ; preds = %if.else6.i
@@ -2473,7 +2473,7 @@ if.else13:                                        ; preds = %if.else
 
 for.body:                                         ; preds = %for.inc, %if.else13
   %i.0102 = phi i32 [ 0, %if.else13 ], [ %inc, %for.inc ]
-  %rem.i101.cmp = icmp ugt i32 %i.0102, 63
+  %rem.i101.cmp = icmp samesign ugt i32 %i.0102, 63
   %rem.i101.v = select i1 %rem.i101.cmp, i32 127, i32 63
   %rem.i101 = sub nsw i32 %rem.i101.v, %i.0102
   %sh_prom.i = zext nneg i32 %rem.i101 to i64
@@ -3530,7 +3530,7 @@ for.body18:                                       ; preds = %if.end, %for.inc29
   %i15.0113 = phi i32 [ %dec, %for.inc29 ], [ 127, %if.end ]
   %rem.i66 = and i32 %i15.0113, 63
   %sh_prom.i = zext nneg i32 %rem.i66 to i64
-  %cmp.i48 = icmp ult i32 %i15.0113, 64
+  %cmp.i48 = icmp samesign ult i32 %i15.0113, 64
   %this.val150 = load i64, ptr %this, align 8
   %mPart1.i.val = load i64, ptr %mPart1.i, align 8
   %.pn = select i1 %cmp.i48, i64 %this.val150, i64 %mPart1.i.val
@@ -4263,7 +4263,7 @@ if.then92:                                        ; preds = %for.body
   %rem.i = and i32 %i.0155, 63
   %sh_prom.i = zext nneg i32 %rem.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %cmp.i = icmp ult i32 %i.0155, 64
+  %cmp.i = icmp samesign ult i32 %i.0155, 64
   br i1 %cmp.i, label %if.then.i, label %if.else6.i
 
 if.then.i:                                        ; preds = %if.then92
@@ -4272,7 +4272,7 @@ if.then.i:                                        ; preds = %if.then92
   br label %for.inc
 
 if.else6.i:                                       ; preds = %if.then92
-  %cmp7.i = icmp ult i32 %i.0155, 128
+  %cmp7.i = icmp samesign ult i32 %i.0155, 128
   br i1 %cmp7.i, label %if.then8.i, label %for.inc
 
 if.then8.i:                                       ; preds = %if.else6.i
@@ -4640,7 +4640,7 @@ if.then80:                                        ; preds = %for.body
   %rem.i = and i32 %i.0187, 63
   %sh_prom.i = zext nneg i32 %rem.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %cmp.i = icmp ult i32 %i.0187, 64
+  %cmp.i = icmp samesign ult i32 %i.0187, 64
   br i1 %cmp.i, label %if.then.i, label %if.else6.i
 
 if.then.i:                                        ; preds = %if.then80
@@ -4649,7 +4649,7 @@ if.then.i:                                        ; preds = %if.then80
   br label %for.inc
 
 if.else6.i:                                       ; preds = %if.then80
-  %cmp7.i = icmp ult i32 %i.0187, 128
+  %cmp7.i = icmp samesign ult i32 %i.0187, 128
   br i1 %cmp7.i, label %if.then8.i, label %for.inc
 
 if.then8.i:                                       ; preds = %if.else6.i
@@ -5154,7 +5154,7 @@ if.else8:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %for.inc, %if.else8
   %i.054 = phi i32 [ 0, %if.else8 ], [ %inc, %for.inc ]
-  %rem.i53.cmp = icmp ugt i32 %i.054, 63
+  %rem.i53.cmp = icmp samesign ugt i32 %i.054, 63
   %rem.i53.v = select i1 %rem.i53.cmp, i32 127, i32 63
   %rem.i53 = sub nsw i32 %rem.i53.v, %i.054
   %sh_prom.i = zext nneg i32 %rem.i53 to i64
@@ -5381,7 +5381,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.1, %for.inc.i ], [ 0, %if.else.i ]
   %ref.tmp.sroa.7.0 = phi i64 [ %ref.tmp.sroa.7.1, %for.inc.i ], [ 0, %if.else.i ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.else.i ]
-  %rem.i53.cmp.i = icmp ugt i32 %i.054.i, 63
+  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
   %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
   %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
@@ -5487,7 +5487,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.2, %for.inc.i ], [ 0, %if.else.i ]
   %ref.tmp.sroa.10.0 = phi i64 [ %ref.tmp.sroa.10.2, %for.inc.i ], [ 0, %if.else.i ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.else.i ]
-  %rem.i53.cmp.i = icmp ugt i32 %i.054.i, 63
+  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
   %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
   %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
@@ -6247,7 +6247,7 @@ for.body18:                                       ; preds = %if.end, %for.inc29
   %i15.0131 = phi i32 [ %dec, %for.inc29 ], [ 127, %if.end ]
   %rem.i80 = and i32 %i15.0131, 63
   %sh_prom.i = zext nneg i32 %rem.i80 to i64
-  %cmp.i40 = icmp ult i32 %i15.0131, 64
+  %cmp.i40 = icmp samesign ult i32 %i15.0131, 64
   %this.val162 = load i64, ptr %this, align 8
   %mPart1.i.val = load i64, ptr %mPart1.i, align 8
   %.pn = select i1 %cmp.i40, i64 %this.val162, i64 %mPart1.i.val
@@ -6296,7 +6296,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %remainder.sroa.0.1 = phi i64 [ %remainder.sroa.0.3, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %remainder.sroa.10.1 = phi i64 [ %remainder.sroa.10.3, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %rem.i53.cmp.i = icmp ugt i32 %i.054.i, 63
+  %rem.i53.cmp.i = icmp samesign ugt i32 %i.054.i, 63
   %rem.i53.v.i = select i1 %rem.i53.cmp.i, i32 127, i32 63
   %rem.i53.i = sub nsw i32 %rem.i53.v.i, %i.054.i
   %sh_prom.i.i = zext nneg i32 %rem.i53.i to i64
@@ -6357,7 +6357,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.i
   %ref.tmp.sroa.0.0.i = phi i64 [ %ref.tmp.sroa.0.1.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %ref.tmp.sroa.7.0.i = phi i64 [ %ref.tmp.sroa.7.1.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %i.054.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
-  %rem.i53.cmp.i.i = icmp ugt i32 %i.054.i.i, 63
+  %rem.i53.cmp.i.i = icmp samesign ugt i32 %i.054.i.i, 63
   %rem.i53.v.i.i = select i1 %rem.i53.cmp.i.i, i32 127, i32 63
   %rem.i53.i.i = sub nsw i32 %rem.i53.v.i.i, %i.054.i.i
   %sh_prom.i.i.i = zext nneg i32 %rem.i53.i.i to i64

@@ -16146,7 +16146,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratoreqERKS0_.exit9: ; preds = %80, %76, %72, %70, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit
   %86 = phi i1 [ false, %70 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorppEv.exit ], [ false, %76 ], [ false, %72 ], [ %85, %80 ]
-  %87 = icmp ugt i64 %.018, 3
+  %87 = icmp samesign ugt i64 %.018, 3
   %.not5 = select i1 %86, i1 true, i1 %87
   br i1 %.not5, label %92, label %88
 

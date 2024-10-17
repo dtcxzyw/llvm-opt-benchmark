@@ -727,9 +727,9 @@ if.end29:                                         ; preds = %if.end.i40, %if.the
 
 lor.lhs.false32:                                  ; preds = %if.end29
   %tobool35.not = icmp sgt i8 %retval.0.i31, -1
-  %tobool39.not = icmp ult i32 %c.066, 128
+  %tobool39.not = icmp samesign ult i32 %c.066, 128
   %or.cond23 = select i1 %tobool35.not, i1 %tobool39.not, i1 false
-  %tobool43.not = icmp ult i32 %d.0, 128
+  %tobool43.not = icmp samesign ult i32 %d.0, 128
   %or.cond24 = select i1 %or.cond23, i1 %tobool43.not, i1 false
   br i1 %or.cond24, label %if.end45, label %return
 

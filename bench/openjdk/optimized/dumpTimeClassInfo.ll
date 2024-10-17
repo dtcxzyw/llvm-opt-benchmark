@@ -350,7 +350,7 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2EP6SymbolS2_.exit: ; preds = %_ZN6
   %65 = add nsw i32 %60, 1
   %66 = icmp sgt i32 %60, -1
   %67 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %65)
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   %or.cond.i.i.i.i = select i1 %66, i1 %68, i1 false
   %69 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %70 = sub nuw nsw i32 32, %69
@@ -458,7 +458,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17DumpT
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -741,7 +741,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread: ; preds = %
   %89 = add nsw i32 %33, 1
   %90 = icmp sgt i32 %33, -1
   %91 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %89)
-  %92 = icmp ult i32 %91, 2
+  %92 = icmp samesign ult i32 %91, 2
   %or.cond.i.i.i.i = select i1 %90, i1 %92, i1 false
   %93 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %89, i1 true)
   %94 = sub nuw nsw i32 32, %93
@@ -924,7 +924,7 @@ define hidden void @_ZN17DumpTimeClassInfo27add_enum_klass_static_fieldEi(ptr no
   %22 = add nsw i32 %17, 1
   %23 = icmp sgt i32 %17, -1
   %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   %or.cond.i.i.i.i = select i1 %23, i1 %25, i1 false
   %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %27 = sub nuw nsw i32 32, %26
@@ -2249,8 +2249,8 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13Instance
   %.1.lcssa = phi i32 [ %.01217, %.preheader ], [ %41, %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI20CountClassByCategoryEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_ENKUlRS2_SM_E_clESP_SM_.exit ]
   %.0.add = add nuw nsw i64 %.0.idx18, 8
   %42 = icmp sgt i32 %.1.lcssa, 0
-  %43 = icmp ult i64 %.0.idx18, 127104
-  %or.cond = and i1 %42, %43
+  %43 = icmp samesign ult i64 %.0.idx18, 127104
+  %or.cond = select i1 %42, i1 %43, i1 false
   br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %._crit_edge, %2

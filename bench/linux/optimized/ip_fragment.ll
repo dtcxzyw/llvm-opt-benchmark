@@ -663,7 +663,7 @@ define dso_local noundef ptr @ip_check_defrag(ptr nocapture noundef readonly %0,
 23:                                               ; preds = %8
   %24 = load i8, ptr %4, align 4
   %25 = and i8 %24, 15
-  %26 = icmp ugt i8 %25, 4
+  %26 = icmp samesign ugt i8 %25, 4
   %27 = and i8 %24, -16
   %28 = icmp eq i8 %27, 64
   %29 = and i1 %26, %28

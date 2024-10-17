@@ -129,7 +129,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %77 = getelementptr i8, ptr %71, i64 %76
   store i64 %67, ptr %77, align 1
   %78 = add nuw nsw i64 %76, 8
-  %79 = icmp ult i64 %78, %74
+  %79 = icmp samesign ult i64 %78, %74
   br i1 %79, label %75, label %.loopexit16, !llvm.loop !9
 
 .loopexit16:                                      ; preds = %75, %65
@@ -162,7 +162,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %97 = add nuw nsw i64 %86, %64
   %98 = and i64 %97, %61
   %99 = add nuw nsw i64 %85, 2
-  %100 = icmp ult i64 %99, %63
+  %100 = icmp samesign ult i64 %99, %63
   br i1 %100, label %.critedge, label %.loopexit15, !llvm.loop !11
 
 101:                                              ; preds = %51

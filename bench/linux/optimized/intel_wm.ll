@@ -286,7 +286,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly %0, ptr nound
   %30 = add nuw nsw i64 %11, 1
   %31 = load i8, ptr %4, align 8
   %32 = zext i8 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %.split.us, label %.loopexit, !llvm.loop !13
 
 .split:                                           ; preds = %7, %54
@@ -322,7 +322,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly %0, ptr nound
   %55 = add nuw nsw i64 %34, 1
   %56 = load i8, ptr %4, align 8
   %57 = zext i8 %56 to i64
-  %58 = icmp ult i64 %55, %57
+  %58 = icmp samesign ult i64 %55, %57
   br i1 %58, label %.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %54, %29, %3
@@ -475,7 +475,7 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
   %31 = add nuw nsw i64 %27, 1
   %32 = load i8, ptr %20, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %24
@@ -560,7 +560,7 @@ define internal noundef i32 @pri_wm_latency_show(ptr noundef %0, ptr nocapture r
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2
@@ -660,7 +660,7 @@ define internal noundef i32 @spr_wm_latency_show(ptr noundef %0, ptr nocapture r
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2
@@ -757,7 +757,7 @@ define internal noundef i32 @cur_wm_latency_show(ptr noundef %0, ptr nocapture r
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
-  %40 = icmp ult i64 %37, %39
+  %40 = icmp samesign ult i64 %37, %39
   br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2

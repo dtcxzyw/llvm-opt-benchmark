@@ -650,7 +650,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5E
   %123 = and <2 x i64> %122, <i64 9223372036854775807, i64 9223372036854775807>
   %124 = bitcast <2 x i64> %123 to <2 x double>
   %125 = fadd <2 x double> %119, %124
-  %126 = icmp ugt i64 %115, %114
+  %126 = icmp samesign ugt i64 %115, %114
   br i1 %126, label %127, label %133
 
 127:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i

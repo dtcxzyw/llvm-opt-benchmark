@@ -306,7 +306,7 @@ define internal ptr @H5SM__cache_table_deserialize(ptr noundef %0, i64 %1, ptr n
   %146 = add nuw nsw i64 %.06571, 1
   %147 = load i32, ptr %15, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %146, %148
+  %149 = icmp samesign ult i64 %146, %148
   br i1 %149, label %.lr.ph, label %.thread
 
 150:                                              ; preds = %27, %37, %45
@@ -477,7 +477,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %105 = add nuw nsw i64 %.042, 1
   %106 = load i32, ptr %7, align 8
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %105, %107
+  %108 = icmp samesign ult i64 %105, %107
   br i1 %108, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %4

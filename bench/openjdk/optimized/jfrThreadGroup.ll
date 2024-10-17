@@ -321,7 +321,7 @@ define hidden noundef i32 @_ZN21JfrThreadGroupsHelper31populate_thread_group_hie
   %38 = add nsw i32 %33, 1
   %39 = icmp sgt i32 %33, -1
   %40 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %38)
-  %41 = icmp ult i32 %40, 2
+  %41 = icmp samesign ult i32 %40, 2
   %or.cond.i.i.i.i = select i1 %39, i1 %41, i1 false
   %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %38, i1 true)
   %43 = sub nuw nsw i32 32, %42
@@ -396,7 +396,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit22:            ; preds = %63, %65
   %80 = add nsw i32 %75, 1
   %81 = icmp sgt i32 %75, -1
   %82 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %80)
-  %83 = icmp ult i32 %82, 2
+  %83 = icmp samesign ult i32 %82, 2
   %or.cond.i.i.i.i23 = select i1 %81, i1 %83, i1 false
   %84 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %80, i1 true)
   %85 = sub nuw nsw i32 32, %84
@@ -1203,7 +1203,7 @@ _ZN14JfrThreadGroup19JfrThreadGroupEntryC2EPKcR22JfrThreadGroupPointers.exit: ; 
   %37 = add nsw i32 %32, 1
   %38 = icmp sgt i32 %32, -1
   %39 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %37)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %or.cond.i.i.i.i.i = select i1 %38, i1 %40, i1 false
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
   %42 = sub nuw nsw i32 32, %41
@@ -1296,7 +1296,7 @@ define hidden noundef i32 @_ZN14JfrThreadGroup9add_entryEPNS_19JfrThreadGroupEnt
   %11 = add nsw i32 %6, 1
   %12 = icmp sgt i32 %6, -1
   %13 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ult i32 %13, 2
+  %14 = icmp samesign ult i32 %13, 2
   %or.cond.i.i.i.i = select i1 %12, i1 %14, i1 false
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %16 = sub nuw nsw i32 32, %15

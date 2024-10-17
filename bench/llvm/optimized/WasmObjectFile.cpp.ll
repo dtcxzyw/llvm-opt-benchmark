@@ -1056,7 +1056,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit.i: ; preds = %_ZL
 
 74:                                               ; preds = %69
   %.not37.i.i.i.i = icmp eq i32 %.026.i.i.i.i, 63
-  %.not.i.i.i.i = icmp ugt i8 %71, 1
+  %.not.i.i.i.i = icmp samesign ugt i8 %71, 1
   %75 = icmp ne i8 %71, 0
   %or.cond36.i.i.i.i = select i1 %.not37.i.i.i.i, i1 %.not.i.i.i.i, i1 %75
   br i1 %or.cond36.i.i.i.i, label %83, label %76
@@ -1150,7 +1150,7 @@ _ZNSt8optionalIhEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
 
 116:                                              ; preds = %111
   %.not37.i.i.i39.i = icmp eq i32 %.026.i.i.i36.i, 63
-  %.not.i.i.i40.i = icmp ugt i8 %113, 1
+  %.not.i.i.i40.i = icmp samesign ugt i8 %113, 1
   %117 = icmp ne i8 %113, 0
   %or.cond36.i.i.i41.i = select i1 %.not37.i.i.i39.i, i1 %.not.i.i.i40.i, i1 %117
   br i1 %or.cond36.i.i.i41.i, label %125, label %118
@@ -1541,7 +1541,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile12parseSectionERNS0_11Wasm
 
 35:                                               ; preds = %30
   %.not37.i.i.i.i = icmp eq i32 %.026.i.i.i.i, 63
-  %.not.i.i.i.i = icmp ugt i8 %32, 1
+  %.not.i.i.i.i = icmp samesign ugt i8 %32, 1
   %36 = icmp ne i8 %32, 0
   %or.cond36.i.i.i.i = select i1 %.not37.i.i.i.i, i1 %.not.i.i.i.i, i1 %36
   br i1 %or.cond36.i.i.i.i, label %44, label %37
@@ -1737,7 +1737,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseTypeSectionERNS1_11
 
 20:                                               ; preds = %15
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %17, 1
+  %.not.i.i.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %21
   br i1 %or.cond36.i.i.i, label %29, label %22
@@ -1837,7 +1837,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %55
 
 68:                                               ; preds = %63
   %.not37.i.i.i60 = icmp eq i32 %.026.i.i.i57, 63
-  %.not.i.i.i61 = icmp ugt i8 %65, 1
+  %.not.i.i.i61 = icmp samesign ugt i8 %65, 1
   %69 = icmp ne i8 %65, 0
   %or.cond36.i.i.i62 = select i1 %.not37.i.i.i60, i1 %.not.i.i.i61, i1 %69
   br i1 %or.cond36.i.i.i62, label %77, label %70
@@ -1923,7 +1923,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit64: ; preds =
 
 107:                                              ; preds = %102
   %.not37.i.i.i69 = icmp eq i32 %.026.i.i.i66, 63
-  %.not.i.i.i70 = icmp ugt i8 %104, 1
+  %.not.i.i.i70 = icmp samesign ugt i8 %104, 1
   %108 = icmp ne i8 %104, 0
   %or.cond36.i.i.i71 = select i1 %.not37.i.i.i69, i1 %.not.i.i.i70, i1 %108
   br i1 %or.cond36.i.i.i71, label %116, label %109
@@ -1991,7 +1991,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit73: ; preds =
 
 133:                                              ; preds = %128
   %.not37.i.i.i78 = icmp eq i32 %.026.i.i.i75, 63
-  %.not.i.i.i79 = icmp ugt i8 %130, 1
+  %.not.i.i.i79 = icmp samesign ugt i8 %130, 1
   %134 = icmp ne i8 %130, 0
   %or.cond36.i.i.i80 = select i1 %.not37.i.i.i78, i1 %.not.i.i.i79, i1 %134
   br i1 %or.cond36.i.i.i80, label %142, label %135
@@ -2046,7 +2046,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit82: ; preds =
 
 158:                                              ; preds = %153
   %.not37.i.i.i87 = icmp eq i32 %.026.i.i.i84, 63
-  %.not.i.i.i88 = icmp ugt i8 %155, 1
+  %.not.i.i.i88 = icmp samesign ugt i8 %155, 1
   %159 = icmp ne i8 %155, 0
   %or.cond36.i.i.i89 = select i1 %.not37.i.i.i87, i1 %.not.i.i.i88, i1 %159
   br i1 %or.cond36.i.i.i89, label %167, label %160
@@ -2109,7 +2109,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit91: ; preds =
 
 184:                                              ; preds = %179
   %.not37.i.i.i96 = icmp eq i32 %.026.i.i.i93, 63
-  %.not.i.i.i97 = icmp ugt i8 %181, 1
+  %.not.i.i.i97 = icmp samesign ugt i8 %181, 1
   %185 = icmp ne i8 %181, 0
   %or.cond36.i.i.i98 = select i1 %.not37.i.i.i96, i1 %.not.i.i.i97, i1 %185
   br i1 %or.cond36.i.i.i98, label %193, label %186
@@ -2195,7 +2195,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit100: ; preds 
 
 213:                                              ; preds = %208
   %.not37.i.i.i105 = icmp eq i32 %.026.i.i.i102, 63
-  %.not.i.i.i106 = icmp ugt i8 %210, 1
+  %.not.i.i.i106 = icmp samesign ugt i8 %210, 1
   %214 = icmp ne i8 %210, 0
   %or.cond36.i.i.i107 = select i1 %.not37.i.i.i105, i1 %.not.i.i.i106, i1 %214
   br i1 %or.cond36.i.i.i107, label %222, label %215
@@ -2381,7 +2381,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm7ValTypeELb1EE9push_backES2_.exit: ; p
 
 282:                                              ; preds = %277
   %.not37.i.i.i116 = icmp eq i32 %.026.i.i.i113, 63
-  %.not.i.i.i117 = icmp ugt i8 %279, 1
+  %.not.i.i.i117 = icmp samesign ugt i8 %279, 1
   %283 = icmp ne i8 %279, 0
   %or.cond36.i.i.i118 = select i1 %.not37.i.i.i116, i1 %.not.i.i.i117, i1 %283
   br i1 %or.cond36.i.i.i118, label %291, label %284
@@ -2625,7 +2625,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseImportSectionERNS1_
 
 23:                                               ; preds = %18
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %20, 1
+  %.not.i.i.i = icmp samesign ugt i8 %20, 1
   %24 = icmp ne i8 %20, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %24
   br i1 %or.cond36.i.i.i, label %32, label %25
@@ -2754,7 +2754,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE7reserveEm.exit: ; preds = %_ZL13re
 
 86:                                               ; preds = %81
   %.not37.i.i.i38 = icmp eq i32 %.026.i.i.i35, 63
-  %.not.i.i.i39 = icmp ugt i8 %83, 1
+  %.not.i.i.i39 = icmp samesign ugt i8 %83, 1
   %87 = icmp ne i8 %83, 0
   %or.cond36.i.i.i40 = select i1 %.not37.i.i.i38, i1 %.not.i.i.i39, i1 %87
   br i1 %or.cond36.i.i.i40, label %95, label %88
@@ -2809,7 +2809,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
 
 112:                                              ; preds = %107
   %.not37.i.i.i48 = icmp eq i32 %.026.i.i.i43, 63
-  %.not.i.i.i49 = icmp ugt i8 %109, 1
+  %.not.i.i.i49 = icmp samesign ugt i8 %109, 1
   %113 = icmp ne i8 %109, 0
   %or.cond36.i.i.i50 = select i1 %.not37.i.i.i48, i1 %.not.i.i.i49, i1 %113
   br i1 %or.cond36.i.i.i50, label %121, label %114
@@ -2889,7 +2889,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL10
 
 147:                                              ; preds = %142
   %.not37.i.i.i57 = icmp eq i32 %.026.i.i.i54, 63
-  %.not.i.i.i58 = icmp ugt i8 %144, 1
+  %.not.i.i.i58 = icmp samesign ugt i8 %144, 1
   %148 = icmp ne i8 %144, 0
   %or.cond36.i.i.i59 = select i1 %.not37.i.i.i57, i1 %.not.i.i.i58, i1 %148
   br i1 %or.cond36.i.i.i59, label %156, label %149
@@ -3060,7 +3060,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit63: ; preds = %189
 
 208:                                              ; preds = %203
   %.not37.i.i.i68 = icmp eq i32 %.026.i.i.i65, 63
-  %.not.i.i.i69 = icmp ugt i8 %205, 1
+  %.not.i.i.i69 = icmp samesign ugt i8 %205, 1
   %209 = icmp ne i8 %205, 0
   %or.cond36.i.i.i70 = select i1 %.not37.i.i.i68, i1 %.not.i.i.i69, i1 %209
   br i1 %or.cond36.i.i.i70, label %217, label %210
@@ -3297,7 +3297,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile20parseFunctionSectionERNS
 
 18:                                               ; preds = %13
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %15, 1
+  %.not.i.i.i = icmp samesign ugt i8 %15, 1
   %19 = icmp ne i8 %15, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %19
   br i1 %or.cond36.i.i.i, label %27, label %20
@@ -3453,7 +3453,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmFunctionESaIS2_EE7reserveEm.exit: ; preds = %_ZL13
 
 101:                                              ; preds = %96
   %.not37.i.i.i16 = icmp eq i32 %.026.i.i.i13, 63
-  %.not.i.i.i17 = icmp ugt i8 %98, 1
+  %.not.i.i.i17 = icmp samesign ugt i8 %98, 1
   %102 = icmp ne i8 %98, 0
   %or.cond36.i.i.i18 = select i1 %.not37.i.i.i16, i1 %.not.i.i.i17, i1 %102
   br i1 %or.cond36.i.i.i18, label %110, label %103
@@ -3654,7 +3654,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseTableSectionERNS1_1
 
 28:                                               ; preds = %23
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %25, 1
+  %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %29
   br i1 %or.cond36.i.i.i, label %37, label %30
@@ -3910,7 +3910,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseMemorySectionERNS1_
 
 17:                                               ; preds = %12
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %14, 1
+  %.not.i.i.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %18
   br i1 %or.cond36.i.i.i, label %26, label %19
@@ -4142,7 +4142,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile15parseTagSectionERNS1_11R
 
 28:                                               ; preds = %23
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %25, 1
+  %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %29
   br i1 %or.cond36.i.i.i, label %37, label %30
@@ -4288,7 +4288,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %77
 
 95:                                               ; preds = %90
   %.not37.i.i.i19 = icmp eq i32 %.026.i.i.i16, 63
-  %.not.i.i.i20 = icmp ugt i8 %92, 1
+  %.not.i.i.i20 = icmp samesign ugt i8 %92, 1
   %96 = icmp ne i8 %92, 0
   %or.cond36.i.i.i21 = select i1 %.not37.i.i.i19, i1 %.not.i.i.i20, i1 %96
   br i1 %or.cond36.i.i.i21, label %104, label %97
@@ -4496,7 +4496,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseGlobalSectionERNS1_
 
 27:                                               ; preds = %22
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %24, 1
+  %.not.i.i.i = icmp samesign ugt i8 %24, 1
   %28 = icmp ne i8 %24, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %28
   br i1 %or.cond36.i.i.i, label %36, label %29
@@ -4631,7 +4631,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE7reserveEm.exit: ; preds = %_ZL13re
 
 96:                                               ; preds = %91
   %.not37.i.i.i25 = icmp eq i32 %.026.i.i.i22, 63
-  %.not.i.i.i26 = icmp ugt i8 %93, 1
+  %.not.i.i.i26 = icmp samesign ugt i8 %93, 1
   %97 = icmp ne i8 %93, 0
   %or.cond36.i.i.i27 = select i1 %.not37.i.i.i25, i1 %.not.i.i.i26, i1 %97
   br i1 %or.cond36.i.i.i27, label %105, label %98
@@ -4886,7 +4886,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseExportSectionERNS1_
 
 20:                                               ; preds = %15
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %17, 1
+  %.not.i.i.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %21
   br i1 %or.cond36.i.i.i, label %29, label %22
@@ -5059,7 +5059,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt
 
 100:                                              ; preds = %95
   %.not37.i.i.i40 = icmp eq i32 %.026.i.i.i37, 63
-  %.not.i.i.i41 = icmp ugt i8 %97, 1
+  %.not.i.i.i41 = icmp samesign ugt i8 %97, 1
   %101 = icmp ne i8 %97, 0
   %or.cond36.i.i.i42 = select i1 %.not37.i.i.i40, i1 %.not.i.i.i41, i1 %101
   br i1 %or.cond36.i.i.i42, label %109, label %102
@@ -5125,7 +5125,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL10
 
 130:                                              ; preds = %125
   %.not37.i.i.i48 = icmp eq i32 %.026.i.i.i45, 63
-  %.not.i.i.i49 = icmp ugt i8 %127, 1
+  %.not.i.i.i49 = icmp samesign ugt i8 %127, 1
   %131 = icmp ne i8 %127, 0
   %or.cond36.i.i.i50 = select i1 %.not37.i.i.i48, i1 %.not.i.i.i49, i1 %131
   br i1 %or.cond36.i.i.i50, label %139, label %132
@@ -5581,7 +5581,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseStartSectionERNS1_1
 
 16:                                               ; preds = %11
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %13, 1
+  %.not.i.i.i = icmp samesign ugt i8 %13, 1
   %17 = icmp ne i8 %13, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %17
   br i1 %or.cond36.i.i.i, label %25, label %18
@@ -5682,7 +5682,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseElemSectionERNS1_11
 
 22:                                               ; preds = %17
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %19, 1
+  %.not.i.i.i = icmp samesign ugt i8 %19, 1
   %23 = icmp ne i8 %19, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %23
   br i1 %or.cond36.i.i.i, label %31, label %24
@@ -5840,7 +5840,7 @@ _ZNSt6vectorIN4llvm4wasm15WasmElemSegmentESaIS2_EE7reserveEm.exit: ; preds = %_Z
 
 108:                                              ; preds = %103
   %.not37.i.i.i63 = icmp eq i32 %.026.i.i.i60, 63
-  %.not.i.i.i64 = icmp ugt i8 %105, 1
+  %.not.i.i.i64 = icmp samesign ugt i8 %105, 1
   %109 = icmp ne i8 %105, 0
   %or.cond36.i.i.i65 = select i1 %.not37.i.i.i63, i1 %.not.i.i.i64, i1 %109
   br i1 %or.cond36.i.i.i65, label %117, label %110
@@ -5917,7 +5917,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit67: ; preds =
 
 140:                                              ; preds = %135
   %.not37.i.i.i72 = icmp eq i32 %.026.i.i.i69, 63
-  %.not.i.i.i73 = icmp ugt i8 %137, 1
+  %.not.i.i.i73 = icmp samesign ugt i8 %137, 1
   %141 = icmp ne i8 %137, 0
   %or.cond36.i.i.i74 = select i1 %.not37.i.i.i72, i1 %.not.i.i.i73, i1 %141
   br i1 %or.cond36.i.i.i74, label %149, label %142
@@ -6021,7 +6021,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %175, %174
 
 187:                                              ; preds = %182
   %.not37.i.i.i81 = icmp eq i32 %.026.i.i.i78, 63
-  %.not.i.i.i82 = icmp ugt i8 %184, 1
+  %.not.i.i.i82 = icmp samesign ugt i8 %184, 1
   %188 = icmp ne i8 %184, 0
   %or.cond36.i.i.i83 = select i1 %.not37.i.i.i81, i1 %.not.i.i.i82, i1 %188
   br i1 %or.cond36.i.i.i83, label %196, label %189
@@ -6202,7 +6202,7 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %
 
 249:                                              ; preds = %244
   %.not37.i.i.i90 = icmp eq i32 %.026.i.i.i87, 63
-  %.not.i.i.i91 = icmp ugt i8 %246, 1
+  %.not.i.i.i91 = icmp samesign ugt i8 %246, 1
   %250 = icmp ne i8 %246, 0
   %or.cond36.i.i.i92 = select i1 %.not37.i.i.i90, i1 %.not.i.i.i91, i1 %250
   br i1 %or.cond36.i.i.i92, label %258, label %251
@@ -6341,7 +6341,7 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit107: ; preds 
 
 302:                                              ; preds = %297
   %.not37.i.i.i112 = icmp eq i32 %.026.i.i.i109, 63
-  %.not.i.i.i113 = icmp ugt i8 %299, 1
+  %.not.i.i.i113 = icmp samesign ugt i8 %299, 1
   %303 = icmp ne i8 %299, 0
   %or.cond36.i.i.i114 = select i1 %.not37.i.i.i112, i1 %.not.i.i.i113, i1 %303
   br i1 %or.cond36.i.i.i114, label %311, label %304
@@ -6418,7 +6418,7 @@ _ZN4llvm5ErrorD2Ev.exit117:                       ; preds = %_ZL13readVaruint32R
 
 333:                                              ; preds = %328
   %.not37.i.i.i122 = icmp eq i32 %.026.i.i.i119, 63
-  %.not.i.i.i123 = icmp ugt i8 %330, 1
+  %.not.i.i.i123 = icmp samesign ugt i8 %330, 1
   %334 = icmp ne i8 %330, 0
   %or.cond36.i.i.i124 = select i1 %.not37.i.i.i122, i1 %.not.i.i.i123, i1 %334
   br i1 %or.cond36.i.i.i124, label %342, label %335
@@ -6669,7 +6669,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseCodeSectionERNS1_11
 
 28:                                               ; preds = %23
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %25, 1
+  %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %29
   br i1 %or.cond36.i.i.i, label %37, label %30
@@ -6761,7 +6761,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 71:                                               ; preds = %66
   %.not37.i.i.i48 = icmp eq i32 %.026.i.i.i45, 63
-  %.not.i.i.i49 = icmp ugt i8 %68, 1
+  %.not.i.i.i49 = icmp samesign ugt i8 %68, 1
   %72 = icmp ne i8 %68, 0
   %or.cond36.i.i.i50 = select i1 %.not37.i.i.i48, i1 %.not.i.i.i49, i1 %72
   br i1 %or.cond36.i.i.i50, label %80, label %73
@@ -6834,7 +6834,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit52: ; preds =
 
 112:                                              ; preds = %107
   %.not37.i.i.i57 = icmp eq i32 %.026.i.i.i54, 63
-  %.not.i.i.i58 = icmp ugt i8 %109, 1
+  %.not.i.i.i58 = icmp samesign ugt i8 %109, 1
   %113 = icmp ne i8 %109, 0
   %or.cond36.i.i.i59 = select i1 %.not37.i.i.i57, i1 %.not.i.i.i58, i1 %113
   br i1 %or.cond36.i.i.i59, label %121, label %114
@@ -6941,7 +6941,7 @@ _ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE7reserveEm.exit: ; preds = %_ZL1
 
 162:                                              ; preds = %157
   %.not37.i.i.i66 = icmp eq i32 %.026.i.i.i63, 63
-  %.not.i.i.i67 = icmp ugt i8 %159, 1
+  %.not.i.i.i67 = icmp samesign ugt i8 %159, 1
   %163 = icmp ne i8 %159, 0
   %or.cond36.i.i.i68 = select i1 %.not37.i.i.i66, i1 %.not.i.i.i67, i1 %163
   br i1 %or.cond36.i.i.i68, label %171, label %164
@@ -7166,7 +7166,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseDataSectionERNS1_11
 
 29:                                               ; preds = %24
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %26, 1
+  %.not.i.i.i = icmp samesign ugt i8 %26, 1
   %30 = icmp ne i8 %26, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %30
   br i1 %or.cond36.i.i.i, label %38, label %31
@@ -7312,7 +7312,7 @@ _ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE7reserveEm.exit: ; preds = %56, 
 
 99:                                               ; preds = %94
   %.not37.i.i.i31 = icmp eq i32 %.026.i.i.i28, 63
-  %.not.i.i.i32 = icmp ugt i8 %96, 1
+  %.not.i.i.i32 = icmp samesign ugt i8 %96, 1
   %100 = icmp ne i8 %96, 0
   %or.cond36.i.i.i33 = select i1 %.not37.i.i.i31, i1 %.not.i.i.i32, i1 %100
   br i1 %or.cond36.i.i.i33, label %108, label %101
@@ -7368,7 +7368,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit35: ; preds =
 
 124:                                              ; preds = %119
   %.not37.i.i.i40 = icmp eq i32 %.026.i.i.i37, 63
-  %.not.i.i.i41 = icmp ugt i8 %121, 1
+  %.not.i.i.i41 = icmp samesign ugt i8 %121, 1
   %125 = icmp ne i8 %121, 0
   %or.cond36.i.i.i42 = select i1 %.not37.i.i.i40, i1 %.not.i.i.i41, i1 %125
   br i1 %or.cond36.i.i.i42, label %133, label %126
@@ -7451,7 +7451,7 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5ErrorD2Ev.
 
 159:                                              ; preds = %154
   %.not37.i.i.i49 = icmp eq i32 %.026.i.i.i46, 63
-  %.not.i.i.i50 = icmp ugt i8 %156, 1
+  %.not.i.i.i50 = icmp samesign ugt i8 %156, 1
   %160 = icmp ne i8 %156, 0
   %or.cond36.i.i.i51 = select i1 %.not37.i.i.i49, i1 %.not.i.i.i50, i1 %160
   br i1 %or.cond36.i.i.i51, label %168, label %161
@@ -7643,7 +7643,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile21parseDataCountSectionERN
 
 15:                                               ; preds = %10
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %12, 1
+  %.not.i.i.i = icmp samesign ugt i8 %12, 1
   %16 = icmp ne i8 %12, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %16
   br i1 %or.cond36.i.i.i, label %24, label %17
@@ -7720,7 +7720,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseDylinkSectionERNS1_
 
 17:                                               ; preds = %12
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %14, 1
+  %.not.i.i.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %18
   br i1 %or.cond36.i.i.i, label %26, label %19
@@ -7777,7 +7777,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 45:                                               ; preds = %40
   %.not37.i.i.i14 = icmp eq i32 %.026.i.i.i11, 63
-  %.not.i.i.i15 = icmp ugt i8 %42, 1
+  %.not.i.i.i15 = icmp samesign ugt i8 %42, 1
   %46 = icmp ne i8 %42, 0
   %or.cond36.i.i.i16 = select i1 %.not37.i.i.i14, i1 %.not.i.i.i15, i1 %46
   br i1 %or.cond36.i.i.i16, label %54, label %47
@@ -7834,7 +7834,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit18: ; preds =
 
 73:                                               ; preds = %68
   %.not37.i.i.i23 = icmp eq i32 %.026.i.i.i20, 63
-  %.not.i.i.i24 = icmp ugt i8 %70, 1
+  %.not.i.i.i24 = icmp samesign ugt i8 %70, 1
   %74 = icmp ne i8 %70, 0
   %or.cond36.i.i.i25 = select i1 %.not37.i.i.i23, i1 %.not.i.i.i24, i1 %74
   br i1 %or.cond36.i.i.i25, label %82, label %75
@@ -7891,7 +7891,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit27: ; preds =
 
 101:                                              ; preds = %96
   %.not37.i.i.i32 = icmp eq i32 %.026.i.i.i29, 63
-  %.not.i.i.i33 = icmp ugt i8 %98, 1
+  %.not.i.i.i33 = icmp samesign ugt i8 %98, 1
   %102 = icmp ne i8 %98, 0
   %or.cond36.i.i.i34 = select i1 %.not37.i.i.i32, i1 %.not.i.i.i33, i1 %102
   br i1 %or.cond36.i.i.i34, label %110, label %103
@@ -7948,7 +7948,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit36: ; preds =
 
 129:                                              ; preds = %124
   %.not37.i.i.i41 = icmp eq i32 %.026.i.i.i38, 63
-  %.not.i.i.i42 = icmp ugt i8 %126, 1
+  %.not.i.i.i42 = icmp samesign ugt i8 %126, 1
   %130 = icmp ne i8 %126, 0
   %or.cond36.i.i.i43 = select i1 %.not37.i.i.i41, i1 %.not.i.i.i42, i1 %130
   br i1 %or.cond36.i.i.i43, label %138, label %131
@@ -8015,7 +8015,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit45: ; preds =
 
 161:                                              ; preds = %156
   %.not37.i.i.i50 = icmp eq i32 %.026.i.i.i47, 63
-  %.not.i.i.i51 = icmp ugt i8 %158, 1
+  %.not.i.i.i51 = icmp samesign ugt i8 %158, 1
   %162 = icmp ne i8 %158, 0
   %or.cond36.i.i.i52 = select i1 %.not37.i.i.i50, i1 %.not.i.i.i51, i1 %162
   br i1 %or.cond36.i.i.i52, label %170, label %163
@@ -8215,7 +8215,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %3, %2
 
 36:                                               ; preds = %31
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %33, 1
+  %.not.i.i.i = icmp samesign ugt i8 %33, 1
   %37 = icmp ne i8 %33, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %37
   br i1 %or.cond36.i.i.i, label %45, label %38
@@ -8274,7 +8274,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 60:                                               ; preds = %55
   %.not37.i.i.i45 = icmp eq i32 %.026.i.i.i42, 63
-  %.not.i.i.i46 = icmp ugt i8 %57, 1
+  %.not.i.i.i46 = icmp samesign ugt i8 %57, 1
   %61 = icmp ne i8 %57, 0
   %or.cond36.i.i.i47 = select i1 %.not37.i.i.i45, i1 %.not.i.i.i46, i1 %61
   br i1 %or.cond36.i.i.i47, label %69, label %62
@@ -8330,7 +8330,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit49: ; preds =
 
 87:                                               ; preds = %82
   %.not37.i.i.i54 = icmp eq i32 %.026.i.i.i51, 63
-  %.not.i.i.i55 = icmp ugt i8 %84, 1
+  %.not.i.i.i55 = icmp samesign ugt i8 %84, 1
   %88 = icmp ne i8 %84, 0
   %or.cond36.i.i.i56 = select i1 %.not37.i.i.i54, i1 %.not.i.i.i55, i1 %88
   br i1 %or.cond36.i.i.i56, label %96, label %89
@@ -8386,7 +8386,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit58: ; preds =
 
 114:                                              ; preds = %109
   %.not37.i.i.i63 = icmp eq i32 %.026.i.i.i60, 63
-  %.not.i.i.i64 = icmp ugt i8 %111, 1
+  %.not.i.i.i64 = icmp samesign ugt i8 %111, 1
   %115 = icmp ne i8 %111, 0
   %or.cond36.i.i.i65 = select i1 %.not37.i.i.i63, i1 %.not.i.i.i64, i1 %115
   br i1 %or.cond36.i.i.i65, label %123, label %116
@@ -8442,7 +8442,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit67: ; preds =
 
 141:                                              ; preds = %136
   %.not37.i.i.i72 = icmp eq i32 %.026.i.i.i69, 63
-  %.not.i.i.i73 = icmp ugt i8 %138, 1
+  %.not.i.i.i73 = icmp samesign ugt i8 %138, 1
   %142 = icmp ne i8 %138, 0
   %or.cond36.i.i.i74 = select i1 %.not37.i.i.i72, i1 %.not.i.i.i73, i1 %142
   br i1 %or.cond36.i.i.i74, label %150, label %143
@@ -8496,7 +8496,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit76: ; preds =
 
 165:                                              ; preds = %160
   %.not37.i.i.i81 = icmp eq i32 %.026.i.i.i78, 63
-  %.not.i.i.i82 = icmp ugt i8 %162, 1
+  %.not.i.i.i82 = icmp samesign ugt i8 %162, 1
   %166 = icmp ne i8 %162, 0
   %or.cond36.i.i.i83 = select i1 %.not37.i.i.i81, i1 %.not.i.i.i82, i1 %166
   br i1 %or.cond36.i.i.i83, label %174, label %167
@@ -8560,7 +8560,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit85: ; preds =
 
 193:                                              ; preds = %188
   %.not37.i.i.i90 = icmp eq i32 %.026.i.i.i87, 63
-  %.not.i.i.i91 = icmp ugt i8 %190, 1
+  %.not.i.i.i91 = icmp samesign ugt i8 %190, 1
   %194 = icmp ne i8 %190, 0
   %or.cond36.i.i.i92 = select i1 %.not37.i.i.i90, i1 %.not.i.i.i91, i1 %194
   br i1 %or.cond36.i.i.i92, label %202, label %195
@@ -8693,7 +8693,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit: ; preds = %214, %_ZN
 
 245:                                              ; preds = %240
   %.not37.i.i.i98 = icmp eq i32 %.026.i.i.i95, 63
-  %.not.i.i.i99 = icmp ugt i8 %242, 1
+  %.not.i.i.i99 = icmp samesign ugt i8 %242, 1
   %246 = icmp ne i8 %242, 0
   %or.cond36.i.i.i100 = select i1 %.not37.i.i.i98, i1 %.not.i.i.i99, i1 %246
   br i1 %or.cond36.i.i.i100, label %254, label %247
@@ -8757,7 +8757,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit102: ; preds 
 
 273:                                              ; preds = %268
   %.not37.i.i.i109 = icmp eq i32 %.026.i.i.i104, 63
-  %.not.i.i.i110 = icmp ugt i8 %270, 1
+  %.not.i.i.i110 = icmp samesign ugt i8 %270, 1
   %274 = icmp ne i8 %270, 0
   %or.cond36.i.i.i111 = select i1 %.not37.i.i.i109, i1 %.not.i.i.i110, i1 %274
   br i1 %or.cond36.i.i.i111, label %282, label %275
@@ -8812,7 +8812,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit113: ; preds = %
 
 299:                                              ; preds = %294
   %.not37.i.i.i118 = icmp eq i32 %.026.i.i.i115, 63
-  %.not.i.i.i119 = icmp ugt i8 %296, 1
+  %.not.i.i.i119 = icmp samesign ugt i8 %296, 1
   %300 = icmp ne i8 %296, 0
   %or.cond36.i.i.i120 = select i1 %.not37.i.i.i118, i1 %.not.i.i.i119, i1 %300
   br i1 %or.cond36.i.i.i120, label %308, label %301
@@ -8947,7 +8947,7 @@ _ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE9push_backEOS2_.exit: ; p
 
 350:                                              ; preds = %345
   %.not37.i.i.i137 = icmp eq i32 %.026.i.i.i134, 63
-  %.not.i.i.i138 = icmp ugt i8 %347, 1
+  %.not.i.i.i138 = icmp samesign ugt i8 %347, 1
   %351 = icmp ne i8 %347, 0
   %or.cond36.i.i.i139 = select i1 %.not37.i.i.i137, i1 %.not.i.i.i138, i1 %351
   br i1 %or.cond36.i.i.i139, label %359, label %352
@@ -9011,7 +9011,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit141: ; preds 
 
 378:                                              ; preds = %373
   %.not37.i.i.i148 = icmp eq i32 %.026.i.i.i143, 63
-  %.not.i.i.i149 = icmp ugt i8 %375, 1
+  %.not.i.i.i149 = icmp samesign ugt i8 %375, 1
   %379 = icmp ne i8 %375, 0
   %or.cond36.i.i.i150 = select i1 %.not37.i.i.i148, i1 %.not.i.i.i149, i1 %379
   br i1 %or.cond36.i.i.i150, label %387, label %380
@@ -9066,7 +9066,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit152: ; preds = %
 
 404:                                              ; preds = %399
   %.not37.i.i.i159 = icmp eq i32 %.026.i.i.i154, 63
-  %.not.i.i.i160 = icmp ugt i8 %401, 1
+  %.not.i.i.i160 = icmp samesign ugt i8 %401, 1
   %405 = icmp ne i8 %401, 0
   %or.cond36.i.i.i161 = select i1 %.not37.i.i.i159, i1 %.not.i.i.i160, i1 %405
   br i1 %or.cond36.i.i.i161, label %413, label %406
@@ -9121,7 +9121,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit163: ; preds = %
 
 430:                                              ; preds = %425
   %.not37.i.i.i168 = icmp eq i32 %.026.i.i.i165, 63
-  %.not.i.i.i169 = icmp ugt i8 %427, 1
+  %.not.i.i.i169 = icmp samesign ugt i8 %427, 1
   %431 = icmp ne i8 %427, 0
   %or.cond36.i.i.i170 = select i1 %.not37.i.i.i168, i1 %.not.i.i.i169, i1 %431
   br i1 %or.cond36.i.i.i170, label %439, label %432
@@ -9392,7 +9392,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %51
 
 64:                                               ; preds = %59
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %61, 1
+  %.not.i.i.i = icmp samesign ugt i8 %61, 1
   %65 = icmp ne i8 %61, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %65
   br i1 %or.cond36.i.i.i, label %73, label %66
@@ -9452,7 +9452,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 89:                                               ; preds = %84
   %.not37.i.i.i52 = icmp eq i32 %.026.i.i.i49, 63
-  %.not.i.i.i53 = icmp ugt i8 %86, 1
+  %.not.i.i.i53 = icmp samesign ugt i8 %86, 1
   %90 = icmp ne i8 %86, 0
   %or.cond36.i.i.i54 = select i1 %.not37.i.i.i52, i1 %.not.i.i.i53, i1 %90
   br i1 %or.cond36.i.i.i54, label %98, label %91
@@ -9516,7 +9516,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit56: ; preds =
 
 117:                                              ; preds = %112
   %.not37.i.i.i61 = icmp eq i32 %.026.i.i.i58, 63
-  %.not.i.i.i62 = icmp ugt i8 %114, 1
+  %.not.i.i.i62 = icmp samesign ugt i8 %114, 1
   %118 = icmp ne i8 %114, 0
   %or.cond36.i.i.i63 = select i1 %.not37.i.i.i61, i1 %.not.i.i.i62, i1 %118
   br i1 %or.cond36.i.i.i63, label %126, label %119
@@ -9569,7 +9569,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit65: ; preds =
 
 142:                                              ; preds = %137
   %.not37.i.i.i70 = icmp eq i32 %.026.i.i.i67, 63
-  %.not.i.i.i71 = icmp ugt i8 %139, 1
+  %.not.i.i.i71 = icmp samesign ugt i8 %139, 1
   %143 = icmp ne i8 %139, 0
   %or.cond36.i.i.i72 = select i1 %.not37.i.i.i70, i1 %.not.i.i.i71, i1 %143
   br i1 %or.cond36.i.i.i72, label %151, label %144
@@ -10382,7 +10382,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile19parseLinkingSectionERNS1
 
 24:                                               ; preds = %19
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %21, 1
+  %.not.i.i.i = icmp samesign ugt i8 %21, 1
   %25 = icmp ne i8 %21, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %25
   br i1 %or.cond36.i.i.i, label %33, label %26
@@ -10498,7 +10498,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %66
 
 78:                                               ; preds = %73
   %.not37.i.i.i102 = icmp eq i32 %.026.i.i.i99, 63
-  %.not.i.i.i103 = icmp ugt i8 %75, 1
+  %.not.i.i.i103 = icmp samesign ugt i8 %75, 1
   %79 = icmp ne i8 %75, 0
   %or.cond36.i.i.i104 = select i1 %.not37.i.i.i102, i1 %.not.i.i.i103, i1 %79
   br i1 %or.cond36.i.i.i104, label %87, label %80
@@ -10563,7 +10563,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL13readVaruint32R
 
 103:                                              ; preds = %98
   %.not37.i.i.i111 = icmp eq i32 %.026.i.i.i108, 63
-  %.not.i.i.i112 = icmp ugt i8 %100, 1
+  %.not.i.i.i112 = icmp samesign ugt i8 %100, 1
   %104 = icmp ne i8 %100, 0
   %or.cond36.i.i.i113 = select i1 %.not37.i.i.i111, i1 %.not.i.i.i112, i1 %104
   br i1 %or.cond36.i.i.i113, label %112, label %105
@@ -10643,7 +10643,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit115: ; preds 
 
 138:                                              ; preds = %133
   %.not37.i.i.i120 = icmp eq i32 %.026.i.i.i117, 63
-  %.not.i.i.i121 = icmp ugt i8 %135, 1
+  %.not.i.i.i121 = icmp samesign ugt i8 %135, 1
   %139 = icmp ne i8 %135, 0
   %or.cond36.i.i.i122 = select i1 %.not37.i.i.i120, i1 %.not.i.i.i121, i1 %139
   br i1 %or.cond36.i.i.i122, label %147, label %140
@@ -10706,7 +10706,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
 
 169:                                              ; preds = %164
   %.not37.i.i.i128 = icmp eq i32 %.026.i.i.i125, 63
-  %.not.i.i.i129 = icmp ugt i8 %166, 1
+  %.not.i.i.i129 = icmp samesign ugt i8 %166, 1
   %170 = icmp ne i8 %166, 0
   %or.cond36.i.i.i130 = select i1 %.not37.i.i.i128, i1 %.not.i.i.i129, i1 %170
   br i1 %or.cond36.i.i.i130, label %178, label %171
@@ -10764,7 +10764,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit132: ; preds 
 
 198:                                              ; preds = %193
   %.not37.i.i.i137 = icmp eq i32 %.026.i.i.i134, 63
-  %.not.i.i.i138 = icmp ugt i8 %195, 1
+  %.not.i.i.i138 = icmp samesign ugt i8 %195, 1
   %199 = icmp ne i8 %195, 0
   %or.cond36.i.i.i139 = select i1 %.not37.i.i.i137, i1 %.not.i.i.i138, i1 %199
   br i1 %or.cond36.i.i.i139, label %207, label %200
@@ -10822,7 +10822,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit141: ; preds 
 
 224:                                              ; preds = %219
   %.not37.i.i.i146 = icmp eq i32 %.026.i.i.i143, 63
-  %.not.i.i.i147 = icmp ugt i8 %221, 1
+  %.not.i.i.i147 = icmp samesign ugt i8 %221, 1
   %225 = icmp ne i8 %221, 0
   %or.cond36.i.i.i148 = select i1 %.not37.i.i.i146, i1 %.not.i.i.i147, i1 %225
   br i1 %or.cond36.i.i.i148, label %233, label %226
@@ -10925,7 +10925,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE7reserveEm.exit: ; preds = %_ZL13
 
 268:                                              ; preds = %263
   %.not37.i.i.i155 = icmp eq i32 %.026.i.i.i152, 63
-  %.not.i.i.i156 = icmp ugt i8 %265, 1
+  %.not.i.i.i156 = icmp samesign ugt i8 %265, 1
   %269 = icmp ne i8 %265, 0
   %or.cond36.i.i.i157 = select i1 %.not37.i.i.i155, i1 %.not.i.i.i156, i1 %269
   br i1 %or.cond36.i.i.i157, label %277, label %270
@@ -10974,7 +10974,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit159: ; preds 
 
 291:                                              ; preds = %286
   %.not37.i.i.i164 = icmp eq i32 %.026.i.i.i161, 63
-  %.not.i.i.i165 = icmp ugt i8 %288, 1
+  %.not.i.i.i165 = icmp samesign ugt i8 %288, 1
   %292 = icmp ne i8 %288, 0
   %or.cond36.i.i.i166 = select i1 %.not37.i.i.i164, i1 %.not.i.i.i165, i1 %292
   br i1 %or.cond36.i.i.i166, label %300, label %293
@@ -11227,7 +11227,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile25parseLinkingSectionSymta
 
 42:                                               ; preds = %37
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %39, 1
+  %.not.i.i.i = icmp samesign ugt i8 %39, 1
   %43 = icmp ne i8 %39, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %43
   br i1 %or.cond36.i.i.i, label %51, label %44
@@ -11694,7 +11694,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %223
 
 238:                                              ; preds = %233
   %.not37.i.i.i176 = icmp eq i32 %.026.i.i.i173, 63
-  %.not.i.i.i177 = icmp ugt i8 %235, 1
+  %.not.i.i.i177 = icmp samesign ugt i8 %235, 1
   %239 = icmp ne i8 %235, 0
   %or.cond36.i.i.i178 = select i1 %.not37.i.i.i176, i1 %.not.i.i.i177, i1 %239
   br i1 %or.cond36.i.i.i178, label %247, label %240
@@ -11756,7 +11756,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit180: ; preds 
 
 264:                                              ; preds = %259
   %.not37.i.i.i185 = icmp eq i32 %.026.i.i.i182, 63
-  %.not.i.i.i186 = icmp ugt i8 %261, 1
+  %.not.i.i.i186 = icmp samesign ugt i8 %261, 1
   %265 = icmp ne i8 %261, 0
   %or.cond36.i.i.i187 = select i1 %.not37.i.i.i185, i1 %.not.i.i.i186, i1 %265
   br i1 %or.cond36.i.i.i187, label %273, label %266
@@ -11841,7 +11841,7 @@ _ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit: ; preds = %_ZL1
 
 304:                                              ; preds = %299
   %.not37.i.i.i195 = icmp eq i32 %.026.i.i.i192, 63
-  %.not.i.i.i196 = icmp ugt i8 %301, 1
+  %.not.i.i.i196 = icmp samesign ugt i8 %301, 1
   %305 = icmp ne i8 %301, 0
   %or.cond36.i.i.i197 = select i1 %.not37.i.i.i195, i1 %.not.i.i.i196, i1 %305
   br i1 %or.cond36.i.i.i197, label %313, label %306
@@ -11922,7 +11922,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
 
 348:                                              ; preds = %343
   %.not37.i.i.i205 = icmp eq i32 %.026.i.i.i200, 63
-  %.not.i.i.i206 = icmp ugt i8 %345, 1
+  %.not.i.i.i206 = icmp samesign ugt i8 %345, 1
   %349 = icmp ne i8 %345, 0
   %or.cond36.i.i.i207 = select i1 %.not37.i.i.i205, i1 %.not.i.i.i206, i1 %349
   br i1 %or.cond36.i.i.i207, label %357, label %350
@@ -11998,7 +11998,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
 
 381:                                              ; preds = %376
   %.not37.i.i.i215 = icmp eq i32 %.026.i.i.i212, 63
-  %.not.i.i.i216 = icmp ugt i8 %378, 1
+  %.not.i.i.i216 = icmp samesign ugt i8 %378, 1
   %382 = icmp ne i8 %378, 0
   %or.cond36.i.i.i217 = select i1 %.not37.i.i.i215, i1 %.not.i.i.i216, i1 %382
   br i1 %or.cond36.i.i.i217, label %390, label %383
@@ -12100,7 +12100,7 @@ _ZNK4llvm6object14WasmObjectFile20isDefinedGlobalIndexEj.exit: ; preds = %_ZL13r
 
 428:                                              ; preds = %423
   %.not37.i.i.i227 = icmp eq i32 %.026.i.i.i222, 63
-  %.not.i.i.i228 = icmp ugt i8 %425, 1
+  %.not.i.i.i228 = icmp samesign ugt i8 %425, 1
   %429 = icmp ne i8 %425, 0
   %or.cond36.i.i.i229 = select i1 %.not37.i.i.i227, i1 %.not.i.i.i228, i1 %429
   br i1 %or.cond36.i.i.i229, label %437, label %430
@@ -12177,7 +12177,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit231: ; preds = %
 
 468:                                              ; preds = %463
   %.not37.i.i.i238 = icmp eq i32 %.026.i.i.i233, 63
-  %.not.i.i.i239 = icmp ugt i8 %465, 1
+  %.not.i.i.i239 = icmp samesign ugt i8 %465, 1
   %469 = icmp ne i8 %465, 0
   %or.cond36.i.i.i240 = select i1 %.not37.i.i.i238, i1 %.not.i.i.i239, i1 %469
   br i1 %or.cond36.i.i.i240, label %477, label %470
@@ -12249,7 +12249,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
 
 497:                                              ; preds = %492
   %.not37.i.i.i249 = icmp eq i32 %.026.i.i.i246, 63
-  %.not.i.i.i250 = icmp ugt i8 %494, 1
+  %.not.i.i.i250 = icmp samesign ugt i8 %494, 1
   %498 = icmp ne i8 %494, 0
   %or.cond36.i.i.i251 = select i1 %.not37.i.i.i249, i1 %.not.i.i.i250, i1 %498
   br i1 %or.cond36.i.i.i251, label %506, label %499
@@ -12351,7 +12351,7 @@ _ZNK4llvm6object14WasmObjectFile20isDefinedTableNumberEj.exit: ; preds = %_ZL13r
 
 544:                                              ; preds = %539
   %.not37.i.i.i261 = icmp eq i32 %.026.i.i.i256, 63
-  %.not.i.i.i262 = icmp ugt i8 %541, 1
+  %.not.i.i.i262 = icmp samesign ugt i8 %541, 1
   %545 = icmp ne i8 %541, 0
   %or.cond36.i.i.i263 = select i1 %.not37.i.i.i261, i1 %.not.i.i.i262, i1 %545
   br i1 %or.cond36.i.i.i263, label %553, label %546
@@ -12428,7 +12428,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit265: ; preds = %
 
 584:                                              ; preds = %579
   %.not37.i.i.i272 = icmp eq i32 %.026.i.i.i267, 63
-  %.not.i.i.i273 = icmp ugt i8 %581, 1
+  %.not.i.i.i273 = icmp samesign ugt i8 %581, 1
   %585 = icmp ne i8 %581, 0
   %or.cond36.i.i.i274 = select i1 %.not37.i.i.i272, i1 %.not.i.i.i273, i1 %585
   br i1 %or.cond36.i.i.i274, label %593, label %586
@@ -12500,7 +12500,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
 
 613:                                              ; preds = %608
   %.not37.i.i.i285 = icmp eq i32 %.026.i.i.i280, 63
-  %.not.i.i.i286 = icmp ugt i8 %610, 1
+  %.not.i.i.i286 = icmp samesign ugt i8 %610, 1
   %614 = icmp ne i8 %610, 0
   %or.cond36.i.i.i287 = select i1 %.not37.i.i.i285, i1 %.not.i.i.i286, i1 %614
   br i1 %or.cond36.i.i.i287, label %622, label %615
@@ -12555,7 +12555,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit289: ; preds = %
 
 638:                                              ; preds = %633
   %.not37.i.i.i294 = icmp eq i32 %.026.i.i.i291, 63
-  %.not.i.i.i295 = icmp ugt i8 %635, 1
+  %.not.i.i.i295 = icmp samesign ugt i8 %635, 1
   %639 = icmp ne i8 %635, 0
   %or.cond36.i.i.i296 = select i1 %.not37.i.i.i294, i1 %.not.i.i.i295, i1 %639
   br i1 %or.cond36.i.i.i296, label %647, label %640
@@ -12608,7 +12608,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit298: ; preds 
 
 663:                                              ; preds = %658
   %.not37.i.i.i303 = icmp eq i32 %.026.i.i.i300, 63
-  %.not.i.i.i304 = icmp ugt i8 %660, 1
+  %.not.i.i.i304 = icmp samesign ugt i8 %660, 1
   %664 = icmp ne i8 %660, 0
   %or.cond36.i.i.i305 = select i1 %.not37.i.i.i303, i1 %.not.i.i.i304, i1 %664
   br i1 %or.cond36.i.i.i305, label %672, label %665
@@ -12653,7 +12653,7 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 685:                                              ; preds = %680
   %.not37.i.i.i311 = icmp eq i32 %.026.i.i.i308, 63
-  %.not.i.i.i312 = icmp ugt i8 %682, 1
+  %.not.i.i.i312 = icmp samesign ugt i8 %682, 1
   %686 = icmp ne i8 %682, 0
   %or.cond36.i.i.i313 = select i1 %.not37.i.i.i311, i1 %.not.i.i.i312, i1 %686
   br i1 %or.cond36.i.i.i313, label %694, label %687
@@ -12793,7 +12793,7 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit315: ; preds 
 
 746:                                              ; preds = %741
   %.not37.i.i.i320 = icmp eq i32 %.026.i.i.i317, 63
-  %.not.i.i.i321 = icmp ugt i8 %743, 1
+  %.not.i.i.i321 = icmp samesign ugt i8 %743, 1
   %747 = icmp ne i8 %743, 0
   %or.cond36.i.i.i322 = select i1 %.not37.i.i.i320, i1 %.not.i.i.i321, i1 %747
   br i1 %or.cond36.i.i.i322, label %755, label %748
@@ -12851,7 +12851,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit324: ; preds 
 
 772:                                              ; preds = %767
   %.not37.i.i.i329 = icmp eq i32 %.026.i.i.i326, 63
-  %.not.i.i.i330 = icmp ugt i8 %769, 1
+  %.not.i.i.i330 = icmp samesign ugt i8 %769, 1
   %773 = icmp ne i8 %769, 0
   %or.cond36.i.i.i331 = select i1 %.not37.i.i.i329, i1 %.not.i.i.i330, i1 %773
   br i1 %or.cond36.i.i.i331, label %781, label %774
@@ -12953,7 +12953,7 @@ _ZNK4llvm6object14WasmObjectFile17isDefinedTagIndexEj.exit: ; preds = %_ZL13read
 
 819:                                              ; preds = %814
   %.not37.i.i.i341 = icmp eq i32 %.026.i.i.i336, 63
-  %.not.i.i.i342 = icmp ugt i8 %816, 1
+  %.not.i.i.i342 = icmp samesign ugt i8 %816, 1
   %820 = icmp ne i8 %816, 0
   %or.cond36.i.i.i343 = select i1 %.not37.i.i.i341, i1 %.not.i.i.i342, i1 %820
   br i1 %or.cond36.i.i.i343, label %828, label %821
@@ -13034,7 +13034,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit345: ; preds = %
 
 863:                                              ; preds = %858
   %.not37.i.i.i352 = icmp eq i32 %.026.i.i.i347, 63
-  %.not.i.i.i353 = icmp ugt i8 %860, 1
+  %.not.i.i.i353 = icmp samesign ugt i8 %860, 1
   %864 = icmp ne i8 %860, 0
   %or.cond36.i.i.i354 = select i1 %.not37.i.i.i352, i1 %.not.i.i.i353, i1 %864
   br i1 %or.cond36.i.i.i354, label %872, label %865
@@ -13460,7 +13460,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile25parseLinkingSectionComda
 
 25:                                               ; preds = %20
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %22, 1
+  %.not.i.i.i = icmp samesign ugt i8 %22, 1
   %26 = icmp ne i8 %22, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %26
   br i1 %or.cond36.i.i.i, label %34, label %27
@@ -13536,7 +13536,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 64:                                               ; preds = %59
   %.not37.i.i.i40 = icmp eq i32 %.026.i.i.i37, 63
-  %.not.i.i.i41 = icmp ugt i8 %61, 1
+  %.not.i.i.i41 = icmp samesign ugt i8 %61, 1
   %65 = icmp ne i8 %61, 0
   %or.cond36.i.i.i42 = select i1 %.not37.i.i.i40, i1 %.not.i.i.i41, i1 %65
   br i1 %or.cond36.i.i.i42, label %73, label %66
@@ -13695,7 +13695,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; pr
 
 129:                                              ; preds = %124
   %.not37.i.i.i49 = icmp eq i32 %.026.i.i.i46, 63
-  %.not.i.i.i50 = icmp ugt i8 %126, 1
+  %.not.i.i.i50 = icmp samesign ugt i8 %126, 1
   %130 = icmp ne i8 %126, 0
   %or.cond36.i.i.i51 = select i1 %.not37.i.i.i49, i1 %.not.i.i.i50, i1 %130
   br i1 %or.cond36.i.i.i51, label %138, label %131
@@ -13760,7 +13760,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit53: ; preds =
 
 156:                                              ; preds = %151
   %.not37.i.i.i58 = icmp eq i32 %.026.i.i.i55, 63
-  %.not.i.i.i59 = icmp ugt i8 %153, 1
+  %.not.i.i.i59 = icmp samesign ugt i8 %153, 1
   %157 = icmp ne i8 %153, 0
   %or.cond36.i.i.i60 = select i1 %.not37.i.i.i58, i1 %.not.i.i.i59, i1 %157
   br i1 %or.cond36.i.i.i60, label %165, label %158
@@ -13824,7 +13824,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds =
 
 184:                                              ; preds = %179
   %.not37.i.i.i67 = icmp eq i32 %.026.i.i.i64, 63
-  %.not.i.i.i68 = icmp ugt i8 %181, 1
+  %.not.i.i.i68 = icmp samesign ugt i8 %181, 1
   %185 = icmp ne i8 %181, 0
   %or.cond36.i.i.i69 = select i1 %.not37.i.i.i67, i1 %.not.i.i.i68, i1 %185
   br i1 %or.cond36.i.i.i69, label %193, label %186
@@ -13877,7 +13877,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit71: ; preds =
 
 209:                                              ; preds = %204
   %.not37.i.i.i76 = icmp eq i32 %.026.i.i.i73, 63
-  %.not.i.i.i77 = icmp ugt i8 %206, 1
+  %.not.i.i.i77 = icmp samesign ugt i8 %206, 1
   %210 = icmp ne i8 %206, 0
   %or.cond36.i.i.i78 = select i1 %.not37.i.i.i76, i1 %.not.i.i.i77, i1 %210
   br i1 %or.cond36.i.i.i78, label %218, label %211
@@ -14271,7 +14271,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile21parseProducersSectionERN
 
 37:                                               ; preds = %32
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %34, 1
+  %.not.i.i.i = icmp samesign ugt i8 %34, 1
   %38 = icmp ne i8 %34, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %38
   br i1 %or.cond36.i.i.i, label %46, label %39
@@ -14349,7 +14349,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit.preheader: ;
 
 80:                                               ; preds = %75
   %.not37.i.i.i27 = icmp eq i32 %.026.i.i.i24, 63
-  %.not.i.i.i28 = icmp ugt i8 %77, 1
+  %.not.i.i.i28 = icmp samesign ugt i8 %77, 1
   %81 = icmp ne i8 %77, 0
   %or.cond36.i.i.i29 = select i1 %.not37.i.i.i27, i1 %.not.i.i.i28, i1 %81
   br i1 %or.cond36.i.i.i29, label %89, label %82
@@ -14467,7 +14467,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 121:                                              ; preds = %116
   %.not37.i.i.i43 = icmp eq i32 %.026.i.i.i40, 63
-  %.not.i.i.i44 = icmp ugt i8 %118, 1
+  %.not.i.i.i44 = icmp samesign ugt i8 %118, 1
   %122 = icmp ne i8 %118, 0
   %or.cond36.i.i.i45 = select i1 %.not37.i.i.i43, i1 %.not.i.i.i44, i1 %122
   br i1 %or.cond36.i.i.i45, label %130, label %123
@@ -14537,7 +14537,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit47: ; preds =
 
 150:                                              ; preds = %145
   %.not37.i.i.i54 = icmp eq i32 %.026.i.i.i49, 63
-  %.not.i.i.i55 = icmp ugt i8 %147, 1
+  %.not.i.i.i55 = icmp samesign ugt i8 %147, 1
   %151 = icmp ne i8 %147, 0
   %or.cond36.i.i.i56 = select i1 %.not37.i.i.i54, i1 %.not.i.i.i55, i1 %151
   br i1 %or.cond36.i.i.i56, label %159, label %152
@@ -14594,7 +14594,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit58: ; preds = %_
 
 176:                                              ; preds = %171
   %.not37.i.i.i65 = icmp eq i32 %.026.i.i.i60, 63
-  %.not.i.i.i66 = icmp ugt i8 %173, 1
+  %.not.i.i.i66 = icmp samesign ugt i8 %173, 1
   %177 = icmp ne i8 %173, 0
   %or.cond36.i.i.i67 = select i1 %.not37.i.i.i65, i1 %.not.i.i.i66, i1 %177
   br i1 %or.cond36.i.i.i67, label %185, label %178
@@ -15406,7 +15406,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile26parseTargetFeaturesSecti
 
 34:                                               ; preds = %29
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %31, 1
+  %.not.i.i.i = icmp samesign ugt i8 %31, 1
   %35 = icmp ne i8 %31, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %35
   br i1 %or.cond36.i.i.i, label %43, label %36
@@ -15508,7 +15508,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %57
 
 75:                                               ; preds = %70
   %.not37.i.i.i14 = icmp eq i32 %.026.i.i.i11, 63
-  %.not.i.i.i15 = icmp ugt i8 %72, 1
+  %.not.i.i.i15 = icmp samesign ugt i8 %72, 1
   %76 = icmp ne i8 %72, 0
   %or.cond36.i.i.i16 = select i1 %.not37.i.i.i14, i1 %.not.i.i.i15, i1 %76
   br i1 %or.cond36.i.i.i16, label %84, label %77
@@ -15806,7 +15806,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9St
 
 30:                                               ; preds = %25
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %27, 1
+  %.not.i.i.i = icmp samesign ugt i8 %27, 1
   %31 = icmp ne i8 %27, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %31
   br i1 %or.cond36.i.i.i, label %39, label %32
@@ -15885,7 +15885,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 68:                                               ; preds = %63
   %.not37.i.i.i93 = icmp eq i32 %.026.i.i.i90, 63
-  %.not.i.i.i94 = icmp ugt i8 %65, 1
+  %.not.i.i.i94 = icmp samesign ugt i8 %65, 1
   %69 = icmp ne i8 %65, 0
   %or.cond36.i.i.i95 = select i1 %.not37.i.i.i93, i1 %.not.i.i.i94, i1 %69
   br i1 %or.cond36.i.i.i95, label %77, label %70
@@ -15960,7 +15960,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit97: ; preds =
 
 107:                                              ; preds = %102
   %.not37.i.i.i102 = icmp eq i32 %.026.i.i.i99, 63
-  %.not.i.i.i103 = icmp ugt i8 %104, 1
+  %.not.i.i.i103 = icmp samesign ugt i8 %104, 1
   %108 = icmp ne i8 %104, 0
   %or.cond36.i.i.i104 = select i1 %.not37.i.i.i102, i1 %.not.i.i.i103, i1 %108
   br i1 %or.cond36.i.i.i104, label %116, label %109
@@ -16014,7 +16014,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit106: ; preds 
 
 133:                                              ; preds = %128
   %.not37.i.i.i111 = icmp eq i32 %.026.i.i.i108, 63
-  %.not.i.i.i112 = icmp ugt i8 %130, 1
+  %.not.i.i.i112 = icmp samesign ugt i8 %130, 1
   %134 = icmp ne i8 %130, 0
   %or.cond36.i.i.i113 = select i1 %.not37.i.i.i111, i1 %.not.i.i.i112, i1 %134
   br i1 %or.cond36.i.i.i113, label %142, label %135
@@ -16048,7 +16048,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i110: ; preds 
   unreachable
 
 _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit115: ; preds = %_ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i110
-  %150 = icmp ugt i64 %.063315, %138
+  %150 = icmp samesign ugt i64 %.063315, %138
   br i1 %150, label %151, label %.preheader231
 
 151:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit115
@@ -16081,7 +16081,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit115: ; preds 
 
 161:                                              ; preds = %156
   %.not37.i.i.i120 = icmp eq i32 %.026.i.i.i117, 63
-  %.not.i.i.i121 = icmp ugt i8 %158, 1
+  %.not.i.i.i121 = icmp samesign ugt i8 %158, 1
   %162 = icmp ne i8 %158, 0
   %or.cond36.i.i.i122 = select i1 %.not37.i.i.i120, i1 %.not.i.i.i121, i1 %162
   br i1 %or.cond36.i.i.i122, label %170, label %163
@@ -17142,7 +17142,7 @@ define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile16parseTypeSection
 
 12:                                               ; preds = %7
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %9, 1
+  %.not.i.i.i = icmp samesign ugt i8 %9, 1
   %13 = icmp ne i8 %9, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %13
   br i1 %or.cond36.i.i.i, label %21, label %14
@@ -17268,7 +17268,7 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %
 
 61:                                               ; preds = %56
   %.not37.i.i.i5 = icmp eq i32 %.026.i.i.i2, 63
-  %.not.i.i.i6 = icmp ugt i8 %58, 1
+  %.not.i.i.i6 = icmp samesign ugt i8 %58, 1
   %62 = icmp ne i8 %58, 0
   %or.cond36.i.i.i7 = select i1 %.not37.i.i.i5, i1 %.not.i.i.i6, i1 %62
   br i1 %or.cond36.i.i.i7, label %70, label %63
@@ -17409,7 +17409,7 @@ define internal fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11Read
 
 14:                                               ; preds = %9
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %11, 1
+  %.not.i.i.i = icmp samesign ugt i8 %11, 1
   %15 = icmp ne i8 %11, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %15
   br i1 %or.cond36.i.i.i, label %23, label %16
@@ -17463,7 +17463,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 39:                                               ; preds = %34
   %.not37.i.i.i7 = icmp eq i32 %.026.i.i.i4, 63
-  %.not.i.i.i8 = icmp ugt i8 %36, 1
+  %.not.i.i.i8 = icmp samesign ugt i8 %36, 1
   %40 = icmp ne i8 %36, 0
   %or.cond36.i.i.i9 = select i1 %.not37.i.i.i7, i1 %.not.i.i.i8, i1 %40
   br i1 %or.cond36.i.i.i9, label %48, label %41
@@ -17511,7 +17511,7 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
 
 62:                                               ; preds = %57
   %.not37.i.i.i15 = icmp eq i32 %.026.i.i.i12, 63
-  %.not.i.i.i16 = icmp ugt i8 %59, 1
+  %.not.i.i.i16 = icmp samesign ugt i8 %59, 1
   %63 = icmp ne i8 %59, 0
   %or.cond36.i.i.i17 = select i1 %.not37.i.i.i15, i1 %.not.i.i.i16, i1 %63
   br i1 %or.cond36.i.i.i17, label %71, label %64
@@ -17570,7 +17570,7 @@ define internal fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11R
 
 15:                                               ; preds = %10
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %12, 1
+  %.not.i.i.i = icmp samesign ugt i8 %12, 1
   %16 = icmp ne i8 %12, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %16
   br i1 %or.cond36.i.i.i, label %24, label %17
@@ -17848,7 +17848,7 @@ _ZL11readFloat64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %55
 
 72:                                               ; preds = %67
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %69, 1
+  %.not.i.i = icmp samesign ugt i8 %69, 1
   %73 = icmp ne i8 %69, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %73
   br i1 %or.cond36.i.i, label %81, label %74
@@ -17900,7 +17900,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %74
 
 99:                                               ; preds = %94
   %.not37.i.i.i = icmp eq i32 %.026.i.i.i, 63
-  %.not.i.i.i = icmp ugt i8 %96, 1
+  %.not.i.i.i = icmp samesign ugt i8 %96, 1
   %100 = icmp ne i8 %96, 0
   %or.cond36.i.i.i = select i1 %.not37.i.i.i, i1 %.not.i.i.i, i1 %100
   br i1 %or.cond36.i.i.i, label %108, label %101
@@ -18096,7 +18096,7 @@ _ZL10readOpcodeRN4llvm6object14WasmObjectFile11ReadContextE.exit42: ; preds = %.
 158:                                              ; preds = %155
   %159 = and i8 %156, 127
   %.not37.i.i46 = icmp eq i32 %.026.i.i44, 63
-  %.not.i.i47 = icmp ugt i8 %159, 1
+  %.not.i.i47 = icmp samesign ugt i8 %159, 1
   %160 = icmp ne i8 %159, 0
   %or.cond36.i.i48 = select i1 %.not37.i.i46, i1 %.not.i.i47, i1 %160
   br i1 %or.cond36.i.i48, label %165, label %161
@@ -18152,7 +18152,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit50: ; preds = %
 184:                                              ; preds = %181
   %185 = and i8 %182, 127
   %.not37.i.i58 = icmp eq i32 %.026.i.i56, 63
-  %.not.i.i59 = icmp ugt i8 %185, 1
+  %.not.i.i59 = icmp samesign ugt i8 %185, 1
   %186 = icmp ne i8 %185, 0
   %or.cond36.i.i60 = select i1 %.not37.i.i58, i1 %.not.i.i59, i1 %186
   br i1 %or.cond36.i.i60, label %191, label %187
@@ -18190,7 +18190,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds = %
 201:                                              ; preds = %198
   %202 = and i8 %199, 127
   %.not37.i.i66 = icmp eq i32 %.026.i.i64, 63
-  %.not.i.i67 = icmp ugt i8 %202, 1
+  %.not.i.i67 = icmp samesign ugt i8 %202, 1
   %203 = icmp ne i8 %202, 0
   %or.cond36.i.i68 = select i1 %.not37.i.i66, i1 %.not.i.i67, i1 %203
   br i1 %or.cond36.i.i68, label %208, label %204
@@ -18229,7 +18229,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit70: ; preds = %
 219:                                              ; preds = %216
   %220 = and i8 %217, 127
   %.not37.i.i74 = icmp eq i32 %.026.i.i72, 63
-  %.not.i.i75 = icmp ugt i8 %220, 1
+  %.not.i.i75 = icmp samesign ugt i8 %220, 1
   %221 = icmp ne i8 %220, 0
   %or.cond36.i.i76 = select i1 %.not37.i.i74, i1 %.not.i.i75, i1 %221
   br i1 %or.cond36.i.i76, label %226, label %222

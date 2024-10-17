@@ -252,7 +252,7 @@ define internal noundef i32 @i915_pmu_cpu_offline(i32 noundef %0, ptr noundef %1
 17:                                               ; preds = %26, %12
   %18 = phi i64 [ 0, %12 ], [ %32, %26 ]
   %19 = and i64 %18, 4294967295
-  %20 = icmp ugt i64 %19, 63
+  %20 = icmp samesign ugt i64 %19, 63
   br i1 %20, label %.thread, label %21, !prof !9
 
 21:                                               ; preds = %17
@@ -500,7 +500,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %110 = load ptr, ptr %109, align 8
   %111 = icmp ne ptr %110, null
   %112 = zext i1 %111 to i64
-  %113 = icmp ugt i64 %101, %112
+  %113 = icmp samesign ugt i64 %101, %112
   %114 = getelementptr inbounds i8, ptr %107, i64 3688
   br i1 %113, label %.loopexit44, label %.split
 
@@ -696,7 +696,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %228 = load ptr, ptr %227, align 8
   %229 = icmp ne ptr %228, null
   %230 = zext i1 %229 to i64
-  %231 = icmp ugt i64 %207, %230
+  %231 = icmp samesign ugt i64 %207, %230
   br i1 %231, label %289, label %232
 
 232:                                              ; preds = %217
@@ -1413,7 +1413,7 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
   %207 = getelementptr inbounds i8, ptr %203, i64 9800
   %208 = zext i32 %205 to i64
   %209 = and i32 %205, 14
-  %210 = icmp ugt i32 %209, 9
+  %210 = icmp samesign ugt i32 %209, 9
   br i1 %210, label %211, label %212, !prof !9
 
 211:                                              ; preds = %.loopexit
@@ -2220,7 +2220,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @config_status(ptr nocaptur
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = zext i1 %10 to i64
-  %12 = icmp ugt i64 %5, %11
+  %12 = icmp samesign ugt i64 %5, %11
   br i1 %12, label %32, label %13
 
 13:                                               ; preds = %2

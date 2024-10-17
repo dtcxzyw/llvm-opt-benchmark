@@ -277,7 +277,7 @@ define dso_local void @_ZN4llvm22BlockCoverageInference16findDependenciesEv(ptr 
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8Function4sizeEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i
-  %36 = icmp ugt i64 %.06.i.i.i.i, 1499
+  %36 = icmp samesign ugt i64 %.06.i.i.i.i, 1499
   br i1 %36, label %_ZN4llvm11SmallVectorIPKNS_10BasicBlockELj4EED2Ev.exit, label %_ZNK4llvm8Function4sizeEv.exit.thread
 
 _ZNK4llvm8Function4sizeEv.exit.thread:            ; preds = %28, %_ZNK4llvm8Function4sizeEv.exit

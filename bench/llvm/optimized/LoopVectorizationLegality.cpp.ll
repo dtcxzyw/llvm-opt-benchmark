@@ -624,7 +624,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18LoopVectorizeHints4Hint8validateE
 
 6:                                                ; preds = %5
   %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %8 = icmp ult i32 %7, 2
+  %8 = icmp samesign ult i32 %7, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %6
@@ -640,7 +640,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %6
 
 14:                                               ; preds = %13
   %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %16 = icmp ult i32 %15, 2
+  %16 = icmp samesign ult i32 %15, 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit9
 
 _ZN4llvm13isPowerOf2_32Ej.exit9:                  ; preds = %13, %14
@@ -921,7 +921,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %42, %46
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit37:        ; preds = %57, %60
   %.0.i.i36 = phi i64 [ %62, %60 ], [ %59, %57 ]
-  %63 = icmp ult i64 %indvars.iv, %.0.i.i36
+  %63 = icmp samesign ult i64 %indvars.iv, %.0.i.i36
   br i1 %63, label %64, label %88
 
 64:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit37
@@ -1853,7 +1853,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm13isPowerOf2_32Ej.exit9.i:                ; preds = %45
   %46 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %47 = icmp ult i32 %46, 2
+  %47 = icmp samesign ult i32 %46, 2
   %48 = icmp ult i32 %21, 17
   %49 = and i1 %48, %47
   br i1 %49, label %59, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
@@ -1868,7 +1868,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit9.i:                ; preds = %45
 
 _ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit: ; preds = %44
   %54 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %55 = icmp ult i32 %54, 2
+  %55 = icmp samesign ult i32 %54, 2
   %56 = load i32, ptr @_ZN4llvm16VectorizerParams14MaxVectorWidthE, align 4
   %57 = icmp uge i32 %56, %21
   %58 = select i1 %55, i1 %57, i1 false
@@ -4293,7 +4293,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit199.thread: ; preds = %_ZNK4llvm8CallBas
   %442 = sub i64 %440, %441
   %443 = lshr exact i64 %442, 5
   %444 = and i64 %443, 4294967295
-  %445 = icmp ult i64 %indvars.iv.next, %444
+  %445 = icmp samesign ult i64 %indvars.iv.next, %444
   br i1 %445, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %433, %.thread.thread389

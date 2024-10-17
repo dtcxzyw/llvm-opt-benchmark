@@ -2038,7 +2038,7 @@ for.body:                                         ; preds = %for.cond, %if.end21
   %130 = load float, ptr %Z37.i, align 4, !tbaa !200
   %131 = load float, ptr %Z29.i, align 8, !tbaa !201
   %132 = call nsz float @llvm.fmuladd.f32(float %131, float %conv220, float %130)
-  %cmp231 = icmp ugt i32 %i.01170, 12
+  %cmp231 = icmp samesign ugt i32 %i.01170, 12
   br i1 %cmp231, label %if.then232, label %if.end241
 
 if.then232:                                       ; preds = %for.body
@@ -4263,7 +4263,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %.noexc
   %4 = load ptr, ptr %this, align 8, !tbaa !294
-  %min.iters.check = icmp ult i64 %conv.i, 8
+  %min.iters.check = icmp samesign ult i64 %conv.i, 8
   %5 = ptrtoint ptr %4 to i64
   %6 = sub i64 %5, %c4
   %diff.check = icmp ult i64 %6, 32

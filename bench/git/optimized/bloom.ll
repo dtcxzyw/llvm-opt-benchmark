@@ -159,7 +159,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %num_hashes, align 4
   %5 = zext i32 %4 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
@@ -210,7 +210,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %num_hashes, align 4
   %7 = zext i32 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
@@ -674,7 +674,7 @@ for.body.i:                                       ; preds = %for.body82, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load i32, ptr %num_hashes.i, align 4
   %57 = zext i32 %56 to i64
-  %cmp.i85 = icmp ult i64 %indvars.iv.next.i, %57
+  %cmp.i85 = icmp samesign ult i64 %indvars.iv.next.i, %57
   br i1 %cmp.i85, label %for.body.i, label %fill_bloom_key.exit, !llvm.loop !7
 
 fill_bloom_key.exit:                              ; preds = %for.body.i
@@ -701,7 +701,7 @@ for.body.i89:                                     ; preds = %fill_bloom_key.exit
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i90, 1
   %62 = load i32, ptr %num_hashes.i, align 4
   %63 = zext i32 %62 to i64
-  %cmp.i95 = icmp ult i64 %indvars.iv.next.i94, %63
+  %cmp.i95 = icmp samesign ult i64 %indvars.iv.next.i94, %63
   br i1 %cmp.i95, label %for.body.i89, label %add_key_to_filter.exit, !llvm.loop !8
 
 add_key_to_filter.exit:                           ; preds = %for.body.i89, %for.body82, %fill_bloom_key.exit

@@ -329,7 +329,7 @@ for.body95.i.lr.ph:                               ; preds = %for.body85.i
   %38 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %sub.i390 = xor i32 %38, 31
   %idxprom10.i = zext nneg i32 %sub.i390 to i64
-  %cmp18.i = icmp ugt i32 %sub.i390, 19
+  %cmp18.i = icmp samesign ugt i32 %sub.i390, 19
   %sub20.i = shl nuw nsw i32 %sub.i390, 9
   %39 = add nsw i32 %sub20.i, -9677
   %add42.i = select i1 %cmp18.i, i32 %39, i32 51
@@ -832,7 +832,7 @@ for.body354.i.lr.ph:                              ; preds = %cond.end346.i
   %111 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %107, i1 true)
   %sub.i519 = xor i32 %111, 31
   %idxprom10.i36 = zext nneg i32 %sub.i519 to i64
-  %cmp18.i69 = icmp ugt i32 %sub.i519, 19
+  %cmp18.i69 = icmp samesign ugt i32 %sub.i519, 19
   %sub20.i71 = shl nuw nsw i32 %sub.i519, 9
   %112 = add nsw i32 %sub20.i71, -9677
   %add42.i60 = select i1 %cmp18.i69, i32 %112, i32 51
@@ -931,7 +931,7 @@ while.body374.i:                                  ; preds = %while.body374.i.pre
   %indvars.iv.next760 = add nuw nsw i64 %indvars.iv759, 1
   %arrayidx377.i = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %10, i64 %indvars.iv.next760
   store i32 1073741824, ptr %arrayidx377.i, align 4
-  %cmp372.i = icmp ult i64 %indvars.iv.next760, %128
+  %cmp372.i = icmp samesign ult i64 %indvars.iv.next760, %128
   br i1 %cmp372.i, label %while.body374.i, label %while.end.i.loopexit, !llvm.loop !11
 
 while.end.i.loopexit:                             ; preds = %while.body374.i
@@ -2475,7 +2475,7 @@ while.body374.i:                                  ; preds = %while.body374.i.pre
   %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
   %arrayidx377.i = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %10, i64 %indvars.iv.next860
   store i32 1073741824, ptr %arrayidx377.i, align 4
-  %cmp372.i = icmp ult i64 %indvars.iv.next860, %153
+  %cmp372.i = icmp samesign ult i64 %indvars.iv.next860, %153
   br i1 %cmp372.i, label %while.body374.i, label %while.end.i.loopexit, !llvm.loop !11
 
 while.end.i.loopexit:                             ; preds = %while.body374.i

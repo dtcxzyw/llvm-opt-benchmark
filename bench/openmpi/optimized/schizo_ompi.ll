@@ -1749,7 +1749,7 @@ pmix_cmd_line_get_param.exit282:                  ; preds = %.lr.ph.i276
   %392 = call i64 @strtol(ptr nocapture noundef %391, ptr noundef null, i32 noundef 10) #17
   %393 = trunc i64 %392 to i32
   %394 = and i32 %393, 65535
-  %or.cond5 = icmp ugt i32 %394, 2
+  %or.cond5 = icmp samesign ugt i32 %394, 2
   br i1 %or.cond5, label %395, label %397
 
 395:                                              ; preds = %388

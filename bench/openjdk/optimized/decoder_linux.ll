@@ -72,7 +72,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21specifies_noexecstackEPKc(ptr nou
   %21 = add nuw nsw i32 %.014, 1
   %22 = load i16, ptr %18, align 8
   %23 = zext i16 %22 to i32
-  %24 = icmp ult i32 %21, %23
+  %24 = icmp samesign ult i32 %21, %23
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %20

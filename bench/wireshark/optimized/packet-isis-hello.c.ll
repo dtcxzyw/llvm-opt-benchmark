@@ -463,7 +463,7 @@ define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, 
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %29, 9
-  %31 = icmp ugt i32 %30, %26
+  %31 = icmp samesign ugt i32 %30, %26
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %20
@@ -489,7 +489,7 @@ define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, 
   %49 = load i8, ptr %4, align 8
   %50 = zext i8 %49 to i32
   %51 = add nuw nsw i32 %48, 11
-  %52 = icmp ugt i32 %51, %50
+  %52 = icmp samesign ugt i32 %51, %50
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %38
@@ -509,7 +509,7 @@ define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, 
   %65 = load i8, ptr %27, align 1
   %66 = zext i8 %65 to i32
   %67 = add nuw nsw i32 %66, 13
-  %68 = icmp ugt i32 %67, %64
+  %68 = icmp samesign ugt i32 %67, %64
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %59
@@ -551,7 +551,7 @@ define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, 
   %94 = load i8, ptr %27, align 1
   %95 = zext i8 %94 to i32
   %96 = add nuw nsw i32 %95, 14
-  %97 = icmp ugt i32 %96, %93
+  %97 = icmp samesign ugt i32 %96, %93
   br i1 %91, label %98, label %109
 
 98:                                               ; preds = %89
@@ -593,7 +593,7 @@ define internal fastcc void @dissect_isis_hello(ptr noundef %0, ptr noundef %1, 
   %124 = zext i8 %123 to i32
   %reass.add = shl nuw nsw i32 %124, 1
   %125 = add nuw nsw i32 %reass.add, 15
-  %126 = icmp ugt i32 %125, %122
+  %126 = icmp samesign ugt i32 %125, %122
   br i1 %126, label %127, label %133
 
 127:                                              ; preds = %116
@@ -1257,7 +1257,7 @@ define internal void @dissect_hello_is_neighbors_clv(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %6, %11
   %.015 = phi i32 [ %15, %11 ], [ %5, %6 ]
   %.01114 = phi i32 [ %14, %11 ], [ %3, %6 ]
-  %8 = icmp ult i32 %.015, 6
+  %8 = icmp samesign ult i32 %.015, 6
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph

@@ -3315,11 +3315,11 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %131
 
 100:                                              ; preds = %92
-  %101 = icmp ult i64 %.0348, %spec.select
+  %101 = icmp samesign ult i64 %.0348, %spec.select
   br i1 %101, label %file_strncmp16.exit, label %102
 
 102:                                              ; preds = %100
-  %103 = icmp ult i64 %.0348, 1024
+  %103 = icmp samesign ult i64 %.0348, 1024
   %104 = icmp ult i8 %78, 9
   %105 = or i1 %104, %103
   br i1 %105, label %106, label %129
@@ -4926,8 +4926,8 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   %92 = getelementptr inbounds i8, ptr %.1166.us, i64 2
   %.0121.add.us = add nuw nsw i64 %.0121.idx168.us, 1
   %93 = icmp ult ptr %92, %81
-  %94 = icmp ult i64 %.0121.idx168.us, 126
-  %or.cond163.us = and i1 %93, %94
+  %94 = icmp samesign ult i64 %.0121.idx168.us, 126
+  %or.cond163.us = select i1 %93, i1 %94, i1 false
   br i1 %or.cond163.us, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
@@ -4957,8 +4957,8 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   %104 = getelementptr inbounds i8, ptr %.1166, i64 2
   %.0121.add = add nuw nsw i64 %.0121.idx168, 1
   %105 = icmp ult ptr %104, %81
-  %106 = icmp ult i64 %.0121.idx168, 126
-  %or.cond163 = and i1 %105, %106
+  %106 = icmp samesign ult i64 %.0121.idx168, 126
+  %or.cond163 = select i1 %105, i1 %106, i1 false
   br i1 %or.cond163, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %103, %91, %.preheader
@@ -5000,7 +5000,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   %..0129 = tail call i64 @llvm.umin.i64(i64 %120, i64 %.0129)
   %121 = getelementptr inbounds i8, ptr %4, i64 %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 1 %121, i64 %..0129, i1 false)
-  %122 = icmp ult i64 %..0129, 128
+  %122 = icmp samesign ult i64 %..0129, 128
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %119
@@ -5662,7 +5662,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
 85:                                               ; preds = %.lr.ph
   %86 = getelementptr inbounds i8, ptr %.460105, i64 1
   %87 = add nuw nsw i32 %79, 1
-  %88 = icmp ult i32 %79, 2048
+  %88 = icmp samesign ult i32 %79, 2048
   %89 = icmp ult ptr %86, %8
   %or.cond95 = select i1 %88, i1 %89, i1 false
   br i1 %or.cond95, label %.lr.ph, label %.critedge

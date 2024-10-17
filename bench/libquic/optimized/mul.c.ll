@@ -918,7 +918,7 @@ entry:
   %arrayidx = getelementptr i8, ptr %1, i64 -8
   store i64 0, ptr %arrayidx, align 8
   store i64 0, ptr %r, align 8
-  %cmp = icmp ugt i32 %n, 1
+  %cmp = icmp samesign ugt i32 %n, 1
   br i1 %cmp, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
@@ -982,7 +982,7 @@ if.then2:                                         ; preds = %entry
   br label %if.end69
 
 if.end3:                                          ; preds = %entry
-  %cmp4 = icmp ult i32 %n2, 16
+  %cmp4 = icmp samesign ult i32 %n2, 16
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3

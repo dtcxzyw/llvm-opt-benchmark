@@ -655,7 +655,7 @@ cbsp_warn_period_to_secs.exit155.i:               ; preds = %223, %221, %218, %2
   %233 = load i32, ptr %15, align 4
   %234 = and i32 %233, 15
   store i32 %234, ptr %15, align 4
-  %235 = icmp ugt i32 %.0151.i, 1
+  %235 = icmp samesign ugt i32 %.0151.i, 1
   br i1 %235, label %.lr.ph.preheader.i.i, label %dissect_cell_id_list_ie.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %229
@@ -720,7 +720,7 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %cell_id_len.exit._c
   %259 = load i32, ptr %11, align 4
   %260 = and i32 %259, 15
   store i32 %260, ptr %11, align 4
-  %261 = icmp ugt i32 %.0151.i, 1
+  %261 = icmp samesign ugt i32 %.0151.i, 1
   br i1 %261, label %.lr.ph.preheader.i156.i, label %dissect_bc_compl_list_ie.exit.i
 
 .lr.ph.preheader.i156.i:                          ; preds = %255
@@ -799,7 +799,7 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %cell_id_len.exit._c
   %.03034.i.i = phi i32 [ %311, %303 ], [ 0, %289 ]
   %291 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.035.i164.i) #4
   %292 = and i8 %291, 15
-  %293 = icmp ult i8 %292, 7
+  %293 = icmp samesign ult i8 %292, 7
   br i1 %293, label %switch.lookup32, label %cell_id_len.exit.i165.i
 
 switch.lookup32:                                  ; preds = %.lr.ph.i163.i
@@ -852,7 +852,7 @@ dissect_failure_list_ie.exit.i:                   ; preds = %303, %cell_id_len.e
   %318 = load i32, ptr %5, align 4
   %319 = and i32 %318, 15
   store i32 %319, ptr %5, align 4
-  %320 = icmp ugt i32 %.0151.i, 1
+  %320 = icmp samesign ugt i32 %.0151.i, 1
   br i1 %320, label %.lr.ph.preheader.i168.i, label %dissect_rr_load_list_ie.exit.i
 
 .lr.ph.preheader.i168.i:                          ; preds = %314

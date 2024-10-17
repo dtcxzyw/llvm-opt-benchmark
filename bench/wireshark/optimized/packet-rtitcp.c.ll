@@ -695,7 +695,7 @@ dissect_attribute.exit.i.i:                       ; preds = %234, %230, %225, %2
   %243 = and i32 %242, 3
   %244 = add nuw nsw i32 %243, %.0127173.i.i
   %245 = add nuw nsw i32 %244, %153
-  %246 = icmp ult i32 %245, %144
+  %246 = icmp samesign ult i32 %245, %144
   br i1 %246, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %dissect_attribute.exit.i.i

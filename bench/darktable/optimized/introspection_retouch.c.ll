@@ -463,7 +463,7 @@ define void @color_picker_apply(ptr noundef %0, ptr nocapture noundef readnone %
   %45 = load i32, ptr %44, align 4, !tbaa !64
   %46 = icmp ne i32 %45, %41
   %47 = add nuw nsw i64 %43, 1
-  %48 = icmp ult i64 %43, 299
+  %48 = icmp samesign ult i64 %43, 299
   %49 = and i1 %48, %46
   br i1 %49, label %.preheader, label %50
 
@@ -630,7 +630,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %27 = load i32, ptr %26, align 4, !tbaa !64
   %28 = icmp ne i32 %27, %23
   %29 = add nuw nsw i64 %25, 1
-  %30 = icmp ult i64 %25, 299
+  %30 = icmp samesign ult i64 %25, 299
   %31 = and i1 %30, %28
   br i1 %31, label %.preheader, label %32
 
@@ -824,7 +824,7 @@ define void @masks_selection_changed(ptr noundef %0, i32 noundef %1) local_unnam
   %23 = load i32, ptr %22, align 4, !tbaa !64
   %24 = icmp ne i32 %23, %19
   %25 = add nuw nsw i64 %21, 1
-  %26 = icmp ult i64 %21, 299
+  %26 = icmp samesign ult i64 %21, 299
   %27 = and i1 %26, %24
   br i1 %27, label %.preheader10, label %28
 
@@ -1356,7 +1356,7 @@ define internal fastcc void @rt_show_forms_for_current_scale(ptr noundef readonl
 48:                                               ; preds = %43, %38
   %49 = phi i32 [ 0, %38 ], [ %47, %43 ]
   %50 = add nuw nsw i64 %39, 1
-  %51 = icmp ult i64 %39, 299
+  %51 = icmp samesign ult i64 %39, 299
   %52 = icmp eq i32 %49, 0
   %53 = and i1 %51, %52
   br i1 %53, label %38, label %31
@@ -1579,7 +1579,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %44 = load i32, ptr %43, align 4, !tbaa !64
   %45 = icmp ne i32 %44, %40
   %46 = add nuw nsw i64 %42, 1
-  %47 = icmp ult i64 %42, 299
+  %47 = icmp samesign ult i64 %42, 299
   %48 = and i1 %47, %45
   br i1 %48, label %.preheader, label %49
 
@@ -3643,7 +3643,7 @@ define internal noundef range(i32 0, 2) i32 @rt_select_algorithm_callback(ptr no
   %40 = load i32, ptr %39, align 4, !tbaa !64
   %41 = icmp ne i32 %40, %36
   %42 = add nuw nsw i64 %38, 1
-  %43 = icmp ult i64 %38, 299
+  %43 = icmp samesign ult i64 %38, 299
   %44 = and i1 %43, %41
   br i1 %44, label %.preheader, label %45
 
@@ -4063,7 +4063,7 @@ define internal noundef i32 @rt_wdbar_draw(ptr noundef %0, ptr noundef %1, ptr n
   %99 = getelementptr inbounds i8, ptr %95, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !142
   %101 = icmp eq i32 %100, %68
-  %102 = icmp ugt i64 %94, 298
+  %102 = icmp samesign ugt i64 %94, 298
   %103 = select i1 %102, i1 true, i1 %101
   br i1 %103, label %108, label %104
 
@@ -4072,7 +4072,7 @@ define internal noundef i32 @rt_wdbar_draw(ptr noundef %0, ptr noundef %1, ptr n
   br label %93
 
 106:                                              ; preds = %93
-  %107 = icmp ugt i64 %94, 298
+  %107 = icmp samesign ugt i64 %94, 298
   br i1 %107, label %.loopexit, label %104
 
 108:                                              ; preds = %98
@@ -5350,7 +5350,7 @@ define internal void @rt_colorpick_color_set_callback(ptr noundef %0, ptr nounde
   %31 = load i32, ptr %30, align 4, !tbaa !64
   %32 = icmp ne i32 %31, %27
   %33 = add nuw nsw i64 %29, 1
-  %34 = icmp ult i64 %29, 299
+  %34 = icmp samesign ult i64 %29, 299
   %35 = and i1 %34, %32
   br i1 %35, label %.preheader, label %36
 
@@ -5678,7 +5678,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %60 = load i32, ptr %59, align 4, !tbaa !64
   %61 = icmp ne i32 %60, %56
   %62 = add nuw nsw i64 %58, 1
-  %63 = icmp ult i64 %58, 299
+  %63 = icmp samesign ult i64 %58, 299
   %64 = and i1 %63, %61
   br i1 %64, label %.preheader37, label %65
 
@@ -5966,7 +5966,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %260 = load i32, ptr %259, align 4, !tbaa !64
   %261 = icmp ne i32 %260, %256
   %262 = add nuw nsw i64 %258, 1
-  %263 = icmp ult i64 %258, 299
+  %263 = icmp samesign ult i64 %258, 299
   %264 = and i1 %263, %261
   br i1 %264, label %.preheader34, label %265
 
@@ -6087,7 +6087,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %343 = load i32, ptr %342, align 4, !tbaa !64
   %344 = icmp ne i32 %343, %337
   %345 = add nuw nsw i64 %341, 1
-  %346 = icmp ult i64 %341, 299
+  %346 = icmp samesign ult i64 %341, 299
   %347 = and i1 %346, %344
   br i1 %347, label %.preheader, label %348
 
@@ -7238,7 +7238,7 @@ dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %371, %373
 
 646:                                              ; preds = %612, %576, %560
   %647 = add nuw nsw i64 %265, 4
-  %648 = icmp ult i64 %647, %260
+  %648 = icmp samesign ult i64 %647, %260
   br i1 %648, label %264, label %.loopexit29
 
 .loopexit29:                                      ; preds = %646, %231, %218, %214, %210
@@ -7599,7 +7599,7 @@ define internal void @rt_process_forms(ptr nocapture noundef %0, ptr nocapture n
   %111 = load i32, ptr %110, align 4, !tbaa !64
   %112 = icmp ne i32 %111, %104
   %113 = add nuw nsw i64 %109, 1
-  %114 = icmp ult i64 %109, 299
+  %114 = icmp samesign ult i64 %109, 299
   %115 = and i1 %114, %112
   br i1 %115, label %.preheader26, label %116
 

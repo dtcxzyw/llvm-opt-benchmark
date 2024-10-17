@@ -984,7 +984,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %96 = tail call float @llvm.fmuladd.f32(float %93, float %93, float %95)
   store float %96, ptr %94, align 4
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 3
-  %97 = icmp ult i64 %indvars.iv.next130, %45
+  %97 = icmp samesign ult i64 %indvars.iv.next130, %45
   br i1 %97, label %.lr.ph118.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %35, %.lr.ph

@@ -3262,7 +3262,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
   %.0129424 = phi i1 [ true, %.lr.ph ], [ %.1130, %200 ]
   %.1132423 = phi i8 [ %.0131440, %.lr.ph ], [ %.5136, %200 ]
   %storemerge156418420 = phi i32 [ %.promoted, %.lr.ph ], [ %storemerge156414, %200 ]
-  %142 = icmp ugt i64 %indvars.iv, 1
+  %142 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %142, label %143, label %170
 
 143:                                              ; preds = %141

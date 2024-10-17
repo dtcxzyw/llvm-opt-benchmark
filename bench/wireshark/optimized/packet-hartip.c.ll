@@ -1103,7 +1103,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   ]
 
 192:                                              ; preds = %190, %190, %190
-  %193 = icmp ugt i32 %191, 11
+  %193 = icmp samesign ugt i32 %191, 11
   br i1 %193, label %194, label %dissect_parse_hart_cmds.exit.thread182.i
 
 194:                                              ; preds = %192
@@ -1133,7 +1133,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %218 = add i32 %.6.i, 9
   %219 = load i32, ptr @hf_hartip_pt_rsp_device_id, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 3, i32 noundef 0) #4
-  %221 = icmp ugt i32 %191, 15
+  %221 = icmp samesign ugt i32 %191, 15
   br i1 %221, label %222, label %.thread184.i
 
 222:                                              ; preds = %194
@@ -1149,14 +1149,14 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %232 = add i32 %.6.i, 16
   %233 = load i32, ptr @hf_hartip_pt_rsp_extended_device_status, align 4
   %234 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %233, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #4
-  %235 = icmp ugt i32 %191, 17
+  %235 = icmp samesign ugt i32 %191, 17
   br i1 %235, label %236, label %.thread184.i
 
 236:                                              ; preds = %222
   %237 = add i32 %.6.i, 17
   %238 = load i32, ptr @hf_hartip_pt_rsp_manufacturer_Identification_code, align 4
   %239 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 2, i32 noundef 0) #4
-  %240 = icmp ugt i32 %191, 21
+  %240 = icmp samesign ugt i32 %191, 21
   br i1 %240, label %241, label %.thread184.i
 
 241:                                              ; preds = %236
@@ -1169,7 +1169,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 248:                                              ; preds = %190
-  %249 = icmp ugt i32 %191, 4
+  %249 = icmp samesign ugt i32 %191, 4
   br i1 %249, label %250, label %dissect_parse_hart_cmds.exit.thread182.i
 
 250:                                              ; preds = %248
@@ -1181,7 +1181,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 256:                                              ; preds = %190
-  %257 = icmp ugt i32 %191, 7
+  %257 = icmp samesign ugt i32 %191, 7
   br i1 %257, label %258, label %dissect_parse_hart_cmds.exit.thread182.i
 
 258:                                              ; preds = %256
@@ -1197,7 +1197,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 266:                                              ; preds = %190, %190
-  %267 = icmp ugt i32 %191, 1
+  %267 = icmp samesign ugt i32 %191, 1
   br i1 %267, label %268, label %dissect_parse_hart_cmds.exit.thread182.i
 
 268:                                              ; preds = %266
@@ -1209,7 +1209,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 274:                                              ; preds = %190
-  %275 = icmp ugt i32 %191, 3
+  %275 = icmp samesign ugt i32 %191, 3
   br i1 %275, label %276, label %dissect_parse_hart_cmds.exit.thread182.i
 
 276:                                              ; preds = %274
@@ -1231,7 +1231,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 290:                                              ; preds = %190, %190
-  %291 = icmp ugt i32 %191, 23
+  %291 = icmp samesign ugt i32 %191, 23
   br i1 %291, label %292, label %dissect_parse_hart_cmds.exit.thread182.i
 
 292:                                              ; preds = %290
@@ -1240,7 +1240,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 295:                                              ; preds = %190, %190
-  %296 = icmp ugt i32 %191, 20
+  %296 = icmp samesign ugt i32 %191, 20
   br i1 %296, label %297, label %dissect_parse_hart_cmds.exit.thread182.i
 
 297:                                              ; preds = %295
@@ -1261,7 +1261,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 312:                                              ; preds = %190
-  %313 = icmp ugt i32 %191, 15
+  %313 = icmp samesign ugt i32 %191, 15
   br i1 %313, label %314, label %dissect_parse_hart_cmds.exit.thread182.i
 
 314:                                              ; preds = %312
@@ -1282,7 +1282,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 329:                                              ; preds = %190
-  %330 = icmp ugt i32 %191, 17
+  %330 = icmp samesign ugt i32 %191, 17
   br i1 %330, label %331, label %dissect_parse_hart_cmds.exit.thread182.i
 
 331:                                              ; preds = %329
@@ -1315,7 +1315,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 358:                                              ; preds = %190, %190
-  %359 = icmp ugt i32 %191, 2
+  %359 = icmp samesign ugt i32 %191, 2
   br i1 %359, label %360, label %dissect_parse_hart_cmds.exit.thread182.i
 
 360:                                              ; preds = %358
@@ -1324,7 +1324,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 363:                                              ; preds = %190, %190
-  %364 = icmp ugt i32 %191, 31
+  %364 = icmp samesign ugt i32 %191, 31
   br i1 %364, label %365, label %dissect_parse_hart_cmds.exit.thread182.i
 
 365:                                              ; preds = %363
@@ -1333,7 +1333,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 368:                                              ; preds = %190
-  %369 = icmp ugt i32 %191, 1
+  %369 = icmp samesign ugt i32 %191, 1
   br i1 %369, label %370, label %dissect_parse_hart_cmds.exit.thread182.i
 
 370:                                              ; preds = %368
@@ -1360,7 +1360,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 382:                                              ; preds = %190
-  %383 = icmp ugt i32 %191, 5
+  %383 = icmp samesign ugt i32 %191, 5
   br i1 %383, label %384, label %dissect_parse_hart_cmds.exit.thread182.i
 
 384:                                              ; preds = %382
@@ -1372,7 +1372,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %390 = add i32 %.6.i, 2
   %391 = load i32, ptr @hf_hartip_pt_rsp_slot0_device_var_value, align 4
   %392 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 4, i32 noundef 0) #4
-  %393 = icmp ugt i32 %191, 11
+  %393 = icmp samesign ugt i32 %191, 11
   br i1 %393, label %394, label %.thread184.i
 
 394:                                              ; preds = %384
@@ -1385,7 +1385,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %401 = add i32 %.6.i, 8
   %402 = load i32, ptr @hf_hartip_pt_rsp_slot1_device_var_value, align 4
   %403 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %402, ptr noundef %0, i32 noundef %401, i32 noundef 4, i32 noundef 0) #4
-  %404 = icmp ugt i32 %191, 17
+  %404 = icmp samesign ugt i32 %191, 17
   br i1 %404, label %405, label %.thread184.i
 
 405:                                              ; preds = %394
@@ -1398,7 +1398,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %412 = add i32 %.6.i, 14
   %413 = load i32, ptr @hf_hartip_pt_rsp_slot2_device_var_value, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef 0) #4
-  %415 = icmp ugt i32 %191, 23
+  %415 = icmp samesign ugt i32 %191, 23
   br i1 %415, label %416, label %.thread184.i
 
 416:                                              ; preds = %405
@@ -1414,7 +1414,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 426:                                              ; preds = %190
-  %427 = icmp ugt i32 %191, 1
+  %427 = icmp samesign ugt i32 %191, 1
   br i1 %427, label %428, label %dissect_parse_hart_cmds.exit.thread182.i
 
 428:                                              ; preds = %426
@@ -1427,7 +1427,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 433:                                              ; preds = %190
-  %434 = icmp ugt i32 %191, 5
+  %434 = icmp samesign ugt i32 %191, 5
   br i1 %434, label %435, label %dissect_parse_hart_cmds.exit.thread182.i
 
 435:                                              ; preds = %433
@@ -1481,8 +1481,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %468 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %467, ptr noundef %0, i32 noundef %465, i32 noundef 1, i32 noundef 0) #4
   %469 = add i32 %462, 2
   %470 = icmp ugt i8 %466, 1
-  %471 = icmp ugt i32 %191, 7
-  %or.cond.i.i.i = and i1 %471, %470
+  %471 = icmp samesign ugt i32 %191, 7
+  %or.cond.i.i.i = select i1 %470, i1 %471, i1 false
   br i1 %or.cond.i.i.i, label %472, label %.thread184.i
 
 472:                                              ; preds = %461
@@ -1514,7 +1514,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %.thread184.i
 
 490:                                              ; preds = %190
-  %491 = icmp ugt i32 %191, 4
+  %491 = icmp samesign ugt i32 %191, 4
   br i1 %491, label %492, label %dissect_parse_hart_cmds.exit.thread182.i
 
 492:                                              ; preds = %490
@@ -1692,7 +1692,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
-  %5 = icmp ugt i32 %3, 23
+  %5 = icmp samesign ugt i32 %3, 23
   br i1 %5, label %6, label %33
 
 6:                                                ; preds = %4
@@ -1731,7 +1731,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
-  %5 = icmp ugt i32 %3, 12
+  %5 = icmp samesign ugt i32 %3, 12
   br i1 %5, label %6, label %155
 
 6:                                                ; preds = %4
@@ -1753,7 +1753,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %22 = load i32, ptr @hf_hartip_pt_rsp_slot0_device_var_status, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
   %24 = add i32 %2, 9
-  %25 = icmp ugt i32 %3, 20
+  %25 = icmp samesign ugt i32 %3, 20
   br i1 %25, label %26, label %.thread191
 
 26:                                               ; preds = %6
@@ -1772,7 +1772,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %39 = load i32, ptr @hf_hartip_pt_rsp_slot1_device_var_status, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef 1, i32 noundef 0) #4
   %41 = add i32 %2, 17
-  %42 = icmp ugt i32 %3, 28
+  %42 = icmp samesign ugt i32 %3, 28
   br i1 %42, label %43, label %.thread191
 
 43:                                               ; preds = %26
@@ -1791,7 +1791,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %56 = load i32, ptr @hf_hartip_pt_rsp_slot2_device_var_status, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef %55, i32 noundef 1, i32 noundef 0) #4
   %58 = add i32 %2, 25
-  %59 = icmp ugt i32 %3, 36
+  %59 = icmp samesign ugt i32 %3, 36
   br i1 %59, label %60, label %.thread191
 
 60:                                               ; preds = %43
@@ -1810,7 +1810,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %73 = load i32, ptr @hf_hartip_pt_rsp_slot3_device_var_status, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %72, i32 noundef 1, i32 noundef 0) #4
   %75 = add i32 %2, 33
-  %76 = icmp ugt i32 %3, 44
+  %76 = icmp samesign ugt i32 %3, 44
   br i1 %76, label %77, label %.thread191
 
 77:                                               ; preds = %60
@@ -1829,7 +1829,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %90 = load i32, ptr @hf_hartip_pt_rsp_slot4_device_var_status, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %90, ptr noundef %1, i32 noundef %89, i32 noundef 1, i32 noundef 0) #4
   %92 = add i32 %2, 41
-  %93 = icmp ugt i32 %3, 52
+  %93 = icmp samesign ugt i32 %3, 52
   br i1 %93, label %94, label %.thread191
 
 94:                                               ; preds = %77
@@ -1848,7 +1848,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %107 = load i32, ptr @hf_hartip_pt_rsp_slot5_device_var_status, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %107, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef 0) #4
   %109 = add i32 %2, 49
-  %110 = icmp ugt i32 %3, 60
+  %110 = icmp samesign ugt i32 %3, 60
   br i1 %110, label %111, label %.thread191
 
 111:                                              ; preds = %94
@@ -1867,7 +1867,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0
   %124 = load i32, ptr @hf_hartip_pt_rsp_slot6_device_var_status, align 4
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %124, ptr noundef %1, i32 noundef %123, i32 noundef 1, i32 noundef 0) #4
   %126 = add i32 %2, 57
-  %127 = icmp ugt i32 %3, 68
+  %127 = icmp samesign ugt i32 %3, 68
   br i1 %127, label %128, label %.thread191
 
 128:                                              ; preds = %111
@@ -2023,13 +2023,13 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
-  %5 = icmp ugt i32 %3, 5
+  %5 = icmp samesign ugt i32 %3, 5
   br i1 %5, label %6, label %.thread51
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @hf_hartip_pt_rsp_device_sp_status, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %2, i32 noundef 6, i32 noundef 0) #4
-  %9 = icmp ugt i32 %3, 8
+  %9 = icmp samesign ugt i32 %3, 8
   br i1 %9, label %10, label %.thread51
 
 10:                                               ; preds = %6
@@ -2042,7 +2042,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %
   %17 = add i32 %2, 8
   %18 = load i32, ptr @hf_hartip_pt_rsp_standardized_status_0, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 1, i32 noundef 0) #4
-  %20 = icmp ugt i32 %3, 12
+  %20 = icmp samesign ugt i32 %3, 12
   br i1 %20, label %21, label %.thread51
 
 21:                                               ; preds = %10
@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %
   %35 = add i32 %2, 13
   %36 = load i32, ptr @hf_hartip_pt_rsp_analog_channel_fixed, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef %35, i32 noundef 1, i32 noundef 0) #4
-  %38 = icmp ugt i32 %3, 23
+  %38 = icmp samesign ugt i32 %3, 23
   br i1 %38, label %39, label %.thread51
 
 39:                                               ; preds = %34
@@ -2081,7 +2081,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd203(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
-  %5 = icmp ugt i32 %3, 7
+  %5 = icmp samesign ugt i32 %3, 7
   br i1 %5, label %6, label %.thread83
 
 6:                                                ; preds = %4
@@ -2118,7 +2118,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %.021.i = phi i32 [ %23, %19 ], [ 0, %6 ]
   %.0.i = phi i32 [ %21, %19 ], [ 0, %6 ]
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %17, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.300, i32 noundef %.023.i, i32 noundef %.022.i, i32 noundef %.021.i, i32 noundef %.0.i) #4
-  %27 = icmp ugt i32 %3, 10
+  %27 = icmp samesign ugt i32 %3, 10
   br i1 %27, label %28, label %.thread83
 
 28:                                               ; preds = %dissect_timestamp.exit
@@ -2128,7 +2128,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %32 = add i32 %2, 10
   %33 = load i32, ptr @hf_hartip_pt_rsp_slot0_discrete_var_status, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 1, i32 noundef 0) #4
-  %35 = icmp ugt i32 %3, 13
+  %35 = icmp samesign ugt i32 %3, 13
   br i1 %35, label %36, label %.thread83
 
 36:                                               ; preds = %28
@@ -2138,7 +2138,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %40 = add i32 %2, 13
   %41 = load i32, ptr @hf_hartip_pt_rsp_slot1_discrete_var_status, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef %40, i32 noundef 1, i32 noundef 0) #4
-  %43 = icmp ugt i32 %3, 16
+  %43 = icmp samesign ugt i32 %3, 16
   br i1 %43, label %44, label %.thread83
 
 44:                                               ; preds = %36
@@ -2148,7 +2148,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %48 = add i32 %2, 16
   %49 = load i32, ptr @hf_hartip_pt_rsp_slot2_discrete_var_status, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %49, ptr noundef %1, i32 noundef %48, i32 noundef 1, i32 noundef 0) #4
-  %51 = icmp ugt i32 %3, 19
+  %51 = icmp samesign ugt i32 %3, 19
   br i1 %51, label %52, label %.thread83
 
 52:                                               ; preds = %44
@@ -2158,7 +2158,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %56 = add i32 %2, 19
   %57 = load i32, ptr @hf_hartip_pt_rsp_slot3_discrete_var_status, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %57, ptr noundef %1, i32 noundef %56, i32 noundef 1, i32 noundef 0) #4
-  %59 = icmp ugt i32 %3, 22
+  %59 = icmp samesign ugt i32 %3, 22
   br i1 %59, label %60, label %.thread83
 
 60:                                               ; preds = %52
@@ -2168,7 +2168,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   %64 = add i32 %2, 22
   %65 = load i32, ptr @hf_hartip_pt_rsp_slot4_discrete_var_status, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %64, i32 noundef 1, i32 noundef 0) #4
-  %67 = icmp ugt i32 %3, 25
+  %67 = icmp samesign ugt i32 %3, 25
   br i1 %67, label %68, label %.thread83
 
 68:                                               ; preds = %60

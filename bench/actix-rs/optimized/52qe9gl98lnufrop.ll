@@ -1304,7 +1304,7 @@ default.unreachable36:                            ; preds = %93, %3
   %24 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8
   %25 = icmp ult i64 %24, 6
   tail call void @llvm.assume(i1 %25)
-  %switch.selectcmp.i16 = icmp ugt i64 %24, 3
+  %switch.selectcmp.i16 = icmp samesign ugt i64 %24, 3
   br i1 %switch.selectcmp.i16, label %26, label %68
 
 26:                                               ; preds = %15

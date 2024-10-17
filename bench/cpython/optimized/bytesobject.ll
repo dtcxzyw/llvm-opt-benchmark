@@ -1148,7 +1148,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
-  %cmp1.i = icmp ugt i64 %size, 9223372036854775774
+  %cmp1.i = icmp samesign ugt i64 %size, 9223372036854775774
   br i1 %cmp1.i, label %_PyBytes_FromSize.exit.thread, label %if.end3.i
 
 _PyBytes_FromSize.exit.thread:                    ; preds = %if.end.i
@@ -1220,7 +1220,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %size, 9223372036854775774
+  %cmp1 = icmp samesign ugt i64 %size, 9223372036854775774
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -4591,7 +4591,7 @@ if.end66:                                         ; preds = %land.lhs.true51
   %incdec.ptr61 = getelementptr i8, ptr %s.addr.092, i64 4
   %add63 = add nuw nsw i32 %shl60, %conv52
   %sub64 = add nsw i32 %add63, -48
-  %cmp67 = icmp ugt i32 %add63, 303
+  %cmp67 = icmp samesign ugt i32 %add63, 303
   br i1 %cmp67, label %if.then69, label %if.end75
 
 if.then69:                                        ; preds = %if.end66
@@ -7281,7 +7281,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %cmp9, label %return, label %if.end.i37
 
 if.end.i37:                                       ; preds = %if.then8
-  %cmp1.i = icmp ugt i64 %newsize, 9223372036854775774
+  %cmp1.i = icmp samesign ugt i64 %newsize, 9223372036854775774
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i37
@@ -8209,7 +8209,7 @@ if.else29:                                        ; preds = %lor.lhs.false21
   %shr = lshr i64 %m, 2
   %mul = mul nuw nsw i64 %shr, 3
   %shr30 = lshr i64 %n, 2
-  %cmp31 = icmp ult i64 %mul, %shr30
+  %cmp31 = icmp samesign ult i64 %mul, %shr30
   br i1 %cmp31, label %if.then32, label %if.else38
 
 if.then32:                                        ; preds = %if.else29
@@ -11258,7 +11258,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i106.i.i
   %sub.ptr.sub.i111.i.i = sub i64 %sub.ptr.lhs.cast.i109.i.i, %sub.ptr.rhs.cast.i110.i.i
   %add.ptr.i112.i.i = getelementptr i8, ptr %ob_sval.i21.i.i.i, i64 %sub.ptr.sub.i111.i.i
   store i8 %27, ptr %add.ptr.i112.i.i, align 1
-  %cmp1223.i.i.i = icmp ugt i64 %maxcount.addr.0.i.i, 1
+  %cmp1223.i.i.i = icmp samesign ugt i64 %maxcount.addr.0.i.i, 1
   br i1 %cmp1223.i.i.i, label %while.body.lr.ph.i.i.i, label %exit
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end9.i.i.i
@@ -11321,7 +11321,7 @@ if.end7.i133.i.i:                                 ; preds = %if.end.i130.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i134.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %old.val11, i1 false)
   %add.ptr10.i.i.i = getelementptr i8, ptr %ob_sval.i27.i.i.i, i64 %self.val.i.i
   %sub.ptr.lhs.cast.i135.i.i = ptrtoint ptr %add.ptr10.i.i.i to i64
-  %cmp1131.i.i.i = icmp ugt i64 %maxcount.addr.0.i.i, 1
+  %cmp1131.i.i.i = icmp samesign ugt i64 %maxcount.addr.0.i.i, 1
   br i1 %cmp1131.i.i.i, label %while.body.preheader.i137.i.i, label %exit
 
 while.body.preheader.i137.i.i:                    ; preds = %if.end7.i133.i.i
@@ -12238,7 +12238,7 @@ if.end41.i.i:                                     ; preds = %land.rhs19.i.i, %la
   br i1 %cmp47.i.i, label %onError.i.i, label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.end41.i.i
-  %cmp51.i.i = icmp ult i64 %count.098.i.i, 12
+  %cmp51.i.i = icmp samesign ult i64 %count.098.i.i, 12
   br i1 %cmp51.i.i, label %if.then53.i.i, label %if.else.i.i
 
 if.then53.i.i:                                    ; preds = %if.end50.i.i
@@ -12639,7 +12639,7 @@ if.end13.i.i:                                     ; preds = %while.body.i.i
   br i1 %cmp18.i.i, label %onError.i15.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end13.i.i
-  %cmp21.i.i = icmp ult i64 %count.091.i.i, 12
+  %cmp21.i.i = icmp samesign ult i64 %count.091.i.i, 12
   br i1 %cmp21.i.i, label %if.then22.i.i, label %if.else23.i.i
 
 if.then22.i.i:                                    ; preds = %if.end20.i.i
@@ -12723,7 +12723,7 @@ if.else34.thread.i.i:                             ; preds = %land.lhs.true.i.i
   br i1 %cmp3869.i.i, label %onError.i15.i, label %if.then42.i.i
 
 if.end40.i.i:                                     ; preds = %if.else34.i.i
-  %cmp41.i.i = icmp ult i64 %count.0.lcssa126.i.i, 12
+  %cmp41.i.i = icmp samesign ult i64 %count.0.lcssa126.i.i, 12
   br i1 %cmp41.i.i, label %if.then42.i.i, label %if.else43.i.i
 
 if.then42.i.i:                                    ; preds = %if.end40.i.i, %if.else34.thread.i.i
@@ -13041,7 +13041,7 @@ if.end39.i.i:                                     ; preds = %land.lhs.true34.i.i
   br i1 %cmp42.i.i, label %onError.i.i, label %if.end45.i.i
 
 if.end45.i.i:                                     ; preds = %if.end39.i.i
-  %cmp46.i.i = icmp ult i64 %count.087.i.i, 12
+  %cmp46.i.i = icmp samesign ult i64 %count.087.i.i, 12
   br i1 %cmp46.i.i, label %if.then48.i.i, label %if.else.i.i
 
 if.then48.i.i:                                    ; preds = %if.end45.i.i
@@ -13453,7 +13453,7 @@ if.end14.i.i:                                     ; preds = %while.body.i.i
   br i1 %cmp19.i.i, label %onError.i16.i, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end14.i.i
-  %cmp22.i.i = icmp ult i64 %count.086.i.i, 12
+  %cmp22.i.i = icmp samesign ult i64 %count.086.i.i, 12
   br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else24.i.i
 
 if.then23.i.i:                                    ; preds = %if.end21.i.i
@@ -13536,7 +13536,7 @@ if.else36.i.i:                                    ; preds = %if.end29.i.i, %land
   br i1 %cmp40.i.i, label %onError.i16.i, label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %if.else36.i.i
-  %cmp43.i.i = icmp ult i64 %count.0.lcssa106.i.i, 12
+  %cmp43.i.i = icmp samesign ult i64 %count.0.lcssa106.i.i, 12
   br i1 %cmp43.i.i, label %if.then44.i.i, label %if.else45.i.i
 
 if.then44.i.i:                                    ; preds = %if.end42.i.i

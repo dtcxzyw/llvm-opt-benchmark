@@ -927,7 +927,7 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr nocapture n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %indvars.iv.next, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
@@ -972,7 +972,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %._crit_edge, %63
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %71 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next57, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next57, %72
   br i1 %73, label %.lr.ph51, label %._crit_edge52, !llvm.loop !12
 
 ._crit_edge52:                                    ; preds = %70, %_ZN16ShenandoahLockerD2Ev.exit
@@ -2171,7 +2171,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahPrepareForCompactionTask22prepar
   %27 = add nsw i32 %23, 1
   %28 = icmp sgt i32 %23, -1
   %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %or.cond.i.i.i.i = select i1 %28, i1 %30, i1 false
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %32 = sub nuw nsw i32 32, %31
@@ -8197,7 +8197,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %36, %40
   %.025.i.i.i.i = phi i64 [ %38, %40 ], [ %30, %36 ]
   %38 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %39 = icmp ult i64 %38, %28
+  %39 = icmp samesign ult i64 %38, %28
   br i1 %39, label %40, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop31ShenandoahAdjustPointersClosureEEEbPT_mm.exit
 
 40:                                               ; preds = %.preheader.i.i
@@ -8449,7 +8449,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %36, %40
   %.025.i.i.i.i = phi i64 [ %38, %40 ], [ %30, %36 ]
   %38 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %39 = icmp ult i64 %38, %28
+  %39 = icmp samesign ult i64 %38, %28
   br i1 %39, label %40, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahAdjustPointersClosureEEEbPT_mm.exit
 
 40:                                               ; preds = %.preheader.i.i

@@ -4213,7 +4213,7 @@ define hidden void @_ZN6client6Client16request_envelope17h2056715b00bec86fE(ptr 
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %switch = icmp ult i64 %17, 4
+  %switch = icmp samesign ult i64 %17, 4
   br i1 %switch, label %32, label %19
 
 19:                                               ; preds = %16
@@ -4413,7 +4413,7 @@ define hidden void @_ZN6client6Client16request_envelope17h9fefcb3a7da6e063E.llvm
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %switch = icmp ult i64 %17, 4
+  %switch = icmp samesign ult i64 %17, 4
   br i1 %switch, label %32, label %19
 
 19:                                               ; preds = %16
@@ -4613,7 +4613,7 @@ define hidden void @_ZN6client6Client16request_envelope17hbef85228ec7d9a8eE(ptr 
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %switch = icmp ult i64 %17, 4
+  %switch = icmp samesign ult i64 %17, 4
   br i1 %switch, label %32, label %19
 
 19:                                               ; preds = %16

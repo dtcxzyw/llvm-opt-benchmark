@@ -1387,7 +1387,7 @@ for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc340:                                        ; preds = %for.body.i
   %inc.i336 = add nuw nsw i32 %i.02.i, 1
-  %cmp.i = icmp ugt i32 %i.02.i, 9998
+  %cmp.i = icmp samesign ugt i32 %i.02.i, 9998
   %182 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %tobool.not.i = icmp eq i64 %182, 0
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %tobool.not.i
@@ -1439,7 +1439,7 @@ for.body.i356:                                    ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc366:                                        ; preds = %for.body.i356
   %inc.i358 = add nuw nsw i32 %i.02.i357, 1
-  %cmp.i359 = icmp ugt i32 %i.02.i357, 9998
+  %cmp.i359 = icmp samesign ugt i32 %i.02.i357, 9998
   %188 = load i64, ptr %mSize.i.i354, align 8
   %tobool.not.i360 = icmp eq i64 %188, 0
   %or.cond.i361 = select i1 %cmp.i359, i1 true, i1 %tobool.not.i360
@@ -1507,7 +1507,7 @@ for.body.i383:                                    ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc393:                                        ; preds = %for.body.i383
   %inc.i385 = add nuw nsw i32 %i.02.i384, 1
-  %cmp.i386 = icmp ugt i32 %i.02.i384, 9998
+  %cmp.i386 = icmp samesign ugt i32 %i.02.i384, 9998
   %195 = load i64, ptr %_M_size.i.i.i.i.i30, align 8
   %tobool.not.i387 = icmp eq i64 %195, 0
   %or.cond.i388 = select i1 %cmp.i386, i1 true, i1 %tobool.not.i387
@@ -1559,7 +1559,7 @@ for.body.i410:                                    ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc420:                                        ; preds = %for.body.i410
   %inc.i412 = add nuw nsw i32 %i.02.i411, 1
-  %cmp.i413 = icmp ugt i32 %i.02.i411, 9998
+  %cmp.i413 = icmp samesign ugt i32 %i.02.i411, 9998
   %201 = load i64, ptr %mSize.i.i408, align 8
   %tobool.not.i414 = icmp eq i64 %201, 0
   %or.cond.i415 = select i1 %cmp.i413, i1 true, i1 %tobool.not.i414
@@ -1627,7 +1627,7 @@ for.body.i438:                                    ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc448:                                        ; preds = %for.body.i438
   %inc.i440 = add nuw nsw i32 %i.02.i439, 1
-  %cmp.i441 = icmp ugt i32 %i.02.i439, 9998
+  %cmp.i441 = icmp samesign ugt i32 %i.02.i439, 9998
   %208 = load i64, ptr %_M_size.i.i.i.i.i49, align 8
   %tobool.not.i442 = icmp eq i64 %208, 0
   %or.cond.i443 = select i1 %cmp.i441, i1 true, i1 %tobool.not.i442
@@ -1679,7 +1679,7 @@ for.body.i465:                                    ; preds = %_ZN2EA4StdC9Stopwat
 
 .noexc475:                                        ; preds = %for.body.i465
   %inc.i467 = add nuw nsw i32 %i.02.i466, 1
-  %cmp.i468 = icmp ugt i32 %i.02.i466, 9998
+  %cmp.i468 = icmp samesign ugt i32 %i.02.i466, 9998
   %214 = load i64, ptr %mSize.i.i463, align 8
   %tobool.not.i469 = icmp eq i64 %214, 0
   %or.cond.i470 = select i1 %cmp.i468, i1 true, i1 %tobool.not.i469

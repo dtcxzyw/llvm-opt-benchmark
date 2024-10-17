@@ -526,7 +526,7 @@ _ZN10Parameters5resetEv.exit:                     ; preds = %14, %21
   %24 = load i8, ptr %8, align 8
   %25 = trunc i8 %24 to i1
   %26 = select i1 %25, i64 7, i64 6
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %9, label %28, !llvm.loop !11
 
 28:                                               ; preds = %_ZN10Parameters5resetEv.exit
@@ -662,14 +662,14 @@ _ZN10Parameters5resetEv.exit.preheader:           ; preds = %4
   %44 = load float, ptr %9, align 4
   %.zext24.i = lshr i32 %.02125.i, 1
   %.urem.i = add nsw i32 %.zext24.i, -2
-  %.cmp.i = icmp ult i32 %.02125.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02125.i, 4
   %45 = select i1 %.cmp.i, i32 %.zext24.i, i32 %.urem.i
   %46 = sitofp i32 %45 to float
   %47 = load float, ptr %10, align 8
   %48 = fsub float %47, %44
   %49 = call float @llvm.fmuladd.f32(float %46, float %48, float %44)
   %50 = load float, ptr %11, align 8
-  %51 = icmp ugt i32 %.02125.i, 3
+  %51 = icmp samesign ugt i32 %.02125.i, 3
   %52 = uitofp i1 %51 to float
   %53 = load float, ptr %12, align 4
   %54 = fsub float %53, %50
@@ -1021,7 +1021,7 @@ _ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %250,
   %255 = load i8, ptr %6, align 8
   %256 = trunc i8 %255 to i1
   %257 = select i1 %256, i64 7, i64 6
-  %258 = icmp ult i64 %indvars.iv.next, %257
+  %258 = icmp samesign ult i64 %indvars.iv.next, %257
   br i1 %258, label %36, label %259, !llvm.loop !13
 
 259:                                              ; preds = %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
@@ -1186,7 +1186,7 @@ _ZN10Parameters9randomDirEiPdd.exit:              ; preds = %.lr.ph25.i, %_ZN10P
   %23 = load i8, ptr %4, align 8
   %24 = trunc i8 %23 to i1
   %25 = select i1 %24, i64 7, i64 6
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %_ZN10Parameters9randomDirEiPdd.exit, label %27, !llvm.loop !17
 
 27:                                               ; preds = %_ZN10Parameters9randomDirEiPdd.exit
@@ -1719,14 +1719,14 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %15 = load float, ptr %5, align 4
   %.zext24 = lshr i32 %.02125, 1
   %.urem = add nsw i32 %.zext24, -2
-  %.cmp = icmp ult i32 %.02125, 4
+  %.cmp = icmp samesign ult i32 %.02125, 4
   %16 = select i1 %.cmp, i32 %.zext24, i32 %.urem
   %17 = sitofp i32 %16 to float
   %18 = load float, ptr %6, align 8
   %19 = fsub float %18, %15
   %20 = tail call float @llvm.fmuladd.f32(float %17, float %19, float %15)
   %21 = load float, ptr %7, align 8
-  %22 = icmp ugt i32 %.02125, 3
+  %22 = icmp samesign ugt i32 %.02125, 3
   %23 = uitofp i1 %22 to float
   %24 = load float, ptr %8, align 4
   %25 = fsub float %24, %21
@@ -2072,14 +2072,14 @@ define noundef double @_ZN10Parameters9pixelDiffEv(ptr noundef nonnull align 8 d
   %14 = load float, ptr %5, align 4
   %.zext24.i = lshr i32 %.02125.i, 1
   %.urem.i = add nsw i32 %.zext24.i, -2
-  %.cmp.i = icmp ult i32 %.02125.i, 4
+  %.cmp.i = icmp samesign ult i32 %.02125.i, 4
   %15 = select i1 %.cmp.i, i32 %.zext24.i, i32 %.urem.i
   %16 = sitofp i32 %15 to float
   %17 = load float, ptr %6, align 8
   %18 = fsub float %17, %14
   %19 = call float @llvm.fmuladd.f32(float %16, float %18, float %14)
   %20 = load float, ptr %7, align 8
-  %21 = icmp ugt i32 %.02125.i, 3
+  %21 = icmp samesign ugt i32 %.02125.i, 3
   %22 = uitofp i1 %21 to float
   %23 = load float, ptr %8, align 4
   %24 = fsub float %23, %20
@@ -2287,7 +2287,7 @@ define void @_ZN10Parameters8scrambleEPdb(ptr nocapture noundef nonnull readonly
   %14 = load i8, ptr %5, align 8
   %15 = trunc i8 %14 to i1
   %16 = select i1 %15, i64 7, i64 6
-  %17 = icmp ult i64 %indvars.iv.next139, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next139, %16
   br i1 %17, label %7, label %.loopexit, !llvm.loop !31
 
 .preheader130:                                    ; preds = %3, %.preheader130
@@ -2300,7 +2300,7 @@ define void @_ZN10Parameters8scrambleEPdb(ptr nocapture noundef nonnull readonly
   %21 = load i8, ptr %5, align 8
   %22 = trunc i8 %21 to i1
   %23 = select i1 %22, i64 7, i64 6
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.preheader130, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader130, %7

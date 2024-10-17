@@ -17021,7 +17021,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit369:              ; preds = %1424, %1426
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1434 = load i32, ptr %1320, align 8
   %1435 = zext i32 %1434 to i64
-  %1436 = icmp ult i64 %indvars.iv.next, %1435
+  %1436 = icmp samesign ult i64 %indvars.iv.next, %1435
   br i1 %1436, label %.lr.ph, label %._crit_edge, !llvm.loop !468
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit369, %_ZN4llvm11raw_ostreamlsEPKc.exit366
@@ -21783,7 +21783,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoIm
   %50 = add nuw nsw i64 %.013.i, 1
   %51 = load i32, ptr %3, align 8
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %50, %52
+  %53 = icmp samesign ult i64 %50, %52
   br i1 %53, label %.lr.ph.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E8copyFromIS9_EEvRKNS0_IT_mS3_S5_S8_EE.exit, !llvm.loop !531
 
 54:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E10destroyAllEv.exit

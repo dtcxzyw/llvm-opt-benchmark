@@ -4218,7 +4218,7 @@ define internal fastcc void @zend_dump_var_set(ptr nocapture noundef readonly %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = add i32 %26, %27
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %3

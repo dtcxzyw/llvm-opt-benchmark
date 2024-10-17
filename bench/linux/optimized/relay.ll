@@ -246,7 +246,7 @@ define dso_local void @relay_reset(ptr noundef readonly %0) #2 align 16 {
 102:                                              ; preds = %99, %.loopexit, %60
   %103 = add nuw nsw i64 %57, 1
   %104 = and i64 %103, 127
-  %105 = icmp ugt i64 %104, 63
+  %105 = icmp samesign ugt i64 %104, 63
   br i1 %105, label %.thread, label %50, !prof !10, !llvm.loop !11
 
 .thread:                                          ; preds = %50, %102, %56
@@ -724,7 +724,7 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
   store ptr %60, ptr %69, align 8
   %70 = add nuw nsw i64 %56, 1
   %71 = and i64 %70, 127
-  %72 = icmp ugt i64 %71, 63
+  %72 = icmp samesign ugt i64 %71, 63
   br i1 %72, label %.thread, label %49, !prof !10, !llvm.loop !18
 
 .thread:                                          ; preds = %49, %62, %55
@@ -800,7 +800,7 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
 .thread16:                                        ; preds = %111, %113, %114, %86
   %115 = add nuw nsw i64 %83, 1
   %116 = and i64 %115, 127
-  %117 = icmp ugt i64 %116, 63
+  %117 = icmp samesign ugt i64 %116, 63
   br i1 %117, label %.thread14, label %.preheader, !prof !10, !llvm.loop !21
 
 .thread14:                                        ; preds = %.preheader, %.thread16, %82
@@ -949,7 +949,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
 60:                                               ; preds = %114, %55
   %61 = phi i64 [ 0, %55 ], [ %117, %114 ]
   %62 = and i64 %61, 4294967295
-  %63 = icmp ugt i64 %62, 63
+  %63 = icmp samesign ugt i64 %62, 63
   br i1 %63, label %.thread13, label %64, !prof !13
 
 64:                                               ; preds = %60
@@ -1418,7 +1418,7 @@ define dso_local void @relay_close(ptr noundef %0) #2 align 16 {
 .thread12:                                        ; preds = %72, %74, %75, %47
   %76 = add nuw nsw i64 %44, 1
   %77 = and i64 %76, 127
-  %78 = icmp ugt i64 %77, 63
+  %78 = icmp samesign ugt i64 %77, 63
   br i1 %78, label %.thread, label %37, !prof !10, !llvm.loop !47
 
 .thread:                                          ; preds = %37, %.thread12, %43, %31, %33, %34
@@ -1539,7 +1539,7 @@ define dso_local void @relay_flush(ptr noundef readonly %0) #2 align 16 {
   %43 = phi i64 [ %.pre, %40 ], [ %21, %30 ]
   %44 = add nuw nsw i64 %27, 1
   %45 = and i64 %44, 127
-  %46 = icmp ugt i64 %45, 63
+  %46 = icmp samesign ugt i64 %45, 63
   br i1 %46, label %.thread, label %20, !prof !10, !llvm.loop !48
 
 .thread:                                          ; preds = %20, %42, %26
@@ -1954,7 +1954,7 @@ define internal fastcc void @relay_destroy_buf(ptr noundef %0) unnamed_addr #2 a
   %17 = add nuw nsw i64 %13, 1
   %18 = load i32, ptr %7, align 64
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %12, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %12, %6

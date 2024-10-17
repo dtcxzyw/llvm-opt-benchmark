@@ -1644,7 +1644,7 @@ common.resume:                                    ; preds = %.body, %149, %198, 
   br i1 %trunc524.i, label %"_ZN5plist6stream13binary_reader21BinaryReader$LT$R$GT$9read_next17h26a5e38026c63645E.exit.thread", label %360
 
 250:                                              ; preds = %221
-  %251 = icmp ult i8 %224, 8
+  %251 = icmp samesign ult i8 %224, 8
   br i1 %251, label %399, label %228
 
 252:                                              ; preds = %221
@@ -19490,7 +19490,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$$LP$regex_automata..util..d
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$$GT$17hb5f9a19fd8470714E.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !3201, !noundef !12
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$17h9531fa956d8bb8e1E.llvm.11057974413330164255.exit"
 
 "_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$17h9531fa956d8bb8e1E.llvm.11057974413330164255.exit": ; preds = %1, %8, %3
@@ -19533,7 +19533,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !3201, !noundef !12
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$17h60d26e7290463544E.llvm.11057974413330164255.exit"
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$17h60d26e7290463544E.llvm.11057974413330164255.exit": ; preds = %1, %3
@@ -19615,7 +19615,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$typ
 define hidden void @"_ZN4core3ptr130drop_in_place$LT$$LP$u128$C$comemo..constraint..ConstraintEntry$LT$typst..introspection..introspector.._..__ComemoCall$GT$$RP$$GT$17h7f970066a8369554E.llvm.11057974413330164255"(ptr noalias noundef align 16 dereferenceable(128) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 16, !range !4701, !alias.scope !4702, !noundef !12
-  %switch.i.i.i = icmp ult i32 %3, 3
+  %switch.i.i.i = icmp samesign ult i32 %3, 3
   br i1 %switch.i.i.i, label %.sink.split.i.i.i, label %"_ZN4core3ptr115drop_in_place$LT$comemo..constraint..ConstraintEntry$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$17hd5a60e54c10fe46fE.exit"
 
 .sink.split.i.i.i:                                ; preds = %1
@@ -19786,8 +19786,8 @@ define internal void @"_ZN4core3ptr145drop_in_place$LT$$RF$core..option..Option$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !4755, !noundef !12
-  %switch.not.i = icmp ult i64 %2, 2
-  br i1 %switch.not.i, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit"
+  %or.cond = icmp samesign ult i64 %2, 2
+  br i1 %or.cond, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit"
 
 "_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.11057974413330164255.exit": ; preds = %3, %1
   ret void
@@ -21252,7 +21252,7 @@ define internal fastcc void @"_ZN4core3ptr470drop_in_place$LT$$LP$$LP$$RP$$C$com
   %49 = add i64 %.sroa.105.017.i.i.i.i.i.i.i.i.i.i, -1
   %50 = getelementptr inbounds i8, ptr %48, i64 -112
   %51 = load i32, ptr %50, align 16, !range !4701, !alias.scope !5114, !noalias !5123, !noundef !12
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %51, 3
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %51, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hdee622d1e833155aE.llvm.11057974413330164255.exit.i.i.i.i.i.i.i.i.i.i"
 
 .sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b101a9be97011e5E.llvm.11057974413330164255.exit.i.i.i.i.i.i.i.i.i.i"
@@ -21538,7 +21538,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5245)
   %36 = load i32, ptr %35, align 8, !range !5248, !alias.scope !5249, !noundef !12
-  %switch.i.i = icmp ult i32 %36, 2
+  %switch.i.i = icmp samesign ult i32 %36, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit", label %37
 
 37:                                               ; preds = %34
@@ -25563,7 +25563,7 @@ define hidden noundef range(i64 0, 6755399441055744) i64 @_ZN4time4time4Time6as_
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i8 %.sroa.53.0.extract.trunc, 60
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ult i64 %0, 6755399441055744
+  %5 = icmp samesign ult i64 %0, 6755399441055744
   tail call void @llvm.assume(i1 %5)
   %.sroa.010.0.insert.insert = and i64 %0, 8795265167261695
   ret i64 %.sroa.010.0.insert.insert
@@ -25594,7 +25594,7 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ult i8 %.sroa.53.0.extract.trunc.i, 60
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.sroa.0.0.copyload, 6755399441055744
+  %6 = icmp samesign ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %6)
   %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
   %7 = getelementptr inbounds i8, ptr %1, i64 48
@@ -25671,7 +25671,7 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ult i8 %.sroa.53.0.extract.trunc.i, 60
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.sroa.0.0.copyload, 6755399441055744
+  %6 = icmp samesign ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %6)
   %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6436)
@@ -27181,7 +27181,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
 
 44:                                               ; preds = %.critedge.i
   %45 = and i8 %42, 127
-  %46 = icmp ugt i8 %45, 14
+  %46 = icmp samesign ugt i8 %45, 14
   br i1 %46, label %63, label %_ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i
 
 _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
@@ -27888,7 +27888,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
 
 76:                                               ; preds = %._crit_edge.i, %42
   %.1.lcssa.i = phi i64 [ %127, %._crit_edge.i ], [ %.0.i, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -27901,7 +27901,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
   %.017.i11.i = phi i64 [ 4, %78 ], [ 0, %76 ]
   %.0.i12.i = phi i64 [ %80, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.017.i11.i, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -28569,8 +28569,8 @@ default.unreachable:                              ; preds = %3
 
 107:                                              ; preds = %51
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !6875
-  %switch.i.i.i.i.i = icmp ult i32 %46, 3
-  br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
+  %or.cond.i.i = icmp samesign ult i32 %46, 3
+  br i1 %or.cond.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN6comemo10constraint17EntryMap$LT$T$GT$10push_inner17h18a137d93ea12ea6E.exit"
 
 .sink.split.i.i.i.i.i:                            ; preds = %107
   %108 = getelementptr inbounds i8, ptr %6, i64 16
@@ -28580,8 +28580,8 @@ default.unreachable:                              ; preds = %3
 109:                                              ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.exit"
   %110 = landingpad { ptr, i32 }
           cleanup
-  %switch.i.i.i.i14.i = icmp ult i32 %46, 3
-  br i1 %switch.i.i.i.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
+  %or.cond.i14.i = icmp samesign ult i32 %46, 3
+  br i1 %or.cond.i14.i, label %.sink.split.i.i.i.i15.i, label %.body
 
 .sink.split.i.i.i.i15.i:                          ; preds = %109
   %111 = getelementptr inbounds i8, ptr %6, i64 16
@@ -28633,7 +28633,7 @@ default.unreachable:                              ; preds = %3
   %123 = landingpad { ptr, i32 }
           cleanup
   %124 = load i32, ptr %7, align 16, !range !4701, !alias.scope !6914, !noundef !12
-  %switch.i.i.i = icmp ult i32 %124, 3
+  %switch.i.i.i = icmp samesign ult i32 %124, 3
   br i1 %switch.i.i.i, label %.sink.split.i.i.i, label %"_ZN4core3ptr72drop_in_place$LT$typst..introspection..introspector.._..__ComemoCall$GT$17hd523fd78c612da7eE.exit"
 
 .sink.split.i.i.i:                                ; preds = %122
@@ -28649,7 +28649,7 @@ default.unreachable:                              ; preds = %3
   %127 = landingpad { ptr, i32 }
           cleanup
   %128 = load i32, ptr %1, align 16, !range !4701, !alias.scope !6921, !noundef !12
-  %switch.i.i = icmp ult i32 %128, 3
+  %switch.i.i = icmp samesign ult i32 %128, 3
   br i1 %switch.i.i, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$typst..introspection..introspector.._..__ComemoCall$GT$17hd523fd78c612da7eE.exit"
 
 .sink.split.i.i:                                  ; preds = %126
@@ -41692,7 +41692,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h1f
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hbf245ab2425ddac6E.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -41802,7 +41802,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h22
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h162be7c8694cfe87E.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -42188,7 +42188,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h3b
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h87a1e9f8af59580fE.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -42505,7 +42505,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h79
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h9f2e2e6c2177cb4fE.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -42615,7 +42615,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h8b
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hcd1d5515270a7190E.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -42863,7 +42863,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hab
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hdbc66a4d97bef1eaE.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -42973,7 +42973,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hac
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h12b9be99992f081eE.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -43221,7 +43221,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hc4
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h30188a224a4ca24dE.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -43331,7 +43331,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hd1
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h4beab302428f7038E.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -43510,7 +43510,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hf1
   %47 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %43, i1 false)
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %48, %47
-  %49 = icmp ugt i16 %narrow.i.i.i, 15
+  %49 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %49, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h4d0c4483de189995E.llvm.11057974413330164255.exit", label %50
 
 50:                                               ; preds = %32
@@ -44017,7 +44017,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h23e23227a8
   %26 = add i64 %.sroa.105.017, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -112
   %28 = load i32, ptr %27, align 16, !range !4701, !alias.scope !10952, !noalias !10961, !noundef !12
-  %switch.i.i.i.i.i = icmp ult i32 %28, 3
+  %switch.i.i.i.i.i = icmp samesign ult i32 %28, 3
   br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hdee622d1e833155aE.llvm.11057974413330164255.exit"
 
 .sink.split.i.i.i.i.i:                            ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b101a9be97011e5E.llvm.11057974413330164255.exit"
@@ -50112,7 +50112,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc386aa1
   %33 = add i64 %.sroa.105.017.i, -1
   %34 = getelementptr inbounds i8, ptr %32, i64 -112
   %35 = load i32, ptr %34, align 16, !range !4701, !alias.scope !12251, !noalias !12260, !noundef !12
-  %switch.i.i.i.i.i.i = icmp ult i32 %35, 3
+  %switch.i.i.i.i.i.i = icmp samesign ult i32 %35, 3
   br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hdee622d1e833155aE.llvm.11057974413330164255.exit.i"
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b101a9be97011e5E.llvm.11057974413330164255.exit.i"
@@ -51311,7 +51311,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.l
   %14 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %10, i1 false)
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %13, i1 false)
   %narrow = add nuw nsw i16 %15, %14
-  %16 = icmp ugt i16 %narrow, 15
+  %16 = icmp samesign ugt i16 %narrow, 15
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
@@ -52995,7 +52995,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hdee622d1e833155aE
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !noundef !12
   %3 = getelementptr inbounds i8, ptr %2, i64 -112
   %4 = load i32, ptr %3, align 16, !range !4701, !alias.scope !12735, !noundef !12
-  %switch.i.i.i.i = icmp ult i32 %4, 3
+  %switch.i.i.i.i = icmp samesign ult i32 %4, 3
   br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr130drop_in_place$LT$$LP$u128$C$comemo..constraint..ConstraintEntry$LT$typst..introspection..introspector.._..__ComemoCall$GT$$RP$$GT$17h7f970066a8369554E.llvm.11057974413330164255.exit"
 
 .sink.split.i.i.i.i:                              ; preds = %1
@@ -56149,7 +56149,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h1
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56195,7 +56195,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h2
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56241,7 +56241,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56287,7 +56287,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56333,7 +56333,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56379,7 +56379,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56425,7 +56425,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56471,7 +56471,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h5
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56517,7 +56517,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h5
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56563,7 +56563,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h6
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56609,7 +56609,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h6
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56655,7 +56655,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h7
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56701,7 +56701,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h7
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56747,7 +56747,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h8
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56793,7 +56793,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h9
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56839,7 +56839,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56885,7 +56885,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56931,7 +56931,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -56977,7 +56977,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -57023,7 +57023,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -57069,7 +57069,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hc
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -57115,7 +57115,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hd
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -57161,7 +57161,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hd
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -57207,7 +57207,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hf
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw13RawTableInner5erase17h2657319ba2fdd471E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -85324,7 +85324,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h12b9be9999
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3d1b6f93050ae4e9E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -85372,7 +85372,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h162be7c869
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h5f8223293dcfc730E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -85421,7 +85421,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h1d91968934
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h8a22aa9ac660a1e6E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -85513,7 +85513,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h30188a224a
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h6b7a043ade6f48e6E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -85562,7 +85562,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h322573035b
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hf46e86f2544ed2e3E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -85648,7 +85648,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h4beab30242
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hbf8c6b07ad6ccdb4E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -85697,7 +85697,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h4cb84a5660
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h97e99bda3e916585E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -85789,7 +85789,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h4d0c4483de
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h2b44bc3454652224E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -85838,7 +85838,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h5761b017d2
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h7d9785cee3243a37E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -85931,7 +85931,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h5949e3efdb
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb733a387cdbd027aE.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86024,7 +86024,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h7a699e5ce6
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h35d1e064f486571bE.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86117,7 +86117,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h7b05151da1
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb5f3ffdebeb5a768E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86204,7 +86204,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h83c2b3a83b
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h1db5c88b0c744bf5E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86296,7 +86296,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h87a1e9f8af
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hda18869df574eb28E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -86345,7 +86345,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h91d760fd4f
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h35d7b47cb86bb07eE.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86432,7 +86432,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h9840585de2
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h31f1d7e93ca15271E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86524,7 +86524,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17h9f2e2e6c21
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hdf56d201a49a25afE.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -86572,7 +86572,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hbf245ab242
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hb3b7fed629da2fe8E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -86621,7 +86621,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hc57ec03dd5
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h3e7542bbf62ef46fE.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86707,7 +86707,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hcd1d551527
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hbace88b37d6ee3f2E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -86756,7 +86756,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hd1a2036889
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h713862b57698337aE.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86842,7 +86842,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17hdbc66a4d97
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h58ecd4749848a363E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -86891,7 +86891,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17he623ab512d
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17hc90a313a3b2dbff4E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -86984,7 +86984,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17heb16ecabb5
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h6dec1483c0495b74E.llvm.11057974413330164255.exit", label %22
 
 22:                                               ; preds = %2
@@ -88465,7 +88465,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner5erase17hc60ce494f9a2a
   %14 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %10, i1 false)
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %13, i1 false)
   %narrow = add nuw nsw i16 %15, %14
-  %16 = icmp ugt i16 %narrow, 15
+  %16 = icmp samesign ugt i16 %narrow, 15
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
@@ -88641,7 +88641,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT
   %39 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %35, i1 false)
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %38, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %40, %39
-  %41 = icmp ugt i16 %narrow.i.i.i, 15
+  %41 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %41, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$5erase17h721374743d7e30f4E.llvm.11057974413330164255.exit", label %42
 
 42:                                               ; preds = %29
@@ -88790,7 +88790,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$12rem
   %67 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %63, i1 false)
   %68 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %66, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %68, %67
-  %69 = icmp ugt i16 %narrow.i.i.i, 15
+  %69 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %69, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6remove17he7878bdc19167546E.llvm.11057974413330164255.exit", label %70
 
 70:                                               ; preds = %56
@@ -88924,7 +88924,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$12rem
   %56 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %52, i1 false)
   %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %55, i1 false)
   %narrow.i.i.i = add nuw nsw i16 %57, %56
-  %58 = icmp ugt i16 %narrow.i.i.i, 15
+  %58 = icmp samesign ugt i16 %narrow.i.i.i, 15
   br i1 %58, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6remove17he7878bdc19167546E.llvm.11057974413330164255.exit", label %59
 
 59:                                               ; preds = %45
@@ -88979,7 +88979,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$13erase_no_dr
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
   %narrow.i = add nuw nsw i16 %20, %19
-  %21 = icmp ugt i16 %narrow.i, 15
+  %21 = icmp samesign ugt i16 %narrow.i, 15
   br i1 %21, label %_ZN9hashbrown3raw5inner13RawTableInner5erase17hc60ce494f9a2aa81E.llvm.11057974413330164255.exit, label %22
 
 22:                                               ; preds = %2
@@ -92402,7 +92402,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$5erase17h7213
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$13erase_no_drop17h369b51ec807e88d8E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -92598,7 +92598,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6remo
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
   %narrow.i.i = add nuw nsw i16 %19, %18
-  %20 = icmp ugt i16 %narrow.i.i, 15
+  %20 = icmp samesign ugt i16 %narrow.i.i, 15
   br i1 %20, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$13erase_no_drop17h369b51ec807e88d8E.llvm.11057974413330164255.exit", label %21
 
 21:                                               ; preds = %2
@@ -107457,7 +107457,7 @@ define void @_ZN5typst4math5style21style_for_superscript17h608eb8fead537386E(ptr
   %.0.i.i.i = phi ptr [ %6, %2 ], [ %15, %14 ]
   %16 = load i8, ptr %.0.i.i.i, align 1, !range !4422, !alias.scope !25652, !noalias !25643, !noundef !12
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !25621
-  %switch = icmp ult i8 %16, 2
+  %switch = icmp samesign ult i8 %16, 2
   br i1 %switch, label %.split3, label %.split
 
 .split3:                                          ; preds = %"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$7size_in17ha841735a352ed8cbE.exit"
@@ -114763,7 +114763,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst13introspection12introspector1_15_
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %51 = load i32, ptr %3, align 16, !range !4701, !alias.scope !27265, !noundef !12
-  %switch.i.i = icmp ult i32 %51, 3
+  %switch.i.i = icmp samesign ult i32 %51, 3
   br i1 %switch.i.i, label %.sink.split.i.i, label %"_ZN4core3ptr72drop_in_place$LT$typst..introspection..introspector.._..__ComemoCall$GT$17hd523fd78c612da7eE.exit"
 
 .sink.split.i.i:                                  ; preds = %50
@@ -114900,7 +114900,7 @@ _ZN5typst13introspection12introspector12Introspector4page17h84b945d600c8e53dE.ex
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load i32, ptr %5, align 16, !range !4701, !alias.scope !27291, !noundef !12
-  %switch.i8 = icmp ult i32 %43, 3
+  %switch.i8 = icmp samesign ult i32 %43, 3
   br i1 %switch.i8, label %.sink.split.i9, label %"_ZN4core3ptr75drop_in_place$LT$typst..introspection..introspector.._..__ComemoVariant$GT$17hd48d2ff2e076a4f1E.exit11"
 
 .sink.split.i9:                                   ; preds = %41
@@ -127211,8 +127211,8 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
 define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15with_supplement17hdb07ec60043c9da9E"(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, { [32 x i8], i8, [7 x i8] }, { { { { ptr, ptr } }, {}, {} }, i64 }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30555)
   %4 = load i64, ptr %1, align 8, !range !4755, !alias.scope !30558, !noalias !30555, !noundef !12
-  %switch.not.i.i.i = icmp ult i64 %4, 2
-  br i1 %switch.not.i.i.i, label %5, label %7
+  %or.cond.i.i = icmp samesign ult i64 %4, 2
+  br i1 %or.cond.i.i, label %5, label %7
 
 5:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
@@ -127325,8 +127325,8 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$15push_supplement17h7c90409126c90ffeE"(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4755, !alias.scope !30583, !noundef !12
-  %switch.not.i.i = icmp ult i64 %3, 2
-  br i1 %switch.not.i.i, label %4, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %3, 2
+  br i1 %or.cond.i, label %4, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 4:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
@@ -127623,7 +127623,7 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
   call void @llvm.experimental.noalias.scope.decl(metadata !30727)
   call void @llvm.experimental.noalias.scope.decl(metadata !30730)
   %21 = load i64, ptr %.0.i.i, align 8, !range !3201, !alias.scope !30733, !noalias !30734, !noundef !12
-  %switch.not.i = icmp ult i64 %21, 2
+  %switch.not.i = icmp samesign ult i64 %21, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %20
@@ -127894,7 +127894,7 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
   call void @llvm.experimental.noalias.scope.decl(metadata !30888)
   call void @llvm.experimental.noalias.scope.decl(metadata !30891)
   %18 = load i64, ptr %.0.i.i, align 8, !range !3201, !alias.scope !30894, !noalias !30895, !noundef !12
-  %switch.not.i = icmp ult i64 %18, 2
+  %switch.not.i = icmp samesign ult i64 %18, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %17
@@ -128374,7 +128374,7 @@ define void @"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..Eq
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr %3, align 8, !range !3201, !alias.scope !31143, !noalias !31141, !noundef !12
-  %switch.not.i.i = icmp ult i64 %10, 2
+  %switch.not.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.not.i.i, label %11, label %.body.i
 
 11:                                               ; preds = %8
@@ -129263,7 +129263,7 @@ switch.lookup:                                    ; preds = %_ZN5typst11foundati
   call void @llvm.experimental.noalias.scope.decl(metadata !31341)
   call void @llvm.experimental.noalias.scope.decl(metadata !31344)
   %94 = load i64, ptr %.0.i.i38, align 8, !range !3201, !alias.scope !31347, !noalias !31348, !noundef !12
-  %switch.not.i = icmp ult i64 %94, 2
+  %switch.not.i = icmp samesign ult i64 %94, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %93
@@ -129647,7 +129647,7 @@ switch.lookup:                                    ; preds = %_ZN5typst11foundati
   call void @llvm.experimental.noalias.scope.decl(metadata !31490)
   call void @llvm.experimental.noalias.scope.decl(metadata !31493)
   %81 = load i64, ptr %.0.i.i28, align 8, !range !3201, !alias.scope !31496, !noalias !31497, !noundef !12
-  %switch.not.i = icmp ult i64 %81, 2
+  %switch.not.i = icmp samesign ult i64 %81, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %80
@@ -129934,7 +129934,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hf7a4cabafb4c5e70E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !31617)
   call void @llvm.experimental.noalias.scope.decl(metadata !31620)
   %75 = load i64, ptr %.0.i.i29, align 8, !range !3201, !alias.scope !31623, !noalias !31624, !noundef !12
-  %switch.not.i = icmp ult i64 %75, 2
+  %switch.not.i = icmp samesign ult i64 %75, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %74
@@ -129957,8 +129957,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !31587
   %77 = load i64, ptr %0, align 8, !range !4755, !alias.scope !31638, !noundef !12
-  %switch.not.i.i = icmp ult i64 %77, 2
-  br i1 %switch.not.i.i, label %78, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %77, 2
+  br i1 %or.cond.i, label %78, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 78:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
@@ -130847,8 +130847,8 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
   %80 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink.i, ptr %80, align 8
   store ptr null, ptr %0, align 8
-  %switch.not.i.i = icmp ult i64 %78, 2
-  br i1 %switch.not.i.i, label %81, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %78, 2
+  br i1 %or.cond.i, label %81, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 81:                                               ; preds = %77
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -130865,8 +130865,8 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
 .body.thread:                                     ; preds = %62, %.body.thread118
   %eh.lpad-body117 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread118 ], [ %63, %62 ]
   %83 = load i64, ptr %10, align 8, !range !4755, !alias.scope !31755, !noundef !12
-  %switch.not.i.i86 = icmp ult i64 %83, 2
-  br i1 %switch.not.i.i86, label %84, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit88.thread"
+  %or.cond.i86 = icmp samesign ult i64 %83, 2
+  br i1 %or.cond.i86, label %84, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit88.thread"
 
 84:                                               ; preds = %.body.thread
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -137695,7 +137695,7 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34020)
   %4 = getelementptr inbounds i8, ptr %1, i64 152
   %5 = load i64, ptr %4, align 8, !range !3201, !alias.scope !34023, !noalias !34020, !noundef !12
-  %switch.not.i.i = icmp ult i64 %5, 2
+  %switch.not.i.i = icmp samesign ult i64 %5, 2
   br i1 %switch.not.i.i, label %6, label %14
 
 6:                                                ; preds = %3
@@ -137738,8 +137738,8 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34033)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 16, !range !4755, !alias.scope !34036, !noalias !34033, !noundef !12
-  %switch.not.i.i.i = icmp ult i64 %5, 2
-  br i1 %switch.not.i.i.i, label %6, label %8
+  %or.cond.i.i = icmp samesign ult i64 %5, 2
+  br i1 %or.cond.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -137961,7 +137961,7 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
 define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..FigureElem$GT$9push_kind17ha36d4ec12abb2bd3E"(ptr noalias noundef align 16 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i64, ptr %3, align 8, !range !3201, !alias.scope !34104, !noundef !12
-  %switch.not.i = icmp ult i64 %4, 2
+  %switch.not.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i, label %5, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$$GT$17hb5f9a19fd8470714E.llvm.11057974413330164255.exit"
 
 5:                                                ; preds = %2
@@ -137992,8 +137992,8 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
 define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..FigureElem$GT$15push_supplement17h5651e4e5fee0fd68E"(ptr noalias noundef align 16 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 16, !range !4755, !alias.scope !34112, !noundef !12
-  %switch.not.i.i = icmp ult i64 %4, 2
-  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %4, 2
+  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -139200,7 +139200,7 @@ define void @"_ZN5typst5model6figure1_50_$LT$impl$u20$typst..model..figure..Figu
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr %3, align 8, !range !3201, !alias.scope !34748, !noalias !34746, !noundef !12
-  %switch.not.i.i = icmp ult i64 %10, 2
+  %switch.not.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.not.i.i, label %11, label %.body.i
 
 11:                                               ; preds = %8
@@ -140500,7 +140500,7 @@ common.resume:                                    ; preds = %219, %104
   call void @llvm.experimental.noalias.scope.decl(metadata !35110)
   call void @llvm.experimental.noalias.scope.decl(metadata !35113)
   %125 = load i64, ptr %.0.i.i56, align 8, !range !3201, !alias.scope !35116, !noalias !35117, !noundef !12
-  %switch.not.i = icmp ult i64 %125, 2
+  %switch.not.i = icmp samesign ult i64 %125, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %124
@@ -141270,7 +141270,7 @@ _ZN5typst11foundations6styles10StyleChain3get17heb9fbf52bbc4e378E.exit.thread: ;
   call void @llvm.experimental.noalias.scope.decl(metadata !35456)
   call void @llvm.experimental.noalias.scope.decl(metadata !35459)
   %103 = load i64, ptr %.0.i.i33, align 8, !range !3201, !alias.scope !35462, !noalias !35463, !noundef !12
-  %switch.not.i = icmp ult i64 %103, 2
+  %switch.not.i = icmp samesign ult i64 %103, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %102
@@ -141753,7 +141753,7 @@ _ZN5typst11foundations6styles10StyleChain3get17heb9fbf52bbc4e378E.exit: ; preds 
   %.sroa.682.0 = phi i64 [ undef, %87 ], [ %.sroa.6.8.copyload.i.i.i, %90 ], [ undef, %83 ], [ undef, %78 ], [ undef, %75 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7), !noalias !35670
   %92 = load i64, ptr %66, align 8, !range !3201, !alias.scope !35718, !noundef !12
-  %switch.not.i = icmp ult i64 %92, 2
+  %switch.not.i = icmp samesign ult i64 %92, 2
   br i1 %switch.not.i, label %93, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$$GT$17hb5f9a19fd8470714E.llvm.11057974413330164255.exit"
 
 93:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17heb9fbf52bbc4e378E.exit
@@ -141837,7 +141837,7 @@ _ZN5typst11foundations6styles10StyleChain3get17heb9fbf52bbc4e378E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !35756)
   call void @llvm.experimental.noalias.scope.decl(metadata !35759)
   %119 = load i64, ptr %.0.i.i57, align 8, !range !3201, !alias.scope !35762, !noalias !35763, !noundef !12
-  %switch.not.i58 = icmp ult i64 %119, 2
+  %switch.not.i58 = icmp samesign ult i64 %119, 2
   br i1 %switch.not.i58, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %118
@@ -141860,8 +141860,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !35726
   %121 = load i64, ptr %101, align 16, !range !4755, !alias.scope !35777, !noundef !12
-  %switch.not.i.i = icmp ult i64 %121, 2
-  br i1 %switch.not.i.i, label %122, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %121, 2
+  br i1 %or.cond.i, label %122, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 122:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %101)
@@ -143507,8 +143507,8 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit": ; preds = %123, %127, %97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %128 = load i64, ptr %14, align 8, !range !4755, !alias.scope !36080, !noundef !12
-  %switch.not.i.i = icmp ult i64 %128, 2
-  br i1 %switch.not.i.i, label %129, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %128, 2
+  br i1 %or.cond.i, label %129, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 129:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -143535,7 +143535,7 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit", %129, %85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %135 = load i64, ptr %16, align 8, !range !3201, !alias.scope !36086, !noundef !12
-  %switch.not.i = icmp ult i64 %135, 2
+  %switch.not.i = icmp samesign ult i64 %135, 2
   br i1 %switch.not.i, label %136, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$$GT$17hb5f9a19fd8470714E.llvm.11057974413330164255.exit"
 
 136:                                              ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
@@ -143553,8 +143553,8 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread": ; preds = %130, %132, %.thread212
   %.pn216 = phi { ptr, i32 } [ %88, %.thread212 ], [ %lpad.thr_comm, %132 ], [ %lpad.thr_comm, %130 ]
   %142 = load i64, ptr %14, align 8, !range !4755, !alias.scope !36094, !noundef !12
-  %switch.not.i.i168 = icmp ult i64 %142, 2
-  br i1 %switch.not.i.i168, label %143, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread"
+  %or.cond.i168 = icmp samesign ult i64 %142, 2
+  br i1 %or.cond.i168, label %143, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread"
 
 143:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -143589,7 +143589,7 @@ common.resume:                                    ; preds = %.thread234, %31
 "_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread", %143, %.thread200
   %.pn156204 = phi { ptr, i32 } [ %76, %.thread200 ], [ %.pn216, %143 ], [ %.pn216, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit166.thread" ]
   %153 = load i64, ptr %16, align 8, !range !3201, !alias.scope !36113, !noundef !12
-  %switch.not.i173 = icmp ult i64 %153, 2
+  %switch.not.i173 = icmp samesign ult i64 %153, 2
   br i1 %switch.not.i173, label %154, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..figure..FigureKind$GT$$GT$$GT$17hb5f9a19fd8470714E.llvm.11057974413330164255.exit176.thread"
 
 154:                                              ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit170.thread"
@@ -144075,7 +144075,7 @@ define void @"_ZN5typst5model6figure1_95_$LT$impl$u20$typst..foundations..elemen
   %155 = landingpad { ptr, i32 }
           cleanup
   %156 = load i64, ptr %5, align 8, !range !3201, !alias.scope !36206, !noalias !36199, !noundef !12
-  %switch.not.i.i.i = icmp ult i64 %156, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %156, 2
   br i1 %switch.not.i.i.i, label %157, label %.body
 
 157:                                              ; preds = %154
@@ -154234,8 +154234,8 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39017)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8, !range !4755, !alias.scope !39020, !noalias !39017, !noundef !12
-  %switch.not.i.i.i = icmp ult i64 %5, 2
-  br i1 %switch.not.i.i.i, label %6, label %8
+  %or.cond.i.i = icmp samesign ult i64 %5, 2
+  br i1 %or.cond.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -154375,8 +154375,8 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
 define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$15push_supplement17h4eb11515de8b3ef5E"(ptr noalias noundef align 8 dereferenceable(144) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !range !4755, !alias.scope !39051, !noundef !12
-  %switch.not.i.i = icmp ult i64 %4, 2
-  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %4, 2
+  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -154718,7 +154718,7 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
   call void @llvm.experimental.noalias.scope.decl(metadata !39229)
   call void @llvm.experimental.noalias.scope.decl(metadata !39232)
   %22 = load i64, ptr %.0.i.i, align 8, !range !3201, !alias.scope !39235, !noalias !39236, !noundef !12
-  %switch.not.i = icmp ult i64 %22, 2
+  %switch.not.i = icmp samesign ult i64 %22, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %21
@@ -155128,7 +155128,7 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
   call void @llvm.experimental.noalias.scope.decl(metadata !39492)
   call void @llvm.experimental.noalias.scope.decl(metadata !39495)
   %18 = load i64, ptr %.0.i.i, align 8, !range !3201, !alias.scope !39498, !noalias !39499, !noundef !12
-  %switch.not.i = icmp ult i64 %18, 2
+  %switch.not.i = icmp samesign ult i64 %18, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %17
@@ -155426,7 +155426,7 @@ define void @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..He
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr %3, align 8, !range !3201, !alias.scope !39613, !noalias !39611, !noundef !12
-  %switch.not.i.i = icmp ult i64 %10, 2
+  %switch.not.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.not.i.i, label %11, label %.body.i
 
 11:                                               ; preds = %8
@@ -156211,7 +156211,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h34c88f38f139c2e2E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !39819)
   call void @llvm.experimental.noalias.scope.decl(metadata !39822)
   %104 = load i64, ptr %.0.i.i50, align 8, !range !3201, !alias.scope !39825, !noalias !39826, !noundef !12
-  %switch.not.i = icmp ult i64 %104, 2
+  %switch.not.i = icmp samesign ult i64 %104, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %103
@@ -156704,7 +156704,7 @@ _ZN5typst11foundations6styles10StyleChain3get17ha689e46313099fe1E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !40065)
   call void @llvm.experimental.noalias.scope.decl(metadata !40068)
   %88 = load i64, ptr %.0.i.i30, align 8, !range !3201, !alias.scope !40071, !noalias !40072, !noundef !12
-  %switch.not.i = icmp ult i64 %88, 2
+  %switch.not.i = icmp samesign ult i64 %88, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %87
@@ -157142,7 +157142,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3e05975802f450c5E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !40294)
   call void @llvm.experimental.noalias.scope.decl(metadata !40297)
   %92 = load i64, ptr %.0.i.i51, align 8, !range !3201, !alias.scope !40300, !noalias !40301, !noundef !12
-  %switch.not.i = icmp ult i64 %92, 2
+  %switch.not.i = icmp samesign ult i64 %92, 2
   br i1 %switch.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.thread4.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hafcefc2265fadb88E.exit.i": ; preds = %91
@@ -157165,8 +157165,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !40264
   %94 = load i64, ptr %74, align 8, !range !4755, !alias.scope !40315, !noundef !12
-  %switch.not.i.i = icmp ult i64 %94, 2
-  br i1 %switch.not.i.i, label %95, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %94, 2
+  br i1 %or.cond.i, label %95, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 95:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h4d48c3e2109a95dcE.exit
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %74)
@@ -158299,8 +158299,8 @@ define void @"_ZN5typst5model7heading1_103_$LT$impl$u20$typst..foundations..elem
   store i64 %.sink, ptr %98, align 8
   store ptr null, ptr %0, align 8
   %99 = load i64, ptr %10, align 8, !range !4755, !alias.scope !40529, !noundef !12
-  %switch.not.i.i = icmp ult i64 %99, 2
-  br i1 %switch.not.i.i, label %100, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
+  %or.cond.i = icmp samesign ult i64 %99, 2
+  br i1 %or.cond.i, label %100, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit"
 
 100:                                              ; preds = %96
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
@@ -158321,8 +158321,8 @@ define void @"_ZN5typst5model7heading1_103_$LT$impl$u20$typst..foundations..elem
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %104 = load i64, ptr %10, align 8, !range !4755, !alias.scope !40535, !noundef !12
-  %switch.not.i.i113 = icmp ult i64 %104, 2
-  br i1 %switch.not.i.i113, label %105, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit115.thread"
+  %or.cond.i113 = icmp samesign ult i64 %104, 2
+  br i1 %or.cond.i113, label %105, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit115.thread"
 
 105:                                              ; preds = %103
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)

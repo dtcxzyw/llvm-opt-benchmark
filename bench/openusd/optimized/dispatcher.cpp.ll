@@ -1547,7 +1547,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__16TfErrorTra
   store atomic i64 %39, ptr %59 release, align 8
   %60 = add nuw nsw i64 %.01495, 1
   %61 = icmp ult i64 %60, %56
-  %62 = and i1 %58, %61
+  %62 = and i1 %61, %58
   br i1 %62, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportEZNS1_18spin_wait_while_eqIS5_S5_EET_RKSt6atomicIS7_ET0_St12memory_orderEUlS5_E_EES7_SB_SC_SD_.exit, !llvm.loop !36
 
 63:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportENS3_23cache_aligned_allocatorIS6_EEE14create_segmentEPSt6atomicIPS6_EmmEUlvE_E12on_exceptionIZNS9_14create_segmentESD_mmEUlvE0_EEvT_.exit

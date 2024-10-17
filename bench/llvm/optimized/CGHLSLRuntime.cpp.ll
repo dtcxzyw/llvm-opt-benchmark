@@ -238,7 +238,7 @@ define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime11addConstantEPNS_7VarDec
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 1080863910568919040
-  %23 = icmp ugt i64 %22, 288230376151711744
+  %23 = icmp samesign ugt i64 %22, 288230376151711744
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %17
@@ -2455,7 +2455,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.us
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %92 = load i32, ptr %78, align 8
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next44.i, %93
+  %94 = icmp samesign ult i64 %indvars.iv.next44.i, %93
   br i1 %94, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.us.i, label %_ZL16buildVectorInputRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_8FunctionEPNS_4TypeE.exit, !llvm.loop !41
 
 _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i: ; preds = %.lr.ph.i, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i
@@ -2476,7 +2476,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %104 = load i32, ptr %78, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next.i, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next.i, %105
   br i1 %106, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %_ZL16buildVectorInputRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_8FunctionEPNS_4TypeE.exit, !llvm.loop !41
 
 107:                                              ; preds = %64

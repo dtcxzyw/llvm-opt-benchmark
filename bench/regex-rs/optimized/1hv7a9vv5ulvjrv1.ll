@@ -645,7 +645,7 @@ define hidden void @_ZN12regex_syntax3hir9translate8HirFrame11unwrap_expr17h4b72
 
 14:                                               ; preds = %._crit_edge, %11
   %15 = phi i64 [ %.pre, %._crit_edge ], [ %6, %11 ]
-  %switch = icmp ult i64 %15, 11
+  %switch = icmp samesign ult i64 %15, 11
   br i1 %switch, label %24, label %23
 
 16:                                               ; preds = %25, %12
@@ -1617,7 +1617,7 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit246: ; preds = %
   %or.cond.i.not19.i = select i1 %195, i1 true, i1 %198
   %199 = getelementptr inbounds i8, ptr %187, i64 48
   %200 = load i32, ptr %199, align 8, !range !222, !alias.scope !210, !noalias !220
-  %201 = icmp ugt i32 %200, 255
+  %201 = icmp samesign ugt i32 %200, 255
   %.not16.i = select i1 %or.cond.i.not19.i, i1 true, i1 %201
   br i1 %.not16.i, label %205, label %206
 
@@ -1634,7 +1634,7 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit246: ; preds = %
   br label %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread
 
 206:                                              ; preds = %192
-  %207 = icmp ult i32 %200, 128
+  %207 = icmp samesign ult i32 %200, 128
   br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
@@ -4352,7 +4352,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
 964:                                              ; preds = %957, %972, %962
   %.sroa.0824.0 = phi i64 [ %.sroa.0824.0.copyload825, %972 ], [ %.sroa.0.0.copyload.i312, %962 ], [ 10, %957 ]
   %965 = phi i64 [ %.pre.i, %972 ], [ %.sroa.0.0.copyload.i312, %962 ], [ %.sroa.0.0.copyload.i312, %957 ]
-  %switch.i = icmp ult i64 %965, 11
+  %switch.i = icmp samesign ult i64 %965, 11
   br i1 %switch.i, label %987, label %978
 
 .loopexit:                                        ; preds = %963
@@ -4760,7 +4760,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
 1066:                                             ; preds = %1059, %1074, %1064
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload820, %1074 ], [ %.sroa.0.0.copyload.i336, %1064 ], [ 10, %1059 ]
   %1067 = phi i64 [ %.pre.i344, %1074 ], [ %.sroa.0.0.copyload.i336, %1064 ], [ %.sroa.0.0.copyload.i336, %1059 ]
-  %switch.i343 = icmp ult i64 %1067, 11
+  %switch.i343 = icmp samesign ult i64 %1067, 11
   br i1 %switch.i343, label %1089, label %1079
 
 .loopexit744:                                     ; preds = %1065
@@ -5533,7 +5533,7 @@ common.resume:                                    ; preds = %892, %798, %483, %5
   %or.cond.i.not19.i.i = select i1 %180, i1 true, i1 %183
   %184 = getelementptr inbounds i8, ptr %2, i64 48
   %185 = load i32, ptr %184, align 8, !range !222, !alias.scope !1106, !noalias !1104
-  %186 = icmp ugt i32 %185, 255
+  %186 = icmp samesign ugt i32 %185, 255
   %.not16.i.i = select i1 %or.cond.i.not19.i.i, i1 true, i1 %186
   br i1 %.not16.i.i, label %187, label %188
 
@@ -5543,7 +5543,7 @@ common.resume:                                    ; preds = %892, %798, %483, %5
   br label %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread.i
 
 188:                                              ; preds = %177
-  %189 = icmp ult i32 %185, 128
+  %189 = icmp samesign ult i32 %185, 128
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %188
@@ -5928,7 +5928,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   %or.cond.i.not19.i.i256 = select i1 %305, i1 true, i1 %308
   %309 = getelementptr inbounds i8, ptr %2, i64 96
   %310 = load i32, ptr %309, align 8, !range !222, !alias.scope !1207, !noalias !1205
-  %311 = icmp ugt i32 %310, 255
+  %311 = icmp samesign ugt i32 %310, 255
   %.not16.i.i257 = select i1 %or.cond.i.not19.i.i256, i1 true, i1 %311
   br i1 %.not16.i.i257, label %312, label %313
 
@@ -5938,7 +5938,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   br label %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread.i259
 
 313:                                              ; preds = %301
-  %314 = icmp ult i32 %310, 128
+  %314 = icmp samesign ult i32 %310, 128
   br i1 %314, label %319, label %315
 
 315:                                              ; preds = %313
@@ -6046,8 +6046,8 @@ _ZN12regex_syntax3hir9translate11TranslatorI18class_literal_byte17h19ba0aa43906c
   %352 = load i8, ptr %351, align 1, !range !221, !alias.scope !1228, !noalias !1231
   %353 = icmp ne i8 %352, 0
   %or.cond.i.not19.i.i293 = select i1 %350, i1 true, i1 %353
-  %354 = icmp ugt i32 %96, 255
-  %.not16.i.i294 = or i1 %or.cond.i.not19.i.i293, %354
+  %354 = icmp samesign ugt i32 %96, 255
+  %.not16.i.i294 = select i1 %or.cond.i.not19.i.i293, i1 true, i1 %354
   br i1 %.not16.i.i294, label %356, label %357
 
 355:                                              ; preds = %343
@@ -6061,7 +6061,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI18class_literal_byte17h19ba0aa43906c
   br label %_ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a973da6eE.exit.thread.i296
 
 357:                                              ; preds = %347
-  %358 = icmp ult i32 %96, 128
+  %358 = icmp samesign ult i32 %96, 128
   br i1 %358, label %363, label %359
 
 359:                                              ; preds = %357

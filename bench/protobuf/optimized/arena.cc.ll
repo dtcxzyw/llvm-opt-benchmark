@@ -412,7 +412,7 @@ if.end.i:                                         ; preds = %entry
   %cached_block_length_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i8, ptr %cached_block_length_.i, align 8
   %conv3.i = zext i8 %1 to i64
-  %cmp4.i.not = icmp ult i64 %sub2.i, %conv3.i
+  %cmp4.i.not = icmp samesign ult i64 %sub2.i, %conv3.i
   br i1 %cmp4.i.not, label %if.end7.i, label %if.end
 
 if.end7.i:                                        ; preds = %if.end.i

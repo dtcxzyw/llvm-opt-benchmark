@@ -1359,7 +1359,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %70, %73
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %70 ], [ %75, %73 ]
   %.idx370 = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
   %79 = getelementptr inbounds i8, ptr %78, i64 %.idx370
-  %.not369 = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not369 = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not369, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit

@@ -102,7 +102,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
   %spec.select.i.i = select i1 %32, i64 %33, i64 %1
   %spec.select23.i.i = select i1 %32, i32 32, i32 0
   %34 = trunc nuw i64 %spec.select.i.i to i32
-  %35 = icmp ugt i64 %spec.select.i.i, 65535
+  %35 = icmp samesign ugt i64 %spec.select.i.i, 65535
   %36 = lshr i32 %34, 16
   %37 = or disjoint i32 %spec.select23.i.i, 16
   %.116.i.i = select i1 %35, i32 %37, i32 %spec.select23.i.i
@@ -112,7 +112,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
   %40 = or disjoint i32 %.116.i.i, 8
   %.217.i.i = select i1 %38, i32 %40, i32 %.116.i.i
   %.1.i.i = select i1 %38, i32 %39, i32 %.0.i.i
-  %41 = icmp ugt i32 %.1.i.i, 15
+  %41 = icmp samesign ugt i32 %.1.i.i, 15
   %42 = lshr i32 %.1.i.i, 4
   %43 = or disjoint i32 %.217.i.i, 4
   %.3.i.i = select i1 %41, i32 %43, i32 %.217.i.i
@@ -132,7 +132,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
   %spec.select.i4.i = select i1 %52, i64 %53, i64 %0
   %spec.select23.i5.i = select i1 %52, i32 32, i32 0
   %54 = trunc nuw i64 %spec.select.i4.i to i32
-  %55 = icmp ugt i64 %spec.select.i4.i, 65535
+  %55 = icmp samesign ugt i64 %spec.select.i4.i, 65535
   %56 = lshr i32 %54, 16
   %57 = or disjoint i32 %spec.select23.i5.i, 16
   %.116.i6.i = select i1 %55, i32 %57, i32 %spec.select23.i5.i
@@ -142,7 +142,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
   %60 = or disjoint i32 %.116.i6.i, 8
   %.217.i8.i = select i1 %58, i32 %60, i32 %.116.i6.i
   %.1.i9.i = select i1 %58, i32 %59, i32 %.0.i7.i
-  %61 = icmp ugt i32 %.1.i9.i, 15
+  %61 = icmp samesign ugt i32 %.1.i9.i, 15
   %62 = lshr i32 %.1.i9.i, 4
   %63 = or disjoint i32 %.217.i8.i, 4
   %.3.i10.i = select i1 %61, i32 %63, i32 %.217.i8.i
@@ -165,7 +165,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %31, %51
   %spec.select.i.i13 = select i1 %71, i64 %72, i64 %3
   %spec.select23.i.i14 = select i1 %71, i32 32, i32 0
   %73 = trunc nuw i64 %spec.select.i.i13 to i32
-  %74 = icmp ugt i64 %spec.select.i.i13, 65535
+  %74 = icmp samesign ugt i64 %spec.select.i.i13, 65535
   %75 = lshr i32 %73, 16
   %76 = or disjoint i32 %spec.select23.i.i14, 16
   %.116.i.i15 = select i1 %74, i32 %76, i32 %spec.select23.i.i14
@@ -175,7 +175,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %31, %51
   %79 = or disjoint i32 %.116.i.i15, 8
   %.217.i.i17 = select i1 %77, i32 %79, i32 %.116.i.i15
   %.1.i.i18 = select i1 %77, i32 %78, i32 %.0.i.i16
-  %80 = icmp ugt i32 %.1.i.i18, 15
+  %80 = icmp samesign ugt i32 %.1.i.i18, 15
   %81 = lshr i32 %.1.i.i18, 4
   %82 = or disjoint i32 %.217.i.i17, 4
   %.3.i.i19 = select i1 %80, i32 %82, i32 %.217.i.i17
@@ -195,7 +195,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %31, %51
   %spec.select.i4.i22 = select i1 %91, i64 %92, i64 %2
   %spec.select23.i5.i23 = select i1 %91, i32 32, i32 0
   %93 = trunc nuw i64 %spec.select.i4.i22 to i32
-  %94 = icmp ugt i64 %spec.select.i4.i22, 65535
+  %94 = icmp samesign ugt i64 %spec.select.i4.i22, 65535
   %95 = lshr i32 %93, 16
   %96 = or disjoint i32 %spec.select23.i5.i23, 16
   %.116.i6.i24 = select i1 %94, i32 %96, i32 %spec.select23.i5.i23
@@ -205,7 +205,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %31, %51
   %99 = or disjoint i32 %.116.i6.i24, 8
   %.217.i8.i26 = select i1 %97, i32 %99, i32 %.116.i6.i24
   %.1.i9.i27 = select i1 %97, i32 %98, i32 %.0.i7.i25
-  %100 = icmp ugt i32 %.1.i9.i27, 15
+  %100 = icmp samesign ugt i32 %.1.i9.i27, 15
   %101 = lshr i32 %.1.i9.i27, 4
   %102 = or disjoint i32 %.217.i8.i26, 4
   %.3.i10.i28 = select i1 %100, i32 %102, i32 %.217.i8.i26
@@ -236,7 +236,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit30: ; preds = %70, %90
   %.sroa.035.064 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %112 = tail call i64 @llvm.fshl.i64(i64 %.sroa.6.065, i64 %.sroa.035.064, i64 1)
   %113 = shl i64 %.sroa.035.064, 1
-  %114 = icmp ult i64 %indvars.iv, 64
+  %114 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %.lr.ph
@@ -249,7 +249,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit30: ; preds = %70, %90
   br label %_ZN6google8protobuflsERKNS0_7uint128Ei.exit
 
 120:                                              ; preds = %.lr.ph
-  %121 = icmp ult i64 %indvars.iv, 128
+  %121 = icmp samesign ult i64 %indvars.iv, 128
   br i1 %121, label %122, label %_ZN6google8protobuflsERKNS0_7uint128Ei.exit
 
 122:                                              ; preds = %120

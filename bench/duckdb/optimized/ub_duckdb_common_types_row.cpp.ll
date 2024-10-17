@@ -14721,7 +14721,7 @@ if.then22:                                        ; preds = %if.end
   br i1 %cmp27159.not, label %if.then30, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then22
-  %min.iters.check = icmp ult i64 %conv26, 4
+  %min.iters.check = icmp samesign ult i64 %conv26, 4
   br i1 %min.iters.check, label %for.body.preheader36, label %vector.ph
 
 for.body.preheader36:                             ; preds = %middle.block, %for.body.preheader

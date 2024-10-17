@@ -5976,7 +5976,7 @@ invoke.cont86.i:                                  ; preds = %if.end85.i
           to label %invoke.cont89.i unwind label %lpad66.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont86.i
-  %tobool.i.i158.not.i = icmp ult i16 %call90.i, 256
+  %tobool.i.i158.not.i = icmp samesign ult i16 %call90.i, 256
   br i1 %tobool.i.i158.not.i, label %if.end105.i, label %if.then95.i
 
 if.then95.i:                                      ; preds = %invoke.cont89.i
@@ -10049,7 +10049,7 @@ invoke.cont146.i:                                 ; preds = %if.end144.i
           to label %invoke.cont149.i unwind label %lpad145.i
 
 invoke.cont149.i:                                 ; preds = %invoke.cont146.i
-  %tobool.i.i213.not.i = icmp ult i16 %call150.i, 256
+  %tobool.i.i213.not.i = icmp samesign ult i16 %call150.i, 256
   br i1 %tobool.i.i213.not.i, label %if.end165.i, label %if.then155.i
 
 if.then155.i:                                     ; preds = %invoke.cont149.i

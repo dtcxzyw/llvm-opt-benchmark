@@ -441,7 +441,7 @@ _ZNSt6vectorIN4llvm15SparseBitVectorILj128EEESaIS2_EE6resizeEm.exit: ; preds = %
 
 58:                                               ; preds = %58, %54
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %58 ], [ 0, %54 ]
-  %59 = icmp ult i64 %indvars.iv.i.i.i.i, 2
+  %59 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds [2 x i64], ptr %57, i64 0, i64 %indvars.iv.i.i.i.i
   %61 = load i64, ptr %60, align 8, !noalias !12
@@ -527,7 +527,7 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; pred
   br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
 
 105:                                              ; preds = %88
-  %106 = icmp ult i32 %90, 64
+  %106 = icmp samesign ult i32 %90, 64
   br i1 %106, label %107, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i
 
 107:                                              ; preds = %105
@@ -560,7 +560,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i: ; preds = %
 
 121:                                              ; preds = %121, %117
   %indvars.iv.i.i157 = phi i64 [ %indvars.iv.next.i.i158, %121 ], [ 0, %117 ]
-  %122 = icmp ult i64 %indvars.iv.i.i157, 2
+  %122 = icmp samesign ult i64 %indvars.iv.i.i157, 2
   call void @llvm.assume(i1 %122), !noalias !17
   %123 = getelementptr inbounds [2 x i64], ptr %120, i64 0, i64 %indvars.iv.i.i157
   %124 = load i64, ptr %123, align 8, !noalias !17

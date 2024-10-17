@@ -2158,7 +2158,7 @@ define dso_local noundef range(i32 -95, 1) i32 @sock_set_timestamping(ptr nounde
   br i1 %84, label %.thread7, label %77, !llvm.loop !45
 
 .thread7:                                         ; preds = %81
-  %85 = icmp ult i64 %79, %76
+  %85 = icmp samesign ult i64 %79, %76
   call void @kfree(ptr noundef %72) #22
   br i1 %85, label %86, label %.thread10
 
@@ -4888,7 +4888,7 @@ define internal fastcc i32 @sock_getbindtodevice(ptr noundef %0, ptr %1, i8 %2, 
   br label %35
 
 15:                                               ; preds = %6
-  %16 = icmp ult i32 %5, 16
+  %16 = icmp samesign ult i32 %5, 16
   br i1 %16, label %45, label %17
 
 17:                                               ; preds = %15
@@ -9408,7 +9408,7 @@ define dso_local range(i32 0, -2147483648) i32 @sock_prot_inuse_get(ptr nocaptur
   %29 = add i32 %28, %10
   %30 = add nuw nsw i64 %15, 1
   %31 = and i64 %30, 127
-  %32 = icmp ugt i64 %31, 63
+  %32 = icmp samesign ugt i64 %31, 63
   br i1 %32, label %.thread, label %8, !prof !112, !llvm.loop !113
 
 .thread:                                          ; preds = %8, %18, %14
@@ -9449,7 +9449,7 @@ define dso_local i32 @sock_inuse_get(ptr nocapture noundef readonly %0) #12 alig
   %23 = add i32 %22, %6
   %24 = add nuw nsw i64 %11, 1
   %25 = and i64 %24, 127
-  %26 = icmp ugt i64 %25, 63
+  %26 = icmp samesign ugt i64 %25, 63
   br i1 %26, label %.thread, label %4, !prof !112, !llvm.loop !114
 
 .thread:                                          ; preds = %4, %14, %10
@@ -10334,7 +10334,7 @@ define internal noundef i32 @proto_seq_show(ptr noundef %0, ptr noundef %1) #0 a
   %37 = add i32 %36, %18
   %38 = add nuw nsw i64 %23, 1
   %39 = and i64 %38, 127
-  %40 = icmp ugt i64 %39, 63
+  %40 = icmp samesign ugt i64 %39, 63
   br i1 %40, label %.thread, label %16, !prof !112, !llvm.loop !113
 
 .thread:                                          ; preds = %16, %26, %22

@@ -474,7 +474,7 @@ define internal fastcc zeroext i1 @hpet_cfg_working() unnamed_addr #4 section ".
   br label %17
 
 15:                                               ; preds = %8
-  %16 = icmp ult i32 %5, 999
+  %16 = icmp samesign ult i32 %5, 999
   br label %17
 
 17:                                               ; preds = %15, %13, %0
@@ -790,7 +790,7 @@ define dso_local void @hpet_disable() local_unnamed_addr #9 align 16 {
   %24 = add nuw nsw i64 %15, 1
   %25 = load i32, ptr @hpet_base.0, align 8
   %26 = zext nneg i32 %25 to i64
-  %27 = icmp ult i64 %24, %26
+  %27 = icmp samesign ult i64 %24, %26
   br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %9
@@ -1845,7 +1845,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   %87 = phi ptr [ %.pre, %77 ], [ %.pre, %._crit_edge ], [ %51, %57 ], [ %51, %49 ]
   %88 = add nuw nsw i64 %52, 1
   %89 = zext nneg i32 %86 to i64
-  %90 = icmp ult i64 %88, %89
+  %90 = icmp samesign ult i64 %88, %89
   br i1 %90, label %49, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %77, %85, %42
@@ -1889,7 +1889,7 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
 16:                                               ; preds = %34, %12
   %17 = phi i64 [ 0, %12 ], [ %35, %34 ]
   %18 = getelementptr %struct.hpet_channel, ptr %13, i64 %17
-  %19 = icmp ugt i64 %17, 1
+  %19 = icmp samesign ugt i64 %17, 1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16

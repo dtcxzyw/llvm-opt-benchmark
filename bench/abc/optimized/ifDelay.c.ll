@@ -2269,7 +2269,7 @@ define i32 @If_CutLutBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   %60 = trunc i64 %.val38 to i32
   %61 = lshr i32 %60, 24
   %62 = zext nneg i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %45, label %.preheader, !llvm.loop !25
 
 64:                                               ; preds = %.lr.ph45, %64

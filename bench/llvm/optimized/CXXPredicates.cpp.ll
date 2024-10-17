@@ -580,7 +580,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -1189,8 +1189,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIN9__gn
   store i8 %47, ptr %.2.ptr55, align 1
   %48 = getelementptr inbounds i8, ptr %.sroa.029.254, i64 1
   %.not45 = icmp eq ptr %48, %1
-  %.not46 = icmp ugt i64 %.2.idx53, 62
-  %or.cond47 = or i1 %.not45, %.not46
+  %.not46 = icmp samesign ugt i64 %.2.idx53, 62
+  %or.cond47 = select i1 %.not45, i1 true, i1 %.not46
   br i1 %or.cond47, label %.critedge2, label %46, !llvm.loop !29
 
 .critedge2:                                       ; preds = %46

@@ -12037,7 +12037,7 @@ _ZN5clang6format9LineStateC2ERKS1_.exit:          ; preds = %56, %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = call i64 @_ZN5clang6format20ContinuationIndenter20breakProtrudingTokenERKNS0_11FormatTokenERNS0_9LineStateEbbb(ptr noundef nonnull align 8 dereferenceable(1032) %0, ptr noundef nonnull align 8 dereferenceable(305) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i1 noundef zeroext %4, i1 noundef zeroext true, i1 noundef zeroext false)
   %.sroa.038.0.extract.trunc = trunc i64 %65 to i32
-  %.not47 = icmp ult i64 %65, 4294967296
+  %.not47 = icmp samesign ult i64 %65, 4294967296
   br i1 %.not47, label %_ZN5clang6format9LineStateD2Ev.exit, label %66
 
 66:                                               ; preds = %_ZN5clang6format9LineStateC2ERKS1_.exit

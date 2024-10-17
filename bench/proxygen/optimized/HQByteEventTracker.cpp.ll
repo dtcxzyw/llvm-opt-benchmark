@@ -230,7 +230,7 @@ entry:
   %bf.lshr.i = lshr i64 %bf.load.i, 5
   %1 = trunc i64 %bf.load.i to i32
   %bf.cast = and i32 %1, 7
-  %switch = icmp ult i32 %bf.cast, 2
+  %switch = icmp samesign ult i32 %bf.cast, 2
   br i1 %switch, label %sw.bb4, label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry

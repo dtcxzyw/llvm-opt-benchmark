@@ -721,7 +721,7 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   %80 = load ptr, ptr %79, align 8
   tail call void %80(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %45, float noundef %68, float noundef %34, i32 noundef %.061)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = icmp ult i64 %indvars.iv.next, %48
+  %81 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %81, label %49, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %62
@@ -864,7 +864,7 @@ define void @_Z36duDebugDrawCompactHeightfieldRegionsP11duDebugDrawRK20rcCompact
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %44, float noundef %54, float noundef %33, i32 noundef %.0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = icmp ult i64 %indvars.iv.next, %47
+  %73 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %73, label %48, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %60
@@ -1020,7 +1020,7 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %53, float noundef %65, float noundef %42, i32 noundef %74)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = icmp ult i64 %indvars.iv.next, %56
+  %87 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %87, label %57, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %57
@@ -1482,7 +1482,7 @@ define void @_Z28duDebugDrawRegionConnectionsP11duDebugDrawRK12rcContourSetf(ptr
   %42 = sitofp i32 %41 to float
   %43 = fadd float %29, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = icmp ult i64 %indvars.iv.next.i, %28
+  %44 = icmp samesign ult i64 %indvars.iv.next.i, %28
   br i1 %44, label %.lr.ph.i, label %_ZL16getContourCenterPK9rcContourPKfffPf.exit, !llvm.loop !29
 
 _ZL16getContourCenterPK9rcContourPKfffPf.exit:    ; preds = %.lr.ph.i, %.preheader.i
@@ -1528,7 +1528,7 @@ _ZL16getContourCenterPK9rcContourPKfffPf.exit:    ; preds = %.lr.ph.i, %.prehead
   %72 = and i32 %69, 65535
   %73 = load i16, ptr %63, align 4
   %74 = zext i16 %73 to i32
-  %75 = icmp ult i32 %72, %74
+  %75 = icmp samesign ult i32 %72, %74
   br i1 %75, label %_ZL18findContourFromSetRK12rcContourSett.exit.thread, label %76
 
 76:                                               ; preds = %71
@@ -2443,7 +2443,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   br i1 %.not175.us, label %119, label %.loopexit179.us
 
 119:                                              ; preds = %116
-  %.not176.us = icmp ult i64 %118, %106
+  %.not176.us = icmp samesign ult i64 %118, %106
   br i1 %.not176.us, label %120, label %124
 
 120:                                              ; preds = %119
@@ -2551,7 +2551,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   br i1 %181, label %.loopexit.us, label %182
 
 182:                                              ; preds = %179
-  %.not173.us = icmp ult i64 %.pre246, %169
+  %.not173.us = icmp samesign ult i64 %.pre246, %169
   br i1 %.not173.us, label %183, label %187
 
 183:                                              ; preds = %182

@@ -7761,7 +7761,7 @@ for.body14:                                       ; preds = %invoke.cont4
   %3 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %xor)
   store i32 %3, ptr %changed_bits, align 4
   store double 2.240000e+01, ptr %ref.tmp20, align 8
-  %cmp.i = icmp ugt i32 %3, 22
+  %cmp.i = icmp samesign ugt i32 %3, 22
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 lpad3:                                            ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i

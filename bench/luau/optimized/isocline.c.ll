@@ -1110,8 +1110,8 @@ str_column_width.exit.i.i:                        ; preds = %167, %.lr.ph.i.i.i.
 176:                                              ; preds = %174
   %177 = and i64 %155, 4294967296
   %178 = icmp ne i64 %177, 0
-  %179 = icmp ugt i64 %151, 3
-  %or.cond.i.i = and i1 %179, %178
+  %179 = icmp samesign ugt i64 %151, 3
+  %or.cond.i.i = select i1 %178, i1 %179, i1 false
   %180 = add nsw i64 %151, -3
   %181 = select i1 %or.cond.i.i, i64 %180, i64 %151
   %182 = icmp eq i32 %.sroa.10.8.extract.trunc.i.i, 2
@@ -6340,7 +6340,7 @@ define internal fastcc void @term_set_attr(ptr nocapture noundef %0, i64 %1) unn
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 4
-  %17 = icmp ugt i32 %8, 16777215
+  %17 = icmp samesign ugt i32 %8, 16777215
   %or.cond62 = and i1 %17, %16
   %.pre = load i64, ptr %9, align 8
   br i1 %or.cond62, label %18, label %22
@@ -6370,7 +6370,7 @@ define internal fastcc void @term_set_attr(ptr nocapture noundef %0, i64 %1) unn
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = icmp ult i32 %32, 4
-  %34 = icmp ugt i32 %26, 16777215
+  %34 = icmp samesign ugt i32 %26, 16777215
   %or.cond63 = and i1 %34, %33
   %.pre64 = load i64, ptr %9, align 8
   br i1 %or.cond63, label %35, label %39
@@ -7455,7 +7455,7 @@ tty_init_raw.exit.thread15.i:                     ; preds = %63, %30
   %83 = getelementptr inbounds i8, ptr %71, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = icmp ne i8 %84, 0
-  %86 = icmp ult i64 %.02231.i.i.i.i.i, 4
+  %86 = icmp samesign ult i64 %.02231.i.i.i.i.i, 4
   %87 = and i1 %86, %85
   br i1 %87, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !44
 
@@ -7502,7 +7502,7 @@ ic_strnicmp.exit.thread21.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i, %
   %106 = getelementptr inbounds i8, ptr %94, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = icmp ne i8 %107, 0
-  %109 = icmp ult i64 %.02231.i.i.i12.i.i, 3
+  %109 = icmp samesign ult i64 %.02231.i.i.i12.i.i, 3
   %110 = and i1 %109, %108
   br i1 %110, label %.lr.ph.i.i.i11.i.i, label %._crit_edge.i.i.i19.i.i, !llvm.loop !44
 
@@ -7915,7 +7915,7 @@ term_get_color_bits.exit.i:                       ; preds = %ic_contains.exit131
   %241 = getelementptr inbounds [256 x i32], ptr @ansi256, i64 0, i64 %.09.i.i.i
   store i32 %240, ptr %241, align 4
   %242 = add nuw nsw i64 %.09.i.i.i, 3
-  %243 = icmp ult i64 %.09.i.i.i, 45
+  %243 = icmp samesign ult i64 %.09.i.i.i, 45
   br i1 %243, label %.preheader.i.i.i, label %term_update_ansi16.exit.i.i, !llvm.loop !46
 
 244:                                              ; preds = %222
@@ -10760,11 +10760,11 @@ ic_strlen.exit:                                   ; preds = %2, %4
 
 ic_strlen.exit15:                                 ; preds = %ic_strlen.exit, %8
   %.0.i14 = phi i64 [ %10, %8 ], [ 0, %ic_strlen.exit ]
-  %11 = icmp ult i64 %.0.i, %.0.i14
+  %11 = icmp samesign ult i64 %.0.i, %.0.i14
   br i1 %11, label %ic_strnicmp.exit, label %12
 
 12:                                               ; preds = %ic_strlen.exit15
-  %13 = icmp ugt i64 %.0.i, %.0.i14
+  %13 = icmp samesign ugt i64 %.0.i, %.0.i14
   br i1 %13, label %ic_strnicmp.exit, label %14
 
 14:                                               ; preds = %12
@@ -10807,7 +10807,7 @@ ic_strlen.exit15:                                 ; preds = %ic_strlen.exit, %8
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp ne i8 %34, 0
-  %36 = icmp ult i64 %32, %.0.i14
+  %36 = icmp samesign ult i64 %32, %.0.i14
   %37 = and i1 %36, %35
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !44
 
@@ -11811,8 +11811,8 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
 
 11:                                               ; preds = %8
   %12 = icmp ult i8 %6, -32
-  %13 = icmp ugt i64 %1, 1
-  %or.cond.i = and i1 %13, %12
+  %13 = icmp samesign ugt i64 %1, 1
+  %or.cond.i = select i1 %12, i1 %13, i1 false
   br i1 %or.cond.i, label %14, label %42
 
 14:                                               ; preds = %11
@@ -11827,14 +11827,14 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br i1 %22, label %utf8_char_width.exit, label %23
 
 23:                                               ; preds = %14
-  %24 = icmp ult i32 %21, 32
+  %24 = icmp samesign ult i32 %21, 32
   %25 = add nsw i32 %21, -127
   %or.cond.i.i = icmp ult i32 %25, 33
   %or.cond10.i.i = select i1 %24, i1 true, i1 %or.cond.i.i
   br i1 %or.cond10.i.i, label %utf8_char_width.exit, label %26
 
 26:                                               ; preds = %23
-  %or.cond15.i.i = icmp ult i32 %21, 173
+  %or.cond15.i.i = icmp samesign ult i32 %21, 173
   br i1 %or.cond15.i.i, label %utf8_char_width.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %26, %41
@@ -11870,8 +11870,8 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
 
 42:                                               ; preds = %11
   %43 = icmp ult i8 %6, -16
-  %44 = icmp ugt i64 %1, 2
-  %or.cond3.i = and i1 %44, %43
+  %44 = icmp samesign ugt i64 %1, 2
+  %or.cond3.i = select i1 %43, i1 %44, i1 false
   br i1 %or.cond3.i, label %45, label %95
 
 45:                                               ; preds = %42
@@ -11892,14 +11892,14 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br i1 %59, label %utf8_char_width.exit, label %60
 
 60:                                               ; preds = %45
-  %61 = icmp ult i32 %58, 32
+  %61 = icmp samesign ult i32 %58, 32
   %62 = add nsw i32 %58, -127
   %or.cond.i32.i = icmp ult i32 %62, 33
   %or.cond10.i33.i = select i1 %61, i1 true, i1 %or.cond.i32.i
   br i1 %or.cond10.i33.i, label %utf8_char_width.exit, label %63
 
 63:                                               ; preds = %60
-  %or.cond15.i34.i = icmp ult i32 %58, 173
+  %or.cond15.i34.i = icmp samesign ult i32 %58, 173
   br i1 %or.cond15.i34.i, label %utf8_char_width.exit, label %.preheader.i.i35.i
 
 .preheader.i.i35.i:                               ; preds = %63, %78
@@ -11934,7 +11934,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br i1 %.not.i.i41.i, label %79, label %.preheader.i.i35.i, !llvm.loop !75
 
 79:                                               ; preds = %78
-  %or.cond.i.i42.i = icmp ult i32 %53, 4352
+  %or.cond.i.i42.i = icmp samesign ult i32 %53, 4352
   br i1 %or.cond.i.i42.i, label %utf8_char_width.exit, label %.preheader.i.i.i43.i
 
 .preheader.i.i.i43.i:                             ; preds = %79, %94
@@ -11970,8 +11970,8 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
 
 95:                                               ; preds = %42
   %96 = icmp ult i8 %6, -11
-  %97 = icmp ugt i64 %1, 3
-  %or.cond5.i = and i1 %97, %96
+  %97 = icmp samesign ugt i64 %1, 3
+  %or.cond5.i = select i1 %96, i1 %97, i1 false
   br i1 %or.cond5.i, label %98, label %utf8_char_width.exit
 
 98:                                               ; preds = %95
@@ -11998,7 +11998,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br i1 %118, label %utf8_char_width.exit, label %119
 
 119:                                              ; preds = %98
-  %120 = icmp ult i32 %117, 32
+  %120 = icmp samesign ult i32 %117, 32
   %121 = add nsw i32 %117, -127
   %or.cond.i50.i = icmp ult i32 %121, 33
   %or.cond10.i51.i = select i1 %120, i1 true, i1 %or.cond.i50.i
@@ -16396,7 +16396,7 @@ sbuf_len.exit.i341:                               ; preds = %1712
   br label %.sink.split.i
 
 unicode_is_raw.exit.i:                            ; preds = %1731
-  %1736 = icmp ult i32 %1732, 128
+  %1736 = icmp samesign ult i32 %1732, 128
   br i1 %1736, label %1737, label %1741
 
 1737:                                             ; preds = %unicode_is_raw.exit.i
@@ -17104,21 +17104,21 @@ tty_read_utf8.exit:                               ; preds = %116, %75
 
 138:                                              ; preds = %136
   switch i32 %122, label %139 [
-    i32 1073741824, label %.thread53.i
-    i32 536870912, label %.thread53.i
-    i32 268435456, label %.thread53.i
+    i32 1073741824, label %.thread54.i
+    i32 536870912, label %.thread54.i
+    i32 268435456, label %.thread54.i
   ]
 
 139:                                              ; preds = %138, %136
   switch i32 %.sink, label %140 [
-    i32 1073741833, label %.thread53.i
+    i32 1073741833, label %.thread54.i
     i32 1090519045, label %.sink.split
     i32 553648129, label %.sink.split
     i32 536870974, label %.sink.split
   ]
 
-.thread53.i:                                      ; preds = %139, %138, %138, %138
-  %.0.ph52.i = phi i32 [ 268435465, %139 ], [ 10, %138 ], [ 10, %138 ], [ 10, %138 ]
+.thread54.i:                                      ; preds = %139, %138, %138, %138
+  %.0.ph53.i = phi i32 [ 268435465, %139 ], [ 10, %138 ], [ 10, %138 ], [ 10, %138 ]
   br label %.sink.split
 
 140:                                              ; preds = %139
@@ -17128,14 +17128,14 @@ tty_read_utf8.exit:                               ; preds = %116, %75
   %143 = icmp eq i32 %.sink, 1090519044
   %or.cond13.i = or i1 %143, %or.cond11.i
   %spec.store.select.i = select i1 %or.cond13.i, i32 16777223, i32 %.sink
-  %144 = icmp ult i32 %121, 32
+  %144 = icmp samesign ult i32 %121, 32
   %145 = and i32 %spec.store.select.i, -1073741825
   %spec.select.i21 = select i1 %.not45.i, i32 %spec.store.select.i, i32 %145
-  %spec.select58.i = select i1 %144, i32 %spec.select.i21, i32 %spec.store.select.i
+  %spec.select60.i = select i1 %144, i32 %spec.select.i21, i32 %spec.store.select.i
   br label %.sink.split
 
-.sink.split:                                      ; preds = %140, %.thread53.i, %139, %139, %139, %134, %132, %tty_code_pop.exit.thread
-  %.sink22 = phi i32 [ %15, %tty_code_pop.exit.thread ], [ %.0.ph52.i, %.thread53.i ], [ 1073741919, %134 ], [ %133, %132 ], [ 16777224, %139 ], [ 16777224, %139 ], [ 16777224, %139 ], [ %spec.select58.i, %140 ]
+.sink.split:                                      ; preds = %140, %.thread54.i, %139, %139, %139, %134, %132, %tty_code_pop.exit.thread
+  %.sink22 = phi i32 [ %15, %tty_code_pop.exit.thread ], [ %.0.ph53.i, %.thread54.i ], [ 1073741919, %134 ], [ %133, %132 ], [ 16777224, %139 ], [ 16777224, %139 ], [ 16777224, %139 ], [ %spec.select60.i, %140 ]
   store i32 %.sink22, ptr %2, align 4
   br label %146
 
@@ -17386,7 +17386,7 @@ ic_strlen.exit.split.us.i:                        ; preds = %sbuf_string.exit152
 
 ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exit.split.us.i
   %.0.i64.us.i = phi i64 [ %128, %126 ], [ 0, %ic_strlen.exit.split.us.i ]
-  %129 = icmp ult i64 %.061.us.i, %.0.i64.us.i
+  %129 = icmp samesign ult i64 %.061.us.i, %.0.i64.us.i
   br i1 %129, label %.lr.ph.us.i.preheader, label %highlight_match_braces.exit
 
 .lr.ph.us.i.preheader:                            ; preds = %ic_strlen.exit65.us.i
@@ -17441,14 +17441,14 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
   br label %..loopexit_crit_edge.us.i
 
 155:                                              ; preds = %153, %.thread.i
-  %.pre-phi100.i = phi i64 [ %147, %.thread.i ], [ %141, %153 ]
-  %156 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi100.i
+  %.pre-phi101.i = phi i64 [ %147, %.thread.i ], [ %141, %153 ]
+  %156 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i
   %157 = icmp eq i64 %.061.us.i, %125
-  br i1 %157, label %._crit_edge91.i, label %158
+  br i1 %157, label %._crit_edge92.i, label %158
 
-._crit_edge91.i:                                  ; preds = %155
-  %.phi.trans.insert92.i = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi100.i, i32 2
-  %.pre93.i = load i64, ptr %.phi.trans.insert92.i, align 8
+._crit_edge92.i:                                  ; preds = %155
+  %.phi.trans.insert93.i = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i, i32 2
+  %.pre94.i = load i64, ptr %.phi.trans.insert93.i, align 8
   br label %166
 
 158:                                              ; preds = %155
@@ -17464,8 +17464,8 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
   %.not63.us.i = icmp eq i64 %164, %165
   br i1 %.not63.us.i, label %..loopexit_crit_edge.us.i, label %166
 
-166:                                              ; preds = %162, %._crit_edge91.i
-  %167 = phi i64 [ %.pre93.i, %._crit_edge91.i ], [ %164, %162 ]
+166:                                              ; preds = %162, %._crit_edge92.i
+  %167 = phi i64 [ %.pre94.i, %._crit_edge92.i ], [ %164, %162 ]
   call fastcc void @attrbuf_update_set_at(ptr noundef nonnull %.pr, i64 noundef %167, i64 noundef 1, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext true)
   call fastcc void @attrbuf_update_set_at(ptr noundef nonnull %.pr, i64 noundef %.061.us.i, i64 noundef 1, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext true)
   br label %..loopexit_crit_edge.us.i
@@ -17506,7 +17506,7 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
   br label %..loopexit_crit_edge.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %132, %.thread.us.i, %168, %166, %162, %158, %154
-  %.2.us.i = phi i64 [ %.060.us.i, %168 ], [ %.060.us.i, %154 ], [ %.pre-phi100.i, %166 ], [ %.pre-phi100.i, %162 ], [ %.pre-phi100.i, %158 ], [ %185, %.thread.us.i ], [ %.060.us.i, %132 ]
+  %.2.us.i = phi i64 [ %.060.us.i, %168 ], [ %.060.us.i, %154 ], [ %.pre-phi101.i, %166 ], [ %.pre-phi101.i, %162 ], [ %.pre-phi101.i, %158 ], [ %185, %.thread.us.i ], [ %.060.us.i, %132 ]
   %186 = add nuw nsw i64 %.061.us.i, 1
   br label %ic_strlen.exit.split.us.i, !llvm.loop !90
 
@@ -21913,7 +21913,7 @@ sbuf_clear.exit.i:                                ; preds = %ic_memmove.exit.i.i
   %narrow.i.i = add nuw nsw i8 %47, 55
   %.0.i.i = select i1 %48, i8 %49, i8 %narrow.i.i
   %50 = and i8 %32, 15
-  %51 = icmp ult i8 %50, 10
+  %51 = icmp samesign ult i8 %50, 10
   %52 = or disjoint i8 %50, 48
   %narrow.i33.i = add nuw nsw i8 %50, 55
   %.0.i34.i = select i1 %51, i8 %52, i8 %narrow.i33.i
@@ -22385,7 +22385,7 @@ tty_cpush_char.exit:                              ; preds = %32, %._crit_edge.i.
   %.017.i = phi i64 [ %56, %54 ], [ 0, %46 ]
   %.01416.i = phi i32 [ %59, %54 ], [ 0, %46 ]
   %50 = icmp ult i8 %49, 58
-  %51 = icmp ult i64 %.017.i, 16
+  %51 = icmp samesign ult i64 %.017.i, 16
   %or.cond.i = select i1 %50, i1 %51, i1 false
   br i1 %or.cond.i, label %52, label %.critedge.i
 
@@ -22424,7 +22424,7 @@ tty_cpush_char.exit:                              ; preds = %32, %._crit_edge.i.
   %.017.i151 = phi i64 [ %75, %73 ], [ 0, %65 ]
   %.01416.i152 = phi i32 [ %78, %73 ], [ 0, %65 ]
   %69 = icmp ult i8 %68, 58
-  %70 = icmp ult i64 %.017.i151, 16
+  %70 = icmp samesign ult i64 %.017.i151, 16
   %or.cond.i153 = select i1 %69, i1 %70, i1 false
   br i1 %or.cond.i153, label %71, label %.critedge.i154
 
@@ -22856,8 +22856,8 @@ define internal fastcc range(i32 0, 2097152) i32 @unicode_from_qutf8(ptr noundef
 
 12:                                               ; preds = %10
   %13 = icmp ult i8 %6, -32
-  %14 = icmp ugt i64 %1, 1
-  %or.cond5 = and i1 %14, %13
+  %14 = icmp samesign ugt i64 %1, 1
+  %or.cond5 = select i1 %13, i1 %14, i1 false
   br i1 %or.cond5, label %15, label %27
 
 15:                                               ; preds = %12
@@ -22878,7 +22878,7 @@ define internal fastcc range(i32 0, 2097152) i32 @unicode_from_qutf8(ptr noundef
   br label %138
 
 27:                                               ; preds = %15, %12
-  %28 = icmp ugt i64 %1, 2
+  %28 = icmp samesign ugt i64 %1, 2
   br i1 %28, label %29, label %.thread75
 
 29:                                               ; preds = %27
@@ -23790,7 +23790,7 @@ term_append_utf8.exit.i:                          ; preds = %sbuf_append_n.exit1
   br i1 %113, label %term_append_esc.exit.i, label %114
 
 114:                                              ; preds = %111
-  %115 = icmp ult i64 %.0.i73.i, 3
+  %115 = icmp samesign ult i64 %.0.i73.i, 3
   br i1 %115, label %attr_from_esc_sgr.exit.i.i, label %116
 
 116:                                              ; preds = %114
@@ -25916,7 +25916,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
 ic_strlen.exit:                                   ; preds = %7
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #33
   %10 = icmp eq ptr %0, null
-  %.not100 = icmp slt i64 %9, 1
+  %.not101 = icmp slt i64 %9, 1
   %11 = icmp sgt i64 %9, 1
   %12 = add nsw i64 %1, -1
   br i1 %11, label %ic_strlen.exit.split.us, label %ic_strlen.exit.split
@@ -25935,13 +25935,13 @@ ic_strlen.exit.split.us:                          ; preds = %ic_strlen.exit, %..
 
 ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit.split.us
   %.0.i61.us = phi i64 [ %15, %13 ], [ 0, %ic_strlen.exit.split.us ]
-  %16 = icmp ult i64 %.048.us, %.0.i61.us
+  %16 = icmp samesign ult i64 %.048.us, %.0.i61.us
   br i1 %16, label %17, label %.split.us.loopexit
 
 17:                                               ; preds = %ic_strlen.exit62.us
   %18 = getelementptr inbounds i8, ptr %0, i64 %.048.us
   %19 = load i8, ptr %18, align 1
-  br i1 %.not100, label %.preheader.us.preheader, label %.lr.ph.us
+  br i1 %.not101, label %.preheader.us.preheader, label %.lr.ph.us
 
 .preheader.us.preheader:                          ; preds = %46, %17
   br label %.preheader.us
@@ -26026,7 +26026,7 @@ ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit
   br label %ic_strlen.exit.split.us, !llvm.loop !118
 
 ic_strlen.exit.split:                             ; preds = %ic_strlen.exit
-  br i1 %.not100, label %.split.us, label %ic_strlen.exit.split.split.us.preheader
+  br i1 %.not101, label %.split.us, label %ic_strlen.exit.split.split.us.preheader
 
 ic_strlen.exit.split.split.us.preheader:          ; preds = %ic_strlen.exit.split
   %61 = getelementptr inbounds i8, ptr %2, i64 1
@@ -26044,7 +26044,7 @@ ic_strlen.exit.split.split.us:                    ; preds = %ic_strlen.exit.spli
 
 ic_strlen.exit62.us76:                            ; preds = %62, %ic_strlen.exit.split.split.us
   %.0.i61.us77 = phi i64 [ %64, %62 ], [ 0, %ic_strlen.exit.split.split.us ]
-  %65 = icmp ult i64 %.048.us75, %.0.i61.us77
+  %65 = icmp samesign ult i64 %.048.us75, %.0.i61.us77
   br i1 %65, label %.lr.ph.us83, label %.split.us
 
 .lr.ph.us83:                                      ; preds = %ic_strlen.exit62.us76
@@ -26554,12 +26554,12 @@ define internal fastcc void @term_color_ex(ptr nocapture noundef %0, i32 noundef
   %10 = tail call fastcc i32 @rgb_match(i32 noundef 0, i32 noundef 8, ptr noundef nonnull @color_to_ansi8.ansi8_cache, i32 noundef %1)
   %11 = and i32 %1, 252
   %12 = and i32 %1, 16515072
-  %13 = icmp ugt i32 %12, 12779520
+  %13 = icmp samesign ugt i32 %12, 12779520
   %14 = and i32 %1, 64512
-  %15 = icmp ugt i32 %14, 49920
-  %or.cond.i.i.i = or i1 %13, %15
-  %16 = icmp ugt i32 %11, 195
-  %or.cond3.i.i.i = or i1 %16, %or.cond.i.i.i
+  %15 = icmp samesign ugt i32 %14, 49920
+  %or.cond.i.i.i = select i1 %13, i1 true, i1 %15
+  %16 = icmp samesign ugt i32 %11, 195
+  %or.cond3.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %16
   %spec.select.v.i.i.i = select i1 %or.cond3.i.i.i, i32 90, i32 30
   %spec.select.i.i.i = add nsw i32 %10, %spec.select.v.i.i.i
   br label %color_to_ansi8.exit.i.i
@@ -26672,21 +26672,21 @@ rgb_lookup.exit.thread:                           ; preds = %6, %4, %rgb_lookup.
   %17 = lshr i32 %3, 8
   %18 = and i32 %17, 255
   %19 = and i32 %3, 255
-  %20 = icmp ult i32 %0, %1
+  %20 = icmp samesign ult i32 %0, %1
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %rgb_lookup.exit.thread
   %21 = sub nsw i32 %16, %18
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %.fr14 = freeze i32 %22
-  %23 = icmp ult i32 %.fr14, 5
-  %24 = icmp ult i32 %.fr14, 5
+  %.fr = freeze i32 %22
+  %23 = icmp samesign ult i32 %.fr, 5
+  %24 = icmp ult i32 %.fr, 5
   %25 = add nuw nsw i32 %18, %16
   %26 = lshr i32 %25, 1
   %27 = sub nsw i32 %26, %19
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = icmp ult i32 %28, 5
-  %30 = icmp ult i32 %1, 17
+  %29 = icmp samesign ult i32 %28, 5
+  %30 = icmp samesign ult i32 %1, 17
   %31 = zext nneg i32 %0 to i64
   %wide.trip.count27 = zext nneg i32 %1 to i64
   br i1 %30, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -26726,7 +26726,7 @@ rgb_lookup.exit.thread:                           ; preds = %6, %4, %rgb_lookup.
   %54 = add nsw i32 %51, %53
   %55 = sub nsw i32 %36, %38
   %56 = tail call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = icmp ult i32 %56, 5
+  %57 = icmp samesign ult i32 %56, 5
   br i1 %57, label %is_grayish_color.exit.us.us, label %is_grayish_color.exit.thread.us.us
 
 is_grayish_color.exit.thread.us.us:               ; preds = %.lr.ph.split.us.split.us
@@ -26737,18 +26737,18 @@ is_grayish_color.exit.us.us:                      ; preds = %.lr.ph.split.us.spl
   %.zext.i.us.us = lshr i32 %58, 1
   %59 = sub nsw i32 %.zext.i.us.us, %39
   %60 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %61 = icmp ult i32 %60, 5
+  %61 = icmp samesign ult i32 %60, 5
   br label %is_grayish.exit.us.us
 
 is_grayish.exit.us.us:                            ; preds = %is_grayish_color.exit.us.us, %is_grayish_color.exit.thread.us.us
   %62 = phi i1 [ false, %is_grayish_color.exit.thread.us.us ], [ %61, %is_grayish_color.exit.us.us ]
   %63 = xor i1 %29, %62
   %64 = shl nsw i32 %54, 2
-  %spec.select12 = select i1 %63, i32 %64, i32 %54
+  %spec.select13 = select i1 %63, i32 %64, i32 %54
   br label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us
 
 is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us: ; preds = %is_grayish.exit.us.us, %is_grayish_color.exit.thread.us.us
-  %.0.us.us = phi i32 [ %54, %is_grayish_color.exit.thread.us.us ], [ %spec.select12, %is_grayish.exit.us.us ]
+  %.0.us.us = phi i32 [ %54, %is_grayish_color.exit.thread.us.us ], [ %spec.select13, %is_grayish.exit.us.us ]
   %65 = icmp slt i32 %.0.us.us, %.0269.us.us
   %66 = trunc nuw nsw i64 %indvars.iv24 to i32
   %spec.select.us.us = select i1 %65, i32 %66, i32 %.0278.us.us
@@ -26785,7 +26785,7 @@ is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us.us: ; preds = %is_gray
   %88 = add nsw i32 %85, %87
   %89 = sub nsw i32 %70, %72
   %90 = tail call i32 @llvm.abs.i32(i32 %89, i1 true)
-  %91 = icmp ult i32 %90, 5
+  %91 = icmp samesign ult i32 %90, 5
   br i1 %91, label %is_grayish_color.exit.us, label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
 
 is_grayish_color.exit.us:                         ; preds = %.lr.ph.split.us.split
@@ -26793,7 +26793,7 @@ is_grayish_color.exit.us:                         ; preds = %.lr.ph.split.us.spl
   %.zext.i.us = lshr i32 %92, 1
   %93 = sub nsw i32 %.zext.i.us, %73
   %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = icmp ult i32 %94, 5
+  %95 = icmp samesign ult i32 %94, 5
   %96 = shl nsw i32 %88, 2
   %spec.select36 = select i1 %95, i32 %96, i32 %88
   br label %is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us
@@ -26836,7 +26836,7 @@ is_grayish_color.exit.is_grayish.exit_crit_edge.thread.us: ; preds = %is_grayish
   %120 = add nsw i32 %117, %119
   %121 = sub nsw i32 %102, %104
   %122 = tail call i32 @llvm.abs.i32(i32 %121, i1 true)
-  %123 = icmp ult i32 %122, 5
+  %123 = icmp samesign ult i32 %122, 5
   br i1 %123, label %is_grayish_color.exit, label %is_grayish_color.exit.thread
 
 is_grayish_color.exit:                            ; preds = %.lr.ph.split
@@ -26844,7 +26844,7 @@ is_grayish_color.exit:                            ; preds = %.lr.ph.split
   %.zext.i = lshr i32 %124, 1
   %125 = sub nsw i32 %.zext.i, %105
   %126 = tail call i32 @llvm.abs.i32(i32 %125, i1 true)
-  %127 = icmp ult i32 %126, 5
+  %127 = icmp samesign ult i32 %126, 5
   br i1 %24, label %is_grayish.exit, label %is_grayish_color.exit.is_grayish.exit_crit_edge
 
 is_grayish_color.exit.thread:                     ; preds = %.lr.ph.split

@@ -21071,7 +21071,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i82: ; preds = %.noexc86
   %49 = fsub double %46, %48
   store double %49, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = icmp ult i64 %indvars.iv.next, %43
+  %50 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %50, label %44, label %._crit_edge, !llvm.loop !166
 
 51:                                               ; preds = %21
@@ -21161,7 +21161,7 @@ _ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i, %
   %84 = getelementptr inbounds double, ptr %37, i64 %indvars.iv148
   store double %83, ptr %84, align 8
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %85 = icmp ult i64 %indvars.iv.next149, %81
+  %85 = icmp samesign ult i64 %indvars.iv.next149, %81
   br i1 %85, label %.lr.ph126, label %.loopexit111, !llvm.loop !169
 
 .lr.ph124.preheader:                              ; preds = %._crit_edge121
@@ -21178,7 +21178,7 @@ _ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i, %
   %92 = tail call double @llvm.fmuladd.f64(double %86, double %89, double %91)
   store double %92, ptr %88, align 8
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %93 = icmp ult i64 %indvars.iv.next146, %87
+  %93 = icmp samesign ult i64 %indvars.iv.next146, %87
   br i1 %93, label %.lr.ph124, label %.loopexit111, !llvm.loop !170
 
 .loopexit111:                                     ; preds = %.lr.ph124, %.lr.ph126, %72

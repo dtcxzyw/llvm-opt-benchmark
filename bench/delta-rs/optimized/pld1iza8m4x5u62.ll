@@ -30808,7 +30808,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2f799ee
   %.val = load i8, ptr %0, align 8, !range !146, !noundef !5
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8
-  %switch.i.i = icmp ult i8 %.val, 2
+  %switch.i.i = icmp samesign ult i8 %.val, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17hee9972edae2ece8cE.exit", label %3
 
 3:                                                ; preds = %1
@@ -30922,7 +30922,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h5736a20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9180)
   %2 = load i8, ptr %0, align 8, !range !146, !alias.scope !9183, !noundef !5
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17had35f651a1ddd0a9E.exit", label %3
 
 3:                                                ; preds = %1
@@ -33155,7 +33155,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$h2..share..PingPong$GT$17h7b
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h49f283dba71e2830E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !9964, !noundef !5
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17hb5cd282684d0245eE.llvm.7909737541732249412.exit", label %3
 
 3:                                                ; preds = %1
@@ -33963,7 +33963,7 @@ define hidden void @"_ZN4core3ptr419drop_in_place$LT$futures_util..stream..strea
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hf773585d308d7eb4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10398)
   %2 = load i8, ptr %0, align 8, !range !9964, !alias.scope !10398, !noundef !5
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17h49f283dba71e2830E.llvm.7909737541732249412.exit", label %3
 
 3:                                                ; preds = %1
@@ -33991,7 +33991,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10414)
   %3 = load i8, ptr %2, align 8, !range !9964, !alias.scope !10417, !noundef !5
-  %switch.i.i = icmp ult i8 %3, 10
+  %switch.i.i = icmp samesign ult i8 %3, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hf773585d308d7eb4E.exit", label %4
 
 4:                                                ; preds = %1
@@ -37351,7 +37351,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$aws_types..region..Region$GT
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17had35f651a1ddd0a9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12026)
   %2 = load i8, ptr %0, align 8, !range !146, !alias.scope !12026, !noundef !5
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17hdf797991de2870b1E.llvm.7909737541732249412.exit", label %3
 
 3:                                                ; preds = %1
@@ -37757,7 +37757,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$deltalake_aws..CommitEntry$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$http..uri..scheme..Scheme2$GT$17hdf797991de2870b1E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !146, !noundef !5
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %16, label %3
 
 3:                                                ; preds = %1
@@ -41619,14 +41619,14 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_config..loader..ConfigLo
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13988)
   %20 = load i64, ptr %19, align 8, !range !302, !alias.scope !13988, !noundef !5
-  %switch.i = icmp ult i64 %20, 2
+  %switch.i = icmp samesign ult i64 %20, 2
   br i1 %switch.i, label %"_ZN4core3ptr66drop_in_place$LT$aws_config..loader..CredentialsProviderOption$GT$17h1328723d9df2a87bE.exit", label %11
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE.exit26": ; preds = %7, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E.exit", %10
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13989)
   %22 = load i64, ptr %21, align 8, !range !302, !alias.scope !13989, !noundef !5
-  %switch.i28 = icmp ult i64 %22, 2
+  %switch.i28 = icmp samesign ult i64 %22, 2
   br i1 %switch.i28, label %"_ZN4core3ptr66drop_in_place$LT$aws_config..loader..CredentialsProviderOption$GT$17h1328723d9df2a87bE.exit30", label %23
 
 23:                                               ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE.exit26"
@@ -46419,7 +46419,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$alloc..sync..Arc$LT$$u5b$u8$
 define hidden void @"_ZN4core3ptr57drop_in_place$LT$aws_config..ecs..InvalidFullUriError$GT$17h7a46773c3f352f24E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16326)
   %2 = load i8, ptr %0, align 8, !range !4844, !alias.scope !16326, !noundef !5
-  %switch.i = icmp ult i8 %2, 4
+  %switch.i = icmp samesign ult i8 %2, 4
   br i1 %switch.i, label %"_ZN4core3ptr61drop_in_place$LT$aws_config..ecs..InvalidFullUriErrorKind$GT$17hc3919b8d68d5599aE.exit", label %3
 
 3:                                                ; preds = %1
@@ -47501,7 +47501,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigur
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16877)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16880)
   %14 = load i8, ptr %13, align 8, !range !4844, !alias.scope !16883, !noundef !5
-  %switch.i.i = icmp ult i8 %14, 4
+  %switch.i.i = icmp samesign ult i8 %14, 4
   br i1 %switch.i.i, label %"_ZN4core3ptr57drop_in_place$LT$aws_config..ecs..InvalidFullUriError$GT$17h7a46773c3f352f24E.exit", label %15
 
 15:                                               ; preds = %12
@@ -54079,7 +54079,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20573)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20576)
   %22 = load i8, ptr %21, align 8, !range !9964, !alias.scope !20579, !noundef !5
-  %switch.i.i = icmp ult i8 %22, 10
+  %switch.i.i = icmp samesign ult i8 %22, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hf773585d308d7eb4E.exit", label %23
 
 23:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$aws_smithy_runtime_api..http..request..Uri$GT$17h1eb23932c1c4855fE.exit"
@@ -87203,7 +87203,7 @@ define hidden void @_ZN7tracing4span4Span3log17h5edcc6b11025a13aE.llvm.790973754
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %.0, %16
+  %18 = icmp samesign ugt i64 %.0, %16
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13, %33, %5

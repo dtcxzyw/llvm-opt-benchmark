@@ -972,20 +972,20 @@ define dso_local { i64, i64 } @_ZN4llvm5MachO23mapToSupportedOSVersionERKNS_6Tri
   br i1 %28, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %11, %20
+  %30 = icmp samesign ult i32 %11, %20
   br i1 %30, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i32 %20, %11
+  %32 = icmp samesign ult i32 %20, %11
   br i1 %32, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i32 %13, %22
+  %34 = icmp samesign ult i32 %13, %22
   br i1 %34, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %33
-  %35 = icmp uge i32 %22, %13
-  %36 = icmp ult i32 %16, %25
+  %35 = icmp samesign uge i32 %22, %13
+  %36 = icmp samesign ult i32 %16, %25
   %spec.select.i.i = select i1 %35, i1 %36, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7
 

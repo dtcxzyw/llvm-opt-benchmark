@@ -628,7 +628,7 @@ sub_1:                                            ; preds = %sub_0
   %.1 = phi i32 [ %24, %22 ], [ 0, %46 ], [ 0, %48 ], [ 0, %56 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %.tail.thread ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ], [ 0, %54 ], [ 0, %50 ], [ 0, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i32 %.1, 0
-  %65 = icmp ult i64 %indvars.iv.next, %13
+  %65 = icmp samesign ult i64 %indvars.iv.next, %13
   %66 = select i1 %.not, i1 %65, i1 false
   br i1 %66, label %sub_0, label %._crit_edge, !llvm.loop !5
 

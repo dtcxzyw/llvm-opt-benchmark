@@ -1505,7 +1505,7 @@ tailrecurse:                                      ; preds = %9, %1
 
 9:                                                ; preds = %tailrecurse
   %10 = load i64, ptr %7, align 8, !range !372, !noundef !5
-  %11 = icmp ult i64 %10, 17
+  %11 = icmp samesign ult i64 %10, 17
   br i1 %11, label %12, label %tailrecurse
 
 12:                                               ; preds = %9, %tailrecurse
@@ -1528,7 +1528,7 @@ tailrecurse:                                      ; preds = %9, %1
 
 9:                                                ; preds = %tailrecurse
   %10 = load i64, ptr %7, align 8, !range !372, !noundef !5
-  %11 = icmp ult i64 %10, 17
+  %11 = icmp samesign ult i64 %10, 17
   br i1 %11, label %12, label %tailrecurse
 
 12:                                               ; preds = %9, %tailrecurse

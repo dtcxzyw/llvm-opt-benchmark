@@ -2709,7 +2709,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %157 = shl nuw nsw i32 %156, 8
   %.masked298 = and i32 %152, 65535
   %158 = or i32 %157, %.masked298
-  %159 = icmp ult i32 %158, 380
+  %159 = icmp samesign ult i32 %158, 380
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %147
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   br label %get_function_name.exit
 
 164:                                              ; preds = %147
-  %165 = icmp ugt i32 %158, 32767
+  %165 = icmp samesign ugt i32 %158, 32767
   br i1 %165, label %166, label %get_function_name.exit
 
 166:                                              ; preds = %164
@@ -2771,7 +2771,7 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
   %193 = shl nuw nsw i32 %192, 8
   %.masked296 = and i32 %188, 65535
   %194 = or i32 %193, %.masked296
-  %195 = icmp ult i32 %194, 380
+  %195 = icmp samesign ult i32 %194, 380
   br i1 %195, label %196, label %200
 
 196:                                              ; preds = %183
@@ -2781,7 +2781,7 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
   br label %get_function_name.exit314
 
 200:                                              ; preds = %183
-  %201 = icmp ugt i32 %194, 32767
+  %201 = icmp samesign ugt i32 %194, 32767
   br i1 %201, label %202, label %get_function_name.exit314
 
 202:                                              ; preds = %200
@@ -3002,7 +3002,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   %.lobit286 = lshr exact i32 %337, 14
   %340 = xor i32 %.lobit286, 1
   %341 = add nuw nsw i32 %340, %339
-  %.not287 = icmp ult i32 %336, 32768
+  %.not287 = icmp samesign ult i32 %336, 32768
   %342 = select i1 %.not287, ptr @.str.1260, ptr @.str.1259
   %.masked288 = and i32 %330, 65535
   %343 = or i32 %335, %.masked288
@@ -3082,7 +3082,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   %.lobit275 = lshr exact i32 %399, 14
   %402 = xor i32 %.lobit275, 1
   %403 = add nuw nsw i32 %402, %401
-  %.not276 = icmp ult i32 %398, 32768
+  %.not276 = icmp samesign ult i32 %398, 32768
   %404 = select i1 %.not276, ptr @.str.1260, ptr @.str.1259
   %.masked277 = and i32 %370, 65535
   %405 = or i32 %376, %.masked277
@@ -3097,7 +3097,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   %.lobit280 = lshr exact i32 %409, 14
   %412 = xor i32 %.lobit280, 1
   %413 = add nuw nsw i32 %412, %411
-  %.not281 = icmp ult i32 %408, 32768
+  %.not281 = icmp samesign ult i32 %408, 32768
   %414 = select i1 %.not281, ptr @.str.1260, ptr @.str.1259
   %.masked282 = and i32 %392, 65535
   %415 = or i32 %397, %.masked282
@@ -3155,7 +3155,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   %.lobit = lshr exact i32 %449, 14
   %452 = xor i32 %.lobit, 1
   %453 = add nuw nsw i32 %452, %451
-  %.not270 = icmp ult i32 %448, 32768
+  %.not270 = icmp samesign ult i32 %448, 32768
   %454 = select i1 %.not270, ptr @.str.1260, ptr @.str.1259
   %.masked271 = and i32 %442, 65535
   %455 = or i32 %447, %.masked271
@@ -3209,7 +3209,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   br label %492
 
 484:                                              ; preds = %18
-  %485 = icmp ult i8 %9, 126
+  %485 = icmp samesign ult i8 %9, 126
   br i1 %485, label %486, label %490
 
 486:                                              ; preds = %484

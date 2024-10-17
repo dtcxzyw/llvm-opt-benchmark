@@ -237,7 +237,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %71 = load i16, ptr %42, align 8
   %72 = zext i16 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next129, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next129, %72
   br i1 %73, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
@@ -259,7 +259,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i16, ptr %42, align 8
   %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next, %80
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %78, %70, %.preheader104, %63

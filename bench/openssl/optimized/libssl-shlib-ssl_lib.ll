@@ -2599,7 +2599,7 @@ if.end24.i:                                       ; preds = %if.end15.i
   %3 = load i8, ptr %mdmax.i, align 8
   %conv27.i = zext i8 %3 to i32
   %i.025.i = add nuw nsw i32 %conv27.i, 1
-  %cmp3026.i = icmp ult i32 %i.025.i, %conv.i
+  %cmp3026.i = icmp samesign ult i32 %i.025.i, %conv.i
   br i1 %cmp3026.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end24.i

@@ -5221,7 +5221,7 @@ define void @slurm_free_job_state_response_msg(ptr noundef %0) local_unnamed_add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %0, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %9, %.preheader
@@ -5318,7 +5318,7 @@ define void @slurm_free_job_desc_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %9, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader14, %3
@@ -5454,7 +5454,7 @@ define void @slurm_free_job_desc_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %74 = load i32, ptr %70, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next22, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next22, %75
   br i1 %76, label %.lr.ph17, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph17, %.preheader
@@ -6512,7 +6512,7 @@ define void @slurm_free_prolog_launch_msg(ptr noundef %0) local_unnamed_addr #1 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %16, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -6574,7 +6574,7 @@ define void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %8, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader16
@@ -6612,7 +6612,7 @@ define void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %28 = load i32, ptr %24, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next33, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next33, %29
   br i1 %30, label %.lr.ph21, label %._crit_edge22, !llvm.loop !27
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %.preheader15
@@ -6662,7 +6662,7 @@ define void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %48 = load i32, ptr %44, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next36, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next36, %49
   br i1 %50, label %.lr.ph25, label %._crit_edge26, !llvm.loop !28
 
 ._crit_edge26:                                    ; preds = %.lr.ph25, %.preheader
@@ -6792,7 +6792,7 @@ define void @slurm_free_job_info_members(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %34, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -7423,7 +7423,7 @@ define void @slurm_free_kill_job_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %13, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -7487,7 +7487,7 @@ define void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local_unnamed_a
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %9, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader29
@@ -7530,7 +7530,7 @@ define void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local_unnamed_a
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %31 = load i32, ptr %27, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next58, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next58, %32
   br i1 %33, label %.lr.ph36, label %._crit_edge37, !llvm.loop !32
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %.preheader28
@@ -7557,7 +7557,7 @@ define void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local_unnamed_a
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %41 = load i32, ptr %37, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next61, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next61, %42
   br i1 %43, label %.lr.ph40, label %._crit_edge41, !llvm.loop !33
 
 ._crit_edge41:                                    ; preds = %.lr.ph40, %.preheader27
@@ -7584,7 +7584,7 @@ define void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local_unnamed_a
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %51 = load i32, ptr %47, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next64, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next64, %52
   br i1 %53, label %.lr.ph44, label %._crit_edge45, !llvm.loop !34
 
 ._crit_edge45:                                    ; preds = %.lr.ph44, %.preheader26
@@ -7617,7 +7617,7 @@ define void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local_unnamed_a
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %64 = load i32, ptr %58, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next67, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next67, %65
   br i1 %66, label %61, label %._crit_edge49, !llvm.loop !35
 
 ._crit_edge49:                                    ; preds = %61, %54
@@ -7755,7 +7755,7 @@ define void @slurm_free_reattach_tasks_response_msg(ptr noundef %0) local_unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %8, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -8024,7 +8024,7 @@ define void @slurm_free_stats_response_msg(ptr noundef %0) local_unnamed_addr #1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %15, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %18, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %18, %3
@@ -8070,7 +8070,7 @@ define void @slurm_free_job_array_resp(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %8, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %8, %.preheader
@@ -8132,7 +8132,7 @@ define void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i16, ptr %0, align 8
   %10 = zext i16 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader23
@@ -8191,7 +8191,7 @@ define void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_addr #1 {
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %indvars.iv.next42, %42
+  %43 = icmp samesign ult i64 %indvars.iv.next42, %42
   br i1 %43, label %.lr.ph29, label %._crit_edge30, !llvm.loop !40
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %21
@@ -8213,7 +8213,7 @@ define void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_addr #1 {
   %52 = phi i16 [ %17, %.lr.ph33 ], [ %.pre, %._crit_edge30 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %53 = zext i16 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next45, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next45, %53
   br i1 %54, label %.lr.ph33, label %._crit_edge34, !llvm.loop !41
 
 ._crit_edge34:                                    ; preds = %51, %.preheader
@@ -8555,7 +8555,7 @@ define internal fastcc zeroext i1 @_job_name_test(i32 noundef range(i32 0, 83886
   br i1 %.not.i, label %5, label %job_state_string.exit.thread
 
 5:                                                ; preds = %2
-  %.not13.i = icmp ult i32 %0, 8388608
+  %.not13.i = icmp samesign ult i32 %0, 8388608
   br i1 %.not13.i, label %6, label %job_state_string.exit.thread21
 
 6:                                                ; preds = %5
@@ -8604,7 +8604,7 @@ define internal fastcc zeroext i1 @_job_name_test(i32 noundef range(i32 0, 83886
   br i1 %.not22.i, label %24, label %job_state_string.exit
 
 24:                                               ; preds = %22
-  %.not23.i = icmp ult i32 %0, 4194304
+  %.not23.i = icmp samesign ult i32 %0, 4194304
   br i1 %.not23.i, label %25, label %job_state_string.exit
 
 25:                                               ; preds = %24
@@ -8681,7 +8681,7 @@ job_state_string.exit.thread:                     ; preds = %2
   br i1 %.not22.i16, label %49, label %job_state_string_compact.exit
 
 49:                                               ; preds = %47
-  %.not23.i17 = icmp ult i32 %0, 4194304
+  %.not23.i17 = icmp samesign ult i32 %0, 4194304
   br i1 %.not23.i17, label %50, label %job_state_string_compact.exit
 
 50:                                               ; preds = %49
@@ -9517,7 +9517,7 @@ define void @slurm_free_job_info_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %_free_all_job_info.exit, !llvm.loop !44
 
 _free_all_job_info.exit:                          ; preds = %.lr.ph.i, %.preheader.i
@@ -9559,7 +9559,7 @@ define void @slurm_free_job_step_info_response_msg(ptr noundef %0) local_unnamed
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %_free_all_step_info.exit, !llvm.loop !45
 
 _free_all_step_info.exit:                         ; preds = %.lr.ph.i, %.preheader.i
@@ -9671,7 +9671,7 @@ slurm_free_front_end_info_members.exit.i:         ; preds = %10, %.lr.ph.split.i
   %18 = phi i32 [ %8, %.lr.ph.split.i ], [ %.pre.i, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next.i, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next.i, %19
   br i1 %20, label %.lr.ph.split.i, label %_free_all_front_end_info.exit, !llvm.loop !46
 
 _free_all_front_end_info.exit:                    ; preds = %slurm_free_front_end_info_members.exit.i, %.preheader.i
@@ -9752,7 +9752,7 @@ define void @slurm_free_node_info_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %_free_all_node_info.exit, !llvm.loop !48
 
 _free_all_node_info.exit:                         ; preds = %.lr.ph.i, %.preheader.i
@@ -9859,7 +9859,7 @@ define void @slurm_free_partition_info_msg(ptr noundef %0) local_unnamed_addr #1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %_free_all_partitions.exit, !llvm.loop !49
 
 _free_all_partitions.exit:                        ; preds = %.lr.ph.i, %.preheader.i
@@ -9901,7 +9901,7 @@ define void @slurm_free_reservation_info_msg(ptr noundef %0) local_unnamed_addr 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %12, label %.lr.ph.i, label %_free_all_reservations.exit, !llvm.loop !50
 
 _free_all_reservations.exit:                      ; preds = %.lr.ph.i, %.preheader.i
@@ -9947,7 +9947,7 @@ define void @slurm_free_reserve_info_members(ptr noundef %0) local_unnamed_addr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %6, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -10009,7 +10009,7 @@ define void @slurm_free_topo_info_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -10284,7 +10284,7 @@ define void @slurm_free_trigger_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %0, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -10404,7 +10404,7 @@ define void @slurm_free_shares_response_msg(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -10466,7 +10466,7 @@ define void @slurm_destroy_priority_factors(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %5, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
@@ -10524,7 +10524,7 @@ define void @slurm_destroy_priority_factors_object(ptr noundef %0) local_unnamed
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %11, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next.i, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next.i, %19
   br i1 %20, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !58
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %13, %9
@@ -10700,7 +10700,7 @@ define void @slurm_free_bb_status_req_msg(ptr noundef %0) local_unnamed_addr #1 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %0, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -10967,7 +10967,7 @@ define void @slurm_free_license_info_msg(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %7, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -11101,7 +11101,7 @@ define void @slurm_free_assoc_mgr_info_msg(ptr noundef %0) local_unnamed_addr #1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %13, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -12384,7 +12384,7 @@ define range(i32 0, -1) i32 @get_cluster_node_offset(ptr noundef %0, ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit13:           ; preds = %.lr.ph

@@ -196,7 +196,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS
 
 63:                                               ; preds = %65, %.preheader.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %65 ], [ %62, %.preheader.i.i.i ]
-  %64 = icmp ult i64 %indvars.iv.i.i, 31
+  %64 = icmp samesign ult i64 %indvars.iv.i.i, 31
   br i1 %64, label %65, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit"
 
 65:                                               ; preds = %63
@@ -351,7 +351,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS
 
 123:                                              ; preds = %125, %.preheader.i.i.i16
   %indvars.iv.i.i17 = phi i64 [ %indvars.iv.next.i.i18, %125 ], [ %122, %.preheader.i.i.i16 ]
-  %124 = icmp ult i64 %indvars.iv.i.i17, 31
+  %124 = icmp samesign ult i64 %indvars.iv.i.i17, 31
   br i1 %124, label %125, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit"
 
 125:                                              ; preds = %123

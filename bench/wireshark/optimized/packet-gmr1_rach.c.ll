@@ -516,7 +516,7 @@ define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = lshr i8 %32, 1
   %34 = and i8 %33, 31
   %35 = zext nneg i8 %34 to i32
-  %36 = icmp ult i8 %34, 16
+  %36 = icmp samesign ult i8 %34, 16
   %37 = icmp ne i8 %34, 14
   br i1 %36, label %46, label %38
 
@@ -532,7 +532,7 @@ define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr nound
   br label %dissect_gmr1_rach_kls1.exit
 
 46:                                               ; preds = %27
-  %47 = icmp ult i8 %34, 4
+  %47 = icmp samesign ult i8 %34, 4
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %46
@@ -728,7 +728,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
 .loopexit.i.i:                                    ; preds = %171, %.thread115.i.i
   %.2119.i.i = phi i32 [ %.2117.i.i, %.thread115.i.i ], [ %.2.i.i, %171 ]
   %180 = zext nneg i16 %121 to i32
-  %181 = icmp ult i16 %121, 1000
+  %181 = icmp samesign ult i16 %121, 1000
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %.loopexit.i.i
@@ -903,7 +903,7 @@ dissect_gmprs_rach_type1_kls2.exit:               ; preds = %269, %278
   %302 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %301, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0) #7
   %303 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #7
   %304 = and i8 %303, 31
-  %305 = icmp ult i8 %304, 4
+  %305 = icmp samesign ult i8 %304, 4
   br i1 %305, label %306, label %314
 
 306:                                              ; preds = %290

@@ -809,7 +809,7 @@ adjust.exit.thread.i:                             ; preds = %.lr.ph.i, %adjust.e
   %486 = add nuw nsw i32 %.02858.i, 1
   %487 = fadd double %.sroa.3.0.copyload.i, %.sroa.3.056.i
   %488 = icmp ne i32 %.2.i, 0
-  %489 = icmp ult i32 %486, %.020
+  %489 = icmp samesign ult i32 %486, %.020
   %490 = select i1 %488, i1 %489, i1 false
   br i1 %490, label %123, label %x_layout.exit
 

@@ -1000,7 +1000,7 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr nocapture noundef r
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %55, ptr noundef align 1 dereferenceable(64) %57, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %57, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false)
   %58 = add nuw nsw i64 %54, 128
-  %59 = icmp ult i64 %54, 3968
+  %59 = icmp samesign ult i64 %54, 3968
   br i1 %59, label %53, label %60, !llvm.loop !40
 
 60:                                               ; preds = %53

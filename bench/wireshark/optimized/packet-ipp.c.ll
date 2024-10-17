@@ -1419,7 +1419,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   %498 = add i32 %.4260.i.i, 1
   %499 = add nsw i8 %.0255.i.i, -53
   %or.cond5.i.i = icmp ult i8 %499, 2
-  %500 = icmp ugt i32 %.3252.i.i, 4
+  %500 = icmp samesign ugt i32 %.3252.i.i, 4
   %or.cond7.i.i = select i1 %or.cond5.i.i, i1 %500, i1 false
   br i1 %or.cond7.i.i, label %501, label %523
 
@@ -1841,7 +1841,7 @@ add_octetstring_value.exit.i:                     ; preds = %722, %716, %713, %7
   %737 = add i32 %.079.i.i, 1
   %738 = add i8 %.0.i166.i, -53
   %or.cond.i167.i = icmp ult i8 %738, 2
-  %739 = icmp ugt i32 %.077.i.i, 4
+  %739 = icmp samesign ugt i32 %.077.i.i, 4
   %or.cond4.i.i = select i1 %or.cond.i167.i, i1 %739, i1 false
   br i1 %or.cond4.i.i, label %740, label %762
 

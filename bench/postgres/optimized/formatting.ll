@@ -5075,7 +5075,7 @@ define dso_local i64 @numeric_to_number(ptr nocapture noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @NUM_cache(i32 noundef range(i32 1, 268435455) %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call ptr @text_to_cstring(ptr noundef %2) #18
-  %6 = icmp ugt i32 %0, 56
+  %6 = icmp samesign ugt i32 %0, 56
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
@@ -8036,7 +8036,7 @@ define internal fastcc void @parse_format(ptr nocapture noundef %0, ptr noundef 
   %16 = getelementptr inbounds i8, ptr %6, i64 24
   %17 = getelementptr inbounds i8, ptr %6, i64 28
   %18 = getelementptr inbounds i8, ptr %6, i64 20
-  %.not111 = icmp ult i32 %5, 4
+  %.not111 = icmp samesign ult i32 %5, 4
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.thread148

@@ -27410,7 +27410,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %6 = icmp ne ptr %5, null
   %sub.ptr.i = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = select i1 %6, ptr %sub.ptr.i, ptr null
-  %cmp = icmp ult i64 %nonEmptyCount.1, 3
+  %cmp = icmp samesign ult i64 %nonEmptyCount.1, 3
   %8 = and i1 %6, %cmp
   br i1 %8, label %for.body, label %for.cond.cleanup, !llvm.loop !981
 
@@ -39666,7 +39666,7 @@ for.body.preheader.i:                             ; preds = %for.body.i.i.epil, 
   %initialBlockPool3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call.i.i.i.i, ptr %initialBlockPool3.i, align 8, !tbaa !1031
   %xtraiter5 = and i64 %add, 3
-  %2 = icmp ult i64 %add, 4
+  %2 = icmp samesign ult i64 %add, 4
   br i1 %2, label %_ZN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE27populate_initial_block_listEm.exit.loopexit.unr-lcssa, label %for.body.preheader.i.new
 
 for.body.preheader.i.new:                         ; preds = %for.body.preheader.i

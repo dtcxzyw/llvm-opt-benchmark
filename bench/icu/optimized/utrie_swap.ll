@@ -315,21 +315,21 @@ if.end11:                                         ; preds = %if.end6
   %cmp32 = icmp eq i32 %and, 0
   %cond = select i1 %cmp32, i32 1024, i32 64
   %cmp34 = icmp ne i32 %call12, 1416784179
-  %cmp36 = icmp ugt i32 %and, 1
-  %or.cond3 = or i1 %cmp34, %cmp36
+  %cmp36 = icmp samesign ugt i32 %and, 1
+  %or.cond3 = select i1 %cmp34, i1 true, i1 %cmp36
   br i1 %or.cond3, label %if.then50, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %if.end11
   %and40 = and i32 %conv, 56
   %cmp41 = icmp ne i32 %and40, 0
-  %cmp43 = icmp ugt i32 %and26, 2
-  %or.cond4 = or i1 %cmp41, %cmp43
+  %cmp43 = icmp samesign ugt i32 %and26, 2
+  %or.cond4 = select i1 %cmp41, i1 true, i1 %cmp43
   br i1 %or.cond4, label %if.then50, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false37
   %conv46 = zext i16 %call17 to i32
-  %cmp47 = icmp ugt i32 %cond, %conv46
-  %cmp49 = icmp ult i32 %or, 128
+  %cmp47 = icmp samesign ugt i32 %cond, %conv46
+  %cmp49 = icmp samesign ult i32 %or, 128
   %or.cond5 = select i1 %cmp47, i1 true, i1 %cmp49
   br i1 %or.cond5, label %if.then50, label %if.end51
 

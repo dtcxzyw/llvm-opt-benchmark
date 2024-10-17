@@ -2543,7 +2543,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %1, %6
   %26 = zext nneg i32 %25 to i64
   %.idx1.i.i.i.i.i.i.i = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds i8, ptr %22, i64 %.idx1.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i.i = icmp ult i32 %25, 4
+  %.not.i.i.i.i.i.i.i = icmp samesign ult i32 %25, 4
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i

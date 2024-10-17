@@ -283,7 +283,7 @@ define void @_ZN2cv3hal8integralEiiiPKhmPhmS3_mS3_miii(i32 noundef %0, i32 nound
   %101 = getelementptr inbounds i32, ptr %.1293488.us.us.us.i, i64 %indvars.iv589.i
   store i32 %100, ptr %101, align 4
   %indvars.iv.next590.i = add nuw nsw i64 %indvars.iv589.i, %82
-  %102 = icmp ult i64 %indvars.iv.next590.i, %90
+  %102 = icmp samesign ult i64 %indvars.iv.next590.i, %90
   br i1 %102, label %92, label %._crit_edge.us495.us.us.i, !llvm.loop !4
 
 ._crit_edge.us495.us.us.i:                        ; preds = %92
@@ -383,7 +383,7 @@ define void @_ZN2cv3hal8integralEiiiPKhmPhmS3_mS3_miii(i32 noundef %0, i32 nound
   %144 = getelementptr inbounds double, ptr %.2308459.us.us.us.i, i64 %indvars.iv578.i
   store double %142, ptr %144, align 8
   %indvars.iv.next579.i = add nuw nsw i64 %indvars.iv578.i, %122
-  %145 = icmp ult i64 %indvars.iv.next579.i, %125
+  %145 = icmp samesign ult i64 %indvars.iv.next579.i, %125
   br i1 %145, label %128, label %._crit_edge.us468.us.us.i, !llvm.loop !8
 
 ._crit_edge.us468.us.us.i:                        ; preds = %128
@@ -1016,7 +1016,7 @@ _ZN2cv3halL9integral_IhidEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %461 = getelementptr inbounds i32, ptr %.1293488.us.us.us.i415, i64 %indvars.iv589.i417
   store i32 %460, ptr %461, align 4
   %indvars.iv.next590.i419 = add nuw nsw i64 %indvars.iv589.i417, %442
-  %462 = icmp ult i64 %indvars.iv.next590.i419, %450
+  %462 = icmp samesign ult i64 %indvars.iv.next590.i419, %450
   br i1 %462, label %452, label %._crit_edge.us495.us.us.i420, !llvm.loop !16
 
 ._crit_edge.us495.us.us.i420:                     ; preds = %452
@@ -1116,7 +1116,7 @@ _ZN2cv3halL9integral_IhidEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %504 = getelementptr inbounds float, ptr %.2308459.us.us.us.i387, i64 %indvars.iv578.i389
   store float %502, ptr %504, align 4
   %indvars.iv.next579.i392 = add nuw nsw i64 %indvars.iv578.i389, %482
-  %505 = icmp ult i64 %indvars.iv.next579.i392, %485
+  %505 = icmp samesign ult i64 %indvars.iv.next579.i392, %485
   br i1 %505, label %488, label %._crit_edge.us468.us.us.i393, !llvm.loop !19
 
 ._crit_edge.us468.us.us.i393:                     ; preds = %488
@@ -1749,7 +1749,7 @@ _ZN2cv3halL9integral_IhifEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %821 = getelementptr inbounds i32, ptr %.1293488.us.us.us.i584, i64 %indvars.iv589.i586
   store i32 %820, ptr %821, align 4
   %indvars.iv.next590.i588 = add nuw nsw i64 %indvars.iv589.i586, %802
-  %822 = icmp ult i64 %indvars.iv.next590.i588, %810
+  %822 = icmp samesign ult i64 %indvars.iv.next590.i588, %810
   br i1 %822, label %812, label %._crit_edge.us495.us.us.i589, !llvm.loop !27
 
 ._crit_edge.us495.us.us.i589:                     ; preds = %812
@@ -1849,7 +1849,7 @@ _ZN2cv3halL9integral_IhifEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %864 = getelementptr inbounds i32, ptr %.2308459.us.us.us.i556, i64 %indvars.iv578.i558
   store i32 %862, ptr %864, align 4
   %indvars.iv.next579.i561 = add nuw nsw i64 %indvars.iv578.i558, %842
-  %865 = icmp ult i64 %indvars.iv.next579.i561, %845
+  %865 = icmp samesign ult i64 %indvars.iv.next579.i561, %845
   br i1 %865, label %848, label %._crit_edge.us468.us.us.i562, !llvm.loop !30
 
 ._crit_edge.us468.us.us.i562:                     ; preds = %848
@@ -2480,7 +2480,7 @@ _ZN2cv3halL9integral_IhiiEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %1178 = getelementptr inbounds float, ptr %.1293488.us.us.us.i752, i64 %indvars.iv589.i754
   store float %1177, ptr %1178, align 4
   %indvars.iv.next590.i756 = add nuw nsw i64 %indvars.iv589.i754, %1159
-  %1179 = icmp ult i64 %indvars.iv.next590.i756, %1167
+  %1179 = icmp samesign ult i64 %indvars.iv.next590.i756, %1167
   br i1 %1179, label %1169, label %._crit_edge.us495.us.us.i757, !llvm.loop !38
 
 ._crit_edge.us495.us.us.i757:                     ; preds = %1169
@@ -2580,7 +2580,7 @@ _ZN2cv3halL9integral_IhiiEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %1221 = getelementptr inbounds double, ptr %.2308459.us.us.us.i724, i64 %indvars.iv578.i726
   store double %1219, ptr %1221, align 8
   %indvars.iv.next579.i729 = add nuw nsw i64 %indvars.iv578.i726, %1199
-  %1222 = icmp ult i64 %indvars.iv.next579.i729, %1202
+  %1222 = icmp samesign ult i64 %indvars.iv.next579.i729, %1202
   br i1 %1222, label %1205, label %._crit_edge.us468.us.us.i730, !llvm.loop !41
 
 ._crit_edge.us468.us.us.i730:                     ; preds = %1205
@@ -3345,7 +3345,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhffEEvPKT_mPT0_mPT1_mS6_miii(
   %68 = getelementptr inbounds float, ptr %.1293488.us.us.us, i64 %indvars.iv589
   store float %67, ptr %68, align 4
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, %48
-  %69 = icmp ult i64 %indvars.iv.next590, %57
+  %69 = icmp samesign ult i64 %indvars.iv.next590, %57
   br i1 %69, label %59, label %._crit_edge.us495.us.us, !llvm.loop !49
 
 ._crit_edge.us495.us.us:                          ; preds = %59
@@ -3444,7 +3444,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhffEEvPKT_mPT0_mPT1_mS6_miii(
   %110 = getelementptr inbounds float, ptr %.2308459.us.us.us, i64 %indvars.iv578
   store float %108, ptr %110, align 4
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, %89
-  %111 = icmp ult i64 %indvars.iv.next579, %92
+  %111 = icmp samesign ult i64 %indvars.iv.next579, %92
   br i1 %111, label %95, label %._crit_edge.us468.us.us, !llvm.loop !52
 
 ._crit_edge.us468.us.us:                          ; preds = %95
@@ -4066,7 +4066,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhddEEvPKT_mPT0_mPT1_mS6_miii(
   %68 = getelementptr inbounds double, ptr %.1293488.us.us.us, i64 %indvars.iv589
   store double %67, ptr %68, align 8
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, %48
-  %69 = icmp ult i64 %indvars.iv.next590, %57
+  %69 = icmp samesign ult i64 %indvars.iv.next590, %57
   br i1 %69, label %59, label %._crit_edge.us495.us.us, !llvm.loop !60
 
 ._crit_edge.us495.us.us:                          ; preds = %59
@@ -4165,7 +4165,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhddEEvPKT_mPT0_mPT1_mS6_miii(
   %110 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv578
   store double %108, ptr %110, align 8
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, %89
-  %111 = icmp ult i64 %indvars.iv.next579, %92
+  %111 = icmp samesign ult i64 %indvars.iv.next579, %92
   br i1 %111, label %95, label %._crit_edge.us468.us.us, !llvm.loop !63
 
 ._crit_edge.us468.us.us:                          ; preds = %95
@@ -4788,7 +4788,7 @@ define internal fastcc void @_ZN2cv3halL9integral_ItddEEvPKT_mPT0_mPT1_mS6_miii(
   %69 = getelementptr inbounds double, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store double %68, ptr %69, align 8
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %49
-  %70 = icmp ult i64 %indvars.iv.next576, %58
+  %70 = icmp samesign ult i64 %indvars.iv.next576, %58
   br i1 %70, label %60, label %._crit_edge.us495.us.us, !llvm.loop !71
 
 ._crit_edge.us495.us.us:                          ; preds = %60
@@ -4887,7 +4887,7 @@ define internal fastcc void @_ZN2cv3halL9integral_ItddEEvPKT_mPT0_mPT1_mS6_miii(
   %111 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store double %109, ptr %111, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %90
-  %112 = icmp ult i64 %indvars.iv.next568, %93
+  %112 = icmp samesign ult i64 %indvars.iv.next568, %93
   br i1 %112, label %96, label %._crit_edge.us468.us.us, !llvm.loop !74
 
 ._crit_edge.us468.us.us:                          ; preds = %96
@@ -5502,7 +5502,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IsddEEvPKT_mPT0_mPT1_mS6_miii(
   %69 = getelementptr inbounds double, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store double %68, ptr %69, align 8
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %49
-  %70 = icmp ult i64 %indvars.iv.next576, %58
+  %70 = icmp samesign ult i64 %indvars.iv.next576, %58
   br i1 %70, label %60, label %._crit_edge.us495.us.us, !llvm.loop !82
 
 ._crit_edge.us495.us.us:                          ; preds = %60
@@ -5601,7 +5601,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IsddEEvPKT_mPT0_mPT1_mS6_miii(
   %111 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store double %109, ptr %111, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %90
-  %112 = icmp ult i64 %indvars.iv.next568, %93
+  %112 = icmp samesign ult i64 %indvars.iv.next568, %93
   br i1 %112, label %96, label %._crit_edge.us468.us.us, !llvm.loop !85
 
 ._crit_edge.us468.us.us:                          ; preds = %96
@@ -6216,7 +6216,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IffdEEvPKT_mPT0_mPT1_mS6_miii(
   %69 = getelementptr inbounds float, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store float %68, ptr %69, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %50
-  %70 = icmp ult i64 %indvars.iv.next576, %59
+  %70 = icmp samesign ult i64 %indvars.iv.next576, %59
   br i1 %70, label %61, label %._crit_edge.us495.us.us, !llvm.loop !93
 
 ._crit_edge.us495.us.us:                          ; preds = %61
@@ -6315,7 +6315,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IffdEEvPKT_mPT0_mPT1_mS6_miii(
   %111 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store double %109, ptr %111, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %90
-  %112 = icmp ult i64 %indvars.iv.next568, %93
+  %112 = icmp samesign ult i64 %indvars.iv.next568, %93
   br i1 %112, label %96, label %._crit_edge.us468.us.us, !llvm.loop !96
 
 ._crit_edge.us468.us.us:                          ; preds = %96
@@ -6928,7 +6928,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfffEEvPKT_mPT0_mPT1_mS6_miii(
   %68 = getelementptr inbounds float, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store float %67, ptr %68, align 4
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %49
-  %69 = icmp ult i64 %indvars.iv.next576, %58
+  %69 = icmp samesign ult i64 %indvars.iv.next576, %58
   br i1 %69, label %60, label %._crit_edge.us495.us.us, !llvm.loop !104
 
 ._crit_edge.us495.us.us:                          ; preds = %60
@@ -7026,7 +7026,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfffEEvPKT_mPT0_mPT1_mS6_miii(
   %109 = getelementptr inbounds float, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store float %107, ptr %109, align 4
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %89
-  %110 = icmp ult i64 %indvars.iv.next568, %92
+  %110 = icmp samesign ult i64 %indvars.iv.next568, %92
   br i1 %110, label %95, label %._crit_edge.us468.us.us, !llvm.loop !107
 
 ._crit_edge.us468.us.us:                          ; preds = %95
@@ -7635,7 +7635,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfddEEvPKT_mPT0_mPT1_mS6_miii(
   %69 = getelementptr inbounds double, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store double %68, ptr %69, align 8
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %49
-  %70 = icmp ult i64 %indvars.iv.next576, %58
+  %70 = icmp samesign ult i64 %indvars.iv.next576, %58
   br i1 %70, label %60, label %._crit_edge.us495.us.us, !llvm.loop !115
 
 ._crit_edge.us495.us.us:                          ; preds = %60
@@ -7734,7 +7734,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfddEEvPKT_mPT0_mPT1_mS6_miii(
   %111 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store double %109, ptr %111, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %90
-  %112 = icmp ult i64 %indvars.iv.next568, %93
+  %112 = icmp samesign ult i64 %indvars.iv.next568, %93
   br i1 %112, label %96, label %._crit_edge.us468.us.us, !llvm.loop !118
 
 ._crit_edge.us468.us.us:                          ; preds = %96
@@ -8348,7 +8348,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IdddEEvPKT_mPT0_mPT1_mS6_miii(
   %68 = getelementptr inbounds double, ptr %.1293488.us.us.us, i64 %indvars.iv575
   store double %67, ptr %68, align 8
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, %49
-  %69 = icmp ult i64 %indvars.iv.next576, %58
+  %69 = icmp samesign ult i64 %indvars.iv.next576, %58
   br i1 %69, label %60, label %._crit_edge.us495.us.us, !llvm.loop !126
 
 ._crit_edge.us495.us.us:                          ; preds = %60
@@ -8446,7 +8446,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IdddEEvPKT_mPT0_mPT1_mS6_miii(
   %109 = getelementptr inbounds double, ptr %.2308459.us.us.us, i64 %indvars.iv567
   store double %107, ptr %109, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, %89
-  %110 = icmp ult i64 %indvars.iv.next568, %92
+  %110 = icmp samesign ult i64 %indvars.iv.next568, %92
   br i1 %110, label %95, label %._crit_edge.us468.us.us, !llvm.loop !129
 
 ._crit_edge.us468.us.us:                          ; preds = %95

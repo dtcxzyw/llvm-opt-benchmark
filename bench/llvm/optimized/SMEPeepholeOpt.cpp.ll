@@ -661,7 +661,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isSVERegOpRKN4llvm18TargetRegist
   %30 = lshr i32 %26, 3
   %31 = load i16, ptr %18, align 2, !noalias !9
   %32 = zext i16 %31 to i32
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %30, %32
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %30, %32
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i, label %.thread4.i.i.i.i.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; preds = %29
@@ -679,7 +679,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; pr
 .thread4.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i, %29
   %41 = load i16, ptr %21, align 2, !noalias !9
   %42 = zext i16 %41 to i32
-  %.not.i.i3.i.i.i.i.i.i.i.i = icmp ult i32 %30, %42
+  %.not.i.i3.i.i.i.i.i.i.i.i = icmp samesign ult i32 %30, %42
   br i1 %.not.i.i3.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.i.i.i.i.i.i": ; preds = %.thread4.i.i.i.i.i.i.i.i

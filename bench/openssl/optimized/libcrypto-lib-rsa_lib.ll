@@ -397,7 +397,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %v.addr.012.i = phi i64 [ %mul, %if.end9 ], [ %shr.i, %while.body.i ]
   %shr.i = lshr i64 %v.addr.012.i, 1
   %add.i = add nuw nsw i32 %r.013.i, 262144
-  %cmp.i = icmp ugt i64 %v.addr.012.i, 1048575
+  %cmp.i = icmp samesign ugt i64 %v.addr.012.i, 1048575
   br i1 %cmp.i, label %while.body.i, label %for.body.i.preheader, !llvm.loop !4
 
 for.body.i.preheader:                             ; preds = %while.body.i
@@ -415,7 +415,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %add4.i = select i1 %cmp2.i, i32 %i.015.i, i32 0
   %r.2.i = add i32 %add4.i, %r.116.i
   %div11.i = lshr i32 %i.015.i, 1
-  %cmp1.not.i = icmp ult i32 %i.015.i, 2
+  %cmp1.not.i = icmp samesign ult i32 %i.015.i, 2
   br i1 %cmp1.not.i, label %ilog_e.exit, label %for.body.i, !llvm.loop !6
 
 ilog_e.exit:                                      ; preds = %for.body.i

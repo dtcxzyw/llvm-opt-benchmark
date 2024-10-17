@@ -1242,7 +1242,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %498 = getelementptr inbounds float, ptr %479, i64 %indvars.iv306
   store float %497, ptr %498, align 4
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %499 = icmp ult i64 %indvars.iv.next307, %484
+  %499 = icmp samesign ult i64 %indvars.iv.next307, %484
   br i1 %499, label %485, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %485, %486, %.preheader218
@@ -1357,7 +1357,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %557 = getelementptr inbounds float, ptr %479, i64 %indvars.iv312
   store float %556, ptr %557, align 4
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
-  %558 = icmp ult i64 %indvars.iv.next313, %540
+  %558 = icmp samesign ult i64 %indvars.iv.next313, %540
   br i1 %558, label %544, label %.critedge2, !llvm.loop !35
 
 559:                                              ; preds = %.lr.ph256, %560
@@ -1384,7 +1384,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %577 = getelementptr inbounds float, ptr %479, i64 %indvars.iv315
   store float %576, ptr %577, align 4
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %578 = icmp ult i64 %indvars.iv.next316, %543
+  %578 = icmp samesign ult i64 %indvars.iv.next316, %543
   br i1 %578, label %559, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %530, %.lr.ph250, %544, %545, %559, %560, %.critedge, %.preheader215, %.preheader
@@ -1575,7 +1575,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 46:                                               ; preds = %38, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp ult i64 %indvars.iv.next, %33
+  %47 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %47, label %34, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %46, %Vec_IntStart.exit

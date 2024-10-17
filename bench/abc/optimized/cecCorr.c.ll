@@ -3575,7 +3575,7 @@ Cec_ManStartSimInfo.exit:                         ; preds = %._crit_edge.us38.i,
 
 ._crit_edge.us.i:                                 ; preds = %81
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 2
-  %85 = icmp ult i64 %indvars.iv.next33.i, %69
+  %85 = icmp samesign ult i64 %indvars.iv.next33.i, %69
   br i1 %85, label %.lr.ph.us.i33, label %Gia_ManCorrPerformRemapping.exit, !llvm.loop !28
 
 Gia_ManCorrPerformRemapping.exit:                 ; preds = %._crit_edge.us.i, %Cec_ManStartSimInfo.exit
@@ -5456,7 +5456,7 @@ Cec_ManCountLits.exit:                            ; preds = %299, %._crit_edge.l
   %317 = add i32 %315, %.val.i220
   %.neg.i = sub i32 %317, %312
   %318 = add i32 %.neg.i, %316
-  %319 = icmp ugt i32 %.0156283, 4
+  %319 = icmp samesign ugt i32 %.0156283, 4
   br i1 %319, label %320, label %330
 
 320:                                              ; preds = %Cec_ManCountLits.exit

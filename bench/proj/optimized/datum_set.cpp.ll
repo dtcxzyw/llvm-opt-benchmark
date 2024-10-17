@@ -166,7 +166,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %spec.select = getelementptr inbounds i8, ptr %.1, i64 %spec.select.idx
   %55 = load i8, ptr %spec.select, align 1
   %56 = icmp ne i8 %55, 0
-  %57 = icmp ult i64 %indvars.iv112, 6
+  %57 = icmp samesign ult i64 %indvars.iv112, 6
   %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %.lr.ph106, label %._crit_edge, !llvm.loop !8
 

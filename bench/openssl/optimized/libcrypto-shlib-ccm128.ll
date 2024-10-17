@@ -43,7 +43,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i8 %1, 2
+  %cmp4 = icmp samesign ugt i8 %1, 2
   br i1 %cmp4, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
@@ -408,7 +408,7 @@ for.body70:                                       ; preds = %for.cond66.preheade
   store i8 %xor7875, ptr %arrayidx76, align 1
   %inc81 = add i32 %i.186, 1
   %conv67 = zext i32 %inc81 to i64
-  %cmp68 = icmp ugt i64 %len.addr.0.lcssa, %conv67
+  %cmp68 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv67
   br i1 %cmp68, label %for.body70, label %for.end82, !llvm.loop !10
 
 for.end82:                                        ; preds = %for.body70
@@ -428,7 +428,7 @@ for.body94:                                       ; preds = %for.end82, %for.bod
   store i8 %xor10174, ptr %arrayidx104, align 1
   %inc106 = add i32 %i.288, 1
   %conv91 = zext i32 %inc106 to i64
-  %cmp92 = icmp ugt i64 %len.addr.0.lcssa, %conv91
+  %cmp92 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv91
   br i1 %cmp92, label %for.body94, label %for.end119, !llvm.loop !11
 
 for.end119:                                       ; preds = %for.body94, %while.end
@@ -596,7 +596,7 @@ for.body62:                                       ; preds = %if.then54, %for.bod
   store i8 %xor7864, ptr %arrayidx76, align 1
   %inc81 = add i32 %i.175, 1
   %conv59 = zext i32 %inc81 to i64
-  %cmp60 = icmp ugt i64 %len.addr.0.lcssa, %conv59
+  %cmp60 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv59
   br i1 %cmp60, label %for.body62, label %for.end82, !llvm.loop !14
 
 for.end82:                                        ; preds = %for.body62
@@ -739,8 +739,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %if.the
 land.rhs.i:                                       ; preds = %do.body.i
   %shr4.i = lshr i64 %inc.addr.0.i, 8
   %shr.i = lshr i64 %add1.i, 8
-  %tobool5.i = icmp ugt i64 %inc.addr.0.i, 255
-  %tobool6.i = icmp ugt i64 %add1.i, 255
+  %tobool5.i = icmp samesign ugt i64 %inc.addr.0.i, 255
+  %tobool6.i = icmp samesign ugt i64 %add1.i, 255
   %10 = select i1 %tobool5.i, i1 true, i1 %tobool6.i
   br i1 %10, label %do.body.i, label %if.end50, !llvm.loop !16
 
@@ -906,8 +906,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %if.the
 land.rhs.i:                                       ; preds = %do.body.i
   %shr4.i = lshr i64 %inc.addr.0.i, 8
   %shr.i = lshr i64 %add1.i, 8
-  %tobool5.i = icmp ugt i64 %inc.addr.0.i, 255
-  %tobool6.i = icmp ugt i64 %add1.i, 255
+  %tobool5.i = icmp samesign ugt i64 %inc.addr.0.i, 255
+  %tobool6.i = icmp samesign ugt i64 %add1.i, 255
   %8 = select i1 %tobool5.i, i1 true, i1 %tobool6.i
   br i1 %8, label %do.body.i, label %if.end41, !llvm.loop !16
 

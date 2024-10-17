@@ -16,7 +16,7 @@ entry:
   %add = or disjoint i64 %mul, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 %MinCapacity)
   %conv3 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv3, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv3, %conv.i
   %cmp5 = icmp ult i64 %conv3, %MinCapacity
   %or.cond = or i1 %cmp.not, %cmp5
   br i1 %or.cond, label %if.then, label %lor.lhs.false6

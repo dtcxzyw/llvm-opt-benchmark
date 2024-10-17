@@ -499,7 +499,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv58
   store ptr %52, ptr %54, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %55 = icmp ult i64 %indvars.iv.next59, %48
+  %55 = icmp samesign ult i64 %indvars.iv.next59, %48
   br i1 %55, label %.lr.ph53, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5

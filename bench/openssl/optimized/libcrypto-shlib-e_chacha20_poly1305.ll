@@ -40,7 +40,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx18 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %2
   store i32 %1, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %cmp = icmp ult i64 %indvars.iv, 28
+  %cmp = icmp samesign ult i64 %indvars.iv, 28
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %entry
@@ -59,7 +59,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %counter, i64 0, i64 %4
   store i32 %3, ptr %arrayidx49, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 4
-  %cmp22 = icmp ult i64 %indvars.iv30, 12
+  %cmp22 = icmp samesign ult i64 %indvars.iv30, 12
   br i1 %cmp22, label %for.body24, label %if.end53, !llvm.loop !6
 
 if.end53:                                         ; preds = %for.body24, %if.end
@@ -104,7 +104,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %xor57, ptr %out.addr.163, align 1
   %dec = add i64 %len.addr.162, -1
   %tobool1 = icmp ne i64 %dec, 0
-  %cmp = icmp ult i64 %indvars.iv, 63
+  %cmp = icmp samesign ult i64 %indvars.iv, 63
   %6 = and i1 %tobool1, %cmp
   br i1 %6, label %while.body, label %while.end.loopexit, !llvm.loop !7
 
@@ -167,7 +167,7 @@ while.body34:                                     ; preds = %while.body34.lr.ph,
   %conv39 = trunc nuw nsw i64 %spec.store.select to i32
   %add = add i32 %ctr32.072, %conv39
   %conv40 = zext i32 %add to i64
-  %cmp41 = icmp ugt i64 %spec.store.select, %conv40
+  %cmp41 = icmp samesign ugt i64 %spec.store.select, %conv40
   %spec.select = select i1 %cmp41, i32 0, i32 %add
   %sub45 = select i1 %cmp41, i64 %conv40, i64 0
   %spec.select58 = sub nuw nsw i64 %spec.store.select, %sub45
@@ -275,7 +275,7 @@ for.body.i:                                       ; preds = %if.end10, %for.body
   %arrayidx18.i = getelementptr inbounds [8 x i32], ptr %2, i64 0, i64 %4
   store i32 %3, ptr %arrayidx18.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp.i = icmp ult i64 %indvars.iv.i, 28
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 28
   br i1 %cmp.i, label %for.body.i, label %if.end.i, !llvm.loop !4
 
 if.end.i:                                         ; preds = %for.body.i, %if.end10
@@ -310,7 +310,7 @@ for.body.i23:                                     ; preds = %if.else, %for.body.
   %arrayidx18.i26 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %10
   store i32 %9, ptr %arrayidx18.i26, align 4
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 4
-  %cmp.i28 = icmp ult i64 %indvars.iv.i24, 28
+  %cmp.i28 = icmp samesign ult i64 %indvars.iv.i24, 28
   br i1 %cmp.i28, label %for.body.i23, label %chacha_init_key.exit31, !llvm.loop !4
 
 chacha_init_key.exit31:                           ; preds = %for.body.i23, %if.else
@@ -890,7 +890,7 @@ if.end121:                                        ; preds = %sw.bb117
   br i1 %tobool135.not, label %if.then136, label %if.end145
 
 if.then136:                                       ; preds = %if.end121
-  %cmp137 = icmp ult i32 %or131, 16
+  %cmp137 = icmp samesign ult i32 %or131, 16
   br i1 %cmp137, label %return, label %if.end140
 
 if.end140:                                        ; preds = %if.then136

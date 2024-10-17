@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %16
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv177, %51
+  %52 = icmp samesign ult i64 %indvars.iv177, %51
   br i1 %52, label %53, label %.critedge2
 
 53:                                               ; preds = %.lr.ph169

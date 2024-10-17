@@ -5975,7 +5975,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp ult i8 %9, 6
+  %17 = icmp samesign ult i8 %9, 6
   %18 = zext nneg i8 %9 to i64
   %19 = add nsw i64 %18, -5
   %20 = select i1 %17, i64 0, i64 %19
@@ -14890,7 +14890,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %1, align 8, !alias.scope !2965, !nonnull !16, !align !202, !noundef !16
   %9 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h503fc66d0d102005E.llvm.13975500011170185901"(ptr noundef nonnull align 8 %7, ptr noundef nonnull align 8 %4, i64 noundef 0, ptr noundef nonnull %8), !range !1218, !noalias !2965
-  %switch.i.i = icmp ult i8 %9, 2
+  %switch.i.i = icmp samesign ult i8 %9, 2
   br i1 %switch.i.i, label %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hae50dbfebd1927baE.exit", label %10
 
 10:                                               ; preds = %2

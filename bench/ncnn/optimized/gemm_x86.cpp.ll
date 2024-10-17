@@ -1095,7 +1095,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %.4.us = phi ptr [ %.2.lcssa.us, %.loopexit6.us ], [ %39, %.lr.ph13.us ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 4
   %36 = or disjoint i64 %indvars.iv.next81, 3
-  %37 = icmp ult i64 %36, %28
+  %37 = icmp samesign ult i64 %36, %28
   br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !9
 
 .lr.ph13.us:                                      ; preds = %.lr.ph13.us.preheader, %.lr.ph13.us
@@ -1190,7 +1190,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
 ..loopexit5_crit_edge.us30.us:                    ; preds = %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %78 = or disjoint i64 %indvars.iv.next, 3
-  %79 = icmp ult i64 %78, %68
+  %79 = icmp samesign ult i64 %78, %68
   br i1 %79, label %.lr.ph13.us29.us, label %.preheader4.loopexit64, !llvm.loop !9
 
 .preheader4.loopexit:                             ; preds = %.loopexit5.us
@@ -1558,7 +1558,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %.4.lcssa.us = phi ptr [ %.3.lcssa.us, %.preheader4.us ], [ %69, %.lr.ph28.us ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 4
   %103 = or disjoint i64 %indvars.iv.next118, 3
-  %104 = icmp ult i64 %103, %28
+  %104 = icmp samesign ult i64 %103, %28
   br i1 %104, label %.lr.ph32.split.us, label %.preheader3.loopexit, !llvm.loop !21
 
 .lr.ph32.split:                                   ; preds = %.lr.ph32
@@ -1606,7 +1606,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
 ..loopexit5_crit_edge.us45.us:                    ; preds = %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %120 = or disjoint i64 %indvars.iv.next, 3
-  %121 = icmp ult i64 %120, %109
+  %121 = icmp samesign ult i64 %120, %109
   br i1 %121, label %.lr.ph.us44.us, label %.preheader3.loopexit89, !llvm.loop !21
 
 .preheader3.loopexit:                             ; preds = %.loopexit.us
@@ -2394,7 +2394,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %.5 = phi ptr [ %.1784, %.loopexit13 ], [ %.3.lcssa, %.preheader11 ], [ %.078365, %195 ], [ %356, %.lr.ph62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %370 = add nuw nsw i64 %indvars.iv, 23
-  %371 = icmp ult i64 %370, %28
+  %371 = icmp samesign ult i64 %370, %28
   br i1 %371, label %194, label %.preheader10.loopexit, !llvm.loop !35
 
 .preheader6.loopexit:                             ; preds = %.loopexit8.us
@@ -2778,7 +2778,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.4.us = phi ptr [ %.2.lcssa.us, %.loopexit12.us ], [ %45, %.lr.ph19.us ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 12
   %36 = add nuw nsw i64 %indvars.iv122, 23
-  %37 = icmp ult i64 %36, %28
+  %37 = icmp samesign ult i64 %36, %28
   br i1 %37, label %.lr.ph23.split.us, label %.preheader10.loopexit, !llvm.loop !46
 
 .lr.ph19.us:                                      ; preds = %.lr.ph19.us.preheader, %.lr.ph19.us
@@ -2943,7 +2943,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
 ..loopexit11_crit_edge.us36.us:                   ; preds = %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %136 = add nuw nsw i64 %indvars.iv, 23
-  %137 = icmp ult i64 %136, %120
+  %137 = icmp samesign ult i64 %136, %120
   br i1 %137, label %.lr.ph19.us35.us, label %.preheader10.loopexit100, !llvm.loop !46
 
 .preheader10.loopexit:                            ; preds = %.loopexit11.us
@@ -8731,7 +8731,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %710 = getelementptr inbounds float, ptr %.02571320, i64 %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %711 = or disjoint i64 %indvars.iv.next, 3
-  %712 = icmp ult i64 %711, %51
+  %712 = icmp samesign ult i64 %711, %51
   br i1 %712, label %74, label %.preheader177.loopexit, !llvm.loop !87
 
 .preheader172.loopexit:                           ; preds = %._crit_edge444
@@ -10110,7 +10110,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %.4.us = phi ptr [ %.2.lcssa.us, %.loopexit6.us ], [ %39, %.lr.ph13.us ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 4
   %36 = or disjoint i64 %indvars.iv.next81, 3
-  %37 = icmp ult i64 %36, %28
+  %37 = icmp samesign ult i64 %36, %28
   br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !110
 
 .lr.ph13.us:                                      ; preds = %.lr.ph13.us.preheader, %.lr.ph13.us
@@ -10205,7 +10205,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
 ..loopexit5_crit_edge.us30.us:                    ; preds = %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %78 = or disjoint i64 %indvars.iv.next, 3
-  %79 = icmp ult i64 %78, %68
+  %79 = icmp samesign ult i64 %78, %68
   br i1 %79, label %.lr.ph13.us29.us, label %.preheader4.loopexit64, !llvm.loop !110
 
 .preheader4.loopexit:                             ; preds = %.loopexit5.us

@@ -447,8 +447,8 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
-  %69 = icmp ugt i32 %68, 3141
-  %70 = icmp ult i32 %68, 3142
+  %69 = icmp samesign ugt i32 %68, 3141
+  %70 = icmp samesign ult i32 %68, 3142
   %71 = select i1 %70, i32 405827745, i32 271610017
   %72 = select i1 %7, i32 271610017, i32 %71
   %73 = load ptr, ptr %4, align 8
@@ -1725,7 +1725,7 @@ define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr nocapture nound
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
-  %17 = icmp ult i32 %16, 3142
+  %17 = icmp samesign ult i32 %16, 3142
   %18 = select i1 %17, i32 403968161, i32 269750433
   %19 = getelementptr inbounds i8, ptr %8, i64 16
   %20 = load i32, ptr %19, align 8
@@ -1775,7 +1775,7 @@ define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr nocapture nound
   %49 = load i8, ptr %13, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %50, 3072
-  %52 = icmp ult i32 %51, 3122
+  %52 = icmp samesign ult i32 %51, 3122
   %53 = or disjoint i32 %18, 8192
   %54 = select i1 %52, i32 %53, i32 %18
   br label %55

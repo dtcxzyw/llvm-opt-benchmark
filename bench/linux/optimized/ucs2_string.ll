@@ -85,7 +85,7 @@ define dso_local range(i64 2, 1) i64 @ucs2_strsize(ptr nocapture noundef readonl
   %11 = add nuw nsw i64 %8, 1
   %12 = load i16, ptr %10, align 2
   %13 = icmp ne i16 %12, 0
-  %14 = icmp ult i64 %11, %3
+  %14 = icmp samesign ult i64 %11, %3
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.preheader, label %16, !llvm.loop !5
 

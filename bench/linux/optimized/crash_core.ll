@@ -516,7 +516,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
   %58 = getelementptr i8, ptr %34, i64 56
   %59 = add nuw nsw i64 %40, 1
   %60 = and i64 %59, 127
-  %61 = icmp ugt i64 %60, 63
+  %61 = icmp samesign ugt i64 %60, 63
   br i1 %61, label %.thread, label %32, !prof !12, !llvm.loop !13
 
 .loopexit3:                                       ; preds = %39, %.thread
@@ -602,7 +602,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
   %111 = add nuw nsw i64 %91, 1
   %112 = load i32, ptr %9, align 4
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %111, %113
+  %114 = icmp samesign ult i64 %111, %113
   br i1 %114, label %90, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %90, %84

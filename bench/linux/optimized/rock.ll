@@ -569,7 +569,7 @@ define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr 
   %51 = getelementptr i8, ptr %1, i64 -27
   %52 = getelementptr i8, ptr %1, i64 -26
   %53 = getelementptr inbounds i8, ptr %1, i64 80
-  %54 = icmp ult i32 %2, 2
+  %54 = icmp samesign ult i32 %2, 2
   %55 = getelementptr i8, ptr %1, i64 -48
   %56 = getelementptr i8, ptr %1, i64 -40
   %57 = getelementptr i8, ptr %1, i64 -32
@@ -732,7 +732,7 @@ rock_check_overflow.exit:                         ; preds = %96
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
   %136 = add nuw nsw i64 %135, 8
-  %137 = icmp ugt i64 %136, %103
+  %137 = icmp samesign ugt i64 %136, %103
   br i1 %137, label %.loopexit11, label %138
 
 138:                                              ; preds = %132
@@ -762,7 +762,7 @@ rock_check_overflow.exit:                         ; preds = %96
   %157 = add nuw nsw i64 %152, 1
   %158 = load i8, ptr %133, align 1
   %159 = zext i8 %158 to i64
-  %160 = icmp ult i64 %157, %159
+  %160 = icmp samesign ult i64 %157, %159
   br i1 %160, label %151, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %151, %138
@@ -1320,7 +1320,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
 
 99:                                               ; preds = %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %86, %86
   %100 = phi i32 [ 4, %98 ], [ 16, %97 ], [ 5, %96 ], [ 12, %95 ], [ 12, %94 ], [ 5, %93 ], [ 20, %92 ], [ 36, %91 ], [ 5, %90 ], [ 8, %89 ], [ 28, %88 ], [ 7, %86 ], [ 7, %86 ]
-  %101 = icmp ugt i32 %100, %.val
+  %101 = icmp samesign ugt i32 %100, %.val
   br i1 %101, label %rock_check_overflow.exit, label %105
 
 rock_check_overflow.exit:                         ; preds = %99

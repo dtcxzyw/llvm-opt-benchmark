@@ -363,7 +363,7 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
   %134 = sub nsw i32 %132, %133
   %135 = tail call i32 @llvm.abs.i32(i32 %134, i1 true)
   %136 = mul nuw nsw i32 %.039.i, 3
-  %.not45.i = icmp ugt i32 %135, %136
+  %.not45.i = icmp samesign ugt i32 %135, %136
   br i1 %.not45.i, label %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread, label %137
 
 137:                                              ; preds = %131
@@ -897,7 +897,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPa
   %50 = sub nsw i32 %47, %49
   %51 = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
   %52 = mul nuw nsw i32 %.039, 3
-  %.not45 = icmp ugt i32 %51, %52
+  %.not45 = icmp samesign ugt i32 %51, %52
   br i1 %.not45, label %58, label %53
 
 53:                                               ; preds = %46
@@ -10324,7 +10324,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit64: ; preds = %139, %141, 
   br i1 %exitcond.not, label %186, label %155, !llvm.loop !50
 
 186:                                              ; preds = %182
-  %187 = icmp ugt i32 %172, 2
+  %187 = icmp samesign ugt i32 %172, 2
   %188 = fcmp ogt float %185, 5.000000e+00
   %or.cond = select i1 %187, i1 true, i1 %188
   br i1 %or.cond, label %._crit_edge, label %189
@@ -11511,7 +11511,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %184 = sub nsw i32 %181, %183
   %185 = tail call i32 @llvm.abs.i32(i32 %184, i1 true)
   %186 = mul nuw nsw i32 %.039.i, 3
-  %.not45.i = icmp ugt i32 %185, %186
+  %.not45.i = icmp samesign ugt i32 %185, %186
   br i1 %.not45.i, label %.loopexit, label %187
 
 187:                                              ; preds = %180
@@ -11985,7 +11985,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %189 = sub nsw i32 %186, %188
   %190 = tail call i32 @llvm.abs.i32(i32 %189, i1 true)
   %191 = mul nuw nsw i32 %.039.i, 3
-  %.not45.i = icmp ugt i32 %190, %191
+  %.not45.i = icmp samesign ugt i32 %190, %191
   br i1 %.not45.i, label %.loopexit, label %192
 
 192:                                              ; preds = %185
@@ -18366,7 +18366,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i.i: ; preds = %402, %4
   br i1 %.not15.i.i.i, label %430, label %428
 
 428:                                              ; preds = %417
-  %429 = icmp ult i32 %.19.i.i.i19, %.1.i.i.i20
+  %429 = icmp samesign ult i32 %.19.i.i.i19, %.1.i.i.i20
   br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit.thread.i.i
 
 430:                                              ; preds = %417
@@ -18541,7 +18541,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i9.i.i: ; preds = %471, %
   br i1 %.not15.i30.i.i, label %499, label %497
 
 497:                                              ; preds = %486
-  %498 = icmp ult i32 %.19.i25.i.i, %.1.i29.i.i
+  %498 = icmp samesign ult i32 %.19.i25.i.i, %.1.i29.i.i
   br label %_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_.exit37.thread.i.i
 
 499:                                              ; preds = %486
@@ -19281,7 +19281,7 @@ define internal fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestC
   br i1 %.not15, label %27, label %25
 
 25:                                               ; preds = %13
-  %26 = icmp ult i32 %.19, %.1
+  %26 = icmp samesign ult i32 %.19, %.1
   br label %32
 
 27:                                               ; preds = %13

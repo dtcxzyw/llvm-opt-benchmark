@@ -381,7 +381,7 @@ default.unreachable.i:                            ; preds = %17
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !6
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   br i1 %switch.i17.i.i.i, label %89, label %85
 
 89:                                               ; preds = %86
@@ -834,7 +834,7 @@ default.unreachable.i:                            ; preds = %15
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !41
   %86 = icmp ult i64 %85, 6
   tail call void @llvm.assume(i1 %86)
-  %switch.i17.i.i.i = icmp ugt i64 %85, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %85, 3
   %87 = inttoptr i64 %.sroa.030.073.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %88, label %83
 
@@ -1290,7 +1290,7 @@ default.unreachable.i:                            ; preds = %15
   %87 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !65
   %88 = icmp ult i64 %87, 6
   tail call void @llvm.assume(i1 %88)
-  %switch.i17.i.i.i = icmp ugt i64 %87, 3
+  %switch.i17.i.i.i = icmp samesign ugt i64 %87, 3
   %89 = inttoptr i64 %.sroa.030.076.i.i.i to ptr
   br i1 %switch.i17.i.i.i, label %90, label %85
 
@@ -11749,7 +11749,7 @@ common.ret:                                       ; preds = %70, %"_ZN92_$LT$fut
   %45 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %46 = icmp ult i64 %45, 6
   tail call void @llvm.assume(i1 %46)
-  %switch.i19 = icmp ugt i64 %45, 2
+  %switch.i19 = icmp samesign ugt i64 %45, 2
   br i1 %switch.i19, label %47, label %41
 
 47:                                               ; preds = %44

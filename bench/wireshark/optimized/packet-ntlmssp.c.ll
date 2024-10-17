@@ -747,7 +747,7 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %40
 58:                                               ; preds = %55, %.lr.ph.i
   %59 = add i32 %.0724.i, 1
   %60 = zext i32 %59 to i64
-  %61 = icmp ugt i64 %51, %60
+  %61 = icmp samesign ugt i64 %51, %60
   br i1 %61, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %58, %ansi_to_unicode.exit.i

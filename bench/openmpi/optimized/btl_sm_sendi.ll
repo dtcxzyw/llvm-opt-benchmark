@@ -500,8 +500,8 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   %54 = zext i32 %53 to i64
   %55 = icmp ugt i64 %38, %54
   %or.cond = and i1 %.not, %55
-  %56 = icmp ule i32 %47, %32
-  %or.cond110 = and i1 %56, %or.cond
+  %56 = icmp samesign ule i32 %47, %32
+  %or.cond110 = select i1 %or.cond, i1 %56, i1 false
   br i1 %or.cond110, label %57, label %.critedge
 
 57:                                               ; preds = %43

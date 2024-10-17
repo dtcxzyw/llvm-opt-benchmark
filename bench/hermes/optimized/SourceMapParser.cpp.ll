@@ -767,7 +767,7 @@ if.then62:                                        ; preds = %for.body, %land.lhs
   br label %cleanup104
 
 if.end69:                                         ; preds = %land.lhs.true.i250
-  %cmp71 = icmp ult i64 %indvars.iv, %57
+  %cmp71 = icmp samesign ult i64 %indvars.iv, %57
   %or.cond = and i1 %tobool.not.not, %cmp71
   br i1 %or.cond, label %if.then.i.i.i, label %if.end80
 
@@ -1412,7 +1412,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

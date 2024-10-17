@@ -2051,7 +2051,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit70.i: ; preds = %_ZNK4llvm9Strin
 
 _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %171
   %173 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %172)
-  %174 = icmp ult i64 %173, 2
+  %174 = icmp samesign ult i64 %173, 2
   %175 = icmp slt i64 %172, 8193
   %or.cond.not.i = and i1 %175, %174
   br i1 %or.cond.not.i, label %297, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.i

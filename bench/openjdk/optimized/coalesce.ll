@@ -291,7 +291,7 @@ define hidden void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull al
   %21 = getelementptr inbounds i8, ptr %20, i64 64
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -809,7 +809,7 @@ _ZN8IndexSet6insertEj.exit.us:                    ; preds = %_ZN8IndexSet6remove
   %73 = getelementptr inbounds i8, ptr %72, i64 64
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next331, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next331, %75
   br i1 %76, label %.lr.ph.split.us, label %.loopexit290, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN8IndexSet6insertEj.exit
@@ -879,7 +879,7 @@ _ZN8IndexSet6insertEj.exit:                       ; preds = %113, %108, %.lr.ph.
   %119 = getelementptr inbounds i8, ptr %118, i64 64
   %120 = load i32, ptr %119, align 8
   %121 = zext i32 %120 to i64
-  %122 = icmp ult i64 %indvars.iv.next, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
   br i1 %122, label %.lr.ph.split, label %.loopexit290, !llvm.loop !13
 
 .loopexit290:                                     ; preds = %_ZN8IndexSet6insertEj.exit, %_ZN8IndexSet6insertEj.exit.us, %.preheader289, %_ZN12LiveRangeMap4findEj.exit
@@ -1688,7 +1688,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node7set_req
   %628 = add nsw i32 %621, 1
   %629 = icmp sgt i32 %621, -1
   %630 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %628)
-  %631 = icmp ult i32 %630, 2
+  %631 = icmp samesign ult i32 %630, 2
   %or.cond.i.i.i.i.i = select i1 %629, i1 %631, i1 false
   %632 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %628, i1 true)
   %633 = sub nuw nsw i32 32, %632
@@ -2051,7 +2051,7 @@ _ZN4Node7set_reqEjPS_.exit248:                    ; preds = %_ZN4Node7del_outEPS
   %834 = add nsw i32 %827, 1
   %835 = icmp sgt i32 %827, -1
   %836 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %834)
-  %837 = icmp ult i32 %836, 2
+  %837 = icmp samesign ult i32 %836, 2
   %or.cond.i.i.i.i.i251 = select i1 %835, i1 %837, i1 false
   %838 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %834, i1 true)
   %839 = sub nuw nsw i32 32, %838
@@ -2157,11 +2157,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %884 = getelementptr inbounds i8, ptr %.tr.i, i64 20
   %885 = load i32, ptr %884, align 4
   %886 = zext i32 %885 to i64
-  %.not.i.i263 = icmp uge i64 %indvars.iv341, %886
+  %.not.i.i263 = icmp samesign uge i64 %indvars.iv341, %886
   %887 = getelementptr inbounds i8, ptr %.tr.i, i64 24
   %888 = load i32, ptr %887, align 8
   %889 = zext i32 %888 to i64
-  %890 = icmp ult i64 %indvars.iv341, %889
+  %890 = icmp samesign ult i64 %indvars.iv341, %889
   %891 = select i1 %.not.i.i263, i1 %890, i1 false
   br i1 %891, label %892, label %896
 
@@ -2465,7 +2465,7 @@ _ZNK8JVMState14is_monitor_useEj.exit.thread:      ; preds = %892, %934, %_ZNK8JV
   %1062 = getelementptr inbounds i8, ptr %1061, i64 64
   %1063 = load i32, ptr %1062, align 8
   %1064 = zext i32 %1063 to i64
-  %1065 = icmp ult i64 %indvars.iv.next352, %1064
+  %1065 = icmp samesign ult i64 %indvars.iv.next352, %1064
   br i1 %1065, label %139, label %.loopexit288, !llvm.loop !21
 
 .loopexit288:                                     ; preds = %._crit_edge313, %_ZN7Compile16check_node_countEjPKc.exit, %._crit_edge, %521, %523, %952, %738
@@ -2588,7 +2588,7 @@ define hidden void @_ZN23PhaseAggressiveCoalesce8coalesceEP5Block(ptr nocapture 
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 1, %.preheader ]
   %37 = load i32, ptr %15, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv, %38
+  %39 = icmp samesign ult i64 %indvars.iv, %38
   br i1 %39, label %40, label %_ZNK5Block8get_nodeEj.exit
 
 40:                                               ; preds = %.lr.ph
@@ -2614,7 +2614,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %34, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %49, %_ZNK5Block8get_nodeEj.exit
@@ -2625,7 +2625,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %40
   %57 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %8, %.preheader ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next50, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next50, %58
   br i1 %59, label %7, label %._crit_edge42, !llvm.loop !24
 
 ._crit_edge42:                                    ; preds = %._crit_edge, %2
@@ -2660,7 +2660,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %40
   %indvars.iv52 = phi i64 [ 1, %.lr.ph45.preheader ], [ %indvars.iv.next53, %103 ]
   %80 = load i32, ptr %63, align 8
   %81 = zext i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv52, %81
+  %82 = icmp samesign ult i64 %indvars.iv52, %81
   br i1 %82, label %83, label %_ZNK5Block8get_nodeEj.exit34
 
 83:                                               ; preds = %.lr.ph45
@@ -4297,7 +4297,7 @@ define linkonce_odr hidden void @_ZN8IndexSet5clearEv(ptr noundef nonnull align 
   %13 = phi i32 [ %6, %5 ], [ %.pre, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %5, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %12, %1

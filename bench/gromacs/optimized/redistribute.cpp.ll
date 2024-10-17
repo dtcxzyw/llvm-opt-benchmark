@@ -2409,7 +2409,7 @@ define internal void @_Z18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stat
   %86 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.i
   %87 = load i32, ptr %86, align 4
   %.not.i = icmp ne i32 %87, 0
-  %88 = icmp ult i64 %indvars.iv.i, 2
+  %88 = icmp samesign ult i64 %indvars.iv.i, 2
   %or.cond.i = and i1 %88, %.not.i
   br i1 %or.cond.i, label %.lr.ph19.i, label %.loopexit.i
 
@@ -2898,7 +2898,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i: ; preds = %301
   %375 = getelementptr inbounds i32, ptr %319, i64 %indvars.iv.i43
   %376 = load i32, ptr %375, align 4
   %.not.i64 = icmp ne i32 %376, 0
-  %377 = icmp ult i64 %indvars.iv.i43, 2
+  %377 = icmp samesign ult i64 %indvars.iv.i43, 2
   %or.cond.i65 = and i1 %377, %.not.i64
   br i1 %or.cond.i65, label %.lr.ph20.i, label %.loopexit.i66
 

@@ -1536,7 +1536,7 @@ for.body18.i:                                     ; preds = %for.inc77.i, %for.b
   %indvars25 = trunc i64 %indvars.iv.i to i32
   %16 = load i32, ptr %threads, align 8
   %17 = zext i32 %16 to i64
-  %cmp19.not.i = icmp ult i64 %indvars.iv.i, %17
+  %cmp19.not.i = icmp samesign ult i64 %indvars.iv.i, %17
   br i1 %cmp19.not.i, label %if.end39.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %for.body18.i
@@ -1606,7 +1606,7 @@ for.inc77.i:                                      ; preds = %if.end39.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = load i32, ptr %lanes.i3, align 4
   %25 = zext i32 %24 to i64
-  %cmp16.i = icmp ult i64 %indvars.iv.next.i, %25
+  %cmp16.i = icmp samesign ult i64 %indvars.iv.next.i, %25
   br i1 %cmp16.i, label %for.body18.i, label %for.end79.i, !llvm.loop !13
 
 for.end79.i:                                      ; preds = %for.inc77.i
@@ -1637,7 +1637,7 @@ if.end101.i:                                      ; preds = %if.end94.i
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %29 = load i32, ptr %lanes.i3, align 4
   %30 = zext i32 %29 to i64
-  %cmp85.i = icmp ult i64 %indvars.iv.next82.i, %30
+  %cmp85.i = icmp samesign ult i64 %indvars.iv.next82.i, %30
   br i1 %cmp85.i, label %for.body87.i, label %for.inc107.i, !llvm.loop !14
 
 for.inc107.i:                                     ; preds = %if.end101.i, %for.end79.i, %for.cond14.preheader.i
@@ -1877,7 +1877,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true
   br i1 %cmp20, label %land.rhs, label %fail
 
 land.rhs:                                         ; preds = %land.lhs.true18
-  %cmp22 = icmp ult i64 %outlen, 65
+  %cmp22 = icmp samesign ult i64 %outlen, 65
   %cond28 = select i1 %cmp22, ptr %out, ptr %outbuf
   %call29 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef %cond28, ptr noundef null) #9
   %cmp30 = icmp ne i32 %call29, 1

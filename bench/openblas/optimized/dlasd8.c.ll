@@ -255,7 +255,7 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %175 = select i1 %174, double %168, double %173
   store double %175, ptr %169, align 8, !tbaa !7
   %176 = add nuw nsw i64 %162, 1
-  %177 = icmp ult i64 %162, %160
+  %177 = icmp samesign ult i64 %162, %160
   br i1 %177, label %161, label %.loopexit16, !llvm.loop !15
 
 .loopexit16:                                      ; preds = %161

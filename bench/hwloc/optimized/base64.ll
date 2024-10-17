@@ -86,7 +86,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   store i8 %51, ptr %52, align 1
   %53 = add i32 %.064, 1
   %54 = zext i32 %53 to i64
-  %55 = icmp ugt i64 %.046.lcssa, %54
+  %55 = icmp samesign ugt i64 %.046.lcssa, %54
   br i1 %55, label %48, label %56, !llvm.loop !6
 
 56:                                               ; preds = %48

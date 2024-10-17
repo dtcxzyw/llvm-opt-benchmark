@@ -393,7 +393,7 @@ if.else.i:                                        ; preds = %_ZNK6icu_759UVector
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
-  %cmp.i.i = icmp ult i32 %and, 1024
+  %cmp.i.i = icmp samesign ult i32 %and, 1024
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
@@ -491,7 +491,7 @@ if.else39:                                        ; preds = %if.then33
 
 if.then43:                                        ; preds = %if.else39
   %and44 = and i32 %conv, 32767
-  %cmp.i55 = icmp ult i32 %and44, 16384
+  %cmp.i55 = icmp samesign ult i32 %and44, 16384
   br i1 %cmp.i55, label %if.end49, label %if.else.i56
 
 if.else.i56:                                      ; preds = %if.then43
@@ -605,11 +605,11 @@ if.then72:                                        ; preds = %land.lhs.true67
   br label %return
 
 if.end74:                                         ; preds = %land.lhs.true67
-  %cmp75 = icmp ult i32 %node.0, 48
+  %cmp75 = icmp samesign ult i32 %node.0, 48
   br i1 %cmp75, label %if.then76, label %land.lhs.true92
 
 if.end74.thread:                                  ; preds = %if.end64
-  %cmp7599 = icmp ult i32 %node.0, 48
+  %cmp7599 = icmp samesign ult i32 %node.0, 48
   br i1 %cmp7599, label %if.then76, label %if.else86.thread
 
 if.else86.thread:                                 ; preds = %if.end74.thread
@@ -852,7 +852,7 @@ while.end:                                        ; preds = %_ZN6icu_7510UCharsT
   %22 = load i16, ptr %incdec.ptr6, align 2
   %23 = and i16 %22, 32767
   %and = zext nneg i16 %23 to i32
-  %cmp.i46 = icmp ult i16 %23, 16384
+  %cmp.i46 = icmp samesign ult i16 %23, 16384
   br i1 %cmp.i46, label %_ZN6icu_7510UCharsTrie9skipValueEPKDsi.exit, label %if.else.i47
 
 if.else.i47:                                      ; preds = %while.end

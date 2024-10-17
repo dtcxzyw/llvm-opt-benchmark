@@ -1062,7 +1062,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %291 = add nuw nsw i64 %.0374, 1
   %292 = load i32, ptr %157, align 4
   %293 = zext i32 %292 to i64
-  %294 = icmp ult i64 %291, %293
+  %294 = icmp samesign ult i64 %291, %293
   br i1 %294, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %279, %.lr.ph386
@@ -1086,7 +1086,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %304 = add nuw nsw i64 %.0153383, 1
   %305 = load i32, ptr %160, align 4
   %306 = zext i32 %305 to i64
-  %307 = icmp ult i64 %304, %306
+  %307 = icmp samesign ult i64 %304, %306
   br i1 %307, label %.lr.ph386, label %._crit_edge387, !llvm.loop !8
 
 ._crit_edge387:                                   ; preds = %._crit_edge, %229
@@ -1845,7 +1845,7 @@ common.resume:                                    ; preds = %.body, %17
   %..i.i = tail call noundef i32 @llvm.umax.i32(i32 %29, i32 %31)
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %..i.i, i1 false)
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %..i.i)
-  %34 = icmp ugt i32 %33, 1
+  %34 = icmp samesign ugt i32 %33, 1
   %spec.select.v.i = select i1 %34, i32 32, i32 31
   %spec.select.i = sub nsw i32 %spec.select.v.i, %32
   %35 = add i32 %28, -2
@@ -2043,7 +2043,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12em
   %102 = load ptr, ptr %27, align 8
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next495, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next495, %104
   br i1 %105, label %.lr.ph436, label %._crit_edge437.loopexit, !llvm.loop !18
 
 ._crit_edge437.loopexit:                          ; preds = %.lr.ph436
@@ -2328,7 +2328,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %242 = load ptr, ptr %27, align 8
   %243 = load i32, ptr %242, align 8
   %244 = zext i32 %243 to i64
-  %245 = icmp ult i64 %indvars.iv.next500, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next500, %244
   br i1 %245, label %.lr.ph456, label %.preheader427, !llvm.loop !23
 
 .lr.ph458:                                        ; preds = %.preheader427, %.lr.ph458
@@ -2345,7 +2345,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %253 = getelementptr inbounds i8, ptr %252, i64 32
   %254 = load i32, ptr %253, align 8
   %255 = zext i32 %254 to i64
-  %256 = icmp ult i64 %indvars.iv.next503, %255
+  %256 = icmp samesign ult i64 %indvars.iv.next503, %255
   br i1 %256, label %.lr.ph458, label %._crit_edge459, !llvm.loop !24
 
 ._crit_edge459:                                   ; preds = %.lr.ph458, %.preheader427
@@ -2453,7 +2453,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge:
 ._crit_edge467:                                   ; preds = %._crit_edge462, %.preheader.lr.ph, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge
   %316 = phi i32 [ %268, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge ], [ %268, %.preheader.lr.ph ], [ %313, %._crit_edge462 ]
   %indvars.iv.next506 = add nuw nsw i64 %indvars.iv505, 1
-  %.not.not = icmp ult i64 %indvars.iv505, %182
+  %.not.not = icmp samesign ult i64 %indvars.iv505, %182
   br i1 %.not.not, label %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge, label %._crit_edge470, !llvm.loop !28
 
 ._crit_edge470:                                   ; preds = %._crit_edge467, %._crit_edge459
@@ -2757,7 +2757,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   %121 = add nuw nsw i64 %.0410520, 1
   %122 = load i32, ptr %4, align 4
   %123 = zext i32 %122 to i64
-  %124 = icmp ult i64 %121, %123
+  %124 = icmp samesign ult i64 %121, %123
   br i1 %124, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
 
 125:                                              ; preds = %12
@@ -2783,7 +2783,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit467: ; pre
   %.1414.lcssa = phi ptr [ %.0413524, %.lr.ph525 ], [ %120, %._crit_edge.loopexit ]
   %130 = add nuw nsw i64 %.0417522, 1
   %131 = zext i32 %128 to i64
-  %132 = icmp ult i64 %130, %131
+  %132 = icmp samesign ult i64 %130, %131
   br i1 %132, label %.lr.ph525, label %.preheader517, !llvm.loop !31
 
 133:                                              ; preds = %.preheader517

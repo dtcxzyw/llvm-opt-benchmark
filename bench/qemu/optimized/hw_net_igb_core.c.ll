@@ -4207,7 +4207,7 @@ for.body.us:                                      ; preds = %igb_intrmgr_reset.e
   br i1 %or.cond28.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %cmp9.us = icmp ult i64 %indvars.iv34, 14582
+  %cmp9.us = icmp samesign ult i64 %indvars.iv34, 14582
   br i1 %cmp9.us, label %cond.true.us, label %cond.end.us
 
 cond.true.us:                                     ; preds = %if.end.us
@@ -4228,7 +4228,7 @@ for.inc.us:                                       ; preds = %cond.end.us, %for.b
 
 for.body:                                         ; preds = %igb_intrmgr_reset.exit, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %igb_intrmgr_reset.exit ]
-  %cmp9 = icmp ult i64 %indvars.iv, 14582
+  %cmp9 = icmp samesign ult i64 %indvars.iv, 14582
   br i1 %cmp9, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
@@ -6007,7 +6007,7 @@ entry:
   %conv1 = and i32 %conv, 65535
   %call = tail call zeroext i16 @pcie_sriov_num_vfs(ptr noundef %0) #15
   %conv3 = zext i16 %call to i32
-  %cmp = icmp ult i32 %conv1, %conv3
+  %cmp = icmp samesign ult i32 %conv1, %conv3
   br i1 %cmp, label %if.then, label %if.else10
 
 if.then:                                          ; preds = %entry
@@ -6383,7 +6383,7 @@ define internal void @igb_set_eerd(ptr nocapture noundef %core, i32 %index, i32 
 entry:
   %shr = lshr i32 %val, 2
   %0 = and i32 %shr, 16383
-  %cmp = icmp ugt i32 %0, 1023
+  %cmp = icmp samesign ugt i32 %0, 1023
   %1 = and i32 %val, 1
   %tobool.not = icmp eq i32 %1, 0
   %or.cond = or i1 %tobool.not, %cmp

@@ -77,7 +77,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr17 = getelementptr inbounds i8, ptr %out.addr.199, i64 %indvars.iv
   store i64 %xor15, ptr %add.ptr17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp11 = icmp ult i64 %indvars.iv, 8
+  %cmp11 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %while.body10
@@ -170,7 +170,7 @@ for.body90:                                       ; preds = %for.body90.preheade
   store i64 %xor95, ptr %add.ptr97, align 1
   store i64 %14, ptr %add.ptr94, align 1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 8
-  %cmp88 = icmp ult i64 %indvars.iv131, 8
+  %cmp88 = icmp samesign ult i64 %indvars.iv131, 8
   br i1 %cmp88, label %for.body90, label %for.end104, !llvm.loop !10
 
 for.end104:                                       ; preds = %for.body90, %while.body86

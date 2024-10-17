@@ -2135,7 +2135,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %53, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %56, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %56

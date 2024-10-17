@@ -369,7 +369,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
   %93 = tail call i64 @llvm.umin.i64(i64 %39, i64 %92)
   %94 = trunc i64 %93 to i32
   %95 = and i64 %93, 4294967295
-  %96 = icmp ugt i64 %95, 4096
+  %96 = icmp samesign ugt i64 %95, 4096
   %97 = select i1 %96, i32 4096, i32 %94
   br i1 %15, label %123, label %98
 
@@ -729,7 +729,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
   %77 = phi ptr [ %293, %.thread ], [ %1, %67 ]
   %78 = trunc i64 %76 to i32
   %79 = and i64 %76, 4294967295
-  %80 = icmp ugt i64 %79, 4096
+  %80 = icmp samesign ugt i64 %79, 4096
   %81 = select i1 %80, i32 4096, i32 %78
   call void @console_unlock() #8
   %82 = zext i32 %81 to i64

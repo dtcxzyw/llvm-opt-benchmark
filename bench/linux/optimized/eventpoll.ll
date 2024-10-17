@@ -3017,7 +3017,7 @@ declare dso_local void @rb_insert_color(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal fastcc range(i32 -1, 1) i32 @reverse_path_check_proc(ptr noundef %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #7 align 16 {
-  %3 = icmp ugt i32 %1, 4
+  %3 = icmp samesign ugt i32 %1, 4
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2

@@ -14717,7 +14717,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef nonnull %0, ptr n
   %45 = mul nuw nsw i64 %10, %30
   %46 = getelementptr i8, ptr %40, i64 %45
   %47 = add nuw nsw i64 %21, 1
-  %48 = icmp ult i64 %47, %4
+  %48 = icmp samesign ult i64 %47, %4
   br i1 %48, label %49, label %.loopexit35
 
 49:                                               ; preds = %19
@@ -15157,7 +15157,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef nonnull %0, ptr n
   br i1 %367, label %.thread, label %19
 
 368:                                              ; preds = %.loopexit35
-  %369 = icmp ult i64 %21, %4
+  %369 = icmp samesign ult i64 %21, %4
   br i1 %369, label %509, label %.thread
 
 .thread:                                          ; preds = %.loopexit26, %368

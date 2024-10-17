@@ -110,7 +110,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %.loopexit.us ], [ 1, %.lr.ph210 ]
   %.4209.us = phi ptr [ %.5.lcssa.us, %.loopexit.us ], [ %46, %.lr.ph210 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %51 = icmp ult i64 %indvars.iv.next287, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next287, %50
   br i1 %51, label %.lr.ph206.us, label %.loopexit.us
 
 52:                                               ; preds = %.lr.ph206.us, %73
@@ -188,7 +188,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv255 = phi i64 [ 1, %.lr.ph201 ], [ %indvars.iv.next256, %.loopexit120 ]
   %.089199 = phi ptr [ %46, %.lr.ph201 ], [ %.1.lcssa, %.loopexit120 ]
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %88 = icmp ult i64 %indvars.iv.next263, %86
+  %88 = icmp samesign ult i64 %indvars.iv.next263, %86
   br i1 %88, label %.lr.ph196, label %.loopexit120
 
 .lr.ph196:                                        ; preds = %87
@@ -747,7 +747,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.loopexit ], [ 1, %.lr.ph210 ]
   %.4209 = phi ptr [ %.5.lcssa, %.loopexit ], [ %46, %.lr.ph210 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %334 = icmp ult i64 %indvars.iv.next275, %50
+  %334 = icmp samesign ult i64 %indvars.iv.next275, %50
   br i1 %334, label %.lr.ph206, label %.loopexit
 
 .lr.ph206:                                        ; preds = %.lr.ph210.split

@@ -111,7 +111,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %mNumMeshes, align 8
   %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry
@@ -297,7 +297,7 @@ for.inc:                                          ; preds = %for.body4, %invoke.
   %maxVertexWeights.2 = phi i64 [ %.sroa.speculated, %invoke.cont18 ], [ %maxVertexWeights.1104, %for.body4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = zext i32 %30 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %32
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %cmp3, label %for.body4, label %for.inc27.loopexit, !llvm.loop !7
 
 lpad16.loopexit:                                  ; preds = %if.end49, %.noexc, %arrayctor.cont.i.i
@@ -330,7 +330,7 @@ for.inc27:                                        ; preds = %for.inc27.loopexit,
   %maxVertexWeights.1.lcssa = phi i64 [ %maxVertexWeights.0107, %for.body ], [ %maxVertexWeights.2, %for.inc27.loopexit ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %35 = zext i32 %33 to i64
-  %cmp = icmp ult i64 %indvars.iv.next135, %35
+  %cmp = icmp samesign ult i64 %indvars.iv.next135, %35
   br i1 %cmp, label %for.body, label %for.end29, !llvm.loop !8
 
 for.end29:                                        ; preds = %for.inc27
@@ -483,7 +483,7 @@ for.body106:                                      ; preds = %for.cond103.prehead
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %60 = load i32, ptr %mNumBones.i, align 8
   %61 = zext i32 %60 to i64
-  %cmp105 = icmp ult i64 %indvars.iv.next138, %61
+  %cmp105 = icmp samesign ult i64 %indvars.iv.next138, %61
   br i1 %cmp105, label %for.body106, label %for.cond115.preheader, !llvm.loop !12
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.inc146
@@ -580,7 +580,7 @@ for.inc.i:                                        ; preds = %_ZN6aiBoneD2Ev.exit
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %78 = load i32, ptr %mNumBones.i, align 8
   %79 = zext i32 %78 to i64
-  %cmp.i75 = icmp ult i64 %indvars.iv.next.i, %79
+  %cmp.i75 = icmp samesign ult i64 %indvars.iv.next.i, %79
   br i1 %cmp.i75, label %for.body.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, !llvm.loop !15
 
 _ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit:      ; preds = %for.inc.i, %if.then149
@@ -1421,7 +1421,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6264 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i6264
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i6264
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

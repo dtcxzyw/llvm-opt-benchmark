@@ -198,7 +198,7 @@ define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly %1, ptr nocapture 
   %72 = phi i16 [ %.pre.i, %._crit_edge21.i ], [ %63, %62 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %73 = zext i16 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next.i, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next.i, %73
   br i1 %74, label %62, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %71, %58
@@ -407,7 +407,7 @@ define range(i32 -1, 1) i32 @H5FS__hdr_dest(ptr noundef %0) local_unnamed_addr #
   %19 = phi i16 [ %.pre, %._crit_edge21 ], [ %6, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = zext i16 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %1
@@ -908,7 +908,7 @@ define range(i32 -1, 1) i32 @H5FS__sinfo_dest(ptr noundef %0) local_unnamed_addr
   %15 = phi i32 [ %6, %5 ], [ %.pre, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %1
@@ -1017,7 +1017,7 @@ define range(i32 -1, 1) i32 @H5FS__decr(ptr noundef %0) local_unnamed_addr #0 {
   %30 = phi i16 [ %.pre.i, %._crit_edge21.i ], [ %21, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = zext i16 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %20, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %29, %16

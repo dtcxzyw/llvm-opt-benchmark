@@ -233,7 +233,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %r.1.i = phi i64 [ %call.i, %if.then.i ], [ %r.010.i, %while.body.i ]
   %call1.i = tail call fastcc i64 @x64_mulmod(i64 noundef %base.addr.09.i, i64 noundef %base.addr.09.i, i64 noundef %0)
   %shr.i = lshr i64 %exp.addr.08.i, 1
-  %cmp.not.i = icmp ult i64 %exp.addr.08.i, 2
+  %cmp.not.i = icmp samesign ult i64 %exp.addr.08.i, 2
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !4
 
 x64_powmod.exit:                                  ; preds = %if.end.i

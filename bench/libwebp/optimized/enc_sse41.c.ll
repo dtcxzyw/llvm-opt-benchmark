@@ -621,12 +621,12 @@ define internal i32 @Disto16x16_SSE41(ptr nocapture noundef readonly %0, ptr noc
   %107 = lshr i32 %106, 5
   %108 = add nsw i32 %107, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %109 = icmp ult i64 %indvars.iv, 12
+  %109 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %109, label %5, label %110, !llvm.loop !7
 
 110:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
-  %111 = icmp ult i64 %indvars.iv23, 384
+  %111 = icmp samesign ult i64 %indvars.iv23, 384
   br i1 %111, label %.preheader, label %112, !llvm.loop !8
 
 112:                                              ; preds = %110

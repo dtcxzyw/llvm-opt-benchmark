@@ -7533,7 +7533,7 @@ Ga2_ObjSatValue.exit:                             ; preds = %107
 
 Ga2_ObjSatValue.exit.thread:                      ; preds = %107, %91, %Ga2_ObjSatValue.exit, %117
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %127 = icmp ult i64 %indvars.iv.next73, %85
+  %127 = icmp samesign ult i64 %indvars.iv.next73, %85
   br i1 %127, label %88, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %Ga2_ObjSatValue.exit.thread, %88
@@ -10455,7 +10455,7 @@ Vec_IntFreeP.exit:                                ; preds = %966, %972, %.thread
   br i1 %or.cond9, label %1029, label %1040
 
 1029:                                             ; preds = %1026
-  %1030 = icmp ugt i64 %indvars.iv783, 20
+  %1030 = icmp samesign ugt i64 %indvars.iv783, 20
   %.pre795 = load ptr, ptr %218, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre795, i64 4
   %.val455.pre = load i32, ptr %.phi.trans.insert, align 4

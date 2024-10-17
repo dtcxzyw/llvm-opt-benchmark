@@ -5671,7 +5671,7 @@ _ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit70: ; preds = %148
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 134217727
-  %154 = icmp ugt i32 %153, 64
+  %154 = icmp samesign ugt i32 %153, 64
   br i1 %154, label %175, label %.preheader
 
 .preheader:                                       ; preds = %150

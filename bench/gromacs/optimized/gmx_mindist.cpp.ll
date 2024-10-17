@@ -1465,7 +1465,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit106.i:     ; preds = %453, %450
   %.067121.us.i.i = phi float [ 0.000000e+00, %.lr.ph.split.us.preheader.i.i ], [ %.168.lcssa.us.i.i, %.loopexit.us.i.i ]
   %.070120.us.i.i = phi float [ %.096.i.i, %.lr.ph.split.us.preheader.i.i ], [ %.171.lcssa.us.i.i, %.loopexit.us.i.i ]
   %indvars.iv.next155.i.i = add nuw nsw i64 %indvars.iv154.i.i, 1
-  %535 = icmp ult i64 %indvars.iv.next155.i.i, %498
+  %535 = icmp samesign ult i64 %indvars.iv.next155.i.i, %498
   br i1 %535, label %.lr.ph115.us.i.i, label %.loopexit.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %._crit_edge.us.us.i.i, %.lr.ph.split.us.i.i
@@ -1613,7 +1613,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit106.i:     ; preds = %453, %450
   %indvars.iv131.i.i = phi i64 [ %indvars.iv.next132.i.i, %.loopexit.i.i ], [ 1, %.lr.ph.i.i ]
   %.067121.i.i = phi float [ %.168.lcssa.i.i, %.loopexit.i.i ], [ 0.000000e+00, %.lr.ph.i.i ]
   %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
-  %602 = icmp ult i64 %indvars.iv.next138.i.i, %498
+  %602 = icmp samesign ult i64 %indvars.iv.next138.i.i, %498
   br i1 %602, label %.lr.ph115.i.i, label %.loopexit.i.i
 
 .lr.ph115.i.i:                                    ; preds = %.lr.ph.split.i.i

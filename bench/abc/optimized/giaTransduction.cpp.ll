@@ -2002,7 +2002,7 @@ _ZSt8distanceISt16reverse_iteratorISt14_List_iteratorIiEEENSt15iterator_traitsIT
 220:                                              ; preds = %.critedge.i
   %221 = add i32 %.0.lcssa.ph.i, 1
   %222 = zext i32 %221 to i64
-  %223 = icmp ugt i64 %.lcssa53.ph.i, %222
+  %223 = icmp samesign ugt i64 %.lcssa53.ph.i, %222
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %220
@@ -7390,7 +7390,7 @@ _ZSt8distanceISt16reverse_iteratorISt14_List_iteratorIiEEENSt15iterator_traitsIT
 220:                                              ; preds = %.critedge.i
   %221 = add i32 %.0.lcssa.ph.i, 1
   %222 = zext i32 %221 to i64
-  %223 = icmp ugt i64 %.lcssa53.ph.i, %222
+  %223 = icmp samesign ugt i64 %.lcssa53.ph.i, %222
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %220
@@ -11500,7 +11500,7 @@ define linkonce_odr void @_ZN6NewBdd3ManC2EiNS_5ParamE(ptr noundef nonnull align
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %44, ptr %45, align 8
   %46 = and i32 %1, 65535
-  %.not42 = icmp ugt i32 %44, %46
+  %.not42 = icmp samesign ugt i32 %44, %46
   br i1 %.not42, label %51, label %47
 
 47:                                               ; preds = %43
@@ -11917,7 +11917,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit66:             ; preds = %241, %239, %237, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %246 = load i16, ptr %0, align 8
   %247 = zext i16 %246 to i64
-  %248 = icmp ult i64 %indvars.iv.next, %247
+  %248 = icmp samesign ult i64 %indvars.iv.next, %247
   br i1 %248, label %224, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit66
@@ -12128,7 +12128,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit74:             ; preds = %._ZNSt6vectorItSaIt
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %346 = load i16, ptr %0, align 8
   %347 = zext i16 %346 to i64
-  %348 = icmp ult i64 %indvars.iv.next121, %347
+  %348 = icmp samesign ult i64 %indvars.iv.next121, %347
   br i1 %348, label %.lr.ph108.split.us, label %._crit_edge109, !llvm.loop !94
 
 .lr.ph108.split:                                  ; preds = %.lr.ph108, %.lr.ph108.split
@@ -12150,7 +12150,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit74:             ; preds = %._ZNSt6vectorItSaIt
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %361 = load i16, ptr %0, align 8
   %362 = zext i16 %361 to i64
-  %363 = icmp ult i64 %indvars.iv.next118, %362
+  %363 = icmp samesign ult i64 %indvars.iv.next118, %362
   br i1 %363, label %.lr.ph108.split, label %._crit_edge109, !llvm.loop !94
 
 ._crit_edge109:                                   ; preds = %.lr.ph108.split, %.lr.ph108.split.us, %_ZNSt6vectorItSaItEE6resizeEm.exit74
@@ -14758,7 +14758,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5Para
 105:                                              ; preds = %.critedge.i
   %106 = add i32 %.0.lcssa.ph.i, 1
   %107 = zext i32 %106 to i64
-  %108 = icmp ugt i64 %.lcssa53.ph.i, %107
+  %108 = icmp samesign ugt i64 %.lcssa53.ph.i, %107
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %105
@@ -19749,7 +19749,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %52 = load i16, ptr %0, align 8
   %53 = zext i16 %52 to i64
-  %.not.not = icmp ult i64 %indvars.iv28, %53
+  %.not.not = icmp samesign ult i64 %indvars.iv28, %53
   br i1 %.not.not, label %.lr.ph22, label %.preheader.loopexit, !llvm.loop !151
 
 54:                                               ; preds = %.lr.ph25, %61
@@ -19823,7 +19823,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %indvars.iv307 = phi i64 [ 0, %.preheader195.lr.ph ], [ %indvars.iv.next308, %39 ]
   %indvars.iv301 = phi i64 [ 1, %.preheader195.lr.ph ], [ %indvars.iv.next302, %39 ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %15 = icmp ult i64 %indvars.iv.next308, %12
+  %15 = icmp samesign ult i64 %indvars.iv.next308, %12
   %16 = trunc nuw i64 %indvars.iv307 to i16
   br i1 %15, label %.lr.ph220, label %._crit_edge
 
@@ -20373,7 +20373,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %254 = load i16, ptr %0, align 8
   %255 = zext i16 %254 to i64
-  %256 = icmp ult i64 %indvars.iv.next314, %255
+  %256 = icmp samesign ult i64 %indvars.iv.next314, %255
   br i1 %256, label %40, label %._crit_edge282, !llvm.loop !161
 
 ._crit_edge282:                                   ; preds = %253
@@ -20513,7 +20513,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man10CountNodesEv(ptr noundef nonnul
   store i64 %31, ptr %26, align 8
   %32 = load i16, ptr %0, align 8
   %33 = zext i16 %32 to i32
-  %.not31.not = icmp ult i32 %.02551, %33
+  %.not31.not = icmp samesign ult i32 %.02551, %33
   br i1 %.not31.not, label %22, label %.preheader41.loopexit, !llvm.loop !163
 
 .preheader40.loopexit:                            ; preds = %46
@@ -20589,7 +20589,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man10CountNodesEv(ptr noundef nonnul
   %65 = add nuw nsw i32 %.02361, 1
   %66 = load i16, ptr %0, align 8
   %67 = zext i16 %66 to i32
-  %.not32.not = icmp ult i32 %.02361, %67
+  %.not32.not = icmp samesign ult i32 %.02361, %67
   br i1 %.not32.not, label %55, label %.preheader.loopexit, !llvm.loop !165
 
 68:                                               ; preds = %.lr.ph66, %75
@@ -22214,7 +22214,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5Para
 56:                                               ; preds = %.critedge
   %57 = add i32 %.0.lcssa.ph, 1
   %58 = zext i32 %57 to i64
-  %59 = icmp ugt i64 %.lcssa53.ph, %58
+  %59 = icmp samesign ugt i64 %.lcssa53.ph, %58
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %56
@@ -22452,7 +22452,7 @@ define linkonce_odr void @_ZN6NewBdd3ManD2Ev(ptr noundef nonnull align 8 derefer
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i16, ptr %0, align 8
   %43 = zext i16 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %26, label %._crit_edge, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %41, %23
@@ -25232,7 +25232,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %143 = load i16, ptr %37, align 8
   %144 = zext i16 %143 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv28.i, %144
+  %.not.not.i = icmp samesign ult i64 %indvars.iv28.i, %144
   br i1 %.not.not.i, label %.lr.ph22.i, label %.preheader.loopexit.i, !llvm.loop !151
 
 145:                                              ; preds = %152, %.lr.ph25.i
@@ -27987,7 +27987,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %157 = load i16, ptr %51, align 8
   %158 = zext i16 %157 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv28.i, %158
+  %.not.not.i = icmp samesign ult i64 %indvars.iv28.i, %158
   br i1 %.not.not.i, label %.lr.ph22.i, label %.preheader.loopexit.i, !llvm.loop !151
 
 159:                                              ; preds = %166, %.lr.ph25.i
@@ -29155,7 +29155,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %150 = load i16, ptr %44, align 8
   %151 = zext i16 %150 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv28.i, %151
+  %.not.not.i = icmp samesign ult i64 %indvars.iv28.i, %151
   br i1 %.not.not.i, label %.lr.ph22.i, label %.preheader.loopexit.i, !llvm.loop !151
 
 152:                                              ; preds = %159, %.lr.ph25.i
@@ -32287,7 +32287,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %211, %209, %207, %2
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %242 = load i16, ptr %167, align 8
   %243 = zext i16 %242 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv28.i, %243
+  %.not.not.i = icmp samesign ult i64 %indvars.iv28.i, %243
   br i1 %.not.not.i, label %.lr.ph22.i, label %.preheader.loopexit.i, !llvm.loop !151
 
 244:                                              ; preds = %251, %.lr.ph25.i
@@ -39905,7 +39905,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5Param
 105:                                              ; preds = %.critedge.i
   %106 = add i32 %.0.lcssa.ph.i, 1
   %107 = zext i32 %106 to i64
-  %108 = icmp ugt i64 %.lcssa53.ph.i, %107
+  %108 = icmp samesign ugt i64 %.lcssa53.ph.i, %107
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %105
@@ -42744,7 +42744,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5Param
 56:                                               ; preds = %.critedge
   %57 = add i32 %.0.lcssa.ph, 1
   %58 = zext i32 %57 to i64
-  %59 = icmp ugt i64 %.lcssa53.ph, %58
+  %59 = icmp samesign ugt i64 %.lcssa53.ph, %58
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %56

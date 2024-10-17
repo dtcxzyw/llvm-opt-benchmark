@@ -474,7 +474,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZN9table2mapI17def
   %45 = load i32, ptr %arrayidx.i44, align 4
   %.fr = freeze i32 %45
   %spec.select = call i32 @llvm.umin.i32(i32 %.fr, i32 4)
-  %cmp71 = icmp ult i32 %i.0238, %spec.select
+  %cmp71 = icmp samesign ult i32 %i.0238, %spec.select
   br i1 %cmp71, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit50, label %for.inc123
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit50:   ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
@@ -531,7 +531,7 @@ if.end.i57:                                       ; preds = %for.cond81
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60:   ; preds = %for.cond81, %if.end.i57
   %retval.0.i59 = phi i64 [ %55, %if.end.i57 ], [ 0, %for.cond81 ]
-  %cmp84 = icmp ult i64 %indvars.iv, %retval.0.i59
+  %cmp84 = icmp samesign ult i64 %indvars.iv, %retval.0.i59
   br i1 %cmp84, label %for.body85, label %for.inc119
 
 for.body85:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60

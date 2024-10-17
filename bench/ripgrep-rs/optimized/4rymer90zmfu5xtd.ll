@@ -4215,7 +4215,7 @@ define void @_ZN7globset14GlobSetBuilder5build17hf1d32080c550ddc0E(ptr noalias n
   %157 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8, !noalias !969
   %158 = icmp ult i64 %157, 6
   call void @llvm.assume(i1 %158)
-  %switch.selectcmp160.i = icmp ugt i64 %157, 3
+  %switch.selectcmp160.i = icmp samesign ugt i64 %157, 3
   br i1 %switch.selectcmp160.i, label %159, label %152
 
 159:                                              ; preds = %._crit_edge.i
@@ -6401,7 +6401,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   %765 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8, !noalias !969
   %766 = icmp ult i64 %765, 6
   call void @llvm.assume(i1 %766)
-  %switch.selectcmp166.i = icmp ugt i64 %765, 3
+  %switch.selectcmp166.i = icmp samesign ugt i64 %765, 3
   br i1 %switch.selectcmp166.i, label %767, label %769
 
 767:                                              ; preds = %764

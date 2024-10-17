@@ -89,7 +89,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKS_INSt7__cxx
   %25 = shl nuw nsw i64 %24, 1
   %26 = xor i64 %25, 126
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElNS0_5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listIS2_IN2cm18static_string_viewESJ_EEE3$_0EEEvT_SZ_T0_T1_"(ptr nonnull %10, ptr nonnull %.ptr.le, i64 noundef %26)
-  %27 = icmp ugt i64 %.015.i.i.i.i.i.i.idx, 360
+  %27 = icmp samesign ugt i64 %.015.i.i.i.i.i.i.idx, 360
   br i1 %27, label %28, label %42
 
 28:                                               ; preds = %21

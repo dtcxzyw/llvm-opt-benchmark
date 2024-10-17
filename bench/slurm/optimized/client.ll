@@ -685,7 +685,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %103 = load i32, ptr %36, align 4
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next225, %104
+  %105 = icmp samesign ult i64 %indvars.iv.next225, %104
   br i1 %105, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !12
 
 .lr.ph203:                                        ; preds = %.preheader, %.loopexit
@@ -847,7 +847,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %209 = load i32, ptr %158, align 4
   %210 = zext i32 %209 to i64
-  %211 = icmp ult i64 %indvars.iv.next232, %210
+  %211 = icmp samesign ult i64 %indvars.iv.next232, %210
   br i1 %211, label %186, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %202
@@ -1016,7 +1016,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %315 = load i32, ptr %240, align 8
   %316 = zext i32 %315 to i64
-  %317 = icmp ult i64 %indvars.iv.next239, %316
+  %317 = icmp samesign ult i64 %indvars.iv.next239, %316
   br i1 %317, label %267, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %307
@@ -1028,7 +1028,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %319 = load i32, ptr %20, align 8
   %320 = zext i32 %319 to i64
-  %321 = icmp ult i64 %indvars.iv.next244, %320
+  %321 = icmp samesign ult i64 %indvars.iv.next244, %320
   br i1 %321, label %.lr.ph203, label %.loopexit170, !llvm.loop !15
 
 .loopexit170:                                     ; preds = %.loopexit, %.preheader, %219
@@ -1085,7 +1085,7 @@ client_req_get_int.exit.thread:                   ; preds = %1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = load i32, ptr %4, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next.i.i, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next.i.i, %10
   br i1 %11, label %12, label %client_req_get_str.exit, !llvm.loop !16
 
 12:                                               ; preds = %8, %.lr.ph.i.i
@@ -1126,7 +1126,7 @@ client_req_get_str.exit:                          ; preds = %8, %client_req_get_
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i.i36, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i.i36, %29
   br i1 %30, label %.lr.ph.i.i33, label %client_req_get_int.exit, !llvm.loop !16
 
 .lr.ph.i.i33:                                     ; preds = %client_req_get_str.exit, %27
@@ -1167,7 +1167,7 @@ client_req_get_int.exit:                          ; preds = %27, %client_req_get
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %46 = load i32, ptr %4, align 4
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next.i.i43, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next.i.i43, %47
   br i1 %48, label %.lr.ph.i.i40, label %client_req_get_int.exit46, !llvm.loop !16
 
 .lr.ph.i.i40:                                     ; preds = %client_req_get_int.exit, %45
@@ -1225,7 +1225,7 @@ client_req_get_int.exit46:                        ; preds = %45, %client_req_get
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %76 = load i32, ptr %4, align 4
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next.i.i51, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next.i.i51, %77
   br i1 %78, label %.lr.ph.i.i48, label %client_req_get_str.exit54, !llvm.loop !16
 
 .lr.ph.i.i48:                                     ; preds = %69, %75
@@ -1255,7 +1255,7 @@ _client_req_get_val.exit.i52:                     ; preds = %.lr.ph.i.i48
 client_req_get_str.exit54:                        ; preds = %75, %69, %_client_req_get_val.exit.i52, %89
   %91 = load i32, ptr %61, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %indvars.iv.next, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next, %92
   br i1 %93, label %69, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %client_req_get_str.exit54, %client_req_get_int.exit46
@@ -1272,7 +1272,7 @@ client_req_get_str.exit54:                        ; preds = %75, %69, %_client_r
   %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %98 = load i32, ptr %4, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next.i.i59, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next.i.i59, %99
   br i1 %100, label %101, label %client_req_get_int.exit62, !llvm.loop !16
 
 101:                                              ; preds = %97, %.lr.ph.i.i56
@@ -1334,7 +1334,7 @@ client_req_get_int.exit62:                        ; preds = %97, %._crit_edge, %
   %indvars.iv.next.i.i67 = add nuw nsw i64 %indvars.iv.i.i65, 1
   %133 = load i32, ptr %4, align 4
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next.i.i67, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next.i.i67, %134
   br i1 %135, label %.lr.ph.i.i64, label %client_req_get_str.exit70, !llvm.loop !16
 
 .lr.ph.i.i64:                                     ; preds = %126, %132
@@ -1373,7 +1373,7 @@ client_req_get_str.exit70:                        ; preds = %132, %126, %_client
   %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i73, 1
   %153 = load i32, ptr %4, align 4
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %indvars.iv.next.i.i75, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next.i.i75, %154
   br i1 %155, label %.lr.ph.i.i72, label %client_req_get_str.exit78, !llvm.loop !16
 
 .lr.ph.i.i72:                                     ; preds = %client_req_get_str.exit70, %152
@@ -1404,7 +1404,7 @@ client_req_get_str.exit78:                        ; preds = %152, %client_req_ge
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %168 = load i32, ptr %94, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next119, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next119, %169
   br i1 %170, label %126, label %._crit_edge100, !llvm.loop !18
 
 ._crit_edge100:                                   ; preds = %client_req_get_str.exit78, %client_req_get_int.exit62
@@ -1426,7 +1426,7 @@ define noundef zeroext i1 @client_req_get_str(ptr nocapture noundef readonly %0,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next.i, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !16
 
 11:                                               ; preds = %7, %.lr.ph.i
@@ -1473,7 +1473,7 @@ define noundef zeroext i1 @client_req_get_int(ptr nocapture noundef readonly %0,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next.i, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !16
 
 11:                                               ; preds = %7, %.lr.ph.i
@@ -1523,7 +1523,7 @@ define noundef zeroext i1 @client_req_get_bool(ptr nocapture noundef readonly %0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i32, ptr %4, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next.i, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
   br i1 %10, label %11, label %_client_req_get_val.exit.thread, !llvm.loop !16
 
 11:                                               ; preds = %7, %.lr.ph.i
@@ -1871,7 +1871,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39

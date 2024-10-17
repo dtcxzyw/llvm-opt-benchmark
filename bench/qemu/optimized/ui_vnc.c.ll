@@ -11267,12 +11267,12 @@ for.body16.us.i.i:                                ; preds = %for.body16.us.i.i, 
   %updated.us.i.i = getelementptr i8, ptr %17, i64 %updated.idx82.us.i.i
   store i8 0, ptr %updated.us.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp15.us.i.i = icmp ult i64 %indvars.iv.next.i, %14
+  %cmp15.us.i.i = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %cmp15.us.i.i, label %for.body16.us.i.i, label %for.cond14.for.inc18_crit_edge.us.i.i, !llvm.loop !34
 
 for.cond14.for.inc18_crit_edge.us.i.i:            ; preds = %for.body16.us.i.i
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 64
-  %cmp13.us.i.i = icmp ult i64 %indvars.iv.next96.i, %15
+  %cmp13.us.i.i = icmp samesign ult i64 %indvars.iv.next96.i, %15
   br i1 %cmp13.us.i.i, label %for.cond14.preheader.us.i.i, label %do.body.i.i, !llvm.loop !35
 
 do.body.i.i:                                      ; preds = %for.cond14.for.inc18_crit_edge.us.i.i, %for.cond14.preheader.lr.ph.i.i, %if.then.i

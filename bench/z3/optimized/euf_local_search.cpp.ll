@@ -190,7 +190,7 @@ if.end.i:                                         ; preds = %for.cond25
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit:             ; preds = %for.cond25, %if.end.i
   %retval.0.i = phi i64 [ %11, %if.end.i ], [ 0, %for.cond25 ]
-  %cmp28 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp28 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp28, label %for.body29, label %for.body.i.i
 
 for.body29:                                       ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit

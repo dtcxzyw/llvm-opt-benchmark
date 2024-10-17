@@ -1581,7 +1581,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %112 = add nsw i32 %2, -1
   %113 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %114 = icmp ult i32 %113, 2
+  %114 = icmp samesign ult i32 %113, 2
   %115 = zext nneg i32 %2 to i64
   %116 = sub nsw i32 0, %2
   %.sroa.2.0.insert.ext.i.i.i = zext i32 %112 to i64
@@ -3452,7 +3452,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %128 = add nsw i32 %2, -1
   %129 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
-  %130 = icmp ult i32 %129, 2
+  %130 = icmp samesign ult i32 %129, 2
   %131 = zext nneg i32 %2 to i64
   %132 = sub nsw i32 0, %2
   %.sroa.2.0.insert.ext.i.i.i = zext nneg i32 %128 to i64
@@ -5871,7 +5871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i

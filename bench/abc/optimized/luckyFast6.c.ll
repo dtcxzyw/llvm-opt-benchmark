@@ -235,7 +235,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noca
   br label %adjustInfoAfterSwap.exit
 
 80:                                               ; preds = %4
-  %81 = icmp ult i32 %.5, 4
+  %81 = icmp samesign ult i32 %.5, 4
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %80
@@ -432,7 +432,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef r
   br label %Extra_Truth6MinimumRoundOne.exit
 
 86:                                               ; preds = %11
-  %87 = icmp ult i32 %.5.i, 4
+  %87 = icmp samesign ult i32 %.5.i, 4
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86

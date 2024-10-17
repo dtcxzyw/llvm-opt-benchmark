@@ -161,7 +161,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %34 = add nuw nsw i32 %18, 1
   %35 = tail call i32 @SDL_NumJoysticks() #9
   %36 = icmp slt i32 %34, %35
-  %37 = icmp ult i32 %18, 9
+  %37 = icmp samesign ult i32 %18, 9
   %38 = and i1 %37, %36
   br i1 %38, label %.preheader, label %.loopexit
 
@@ -403,7 +403,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %127 = getelementptr inbounds i8, ptr %32, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !30
   %129 = call i32 @llvm.abs.i32(i32 %128, i1 true)
-  %130 = icmp ugt i32 %129, 4000
+  %130 = icmp samesign ugt i32 %129, 4000
   br i1 %130, label %131, label %136
 
 131:                                              ; preds = %125
@@ -418,7 +418,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %137 = getelementptr inbounds i8, ptr %32, i64 24
   %138 = load i32, ptr %137, align 4, !tbaa !30
   %139 = call i32 @llvm.abs.i32(i32 %138, i1 true)
-  %140 = icmp ugt i32 %139, 4000
+  %140 = icmp samesign ugt i32 %139, 4000
   br i1 %140, label %141, label %146
 
 141:                                              ; preds = %136
@@ -433,7 +433,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %147 = getelementptr inbounds i8, ptr %32, i64 28
   %148 = load i32, ptr %147, align 4, !tbaa !30
   %149 = call i32 @llvm.abs.i32(i32 %148, i1 true)
-  %150 = icmp ugt i32 %149, 4000
+  %150 = icmp samesign ugt i32 %149, 4000
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %146
@@ -448,7 +448,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %157 = getelementptr inbounds i8, ptr %32, i64 32
   %158 = load i32, ptr %157, align 4, !tbaa !30
   %159 = call i32 @llvm.abs.i32(i32 %158, i1 true)
-  %160 = icmp ugt i32 %159, 4000
+  %160 = icmp samesign ugt i32 %159, 4000
   br i1 %160, label %161, label %166
 
 161:                                              ; preds = %156
@@ -797,7 +797,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %11 = icmp ugt i32 %10, 4000
+  %11 = icmp samesign ugt i32 %10, 4000
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %6
@@ -812,7 +812,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = icmp ugt i32 %20, 4000
+  %21 = icmp samesign ugt i32 %20, 4000
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %17
@@ -827,7 +827,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   %28 = getelementptr inbounds i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !30
   %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
-  %31 = icmp ugt i32 %30, 4000
+  %31 = icmp samesign ugt i32 %30, 4000
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %27
@@ -842,7 +842,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 4, !tbaa !30
   %40 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
-  %41 = icmp ugt i32 %40, 4000
+  %41 = icmp samesign ugt i32 %40, 4000
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %37

@@ -15879,7 +15879,7 @@ lor.lhs.false136:                                 ; preds = %for.end
 
 for.cond142:                                      ; preds = %lor.lhs.false157
   %add163 = add nuw nsw i64 %offset.186, %fragsize.177
-  %cmp143 = icmp ult i64 %add163, %msglen.1
+  %cmp143 = icmp samesign ult i64 %add163, %msglen.1
   br i1 %cmp143, label %for.body145, label %for.end164, !llvm.loop !18
 
 for.body145:                                      ; preds = %lor.lhs.false136, %for.cond142

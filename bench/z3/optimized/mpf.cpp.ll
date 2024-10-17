@@ -772,7 +772,7 @@ if.end26:                                         ; preds = %if.else, %if.then21
   store i64 %call2.i25.sink, ptr %exponent23, align 8
   %m_mpz_manager = getelementptr inbounds i8, ptr %this, i64 728
   %significand = getelementptr inbounds i8, ptr %o, i64 8
-  %cmp.i = icmp ult i64 %and3, 2147483647
+  %cmp.i = icmp samesign ult i64 %and3, 2147483647
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end26
@@ -5425,7 +5425,7 @@ invoke.cont157:                                   ; preds = %invoke.cont153
   %bf.load158 = load i32, ptr %o, align 8
   %bf.lshr159 = lshr i32 %bf.load158, 15
   %bf.clear160 = and i32 %bf.lshr159, 65535
-  %cmp161 = icmp ugt i32 %bf.clear160, 3
+  %cmp161 = icmp samesign ugt i32 %bf.clear160, 3
   br i1 %cmp161, label %if.then162, label %if.else175
 
 if.then162:                                       ; preds = %invoke.cont157
@@ -13597,7 +13597,7 @@ for.inc:                                          ; preds = %invoke.cont301
   %inc = add nuw nsw i32 %i.0456, 1
   %bf.load288 = load i32, ptr %x, align 8
   %bf.clear289 = and i32 %bf.load288, 32767
-  %cmp = icmp ult i32 %inc, %bf.clear289
+  %cmp = icmp samesign ult i32 %inc, %bf.clear289
   br i1 %cmp, label %invoke.cont294, label %for.end, !llvm.loop !41
 
 lpad285:                                          ; preds = %call.i391.noexc, %if.end

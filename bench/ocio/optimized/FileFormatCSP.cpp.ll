@@ -5206,7 +5206,7 @@ if.end227.us:                                     ; preds = %if.then224.us, %for
 for.inc234.us:                                    ; preds = %if.end227.us
   %inc235.us = add i32 %i216.0769.us, 1
   %conv218.us = zext i32 %inc235.us to i64
-  %cmp221.us = icmp ugt i64 %div, %conv218.us
+  %cmp221.us = icmp samesign ugt i64 %div, %conv218.us
   br i1 %cmp221.us, label %for.body222.us, label %for.cond217.for.end236_crit_edge.us, !llvm.loop !25
 
 for.body200.us:                                   ; preds = %invoke.cont190.us, %for.inc211.us
@@ -5230,7 +5230,7 @@ if.end205.us:                                     ; preds = %if.then202.us, %for
 for.inc211.us:                                    ; preds = %if.end205.us
   %inc212.us = add i32 %i194.0767.us, 1
   %conv196.us = zext i32 %inc212.us to i64
-  %cmp199.us = icmp ugt i64 %div, %conv196.us
+  %cmp199.us = icmp samesign ugt i64 %div, %conv196.us
   br i1 %cmp199.us, label %for.body200.us, label %for.end213.us, !llvm.loop !26
 
 for.cond217.for.end236_crit_edge.us:              ; preds = %for.inc234.us

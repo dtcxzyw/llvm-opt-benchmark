@@ -1335,7 +1335,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds 
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %.lr.ph.i.i
   %225 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %226 = icmp ult i64 %indvars.iv.i.i, 3
+  %226 = icmp samesign ult i64 %indvars.iv.i.i, 3
   %spec.select.v.i = select i1 %226, i32 3, i32 -3
   %spec.select.i15 = add nsw i32 %spec.select.v.i, %225
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i

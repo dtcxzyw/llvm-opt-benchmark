@@ -2447,7 +2447,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h0a9
 .preheader:                                       ; preds = %92, %.loopexit107
   %.266117 = phi i64 [ %78, %.loopexit107 ], [ 0, %92 ]
   %78 = add nuw nsw i64 %.266117, 1
-  %79 = icmp ult i64 %.266117, 3
+  %79 = icmp samesign ult i64 %.266117, 3
   br i1 %79, label %.lr.ph, label %.loopexit107
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2749,7 +2749,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hbdc
 .preheader:                                       ; preds = %92, %.loopexit107
   %.266117 = phi i64 [ %78, %.loopexit107 ], [ 0, %92 ]
   %78 = add nuw nsw i64 %.266117, 1
-  %79 = icmp ult i64 %.266117, 3
+  %79 = icmp samesign ult i64 %.266117, 3
   br i1 %79, label %.lr.ph, label %.loopexit107
 
 .lr.ph:                                           ; preds = %.preheader
@@ -3051,7 +3051,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hdf4
 .preheader:                                       ; preds = %92, %.loopexit107
   %.266117 = phi i64 [ %78, %.loopexit107 ], [ 0, %92 ]
   %78 = add nuw nsw i64 %.266117, 1
-  %79 = icmp ult i64 %.266117, 3
+  %79 = icmp samesign ult i64 %.266117, 3
   br i1 %79, label %.lr.ph, label %.loopexit107
 
 .lr.ph:                                           ; preds = %.preheader
@@ -3520,7 +3520,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
   %.031398 = phi i1 [ true, %54 ], [ %.2, %.loopexit378 ]
   %.033397 = phi double [ 0x547D42AEA2879F2E, %54 ], [ %.134389, %.loopexit378 ]
   %138 = add nuw nsw i64 %.sroa.0.0400, 1
-  %139 = icmp ult i32 %.0399, 16
+  %139 = icmp samesign ult i32 %.0399, 16
   br i1 %139, label %.lr.ph, label %.loopexit378
 
 .lr.ph:                                           ; preds = %137
@@ -7983,7 +7983,7 @@ _ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hebd3955af67fa165E.exit: ; pre
 
 455:                                              ; preds = %448
   call void @llvm.experimental.noalias.scope.decl(metadata !977)
-  %456 = icmp ult i16 %451, 544
+  %456 = icmp samesign ult i16 %451, 544
   br i1 %456, label %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i, label %457, !prof !228
 
 457:                                              ; preds = %455

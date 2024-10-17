@@ -8884,7 +8884,7 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_991fEvEUlP
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #20
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #20
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 2
-  %418 = icmp ult i64 %indvars.iv89.i, 2
+  %418 = icmp samesign ult i64 %indvars.iv89.i, 2
   br i1 %418, label %306, label %420, !llvm.loop !104
 
 419:                                              ; preds = %414, %412

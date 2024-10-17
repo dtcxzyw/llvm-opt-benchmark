@@ -1379,7 +1379,7 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask129R
   %59 = sub i64 %58, %53
   %60 = lshr i64 %59, 3
   %61 = lshr i64 %60, %56
-  %62 = icmp ult i64 %57, %61
+  %62 = icmp samesign ult i64 %57, %61
   br i1 %62, label %63, label %.loopexit.i.i.i
 
 63:                                               ; preds = %37
@@ -1406,7 +1406,7 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask129R
 77:                                               ; preds = %80, %74
   %.025.i.i.i = phi i64 [ %65, %74 ], [ %78, %80 ]
   %78 = add nuw nsw i64 %.025.i.i.i, 1
-  %79 = icmp ult i64 %78, %76
+  %79 = icmp samesign ult i64 %78, %76
   br i1 %79, label %80, label %.loopexit.i.i.i
 
 80:                                               ; preds = %77
@@ -1599,7 +1599,7 @@ _ZN12G1HeapRegion20update_bot_for_blockEPP12HeapWordImplS2_.exit: ; preds = %_ZN
   %189 = sub i64 %58, %184
   %190 = lshr i64 %189, 3
   %191 = lshr i64 %190, %187
-  %192 = icmp ult i64 %188, %191
+  %192 = icmp samesign ult i64 %188, %191
   br i1 %192, label %193, label %.loopexit.i.i.i60
 
 193:                                              ; preds = %_ZN12G1HeapRegion20update_bot_for_blockEPP12HeapWordImplS2_.exit
@@ -1625,7 +1625,7 @@ _ZN12G1HeapRegion20update_bot_for_blockEPP12HeapWordImplS2_.exit: ; preds = %_ZN
 206:                                              ; preds = %209, %203
   %.025.i.i.i65 = phi i64 [ %194, %203 ], [ %207, %209 ]
   %207 = add nuw nsw i64 %.025.i.i.i65, 1
-  %208 = icmp ult i64 %207, %205
+  %208 = icmp samesign ult i64 %207, %205
   br i1 %208, label %209, label %.loopexit.i.i.i60
 
 209:                                              ; preds = %206
@@ -2723,7 +2723,7 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask221F
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %3, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -4058,7 +4058,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -10645,7 +10645,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -10888,7 +10888,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

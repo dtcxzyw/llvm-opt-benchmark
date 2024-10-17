@@ -23151,7 +23151,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   store ptr %4, ptr %23, align 8
   %24 = add nsw i64 %18, -1
   %25 = lshr i64 %24, 1
-  %26 = icmp ult i64 %20, %25
+  %26 = icmp samesign ult i64 %20, %25
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i

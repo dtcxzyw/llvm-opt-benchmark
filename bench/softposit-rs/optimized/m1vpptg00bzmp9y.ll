@@ -46,7 +46,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = icmp ugt i32 %4, 2139095039
+  %7 = icmp samesign ugt i32 %4, 2139095039
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %45, %14, %13, %6, %1, %17
@@ -54,7 +54,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   ret i8 %.0
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i32 %4, 1115684863
+  %10 = icmp samesign ugt i32 %4, 1115684863
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
@@ -70,20 +70,20 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 15:                                               ; preds = %11
-  %16 = icmp ult i32 %4, 1015021569
+  %16 = icmp samesign ult i32 %4, 1015021569
   br i1 %16, label %45, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i32 %2, 23
   %19 = and i32 %18, 255
   %20 = add nsw i32 %19, -127
-  %21 = icmp ult i32 %19, 127
+  %21 = icmp samesign ult i32 %19, 127
   %22 = zext i1 %21 to i32
   %23 = lshr exact i32 -2147483648, %22
   %24 = shl i32 %2, 7
   %25 = and i32 %24, 1073741696
   %26 = or disjoint i32 %23, %25
-  %27 = icmp ult i32 %19, 126
+  %27 = icmp samesign ult i32 %19, 126
   %28 = sub nsw i32 30, %18
   %29 = add nuw nsw i32 %18, 2
   %.023 = select i1 %27, i32 %28, i32 %29
@@ -125,7 +125,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = icmp ugt i64 %4, 9218868437227405311
+  %7 = icmp samesign ugt i64 %4, 9218868437227405311
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %45, %14, %13, %6, %1, %17
@@ -133,7 +133,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   ret i8 %.0
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i64 %4, 4634204016564240383
+  %10 = icmp samesign ugt i64 %4, 4634204016564240383
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
@@ -149,20 +149,20 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br label %8
 
 15:                                               ; preds = %11
-  %16 = icmp ult i64 %4, 4580160821035794433
+  %16 = icmp samesign ult i64 %4, 4580160821035794433
   br i1 %16, label %45, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i64 %2, 52
   %19 = and i64 %18, 2047
   %20 = add nsw i64 %19, -1023
-  %21 = icmp ult i64 %19, 1023
+  %21 = icmp samesign ult i64 %19, 1023
   %22 = zext i1 %21 to i64
   %23 = lshr exact i64 -9223372036854775808, %22
   %24 = shl i64 %2, 10
   %25 = and i64 %24, 4611686018427386880
   %26 = or disjoint i64 %23, %25
-  %27 = icmp ult i64 %19, 1022
+  %27 = icmp samesign ult i64 %19, 1022
   %28 = sub nsw i64 62, %18
   %29 = add nuw nsw i64 %18, 2
   %.023 = select i1 %27, i64 %28, i64 %29
@@ -342,11 +342,11 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
 3:                                                ; preds = %1
   %4 = icmp slt i64 %0, 0
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %5 = icmp ugt i64 %spec.select, 48
+  %5 = icmp samesign ugt i64 %spec.select, 48
   br i1 %5, label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i64 %spec.select, 2
+  %7 = icmp samesign ult i64 %spec.select, 2
   br i1 %7, label %8, label %.lr.ph.i
 
 8:                                                ; preds = %6
@@ -796,7 +796,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %.2.i = phi i8 [ %22, %._crit_edge.i ], [ %15, %.preheader12.i ], [ %24, %.lr.ph.i ]
   %26 = or disjoint i8 %.2.i, -128
   %27 = shl i8 %.027, 2
-  %28 = icmp ult i8 %.027, 64
+  %28 = icmp samesign ult i8 %.027, 64
   %29 = icmp sgt i8 %27, -1
   br i1 %28, label %.preheader.i41, label %.preheader12.i35
 
@@ -838,7 +838,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %.rhs.trunc = zext i8 %37 to i16
   %40 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %41 = urem i16 %.lhs.trunc, %.rhs.trunc
-  %42 = icmp ult i16 %40, 128
+  %42 = icmp samesign ult i16 %40, 128
   %43 = zext i1 %42 to i16
   %.031 = shl nuw nsw i16 %40, %43
   %44 = sext i1 %42 to i8
@@ -972,7 +972,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %.2.i = phi i8 [ %22, %._crit_edge.i ], [ %15, %.preheader12.i ], [ %24, %.lr.ph.i ]
   %26 = or disjoint i8 %.2.i, -128
   %27 = shl i8 %.015, 2
-  %28 = icmp ult i8 %.015, 64
+  %28 = icmp samesign ult i8 %.015, 64
   %29 = icmp sgt i8 %27, -1
   br i1 %28, label %.preheader.i26, label %.preheader12.i20
 
@@ -1347,7 +1347,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %.03562 = phi i8 [ %49, %.lr.ph ], [ %.211.i, %35 ]
   %49 = add i8 %.03562, -1
   %50 = shl nuw nsw i16 %.03263, 1
-  %51 = icmp ult i16 %.03263, 8192
+  %51 = icmp samesign ult i16 %.03263, 8192
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
@@ -1609,7 +1609,7 @@ define noundef i8 @"_ZN9softposit7convert39_$LT$impl$u20$softposit..p8e0..P8E0$G
 6:                                                ; preds = %1
   %spec.select = tail call i16 @llvm.abs.i16(i16 %0, i1 true)
   %7 = shl i16 %spec.select, 2
-  %8 = icmp ult i16 %spec.select, 16384
+  %8 = icmp samesign ult i16 %spec.select, 16384
   %9 = icmp sgt i16 %7, -1
   br i1 %8, label %.preheader.i, label %.preheader12.i
 
@@ -1753,7 +1753,7 @@ define noundef i8 @"_ZN9softposit7convert39_$LT$impl$u20$softposit..p8e0..P8E0$G
 
 6:                                                ; preds = %1
   %spec.select = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %7 = icmp ugt i32 %spec.select, 1711276032
+  %7 = icmp samesign ugt i32 %spec.select, 1711276032
   br i1 %7, label %71, label %9
 
 8:                                                ; preds = %71, %3
@@ -1761,12 +1761,12 @@ define noundef i8 @"_ZN9softposit7convert39_$LT$impl$u20$softposit..p8e0..P8E0$G
   ret i8 %.0
 
 9:                                                ; preds = %6
-  %10 = icmp ult i32 %spec.select, 436207616
+  %10 = icmp samesign ult i32 %spec.select, 436207616
   br i1 %10, label %71, label %11
 
 11:                                               ; preds = %9
   %12 = shl i32 %spec.select, 2
-  %13 = icmp ult i32 %spec.select, 1073741824
+  %13 = icmp samesign ult i32 %spec.select, 1073741824
   %14 = icmp sgt i32 %12, -1
   br i1 %13, label %.preheader.i, label %.preheader12.i
 
@@ -2072,11 +2072,11 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br i1 %12, label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit", label %13
 
 13:                                               ; preds = %6
-  %14 = icmp ugt i64 %11, 9218868437227405311
+  %14 = icmp samesign ugt i64 %11, 9218868437227405311
   br i1 %14, label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ugt i64 %11, 4634204016564240383
+  %16 = icmp samesign ugt i64 %11, 4634204016564240383
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
@@ -2092,20 +2092,20 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 21:                                               ; preds = %17
-  %22 = icmp ult i64 %11, 4580160821035794433
+  %22 = icmp samesign ult i64 %11, 4580160821035794433
   br i1 %22, label %51, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i64 %9, 52
   %25 = and i64 %24, 2047
   %26 = add nsw i64 %25, -1023
-  %27 = icmp ult i64 %25, 1023
+  %27 = icmp samesign ult i64 %25, 1023
   %28 = zext i1 %27 to i64
   %29 = lshr exact i64 -9223372036854775808, %28
   %30 = shl i64 %9, 10
   %31 = and i64 %30, 4611686018427386880
   %32 = or disjoint i64 %29, %31
-  %33 = icmp ult i64 %25, 1022
+  %33 = icmp samesign ult i64 %25, 1022
   %34 = sub nsw i64 62, %24
   %35 = add nuw nsw i64 %24, 2
   %.023.i = select i1 %33, i64 %34, i64 %35
@@ -2157,11 +2157,11 @@ define { i64, i64 } @"_ZN71_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..cas
 
 4:                                                ; preds = %1
   %spec.select.i = tail call i8 @llvm.abs.i8(i8 %2, i1 true)
-  %5 = icmp ult i8 %spec.select.i, 33
+  %5 = icmp samesign ult i8 %spec.select.i, 33
   br i1 %5, label %_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE.exit.i, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i8 %spec.select.i, 80
+  %7 = icmp samesign ult i8 %spec.select.i, 80
   br i1 %7, label %_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %6

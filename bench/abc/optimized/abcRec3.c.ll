@@ -3008,7 +3008,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ]
   %.022.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %87, %Abc_TtHasVar.exit.thread.i ]
-  %57 = icmp ult i64 %indvars.iv.i, 6
+  %57 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %57, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i
@@ -6376,7 +6376,7 @@ define internal fastcc i32 @Abc_TtSupport(ptr noundef readonly %0, i32 noundef r
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = icmp ult i32 %1, 7
+  %3 = icmp samesign ult i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
   %6 = sext i32 %5 to i64
@@ -6420,7 +6420,7 @@ Abc_TtHasVar.exit.us:                             ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %Abc_TtHasVar.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %Abc_TtHasVar.exit.thread ]
   %.023 = phi i32 [ 0, %.lr.ph.split.split.split.preheader ], [ %48, %Abc_TtHasVar.exit.thread ]
-  %18 = icmp ult i64 %indvars.iv, 6
+  %18 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %18, label %.lr.ph.i, label %.preheader.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split.split
@@ -7770,7 +7770,7 @@ define noalias noundef ptr @Lms_GiaFindNonRedundantCos(ptr nocapture noundef rea
   %37 = lshr i64 %26, %33
   %38 = trunc i64 %37 to i32
   %39 = and i32 %38, 15
-  %40 = icmp ugt i32 %36, %39
+  %40 = icmp samesign ugt i32 %36, %39
   br i1 %40, label %.lr.ph.i63, label %31
 
 .loopexit:                                        ; preds = %31, %23
@@ -7792,7 +7792,7 @@ define noalias noundef ptr @Lms_GiaFindNonRedundantCos(ptr nocapture noundef rea
   %47 = lshr i64 %18, %43
   %48 = trunc i64 %47 to i32
   %49 = and i32 %48, 15
-  %50 = icmp ugt i32 %46, %49
+  %50 = icmp samesign ugt i32 %46, %49
   br i1 %50, label %Lms_DelayDom.exit67, label %41
 
 51:                                               ; preds = %41
@@ -8345,7 +8345,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %Abc_TtHasVar.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ], [ 0, %.lr.ph.split.i ]
   %.022.i = phi i8 [ %89, %Abc_TtHasVar.exit.thread.i ], [ 0, %.lr.ph.split.i ]
-  %59 = icmp ult i64 %indvars.iv.i, 6
+  %59 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %59, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i

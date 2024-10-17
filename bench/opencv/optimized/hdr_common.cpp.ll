@@ -193,7 +193,7 @@ define hidden void @_ZN2cv15triangleWeightsEv(ptr dead_on_unwind noalias nonnull
 
 6:                                                ; preds = %1, %_ZN2cv3Mat2atIfEERT_i.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN2cv3Mat2atIfEERT_i.exit ]
-  %7 = icmp ult i64 %indvars.iv, 128
+  %7 = icmp samesign ult i64 %indvars.iv, 128
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = uitofp nneg i32 %8 to float
   %10 = fadd float %9, 1.000000e+00

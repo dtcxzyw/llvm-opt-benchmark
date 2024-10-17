@@ -2037,7 +2037,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
   %56 = getelementptr inbounds i8, ptr %.tr155, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %57, ptr noundef %1)
-  %59 = icmp ult i32 %58, 2
+  %59 = icmp samesign ult i32 %58, 2
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %55
@@ -2095,7 +2095,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
   %91 = getelementptr inbounds i8, ptr %.tr155, i64 32
   %92 = load ptr, ptr %91, align 8
   %93 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %92, ptr noundef %1)
-  %94 = icmp ult i32 %93, 2
+  %94 = icmp samesign ult i32 %93, 2
   br i1 %94, label %.loopexit.sink.split, label %.loopexit
 
 95:                                               ; preds = %.lr.ph157

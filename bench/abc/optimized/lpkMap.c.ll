@@ -416,7 +416,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %125 = load i32, ptr %16, align 4
   %126 = lshr i32 %125, 26
   %127 = zext nneg i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next124, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next124, %127
   br i1 %128, label %.lr.ph.split.us, label %.critedge, !llvm.loop !7
 
 129:                                              ; preds = %140
@@ -424,7 +424,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %130 = load i32, ptr %16, align 4
   %131 = lshr i32 %130, 26
   %132 = zext nneg i32 %131 to i64
-  %133 = icmp ult i64 %indvars.iv.next, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next, %132
   br i1 %133, label %.lr.ph.split, label %.critedge, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129

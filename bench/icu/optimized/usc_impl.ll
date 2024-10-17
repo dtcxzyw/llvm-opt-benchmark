@@ -230,7 +230,7 @@ if.then25:                                        ; preds = %if.then15
 if.end35:                                         ; preds = %if.then15, %if.then25, %for.body
   %ch.0 = phi i32 [ %add31, %if.then25 ], [ %conv, %if.then15 ], [ %conv, %for.body ]
   %call = call i32 @uscript_getScript_75(i32 noundef %ch.0, ptr noundef nonnull %error)
-  %cmp.i = icmp ugt i32 %ch.0, 59
+  %cmp.i = icmp samesign ugt i32 %ch.0, 59
   %spec.select.i = select i1 %cmp.i, i32 2, i32 0
   br label %while.body.i
 
@@ -244,7 +244,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %10 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp slt i32 %ch.0, %10
   %spec.select12.i = select i1 %cmp4.not.i, i32 %pairIndex.114.i, i32 %add.i
-  %cmp1.i = icmp ugt i32 %probe.013.i, 3
+  %cmp1.i = icmp samesign ugt i32 %probe.013.i, 3
   br i1 %cmp1.i, label %while.body.i, label %_ZL12getPairIndexi.exit, !llvm.loop !4
 
 _ZL12getPairIndexi.exit:                          ; preds = %while.body.i

@@ -584,7 +584,7 @@ define ptr @Nwk_NodeIfToHop(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %20 = load i64, ptr %5, align 4
   %21 = lshr i64 %20, 24
   %22 = and i64 %21, 255
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %9, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %9, %16, %3
@@ -631,7 +631,7 @@ define ptr @Nwk_NodeIfToHop(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %43 = load i64, ptr %5, align 4
   %44 = lshr i64 %43, 24
   %45 = and i64 %44, 255
-  %46 = icmp ult i64 %indvars.iv.next54, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next54, %45
   br i1 %46, label %34, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %34, %41, %.preheader

@@ -380,7 +380,7 @@ skip_line.exit.backedge:                          ; preds = %read_clause.exit.sk
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %173 = load i32, ptr %20, align 4
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %indvars.iv.next.i, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next.i, %174
   br i1 %175, label %.lr.ph.i31, label %vec_uint_print.exit, !llvm.loop !9
 
 vec_uint_print.exit:                              ; preds = %.lr.ph.i31, %160

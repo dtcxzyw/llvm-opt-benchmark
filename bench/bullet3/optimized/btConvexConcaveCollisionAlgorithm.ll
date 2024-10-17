@@ -1499,7 +1499,7 @@ invoke.cont110:                                   ; preds = %invoke.cont99, %inv
 
 for.inc118:                                       ; preds = %invoke.cont74, %invoke.cont110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp59 = icmp ult i64 %indvars.iv.next, %31
+  %cmp59 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %cmp59, label %invoke.cont70, label %for.end120.loopexit, !llvm.loop !24
 
 for.end120.loopexit:                              ; preds = %for.inc118

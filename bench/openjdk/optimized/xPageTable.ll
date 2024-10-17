@@ -91,7 +91,7 @@ define hidden void @_ZN10XPageTable6insertEP5XPage(ptr nocapture noundef nonnull
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
   store ptr %1, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp samesign ult i64 %15, %10
   br i1 %16, label %12, label %_ZN11XGranuleMapIP5XPageE3putEmmS1_.exit, !llvm.loop !7
 
 _ZN11XGranuleMapIP5XPageE3putEmmS1_.exit:         ; preds = %12, %2
@@ -121,7 +121,7 @@ define hidden void @_ZN10XPageTable6removeEP5XPage(ptr nocapture noundef nonnull
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
   store ptr null, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp samesign ult i64 %15, %10
   br i1 %16, label %12, label %_ZN11XGranuleMapIP5XPageE3putEmmS1_.exit, !llvm.loop !7
 
 _ZN11XGranuleMapIP5XPageE3putEmmS1_.exit:         ; preds = %12, %2

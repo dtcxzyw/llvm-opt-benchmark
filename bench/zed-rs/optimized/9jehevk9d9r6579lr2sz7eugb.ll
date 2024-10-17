@@ -16340,7 +16340,7 @@ define hidden void @_ZN6client6Client16request_envelope17he705c2180129730cE.llvm
   %12 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %13 = icmp ult i64 %12, 6
   tail call void @llvm.assume(i1 %13)
-  %switch = icmp ult i64 %12, 4
+  %switch = icmp samesign ult i64 %12, 4
   br i1 %switch, label %25, label %14
 
 14:                                               ; preds = %2

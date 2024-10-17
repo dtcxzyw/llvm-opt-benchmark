@@ -294,7 +294,7 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
   %39 = add nuw nsw i32 %.03244, 1
   %40 = load i16, ptr %1, align 2
   %41 = zext i16 %40 to i32
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %38, %2, %35

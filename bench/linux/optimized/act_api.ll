@@ -917,7 +917,7 @@ define dso_local i32 @tcf_idr_create(ptr nocapture noundef readonly %0, i32 noun
 25:                                               ; preds = %33, %23
   %26 = phi i64 [ %37, %33 ], [ 0, %23 ]
   %27 = and i64 %26, 4294967295
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %29, !prof !20
 
 29:                                               ; preds = %25
@@ -947,7 +947,7 @@ define dso_local i32 @tcf_idr_create(ptr nocapture noundef readonly %0, i32 noun
 43:                                               ; preds = %51, %41
   %44 = phi i64 [ %55, %51 ], [ 0, %41 ]
   %45 = and i64 %44, 4294967295
-  %46 = icmp ugt i64 %45, 63
+  %46 = icmp samesign ugt i64 %45, 63
   br i1 %46, label %.thread11, label %47, !prof !20
 
 47:                                               ; preds = %43

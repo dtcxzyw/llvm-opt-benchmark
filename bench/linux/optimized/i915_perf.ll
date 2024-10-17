@@ -721,7 +721,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = or disjoint i32 %179, %182
-  %184 = icmp ugt i32 %183, 3121
+  %184 = icmp samesign ugt i32 %183, 3121
   br i1 %184, label %185, label %192
 
 185:                                              ; preds = %174
@@ -1981,7 +1981,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %936 = load i8, ptr %935, align 1
   %937 = zext i8 %936 to i32
   %938 = or disjoint i32 %934, %937
-  %939 = icmp ugt i32 %938, 3121
+  %939 = icmp samesign ugt i32 %938, 3121
   %940 = select i1 %939, i32 8388352, i32 65472
   %941 = select i1 %939, i32 8388480, i32 65504
   br label %942
@@ -2088,7 +2088,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %1001 = load i8, ptr %1000, align 1
   %1002 = zext i8 %1001 to i32
   %1003 = or disjoint i32 %999, %1002
-  %1004 = icmp ugt i32 %1003, 3121
+  %1004 = icmp samesign ugt i32 %1003, 3121
   %1005 = add i32 %995, 956
   %1006 = select i1 %1004, i32 %1005, i32 9244
   %1007 = call ptr @i915_gem_object_create_internal(ptr noundef %983, i64 noundef 8192) #20
@@ -2284,7 +2284,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %1133 = load i8, ptr %1000, align 1
   %1134 = zext i8 %1133 to i32
   %1135 = or disjoint i32 %1132, %1134
-  %1136 = icmp ugt i32 %1135, 3121
+  %1136 = icmp samesign ugt i32 %1135, 3121
   br i1 %1136, label %1137, label %1139
 
 1137:                                             ; preds = %1090
@@ -2322,7 +2322,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %1162 = load i8, ptr %1000, align 1
   %1163 = zext i8 %1162 to i32
   %1164 = or disjoint i32 %1161, %1163
-  %1165 = icmp ugt i32 %1164, 3121
+  %1165 = icmp samesign ugt i32 %1164, 3121
   br i1 %1165, label %1166, label %1168
 
 1166:                                             ; preds = %1139
@@ -2366,7 +2366,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %1187 = load i8, ptr %1000, align 1
   %1188 = zext i8 %1187 to i32
   %1189 = or disjoint i32 %1186, %1188
-  %1190 = icmp ugt i32 %1189, 3121
+  %1190 = icmp samesign ugt i32 %1189, 3121
   br i1 %1190, label %1191, label %1193
 
 1191:                                             ; preds = %1168
@@ -2403,7 +2403,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %1215 = load i8, ptr %1000, align 1
   %1216 = zext i8 %1215 to i32
   %1217 = or disjoint i32 %1214, %1216
-  %1218 = icmp ugt i32 %1217, 3121
+  %1218 = icmp samesign ugt i32 %1217, 3121
   br i1 %1218, label %1219, label %.preheader302
 
 1219:                                             ; preds = %1193
@@ -3822,7 +3822,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef %0) l
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i32
   %143 = or disjoint i32 %139, %142
-  %144 = icmp ugt i32 %143, 3141
+  %144 = icmp samesign ugt i32 %143, 3141
   br i1 %144, label %145, label %166
 
 145:                                              ; preds = %134
@@ -3903,7 +3903,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef %0) l
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = or disjoint i32 %187, %190
-  %192 = icmp ugt i32 %191, 3141
+  %192 = icmp samesign ugt i32 %191, 3141
   br i1 %192, label %193, label %214
 
 193:                                              ; preds = %182, %178
@@ -4914,7 +4914,7 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
   %185 = sext i32 %116 to i64
   %186 = icmp ne i32 %116, 0
   %187 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %185), !range !128
-  %188 = icmp ult i64 %187, 2
+  %188 = icmp samesign ult i64 %187, 2
   %189 = select i1 %186, i1 %188, i1 false
   br label %190
 
@@ -4963,7 +4963,7 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = or disjoint i32 %221, %224
-  %226 = icmp ult i32 %225, 3122
+  %226 = icmp samesign ult i32 %225, 3122
   br i1 %226, label %227, label %230
 
 227:                                              ; preds = %215
@@ -5195,7 +5195,7 @@ define internal zeroext i1 @gen8_is_valid_flex_addr(ptr nocapture readnone %0, i
   br i1 %10, label %11, label %.preheader, !llvm.loop !130
 
 11:                                               ; preds = %7, %.preheader
-  %12 = icmp ult i64 %4, 6
+  %12 = icmp samesign ult i64 %4, 6
   br label %13
 
 13:                                               ; preds = %11, %2
@@ -5594,7 +5594,7 @@ define internal noundef zeroext i1 @xehp_is_valid_b_counter_addr(ptr nocapture n
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
-  %51 = icmp ugt i32 %50, 3141
+  %51 = icmp samesign ugt i32 %50, 3141
   br i1 %51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %42, %65
@@ -5674,7 +5674,7 @@ define internal noundef zeroext i1 @gen12_is_valid_mux_addr(ptr nocapture nounde
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
-  %12 = icmp ugt i32 %11, 3141
+  %12 = icmp samesign ugt i32 %11, 3141
   br i1 %12, label %.preheader, label %.preheader1
 
 .preheader:                                       ; preds = %2, %26

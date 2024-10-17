@@ -1289,7 +1289,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i.i.i.i.i: ; preds = %11
 
 159:                                              ; preds = %._crit_edge.i.i.i.i.i, %131
   %.1.lcssa.i.i.i.i.i = phi i64 [ %209, %._crit_edge.i.i.i.i.i ], [ %.0.i.i.i4.i.i, %131 ]
-  %160 = icmp ugt i64 %133, 3
+  %160 = icmp samesign ugt i64 %133, 3
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
@@ -1302,7 +1302,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i.i.i.i.i: ; preds = %11
   %.017.i11.i.i.i.i.i = phi i64 [ 4, %161 ], [ 0, %159 ]
   %.0.i12.i.i.i.i.i = phi i64 [ %163, %161 ], [ 0, %159 ]
   %165 = or disjoint i64 %.017.i11.i.i.i.i.i, 1
-  %166 = icmp ult i64 %165, %133
+  %166 = icmp samesign ult i64 %165, %133
   br i1 %166, label %167, label %175
 
 167:                                              ; preds = %164

@@ -297,7 +297,7 @@ sub_0:                                            ; preds = %43
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %121 = load i32, ptr %109, align 8
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %indvars.iv.next101, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next101, %122
   br i1 %123, label %.lr.ph89.split.us, label %.critedge, !llvm.loop !8
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89, %frame_write.exit
@@ -352,7 +352,7 @@ frame_write.exit:                                 ; preds = %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %149 = load i32, ptr %109, align 8
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next, %150
   br i1 %151, label %.lr.ph89.split, label %.critedge109, !llvm.loop !8
 
 ._crit_edge90:                                    ; preds = %113

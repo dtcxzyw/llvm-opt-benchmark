@@ -703,7 +703,7 @@ if.then33.us108:                                  ; preds = %while.body31.us103
   %conv34.us109 = zext i8 %18 to i32
   %arrayidx36.us111 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv258
   store i8 %18, ptr %arrayidx36.us111, align 1
-  %cmp1.i.us = icmp ugt i64 %indvars.iv258, 1
+  %cmp1.i.us = icmp samesign ugt i64 %indvars.iv258, 1
   br i1 %cmp1.i.us, label %if.then.i.us112, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then33.us108
@@ -759,7 +759,7 @@ if.then33.us154:                                  ; preds = %while.body31.us149
   %conv34.us155 = zext i8 %22 to i32
   %arrayidx36.us157 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv
   store i8 %22, ptr %arrayidx36.us157, align 1
-  %cmp1.i.us158 = icmp ugt i64 %indvars.iv, 1
+  %cmp1.i.us158 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp1.i.us158, label %if.then.i.us160, label %if.else.i.us159
 
 if.else.i.us159:                                  ; preds = %if.then33.us154
@@ -804,7 +804,7 @@ if.then33:                                        ; preds = %while.body31
   %conv34 = zext i8 %27 to i32
   %arrayidx36 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv255
   store i8 %27, ptr %arrayidx36, align 1
-  %cmp1.i = icmp ugt i64 %indvars.iv255, 1
+  %cmp1.i = icmp samesign ugt i64 %indvars.iv255, 1
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then33
@@ -1122,7 +1122,7 @@ if.then34.us119:                                  ; preds = %while.body32.us114
   %conv35.us120 = zext i8 %19 to i32
   %arrayidx37.us122 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv269
   store i8 %19, ptr %arrayidx37.us122, align 1
-  %cmp1.i.us = icmp ugt i64 %indvars.iv269, 1
+  %cmp1.i.us = icmp samesign ugt i64 %indvars.iv269, 1
   br i1 %cmp1.i.us, label %if.then.i.us123, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then34.us119
@@ -1178,7 +1178,7 @@ if.then34.us165:                                  ; preds = %while.body32.us160
   %conv35.us166 = zext i8 %23 to i32
   %arrayidx37.us168 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv
   store i8 %23, ptr %arrayidx37.us168, align 1
-  %cmp1.i.us169 = icmp ugt i64 %indvars.iv, 1
+  %cmp1.i.us169 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp1.i.us169, label %if.then.i.us171, label %if.else.i.us170
 
 if.else.i.us170:                                  ; preds = %if.then34.us165
@@ -1223,7 +1223,7 @@ if.then34:                                        ; preds = %while.body32
   %conv35 = zext i8 %28 to i32
   %arrayidx37 = getelementptr inbounds i8, ptr %toUBytes3, i64 %indvars.iv266
   store i8 %28, ptr %arrayidx37, align 1
-  %cmp1.i = icmp ugt i64 %indvars.iv266, 1
+  %cmp1.i = icmp samesign ugt i64 %indvars.iv266, 1
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then34

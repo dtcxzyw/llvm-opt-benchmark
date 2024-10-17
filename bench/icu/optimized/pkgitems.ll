@@ -355,7 +355,7 @@ if.end31.i:                                       ; preds = %invoke.cont20.i
   %add.ptr.i = getelementptr inbounds i8, ptr %nativePool.sroa.9.0.i, i64 4
   %47 = load i32, ptr %add.ptr.i, align 4
   %and.i = and i32 %47, 255
-  %cmp35.i = icmp ugt i32 %and.i, 7
+  %cmp35.i = icmp samesign ugt i32 %and.i, 7
   br i1 %cmp35.i, label %land.lhs.true.i, label %if.then39.i
 
 land.lhs.true.i:                                  ; preds = %if.end31.i

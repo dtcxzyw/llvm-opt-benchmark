@@ -354,7 +354,7 @@ Aig_ManObj.exit104.us:                            ; preds = %.critedge2.us, %95
   %.val66.us = load i64, ptr %89, align 8
   %90 = trunc i64 %.val66.us to i32
   %91 = lshr i32 %90, 6
-  %92 = icmp ult i32 %83, %91
+  %92 = icmp samesign ult i32 %83, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %Aig_ManObj.exit104.us

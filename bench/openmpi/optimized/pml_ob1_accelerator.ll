@@ -969,7 +969,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %8, %opal_convertor_
   %48 = phi i32 [ %37, %.lr.ph.i ], [ %.pre.i, %41 ]
   %49 = add nuw nsw i64 %.013.i, 1
   %50 = zext i32 %48 to i64
-  %51 = icmp ult i64 %49, %50
+  %51 = icmp samesign ult i64 %49, %50
   br i1 %51, label %.lr.ph.i, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !11
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %47, %35
@@ -1071,7 +1071,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   %.137 = phi double [ %.03643, %27 ], [ %39, %32 ], [ %.03643, %mca_bml_base_btl_array_get_index.exit ], [ %.03643, %22 ]
   %.1 = phi i32 [ %.03544, %27 ], [ %40, %32 ], [ %.03544, %mca_bml_base_btl_array_get_index.exit ], [ %.03544, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = icmp ult i64 %indvars.iv.next, %13
+  %41 = icmp samesign ult i64 %indvars.iv.next, %13
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %43 = icmp slt i32 %.1, %42
   %44 = select i1 %41, i1 %43, i1 false

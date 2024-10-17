@@ -3505,7 +3505,7 @@ define hidden void @_ZN4core5slice4sort7recurse17hed2b7e233d5ca197E.llvm.6900363
 .outer._crit_edge:                                ; preds = %.outer, %271, %5
   %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %272, %271 ], [ %.sroa.14.1, %.outer ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %273, %271 ], [ %.sroa.0.1, %.outer ]
-  %25 = icmp ugt i64 %.sroa.14.0.lcssa, 1
+  %25 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %25, label %279, label %.loopexit
 
 26:                                               ; preds = %23

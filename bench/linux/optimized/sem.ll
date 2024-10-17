@@ -3782,7 +3782,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   %67 = getelementptr i16, ptr %56, i64 %63
   store i16 %66, ptr %67, align 2
   %68 = add nuw nsw i64 %63, 1
-  %69 = icmp ult i64 %68, %61
+  %69 = icmp samesign ult i64 %68, %61
   br i1 %69, label %62, label %.loopexit33, !llvm.loop !57
 
 .loopexit33:                                      ; preds = %62, %55

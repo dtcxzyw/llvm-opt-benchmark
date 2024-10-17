@@ -3931,7 +3931,7 @@ if.end:                                           ; preds = %if.then, %_ZN7rocks
   %5 = load i8, ptr %atomic_flush, align 1
   %tobool = trunc i8 %5 to i1
   %cmp19 = icmp sgt i32 %.sroa.speculated, 1
-  %or.cond = and i1 %cmp19, %tobool
+  %or.cond = select i1 %tobool, i1 %cmp19, i1 false
   br i1 %or.cond, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.end
@@ -3959,8 +3959,8 @@ if.end29:                                         ; preds = %if.then27, %if.end2
   %compaction_style = getelementptr inbounds i8, ptr %agg.result, i64 232
   %9 = load i8, ptr %compaction_style, align 8
   %cmp30 = icmp eq i8 %9, 0
-  %cmp33 = icmp ult i32 %8, 2
-  %or.cond1 = and i1 %cmp30, %cmp33
+  %cmp33 = icmp samesign ult i32 %8, 2
+  %or.cond1 = select i1 %cmp30, i1 %cmp33, i1 false
   br i1 %or.cond1, label %if.end47.sink.split, label %if.end36
 
 if.end36:                                         ; preds = %if.end29
@@ -3971,8 +3971,8 @@ land.lhs.true40:                                  ; preds = %if.end36
   %allow_ingest_behind = getelementptr inbounds i8, ptr %db_options, i64 403
   %10 = load i8, ptr %allow_ingest_behind, align 1
   %tobool41 = trunc i8 %10 to i1
-  %cmp44 = icmp ult i32 %8, 3
-  %or.cond2 = and i1 %cmp44, %tobool41
+  %cmp44 = icmp samesign ult i32 %8, 3
+  %or.cond2 = select i1 %tobool41, i1 %cmp44, i1 false
   br i1 %or.cond2, label %if.end47.sink.split, label %if.end47
 
 if.end47.sink.split:                              ; preds = %land.lhs.true40, %if.end29
@@ -21237,7 +21237,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

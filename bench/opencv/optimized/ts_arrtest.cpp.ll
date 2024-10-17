@@ -1629,7 +1629,7 @@ define hidden void @_ZN6cvtest9ArrayTest17get_minmax_boundsEiiiRN2cv7Scalar_IdEE
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %6
-  %10 = icmp ult i32 %7, 4
+  %10 = icmp samesign ult i32 %7, 4
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1771,7 +1771,7 @@ define hidden noundef double @_ZN6cvtest9ArrayTest23get_success_error_levelEiii(
 
 25:                                               ; preds = %4
   %26 = and i32 %15, 7
-  %27 = icmp ult i32 %26, 5
+  %27 = icmp samesign ult i32 %26, 5
   %28 = icmp eq i32 %26, 5
   %29 = select i1 %28, double 0x3EE9000000000000, double 0x3D73880000000000
   %30 = select i1 %27, double 0.000000e+00, double %29

@@ -196,7 +196,7 @@ _ZN7GaelMls12NeighborhoodIfE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   %68 = phi i32 [ %34, %33 ], [ %.pre.i, %66 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next.i, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next.i, %69
   br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIfEE.exit, !llvm.loop !5
 
 tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit, %tailrecurse.backedge.i
@@ -495,7 +495,7 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12Neighb
   %53 = phi i32 [ %19, %18 ], [ %.pre, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %18, label %._crit_edge, !llvm.loop !5
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurse.backedge
@@ -643,7 +643,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr %76, align 8
   %85 = zext i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph76, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !9
 
 87:                                               ; preds = %49
@@ -1383,7 +1383,7 @@ _ZN7GaelMls12NeighborhoodIdE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   %68 = phi i32 [ %34, %33 ], [ %.pre.i, %66 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next.i, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next.i, %69
   br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit, !llvm.loop !15
 
 tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit, %tailrecurse.backedge.i
@@ -1682,7 +1682,7 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12Neighb
   %53 = phi i32 [ %19, %18 ], [ %.pre, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %18, label %._crit_edge, !llvm.loop !15
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurse.backedge
@@ -1817,7 +1817,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %73, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next, %82
   br i1 %83, label %.lr.ph72, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !24
 
 84:                                               ; preds = %49

@@ -205,7 +205,7 @@ if.end133:                                        ; preds = %if.end129
 
 do.body:                                          ; preds = %land.rhs, %if.end133
   %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs ], [ 2, %if.end133 ]
-  %cmp135 = icmp ult i64 %indvars.iv, 22
+  %cmp135 = icmp samesign ult i64 %indvars.iv, 22
   br i1 %cmp135, label %if.then137, label %if.else
 
 if.then137:                                       ; preds = %do.body
@@ -331,7 +331,7 @@ while.body242:                                    ; preds = %if.end236, %if.end2
   br i1 %tobool244.not, label %for.cond.preheader, label %if.then245
 
 for.cond.preheader:                               ; preds = %while.body242
-  %cmp251219 = icmp ugt i32 %e.1, 1
+  %cmp251219 = icmp samesign ugt i32 %e.1, 1
   br i1 %cmp251219, label %for.body, label %if.then316.sink.split
 
 if.then245:                                       ; preds = %while.body242

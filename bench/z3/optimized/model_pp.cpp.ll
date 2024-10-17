@@ -494,7 +494,7 @@ invoke.cont.i59:                                  ; preds = %for.body27.i
 invoke.cont33.i:                                  ; preds = %invoke.cont.i59
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i27) #6
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i56, 1
-  %cmp35.i = icmp ult i64 %indvars.iv.next.i60, %45
+  %cmp35.i = icmp samesign ult i64 %indvars.iv.next.i60, %45
   br i1 %cmp35.i, label %if.then36.i, label %for.inc39.i
 
 if.then36.i:                                      ; preds = %invoke.cont33.i

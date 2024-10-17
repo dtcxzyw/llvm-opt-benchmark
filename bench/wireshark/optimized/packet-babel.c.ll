@@ -418,7 +418,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %112 = load i32, ptr @hf_babel_message_interval, align 4
   %113 = add i32 %.0333, 10
   %114 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef 0) #7
-  %115 = icmp ugt i32 %.0263, 6
+  %115 = icmp samesign ugt i32 %.0263, 6
   br i1 %115, label %116, label %341
 
 116:                                              ; preds = %103
@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   %. = select i1 %12, i32 4, i32 16
   %13 = icmp slt i32 %1, 0
   %.055 = select i1 %13, i32 %., i32 %11
-  %14 = icmp ugt i32 %.055, 16
+  %14 = icmp samesign ugt i32 %.055, 16
   br i1 %14, label %60, label %15
 
 15:                                               ; preds = %8
@@ -1105,13 +1105,13 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   ]
 
 16:                                               ; preds = %15
-  %17 = icmp ugt i32 %2, 4
-  %18 = icmp ugt i32 %.055, 4
-  %or.cond = or i1 %17, %18
+  %17 = icmp samesign ugt i32 %2, 4
+  %18 = icmp samesign ugt i32 %.055, 4
+  %or.cond = select i1 %17, i1 true, i1 %18
   br i1 %or.cond, label %60, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp ugt i32 %.055, %2
+  %20 = icmp samesign ugt i32 %.055, %2
   %21 = sub nuw nsw i32 %.055, %2
   %22 = icmp ult i32 %6, %21
   %or.cond62 = select i1 %20, i1 %22, i1 false
@@ -1142,11 +1142,11 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br label %.sink.split
 
 34:                                               ; preds = %15
-  %35 = icmp ugt i32 %2, 16
+  %35 = icmp samesign ugt i32 %2, 16
   br i1 %35, label %60, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i32 %.055, %2
+  %37 = icmp samesign ugt i32 %.055, %2
   %38 = sub nuw nsw i32 %.055, %2
   %39 = icmp ult i32 %6, %38
   %or.cond64 = select i1 %37, i1 %39, i1 false
@@ -1174,7 +1174,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br label %.sink.split
 
 49:                                               ; preds = %15
-  %50 = icmp ugt i32 %.055, 8
+  %50 = icmp samesign ugt i32 %.055, 8
   %51 = add nsw i32 %.055, -8
   %52 = icmp ult i32 %6, %51
   %or.cond66 = select i1 %50, i1 %52, i1 false

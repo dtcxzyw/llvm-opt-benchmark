@@ -4473,7 +4473,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %17
-  %7 = icmp ult i64 %.03546, 9
+  %7 = icmp samesign ult i64 %.03546, 9
   br i1 %7, label %._crit_edge.thread, label %10, !prof !990
 
 .lr.ph:                                           ; preds = %2, %17

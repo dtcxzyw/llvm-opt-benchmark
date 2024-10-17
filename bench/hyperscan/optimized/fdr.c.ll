@@ -828,7 +828,7 @@ if.then354.i902.us:                               ; preds = %if.end349.i895.us
 if.end361.i900.us:                                ; preds = %if.then354.i902.us, %if.end349.i895.us
   %control.addr.25.us = phi i64 [ %call360.i908.us, %if.then354.i902.us ], [ %control.addr.24.us, %if.end349.i895.us ]
   %indvars.iv.next2055 = add nuw nsw i64 %indvars.iv2054, 2
-  %cmp285.i868.us = icmp ult i64 %indvars.iv.next2055, %234
+  %cmp285.i868.us = icmp samesign ult i64 %indvars.iv.next2055, %234
   br i1 %cmp285.i868.us, label %land.rhs287.i939.us, label %if.end516.i857.us, !llvm.loop !8
 
 land.rhs179.i1035.us:                             ; preds = %land.rhs179.i1035.lr.ph.us, %if.end278.i983.us
@@ -959,7 +959,7 @@ if.then271.i985.us:                               ; preds = %if.end266.i978.us
 if.end278.i983.us:                                ; preds = %if.then271.i985.us, %if.end266.i978.us
   %control.addr.18.us = phi i64 [ %call277.i991.us, %if.then271.i985.us ], [ %control.addr.17.us, %if.end266.i978.us ]
   %indvars.iv.next2058 = add nuw nsw i64 %indvars.iv2057, 4
-  %cmp177.i944.us = icmp ult i64 %indvars.iv.next2058, %235
+  %cmp177.i944.us = icmp samesign ult i64 %indvars.iv.next2058, %235
   br i1 %cmp177.i944.us, label %land.rhs179.i1035.us, label %if.end516.i857.us, !llvm.loop !9
 
 land.rhs.i1084.us:                                ; preds = %land.rhs.i1084.lr.ph.us, %if.end170.i1059.us
@@ -1016,7 +1016,7 @@ if.then163.i1061.us:                              ; preds = %if.end158.i1055.us
 if.end170.i1059.us:                               ; preds = %for.body123.i1043.us, %if.end134.i1047.us, %if.end146.i1051.us, %if.then163.i1061.us, %if.end158.i1055.us
   %control.addr.9.us = phi i64 [ %call169.i1066.us, %if.then163.i1061.us ], [ %call157.i1072.us, %if.end158.i1055.us ], [ %call145.i1078.us, %if.end146.i1051.us ], [ %call.i1083.us, %if.end134.i1047.us ], [ %control.addr.51909.us, %for.body123.i1043.us ]
   %indvars.iv.next2061 = add nuw nsw i64 %indvars.iv2060, 4
-  %cmp118.i1040.us = icmp ult i64 %indvars.iv.next2061, %236
+  %cmp118.i1040.us = icmp samesign ult i64 %indvars.iv.next2061, %236
   br i1 %cmp118.i1040.us, label %land.rhs.i1084.us, label %if.end516.i857.us, !llvm.loop !10
 
 land.rhs369.i1223.us:                             ; preds = %land.rhs369.i1223.lr.ph.us, %for.end512.i1140.us
@@ -1157,7 +1157,7 @@ if.end488.i1135.us:                               ; preds = %if.then481.i1158.us
 for.end512.i1140.us:                              ; preds = %if.end509.i1148.us, %if.end488.i1135.us
   %control.addr.37.lcssa.us = phi i64 [ %control.addr.36.us, %if.end488.i1135.us ], [ %control.addr.38.us, %if.end509.i1148.us ]
   %indvars.iv.next2070 = add nuw nsw i64 %indvars.iv2069, 2
-  %cmp367.i1089.us = icmp ult i64 %indvars.iv.next2070, %238
+  %cmp367.i1089.us = icmp samesign ult i64 %indvars.iv.next2070, %238
   br i1 %cmp367.i1089.us, label %land.rhs369.i1223.us, label %if.end516.i857.us, !llvm.loop !11
 
 for.body495.i1142.us:                             ; preds = %for.body495.i1142.lr.ph.us, %if.end509.i1148.us
@@ -1182,7 +1182,7 @@ if.end509.i1148.us:                               ; preds = %if.then501.i1150.us
   %control.addr.38.us = phi i64 [ %call508.i1157.us, %if.then501.i1150.us ], [ %control.addr.371920.us, %for.body495.i1142.us ]
   %indvars.iv.next2067 = add nuw nsw i64 %indvars.iv2066, 1
   %144 = zext i16 %143 to i64
-  %cmp493.i1139.us = icmp ult i64 %indvars.iv.next2067, %144
+  %cmp493.i1139.us = icmp samesign ult i64 %indvars.iv.next2067, %144
   br i1 %cmp493.i1139.us, label %for.body495.i1142.us, label %for.end512.i1140.us, !llvm.loop !12
 
 for.body424.i1185.us:                             ; preds = %for.body424.i1185.lr.ph.us, %if.end437.i1191.us
@@ -1207,7 +1207,7 @@ if.end437.i1191.us:                               ; preds = %if.then430.i1193.us
   %control.addr.32.us = phi i64 [ %call436.i1199.us, %if.then430.i1193.us ], [ %control.addr.311915.us, %for.body424.i1185.us ]
   %indvars.iv.next2064 = add nuw nsw i64 %indvars.iv2063, 1
   %149 = zext i16 %148 to i64
-  %cmp422.i1115.us = icmp ult i64 %indvars.iv.next2064, %149
+  %cmp422.i1115.us = icmp samesign ult i64 %indvars.iv.next2064, %149
   br i1 %cmp422.i1115.us, label %for.body424.i1185.us, label %for.end440.i1116.us, !llvm.loop !13
 
 if.end516.i857.us:                                ; preds = %if.end361.i900.us, %land.rhs287.i939.us, %if.end278.i983.us, %land.rhs179.i1035.us, %if.end170.i1059.us, %land.rhs.i1084.us, %for.end512.i1140.us, %land.rhs369.i1223.us, %for.cond284.i867.preheader.us, %for.cond176.i943.preheader.us, %for.cond117.i1039.preheader.us, %for.cond366.i1088.preheader.us, %land.lhs.true.i860.us, %if.then103.i849.us
@@ -2090,7 +2090,7 @@ if.then354.i356.us:                               ; preds = %if.end349.i349.us
 if.end361.i354.us:                                ; preds = %if.then354.i356.us, %if.end349.i349.us
   %control.addr.73.us = phi i64 [ %call360.i362.us, %if.then354.i356.us ], [ %control.addr.72.us, %if.end349.i349.us ]
   %indvars.iv.next2036 = add nuw nsw i64 %indvars.iv2035, 2
-  %cmp285.i322.us = icmp ult i64 %indvars.iv.next2036, %417
+  %cmp285.i322.us = icmp samesign ult i64 %indvars.iv.next2036, %417
   br i1 %cmp285.i322.us, label %land.rhs287.i393.us, label %if.end516.i311.us, !llvm.loop !8
 
 land.rhs179.i489.us:                              ; preds = %land.rhs179.i489.lr.ph.us, %if.end278.i437.us
@@ -2221,7 +2221,7 @@ if.then271.i439.us:                               ; preds = %if.end266.i432.us
 if.end278.i437.us:                                ; preds = %if.then271.i439.us, %if.end266.i432.us
   %control.addr.66.us = phi i64 [ %call277.i445.us, %if.then271.i439.us ], [ %control.addr.65.us, %if.end266.i432.us ]
   %indvars.iv.next2039 = add nuw nsw i64 %indvars.iv2038, 4
-  %cmp177.i398.us = icmp ult i64 %indvars.iv.next2039, %418
+  %cmp177.i398.us = icmp samesign ult i64 %indvars.iv.next2039, %418
   br i1 %cmp177.i398.us, label %land.rhs179.i489.us, label %if.end516.i311.us, !llvm.loop !9
 
 land.rhs.i538.us:                                 ; preds = %land.rhs.i538.lr.ph.us, %if.end170.i513.us
@@ -2278,7 +2278,7 @@ if.then163.i515.us:                               ; preds = %if.end158.i509.us
 if.end170.i513.us:                                ; preds = %for.body123.i497.us, %if.end134.i501.us, %if.end146.i505.us, %if.then163.i515.us, %if.end158.i509.us
   %control.addr.57.us = phi i64 [ %call169.i520.us, %if.then163.i515.us ], [ %call157.i526.us, %if.end158.i509.us ], [ %call145.i532.us, %if.end146.i505.us ], [ %call.i537.us, %if.end134.i501.us ], [ %control.addr.531865.us, %for.body123.i497.us ]
   %indvars.iv.next2042 = add nuw nsw i64 %indvars.iv2041, 4
-  %cmp118.i494.us = icmp ult i64 %indvars.iv.next2042, %419
+  %cmp118.i494.us = icmp samesign ult i64 %indvars.iv.next2042, %419
   br i1 %cmp118.i494.us, label %land.rhs.i538.us, label %if.end516.i311.us, !llvm.loop !10
 
 land.rhs369.i677.us:                              ; preds = %land.rhs369.i677.lr.ph.us, %for.end512.i594.us
@@ -2419,7 +2419,7 @@ if.end488.i589.us:                                ; preds = %if.then481.i612.us,
 for.end512.i594.us:                               ; preds = %if.end509.i602.us, %if.end488.i589.us
   %control.addr.85.lcssa.us = phi i64 [ %control.addr.84.us, %if.end488.i589.us ], [ %control.addr.86.us, %if.end509.i602.us ]
   %indvars.iv.next2051 = add nuw nsw i64 %indvars.iv2050, 2
-  %cmp367.i543.us = icmp ult i64 %indvars.iv.next2051, %421
+  %cmp367.i543.us = icmp samesign ult i64 %indvars.iv.next2051, %421
   br i1 %cmp367.i543.us, label %land.rhs369.i677.us, label %if.end516.i311.us, !llvm.loop !11
 
 for.body495.i596.us:                              ; preds = %for.body495.i596.lr.ph.us, %if.end509.i602.us
@@ -2444,7 +2444,7 @@ if.end509.i602.us:                                ; preds = %if.then501.i604.us,
   %control.addr.86.us = phi i64 [ %call508.i611.us, %if.then501.i604.us ], [ %control.addr.851876.us, %for.body495.i596.us ]
   %indvars.iv.next2048 = add nuw nsw i64 %indvars.iv2047, 1
   %343 = zext i16 %342 to i64
-  %cmp493.i593.us = icmp ult i64 %indvars.iv.next2048, %343
+  %cmp493.i593.us = icmp samesign ult i64 %indvars.iv.next2048, %343
   br i1 %cmp493.i593.us, label %for.body495.i596.us, label %for.end512.i594.us, !llvm.loop !12
 
 for.body424.i639.us:                              ; preds = %for.body424.i639.lr.ph.us, %if.end437.i645.us
@@ -2469,7 +2469,7 @@ if.end437.i645.us:                                ; preds = %if.then430.i647.us,
   %control.addr.80.us = phi i64 [ %call436.i653.us, %if.then430.i647.us ], [ %control.addr.791871.us, %for.body424.i639.us ]
   %indvars.iv.next2045 = add nuw nsw i64 %indvars.iv2044, 1
   %348 = zext i16 %347 to i64
-  %cmp422.i569.us = icmp ult i64 %indvars.iv.next2045, %348
+  %cmp422.i569.us = icmp samesign ult i64 %indvars.iv.next2045, %348
   br i1 %cmp422.i569.us, label %for.body424.i639.us, label %for.end440.i570.us, !llvm.loop !13
 
 if.end516.i311.us:                                ; preds = %if.end361.i354.us, %land.rhs287.i393.us, %if.end278.i437.us, %land.rhs179.i489.us, %if.end170.i513.us, %land.rhs.i538.us, %for.end512.i594.us, %land.rhs369.i677.us, %for.cond284.i321.preheader.us, %for.cond176.i397.preheader.us, %for.cond117.i493.preheader.us, %for.cond366.i542.preheader.us, %land.lhs.true.i314.us, %if.then103.i303.us
@@ -3272,7 +3272,7 @@ if.then354.i.us:                                  ; preds = %if.end349.i.us
 if.end361.i.us:                                   ; preds = %if.then354.i.us, %if.end349.i.us
   %control.addr.121.us = phi i64 [ %call360.i.us, %if.then354.i.us ], [ %control.addr.120.us, %if.end349.i.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp285.i.us = icmp ult i64 %indvars.iv.next, %590
+  %cmp285.i.us = icmp samesign ult i64 %indvars.iv.next, %590
   br i1 %cmp285.i.us, label %land.rhs287.i.us, label %if.end516.i.us, !llvm.loop !8
 
 land.rhs179.i.us:                                 ; preds = %land.rhs179.i.lr.ph.us, %if.end278.i.us
@@ -3403,7 +3403,7 @@ if.then271.i.us:                                  ; preds = %if.end266.i.us
 if.end278.i.us:                                   ; preds = %if.then271.i.us, %if.end266.i.us
   %control.addr.114.us = phi i64 [ %call277.i.us, %if.then271.i.us ], [ %control.addr.113.us, %if.end266.i.us ]
   %indvars.iv.next2021 = add nuw nsw i64 %indvars.iv2020, 4
-  %cmp177.i.us = icmp ult i64 %indvars.iv.next2021, %591
+  %cmp177.i.us = icmp samesign ult i64 %indvars.iv.next2021, %591
   br i1 %cmp177.i.us, label %land.rhs179.i.us, label %if.end516.i.us, !llvm.loop !9
 
 land.rhs.i.us:                                    ; preds = %land.rhs.i.lr.ph.us, %if.end170.i.us
@@ -3460,7 +3460,7 @@ if.then163.i.us:                                  ; preds = %if.end158.i.us
 if.end170.i.us:                                   ; preds = %for.body123.i.us, %if.end134.i.us, %if.end146.i.us, %if.then163.i.us, %if.end158.i.us
   %control.addr.105.us = phi i64 [ %call169.i.us, %if.then163.i.us ], [ %call157.i.us, %if.end158.i.us ], [ %call145.i.us, %if.end146.i.us ], [ %call.i177.us, %if.end134.i.us ], [ %control.addr.1011823.us, %for.body123.i.us ]
   %indvars.iv.next2024 = add nuw nsw i64 %indvars.iv2023, 4
-  %cmp118.i.us = icmp ult i64 %indvars.iv.next2024, %592
+  %cmp118.i.us = icmp samesign ult i64 %indvars.iv.next2024, %592
   br i1 %cmp118.i.us, label %land.rhs.i.us, label %if.end516.i.us, !llvm.loop !10
 
 land.rhs369.i.us:                                 ; preds = %land.rhs369.i.lr.ph.us, %for.end512.i.us
@@ -3601,7 +3601,7 @@ if.end488.i.us:                                   ; preds = %if.then481.i.us, %i
 for.end512.i.us:                                  ; preds = %if.end509.i.us, %if.end488.i.us
   %control.addr.133.lcssa.us = phi i64 [ %control.addr.132.us, %if.end488.i.us ], [ %control.addr.134.us, %if.end509.i.us ]
   %indvars.iv.next2033 = add nuw nsw i64 %indvars.iv2032, 2
-  %cmp367.i.us = icmp ult i64 %indvars.iv.next2033, %594
+  %cmp367.i.us = icmp samesign ult i64 %indvars.iv.next2033, %594
   br i1 %cmp367.i.us, label %land.rhs369.i.us, label %if.end516.i.us, !llvm.loop !11
 
 for.body495.i.us:                                 ; preds = %for.body495.i.lr.ph.us, %if.end509.i.us
@@ -3626,7 +3626,7 @@ if.end509.i.us:                                   ; preds = %if.then501.i.us, %f
   %control.addr.134.us = phi i64 [ %call508.i.us, %if.then501.i.us ], [ %control.addr.1331834.us, %for.body495.i.us ]
   %indvars.iv.next2030 = add nuw nsw i64 %indvars.iv2029, 1
   %526 = zext i16 %525 to i64
-  %cmp493.i.us = icmp ult i64 %indvars.iv.next2030, %526
+  %cmp493.i.us = icmp samesign ult i64 %indvars.iv.next2030, %526
   br i1 %cmp493.i.us, label %for.body495.i.us, label %for.end512.i.us, !llvm.loop !12
 
 for.body424.i.us:                                 ; preds = %for.body424.i.lr.ph.us, %if.end437.i.us
@@ -3651,7 +3651,7 @@ if.end437.i.us:                                   ; preds = %if.then430.i.us, %f
   %control.addr.128.us = phi i64 [ %call436.i.us, %if.then430.i.us ], [ %control.addr.1271829.us, %for.body424.i.us ]
   %indvars.iv.next2027 = add nuw nsw i64 %indvars.iv2026, 1
   %531 = zext i16 %530 to i64
-  %cmp422.i.us = icmp ult i64 %indvars.iv.next2027, %531
+  %cmp422.i.us = icmp samesign ult i64 %indvars.iv.next2027, %531
   br i1 %cmp422.i.us, label %for.body424.i.us, label %for.end440.i.us, !llvm.loop !13
 
 if.end516.i.us:                                   ; preds = %if.end361.i.us, %land.rhs287.i.us, %if.end278.i.us, %land.rhs179.i.us, %if.end170.i.us, %land.rhs.i.us, %for.end512.i.us, %land.rhs369.i.us, %for.cond284.i.preheader.us, %for.cond176.i.preheader.us, %for.cond117.i.preheader.us, %for.cond366.i.preheader.us, %land.lhs.true.i.us, %if.then103.i.us

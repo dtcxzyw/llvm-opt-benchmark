@@ -39,7 +39,7 @@ if.end3:                                          ; preds = %if.end
   %firststate.i = getelementptr inbounds i8, ptr %0, i64 56
   %laststate.i = getelementptr inbounds i8, ptr %0, i64 64
   %cflags.i = getelementptr inbounds i8, ptr %0, i64 40
-  %tobool2.not.i = icmp ult i32 %and4, 4
+  %tobool2.not.i = icmp samesign ult i32 %and4, 4
   br i1 %cmp5, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end3

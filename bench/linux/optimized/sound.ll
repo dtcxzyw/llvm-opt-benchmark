@@ -566,7 +566,7 @@ define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1048575
-  %6 = icmp ugt i32 %5, 255
+  %6 = icmp samesign ugt i32 %5, 255
   br i1 %6, label %61, label %7
 
 7:                                                ; preds = %2

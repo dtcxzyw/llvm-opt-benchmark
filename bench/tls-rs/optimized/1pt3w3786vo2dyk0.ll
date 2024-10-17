@@ -3172,7 +3172,7 @@ _ZN6rustls4msgs9handshake17ServerNamePayload13read_hostname17hfec86e9b7f4f1007E.
   %70 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8, !noalias !677
   %71 = icmp ult i64 %70, 6
   tail call void @llvm.assume(i1 %71)
-  %switch.selectcmp33.i = icmp ugt i64 %70, 1
+  %switch.selectcmp33.i = icmp samesign ugt i64 %70, 1
   br i1 %switch.selectcmp33.i, label %72, label %60
 
 72:                                               ; preds = %69
@@ -13728,7 +13728,7 @@ define void @"_ZN97_$LT$rustls..msgs..handshake..CertificateRequestPayload$u20$a
   %50 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %51 = icmp ult i64 %50, 6
   tail call void @llvm.assume(i1 %51)
-  %switch.selectcmp52 = icmp ugt i64 %50, 1
+  %switch.selectcmp52 = icmp samesign ugt i64 %50, 1
   br i1 %switch.selectcmp52, label %52, label %60
 
 52:                                               ; preds = %49
@@ -16084,7 +16084,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4022)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4025)
   %146 = load i8, ptr %145, align 8, !range !1824, !alias.scope !4022, !noalias !4025, !noundef !4
-  %switch = icmp ult i8 %146, 2
+  %switch = icmp samesign ult i8 %146, 2
   %147 = getelementptr inbounds i8, ptr %0, i64 9
   %148 = load i8, ptr %147, align 1
   %.0.i.i = select i1 %switch, i8 %146, i8 %148

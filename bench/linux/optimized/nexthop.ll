@@ -241,7 +241,7 @@ define dso_local void @nexthop_free_rcu(ptr noundef %0) #0 align 16 {
   %30 = add nuw nsw i64 %14, 1
   %31 = load i16, ptr %8, align 8
   %32 = zext i16 %31 to i64
-  %33 = icmp ult i64 %30, %32
+  %33 = icmp samesign ult i64 %30, %32
   br i1 %33, label %13, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread, %7
@@ -408,7 +408,7 @@ define dso_local ptr @nexthop_select_path(ptr noundef %0, i32 noundef %1) #0 ali
   %38 = add nuw nsw i64 %43, 1
   %39 = load i16, ptr %16, align 8
   %40 = zext i16 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %42, label %174, !llvm.loop !24
 
 42:                                               ; preds = %37, %20
@@ -652,7 +652,7 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr nocapture nou
   %21 = add nuw nsw i64 %20, 1
   %22 = load i16, ptr %11, align 8
   %23 = zext i16 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %25, label %.loopexit, !llvm.loop !26
 
 25:                                               ; preds = %.preheader
@@ -2235,7 +2235,7 @@ define internal i32 @rtm_new_nexthop(ptr nocapture noundef readonly %0, ptr noun
   %375 = add nuw nsw i64 %323, 1
   %376 = load i16, ptr %309, align 8
   %377 = zext i16 %376 to i64
-  %378 = icmp ult i64 %375, %377
+  %378 = icmp samesign ult i64 %375, %377
   br i1 %378, label %322, label %379, !llvm.loop !40
 
 379:                                              ; preds = %363
@@ -3219,7 +3219,7 @@ fib6_check_nh_list.exit87:                        ; preds = %.thread111, %.threa
   %913 = getelementptr i8, ptr %909, i64 %.idx80
   store ptr %693, ptr %913, align 8
   %914 = add nuw nsw i64 %912, 1
-  %915 = icmp ult i64 %914, %910
+  %915 = icmp samesign ult i64 %914, %910
   br i1 %915, label %911, label %.loopexit151, !llvm.loop !64
 
 .loopexit151:                                     ; preds = %911, %904
@@ -3258,7 +3258,7 @@ fib6_check_nh_list.exit87:                        ; preds = %.thread111, %.threa
   %931 = getelementptr i8, ptr %927, i64 %.idx81
   store ptr %666, ptr %931, align 8
   %932 = add nuw nsw i64 %930, 1
-  %933 = icmp ult i64 %932, %928
+  %933 = icmp samesign ult i64 %932, %928
   br i1 %933, label %929, label %.thread119, !llvm.loop !68
 
 .thread119:                                       ; preds = %929, %923
@@ -3423,7 +3423,7 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
   %1027 = phi i16 [ %.pre208, %1023 ], [ %993, %992 ]
   %1028 = add nuw nsw i64 %994, 1
   %1029 = zext i16 %1027 to i64
-  %1030 = icmp ult i64 %1028, %1029
+  %1030 = icmp samesign ult i64 %1028, %1029
   br i1 %1030, label %992, label %.thread126, !llvm.loop !71
 
 .thread126:                                       ; preds = %1026, %967
@@ -5593,7 +5593,7 @@ define internal fastcc range(i32 -90, 1) i32 @nh_fill_node(ptr noundef %0, ptr n
   %93 = add nuw nsw i64 %82, 1
   %94 = load i16, ptr %57, align 8
   %95 = zext i16 %94 to i64
-  %96 = icmp ult i64 %93, %95
+  %96 = icmp samesign ult i64 %93, %95
   br i1 %96, label %81, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %81, %75
@@ -5994,7 +5994,7 @@ define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noun
   %84 = add nuw nsw i64 %46, 1
   %85 = load i16, ptr %23, align 8
   %86 = zext i16 %85 to i64
-  %87 = icmp ult i64 %84, %86
+  %87 = icmp samesign ult i64 %84, %86
   br i1 %87, label %.preheader, label %.loopexit.loopexit, !llvm.loop !111
 
 .loopexit.loopexit:                               ; preds = %82
@@ -6175,7 +6175,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr nocapture noundef reado
 
 31:                                               ; preds = %34
   %32 = add nuw nsw i64 %35, 1
-  %33 = icmp ult i64 %32, %30
+  %33 = icmp samesign ult i64 %32, %30
   br i1 %33, label %34, label %.thread5, !llvm.loop !114
 
 34:                                               ; preds = %31, %28
@@ -6229,7 +6229,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr nocapture noundef reado
   %61 = add nuw nsw i64 %20, 1
   %62 = load i16, ptr %12, align 8
   %63 = zext i16 %62 to i64
-  %64 = icmp ult i64 %61, %63
+  %64 = icmp samesign ult i64 %61, %63
   br i1 %64, label %19, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %60, %2
@@ -6316,7 +6316,7 @@ define internal fastcc void @replace_nexthop_grp_res(ptr nocapture noundef reado
   %119 = phi i16 [ %.pre, %115 ], [ %85, %84 ]
   %120 = add nuw nsw i64 %86, 1
   %121 = zext i16 %119 to i64
-  %122 = icmp ult i64 %120, %121
+  %122 = icmp samesign ult i64 %120, %121
   br i1 %122, label %84, label %.thread7, !llvm.loop !71
 
 .thread7:                                         ; preds = %118, %.loopexit
@@ -6599,7 +6599,7 @@ define internal fastcc void @nh_res_table_upkeep(ptr noundef %0, i1 noundef zero
   %166 = add nuw nsw i64 %26, 1
   %167 = load i16, ptr %16, align 8
   %168 = zext i16 %167 to i64
-  %169 = icmp ult i64 %166, %168
+  %169 = icmp samesign ult i64 %166, %168
   br i1 %169, label %25, label %.loopexit, !llvm.loop !120
 
 .loopexit:                                        ; preds = %164, %12
@@ -7240,7 +7240,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
 
 40:                                               ; preds = %34
   %41 = add nuw nsw i64 %22, 1
-  %42 = icmp ult i64 %41, %17
+  %42 = icmp samesign ult i64 %41, %17
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %40
@@ -7889,7 +7889,7 @@ define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef nonnu
   %46 = phi i16 [ %.pre, %40 ], [ %31, %30 ]
   %47 = add nuw nsw i64 %32, 1
   %48 = zext i16 %46 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %30, label %.loopexit, !llvm.loop !135
 
 .loopexit:                                        ; preds = %45, %22, %.loopexit2
@@ -7956,7 +7956,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %41 = phi i16 [ %.pre, %.select.unfold_crit_edge ], [ %29, %28 ]
   %42 = add nuw nsw i64 %30, 1
   %43 = zext i16 %41 to i64
-  %44 = icmp ult i64 %42, %43
+  %44 = icmp samesign ult i64 %42, %43
   br i1 %44, label %28, label %.loopexit, !llvm.loop !136
 
 .preheader:                                       ; preds = %39, %55
@@ -8215,7 +8215,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtm_dump_nexthop_bucket_nh(ptr nou
   %98 = add nuw nsw i64 %29, 1
   %99 = load i16, ptr %18, align 8
   %100 = zext i16 %99 to i64
-  %101 = icmp ult i64 %98, %100
+  %101 = icmp samesign ult i64 %98, %100
   br i1 %101, label %28, label %.loopexit7.loopexit, !llvm.loop !138
 
 .loopexit7.loopexit:                              ; preds = %.thread

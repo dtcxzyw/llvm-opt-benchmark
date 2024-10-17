@@ -3427,7 +3427,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$$u5b$chalk_ir..WithKind$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1277)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1280)
   %6 = load i8, ptr %4, align 8, !range !1283, !alias.scope !1284, !noundef !4
-  %switch.i.i = icmp ult i8 %6, 2
+  %switch.i.i = icmp samesign ult i8 %6, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr99drop_in_place$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$17h5bdaefc3e035264dE.exit", label %7
 
 7:                                                ; preds = %.lr.ph
@@ -7519,7 +7519,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$core..option..Item$LT$chalk
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3043)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3046)
-  %switch.i.i.i = icmp ult i8 %2, 2
+  %switch.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$17h607cc187452b5276E.llvm.15963164601899926706.exit", label %5
 
 5:                                                ; preds = %4
@@ -7957,7 +7957,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$cha
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3225)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3228)
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr99drop_in_place$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$17h5bdaefc3e035264dE.exit", label %5
 
 5:                                                ; preds = %4
@@ -8320,7 +8320,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$core..option..IntoIter$LT$c
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3364)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3367)
-  %switch.i.i.i.i = icmp ult i8 %2, 2
+  %switch.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Item$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$17ha1d22a74876c0792E.llvm.15963164601899926706.exit", label %5
 
 5:                                                ; preds = %4
@@ -8525,7 +8525,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..iter..adapters..take.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3425)
   %2 = load i64, ptr %0, align 8, !range !165, !alias.scope !3428, !noundef !4
-  %switch.i.i = icmp ult i64 %2, 2
+  %switch.i.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..iter..sources..repeat..Repeat$LT$hir_ty..builder..ParamKind$GT$$GT$17hf2066daedb453f64E.llvm.15963164601899926706.exit", label %3
 
 3:                                                ; preds = %1
@@ -8628,7 +8628,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$hashbrown..set..HashSet$LT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr130drop_in_place$LT$hir_ty..mir..ProjectionElem$LT$core..convert..Infallible$C$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h426d83a3cb5e793bE.llvm.15963164601899926706"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !3475, !noundef !4
-  %switch = icmp ult i8 %2, 6
+  %switch = icmp samesign ult i8 %2, 6
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -9744,7 +9744,7 @@ define hidden void @"_ZN4core3ptr140drop_in_place$LT$$u5b$hir_ty..mir..Projectio
   %5 = add nuw i64 %.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3862)
   %6 = load i8, ptr %4, align 8, !range !3475, !alias.scope !3862, !noundef !4
-  %switch.i = icmp ult i8 %6, 6
+  %switch.i = icmp samesign ult i8 %6, 6
   br i1 %switch.i, label %"_ZN4core3ptr130drop_in_place$LT$hir_ty..mir..ProjectionElem$LT$core..convert..Infallible$C$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h426d83a3cb5e793bE.llvm.15963164601899926706.exit", label %7
 
 7:                                                ; preds = %.lr.ph
@@ -26380,7 +26380,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Repr$GT$17
 define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$hir_ty..mir..Statement$GT$17hf9ffa0d639857d84E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !9890, !alias.scope !9891, !noundef !4
-  %4 = icmp ult i8 %3, 12
+  %4 = icmp samesign ult i8 %3, 12
   br i1 %4, label %5, label %"_ZN4core3ptr47drop_in_place$LT$hir_ty..mir..StatementKind$GT$17hce13df45dd8fd4b6E.exit"
 
 5:                                                ; preds = %1
@@ -27358,7 +27358,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$span..map..RealSpanMap$GT$17
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr440drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17hea6d91341237da81E.llvm.15963164601899926706"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !403, !noundef !4
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr412drop_in_place$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h3d5d68e830e1fd3eE.llvm.15963164601899926706.exit"
 
 "_ZN4core3ptr412drop_in_place$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h3d5d68e830e1fd3eE.llvm.15963164601899926706.exit": ; preds = %1, %3
@@ -27726,7 +27726,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$hir_def..data..ImplData$GT$1
 define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$hir_def..hir..Statement$GT$17h2ee9b852dcf69299E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !range !9558, !noundef !4
-  %.not = icmp ult i32 %3, 2
+  %.not = icmp samesign ult i32 %3, 2
   br i1 %.not, label %4, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$$GT$17h9eca5da081dfb381E.llvm.15963164601899926706.exit"
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$$GT$17h9eca5da081dfb381E.llvm.15963164601899926706.exit": ; preds = %23, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6d8b0936506e9488E.llvm.15963164601899926706.exit.i.i", %4, %1
@@ -28355,7 +28355,7 @@ define hidden void @"_ZN4core3ptr450drop_in_place$LT$core..iter..adapters..flatt
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr452drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17hab1a1dddc3145c62E.llvm.15963164601899926706"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !403, !alias.scope !10819, !noundef !4
-  %switch.not.i = icmp ult i64 %2, 2
+  %switch.not.i = icmp samesign ult i64 %2, 2
   br i1 %switch.not.i, label %3, label %"_ZN4core3ptr440drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17hea6d91341237da81E.llvm.15963164601899926706.exit"
 
 3:                                                ; preds = %1
@@ -29794,7 +29794,7 @@ define hidden void @"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11409)
-  %switch.i.i.i.i.i = icmp ult i8 %2, 2
+  %switch.i.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..IntoIter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$17hfbc03d95fe85d22dE.llvm.15963164601899926706.exit", label %5
 
 5:                                                ; preds = %4
@@ -32139,7 +32139,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$hir_def..path..ImportAlias$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h1eeea84467627230E.llvm.15963164601899926706"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !165, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -39600,7 +39600,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_def..body..scop
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_def..data..adt..VariantData$GT$17ha96ea76eb7328d60E.llvm.15963164601899926706"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !165, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -45353,7 +45353,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$$u5b$hir_ty..builder..ParamK
   %5 = add nuw i64 %.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18286)
   %6 = load i64, ptr %4, align 8, !range !165, !alias.scope !18286, !noundef !4
-  %switch.i = icmp ult i64 %6, 2
+  %switch.i = icmp samesign ult i64 %6, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h1eeea84467627230E.llvm.15963164601899926706.exit", label %7
 
 7:                                                ; preds = %.lr.ph
@@ -48695,7 +48695,7 @@ define hidden void @"_ZN4core3ptr616drop_in_place$LT$chalk_ir..cast..Casted$LT$c
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19820)
-  %switch.i.i.i.i.i.i = icmp ult i8 %2, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$C$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$..from_iter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$C$core..option..Option$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3573bd85ea03225aE.llvm.15963164601899926706.exit", label %5
 
 5:                                                ; preds = %4
@@ -56902,7 +56902,7 @@ define hidden void @"_ZN4core3ptr725drop_in_place$LT$core..iter..adapters..Gener
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23174)
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %2, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core3ptr616drop_in_place$LT$chalk_ir..cast..Casted$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$C$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$..from_iter$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$C$core..option..Option$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$C$$LP$$RP$$GT$$GT$$GT$17hf00ec7b1da378b1aE.llvm.15963164601899926706.exit", label %5
 
 5:                                                ; preds = %4
@@ -59260,7 +59260,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$chalk_ir..ConstData$LT$hir_t
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %8, %12 ], [ %8, %7 ]
   %25 = load i64, ptr %0, align 8, !range !24164, !alias.scope !24165, !noundef !4
   %26 = or disjoint i64 %25, -8
-  %switch.not.i = icmp ult i64 %26, -3
+  %switch.not.i = icmp samesign ult i64 %26, -3
   br i1 %switch.not.i, label %27, label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..ConstValue$LT$hir_ty..interner..Interner$GT$$GT$17haf18663732279bd6E.llvm.15963164601899926706.exit"
 
 27:                                               ; preds = %.body
@@ -59270,7 +59270,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$chalk_ir..ConstData$LT$hir_t
 "_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit": ; preds = %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit.i.i", %18
   %28 = load i64, ptr %0, align 8, !range !24164, !alias.scope !24168, !noundef !4
   %29 = or disjoint i64 %28, -8
-  %switch.not.i2 = icmp ult i64 %29, -3
+  %switch.not.i2 = icmp samesign ult i64 %29, -3
   br i1 %switch.not.i2, label %30, label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..ConstValue$LT$hir_ty..interner..Interner$GT$$GT$17haf18663732279bd6E.llvm.15963164601899926706.exit3"
 
 30:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit"
@@ -60092,7 +60092,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$hir_def..
 define hidden void @"_ZN4core3ptr75drop_in_place$LT$chalk_ir..ConstValue$LT$hir_ty..interner..Interner$GT$$GT$17haf18663732279bd6E.llvm.15963164601899926706"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !24164, !noundef !4
   %3 = or disjoint i64 %2, -8
-  %switch.not = icmp ult i64 %3, -3
+  %switch.not = icmp samesign ult i64 %3, -3
   br i1 %switch.not, label %4, label %5
 
 4:                                                ; preds = %1
@@ -62577,7 +62577,7 @@ common.resume:                                    ; preds = %.body, %30, %35
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$17had0534a7789dadcfE.llvm.15963164601899926706"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !1283, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h9c2fb9064c26e85fE.exit", label %3
 
 3:                                                ; preds = %1
@@ -63562,7 +63562,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$L
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25839)
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !range !9558, !alias.scope !25842, !noundef !4
-  %.not.i.i = icmp ult i32 %9, 2
+  %.not.i.i = icmp samesign ult i32 %9, 2
   br i1 %.not.i.i, label %10, label %"_ZN4core3ptr44drop_in_place$LT$hir_def..hir..Statement$GT$17h2ee9b852dcf69299E.exit.i"
 
 10:                                               ; preds = %.lr.ph.i
@@ -65278,7 +65278,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$triomphe..arc..ArcInner$LT$h
 define hidden void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haccd3c81c2333500E.llvm.15963164601899926706"(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !range !403, !alias.scope !26524, !noundef !4
-  %switch.not.i.i = icmp ult i64 %3, 2
+  %switch.not.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i.i, label %4, label %"_ZN4core3ptr452drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17hab1a1dddc3145c62E.llvm.15963164601899926706.exit"
 
 4:                                                ; preds = %1
@@ -66025,7 +66025,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$triomphe..arc..ArcInner$LT$hir_def..data..adt..VariantData$GT$$GT$17h91426044fbf0df52E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !165, !alias.scope !26781, !noundef !4
-  %switch.i = icmp ult i64 %3, 2
+  %switch.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i, label %.sink.split.i, label %"_ZN4core3ptr52drop_in_place$LT$hir_def..data..adt..VariantData$GT$17ha96ea76eb7328d60E.llvm.15963164601899926706.exit"
 
 .sink.split.i:                                    ; preds = %1
@@ -67033,7 +67033,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$$u5b$chalk_ir..VariableKind$
   %5 = add nuw i64 %.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27135)
   %6 = load i8, ptr %4, align 8, !range !1283, !alias.scope !27135, !noundef !4
-  %switch.i = icmp ult i8 %6, 2
+  %switch.i = icmp samesign ult i8 %6, 2
   br i1 %switch.i, label %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$17had0534a7789dadcfE.llvm.15963164601899926706.exit", label %7
 
 7:                                                ; preds = %.lr.ph
@@ -68270,7 +68270,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$chalk_solve..rust_ir..AdtDat
 define hidden void @"_ZN4core3ptr90drop_in_place$LT$core..iter..sources..repeat..Repeat$LT$hir_ty..builder..ParamKind$GT$$GT$17hf2066daedb453f64E.llvm.15963164601899926706"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27595)
   %2 = load i64, ptr %0, align 8, !range !165, !alias.scope !27595, !noundef !4
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h1eeea84467627230E.llvm.15963164601899926706.exit", label %3
 
 3:                                                ; preds = %1
@@ -70939,7 +70939,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoI
 define hidden void @"_ZN4core3ptr99drop_in_place$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$17h5bdaefc3e035264dE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28797)
   %2 = load i8, ptr %0, align 8, !range !1283, !alias.scope !28797, !noundef !4
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$17had0534a7789dadcfE.llvm.15963164601899926706.exit", label %3
 
 3:                                                ; preds = %1

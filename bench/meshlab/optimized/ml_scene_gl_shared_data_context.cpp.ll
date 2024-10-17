@@ -9315,7 +9315,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %996 = add nuw nsw i64 %.0210604, 1
   %997 = load i32, ptr %265, align 4
   %998 = zext i32 %997 to i64
-  %.not213.not = icmp ult i64 %.0210604, %998
+  %.not213.not = icmp samesign ult i64 %.0210604, %998
   br i1 %.not213.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !117
 
 ._crit_edge.loopexit:                             ; preds = %995

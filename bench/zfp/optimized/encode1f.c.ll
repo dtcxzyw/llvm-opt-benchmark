@@ -879,7 +879,7 @@ encode_few_ints_uint32.exit:                      ; preds = %.lr.ph122.i, %strea
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.20.0.copyload.i = load ptr, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   %73 = tail call i32 @llvm.usub.sat.i32(i32 32, i32 %2)
-  %74 = icmp ult i32 %73, 32
+  %74 = icmp samesign ult i32 %73, 32
   br i1 %74, label %.preheader74.i, label %encode_few_ints_prec_uint32.exit
 
 .preheader74.i:                                   ; preds = %72, %.critedge.i

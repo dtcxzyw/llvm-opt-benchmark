@@ -902,7 +902,7 @@ get_item_len.exit:                                ; preds = %24, %27
   %.0.i = phi i16 [ %28, %27 ], [ %26, %24 ]
   %29 = zext i16 %.0.i to i32
   %30 = zext i16 %21 to i32
-  %31 = icmp ugt i32 %storemerge.i, %30
+  %31 = icmp samesign ugt i32 %storemerge.i, %30
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %get_item_len.exit
@@ -1026,7 +1026,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   %.0.i.i = phi i16 [ %91, %90 ], [ %89, %87 ]
   %92 = zext i16 %.0.i.i to i32
   %93 = zext i16 %84 to i32
-  %94 = icmp ugt i32 %storemerge.i.i, %93
+  %94 = icmp samesign ugt i32 %storemerge.i.i, %93
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %get_item_len.exit.i

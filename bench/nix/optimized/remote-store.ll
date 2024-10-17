@@ -2887,7 +2887,7 @@ _ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %52
 
 123:                                              ; preds = %109
   %124 = and i32 %76, 254
-  %125 = icmp ult i32 %124, 10
+  %125 = icmp samesign ult i32 %124, 10
   br i1 %125, label %126, label %134
 
 126:                                              ; preds = %123
@@ -2951,7 +2951,7 @@ _ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %145 = load i32, ptr %75, align 8
   %146 = and i32 %145, 254
-  %147 = icmp ugt i32 %146, 13
+  %147 = icmp samesign ugt i32 %146, 13
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %144
@@ -2975,7 +2975,7 @@ _ZN3nixlsERNS_4SinkEm.exit83:                     ; preds = %148
 156:                                              ; preds = %_ZN3nixlsERNS_4SinkEm.exit83, %144
   %157 = phi i32 [ %.pre125, %_ZN3nixlsERNS_4SinkEm.exit83 ], [ %145, %144 ]
   %158 = and i32 %157, 255
-  %159 = icmp ugt i32 %158, 10
+  %159 = icmp samesign ugt i32 %158, 10
   br i1 %159, label %160, label %.thread134
 
 160:                                              ; preds = %156
@@ -2995,7 +2995,7 @@ _ZN3nixlsERNS_4SinkEm.exit83:                     ; preds = %148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pre126 = load i32, ptr %75, align 8
   %.pre129 = and i32 %.pre126, 255
-  %169 = icmp ugt i32 %.pre129, 32
+  %169 = icmp samesign ugt i32 %.pre129, 32
   br i1 %169, label %170, label %.thread134
 
 170:                                              ; preds = %168
@@ -3029,7 +3029,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #31
   %.pre127 = load i32, ptr %75, align 8
   %.pre130 = and i32 %.pre127, 255
-  %182 = icmp ugt i32 %.pre130, 34
+  %182 = icmp samesign ugt i32 %.pre130, 34
   br i1 %182, label %183, label %.thread134
 
 183:                                              ; preds = %181
@@ -3745,7 +3745,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64: ; preds = %105, %100, 
   %108 = getelementptr inbounds i8, ptr %1, i64 168
   %109 = load i32, ptr %108, align 8
   %110 = and i32 %109, 254
-  %111 = icmp ugt i32 %110, 25
+  %111 = icmp samesign ugt i32 %110, 25
   br i1 %111, label %112, label %125
 
 112:                                              ; preds = %107
@@ -4577,7 +4577,7 @@ define void @_ZN3nix11RemoteStore10setOptionsERNS0_10ConnectionE(ptr nocapture n
   %141 = getelementptr inbounds i8, ptr %1, i64 168
   %142 = load i32, ptr %141, align 8
   %143 = and i32 %142, 252
-  %144 = icmp ugt i32 %143, 11
+  %144 = icmp samesign ugt i32 %143, 11
   br i1 %144, label %145, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14AbstractConfig11SettingInfoESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
 
 145:                                              ; preds = %2
@@ -5253,7 +5253,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %16, %20
   %30 = getelementptr inbounds i8, ptr %29, i64 168
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 252
-  %33 = icmp ult i32 %32, 36
+  %33 = icmp samesign ult i32 %32, 36
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %28
@@ -6638,7 +6638,7 @@ define void @_ZN3nix11RemoteStore15queryValidPathsERKSt3setINS_9StorePathESt4les
   %12 = getelementptr inbounds i8, ptr %11, i64 168
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 252
-  %15 = icmp ult i32 %14, 12
+  %15 = icmp samesign ult i32 %14, 12
   br i1 %15, label %16, label %44
 
 16:                                               ; preds = %4
@@ -6803,7 +6803,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %36,
   %100 = getelementptr inbounds i8, ptr %99, i64 168
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 255
-  %103 = icmp ugt i32 %102, 26
+  %103 = icmp samesign ugt i32 %102, 26
   br i1 %103, label %104, label %115
 
 104:                                              ; preds = %.loopexit27
@@ -7003,7 +7003,7 @@ define void @_ZN3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_9StorePat
   %12 = getelementptr inbounds i8, ptr %11, i64 168
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 252
-  %15 = icmp ult i32 %14, 12
+  %15 = icmp samesign ult i32 %14, 12
   br i1 %15, label %16, label %72
 
 16:                                               ; preds = %3
@@ -7301,7 +7301,7 @@ define void @_ZN3nix11RemoteStore27querySubstitutablePathInfosERKSt3mapINS_9Stor
   %32 = getelementptr inbounds i8, ptr %31, i64 168
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 252
-  %35 = icmp ult i32 %34, 12
+  %35 = icmp samesign ult i32 %34, 12
   br i1 %35, label %36, label %180
 
 36:                                               ; preds = %29
@@ -7678,7 +7678,7 @@ _ZN3nix21SubstitutablePathInfoD2Ev.exit:          ; preds = %_ZNSt3setIN3nix9Sto
   %192 = getelementptr inbounds i8, ptr %191, i64 168
   %193 = load i32, ptr %192, align 8
   %194 = and i32 %193, 254
-  %195 = icmp ult i32 %194, 22
+  %195 = icmp samesign ult i32 %194, 22
   br i1 %195, label %196, label %260
 
 196:                                              ; preds = %190
@@ -8820,7 +8820,7 @@ _ZNK3nix9BaseError3msgB5cxx11Ev.exit:             ; preds = %57
   %73 = getelementptr inbounds i8, ptr %72, i64 168
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 255
-  %76 = icmp ugt i32 %75, 16
+  %76 = icmp samesign ugt i32 %75, 16
   br i1 %76, label %77, label %97
 
 77:                                               ; preds = %71
@@ -10337,7 +10337,7 @@ define void @_ZN3nix11RemoteStore22queryDerivationOutputsERKNS_9StorePathE(ptr d
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(25) %1)
   %11 = and i32 %10, 254
-  %12 = icmp ugt i32 %11, 21
+  %12 = icmp samesign ugt i32 %11, 21
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %3
@@ -10464,7 +10464,7 @@ define void @_ZN3nix11RemoteStore31queryPartialDerivationOutputMapB5cxx11ERKNS_9
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(25) %1)
   %14 = and i32 %13, 254
-  %15 = icmp ugt i32 %14, 21
+  %15 = icmp samesign ugt i32 %14, 21
   %.not32 = icmp eq ptr %3, null
   br i1 %15, label %16, label %115
 
@@ -11204,7 +11204,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %90 = getelementptr inbounds i8, ptr %89, i64 168
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 255
-  %93 = icmp ugt i32 %92, 24
+  %93 = icmp samesign ugt i32 %92, 24
   br i1 %93, label %94, label %269
 
 94:                                               ; preds = %86
@@ -13289,7 +13289,7 @@ define void @_ZN3nix11RemoteStore10addToStoreERKNS_13ValidPathInfoERNS_6SourceEN
   %27 = getelementptr inbounds i8, ptr %26, i64 168
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 254
-  %30 = icmp ult i32 %29, 18
+  %30 = icmp samesign ult i32 %29, 18
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 -48
@@ -13838,7 +13838,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   %302 = getelementptr inbounds i8, ptr %301, i64 168
   %303 = load i32, ptr %302, align 8
   %304 = and i32 %303, 255
-  %305 = icmp ugt i32 %304, 22
+  %305 = icmp samesign ugt i32 %304, 22
   br i1 %305, label %306, label %338
 
 306:                                              ; preds = %300
@@ -13930,7 +13930,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   unreachable
 
 338:                                              ; preds = %300
-  %339 = icmp ugt i32 %304, 20
+  %339 = icmp samesign ugt i32 %304, 20
   br i1 %339, label %.invoke, label %341
 
 .invoke:                                          ; preds = %341, %338
@@ -14294,7 +14294,7 @@ define void @_ZN3nix11RemoteStore17registerDrvOutputERKNS_11RealisationE(ptr nou
   %20 = getelementptr inbounds i8, ptr %9, i64 168
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 255
-  %23 = icmp ult i32 %22, 31
+  %23 = icmp samesign ult i32 %22, 31
   br i1 %23, label %24, label %70
 
 24:                                               ; preds = %19
@@ -14459,7 +14459,7 @@ define void @_ZN3nix11RemoteStore24queryRealisationUncachedERKNS_9DrvOutputENS_8
   %18 = getelementptr inbounds i8, ptr %17, i64 168
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 255
-  %21 = icmp ult i32 %20, 27
+  %21 = icmp samesign ult i32 %20, 27
   br i1 %21, label %22, label %69
 
 22:                                               ; preds = %15
@@ -14642,7 +14642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
   %99 = getelementptr inbounds i8, ptr %98, i64 168
   %100 = load i32, ptr %99, align 8, !noalias !101
   %101 = and i32 %100, 255
-  %102 = icmp ult i32 %101, 31
+  %102 = icmp samesign ult i32 %101, 31
   %103 = load ptr, ptr %0, align 8, !noalias !101
   %104 = getelementptr i8, ptr %103, i64 -32
   %105 = load i64, ptr %104, align 8, !noalias !101
@@ -16213,7 +16213,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %121 = getelementptr inbounds i8, ptr %120, i64 168
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, 255
-  %124 = icmp ugt i32 %123, 14
+  %124 = icmp samesign ugt i32 %123, 14
   br i1 %124, label %125, label %147
 
 125:                                              ; preds = %.loopexit24
@@ -16675,7 +16675,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %139 = getelementptr inbounds i8, ptr %138, i64 168
   %140 = load i32, ptr %139, align 8
   %141 = and i32 %140, 254
-  %142 = icmp ugt i32 %141, 33
+  %142 = icmp samesign ugt i32 %141, 33
   br i1 %142, label %143, label %235
 
 143:                                              ; preds = %135
@@ -19703,7 +19703,7 @@ define void @_ZN3nix11RemoteStore12queryMissingERKSt6vectorINS_11DerivedPathESaI
   %18 = getelementptr inbounds i8, ptr %17, i64 168
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 255
-  %21 = icmp ult i32 %20, 19
+  %21 = icmp samesign ult i32 %20, 19
   br i1 %21, label %200, label %23
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
@@ -24423,7 +24423,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !158
 
 .critedge:                                        ; preds = %27

@@ -5674,7 +5674,7 @@ _ZN5clang16ASTUnresolvedSet7replaceEPKNS_9NamedDeclEPS1_NS_15AccessSpecifierE.ex
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 200
   %606 = load i16, ptr %605, align 8
   %607 = and i16 %606, 60
-  %608 = icmp ugt i16 %607, 8
+  %608 = icmp samesign ugt i16 %607, 8
   br i1 %608, label %609, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread
 
 609:                                              ; preds = %602
@@ -5824,7 +5824,7 @@ default.unreachable:                              ; preds = %670
   %707 = lshr i32 %706, 18
   %708 = and i32 %707, 1
   %709 = add nuw nsw i32 %700, %708
-  %710 = icmp ugt i32 %709, 1
+  %710 = icmp samesign ugt i32 %709, 1
   br i1 %710, label %711, label %724
 
 711:                                              ; preds = %683
@@ -21236,7 +21236,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.i: ; preds = %
   %27 = load i64, ptr %26, align 8, !noalias !87
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %25, ptr %28, align 8, !alias.scope !87
-  %29 = icmp ult i32 %25, 65
+  %29 = icmp samesign ult i32 %25, 65
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %23

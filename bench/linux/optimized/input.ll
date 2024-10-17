@@ -589,7 +589,7 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef ran
   br label %47
 
 47:                                               ; preds = %36, %18
-  %48 = icmp ult i32 %1, 8
+  %48 = icmp samesign ult i32 %1, 8
   %49 = getelementptr inbounds i8, ptr %0, i64 1304
   %50 = load i32, ptr %49, align 8
   br i1 %48, label %57, label %51

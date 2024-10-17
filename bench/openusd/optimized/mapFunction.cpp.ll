@@ -4804,7 +4804,7 @@ _ZSt4sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ENS1_12_GLOBAL
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i114
   %514 = add nuw nsw i64 %storemerge26.i.i.i.i, 1
   %515 = lshr i64 %514, 1
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.i.i, 2
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.i.i, 2
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_EC2ES4_l.exit.thread.i.i, label %.lr.ph.i.i.i.i114, !llvm.loop !34
 
 516:                                              ; preds = %.lr.ph.i.i.i.i114
@@ -11086,7 +11086,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   br i1 %.not.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !113
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit: ; preds = %.lr.ph.i.i
-  %7 = icmp ugt i64 %.06.i.i, 576460752303423486
+  %7 = icmp samesign ugt i64 %.06.i.i, 576460752303423486
   br i1 %7, label %8, label %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE11_M_allocateEm.exit
 
 8:                                                ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit

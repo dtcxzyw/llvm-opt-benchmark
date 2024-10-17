@@ -181,7 +181,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   %34 = getelementptr inbounds i8, ptr %13, i64 80
   store i16 %33, ptr %34, align 8
   %35 = and i32 %30, 65535
-  %36 = icmp ugt i32 %35, 7
+  %36 = icmp samesign ugt i32 %35, 7
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %32
@@ -221,7 +221,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   %56 = add nuw nsw i64 %61, 1
   %57 = load i16, ptr %34, align 8
   %58 = zext i16 %57 to i64
-  %59 = icmp ult i64 %56, %58
+  %59 = icmp samesign ult i64 %56, %58
   br i1 %59, label %60, label %.loopexit17.loopexit, !llvm.loop !7
 
 60:                                               ; preds = %55, %53

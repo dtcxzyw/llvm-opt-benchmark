@@ -681,7 +681,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %0, i6
   %59 = add nuw nsw i64 %.06691, 8
   %60 = load i32, ptr %27, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ugt i64 %59, %61
+  %62 = icmp samesign ugt i64 %59, %61
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %58
@@ -925,7 +925,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   %124 = add nuw nsw i64 %123, 4
   %125 = load i32, ptr %27, align 4
   %126 = zext i32 %125 to i64
-  %127 = icmp ugt i64 %124, %126
+  %127 = icmp samesign ugt i64 %124, %126
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %122
@@ -985,7 +985,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 145:                                              ; preds = %139
   %146 = zext i32 %135 to i64
   %147 = add nuw nsw i64 %146, 2
-  %148 = icmp ugt i64 %147, %126
+  %148 = icmp samesign ugt i64 %147, %126
   br i1 %148, label %149, label %152
 
 149:                                              ; preds = %145
@@ -1019,7 +1019,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 165:                                              ; preds = %139, %139
   %166 = zext i32 %135 to i64
   %167 = add nuw nsw i64 %166, 4
-  %168 = icmp ugt i64 %167, %126
+  %168 = icmp samesign ugt i64 %167, %126
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %165
@@ -1039,7 +1039,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 177:                                              ; preds = %139
   %178 = zext i32 %135 to i64
   %179 = add nuw nsw i64 %178, 4
-  %180 = icmp ugt i64 %179, %126
+  %180 = icmp samesign ugt i64 %179, %126
   br i1 %180, label %181, label %184
 
 181:                                              ; preds = %177
@@ -1061,7 +1061,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 191:                                              ; preds = %139, %139
   %192 = zext i32 %135 to i64
   %193 = add nuw nsw i64 %192, 8
-  %194 = icmp ugt i64 %193, %126
+  %194 = icmp samesign ugt i64 %193, %126
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %191
@@ -1083,7 +1083,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 205:                                              ; preds = %139
   %206 = zext i32 %135 to i64
   %207 = add nuw nsw i64 %206, 2
-  %208 = icmp ugt i64 %207, %126
+  %208 = icmp samesign ugt i64 %207, %126
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %205
@@ -1144,7 +1144,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 240:                                              ; preds = %139
   %241 = zext i32 %135 to i64
   %242 = add nuw nsw i64 %241, 2
-  %243 = icmp ugt i64 %242, %126
+  %243 = icmp samesign ugt i64 %242, %126
   br i1 %243, label %244, label %247
 
 244:                                              ; preds = %240
@@ -1174,7 +1174,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 256:                                              ; preds = %139, %139
   %257 = zext i32 %135 to i64
   %258 = add nuw nsw i64 %257, 4
-  %259 = icmp ugt i64 %258, %126
+  %259 = icmp samesign ugt i64 %258, %126
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %256
@@ -1194,7 +1194,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 268:                                              ; preds = %139
   %269 = zext i32 %135 to i64
   %270 = add nuw nsw i64 %269, 8
-  %271 = icmp ugt i64 %270, %126
+  %271 = icmp samesign ugt i64 %270, %126
   br i1 %271, label %272, label %275
 
 272:                                              ; preds = %268
@@ -1214,7 +1214,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 280:                                              ; preds = %139
   %281 = zext i32 %135 to i64
   %282 = add nuw nsw i64 %281, 8
-  %283 = icmp ugt i64 %282, %126
+  %283 = icmp samesign ugt i64 %282, %126
   br i1 %283, label %284, label %287
 
 284:                                              ; preds = %280
@@ -1246,7 +1246,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 298:                                              ; preds = %292
   %299 = zext i32 %135 to i64
   %300 = add nuw nsw i64 %299, 4
-  %301 = icmp ugt i64 %300, %126
+  %301 = icmp samesign ugt i64 %300, %126
   br i1 %301, label %302, label %305
 
 302:                                              ; preds = %298
@@ -1332,7 +1332,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 341:                                              ; preds = %139
   %342 = zext i32 %135 to i64
   %343 = add nuw nsw i64 %342, 4
-  %344 = icmp ugt i64 %343, %126
+  %344 = icmp samesign ugt i64 %343, %126
   br i1 %344, label %345, label %348
 
 345:                                              ; preds = %341
@@ -1420,7 +1420,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 385:                                              ; preds = %139
   %386 = zext i32 %135 to i64
   %387 = add nuw nsw i64 %386, 8
-  %388 = icmp ugt i64 %387, %126
+  %388 = icmp samesign ugt i64 %387, %126
   br i1 %388, label %389, label %392
 
 389:                                              ; preds = %385

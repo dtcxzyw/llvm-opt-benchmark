@@ -3688,7 +3688,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %165 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %164, ptr noundef nonnull %30, i32 noundef %.reass.i.i, i32 noundef 2, i32 noundef 0) #6
   %166 = add nuw nsw i32 %160, 3
   %167 = and i32 %166, 65535
-  %168 = icmp ult i32 %167, %154
+  %168 = icmp samesign ult i32 %167, %154
   br i1 %168, label %159, label %.loopexit.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %159, %153, %149, %147, %.lr.ph43.i.i
@@ -7455,7 +7455,7 @@ define internal i32 @dissect_dpd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .thread.i:                                        ; preds = %45
   %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %52, ptr noundef %27, i32 noundef %38, i32 noundef 2, i32 noundef 0) #6
   %54 = add i32 %.06270.i, 3
-  %55 = icmp ugt i32 %.061.i, 1
+  %55 = icmp samesign ugt i32 %.061.i, 1
   br i1 %55, label %88, label %109
 
 56:                                               ; preds = %45
@@ -7465,7 +7465,7 @@ define internal i32 @dissect_dpd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %cond.i, label %59, label %111
 
 59:                                               ; preds = %56
-  %60 = icmp ugt i32 %.061.i, 4
+  %60 = icmp samesign ugt i32 %.061.i, 4
   br i1 %60, label %61, label %86
 
 61:                                               ; preds = %59
@@ -9481,7 +9481,7 @@ define internal fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdm
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.1692, double noundef %35, double noundef %39) #6
   %40 = add nuw nsw i32 %22, 4
   %41 = and i32 %40, 65535
-  %42 = icmp ult i32 %41, %20
+  %42 = icmp samesign ult i32 %41, %20
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -9532,7 +9532,7 @@ define internal fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdm
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.1692, double noundef %34, double noundef %38) #6
   %39 = add nuw nsw i32 %18, 4
   %40 = and i32 %39, 65535
-  %41 = icmp ult i32 %40, %9
+  %41 = icmp samesign ult i32 %40, %9
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

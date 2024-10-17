@@ -254,7 +254,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %123 = load i32, ptr %5, align 4
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %indvars.iv.next, %124
+  %125 = icmp samesign ult i64 %indvars.iv.next, %124
   br i1 %125, label %58, label %.preheader195, !llvm.loop !4
 
 126:                                              ; preds = %.lr.ph210, %229
@@ -507,7 +507,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %230 = load i32, ptr %5, align 4
   %231 = zext i32 %230 to i64
-  %232 = icmp ult i64 %indvars.iv.next238, %231
+  %232 = icmp samesign ult i64 %indvars.iv.next238, %231
   br i1 %232, label %126, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %229

@@ -3244,7 +3244,7 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1060:    ; preds = %_ZL10_low_checkbPKc
   br i1 %exitcond.not, label %789, label %784, !llvm.loop !8
 
 789:                                              ; preds = %784
-  %790 = icmp ugt i32 %spec.select982, 1
+  %790 = icmp samesign ugt i32 %spec.select982, 1
   br i1 %790, label %791, label %793
 
 791:                                              ; preds = %789
@@ -15201,7 +15201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -19235,7 +19235,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 1149:                                             ; preds = %1136
   %1150 = load ptr, ptr @stderr, align 8
-  %1151 = icmp ult i64 %indvars.iv54.i, 3
+  %1151 = icmp samesign ult i64 %indvars.iv54.i, 3
   br i1 %1151, label %1152, label %1155
 
 1152:                                             ; preds = %1149
@@ -23847,7 +23847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 5
   %128 = lshr i64 %127, 1
-  %129 = icmp ult i64 %121, %128
+  %129 = icmp samesign ult i64 %121, %128
   br i1 %129, label %.preheader64, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %120, %38
@@ -25927,7 +25927,7 @@ _ZL21haveAbsoluteReferenceRK10t_inputrec.exit326: ; preds = %726, %.preheader16.
   %788 = call noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %789 = zext i1 %788 to i32
   %.2 = add nuw nsw i32 %.1, %789
-  %790 = icmp ugt i32 %.2, 1
+  %790 = icmp samesign ugt i32 %.2, 1
   br i1 %790, label %791, label %792
 
 791:                                              ; preds = %781
@@ -26144,7 +26144,7 @@ define internal fastcc i24 @_ZL22havePositionRestraintsRK10gmx_mtop_t(ptr nounde
 
 65:                                               ; preds = %64
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 2
-  %66 = icmp ult i64 %indvars.iv.next43, %43
+  %66 = icmp samesign ult i64 %indvars.iv.next43, %43
   br i1 %66, label %54, label %.preheader, !llvm.loop !135
 
 67:                                               ; preds = %.lr.ph36, %92

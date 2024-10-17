@@ -5415,7 +5415,7 @@ Vec_IntStart.exit108:                             ; preds = %Vec_IntAlloc.exit.t
 
 52:                                               ; preds = %.critedge4
   %53 = add nuw nsw i32 %.078156, 1
-  %54 = icmp ugt i32 %.078156, 9998
+  %54 = icmp samesign ugt i32 %.078156, 9998
   %55 = add nsw i32 %.177, 50
   %56 = icmp sge i32 %.078156, %55
   %or.cond = select i1 %54, i1 true, i1 %56

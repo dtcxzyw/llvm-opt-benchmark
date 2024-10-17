@@ -11064,7 +11064,7 @@ define hidden void @_ZN4perf8TestBase11warmup_implEN2cv3MatENS0_10WarmUpTypeE(pt
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23)
   %47 = load i32, ptr %0, align 8
   %48 = and i32 %47, 7
-  %49 = icmp ult i32 %48, 5
+  %49 = icmp samesign ult i32 %48, 5
   br i1 %49, label %50, label %89
 
 50:                                               ; preds = %46

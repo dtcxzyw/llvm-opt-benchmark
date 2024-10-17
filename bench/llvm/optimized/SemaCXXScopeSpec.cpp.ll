@@ -2116,7 +2116,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema27BuildCXXNestedNameSpecifier
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i64, ptr %57, align 8
   %60 = and i64 %59, 4294967295
-  %.not.i.i = icmp ult i64 %60, 2
+  %.not.i.i = icmp samesign ult i64 %60, 2
   br i1 %.not.i.i, label %_ZNK5clang14IdentifierInfo19isEditorPlaceholderEv.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %9

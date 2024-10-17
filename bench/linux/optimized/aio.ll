@@ -658,7 +658,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_submi
   %12 = load i32, ptr %11, align 64
   %13 = zext i32 %12 to i64
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %1)
-  %15 = icmp ugt i64 %14, 2
+  %15 = icmp samesign ugt i64 %14, 2
   br i1 %15, label %.thread20, label %16
 
 .thread20:                                        ; preds = %10
@@ -2122,7 +2122,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
   %39 = getelementptr inbounds i8, ptr %0, i64 448
   %40 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %39, ptr %40, align 8
-  %41 = icmp ugt i32 %1, 1021
+  %41 = icmp samesign ugt i32 %1, 1021
   br i1 %41, label %42, label %56
 
 42:                                               ; preds = %34

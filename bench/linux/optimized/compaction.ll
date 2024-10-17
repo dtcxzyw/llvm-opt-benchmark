@@ -3074,7 +3074,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef %0, i64 nound
   %82 = getelementptr inbounds i8, ptr %0, i64 116
   %83 = getelementptr inbounds i8, ptr %0, i64 124
   %84 = getelementptr inbounds i8, ptr %0, i64 16
-  %85 = icmp ugt i32 %3, 7
+  %85 = icmp samesign ugt i32 %3, 7
   %86 = and i32 %3, 4
   %87 = icmp eq i32 %86, 0
   %88 = getelementptr inbounds i8, ptr %0, i64 123
@@ -3349,7 +3349,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef %0, i64 nound
 
 268:                                              ; preds = %263, %259
   %269 = phi i32 [ %267, %263 ], [ 0, %259 ]
-  %270 = icmp ult i32 %269, 11
+  %270 = icmp samesign ult i32 %269, 11
   %271 = zext nneg i32 %269 to i64
   %272 = shl nsw i64 -1, %271
   %273 = xor i64 %272, -1
@@ -4264,7 +4264,7 @@ define dso_local noundef zeroext i1 @compaction_zonelist_suitable(ptr nocapture 
   %52 = add i64 %34, %51
   %53 = add nuw nsw i64 %39, 1
   %54 = and i64 %53, 127
-  %55 = icmp ugt i64 %54, 63
+  %55 = icmp samesign ugt i64 %54, 63
   br i1 %55, label %.thread, label %32, !prof !87, !llvm.loop !88
 
 .thread:                                          ; preds = %32, %42, %38
@@ -5933,7 +5933,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 9:                                                ; preds = %8, %6, %6
   %10 = phi i64 [ 524288, %8 ], [ 33554432, %6 ], [ 33554432, %6 ]
-  %11 = icmp ult i64 %7, %10
+  %11 = icmp samesign ult i64 %7, %10
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
@@ -5946,7 +5946,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 15:                                               ; preds = %14, %12, %12
   %16 = phi i64 [ 2048, %14 ], [ 131072, %12 ], [ 131072, %12 ]
-  %17 = icmp ult i64 %13, %16
+  %17 = icmp samesign ult i64 %13, %16
   br i1 %17, label %18, label %28, !prof !23
 
 18:                                               ; preds = %15
@@ -6113,7 +6113,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
   %122 = getelementptr inbounds i8, ptr %117, i64 64
   %123 = load i64, ptr %122, align 16
   %124 = and i64 %123, 255
-  %125 = icmp ugt i64 %124, 8
+  %125 = icmp samesign ugt i64 %124, 8
   br i1 %125, label %.thread, label %126
 
 126:                                              ; preds = %121, %116, %86
@@ -6161,7 +6161,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 154:                                              ; preds = %153, %151, %151
   %155 = phi i64 [ 524288, %153 ], [ 33554432, %151 ], [ 33554432, %151 ]
-  %156 = icmp ult i64 %152, %155
+  %156 = icmp samesign ult i64 %152, %155
   br i1 %156, label %157, label %.thread22
 
 157:                                              ; preds = %154
@@ -6174,7 +6174,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 160:                                              ; preds = %159, %157, %157
   %161 = phi i64 [ 2048, %159 ], [ 131072, %157 ], [ 131072, %157 ]
-  %162 = icmp ult i64 %158, %161
+  %162 = icmp samesign ult i64 %158, %161
   br i1 %162, label %163, label %173, !prof !23
 
 163:                                              ; preds = %160
@@ -6293,7 +6293,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 232:                                              ; preds = %231, %229, %229
   %233 = phi i64 [ 524288, %231 ], [ 33554432, %229 ], [ 33554432, %229 ]
-  %234 = icmp ult i64 %230, %233
+  %234 = icmp samesign ult i64 %230, %233
   br i1 %234, label %235, label %.thread
 
 235:                                              ; preds = %232
@@ -6306,7 +6306,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 
 238:                                              ; preds = %237, %235, %235
   %239 = phi i64 [ 2048, %237 ], [ 131072, %235 ], [ 131072, %235 ]
-  %240 = icmp ult i64 %236, %239
+  %240 = icmp samesign ult i64 %236, %239
   br i1 %240, label %241, label %251, !prof !23
 
 241:                                              ; preds = %238
@@ -7006,7 +7006,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr nou
   %159 = lshr i64 %158, 9
   %160 = load i64, ptr %141, align 8
   %161 = lshr i64 %160, 9
-  %162 = icmp ugt i64 %159, %161
+  %162 = icmp samesign ugt i64 %159, %161
   br i1 %162, label %184, label %163
 
 163:                                              ; preds = %154
@@ -7570,7 +7570,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr nou
 
 498:                                              ; preds = %497, %494, %494
   %499 = phi i64 [ 2048, %497 ], [ 131072, %494 ], [ 131072, %494 ]
-  %500 = icmp ult i64 %496, %499
+  %500 = icmp samesign ult i64 %496, %499
   br i1 %500, label %501, label %.thread48, !prof !23
 
 501:                                              ; preds = %498
@@ -7619,7 +7619,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr nou
 
 521:                                              ; preds = %520, %.lr.ph92, %.lr.ph92
   %522 = phi i64 [ 2048, %520 ], [ 131072, %.lr.ph92 ], [ 131072, %.lr.ph92 ]
-  %523 = icmp ult i64 %519, %522
+  %523 = icmp samesign ult i64 %519, %522
   br i1 %523, label %524, label %.critedge.backedge, !prof !23
 
 524:                                              ; preds = %521
@@ -7755,7 +7755,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr nou
   %608 = getelementptr inbounds i8, ptr %603, i64 64
   %609 = load i64, ptr %608, align 16
   %610 = and i64 %609, 255
-  %611 = icmp ugt i64 %610, 8
+  %611 = icmp samesign ugt i64 %610, 8
   br i1 %611, label %627, label %612
 
 612:                                              ; preds = %607, %602, %572
@@ -7913,7 +7913,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr nou
   %700 = load i64, ptr %140, align 8
   %701 = lshr i64 %700, 9
   %702 = lshr i64 %.pre129, 9
-  %703 = icmp ugt i64 %701, %702
+  %703 = icmp samesign ugt i64 %701, %702
   br i1 %703, label %.thread59, label %704
 
 704:                                              ; preds = %699, %697
@@ -8486,7 +8486,7 @@ define internal noundef ptr @compaction_alloc(ptr nocapture readnone %0, i64 nou
 
 255:                                              ; preds = %254, %252, %252
   %256 = phi i64 [ 524288, %254 ], [ 33554432, %252 ], [ 33554432, %252 ]
-  %257 = icmp ult i64 %253, %256
+  %257 = icmp samesign ult i64 %253, %256
   br i1 %257, label %258, label %.thread56
 
 258:                                              ; preds = %255
@@ -8499,7 +8499,7 @@ define internal noundef ptr @compaction_alloc(ptr nocapture readnone %0, i64 nou
 
 261:                                              ; preds = %260, %258, %258
   %262 = phi i64 [ 2048, %260 ], [ 131072, %258 ], [ 131072, %258 ]
-  %263 = icmp ult i64 %259, %262
+  %263 = icmp samesign ult i64 %259, %262
   br i1 %263, label %264, label %274, !prof !23
 
 264:                                              ; preds = %261
@@ -8816,7 +8816,7 @@ define internal noundef ptr @compaction_alloc(ptr nocapture readnone %0, i64 nou
 
 465:                                              ; preds = %464, %462, %462
   %466 = phi i64 [ 2048, %464 ], [ 131072, %462 ], [ 131072, %462 ]
-  %467 = icmp ult i64 %463, %466
+  %467 = icmp samesign ult i64 %463, %466
   br i1 %467, label %468, label %.lr.ph.preheader, !prof !23
 
 468:                                              ; preds = %465
@@ -8857,7 +8857,7 @@ define internal noundef ptr @compaction_alloc(ptr nocapture readnone %0, i64 nou
 
 485:                                              ; preds = %484, %.lr.ph, %.lr.ph
   %486 = phi i64 [ 2048, %484 ], [ 131072, %.lr.ph ], [ 131072, %.lr.ph ]
-  %487 = icmp ult i64 %483, %486
+  %487 = icmp samesign ult i64 %483, %486
   br i1 %487, label %488, label %.critedge.backedge, !prof !23
 
 488:                                              ; preds = %485

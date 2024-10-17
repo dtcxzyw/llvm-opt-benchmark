@@ -1847,7 +1847,7 @@ define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %49 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %48) #5
   %50 = zext i16 %49 to i32
   %51 = add nuw nsw i32 %.0116.i, 4
-  %52 = icmp ugt i32 %51, %50
+  %52 = icmp samesign ugt i32 %51, %50
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %47
@@ -2055,7 +2055,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.thread471
 
 28:                                               ; preds = %20
-  %29 = icmp ugt i16 %14, 16127
+  %29 = icmp samesign ugt i16 %14, 16127
   %30 = add nuw nsw i32 %19, 4
   %31 = load i32, ptr @ett_ldp_tlv, align 4
   br i1 %29, label %.thread464, label %40
@@ -2068,7 +2068,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %21, ptr noundef nonnull @.str.980, i32 noundef %21) #5
   %37 = load i32, ptr @hf_ldp_tlv_len, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef 0) #5
-  %39 = icmp ult i32 %19, 4
+  %39 = icmp samesign ult i32 %19, 4
   br i1 %39, label %201, label %204
 
 40:                                               ; preds = %28
@@ -2086,7 +2086,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
   %46 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0431463, i32 noundef %45, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %.0432461, ptr noundef nonnull @.str.979, i32 noundef %.0432461) #5
   %47 = load i32, ptr @hf_ldp_tlv_len, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %.0431463, i32 noundef %47, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef 0) #5
-  %49 = icmp ult i32 %19, 4
+  %49 = icmp samesign ult i32 %19, 4
   br i1 %49, label %189, label %192
 
 50:                                               ; preds = %40
@@ -2474,7 +2474,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.loopexit
 
 215:                                              ; preds = %50
-  %216 = icmp ugt i32 %19, 1
+  %216 = icmp samesign ugt i32 %19, 1
   %217 = icmp ugt i32 %7, 5
   %218 = and i1 %216, %217
   br i1 %218, label %.lr.ph.preheader, label %.loopexit
@@ -2638,7 +2638,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 30:                                               ; preds = %20
-  %31 = icmp ult i32 %.0619813, 4
+  %31 = icmp samesign ult i32 %.0619813, 4
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
@@ -2677,7 +2677,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %52 = zext nneg i8 %.2636.ph to i32
   %53 = call i32 @llvm.umin.i32(i32 %42, i32 %52)
   %54 = add nuw nsw i32 %53, 4
-  %55 = icmp ult i32 %.0619813, %54
+  %55 = icmp samesign ult i32 %.0619813, %54
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %51
@@ -2686,7 +2686,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit702
 
 59:                                               ; preds = %51
-  %60 = icmp ugt i32 %42, %52
+  %60 = icmp samesign ugt i32 %42, %52
   %61 = load i32, ptr @ett_ldp_fec, align 4
   %62 = zext i16 %.0631812 to i32
   %63 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0814, i32 noundef %54, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.1002, i32 noundef %62) #5
@@ -2762,7 +2762,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 101:                                              ; preds = %20
-  %102 = icmp ult i32 %.0619813, 4
+  %102 = icmp samesign ult i32 %.0619813, 4
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %101
@@ -2798,7 +2798,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %.3629.ph = phi i32 [ 2, %106 ], [ 3, %112 ]
   %121 = zext nneg i8 %.3637.ph to i32
   %122 = add nuw nsw i32 %121, 4
-  %123 = icmp ult i32 %.0619813, %122
+  %123 = icmp samesign ult i32 %.0619813, %122
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %120
@@ -2863,7 +2863,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 158:                                              ; preds = %20
-  %159 = icmp ult i32 %.0619813, 8
+  %159 = icmp samesign ult i32 %.0619813, 8
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %158
@@ -2892,7 +2892,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %181 = add i32 %.0814, 4
   %182 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %180, ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #5
   %183 = icmp ugt i8 %165, 3
-  %184 = icmp ugt i32 %.0619813, 11
+  %184 = icmp samesign ugt i32 %.0619813, 11
   %or.cond = and i1 %184, %183
   br i1 %or.cond, label %185, label %197
 
@@ -2907,8 +2907,8 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %192 = add i8 %165, -4
   %193 = add i32 %.0814, 12
   %194 = icmp ugt i8 %192, 1
-  %195 = icmp ugt i32 %.0619813, 13
-  %196 = and i1 %194, %195
+  %195 = icmp samesign ugt i32 %.0619813, 13
+  %196 = select i1 %194, i1 %195, i1 false
   br i1 %196, label %.lr.ph800, label %.loopexit
 
 197:                                              ; preds = %163
@@ -2954,7 +2954,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br i1 %220, label %.lr.ph800, label %.loopexit, !llvm.loop !11
 
 221:                                              ; preds = %20
-  %222 = icmp ult i32 %.0619813, 4
+  %222 = icmp samesign ult i32 %.0619813, 4
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %221
@@ -2981,7 +2981,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %242 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %241, ptr noundef %0, i32 noundef %227, i32 noundef 1, i32 noundef 0) #5
   %243 = add i32 %.0814, 4
   %244 = icmp ugt i8 %228, 1
-  %245 = icmp ugt i32 %.0619813, 5
+  %245 = icmp samesign ugt i32 %.0619813, 5
   %or.cond3 = and i1 %245, %244
   br i1 %or.cond3, label %246, label %269
 
@@ -3127,7 +3127,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit702
 
 338:                                              ; preds = %20, %20, %20, %20, %20
-  %339 = icmp ult i32 %.0619813, 4
+  %339 = icmp samesign ult i32 %.0619813, 4
   br i1 %339, label %340, label %344
 
 340:                                              ; preds = %338
@@ -3166,7 +3166,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 369:                                              ; preds = %20
-  %370 = icmp ult i32 %.0619813, 8
+  %370 = icmp samesign ult i32 %.0619813, 8
   br i1 %370, label %371, label %375
 
 371:                                              ; preds = %369
@@ -3199,7 +3199,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %396 = add i32 %.0814, 8
   %397 = load i32, ptr %7, align 4
   %398 = icmp ugt i32 %397, 3
-  %399 = icmp ugt i32 %.0619813, 11
+  %399 = icmp samesign ugt i32 %.0619813, 11
   %or.cond15 = and i1 %399, %398
   br i1 %or.cond15, label %400, label %405
 
@@ -3259,7 +3259,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br i1 %431, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 432:                                              ; preds = %20
-  %433 = icmp ult i32 %.0619813, 4
+  %433 = icmp samesign ult i32 %.0619813, 4
   br i1 %433, label %434, label %438
 
 434:                                              ; preds = %432
@@ -3289,7 +3289,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %456 = add i32 %.0814, 4
   %457 = load i32, ptr %7, align 4
   %458 = icmp ugt i32 %457, 5
-  %459 = icmp ugt i32 %.0619813, 9
+  %459 = icmp samesign ugt i32 %.0619813, 9
   %or.cond17 = and i1 %459, %458
   br i1 %or.cond17, label %460, label %.loopexit
 
@@ -3378,7 +3378,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
   %6 = alloca %struct._address, align 8
-  %7 = icmp ult i32 %4, 2
+  %7 = icmp samesign ult i32 %4, 2
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
@@ -3466,7 +3466,7 @@ define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr nounde
 define internal fastcc void @dissect_tlv_path_vector(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_ldp_tlv_val, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1020) #5
-  %8 = icmp ugt i32 %4, 3
+  %8 = icmp samesign ugt i32 %4, 3
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -3593,7 +3593,7 @@ define internal fastcc void @dissect_tlv_status(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_returned_pdu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 10
+  %6 = icmp samesign ult i32 %4, 10
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -3630,7 +3630,7 @@ define internal fastcc void @dissect_tlv_returned_pdu(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_returned_message(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 4
+  %6 = icmp samesign ult i32 %4, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -3671,7 +3671,7 @@ define internal fastcc void @dissect_tlv_returned_message(ptr noundef %0, ptr no
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0) #5
   %30 = add i32 %2, 4
   %31 = add nsw i32 %4, -4
-  %32 = icmp ugt i32 %4, 7
+  %32 = icmp samesign ugt i32 %4, 7
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %26
@@ -3725,7 +3725,7 @@ define internal fastcc void @dissect_tlv_common_hello_parms(ptr noundef %0, ptr 
 define internal fastcc void @dissect_tlv_mac(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_ldp_tlv_val, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1034) #5
-  %8 = icmp ugt i32 %4, 5
+  %8 = icmp samesign ugt i32 %4, 5
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -3794,7 +3794,7 @@ define internal fastcc void @dissect_tlv_common_session_parms(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 4
+  %6 = icmp samesign ult i32 %4, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -3868,7 +3868,7 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 4
+  %6 = icmp samesign ult i32 %4, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -4310,7 +4310,7 @@ define internal fastcc void @dissect_tlv_route_pinning(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_tlv_diffserv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2147483644) %4) unnamed_addr #0 {
-  %6 = icmp ult i32 %4, 4
+  %6 = icmp samesign ult i32 %4, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -4592,7 +4592,7 @@ define internal fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0,
   %137 = load ptr, ptr %136, align 8
   %138 = load i32, ptr %137, align 4
   %139 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %138, ptr noundef %0, i32 noundef %126, i32 noundef 2, i32 noundef 0) #5
-  %140 = icmp ugt i32 %3, 7
+  %140 = icmp samesign ugt i32 %3, 7
   br i1 %140, label %141, label %.thread
 
 141:                                              ; preds = %122
@@ -4611,7 +4611,7 @@ define internal fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0,
   %154 = load i32, ptr %153, align 4
   %155 = add i32 %1, 6
   %156 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef 2, i32 noundef 0) #5
-  %157 = icmp ugt i32 %3, 11
+  %157 = icmp samesign ugt i32 %3, 11
   br i1 %157, label %158, label %.thread
 
 158:                                              ; preds = %141

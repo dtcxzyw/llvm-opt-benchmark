@@ -515,7 +515,7 @@ for.body109:                                      ; preds = %for.cond105.prehead
   %7 = load i32, ptr %md_len, align 4
   %div68 = lshr i32 %7, 2
   %8 = zext nneg i32 %div68 to i64
-  %cmp107 = icmp ult i64 %indvars.iv.next87, %8
+  %cmp107 = icmp samesign ult i64 %indvars.iv.next87, %8
   br i1 %cmp107, label %for.body109, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.body78, %for.body, %for.body109, %for.cond105.preheader, %sw.default

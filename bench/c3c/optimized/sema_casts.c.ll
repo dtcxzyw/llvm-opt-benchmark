@@ -837,7 +837,7 @@ define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %
   br i1 %12, label %59, label %13
 
 13:                                               ; preds = %5
-  %14 = icmp ult i32 %8, %11
+  %14 = icmp samesign ult i32 %8, %11
   br i1 %14, label %15, label %37
 
 15:                                               ; preds = %13
@@ -1037,7 +1037,7 @@ type_flatten.exit:                                ; preds = %4
   %56 = load i32, ptr %55, align 8
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 255
-  %59 = icmp ult i32 %53, %58
+  %59 = icmp samesign ult i32 %53, %58
   br i1 %59, label %60, label %.critedge2
 
 60:                                               ; preds = %49

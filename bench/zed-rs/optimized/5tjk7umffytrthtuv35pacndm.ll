@@ -12972,7 +12972,7 @@ define noundef zeroext i1 @_ZN12multi_buffer19MultiBufferSnapshot13is_line_blank
   ]
 
 78:                                               ; preds = %76
-  %79 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
+  %79 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
   br i1 %79, label %80, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4711cab6eb7357e8E.exit"
 
 80:                                               ; preds = %78

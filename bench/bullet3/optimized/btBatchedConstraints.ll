@@ -1182,7 +1182,7 @@ while.cond.i:                                     ; preds = %if.end221.i, %if.en
   %mul213.i = fmul float %conv212.i, %conv209.i
   %conv216.i = uitofp nneg i32 %.sroa.speculated.i to float
   %mul217.i = fmul float %mul213.i, %conv216.i
-  %cmp218.i = icmp ult i32 %mul206.i, 129
+  %cmp218.i = icmp samesign ult i32 %mul206.i, 129
   %cmp219.i = fcmp ole float %mul217.i, 1.280000e+02
   %or.cond.i = select i1 %cmp218.i, i1 %cmp219.i, i1 false
   br i1 %or.cond.i, label %invoke.cont230.i, label %if.end221.i
@@ -1269,7 +1269,7 @@ for.body284.i:                                    ; preds = %for.body284.i, %for
   %arrayidx286.i = getelementptr inbounds %struct.btBatchInfo, ptr %81, i64 %indvars.iv491.i
   store i64 -4294967296, ptr %arrayidx286.i, align 4
   %indvars.iv.next492.i = add nuw nsw i64 %indvars.iv491.i, 1
-  %cmp283.i = icmp ult i64 %indvars.iv.next492.i, %80
+  %cmp283.i = icmp samesign ult i64 %indvars.iv.next492.i, %80
   br i1 %cmp283.i, label %for.body284.i, label %for.inc292.i, !llvm.loop !20
 
 for.inc292.i:                                     ; preds = %for.body284.i

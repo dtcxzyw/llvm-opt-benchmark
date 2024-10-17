@@ -741,7 +741,7 @@ define dso_local void @gen9_set_dc_state(ptr noundef %0, i32 noundef %1) local_u
   br label %95
 
 93:                                               ; preds = %85
-  %94 = icmp ugt i32 %75, 1
+  %94 = icmp samesign ugt i32 %75, 1
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %.thread12, %93
@@ -2182,7 +2182,7 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   %89 = lshr i32 %74, 1
   %90 = and i32 %89, 1
   %91 = and i32 %74, 1
-  %92 = icmp ugt i32 %72, 1
+  %92 = icmp samesign ugt i32 %72, 1
   %93 = zext i1 %92 to i32
   %94 = and i32 %72, 1
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.41, ptr noundef %80, ptr noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef %93, i32 noundef %94, i32 noundef %59, i32 noundef %60) #9
@@ -4175,7 +4175,7 @@ define internal void @xelpdp_aux_power_well_enable(ptr noundef %0, ptr nocapture
   %45 = icmp ugt i8 %11, 2
   %46 = add nuw nsw i32 %12, 7
   %47 = select i1 %45, i32 %12, i32 %46
-  %48 = icmp ult i32 %47, 3
+  %48 = icmp samesign ult i32 %47, 3
   br label %51
 
 49:                                               ; preds = %.loopexit
@@ -4223,7 +4223,7 @@ define internal void @xelpdp_aux_power_well_disable(ptr noundef %0, ptr nocaptur
   %17 = icmp ugt i8 %11, 2
   %18 = add nuw nsw i32 %12, 7
   %19 = select i1 %17, i32 %12, i32 %18
-  %20 = icmp ult i32 %19, 3
+  %20 = icmp samesign ult i32 %19, 3
   br label %23
 
 21:                                               ; preds = %2
@@ -4271,7 +4271,7 @@ define internal zeroext i1 @xelpdp_aux_power_well_enabled(ptr noundef %0, ptr no
   %17 = icmp ugt i8 %11, 2
   %18 = add nuw nsw i32 %12, 7
   %19 = select i1 %17, i32 %12, i32 %18
-  %20 = icmp ult i32 %19, 3
+  %20 = icmp samesign ult i32 %19, 3
   br label %23
 
 21:                                               ; preds = %2

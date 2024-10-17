@@ -2880,7 +2880,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZN4llvh12DenseMapB
   br label %for.body.i94
 
 for.cond11.preheader.i:                           ; preds = %for.inc.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS2_17RegisterAllocator17BlockLifetimeInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit89
-  %cmp12.not20.not.i = icmp ugt i32 %div1.i.i92, %div1.i10.i
+  %cmp12.not20.not.i = icmp samesign ugt i32 %div1.i.i92, %div1.i10.i
   br i1 %cmp12.not20.not.i, label %for.body13.lr.ph.i, label %_ZNK4llvh9BitVector4testERKS0_.exit
 
 for.body13.lr.ph.i:                               ; preds = %for.cond11.preheader.i
@@ -14366,7 +14366,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end

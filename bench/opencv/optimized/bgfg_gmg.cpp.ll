@@ -1167,7 +1167,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %15, %18
 25:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %26 = lshr i32 %19, 3
   %27 = and i32 %26, 511
-  %28 = icmp ult i32 %27, 4
+  %28 = icmp samesign ult i32 %27, 4
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
@@ -1251,7 +1251,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %15, %18
   br i1 %or.cond, label %64, label %68
 
 64:                                               ; preds = %57
-  %65 = icmp ult i32 %20, 5
+  %65 = icmp samesign ult i32 %20, 5
   br i1 %65, label %switch.lookup, label %68
 
 switch.lookup:                                    ; preds = %64

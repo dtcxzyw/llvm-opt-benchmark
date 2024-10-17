@@ -98,7 +98,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
 .split57.us.i.i:                                  ; preds = %.split57.us.loopexit.i.i, %.split.preheader.i.i
   %.us-phi.i.i = phi i32 [ %42, %.split57.us.loopexit.i.i ], [ %smax.i.i, %.split.preheader.i.i ]
   %.us-phi58.i.i = phi i32 [ %43, %.split57.us.loopexit.i.i ], [ %narrow.i.i, %.split.preheader.i.i ]
-  %44 = icmp ult i32 %.us-phi.i.i, 2
+  %44 = icmp samesign ult i32 %.us-phi.i.i, 2
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %.split57.us.i.i

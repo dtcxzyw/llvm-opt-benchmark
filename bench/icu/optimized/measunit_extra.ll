@@ -2720,7 +2720,7 @@ if.then6:                                         ; preds = %entry
   br label %if.end20.sink.split
 
 if.else9:                                         ; preds = %entry
-  %cmp10 = icmp ult i32 %1, 16
+  %cmp10 = icmp samesign ult i32 %1, 16
   br i1 %cmp10, label %if.then11, label %if.else17
 
 if.then11:                                        ; preds = %if.else9

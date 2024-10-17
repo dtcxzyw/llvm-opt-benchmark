@@ -856,7 +856,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit:            ; preds = %_ZN4llvm12is_contai
   %181 = lshr i32 %178, 6
   %182 = add i32 %177, -1
   %183 = lshr i32 %182, 6
-  %.not32.i.i.i.i = icmp ugt i32 %181, %183
+  %.not32.i.i.i.i = icmp samesign ugt i32 %181, %183
   br i1 %.not32.i.i.i.i, label %_ZN4llvm9PrintableD2Ev.exit39, label %.lr.ph.i.i.i.i40
 
 .lr.ph.i.i.i.i40:                                 ; preds = %180
@@ -1143,7 +1143,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegCl
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %.not.i.i.us.us = icmp ult i32 %21, %29
+  %.not.i.i.us.us = icmp samesign ult i32 %21, %29
   br i1 %.not.i.i.us.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us, label %.critedge.us.us
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us: ; preds = %.lr.ph.split.us.split.us
@@ -1224,7 +1224,7 @@ _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 22
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
-  %.not.i.i = icmp ult i32 %21, %69
+  %.not.i.i = icmp samesign ult i32 %21, %69
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.critedge
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %66
@@ -1307,7 +1307,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo25getMinimalPhysRegCl
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 22
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %.not.i.i.us.us = icmp ult i32 %15, %23
+  %.not.i.i.us.us = icmp samesign ult i32 %15, %23
   br i1 %.not.i.i.us.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.us.us
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us: ; preds = %.lr.ph.split.us.split.us
@@ -1411,7 +1411,7 @@ _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 22
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
-  %.not.i.i = icmp ult i32 %15, %77
+  %.not.i.i = icmp samesign ult i32 %15, %77
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %73

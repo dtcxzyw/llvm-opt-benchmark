@@ -4268,7 +4268,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1076:                                             ; preds = %34
   %1077 = and i32 %.1, 64512
-  %1078 = icmp ult i32 %1077, 3072
+  %1078 = icmp samesign ult i32 %1077, 3072
   br i1 %1078, label %1079, label %1602
 
 1079:                                             ; preds = %1076
@@ -4282,7 +4282,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1084:                                             ; preds = %34
   %1085 = and i32 %.1, 64512
-  %1086 = icmp ult i32 %1085, 3072
+  %1086 = icmp samesign ult i32 %1085, 3072
   br i1 %1086, label %1087, label %1602
 
 1087:                                             ; preds = %1084
@@ -4296,7 +4296,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1092:                                             ; preds = %34
   %1093 = and i32 %.1, 64512
-  %1094 = icmp ult i32 %1093, 3072
+  %1094 = icmp samesign ult i32 %1093, 3072
   br i1 %1094, label %1095, label %1602
 
 1095:                                             ; preds = %1092
@@ -4311,7 +4311,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1101:                                             ; preds = %34
   %1102 = and i32 %.1, 65280
-  %1103 = icmp ult i32 %1102, 3072
+  %1103 = icmp samesign ult i32 %1102, 3072
   br i1 %1103, label %1104, label %1602
 
 1104:                                             ; preds = %1101
@@ -4335,7 +4335,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1115:                                             ; preds = %34
   %1116 = and i32 %.1, 65280
-  %1117 = icmp ult i32 %1116, 3072
+  %1117 = icmp samesign ult i32 %1116, 3072
   br i1 %1117, label %1118, label %1602
 
 1118:                                             ; preds = %1115
@@ -4350,7 +4350,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1124:                                             ; preds = %34
   %1125 = and i32 %.1, 64512
-  %1126 = icmp ult i32 %1125, 3072
+  %1126 = icmp samesign ult i32 %1125, 3072
   br i1 %1126, label %1127, label %1602
 
 1127:                                             ; preds = %1124
@@ -4364,7 +4364,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1132:                                             ; preds = %34
   %1133 = and i32 %.1, 64512
-  %1134 = icmp ult i32 %1133, 3072
+  %1134 = icmp samesign ult i32 %1133, 3072
   br i1 %1134, label %1135, label %1602
 
 1135:                                             ; preds = %1132
@@ -5131,7 +5131,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 1554:                                             ; preds = %34
   %1555 = and i32 %.1, 64512
-  %1556 = icmp ult i32 %1555, 3072
+  %1556 = icmp samesign ult i32 %1555, 3072
   %1557 = icmp eq i32 %.11026, %.11031
   %or.cond1154 = select i1 %1556, i1 %1557, i1 false
   br i1 %or.cond1154, label %1558, label %1602
@@ -8722,7 +8722,7 @@ ir_emit_N.exit:                                   ; preds = %79, %55
   store i32 98, ptr %121, align 4
   %126 = load i16, ptr %114, align 2
   %127 = zext i16 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %.lr.ph, label %_ir_BEGIN.exit
 
 _ir_BEGIN.exit:                                   ; preds = %.lr.ph, %ir_emit_N.exit, %ir_emit1.exit.i, %20, %54, %2

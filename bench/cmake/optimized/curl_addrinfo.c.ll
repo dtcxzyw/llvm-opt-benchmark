@@ -79,9 +79,11 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.05889, i64 16
   %22 = load i32, ptr %21, align 8
+  %.not74 = icmp eq i32 %22, 0
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %.057, %23
-  br i1 %24, label %52, label %25
+  %24 = icmp samesign ugt i64 %.057, %23
+  %or.cond = select i1 %.not74, i1 true, i1 %24
+  br i1 %or.cond, label %52, label %25
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr @Curl_cmalloc, align 8

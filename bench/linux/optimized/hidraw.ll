@@ -154,7 +154,7 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
 
 12:                                               ; preds = %8
   %13 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %17
-  %14 = icmp ult i64 %16, 63
+  %14 = icmp samesign ult i64 %16, 63
   %15 = trunc i64 %17 to i32
   store ptr %3, ptr %13, align 8
   br i1 %14, label %20, label %.loopexit
@@ -1230,7 +1230,7 @@ define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 
   br i1 %21, label %51, label %22
 
 22:                                               ; preds = %14
-  %23 = icmp ult i64 %1, 2
+  %23 = icmp samesign ult i64 %1, 2
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %22

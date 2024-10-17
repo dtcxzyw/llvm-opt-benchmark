@@ -11834,7 +11834,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %58, ptr %30, align 8
   %59 = load i16, ptr %31, align 2, !noundef !4
   %60 = zext i16 %59 to i64
-  %61 = icmp ult i64 %40, %60
+  %61 = icmp samesign ult i64 %40, %60
   br i1 %61, label %37, label %._crit_edge163
 
 62:                                               ; preds = %41
@@ -12021,7 +12021,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %114 = load i16, ptr %86, align 2, !noundef !4
   %115 = zext i16 %114 to i64
-  %116 = icmp ult i64 %93, %115
+  %116 = icmp samesign ult i64 %93, %115
   br i1 %116, label %91, label %._crit_edge
 
 .loopexit154:                                     ; preds = %103
@@ -12179,7 +12179,7 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   store i64 %54, ptr %27, align 8
   %55 = load i16, ptr %28, align 2, !noundef !4
   %56 = zext i16 %55 to i64
-  %57 = icmp ult i64 %37, %56
+  %57 = icmp samesign ult i64 %37, %56
   br i1 %57, label %34, label %._crit_edge149
 
 58:                                               ; preds = %88, %112, %.body123, %.body
@@ -12353,7 +12353,7 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %109 = load i16, ptr %80, align 2, !noundef !4
   %110 = zext i16 %109 to i64
-  %111 = icmp ult i64 %87, %110
+  %111 = icmp samesign ult i64 %87, %110
   br i1 %111, label %85, label %._crit_edge
 
 .loopexit140:                                     ; preds = %98

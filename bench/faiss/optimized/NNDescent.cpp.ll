@@ -1635,7 +1635,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2717,7 +2717,7 @@ _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE7reserveEm.exit: ; preds = %_ZNS
   %84 = zext nneg i8 %83 to i32
   %spec.select = add nuw nsw i32 %.02840, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = icmp ult i64 %indvars.iv.next, %80
+  %85 = icmp samesign ult i64 %indvars.iv.next, %80
   %86 = icmp slt i32 %spec.select, %72
   %or.cond = select i1 %85, i1 %86, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
@@ -6864,7 +6864,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc77, %_ZSt6fil
   %.sroa.392.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 8
   store i8 1, ptr %.sroa.392.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = icmp ult i64 %indvars.iv.next, %47
+  %74 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 .loopexit119:                                     ; preds = %116

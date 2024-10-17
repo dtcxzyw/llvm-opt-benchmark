@@ -480,7 +480,7 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 151:                                              ; preds = %146, %143
   %.1 = phi i32 [ 53, %143 ], [ 17, %146 ]
-  %152 = icmp ult i32 %.1, %74
+  %152 = icmp samesign ult i32 %.1, %74
   br i1 %152, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %151, %163

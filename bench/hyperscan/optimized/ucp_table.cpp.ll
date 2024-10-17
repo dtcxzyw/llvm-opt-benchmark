@@ -211,7 +211,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1204
+  %cmp = icmp samesign ult i64 %indvars.iv, 1204
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !5
 
 lpad:                                             ; preds = %for.body
@@ -323,7 +323,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 32
+  %cmp = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !8
 
 lpad:                                             ; preds = %for.body
@@ -369,7 +369,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1198
+  %cmp = icmp samesign ult i64 %indvars.iv, 1198
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !9
 
 lpad:                                             ; preds = %for.body
@@ -415,7 +415,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !10
 
 lpad:                                             ; preds = %for.body
@@ -493,7 +493,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1072
+  %cmp = icmp samesign ult i64 %indvars.iv, 1072
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !11
 
 lpad:                                             ; preds = %for.body
@@ -539,7 +539,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 232
+  %cmp = icmp samesign ult i64 %indvars.iv, 232
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !12
 
 lpad:                                             ; preds = %for.body
@@ -585,7 +585,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1248
+  %cmp = icmp samesign ult i64 %indvars.iv, 1248
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !13
 
 lpad:                                             ; preds = %for.body
@@ -631,7 +631,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 110
+  %cmp = icmp samesign ult i64 %indvars.iv, 110
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !14
 
 lpad:                                             ; preds = %for.body
@@ -677,7 +677,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 832
+  %cmp = icmp samesign ult i64 %indvars.iv, 832
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !15
 
 lpad:                                             ; preds = %for.body
@@ -723,7 +723,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 18
+  %cmp = icmp samesign ult i64 %indvars.iv, 18
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !16
 
 lpad:                                             ; preds = %for.body
@@ -769,7 +769,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1242
+  %cmp = icmp samesign ult i64 %indvars.iv, 1242
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !17
 
 lpad:                                             ; preds = %for.body
@@ -815,7 +815,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 456
+  %cmp = icmp samesign ult i64 %indvars.iv, 456
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !18
 
 lpad:                                             ; preds = %for.body
@@ -861,7 +861,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 292
+  %cmp = icmp samesign ult i64 %indvars.iv, 292
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !19
 
 lpad:                                             ; preds = %for.body
@@ -907,7 +907,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !20
 
 lpad:                                             ; preds = %for.body
@@ -953,7 +953,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 508
+  %cmp = icmp samesign ult i64 %indvars.iv, 508
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !21
 
 lpad:                                             ; preds = %for.body
@@ -999,7 +999,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 208
+  %cmp = icmp samesign ult i64 %indvars.iv, 208
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !22
 
 lpad:                                             ; preds = %for.body
@@ -1045,7 +1045,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 98
+  %cmp = icmp samesign ult i64 %indvars.iv, 98
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !23
 
 lpad:                                             ; preds = %for.body
@@ -1091,7 +1091,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 22
+  %cmp = icmp samesign ult i64 %indvars.iv, 22
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !24
 
 lpad:                                             ; preds = %for.body
@@ -1137,7 +1137,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 102
+  %cmp = icmp samesign ult i64 %indvars.iv, 102
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !25
 
 lpad:                                             ; preds = %for.body
@@ -1183,7 +1183,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 308
+  %cmp = icmp samesign ult i64 %indvars.iv, 308
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !26
 
 lpad:                                             ; preds = %for.body
@@ -1229,7 +1229,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 10
+  %cmp = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !27
 
 lpad:                                             ; preds = %for.body
@@ -1275,7 +1275,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 32
+  %cmp = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !28
 
 lpad:                                             ; preds = %for.body
@@ -1321,7 +1321,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 142
+  %cmp = icmp samesign ult i64 %indvars.iv, 142
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !29
 
 lpad:                                             ; preds = %for.body
@@ -1367,7 +1367,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 18
+  %cmp = icmp samesign ult i64 %indvars.iv, 18
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !30
 
 lpad:                                             ; preds = %for.body
@@ -1413,7 +1413,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 20
+  %cmp = icmp samesign ult i64 %indvars.iv, 20
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !31
 
 lpad:                                             ; preds = %for.body
@@ -1459,7 +1459,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 300
+  %cmp = icmp samesign ult i64 %indvars.iv, 300
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !32
 
 lpad:                                             ; preds = %for.body
@@ -1505,7 +1505,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 148
+  %cmp = icmp samesign ult i64 %indvars.iv, 148
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !33
 
 lpad:                                             ; preds = %for.body
@@ -1551,7 +1551,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 418
+  %cmp = icmp samesign ult i64 %indvars.iv, 418
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !34
 
 lpad:                                             ; preds = %for.body
@@ -1597,7 +1597,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 32
+  %cmp = icmp samesign ult i64 %indvars.iv, 32
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !35
 
 lpad:                                             ; preds = %for.body
@@ -1643,7 +1643,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 54
+  %cmp = icmp samesign ult i64 %indvars.iv, 54
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !36
 
 lpad:                                             ; preds = %for.body
@@ -1689,7 +1689,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 126
+  %cmp = icmp samesign ult i64 %indvars.iv, 126
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !37
 
 lpad:                                             ; preds = %for.body
@@ -1735,7 +1735,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 328
+  %cmp = icmp samesign ult i64 %indvars.iv, 328
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !38
 
 lpad:                                             ; preds = %for.body
@@ -1781,7 +1781,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1204
+  %cmp = icmp samesign ult i64 %indvars.iv, 1204
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !39
 
 lpad:                                             ; preds = %for.body
@@ -1827,7 +1827,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 16
+  %cmp = icmp samesign ult i64 %indvars.iv, 16
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !40
 
 lpad:                                             ; preds = %for.body
@@ -1873,7 +1873,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 18
+  %cmp = icmp samesign ult i64 %indvars.iv, 18
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !41
 
 lpad:                                             ; preds = %for.body
@@ -1919,7 +1919,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1206
+  %cmp = icmp samesign ult i64 %indvars.iv, 1206
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !42
 
 lpad:                                             ; preds = %for.body
@@ -1965,7 +1965,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 14
+  %cmp = icmp samesign ult i64 %indvars.iv, 14
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !43
 
 lpad:                                             ; preds = %for.body
@@ -2075,7 +2075,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 12
+  %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !44
 
 lpad:                                             ; preds = %for.body
@@ -2121,7 +2121,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 108
+  %cmp = icmp samesign ult i64 %indvars.iv, 108
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !45
 
 lpad:                                             ; preds = %for.body
@@ -2167,7 +2167,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 10
+  %cmp = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !46
 
 lpad:                                             ; preds = %for.body
@@ -2438,7 +2438,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !52
 
 lpad:                                             ; preds = %for.body
@@ -2484,7 +2484,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !53
 
 lpad:                                             ; preds = %for.body
@@ -2530,7 +2530,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !54
 
 lpad:                                             ; preds = %for.body
@@ -2852,7 +2852,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 6
+  %cmp = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !59
 
 lpad:                                             ; preds = %for.body
@@ -2930,7 +2930,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 1138
+  %cmp = icmp samesign ult i64 %indvars.iv, 1138
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !60
 
 lpad:                                             ; preds = %for.body
@@ -2976,7 +2976,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !61
 
 lpad:                                             ; preds = %for.body
@@ -3022,7 +3022,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !62
 
 lpad:                                             ; preds = %for.body
@@ -3068,7 +3068,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 10
+  %cmp = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !63
 
 lpad:                                             ; preds = %for.body
@@ -3114,7 +3114,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 12
+  %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !64
 
 lpad:                                             ; preds = %for.body
@@ -3192,7 +3192,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 6
+  %cmp = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !65
 
 lpad:                                             ; preds = %for.body
@@ -3238,7 +3238,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !66
 
 lpad:                                             ; preds = %for.body
@@ -3348,7 +3348,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 62
+  %cmp = icmp samesign ult i64 %indvars.iv, 62
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !67
 
 lpad:                                             ; preds = %for.body
@@ -3394,7 +3394,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 14
+  %cmp = icmp samesign ult i64 %indvars.iv, 14
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !68
 
 lpad:                                             ; preds = %for.body
@@ -3517,7 +3517,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !70
 
 lpad:                                             ; preds = %for.body
@@ -3563,7 +3563,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 70
+  %cmp = icmp samesign ult i64 %indvars.iv, 70
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !71
 
 lpad:                                             ; preds = %for.body
@@ -3609,7 +3609,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 24
+  %cmp = icmp samesign ult i64 %indvars.iv, 24
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !72
 
 lpad:                                             ; preds = %for.body
@@ -3655,7 +3655,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 30
+  %cmp = icmp samesign ult i64 %indvars.iv, 30
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !73
 
 lpad:                                             ; preds = %for.body
@@ -3701,7 +3701,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 28
+  %cmp = icmp samesign ult i64 %indvars.iv, 28
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !74
 
 lpad:                                             ; preds = %for.body
@@ -3747,7 +3747,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !75
 
 lpad:                                             ; preds = %for.body
@@ -3825,7 +3825,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 16
+  %cmp = icmp samesign ult i64 %indvars.iv, 16
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !76
 
 lpad:                                             ; preds = %for.body
@@ -3871,7 +3871,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 6
+  %cmp = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !77
 
 lpad:                                             ; preds = %for.body
@@ -3962,7 +3962,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 52
+  %cmp = icmp samesign ult i64 %indvars.iv, 52
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !79
 
 lpad:                                             ; preds = %for.body
@@ -4098,7 +4098,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !82
 
 lpad:                                             ; preds = %for.body
@@ -4176,7 +4176,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !83
 
 lpad:                                             ; preds = %for.body
@@ -4222,7 +4222,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 14
+  %cmp = icmp samesign ult i64 %indvars.iv, 14
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !84
 
 lpad:                                             ; preds = %for.body
@@ -4313,7 +4313,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 14
+  %cmp = icmp samesign ult i64 %indvars.iv, 14
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !86
 
 lpad:                                             ; preds = %for.body
@@ -4359,7 +4359,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 6
+  %cmp = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !87
 
 lpad:                                             ; preds = %for.body
@@ -4495,7 +4495,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 34
+  %cmp = icmp samesign ult i64 %indvars.iv, 34
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !90
 
 lpad:                                             ; preds = %for.body
@@ -4541,7 +4541,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 64
+  %cmp = icmp samesign ult i64 %indvars.iv, 64
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !91
 
 lpad:                                             ; preds = %for.body
@@ -4587,7 +4587,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !92
 
 lpad:                                             ; preds = %for.body
@@ -4633,7 +4633,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !93
 
 lpad:                                             ; preds = %for.body
@@ -4679,7 +4679,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !94
 
 lpad:                                             ; preds = %for.body
@@ -4725,7 +4725,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 12
+  %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !95
 
 lpad:                                             ; preds = %for.body
@@ -4912,7 +4912,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 20
+  %cmp = icmp samesign ult i64 %indvars.iv, 20
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !97
 
 lpad:                                             ; preds = %for.body
@@ -5048,7 +5048,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !100
 
 lpad:                                             ; preds = %for.body
@@ -5216,7 +5216,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !103
 
 lpad:                                             ; preds = %for.body
@@ -5307,7 +5307,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 10
+  %cmp = icmp samesign ult i64 %indvars.iv, 10
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !105
 
 lpad:                                             ; preds = %for.body
@@ -5353,7 +5353,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !106
 
 lpad:                                             ; preds = %for.body
@@ -5399,7 +5399,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !107
 
 lpad:                                             ; preds = %for.body
@@ -5490,7 +5490,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 6
+  %cmp = icmp samesign ult i64 %indvars.iv, 6
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !109
 
 lpad:                                             ; preds = %for.body
@@ -5837,7 +5837,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 26
+  %cmp = icmp samesign ult i64 %indvars.iv, 26
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !111
 
 lpad:                                             ; preds = %for.body
@@ -5928,7 +5928,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !113
 
 lpad:                                             ; preds = %for.body
@@ -6115,7 +6115,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !115
 
 lpad:                                             ; preds = %for.body
@@ -6341,7 +6341,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !120
 
 lpad:                                             ; preds = %for.body
@@ -6464,7 +6464,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 24
+  %cmp = icmp samesign ult i64 %indvars.iv, 24
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !122
 
 lpad:                                             ; preds = %for.body
@@ -6632,7 +6632,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !125
 
 lpad:                                             ; preds = %for.body
@@ -6723,7 +6723,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !127
 
 lpad:                                             ; preds = %for.body
@@ -6814,7 +6814,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 8
+  %cmp = icmp samesign ult i64 %indvars.iv, 8
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !129
 
 lpad:                                             ; preds = %for.body
@@ -6950,7 +6950,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 30
+  %cmp = icmp samesign ult i64 %indvars.iv, 30
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !132
 
 lpad:                                             ; preds = %for.body
@@ -6996,7 +6996,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 24
+  %cmp = icmp samesign ult i64 %indvars.iv, 24
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !133
 
 lpad:                                             ; preds = %for.body
@@ -7119,7 +7119,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 12
+  %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !135
 
 lpad:                                             ; preds = %for.body
@@ -7165,7 +7165,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp = icmp ult i64 %indvars.iv, 4
+  %cmp = icmp samesign ult i64 %indvars.iv, 4
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !136
 
 lpad:                                             ; preds = %for.body

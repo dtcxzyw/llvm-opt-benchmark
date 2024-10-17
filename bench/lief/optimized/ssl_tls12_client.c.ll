@@ -1684,7 +1684,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i:  ; preds = %542, %542, %542, %5
   %619 = zext i8 %618 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2708, ptr noundef nonnull @.str.101, i32 noundef %615, i32 noundef %619) #11
   %620 = add nuw nsw i64 %.099137.i, 2
-  %621 = icmp ult i64 %620, %604
+  %621 = icmp samesign ult i64 %620, %604
   br i1 %621, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1789,7 +1789,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i:  ; preds = %542, %542, %542, %5
 ._crit_edge142.i:                                 ; preds = %.lr.ph141.i, %669
   %674 = add nuw nsw i64 %.098143.i, 2
   %675 = add nuw nsw i64 %674, %656
-  %676 = icmp ult i64 %675, %636
+  %676 = icmp samesign ult i64 %675, %636
   br i1 %676, label %647, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %._crit_edge142.i, %642, %576
@@ -2912,7 +2912,7 @@ define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_alpn_ext(ptr noundef 
   br label %46
 
 10:                                               ; preds = %3
-  %11 = icmp ult i64 %2, 4
+  %11 = icmp samesign ult i64 %2, 4
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

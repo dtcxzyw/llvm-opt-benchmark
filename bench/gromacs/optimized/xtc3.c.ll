@@ -387,7 +387,7 @@ positive_int.exit563:                             ; preds = %120, %123, %125
   %207 = getelementptr inbounds i32, ptr %8, i64 %203
   store i32 %206, ptr %207, align 4
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 3
-  %208 = icmp ult i64 %indvars.iv.next55.i, %193
+  %208 = icmp samesign ult i64 %indvars.iv.next55.i, %193
   br i1 %208, label %.lr.ph.i, label %insert_batch.exit, !llvm.loop !9
 
 insert_batch.exit:                                ; preds = %.lr.ph.i
@@ -659,7 +659,7 @@ positive_int.exit597:                             ; preds = %325, %328, %330
   %spec.select.i598 = call i32 @llvm.umax.i32(i32 %.0.i594, i32 %.0.i592)
   %.1.i599 = call i32 @llvm.umax.i32(i32 %.0.i596, i32 %spec.select.i598)
   %336 = zext i32 %.1.i599 to i64
-  %337 = icmp ult i64 %335, %336
+  %337 = icmp samesign ult i64 %335, %336
   br i1 %337, label %338, label %421
 
 338:                                              ; preds = %positive_int.exit597
@@ -808,7 +808,7 @@ positive_int.exit611:                             ; preds = %408, %411, %413
   %spec.select.i614 = call i32 @llvm.umax.i32(i32 %.0.i608, i32 %.0.i606)
   %.1.i615 = call i32 @llvm.umax.i32(i32 %.0.i610, i32 %spec.select.i614)
   %419 = zext i32 %.1.i615 to i64
-  %420 = icmp ult i64 %418, %419
+  %420 = icmp samesign ult i64 %418, %419
   br i1 %420, label %.loopexit925.thread, label %421
 
 421:                                              ; preds = %positive_int.exit597, %positive_int.exit611, %is_quite_large.exit585
@@ -1123,7 +1123,7 @@ swapdecide.exit:                                  ; preds = %462, %464, %insert_
   %552 = getelementptr inbounds i32, ptr %8, i64 %548
   store i32 %551, ptr %552, align 4
   %indvars.iv.next55.i630 = add nuw nsw i64 %indvars.iv54.i626, 3
-  %553 = icmp ult i64 %indvars.iv.next55.i630, %538
+  %553 = icmp samesign ult i64 %indvars.iv.next55.i630, %538
   br i1 %553, label %.lr.ph.i625, label %._crit_edge.loopexit.i631, !llvm.loop !9
 
 ._crit_edge.loopexit.i631:                        ; preds = %.lr.ph.i625
@@ -1214,7 +1214,7 @@ positive_int.exit634:                             ; preds = %560, %563, %565
   %576 = load i32, ptr %575, align 4
   %spec.select548 = call i32 @llvm.smax.i32(i32 %576, i32 %.0461951)
   %indvars.iv.next1070 = add nuw nsw i64 %indvars.iv1069, 1
-  %577 = icmp ult i64 %indvars.iv.next1070, %invariant.umin
+  %577 = icmp samesign ult i64 %indvars.iv.next1070, %invariant.umin
   br i1 %577, label %.lr.ph953, label %._crit_edge954, !llvm.loop !20
 
 ._crit_edge954:                                   ; preds = %.lr.ph953, %.preheader922
@@ -1482,7 +1482,7 @@ positive_int.exit646:                             ; preds = %691, %694, %696
   %spec.select.i649 = call i32 @llvm.umax.i32(i32 %.0.i643, i32 %.0.i641)
   %.1.i650 = call i32 @llvm.umax.i32(i32 %.0.i645, i32 %spec.select.i649)
   %702 = zext i32 %.1.i650 to i64
-  %703 = icmp ult i64 %701, %702
+  %703 = icmp samesign ult i64 %701, %702
   %704 = zext i1 %703 to i32
   %.2433 = add nuw nsw i32 %.1432970, %704
   %indvars.iv.next1083 = add nuw nsw i64 %indvars.iv1082, 1
@@ -1591,7 +1591,7 @@ positive_int.exit646:                             ; preds = %691, %694, %696
 746:                                              ; preds = %735
   %747 = icmp ne i32 %.2, 0
   %indvars.iv.next1097 = add nuw nsw i64 %indvars.iv1096, 1
-  %748 = icmp ult i64 %indvars.iv.next1097, %726
+  %748 = icmp samesign ult i64 %indvars.iv.next1097, %726
   %or.cond1013 = select i1 %747, i1 %748, i1 false
   br i1 %or.cond1013, label %.preheader, label %.loopexit, !llvm.loop !29
 
@@ -3354,7 +3354,7 @@ large_instruction_change.exit:                    ; preds = %21, %insert_value_i
 .critedge:                                        ; preds = %50, %.critedge.split.loop.exit
   %.060.lcssa = phi i32 [ %indvars135.le, %.critedge.split.loop.exit ], [ %44, %50 ]
   %.lcssa = phi i32 [ %51, %.critedge.split.loop.exit ], [ %1, %50 ]
-  %52 = icmp ult i32 %.060.lcssa, 3
+  %52 = icmp samesign ult i32 %.060.lcssa, 3
   br i1 %52, label %.preheader113, label %125
 
 .preheader113:                                    ; preds = %.critedge
@@ -4621,7 +4621,7 @@ define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr nocapture nounde
   %.292 = phi i32 [ %263, %.loopexit ], [ %220, %218 ], [ %.090145, %277 ], [ %.090145, %282 ], [ %.090145, %284 ], [ %.090145, %285 ], [ %.090145, %214 ], [ %.090145, %.fold.split ], [ %.090145, %268 ], [ %286, %.loopexit121.loopexit ]
   %.288 = phi i32 [ %265, %.loopexit ], [ %221, %218 ], [ %.086146, %277 ], [ %.086146, %282 ], [ %.086146, %284 ], [ %.086146, %285 ], [ %.086146, %214 ], [ %.086146, %.fold.split ], [ %.086146, %268 ], [ %274, %.loopexit121.loopexit ]
   %287 = icmp sgt i32 %.292, 0
-  %288 = icmp ult i64 %indvars.iv.next173, %213
+  %288 = icmp samesign ult i64 %indvars.iv.next173, %213
   %289 = select i1 %287, i1 %288, i1 false
   br i1 %289, label %214, label %._crit_edge149, !llvm.loop !55
 
@@ -4686,7 +4686,7 @@ define internal fastcc void @decompress_base_block(ptr nocapture noundef nonnull
   %24 = getelementptr inbounds i8, ptr %16, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = icmp ugt i32 %23, 16384
+  %27 = icmp samesign ugt i32 %23, 16384
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %3

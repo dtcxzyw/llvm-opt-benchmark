@@ -4677,7 +4677,7 @@ define internal fastcc void @update_cpumasks_hier(ptr noundef %0, ptr noundef %1
   %307 = and i8 %302, 1
   %308 = icmp ne i8 %307, 0
   tail call void @__rcu_read_unlock() #19
-  %309 = icmp ult i32 %2, 2
+  %309 = icmp samesign ult i32 %2, 2
   %310 = and i1 %309, %308
   br i1 %310, label %311, label %312
 
@@ -5236,7 +5236,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   %52 = trunc i64 %51 to i32
   %53 = lshr i32 %52, 1
   %54 = and i32 %53, 1
-  %55 = icmp ugt i32 %50, %54
+  %55 = icmp samesign ugt i32 %50, %54
   br i1 %55, label %.critedge.thread, label %56
 
 56:                                               ; preds = %46
@@ -5248,7 +5248,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   %62 = trunc i64 %61 to i32
   %63 = lshr i32 %62, 2
   %64 = and i32 %63, 1
-  %.not = icmp ugt i32 %60, %64
+  %.not = icmp samesign ugt i32 %60, %64
   br i1 %.not, label %.critedge.thread, label %65
 
 65:                                               ; preds = %56, %27, %16
@@ -5293,7 +5293,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   %95 = trunc i64 %94 to i32
   %96 = lshr i32 %95, 1
   %97 = and i32 %96, 1
-  %98 = icmp ugt i32 %92, %97
+  %98 = icmp samesign ugt i32 %92, %97
   br i1 %98, label %.critedge.thread, label %99
 
 99:                                               ; preds = %87
@@ -5305,7 +5305,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   %105 = trunc i64 %104 to i32
   %106 = lshr i32 %105, 2
   %107 = and i32 %106, 1
-  %108 = icmp ugt i32 %103, %107
+  %108 = icmp samesign ugt i32 %103, %107
   br i1 %108, label %.critedge.thread, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %99, %3, %2

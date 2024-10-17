@@ -10044,7 +10044,7 @@ _ZN4llvm11SmallVectorIN5clang9ThunkInfoELj1EEC2ERKS3_.exit.i.i: ; preds = %2525,
   br i1 %.not.i.i.i.i.i.i.i78, label %select.unfold.i.i.i.i.i.i.i, label %2535
 
 select.unfold.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i77
-  %.not10.i.i.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i.i.i, 3
+  %.not10.i.i.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i.i.i, 3
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN5clang9ThunkInfoES1_EC2ES2_l.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i77, !llvm.loop !156
 
 2535:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i77
@@ -21855,7 +21855,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
   br i1 %.not.i.i.i.i101, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN5clang13CXXMethodDeclES3_EC2ES4_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i100
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i99, label %.lr.ph.i.i.i.i100, !llvm.loop !330
 
 .loopexit.i.i99:                                  ; preds = %select.unfold.i.i.i.i, %363

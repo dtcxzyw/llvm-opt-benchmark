@@ -550,7 +550,7 @@ define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %
   ]
 
 11:                                               ; preds = %6
-  %switch = icmp ult i8 %5, 4
+  %switch = icmp samesign ult i8 %5, 4
   br i1 %switch, label %12, label %38
 
 12:                                               ; preds = %11

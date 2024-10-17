@@ -431,7 +431,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr nocapture noundef 
   %24 = and i64 %17, 4294967295
   %25 = add nuw nsw i64 %24, %23
   %26 = xor i64 %25, %23
-  %27 = icmp ult i64 %26, 4194304
+  %27 = icmp samesign ult i64 %26, 4194304
   %28 = trunc i64 %25 to i32
   %29 = lshr i32 %28, 12
   %30 = and i32 %29, 1023
@@ -486,7 +486,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr nocapture noundef 
   %65 = sub i64 %17, %63
   %66 = add nuw nsw i64 %15, 1
   %67 = icmp ne i64 %65, 0
-  %68 = icmp ult i64 %15, 511
+  %68 = icmp samesign ult i64 %15, 511
   %69 = and i1 %68, %67
   br i1 %69, label %14, label %70, !llvm.loop !22
 
@@ -799,7 +799,7 @@ define internal fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %1, i64 n
   %45 = sub i64 %24, %43
   %46 = add nuw nsw i64 %22, 1
   %47 = icmp ne i64 %45, 0
-  %48 = icmp ult i64 %22, 511
+  %48 = icmp samesign ult i64 %22, 511
   %49 = and i1 %48, %47
   br i1 %49, label %21, label %50, !llvm.loop !31
 

@@ -39,7 +39,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %good.026 = phi i32 [ %not.i, %for.body.preheader ], [ %and15, %for.body ]
-  %isnotneg.i.i.not = icmp ugt i64 %indvars.iv, %1
+  %isnotneg.i.i.not = icmp samesign ugt i64 %indvars.iv, %1
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %sub10 = sub i32 %sub, %2
   %idxprom11 = zext i32 %sub10 to i64
@@ -430,7 +430,7 @@ if.end104:                                        ; preds = %if.else, %if.then99
   %not = select i1 %isnotneg.i.i100, i8 %7, i8 -1
   %and119 = and i8 %or.i.i, %not
   %and125 = and i8 %and119, %or
-  %cmp128.not = icmp ult i64 %indvars.iv121, %5
+  %cmp128.not = icmp samesign ult i64 %indvars.iv121, %5
   br i1 %cmp128.not, label %if.end136, label %if.then130
 
 if.then130:                                       ; preds = %if.end104

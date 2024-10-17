@@ -836,7 +836,7 @@ for.inc48:                                        ; preds = %for.inc48.loopexit,
   %first_null.1 = phi i32 [ %spec.select, %if.else ], [ %first_null.0145, %for.inc48.loopexit ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %28 = zext i32 %27 to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next152, %28
+  %cmp15 = icmp samesign ult i64 %indvars.iv.next152, %28
   br i1 %cmp15, label %for.body16, label %for.cond51.preheader, !llvm.loop !8
 
 for.body53:                                       ; preds = %for.cond51.preheader, %arena_bind.exit113
@@ -1120,7 +1120,7 @@ if.end5.i:                                        ; preds = %if.end.i156.i
 
 sz_size2index.exit.i:                             ; preds = %if.end5.i, %if.then.i157.i
   %retval.i150.i.0 = phi i32 [ %conv.i200.i, %if.then.i157.i ], [ %add23.i, %if.end5.i ]
-  %cmp3.i.i = icmp ugt i32 %retval.i150.i.0, 234
+  %cmp3.i.i = icmp samesign ugt i32 %retval.i150.i.0, 234
   br i1 %cmp3.i.i, label %if.then112.i, label %land.lhs.true.i31.i666
 
 land.lhs.true.i31.i666:                           ; preds = %sz_size2index.exit.i
@@ -1345,7 +1345,7 @@ if.end5.i707:                                     ; preds = %if.end.i156.i305
 
 sz_size2index.exit.i307:                          ; preds = %if.end5.i707, %if.then.i157.i317
   %retval.i150.i103.0 = phi i32 [ %conv.i200.i322, %if.then.i157.i317 ], [ %add23.i719, %if.end5.i707 ]
-  %cmp3.i.i309 = icmp ugt i32 %retval.i150.i103.0, 234
+  %cmp3.i.i309 = icmp samesign ugt i32 %retval.i150.i103.0, 234
   br i1 %cmp3.i.i309, label %if.then112.i235, label %if.end24.i186
 
 if.end24.i186:                                    ; preds = %sz_size2index.exit.i307
@@ -1750,7 +1750,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
   %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %3, 2
+  %cmp6.i.not = icmp samesign ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i143.i, label %do.end4
 
 if.else.i143.i:                                   ; preds = %lor.rhs.i
@@ -1897,7 +1897,7 @@ if.end.i143:                                      ; preds = %land.lhs.true8.i, %
 lor.rhs.i147:                                     ; preds = %if.end.i143
   %sub.i150 = add i64 %alignment, -1
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i152.not = icmp ult i64 %13, 2
+  %cmp6.i152.not = icmp samesign ult i64 %13, 2
   br i1 %cmp6.i152.not, label %land.lhs.true.i.i326, label %if.then
 
 land.lhs.true.i.i326:                             ; preds = %lor.rhs.i147
@@ -2116,7 +2116,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
   %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %3, 2
+  %cmp6.i.not = icmp samesign ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i143.i, label %if.then120.i
 
 if.else.i143.i:                                   ; preds = %lor.rhs.i
@@ -2268,7 +2268,7 @@ if.end.i143:                                      ; preds = %land.lhs.true8.i, %
 lor.rhs.i147:                                     ; preds = %if.end.i143
   %sub.i150 = add i64 %alignment, -1
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i152.not = icmp ult i64 %13, 2
+  %cmp6.i152.not = icmp samesign ult i64 %13, 2
   br i1 %cmp6.i152.not, label %land.lhs.true.i.i326, label %if.then120.i344
 
 land.lhs.true.i.i326:                             ; preds = %lor.rhs.i147
@@ -2587,7 +2587,7 @@ if.end5.i:                                        ; preds = %if.end.i156.i
 
 sz_size2index.exit.i:                             ; preds = %if.end5.i, %if.then.i157.i
   %retval.i150.i.0 = phi i32 [ %conv.i200.i, %if.then.i157.i ], [ %add23.i, %if.end5.i ]
-  %cmp3.i.i = icmp ugt i32 %retval.i150.i.0, 234
+  %cmp3.i.i = icmp samesign ugt i32 %retval.i150.i.0, 234
   br i1 %cmp3.i.i, label %if.then112.i, label %land.lhs.true.i31.i668
 
 land.lhs.true.i31.i668:                           ; preds = %sz_size2index.exit.i
@@ -2833,7 +2833,7 @@ if.end5.i716:                                     ; preds = %if.end.i156.i307
 
 sz_size2index.exit.i309:                          ; preds = %if.end5.i716, %if.then.i157.i319
   %retval.i150.i105.0 = phi i32 [ %conv.i200.i324, %if.then.i157.i319 ], [ %add23.i728, %if.end5.i716 ]
-  %cmp3.i.i311 = icmp ugt i32 %retval.i150.i105.0, 234
+  %cmp3.i.i311 = icmp samesign ugt i32 %retval.i150.i105.0, 234
   br i1 %cmp3.i.i311, label %if.then112.i237, label %if.end24.i188
 
 if.end24.i188:                                    ; preds = %sz_size2index.exit.i309
@@ -3533,7 +3533,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
   %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %3, 2
+  %cmp6.i.not = icmp samesign ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i143.i, label %do.end4
 
 if.else.i143.i:                                   ; preds = %lor.rhs.i
@@ -3674,7 +3674,7 @@ if.end.i143:                                      ; preds = %land.lhs.true8.i, %
 lor.rhs.i147:                                     ; preds = %if.end.i143
   %sub.i150 = add i64 %alignment, -1
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i152.not = icmp ult i64 %13, 2
+  %cmp6.i152.not = icmp samesign ult i64 %13, 2
   br i1 %cmp6.i152.not, label %land.lhs.true.i.i326, label %if.then
 
 land.lhs.true.i.i326:                             ; preds = %lor.rhs.i147
@@ -3932,7 +3932,7 @@ if.else.i143.i:                                   ; preds = %entry, %tsd_fetch_i
 if.then.i1366:                                    ; preds = %if.else.i143.i
   %add.i1368 = add nuw nsw i64 %size, 4095
   %and.i1371 = and i64 %add.i1368, 28672
-  %cmp.i30.i1372 = icmp ult i64 %and.i1371, 4097
+  %cmp.i30.i1372 = icmp samesign ult i64 %and.i1371, 4097
   br i1 %cmp.i30.i1372, label %if.then.i36.i1408, label %if.end5.i.i1383
 
 if.then.i36.i1408:                                ; preds = %if.then.i1366
@@ -4053,7 +4053,7 @@ land.lhs.true.i.i325:                             ; preds = %land.lhs.true.i.i45
 if.then.i1233:                                    ; preds = %land.lhs.true.i.i325
   %add.i = add nuw nsw i64 %size, 4095
   %and.i1235 = and i64 %add.i, 28672
-  %cmp.i30.i = icmp ult i64 %and.i1235, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i1235, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end5.i.i1238
 
 if.then.i36.i:                                    ; preds = %if.then.i1233
@@ -4357,7 +4357,7 @@ if.end5.i724:                                     ; preds = %if.end.i156.i
 
 sz_size2index.exit.i:                             ; preds = %if.end5.i724, %if.then.i157.i
   %retval.i150.i.0 = phi i32 [ %conv.i200.i, %if.then.i157.i ], [ %add23.i, %if.end5.i724 ]
-  %cmp3.i.i = icmp ugt i32 %retval.i150.i.0, 234
+  %cmp3.i.i = icmp samesign ugt i32 %retval.i150.i.0, 234
   br i1 %cmp3.i.i, label %do.end13, label %aligned_usize_get.exit.i.thread768
 
 aligned_usize_get.exit.i.thread768:               ; preds = %sz_size2index.exit.i
@@ -4770,7 +4770,7 @@ if.end5.i735:                                     ; preds = %if.end.i156.i338
 
 sz_size2index.exit.i340:                          ; preds = %if.end5.i735, %if.then.i157.i350
   %retval.i150.i136.0 = phi i32 [ %conv.i200.i355, %if.then.i157.i350 ], [ %add23.i747, %if.end5.i735 ]
-  %cmp3.i.i342 = icmp ugt i32 %retval.i150.i136.0, 234
+  %cmp3.i.i342 = icmp samesign ugt i32 %retval.i150.i136.0, 234
   br i1 %cmp3.i.i342, label %if.then8, label %aligned_usize_get.exit.i218.thread797
 
 aligned_usize_get.exit.i218.thread797:            ; preds = %sz_size2index.exit.i340
@@ -5581,7 +5581,7 @@ if.end5.i341:                                     ; preds = %if.end.i.i539
 sz_size2index.exit.i:                             ; preds = %if.end5.i341, %if.then.i.i553
   %retval.i.i522.0 = phi i32 [ %conv.i29.i, %if.then.i.i553 ], [ %add23.i, %if.end5.i341 ]
   %conv7.i = zext nneg i32 %retval.i.i522.0 to i64
-  %cmp8.i = icmp ult i32 %retval.i.i522.0, 39
+  %cmp8.i = icmp samesign ult i32 %retval.i.i522.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i542
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i
@@ -6075,7 +6075,7 @@ if.end5.i:                                        ; preds = %if.end.i156.i
 
 sz_size2index.exit.i:                             ; preds = %if.end5.i, %if.then.i157.i
   %retval.i150.i.0 = phi i32 [ %conv.i200.i, %if.then.i157.i ], [ %add23.i, %if.end5.i ]
-  %cmp3.i.i = icmp ugt i32 %retval.i150.i.0, 234
+  %cmp3.i.i = icmp samesign ugt i32 %retval.i150.i.0, 234
   br i1 %cmp3.i.i, label %if.then112.i, label %land.lhs.true.i31.i686
 
 land.lhs.true.i31.i686:                           ; preds = %sz_size2index.exit.i
@@ -6300,7 +6300,7 @@ if.end5.i719:                                     ; preds = %if.end.i156.i325
 
 sz_size2index.exit.i327:                          ; preds = %if.end5.i719, %if.then.i157.i337
   %retval.i150.i123.0 = phi i32 [ %conv.i200.i342, %if.then.i157.i337 ], [ %add23.i731, %if.end5.i719 ]
-  %cmp3.i.i329 = icmp ugt i32 %retval.i150.i123.0, 234
+  %cmp3.i.i329 = icmp samesign ugt i32 %retval.i150.i123.0, 234
   br i1 %cmp3.i.i329, label %if.then112.i255, label %if.end24.i206
 
 if.end24.i206:                                    ; preds = %sz_size2index.exit.i327
@@ -7408,7 +7408,7 @@ if.end5.i476:                                     ; preds = %if.end.i.i916
 sz_size2index.exit.i918:                          ; preds = %if.end5.i476, %if.then.i.i1044
   %retval.i.i897.0 = phi i32 [ %conv.i29.i1049, %if.then.i.i1044 ], [ %add23.i488, %if.end5.i476 ]
   %conv7.i919 = zext nneg i32 %retval.i.i897.0 to i64
-  %cmp8.i920 = icmp ult i32 %retval.i.i897.0, 39
+  %cmp8.i920 = icmp samesign ult i32 %retval.i.i897.0, 39
   br i1 %cmp8.i920, label %if.then19.i981, label %if.else.i928
 
 if.then19.i981:                                   ; preds = %sz_size2index.exit.i918
@@ -7595,7 +7595,7 @@ if.end5.i508:                                     ; preds = %if.end.i.i399
 sz_size2index.exit.i:                             ; preds = %if.end5.i508, %if.then.i.i407
   %retval.i.i381.0 = phi i32 [ %conv.i29.i, %if.then.i.i407 ], [ %add23.i520, %if.end5.i508 ]
   %conv7.i = zext nneg i32 %retval.i.i381.0 to i64
-  %cmp8.i = icmp ult i32 %retval.i.i381.0, 39
+  %cmp8.i = icmp samesign ult i32 %retval.i.i381.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i402
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i
@@ -8542,7 +8542,7 @@ if.then104:                                       ; preds = %if.then89, %if.then
   %bin.val4.i = load i16, ptr %32, align 8
   %sub.i.i6.i = sub i16 %bin.val3.i, %bin.val4.i
   %33 = lshr i16 %sub.i.i6.i, 3
-  %cmp.i201 = icmp ult i16 %31, %33
+  %cmp.i201 = icmp samesign ult i16 %31, %33
   br i1 %cmp.i201, label %if.then.i, label %cache_bin_low_water_adjust.exit
 
 if.then.i:                                        ; preds = %if.then104
@@ -12791,7 +12791,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 sz_size2index.exit:                               ; preds = %if.end5.i, %if.then.i
   %retval.i.0 = phi i32 [ %conv.i13, %if.then.i ], [ %add23.i, %if.end5.i ]
-  %cmp = icmp ult i32 %retval.i.0, 39
+  %cmp = icmp samesign ult i32 %retval.i.0, 39
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sz_size2index.exit

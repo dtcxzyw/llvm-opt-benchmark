@@ -740,7 +740,7 @@ _ZN4core3ops5range11RangeBounds8contains17h7024f53f3afc80bbE.llvm.15236414416081
 .thread264:                                       ; preds = %20, %13, %.lr.ph, %17, %44, %41, %33, %28, %25, %14
   %.sroa.02.1.i = phi i64 [ %15, %41 ], [ %15, %14 ], [ %.sroa.02.0.i281, %28 ], [ %.sroa.02.0.i281, %25 ], [ %spec.select.i, %33 ], [ %spec.select25.i, %44 ], [ %.sroa.02.0.i281, %17 ], [ %.sroa.02.0.i281, %.lr.ph ], [ %.sroa.02.0.i281, %13 ], [ %spec.select, %20 ]
   %38 = add nuw nsw i64 %.sroa.08.0.i282, 1
-  %39 = icmp ult i64 %38, %.sroa.0.0.sroa.speculated.i
+  %39 = icmp samesign ult i64 %38, %.sroa.0.0.sroa.speculated.i
   %40 = icmp ult i64 %.sroa.02.1.i, %1
   %or.cond.i = select i1 %39, i1 %40, i1 false
   br i1 %or.cond.i, label %.lr.ph, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.llvm.15236414416081531888.exit
@@ -3988,7 +3988,7 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node15append_at_depth17hdb6405e51
   %45 = load i8, ptr %44, align 8, !noundef !7
   %46 = zext i8 %45 to i64
   %47 = add nuw nsw i64 %46, %42
-  %48 = icmp ult i64 %47, 25
+  %48 = icmp samesign ult i64 %47, 25
   br i1 %48, label %.preheader, label %51
 
 .preheader:                                       ; preds = %38
@@ -4573,7 +4573,7 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node16prepend_at_depth17he2ba03bc
   %46 = load i8, ptr %45, align 8, !alias.scope !527, !noundef !7
   %47 = zext i8 %46 to i64
   %48 = add nuw nsw i64 %47, %43
-  %49 = icmp ult i64 %48, 25
+  %49 = icmp samesign ult i64 %48, 25
   br i1 %49, label %.preheader, label %52
 
 .preheader:                                       ; preds = %39
@@ -8314,7 +8314,7 @@ _ZN4core3ops5range11RangeBounds8contains17h7024f53f3afc80bbE.llvm.15236414416081
 .thread449:                                       ; preds = %151, %144, %.lr.ph501, %148, %175, %172, %164, %159, %156, %145
   %.sroa.02.1.i6 = phi i64 [ %146, %172 ], [ %146, %145 ], [ %.sroa.02.0.i3498, %159 ], [ %.sroa.02.0.i3498, %156 ], [ %spec.select.i8, %164 ], [ %spec.select25.i9, %175 ], [ %.sroa.02.0.i3498, %148 ], [ %.sroa.02.0.i3498, %.lr.ph501 ], [ %.sroa.02.0.i3498, %144 ], [ %spec.select, %151 ]
   %169 = add nuw nsw i64 %.sroa.08.0.i4499, 1
-  %170 = icmp ult i64 %169, %.sroa.0.0.sroa.speculated.i
+  %170 = icmp samesign ult i64 %169, %.sroa.0.0.sroa.speculated.i
   %171 = icmp ult i64 %.sroa.02.1.i6, %2
   %or.cond.i5 = select i1 %170, i1 %171, i1 false
   br i1 %or.cond.i5, label %.lr.ph501, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.llvm.15236414416081531888.exit10

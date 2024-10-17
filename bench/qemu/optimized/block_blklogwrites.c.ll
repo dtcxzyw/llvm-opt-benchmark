@@ -176,7 +176,7 @@ if.end42:                                         ; preds = %if.end35
 
 blk_log_writes_sector_size_valid.exit:            ; preds = %if.end42
   %7 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
-  %tobool1.not.i.i = icmp ult i32 %7, 2
+  %tobool1.not.i.i = icmp samesign ult i32 %7, 2
   %8 = add i32 %6, -32
   %9 = icmp ult i32 %8, 16777184
   %spec.select.i = and i1 %9, %tobool1.not.i.i
@@ -217,7 +217,7 @@ if.end66:                                         ; preds = %blk_log_writes_sect
 
 blk_log_writes_sector_size_valid.exit51:          ; preds = %if.end66
   %14 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %conv67)
-  %tobool1.not.i.i48 = icmp ult i32 %14, 2
+  %tobool1.not.i.i48 = icmp samesign ult i32 %14, 2
   %15 = add i32 %conv67, -32
   %16 = icmp ult i32 %15, 16777184
   %spec.select.i50 = and i1 %16, %tobool1.not.i.i48

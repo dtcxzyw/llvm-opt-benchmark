@@ -25,12 +25,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ugt i32 %and, 1074
+  %cmp = icmp samesign ugt i32 %and, 1074
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
   %sub5 = add nsw i32 %and, -1075
-  %cmp7 = icmp ult i32 %and, 1107
+  %cmp7 = icmp samesign ult i32 %and, 1107
   %sh_prom = zext nneg i32 %sub5 to i64
   %shl = shl i64 %0, %sh_prom
   %1 = trunc i64 %shl to i32
@@ -41,7 +41,7 @@ if.then6:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %and4 = and i64 %0, 4503599627370495
   %or = or disjoint i64 %and4, 4503599627370496
-  %cmp10 = icmp ugt i32 %and, 1022
+  %cmp10 = icmp samesign ugt i32 %and, 1022
   %sub13 = sub nuw nsw i32 1075, %and
   %sh_prom14 = zext nneg i32 %sub13 to i64
   %shr15 = lshr i64 %or, %sh_prom14

@@ -125,7 +125,7 @@ for.cond2.preheader:                              ; preds = %entry, %21
   %best_dist_cost.0364 = phi double [ 0x547D42AEA2879F2E, %entry ], [ %best_dist_cost.1348399, %21 ]
   %check_orig.0363 = phi i32 [ 1, %entry ], [ %check_orig.2400, %21 ]
   %ndirect_msb.0362 = phi i32 [ 0, %entry ], [ %22, %21 ]
-  %cmp3351 = icmp ult i32 %ndirect_msb.0362, 16
+  %cmp3351 = icmp samesign ult i32 %ndirect_msb.0362, 16
   br i1 %cmp3351, label %for.body4.lr.ph, label %for.end.thread
 
 for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
@@ -278,7 +278,7 @@ CommandRestoreDistanceCode.exit.us.i:             ; preds = %if.else.i.us.i, %if
   br i1 %cmp13.us.i, label %for.end, label %if.end16.us.i
 
 if.end16.us.i:                                    ; preds = %CommandRestoreDistanceCode.exit.us.i
-  %cmp.i37.us.i = icmp ugt i64 %add.i36.us.i, %conv12.us.i
+  %cmp.i37.us.i = icmp samesign ugt i64 %add.i36.us.i, %conv12.us.i
   br i1 %cmp.i37.us.i, label %if.end22.us.i, label %if.else.i38.us.i
 
 if.else.i38.us.i:                                 ; preds = %if.end16.us.i
@@ -535,7 +535,7 @@ CommandRestoreDistanceCode.exit.i:                ; preds = %if.else.i.i288, %if
   %conv12.i = zext i32 %34 to i64
   %dist_extra_.i = getelementptr inbounds i8, ptr %arrayidx.i275, i64 8
   %add.i21.i = add nuw nsw i64 %conv12.i, 16
-  %cmp.i22.i = icmp ugt i64 %add.i21.i, %conv10.i
+  %cmp.i22.i = icmp samesign ugt i64 %add.i21.i, %conv10.i
   br i1 %cmp.i22.i, label %if.then.i29.i, label %if.else.i23.i
 
 if.then.i29.i:                                    ; preds = %CommandRestoreDistanceCode.exit.i

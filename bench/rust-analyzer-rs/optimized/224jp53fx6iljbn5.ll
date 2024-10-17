@@ -617,7 +617,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %92
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %107 = zext nneg i16 %106 to i64
   %108 = lshr i64 %107, 6
-  %109 = icmp ult i16 %106, 192
+  %109 = icmp samesign ult i16 %106, 192
   br i1 %109, label %_ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit, label %110, !prof !113
 
 110:                                              ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i
@@ -1851,7 +1851,7 @@ define hidden void @_ZN6parser9token_set8TokenSet3new17h7314c434172fc72dE(ptr no
   %6 = load i16, ptr %5, align 2, !range !17, !noundef !4
   %7 = zext nneg i16 %6 to i64
   %8 = lshr i64 %7, 6
-  %9 = icmp ult i16 %6, 192
+  %9 = icmp samesign ult i16 %6, 192
   br i1 %9, label %10, label %17, !prof !468
 
 10:                                               ; preds = %.lr.ph
@@ -1899,7 +1899,7 @@ define hidden noundef zeroext i1 @_ZN6parser9token_set8TokenSet8contains17h30a4f
   tail call void @llvm.assume(i1 %3)
   %4 = zext nneg i16 %1 to i64
   %5 = lshr i64 %4, 6
-  %6 = icmp ult i16 %1, 192
+  %6 = icmp samesign ult i16 %1, 192
   br i1 %6, label %7, label %14, !prof !468
 
 7:                                                ; preds = %2

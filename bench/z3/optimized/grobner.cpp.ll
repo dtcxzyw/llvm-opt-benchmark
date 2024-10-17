@@ -2062,7 +2062,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIP4exprLb
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -2114,7 +2114,7 @@ while.body.i.i.i.i39:                             ; preds = %for.end, %if.end4.i
   br i1 %cmp2.not.i.i.i.i45, label %if.end4.i.i.i.i47, label %if.else.i.i46
 
 if.end4.i.i.i.i47:                                ; preds = %while.body.i.i.i.i39
-  %cmp1.not.i.i.i.i48 = icmp ult i64 %storemerge27.i.i.in.in.i.i40, 3
+  %cmp1.not.i.i.i.i48 = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i40, 3
   br i1 %cmp1.not.i.i.i.i48, label %if.then3.i.i34, label %while.body.i.i.i.i39, !llvm.loop !19
 
 if.then3.i.i34:                                   ; preds = %if.end4.i.i.i.i47
@@ -2807,7 +2807,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIP4exprLb
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -3142,7 +3142,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIP4exprLb
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i87
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -3390,7 +3390,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN7grobn
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !19
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -4060,7 +4060,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN7grobn
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !19
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -4312,7 +4312,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN7grobn
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !19
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -5307,7 +5307,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN7grobn
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !19
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -5954,7 +5954,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6vectorIP4exprLb
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i62
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i

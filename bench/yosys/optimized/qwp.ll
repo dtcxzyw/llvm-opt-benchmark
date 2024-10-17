@@ -15193,7 +15193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %.1155 = select i1 %211, i32 %212, i32 %.0154325
   %.1153 = select i1 %211, i32 %204, i32 %.0152326
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %213 = icmp ult i64 %indvars.iv.next376, %202
+  %213 = icmp samesign ult i64 %indvars.iv.next376, %202
   br i1 %213, label %.lr.ph328, label %._crit_edge329.loopexit, !llvm.loop !208
 
 ._crit_edge329.loopexit:                          ; preds = %.lr.ph328

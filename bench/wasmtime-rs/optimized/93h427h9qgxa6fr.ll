@@ -919,7 +919,7 @@ define void @_ZN18cranelift_frontend6switch6Switch4emit17h2c6ede5ca4d45c30E(ptr 
   %73 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !287
   %74 = icmp ult i64 %73, 6
   call void @llvm.assume(i1 %74)
-  %75 = icmp ugt i64 %73, 4
+  %75 = icmp samesign ugt i64 %73, 4
   br i1 %75, label %87, label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha5b37bf21f3e8135E.exit.i"
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha5b37bf21f3e8135E.exit.i": ; preds = %94, %72
@@ -1103,7 +1103,7 @@ define void @_ZN18cranelift_frontend6switch6Switch4emit17h2c6ede5ca4d45c30E(ptr 
   %116 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !287
   %117 = icmp ult i64 %116, 6
   call void @llvm.assume(i1 %117)
-  %118 = icmp ugt i64 %116, 4
+  %118 = icmp samesign ugt i64 %116, 4
   br i1 %118, label %119, label %186
 
 119:                                              ; preds = %115

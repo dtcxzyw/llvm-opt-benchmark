@@ -585,7 +585,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   %178 = zext i16 %177 to i32
   %179 = load i32, ptr %61, align 8
   %180 = udiv i32 %179, 5
-  %181 = icmp ult i32 %180, %178
+  %181 = icmp samesign ult i32 %180, %178
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %175
@@ -2884,7 +2884,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load i64, ptr %78, align 32
   %80 = udiv i64 4294967295, %79
-  %81 = icmp ugt i64 %80, %76
+  %81 = icmp samesign ugt i64 %80, %76
   br i1 %81, label %83, label %82
 
 82:                                               ; preds = %73
@@ -3556,7 +3556,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %509 = add nuw nsw i64 %434, 1
   %510 = load i32, ptr %394, align 4
   %511 = zext i32 %510 to i64
-  %512 = icmp ult i64 %509, %511
+  %512 = icmp samesign ult i64 %509, %511
   br i1 %512, label %.preheader92, label %.loopexit93.loopexit, !llvm.loop !44
 
 .loopexit93.loopexit:                             ; preds = %508
@@ -3911,7 +3911,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %726 = add nuw nsw i64 %712, 1
   %727 = load i32, ptr %394, align 4
   %728 = zext i32 %727 to i64
-  %729 = icmp ult i64 %726, %728
+  %729 = icmp samesign ult i64 %726, %728
   br i1 %729, label %708, label %699, !llvm.loop !50
 
 730:                                              ; preds = %743
@@ -3964,7 +3964,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %759 = add nuw nsw i64 %745, 1
   %760 = load i32, ptr %394, align 4
   %761 = zext i32 %760 to i64
-  %762 = icmp ult i64 %759, %761
+  %762 = icmp samesign ult i64 %759, %761
   br i1 %762, label %741, label %730, !llvm.loop !51
 
 .loopexit84:                                      ; preds = %.loopexit85, %808
@@ -4040,7 +4040,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %818 = add nuw nsw i64 %776, 1
   %819 = load i32, ptr %394, align 4
   %820 = zext i32 %819 to i64
-  %821 = icmp ult i64 %818, %820
+  %821 = icmp samesign ult i64 %818, %820
   br i1 %821, label %765, label %.loopexit84, !llvm.loop !52
 
 .preheader87:                                     ; preds = %.loopexit84, %.preheader87

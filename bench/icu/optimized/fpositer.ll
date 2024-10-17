@@ -224,7 +224,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx.i, align 4
   %7 = or disjoint i64 %indvars.iv, 1
-  %cmp5.i22 = icmp ult i64 %7, %4
+  %cmp5.i22 = icmp samesign ult i64 %7, %4
   br i1 %cmp5.i22, label %cond.true.i25, label %_ZNK6icu_759UVector3210elementAtiEi.exit29
 
 cond.true.i25:                                    ; preds = %cond.true.i

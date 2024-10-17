@@ -934,7 +934,7 @@ add_rms_values.exit:                              ; preds = %158, %142, %127
   %227 = zext i32 %204 to i64
   %228 = add nuw nsw i64 %226, %227
   store i16 0, ptr %9, align 2
-  %229 = icmp ugt i64 %228, %225
+  %229 = icmp samesign ugt i64 %228, %225
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %.cont.i
@@ -942,7 +942,7 @@ add_rms_values.exit:                              ; preds = %158, %142, %127
   br label %236
 
 232:                                              ; preds = %.cont.i
-  %233 = icmp ult i64 %228, %225
+  %233 = icmp samesign ult i64 %228, %225
   br i1 %233, label %234, label %.thread.i.i
 
 234:                                              ; preds = %232

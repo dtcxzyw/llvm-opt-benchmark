@@ -141,7 +141,7 @@ declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 7) %4) unnamed_addr #0 {
   %6 = add nsw i32 %4, -1
-  %7 = icmp ugt i32 %4, 5
+  %7 = icmp samesign ugt i32 %4, 5
   br i1 %7, label %.loopexit79, label %8
 
 8:                                                ; preds = %5

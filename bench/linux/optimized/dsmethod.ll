@@ -543,7 +543,7 @@ acpi_ds_terminate_control_method.exit:            ; preds = %25, %37, %41
   %76 = add nuw nsw i64 %73, 1
   %77 = load i8, ptr %70, align 2
   %78 = zext i8 %77 to i64
-  %79 = icmp ult i64 %76, %78
+  %79 = icmp samesign ult i64 %76, %78
   br i1 %79, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %65

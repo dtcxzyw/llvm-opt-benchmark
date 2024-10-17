@@ -3852,7 +3852,7 @@ lex_savenext.exit:                                ; preds = %lex_more.exit, %con
   %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i, %lex_more.exit ]
   store i32 %cond.i.i, ptr %c, align 8
   %cmp = icmp eq i32 %cond.i.i, 61
-  %cmp1 = icmp ult i32 %count.0, 536870912
+  %cmp1 = icmp samesign ult i32 %count.0, 536870912
   %17 = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %17, label %while.body, label %while.end
 

@@ -324,7 +324,7 @@ define noundef i64 @_Z15fast_rv64e_clzwP11processor_t6insn_tm(ptr nocapture noun
 .preheader:                                       ; preds = %3
   %6 = lshr i64 %1, 15
   %7 = and i64 %6, 31
-  %8 = icmp ugt i64 %7, 15
+  %8 = icmp samesign ugt i64 %7, 15
   br i1 %8, label %21, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader
@@ -378,7 +378,7 @@ define noundef i64 @_Z15fast_rv64e_clzwP11processor_t6insn_tm(ptr nocapture noun
   %.020 = phi i64 [ %27, %26 ], [ 32, %28 ]
   %29 = lshr i64 %1, 7
   %30 = and i64 %29, 31
-  %31 = icmp ugt i64 %30, 15
+  %31 = icmp samesign ugt i64 %30, 15
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %.loopexit
@@ -432,7 +432,7 @@ define noundef i64 @_Z17logged_rv64e_clzwP11processor_t6insn_tm(ptr noundef %0, 
 .preheader:                                       ; preds = %3
   %6 = lshr i64 %1, 15
   %7 = and i64 %6, 31
-  %8 = icmp ugt i64 %7, 15
+  %8 = icmp samesign ugt i64 %7, 15
   br i1 %8, label %21, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader
@@ -543,7 +543,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.023, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %56 = icmp ugt i64 %31, 15
+  %56 = icmp samesign ugt i64 %31, 15
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

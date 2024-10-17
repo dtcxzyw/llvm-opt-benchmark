@@ -69,7 +69,7 @@ define range(i32 0, 2) i32 @Ivy_ManSeqFindCut_int(ptr nocapture noundef readonly
   %25 = icmp eq i32 %21, 4
   %26 = zext i1 %25 to i32
   %27 = add nuw nsw i32 %24, %26
-  %28 = icmp ugt i32 %27, 15
+  %28 = icmp samesign ugt i32 %27, 15
   br i1 %28, label %Ivy_NodeGetLeafCostOne.exit, label %29
 
 29:                                               ; preds = %23
@@ -2193,7 +2193,7 @@ Ivy_ManFindBoolCutCost.exit:                      ; preds = %443
   %.lobit9.i = and i32 %462, 1
   %463 = xor i32 %.lobit9.i, 1
   %464 = add nuw nsw i32 %463, %455
-  %465 = icmp ult i32 %464, 2
+  %465 = icmp samesign ult i32 %464, 2
   br i1 %465, label %.critedge10.loopexit, label %Ivy_ManFindBoolCutCost.exit.thread275
 
 Ivy_ManFindBoolCutCost.exit.thread275:            ; preds = %443, %443, %Ivy_ManFindBoolCutCost.exit

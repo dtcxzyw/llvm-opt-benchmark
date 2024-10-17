@@ -280,7 +280,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %76
-  %80 = icmp ult i64 %indvars.iv.i, 6
+  %80 = icmp samesign ult i64 %indvars.iv.i, 6
   %81 = and i1 %80, %46
   br i1 %81, label %.backedge, label %parseColumnHeaderFields.exit
 
@@ -293,7 +293,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 .thread:                                          ; preds = %76
   %82 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
   store ptr @parseFieldData, ptr %82, align 8
-  %83 = icmp ult i64 %indvars.iv.i, 6
+  %83 = icmp samesign ult i64 %indvars.iv.i, 6
   %84 = and i1 %83, %46
   br i1 %84, label %.backedge, label %parseColumnHeaderFields.exit.thread
 
@@ -1379,7 +1379,7 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
 31:                                               ; preds = %29, %26
   %32 = getelementptr i8, ptr %.0.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = icmp ugt i64 %indvars.iv.i, 5
+  %33 = icmp samesign ugt i64 %indvars.iv.i, 5
   %.not27.i = or i1 %33, %23
   br i1 %.not27.i, label %34, label %19, !llvm.loop !10
 

@@ -4944,9 +4944,9 @@ if.end.i:                                         ; preds = %invoke.cont22
   %and.i = and i32 %8, 16777215
   %div.i = udiv i32 %and.i, 19683
   %rem.urem.i = add nsw i32 %div.i, -729
-  %rem.cmp.i = icmp ult i32 %and.i, 14348907
+  %rem.cmp.i = icmp samesign ult i32 %and.i, 14348907
   %rem.i = select i1 %rem.cmp.i, i32 %div.i, i32 %rem.urem.i
-  %cmp3.i = icmp ult i32 %rem.i, 27
+  %cmp3.i = icmp samesign ult i32 %rem.i, 27
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -5166,7 +5166,7 @@ if.end7:                                          ; preds = %entry
   %conv12 = or disjoint i8 %7, 96
   %arrayidx13 = getelementptr inbounds i8, ptr %lang, i64 1
   store i8 %conv12, ptr %arrayidx13, align 1
-  %cmp15 = icmp ult i32 %rem, 729
+  %cmp15 = icmp samesign ult i32 %rem, 729
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end7

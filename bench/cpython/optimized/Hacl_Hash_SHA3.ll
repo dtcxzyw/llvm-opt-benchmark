@@ -2049,7 +2049,7 @@ Hacl_Impl_SHA3_absorb_inner.exit.i:               ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i.i.i)
   call void @Hacl_Impl_SHA3_state_permute(ptr noundef nonnull %s)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %0
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %0
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %Hacl_Impl_SHA3_absorb_inner.exit.i, %entry
@@ -2147,7 +2147,7 @@ for.body.i6:                                      ; preds = %for.body.i6, %for.b
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i.i3)
   call void @Hacl_Impl_SHA3_state_permute(ptr noundef nonnull %s)
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i7, 1
-  %cmp.i12 = icmp ult i64 %indvars.iv.next.i11, %20
+  %cmp.i12 = icmp samesign ult i64 %indvars.iv.next.i11, %20
   br i1 %cmp.i12, label %for.body.i6, label %Hacl_Impl_SHA3_squeeze.exit, !llvm.loop !9
 
 Hacl_Impl_SHA3_squeeze.exit:                      ; preds = %for.body.i6, %absorb.exit
@@ -2225,7 +2225,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %block.i)
   tail call void @Hacl_Impl_SHA3_state_permute(ptr noundef %s)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %0
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry

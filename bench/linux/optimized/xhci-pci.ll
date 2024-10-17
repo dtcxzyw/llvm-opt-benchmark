@@ -495,7 +495,7 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   %72 = lshr i32 %71, 24
   %73 = and i32 %72, 127
   %74 = zext nneg i32 %73 to i64
-  %75 = icmp ult i64 %70, %74
+  %75 = icmp samesign ult i64 %70, %74
   br i1 %75, label %23, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %69, %15, %8

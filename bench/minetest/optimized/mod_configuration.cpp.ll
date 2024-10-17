@@ -11817,7 +11817,7 @@ _ZSt8distanceISt14_List_iteratorI7ModSpecEENSt15iterator_traitsIT_E15difference_
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZSt8distanceISt14_List_iteratorI7ModSpecEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit
-  %cmp.i = icmp ugt i64 %__n.016.i.i.i, 22171567396285517
+  %cmp.i = icmp samesign ugt i64 %__n.016.i.i.i, 22171567396285517
   br i1 %cmp.i, label %if.then.i, label %_ZNSt6vectorI7ModSpecSaIS0_EE17_S_check_init_lenEmRKS1_.exit
 
 if.then.i:                                        ; preds = %if.then

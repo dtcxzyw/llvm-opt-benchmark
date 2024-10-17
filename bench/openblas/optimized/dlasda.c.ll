@@ -367,7 +367,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %254 = icmp eq i64 %253, 0
   %255 = select i1 %254, i32 1, i32 %252
   %256 = mul nuw nsw i32 %255, %248
-  %257 = icmp ult i64 %249, 4
+  %257 = icmp samesign ult i64 %249, 4
   br i1 %257, label %.thread13, label %.preheader18, !llvm.loop !12
 
 .thread13:                                        ; preds = %.preheader18, %242

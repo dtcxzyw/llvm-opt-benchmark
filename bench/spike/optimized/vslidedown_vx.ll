@@ -350,7 +350,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = add nuw nsw i128 %152, %47
   %154 = load i64, ptr %140, align 8
   %155 = zext i64 %154 to i128
-  %156 = icmp ult i128 %153, %155
+  %156 = icmp samesign ult i128 %153, %155
   %spec.select98 = select i1 %156, i64 %46, i64 0
   %157 = add i64 %spec.select98, %.094119
   switch i64 %132, label %173 [
@@ -712,7 +712,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = add nuw nsw i128 %152, %47
   %154 = load i64, ptr %140, align 8
   %155 = zext i64 %154 to i128
-  %156 = icmp ult i128 %153, %155
+  %156 = icmp samesign ult i128 %153, %155
   %spec.select98 = select i1 %156, i64 %46, i64 0
   %157 = add i64 %spec.select98, %.094119
   switch i64 %132, label %173 [
@@ -1040,7 +1040,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = add nuw nsw i128 %152, %47
   %154 = load i64, ptr %140, align 8
   %155 = zext i64 %154 to i128
-  %156 = icmp ult i128 %153, %155
+  %156 = icmp samesign ult i128 %153, %155
   %spec.select98 = select i1 %156, i64 %46, i64 0
   %157 = add i64 %spec.select98, %.094119
   switch i64 %132, label %173 [
@@ -1370,7 +1370,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %153 = add nuw nsw i128 %152, %47
   %154 = load i64, ptr %140, align 8
   %155 = zext i64 %154 to i128
-  %156 = icmp ult i128 %153, %155
+  %156 = icmp samesign ult i128 %153, %155
   %spec.select98 = select i1 %156, i64 %46, i64 0
   %157 = add i64 %spec.select98, %.094119
   switch i64 %132, label %173 [
@@ -1494,7 +1494,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32e_vslidedown
 41:                                               ; preds = %32
   %42 = lshr i64 %1, 15
   %43 = and i64 %42, 31
-  %44 = icmp ugt i64 %43, 15
+  %44 = icmp samesign ugt i64 %43, 15
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
@@ -1714,7 +1714,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = add nuw nsw i128 %159, %54
   %161 = load i64, ptr %147, align 8
   %162 = zext i64 %161 to i128
-  %163 = icmp ult i128 %160, %162
+  %163 = icmp samesign ult i128 %160, %162
   %spec.select100 = select i1 %163, i64 %53, i64 0
   %164 = add i64 %spec.select100, %.096123
   switch i64 %139, label %180 [
@@ -1840,7 +1840,7 @@ define noundef i64 @_Z24fast_rv64e_vslidedown_vxP11processor_t6insn_tm(ptr nound
 41:                                               ; preds = %32
   %42 = lshr i64 %1, 15
   %43 = and i64 %42, 31
-  %44 = icmp ugt i64 %43, 15
+  %44 = icmp samesign ugt i64 %43, 15
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
@@ -2060,7 +2060,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = add nuw nsw i128 %159, %54
   %161 = load i64, ptr %147, align 8
   %162 = zext i64 %161 to i128
-  %163 = icmp ult i128 %160, %162
+  %163 = icmp samesign ult i128 %160, %162
   %spec.select100 = select i1 %163, i64 %53, i64 0
   %164 = add i64 %spec.select100, %.096123
   switch i64 %139, label %180 [
@@ -2184,7 +2184,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32e_vslidedo
 41:                                               ; preds = %32
   %42 = lshr i64 %1, 15
   %43 = and i64 %42, 31
-  %44 = icmp ugt i64 %43, 15
+  %44 = icmp samesign ugt i64 %43, 15
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
@@ -2404,7 +2404,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = add nuw nsw i128 %159, %54
   %161 = load i64, ptr %147, align 8
   %162 = zext i64 %161 to i128
-  %163 = icmp ult i128 %160, %162
+  %163 = icmp samesign ult i128 %160, %162
   %spec.select100 = select i1 %163, i64 %53, i64 0
   %164 = add i64 %spec.select100, %.096123
   switch i64 %139, label %180 [
@@ -2530,7 +2530,7 @@ define noundef i64 @_Z26logged_rv64e_vslidedown_vxP11processor_t6insn_tm(ptr nou
 41:                                               ; preds = %32
   %42 = lshr i64 %1, 15
   %43 = and i64 %42, 31
-  %44 = icmp ugt i64 %43, 15
+  %44 = icmp samesign ugt i64 %43, 15
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
@@ -2750,7 +2750,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %160 = add nuw nsw i128 %159, %54
   %161 = load i64, ptr %147, align 8
   %162 = zext i64 %161 to i128
-  %163 = icmp ult i128 %160, %162
+  %163 = icmp samesign ult i128 %160, %162
   %spec.select100 = select i1 %163, i64 %53, i64 0
   %164 = add i64 %spec.select100, %.096123
   switch i64 %139, label %180 [

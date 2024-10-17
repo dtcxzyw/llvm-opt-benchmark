@@ -488,7 +488,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %199 = zext i16 %198 to i32
   %200 = sub nsw i32 %199, %189
   %201 = tail call noundef i32 @llvm.abs.i32(i32 %200, i1 true)
-  %202 = icmp ult i32 %201, 3
+  %202 = icmp samesign ult i32 %201, 3
   br i1 %202, label %203, label %207
 
 203:                                              ; preds = %196
@@ -1769,7 +1769,7 @@ _ZL11inConeLooseiiiPKiPi.exit.thread.i:           ; preds = %_ZL11inConeLooseiii
 143:                                              ; preds = %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i, %_ZL11inConeLooseiiiPKiPi.exit.thread.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZL11inConeLooseiiiPKiPi.exit.thread.i ], [ %indvars.iv.next.i.i, %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %144 = icmp ult i64 %indvars.iv.next.i.i, %indvars.iv198
+  %144 = icmp samesign ult i64 %indvars.iv.next.i.i, %indvars.iv198
   %145 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   %146 = select i1 %144, i32 %145, i32 0
   %147 = icmp eq i64 %indvars.iv.i.i, %indvars.iv182
@@ -2579,7 +2579,7 @@ _ZL14countPolyVertsPKti.exit101:                  ; preds = %57, %._crit_edge.lo
   br i1 %exitcond203.not, label %._crit_edge174.loopexit, label %.lr.ph173, !llvm.loop !36
 
 ._crit_edge174.loopexit:                          ; preds = %.lr.ph173
-  %92 = icmp ult i32 %spec.select, 3
+  %92 = icmp samesign ult i32 %spec.select, 3
   br label %._crit_edge174
 
 ._crit_edge174:                                   ; preds = %.preheader116, %.preheader, %._crit_edge174.loopexit, %39
@@ -4096,7 +4096,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyPtiii(ptr noca
 
 32:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not141.us = icmp ult i64 %indvars.iv.next, %22
+  %.not141.us = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %.not141.us, label %33, label %37
 
 33:                                               ; preds = %32
@@ -4175,7 +4175,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyPtiii(ptr noca
 
 69:                                               ; preds = %65
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %.not139.us = icmp ult i64 %indvars.iv.next180, %59
+  %.not139.us = icmp samesign ult i64 %indvars.iv.next180, %59
   br i1 %.not139.us, label %70, label %74
 
 70:                                               ; preds = %69
@@ -4711,7 +4711,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %237 = zext i16 %236 to i32
   %238 = sub nsw i32 %237, %227
   %239 = tail call noundef i32 @llvm.abs.i32(i32 %238, i1 true)
-  %240 = icmp ult i32 %239, 3
+  %240 = icmp samesign ult i32 %239, 3
   br i1 %240, label %241, label %245
 
 241:                                              ; preds = %234
@@ -5434,7 +5434,7 @@ _ZL6inConeiiiPKiPi.exit.thread:                   ; preds = %70, %63, %_ZL6inCon
 88:                                               ; preds = %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %89 = icmp ult i64 %indvars.iv.next.i, %85
+  %89 = icmp samesign ult i64 %indvars.iv.next.i, %85
   %90 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %91 = select i1 %89, i32 %90, i32 0
   %92 = icmp eq i64 %indvars.iv.i, %87

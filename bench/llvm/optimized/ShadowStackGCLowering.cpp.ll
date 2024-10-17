@@ -888,7 +888,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit.i: ; pr
   %223 = getelementptr inbounds i8, ptr %.111.i.i, i64 -1
   store i8 %222, ptr %223, align 1, !noalias !24
   %224 = udiv i64 %.0810.i.i, 10
-  %.not.i.i72 = icmp ult i64 %.0810.i.i, 10
+  %.not.i.i72 = icmp samesign ult i64 %.0810.i.i, 10
   br i1 %.not.i.i72, label %_ZN4llvm6utostrB5cxx11Emb.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN4llvm6utostrB5cxx11Emb.exit.i:                 ; preds = %.lr.ph.i.i, %.thread.i.i

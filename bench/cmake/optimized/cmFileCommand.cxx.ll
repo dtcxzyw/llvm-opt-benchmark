@@ -9033,8 +9033,8 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %430 = zext i8 %429 to i32
   %431 = icmp ne i32 %427, %430
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %432 = icmp ult i64 %indvars.iv, 2
-  %433 = and i1 %431, %432
+  %432 = icmp samesign ult i64 %indvars.iv, 2
+  %433 = select i1 %431, i1 %432, i1 false
   br i1 %433, label %.preheader380, label %.preheader375, !llvm.loop !120
 
 .lr.ph575:                                        ; preds = %.preheader375, %450
@@ -31823,7 +31823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %25
   %.0.lcssa.i = phi i64 [ %1, %25 ], [ %32, %.lr.ph.i7 ]
-  %45 = icmp ugt i64 %.0.lcssa.i, 9
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %._crit_edge.i

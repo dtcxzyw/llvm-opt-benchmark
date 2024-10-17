@@ -452,8 +452,8 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.0131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %19 = mul nuw nsw i32 %.0131.us, %1
-  %.not120.us = icmp ule i32 %.0131.us, %12
-  %20 = icmp ugt i32 %.0131.us, %14
+  %.not120.us = icmp samesign ule i32 %.0131.us, %12
+  %20 = icmp samesign ugt i32 %.0131.us, %14
   %21 = icmp slt i32 %.0131.us, %15
   %22 = add nuw nsw i32 %.0131.us, 1
   %23 = mul nuw nsw i32 %22, %1
@@ -1119,7 +1119,7 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
   tail call void %1(i32 noundef %.136, i32 noundef %10) #14
   %.reass = add i32 %.136, %invariant.op
   tail call void %1(i32 noundef %.136, i32 noundef %.reass) #14
-  %11 = icmp ult i32 %.03035, %.03237
+  %11 = icmp samesign ult i32 %.03035, %.03237
   %12 = add i32 %.136, 1
   br i1 %11, label %13, label %._crit_edge
 

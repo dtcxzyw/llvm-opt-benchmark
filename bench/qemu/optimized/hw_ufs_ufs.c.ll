@@ -363,7 +363,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i8, ptr %nutrs.i, align 8
   %11 = zext i8 %10 to i64
-  %cmp.i13 = icmp ult i64 %indvars.iv.next.i, %11
+  %cmp.i13 = icmp samesign ult i64 %indvars.iv.next.i, %11
   br i1 %cmp.i13, label %for.body.i, label %ufs_init_state.exit, !llvm.loop !5
 
 ufs_init_state.exit:                              ; preds = %for.body.i, %if.end
@@ -535,7 +535,7 @@ ufs_clear_req.exit:                               ; preds = %for.body, %if.then.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i8, ptr %nutrs, align 8
   %7 = zext i8 %6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %ufs_clear_req.exit, %entry
@@ -1718,7 +1718,7 @@ for.inc:                                          ; preds = %if.then10.i, %sw.ep
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %159 = load i8, ptr %nutrs, align 8
   %160 = zext i8 %159 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %160
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %160
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -1998,7 +1998,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i8, ptr %nutrs, align 8
   %46 = zext i8 %45 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %46
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry

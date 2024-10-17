@@ -249,7 +249,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   %21 = getelementptr inbounds i8, ptr %0, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp slt i8 %22, -64
-  %24 = icmp ugt i32 %20, 127
+  %24 = icmp samesign ugt i32 %20, 127
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %25, label %.thread47
 
@@ -288,12 +288,12 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 
 48:                                               ; preds = %33
   %49 = icmp slt i8 %43, -64
-  %50 = icmp ugt i32 %41, 2047
+  %50 = icmp samesign ugt i32 %41, 2047
   %or.cond3 = select i1 %49, i1 %50, i1 false
   br i1 %or.cond3, label %51, label %.thread47
 
 51:                                               ; preds = %48
-  %52 = icmp ult i32 %41, 55296
+  %52 = icmp samesign ult i32 %41, 55296
   %53 = add nsw i32 %35, -57344
   %54 = icmp ult i32 %53, 1056768
   %55 = or i1 %54, %52
@@ -337,12 +337,12 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 
 83:                                               ; preds = %61
   %84 = icmp slt i8 %76, -64
-  %85 = icmp ugt i32 %69, 65535
+  %85 = icmp samesign ugt i32 %69, 65535
   %or.cond5 = select i1 %84, i1 %85, i1 false
   br i1 %or.cond5, label %86, label %.thread47
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %80, 55296
+  %87 = icmp samesign ult i32 %80, 55296
   %88 = add nsw i32 %69, -57344
   %89 = icmp ult i32 %88, 1056768
   %90 = or i1 %89, %87
@@ -379,7 +379,7 @@ define noundef zeroext i1 @_ZN13sentencepiece11string_util19IsStructurallyValidE
   br i1 %or.cond, label %._crit_edge, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = icmp ult i32 %6, 55296
+  %11 = icmp samesign ult i32 %6, 55296
   %12 = add nsw i32 %6, -57344
   %13 = icmp ult i32 %12, 1056768
   %14 = or i1 %11, %13
@@ -422,7 +422,7 @@ define noundef range(i64 1, 5) i64 @_ZN13sentencepiece11string_util10EncodeUTF8E
 16:                                               ; preds = %6
   %17 = icmp ugt i32 %0, 1114111
   %spec.store.select = select i1 %17, i32 65533, i32 %0
-  %18 = icmp ult i32 %spec.store.select, 65536
+  %18 = icmp samesign ult i32 %spec.store.select, 65536
   %19 = trunc i32 %spec.store.select to i8
   %20 = and i8 %19, 63
   %21 = or disjoint i8 %20, -128
@@ -531,7 +531,7 @@ define void @_ZN13sentencepiece11string_util17UnicodeTextToUTF8B5cxx11ERKSt6vect
 24:                                               ; preds = %15
   %25 = icmp ugt i32 %11, 1114111
   %spec.store.select.i = select i1 %25, i32 65533, i32 %11
-  %26 = icmp ult i32 %spec.store.select.i, 65536
+  %26 = icmp samesign ult i32 %spec.store.select.i, 65536
   %27 = trunc i32 %spec.store.select.i to i8
   %28 = and i8 %27, 63
   %29 = or disjoint i8 %28, -128

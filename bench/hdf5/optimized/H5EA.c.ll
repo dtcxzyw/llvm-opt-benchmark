@@ -419,7 +419,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not, label %12, label %20
 
 12:                                               ; preds = %7
-  %13 = icmp ult i32 %2, 128
+  %13 = icmp samesign ult i32 %2, 128
   br i1 %13, label %14, label %285
 
 14:                                               ; preds = %12
@@ -491,7 +491,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not270, label %62, label %75
 
 62:                                               ; preds = %51
-  %63 = icmp ult i32 %2, 128
+  %63 = icmp samesign ult i32 %2, 128
   br i1 %63, label %64, label %285
 
 64:                                               ; preds = %62
@@ -580,7 +580,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not265, label %115, label %126
 
 115:                                              ; preds = %109
-  %116 = icmp ult i32 %2, 128
+  %116 = icmp samesign ult i32 %2, 128
   br i1 %116, label %117, label %285
 
 117:                                              ; preds = %115
@@ -631,7 +631,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not267, label %145, label %180
 
 145:                                              ; preds = %137
-  %146 = icmp ult i32 %2, 128
+  %146 = icmp samesign ult i32 %2, 128
   br i1 %146, label %147, label %285
 
 147:                                              ; preds = %145
@@ -730,7 +730,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not25, label %218, label %232
 
 218:                                              ; preds = %185
-  %219 = icmp ult i32 %2, 128
+  %219 = icmp samesign ult i32 %2, 128
   br i1 %219, label %220, label %285
 
 220:                                              ; preds = %218

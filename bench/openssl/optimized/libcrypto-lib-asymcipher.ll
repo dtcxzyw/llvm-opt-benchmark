@@ -170,7 +170,7 @@ for.inc:                                          ; preds = %sw.bb, %if.end62, %
   %cipher.171 = phi ptr [ %cipher.1.ph, %if.then65 ], [ %cipher.1.ph, %if.end62 ], [ null, %sw.bb ]
   %provkey.1 = phi ptr [ %provkey.276, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
   %inc = add nuw nsw i32 %iter.085, 1
-  %cmp28 = icmp ult i32 %iter.085, 2
+  %cmp28 = icmp samesign ult i32 %iter.085, 2
   %cmp30 = icmp eq ptr %provkey.1, null
   %17 = select i1 %cmp28, i1 %cmp30, i1 false
   br i1 %17, label %for.body, label %for.end, !llvm.loop !4

@@ -3061,7 +3061,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i:  ; preds = %16, %12, %8
 
 19:                                               ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
   %20 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i.i.i.i)
-  %21 = icmp ugt i32 %20, 1
+  %21 = icmp samesign ugt i32 %20, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i, %19
@@ -3180,7 +3180,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
 
 12:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %13 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %11)
-  %14 = icmp ugt i32 %13, 1
+  %14 = icmp samesign ugt i32 %13, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %12
@@ -3551,7 +3551,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %_ZNK4llvm3LLT19getS
 
 37:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
   %38 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ugt i32 %38, 1
+  %39 = icmp samesign ugt i32 %38, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %37
@@ -3672,7 +3672,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %33, %29, %.thread11
   %38 = lshr i64 %37, 3
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = tail call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %39)
-  %41 = icmp ugt i32 %40, 1
+  %41 = icmp samesign ugt i32 %40, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread7.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %36
@@ -3741,7 +3741,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i:       ; preds = %15, %11
 
 19:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i
   %20 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %18)
-  %21 = icmp ugt i32 %20, 1
+  %21 = icmp samesign ugt i32 %20, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i, %19

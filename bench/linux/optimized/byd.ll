@@ -274,7 +274,7 @@ define internal range(i32 -19, 1) i32 @byd_reconnect(ptr noundef %0) #0 align 16
   %9 = tail call i32 @byd_detect(ptr noundef %0, i1 noundef zeroext false), !range !12
   %10 = icmp ne i32 %9, 0
   %11 = add nuw nsw i32 %4, 1
-  %12 = icmp ult i32 %4, 2
+  %12 = icmp samesign ult i32 %4, 2
   %13 = select i1 %10, i1 %12, i1 false
   br i1 %13, label %3, label %14, !llvm.loop !13
 

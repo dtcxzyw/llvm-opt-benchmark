@@ -2516,7 +2516,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..rang
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   %3 = load i8, ptr %2, align 8, !range !434, !alias.scope !431, !noundef !5
-  %4 = icmp ult i8 %3, 21
+  %4 = icmp samesign ult i8 %3, 21
   br i1 %4, label %5, label %"_ZN4core3ptr52drop_in_place$LT$markdown..parser..MarkdownEvent$GT$17h869814de6c5dd589E.exit"
 
 5:                                                ; preds = %1

@@ -434,7 +434,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   ]
 
 124:                                              ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i.i"
-  %125 = icmp ugt i32 %.sroa.4.1.i.ph10.i10.i.i.i, 127
+  %125 = icmp samesign ugt i32 %.sroa.4.1.i.ph10.i10.i.i.i, 127
   br i1 %125, label %126, label %146
 
 126:                                              ; preds = %124
@@ -1030,7 +1030,7 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
   %.sroa.10.4 = phi i64 [ %267, %.critedge ], [ %.sroa.10.1159, %154 ]
   %.4 = add i64 %.3, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %163 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %163 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %163, label %.critedge.i, label %164
 
 164:                                              ; preds = %.critedge72.thread, %.critedge72
@@ -1039,11 +1039,11 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
   %.sroa.032.4177 = phi i64 [ %.sroa.032.3, %.critedge72.thread ], [ %.sroa.032.4, %.critedge72 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !154
-  %165 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %165 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %165, label %168, label %166
 
 166:                                              ; preds = %164
-  %167 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %167 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   br i1 %167, label %175, label %186
 
 168:                                              ; preds = %164
@@ -1238,7 +1238,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %"_ZN5alloc3vec
   ]
 
 244:                                              ; preds = %243
-  %245 = icmp ugt i32 %.sroa.4.0.i.ph, 127
+  %245 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 127
   br i1 %245, label %246, label %.critedge72.thread180
 
 .critedge72.thread180:                            ; preds = %244

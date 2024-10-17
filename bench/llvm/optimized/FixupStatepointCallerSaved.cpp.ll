@@ -1435,7 +1435,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE8containsERKS1_.exit.thread.i.i
   %493 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %474, i64 %492, i32 1
   %494 = load i32, ptr %493, align 4
   %495 = lshr i32 %494, 3
-  %496 = icmp ugt i32 %470, %495
+  %496 = icmp samesign ugt i32 %470, %495
   br i1 %496, label %497, label %_ZSt25__unguarded_linear_insertIPN4llvm8RegisterEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_.exit.i.i.i.i.i.i.i.i.i
 
 497:                                              ; preds = %445
@@ -2897,7 +2897,7 @@ _ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit.i.i: ; preds = %1242, %1
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 40
   %1254 = load i24, ptr %1253, align 8
   %1255 = zext i24 %1254 to i64
-  %1256 = icmp ult i64 %indvars.iv.next129.i.i, %1255
+  %1256 = icmp samesign ult i64 %indvars.iv.next129.i.i, %1255
   br i1 %1256, label %1159, label %._crit_edge105.i.i, !llvm.loop !46
 
 ._crit_edge105.i.i:                               ; preds = %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit60.i.i
@@ -5026,7 +5026,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   %79 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %60, i64 %78, i32 1
   %80 = load i32, ptr %79, align 4
   %81 = lshr i32 %80, 3
-  %82 = icmp ugt i32 %56, %81
+  %82 = icmp samesign ugt i32 %56, %81
   %83 = load ptr, ptr %10, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 288
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 272
@@ -5082,7 +5082,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   %131 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %112, i64 %130, i32 1
   %132 = load i32, ptr %131, align 4
   %133 = lshr i32 %132, 3
-  %134 = icmp ugt i32 %108, %133
+  %134 = icmp samesign ugt i32 %108, %133
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %88
@@ -5145,7 +5145,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   %185 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %166, i64 %184, i32 1
   %186 = load i32, ptr %185, align 4
   %187 = lshr i32 %186, 3
-  %188 = icmp ugt i32 %162, %187
+  %188 = icmp samesign ugt i32 %162, %187
   %.sroa.0.0.copyload.i.i34.i.i = load i32, ptr %0, align 4
   br i1 %188, label %189, label %191
 
@@ -5209,7 +5209,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   %236 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %217, i64 %235, i32 1
   %237 = load i32, ptr %236, align 4
   %238 = lshr i32 %237, 3
-  %239 = icmp ugt i32 %213, %238
+  %239 = icmp samesign ugt i32 %213, %238
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %193
@@ -5272,7 +5272,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   %290 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %271, i64 %289, i32 1
   %291 = load i32, ptr %290, align 4
   %292 = lshr i32 %291, 3
-  %293 = icmp ugt i32 %267, %292
+  %293 = icmp samesign ugt i32 %267, %292
   %.sroa.0.0.copyload.i.i39.i.i = load i32, ptr %0, align 4
   br i1 %293, label %294, label %296
 
@@ -5350,7 +5350,7 @@ _ZSt22__move_median_to_firstIPN4llvm8RegisterEN9__gnu_cxx5__ops15_Iter_comp_iter
   %346 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %327, i64 %345, i32 1
   %347 = load i32, ptr %346, align 4
   %348 = lshr i32 %347, 3
-  %349 = icmp ugt i32 %323, %348
+  %349 = icmp samesign ugt i32 %323, %348
   %350 = getelementptr inbounds i8, ptr %.1.i.i, i64 4
   br i1 %349, label %298, label %.preheader.i.i, !llvm.loop !64
 
@@ -5409,7 +5409,7 @@ _ZSt22__move_median_to_firstIPN4llvm8RegisterEN9__gnu_cxx5__ops15_Iter_comp_iter
   %398 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %379, i64 %397, i32 1
   %399 = load i32, ptr %398, align 4
   %400 = lshr i32 %399, 3
-  %401 = icmp ugt i32 %375, %400
+  %401 = icmp samesign ugt i32 %375, %400
   br i1 %401, label %.preheader.i.i, label %402, !llvm.loop !65
 
 402:                                              ; preds = %.preheader.i.i
@@ -5504,7 +5504,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   %63 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %44, i64 %62, i32 1
   %64 = load i32, ptr %63, align 4
   %65 = lshr i32 %64, 3
-  %66 = icmp ugt i32 %40, %65
+  %66 = icmp samesign ugt i32 %40, %65
   %spec.select = select i1 %66, i64 %14, i64 %12
   %67 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %spec.select
   %68 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.033
@@ -5599,7 +5599,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   %135 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %116, i64 %134, i32 1
   %136 = load i32, ptr %135, align 4
   %137 = lshr i32 %136, 3
-  %138 = icmp ugt i32 %112, %137
+  %138 = icmp samesign ugt i32 %112, %137
   br i1 %138, label %139, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
 
 139:                                              ; preds = %86
@@ -5691,7 +5691,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8RegisterEN9__gnu_cxx
   %55 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %36, i64 %54, i32 1
   %56 = load i32, ptr %55, align 4
   %57 = lshr i32 %56, 3
-  %58 = icmp ugt i32 %32, %57
+  %58 = icmp samesign ugt i32 %32, %57
   %.sroa.02.0.copyload = load i32, ptr %.022, align 4
   br i1 %58, label %59, label %.preheader23
 
@@ -5759,7 +5759,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8RegisterEN9__gnu_cxx
   %112 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %93, i64 %111, i32 1
   %113 = load i32, ptr %112, align 4
   %114 = lshr i32 %113, 3
-  %115 = icmp ugt i32 %89, %114
+  %115 = icmp samesign ugt i32 %89, %114
   br i1 %115, label %116, label %_ZSt25__unguarded_linear_insertIPN4llvm8RegisterEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_.exit
 
 116:                                              ; preds = %.preheader23

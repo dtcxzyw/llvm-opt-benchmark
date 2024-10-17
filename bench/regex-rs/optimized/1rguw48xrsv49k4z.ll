@@ -545,17 +545,17 @@ define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_ma
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
-  %3 = icmp ult i32 %1, 128
+  %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %5 = icmp ult i32 %1, 2048
+  %5 = icmp samesign ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   br i1 %7, label %15, label %26
 
 8:                                                ; preds = %4
@@ -830,7 +830,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   %.028 = phi i64 [ 1, %11 ], [ %17, %15 ]
   %21 = load i64, ptr %2, align 8, !noundef !5
   %22 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val42, i64 %5, i64 noundef %21)
-  %23 = icmp ult i32 %22, 128
+  %23 = icmp samesign ult i32 %22, 128
   br i1 %23, label %29, label %25
 
 24:                                               ; preds = %15
@@ -838,11 +838,11 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   unreachable
 
 25:                                               ; preds = %20
-  %26 = icmp ult i32 %22, 2048
+  %26 = icmp samesign ult i32 %22, 2048
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %22, 65536
+  %28 = icmp samesign ult i32 %22, 65536
   %. = select i1 %28, i64 3, i64 4
   br label %29
 
@@ -1037,7 +1037,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$10bum
   ]
 
 24:                                               ; preds = %21
-  %25 = icmp ugt i32 %23, 127
+  %25 = icmp samesign ugt i32 %23, 127
   br i1 %25, label %26, label %.critedge16
 
 26:                                               ; preds = %24
@@ -1240,15 +1240,15 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN12regex_syntax3ast
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !114, !noundef !5
   %10 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %9, i64 %5, i64 noundef %3)
-  %11 = icmp ult i32 %10, 128
+  %11 = icmp samesign ult i32 %10, 128
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp ult i32 %10, 2048
+  %13 = icmp samesign ult i32 %10, 2048
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %10, 65536
+  %15 = icmp samesign ult i32 %10, 65536
   %. = select i1 %15, i64 3, i64 4
   br label %16
 
@@ -1368,15 +1368,15 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread: ; pr
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val47 = load ptr, ptr %14, align 8, !nonnull !5, !align !114, !noundef !5
   %15 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val47, i64 %11, i64 noundef %9)
-  %16 = icmp ult i32 %15, 128
+  %16 = icmp samesign ult i32 %15, 128
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
-  %18 = icmp ult i32 %15, 2048
+  %18 = icmp samesign ult i32 %15, 2048
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %15, 65536
+  %20 = icmp samesign ult i32 %15, 65536
   %. = select i1 %20, i64 3, i64 4
   br label %21
 
@@ -1647,15 +1647,15 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$9span
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %.val14 = load i64, ptr %6, align 8, !noundef !5
   %7 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val13, i64 %.val14, i64 noundef %4)
-  %8 = icmp ult i32 %7, 128
+  %8 = icmp samesign ult i32 %7, 128
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ult i32 %7, 2048
+  %10 = icmp samesign ult i32 %7, 2048
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %7, 65536
+  %12 = icmp samesign ult i32 %7, 65536
   %. = select i1 %12, i64 3, i64 4
   br label %13
 
@@ -4791,7 +4791,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   br i1 %or.cond3.i.i.i.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %835
 
 835:                                              ; preds = %832
-  %836 = icmp ugt i32 %824, 127
+  %836 = icmp samesign ugt i32 %824, 127
   br i1 %836, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17h8a921ae1bdf9d79fE.llvm.4042359526532701921.exit.i.i.i.i.i", label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17h8a921ae1bdf9d79fE.llvm.4042359526532701921.exit.thread6.i.i.i.i.i"
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17h8a921ae1bdf9d79fE.llvm.4042359526532701921.exit.i.i.i.i.i": ; preds = %835
@@ -4820,7 +4820,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_with_c
   br i1 %or.cond3.i.i.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i.i, label %844
 
 844:                                              ; preds = %841
-  %845 = icmp ugt i32 %824, 127
+  %845 = icmp samesign ugt i32 %824, 127
   br i1 %845, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.i.i.i, label %_ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread131.i.i.i
 
 _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.i.i.i: ; preds = %844
@@ -7418,7 +7418,7 @@ _ZN12regex_syntax3ast5parse9Primitive18into_class_literal17haebb24efe881c381E.ex
   %.sroa.10726.0875.i = phi i64 [ %216, %.noexc82._crit_edge.i ], [ %.sroa.713.i.sroa.11.sroa.8.0.copyload520.i, %.noexc82.thread.i ]
   %.sroa.6724.0874.i = phi i64 [ %1434, %.noexc82._crit_edge.i ], [ %.sroa.713.i.sroa.11.sroa.0.0.copyload516.i, %.noexc82.thread.i ]
   %.sroa.28738.56.extract.trunc740.i = trunc i64 %.pre-phi.i to i32
-  %.not221.i.i = icmp ugt i32 %.sroa.22667.3838.i, %.sroa.28738.56.extract.trunc740.i
+  %.not221.i.i = icmp samesign ugt i32 %.sroa.22667.3838.i, %.sroa.28738.56.extract.trunc740.i
   br i1 %.not221.i.i, label %.critedge101.i.i, label %1916
 
 .critedge101.i.i:                                 ; preds = %1440
@@ -8898,7 +8898,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 .noexc408:                                        ; preds = %1818, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i.i423", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i.i421"
   %.sroa.4.0.i.ph6.i422 = phi i32 [ %1828, %1818 ], [ %1816, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i.i423" ], [ %1806, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i.i421" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %1830 = icmp ult i32 %.sroa.4.0.i.ph6.i422, 128
+  %1830 = icmp samesign ult i32 %.sroa.4.0.i.ph6.i422, 128
   br i1 %1830, label %1836, label %1832
 
 .invoke:                                          ; preds = %1787, %1783
@@ -8910,11 +8910,11 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   unreachable
 
 1832:                                             ; preds = %.noexc408
-  %1833 = icmp ult i32 %.sroa.4.0.i.ph6.i422, 2048
+  %1833 = icmp samesign ult i32 %.sroa.4.0.i.ph6.i422, 2048
   br i1 %1833, label %1836, label %1834
 
 1834:                                             ; preds = %1832
-  %1835 = icmp ult i32 %.sroa.4.0.i.ph6.i422, 65536
+  %1835 = icmp samesign ult i32 %.sroa.4.0.i.ph6.i422, 65536
   %..i = select i1 %1835, i64 3, i64 4
   br label %1836
 
@@ -9587,7 +9587,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN91_$LT$core..sl
   %1962 = load ptr, ptr %1961, align 8, !noalias !951, !noundef !5
   store i64 %1960, ptr %35, align 8, !noalias !943
   store ptr %1962, ptr %220, align 8, !noalias !943
-  %switch.i367 = icmp ult i64 %1960, 2
+  %switch.i367 = icmp samesign ult i64 %1960, 2
   br i1 %switch.i367, label %1983, label %1980
 
 1963:                                             ; preds = %1951
@@ -10803,7 +10803,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$26par
   store i64 %47, ptr %14, align 8
   %50 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %49, ptr %50, align 8
-  %switch = icmp ult i64 %47, 2
+  %switch = icmp samesign ult i64 %47, 2
   br i1 %switch, label %74, label %72
 
 51:                                               ; preds = %36
@@ -12175,15 +12175,15 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br i1 %348, label %.thread25.i.i.i.i, label %349
 
 349:                                              ; preds = %347
-  %350 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %350 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %350, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %351
 
 351:                                              ; preds = %349
-  %352 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %352 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %352, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i", label %353
 
 353:                                              ; preds = %351
-  %354 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %354 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %354, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.i.i.i"
 
@@ -13140,7 +13140,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i183.i: ; preds =
   br i1 %665, label %_ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580, label %666
 
 666:                                              ; preds = %664
-  %667 = icmp ult i32 %51, 128
+  %667 = icmp samesign ult i32 %51, 128
   br i1 %667, label %668, label %_ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread
 
 668:                                              ; preds = %666
@@ -13430,13 +13430,13 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i)
   %713 = load i64, ptr %34, align 8, !noalias !1251, !noundef !5
   %714 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %713), !noalias !1251
-  %715 = icmp ugt i32 %714, 47
+  %715 = icmp samesign ugt i32 %714, 47
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %712
   %717 = load i64, ptr %34, align 8, !noalias !1251, !noundef !5
   %718 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %717), !noalias !1251
-  %719 = icmp ult i32 %718, 56
+  %719 = icmp samesign ult i32 %718, 56
   br i1 %719, label %721, label %720
 
 720:                                              ; preds = %716, %712
@@ -13497,13 +13497,13 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread580: ;
 
 740:                                              ; preds = %722
   %741 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre41.i), !noalias !1251
-  %742 = icmp ugt i32 %741, 47
+  %742 = icmp samesign ugt i32 %741, 47
   %.sroa.032.0.copyload.pre40.i = load i64, ptr %34, align 8, !noalias !1251
   br i1 %742, label %743, label %724
 
 743:                                              ; preds = %740
   %744 = tail call fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.sroa.032.0.copyload.pre40.i), !noalias !1251
-  %745 = icmp ult i32 %744, 56
+  %745 = icmp samesign ult i32 %744, 56
   %.sroa.032.0.copyload.pre.i = load i64, ptr %34, align 8, !noalias !1251
   %746 = sub i64 %.sroa.032.0.copyload.pre.i, %.sroa.0.0.copyload.i
   %747 = icmp ult i64 %746, 3
@@ -13903,7 +13903,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
   ]
 
 24:                                               ; preds = %23
-  %25 = icmp ugt i32 %22, 127
+  %25 = icmp samesign ugt i32 %22, 127
   br i1 %25, label %26, label %.critedge41
 
 26:                                               ; preds = %24
@@ -13955,7 +13955,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
           to label %50 unwind label %.loopexit.split-lp.loopexit
 
 50:                                               ; preds = %.lr.ph
-  %51 = icmp ugt i32 %49, 47
+  %51 = icmp samesign ugt i32 %49, 47
   %.pre.pre114 = load i64, ptr %11, align 8
   br i1 %51, label %52, label %._crit_edge
 
@@ -13964,7 +13964,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
           to label %54 unwind label %.loopexit.split-lp.loopexit
 
 54:                                               ; preds = %52
-  %55 = icmp ult i32 %53, 58
+  %55 = icmp samesign ult i32 %53, 58
   %.pre.pre = load i64, ptr %11, align 8
   br i1 %55, label %56, label %._crit_edge
 
@@ -14021,7 +14021,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
   ]
 
 72:                                               ; preds = %71
-  %73 = icmp ugt i32 %70, 127
+  %73 = icmp samesign ugt i32 %70, 127
   br i1 %73, label %74, label %.critedge46
 
 74:                                               ; preds = %72
@@ -14433,7 +14433,7 @@ default.unreachable1:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$10visit_post17h5d0618c15e025ca7E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8, !range !950, !noundef !5
-  %switch = icmp ult i64 %4, 7
+  %switch = icmp samesign ult i64 %4, 7
   br i1 %switch, label %10, label %5
 
 5:                                                ; preds = %3
@@ -14586,7 +14586,7 @@ define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u
 define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$25visit_class_set_item_post17h457fb6f1ff0bfe19E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 152
   %5 = load i32, ptr %4, align 8, !range !1363, !noundef !5
-  %switch = icmp ult i32 %5, 1114118
+  %switch = icmp samesign ult i32 %5, 1114118
   br i1 %switch, label %11, label %6
 
 6:                                                ; preds = %3

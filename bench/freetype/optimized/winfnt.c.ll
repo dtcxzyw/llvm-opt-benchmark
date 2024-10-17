@@ -227,7 +227,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %22, label %fnt_face_get_dll_font.exit, label %99
 
 99:                                               ; preds = %98
-  %.not149.i = icmp ult i64 %28, %92
+  %.not149.i = icmp samesign ult i64 %28, %92
   br i1 %.not149.i, label %100, label %fnt_face_get_dll_font.exit.thread
 
 100:                                              ; preds = %99
@@ -582,7 +582,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %274 = load i16, ptr %179, align 2
   %275 = zext i16 %274 to i32
   %276 = add nuw nsw i32 %275, %273
-  %277 = icmp ugt i32 %276, %271
+  %277 = icmp samesign ugt i32 %276, %271
   br i1 %277, label %228, label %._crit_edge168.i, !llvm.loop !6
 
 ._crit_edge168.i:                                 ; preds = %269, %.preheader158.i
@@ -593,7 +593,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %282 = load i16, ptr %176, align 2
   %283 = zext i16 %282 to i32
   %284 = add nuw nsw i32 %283, %281
-  %285 = icmp ugt i32 %284, %279
+  %285 = icmp samesign ugt i32 %284, %279
   br i1 %285, label %205, label %._crit_edge171.i, !llvm.loop !7
 
 ._crit_edge171.i:                                 ; preds = %._crit_edge168.i, %.preheader159.i
@@ -604,7 +604,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %290 = load i16, ptr %169, align 2
   %291 = zext i16 %290 to i32
   %292 = add nuw nsw i32 %291, %289
-  %293 = icmp ugt i32 %292, %287
+  %293 = icmp samesign ugt i32 %292, %287
   br i1 %293, label %182, label %.loopexit161.i, !llvm.loop !8
 
 .loopexit161.i:                                   ; preds = %._crit_edge171.i, %166, %109, %43

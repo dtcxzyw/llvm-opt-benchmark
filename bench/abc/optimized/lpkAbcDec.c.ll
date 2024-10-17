@@ -55,7 +55,7 @@ define ptr @Lpk_ImplementFun(ptr nocapture noundef %0, ptr noundef %1, ptr nocap
   %31 = lshr i32 %30, 7
   %32 = and i32 %31, 31
   %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %21, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %21, %15
@@ -157,7 +157,7 @@ define ptr @Lpk_Implement_rec(ptr nocapture noundef %0, ptr noundef %1, ptr noca
   %23 = lshr i32 %22, 7
   %24 = and i32 %23, 31
   %25 = zext nneg i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %10, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %21, %4
@@ -356,7 +356,7 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
   %96 = and i32 %95, 31
   %97 = lshr i32 %94, 12
   %98 = and i32 %97, 15
-  %99 = icmp ugt i32 %96, %98
+  %99 = icmp samesign ugt i32 %96, %98
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %81
@@ -514,7 +514,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   %185 = load i32, ptr %11, align 8
   %186 = lshr i32 %185, 12
   %187 = and i32 %186, 15
-  %188 = icmp ugt i32 %184, %187
+  %188 = icmp samesign ugt i32 %184, %187
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %Abc_Clock.exit115
@@ -533,7 +533,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   %192 = phi i32 [ %.pre, %._crit_edge ], [ %185, %Abc_Clock.exit115 ]
   %193 = lshr i32 %192, 7
   %194 = and i32 %193, 31
-  %195 = icmp ugt i32 %194, %.pre-phi148
+  %195 = icmp samesign ugt i32 %194, %.pre-phi148
   br i1 %195, label %196, label %198
 
 196:                                              ; preds = %191
@@ -599,7 +599,7 @@ Abc_Clock.exit119:                                ; preds = %Abc_Clock.exit117, 
   %227 = and i32 %226, 31
   %228 = lshr i32 %225, 12
   %229 = and i32 %228, 15
-  %230 = icmp ugt i32 %227, %229
+  %230 = icmp samesign ugt i32 %227, %229
   br i1 %230, label %231, label %233
 
 231:                                              ; preds = %Abc_Clock.exit119
@@ -690,7 +690,7 @@ define ptr @Lpk_Decompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %27 = and i32 %26, 31
   %28 = lshr i32 %25, 12
   %29 = and i32 %28, 15
-  %.not29 = icmp ugt i32 %27, %29
+  %.not29 = icmp samesign ugt i32 %27, %29
   br i1 %.not29, label %32, label %30
 
 30:                                               ; preds = %22

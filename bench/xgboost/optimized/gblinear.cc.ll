@@ -5507,7 +5507,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.0117180 = phi i32 [ %109, %108 ], [ 0, %.preheader161 ]
   %.0118179 = phi i64 [ %.1119, %108 ], [ 0, %.preheader161 ]
   %.0120178 = phi i64 [ %.1121, %108 ], [ 1, %.preheader161 ]
-  %101 = icmp ult i32 %.0117180, 19
+  %101 = icmp samesign ult i32 %.0117180, 19
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %.lr.ph182
@@ -10110,7 +10110,7 @@ _ZN7xgboost6common4SpanIfLm18446744073709551615EEC2EPfm.exit: ; preds = %_ZNSt6v
   %164 = getelementptr inbounds i8, ptr %163, i64 24
   %165 = load i32, ptr %164, align 8
   %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %162, %166
+  %167 = icmp samesign ult i64 %162, %166
   br i1 %167, label %.preheader.us, label %._crit_edge44, !llvm.loop !76
 
 168:                                              ; preds = %83, %81

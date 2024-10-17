@@ -1121,7 +1121,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
 
 20:                                               ; preds = %15
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i13.i = icmp ugt i8 %17, 1
+  %.not.i13.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i13.i, i1 %21
   br i1 %or.cond36.i.i, label %29, label %22

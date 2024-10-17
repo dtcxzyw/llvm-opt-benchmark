@@ -470,7 +470,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 _ZNK4goal4sizeEv.exit:                            ; preds = %for.cond, %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
   %retval.0.i.i.i = phi i32 [ %9, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %10 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv183, %10
+  %cmp = icmp samesign ult i64 %indvars.iv183, %10
   br i1 %cmp, label %for.body, label %for.end102
 
 for.body:                                         ; preds = %_ZNK4goal4sizeEv.exit
@@ -845,7 +845,7 @@ if.end.i72:                                       ; preds = %land.rhs54
 
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %land.rhs54, %if.end.i72
   %retval.0.i74 = phi i64 [ %55, %if.end.i72 ], [ 0, %land.rhs54 ]
-  %cmp58 = icmp ult i64 %indvars.iv178, %retval.0.i74
+  %cmp58 = icmp samesign ult i64 %indvars.iv178, %retval.0.i74
   br i1 %cmp58, label %for.body60, label %for.cond77.preheader
 
 for.cond77.preheader:                             ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
@@ -1762,7 +1762,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %call5.i = tail call noundef i32 @_ZN15bv2int_rewriter6mk_addEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %29, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i85 = icmp eq i32 %call5.i, 4
-  %cmp2.i = icmp ult i64 %indvars.iv.next.i, %28
+  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %28
   %31 = select i1 %cmp.i85, i1 %cmp2.i, i1 false
   br i1 %31, label %for.body.i, label %return, !llvm.loop !15
 
@@ -1814,7 +1814,7 @@ for.body.i102:                                    ; preds = %for.body.i102, %for
   %call5.i105 = tail call noundef i32 @_ZN15bv2int_rewriter6mk_mulEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i103, 1
   %cmp.i107 = icmp eq i32 %call5.i105, 4
-  %cmp2.i108 = icmp ult i64 %indvars.iv.next.i106, %37
+  %cmp2.i108 = icmp samesign ult i64 %indvars.iv.next.i106, %37
   %40 = select i1 %cmp.i107, i1 %cmp2.i108, i1 false
   br i1 %40, label %for.body.i102, label %return, !llvm.loop !16
 
@@ -1866,7 +1866,7 @@ for.body.i125:                                    ; preds = %for.body.i125, %for
   %call5.i128 = tail call noundef i32 @_ZN15bv2int_rewriter6mk_subEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i126, 1
   %cmp.i130 = icmp eq i32 %call5.i128, 4
-  %cmp2.i131 = icmp ult i64 %indvars.iv.next.i129, %46
+  %cmp2.i131 = icmp samesign ult i64 %indvars.iv.next.i129, %46
   %49 = select i1 %cmp.i130, i1 %cmp2.i131, i1 false
   br i1 %49, label %for.body.i125, label %return, !llvm.loop !17
 
@@ -1948,7 +1948,7 @@ for.body:                                         ; preds = %if.then64, %for.con
   %indvars.iv165 = phi i64 [ 0, %if.then64 ], [ %indvars.iv.next166, %for.cond.loopexit ]
   %indvars.iv = phi i64 [ 1, %if.then64 ], [ %indvars.iv.next, %for.cond.loopexit ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %cmp68157 = icmp ult i64 %indvars.iv.next166, %65
+  %cmp68157 = icmp samesign ult i64 %indvars.iv.next166, %65
   br i1 %cmp68157, label %for.body69.lr.ph, label %for.cond.loopexit
 
 for.body69.lr.ph:                                 ; preds = %for.body
@@ -2590,7 +2590,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call5 = tail call noundef i32 @_ZN15bv2int_rewriter6mk_addEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call5, 4
-  %cmp2 = icmp ult i64 %indvars.iv.next, %5
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %5
   %8 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %8, label %for.body, label %for.end, !llvm.loop !15
 
@@ -2649,7 +2649,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call5 = tail call noundef i32 @_ZN15bv2int_rewriter6mk_mulEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call5, 4
-  %cmp2 = icmp ult i64 %indvars.iv.next, %5
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %5
   %8 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %8, label %for.body, label %for.end, !llvm.loop !16
 
@@ -2708,7 +2708,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call5 = tail call noundef i32 @_ZN15bv2int_rewriter6mk_subEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call5, 4
-  %cmp2 = icmp ult i64 %indvars.iv.next, %5
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %5
   %8 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %8, label %for.body, label %for.end, !llvm.loop !17
 
@@ -8565,7 +8565,7 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
@@ -12220,7 +12220,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !35
 

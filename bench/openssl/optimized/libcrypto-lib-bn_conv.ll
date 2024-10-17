@@ -335,7 +335,7 @@ if.end33:                                         ; preds = %if.else
 
 if.end34:                                         ; preds = %if.then24, %if.end33
   %ret.0 = phi ptr [ %call25, %if.then24 ], [ %3, %if.end33 ]
-  %cmp.i = icmp ugt i64 %indvars.iv, 536870896
+  %cmp.i = icmp samesign ugt i64 %indvars.iv, 536870896
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end34
@@ -494,7 +494,7 @@ if.else:                                          ; preds = %if.end21
 
 if.end30:                                         ; preds = %if.then24, %if.else
   %ret.1 = phi ptr [ %call25, %if.then24 ], [ %3, %if.else ]
-  %cmp.i = icmp ugt i64 %indvars.iv, 536870896
+  %cmp.i = icmp samesign ugt i64 %indvars.iv, 536870896
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end30

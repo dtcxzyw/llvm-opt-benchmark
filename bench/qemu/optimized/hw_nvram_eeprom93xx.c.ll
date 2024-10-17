@@ -105,7 +105,7 @@ if.then33:                                        ; preds = %if.else29
 if.else37:                                        ; preds = %if.else29
   %conv38 = zext i8 %0 to i32
   %add41 = add nuw nsw i32 %conv16, 20
-  %cmp42.not = icmp ugt i32 %add41, %conv38
+  %cmp42.not = icmp samesign ugt i32 %add41, %conv38
   br i1 %cmp42.not, label %if.end216, label %if.then44
 
 if.then44:                                        ; preds = %if.else37
@@ -196,7 +196,7 @@ if.else130:                                       ; preds = %if.else116
   %17 = load i8, ptr %addrbits132, align 1
   %conv133 = zext i8 %17 to i32
   %add134 = add nuw nsw i32 %conv133, 4
-  %cmp135 = icmp ugt i32 %add134, %conv95
+  %cmp135 = icmp samesign ugt i32 %add134, %conv95
   br i1 %cmp135, label %if.then137, label %if.else179
 
 if.then137:                                       ; preds = %if.else130
@@ -249,7 +249,7 @@ if.else172:                                       ; preds = %if.then148
 
 if.else179:                                       ; preds = %if.else130
   %add184 = add nuw nsw i32 %conv133, 20
-  %cmp185 = icmp ugt i32 %add184, %conv95
+  %cmp185 = icmp samesign ugt i32 %add184, %conv95
   br i1 %cmp185, label %if.then187, label %if.end216
 
 if.then187:                                       ; preds = %if.else179

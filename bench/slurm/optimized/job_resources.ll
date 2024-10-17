@@ -1083,7 +1083,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, -1
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next191, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next191, %172
   br i1 %173, label %.lr.ph163, label %.loopexit146.thread, !llvm.loop !16
 
 174:                                              ; preds = %141
@@ -1114,7 +1114,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   %186 = add nuw nsw i32 %185, 1
   store i32 %186, ptr %7, align 4
   %187 = zext i16 %184 to i32
-  %188 = icmp ult i32 %186, %187
+  %188 = icmp samesign ult i32 %186, %187
   br i1 %188, label %.preheader.outer, label %._crit_edge169.thread201, !llvm.loop !18
 
 ._crit_edge169:                                   ; preds = %.loopexit146

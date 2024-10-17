@@ -125,7 +125,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
   %38 = add nuw nsw i64 %30, 1
   %39 = load i32, ptr %24, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %25
@@ -479,7 +479,7 @@ define dso_local noundef i32 @crypto_sha3_final(ptr nocapture noundef %0, ptr no
   %38 = add nuw nsw i64 %30, 1
   %39 = load i32, ptr %27, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
+  %41 = icmp samesign ult i64 %38, %40
   br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %2

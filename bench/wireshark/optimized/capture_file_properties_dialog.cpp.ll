@@ -3565,7 +3565,7 @@ _ZN7QStringD2Ev.exit710:                          ; preds = %782, %_ZN17QArrayDa
   %790 = getelementptr inbounds i8, ptr %789, i64 8
   %791 = load i32, ptr %790, align 8
   %792 = zext i32 %791 to i64
-  %793 = icmp ult i64 %indvars.iv.next, %792
+  %793 = icmp samesign ult i64 %indvars.iv.next, %792
   br i1 %793, label %774, label %_ZN7QStringD2Ev.exit732, !llvm.loop !13
 
 794:                                              ; preds = %_ZN27CaptureFilePropertiesDialog2trEPKcS1_i.exit688
@@ -4938,7 +4938,7 @@ _ZN7QStringD2Ev.exit936:                          ; preds = %1150, %_ZN17QArrayD
 
 1260:                                             ; preds = %1253
   %1261 = zext i32 %1259 to i64
-  %1262 = icmp ult i64 %indvars.iv2788, %1261
+  %1262 = icmp samesign ult i64 %indvars.iv2788, %1261
   br i1 %1262, label %1266, label %.preheader
 
 .preheader:                                       ; preds = %1260
@@ -7063,7 +7063,7 @@ _ZN7QStringD2Ev.exit1394:                         ; preds = %_ZN7QStringD2Ev.exi
   %1912 = getelementptr inbounds i8, ptr %1911, i64 8
   %1913 = load i32, ptr %1912, align 8
   %1914 = zext i32 %1913 to i64
-  %1915 = icmp ult i64 %indvars.iv.next2783, %1914
+  %1915 = icmp samesign ult i64 %indvars.iv.next2783, %1914
   br i1 %1915, label %.lr.ph2761, label %._crit_edge, !llvm.loop !14
 
 1916:                                             ; preds = %_ZN27CaptureFilePropertiesDialog2trEPKcS1_i.exit1342
@@ -7782,7 +7782,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %2083, %_ZN17QArrayD
   %2123 = getelementptr inbounds i8, ptr %2122, i64 8
   %2124 = load i32, ptr %2123, align 8
   %2125 = zext i32 %2124 to i64
-  %2126 = icmp ult i64 %indvars.iv.next2792, %2125
+  %2126 = icmp samesign ult i64 %indvars.iv.next2792, %2125
   br i1 %2126, label %.lr.ph2765, label %._crit_edge2766, !llvm.loop !17
 
 ._crit_edge2766:                                  ; preds = %2121, %.preheader

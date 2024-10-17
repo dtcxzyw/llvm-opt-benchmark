@@ -59,7 +59,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %storemerge.i, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %storemerge.i to i64
-  %0 = icmp ugt i32 %storemerge.i, 57
+  %0 = icmp samesign ugt i32 %storemerge.i, 57
   %1 = shl i64 64, %sh_prom.i
   %2 = select i1 %0, i64 -1, i64 %1
   %call7.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %2) #12

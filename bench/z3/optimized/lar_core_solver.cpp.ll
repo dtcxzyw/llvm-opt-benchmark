@@ -1604,7 +1604,7 @@ if.end.i.i.i:                                     ; preds = %for.cond14
 
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit: ; preds = %for.cond14, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %37, %if.end.i.i.i ], [ 0, %for.cond14 ]
-  %cmp17 = icmp ult i64 %indvars.iv, %retval.0.i.i.i
+  %cmp17 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp17, label %for.body18, label %for.end38
 
 for.body18:                                       ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit

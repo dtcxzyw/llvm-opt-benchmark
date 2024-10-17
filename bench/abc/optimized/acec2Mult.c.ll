@@ -62,7 +62,7 @@ Gia_ObjIsXor.exit:
   %.pre331 = lshr i64 %.val90, 32
   %.pre333 = trunc nuw i64 %.pre331 to i32
   %.pre335 = and i32 %.pre333, 536870911
-  %14 = icmp uge i32 %.pre329, %.pre335
+  %14 = icmp samesign uge i32 %.pre329, %.pre335
   %spec.select = select i1 %narrow.i.not.i, i1 true, i1 %14
   %15 = load i32, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 4
@@ -363,7 +363,7 @@ Sdb_StoInitResult.exit.._crit_edge270_crit_edge:  ; preds = %Sdb_StoInitResult.e
   %151 = getelementptr inbounds i8, ptr %150, i64 20
   %152 = load i32, ptr %151, align 4
   %153 = lshr i32 %152, 28
-  %.not.i102.us = icmp ugt i32 %153, %147
+  %.not.i102.us = icmp samesign ugt i32 %153, %147
   br i1 %.not.i102.us, label %Sdb_CutSetCutIsContainedOrder.exit.thread.i.us, label %154
 
 154:                                              ; preds = %.lr.ph.split.split.i.us
@@ -441,7 +441,7 @@ Sdb_CutSetCutIsContainedOrder.exit.thread.i.us:   ; preds = %164, %176, %178, %1
   %186 = getelementptr inbounds i8, ptr %185, i64 20
   %187 = load i32, ptr %186, align 4
   %188 = lshr i32 %187, 28
-  %.not.us.us.i.us = icmp ugt i32 %188, %147
+  %.not.us.us.i.us = icmp samesign ugt i32 %188, %147
   br i1 %.not.us.us.i.us, label %Sdb_CutSetCutIsContainedOrder.exit.thread.us.us.i.us, label %189
 
 189:                                              ; preds = %.lr.ph.split.us.split.us.i.us
@@ -682,7 +682,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
 
 294:                                              ; preds = %287
   %indvars.iv.next138.i198.us = add nuw nsw i64 %indvars.iv137.i194.us, %282
-  %295 = icmp ult i64 %indvars.iv.next138.i198.us, %284
+  %295 = icmp samesign ult i64 %indvars.iv.next138.i198.us, %284
   br i1 %295, label %.preheader119.i193.us, label %296, !llvm.loop !15
 
 296:                                              ; preds = %294
@@ -870,7 +870,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %350, %Abc_TtCopy.ex
 
 397:                                              ; preds = %390
   %indvars.iv.next138.i171.us = add nuw nsw i64 %indvars.iv137.i167.us, %385
-  %398 = icmp ult i64 %indvars.iv.next138.i171.us, %387
+  %398 = icmp samesign ult i64 %indvars.iv.next138.i171.us, %387
   br i1 %398, label %.preheader119.i166.us, label %399, !llvm.loop !15
 
 399:                                              ; preds = %397
@@ -1040,7 +1040,7 @@ Abc_TtXor.exit.i.us:                              ; preds = %Abc_TtXor.exit.sink
 .lr.ph.split.split.split.i.i.us:                  ; preds = %Abc_TtHasVar.exit.thread.i.i.us, %.lr.ph.split.split.i.i.us
   %indvars.iv.i106.i.us = phi i64 [ %indvars.iv.next.i110.i.us, %Abc_TtHasVar.exit.thread.i.i.us ], [ 0, %.lr.ph.split.split.i.i.us ]
   %.033.i.i.us = phi i32 [ %.1.i109.i.us, %Abc_TtHasVar.exit.thread.i.i.us ], [ 0, %.lr.ph.split.split.i.i.us ]
-  %471 = icmp ult i64 %indvars.iv.i106.i.us, 6
+  %471 = icmp samesign ult i64 %indvars.iv.i106.i.us, 6
   %472 = trunc i64 %indvars.iv.i106.i.us to i32
   br i1 %471, label %.lr.ph.i.i114.i.us, label %.preheader.lr.ph.i.i.i.us
 
@@ -1150,7 +1150,7 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %478, %.lr.ph.i.i114
 
 526:                                              ; preds = %519
   %indvars.iv.next138.i.us = add nuw nsw i64 %indvars.iv137.i.us, %514
-  %527 = icmp ult i64 %indvars.iv.next138.i.us, %516
+  %527 = icmp samesign ult i64 %indvars.iv.next138.i.us, %516
   br i1 %527, label %.preheader119.i.us, label %528, !llvm.loop !15
 
 528:                                              ; preds = %526
@@ -1532,7 +1532,7 @@ Sdb_CutComputeTruth6.exit.i.us:                   ; preds = %Abc_Tt6MinBase.exit
   store i32 %746, ptr %747, align 8
   %748 = load i32, ptr %583, align 4
   %749 = lshr i32 %748, 28
-  %750 = icmp ult i32 %749, %619
+  %750 = icmp samesign ult i32 %749, %619
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1548,7 +1548,7 @@ Sdb_CutComputeTruth.exit.us:                      ; preds = %Abc_TtXor.exit.i.us
   store i32 %754, ptr %755, align 8
   %756 = load i32, ptr %205, align 4
   %757 = lshr i32 %756, 28
-  %758 = icmp ult i32 %757, %207
+  %758 = icmp samesign ult i32 %757, %207
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1655,7 +1655,7 @@ Sdb_CutTreeLeaves.exit.us:                        ; preds = %Sdb_CutTreeLeaves.e
   %805 = getelementptr inbounds i8, ptr %804, i64 20
   %806 = load i32, ptr %805, align 4
   %807 = lshr i32 %806, 28
-  %808 = icmp ult i32 %800, %807
+  %808 = icmp samesign ult i32 %800, %807
   br i1 %808, label %809, label %Sdb_CutSetCutIsContainedOrder.exit.thread.i.i.us
 
 809:                                              ; preds = %.outer.i.split.i.us
@@ -1712,7 +1712,7 @@ Sdb_CutSetCutIsContainedOrder.exit.thread.i.i.us: ; preds = %815, %827, %.prehea
   %830 = getelementptr inbounds i8, ptr %829, i64 20
   %831 = load i32, ptr %830, align 4
   %832 = lshr i32 %831, 28
-  %833 = icmp ult i32 %800, %832
+  %833 = icmp samesign ult i32 %800, %832
   br i1 %833, label %834, label %Sdb_CutSetCutIsContainedOrder.exit.thread.i.us.i.us
 
 834:                                              ; preds = %.outer.i.split.us.i.us
@@ -1800,17 +1800,17 @@ Sdb_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
   %.val15.i.i.us = load i32, ptr %865, align 4
   %866 = and i32 %.val.i.i138.us, 268435455
   %867 = and i32 %.val15.i.i.us, 268435455
-  %868 = icmp ult i32 %866, %867
+  %868 = icmp samesign ult i32 %866, %867
   br i1 %868, label %Sdb_CutSetSortByCost.exit.i.us, label %869
 
 869:                                              ; preds = %.lr.ph.i8.i.us
-  %870 = icmp ugt i32 %866, %867
+  %870 = icmp samesign ugt i32 %866, %867
   br i1 %870, label %Sdb_CutCompare.exit.i.i.us, label %871
 
 871:                                              ; preds = %869
   %872 = lshr i32 %.val.i.i138.us, 28
   %873 = lshr i32 %.val15.i.i.us, 28
-  %874 = icmp ult i32 %872, %873
+  %874 = icmp samesign ult i32 %872, %873
   br i1 %874, label %Sdb_CutSetSortByCost.exit.i.us, label %Sdb_CutCompare.exit.i.i.us
 
 Sdb_CutCompare.exit.i.i.us:                       ; preds = %871, %869
@@ -2097,7 +2097,7 @@ Vec_IntPush.exit34.i:                             ; preds = %991, %Vec_IntGrow.e
   %1000 = load i32, ptr %999, align 4
   %1001 = lshr i32 %1000, 28
   %1002 = zext nneg i32 %1001 to i64
-  %1003 = icmp ult i64 %indvars.iv.next.i149, %1002
+  %1003 = icmp samesign ult i64 %indvars.iv.next.i149, %1002
   br i1 %1003, label %.lr.ph.i147, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %Vec_IntPush.exit34.i, %Vec_IntPush.exit27.i
@@ -3259,7 +3259,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 
 .critedge6:                                       ; preds = %48, %43
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %57 = icmp ult i64 %indvars.iv.next216, %42
+  %57 = icmp samesign ult i64 %indvars.iv.next216, %42
   br i1 %57, label %43, label %.lr.ph196.preheader, !llvm.loop !51
 
 .lr.ph196.preheader:                              ; preds = %.critedge6, %Vec_IntStart.exit

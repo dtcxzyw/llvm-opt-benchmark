@@ -141,7 +141,7 @@ If_CutVerifyCut.exit:                             ; preds = %42, %22
   %51 = load i64, ptr %12, align 4
   %52 = lshr i64 %51, 24
   %53 = and i64 %52, 255
-  %54 = icmp ult i64 %indvars.iv.next.i35, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next.i35, %53
   br i1 %54, label %.lr.ph.i, label %If_CutPrint.exit, !llvm.loop !7
 
 If_CutPrint.exit:                                 ; preds = %.lr.ph.i, %If_CutVerifyCut.exit
@@ -171,7 +171,7 @@ If_CutPrint.exit:                                 ; preds = %.lr.ph.i, %If_CutVe
   %65 = load i64, ptr %28, align 4
   %66 = lshr i64 %65, 24
   %67 = and i64 %66, 255
-  %68 = icmp ult i64 %indvars.iv.next.i41, %67
+  %68 = icmp samesign ult i64 %indvars.iv.next.i41, %67
   br i1 %68, label %58, label %If_CutPrint.exit42, !llvm.loop !7
 
 If_CutPrint.exit42:                               ; preds = %58, %If_CutPrint.exit
@@ -227,7 +227,7 @@ define void @If_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %14 = load i64, ptr %2, align 4
   %15 = lshr i64 %14, 24
   %16 = and i64 %15, 255
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %7, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -264,7 +264,7 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr nocapture noundef %0, ptr nocapture
   %21 = load i64, ptr %8, align 4
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 %22, 24
-  %24 = icmp ugt i32 %20, %23
+  %24 = icmp samesign ugt i32 %20, %23
   br i1 %24, label %25, label %68
 
 25:                                               ; preds = %11
@@ -1119,11 +1119,11 @@ define range(i32 -1, 2) i32 @If_CutCompareDelay(ptr nocapture noundef readonly %
   %23 = load i64, ptr %22, align 4
   %24 = trunc i64 %23 to i32
   %25 = lshr i32 %24, 24
-  %26 = icmp ult i32 %21, %25
+  %26 = icmp samesign ult i32 %21, %25
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %17
-  %28 = icmp ugt i32 %21, %25
+  %28 = icmp samesign ugt i32 %21, %25
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %27
@@ -1184,11 +1184,11 @@ define range(i32 -1, 2) i32 @If_CutCompareDelayOld(ptr nocapture noundef readonl
   %31 = load i64, ptr %30, align 4
   %32 = trunc i64 %31 to i32
   %33 = lshr i32 %32, 24
-  %34 = icmp ult i32 %29, %33
+  %34 = icmp samesign ult i32 %29, %33
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %25
-  %36 = icmp ugt i32 %29, %33
+  %36 = icmp samesign ugt i32 %29, %33
   %. = zext i1 %36 to i32
   br label %37
 
@@ -1223,11 +1223,11 @@ define range(i32 -1, 2) i32 @If_CutCompareArea(ptr nocapture noundef readonly %0
   %21 = load i64, ptr %20, align 4
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 %22, 24
-  %24 = icmp ult i32 %19, %23
+  %24 = icmp samesign ult i32 %19, %23
   br i1 %24, label %37, label %25
 
 25:                                               ; preds = %15
-  %26 = icmp ugt i32 %19, %23
+  %26 = icmp samesign ugt i32 %19, %23
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %25
@@ -1549,11 +1549,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %47 = load i64, ptr %46, align 4
   %48 = trunc i64 %47 to i32
   %49 = lshr i32 %48, 24
-  %50 = icmp ult i32 %45, %49
+  %50 = icmp samesign ult i32 %45, %49
   br i1 %50, label %338, label %51
 
 51:                                               ; preds = %41
-  %52 = icmp ugt i32 %45, %49
+  %52 = icmp samesign ugt i32 %45, %49
   br i1 %52, label %338, label %53
 
 53:                                               ; preds = %51
@@ -1596,11 +1596,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %81 = load i64, ptr %80, align 4
   %82 = trunc i64 %81 to i32
   %83 = lshr i32 %82, 24
-  %84 = icmp ult i32 %79, %83
+  %84 = icmp samesign ult i32 %79, %83
   br i1 %84, label %338, label %85
 
 85:                                               ; preds = %75
-  %86 = icmp ugt i32 %79, %83
+  %86 = icmp samesign ugt i32 %79, %83
   br i1 %86, label %338, label %87
 
 87:                                               ; preds = %85
@@ -1709,11 +1709,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %161 = load i64, ptr %160, align 4
   %162 = trunc i64 %161 to i32
   %163 = lshr i32 %162, 24
-  %164 = icmp ult i32 %159, %163
+  %164 = icmp samesign ult i32 %159, %163
   br i1 %164, label %338, label %165
 
 165:                                              ; preds = %155
-  %166 = icmp ugt i32 %159, %163
+  %166 = icmp samesign ugt i32 %159, %163
   %.223 = zext i1 %166 to i32
   br label %338
 
@@ -1774,11 +1774,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %204 = load i64, ptr %203, align 4
   %205 = trunc i64 %204 to i32
   %206 = lshr i32 %205, 24
-  %207 = icmp ult i32 %202, %206
+  %207 = icmp samesign ult i32 %202, %206
   br i1 %207, label %338, label %208
 
 208:                                              ; preds = %198
-  %209 = icmp ugt i32 %202, %206
+  %209 = icmp samesign ugt i32 %202, %206
   br i1 %209, label %338, label %210
 
 210:                                              ; preds = %208
@@ -1786,11 +1786,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %212 = and i32 %211, 1
   %213 = lshr i32 %205, 14
   %214 = and i32 %213, 1
-  %215 = icmp ult i32 %212, %214
+  %215 = icmp samesign ult i32 %212, %214
   br i1 %215, label %338, label %216
 
 216:                                              ; preds = %210
-  %217 = icmp ugt i32 %212, %214
+  %217 = icmp samesign ugt i32 %212, %214
   %.224 = zext i1 %217 to i32
   br label %338
 
@@ -1819,11 +1819,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %236 = load i64, ptr %235, align 4
   %237 = trunc i64 %236 to i32
   %238 = lshr i32 %237, 24
-  %239 = icmp ult i32 %234, %238
+  %239 = icmp samesign ult i32 %234, %238
   br i1 %239, label %338, label %240
 
 240:                                              ; preds = %230
-  %241 = icmp ugt i32 %234, %238
+  %241 = icmp samesign ugt i32 %234, %238
   br i1 %241, label %338, label %242
 
 242:                                              ; preds = %240
@@ -1871,11 +1871,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %272 = and i32 %271, 1
   %273 = lshr i32 %237, 14
   %274 = and i32 %273, 1
-  %275 = icmp ult i32 %272, %274
+  %275 = icmp samesign ult i32 %272, %274
   br i1 %275, label %338, label %276
 
 276:                                              ; preds = %270
-  %277 = icmp ugt i32 %272, %274
+  %277 = icmp samesign ugt i32 %272, %274
   %.225 = zext i1 %277 to i32
   br label %338
 
@@ -1906,11 +1906,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
   %298 = trunc i64 %297 to i32
   %299 = lshr i32 %298, 14
   %300 = and i32 %299, 1
-  %301 = icmp ult i32 %295, %300
+  %301 = icmp samesign ult i32 %295, %300
   br i1 %301, label %338, label %302
 
 302:                                              ; preds = %290
-  %303 = icmp ugt i32 %295, %300
+  %303 = icmp samesign ugt i32 %295, %300
   br i1 %303, label %338, label %304
 
 304:                                              ; preds = %302
@@ -1956,11 +1956,11 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture nou
 332:                                              ; preds = %329
   %333 = lshr i32 %293, 24
   %334 = lshr i32 %298, 24
-  %335 = icmp ult i32 %333, %334
+  %335 = icmp samesign ult i32 %333, %334
   br i1 %335, label %338, label %336
 
 336:                                              ; preds = %332
-  %337 = icmp ugt i32 %333, %334
+  %337 = icmp samesign ugt i32 %333, %334
   %.226 = zext i1 %337 to i32
   br label %338
 
@@ -2165,7 +2165,7 @@ define void @If_CutPrintTiming(ptr nocapture noundef readonly %0, ptr nocapture 
   %24 = load i64, ptr %4, align 4
   %25 = lshr i64 %24, 24
   %26 = and i64 %25, 255
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %8, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %8, %15, %2
@@ -2624,7 +2624,7 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   %51 = load i64, ptr %3, align 4
   %52 = lshr i64 %51, 24
   %53 = and i64 %52, 255
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %32, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %32, %50, %If_CutLutArea.exit
@@ -2726,7 +2726,7 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   %51 = load i64, ptr %3, align 4
   %52 = lshr i64 %51, 24
   %53 = and i64 %52, 255
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %32, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %32, %50, %If_CutLutArea.exit
@@ -2826,7 +2826,7 @@ define float @If_CutEdgeDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %30 = load i64, ptr %3, align 4
   %31 = lshr i64 %30, 24
   %32 = and i64 %31, 255
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %11, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %11, %29, %2
@@ -2890,7 +2890,7 @@ define float @If_CutEdgeRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %30 = load i64, ptr %3, align 4
   %31 = lshr i64 %30, 24
   %32 = and i64 %31, 255
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %11, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %11, %29, %2
@@ -3007,7 +3007,7 @@ define float @If_CutPowerDeref(ptr nocapture noundef readonly %0, ptr nocapture 
   %38 = load i64, ptr %9, align 4
   %39 = lshr i64 %38, 24
   %40 = and i64 %39, 255
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %13, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %13, %37, %3
@@ -3078,7 +3078,7 @@ define float @If_CutPowerRef(ptr nocapture noundef readonly %0, ptr nocapture no
   %38 = load i64, ptr %9, align 4
   %39 = lshr i64 %38, 24
   %40 = and i64 %39, 255
-  %41 = icmp ult i64 %indvars.iv.next, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %41, label %13, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %13, %37, %3
@@ -3836,7 +3836,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = lshr i64 %77, 24
   %79 = and i64 %78, 255
-  %80 = icmp ult i64 %indvars.iv.next, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
   br i1 %80, label %.lr.ph, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %.lr.ph, %76, %19

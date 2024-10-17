@@ -2591,7 +2591,7 @@ define dso_local void @skb_dump(ptr noundef %0, ptr nocapture noundef readonly %
   %212 = getelementptr inbounds i8, ptr %211, i64 2
   %213 = load i8, ptr %212, align 2
   %214 = zext i8 %213 to i64
-  %215 = icmp ult i64 %209, %214
+  %215 = icmp samesign ult i64 %209, %214
   br i1 %215, label %.lr.ph, label %.thread, !llvm.loop !75
 
 .thread:                                          ; preds = %.loopexit11, %196, %.preheader12, %140
@@ -3093,7 +3093,7 @@ define internal fastcc void @skb_release_data(ptr noundef %0, i32 noundef %1) un
   %91 = add nuw nsw i64 %56, 1
   %92 = load i8, ptr %50, align 2
   %93 = zext i8 %92 to i64
-  %94 = icmp ult i64 %91, %93
+  %94 = icmp samesign ult i64 %91, %93
   br i1 %94, label %55, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %90, %49, %44
@@ -4138,7 +4138,7 @@ define dso_local void @msg_zerocopy_callback(ptr nocapture readnone %0, ptr noun
   %71 = zext i16 %32 to i64
   %72 = add nuw nsw i64 %71, 1
   %73 = add nuw nsw i64 %72, %70
-  %74 = icmp ult i64 %73, 4294967296
+  %74 = icmp samesign ult i64 %73, 4294967296
   %75 = add i32 %68, 1
   %76 = icmp eq i32 %75, %40
   %77 = and i1 %76, %74
@@ -4821,7 +4821,7 @@ define dso_local void @__skb_zcopy_downgrade_managed(ptr nocapture noundef reado
   %54 = getelementptr inbounds i8, ptr %53, i64 2
   %55 = load i8, ptr %54, align 2
   %56 = zext i8 %55 to i64
-  %57 = icmp ult i64 %49, %56
+  %57 = icmp samesign ult i64 %49, %56
   br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %46, %1
@@ -5860,7 +5860,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_bits(ptr nocapture noun
   %49 = getelementptr inbounds i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
-  %52 = icmp ult i64 %44, %51
+  %52 = icmp samesign ult i64 %44, %51
   br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !120
 
 .preheader:                                       ; preds = %28, %.thread
@@ -6221,7 +6221,7 @@ define dso_local ptr @__pskb_copy_fclone(ptr noundef %0, i32 noundef %1, i32 nou
   %141 = getelementptr inbounds i8, ptr %140, i64 2
   %142 = load i8, ptr %141, align 2
   %143 = zext i8 %142 to i64
-  %144 = icmp ult i64 %136, %143
+  %144 = icmp samesign ult i64 %136, %143
   br i1 %144, label %.preheader7, label %145, !llvm.loop !127
 
 145:                                              ; preds = %133
@@ -6682,7 +6682,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pskb_expand_head(ptr noundef %0,
   %138 = getelementptr inbounds i8, ptr %137, i64 2
   %139 = load i8, ptr %138, align 2
   %140 = zext i8 %139 to i64
-  %141 = icmp ult i64 %133, %140
+  %141 = icmp samesign ult i64 %133, %140
   br i1 %141, label %.preheader10, label %.loopexit11, !llvm.loop !136
 
 .loopexit11:                                      ; preds = %130, %.thread23
@@ -8173,7 +8173,7 @@ define dso_local ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1) #0 align 
   %231 = getelementptr inbounds i8, ptr %230, i64 2
   %232 = load i8, ptr %231, align 2
   %233 = zext i8 %232 to i64
-  %234 = icmp ult i64 %226, %233
+  %234 = icmp samesign ult i64 %226, %233
   br i1 %234, label %.preheader, label %235, !llvm.loop !160
 
 235:                                              ; preds = %225
@@ -8432,7 +8432,7 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr nocapture nound
   %64 = getelementptr inbounds i8, ptr %63, i64 2
   %65 = load i8, ptr %64, align 2
   %66 = zext i8 %65 to i64
-  %67 = icmp ult i64 %59, %66
+  %67 = icmp samesign ult i64 %59, %66
   br i1 %67, label %.preheader5, label %.loopexit7, !llvm.loop !161
 
 .preheader5:                                      ; preds = %48, %58
@@ -8674,7 +8674,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %119 = getelementptr inbounds i8, ptr %118, i64 2
   %120 = load i8, ptr %119, align 2
   %121 = zext i8 %120 to i64
-  %122 = icmp ult i64 %112, %121
+  %122 = icmp samesign ult i64 %112, %121
   br i1 %122, label %123, label %197
 
 123:                                              ; preds = %.preheader168
@@ -8977,7 +8977,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_store_bits(ptr nocapture nou
   %49 = getelementptr inbounds i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
-  %52 = icmp ult i64 %44, %51
+  %52 = icmp samesign ult i64 %44, %51
   br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !167
 
 .preheader:                                       ; preds = %28, %.thread
@@ -9214,7 +9214,7 @@ define dso_local i32 @__skb_checksum(ptr nocapture noundef readonly %0, i32 noun
   %56 = getelementptr inbounds i8, ptr %55, i64 2
   %57 = load i8, ptr %56, align 2
   %58 = zext i8 %57 to i64
-  %59 = icmp ult i64 %51, %58
+  %59 = icmp samesign ult i64 %51, %58
   br i1 %59, label %60, label %.loopexit17, !llvm.loop !174
 
 60:                                               ; preds = %.thread, %45
@@ -9504,7 +9504,7 @@ define dso_local i32 @skb_copy_and_csum_bits(ptr nocapture noundef readonly %0, 
   %49 = getelementptr inbounds i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
-  %52 = icmp ult i64 %47, %51
+  %52 = icmp samesign ult i64 %47, %51
   br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !184
 
 .preheader:                                       ; preds = %25, %.thread
@@ -10258,7 +10258,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_zerocopy(ptr noundef %0, ptr
   %244 = getelementptr inbounds i8, ptr %243, i64 2
   %245 = load i8, ptr %244, align 2
   %246 = zext i8 %245 to i64
-  %247 = icmp ult i64 %239, %246
+  %247 = icmp samesign ult i64 %239, %246
   br i1 %247, label %248, label %.thread10.loopexit, !llvm.loop !197
 
 248:                                              ; preds = %236, %232
@@ -10891,7 +10891,7 @@ define dso_local void @skb_split(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %80 = getelementptr inbounds i8, ptr %79, i64 2
   %81 = load i8, ptr %80, align 2
   %82 = zext i8 %81 to i64
-  %83 = icmp ult i64 %75, %82
+  %83 = icmp samesign ult i64 %75, %82
   br i1 %83, label %.preheader, label %.loopexit, !llvm.loop !204
 
 .loopexit:                                        ; preds = %.preheader, %50
@@ -11310,7 +11310,7 @@ define dso_local noundef i32 @skb_shift(ptr noundef %0, ptr noundef %1, i32 noun
   %146 = getelementptr inbounds i8, ptr %145, i64 2
   %147 = load i8, ptr %146, align 2
   %148 = zext i8 %147 to i64
-  %.not.not.not.not.not = icmp uge i64 %139, %148
+  %.not.not.not.not.not = icmp samesign uge i64 %139, %148
   br i1 %.not.not.not.not.not, label %182, label %149
 
 149:                                              ; preds = %138
@@ -11435,7 +11435,7 @@ define dso_local noundef i32 @skb_shift(ptr noundef %0, ptr noundef %1, i32 noun
   %238 = getelementptr inbounds i8, ptr %237, i64 2
   %239 = load i8, ptr %238, align 2
   %240 = zext i8 %239 to i64
-  %241 = icmp ult i64 %232, %240
+  %241 = icmp samesign ult i64 %232, %240
   br i1 %241, label %225, label %242, !llvm.loop !209
 
 242:                                              ; preds = %225
@@ -12908,7 +12908,7 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %136 = phi i32 [ %32, %90 ], [ %108, %.loopexit67 ]
   %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 65534)
   %138 = udiv i32 %137, %14
-  %139 = icmp ugt i32 %138, 1
+  %139 = icmp samesign ugt i32 %138, 1
   %140 = select i1 %139, i32 %138, i32 0
   %141 = tail call i32 @llvm.umax.i32(i32 %138, i32 1)
   %142 = mul nuw i32 %141, %14
@@ -14150,7 +14150,7 @@ define internal fastcc i32 @__skb_to_sgvec(ptr nocapture noundef readonly %0, pt
   %65 = getelementptr inbounds i8, ptr %64, i64 2
   %66 = load i8, ptr %65, align 2
   %67 = zext i8 %66 to i64
-  %68 = icmp ult i64 %63, %67
+  %68 = icmp samesign ult i64 %63, %67
   br i1 %68, label %.preheader, label %.loopexit, !llvm.loop !235
 
 .preheader:                                       ; preds = %47, %60
@@ -16301,7 +16301,7 @@ define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr nounde
   br i1 %106, label %148, label %114
 
 114:                                              ; preds = %102
-  %115 = icmp ugt i32 %113, 16
+  %115 = icmp samesign ugt i32 %113, 16
   %116 = and i8 %22, 32
   %117 = icmp eq i8 %116, 0
   %118 = or i1 %117, %115
@@ -16345,7 +16345,7 @@ define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr nounde
   br label %154
 
 148:                                              ; preds = %102
-  %149 = icmp ugt i32 %113, 17
+  %149 = icmp samesign ugt i32 %113, 17
   br i1 %149, label %.thread, label %150
 
 150:                                              ; preds = %148
@@ -16460,7 +16460,7 @@ define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr nounde
   %219 = add nuw nsw i64 %189, 1
   %220 = load i8, ptr %110, align 2
   %221 = zext i8 %220 to i64
-  %222 = icmp ult i64 %219, %221
+  %222 = icmp samesign ult i64 %219, %221
   br i1 %222, label %.preheader, label %.loopexit, !llvm.loop !256
 
 .loopexit:                                        ; preds = %216, %186, %183
@@ -16575,7 +16575,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skb_pp_frag_ref(ptr nocapt
   %56 = add nuw nsw i64 %18, 1
   %57 = load i8, ptr %12, align 2
   %58 = zext i8 %57 to i64
-  %59 = icmp ult i64 %56, %58
+  %59 = icmp samesign ult i64 %56, %58
   br i1 %59, label %17, label %.loopexit, !llvm.loop !258
 
 .loopexit:                                        ; preds = %55, %5, %1
@@ -16797,7 +16797,7 @@ skb_pull_rcsum.exit:                              ; preds = %45, %51, %57, %69
   %71 = getelementptr inbounds i8, ptr %31, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 254
-  %74 = icmp ugt i16 %73, 5
+  %74 = icmp samesign ugt i16 %73, 5
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %skb_pull_rcsum.exit
@@ -17228,7 +17228,7 @@ skb_ensure_writable.exit.thread:                  ; preds = %32, %37, %53, %skb_
   %98 = getelementptr i8, ptr %92, i64 16
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 254
-  %101 = icmp ugt i16 %100, 5
+  %101 = icmp samesign ugt i16 %100, 5
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %91
@@ -18879,7 +18879,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef non
   %116 = getelementptr inbounds i8, ptr %115, i64 2
   %117 = load i8, ptr %116, align 2
   %118 = zext i8 %117 to i64
-  %119 = icmp ult i64 %111, %118
+  %119 = icmp samesign ult i64 %111, %118
   br i1 %119, label %.preheader28, label %.loopexit29, !llvm.loop !277
 
 .loopexit29:                                      ; preds = %108, %73
@@ -19426,7 +19426,7 @@ define dso_local ptr @skb_ext_add(ptr nocapture noundef %0, i32 noundef %1) #0 a
   %46 = add nuw nsw i64 %33, 1
   %47 = load i32, ptr %27, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %46, %48
+  %49 = icmp samesign ult i64 %46, %48
   br i1 %49, label %32, label %.loopexit, !llvm.loop !281
 
 .loopexit:                                        ; preds = %45, %22, %15
@@ -19571,7 +19571,7 @@ define dso_local void @__skb_ext_del(ptr nocapture noundef %0, i32 noundef %1) #
   %39 = add nuw nsw i64 %29, 1
   %40 = load i32, ptr %23, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %39, %41
+  %42 = icmp samesign ult i64 %39, %41
   br i1 %42, label %28, label %.loopexit, !llvm.loop !282
 
 .loopexit:                                        ; preds = %.thread, %18
@@ -19649,7 +19649,7 @@ define dso_local void @__skb_ext_put(ptr noundef %0) #0 align 16 {
   %34 = add nuw nsw i64 %24, 1
   %35 = load i32, ptr %18, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %34, %36
+  %37 = icmp samesign ult i64 %34, %36
   br i1 %37, label %23, label %.loopexit, !llvm.loop !282
 
 .loopexit:                                        ; preds = %.thread5, %15, %11

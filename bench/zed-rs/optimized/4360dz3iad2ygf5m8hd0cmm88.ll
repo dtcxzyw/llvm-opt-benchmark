@@ -5238,7 +5238,7 @@ select.unfold.i.i.i:                              ; preds = %"_ZN110_$LT$core..i
   %802 = sub nsw i32 0, %801
   %803 = and i32 %800, %802
   %804 = zext i32 %803 to i64
-  %805 = icmp ult i64 %681, %804
+  %805 = icmp samesign ult i64 %681, %804
   br i1 %805, label %815, label %806
 
 806:                                              ; preds = %799

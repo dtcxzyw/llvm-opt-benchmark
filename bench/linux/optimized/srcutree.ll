@@ -308,7 +308,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @init_srcu_struct_fields(pt
   store ptr %0, ptr %84, align 8
   %85 = add nuw nsw i64 %55, 1
   %86 = and i64 %85, 127
-  %87 = icmp ugt i64 %86, 63
+  %87 = icmp samesign ugt i64 %86, 63
   br i1 %87, label %.thread5, label %48, !prof !7, !llvm.loop !8
 
 .thread5:                                         ; preds = %48, %58, %54
@@ -459,7 +459,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
   %61 = sub i64 %59, %60
   %62 = add nuw nsw i64 %41, 1
   %63 = and i64 %62, 127
-  %64 = icmp ugt i64 %63, 63
+  %64 = icmp samesign ugt i64 %63, 63
   br i1 %64, label %.thread7, label %34, !prof !7, !llvm.loop !16
 
 .thread7:                                         ; preds = %34, %44, %40
@@ -481,7 +481,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
 70:                                               ; preds = %83, %67
   %71 = phi i64 [ 0, %67 ], [ %98, %83 ]
   %72 = and i64 %71, 4294967295
-  %73 = icmp ugt i64 %72, 63
+  %73 = icmp samesign ugt i64 %72, 63
   br i1 %73, label %.thread9, label %74, !prof !21
 
 74:                                               ; preds = %70
@@ -585,7 +585,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
   %139 = sub i64 %137, %138
   %140 = add nuw nsw i64 %119, 1
   %141 = and i64 %140, 127
-  %142 = icmp ugt i64 %141, 63
+  %142 = icmp samesign ugt i64 %141, 63
   br i1 %142, label %.thread11, label %112, !prof !7, !llvm.loop !16
 
 .thread11:                                        ; preds = %112, %122, %118
@@ -1727,7 +1727,7 @@ define dso_local void @srcu_barrier(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_unlock_irq(ptr noundef %96) #14
   %107 = add nuw nsw i64 %85, 1
   %108 = and i64 %107, 127
-  %109 = icmp ugt i64 %108, 63
+  %109 = icmp samesign ugt i64 %108, 63
   br i1 %109, label %.thread, label %.preheader, !prof !7, !llvm.loop !87
 
 .thread:                                          ; preds = %.preheader, %106, %84, %78
@@ -1899,7 +1899,7 @@ define dso_local void @srcu_torture_stats_print(ptr nocapture noundef readonly %
   %67 = add i64 %57, %30
   %68 = add nuw nsw i64 %36, 1
   %69 = and i64 %68, 127
-  %70 = icmp ugt i64 %69, 63
+  %70 = icmp samesign ugt i64 %69, 63
   br i1 %70, label %.thread, label %27, !prof !7, !llvm.loop !94
 
 .thread:                                          ; preds = %27, %39, %35
@@ -2634,7 +2634,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %347, i64 noundef %348) #14
   %361 = add nuw nsw i64 %336, 1
   %362 = and i64 %361, 127
-  %363 = icmp ugt i64 %362, 63
+  %363 = icmp samesign ugt i64 %362, 63
   br i1 %363, label %.thread, label %329, !prof !7, !llvm.loop !110
 
 .thread:                                          ; preds = %329, %360, %335, %.loopexit12
@@ -3011,7 +3011,7 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr nocapture 
   store i64 %158, ptr %159, align 8
   %160 = add nuw nsw i64 %126, 1
   %161 = and i64 %160, 127
-  %162 = icmp ugt i64 %161, 63
+  %162 = icmp samesign ugt i64 %161, 63
   br i1 %162, label %.thread, label %120, !prof !7, !llvm.loop !117
 
 .thread:                                          ; preds = %120, %.loopexit, %125
@@ -3263,7 +3263,7 @@ define internal fastcc noundef zeroext i1 @try_check_zero(ptr nocapture noundef 
   %65 = add i64 %64, %46
   %66 = add nuw nsw i64 %51, 1
   %67 = and i64 %66, 127
-  %68 = icmp ugt i64 %67, 63
+  %68 = icmp samesign ugt i64 %67, 63
   br i1 %68, label %.thread, label %44, !prof !7, !llvm.loop !122
 
 .thread:                                          ; preds = %44, %54, %50
@@ -3299,7 +3299,7 @@ define internal fastcc noundef zeroext i1 @try_check_zero(ptr nocapture noundef 
   %90 = add i64 %89, %72
   %91 = add nuw nsw i64 %77, 1
   %92 = and i64 %91, 127
-  %93 = icmp ugt i64 %92, 63
+  %93 = icmp samesign ugt i64 %92, 63
   br i1 %93, label %.thread7, label %70, !prof !7, !llvm.loop !124
 
 .thread7:                                         ; preds = %70, %80, %76
@@ -3828,7 +3828,7 @@ define internal noundef range(i32 -12, 1) i32 @srcu_module_notify(ptr nocapture 
   %79 = sub i64 %77, %78
   %80 = add nuw nsw i64 %59, 1
   %81 = and i64 %80, 127
-  %82 = icmp ugt i64 %81, 63
+  %82 = icmp samesign ugt i64 %81, 63
   br i1 %82, label %.thread, label %52, !prof !7, !llvm.loop !16
 
 .thread:                                          ; preds = %52, %62, %58

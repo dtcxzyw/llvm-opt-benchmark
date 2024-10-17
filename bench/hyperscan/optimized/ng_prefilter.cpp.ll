@@ -4085,7 +4085,7 @@ if.then.i79.i:                                    ; preds = %if.end51.i
 
 invoke.cont53.i176:                               ; preds = %if.end51.i
   %conv55.i = zext nneg i32 %478 to i64
-  %cmp56.not.i = icmp ult i64 %add.i, %conv55.i
+  %cmp56.not.i = icmp samesign ult i64 %add.i, %conv55.i
   br i1 %cmp56.not.i, label %for.inc62.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %invoke.cont53.i176
@@ -7072,7 +7072,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %cmp13 = icmp ult i64 %add21.i.i, %add21.i.i42
+  %cmp13 = icmp samesign ult i64 %add21.i.i, %add21.i.i42
   br label %return
 
 if.end14:                                         ; preds = %if.end

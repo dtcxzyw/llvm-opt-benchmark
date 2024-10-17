@@ -90,7 +90,7 @@ doubleebx.exit:                                   ; preds = %15, %26
 33:                                               ; preds = %32
   %34 = load i32, ptr %3, align 4
   %35 = zext i32 %34 to i64
-  %.not164 = icmp ult i64 %indvars.iv, %35
+  %.not164 = icmp samesign ult i64 %indvars.iv, %35
   br i1 %.not164, label %36, label %doubleebx.exit.thread
 
 36:                                               ; preds = %33
@@ -1073,11 +1073,11 @@ checkpe.exit418:                                  ; preds = %220, %214, %.lr.ph5
   %283 = zext i32 %278 to i64
   %284 = zext i32 %279 to i64
   %285 = add nuw nsw i64 %284, %283
-  %.not378 = icmp ule i64 %285, %260
-  %286 = icmp ugt i64 %285, %259
-  %or.cond397 = and i1 %.not378, %286
-  %287 = icmp ugt i64 %260, %284
-  %or.cond398 = and i1 %287, %or.cond397
+  %.not378 = icmp samesign ule i64 %285, %260
+  %286 = icmp samesign ugt i64 %285, %259
+  %or.cond397 = select i1 %.not378, i1 %286, i1 false
+  %287 = icmp samesign ugt i64 %260, %284
+  %or.cond398 = select i1 %or.cond397, i1 %287, i1 false
   br i1 %or.cond398, label %288, label %.split
 
 .split:                                           ; preds = %277, %282, %.lr.ph547
@@ -1267,7 +1267,7 @@ doubleebx.exit:                                   ; preds = %15, %26
 33:                                               ; preds = %32
   %34 = load i32, ptr %3, align 4
   %35 = zext i32 %34 to i64
-  %.not174 = icmp ult i64 %indvars.iv, %35
+  %.not174 = icmp samesign ult i64 %indvars.iv, %35
   br i1 %.not174, label %36, label %doubleebx.exit.thread
 
 36:                                               ; preds = %33
@@ -1737,7 +1737,7 @@ doubleebx.exit:                                   ; preds = %17, %30
 39:                                               ; preds = %38
   %40 = load i32, ptr %3, align 4
   %41 = zext i32 %40 to i64
-  %.not180 = icmp ult i64 %indvars.iv, %41
+  %.not180 = icmp samesign ult i64 %indvars.iv, %41
   br i1 %.not180, label %42, label %doubleebx.exit.thread
 
 42:                                               ; preds = %39
@@ -2186,13 +2186,13 @@ define range(i32 -1, 2) i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr
   %12 = getelementptr inbounds i8, ptr %10, i64 1
   store i32 %11, ptr %12, align 1
   %13 = and i32 %7, 255
-  %14 = icmp ugt i32 %13, 8
+  %14 = icmp samesign ugt i32 %13, 8
   %15 = and i32 %7, 65280
-  %16 = icmp ugt i32 %15, 1024
-  %or.cond = or i1 %14, %16
+  %16 = icmp samesign ugt i32 %15, 1024
+  %or.cond = select i1 %14, i1 true, i1 %16
   %17 = and i32 %7, 16711680
-  %18 = icmp ugt i32 %17, 262144
-  %or.cond5 = or i1 %18, %or.cond
+  %18 = icmp samesign ugt i32 %17, 262144
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %18
   br i1 %or.cond5, label %43, label %19
 
 19:                                               ; preds = %8

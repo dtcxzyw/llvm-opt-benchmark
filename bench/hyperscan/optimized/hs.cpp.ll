@@ -1048,7 +1048,7 @@ lpad26:                                           ; preds = %invoke.cont25
 
 if.end31:                                         ; preds = %if.then18
   %11 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %and17)
-  %cmp33.not = icmp ult i32 %11, 2
+  %cmp33.not = icmp samesign ult i32 %11, 2
   br i1 %cmp33.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end31

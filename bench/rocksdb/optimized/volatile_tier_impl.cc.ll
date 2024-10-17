@@ -359,7 +359,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit13.i:               ; preds = %_ZNSt7__cxx114listI
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %nbuckets_.i, align 8
   %27 = zext i32 %26 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %27
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %27
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit13.i, %entry
@@ -1844,7 +1844,7 @@ land.rhs:                                         ; preds = %_ZN7rocksdb9WriteLo
   %i.019 = phi i64 [ 0, %entry ], [ %inc, %_ZN7rocksdb9WriteLockD2Ev.exit14 ]
   %2 = load i32, ptr %nlocks_, align 8
   %conv4 = zext i32 %2 to i64
-  %cmp = icmp ult i64 %i.019, %conv4
+  %cmp = icmp samesign ult i64 %i.019, %conv4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs

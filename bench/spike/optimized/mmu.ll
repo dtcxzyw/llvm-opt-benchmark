@@ -1533,7 +1533,7 @@ define noundef zeroext i1 @_ZN5mmu_t7mmio_okEm11access_type(ptr nocapture nounde
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5mmu_t9mmio_loadEmmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #9 align 2 {
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %6 = icmp ult i64 %5, 2
+  %6 = icmp samesign ult i64 %5, 2
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
@@ -1615,7 +1615,7 @@ _ZN5mmu_t4mmioEmmPh11access_type.exit:            ; preds = %34, %_ZN5mmu_t4mmio
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5mmu_t4mmioEmmPh11access_type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %7 = icmp ult i64 %6, 2
+  %7 = icmp samesign ult i64 %6, 2
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %5
@@ -1731,7 +1731,7 @@ _ZN5mmu_t7mmio_okEm11access_type.exit:            ; preds = %_ZN5mmu_t4mmioEmmPh
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5mmu_t10mmio_storeEmmPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43168) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #9 align 2 {
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %6 = icmp ult i64 %5, 2
+  %6 = icmp samesign ult i64 %5, 2
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
@@ -2044,7 +2044,7 @@ _ZN16memtracer_list_t5traceEmm11access_type.exit.thread: ; preds = %_ZNK13xlate_
 
 79:                                               ; preds = %50
   %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %81 = icmp ult i64 %80, 2
+  %81 = icmp samesign ult i64 %80, 2
   br i1 %81, label %82, label %94
 
 82:                                               ; preds = %79
@@ -2550,7 +2550,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.lr.
 
 65:                                               ; preds = %35
   %66 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %67 = icmp ult i64 %66, 2
+  %67 = icmp samesign ult i64 %66, 2
   br i1 %67, label %68, label %80
 
 68:                                               ; preds = %65

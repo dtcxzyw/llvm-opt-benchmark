@@ -2188,7 +2188,7 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
 
 _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us: ; preds = %.lr.ph.us.us
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %37 = icmp ult i64 %indvars.iv.next151, %29
+  %37 = icmp samesign ult i64 %indvars.iv.next151, %29
   %38 = select i1 %37, i1 %43, i1 false
   br i1 %38, label %.lr.ph.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
 
@@ -2200,7 +2200,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us: ; preds = %
   %42 = load float, ptr %41, align 4
   %43 = fcmp oeq float %40, %42
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %44 = icmp ult i64 %indvars.iv.next148, %27
+  %44 = icmp samesign ult i64 %indvars.iv.next148, %27
   %45 = select i1 %44, i1 %43, i1 false
   br i1 %45, label %.lr.ph.us.us, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us, !llvm.loop !34
 
@@ -2250,7 +2250,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us: ; preds 
   %.sroa.0.0.i54.us.us.us88 = phi i32 [ %59, %58 ], [ 0, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us ]
   %61 = icmp eq i32 %.sroa.0.0.i.us.us.us85, %.sroa.0.0.i54.us.us.us88
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %62 = icmp ult i64 %indvars.iv.next156, %29
+  %62 = icmp samesign ult i64 %indvars.iv.next156, %29
   %63 = select i1 %62, i1 %61, i1 false
   br i1 %63, label %.lr.ph.us.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
 
@@ -2262,7 +2262,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us: ; preds 
   %67 = load float, ptr %66, align 4
   %68 = fcmp oeq float %65, %67
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %69 = icmp ult i64 %indvars.iv.next153, %27
+  %69 = icmp samesign ult i64 %indvars.iv.next153, %27
   %70 = select i1 %69, i1 %68, i1 false
   br i1 %70, label %.lr.ph.us.us.us, label %._crit_edge.us.us.us, !llvm.loop !34
 
@@ -2292,7 +2292,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94: ; pred
 _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94, %76
   %79 = phi i1 [ %78, %76 ], [ true, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %80 = icmp ult i64 %indvars.iv.next146, %29
+  %80 = icmp samesign ult i64 %indvars.iv.next146, %29
   %81 = select i1 %80, i1 %79, i1 false
   br i1 %81, label %.lr.ph.us.us.us99.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
 
@@ -2304,7 +2304,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
   %85 = load float, ptr %84, align 4
   %86 = fcmp oeq float %83, %85
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %87 = icmp ult i64 %indvars.iv.next143, %27
+  %87 = icmp samesign ult i64 %indvars.iv.next143, %27
   %88 = select i1 %87, i1 %86, i1 false
   br i1 %88, label %.lr.ph.us.us.us99, label %._crit_edge.us.us.us100, !llvm.loop !34
 

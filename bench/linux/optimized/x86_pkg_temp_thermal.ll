@@ -388,7 +388,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
 21:                                               ; preds = %30, %19
   %22 = phi i64 [ 0, %19 ], [ %36, %30 ]
   %23 = and i64 %22, 4294967295
-  %24 = icmp ugt i64 %23, 63
+  %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread5, label %25, !prof !5
 
 25:                                               ; preds = %21

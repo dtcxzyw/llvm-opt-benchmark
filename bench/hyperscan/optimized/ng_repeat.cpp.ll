@@ -1151,7 +1151,7 @@ do.end33.i:                                       ; preds = %if.then30.i, %_ZNK3
   %add9.i.i.i = add nuw nsw i64 %50, %51
   %add15.i.i.i = add nuw nsw i64 %add9.i.i.i, %49
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %48
-  %cmp35.i = icmp ugt i64 %add21.i.i.i, 200
+  %cmp35.i = icmp samesign ugt i64 %add21.i.i.i, 200
   br i1 %cmp35.i, label %invoke.cont16, label %invoke.cont16.thread
 
 invoke.cont16.thread:                             ; preds = %do.end, %call1.i.i.noexc, %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_14NFAVertexDepthESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE2atERSF_.exit.i, %do.end33.i
@@ -1173,7 +1173,7 @@ invoke.cont16:                                    ; preds = %do.end33.i
   %58 = load i64, ptr %arrayidx.i.i46.i.i20.i, align 8
   %59 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
   %add21.i.i21.i = add nuw nsw i64 %add15.i.i19.i, %59
-  %cmp37.i = icmp ugt i64 %add21.i.i21.i, 200
+  %cmp37.i = icmp samesign ugt i64 %add21.i.i21.i, 200
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tugreach.i)
   br i1 %cmp37.i, label %do.end21, label %for.inc
 
@@ -1405,7 +1405,7 @@ while.body.i.i.i.i:                               ; preds = %if.end4.i.i.i.i, %w
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.then.i.i.i94
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.end22.i.thread.i, label %while.body.i.i.i.i, !llvm.loop !11
 
 if.then.i.i.i94:                                  ; preds = %while.body.i.i.i.i
@@ -5652,7 +5652,7 @@ _ZNK3ue29CharReachcoEv.exit.i:                    ; preds = %for.body.i.i.i.i456
   %536 = load i64, ptr %arrayidx.i.i46.i.i.i, align 8
   %537 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %536)
   %add21.i.i.i460 = add nuw nsw i64 %add15.i.i.i459, %537
-  %cmp2.i = icmp ugt i64 %add21.i.i.i460, 24
+  %cmp2.i = icmp samesign ugt i64 %add21.i.i.i460, 24
   br i1 %cmp2.i, label %_ZN3ue2L26improveLeadingRepeatOutfixERNS_8NGHolderERNS_17BoundedRepeatDataERSt13unordered_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4hashISB_ESt8equal_toISB_ESaISB_EERKSt6vectorIS2_SaIS2_EE.exit, label %if.end4.i461
 
 if.end4.i461:                                     ; preds = %_ZNK3ue29CharReachcoEv.exit.i
@@ -5692,7 +5692,7 @@ invoke.cont17.i:                                  ; preds = %invoke.cont.i
   %545 = load i64, ptr %arrayidx.i.i46.i.i21.i, align 8
   %546 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %545)
   %add21.i.i22.i = add nuw nsw i64 %add15.i.i20.i, %546
-  %cmp19.i = icmp ult i64 %add21.i.i22.i, 24
+  %cmp19.i = icmp samesign ult i64 %add21.i.i22.i, 24
   br i1 %cmp19.i, label %cleanup.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %invoke.cont17.i
@@ -6047,7 +6047,7 @@ _ZNK3ue29CharReachcoEv.exit.i547:                 ; preds = %for.body.i.i.i.i541
   %576 = load i64, ptr %arrayidx.i.i46.i.i.i552, align 8
   %577 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %576)
   %add21.i.i.i553 = add nuw nsw i64 %add15.i.i.i551, %577
-  %cmp2.i554 = icmp ugt i64 %add21.i.i.i553, 24
+  %cmp2.i554 = icmp samesign ugt i64 %add21.i.i.i553, 24
   br i1 %cmp2.i554, label %invoke.cont139, label %if.end4.i555
 
 if.end4.i555:                                     ; preds = %_ZNK3ue29CharReachcoEv.exit.i547
@@ -6203,7 +6203,7 @@ invoke.cont40.i589:                               ; preds = %for.cond.i, %if.end
   %595 = load i64, ptr %arrayidx.i.i46.i.i51.i, align 8
   %596 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %595)
   %add21.i.i52.i = add nuw nsw i64 %add15.i.i50.i, %596
-  %cmp42.i = icmp ult i64 %add21.i.i52.i, 24
+  %cmp42.i = icmp samesign ult i64 %add21.i.i52.i, 24
   br i1 %cmp42.i, label %cleanup.i570, label %if.end47.i
 
 if.end47.i:                                       ; preds = %invoke.cont40.i589

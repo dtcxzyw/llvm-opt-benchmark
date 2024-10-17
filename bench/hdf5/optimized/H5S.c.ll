@@ -952,7 +952,7 @@ H5S__extent_release.exit:                         ; preds = %3, %12, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %26, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next, %45
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %46, label %.lr.ph, label %.loopexit50
 
 47:                                               ; preds = %31
@@ -990,7 +990,7 @@ H5S__extent_release.exit:                         ; preds = %3, %12, %15
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %63 = load i32, ptr %26, align 8
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next58, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next58, %64
   br i1 %65, label %.lr.ph53, label %.loopexit
 
 66:                                               ; preds = %49, %.loopexit50
@@ -1915,7 +1915,7 @@ H5S__extent_release.exit:                         ; preds = %10, %19, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %24, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph68, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph68, %.lr.ph.split, %28
@@ -1951,7 +1951,7 @@ H5S__extent_release.exit:                         ; preds = %10, %19, %22
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %49 = load i32, ptr %24, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next79, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next79, %50
   br i1 %51, label %.lr.ph74, label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph74, %.preheader, %.lr.ph71.split, %43, %27
@@ -2930,7 +2930,7 @@ define range(i32 -1, 1) i32 @H5S_set_extent_real(ptr noundef %0, ptr nocapture n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %3, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %2

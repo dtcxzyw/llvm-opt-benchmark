@@ -8796,7 +8796,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %92, %_ZN17QArrayDat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %44, align 8
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next, %98
+  %99 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %99, label %54, label %._crit_edge, !llvm.loop !66
 
 100:                                              ; preds = %_ZN7QStringD2Ev.exit30, %70, %65

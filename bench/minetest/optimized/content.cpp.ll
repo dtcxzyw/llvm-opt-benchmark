@@ -4195,7 +4195,7 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   %__end.sroa.0.1 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select143, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i14.i.i ], [ %__end.sroa.0.0, %land.lhs.true2.i.i10.i.i ]
   %__ret.0.i.i8.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %27, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i14.i.i ], [ false, %land.lhs.true2.i.i10.i.i ]
   %lnot.i = xor i1 %__ret.0.i.i.i.i, %__ret.0.i.i8.i.i
-  %cmp = icmp ult i64 %__len.0, 15
+  %cmp = icmp samesign ult i64 %__len.0, 15
   %28 = select i1 %lnot.i, i1 %cmp, i1 false
   br i1 %28, label %while.body, label %while.cond5.preheader
 

@@ -1148,11 +1148,11 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   br label %58
 
 58:                                               ; preds = %53, %55
-  %59 = icmp ugt i64 %46, 2
+  %59 = icmp samesign ugt i64 %46, 2
   br i1 %59, label %.lr.ph, label %._crit_edge
 
 .thread:                                          ; preds = %jpeg_getc.exit29
-  %60 = icmp ugt i64 %46, 2
+  %60 = icmp samesign ugt i64 %46, 2
   br i1 %60, label %.lr.ph.split.preheader, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %58

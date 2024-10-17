@@ -228,7 +228,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   ]
 
 57:                                               ; preds = %49
-  %58 = icmp ugt i32 %.sroa.4.1.i.ph.i, 127
+  %58 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i, 127
   br i1 %58, label %59, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
 
 59:                                               ; preds = %57
@@ -489,7 +489,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -1918,7 +1918,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN11markup5ever4util12buffer_queue11Bu
 
 97:                                               ; preds = %98, %94, %91
   %.sroa.5.0.i.i.i = phi i64 [ 4, %91 ], [ 3, %94 ], [ 2, %98 ]
-  %.not.i.i5.i = icmp ugt i64 %.sroa.5.0.i.i.i, %85
+  %.not.i.i5.i = icmp samesign ugt i64 %.sroa.5.0.i.i.i, %85
   br i1 %.not.i.i5.i, label %.loopexit, label %101
 
 98:                                               ; preds = %94
@@ -1963,7 +1963,7 @@ default.unreachable:                              ; preds = %111
   %117 = zext nneg i8 %116 to i32
   %118 = shl nuw nsw i32 %117, 6
   %119 = or disjoint i32 %118, %114
-  %120 = icmp ult i8 %116, 2
+  %120 = icmp samesign ult i8 %116, 2
   br i1 %120, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 121:                                              ; preds = %111
@@ -1972,7 +1972,7 @@ default.unreachable:                              ; preds = %111
   %124 = shl nuw nsw i32 %123, 12
   %125 = shl nuw nsw i32 %114, 6
   %126 = or disjoint i32 %125, %124
-  %127 = icmp ult i32 %126, 2048
+  %127 = icmp samesign ult i32 %126, 2048
   %128 = and i32 %126, 64512
   %or.cond3.i.i.i.i = icmp eq i32 %128, 55296
   %or.cond.i.i = or i1 %127, %or.cond3.i.i.i.i
@@ -1995,7 +1995,7 @@ default.unreachable:                              ; preds = %111
   %143 = zext nneg i8 %142 to i32
   %144 = or disjoint i32 %139, %143
   %145 = or disjoint i32 %144, %134
-  %146 = icmp ult i32 %134, 65536
+  %146 = icmp samesign ult i32 %134, 65536
   br i1 %146, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 147:                                              ; preds = %121
@@ -2004,9 +2004,9 @@ default.unreachable:                              ; preds = %111
   %150 = and i8 %149, 63
   %151 = zext nneg i8 %150 to i32
   %152 = or disjoint i32 %126, %151
-  %153 = icmp ugt i32 %126, 56319
-  %154 = icmp ult i8 %122, 14
-  %or.cond5.i.i.i.i = and i1 %154, %153
+  %153 = icmp samesign ugt i32 %126, 56319
+  %154 = icmp samesign ult i8 %122, 14
+  %or.cond5.i.i.i.i = select i1 %153, i1 %154, i1 false
   br i1 %or.cond5.i.i.i.i, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 "_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i": ; preds = %147, %129, %115
@@ -3192,7 +3192,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   ]
 
 48:                                               ; preds = %42
-  %49 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
+  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i, 127
   br i1 %49, label %50, label %_ZN4core3str7pattern8Searcher11next_reject17ha058907610b1e1a5E.llvm.13937131299884592799.exit
 
 50:                                               ; preds = %48
@@ -3324,7 +3324,7 @@ _ZN4core3str7pattern8Searcher11next_reject17ha058907610b1e1a5E.llvm.139371312998
   ]
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
+  %115 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i.i.i, 127
   br i1 %115, label %116, label %136
 
 116:                                              ; preds = %114
@@ -3915,7 +3915,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hae
   ]
 
 52:                                               ; preds = %49
-  %53 = icmp ugt i32 %.sroa.4.1.i.ph.i.i, 127
+  %53 = icmp samesign ugt i32 %.sroa.4.1.i.ph.i.i, 127
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %52
@@ -4184,7 +4184,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17ha058907610b1e1a
   ]
 
 53:                                               ; preds = %47
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 127
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %53
@@ -5928,15 +5928,15 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %92
 
 82:                                               ; preds = %76
-  %83 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %83 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %85 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %87 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %87, i64 3, i64 4
   br label %88
 
@@ -6350,15 +6350,15 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %89
 
 79:                                               ; preds = %73
-  %80 = icmp ult i32 %.sroa.4.1.i.ph, 128
+  %80 = icmp samesign ult i32 %.sroa.4.1.i.ph, 128
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ult i32 %.sroa.4.1.i.ph, 2048
+  %82 = icmp samesign ult i32 %.sroa.4.1.i.ph, 2048
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = icmp ult i32 %.sroa.4.1.i.ph, 65536
+  %84 = icmp samesign ult i32 %.sroa.4.1.i.ph, 65536
   %. = select i1 %84, i64 -3, i64 -4
   br label %85
 
@@ -6885,7 +6885,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   ]
 
 53:                                               ; preds = %45
-  %54 = icmp ugt i32 %.sroa.4.0.i.ph.i, 127
+  %54 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i, 127
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40affda9772d41cbE.exit.thread.sink.split"
 
 55:                                               ; preds = %53
@@ -7343,7 +7343,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN9html5ever9tokenizer8char_r
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit": ; preds = %35, %37
   %.sroa.4.0.i = phi i64 [ %40, %37 ], [ %33, %35 ]
-  %41 = icmp ugt i64 %.sroa.4.0.i, 1
+  %41 = icmp samesign ugt i64 %.sroa.4.0.i, 1
   br i1 %41, label %42, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread"
 
 42:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit"
@@ -8107,15 +8107,15 @@ common.resume:                                    ; preds = %70, %11
 16:                                               ; preds = %"_ZN7tendril7tendril37Tendril$LT$tendril..fmt..UTF8$C$A$GT$9from_char17h25eb15efaad08301E.exit"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %17 = icmp ult i32 %14, 128
+  %17 = icmp samesign ult i32 %14, 128
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %14, 2048
+  %19 = icmp samesign ult i32 %14, 2048
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %14, 65536
+  %21 = icmp samesign ult i32 %14, 65536
   %22 = getelementptr inbounds i8, ptr %8, i64 1
   br i1 %21, label %33, label %45
 
@@ -8248,7 +8248,7 @@ default.unreachable16:                            ; preds = %29
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %switch = icmp ult i64 %16, 4
+  %switch = icmp samesign ult i64 %16, 4
   br i1 %switch, label %29, label %18
 
 _ZN9html5ever9tokenizer8char_ref16CharRefTokenizer8do_begin17h36c52bc738f5e5e7E.exit: ; preds = %328, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.13937131299884592799.exit.i13, %264, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit13.i", %241, %239, %159, %154, %141, %134, %123, %122, %95, %.sink.split.i, %76, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit.i", %71, %67, %36, %3
@@ -8644,15 +8644,15 @@ _ZN9html5ever9tokenizer8char_ref16CharRefTokenizer8do_begin17h36c52bc738f5e5e7E.
   %168 = call noundef align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hecad864ddfe6c8abE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0), !noalias !1197
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !1202
   store i32 0, ptr %5, align 4, !noalias !1202
-  %169 = icmp ult i32 %.sroa.01.016.i, 128
+  %169 = icmp samesign ult i32 %.sroa.01.016.i, 128
   br i1 %169, label %175, label %170
 
 170:                                              ; preds = %167
-  %171 = icmp ult i32 %.sroa.01.016.i, 2048
+  %171 = icmp samesign ult i32 %.sroa.01.016.i, 2048
   br i1 %171, label %177, label %172
 
 172:                                              ; preds = %170
-  %173 = icmp ult i32 %.sroa.01.016.i, 65536
+  %173 = icmp samesign ult i32 %.sroa.01.016.i, 65536
   %174 = getelementptr inbounds i8, ptr %5, i64 1
   br i1 %173, label %185, label %197
 
@@ -8830,15 +8830,15 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1393713129988459
   %273 = call noundef align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hecad864ddfe6c8abE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0), !noalias !1213
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !1218
   store i32 0, ptr %4, align 4, !noalias !1218
-  %274 = icmp ult i32 %.sroa.01.015.i, 128
+  %274 = icmp samesign ult i32 %.sroa.01.015.i, 128
   br i1 %274, label %280, label %275
 
 275:                                              ; preds = %272
-  %276 = icmp ult i32 %.sroa.01.015.i, 2048
+  %276 = icmp samesign ult i32 %.sroa.01.015.i, 2048
   br i1 %276, label %282, label %277
 
 277:                                              ; preds = %275
-  %278 = icmp ult i32 %.sroa.01.015.i, 65536
+  %278 = icmp samesign ult i32 %.sroa.01.015.i, 65536
   %279 = getelementptr inbounds i8, ptr %4, i64 1
   br i1 %278, label %290, label %302
 

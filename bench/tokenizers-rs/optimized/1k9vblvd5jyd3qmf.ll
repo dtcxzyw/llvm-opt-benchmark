@@ -11537,15 +11537,15 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77), !noalias !1905
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i.i)
   store i32 0, ptr %.sroa.0.i.i.i.i, align 4, !noalias !1905
-  %331 = icmp ult i32 %.val7.i.i, 128
+  %331 = icmp samesign ult i32 %.val7.i.i, 128
   br i1 %331, label %336, label %332
 
 332:                                              ; preds = %327
-  %333 = icmp ult i32 %.val7.i.i, 2048
+  %333 = icmp samesign ult i32 %.val7.i.i, 2048
   br i1 %333, label %338, label %334
 
 334:                                              ; preds = %332
-  %335 = icmp ult i32 %.val7.i.i, 65536
+  %335 = icmp samesign ult i32 %.val7.i.i, 65536
   br i1 %335, label %345, label %356
 
 336:                                              ; preds = %327
@@ -13913,15 +13913,15 @@ _ZN10tokenizers6models3bpe7trainer10BpeTrainer15update_progress17h10ce6cf22ae991
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i226": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i228", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i227", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i225"
   %1213 = phi i32 [ %1211, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i228" ], [ %1200, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i227" ], [ %1190, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i225" ]
   %.sroa.0.111.i = phi ptr [ %1203, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i228" ], [ %1193, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i227" ], [ %1185, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i225" ]
-  %1214 = icmp ult i32 %1213, 128
+  %1214 = icmp samesign ult i32 %1213, 128
   br i1 %1214, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd74affa87eccac70E.exit.i", label %1215
 
 1215:                                             ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i226"
-  %1216 = icmp ult i32 %1213, 2048
+  %1216 = icmp samesign ult i32 %1213, 2048
   br i1 %1216, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd74affa87eccac70E.exit.i", label %1217
 
 1217:                                             ; preds = %1215
-  %1218 = icmp ult i32 %1213, 65536
+  %1218 = icmp samesign ult i32 %1213, 65536
   %..i.i.i = select i1 %1218, i64 3, i64 4
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd74affa87eccac70E.exit.i"
 
@@ -17609,15 +17609,15 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87), !noalias !3216
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0112.i)
   store i32 0, ptr %.sroa.0112.i, align 4, !noalias !3216
-  %330 = icmp ult i32 %329, 128
+  %330 = icmp samesign ult i32 %329, 128
   br i1 %330, label %335, label %331
 
 331:                                              ; preds = %324
-  %332 = icmp ult i32 %329, 2048
+  %332 = icmp samesign ult i32 %329, 2048
   br i1 %332, label %337, label %333
 
 333:                                              ; preds = %331
-  %334 = icmp ult i32 %329, 65536
+  %334 = icmp samesign ult i32 %329, 65536
   br i1 %334, label %344, label %355
 
 335:                                              ; preds = %324
@@ -18253,7 +18253,7 @@ _ZN10tokenizers6models7unigram7trainer11to_log_prob17h10a79f7163f08a55E.exit.i: 
   %603 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %604 = icmp ult i64 %603, 6
   call void @llvm.assume(i1 %604)
-  %switch158 = icmp ult i64 %603, 4
+  %switch158 = icmp samesign ult i64 %603, 4
   br i1 %switch158, label %616, label %605
 
 605:                                              ; preds = %602
@@ -20476,7 +20476,7 @@ _ZN5alloc7raw_vec14handle_reserve17he7602332f1c1effcE.exit.i.i: ; preds = %.noex
   %1344 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %1345 = icmp ult i64 %1344, 6
   call void @llvm.assume(i1 %1345)
-  %switch164 = icmp ult i64 %1344, 4
+  %switch164 = icmp samesign ult i64 %1344, 4
   br i1 %switch164, label %1354, label %1346
 
 1346:                                             ; preds = %1343
@@ -25725,7 +25725,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary11token_to_id17h4202
   %497 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h365c08ba99260bc6E monotonic, align 8
   %498 = icmp ult i64 %497, 6
   call void @llvm.assume(i1 %498)
-  %switch252 = icmp ult i64 %497, 2
+  %switch252 = icmp samesign ult i64 %497, 2
   br i1 %switch252, label %496, label %499
 
 499:                                              ; preds = %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h4203a624acb10a46E.exit.thread"

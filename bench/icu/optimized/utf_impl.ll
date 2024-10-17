@@ -75,18 +75,18 @@ if.then28:                                        ; preds = %land.lhs.true20
   %5 = or disjoint i32 %shl35, %conv26
   %or38 = or disjoint i32 %5, %or
   %cmp40 = icmp sgt i8 %strict, 0
-  %cmp42 = icmp ugt i32 %or38, 64975
+  %cmp42 = icmp samesign ugt i32 %or38, 64975
   %or.cond1 = select i1 %cmp40, i1 %cmp42, i1 false
   br i1 %or.cond1, label %land.lhs.true43, label %if.then50
 
 land.lhs.true43:                                  ; preds = %if.then28
-  %cmp44 = icmp ult i32 %or38, 65008
+  %cmp44 = icmp samesign ult i32 %or38, 65008
   br i1 %cmp44, label %if.then.i, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %land.lhs.true43
   %and46 = and i32 %or38, 65534
   %cmp47 = icmp eq i32 %and46, 65534
-  %cmp49 = icmp ult i32 %or, 1114112
+  %cmp49 = icmp samesign ult i32 %or, 1114112
   %or.cond2 = select i1 %cmp47, i1 %cmp49, i1 false
   br i1 %or.cond2, label %if.then.i, label %if.then50
 
@@ -140,12 +140,12 @@ if.then83:                                        ; preds = %land.lhs.true75
   %or89 = or disjoint i32 %shl88, %shl85
   %or91 = or disjoint i32 %or89, %conv81
   %cmp93 = icmp sgt i8 %strict, 0
-  %cmp95 = icmp ugt i32 %or91, 64975
+  %cmp95 = icmp samesign ugt i32 %or91, 64975
   %or.cond4 = select i1 %cmp93, i1 %cmp95, i1 false
   br i1 %or.cond4, label %land.lhs.true96, label %if.then103
 
 land.lhs.true96:                                  ; preds = %if.then83
-  %cmp97 = icmp ult i32 %or91, 65008
+  %cmp97 = icmp samesign ult i32 %or91, 65008
   %and99 = and i32 %or91, 65534
   %cmp100 = icmp eq i32 %and99, 65534
   %or.cond79 = or i1 %cmp97, %cmp100
@@ -527,12 +527,12 @@ if.then71:                                        ; preds = %if.then60
   %or77 = or disjoint i32 %shl73, %shl76
   %or78 = or disjoint i32 %or77, %and42
   %cmp80 = icmp sgt i8 %strict, 0
-  %cmp81 = icmp ugt i32 %or78, 64975
+  %cmp81 = icmp samesign ugt i32 %or78, 64975
   %or.cond1 = select i1 %cmp80, i1 %cmp81, i1 false
   br i1 %or.cond1, label %land.lhs.true82, label %return
 
 land.lhs.true82:                                  ; preds = %if.then71
-  %cmp83 = icmp ult i32 %or78, 65008
+  %cmp83 = icmp samesign ult i32 %or78, 65008
   %and85 = and i32 %or78, 65534
   %cmp86 = icmp eq i32 %and85, 65534
   %or.cond89 = or i1 %cmp83, %cmp86
@@ -542,8 +542,8 @@ land.lhs.true82:                                  ; preds = %if.then71
 if.else93:                                        ; preds = %if.then54
   %sub95 = and i8 %2, 63
   %cmp98 = icmp ne i8 %and56, 0
-  %cmp101 = icmp ugt i8 %sub95, 31
-  %or.cond4 = or i1 %cmp101, %cmp98
+  %cmp101 = icmp samesign ugt i8 %sub95, 31
+  %or.cond4 = select i1 %cmp98, i1 true, i1 %cmp101
   br i1 %or.cond4, label %if.then102, label %if.else.i112
 
 if.then102:                                       ; preds = %if.else93
@@ -617,18 +617,18 @@ if.then154:                                       ; preds = %if.then140
   %or164 = or disjoint i32 %shl163, %and42
   %or165 = or disjoint i32 %or164, %or160
   %cmp167 = icmp sgt i8 %strict, 0
-  %cmp169 = icmp ugt i32 %or165, 64975
+  %cmp169 = icmp samesign ugt i32 %or165, 64975
   %or.cond8 = select i1 %cmp167, i1 %cmp169, i1 false
   br i1 %or.cond8, label %land.lhs.true170, label %return
 
 land.lhs.true170:                                 ; preds = %if.then154
-  %cmp171 = icmp ult i32 %or165, 65008
+  %cmp171 = icmp samesign ult i32 %or165, 65008
   br i1 %cmp171, label %_ZL10errorValueia.exit110, label %lor.lhs.false172
 
 lor.lhs.false172:                                 ; preds = %land.lhs.true170
   %and173 = and i32 %or165, 65534
   %cmp174 = icmp eq i32 %and173, 65534
-  %cmp176 = icmp ult i32 %or160, 1114112
+  %cmp176 = icmp samesign ult i32 %or160, 1114112
   %or.cond10 = select i1 %cmp174, i1 %cmp176, i1 false
   br i1 %or.cond10, label %_ZL10errorValueia.exit110, label %return
 

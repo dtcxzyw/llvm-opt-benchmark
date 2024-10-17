@@ -504,13 +504,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val20.i = load i32, ptr %13, align 4, !range !31, !noalias !195, !noundef !4
   %14 = getelementptr i8, ptr %13, i64 4
   %.val21.i = load i32, ptr %14, align 4, !noalias !195
-  %15 = icmp ugt i32 %.val20.i, 255
+  %15 = icmp samesign ugt i32 %.val20.i, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !198
   br i1 %15, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7dfd31c62d702deE.exit.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7dfd31c62d702deE.exit.i.i.i": ; preds = %12
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !198
-  %16 = icmp ugt i32 %.val21.i, 255
+  %16 = icmp samesign ugt i32 %.val21.i, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !198
   br i1 %16, label %.invoke, label %18
 
@@ -2830,7 +2830,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = getelementptr i8, ptr %18, i64 4
   %.val21 = load i32, ptr %19, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !989)
-  %20 = icmp ugt i32 %.val20, 255
+  %20 = icmp samesign ugt i32 %.val20, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !989
   br i1 %20, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7dfd31c62d702deE.exit.i.i"
 
@@ -2844,7 +2844,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7dfd31c62d702deE.exit.i.i": ; preds = %17
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !989
-  %22 = icmp ugt i32 %.val21, 255
+  %22 = icmp samesign ugt i32 %.val21, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !989
   br i1 %22, label %.invoke, label %23
 

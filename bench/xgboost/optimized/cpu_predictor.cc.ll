@@ -3251,7 +3251,7 @@ _ZNSt6vectorIN7xgboost7RegTree4FVec5EntryESaIS3_EE6resizeEm.exit.i: ; preds = %1
   %158 = getelementptr inbounds i8, ptr %157, i64 28
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv.next, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next, %160
   br i1 %161, label %150, label %._crit_edge, !llvm.loop !21
 
 162:                                              ; preds = %104
@@ -12948,7 +12948,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.us.i: ; 
   %567 = add nuw nsw i64 %.018.us.i, 1
   %568 = load i32, ptr %76, align 4
   %569 = zext i32 %568 to i64
-  %570 = icmp ult i64 %567, %569
+  %570 = icmp samesign ult i64 %567, %569
   br i1 %570, label %.lr.ph.us.i, label %_ZN7xgboost9predictor17ColumnSplitHelper15PredictAllTreesILb0EEEvPSt6vectorIfSaIfEEmmmm.exit, !llvm.loop !233
 
 _ZN7xgboost9predictor17ColumnSplitHelper15PredictAllTreesILb0EEEvPSt6vectorIfSaIfEEmmmm.exit: ; preds = %._crit_edge.us.i, %.lr.ph79.i.i16.i
@@ -15212,7 +15212,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper11MaskOneTreeERKNS_7RegTree4FVecEmm.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %164 = load i32, ptr %7, align 4
   %165 = zext i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next, %165
+  %166 = icmp samesign ult i64 %indvars.iv.next, %165
   br i1 %166, label %.preheader.us, label %._crit_edge15, !llvm.loop !271
 
 .split.us:                                        ; preds = %99
@@ -15800,7 +15800,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.us: ; pr
   %90 = add nuw nsw i64 %.018.us, 1
   %91 = load i32, ptr %9, align 4
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %90, %92
+  %93 = icmp samesign ult i64 %90, %92
   br i1 %93, label %.lr.ph.us, label %._crit_edge21, !llvm.loop !233
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %.lr.ph20, %6
@@ -29419,7 +29419,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb1EEEfmm.exit.us.i: ; 
   %555 = add nuw nsw i64 %.017.us.i, 1
   %556 = load i32, ptr %63, align 4
   %557 = zext i32 %556 to i64
-  %558 = icmp ult i64 %555, %557
+  %558 = icmp samesign ult i64 %555, %557
   br i1 %558, label %.lr.ph.us.i, label %_ZN7xgboost9predictor17ColumnSplitHelper15PredictAllTreesILb1EEEvPSt6vectorIfSaIfEEmmmm.exit, !llvm.loop !494
 
 _ZN7xgboost9predictor17ColumnSplitHelper15PredictAllTreesILb1EEEvPSt6vectorIfSaIfEEmmmm.exit: ; preds = %._crit_edge.us.i, %.lr.ph79.i.i16.i
@@ -30353,7 +30353,7 @@ _ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS
   %250 = load ptr, ptr %74, align 8
   %251 = load i32, ptr %250, align 4
   %252 = zext i32 %251 to i64
-  %253 = icmp ult i64 %indvars.iv.next, %252
+  %253 = icmp samesign ult i64 %indvars.iv.next, %252
   br i1 %253, label %84, label %._crit_edge.loopexit, !llvm.loop !517
 
 ._crit_edge.loopexit:                             ; preds = %_ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit

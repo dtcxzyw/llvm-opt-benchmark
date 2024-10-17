@@ -2384,7 +2384,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %242, %232
   %646 = trunc i64 %indvars.iv501.i to i32
   %647 = sub i32 %.2599.i, %646
   %648 = call i32 @llvm.abs.i32(i32 %647, i1 true)
-  %649 = icmp ugt i32 %648, 1
+  %649 = icmp samesign ugt i32 %648, 1
   br i1 %649, label %.loopexit.i, label %650
 
 650:                                              ; preds = %645, %639
@@ -2560,7 +2560,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %242, %232
 758:                                              ; preds = %753
   %759 = sub nsw i32 %757, %745
   %760 = call i32 @llvm.abs.i32(i32 %759, i1 true)
-  %761 = icmp ugt i32 %760, %158
+  %761 = icmp samesign ugt i32 %760, %158
   %762 = icmp sgt i32 %750, -1
   %763 = icmp slt i32 %750, %169
   %764 = and i1 %762, %763
@@ -2578,7 +2578,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %242, %232
 770:                                              ; preds = %765
   %771 = sub nsw i32 %769, %747
   %772 = call i32 @llvm.abs.i32(i32 %771, i1 true)
-  %773 = icmp ugt i32 %772, %158
+  %773 = icmp samesign ugt i32 %772, %158
   br i1 %773, label %774, label %775
 
 774:                                              ; preds = %770
@@ -4285,7 +4285,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIsEEv
   %.1136196.us = phi i32 [ %.0135216.us, %.lr.ph198.split.split.us223.preheader ], [ %.2137.us, %.loopexit.us ]
   %.1140195.us = phi i32 [ %.0139215.us, %.lr.ph198.split.split.us223.preheader ], [ %.2141.us, %.loopexit.us ]
   %99 = icmp ne i64 %indvars.iv236, 0
-  %.not168.us = icmp ult i64 %indvars.iv236, %94
+  %.not168.us = icmp samesign ult i64 %indvars.iv236, %94
   %or.cond174.us = select i1 %99, i1 %.not168.us, i1 false
   br i1 %or.cond174.us, label %100, label %187
 
@@ -4475,7 +4475,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIsEEv
   %189 = zext i32 %188 to i64
   %190 = shl nuw nsw i64 %189, 1
   %scevgep = getelementptr i8, ptr %83, i64 %190
-  %191 = icmp ult i64 %indvars.iv244, %95
+  %191 = icmp samesign ult i64 %indvars.iv244, %95
   %.fr.us = freeze i1 %191
   br i1 %.fr.us, label %.lr.ph198.split.split.us223.preheader, label %._crit_edge199.us.sink.split
 
@@ -4740,8 +4740,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
   %31 = load i32, ptr %9, align 8
   %32 = add nsw i32 %31, -1
   %33 = icmp slt i32 %.059, %32
-  %34 = icmp ugt i32 %.04356, 3
-  %or.cond.not49 = and i1 %34, %33
+  %34 = icmp samesign ugt i32 %.04356, 3
+  %or.cond.not49 = select i1 %33, i1 %34, i1 false
   %35 = add nsw i32 %30, -4
   %.not = icmp slt i32 %.04356, %35
   %or.cond46 = select i1 %or.cond.not49, i1 %.not, i1 false

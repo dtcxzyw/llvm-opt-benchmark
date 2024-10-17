@@ -7996,7 +7996,7 @@ get_type_kind.exit.thread:                        ; preds = %15, %21
 
 get_type_kind.exit:                               ; preds = %21
   %27 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
-  %.not13.i = icmp ugt i32 %27, 1
+  %.not13.i = icmp samesign ugt i32 %27, 1
   %28 = and i32 %1, 262143
   %29 = icmp ne i32 %28, 2
   br i1 %.not13.i, label %get_type_kind.exit.thread27, label %30
@@ -15558,7 +15558,7 @@ define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %82, align 8
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next, %106
   br i1 %107, label %98, label %.loopexit585
 
 .loopexit585:                                     ; preds = %98, %84, %81
@@ -20820,7 +20820,7 @@ zend_reflection_class_factory.exit:               ; preds = %36, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %25, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %36, label %.loopexit
 
 77:                                               ; preds = %24
@@ -20928,7 +20928,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %24, align 8
   %52 = zext i32 %51 to i64
-  %53 = icmp ult i64 %indvars.iv.next, %52
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
   br i1 %53, label %37, label %.loopexit
 
 .loopexit:                                        ; preds = %49, %28, %15, %26, %20, %5
@@ -21062,7 +21062,7 @@ zend_reflection_class_factory.exit:               ; preds = %34, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %25, align 4
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
   br i1 %76, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %zend_reflection_class_factory.exit, %29, %16, %27, %21, %6
@@ -21159,7 +21159,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %24, align 4
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %33, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %28, %15, %26, %20, %5
@@ -21255,7 +21255,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %31, align 4
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42, %46
@@ -28632,7 +28632,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
   %131 = getelementptr inbounds i8, ptr %130, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next, %133
   br i1 %134, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %66
@@ -29759,7 +29759,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
   %53 = getelementptr inbounds i8, ptr %52, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %51, %24, %16, %38, %21, %6
@@ -30070,7 +30070,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %162 = getelementptr inbounds i8, ptr %161, i64 28
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
-  %165 = icmp ult i64 %indvars.iv.next, %164
+  %165 = icmp samesign ult i64 %indvars.iv.next, %164
   br i1 %165, label %134, label %.loopexit
 
 .loopexit:                                        ; preds = %160, %125, %121

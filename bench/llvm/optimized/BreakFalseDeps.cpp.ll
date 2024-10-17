@@ -319,7 +319,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit:             ; preds = %40
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 22
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
-  %.not.i.i51 = icmp ult i32 %67, %70
+  %.not.i.i51 = icmp samesign ult i32 %67, %70
   br i1 %.not.i.i51, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %65

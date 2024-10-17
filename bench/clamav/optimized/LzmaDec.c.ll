@@ -383,7 +383,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %123
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %158 = getelementptr inbounds [20 x i8], ptr %53, i64 0, i64 %indvars.iv200
   store i8 %157, ptr %158, align 1
-  %159 = icmp ult i64 %indvars.iv200, 19
+  %159 = icmp samesign ult i64 %indvars.iv200, 19
   %160 = icmp ugt i64 %.1118, %indvars.iv.next
   %161 = select i1 %159, i1 %160, i1 false
   br i1 %161, label %.lr.ph169, label %._crit_edge.loopexit

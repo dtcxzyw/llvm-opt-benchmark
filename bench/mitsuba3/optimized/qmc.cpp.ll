@@ -265,7 +265,7 @@ _ZNSt3__110unique_ptrIA_N7mitsuba14RadicalInverse9PrimeBaseENS_14default_deleteI
   %69 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %63, i1 false)
   %70 = trunc nuw nsw i64 %69 to i8
   %71 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
-  %72 = icmp ult i64 %71, 2
+  %72 = icmp samesign ult i64 %71, 2
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.lr.ph
@@ -515,14 +515,14 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %180, align 8
-  %187 = icmp ult i32 %179, %183
+  %187 = icmp samesign ult i32 %179, %183
   %.neg.i = sext i1 %187 to i32
   %188 = add nsw i32 %183, %.neg.i
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i16, ptr %186, i64 %189
   %191 = load i16, ptr %190, align 2
   %192 = zext i16 %191 to i32
-  %193 = icmp ule i32 %179, %192
+  %193 = icmp samesign ule i32 %179, %192
   %194 = zext i1 %193 to i16
   %195 = add i16 %191, %194
   br label %196
@@ -546,7 +546,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 
 205:                                              ; preds = %218, %200
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %218 ], [ 0, %200 ]
-  %206 = icmp ugt i64 %202, %indvars.iv252
+  %206 = icmp samesign ugt i64 %202, %indvars.iv252
   %207 = load ptr, ptr %203, align 8
   br i1 %206, label %208, label %212
 
@@ -898,7 +898,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit173: ; pr
   %359 = getelementptr inbounds i8, ptr %358, i64 17
   %360 = load i16, ptr %359, align 1
   %361 = zext i16 %360 to i64
-  %362 = icmp ult i64 %357, %361
+  %362 = icmp samesign ult i64 %357, %361
   br i1 %362, label %.lr.ph.i175, label %_ZN7mitsuba14RadicalInverse18invert_permutationEj.exit.loopexit, !llvm.loop !16
 
 _ZN7mitsuba14RadicalInverse18invert_permutationEj.exit.loopexit: ; preds = %.lr.ph.i175
@@ -932,7 +932,7 @@ _ZN7mitsuba14RadicalInverse18invert_permutationEj.exit: ; preds = %_ZN7mitsuba14
   %379 = getelementptr inbounds i8, ptr %378, i64 40
   %380 = load i16, ptr %379, align 1
   %381 = zext i16 %380 to i64
-  %382 = icmp ult i64 %377, %381
+  %382 = icmp samesign ult i64 %377, %381
   br i1 %382, label %.lr.ph.i177, label %_ZN7mitsuba14RadicalInverse18invert_permutationEj.exit179, !llvm.loop !16
 
 _ZN7mitsuba14RadicalInverse18invert_permutationEj.exit179: ; preds = %.lr.ph.i177, %_ZN7mitsuba14RadicalInverse18invert_permutationEj.exit
@@ -1334,14 +1334,14 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %19, align 8
-  %26 = icmp ult i32 %18, %22
+  %26 = icmp samesign ult i32 %18, %22
   %.neg = sext i1 %26 to i32
   %27 = add nsw i32 %22, %.neg
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i16, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
-  %32 = icmp ule i32 %18, %31
+  %32 = icmp samesign ule i32 %18, %31
   %33 = zext i1 %32 to i16
   %34 = add i16 %30, %33
   br label %35
@@ -1355,7 +1355,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %39 = add i16 %.04451, 1
   %40 = zext i16 %39 to i32
   %41 = zext i16 %39 to i64
-  %42 = icmp ugt i64 %indvars.iv, %41
+  %42 = icmp samesign ugt i64 %indvars.iv, %41
   br i1 %42, label %21, label %.loopexit, !llvm.loop !8
 
 43:                                               ; preds = %.lr.ph
@@ -1369,7 +1369,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
 49:                                               ; preds = %43, %65
   %50 = phi i32 [ 0, %43 ], [ %70, %65 ]
   %.052 = phi i16 [ 0, %43 ], [ %69, %65 ]
-  %51 = icmp ugt i32 %45, %50
+  %51 = icmp samesign ugt i32 %45, %50
   %52 = load ptr, ptr %47, align 8
   br i1 %51, label %53, label %58
 
@@ -1399,7 +1399,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %69 = add i16 %.052, 1
   %70 = zext i16 %69 to i32
   %71 = zext i16 %69 to i64
-  %72 = icmp ugt i64 %indvars.iv, %71
+  %72 = icmp samesign ugt i64 %indvars.iv, %71
   br i1 %72, label %49, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %35, %65
@@ -1447,7 +1447,7 @@ define void @_ZN7mitsuba14RadicalInverse18invert_permutationEj(ptr nocapture nou
   %23 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %22, i64 %4, i32 1
   %24 = load i16, ptr %23, align 1
   %25 = zext i16 %24 to i64
-  %26 = icmp ult i64 %21, %25
+  %26 = icmp samesign ult i64 %21, %25
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

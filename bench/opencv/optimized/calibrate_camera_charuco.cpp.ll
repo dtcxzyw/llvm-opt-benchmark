@@ -2368,7 +2368,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %667
   %787 = and i32 %spec.select170, 4
   %.not12.i = icmp eq i32 %787, 0
   %788 = select i1 %.not12.i, ptr @.str.34, ptr @.str.36
-  %.not13.i = icmp ult i32 %spec.select170, 8
+  %.not13.i = icmp samesign ult i32 %spec.select170, 8
   %789 = select i1 %.not13.i, ptr @.str.34, ptr @.str.37
   %790 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %786, ptr noundef nonnull %784, ptr noundef nonnull %788, ptr noundef nonnull %789) #19
   br label %791

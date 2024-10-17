@@ -346,7 +346,7 @@ entry:
   %2 = load i64, ptr %arrayidx9, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load i64, ptr %arrayidx11, align 8
-  %cmp56 = icmp ugt i64 %bytes, 15
+  %cmp56 = icmp samesign ugt i64 %bytes, 15
   br i1 %cmp56, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

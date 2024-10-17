@@ -1193,7 +1193,7 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
   store ptr %36, ptr %38, align 8
   %39 = add i16 %.0195314, 1
   %40 = zext i16 %39 to i32
-  %41 = icmp ugt i32 %20, %40
+  %41 = icmp samesign ugt i32 %20, %40
   br i1 %41, label %32, label %42, !llvm.loop !18
 
 42:                                               ; preds = %32
@@ -1297,7 +1297,7 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
   br label %fillcache.exit
 
 fillcache.exit:                                   ; preds = %80, %.loopexit.i.i, %94, %95
-  %100 = icmp ugt i32 %19, 1
+  %100 = icmp samesign ugt i32 %19, 1
   br i1 %100, label %.lr.ph328, label %._crit_edge
 
 .lr.ph328:                                        ; preds = %fillcache.exit
@@ -1484,7 +1484,7 @@ hemdistcache.exit.us:                             ; preds = %.lr.ph.i.i.us, %hem
   %.2209.us = select i1 %190, i16 1, i16 %.1208317.us
   %.2206.us = select i1 %190, i16 %.1196319.us, i16 %.1205318.us
   %191 = add i16 %.1196319.us, 1
-  %.not232.us = icmp ugt i16 %191, %108
+  %.not232.us = icmp samesign ugt i16 %191, %108
   br i1 %.not232.us, label %.loopexit309, label %.lr.ph.split.us, !llvm.loop !20
 
 fillcache.exit247:                                ; preds = %fillcache.exit247.preheader, %hemdistcache.exit
@@ -1545,7 +1545,7 @@ hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %198, %
   %.2209 = select i1 %220, i16 %113, i16 %.1208317
   %.2206 = select i1 %220, i16 %.1196319, i16 %.1205318
   %221 = add i16 %.1196319, 1
-  %.not232 = icmp ugt i16 %221, %107
+  %.not232 = icmp samesign ugt i16 %221, %107
   br i1 %.not232, label %.loopexit309, label %fillcache.exit247, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit309, %fillcache.exit

@@ -954,7 +954,7 @@ _RINvXNtCs5qLmTC8D4jC_6digest6digestINtNtNtB5_8core_api7wrapper11CoreWrapperINtN
   %69 = xor i64 %59, 63
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i, i8 0, i64 %69, i1 false), !alias.scope !187, !noalias !200
   %70 = xor i64 %59, 56
-  %71 = icmp ult i64 %70, 8
+  %71 = icmp samesign ult i64 %70, 8
   br i1 %71, label %._crit_edge.thread.i.i.i.i, label %76
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %_RINvXNtCs5qLmTC8D4jC_6digest6digestINtNtNtB5_8core_api7wrapper11CoreWrapperINtNtBC_11ct_variable21CtVariableCoreWrapperNtNtCshz1bMpavo8Z_4sha28core_api13Sha256VarCoreINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2F_IB2F_IB2F_IB2F_IB2F_NtB2H_5UTermNtNtB2J_3bit2B1ENtB3S_2B0EB46_EB46_EB46_EB46_ENtB1X_9OidSha256EENtB3_6Digest6updateRShECsff1zCjKRl2o_13turborepo_env.exit

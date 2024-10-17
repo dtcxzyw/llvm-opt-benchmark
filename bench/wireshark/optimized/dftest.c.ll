@@ -775,7 +775,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %10, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %indvars.iv.next, %18
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph26, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph26, %9, %._crit_edge

@@ -1018,7 +1018,7 @@ if.end.i35:                                       ; preds = %for.cond
 
 _ZNK6vectorIP3appLb0EjE4sizeEv.exit38:            ; preds = %for.cond, %if.end.i35
   %retval.0.i37 = phi i64 [ %20, %if.end.i35 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i37
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i37
   br i1 %cmp, label %invoke.cont7, label %cleanup143
 
 invoke.cont7:                                     ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit38
@@ -4026,7 +4026,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %_ZN6vectorI14depend
   %arrayidx.i19 = getelementptr inbounds i8, ptr %48, i64 -4
   %49 = load i32, ptr %arrayidx.i19, align 4
   %cmp3.i = icmp eq i32 %49, 0
-  %cmp16 = icmp ugt i32 %count.0, 18
+  %cmp16 = icmp samesign ugt i32 %count.0, 18
   %or.cond.not = select i1 %cmp3.i, i1 true, i1 %cmp16
   br i1 %or.cond.not, label %do.end, label %land.rhs
 
@@ -9101,7 +9101,7 @@ if.then:                                          ; preds = %while.body
   %1 = load i32, ptr %add.ptr9.i.i.i, align 4
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i7274.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i7274.i.i.i
+  %cmp24.i.i.i.i = icmp samesign ult i64 %div13.i.i.i, %div.i7274.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i

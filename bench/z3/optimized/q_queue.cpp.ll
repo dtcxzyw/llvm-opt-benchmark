@@ -1472,7 +1472,7 @@ if.end.i:                                         ; preds = %for.cond21
 
 _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %for.cond21, %if.end.i
   %retval.0.i = phi i64 [ %9, %if.end.i ], [ 0, %for.cond21 ]
-  %cmp24 = icmp ult i64 %indvars.iv, %retval.0.i
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp24, label %for.body25, label %return
 
 for.body25:                                       ; preds = %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit

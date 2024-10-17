@@ -1091,7 +1091,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %154, ptr noundef %0, i32 noundef 118, i32 noundef 2, i32 noundef 0) #4
   %156 = load i32, ptr @hf_sapms_dump_command, align 4
   %157 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %156, ptr noundef %0, i32 noundef 120, i32 noundef 2, i32 noundef 0) #4
-  %158 = icmp ugt i32 %92, 47
+  %158 = icmp samesign ugt i32 %92, 47
   br i1 %158, label %159, label %dissect_sapms_opcode.exit
 
 159:                                              ; preds = %149

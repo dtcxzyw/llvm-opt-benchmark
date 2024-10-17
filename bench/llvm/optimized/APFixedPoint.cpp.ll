@@ -1401,7 +1401,7 @@ define dso_local void @_ZN4llvm12APFixedPoint6getMaxERKNS_19FixedPointSemanticsE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %9, ptr %10, align 8, !noalias !40
-  %11 = icmp ult i32 %9, 65
+  %11 = icmp samesign ult i32 %9, 65
   br i1 %.not, label %12, label %21
 
 12:                                               ; preds = %2
@@ -1616,7 +1616,7 @@ define dso_local void @_ZN4llvm12APFixedPoint6getMinERKNS_19FixedPointSemanticsE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8, !noalias !49
-  %10 = icmp ult i32 %7, 65
+  %10 = icmp samesign ult i32 %7, 65
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %2
@@ -1742,7 +1742,7 @@ define dso_local void @_ZN4llvm12APFixedPoint10getEpsilonERKNS_19FixedPointSeman
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %6, ptr %8, align 8
-  %9 = icmp ult i32 %6, 65
+  %9 = icmp samesign ult i32 %6, 65
   br i1 %9, label %_ZN4llvm6APSIntC2Ejb.exit.thread, label %_ZN4llvm6APSIntC2Ejb.exit
 
 _ZN4llvm6APSIntC2Ejb.exit.thread:                 ; preds = %2
@@ -5363,7 +5363,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %155, %160
 _ZN4llvm5APIntD2Ev.exit29:                        ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit, %163, %166
   %167 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %145, ptr %167, align 8
-  %168 = icmp ult i32 %.sroa.speculated, 61
+  %168 = icmp samesign ult i32 %.sroa.speculated, 61
   br i1 %168, label %169, label %175
 
 169:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit29
@@ -6703,7 +6703,7 @@ define linkonce_odr hidden void @_ZNK4llvm12APFixedPoint10getIntPartEv(ptr dead_
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %22, ptr %26, align 8, !alias.scope !222
-  %27 = icmp ult i32 %22, 65
+  %27 = icmp samesign ult i32 %22, 65
   br i1 %27, label %_ZN4llvm5APIntD2Ev.exit, label %28
 
 28:                                               ; preds = %25
@@ -7467,7 +7467,7 @@ _ZN4llvm7APFloat8multiplyERKS0_NS_12RoundingModeE.exit: ; preds = %66, %68
   %.not84 = icmp eq i32 %72, 0
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %71, ptr %73, align 8
-  %74 = icmp ult i32 %71, 65
+  %74 = icmp samesign ult i32 %71, 65
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %_ZN4llvm7APFloat8multiplyERKS0_NS_12RoundingModeE.exit
@@ -8385,7 +8385,7 @@ define linkonce_odr hidden void @_ZN4llvm12APFixedPointC2EmRKNS_19FixedPointSema
   %7 = and i32 %6, 65535
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = icmp ult i32 %7, 65
+  %9 = icmp samesign ult i32 %7, 65
   br i1 %9, label %_ZN4llvm5APIntC2Ejmbb.exit.thread, label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread:                ; preds = %3

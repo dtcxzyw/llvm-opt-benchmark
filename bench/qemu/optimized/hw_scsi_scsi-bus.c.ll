@@ -2422,7 +2422,7 @@ if.end62.i27:                                     ; preds = %if.else47.i24, %if.
 
 scsi_ua_precedence.exit30:                        ; preds = %if.end.i7, %if.else.i14, %if.else34.i21, %if.else47.i24, %if.end62.i27
   %retval.0.i6 = phi i32 [ %or.i29, %if.end62.i27 ], [ 1, %if.end.i7 ], [ 2, %if.else.i14 ], [ %conv5, %if.else34.i21 ], [ 8, %if.else47.i24 ]
-  %cmp8 = icmp ult i32 %retval.0.i6, %retval.0.i
+  %cmp8 = icmp samesign ult i32 %retval.0.i6, %retval.0.i
   br i1 %cmp8, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %scsi_ua_precedence.exit30
@@ -3416,7 +3416,7 @@ if.end62.i24:                                     ; preds = %if.else47.i21, %if.
 scsi_ua_precedence.exit27:                        ; preds = %if.end.i4, %if.else.i11, %if.else34.i18, %if.else47.i21, %if.end62.i24
   %retval.0.i3.shrunk = phi i24 [ %or17.i25, %if.end62.i24 ], [ 1, %if.end.i4 ], [ 2, %if.else.i11 ], [ %sense.sroa.8.0.extract.shift.i5, %if.else34.i18 ], [ 8, %if.else47.i21 ]
   %retval.0.i3 = zext nneg i24 %retval.0.i3.shrunk to i32
-  %cmp4 = icmp ugt i32 %retval.0.i, %retval.0.i3
+  %cmp4 = icmp samesign ugt i32 %retval.0.i, %retval.0.i3
   br i1 %cmp4, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %scsi_ua_precedence.exit27

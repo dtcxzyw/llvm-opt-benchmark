@@ -9551,12 +9551,12 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %75, i64 %idxprom6.i.i
   store i8 %77, ptr %arrayidx7.i.i, align 1, !tbaa !13
   %sub8.i.i = add i32 %__pos.035.i.i, -2
-  %cmp.i18.i = icmp ugt i32 %__val.addr.036.i.i, 9999
+  %cmp.i18.i = icmp samesign ugt i32 %__val.addr.036.i.i, 9999
   br i1 %cmp.i18.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !451
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %conv, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i250, label %if.else.i.i249
 
 if.then.i.i250:                                   ; preds = %while.end.i.i
@@ -10366,12 +10366,12 @@ while.body.i.i512:                                ; preds = %while.body.i.i512, 
   %arrayidx7.i.i527 = getelementptr inbounds i8, ptr %196, i64 %idxprom6.i.i526
   store i8 %198, ptr %arrayidx7.i.i527, align 1, !tbaa !13
   %sub8.i.i528 = add i32 %__pos.035.i.i514, -2
-  %cmp.i18.i529 = icmp ugt i32 %__val.addr.036.i.i513, 9999
+  %cmp.i18.i529 = icmp samesign ugt i32 %__val.addr.036.i.i513, 9999
   br i1 %cmp.i18.i529, label %while.body.i.i512, label %while.end.i.i496, !llvm.loop !451
 
 while.end.i.i496:                                 ; preds = %while.body.i.i512, %invoke.cont.i492
   %__val.addr.0.lcssa.i.i497 = phi i32 [ %conv84, %invoke.cont.i492 ], [ %div.i.i517, %while.body.i.i512 ]
-  %cmp9.i.i498 = icmp ugt i32 %__val.addr.0.lcssa.i.i497, 9
+  %cmp9.i.i498 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i497, 9
   br i1 %cmp9.i.i498, label %if.then.i.i502, label %if.else.i.i499
 
 if.then.i.i502:                                   ; preds = %while.end.i.i496
@@ -17041,7 +17041,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %.noexc
   %xtraiter = and i64 %call.i.i, 3
-  %4 = icmp ult i64 %conv.i, 4
+  %4 = icmp samesign ult i64 %conv.i, 4
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
@@ -25211,8 +25211,8 @@ cond.true118:                                     ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #39
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
   call void @llvm.experimental.noalias.scope.decl(metadata !855)
-  %cmp39.i.i.i = icmp ult i32 %serial.0, 10
-  %cmp3.i.i.i636 = icmp ult i32 %serial.0, 100
+  %cmp39.i.i.i = icmp samesign ult i32 %serial.0, 10
+  %cmp3.i.i.i636 = icmp samesign ult i32 %serial.0, 100
   %spec.select = select i1 %cmp3.i.i.i636, i64 2, i64 3
   %retval.0.i.i.i = select i1 %cmp39.i.i.i, i64 1, i64 %spec.select
   store ptr %145, ptr %ref.tmp119, align 8, !tbaa !4, !alias.scope !858
@@ -25221,7 +25221,7 @@ cond.true118:                                     ; preds = %while.body
 
 invoke.cont.i.i638:                               ; preds = %cond.true118
   %149 = load ptr, ptr %ref.tmp119, align 8, !tbaa !11, !alias.scope !858
-  %cmp34.i.i.i = icmp ugt i32 %serial.0, 99
+  %cmp34.i.i.i = icmp samesign ugt i32 %serial.0, 99
   br i1 %cmp34.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont.i.i638, %while.body.i.i.i
@@ -25245,12 +25245,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i638,
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %149, i64 %idxprom6.i.i.i
   store i8 %151, ptr %arrayidx7.i.i.i, align 1, !tbaa !13
   %sub8.i.i.i = add i32 %__pos.035.i.i.i, -2
-  %cmp.i18.i.i = icmp ugt i32 %__val.addr.036.i.i.i, 9999
+  %cmp.i18.i.i = icmp samesign ugt i32 %__val.addr.036.i.i.i, 9999
   br i1 %cmp.i18.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !451
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %invoke.cont.i.i638
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %serial.0, %invoke.cont.i.i638 ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i640, label %if.else.i.i.i
 
 if.then.i.i.i640:                                 ; preds = %while.end.i.i.i

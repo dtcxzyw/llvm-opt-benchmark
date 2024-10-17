@@ -3399,7 +3399,7 @@ for.body137.i:                                    ; preds = %for.body137.i, %for
   %nth.1.i = select i1 %or.cond2.i, i32 %sub152.i, i32 -1
   %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
   %cmp130.i = icmp sgt i32 %nth.1.i, -1
-  %cmp133.i = icmp ult i64 %indvars.iv.next191.i, %45
+  %cmp133.i = icmp samesign ult i64 %indvars.iv.next191.i, %45
   %49 = select i1 %cmp130.i, i1 %cmp133.i, i1 false
   br i1 %49, label %for.body137.i, label %for.end156.i, !llvm.loop !31
 
@@ -4095,7 +4095,7 @@ if.end:                                           ; preds = %if.end44.i, %if.end
   tail call void @prepare_alt_odb(ptr noundef %r) #20
   %and2 = and i32 %flags, 62
   %9 = tail call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %and2)
-  %tobool5.not = icmp ult i32 %9, 2
+  %tobool5.not = icmp samesign ult i32 %9, 2
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end

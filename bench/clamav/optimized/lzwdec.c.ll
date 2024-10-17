@@ -278,7 +278,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %113
-  %120 = icmp ult i16 %117, 256
+  %120 = icmp samesign ult i16 %117, 256
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %._crit_edge
@@ -294,7 +294,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %126, label %132, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ugt i16 %117, 257
+  %128 = icmp samesign ugt i16 %117, 257
   br i1 %128, label %129, label %.loopexit954
 
 129:                                              ; preds = %127
@@ -478,7 +478,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.1289.in.lcssa = phi i64 [ %163, %164 ], [ %193, %._crit_edge706.loopexit ]
   %.8.lcssa = phi ptr [ %.7, %164 ], [ %.10, %._crit_edge706.loopexit ]
   %.lcssa517 = phi i32 [ %169, %164 ], [ %196, %._crit_edge706.loopexit ]
-  %197 = icmp ult i32 %.lcssa517, 256
+  %197 = icmp samesign ult i32 %.lcssa517, 256
   br i1 %197, label %198, label %202
 
 198:                                              ; preds = %._crit_edge706
@@ -494,7 +494,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %203, label %.thread499, label %204
 
 204:                                              ; preds = %202
-  %205 = icmp ugt i32 %.lcssa517, 257
+  %205 = icmp samesign ugt i32 %.lcssa517, 257
   br i1 %205, label %206, label %.thread493
 
 206:                                              ; preds = %204
@@ -625,12 +625,12 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.4298 = phi ptr [ %219, %255 ], [ %.3297, %259 ]
   %.3287 = phi i16 [ %256, %255 ], [ %.2286, %259 ]
   %.3 = phi i32 [ %spec.select, %255 ], [ %260, %259 ]
-  %262 = icmp ugt i32 %216, 255
+  %262 = icmp samesign ugt i32 %216, 255
   br i1 %262, label %263, label %298
 
 263:                                              ; preds = %261
   %264 = zext i16 %.3287 to i32
-  %.not423 = icmp ult i32 %216, %264
+  %.not423 = icmp samesign ult i32 %216, %264
   br i1 %.not423, label %268, label %265
 
 265:                                              ; preds = %263

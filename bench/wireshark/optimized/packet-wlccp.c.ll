@@ -771,7 +771,7 @@ define internal i32 @dissect_wlccp(ptr noundef %0, ptr nocapture noundef readonl
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #4
   %14 = lshr i8 %13, 6
   %15 = load ptr, ptr %5, align 8
-  %16 = icmp ult i8 %11, 6
+  %16 = icmp samesign ult i8 %11, 6
   br i1 %16, label %switch.lookup, label %.sink.split
 
 switch.lookup:                                    ; preds = %9

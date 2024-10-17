@@ -101,7 +101,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .preheader:                                       ; preds = %Vec_IntPush.exit36
   %47 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %48 = icmp ult i64 %indvars.iv, 3
+  %48 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %48, label %.lr.ph46.preheader, label %._crit_edge
 
 .lr.ph46.preheader:                               ; preds = %Vec_IntPush.exit, %.preheader

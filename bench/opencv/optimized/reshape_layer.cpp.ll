@@ -2564,7 +2564,7 @@ _ZN2cv3dnn14dnn4_v20240521L20normalize_axis_rangeERKNS_5RangeEi.exit.i: ; preds 
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %138 = icmp ult i64 %indvars.iv.next.i, %134
+  %138 = icmp samesign ult i64 %indvars.iv.next.i, %134
   %139 = select i1 %138, i1 %137, i1 false
   br i1 %139, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 

@@ -1723,7 +1723,7 @@ for.body:                                         ; preds = %if.then65, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %dataLen44, align 8
   %15 = zext i32 %14 to i64
-  %cmp69 = icmp ult i64 %indvars.iv.next, %15
+  %cmp69 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %cmp69, label %for.body, label %if.end87, !llvm.loop !17
 
 if.else83:                                        ; preds = %if.then62
@@ -2676,7 +2676,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next10 = add nuw i64 %indvars.iv9, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp44 = icmp ult i64 %indvars.iv.next, %1
+  %cmp44 = icmp samesign ult i64 %indvars.iv.next, %1
   %cmp46 = icmp ult i64 %indvars.iv.next10, %2
   %8 = select i1 %cmp44, i1 %cmp46, i1 false
   br i1 %8, label %for.body, label %for.end, !llvm.loop !19

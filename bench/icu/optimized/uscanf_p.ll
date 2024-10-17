@@ -2080,7 +2080,7 @@ while.body:                                       ; preds = %land.rhs7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call5 = call signext i8 @ufile_getch_75(ptr noundef %input, ptr noundef nonnull %c)
   %cmp = icmp eq i8 %call5, 1
-  %cmp6 = icmp ult i64 %indvars.iv.next, %1
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %1
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
   br i1 %or.cond, label %land.rhs7, label %while.end.loopexit, !llvm.loop !14
 

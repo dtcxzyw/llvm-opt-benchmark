@@ -106,7 +106,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %73 = bitcast <8 x i64> %72 to <16 x float>
   %74 = fadd <16 x float> %47, %73
   %75 = add nuw nsw i64 %51, 64
-  %76 = icmp ult i64 %75, %44
+  %76 = icmp samesign ult i64 %75, %44
   br i1 %76, label %.preheader6.i, label %77, !llvm.loop !13
 
 77:                                               ; preds = %.preheader6.i
@@ -131,7 +131,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   br i1 %91, label %92, label %118
 
 92:                                               ; preds = %85
-  %93 = icmp ult i64 %86, %87
+  %93 = icmp samesign ult i64 %86, %87
   br i1 %93, label %.preheader5.i, label %112
 
 .preheader5.i:                                    ; preds = %92, %.preheader5.i
@@ -150,7 +150,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %106 = bitcast <2 x i64> %105 to <4 x float>
   %107 = fadd <4 x float> %94, %106
   %108 = add nuw nsw i64 %96, 8
-  %109 = icmp ult i64 %108, %87
+  %109 = icmp samesign ult i64 %108, %87
   br i1 %109, label %.preheader5.i, label %110, !llvm.loop !14
 
 110:                                              ; preds = %.preheader5.i
@@ -316,7 +316,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %68 = bitcast <8 x i64> %67 to <16 x float>
   %69 = fadd <16 x float> %42, %68
   %70 = add nuw nsw i64 %46, 64
-  %71 = icmp ult i64 %70, %39
+  %71 = icmp samesign ult i64 %70, %39
   br i1 %71, label %.preheader6.i, label %72, !llvm.loop !13
 
 72:                                               ; preds = %.preheader6.i
@@ -341,7 +341,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   br i1 %86, label %87, label %113
 
 87:                                               ; preds = %80
-  %88 = icmp ult i64 %81, %82
+  %88 = icmp samesign ult i64 %81, %82
   br i1 %88, label %.preheader5.i, label %107
 
 .preheader5.i:                                    ; preds = %87, %.preheader5.i
@@ -360,7 +360,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %101 = bitcast <2 x i64> %100 to <4 x float>
   %102 = fadd <4 x float> %89, %101
   %103 = add nuw nsw i64 %91, 8
-  %104 = icmp ult i64 %103, %82
+  %104 = icmp samesign ult i64 %103, %82
   br i1 %104, label %.preheader5.i, label %105, !llvm.loop !14
 
 105:                                              ; preds = %.preheader5.i

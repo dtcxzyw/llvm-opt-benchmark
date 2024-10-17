@@ -360,7 +360,7 @@ define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr nocapture nound
   %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %16) #9, !srcloc !7
   %18 = and i8 %17, 2
   %19 = icmp ne i8 %18, 0
-  %20 = icmp ult i32 %13, 9999
+  %20 = icmp samesign ult i32 %13, 9999
   %21 = select i1 %19, i1 %20, i1 false
   br i1 %21, label %.preheader8, label %22, !llvm.loop !8
 
@@ -423,7 +423,7 @@ define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr nocapture nound
   %57 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %56) #9, !srcloc !7
   %58 = and i8 %57, 1
   %59 = icmp eq i8 %58, 0
-  %60 = icmp ult i32 %53, 9999
+  %60 = icmp samesign ult i32 %53, 9999
   %61 = select i1 %59, i1 %60, i1 false
   br i1 %61, label %.preheader.us, label %62, !llvm.loop !12
 
@@ -480,7 +480,7 @@ define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr nocapture nound
   %94 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %93) #9, !srcloc !7
   %95 = and i8 %94, 2
   %96 = icmp ne i8 %95, 0
-  %97 = icmp ult i32 %90, 9999
+  %97 = icmp samesign ult i32 %90, 9999
   %98 = select i1 %96, i1 %97, i1 false
   br i1 %98, label %.preheader6, label %99, !llvm.loop !8
 
@@ -535,7 +535,7 @@ define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr nocapture nound
   %130 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %129) #9, !srcloc !7
   %131 = and i8 %130, 1
   %132 = icmp eq i8 %131, 0
-  %133 = icmp ult i32 %126, 9999
+  %133 = icmp samesign ult i32 %126, 9999
   %134 = select i1 %132, i1 %133, i1 false
   br i1 %134, label %.preheader, label %135, !llvm.loop !12
 
@@ -1776,7 +1776,7 @@ define internal noundef range(i32 -5, 1) i32 @i8042_enable_mux_ports() unnamed_a
   %20 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #9, !srcloc !7
   %21 = and i8 %20, 2
   %22 = icmp ne i8 %21, 0
-  %23 = icmp ult i32 %16, 9999
+  %23 = icmp samesign ult i32 %16, 9999
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.preheader, label %25, !llvm.loop !8
 
@@ -2156,7 +2156,7 @@ define internal range(i32 -1, 1) i32 @i8042_kbd_write(ptr nocapture readnone %0,
   %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %12) #9, !srcloc !7
   %14 = and i8 %13, 2
   %15 = icmp ne i8 %14, 0
-  %16 = icmp ult i32 %9, 9999
+  %16 = icmp samesign ult i32 %9, 9999
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.preheader, label %18, !llvm.loop !8
 

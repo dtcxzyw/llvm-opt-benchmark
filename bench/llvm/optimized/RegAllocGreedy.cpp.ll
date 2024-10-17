@@ -7258,7 +7258,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %18
   %42 = lshr i32 %39, 6
   %43 = add i32 %38, -1
   %44 = lshr i32 %43, 6
-  %.not32.i.i.i.i = icmp ugt i32 %42, %44
+  %.not32.i.i.i.i = icmp samesign ugt i32 %42, %44
   br i1 %.not32.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %41
@@ -9402,7 +9402,7 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit:     ; preds = %158, %165
 240:                                              ; preds = %204, %.thread
   %241 = add i32 %.0137, 1
   %242 = zext i32 %241 to i64
-  %243 = icmp ugt i64 %indvars.iv277, %242
+  %243 = icmp samesign ugt i64 %indvars.iv277, %242
   br i1 %243, label %244, label %.loopexit226
 
 244:                                              ; preds = %240
@@ -13084,7 +13084,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 22
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
-  %.not.i.i = icmp ult i32 %40, %105
+  %.not.i.i = icmp samesign ult i32 %40, %105
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %95
@@ -14211,9 +14211,9 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %47
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %171
-  %.not54 = icmp uge i64 %indvars.iv, %164
-  %182 = icmp ult i64 %indvars.iv, %.sroa.2.0.extract.shift
-  %or.cond = and i1 %.not54, %182
+  %.not54 = icmp samesign uge i64 %indvars.iv, %164
+  %182 = icmp samesign ult i64 %indvars.iv, %.sroa.2.0.extract.shift
+  %or.cond = select i1 %.not54, i1 %182, i1 false
   br i1 %or.cond, label %183, label %184
 
 183:                                              ; preds = %181

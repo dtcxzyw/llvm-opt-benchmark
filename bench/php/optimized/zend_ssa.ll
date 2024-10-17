@@ -5442,7 +5442,7 @@ define hidden void @zend_ssa_remove_predecessor(ptr nocapture noundef readonly %
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %64
-  %69 = icmp ugt i64 %indvars.iv, %indvars.iv.i
+  %69 = icmp samesign ugt i64 %indvars.iv, %indvars.iv.i
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68

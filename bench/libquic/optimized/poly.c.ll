@@ -192,7 +192,7 @@ while.body:                                       ; preds = %entry, %if.end25
   %shl = shl nuw i16 %conv10, 8
   %shl.masked = and i16 %shl, 16128
   %and = or disjoint i16 %shl.masked, %conv
-  %cmp13 = icmp ult i16 %and, 12289
+  %cmp13 = icmp samesign ult i16 %and, 12289
   br i1 %cmp13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body

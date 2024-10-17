@@ -2648,7 +2648,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -2771,7 +2771,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i6, %23
   %.0.lcssa.i = phi i64 [ %1, %23 ], [ %30, %.lr.ph.i6 ]
-  %43 = icmp ugt i64 %.0.lcssa.i, 9
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %._crit_edge.i
@@ -5801,7 +5801,7 @@ define void @_Z17escape_cxx_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
           to label %26 unwind label %.loopexit
 
 26:                                               ; preds = %20
-  %27 = icmp ult i8 %18, 10
+  %27 = icmp samesign ult i8 %18, 10
   %28 = or disjoint i8 %18, 48
   %29 = add nuw nsw i8 %18, 87
   %30 = select i1 %27, i8 %28, i8 %29
@@ -9860,7 +9860,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc, %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %36 = load i32, ptr %15, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next.i.i, %37
+  %38 = icmp samesign ult i64 %indvars.iv.next.i.i, %37
   br i1 %38, label %30, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !72
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %10

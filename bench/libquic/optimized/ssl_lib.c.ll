@@ -3117,42 +3117,42 @@ if.then33:                                        ; preds = %if.end26
 if.then.i:                                        ; preds = %if.then33
   %narrow.i = select i1 %cmp25.not.i, i16 -259, i16 %6
   %cmp9.i = icmp ult i16 %narrow.i, -258
-  %or.cond.i = and i1 %cmp9.i, %tobool37.i
+  %or.cond.i = select i1 %tobool37.i, i1 %cmp9.i, i1 false
   br i1 %or.cond.i, label %cond.true, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %and14.i = and i64 %conv35.i, 67108864
   %tobool15.i = icmp eq i64 %and14.i, 0
   %cmp18.i = icmp ult i16 %narrow.i, -256
-  %or.cond1.i = and i1 %cmp18.i, %tobool15.i
+  %or.cond1.i = select i1 %tobool15.i, i1 %cmp18.i, i1 false
   %8 = select i1 %or.cond1.i, i32 65279, i32 0
   br label %cond.true
 
 if.end22.i:                                       ; preds = %if.then33
   %narrow23.i = select i1 %cmp25.not.i, i16 771, i16 %6
   %cmp40.i = icmp ugt i16 %narrow23.i, 770
-  %or.cond2.i = and i1 %cmp40.i, %tobool37.i
+  %or.cond2.i = select i1 %tobool37.i, i1 %cmp40.i, i1 false
   br i1 %or.cond2.i, label %cond.false, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end22.i
   %and46.i = and i64 %conv35.i, 268435456
   %tobool47.i = icmp eq i64 %and46.i, 0
   %cmp50.i = icmp ugt i16 %narrow23.i, 769
-  %or.cond3.i = and i1 %cmp50.i, %tobool47.i
+  %or.cond3.i = select i1 %tobool47.i, i1 %cmp50.i, i1 false
   br i1 %or.cond3.i, label %cond.false, label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end43.i
   %and56.i = and i64 %conv35.i, 67108864
   %tobool57.i = icmp eq i64 %and56.i, 0
   %cmp60.i = icmp ugt i16 %narrow23.i, 768
-  %or.cond4.i = and i1 %cmp60.i, %tobool57.i
+  %or.cond4.i = select i1 %tobool57.i, i1 %cmp60.i, i1 false
   br i1 %or.cond4.i, label %cond.false, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.end53.i
   %and66.i = and i64 %conv35.i, 33554432
   %tobool67.i = icmp eq i64 %and66.i, 0
   %cmp70.i = icmp ugt i16 %narrow23.i, 767
-  %or.cond5.i = and i1 %cmp70.i, %tobool67.i
+  %or.cond5.i = select i1 %tobool67.i, i1 %cmp70.i, i1 false
   %9 = select i1 %or.cond5.i, i32 768, i32 0
   br label %cond.false
 
@@ -3160,14 +3160,14 @@ cond.true:                                        ; preds = %if.end.i, %if.then.
   %retval.0.i = phi i32 [ 65277, %if.then.i ], [ %8, %if.end.i ]
   %10 = load i32, ptr %ssl, align 8
   %conv38 = and i32 %10, 65535
-  %cmp40 = icmp ugt i32 %conv38, %retval.0.i
+  %cmp40 = icmp samesign ugt i32 %conv38, %retval.0.i
   br i1 %cmp40, label %if.then48, label %while.cond.backedge
 
 cond.false:                                       ; preds = %if.end22.i, %if.end43.i, %if.end53.i, %if.end63.i
   %retval.0.i.ph = phi i32 [ %9, %if.end63.i ], [ 769, %if.end53.i ], [ 770, %if.end43.i ], [ 771, %if.end22.i ]
   %11 = load i32, ptr %ssl, align 8
   %conv44 = and i32 %11, 65535
-  %cmp46 = icmp ult i32 %conv44, %retval.0.i.ph
+  %cmp46 = icmp samesign ult i32 %conv44, %retval.0.i.ph
   br i1 %cmp46, label %if.then48, label %while.cond.backedge
 
 if.then48:                                        ; preds = %cond.false, %cond.true
@@ -3222,42 +3222,42 @@ entry:
 if.then:                                          ; preds = %entry
   %narrow = select i1 %cmp25.not, i16 -259, i16 %2
   %cmp9 = icmp ult i16 %narrow, -258
-  %or.cond = and i1 %cmp9, %tobool37
+  %or.cond = select i1 %tobool37, i1 %cmp9, i1 false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   %and14 = and i64 %conv35, 67108864
   %tobool15 = icmp eq i64 %and14, 0
   %cmp18 = icmp ult i16 %narrow, -256
-  %or.cond1 = and i1 %cmp18, %tobool15
+  %or.cond1 = select i1 %tobool15, i1 %cmp18, i1 false
   %. = select i1 %or.cond1, i16 -257, i16 0
   br label %return
 
 if.end22:                                         ; preds = %entry
   %narrow23 = select i1 %cmp25.not, i16 771, i16 %2
   %cmp40 = icmp ugt i16 %narrow23, 770
-  %or.cond2 = and i1 %cmp40, %tobool37
+  %or.cond2 = select i1 %tobool37, i1 %cmp40, i1 false
   br i1 %or.cond2, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.end22
   %and46 = and i64 %conv35, 268435456
   %tobool47 = icmp eq i64 %and46, 0
   %cmp50 = icmp ugt i16 %narrow23, 769
-  %or.cond3 = and i1 %cmp50, %tobool47
+  %or.cond3 = select i1 %tobool47, i1 %cmp50, i1 false
   br i1 %or.cond3, label %return, label %if.end53
 
 if.end53:                                         ; preds = %if.end43
   %and56 = and i64 %conv35, 67108864
   %tobool57 = icmp eq i64 %and56, 0
   %cmp60 = icmp ugt i16 %narrow23, 768
-  %or.cond4 = and i1 %cmp60, %tobool57
+  %or.cond4 = select i1 %tobool57, i1 %cmp60, i1 false
   br i1 %or.cond4, label %return, label %if.end63
 
 if.end63:                                         ; preds = %if.end53
   %and66 = and i64 %conv35, 33554432
   %tobool67 = icmp eq i64 %and66, 0
   %cmp70 = icmp ugt i16 %narrow23, 767
-  %or.cond5 = and i1 %cmp70, %tobool67
+  %or.cond5 = select i1 %tobool67, i1 %cmp70, i1 false
   %.22 = select i1 %or.cond5, i16 768, i16 0
   br label %return
 
@@ -5382,13 +5382,13 @@ if.end:                                           ; preds = %entry
   %2 = lshr i16 %add, 8
   %shr = zext nneg i16 %2 to i32
   %shr6 = lshr i32 %conv2, 8
-  %cmp = icmp ugt i32 %shr6, %shr
+  %cmp = icmp samesign ugt i32 %shr6, %shr
   %or = or i16 %add, -256
   %spec.select = select i1 %cmp, i16 %or, i16 %add
   %3 = and i16 %spec.select, 255
   %and13 = zext nneg i16 %3 to i32
   %and15 = and i32 %conv2, 255
-  %cmp16 = icmp ugt i32 %and15, %and13
+  %cmp16 = icmp samesign ugt i32 %and15, %and13
   %or21 = or i16 %spec.select, 255
   %version.1 = select i1 %cmp16, i16 %or21, i16 %spec.select
   %cmp25 = icmp eq i16 %version.1, 769
@@ -5418,13 +5418,13 @@ if.end.i:                                         ; preds = %entry
   %3 = lshr i16 %add.i, 8
   %shr.i = zext nneg i16 %3 to i32
   %shr6.i = lshr i32 %conv2.i, 8
-  %cmp.i = icmp ugt i32 %shr6.i, %shr.i
+  %cmp.i = icmp samesign ugt i32 %shr6.i, %shr.i
   %or.i = or i16 %add.i, -256
   %spec.select.i = select i1 %cmp.i, i16 %or.i, i16 %add.i
   %4 = and i16 %spec.select.i, 255
   %and13.i = zext nneg i16 %4 to i32
   %and15.i = and i32 %conv2.i, 255
-  %cmp16.i = icmp ugt i32 %and15.i, %and13.i
+  %cmp16.i = icmp samesign ugt i32 %and15.i, %and13.i
   %or21.i = or i16 %spec.select.i, 255
   %version.1.i = select i1 %cmp16.i, i16 %or21.i, i16 %spec.select.i
   %cmp25.i = icmp eq i16 %version.1.i, 769

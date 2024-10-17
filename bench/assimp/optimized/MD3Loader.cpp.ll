@@ -2150,7 +2150,7 @@ if.end54:                                         ; preds = %if.end45
   %mul = zext nneg i32 %narrow to i64
   %add61 = add nuw nsw i64 %conv57, %mul
   %conv63 = zext i32 %8 to i64
-  %cmp64.not = icmp ult i64 %add61, %conv63
+  %cmp64.not = icmp samesign ult i64 %add61, %conv63
   br i1 %cmp64.not, label %if.end69, label %if.then65
 
 if.then65:                                        ; preds = %if.end54
@@ -2258,7 +2258,7 @@ entry:
   %fileSize = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %fileSize, align 8
   %conv5 = zext i32 %3 to i64
-  %cmp = icmp ugt i64 %add4, %conv5
+  %cmp = icmp samesign ugt i64 %add4, %conv5
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -2271,7 +2271,7 @@ lor.lhs.false:                                    ; preds = %entry
   %conv8 = zext i32 %5 to i64
   %mul9 = mul nuw nsw i64 %conv8, 68
   %add10 = add nuw nsw i64 %mul9, %conv7
-  %cmp13 = icmp ugt i64 %add10, %conv5
+  %cmp13 = icmp samesign ugt i64 %add10, %conv5
   br i1 %cmp13, label %if.then, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false
@@ -2284,7 +2284,7 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false
   %conv17 = zext i32 %7 to i64
   %mul18 = shl nuw nsw i64 %conv17, 3
   %add19 = add nuw nsw i64 %mul18, %conv16
-  %cmp22 = icmp ugt i64 %add19, %conv5
+  %cmp22 = icmp samesign ugt i64 %add19, %conv5
   br i1 %cmp22, label %if.then, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false14
@@ -2293,7 +2293,7 @@ lor.lhs.false23:                                  ; preds = %lor.lhs.false14
   %add24 = add i32 %8, %conv
   %conv25 = zext i32 %add24 to i64
   %add29 = add nuw nsw i64 %mul18, %conv25
-  %cmp32 = icmp ugt i64 %add29, %conv5
+  %cmp32 = icmp samesign ugt i64 %add29, %conv5
   br i1 %cmp32, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false23, %lor.lhs.false14, %lor.lhs.false, %entry
@@ -3173,7 +3173,7 @@ for.body12:                                       ; preds = %if.then7, %for.body
   store ptr %7, ptr %arrayidx18, align 8
   %8 = load i32, ptr %mNumChildren5, align 8
   %9 = zext i32 %8 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next29, %9
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next29, %9
   br i1 %cmp11, label %for.body12, label %delete.notnull, !llvm.loop !34
 
 delete.notnull:                                   ; preds = %for.body12, %if.then7
@@ -3801,7 +3801,7 @@ for.body12.i:                                     ; preds = %if.then7.i, %for.bo
   store ptr %42, ptr %arrayidx18.i, align 8
   %43 = load i32, ptr %mNumChildren5.i, align 8
   %44 = zext i32 %43 to i64
-  %cmp11.i = icmp ult i64 %indvars.iv.next29.i, %44
+  %cmp11.i = icmp samesign ult i64 %indvars.iv.next29.i, %44
   br i1 %cmp11.i, label %for.body12.i, label %delete.notnull.i, !llvm.loop !34
 
 delete.notnull.i:                                 ; preds = %for.body12.i, %if.then7.i
@@ -3871,7 +3871,7 @@ for.body12.i193:                                  ; preds = %if.then7.i189, %for
   store ptr %53, ptr %arrayidx18.i197, align 8
   %54 = load i32, ptr %mNumChildren5.i177, align 8
   %55 = zext i32 %54 to i64
-  %cmp11.i198 = icmp ult i64 %indvars.iv.next29.i195, %55
+  %cmp11.i198 = icmp samesign ult i64 %indvars.iv.next29.i195, %55
   br i1 %cmp11.i198, label %for.body12.i193, label %delete.notnull.i192, !llvm.loop !34
 
 delete.notnull.i192:                              ; preds = %for.body12.i193, %if.then7.i189
@@ -4413,7 +4413,7 @@ invoke.cont41:                                    ; preds = %if.end39
   %fileSize = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %conv43, ptr %fileSize, align 8
   %conv45 = and i64 %call42, 4294967295
-  %cmp46 = icmp ult i64 %conv45, 108
+  %cmp46 = icmp samesign ult i64 %conv45, 108
   br i1 %cmp46, label %if.then47, label %if.then.i.i.i.i.i
 
 if.then47:                                        ; preds = %invoke.cont41
@@ -5388,7 +5388,7 @@ if.end479:                                        ; preds = %if.then468, %land.l
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %109 = load i32, ptr %NUM_TRIANGLES.le, align 4
   %110 = zext i32 %109 to i64
-  %cmp394 = icmp ult i64 %indvars.iv.next440, %110
+  %cmp394 = icmp samesign ult i64 %indvars.iv.next440, %110
   br i1 %cmp394, label %for.body395, label %for.end482, !llvm.loop !52
 
 for.end482:                                       ; preds = %if.end479, %arrayctor.cont389
@@ -5651,7 +5651,7 @@ for.inc607:                                       ; preds = %for.inc604
   %NUM_TAGS563 = getelementptr inbounds i8, ptr %140, i64 80
   %141 = load i32, ptr %NUM_TAGS563, align 1
   %142 = zext i32 %141 to i64
-  %cmp564 = icmp ult i64 %indvars.iv.next451, %142
+  %cmp564 = icmp samesign ult i64 %indvars.iv.next451, %142
   br i1 %cmp564, label %for.body565, label %if.end611, !llvm.loop !56
 
 if.end611:                                        ; preds = %for.inc607, %invoke.cont557, %invoke.cont544
@@ -5670,7 +5670,7 @@ for.body616:                                      ; preds = %if.end611, %for.bod
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %147 = load i32, ptr %mNumMeshes, align 8
   %148 = zext i32 %147 to i64
-  %cmp615 = icmp ult i64 %indvars.iv.next454, %148
+  %cmp615 = icmp samesign ult i64 %indvars.iv.next454, %148
   br i1 %cmp615, label %for.body616, label %for.end623, !llvm.loop !57
 
 for.end623:                                       ; preds = %for.body616, %if.end611

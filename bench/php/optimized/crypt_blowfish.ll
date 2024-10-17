@@ -796,7 +796,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %488 = getelementptr inbounds [18 x i32], ptr %.ptr1871, i64 0, i64 %487
   store i32 %483, ptr %488, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %489 = icmp ult i64 %indvars.iv, 16
+  %489 = icmp samesign ult i64 %indvars.iv, 16
   br i1 %489, label %88, label %.preheader1885
 
 490:                                              ; preds = %.preheader1885, %490
@@ -1596,7 +1596,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %1275, ptr %1276, align 4
   %1277 = getelementptr inbounds i8, ptr %.01848.ptr, i64 12
   store i32 %1273, ptr %1277, align 4
-  %1278 = icmp ult i64 %.01848.idx, 4076
+  %1278 = icmp samesign ult i64 %.01848.idx, 4076
   br i1 %1278, label %490, label %.preheader1884
 
 .preheader1884:                                   ; preds = %490, %2101
@@ -1619,7 +1619,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1290 = xor i32 %1289, %1287
   store i32 %1290, ptr %1288, align 4
   %indvars.iv.next1926 = add nuw nsw i64 %indvars.iv1925, 2
-  %1291 = icmp ult i64 %indvars.iv1925, 16
+  %1291 = icmp samesign ult i64 %indvars.iv1925, 16
   br i1 %1291, label %1279, label %.preheader1883
 
 .preheader1883:                                   ; preds = %1279, %2096
@@ -2023,7 +2023,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %1680, ptr %.11849.ptr, align 4
   %1681 = getelementptr inbounds i8, ptr %.11849.ptr, i64 4
   store i32 %1678, ptr %1681, align 4
-  %1682 = icmp ult i64 %.11849.idx, 4160
+  %1682 = icmp samesign ult i64 %.11849.idx, 4160
   br i1 %1682, label %1292, label %.preheader1882
 
 .preheader1882:                                   ; preds = %1292, %.preheader1882
@@ -2423,7 +2423,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   store i32 %2070, ptr %.21850.ptr, align 4
   %2071 = getelementptr inbounds i8, ptr %.21850.ptr, i64 4
   store i32 %2068, ptr %2071, align 4
-  %2072 = icmp ult i64 %.21850.idx, 4084
+  %2072 = icmp samesign ult i64 %.21850.idx, 4084
   br i1 %2072, label %.preheader1882, label %2073
 
 2073:                                             ; preds = %.preheader1882
@@ -2458,7 +2458,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2094 = xor i32 %2093, %2078
   store i32 %2094, ptr %2092, align 4
   %indvars.iv.next1929 = add nuw nsw i64 %indvars.iv1928, 4
-  %2095 = icmp ult i64 %indvars.iv1928, 12
+  %2095 = icmp samesign ult i64 %indvars.iv1928, 12
   br i1 %2095, label %2079, label %2096
 
 2096:                                             ; preds = %2079
@@ -2889,7 +2889,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2501 = getelementptr inbounds [6 x i32], ptr %53, i64 0, i64 %2124
   store i32 %2496, ptr %2501, align 4
   %indvars.iv.next1932 = add nuw nsw i64 %indvars.iv1931, 2
-  %2502 = icmp ult i64 %indvars.iv1931, 4
+  %2502 = icmp samesign ult i64 %indvars.iv1931, 4
   br i1 %2502, label %2121, label %2503
 
 2503:                                             ; preds = %2499
@@ -3021,6 +3021,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3058,9 +3059,9 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef non
   %25 = shl nuw i8 %10, 2
   %26 = lshr i8 %22, 4
   %27 = or disjoint i8 %26, %25
-  %.ptr = getelementptr inbounds i8, ptr %.039.ptr3, i64 1
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.039.idx2
   store i8 %27, ptr %.039.ptr3, align 1
-  %.not = icmp ult i64 %.039.idx2, 15
+  %.not = icmp samesign ult i64 %.039.idx2, 15
   br i1 %.not, label %28, label %split
 
 28:                                               ; preds = %24
@@ -3083,7 +3084,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef non
   %41 = lshr i8 %37, 2
   %42 = or disjoint i8 %41, %40
   %.ptr54 = getelementptr inbounds i8, ptr %.039.ptr3, i64 2
-  store i8 %42, ptr %.ptr, align 1
+  store i8 %42, ptr %gep, align 1
   %43 = getelementptr inbounds i8, ptr %.0401, i64 4
   %44 = load i8, ptr %29, align 1
   %45 = zext i8 %44 to i32

@@ -215,7 +215,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %143 = add nuw i64 %141, %142
   %144 = trunc i64 %143 to i32
   %145 = urem i32 %144, 6
-  %146 = icmp ult i32 %145, 3
+  %146 = icmp samesign ult i32 %145, 3
   %.sroa.4244.0.insert.ext245 = zext i32 %125 to i64
   %.sroa.4244.0.insert.shift246 = shl nuw i64 %.sroa.4244.0.insert.ext245, 32
   %.sroa.0240.0.insert.ext241 = zext i32 %118 to i64
@@ -428,7 +428,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %233 = mul nuw i64 %232, 4164903690
   %234 = lshr i64 %229, 32
   %235 = add nuw i64 %233, %234
-  %236 = icmp ugt i32 %231, 5
+  %236 = icmp samesign ugt i32 %231, 5
   br i1 %236, label %237, label %263
 
 237:                                              ; preds = %199
@@ -1384,7 +1384,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
 
 799:                                              ; preds = %815
   %800 = add nuw nsw i32 %.7397, 2
-  %801 = icmp ult i32 %.7397, 253
+  %801 = icmp samesign ult i32 %.7397, 253
   br i1 %801, label %802, label %834, !llvm.loop !43
 
 802:                                              ; preds = %780, %799

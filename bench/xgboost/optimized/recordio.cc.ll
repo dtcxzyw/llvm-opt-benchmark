@@ -310,7 +310,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit6:       ; preds = %.noexc, %_ZN4dmlc15
 115:                                              ; preds = %111, %79, %73, %67, %60
   %116 = phi i32 [ %114, %111 ], [ %62, %79 ], [ %62, %73 ], [ %62, %67 ], [ %62, %60 ]
   %117 = add nuw nsw i64 %61, 4
-  %118 = icmp ult i64 %117, %40
+  %118 = icmp samesign ult i64 %117, %40
   br i1 %118, label %60, label %41, !llvm.loop !16
 
 119:                                              ; preds = %44

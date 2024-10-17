@@ -562,7 +562,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
   ]
 
 63:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i.i.i.i.i"
-  %64 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i.i, 127
+  %64 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i.i, 127
   br i1 %64, label %65, label %85
 
 65:                                               ; preds = %63
@@ -1045,7 +1045,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
   ]
 
 77:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i.i.i.i.i.i"
-  %78 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i.i.i, 127
+  %78 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i.i.i, 127
   br i1 %78, label %79, label %99
 
 79:                                               ; preds = %77

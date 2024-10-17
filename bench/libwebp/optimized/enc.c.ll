@@ -610,12 +610,12 @@ TTransform.exit:                                  ; preds = %.preheader.i
   %153 = lshr i32 %152, 5
   %154 = add nsw i32 %153, %.128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %155 = icmp ult i64 %indvars.iv, 12
+  %155 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %155, label %6, label %156, !llvm.loop !13
 
 156:                                              ; preds = %TTransform.exit
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 128
-  %157 = icmp ult i64 %indvars.iv35, 384
+  %157 = icmp samesign ult i64 %indvars.iv35, 384
   br i1 %157, label %.preheader, label %158, !llvm.loop !14
 
 158:                                              ; preds = %156

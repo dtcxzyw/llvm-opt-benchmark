@@ -565,7 +565,7 @@ define internal void @tpt_trig_timer(ptr noundef %0) #0 align 16 {
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %34, 0
   %36 = zext nneg i32 %34 to i64
-  %37 = icmp ugt i64 %20, %36
+  %37 = icmp samesign ugt i64 %20, %36
   %38 = select i1 %35, i1 true, i1 %37
   br i1 %38, label %39, label %25, !llvm.loop !13
 
@@ -691,7 +691,7 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
   %71 = load i32, ptr %70, align 4
   %72 = icmp slt i32 %71, 0
   %73 = zext nneg i32 %71 to i64
-  %74 = icmp ugt i64 %57, %73
+  %74 = icmp samesign ugt i64 %57, %73
   %75 = select i1 %72, i1 true, i1 %74
   br i1 %75, label %76, label %62, !llvm.loop !13
 

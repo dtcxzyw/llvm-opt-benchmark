@@ -387,7 +387,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = icmp ult i64 %indvars.iv.next, %24
+  %36 = icmp samesign ult i64 %indvars.iv.next, %24
   %.not71 = icmp slt i32 %35, %7
   %or.cond = select i1 %36, i1 %.not71, i1 false
   br i1 %or.cond, label %25, label %.loopexit, !llvm.loop !8

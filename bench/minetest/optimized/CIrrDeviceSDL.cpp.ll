@@ -16217,7 +16217,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %cond.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -17060,7 +17060,7 @@ if.end363:                                        ; preds = %if.end358, %for.bod
   %sub.ptr.sub.i.i412 = sub i64 %sub.ptr.lhs.cast.i.i410, %sub.ptr.rhs.cast.i.i411
   %sub.ptr.div.i.i413 = lshr exact i64 %sub.ptr.sub.i.i412, 3
   %110 = and i64 %sub.ptr.div.i.i413, 4294967295
-  %cmp291 = icmp ult i64 %indvars.iv.next451, %110
+  %cmp291 = icmp samesign ult i64 %indvars.iv.next451, %110
   br i1 %cmp291, label %for.body, label %for.cond.cleanup, !llvm.loop !891
 }
 
@@ -17602,7 +17602,7 @@ if.end.i:                                         ; preds = %_ZN3irr4core5arrayI
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %xtraiter = and i64 %call.i.i, 3
-  %33 = icmp ult i64 %conv.i90, 4
+  %33 = icmp samesign ult i64 %conv.i90, 4
   br i1 %33, label %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader

@@ -2559,7 +2559,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2936,7 +2936,7 @@ entry:
   %conv17 = zext i8 %4 to i32
   %shl18 = shl nuw nsw i32 %conv17, 16
   %or19 = or disjoint i32 %or, %shl18
-  %cmp = icmp ult i32 %or19, 2
+  %cmp = icmp samesign ult i32 %or19, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -9559,7 +9559,7 @@ if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %add.i.i.i.i.i.i = or disjoint i32 %cast.i5.i.i.i.i.i.i, 64
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i16.i.i.i.i.i, i32 %add.i.i.i.i.i.i, i32 %cast.i.i.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %retval.0.i.i.i.i.i.i, %i.031.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, 63
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i32 %retval.0.i.i.i.i.i.i, 63
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end5.i.i.i.i.i
@@ -9712,7 +9712,7 @@ if.end5.i110.i.i.i.i:                             ; preds = %if.end.i97.i.i.i.i
   %add.i.i114.i.i.i.i = or disjoint i32 %cast.i5.i.i113.i.i.i.i, 64
   %retval.0.i.i115.i.i.i.i = select i1 %cmp.i16.i108.i.i.i.i, i32 %add.i.i114.i.i.i.i, i32 %cast.i.i.i112.i.i.i.i
   %add.i116.i.i.i.i = add i32 %retval.0.i.i115.i.i.i.i, %i.031.i102.i.i.i.i
-  %cmp.i.i.i117.i.i.i.i = icmp ugt i32 %retval.0.i.i115.i.i.i.i, 63
+  %cmp.i.i.i117.i.i.i.i = icmp samesign ugt i32 %retval.0.i.i115.i.i.i.i, 63
   br i1 %cmp.i.i.i117.i.i.i.i, label %if.then.i.i.i147.i.i.i.i, label %if.else.i.i.i118.i.i.i.i
 
 if.then.i.i.i147.i.i.i.i:                         ; preds = %if.end5.i110.i.i.i.i
@@ -9812,7 +9812,7 @@ if.end5.i191.i.i.i.i:                             ; preds = %if.end.i178.i.i.i.i
   %add.i.i195.i.i.i.i = or disjoint i32 %cast.i5.i.i194.i.i.i.i, 64
   %retval.0.i.i196.i.i.i.i = select i1 %cmp.i16.i189.i.i.i.i, i32 %add.i.i195.i.i.i.i, i32 %cast.i.i.i193.i.i.i.i
   %add.i197.i.i.i.i = add i32 %retval.0.i.i196.i.i.i.i, %i.031.i183.i.i.i.i
-  %cmp.i.i.i198.i.i.i.i = icmp ugt i32 %retval.0.i.i196.i.i.i.i, 63
+  %cmp.i.i.i198.i.i.i.i = icmp samesign ugt i32 %retval.0.i.i196.i.i.i.i, 63
   br i1 %cmp.i.i.i198.i.i.i.i, label %if.then.i.i.i228.i.i.i.i, label %if.else.i.i.i199.i.i.i.i
 
 if.then.i.i.i228.i.i.i.i:                         ; preds = %if.end5.i191.i.i.i.i
@@ -10660,7 +10660,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 _ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit: ; preds = %for.body, %if.then3.i.i, %if.else.i.i
   %retval.0.i.i = phi i64 [ %mul21.i.i, %if.then3.i.i ], [ %mul23.i.i, %if.else.i.i ], [ 16, %for.body ]
   %cmp31 = icmp ule i64 %retval.0.i.i, %sub
-  %cmp34 = icmp ugt i32 %i.037, 1
+  %cmp34 = icmp samesign ugt i32 %i.037, 1
   %or.cond = select i1 %cmp31, i1 true, i1 %cmp34
   br i1 %or.cond, label %for.end, label %if.end36
 
@@ -10905,7 +10905,7 @@ if.then12:                                        ; preds = %_ZN7rocksdb6ribbon3
   %16 = and i64 %15, 9007199254740928
   %17 = or disjoint i64 %16, 5
   %add3.i22 = select i1 %cmp.i21, i64 4294967237, i64 %17
-  %cmp15 = icmp ult i64 %add3.i22, %add
+  %cmp15 = icmp samesign ult i64 %add3.i22, %add
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.then12
@@ -11311,7 +11311,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %conv3.i.i.i = zext i32 %sub.i.i.i to i64
   %mul4.i.i.i = shl nuw nsw i64 %conv3.i.i.i, 4
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul4.i.i.i
-  %cmp61.i.i.i = icmp ult i64 %mul.i.i.i, %mul4.i.i.i
+  %cmp61.i.i.i = icmp samesign ult i64 %mul.i.i.i, %mul4.i.i.i
   br i1 %cmp61.i.i.i, label %while.body.preheader.i.i.i, label %while.end.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
@@ -11406,7 +11406,7 @@ if.end.i.i:                                       ; preds = %for.body
   %conv3.i.i = zext i32 %sub.i.i to i64
   %mul4.i.i = shl nuw nsw i64 %conv3.i.i, 4
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %iss.val17.i, i64 %mul4.i.i
-  %cmp61.i.i = icmp ult i64 %mul.i.i, %mul4.i.i
+  %cmp61.i.i = icmp samesign ult i64 %mul.i.i, %mul4.i.i
   br i1 %cmp61.i.i, label %while.body.preheader.i.i, label %while.end.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end.i.i
@@ -11503,7 +11503,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %conv3.i.i.i = zext i32 %sub.i.i.i to i64
   %mul4.i.i.i = shl nuw nsw i64 %conv3.i.i.i, 4
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul4.i.i.i
-  %cmp61.i.i.i = icmp ult i64 %mul.i.i.i, %mul4.i.i.i
+  %cmp61.i.i.i = icmp samesign ult i64 %mul.i.i.i, %mul4.i.i.i
   br i1 %cmp61.i.i.i, label %while.body.preheader.i.i.i, label %while.end.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
@@ -11571,7 +11571,7 @@ for.body:                                         ; preds = %for.body, %for.body
 
 if.else:                                          ; preds = %entry
   %and.i26 = and i32 %start_bit, 127
-  %cmp.i = icmp ugt i32 %and.i26, 63
+  %cmp.i = icmp samesign ugt i32 %and.i26, 63
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -11596,7 +11596,7 @@ _ZN7rocksdblsERKNS_11Unsigned128Ej.exit:          ; preds = %if.then.i, %if.else
   %retval.sroa.4.0.i = phi i64 [ %shl.i, %if.then.i ], [ %or.i, %if.else.i ]
   %sub = sub i32 128, %start_bit
   %and.i29 = and i32 %sub, 127
-  %cmp.i30 = icmp ugt i32 %and.i29, 63
+  %cmp.i30 = icmp samesign ugt i32 %and.i29, 63
   br i1 %cmp.i30, label %if.then.i39, label %if.else.i31
 
 if.then.i39:                                      ; preds = %_ZN7rocksdblsERKNS_11Unsigned128Ej.exit

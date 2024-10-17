@@ -512,7 +512,7 @@ _ZN12_GLOBAL__N_129AggressiveDeadCodeEliminationD2Ev.exit: ; preds = %_ZN4llvm11
   store i32 0, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %86, align 8
-  %.not = icmp ult i24 %32, 65536
+  %.not = icmp samesign ult i24 %32, 65536
   br i1 %.not, label %87, label %90
 
 87:                                               ; preds = %79

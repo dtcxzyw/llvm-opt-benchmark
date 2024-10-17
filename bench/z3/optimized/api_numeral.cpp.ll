@@ -2244,10 +2244,10 @@ invoke.cont28:                                    ; preds = %invoke.cont20
 if.then30:                                        ; preds = %invoke.cont28
   %bf.load.i = load i32, ptr %m_num.i.i, align 8
   %bf.clear.i = and i32 %bf.load.i, 32764
-  %cmp = icmp ugt i32 %bf.clear.i, 11
+  %cmp = icmp samesign ugt i32 %bf.clear.i, 11
   %6 = and i32 %bf.load.i, 2147418112
-  %cmp39 = icmp ugt i32 %6, 1736704
-  %or.cond = or i1 %cmp, %cmp39
+  %cmp39 = icmp samesign ugt i32 %6, 1736704
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp39
   br i1 %or.cond, label %if.then40, label %invoke.cont45
 
 if.then40:                                        ; preds = %if.then30

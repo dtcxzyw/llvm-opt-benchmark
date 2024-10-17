@@ -205,7 +205,7 @@ Vec_MemAllocForTT.exit:                           ; preds = %Vec_MemHashAlloc.ex
 
 .lr.ph27.split.us.split.us.i:                     ; preds = %..loopexit21_crit_edge.us.us.i, %.lr.ph27.split.us.split.us.preheader.i
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph27.split.us.split.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit21_crit_edge.us.us.i ]
-  %54 = icmp ult i64 %indvars.iv68.i, 6
+  %54 = icmp samesign ult i64 %indvars.iv68.i, 6
   br i1 %54, label %.preheader.us.us.i, label %.preheader20.us.us.i
 
 55:                                               ; preds = %.preheader20.us.us.i, %55
@@ -546,7 +546,7 @@ Abc_TtCofactor0p.exit.thread61.i.us:              ; preds = %.lr.ph, %Abc_TtCofa
   %.024 = phi i32 [ %168, %Abc_TtVarsAreSymmetric.exit.thread ], [ %6, %.lr.ph ]
   %indvars30 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = icmp ult i64 %indvars.iv, 6
+  %48 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %.lr.ph.split
@@ -690,7 +690,7 @@ Abc_TtCofactor0p.exit.thread.thread.i:            ; preds = %Abc_TtCofactor0p.ex
   br label %.preheader.us.preheader.i30.i
 
 Abc_TtCofactor1p.exit.thread.i:                   ; preds = %._crit_edge.us.i26.i, %83
-  %110 = icmp ult i64 %indvars.iv, 5
+  %110 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %110, label %111, label %122
 
 111:                                              ; preds = %Abc_TtCofactor1p.exit.thread.i
@@ -1811,7 +1811,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i100, %Abc_T
   br i1 %242, label %Abc_TtStretch6.exit, label %243
 
 243:                                              ; preds = %Abc_TtMux.exit
-  %244 = icmp ult i32 %238, 5
+  %244 = icmp samesign ult i32 %238, 5
   %245 = add nsw i32 %239, -4
   %246 = shl nuw nsw i32 1, %245
   %247 = select i1 %244, i32 1, i32 %246
@@ -1846,7 +1846,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i100, %Abc_T
 
 259:                                              ; preds = %256
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, %254
-  %260 = icmp ult i64 %indvars.iv.next27.i, %255
+  %260 = icmp samesign ult i64 %indvars.iv.next27.i, %255
   br i1 %260, label %.preheader.i, label %Abc_TtStretch6.exit, !llvm.loop !37
 
 Abc_TtStretch6.exit:                              ; preds = %259, %Abc_TtMux.exit, %243
@@ -3365,7 +3365,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i147, %Abc_T
   br i1 %376, label %Abc_TtStretch6.exit, label %377
 
 377:                                              ; preds = %Abc_TtMux.exit
-  %378 = icmp ult i32 %372, 8
+  %378 = icmp samesign ult i32 %372, 8
   %379 = add nsw i32 %373, -7
   %380 = shl nuw nsw i32 1, %379
   %381 = select i1 %378, i32 1, i32 %380
@@ -3400,7 +3400,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i147, %Abc_T
 
 393:                                              ; preds = %390
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, %388
-  %394 = icmp ult i64 %indvars.iv.next27.i, %389
+  %394 = icmp samesign ult i64 %indvars.iv.next27.i, %389
   br i1 %394, label %.preheader.i, label %Abc_TtStretch6.exit, !llvm.loop !37
 
 Abc_TtStretch6.exit:                              ; preds = %393, %Abc_TtMux.exit, %377
@@ -3605,7 +3605,7 @@ Abc_Clock.exit77:                                 ; preds = %23, %29
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %.lr.ph
-  %46 = icmp ule i32 %.06897, %43
+  %46 = icmp samesign ule i32 %.06897, %43
   %.not74 = icmp slt i64 %indvars.iv, %39
   %or.cond = or i1 %.not74, %46
   br i1 %or.cond, label %.loopexit83, label %47
@@ -3702,7 +3702,7 @@ Abc_Clock.exit79:                                 ; preds = %._crit_edge, %64
   %.not72 = icmp ne i32 %87, 0
   %.pre116 = add nuw nsw i32 %.190, 1
   %88 = and i32 %84, 15
-  %89 = icmp ult i32 %.pre116, %88
+  %89 = icmp samesign ult i32 %.pre116, %88
   %or.cond121 = select i1 %.not72, i1 %89, i1 false
   br i1 %or.cond121, label %.lr.ph89, label %.loopexit
 
@@ -3730,7 +3730,7 @@ Abc_Clock.exit79:                                 ; preds = %._crit_edge, %64
   %101 = getelementptr inbounds %struct.Gem_Obj_t_, ptr %100, i64 %indvars.iv107
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 15
-  %104 = icmp ult i32 %.064, %103
+  %104 = icmp samesign ult i32 %.064, %103
   br i1 %104, label %.lr.ph89, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %98, %.lr.ph92
@@ -3738,7 +3738,7 @@ Abc_Clock.exit79:                                 ; preds = %._crit_edge, %64
   %106 = getelementptr inbounds %struct.Gem_Obj_t_, ptr %105, i64 %indvars.iv107
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, 15
-  %109 = icmp ult i32 %.pre116, %108
+  %109 = icmp samesign ult i32 %.pre116, %108
   br i1 %109, label %.lr.ph92, label %._crit_edge93.loopexit, !llvm.loop !50
 
 ._crit_edge93.loopexit:                           ; preds = %.loopexit
@@ -3868,7 +3868,7 @@ Abc_Clock.exit81:                                 ; preds = %._crit_edge100, %12
   %173 = lshr i64 %171, %172
   %174 = trunc i64 %173 to i32
   %175 = and i32 %174, 15
-  %176 = icmp ult i32 %175, 10
+  %176 = icmp samesign ult i32 %175, 10
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %170

@@ -669,13 +669,13 @@ init.end.i:                                       ; preds = %init.i, %init.check
   ]
 
 sw.bb.i:                                          ; preds = %init.end.i
-  %cmp.i = icmp ugt i64 %indvars.iv, 5
+  %cmp.i = icmp samesign ugt i64 %indvars.iv, 5
   %name.i = getelementptr inbounds [6 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 0, i64 %indvars.iv, i32 1
   %spec.select = select i1 %cmp.i, ptr @_ZZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEiE9empty_strB5cxx11, ptr %name.i
   br label %_ZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEi.exit
 
 sw.bb1.i:                                         ; preds = %init.end.i
-  %cmp2.i = icmp ugt i64 %indvars.iv, 2
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv, 2
   %name7.i = getelementptr inbounds [3 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 0, i64 %indvars.iv, i32 1
   %spec.select37 = select i1 %cmp2.i, ptr @_ZZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEiE9empty_strB5cxx11, ptr %name7.i
   br label %_ZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEi.exit

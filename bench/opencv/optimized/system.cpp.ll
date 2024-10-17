@@ -862,7 +862,7 @@ define void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind noalias writable sret(
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %3, align 8
-  %33 = icmp ugt i32 %23, 1023
+  %33 = icmp samesign ugt i32 %23, 1023
   br i1 %33, label %34, label %.noexc
 
 34:                                               ; preds = %31
@@ -5426,7 +5426,7 @@ define linkonce_odr hidden void @_ZN2cv10HWFeatures10initializeEv(ptr noundef no
   %12 = tail call { i32, i32, i32, i32 } asm "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #47, !srcloc !25
   %13 = extractvalue { i32, i32, i32, i32 } %12, 0
   %14 = and i32 %13, 3584
-  %15 = icmp ugt i32 %14, 1280
+  %15 = icmp samesign ugt i32 %14, 1280
   br i1 %15, label %16, label %179
 
 16:                                               ; preds = %11

@@ -19694,7 +19694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK11opencv_test15ToleranceFilte
   store ptr %2, ptr %33, align 8
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %35 = call noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(24) %34)
-  %36 = icmp ugt i32 %9, 4
+  %36 = icmp samesign ugt i32 %9, 4
   %.in.idx = select i1 %36, i64 0, i64 8
   %.in = getelementptr inbounds i8, ptr %0, i64 %.in.idx
   %37 = load double, ptr %.in, align 8
@@ -55978,7 +55978,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK11opencv_test25Tolerance_Floa
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = load i32, ptr %1, align 8
   %10 = and i32 %9, 7
-  %11 = icmp ugt i32 %10, 4
+  %11 = icmp samesign ugt i32 %10, 4
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %3

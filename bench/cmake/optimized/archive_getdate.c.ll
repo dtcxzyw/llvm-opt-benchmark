@@ -459,7 +459,7 @@ nexttoken.exit:                                   ; preds = %126, %155
 159:                                              ; preds = %nexttoken.exit.thread, %nexttoken.exit
   %.4120 = phi ptr [ %.4.ph, %nexttoken.exit.thread ], [ %.4, %nexttoken.exit ]
   %.072.add = add nuw nsw i64 %.072.idx, 16
-  %160 = icmp ugt i64 %.072.idx, 4064
+  %160 = icmp samesign ugt i64 %.072.idx, 4064
   br i1 %160, label %phrase.exit.thread, label %66, !llvm.loop !11
 
 .loopexit:                                        ; preds = %nexttoken.exit, %nexttoken.exit.thread121
@@ -1214,8 +1214,8 @@ datephrase.exit.i:                                ; preds = %420, %408, %396, %3
   %.lhs.trunc73.i = trunc i64 %554 to i16
   %579 = urem i16 %.lhs.trunc73.i, 100
   %580 = udiv i16 %.lhs.trunc73.i, 100
-  %581 = icmp ult i16 %579, 60
-  %or.cond.i111 = and i1 %578, %581
+  %581 = icmp samesign ult i16 %579, 60
+  %or.cond.i111 = select i1 %578, i1 %581, i1 false
   br i1 %or.cond.i111, label %582, label %phrase.exit.thread
 
 582:                                              ; preds = %577

@@ -2837,7 +2837,7 @@ if.end.i62:                                       ; preds = %for.cond54
 
 _ZNK6vectorISt4pairI8rationaljELb1EjE4sizeEv.exit65: ; preds = %for.cond54, %if.end.i62
   %retval.0.i64 = phi i64 [ %42, %if.end.i62 ], [ 0, %for.cond54 ]
-  %cmp57 = icmp ult i64 %indvars.iv, %retval.0.i64
+  %cmp57 = icmp samesign ult i64 %indvars.iv, %retval.0.i64
   br i1 %cmp57, label %for.body58, label %nrvo.skipdtor
 
 for.body58:                                       ; preds = %_ZNK6vectorISt4pairI8rationaljELb1EjE4sizeEv.exit65
@@ -6560,7 +6560,7 @@ _ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dep
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp44 = icmp ult i64 %indvars.iv56, %3
+  %cmp44 = icmp samesign ult i64 %indvars.iv56, %3
   br i1 %cmp44, label %while.body, label %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit
 
 while.body:                                       ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE4sizeEv.exit.thread
@@ -8114,7 +8114,7 @@ for.cond:                                         ; preds = %_ZN16_scoped_interv
   %3 = load ptr, ptr %vtable, align 8
   %call6 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %4 = zext i32 %call6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %invoke.cont, label %return, !llvm.loop !55
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond
@@ -10598,7 +10598,7 @@ for.cond:                                         ; preds = %_ZN16_scoped_interv
   %3 = load ptr, ptr %vtable, align 8
   %call6 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %4 = zext i32 %call6 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %4
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %invoke.cont, label %return, !llvm.loop !56
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond

@@ -911,7 +911,7 @@ define hidden void @_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream(ptr
   %11 = phi ptr [ %5, %.lr.ph ], [ %.pre, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %10 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9
@@ -1016,7 +1016,7 @@ _ZN13CodeHeapState17discard_FreeArrayEP12outputStream.exit: ; preds = %_ZN13Code
   %22 = phi ptr [ %16, %.lr.ph.i ], [ %.pre.i, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %indvars.iv.next.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %20
@@ -1051,7 +1051,7 @@ _ZN13CodeHeapState21discard_SizeDistArrayEP12outputStream.exit: ; preds = %_ZN13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr @_ZL6nHeaps, align 4
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
+  %33 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN13CodeHeapState21discard_SizeDistArrayEP12outputStream.exit
@@ -1330,7 +1330,7 @@ _ZN13CodeHeapState17discard_StatArrayEP12outputStream.exit: ; preds = %120, %121
   %131 = phi ptr [ %125, %.lr.ph.i ], [ %.pre.i, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %132 = zext i32 %130 to i64
-  %133 = icmp ult i64 %indvars.iv.next.i, %132
+  %133 = icmp samesign ult i64 %indvars.iv.next.i, %132
   br i1 %133, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %129
@@ -2063,7 +2063,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %322, %320, %switch.
   %443 = phi ptr [ %437, %.lr.ph.i1038 ], [ %.pre.i1041, %440 ]
   %indvars.iv.next.i1043 = add nuw nsw i64 %indvars.iv.i1039, 1
   %444 = zext i32 %442 to i64
-  %445 = icmp ult i64 %indvars.iv.next.i1043, %444
+  %445 = icmp samesign ult i64 %indvars.iv.next.i1043, %444
   br i1 %445, label %.lr.ph.i1038, label %._crit_edge.i1044, !llvm.loop !10
 
 ._crit_edge.i1044:                                ; preds = %441
@@ -2418,7 +2418,7 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   %627 = getelementptr inbounds %class.StatElement, ptr %518, i64 %indvars.iv1300, i32 15
   store i16 %603, ptr %627, align 2
   %indvars.iv.next1301 = add nuw nsw i64 %indvars.iv1300, 1
-  %628 = icmp ult i64 %indvars.iv.next1301, %605
+  %628 = icmp samesign ult i64 %indvars.iv.next1301, %605
   br i1 %628, label %.lr.ph1162.split.us, label %.loopexit1121, !llvm.loop !14
 
 .lr.ph1162.split:                                 ; preds = %.lr.ph1162.thread, %.lr.ph1162.split
@@ -2434,7 +2434,7 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   %635 = add i16 %634, %596
   store i16 %635, ptr %633, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %636 = icmp ult i64 %indvars.iv.next, %598
+  %636 = icmp samesign ult i64 %indvars.iv.next, %598
   br i1 %636, label %.lr.ph1162.split, label %.loopexit1121, !llvm.loop !14
 
 .loopexit1121:                                    ; preds = %.lr.ph1162.split, %625, %.thread1425, %569, %220, %489, %493, %212, %214
@@ -2837,7 +2837,7 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   %indvars.iv.next1304 = add nuw nsw i64 %indvars.iv1303, 1
   %849 = load i32, ptr @_ZL19alloc_topSizeBlocks, align 4
   %850 = zext i32 %849 to i64
-  %851 = icmp ult i64 %indvars.iv.next1304, %850
+  %851 = icmp samesign ult i64 %indvars.iv.next1304, %850
   br i1 %851, label %.lr.ph1225, label %.loopexit1125, !llvm.loop !18
 
 .loopexit1125:                                    ; preds = %.lr.ph1225, %839, %.critedge, %._crit_edge1214
@@ -2886,7 +2886,7 @@ _ZN13CodeHeapState17discard_StatArrayEP12outputStream.exit1048: ; preds = %852, 
   %864 = phi ptr [ %858, %.lr.ph.i1052 ], [ %.pre.i1055, %861 ]
   %indvars.iv.next.i1057 = add nuw nsw i64 %indvars.iv.i1053, 1
   %865 = zext i32 %863 to i64
-  %866 = icmp ult i64 %indvars.iv.next.i1057, %865
+  %866 = icmp samesign ult i64 %indvars.iv.next.i1057, %865
   br i1 %866, label %.lr.ph.i1052, label %._crit_edge.i1058, !llvm.loop !10
 
 ._crit_edge.i1058:                                ; preds = %862
@@ -3181,7 +3181,7 @@ _ZN13CodeHeapState17discard_FreeArrayEP12outputStream.exit1066: ; preds = %915, 
   %975 = load i32, ptr @_ZL16alloc_freeBlocks, align 4
   %976 = add i32 %975, -1
   %977 = zext i32 %976 to i64
-  %978 = icmp ult i64 %indvars.iv.next1307, %977
+  %978 = icmp samesign ult i64 %indvars.iv.next1307, %977
   br i1 %978, label %.lr.ph1265, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN13CodeHeapState17prepare_FreeArrayEP12outputStreamjPKc.exit, %973, %918
@@ -3711,7 +3711,7 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %171 = load i32, ptr @_ZL19alloc_topSizeBlocks, align 4
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next448, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next448, %172
   br i1 %173, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %186
@@ -3741,7 +3741,7 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %187 = load i32, ptr @_ZL19alloc_topSizeBlocks, align 4
   %188 = zext i32 %187 to i64
-  %189 = icmp ult i64 %indvars.iv.next, %188
+  %189 = icmp samesign ult i64 %indvars.iv.next, %188
   br i1 %189, label %.lr.ph.split, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %186, %.lr.ph.split.us, %162, %160
@@ -4320,7 +4320,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   %81 = load i32, ptr @_ZL16alloc_freeBlocks, align 4
   %82 = add i32 %81, -1
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
+  %84 = icmp samesign ult i64 %indvars.iv.next, %83
   br i1 %84, label %51, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %80, %46
@@ -4390,7 +4390,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
 
 .preheader361:                                    ; preds = %111
   %115 = getelementptr inbounds [10 x ptr], ptr %4, i64 0, i64 %indvars.iv420
-  %116 = icmp ult i64 %indvars.iv420, 9
+  %116 = icmp samesign ult i64 %indvars.iv420, 9
   br i1 %116, label %.lr.ph381, label %._crit_edge382
 
 .lr.ph381:                                        ; preds = %.preheader361, %.lr.ph381
@@ -4448,7 +4448,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   %.2280 = phi i32 [ %.0278383, %.critedge.thread ], [ %.1279357, %.critedge.thread355 ], [ %.0278383, %103 ], [ %spec.select, %131 ]
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %138 = zext i32 %136 to i64
-  %139 = icmp ult i64 %indvars.iv.next434, %138
+  %139 = icmp samesign ult i64 %indvars.iv.next434, %138
   br i1 %139, label %103, label %._crit_edge387, !llvm.loop !36
 
 ._crit_edge387:                                   ; preds = %135, %100
@@ -4610,7 +4610,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
 
 .preheader:                                       ; preds = %213
   %217 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %indvars.iv442
-  %218 = icmp ult i64 %indvars.iv442, 9
+  %218 = icmp samesign ult i64 %indvars.iv442, 9
   br i1 %218, label %.lr.ph395, label %._crit_edge396
 
 .lr.ph395:                                        ; preds = %.preheader, %.lr.ph395
@@ -4673,7 +4673,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %239 = add i32 %237, -1
   %240 = zext i32 %239 to i64
-  %241 = icmp ult i64 %indvars.iv.next457, %240
+  %241 = icmp samesign ult i64 %indvars.iv.next457, %240
   br i1 %241, label %190, label %._crit_edge401, !llvm.loop !40
 
 ._crit_edge401:                                   ; preds = %236, %187

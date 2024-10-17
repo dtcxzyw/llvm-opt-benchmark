@@ -668,7 +668,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17hd1482bca816b8fc9E(p
   %33 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %25, i1 false)
   %34 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %32, i1 false)
   %narrow = add nuw nsw i16 %34, %33
-  %35 = icmp ugt i16 %narrow, 15
+  %35 = icmp samesign ugt i16 %narrow, 15
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %2

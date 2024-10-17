@@ -6976,7 +6976,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %72 = zext i16 %71 to i64
   %73 = add nuw nsw i64 %72, 4294967295
   %74 = and i64 %73, 4294967295
-  %75 = icmp ult i64 %74, %indvars.iv.i
+  %75 = icmp samesign ult i64 %74, %indvars.iv.i
   br i1 %75, label %76, label %.critedge.i
 
 76:                                               ; preds = %.lr.ph.i
@@ -8360,7 +8360,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %71 = zext i16 %70 to i64
   %72 = add nuw nsw i64 %71, 4294967295
   %73 = and i64 %72, 4294967295
-  %74 = icmp ult i64 %73, %indvars.iv.i
+  %74 = icmp samesign ult i64 %73, %indvars.iv.i
   br i1 %74, label %75, label %.critedge.i
 
 75:                                               ; preds = %.lr.ph.i

@@ -432,7 +432,7 @@ if.end13.i61:                                     ; preds = %call.i.noexc81, %if
 if.end21:                                         ; preds = %if.else16
   %mul = shl nuw nsw i32 %count, 1
   %spec.select25 = tail call i32 @llvm.smax.i32(i32 %capacity, i32 %mul)
-  %cmp.i84 = icmp ult i32 %spec.select25, 28
+  %cmp.i84 = icmp samesign ult i32 %spec.select25, 28
   br i1 %cmp.i84, label %if.end21.if.then29_crit_edge, label %if.end.i85
 
 if.end21.if.then29_crit_edge:                     ; preds = %if.end21
@@ -441,7 +441,7 @@ if.end21.if.then29_crit_edge:                     ; preds = %if.end21
   br label %for.body38.preheader
 
 if.end.i85:                                       ; preds = %if.end21
-  %cmp2.i86 = icmp ult i32 %spec.select25, 2147483638
+  %cmp2.i86 = icmp samesign ult i32 %spec.select25, 2147483638
   br i1 %cmp2.i86, label %if.then3.i92, label %invoke.cont26
 
 if.then3.i92:                                     ; preds = %if.end.i85
@@ -501,7 +501,7 @@ for.body38:                                       ; preds = %for.body38.preheade
   %arrayidx43 = getelementptr inbounds i16, ptr %cond.i114, i64 %15
   store i16 %conv34, ptr %arrayidx43, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp37 = icmp ult i64 %indvars.iv.next, %14
+  %cmp37 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %cmp37, label %for.body38, label %for.end46, !llvm.loop !6
 
 for.end46:                                        ; preds = %for.body38

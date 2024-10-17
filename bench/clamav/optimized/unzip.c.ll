@@ -669,7 +669,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %14
   %17 = add nuw nsw i64 %.fr, 4294967274
   %18 = getelementptr inbounds i8, ptr %8, i64 104
-  %19 = icmp ugt i64 %12, 45
+  %19 = icmp samesign ugt i64 %12, 45
   %20 = and i64 %17, 4294967295
   br i1 %19, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
@@ -693,7 +693,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 1
-  %.not115.us.not = icmp ult i32 %22, %30
+  %.not115.us.not = icmp samesign ult i32 %22, %30
   br i1 %.not115.us.not, label %31, label %.split.us
 
 31:                                               ; preds = %28, %25, %.lr.ph.split.us
@@ -1101,7 +1101,7 @@ define internal fastcc i32 @zdecrypt(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %64 = load i16, ptr %43, align 8
   %65 = zext i16 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next.i, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next.i, %65
   br i1 %66, label %46, label %zinitkey.exit.loopexit
 
 zinitkey.exit.loopexit:                           ; preds = %46

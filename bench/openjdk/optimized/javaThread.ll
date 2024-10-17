@@ -3047,7 +3047,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %17, %20
   %22 = load volatile i32, ptr %6, align 8
   %23 = and i32 %22, 8
   %24 = icmp ne i32 %23, 0
-  %25 = icmp ult i32 %.013, 40959
+  %25 = icmp samesign ult i32 %.013, 40959
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !19
 

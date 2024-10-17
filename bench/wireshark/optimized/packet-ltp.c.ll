@@ -944,7 +944,7 @@ add_sdnv64_to_tree.exit247.thread.i.i:            ; preds = %add_sdnv64_to_tree.
   %331 = load i32, ptr @hf_ltp_data_rpt_ref, align 4
   %332 = load i32, ptr @hf_ltp_data_rpt_time, align 4
   call fastcc void @ltp_ref_use(ptr noundef %327, i64 noundef %328, ptr noundef %1, ptr noundef %330, i32 noundef %331, i32 noundef %332)
-  %.not289.i.i = icmp ult i32 %79, 2
+  %.not289.i.i = icmp samesign ult i32 %79, 2
   %333 = icmp eq i32 %79, 3
   br i1 %.not289.i.i, label %360, label %350
 
@@ -958,7 +958,7 @@ add_sdnv64_to_tree.exit247.thread.i.i:            ; preds = %add_sdnv64_to_tree.
   br i1 %245, label %339, label %371
 
 339:                                              ; preds = %334
-  %340 = icmp ugt i32 %79, 3
+  %340 = icmp samesign ugt i32 %79, 3
   %341 = load i64, ptr %30, align 8
   %342 = icmp eq i64 %341, 0
   %or.cond9.i.i = select i1 %340, i1 %342, i1 false

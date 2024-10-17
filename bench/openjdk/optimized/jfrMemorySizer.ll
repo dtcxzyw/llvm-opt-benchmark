@@ -550,7 +550,7 @@ define linkonce_odr hidden void @_ZN16ScaleOutAdjuster6adjustERmS0_S0_S0_b(ptr n
   %28 = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 %25)
   %29 = tail call noundef i64 @llvm.umax.i64(i64 %28, i64 %26)
   store i64 %29, ptr %1, align 8
-  %30 = icmp ult i64 %29, %25
+  %30 = icmp samesign ult i64 %29, %25
   br i1 %30, label %.preheader.i.i, label %_ZL17align_buffer_sizeRmmmb.exit.i
 
 .preheader.i.i:                                   ; preds = %24, %.preheader.i.i
@@ -581,7 +581,7 @@ _ZL17align_buffer_sizeRmmmb.exit.i:               ; preds = %33, %24
   %40 = load i64, ptr %0, align 8
   %41 = urem i64 %40, %39
   %42 = lshr i64 %39, 1
-  %.not11.i = icmp uge i64 %41, %42
+  %.not11.i = icmp samesign uge i64 %41, %42
   %.not12.i = icmp ugt i64 %39, %26
   %or.cond.i = and i1 %.not12.i, %.not11.i
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZL39adjust_buffer_size_to_total_memory_sizeRmS_.exit, !llvm.loop !9

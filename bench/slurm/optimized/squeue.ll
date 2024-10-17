@@ -741,7 +741,7 @@ _populate_array_job_states.exit.i.i:              ; preds = %244, %239, %230, %2
   %249 = load ptr, ptr %5, align 8
   %250 = load i32, ptr %249, align 8
   %251 = zext i32 %250 to i64
-  %252 = icmp ult i64 %indvars.iv.next.i.i, %251
+  %252 = icmp samesign ult i64 %indvars.iv.next.i.i, %251
   br i1 %252, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %_populate_array_job_states.exit.i.i, %.thread.i.i

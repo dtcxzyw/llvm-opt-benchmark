@@ -15168,7 +15168,7 @@ for.body:                                         ; preds = %entry, %for.cond.lo
   %2 = tail call double @llvm.fabs.f64(double %1)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %invariant.gep = getelementptr inbounds double, ptr %temp, i64 %indvars.iv161
-  %cmp3123 = icmp ult i64 %indvars.iv161, 3
+  %cmp3123 = icmp samesign ult i64 %indvars.iv161, 3
   %3 = trunc nuw nsw i64 %indvars.iv161 to i32
   br i1 %cmp3123, label %for.body4, label %for.end
 
@@ -31587,12 +31587,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -69354,11 +69354,11 @@ entry:
   %shr.i.i.i = lshr i32 %1, 16
   %3 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %3, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -69377,7 +69377,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -69396,7 +69396,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end37.i.i.i:                                   ; preds = %entry
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -69431,12 +69431,12 @@ _ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit: ; preds = %if.then4.i.i.i, %
   %shr.i.i = and i32 %7, 268427264
   %h.signext.i.i = sext i16 %retval.0.i.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -70318,11 +70318,11 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -70341,7 +70341,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -70360,7 +70360,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIfE7convertEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -74870,7 +74870,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 4088
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 4088
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !896
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -76491,7 +76491,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 504
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 504
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !917
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -76750,7 +76750,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 56
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 56
   br i1 %cmp9.i.i, label %land.rhs.i.i, label %if.end.i, !llvm.loop !925
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -88456,7 +88456,7 @@ for.body:                                         ; preds = %for.body.outer, %fo
   %and16 = and i64 %n.0353, 2
   %tobool17.not = icmp eq i64 %and16, 0
   %cond24 = select i1 %tobool17.not, double %sqrt.i40, double %fneg20
-  %tobool26.not = icmp ult i64 %n.0353, 4
+  %tobool26.not = icmp samesign ult i64 %n.0353, 4
   %cond33 = select i1 %tobool26.not, double %sqrt.i61, double %fneg29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx3.i.i74, i8 0, i64 24, i1 false), !alias.scope !1064
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx11.i.i, i8 0, i64 24, i1 false), !alias.scope !1064
@@ -97698,7 +97698,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01765, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01765, 4
+  %tobool33.not = icmp samesign ult i32 %i.01765, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i183 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i183)
@@ -104213,7 +104213,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01718, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01718, 4
+  %tobool33.not = icmp samesign ult i32 %i.01718, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -110391,7 +110391,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i58.val = load double, ptr %arrayidx3.i58, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i58.val
-  %tobool33.not = icmp ult i32 %i.01418, 4
+  %tobool33.not = icmp samesign ult i32 %i.01418, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i59.val = load double, ptr %arrayidx5.i59, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i59.val
@@ -114036,7 +114036,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01368, 4
+  %tobool33.not = icmp samesign ult i32 %i.01368, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val
@@ -119870,7 +119870,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01624, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01624, 4
+  %tobool33.not = icmp samesign ult i32 %i.01624, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -123477,7 +123477,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01624, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01624, 4
+  %tobool33.not = icmp samesign ult i32 %i.01624, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -129182,7 +129182,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01276, 4
+  %tobool33.not = icmp samesign ult i32 %i.01276, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val
@@ -132501,7 +132501,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01276, 4
+  %tobool33.not = icmp samesign ult i32 %i.01276, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val
@@ -154188,12 +154188,12 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
   %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
-  %cmp.i.i.i.i.i.i.i37 = icmp ugt i32 %shr.i.i.i.i.i.i.i, 8388607
+  %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i = or disjoint i32 %shr.i.i.i.i.i.i.i, %shl3.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp ult i32 %shr.i.i.i.i.i.i.i, 260046848
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ult i32 %shr.i.i.i.i.i.i.i, 260046848
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -191901,11 +191901,11 @@ entry:
   %shr.i.i.i = lshr i32 %1, 16
   %3 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %3, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -191924,7 +191924,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -191943,7 +191943,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end37.i.i.i:                                   ; preds = %entry
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -191978,12 +191978,12 @@ _ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit: ; preds = %if.then4.i.i.i, %
   %shr.i.i = and i32 %7, 268427264
   %h.signext.i.i = sext i16 %retval.0.i.i.i to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -192867,11 +192867,11 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -192890,7 +192890,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -192909,7 +192909,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN7openvdb5v11_02io10RealToHalfIdE7convertEd.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -197407,7 +197407,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 4088
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 4088
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !896
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -199017,7 +199017,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 504
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 504
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !917
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -199276,7 +199276,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 56
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 56
   br i1 %cmp9.i.i, label %land.rhs.i.i, label %if.end.i, !llvm.loop !925
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -216746,7 +216746,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01751, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01751, 4
+  %tobool33.not = icmp samesign ult i32 %i.01751, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i183 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i183)
@@ -223230,7 +223230,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01704, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01704, 4
+  %tobool33.not = icmp samesign ult i32 %i.01704, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -229380,7 +229380,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i58.val = load double, ptr %arrayidx3.i58, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i58.val
-  %tobool33.not = icmp ult i32 %i.01404, 4
+  %tobool33.not = icmp samesign ult i32 %i.01404, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i59.val = load double, ptr %arrayidx5.i59, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i59.val
@@ -232997,7 +232997,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01354, 4
+  %tobool33.not = icmp samesign ult i32 %i.01354, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val
@@ -238803,7 +238803,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01624, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01624, 4
+  %tobool33.not = icmp samesign ult i32 %i.01624, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -242407,7 +242407,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_05
   %and24 = and i32 %i.01624, 2
   %tobool25.not = icmp eq i32 %and24, 0
   %cond31.in.sroa.speculated = select i1 %tobool25.not, double %conv4, double %conv14
-  %tobool33.not = icmp ult i32 %i.01624, 4
+  %tobool33.not = icmp samesign ult i32 %i.01624, 4
   %cond39.in.sroa.speculated = select i1 %tobool33.not, double %conv7, double %conv18
   %mul5.i.i182 = fmul double %7, %cond31.in.sroa.speculated
   %91 = tail call double @llvm.fmuladd.f64(double %cond.in.sroa.speculated, double %6, double %mul5.i.i182)
@@ -248112,7 +248112,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01276, 4
+  %tobool33.not = icmp samesign ult i32 %i.01276, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val
@@ -251431,7 +251431,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx3.i.val = load double, ptr %arrayidx3.i, align 8
   %arrayidx3.i57.val = load double, ptr %arrayidx3.i57, align 8
   %cond31 = select i1 %tobool25.not, double %arrayidx3.i.val, double %arrayidx3.i57.val
-  %tobool33.not = icmp ult i32 %i.01276, 4
+  %tobool33.not = icmp samesign ult i32 %i.01276, 4
   %arrayidx5.i.val = load double, ptr %arrayidx5.i, align 8
   %arrayidx5.i58.val = load double, ptr %arrayidx5.i58, align 8
   %cond39 = select i1 %tobool33.not, double %arrayidx5.i.val, double %arrayidx5.i58.val

@@ -349,7 +349,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_main_type(ptr noundef %
   %20 = load i32, ptr %3, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #6
   %22 = zext nneg i8 %12 to i32
-  %23 = icmp ult i8 %12, 24
+  %23 = icmp samesign ult i8 %12, 24
   %24 = load i32, ptr %3, align 4
   br i1 %23, label %25, label %29
 
@@ -375,7 +375,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_main_type(ptr noundef %
   br i1 %36, label %switch.lookup, label %37
 
 37:                                               ; preds = %32
-  %38 = icmp ugt i8 %12, 23
+  %38 = icmp samesign ugt i8 %12, 23
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %37
@@ -416,7 +416,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %56 = load i32, ptr %3, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #6
   %58 = zext nneg i8 %12 to i32
-  %59 = icmp ult i8 %12, 24
+  %59 = icmp samesign ult i8 %12, 24
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %49
@@ -488,7 +488,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %.sink.split.i45
 
 103:                                              ; preds = %69
-  %104 = icmp ugt i8 %12, 23
+  %104 = icmp samesign ugt i8 %12, 23
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103
@@ -530,7 +530,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %122 = load i32, ptr %3, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0) #6
   %124 = zext nneg i8 %12 to i32
-  %125 = icmp ult i8 %12, 24
+  %125 = icmp samesign ult i8 %12, 24
   %126 = load i32, ptr %3, align 4
   br i1 %125, label %127, label %131
 
@@ -568,7 +568,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %.sink.split
 
 140:                                              ; preds = %134
-  %141 = icmp ugt i8 %12, 23
+  %141 = icmp samesign ugt i8 %12, 23
   br i1 %141, label %142, label %148
 
 142:                                              ; preds = %140
@@ -680,7 +680,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   %188 = load i32, ptr %3, align 4
   %189 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef 0) #6
   %190 = zext nneg i8 %12 to i32
-  %191 = icmp ult i8 %12, 24
+  %191 = icmp samesign ult i8 %12, 24
   %192 = load i32, ptr %3, align 4
   br i1 %191, label %193, label %197
 
@@ -718,7 +718,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   br label %.sink.split97
 
 206:                                              ; preds = %200
-  %207 = icmp ugt i8 %12, 23
+  %207 = icmp samesign ugt i8 %12, 23
   br i1 %207, label %208, label %214
 
 208:                                              ; preds = %206
@@ -837,7 +837,7 @@ dissect_cbor_map.exit:                            ; preds = %232, %230, %220, %.
   %253 = load i32, ptr %3, align 4
   %254 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0) #6
   %255 = zext nneg i8 %12 to i32
-  %256 = icmp ult i8 %12, 24
+  %256 = icmp samesign ult i8 %12, 24
   %257 = load i32, ptr %3, align 4
   br i1 %256, label %258, label %262
 
@@ -862,7 +862,7 @@ dissect_cbor_map.exit:                            ; preds = %232, %230, %220, %.
   br i1 %268, label %switch.lookup110, label %269
 
 269:                                              ; preds = %265
-  %270 = icmp ugt i8 %12, 23
+  %270 = icmp samesign ugt i8 %12, 23
   br i1 %270, label %271, label %279
 
 271:                                              ; preds = %269
@@ -936,7 +936,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef
   %13 = load i32, ptr %3, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0) #6
   %15 = zext nneg i8 %4 to i32
-  %16 = icmp ult i8 %4, 24
+  %16 = icmp samesign ult i8 %4, 24
   %17 = load i32, ptr %3, align 4
   br i1 %16, label %18, label %22
 
@@ -1042,7 +1042,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef
   br i1 %.not89, label %.loopexit, label %37
 
 73:                                               ; preds = %25
-  %74 = icmp ugt i8 %4, 23
+  %74 = icmp samesign ugt i8 %4, 23
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %73
@@ -1109,7 +1109,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
   %14 = load i32, ptr %3, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #6
   %16 = zext nneg i8 %4 to i32
-  %17 = icmp ult i8 %4, 24
+  %17 = icmp samesign ult i8 %4, 24
   %18 = load i32, ptr %3, align 4
   br i1 %17, label %19, label %23
 
@@ -1215,7 +1215,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
   br i1 %.not90, label %.loopexit, label %38
 
 74:                                               ; preds = %26
-  %75 = icmp ugt i8 %4, 23
+  %75 = icmp samesign ugt i8 %4, 23
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %74
@@ -1281,7 +1281,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_float_simple_data(ptr n
   %14 = load i32, ptr %3, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #6
   %16 = zext nneg i8 %4 to i32
-  %17 = icmp ult i8 %4, 24
+  %17 = icmp samesign ult i8 %4, 24
   %18 = load i32, ptr %3, align 4
   br i1 %17, label %19, label %25
 
@@ -1409,7 +1409,7 @@ decode_half.exit:                                 ; preds = %46, %53, %62
   br label %91
 
 87:                                               ; preds = %28
-  %88 = icmp ugt i8 %4, 23
+  %88 = icmp samesign ugt i8 %4, 23
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87

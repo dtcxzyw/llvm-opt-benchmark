@@ -1991,7 +1991,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then401.i
 
 for.cond411.preheader.i:                          ; preds = %for.body.i
   %221 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %cmp412450.i = icmp ult i64 %indvars.iv.i, 5
+  %cmp412450.i = icmp samesign ult i64 %indvars.iv.i, 5
   br i1 %cmp412450.i, label %for.body414.lr.ph.i, label %for.end420.i
 
 for.body414.lr.ph.i:                              ; preds = %for.cond411.preheader.i, %if.then401.i
@@ -2017,7 +2017,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %id_len.i = getelementptr inbounds i8, ptr %227, i64 14
   %228 = load i8, ptr %id_len.i, align 2
   %229 = zext i8 %228 to i64
-  %cmp404.i = icmp ult i64 %indvars.iv.next.i, %229
+  %cmp404.i = icmp samesign ult i64 %indvars.iv.next.i, %229
   br i1 %cmp404.i, label %for.body.i, label %for.cond411.preheader.i, !llvm.loop !7
 
 for.end420.i:                                     ; preds = %for.body414.lr.ph.i, %for.cond411.preheader.i

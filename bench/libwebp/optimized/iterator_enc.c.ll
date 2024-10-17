@@ -791,7 +791,7 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
   br label %196
 
 .preheader.i135:                                  ; preds = %196
-  %192 = icmp ult i32 %44, 8
+  %192 = icmp samesign ult i32 %44, 8
   br i1 %192, label %.lr.ph18.i121, label %ImportLine.exit136
 
 .lr.ph18.i121:                                    ; preds = %ImportLine.exit, %.preheader.i135
@@ -830,7 +830,7 @@ ImportLine.exit136:                               ; preds = %.lr.ph18.i121, %.pr
   br label %209
 
 .preheader.i151:                                  ; preds = %209
-  %205 = icmp ult i32 %44, 8
+  %205 = icmp samesign ult i32 %44, 8
   br i1 %205, label %.lr.ph18.i137, label %InitLeft.exit
 
 .lr.ph18.i137:                                    ; preds = %ImportLine.exit136, %.preheader.i151
@@ -921,7 +921,7 @@ ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.pr
   br label %242
 
 .preheader.i183:                                  ; preds = %242
-  %237 = icmp ult i32 %42, 8
+  %237 = icmp samesign ult i32 %42, 8
   br i1 %237, label %.lr.ph18.i169, label %ImportLine.exit184
 
 .lr.ph18.i169:                                    ; preds = %ImportLine.exit168, %.preheader.i183
@@ -961,7 +961,7 @@ ImportLine.exit184:                               ; preds = %.lr.ph18.i169, %.pr
   br label %256
 
 .preheader.i199:                                  ; preds = %256
-  %251 = icmp ult i32 %42, 8
+  %251 = icmp samesign ult i32 %42, 8
   br i1 %251, label %.lr.ph18.i185, label %ImportLine.exit200
 
 .lr.ph18.i185:                                    ; preds = %ImportLine.exit184, %.preheader.i199

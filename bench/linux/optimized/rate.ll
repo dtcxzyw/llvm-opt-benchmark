@@ -851,7 +851,7 @@ define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly %0, ptr nound
 
 244:                                              ; preds = %241
   %245 = and i8 %219, 14
-  %246 = icmp ugt i8 %245, 9
+  %246 = icmp samesign ugt i8 %245, 9
   br i1 %246, label %247, label %289, !prof !6
 
 247:                                              ; preds = %244
@@ -1964,7 +1964,7 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr nocapture n
   %41 = phi i32 [ %38, %34 ], [ %27, %25 ]
   %42 = add nuw nsw i64 %28, 1
   %43 = zext i32 %40 to i64
-  %44 = icmp ult i64 %42, %43
+  %44 = icmp samesign ult i64 %42, %43
   br i1 %44, label %25, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %39, %6

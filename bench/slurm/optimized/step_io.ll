@@ -415,7 +415,7 @@ define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readon
 
 135:                                              ; preds = %58, %51, %49
   call void @slurm_xfree(ptr noundef nonnull %30) #10
-  %136 = icmp ugt i32 %38, 2
+  %136 = icmp samesign ugt i32 %38, 2
   br i1 %136, label %137, label %_read_io_init_msg.exit.thread.i
 
 137:                                              ; preds = %135

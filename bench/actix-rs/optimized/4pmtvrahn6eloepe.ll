@@ -3981,7 +3981,7 @@ define hidden void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFas
 46:                                               ; preds = %.outer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %23, ptr noundef nonnull readonly align 4 dereferenceable(512) @_ZN6brotli3enc17compress_fragment13kCmdHistoSeed17hd36e2c8de23c6f9bE, i64 512, i1 false), !alias.scope !529, !noalias !533
   %47 = add i64 %.0335.ph, %.0359.ph
-  %48 = icmp ugt i64 %.0359.ph, 15
+  %48 = icmp samesign ugt i64 %.0359.ph, 15
   br i1 %48, label %49, label %.outer.backedge
 
 49:                                               ; preds = %46
@@ -5479,7 +5479,7 @@ _ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf
   %.097313 = phi i64 [ 0, %_ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf642E.exit ], [ %292, %.loopexit179 ]
   %87 = load i64, ptr %30, align 8, !noundef !13
   %.0.sroa.speculated.i167 = call noundef i64 @llvm.umin.i64(i64 %87, i64 8)
-  %88 = icmp ult i64 %.097313, %.0.sroa.speculated.i167
+  %88 = icmp samesign ult i64 %.097313, %.0.sroa.speculated.i167
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %86, %.loopexit179
@@ -5565,7 +5565,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
 .lr.ph296:                                        ; preds = %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142
   %140 = shl nuw nsw i16 %.0.i153171, 3
   %141 = and i16 %140, 56
-  %142 = icmp ult i16 %.0.i153171, 8
+  %142 = icmp samesign ult i16 %.0.i153171, 8
   %143 = lshr i16 %.0.i153171, 3
   %narrow.i = mul nuw nsw i16 %143, 3
   %144 = trunc i64 %96 to i32
@@ -5578,7 +5578,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
 
 ._crit_edge:                                      ; preds = %.loopexit, %167, %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142
   %.1.lcssa = phi i64 [ %.0314, %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142 ], [ %.1295, %167 ], [ %.2, %.loopexit ]
-  %147 = icmp ugt i64 %.097313, 1
+  %147 = icmp samesign ugt i64 %.097313, 1
   %brmerge = or i1 %147, %.not316
   br i1 %brmerge, label %.loopexit179, label %.lr.ph311
 
@@ -5763,7 +5763,7 @@ _ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit: ; preds = %
   %.189 = phi i64 [ %.088294, %172 ], [ %.088294, %175 ], [ %.088294, %181 ], [ %.088294, %195 ], [ %.091288, %284 ]
   %.2 = phi i64 [ %.1295, %172 ], [ %.1295, %175 ], [ %.1295, %181 ], [ %.1295, %195 ], [ %.4, %284 ]
   %241 = add nuw nsw i64 %.095292, 1
-  %242 = icmp ult i64 %.095292, 15
+  %242 = icmp samesign ult i64 %.095292, 15
   %243 = icmp ult i64 %.189, %24
   %or.cond2 = and i1 %242, %243
   br i1 %or.cond2, label %152, label %._crit_edge
@@ -5864,8 +5864,8 @@ _ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit.thread: ; pr
 .loopexit179:                                     ; preds = %._crit_edge305, %._crit_edge
   %.6 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %.7.lcssa, %._crit_edge305 ]
   %292 = add nuw nsw i64 %.097313, 1
-  %293 = icmp ult i64 %.097313, 4
-  %294 = and i1 %27, %293
+  %293 = icmp samesign ult i64 %.097313, 4
+  %294 = select i1 %27, i1 %293, i1 false
   br i1 %294, label %86, label %89
 
 295:                                              ; preds = %291
@@ -5899,7 +5899,7 @@ _ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit.thread: ; pr
   %313 = load float, ptr %312, align 4, !noundef !13
   %314 = fadd float %311, %313
   %315 = lshr i64 %297, 37
-  %316 = icmp ugt i64 %315, %.
+  %316 = icmp samesign ugt i64 %315, %.
   %or.cond = or i1 %300, %316
   %317 = call i64 @llvm.umax.i64(i64 %.093309, i64 %315)
   %spec.store.select = select i1 %or.cond, i64 %317, i64 %.093309
@@ -6663,7 +6663,7 @@ define internal fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostM
 .preheader45:                                     ; preds = %.preheader45.preheader, %44
   %.149 = phi i64 [ %46, %44 ], [ 0, %.preheader45.preheader ]
   %22 = add nuw nsw i64 %.149, 11
-  %23 = icmp ult i64 %.149, 245
+  %23 = icmp samesign ult i64 %.149, 245
   br i1 %23, label %41, label %38
 
 ._crit_edge:                                      ; preds = %34, %.preheader
@@ -6674,7 +6674,7 @@ define internal fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostM
 .lr.ph51:                                         ; preds = %.preheader, %34
   %.250 = phi i64 [ %36, %34 ], [ 0, %.preheader ]
   %25 = add nuw nsw i64 %.250, 20
-  %26 = icmp ult i64 %.250, 236
+  %26 = icmp samesign ult i64 %.250, 236
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %.lr.ph51
@@ -7066,7 +7066,7 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
   %144 = getelementptr inbounds [128 x i64], ptr %23, i64 0, i64 %139
   %145 = load i64, ptr %144, align 8, !noalias !642, !noundef !13
   %sum.shift.i = lshr i64 %145, 37
-  %146 = icmp ugt i64 %sum.shift.i, %..i
+  %146 = icmp samesign ugt i64 %sum.shift.i, %..i
   br i1 %146, label %150, label %141
 
 .invoke.i:                                        ; preds = %138, %211, %178, %_ZN6brotli3enc19backward_references2hq23ComputeDistanceShortcut17h82f0edc7341e7044E.exit.i.i, %257, %231, %107, %113, %.lr.ph49.i, %_ZN6brotli3enc19backward_references2hq22CleanupZopfliCostModel17hef67162d824451f8E.exit.i
@@ -7092,7 +7092,7 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
 154:                                              ; preds = %151
   %155 = load i64, ptr %23, align 8, !noalias !642, !noundef !13
   %sum.shift57.i = lshr i64 %155, 37
-  %156 = icmp ugt i64 %sum.shift57.i, %..i
+  %156 = icmp samesign ugt i64 %sum.shift57.i, %..i
   br i1 %156, label %159, label %157
 
 157:                                              ; preds = %159, %154, %151
@@ -8107,7 +8107,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq38BrotliCreateHqZopfli
   br i1 %.not92.i, label %._crit_edge.i, label %.lr.ph.i
 
 223:                                              ; preds = %217
-  %224 = icmp ult i16 %211, 140
+  %224 = icmp samesign ult i16 %211, 140
   br i1 %224, label %225, label %.invoke, !prof !217
 
 225:                                              ; preds = %223
@@ -8286,7 +8286,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelSetFromCommands17h44f0831
   %297 = getelementptr inbounds [0 x i64], ptr %.sroa.0306.1.lcssa, i64 0, i64 %294
   %298 = load i64, ptr %297, align 8, !alias.scope !840, !noalias !854, !noundef !13
   %sum.shift.i = lshr i64 %298, 37
-  %299 = icmp ugt i64 %sum.shift.i, %..i
+  %299 = icmp samesign ugt i64 %sum.shift.i, %..i
   br i1 %299, label %359, label %300
 
 300:                                              ; preds = %359, %296, %.noexc229

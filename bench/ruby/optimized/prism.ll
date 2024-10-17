@@ -13103,7 +13103,7 @@ peek.exit346:                                     ; preds = %308, %317
 
 330:                                              ; preds = %320, %peek.exit346
   %.0245 = phi i8 [ %327, %320 ], [ %313, %peek.exit346 ]
-  %.not261 = icmp ult i8 %.tr422631, 8
+  %.not261 = icmp samesign ult i8 %.tr422631, 8
   br i1 %.not261, label %336, label %331
 
 331:                                              ; preds = %330
@@ -13181,7 +13181,7 @@ peek.exit346:                                     ; preds = %308, %317
   br i1 %exitcond.not.i, label %escape_unicode.exit, label %.lr.ph.i, !llvm.loop !51
 
 escape_unicode.exit:                              ; preds = %.lr.ph.i
-  %.not260 = icmp ult i8 %.tr422631, 8
+  %.not260 = icmp samesign ult i8 %.tr422631, 8
   %373 = getelementptr i8, ptr %.val274.pre, i64 4
   br i1 %.not260, label %378, label %374
 
@@ -13232,7 +13232,7 @@ peek.exit350:                                     ; preds = %382
   %397 = getelementptr inbounds i8, ptr %0, i64 432
   %398 = and i8 %.tr422631, 4
   %399 = icmp ne i8 %398, 0
-  %.not259 = icmp ult i8 %.tr422631, 8
+  %.not259 = icmp samesign ult i8 %.tr422631, 8
   br label %400
 
 400:                                              ; preds = %.lr.ph, %432
@@ -13353,7 +13353,7 @@ peek.exit359.thread:                              ; preds = %.critedge.thread, %
   br label %456
 
 456:                                              ; preds = %peek.exit359.thread, %452
-  %.not258 = icmp ult i8 %.tr422631, 8
+  %.not258 = icmp samesign ult i8 %.tr422631, 8
   br i1 %.not258, label %escape_write_escape_encoded.exit, label %457
 
 457:                                              ; preds = %456
@@ -14525,7 +14525,7 @@ declare i64 @pm_strspn_hexadecimal_digit(ptr noundef, i64 noundef) local_unnamed
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @escape_write_byte(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %2, i8 noundef zeroext %3) unnamed_addr #1 {
-  %.not = icmp ult i8 %2, 8
+  %.not = icmp samesign ult i8 %2, 8
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %4
@@ -14537,7 +14537,7 @@ define internal fastcc void @escape_write_byte(ptr noundef %0, ptr noundef nonnu
   %narrow = add nuw nsw i8 %6, 55
   %.sink = select i1 %8, i8 %narrow, i8 %9
   tail call void @pm_buffer_append_byte(ptr noundef nonnull %1, i8 noundef zeroext %.sink) #27
-  %10 = icmp ugt i8 %7, 9
+  %10 = icmp samesign ugt i8 %7, 9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5

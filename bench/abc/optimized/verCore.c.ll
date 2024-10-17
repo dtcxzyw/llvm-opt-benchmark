@@ -726,7 +726,7 @@ Ver_ParseModule.exit.i:                           ; preds = %.critedge.i.i, %.cr
   tail call void @Extra_ProgressBarStop(ptr noundef %292) #19
   store ptr null, ptr %54, align 8
   %293 = tail call i32 @Ver_ParseConnectDefBoxes(ptr noundef %.0.i)
-  %294 = icmp ult i32 %293, 2
+  %294 = icmp samesign ult i32 %293, 2
   br i1 %294, label %Ver_ParseAttachBoxes.exit.i, label %295
 
 295:                                              ; preds = %._crit_edge.i

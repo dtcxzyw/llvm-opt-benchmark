@@ -365,7 +365,7 @@ Aig_ManObj.exit:                                  ; preds = %70, %75
   %83 = load i64, ptr %4, align 8
   %84 = trunc i64 %83 to i32
   %85 = lshr i32 %84, 6
-  %86 = icmp ult i32 %82, %85
+  %86 = icmp samesign ult i32 %82, %85
   br i1 %86, label %59, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %Aig_ManObj.exit, %.preheader, %18, %7, %3, %Vec_IntPush.exit

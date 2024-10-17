@@ -106,7 +106,7 @@ define void @_Z9shrinkageRKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERKdRS1_(ptr n
   %34 = fsub <2 x double> %33, %30
   store <2 x double> %34, ptr %31, align 16
   %35 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
-  %36 = icmp ult i64 %35, %29
+  %36 = icmp samesign ult i64 %35, %29
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !8
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %.thread52, %.thread, %27
@@ -217,7 +217,7 @@ common.resume:                                    ; preds = %139, %46
   %78 = fsub <2 x double> %77, %72
   store <2 x double> %78, ptr %73, align 16
   %79 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %80 = icmp ult i64 %79, %71
+  %80 = icmp samesign ult i64 %79, %71
   br i1 %80, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !20
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread55, %.thread54, %69

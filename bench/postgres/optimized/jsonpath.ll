@@ -1290,7 +1290,7 @@ switch.lookup208:                                 ; preds = %operationPriority.e
 
 operationPriority.exit189:                        ; preds = %operationPriority.exit, %switch.lookup208
   %.0.i188 = phi i32 [ %switch.load211, %switch.lookup208 ], [ 6, %operationPriority.exit ]
-  %49 = icmp ule i32 %.0.i, %.0.i188
+  %49 = icmp samesign ule i32 %.0.i, %.0.i188
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %49)
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 32) #12
   %50 = load i32, ptr %1, align 8
@@ -1327,7 +1327,7 @@ switch.lookup216:                                 ; preds = %operationPriority.e
 
 operationPriority.exit193:                        ; preds = %operationPriority.exit191, %switch.lookup216
   %.0.i192 = phi i32 [ %switch.load219, %switch.lookup216 ], [ 6, %operationPriority.exit191 ]
-  %61 = icmp ule i32 %.0.i190, %.0.i192
+  %61 = icmp samesign ule i32 %.0.i190, %.0.i192
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %61)
   br i1 %3, label %62, label %263
 
@@ -1401,7 +1401,7 @@ switch.lookup224:                                 ; preds = %operationPriority.e
 
 operationPriority.exit197:                        ; preds = %operationPriority.exit195, %switch.lookup224
   %.0.i196 = phi i32 [ %switch.load227, %switch.lookup224 ], [ 6, %operationPriority.exit195 ]
-  %89 = icmp ule i32 %.0.i194, %.0.i196
+  %89 = icmp samesign ule i32 %.0.i194, %.0.i196
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %89)
   br i1 %3, label %90, label %263
 
@@ -1659,7 +1659,7 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
   %180 = tail call fastcc i32 @operationPriority(i32 noundef %179)
   %181 = load i32, ptr %1, align 8
   %182 = tail call fastcc i32 @operationPriority(i32 noundef %181)
-  %183 = icmp ule i32 %180, %182
+  %183 = icmp samesign ule i32 %180, %182
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %183)
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.66) #12
   %184 = getelementptr inbounds i8, ptr %1, i64 24

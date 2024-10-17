@@ -274,7 +274,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   ]
 
 61:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i.i.i.i"
-  %62 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i, 127
+  %62 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i.i.i.i, 127
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %61
@@ -522,15 +522,15 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i.i.i"
 
 73:                                               ; preds = %71
-  %74 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
+  %74 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 128
   br i1 %74, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i", label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
+  %76 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 2048
   br i1 %76, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i", label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
+  %78 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 65536
   %..i.i.i.i.i.i = select i1 %78, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i.i.i"
 

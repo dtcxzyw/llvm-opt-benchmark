@@ -2562,7 +2562,7 @@ GetSpanData.exit:                                 ; preds = %17
   %.4174 = phi i1 [ true, %143 ], [ true, %140 ], [ true, %115 ], [ %191, %190 ]
   %.5 = phi i32 [ %.4, %143 ], [ %.4, %140 ], [ %.2218, %115 ], [ %.1, %190 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %197 = icmp ult i64 %indvars.iv.next, %100
+  %197 = icmp samesign ult i64 %indvars.iv.next, %100
   %198 = select i1 %.4174, i1 %197, i1 false
   br i1 %198, label %101, label %.loopexit, !llvm.loop !14
 

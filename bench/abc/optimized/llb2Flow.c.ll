@@ -3782,7 +3782,7 @@ Aig_ManObj.exit:                                  ; preds = %64, %68
   %76 = load i64, ptr %4, align 8
   %77 = trunc i64 %76 to i32
   %78 = lshr i32 %77, 6
-  %79 = icmp ult i32 %75, %78
+  %79 = icmp samesign ult i32 %75, %78
   br i1 %79, label %54, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %Aig_ManObj.exit, %48, %Saig_ObjIsLi.exit.thread, %Saig_ObjIsLi.exit
@@ -4748,7 +4748,7 @@ Llb_ManCutVolume.exit:                            ; preds = %.critedge.i, %.crit
   br i1 %57, label %58, label %Vec_PtrPush.exit94
 
 58:                                               ; preds = %55
-  %59 = icmp ult i64 %indvars.iv136, 16
+  %59 = icmp samesign ult i64 %indvars.iv136, 16
   br i1 %59, label %Vec_PtrGrow.exit.i93, label %61
 
 Vec_PtrGrow.exit.i93:                             ; preds = %58

@@ -12337,7 +12337,7 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   %137 = add nuw nsw i64 %.01418.i, 1
   %138 = load i8, ptr %107, align 8
   %139 = zext i8 %138 to i64
-  %140 = icmp ult i64 %137, %139
+  %140 = icmp samesign ult i64 %137, %139
   br i1 %140, label %116, label %.preheader.loopexit.i, !llvm.loop !137
 
 141:                                              ; preds = %141, %.preheader.i
@@ -12507,7 +12507,7 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   %31 = add nuw nsw i64 %.01418, 1
   %32 = load i8, ptr %2, align 8
   %33 = zext i8 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %9, label %.preheader.loopexit, !llvm.loop !137
 
 35:                                               ; preds = %.preheader, %35
@@ -12765,7 +12765,7 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   %120 = add nuw nsw i64 %.01418.i, 1
   %121 = load i8, ptr %90, align 8
   %122 = zext i8 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %99, label %.preheader.loopexit.i, !llvm.loop !137
 
 124:                                              ; preds = %124, %.preheader.i38

@@ -745,7 +745,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br label %.loopexit
 
 301:                                              ; preds = %292
-  %302 = icmp ugt i32 %299, 4096
+  %302 = icmp samesign ugt i32 %299, 4096
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %301
@@ -1184,7 +1184,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   ]
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i32 %11, 2
+  %26 = icmp samesign ugt i32 %11, 2
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %25
@@ -2910,7 +2910,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %45 = mul nuw nsw i32 %42, %38
   %46 = add i32 %45, %37
   %47 = udiv i32 %38, 10
-  %48 = icmp ult i32 %38, 10
+  %48 = icmp samesign ult i32 %38, 10
   br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %44, %.preheader, %29
@@ -3106,7 +3106,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
   %23 = mul nuw nsw i32 %20, %16
   %24 = add i32 %23, %15
   %25 = udiv i32 %16, 10
-  %26 = icmp ult i32 %16, 10
+  %26 = icmp samesign ult i32 %16, 10
   br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %22, %.preheader, %4

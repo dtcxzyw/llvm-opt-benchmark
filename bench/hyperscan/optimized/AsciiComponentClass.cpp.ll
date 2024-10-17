@@ -234,7 +234,7 @@ if.end20.i.i.i:                                   ; preds = %if.then10.i.i.i, %i
   %i.0.i.i.i = phi i64 [ %and19.i.i.i, %if.then10.i.i.i ], [ %conv.i.i, %if.end8.i.i.i ]
   %add22.i.i.i = add nuw nsw i64 %conv2.i.i, 1
   %add2128.i.i.i = add nuw nsw i64 %i.0.i.i.i, 64
-  %cmp23.not29.i.i.i = icmp ugt i64 %add2128.i.i.i, %add22.i.i.i
+  %cmp23.not29.i.i.i = icmp samesign ugt i64 %add2128.i.i.i, %add22.i.i.i
   br i1 %cmp23.not29.i.i.i, label %for.end.i.i.i, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end20.i.i.i

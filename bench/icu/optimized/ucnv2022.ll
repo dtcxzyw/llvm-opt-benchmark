@@ -130,7 +130,7 @@ land.lhs.true15:                                  ; preds = %land.lhs.true, %lan
   ]
 
 if.then23:                                        ; preds = %land.lhs.true15, %land.lhs.true15
-  %cmp24 = icmp ugt i32 %and, 4
+  %cmp24 = icmp samesign ugt i32 %and, 4
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.then23
@@ -138,7 +138,7 @@ if.then25:                                        ; preds = %if.then23
   br label %if.end219
 
 if.end26:                                         ; preds = %if.then23
-  %tobool30.not = icmp ult i32 %and, 2
+  %tobool30.not = icmp samesign ult i32 %and, 2
   br i1 %tobool30.not, label %if.end34, label %if.then63
 
 if.end34:                                         ; preds = %if.end26
@@ -206,7 +206,7 @@ land.lhs.true94:                                  ; preds = %land.lhs.true86, %l
   ]
 
 if.then102:                                       ; preds = %land.lhs.true94, %land.lhs.true94
-  %cmp103 = icmp ugt i32 %and, 1
+  %cmp103 = icmp samesign ugt i32 %and, 1
   br i1 %cmp103, label %if.then104, label %if.end105
 
 if.then104:                                       ; preds = %if.then102
@@ -345,7 +345,7 @@ land.lhs.true158:                                 ; preds = %lor.lhs.false150, %
   ]
 
 if.then166:                                       ; preds = %land.lhs.true158, %land.lhs.true158
-  %cmp167 = icmp ugt i32 %and, 2
+  %cmp167 = icmp samesign ugt i32 %and, 2
   br i1 %cmp167, label %if.then168, label %if.end169
 
 if.then168:                                       ; preds = %if.then166
@@ -1377,7 +1377,7 @@ getTrailByte:                                     ; preds = %sw.default147, %if.
   %44 = load i8, ptr %43, align 1
   %conv151 = add nuw nsw i32 %mySourceChar.0, 223
   %conv152 = and i32 %conv151, 254
-  %cmp153 = icmp ult i32 %conv152, 94
+  %cmp153 = icmp samesign ult i32 %conv152, 94
   %conv155 = zext i8 %44 to i32
   %sub156 = add i8 %44, -33
   %cmp159 = icmp ult i8 %sub156, 94
@@ -1590,7 +1590,7 @@ if.else291:                                       ; preds = %if.end260
 
 if.else302:                                       ; preds = %if.else232
   %68 = load ptr, ptr %converter, align 8
-  %cmp.i147 = icmp ugt i32 %mySourceChar.1, 255
+  %cmp.i147 = icmp samesign ugt i32 %mySourceChar.1, 255
   br i1 %cmp.i147, label %if.then.i148, label %_ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit
 
 if.then.i148:                                     ; preds = %if.else302
@@ -2017,14 +2017,14 @@ if.then158:                                       ; preds = %if.then49.i, %if.th
 
 if.end.i:                                         ; preds = %if.then158
   %and.i = and i32 %38, 65280
-  %cmp1.i = icmp ult i32 %and.i, 40705
+  %cmp1.i = icmp samesign ult i32 %and.i, 40705
   %value.addr.0.v.i = select i1 %cmp1.i, i32 -28672, i32 -45056
   %value.addr.0.i = add nsw i32 %value.addr.0.v.i, %and.i
   %shl.i = shl nsw i32 %value.addr.0.i, 1
   %conv5.i = and i32 %38, 255
-  %cmp6.i = icmp ult i32 %conv5.i, 159
+  %cmp6.i = icmp samesign ult i32 %conv5.i, 159
   %sub8.i = add nsw i32 %shl.i, -256
-  %cmp10.i = icmp ult i32 %conv5.i, 127
+  %cmp10.i = icmp samesign ult i32 %conv5.i, 127
   %. = select i1 %cmp10.i, i32 -31, i32 -32
   %.sink = select i1 %cmp6.i, i32 %., i32 -126
   %sub8.i.sink = select i1 %cmp6.i, i32 %sub8.i, i32 %shl.i
@@ -2197,13 +2197,13 @@ if.then203:                                       ; preds = %if.then49.i254, %lo
 if.then206:                                       ; preds = %if.then203
   %conv.i = add i32 %.pre, 24159
   %conv1.i = and i32 %conv.i, 65534
-  %cmp.i276 = icmp ult i32 %conv1.i, 23902
+  %cmp.i276 = icmp samesign ult i32 %conv1.i, 23902
   br i1 %cmp.i276, label %land.lhs.true.i278, label %_ZL17_2022FromGR94DBCSj.exit.thread
 
 land.lhs.true.i278:                               ; preds = %if.then206
   %conv3.i = add i32 %.pre, 95
   %conv4.i279 = and i32 %conv3.i, 254
-  %cmp5.i = icmp ult i32 %conv4.i279, 94
+  %cmp5.i = icmp samesign ult i32 %conv4.i279, 94
   br i1 %cmp5.i, label %_ZL17_2022FromGR94DBCSj.exit, label %_ZL17_2022FromGR94DBCSj.exit.thread
 
 _ZL17_2022FromGR94DBCSj.exit.thread:              ; preds = %if.then206, %land.lhs.true.i278
@@ -2226,7 +2226,7 @@ for.inc213:                                       ; preds = %if.then49.i254, %if
   %g.1 = phi i8 [ %g.0338, %_ZL17_2022FromGR94DBCSj.exit ], [ %g.0338, %lor.lhs.false199 ], [ 2, %if.then191 ], [ %g.0338, %land.lhs.true183 ], [ 0, %if.end.i ], [ %g.0338, %_ZL13_2022FromSJISj.exit ], [ 0, %if.then170 ], [ %g.0338, %land.lhs.true167 ], [ %g.0338, %if.else163 ], [ %g.0338, %_ZL12jisx201FromUj.exit ], [ %g.0338, %sw.bb118 ], [ %g.0338, %sw.bb111 ], [ %g.0338, %sw.bb ], [ %g.0338, %if.then121 ], [ %g.0338, %_ZL12jisx201FromUj.exit.thread295 ], [ %g.0338, %land.lhs.true.i223 ], [ %g.0338, %_ZL17_2022FromGR94DBCSj.exit.thread ], [ %g.0338, %cond.false.i ], [ %g.0338, %cond.true.i ], [ %g.0338, %if.end62.i266 ], [ 0, %if.then203 ], [ 0, %if.end211 ], [ %g.0338, %if.then49.i254 ]
   %len.1 = phi i32 [ %len.0341, %_ZL17_2022FromGR94DBCSj.exit ], [ %len.0341, %lor.lhs.false199 ], [ %retval.0.i222.ph, %if.then191 ], [ %len.0341, %land.lhs.true183 ], [ %retval.0.i210301, %if.end.i ], [ %len.0341, %_ZL13_2022FromSJISj.exit ], [ -2, %if.then170 ], [ 0, %land.lhs.true167 ], [ %len.0341, %if.else163 ], [ %len.0341, %_ZL12jisx201FromUj.exit ], [ %len.0341, %sw.bb118 ], [ %len.0341, %sw.bb111 ], [ %len.0341, %sw.bb ], [ %len.0341, %if.then121 ], [ %len.0341, %_ZL12jisx201FromUj.exit.thread295 ], [ %len.0341, %land.lhs.true.i223 ], [ %len.0341, %_ZL17_2022FromGR94DBCSj.exit.thread ], [ %len.0341, %cond.false.i ], [ %len.0341, %cond.true.i ], [ %len.0341, %if.end62.i266 ], [ %retval.0.i255311, %if.then203 ], [ %retval.0.i255311, %if.end211 ], [ %len.0341, %if.then49.i254 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %cmp102 = icmp ult i64 %indvars.iv.next351, %24
+  %cmp102 = icmp samesign ult i64 %indvars.iv.next351, %24
   %cmp103 = icmp slt i32 %len.1, 1
   %60 = select i1 %cmp102, i1 %cmp103, i1 false
   br i1 %60, label %for.body104, label %for.end215, !llvm.loop !10
@@ -3368,7 +3368,7 @@ getTrailByte:                                     ; preds = %if.then65, %if.then
   %conv68 = zext nneg i16 %mySourceChar.0 to i32
   %narrow = add nuw nsw i16 %mySourceChar.0, 223
   %62 = and i16 %narrow, 254
-  %cmp71 = icmp ult i16 %62, 94
+  %cmp71 = icmp samesign ult i16 %62, 94
   %conv73 = zext i8 %61 to i32
   %sub74 = add i8 %61, -33
   %cmp77 = icmp ult i8 %sub74, 94
@@ -3712,13 +3712,13 @@ lor.lhs.false39:                                  ; preds = %lor.lhs.false35
 land.lhs.true41:                                  ; preds = %lor.lhs.false39
   %conv43 = add i32 %33, 24159
   %conv44 = and i32 %conv43, 65534
-  %cmp45 = icmp ugt i32 %conv44, 23901
+  %cmp45 = icmp samesign ugt i32 %conv44, 23901
   br i1 %cmp45, label %if.end52.thread, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %land.lhs.true41
   %conv48 = add i32 %33, 95
   %conv49 = and i32 %conv48, 254
-  %cmp50 = icmp ugt i32 %conv49, 93
+  %cmp50 = icmp samesign ugt i32 %conv49, 93
   br i1 %cmp50, label %if.end52.thread, label %if.end52
 
 if.end52.thread:                                  ; preds = %if.end62.i, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread, %land.lhs.true41, %lor.lhs.false46, %lor.lhs.false35
@@ -4241,7 +4241,7 @@ getTrailByte:                                     ; preds = %if.then70, %if.then
   %30 = load i8, ptr %29, align 1
   %conv73 = add nuw nsw i32 %mySourceChar.0, 223
   %conv74 = and i32 %conv73, 254
-  %cmp75 = icmp ult i32 %conv74, 94
+  %cmp75 = icmp samesign ult i32 %conv74, 94
   %conv77 = zext i8 %30 to i32
   %sub78 = add i8 %30, -33
   %cmp81 = icmp ult i8 %sub78, 94
@@ -4462,7 +4462,7 @@ if.else228:                                       ; preds = %if.end197
 
 if.else239:                                       ; preds = %if.else170
   %59 = load ptr, ptr %converter, align 8
-  %cmp.i119 = icmp ugt i32 %mySourceChar.1, 255
+  %cmp.i119 = icmp samesign ugt i32 %mySourceChar.1, 255
   br i1 %cmp.i119, label %if.then.i, label %_ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit
 
 if.then.i:                                        ; preds = %if.else239
@@ -4849,7 +4849,7 @@ for.inc:                                          ; preds = %if.then49.i, %if.en
   %cs.1 = phi i8 [ 34, %if.then129 ], [ %cs.0161, %lor.lhs.false111 ], [ %15, %if.then149 ], [ %cs.0161, %lor.lhs.false145 ], [ %cs.0161, %for.body ], [ 33, %if.then115 ], [ %conv118, %if.else130 ], [ %cs.0161, %if.end62.i ], [ %cs.0161, %if.then49.i ]
   %g58.1 = phi i8 [ 2, %if.then129 ], [ %g58.0163, %lor.lhs.false111 ], [ 1, %if.then149 ], [ %g58.0163, %lor.lhs.false145 ], [ %g58.0163, %for.body ], [ 1, %if.then115 ], [ %.g58.0, %if.else130 ], [ %g58.0163, %if.end62.i ], [ %g58.0163, %if.then49.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp100 = icmp ult i64 %indvars.iv.next, %14
+  %cmp100 = icmp samesign ult i64 %indvars.iv.next, %14
   %cmp101 = icmp slt i32 %len.4, 1
   %30 = select i1 %cmp100, i1 %cmp101, i1 false
   br i1 %30, label %for.body, label %for.end, !llvm.loop !20

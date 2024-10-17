@@ -16133,7 +16133,7 @@ define internal fastcc void @set_sg(ptr nocapture noundef %0, double noundef %1)
   %14 = lshr i32 %11, 17
   %15 = and i32 %14, 31
   %16 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %17 = icmp ult i32 %13, 3
+  %17 = icmp samesign ult i32 %13, 3
   %18 = add nuw nsw i32 %13, 12
   %.018.i.i = select i1 %17, i32 %18, i32 %13
   %19 = sext i1 %17 to i32
@@ -16248,7 +16248,7 @@ define internal fastcc void @get_c_jd(ptr nocapture noundef %0) unnamed_addr #0 
   %11 = lshr i32 %8, 17
   %12 = and i32 %11, 31
   %13 = tail call fastcc double @c_virtual_sg(ptr noundef nonnull %0)
-  %14 = icmp ult i32 %10, 3
+  %14 = icmp samesign ult i32 %10, 3
   %15 = add nuw nsw i32 %10, 12
   %.018.i = select i1 %14, i32 %15, i32 %10
   %16 = sext i1 %14 to i32
@@ -18121,7 +18121,7 @@ rb_array_len.exit:                                ; preds = %177
 rb_array_len.exit.thread:                         ; preds = %177
   %185 = lshr i64 %180, 15
   %186 = and i64 %185, 127
-  %187 = icmp ult i64 %.0225, %186
+  %187 = icmp samesign ult i64 %.0225, %186
   br i1 %187, label %.thread, label %.thread779
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
@@ -18177,7 +18177,7 @@ rb_array_len.exit615:                             ; preds = %207
 rb_array_len.exit615.thread:                      ; preds = %207
   %212 = lshr i64 %208, 15
   %213 = and i64 %212, 127
-  %214 = icmp ult i64 %.0230, %213
+  %214 = icmp samesign ult i64 %.0230, %213
   br i1 %214, label %rb_array_const_ptr.exit618, label %223
 
 215:                                              ; preds = %rb_array_len.exit615
@@ -18398,7 +18398,7 @@ rb_array_len.exit666:                             ; preds = %290
 rb_array_len.exit666.thread:                      ; preds = %290
   %295 = lshr i64 %291, 15
   %296 = and i64 %295, 127
-  %297 = icmp ult i64 %.0233, %296
+  %297 = icmp samesign ult i64 %.0233, %296
   br i1 %297, label %rb_array_const_ptr.exit669, label %314
 
 298:                                              ; preds = %rb_array_len.exit666
@@ -18516,7 +18516,7 @@ rb_array_len.exit690:                             ; preds = %338
 rb_array_len.exit690.thread:                      ; preds = %338
   %343 = lshr i64 %339, 15
   %344 = and i64 %343, 127
-  %345 = icmp ult i64 %.0234, %344
+  %345 = icmp samesign ult i64 %.0234, %344
   br i1 %345, label %rb_array_const_ptr.exit693, label %362
 
 346:                                              ; preds = %rb_array_len.exit690
@@ -18622,7 +18622,7 @@ rb_array_len.exit696:                             ; preds = %403
 rb_array_len.exit696.thread:                      ; preds = %403
   %408 = lshr i64 %404, 15
   %409 = and i64 %408, 127
-  %410 = icmp ult i64 %.0235, %409
+  %410 = icmp samesign ult i64 %.0235, %409
   br i1 %410, label %rb_array_const_ptr.exit699, label %427
 
 411:                                              ; preds = %rb_array_len.exit696
@@ -18707,7 +18707,7 @@ rb_array_len.exit702:                             ; preds = %451
 rb_array_len.exit702.thread:                      ; preds = %451
   %456 = lshr i64 %452, 15
   %457 = and i64 %456, 127
-  %458 = icmp ult i64 %.0236, %457
+  %458 = icmp samesign ult i64 %.0236, %457
   br i1 %458, label %rb_array_const_ptr.exit705, label %475
 
 459:                                              ; preds = %rb_array_len.exit702
@@ -20352,7 +20352,7 @@ define internal fastcc i32 @m_jd(ptr nocapture noundef %0) unnamed_addr #0 {
   %13 = lshr i32 %10, 17
   %14 = and i32 %13, 31
   %15 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %16 = icmp ult i32 %12, 3
+  %16 = icmp samesign ult i32 %12, 3
   %17 = add nuw nsw i32 %12, 12
   %.018.i.i = select i1 %16, i32 %17, i32 %12
   %18 = sext i1 %16 to i32
@@ -20540,7 +20540,7 @@ define internal fastcc i32 @m_local_jd(ptr nocapture noundef %0) unnamed_addr #0
   %13 = lshr i32 %10, 17
   %14 = and i32 %13, 31
   %15 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %16 = icmp ult i32 %12, 3
+  %16 = icmp samesign ult i32 %12, 3
   %17 = add nuw nsw i32 %12, 12
   %.018.i.i = select i1 %16, i32 %17, i32 %12
   %18 = sext i1 %16 to i32
@@ -20890,7 +20890,7 @@ define internal fastcc range(i32 0, 2) i32 @m_julian_p(ptr nocapture noundef %0)
   %13 = lshr i32 %10, 17
   %14 = and i32 %13, 31
   %15 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %0)
-  %16 = icmp ult i32 %12, 3
+  %16 = icmp samesign ult i32 %12, 3
   %17 = add nuw nsw i32 %12, 12
   %.018.i.i = select i1 %16, i32 %17, i32 %12
   %18 = sext i1 %16 to i32
@@ -21745,7 +21745,7 @@ define internal fastcc void @m_canonicalize_jd(i64 noundef %0, ptr nocapture nou
   %14 = lshr i32 %11, 17
   %15 = and i32 %14, 31
   %16 = tail call fastcc double @s_virtual_sg(ptr noundef nonnull %1)
-  %17 = icmp ult i32 %13, 3
+  %17 = icmp samesign ult i32 %13, 3
   %18 = add nuw nsw i32 %13, 12
   %.018.i.i = select i1 %17, i32 %18, i32 %13
   %19 = sext i1 %17 to i32
@@ -23282,7 +23282,7 @@ rb_array_len.exit:                                ; preds = %192
 rb_array_len.exit.thread:                         ; preds = %192
   %197 = lshr i64 %193, 15
   %198 = and i64 %197, 127
-  %199 = icmp ult i64 %.092, %198
+  %199 = icmp samesign ult i64 %.092, %198
   br i1 %199, label %rb_array_const_ptr.exit, label %.loopexit
 
 200:                                              ; preds = %rb_array_len.exit

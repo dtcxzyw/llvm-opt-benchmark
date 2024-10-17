@@ -552,7 +552,7 @@ Vec_IntStartFull.exit.i:                          ; preds = %217, %Vec_IntAlloc.
   %.val42.i = load i32, ptr %228, align 4
   %233 = sub nsw i32 %.val41.i, %.val42.i
   %234 = call i32 @llvm.abs.i32(i32 %233, i1 true)
-  %.not57.not.i = icmp ult i32 %.03861.i, %234
+  %.not57.not.i = icmp samesign ult i32 %.03861.i, %234
   br i1 %.not57.not.i, label %230, label %235, !llvm.loop !8
 
 235:                                              ; preds = %230

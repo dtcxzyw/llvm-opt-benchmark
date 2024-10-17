@@ -2924,7 +2924,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp2.not.i.i.i.i.i.i, label %if.end4.i.i.i.i.i.i, label %if.else.i.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i.i, 3
+  %cmp1.not.i.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i.i, label %if.then5.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !7
 
 if.then5.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i.i.i, %if.end.i.i.i.i
@@ -10396,7 +10396,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i19, %if.e
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %add.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i, 1
   %div5.i.i.i.i = lshr i64 %add.i.i.i.i, 1
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i, 2
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.i.i, 2
   br i1 %cmp1.not.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_3SH4EEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !98
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_3SH4EEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i: ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i, %if.end.i.i19
@@ -13838,7 +13838,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %add.ptr.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i, i64 %end.07.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %conv5.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_3SH4EE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -14052,7 +14052,7 @@ land.rhs.i54:                                     ; preds = %while.body.i57, %la
   %add.ptr.i5.i55 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i, i64 %end.012.i
   %x.0.copyload.i.i56 = load i32, ptr %add.ptr.i5.i55, align 1
   %conv7.i = zext i32 %x.0.copyload.i.i56 to i64
-  %cmp10.i = icmp ugt i64 %add.i53, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i53, %conv7.i
   br i1 %cmp10.i, label %while.body.i57, label %_ZNK4mold3elf9FdeRecordINS0_3SH4EE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i57:                                   ; preds = %land.rhs.i54
@@ -15216,7 +15216,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !98
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
@@ -26502,7 +26502,7 @@ if.end.i.i.i:                                     ; preds = %for.body
   %conv8.i1.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i to i32
   %or9.i2.i.i.i.i.i = or disjoint i32 %8, %conv8.i1.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
-  %9 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
+  %9 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
   %10 = icmp ult i32 %4, %3
   %spec.select.i = select i1 %cmp.i.i.i.i.i, i1 %10, i1 %9
   br i1 %spec.select.i, label %if.then, label %for.cond.backedge
@@ -26753,7 +26753,7 @@ if.end.i.i.i.i.us.i.i:                            ; preds = %entry.split.us.i.i,
   %conv8.i1.i.i.i.i.i.i.us.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i.us.i.i to i32
   %or9.i2.i.i.i.i.i.i.us.i.i = or disjoint i32 %5, %conv8.i1.i.i.i.i.i.i.us.i.i
   %cmp.i.i.i.i.i.i.us.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.us.i.i
-  %6 = icmp ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.us.i.i
+  %6 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.us.i.i
   %7 = icmp ult i32 %__val.sroa.0.0.copyload.i.i, %3
   %spec.select.i.i.us.i.i = select i1 %cmp.i.i.i.i.i.i.us.i.i, i1 %7, i1 %6
   br i1 %spec.select.i.i.us.i.i, label %while.body.us.i.i, label %_ZSt25__unguarded_linear_insertIPN4mold3elf6ElfRelINS1_3SH4EEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_.exit.i
@@ -26784,7 +26784,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.cond.i.i
   %conv8.i1.i.i.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i.i.i to i32
   %or9.i2.i.i.i.i.i.i.i.i = or disjoint i32 %12, %conv8.i1.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.i.i
-  %13 = icmp ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.i.i
+  %13 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i.i.i
   %14 = icmp ult i32 %__val.sroa.0.0.copyload.i.i, %10
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %14, i1 %13
   br i1 %spec.select.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIPN4mold3elf6ElfRelINS1_3SH4EEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_.exit.i
@@ -26862,7 +26862,7 @@ if.end.i.i.i.i:                                   ; preds = %while.body
   %conv8.i1.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i to i32
   %or9.i2.i.i.i.i.i.i = or disjoint i32 %10, %conv8.i1.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
-  %11 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
+  %11 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
   %12 = icmp ult i32 %6, %5
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %12, i1 %11
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_3SH4EE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit
@@ -26932,7 +26932,7 @@ if.end.i.i.i.i.us.i:                              ; preds = %land.rhs.us.i
   %conv8.i.i.i.i.i.i.i.us.i = zext i8 %ref.tmp.sroa.2.4.copyload.i.i.us.i to i32
   %or9.i.i.i.i.i.i.i.us.i = or disjoint i32 %17, %conv8.i.i.i.i.i.i.i.us.i
   %cmp.i.i.i.i.i.i.us.i = icmp eq i32 %or9.i.i.i.i.i.i.i.us.i, %tr.sh.diff.i
-  %18 = icmp ult i32 %or9.i.i.i.i.i.i.i.us.i, %tr.sh.diff.i
+  %18 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.us.i, %tr.sh.diff.i
   %19 = icmp ult i32 %15, %__value.sroa.0.sroa.0.0.extract.trunc.i
   %spec.select.i.i.us.i = select i1 %cmp.i.i.i.i.i.i.us.i, i1 %19, i1 %18
   br i1 %spec.select.i.i.us.i, label %while.body.us.i, label %_ZSt11__push_heapIPN4mold3elf6ElfRelINS1_3SH4EEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_RT2_.exit
@@ -26965,7 +26965,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i
   %conv8.i.i.i.i.i.i.i.i = zext i8 %ref.tmp.sroa.2.4.copyload.i.i.i to i32
   %or9.i.i.i.i.i.i.i.i = or disjoint i32 %23, %conv8.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i, %tr.sh.diff.i
-  %24 = icmp ult i32 %or9.i.i.i.i.i.i.i.i, %tr.sh.diff.i
+  %24 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i, %tr.sh.diff.i
   %25 = icmp ult i32 %21, %__value.sroa.0.sroa.0.0.extract.trunc.i
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 %25, i1 %24
   br i1 %spec.select.i.i.i, label %while.body.i, label %_ZSt11__push_heapIPN4mold3elf6ElfRelINS1_3SH4EEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_RT2_.exit
@@ -27026,7 +27026,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv8.i1.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i to i32
   %or9.i2.i.i.i.i.i.i = or disjoint i32 %9, %conv8.i1.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
-  %10 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
+  %10 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
   %11 = icmp ult i32 %5, %4
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %11, i1 %10
   br i1 %spec.select.i.i, label %if.then, label %if.else8
@@ -27062,7 +27062,7 @@ if.end.i.i.i.i23:                                 ; preds = %if.then
   %conv8.i1.i.i.i.i.i.i34 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i27 to i32
   %or9.i2.i.i.i.i.i.i35 = or disjoint i32 %20, %conv8.i1.i.i.i.i.i.i34
   %cmp.i.i.i.i.i.i36 = icmp eq i32 %or9.i.i.i.i.i.i.i33, %or9.i2.i.i.i.i.i.i35
-  %21 = icmp ult i32 %or9.i.i.i.i.i.i.i33, %or9.i2.i.i.i.i.i.i35
+  %21 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i33, %or9.i2.i.i.i.i.i.i35
   %22 = icmp ult i32 %16, %15
   %spec.select.i.i37 = select i1 %cmp.i.i.i.i.i.i36, i1 %22, i1 %21
   br i1 %spec.select.i.i37, label %if.then3, label %if.else
@@ -27104,7 +27104,7 @@ if.end.i.i.i.i44:                                 ; preds = %if.else
   %conv8.i1.i.i.i.i.i.i55 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i48 to i32
   %or9.i2.i.i.i.i.i.i56 = or disjoint i32 %31, %conv8.i1.i.i.i.i.i.i55
   %cmp.i.i.i.i.i.i57 = icmp eq i32 %or9.i.i.i.i.i.i.i54, %or9.i2.i.i.i.i.i.i56
-  %32 = icmp ult i32 %or9.i.i.i.i.i.i.i54, %or9.i2.i.i.i.i.i.i56
+  %32 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i54, %or9.i2.i.i.i.i.i.i56
   %33 = icmp ult i32 %27, %26
   %spec.select.i.i58 = select i1 %cmp.i.i.i.i.i.i57, i1 %33, i1 %32
   br i1 %spec.select.i.i58, label %if.then5, label %if.else6
@@ -27156,7 +27156,7 @@ if.end.i.i.i.i67:                                 ; preds = %if.else8
   %conv8.i1.i.i.i.i.i.i78 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i71 to i32
   %or9.i2.i.i.i.i.i.i79 = or disjoint i32 %42, %conv8.i1.i.i.i.i.i.i78
   %cmp.i.i.i.i.i.i80 = icmp eq i32 %or9.i.i.i.i.i.i.i77, %or9.i2.i.i.i.i.i.i79
-  %43 = icmp ult i32 %or9.i.i.i.i.i.i.i77, %or9.i2.i.i.i.i.i.i79
+  %43 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i77, %or9.i2.i.i.i.i.i.i79
   %44 = icmp ult i32 %38, %37
   %spec.select.i.i81 = select i1 %cmp.i.i.i.i.i.i80, i1 %44, i1 %43
   br i1 %spec.select.i.i81, label %if.then10, label %if.else11
@@ -27197,7 +27197,7 @@ if.end.i.i.i.i89:                                 ; preds = %if.else11
   %conv8.i1.i.i.i.i.i.i100 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i93 to i32
   %or9.i2.i.i.i.i.i.i101 = or disjoint i32 %52, %conv8.i1.i.i.i.i.i.i100
   %cmp.i.i.i.i.i.i102 = icmp eq i32 %or9.i.i.i.i.i.i.i99, %or9.i2.i.i.i.i.i.i101
-  %53 = icmp ult i32 %or9.i.i.i.i.i.i.i99, %or9.i2.i.i.i.i.i.i101
+  %53 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i99, %or9.i2.i.i.i.i.i.i101
   %54 = icmp ult i32 %48, %47
   %spec.select.i.i103 = select i1 %cmp.i.i.i.i.i.i102, i1 %54, i1 %53
   br i1 %spec.select.i.i103, label %if.then13, label %if.else14
@@ -27272,7 +27272,7 @@ if.end.i.i.i.i.us:                                ; preds = %if.end.i.i.i.i.us.l
   %conv8.i.i.i.i.i.i.i.us = zext i8 %ref.tmp.sroa.2.4.copyload.i.i.us to i32
   %or9.i.i.i.i.i.i.i.us = or disjoint i32 %7, %conv8.i.i.i.i.i.i.i.us
   %cmp.i.i.i.i.i.i.us = icmp eq i32 %or9.i.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.i.us
-  %8 = icmp ult i32 %or9.i.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.i.us
+  %8 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.i.us
   %9 = icmp ult i32 %5, %2
   %spec.select.i.i.us = select i1 %cmp.i.i.i.i.i.i.us, i1 %9, i1 %8
   br i1 %spec.select.i.i.us, label %while.body3.us, label %while.cond5.preheader
@@ -27309,7 +27309,7 @@ if.end.i.i.i.i:                                   ; preds = %while.cond2
   %conv8.i1.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i to i32
   %or9.i2.i.i.i.i.i.i = or disjoint i32 %17, %conv8.i1.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
-  %18 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
+  %18 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
   %19 = icmp ult i32 %13, %12
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %19, i1 %18
   br i1 %spec.select.i.i, label %while.body3, label %while.cond5.preheader
@@ -27350,7 +27350,7 @@ if.end.i.i.i.i15:                                 ; preds = %while.cond5
   %conv8.i1.i.i.i.i.i.i26 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i19 to i32
   %or9.i2.i.i.i.i.i.i27 = or disjoint i32 %28, %conv8.i1.i.i.i.i.i.i26
   %cmp.i.i.i.i.i.i28 = icmp eq i32 %or9.i.i.i.i.i.i.i25, %or9.i2.i.i.i.i.i.i27
-  %29 = icmp ult i32 %or9.i.i.i.i.i.i.i25, %or9.i2.i.i.i.i.i.i27
+  %29 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i25, %or9.i2.i.i.i.i.i.i27
   %30 = icmp ult i32 %24, %23
   %spec.select.i.i29 = select i1 %cmp.i.i.i.i.i.i28, i1 %30, i1 %29
   br i1 %spec.select.i.i29, label %while.cond5.backedge, label %while.end9
@@ -27428,7 +27428,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body
   %conv8.i1.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i to i32
   %or9.i2.i.i.i.i.i.i = or disjoint i32 %8, %conv8.i1.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
-  %9 = icmp ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
+  %9 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i, %or9.i2.i.i.i.i.i.i
   %10 = icmp ult i32 %4, %3
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %10, i1 %9
   br i1 %spec.select.i.i, label %if.then3, label %if.else
@@ -27490,7 +27490,7 @@ if.end.i.i.i.i.us.i:                              ; preds = %entry.split.us.i, %
   %conv8.i1.i.i.i.i.i.i.us.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i.us.i to i32
   %or9.i2.i.i.i.i.i.i.us.i = or disjoint i32 %16, %conv8.i1.i.i.i.i.i.i.us.i
   %cmp.i.i.i.i.i.i.us.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.us.i
-  %17 = icmp ult i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.us.i
+  %17 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.us.i
   %18 = icmp ult i32 %__val.sroa.0.0.copyload.i, %14
   %spec.select.i.i.us.i = select i1 %cmp.i.i.i.i.i.i.us.i, i1 %18, i1 %17
   br i1 %spec.select.i.i.us.i, label %while.body.us.i, label %_ZSt25__unguarded_linear_insertIPN4mold3elf6ElfRelINS1_3SH4EEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_.exit
@@ -27521,7 +27521,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.cond.i
   %conv8.i1.i.i.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i.i.i to i32
   %or9.i2.i.i.i.i.i.i.i = or disjoint i32 %23, %conv8.i1.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.i
-  %24 = icmp ult i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.i
+  %24 = icmp samesign ult i32 %or9.i.i.i.i.i.i.i.i.pre-phi, %or9.i2.i.i.i.i.i.i.i
   %25 = icmp ult i32 %__val.sroa.0.0.copyload.i, %21
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 %25, i1 %24
   br i1 %spec.select.i.i.i, label %while.body.i, label %_ZSt25__unguarded_linear_insertIPN4mold3elf6ElfRelINS1_3SH4EEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_.exit
@@ -28252,7 +28252,7 @@ if.end.i.i.i.us.lr.ph:                            ; preds = %for.cond.split.us
   %conv8.i1.i.i.i.i.i.us110 = zext i8 %ref.tmp3.sroa.2.4.copyload.i.us109 to i32
   %or9.i2.i.i.i.i.i.us111 = or disjoint i32 %11, %conv8.i1.i.i.i.i.i.us110
   %cmp.i.i.i.i.i.us112 = icmp eq i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us111
-  %12 = icmp ult i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us111
+  %12 = icmp samesign ult i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us111
   %13 = icmp ult i32 %6, %9
   %spec.select.i.us113 = select i1 %cmp.i.i.i.i.i.us112, i1 %13, i1 %12
   br i1 %spec.select.i.us113, label %do.body.us, label %do.body4.preheader
@@ -28277,7 +28277,7 @@ if.end.i.i.i.us:                                  ; preds = %do.body.us
   %conv8.i1.i.i.i.i.i.us = zext i8 %ref.tmp3.sroa.2.4.copyload.i.us to i32
   %or9.i2.i.i.i.i.i.us = or disjoint i32 %17, %conv8.i1.i.i.i.i.i.us
   %cmp.i.i.i.i.i.us = icmp eq i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us
-  %18 = icmp ult i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us
+  %18 = icmp samesign ult i32 %or9.i.i.i.i.i.i.us, %or9.i2.i.i.i.i.i.us
   %19 = icmp ult i32 %6, %15
   %spec.select.i.us = select i1 %cmp.i.i.i.i.i.us, i1 %19, i1 %18
   br i1 %spec.select.i.us, label %do.body.us, label %do.body4.preheader, !llvm.loop !245
@@ -28312,7 +28312,7 @@ if.end.i.i.i:                                     ; preds = %do.body
   %conv8.i1.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i to i32
   %or9.i2.i.i.i.i.i = or disjoint i32 %26, %conv8.i1.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
-  %27 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
+  %27 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
   %28 = icmp ult i32 %22, %21
   %spec.select.i = select i1 %cmp.i.i.i.i.i, i1 %28, i1 %27
   br i1 %spec.select.i, label %do.body.backedge, label %do.body4.preheader
@@ -28352,7 +28352,7 @@ if.end.i.i.i25:                                   ; preds = %if.end7
   %conv8.i1.i.i.i.i.i36 = zext i8 %ref.tmp3.sroa.2.4.copyload.i29 to i32
   %or9.i2.i.i.i.i.i37 = or disjoint i32 %36, %conv8.i1.i.i.i.i.i36
   %cmp.i.i.i.i.i38 = icmp eq i32 %or9.i.i.i.i.i.i35, %or9.i2.i.i.i.i.i37
-  %37 = icmp ult i32 %or9.i.i.i.i.i.i35, %or9.i2.i.i.i.i.i37
+  %37 = icmp samesign ult i32 %or9.i.i.i.i.i.i35, %or9.i2.i.i.i.i.i37
   %38 = icmp ult i32 %32, %31
   %spec.select.i39 = select i1 %cmp.i.i.i.i.i38, i1 %38, i1 %37
   br i1 %spec.select.i39, label %do.body4.backedge, label %do.end12
@@ -28427,7 +28427,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %conv8.i1.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i to i32
   %or9.i2.i.i.i.i.i = or disjoint i32 %10, %conv8.i1.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
-  %11 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
+  %11 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
   %12 = icmp ult i32 %6, %5
   %spec.select.i = select i1 %cmp.i.i.i.i.i, i1 %12, i1 %11
   br i1 %spec.select.i, label %cond.true, label %cond.false16
@@ -28464,7 +28464,7 @@ if.end.i.i.i27:                                   ; preds = %cond.true
   %conv8.i1.i.i.i.i.i38 = zext i8 %ref.tmp3.sroa.2.4.copyload.i31 to i32
   %or9.i2.i.i.i.i.i39 = or disjoint i32 %21, %conv8.i1.i.i.i.i.i38
   %cmp.i.i.i.i.i40 = icmp eq i32 %or9.i.i.i.i.i.i37, %or9.i2.i.i.i.i.i39
-  %22 = icmp ult i32 %or9.i.i.i.i.i.i37, %or9.i2.i.i.i.i.i39
+  %22 = icmp samesign ult i32 %or9.i.i.i.i.i.i37, %or9.i2.i.i.i.i.i39
   %23 = icmp ult i32 %17, %16
   %spec.select.i41 = select i1 %cmp.i.i.i.i.i40, i1 %23, i1 %22
   br i1 %spec.select.i41, label %cond.end33, label %cond.false
@@ -28499,7 +28499,7 @@ if.end.i.i.i48:                                   ; preds = %cond.false
   %conv8.i1.i.i.i.i.i59 = zext i8 %ref.tmp3.sroa.2.4.copyload.i52 to i32
   %or9.i2.i.i.i.i.i60 = or disjoint i32 %33, %conv8.i1.i.i.i.i.i59
   %cmp.i.i.i.i.i61 = icmp eq i32 %or9.i.i.i.i.i.i58, %or9.i2.i.i.i.i.i60
-  %34 = icmp ult i32 %or9.i.i.i.i.i.i58, %or9.i2.i.i.i.i.i60
+  %34 = icmp samesign ult i32 %or9.i.i.i.i.i.i58, %or9.i2.i.i.i.i.i60
   %35 = icmp ult i32 %29, %28
   %spec.select.i62 = select i1 %cmp.i.i.i.i.i61, i1 %35, i1 %34
   br label %_ZZN4mold3elf13RelDynSectionINS0_3SH4EE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit64
@@ -28538,7 +28538,7 @@ if.end.i.i.i69:                                   ; preds = %cond.false16
   %conv8.i1.i.i.i.i.i80 = zext i8 %ref.tmp3.sroa.2.4.copyload.i73 to i32
   %or9.i2.i.i.i.i.i81 = or disjoint i32 %44, %conv8.i1.i.i.i.i.i80
   %cmp.i.i.i.i.i82 = icmp eq i32 %or9.i.i.i.i.i.i79, %or9.i2.i.i.i.i.i81
-  %45 = icmp ult i32 %or9.i.i.i.i.i.i79, %or9.i2.i.i.i.i.i81
+  %45 = icmp samesign ult i32 %or9.i.i.i.i.i.i79, %or9.i2.i.i.i.i.i81
   %46 = icmp ult i32 %40, %39
   %spec.select.i83 = select i1 %cmp.i.i.i.i.i82, i1 %46, i1 %45
   br i1 %spec.select.i83, label %cond.end33, label %cond.false22
@@ -28572,7 +28572,7 @@ if.end.i.i.i90:                                   ; preds = %cond.false22
   %conv8.i1.i.i.i.i.i101 = zext i8 %ref.tmp3.sroa.2.4.copyload.i94 to i32
   %or9.i2.i.i.i.i.i102 = or disjoint i32 %55, %conv8.i1.i.i.i.i.i101
   %cmp.i.i.i.i.i103 = icmp eq i32 %or9.i.i.i.i.i.i100, %or9.i2.i.i.i.i.i102
-  %56 = icmp ult i32 %or9.i.i.i.i.i.i100, %or9.i2.i.i.i.i.i102
+  %56 = icmp samesign ult i32 %or9.i.i.i.i.i.i100, %or9.i2.i.i.i.i.i102
   %57 = icmp ult i32 %51, %50
   %spec.select.i104 = select i1 %cmp.i.i.i.i.i103, i1 %57, i1 %56
   br label %_ZZN4mold3elf13RelDynSectionINS0_3SH4EE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit106
@@ -29212,7 +29212,7 @@ if.end.i.i.i:                                     ; preds = %if.end
   %conv8.i1.i.i.i.i.i = zext i8 %ref.tmp3.sroa.2.4.copyload.i to i32
   %or9.i2.i.i.i.i.i = or disjoint i32 %14, %conv8.i1.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
-  %15 = icmp ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
+  %15 = icmp samesign ult i32 %or9.i.i.i.i.i.i, %or9.i2.i.i.i.i.i
   %16 = icmp ult i32 %10, %9
   %spec.select.i = select i1 %cmp.i.i.i.i.i, i1 %16, i1 %15
   br i1 %spec.select.i, label %if.then6, label %for.inc
@@ -38546,7 +38546,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %div.i9, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -39914,7 +39914,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %cmp.i = icmp ugt i64 %spec.select, 1152921504606846975
+  %cmp.i = icmp samesign ugt i64 %spec.select, 1152921504606846975
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end
@@ -44410,7 +44410,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %add.ptr.i.i49 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i, i64 %end.07.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i49, align 1
   %conv5.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_3SH4EE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -44561,7 +44561,7 @@ land.rhs.i89:                                     ; preds = %while.body.i92, %la
   %add.ptr.i5.i90 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i, i64 %end.012.i
   %x.0.copyload.i.i91 = load i32, ptr %add.ptr.i5.i90, align 1
   %conv7.i = zext i32 %x.0.copyload.i.i91 to i64
-  %cmp10.i = icmp ugt i64 %add.i88, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i88, %conv7.i
   br i1 %cmp10.i, label %while.body.i92, label %_ZNK4mold3elf9FdeRecordINS0_3SH4EE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i92:                                   ; preds = %land.rhs.i89
@@ -45190,7 +45190,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6163 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i6163
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i6163
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -47767,7 +47767,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %add.ptr.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %.pre.i, i64 %end.07.i
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %conv5.i = zext i32 %x.0.copyload.i.i to i64
-  %cmp8.i = icmp ugt i64 %add.i, %conv5.i
+  %cmp8.i = icmp samesign ugt i64 %add.i, %conv5.i
   br i1 %cmp8.i, label %while.body.i, label %_ZNK4mold3elf9CieRecordINS0_3SH4EE8get_relsEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -47836,7 +47836,7 @@ land.rhs.i22:                                     ; preds = %while.body.i25, %la
   %add.ptr.i5.i23 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i, i64 %end.012.i
   %x.0.copyload.i.i24 = load i32, ptr %add.ptr.i5.i23, align 1
   %conv7.i = zext i32 %x.0.copyload.i.i24 to i64
-  %cmp10.i = icmp ugt i64 %add.i21, %conv7.i
+  %cmp10.i = icmp samesign ugt i64 %add.i21, %conv7.i
   br i1 %cmp10.i, label %while.body.i25, label %_ZNK4mold3elf9FdeRecordINS0_3SH4EE8get_relsERNS0_10ObjectFileIS2_EE.exit
 
 while.body.i25:                                   ; preds = %land.rhs.i22

@@ -294,8 +294,8 @@ define i32 @temp_kvs_send() local_unnamed_addr #0 {
 25:                                               ; preds = %23, %21
   %.1 = phi i32 [ %22, %21 ], [ %24, %23 ]
   %26 = icmp eq i32 %.1, 0
-  %27 = icmp ugt i32 %.07, 3
-  %or.cond = or i1 %27, %26
+  %27 = icmp samesign ugt i32 %.07, 3
+  %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %32, label %28
 
 28:                                               ; preds = %25
@@ -406,7 +406,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %21, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %_hash.exit, %23
@@ -497,7 +497,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %.phi.trans.insert, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i64 %indvars.iv.next, %24
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %22
@@ -601,7 +601,7 @@ define noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -612,7 +612,7 @@ define noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %16 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %2, %.lr.ph13 ]
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %indvars.iv.next18, %17
+  %18 = icmp samesign ult i64 %indvars.iv.next18, %17
   br i1 %18, label %.lr.ph13, label %._crit_edge14, !llvm.loop !11
 
 ._crit_edge14:                                    ; preds = %._crit_edge, %0

@@ -9451,7 +9451,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
   %shl.i.i.i.i = and i32 %and9.i.i.i.i, 1984
   %and10.i.i.i.i = and i32 %conv378.i.i.i.i, 63
   %or.i.i.i.i = or disjoint i32 %and10.i.i.i.i, %shl.i.i.i.i
-  %cmp11.i.i.i.i = icmp ult i32 %shl.i.i.i.i, 128
+  %cmp11.i.i.i.i = icmp samesign ult i32 %shl.i.i.i.i, 128
   %spec.select.i.i.i.i = select i1 %cmp11.i.i.i.i, i32 65533, i32 %or.i.i.i.i
   br label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
@@ -9483,15 +9483,15 @@ if.end44.i.i.i.i:                                 ; preds = %if.end31.i.i.i.i
   %and48.i.i.i.i = shl nsw i32 %conv22.i.i.i.i, 6
   %shl49.i.i.i.i = and i32 %and48.i.i.i.i, 4032
   %or50.i.i.i.i = or disjoint i32 %shl49.i.i.i.i, %shl47.i.i.i.i
-  %cmp53.i.i.i.i = icmp ult i32 %or50.i.i.i.i, 2048
+  %cmp53.i.i.i.i = icmp samesign ult i32 %or50.i.i.i.i, 2048
   br i1 %cmp53.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i", label %if.end57.i.i.i.i
 
 if.end57.i.i.i.i:                                 ; preds = %if.end44.i.i.i.i
   %and51.i.i.i.i = and i32 %conv3379.i.i.i.i, 63
   %or52.i.i.i.i = or disjoint i32 %and51.i.i.i.i, %or50.i.i.i.i
-  %cmp58.i.i.i.i = icmp ugt i32 %or50.i.i.i.i, 55295
-  %cmp59.i.i.i.i = icmp ult i32 %shl47.i.i.i.i, 57344
-  %or.cond.i.i.i.i = and i1 %cmp59.i.i.i.i, %cmp58.i.i.i.i
+  %cmp58.i.i.i.i = icmp samesign ugt i32 %or50.i.i.i.i, 55295
+  %cmp59.i.i.i.i = icmp samesign ult i32 %shl47.i.i.i.i, 57344
+  %or.cond.i.i.i.i = select i1 %cmp58.i.i.i.i, i1 %cmp59.i.i.i.i, i1 false
   %spec.select.i.i.i = select i1 %or.cond.i.i.i.i, i32 65533, i32 %or52.i.i.i.i
   br label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
@@ -9536,11 +9536,11 @@ if.end112.i.i.i.i:                                ; preds = %if.end99.i.i.i.i
   %and122.i.i.i.i = and i32 %conv10180.i.i.i.i, 63
   %22 = or disjoint i32 %and122.i.i.i.i, %shl120.i.i.i.i
   %or123.i.i.i.i = or disjoint i32 %22, %or118.i.i.i.i
-  %cmp124.i.i.i.i = icmp ult i32 %or118.i.i.i.i, 65536
+  %cmp124.i.i.i.i = icmp samesign ult i32 %or118.i.i.i.i, 65536
   br i1 %cmp124.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i", label %if.end128.i.i.i.i
 
 if.end128.i.i.i.i:                                ; preds = %if.end112.i.i.i.i
-  %cmp129.i.i.i.i = icmp ugt i32 %or118.i.i.i.i, 1114111
+  %cmp129.i.i.i.i = icmp samesign ugt i32 %or118.i.i.i.i, 1114111
   br i1 %cmp129.i.i.i.i, label %if.then131.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i"
 
 if.then131.i.i.i.i:                               ; preds = %if.end128.i.i.i.i

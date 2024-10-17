@@ -173,9 +173,9 @@ define hidden void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls
   br label %.body.thread
 
 42:                                               ; preds = %3
-  %43 = icmp ult i64 %39, 5
+  %43 = icmp samesign ult i64 %39, 5
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %39, 2
+  %44 = icmp samesign ult i64 %39, 2
   br i1 %44, label %45, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread161
 
 45:                                               ; preds = %42
@@ -228,7 +228,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %66 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %67 = icmp ult i64 %66, 6
   tail call void @llvm.assume(i1 %67)
-  %switch.selectcmp74 = icmp ugt i64 %66, 3
+  %switch.selectcmp74 = icmp samesign ugt i64 %66, 3
   br i1 %switch.selectcmp74, label %68, label %108
 
 68:                                               ; preds = %65
@@ -429,7 +429,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %135 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !29
   %136 = icmp ult i64 %135, 6
   call void @llvm.assume(i1 %136)
-  %137 = icmp ult i64 %135, 4
+  %137 = icmp samesign ult i64 %135, 4
   br i1 %137, label %"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer28_$u7b$$u7b$closure$u7d$$u7d$17h3ae7cb7c292e0e60E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %134
@@ -850,7 +850,7 @@ define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outg
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -970,7 +970,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -3600,7 +3600,7 @@ common.ret:                                       ; preds = %1767, %1989, %182
   %1017 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !384
   %1018 = icmp ult i64 %1017, 6
   tail call void @llvm.assume(i1 %1018)
-  %switch.selectcmp.i55.i.i.i.i = icmp ugt i64 %1017, 1
+  %switch.selectcmp.i55.i.i.i.i = icmp samesign ugt i64 %1017, 1
   br i1 %switch.selectcmp.i55.i.i.i.i, label %1019, label %.thread745.i.i.i
 
 1019:                                             ; preds = %1016
@@ -4066,7 +4066,7 @@ common.ret:                                       ; preds = %1767, %1989, %182
   %1166 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !195
   %1167 = icmp ult i64 %1166, 6
   call void @llvm.assume(i1 %1167)
-  %switch.selectcmp.i413.i.i.i = icmp ugt i64 %1166, 1
+  %switch.selectcmp.i413.i.i.i = icmp samesign ugt i64 %1166, 1
   br i1 %switch.selectcmp.i413.i.i.i, label %1168, label %1265
 
 1168:                                             ; preds = %1165
@@ -5640,7 +5640,7 @@ common.ret:                                       ; preds = %1767, %1989, %182
   %1790 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %1791 = icmp ult i64 %1790, 6
   call void @llvm.assume(i1 %1791)
-  %switch.selectcmp.i154 = icmp ugt i64 %1790, 3
+  %switch.selectcmp.i154 = icmp samesign ugt i64 %1790, 3
   br i1 %switch.selectcmp.i154, label %1792, label %1867
 
 1792:                                             ; preds = %1789
@@ -5958,7 +5958,7 @@ common.ret:                                       ; preds = %1767, %1989, %182
   %1893 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %1894 = icmp ult i64 %1893, 6
   call void @llvm.assume(i1 %1894)
-  %switch.selectcmp.i181 = icmp ugt i64 %1893, 1
+  %switch.selectcmp.i181 = icmp samesign ugt i64 %1893, 1
   br i1 %switch.selectcmp.i181, label %1895, label %1867
 
 1895:                                             ; preds = %1892
@@ -6302,7 +6302,7 @@ define internal fastcc void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8sch
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 4
+  %10 = icmp samesign ult i64 %8, 4
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -6356,7 +6356,7 @@ define internal fastcc void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8sch
   %8 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %9 = icmp ult i64 %8, 6
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ult i64 %8, 2
+  %10 = icmp samesign ult i64 %8, 2
   br i1 %10, label %6, label %.critedge9
 
 .critedge9:                                       ; preds = %7
@@ -9742,7 +9742,7 @@ _ZN11tungstenite9handshake6server14write_response17h4b7f6d09bfdb8a9cE.exit.i: ; 
   %395 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1114
   %396 = icmp ult i64 %395, 6
   call void @llvm.assume(i1 %396)
-  %switch.selectcmp164.i = icmp ugt i64 %395, 3
+  %switch.selectcmp164.i = icmp samesign ugt i64 %395, 3
   br i1 %switch.selectcmp164.i, label %397, label %391
 
 397:                                              ; preds = %394
@@ -9909,7 +9909,7 @@ _ZN11tungstenite9handshake6server14write_response17h4b7f6d09bfdb8a9cE.exit.i: ; 
   %439 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1114
   %440 = icmp ult i64 %439, 6
   call void @llvm.assume(i1 %440)
-  %switch.selectcmp168.i = icmp ugt i64 %439, 3
+  %switch.selectcmp168.i = icmp samesign ugt i64 %439, 3
   br i1 %switch.selectcmp168.i, label %441, label %433
 
 441:                                              ; preds = %438
@@ -10320,7 +10320,7 @@ define hidden void @"_ZN11tungstenite9handshake6server28ServerHandshake$LT$S$C$C
   %7 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %8 = icmp ult i64 %7, 6
   tail call void @llvm.assume(i1 %8)
-  %switch.selectcmp18 = icmp ugt i64 %7, 4
+  %switch.selectcmp18 = icmp samesign ugt i64 %7, 4
   br i1 %switch.selectcmp18, label %11, label %9
 
 9:                                                ; preds = %3, %16
@@ -10449,7 +10449,7 @@ define hidden noundef ptr @_ZN3mio4poll8Registry10deregister17h1fd752b2231e7b59E
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ult i64 %3, 5
+  %5 = icmp samesign ult i64 %3, 5
   br i1 %5, label %6, label %.critedge10
 
 6:                                                ; preds = %.critedge, %.critedge10

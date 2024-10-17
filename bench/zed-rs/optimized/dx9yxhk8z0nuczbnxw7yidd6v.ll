@@ -4229,15 +4229,15 @@ default.unreachable64:                            ; preds = %12
   %.sroa.4.0.i.ph = phi i32 [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79ffd0294f5c87feE.exit12.i" ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79ffd0294f5c87feE.exit14.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79ffd0294f5c87feE.exit16.i" ]
   %76 = icmp ult i32 %.sroa.4.0.i.ph, 1114112
   call void @llvm.assume(i1 %76)
-  %77 = icmp ult i32 %.sroa.4.0.i.ph, 128
+  %77 = icmp samesign ult i32 %.sroa.4.0.i.ph, 128
   br i1 %77, label %.thread50, label %78
 
 78:                                               ; preds = %75
-  %79 = icmp ult i32 %.sroa.4.0.i.ph, 2048
+  %79 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %79, label %.thread50, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %81 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   %. = select i1 %81, i64 3, i64 4
   br label %.thread50
 

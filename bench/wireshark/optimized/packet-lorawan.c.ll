@@ -834,7 +834,7 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %164
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %184 = load i32, ptr @root_num_keys, align 4
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next.i, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next.i, %185
   br i1 %186, label %157, label %.critedge.i, !llvm.loop !6
 
 187:                                              ; preds = %179
@@ -1138,7 +1138,7 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned %0, ptr noca
   %29 = load i32, ptr %12, align 8
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 33:                                               ; preds = %3
@@ -1230,7 +1230,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr nocapture noundef %0
   %33 = load i32, ptr %16, align 8
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
   br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
@@ -1337,7 +1337,7 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned %0, ptr n
   %29 = load i32, ptr %11, align 8
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
@@ -1456,7 +1456,7 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr nocapture noundef
   %27 = load i32, ptr %10, align 8
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
   br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i

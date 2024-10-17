@@ -983,7 +983,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Error$GT$17hb
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %32 = load i64, ptr %31, align 8, !range !66, !alias.scope !63, !noundef !4
-  %switch.i = icmp ult i64 %32, 11
+  %switch.i = icmp samesign ult i64 %32, 11
   br i1 %switch.i, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %33
 
 33:                                               ; preds = %30
@@ -1083,7 +1083,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$rustls..enums..ProtocolVer
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustls..error..CertificateError$GT$17h73aa1bc046876a34E.llvm.3875224068774112026"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !66, !noundef !4
-  %switch = icmp ult i64 %2, 11
+  %switch = icmp samesign ult i64 %2, 11
   br i1 %switch, label %"_ZN4core3ptr59drop_in_place$LT$rustls..error..other_error..OtherError$GT$17h455c2d55f0681404E.exit", label %3
 
 3:                                                ; preds = %1
@@ -7951,7 +7951,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule26hkdf_expand_label_aead_key17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i8, i8 } @_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #15 {
   %2 = load i16, ptr %0, align 2, !range !120, !noundef !4
-  %3 = icmp ult i16 %2, 13
+  %3 = icmp samesign ult i16 %2, 13
   br i1 %3, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
@@ -9317,7 +9317,7 @@ define void @"_ZN108_$LT$rustls..webpki..server_verifier..WebPkiServerVerifier$u
   %74 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %75 = icmp ult i64 %74, 6
   call void @llvm.assume(i1 %75)
-  %switch.selectcmp73 = icmp ugt i64 %74, 4
+  %switch.selectcmp73 = icmp samesign ugt i64 %74, 4
   br i1 %switch.selectcmp73, label %76, label %69
 
 76:                                               ; preds = %73
@@ -10368,7 +10368,7 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8rejected17hff7e5c6b
   %2 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %3 = icmp ult i64 %2, 6
   tail call void @llvm.assume(i1 %3)
-  %4 = icmp ult i64 %2, 5
+  %4 = icmp samesign ult i64 %2, 5
   br i1 %4, label %5, label %.critedge10
 
 5:                                                ; preds = %.critedge, %.critedge10
@@ -10400,7 +10400,7 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8accepted17h03ce9d75
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ult i64 %3, 5
+  %5 = icmp samesign ult i64 %3, 5
   br i1 %5, label %6, label %.critedge10
 
 6:                                                ; preds = %.critedge, %.critedge10
@@ -10443,7 +10443,7 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8finished17h3d88e7bb
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ult i64 %3, 5
+  %5 = icmp samesign ult i64 %3, 5
   br i1 %5, label %6, label %.critedge12
 
 6:                                                ; preds = %.critedge, %.critedge12
@@ -12236,7 +12236,7 @@ _ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls1
   %474 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %475 = icmp ult i64 %474, 6
   call void @llvm.assume(i1 %475)
-  %switch.selectcmp318 = icmp ugt i64 %474, 3
+  %switch.selectcmp318 = icmp samesign ugt i64 %474, 3
   br i1 %switch.selectcmp318, label %476, label %468
 
 476:                                              ; preds = %473
@@ -12606,7 +12606,7 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit427
   %631 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %632 = icmp ult i64 %631, 6
   call void @llvm.assume(i1 %632)
-  %switch.selectcmp323 = icmp ugt i64 %631, 3
+  %switch.selectcmp323 = icmp samesign ugt i64 %631, 3
   br i1 %switch.selectcmp323, label %633, label %639
 
 633:                                              ; preds = %630
@@ -13458,7 +13458,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   %183 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %184 = icmp ult i64 %183, 6
   call void @llvm.assume(i1 %184)
-  %switch.selectcmp121 = icmp ugt i64 %183, 4
+  %switch.selectcmp121 = icmp samesign ugt i64 %183, 4
   br i1 %switch.selectcmp121, label %185, label %158
 
 185:                                              ; preds = %182
@@ -13907,7 +13907,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello24emit_hello_r
   %58 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %59 = icmp ult i64 %58, 6
   call void @llvm.assume(i1 %59)
-  %switch.selectcmp29 = icmp ugt i64 %58, 4
+  %switch.selectcmp29 = icmp samesign ugt i64 %58, 4
   br i1 %switch.selectcmp29, label %60, label %54
 
 60:                                               ; preds = %55
@@ -14398,7 +14398,7 @@ _ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b
   %160 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %161 = icmp ult i64 %160, 6
   call void @llvm.assume(i1 %161)
-  %switch.selectcmp39 = icmp ugt i64 %160, 4
+  %switch.selectcmp39 = icmp samesign ugt i64 %160, 4
   br i1 %switch.selectcmp39, label %162, label %131
 
 162:                                              ; preds = %157
@@ -14828,7 +14828,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
   %152 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %153 = icmp ult i64 %152, 6
   call void @llvm.assume(i1 %153)
-  %switch.selectcmp32 = icmp ugt i64 %152, 4
+  %switch.selectcmp32 = icmp samesign ugt i64 %152, 4
   br i1 %switch.selectcmp32, label %154, label %123
 
 154:                                              ; preds = %149
@@ -15160,7 +15160,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello22emit_certifi
   %103 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %104 = icmp ult i64 %103, 6
   call void @llvm.assume(i1 %104)
-  %switch.selectcmp40 = icmp ugt i64 %103, 4
+  %switch.selectcmp40 = icmp samesign ugt i64 %103, 4
   br i1 %switch.selectcmp40, label %105, label %74
 
 105:                                              ; preds = %100
@@ -15535,7 +15535,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello29emit_certifi
   %117 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %118 = icmp ult i64 %117, 6
   call void @llvm.assume(i1 %118)
-  %switch.selectcmp84 = icmp ugt i64 %117, 4
+  %switch.selectcmp84 = icmp samesign ugt i64 %117, 4
   br i1 %switch.selectcmp84, label %119, label %90
 
 119:                                              ; preds = %114
@@ -15868,7 +15868,7 @@ _ZN6rustls5tls1312key_schedule20KeyScheduleHandshake18sign_server_finish17h14d81
   %80 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %81 = icmp ult i64 %80, 6
   call void @llvm.assume(i1 %81)
-  %switch.selectcmp24 = icmp ugt i64 %80, 4
+  %switch.selectcmp24 = icmp samesign ugt i64 %80, 4
   br i1 %switch.selectcmp24, label %82, label %53
 
 82:                                               ; preds = %77
@@ -16828,7 +16828,7 @@ define internal fastcc void @_ZN6rustls4quic7Secrets6update17h1e7634e9eb17047aE(
           to label %common.resume unwind label %123
 
 .noexc:                                           ; preds = %1
-  %switch.i = icmp ult i8 %.val, 2
+  %switch.i = icmp samesign ult i8 %.val, 2
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.161.anon.c12b500a9dbc3a7785a3e66a12bc69a1.162.i = select i1 %switch.i, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.161, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.162
   %..i = select i1 %switch.i, i64 7, i64 9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3815)
@@ -16963,7 +16963,7 @@ common.resume:                                    ; preds = %28, %69, %106, %114
           to label %.noexc14 unwind label %69
 
 .noexc14:                                         ; preds = %71
-  %switch.i11 = icmp ult i8 %.val9, 2
+  %switch.i11 = icmp samesign ult i8 %.val9, 2
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.161.anon.c12b500a9dbc3a7785a3e66a12bc69a1.162.i13 = select i1 %switch.i11, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.161, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.162
   %..i12 = select i1 %switch.i11, i64 7, i64 9
   call void @llvm.experimental.noalias.scope.decl(metadata !3856)
@@ -17108,7 +17108,7 @@ define void @_ZN6rustls4quic15DirectionalKeys3new17h4f4853f21709bfc4E(ptr noalia
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %6
-  %switch.i.i = icmp ult i8 %5, 2
+  %switch.i.i = icmp samesign ult i8 %5, 2
   %..i.i = select i1 %switch.i.i, i64 7, i64 9
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026.anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026.i.i = select i1 %switch.i.i, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !3900
@@ -17264,7 +17264,7 @@ define hidden { ptr, ptr } @_ZN6rustls4quic10KeyBuilder10packet_key17h79b0bd1ce5
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !5, !noundef !4
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load i8, ptr %22, align 8, !range !176, !noundef !4
-  %switch.i = icmp ult i8 %.val, 2
+  %switch.i = icmp samesign ult i8 %.val, 2
   %..i = select i1 %switch.i, i64 8, i64 10
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.155.anon.c12b500a9dbc3a7785a3e66a12bc69a1.156.i = select i1 %switch.i, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.155, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -17377,7 +17377,7 @@ define hidden { ptr, ptr } @_ZN6rustls4quic10KeyBuilder21header_protection_key17
   %13 = tail call noundef i64 %12(ptr noundef nonnull align 1 %8)
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8, !range !176, !alias.scope !3963, !noundef !4
-  %switch.i = icmp ult i8 %15, 2
+  %switch.i = icmp samesign ult i8 %15, 2
   %..i = select i1 %switch.i, i64 7, i64 9
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026.anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026.i = select i1 %switch.i, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -17712,7 +17712,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr52drop
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN6rustls4quic7Version16header_key_label17h7c6a17b7123ccddaE.llvm.3875224068774112026(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #15 {
   %2 = load i8, ptr %0, align 1, !range !176, !noundef !4
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   %. = select i1 %switch, i64 7, i64 9
   %anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026.anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026 = select i1 %switch, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026, ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.c12b500a9dbc3a7785a3e66a12bc69a1.159.llvm.3875224068774112026.anon.c12b500a9dbc3a7785a3e66a12bc69a1.160.llvm.3875224068774112026, 0

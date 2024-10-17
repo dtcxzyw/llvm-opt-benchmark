@@ -89,8 +89,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 18:                                               ; preds = %15
   %19 = load i8, ptr %3, align 8, !range !35, !alias.scope !36, !noalias !39, !noundef !7
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %19, 2
-  br i1 %switch.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcff4dea3cb0b2fcE.llvm.12899952936866483202.exit.thread.i"
+  %or.cond.i.i.i.i = icmp samesign ult i8 %19, 2
+  br i1 %or.cond.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcff4dea3cb0b2fcE.llvm.12899952936866483202.exit.thread.i"
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %18
   %20 = getelementptr inbounds i8, ptr %3, i64 8
@@ -190,8 +190,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 18:                                               ; preds = %15
   %19 = load i8, ptr %3, align 8, !range !35, !alias.scope !80, !noalias !83, !noundef !7
-  %switch.i.i.i.i.i.i.i = icmp ult i8 %19, 2
-  br i1 %switch.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h26f51aa52fdeaee0E.llvm.12899952936866483202.exit.thread.i"
+  %or.cond.i.i.i.i = icmp samesign ult i8 %19, 2
+  br i1 %or.cond.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h26f51aa52fdeaee0E.llvm.12899952936866483202.exit.thread.i"
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %18
   %20 = getelementptr inbounds i8, ptr %3, i64 8
@@ -346,8 +346,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !align !103, !noundef !7
   %10 = load i8, ptr %9, align 8, !range !35, !alias.scope !104, !noundef !7
-  %switch.i.i.i.i = icmp ult i8 %10, 2
-  br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit"
+  %or.cond.i = icmp samesign ult i8 %10, 2
+  br i1 %or.cond.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit"
 
 .sink.split.i.i.i.i:                              ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 8
@@ -390,8 +390,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !align !103, !noundef !7
   %10 = load i8, ptr %9, align 8, !range !35, !alias.scope !112, !noundef !7
-  %switch.i.i.i.i = icmp ult i8 %10, 2
-  br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit"
+  %or.cond.i = icmp samesign ult i8 %10, 2
+  br i1 %or.cond.i, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit"
 
 .sink.split.i.i.i.i:                              ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 8
@@ -659,8 +659,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967df8f6ae
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   %.val2.le = load ptr, ptr %20, align 8, !nonnull !7, !noundef !7
   %21 = load i8, ptr %.val2.le, align 8, !range !35, !alias.scope !151, !noalias !154, !noundef !7
-  %switch.i.i.i.i.i.i = icmp ult i8 %21, 2
-  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %42
+  %or.cond.i.i.i = icmp samesign ult i8 %21, 2
+  br i1 %or.cond.i.i.i, label %.sink.split.i.i.i.i.i.i, label %42
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %19
   %22 = getelementptr inbounds i8, ptr %.val2.le, i64 8
@@ -783,8 +783,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hac78181016
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   %.val2.le = load ptr, ptr %20, align 8, !nonnull !7, !noundef !7
   %21 = load i8, ptr %.val2.le, align 8, !range !35, !alias.scope !175, !noalias !178, !noundef !7
-  %switch.i.i.i.i.i.i = icmp ult i8 %21, 2
-  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %42
+  %or.cond.i.i.i = icmp samesign ult i8 %21, 2
+  br i1 %or.cond.i.i.i, label %.sink.split.i.i.i.i.i.i, label %42
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %19
   %22 = getelementptr inbounds i8, ptr %.val2.le, i64 8
@@ -910,8 +910,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hba2d41e11c
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !205, !noalias !206, !nonnull !7, !align !103, !noundef !7
   %21 = load i8, ptr %20, align 8, !range !35, !alias.scope !209, !noalias !212, !noundef !7
-  %switch.i.i.i.i.i.i = icmp ult i8 %21, 2
-  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h26f51aa52fdeaee0E.llvm.12899952936866483202.exit.thread"
+  %or.cond.i.i.i = icmp samesign ult i8 %21, 2
+  br i1 %or.cond.i.i.i, label %.sink.split.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h26f51aa52fdeaee0E.llvm.12899952936866483202.exit.thread"
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %18
   %22 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1013,8 +1013,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd57df35f24
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !244, !noalias !245, !nonnull !7, !align !103, !noundef !7
   %21 = load i8, ptr %20, align 8, !range !35, !alias.scope !248, !noalias !251, !noundef !7
-  %switch.i.i.i.i.i.i = icmp ult i8 %21, 2
-  br i1 %switch.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcff4dea3cb0b2fcE.llvm.12899952936866483202.exit.thread"
+  %or.cond.i.i.i = icmp samesign ult i8 %21, 2
+  br i1 %or.cond.i.i.i, label %.sink.split.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcff4dea3cb0b2fcE.llvm.12899952936866483202.exit.thread"
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %18
   %22 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1089,8 +1089,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !270, !noalias !272, !nonnull !7, !align !103, !noundef !7
   %14 = load i8, ptr %13, align 8, !range !35, !alias.scope !274, !noalias !277, !noundef !7
-  %switch.i.i.i.i.i = icmp ult i8 %14, 2
-  br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit.i"
+  %or.cond.i.i = icmp samesign ult i8 %14, 2
+  br i1 %or.cond.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit.i"
 
 .sink.split.i.i.i.i.i:                            ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1148,8 +1148,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !289, !noalias !291, !nonnull !7, !align !103, !noundef !7
   %14 = load i8, ptr %13, align 8, !range !35, !alias.scope !293, !noalias !296, !noundef !7
-  %switch.i.i.i.i.i = icmp ult i8 %14, 2
-  br i1 %switch.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit.i"
+  %or.cond.i.i = icmp samesign ult i8 %14, 2
+  br i1 %or.cond.i.i, label %.sink.split.i.i.i.i.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$$GT$17hebd468445b990f8dE.exit.i"
 
 .sink.split.i.i.i.i.i:                            ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 8

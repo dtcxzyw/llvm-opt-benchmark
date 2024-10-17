@@ -20257,7 +20257,7 @@ define internal fastcc void @"_ZN4core3ptr105drop_in_place$LT$meilisearch_types.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !1483, !noundef !4
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$17hfe2e212aa9248030E.llvm.8666068179502612882.exit"
 
 3:                                                ; preds = %1
@@ -31340,7 +31340,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$milli..error..InternalError$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9047)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9050)
   %43 = load i64, ptr %42, align 8, !range !2437, !alias.scope !9053, !noundef !4
-  %switch.i.i = icmp ult i64 %43, 2
+  %switch.i.i = icmp samesign ult i64 %43, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr57drop_in_place$LT$milli..error..FieldIdMapMissingEntry$GT$17h01327a36405bd69eE.llvm.8666068179502612882.exit", label %44
 
 44:                                               ; preds = %41
@@ -40289,7 +40289,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
   %19 = icmp slt i8 %.sroa.04.0.extract.trunc.i, 26
   tail call void @llvm.assume(i1 %19)
   %.sroa.0243.0.i = tail call i8 @llvm.abs.i8(i8 %.sroa.04.0.extract.trunc.i, i1 true)
-  %20 = icmp ugt i8 %.sroa.0243.0.i, 23
+  %20 = icmp samesign ugt i8 %.sroa.0243.0.i, 23
   br i1 %20, label %201, label %21
 
 21:                                               ; preds = %17
@@ -45118,7 +45118,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$11build_trees28_$u7b$$u7b$
   %19 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %20 = icmp ult i64 %19, 6
   tail call void @llvm.assume(i1 %20)
-  %switch = icmp ult i64 %19, 4
+  %switch = icmp samesign ult i64 %19, 4
   br i1 %switch, label %26, label %21
 
 21:                                               ; preds = %4
@@ -45287,7 +45287,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$11build_trees28_$u7b$$u7b$
   %78 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %79 = icmp ult i64 %78, 6
   call void @llvm.assume(i1 %79)
-  %switch78 = icmp ult i64 %78, 4
+  %switch78 = icmp samesign ult i64 %78, 4
   br i1 %switch78, label %86, label %80
 
 80:                                               ; preds = %77
@@ -45685,7 +45685,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$12update_trees28_$u7b$$u7b
   %22 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %23 = icmp ult i64 %22, 6
   tail call void @llvm.assume(i1 %23)
-  %switch = icmp ult i64 %22, 4
+  %switch = icmp samesign ult i64 %22, 4
   br i1 %switch, label %29, label %24
 
 24:                                               ; preds = %4
@@ -45880,7 +45880,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$12update_trees28_$u7b$$u7b
   %85 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %86 = icmp ult i64 %85, 6
   call void @llvm.assume(i1 %86)
-  %switch91 = icmp ult i64 %85, 4
+  %switch91 = icmp samesign ult i64 %85, 4
   br i1 %switch91, label %93, label %87
 
 87:                                               ; preds = %84
@@ -46967,7 +46967,7 @@ define internal fastcc void @"_ZN5arroy6writer15Writer$LT$D$GT$18delete_extra_tr
   %45 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %46 = icmp ult i64 %45, 6
   tail call void @llvm.assume(i1 %46)
-  %switch18 = icmp ult i64 %45, 4
+  %switch18 = icmp samesign ult i64 %45, 4
   br i1 %switch18, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %38
@@ -49086,7 +49086,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %131 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %132 = icmp ult i64 %131, 6
   tail call void @llvm.assume(i1 %132)
-  %switch = icmp ult i64 %131, 4
+  %switch = icmp samesign ult i64 %131, 4
   br i1 %switch, label %141, label %135
 
 .body:                                            ; preds = %930, %.body.i, %201, %133, %.body420.thread, %623, %.body420
@@ -49623,7 +49623,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %276 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %277 = icmp ult i64 %276, 6
   call void @llvm.assume(i1 %277)
-  %switch346 = icmp ult i64 %276, 4
+  %switch346 = icmp samesign ult i64 %276, 4
   br i1 %switch346, label %284, label %278
 
 278:                                              ; preds = %275
@@ -50069,7 +50069,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %392 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %393 = icmp ult i64 %392, 6
   call void @llvm.assume(i1 %393)
-  %switch349 = icmp ult i64 %392, 4
+  %switch349 = icmp samesign ult i64 %392, 4
   br i1 %switch349, label %404, label %394
 
 394:                                              ; preds = %391
@@ -50192,7 +50192,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %425 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %426 = icmp ult i64 %425, 6
   call void @llvm.assume(i1 %426)
-  %switch354 = icmp ult i64 %425, 4
+  %switch354 = icmp samesign ult i64 %425, 4
   br i1 %switch354, label %433, label %427
 
 427:                                              ; preds = %424
@@ -50222,7 +50222,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %434 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %435 = icmp ult i64 %434, 6
   call void @llvm.assume(i1 %435)
-  %switch357 = icmp ult i64 %434, 4
+  %switch357 = icmp samesign ult i64 %434, 4
   br i1 %switch357, label %446, label %436
 
 436:                                              ; preds = %433
@@ -50350,7 +50350,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %465 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %466 = icmp ult i64 %465, 6
   call void @llvm.assume(i1 %466)
-  %switch362 = icmp ult i64 %465, 4
+  %switch362 = icmp samesign ult i64 %465, 4
   br i1 %switch362, label %475, label %467
 
 467:                                              ; preds = %464
@@ -50429,7 +50429,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %505 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %506 = icmp ult i64 %505, 6
   call void @llvm.assume(i1 %506)
-  %switch365 = icmp ult i64 %505, 4
+  %switch365 = icmp samesign ult i64 %505, 4
   br i1 %switch365, label %513, label %507
 
 507:                                              ; preds = %504
@@ -50482,7 +50482,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %524 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %525 = icmp ult i64 %524, 6
   call void @llvm.assume(i1 %525)
-  %switch368 = icmp ult i64 %524, 4
+  %switch368 = icmp samesign ult i64 %524, 4
   br i1 %switch368, label %532, label %526
 
 526:                                              ; preds = %523
@@ -50558,7 +50558,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %548 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %549 = icmp ult i64 %548, 6
   call void @llvm.assume(i1 %549)
-  %switch371 = icmp ult i64 %548, 4
+  %switch371 = icmp samesign ult i64 %548, 4
   br i1 %switch371, label %556, label %550
 
 550:                                              ; preds = %547
@@ -50830,7 +50830,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %632 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %633 = icmp ult i64 %632, 6
   call void @llvm.assume(i1 %633)
-  %switch374 = icmp ult i64 %632, 4
+  %switch374 = icmp samesign ult i64 %632, 4
   br i1 %switch374, label %638, label %634
 
 634:                                              ; preds = %629
@@ -50908,7 +50908,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %653 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %654 = icmp ult i64 %653, 6
   call void @llvm.assume(i1 %654)
-  %switch379 = icmp ult i64 %653, 4
+  %switch379 = icmp samesign ult i64 %653, 4
   br i1 %switch379, label %659, label %655
 
 655:                                              ; preds = %652
@@ -51229,7 +51229,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %748 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %749 = icmp ult i64 %748, 6
   call void @llvm.assume(i1 %749)
-  %switch382 = icmp ult i64 %748, 4
+  %switch382 = icmp samesign ult i64 %748, 4
   br i1 %switch382, label %756, label %750
 
 750:                                              ; preds = %747
@@ -51392,7 +51392,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %797 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %798 = icmp ult i64 %797, 6
   call void @llvm.assume(i1 %798)
-  %switch385 = icmp ult i64 %797, 4
+  %switch385 = icmp samesign ult i64 %797, 4
   br i1 %switch385, label %805, label %799
 
 799:                                              ; preds = %796
@@ -51545,7 +51545,7 @@ define hidden void @"_ZN5arroy6writer15Writer$LT$D$GT$5build17h68f9908cd31bae16E
   %851 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
   %852 = icmp ult i64 %851, 6
   call void @llvm.assume(i1 %852)
-  %switch388 = icmp ult i64 %851, 4
+  %switch388 = icmp samesign ult i64 %851, 4
   br i1 %switch388, label %859, label %853
 
 853:                                              ; preds = %850
@@ -58749,7 +58749,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h06ed6
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -58836,7 +58836,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h0905e
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -59325,7 +59325,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h14faa
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -59412,7 +59412,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h1bd06
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -59963,7 +59963,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h24347
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -60318,7 +60318,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h2aeec
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -60539,7 +60539,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h3b407
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -60760,7 +60760,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h46e6a
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -60847,7 +60847,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h4b54a
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -60974,7 +60974,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h4e89b
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %11 = load i64, ptr %10, align 16, !range !5832, !noalias !13434, !noundef !4
-  %12 = icmp ult i64 %11, 3
+  %12 = icmp samesign ult i64 %11, 3
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
@@ -61241,7 +61241,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h586a2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %11 = load i64, ptr %10, align 16, !range !5832, !noalias !13456, !noundef !4
-  %12 = icmp ult i64 %11, 3
+  %12 = icmp samesign ult i64 %11, 3
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
@@ -61508,7 +61508,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h5db0c
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %11 = load i64, ptr %10, align 16, !range !5832, !noalias !13478, !noundef !4
-  %12 = icmp ult i64 %11, 3
+  %12 = icmp samesign ult i64 %11, 3
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
@@ -61823,7 +61823,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h619c5
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -62714,7 +62714,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h72d6a
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -63069,7 +63069,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h7bf6e
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -63156,7 +63156,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h7d638
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -63377,7 +63377,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h7fac9
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -63985,7 +63985,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h94019
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %11 = load i64, ptr %10, align 16, !range !5832, !noalias !13674, !noundef !4
-  %12 = icmp ult i64 %11, 3
+  %12 = icmp samesign ult i64 %11, 3
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
@@ -64898,7 +64898,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17ha0272
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -65336,7 +65336,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17haa0c8
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -65825,7 +65825,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hb496d
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -66753,7 +66753,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hc7cb7
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -66840,7 +66840,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hc8981
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -66927,7 +66927,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hcfc98
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -67014,7 +67014,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hd0c91
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -67101,7 +67101,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hd0c9f
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -67539,7 +67539,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hdbd2a
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -67760,7 +67760,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hde169
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -68115,7 +68115,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17he339e
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -68202,7 +68202,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17he36b7
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -68557,7 +68557,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17he59cb
 
 .body:                                            ; preds = %.body.i, %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %17, %.body.i ]
-  %switch.not.i = icmp ult i64 %8, 2
+  %switch.not.i = icmp samesign ult i64 %8, 2
   br i1 %switch.not.i, label %24, label %"_ZN4core3ptr107drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$meilisearch_auth..AuthFilter$GT$$GT$$GT$17hccee51647f9951b0E.llvm.8666068179502612882.exit"
 
 24:                                               ; preds = %.body
@@ -69915,7 +69915,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = load i64, ptr %3, align 8, !range !5832, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %4
@@ -71267,7 +71267,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = load i64, ptr %3, align 8, !range !5832, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %4
@@ -71366,7 +71366,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca [16 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = load i64, ptr %3, align 16, !range !5832, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
@@ -72594,7 +72594,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca [16 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = load i64, ptr %3, align 16, !range !5832, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
@@ -74278,7 +74278,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca [16 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = load i64, ptr %3, align 16, !range !5832, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
@@ -74336,7 +74336,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = load i64, ptr %3, align 8, !range !5832, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %4
@@ -74812,7 +74812,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = load i64, ptr %3, align 8, !range !5832, !noundef !4
-  %11 = icmp ult i64 %10, 3
+  %11 = icmp samesign ult i64 %10, 3
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %4
@@ -74968,7 +74968,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   %6 = alloca [16 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = load i64, ptr %3, align 16, !range !5832, !noundef !4
-  %9 = icmp ult i64 %8, 3
+  %9 = icmp samesign ult i64 %8, 3
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4

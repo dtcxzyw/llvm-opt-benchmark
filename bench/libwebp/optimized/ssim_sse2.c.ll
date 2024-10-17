@@ -70,7 +70,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %39 = add <4 x i32> %38, %35
   %.058 = load <2 x i64>, ptr %26, align 1
   %.059 = load <2 x i64>, ptr %25, align 1
-  %.not = icmp ugt i64 %indvars.iv.next, %7
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %7
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

@@ -23632,7 +23632,7 @@ define internal void @"_ZN4core3ptr45drop_in_place$LT$rustc_ast..ast..RangeEnd$G
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$rustc_ast..ast..SelfKind$GT$17h4064058ea69d369cE.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
-  %switch = icmp ult i8 %2, 2
+  %switch = icmp samesign ult i8 %2, 2
   br i1 %switch, label %8, label %3
 
 3:                                                ; preds = %1
@@ -24440,7 +24440,7 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Bac
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10684)
   %4 = load i64, ptr %0, align 8, !range !75, !alias.scope !10684, !noundef !5
-  %switch.i = icmp ult i64 %4, 2
+  %switch.i = icmp samesign ult i64 %4, 2
   br i1 %switch.i, label %"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17hf8c7d2376da94722E.exit", label %5
 
 5:                                                ; preds = %1
@@ -28652,7 +28652,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$rustc_parse..parser..FlatTok
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr51drop_in_place$LT$rustc_parse..parser..TokenType$GT$17h1c6c9794454e7051E.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8, !range !12557, !noundef !5
-  %3 = icmp ult i8 %2, 37
+  %3 = icmp samesign ult i8 %2, 37
   br i1 %3, label %4, label %"_ZN4core3ptr48drop_in_place$LT$rustc_ast..token..TokenKind$GT$17h0856f26044a4449eE.llvm.17249484671449717553.exit"
 
 "_ZN4core3ptr48drop_in_place$LT$rustc_ast..token..TokenKind$GT$17h0856f26044a4449eE.llvm.17249484671449717553.exit": ; preds = %17, %13, %10, %5, %4, %1
@@ -29216,7 +29216,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$rustc_errors..Delay
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12808)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12811)
   %8 = load i64, ptr %0, align 8, !range !75, !alias.scope !12814, !noundef !5
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h2953927d32a332d5E.exit", label %9
 
 9:                                                ; preds = %7
@@ -32156,7 +32156,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$fluent_bundle..errors..Fluen
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14218)
   %8 = load i64, ptr %7, align 8, !range !8824, !alias.scope !14218, !noundef !5
-  %.not.i = icmp ult i64 %8, 4
+  %.not.i = icmp samesign ult i64 %8, 4
   %9 = add nsw i64 %8, -3
   %10 = select i1 %.not.i, i64 0, i64 %9
   switch i64 %10, label %"_ZN4core3ptr67drop_in_place$LT$fluent_bundle..resolver..errors..ResolverError$GT$17h2cc596fd46a3a002E.llvm.17249484671449717553.exit" [
@@ -36808,7 +36808,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$$u5b$rustc_parse..parser..To
   %5 = add nuw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16814)
   %6 = load i8, ptr %4, align 8, !range !12557, !alias.scope !16814, !noundef !5
-  %7 = icmp ult i8 %6, 37
+  %7 = icmp samesign ult i8 %6, 37
   br i1 %7, label %8, label %"_ZN4core3ptr51drop_in_place$LT$rustc_parse..parser..TokenType$GT$17h1c6c9794454e7051E.llvm.17249484671449717553.exit"
 
 8:                                                ; preds = %.lr.ph
@@ -41121,7 +41121,7 @@ default.unreachable14:                            ; preds = %1
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$fluent_bundle..resolver..errors..ResolverError$GT$17h2cc596fd46a3a002E.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !8824, !noundef !5
-  %.not = icmp ult i64 %2, 4
+  %.not = icmp samesign ult i64 %2, 4
   %3 = add nsw i64 %2, -3
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" [
@@ -44344,7 +44344,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$rustc_par
 ; Function Attrs: nounwind nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$annotate_snippets..display_list..structs..DisplayLine$GT$17hbf6b6126115fa81eE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12424, !noundef !5
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp samesign ult i64 %2, 2
   %3 = add nsw i64 %2, -1
   %4 = select i1 %.not, i64 0, i64 %3
   switch i64 %4, label %5 [
@@ -48902,7 +48902,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..cell..UnsafeCell$LT$ru
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$rustc_span..source_map..Spanned$LT$rustc_ast..ast..SelfKind$GT$$GT$17h831db1596ce8192aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22599)
   %2 = load i8, ptr %0, align 8, !range !4, !alias.scope !22599, !noundef !5
-  %switch.i = icmp ult i8 %2, 2
+  %switch.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr45drop_in_place$LT$rustc_ast..ast..SelfKind$GT$17h4064058ea69d369cE.llvm.17249484671449717553.exit", label %3
 
 3:                                                ; preds = %1

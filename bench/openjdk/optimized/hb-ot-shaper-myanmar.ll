@@ -521,7 +521,7 @@ _ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i: ; preds = %_ZL
   %indvars.iv.next20.i.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i.i, 1
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %128 = and i64 %indvars.iv.next.i.i.i.i, 4294967295
-  %129 = icmp ult i64 %indvars.iv.next20.i.i.i.i, %128
+  %129 = icmp samesign ult i64 %indvars.iv.next20.i.i.i.i, %128
   br i1 %129, label %.lr.ph.i.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i.i, !llvm.loop !17
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %118
@@ -559,7 +559,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i.i: ; preds = %.lr.ph.i.i.
   %indvars.iv.next20.i13.i.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i.i, 1
   %indvars.iv.next.i14.i.i.i = add nsw i64 %indvars.iv.i12.i.i.i, -1
   %141 = and i64 %indvars.iv.next.i14.i.i.i, 4294967295
-  %142 = icmp ult i64 %indvars.iv.next20.i13.i.i.i, %141
+  %142 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i.i, %141
   br i1 %142, label %.lr.ph.i10.i.i.i, label %.lr.ph203.i.i, !llvm.loop !18
 
 .lr.ph203.i.i:                                    ; preds = %.lr.ph.i10.i.i.i, %132, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i.i
@@ -607,7 +607,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i.i: ; preds = %.lr.ph.i.i.
   %indvars.iv.next20.i.i160.i.i = add nuw nsw i64 %indvars.iv19.i.i158.i.i, 1
   %indvars.iv.next.i.i161.i.i = add nsw i64 %indvars.iv.i.i159.i.i, -1
   %158 = and i64 %indvars.iv.next.i.i161.i.i, 4294967295
-  %159 = icmp ult i64 %indvars.iv.next20.i.i160.i.i, %158
+  %159 = icmp samesign ult i64 %indvars.iv.next20.i.i160.i.i, %158
   br i1 %159, label %.lr.ph.i.i157.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i, !llvm.loop !17
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i: ; preds = %.lr.ph.i.i157.i.i, %149
@@ -645,7 +645,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i: ; preds = %.lr.ph.i
   %indvars.iv.next20.i13.i153.i.i = add nuw nsw i64 %indvars.iv19.i11.i151.i.i, 1
   %indvars.iv.next.i14.i154.i.i = add nsw i64 %indvars.iv.i12.i152.i.i, -1
   %171 = and i64 %indvars.iv.next.i14.i154.i.i, 4294967295
-  %172 = icmp ult i64 %indvars.iv.next20.i13.i153.i.i, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next20.i13.i153.i.i, %171
   br i1 %172, label %.lr.ph.i10.i150.i.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i, !llvm.loop !18
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i:   ; preds = %.lr.ph.i10.i150.i.i, %162, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i, %144
@@ -1233,7 +1233,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit.thread.thr
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next157, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next157, %101
   br i1 %102, label %95, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %95, %.preheader

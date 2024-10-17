@@ -929,7 +929,7 @@ define hidden void @_ZN2cv7optflow8getGraphERKNS_3MatEf(ptr dead_on_unwind noali
   br i1 %or.cond78, label %42, label %109
 
 42:                                               ; preds = %37
-  %43 = icmp ult i64 %indvars.iv, 4
+  %43 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %43, label %44, label %56
 
 44:                                               ; preds = %42

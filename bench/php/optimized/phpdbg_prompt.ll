@@ -1008,10 +1008,10 @@ phpdbg_clean.exit:                                ; preds = %15, %19
   br label %.loopexit247
 
 94:                                               ; preds = %.loopexit397
-  %95 = icmp ugt i64 %indvars.iv, 3
+  %95 = icmp samesign ugt i64 %indvars.iv, 3
   %96 = trunc nuw nsw i64 %indvars.iv to i32
   %97 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %96)
-  %98 = icmp ult i32 %97, 2
+  %98 = icmp samesign ult i32 %97, 2
   %or.cond232 = select i1 %95, i1 %98, i1 false
   br i1 %or.cond232, label %99, label %103
 
@@ -1201,7 +1201,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
   br label %.loopexit247
 
 .loopexit247:                                     ; preds = %49, %.loopexit247.loopexit, %93
-  %.0189258 = phi i32 [ %59, %93 ], [ %161, %.loopexit247.loopexit ], [ 0, %49 ]
+  %.0189257 = phi i32 [ %59, %93 ], [ %161, %.loopexit247.loopexit ], [ 0, %49 ]
   %.0183254 = phi ptr [ %.0183276, %93 ], [ %.2, %.loopexit247.loopexit ], [ %38, %49 ]
   store i8 %48, ptr %47, align 1
   %162 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
@@ -1229,7 +1229,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 ._crit_edge293:                                   ; preds = %.lr.ph292, %.loopexit247
   %170 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   call void @_efree(ptr noundef %170) #24
-  %171 = add nuw nsw i32 %.0189258, 1
+  %171 = add nuw nsw i32 %.0189257, 1
   %172 = zext nneg i32 %171 to i64
   %173 = shl nuw nsw i64 %172, 3
   %174 = call ptr @_erealloc(ptr noundef nonnull %.0183254, i64 noundef %173) #28
@@ -2288,7 +2288,7 @@ define hidden noundef i32 @phpdbg_do_generator(ptr noundef readonly %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %123 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %indvars.iv.next, %124
+  %125 = icmp samesign ult i64 %indvars.iv.next, %124
   br i1 %125, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %122, %.preheader, %52, %51, %48, %55, %4
@@ -3658,7 +3658,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_compile_stdin(ptr noundef %0) local_u
   %58 = add i32 %57, -2
   store i32 %58, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not55.not = icmp ult i64 %indvars.iv, %54
+  %.not55.not = icmp samesign ult i64 %indvars.iv, %54
   br i1 %.not55.not, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %50

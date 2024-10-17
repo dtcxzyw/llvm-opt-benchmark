@@ -3322,7 +3322,7 @@ if.end:                                           ; preds = %do.body
   %11 = load i32, ptr %avail_in19, align 8
   %conv20 = zext i32 %11 to i64
   %add21 = add nuw nsw i64 %conv17, %conv20
-  %cmp22 = icmp ult i64 %add21, 65535
+  %cmp22 = icmp samesign ult i64 %add21, 65535
   %add27 = add i32 %conv15, %11
   %spec.select = select i1 %cmp22, i32 %add27, i32 65535
   %len.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %sub12)
@@ -4334,8 +4334,8 @@ land.lhs.true70:                                  ; preds = %land.lhs.true65
   %incdec.ptr71.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.0.add
   %16 = load i8, ptr %incdec.ptr71.ptr, align 1
   %cmp73 = icmp eq i8 %5, %16
-  %cmp75 = icmp ult i64 %scan.0.idx, 250
-  %or.cond115 = and i1 %cmp75, %cmp73
+  %cmp75 = icmp samesign ult i64 %scan.0.idx, 250
+  %or.cond115 = select i1 %cmp73, i1 %cmp75, i1 false
   br i1 %or.cond115, label %do.body, label %if.end88.split.loop.exit, !llvm.loop !18
 
 if.end88.split.loop.exit:                         ; preds = %land.lhs.true70
@@ -6250,8 +6250,8 @@ land.lhs.true100:                                 ; preds = %land.lhs.true93
   %incdec.ptr103 = getelementptr inbounds i8, ptr %match.0, i64 8
   %35 = load i8, ptr %incdec.ptr103, align 1
   %cmp105 = icmp eq i8 %34, %35
-  %cmp107 = icmp ult i64 %scan.2.idx, 250
-  %or.cond = and i1 %cmp107, %cmp105
+  %cmp107 = icmp samesign ult i64 %scan.2.idx, 250
+  %or.cond = select i1 %cmp105, i1 %cmp107, i1 false
   br i1 %or.cond, label %do.body52, label %do.end.split.loop.exit108, !llvm.loop !21
 
 do.end.split.loop.exit:                           ; preds = %do.body52

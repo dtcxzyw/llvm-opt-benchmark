@@ -860,7 +860,7 @@ if.end41.us.us.us:                                ; preds = %if.end31.us.us.us
   %call.i38.us.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us = icmp eq i32 %call.i38.us.us.us, 0
   %inc.us.us.us = add nuw nsw i32 %symref_count.090.us.us.us, 1
-  %cmp.us.us.us = icmp ult i32 %symref_count.090.us.us.us, 4
+  %cmp.us.us.us = icmp samesign ult i32 %symref_count.090.us.us.us, 4
   %or.cond = select i1 %tobool47.not.us.us.us, i1 %cmp.us.us.us, i1 false
   br i1 %or.cond, label %for.body.us.us.us, label %return, !llvm.loop !9
 
@@ -886,7 +886,7 @@ if.end41.us.us:                                   ; preds = %if.end31.us.us
   %call.i38.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %3, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us = icmp eq i32 %call.i38.us.us, 0
   %inc.us.us = add nuw nsw i32 %symref_count.090.us.us, 1
-  %cmp.us.us = icmp ult i32 %symref_count.090.us.us, 4
+  %cmp.us.us = icmp samesign ult i32 %symref_count.090.us.us, 4
   %or.cond127 = select i1 %tobool47.not.us.us, i1 %cmp.us.us, i1 false
   br i1 %or.cond127, label %for.body.us.us, label %return, !llvm.loop !9
 
@@ -1304,7 +1304,7 @@ if.end41.us.us.us.i:                              ; preds = %if.end31.us.us.us.i
   %call.i38.us.us.us.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i = icmp eq i32 %call.i38.us.us.us.i, 0
   %inc.us.us.us.i = add nuw nsw i32 %symref_count.090.us.us.us.i, 1
-  %cmp.us.us.us.i = icmp ult i32 %symref_count.090.us.us.us.i, 4
+  %cmp.us.us.us.i = icmp samesign ult i32 %symref_count.090.us.us.us.i, 4
   %or.cond.i = select i1 %tobool47.not.us.us.us.i, i1 %cmp.us.us.us.i, i1 false
   br i1 %or.cond.i, label %for.body.us.us.us.i, label %refs_resolve_ref_unsafe.exit.loopexit, !llvm.loop !9
 
@@ -1390,7 +1390,7 @@ if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i
   %call.i38.us.us.us.i.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i.i = icmp eq i32 %call.i38.us.us.us.i.i, 0
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
-  %cmp.us.us.us.i.i = icmp ult i32 %symref_count.090.us.us.us.i.i, 4
+  %cmp.us.us.us.i.i = icmp samesign ult i32 %symref_count.090.us.us.us.i.i, 4
   %or.cond.i.i = select i1 %tobool47.not.us.us.us.i.i, i1 %cmp.us.us.us.i.i, i1 false
   br i1 %or.cond.i.i, label %for.body.us.us.us.i.i, label %refs_ref_exists.exit.loopexit, !llvm.loop !9
 
@@ -5072,7 +5072,7 @@ while.end.i:                                      ; preds = %if.end16.i
   %35 = load i8, ptr %arrayidx22.i, align 1
   %cmp24.i.not = icmp ne i8 %35, 46
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
-  %cmp.us.us.us.i.i = icmp ult i32 %symref_count.090.us.us.us.i.i, 4
+  %cmp.us.us.us.i.i = icmp samesign ult i32 %symref_count.090.us.us.us.i.i, 4
   %or.cond222 = select i1 %cmp24.i.not, i1 %cmp.us.us.us.i.i, i1 false
   br i1 %or.cond222, label %for.body.us.us.us.i.i, label %refs_ref_exists.exit.thread, !llvm.loop !9
 

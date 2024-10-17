@@ -260,7 +260,7 @@ match_endpoint.exit.thread.us:                    ; preds = %41, %match_endpoint
   %59 = add nuw nsw i64 %23, 1
   %60 = load i8, ptr %18, align 4
   %61 = zext i8 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %.split.us, label %match_endpoint.exit.thread5, !llvm.loop !7
 
 .split:                                           ; preds = %21
@@ -344,7 +344,7 @@ match_endpoint.exit.thread.us10:                  ; preds = %69, %match_endpoint
   %97 = add nuw nsw i64 %63, 1
   %98 = load i8, ptr %18, align 4
   %99 = zext i8 %98 to i64
-  %100 = icmp ult i64 %97, %99
+  %100 = icmp samesign ult i64 %97, %99
   br i1 %100, label %.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !7
 
 .split.split:                                     ; preds = %.split
@@ -424,14 +424,14 @@ match_endpoint.exit.thread.us18:                  ; preds = %107, %133, %130, %1
   %136 = add nuw nsw i64 %101, 1
   %137 = load i8, ptr %18, align 4
   %138 = zext i8 %137 to i64
-  %139 = icmp ult i64 %136, %138
+  %139 = icmp samesign ult i64 %136, %138
   br i1 %139, label %.split.split.split.us, label %match_endpoint.exit.thread5, !llvm.loop !7
 
 match_endpoint.exit.thread:                       ; preds = %172, %176, %179, %.split.split.split, %165, %168, %154, %158, %157, %match_endpoint.exit
   %140 = add nuw nsw i64 %144, 1
   %141 = load i8, ptr %18, align 4
   %142 = zext i8 %141 to i64
-  %143 = icmp ult i64 %140, %142
+  %143 = icmp samesign ult i64 %140, %142
   br i1 %143, label %.split.split.split, label %match_endpoint.exit.thread5, !llvm.loop !7
 
 .split.split.split:                               ; preds = %.split.split, %match_endpoint.exit.thread

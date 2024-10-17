@@ -4188,7 +4188,7 @@ rb_dump_literal.exit:                             ; preds = %RB_FL_TEST.exit.i, 
   br label %add_id.exit
 
 add_id.exit:                                      ; preds = %2331, %2335, %2338
-  %2340 = icmp ult i64 %indvars.iv, %2326
+  %2340 = icmp samesign ult i64 %indvars.iv, %2326
   br i1 %2340, label %2341, label %2343
 
 2341:                                             ; preds = %add_id.exit

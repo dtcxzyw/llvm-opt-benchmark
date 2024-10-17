@@ -746,7 +746,7 @@ define dso_local ptr @getSpGistTupleDesc(ptr nocapture noundef readonly %0, ptr 
   %34 = getelementptr i8, ptr %31, i64 %.idx
   store i32 -1, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = icmp ult i64 %indvars.iv.next, %32
+  %35 = icmp samesign ult i64 %indvars.iv.next, %32
   br i1 %35, label %33, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %33, %9, %2
@@ -1740,7 +1740,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
   %39 = add nuw nsw i32 %.0.i, 7
   %40 = and i32 %39, 2147483640
   %41 = add nuw nsw i32 %40, 8
-  %.not = icmp ult i32 %.0.i, 8177
+  %.not = icmp samesign ult i32 %.0.i, 8177
   br i1 %.not, label %.thread, label %42
 
 42:                                               ; preds = %38
@@ -1934,7 +1934,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   unreachable
 
 55:                                               ; preds = %._crit_edge
-  %56 = icmp ugt i32 %.045, 65535
+  %56 = icmp samesign ugt i32 %.045, 65535
   %57 = icmp sgt i32 %3, 8191
   %or.cond3 = or i1 %57, %56
   br i1 %or.cond3, label %58, label %61
@@ -2231,7 +2231,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
   %54 = lshr i32 %53, 3
   %55 = and i32 %54, 8191
   %56 = zext nneg i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %32, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %46, %.preheader, %22

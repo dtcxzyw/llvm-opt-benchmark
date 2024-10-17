@@ -962,7 +962,7 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %223 = load i32, ptr %216, align 8
   %224 = zext i32 %223 to i64
-  %225 = icmp ult i64 %indvars.iv.next, %224
+  %225 = icmp samesign ult i64 %indvars.iv.next, %224
   br i1 %225, label %219, label %.loopexit
 
 .loopexit:                                        ; preds = %219, %.preheader, %205

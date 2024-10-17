@@ -2141,7 +2141,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv211 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next212, %for.cond.loopexit ]
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond.loopexit ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %cmp88204 = icmp ult i64 %indvars.iv.next212, %47
+  %cmp88204 = icmp samesign ult i64 %indvars.iv.next212, %47
   br i1 %cmp88204, label %for.body89.lr.ph, label %for.cond.loopexit
 
 for.body89.lr.ph:                                 ; preds = %for.body
@@ -2880,7 +2880,7 @@ for.body18:                                       ; preds = %if.then14, %for.con
   %indvars.iv287 = phi i64 [ 0, %if.then14 ], [ %indvars.iv.next288, %for.cond16.loopexit ]
   %indvars.iv = phi i64 [ 1, %if.then14 ], [ %indvars.iv.next, %for.cond16.loopexit ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
-  %cmp20281 = icmp ult i64 %indvars.iv.next288, %idx.ext.i
+  %cmp20281 = icmp samesign ult i64 %indvars.iv.next288, %idx.ext.i
   br i1 %cmp20281, label %for.body21.lr.ph, label %for.cond16.loopexit
 
 for.body21.lr.ph:                                 ; preds = %for.body18
@@ -4054,7 +4054,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv127 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next128, %for.cond.loopexit ]
   %indvars.iv120 = phi i64 [ 1, %for.cond.preheader ], [ %indvars.iv.next121, %for.cond.loopexit ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %cmp14116 = icmp ult i64 %indvars.iv.next128, %conv
+  %cmp14116 = icmp samesign ult i64 %indvars.iv.next128, %conv
   br i1 %cmp14116, label %for.body15.lr.ph, label %for.cond.loopexit
 
 for.body15.lr.ph:                                 ; preds = %for.body

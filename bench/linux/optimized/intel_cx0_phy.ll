@@ -474,7 +474,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 .preheader:                                       ; preds = %.loopexit13, %.loopexit11
   %177 = phi i32 [ %255, %.loopexit11 ], [ 0, %.loopexit13 ]
   %178 = call i32 @intel_ddi_level(ptr noundef %0, ptr noundef %1, i32 noundef %177) #7
-  %179 = icmp ult i32 %177, 2
+  %179 = icmp samesign ult i32 %177, 2
   %180 = select i1 %179, i8 1, i8 2
   %181 = and i8 %180, %31
   %182 = icmp eq i8 %181, 0
@@ -589,7 +589,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
   %255 = add nuw nsw i32 %177, 1
   %256 = load i8, ptr %174, align 1
   %257 = zext i8 %256 to i32
-  %258 = icmp ult i32 %255, %257
+  %258 = icmp samesign ult i32 %255, %257
   br i1 %258, label %.preheader, label %.loopexit12, !llvm.loop !16
 
 .loopexit12:                                      ; preds = %.loopexit11, %.loopexit13
@@ -817,7 +817,7 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly %0, ptr n
   %81 = zext i8 %80 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %63, i32 noundef %66, i32 noundef %68, i32 noundef %71, i32 noundef %73, i32 noundef %76, i32 noundef %78, i32 noundef %81) #7
   %82 = add nuw nsw i64 %62, 4
-  %83 = icmp ult i64 %62, 16
+  %83 = icmp samesign ult i64 %62, 16
   br i1 %83, label %.split.us, label %.split2.us, !llvm.loop !17
 
 .split:                                           ; preds = %.split.preheader, %.split
@@ -844,7 +844,7 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly %0, ptr n
   %104 = zext i8 %103 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %85, i32 noundef %89, i32 noundef %91, i32 noundef %94, i32 noundef %96, i32 noundef %99, i32 noundef %101, i32 noundef %104) #7
   %105 = add nuw nsw i64 %84, 4
-  %106 = icmp ult i64 %84, 16
+  %106 = icmp samesign ult i64 %84, 16
   br i1 %106, label %.split, label %.split2.us, !llvm.loop !17
 
 .split2.us:                                       ; preds = %.split, %.split.us
@@ -2530,7 +2530,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 
 627:                                              ; preds = %.loopexit24, %.loopexit25
   %628 = phi i64 [ 0, %.loopexit25 ], [ %656, %.loopexit24 ]
-  %629 = icmp ult i64 %628, 2
+  %629 = icmp samesign ult i64 %628, 2
   %630 = select i1 %629, i8 1, i8 2
   %631 = and i8 %630, %594
   %632 = icmp eq i8 %631, 0

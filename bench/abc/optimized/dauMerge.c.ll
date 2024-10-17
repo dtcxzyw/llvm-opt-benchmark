@@ -154,11 +154,11 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %77, label %.lr.ph88, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph88
-  %switch = icmp ult i32 %74, 2
+  %switch = icmp samesign ult i32 %74, 2
   br i1 %switch, label %.sink.split, label %78
 
 78:                                               ; preds = %._crit_edge
-  %.not = icmp ugt i32 %74, %.06987
+  %.not = icmp samesign ugt i32 %74, %.06987
   br i1 %.not, label %79, label %.sink.split
 
 79:                                               ; preds = %78
@@ -2089,7 +2089,7 @@ Dau_DsdMergeMatches.exit236:                      ; preds = %428, %Dau_DsdIsCons
   %460 = add i8 %459, -97
   %or.cond73.i = icmp ugt i8 %460, 25
   %461 = zext nneg i8 %460 to i32
-  %462 = icmp ugt i32 %250, %461
+  %462 = icmp samesign ugt i32 %250, %461
   %or.cond33.i = select i1 %or.cond73.i, i1 true, i1 %462
   br i1 %or.cond33.i, label %463, label %465
 

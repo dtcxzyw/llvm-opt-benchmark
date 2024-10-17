@@ -5175,7 +5175,7 @@ if.end.split:                                     ; preds = %entry
   %agg.tmp.sroa.0.0.copyload10 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6971 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i6971
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i6971
   br i1 %cmp23.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.split

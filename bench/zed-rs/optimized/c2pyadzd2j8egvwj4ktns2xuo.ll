@@ -1019,7 +1019,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..rang
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   %3 = load i8, ptr %2, align 8, !range !237, !alias.scope !234, !noundef !9
-  %4 = icmp ult i8 %3, 21
+  %4 = icmp samesign ult i8 %3, 21
   br i1 %4, label %5, label %"_ZN4core3ptr52drop_in_place$LT$markdown..parser..MarkdownEvent$GT$17h869814de6c5dd589E.exit"
 
 5:                                                ; preds = %1
@@ -3065,7 +3065,7 @@ define void @_ZN8markdown6parser14parse_markdown17hd6d2baca50f17fd8E(ptr dead_on
   %101 = load i8, ptr %42, align 1, !range !106
   %102 = icmp ne i8 %101, 20
   %or.cond.not = select i1 %100, i1 true, i1 %102
-  %103 = icmp ult i8 %92, 21
+  %103 = icmp samesign ult i8 %92, 21
   br i1 %103, label %431, label %432
 
 104:                                              ; preds = %93
@@ -3142,7 +3142,7 @@ define void @_ZN8markdown6parser14parse_markdown17hd6d2baca50f17fd8E(ptr dead_on
   %.sroa.04.1 = phi i1 [ false, %424 ], [ false, %420 ], [ false, %416 ], [ false, %412 ], [ false, %408 ], [ false, %404 ], [ false, %400 ], [ false, %93 ], [ false, %93 ], [ false, %396 ], [ false, %392 ], [ false, %220 ], [ false, %214 ], [ %.sroa.04.3, %210 ]
   %.sroa.0.1 = phi i1 [ %.sroa.0.0.ph, %424 ], [ %.sroa.0.0.ph, %420 ], [ %.sroa.0.0.ph, %416 ], [ %.sroa.0.0.ph, %412 ], [ %.sroa.0.0.ph, %408 ], [ %.sroa.0.0.ph, %404 ], [ %.sroa.0.0.ph, %400 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %396 ], [ %.sroa.0.0.ph, %392 ], [ %.sroa.0.0.ph, %220 ], [ %spec.select62, %214 ], [ %.sroa.0.2, %210 ]
   %130 = load i8, ptr %30, align 8, !range !188, !noundef !9
-  %131 = icmp ult i8 %130, 21
+  %131 = icmp samesign ult i8 %130, 21
   br i1 %131, label %428, label %429
 
 132:                                              ; preds = %93
@@ -3346,7 +3346,7 @@ define void @_ZN8markdown6parser14parse_markdown17hd6d2baca50f17fd8E(ptr dead_on
 .body:                                            ; preds = %.loopexit170, %.loopexit.split-lp171, %388, %264, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i1.i.i", %206, %113, %137, %155, %173, %192, %182, %164, %146, %125, %.body102
   %.pn56 = phi { ptr, i32 } [ %.pn54, %.body102 ], [ %114, %113 ], [ %126, %125 ], [ %138, %137 ], [ %147, %146 ], [ %156, %155 ], [ %165, %164 ], [ %174, %173 ], [ %183, %182 ], [ %193, %192 ], [ %207, %206 ], [ %265, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i1.i.i" ], [ %265, %264 ], [ %389, %388 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ]
   %199 = load i8, ptr %30, align 8, !range !188, !noundef !9
-  %200 = icmp ult i8 %199, 21
+  %200 = icmp samesign ult i8 %199, 21
   br i1 %200, label %83, label %430
 
 .loopexit170:                                     ; preds = %196, %218, %244

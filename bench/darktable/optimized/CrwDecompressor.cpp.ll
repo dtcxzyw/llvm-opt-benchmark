@@ -296,7 +296,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressorC2ENS_8RawImageEjNS_10Array1DRe
   %78 = load i32, ptr %77, align 8, !tbaa !14
   %79 = icmp sgt i32 %78, -1
   tail call void @llvm.assume(i1 %79)
-  %80 = icmp ult i32 %78, %74
+  %80 = icmp samesign ult i32 %78, %74
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %73
@@ -1309,7 +1309,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %69 = or disjoint i32 %47, 256
   %70 = add nuw nsw i32 %69, %63
   %71 = icmp eq i8 %62, 0
-  %72 = icmp ult i32 %67, 12
+  %72 = icmp samesign ult i32 %67, 12
   %73 = sub nuw nsw i32 11, %67
   %74 = shl nsw i32 -1, %63
   %75 = xor i32 %74, -1
@@ -1336,7 +1336,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   br i1 %89, label %.loopexit13, label %.preheader, !llvm.loop !139
 
 90:                                               ; preds = %60
-  %91 = icmp ugt i32 %67, 11
+  %91 = icmp samesign ugt i32 %67, 11
   %92 = select i1 %91, i1 %68, i1 false
   %93 = freeze i1 %92
   br i1 %93, label %.preheader14, label %.preheader17
@@ -1532,7 +1532,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp uge i32 %17, %12
+  %23 = icmp samesign uge i32 %17, %12
   tail call void @llvm.assume(i1 %23)
   %24 = icmp ne i32 %12, 0
   tail call void @llvm.assume(i1 %24)
@@ -1565,7 +1565,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   tail call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i32 %34, 8
+  %42 = icmp samesign ult i32 %34, 8
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %1
@@ -1646,15 +1646,15 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %89 = trunc nuw nsw i32 %85 to i16
   %90 = icmp sgt i32 %80, -1
   call void @llvm.assume(i1 %90)
-  %91 = icmp ugt i32 %12, %80
+  %91 = icmp samesign ugt i32 %12, %80
   call void @llvm.assume(i1 %91)
   %92 = icmp sgt i32 %81, -1
   call void @llvm.assume(i1 %92)
-  %93 = icmp ugt i32 %14, %81
+  %93 = icmp samesign ugt i32 %14, %81
   call void @llvm.assume(i1 %93)
   %94 = mul nuw nsw i32 %81, %17
   %95 = add nuw nsw i32 %94, %12
-  %96 = icmp ule i32 %95, %18
+  %96 = icmp samesign ule i32 %95, %18
   call void @llvm.assume(i1 %96)
   %97 = zext nneg i32 %94 to i64
   %98 = getelementptr inbounds i16, ptr %6, i64 %97
@@ -1684,13 +1684,13 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
 
 116:                                              ; preds = %106
   %117 = trunc nuw nsw i32 %114 to i16
-  %118 = icmp ugt i32 %12, %109
+  %118 = icmp samesign ugt i32 %12, %109
   call void @llvm.assume(i1 %118)
-  %119 = icmp ugt i32 %14, %110
+  %119 = icmp samesign ugt i32 %14, %110
   call void @llvm.assume(i1 %119)
   %120 = mul nuw nsw i32 %110, %17
   %121 = add nuw nsw i32 %120, %12
-  %122 = icmp ule i32 %121, %18
+  %122 = icmp samesign ule i32 %121, %18
   call void @llvm.assume(i1 %122)
   %123 = zext nneg i32 %120 to i64
   %124 = getelementptr inbounds i16, ptr %6, i64 %123
@@ -1756,12 +1756,12 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %171 = phi i64 [ 0, %151 ], [ %309, %308 ]
   %172 = mul nuw nsw i64 %171, %152
   %173 = add nuw nsw i64 %172, %152
-  %174 = icmp ule i64 %173, %153
+  %174 = icmp samesign ule i64 %173, %153
   call void @llvm.assume(i1 %174)
   %175 = getelementptr inbounds i8, ptr %132, i64 %172
   %176 = mul nuw nsw i64 %171, %154
   %177 = add nuw nsw i64 %176, 2672
-  %178 = icmp ule i64 %177, %155
+  %178 = icmp samesign ule i64 %177, %155
   call void @llvm.assume(i1 %178)
   %179 = getelementptr inbounds i16, ptr %6, i64 %176
   br i1 %167, label %.loopexit.preheader, label %.preheader
@@ -1771,7 +1771,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %181 = phi <8 x i64> [ %253, %.preheader ], [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %170 ]
   %182 = phi <8 x i32> [ %254, %.preheader ], [ <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>, %170 ]
   %183 = lshr exact <8 x i32> %182, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %184 = icmp ugt <8 x i32> %169, %183
+  %184 = icmp samesign ugt <8 x i32> %169, %183
   %185 = extractelement <8 x i1> %184, i64 0
   call void @llvm.assume(i1 %185)
   %186 = extractelement <8 x i1> %184, i64 1
@@ -1871,7 +1871,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %256 = phi i64 [ %306, %.loopexit ], [ %.ph, %.loopexit.preheader ]
   %257 = trunc nsw i64 %256 to i32
   %258 = lshr exact i32 %257, 2
-  %259 = icmp ugt i32 %135, %258
+  %259 = icmp samesign ugt i32 %135, %258
   call void @llvm.assume(i1 %259)
   %260 = zext nneg i32 %258 to i64
   %261 = getelementptr inbounds i8, ptr %175, i64 %260
@@ -1898,7 +1898,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %281 = or disjoint i64 %256, 4
   %282 = trunc nuw nsw i64 %281 to i32
   %283 = lshr exact i32 %282, 2
-  %284 = icmp ugt i32 %135, %283
+  %284 = icmp samesign ugt i32 %135, %283
   call void @llvm.assume(i1 %284)
   %285 = zext nneg i32 %283 to i64
   %286 = getelementptr inbounds i8, ptr %175, i64 %285
@@ -1923,7 +1923,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %305 = select <4 x i1> %303, <4 x i16> %304, <4 x i16> %302
   store <4 x i16> %305, ptr %289, align 2, !tbaa !157
   %306 = add nuw nsw i64 %256, 8
-  %307 = icmp ult i64 %256, 2664
+  %307 = icmp samesign ult i64 %256, 2664
   br i1 %307, label %.loopexit, label %308, !llvm.loop !164
 
 308:                                              ; preds = %.loopexit
@@ -1935,12 +1935,12 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %312 = phi i64 [ 0, %149 ], [ %360, %359 ]
   %313 = mul nuw nsw i64 %312, %144
   %314 = add nuw nsw i64 %313, %144
-  %315 = icmp ule i64 %314, %145
+  %315 = icmp samesign ule i64 %314, %145
   call void @llvm.assume(i1 %315)
   %316 = getelementptr inbounds i8, ptr %132, i64 %313
   %317 = mul nuw nsw i64 %312, %142
   %318 = add nuw nsw i64 %317, %141
-  %319 = icmp ule i64 %318, %143
+  %319 = icmp samesign ule i64 %318, %143
   call void @llvm.assume(i1 %319)
   %320 = getelementptr inbounds i16, ptr %6, i64 %317
   br label %362
@@ -1949,12 +1949,12 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %322 = or disjoint i64 %312, 1
   %323 = mul nuw nsw i64 %322, %144
   %324 = add nuw nsw i64 %323, %144
-  %325 = icmp ule i64 %324, %145
+  %325 = icmp samesign ule i64 %324, %145
   call void @llvm.assume(i1 %325)
   %326 = getelementptr inbounds i8, ptr %132, i64 %323
   %327 = mul nuw nsw i64 %322, %142
   %328 = add nuw nsw i64 %327, %141
-  %329 = icmp ule i64 %328, %143
+  %329 = icmp samesign ule i64 %328, %143
   call void @llvm.assume(i1 %329)
   %330 = getelementptr inbounds i16, ptr %6, i64 %327
   br label %331
@@ -1963,7 +1963,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %332 = phi i64 [ 0, %321 ], [ %356, %331 ]
   %333 = trunc i64 %332 to i32
   %334 = lshr exact i32 %333, 2
-  %335 = icmp ugt i32 %135, %334
+  %335 = icmp samesign ugt i32 %135, %334
   call void @llvm.assume(i1 %335)
   %336 = zext nneg i32 %334 to i64
   %337 = getelementptr inbounds i8, ptr %326, i64 %336
@@ -1973,7 +1973,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %341 = lshr i32 %339, 2
   %342 = lshr i32 %339, 4
   %343 = or disjoint i64 %332, 3
-  %344 = icmp ult i64 %343, %141
+  %344 = icmp samesign ult i64 %343, %141
   call void @llvm.assume(i1 %344)
   %345 = insertelement <4 x i32> poison, i32 %339, i64 0
   %346 = insertelement <4 x i32> %345, i32 %341, i64 1
@@ -2001,7 +2001,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %363 = phi i64 [ 0, %311 ], [ %387, %362 ]
   %364 = trunc i64 %363 to i32
   %365 = lshr exact i32 %364, 2
-  %366 = icmp ugt i32 %135, %365
+  %366 = icmp samesign ugt i32 %135, %365
   call void @llvm.assume(i1 %366)
   %367 = zext nneg i32 %365 to i64
   %368 = getelementptr inbounds i8, ptr %316, i64 %367
@@ -2011,7 +2011,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %372 = lshr i32 %370, 2
   %373 = lshr i32 %370, 4
   %374 = or disjoint i64 %363, 3
-  %375 = icmp ult i64 %374, %141
+  %375 = icmp samesign ult i64 %374, %141
   call void @llvm.assume(i1 %375)
   %376 = insertelement <4 x i32> poison, i32 %370, i64 0
   %377 = insertelement <4 x i32> %376, i32 %372, i64 1
@@ -2038,12 +2038,12 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
 392:                                              ; preds = %.loopexit11
   %393 = mul nuw nsw i64 %390, %144
   %394 = add nuw nsw i64 %393, %144
-  %395 = icmp ule i64 %394, %145
+  %395 = icmp samesign ule i64 %394, %145
   call void @llvm.assume(i1 %395)
   %396 = getelementptr inbounds i8, ptr %132, i64 %393
   %397 = mul nuw nsw i64 %390, %142
   %398 = add nuw nsw i64 %397, %141
-  %399 = icmp ule i64 %398, %143
+  %399 = icmp samesign ule i64 %398, %143
   call void @llvm.assume(i1 %399)
   %400 = getelementptr inbounds i16, ptr %6, i64 %397
   br label %401
@@ -2052,7 +2052,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %402 = phi i64 [ 0, %392 ], [ %426, %401 ]
   %403 = trunc i64 %402 to i32
   %404 = lshr exact i32 %403, 2
-  %405 = icmp ugt i32 %135, %404
+  %405 = icmp samesign ugt i32 %135, %404
   call void @llvm.assume(i1 %405)
   %406 = zext nneg i32 %404 to i64
   %407 = getelementptr inbounds i8, ptr %396, i64 %406
@@ -2062,7 +2062,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %411 = lshr i32 %409, 2
   %412 = lshr i32 %409, 4
   %413 = or disjoint i64 %402, 3
-  %414 = icmp ult i64 %413, %141
+  %414 = icmp samesign ult i64 %413, %141
   call void @llvm.assume(i1 %414)
   %415 = insertelement <4 x i32> poison, i32 %409, i64 0
   %416 = insertelement <4 x i32> %415, i32 %411, i64 1
@@ -2113,12 +2113,12 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ugt i32 %16, 7
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i32 %18, 32
+  %22 = icmp samesign ult i32 %18, 32
   br i1 %22, label %23, label %54
 
 23:                                               ; preds = %14
   %24 = add nuw nsw i32 %15, 8
-  %25 = icmp ugt i32 %24, %16
+  %25 = icmp samesign ugt i32 %24, %16
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %23
@@ -2128,7 +2128,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
 
 29:                                               ; preds = %23
   %30 = add nuw nsw i32 %16, 16
-  %31 = icmp ugt i32 %15, %30
+  %31 = icmp samesign ugt i32 %15, %30
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
@@ -2182,7 +2182,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
   tail call void @llvm.assume(i1 %64)
   %65 = icmp ult i32 %58, 65
   tail call void @llvm.assume(i1 %65)
-  %66 = icmp ult i32 %58, 32
+  %66 = icmp samesign ult i32 %58, 32
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %54
@@ -2256,7 +2256,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
   tail call void @llvm.assume(i1 %109)
   %110 = icmp sgt i32 %103, -1
   tail call void @llvm.assume(i1 %110)
-  %111 = icmp ugt i32 %106, 10
+  %111 = icmp samesign ugt i32 %106, 10
   tail call void @llvm.assume(i1 %111)
   %112 = load i64, ptr %2, align 8, !tbaa !148
   %113 = lshr i64 %112, 53
@@ -2266,9 +2266,9 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
   %117 = load i32, ptr %116, align 4, !tbaa !14
   %118 = ashr i32 %117, 9
   %119 = and i32 %117, 255
-  %120 = icmp ult i32 %119, 33
+  %120 = icmp samesign ult i32 %119, 33
   tail call void @llvm.assume(i1 %120)
-  %121 = icmp uge i32 %106, %119
+  %121 = icmp samesign uge i32 %106, %119
   tail call void @llvm.assume(i1 %121)
   %122 = sub nsw i32 %106, %119
   store i32 %122, ptr %5, align 8, !tbaa !150
@@ -2291,7 +2291,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
 132:                                              ; preds = %127
   %133 = icmp ult i32 %122, 65
   tail call void @llvm.assume(i1 %133)
-  %134 = icmp ugt i32 %122, 10
+  %134 = icmp samesign ugt i32 %122, 10
   tail call void @llvm.assume(i1 %134)
   %135 = add nsw i32 %122, -11
   store i32 %135, ptr %5, align 8, !tbaa !150
@@ -2422,7 +2422,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
 229:                                              ; preds = %227
   %230 = icmp ult i32 %214, 65
   tail call void @llvm.assume(i1 %230)
-  %231 = icmp uge i32 %214, %216
+  %231 = icmp samesign uge i32 %214, %216
   tail call void @llvm.assume(i1 %231)
   %232 = sub nsw i32 %214, %216
   store i32 %232, ptr %5, align 8, !tbaa !150
@@ -3375,7 +3375,7 @@ define linkonce_odr hidden noundef i32 @_ZN8rawspeed15BitStreamerJPEG9fillCacheE
   %19 = load i64, ptr %1, align 1
   store i64 %19, ptr %4, align 8
   %20 = load i64, ptr %0, align 8
-  %21 = icmp ult i32 %6, 33
+  %21 = icmp samesign ult i32 %6, 33
   tail call void @llvm.assume(i1 %21)
   %22 = trunc i64 %19 to i8
   %23 = icmp ne i8 %22, -1
@@ -3579,7 +3579,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 4611686018427387903
   %38 = and i64 %37, 4611686018427387903
   %39 = add nuw nsw i64 %38, 1
-  %40 = icmp ult i64 %38, 31
+  %40 = icmp samesign ult i64 %38, 31
   br i1 %40, label %.preheader20, label %41
 
 41:                                               ; preds = %35
@@ -3770,7 +3770,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %151 = add nuw nsw i64 %2, 4611686018427387903
   %152 = and i64 %151, 4611686018427387903
   %153 = add nuw nsw i64 %152, 1
-  %154 = icmp ult i64 %152, 31
+  %154 = icmp samesign ult i64 %152, 31
   br i1 %154, label %.preheader, label %155
 
 155:                                              ; preds = %146
@@ -4064,11 +4064,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 9223372036854775807
   %38 = and i64 %37, 9223372036854775807
   %39 = add nuw i64 %38, 1
-  %40 = icmp ult i64 %38, 7
+  %40 = icmp samesign ult i64 %38, 7
   br i1 %40, label %.preheader32, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %38, 63
+  %42 = icmp samesign ult i64 %38, 63
   br i1 %42, label %63, label %43
 
 43:                                               ; preds = %41
@@ -4348,11 +4348,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
   %213 = add nuw i64 %212, 1
-  %214 = icmp ult i64 %212, 7
+  %214 = icmp samesign ult i64 %212, 7
   br i1 %214, label %.preheader, label %215
 
 215:                                              ; preds = %206
-  %216 = icmp ult i64 %212, 63
+  %216 = icmp samesign ult i64 %212, 63
   br i1 %216, label %237, label %217
 
 217:                                              ; preds = %215

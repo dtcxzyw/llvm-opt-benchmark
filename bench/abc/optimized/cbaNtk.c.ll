@@ -6948,7 +6948,7 @@ Vec_BitStart.exit:                                ; preds = %1, %8
   %30 = or i32 %29, %25
   store i32 %30, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = icmp ult i64 %indvars.iv.next, %16
+  %31 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %31, label %21, label %.critedge.preheader, !llvm.loop !33
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
@@ -6978,7 +6978,7 @@ Vec_BitStart.exit:                                ; preds = %1, %8
   %48 = or i32 %47, %43
   store i32 %48, ptr %46, align 4
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %49 = icmp ult i64 %indvars.iv.next183, %20
+  %49 = icmp samesign ult i64 %indvars.iv.next183, %20
   br i1 %49, label %.critedge, label %.critedge2.preheader, !llvm.loop !34
 
 .critedge118.preheader:                           ; preds = %.critedge2, %.critedge2.preheader
@@ -7638,7 +7638,7 @@ Vec_IntStartFull.exit:                            ; preds = %2, %Vec_IntAlloc.ex
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp ult i64 %indvars.iv.next, %14
+  %22 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %22, label %16, label %.critedge.preheader, !llvm.loop !45
 
 23:                                               ; preds = %.lr.ph33, %.critedge
@@ -12185,7 +12185,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
 
 .critedge2:                                       ; preds = %52, %31
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %56 = icmp ult i64 %indvars.iv.next80, %27
+  %56 = icmp samesign ult i64 %indvars.iv.next80, %27
   br i1 %56, label %31, label %.lr.ph74, !llvm.loop !76
 
 .critedge4.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit
@@ -12226,7 +12226,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
 
 .critedge:                                        ; preds = %67, %58
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %79 = icmp ult i64 %indvars.iv.next83, %30
+  %79 = icmp samesign ult i64 %indvars.iv.next83, %30
   br i1 %79, label %58, label %.critedge4.preheader, !llvm.loop !78
 
 .lr.ph77:                                         ; preds = %.critedge4.preheader, %.critedge4
@@ -12431,7 +12431,7 @@ Vec_BitStart.exit74:                              ; preds = %Vec_BitStart.exit, 
   %54 = or i32 %53, %49
   store i32 %54, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = icmp ult i64 %indvars.iv.next, %39
+  %55 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %55, label %45, label %.critedge.preheader, !llvm.loop !80
 
 .preheader:                                       ; preds = %.critedge2, %.critedge.preheader
@@ -12504,7 +12504,7 @@ Vec_BitStart.exit74:                              ; preds = %Vec_BitStart.exit, 
 
 .critedge2:                                       ; preds = %88, %69, %58, %61
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %92 = icmp ult i64 %indvars.iv.next96, %44
+  %92 = icmp samesign ult i64 %indvars.iv.next96, %44
   br i1 %92, label %58, label %.preheader, !llvm.loop !82
 
 93:                                               ; preds = %.lr.ph90, %._crit_edge
@@ -14161,7 +14161,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %285 = lshr i64 %.val62.i, 32
   %286 = trunc nuw i64 %285 to i32
   %287 = and i32 %286, 536870911
-  %288 = icmp uge i32 %284, %287
+  %288 = icmp samesign uge i32 %284, %287
   %cond.fr.i = freeze i1 %288
   br i1 %cond.fr.i, label %Gia_ObjIsXor.exit.thread.i, label %289
 

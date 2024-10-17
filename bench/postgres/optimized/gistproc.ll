@@ -542,7 +542,7 @@ float8_gt.exit17.i:                               ; preds = %float8_lt.exit16.th
 
 adjustBox.exit:                                   ; preds = %float8_gt.exit17.i, %float8_lt.exit16.thread.i, %29
   %60 = add i16 %.0236309, 1
-  %.not = icmp ugt i16 %60, %22
+  %.not = icmp samesign ugt i16 %60, %22
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %adjustBox.exit, %1
@@ -580,7 +580,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   %79 = getelementptr i8, ptr %76, i64 -8
   store double %78, ptr %79, align 8
   %80 = add i16 %.1237311.us, 1
-  %.not252.us = icmp ugt i16 %80, %68
+  %.not252.us = icmp samesign ugt i16 %80, %68
   br i1 %.not252.us, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !8
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
@@ -599,7 +599,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   %91 = getelementptr i8, ptr %87, i64 -8
   store double %90, ptr %91, align 8
   %92 = add i16 %.1237311, 1
-  %.not252 = icmp ugt i16 %92, %67
+  %.not252 = icmp samesign ugt i16 %92, %67
   br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !8
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
@@ -822,7 +822,7 @@ float8_gt.exit.thread:                            ; preds = %135, %141, %float8_
   %181 = getelementptr [0 x %struct.GISTENTRY], ptr %62, i64 0, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = inttoptr i64 %182 to ptr
-  %.not42.i = icmp ult i32 %176, %179
+  %.not42.i = icmp samesign ult i32 %176, %179
   br i1 %.not42.i, label %229, label %184
 
 184:                                              ; preds = %178
@@ -1012,7 +1012,7 @@ adjustBox.exit50.i:                               ; preds = %271, %float8_gt.exi
   %.2.i = phi ptr [ %.1.i, %adjustBox.exit.i ], [ %.03653.i, %adjustBox.exit50.i ]
   %275 = add i16 %.054.i, 1
   %276 = zext i16 %275 to i32
-  %.not.i = icmp ugt i16 %275, %177
+  %.not.i = icmp samesign ugt i16 %275, %177
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %178, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %274
@@ -1263,7 +1263,7 @@ adjustBox.exit270:                                ; preds = %393, %float8_gt.exi
   %.1242 = phi i32 [ %321, %320 ], [ %.0241345, %adjustBox.exit262 ], [ %.0241345, %adjustBox.exit270 ]
   %401 = add i16 %.2238346, 1
   %402 = zext i16 %401 to i32
-  %.not249 = icmp ugt i16 %401, %304
+  %.not249 = icmp samesign ugt i16 %401, %304
   br i1 %.not249, label %._crit_edge349, label %305, !llvm.loop !15
 
 ._crit_edge349:                                   ; preds = %400

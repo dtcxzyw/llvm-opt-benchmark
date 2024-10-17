@@ -3265,7 +3265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -25377,7 +25377,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
           to label %.preheader80 unwind label %.loopexit.split-lp
 
 .preheader80:                                     ; preds = %181
-  %187 = icmp ugt i32 %.016, 1
+  %187 = icmp samesign ugt i32 %.016, 1
   br i1 %187, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.preheader80
@@ -30699,7 +30699,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr nounde
 
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.preheader.i ], [ 0, %21 ]
-  %30 = icmp ult i64 %indvars.iv24.i, 8
+  %30 = icmp samesign ult i64 %indvars.iv24.i, 8
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %8, i64 0, i64 %indvars.iv24.i
   %32 = load i16, ptr %31, align 2
@@ -36750,7 +36750,7 @@ define internal void @_GLOBAL__sub_I_compiler.cpp() #25 section ".text.startup" 
 
 _ZN4pkpy2TKEPKc.exit.i.i:                         ; preds = %.critedge.i.i.i
   %17 = and i64 %indvars.iv.i.i.i, 255
-  %18 = icmp ult i64 %17, 95
+  %18 = icmp samesign ult i64 %17, 95
   br i1 %18, label %.lr.ph.i.i, label %__cxx_global_var_init.1.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pkpy2TKEPKc.exit.i.i

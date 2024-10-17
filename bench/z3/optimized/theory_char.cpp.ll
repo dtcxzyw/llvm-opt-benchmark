@@ -2531,7 +2531,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, i32 16, i32 18
   %switch.selectcmp1.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   %switch.select2.i.i.i.i = select i1 %switch.selectcmp1.i.i.i.i, i32 8, i32 %switch.select.i.i.i.i
-  %cmp33 = icmp ult i32 %inc, %switch.select2.i.i.i.i
+  %cmp33 = icmp samesign ult i32 %inc, %switch.select2.i.i.i.i
   br i1 %cmp33, label %for.body34, label %for.end39, !llvm.loop !10
 
 for.end39:                                        ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit114

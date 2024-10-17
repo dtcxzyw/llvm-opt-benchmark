@@ -84,7 +84,7 @@ define dso_local { ptr, i64 } @_ZNK5clang5index15FileIndexRecord32getDeclOccurre
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %17
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 .thread.i.i.i:                                    ; preds = %select.unfold.i.i.i.i.i, %9

@@ -2251,7 +2251,7 @@ for.body.i:                                       ; preds = %for.inc.i, %_Py_New
   %inner.040.i = phi ptr [ %call.i, %_Py_NewRef.exit.i ], [ %inner.1.i, %for.inc.i ]
   %outer.039.i = phi ptr [ %call.i, %_Py_NewRef.exit.i ], [ %outer.1.i, %for.inc.i ]
   %shr.i = lshr i64 %call, %i.042.i
-  %cmp5.i = icmp ult i64 %shr.i, 3
+  %cmp5.i = icmp samesign ult i64 %shr.i, 3
   br i1 %cmp5.i, label %for.inc.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body.i
@@ -7445,7 +7445,7 @@ if.else46.i:                                      ; preds = %if.else41.i
   br label %exit
 
 if.else49.i:                                      ; preds = %if.end33.i
-  %cmp50.i = icmp ugt i64 %and.i, %and34.i
+  %cmp50.i = icmp samesign ugt i64 %and.i, %and34.i
   br i1 %cmp50.i, label %if.then51.i, label %if.else59.i
 
 if.then51.i:                                      ; preds = %if.else49.i
@@ -8083,7 +8083,7 @@ entry:
   %div19 = lshr i64 %sub, 1
   %cmp = icmp ult i64 %sub, 130
   %mul = mul nuw nsw i64 %div19, %max_bits
-  %cmp1 = icmp ult i64 %mul, 65
+  %cmp1 = icmp samesign ult i64 %mul, 65
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %for.cond.preheader, label %if.end
 

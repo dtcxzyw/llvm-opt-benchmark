@@ -128,7 +128,7 @@ define hidden void @_ZN7ciFieldC2EP15ciInstanceKlassiN9Bytecodes4CodeE(ptr nocap
   %29 = add nsw i32 %24, 1
   %30 = icmp sgt i32 %24, -1
   %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp ult i32 %31, 2
+  %32 = icmp samesign ult i32 %31, 2
   %or.cond.i.i.i.i.i.i = select i1 %30, i1 %32, i1 false
   %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %34 = sub nuw nsw i32 32, %33
@@ -1206,7 +1206,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %65 = add nsw i32 %60, 1
   %66 = icmp sgt i32 %60, -1
   %67 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %65)
-  %68 = icmp ult i32 %67, 2
+  %68 = icmp samesign ult i32 %67, 2
   %or.cond.i.i.i.i.i.i = select i1 %66, i1 %68, i1 false
   %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %70 = sub nuw nsw i32 32, %69

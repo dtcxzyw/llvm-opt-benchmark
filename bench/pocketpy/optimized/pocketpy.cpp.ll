@@ -9427,7 +9427,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %._ZN4pkpy7is_typeEP
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %49 = shl i32 %indvars.iv.tr, 2
   %50 = zext i32 %49 to i64
-  %.not.i.i = icmp ult i64 %indvars.iv, %50
+  %.not.i.i = icmp samesign ult i64 %indvars.iv, %50
   br i1 %.not.i.i, label %51, label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit
 
 51:                                               ; preds = %48
@@ -16933,7 +16933,7 @@ _ZN4pkpy8_py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %12
   %17 = tail call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i, i1 true)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %17, ptr %5, align 8
-  %or.cond.i.i = icmp ult i64 %17, 1152921504606846976
+  %or.cond.i.i = icmp samesign ult i64 %17, 1152921504606846976
   br i1 %or.cond.i.i, label %18, label %22
 
 18:                                               ; preds = %_ZN4pkpy8_py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit.i
@@ -19678,7 +19678,7 @@ _ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE4keysEvENKUlNS_7StrNameES2_E_clES4_S2_.e
   %65 = phi i16 [ %40, %39 ], [ %.pre.i, %_ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE4keysEvENKUlNS_7StrNameES2_E_clES4_S2_.exit.i4 ]
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i3, 1
   %66 = zext i16 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next.i5, %66
+  %67 = icmp samesign ult i64 %indvars.iv.next.i5, %66
   br i1 %67, label %39, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E4keysEvEUlNS_7StrNameES2_E_EEvT_.exit, !llvm.loop !68
 
 _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E4keysEvEUlNS_7StrNameES2_E_EEvT_.exit: ; preds = %64, %32, %33
@@ -20341,7 +20341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp ugt i32 %.0.lcssa.i, 9
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %._crit_edge.i
@@ -21746,7 +21746,7 @@ _ZN4pkpy8_py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %10, %8
   %storemerge3.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %13 = lshr i64 %.14.i, 1
   %14 = add nuw nsw i32 %storemerge3.i, 1
-  %.not.i = icmp ult i64 %.14.i, 2
+  %.not.i = icmp samesign ult i64 %.14.i, 2
   br i1 %.not.i, label %_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !76
 
 _ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i: ; preds = %.lr.ph.i
@@ -21897,7 +21897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp ugt i64 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %._crit_edge.i
@@ -25287,7 +25287,7 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1108__invo
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %18
@@ -25330,7 +25330,7 @@ _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i: ; preds = %.l
   br i1 %.not.i.i.i.i20.i, label %select.unfold.i.i.i.i22.i, label %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i
 
 select.unfold.i.i.i.i22.i:                        ; preds = %.lr.ph.i.i.i.i16.i
-  %.not10.i.i.i.i23.i = icmp ult i64 %storemerge26.i.i.in.in.i.i17.i, 3
+  %.not10.i.i.i.i23.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i17.i, 3
   br i1 %.not10.i.i.i.i23.i, label %.loopexit.i.i14.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !96
 
 .loopexit.i.i14.i:                                ; preds = %select.unfold.i.i.i.i22.i, %26
@@ -32372,7 +32372,7 @@ _ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEvENKUlNS_7StrNameES2_E_clES4_S2_.
   %70 = phi i16 [ %43, %42 ], [ %.pre.i, %_ZZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEvENKUlNS_7StrNameES2_E_clES4_S2_.exit.i4 ]
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i3, 1
   %71 = zext i16 %70 to i64
-  %72 = icmp ult i64 %indvars.iv.next.i6, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next.i6, %71
   br i1 %72, label %42, label %_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit, !llvm.loop !185
 
 _ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNKS_12NameDictImplIS2_E5itemsEvEUlNS_7StrNameES2_E_EEvT_.exit: ; preds = %69, %35, %36
@@ -37064,7 +37064,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
 
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.preheader.i ], [ 0, %21 ]
-  %30 = icmp ult i64 %indvars.iv24.i, 8
+  %30 = icmp samesign ult i64 %indvars.iv24.i, 8
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %8, i64 0, i64 %indvars.iv24.i
   %32 = load i16, ptr %31, align 2
@@ -38394,7 +38394,7 @@ define internal void @_GLOBAL__sub_I_pocketpy.cpp() #29 section ".text.startup" 
 
 _ZN4pkpy2TKEPKc.exit.i.i:                         ; preds = %.critedge.i.i.i
   %17 = and i64 %indvars.iv.i.i.i, 255
-  %18 = icmp ult i64 %17, 95
+  %18 = icmp samesign ult i64 %17, 95
   br i1 %18, label %.lr.ph.i.i, label %__cxx_global_var_init.1.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pkpy2TKEPKc.exit.i.i

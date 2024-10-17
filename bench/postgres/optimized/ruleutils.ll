@@ -740,7 +740,7 @@ define internal fastcc ptr @pg_get_ruledef_worker(i32 noundef %0, i32 noundef ra
 
 75:                                               ; preds = %69, %68, %67, %64
   %.0.i = phi ptr [ null, %69 ], [ null, %68 ], [ null, %67 ], [ %66, %64 ]
-  %.not89.i = icmp ult i32 %1, 4
+  %.not89.i = icmp samesign ult i32 %1, 4
   br i1 %.not89.i, label %78, label %76
 
 76:                                               ; preds = %75
@@ -1978,7 +1978,7 @@ get_relation_name.exit:                           ; preds = %list_head.exit
   %93 = icmp ne i8 %92, 73
   %.not153 = or i1 %6, %93
   %94 = select i1 %.not153, ptr @.str.32, ptr @.str.322
-  %.not154 = icmp ult i32 %7, 4
+  %.not154 = icmp samesign ult i32 %7, 4
   br i1 %.not154, label %97, label %95
 
 95:                                               ; preds = %84

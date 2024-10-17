@@ -1480,7 +1480,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
   %118 = zext i8 %117 to i32
   %119 = zext i8 %116 to i32
   %120 = mul nuw nsw i32 %119, 5
-  %121 = icmp ult i32 %120, %118
+  %121 = icmp samesign ult i32 %120, %118
   br i1 %121, label %122, label %.thread67
 
 122:                                              ; preds = %113
@@ -1698,7 +1698,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
   store i8 %252, ptr %253, align 1
   %254 = getelementptr i8, ptr %248, i64 2
   %255 = add nuw nsw i64 %247, 1
-  %256 = icmp ugt i64 %247, 2
+  %256 = icmp samesign ugt i64 %247, 2
   %257 = icmp ugt ptr %254, %242
   %258 = or i1 %256, %257
   br i1 %258, label %259, label %246, !llvm.loop !29
@@ -1770,7 +1770,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
   %298 = add nuw nsw i64 %293, 1
   %299 = load i8, ptr %3, align 8
   %300 = zext i8 %299 to i64
-  %301 = icmp ult i64 %298, %300
+  %301 = icmp samesign ult i64 %298, %300
   br i1 %301, label %292, label %.thread67, !llvm.loop !30
 
 302:                                              ; preds = %8
@@ -1784,7 +1784,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
   %310 = zext i8 %4 to i32
   %311 = or disjoint i32 %307, 4
   %312 = add nuw nsw i32 %311, %309
-  %313 = icmp ugt i32 %312, %310
+  %313 = icmp samesign ugt i32 %312, %310
   br i1 %313, label %.thread67, label %314
 
 314:                                              ; preds = %302
@@ -2588,7 +2588,7 @@ default.unreachable225:                           ; preds = %649
   store i32 %845, ptr %846, align 4
   %847 = getelementptr i8, ptr %814, i64 6
   %848 = add nuw nsw i64 %813, 1
-  %849 = icmp ugt i64 %813, 2
+  %849 = icmp samesign ugt i64 %813, 2
   %850 = icmp ugt ptr %847, %808
   %851 = or i1 %849, %850
   br i1 %851, label %852, label %812, !llvm.loop !41
@@ -2921,7 +2921,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
 
 88:                                               ; preds = %84
   %89 = and i1 %59, %68
-  %90 = icmp ult i32 %70, 11
+  %90 = icmp samesign ult i32 %70, 11
   %91 = or i1 %89, %90
   br i1 %91, label %94, label %.thread15
 
@@ -3299,7 +3299,7 @@ define internal fastcc ptr @parse_power(ptr noundef readonly %0, ptr noundef rea
 45:                                               ; preds = %.preheader
   %46 = load i8, ptr %43, align 1
   %47 = and i8 %46, 127
-  %48 = icmp ult i8 %47, 100
+  %48 = icmp samesign ult i8 %47, 100
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %45

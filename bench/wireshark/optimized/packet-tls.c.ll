@@ -2568,7 +2568,7 @@ define internal void @ssl_parse_uat() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr @ntlsdecrypt, align 4
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph18, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %45, %27, %21
@@ -3643,7 +3643,7 @@ ssl_looks_like_valid_v2_handshake.exit:           ; preds = %80
   %100 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %99) #11
   %101 = zext i16 %100 to i32
   %102 = add nuw nsw i32 %98, %101
-  %.not.i.not = icmp ugt i32 %102, %.0145
+  %.not.i.not = icmp samesign ugt i32 %102, %.0145
   br i1 %.not.i.not, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %115
 
 ssl_looks_like_valid_v2_handshake.exit.thread:    ; preds = %82, %87, %80, %ssl_looks_like_valid_v2_handshake.exit, %75

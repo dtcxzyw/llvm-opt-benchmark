@@ -3891,7 +3891,7 @@ define internal i32 @wkh_accept_encoding(ptr noundef %0, ptr noundef %1, i32 nou
 
 53:                                               ; preds = %49
   %switch.tableidx = and i8 %52, 127
-  %54 = icmp ult i8 %switch.tableidx, 4
+  %54 = icmp samesign ult i8 %switch.tableidx, 4
   br i1 %54, label %switch.lookup, label %59
 
 switch.lookup:                                    ; preds = %53
@@ -5948,7 +5948,7 @@ define internal i32 @wkh_content_disposition(ptr noundef %0, ptr noundef %1, i32
 
 38:                                               ; preds = %34
   %switch.tableidx = and i8 %37, 127
-  %39 = icmp ult i8 %switch.tableidx, 3
+  %39 = icmp samesign ult i8 %switch.tableidx, 3
   br i1 %39, label %switch.lookup, label %44
 
 switch.lookup:                                    ; preds = %38

@@ -3993,7 +3993,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   store ptr %add.ptr.i.i6.i.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
-  %cmp.i = icmp ugt i64 %or.i.i.i.i, 256
+  %cmp.i = icmp samesign ugt i64 %or.i.i.i.i, 256
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i

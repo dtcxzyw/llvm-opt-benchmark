@@ -328,7 +328,7 @@ if.end10.i:                                       ; preds = %for.body.i.i
   br i1 %cmp11.not.i, label %if.end15.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end10.i
-  %or.cond.i.i = icmp ugt i64 %indvars.iv.i.i, 3
+  %or.cond.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 3
   br i1 %or.cond.i.i, label %if.then.i22.i, label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
 
 if.then.i22.i:                                    ; preds = %if.then12.i
@@ -365,7 +365,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   %10 = load i32, ptr %is_client.i, align 8
   %tobool18.not.i = icmp eq i32 %10, 0
   %.str.6..str.7.i = select i1 %tobool18.not.i, ptr @.str.7, ptr @.str.6
-  %or.cond.i30.i = icmp ugt i64 %indvars.iv.i.i, 3
+  %or.cond.i30.i = icmp samesign ugt i64 %indvars.iv.i.i, 3
   br i1 %or.cond.i30.i, label %if.then.i35.i, label %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i
 
 if.then.i35.i:                                    ; preds = %if.then17.i

@@ -4220,7 +4220,7 @@ list_length.exit171.i.i.i:                        ; preds = %351
 
 .critedge.i.i.i:                                  ; preds = %397, %392, %370, %363, %360
   %.0150.i.i.i = phi ptr [ %364, %363 ], [ %.0146.i.i.i, %360 ], [ null, %370 ], [ %.1.i.i.i, %392 ], [ %.1.i.i.i, %397 ]
-  %415 = icmp ugt i64 %indvars.iv219.i.i.i, 1
+  %415 = icmp samesign ugt i64 %indvars.iv219.i.i.i, 1
   br i1 %415, label %416, label %432
 
 416:                                              ; preds = %.critedge.i.i.i

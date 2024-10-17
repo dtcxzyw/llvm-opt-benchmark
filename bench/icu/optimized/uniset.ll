@@ -665,8 +665,8 @@ entry:
   %start.addr.0 = select i1 %cmp.i, i32 0, i32 %spec.select
   %cmp.i8 = icmp sgt i32 %end, -1
   %spec.select24 = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
-  %cmp26 = icmp ugt i32 %spec.select24, %start.addr.0
-  %cmp = and i1 %cmp.i8, %cmp26
+  %cmp26 = icmp samesign ugt i32 %spec.select24, %start.addr.0
+  %cmp = select i1 %cmp.i8, i1 %cmp26, i1 false
   br i1 %cmp, label %if.then, label %if.else61
 
 if.then:                                          ; preds = %entry
@@ -2241,7 +2241,7 @@ if.end.i:                                         ; preds = %if.else, %tailrecur
   br i1 %cmp3.not.i, label %if.end7.i, label %tailrecurse.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp8.i = icmp ugt i32 %retval.0.i.ph, 1114111
+  %cmp8.i = icmp samesign ugt i32 %retval.0.i.ph, 1114111
   br i1 %cmp8.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end7.i
@@ -3098,17 +3098,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = xor i32 %sub.i, %3
   %cmp5 = icmp ult i32 %6, 256
   %and6 = and i32 %3, 255
-  %cmp7.not = icmp ugt i32 %and6, %conv13
+  %cmp7.not = icmp samesign ugt i32 %and6, %conv13
   %and9 = and i32 %sub.i, 255
-  %cmp10.not = icmp ult i32 %and9, %conv13
+  %cmp10.not = icmp samesign ult i32 %and9, %conv13
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %or.cond = or i1 %cmp7.not, %cmp10.not
+  %or.cond = select i1 %cmp7.not, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %for.inc, label %return
 
 if.else:                                          ; preds = %for.body
-  %or.cond16 = and i1 %cmp7.not, %cmp10.not
+  %or.cond16 = select i1 %cmp7.not, i1 %cmp10.not, i1 false
   br i1 %or.cond16, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.else, %if.then
@@ -3188,17 +3188,17 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %6 = xor i32 %sub.i.i, %3
   %cmp5.i = icmp ult i32 %6, 256
   %and6.i = and i32 %3, 255
-  %cmp7.not.i = icmp ugt i32 %and6.i, %conv13.i
+  %cmp7.not.i = icmp samesign ugt i32 %and6.i, %conv13.i
   %and9.i = and i32 %sub.i.i, 255
-  %cmp10.not.i = icmp ult i32 %and9.i, %conv13.i
+  %cmp10.not.i = icmp samesign ult i32 %and9.i, %conv13.i
   br i1 %cmp5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %or.cond.i = or i1 %cmp7.not.i, %cmp10.not.i
+  %or.cond.i = select i1 %cmp7.not.i, i1 true, i1 %cmp10.not.i
   br i1 %or.cond.i, label %for.inc.i, label %_ZNK6icu_7510UnicodeSet17matchesIndexValueEh.exit
 
 if.else.i:                                        ; preds = %for.body.i
-  %or.cond16.i = and i1 %cmp7.not.i, %cmp10.not.i
+  %or.cond16.i = select i1 %cmp7.not.i, i1 %cmp10.not.i, i1 false
   br i1 %or.cond16.i, label %for.inc.i, label %_ZNK6icu_7510UnicodeSet17matchesIndexValueEh.exit
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
@@ -3536,7 +3536,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %8, i32 %shr.i.i.i.i
   %9 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i27 = icmp ult i64 %indvars.iv59, %9
+  %cmp.i.i27 = icmp samesign ult i64 %indvars.iv59, %9
   br i1 %cmp.i.i27, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %for.body
@@ -3889,7 +3889,7 @@ if.then8:                                         ; preds = %for.body
 if.end:                                           ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %sub9 = sub nsw i32 %index.addr.011, %sub
-  %cmp2 = icmp ult i64 %indvars.iv.next, %2
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %2
   br i1 %cmp2, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %if.end, %if.then, %entry, %if.then8
@@ -3967,8 +3967,8 @@ if.end.i6:                                        ; preds = %lor.lhs.false.i
   %cmp.i1.i = icmp slt i32 %end, 0
   %spec.select11.i = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
   %9 = select i1 %cmp.i1.i, i32 0, i32 %spec.select11.i
-  %cmp.not12.i = icmp ugt i32 %spec.select9.i, %9
-  %cmp.not.i7 = and i1 %cmp.i.i, %cmp.not12.i
+  %cmp.not12.i = icmp samesign ugt i32 %spec.select9.i, %9
+  %cmp.not.i7 = select i1 %cmp.i.i, i1 %cmp.not12.i, i1 false
   br i1 %cmp.not.i7, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i6
@@ -4076,8 +4076,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %cmp.i1 = icmp slt i32 %end, 0
   %spec.select11 = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
   %4 = select i1 %cmp.i1, i32 0, i32 %spec.select11
-  %cmp.not12 = icmp ugt i32 %spec.select9, %4
-  %cmp.not = and i1 %cmp.i, %cmp.not12
+  %cmp.not12 = icmp samesign ugt i32 %spec.select9, %4
+  %cmp.not = select i1 %cmp.i, i1 %cmp.not12, i1 false
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -5617,8 +5617,8 @@ entry:
   %cmp.i1 = icmp slt i32 %end, 0
   %spec.select11 = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
   %0 = select i1 %cmp.i1, i32 0, i32 %spec.select11
-  %cmp.not12 = icmp ugt i32 %spec.select9, %0
-  %cmp.not = and i1 %cmp.i, %cmp.not12
+  %cmp.not12 = icmp samesign ugt i32 %spec.select9, %0
+  %cmp.not = select i1 %cmp.i, i1 %cmp.not12, i1 false
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6122,8 +6122,8 @@ entry:
   %cmp.i1 = icmp slt i32 %end, 0
   %spec.select11 = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
   %0 = select i1 %cmp.i1, i32 0, i32 %spec.select11
-  %cmp.not12 = icmp ugt i32 %spec.select9, %0
-  %cmp.not = and i1 %cmp.i, %cmp.not12
+  %cmp.not12 = icmp samesign ugt i32 %spec.select9, %0
+  %cmp.not = select i1 %cmp.i, i1 %cmp.not12, i1 false
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6939,7 +6939,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %arrayidx51 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv60
   store i32 %add48, ptr %arrayidx51, align 4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %cmp31 = icmp ult i64 %indvars.iv.next61, %15
+  %cmp31 = icmp samesign ult i64 %indvars.iv.next61, %15
   br i1 %cmp31, label %for.body32, label %for.end54.thread, !llvm.loop !26
 
 for.end54.thread:                                 ; preds = %for.body32

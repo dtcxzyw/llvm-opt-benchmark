@@ -368,7 +368,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h7828b07d06330f70E(pt
   %36 = getelementptr inbounds i8, ptr %.val8.i, i64 72
   %37 = load i32, ptr %36, align 8, !range !83, !noalias !82, !noundef !4
   %38 = icmp eq i64 %35, %31
-  %39 = icmp ult i32 %37, %33
+  %39 = icmp samesign ult i32 %37, %33
   %40 = icmp slt i64 %35, %31
   %.sroa.0.0.i.i.i.i.i38 = select i1 %38, i1 %39, i1 %40
   %.not66 = icmp eq i64 %22, 2
@@ -391,7 +391,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h7828b07d06330f70E(pt
   %46 = getelementptr inbounds i8, ptr %.val5.i, i64 72
   %47 = load i32, ptr %46, align 8, !range !83, !noalias !82, !noundef !4
   %48 = icmp eq i64 %42, %45
-  %49 = icmp ult i32 %41, %47
+  %49 = icmp samesign ult i32 %41, %47
   %50 = icmp slt i64 %42, %45
   %.sroa.0.0.i.i.i.i.i37 = select i1 %48, i1 %49, i1 %50
   br i1 %.sroa.0.0.i.i.i.i.i37, label %_ZN4core5slice4sort6shared17find_existing_run17hbecc9f02f152348cE.exit.i, label %51
@@ -412,7 +412,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h7828b07d06330f70E(pt
   %58 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %59 = load i32, ptr %58, align 8, !range !83, !noalias !82, !noundef !4
   %60 = icmp eq i64 %54, %57
-  %61 = icmp ult i32 %53, %59
+  %61 = icmp samesign ult i32 %53, %59
   %62 = icmp slt i64 %54, %57
   %.sroa.0.0.i.i.i.i.i = select i1 %60, i1 %61, i1 %62
   br i1 %.sroa.0.0.i.i.i.i.i, label %63, label %_ZN4core5slice4sort6shared17find_existing_run17hbecc9f02f152348cE.exit.i
@@ -685,7 +685,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
   %30 = getelementptr inbounds i8, ptr %.val, i64 72
   %31 = load i32, ptr %30, align 8, !range !83, !noundef !4
   %32 = icmp eq i64 %29, %25
-  %33 = icmp uge i32 %31, %27
+  %33 = icmp samesign uge i32 %31, %27
   %34 = icmp sge i64 %29, %25
   %.sroa.0.0.i.i.i.i.i = select i1 %32, i1 %33, i1 %34
   br i1 %.sroa.0.0.i.i.i.i.i, label %.thread115, label %.thread
@@ -736,7 +736,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
   %51 = getelementptr inbounds i8, ptr %.val10.i, i64 72
   %52 = load i32, ptr %51, align 8, !range !83, !noalias !93, !noundef !4
   %53 = icmp eq i64 %50, %46
-  %54 = icmp ult i32 %52, %48
+  %54 = icmp samesign ult i32 %52, %48
   %55 = icmp slt i64 %50, %46
   %.sroa.0.0.i.i.i.i.i.i = select i1 %53, i1 %54, i1 %55
   %56 = getelementptr inbounds i8, ptr %.sroa.19.113.i, i64 -32
@@ -831,7 +831,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
   %93 = getelementptr inbounds i8, ptr %.val.i46, i64 72
   %94 = load i32, ptr %93, align 8, !range !83, !noalias !105, !noundef !4
   %95 = icmp eq i64 %92, %88
-  %96 = icmp uge i32 %94, %90
+  %96 = icmp samesign uge i32 %94, %90
   %97 = icmp sge i64 %92, %88
   %.sroa.0.0.i.i.i.i.i.i.i = select i1 %95, i1 %96, i1 %97
   %98 = getelementptr inbounds i8, ptr %.sroa.19.113.i43, i64 -32

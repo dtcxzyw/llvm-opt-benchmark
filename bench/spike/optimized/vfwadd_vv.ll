@@ -363,7 +363,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -456,7 +456,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -1135,7 +1135,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -1228,7 +1228,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -1865,7 +1865,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -1958,7 +1958,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -2597,7 +2597,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -2690,7 +2690,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -3327,7 +3327,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -3420,7 +3420,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -4059,7 +4059,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -4152,7 +4152,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -4789,7 +4789,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -4882,7 +4882,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 
@@ -5521,7 +5521,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 149:                                              ; preds = %131
-  %150 = icmp ult i64 %95, %119
+  %150 = icmp samesign ult i64 %95, %119
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %137, i32 %138)
   br i1 %150, label %151, label %._crit_edge.i
 
@@ -5614,7 +5614,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %155, %_ZL19is_overl
 
 193:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %194 = add nsw i32 %136, %169
-  %195 = icmp ult i64 %95, %168
+  %195 = icmp samesign ult i64 %95, %168
   %.sroa.speculated.i.i153 = tail call i32 @llvm.smax.i32(i32 %137, i32 %194)
   br i1 %195, label %196, label %._crit_edge.i154
 

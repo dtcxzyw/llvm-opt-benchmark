@@ -71,7 +71,7 @@ _ZNK5clang12FileEntryRef7getSizeEv.exit:          ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = icmp ult i64 %13, 25
+  %14 = icmp samesign ult i64 %13, 25
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %_ZNK5clang12FileEntryRef7getSizeEv.exit

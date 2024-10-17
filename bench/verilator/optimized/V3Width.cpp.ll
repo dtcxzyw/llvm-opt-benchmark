@@ -88060,7 +88060,7 @@ _ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %87, %78, %250, %_ZN
   %256 = add nsw i32 %255, %storemerge170
   %sub.i = sub nsw i32 %252, %253
   %257 = call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %.not135.not = icmp ult i32 %.050172, %257
+  %.not135.not = icmp samesign ult i32 %.050172, %257
   br i1 %.not135.not, label %67, label %258, !llvm.loop !332
 
 258:                                              ; preds = %_ZN9VNVisitor11pushDeletepEP7AstNode.exit

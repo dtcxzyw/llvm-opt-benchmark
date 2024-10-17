@@ -2481,7 +2481,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 .noexc22.i.i:                                     ; preds = %147
   %150 = load i64, ptr %5, align 8, !range !605, !noalias !606, !noundef !13
-  %.not.i.i.i.i.i = icmp ult i64 %150, 2
+  %.not.i.i.i.i.i = icmp samesign ult i64 %150, 2
   %151 = add nsw i64 %150, -1
   %152 = select i1 %.not.i.i.i.i.i, i64 0, i64 %151
   switch i64 %152, label %153 [
@@ -2960,7 +2960,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h1c17b13a33f62692E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h1c17b13a33f62692E.exit": ; preds = %.critedge.i, %305
-  %314 = icmp ugt i64 %291, 1
+  %314 = icmp samesign ugt i64 %291, 1
   %315 = icmp eq i64 %279, %.sroa.0.0.i
   %or.cond = select i1 %314, i1 true, i1 %315
   br i1 %or.cond, label %317, label %316
@@ -3376,7 +3376,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hb78b062d0c19c7c1E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hb78b062d0c19c7c1E.exit": ; preds = %.critedge.i, %157
-  %166 = icmp ugt i64 %143, 1
+  %166 = icmp samesign ugt i64 %143, 1
   %167 = icmp eq i64 %131, %.sroa.0.0.i
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %169, label %168
@@ -3751,7 +3751,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9e8ee8a60d9f9f72E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9e8ee8a60d9f9f72E.exit": ; preds = %.critedge.i, %149
-  %158 = icmp ugt i64 %135, 1
+  %158 = icmp samesign ugt i64 %135, 1
   %159 = icmp eq i64 %119, %.sroa.0.0.i
   %or.cond = select i1 %158, i1 true, i1 %159
   br i1 %or.cond, label %161, label %160
@@ -4138,7 +4138,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h18be7176d888232bE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h18be7176d888232bE.exit": ; preds = %.critedge.i, %152
-  %161 = icmp ugt i64 %138, 1
+  %161 = icmp samesign ugt i64 %138, 1
   %162 = icmp eq i64 %125, %.sroa.0.0.i
   %or.cond = select i1 %161, i1 true, i1 %162
   br i1 %or.cond, label %164, label %163
@@ -4568,7 +4568,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd5d4382384acafbaE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd5d4382384acafbaE.exit": ; preds = %.critedge.i, %157
-  %166 = icmp ugt i64 %143, 1
+  %166 = icmp samesign ugt i64 %143, 1
   %167 = icmp eq i64 %131, %.sroa.0.0.i
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %169, label %168
@@ -4941,7 +4941,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h65a7112c2ff21b40E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h65a7112c2ff21b40E.exit": ; preds = %.critedge.i, %145
-  %154 = icmp ugt i64 %131, 1
+  %154 = icmp samesign ugt i64 %131, 1
   %155 = icmp eq i64 %119, %.sroa.0.0.i
   %or.cond = select i1 %154, i1 true, i1 %155
   br i1 %or.cond, label %157, label %156
@@ -5382,7 +5382,7 @@ default.unreachable:                              ; preds = %103
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h3c3f1411a511984dE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h3c3f1411a511984dE.exit": ; preds = %.critedge.i, %166
-  %175 = icmp ugt i64 %154, 1
+  %175 = icmp samesign ugt i64 %154, 1
   %176 = icmp eq i64 %147, %.sroa.0.0.i
   %or.cond = select i1 %175, i1 true, i1 %176
   br i1 %or.cond, label %.thread80, label %177
@@ -6194,7 +6194,7 @@ default.unreachable:                              ; preds = %125, %116
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2a96ccc6d389bed6E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2a96ccc6d389bed6E.exit": ; preds = %.critedge.i, %292
-  %301 = icmp ugt i64 %278, 1
+  %301 = icmp samesign ugt i64 %278, 1
   %302 = icmp eq i64 %264, %.sroa.0.0.i
   %or.cond = select i1 %301, i1 true, i1 %302
   br i1 %or.cond, label %304, label %303
@@ -6557,7 +6557,7 @@ define hidden { i64, i64 } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9e768139b662666cE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9e768139b662666cE.exit": ; preds = %.critedge.i, %138
-  %147 = icmp ugt i64 %127, 1
+  %147 = icmp samesign ugt i64 %127, 1
   %148 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %147, i1 true, i1 %148
   br i1 %or.cond, label %150, label %149
@@ -6985,7 +6985,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h19814aa8ed3e343aE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h19814aa8ed3e343aE.exit": ; preds = %.critedge.i, %153
-  %162 = icmp ugt i64 %139, 1
+  %162 = icmp samesign ugt i64 %139, 1
   %163 = icmp eq i64 %127, %.sroa.0.0.i
   %or.cond = select i1 %162, i1 true, i1 %163
   br i1 %or.cond, label %165, label %164
@@ -7372,7 +7372,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h69159e16c7e9f3feE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h69159e16c7e9f3feE.exit": ; preds = %.critedge.i, %149
-  %158 = icmp ugt i64 %135, 1
+  %158 = icmp samesign ugt i64 %135, 1
   %159 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %158, i1 true, i1 %159
   br i1 %or.cond, label %161, label %160
@@ -7797,7 +7797,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h4e510636799683cdE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h4e510636799683cdE.exit": ; preds = %.critedge.i, %155
-  %164 = icmp ugt i64 %141, 1
+  %164 = icmp samesign ugt i64 %141, 1
   %165 = icmp eq i64 %129, %.sroa.0.0.i
   %or.cond = select i1 %164, i1 true, i1 %165
   br i1 %or.cond, label %167, label %166
@@ -8136,7 +8136,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2f974ca3e63201b2E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2f974ca3e63201b2E.exit": ; preds = %.critedge.i, %133
-  %142 = icmp ugt i64 %122, 1
+  %142 = icmp samesign ugt i64 %122, 1
   %143 = icmp eq i64 %118, %.sroa.0.0.i
   %or.cond = select i1 %142, i1 true, i1 %143
   br i1 %or.cond, label %.thread68, label %144
@@ -8561,7 +8561,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2602d0b2891d219eE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h2602d0b2891d219eE.exit": ; preds = %.critedge.i, %157
-  %166 = icmp ugt i64 %143, 1
+  %166 = icmp samesign ugt i64 %143, 1
   %167 = icmp eq i64 %131, %.sroa.0.0.i
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %169, label %168
@@ -8981,7 +8981,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9cad62bff20016e4E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h9cad62bff20016e4E.exit": ; preds = %.critedge.i, %153
-  %162 = icmp ugt i64 %139, 1
+  %162 = icmp samesign ugt i64 %139, 1
   %163 = icmp eq i64 %127, %.sroa.0.0.i
   %or.cond = select i1 %162, i1 true, i1 %163
   br i1 %or.cond, label %165, label %164
@@ -9327,7 +9327,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h89ab778f9ad33a64E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17h89ab778f9ad33a64E.exit": ; preds = %.critedge.i, %138
-  %147 = icmp ugt i64 %127, 1
+  %147 = icmp samesign ugt i64 %127, 1
   %148 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %147, i1 true, i1 %148
   br i1 %or.cond, label %.thread68, label %149
@@ -9723,7 +9723,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hf7420ee9f1add170E.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hf7420ee9f1add170E.exit": ; preds = %.critedge.i, %149
-  %158 = icmp ugt i64 %135, 1
+  %158 = icmp samesign ugt i64 %135, 1
   %159 = icmp eq i64 %123, %.sroa.0.0.i
   %or.cond = select i1 %158, i1 true, i1 %159
   br i1 %or.cond, label %161, label %160
@@ -10107,7 +10107,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd2cbb3d0ee334c2aE.exit"
 
 "_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hd2cbb3d0ee334c2aE.exit": ; preds = %.critedge.i, %137
-  %146 = icmp ugt i64 %126, 1
+  %146 = icmp samesign ugt i64 %126, 1
   %147 = icmp eq i64 %122, %.sroa.0.0.i
   %or.cond = select i1 %146, i1 true, i1 %147
   br i1 %or.cond, label %.thread71, label %148

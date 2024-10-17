@@ -1346,7 +1346,7 @@ define internal fastcc void @digestControlFile(ptr noundef %0, ptr nocapture nou
 
 10:                                               ; preds = %6
   %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %12 = icmp ult i32 %11, 2
+  %12 = icmp samesign ult i32 %11, 2
   %13 = add nsw i32 %8, -1048576
   %14 = icmp ult i32 %13, 1072693249
   %or.cond3 = and i1 %12, %14

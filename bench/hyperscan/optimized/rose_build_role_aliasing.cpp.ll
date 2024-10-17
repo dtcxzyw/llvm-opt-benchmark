@@ -30106,7 +30106,7 @@ for.body.i.i.i.i.i.prol:                          ; preds = %if.then16, %for.bod
 for.body.i.i.i.i.i.prol.loopexit:                 ; preds = %for.body.i.i.i.i.i.prol, %if.then16
   %__cur.020.i.i.i.i.i.unr = phi ptr [ %1, %if.then16 ], [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
   %__first.sroa.0.019.i.i.i.i.i.unr = phi ptr [ %add.ptr, %if.then16 ], [ %incdec.ptr.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
-  %3 = icmp ult i64 %2, 3
+  %3 = icmp samesign ult i64 %2, 3
   br i1 %3, label %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.prol.loopexit, %for.body.i.i.i.i.i
@@ -30893,7 +30893,7 @@ if.end.i.i.i.split:                               ; preds = %while.body, %while.
   %__value.coerce0.fr.i = freeze ptr %__value.sroa.0.0.copyload.i.i.i2
   %sub.i = add nsw i64 %sub.ptr.div.i39.lcssa, -1
   %div.i139142 = lshr i64 %sub.i, 1
-  %cmp64.i = icmp ugt i64 %div.i139142, %div2526.i.i.i
+  %cmp64.i = icmp samesign ugt i64 %div.i139142, %div2526.i.i.i
   br i1 %cmp64.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i.i.i.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i
@@ -36877,11 +36877,11 @@ do.body8.i:                                       ; preds = %lor.lhs.false.i.i.i
   %12 = load i8, ptr %eod_accept.i, align 8, !range !5, !noundef !6
   %eod_accept9.i = getelementptr inbounds i8, ptr %__y, i64 64
   %13 = load i8, ptr %eod_accept9.i, align 8, !range !5, !noundef !6
-  %cmp.i = icmp ult i8 %12, %13
+  %cmp.i = icmp samesign ult i8 %12, %13
   br i1 %cmp.i, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %do.body8.i
-  %cmp20.i = icmp ult i8 %13, %12
+  %cmp20.i = icmp samesign ult i8 %13, %12
   br i1 %cmp20.i, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %do.body25.i
 
 do.body25.i:                                      ; preds = %if.end13.i

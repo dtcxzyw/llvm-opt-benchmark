@@ -23887,20 +23887,20 @@ if.end28:                                         ; preds = %if.then
 
 if.end43:                                         ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
-  %cmp2.i.i = icmp ult i64 %length, 129
+  %cmp2.i.i = icmp samesign ult i64 %length, 129
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %if.end43
   %mul.i.i.i = mul i64 %length, -7046029288634856825
-  %cmp3.i.i.i = icmp ugt i64 %length, 32
+  %cmp3.i.i.i = icmp samesign ugt i64 %length, 32
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
-  %cmp4.i.i.i = icmp ugt i64 %length, 64
+  %cmp4.i.i.i = icmp samesign ugt i64 %length, 64
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end23.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp6.i.i.i = icmp ugt i64 %length, 96
+  %cmp6.i.i.i = icmp samesign ugt i64 %length, 96
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -24031,7 +24031,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if
   br label %return
 
 if.end5.i.i:                                      ; preds = %if.end43
-  %cmp6.i.i = icmp ult i64 %length, 241
+  %cmp6.i.i = icmp samesign ult i64 %length, 241
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
@@ -24144,7 +24144,7 @@ if.end9.i.i:                                      ; preds = %if.end5.i.i
   %sub1.i.i.i.i = add nsw i64 %length, -1
   %div2.i.i.i.i = udiv i64 %sub1.i.i.i.i, 576
   %sub10.i.i.i.i.recomposed = urem i64 %sub1.i.i.i.i, 576
-  %cmp31.not.i.i.i.i = icmp ult i64 %length, 577
+  %cmp31.not.i.i.i.i = icmp samesign ult i64 %length, 577
   br i1 %cmp31.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end9.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i
@@ -24237,7 +24237,7 @@ for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleA
   tail call void @llvm.experimental.noalias.scope.decl(metadata !811)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !814)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !816)
-  %cmp5.not.i33.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 64
+  %cmp5.not.i33.i.i.i.i = icmp samesign ult i64 %sub10.i.i.i.i.recomposed, 64
   br i1 %cmp5.not.i33.i.i.i.i, label %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit59.i.i.i.i, label %for.body.i37.i.i.i.i
 
 for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit.i56.i.i.i.i
@@ -24629,7 +24629,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i28.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %__unsigned_val.0.i, %if.end.i28.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -24783,7 +24783,7 @@ while.body.i.i.i57:                               ; preds = %while.body.i.i.i57,
 
 while.end.i.i.i35:                                ; preds = %while.body.i.i.i57, %if.end.i28.i33
   %__val.addr.0.lcssa.i.i.i36 = phi i32 [ %__unsigned_val.0.i13, %if.end.i28.i33 ], [ %div.i.i.i62, %while.body.i.i.i57 ]
-  %cmp9.i.i.i37 = icmp ugt i32 %__val.addr.0.lcssa.i.i.i36, 9
+  %cmp9.i.i.i37 = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i36, 9
   br i1 %cmp9.i.i.i37, label %if.then.i.i.i47, label %if.else.i.i.i38
 
 if.then.i.i.i47:                                  ; preds = %while.end.i.i.i35
@@ -62472,7 +62472,7 @@ switch.lookup932:                                 ; preds = %_ZN5arrowL9bit_widt
 
 _ZN5arrowL9bit_widthENS_4Type4typeE.exit296:      ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %switch.lookup932
   %retval.0.i283 = phi i32 [ %switch.load935, %switch.lookup932 ], [ 0, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ]
-  %cmp = icmp ult i32 %retval.0.i, %retval.0.i283
+  %cmp = icmp samesign ult i32 %retval.0.i, %retval.0.i283
   br i1 %cmp, label %if.then165, label %if.end167
 
 if.then165:                                       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit296
@@ -62615,10 +62615,10 @@ switch.lookup948:                                 ; preds = %_ZN5arrowL9bit_widt
 
 _ZN5arrowL9bit_widthENS_4Type4typeE.exit373:      ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit357, %switch.lookup948
   %retval.0.i360 = phi i32 [ %switch.load951, %switch.lookup948 ], [ 0, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit357 ]
-  %cmp183.not = icmp uge i32 %retval.0.i344, %retval.0.i360
+  %cmp183.not = icmp samesign uge i32 %retval.0.i344, %retval.0.i360
   %inc = zext i1 %cmp183.not to i32
   %spec.select = add nuw nsw i32 %.sroa.speculated895, %inc
-  %cmp186 = icmp ugt i32 %spec.select, 32
+  %cmp186 = icmp samesign ugt i32 %spec.select, 32
   br i1 %cmp186, label %if.then187, label %if.else190
 
 if.then187:                                       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit373
@@ -62733,7 +62733,7 @@ if.end9.i.i.i397:                                 ; preds = %if.end8.sink.split.
   br label %if.end205
 
 if.else190:                                       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit373
-  %cmp191 = icmp ugt i32 %spec.select, 16
+  %cmp191 = icmp samesign ugt i32 %spec.select, 16
   br i1 %cmp191, label %if.then192, label %if.else195
 
 if.then192:                                       ; preds = %if.else190
@@ -62848,7 +62848,7 @@ if.end9.i.i.i442:                                 ; preds = %if.end8.sink.split.
   br label %if.end205
 
 if.else195:                                       ; preds = %if.else190
-  %cmp196 = icmp ugt i32 %spec.select, 8
+  %cmp196 = icmp samesign ugt i32 %spec.select, 8
   br i1 %cmp196, label %if.then197, label %if.else200
 
 if.then197:                                       ; preds = %if.else195
@@ -63455,7 +63455,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit737:      ; preds = %_ZN5arrowL9bit_widt
   br i1 %or.cond915, label %if.then285, label %if.else300
 
 if.then285:                                       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit737
-  %cmp286 = icmp ugt i32 %.sroa.speculated, 63
+  %cmp286 = icmp samesign ugt i32 %.sroa.speculated, 63
   br i1 %cmp286, label %if.then287, label %if.else290
 
 if.then287:                                       ; preds = %if.then285
@@ -63570,7 +63570,7 @@ if.end9.i.i.i769:                                 ; preds = %if.end8.sink.split.
   br label %cond.true
 
 if.else290:                                       ; preds = %if.then285
-  %cmp291 = icmp ugt i32 %.sroa.speculated, 31
+  %cmp291 = icmp samesign ugt i32 %.sroa.speculated, 31
   br i1 %cmp291, label %if.then292, label %if.else295
 
 if.then292:                                       ; preds = %if.else290
@@ -63596,7 +63596,7 @@ land.lhs.true304:                                 ; preds = %if.else300
   br i1 %switch.selectcmp.i796, label %if.then308, label %if.else329
 
 if.then308:                                       ; preds = %land.lhs.true304
-  %cmp309 = icmp ugt i32 %.sroa.speculated, 63
+  %cmp309 = icmp samesign ugt i32 %.sroa.speculated, 63
   br i1 %cmp309, label %if.then310, label %if.else313
 
 if.then310:                                       ; preds = %if.then308
@@ -63711,7 +63711,7 @@ if.end9.i.i.i820:                                 ; preds = %if.end8.sink.split.
   br label %cond.true
 
 if.else313:                                       ; preds = %if.then308
-  %cmp314 = icmp ugt i32 %.sroa.speculated, 31
+  %cmp314 = icmp samesign ugt i32 %.sroa.speculated, 31
   br i1 %cmp314, label %if.then315, label %if.else318
 
 if.then315:                                       ; preds = %if.else313
@@ -63720,7 +63720,7 @@ if.then315:                                       ; preds = %if.else313
   br label %cond.true
 
 if.else318:                                       ; preds = %if.else313
-  %cmp319 = icmp ugt i32 %.sroa.speculated, 15
+  %cmp319 = icmp samesign ugt i32 %.sroa.speculated, 15
   br i1 %cmp319, label %if.then320, label %if.else323
 
 if.then320:                                       ; preds = %if.else318
@@ -63746,7 +63746,7 @@ land.lhs.true333:                                 ; preds = %if.else329
   br i1 %switch.selectcmp.i847, label %if.then337, label %if.end361
 
 if.then337:                                       ; preds = %land.lhs.true333
-  %cmp338 = icmp ugt i32 %.sroa.speculated, 63
+  %cmp338 = icmp samesign ugt i32 %.sroa.speculated, 63
   br i1 %cmp338, label %if.then339, label %if.else342
 
 if.then339:                                       ; preds = %if.then337
@@ -63755,7 +63755,7 @@ if.then339:                                       ; preds = %if.then337
   br label %cond.true
 
 if.else342:                                       ; preds = %if.then337
-  %cmp343 = icmp ugt i32 %.sroa.speculated, 31
+  %cmp343 = icmp samesign ugt i32 %.sroa.speculated, 31
   br i1 %cmp343, label %if.then344, label %if.else347
 
 if.then344:                                       ; preds = %if.else342
@@ -63764,7 +63764,7 @@ if.then344:                                       ; preds = %if.else342
   br label %cond.true
 
 if.else347:                                       ; preds = %if.else342
-  %cmp348 = icmp ugt i32 %.sroa.speculated, 15
+  %cmp348 = icmp samesign ugt i32 %.sroa.speculated, 15
   br i1 %cmp348, label %if.then349, label %if.else352
 
 if.then349:                                       ; preds = %if.else347

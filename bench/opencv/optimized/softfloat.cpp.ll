@@ -196,7 +196,7 @@ define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 
   %spec.select.i.i = select i1 %.not.i.i, i8 32, i8 0
   %spec.select16.i.i = select i1 %.not.i.i, i64 %1, i64 %3
   %.0.i.i = trunc nuw i64 %spec.select16.i.i to i32
-  %4 = icmp ult i64 %spec.select16.i.i, 65536
+  %4 = icmp samesign ult i64 %spec.select16.i.i, 65536
   %5 = or disjoint i8 %spec.select.i.i, 16
   %6 = shl nuw i32 %.0.i.i, 16
   %.113.i.i = select i1 %4, i8 %5, i8 %spec.select.i.i
@@ -320,7 +320,7 @@ define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 
   %spec.select.i.i = select i1 %.not.i.i, i8 32, i8 0
   %spec.select16.i.i = select i1 %.not.i.i, i64 %4, i64 %5
   %.0.i.i = trunc nuw i64 %spec.select16.i.i to i32
-  %6 = icmp ult i64 %spec.select16.i.i, 65536
+  %6 = icmp samesign ult i64 %spec.select16.i.i, 65536
   %7 = or disjoint i8 %spec.select.i.i, 16
   %8 = shl nuw i32 %.0.i.i, 16
   %.113.i.i = select i1 %6, i8 %7, i8 %spec.select.i.i
@@ -471,7 +471,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i64 %7 to i32
-  %23 = icmp ult i64 %7, 65536
+  %23 = icmp samesign ult i64 %7, 65536
   %24 = shl nuw i32 %22, 16
   %spec.select.i.i.i = select i1 %23, i32 %24, i32 %22
   %spec.select12.i.i.i = select i1 %23, i8 16, i8 0
@@ -610,7 +610,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 29:                                               ; preds = %28
   %30 = trunc nuw nsw i64 %9 to i32
-  %31 = icmp ult i64 %9, 65536
+  %31 = icmp samesign ult i64 %9, 65536
   %32 = shl nuw i32 %30, 16
   %spec.select.i.i.i = select i1 %31, i32 %32, i32 %30
   %spec.select12.i.i.i = select i1 %31, i8 16, i8 0
@@ -644,7 +644,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 49:                                               ; preds = %48
   %50 = trunc nuw nsw i64 %13 to i32
-  %51 = icmp ult i64 %13, 65536
+  %51 = icmp samesign ult i64 %13, 65536
   %52 = shl nuw i32 %50, 16
   %spec.select.i.i69.i = select i1 %51, i32 %52, i32 %50
   %spec.select12.i.i70.i = select i1 %51, i8 16, i8 0
@@ -696,7 +696,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
 85:                                               ; preds = %83
   %86 = trunc i64 %.052.i to i32
   %87 = sub nsw i64 0, %.053.i
-  %88 = icmp ult i64 %87, 31
+  %88 = icmp samesign ult i64 %87, 31
   br i1 %88, label %89, label %98
 
 89:                                               ; preds = %85
@@ -850,7 +850,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 25:                                               ; preds = %22
   %26 = trunc nuw nsw i64 %13 to i32
-  %27 = icmp ult i64 %13, 65536
+  %27 = icmp samesign ult i64 %13, 65536
   %28 = shl nuw i32 %26, 16
   %spec.select.i.i.i = select i1 %27, i32 %28, i32 %26
   %spec.select12.i.i.i = select i1 %27, i8 16, i8 0
@@ -884,7 +884,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 45:                                               ; preds = %44
   %46 = trunc nuw nsw i64 %9 to i32
-  %47 = icmp ult i64 %9, 65536
+  %47 = icmp samesign ult i64 %9, 65536
   %48 = shl nuw i32 %46, 16
   %spec.select.i.i74.i = select i1 %47, i32 %48, i32 %46
   %spec.select12.i.i75.i = select i1 %47, i8 16, i8 0
@@ -942,7 +942,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
 80:                                               ; preds = %78
   %81 = trunc i64 %.055.i to i32
   %82 = sub nsw i64 0, %.057.i
-  %83 = icmp ult i64 %82, 31
+  %83 = icmp samesign ult i64 %82, 31
   br i1 %83, label %84, label %93
 
 84:                                               ; preds = %80
@@ -1086,7 +1086,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 23:                                               ; preds = %22
   %24 = trunc nuw nsw i64 %13 to i32
-  %25 = icmp ult i64 %13, 65536
+  %25 = icmp samesign ult i64 %13, 65536
   %26 = shl nuw i32 %24, 16
   %spec.select.i.i.i = select i1 %25, i32 %26, i32 %24
   %spec.select12.i.i.i = select i1 %25, i8 16, i8 0
@@ -1124,7 +1124,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 44:                                               ; preds = %42
   %45 = trunc nuw nsw i64 %9 to i32
-  %46 = icmp ult i64 %9, 65536
+  %46 = icmp samesign ult i64 %9, 65536
   %47 = shl nuw i32 %45, 16
   %spec.select.i.i106.i = select i1 %46, i32 %47, i32 %45
   %spec.select12.i.i107.i = select i1 %46, i8 16, i8 0
@@ -1715,12 +1715,12 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %5 = and i64 %4, 255
   %6 = and i64 %3, 8388607
   %7 = sub nsw i64 158, %5
-  %8 = icmp ult i64 %5, 127
+  %8 = icmp samesign ult i64 %5, 127
   br i1 %8, label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit, label %9
 
 9:                                                ; preds = %1
   %.not.i = icmp sgt i32 %2, -1
-  %10 = icmp ugt i64 %5, 157
+  %10 = icmp samesign ugt i64 %5, 157
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %9
@@ -1765,11 +1765,11 @@ define noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %10 = shl nuw nsw i64 %7, 32
   %11 = or disjoint i64 %10, 36028797018963968
   %12 = select i1 %.not.i, i64 %10, i64 %11
-  %13 = icmp ult i64 %6, 170
+  %13 = icmp samesign ult i64 %6, 170
   br i1 %13, label %14, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 14:                                               ; preds = %1
-  %15 = icmp ugt i64 %6, 107
+  %15 = icmp samesign ugt i64 %6, 107
   br i1 %15, label %16, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
 16:                                               ; preds = %14
@@ -1838,11 +1838,11 @@ define noundef i32 @_Z7cvFloorRKN2cv9softfloatE(ptr nocapture noundef nonnull re
   %10 = shl nuw nsw i64 %7, 32
   %11 = or disjoint i64 %10, 36028797018963968
   %12 = select i1 %.not.i, i64 %10, i64 %11
-  %13 = icmp ult i64 %6, 170
+  %13 = icmp samesign ult i64 %6, 170
   br i1 %13, label %14, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 14:                                               ; preds = %1
-  %15 = icmp ugt i64 %6, 107
+  %15 = icmp samesign ugt i64 %6, 107
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
@@ -1906,11 +1906,11 @@ define noundef i32 @_Z6cvCeilRKN2cv9softfloatE(ptr nocapture noundef nonnull rea
   %10 = shl nuw nsw i64 %7, 32
   %11 = or disjoint i64 %10, 36028797018963968
   %12 = select i1 %.not.i, i64 %10, i64 %11
-  %13 = icmp ult i64 %6, 170
+  %13 = icmp samesign ult i64 %6, 170
   br i1 %13, label %14, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 14:                                               ; preds = %1
-  %15 = icmp ugt i64 %6, 107
+  %15 = icmp samesign ugt i64 %6, 107
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
@@ -1965,40 +1965,40 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %4 = and i64 %3, 2047
   %5 = and i64 %2, 4503599627370495
   %6 = sub nsw i64 1075, %4
-  %7 = icmp ult i64 %4, 1023
+  %7 = icmp samesign ult i64 %4, 1023
   br i1 %7, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %8
 
 8:                                                ; preds = %1
   %9 = icmp slt i64 %2, 0
-  %10 = icmp ugt i64 %4, 1053
-  br i1 %10, label %11, label %20
+  %10 = icmp samesign ugt i64 %4, 1053
+  br i1 %10, label %11, label %19
 
 11:                                               ; preds = %8
   %12 = icmp eq i64 %4, 1054
-  %13 = icmp ult i64 %5, 2097152
-  %14 = and i1 %13, %12
-  %or.cond3.i = and i1 %9, %14
-  br i1 %or.cond3.i, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %15
+  %or.cond.i = and i1 %9, %12
+  %13 = icmp samesign ult i64 %5, 2097152
+  %or.cond3.i = select i1 %or.cond.i, i1 %13, i1 false
+  br i1 %or.cond3.i, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %14
 
-15:                                               ; preds = %11
-  %16 = icmp eq i64 %4, 2047
-  %17 = icmp ne i64 %5, 0
-  %or.cond7.i = and i1 %17, %16
-  %18 = select i1 %9, i64 -2147483648, i64 2147483647
-  %19 = select i1 %or.cond7.i, i64 2147483647, i64 %18
+14:                                               ; preds = %11
+  %15 = icmp eq i64 %4, 2047
+  %16 = icmp ne i64 %5, 0
+  %or.cond7.i = and i1 %16, %15
+  %17 = select i1 %9, i64 -2147483648, i64 2147483647
+  %18 = select i1 %or.cond7.i, i64 2147483647, i64 %17
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
-20:                                               ; preds = %8
-  %21 = or disjoint i64 %5, 4503599627370496
-  %22 = lshr i64 %21, %6
-  %23 = sub nsw i64 0, %22
-  %24 = select i1 %9, i64 %23, i64 %22
+19:                                               ; preds = %8
+  %20 = or disjoint i64 %5, 4503599627370496
+  %21 = lshr i64 %20, %6
+  %22 = sub nsw i64 0, %21
+  %23 = select i1 %9, i64 %22, i64 %21
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
-_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %15, %20
-  %.0.i = phi i64 [ %19, %15 ], [ %24, %20 ], [ 0, %1 ], [ -2147483648, %11 ]
-  %25 = trunc nsw i64 %.0.i to i32
-  ret i32 %25
+_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
+  %.0.i = phi i64 [ %18, %14 ], [ %23, %19 ], [ 0, %1 ], [ -2147483648, %11 ]
+  %24 = trunc nsw i64 %.0.i to i32
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2015,11 +2015,11 @@ define noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %.not.i = icmp eq i64 %5, 0
   %9 = or disjoint i64 %6, 4503599627370496
   %.016.i = select i1 %.not.i, i64 %6, i64 %9
-  %10 = icmp ult i64 %5, 1063
+  %10 = icmp samesign ult i64 %5, 1063
   br i1 %10, label %11, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %5, 1000
+  %12 = icmp samesign ugt i64 %5, 1000
   br i1 %12, label %13, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
 13:                                               ; preds = %11
@@ -2086,11 +2086,11 @@ define noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr nocapture noundef nonnull 
   %.not.i = icmp eq i64 %5, 0
   %9 = or disjoint i64 %6, 4503599627370496
   %.016.i = select i1 %.not.i, i64 %6, i64 %9
-  %10 = icmp ult i64 %5, 1063
+  %10 = icmp samesign ult i64 %5, 1063
   br i1 %10, label %11, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %5, 1000
+  %12 = icmp samesign ugt i64 %5, 1000
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %11
@@ -2152,11 +2152,11 @@ define noundef i32 @_Z6cvCeilRKN2cv10softdoubleE(ptr nocapture noundef nonnull r
   %.not.i = icmp eq i64 %5, 0
   %9 = or disjoint i64 %6, 4503599627370496
   %.016.i = select i1 %.not.i, i64 %6, i64 %9
-  %10 = icmp ult i64 %5, 1063
+  %10 = icmp samesign ult i64 %5, 1063
   br i1 %10, label %11, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %5, 1000
+  %12 = icmp samesign ugt i64 %5, 1000
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %11
@@ -2220,11 +2220,11 @@ define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr nocapture noundef nonnul
   %.neg.i = add nuw nsw i64 %4, 13
   %.neg37.i = add nsw i64 %5, -1075
   %10 = sub nsw i64 1075, %5
-  %11 = icmp ugt i64 %5, 1074
+  %11 = icmp samesign ugt i64 %5, 1074
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %1
-  %13 = icmp ult i64 %5, 1087
+  %13 = icmp samesign ult i64 %5, 1087
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %12
@@ -2244,7 +2244,7 @@ define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr nocapture noundef nonnul
   br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
 
 24:                                               ; preds = %1
-  %25 = icmp ugt i64 %5, 1011
+  %25 = icmp samesign ugt i64 %5, 1011
   br i1 %25, label %26, label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
 
 26:                                               ; preds = %24
@@ -2331,11 +2331,11 @@ define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias no
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %6, 897
+  %33 = icmp samesign ult i64 %6, 897
   br i1 %33, label %34, label %49
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i64 %6, 866
+  %35 = icmp samesign ugt i64 %6, 866
   br i1 %35, label %36, label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i
 
 36:                                               ; preds = %34
@@ -2488,11 +2488,11 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 26:                                               ; preds = %25
   %27 = lshr i64 %8, 32
-  %.not.i.i.i = icmp ult i64 %8, 4294967296
+  %.not.i.i.i = icmp samesign ult i64 %8, 4294967296
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i = select i1 %.not.i.i.i, i64 %8, i64 %27
   %.0.i.i.i = trunc nuw i64 %spec.select16.i.i.i to i32
-  %28 = icmp ult i64 %spec.select16.i.i.i, 65536
+  %28 = icmp samesign ult i64 %spec.select16.i.i.i, 65536
   %29 = or disjoint i8 %spec.select.i.i.i, 16
   %30 = shl nuw i32 %.0.i.i.i, 16
   %.113.i.i.i = select i1 %28, i8 %29, i8 %spec.select.i.i.i
@@ -2527,11 +2527,11 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 47:                                               ; preds = %46
   %48 = lshr i64 %11, 32
-  %.not.i.i73.i = icmp ult i64 %11, 4294967296
+  %.not.i.i73.i = icmp samesign ult i64 %11, 4294967296
   %spec.select.i.i74.i = select i1 %.not.i.i73.i, i8 32, i8 0
   %spec.select16.i.i75.i = select i1 %.not.i.i73.i, i64 %11, i64 %48
   %.0.i.i76.i = trunc nuw i64 %spec.select16.i.i75.i to i32
-  %49 = icmp ult i64 %spec.select16.i.i75.i, 65536
+  %49 = icmp samesign ult i64 %spec.select16.i.i75.i, 65536
   %50 = or disjoint i8 %spec.select.i.i74.i, 16
   %51 = shl nuw i32 %.0.i.i76.i, 16
   %.113.i.i77.i = select i1 %49, i8 %50, i8 %spec.select.i.i74.i
@@ -2589,7 +2589,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   %94 = zext i1 %93 to i64
   %.057.i = shl nuw nsw i64 %92, %94
   %95 = and i64 %.058.i, 65535
-  %96 = icmp ugt i64 %95, 2044
+  %96 = icmp samesign ugt i64 %95, 2044
   br i1 %96, label %97, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 97:                                               ; preds = %66
@@ -2598,7 +2598,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 99:                                               ; preds = %97
   %100 = sub nsw i64 0, %.058.i
-  %101 = icmp ult i64 %100, 63
+  %101 = icmp samesign ult i64 %100, 63
   br i1 %101, label %102, label %109
 
 102:                                              ; preds = %99
@@ -2734,11 +2734,11 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 22:                                               ; preds = %19
   %23 = lshr i64 %11, 32
-  %.not.i.i.i = icmp ult i64 %11, 4294967296
+  %.not.i.i.i = icmp samesign ult i64 %11, 4294967296
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i = select i1 %.not.i.i.i, i64 %11, i64 %23
   %.0.i.i.i = trunc nuw i64 %spec.select16.i.i.i to i32
-  %24 = icmp ult i64 %spec.select16.i.i.i, 65536
+  %24 = icmp samesign ult i64 %spec.select16.i.i.i, 65536
   %25 = or disjoint i8 %spec.select.i.i.i, 16
   %26 = shl nuw i32 %.0.i.i.i, 16
   %.113.i.i.i = select i1 %24, i8 %25, i8 %spec.select.i.i.i
@@ -2773,11 +2773,11 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 43:                                               ; preds = %42
   %44 = lshr i64 %8, 32
-  %.not.i.i95.i = icmp ult i64 %8, 4294967296
+  %.not.i.i95.i = icmp samesign ult i64 %8, 4294967296
   %spec.select.i.i96.i = select i1 %.not.i.i95.i, i8 32, i8 0
   %spec.select16.i.i97.i = select i1 %.not.i.i95.i, i64 %8, i64 %44
   %.0.i.i98.i = trunc nuw i64 %spec.select16.i.i97.i to i32
-  %45 = icmp ult i64 %spec.select16.i.i97.i, 65536
+  %45 = icmp samesign ult i64 %spec.select16.i.i97.i, 65536
   %46 = or disjoint i8 %spec.select.i.i96.i, 16
   %47 = shl nuw i32 %.0.i.i98.i, 16
   %.113.i.i99.i = select i1 %45, i8 %46, i8 %spec.select.i.i96.i
@@ -2866,7 +2866,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 108:                                              ; preds = %106, %104, %62
   %.075.i = phi i64 [ %105, %104 ], [ %91, %62 ], [ %spec.select.i, %106 ]
   %109 = and i64 %.076.i, 65535
-  %110 = icmp ugt i64 %109, 2044
+  %110 = icmp samesign ugt i64 %109, 2044
   br i1 %110, label %111, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 111:                                              ; preds = %108
@@ -2875,7 +2875,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
 
 113:                                              ; preds = %111
   %114 = sub nsw i64 0, %.076.i
-  %115 = icmp ult i64 %114, 63
+  %115 = icmp samesign ult i64 %114, 63
   br i1 %115, label %116, label %123
 
 116:                                              ; preds = %113
@@ -3018,11 +3018,11 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 23:                                               ; preds = %22
   %24 = lshr i64 %7, 32
-  %.not.i.i = icmp ult i64 %7, 4294967296
+  %.not.i.i = icmp samesign ult i64 %7, 4294967296
   %spec.select.i.i = select i1 %.not.i.i, i8 32, i8 0
   %spec.select16.i.i = select i1 %.not.i.i, i64 %7, i64 %24
   %.0.i.i = trunc nuw i64 %spec.select16.i.i to i32
-  %25 = icmp ult i64 %spec.select16.i.i, 65536
+  %25 = icmp samesign ult i64 %spec.select16.i.i, 65536
   %26 = or disjoint i8 %spec.select.i.i, 16
   %27 = shl nuw i32 %.0.i.i, 16
   %.113.i.i = select i1 %25, i8 %26, i8 %spec.select.i.i
@@ -3061,11 +3061,11 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 45:                                               ; preds = %43
   %46 = lshr i64 %4, 32
-  %.not.i.i125 = icmp ult i64 %4, 4294967296
+  %.not.i.i125 = icmp samesign ult i64 %4, 4294967296
   %spec.select.i.i126 = select i1 %.not.i.i125, i8 32, i8 0
   %spec.select16.i.i127 = select i1 %.not.i.i125, i64 %4, i64 %46
   %.0.i.i128 = trunc nuw i64 %spec.select16.i.i127 to i32
-  %47 = icmp ult i64 %spec.select16.i.i127, 65536
+  %47 = icmp samesign ult i64 %spec.select16.i.i127, 65536
   %48 = or disjoint i8 %spec.select.i.i126, 16
   %49 = shl nuw i32 %.0.i.i128, 16
   %.113.i.i129 = select i1 %47, i8 %48, i8 %spec.select.i.i126
@@ -3573,7 +3573,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
 
 40:                                               ; preds = %39
   %41 = trunc nuw nsw i64 %13 to i32
-  %42 = icmp ult i64 %13, 65536
+  %42 = icmp samesign ult i64 %13, 65536
   %43 = shl nuw i32 %41, 16
   %spec.select.i.i.i.i = select i1 %42, i32 %43, i32 %41
   %spec.select12.i.i.i.i = select i1 %42, i8 16, i8 0
@@ -3607,7 +3607,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
 
 60:                                               ; preds = %59
   %61 = trunc nuw nsw i64 %16 to i32
-  %62 = icmp ult i64 %16, 65536
+  %62 = icmp samesign ult i64 %16, 65536
   %63 = shl nuw i32 %61, 16
   %spec.select.i.i169.i.i = select i1 %62, i32 %63, i32 %61
   %spec.select12.i.i170.i.i = select i1 %62, i8 16, i8 0
@@ -3661,7 +3661,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
 
 95:                                               ; preds = %87
   %96 = trunc nuw nsw i64 %20 to i32
-  %97 = icmp ult i64 %20, 65536
+  %97 = icmp samesign ult i64 %20, 65536
   %98 = shl nuw i32 %96, 16
   %spec.select.i.i175.i.i = select i1 %97, i32 %98, i32 %96
   %spec.select12.i.i176.i.i = select i1 %97, i8 16, i8 0
@@ -3698,7 +3698,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
 
 120:                                              ; preds = %118
   %121 = sub nsw i64 32, %116
-  %122 = icmp ult i64 %121, 63
+  %122 = icmp samesign ult i64 %121, 63
   br i1 %122, label %123, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 123:                                              ; preds = %120
@@ -3717,7 +3717,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %123, %120
   br label %151
 
 133:                                              ; preds = %118
-  %134 = icmp ult i64 %116, 63
+  %134 = icmp samesign ult i64 %116, 63
   br i1 %134, label %135, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i
 
 135:                                              ; preds = %133
@@ -3759,7 +3759,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i: ; preds = %135, %133
 
 159:                                              ; preds = %156
   %160 = sub nsw i64 0, %116
-  %161 = icmp ult i64 %160, 63
+  %161 = icmp samesign ult i64 %160, 63
   br i1 %161, label %162, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i
 
 162:                                              ; preds = %159
@@ -3795,7 +3795,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i: ; preds = %162, %159
   br label %190
 
 178:                                              ; preds = %171
-  %179 = icmp ult i64 %116, 63
+  %179 = icmp samesign ult i64 %116, 63
   br i1 %179, label %180, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i
 
 180:                                              ; preds = %178
@@ -3822,7 +3822,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i = select i1 %.not.i.i.i, i64 %.0128.i.i, i64 %191
   %.0.i.i.i = trunc nuw i64 %spec.select16.i.i.i to i32
-  %192 = icmp ult i64 %spec.select16.i.i.i, 65536
+  %192 = icmp samesign ult i64 %spec.select16.i.i.i, 65536
   %193 = or disjoint i8 %spec.select.i.i.i, 16
   %194 = shl nuw i32 %.0.i.i.i, 16
   %.113.i.i.i = select i1 %192, i8 %193, i8 %spec.select.i.i.i
@@ -3877,7 +3877,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
 226:                                              ; preds = %224
   %227 = trunc i64 %.0130.i.i to i32
   %228 = sub nsw i64 0, %.0132.i.i
-  %229 = icmp ult i64 %228, 31
+  %229 = icmp samesign ult i64 %228, 31
   br i1 %229, label %230, label %239
 
 230:                                              ; preds = %226
@@ -4000,7 +4000,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i: ; preds = %.thread.i.i, %27
   %290 = or i64 %19, %20
   %.not155.i.i = icmp eq i64 %290, 0
   %291 = xor i1 %22, %17
-  %or.cond168.i.i = and i1 %291, %.not155.i.i
+  %or.cond168.i.i = select i1 %.not155.i.i, i1 %291, i1 false
   br i1 %or.cond168.i.i, label %292, label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
 
 292:                                              ; preds = %289, %172
@@ -4080,11 +4080,11 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
 
 37:                                               ; preds = %36
   %38 = lshr i64 %10, 32
-  %.not.i.i.i.i = icmp ult i64 %10, 4294967296
+  %.not.i.i.i.i = icmp samesign ult i64 %10, 4294967296
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i.i = select i1 %.not.i.i.i.i, i64 %10, i64 %38
   %.0.i.i.i.i = trunc nuw i64 %spec.select16.i.i.i.i to i32
-  %39 = icmp ult i64 %spec.select16.i.i.i.i, 65536
+  %39 = icmp samesign ult i64 %spec.select16.i.i.i.i, 65536
   %40 = or disjoint i8 %spec.select.i.i.i.i, 16
   %41 = shl nuw i32 %.0.i.i.i.i, 16
   %.113.i.i.i.i = select i1 %39, i8 %40, i8 %spec.select.i.i.i.i
@@ -4119,11 +4119,11 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
 
 58:                                               ; preds = %57
   %59 = lshr i64 %13, 32
-  %.not.i.i219.i.i = icmp ult i64 %13, 4294967296
+  %.not.i.i219.i.i = icmp samesign ult i64 %13, 4294967296
   %spec.select.i.i220.i.i = select i1 %.not.i.i219.i.i, i8 32, i8 0
   %spec.select16.i.i221.i.i = select i1 %.not.i.i219.i.i, i64 %13, i64 %59
   %.0.i.i222.i.i = trunc nuw i64 %spec.select16.i.i221.i.i to i32
-  %60 = icmp ult i64 %spec.select16.i.i221.i.i, 65536
+  %60 = icmp samesign ult i64 %spec.select16.i.i221.i.i, 65536
   %61 = or disjoint i8 %spec.select.i.i220.i.i, 16
   %62 = shl nuw i32 %.0.i.i222.i.i, 16
   %.113.i.i223.i.i = select i1 %60, i8 %61, i8 %spec.select.i.i220.i.i
@@ -4203,11 +4203,11 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
 
 115:                                              ; preds = %108
   %116 = lshr i64 %17, 32
-  %.not.i.i233.i.i = icmp ult i64 %17, 4294967296
+  %.not.i.i233.i.i = icmp samesign ult i64 %17, 4294967296
   %spec.select.i.i234.i.i = select i1 %.not.i.i233.i.i, i8 32, i8 0
   %spec.select16.i.i235.i.i = select i1 %.not.i.i233.i.i, i64 %17, i64 %116
   %.0.i.i236.i.i = trunc nuw i64 %spec.select16.i.i235.i.i to i32
-  %117 = icmp ult i64 %spec.select16.i.i235.i.i, 65536
+  %117 = icmp samesign ult i64 %spec.select16.i.i235.i.i, 65536
   %118 = or disjoint i8 %spec.select.i.i234.i.i, 16
   %119 = shl nuw i32 %.0.i.i236.i.i, 16
   %.113.i.i237.i.i = select i1 %117, i8 %118, i8 %spec.select.i.i234.i.i
@@ -4248,7 +4248,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
 
 142:                                              ; preds = %139
   %143 = sub nsw i64 0, %137
-  %144 = icmp ult i64 %143, 63
+  %144 = icmp samesign ult i64 %143, 63
   br i1 %144, label %145, label %152
 
 145:                                              ; preds = %142
@@ -4270,7 +4270,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   br i1 %.not198.i.i, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, label %156
 
 156:                                              ; preds = %155
-  %157 = icmp ult i64 %137, 64
+  %157 = icmp samesign ult i64 %137, 64
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %156
@@ -4281,7 +4281,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 163:                                              ; preds = %156
-  %164 = icmp ult i64 %137, 127
+  %164 = icmp samesign ult i64 %137, 127
   br i1 %164, label %165, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 165:                                              ; preds = %163
@@ -4399,7 +4399,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i = select i1 %.not.i.i.i, i64 %.sroa.23.3.i.i, i64 %215
   %.0.i.i.i = trunc nuw i64 %spec.select16.i.i.i to i32
-  %216 = icmp ult i64 %spec.select16.i.i.i, 65536
+  %216 = icmp samesign ult i64 %spec.select16.i.i.i, 65536
   %217 = or disjoint i8 %spec.select.i.i.i, 16
   %218 = shl nuw i32 %.0.i.i.i, 16
   %.113.i.i.i = select i1 %216, i8 %217, i8 %spec.select.i.i.i
@@ -4456,7 +4456,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   %.1170.i.i = phi i64 [ %192, %191 ], [ %.2.i.i, %186 ], [ %229, %249 ], [ %110, %109 ]
   %.0165.i.i = phi i1 [ %19, %191 ], [ %19, %186 ], [ %.1.i.i, %249 ], [ %19, %109 ]
   %254 = and i64 %.1170.i.i, 65535
-  %255 = icmp ugt i64 %254, 2044
+  %255 = icmp samesign ugt i64 %254, 2044
   br i1 %255, label %256, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 256:                                              ; preds = %253
@@ -4465,7 +4465,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
 
 258:                                              ; preds = %256
   %259 = sub nsw i64 0, %.1170.i.i
-  %260 = icmp ult i64 %259, 63
+  %260 = icmp samesign ult i64 %259, 63
   br i1 %260, label %261, label %268
 
 261:                                              ; preds = %258
@@ -4643,7 +4643,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
 
 25:                                               ; preds = %24
   %26 = trunc nuw nsw i64 %7 to i32
-  %27 = icmp ult i64 %7, 65536
+  %27 = icmp samesign ult i64 %7, 65536
   %28 = shl nuw i32 %26, 16
   %spec.select.i.i.i = select i1 %27, i32 %28, i32 %26
   %spec.select12.i.i.i = select i1 %27, i8 16, i8 0
@@ -4842,11 +4842,11 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
 
 23:                                               ; preds = %22
   %24 = lshr i64 %6, 32
-  %.not.i.i.i = icmp ult i64 %6, 4294967296
+  %.not.i.i.i = icmp samesign ult i64 %6, 4294967296
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
   %spec.select16.i.i.i = select i1 %.not.i.i.i, i64 %6, i64 %24
   %.0.i.i.i = trunc nuw i64 %spec.select16.i.i.i to i32
-  %25 = icmp ult i64 %spec.select16.i.i.i, 65536
+  %25 = icmp samesign ult i64 %spec.select16.i.i.i, 65536
   %26 = or disjoint i8 %spec.select.i.i.i, 16
   %27 = shl nuw i32 %.0.i.i.i, 16
   %.113.i.i.i = select i1 %25, i8 %26, i8 %spec.select.i.i.i
@@ -4938,7 +4938,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %101 = and i64 %100, 34359738360
   %102 = add i64 %99, %101
   %103 = and i64 %102, 504
-  %104 = icmp ult i64 %103, 34
+  %104 = icmp samesign ult i64 %103, 34
   br i1 %104, label %105, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 105:                                              ; preds = %42
@@ -5022,7 +5022,7 @@ define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind n
   %23 = alloca %"struct.cv::softdouble", align 8
   %24 = load i32, ptr %1, align 4
   %25 = and i32 %24, 2147483647
-  %26 = icmp ugt i32 %25, 2139095040
+  %26 = icmp samesign ugt i32 %25, 2139095040
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %2
@@ -5112,7 +5112,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 56:                                               ; preds = %55, %53, %50
   %57 = load i32, ptr %1, align 4
   %58 = and i32 %57, 2130706432
-  %59 = icmp ugt i32 %58, 1149239296
+  %59 = icmp samesign ugt i32 %58, 1149239296
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %56
@@ -5161,7 +5161,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 
 79:                                               ; preds = %75
   %80 = trunc nuw nsw i64 %65 to i32
-  %81 = icmp ult i64 %65, 65536
+  %81 = icmp samesign ult i64 %65, 65536
   %82 = shl nuw i32 %80, 16
   %spec.select.i.i.i = select i1 %81, i32 %82, i32 %80
   %spec.select12.i.i.i = select i1 %81, i8 16, i8 0
@@ -5216,11 +5216,11 @@ _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %69, %73, %76, %96
   %.not.i = icmp eq i64 %108, 0
   %112 = or disjoint i64 %109, 4503599627370496
   %.016.i = select i1 %.not.i, i64 %109, i64 %112
-  %113 = icmp ult i64 %108, 1063
+  %113 = icmp samesign ult i64 %108, 1063
   br i1 %113, label %114, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 114:                                              ; preds = %105
-  %115 = icmp ugt i64 %108, 1000
+  %115 = icmp samesign ugt i64 %108, 1000
   br i1 %115, label %116, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
 116:                                              ; preds = %114
@@ -5277,7 +5277,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
   %144 = zext nneg i32 %143 to i64
   %145 = shl nuw nsw i64 %144, 52
   store i64 %145, ptr %10, align 8
-  %146 = icmp ult i64 %108, 1023
+  %146 = icmp samesign ult i64 %108, 1023
   br i1 %146, label %147, label %154
 
 147:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
@@ -5295,7 +5295,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 154:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
-  %155 = icmp ugt i64 %108, 1074
+  %155 = icmp samesign ugt i64 %108, 1074
   br i1 %155, label %156, label %165
 
 156:                                              ; preds = %154
@@ -5467,7 +5467,7 @@ define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind
   %25 = alloca %"struct.cv::softdouble", align 8
   %26 = load i64, ptr %1, align 8
   %27 = and i64 %26, 9223372036854775807
-  %28 = icmp ugt i64 %27, 9218868437227405312
+  %28 = icmp samesign ugt i64 %27, 9218868437227405312
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %2
@@ -5589,7 +5589,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 70:                                               ; preds = %69, %67, %64
   %71 = load i64, ptr %1, align 8
   %72 = and i64 %71, 9214364837600034816
-  %73 = icmp ugt i64 %72, 4652218415073722368
+  %73 = icmp samesign ugt i64 %72, 4652218415073722368
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
@@ -5616,11 +5616,11 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   %.not.i.i15 = icmp eq i64 %81, 0
   %85 = or disjoint i64 %82, 4503599627370496
   %.016.i.i = select i1 %.not.i.i15, i64 %82, i64 %85
-  %86 = icmp ult i64 %81, 1063
+  %86 = icmp samesign ult i64 %81, 1063
   br i1 %86, label %87, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 87:                                               ; preds = %78
-  %88 = icmp ugt i64 %81, 1000
+  %88 = icmp samesign ugt i64 %81, 1000
   br i1 %88, label %89, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
 
 89:                                               ; preds = %87
@@ -5677,7 +5677,7 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %99, %110
   %117 = zext nneg i32 %116 to i64
   %118 = shl nuw nsw i64 %117, 52
   store i64 %118, ptr %11, align 8
-  %119 = icmp ult i64 %81, 1023
+  %119 = icmp samesign ult i64 %81, 1023
   br i1 %119, label %120, label %127
 
 120:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
@@ -5695,7 +5695,7 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %99, %110
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 127:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
-  %128 = icmp ugt i64 %81, 1074
+  %128 = icmp samesign ugt i64 %81, 1074
   br i1 %128, label %129, label %138
 
 129:                                              ; preds = %127
@@ -5881,7 +5881,7 @@ define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind n
   %22 = alloca %"struct.cv::softdouble", align 8
   %23 = load i32, ptr %1, align 4
   %24 = and i32 %23, 2147483647
-  %25 = icmp ugt i32 %24, 2139095040
+  %25 = icmp samesign ugt i32 %24, 2139095040
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %2
@@ -6104,7 +6104,7 @@ define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind
   %42 = alloca %"struct.cv::softdouble", align 8
   %43 = load i64, ptr %1, align 8
   %44 = and i64 %43, 9223372036854775807
-  %45 = icmp ugt i64 %44, 9218868437227405312
+  %45 = icmp samesign ugt i64 %44, 9218868437227405312
   br i1 %45, label %.critedge, label %46
 
 46:                                               ; preds = %2
@@ -6656,8 +6656,8 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   %46 = load i32, ptr %16, align 4, !noalias !374
   %47 = and i32 %46, 2147483647
   %48 = icmp eq i32 %47, 2139095040
-  %49 = icmp ugt i32 %44, 2139095040
-  %50 = icmp ugt i32 %47, 2139095040
+  %49 = icmp samesign ugt i32 %44, 2139095040
+  %50 = icmp samesign ugt i32 %47, 2139095040
   %51 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !noalias !374
   %52 = zext i32 %51 to i64
   %53 = and i64 %52, 2139095040
@@ -6884,7 +6884,7 @@ _ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %1
 137:                                              ; preds = %122
   %138 = lshr i64 %107, 23
   %139 = and i64 %138, 255
-  %140 = icmp ult i64 %139, 127
+  %140 = icmp samesign ult i64 %139, 127
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %137
@@ -6901,7 +6901,7 @@ _ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %1
   br label %170
 
 147:                                              ; preds = %137
-  %148 = icmp ugt i64 %139, 149
+  %148 = icmp samesign ugt i64 %139, 149
   br i1 %148, label %149, label %158
 
 149:                                              ; preds = %147
@@ -6971,11 +6971,11 @@ _ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %172
   %183 = shl nuw nsw i64 %110, 32
   %184 = or disjoint i64 %183, 36028797018963968
   %185 = select i1 %.not.i10, i64 %183, i64 %184
-  %186 = icmp ult i64 %139, 170
+  %186 = icmp samesign ult i64 %139, 170
   br i1 %186, label %187, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 187:                                              ; preds = %180
-  %188 = icmp ugt i64 %139, 107
+  %188 = icmp samesign ugt i64 %139, 107
   br i1 %188, label %189, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
 189:                                              ; preds = %187
@@ -7064,7 +7064,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32
   br label %225
 
 225:                                              ; preds = %223, %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
-  %226 = icmp ugt i32 %221, 1
+  %226 = icmp samesign ugt i32 %221, 1
   br i1 %226, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %225, %230
@@ -7088,7 +7088,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32
   store i32 %231, ptr %7, align 4, !noalias !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !402
   %232 = lshr i32 %.02.i, 1
-  %233 = icmp ugt i32 %.02.i, 3
+  %233 = icmp samesign ugt i32 %.02.i, 3
   br i1 %233, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !410
 
 ._crit_edge.i:                                    ; preds = %230, %225
@@ -7281,8 +7281,8 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   %46 = load i64, ptr %16, align 8, !noalias !411
   %47 = and i64 %46, 9223372036854775807
   %48 = icmp eq i64 %47, 9218868437227405312
-  %49 = icmp ugt i64 %44, 9218868437227405312
-  %50 = icmp ugt i64 %47, 9218868437227405312
+  %49 = icmp samesign ugt i64 %44, 9218868437227405312
+  %50 = icmp samesign ugt i64 %47, 9218868437227405312
   %51 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !noalias !411
   %52 = and i64 %51, 9218868437227405312
   %53 = icmp eq i64 %52, 9218868437227405312
@@ -7503,7 +7503,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
 137:                                              ; preds = %121
   %138 = lshr i64 %46, 52
   %139 = and i64 %138, 2047
-  %140 = icmp ult i64 %139, 1023
+  %140 = icmp samesign ult i64 %139, 1023
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %137
@@ -7520,7 +7520,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 147:                                              ; preds = %137
-  %148 = icmp ugt i64 %139, 1074
+  %148 = icmp samesign ugt i64 %139, 1074
   br i1 %148, label %149, label %158
 
 149:                                              ; preds = %147
@@ -7583,11 +7583,11 @@ _ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %170
   %.not.i9 = icmp eq i64 %139, 0
   %181 = or disjoint i64 %107, 4503599627370496
   %.016.i = select i1 %.not.i9, i64 %107, i64 %181
-  %182 = icmp ult i64 %139, 1063
+  %182 = icmp samesign ult i64 %139, 1063
   br i1 %182, label %183, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 183:                                              ; preds = %178
-  %184 = icmp ugt i64 %139, 1000
+  %184 = icmp samesign ugt i64 %139, 1000
   br i1 %184, label %185, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
 185:                                              ; preds = %183
@@ -7675,7 +7675,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32
   br label %220
 
 220:                                              ; preds = %218, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
-  %221 = icmp ugt i32 %216, 1
+  %221 = icmp samesign ugt i32 %216, 1
   br i1 %221, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %220, %225
@@ -7699,7 +7699,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32
   store i64 %226, ptr %7, align 8, !noalias !439
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !439
   %227 = lshr i32 %.02.i, 1
-  %228 = icmp ugt i32 %.02.i, 3
+  %228 = icmp samesign ugt i32 %.02.i, 3
   br i1 %228, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !447
 
 ._crit_edge.i:                                    ; preds = %225, %220
@@ -7846,7 +7846,7 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture w
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %24 = and i32 %23, 2147483647
-  %25 = icmp ugt i32 %24, 2139095040
+  %25 = icmp samesign ugt i32 %24, 2139095040
   br i1 %25, label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit, label %26
 
 26:                                               ; preds = %2
@@ -8229,12 +8229,12 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
 16:                                               ; preds = %15
   %17 = sub nsw i64 %6, %9
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %18 = icmp ugt i64 %1, 2147483647
+  %18 = icmp samesign ugt i64 %1, 2147483647
   %19 = icmp slt i64 %17, 0
   %.063 = tail call i64 @llvm.abs.i64(i64 %17, i1 true)
   %.061.in = xor i1 %18, %19
   %20 = trunc nuw nsw i64 %.063 to i32
-  %21 = icmp ult i64 %.063, 65536
+  %21 = icmp samesign ult i64 %.063, 65536
   %22 = shl nuw i32 %20, 16
   %spec.select.i = select i1 %21, i32 %22, i32 %20
   %spec.select12.i = select i1 %21, i8 16, i8 0
@@ -8266,7 +8266,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
   br label %93
 
 44:                                               ; preds = %3
-  %45 = icmp ugt i64 %1, 2147483647
+  %45 = icmp samesign ugt i64 %1, 2147483647
   %46 = shl nuw nsw i64 %6, 7
   %47 = shl nuw nsw i64 %9, 7
   %48 = icmp slt i64 %10, 0
@@ -8314,7 +8314,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
   %.0 = phi i64 [ %57, %54 ], [ %64, %62 ]
   %.058 = add nuw nsw i64 %.058.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %66 = icmp ult i64 %.065, 31
+  %66 = icmp samesign ult i64 %.065, 31
   br i1 %66, label %67, label %77
 
 67:                                               ; preds = %65
@@ -8401,13 +8401,13 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   br i1 %.not70, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %123
 
 16:                                               ; preds = %11
-  %17 = icmp ugt i64 %1, 2147483647
+  %17 = icmp samesign ugt i64 %1, 2147483647
   %18 = or disjoint i64 %6, 16777216
   %19 = add nuw nsw i64 %18, %9
   %20 = and i64 %19, 1
   %21 = icmp eq i64 %20, 0
-  %22 = icmp ult i64 %5, 254
-  %or.cond = and i1 %22, %21
+  %22 = icmp samesign ult i64 %5, 254
+  %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %23, label %29
 
 23:                                               ; preds = %16
@@ -8423,7 +8423,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   br label %90
 
 31:                                               ; preds = %3
-  %32 = icmp ugt i64 %1, 2147483647
+  %32 = icmp samesign ugt i64 %1, 2147483647
   %33 = shl nuw nsw i64 %6, 6
   %34 = shl nuw nsw i64 %9, 6
   %35 = icmp slt i64 %10, 0
@@ -8446,7 +8446,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   %42 = select i1 %.not73, i64 %33, i64 536870912
   %43 = add nuw nsw i64 %42, %33
   %44 = sub nsw i64 0, %10
-  %45 = icmp ult i64 %44, 31
+  %45 = icmp samesign ult i64 %44, 31
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %41
@@ -8483,7 +8483,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit:       ; preds = %46, %56
   %.not71 = icmp eq i64 %8, 0
   %65 = select i1 %.not71, i64 %34, i64 536870912
   %66 = add nuw nsw i64 %65, %34
-  %67 = icmp ult i64 %10, 31
+  %67 = icmp samesign ult i64 %10, 31
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %64
@@ -8514,7 +8514,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit75:     ; preds = %68, %78
   %.1 = phi i64 [ %8, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %5, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75 ]
   %84 = add nuw nsw i64 %.062, 536870912
   %85 = add nuw nsw i64 %84, %.061
-  %86 = icmp ult i64 %85, 1073741824
+  %86 = icmp samesign ult i64 %85, 1073741824
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %83
@@ -8658,7 +8658,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_
 38:                                               ; preds = %36
   %39 = trunc i64 %33 to i32
   %40 = sub nsw i64 0, %18
-  %41 = icmp ult i64 %40, 31
+  %41 = icmp samesign ult i64 %40, 31
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %38
@@ -8777,7 +8777,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwin
   %32 = shl nuw nsw i64 %7, 10
   %.052 = select i1 %.not66, i64 %32, i64 %31
   %33 = sub nsw i64 0, %11
-  %34 = icmp ult i64 %33, 63
+  %34 = icmp samesign ult i64 %33, 63
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %30
@@ -8807,7 +8807,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwin
   %49 = or disjoint i64 %23, 2305843009213693952
   %50 = shl nuw nsw i64 %10, 10
   %.155 = select i1 %.not64, i64 %50, i64 %49
-  %51 = icmp ult i64 %11, 63
+  %51 = icmp samesign ult i64 %11, 63
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
@@ -8843,7 +8843,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
   %.050 = phi i64 [ %67, %66 ], [ %.1, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit ], [ %6, %17 ]
   %.0 = phi i64 [ %68, %66 ], [ %64, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit ], [ %20, %17 ]
   %70 = and i64 %.050, 65535
-  %71 = icmp ugt i64 %70, 2044
+  %71 = icmp samesign ugt i64 %70, 2044
   br i1 %71, label %72, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 72:                                               ; preds = %69
@@ -8960,7 +8960,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %spec.select.i = select i1 %.not.i, i8 32, i8 0
   %spec.select16.i = select i1 %.not.i, i64 %.063, i64 %24
   %.0.i = trunc nuw i64 %spec.select16.i to i32
-  %25 = icmp ult i64 %spec.select16.i, 65536
+  %25 = icmp samesign ult i64 %spec.select16.i, 65536
   %26 = or disjoint i8 %spec.select.i, 16
   %27 = shl nuw i32 %.0.i, 16
   %.113.i = select i1 %25, i8 %26, i8 %spec.select.i
@@ -9015,7 +9015,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %59 = select i1 %.not79, i64 %49, i64 4611686018427387904
   %60 = add nuw nsw i64 %59, %49
   %61 = sub nsw i64 0, %11
-  %62 = icmp ult i64 %61, 63
+  %62 = icmp samesign ult i64 %61, 63
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %57
@@ -9044,7 +9044,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %.not77 = icmp eq i64 %9, 0
   %77 = select i1 %.not77, i64 %50, i64 4611686018427387904
   %78 = add nuw nsw i64 %77, %50
-  %79 = icmp ult i64 %11, 63
+  %79 = icmp samesign ult i64 %11, 63
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %76
@@ -9110,7 +9110,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
   %spec.select.i = select i1 %.not.i, i8 32, i8 0
   %spec.select16.i = select i1 %.not.i, i64 %3, i64 %5
   %.0.i = trunc nuw i64 %spec.select16.i to i32
-  %6 = icmp ult i64 %spec.select16.i, 65536
+  %6 = icmp samesign ult i64 %spec.select16.i, 65536
   %7 = or disjoint i8 %spec.select.i, 16
   %8 = shl nuw i32 %.0.i, 16
   %.113.i = select i1 %6, i8 %7, i8 %spec.select.i
@@ -9150,7 +9150,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
   %33 = zext nneg i32 %20 to i64
   %34 = shl i64 %3, %33
   %35 = and i64 %19, 65535
-  %36 = icmp ugt i64 %35, 2044
+  %36 = icmp samesign ugt i64 %35, 2044
   br i1 %36, label %37, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 37:                                               ; preds = %32
@@ -9159,7 +9159,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
 
 39:                                               ; preds = %37
   %40 = sub nsw i64 0, %19
-  %41 = icmp ult i64 %40, 63
+  %41 = icmp samesign ult i64 %40, 63
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
@@ -9467,7 +9467,7 @@ define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_o
   %10 = alloca %"struct.cv::softdouble", align 8
   %11 = load i64, ptr %1, align 8
   %12 = and i64 %11, 9205357638345293824
-  %13 = icmp ult i64 %12, 4485585228861014016
+  %13 = icmp samesign ult i64 %12, 4485585228861014016
   br i1 %13, label %_ZNK2cv10softdoubleneERKS0_.exit.thread, label %14
 
 _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
@@ -9503,7 +9503,7 @@ define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_o
   %11 = alloca %"struct.cv::softdouble", align 8
   %12 = load i64, ptr %1, align 8
   %13 = and i64 %12, 9205357638345293824
-  %14 = icmp ult i64 %13, 4485585228861014016
+  %14 = icmp samesign ult i64 %13, 4485585228861014016
   br i1 %14, label %_ZNK2cv10softdoubleneERKS0_.exit.thread, label %15
 
 _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2

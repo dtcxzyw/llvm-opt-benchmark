@@ -63,7 +63,7 @@ define hidden void @VP8YuvToRgba32_SSE2(ptr nocapture noundef readonly %0, ptr n
   store <8 x i16> %42, ptr %43, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %44 = getelementptr inbounds i8, ptr %.02637, i64 32
-  %45 = icmp ult i64 %indvars.iv, 24
+  %45 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %45, label %5, label %46, !llvm.loop !4
 
 46:                                               ; preds = %5
@@ -123,7 +123,7 @@ define hidden void @VP8YuvToBgra32_SSE2(ptr nocapture noundef readonly %0, ptr n
   store <8 x i16> %42, ptr %43, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %44 = getelementptr inbounds i8, ptr %.02637, i64 32
-  %45 = icmp ult i64 %indvars.iv, 24
+  %45 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %45, label %5, label %46, !llvm.loop !6
 
 46:                                               ; preds = %5
@@ -183,7 +183,7 @@ define hidden void @VP8YuvToArgb32_SSE2(ptr nocapture noundef readonly %0, ptr n
   store <8 x i16> %42, ptr %43, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %44 = getelementptr inbounds i8, ptr %.02637, i64 32
-  %45 = icmp ult i64 %indvars.iv, 24
+  %45 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %45, label %5, label %46, !llvm.loop !7
 
 46:                                               ; preds = %5
@@ -244,7 +244,7 @@ define hidden void @VP8YuvToRgba444432_SSE2(ptr nocapture noundef readonly %0, p
   store <2 x i64> %45, ptr %.02637, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %46 = getelementptr inbounds i8, ptr %.02637, i64 16
-  %47 = icmp ult i64 %indvars.iv, 24
+  %47 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %47, label %5, label %48, !llvm.loop !8
 
 48:                                               ; preds = %5
@@ -315,7 +315,7 @@ define hidden void @VP8YuvToRgb56532_SSE2(ptr nocapture noundef readonly %0, ptr
   store <16 x i8> %55, ptr %.0919, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %56 = getelementptr inbounds i8, ptr %.0919, i64 16
-  %57 = icmp ult i64 %indvars.iv, 24
+  %57 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %57, label %5, label %58, !llvm.loop !9
 
 58:                                               ; preds = %5
@@ -1200,7 +1200,7 @@ define internal void @YuvToRgbRow_SSE2(ptr nocapture noundef readonly %0, ptr no
   %277 = add nsw i32 %276, -14234
   %278 = icmp ult i32 %277, 16384
   %279 = lshr i32 %277, 6
-  %280 = icmp ult i32 %276, 14234
+  %280 = icmp samesign ult i32 %276, 14234
   %281 = select i1 %280, i32 0, i32 255
   %282 = select i1 %278, i32 %279, i32 %281
   %283 = trunc i32 %282 to i8
@@ -1226,7 +1226,7 @@ define internal void @YuvToRgbRow_SSE2(ptr nocapture noundef readonly %0, ptr no
   %301 = add nsw i32 %300, -17685
   %302 = icmp ult i32 %301, 16384
   %303 = lshr i32 %301, 6
-  %304 = icmp ult i32 %300, 17685
+  %304 = icmp samesign ult i32 %300, 17685
   %305 = select i1 %304, i32 0, i32 255
   %306 = select i1 %302, i32 %303, i32 %305
   %307 = trunc i32 %306 to i8
@@ -1341,7 +1341,7 @@ define internal void @YuvToRgbaRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %62 = add nsw i32 %61, -14234
   %63 = icmp ult i32 %62, 16384
   %64 = lshr i32 %62, 6
-  %65 = icmp ult i32 %61, 14234
+  %65 = icmp samesign ult i32 %61, 14234
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
@@ -1367,7 +1367,7 @@ define internal void @YuvToRgbaRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %86 = add nsw i32 %85, -17685
   %87 = icmp ult i32 %86, 16384
   %88 = lshr i32 %86, 6
-  %89 = icmp ult i32 %85, 17685
+  %89 = icmp samesign ult i32 %85, 17685
   %90 = select i1 %89, i32 0, i32 255
   %91 = select i1 %87, i32 %88, i32 %90
   %92 = trunc i32 %91 to i8
@@ -1715,7 +1715,7 @@ define internal void @YuvToBgrRow_SSE2(ptr nocapture noundef readonly %0, ptr no
   %277 = add nsw i32 %276, -17685
   %278 = icmp ult i32 %277, 16384
   %279 = lshr i32 %277, 6
-  %280 = icmp ult i32 %276, 17685
+  %280 = icmp samesign ult i32 %276, 17685
   %281 = select i1 %280, i32 0, i32 255
   %282 = select i1 %278, i32 %279, i32 %281
   %283 = trunc i32 %282 to i8
@@ -1741,7 +1741,7 @@ define internal void @YuvToBgrRow_SSE2(ptr nocapture noundef readonly %0, ptr no
   %301 = add nsw i32 %300, -14234
   %302 = icmp ult i32 %301, 16384
   %303 = lshr i32 %301, 6
-  %304 = icmp ult i32 %300, 14234
+  %304 = icmp samesign ult i32 %300, 14234
   %305 = select i1 %304, i32 0, i32 255
   %306 = select i1 %302, i32 %303, i32 %305
   %307 = trunc i32 %306 to i8
@@ -1856,7 +1856,7 @@ define internal void @YuvToBgraRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %62 = add nsw i32 %61, -17685
   %63 = icmp ult i32 %62, 16384
   %64 = lshr i32 %62, 6
-  %65 = icmp ult i32 %61, 17685
+  %65 = icmp samesign ult i32 %61, 17685
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
@@ -1882,7 +1882,7 @@ define internal void @YuvToBgraRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %86 = add nsw i32 %85, -14234
   %87 = icmp ult i32 %86, 16384
   %88 = lshr i32 %86, 6
-  %89 = icmp ult i32 %85, 14234
+  %89 = icmp samesign ult i32 %85, 14234
   %90 = select i1 %89, i32 0, i32 255
   %91 = select i1 %87, i32 %88, i32 %90
   %92 = trunc i32 %91 to i8
@@ -2001,7 +2001,7 @@ define internal void @YuvToArgbRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %63 = add nsw i32 %62, -14234
   %64 = icmp ult i32 %63, 16384
   %65 = lshr i32 %63, 6
-  %66 = icmp ult i32 %62, 14234
+  %66 = icmp samesign ult i32 %62, 14234
   %67 = select i1 %66, i32 0, i32 255
   %68 = select i1 %64, i32 %65, i32 %67
   %69 = trunc i32 %68 to i8
@@ -2027,7 +2027,7 @@ define internal void @YuvToArgbRow_SSE2(ptr nocapture noundef readonly %0, ptr n
   %87 = add nsw i32 %86, -17685
   %88 = icmp ult i32 %87, 16384
   %89 = lshr i32 %87, 6
-  %90 = icmp ult i32 %86, 17685
+  %90 = icmp samesign ult i32 %86, 17685
   %91 = select i1 %90, i32 0, i32 255
   %92 = select i1 %88, i32 %89, i32 %91
   %93 = trunc i32 %92 to i8
@@ -2159,7 +2159,7 @@ define internal void @ConvertARGBToY_SSE2(ptr nocapture noundef readonly %0, ptr
   %83 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %66, <8 x i16> %81)
   store <16 x i8> %83, ptr %82, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %84 = icmp ult i64 %indvars.iv.next, %6
+  %84 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %84, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !20
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
@@ -2378,7 +2378,7 @@ define internal void @ConvertARGBToUV_SSE2(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %173 = getelementptr inbounds i8, ptr %.0101, i64 16
   %174 = getelementptr inbounds i8, ptr %.039100, i64 16
-  %175 = icmp ult i64 %indvars.iv.next, %8
+  %175 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %175, label %9, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %172

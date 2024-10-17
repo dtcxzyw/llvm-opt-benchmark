@@ -6403,7 +6403,7 @@ define internal fastcc void @_ZN3exr4meta9attribute15TileDescription4read17h8450
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.879)
   %38 = and i8 %.sroa.578.099.ph, 15
   %39 = lshr i8 %.sroa.578.099.ph, 4
-  %switch = icmp ult i8 %38, 3
+  %switch = icmp samesign ult i8 %38, 3
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %switch, label %43, label %42
 
@@ -28133,7 +28133,7 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..result..Resu
 20:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5732)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5735)
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr56drop_in_place$LT$rayon_core..thread_pool..ThreadPool$GT$17ha9853b3d6f52f958E.exit", label %21
 
 21:                                               ; preds = %20

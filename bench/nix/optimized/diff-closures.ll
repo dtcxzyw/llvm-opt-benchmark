@@ -3743,7 +3743,7 @@ _ZN3nix3refINS_5StoreEED2Ev.exit94:               ; preds = %94, %112, %125, %_Z
 217:                                              ; preds = %215
   %218 = sub nsw i64 %216, %214
   %219 = call noundef i64 @llvm.abs.i64(i64 %218, i1 true)
-  %220 = icmp ugt i64 %219, 8191
+  %220 = icmp samesign ugt i64 %219, 8191
   store i32 0, ptr %167, align 8
   store ptr null, ptr %168, align 8
   store ptr %167, ptr %169, align 8
@@ -37726,7 +37726,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !282
 
 .critedge:                                        ; preds = %27

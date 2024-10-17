@@ -1295,7 +1295,7 @@ define dso_local void @_ZN4llvm4yaml6escapeB5cxx11ENS_9StringRefEb(ptr dead_on_u
   %68 = getelementptr inbounds i8, ptr %.117.us.i, i64 -1
   store i8 %67, ptr %68, align 1, !noalias !16
   %69 = lshr i64 %.019.us.i, 4
-  %.not15.us.i = icmp ult i64 %.019.us.i, 16
+  %.not15.us.i = icmp samesign ult i64 %.019.us.i, 16
   br i1 %.not15.us.i, label %_ZN4llvm9utohexstrB5cxx11Embj.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, %.thread
@@ -1336,7 +1336,7 @@ _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, 
   %81 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.03052, i64 %80)
   %.sroa.0.0.extract.trunc = trunc i64 %81 to i32
   %.sroa.7.0.extract.shift = lshr i64 %81, 32
-  %82 = icmp ult i64 %81, 4294967296
+  %82 = icmp samesign ult i64 %81, 4294967296
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %78
@@ -1403,7 +1403,7 @@ _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %.lr.ph.split.us.i, 
   %105 = getelementptr inbounds i8, ptr %.117.us.i37, i64 -1
   store i8 %104, ptr %105, align 1, !noalias !26
   %106 = lshr i64 %.019.us.i36, 4
-  %.not15.us.i38 = icmp ult i64 %.019.us.i36, 16
+  %.not15.us.i38 = icmp samesign ult i64 %.019.us.i36, 16
   br i1 %.not15.us.i38, label %_ZN4llvm9utohexstrB5cxx11Embj.exit40, label %.lr.ph.split.us.i35, !llvm.loop !19
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit40:             ; preds = %.lr.ph.split.us.i35, %.thread48
@@ -1558,7 +1558,7 @@ define internal fastcc range(i64 0, 34359738368) i64 @_ZL10decodeUTF8N4llvm9Stri
 21:                                               ; preds = %16
   %22 = shl nsw i32 %13, 6
   %23 = and i32 %22, 1984
-  %24 = icmp ugt i32 %23, 127
+  %24 = icmp samesign ugt i32 %23, 127
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
@@ -1598,15 +1598,15 @@ define internal fastcc range(i64 0, 34359738368) i64 @_ZL10decodeUTF8N4llvm9Stri
   %49 = shl nsw i32 %38, 6
   %50 = and i32 %49, 4032
   %51 = or disjoint i32 %50, %48
-  %52 = icmp ugt i32 %51, 2047
+  %52 = icmp samesign ugt i32 %51, 2047
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %46
   %54 = and i32 %43, 63
   %55 = or disjoint i32 %54, %51
-  %56 = icmp ult i32 %51, 55296
-  %57 = icmp ugt i32 %48, 57343
-  %or.cond = or i1 %57, %56
+  %56 = icmp samesign ult i32 %51, 55296
+  %57 = icmp samesign ugt i32 %48, 57343
+  %or.cond = select i1 %56, i1 true, i1 %57
   br i1 %or.cond, label %.thread73, label %58
 
 58:                                               ; preds = %46, %53, %41, %36, %31
@@ -2898,7 +2898,7 @@ define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_nb_charEPKc(ptr nocapt
   %16 = sub i64 %14, %15
   %17 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %1, i64 %16)
   %.sroa.0.0.extract.trunc = trunc i64 %17 to i32
-  %18 = icmp ugt i64 %17, 4294967295
+  %18 = icmp samesign ugt i64 %17, 4294967295
   %19 = icmp ne i32 %.sroa.0.0.extract.trunc, 65279
   %or.cond = and i1 %18, %19
   br i1 %or.cond, label %20, label %25
@@ -3034,7 +3034,7 @@ define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_ns_charEPKc(ptr nocapt
   %16 = sub i64 %14, %15
   %17 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %1, i64 %16)
   %.sroa.0.0.extract.trunc.i = trunc i64 %17 to i32
-  %18 = icmp ugt i64 %17, 4294967295
+  %18 = icmp samesign ugt i64 %17, 4294967295
   %19 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %18, %19
   br i1 %or.cond.i, label %20, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
@@ -3884,7 +3884,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5: ; preds = %11
   %21 = sub i64 %9, %20
   %22 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %13, i64 %21)
   %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
-  %23 = icmp ugt i64 %22, 4294967295
+  %23 = icmp samesign ugt i64 %22, 4294967295
   %24 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %23, %24
   br i1 %or.cond.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
@@ -4009,7 +4009,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5.i: ; preds = %.lr.ph.i
 40:                                               ; preds = %35
   %41 = shl nsw i32 %32, 6
   %42 = and i32 %41, 1984
-  %43 = icmp ugt i32 %42, 127
+  %43 = icmp samesign ugt i32 %42, 127
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %40
@@ -4047,15 +4047,15 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5.i: ; preds = %.lr.ph.i
   %66 = shl nsw i32 %55, 6
   %67 = and i32 %66, 4032
   %68 = or disjoint i32 %67, %65
-  %69 = icmp ugt i32 %68, 2047
+  %69 = icmp samesign ugt i32 %68, 2047
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %63
   %71 = and i32 %60, 63
   %72 = or disjoint i32 %71, %68
-  %73 = icmp ult i32 %68, 55296
-  %74 = icmp ugt i32 %65, 57343
-  %or.cond.i = or i1 %74, %73
+  %73 = icmp samesign ult i32 %68, 55296
+  %74 = icmp samesign ugt i32 %65, 57343
+  %or.cond.i = select i1 %73, i1 true, i1 %74
   br i1 %or.cond.i, label %_ZL10decodeUTF8N4llvm9StringRefE.exit, label %75
 
 75:                                               ; preds = %70, %63, %58, %53, %50
@@ -4595,7 +4595,7 @@ _ZN4llvm4yaml7Scanner7consumeEj.exit:             ; preds = %1, %_ZN4llvm4yaml7S
   %54 = sub i64 %45, %53
   %55 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i, i64 %54)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %55 to i32
-  %56 = icmp ugt i64 %55, 4294967295
+  %56 = icmp samesign ugt i64 %55, 4294967295
   %57 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i, 65279
   %or.cond.i.i = and i1 %56, %57
   br i1 %or.cond.i.i, label %58, label %.lr.ph.preheader
@@ -4701,7 +4701,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %88 = sub i64 %79, %87
   %89 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i27, i64 %88)
   %.sroa.0.0.extract.trunc.i.i54 = trunc i64 %89 to i32
-  %90 = icmp ugt i64 %89, 4294967295
+  %90 = icmp samesign ugt i64 %89, 4294967295
   %91 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i54, 65279
   %or.cond.i.i55 = and i1 %90, %91
   br i1 %or.cond.i.i55, label %92, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit28
@@ -4825,7 +4825,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit32.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %141 = sub i64 %132, %140
   %142 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i34, i64 %141)
   %.sroa.0.0.extract.trunc.i.i69 = trunc i64 %142 to i32
-  %143 = icmp ugt i64 %142, 4294967295
+  %143 = icmp samesign ugt i64 %142, 4294967295
   %144 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i69, 65279
   %or.cond.i.i70 = and i1 %143, %144
   br i1 %or.cond.i.i70, label %145, label %.lr.ph122.preheader
@@ -4903,7 +4903,7 @@ _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit38: ; preds = %.split.us.i
   %164 = sub i64 %132, %163
   %165 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i40, i64 %164)
   %.sroa.0.0.extract.trunc.i.i86 = trunc i64 %165 to i32
-  %166 = icmp ugt i64 %165, 4294967295
+  %166 = icmp samesign ugt i64 %165, 4294967295
   %167 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i86, 65279
   %or.cond.i.i87 = and i1 %166, %167
   br i1 %or.cond.i.i87, label %168, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit41
@@ -5930,7 +5930,7 @@ _ZL10wasEscapedPKcS0_.exit:                       ; preds = %.lr.ph.ithread-pre-
   %55 = sub i64 %29, %54
   %56 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %33, i64 %55)
   %.sroa.0.0.extract.trunc.i = trunc i64 %56 to i32
-  %57 = icmp ugt i64 %56, 4294967295
+  %57 = icmp samesign ugt i64 %56, 4294967295
   %58 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %57, %58
   br i1 %or.cond.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
@@ -6271,7 +6271,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread67: ; preds = %47
   %56 = sub i64 %54, %55
   %57 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %44, i64 %56)
   %.sroa.0.0.extract.trunc.i = trunc i64 %57 to i32
-  %58 = icmp ugt i64 %57, 4294967295
+  %58 = icmp samesign ugt i64 %57, 4294967295
   %59 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %58, %59
   br i1 %or.cond.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, label %.critedge
@@ -6619,7 +6619,7 @@ _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit.thread14: ; preds = %15
   %20 = sub i64 %12, %19
   %21 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.ptr, i64 %20)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %21 to i32
-  %22 = icmp ugt i64 %21, 4294967295
+  %22 = icmp samesign ugt i64 %21, 4294967295
   %23 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i, 65279
   %or.cond.i.i = and i1 %22, %23
   br i1 %or.cond.i.i, label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit, label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit.thread
@@ -6993,7 +6993,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5.i: ; preds = %54
   %64 = sub i64 %45, %63
   %65 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %57, i64 %64)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %65 to i32
-  %66 = icmp ugt i64 %65, 4294967295
+  %66 = icmp samesign ugt i64 %65, 4294967295
   %67 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i, 65279
   %or.cond.i.i = and i1 %66, %67
   br i1 %or.cond.i.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.i, label %_ZN4llvm4yaml7Scanner11skipCommentEv.exit
@@ -7292,7 +7292,7 @@ _ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit:     ; preds = %.split.us.i.i
   %31 = sub i64 %16, %21
   %32 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i.i, i64 %31)
   %.sroa.0.0.extract.trunc.i = trunc i64 %32 to i32
-  %33 = icmp ugt i64 %32, 4294967295
+  %33 = icmp samesign ugt i64 %32, 4294967295
   %34 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %33, %34
   br i1 %or.cond.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, label %.thread
@@ -7501,7 +7501,7 @@ _ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit.thread: ; preds = %17, %_ZN4llvm4ya
   %29 = sub i64 %27, %28
   %30 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %19, i64 %29)
   %.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
-  %31 = icmp ugt i64 %30, 4294967295
+  %31 = icmp samesign ugt i64 %30, 4294967295
   %32 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i = and i1 %31, %32
   br i1 %or.cond.i, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread
@@ -7702,7 +7702,7 @@ _ZN4llvm4yaml7Scanner25scanBlockScalarIndicatorsERcS2_RjRb.exit: ; preds = %2, %
   %59 = sub i64 %50, %58
   %60 = call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i.i, i64 %59)
   %.sroa.0.0.extract.trunc.i = trunc i64 %60 to i32
-  %61 = icmp ugt i64 %60, 4294967295
+  %61 = icmp samesign ugt i64 %60, 4294967295
   %62 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 65279
   %or.cond.i40 = and i1 %61, %62
   br i1 %or.cond.i40, label %63, label %_ZN4llvm4yaml7Scanner12advanceWhileEMS1_FPKcS3_E.exit
@@ -8293,7 +8293,7 @@ _ZN4llvm4yaml7Scanner7consumeEj.exit:             ; preds = %85
   %98 = sub i64 %17, %97
   %99 = tail call fastcc i64 @_ZL10decodeUTF8N4llvm9StringRefE(ptr nonnull %.0.us.i, i64 %98)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %99 to i32
-  %100 = icmp ugt i64 %99, 4294967295
+  %100 = icmp samesign ugt i64 %99, 4294967295
   %101 = icmp ne i32 %.sroa.0.0.extract.trunc.i.i, 65279
   %or.cond.i.i = and i1 %100, %101
   br i1 %or.cond.i.i, label %102, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit

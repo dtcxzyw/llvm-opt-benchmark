@@ -518,7 +518,7 @@ if.end.us:                                        ; preds = %if.then22.us, %_ZN3
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %7 = load i32, ptr %m_size.i, align 8
   %8 = zext i32 %7 to i64
-  %cmp.us = icmp ult i64 %indvars.iv.next27, %8
+  %cmp.us = icmp samesign ult i64 %indvars.iv.next27, %8
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN3satlsERSoNS_7literalE.exit
@@ -548,7 +548,7 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %if.then.i, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %m_size.i, align 8
   %12 = zext i32 %11 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %12
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %_ZN3satlsERSoNS_7literalE.exit, %if.end.us, %entry
@@ -734,7 +734,7 @@ if.then60:                                        ; preds = %if.then58
   %.not.not129 = select i1 %cmp.i.i, i1 %cmp.i1.i, i1 false
   %cmp63.not = icmp ule i32 %j.0134, %7
   %or.cond.not128 = select i1 %.not.not129, i1 %cmp63.not, i1 false
-  %cmp65 = icmp ugt i64 %indvars.iv, %8
+  %cmp65 = icmp samesign ugt i64 %indvars.iv, %8
   %or.cond79 = and i1 %cmp65, %or.cond.not128
   br i1 %or.cond79, label %if.then66, label %if.end73
 
@@ -1047,7 +1047,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %m_size.i, align 8
   %6 = zext i32 %5 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %6
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %6
   br i1 %cmp10, label %for.body, label %return, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond

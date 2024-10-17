@@ -484,7 +484,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %25, %44
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i75 = icmp ugt i32 %38, 36
+  %.not.i.i75 = icmp samesign ugt i32 %38, 36
   store i64 %51, ptr %53, align 8
   br i1 %.not.i.i75, label %54, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit76
 
@@ -528,14 +528,14 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   %70 = shl nsw i32 %34, 1
   %71 = sub nsw i32 %70, %29
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = icmp ult i32 %72, 3
+  %73 = icmp samesign ult i32 %72, 3
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %69
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %75, %30
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 3
+  %78 = icmp samesign ult i32 %77, 3
   br i1 %78, label %93, label %85
 
 79:                                               ; preds = %54
@@ -875,7 +875,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %25, %44
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i75 = icmp ugt i32 %38, 36
+  %.not.i.i75 = icmp samesign ugt i32 %38, 36
   store i64 %51, ptr %53, align 8
   br i1 %.not.i.i75, label %54, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit76
 
@@ -919,14 +919,14 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   %70 = shl nsw i32 %34, 1
   %71 = sub nsw i32 %70, %29
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = icmp ult i32 %72, 3
+  %73 = icmp samesign ult i32 %72, 3
   br i1 %73, label %74, label %83
 
 74:                                               ; preds = %69
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %75, %30
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 3
+  %78 = icmp samesign ult i32 %77, 3
   br i1 %78, label %91, label %83
 
 79:                                               ; preds = %54
@@ -1266,7 +1266,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %25, %44
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i75 = icmp ugt i32 %38, 36
+  %.not.i.i75 = icmp samesign ugt i32 %38, 36
   store i64 %51, ptr %53, align 8
   br i1 %.not.i.i75, label %54, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit76
 
@@ -1310,14 +1310,14 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   %70 = shl nsw i32 %34, 1
   %71 = sub nsw i32 %70, %29
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = icmp ult i32 %72, 3
+  %73 = icmp samesign ult i32 %72, 3
   br i1 %73, label %74, label %83
 
 74:                                               ; preds = %69
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %75, %30
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 3
+  %78 = icmp samesign ult i32 %77, 3
   br i1 %78, label %91, label %83
 
 79:                                               ; preds = %54
@@ -1657,7 +1657,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %25, %44
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i75 = icmp ugt i32 %38, 36
+  %.not.i.i75 = icmp samesign ugt i32 %38, 36
   store i64 %51, ptr %53, align 8
   br i1 %.not.i.i75, label %54, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit76
 
@@ -1701,14 +1701,14 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   %70 = shl nsw i32 %34, 1
   %71 = sub nsw i32 %70, %29
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = icmp ult i32 %72, 3
+  %73 = icmp samesign ult i32 %72, 3
   br i1 %73, label %74, label %83
 
 74:                                               ; preds = %69
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %75, %30
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 3
+  %78 = icmp samesign ult i32 %77, 3
   br i1 %78, label %91, label %83
 
 79:                                               ; preds = %54
@@ -2048,7 +2048,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %25, %44
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i75 = icmp ugt i32 %38, 36
+  %.not.i.i75 = icmp samesign ugt i32 %38, 36
   store i64 %51, ptr %53, align 8
   br i1 %.not.i.i75, label %54, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit76
 
@@ -2092,14 +2092,14 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit79:           ; preds = %.noexc78, %_ZN2cv10
   %70 = shl nsw i32 %34, 1
   %71 = sub nsw i32 %70, %29
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = icmp ult i32 %72, 3
+  %73 = icmp samesign ult i32 %72, 3
   br i1 %73, label %74, label %83
 
 74:                                               ; preds = %69
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %75, %30
   %77 = call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp ult i32 %77, 3
+  %78 = icmp samesign ult i32 %77, 3
   br i1 %78, label %91, label %83
 
 79:                                               ; preds = %54

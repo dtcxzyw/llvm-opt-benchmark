@@ -734,7 +734,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h54756cdc6
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %33 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %33 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %33, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h28c09aa3c3f2a7edE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -1391,7 +1391,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hee03a32b8
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %33 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %33 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %33, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h55129e093f351d4eE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge

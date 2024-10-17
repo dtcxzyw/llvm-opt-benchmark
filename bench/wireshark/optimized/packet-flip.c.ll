@@ -123,7 +123,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = and i32 %11, 268435455
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #5
   %14 = and i32 %13, 65535
-  %15 = icmp ult i32 %14, 8
+  %15 = icmp samesign ult i32 %14, 8
   %16 = icmp ugt i32 %14, %8
   %or.cond110 = or i1 %15, %16
   %17 = load ptr, ptr %6, align 8
@@ -176,8 +176,8 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 45:                                               ; preds = %38
   %46 = add nsw i32 %14, -8
   %47 = icmp slt i32 %11, 0
-  %48 = icmp ult i32 %14, 12
-  %or.cond = and i1 %47, %48
+  %48 = icmp samesign ult i32 %14, 12
+  %or.cond = select i1 %47, i1 %48, i1 false
   br i1 %or.cond, label %70, label %.preheader
 
 .preheader:                                       ; preds = %45

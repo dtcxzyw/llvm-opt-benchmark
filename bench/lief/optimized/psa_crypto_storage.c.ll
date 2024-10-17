@@ -205,8 +205,8 @@ define hidden range(i32 -153, 1) i32 @psa_parse_key_data_from_storage(ptr nocapt
   store i64 %24, ptr %3, align 8
   %25 = add i64 %1, -36
   %26 = icmp ugt i64 %24, %25
-  %27 = icmp ugt i64 %24, 8191
-  %or.cond = or i1 %26, %27
+  %27 = icmp samesign ugt i64 %24, 8191
+  %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %55, label %28
 
 28:                                               ; preds = %11
@@ -523,8 +523,8 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   store i64 %40, ptr %2, align 8
   %41 = add nsw i64 %13, -36
   %42 = icmp ugt i64 %40, %41
-  %43 = icmp ugt i64 %40, 8191
-  %or.cond.i = or i1 %42, %43
+  %43 = icmp samesign ugt i64 %40, 8191
+  %or.cond.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i, label %psa_parse_key_data_from_storage.exit.thread, label %44
 
 44:                                               ; preds = %27

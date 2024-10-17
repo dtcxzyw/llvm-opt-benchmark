@@ -386,7 +386,7 @@ FindNearSectors.exit:                             ; preds = %28
   %.sroa.4.070 = phi double [ 0.000000e+00, %.lr.ph73 ], [ %.sroa.4.1.lcssa, %.loopexit ]
   %.sroa.5.069 = phi double [ 0.000000e+00, %.lr.ph73 ], [ %.sroa.5.1.lcssa, %.loopexit ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %78 = icmp ult i64 %indvars.iv.next85, %76
+  %78 = icmp samesign ult i64 %indvars.iv.next85, %76
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %77

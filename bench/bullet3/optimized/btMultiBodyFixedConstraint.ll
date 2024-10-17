@@ -988,7 +988,7 @@ if.end82:                                         ; preds = %if.else69, %if.then
   store float 0.000000e+00, ptr %arrayidx7.i6.i.i.i263, align 4, !alias.scope !18
   %call84 = call noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %relRot, ptr noundef nonnull align 4 dereferenceable(16) %angleDiff)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, i8 0, i64 16, i1 false)
-  %cmp91 = icmp ult i64 %indvars.iv, 3
+  %cmp91 = icmp samesign ult i64 %indvars.iv, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constraintNormalAng, i8 0, i64 16, i1 false)
   br i1 %cmp91, label %if.then92, label %if.else100
 

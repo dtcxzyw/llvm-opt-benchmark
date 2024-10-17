@@ -3528,7 +3528,7 @@ default.unreachable52:                            ; preds = %83
   %47 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !781
   %48 = icmp ult i64 %47, 6
   call void @llvm.assume(i1 %48)
-  %49 = icmp ugt i64 %47, 4
+  %49 = icmp samesign ugt i64 %47, 4
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %58, %46
@@ -4638,7 +4638,7 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules11core_e
   %37 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %38 = icmp ult i64 %37, 6
   call void @llvm.assume(i1 %38)
-  %39 = icmp ugt i64 %37, 3
+  %39 = icmp samesign ugt i64 %37, 3
   br i1 %39, label %53, label %44
 
 40:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hcd8e80a8171eff35E.exit"
@@ -4646,7 +4646,7 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules11core_e
   %41 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %42 = icmp ult i64 %41, 6
   call void @llvm.assume(i1 %42)
-  %43 = icmp ugt i64 %41, 3
+  %43 = icmp samesign ugt i64 %41, 3
   br i1 %43, label %60, label %_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules11core_export17h9ccdc88c1598cfb4E.exit.sink.split
 
 44:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hcd8e80a8171eff35E.exit.thread", %53
@@ -4727,7 +4727,7 @@ define hidden void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAd
   %7 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %8 = icmp ult i64 %7, 6
   tail call void @llvm.assume(i1 %8)
-  %9 = icmp ugt i64 %7, 3
+  %9 = icmp samesign ugt i64 %7, 3
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %3, %27
@@ -4911,7 +4911,7 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate5adapt23Pa
   %43 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %44 = icmp ult i64 %43, 6
   tail call void @llvm.assume(i1 %44)
-  %45 = icmp ugt i64 %43, 3
+  %45 = icmp samesign ugt i64 %43, 3
   br i1 %45, label %46, label %34
 
 46:                                               ; preds = %35
@@ -7670,7 +7670,7 @@ thread-pre-split3803:                             ; preds = %.noexc112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.657.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.i, i64 24, i1 false), !noalias !1104
   store i8 %811, ptr %160, align 8, !noalias !1104
   store ptr %.sroa.10.0.copyload.i, ptr %.sroa.556.0..sroa_idx.i, align 8, !noalias !1104
-  %switch684.i = icmp ult i8 %811, 4
+  %switch684.i = icmp samesign ult i8 %811, 4
   %816 = ptrtoint ptr %.sroa.10.0.copyload.i to i64
   %817 = trunc i64 %816 to i32
   %818 = lshr i64 %816, 32
@@ -9497,7 +9497,7 @@ thread-pre-split3807:                             ; preds = %"_ZN5alloc3vec16Vec
   %1280 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1585
   %1281 = icmp ult i64 %1280, 6
   call void @llvm.assume(i1 %1281)
-  %1282 = icmp ugt i64 %1280, 3
+  %1282 = icmp samesign ugt i64 %1280, 3
   br i1 %1282, label %1289, label %1283
 
 1283:                                             ; preds = %.noexc86.i, %.noexc84.i
@@ -10128,7 +10128,7 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules7adapter
   %1495 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1558
   %1496 = icmp ult i64 %1495, 6
   call void @llvm.assume(i1 %1496)
-  %1497 = icmp ugt i64 %1495, 4
+  %1497 = icmp samesign ugt i64 %1495, 4
   br i1 %1497, label %1498, label %.critedge.i
 
 1498:                                             ; preds = %1492
@@ -10207,7 +10207,7 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules7adapter
   %1521 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1558
   %1522 = icmp ult i64 %1521, 6
   call void @llvm.assume(i1 %1522)
-  %1523 = icmp ugt i64 %1521, 4
+  %1523 = icmp samesign ugt i64 %1521, 4
   br i1 %1523, label %1524, label %1511
 
 1524:                                             ; preds = %1520
@@ -10260,7 +10260,7 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules7adapter
   %1535 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !1558
   %1536 = icmp ult i64 %1535, 6
   call void @llvm.assume(i1 %1536)
-  %1537 = icmp ugt i64 %1535, 4
+  %1537 = icmp samesign ugt i64 %1535, 4
   br i1 %1537, label %1538, label %1530
 
 1538:                                             ; preds = %1533

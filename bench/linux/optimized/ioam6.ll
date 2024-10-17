@@ -320,7 +320,7 @@ define dso_local void @ioam6_fill_trace_data(ptr nocapture noundef readonly %0, 
   %35 = zext nneg i16 %34 to i32
   %36 = zext i8 %26 to i32
   %37 = add nuw nsw i32 %36, %35
-  %38 = icmp ugt i32 %37, %32
+  %38 = icmp samesign ugt i32 %37, %32
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %31, %25

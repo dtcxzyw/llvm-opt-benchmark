@@ -604,7 +604,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %69 = phi i64 [ %39, %37 ], [ %6, %4 ], [ %1, %2 ]
   %70 = phi ptr [ %68, %37 ], [ %35, %4 ], [ %0, %2 ]
   %71 = trunc nuw nsw i64 %69 to i32
-  %72 = icmp ult i64 %69, 100
+  %72 = icmp samesign ult i64 %69, 100
   br i1 %72, label %put_dec_trunc8.exit, label %73
 
 73:                                               ; preds = %.thread
@@ -619,7 +619,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %82 = load i16, ptr %81, align 2
   store i16 %82, ptr %70, align 2
   %83 = getelementptr i8, ptr %70, i64 2
-  %84 = icmp ult i64 %69, 10000
+  %84 = icmp samesign ult i64 %69, 10000
   br i1 %84, label %put_dec_trunc8.exit, label %85
 
 85:                                               ; preds = %73
@@ -633,7 +633,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %93 = load i16, ptr %92, align 2
   store i16 %93, ptr %83, align 2
   %94 = getelementptr i8, ptr %70, i64 4
-  %95 = icmp ult i64 %69, 1000000
+  %95 = icmp samesign ult i64 %69, 1000000
   br i1 %95, label %put_dec_trunc8.exit, label %96
 
 96:                                               ; preds = %85
@@ -6268,7 +6268,7 @@ widen_string.exit11.thread.i:                     ; preds = %2336
   %2414 = shl nuw nsw i32 %2413, 3
   %2415 = lshr i32 %2410, %2414
   %2416 = and i32 %2415, 255
-  %2417 = icmp ult i32 %2416, 128
+  %2417 = icmp samesign ult i32 %2416, 128
   br i1 %2417, label %2418, label %2426
 
 2418:                                             ; preds = %2411
@@ -12076,7 +12076,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %28 = add i8 %27, 1
   store i8 %28, ptr %20, align 1
   %29 = add nuw nsw i64 %22, 1
-  %30 = icmp ult i64 %29, %17
+  %30 = icmp samesign ult i64 %29, %17
   br i1 %30, label %21, label %31, !llvm.loop !85
 
 31:                                               ; preds = %26, %21

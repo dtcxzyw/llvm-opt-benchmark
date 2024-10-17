@@ -3911,7 +3911,7 @@ _ZN5clang4Decl14getDeclContextEv.exit725:         ; preds = %1499, %1504
   %1551 = load ptr, ptr %.02781168, align 8
   %1552 = call fastcc i64 @"_ZZN5clang4Sema15ProcessAPINotesEPNS_4DeclEENK3$_0clEPNS_9api_notes14APINotesReaderE"(ptr nonnull %82, ptr noundef %1551)
   %.sroa.01036.0.extract.trunc = trunc i64 %1552 to i32
-  %.not1066 = icmp ult i64 %1552, 4294967296
+  %.not1066 = icmp samesign ult i64 %1552, 4294967296
   br i1 %.not1066, label %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit, label %1553
 
 1553:                                             ; preds = %1550
@@ -4644,7 +4644,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit: ; preds = %1819, %_ZN5clang9
   %1853 = load ptr, ptr %.02801181, align 8
   %1854 = call fastcc i64 @"_ZZN5clang4Sema15ProcessAPINotesEPNS_4DeclEENK3$_0clEPNS_9api_notes14APINotesReaderE"(ptr nonnull %82, ptr noundef %1853)
   %.sroa.01029.0.extract.trunc = trunc i64 %1854 to i32
-  %.not1068 = icmp ult i64 %1854, 4294967296
+  %.not1068 = icmp samesign ult i64 %1854, 4294967296
   br i1 %.not1068, label %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEED2Ev.exit968, label %1855
 
 1855:                                             ; preds = %1852
@@ -17088,7 +17088,7 @@ _ZL15ProcessAPINotesRN5clang4SemaEPNS_11ParmVarDeclERKNS_9api_notes9ParamInfoEN1
   %213 = lshr i16 %210, 1
   %214 = and i16 %213, 255
   %215 = zext nneg i16 %214 to i64
-  %.not197 = icmp ult i64 %indvars.iv, %215
+  %.not197 = icmp samesign ult i64 %indvars.iv, %215
   %216 = load i64, ptr %41, align 8
   %217 = shl nuw nsw i64 %.pre, 1
   %218 = lshr i64 %216, %217

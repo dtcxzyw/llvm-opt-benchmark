@@ -506,8 +506,8 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 ._crit_edge.i17:                                  ; preds = %.lr.ph58.split.i, %.lr.ph58.split.us.i
   %54 = and i32 %0, 16384
   %55 = icmp ne i32 %54, 0
-  %56 = icmp ugt i32 %12, 1
-  %or.cond3.i = and i1 %55, %56
+  %56 = icmp samesign ugt i32 %12, 1
+  %or.cond3.i = select i1 %55, i1 %56, i1 false
   br i1 %or.cond3.i, label %._crit_edge62.i, label %62
 
 ._crit_edge62.i:                                  ; preds = %._crit_edge.i17
@@ -522,7 +522,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   br label %62
 
 62:                                               ; preds = %._crit_edge62.i, %._crit_edge.i17
-  %63 = icmp ugt i32 %..i.i8, 1
+  %63 = icmp samesign ugt i32 %..i.i8, 1
   %64 = icmp ne i32 %12, 0
   %or.cond68.i = and i1 %63, %64
   br i1 %or.cond68.i, label %.lr.ph64.i, label %.loopexit54.i

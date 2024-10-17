@@ -2946,7 +2946,7 @@ if.end13:                                         ; preds = %rec_next_types.exit
   %op2.i.i = getelementptr inbounds i8, ptr %J, i64 186
   store i16 1, ptr %op2.i.i, align 2
   %call.i = tail call i32 @lj_opt_fold(ptr noundef %J) #7
-  %cmp.i = icmp ult i32 %and1, 3
+  %cmp.i = icmp samesign ult i32 %and1, 3
   %reass.sub.i = mul nuw nsw i32 %and1, 16777215
   %add.i = add nuw nsw i32 %reass.sub.i, 32767
   %tr.0.i = select i1 %cmp.i, i32 %add.i, i32 %call.i
@@ -3221,7 +3221,7 @@ for.inc93:                                        ; preds = %for.body74, %land.l
   %47 = phi i32 [ %37, %for.body74 ], [ %37, %land.lhs.true80 ], [ %.pre, %lj_record_constify.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
-  %cmp72 = icmp ult i64 %indvars.iv.next, %48
+  %cmp72 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %cmp72, label %for.body74, label %sw.epilog, !llvm.loop !22
 
 sw.bb96:                                          ; preds = %entry
@@ -3229,7 +3229,7 @@ sw.bb96:                                          ; preds = %entry
   %49 = load ptr, ptr %pc97, align 8
   %50 = load i32, ptr %49, align 4
   %and98 = and i32 %50, 255
-  %cmp99 = icmp ugt i32 %and98, 96
+  %cmp99 = icmp samesign ugt i32 %and98, 96
   br i1 %cmp99, label %if.end1001, label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc93, %for.inc, %sw.bb65, %if.then45, %entry, %sw.bb96, %sw.bb37, %if.then59
@@ -4665,7 +4665,7 @@ sw.bb950:                                         ; preds = %sw.epilog247, %sw.e
   br label %sw.epilog957
 
 sw.default951:                                    ; preds = %sw.epilog247
-  %cmp952 = icmp ugt i32 %and136, 96
+  %cmp952 = icmp samesign ugt i32 %and136, 96
   br i1 %cmp952, label %if.then954, label %sw.bb956
 
 if.then954:                                       ; preds = %sw.default951
@@ -9034,7 +9034,7 @@ for.body:                                         ; preds = %entry, %for.body.ba
 land.lhs.true:                                    ; preds = %for.body
   %shr = lshr i32 %1, 8
   %and5 = and i32 %shr, 255
-  %cmp6.not = icmp ugt i32 %and5, %slot
+  %cmp6.not = icmp samesign ugt i32 %and5, %slot
   %pc.0.ptr = getelementptr inbounds i8, ptr %pc.0.ptr40, i64 -4
   %cmp = icmp ugt ptr %pc.0.ptr, %add.ptr
   %or.cond45 = select i1 %cmp6.not, i1 %cmp, i1 false

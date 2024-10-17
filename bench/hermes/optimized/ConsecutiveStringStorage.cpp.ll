@@ -275,7 +275,7 @@ if.then.i28.i:                                    ; preds = %if.end.i.i.i
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
-  %cmp11.i.i = icmp ugt i32 %shl.i.i, 127
+  %cmp11.i.i = icmp samesign ugt i32 %shl.i.i, 127
   call void @llvm.assume(i1 %cmp11.i.i)
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -303,7 +303,7 @@ if.then19.i.i:                                    ; preds = %if.else.i27.i
   %and48.i.i = shl nsw i32 %conv22.i.i, 6
   %shl49.i.i = and i32 %and48.i.i, 4032
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
-  %cmp53.i.i = icmp ugt i32 %or50.i.i, 2047
+  %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
   %and51.i.i = and i32 %conv3383.i.i, 63
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
@@ -342,9 +342,9 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   %and122.i.i = and i32 %conv10184.i.i, 63
   %24 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %24, %or118.i.i
-  %cmp124.i.i = icmp ugt i32 %or118.i.i, 65535
+  %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535
   call void @llvm.assume(i1 %cmp124.i.i)
-  %cmp129.i.i = icmp ugt i32 %or118.i.i, 1114111
+  %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   br i1 %cmp129.i.i, label %if.then131.i.i, label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
 if.then131.i.i:                                   ; preds = %if.else68.i.i
@@ -4570,7 +4570,7 @@ if.then.i28.i:                                    ; preds = %if.end.i.i.i
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
-  %cmp11.i.i = icmp ugt i32 %shl.i.i, 127
+  %cmp11.i.i = icmp samesign ugt i32 %shl.i.i, 127
   call void @llvm.assume(i1 %cmp11.i.i)
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -4598,7 +4598,7 @@ if.then19.i.i:                                    ; preds = %if.else.i27.i
   %and48.i.i = shl nsw i32 %conv22.i.i, 6
   %shl49.i.i = and i32 %and48.i.i, 4032
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
-  %cmp53.i.i = icmp ugt i32 %or50.i.i, 2047
+  %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
   %and51.i.i = and i32 %conv3383.i.i, 63
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
@@ -4637,9 +4637,9 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   %and122.i.i = and i32 %conv10184.i.i, 63
   %24 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %24, %or118.i.i
-  %cmp124.i.i = icmp ugt i32 %or118.i.i, 65535
+  %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535
   call void @llvm.assume(i1 %cmp124.i.i)
-  %cmp129.i.i = icmp ugt i32 %or118.i.i, 1114111
+  %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   br i1 %cmp129.i.i, label %if.then131.i.i, label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
 if.then131.i.i:                                   ; preds = %if.else68.i.i
@@ -4908,7 +4908,7 @@ if.then.i21.i:                                    ; preds = %if.end.i.i.i
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
-  %cmp11.i.i = icmp ugt i32 %shl.i.i, 127
+  %cmp11.i.i = icmp samesign ugt i32 %shl.i.i, 127
   call void @llvm.assume(i1 %cmp11.i.i)
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -4936,7 +4936,7 @@ if.then19.i.i:                                    ; preds = %if.else.i20.i
   %and48.i.i = shl nsw i32 %conv22.i.i, 6
   %shl49.i.i = and i32 %and48.i.i, 4032
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
-  %cmp53.i.i = icmp ugt i32 %or50.i.i, 2047
+  %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
   %and51.i.i = and i32 %conv3383.i.i, 63
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
@@ -4975,9 +4975,9 @@ if.else68.i.i:                                    ; preds = %if.else.i20.i
   %and122.i.i = and i32 %conv10184.i.i, 63
   %22 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %22, %or118.i.i
-  %cmp124.i.i = icmp ugt i32 %or118.i.i, 65535
+  %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535
   call void @llvm.assume(i1 %cmp124.i.i)
-  %cmp129.i.i = icmp ugt i32 %or118.i.i, 1114111
+  %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   br i1 %cmp129.i.i, label %if.then131.i.i, label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
 if.then131.i.i:                                   ; preds = %if.else68.i.i

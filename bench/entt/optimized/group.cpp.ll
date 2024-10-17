@@ -21044,7 +21044,7 @@ for.body.i.i.i.i.i.i50.i.i.i.i.i.i.i:             ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i48.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i50.i.i.i.i.i.i.i.preheader ], [ %ind.end2359, %middle.block ]
   %216 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.i51.i.i.i.i.i.i.i.ph, align 4, !tbaa !66, !noalias !547
   store i32 %216, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i52.i.i.i.i.i.i.i.ph, align 4, !tbaa !66, !noalias !547
-  %cmp.i.i.i.i.i.i57.i.i.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i.i57.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i.i57.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i50.i.i.i.i.i.i.i.1, label %for.inc.i38.i.i.i.i.i.i.i, !llvm.loop !561
 
 for.body.i.i.i.i.i.i50.i.i.i.i.i.i.i.1:           ; preds = %for.body.i.i.i.i.i.i50.i.i.i.i.i.i.i
@@ -81725,7 +81725,7 @@ for.body.i.i.i.i.i.i50.i.i.i.i.i.i:               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i48.i.i.i.i.i.i, %for.body.i.i.i.i.i.i50.i.i.i.i.i.i.preheader ], [ %ind.end1411, %middle.block ]
   %78 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.i51.i.i.i.i.i.i.ph, align 4, !tbaa !66, !noalias !2420
   store i32 %78, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i52.i.i.i.i.i.i.ph, align 4, !tbaa !66, !noalias !2420
-  %cmp.i.i.i.i.i.i57.i.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i.i57.i.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i53.i.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i.i57.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i50.i.i.i.i.i.i.1, label %for.inc.i38.i.i.i.i.i.i, !llvm.loop !2432
 
 for.body.i.i.i.i.i.i50.i.i.i.i.i.i.1:             ; preds = %for.body.i.i.i.i.i.i50.i.i.i.i.i.i
@@ -117720,7 +117720,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -117899,7 +117899,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -118241,7 +118241,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -118420,7 +118420,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -121033,7 +121033,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -121212,7 +121212,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -124575,7 +124575,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -124754,7 +124754,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -126574,7 +126574,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -126753,7 +126753,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -128623,7 +128623,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -128802,7 +128802,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -131266,7 +131266,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
   %4 = add i64 %__n, 2305843009213693951
   %5 = and i64 %4, 2305843009213693951
   %6 = add nuw nsw i64 %5, 1
-  %min.iters.check219 = icmp ult i64 %5, 3
+  %min.iters.check219 = icmp samesign ult i64 %5, 3
   br i1 %min.iters.check219, label %for.body.i.i.i.preheader, label %vector.ph220
 
 vector.ph220:                                     ; preds = %invoke.cont20
@@ -131445,7 +131445,7 @@ if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKS
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
   %31 = add nuw nsw i64 %30, 1
-  %min.iters.check236 = icmp ult i64 %30, 3
+  %min.iters.check236 = icmp samesign ult i64 %30, 3
   br i1 %min.iters.check236, label %for.body.i.i.i.i.i.i.i163.preheader, label %vector.ph237
 
 vector.ph237:                                     ; preds = %if.end.i.i.i.i.i161
@@ -147715,7 +147715,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end34, %middle.block ]
   %19 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4002
   store i32 %19, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4002
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !4014
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i
@@ -148430,7 +148430,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end34, %middle.block ]
   %19 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4030
   store i32 %19, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4030
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !4042
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i
@@ -149593,7 +149593,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end40, %middle.block ]
   %18 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4075
   store i32 %18, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !4075
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !4087
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i
@@ -177669,7 +177669,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end53, %middle.block ]
   %19 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5060
   store i32 %19, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5060
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !5072
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i
@@ -178768,7 +178768,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end3, %middle.block ]
   %18 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5102
   store i32 %18, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5102
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !5114
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i
@@ -180806,7 +180806,7 @@ for.body.i.i.i.i.i:                               ; preds = %middle.block, %for.
   %__n.010.i.i.i.i.i.ph = phi i64 [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %ind.end3, %middle.block ]
   %18 = load i32, ptr %agg.tmp1.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5186
   store i32 %18, ptr %agg.tmp2.sroa.0.0.i.i.i.i.ph, align 4, !tbaa !66, !noalias !5186
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.ph, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.ph, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i.1, label %for.inc, !llvm.loop !5198
 
 for.body.i.i.i.i.i.1:                             ; preds = %for.body.i.i.i.i.i

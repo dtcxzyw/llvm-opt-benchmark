@@ -1534,7 +1534,7 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
 
 103:                                              ; preds = %102, %98
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
-  %104 = icmp ult i64 %indvars.iv.next.i25, %94
+  %104 = icmp samesign ult i64 %indvars.iv.next.i25, %94
   br i1 %104, label %.lr.ph.i22, label %tm_display_arity.exit27, !llvm.loop !20
 
 tm_display_arity.exit27:                          ; preds = %103, %90

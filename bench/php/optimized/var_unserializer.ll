@@ -3472,7 +3472,7 @@ define internal fastcc range(i32 0, 2) i32 @object_common(ptr nocapture noundef 
   br i1 %5, label %16, label %236
 
 16:                                               ; preds = %6
-  %17 = icmp ugt i64 %4, 1073741823
+  %17 = icmp samesign ugt i64 %4, 1073741823
   br i1 %17, label %finish_nested_data.exit, label %18
 
 18:                                               ; preds = %16
@@ -3980,7 +3980,7 @@ var_push_dtor_value.exit388:                      ; preds = %106, %108, %130
   %257 = load i32, ptr %256, align 4
   %258 = sub i32 1073741824, %257
   %259 = zext i32 %258 to i64
-  %.not329 = icmp ult i64 %4, %259
+  %.not329 = icmp samesign ult i64 %4, %259
   br i1 %.not329, label %260, label %finish_nested_data.exit
 
 260:                                              ; preds = %248

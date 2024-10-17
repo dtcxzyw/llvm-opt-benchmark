@@ -1449,7 +1449,7 @@ define dso_local void @cpuidle_unregister(ptr noundef %0) #3 align 16 {
   tail call void @cpuidle_unregister_device(ptr noundef %19)
   %20 = add nuw nsw i64 %11, 1
   %21 = and i64 %20, 127
-  %22 = icmp ugt i64 %21, 63
+  %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %3, !prof !58, !llvm.loop !59
 
 .thread:                                          ; preds = %3, %14, %10
@@ -1477,7 +1477,7 @@ define dso_local i32 @cpuidle_register(ptr noundef %0, ptr nocapture readnone %1
 9:                                                ; preds = %23, %5
   %10 = phi i64 [ %32, %23 ], [ 0, %5 ]
   %11 = and i64 %10, 4294967295
-  %12 = icmp ugt i64 %11, 63
+  %12 = icmp samesign ugt i64 %11, 63
   br i1 %12, label %.thread, label %13, !prof !60
 
 13:                                               ; preds = %9
@@ -1535,7 +1535,7 @@ define dso_local i32 @cpuidle_register(ptr noundef %0, ptr nocapture readnone %1
   tail call void @cpuidle_unregister_device(ptr noundef %51)
   %52 = add nuw nsw i64 %43, 1
   %53 = and i64 %52, 127
-  %54 = icmp ugt i64 %53, 63
+  %54 = icmp samesign ugt i64 %53, 63
   br i1 %54, label %.thread8, label %35, !prof !58, !llvm.loop !59
 
 .thread8:                                         ; preds = %35, %46, %42

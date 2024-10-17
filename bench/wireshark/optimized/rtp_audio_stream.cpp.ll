@@ -2457,7 +2457,7 @@ _ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit: ; preds = %158, %164,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %208 = load i32, ptr %7, align 4
   %209 = zext i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next, %209
   br i1 %210, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 211:                                              ; preds = %27

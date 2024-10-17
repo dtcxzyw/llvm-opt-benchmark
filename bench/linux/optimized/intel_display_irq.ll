@@ -3657,7 +3657,7 @@ define dso_local void @gen11_display_irq_reset(ptr noundef %0) local_unnamed_add
   %19 = shl nuw nsw i64 1, %16
   %20 = and i64 %19, %18
   %21 = icmp eq i64 %20, 0
-  %22 = icmp ugt i64 %16, 3
+  %22 = icmp samesign ugt i64 %16, 3
   %23 = or i1 %22, %21
   br i1 %23, label %51, label %24
 
@@ -4163,7 +4163,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   %100 = shl nuw nsw i64 1, %97
   %101 = and i64 %100, %99
   %102 = icmp eq i64 %101, 0
-  %103 = icmp ugt i64 %97, 3
+  %103 = icmp samesign ugt i64 %97, 3
   %104 = or i1 %103, %102
   br i1 %104, label %120, label %105
 

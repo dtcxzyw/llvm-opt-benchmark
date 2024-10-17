@@ -83,7 +83,7 @@ define void @_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15tu
   %6 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !15
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %switch.i = icmp ult i64 %6, 4
+  %switch.i = icmp samesign ult i64 %6, 4
   br i1 %switch.i, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %8
 
 8:                                                ; preds = %1
@@ -136,7 +136,7 @@ define void @_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15tu
   %11 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !20
   %12 = icmp ult i64 %11, 6
   call void @llvm.assume(i1 %12)
-  %switch.i = icmp ult i64 %11, 4
+  %switch.i = icmp samesign ult i64 %11, 4
   br i1 %switch.i, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %13
 
 13:                                               ; preds = %10

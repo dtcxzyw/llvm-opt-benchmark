@@ -71,7 +71,7 @@ define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr nocapture 
   %12 = icmp eq i64 %indvars.iv41, 1
   %or.cond25.not.i.i.not37 = and i1 %or.cond23.i.i, %12
   %13 = icmp eq i64 %indvars.iv41, 0
-  %or.cond17.i = icmp ugt i64 %indvars.iv41, 1
+  %or.cond17.i = icmp samesign ugt i64 %indvars.iv41, 1
   %14 = icmp ne i64 %indvars.iv41, 3
   %spec.select.not53.i = and i1 %or.cond17.i, %14
   %brmerge = or i1 %or.cond21.i.i, %or.cond25.not.i.i.not37

@@ -1132,7 +1132,7 @@ land.end:                                         ; preds = %land.rhs, %if.end8
   %11 = load i32, ptr %frame_cnt.i, align 4
   %shr2.i = lshr i32 %11, 16
   %and4.i = and i32 %11, 65535
-  %cmp.i = icmp ult i32 %and4.i, %shr2.i
+  %cmp.i = icmp samesign ult i32 %and4.i, %shr2.i
   br i1 %cmp.i, label %es1370_transfer_audio.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.end
@@ -1299,7 +1299,7 @@ if.then102.i:                                     ; preds = %if.end95.i
 
 if.else103.i:                                     ; preds = %if.end95.i
   store i32 %and4.i, ptr %frame_cnt.i, align 4
-  %cmp106.not.i = icmp ugt i32 %add99.i, %and4.i
+  %cmp106.not.i = icmp samesign ugt i32 %add99.i, %and4.i
   br i1 %cmp106.not.i, label %if.end113.i, label %if.then108.i
 
 if.then108.i:                                     ; preds = %if.else103.i

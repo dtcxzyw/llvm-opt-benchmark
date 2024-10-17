@@ -135,7 +135,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %31 = add nsw i32 %24, -6
   %32 = shl nuw i32 1, %31
   %33 = select i1 %30, i32 1, i32 %32
-  %34 = icmp ult i64 %indvars.iv, 6
+  %34 = icmp samesign ult i64 %indvars.iv, 6
   %35 = icmp sgt i32 %33, 0
   br i1 %34, label %.preheader.i, label %.preheader18.i
 
@@ -2269,7 +2269,7 @@ define void @Zyx_ManSetupVars(ptr nocapture noundef readonly %0) local_unnamed_a
   %.15582 = phi i32 [ %112, %.lr.ph83 ], [ 0, %.preheader73 ]
   %99 = load i32, ptr %79, align 4
   %100 = add i32 %99, %.15582
-  %101 = icmp ult i32 %.15582, 3
+  %101 = icmp samesign ult i32 %.15582, 3
   %102 = zext i1 %101 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %.not.i = xor i1 %101, true
@@ -2854,7 +2854,7 @@ Vec_WrdStart.exit:                                ; preds = %2, %11
   %33 = add nsw i32 %26, -6
   %34 = shl nuw i32 1, %33
   %35 = select i1 %32, i32 1, i32 %34
-  %36 = icmp ult i64 %indvars.iv, 6
+  %36 = icmp samesign ult i64 %indvars.iv, 6
   %37 = icmp sgt i32 %35, 0
   br i1 %36, label %.preheader.i, label %.preheader18.i
 
@@ -3126,7 +3126,7 @@ Abc_TtCofactor0p.exit.thread77:                   ; preds = %24
   br label %Abc_TtCofactor1p.exit
 
 39:                                               ; preds = %24
-  %40 = icmp ult i64 %indvars.iv107, 6
+  %40 = icmp samesign ult i64 %indvars.iv107, 6
   br i1 %40, label %41, label %54
 
 41:                                               ; preds = %39
@@ -3266,7 +3266,7 @@ Abc_TtCofactor0p.exit.thread.thread:              ; preds = %Abc_TtCofactor0p.ex
 
 Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i33, %77, %.preheader.lr.ph.i, %54, %41, %Abc_TtCofactor0p.exit.thread77, %71, %Abc_TtCofactor0p.exit.thread.thread, %.preheader.lr.ph.i24
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %100 = icmp ult i64 %indvars.iv.next108, %23
+  %100 = icmp samesign ult i64 %indvars.iv.next108, %23
   br i1 %100, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtCofactor1p.exit
@@ -3298,7 +3298,7 @@ Abc_TtCofactor1p.exit52.thread78:                 ; preds = %.lr.ph
   br label %.lr.ph.i72.preheader
 
 117:                                              ; preds = %.lr.ph
-  %118 = icmp ult i64 %indvars.iv104, 6
+  %118 = icmp samesign ult i64 %indvars.iv104, 6
   br i1 %118, label %119, label %132
 
 119:                                              ; preds = %117
@@ -6868,7 +6868,7 @@ Abc_TtNot.exit.i:                                 ; preds = %Abc_TtNot.exit.loop
   %99 = load i64, ptr %93, align 8
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 15
-  %102 = icmp ult i32 %101, 10
+  %102 = icmp samesign ult i32 %101, 10
   %103 = trunc nuw nsw i32 %101 to i8
   %104 = or disjoint i8 %103, 48
   %105 = add nuw nsw i8 %103, 55
@@ -6907,7 +6907,7 @@ select.unfold.us.i.i:                             ; preds = %select.unfold.us.i.
   %117 = lshr i64 %114, %116
   %118 = trunc i64 %117 to i32
   %119 = and i32 %118, 15
-  %120 = icmp ult i32 %119, 10
+  %120 = icmp samesign ult i32 %119, 10
   %121 = trunc nuw nsw i32 %119 to i8
   %122 = or disjoint i8 %121, 48
   %123 = add nuw nsw i8 %121, 55
@@ -7278,7 +7278,7 @@ Vec_WrdStart.exit:                                ; preds = %2, %13
   %24 = shl i32 %23, %9
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i64, ptr %.val, i64 %25
-  %27 = icmp ult i64 %indvars.iv, 6
+  %27 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %27, label %.preheader.i.us, label %.preheader18.i.us
 
 .preheader18.i.us:                                ; preds = %.lr.ph.split.us

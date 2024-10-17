@@ -416,7 +416,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i
 31:                                               ; preds = %26, %18
   %32 = add nuw nsw i64 %15, 1
   %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
+  %34 = icmp samesign ugt i64 %33, 63
   br i1 %34, label %.thread, label %.preheader.split.us, !prof !17, !llvm.loop !18
 
 35:                                               ; preds = %3
@@ -464,7 +464,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i
 63:                                               ; preds = %58, %50
   %64 = add nuw nsw i64 %47, 1
   %65 = and i64 %64, 127
-  %66 = icmp ugt i64 %65, 63
+  %66 = icmp samesign ugt i64 %65, 63
   br i1 %66, label %.thread, label %.preheader.split, !prof !17, !llvm.loop !18
 
 .thread:                                          ; preds = %46, %63, %.preheader.split, %31, %14, %.preheader.split.us, %35

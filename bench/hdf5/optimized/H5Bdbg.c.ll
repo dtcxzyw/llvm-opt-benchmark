@@ -418,7 +418,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %.2 = phi ptr [ %.093126, %.preheader119 ], [ %143, %149 ]
   %126 = load i32, ptr %122, align 4
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv, %127
+  %128 = icmp samesign ult i64 %indvars.iv, %127
   br i1 %128, label %.preheader118, label %.loopexit120
 
 .preheader118:                                    ; preds = %125, %139

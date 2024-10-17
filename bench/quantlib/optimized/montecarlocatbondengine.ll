@@ -1495,7 +1495,7 @@ invoke.cont32:                                    ; preds = %.noexc, %while.cond
           to label %invoke.cont36 unwind label %lpad31.loopexit
 
 invoke.cont36:                                    ; preds = %invoke.cont32
-  %cmp = icmp ult i64 %pathCount.0, 10000
+  %cmp = icmp samesign ult i64 %pathCount.0, 10000
   %22 = select i1 %call37, i1 %cmp, i1 false
   br i1 %22, label %while.body, label %while.end
 

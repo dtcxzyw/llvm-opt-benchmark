@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
 .preheader.i:                                     ; preds = %.lr.ph.i, %66
   %.024.lcssa.i = phi i32 [ 4, %66 ], [ %smax.i, %.lr.ph.i ]
   %71 = shl nuw nsw i32 4, %61
-  %72 = icmp ult i32 %.024.lcssa.i, %71
+  %72 = icmp samesign ult i32 %.024.lcssa.i, %71
   br i1 %72, label %.lr.ph28.preheader.i, label %ExpandColorMap.exit
 
 .lr.ph28.preheader.i:                             ; preds = %.preheader.i
@@ -1702,7 +1702,7 @@ ExtractPalettedAlphaRows.exit.i:                  ; preds = %._crit_edge.i.i.i, 
 
 158:                                              ; preds = %156
   %159 = add nsw i32 %112, -256
-  %160 = icmp ult i32 %159, 4
+  %160 = icmp samesign ult i32 %159, 4
   br i1 %160, label %GetCopyLength.exit.i, label %161
 
 161:                                              ; preds = %158
@@ -2717,7 +2717,7 @@ VP8LIsEndOfStream.exit254.thread:                 ; preds = %275
 
 305:                                              ; preds = %303
   %306 = add nsw i32 %.0182363, -256
-  %307 = icmp ult i32 %306, 4
+  %307 = icmp samesign ult i32 %306, 4
   br i1 %307, label %GetCopyLength.exit, label %308
 
 308:                                              ; preds = %305

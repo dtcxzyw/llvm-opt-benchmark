@@ -184,7 +184,7 @@ if.end.i55:                                       ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp11.i = icmp ugt i64 %indvars.iv.i, 200
+  %cmp11.i = icmp samesign ugt i64 %indvars.iv.i, 200
   br i1 %cmp11.i, label %if.then13.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %if.end.i55, %for.end.i

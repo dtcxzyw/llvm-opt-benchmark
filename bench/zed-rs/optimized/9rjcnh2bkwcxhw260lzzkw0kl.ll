@@ -5714,7 +5714,7 @@ default.unreachable:                              ; preds = %494, %405, %.backed
   ]
 
 295:                                              ; preds = %289
-  %296 = icmp ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 127
+  %296 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i.i, 127
   br i1 %296, label %297, label %.loopexit201.i
 
 297:                                              ; preds = %295

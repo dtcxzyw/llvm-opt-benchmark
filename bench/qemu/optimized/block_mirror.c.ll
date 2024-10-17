@@ -223,7 +223,7 @@ if.end7:                                          ; preds = %if.then5, %do.end
   %conv = zext i32 %granularity.addr.0 to i64
   %tobool.not.i = icmp ne i32 %granularity.addr.0, 0
   %0 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv)
-  %tobool1.not.i = icmp ult i64 %0, 2
+  %tobool1.not.i = icmp samesign ult i64 %0, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end11, label %if.else10
 

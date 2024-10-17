@@ -136,7 +136,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %23 = phi ptr [ %.pre, %19 ], [ %13, %.preheader2 ]
   %24 = add nuw nsw i64 %14, 1
   %25 = zext i32 %22 to i64
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp samesign ult i64 %24, %25
   br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !6
 
 .loopexit3:                                       ; preds = %21
@@ -181,7 +181,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %45 = add nuw nsw i64 %33, 1
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %45, %47
+  %48 = icmp samesign ult i64 %45, %47
   br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %44, %.thread, %.loopexit3.thread, %31, %.loopexit3

@@ -2480,7 +2480,7 @@ define internal i32 @do_ipt_get_ctl(ptr nocapture noundef readonly %0, i32 nound
 .loopexit22:                                      ; preds = %140, %105
   %158 = add nuw nsw i64 %102, 1
   %159 = and i64 %158, 127
-  %160 = icmp ugt i64 %159, 63
+  %160 = icmp samesign ugt i64 %159, 63
   br i1 %160, label %.thread, label %95, !prof !61, !llvm.loop !62
 
 .thread:                                          ; preds = %95, %.loopexit22, %101
@@ -2536,7 +2536,7 @@ define internal i32 @do_ipt_get_ctl(ptr nocapture noundef readonly %0, i32 nound
   %193 = add nuw nsw i32 %184, %192
   %194 = load i16, ptr %181, align 8
   %195 = zext i16 %194 to i32
-  %196 = icmp ult i32 %193, %195
+  %196 = icmp samesign ult i32 %193, %195
   br i1 %196, label %.preheader, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %190, %180
@@ -2802,7 +2802,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
   %113 = call i32 @__SCT__cond_resched() #15
   %114 = add nuw nsw i64 %69, 1
   %115 = and i64 %114, 127
-  %116 = icmp ugt i64 %115, 63
+  %116 = icmp samesign ugt i64 %115, 63
   br i1 %116, label %.thread, label %52, !prof !61, !llvm.loop !66
 
 117:                                              ; preds = %.preheader, %cleanup_entry.exit

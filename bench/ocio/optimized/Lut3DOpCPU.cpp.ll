@@ -1977,7 +1977,7 @@ for.body243.i:                                    ; preds = %for.end238.i, %for.
   br i1 %cmp249.i, label %if.then250.i, label %for.cond260.preheader.i
 
 for.cond260.preheader.i:                          ; preds = %for.body243.i
-  %cmp261237.i = icmp ult i64 %js.0242.i, 2
+  %cmp261237.i = icmp samesign ult i64 %js.0242.i, 2
   br i1 %cmp261237.i, label %for.body262.i, label %for.end271.i
 
 if.then250.i:                                     ; preds = %for.body243.i

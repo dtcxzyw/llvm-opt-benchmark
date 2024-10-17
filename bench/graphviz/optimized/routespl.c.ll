@@ -475,7 +475,7 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   %.0206.i = phi i1 [ %83, %102 ], [ false, %106 ], [ false, %110 ], [ false, %114 ], [ false, %113 ]
   %.0203.i = phi i32 [ %87, %102 ], [ %87, %106 ], [ 0, %110 ], [ 0, %114 ], [ 0, %113 ]
   %.0202.i = phi i32 [ %90, %102 ], [ %90, %106 ], [ %90, %110 ], [ 0, %114 ], [ 0, %113 ]
-  %118 = icmp ugt i32 %93, 1
+  %118 = icmp samesign ugt i32 %93, 1
   br i1 %118, label %.lr.ph251.preheader.i, label %.loopexit.i
 
 .lr.ph251.preheader.i:                            ; preds = %117
@@ -897,7 +897,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 328:                                              ; preds = %322, %321
   %.0315 = phi i32 [ %327, %322 ], [ 0, %321 ]
-  %329 = icmp ult i64 %indvars.iv413, %320
+  %329 = icmp samesign ult i64 %indvars.iv413, %320
   br i1 %329, label %330, label %336
 
 330:                                              ; preds = %328
@@ -2087,7 +2087,7 @@ define internal fastcc void @limitBoxes(ptr nocapture noundef %0, i32 noundef %1
 
 ..loopexit_crit_edge:                             ; preds = %._crit_edge
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 3
-  %11 = icmp ult i64 %indvars.iv.next91, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next91, %10
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 3
   br i1 %11, label %.preheader, label %._crit_edge86
 

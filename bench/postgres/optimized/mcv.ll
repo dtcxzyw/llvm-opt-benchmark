@@ -648,7 +648,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly %0) local_unn
 
 23:                                               ; preds = %8, %20
   %24 = phi i64 [ %12, %8 ], [ %22, %20 ]
-  %25 = icmp ult i64 %24, 18
+  %25 = icmp samesign ult i64 %24, 18
   br i1 %25, label %.thread, label %49
 
 .thread:                                          ; preds = %8, %23
@@ -1606,7 +1606,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr nocapture noundef readon
   %190 = add i32 %189, %178
   store i32 %190, ptr %175, align 4
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
-  %191 = icmp ult i64 %indvars.iv.next382, %177
+  %191 = icmp samesign ult i64 %indvars.iv.next382, %177
   br i1 %191, label %.lr.ph340, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %117, %112

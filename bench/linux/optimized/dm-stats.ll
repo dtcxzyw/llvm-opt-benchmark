@@ -131,7 +131,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_stats_init(ptr noundef %0) lo
   store i32 -1, ptr %25, align 8
   %26 = add nuw nsw i64 %14, 1
   %27 = and i64 %26, 127
-  %28 = icmp ugt i64 %27, 63
+  %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %.preheader, !prof !7, !llvm.loop !8
 
 .thread:                                          ; preds = %.preheader, %17, %13, %1
@@ -324,7 +324,7 @@ dm_kvfree.exit:                                   ; preds = %21, %37
 dm_kvfree.exit2:                                  ; preds = %dm_kvfree.exit, %49
   %50 = add nuw nsw i64 %18, 1
   %51 = and i64 %50, 127
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread, label %11, !prof !7, !llvm.loop !21
 
 .thread:                                          ; preds = %11, %dm_kvfree.exit2, %17
@@ -1242,7 +1242,7 @@ sub_0:                                            ; preds = %25
 218:                                              ; preds = %233, %214
   %219 = phi i64 [ 0, %214 ], [ %240, %233 ]
   %220 = and i64 %219, 4294967295
-  %221 = icmp ugt i64 %220, 63
+  %221 = icmp samesign ugt i64 %220, 63
   br i1 %221, label %.thread51, label %222, !prof !17
 
 222:                                              ; preds = %218
@@ -1535,7 +1535,7 @@ sub_0:                                            ; preds = %25
   %400 = add nuw nsw i64 %371, 1
   %401 = load i32, ptr %355, align 8
   %402 = zext i32 %401 to i64
-  %403 = icmp ult i64 %400, %402
+  %403 = icmp samesign ult i64 %400, %402
   br i1 %403, label %370, label %.loopexit64, !llvm.loop !46
 
 .loopexit64:                                      ; preds = %397, %360, %353
@@ -2134,7 +2134,7 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
   %311 = add nuw nsw i64 %293, 1
   %312 = add i32 %308, 1
   %313 = zext i32 %312 to i64
-  %314 = icmp ult i64 %311, %313
+  %314 = icmp samesign ult i64 %311, %313
   br i1 %314, label %291, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %307, %285, %285
@@ -2328,7 +2328,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
   %47 = lshr i64 %44, 12
   %48 = load volatile i64, ptr @_totalram_pages, align 8
   %49 = lshr i64 %48, 2
-  %50 = icmp ugt i64 %47, %49
+  %50 = icmp samesign ugt i64 %47, %49
   br i1 %50, label %212, label %51
 
 51:                                               ; preds = %46
@@ -2523,7 +2523,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
   %167 = phi i32 [ %165, %.loopexit21 ], [ %123, %141 ]
   %168 = add nuw nsw i64 %129, 1
   %169 = and i64 %168, 127
-  %170 = icmp ugt i64 %169, 63
+  %170 = icmp samesign ugt i64 %169, 63
   br i1 %170, label %.thread, label %121, !prof !7, !llvm.loop !59
 
 .thread:                                          ; preds = %121, %166, %128
@@ -2656,7 +2656,7 @@ define internal fastcc ptr @dm_kvzalloc(i64 noundef %0, i32 noundef %1) unnamed_
   %7 = lshr i64 %4, 12
   %8 = load volatile i64, ptr @_totalram_pages, align 8
   %9 = lshr i64 %8, 2
-  %10 = icmp ugt i64 %7, %9
+  %10 = icmp samesign ugt i64 %7, %9
   br i1 %10, label %35, label %11
 
 11:                                               ; preds = %6
@@ -2881,7 +2881,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   %97 = load i32, ptr %9, align 8
   %98 = add i32 %97, 1
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %96, %99
+  %100 = icmp samesign ult i64 %96, %99
   br i1 %100, label %82, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %82, %14, %14
@@ -3107,13 +3107,13 @@ define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef 
   %151 = load i32, ptr %65, align 8
   %152 = add i32 %151, 1
   %153 = zext i32 %152 to i64
-  %154 = icmp ult i64 %150, %153
+  %154 = icmp samesign ult i64 %150, %153
   br i1 %154, label %141, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %141, %86, %86
   %155 = add nuw nsw i64 %83, 1
   %156 = and i64 %155, 127
-  %157 = icmp ugt i64 %156, 63
+  %157 = icmp samesign ugt i64 %156, 63
   br i1 %157, label %.thread, label %76, !prof !7, !llvm.loop !73
 
 .thread:                                          ; preds = %76, %.loopexit, %82

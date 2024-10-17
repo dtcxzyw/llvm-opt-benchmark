@@ -1799,7 +1799,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6hermes2vm23ExternalStringPrimitiveIDsE22calcExternalMemorySizeEv.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %cmp3.i.i.i = icmp ult i32 %and.i, 8
+  %cmp3.i.i.i = icmp samesign ult i32 %and.i, 8
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNK6hermes2vm23ExternalStringPrimitiveIDsE22calcExternalMemorySizeEv.exit
 
@@ -4387,7 +4387,7 @@ _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit31: ; preds = %if.then.i.i
   %retval.0.i.i.i15 = phi ptr [ %call.i.i.i.i30, %if.then.i.i.i28 ], [ %add.ptr.i.i.i.i.i.i21, %if.then5.i.i.i20 ], [ %add.ptr.i.i.i4.i.i.i14, %if.then10.i.i.i13 ], [ %call.i.i.i.i.i27, %if.else13.i.i.i22 ]
   %and.i.i16 = and i32 %4, 2147483647
   %conv.i.i17 = zext nneg i32 %and.i.i16 to i64
-  %cmp.not.i = icmp ult i32 %and.i.i, %and.i.i16
+  %cmp.not.i = icmp samesign ult i32 %and.i.i, %and.i.i16
   br i1 %cmp.not.i, label %if.end17.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit31
@@ -4539,7 +4539,7 @@ if.else13.i.i.i71:                                ; preds = %if.else.i.i.i60
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit: ; preds = %if.then.i.i.i76, %if.then5.i.i.i69, %if.then10.i.i.i62, %if.else13.i.i.i71
   %retval.0.i.i.i64 = phi ptr [ %16, %if.then.i.i.i76 ], [ %add.ptr.i.i.i.i.i.i70, %if.then5.i.i.i69 ], [ %add.ptr.i.i.i4.i.i.i63, %if.then10.i.i.i62 ], [ %18, %if.else13.i.i.i71 ]
   %and.i.i65 = and i32 %15, 2147483647
-  %cmp.not.i78 = icmp ult i32 %and.i.i41, %and.i.i65
+  %cmp.not.i78 = icmp samesign ult i32 %and.i.i41, %and.i.i65
   br i1 %cmp.not.i78, label %if.end17.i101, label %if.then.i79
 
 if.then.i79:                                      ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
@@ -4699,7 +4699,7 @@ _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit155: ; preds = %if.then.i.
   %retval.0.i.i.i139 = phi ptr [ %call.i.i.i.i154, %if.then.i.i.i152 ], [ %add.ptr.i.i.i.i.i.i145, %if.then5.i.i.i144 ], [ %add.ptr.i.i.i4.i.i.i138, %if.then10.i.i.i137 ], [ %call.i.i.i.i.i151, %if.else13.i.i.i146 ]
   %and.i.i140 = and i32 %30, 2147483647
   %conv.i.i141 = zext nneg i32 %and.i.i140 to i64
-  %cmp.not.i156 = icmp ult i32 %and.i.i118, %and.i.i140
+  %cmp.not.i156 = icmp samesign ult i32 %and.i.i118, %and.i.i140
   br i1 %cmp.not.i156, label %if.end17.i184, label %if.then.i157
 
 if.then.i157:                                     ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit155
@@ -4859,7 +4859,7 @@ if.else13.i.i.i242:                               ; preds = %if.else.i.i.i231
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit249: ; preds = %if.then.i.i.i247, %if.then5.i.i.i240, %if.then10.i.i.i233, %if.else13.i.i.i242
   %retval.0.i.i.i235 = phi ptr [ %45, %if.then.i.i.i247 ], [ %add.ptr.i.i.i.i.i.i241, %if.then5.i.i.i240 ], [ %add.ptr.i.i.i4.i.i.i234, %if.then10.i.i.i233 ], [ %47, %if.else13.i.i.i242 ]
   %and.i.i236 = and i32 %44, 2147483647
-  %cmp.not.i250 = icmp ult i32 %and.i.i214, %and.i.i236
+  %cmp.not.i250 = icmp samesign ult i32 %and.i.i214, %and.i.i236
   br i1 %cmp.not.i250, label %if.end17.i273, label %if.then.i251
 
 if.then.i251:                                     ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit249
@@ -5421,7 +5421,7 @@ if.then:                                          ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %cmp.i.i = icmp ugt i32 %and.i, 65535
+  %cmp.i.i = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -6447,7 +6447,7 @@ if.else13:                                        ; preds = %if.else
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %18 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %18, 2147483647
-  %cmp.i.i38 = icmp ugt i32 %and.i, 65535
+  %cmp.i.i38 = icmp samesign ugt i32 %and.i, 65535
   br i1 %cmp.i.i38, label %if.else4.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else13

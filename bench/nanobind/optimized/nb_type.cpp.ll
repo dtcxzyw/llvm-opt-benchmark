@@ -212,7 +212,7 @@ define hidden noundef ptr @_ZN8nanobind6detail12inst_new_intEP11_typeobject(ptr 
   %16 = and i32 %15, 255
   %17 = getelementptr inbounds i8, ptr %storemerge, i64 24
   %18 = ptrtoint ptr %17 to i64
-  %19 = icmp ugt i32 %16, 8
+  %19 = icmp samesign ugt i32 %16, 8
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %13
@@ -882,7 +882,7 @@ _ZN8nanobind3strD2Ev.exit328:                     ; preds = %59, %90, %91, %94, 
   %100 = add nuw nsw i64 %99, 24
   %101 = load i32, ptr %19, align 4
   %102 = and i32 %101, 255
-  %103 = icmp ugt i32 %102, 8
+  %103 = icmp samesign ugt i32 %102, 8
   %104 = zext nneg i32 %102 to i64
   %105 = add nsw i64 %104, -8
   %106 = select i1 %103, i64 %105, i64 0
@@ -987,7 +987,7 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_
   %154 = zext i32 %153 to i64
   %155 = add nuw nsw i64 %154, 24
   %156 = and i32 %150, 255
-  %157 = icmp ugt i32 %156, 8
+  %157 = icmp samesign ugt i32 %156, 8
   %158 = zext nneg i32 %156 to i64
   %159 = add nsw i64 %158, -8
   %160 = select i1 %157, i64 %159, i64 0
@@ -1949,7 +1949,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %29, %39
 55:                                               ; preds = %52
   %56 = load i32, ptr %21, align 4
   %57 = and i32 %56, 255
-  %58 = icmp ult i32 %57, 17
+  %58 = icmp samesign ult i32 %57, 17
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %55
@@ -6581,7 +6581,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
 17:                                               ; preds = %_ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -6594,7 +6594,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %20 = lshr i64 %.01114.i.i, %.015.i.i
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
-  %23 = icmp ult i64 %.015.i.i, 32
+  %23 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19
@@ -7655,7 +7655,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nan
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
 17:                                               ; preds = %_ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -7668,7 +7668,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %20 = lshr i64 %.01114.i.i, %.015.i.i
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
-  %23 = icmp ult i64 %.015.i.i, 32
+  %23 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19
@@ -8446,7 +8446,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nan
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
   %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %16 = icmp ult i64 %15, 2
+  %16 = icmp samesign ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
 17:                                               ; preds = %_ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i
@@ -8459,7 +8459,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %20 = lshr i64 %.01114.i.i, %.015.i.i
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
-  %23 = icmp ult i64 %.015.i.i, 32
+  %23 = icmp samesign ult i64 %.015.i.i, 32
   br i1 %23, label %19, label %24, !llvm.loop !81
 
 24:                                               ; preds = %19

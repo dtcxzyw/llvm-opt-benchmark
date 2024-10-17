@@ -4377,7 +4377,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit496: ; preds = %_ZNK4l
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %731, %734
   %.0.i.i = phi i64 [ %736, %734 ], [ %733, %731 ]
-  %737 = icmp ult i64 %indvars.iv, %.0.i.i
+  %737 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %737, label %738, label %.loopexit1236
 
 738:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
@@ -7496,7 +7496,7 @@ _ZNSt6vectorIPN4llvm8MetadataESaIS2_EED2Ev.exit:  ; preds = %_ZNSt6vectorIPN12_G
   br i1 %.not.i.i.i.i.i.i753, label %select.unfold.i.i.i.i.i.i, label %2034
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i752
-  %.not12.i.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
+  %.not12.i.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
   br i1 %.not12.i.i.i.i.i.i, label %.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i752, !llvm.loop !105
 
 2034:                                             ; preds = %.lr.ph.i.i.i.i.i.i752
@@ -9495,7 +9495,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbEEvPKcRT_.exit:    ; preds = %_ZN4llvm4yaml2IO11m
   br i1 %.not.i.i.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !150
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %69 = icmp ugt i64 %.06.i.i.i.i, 288230376151711742
+  %69 = icmp samesign ugt i64 %.06.i.i.i.i, 288230376151711742
   br i1 %69, label %70, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
 
 70:                                               ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i
@@ -9576,7 +9576,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not.i.i.i.i28, label %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29, label %.lr.ph.i.i.i.i25, !llvm.loop !150
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29: ; preds = %.lr.ph.i.i.i.i25
-  %99 = icmp ugt i64 %.06.i.i.i.i26, 288230376151711742
+  %99 = icmp samesign ugt i64 %.06.i.i.i.i26, 288230376151711742
   br i1 %99, label %100, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i30
 
 100:                                              ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i29
@@ -22417,7 +22417,7 @@ _ZNSt3setImSt4lessImESaImEE6insertERKm.exit:      ; preds = %218, %_ZNSt8_Rb_tre
   br i1 %.not.i.i.i.i.i115, label %select.unfold.i.i.i.i.i, label %242
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i114
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i.i.i114, !llvm.loop !333
 
 .thread.i.i.i:                                    ; preds = %select.unfold.i.i.i.i.i, %234

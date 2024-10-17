@@ -1147,7 +1147,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5E
   %83 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %84 = icmp ult i64 %83, 6
   call void @llvm.assume(i1 %84)
-  %switch98 = icmp ult i64 %83, 2
+  %switch98 = icmp samesign ult i64 %83, 2
   br i1 %switch98, label %92, label %85
 
 85:                                               ; preds = %81
@@ -1462,7 +1462,7 @@ _RNvXsp_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_21CharPredicateSearcherNCNvMB7_
   %165 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %166 = icmp ult i64 %165, 6
   call void @llvm.assume(i1 %166)
-  %switch103 = icmp ult i64 %165, 2
+  %switch103 = icmp samesign ult i64 %165, 2
   br i1 %switch103, label %173, label %167
 
 167:                                              ; preds = %164

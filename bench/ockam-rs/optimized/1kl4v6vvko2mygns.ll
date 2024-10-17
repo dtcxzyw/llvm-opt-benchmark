@@ -1585,7 +1585,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %198 = getelementptr inbounds ptr, ptr %196, i64 %177
   store ptr %160, ptr %198, align 8, !alias.scope !187, !noalias !190
   store i16 %175, ptr %168, align 2, !noalias !190
-  %199 = icmp ult i64 %177, %197
+  %199 = icmp samesign ult i64 %177, %197
   br i1 %199, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %195
@@ -2402,7 +2402,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %198 = getelementptr inbounds ptr, ptr %196, i64 %177
   store ptr %160, ptr %198, align 8, !alias.scope !370, !noalias !373
   store i16 %175, ptr %168, align 2, !noalias !373
-  %199 = icmp ult i64 %177, %197
+  %199 = icmp samesign ult i64 %177, %197
   br i1 %199, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %195
@@ -3218,7 +3218,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %199 = getelementptr inbounds ptr, ptr %197, i64 %176
   store ptr %159, ptr %199, align 8, !alias.scope !553, !noalias !556
   store i16 %174, ptr %167, align 2, !noalias !556
-  %200 = icmp ult i64 %176, %198
+  %200 = icmp samesign ult i64 %176, %198
   br i1 %200, label %.lr.ph.i.i.i.preheader, label %.thread83
 
 .lr.ph.i.i.i.preheader:                           ; preds = %196
@@ -3611,7 +3611,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %13
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -3619,7 +3619,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %8
+  %.not = icmp samesign ugt i64 %1, %8
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -3749,7 +3749,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %13
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -3757,7 +3757,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %8
+  %.not = icmp samesign ugt i64 %1, %8
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -3887,7 +3887,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %13
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -3895,7 +3895,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %8
+  %.not = icmp samesign ugt i64 %1, %8
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -4025,7 +4025,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %8
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -4033,7 +4033,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %13
+  %.not = icmp samesign ugt i64 %1, %13
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -4165,7 +4165,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %8
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -4173,7 +4173,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %13
+  %.not = icmp samesign ugt i64 %1, %13
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -4304,7 +4304,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %12 = load i16, ptr %11, align 2, !noundef !18
   %13 = zext i16 %12 to i64
   %14 = add nuw nsw i64 %1, %8
-  %15 = icmp ult i64 %14, 12
+  %15 = icmp samesign ult i64 %14, 12
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -4312,7 +4312,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 17:                                               ; preds = %2
-  %.not = icmp ugt i64 %1, %13
+  %.not = icmp samesign ugt i64 %1, %13
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %17
@@ -4472,7 +4472,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -4631,7 +4631,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -4790,7 +4790,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = zext i16 %23 to i64
   %25 = add nuw nsw i64 %9, 1
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ult i64 %26, 12
+  %27 = icmp samesign ult i64 %26, 12
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
@@ -5272,7 +5272,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %63 = add nuw nsw i64 %62, 1
   %64 = zext nneg i16 %32 to i64
   %65 = add nuw nsw i64 %63, %64
-  %66 = icmp ult i64 %65, 12
+  %66 = icmp samesign ult i64 %65, 12
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %54
@@ -5345,7 +5345,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %88 = load i16, ptr %87, align 2, !noundef !18
   %89 = zext i16 %88 to i64
   %90 = add nuw nsw i64 %86, %89
-  %91 = icmp ult i64 %90, 12
+  %91 = icmp samesign ult i64 %90, 12
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %83
@@ -5482,7 +5482,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %123 = zext i16 %122 to i64
   %124 = add nuw nsw i64 %103, 1
   %125 = add nuw nsw i64 %124, %123
-  %126 = icmp ult i64 %125, 12
+  %126 = icmp samesign ult i64 %125, 12
   br i1 %126, label %._crit_edge161, label %136
 
 127:                                              ; preds = %110
@@ -5501,7 +5501,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %132 = load i16, ptr %131, align 2, !noalias !18, !noundef !18
   %133 = zext i16 %132 to i64
   %134 = add nuw nsw i64 %130, %133
-  %135 = icmp ult i64 %134, 12
+  %135 = icmp samesign ult i64 %134, 12
   br i1 %135, label %._crit_edge161.thread, label %138
 
 136:                                              ; preds = %115
@@ -5524,7 +5524,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !967
   %.pre167 = add nuw nsw i64 %123, 1
   %.pre169 = add nuw nsw i64 %.pre167, %103
-  %140 = icmp ult i64 %.pre169, 12
+  %140 = icmp samesign ult i64 %.pre169, 12
   br i1 %140, label %._crit_edge161.thread, label %.noexc53.i.invoke
 
 ._crit_edge161.thread:                            ; preds = %127, %._crit_edge161
@@ -5796,7 +5796,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %63 = add nuw nsw i64 %62, 1
   %64 = zext nneg i16 %32 to i64
   %65 = add nuw nsw i64 %63, %64
-  %66 = icmp ult i64 %65, 12
+  %66 = icmp samesign ult i64 %65, 12
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %54
@@ -5869,7 +5869,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %88 = load i16, ptr %87, align 2, !noundef !18
   %89 = zext i16 %88 to i64
   %90 = add nuw nsw i64 %86, %89
-  %91 = icmp ult i64 %90, 12
+  %91 = icmp samesign ult i64 %90, 12
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %83
@@ -6006,7 +6006,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %123 = zext i16 %122 to i64
   %124 = add nuw nsw i64 %103, 1
   %125 = add nuw nsw i64 %124, %123
-  %126 = icmp ult i64 %125, 12
+  %126 = icmp samesign ult i64 %125, 12
   br i1 %126, label %._crit_edge161, label %136
 
 127:                                              ; preds = %110
@@ -6025,7 +6025,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %132 = load i16, ptr %131, align 2, !noalias !18, !noundef !18
   %133 = zext i16 %132 to i64
   %134 = add nuw nsw i64 %130, %133
-  %135 = icmp ult i64 %134, 12
+  %135 = icmp samesign ult i64 %134, 12
   br i1 %135, label %._crit_edge161.thread, label %138
 
 136:                                              ; preds = %115
@@ -6048,7 +6048,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !1060
   %.pre167 = add nuw nsw i64 %123, 1
   %.pre169 = add nuw nsw i64 %.pre167, %103
-  %140 = icmp ult i64 %.pre169, 12
+  %140 = icmp samesign ult i64 %.pre169, 12
   br i1 %140, label %._crit_edge161.thread, label %.noexc53.i.invoke
 
 ._crit_edge161.thread:                            ; preds = %127, %._crit_edge161
@@ -6319,7 +6319,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %62 = add nuw nsw i64 %61, 1
   %63 = zext nneg i16 %32 to i64
   %64 = add nuw nsw i64 %62, %63
-  %65 = icmp ult i64 %64, 12
+  %65 = icmp samesign ult i64 %64, 12
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %53
@@ -6391,7 +6391,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %86 = load i16, ptr %85, align 2, !noundef !18
   %87 = zext i16 %86 to i64
   %88 = add nuw nsw i64 %84, %87
-  %89 = icmp ult i64 %88, 12
+  %89 = icmp samesign ult i64 %88, 12
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %81
@@ -6527,7 +6527,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %120 = zext i16 %119 to i64
   %121 = add nuw nsw i64 %101, 1
   %122 = add nuw nsw i64 %121, %120
-  %123 = icmp ult i64 %122, 12
+  %123 = icmp samesign ult i64 %122, 12
   br i1 %123, label %._crit_edge161, label %133
 
 124:                                              ; preds = %107
@@ -6546,7 +6546,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %129 = load i16, ptr %128, align 2, !noalias !18, !noundef !18
   %130 = zext i16 %129 to i64
   %131 = add nuw nsw i64 %127, %130
-  %132 = icmp ult i64 %131, 12
+  %132 = icmp samesign ult i64 %131, 12
   br i1 %132, label %._crit_edge161.thread, label %135
 
 133:                                              ; preds = %112
@@ -6569,7 +6569,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !1153
   %.pre167 = add nuw nsw i64 %120, 1
   %.pre169 = add nuw nsw i64 %.pre167, %101
-  %137 = icmp ult i64 %.pre169, 12
+  %137 = icmp samesign ult i64 %.pre169, 12
   br i1 %137, label %._crit_edge161.thread, label %.noexc53.i.invoke
 
 ._crit_edge161.thread:                            ; preds = %124, %._crit_edge161

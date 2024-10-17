@@ -195,7 +195,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   %71 = add nuw nsw i64 %39, 1
   %72 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %71, %73
+  %74 = icmp samesign ult i64 %71, %73
   br i1 %74, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %67, %34

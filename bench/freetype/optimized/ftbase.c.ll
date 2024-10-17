@@ -1064,7 +1064,7 @@ define range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Vector_Leng
   %12 = trunc i64 %11 to i32
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %14 = xor i32 %13, 31
-  %15 = icmp ult i32 %14, 30
+  %15 = icmp samesign ult i32 %14, 30
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %9
@@ -1679,7 +1679,7 @@ define hidden zeroext range(i8 0, 2) i8 @FT_Matrix_Check(ptr noundef readonly %0
   br i1 %or.cond, label %42, label %18
 
 18:                                               ; preds = %2
-  %19 = icmp ugt i64 %16, 8191
+  %19 = icmp samesign ugt i64 %16, 8191
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %18
@@ -1885,7 +1885,7 @@ define hidden i32 @FT_Vector_NormLen(ptr nocapture noundef %0) local_unnamed_add
   %22 = zext i32 %20 to i64
   %23 = zext nneg i32 %21 to i64
   %24 = lshr i64 2863311530, %23
-  %.not = icmp ugt i64 %24, %22
+  %.not = icmp samesign ugt i64 %24, %22
   %.neg = select i1 %.not, i32 -15, i32 -16
   %25 = add nsw i32 %.neg, %21
   %26 = icmp sgt i32 %25, 0
@@ -3548,7 +3548,7 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef %0) local_unnamed_addr #10 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i16, ptr %4, align 8
   %15 = zext i16 %14 to i64
-  %16 = icmp ult i64 %indvars.iv.next, %15
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %16, label %8, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %8, %2
@@ -12484,7 +12484,7 @@ FT_Done_Face.exit:                                ; preds = %56, %.lr.ph, %35, %
   %71 = phi i32 [ %.pre54, %.loopexit.loopexit ], [ %17, %29 ], [ %17, %25 ], [ %17, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next, %72
   br i1 %73, label %16, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader38
@@ -12842,7 +12842,7 @@ define i32 @FT_Outline_Decompose(ptr noundef readonly %0, ptr noundef readonly %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i16, ptr %0, align 8
   %36 = zext i16 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %38, label %.loopexit, !llvm.loop !57
 
 38:                                               ; preds = %.lr.ph172, %34
@@ -13417,7 +13417,7 @@ define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #10 {
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %13 = and i64 %8, 4294967295
-  %14 = icmp ult i64 %13, %12
+  %14 = icmp samesign ult i64 %13, %12
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge44
 
 .lr.ph.preheader:                                 ; preds = %7
@@ -13459,7 +13459,7 @@ define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #10 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %0, align 8
   %30 = zext i16 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %7, label %._crit_edge48, !llvm.loop !61
 
 ._crit_edge48:                                    ; preds = %._crit_edge44, %.preheader
@@ -13777,7 +13777,7 @@ define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly %0, i64 
   %59 = zext i32 %57 to i64
   %60 = zext nneg i32 %58 to i64
   %61 = lshr i64 2863311530, %60
-  %.not.i = icmp ugt i64 %61, %59
+  %.not.i = icmp samesign ugt i64 %61, %59
   %.neg.i = select i1 %.not.i, i32 -15, i32 -16
   %62 = add nsw i32 %.neg.i, %58
   %63 = icmp sgt i32 %62, 0
@@ -14082,7 +14082,7 @@ FT_Vector_NormLen.exit.thread:                    ; preds = %226, %223, %49, %11
   %243 = phi i16 [ %.pre, %._crit_edge.loopexit ], [ %25, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %244 = zext i16 %243 to i64
-  %245 = icmp ult i64 %indvars.iv.next, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next, %244
   br i1 %245, label %24, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %._crit_edge, %14, %12, %4, %3
@@ -14665,7 +14665,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
   br i1 %.not87, label %FT_Stream_Seek.exit.thread, label %109
 
 109:                                              ; preds = %43
-  %110 = icmp ult i64 %59, %76
+  %110 = icmp samesign ult i64 %59, %76
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %109
@@ -17249,7 +17249,7 @@ define range(i64 9223372036854775800, 9223372036854775793) i64 @FT_Atan2(i64 nou
   %8 = trunc i64 %7 to i32
   %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %10 = xor i32 %9, 31
-  %11 = icmp ult i32 %10, 30
+  %11 = icmp samesign ult i32 %10, 30
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %4
@@ -17377,7 +17377,7 @@ define void @FT_Vector_Rotate(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %12 = trunc i64 %11 to i32
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %14 = xor i32 %13, 31
-  %15 = icmp ult i32 %14, 30
+  %15 = icmp samesign ult i32 %14, 30
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %8
@@ -17543,7 +17543,7 @@ define void @FT_Vector_Polarize(ptr noundef readonly %0, ptr noundef writeonly %
   %14 = trunc i64 %13 to i32
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %16 = xor i32 %15, 31
-  %17 = icmp ult i32 %16, 30
+  %17 = icmp samesign ult i32 %16, 30
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %10

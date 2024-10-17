@@ -199,7 +199,7 @@ for.body:                                         ; preds = %if.then17, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i8, ptr %nkey, align 1
   %18 = zext i8 %17 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next, %18
+  %cmp28 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp28, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.then17

@@ -136,7 +136,7 @@ define dso_local void @i915_ttm_adjust_gem_after_move(ptr noundef %0) local_unna
   %52 = add nuw nsw i64 %41, 1
   %53 = load i32, ptr %35, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %52, %54
+  %55 = icmp samesign ult i64 %52, %54
   br i1 %55, label %40, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %51, %50, %34, %26

@@ -10621,7 +10621,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10set_p
   %.sroa.speculated81 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %.not72 = icmp sge i32 %24, %.sroa.speculated81
   %28 = add nuw nsw i32 %.sroa.speculated81, %22
-  %29 = icmp ult i32 %28, 30
+  %29 = icmp samesign ult i32 %28, 30
   %or.cond = select i1 %.not72, i1 true, i1 %29
   br i1 %or.cond, label %30, label %39
 
@@ -11206,7 +11206,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaI
 58:                                               ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.i
   %59 = zext i8 %55 to i64
   %60 = add nuw nsw i64 %34, 1
-  %61 = icmp ult i64 %60, %59
+  %61 = icmp samesign ult i64 %60, %59
   br i1 %61, label %.lr.ph.i28, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE13emplace_valueIJPlEEEvlPS6_DpOT_.exit
 
 .lr.ph.i28:                                       ; preds = %58
@@ -11266,7 +11266,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaI
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %92 = load i8, ptr %17, align 1
   %93 = zext i8 %92 to i64
-  %.not.not = icmp ult i64 %indvars.iv33, %93
+  %.not.not = icmp samesign ult i64 %indvars.iv33, %93
   br i1 %.not.not, label %86, label %.loopexit, !llvm.loop !148
 
 .loopexit:                                        ; preds = %86, %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE13emplace_valueIJPlEEEvlPS6_DpOT_.exit
@@ -11349,7 +11349,7 @@ _ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_
   br i1 %38, label %.lr.ph.i.i, label %_ZSt8distanceIN4absl7debian218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERlPlEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit, !llvm.loop !149
 
 _ZSt8distanceIN4absl7debian218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERlPlEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit: ; preds = %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERlPlEppEv.exit.i.i
-  %39 = icmp ugt i64 %.017.i.i, 1152921504606846974
+  %39 = icmp samesign ugt i64 %.017.i.i, 1152921504606846974
   br i1 %39, label %40, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit
 
 40:                                               ; preds = %_ZSt8distanceIN4absl7debian218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERlPlEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit

@@ -5406,7 +5406,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK3nla6mon_eq4sizeEv.exit:                      ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i64 [ %15, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK3nla6mon_eq4sizeEv.exit

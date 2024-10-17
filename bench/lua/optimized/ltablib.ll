@@ -479,7 +479,7 @@ lor.lhs.false8:                                   ; preds = %land.lhs.true5
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false8, %land.lhs.true5
   %n.1 = phi i32 [ %inc9, %lor.lhs.false8 ], [ %n.0, %land.lhs.true5 ]
-  %tobool14.not = icmp ult i32 %what, 4
+  %tobool14.not = icmp samesign ult i32 %what, 4
   br i1 %tobool14.not, label %if.then19, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %land.lhs.true12

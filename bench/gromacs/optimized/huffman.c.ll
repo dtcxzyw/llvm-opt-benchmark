@@ -1032,7 +1032,7 @@ readbits.exit98:                                  ; preds = %62
   %.077164 = phi i32 [ 0, %.lr.ph166 ], [ %.178, %86 ]
   %76 = getelementptr inbounds %struct.codelength, ptr %11, i64 %indvars.iv188
   store i32 %.077164, ptr %76, align 4
-  %77 = icmp ult i64 %indvars.iv188, %72
+  %77 = icmp samesign ult i64 %indvars.iv188, %72
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %75

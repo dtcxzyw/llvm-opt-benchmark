@@ -1231,7 +1231,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
 
 .thread793:                                       ; preds = %.thread, %404, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit291, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit274
   %428 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %429 = icmp ugt i64 %428, 1
+  %429 = icmp samesign ugt i64 %428, 1
   %430 = icmp ugt i64 %140, 16
   %431 = or i1 %430, %429
   br i1 %431, label %432, label %678

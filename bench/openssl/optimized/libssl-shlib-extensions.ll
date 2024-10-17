@@ -435,7 +435,7 @@ if.end28:                                         ; preds = %lor.lhs.false19
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
   %conv29 = and i64 %sub.ptr.div, 4294967295
-  %cmp30 = icmp ult i64 %conv29, 29
+  %cmp30 = icmp samesign ult i64 %conv29, 29
   %or.cond96 = and i1 %cmp34, %cmp30
   br i1 %or.cond96, label %switch.early.test, label %if.end58
 

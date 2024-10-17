@@ -12309,13 +12309,13 @@ default.unreachable.i:                            ; preds = %.noexc
 26:                                               ; preds = %.noexc
   %27 = getelementptr inbounds i8, ptr %20, i64 29
   %28 = load i8, ptr %27, align 1, !range !80, !alias.scope !5449, !noalias !5448, !noundef !4
-  %or.cond.not.i = icmp ult i8 %28, 2
+  %or.cond.not.i = icmp samesign ult i8 %28, 2
   br i1 %.not, label %34, label %37
 
 29:                                               ; preds = %.noexc
   %30 = getelementptr inbounds i8, ptr %20, i64 29
   %31 = load i8, ptr %30, align 1, !range !80, !alias.scope !5450, !noalias !5448, !noundef !4
-  %switch.not.i.i = icmp ult i8 %31, 2
+  %switch.not.i.i = icmp samesign ult i8 %31, 2
   br i1 %switch.not.i.i, label %32, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
 
 32:                                               ; preds = %29

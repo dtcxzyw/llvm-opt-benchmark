@@ -1416,7 +1416,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call fastcc void @dissect_sna_control(ptr noundef %159, i32 noundef %.032.i.i.i, i32 noundef %171, ptr noundef nonnull %.174.i.i, i32 noundef 1, i32 noundef 0)
   %173 = add nuw nsw i32 %171, 3
   %174 = and i32 %173, 508
-  %175 = icmp ugt i32 %174, %171
+  %175 = icmp samesign ugt i32 %174, %171
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %172
@@ -1530,7 +1530,7 @@ dissect_optional_0e.exit.i.i:                     ; preds = %200, %184
   tail call fastcc void @dissect_sna_control(ptr noundef %159, i32 noundef 20, i32 noundef %252, ptr noundef %236, i32 noundef 1, i32 noundef 0)
   %253 = add nuw nsw i32 %230, 3
   %254 = and i32 %253, 508
-  %255 = icmp ugt i32 %254, %230
+  %255 = icmp samesign ugt i32 %254, %230
   br i1 %255, label %256, label %261
 
 256:                                              ; preds = %234
@@ -1703,7 +1703,7 @@ dissect_optional.exit.i:                          ; preds = %dissect_optional_0d
   %353 = tail call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %352, ptr noundef %343, i32 noundef %.039.i.i, i32 noundef 2, i32 noundef 0) #5
   %354 = load i32, ptr @hf_sna_gds_cont, align 4
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %354, ptr noundef %343, i32 noundef %.039.i.i, i32 noundef 2, i32 noundef 0) #5
-  %356 = icmp ult i16 %346, 2
+  %356 = icmp samesign ult i16 %346, 2
   br i1 %356, label %dissect_nlp.exit, label %357
 
 357:                                              ; preds = %344
@@ -2507,7 +2507,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %48, i32 noundef %51, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef 0)
   %52 = add nuw nsw i32 %51, 3
   %53 = and i32 %52, 508
-  %54 = icmp ugt i32 %53, %51
+  %54 = icmp samesign ugt i32 %53, %51
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %50
@@ -2536,7 +2536,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %64, i32 noundef %68, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef %5)
   %69 = add nuw nsw i32 %68, 3
   %70 = and i32 %69, 508
-  %71 = icmp ugt i32 %70, %68
+  %71 = icmp samesign ugt i32 %70, %68
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %67

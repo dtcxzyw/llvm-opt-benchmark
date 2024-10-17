@@ -201,9 +201,9 @@ if.end38:                                         ; preds = %if.end34
   %div.i64 = udiv i128 %coerce.sroa.0.0.insert.insert.i.i17.i, %coerce.sroa.0.0.insert.insert.i.i17.i59
   %coerce3.sroa.0.0.extract.trunc.i = trunc i128 %div.i64 to i64
   %coerce3.sroa.2.0.extract.shift.i = and i128 %div.i64, 158456325010081931113378349056
-  %cmp.i.i67 = icmp ugt i128 %div.i64, 9223372036854775807
+  %cmp.i.i67 = icmp samesign ugt i128 %div.i64, 9223372036854775807
   %spec.select128 = select i1 %4, i64 -9223372036854775808, i64 9223372036854775807
-  %5 = and i1 %satq, %cmp.i.i67
+  %5 = select i1 %satq, i1 %cmp.i.i67, i1 false
   %quotient128.sroa.0.0 = select i1 %5, i64 %spec.select128, i64 %coerce3.sroa.0.0.extract.trunc.i
   %coerce.sroa.2.0.insert.ext.i70 = select i1 %satq, i128 0, i128 %coerce3.sroa.2.0.extract.shift.i
   %coerce.sroa.0.0.insert.ext.i72 = zext i64 %quotient128.sroa.0.0 to i128
@@ -470,7 +470,7 @@ if.end:                                           ; preds = %entry
   %a.lobit9.i.i = ashr i64 %r, 63
   %spec.select8.i.i = xor i64 %a.lobit9.i.i, %r
   %coerce.sroa.0.0.insert.insert.i.i.i.i = add i64 %spec.select8.i.i, %a.lobit.i.i
-  %cmp.i6.i = icmp ult i128 %coerce.sroa.0.0.insert.insert.i.i17.i.i, 18446744073709551616
+  %cmp.i6.i = icmp samesign ult i128 %coerce.sroa.0.0.insert.insert.i.i17.i.i, 18446744073709551616
   br i1 %cmp.i6.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -739,7 +739,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %if.end34.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp3.i.i = icmp ugt i64 %coerce3.sroa.2.0.extract.trunc.i.i.i, 1999999999
+  %cmp3.i.i = icmp samesign ugt i64 %coerce3.sroa.2.0.extract.trunc.i.i.i, 1999999999
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end18.i.i
 
 if.then4.i.i:                                     ; preds = %if.else.i.i
@@ -2766,7 +2766,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   br label %if.end34.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i
-  %cmp3.i.i.i.i = icmp ugt i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i, 1999999999
+  %cmp3.i.i.i.i = icmp samesign ugt i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i, 1999999999
   br i1 %cmp3.i.i.i.i, label %if.then4.i.i.i.i, label %if.end18.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.else.i.i.i.i

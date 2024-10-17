@@ -2693,7 +2693,7 @@ define internal fastcc void @print_statistics(ptr noundef %0, ptr noundef nonnul
   %.129.i.i = phi i64 [ %141, %135 ], [ %.02837.i.i, %130 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %145 = zext i32 %143 to i64
-  %146 = icmp ult i64 %indvars.iv.next.i.i, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next.i.i, %145
   br i1 %146, label %130, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %142, %124
@@ -2754,7 +2754,7 @@ define internal fastcc void @print_statistics(ptr noundef %0, ptr noundef nonnul
   %.4.i.i = phi i64 [ %171, %165 ], [ %.340.i.i, %.lr.ph43.i.i ]
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 1
   %174 = zext i32 %172 to i64
-  %175 = icmp ult i64 %indvars.iv.next49.i.i, %174
+  %175 = icmp samesign ult i64 %indvars.iv.next49.i.i, %174
   br i1 %175, label %.lr.ph43.i.i, label %print_group_info.exit.i
 
 print_group_info.exit.i:                          ; preds = %._crit_edge55.i.i, %158, %._crit_edge.i.i
@@ -2866,7 +2866,7 @@ print_group_info.exit.i:                          ; preds = %._crit_edge55.i.i, 
   %.157.i.i = phi i64 [ %230, %224 ], [ %.05678.i.i, %219 ]
   %indvars.iv.next91.i.i = add nuw nsw i64 %indvars.iv90.i.i, 1
   %234 = zext i32 %232 to i64
-  %235 = icmp ult i64 %indvars.iv.next91.i.i, %234
+  %235 = icmp samesign ult i64 %indvars.iv.next91.i.i, %234
   br i1 %235, label %219, label %._crit_edge.i33.i
 
 ._crit_edge.i33.i:                                ; preds = %231, %209
@@ -2926,7 +2926,7 @@ print_group_info.exit.i:                          ; preds = %._crit_edge55.i.i, 
   %.4.i34.i = phi i64 [ %261, %255 ], [ %.35981.i.i, %.lr.ph84.i.i ]
   %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
   %264 = zext i32 %262 to i64
-  %265 = icmp ult i64 %indvars.iv.next94.i.i, %264
+  %265 = icmp samesign ult i64 %indvars.iv.next94.i.i, %264
   br i1 %265, label %.lr.ph84.i.i, label %._crit_edge85.i.i
 
 ._crit_edge85.i.i:                                ; preds = %.lr.ph84._crit_edge.i.i, %247
@@ -3174,7 +3174,7 @@ print_dset_dtype_meta.exit.i:                     ; preds = %._crit_edge.i39.i, 
   %.3.i.i = phi i64 [ %410, %404 ], [ %.236.i.i, %399 ]
   %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %413 = zext i32 %411 to i64
-  %414 = icmp ult i64 %indvars.iv.next.i47.i, %413
+  %414 = icmp samesign ult i64 %indvars.iv.next.i47.i, %413
   br i1 %414, label %399, label %print_attr_info.exit.i
 
 print_attr_info.exit.i:                           ; preds = %._crit_edge46.i.i, %._crit_edge.i44.i
@@ -3266,7 +3266,7 @@ print_attr_info.exit.i:                           ; preds = %._crit_edge46.i.i, 
   %.3.i59.i = phi i64 [ %459, %453 ], [ %.235.i.i, %448 ]
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %462 = zext i32 %460 to i64
-  %463 = icmp ult i64 %indvars.iv.next39.i.i, %462
+  %463 = icmp samesign ult i64 %indvars.iv.next39.i.i, %462
   br i1 %463, label %448, label %print_freespace_info.exit.i
 
 print_freespace_info.exit.i:                      ; preds = %._crit_edge42.i.i, %442

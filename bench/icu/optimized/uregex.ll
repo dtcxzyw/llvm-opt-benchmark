@@ -3133,7 +3133,7 @@ for.body.preheader:                               ; preds = %if.end42
 for.body:                                         ; preds = %for.body.preheader, %_ZL11appendToBufDsPiPDsi.exit
   %indvars.iv299 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next300, %_ZL11appendToBufDsPiPDsi.exit ]
   %indvars.iv = phi i64 [ %19, %for.body.preheader ], [ %indvars.iv.next, %_ZL11appendToBufDsPiPDsi.exit ]
-  %cmp.i166 = icmp ult i64 %indvars.iv299, %20
+  %cmp.i166 = icmp samesign ult i64 %indvars.iv299, %20
   br i1 %cmp.i166, label %if.then.i, label %_ZL11appendToBufDsPiPDsi.exit
 
 if.then.i:                                        ; preds = %for.body
@@ -3850,7 +3850,7 @@ if.then38:                                        ; preds = %if.end31
   br label %if.end67
 
 if.end40:                                         ; preds = %if.end31
-  %cmp41 = icmp ult i64 %indvars.iv94, %14
+  %cmp41 = icmp samesign ult i64 %indvars.iv94, %14
   br i1 %cmp41, label %if.then42, label %if.else45
 
 if.then42:                                        ; preds = %if.end40

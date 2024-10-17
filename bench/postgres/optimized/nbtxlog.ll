@@ -1644,7 +1644,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %192 = load i16, ptr %156, align 4
   %193 = zext i16 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next146, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next146, %193
   br i1 %194, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %220
@@ -1702,7 +1702,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %221 = load i16, ptr %156, align 4
   %222 = zext i16 %221 to i64
-  %223 = icmp ult i64 %indvars.iv.next, %222
+  %223 = icmp samesign ult i64 %indvars.iv.next, %222
   br i1 %223, label %.lr.ph.split, label %._crit_edge.loopexit142, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %191

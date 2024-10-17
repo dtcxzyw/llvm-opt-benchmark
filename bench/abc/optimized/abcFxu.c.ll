@@ -92,7 +92,7 @@ Abc_NtkIsSopLogic.exit:
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds ptr, ptr %.val37.val.val.i, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp ult i64 %indvars.iv50.i, 2
+  %27 = icmp samesign ult i64 %indvars.iv50.i, 2
   br i1 %27, label %28, label %.lr.ph.us.i.preheader
 
 28:                                               ; preds = %21

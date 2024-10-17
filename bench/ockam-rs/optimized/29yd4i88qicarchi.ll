@@ -3294,7 +3294,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %243 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !778
   %244 = icmp ult i64 %243, 6
   tail call void @llvm.assume(i1 %244)
-  %switch.selectcmp.i143.i = icmp ugt i64 %243, 2
+  %switch.selectcmp.i143.i = icmp samesign ugt i64 %243, 2
   br i1 %switch.selectcmp.i143.i, label %245, label %297
 
 245:                                              ; preds = %242
@@ -3540,7 +3540,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %329 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !826
   %330 = icmp ult i64 %329, 6
   call void @llvm.assume(i1 %330)
-  %331 = icmp ult i64 %329, 3
+  %331 = icmp samesign ult i64 %329, 3
   br i1 %331, label %"_ZN5ockam13relay_service5relay5Relay6create28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06b5e03e77b1bb9dE.exit.i", label %.critedge9.i.i
 
 .critedge9.i.i:                                   ; preds = %328
@@ -4180,7 +4180,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %535 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !898
   %536 = icmp ult i64 %535, 6
   call void @llvm.assume(i1 %536)
-  %switch.selectcmp.i198.i.i.i = icmp ugt i64 %535, 3
+  %switch.selectcmp.i198.i.i.i = icmp samesign ugt i64 %535, 3
   br i1 %switch.selectcmp.i198.i.i.i, label %537, label %627
 
 537:                                              ; preds = %534
@@ -4604,7 +4604,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   %685 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !955
   %686 = icmp ult i64 %685, 6
   call void @llvm.assume(i1 %686)
-  %687 = icmp ult i64 %685, 4
+  %687 = icmp samesign ult i64 %685, 4
   br i1 %687, label %"_ZN10ockam_node14worker_builder5start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h89eec2e0746d6ccbE.exit.i.i.i", label %.critedge9.i.i.i.i
 
 .critedge9.i.i.i.i:                               ; preds = %684

@@ -101,7 +101,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_do_ioctl(ptr noundef %0, ptr 
   br label %44
 
 44:                                               ; preds = %42, %37
-  %45 = icmp ult i32 %23, 10
+  %45 = icmp samesign ult i32 %23, 10
   br i1 %45, label %60, label %.loopexit
 
 46:                                               ; preds = %35
@@ -125,7 +125,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_do_ioctl(ptr noundef %0, ptr 
   br label %57
 
 57:                                               ; preds = %55, %52
-  %58 = icmp ult i32 %23, 10
+  %58 = icmp samesign ult i32 %23, 10
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %57

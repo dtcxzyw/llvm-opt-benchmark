@@ -318,7 +318,7 @@ define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
   %26 = phi i32 [ %18, %.thread ], [ %.pre25, %24 ]
   %.021 = phi i64 [ %20, %.thread ], [ %.0, %24 ]
   %27 = zext i32 %26 to i64
-  %28 = icmp ugt i64 %.021, %27
+  %28 = icmp samesign ugt i64 %.021, %27
   br i1 %28, label %._crit_edge23, label %30
 
 ._crit_edge23:                                    ; preds = %24, %._crit_edge
@@ -926,11 +926,11 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   %.043.in.us = phi i64 [ %51, %fmap_readn.exit.us ], [ %18, %16 ]
   %29 = and i64 %.043.in.us, 4294967295
   %30 = add nuw nsw i64 %29, 4096
-  %31 = icmp ugt i64 %30, %19
+  %31 = icmp samesign ugt i64 %30, %19
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %.split.us
-  %33 = icmp ugt i64 %29, %19
+  %33 = icmp samesign ugt i64 %29, %19
   br i1 %33, label %fmap_readn.exit.thread, label %34
 
 34:                                               ; preds = %32
@@ -978,11 +978,11 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   %.043.in.us68 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
   %53 = and i64 %.043.in.us68, 4294967295
   %54 = add nuw nsw i64 %53, 4096
-  %55 = icmp ugt i64 %54, %19
+  %55 = icmp samesign ugt i64 %54, %19
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %.split.split.us
-  %57 = icmp ugt i64 %53, %19
+  %57 = icmp samesign ugt i64 %53, %19
   br i1 %57, label %fmap_readn.exit.thread, label %58
 
 58:                                               ; preds = %56
@@ -1034,11 +1034,11 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   %.043.in = phi i64 [ %119, %cli_memmem.exit.thread ], [ %18, %.split ]
   %79 = and i64 %.043.in, 4294967295
   %80 = add nuw nsw i64 %79, 4096
-  %81 = icmp ugt i64 %80, %19
+  %81 = icmp samesign ugt i64 %80, %19
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %.split.split
-  %83 = icmp ugt i64 %79, %19
+  %83 = icmp samesign ugt i64 %79, %19
   br i1 %83, label %fmap_readn.exit.thread, label %84
 
 84:                                               ; preds = %82
@@ -5986,8 +5986,8 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr nocapture noundef rea
 25:                                               ; preds = %18
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv.next110, %7
-  %27 = icmp ult i64 %indvars.iv.next, %6
+  %26 = icmp samesign ult i64 %indvars.iv.next110, %7
+  %27 = icmp samesign ult i64 %indvars.iv.next, %6
   %or.cond = select i1 %26, i1 %27, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit
 
@@ -6064,7 +6064,7 @@ split:                                            ; preds = %40, %30
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 2048
   %60 = icmp ne i16 %59, 0
-  %61 = icmp ult i64 %indvars.iv.next115, %7
+  %61 = icmp samesign ult i64 %indvars.iv.next115, %7
   %62 = and i1 %61, %60
   br i1 %62, label %.lr.ph81, label %.preheader.loopexit
 
@@ -6083,7 +6083,7 @@ split:                                            ; preds = %40, %30
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 2048
   %73 = icmp ne i16 %72, 0
-  %74 = icmp ult i64 %indvars.iv.next119, %6
+  %74 = icmp samesign ult i64 %indvars.iv.next119, %6
   %75 = and i1 %74, %73
   br i1 %75, label %.lr.ph86, label %._crit_edge.loopexit
 

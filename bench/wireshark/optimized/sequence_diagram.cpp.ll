@@ -1362,7 +1362,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i91:    ; preds = %164
   %173 = getelementptr inbounds i8, ptr %172, i64 992
   %174 = load i32, ptr %173, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next, %175
   br i1 %176, label %132, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit, !llvm.loop !13
 
 _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %171, %.preheader

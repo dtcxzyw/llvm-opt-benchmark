@@ -242,7 +242,7 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nocap
   %29 = add nuw nsw i64 %19, 1
   %30 = load i32, ptr %7, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %29, %31
+  %32 = icmp samesign ult i64 %29, %31
   br i1 %32, label %18, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %28, %11

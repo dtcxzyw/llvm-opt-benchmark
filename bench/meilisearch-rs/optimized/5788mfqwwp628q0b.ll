@@ -3588,10 +3588,10 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h579c1737afe129e5E.exit.i.i.i: ; p
 65:                                               ; preds = %26
   %66 = getelementptr inbounds i8, ptr %7, i64 16
   %.val9.i.i.i = load i8, ptr %66, align 8, !range !1035, !alias.scope !1029, !noalias !1032, !noundef !23
-  %switch.i.i.i.i.i.i = icmp ult i8 %.val9.i.i.i, 3
+  %switch.i.i.i.i.i.i = icmp samesign ult i8 %.val9.i.i.i, 3
   %67 = getelementptr inbounds i8, ptr %6, i64 16
   %.val.i.i.i = load i8, ptr %67, align 8, !range !1035, !alias.scope !1032, !noalias !1029, !noundef !23
-  %switch.i.i.i14.i.i.i = icmp ult i8 %.val.i.i.i, 3
+  %switch.i.i.i14.i.i.i = icmp samesign ult i8 %.val.i.i.i, 3
   %68 = xor i1 %switch.i.i.i.i.i.i, %switch.i.i.i14.i.i.i
   br i1 %68, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4717576b60b968daE.exit.i.i.i"
 

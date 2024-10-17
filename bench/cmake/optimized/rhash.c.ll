@@ -45,7 +45,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %11 = add i32 %10, -1
   %or.cond.i = icmp ult i32 %11, 1023
   %12 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %10)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   %or.cond61.i = select i1 %or.cond.i, i1 %13, i1 false
   br i1 %or.cond61.i, label %14, label %.loopexit.sink.split.i
 
@@ -135,7 +135,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %0)
-  %9 = icmp ult i32 %8, 2
+  %9 = icmp samesign ult i32 %8, 2
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
@@ -216,7 +216,7 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   %18 = phi i32 [ %9, %8 ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %8, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %17, %3
@@ -267,7 +267,7 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %1
@@ -310,7 +310,7 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %9, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %12, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %6, %3
@@ -351,7 +351,7 @@ define dso_local noundef i32 @rhash_final(ptr nocapture noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %13
@@ -413,7 +413,7 @@ rhash_init.exit.thread:                           ; preds = %4
 
 11:                                               ; preds = %4
   %12 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %8)
-  %13 = icmp ult i32 %12, 2
+  %13 = icmp samesign ult i32 %12, 2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
@@ -486,7 +486,7 @@ rhash_init.exit:                                  ; preds = %14, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %35, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next.i, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !11
 
 rhash_update.exit:                                ; preds = %38, %29, %32
@@ -522,7 +522,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %64 = load i32, ptr %53, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next.i13, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next.i13, %65
   br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %57
@@ -568,7 +568,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %83 = phi i32 [ %74, %73 ], [ %.pre.i17, %79 ]
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %indvars.iv.next.i18, %84
+  %85 = icmp samesign ult i64 %indvars.iv.next.i18, %84
   br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !9
 
 rhash_free.exit:                                  ; preds = %82, %69
@@ -644,7 +644,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr noc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %8, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
   br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !11
 
 rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
@@ -709,7 +709,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   store i32 %7, ptr %5, align 4
   %14 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %7)
-  %15 = icmp ult i32 %14, 2
+  %15 = icmp samesign ult i32 %14, 2
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
@@ -794,7 +794,7 @@ rhash_init.exit:                                  ; preds = %16, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %42, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
   br i1 %55, label %46, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %46
@@ -844,7 +844,7 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
   %73 = phi i32 [ %64, %63 ], [ %.pre.i22, %69 ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %indvars.iv.next.i23, %74
+  %75 = icmp samesign ult i64 %indvars.iv.next.i23, %74
   br i1 %75, label %63, label %rhash_free.exit, !llvm.loop !9
 
 rhash_free.exit:                                  ; preds = %72, %58

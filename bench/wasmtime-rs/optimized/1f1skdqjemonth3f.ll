@@ -241,7 +241,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 
 13:                                               ; preds = %5
   %14 = trunc i32 %3 to i8
-  %switch.i = icmp ult i8 %14, 5
+  %switch.i = icmp samesign ult i8 %14, 5
   br i1 %switch.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit
 
 _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit: ; preds = %13
@@ -283,7 +283,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = load i8, ptr %6, align 4, !range !19, !noundef !13
-  %switch = icmp ult i8 %32, 5
+  %switch = icmp samesign ult i8 %32, 5
   %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 3
   %.sroa.07.sroa.5.0.copyload = load i8, ptr %.sroa.07.sroa.5.0..sroa_idx, align 1
   %33 = icmp slt i8 %.sroa.07.sroa.5.0.copyload, 0
@@ -2351,7 +2351,7 @@ default.unreachable10:                            ; preds = %2
 
 23:                                               ; preds = %10
   %24 = trunc i32 %.sroa.0.0.copyload.i to i8
-  %switch.i = icmp ult i8 %24, 5
+  %switch.i = icmp samesign ult i8 %24, 5
   br i1 %switch.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit, label %25
 
 25:                                               ; preds = %23
@@ -20787,7 +20787,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
 
 18:                                               ; preds = %2
   %19 = trunc i32 %1 to i8
-  %switch.i = icmp ult i8 %19, 5
+  %switch.i = icmp samesign ult i8 %19, 5
   br i1 %switch.i, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread, label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit
 
 _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit: ; preds = %18
@@ -21479,8 +21479,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %41 = load i8, ptr %40, align 2, !range !1184, !noundef !13
   %42 = and i8 %41, 6
   %switch = icmp eq i8 %42, 6
-  %switch4468 = icmp ult i8 %41, 5
-  %switch44 = or i1 %switch4468, %switch
+  %switch4468 = icmp samesign ult i8 %41, 5
+  %switch44 = select i1 %switch, i1 true, i1 %switch4468
   br i1 %switch44, label %43, label %46
 
 43:                                               ; preds = %39
@@ -21759,8 +21759,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %45 = load i8, ptr %44, align 2, !range !1184, !noundef !13
   %46 = and i8 %45, 6
   %switch = icmp eq i8 %46, 6
-  %switch59 = icmp ult i8 %45, 5
-  %or.cond = or i1 %switch, %switch59
+  %switch59 = icmp samesign ult i8 %45, 5
+  %or.cond = select i1 %switch, i1 true, i1 %switch59
   br i1 %or.cond, label %.thread, label %52
 
 .thread:                                          ; preds = %43
@@ -22749,8 +22749,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %54 = load i8, ptr %53, align 2, !range !1184, !noundef !13
   %55 = and i8 %54, 6
   %switch = icmp eq i8 %55, 6
-  %switch72114 = icmp ult i8 %54, 5
-  %switch72 = or i1 %switch72114, %switch
+  %switch72114 = icmp samesign ult i8 %54, 5
+  %switch72 = select i1 %switch, i1 true, i1 %switch72114
   br i1 %switch72, label %57, label %60
 
 56:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %157, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit110", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %60, %76, %66, %46
@@ -23116,8 +23116,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %58 = load i8, ptr %57, align 2, !range !1184, !noundef !13
   %59 = and i8 %58, 6
   %switch = icmp eq i8 %59, 6
-  %switch83 = icmp ult i8 %58, 5
-  %or.cond = or i1 %switch, %switch83
+  %switch83 = icmp samesign ult i8 %58, 5
+  %or.cond = select i1 %switch, i1 true, i1 %switch83
   br i1 %or.cond, label %.thread, label %66
 
 60:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %168, %68, %50
@@ -25171,7 +25171,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %40 = load i32, ptr %36, align 2
   store i32 %40, ptr %11, align 4
   %41 = trunc i32 %40 to i8
-  %42 = icmp ult i8 %41, 5
+  %42 = icmp samesign ult i8 %41, 5
   %43 = icmp slt i32 %40, 0
   %44 = or i1 %42, %43
   br i1 %44, label %.thread, label %45
@@ -26253,7 +26253,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 35:                                               ; preds = %32
   %36 = and i32 %.sroa.016.0.copyload32, 255
-  %switch.i.i = icmp ult i32 %36, 5
+  %switch.i.i = icmp samesign ult i32 %36, 5
   br i1 %switch.i.i, label %37, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_any_convert_extern28_$u7b$$u7b$closure$u7d$$u7d$17ha5943fe10b40b766E.exit.i"
 
 37:                                               ; preds = %35
@@ -26383,7 +26383,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 
 35:                                               ; preds = %32
   %36 = and i32 %.sroa.030.0.copyload46, 255
-  %switch.i.i = icmp ult i32 %36, 5
+  %switch.i.i = icmp samesign ult i32 %36, 5
   br i1 %switch.i.i, label %37, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_extern_convert_any28_$u7b$$u7b$closure$u7d$$u7d$17h99b8e1d171716bd5E.exit.i"
 
 37:                                               ; preds = %35
@@ -28086,7 +28086,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %48 = load i32, ptr %43, align 1
   store i32 %48, ptr %10, align 4
   %49 = trunc i32 %48 to i8
-  %50 = icmp ult i8 %49, 5
+  %50 = icmp samesign ult i8 %49, 5
   %51 = icmp slt i32 %48, 0
   %.026 = or i1 %50, %51
   br i1 %.026, label %.thread, label %52

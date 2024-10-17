@@ -2636,7 +2636,7 @@ for.inc:                                          ; preds = %.noexc15, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %sz, align 4
   %31 = zext i32 %30 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %31
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %cmp, label %invoke.cont14, label %for.end, !llvm.loop !8
 
 lpad10.loopexit:                                  ; preds = %if.then.i, %invoke.cont25, %if.then.i.i
@@ -3398,7 +3398,7 @@ invoke.cont18:                                    ; preds = %if.end.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %m_num_args.i, align 8
   %37 = zext i32 %36 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %37
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %37
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 lpad6.loopexit:                                   ; preds = %if.then2.i.i.i.i.i47

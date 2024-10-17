@@ -259,14 +259,14 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   %80 = zext i16 %79 to i32
   %81 = shl nuw nsw i32 %80, 2
   %82 = add nuw nsw i32 %81, 4
-  %83 = icmp ult i32 %82, %78
+  %83 = icmp samesign ult i32 %82, %78
   br i1 %83, label %.loopexit105.thread, label %84
 
 84:                                               ; preds = %75
   %85 = load i16, ptr %indvars.iv27.i.sroa.phi123, align 2
   %86 = zext i16 %85 to i32
   %87 = mul nuw nsw i32 %86, 3
-  %88 = icmp ult i32 %87, %78
+  %88 = icmp samesign ult i32 %87, %78
   br i1 %88, label %.loopexit105.thread, label %89
 
 89:                                               ; preds = %84
@@ -274,7 +274,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   %91 = zext i16 %90 to i32
   %92 = shl nuw nsw i32 %91, 1
   %93 = add nuw nsw i32 %92, 2
-  %94 = icmp ult i32 %93, %80
+  %94 = icmp samesign ult i32 %93, %80
   br i1 %94, label %.loopexit105.thread, label %95
 
 95:                                               ; preds = %89
@@ -338,7 +338,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = shl nuw nsw i32 %111, 1
-  %113 = icmp ult i32 %112, %107
+  %113 = icmp samesign ult i32 %112, %107
   br i1 %113, label %128, label %114
 
 114:                                              ; preds = %104

@@ -554,7 +554,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %167 = load i8, ptr %166, align 8
   %168 = zext i8 %167 to i64
-  %169 = icmp ult i64 %165, %168
+  %169 = icmp samesign ult i64 %165, %168
   br i1 %169, label %.lr.ph1198, label %._crit_edge1199
 
 .lr.ph1198:                                       ; preds = %80
@@ -719,7 +719,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %287 = add i8 %286, -1
   store i8 %287, ptr %166, align 8
   %288 = zext i8 %287 to i64
-  %289 = icmp ult i64 %165, %288
+  %289 = icmp samesign ult i64 %165, %288
   br i1 %289, label %182, label %._crit_edge1199.loopexit, !llvm.loop !15
 
 ._crit_edge1199.loopexit:                         ; preds = %182
@@ -1019,7 +1019,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %458 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %457)
   %459 = load i8, ptr %300, align 8
   %460 = zext i8 %459 to i64
-  %461 = icmp ult i64 %458, %460
+  %461 = icmp samesign ult i64 %458, %460
   br i1 %461, label %.lr.ph1229, label %._crit_edge1230
 
 .lr.ph1229:                                       ; preds = %._crit_edge1225, %.lr.ph1229
@@ -1169,7 +1169,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %566 = add i8 %565, -1
   store i8 %566, ptr %300, align 8
   %567 = zext i8 %566 to i64
-  %568 = icmp ult i64 %458, %567
+  %568 = icmp samesign ult i64 %458, %567
   br i1 %568, label %.lr.ph1229, label %._crit_edge1230, !llvm.loop !15
 
 ._crit_edge1230:                                  ; preds = %.lr.ph1229, %._crit_edge1225
@@ -1298,7 +1298,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %596 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %595)
   %597 = load i8, ptr %300, align 8
   %598 = zext i8 %597 to i64
-  %599 = icmp ult i64 %596, %598
+  %599 = icmp samesign ult i64 %596, %598
   br i1 %599, label %.lr.ph1211, label %._crit_edge1212
 
 .lr.ph1211:                                       ; preds = %._crit_edge1209, %.lr.ph1211
@@ -1448,7 +1448,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %704 = add i8 %703, -1
   store i8 %704, ptr %300, align 8
   %705 = zext i8 %704 to i64
-  %706 = icmp ult i64 %596, %705
+  %706 = icmp samesign ult i64 %596, %705
   br i1 %706, label %.lr.ph1211, label %._crit_edge1212.loopexit, !llvm.loop !15
 
 ._crit_edge1212.loopexit:                         ; preds = %.lr.ph1211
@@ -1468,7 +1468,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %712 = add i64 %707, %711
   %713 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %712)
   %714 = zext i8 %710 to i64
-  %715 = icmp ult i64 %713, %714
+  %715 = icmp samesign ult i64 %713, %714
   br i1 %715, label %.lr.ph1217, label %._crit_edge1218
 
 .lr.ph1217:                                       ; preds = %._crit_edge1212, %.lr.ph1217
@@ -1618,7 +1618,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %820 = add i8 %819, -1
   store i8 %820, ptr %300, align 8
   %821 = zext i8 %820 to i64
-  %822 = icmp ult i64 %713, %821
+  %822 = icmp samesign ult i64 %713, %821
   br i1 %822, label %.lr.ph1217, label %._crit_edge1218, !llvm.loop !15
 
 ._crit_edge1218:                                  ; preds = %.lr.ph1217, %._crit_edge1212
@@ -1738,7 +1738,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %880 = load i8, ptr %879, align 8
   %881 = zext i8 %880 to i64
-  %882 = icmp ult i64 %878, %881
+  %882 = icmp samesign ult i64 %878, %881
   br i1 %882, label %.lr.ph1250, label %.loopexit
 
 .lr.ph1250:                                       ; preds = %._crit_edge1246
@@ -1904,7 +1904,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %1001 = load i8, ptr %879, align 8
   %1002 = add i8 %1001, -1
   store i8 %1002, ptr %879, align 8
-  %1003 = icmp ugt i8 %1002, %896
+  %1003 = icmp samesign ugt i8 %1002, %896
   br i1 %1003, label %897, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %897, %._crit_edge1246, %._crit_edge, %3, %._crit_edge1239
@@ -2318,7 +2318,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   store i8 %4, ptr %31, align 2
   store i64 %26, ptr %27, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 %.0267.lcssa
-  %34 = icmp ugt i64 %.lcssa285, 64
+  %34 = icmp samesign ugt i64 %.lcssa285, 64
   br i1 %34, label %.lr.ph293, label %._crit_edge294
 
 .lr.ph293:                                        ; preds = %25, %.lr.ph293

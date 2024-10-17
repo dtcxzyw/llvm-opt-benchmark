@@ -2191,7 +2191,7 @@ define noundef i32 @_ZNK3gmx9BiasState25warnForHistogramAnomaliesERKNS_8BiasGrid
   %85 = add nsw i32 %84, -1
   %86 = icmp eq i32 %80, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = icmp uge i64 %indvars.iv.next, %64
+  %87 = icmp samesign uge i64 %indvars.iv.next, %64
   %.not69 = select i1 %87, i1 true, i1 %86
   br i1 %.not69, label %._crit_edge83, label %.lr.ph82, !llvm.loop !21
 
@@ -4348,7 +4348,7 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
   %372 = load i32, ptr %371, align 4
   %373 = icmp ne i32 %372, 0
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %374 = icmp ult i64 %indvars.iv.next203, %369
+  %374 = icmp samesign ult i64 %indvars.iv.next203, %369
   %375 = select i1 %374, i1 %373, i1 false
   br i1 %375, label %370, label %._crit_edge178.loopexit, !llvm.loop !44
 
@@ -4360,7 +4360,7 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
   %.pre-phi = phi i1 [ %373, %._crit_edge178.loopexit ], [ %365, %.preheader ]
   %.1.lcssa = phi i8 [ %376, %._crit_edge178.loopexit ], [ %.082180, %.preheader ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %377 = icmp ult i64 %indvars.iv.next206, %361
+  %377 = icmp samesign ult i64 %indvars.iv.next206, %361
   %378 = select i1 %377, i1 %.pre-phi, i1 false
   br i1 %378, label %.preheader, label %._crit_edge182, !llvm.loop !45
 

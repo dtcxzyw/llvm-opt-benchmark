@@ -1283,7 +1283,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
 
 .preheader564.i:                                  ; preds = %193, %178
   %188 = add nuw nsw i64 %indvars.iv672.i, 1
-  %189 = icmp ult i64 %188, %94
+  %189 = icmp samesign ult i64 %188, %94
   br i1 %189, label %.lr.ph586.i, label %.loopexit565.i
 
 .lr.ph586.i:                                      ; preds = %.preheader564.i
@@ -1700,7 +1700,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   %.1503.i = phi double [ %364, %363 ], [ %.0502625.i, %._crit_edge624.i ]
   %.1495.i = phi i1 [ %370, %363 ], [ false, %._crit_edge624.i ]
   %372 = add nuw nsw i32 %.0490627.i, 1
-  %373 = icmp ugt i32 %.0490627.i, 48
+  %373 = icmp samesign ugt i32 %.0490627.i, 48
   %.not547.i = select i1 %373, i1 true, i1 %.1495.i
   br i1 %.not547.i, label %.loopexit.i, label %.preheader553.i
 

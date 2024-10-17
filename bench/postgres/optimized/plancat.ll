@@ -3408,7 +3408,7 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i16, ptr %32, align 8
   %56 = zext i16 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %57, label %35, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %54, %.preheader, %28, %19

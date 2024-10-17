@@ -874,7 +874,7 @@ define void @destroy_op_array(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %188 = load i32, ptr %168, align 4
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %indvars.iv.next195, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next195, %189
   br i1 %190, label %171, label %._crit_edge187
 
 ._crit_edge187:                                   ; preds = %186
@@ -1380,7 +1380,7 @@ define void @destroy_zend_class(ptr nocapture noundef readonly %0) local_unnamed
   tail call void @llvm.assume(i1 %65)
   %66 = add nsw i32 %64, -1
   store i32 %66, ptr %63, align 8
-  %67 = icmp ugt i32 %64, 1
+  %67 = icmp samesign ugt i32 %64, 1
   br i1 %67, label %.loopexit594, label %68
 
 68:                                               ; preds = %62
@@ -1598,7 +1598,7 @@ define void @destroy_zend_class(ptr nocapture noundef readonly %0) local_unnamed
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = load i32, ptr %141, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next, %175
   br i1 %176, label %147, label %._crit_edge627
 
 ._crit_edge627:                                   ; preds = %173
@@ -2756,7 +2756,7 @@ define internal fastcc void @_destroy_zend_class_traits_info(ptr nocapture nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %2, align 4
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %1
@@ -2979,7 +2979,7 @@ define internal fastcc void @_destroy_zend_class_traits_info(ptr nocapture nound
   %148 = getelementptr inbounds i8, ptr %147, i64 16
   %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %indvars.iv.next153, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next153, %150
   br i1 %151, label %.lr.ph138, label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %144, %125

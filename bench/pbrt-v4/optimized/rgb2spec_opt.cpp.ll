@@ -268,7 +268,7 @@ if.then19:                                        ; preds = %if.end17
 
 if.end39:                                         ; preds = %if.then19, %if.end17
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %cmp4164 = icmp ult i64 %indvars.iv.next71, %1
+  %cmp4164 = icmp samesign ult i64 %indvars.iv.next71, %1
   br i1 %cmp4164, label %for.body42.lr.ph, label %for.cond1.loopexit
 
 for.body42.lr.ph:                                 ; preds = %if.end39
@@ -1188,7 +1188,7 @@ if.then19.i:                                      ; preds = %if.end17.i
 
 if.end39.i:                                       ; preds = %if.then19.i, %if.end17.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %cmp4164.i = icmp ult i64 %indvars.iv70.i, 2
+  %cmp4164.i = icmp samesign ult i64 %indvars.iv70.i, 2
   br i1 %cmp4164.i, label %for.body42.lr.ph.i, label %for.cond1.loopexit.i
 
 for.body42.lr.ph.i:                               ; preds = %if.end39.i

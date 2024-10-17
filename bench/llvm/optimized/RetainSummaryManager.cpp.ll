@@ -5602,7 +5602,7 @@ _ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i: ; preds = %.
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %83, %76, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread.i.i, %62, %78, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i
   %85 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %2)
-  %.not83 = icmp ult i64 %85, 4294967296
+  %.not83 = icmp samesign ult i64 %85, 4294967296
   br i1 %.not83, label %86, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread: ; preds = %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
@@ -6267,7 +6267,7 @@ _ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit.i.i.i.i.i: ; 
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %206, %199, %_ZNK5clang4Decl7hasAttrINS_30OSReturnsRetainedOnNonZeroAttrEEEbv.exit.thread.i.i.i.i, %186, %201, %_ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit.i.i.i.i.i
   %208 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %1)
-  %.not165 = icmp ult i64 %208, 4294967296
+  %.not165 = icmp samesign ult i64 %208, 4294967296
   br i1 %.not165, label %324, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread: ; preds = %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
@@ -6622,7 +6622,7 @@ _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i: ; preds =
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %370, %363, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.thread.i.i, %350, %365, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i
   %372 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %1)
-  %.not166 = icmp ult i64 %372, 4294967296
+  %.not166 = icmp samesign ult i64 %372, 4294967296
   br i1 %.not166, label %376, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread: ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i.i, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
@@ -12438,7 +12438,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getH
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit49: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit, %10
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
-  %16 = icmp ugt i32 %9, %15
+  %16 = icmp samesign ugt i32 %9, %15
   br i1 %16, label %17, label %46
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit49
@@ -12468,7 +12468,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getH
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit51, %27
   %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit51 ]
-  %.not47 = icmp ult i32 %26, %31
+  %.not47 = icmp samesign ult i32 %26, %31
   br i1 %.not47, label %36, label %32
 
 32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit53
@@ -12491,7 +12491,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getH
 
 46:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit49
   %47 = add nuw nsw i32 %9, 2
-  %48 = icmp ugt i32 %14, %47
+  %48 = icmp samesign ugt i32 %14, %47
   br i1 %48, label %49, label %78
 
 49:                                               ; preds = %46
@@ -12521,7 +12521,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getH
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit55, %59
   %63 = phi i32 [ %62, %59 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit55 ]
-  %.not = icmp ult i32 %58, %63
+  %.not = icmp samesign ult i32 %58, %63
   br i1 %.not, label %68, label %64
 
 64:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getHeightEPNS_11ImutAVLTreeIS5_EE.exit57

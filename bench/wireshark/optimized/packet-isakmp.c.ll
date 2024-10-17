@@ -5954,7 +5954,7 @@ define internal void @isakmp_init_protocol() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr @num_ikev1_uat_data, align 4
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -6019,7 +6019,7 @@ ikev2_decrypt_find_auth_spec.exit:                ; preds = %.lr.ph.i19, %50, %i
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %54 = load i32, ptr @num_ikev2_uat_data, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next31, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next31, %55
   br i1 %56, label %.lr.ph26, label %._crit_edge27, !llvm.loop !40
 
 ._crit_edge27:                                    ; preds = %ikev2_decrypt_find_auth_spec.exit, %._crit_edge

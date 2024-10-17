@@ -570,7 +570,7 @@ H5C__encode_cache_image_header.exit.i:            ; preds = %234, %.preheader.i.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %255 = load i32, ptr %54, align 8
   %256 = zext i32 %255 to i64
-  %257 = icmp ult i64 %indvars.iv.next, %256
+  %257 = icmp samesign ult i64 %indvars.iv.next, %256
   br i1 %257, label %82, label %.loopexit
 
 258:                                              ; preds = %10, %75, %243
@@ -632,7 +632,7 @@ H5C__encode_cache_image_header.exit.i:            ; preds = %234, %.preheader.i.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %290 = load i32, ptr %54, align 8
   %291 = zext i32 %290 to i64
-  %292 = icmp ult i64 %indvars.iv.next.i, %291
+  %292 = icmp samesign ult i64 %indvars.iv.next.i, %291
   br i1 %292, label %.lr.ph.i12, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %286
@@ -1054,7 +1054,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br label %228
 
 222:                                              ; preds = %185
-  %223 = icmp ugt i64 %220, %211
+  %223 = icmp samesign ugt i64 %220, %211
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %222
@@ -2395,7 +2395,7 @@ H5C__write_cache_image_superblock_msg.exit:       ; preds = %42
   %indvars.iv.next136.i.i = add nuw nsw i64 %indvars.iv135.i.i, 1
   %207 = load i32, ptr %184, align 8
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next136.i.i, %208
+  %209 = icmp samesign ult i64 %indvars.iv.next136.i.i, %208
   br i1 %209, label %189, label %.loopexit95.i.i
 
 210:                                              ; preds = %.lr.ph119.i.i
@@ -2432,7 +2432,7 @@ H5C__write_cache_image_superblock_msg.exit:       ; preds = %42
   %228 = phi i32 [ %214, %213 ], [ %.pre145.i.i, %221 ]
   %indvars.iv.next139.i.i = add nuw nsw i64 %indvars.iv138.i.i, 1
   %229 = zext i32 %228 to i64
-  %230 = icmp ult i64 %indvars.iv.next139.i.i, %229
+  %230 = icmp samesign ult i64 %indvars.iv.next139.i.i, %229
   br i1 %230, label %213, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %227
@@ -2483,7 +2483,7 @@ H5C__write_cache_image_superblock_msg.exit:       ; preds = %42
   %.1.i.i = phi i32 [ %252, %248 ], [ %.0113.i.i, %.lr.ph114.i.i ]
   %indvars.iv.next142.i.i = add nuw nsw i64 %indvars.iv141.i.i, 1
   %255 = zext i32 %254 to i64
-  %256 = icmp ult i64 %indvars.iv.next142.i.i, %255
+  %256 = icmp samesign ult i64 %indvars.iv.next142.i.i, %255
   br i1 %256, label %.lr.ph114.i.i, label %.loopexit95.i.i
 
 .loopexit95.i.i:                                  ; preds = %206, %253, %237, %234, %210, %186

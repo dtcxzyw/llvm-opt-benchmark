@@ -377,7 +377,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -791,7 +791,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -1179,7 +1179,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -1569,7 +1569,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -1957,7 +1957,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -2347,7 +2347,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -2735,7 +2735,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147
@@ -3125,7 +3125,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(48) %154) #15
   %159 = lshr i64 %158, 2
-  %160 = icmp ult i64 %153, %159
+  %160 = icmp samesign ult i64 %153, %159
   br i1 %160, label %161, label %.loopexit
 
 161:                                              ; preds = %147

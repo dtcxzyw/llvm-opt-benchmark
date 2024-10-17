@@ -693,7 +693,7 @@ invoke.cont87:                                    ; preds = %_ZNSt6vectorISt4pai
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %num_entries_38, align 8
   %22 = zext i16 %21 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next, %22
+  %cmp45 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %cmp45, label %for.body, label %for.end.loopexit, !llvm.loop !15
 
 for.end.loopexit:                                 ; preds = %invoke.cont87

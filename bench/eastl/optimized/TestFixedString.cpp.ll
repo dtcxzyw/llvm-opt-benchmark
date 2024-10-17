@@ -23093,7 +23093,7 @@ invoke.cont385:                                   ; preds = %invoke.cont382
   %tobool.i.i973 = icmp sgt i8 %331, -1
   %332 = load i64, ptr %mnCapacity.i.i755, align 8
   %and.i.i975 = and i64 %332, 9223372036854775807
-  %cmp3902912 = icmp ult i64 %and.i.i975, 63
+  %cmp3902912 = icmp samesign ult i64 %and.i.i975, 63
   %cmp390 = select i1 %tobool.i.i973, i1 true, i1 %cmp3902912
   %call392 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp390, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 373, ptr noundef nonnull @.str.134)
           to label %invoke.cont391 unwind label %lpad282
@@ -23133,7 +23133,7 @@ invoke.cont408:                                   ; preds = %invoke.cont405
   %tobool.i.i988 = icmp sgt i8 %338, -1
   %339 = load i64, ptr %mnCapacity.i.i755, align 8
   %and.i.i990 = and i64 %339, 9223372036854775807
-  %cmp4132914 = icmp ult i64 %and.i.i990, 63
+  %cmp4132914 = icmp samesign ult i64 %and.i.i990, 63
   %cmp413 = select i1 %tobool.i.i988, i1 true, i1 %cmp4132914
   %call415 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp413, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 379, ptr noundef nonnull @.str.134)
           to label %invoke.cont414 unwind label %lpad282
@@ -23176,7 +23176,7 @@ invoke.cont432:                                   ; preds = %invoke.cont431
   %tobool.i.i1005 = icmp slt i8 %344, 0
   %345 = load i64, ptr %mnCapacity.i.i997, align 8
   %and.i.i1007 = and i64 %345, 9223372036854775806
-  %cmp4352921 = icmp ugt i64 %and.i.i1007, 125
+  %cmp4352921 = icmp samesign ugt i64 %and.i.i1007, 125
   %cmp435 = select i1 %tobool.i.i1005, i1 %cmp4352921, i1 false
   %call437 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp435, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 388, ptr noundef nonnull @.str.138)
           to label %invoke.cont436 unwind label %lpad430

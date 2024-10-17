@@ -1841,7 +1841,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z18Displaying_Big_EndN2cv3MatEPcNS_
 
 37:                                               ; preds = %53
   %38 = add nuw nsw i32 %.01128, 2
-  %39 = icmp ult i32 %.01128, 253
+  %39 = icmp samesign ult i32 %.01128, 253
   br i1 %39, label %40, label %74, !llvm.loop !37
 
 40:                                               ; preds = %18, %37

@@ -603,7 +603,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..
 define hidden noundef zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$char$GT$2gt17h84e53d85fb359186E.llvm.13935734079504969398"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4, !range !74, !noundef !4
   %4 = load i32, ptr %1, align 4, !range !74, !noundef !4
-  %5 = icmp ugt i32 %3, %4
+  %5 = icmp samesign ugt i32 %3, %4
   ret i1 %5
 }
 
@@ -611,7 +611,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..
 define hidden noundef zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$char$GT$2le17had517d232c051dcdE.llvm.13935734079504969398"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4, !range !74, !noundef !4
   %4 = load i32, ptr %1, align 4, !range !74, !noundef !4
-  %5 = icmp ule i32 %3, %4
+  %5 = icmp samesign ule i32 %3, %4
   ret i1 %5
 }
 
@@ -1817,7 +1817,7 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1.i = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp ult i32 %11, %.0.sroa.speculated.i.i
+  %.not = icmp samesign ult i32 %11, %.0.sroa.speculated.i.i
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %2
@@ -1852,7 +1852,7 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17h4b6d
   %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i1.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %9
+  %.not = icmp samesign ugt i32 %.0.sroa.speculated.i.i, %9
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
@@ -1901,7 +1901,7 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval9intersect17h
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !range !74, !alias.scope !161, !noundef !4
   %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %6, i32 %8)
-  %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
+  %.not = icmp samesign ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   %spec.select = select i1 %.not, i32 1114112, i32 %.0.sroa.speculated.i.i
   %9 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.0.sroa.speculated.i.i1, 1
@@ -2015,19 +2015,19 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
   %.val20 = load i32, ptr %2, align 4, !range !74, !noundef !4
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   %.val21 = load i32, ptr %5, align 4, !range !74, !noundef !4
-  %.not.i = icmp ule i32 %.val20, %.val
-  %.not12.i = icmp ule i32 %.val, %.val21
-  %or.cond.not15.i = and i1 %.not.i, %.not12.i
-  %.not13.i = icmp ule i32 %.val20, %.val19
-  %or.cond14.not.i = and i1 %.not13.i, %or.cond.not15.i
-  %6 = icmp ule i32 %.val19, %.val21
-  %spec.select.i = and i1 %6, %or.cond14.not.i
+  %.not.i = icmp samesign ule i32 %.val20, %.val
+  %.not12.i = icmp samesign ule i32 %.val, %.val21
+  %or.cond.not15.i = select i1 %.not.i, i1 %.not12.i, i1 false
+  %.not13.i = icmp samesign ule i32 %.val20, %.val19
+  %or.cond14.not.i = select i1 %or.cond.not15.i, i1 %.not13.i, i1 false
+  %6 = icmp samesign ule i32 %.val19, %.val21
+  %spec.select.i = select i1 %or.cond14.not.i, i1 %6, i1 false
   br i1 %spec.select.i, label %9, label %7
 
 7:                                                ; preds = %3
   %.0.sroa.speculated.i.i.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %.val, i32 %.val20)
   %.0.sroa.speculated.i.i1.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %.val19, i32 %.val21)
-  %8 = icmp ugt i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i1.i
+  %8 = icmp samesign ugt i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i1.i
   br i1 %8, label %13, label %10
 
 9:                                                ; preds = %3
@@ -2035,8 +2035,8 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
   br label %34
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i32 %.val20, %.val
-  %12 = icmp ult i32 %.val21, %.val19
+  %11 = icmp samesign ugt i32 %.val20, %.val
+  %12 = icmp samesign ult i32 %.val21, %.val19
   %brmerge = or i1 %11, %12
   br i1 %brmerge, label %15, label %16
 
@@ -2137,7 +2137,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval13is_co
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1 = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1, 1
-  %12 = icmp uge i32 %11, %.0.sroa.speculated.i
+  %12 = icmp samesign uge i32 %11, %.0.sroa.speculated.i
   ret i1 %12
 }
 
@@ -2152,7 +2152,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval13is_co
   %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i1 = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = add nuw nsw i32 %.0.sroa.speculated.i1, 1
-  %10 = icmp ule i32 %.0.sroa.speculated.i, %9
+  %10 = icmp samesign ule i32 %.0.sroa.speculated.i, %9
   ret i1 %10
 }
 
@@ -2166,7 +2166,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval21is_in
   %8 = load i32, ptr %7, align 4, !range !74, !alias.scope !197, !noundef !4
   %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %5, i32 %8)
-  %9 = icmp ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
+  %9 = icmp samesign ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   ret i1 %9
 }
 

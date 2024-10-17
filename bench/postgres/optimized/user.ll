@@ -3341,7 +3341,7 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %87 = getelementptr inbounds i8, ptr %86, i64 18
   %88 = load i16, ptr %87, align 2
   %89 = and i16 %88, 2047
-  %90 = icmp ult i16 %89, 11
+  %90 = icmp samesign ult i16 %89, 11
   br i1 %90, label %heap_getattr.exit, label %91
 
 91:                                               ; preds = %81
@@ -4192,7 +4192,7 @@ define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonl
 
 .critedge.us:                                     ; preds = %64, %52
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %67 = icmp ult i64 %indvars.iv.next59, %51
+  %67 = icmp samesign ult i64 %indvars.iv.next59, %51
   br i1 %67, label %52, label %.loopexit, !llvm.loop !17
 
 68:                                               ; preds = %.lr.ph, %88

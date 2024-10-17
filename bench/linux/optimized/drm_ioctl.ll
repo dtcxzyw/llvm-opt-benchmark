@@ -470,7 +470,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr nocapture
   br label %46
 
 37:                                               ; preds = %18
-  %38 = icmp ugt i32 %8, 208
+  %38 = icmp samesign ugt i32 %8, 208
   br i1 %38, label %.thread12, label %39
 
 39:                                               ; preds = %37
@@ -547,7 +547,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr nocapture
   br label %123
 
 96:                                               ; preds = %66
-  %97 = icmp ult i32 %61, 129
+  %97 = icmp samesign ult i32 %61, 129
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %96
@@ -565,7 +565,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr nocapture
   br i1 %107, label %108, label %123
 
 108:                                              ; preds = %102
-  %109 = icmp ugt i32 %61, %57
+  %109 = icmp samesign ugt i32 %61, %57
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108

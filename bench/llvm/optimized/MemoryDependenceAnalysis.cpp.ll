@@ -528,7 +528,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %53, %5
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit
-  %59 = icmp ult i8 %45, 2
+  %59 = icmp samesign ult i8 %45, 2
   %or.cond.not = and i1 %2, %59
   br i1 %or.cond.not, label %60, label %.outer.backedge
 
@@ -2324,7 +2324,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %63, %_ZNK4llvm12Mem
   br i1 %.not57, label %113, label %89
 
 89:                                               ; preds = %82
-  %.not97 = icmp ult i8 %87, 2
+  %.not97 = icmp samesign ult i8 %87, 2
   %90 = load ptr, ptr %3, align 8
   %91 = load i8, ptr %90, align 8
   %92 = icmp eq i8 %91, 85
@@ -2407,7 +2407,7 @@ _ZN4llvm9AAResults15onlyReadsMemoryEPKNS_8CallBaseE.exit: ; preds = %119
   %.sink = phi i64 [ %112, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread ], [ %128, %_ZN4llvm9AAResults15onlyReadsMemoryEPKNS_8CallBaseE.exit ]
   store i64 %.sink, ptr %59, align 8
   %130 = and i64 %.sink, 7
-  %switch = icmp ult i64 %130, 3
+  %switch = icmp samesign ult i64 %130, 3
   br i1 %switch, label %_ZNK4llvm12MemDepResult7getInstEv.exit69, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit
 
 _ZNK4llvm12MemDepResult7getInstEv.exit69.thread.sink.split: ; preds = %113, %74
@@ -3096,7 +3096,7 @@ _ZNSt6vectorIN4llvm16NonLocalDepEntryESaIS1_EE9push_backEOS1_.exit: ; preds = %_
 
 212:                                              ; preds = %_ZNSt6vectorIN4llvm16NonLocalDepEntryESaIS1_EE9push_backEOS1_.exit
   %213 = and i64 %.sroa.0124.0, 7
-  %switch168 = icmp ult i64 %213, 3
+  %switch168 = icmp samesign ult i64 %213, 3
   br i1 %switch168, label %_ZNK4llvm12MemDepResult7getInstEv.exit81, label %_ZNK4llvm12MemDepResult7getInstEv.exit81.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit81.thread:  ; preds = %212
@@ -4000,7 +4000,7 @@ _ZNSt4pairIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsI
 105:                                              ; preds = %101
   %106 = and i64 %95, 4611686018427387904
   %107 = icmp ne i64 %106, 0
-  %.not543 = icmp ult i64 %102, %104
+  %.not543 = icmp samesign ult i64 %102, %104
   %or.cond = or i1 %107, %.not543
   br i1 %or.cond, label %.critedge270, label %123
 
@@ -4011,7 +4011,7 @@ _ZNSt4pairIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsI
   ]
 
 109:                                              ; preds = %101
-  %.old.not = icmp ult i64 %102, %104
+  %.old.not = icmp samesign ult i64 %102, %104
   br i1 %.old.not, label %.critedge270, label %123
 
 .critedge270:                                     ; preds = %97, %97, %108, %108, %105, %98, %109
@@ -4034,7 +4034,7 @@ _ZNSt4pairIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsI
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0483.0625, i64 8
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, 7
-  %switch = icmp ult i64 %119, 3
+  %switch = icmp samesign ult i64 %119, 3
   br i1 %switch, label %_ZNK4llvm12MemDepResult7getInstEv.exit, label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %116
@@ -4135,7 +4135,7 @@ _ZNK4llvm9AAMDNodescvbEv.exit.thread:             ; preds = %_ZNK4llvm9AAMDNodes
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0478.0627, i64 8
   %156 = load i64, ptr %155, align 8
   %157 = and i64 %156, 7
-  %switch555 = icmp ult i64 %157, 3
+  %switch555 = icmp samesign ult i64 %157, 3
   br i1 %switch555, label %_ZNK4llvm12MemDepResult7getInstEv.exit283, label %_ZNK4llvm12MemDepResult7getInstEv.exit283.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit283:        ; preds = %154
@@ -6820,7 +6820,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_14PointerIntPairIPKNS_5ValueELj1EbNS_21Po
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.053.095, i64 8
   %247 = load i64, ptr %246, align 8
   %248 = and i64 %247, 7
-  %switch = icmp ult i64 %248, 3
+  %switch = icmp samesign ult i64 %248, 3
   br i1 %switch, label %_ZNK4llvm12MemDepResult7getInstEv.exit52, label %_ZNK4llvm12MemDepResult7getInstEv.exit52.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit52:         ; preds = %245
@@ -7020,7 +7020,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt4pairISt6vectorINS_16Non
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0417.0493, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 7
-  %switch = icmp ult i64 %47, 3
+  %switch = icmp samesign ult i64 %47, 3
   br i1 %switch, label %_ZNK4llvm12MemDepResult7getInstEv.exit, label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %44
@@ -7122,7 +7122,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_12MemDepResultENS_12Den
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i80, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 7
-  %switch447 = icmp ult i64 %95, 3
+  %switch447 = icmp samesign ult i64 %95, 3
   br i1 %switch447, label %_ZNK4llvm12MemDepResult7getInstEv.exit88, label %_ZNK4llvm12MemDepResult7getInstEv.exit88.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit88:         ; preds = %92
@@ -7829,7 +7829,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit176: ; preds = %.lr.p
 
 .lr.ph505:                                        ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit176
   %452 = and i64 %.sroa.0395.0, 7
-  %switch449 = icmp ult i64 %452, 3
+  %switch449 = icmp samesign ult i64 %452, 3
   %.0.i194.in = and i64 %.sroa.0395.0, -8
   %.0.i194 = inttoptr i64 %.0.i194.in to ptr
   %.not71 = icmp eq i64 %.0.i194.in, 0
@@ -8285,7 +8285,7 @@ _ZNK4llvm15SmallPtrSetImplINS_14PointerIntPairIPKNS_5ValueELj1EbNS_21PointerLike
   %658 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %660 = and i64 %.sroa.0395.0, 7
-  %switch451 = icmp ugt i64 %660, 2
+  %switch451 = icmp samesign ugt i64 %660, 2
   %.0.i300.in = and i64 %.sroa.0395.0, -8
   %.0.i300 = inttoptr i64 %.0.i300.in to ptr
   %.not69 = icmp eq i64 %.0.i300.in, 0

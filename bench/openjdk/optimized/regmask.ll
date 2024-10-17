@@ -248,7 +248,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask9is_bound1Ev(ptr nocapture noundef
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit: ; preds = %.lr.ph
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %12)
-  %14 = icmp ult i64 %13, 2
+  %14 = icmp samesign ult i64 %13, 2
   br i1 %14, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit, %15
@@ -391,7 +391,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw i64 1, %18
   %21 = add nuw nsw i32 %.0.i, %19
-  %22 = icmp ult i32 %21, 65
+  %22 = icmp samesign ult i32 %21, 65
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %17
@@ -472,7 +472,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i: ; preds = %.lr.ph.i4
   %63 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
-  %64 = icmp ult i64 %63, 2
+  %64 = icmp samesign ult i64 %63, 2
   br i1 %64, label %.preheader.i, label %.lr.ph.i9.preheader
 
 .preheader.i:                                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i, %65

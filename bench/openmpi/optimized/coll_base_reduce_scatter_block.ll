@@ -1200,7 +1200,7 @@ define i32 @ompi_coll_base_reduce_scatter_block_intra_butterfly(ptr noundef %0, 
 
 13:                                               ; preds = %7
   %14 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.val256.val)
-  %.not = icmp ult i32 %14, 2
+  %.not = icmp samesign ult i32 %14, 2
   %15 = zext nneg i32 %.val256.val to i64
   %16 = sext i32 %2 to i64
   %17 = mul nsw i64 %15, %16

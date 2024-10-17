@@ -1231,7 +1231,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals3new17ha3ea17f283642611E(ptr 
   %40 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %41 = icmp ult i64 %40, 6
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp ult i64 %40, 5
+  %42 = icmp samesign ult i64 %40, 5
   br i1 %42, label %43, label %.critedge24
 
 43:                                               ; preds = %.critedge, %.critedge24
@@ -1270,7 +1270,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals3new17ha3ea17f283642611E(ptr 
   %53 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8, !noalias !153
   %54 = icmp ult i64 %53, 6
   call void @llvm.assume(i1 %54)
-  %switch.selectcmp28.i = icmp ugt i64 %53, 4
+  %switch.selectcmp28.i = icmp samesign ugt i64 %53, 4
   br i1 %switch.selectcmp28.i, label %58, label %57
 
 .body.loopexit.i:                                 ; preds = %78
@@ -1381,7 +1381,7 @@ _ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.169799788501305706
   %92 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8, !noalias !153
   %93 = icmp ult i64 %92, 6
   call void @llvm.assume(i1 %93)
-  %switch.selectcmp32.i = icmp ugt i64 %92, 4
+  %switch.selectcmp32.i = icmp samesign ugt i64 %92, 4
   br i1 %switch.selectcmp32.i, label %94, label %65
 
 94:                                               ; preds = %91
@@ -1428,7 +1428,7 @@ _ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.thread.i: ; preds 
   %106 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8, !noalias !153
   %107 = icmp ult i64 %106, 6
   call void @llvm.assume(i1 %107)
-  %switch.selectcmp36.i = icmp ugt i64 %106, 4
+  %switch.selectcmp36.i = icmp samesign ugt i64 %106, 4
   br i1 %switch.selectcmp36.i, label %108, label %102
 
 108:                                              ; preds = %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.thread.i
@@ -1469,7 +1469,7 @@ _ZN10grep_regex7literal9Extractor16extract_untagged17h27fbadaba4370a8eE.exit: ; 
   %116 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %117 = icmp ult i64 %116, 6
   tail call void @llvm.assume(i1 %117)
-  %118 = icmp ult i64 %116, 5
+  %118 = icmp samesign ult i64 %116, 5
   br i1 %118, label %119, label %.critedge28
 
 119:                                              ; preds = %.critedge26, %.critedge28
@@ -1495,7 +1495,7 @@ _ZN10grep_regex7literal9Extractor16extract_untagged17h27fbadaba4370a8eE.exit: ; 
   %124 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %125 = icmp ult i64 %124, 6
   tail call void @llvm.assume(i1 %125)
-  %126 = icmp ult i64 %124, 5
+  %126 = icmp samesign ult i64 %124, 5
   br i1 %126, label %127, label %.critedge32
 
 127:                                              ; preds = %.critedge30, %.critedge32
@@ -1609,7 +1609,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals9one_regex17hfaeb3caad31f75e1
   %46 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %47 = icmp ult i64 %46, 6
   call void @llvm.assume(i1 %47)
-  %switch.selectcmp77 = icmp ugt i64 %46, 3
+  %switch.selectcmp77 = icmp samesign ugt i64 %46, 3
   br i1 %switch.selectcmp77, label %77, label %58
 
 .noexc:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb9086cb3925cc85E.llvm.16979978850130570624.exit"
@@ -1846,7 +1846,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals9one_regex17hfaeb3caad31f75e1
   %110 = landingpad { ptr, i32 }
           cleanup
   %111 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx, align 8, !range !258, !alias.scope !259, !noundef !8
-  %switch.not.i.i.i = icmp ult i8 %111, 2
+  %switch.not.i.i.i = icmp samesign ult i8 %111, 2
   br i1 %switch.not.i.i.i, label %112, label %.body85
 
 112:                                              ; preds = %109
@@ -1903,7 +1903,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals9one_regex17hfaeb3caad31f75e1
   %126 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %124, ptr %126, align 8
   %127 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx, align 8, !range !258, !alias.scope !276, !noundef !8
-  %switch.not.i.i.i90 = icmp ult i8 %127, 2
+  %switch.not.i.i.i90 = icmp samesign ult i8 %127, 2
   br i1 %switch.not.i.i.i90, label %128, label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17hc19bb3ceb2062d16E.exit92"
 
 128:                                              ; preds = %123
@@ -1923,7 +1923,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals9one_regex17hfaeb3caad31f75e1
   %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.12.0.copyload, ptr %.sroa.561.0..sroa_idx, align 8
   %130 = load i8, ptr %.sroa.13.sroa.4.0..sroa.13.0..sroa_idx.sroa_idx, align 8, !range !258, !alias.scope !283, !noundef !8
-  %switch.not.i.i.i93 = icmp ult i8 %130, 2
+  %switch.not.i.i.i93 = icmp samesign ult i8 %130, 2
   br i1 %switch.not.i.i.i93, label %131, label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17hc19bb3ceb2062d16E.exit95"
 
 131:                                              ; preds = %129
@@ -2995,7 +2995,7 @@ _ZN12regex_syntax3hir7literal7Literal16keep_first_bytes17h2e8b932942788345E.exit
   %330 = load i32, ptr %314, align 4, !range !515, !noalias !474, !noundef !8
   %331 = getelementptr inbounds i8, ptr %314, i64 4
   %332 = load i32, ptr %331, align 4, !range !515, !noalias !474, !noundef !8
-  %.not.i10.i = icmp ugt i32 %330, %332
+  %.not.i10.i = icmp samesign ugt i32 %330, %332
   br i1 %.not.i10.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.thread.i.backedge", label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.i"
 
 "_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.thread.i.backedge": ; preds = %_ZN10grep_regex7literal4TSeq4push17hf5f6a342cda76841E.exit.i, %329
@@ -3008,7 +3008,7 @@ _ZN10grep_regex7literal9Extractor19enforce_literal_len17h1fc9886d159911afE.llvm.
 
 "_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.i": ; preds = %329, %_ZN10grep_regex7literal4TSeq4push17hf5f6a342cda76841E.exit.i
   %.sroa.0.012.i = phi i32 [ %.sroa.0.1.i, %_ZN10grep_regex7literal4TSeq4push17hf5f6a342cda76841E.exit.i ], [ %330, %329 ]
-  %333 = icmp uge i32 %.sroa.0.012.i, %332
+  %333 = icmp samesign uge i32 %.sroa.0.012.i, %332
   %334 = add nuw nsw i32 %.sroa.0.012.i, 1
   %or.cond.i.i.i = icmp eq i32 %.sroa.0.012.i, 55295
   %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 57344, i32 %334
@@ -3122,7 +3122,7 @@ _ZN10grep_regex7literal9Extractor19enforce_literal_len17h1fc9886d159911afE.llvm.
 
 _ZN10grep_regex7literal4TSeq4push17hf5f6a342cda76841E.exit.i: ; preds = %363, %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17h4559f329ac4d9588E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !481
-  %.not.i.i = icmp ugt i32 %.sroa.0.1.i, %332
+  %.not.i.i = icmp samesign ugt i32 %.sroa.0.1.i, %332
   %or.cond.i = select i1 %333, i1 true, i1 %.not.i.i
   br i1 %or.cond.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.thread.i.backedge", label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h20faab50d6250c3fE.exit.i"
 

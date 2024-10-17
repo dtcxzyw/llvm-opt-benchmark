@@ -155,7 +155,7 @@ define ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %73 = lshr i32 %72, 12
   %74 = load i32, ptr %58, align 4
   %75 = lshr i32 %74, 12
-  %76 = icmp ugt i32 %73, %75
+  %76 = icmp samesign ugt i32 %73, %75
   br i1 %76, label %.critedge.sink.split.i, label %.critedge.i
 
 .critedge.sink.split.i:                           ; preds = %69, %63
@@ -781,7 +781,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %165 = getelementptr inbounds i8, ptr %.06299.i, i64 20
   %166 = load i32, ptr %165, align 4
   %167 = lshr i32 %166, 12
-  %168 = icmp ugt i32 %164, %167
+  %168 = icmp samesign ugt i32 %164, %167
   %spec.select.i = select i1 %168, ptr %.06299.i, ptr %.06498.i
   %169 = getelementptr inbounds i8, ptr %.06299.i, i64 8
   %170 = load ptr, ptr %169, align 8
@@ -1304,7 +1304,7 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   %33 = getelementptr inbounds i8, ptr %29, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 12
-  %36 = icmp ugt i32 %32, %35
+  %36 = icmp samesign ugt i32 %32, %35
   %spec.select = select i1 %36, ptr %29, ptr %.05061
   %37 = tail call ptr @Fraig_NodeReadNextE(ptr noundef nonnull %.04862) #11
   %.not57 = icmp eq ptr %37, null

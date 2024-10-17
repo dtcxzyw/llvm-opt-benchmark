@@ -248,7 +248,7 @@ define dso_local void @dm_table_destroy(ptr noundef %0) local_unnamed_addr #0 al
   %48 = add nuw nsw i64 %37, 1
   %49 = load i32, ptr %14, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %48, %50
+  %51 = icmp samesign ult i64 %48, %50
   br i1 %51, label %36, label %.loopexit5, !llvm.loop !8
 
 52:                                               ; preds = %.loopexit, %1
@@ -1255,7 +1255,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 
 16:                                               ; preds = %20
   %17 = add nuw nsw i64 %21, 1
-  %18 = icmp ult i64 %17, %14
+  %18 = icmp samesign ult i64 %17, %14
   %19 = icmp eq i64 %17, %14
   br i1 %19, label %.thread, label %20, !llvm.loop !30
 
@@ -1323,7 +1323,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %65 = add nuw nsw i64 %76, 1
   %66 = load i32, ptr %54, align 8
   %67 = zext i32 %66 to i64
-  %.not26 = icmp ult i64 %65, %67
+  %.not26 = icmp samesign ult i64 %65, %67
   br i1 %.not26, label %68, label %.loopexit44, !llvm.loop !31
 
 68:                                               ; preds = %64
@@ -1630,7 +1630,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %256 = add nuw nsw i64 %220, 1
   %257 = load i32, ptr %211, align 4
   %258 = zext i32 %257 to i64
-  %259 = icmp ult i64 %256, %258
+  %259 = icmp samesign ult i64 %256, %258
   br i1 %259, label %219, label %.loopexit39, !llvm.loop !38
 
 .loopexit39:                                      ; preds = %255, %207
@@ -1706,7 +1706,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %306 = add nuw nsw i64 %317, 1
   %307 = load i32, ptr %146, align 8
   %308 = zext i32 %307 to i64
-  %.not29 = icmp ult i64 %306, %308
+  %.not29 = icmp samesign ult i64 %306, %308
   br i1 %.not29, label %309, label %.loopexit, !llvm.loop !40
 
 309:                                              ; preds = %305
@@ -1931,7 +1931,7 @@ define dso_local noundef zeroext i1 @dm_table_has_no_data_devices(ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %3, align 8
   %10 = zext i32 %9 to i64
-  %.not = icmp ult i64 %indvars.iv.next, %10
+  %.not = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %.not, label %11, label %.loopexit, !llvm.loop !45
 
 11:                                               ; preds = %8, %6
@@ -1993,7 +1993,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %12 = add nuw nsw i64 %17, 1
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %16, label %.loopexit23, !llvm.loop !46
 
 16:                                               ; preds = %11, %7
@@ -2190,7 +2190,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %142 = add nuw i32 %108, 1
   %143 = load i32, ptr %5, align 8
   %144 = zext i32 %143 to i64
-  %145 = icmp ult i64 %141, %144
+  %145 = icmp samesign ult i64 %141, %144
   br i1 %145, label %106, label %.loopexit, !llvm.loop !50
 
 146:                                              ; preds = %125
@@ -2302,7 +2302,7 @@ define internal noundef range(i32 0, 2) i32 @device_area_is_invalid(ptr nocaptur
 
 23:                                               ; preds = %13
   %24 = and i32 %11, 65535
-  %25 = icmp ult i32 %24, 2
+  %25 = icmp samesign ult i32 %24, 2
   br i1 %25, label %46, label %26
 
 26:                                               ; preds = %23
@@ -2370,7 +2370,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %21 = add nuw nsw i64 %38, 1
   %22 = load i32, ptr %6, align 8
   %23 = zext i32 %22 to i64
-  %.not = icmp ult i64 %21, %23
+  %.not = icmp samesign ult i64 %21, %23
   br i1 %.not, label %24, label %.critedge, !llvm.loop !51
 
 24:                                               ; preds = %20
@@ -2456,7 +2456,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %72 = phi i32 [ %.pre, %._crit_edge ], [ %55, %.preheader110 ]
   %73 = add nuw nsw i64 %56, 1
   %74 = zext i32 %72 to i64
-  %.not56 = icmp ult i64 %73, %74
+  %.not56 = icmp samesign ult i64 %73, %74
   br i1 %.not56, label %49, label %.critedge67, !llvm.loop !52
 
 .loopexit111:                                     ; preds = %49, %62, %68, %44
@@ -2497,7 +2497,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %94 = add nuw nsw i64 %111, 1
   %95 = load i32, ptr %6, align 8
   %96 = zext i32 %95 to i64
-  %.not57 = icmp ult i64 %94, %96
+  %.not57 = icmp samesign ult i64 %94, %96
   br i1 %.not57, label %97, label %.critedge69, !llvm.loop !53
 
 97:                                               ; preds = %93
@@ -2570,7 +2570,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %138 = phi i32 [ %116, %128 ], [ %.pre126, %134 ], [ %116, %.preheader106 ]
   %139 = add nuw nsw i64 %117, 1
   %140 = zext i32 %138 to i64
-  %141 = icmp ult i64 %139, %140
+  %141 = icmp samesign ult i64 %139, %140
   br i1 %141, label %.preheader106, label %.thread85, !llvm.loop !54
 
 ._crit_edge122:                                   ; preds = %123, %134
@@ -2616,7 +2616,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %165 = phi i32 [ %.pre125, %._crit_edge124 ], [ %143, %155 ], [ %143, %.preheader105 ]
   %166 = add nuw nsw i64 %144, 1
   %167 = zext i32 %165 to i64
-  %168 = icmp ult i64 %166, %167
+  %168 = icmp samesign ult i64 %166, %167
   br i1 %168, label %.preheader105, label %.thread85, !llvm.loop !54
 
 .thread85:                                        ; preds = %137, %161, %150, %164, %.critedge67, %41, %.critedge69, %._crit_edge122
@@ -2646,7 +2646,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %185 = add nuw nsw i64 %202, 1
   %186 = load i32, ptr %6, align 8
   %187 = zext i32 %186 to i64
-  %.not60 = icmp ult i64 %185, %187
+  %.not60 = icmp samesign ult i64 %185, %187
   br i1 %.not60, label %188, label %.critedge71, !llvm.loop !31
 
 188:                                              ; preds = %184
@@ -2689,7 +2689,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef re
   %212 = add nuw nsw i64 %216, 1
   %213 = load i32, ptr %6, align 8
   %214 = zext i32 %213 to i64
-  %215 = icmp ult i64 %212, %214
+  %215 = icmp samesign ult i64 %212, %214
   br i1 %215, label %.preheader101, label %.loopexit102, !llvm.loop !31
 
 .preheader101:                                    ; preds = %.critedge71, %211
@@ -2755,7 +2755,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %249 = phi i32 [ %237, %.preheader99 ], [ %.pre128, %246 ]
   %250 = add nuw nsw i64 %238, 1
   %251 = zext i32 %249 to i64
-  %252 = icmp ult i64 %250, %251
+  %252 = icmp samesign ult i64 %250, %251
   br i1 %252, label %.preheader99, label %.loopexit100, !llvm.loop !55
 
 .loopexit100:                                     ; preds = %._crit_edge127, %246
@@ -2788,7 +2788,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %267 = phi i32 [ %.pre131, %._crit_edge130 ], [ %254, %.preheader98 ]
   %268 = add nuw nsw i64 %255, 1
   %269 = zext i32 %267 to i64
-  %270 = icmp ult i64 %268, %269
+  %270 = icmp samesign ult i64 %268, %269
   br i1 %270, label %.preheader98, label %.critedge73, !llvm.loop !55
 
 271:                                              ; preds = %263
@@ -2823,7 +2823,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %287 = add nuw nsw i64 %304, 1
   %288 = load i32, ptr %6, align 8
   %289 = zext i32 %288 to i64
-  %.not62 = icmp ult i64 %287, %289
+  %.not62 = icmp samesign ult i64 %287, %289
   br i1 %.not62, label %290, label %.critedge75, !llvm.loop !56
 
 290:                                              ; preds = %286
@@ -2897,7 +2897,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %330 = phi i32 [ %.pre133, %._crit_edge132 ], [ %317, %.preheader95 ]
   %331 = add nuw nsw i64 %318, 1
   %332 = zext i32 %330 to i64
-  %333 = icmp ult i64 %331, %332
+  %333 = icmp samesign ult i64 %331, %332
   br i1 %333, label %.preheader95, label %.critedge77, !llvm.loop !55
 
 334:                                              ; preds = %326
@@ -2945,7 +2945,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %355 = phi i32 [ %.pre135, %._crit_edge134 ], [ %342, %.preheader94 ]
   %356 = add nuw nsw i64 %343, 1
   %357 = zext i32 %355 to i64
-  %358 = icmp ult i64 %356, %357
+  %358 = icmp samesign ult i64 %356, %357
   br i1 %358, label %.preheader94, label %.critedge79, !llvm.loop !55
 
 359:                                              ; preds = %351
@@ -2987,7 +2987,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %381 = add nuw nsw i64 %380, 1
   %382 = load i32, ptr %6, align 8
   %383 = zext i32 %382 to i64
-  %.not65 = icmp ult i64 %381, %383
+  %.not65 = icmp samesign ult i64 %381, %383
   br i1 %.not65, label %384, label %.critedge81, !llvm.loop !40
 
 384:                                              ; preds = %.preheader
@@ -3143,7 +3143,7 @@ define dso_local void @dm_table_presuspend_targets(ptr noundef readonly %0) loca
   %21 = phi i32 [ %.pre, %19 ], [ %10, %9 ]
   %22 = add nuw nsw i64 %11, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp samesign ult i64 %22, %23
   br i1 %24, label %9, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %20, %3, %1
@@ -3186,7 +3186,7 @@ define dso_local void @dm_table_presuspend_undo_targets(ptr noundef readonly %0)
   %21 = phi i32 [ %.pre, %19 ], [ %10, %9 ]
   %22 = add nuw nsw i64 %11, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp samesign ult i64 %22, %23
   br i1 %24, label %9, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %20, %3, %1
@@ -3229,7 +3229,7 @@ define dso_local void @dm_table_postsuspend_targets(ptr noundef readonly %0) loc
   %21 = phi i32 [ %.pre, %19 ], [ %10, %9 ]
   %22 = add nuw nsw i64 %11, 1
   %23 = zext i32 %21 to i64
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp samesign ult i64 %22, %23
   br i1 %24, label %9, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %20, %3, %1
@@ -3286,7 +3286,7 @@ define dso_local i32 @dm_table_resume_targets(ptr nocapture noundef readonly %0)
   %31 = phi i32 [ %.pre, %._crit_edge ], [ %10, %9 ]
   %32 = add nuw nsw i64 %11, 1
   %33 = zext i32 %31 to i64
-  %34 = icmp ult i64 %32, %33
+  %34 = icmp samesign ult i64 %32, %33
   br i1 %34, label %9, label %7, !llvm.loop !58
 
 .preheader:                                       ; preds = %7, %45
@@ -3310,7 +3310,7 @@ define dso_local i32 @dm_table_resume_targets(ptr nocapture noundef readonly %0)
   %46 = phi i32 [ %.pre13, %44 ], [ %35, %.preheader ]
   %47 = add nuw nsw i64 %36, 1
   %48 = zext i32 %46 to i64
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp samesign ult i64 %47, %48
   br i1 %49, label %.preheader, label %.thread, !llvm.loop !59
 
 .thread:                                          ; preds = %45, %1, %22, %7

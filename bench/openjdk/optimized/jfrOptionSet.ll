@@ -1589,7 +1589,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet35parse_start_flight_recordin
   %35 = add nsw i32 %30, 1
   %36 = icmp sgt i32 %30, -1
   %37 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
-  %38 = icmp ult i32 %37, 2
+  %38 = icmp samesign ult i32 %37, 2
   %or.cond.i.i.i.i = select i1 %36, i1 %38, i1 false
   %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %40 = sub nuw nsw i32 32, %39

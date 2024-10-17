@@ -1653,7 +1653,7 @@ define dso_local noundef range(i32 3, 1) i32 @__irq_set_trigger(ptr noundef %0, 
   %52 = load i32, ptr %46, align 8
   %53 = and i32 %52, -257
   store i32 %53, ptr %46, align 8
-  %54 = icmp ult i32 %45, 4
+  %54 = icmp samesign ult i32 %45, 4
   br i1 %54, label %65, label %55
 
 55:                                               ; preds = %41

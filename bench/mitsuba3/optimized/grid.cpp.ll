@@ -3802,7 +3802,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %3
   %37 = xor i8 %36, 31
   %38 = select i1 %.not.i.i, i8 -1, i8 %37
   %39 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   br i1 %40, label %_ZN5drjit7divisorIiiEC2Ei.exit.i, label %41
 
 41:                                               ; preds = %25
@@ -9378,7 +9378,7 @@ define linkonce_odr hidden void @_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterM
   %30 = xor i8 %29, 31
   %31 = select i1 %.not.i, i8 -1, i8 %30
   %32 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %27)
-  %33 = icmp ult i32 %32, 2
+  %33 = icmp samesign ult i32 %32, 2
   br i1 %33, label %_ZN5drjit7divisorIiiEC2Ei.exit, label %34
 
 34:                                               ; preds = %17
@@ -10455,7 +10455,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %36 = getelementptr inbounds [11 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
   store i8 %35, ptr %36, align 1
   %37 = udiv i32 %.013.i.i, 10
-  %.not.i.i = icmp ult i32 %.013.i.i, 10
+  %.not.i.i = icmp samesign ult i32 %.013.i.i, 10
   br i1 %.not.i.i, label %38, label %31, !llvm.loop !95
 
 38:                                               ; preds = %31

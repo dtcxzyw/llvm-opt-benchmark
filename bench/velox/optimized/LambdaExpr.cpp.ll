@@ -622,7 +622,7 @@ for.cond:                                         ; preds = %for.inc, %if.end
 
 invoke.cont:                                      ; preds = %for.cond
   %2 = zext i32 %call2 to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %cmp = icmp samesign ult i64 %indvars.iv, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
@@ -796,7 +796,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 invoke.cont3:                                     ; preds = %for.cond
   %2 = zext i32 %call4 to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %cmp = icmp samesign ult i64 %indvars.iv, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont3
@@ -3887,7 +3887,7 @@ for.cond.i.i:                                     ; preds = %while.end.i.i, %_ZN
   %index.i.i.0 = phi i64 [ %call.i2.i.i.i, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEivvvSt17integral_constantIbLb1EEE14computeKeyHashIS8_EEmRKT_.exit ], [ %add.i.i, %while.end.i.i ]
   %12 = load i32, ptr %chunkMask_.i.i, align 8
   %conv.i.i = zext i32 %12 to i64
-  %cmp.i.i.not = icmp ule i64 %tries.i.i.0, %conv.i.i
+  %cmp.i.i.not = icmp samesign ule i64 %tries.i.i.0, %conv.i.i
   call void @llvm.assume(i1 %cmp.i.i.not)
   %13 = load ptr, ptr %chunks_.i.i, align 8
   %and.i.i = and i64 %index.i.i.0, %conv.i.i
@@ -11569,7 +11569,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end9, !llvm.loop !30
 
 if.then8:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -12534,7 +12534,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
 for.cond.i:                                       ; preds = %while.end.i, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEivvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit
   %tries.i.0 = phi i64 [ 0, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEivvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit ], [ %inc.i, %while.end.i ]
   %index.i.0 = phi i64 [ %call.i2.i.i.i.i.i, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEivvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit ], [ %add.i, %while.end.i ]
-  %cmp.i.not = icmp ule i64 %tries.i.0, %conv.i
+  %cmp.i.not = icmp samesign ule i64 %tries.i.0, %conv.i
   call void @llvm.assume(i1 %cmp.i.not)
   %and.i = and i64 %index.i.0, %conv.i
   %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %7, i64 %and.i

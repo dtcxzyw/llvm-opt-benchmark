@@ -1892,7 +1892,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i: ; preds = %19,
   %.0.i.i.i.i.i = phi ptr [ %18, %16 ], [ %20, %19 ]
   %21 = load i32, ptr %.0.i.i.i.i.i, align 8
   %22 = and i32 %21, 2147483647
-  %23 = icmp ult i32 %13, %22
+  %23 = icmp samesign ult i32 %13, %22
   br i1 %23, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i, label %24
 
 24:                                               ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i
@@ -1916,7 +1916,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i: ; preds = %26
   %35 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager16getSLocEntryByIDEiPb(ptr noundef nonnull align 8 dereferenceable(696) %12, i32 noundef %15, ptr noundef null)
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 2147483647
-  %38 = icmp ult i32 %13, %37
+  %38 = icmp samesign ult i32 %13, %37
   br i1 %38, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i, %31, %24
@@ -2052,7 +2052,7 @@ _ZNK5clang11ObjCRuntime9isFragileEv.exit.thread:  ; preds = %6, %6, %6, %6, %6
   %.sroa.029.035 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.029.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ]
   %25 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.sroa.029.035)
   %.sroa.026.0.extract.trunc = trunc i64 %25 to i32
-  %.not33 = icmp ult i64 %25, 4294967296
+  %.not33 = icmp samesign ult i64 %25, 4294967296
   br i1 %.not33, label %_ZN5clang16AvailabilityInfoD2Ev.exit25, label %26
 
 26:                                               ; preds = %24
@@ -2233,7 +2233,7 @@ _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_
 19:                                               ; preds = %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit
   %20 = tail call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
   %.sroa.032.0.extract.trunc = trunc i64 %20 to i32
-  %.not35 = icmp ult i64 %20, 4294967296
+  %.not35 = icmp samesign ult i64 %20, 4294967296
   br i1 %.not35, label %_ZN5clang16AvailabilityInfoD2Ev.exit29, label %21
 
 21:                                               ; preds = %19
@@ -2493,7 +2493,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %2, %11
   %.sroa.0.0.i = phi ptr [ %15, %11 ], [ @.str, %2 ]
   %18 = tail call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
-  %.not = icmp ult i64 %18, 4294967296
+  %.not = icmp samesign ult i64 %18, 4294967296
   br i1 %.not, label %_ZN5clang16AvailabilityInfoD2Ev.exit30, label %19
 
 19:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
@@ -2646,7 +2646,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %10, %16
 .critedge:                                        ; preds = %25, %28
   %31 = tail call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
   %.sroa.010.0.extract.trunc = trunc i64 %31 to i32
-  %.not = icmp ult i64 %31, 4294967296
+  %.not = icmp samesign ult i64 %31, 4294967296
   br i1 %.not, label %_ZN5clang16AvailabilityInfoD2Ev.exit7, label %32
 
 32:                                               ; preds = %.critedge
@@ -2894,7 +2894,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %13, %21
 56:                                               ; preds = %49, %51, %47
   %57 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
   %.sroa.041.0.extract.trunc = trunc i64 %57 to i32
-  %.not47 = icmp ult i64 %57, 4294967296
+  %.not47 = icmp samesign ult i64 %57, 4294967296
   br i1 %.not47, label %.loopexit, label %58
 
 58:                                               ; preds = %56
@@ -4164,7 +4164,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %311, %319
   %327 = load ptr, ptr %326, align 16
   %328 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %327) #16
   %329 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %328)
-  %.not117 = icmp ult i64 %329, 4294967296
+  %.not117 = icmp samesign ult i64 %329, 4294967296
   br i1 %.not117, label %_ZN5clang16AvailabilityInfoD2Ev.exit75, label %330
 
 330:                                              ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
@@ -4378,7 +4378,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10installapi17InstallAPIVisitor18V
 30:                                               ; preds = %25
   %31 = tail call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
   %.sroa.0161.0.extract.trunc = trunc i64 %31 to i32
-  %.not181 = icmp ult i64 %31, 4294967296
+  %.not181 = icmp samesign ult i64 %31, 4294967296
   br i1 %.not181, label %_ZN5clang16AvailabilityInfoD2Ev.exit115, label %32
 
 32:                                               ; preds = %30
@@ -4510,7 +4510,7 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit:  ; preds = %75
 99:                                               ; preds = %91
   %100 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %.sroa.0157.0200)
   %.sroa.0150.0.extract.trunc = trunc i64 %100 to i32
-  %.not188 = icmp ult i64 %100, 4294967296
+  %.not188 = icmp samesign ult i64 %100, 4294967296
   br i1 %.not188, label %.loopexit, label %101
 
 101:                                              ; preds = %99
@@ -4796,7 +4796,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %237, %253, %_ZN
   call void @_ZNK5clang10installapi17InstallAPIVisitor14getMangledNameB5cxx11EPKNS_9NamedDeclE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %.sroa.0121.0203)
   %261 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %.sroa.0121.0203)
   %.sroa.0118.0.extract.trunc = trunc i64 %261 to i32
-  %.not186 = icmp ult i64 %261, 4294967296
+  %.not186 = icmp samesign ult i64 %261, 4294967296
   br i1 %.not186, label %.critedge, label %262
 
 262:                                              ; preds = %260
@@ -11484,7 +11484,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
@@ -12080,7 +12080,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
@@ -16852,7 +16852,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %45 = load i64, ptr %5, align 16
   %46 = lshr i64 %45, 38
   %47 = and i64 %46, 65535
-  %48 = icmp ult i64 %indvars.iv, %47
+  %48 = icmp samesign ult i64 %indvars.iv, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -44686,7 +44686,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %indvars.iv, %10
+  %11 = icmp samesign ult i64 %indvars.iv, %10
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -45132,7 +45132,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
@@ -45279,7 +45279,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv, %9
+  %10 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread

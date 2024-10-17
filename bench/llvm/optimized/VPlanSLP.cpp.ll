@@ -2984,7 +2984,7 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %70 = load ptr, ptr %.067148, align 8
   %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.067148) #20
   %72 = call fastcc i64 @_ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE(ptr %70, i64 %71)
-  %.not145 = icmp ult i64 %72, 4294967296
+  %.not145 = icmp samesign ult i64 %72, 4294967296
   br i1 %.not145, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %73
 
 73:                                               ; preds = %69

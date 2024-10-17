@@ -1053,7 +1053,7 @@ define void @Fraig_TablePrintStatsS(ptr nocapture noundef readonly %0) local_unn
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %13)
-  %17 = icmp ugt i32 %.018, 49
+  %17 = icmp samesign ugt i32 %.018, 49
   br i1 %17, label %18, label %._crit_edge.thread
 
 18:                                               ; preds = %15

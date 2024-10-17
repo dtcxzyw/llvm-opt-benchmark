@@ -1101,7 +1101,7 @@ _ZN12_GLOBAL__N_14SROAC2EPN4llvm11LLVMContextEPNS1_14DomTreeUpdaterEPNS1_15Assum
   store i32 0, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %54, align 8
-  %.not = icmp ult i16 %33, 256
+  %.not = icmp samesign ult i16 %33, 256
   br i1 %.not, label %55, label %56
 
 55:                                               ; preds = %47
@@ -4409,7 +4409,7 @@ _ZN4llvm4User8operandsEv.exit.i.i.i.i:            ; preds = %485, %482
   %.pre-phi2.i.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i.i, %482 ], [ %487, %485 ]
   %491 = getelementptr inbounds %"class.llvm::Use", ptr %490, i64 %.pre-phi2.i.i.i.i.i.i
   %492 = ptrtoint ptr %491 to i64
-  %.not108.i.i.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i.i, 4
+  %.not108.i.i.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i.i, 4
   br i1 %.not108.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.preheader.i.i.i.i:             ; preds = %_ZN4llvm4User8operandsEv.exit.i.i.i.i
@@ -4641,7 +4641,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i.i.i: ; preds = %560, %557
   %.pre-phi2.i.i.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i.i.i, %557 ], [ %562, %560 ]
   %.idx111.i.i.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i.i.i, 5
   %566 = getelementptr inbounds i8, ptr %565, i64 %.idx111.i.i.i.i
-  %.not110.i.i.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i.i.i, 4
+  %.not110.i.i.i.i = icmp samesign ult i64 %.pre-phi2.i.i.i.i.i.i.i, 4
   br i1 %.not110.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i.i.i
@@ -6533,7 +6533,7 @@ _ZN4llvm13PtrUseVisitorIN12_GLOBAL__N_112AllocaSlices12SliceBuilderEE8visitPtrER
   br i1 %.not.i.i.i.i.i.i56, label %select.unfold.i.i.i.i.i.i, label %1418
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i55
-  %.not12.i.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
+  %.not12.i.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i.i, 3
   br i1 %.not12.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !113
 
 1418:                                             ; preds = %.lr.ph.i.i.i.i.i.i55
@@ -10126,7 +10126,7 @@ _ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %204, %179, %._crit_
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %214
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 214:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -26839,7 +26839,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_15SliceEE6appendIPKS2_vEEvT_S7_.exit.i: 
   br i1 %.not.i.i.i.i.i906, label %select.unfold.i.i.i.i.i, label %2628
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  %.not12.i.i.i.i.i = icmp samesign ult i64 %storemerge28.i.i.in.in.i.i.i, 3
   br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 2628:                                             ; preds = %.lr.ph.i.i.i.i.i
@@ -26914,7 +26914,7 @@ _ZSt11stable_sortIPN12_GLOBAL__N_15SliceEEvT_S3_.exit.i: ; preds = %2633, %_ZN4l
 select.unfold.i.i.i.i21.i:                        ; preds = %.lr.ph.i.i.i.i9.i
   %2649 = add nuw nsw i64 %storemerge28.i.i.i.i10.i, 1
   %2650 = lshr i64 %2649, 1
-  %.not12.i.i.i.i22.i = icmp ult i64 %storemerge28.i.i.i.i10.i, 2
+  %.not12.i.i.i.i22.i = icmp samesign ult i64 %storemerge28.i.i.i.i10.i, 2
   br i1 %.not12.i.i.i.i22.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread.i.i8.i, label %.lr.ph.i.i.i.i9.i, !llvm.loop !113
 
 2651:                                             ; preds = %.lr.ph.i.i.i.i9.i
@@ -28025,7 +28025,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11IntegerTypeENS_4TypeEEEDaPT0_.exit.i: ; preds = 
   %88 = getelementptr inbounds nuw i8, ptr %.05684.i, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = lshr i32 %89, 8
-  %91 = icmp ult i32 %90, %79
+  %91 = icmp samesign ult i32 %90, %79
   br i1 %91, label %92, label %.thread68.i
 
 92:                                               ; preds = %87, %86
@@ -34014,7 +34014,7 @@ _ZNK4llvm9AAMDNodescvbEv.exit.thread.i.i.i.i:     ; preds = %331
 357:                                              ; preds = %352
   %358 = lshr i32 %349, 8
   %359 = lshr i32 %354, 8
-  %360 = icmp ult i32 %358, %359
+  %360 = icmp samesign ult i32 %358, %359
   br i1 %360, label %361, label %437
 
 361:                                              ; preds = %357
@@ -36523,7 +36523,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread: ; preds = %_
   %.fca.0.extract.i.i113 = extractvalue { i64, i8 } %46, 0
   %47 = add i64 %.fca.0.extract.i.i113, 7
   %48 = lshr i64 %47, 3
-  %49 = icmp ugt i64 %48, %8
+  %49 = icmp samesign ugt i64 %48, %8
   %.val107 = load i64, ptr %0, align 8
   %50 = icmp ult i64 %.val107, %1
   %or.cond149 = select i1 %49, i1 true, i1 %50
@@ -36590,7 +36590,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread: ; preds = %_
   %.fca.0.extract.i.i121 = extractvalue { i64, i8 } %82, 0
   %83 = add i64 %.fca.0.extract.i.i121, 7
   %84 = lshr i64 %83, 3
-  %85 = icmp ugt i64 %84, %8
+  %85 = icmp samesign ugt i64 %84, %8
   %.val = load i64, ptr %0, align 8
   %86 = icmp ult i64 %.val, %1
   %or.cond150 = select i1 %85, i1 true, i1 %86
@@ -37952,7 +37952,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10VectorTypeElN9__g
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %12, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp ult i64 %14, %18
+  %19 = icmp samesign ult i64 %14, %18
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -39065,7 +39065,7 @@ _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueEmRKNS_5TwineEbb.exit.thread: ; pred
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = lshr i32 %87, 8
-  %89 = icmp ult i32 %85, %88
+  %89 = icmp samesign ult i32 %85, %88
   br i1 %89, label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueEmRKNS_5TwineEbb.exit.thread108, label %_ZN4llvm5APIntD2Ev.exit95
 
 _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueEmRKNS_5TwineEbb.exit.thread108.sink.split: ; preds = %.lr.ph.i.i.i100, %66

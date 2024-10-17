@@ -3155,7 +3155,7 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %450 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %449, ptr %450, align 1, !noalias !35
   %451 = udiv i64 %.0810.i, 10
-  %.not.i145 = icmp ult i64 %.0810.i, 10
+  %.not.i145 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i145, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -7288,7 +7288,7 @@ _ZNK5clang4Decl7getAttrINS_15XRayLogArgsAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.
   %1271 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %1270, ptr %1271, align 1, !noalias !62
   %1272 = udiv i64 %.0810.i, 10
-  %.not.i1731 = icmp ult i64 %.0810.i, 10
+  %.not.i1731 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i1731, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -10415,7 +10415,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i

@@ -1647,7 +1647,7 @@ _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i33.i: ; preds = 
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit58.i
 
 if.else.i.i35.i:                                  ; preds = %if.then.i19.i
-  %cmp.i.i.i36.i = icmp ult i64 %sub.i.i24.i, 1024
+  %cmp.i.i.i36.i = icmp samesign ult i64 %sub.i.i24.i, 1024
   br i1 %cmp.i.i.i36.i, label %if.then.i.i.i54.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i37.i
 
 if.then.i.i.i54.i:                                ; preds = %if.else.i.i35.i

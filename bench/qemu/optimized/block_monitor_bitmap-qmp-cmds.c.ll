@@ -118,7 +118,7 @@ if.end8:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end8
   %cmp12 = icmp ugt i32 %granularity, 511
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %granularity)
-  %tobool1.not.i = icmp ult i32 %1, 2
+  %tobool1.not.i = icmp samesign ult i32 %1, 2
   %or.cond = select i1 %cmp12, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end20, label %if.then17
 

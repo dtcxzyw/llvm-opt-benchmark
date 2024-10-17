@@ -1240,7 +1240,7 @@ lpad41:                                           ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup61
 
 if.end46:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i169
-  %cmp48231 = icmp ult i64 %conv27, 59
+  %cmp48231 = icmp samesign ult i64 %conv27, 59
   br i1 %cmp48231, label %for.body49.lr.ph, label %for.end54
 
 for.body49.lr.ph:                                 ; preds = %if.end46

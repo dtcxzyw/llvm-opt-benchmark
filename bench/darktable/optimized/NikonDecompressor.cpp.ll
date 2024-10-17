@@ -302,7 +302,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !26
   %86 = zext i32 %85 to i64
-  %87 = icmp ugt i64 %83, %86
+  %87 = icmp samesign ugt i64 %83, %86
   br i1 %87, label %397, label %94
 
 88:                                               ; preds = %88, %73
@@ -323,7 +323,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %100 = icmp sgt i32 %85, -1
   tail call void @llvm.assume(i1 %100)
   %101 = add nuw nsw i32 %81, 2
-  %102 = icmp ule i32 %101, %85
+  %102 = icmp samesign ule i32 %101, %85
   tail call void @llvm.assume(i1 %102)
   %103 = icmp sgt i32 %81, -1
   tail call void @llvm.assume(i1 %103)
@@ -380,7 +380,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %138 = add nsw i64 %131, -1
   %139 = tail call i64 @llvm.umin.i64(i64 %137, i64 %138)
   %140 = add nuw i64 %139, 1
-  %141 = icmp ult i64 %139, 32
+  %141 = icmp samesign ult i64 %139, 32
   br i1 %98, label %216, label %142
 
 142:                                              ; preds = %133
@@ -675,7 +675,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
 
 348:                                              ; preds = %328, %.loopexit, %.loopexit39
   store i32 562, ptr %80, align 8, !tbaa !20
-  %349 = icmp ult i32 %85, 562
+  %349 = icmp samesign ult i32 %85, 562
   br i1 %349, label %397, label %395
 
 350:                                              ; preds = %350, %307
@@ -728,7 +728,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   br i1 %394, label %.loopexit, label %350, !llvm.loop !49
 
 395:                                              ; preds = %348
-  %396 = icmp ult i32 %85, 564
+  %396 = icmp samesign ult i32 %85, 564
   br i1 %396, label %397, label %401
 
 397:                                              ; preds = %395, %348, %.loopexit46
@@ -825,7 +825,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   br i1 %435, label %507, label %448
 
 448:                                              ; preds = %429
-  %449 = icmp ult i64 %446, 32
+  %449 = icmp samesign ult i64 %446, 32
   br i1 %449, label %.preheader82, label %455
 
 .preheader82:                                     ; preds = %455, %450, %448
@@ -906,7 +906,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   br i1 %506, label %450, label %484, !llvm.loop !59
 
 507:                                              ; preds = %429
-  %508 = icmp ult i64 %446, 40
+  %508 = icmp samesign ult i64 %446, 40
   br i1 %508, label %.preheader79, label %509
 
 509:                                              ; preds = %507
@@ -1848,7 +1848,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %69 = or disjoint i32 %47, 256
   %70 = add nuw nsw i32 %69, %63
   %71 = icmp eq i8 %62, 0
-  %72 = icmp ult i32 %67, 12
+  %72 = icmp samesign ult i32 %67, 12
   %73 = sub nuw nsw i32 11, %67
   %74 = shl nsw i32 -1, %63
   %75 = xor i32 %74, -1
@@ -1875,7 +1875,7 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   br i1 %89, label %.loopexit13, label %.preheader, !llvm.loop !120
 
 90:                                               ; preds = %60
-  %91 = icmp ugt i32 %67, 11
+  %91 = icmp samesign ugt i32 %67, 11
   %92 = select i1 %91, i1 %68, i1 false
   %93 = freeze i1 %92
   br i1 %93, label %.preheader14, label %.preheader17
@@ -2214,7 +2214,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressorC2ENS_8RawImageENS_10ByteStre
   %95 = zext nneg i32 %85 to i64
   %96 = add nuw nsw i64 %95, 2
   %97 = zext nneg i32 %53 to i64
-  %98 = icmp ugt i64 %96, %97
+  %98 = icmp samesign ugt i64 %96, %97
   br i1 %98, label %138, label %99
 
 99:                                               ; preds = %94
@@ -2233,7 +2233,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressorC2ENS_8RawImageENS_10ByteStre
   store i32 %109, ptr %110, align 4, !tbaa !50
   %111 = zext nneg i32 %103 to i64
   %112 = add nuw nsw i64 %111, 2
-  %113 = icmp ugt i64 %112, %97
+  %113 = icmp samesign ugt i64 %112, %97
   br i1 %113, label %138, label %114
 
 114:                                              ; preds = %99
@@ -2249,7 +2249,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressorC2ENS_8RawImageENS_10ByteStre
   store i32 %121, ptr %122, align 4, !tbaa !50
   %123 = zext nneg i32 %115 to i64
   %124 = add nuw nsw i64 %123, 2
-  %125 = icmp ugt i64 %124, %97
+  %125 = icmp samesign ugt i64 %124, %97
   br i1 %125, label %138, label %126
 
 126:                                              ; preds = %114
@@ -2265,7 +2265,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressorC2ENS_8RawImageENS_10ByteStre
   store i32 %133, ptr %134, align 8, !tbaa !50
   %135 = zext nneg i32 %127 to i64
   %136 = add nuw nsw i64 %135, 2
-  %137 = icmp ugt i64 %136, %97
+  %137 = icmp samesign ugt i64 %136, %97
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %126, %114, %99, %94, %77, %57
@@ -2450,7 +2450,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %2, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = icmp ult i32 %2, 4
+  %26 = icmp samesign ult i32 %2, 4
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %18
@@ -3149,7 +3149,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
 475:                                              ; preds = %475, %473
   %476 = phi i64 [ 8, %473 ], [ %485, %475 ]
   %477 = phi i32 [ %471, %473 ], [ %484, %475 ]
-  %478 = icmp ult i64 %476, 16
+  %478 = icmp samesign ult i64 %476, 16
   call void @llvm.assume(i1 %478)
   %479 = trunc nuw nsw i64 %476 to i32
   %480 = xor i32 %479, 15
@@ -3294,7 +3294,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   call void @llvm.assume(i1 %571)
   %572 = icmp sgt i32 %567, -1
   call void @llvm.assume(i1 %572)
-  %573 = icmp uge i32 %567, %562
+  %573 = icmp samesign uge i32 %567, %562
   call void @llvm.assume(i1 %573)
   %574 = icmp ne i32 %564, 0
   call void @llvm.assume(i1 %574)
@@ -3344,7 +3344,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %605 = getelementptr inbounds [2 x %"struct.std::array.23"], ptr %581, i64 0, i64 %604
   %606 = load i64, ptr %605, align 4, !tbaa !94
   store i64 %606, ptr %9, align 8, !tbaa !94
-  %607 = icmp ult i64 %601, %585
+  %607 = icmp samesign ult i64 %601, %585
   %608 = mul nsw i32 %567, %603
   %609 = add nuw nsw i32 %608, %562
   %610 = icmp ule i32 %609, %568
@@ -3369,7 +3369,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %624 = phi i64 [ %602, %597 ], [ %794, %846 ]
   %625 = icmp ult i32 %622, 65
   call void @llvm.assume(i1 %625)
-  %626 = icmp ult i32 %622, 32
+  %626 = icmp samesign ult i32 %622, 32
   br i1 %626, label %627, label %654
 
 627:                                              ; preds = %617
@@ -3427,7 +3427,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   br i1 %663, label %670, label %664
 
 664:                                              ; preds = %654
-  %665 = icmp ult i32 %662, 33
+  %665 = icmp samesign ult i32 %662, 33
   call void @llvm.assume(i1 %665)
   %666 = sub nuw nsw i32 %658, %662
   store i32 %666, ptr %19, align 8, !tbaa !209
@@ -3625,7 +3625,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %798 = load i32, ptr %797, align 4, !tbaa !50
   %799 = add nsw i32 %798, %795
   store i32 %799, ptr %797, align 4, !tbaa !50
-  %800 = icmp ult i64 %623, 2
+  %800 = icmp samesign ult i64 %623, 2
   br i1 %800, label %801, label %808
 
 801:                                              ; preds = %790
@@ -3794,7 +3794,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %21, -1
   call void @llvm.assume(i1 %26)
-  %27 = icmp uge i32 %21, %16
+  %27 = icmp samesign uge i32 %21, %16
   call void @llvm.assume(i1 %27)
   %28 = icmp ne i32 %18, 0
   call void @llvm.assume(i1 %28)
@@ -3922,7 +3922,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %105 = load ptr, ptr %5, align 8
   %106 = load i8, ptr %52, align 1, !range !119
   %107 = icmp eq i8 %106, 0
-  %108 = icmp ult i64 %88, %56
+  %108 = icmp samesign ult i64 %88, %56
   %109 = mul nsw i32 %21, %90
   %110 = add nuw nsw i32 %109, %16
   %111 = icmp ule i32 %110, %22
@@ -3950,12 +3950,12 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %126 = load i32, ptr %45, align 8
   %127 = icmp sgt i32 %126, -1
   call void @llvm.assume(i1 %127)
-  %128 = icmp ult i32 %121, 32
+  %128 = icmp samesign ult i32 %121, 32
   br i1 %128, label %129, label %159
 
 129:                                              ; preds = %118
   %130 = add nuw nsw i32 %126, 4
-  %131 = icmp ugt i32 %130, %124
+  %131 = icmp samesign ugt i32 %130, %124
   br i1 %131, label %135, label %132
 
 132:                                              ; preds = %129
@@ -3965,7 +3965,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
 
 135:                                              ; preds = %129
   %136 = add nuw nsw i32 %124, 8
-  %137 = icmp ugt i32 %126, %136
+  %137 = icmp samesign ugt i32 %126, %136
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %135
@@ -4012,7 +4012,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %164 = load i32, ptr %163, align 4, !tbaa !50
   %165 = ashr i32 %164, 9
   %166 = and i32 %164, 255
-  %167 = icmp ult i32 %166, 33
+  %167 = icmp samesign ult i32 %166, 33
   call void @llvm.assume(i1 %167)
   %168 = sub nuw nsw i32 %160, %166
   store i32 %168, ptr %42, align 8, !tbaa !209
@@ -4167,7 +4167,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %265 = load i32, ptr %264, align 4, !tbaa !50
   %266 = add nsw i32 %265, %262
   store i32 %266, ptr %264, align 4, !tbaa !50
-  %267 = icmp ult i64 %119, 2
+  %267 = icmp samesign ult i64 %119, 2
   br i1 %267, label %268, label %272
 
 268:                                              ; preds = %260
@@ -5360,7 +5360,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 4611686018427387903
   %38 = and i64 %37, 4611686018427387903
   %39 = add nuw nsw i64 %38, 1
-  %40 = icmp ult i64 %38, 31
+  %40 = icmp samesign ult i64 %38, 31
   br i1 %40, label %.preheader20, label %41
 
 41:                                               ; preds = %35
@@ -5551,7 +5551,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
   %151 = add nuw nsw i64 %2, 4611686018427387903
   %152 = and i64 %151, 4611686018427387903
   %153 = add nuw nsw i64 %152, 1
-  %154 = icmp ult i64 %152, 31
+  %154 = icmp samesign ult i64 %152, 31
   br i1 %154, label %.preheader, label %155
 
 155:                                              ; preds = %146
@@ -5845,11 +5845,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %37 = add i64 %2, 9223372036854775807
   %38 = and i64 %37, 9223372036854775807
   %39 = add nuw i64 %38, 1
-  %40 = icmp ult i64 %38, 7
+  %40 = icmp samesign ult i64 %38, 7
   br i1 %40, label %.preheader32, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %38, 63
+  %42 = icmp samesign ult i64 %38, 63
   br i1 %42, label %63, label %43
 
 43:                                               ; preds = %41
@@ -6129,11 +6129,11 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
   %213 = add nuw i64 %212, 1
-  %214 = icmp ult i64 %212, 7
+  %214 = icmp samesign ult i64 %212, 7
   br i1 %214, label %.preheader, label %215
 
 215:                                              ; preds = %206
-  %216 = icmp ult i64 %212, 63
+  %216 = icmp samesign ult i64 %212, 63
   br i1 %216, label %237, label %217
 
 217:                                              ; preds = %215

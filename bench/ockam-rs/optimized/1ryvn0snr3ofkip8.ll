@@ -6211,9 +6211,9 @@ define noundef nonnull ptr @_ZN11ockam_vault7storage22secrets_repository_sql19Se
           to label %109 unwind label %107
 
 19:                                               ; preds = %1
-  %20 = icmp ult i64 %15, 5
+  %20 = icmp samesign ult i64 %15, 5
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i64 %15, 2
+  %21 = icmp samesign ult i64 %15, 2
   br i1 %21, label %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread94
 
 22:                                               ; preds = %19
@@ -6266,7 +6266,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %43 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %44 = icmp ult i64 %43, 6
   tail call void @llvm.assume(i1 %44)
-  %switch.selectcmp58 = icmp ugt i64 %43, 3
+  %switch.selectcmp58 = icmp samesign ugt i64 %43, 3
   br i1 %switch.selectcmp58, label %45, label %80
 
 45:                                               ; preds = %42
@@ -6415,7 +6415,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %89 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1038
   %90 = icmp ult i64 %89, 6
   call void @llvm.assume(i1 %90)
-  %91 = icmp ult i64 %89, 4
+  %91 = icmp samesign ult i64 %89, 4
   br i1 %91, label %"_ZN11ockam_vault7storage22secrets_repository_sql19SecretsSqlxDatabase3new28_$u7b$$u7b$closure$u7d$$u7d$17h98a100c5c39c69a0E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %88

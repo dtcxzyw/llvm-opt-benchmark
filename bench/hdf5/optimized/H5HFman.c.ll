@@ -235,7 +235,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %107 = lshr i64 %.07085, 8
   %108 = load i8, ptr %100, align 1
   %109 = zext i8 %108 to i64
-  %110 = icmp ult i64 %106, %109
+  %110 = icmp samesign ult i64 %106, %109
   br i1 %110, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %94
@@ -260,7 +260,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %117 = lshr i64 %.06788, 8
   %118 = load i8, ptr %111, align 2
   %119 = zext i8 %118 to i64
-  %120 = icmp ult i64 %116, %119
+  %120 = icmp samesign ult i64 %116, %119
   br i1 %120, label %.lr.ph92, label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %.lr.ph92, %._crit_edge
@@ -379,7 +379,7 @@ define noundef i32 @H5HF__man_get_obj_len(ptr nocapture noundef readonly %0, ptr
   %19 = add nuw nsw i64 %.015, 1
   %20 = load i8, ptr %6, align 2
   %21 = zext i8 %20 to i64
-  %22 = icmp ult i64 %19, %21
+  %22 = icmp samesign ult i64 %19, %21
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -413,7 +413,7 @@ define void @H5HF__man_get_obj_off(ptr nocapture noundef readonly %0, ptr nocapt
   %15 = add nuw nsw i64 %.013, 1
   %16 = load i8, ptr %4, align 1
   %17 = zext i8 %16 to i64
-  %18 = icmp ult i64 %15, %17
+  %18 = icmp samesign ult i64 %15, %17
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

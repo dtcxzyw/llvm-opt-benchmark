@@ -39,7 +39,7 @@ if.end15:                                         ; preds = %if.then11
 if.end21:                                         ; preds = %if.end15
   %and24 = shl nuw nsw i32 %conv, 6
   %shl = and i32 %and24, 1984
-  %cmp30 = icmp ult i32 %shl, 128
+  %cmp30 = icmp samesign ult i32 %shl, 128
   br i1 %cmp30, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end21
@@ -78,7 +78,7 @@ if.end55:                                         ; preds = %lor.lhs.false
   %and63 = shl nuw nsw i32 %conv45, 6
   %shl64 = and i32 %and63, 4032
   %or6634 = or disjoint i32 %shl64, %shl59
-  %cmp72 = icmp ult i32 %or6634, 2048
+  %cmp72 = icmp samesign ult i32 %or6634, 2048
   br i1 %cmp72, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.end55
@@ -127,7 +127,7 @@ if.end106:                                        ; preds = %lor.lhs.false99
   %and114 = shl nuw nsw i32 %conv89, 12
   %shl115 = and i32 %and114, 258048
   %or11733 = or disjoint i32 %shl115, %14
-  %cmp129 = icmp ult i32 %or11733, 65536
+  %cmp129 = icmp samesign ult i32 %or11733, 65536
   br i1 %cmp129, label %return, label %if.end132
 
 if.end132:                                        ; preds = %if.end106
@@ -181,7 +181,7 @@ if.end8:                                          ; preds = %if.end2.thread, %if
   br i1 %cmp9, label %if.then11, label %if.end23
 
 if.then11:                                        ; preds = %if.end8
-  %cmp12 = icmp ult i32 %len.addr.038, 2
+  %cmp12 = icmp samesign ult i32 %len.addr.038, 2
   %brmerge = or i1 %tobool.not, %cmp12
   %.mux = select i1 %cmp12, i32 -1, i32 2
   br i1 %brmerge, label %return, label %if.then17
@@ -208,7 +208,7 @@ if.then26:                                        ; preds = %if.end23
   br i1 %.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then26
-  %cmp30 = icmp ult i32 %len.addr.038, 3
+  %cmp30 = icmp samesign ult i32 %len.addr.038, 3
   %brmerge32 = or i1 %tobool.not, %cmp30
   %.mux33 = select i1 %cmp30, i32 -1, i32 3
   br i1 %brmerge32, label %return, label %if.then35
@@ -236,7 +236,7 @@ if.end50:                                         ; preds = %if.end23
   br i1 %cmp51, label %if.then53, label %return
 
 if.then53:                                        ; preds = %if.end50
-  %cmp54 = icmp ult i32 %len.addr.038, 4
+  %cmp54 = icmp samesign ult i32 %len.addr.038, 4
   %brmerge34 = or i1 %tobool.not, %cmp54
   %.mux35 = select i1 %cmp54, i32 -1, i32 4
   br i1 %brmerge34, label %return, label %if.then59

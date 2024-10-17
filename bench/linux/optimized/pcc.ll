@@ -385,7 +385,7 @@ define internal i32 @pcc_mbox_probe(ptr noundef %0) #0 align 16 {
   %98 = add i8 %97, -8
   %99 = icmp ult i8 %98, 57
   %100 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %97), !range !11
-  %101 = icmp ult i8 %100, 2
+  %101 = icmp samesign ult i8 %100, 2
   %102 = select i1 %99, i1 %101, i1 false
   br i1 %102, label %106, label %103
 
@@ -436,7 +436,7 @@ define internal i32 @pcc_mbox_probe(ptr noundef %0) #0 align 16 {
   %132 = add i8 %131, -8
   %133 = icmp ult i8 %132, 57
   %134 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %131), !range !11
-  %135 = icmp ult i8 %134, 2
+  %135 = icmp samesign ult i8 %134, 2
   %136 = select i1 %133, i1 %135, i1 false
   br i1 %136, label %140, label %137
 
@@ -517,7 +517,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %181 = add i8 %180, -8
   %182 = icmp ult i8 %181, 57
   %183 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %180), !range !11
-  %184 = icmp ult i8 %183, 2
+  %184 = icmp samesign ult i8 %183, 2
   %185 = select i1 %182, i1 %184, i1 false
   br i1 %185, label %189, label %186
 
@@ -567,7 +567,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %214 = add i8 %213, -8
   %215 = icmp ult i8 %214, 57
   %216 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %213), !range !11
-  %217 = icmp ult i8 %216, 2
+  %217 = icmp samesign ult i8 %216, 2
   %218 = select i1 %215, i1 %217, i1 false
   br i1 %218, label %222, label %219
 
@@ -613,7 +613,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %245 = add i8 %244, -8
   %246 = icmp ult i8 %245, 57
   %247 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %244), !range !11
-  %248 = icmp ult i8 %247, 2
+  %248 = icmp samesign ult i8 %247, 2
   %249 = select i1 %246, i1 %248, i1 false
   br i1 %249, label %253, label %250
 
@@ -659,7 +659,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %277 = add i8 %276, -8
   %278 = icmp ult i8 %277, 57
   %279 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %276), !range !11
-  %280 = icmp ult i8 %279, 2
+  %280 = icmp samesign ult i8 %279, 2
   %281 = select i1 %278, i1 %280, i1 false
   br i1 %281, label %285, label %282
 
@@ -705,7 +705,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %308 = add i8 %307, -8
   %309 = icmp ult i8 %308, 57
   %310 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %307), !range !11
-  %311 = icmp ult i8 %310, 2
+  %311 = icmp samesign ult i8 %310, 2
   %312 = select i1 %309, i1 %311, i1 false
   br i1 %312, label %316, label %313
 

@@ -330,7 +330,7 @@ define internal noundef i32 @virtnet_cpu_down_prep(i32 %0, ptr noundef %1) #3 al
   %44 = add nuw nsw i64 %17, 1
   %45 = load i16, ptr %10, align 4
   %46 = zext i16 %45 to i64
-  %47 = icmp ult i64 %44, %46
+  %47 = icmp samesign ult i64 %44, %46
   br i1 %47, label %16, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %43, %9
@@ -403,7 +403,7 @@ define internal fastcc void @virtnet_set_affinity(ptr nocapture noundef %0) unna
 27:                                               ; preds = %67, %23
   %28 = phi i64 [ 0, %23 ], [ %71, %67 ]
   %29 = phi i32 [ %21, %23 ], [ %41, %67 ]
-  %30 = icmp ult i64 %28, %14
+  %30 = icmp samesign ult i64 %28, %14
   %31 = zext i1 %30 to i32
   %32 = add nuw i32 %8, %31
   %33 = icmp sgt i32 %32, 0
@@ -463,7 +463,7 @@ define internal fastcc void @virtnet_set_affinity(ptr nocapture noundef %0) unna
   %71 = add nuw nsw i64 %28, 1
   %72 = load i16, ptr %4, align 2
   %73 = zext i16 %72 to i64
-  %74 = icmp ult i64 %71, %73
+  %74 = icmp samesign ult i64 %71, %73
   br i1 %74, label %27, label %.loopexit6, !llvm.loop !14
 
 .loopexit6:                                       ; preds = %67, %20
@@ -1194,7 +1194,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
   %.fr25 = freeze i64 %298
   %299 = and i64 %.fr25, 54043195528445952
   %300 = icmp eq i64 %299, 54043195528445952
-  %301 = icmp ugt i32 %271, 1500
+  %301 = icmp samesign ugt i32 %271, 1500
   %302 = or i1 %301, %300
   br i1 %302, label %304, label %312
 
@@ -1314,7 +1314,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
   %370 = phi i16 [ %.pre34, %367 ], [ %360, %359 ]
   %371 = add nuw nsw i64 %361, 1
   %372 = zext i16 %370 to i64
-  %373 = icmp ult i64 %371, %372
+  %373 = icmp samesign ult i64 %371, %372
   br i1 %373, label %359, label %.loopexit27, !llvm.loop !18
 
 .loopexit27:                                      ; preds = %369, %354, %350
@@ -1401,7 +1401,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
   %427 = add nuw nsw i64 %421, 1
   %428 = load i16, ptr %412, align 4
   %429 = zext i16 %428 to i64
-  %430 = icmp ult i64 %427, %429
+  %430 = icmp samesign ult i64 %427, %429
   br i1 %430, label %.preheader, label %.loopexit26, !llvm.loop !19
 
 .loopexit26:                                      ; preds = %.preheader, %405
@@ -1663,7 +1663,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
   %579 = add nuw nsw i64 %552, 1
   %580 = load i16, ptr %330, align 4
   %581 = zext i16 %580 to i64
-  %582 = icmp ult i64 %579, %581
+  %582 = icmp samesign ult i64 %579, %581
   br i1 %582, label %551, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %578, %545
@@ -1696,7 +1696,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
   %599 = add nuw nsw i64 %594, 1
   %600 = load i16, ptr %330, align 4
   %601 = zext i16 %600 to i64
-  %602 = icmp ult i64 %599, %601
+  %602 = icmp samesign ult i64 %599, %601
   br i1 %602, label %593, label %virtnet_free_queues.exit, !llvm.loop !29
 
 virtnet_free_queues.exit:                         ; preds = %593, %583
@@ -2018,7 +2018,7 @@ define internal void @virtnet_config_changed_work(ptr noundef %0) #3 align 16 {
   %73 = add nuw nsw i64 %70, 1
   %74 = load i32, ptr %64, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %73, %75
+  %76 = icmp samesign ult i64 %73, %75
   br i1 %76, label %69, label %.thread, !llvm.loop !34
 
 77:                                               ; preds = %34
@@ -2139,7 +2139,7 @@ define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
   %68 = add nuw nsw i64 %38, 1
   %69 = load i16, ptr %13, align 4
   %70 = zext i16 %69 to i64
-  %71 = icmp ult i64 %68, %70
+  %71 = icmp samesign ult i64 %68, %70
   br i1 %71, label %37, label %.loopexit13.loopexit, !llvm.loop !36
 
 72:                                               ; preds = %20
@@ -2265,7 +2265,7 @@ define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
   %146 = add nuw nsw i64 %123, 1
   %147 = load i16, ptr %13, align 4
   %148 = zext i16 %147 to i64
-  %149 = icmp ult i64 %146, %148
+  %149 = icmp samesign ult i64 %146, %148
   br i1 %149, label %122, label %.loopexit12, !llvm.loop !37
 
 .loopexit12:                                      ; preds = %145, %117
@@ -2363,7 +2363,7 @@ define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
   %219 = add nuw nsw i64 %183, 1
   %220 = load i16, ptr %13, align 4
   %221 = zext i16 %220 to i64
-  %222 = icmp ult i64 %219, %221
+  %222 = icmp samesign ult i64 %219, %221
   br i1 %222, label %182, label %.loopexit11, !llvm.loop !38
 
 .loopexit11:                                      ; preds = %202, %176, %.loopexit12
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
   %249 = add nuw nsw i64 %239, 1
   %250 = load i16, ptr %13, align 4
   %251 = zext i16 %250 to i64
-  %252 = icmp ult i64 %249, %251
+  %252 = icmp samesign ult i64 %249, %251
   br i1 %252, label %.preheader14, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %248, %236, %232
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
   %261 = add nuw nsw i64 %256, 1
   %262 = load i16, ptr %13, align 4
   %263 = zext i16 %262 to i64
-  %264 = icmp ult i64 %261, %263
+  %264 = icmp samesign ult i64 %261, %263
   br i1 %264, label %.preheader, label %virtnet_free_queues.exit, !llvm.loop !29
 
 virtnet_free_queues.exit:                         ; preds = %.preheader, %.thread9
@@ -2827,7 +2827,7 @@ define internal fastcc void @free_receive_page_frags(ptr nocapture noundef reado
   %59 = add nuw nsw i64 %8, 1
   %60 = load i16, ptr %2, align 4
   %61 = zext i16 %60 to i64
-  %62 = icmp ult i64 %59, %61
+  %62 = icmp samesign ult i64 %59, %61
   br i1 %62, label %7, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %58, %1
@@ -2863,7 +2863,7 @@ define internal range(i32 -2147483648, 1) i32 @virtnet_open(ptr noundef %0) #3 a
   %16 = phi i64 [ 0, %8 ], [ %69, %68 ]
   %17 = load i16, ptr %9, align 2
   %18 = zext i16 %17 to i64
-  %19 = icmp ult i64 %16, %18
+  %19 = icmp samesign ult i64 %16, %18
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %15
@@ -2958,7 +2958,7 @@ define internal range(i32 -2147483648, 1) i32 @virtnet_open(ptr noundef %0) #3 a
   %69 = add nuw nsw i64 %16, 1
   %70 = load i16, ptr %5, align 4
   %71 = zext i16 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %15, label %.loopexit, !llvm.loop !48
 
 .loopexit5:                                       ; preds = %27, %66
@@ -3048,7 +3048,7 @@ define internal noundef i32 @virtnet_close(ptr noundef %0) #3 align 16 {
   %28 = add nuw nsw i64 %13, 1
   %29 = load i16, ptr %6, align 4
   %30 = zext i16 %29 to i64
-  %31 = icmp ult i64 %28, %30
+  %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %12, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %20, %1
@@ -3766,7 +3766,7 @@ define internal i32 @virtnet_set_mac_address(ptr noundef %0, ptr noundef %1) #3 
   %49 = add nuw nsw i64 %41, 1
   %50 = load i8, ptr %34, align 1
   %51 = zext i8 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %40, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %40, %33, %29, %21
@@ -3872,7 +3872,7 @@ define internal void @virtnet_stats(ptr noundef %0, ptr nocapture noundef %1) #9
   %42 = add nuw nsw i64 %21, 1
   %43 = load i16, ptr %3, align 4
   %44 = zext i16 %43 to i64
-  %45 = icmp ult i64 %42, %44
+  %45 = icmp samesign ult i64 %42, %44
   br i1 %45, label %14, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %14, %2
@@ -4208,7 +4208,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %97 = getelementptr i8, ptr %0, i64 2348
   %98 = load i16, ptr %97, align 4
   %99 = zext i16 %98 to i32
-  %100 = icmp ugt i32 %96, %99
+  %100 = icmp samesign ugt i32 %96, %99
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %85
@@ -4267,7 +4267,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %133 = add nuw nsw i64 %123, 1
   %134 = load i16, ptr %97, align 4
   %135 = zext i16 %134 to i64
-  %136 = icmp ult i64 %133, %135
+  %136 = icmp samesign ult i64 %133, %135
   br i1 %136, label %122, label %.loopexit16, !llvm.loop !68
 
 .loopexit16:                                      ; preds = %132, %117, %112
@@ -4324,7 +4324,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %163 = add nuw nsw i64 %145, 1
   %164 = load i16, ptr %97, align 4
   %165 = zext i16 %164 to i64
-  %166 = icmp ult i64 %163, %165
+  %166 = icmp samesign ult i64 %163, %165
   br i1 %166, label %144, label %.loopexit15, !llvm.loop !70
 
 .loopexit15:                                      ; preds = %162, %137
@@ -4366,7 +4366,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %186 = add nuw nsw i64 %183, 1
   %187 = load i16, ptr %97, align 4
   %188 = zext i16 %187 to i64
-  %189 = icmp ult i64 %186, %188
+  %189 = icmp samesign ult i64 %186, %188
   br i1 %189, label %.split.us, label %.loopexit12, !llvm.loop !72
 
 .split:                                           ; preds = %179, %206
@@ -4409,7 +4409,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %207 = add nuw nsw i64 %190, 1
   %208 = load i16, ptr %97, align 4
   %209 = zext i16 %208 to i64
-  %210 = icmp ult i64 %207, %209
+  %210 = icmp samesign ult i64 %207, %209
   br i1 %210, label %.split, label %.loopexit12, !llvm.loop !72
 
 .loopexit12:                                      ; preds = %206, %.split.us, %175
@@ -4499,7 +4499,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %250 = add nuw nsw i64 %221, 1
   %251 = load i16, ptr %97, align 4
   %252 = zext i16 %251 to i64
-  %253 = icmp ult i64 %250, %252
+  %253 = icmp samesign ult i64 %250, %252
   br i1 %253, label %220, label %.loopexit, !llvm.loop !73
 
 254:                                              ; preds = %167
@@ -4549,7 +4549,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %277 = add nuw nsw i64 %274, 1
   %278 = load i16, ptr %97, align 4
   %279 = zext i16 %278 to i64
-  %280 = icmp ult i64 %277, %279
+  %280 = icmp samesign ult i64 %277, %279
   br i1 %280, label %.preheader, label %.loopexit14, !llvm.loop !75
 
 .loopexit14:                                      ; preds = %.preheader, %271, %254
@@ -4626,7 +4626,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %316 = add nuw nsw i64 %291, 1
   %317 = load i16, ptr %97, align 4
   %318 = zext i16 %317 to i64
-  %319 = icmp ult i64 %316, %318
+  %319 = icmp samesign ult i64 %316, %318
   br i1 %319, label %290, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %315, %249, %284, %.loopexit14, %214, %104, %84, %68, %66, %57, %55, %2
@@ -6693,7 +6693,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br i1 %32, label %.loopexit10, label %26, !llvm.loop !88
 
 ..split18.us_crit_edge:                           ; preds = %26
-  %33 = icmp ult i64 %31, %22
+  %33 = icmp samesign ult i64 %31, %22
   %34 = trunc i64 %31 to i32
   br label %.loopexit10
 
@@ -6774,7 +6774,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %78 = add nuw nsw i64 %71, 1
   %79 = load i16, ptr %12, align 4
   %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %78, %80
+  %81 = icmp samesign ult i64 %78, %80
   br i1 %81, label %70, label %82, !llvm.loop !89
 
 82:                                               ; preds = %70
@@ -6837,7 +6837,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %118 = add nuw nsw i64 %115, 1
   %119 = load i16, ptr %12, align 4
   %120 = zext i16 %119 to i64
-  %121 = icmp ult i64 %118, %120
+  %121 = icmp samesign ult i64 %118, %120
   br i1 %121, label %114, label %.loopexit, !llvm.loop !90
 
 122:                                              ; preds = %84
@@ -6862,7 +6862,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %133 = add nuw nsw i64 %130, 1
   %134 = load i16, ptr %12, align 4
   %135 = zext i16 %134 to i64
-  %136 = icmp ult i64 %133, %135
+  %136 = icmp samesign ult i64 %133, %135
   br i1 %136, label %129, label %.loopexit7, !llvm.loop !91
 
 .loopexit7:                                       ; preds = %129, %126, %122, %107
@@ -6910,7 +6910,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %165 = add nuw nsw i64 %158, 1
   %166 = load i16, ptr %12, align 4
   %167 = zext i16 %166 to i64
-  %168 = icmp ult i64 %165, %167
+  %168 = icmp samesign ult i64 %165, %167
   br i1 %168, label %157, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %114, %157, %148, %.loopexit7, %111, %101, %95, %89
@@ -6966,7 +6966,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %200 = add nuw nsw i64 %197, 1
   %201 = load i16, ptr %12, align 4
   %202 = zext i16 %201 to i64
-  %203 = icmp ult i64 %200, %202
+  %203 = icmp samesign ult i64 %200, %202
   br i1 %203, label %196, label %.thread6, !llvm.loop !93
 
 .thread6:                                         ; preds = %.split.split, %196, %.thread5, %178, %170, %174, %189, %185
@@ -7321,7 +7321,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr nocapture noundef
   %192 = add nuw nsw i64 %59, 1
   %193 = load i16, ptr %46, align 4
   %194 = zext i16 %193 to i64
-  %195 = icmp ult i64 %192, %194
+  %195 = icmp samesign ult i64 %192, %194
   br i1 %195, label %58, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %173, %115, %191, %172, %114, %45, %37, %31, %27, %11, %4
@@ -7363,7 +7363,7 @@ define internal void @virtnet_get_strings(ptr nocapture noundef readonly %0, i32
   %19 = add nuw nsw i32 %10, 1
   %20 = load i16, ptr %7, align 2
   %21 = zext i16 %20 to i32
-  %22 = icmp ult i32 %19, %21
+  %22 = icmp samesign ult i32 %19, %21
   br i1 %22, label %.preheader2, label %11, !llvm.loop !97
 
 .preheader:                                       ; preds = %11, %29
@@ -7382,7 +7382,7 @@ define internal void @virtnet_get_strings(ptr nocapture noundef readonly %0, i32
   %30 = add nuw nsw i32 %23, 1
   %31 = load i16, ptr %7, align 2
   %32 = zext i16 %31 to i32
-  %33 = icmp ult i32 %30, %32
+  %33 = icmp samesign ult i32 %30, %32
   br i1 %33, label %.preheader, label %.thread, !llvm.loop !99
 
 .thread:                                          ; preds = %29, %6, %11, %3
@@ -7435,7 +7435,7 @@ define internal void @virtnet_get_ethtool_stats(ptr nocapture noundef readonly %
   %31 = add nuw nsw i64 %16, 1
   %32 = load i16, ptr %4, align 2
   %33 = zext i16 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %14, label %9, !llvm.loop !101
 
 35:                                               ; preds = %50, %11
@@ -7463,7 +7463,7 @@ define internal void @virtnet_get_ethtool_stats(ptr nocapture noundef readonly %
   %52 = add nuw nsw i64 %37, 1
   %53 = load i16, ptr %4, align 2
   %54 = zext i16 %53 to i64
-  %55 = icmp ult i64 %52, %54
+  %55 = icmp samesign ult i64 %52, %54
   br i1 %55, label %35, label %.thread, !llvm.loop !103
 
 .thread:                                          ; preds = %50, %3, %9
@@ -7787,7 +7787,7 @@ define internal noundef i32 @virtnet_get_rxfh(ptr nocapture noundef readonly %0,
   %21 = add nuw nsw i64 %13, 1
   %22 = load i16, ptr %7, align 4
   %23 = zext i16 %22 to i64
-  %24 = icmp ult i64 %21, %23
+  %24 = icmp samesign ult i64 %21, %23
   br i1 %24, label %12, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %12, %6, %2
@@ -7847,7 +7847,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, 
   %26 = add nuw nsw i64 %18, 1
   %27 = load i16, ptr %12, align 4
   %28 = zext i16 %27 to i64
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp samesign ult i64 %26, %28
   br i1 %29, label %17, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %17, %11, %7
@@ -8630,7 +8630,7 @@ define internal void @refill_work(ptr noundef %0) #3 align 16 {
   %23 = add nuw nsw i64 %9, 1
   %24 = load i16, ptr %3, align 2
   %25 = zext i16 %24 to i64
-  %26 = icmp ult i64 %23, %25
+  %26 = icmp samesign ult i64 %23, %25
   br i1 %26, label %8, label %.loopexit, !llvm.loop !106
 
 .loopexit:                                        ; preds = %22, %1
@@ -8687,7 +8687,7 @@ define internal i32 @virtnet_poll(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %32, %35
   %37 = icmp sle i32 %36, %16
-  %38 = icmp ult i32 %16, %32
+  %38 = icmp samesign ult i32 %16, %32
   %39 = and i1 %38, %37
   br i1 %39, label %60, label %40
 
@@ -9054,7 +9054,7 @@ define internal noundef i32 @virtnet_poll_tx(ptr noundef %0, i32 %1) #3 align 16
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = icmp sle i32 %19, %12
-  %21 = icmp ult i32 %12, %15
+  %21 = icmp samesign ult i32 %12, %15
   %22 = and i1 %21, %20
   br i1 %22, label %23, label %25, !prof !40
 
@@ -9227,7 +9227,7 @@ define internal void @virtnet_rx_dim_work(ptr nocapture noundef readonly %0) #3 
   %64 = add nuw nsw i64 %19, 1
   %65 = load i16, ptr %12, align 2
   %66 = zext i16 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %18, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %63, %11
@@ -10748,7 +10748,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
   %236 = load i32, ptr %10, align 4
   %237 = sub i32 %227, %234
   %238 = icmp ugt i32 %236, %237
-  %239 = icmp ugt i32 %227, 4096
+  %239 = icmp samesign ugt i32 %227, 4096
   %240 = or i1 %239, %238
   br i1 %240, label %241, label %243, !prof !40
 
@@ -10882,7 +10882,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
   %324 = add nuw nsw i64 %289, 1
   %325 = load i8, ptr %283, align 2
   %326 = zext i8 %325 to i64
-  %327 = icmp ult i64 %324, %326
+  %327 = icmp samesign ult i64 %324, %326
   br i1 %327, label %288, label %.thread12, !prof !120, !llvm.loop !121
 
 .thread12:                                        ; preds = %323, %154, %274, %278
@@ -11079,7 +11079,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
   %449 = add nuw nsw i64 %414, 1
   %450 = load i8, ptr %408, align 2
   %451 = zext i8 %450 to i64
-  %452 = icmp ult i64 %449, %451
+  %452 = icmp samesign ult i64 %449, %451
   br i1 %452, label %413, label %.thread, !llvm.loop !121
 
 .thread:                                          ; preds = %448, %54, %97, %94, %.thread25, %.thread12, %403, %.thread14, %126
@@ -12814,7 +12814,7 @@ define internal fastcc void @remove_vq_common(ptr nocapture noundef %0) unnamed_
   %31 = add nuw nsw i64 %13, 1
   %32 = load i16, ptr %3, align 4
   %33 = zext i16 %32 to i64
-  %34 = icmp ult i64 %31, %33
+  %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %12, label %8, !llvm.loop !143
 
 35:                                               ; preds = %.loopexit13, %10
@@ -12984,7 +12984,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %148 = add nuw nsw i64 %36, 1
   %149 = load i16, ptr %3, align 4
   %150 = zext i16 %149 to i64
-  %151 = icmp ult i64 %148, %150
+  %151 = icmp samesign ult i64 %148, %150
   br i1 %151, label %35, label %.thread, !llvm.loop !145
 
 .thread:                                          ; preds = %.loopexit13, %1, %8
@@ -13027,7 +13027,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %173 = add nuw nsw i64 %157, 1
   %174 = load i16, ptr %3, align 4
   %175 = zext i16 %174 to i64
-  %176 = icmp ult i64 %173, %175
+  %176 = icmp samesign ult i64 %173, %175
   br i1 %176, label %156, label %.loopexit12, !llvm.loop !147
 
 .loopexit12:                                      ; preds = %.loopexit11, %.thread
@@ -13088,7 +13088,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %215 = add nuw nsw i64 %188, 1
   %216 = load i16, ptr %3, align 4
   %217 = zext i16 %216 to i64
-  %218 = icmp ult i64 %215, %217
+  %218 = icmp samesign ult i64 %215, %217
   br i1 %218, label %187, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %214, %181
@@ -13121,7 +13121,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %235 = add nuw nsw i64 %230, 1
   %236 = load i16, ptr %3, align 4
   %237 = zext i16 %236 to i64
-  %238 = icmp ult i64 %235, %237
+  %238 = icmp samesign ult i64 %235, %237
   br i1 %238, label %229, label %virtnet_free_queues.exit, !llvm.loop !29
 
 virtnet_free_queues.exit:                         ; preds = %229, %219

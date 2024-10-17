@@ -1334,7 +1334,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   br i1 %151, label %.thread, label %157
 
 153:                                              ; preds = %142
-  %154 = icmp ugt i64 %139, 2047
+  %154 = icmp samesign ugt i64 %139, 2047
   %155 = zext i1 %154 to i64
   %156 = getelementptr i16, ptr %144, i64 %155
   br label %157
@@ -1822,7 +1822,7 @@ define dso_local noundef i32 @md_bitmap_startwrite(ptr noundef %0, i64 noundef %
   br label %.thread6
 
 63:                                               ; preds = %62
-  %64 = icmp ugt i64 %34, 2047
+  %64 = icmp samesign ugt i64 %34, 2047
   %65 = zext i1 %64 to i64
   %66 = getelementptr i16, ptr %40, i64 %65
   br label %70
@@ -2120,7 +2120,7 @@ define dso_local void @md_bitmap_endwrite(ptr noundef %0, i64 noundef %1, i64 no
   %57 = add i64 %56, -1
   %58 = and i64 %57, %29
   %59 = sub i64 %56, %58
-  %60 = icmp ugt i64 %36, 2047
+  %60 = icmp samesign ugt i64 %36, 2047
   %61 = zext i1 %60 to i64
   %62 = getelementptr i16, ptr %41, i64 %61
   br label %63
@@ -2292,7 +2292,7 @@ define dso_local range(i32 0, 2) i32 @md_bitmap_start_sync(ptr noundef %0, i64 n
   %44 = add i64 %43, -1
   %45 = and i64 %44, %11
   %46 = sub i64 %43, %45
-  %47 = icmp ugt i64 %17, 2047
+  %47 = icmp samesign ugt i64 %17, 2047
   %48 = zext i1 %47 to i64
   %49 = getelementptr i16, ptr %22, i64 %48
   br label %50
@@ -2405,7 +2405,7 @@ define dso_local void @md_bitmap_end_sync(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %36
-  %48 = icmp ugt i64 %14, 2047
+  %48 = icmp samesign ugt i64 %14, 2047
   %49 = zext i1 %48 to i64
   %50 = getelementptr i16, ptr %42, i64 %49
   br label %54
@@ -2772,7 +2772,7 @@ define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 nound
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp ugt i64 %9, 2047
+  %25 = icmp samesign ugt i64 %9, 2047
   %26 = zext i1 %25 to i64
   %27 = getelementptr i16, ptr %17, i64 %26
   br label %31
@@ -3335,7 +3335,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
 
 83:                                               ; preds = %63
   %84 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %80), !range !62
-  %85 = icmp ult i64 %84, 2
+  %85 = icmp samesign ult i64 %84, 2
   br i1 %85, label %97, label %86
 
 86:                                               ; preds = %83
@@ -3609,7 +3609,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
 
 271:                                              ; preds = %269
   %272 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %254), !range !62
-  %273 = icmp ult i64 %272, 2
+  %273 = icmp samesign ult i64 %272, 2
   br i1 %273, label %274, label %.thread31
 
 274:                                              ; preds = %271
@@ -4123,7 +4123,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %110 = phi ptr [ %105, %107 ], [ null, %102 ]
   %111 = phi i32 [ 1, %107 ], [ 0, %102 ]
   %112 = zext nneg i32 %111 to i64
-  %113 = icmp ugt i64 %95, %112
+  %113 = icmp samesign ugt i64 %95, %112
   br i1 %113, label %.preheader58, label %.loopexit59
 
 114:                                              ; preds = %.preheader58
@@ -4308,7 +4308,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %219 = or disjoint i32 %217, %218
   store i32 %219, ptr %214, align 8
   %220 = add nuw nsw i64 %197, 1
-  %221 = icmp ult i64 %220, %135
+  %221 = icmp samesign ult i64 %220, %135
   br i1 %221, label %.preheader57, label %.thread31, !llvm.loop !69
 
 .thread31:                                        ; preds = %212, %167, %.loopexit56, %191
@@ -4363,7 +4363,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 256:                                              ; preds = %240
   %257 = and i64 %232, %228
   %258 = sub i64 %227, %257
-  %259 = icmp ugt i64 %238, 2047
+  %259 = icmp samesign ugt i64 %238, 2047
   %260 = zext i1 %259 to i64
   %261 = getelementptr i16, ptr %241, i64 %260
   br label %262
@@ -4431,7 +4431,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br label %.thread40
 
 303:                                              ; preds = %302
-  %304 = icmp ugt i64 %274, 2047
+  %304 = icmp samesign ugt i64 %274, 2047
   %305 = zext i1 %304 to i64
   %306 = getelementptr i16, ptr %280, i64 %305
   br label %310
@@ -4644,7 +4644,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br label %.thread45
 
 427:                                              ; preds = %426
-  %428 = icmp ugt i64 %398, 2047
+  %428 = icmp samesign ugt i64 %398, 2047
   %429 = zext i1 %428 to i64
   %430 = getelementptr i16, ptr %404, i64 %429
   br label %434
@@ -6749,7 +6749,7 @@ define internal i64 @chunksize_store(ptr nocapture noundef %0, ptr noundef %1, i
   %14 = load i64, ptr %4, align 8
   %15 = icmp ugt i64 %14, 511
   %16 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14), !range !62
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %19, label %23
 

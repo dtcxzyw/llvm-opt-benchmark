@@ -923,7 +923,7 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %411, %406, %.noexc5
 
 427:                                              ; preds = %324
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %428 = icmp ult i64 %indvars.iv.next.i, %323
+  %428 = icmp samesign ult i64 %indvars.iv.next.i, %323
   br i1 %428, label %324, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %427, %360, %.noexc, %.lr.ph181.i
@@ -1039,7 +1039,7 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %411, %406, %.noexc5
   %.4165.i.i = phi i32 [ %453, %475 ], [ %.3164240.i.i, %.lr.ph.i.i ]
   %.4.i.i = phi i32 [ %449, %475 ], [ %.3241.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %478 = icmp ult i64 %indvars.iv.next.i.i, %468
+  %478 = icmp samesign ult i64 %indvars.iv.next.i.i, %468
   %479 = icmp ne i32 %.4175.i.i, 0
   %480 = and i1 %478, %479
   br i1 %480, label %.lr.ph.i.i, label %.loopexit231.i.i, !llvm.loop !14
@@ -1050,14 +1050,14 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %411, %406, %.noexc5
   %.2163.i.i = phi i32 [ %.1162248.i.i, %445 ], [ %.1162248.i.i, %456 ], [ %.4165.i.i, %477 ]
   %.2.i.i = phi i32 [ %.1249.i.i, %445 ], [ %.1249.i.i, %456 ], [ %.4.i.i, %477 ]
   %indvars.iv.next291.i.i = add nuw nsw i64 %indvars.iv290.i.i, 1
-  %481 = icmp ult i64 %indvars.iv290.i.i, 8
+  %481 = icmp samesign ult i64 %indvars.iv290.i.i, 8
   %482 = icmp ne i32 %.2173.i.i, 0
   %483 = select i1 %481, i1 %482, i1 false
   br i1 %483, label %445, label %484, !llvm.loop !15
 
 484:                                              ; preds = %.loopexit231.i.i
   %indvars.iv.next294.i.i = add nuw nsw i64 %indvars.iv293.i.i, 1
-  %485 = icmp ult i64 %indvars.iv.next294.i.i, %432
+  %485 = icmp samesign ult i64 %indvars.iv.next294.i.i, %432
   %486 = icmp sgt i32 %.2173.i.i, 0
   %487 = select i1 %485, i1 %486, i1 false
   br i1 %487, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !16
@@ -3298,7 +3298,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i637: ; preds = %
   %1469 = load float, ptr %98, align 4
   %1470 = load float, ptr %241, align 4
   %1471 = load float, ptr %242, align 4
-  %1472 = icmp ugt i32 %.0259.lcssa, 1
+  %1472 = icmp samesign ugt i32 %.0259.lcssa, 1
   br i1 %1472, label %.lr.ph452.preheader.i, label %._crit_edge453.i
 
 .lr.ph452.preheader.i:                            ; preds = %1468
@@ -5062,7 +5062,7 @@ _ZL12delaunayHullP9rcContextiPKfiPKiR10rcIntArrayS6_.exit.i: ; preds = %.noexc44
 
 .noexc541:                                        ; preds = %.noexc540
   %2256 = icmp eq ptr %2255, null
-  %2257 = icmp ult i64 %.0.i.i533, 2305843009213693952
+  %2257 = icmp samesign ult i64 %.0.i.i533, 2305843009213693952
   %or.cond.i.i534 = or i1 %2256, %2257
   br i1 %or.cond.i.i534, label %.noexc542, label %2258
 

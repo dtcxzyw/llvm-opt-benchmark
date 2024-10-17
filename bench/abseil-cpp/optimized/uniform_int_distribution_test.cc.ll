@@ -7879,7 +7879,7 @@ if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem36.lhs.trunc.i.i.i = sub nuw nsw i16 256, %conv2.i.i.i.i
   %rem3637.i.i.i = urem i16 %rem36.lhs.trunc.i.i.i, %conv2.i.i.i.i
   %158 = and i16 %mul.i.i.i.i, 255
-  %cmp2540.i.i.i = icmp ugt i16 %rem3637.i.i.i, %158
+  %cmp2540.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %158
   br i1 %cmp2540.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -7902,7 +7902,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv1.i32.i.i.i = and i16 %conv.i.i31.i.i.i, 255
   %mul.i34.i.i.i = mul nuw i16 %conv1.i32.i.i.i, %conv2.i.i.i.i
   %160 = and i16 %mul.i34.i.i.i, 255
-  %cmp25.i.i.i = icmp ugt i16 %rem3637.i.i.i, %160
+  %cmp25.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %160
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !225
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -13788,7 +13788,7 @@ if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem36.lhs.trunc.i.i.i = sub nuw nsw i16 256, %conv2.i.i.i.i
   %rem3637.i.i.i = urem i16 %rem36.lhs.trunc.i.i.i, %conv2.i.i.i.i
   %158 = and i16 %mul.i.i.i.i, 255
-  %cmp2540.i.i.i = icmp ugt i16 %rem3637.i.i.i, %158
+  %cmp2540.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %158
   br i1 %cmp2540.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -13811,7 +13811,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv1.i32.i.i.i = and i16 %conv.i.i31.i.i.i, 255
   %mul.i34.i.i.i = mul nuw i16 %conv1.i32.i.i.i, %conv2.i.i.i.i
   %160 = and i16 %mul.i34.i.i.i, 255
-  %cmp25.i.i.i = icmp ugt i16 %rem3637.i.i.i, %160
+  %cmp25.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %160
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !364
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -17608,7 +17608,7 @@ if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %add19.i.i.i = sub nuw nsw i32 65536, %conv4.i.i.i
   %rem37.i.i.i = urem i32 %add19.i.i.i, %conv4.i.i.i
   %conv2340.i.i.i = and i32 %mul.i.i.i.i, 65535
-  %cmp2541.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv2340.i.i.i
+  %cmp2541.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv2340.i.i.i
   br i1 %cmp2541.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -17631,7 +17631,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv.i33.i.i.i = and i32 %conv.i.i32.i.i.i, 65535
   %mul.i35.i.i.i = mul nuw i32 %conv.i33.i.i.i, %conv4.i.i.i
   %conv23.i.i.i = and i32 %mul.i35.i.i.i, 65535
-  %cmp25.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv23.i.i.i
+  %cmp25.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv23.i.i.i
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !484
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -21428,7 +21428,7 @@ if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %add19.i.i.i = sub nuw nsw i32 65536, %conv4.i.i.i
   %rem37.i.i.i = urem i32 %add19.i.i.i, %conv4.i.i.i
   %conv2340.i.i.i = and i32 %mul.i.i.i.i, 65535
-  %cmp2541.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv2340.i.i.i
+  %cmp2541.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv2340.i.i.i
   br i1 %cmp2541.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -21451,7 +21451,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv.i33.i.i.i = and i32 %conv.i.i32.i.i.i, 65535
   %mul.i35.i.i.i = mul nuw i32 %conv.i33.i.i.i, %conv4.i.i.i
   %conv23.i.i.i = and i32 %mul.i35.i.i.i, 65535
-  %cmp25.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv23.i.i.i
+  %cmp25.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv23.i.i.i
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !604
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -45818,7 +45818,7 @@ if.end.i.i.i:                                     ; preds = %for.body13
 if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem3637.i.i.i = urem i16 %rem36.lhs.trunc.i.i.i, %conv2.i.i.i.i
   %3 = and i16 %mul.i.i.i.i41, 255
-  %cmp2540.i.i.i = icmp ugt i16 %rem3637.i.i.i, %3
+  %cmp2540.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %3
   br i1 %cmp2540.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -45841,7 +45841,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv1.i32.i.i.i = and i16 %conv.i.i31.i.i.i, 255
   %mul.i34.i.i.i = mul nuw i16 %conv1.i32.i.i.i, %conv2.i.i.i.i
   %5 = and i16 %mul.i34.i.i.i, 255
-  %cmp25.i.i.i = icmp ugt i16 %rem3637.i.i.i, %5
+  %cmp25.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %5
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !1285
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -48713,7 +48713,7 @@ if.end.i.i.i:                                     ; preds = %for.body13
 if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem3637.i.i.i = urem i16 %rem36.lhs.trunc.i.i.i, %conv2.i.i.i.i
   %3 = and i16 %mul.i.i.i.i41, 255
-  %cmp2540.i.i.i = icmp ugt i16 %rem3637.i.i.i, %3
+  %cmp2540.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %3
   br i1 %cmp2540.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -48736,7 +48736,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv1.i32.i.i.i = and i16 %conv.i.i31.i.i.i, 255
   %mul.i34.i.i.i = mul nuw i16 %conv1.i32.i.i.i, %conv2.i.i.i.i
   %5 = and i16 %mul.i34.i.i.i, 255
-  %cmp25.i.i.i = icmp ugt i16 %rem3637.i.i.i, %5
+  %cmp25.i.i.i = icmp samesign ugt i16 %rem3637.i.i.i, %5
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !1308
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -49578,7 +49578,7 @@ if.end.i.i.i:                                     ; preds = %for.body13
 if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem37.i.i.i = urem i32 %add19.i.i.i, %conv4.i.i.i
   %conv2340.i.i.i = and i32 %mul.i.i.i.i41, 65535
-  %cmp2541.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv2340.i.i.i
+  %cmp2541.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv2340.i.i.i
   br i1 %cmp2541.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -49601,7 +49601,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv.i33.i.i.i = and i32 %conv.i.i32.i.i.i, 65535
   %mul.i35.i.i.i = mul nuw i32 %conv.i33.i.i.i, %conv4.i.i.i
   %conv23.i.i.i = and i32 %mul.i35.i.i.i, 65535
-  %cmp25.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv23.i.i.i
+  %cmp25.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv23.i.i.i
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !1313
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
@@ -50443,7 +50443,7 @@ if.end.i.i.i:                                     ; preds = %for.body13
 if.then15.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem37.i.i.i = urem i32 %add19.i.i.i, %conv4.i.i.i
   %conv2340.i.i.i = and i32 %mul.i.i.i.i41, 65535
-  %cmp2541.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv2340.i.i.i
+  %cmp2541.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv2340.i.i.i
   br i1 %cmp2541.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %while.body.i.i.i
@@ -50466,7 +50466,7 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
   %conv.i33.i.i.i = and i32 %conv.i.i32.i.i.i, 65535
   %mul.i35.i.i.i = mul nuw i32 %conv.i33.i.i.i, %conv4.i.i.i
   %conv23.i.i.i = and i32 %mul.i35.i.i.i, 65535
-  %cmp25.i.i.i = icmp ugt i32 %rem37.i.i.i, %conv23.i.i.i
+  %cmp25.i.i.i = icmp samesign ugt i32 %rem37.i.i.i, %conv23.i.i.i
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %if.end28.i.i.i, !llvm.loop !1318
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i

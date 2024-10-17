@@ -929,7 +929,7 @@ for.end24:                                        ; preds = %for.inc21
   %pointer.1 = add i64 %pointer.139, 1
   %arrayidx.val23 = load i64, ptr %arrayidx, align 8
   %shr.i26 = lshr i64 %arrayidx.val23, 33
-  %cmp9 = icmp ult i64 %inc27, %shr.i26
+  %cmp9 = icmp samesign ult i64 %inc27, %shr.i26
   br i1 %cmp9, label %for.cond11.preheader, label %while.cond.loopexit, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond.loopexit, %entry

@@ -441,7 +441,7 @@ switch.edge:                                      ; preds = %71, %64
   %243 = mul nuw nsw i64 %207, %242
   %244 = mul nuw nsw i64 %207, %234
   %245 = add nuw nsw i64 %243, %212
-  %246 = icmp ugt i32 %229, 1
+  %246 = icmp samesign ugt i32 %229, 1
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %239

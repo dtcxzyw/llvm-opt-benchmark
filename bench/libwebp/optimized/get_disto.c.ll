@@ -707,7 +707,7 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %147 = trunc i32 %146 to i8
   store i8 %147, ptr %141, align 1
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 4
-  %148 = icmp ult i64 %indvars.iv.next.i77, %136
+  %148 = icmp samesign ult i64 %indvars.iv.next.i77, %136
   br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %140
@@ -759,7 +759,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %28 = icmp ult i64 %indvars.iv.next, %11
+  %28 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %28, label %18, label %._crit_edge.us, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %18
@@ -810,7 +810,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   %47 = trunc i32 %46 to i8
   store i8 %47, ptr %41, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %48 = icmp ult i64 %indvars.iv.next.i, %36
+  %48 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %48, label %40, label %._crit_edge.us.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %40

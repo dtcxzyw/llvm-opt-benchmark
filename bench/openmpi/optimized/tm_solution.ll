@@ -176,7 +176,7 @@ define internal fastcc noundef double @display_sol(ptr nocapture noundef readonl
   %indvars.iv.i = phi i64 [ 1, %.lr.ph5.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.04.i = phi double [ 0.000000e+00, %.lr.ph5.i ], [ %.1.lcssa.i, %.loopexit.i ]
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %17 = icmp ult i64 %indvars.iv.next13.i, %13
+  %17 = icmp samesign ult i64 %indvars.iv.next13.i, %13
   br i1 %17, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %16
@@ -271,7 +271,7 @@ distance.exit.i:                                  ; preds = %54, %52
   %75 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv17.i
   %76 = load i32, ptr %75, align 4
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %76)
-  %78 = icmp ult i64 %indvars.iv17.i, %15
+  %78 = icmp samesign ult i64 %indvars.iv17.i, %15
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %74
@@ -322,7 +322,7 @@ display_sol_sum_com.exit:                         ; preds = %80, %5
   %indvars.iv.i20 = phi i64 [ 1, %.lr.ph5.i17 ], [ %indvars.iv.next.i25, %.loopexit.i23 ]
   %.04.i21 = phi double [ 0.000000e+00, %.lr.ph5.i17 ], [ %.1.lcssa.i24, %.loopexit.i23 ]
   %indvars.iv.next13.i22 = add nuw nsw i64 %indvars.iv12.i19, 1
-  %96 = icmp ult i64 %indvars.iv.next13.i22, %92
+  %96 = icmp samesign ult i64 %indvars.iv.next13.i22, %92
   br i1 %96, label %.lr.ph.i33, label %.loopexit.i23
 
 .lr.ph.i33:                                       ; preds = %95
@@ -416,7 +416,7 @@ distance.exit._crit_edge.i:                       ; preds = %146, %distance.exit
   %151 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv17.i29
   %152 = load i32, ptr %151, align 4
   %153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %152)
-  %154 = icmp ult i64 %indvars.iv17.i29, %94
+  %154 = icmp samesign ult i64 %indvars.iv17.i29, %94
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %150
@@ -462,7 +462,7 @@ display_sol_max_com.exit:                         ; preds = %156, %82
   %indvars.iv.i48 = phi i64 [ 1, %.lr.ph5.i45 ], [ %indvars.iv.next.i53, %.loopexit.i51 ]
   %.04.i49 = phi double [ 0.000000e+00, %.lr.ph5.i45 ], [ %.1.lcssa.i52, %.loopexit.i51 ]
   %indvars.iv.next13.i50 = add nuw nsw i64 %indvars.iv12.i47, 1
-  %167 = icmp ult i64 %indvars.iv.next13.i50, %163
+  %167 = icmp samesign ult i64 %indvars.iv.next13.i50, %163
   br i1 %167, label %.lr.ph.i61, label %.loopexit.i51
 
 .lr.ph.i61:                                       ; preds = %166
@@ -554,7 +554,7 @@ distance.exit._crit_edge.i70:                     ; preds = %215, %distance.exit
   %221 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv17.i57
   %222 = load i32, ptr %221, align 4
   %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %222)
-  %224 = icmp ult i64 %indvars.iv17.i57, %165
+  %224 = icmp samesign ult i64 %indvars.iv17.i57, %165
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %220
@@ -1021,7 +1021,7 @@ define hidden void @tm_map_MPIPP(ptr nocapture noundef readonly %0, i32 noundef 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.loopexit.i.i ], [ 1, %.lr.ph25.i.i.preheader ]
   %.01923.i.i = phi double [ %.1.lcssa.i.i, %.loopexit.i.i ], [ 0.000000e+00, %.lr.ph25.i.i.preheader ]
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
-  %29 = icmp ult i64 %indvars.iv.next31.i.i, %25
+  %29 = icmp samesign ult i64 %indvars.iv.next31.i.i, %25
   br i1 %29, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph25.i.i
@@ -1082,7 +1082,7 @@ define hidden void @tm_map_MPIPP(ptr nocapture noundef readonly %0, i32 noundef 
   %indvars.iv.i.i.i = phi i64 [ 1, %.lr.ph25.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
   %.01923.i.i.i = phi double [ 0.000000e+00, %.lr.ph25.preheader.i.i.i ], [ %.1.lcssa.i.i.i, %.loopexit.i.i.i ]
   %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
-  %55 = icmp ult i64 %indvars.iv.next31.i.i.i, %25
+  %55 = icmp samesign ult i64 %indvars.iv.next31.i.i.i, %25
   br i1 %55, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph25.i.i.i
@@ -1239,7 +1239,7 @@ select_max.exit:                                  ; preds = %..loopexit_crit_edg
   %indvars.iv.i.i126 = phi i64 [ %indvars.iv.next.i.i131, %.loopexit.i.i129 ], [ 1, %select_max.exit ]
   %.01923.i.i127 = phi double [ %.1.lcssa.i.i130, %.loopexit.i.i129 ], [ 0.000000e+00, %select_max.exit ]
   %indvars.iv.next31.i.i128 = add nuw nsw i64 %indvars.iv30.i.i125, 1
-  %113 = icmp ult i64 %indvars.iv.next31.i.i128, %25
+  %113 = icmp samesign ult i64 %indvars.iv.next31.i.i128, %25
   br i1 %113, label %.lr.ph.i.i161, label %.loopexit.i.i129
 
 .lr.ph.i.i161:                                    ; preds = %.lr.ph25.i.i124
@@ -1300,7 +1300,7 @@ select_max.exit:                                  ; preds = %..loopexit_crit_edg
   %indvars.iv.i.i.i141 = phi i64 [ 1, %.lr.ph25.preheader.i.i.i138 ], [ %indvars.iv.next.i.i.i146, %.loopexit.i.i.i144 ]
   %.01923.i.i.i142 = phi double [ 0.000000e+00, %.lr.ph25.preheader.i.i.i138 ], [ %.1.lcssa.i.i.i145, %.loopexit.i.i.i144 ]
   %indvars.iv.next31.i.i.i143 = add nuw nsw i64 %indvars.iv30.i.i.i140, 1
-  %139 = icmp ult i64 %indvars.iv.next31.i.i.i143, %25
+  %139 = icmp samesign ult i64 %indvars.iv.next31.i.i.i143, %25
   br i1 %139, label %.lr.ph.i.i.i156, label %.loopexit.i.i.i144
 
 .lr.ph.i.i.i156:                                  ; preds = %.lr.ph25.i.i.i139
@@ -1432,7 +1432,7 @@ eval_sol.exit.thread:                             ; preds = %._crit_edge224
   %indvars.iv.i167 = phi i64 [ %indvars.iv.next.i168, %.loopexit.i ], [ 1, %._crit_edge224 ]
   %.01923.i = phi double [ %.1.lcssa.i, %.loopexit.i ], [ 0.000000e+00, %._crit_edge224 ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %185 = icmp ult i64 %indvars.iv.next31.i, %25
+  %185 = icmp samesign ult i64 %indvars.iv.next31.i, %25
   br i1 %185, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25.i

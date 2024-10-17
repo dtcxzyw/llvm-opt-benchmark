@@ -359,7 +359,7 @@ define internal i32 @get_xot_pdu_len_mult(ptr nocapture noundef writeonly %0, pt
   %.04250 = phi i32 [ %20, %40 ], [ %2, %4 ]
   %8 = add i32 %.04250, 4
   %9 = add i32 %.04250, 7
-  %10 = icmp ult i32 %7, 4
+  %10 = icmp samesign ult i32 %7, 4
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph
@@ -378,7 +378,7 @@ get_xot_pdu_len.exit:                             ; preds = %11, %14
   %.0.i = phi i32 [ %18, %14 ], [ %12, %11 ]
   %19 = and i32 %.0.i, 65535
   %20 = add i32 %19, %.04250
-  %21 = icmp ult i32 %7, %19
+  %21 = icmp samesign ult i32 %7, %19
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %get_xot_pdu_len.exit

@@ -2892,7 +2892,7 @@ for.inc.i:                                        ; preds = %_ZNSt6vectorIySaIyE
   %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i274, 1
   %232 = load i32, ptr %patchSize89.i, align 8
   %233 = zext i32 %232 to i64
-  %cmp108.i = icmp ult i64 %indvars.iv.next.i275, %233
+  %cmp108.i = icmp samesign ult i64 %indvars.iv.next.i275, %233
   br i1 %cmp108.i, label %for.body109.i, label %for.end.i, !llvm.loop !65
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond106.preheader.i

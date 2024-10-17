@@ -11407,7 +11407,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutpack(ptr noundef %0, i32 noun
   br label %93
 
 78:                                               ; preds = %76
-  %or.cond85 = icmp ugt i32 %19, 3
+  %or.cond85 = icmp samesign ugt i32 %19, 3
   br i1 %or.cond85, label %79, label %80
 
 79:                                               ; preds = %78
@@ -15155,7 +15155,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRefactor(ptr noundef %0, i32 nou
   br label %67
 
 51:                                               ; preds = %48
-  %52 = icmp ugt i32 %.056.ph, 15
+  %52 = icmp samesign ugt i32 %.056.ph, 15
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %51
@@ -15164,7 +15164,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRefactor(ptr noundef %0, i32 nou
 
 54:                                               ; preds = %51
   %.not74 = icmp eq i32 %.045.ph215, 0
-  %.not75 = icmp ult i32 %.056.ph, %.051.ph200
+  %.not75 = icmp samesign ult i32 %.056.ph, %.051.ph200
   %or.cond = select i1 %.not74, i1 true, i1 %.not75
   br i1 %or.cond, label %56, label %55
 
@@ -15356,7 +15356,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubstitute(ptr noundef %0, i32
   br label %72
 
 57:                                               ; preds = %54
-  %58 = icmp ugt i32 %.063, 3
+  %58 = icmp samesign ugt i32 %.063, 3
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %57
@@ -17482,7 +17482,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
 
 101:                                              ; preds = %95
   %102 = add nuw nsw i32 %22, 1
-  %103 = icmp ugt i32 %30, %102
+  %103 = icmp samesign ugt i32 %30, %102
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101
@@ -17490,7 +17490,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   br label %134
 
 105:                                              ; preds = %101
-  %106 = icmp ugt i32 %30, 10
+  %106 = icmp samesign ugt i32 %30, 10
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %105
@@ -17777,7 +17777,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
   br label %112
 
 94:                                               ; preds = %88
-  %95 = icmp ugt i32 %22, 10
+  %95 = icmp samesign ugt i32 %22, 10
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %94
@@ -17785,7 +17785,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
   br label %112
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i32 %23, 6
+  %98 = icmp samesign ugt i32 %23, 6
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %97
@@ -20037,7 +20037,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDFrames(ptr noundef %0, i32 noun
   br label %47
 
 32:                                               ; preds = %29
-  %33 = icmp ugt i32 %.042.ph, %.040.ph112
+  %33 = icmp samesign ugt i32 %.042.ph, %.040.ph112
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
@@ -27067,7 +27067,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCSweep(ptr noundef %0, i32 nound
   br label %44
 
 30:                                               ; preds = %27
-  %31 = icmp ult i32 %.029.ph, 2
+  %31 = icmp samesign ult i32 %.029.ph, 2
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
@@ -32929,7 +32929,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr noundef %0, i32 nound
   br i1 %.not77, label %66, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %.055.ph212, 6
+  %45 = icmp samesign ugt i32 %.055.ph212, 6
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
@@ -33793,7 +33793,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep(ptr noundef %0, i32 nou
   br label %155
 
 122:                                              ; preds = %120
-  %123 = icmp ult i32 %31, 2
+  %123 = icmp samesign ult i32 %31, 2
   %.not83 = icmp eq i32 %37, 0
   %or.cond = select i1 %123, i1 true, i1 %.not83
   br i1 %or.cond, label %125, label %124
@@ -38086,8 +38086,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr nocapture noundef %0
   br label %.loopexit
 
 66:                                               ; preds = %63
-  %67 = icmp ult i32 %.081, %.078
-  %68 = icmp ugt i32 %.081, 6
+  %67 = icmp samesign ult i32 %.081, %.078
+  %68 = icmp samesign ugt i32 %.081, 6
   %or.cond7 = or i1 %68, %67
   br i1 %or.cond7, label %69, label %70
 
@@ -44202,7 +44202,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIndcut(ptr noundef %0, i32 nound
   br label %100
 
 90:                                               ; preds = %88
-  %91 = icmp ugt i32 %.080, 12
+  %91 = icmp samesign ugt i32 %.080, 12
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %90
@@ -63694,7 +63694,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   br label %79
 
 58:                                               ; preds = %53
-  %59 = icmp ugt i32 %.052.ph216, 12
+  %59 = icmp samesign ugt i32 %.052.ph216, 12
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %58
@@ -76782,7 +76782,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %
   br label %Abc_FrameReplaceCex.exit
 
 96:                                               ; preds = %91
-  %97 = icmp ugt i32 %25, 4
+  %97 = icmp samesign ugt i32 %25, 4
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %96
@@ -88351,7 +88351,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %25 = shl i32 %24, %6
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i64, ptr %14, i64 %26
-  %28 = icmp ult i64 %indvars.iv75, 5
+  %28 = icmp samesign ult i64 %indvars.iv75, 5
   br i1 %28, label %.preheader.us.us, label %.preheader29.us.us
 
 29:                                               ; preds = %.preheader29.us.us, %29
@@ -88445,7 +88445,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %23 = shl i32 %22, %6
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i64, ptr %14, i64 %24
-  %26 = icmp ult i64 %indvars.iv73, 5
+  %26 = icmp samesign ult i64 %indvars.iv73, 5
   br i1 %26, label %.preheader.us.us, label %.preheader27.us.us
 
 27:                                               ; preds = %.preheader27.us.us, %27
@@ -88985,7 +88985,7 @@ define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr nocapture nounde
   %22 = lshr i64 %18, %21
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 15
-  %25 = icmp ult i32 %24, 10
+  %25 = icmp samesign ult i32 %24, 10
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %.lr.ph.i.us

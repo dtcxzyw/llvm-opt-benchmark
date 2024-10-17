@@ -22171,7 +22171,7 @@ _ZN4call4room4Room12should_leave17h231103b9ee4d7b5aE.exit.thread.i: ; preds = %1
   %1037 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3098
   %1038 = icmp ult i64 %1037, 6
   call void @llvm.assume(i1 %1038)
-  %switch119.i = icmp ugt i64 %1037, 2
+  %switch119.i = icmp samesign ugt i64 %1037, 2
   br i1 %switch119.i, label %1050, label %1039
 
 1039:                                             ; preds = %1061, %1036

@@ -1631,7 +1631,7 @@ proto_item_set_generated.exit342:                 ; preds = %155, %152, %149, %p
   %242 = zext nneg i8 %236 to i32
   %243 = call ptr @val_to_str_ext_const(i32 noundef %242, ptr noundef nonnull @code_vals_ext, ptr noundef nonnull @.str.671) #6
   call void @col_append_str(ptr noundef %241, i32 noundef 25, ptr noundef %243) #6
-  %244 = icmp ult i8 %236, 16
+  %244 = icmp samesign ult i8 %236, 16
   %245 = icmp eq i8 %236, 127
   %or.cond = or i1 %244, %245
   br i1 %or.cond, label %246, label %274
@@ -3425,7 +3425,7 @@ define internal i32 @dissect_obex_application_parameter_bt_gpp(ptr noundef %0, p
 24:                                               ; preds = %.lr.ph
   %25 = add nsw i32 %13, -65
   %26 = and i32 %25, 254
-  %27 = icmp ult i32 %26, 6
+  %27 = icmp samesign ult i32 %26, 6
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %24
@@ -3547,7 +3547,7 @@ define internal i32 @dissect_obex_application_parameter_bt_ctn(ptr noundef %0, p
 37:                                               ; preds = %35
   %38 = add nsw i32 %13, -65
   %39 = and i32 %38, 254
-  %40 = icmp ult i32 %39, 6
+  %40 = icmp samesign ult i32 %39, 6
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %37

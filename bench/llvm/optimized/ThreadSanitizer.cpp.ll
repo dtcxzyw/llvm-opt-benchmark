@@ -963,7 +963,7 @@ _ZL14isVtableAccessPN4llvm11InstructionE.exit71.i.i: ; preds = %_ZNK4llvm11Instr
   store i64 %325, ptr %52, align 8
   store i8 %326, ptr %.sroa.23.0..sroa_idx.i.i, align 8
   %327 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %52) #17
-  %328 = icmp ugt i8 %storemerge102.i.i, 2
+  %328 = icmp samesign ugt i8 %storemerge102.i.i, 2
   br i1 %328, label %336, label %329
 
 329:                                              ; preds = %320
@@ -3202,7 +3202,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJEEENS_14FunctionCalleeENS_9StringRefENS_13
   %197 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %196, ptr %197, align 1, !noalias !25
   %198 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
@@ -3230,7 +3230,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
   %205 = getelementptr inbounds i8, ptr %.111.i239, i64 -1
   store i8 %204, ptr %205, align 1, !noalias !29
   %206 = udiv i64 %.0810.i240, 10
-  %.not.i241 = icmp ult i64 %.0810.i240, 10
+  %.not.i241 = icmp samesign ult i64 %.0810.i240, 10
   br i1 %.not.i241, label %_ZN4llvm6utostrB5cxx11Emb.exit242, label %.lr.ph.i238, !llvm.loop !28
 
 _ZN4llvm6utostrB5cxx11Emb.exit242:                ; preds = %.lr.ph.i238
@@ -3609,7 +3609,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit242:                ; preds = %.lr.ph.i238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #17
   %388 = load ptr, ptr %72, align 8
   %389 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #17
-  %390 = icmp ult i64 %.0496, 3
+  %390 = icmp samesign ult i64 %.0496, 3
   %.sroa.063.0.copyload = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr %.sroa.063.0.copyload, ptr %18, align 8
@@ -3775,7 +3775,7 @@ _ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm17TargetLibraryInfo11getAttrListEPNS_11LLVMContextENS_8ArrayRefIjEEbbNS_13AttributeListE.exit277 ], [ %indvars.iv.next, %_ZN4llvm11SmallStringILj32EED2Ev.exit ]
   %464 = getelementptr inbounds [17 x [5 x %"class.llvm::FunctionCallee"]], ptr %182, i64 0, i64 %indvars.iv, i64 %.0496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %464, i8 0, i64 16, i1 false)
-  %465 = icmp ult i64 %indvars.iv, 7
+  %465 = icmp samesign ult i64 %indvars.iv, 7
   br i1 %465, label %switch.lookup, label %_ZN4llvm11SmallStringILj32EED2Ev.exit
 
 switch.lookup:                                    ; preds = %463
@@ -3796,7 +3796,7 @@ switch.lookup:                                    ; preds = %463
   %469 = getelementptr inbounds i8, ptr %.111.i4.i, i64 -1
   store i8 %468, ptr %469, align 1, !noalias !80
   %470 = udiv i64 %.0810.i5.i, 10
-  %.not.i6.i = icmp ult i64 %.0810.i5.i, 10
+  %.not.i6.i = icmp samesign ult i64 %.0810.i5.i, 10
   br i1 %.not.i6.i, label %_ZN4llvm6itostrB5cxx11El.exit, label %.lr.ph.i3.i, !llvm.loop !28
 
 _ZN4llvm6itostrB5cxx11El.exit:                    ; preds = %.lr.ph.i3.i

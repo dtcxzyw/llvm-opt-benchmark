@@ -2660,7 +2660,7 @@ dissect_unsigned_leb128.exit.thread67.i.i:        ; preds = %724
   %.0.in27.i.i.i = phi i32 [ %.028.i.i.i, %734 ], [ %704, %.preheader.i.i.i ]
   %.02126.i.i.i = phi i32 [ %735, %734 ], [ 7, %.preheader.i.i.i ]
   %736 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.028.i.i.i) #3
-  %737 = icmp ugt i32 %.02126.i.i.i, 32
+  %737 = icmp samesign ugt i32 %.02126.i.i.i, 32
   br i1 %737, label %dissect_unsigned_leb128.exit.thread.i.i, label %738
 
 738:                                              ; preds = %.lr.ph.i.i.i

@@ -114,7 +114,7 @@ define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 nou
   br i1 %.not43, label %.loopexit, label %28
 
 28:                                               ; preds = %27
-  %29 = icmp ugt i32 %.03448, 99
+  %29 = icmp samesign ugt i32 %.03448, 99
   %.not44 = icmp ult i64 %23, %24
   %or.cond46 = and i1 %29, %.not44
   %30 = zext i1 %or.cond46 to i32
@@ -316,7 +316,7 @@ jent_loop_shuffle.exit.i:                         ; preds = %6
   %39 = load i32, ptr %24, align 4
   %40 = zext i32 %39 to i64
   %41 = add nuw nsw i64 %12, %40
-  %42 = icmp ult i64 %38, %41
+  %42 = icmp samesign ult i64 %38, %41
   br i1 %42, label %26, label %jent_memaccess.exit, !llvm.loop !10
 
 jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuffle.exit.i, %14

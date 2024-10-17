@@ -848,7 +848,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit:   ; preds = %_ZN4llvm14OwningArr
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
   store i32 %25, ptr %23, align 4
   %26 = add nuw nsw i64 %.045, 1
-  %27 = icmp ult i64 %26, %22
+  %27 = icmp samesign ult i64 %26, %22
   br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %_ZN4llvm14OwningArrayRefIhED2Ev.exit, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
@@ -1977,7 +1977,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3BTF11BPFLineInfoELb1EE9push_backES2_.exit:
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm3BTF11BPFLineInfoES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !175
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %161
@@ -2348,7 +2348,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3BTF13BPFFieldRelocELb1EE9push_backES2_.exi
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm3BTF13BPFFieldRelocES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !212
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %151

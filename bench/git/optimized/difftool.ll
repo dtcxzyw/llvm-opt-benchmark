@@ -1488,7 +1488,7 @@ for.inc319.i:                                     ; preds = %_.exit182.i, %lor.l
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %124 = load i32, ptr %cache_nr.i, align 4
   %125 = zext i32 %124 to i64
-  %cmp247.i = icmp ult i64 %indvars.iv.next.i, %125
+  %cmp247.i = icmp samesign ult i64 %indvars.iv.next.i, %125
   br i1 %cmp247.i, label %for.body249.i, label %for.end321.i, !llvm.loop !9
 
 for.inc319.thread.i:                              ; preds = %if.end3.i173.i, %_.exit.i
@@ -1498,7 +1498,7 @@ for.inc319.thread.i:                              ; preds = %if.end3.i173.i, %_.
   %indvars.iv.next525.i = add nuw nsw i64 %indvars.iv.i, 1
   %126 = load i32, ptr %cache_nr.i, align 4
   %127 = zext i32 %126 to i64
-  %cmp247526.i = icmp ult i64 %indvars.iv.next525.i, %127
+  %cmp247526.i = icmp samesign ult i64 %indvars.iv.next525.i, %127
   br i1 %cmp247526.i, label %for.body249.outer.i, label %if.then323.i, !llvm.loop !9
 
 for.end321.i:                                     ; preds = %for.inc319.i

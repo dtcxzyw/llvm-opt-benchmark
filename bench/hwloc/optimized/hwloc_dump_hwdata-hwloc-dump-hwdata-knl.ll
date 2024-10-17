@@ -425,7 +425,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   %177 = add nuw nsw i32 %.054.i, 1
   %178 = load i8, ptr %103, align 1
   %179 = zext i8 %178 to i32
-  %180 = icmp ult i32 %177, %179
+  %180 = icmp samesign ult i32 %177, %179
   br i1 %180, label %153, label %._crit_edge.i35, !llvm.loop !10
 
 ._crit_edge.i35:                                  ; preds = %174, %.._crit_edge.i35_crit_edge

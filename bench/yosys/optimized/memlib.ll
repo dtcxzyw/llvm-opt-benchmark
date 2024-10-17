@@ -9124,7 +9124,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 .preheader1.i:                                    ; preds = %.lr.ph.i520, %2002
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %2002 ], [ %indvars.iv.i521, %.lr.ph.i520 ]
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %2001 = icmp ult i64 %indvars.iv.next14.i, %wide.trip.count.i
+  %2001 = icmp samesign ult i64 %indvars.iv.next14.i, %wide.trip.count.i
   br i1 %2001, label %2002, label %_ZN12_GLOBAL__N_16Parser13validate_byteERKSt6vectorIiSaIiEEi.exit
 
 2002:                                             ; preds = %.preheader1.i
@@ -48877,7 +48877,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vect
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %40
   %indvars.iv22 = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next23, %40 ]
   %26 = add nuw nsw i64 %indvars.iv22, %24
-  %.not = icmp ult i64 %26, %25
+  %.not = icmp samesign ult i64 %26, %25
   br i1 %.not, label %27, label %32
 
 27:                                               ; preds = %.lr.ph17

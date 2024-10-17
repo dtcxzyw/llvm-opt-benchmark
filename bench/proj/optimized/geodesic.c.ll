@@ -607,7 +607,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %127 = zext nneg i32 %.01718.i to i64
   %128 = getelementptr inbounds double, ptr @C1f.coeff, i64 %127
   %129 = load double, ptr %128, align 8
-  %.not.i.i = icmp ugt i64 %indvars.iv.i, 4
+  %.not.i.i = icmp samesign ugt i64 %indvars.iv.i, 4
   br i1 %.not.i.i, label %polyvalx.exit.i, label %.lr.ph.i.i112
 
 .lr.ph.i.i112:                                    ; preds = %123, %.lr.ph.i.i112
@@ -711,7 +711,7 @@ SinCosSeries.exit:                                ; preds = %151
   %189 = zext nneg i32 %.01718.i119 to i64
   %190 = getelementptr inbounds double, ptr @C1pf.coeff, i64 %189
   %191 = load double, ptr %190, align 8
-  %.not.i.i120 = icmp ugt i64 %indvars.iv.i117, 4
+  %.not.i.i120 = icmp samesign ugt i64 %indvars.iv.i117, 4
   br i1 %.not.i.i120, label %polyvalx.exit.i126, label %.lr.ph.i.i121
 
 .lr.ph.i.i121:                                    ; preds = %185, %.lr.ph.i.i121
@@ -787,7 +787,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
   %224 = zext nneg i32 %.01718.i138 to i64
   %225 = getelementptr inbounds double, ptr @C2f.coeff, i64 %224
   %226 = load double, ptr %225, align 8
-  %.not.i.i139 = icmp ugt i64 %indvars.iv.i136, 4
+  %.not.i.i139 = icmp samesign ugt i64 %indvars.iv.i136, 4
   br i1 %.not.i.i139, label %polyvalx.exit.i145, label %.lr.ph.i.i140
 
 .lr.ph.i.i140:                                    ; preds = %220, %.lr.ph.i.i140
@@ -1762,7 +1762,7 @@ SinCosSeries.exit319:                             ; preds = %371
   %.0257 = phi double [ %438, %416 ], [ 0.000000e+00, %414 ], [ 0.000000e+00, %atan2dx.exit313 ]
   %.0256 = phi double [ %432, %416 ], [ 0.000000e+00, %414 ], [ 0.000000e+00, %atan2dx.exit313 ]
   %.0255 = phi double [ %.1, %416 ], [ %.1, %414 ], [ 0.000000e+00, %atan2dx.exit313 ]
-  %440 = icmp ugt i32 %36, 16383
+  %440 = icmp samesign ugt i32 %36, 16383
   br i1 %440, label %441, label %509
 
 441:                                              ; preds = %439
@@ -5353,7 +5353,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %31 = zext nneg i32 %.01718.i to i64
   %32 = getelementptr inbounds double, ptr @C1f.coeff, i64 %31
   %33 = load double, ptr %32, align 8
-  %.not.i.i = icmp ugt i64 %indvars.iv.i, 4
+  %.not.i.i = icmp samesign ugt i64 %indvars.iv.i, 4
   br i1 %.not.i.i, label %polyvalx.exit.i, label %.lr.ph.i.i115
 
 .lr.ph.i.i115:                                    ; preds = %27, %.lr.ph.i.i115
@@ -5415,7 +5415,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i120
   %59 = zext nneg i32 %.01718.i128 to i64
   %60 = getelementptr inbounds double, ptr @C2f.coeff, i64 %59
   %61 = load double, ptr %60, align 8
-  %.not.i.i129 = icmp ugt i64 %indvars.iv.i126, 4
+  %.not.i.i129 = icmp samesign ugt i64 %indvars.iv.i126, 4
   br i1 %.not.i.i129, label %polyvalx.exit.i135, label %.lr.ph.i.i130
 
 .lr.ph.i.i130:                                    ; preds = %55, %.lr.ph.i.i130

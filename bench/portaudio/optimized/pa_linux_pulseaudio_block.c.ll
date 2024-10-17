@@ -333,7 +333,7 @@ define range(i32 -9992, 1) i32 @PaPulseAudio_WriteStreamBlock(ptr noundef %0, pt
 97:                                               ; preds = %95
   %98 = load volatile i32, ptr %14, align 4
   %.not108 = icmp ne i32 %98, 0
-  %99 = icmp ugt i32 %.068125, 9998
+  %99 = icmp samesign ugt i32 %.068125, 9998
   %or.cond = select i1 %.not108, i1 true, i1 %99
   br i1 %or.cond, label %.critedge, label %100
 

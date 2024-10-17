@@ -6184,7 +6184,7 @@ switch.lookup:
 279:                                              ; preds = %276
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %150), !noalias !825
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %149), !noalias !825
-  %280 = icmp ult i64 %237, 4294967296
+  %280 = icmp samesign ult i64 %237, 4294967296
   br i1 %280, label %283, label %285
 
 281:                                              ; preds = %276
@@ -7091,7 +7091,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 506:                                              ; preds = %503
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %127), !noalias !924
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %126), !noalias !924
-  %507 = icmp ult i64 %464, 4294967296
+  %507 = icmp samesign ult i64 %464, 4294967296
   br i1 %507, label %510, label %512
 
 508:                                              ; preds = %503
@@ -7994,7 +7994,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 733:                                              ; preds = %730
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %104), !noalias !1023
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %103), !noalias !1023
-  %734 = icmp ult i64 %691, 4294967296
+  %734 = icmp samesign ult i64 %691, 4294967296
   br i1 %734, label %737, label %739
 
 735:                                              ; preds = %730
@@ -8963,7 +8963,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 977:                                              ; preds = %974
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67), !noalias !1162
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %66), !noalias !1162
-  %978 = icmp ult i64 %935, 4294967296
+  %978 = icmp samesign ult i64 %935, 4294967296
   br i1 %978, label %981, label %983
 
 979:                                              ; preds = %974
@@ -9906,7 +9906,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1210:                                             ; preds = %1207
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44), !noalias !1267
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43), !noalias !1267
-  %1211 = icmp ult i64 %1168, 4294967296
+  %1211 = icmp samesign ult i64 %1168, 4294967296
   br i1 %1211, label %1214, label %1216
 
 1212:                                             ; preds = %1207
@@ -10845,7 +10845,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1442:                                             ; preds = %1439
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !1371
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20), !noalias !1371
-  %1443 = icmp ult i64 %1400, 4294967296
+  %1443 = icmp samesign ult i64 %1400, 4294967296
   br i1 %1443, label %1446, label %1448
 
 1444:                                             ; preds = %1439

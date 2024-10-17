@@ -1608,7 +1608,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = lshr i32 %130, 1
-  %132 = icmp ult i32 %131, %119
+  %132 = icmp samesign ult i32 %131, %119
   br i1 %132, label %.thread111, label %134
 
 .thread111:                                       ; preds = %123, %123, %123, %128, %126
@@ -2240,7 +2240,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %293 = getelementptr inbounds i16, ptr %253, i64 %indvars.iv433.i
   %294 = load i16, ptr %293, align 2
   %295 = zext i16 %294 to i32
-  %296 = icmp ugt i32 %220, %295
+  %296 = icmp samesign ugt i32 %220, %295
   %297 = select i1 %296, i16 %294, i16 %221
   br label %298
 
@@ -2276,12 +2276,12 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %318 = getelementptr inbounds i16, ptr %257, i64 %309
   %319 = load i16, ptr %318, align 2
   %320 = zext i16 %319 to i32
-  %321 = icmp ugt i32 %220, %320
+  %321 = icmp samesign ugt i32 %220, %320
   %322 = select i1 %321, i16 %319, i16 %221
   %323 = getelementptr inbounds i16, ptr %261, i64 %309
   %324 = load i16, ptr %323, align 2
   %325 = zext i16 %324 to i32
-  %326 = icmp ugt i32 %220, %325
+  %326 = icmp samesign ugt i32 %220, %325
   %327 = select i1 %326, i16 %324, i16 %221
   br label %.thread.i
 
@@ -2437,13 +2437,13 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %423 = getelementptr inbounds [2 x [2 x i16]], ptr %5, i64 0, i64 %indvars.iv.i, i64 %indvars.iv430.i
   %424 = load i16, ptr %423, align 2
   %425 = zext i16 %424 to i32
-  %426 = icmp ugt i32 %220, %425
+  %426 = icmp samesign ugt i32 %220, %425
   %427 = select i1 %426, i16 %424, i16 %221
   store i16 %427, ptr %423, align 2
   %428 = getelementptr inbounds [2 x [2 x i16]], ptr %6, i64 0, i64 %indvars.iv.i, i64 %indvars.iv430.i
   %429 = load i16, ptr %428, align 2
   %430 = zext i16 %429 to i32
-  %431 = icmp ugt i32 %220, %430
+  %431 = icmp samesign ugt i32 %220, %430
   %432 = select i1 %431, i16 %429, i16 %221
   store i16 %432, ptr %428, align 2
   br i1 %422, label %421, label %433, !llvm.loop !18
@@ -2569,7 +2569,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %518 = getelementptr inbounds i16, ptr %265, i64 %indvars.iv433.i
   %519 = load i16, ptr %518, align 2
   %520 = zext i16 %519 to i32
-  %521 = icmp ugt i32 %220, %520
+  %521 = icmp samesign ugt i32 %220, %520
   %522 = select i1 %521, i16 %519, i16 %221
   br label %523
 
@@ -2675,7 +2675,7 @@ avifStoreRGB8Pixel.exit.i:                        ; preds = %577, %576, %565
   %indvars.iv.next434.i = add nuw nsw i64 %indvars.iv433.i, 1
   %586 = load i32, ptr %0, align 8
   %587 = zext i32 %586 to i64
-  %588 = icmp ult i64 %indvars.iv.next434.i, %587
+  %588 = icmp samesign ult i64 %indvars.iv.next434.i, %587
   br i1 %588, label %284, label %._crit_edge.loopexit.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i:                           ; preds = %avifStoreRGB8Pixel.exit.i
@@ -2686,7 +2686,7 @@ avifStoreRGB8Pixel.exit.i:                        ; preds = %577, %576, %565
   %589 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %244, %249 ]
   %indvars.iv.next437.i = add nuw nsw i64 %indvars.iv436.i, 1
   %590 = zext i32 %589 to i64
-  %591 = icmp ult i64 %indvars.iv.next437.i, %590
+  %591 = icmp samesign ult i64 %indvars.iv.next437.i, %590
   br i1 %591, label %243, label %._crit_edge423.i, !llvm.loop !21
 
 ._crit_edge423.i:                                 ; preds = %._crit_edge.i, %206
@@ -3463,7 +3463,7 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr nocaptur
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %64 = load i32, ptr %0, align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next75, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next75, %65
   br i1 %66, label %.lr.ph67, label %.loopexit, !llvm.loop !24
 
 67:                                               ; preds = %21
@@ -3500,7 +3500,7 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr nocaptur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %0, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph67, %67, %.preheader
@@ -3674,18 +3674,18 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %116 = getelementptr inbounds i16, ptr %87, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
-  %119 = icmp ugt i32 %69, %118
+  %119 = icmp samesign ugt i32 %69, %118
   %120 = select i1 %119, i16 %117, i16 %70
   %121 = zext i32 %115 to i64
   %122 = getelementptr inbounds i16, ptr %92, i64 %121
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
-  %125 = icmp ugt i32 %69, %124
+  %125 = icmp samesign ugt i32 %69, %124
   %126 = select i1 %125, i16 %123, i16 %70
   %127 = getelementptr inbounds i16, ptr %97, i64 %121
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
-  %130 = icmp ugt i32 %69, %129
+  %130 = icmp samesign ugt i32 %69, %129
   %131 = select i1 %130, i16 %128, i16 %70
   %132 = zext i16 %120 to i64
   %133 = getelementptr inbounds float, ptr %17, i64 %132
@@ -3730,7 +3730,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %169 = load i32, ptr %0, align 8
   %170 = zext i32 %169 to i64
-  %171 = icmp ult i64 %indvars.iv.next, %170
+  %171 = icmp samesign ult i64 %indvars.iv.next, %170
   br i1 %171, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3874,7 +3874,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %79 = getelementptr inbounds i16, ptr %63, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
-  %82 = icmp ugt i32 %43, %81
+  %82 = icmp samesign ugt i32 %43, %81
   %83 = select i1 %82, i16 %80, i16 %44
   %84 = zext i16 %83 to i64
   %85 = getelementptr inbounds float, ptr %16, i64 %84
@@ -3909,7 +3909,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = load i32, ptr %0, align 8
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next, %112
   br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -4094,18 +4094,18 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %117 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
-  %120 = icmp ugt i32 %69, %119
+  %120 = icmp samesign ugt i32 %69, %119
   %121 = select i1 %120, i16 %118, i16 %70
   %122 = zext i32 %116 to i64
   %123 = getelementptr inbounds i16, ptr %93, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
-  %126 = icmp ugt i32 %69, %125
+  %126 = icmp samesign ugt i32 %69, %125
   %127 = select i1 %126, i16 %124, i16 %70
   %128 = getelementptr inbounds i16, ptr %98, i64 %122
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
-  %131 = icmp ugt i32 %69, %130
+  %131 = icmp samesign ugt i32 %69, %130
   %132 = select i1 %131, i16 %129, i16 %70
   %133 = zext i16 %121 to i64
   %134 = getelementptr inbounds float, ptr %17, i64 %133
@@ -4172,7 +4172,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %169, %180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %184 = load i32, ptr %0, align 8
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %186, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
@@ -4317,7 +4317,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %80 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
-  %83 = icmp ugt i32 %43, %82
+  %83 = icmp samesign ugt i32 %43, %82
   %84 = select i1 %83, i16 %81, i16 %44
   %85 = zext i16 %84 to i64
   %86 = getelementptr inbounds float, ptr %16, i64 %85
@@ -4374,7 +4374,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %111, %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %0, align 8
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next, %127
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
   br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
@@ -4601,7 +4601,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = load i32, ptr %0, align 8
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next, %157
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
   br i1 %158, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -4773,7 +4773,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = load i32, ptr %0, align 8
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %indvars.iv.next, %105
+  %106 = icmp samesign ult i64 %indvars.iv.next, %105
   br i1 %106, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -5023,7 +5023,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %156, %167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %171 = load i32, ptr %0, align 8
   %172 = zext i32 %171 to i64
-  %173 = icmp ult i64 %indvars.iv.next, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next, %172
   br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
@@ -5218,7 +5218,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %104, %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = load i32, ptr %0, align 8
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %indvars.iv.next, %120
+  %121 = icmp samesign ult i64 %indvars.iv.next, %120
   br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit

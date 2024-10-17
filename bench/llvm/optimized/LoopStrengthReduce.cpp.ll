@@ -4504,7 +4504,7 @@ _ZN4llvm4User8operandsEv.exit.i.i:                ; preds = %1632, %1629
   %.idx14.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i, 5
   %1638 = getelementptr inbounds i8, ptr %1637, i64 %.idx14.i.i
   %1639 = getelementptr inbounds i8, ptr %.val.pn26.i.i, i64 32
-  %.not13.i.i257 = icmp ult i64 %.pre-phi2.i.i.i.i, 4
+  %.not13.i.i257 = icmp samesign ult i64 %.pre-phi2.i.i.i.i, 4
   br i1 %.not13.i.i257, label %._crit_edge.i.i.i.i.i.i263, label %.lr.ph.i.i.i.i.i.i258
 
 .lr.ph.i.i.i.i.i.i258:                            ; preds = %_ZN4llvm4User8operandsEv.exit.i.i
@@ -5554,7 +5554,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %2132, %2129
   %2138 = getelementptr inbounds i8, ptr %2137, i64 %.idx120.i
   %2139 = getelementptr inbounds nuw i8, ptr %2123, i64 72
   %2140 = load ptr, ptr %2139, align 8
-  %.not119.i = icmp ult i64 %.pre-phi2.i.i.i, 4
+  %.not119.i = icmp samesign ult i64 %.pre-phi2.i.i.i, 4
   br i1 %.not119.i, label %._crit_edge.i.i.i.i.i193, label %.lr.ph.i.i.i.i.i192
 
 .lr.ph.i.i.i.i.i192:                              ; preds = %_ZN4llvm4User8operandsEv.exit.i
@@ -15625,7 +15625,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i:   ; preds = %1273
 
 1291:                                             ; preds = %1288
   %1292 = lshr i32 %1289, 6
-  %.not32.i.i.i.i = icmp ugt i32 %1292, %1265
+  %.not32.i.i.i.i = icmp samesign ugt i32 %1292, %1265
   br i1 %.not32.i.i.i.i, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread, label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %1291
@@ -15669,7 +15669,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i:   ; preds = %1273
 _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit: ; preds = %.thread.i312
   %1315 = and i64 %1256, %957
   %1316 = icmp ne i64 %1315, 0
-  %.not.i15.i = icmp ugt i64 %1253, %956
+  %.not.i15.i = icmp samesign ugt i64 %1253, %956
   %or.cond.i.i314 = and i1 %.not.i15.i, %1316
   br i1 %or.cond.i.i314, label %.loopexit.i150, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread
 
@@ -16053,7 +16053,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i:   ; preds = %158
 
 176:                                              ; preds = %173
   %177 = lshr i32 %174, 6
-  %.not32.i.i.i.i = icmp ugt i32 %177, %150
+  %.not32.i.i.i.i = icmp samesign ugt i32 %177, %150
   br i1 %.not32.i.i.i.i, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread, label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %176
@@ -16097,7 +16097,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i:   ; preds = %158
 _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit: ; preds = %.thread.i
   %200 = and i64 %141, %76
   %201 = icmp ne i64 %200, 0
-  %.not.i15.i = icmp ugt i64 %138, %75
+  %.not.i15.i = icmp samesign ugt i64 %138, %75
   %or.cond.i.i = and i1 %.not.i15.i, %201
   br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread200, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread
 
@@ -16260,7 +16260,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i71: ; preds = %268
 
 286:                                              ; preds = %283
   %287 = lshr i32 %284, 6
-  %.not32.i.i.i.i73 = icmp ugt i32 %287, %260
+  %.not32.i.i.i.i73 = icmp samesign ugt i32 %287, %260
   br i1 %.not32.i.i.i.i73, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread, label %.lr.ph.i.i.i17.i74
 
 .lr.ph.i.i.i17.i74:                               ; preds = %286
@@ -16304,7 +16304,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit.i71: ; preds = %268
 _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84: ; preds = %.thread.i61
   %310 = and i64 %251, %76
   %311 = icmp ne i64 %310, 0
-  %.not.i15.i65 = icmp ugt i64 %248, %75
+  %.not.i15.i65 = icmp samesign ugt i64 %248, %75
   %or.cond.i.i66 = and i1 %.not.i15.i65, %311
   br i1 %or.cond.i.i66, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread204, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread
 
@@ -39870,7 +39870,7 @@ _ZN4llvm8SmallSetISt4pairImN12_GLOBAL__N_19ImmediateEELj32ENS2_25KeyOrderSizeTAn
   %855 = and i64 %848, %854
   %856 = and i64 %855, %851
   %857 = icmp ne i64 %856, 0
-  %.not.i.i.i367 = icmp ugt i64 %849, %853
+  %.not.i.i.i367 = icmp samesign ugt i64 %849, %853
   %or.cond.i.i.i = and i1 %.not.i.i.i367, %857
   br i1 %or.cond.i.i.i, label %858, label %.loopexit
 
@@ -39891,7 +39891,7 @@ _ZN4llvm8SmallSetISt4pairImN12_GLOBAL__N_19ImmediateEELj32ENS2_25KeyOrderSizeTAn
   %868 = lshr i32 %863, 6
   %869 = add i32 %865, -1
   %870 = lshr i32 %869, 6
-  %.not32.i.i.i.i.i = icmp ugt i32 %868, %870
+  %.not32.i.i.i.i.i = icmp samesign ugt i32 %868, %870
   br i1 %.not32.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i368
 
 .lr.ph.i.i.i.i.i368:                              ; preds = %867
@@ -41598,7 +41598,7 @@ _ZN4llvm5APIntC2ERKS0_.exit433:                   ; preds = %1600, %1602
   %.val204 = load i64, ptr %974, align 8
   %1611 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.val204, i1 false)
   %1612 = trunc nuw nsw i64 %1611 to i32
-  %1613 = icmp uge i32 %..i, %1612
+  %1613 = icmp samesign uge i32 %..i, %1612
   br label %.critedge196
 
 1614:                                             ; preds = %_ZN4llvm5APIntC2ERKS0_.exit433
@@ -42329,7 +42329,7 @@ _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit103:        ; preds = %245, %251
   %257 = sub nsw i32 31, %256
   %258 = lshr i32 %257, 2
   %259 = add nuw nsw i32 %72, %258
-  %260 = icmp ugt i32 %259, 2
+  %260 = icmp samesign ugt i32 %259, 2
   br i1 %260, label %_ZN12_GLOBAL__N_111LSRInstance22GenerateReassociationsERNS_6LSRUseEjNS_7FormulaEj.exit, label %261
 
 261:                                              ; preds = %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit103
@@ -43635,7 +43635,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit:     ; preds = %55
   %71 = shl nsw i64 -2, %1
   %72 = and i64 %38, %71
   %73 = icmp ne i64 %72, 0
-  %.not.i15 = icmp ugt i64 %35, %70
+  %.not.i15 = icmp samesign ugt i64 %35, %70
   %or.cond.i = and i1 %.not.i15, %73
   br label %_ZNK4llvm14SmallBitVector10find_firstEv.exit.thread
 
@@ -43646,7 +43646,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit:     ; preds = %55
 
 77:                                               ; preds = %74
   %78 = lshr i32 %75, 6
-  %.not32.i.i.i = icmp ugt i32 %78, %47
+  %.not32.i.i.i = icmp samesign ugt i32 %78, %47
   br i1 %.not32.i.i.i, label %_ZNK4llvm14SmallBitVector10find_firstEv.exit.thread, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %77

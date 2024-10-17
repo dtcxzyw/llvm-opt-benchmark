@@ -1286,9 +1286,9 @@ define hidden void @"_ZN10vfs_notify16log_notify_error28_$u7b$$u7b$closure$u7d$$
           to label %43 unwind label %41
 
 11:                                               ; preds = %1
-  %12 = icmp ult i64 %7, 5
+  %12 = icmp samesign ult i64 %7, 5
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %7, 4
+  %13 = icmp samesign ult i64 %7, 4
   br i1 %13, label %14, label %.critedge26
 
 14:                                               ; preds = %11
@@ -1416,9 +1416,9 @@ define hidden void @"_ZN10vfs_notify16log_notify_error28_$u7b$$u7b$closure$u7d$$
           to label %43 unwind label %41
 
 11:                                               ; preds = %1
-  %12 = icmp ult i64 %7, 5
+  %12 = icmp samesign ult i64 %7, 5
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %7, 4
+  %13 = icmp samesign ult i64 %7, 4
   br i1 %13, label %14, label %.critedge26
 
 14:                                               ; preds = %11
@@ -1546,9 +1546,9 @@ define hidden void @"_ZN10vfs_notify16log_notify_error28_$u7b$$u7b$closure$u7d$$
           to label %43 unwind label %41
 
 11:                                               ; preds = %1
-  %12 = icmp ult i64 %7, 5
+  %12 = icmp samesign ult i64 %7, 5
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ult i64 %7, 4
+  %13 = icmp samesign ult i64 %7, 4
   br i1 %13, label %14, label %.critedge26
 
 14:                                               ; preds = %11

@@ -6015,7 +6015,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
   br label %_ZN14regex_automata3nfa8thompson8compiler8Compiler15c_unicode_class17h01a1c10f6142f0dcE.exit
 
 1725:                                             ; preds = %1712
-  %1726 = icmp ugt i32 %1713, 255
+  %1726 = icmp samesign ugt i32 %1713, 255
   %.sroa.4.0.insert.ext.i = zext nneg i32 %1713 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !521
   br i1 %1726, label %.invoke1033.i, label %1727
@@ -6026,7 +6026,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
           to label %1729 unwind label %.loopexit.i42, !range !563, !noalias !515
 
 1729:                                             ; preds = %1727
-  %1730 = icmp ugt i32 %1728, 255
+  %1730 = icmp samesign ugt i32 %1728, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !521
   br i1 %1730, label %.invoke1033.i, label %1732
 

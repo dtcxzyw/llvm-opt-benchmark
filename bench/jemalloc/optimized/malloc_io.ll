@@ -717,7 +717,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.en
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buf, i64 %idxprom2.i.i
   store i8 %51, ptr %arrayidx3.i.i, align 1
   %div.i.i = udiv i64 %x.addr.0.i.i, 10
-  %cmp.not.i.i = icmp ult i64 %x.addr.0.i.i, 10
+  %cmp.not.i.i = icmp samesign ult i64 %x.addr.0.i.i, 10
   br i1 %cmp.not.i.i, label %u2s.exit.i, label %do.body.i.i, !llvm.loop !8
 
 u2s.exit.i:                                       ; preds = %do.body.i.i

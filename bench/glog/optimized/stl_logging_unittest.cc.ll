@@ -864,8 +864,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit55.i:       ; preds = %78, %75
   %86 = add nuw nsw i32 %.011.i.i.i, 1
   %87 = getelementptr inbounds i8, ptr %.sroa.06.010.i.i.i, i64 4
   %88 = icmp ne ptr %87, %81
-  %89 = icmp ult i32 %.011.i.i.i, 99
-  %90 = and i1 %89, %88
+  %89 = icmp samesign ult i32 %.011.i.i.i, 99
+  %90 = select i1 %88, i1 %89, i1 false
   br i1 %90, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !5
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc58.i
@@ -1707,8 +1707,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit139.i:      ; preds = %327, %324
   %337 = add nuw nsw i32 %.011.i.i142.i, 1
   %338 = getelementptr inbounds i8, ptr %.sroa.06.010.i.i143.i, i64 4
   %339 = icmp ne ptr %338, %332
-  %340 = icmp ult i32 %.011.i.i142.i, 99
-  %341 = and i1 %340, %339
+  %340 = icmp samesign ult i32 %.011.i.i142.i, 99
+  %341 = select i1 %339, i1 %340, i1 false
   br i1 %341, label %.lr.ph.i.i141.i, label %._crit_edge.i.i145.i, !llvm.loop !5
 
 ._crit_edge.i.i145.i:                             ; preds = %.noexc147.i
@@ -3060,8 +3060,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %14 = add nuw nsw i32 %.011.i.i.i, 1
   %15 = getelementptr inbounds i8, ptr %.sroa.06.010.i.i.i, i64 4
   %16 = icmp ne ptr %15, %9
-  %17 = icmp ult i32 %.011.i.i.i, 99
-  %18 = and i1 %17, %16
+  %17 = icmp samesign ult i32 %.011.i.i.i, 99
+  %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !5
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc4
@@ -3101,8 +3101,8 @@ _ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.
   %30 = add nuw nsw i32 %.011.i.i.i8, 1
   %31 = getelementptr inbounds i8, ptr %.sroa.06.010.i.i.i9, i64 4
   %32 = icmp ne ptr %31, %25
-  %33 = icmp ult i32 %.011.i.i.i8, 99
-  %34 = and i1 %33, %32
+  %33 = icmp samesign ult i32 %.011.i.i.i8, 99
+  %34 = select i1 %32, i1 %33, i1 false
   br i1 %34, label %.lr.ph.i.i.i7, label %._crit_edge.i.i.i11, !llvm.loop !5
 
 ._crit_edge.i.i.i11:                              ; preds = %.noexc13
@@ -3510,8 +3510,8 @@ define linkonce_odr hidden void @_ZN6google13PrintSequenceISt23_Rb_tree_const_it
   %15 = add nuw nsw i32 %.011, 1
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010) #31
   %17 = icmp ne ptr %16, %2
-  %18 = icmp ult i32 %.011, 99
-  %19 = and i1 %17, %18
+  %18 = icmp samesign ult i32 %.011, 99
+  %19 = select i1 %17, i1 %18, i1 false
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %6

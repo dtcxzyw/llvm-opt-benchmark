@@ -142,7 +142,7 @@ if.then31:                                        ; preds = %if.end27, %for.end
   br label %return
 
 if.end32:                                         ; preds = %for.end
-  %cmp33 = icmp ult i32 %i.031, 8
+  %cmp33 = icmp samesign ult i32 %i.031, 8
   br i1 %cmp33, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end32
@@ -536,7 +536,7 @@ for.body:                                         ; preds = %if.end18, %for.body
   %conv44 = zext i8 %2 to i32
   %or45 = or disjoint i32 %shl, %conv44
   %and = and i32 %or45, %conv47
-  %3 = icmp ult i32 %and, %conv21
+  %3 = icmp samesign ult i32 %and, %conv21
   %shr.neg.i.i = sext i1 %3 to i32
   %4 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i) #5, !srcloc !9
   %and.i.i = and i32 %and, %4
@@ -545,7 +545,7 @@ for.body:                                         ; preds = %if.end18, %for.body
   %and2.i.i = and i32 %5, %synthetic_length.084
   %or.i.i = or i32 %and.i.i, %and2.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %cmp39 = icmp ult i64 %indvars.iv, 254
+  %cmp39 = icmp samesign ult i64 %indvars.iv, 254
   br i1 %cmp39, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body
@@ -634,7 +634,7 @@ for.body91:                                       ; preds = %for.body91.lr.ph, %
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, 1
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %cmp87 = icmp slt i64 %indvars.iv.next103, %24
-  %cmp89 = icmp ult i64 %indvars.iv.next101, %22
+  %cmp89 = icmp samesign ult i64 %indvars.iv.next101, %22
   %27 = select i1 %cmp87, i1 %cmp89, i1 false
   br i1 %27, label %for.body91, label %if.end107.loopexit, !llvm.loop !16
 
@@ -776,7 +776,7 @@ if.then53:                                        ; preds = %if.end48
 if.end54:                                         ; preds = %if.end48
   store i32 32, ptr %md_len, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %1 = icmp ugt i64 %indvars.iv.next, %zext
+  %1 = icmp samesign ugt i64 %indvars.iv.next, %zext
   br i1 %1, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %if.end54
@@ -810,7 +810,7 @@ if.then71:                                        ; preds = %if.else
 
 for.inc:                                          ; preds = %if.end63, %if.else
   %inc = add i16 %iter.026, 1
-  %3 = icmp ult i64 %indvars.iv.next, %zext
+  %3 = icmp samesign ult i64 %indvars.iv.next, %zext
   br i1 %3, label %for.body, label %err, !llvm.loop !17
 
 err:                                              ; preds = %for.inc, %if.then71, %if.then62, %if.then53, %if.then47, %if.then41, %if.then27, %if.then20, %if.then15, %if.then10

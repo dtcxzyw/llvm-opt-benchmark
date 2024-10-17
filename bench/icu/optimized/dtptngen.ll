@@ -5506,7 +5506,7 @@ if.then:                                          ; preds = %for.body
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
   %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.i, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %ch.addr.i, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  %cmp4 = icmp ult i64 %indvars.iv37, 10
+  %cmp4 = icmp samesign ult i64 %indvars.iv37, 10
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then

@@ -1312,7 +1312,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %90, %93
   %106 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %106, ptr %15, align 8
   %107 = getelementptr inbounds i8, ptr %15, i64 8
-  %.not.i.i = icmp ugt i32 %68, 132
+  %.not.i.i = icmp samesign ugt i32 %68, 132
   store i64 %105, ptr %107, align 8
   br i1 %.not.i.i, label %108, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.preheader
 
@@ -1438,7 +1438,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %102
   %170 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %170, ptr %16, align 8
   %171 = getelementptr inbounds i8, ptr %16, i64 8
-  %.not.i.i138 = icmp ugt i32 %68, 62
+  %.not.i.i138 = icmp samesign ugt i32 %68, 62
   store i64 %169, ptr %171, align 8
   br i1 %.not.i.i138, label %172, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
 
@@ -1514,7 +1514,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc139, %_ZNK2cv
   %194 = ashr exact i64 %sext124, 32
   %195 = udiv i32 536870911, %68
   %196 = zext nneg i32 %195 to i64
-  %197 = icmp ult i32 %68, 5
+  %197 = icmp samesign ult i32 %68, 5
   %..i.val = call i64 @llvm.umin.i64(i64 %166, i64 %194)
   %198 = select i1 %197, i64 %194, i64 %..i.val
   %.sroa.speculated147 = call i64 @llvm.umin.i64(i64 %198, i64 %196)

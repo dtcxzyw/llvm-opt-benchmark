@@ -410,7 +410,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
 
 .lr.ph:                                           ; preds = %1, %.thread.i
   %.04652 = phi i32 [ %spec.select, %.thread.i ], [ 0, %1 ]
-  %5 = icmp ult i32 %.04652, 7
+  %5 = icmp samesign ult i32 %.04652, 7
   br i1 %5, label %.preheader.i, label %6
 
 6:                                                ; preds = %.lr.ph
@@ -418,7 +418,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %6
-  %7 = icmp ult i32 %.04652, 11
+  %7 = icmp samesign ult i32 %.04652, 11
   %8 = zext i1 %7 to i32
   %spec.select = add nuw nsw i32 %.04652, %8
   %9 = load atomic i64, ptr %2 acquire, align 128
@@ -509,7 +509,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
 
 .lr.ph.i:                                         ; preds = %33, %.thread.i.i
   %.02.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ 0, %33 ]
-  %37 = icmp ult i32 %.02.i, 7
+  %37 = icmp samesign ult i32 %.02.i, 7
   br i1 %37, label %.preheader.i.i, label %38
 
 38:                                               ; preds = %.lr.ph.i
@@ -517,7 +517,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %38
-  %39 = icmp ult i32 %.02.i, 11
+  %39 = icmp samesign ult i32 %.02.i, 11
   %40 = zext i1 %39 to i32
   %spec.select.i = add nuw nsw i32 %.02.i, %40
   %41 = load atomic i64, ptr %34 acquire, align 8
@@ -548,7 +548,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
 
 .lr.ph.i36:                                       ; preds = %46, %.thread.i.i38
   %.02.i37 = phi i32 [ %spec.select.i39, %.thread.i.i38 ], [ 0, %46 ]
-  %52 = icmp ult i32 %.02.i37, 7
+  %52 = icmp samesign ult i32 %.02.i37, 7
   br i1 %52, label %.preheader.i.i40, label %53
 
 53:                                               ; preds = %.lr.ph.i36
@@ -556,7 +556,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   br label %.thread.i.i38
 
 .thread.i.i38:                                    ; preds = %.preheader.i.i40, %53
-  %54 = icmp ult i32 %.02.i37, 11
+  %54 = icmp samesign ult i32 %.02.i37, 11
   %55 = zext i1 %54 to i32
   %spec.select.i39 = add nuw nsw i32 %.02.i37, %55
   %56 = load atomic i64, ptr %48 acquire, align 8
@@ -656,7 +656,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   br i1 %31, label %40, label %49
 
 32:                                               ; preds = %24
-  %33 = icmp ult i32 %.042.i, 7
+  %33 = icmp samesign ult i32 %.042.i, 7
   br i1 %33, label %.preheader.i.i, label %34
 
 34:                                               ; preds = %32
@@ -664,7 +664,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %34
-  %35 = icmp ult i32 %.042.i, 11
+  %35 = icmp samesign ult i32 %.042.i, 11
   %36 = load atomic i64, ptr %1 acquire, align 128, !noalias !48
   %37 = load atomic i64, ptr %19 acquire, align 8, !noalias !48
   br label %.backedge.i
@@ -710,7 +710,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %49
-  %52 = icmp ult i32 %.042.i, 7
+  %52 = icmp samesign ult i32 %.042.i, 7
   br i1 %52, label %.preheader.i28.i, label %53
 
 53:                                               ; preds = %51
@@ -718,7 +718,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   br label %.thread.i27.i
 
 .thread.i27.i:                                    ; preds = %.preheader.i28.i, %53
-  %54 = icmp ult i32 %.042.i, 11
+  %54 = icmp samesign ult i32 %.042.i, 11
   %55 = load atomic i64, ptr %1 acquire, align 128, !noalias !48
   %56 = load atomic i64, ptr %19 acquire, align 8, !noalias !48
   br label %.backedge.i
@@ -748,7 +748,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   br label %68
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %68
-  %67 = icmp ult i32 %.042.i, 7
+  %67 = icmp samesign ult i32 %.042.i, 7
   br label %.backedge.i
 
 68:                                               ; preds = %68, %65
@@ -767,7 +767,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
 
 .lr.ph.i.i:                                       ; preds = %71, %.thread.i.i.i
   %.02.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ 0, %71 ]
-  %75 = icmp ult i32 %.02.i.i, 7
+  %75 = icmp samesign ult i32 %.02.i.i, 7
   br i1 %75, label %.preheader.i.i.i, label %76
 
 76:                                               ; preds = %.lr.ph.i.i
@@ -775,7 +775,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i, %76
-  %77 = icmp ult i32 %.02.i.i, 11
+  %77 = icmp samesign ult i32 %.02.i.i, 11
   %78 = zext i1 %77 to i32
   %spec.select.i.i = add nuw nsw i32 %.02.i.i, %78
   %79 = load atomic i64, ptr %72 acquire, align 8, !noalias !48
@@ -821,7 +821,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
 
 .lr.ph.i.i15:                                     ; preds = %89, %.thread.i.i.i17
   %.02.i.i16 = phi i32 [ %spec.select.i.i18, %.thread.i.i.i17 ], [ 0, %89 ]
-  %95 = icmp ult i32 %.02.i.i16, 7
+  %95 = icmp samesign ult i32 %.02.i.i16, 7
   br i1 %95, label %.preheader.i.i.i19, label %96
 
 96:                                               ; preds = %.lr.ph.i.i15
@@ -829,7 +829,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br label %.thread.i.i.i17
 
 .thread.i.i.i17:                                  ; preds = %.preheader.i.i.i19, %96
-  %97 = icmp ult i32 %.02.i.i16, 11
+  %97 = icmp samesign ult i32 %.02.i.i16, 11
   %98 = zext i1 %97 to i32
   %spec.select.i.i18 = add nuw nsw i32 %.02.i.i16, %98
   %99 = load atomic i64, ptr %91 acquire, align 8, !noalias !51
@@ -879,7 +879,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br i1 %exitcond.not.i.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h9689fddd1a524362E.exit.sink.split.i", label %.lr.ph.i4.i
 
 120:                                              ; preds = %106
-  %121 = icmp ult i64 %26, 29
+  %121 = icmp samesign ult i64 %26, 29
   br i1 %121, label %.lr.ph.i6.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h9689fddd1a524362E.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %120, %131
@@ -923,7 +923,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h945b07b8f30d2ea8E.exit"
 
 135:                                              ; preds = %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_recv17hf9758c92910d8b76E.exit"
-  %136 = icmp ult i32 %.0, 7
+  %136 = icmp samesign ult i32 %.0, 7
   br i1 %136, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %135
@@ -1365,7 +1365,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   br label %.preheader.split.us.i
 
 95:                                               ; preds = %92
-  %96 = icmp ult i32 %.0.i5, 7
+  %96 = icmp samesign ult i32 %.0.i5, 7
   br i1 %96, label %.preheader.i.i, label %.thread.i.thread.i
 
 .thread.i.thread.i:                               ; preds = %95

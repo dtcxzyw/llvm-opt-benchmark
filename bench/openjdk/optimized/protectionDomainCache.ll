@@ -605,8 +605,8 @@ define hidden void @_ZN26ProtectionDomainCacheTable8print_onEP12outputStream(ptr
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %14, %.lr.ph.i.i ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx19.i.i, 8
   %15 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %16 = icmp ult i64 %.0.idx19.i.i, 8064
-  %or.cond.i.i = and i1 %16, %15
+  %16 = icmp samesign ult i64 %.0.idx19.i.i, 8064
+  %or.cond.i.i = select i1 %15, i1 %16, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_8print_onEP12outputStreamE3$_0EEvT_.exit", !llvm.loop !12
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_8print_onEP12outputStreamE3$_0EEvT_.exit": ; preds = %._crit_edge.i.i, %1
@@ -668,8 +668,8 @@ define hidden void @_ZN26ProtectionDomainCacheTable6verifyEv() local_unnamed_add
   %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %18, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx19.i.i, 8
   %19 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %20 = icmp ult i64 %.0.idx19.i.i, 8064
-  %or.cond.i.i = and i1 %20, %19
+  %20 = icmp samesign ult i64 %.0.idx19.i.i, 8064
+  %or.cond.i.i = select i1 %19, i1 %20, i1 false
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_.exit", !llvm.loop !14
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_.exit": ; preds = %._crit_edge.i.i, %0
@@ -897,7 +897,7 @@ define hidden void @_ZN26ProtectionDomainCacheTable22print_table_statisticsEP12o
   %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %9, %._crit_edge.loopexit.i ]
   call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %.0.lcssa.i) #12, !noalias !16
   %.014.add.i = add nuw nsw i64 %.014.idx21.i, 8
-  %10 = icmp ult i64 %.014.idx21.i, 8064
+  %10 = icmp samesign ult i64 %.014.idx21.i, 8064
   br i1 %10, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE20statistics_calculateIZNS6_22print_table_statisticsEP12outputStreamE3$_0EE15TableStatisticsT_.exit", !llvm.loop !20
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE20statistics_calculateIZNS6_22print_table_statisticsEP12outputStreamE3$_0EE15TableStatisticsT_.exit": ; preds = %._crit_edge.i

@@ -1961,7 +1961,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.i:         ; preds = %553
   %649 = phi i64 [ %643, %641 ], [ %631, %.preheader.i ]
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i, %641 ], [ 0, %.preheader.i ]
   store i64 %649, ptr %27, align 8
-  %650 = icmp ult i64 %649, 58
+  %650 = icmp samesign ult i64 %649, 58
   br i1 %650, label %640, label %651
 
 651:                                              ; preds = %.lr.ph

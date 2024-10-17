@@ -1162,7 +1162,7 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %45
   %62 = sub i64 %60, %61
   %63 = lshr exact i64 %62, 5
   %64 = and i64 %63, 4294967295
-  %65 = icmp ult i64 %indvars.iv.next, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %53

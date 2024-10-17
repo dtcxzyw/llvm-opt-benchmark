@@ -1699,7 +1699,7 @@ env_var_truthy.exit.thread355.i:                  ; preds = %env_var_truthy.exit
   %251 = and i32 %249, 192
   %252 = and i32 %251, %250
   %253 = call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %252)
-  %.not250.i = icmp ult i32 %253, 2
+  %.not250.i = icmp samesign ult i32 %253, 2
   br i1 %.not250.i, label %255, label %254
 
 254:                                              ; preds = %env_var_truthy.exit.thread355.i
@@ -2071,7 +2071,7 @@ rb_array_len.exit318.i:                           ; preds = %411
 rb_array_len.exit318.thread.i:                    ; preds = %411
   %416 = lshr i64 %412, 15
   %417 = and i64 %416, 127
-  %418 = icmp ult i64 %.0208.i, %417
+  %418 = icmp samesign ult i64 %.0208.i, %417
   br i1 %418, label %RARRAY_AREF.exit.i, label %447
 
 419:                                              ; preds = %rb_array_len.exit318.i

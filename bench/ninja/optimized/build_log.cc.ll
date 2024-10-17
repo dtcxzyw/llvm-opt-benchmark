@@ -1330,7 +1330,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
   br label %146
 
 140:                                              ; preds = %135
-  %141 = icmp ugt i32 %.065.ph, 100
+  %141 = icmp samesign ugt i32 %.065.ph, 100
   %142 = mul nsw i32 %.066.ph, 3
   %143 = icmp sgt i32 %.065.ph, %142
   %or.cond = select i1 %141, i1 %143, i1 false

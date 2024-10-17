@@ -1265,7 +1265,7 @@ define internal fastcc void @"_ZZN4llvm21applyDebugifyMetadataERNS_6ModuleENS_14
   %22 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %21, ptr %22, align 1, !noalias !6
   %23 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -12653,7 +12653,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit175:              ; preds = %847, %849
   %855 = lshr i32 %839, 6
   %856 = add i32 %852, -1
   %857 = lshr i32 %856, 6
-  %.not32.i.i.i.i = icmp ugt i32 %855, %857
+  %.not32.i.i.i.i = icmp samesign ugt i32 %855, %857
   br i1 %.not32.i.i.i.i, label %._crit_edge150, label %.lr.ph.i.i.i.i176
 
 .lr.ph.i.i.i.i176:                                ; preds = %854
@@ -12813,7 +12813,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit204:              ; preds = %937, %939
   %945 = lshr i32 %929, 6
   %946 = add i32 %942, -1
   %947 = lshr i32 %946, 6
-  %.not32.i.i.i.i205 = icmp ugt i32 %945, %947
+  %.not32.i.i.i.i205 = icmp samesign ugt i32 %945, %947
   br i1 %.not32.i.i.i.i205, label %._crit_edge154, label %.lr.ph.i.i.i.i206
 
 .lr.ph.i.i.i.i206:                                ; preds = %944

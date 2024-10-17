@@ -3546,8 +3546,8 @@ dissect_acn_common_base_pdu.exit.i.i:             ; preds = %dissect_acn_common_
   %523 = shl nuw nsw i64 %indvars.iv.next.i.i, 1
   %524 = add nuw nsw i64 %523, %516
   %525 = icmp ne i64 %524, %517
-  %526 = icmp ult i64 %indvars.iv.i.i, 5
-  %527 = and i1 %526, %525
+  %526 = icmp samesign ult i64 %indvars.iv.i.i, 5
+  %527 = select i1 %525, i1 %526, i1 false
   br i1 %527, label %.lr.ph.i.i76, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i76
@@ -4575,7 +4575,7 @@ get_field_type_parameters.exit.i46.i.i.i.i:       ; preds = %941, %940, %935, %9
   %947 = phi i32 [ %948, %.lr.ph.i47.i.i.i.i ], [ 0, %get_field_type_parameters.exit.i46.i.i.i.i ]
   call fastcc void @display_blob_field(ptr noundef %0, ptr noundef %946, i8 noundef zeroext -6, ptr noundef %115, ptr noundef %116, i32 noundef 0)
   %948 = add nuw nsw i32 %947, 1
-  %949 = icmp ult i32 %947, 191
+  %949 = icmp samesign ult i32 %947, 191
   %950 = load i32, ptr %115, align 4
   %951 = icmp slt i32 %950, %874
   %952 = select i1 %949, i1 %951, i1 false
@@ -4705,7 +4705,7 @@ get_field_type_parameters.exit.i57.i.i.i.i:       ; preds = %980, %979, %974, %9
   %986 = phi i32 [ %987, %.lr.ph.i59.i.i.i.i ], [ 0, %get_field_type_parameters.exit.i57.i.i.i.i ]
   call fastcc void @display_blob_field(ptr noundef %0, ptr noundef %985, i8 noundef zeroext 23, ptr noundef %111, ptr noundef %112, i32 noundef 0)
   %987 = add nuw nsw i32 %986, 1
-  %988 = icmp ult i32 %986, 63
+  %988 = icmp samesign ult i32 %986, 63
   %989 = load i32, ptr %111, align 4
   %990 = icmp slt i32 %989, %874
   %991 = select i1 %988, i1 %990, i1 false
@@ -7202,7 +7202,7 @@ default.unreachable:                              ; preds = %122, %36, %5
   %151 = zext i8 %150 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %148, ptr noundef nonnull @.str.739, i32 noundef %151) #6
   %152 = add nuw nsw i32 %.2229248, 1
-  %153 = icmp ult i32 %152, %invariant.umin
+  %153 = icmp samesign ult i32 %152, %invariant.umin
   br i1 %153, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %146

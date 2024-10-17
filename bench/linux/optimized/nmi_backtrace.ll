@@ -94,7 +94,7 @@ define dso_local void @nmi_trigger_cpumask_backtrace(ptr nocapture noundef reado
   %34 = phi i32 [ %35, %.preheader ], [ 0, %30 ]
   tail call void @__const_udelay(i64 noundef 4295000) #7
   %35 = add nuw nsw i32 %34, 1
-  %36 = icmp ugt i32 %34, 9998
+  %36 = icmp samesign ugt i32 %34, 9998
   %37 = load i64, ptr @backtrace_mask, align 8
   %38 = icmp eq i64 %37, 0
   %39 = select i1 %36, i1 true, i1 %38

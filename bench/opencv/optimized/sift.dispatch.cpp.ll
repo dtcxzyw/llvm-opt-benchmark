@@ -2491,7 +2491,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIfEEvRPT_mt(pt
 
 52:                                               ; preds = %42
   %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
-  %54 = icmp ult i16 %53, 2
+  %54 = icmp samesign ult i16 %53, 2
   br i1 %54, label %62, label %55
 
 55:                                               ; preds = %52
@@ -4228,7 +4228,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   %98 = and i32 %97, 255
   %99 = lshr i32 %97, 8
   %100 = and i32 %99, 255
-  %101 = icmp ult i32 %98, 128
+  %101 = icmp samesign ult i32 %98, 128
   %102 = or i32 %97, -128
   %103 = select i1 %101, i32 %98, i32 %102
   %.sroa.speculated100 = call i32 @llvm.smin.i32(i32 %103, i32 %.1129)
@@ -5976,7 +5976,7 @@ define linkonce_odr hidden void @_ZNK2cv23calcDescriptorsComputerclERKNS_5RangeE
   %22 = and i32 %.sroa.528.0.copyload, 255
   %23 = lshr i32 %.sroa.528.0.copyload, 8
   %24 = and i32 %23, 255
-  %25 = icmp ult i32 %22, 128
+  %25 = icmp samesign ult i32 %22, 128
   %26 = or i32 %.sroa.528.0.copyload, -128
   %27 = select i1 %25, i32 %22, i32 %26
   br i1 %25, label %28, label %32

@@ -8535,7 +8535,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit72:             ; preds = %148
   %156 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %151)
-  %157 = icmp ult i64 %156, 2
+  %157 = icmp samesign ult i64 %156, 2
   br i1 %157, label %158, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit72.thread
 
 158:                                              ; preds = %152, %_ZNK4llvm5APInt10isPowerOf2Ev.exit72

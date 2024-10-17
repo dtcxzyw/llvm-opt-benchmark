@@ -830,7 +830,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %16, %20
-  %22 = icmp ult i32 %21, 13
+  %22 = icmp samesign ult i32 %21, 13
   br i1 %22, label %23, label %42
 
 23:                                               ; preds = %9

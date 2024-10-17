@@ -737,7 +737,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h2d7eaa658b5a1907E.exit.thread.
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcb8f03879b9877eaE.exit.i.i": ; preds = %.thread20.i.i
   %.val7.i.i = load i64, ptr %55, align 8, !range !262, !alias.scope !315, !noalias !316, !noundef !23
-  %narrow.i.i = icmp ult i64 %.val7.i.i, 36
+  %narrow.i.i = icmp samesign ult i64 %.val7.i.i, 36
   %84 = select i1 %narrow.i.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hf31d5922531acfa3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %70, i64 noundef %84)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5bb922403e4771dE.exit.i.i" unwind label %77
@@ -8865,7 +8865,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h69c371c471a27457E.exit.i.i": ; preds = %44
   %48 = load i8, ptr %37, align 8, !range !105, !alias.scope !2871, !noalias !2874, !noundef !23
-  %spec.select.i8.sink.i.shrunk.i.i = icmp ult i8 %48, 26
+  %spec.select.i8.sink.i.shrunk.i.i = icmp samesign ult i8 %48, 26
   %49 = select i1 %spec.select.i8.sink.i.shrunk.i.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h1cffdb45512331b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %45, i64 noundef %49)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8e6d0243fee1f235E.exit.i.i" unwind label %53
@@ -9924,7 +9924,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !23
   %17 = lshr i64 %16, 1
-  %.not4 = icmp ult i64 %14, %17
+  %.not4 = icmp samesign ult i64 %14, %17
   br i1 %.not4, label %18, label %66
 
 18:                                               ; preds = %9
@@ -22210,9 +22210,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h24f3626b9beade0a
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18

@@ -503,7 +503,7 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
   %132 = ptrtoint ptr %130 to i64
   %133 = sub i64 %131, %132
   %134 = and i64 %133, 4294967295
-  %135 = icmp ugt i64 %117, %134
+  %135 = icmp samesign ugt i64 %117, %134
   br i1 %135, label %.thread, label %136
 
 136:                                              ; preds = %126

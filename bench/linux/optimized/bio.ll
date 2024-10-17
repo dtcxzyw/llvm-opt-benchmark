@@ -1522,7 +1522,7 @@ define internal fastcc void @bio_truncate(ptr nocapture noundef %0, i32 noundef 
 
 89:                                               ; preds = %86, %80
   %90 = phi i64 [ %88, %86 ], [ 1, %80 ]
-  %91 = icmp ugt i64 %90, %82
+  %91 = icmp samesign ugt i64 %90, %82
   %92 = add i32 %81, 1
   br i1 %91, label %80, label %.loopexit.loopexit, !llvm.loop !47
 
@@ -3804,7 +3804,7 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
   tail call void @__free_pages(ptr noundef %24, i32 noundef 0) #17
   %35 = load i16, ptr %2, align 8
   %36 = zext i16 %35 to i32
-  %37 = icmp ult i32 %33, %36
+  %37 = icmp samesign ult i32 %33, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %23, %1
@@ -4560,7 +4560,7 @@ define dso_local void @bioset_exit(ptr noundef %0) #0 align 16 {
   tail call fastcc void @bio_alloc_cache_prune(ptr noundef %26)
   %27 = add nuw nsw i64 %16, 1
   %28 = and i64 %27, 127
-  %29 = icmp ugt i64 %28, 63
+  %29 = icmp samesign ugt i64 %28, 63
   br i1 %29, label %.thread, label %8, !prof !139, !llvm.loop !140
 
 .loopexit:                                        ; preds = %15, %.thread

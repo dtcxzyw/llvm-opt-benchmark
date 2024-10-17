@@ -884,7 +884,7 @@ common.ret23:                                     ; preds = %15, %7, %20
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 11
-  %40 = icmp ugt i32 %33, %39
+  %40 = icmp samesign ugt i32 %33, %39
   %spec.select.i = select i1 %40, ptr %30, ptr %36
   %.in.in.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %.in.i = load i32, ptr %.in.in.i, align 8
@@ -1241,7 +1241,7 @@ define void @Ivy_ObjUpdateLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = lshr i32 %27, 11
-  %29 = icmp ugt i32 %21, %28
+  %29 = icmp samesign ugt i32 %21, %28
   %spec.select.i = select i1 %29, ptr %18, ptr %25
   %.in.in.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %.in.i = load i32, ptr %.in.in.i, align 8

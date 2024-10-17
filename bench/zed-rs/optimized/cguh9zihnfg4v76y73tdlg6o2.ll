@@ -835,7 +835,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h341d247cb2f8a6caE.exit.thread.i.i.i": ; preds = %53
   %57 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !117, !noalias !120, !nonnull !5, !noundef !5
   %58 = shl nuw nsw i64 %29, 2
-  %59 = icmp uge i64 %55, %58
+  %59 = icmp samesign uge i64 %55, %58
   tail call void @llvm.assume(i1 %59)
   %60 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %57, i64 noundef %58, i64 noundef 4, i64 noundef %55) #20, !noalias !122
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i"

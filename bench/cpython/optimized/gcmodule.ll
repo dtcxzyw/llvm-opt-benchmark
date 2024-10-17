@@ -1230,7 +1230,7 @@ gc_list_size.exit.i:                              ; preds = %for.cond.i.i
   %conv.i89 = sext i32 %call2.i to i64
   %add.i = add nsw i64 %pos.015.i, %conv.i89
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i87, 1
-  %cmp.i = icmp ult i64 %indvars.iv.i87, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i87, 2
   %cmp1.i = icmp ult i64 %add.i, 100
   %9 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %9, label %for.body.i86, label %for.end.i, !llvm.loop !9

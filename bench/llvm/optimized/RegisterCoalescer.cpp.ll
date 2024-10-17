@@ -828,7 +828,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %35, %3
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 22
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
-  %.not.i.i43 = icmp ult i32 %93, %96
+  %.not.i.i43 = icmp samesign ult i32 %93, %96
   br i1 %.not.i.i43, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %84
@@ -12346,7 +12346,7 @@ _ZN12_GLOBAL__N_117RegisterCoalescer13joinIntervalsERN4llvm13CoalescerPairE.exit
 
 1899:                                             ; preds = %1897
   call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer11deleteInstrEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %1)
-  %.not356 = icmp ult i16 %1898, 256
+  %.not356 = icmp samesign ult i16 %1898, 256
   br i1 %.not356, label %2022, label %1900
 
 1900:                                             ; preds = %1899
@@ -13281,7 +13281,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit._ZNK4llvm18TargetReg
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 22
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i32
-  %.not.i.i = icmp ult i32 %217, %220
+  %.not.i.i = icmp samesign ult i32 %217, %220
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZN4llvm8DebugLocD2Ev.exit356
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %.thread

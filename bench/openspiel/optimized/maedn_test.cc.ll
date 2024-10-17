@@ -2699,7 +2699,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
           to label %943 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 943:                                              ; preds = %938
-  %or.cond.i.i = icmp ult i32 %.037108.i.i, 2
+  %or.cond.i.i = icmp samesign ult i32 %.037108.i.i, 2
   br i1 %or.cond.i.i, label %944, label %954
 
 944:                                              ; preds = %943

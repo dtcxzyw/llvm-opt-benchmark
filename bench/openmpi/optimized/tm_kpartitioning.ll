@@ -350,7 +350,7 @@ allocate_vertex.exit.i:                           ; preds = %94, %89, %114
   %indvars.iv.i111.i = phi i64 [ 1, %.lr.ph21.preheader.i.i ], [ %indvars.iv.next.i112.i, %.loopexit.i.i ]
   %.01619.i.i = phi double [ 0.000000e+00, %.lr.ph21.preheader.i.i ], [ %.1.lcssa.i.i, %.loopexit.i.i ]
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
-  %123 = icmp ult i64 %indvars.iv.next27.i.i, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next27.i.i, %122
   br i1 %123, label %.lr.ph.i113.i, label %.loopexit.i.i
 
 .lr.ph.i113.i:                                    ; preds = %.lr.ph21.i.i

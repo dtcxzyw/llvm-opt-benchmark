@@ -77,7 +77,7 @@ define hidden { ptr, i64 } @_ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.
   %.sroa.0.0.ptr19.le = getelementptr inbounds i8, ptr %1, i64 %.0717
   store i8 %8, ptr %.sroa.0.0.ptr19.le, align 1
   %3 = add nuw i64 %.0717, 1
-  %.not.i = icmp ult i64 %.0717, 5
+  %.not.i = icmp samesign ult i64 %.0717, 5
   br i1 %.not.i, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h35a4408df3360394E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread": ; preds = %11, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread"
@@ -115,7 +115,7 @@ define hidden { ptr, i64 } @_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.
   %.sroa.0.0.ptr19.le = getelementptr inbounds i8, ptr %1, i64 %.0717
   store i8 %8, ptr %.sroa.0.0.ptr19.le, align 1
   %3 = add nuw i64 %.0717, 1
-  %.not.i = icmp ult i64 %.0717, 10
+  %.not.i = icmp samesign ult i64 %.0717, 10
   br i1 %.not.i, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h35a4408df3360394E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread": ; preds = %11, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread"
@@ -1315,7 +1315,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !189
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -1534,7 +1534,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %3, i64 %.0717.i2
   store i8 %14, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !228
   %11 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %17, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -1768,7 +1768,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !267
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -2002,7 +2002,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !306
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -2236,7 +2236,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !345
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -2470,7 +2470,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !384
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"
@@ -2704,7 +2704,7 @@ _ZN15unsigned_varint6encode3u3217h433c83baea89f58eE.llvm.9114549357374491183.exi
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !423
   %16 = add nuw i64 %.0717.i2, 1
-  %.not.i.i7 = icmp ult i64 %.0717.i2, 10
+  %.not.i.i7 = icmp samesign ult i64 %.0717.i2, 10
   br i1 %.not.i.i7, label %_ZN15unsigned_varint6encode3u6417hf211f6b123025b64E.llvm.9114549357374491183.exit, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.thread.i4": ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i5"

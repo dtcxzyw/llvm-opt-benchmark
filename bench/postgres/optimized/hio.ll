@@ -694,7 +694,7 @@ BufferGetPage.exit.i:                             ; preds = %260, %254
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %284 = load i32, ptr %10, align 4
   %285 = zext i32 %284 to i64
-  %286 = icmp ult i64 %indvars.iv.next.i, %285
+  %286 = icmp samesign ult i64 %indvars.iv.next.i, %285
   br i1 %286, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %292, %.lr.ph.split.preheader.i
@@ -702,7 +702,7 @@ BufferGetPage.exit.i:                             ; preds = %260, %254
   %287 = getelementptr [64 x i32], ptr %9, i64 0, i64 %indvars.iv93.i
   %288 = load i32, ptr %287, align 4
   call void @ReleaseBuffer(i32 noundef %288) #7
-  %.not75.not.i = icmp ult i64 %indvars.iv93.i, %281
+  %.not75.not.i = icmp samesign ult i64 %indvars.iv93.i, %281
   br i1 %.not75.not.i, label %292, label %289
 
 289:                                              ; preds = %.lr.ph.split.i
@@ -715,7 +715,7 @@ BufferGetPage.exit.i:                             ; preds = %260, %254
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %293 = load i32, ptr %10, align 4
   %294 = zext i32 %293 to i64
-  %295 = icmp ult i64 %indvars.iv.next94.i, %294
+  %295 = icmp samesign ult i64 %indvars.iv.next94.i, %294
   br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %292, %278

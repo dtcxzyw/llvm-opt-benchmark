@@ -2348,7 +2348,7 @@ _ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit: ; pr
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %18
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %22 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
+  %22 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2336
   br i1 %22, label %18, label %_ZN17PrintRegionWalkerD2Ev.exit, !llvm.loop !19
 
 _ZN17PrintRegionWalkerD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i

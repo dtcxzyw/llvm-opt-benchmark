@@ -161,7 +161,7 @@ define hidden void @_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif(ptr nocaptu
 
 42:                                               ; preds = %13, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %43 = icmp ult i64 %indvars.iv.next, %12
+  %43 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %43, label %13, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %42, %6
@@ -222,7 +222,7 @@ define hidden void @_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif(ptr nocaptu
 
 40:                                               ; preds = %.lr.ph, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %41 = icmp ult i64 %indvars.iv.next, %11
+  %41 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %40, %6
@@ -468,7 +468,7 @@ _ZNK2cv11_InputArray6getMatEi.exit59:             ; preds = %62, %65
   %119 = getelementptr inbounds i8, ptr %94, i64 %112
   store i8 %118, ptr %119, align 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 3
-  %120 = icmp ult i64 %indvars.iv.next80, %96
+  %120 = icmp samesign ult i64 %indvars.iv.next80, %96
   br i1 %120, label %.lr.ph76, label %.loopexit, !llvm.loop !13
 
 121:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit59
@@ -521,7 +521,7 @@ _ZNK2cv11_InputArray6getMatEi.exit59:             ; preds = %62, %65
   %159 = getelementptr inbounds i16, ptr %134, i64 %152
   store i16 %158, ptr %159, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %160 = icmp ult i64 %indvars.iv.next, %136
+  %160 = icmp samesign ult i64 %indvars.iv.next, %136
   br i1 %160, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph76, %121, %81, %_ZNK2cv11_InputArray6getMatEi.exit59
@@ -878,7 +878,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %48, %51
   %93 = select i1 %87, i32 0, i32 %90
   %.157 = add i32 %93, %.056
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %94 = icmp ult i64 %indvars.iv.next.i, %70
+  %94 = icmp samesign ult i64 %indvars.iv.next.i, %70
   br i1 %94, label %71, label %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit, !llvm.loop !4
 
 _ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit: ; preds = %71
@@ -933,7 +933,7 @@ _ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit: ; preds = %71
   %129 = select i1 %123, i64 0, i64 %126
   %.1 = add i64 %129, %.0
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 3
-  %130 = icmp ult i64 %indvars.iv.next.i32, %107
+  %130 = icmp samesign ult i64 %indvars.iv.next.i32, %107
   br i1 %130, label %.lr.ph.i30, label %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit, !llvm.loop !6
 
 _ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit: ; preds = %.lr.ph.i30

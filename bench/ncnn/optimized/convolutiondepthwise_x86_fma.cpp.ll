@@ -7388,7 +7388,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2718:                ; preds = %_ZNSt6vectorIfSaIfE
   br label %1338
 
 1338:                                             ; preds = %1306, %1336
-  %1339 = icmp ult i32 %.01987, %.01990
+  %1339 = icmp samesign ult i32 %.01987, %.01990
   br i1 %1339, label %1340, label %1358
 
 1340:                                             ; preds = %1338

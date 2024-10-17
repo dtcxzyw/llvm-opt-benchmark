@@ -404,7 +404,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %32 = phi i32 [ %.pre, %._crit_edge70 ], [ %11, %19 ], [ %11, %.lr.ph.split.us ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next68, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next68, %33
   br i1 %34, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -461,7 +461,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %62 = load i32, ptr %8, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next66, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next66, %63
   br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %93
@@ -526,7 +526,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %8, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %indvars.iv.next, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %93, %61

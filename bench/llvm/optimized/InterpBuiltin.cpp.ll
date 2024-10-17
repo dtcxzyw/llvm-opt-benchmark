@@ -7021,7 +7021,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %19, %30
   %.0.in.i = select i1 %47, ptr %3, ptr %48
   %.0.i = load i64, ptr %.0.in.i, align 8
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i)
-  %50 = icmp ult i64 %49, 2
+  %50 = icmp samesign ult i64 %49, 2
   br i1 %50, label %51, label %.critedge2
 
 51:                                               ; preds = %42
@@ -7730,7 +7730,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit89: ; preds = %202
   %217 = load ptr, ptr %75, align 8
   %218 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %217, i64 %.sroa.0.0.copyload.i4.i82) #16
   %219 = and i64 %218, 4294967295
-  %220 = icmp ult i64 %219, 11
+  %220 = icmp samesign ult i64 %219, 11
   br i1 %220, label %221, label %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit89.thread
 
 221:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit89

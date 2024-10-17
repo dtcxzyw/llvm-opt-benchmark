@@ -274,7 +274,7 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5T
   %100 = icmp sgt i64 %indvars.iv.i, -1
   %101 = trunc nsw i64 %98 to i32
   %102 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %101)
-  %103 = icmp ult i32 %102, 2
+  %103 = icmp samesign ult i32 %102, 2
   %or.cond.i.i.i.i.i = select i1 %100, i1 %103, i1 false
   %104 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %101, i1 true)
   %105 = sub nuw nsw i32 32, %104
@@ -925,7 +925,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN7VMATre
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
   %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %13 = sub nuw nsw i32 32, %12

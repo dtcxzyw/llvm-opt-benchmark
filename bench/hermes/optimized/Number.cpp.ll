@@ -1780,7 +1780,7 @@ _ZN4llvh9StringRefC2EPKc.exit221:                 ; preds = %if.end149
   %conv174 = zext nneg i32 %add173 to i64
   %conv.i108 = zext i32 %39 to i64
   %add176 = add nuw nsw i64 %conv.i108, %conv174
-  %cmp.i111 = icmp ugt i64 %add176, 32
+  %cmp.i111 = icmp samesign ugt i64 %add176, 32
   br i1 %cmp.i111, label %if.then.i112, label %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
 
 if.then.i112:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit221

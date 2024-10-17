@@ -615,7 +615,7 @@ _ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread: ; preds = %175
   %.sroa.0254.0.vec.insert = insertelement <2 x float> poison, float %263, i64 0
   %.sroa.0254.4.vec.insert = insertelement <2 x float> %.sroa.0254.0.vec.insert, float %268, i64 1
   %285 = add nuw nsw i32 %.0189, 1
-  %286 = icmp ult i32 %285, %34
+  %286 = icmp samesign ult i32 %285, %34
   %287 = fcmp olt double %39, %284
   %288 = select i1 %286, i1 %287, i1 false
   br i1 %288, label %.preheader, label %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit248.thread, !llvm.loop !16

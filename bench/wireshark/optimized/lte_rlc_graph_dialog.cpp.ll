@@ -4648,7 +4648,7 @@ _ZN5QListIdE6appendEd.exit89:                     ; preds = %377, %383, %_ZN9QtP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %426 = load i16, ptr %293, align 4
   %427 = zext i16 %426 to i64
-  %428 = icmp ult i64 %indvars.iv.next, %427
+  %428 = icmp samesign ult i64 %indvars.iv.next, %427
   br i1 %428, label %296, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZN5QListIdE6appendEd.exit89, %291, %_ZN5QListIdE6appendEd.exit85, %_ZN5QListIdE6appendEd.exit53, %228, %280

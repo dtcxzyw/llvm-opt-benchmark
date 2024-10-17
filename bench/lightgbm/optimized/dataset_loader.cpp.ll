@@ -18672,7 +18672,7 @@ _ZTWN8LightGBM7Network13num_machines_E.exit35.us: ; preds = %_ZTWN8LightGBM7Netw
   %39 = getelementptr inbounds i32, ptr %.sroa.052.084, i64 %indvars.iv66
   store i32 %38, ptr %39, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %40 = icmp ult i64 %indvars.iv.next67, %30
+  %40 = icmp samesign ult i64 %indvars.iv.next67, %30
   br i1 %40, label %_ZTWN8LightGBM7Network13num_machines_E.exit35.us, label %_ZTWN8LightGBM7Network13num_machines_E.exit37, !llvm.loop !168
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit33.split:    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i24.thread, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit33

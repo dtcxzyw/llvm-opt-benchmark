@@ -294,7 +294,7 @@ lor.rhs.i.i.i.i.i.i.i:                            ; preds = %while.cond.i.i.i.i.
   %fixed_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 4
   %21 = load i32, ptr %fixed_length.i.i.i.i.i.i.i, align 4
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %cmp.i.i.i.i.i.i.i = icmp ult i32 %22, 2
+  %cmp.i.i.i.i.i.i.i = icmp samesign ult i32 %22, 2
   br label %lor.end.i.i.i.i.i.i.i
 
 lor.end.i.i.i.i.i.i.i:                            ; preds = %lor.rhs.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i
@@ -309,7 +309,7 @@ lor.rhs9.i.i.i.i.i.i.i:                           ; preds = %lor.end.i.i.i.i.i.i
   %fixed_length12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i.i.i.i.i, i64 4
   %25 = load i32, ptr %fixed_length12.i.i.i.i.i.i.i, align 4
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
-  %cmp15.i.i.i.i.i.i.i = icmp ult i32 %26, 2
+  %cmp15.i.i.i.i.i.i.i = icmp samesign ult i32 %26, 2
   %27 = zext i1 %cmp15.i.i.i.i.i.i.i to i32
   br label %lor.end16.i.i.i.i.i.i.i
 
@@ -494,7 +494,7 @@ land.lhs.true:                                    ; preds = %for.body46
   %fixed_length = getelementptr inbounds i8, ptr %add.ptr.i103, i64 4
   %44 = load i32, ptr %fixed_length, align 4
   %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
-  %or.cond = icmp ult i32 %45, 2
+  %or.cond = icmp samesign ult i32 %45, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
@@ -2813,7 +2813,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.end
   %fixed_length.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %6 = load i32, ptr %fixed_length.i.i.i.i, align 4
   %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
-  %cmp.i.i.i.i = icmp ult i32 %7, 2
+  %cmp.i.i.i.i = icmp samesign ult i32 %7, 2
   br label %lor.end.i.i.i.i
 
 lor.end.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i.i, %if.end
@@ -2828,7 +2828,7 @@ lor.rhs9.i.i.i.i:                                 ; preds = %lor.end.i.i.i.i
   %fixed_length12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i.i, i64 4
   %10 = load i32, ptr %fixed_length12.i.i.i.i, align 4
   %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10)
-  %cmp15.i.i.i.i = icmp ult i32 %11, 2
+  %cmp15.i.i.i.i = icmp samesign ult i32 %11, 2
   %12 = zext i1 %cmp15.i.i.i.i to i32
   br label %lor.end16.i.i.i.i
 
@@ -2890,7 +2890,7 @@ lor.rhs.i.i39.i.i:                                ; preds = %if.then.i.i
   %fixed_length.i.i40.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i.i, i64 4
   %18 = load i32, ptr %fixed_length.i.i40.i.i, align 4
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
-  %cmp.i.i41.i.i = icmp ult i32 %19, 2
+  %cmp.i.i41.i.i = icmp samesign ult i32 %19, 2
   br label %lor.end.i.i8.i.i
 
 lor.end.i.i8.i.i:                                 ; preds = %lor.rhs.i.i39.i.i, %if.then.i.i
@@ -2905,7 +2905,7 @@ lor.rhs9.i.i36.i.i:                               ; preds = %lor.end.i.i8.i.i
   %fixed_length12.i.i37.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i10.i.i, i64 4
   %22 = load i32, ptr %fixed_length12.i.i37.i.i, align 4
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %22)
-  %cmp15.i.i38.i.i = icmp ult i32 %23, 2
+  %cmp15.i.i38.i.i = icmp samesign ult i32 %23, 2
   %24 = zext i1 %cmp15.i.i38.i.i to i32
   br label %lor.end16.i.i12.i.i
 
@@ -2966,7 +2966,7 @@ lor.rhs.i.i77.i.i:                                ; preds = %if.else.i.i
   %fixed_length.i.i78.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %29 = load i32, ptr %fixed_length.i.i78.i.i, align 4
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %cmp.i.i79.i.i = icmp ult i32 %30, 2
+  %cmp.i.i79.i.i = icmp samesign ult i32 %30, 2
   br label %lor.end.i.i46.i.i
 
 lor.end.i.i46.i.i:                                ; preds = %lor.rhs.i.i77.i.i, %if.else.i.i
@@ -2977,7 +2977,7 @@ lor.rhs9.i.i74.i.i:                               ; preds = %lor.end.i.i46.i.i
   %fixed_length12.i.i75.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i10.i.i, i64 4
   %32 = load i32, ptr %fixed_length12.i.i75.i.i, align 4
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
-  %cmp15.i.i76.i.i = icmp ult i32 %33, 2
+  %cmp15.i.i76.i.i = icmp samesign ult i32 %33, 2
   %34 = zext i1 %cmp15.i.i76.i.i to i32
   br label %lor.end16.i.i50.i.i
 
@@ -3042,7 +3042,7 @@ lor.rhs.i.i115.i.i:                               ; preds = %if.else35.i.i
   %fixed_length.i.i116.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %40 = load i32, ptr %fixed_length.i.i116.i.i, align 4
   %41 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %40)
-  %cmp.i.i117.i.i = icmp ult i32 %41, 2
+  %cmp.i.i117.i.i = icmp samesign ult i32 %41, 2
   br label %lor.end.i.i84.i.i
 
 lor.end.i.i84.i.i:                                ; preds = %lor.rhs.i.i115.i.i, %if.else35.i.i
@@ -3057,7 +3057,7 @@ lor.rhs9.i.i112.i.i:                              ; preds = %lor.end.i.i84.i.i
   %fixed_length12.i.i113.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i86.i.i, i64 4
   %44 = load i32, ptr %fixed_length12.i.i113.i.i, align 4
   %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
-  %cmp15.i.i114.i.i = icmp ult i32 %45, 2
+  %cmp15.i.i114.i.i = icmp samesign ult i32 %45, 2
   %46 = zext i1 %cmp15.i.i114.i.i to i32
   br label %lor.end16.i.i88.i.i
 
@@ -3118,7 +3118,7 @@ lor.rhs.i.i153.i.i:                               ; preds = %if.else46.i.i
   %fixed_length.i.i154.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i.i, i64 4
   %51 = load i32, ptr %fixed_length.i.i154.i.i, align 4
   %52 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %51)
-  %cmp.i.i155.i.i = icmp ult i32 %52, 2
+  %cmp.i.i155.i.i = icmp samesign ult i32 %52, 2
   br label %lor.end.i.i122.i.i
 
 lor.end.i.i122.i.i:                               ; preds = %lor.rhs.i.i153.i.i, %if.else46.i.i
@@ -3129,7 +3129,7 @@ lor.rhs9.i.i150.i.i:                              ; preds = %lor.end.i.i122.i.i
   %fixed_length12.i.i151.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i86.i.i, i64 4
   %54 = load i32, ptr %fixed_length12.i.i151.i.i, align 4
   %55 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %54)
-  %cmp15.i.i152.i.i = icmp ult i32 %55, 2
+  %cmp15.i.i152.i.i = icmp samesign ult i32 %55, 2
   %56 = zext i1 %cmp15.i.i152.i.i to i32
   br label %lor.end16.i.i126.i.i
 
@@ -3219,7 +3219,7 @@ lor.rhs.i.i.i38.i:                                ; preds = %while.cond5.i.i
   %fixed_length.i.i.i39.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i9.i, i64 4
   %66 = load i32, ptr %fixed_length.i.i.i39.i, align 4
   %67 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %66)
-  %cmp.i.i.i40.i = icmp ult i32 %67, 2
+  %cmp.i.i.i40.i = icmp samesign ult i32 %67, 2
   br label %lor.end.i.i.i11.i
 
 lor.end.i.i.i11.i:                                ; preds = %lor.rhs.i.i.i38.i, %while.cond5.i.i
@@ -3229,7 +3229,7 @@ lor.end.i.i.i11.i:                                ; preds = %lor.rhs.i.i.i38.i, 
 lor.rhs9.i.i.i36.i:                               ; preds = %lor.end.i.i.i11.i
   %69 = load i32, ptr %fixed_length12.i.i.i7.i, align 4
   %70 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %69)
-  %cmp15.i.i.i37.i = icmp ult i32 %70, 2
+  %cmp15.i.i.i37.i = icmp samesign ult i32 %70, 2
   %71 = zext i1 %cmp15.i.i.i37.i to i32
   br label %lor.end16.i.i.i12.i
 
@@ -3298,7 +3298,7 @@ while.cond12.i.i:                                 ; preds = %while.cond12.i.i.ba
 lor.rhs.i.i37.i.i:                                ; preds = %while.cond12.i.i
   %77 = load i32, ptr %fixed_length12.i.i.i7.i, align 4
   %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %77)
-  %cmp.i.i39.i.i = icmp ult i32 %78, 2
+  %cmp.i.i39.i.i = icmp samesign ult i32 %78, 2
   br label %lor.end.i.i6.i.i
 
 lor.end.i.i6.i.i:                                 ; preds = %lor.rhs.i.i37.i.i, %while.cond12.i.i
@@ -3313,7 +3313,7 @@ lor.rhs9.i.i34.i.i:                               ; preds = %lor.end.i.i6.i.i
   %fixed_length12.i.i35.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i8.i.i, i64 4
   %81 = load i32, ptr %fixed_length12.i.i35.i.i, align 4
   %82 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %81)
-  %cmp15.i.i36.i.i = icmp ult i32 %82, 2
+  %cmp15.i.i36.i.i = icmp samesign ult i32 %82, 2
   %83 = zext i1 %cmp15.i.i36.i.i to i32
   br label %lor.end16.i.i10.i.i
 
@@ -3419,7 +3419,7 @@ lor.rhs.i.i:                                      ; preds = %while.body
   %fixed_length.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %3 = load i32, ptr %fixed_length.i.i, align 4
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
-  %cmp.i.i = icmp ult i32 %4, 2
+  %cmp.i.i = icmp samesign ult i32 %4, 2
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %lor.rhs.i.i, %while.body
@@ -3434,7 +3434,7 @@ lor.rhs9.i.i:                                     ; preds = %lor.end.i.i
   %fixed_length12.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i, i64 4
   %7 = load i32, ptr %fixed_length12.i.i, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
-  %cmp15.i.i = icmp ult i32 %8, 2
+  %cmp15.i.i = icmp samesign ult i32 %8, 2
   %9 = zext i1 %cmp15.i.i to i32
   br label %lor.end16.i.i
 
@@ -3542,7 +3542,7 @@ lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
   %fixed_length.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %18 = load i32, ptr %fixed_length.i.i.i, align 4
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
-  %cmp.i.i.i = icmp ult i32 %19, 2
+  %cmp.i.i.i = icmp samesign ult i32 %19, 2
   br label %lor.end.i.i.i
 
 lor.end.i.i.i:                                    ; preds = %lor.rhs.i.i.i, %land.rhs.i
@@ -3556,7 +3556,7 @@ lor.rhs9.i.i.i:                                   ; preds = %lor.end.i.i.i
   %fixed_length12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i, i64 4
   %22 = load i32, ptr %fixed_length12.i.i.i, align 4
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %22)
-  %cmp15.i.i.i = icmp ult i32 %23, 2
+  %cmp15.i.i.i = icmp samesign ult i32 %23, 2
   %24 = zext i1 %cmp15.i.i.i to i32
   br label %lor.end16.i.i.i
 
@@ -3657,7 +3657,7 @@ lor.rhs.i.i:                                      ; preds = %for.body
   %fixed_length.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %3 = load i32, ptr %fixed_length.i.i, align 4
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
-  %cmp.i.i = icmp ult i32 %4, 2
+  %cmp.i.i = icmp samesign ult i32 %4, 2
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %lor.rhs.i.i, %for.body
@@ -3672,7 +3672,7 @@ lor.rhs9.i.i:                                     ; preds = %lor.end.i.i
   %fixed_length12.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i, i64 4
   %7 = load i32, ptr %fixed_length12.i.i, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
-  %cmp15.i.i = icmp ult i32 %8, 2
+  %cmp15.i.i = icmp samesign ult i32 %8, 2
   %9 = zext i1 %cmp15.i.i to i32
   br label %lor.end16.i.i
 
@@ -3753,7 +3753,7 @@ lor.rhs.i.i.i:                                    ; preds = %while.cond.i
   %fixed_length.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %16 = load i32, ptr %fixed_length.i.i.i, align 4
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
-  %cmp.i.i.i = icmp ult i32 %17, 2
+  %cmp.i.i.i = icmp samesign ult i32 %17, 2
   br label %lor.end.i.i.i
 
 lor.end.i.i.i:                                    ; preds = %lor.rhs.i.i.i, %while.cond.i
@@ -3768,7 +3768,7 @@ lor.rhs9.i.i.i:                                   ; preds = %lor.end.i.i.i
   %fixed_length12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i19.i.i.i, i64 4
   %20 = load i32, ptr %fixed_length12.i.i.i, align 4
   %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
-  %cmp15.i.i.i = icmp ult i32 %21, 2
+  %cmp15.i.i.i = icmp samesign ult i32 %21, 2
   %22 = zext i1 %cmp15.i.i.i to i32
   br label %lor.end16.i.i.i
 

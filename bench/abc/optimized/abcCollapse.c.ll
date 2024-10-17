@@ -1983,7 +1983,7 @@ Vec_IntCountZero.exit:                            ; preds = %42
 52:                                               ; preds = %.preheader102.us, %62
   %indvars.iv132 = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next133, %62 ]
   %.169112.us = phi i32 [ %.068115.us, %.preheader102.us ], [ %.2.us, %62 ]
-  %.not79.us = icmp ult i64 %indvars.iv132, %51
+  %.not79.us = icmp samesign ult i64 %indvars.iv132, %51
   br i1 %.not79.us, label %53, label %56
 
 53:                                               ; preds = %52
@@ -3392,7 +3392,7 @@ Vec_PtrStart.exit161:                             ; preds = %211, %216
 
 .critedge5:                                       ; preds = %233, %227
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %240 = icmp ult i64 %indvars.iv.next194, %226
+  %240 = icmp samesign ult i64 %indvars.iv.next194, %226
   br i1 %240, label %227, label %.critedge3, !llvm.loop !35
 
 .critedge3:                                       ; preds = %.critedge5, %Vec_PtrStart.exit161

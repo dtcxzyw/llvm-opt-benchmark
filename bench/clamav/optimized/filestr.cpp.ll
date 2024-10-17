@@ -270,7 +270,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
 
 .critedge.preheader.i:                            ; preds = %104, %100
   %.0.ph.i = phi i64 [ 3, %104 ], [ 2, %100 ]
-  %108 = icmp ult i64 %.0.ph.i, %30
+  %108 = icmp samesign ult i64 %.0.ph.i, %30
   br i1 %108, label %.lr.ph.i, label %_Z18DetectTextEncodingPKhm.exit.thread
 
 .lr.ph.i:                                         ; preds = %.critedge.preheader.i, %.critedge.i
@@ -289,7 +289,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 
 .critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
   %112 = add nuw nsw i64 %.042.i, 2
-  %113 = icmp ult i64 %112, %30
+  %113 = icmp samesign ult i64 %112, %30
   br i1 %113, label %.lr.ph.i, label %_Z18DetectTextEncodingPKhm.exit.thread, !llvm.loop !4
 
 _Z18DetectTextEncodingPKhm.exit.thread:           ; preds = %.critedge.i, %.thread260, %.thread260, %.thread.i, %.critedge.preheader.i, %104, %100, %97
@@ -378,7 +378,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %127, %122
 
 _ZN5ArrayIwE5AllocEm.exit156:                     ; preds = %135, %.thread278
   %136 = and i64 %30, 4294967294
-  %137 = icmp ult i64 %spec.select120287, %136
+  %137 = icmp samesign ult i64 %spec.select120287, %136
   br i1 %137, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5ArrayIwE5AllocEm.exit156
@@ -402,7 +402,7 @@ _ZN5ArrayIwE5AllocEm.exit156:                     ; preds = %135, %.thread278
   %152 = getelementptr inbounds i32, ptr %malloc, i64 %151
   store i32 %149, ptr %152, align 4
   %153 = add nuw nsw i64 %.093322, 2
-  %154 = icmp ult i64 %153, %136
+  %154 = icmp samesign ult i64 %153, %136
   br i1 %154, label %139, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %139, %_ZN5ArrayIwE5AllocEm.exit156

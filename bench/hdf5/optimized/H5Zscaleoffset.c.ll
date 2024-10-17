@@ -2763,7 +2763,7 @@ define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 
   %45 = lshr i64 %.016.i, 1
   %46 = add nuw nsw i32 %.01014.i, 1
   %47 = shl i64 %.0915.i, 1
-  %.not.i = icmp ult i64 %.016.i, 4
+  %.not.i = icmp samesign ult i64 %.016.i, 4
   br i1 %.not.i, label %H5Z__scaleoffset_log2.exit, label %.lr.ph.i
 
 H5Z__scaleoffset_log2.exit:                       ; preds = %.lr.ph.i, %40
@@ -2893,7 +2893,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph2811, %.
   %90 = add nsw i32 %86, 1
   %91 = and i32 %90, 255
   %92 = zext nneg i32 %91 to i64
-  %.not13.i1984 = icmp ult i32 %91, 2
+  %.not13.i1984 = icmp samesign ult i32 %91, 2
   br i1 %.not13.i1984, label %H5Z__scaleoffset_log2.exit1993, label %.lr.ph.i1985
 
 .lr.ph.i1985:                                     ; preds = %89, %.lr.ph.i1985
@@ -2903,7 +2903,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph2811, %.
   %93 = lshr i64 %.016.i1986, 1
   %94 = add nuw nsw i32 %.01014.i1988, 1
   %95 = shl i64 %.0915.i1987, 1
-  %.not.i1989 = icmp ult i64 %.016.i1986, 4
+  %.not.i1989 = icmp samesign ult i64 %.016.i1986, 4
   br i1 %.not.i1989, label %H5Z__scaleoffset_log2.exit1993, label %.lr.ph.i1985
 
 H5Z__scaleoffset_log2.exit1993:                   ; preds = %.lr.ph.i1985, %89
@@ -3057,7 +3057,7 @@ thread-pre-split2226:                             ; preds = %.lr.ph2790, %H5Z__s
   %136 = lshr i64 %.016.i1996, 1
   %137 = add nuw nsw i32 %.01014.i1998, 1
   %138 = shl i64 %.0915.i1997, 1
-  %.not.i1999 = icmp ult i64 %.016.i1996, 4
+  %.not.i1999 = icmp samesign ult i64 %.016.i1996, 4
   br i1 %.not.i1999, label %H5Z__scaleoffset_log2.exit2003, label %.lr.ph.i1995
 
 H5Z__scaleoffset_log2.exit2003:                   ; preds = %.lr.ph.i1995, %131
@@ -3187,7 +3187,7 @@ thread-pre-split2228:                             ; preds = %145, %.lr.ph2769, %
   %181 = add nsw i32 %177, 1
   %182 = and i32 %181, 65535
   %183 = zext nneg i32 %182 to i64
-  %.not13.i2004 = icmp ult i32 %182, 2
+  %.not13.i2004 = icmp samesign ult i32 %182, 2
   br i1 %.not13.i2004, label %H5Z__scaleoffset_log2.exit2013, label %.lr.ph.i2005
 
 .lr.ph.i2005:                                     ; preds = %180, %.lr.ph.i2005
@@ -3197,7 +3197,7 @@ thread-pre-split2228:                             ; preds = %145, %.lr.ph2769, %
   %184 = lshr i64 %.016.i2006, 1
   %185 = add nuw nsw i32 %.01014.i2008, 1
   %186 = shl i64 %.0915.i2007, 1
-  %.not.i2009 = icmp ult i64 %.016.i2006, 4
+  %.not.i2009 = icmp samesign ult i64 %.016.i2006, 4
   br i1 %.not.i2009, label %H5Z__scaleoffset_log2.exit2013, label %.lr.ph.i2005
 
 H5Z__scaleoffset_log2.exit2013:                   ; preds = %.lr.ph.i2005, %180
@@ -3341,7 +3341,7 @@ thread-pre-split2230:                             ; preds = %.lr.ph2748, %H5Z__s
   %220 = lshr i64 %.016.i2016, 1
   %221 = add nuw nsw i32 %.01014.i2018, 1
   %222 = shl i64 %.0915.i2017, 1
-  %.not.i2019 = icmp ult i64 %.016.i2016, 4
+  %.not.i2019 = icmp samesign ult i64 %.016.i2016, 4
   br i1 %.not.i2019, label %H5Z__scaleoffset_log2.exit2023, label %.lr.ph.i2015
 
 H5Z__scaleoffset_log2.exit2023:                   ; preds = %.lr.ph.i2015
@@ -3473,7 +3473,7 @@ thread-pre-split2232:                             ; preds = %229, %233, %.crited
   %263 = lshr i64 %.016.i2026, 1
   %264 = add nuw nsw i32 %.01014.i2028, 1
   %265 = shl i64 %.0915.i2027, 1
-  %.not.i2029 = icmp ult i64 %.016.i2026, 4
+  %.not.i2029 = icmp samesign ult i64 %.016.i2026, 4
   br i1 %.not.i2029, label %H5Z__scaleoffset_log2.exit2033, label %.lr.ph.i2025
 
 H5Z__scaleoffset_log2.exit2033:                   ; preds = %.lr.ph.i2025, %260
@@ -4272,7 +4272,7 @@ thread-pre-split2242:                             ; preds = %.lr.ph2607, %H5Z__s
   %505 = lshr i64 %.016.i2076, 1
   %506 = add nuw nsw i32 %.01014.i2078, 1
   %507 = shl i64 %.0915.i2077, 1
-  %.not.i2079 = icmp ult i64 %.016.i2076, 4
+  %.not.i2079 = icmp samesign ult i64 %.016.i2076, 4
   br i1 %.not.i2079, label %H5Z__scaleoffset_log2.exit2083, label %.lr.ph.i2075
 
 H5Z__scaleoffset_log2.exit2083:                   ; preds = %.lr.ph.i2075, %500
@@ -4405,7 +4405,7 @@ thread-pre-split2244:                             ; preds = %514, %.lr.ph2586, %
   %552 = add nsw i32 %546, 1
   %553 = and i32 %552, 255
   %554 = zext nneg i32 %553 to i64
-  %.not13.i2084 = icmp ult i32 %553, 2
+  %.not13.i2084 = icmp samesign ult i32 %553, 2
   br i1 %.not13.i2084, label %H5Z__scaleoffset_log2.exit2093, label %.lr.ph.i2085
 
 .lr.ph.i2085:                                     ; preds = %551, %.lr.ph.i2085
@@ -4415,7 +4415,7 @@ thread-pre-split2244:                             ; preds = %514, %.lr.ph2586, %
   %555 = lshr i64 %.016.i2086, 1
   %556 = add nuw nsw i32 %.01014.i2088, 1
   %557 = shl i64 %.0915.i2087, 1
-  %.not.i2089 = icmp ult i64 %.016.i2086, 4
+  %.not.i2089 = icmp samesign ult i64 %.016.i2086, 4
   br i1 %.not.i2089, label %H5Z__scaleoffset_log2.exit2093, label %.lr.ph.i2085
 
 H5Z__scaleoffset_log2.exit2093:                   ; preds = %.lr.ph.i2085, %551
@@ -4570,7 +4570,7 @@ thread-pre-split2246:                             ; preds = %.lr.ph2565, %H5Z__s
   %599 = lshr i64 %.016.i2096, 1
   %600 = add nuw nsw i32 %.01014.i2098, 1
   %601 = shl i64 %.0915.i2097, 1
-  %.not.i2099 = icmp ult i64 %.016.i2096, 4
+  %.not.i2099 = icmp samesign ult i64 %.016.i2096, 4
   br i1 %.not.i2099, label %H5Z__scaleoffset_log2.exit2103, label %.lr.ph.i2095
 
 H5Z__scaleoffset_log2.exit2103:                   ; preds = %.lr.ph.i2095, %594
@@ -4703,7 +4703,7 @@ thread-pre-split2248:                             ; preds = %608, %.lr.ph2544, %
   %646 = add nsw i32 %641, 1
   %647 = and i32 %646, 65535
   %648 = zext nneg i32 %647 to i64
-  %.not13.i2104 = icmp ult i32 %647, 2
+  %.not13.i2104 = icmp samesign ult i32 %647, 2
   br i1 %.not13.i2104, label %H5Z__scaleoffset_log2.exit2113, label %.lr.ph.i2105
 
 .lr.ph.i2105:                                     ; preds = %645, %.lr.ph.i2105
@@ -4713,7 +4713,7 @@ thread-pre-split2248:                             ; preds = %608, %.lr.ph2544, %
   %649 = lshr i64 %.016.i2106, 1
   %650 = add nuw nsw i32 %.01014.i2108, 1
   %651 = shl i64 %.0915.i2107, 1
-  %.not.i2109 = icmp ult i64 %.016.i2106, 4
+  %.not.i2109 = icmp samesign ult i64 %.016.i2106, 4
   br i1 %.not.i2109, label %H5Z__scaleoffset_log2.exit2113, label %.lr.ph.i2105
 
 H5Z__scaleoffset_log2.exit2113:                   ; preds = %.lr.ph.i2105, %645
@@ -4857,7 +4857,7 @@ thread-pre-split2250:                             ; preds = %.lr.ph2523, %H5Z__s
   %685 = lshr i64 %.016.i2116, 1
   %686 = add nuw nsw i32 %.01014.i2118, 1
   %687 = shl i64 %.0915.i2117, 1
-  %.not.i2119 = icmp ult i64 %.016.i2116, 4
+  %.not.i2119 = icmp samesign ult i64 %.016.i2116, 4
   br i1 %.not.i2119, label %H5Z__scaleoffset_log2.exit2123, label %.lr.ph.i2115
 
 H5Z__scaleoffset_log2.exit2123:                   ; preds = %.lr.ph.i2115
@@ -4989,7 +4989,7 @@ thread-pre-split2252:                             ; preds = %694, %698, %.crited
   %728 = lshr i64 %.016.i2126, 1
   %729 = add nuw nsw i32 %.01014.i2128, 1
   %730 = shl i64 %.0915.i2127, 1
-  %.not.i2129 = icmp ult i64 %.016.i2126, 4
+  %.not.i2129 = icmp samesign ult i64 %.016.i2126, 4
   br i1 %.not.i2129, label %H5Z__scaleoffset_log2.exit2133, label %.lr.ph.i2125
 
 H5Z__scaleoffset_log2.exit2133:                   ; preds = %.lr.ph.i2125, %725

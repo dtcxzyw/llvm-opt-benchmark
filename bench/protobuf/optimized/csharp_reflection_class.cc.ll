@@ -1971,7 +1971,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.no
 
 for.inc:                                          ; preds = %if.then.i.i.i.i.i.i, %call.i.i.i.i.i.i.noexc
   %add23 = add nuw nsw i64 %i.019, 2
-  %cmp = icmp ult i64 %i.019, 4
+  %cmp = icmp samesign ult i64 %i.019, 4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !32
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -2220,7 +2220,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.no
 
 for.inc:                                          ; preds = %if.then.i.i.i.i.i.i, %call.i.i.i.i.i.i.noexc
   %add23 = add nuw nsw i64 %i.019, 2
-  %cmp = icmp ult i64 %i.019, 4
+  %cmp = icmp samesign ult i64 %i.019, 4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !59
 
 lpad.loopexit:                                    ; preds = %for.body

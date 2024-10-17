@@ -189,7 +189,7 @@ pm_integer_add.exit:                              ; preds = %.lr.ph.i, %44, %pm_
   %70 = lshr i64 %69, 32
   %71 = trunc i64 %69 to i32
   store i32 %71, ptr %65, align 8
-  %.not15.i = icmp ugt i64 %69, 4294967295
+  %.not15.i = icmp samesign ugt i64 %69, 4294967295
   %.pre.i = load ptr, ptr %.01318.i47, align 8
   %72 = icmp eq ptr %.pre.i, null
   %or.cond.i = select i1 %.not15.i, i1 %72, i1 false

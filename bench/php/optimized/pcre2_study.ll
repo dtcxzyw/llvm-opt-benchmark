@@ -76,7 +76,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 30:                                               ; preds = %.split.us.split.us
   %31 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %29)
-  %.not89.us.us = icmp ult i8 %31, 2
+  %.not89.us.us = icmp samesign ult i8 %31, 2
   br i1 %.not89.us.us, label %32, label %.loopexit
 
 32:                                               ; preds = %30
@@ -143,7 +143,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %.1.us.us = phi i32 [ %.07898.us.us, %.split.us.split.us ], [ %.077.frozen.us.us, %47 ], [ %.07898.us.us, %51 ]
   %59 = getelementptr inbounds i8, ptr %.08097.us.us, i64 1
   %60 = add nuw nsw i32 %.07699.us.us, 8
-  %61 = icmp ult i32 %.07699.us.us, 248
+  %61 = icmp samesign ult i32 %.07699.us.us, 248
   br i1 %61, label %.split.us.split.us, label %.split102.us
 
 .split.us.split:                                  ; preds = %.split.us, %93
@@ -157,7 +157,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 63:                                               ; preds = %.split.us.split
   %64 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %62)
-  %.not89.us = icmp ult i8 %64, 2
+  %.not89.us = icmp samesign ult i8 %64, 2
   br i1 %.not89.us, label %65, label %.loopexit
 
 65:                                               ; preds = %63
@@ -228,7 +228,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %.1.us = phi i32 [ %.07898.us, %.split.us.split ], [ %.077.frozen.us, %82 ], [ %.07898.us, %86 ]
   %94 = getelementptr inbounds i8, ptr %.08097.us, i64 1
   %95 = add nuw nsw i32 %.07699.us, 8
-  %96 = icmp ult i32 %.07699.us, 248
+  %96 = icmp samesign ult i32 %.07699.us, 248
   br i1 %96, label %.split.us.split, label %.split102.us
 
 .split:                                           ; preds = %25, %148
@@ -242,7 +242,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 98:                                               ; preds = %.split
   %99 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %97)
-  %.not89 = icmp ult i8 %99, 2
+  %.not89 = icmp samesign ult i8 %99, 2
   br i1 %.not89, label %100, label %.loopexit
 
 100:                                              ; preds = %98
@@ -344,7 +344,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %.1 = phi i32 [ %.07898, %.split ], [ %.077.frozen, %117 ], [ %.07898, %147 ]
   %149 = getelementptr inbounds i8, ptr %.08097, i64 1
   %150 = add nuw nsw i32 %.07699, 8
-  %151 = icmp ult i32 %.07699, 248
+  %151 = icmp samesign ult i32 %.07699, 248
   br i1 %151, label %.split, label %.split102.us
 
 .split102.us:                                     ; preds = %148, %58, %93

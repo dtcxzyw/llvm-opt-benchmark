@@ -402,7 +402,7 @@ define dso_local i64 @pg_snapshot_out(ptr nocapture noundef readonly %0) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %11, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next, %20
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
   br i1 %21, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16, %1
@@ -587,7 +587,7 @@ define dso_local i64 @pg_snapshot_send(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %7, align 4
   %44 = zext i32 %43 to i64
-  %45 = icmp ult i64 %indvars.iv.next, %44
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
   br i1 %45, label %34, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %34, %1

@@ -3510,7 +3510,7 @@ define internal fastcc void @_ZN2cvL23FarnebackUpdateMatricesERKNS_3MatES2_S2_RS
   br i1 %brmerge, label %194, label %224
 
 194:                                              ; preds = %176
-  %195 = icmp ult i64 %indvars.iv, 5
+  %195 = icmp samesign ult i64 %indvars.iv, 5
   br i1 %195, label %196, label %199
 
 196:                                              ; preds = %194

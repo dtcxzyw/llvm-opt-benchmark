@@ -459,7 +459,7 @@ land.rhs34:                                       ; preds = %land.rhs34.preheade
 for.inc:                                          ; preds = %land.rhs34
   %inc43 = add i32 %storemerge144, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp33 = icmp ult i64 %indvars.iv.next, %13
+  %cmp33 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp33, label %land.rhs34, label %for.end, !llvm.loop !4
 
 lpad13.loopexit:                                  ; preds = %for.end, %invoke.cont61, %invoke.cont62, %if.end.i, %.noexc, %if.then55, %if.end71, %cond.false.i.i.i, %cond.false5.i.i.i
@@ -956,7 +956,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 for.inc:                                          ; preds = %land.rhs
   %inc18 = add i32 %power.03852, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp10 = icmp ult i64 %indvars.iv.next, %7
+  %cmp10 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %cmp10, label %land.rhs, label %for.end
 
 lpad:                                             ; preds = %cond.false5.i.i.i, %cond.false.i.i.i, %invoke.cont24, %.noexc, %if.end.i, %for.body
@@ -3652,7 +3652,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 for.inc:                                          ; preds = %land.rhs
   %inc14 = add i32 %power.034, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp8 = icmp ult i64 %indvars.iv.next, %5
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %cmp8, label %land.rhs, label %for.end, !llvm.loop !25
 
 for.end.loopexit.split.loop.exit40:               ; preds = %land.rhs
@@ -9482,7 +9482,7 @@ _ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dep
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp44 = icmp ult i64 %indvars.iv56, %3
+  %cmp44 = icmp samesign ult i64 %indvars.iv56, %3
   br i1 %cmp44, label %while.body, label %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit
 
 while.body:                                       ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE4sizeEv.exit.thread

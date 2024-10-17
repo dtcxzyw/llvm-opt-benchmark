@@ -9670,11 +9670,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i32, ptr %1, align 4, !range !3252, !alias.scope !3248, !noalias !3249, !noundef !4
   %12 = load i32, ptr %10, align 4, !range !3252, !alias.scope !3248, !noalias !3249, !noundef !4
-  %.not.i.i = icmp ugt i32 %11, %12
+  %.not.i.i = icmp samesign ugt i32 %11, %12
   br i1 %.not.i.i, label %.critedge.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9
-  %13 = icmp ult i32 %11, %12
+  %13 = icmp samesign ult i32 %11, %12
   br i1 %13, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .critedge.i.i:                                    ; preds = %9, %3
@@ -9692,7 +9692,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = add nuw nsw i32 %15, 1
   %or.cond.i.i.i = icmp eq i32 %15, 55295
   %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 57344, i32 %16
-  %17 = icmp ult i32 %spec.select.i.i.i, 1114112
+  %17 = icmp samesign ult i32 %spec.select.i.i.i, 1114112
   tail call void @llvm.assume(i1 %17)
   store i32 %spec.select.i.i.i, ptr %1, align 4, !alias.scope !3248, !noalias !3249
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3257
@@ -9727,7 +9727,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 26:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !3257
-  %27 = icmp ult i32 %spec.select.i.i.i, %12
+  %27 = icmp samesign ult i32 %spec.select.i.i.i, %12
   br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 28:                                               ; preds = %.lr.ph.i.i
@@ -13945,11 +13945,11 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %1, align 4, !range !3252, !noundef !4
   %13 = load i32, ptr %11, align 4, !range !3252, !noundef !4
-  %.not = icmp ugt i32 %12, %13
+  %.not = icmp samesign ugt i32 %12, %13
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %14 = icmp ult i32 %12, %13
+  %14 = icmp samesign ult i32 %12, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .critedge:                                        ; preds = %4, %10
@@ -13967,7 +13967,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %17 = add nuw nsw i32 %16, 1
   %or.cond.i = icmp eq i32 %16, 55295
   %spec.select.i = select i1 %or.cond.i, i32 57344, i32 %17
-  %18 = icmp ult i32 %spec.select.i, 1114112
+  %18 = icmp samesign ult i32 %spec.select.i, 1114112
   tail call void @llvm.assume(i1 %18)
   store i32 %spec.select.i, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -14005,7 +14005,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
 
 28:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %29 = icmp ult i32 %spec.select.i, %13
+  %29 = icmp samesign ult i32 %spec.select.i, %13
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 30:                                               ; preds = %.lr.ph
@@ -25237,11 +25237,11 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %1, align 4, !range !3252, !alias.scope !7663, !noalias !7665, !noundef !4
   %13 = load i32, ptr %11, align 4, !range !3252, !alias.scope !7663, !noalias !7665, !noundef !4
-  %.not.i = icmp ugt i32 %12, %13
+  %.not.i = icmp samesign ugt i32 %12, %13
   br i1 %.not.i, label %.critedge.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10
-  %14 = icmp ult i32 %12, %13
+  %14 = icmp samesign ult i32 %12, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .critedge.i:                                      ; preds = %10, %4
@@ -25259,7 +25259,7 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
   %17 = add nuw nsw i32 %16, 1
   %or.cond.i.i = icmp eq i32 %16, 55295
   %spec.select.i.i = select i1 %or.cond.i.i, i32 57344, i32 %17
-  %18 = icmp ult i32 %spec.select.i.i, 1114112
+  %18 = icmp samesign ult i32 %spec.select.i.i, 1114112
   tail call void @llvm.assume(i1 %18)
   store i32 %spec.select.i.i, ptr %1, align 4, !alias.scope !7663, !noalias !7665
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !7671
@@ -25294,7 +25294,7 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
 
 27:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7671
-  %28 = icmp ult i32 %spec.select.i.i, %13
+  %28 = icmp samesign ult i32 %spec.select.i.i, %13
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 29:                                               ; preds = %.lr.ph.i
@@ -36029,7 +36029,7 @@ define hidden noundef i32 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h269
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6), !noalias !11697
   call void @"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir_def..item_scope..ItemInNs$GT$$u20$for$u20$hir..ItemInNs$GT$4from17h92c269f10091f523E"(ptr noalias nocapture noundef nonnull sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %6, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %7), !noalias !11701
   %21 = load i32, ptr %6, align 4, !range !2649, !noalias !11697, !noundef !4
-  %switch.i.i = icmp ult i32 %21, 2
+  %switch.i.i = icmp samesign ult i32 %21, 2
   br i1 %switch.i.i, label %"_ZN3hir5Crate26query_external_importables28_$u7b$$u7b$closure$u7d$$u7d$17h237998f8f49c93e6E.exit.i", label %"_ZN3hir5Crate26query_external_importables28_$u7b$$u7b$closure$u7d$$u7d$17h237998f8f49c93e6E.exit.thread.i"
 
 "_ZN3hir5Crate26query_external_importables28_$u7b$$u7b$closure$u7d$$u7d$17h237998f8f49c93e6E.exit.thread.i": ; preds = %20
@@ -64213,7 +64213,7 @@ common.resume:                                    ; preds = %57, %"_ZN4core3ptr6
   %33 = load ptr, ptr %25, align 8, !alias.scope !19927, !noalias !19928, !nonnull !4, !align !423, !noundef !4
   %34 = load i64, ptr %26, align 8, !alias.scope !19927, !noalias !19928, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !19929)
-  %switch.i.i.i.i.i.i = icmp ult i64 %29, 2
+  %switch.i.i.i.i.i.i = icmp samesign ult i64 %29, 2
   br i1 %switch.i.i.i.i.i.i, label %"_ZN11ide_assists8handlers16extract_function23make_generic_param_list28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26fb2892d4e8f63cE.exit.thread.i.i.i.i", label %35
 
 35:                                               ; preds = %28
@@ -67247,9 +67247,9 @@ define hidden void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63E.
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -72031,7 +72031,7 @@ default.unreachable:                              ; preds = %106, %.noexc21, %68
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h612135dd19ca5a32E.exit.i.i.i.i.i.i": ; preds = %68
-  %82 = icmp ult i8 %69, 24
+  %82 = icmp samesign ult i8 %69, 24
   call void @llvm.assume(i1 %82)
   %83 = zext nneg i8 %69 to i64
   %84 = getelementptr inbounds i8, ptr %61, i64 1
@@ -72075,7 +72075,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i.i.i: ; preds = %"_ZN106_
   br label %125
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h612135dd19ca5a32E.exit.i10.i.i.i.i.i": ; preds = %.noexc21
-  %103 = icmp ult i8 %90, 24
+  %103 = icmp samesign ult i8 %90, 24
   call void @llvm.assume(i1 %103)
   %104 = zext nneg i8 %90 to i64
   %105 = getelementptr inbounds i8, ptr %61, i64 25
@@ -72107,7 +72107,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i.i.i: ; preds = %"_ZN106_
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit20.i.i.i.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h612135dd19ca5a32E.exit.i16.i.i.i.i.i": ; preds = %106
-  %120 = icmp ult i8 %107, 24
+  %120 = icmp samesign ult i8 %107, 24
   call void @llvm.assume(i1 %120)
   %121 = zext nneg i8 %107 to i64
   %122 = getelementptr inbounds i8, ptr %61, i64 1
@@ -75826,7 +75826,7 @@ default.unreachable:                              ; preds = %71
   br label %"_ZN11ide_assists8handlers26destructure_struct_binding21build_assignment_edit28_$u7b$$u7b$closure$u7d$$u7d$17h7bf11e1a6a646e31E.exit.i.i.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h612135dd19ca5a32E.exit.i.i.i.i.i.i": ; preds = %71
-  %88 = icmp ult i8 %75, 24
+  %88 = icmp samesign ult i8 %75, 24
   call void @llvm.assume(i1 %88)
   %89 = zext nneg i8 %75 to i64
   %90 = getelementptr inbounds i8, ptr %72, i64 25

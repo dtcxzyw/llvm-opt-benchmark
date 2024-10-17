@@ -1851,7 +1851,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %6
   %14 = load i8, ptr %13, align 1, !range !17, !noundef !3
-  %15 = icmp ult i8 %14, 2
+  %15 = icmp samesign ult i8 %14, 2
   br i1 %15, label %17, label %.critedge
 
 16:                                               ; preds = %2
@@ -2043,7 +2043,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN71_$LT$cranelift_isle..serialize..Candidat
   %10 = load i8, ptr %9, align 8, !range !17, !noundef !3
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8, !range !17, !noundef !3
-  %13 = icmp ult i8 %10, %12
+  %13 = icmp samesign ult i8 %10, %12
   br i1 %13, label %"_ZN76_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..Ord$GT$3cmp17h11e61fcbb90a73c1E.exit", label %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit"
 
 "_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit": ; preds = %8
@@ -2055,7 +2055,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN71_$LT$cranelift_isle..serialize..Candidat
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i16, ptr %15, align 8, !range !45, !noundef !3
   %18 = load i16, ptr %16, align 8, !range !45, !noundef !3
-  %19 = icmp ult i16 %17, %18
+  %19 = icmp samesign ult i16 %17, %18
   br i1 %19, label %"_ZN76_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..Ord$GT$3cmp17h11e61fcbb90a73c1E.exit", label %20
 
 20:                                               ; preds = %14
@@ -2240,7 +2240,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN76_$LT$cranelift_isle..serialize..EqualCan
   %10 = load i8, ptr %9, align 8, !range !17, !noundef !3
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8, !range !17, !noundef !3
-  %13 = icmp ult i8 %10, %12
+  %13 = icmp samesign ult i8 %10, %12
   br i1 %13, label %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit.thread", label %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit"
 
 "_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit": ; preds = %8

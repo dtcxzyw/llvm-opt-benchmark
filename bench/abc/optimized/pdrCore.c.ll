@@ -1081,7 +1081,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   %26 = icmp ne i32 %25, 0
   %27 = icmp eq i32 %.1, 0
   %or.cond = select i1 %26, i1 %27, i1 false
-  %28 = icmp ult i32 %.088, 3
+  %28 = icmp samesign ult i32 %.088, 3
   %or.cond5 = select i1 %or.cond, i1 %28, i1 false
   br i1 %or.cond5, label %29, label %.critedge
 

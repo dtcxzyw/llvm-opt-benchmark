@@ -1530,7 +1530,7 @@ while.end:                                        ; preds = %while.cond
   %size_shift_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %storemerge, ptr %size_shift_, align 8
   %sh_prom = zext nneg i32 %storemerge to i64
-  %0 = icmp ugt i32 %storemerge, 59
+  %0 = icmp samesign ugt i32 %storemerge, 59
   %1 = shl i64 16, %sh_prom
   %2 = or disjoint i64 %1, 8
   %3 = select i1 %0, i64 -1, i64 %2
@@ -3573,7 +3573,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -3715,7 +3715,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -3872,11 +3872,11 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
   %shr14.i = lshr i64 %result.0.copyload.i13.i, 8
-  %cmp15.i = icmp ugt i64 %shr.i, %shr14.i
+  %cmp15.i = icmp samesign ugt i64 %shr.i, %shr14.i
   br i1 %cmp15.i, label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_5SliceES3_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp17.i = icmp ult i64 %shr.i, %shr14.i
+  %cmp17.i = icmp samesign ult i64 %shr.i, %shr14.i
   %spec.select.i = zext i1 %cmp17.i to i32
   br label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_5SliceES3_.exit
 
@@ -4007,11 +4007,11 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
   %shr14.i = lshr i64 %result.0.copyload.i13.i, 8
-  %cmp15.i = icmp ugt i64 %shr.i, %shr14.i
+  %cmp15.i = icmp samesign ugt i64 %shr.i, %shr14.i
   br i1 %cmp15.i, label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_5SliceES3_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp17.i = icmp ult i64 %shr.i, %shr14.i
+  %cmp17.i = icmp samesign ult i64 %shr.i, %shr14.i
   %spec.select.i = zext i1 %cmp17.i to i32
   br label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_5SliceES3_.exit
 
@@ -5410,13 +5410,13 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %v.addr.04.i = phi i64 [ %shr.i, %while.body.i ], [ %conv4, %while.body.i.preheader ]
   %shr.i = lshr i64 %v.addr.04.i, 7
   %inc.i = add nuw nsw i32 %len.05.i, 1
-  %cmp.i = icmp ugt i64 %v.addr.04.i, 16383
+  %cmp.i = icmp samesign ugt i64 %v.addr.04.i, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN7rocksdb12VarintLengthEm.exit, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %while.body.i, %entry
   %len.0.lcssa.i = phi i32 [ 1, %entry ], [ %inc.i, %while.body.i ]
   %conv7 = and i64 %1, 4294967295
-  %cmp3.i153 = icmp ugt i64 %conv7, 127
+  %cmp3.i153 = icmp samesign ugt i64 %conv7, 127
   br i1 %cmp3.i153, label %while.body.i155, label %_ZN7rocksdb12VarintLengthEm.exit161
 
 while.body.i155:                                  ; preds = %_ZN7rocksdb12VarintLengthEm.exit, %while.body.i155
@@ -5424,7 +5424,7 @@ while.body.i155:                                  ; preds = %_ZN7rocksdb12Varint
   %v.addr.04.i157 = phi i64 [ %shr.i158, %while.body.i155 ], [ %conv7, %_ZN7rocksdb12VarintLengthEm.exit ]
   %shr.i158 = lshr i64 %v.addr.04.i157, 7
   %inc.i159 = add nuw nsw i32 %len.05.i156, 1
-  %cmp.i160 = icmp ugt i64 %v.addr.04.i157, 16383
+  %cmp.i160 = icmp samesign ugt i64 %v.addr.04.i157, 16383
   br i1 %cmp.i160, label %while.body.i155, label %_ZN7rocksdb12VarintLengthEm.exit161, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit161:              ; preds = %while.body.i155, %_ZN7rocksdb12VarintLengthEm.exit
@@ -10544,7 +10544,7 @@ while.body.i:                                     ; preds = %invoke.cont71, %whi
   %v.addr.04.i = phi i64 [ %shr.i64, %while.body.i ], [ %conv73, %invoke.cont71 ]
   %shr.i64 = lshr i64 %v.addr.04.i, 7
   %inc.i = add nuw nsw i32 %len.05.i, 1
-  %cmp.i = icmp ugt i64 %v.addr.04.i, 16383
+  %cmp.i = icmp samesign ugt i64 %v.addr.04.i, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN7rocksdb12VarintLengthEm.exit, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %while.body.i, %invoke.cont71
@@ -10557,7 +10557,7 @@ while.body.i67:                                   ; preds = %_ZN7rocksdb12Varint
   %v.addr.04.i69 = phi i64 [ %shr.i70, %while.body.i67 ], [ %conv.i49, %_ZN7rocksdb12VarintLengthEm.exit ]
   %shr.i70 = lshr i64 %v.addr.04.i69, 7
   %inc.i71 = add nuw nsw i32 %len.05.i68, 1
-  %cmp.i72 = icmp ugt i64 %v.addr.04.i69, 16383
+  %cmp.i72 = icmp samesign ugt i64 %v.addr.04.i69, 16383
   br i1 %cmp.i72, label %while.body.i67, label %_ZN7rocksdb12VarintLengthEm.exit73, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit73:               ; preds = %while.body.i67, %_ZN7rocksdb12VarintLengthEm.exit

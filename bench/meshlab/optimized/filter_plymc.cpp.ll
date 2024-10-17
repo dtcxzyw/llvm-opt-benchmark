@@ -46814,7 +46814,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %520
 
 520:                                              ; preds = %515, %.preheader499
-  %521 = icmp ult i64 %indvars.iv632, %480
+  %521 = icmp samesign ult i64 %indvars.iv632, %480
   br i1 %521, label %522, label %527
 
 522:                                              ; preds = %520
@@ -50527,7 +50527,7 @@ _ZN3vcg3tri2io11ImporterOBJINS_5SMeshEE12GoodObjIndexERii.exit462: ; preds = %44
   %459 = load float, ptr %458, align 4
   %460 = getelementptr inbounds i8, ptr %450, i64 8
   store float %459, ptr %460, align 4
-  %461 = icmp ult i64 %indvars.iv.next, %407
+  %461 = icmp samesign ult i64 %indvars.iv.next, %407
   br i1 %461, label %422, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN3vcg3tri2io11ImporterOBJINS_5SMeshEE12GoodObjIndexERii.exit462
@@ -98732,7 +98732,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

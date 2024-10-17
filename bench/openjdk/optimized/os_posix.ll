@@ -3261,7 +3261,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN15PlatformMonitor4waitEm(ptr noun
   %..i = zext i1 %.b8.i to i32
   %9 = call i32 @clock_gettime(i32 noundef %..i, ptr noundef nonnull %3) #28
   %10 = load i64, ptr %3, align 8
-  %11 = icmp ugt i64 %8, 99999999999999999
+  %11 = icmp samesign ugt i64 %8, 99999999999999999
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5

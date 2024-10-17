@@ -12660,7 +12660,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -12993,7 +12993,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %55
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = icmp ugt i64 %39, %41
+  %56 = icmp samesign ugt i64 %39, %41
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -13327,7 +13327,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -13661,7 +13661,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -13993,7 +13993,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %53
 
 53:                                               ; preds = %._crit_edge.i
-  %54 = icmp ugt i64 %37, %39
+  %54 = icmp samesign ugt i64 %37, %39
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -14326,7 +14326,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %53
 
 53:                                               ; preds = %._crit_edge.i
-  %54 = icmp ugt i64 %37, %39
+  %54 = icmp samesign ugt i64 %37, %39
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -14660,7 +14660,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -14994,7 +14994,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = icmp ugt i64 %38, %40
+  %55 = icmp samesign ugt i64 %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -47363,7 +47363,7 @@ define hidden { ptr, i64 } @"_ZN125_$LT$arrow_array..array..dictionary_array..Ty
   %21 = getelementptr inbounds i8, ptr %14, i64 32
   %22 = load ptr, ptr %21, align 8, !alias.scope !7874, !noalias !7877, !noundef !12
   %23 = add nuw nsw i64 %12, 1
-  %24 = icmp ult i64 %23, %17
+  %24 = icmp samesign ult i64 %23, %17
   tail call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds i32, ptr %22, i64 %23
   %26 = load i32, ptr %25, align 4, !noalias !7880, !noundef !12
@@ -51020,7 +51020,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343: ;
   %.026.lcssa.i.i.i.i = phi i64 [ 11, %_ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343 ], [ %378, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i32 [ %.0.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343 ], [ %371, %.lr.ph.i.i.i.i ]
   %368 = zext nneg i32 %.1.lcssa.i.i.i.i to i64
-  %369 = icmp ugt i32 %.1.lcssa.i.i.i.i, 99
+  %369 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i, 99
   br i1 %369, label %385, label %394
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343, %.lr.ph.i.i.i.i
@@ -51064,7 +51064,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343: ;
 394:                                              ; preds = %385, %._crit_edge.i.i.i.i
   %.127.i.i.i.i = phi i64 [ %390, %385 ], [ %.026.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.025.i.i.i.i = phi i64 [ %.zext37.i.i.i.i, %385 ], [ %368, %._crit_edge.i.i.i.i ]
-  %395 = icmp ult i64 %.025.i.i.i.i, 10
+  %395 = icmp samesign ult i64 %.025.i.i.i.i, 10
   br i1 %395, label %402, label %396
 
 396:                                              ; preds = %394
@@ -108846,7 +108846,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8fu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.llvm.18016462908235130027"(ptr noalias noundef align 16 dereferenceable(80) %0) unnamed_addr #0 {
   %2 = load i128, ptr %0, align 16, !range !17832, !noundef !12
-  %switch = icmp ult i128 %2, 2
+  %switch = icmp samesign ult i128 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -108934,7 +108934,7 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$$RF$alloc..boxed..Box$LT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr123drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf2f428ee8f8aec13E.llvm.18016462908235130027"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !17835, !alias.scope !17836, !noundef !12
-  %switch.i.i = icmp ult i8 %2, 10
+  %switch.i.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit", label %3
 
 3:                                                ; preds = %1
@@ -108949,7 +108949,7 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$reqwest..async_impl..client
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr127drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h130981d71002e957E.llvm.18016462908235130027"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !17835, !alias.scope !17841, !noundef !12
-  %switch.i.i = icmp ult i8 %2, 10
+  %switch.i.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit", label %3
 
 3:                                                ; preds = %1
@@ -115956,7 +115956,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c26371ddb10506a
 
 14:                                               ; preds = %10
   %15 = load i8, ptr %6, align 8, !range !17835, !alias.scope !19804, !noalias !19794, !noundef !12
-  %switch.i.i.i.i = icmp ult i8 %15, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %15, 10
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit.i.i", label %16
 
 16:                                               ; preds = %14
@@ -116000,7 +116000,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c26371ddb10506a
   store ptr %21, ptr %22, align 8
   store i64 2, ptr %0, align 8
   %23 = load i8, ptr %2, align 8, !range !17835, !alias.scope !19810, !noundef !12
-  %switch.i.i.i = icmp ult i8 %23, 10
+  %switch.i.i.i = icmp samesign ult i8 %23, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr123drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf2f428ee8f8aec13E.llvm.18016462908235130027.exit", label %24
 
 24:                                               ; preds = %19
@@ -116063,7 +116063,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e7261e11762d1ee
 
 14:                                               ; preds = %10
   %15 = load i8, ptr %6, align 8, !range !17835, !alias.scope !19827, !noalias !19817, !noundef !12
-  %switch.i.i.i.i = icmp ult i8 %15, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %15, 10
   br i1 %switch.i.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit.i.i", label %16
 
 16:                                               ; preds = %14
@@ -116107,7 +116107,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e7261e11762d1ee
   store ptr %21, ptr %22, align 8
   store i64 2, ptr %0, align 8
   %23 = load i8, ptr %2, align 8, !range !17835, !alias.scope !19833, !noundef !12
-  %switch.i.i.i = icmp ult i8 %23, 10
+  %switch.i.i.i = icmp samesign ult i8 %23, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr127drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h130981d71002e957E.llvm.18016462908235130027.exit", label %24
 
 24:                                               ; preds = %19
@@ -117031,7 +117031,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %37 = sub i64 %.060, %36
   %38 = zext i16 %34 to i64
   %39 = and i64 %37, %38
-  %.not = icmp ult i64 %39, %.064.ph
+  %.not = icmp samesign ult i64 %39, %.064.ph
   br i1 %.not, label %.noexc79, label %40
 
 40:                                               ; preds = %30
@@ -117258,7 +117258,7 @@ split:                                            ; preds = %56, %"_ZN71_$LT$htt
   unreachable
 
 .noexc79:                                         ; preds = %30
-  %136 = icmp ugt i64 %.064.ph, 511
+  %136 = icmp samesign ugt i64 %.064.ph, 511
   %137 = load i64, ptr %0, align 8, !range !17833
   %138 = icmp ne i64 %137, 2
   %.063 = select i1 %136, i1 %138, i1 false
@@ -117548,7 +117548,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h989b
   %40 = sub i64 %.054, %39
   %41 = zext i16 %37 to i64
   %42 = and i64 %40, %41
-  %.not = icmp ult i64 %42, %.058.ph
+  %.not = icmp samesign ult i64 %42, %.058.ph
   br i1 %.not, label %.noexc72, label %43
 
 43:                                               ; preds = %33
@@ -117988,7 +117988,7 @@ _ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i: ; preds = 
   br label %250
 
 .noexc72:                                         ; preds = %33
-  %224 = icmp ugt i64 %.058.ph, 511
+  %224 = icmp samesign ugt i64 %.058.ph, 511
   %225 = load i64, ptr %1, align 8, !range !17833
   %226 = icmp ne i64 %225, 2
   %.057 = select i1 %224, i1 %226, i1 false
@@ -118280,7 +118280,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$12cont
   %30 = zext i16 %29 to i64
   %31 = sub i64 %.0.i.i, %30
   %32 = and i64 %31, %16
-  %33 = icmp ugt i64 %.021.i.i.ph, %32
+  %33 = icmp samesign ugt i64 %.021.i.i.ph, %32
   br i1 %33, label %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit", label %34
 
 34:                                               ; preds = %25
@@ -118496,7 +118496,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %58 = zext i16 %57 to i64
   %59 = sub i64 %.0.i23, %58
   %60 = and i64 %59, %40
-  %61 = icmp ult i64 %60, %.028.i.ph
+  %61 = icmp samesign ult i64 %60, %.028.i.ph
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %54
@@ -118931,7 +118931,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17hdc00a9762821
   %31 = zext i16 %30 to i64
   %32 = sub i64 %.0, %31
   %33 = and i64 %32, %17
-  %34 = icmp ugt i64 %.021.ph, %33
+  %34 = icmp samesign ugt i64 %.021.ph, %33
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %26
@@ -119039,7 +119039,7 @@ define hidden noundef align 8 ptr @"_ZN4http6header3map18HeaderMap$LT$T$GT$4get2
   %30 = zext i16 %29 to i64
   %31 = sub i64 %.0.i.i, %30
   %32 = and i64 %31, %16
-  %33 = icmp ugt i64 %.021.i.i.ph, %32
+  %33 = icmp samesign ugt i64 %.021.i.i.ph, %32
   br i1 %33, label %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit.thread", label %34
 
 34:                                               ; preds = %25
@@ -126743,7 +126743,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -126756,7 +126756,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -129913,7 +129913,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hd030ef5e61ea
 
 19:                                               ; preds = %15
   %20 = load i8, ptr %7, align 8, !range !17835, !alias.scope !22561, !noalias !22551, !noundef !12
-  %switch.i.i.i.i.i = icmp ult i8 %20, 10
+  %switch.i.i.i.i.i = icmp samesign ult i8 %20, 10
   br i1 %switch.i.i.i.i.i, label %.thread8, label %21
 
 21:                                               ; preds = %19
@@ -129939,7 +129939,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hd030ef5e61ea
   %25 = getelementptr inbounds i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !22546, !noalias !22550, !nonnull !12, !align !59, !noundef !12
   %27 = load i8, ptr %9, align 8, !range !17835, !alias.scope !22569, !noalias !22568, !noundef !12
-  %switch.i.i.i.i = icmp ult i8 %27, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %27, 10
   br i1 %switch.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2e7261e11762d1eeE.llvm.18016462908235130027.exit", label %28
 
 28:                                               ; preds = %24
@@ -129994,7 +129994,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hd030ef5e61ea
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load i8, ptr %2, align 8, !range !17835, !alias.scope !22579, !noundef !12
-  %switch.i.i = icmp ult i8 %38, 10
+  %switch.i.i = icmp samesign ult i8 %38, 10
   br i1 %switch.i.i, label %.thread8, label %39
 
 39:                                               ; preds = %36
@@ -130053,7 +130053,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hdbd2bceab6fb
 
 19:                                               ; preds = %15
   %20 = load i8, ptr %7, align 8, !range !17835, !alias.scope !22602, !noalias !22592, !noundef !12
-  %switch.i.i.i.i.i = icmp ult i8 %20, 10
+  %switch.i.i.i.i.i = icmp samesign ult i8 %20, 10
   br i1 %switch.i.i.i.i.i, label %.thread8, label %21
 
 21:                                               ; preds = %19
@@ -130079,7 +130079,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hdbd2bceab6fb
   %25 = getelementptr inbounds i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !22587, !noalias !22591, !nonnull !12, !align !59, !noundef !12
   %27 = load i8, ptr %9, align 8, !range !17835, !alias.scope !22610, !noalias !22609, !noundef !12
-  %switch.i.i.i.i = icmp ult i8 %27, 10
+  %switch.i.i.i.i = icmp samesign ult i8 %27, 10
   br i1 %switch.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c26371ddb10506aE.llvm.18016462908235130027.exit", label %28
 
 28:                                               ; preds = %24
@@ -130134,7 +130134,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hdbd2bceab6fb
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load i8, ptr %2, align 8, !range !17835, !alias.scope !22620, !noundef !12
-  %switch.i.i = icmp ult i8 %38, 10
+  %switch.i.i = icmp samesign ult i8 %38, 10
   br i1 %switch.i.i, label %.thread8, label %39
 
 39:                                               ; preds = %36
@@ -130173,7 +130173,7 @@ define hidden void @"_ZN7reqwest10async_impl6client6Client7request28_$u7b$$u7b$c
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %6, align 8, !range !17835, !alias.scope !22635, !noalias !22632, !noundef !12
-  %switch.i.i.i = icmp ult i8 %12, 10
+  %switch.i.i.i = icmp samesign ult i8 %12, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit.i", label %13
 
 13:                                               ; preds = %11
@@ -130232,7 +130232,7 @@ define hidden void @"_ZN7reqwest10async_impl6client6Client7request28_$u7b$$u7b$c
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %6, align 8, !range !17835, !alias.scope !22651, !noalias !22648, !noundef !12
-  %switch.i.i.i = icmp ult i8 %12, 10
+  %switch.i.i.i = icmp samesign ult i8 %12, 10
   br i1 %switch.i.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit.i", label %13
 
 13:                                               ; preds = %11
@@ -132082,7 +132082,7 @@ define hidden void @_ZN7reqwest10async_impl7request7Request3new17h3f440dfe82debf
 
 17:                                               ; preds = %7
   %18 = load i8, ptr %6, align 8, !range !17835, !alias.scope !22933, !noundef !12
-  %switch.i.i = icmp ult i8 %18, 10
+  %switch.i.i = icmp samesign ult i8 %18, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hda291689ceee4f5eE.exit", label %19
 
 19:                                               ; preds = %17
@@ -133495,7 +133495,7 @@ define hidden void @"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..h
   %31 = zext i16 %30 to i64
   %32 = sub i64 %.0.i, %31
   %33 = and i64 %32, %17
-  %34 = icmp ugt i64 %.021.i.ph, %33
+  %34 = icmp samesign ugt i64 %.021.i.ph, %33
   br i1 %34, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$4find17hdc00a97628215465E.llvm.18016462908235130027.exit", label %35
 
 35:                                               ; preds = %26
@@ -133609,7 +133609,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
   %.026.lcssa.i.i.i.i.i = phi i64 [ 11, %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i ], [ %35, %.lr.ph.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i, %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i ], [ %28, %.lr.ph.i.i.i.i.i ]
   %25 = zext nneg i32 %.1.lcssa.i.i.i.i.i to i64
-  %26 = icmp ugt i32 %.1.lcssa.i.i.i.i.i, 99
+  %26 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i.i, 99
   br i1 %26, label %42, label %51
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i, %.lr.ph.i.i.i.i.i
@@ -133653,7 +133653,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
 51:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
   %.127.i.i.i.i.i = phi i64 [ %47, %42 ], [ %.026.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.025.i.i.i.i.i = phi i64 [ %.zext37.i.i.i.i.i, %42 ], [ %25, %._crit_edge.i.i.i.i.i ]
-  %52 = icmp ult i64 %.025.i.i.i.i.i, 10
+  %52 = icmp samesign ult i64 %.025.i.i.i.i.i, 10
   br i1 %52, label %59, label %53
 
 53:                                               ; preds = %51
@@ -138295,7 +138295,7 @@ common.resume:                                    ; preds = %22, %31
   %.sroa.22.4 = phi i64 [ %48, %43 ], [ %99, %.lr.ph.i30 ]
   %.sroa.32.4 = phi i64 [ %50, %43 ], [ %96, %.lr.ph.i30 ]
   %.09.lcssa.i20 = phi i64 [ 0, %43 ], [ %102, %.lr.ph.i30 ]
-  %54 = icmp ugt i64 %52, 3
+  %54 = icmp samesign ugt i64 %52, 3
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %._crit_edge.i37
@@ -138308,7 +138308,7 @@ common.resume:                                    ; preds = %22, %31
   %.017.i13.i21 = phi i64 [ %57, %55 ], [ 0, %._crit_edge.i37 ]
   %.0.i14.i22 = phi i64 [ 4, %55 ], [ 0, %._crit_edge.i37 ]
   %59 = or disjoint i64 %.0.i14.i22, 1
-  %60 = icmp ult i64 %59, %52
+  %60 = icmp samesign ult i64 %59, %52
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
@@ -140582,7 +140582,7 @@ define void @"_ZN127_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$d
 
 16:                                               ; preds = %3
   %17 = load i128, ptr %2, align 16, !range !17832, !alias.scope !24663, !noalias !24666, !noundef !12
-  %switch.i = icmp ult i128 %17, 2
+  %switch.i = icmp samesign ult i128 %17, 2
   br i1 %switch.i, label %22, label %"_ZN17datafusion_common5stats18Precision$LT$T$GT$3max17hf9aa36209e33a513E.exit"
 
 18:                                               ; preds = %13
@@ -140639,7 +140639,7 @@ define void @"_ZN127_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$d
 
 33:                                               ; preds = %"_ZN17datafusion_common5stats18Precision$LT$T$GT$3max17hf9aa36209e33a513E.exit"
   %34 = load i128, ptr %26, align 16, !range !17832, !alias.scope !24674, !noalias !24678, !noundef !12
-  %switch.i2 = icmp ult i128 %34, 2
+  %switch.i2 = icmp samesign ult i128 %34, 2
   br i1 %switch.i2, label %40, label %29
 
 35:                                               ; preds = %30

@@ -1532,11 +1532,11 @@ if.then44:                                        ; preds = %if.end32
   %7 = load i8, ptr %arrayidx52, align 1
   %conv53 = zext i8 %7 to i32
   %or54 = or disjoint i32 %shl49, %conv53
-  %cmp55 = icmp ugt i32 %or54, 769
+  %cmp55 = icmp samesign ugt i32 %or54, 769
   br i1 %cmp55, label %if.then57, label %if.end63
 
 if.then57:                                        ; preds = %if.then44
-  %cmp58 = icmp ult i32 %or, 16
+  %cmp58 = icmp samesign ult i32 %or, 16
   br i1 %cmp58, label %return, label %if.end61
 
 if.end61:                                         ; preds = %if.then57

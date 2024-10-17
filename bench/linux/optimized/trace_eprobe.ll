@@ -353,7 +353,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %177 = icmp ne i8 %176, 0
   %178 = icmp eq i32 %174, 0
   %179 = select i1 %177, i1 %178, i1 false
-  %180 = icmp ult i64 %171, 4095
+  %180 = icmp samesign ult i64 %171, 4095
   %181 = and i1 %180, %179
   br i1 %181, label %.preheader, label %182, !llvm.loop !14
 
@@ -2673,7 +2673,7 @@ define internal void @eprobe_trigger_func(ptr nocapture noundef readonly %0, ptr
   %222 = icmp ne i8 %221, 0
   %223 = icmp eq i32 %219, 0
   %224 = select i1 %222, i1 %223, i1 false
-  %225 = icmp ult i64 %216, 4095
+  %225 = icmp samesign ult i64 %216, 4095
   %226 = and i1 %225, %224
   br i1 %226, label %.preheader, label %227, !llvm.loop !14
 

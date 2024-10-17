@@ -1530,7 +1530,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr
 
 7:                                                ; preds = %5
   %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
-  %9 = icmp ult i64 %8, 2
+  %9 = icmp samesign ult i64 %8, 2
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 10:                                               ; preds = %1
@@ -2667,7 +2667,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %"_ZN4llvm6all_ofINS
 
 _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_11SmallVectorIiLj12EEEEEEZNS_12RISCVTTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENSA_14TargetCostKindEiSD_NSE_IPKNS_5ValueEEEPKNS_11InstructionEE3$_1EEbOT_T0_.exit.thread", %294
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %295 = icmp ult i64 %indvars.iv.next, %246
+  %295 = icmp samesign ult i64 %indvars.iv.next, %246
   br i1 %295, label %247, label %.loopexit, !llvm.loop !39
 
 .critedge:                                        ; preds = %194, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit335, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit, %192, %.thread755, %215, %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit
@@ -8350,7 +8350,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i: ; preds = %332, %320
 
 362:                                              ; preds = %351
   %363 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %361)
-  %364 = icmp ult i32 %363, 2
+  %364 = icmp samesign ult i32 %363, 2
   %365 = select i1 %364, i64 4294967298, i64 2
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
@@ -9824,10 +9824,10 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4Ty
 
 86:                                               ; preds = %81, %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit198
   %.not.i.i = icmp eq i32 %.sink.i, %.sink.i184
-  %87 = icmp uge i32 %.sink.i, %.sink.i184
+  %87 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %88 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i.i = select i1 %.not.i.i, i1 %88, i1 %87
-  %89 = icmp uge i32 %.sink.i184, %.sink.i
+  %89 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %90 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i4.i = select i1 %.not.i.i, i1 %90, i1 %89
   %91 = select i1 %.0.i.i, i1 %.0.i4.i, i1 false
@@ -9877,10 +9877,10 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit: ; preds
   %114 = call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef nonnull %2, i1 noundef zeroext false) #21
   %115 = call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef nonnull %3, i1 noundef zeroext false) #21
   %.not.i.i205 = icmp eq i32 %.sink.i184, %.sink.i
-  %116 = icmp uge i32 %.sink.i184, %.sink.i
+  %116 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %117 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i.i206 = select i1 %.not.i.i205, i1 %117, i1 %116
-  %118 = icmp uge i32 %.sink.i, %.sink.i184
+  %118 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %119 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i4.i207 = select i1 %.not.i.i205, i1 %119, i1 %118
   %120 = select i1 %.0.i.i206, i1 %.0.i4.i207, i1 false
@@ -9956,10 +9956,10 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit.thread: 
   %spec.select.i.i.i.i.i.i.i.i214 = icmp ult i32 %159, 2
   %spec.select.i.i215 = select i1 %spec.select.i.i.i.i.i.i.i.i214, ptr %2, ptr null
   %.not.i.i216 = icmp eq i32 %.sink.i, %.sink.i184
-  %160 = icmp uge i32 %.sink.i, %.sink.i184
+  %160 = icmp samesign uge i32 %.sink.i, %.sink.i184
   %161 = icmp sge i64 %.sroa.019.1.lcssa.sink.i, %.sroa.019.1.lcssa.sink.i183
   %.0.i.i217 = select i1 %.not.i.i216, i1 %161, i1 %160
-  %162 = icmp uge i32 %.sink.i184, %.sink.i
+  %162 = icmp samesign uge i32 %.sink.i184, %.sink.i
   %163 = icmp sge i64 %.sroa.019.1.lcssa.sink.i183, %.sroa.019.1.lcssa.sink.i
   %.0.i4.i218 = select i1 %.not.i.i216, i1 %163, i1 %162
   %164 = select i1 %.0.i.i217, i1 %.0.i4.i218, i1 false
@@ -11226,7 +11226,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i: ; preds = %67, %_ZN4llvm15In
   br label %_ZN4llvm23IntrinsicCostAttributesD2Ev.exit
 
 _ZN4llvm23IntrinsicCostAttributesD2Ev.exit:       ; preds = %_ZN4llvm11SmallVectorIPKNS_5ValueELj4EED2Ev.exit.i, %71
-  %72 = icmp ugt i32 %57, %50
+  %72 = icmp samesign ugt i32 %57, %50
   br i1 %72, label %_ZN4llvm15InstructionCostpLERKS0_.exit, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit, !llvm.loop !137
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit: ; preds = %_ZN4llvm23IntrinsicCostAttributesD2Ev.exit
@@ -15521,7 +15521,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12RISCVTTIImpl34shouldConsiderAddre
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 134217727
-  %23 = icmp ugt i32 %22, 2
+  %23 = icmp samesign ugt i32 %22, 2
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
@@ -20841,7 +20841,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %70, %_ZN4llvm15Inst
   %.sroa.6171.1 = select i1 %78, i32 1, i32 %.sroa.6171.0.fr204
   %.0.i100 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0168.0200, i64 %.fca.0.extract32)
   %79 = add i32 %.092202, 1
-  %80 = icmp ugt i32 %73, %71
+  %80 = icmp samesign ugt i32 %73, %71
   br i1 %80, label %_ZN4llvm15InstructionCostpLERKS0_.exit, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit, !llvm.loop !215
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit.loopexit: ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit

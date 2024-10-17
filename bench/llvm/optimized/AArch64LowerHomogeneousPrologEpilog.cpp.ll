@@ -2346,7 +2346,7 @@ define internal fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17Machine
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %.not.i.i = icmp ult i32 %22, %25
+  %.not.i.i = icmp samesign ult i32 %22, %25
   br i1 %.not.i.i, label %26, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
 
 26:                                               ; preds = %20
@@ -2692,7 +2692,7 @@ _ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9
   %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(288) %109) #14
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %115 = trunc i64 %114 to i32
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   br i1 %switch, label %116, label %225
 
 116:                                              ; preds = %_ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9StringRefE.exit
@@ -3221,7 +3221,7 @@ define internal fastcc void @_ZL8emitLoadRN4llvm15MachineFunctionERNS_17MachineB
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %.not.i.i = icmp ult i32 %22, %25
+  %.not.i.i = icmp samesign ult i32 %22, %25
   br i1 %.not.i.i, label %26, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
 
 26:                                               ; preds = %20

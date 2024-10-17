@@ -6999,7 +6999,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_rate_ctrl(ptr
   br i1 %145, label %.lr.ph, label %.critedge, !llvm.loop !116
 
 .critedge:                                        ; preds = %.lr.ph, %142
-  %146 = icmp ult i64 %140, %131
+  %146 = icmp samesign ult i64 %140, %131
   br i1 %146, label %.critedge12, label %.critedge9, !prof !9
 
 .critedge9:                                       ; preds = %125, %.critedge
@@ -9860,7 +9860,7 @@ define internal fastcc void @ieee80211_mlo_multicast_tx(ptr nocapture noundef re
 36:                                               ; preds = %32, %29
   %37 = add nuw nsw i64 %26, 1
   %38 = and i64 %37, 31
-  %39 = icmp ult i64 %38, 15
+  %39 = icmp samesign ult i64 %38, 15
   br i1 %39, label %19, label %.thread, !prof !164, !llvm.loop !165
 
 .thread:                                          ; preds = %19, %36, %25
@@ -10398,7 +10398,7 @@ define dso_local void @ieee80211_clear_tx_pending(ptr noundef %0) local_unnamed_
   %15 = add nuw nsw i64 %8, 1
   %16 = load i16, ptr %2, align 8
   %17 = zext i16 %16 to i64
-  %18 = icmp ult i64 %15, %17
+  %18 = icmp samesign ult i64 %15, %17
   br i1 %18, label %7, label %.loopexit2, !llvm.loop !169
 
 .loopexit2:                                       ; preds = %.loopexit, %1
@@ -10600,7 +10600,7 @@ thread-pre-split:                                 ; preds = %90, %70, %.thread5,
   %104 = phi i64 [ %19, %16 ], [ %19, %23 ], [ %.ph, %.loopexit.loopexit ]
   %105 = add nuw nsw i64 %18, 1
   %106 = zext i16 %103 to i64
-  %107 = icmp ult i64 %105, %106
+  %107 = icmp samesign ult i64 %105, %106
   br i1 %107, label %16, label %.loopexit7, !llvm.loop !173
 
 .loopexit7:                                       ; preds = %.loopexit, %1
@@ -10918,7 +10918,7 @@ split:                                            ; preds = %54, %._crit_edge
   %74 = add nuw nsw i64 %71, 1
   %75 = load i8, ptr %47, align 8
   %76 = zext i8 %75 to i64
-  %77 = icmp ult i64 %74, %76
+  %77 = icmp samesign ult i64 %74, %76
   br i1 %77, label %.preheader, label %.thread16, !llvm.loop !187
 
 .thread16:                                        ; preds = %.preheader, %69
@@ -11275,7 +11275,7 @@ define dso_local void @ieee80211_beacon_free_ema_list(ptr noundef %0) #0 align 1
   %12 = add nuw nsw i64 %9, 1
   %13 = load i8, ptr %0, align 8
   %14 = zext i8 %13 to i64
-  %15 = icmp ult i64 %12, %14
+  %15 = icmp samesign ult i64 %12, %14
   br i1 %15, label %8, label %.loopexit, !llvm.loop !187
 
 .loopexit:                                        ; preds = %8, %3
@@ -13924,7 +13924,7 @@ define internal fastcc range(i32 0, 2) i32 @INET_ECN_set_ce(ptr noundef %0) unna
   %84 = load i8, ptr %83, align 1
   %85 = add i8 %84, 1
   %86 = and i8 %85, 3
-  %87 = icmp ult i8 %86, 2
+  %87 = icmp samesign ult i8 %86, 2
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %82
@@ -14820,7 +14820,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %270 = load ptr, ptr %99, align 8
   %271 = load i8, ptr %270, align 8
   %272 = zext i8 %271 to i64
-  %273 = icmp ult i64 %269, %272
+  %273 = icmp samesign ult i64 %269, %272
   br i1 %273, label %258, label %.loopexit, !llvm.loop !252
 
 .preheader:                                       ; preds = %225, %.preheader
@@ -14839,7 +14839,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %285 = load ptr, ptr %97, align 8
   %286 = load i8, ptr %285, align 8
   %287 = zext i8 %286 to i64
-  %288 = icmp ult i64 %284, %287
+  %288 = icmp samesign ult i64 %284, %287
   br i1 %288, label %.preheader, label %.loopexit, !llvm.loop !253
 
 .loopexit:                                        ; preds = %.preheader, %258, %242, %239, %227, %220, %217
@@ -15147,7 +15147,7 @@ define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef no
 .loopexit5:                                       ; preds = %.preheader4
   %56 = trunc i64 %49 to i32
   %57 = and i32 %56, 254
-  %58 = icmp ugt i32 %57, 250
+  %58 = icmp samesign ugt i32 %57, 250
   br i1 %58, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %53, %.loopexit5

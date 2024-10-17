@@ -214,8 +214,8 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   %35 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.next.i
   %36 = load i8, ptr %35, align 1
   %37 = icmp ne i8 %36, 0
-  %38 = icmp ult i64 %indvars.iv.i, 59999
-  %39 = and i1 %38, %37
+  %38 = icmp samesign ult i64 %indvars.iv.i, 59999
+  %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %20, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !5
 
 _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %34, %11
@@ -305,8 +305,8 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
   %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %21 = load i8, ptr %20, align 1
   %22 = icmp ne i8 %21, 0
-  %23 = icmp ult i64 %indvars.iv, 59999
-  %24 = and i1 %23, %22
+  %23 = icmp samesign ult i64 %indvars.iv, 59999
+  %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %5, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %19, %2
@@ -545,8 +545,8 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   %54 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.next.i
   %55 = load i8, ptr %54, align 1
   %56 = icmp ne i8 %55, 0
-  %57 = icmp ult i64 %indvars.iv.i, 59999
-  %58 = and i1 %57, %56
+  %57 = icmp samesign ult i64 %indvars.iv.i, 59999
+  %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %39, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !5
 
 _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %53, %29

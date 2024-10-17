@@ -450,7 +450,7 @@ define internal noundef i32 @_ZL10luaB_printP9lua_State(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %8
   %.010 = phi i32 [ %12, %8 ], [ 1, %1 ]
   %4 = call noundef ptr @_Z14luaL_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef %.010, ptr noundef nonnull %2)
-  %5 = icmp ugt i32 %.010, 1
+  %5 = icmp samesign ugt i32 %.010, 1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph

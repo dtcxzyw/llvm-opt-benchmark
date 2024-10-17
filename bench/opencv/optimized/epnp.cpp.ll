@@ -4709,7 +4709,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %45 = load double, ptr %.0148203, align 8
   %46 = tail call double @llvm.fabs.f64(double %45)
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
-  %47 = icmp ult i64 %indvars.iv.next243, %42
+  %47 = icmp samesign ult i64 %indvars.iv.next243, %42
   br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %44
@@ -4746,7 +4746,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
 
 61:                                               ; preds = %._crit_edge
   %62 = fdiv double 1.000000e+00, %.0165.lcssa
-  %63 = icmp ult i64 %indvars.iv242, %42
+  %63 = icmp samesign ult i64 %indvars.iv242, %42
   br i1 %63, label %.lr.ph186.preheader, label %._crit_edge187
 
 .lr.ph186.preheader:                              ; preds = %61
@@ -4784,7 +4784,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %80 = load ptr, ptr %39, align 8
   %81 = getelementptr inbounds double, ptr %80, i64 %indvars.iv242
   store double %79, ptr %81, align 8
-  %82 = icmp ult i64 %indvars.iv.next243, %43
+  %82 = icmp samesign ult i64 %indvars.iv.next243, %43
   br i1 %82, label %.preheader177.lr.ph, label %._crit_edge201
 
 .preheader177.lr.ph:                              ; preds = %._crit_edge187
@@ -4860,7 +4860,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge217
   %indvars.iv247 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next248, %._crit_edge217 ]
   %.0155218 = phi ptr [ %36, %.preheader.lr.ph ], [ %130, %._crit_edge217 ]
-  %113 = icmp ult i64 %indvars.iv247, %112
+  %113 = icmp samesign ult i64 %indvars.iv247, %112
   br i1 %113, label %.lr.ph210, label %._crit_edge217
 
 .lr.ph210:                                        ; preds = %.preheader, %.lr.ph210

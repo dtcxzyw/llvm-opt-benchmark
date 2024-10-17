@@ -6313,7 +6313,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17hfae
 
 11:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1165)
-  %switch.i.i = icmp ult i64 %10, 2
+  %switch.i.i = icmp samesign ult i64 %10, 2
   br i1 %switch.i.i, label %common.resume, label %12
 
 12:                                               ; preds = %11
@@ -13380,7 +13380,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$aws_smithy_types..config_ba
 
 3:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2410)
-  %switch.i = icmp ult i64 %2, 2
+  %switch.i = icmp samesign ult i64 %2, 2
   br i1 %switch.i, label %"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$GT$17h0c740f33c5787c5dE.llvm.8209374114036670355.exit", label %4
 
 4:                                                ; preds = %3
@@ -20550,7 +20550,7 @@ define internal void @"_ZN4core3ptr84drop_in_place$LT$$RF$alloc..sync..Arc$LT$aw
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$GT$17h0c740f33c5787c5dE.llvm.8209374114036670355"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !3509, !noundef !7
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %13, label %3
 
 3:                                                ; preds = %1
@@ -26692,7 +26692,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT$3new17h
 
 9:                                                ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4965)
-  %switch.i.i = icmp ult i64 %8, 2
+  %switch.i.i = icmp samesign ult i64 %8, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr134drop_in_place$LT$aws_smithy_types..config_bag..value..Value$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$GT$$GT$17hbc9990664d970be5E.llvm.8209374114036670355.exit", label %10
 
 10:                                               ; preds = %9

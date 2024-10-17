@@ -91,7 +91,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.preheader:   ; preds = %19, %24, %22, %21
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.preheader, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.preheader ]
-  %.not.i = icmp ult i64 %indvars.iv.i, 4096
+  %.not.i = icmp samesign ult i64 %indvars.iv.i, 4096
   %spec.select.i = select i1 %.not.i, i32 0, i32 13
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   %26 = lshr i32 %25, 8
@@ -230,7 +230,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.preheader:     ; preds = %11, %13, %14, %16
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.preheader, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.preheader ]
-  %.not = icmp ult i64 %indvars.iv, 4096
+  %.not = icmp samesign ult i64 %indvars.iv, 4096
   %spec.select = select i1 %.not, i32 0, i32 13
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = lshr i32 %17, 8
@@ -555,7 +555,7 @@ define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 derefer
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %20 = load i32, ptr %8, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next31, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next31, %21
   br i1 %22, label %15, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %15, %.preheader
@@ -650,7 +650,7 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull al
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %22 = load i32, ptr %10, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next31.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next31.i, %23
   br i1 %24, label %17, label %_ZN9Scheduler5ResetEv.exit, !llvm.loop !10
 
 _ZN9Scheduler5ResetEv.exit:                       ; preds = %17, %.preheader.i
@@ -925,14 +925,14 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %.not113 = icmp eq i32 %37, %39
   %spec.select = select i1 %.not113, i8 %.2132, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = icmp ult i64 %indvars.iv, 3
+  %40 = icmp samesign ult i64 %indvars.iv, 3
   %41 = trunc nuw i8 %spec.select to i1
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %43 = icmp ult i64 %indvars.iv168, 3
+  %43 = icmp samesign ult i64 %indvars.iv168, 3
   %44 = select i1 %43, i1 %41, i1 false
   br i1 %44, label %.preheader, label %45, !llvm.loop !18
 

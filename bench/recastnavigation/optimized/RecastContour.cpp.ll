@@ -275,7 +275,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %142 = getelementptr inbounds i8, ptr %103, i64 %indvars.iv910
   store i8 %.sink, ptr %142, align 1
   %indvars.iv.next911 = add nuw nsw i64 %indvars.iv910, 1
-  %143 = icmp ult i64 %indvars.iv.next911, %133
+  %143 = icmp samesign ult i64 %indvars.iv.next911, %133
   br i1 %143, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !6
 
 144:                                              ; preds = %.preheader807.us, %167
@@ -2898,7 +2898,7 @@ _ZN10rcIntArrayixEi.exit446.i.us:                 ; preds = %1358, %1354, %.noex
   %1366 = mul nsw i32 %1364, %1364
   %1367 = mul nsw i32 %1365, %1365
   %1368 = add nuw nsw i32 %1367, %1366
-  %1369 = icmp ugt i32 %1368, %201
+  %1369 = icmp samesign ugt i32 %1368, %201
   br i1 %1369, label %1370, label %.thread505.i.us
 
 1370:                                             ; preds = %1363
@@ -4029,7 +4029,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
 1873:                                             ; preds = %.loopexit779.us, %1805, %220, %219
   %.3283.us = phi i32 [ %.2282859.us, %219 ], [ %.4284.us, %.loopexit779.us ], [ %.2282859.us, %1805 ], [ %.2282859.us, %220 ]
   %indvars.iv.next932 = add nuw nsw i64 %indvars.iv931, 1
-  %1874 = icmp ult i64 %indvars.iv.next932, %215
+  %1874 = icmp samesign ult i64 %indvars.iv.next932, %215
   br i1 %1874, label %.lr.ph861.us, label %._crit_edge862.us, !llvm.loop !26
 
 .lr.ph856.us:                                     ; preds = %.preheader778.us, %.lr.ph856.us
@@ -5507,7 +5507,7 @@ define internal fastcc noundef zeroext i1 @_ZL19intersectSegContourPKiS0_iiS0_(p
 11:                                               ; preds = %.lr.ph, %_ZL9intersectPKiS0_S0_S0_.exit.thread38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = icmp ult i64 %indvars.iv.next, %9
+  %12 = icmp samesign ult i64 %indvars.iv.next, %9
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   %14 = select i1 %12, i32 %13, i32 0
   %15 = icmp eq i64 %indvars.iv, %10

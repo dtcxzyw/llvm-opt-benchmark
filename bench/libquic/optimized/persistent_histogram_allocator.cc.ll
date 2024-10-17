@@ -667,7 +667,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i63, %if.then.i37, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i29
   %found.2 = phi i1 [ true, %if.then.i29 ], [ true, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %found.183, %if.then.i37 ], [ %found.183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i63 ]
   %inc = add nuw nsw i32 %count.082, 1
-  %cmp = icmp ugt i32 %count.082, 8
+  %cmp = icmp samesign ugt i32 %count.082, 8
   %.not = select i1 %found.2, i1 %cmp, i1 false
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !10
 

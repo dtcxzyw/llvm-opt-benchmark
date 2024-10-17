@@ -1486,7 +1486,7 @@ H5VM_log2_gen.exit:                               ; preds = %17, %23, %29, %35
   %40 = lshr i32 %39, 3
   %41 = add nuw nsw i32 %40, 1
   %42 = getelementptr inbounds i8, ptr %2, i64 8
-  %43 = icmp ugt i32 %.0.i, 55
+  %43 = icmp samesign ugt i32 %.0.i, 55
   %narrow = select i1 %43, i32 8, i32 %41
   %spec.select = zext nneg i32 %narrow to i64
   store i64 %spec.select, ptr %42, align 8

@@ -65,7 +65,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %13, label %85, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp ult i32 %12, 27
+  %15 = icmp samesign ult i32 %12, 27
   %16 = select i1 %15, i32 96, i32 21
   %17 = add nuw nsw i32 %16, %12
   %18 = trunc nuw nsw i32 %17 to i8
@@ -76,7 +76,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %21, label %85, label %22
 
 22:                                               ; preds = %14
-  %23 = icmp ult i32 %20, 27
+  %23 = icmp samesign ult i32 %20, 27
   %24 = select i1 %23, i32 96, i32 21
   %25 = add nuw nsw i32 %24, %20
   %26 = trunc nuw nsw i32 %25 to i8
@@ -88,7 +88,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %30, label %85, label %31
 
 31:                                               ; preds = %22
-  %32 = icmp ult i32 %29, 27
+  %32 = icmp samesign ult i32 %29, 27
   %33 = select i1 %32, i32 96, i32 21
   %34 = add nuw nsw i32 %33, %29
   %35 = trunc nuw nsw i32 %34 to i8
@@ -100,7 +100,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %39, label %85, label %40
 
 40:                                               ; preds = %31
-  %41 = icmp ult i32 %38, 27
+  %41 = icmp samesign ult i32 %38, 27
   %42 = select i1 %41, i32 96, i32 21
   %43 = add nuw nsw i32 %42, %38
   %44 = trunc nuw nsw i32 %43 to i8
@@ -112,7 +112,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %48, label %85, label %49
 
 49:                                               ; preds = %40
-  %50 = icmp ult i32 %47, 27
+  %50 = icmp samesign ult i32 %47, 27
   %51 = select i1 %50, i32 96, i32 21
   %52 = add nuw nsw i32 %51, %47
   %53 = trunc nuw nsw i32 %52 to i8
@@ -124,7 +124,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br i1 %57, label %85, label %58
 
 58:                                               ; preds = %49
-  %59 = icmp ult i32 %56, 27
+  %59 = icmp samesign ult i32 %56, 27
   %60 = select i1 %59, i32 96, i32 21
   %61 = add nuw nsw i32 %60, %56
   %62 = trunc nuw nsw i32 %61 to i8
@@ -252,7 +252,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %49, label %116, label %50
 
 50:                                               ; preds = %47
-  %51 = icmp ult i32 %48, 27
+  %51 = icmp samesign ult i32 %48, 27
   %52 = select i1 %51, i32 96, i32 21
   %53 = add nuw nsw i32 %52, %48
   %54 = trunc nuw nsw i32 %53 to i8
@@ -263,7 +263,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %57, label %116, label %58
 
 58:                                               ; preds = %50
-  %59 = icmp ult i32 %56, 27
+  %59 = icmp samesign ult i32 %56, 27
   %60 = select i1 %59, i32 96, i32 21
   %61 = add nuw nsw i32 %60, %56
   %62 = trunc nuw nsw i32 %61 to i8
@@ -274,7 +274,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %65, label %116, label %66
 
 66:                                               ; preds = %58
-  %67 = icmp ult i32 %64, 27
+  %67 = icmp samesign ult i32 %64, 27
   %68 = select i1 %67, i32 96, i32 21
   %69 = add nuw nsw i32 %68, %64
   %70 = trunc nuw nsw i32 %69 to i8
@@ -285,7 +285,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %73, label %116, label %74
 
 74:                                               ; preds = %66
-  %75 = icmp ult i32 %72, 27
+  %75 = icmp samesign ult i32 %72, 27
   %76 = select i1 %75, i32 96, i32 21
   %77 = add nuw nsw i32 %76, %72
   %78 = trunc nuw nsw i32 %77 to i8
@@ -296,7 +296,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %81, label %116, label %82
 
 82:                                               ; preds = %74
-  %83 = icmp ult i32 %80, 27
+  %83 = icmp samesign ult i32 %80, 27
   %84 = select i1 %83, i32 96, i32 21
   %85 = add nuw nsw i32 %84, %80
   %86 = trunc nuw nsw i32 %85 to i8
@@ -307,7 +307,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %89, label %116, label %90
 
 90:                                               ; preds = %82
-  %91 = icmp ult i32 %88, 27
+  %91 = icmp samesign ult i32 %88, 27
   %92 = select i1 %91, i32 96, i32 21
   %93 = add nuw nsw i32 %92, %88
   %94 = trunc nuw nsw i32 %93 to i8
@@ -1079,7 +1079,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 421:                                              ; preds = %413
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %422 = icmp ult i64 %indvars.iv.next, %405
+  %422 = icmp samesign ult i64 %indvars.iv.next, %405
   br i1 %422, label %413, label %.loopexit
 
 423:                                              ; preds = %413
@@ -1548,14 +1548,14 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 167:                                              ; preds = %112
   %168 = and i32 %91, 248
-  %169 = icmp ugt i32 %168, 8
+  %169 = icmp samesign ugt i32 %168, 8
   %170 = and i32 %77, 12288
   %171 = icmp eq i32 %170, 0
   %172 = and i1 %171, %169
   %173 = or disjoint i32 %78, 4096
   %174 = select i1 %172, i32 %173, i32 %78
   %175 = and i32 %91, 7936
-  %176 = icmp ugt i32 %175, 256
+  %176 = icmp samesign ugt i32 %175, 256
   %177 = and i32 %174, 49152
   %178 = icmp eq i32 %177, 0
   %179 = select i1 %176, i1 %178, i1 false
@@ -3862,14 +3862,14 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 116:                                              ; preds = %.preheader
   %117 = and i32 %107, 248
-  %118 = icmp ugt i32 %117, 8
+  %118 = icmp samesign ugt i32 %117, 8
   %119 = lshr i32 %107, 3
   %120 = and i32 %119, 31
   %121 = shl nuw i32 1, %120
   %122 = select i1 %118, i32 %121, i32 0
   %123 = or i32 %122, %103
   %124 = and i32 %107, 7936
-  %125 = icmp ugt i32 %124, 256
+  %125 = icmp samesign ugt i32 %124, 256
   br i1 %125, label %126, label %140
 
 126:                                              ; preds = %116

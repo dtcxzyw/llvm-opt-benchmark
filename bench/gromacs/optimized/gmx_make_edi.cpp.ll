@@ -717,7 +717,7 @@ default.unreachable:                              ; preds = %.lr.ph135.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  %177 = icmp ult i64 %indvars.iv, 2
+  %177 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %177, label %178, label %199
 
 178:                                              ; preds = %176

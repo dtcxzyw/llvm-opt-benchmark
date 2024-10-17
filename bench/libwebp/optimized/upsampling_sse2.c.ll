@@ -63,7 +63,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -89,7 +89,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %69 = add nsw i32 %68, -17685
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 17685
+  %72 = icmp samesign ult i32 %68, 17685
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -119,7 +119,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %94 = add nsw i32 %93, -14234
   %95 = icmp ult i32 %94, 16384
   %96 = lshr i32 %94, 6
-  %97 = icmp ult i32 %93, 14234
+  %97 = icmp samesign ult i32 %93, 14234
   %98 = select i1 %97, i32 0, i32 255
   %99 = select i1 %95, i32 %96, i32 %98
   %100 = trunc i32 %99 to i8
@@ -145,7 +145,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %118 = add nsw i32 %117, -17685
   %119 = icmp ult i32 %118, 16384
   %120 = lshr i32 %118, 6
-  %121 = icmp ult i32 %117, 17685
+  %121 = icmp samesign ult i32 %117, 17685
   %122 = select i1 %121, i32 0, i32 255
   %123 = select i1 %119, i32 %120, i32 %122
   %124 = trunc i32 %123 to i8
@@ -529,7 +529,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %45 = add nsw i32 %44, -17685
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 17685
+  %48 = icmp samesign ult i32 %44, 17685
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -555,7 +555,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %69 = add nsw i32 %68, -14234
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 14234
+  %72 = icmp samesign ult i32 %68, 14234
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -585,7 +585,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %94 = add nsw i32 %93, -17685
   %95 = icmp ult i32 %94, 16384
   %96 = lshr i32 %94, 6
-  %97 = icmp ult i32 %93, 17685
+  %97 = icmp samesign ult i32 %93, 17685
   %98 = select i1 %97, i32 0, i32 255
   %99 = select i1 %95, i32 %96, i32 %98
   %100 = trunc i32 %99 to i8
@@ -611,7 +611,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %118 = add nsw i32 %117, -14234
   %119 = icmp ult i32 %118, 16384
   %120 = lshr i32 %118, 6
-  %121 = icmp ult i32 %117, 14234
+  %121 = icmp samesign ult i32 %117, 14234
   %122 = select i1 %121, i32 0, i32 255
   %123 = select i1 %119, i32 %120, i32 %122
   %124 = trunc i32 %123 to i8
@@ -995,7 +995,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -1021,7 +1021,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %69 = add nsw i32 %68, -17685
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 17685
+  %72 = icmp samesign ult i32 %68, 17685
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -1049,7 +1049,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %93 = add nsw i32 %92, -14234
   %94 = icmp ult i32 %93, 16384
   %95 = lshr i32 %93, 6
-  %96 = icmp ult i32 %92, 14234
+  %96 = icmp samesign ult i32 %92, 14234
   %97 = select i1 %96, i32 0, i32 255
   %98 = select i1 %94, i32 %95, i32 %97
   %99 = trunc i32 %98 to i8
@@ -1075,7 +1075,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %117 = add nsw i32 %116, -17685
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 17685
+  %120 = icmp samesign ult i32 %116, 17685
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -1457,7 +1457,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %45 = add nsw i32 %44, -17685
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 17685
+  %48 = icmp samesign ult i32 %44, 17685
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
@@ -1483,7 +1483,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %69 = add nsw i32 %68, -14234
   %70 = icmp ult i32 %69, 16384
   %71 = lshr i32 %69, 6
-  %72 = icmp ult i32 %68, 14234
+  %72 = icmp samesign ult i32 %68, 14234
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
@@ -1511,7 +1511,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %93 = add nsw i32 %92, -17685
   %94 = icmp ult i32 %93, 16384
   %95 = lshr i32 %93, 6
-  %96 = icmp ult i32 %92, 17685
+  %96 = icmp samesign ult i32 %92, 17685
   %97 = select i1 %96, i32 0, i32 255
   %98 = select i1 %94, i32 %95, i32 %97
   %99 = trunc i32 %98 to i8
@@ -1537,7 +1537,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
   %117 = add nsw i32 %116, -14234
   %118 = icmp ult i32 %117, 16384
   %119 = lshr i32 %117, 6
-  %120 = icmp ult i32 %116, 14234
+  %120 = icmp samesign ult i32 %116, 14234
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
@@ -1921,7 +1921,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %46 = add nsw i32 %45, -14234
   %47 = icmp ult i32 %46, 16384
   %48 = lshr i32 %46, 6
-  %49 = icmp ult i32 %45, 14234
+  %49 = icmp samesign ult i32 %45, 14234
   %50 = select i1 %49, i32 0, i32 255
   %51 = select i1 %47, i32 %48, i32 %50
   %52 = trunc i32 %51 to i8
@@ -1947,7 +1947,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %70 = add nsw i32 %69, -17685
   %71 = icmp ult i32 %70, 16384
   %72 = lshr i32 %70, 6
-  %73 = icmp ult i32 %69, 17685
+  %73 = icmp samesign ult i32 %69, 17685
   %74 = select i1 %73, i32 0, i32 255
   %75 = select i1 %71, i32 %72, i32 %74
   %76 = trunc i32 %75 to i8
@@ -1977,7 +1977,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %95 = add nsw i32 %94, -14234
   %96 = icmp ult i32 %95, 16384
   %97 = lshr i32 %95, 6
-  %98 = icmp ult i32 %94, 14234
+  %98 = icmp samesign ult i32 %94, 14234
   %99 = select i1 %98, i32 0, i32 255
   %100 = select i1 %96, i32 %97, i32 %99
   %101 = trunc i32 %100 to i8
@@ -2003,7 +2003,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
   %119 = add nsw i32 %118, -17685
   %120 = icmp ult i32 %119, 16384
   %121 = lshr i32 %119, 6
-  %122 = icmp ult i32 %118, 17685
+  %122 = icmp samesign ult i32 %118, 17685
   %123 = select i1 %122, i32 0, i32 255
   %124 = select i1 %120, i32 %121, i32 %123
   %125 = trunc i32 %124 to i8
@@ -2385,7 +2385,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 248
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = mul nuw nsw i32 %35, 6419
@@ -2406,7 +2406,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1
   %66 = add nsw i32 %65, -17685
   %67 = icmp ult i32 %66, 16384
   %68 = lshr i32 %66, 9
-  %69 = icmp ult i32 %65, 17685
+  %69 = icmp samesign ult i32 %65, 17685
   %70 = select i1 %69, i32 0, i32 31
   %71 = select i1 %67, i32 %68, i32 %70
   %72 = and i32 %50, 248
@@ -2442,7 +2442,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1
   %97 = add nsw i32 %96, -14234
   %98 = icmp ult i32 %97, 16384
   %99 = lshr i32 %97, 6
-  %100 = icmp ult i32 %96, 14234
+  %100 = icmp samesign ult i32 %96, 14234
   %101 = select i1 %100, i32 0, i32 248
   %102 = select i1 %98, i32 %99, i32 %101
   %103 = mul nuw nsw i32 %85, 6419
@@ -2463,7 +2463,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1
   %118 = add nsw i32 %117, -17685
   %119 = icmp ult i32 %118, 16384
   %120 = lshr i32 %118, 9
-  %121 = icmp ult i32 %117, 17685
+  %121 = icmp samesign ult i32 %117, 17685
   %122 = select i1 %121, i32 0, i32 31
   %123 = select i1 %119, i32 %120, i32 %122
   %124 = and i32 %102, 248
@@ -2853,7 +2853,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef 
   %45 = add nsw i32 %44, -14234
   %46 = icmp ult i32 %45, 16384
   %47 = lshr i32 %45, 6
-  %48 = icmp ult i32 %44, 14234
+  %48 = icmp samesign ult i32 %44, 14234
   %49 = select i1 %48, i32 0, i32 240
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = mul nuw nsw i32 %35, 6419
@@ -2874,7 +2874,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef 
   %66 = add nsw i32 %65, -17685
   %67 = icmp ult i32 %66, 16384
   %68 = lshr i32 %66, 6
-  %69 = icmp ult i32 %65, 17685
+  %69 = icmp samesign ult i32 %65, 17685
   %70 = select i1 %69, i32 0, i32 240
   %71 = select i1 %67, i32 %68, i32 %70
   %72 = and i32 %50, 240
@@ -2907,7 +2907,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef 
   %94 = add nsw i32 %93, -14234
   %95 = icmp ult i32 %94, 16384
   %96 = lshr i32 %94, 6
-  %97 = icmp ult i32 %93, 14234
+  %97 = icmp samesign ult i32 %93, 14234
   %98 = select i1 %97, i32 0, i32 240
   %99 = select i1 %95, i32 %96, i32 %98
   %100 = mul nuw nsw i32 %82, 6419
@@ -2928,7 +2928,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef 
   %115 = add nsw i32 %114, -17685
   %116 = icmp ult i32 %115, 16384
   %117 = lshr i32 %115, 6
-  %118 = icmp ult i32 %114, 17685
+  %118 = icmp samesign ult i32 %114, 17685
   %119 = select i1 %118, i32 0, i32 240
   %120 = select i1 %116, i32 %117, i32 %119
   %121 = and i32 %99, 240
@@ -3309,7 +3309,7 @@ define internal void @Yuv444ToRgba_SSE2(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgba32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3356,7 +3356,7 @@ define internal void @Yuv444ToBgra_SSE2(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToBgra32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3403,7 +3403,7 @@ define internal void @Yuv444ToRgb_SSE2(ptr noundef %0, ptr noundef %1, ptr nound
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgb32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3450,7 +3450,7 @@ define internal void @Yuv444ToBgr_SSE2(ptr noundef %0, ptr noundef %1, ptr nound
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToBgr32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3497,7 +3497,7 @@ define internal void @Yuv444ToArgb_SSE2(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToArgb32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3544,7 +3544,7 @@ define internal void @Yuv444ToRgba4444_SSE2(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgba444432_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3591,7 +3591,7 @@ define internal void @Yuv444ToRgb565_SSE2(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgb56532_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %14 = icmp ult i64 %indvars.iv.next, %8
+  %14 = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

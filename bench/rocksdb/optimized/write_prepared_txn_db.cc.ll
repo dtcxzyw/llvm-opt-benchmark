@@ -7292,7 +7292,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %14 = load ptr, ptr %vtable9, align 8
   %call11 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.138)
   %cmp12 = icmp ule i64 %call11, %13
-  %cmp14 = icmp ult i64 %retry.039, 100
+  %cmp14 = icmp samesign ult i64 %retry.039, 100
   %or.cond = select i1 %cmp12, i1 %cmp14, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 
@@ -7861,7 +7861,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont2
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont2 ], [ %div.i5, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

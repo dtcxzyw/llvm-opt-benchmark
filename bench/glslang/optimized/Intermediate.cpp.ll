@@ -15729,7 +15729,7 @@ define void @_ZN7glslang12TIntermUnary15updatePrecisionEv(ptr noundef nonnull al
   %37 = trunc i64 %36 to i32
   %38 = lshr i32 %37, 25
   %39 = and i32 %38, 7
-  %40 = icmp ugt i32 %30, %39
+  %40 = icmp samesign ugt i32 %30, %39
   br i1 %40, label %41, label %58
 
 41:                                               ; preds = %19

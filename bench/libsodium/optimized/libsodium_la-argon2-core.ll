@@ -140,7 +140,7 @@ for.body8:                                        ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %lanes, align 4
   %4 = zext i32 %3 to i64
-  %cmp6 = icmp ult i64 %indvars.iv.next, %4
+  %cmp6 = icmp samesign ult i64 %indvars.iv.next, %4
   br i1 %cmp6, label %for.body8, label %for.inc9, !llvm.loop !8
 
 for.inc9:                                         ; preds = %for.body8, %for.body

@@ -63,7 +63,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %32 = fmul float %6, %31
   store float %32, ptr %30, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 5
-  %33 = icmp ult i64 %indvars.iv.next51, %14
+  %33 = icmp samesign ult i64 %indvars.iv.next51, %14
   br i1 %33, label %.lr.ph45, label %.preheader.loopexit, !llvm.loop !4
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47

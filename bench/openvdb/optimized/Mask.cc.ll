@@ -61943,7 +61943,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 4088
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 4088
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !838
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -63379,7 +63379,7 @@ land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.prehe
 
 while.body.i.i:                                   ; preds = %land.rhs.i5.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 504
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 504
   br i1 %cmp9.i.i, label %land.rhs.i5.i, label %if.end.i, !llvm.loop !860
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -63724,7 +63724,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %w.0.add.i.i = add nuw nsw i64 %w.0.idx6.i.i, 8
-  %cmp9.i.i = icmp ult i64 %w.0.idx6.i.i, 56
+  %cmp9.i.i = icmp samesign ult i64 %w.0.idx6.i.i, 56
   br i1 %cmp9.i.i, label %land.rhs.i.i, label %if.end.i, !llvm.loop !871
 
 if.end.i:                                         ; preds = %while.body.i.i
@@ -64696,7 +64696,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %12 = load i8, ptr %tile.i.i.i15, align 1
   %frombool12 = and i8 %12, 1
   %13 = and i8 %11, 1
-  %cmp.i = icmp ult i8 %frombool12, %13
+  %cmp.i = icmp samesign ult i8 %frombool12, %13
   br i1 %cmp.i, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %for.body
@@ -64706,7 +64706,7 @@ if.then15:                                        ; preds = %for.body
 if.end19:                                         ; preds = %if.then15, %for.body
   %14 = phi i8 [ 0, %if.then15 ], [ %11, %for.body ]
   %15 = and i8 %10, 1
-  %cmp.i16 = icmp ugt i8 %frombool12, %15
+  %cmp.i16 = icmp samesign ugt i8 %frombool12, %15
   br i1 %cmp.i16, label %if.then22, label %for.inc
 
 if.then22:                                        ; preds = %if.end19
@@ -66931,7 +66931,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %18 = load i8, ptr %11, align 1
   %19 = and i8 %18, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %16, %19
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %16, %19
   br i1 %cmp.i.i.i.i.i, label %if.then12.i.i.i.i, label %if.end17.i.i.i.i
 
 if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
@@ -66945,7 +66945,7 @@ if.end17.i.i.i.i:                                 ; preds = %if.then12.i.i.i.i, 
   %21 = and i8 %20, 1
   %22 = load i8, ptr %max19.i.i.i.i, align 1
   %23 = and i8 %22, 1
-  %cmp.i7.i.i.i.i = icmp ugt i8 %21, %23
+  %cmp.i7.i.i.i.i = icmp samesign ugt i8 %21, %23
   br i1 %cmp.i7.i.i.i.i, label %if.then21.i.i.i.i, label %if.end27.i.i.i.i
 
 if.then21.i.i.i.i:                                ; preds = %if.end17.i.i.i.i
@@ -67141,7 +67141,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %frombool11 = and i8 %14, 1
   %15 = load i8, ptr %this, align 1
   %16 = and i8 %15, 1
-  %cmp.i = icmp ult i8 %frombool11, %16
+  %cmp.i = icmp samesign ult i8 %frombool11, %16
   br i1 %cmp.i, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %for.body
@@ -67151,7 +67151,7 @@ if.then14:                                        ; preds = %for.body
 if.end18:                                         ; preds = %if.then14, %for.body
   %17 = load i8, ptr %max19, align 1
   %18 = and i8 %17, 1
-  %cmp.i9 = icmp ugt i8 %frombool11, %18
+  %cmp.i9 = icmp samesign ugt i8 %frombool11, %18
   br i1 %cmp.i9, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %if.end18
@@ -69556,7 +69556,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %18 = load i8, ptr %11, align 1
   %19 = and i8 %18, 1
-  %cmp.i.i.i.i.i = icmp ult i8 %16, %19
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %16, %19
   br i1 %cmp.i.i.i.i.i, label %if.then12.i.i.i.i, label %if.end17.i.i.i.i
 
 if.then12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
@@ -69570,7 +69570,7 @@ if.end17.i.i.i.i:                                 ; preds = %if.then12.i.i.i.i, 
   %21 = and i8 %20, 1
   %22 = load i8, ptr %max19.i.i.i.i, align 1
   %23 = and i8 %22, 1
-  %cmp.i7.i.i.i.i = icmp ugt i8 %21, %23
+  %cmp.i7.i.i.i.i = icmp samesign ugt i8 %21, %23
   br i1 %cmp.i7.i.i.i.i, label %if.then21.i.i.i.i, label %if.end27.i.i.i.i
 
 if.then21.i.i.i.i:                                ; preds = %if.end17.i.i.i.i
@@ -69766,7 +69766,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %frombool11 = and i8 %14, 1
   %15 = load i8, ptr %this, align 1
   %16 = and i8 %15, 1
-  %cmp.i = icmp ult i8 %frombool11, %16
+  %cmp.i = icmp samesign ult i8 %frombool11, %16
   br i1 %cmp.i, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %for.body
@@ -69776,7 +69776,7 @@ if.then14:                                        ; preds = %for.body
 if.end18:                                         ; preds = %if.then14, %for.body
   %17 = load i8, ptr %max19, align 1
   %18 = and i8 %17, 1
-  %cmp.i9 = icmp ugt i8 %frombool11, %18
+  %cmp.i9 = icmp samesign ugt i8 %frombool11, %18
   br i1 %cmp.i9, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %if.end18
@@ -72104,7 +72104,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   %16 = load i8, ptr %9, align 1
   %17 = and i8 %16, 1
-  %cmp.i.i.i1.i = icmp ult i8 %14, %17
+  %cmp.i.i.i1.i = icmp samesign ult i8 %14, %17
   br i1 %cmp.i.i.i1.i, label %if.then12.i.i.i, label %if.end17.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -72118,7 +72118,7 @@ if.end17.i.i.i:                                   ; preds = %if.then12.i.i.i, %i
   %19 = and i8 %18, 1
   %20 = load i8, ptr %max19.i.i.i, align 1
   %21 = and i8 %20, 1
-  %cmp.i7.i.i.i = icmp ugt i8 %19, %21
+  %cmp.i7.i.i.i = icmp samesign ugt i8 %19, %21
   br i1 %cmp.i7.i.i.i, label %if.then21.i.i.i, label %if.end27.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end17.i.i.i
@@ -72303,7 +72303,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = and i8 %19, 1
   %21 = load i8, ptr %this, align 1
   %22 = and i8 %21, 1
-  %cmp.i = icmp ult i8 %20, %22
+  %cmp.i = icmp samesign ult i8 %20, %22
   br i1 %cmp.i, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %for.body
@@ -72313,7 +72313,7 @@ if.then14:                                        ; preds = %for.body
 if.end18:                                         ; preds = %if.then14, %for.body
   %23 = load i8, ptr %max19, align 1
   %24 = and i8 %23, 1
-  %cmp.i17 = icmp ugt i8 %20, %24
+  %cmp.i17 = icmp samesign ugt i8 %20, %24
   br i1 %cmp.i17, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %if.end18

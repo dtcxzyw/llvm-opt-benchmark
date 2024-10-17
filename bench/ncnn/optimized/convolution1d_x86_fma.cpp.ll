@@ -1041,7 +1041,7 @@ define hidden noundef i32 @_ZN4ncnn21Convolution1D_x86_fma15create_pipelineERKNS
 ._crit_edge1378.i:                                ; preds = %._crit_edge.us1379.i, %.preheader1242.i, %.preheader1239.lr.ph.i
   %indvars.iv.next1816.i = add nuw nsw i64 %indvars.iv1815.i, 8
   %503 = or disjoint i64 %indvars.iv.next1816.i, 7
-  %504 = icmp ult i64 %503, %229
+  %504 = icmp samesign ult i64 %503, %229
   %indvars.iv.next.i = add i32 %indvars.iv.i, %219
   %indvars.iv.next1757.i = add i32 %indvars.iv1756.i, %219
   %indvars.iv.next1760.i = add i32 %indvars.iv1759.i, %219

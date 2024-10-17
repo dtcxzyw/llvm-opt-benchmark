@@ -646,7 +646,7 @@ H5Z__xform_find_type.exit:                        ; preds = %101, %95, %89, %83,
   %335 = load ptr, ptr %306, align 8
   %336 = load i32, ptr %335, align 8
   %337 = zext i32 %336 to i64
-  %338 = icmp ult i64 %334, %337
+  %338 = icmp samesign ult i64 %334, %337
   br i1 %338, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %325, %305, %309
@@ -690,7 +690,7 @@ H5Z__xform_find_type.exit:                        ; preds = %101, %95, %89, %83,
   %363 = load ptr, ptr %306, align 8
   %364 = load i32, ptr %363, align 8
   %365 = zext i32 %364 to i64
-  %366 = icmp ult i64 %362, %365
+  %366 = icmp samesign ult i64 %362, %365
   br i1 %366, label %.lr.ph134, label %.thread
 
 367:                                              ; preds = %108, %321, %341
@@ -722,7 +722,7 @@ H5Z__xform_find_type.exit:                        ; preds = %101, %95, %89, %83,
   %382 = phi ptr [ %373, %.lr.ph136 ], [ %.pre142, %378 ]
   %383 = add nuw nsw i64 %.2135, 1
   %384 = zext i32 %381 to i64
-  %385 = icmp ult i64 %383, %384
+  %385 = icmp samesign ult i64 %383, %384
   br i1 %385, label %.lr.ph136, label %.thread
 
 .thread:                                          ; preds = %.lr.ph134, %380, %345, %349, %290, %302, %287, %273, %258, %244, %230, %216, %202, %187, %172, %157, %142, %127, %367

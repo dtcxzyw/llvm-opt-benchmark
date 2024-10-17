@@ -286,7 +286,7 @@ for.inc:                                          ; preds = %if.end11, %land.lhs
   %7 = phi i32 [ %1, %if.end11 ], [ %1, %land.lhs.true ], [ %.pre, %if.then15 ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %return
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end4, %if.end, %entry

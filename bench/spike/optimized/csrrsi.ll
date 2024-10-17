@@ -437,7 +437,7 @@ define noundef range(i64 3, 6) i64 @_Z17fast_rv32e_csrrsiP11processor_t6insn_tm(
 20:                                               ; preds = %18, %13
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = icmp ugt i64 %22, 15
+  %23 = icmp samesign ugt i64 %22, 15
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
@@ -518,7 +518,7 @@ define noundef range(i64 3, 6) i64 @_Z17fast_rv64e_csrrsiP11processor_t6insn_tm(
 18:                                               ; preds = %16, %11
   %19 = lshr i64 %1, 7
   %20 = and i64 %19, 31
-  %21 = icmp ugt i64 %20, 15
+  %21 = icmp samesign ugt i64 %20, 15
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18
@@ -646,7 +646,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %22, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %50 = icmp ugt i64 %25, 15
+  %50 = icmp samesign ugt i64 %25, 15
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -770,7 +770,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %15, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %46 = icmp ugt i64 %21, 15
+  %46 = icmp samesign ugt i64 %21, 15
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

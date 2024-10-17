@@ -550,7 +550,7 @@ while.body:                                       ; preds = %while.body.preheade
   %add = add nuw nsw i32 %fill.126, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp2 = icmp ult i32 %fill.126, 48
-  %cmp4 = icmp ult i64 %indvars.iv, 55
+  %cmp4 = icmp samesign ult i64 %indvars.iv, 55
   %3 = and i1 %cmp2, %cmp4
   br i1 %3, label %while.body, label %while.end.loopexit, !llvm.loop !10
 

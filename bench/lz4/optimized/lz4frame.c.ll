@@ -3800,7 +3800,7 @@ if.end57:                                         ; preds = %if.end37
   br i1 %cmp64.not, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.end57
-  %cmp69 = icmp ult i32 %and61, 4
+  %cmp69 = icmp samesign ult i32 %and61, 4
   br i1 %cmp69, label %return, label %if.end73
 
 if.end73:                                         ; preds = %if.end68

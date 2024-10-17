@@ -678,7 +678,7 @@ invoke.cont116:                                   ; preds = %invoke.cont113
   %mul = shl nuw nsw i32 %y.0310, 1
   %mul124 = mul i32 %mul, %x.0311
   %conv125 = zext i32 %mul124 to i64
-  %cmp126 = icmp ult i64 %conv2.i242, %conv125
+  %cmp126 = icmp samesign ult i64 %conv2.i242, %conv125
   br i1 %cmp126, label %if.then127, label %if.end132
 
 if.then127:                                       ; preds = %invoke.cont116

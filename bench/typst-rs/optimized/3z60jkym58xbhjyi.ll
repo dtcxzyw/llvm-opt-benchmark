@@ -4843,7 +4843,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
 
 .preheader:                                       ; preds = %126, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b1e91afbf47ba08E.exit"
   %.sroa.069.095 = phi i32 [ %130, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b1e91afbf47ba08E.exit" ], [ 0, %126 ]
-  %129 = icmp ugt i32 %.sroa.069.095, 31
+  %129 = icmp samesign ugt i32 %.sroa.069.095, 31
   %130 = add nuw nsw i32 %.sroa.069.095, 1
   %131 = uitofp nneg i32 %.sroa.069.095 to double
   %132 = fmul double %131, 3.125000e-02

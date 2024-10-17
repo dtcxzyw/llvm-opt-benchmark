@@ -211,7 +211,7 @@ if.end.split.us:                                  ; preds = %land.lhs.true15.us,
   %xor22.us = tail call i32 @llvm.fshl.i32(i32 %accum2.0.ph.us, i32 %accum1.0.ph.us, i32 7)
   %add.us = add i32 %xor.us, %conv10.le.us
   %inc.us = add nuw nsw i32 %n.0.ph.us, 1
-  %cmp23.us = icmp ult i32 %n.0.ph.us, 63
+  %cmp23.us = icmp samesign ult i32 %n.0.ph.us, 63
   %cmp26.us = icmp ne i8 %2, 10
   %or.cond2.us = and i1 %cmp23.us, %cmp26.us
   br i1 %or.cond2.us, label %while.cond.outer29.us, label %if.end29, !llvm.loop !8
@@ -240,7 +240,7 @@ while.body.us:                                    ; preds = %while.cond.outer29
   %xor22 = tail call i32 @llvm.fshl.i32(i32 %accum2.0.ph, i32 %accum1.0.ph, i32 7)
   %add = add i32 %xor, %conv10.le
   %inc = add nuw nsw i32 %n.0.ph, 1
-  %cmp23 = icmp ult i32 %n.0.ph, 63
+  %cmp23 = icmp samesign ult i32 %n.0.ph, 63
   %cmp26 = icmp ne i8 %4, 10
   %or.cond2 = select i1 %cmp23, i1 %cmp26, i1 false
   br i1 %or.cond2, label %while.cond.outer29, label %if.end29, !llvm.loop !8

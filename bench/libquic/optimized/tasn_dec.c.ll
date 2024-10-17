@@ -1890,7 +1890,7 @@ entry:
   br i1 %cmp39, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cmp16 = icmp ugt i32 %depth, 4
+  %cmp16 = icmp samesign ugt i32 %depth, 4
   %add = add nuw nsw i32 %depth, 1
   %data.i = getelementptr inbounds i8, ptr %buf, i64 8
   br label %while.body

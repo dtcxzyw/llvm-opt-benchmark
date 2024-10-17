@@ -5305,8 +5305,8 @@ entry:
   %sub = alloca ptr, align 8
   %0 = load ptr, ptr %pre, align 8
   %cmp = icmp eq ptr %0, null
-  %cmp1 = icmp ugt i32 %depth, 3
-  %or.cond = or i1 %cmp1, %cmp
+  %cmp1 = icmp samesign ugt i32 %depth, 3
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -5362,7 +5362,7 @@ invoke.cont19:                                    ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i16, ptr %nsub_.i, align 2
   %12 = zext i16 %11 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next, %12
+  %cmp13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !25
 
 _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit: ; preds = %for.body
@@ -5453,8 +5453,8 @@ entry:
   %sub = alloca ptr, align 8
   %0 = load ptr, ptr %pre, align 8
   %cmp = icmp eq ptr %0, null
-  %cmp1 = icmp ugt i32 %depth, 3
-  %or.cond = or i1 %cmp1, %cmp
+  %cmp1 = icmp samesign ugt i32 %depth, 3
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

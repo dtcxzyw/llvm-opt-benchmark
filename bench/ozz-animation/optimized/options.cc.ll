@@ -3945,7 +3945,7 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %18 = add nuw nsw i64 %storemerge26.i.i, 1
   %19 = lshr i64 %18, 1
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i, 2
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %7

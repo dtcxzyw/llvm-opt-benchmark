@@ -381,7 +381,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
 22:                                               ; preds = %17, %13
   %23 = phi i1 [ true, %13 ], [ false, %17 ]
   %24 = phi i64 [ 244834610708480, %13 ], [ 209933706461184, %17 ]
-  %25 = icmp ult i32 %3, 4
+  %25 = icmp samesign ult i32 %3, 4
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
@@ -439,7 +439,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   store ptr %43, ptr %46, align 8, !tbaa !32
   %47 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 0, ptr %47, align 8, !tbaa !33
-  %48 = icmp ult i32 %3, 8
+  %48 = icmp samesign ult i32 %3, 8
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %40

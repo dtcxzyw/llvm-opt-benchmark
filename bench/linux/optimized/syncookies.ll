@@ -227,7 +227,7 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture nounde
   %34 = lshr i32 %33, 24
   %35 = sub i32 %20, %34
   %36 = and i32 %35, 255
-  %37 = icmp ugt i32 %36, 1
+  %37 = icmp samesign ugt i32 %36, 1
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %29
@@ -266,7 +266,7 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture nounde
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %51 = sub i32 %33, %50
   %52 = and i32 %51, 16777215
-  %53 = icmp ult i32 %52, 4
+  %53 = icmp samesign ult i32 %52, 4
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %48

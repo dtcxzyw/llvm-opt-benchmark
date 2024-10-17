@@ -123,7 +123,7 @@ define dso_local void @sysrq_timer_list_show() local_unnamed_addr #0 align 16 {
   tail call fastcc void @print_cpu(ptr noundef null, i32 noundef %10, i64 noundef %1)
   %13 = add nuw nsw i64 %9, 1
   %14 = and i64 %13, 127
-  %15 = icmp ugt i64 %14, 63
+  %15 = icmp samesign ugt i64 %14, 63
   br i1 %15, label %.thread, label %2, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %2, %12, %8
@@ -163,7 +163,7 @@ define dso_local void @sysrq_timer_list_show() local_unnamed_addr #0 align 16 {
   tail call fastcc void @print_tickdevice(ptr noundef null, ptr %.val7, i32 %.val8, i32 noundef %30)
   %35 = add nuw nsw i64 %29, 1
   %36 = and i64 %35, 127
-  %37 = icmp ugt i64 %36, 63
+  %37 = icmp samesign ugt i64 %36, 63
   br i1 %37, label %.thread10, label %22, !prof !6, !llvm.loop !10
 
 .thread10:                                        ; preds = %22, %32, %28

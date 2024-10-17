@@ -66,7 +66,7 @@ avifBitsRead.exit.i:                              ; preds = %.preheader483.prehe
   %22 = or i64 %21, %.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %23 = icmp slt i64 %.1.i.i.i, 0
-  %24 = icmp ult i64 %indvars.iv.i, 49
+  %24 = icmp samesign ult i64 %indvars.iv.i, 49
   %25 = select i1 %23, i1 %24, i1 false
   br i1 %25, label %.preheader483.preheader, label %26, !llvm.loop !4
 
@@ -187,7 +187,7 @@ avifBitsRead.exit200.i.i.thread:                  ; preds = %avifBitsRead.exit11
   %.sroa.69.157 = select i1 %.not15.i.i121.i.i, i32 %.sroa.69.156, i32 1
   %.sroa.0.158 = select i1 %.not15.i.i121.i.i, i32 %.sroa.0.157, i32 %69
   %73 = select i1 %.not15.i.i121.i.i, i32 %69, i32 1
-  %74 = icmp ult i32 %70, 24
+  %74 = icmp samesign ult i32 %70, 24
   br i1 %74, label %.thread.i.i, label %.preheader482.preheader, !llvm.loop !6
 
 .preheader482.preheader:                          ; preds = %.thread.i.i
@@ -499,7 +499,7 @@ avifBitsRead.exit167.i._crit_edge.i:              ; preds = %avifBitsRead.exit16
   %.sroa.69.145 = select i1 %.not15.i.i176.i.i, i32 %.sroa.69.144, i32 1
   %.sroa.0.146 = select i1 %.not15.i.i176.i.i, i32 %.sroa.0.145, i32 %196
   %207 = select i1 %.not15.i.i176.i.i, i32 %196, i32 1
-  %208 = icmp ult i32 %197, 24
+  %208 = icmp samesign ult i32 %197, 24
   br i1 %208, label %194, label %avifBitsRefill.exit.i177.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i177.i.i:                     ; preds = %205

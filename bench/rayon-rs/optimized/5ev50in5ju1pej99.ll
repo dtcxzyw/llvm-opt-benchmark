@@ -150,7 +150,7 @@ define hidden void @"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$all
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %switch.i.i = icmp ult i64 %3, 2
+  %switch.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E.llvm.14976363794789945401.exit", label %12
 
 12:                                               ; preds = %11
@@ -961,7 +961,7 @@ _ZN10rayon_core8registry19set_global_registry17h8c93fbc64a3f9233E.exit: ; preds 
   br i1 %.not.i15, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf293763e98a4f866E.llvm.14976363794789945401.exit"
 
 19:                                               ; preds = %16
-  %switch.i.i.i = icmp ult i64 %.sroa.02.0.copyload.pre, 2
+  %switch.i.i.i = icmp samesign ult i64 %.sroa.02.0.copyload.pre, 2
   br i1 %switch.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf293763e98a4f866E.llvm.14976363794789945401.exit", label %20
 
 20:                                               ; preds = %19
@@ -1032,7 +1032,7 @@ define hidden void @"_ZN10rayon_core8registry15global_registry28_$u7b$$u7b$closu
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, ptr %9, align 8
   store i64 3, ptr %0, align 8
-  %switch.i.i = icmp ult i64 %1, 2
+  %switch.i.i = icmp samesign ult i64 %1, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr53drop_in_place$LT$rayon_core..ThreadPoolBuildError$GT$17hbb2d3a620775973bE.exit", label %10
 
 10:                                               ; preds = %8
@@ -1183,7 +1183,7 @@ _ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE.exit: ; preds = %37
 51:                                               ; preds = %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  %switch.i.i.i = icmp ult i64 %44, 2
+  %switch.i.i.i = icmp samesign ult i64 %44, 2
   br i1 %switch.i.i.i, label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit", label %52
 
 52:                                               ; preds = %51
@@ -1210,7 +1210,7 @@ _ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE.exit: ; preds = %37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %switch.i.i.i4 = icmp ult i64 %41, 2
+  %switch.i.i.i4 = icmp samesign ult i64 %41, 2
   br i1 %switch.i.i.i4, label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit10", label %58
 
 58:                                               ; preds = %57

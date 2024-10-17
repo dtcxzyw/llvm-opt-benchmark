@@ -464,7 +464,7 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %while.cond.preheader.i, label %if.else.i
 
 while.cond.preheader.i:                           ; preds = %if.end.i
-  %cmp541.i = icmp ult i32 %and.i, %and2.i
+  %cmp541.i = icmp samesign ult i32 %and.i, %and2.i
   br i1 %cmp541.i, label %while.body.preheader.i, label %_ZN6icu_75L12set32x64BitsEPjii.exit
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
@@ -580,7 +580,7 @@ while.end:                                        ; preds = %if.end54, %if.then3
   %limit.2.lcssa = phi i32 [ %limit.1115, %if.then32 ], [ %limit.3, %if.end54 ]
   %listIndex.4.lcssa = phi i32 [ %listIndex.3116, %if.then32 ], [ %listIndex.5, %if.end54 ]
   %start.2 = phi i32 [ %spec.store.select, %if.then32 ], [ %27, %if.end54 ]
-  %cmp56128 = icmp ult i32 %start.2, 65536
+  %cmp56128 = icmp samesign ult i32 %start.2, 65536
   br i1 %cmp56128, label %while.body57.lr.ph, label %while.end115
 
 while.body57.lr.ph:                               ; preds = %_ZN6icu_75L12set32x64BitsEPjii.exit, %while.end
@@ -655,7 +655,7 @@ if.end.i54:                                       ; preds = %if.then77
   br i1 %cmp3.i57, label %while.cond.preheader.i97, label %if.else.i58
 
 while.cond.preheader.i97:                         ; preds = %if.end.i54
-  %cmp541.i98 = icmp ult i32 %and.i50, %and2.i56
+  %cmp541.i98 = icmp samesign ult i32 %and.i50, %and2.i56
   br i1 %cmp541.i98, label %while.body.preheader.i99, label %if.end82
 
 while.body.preheader.i99:                         ; preds = %while.cond.preheader.i97
@@ -945,7 +945,7 @@ if.then12:                                        ; preds = %if.else8
   %5 = load i32, ptr %arrayidx17, align 4
   %shr18 = lshr i32 %5, %shr13
   %and19 = and i32 %shr18, 65537
-  %cmp20 = icmp ult i32 %and19, 2
+  %cmp20 = icmp samesign ult i32 %and19, 2
   br i1 %cmp20, label %if.then21, label %if.else23
 
 if.then21:                                        ; preds = %if.then12
@@ -1151,7 +1151,7 @@ if.then21:                                        ; preds = %if.else16
   %13 = load i32, ptr %arrayidx28, align 4
   %shr29 = lshr i32 %13, %shr23
   %and30 = and i32 %shr29, 65537
-  %cmp31 = icmp ult i32 %and30, 2
+  %cmp31 = icmp samesign ult i32 %and30, 2
   br i1 %cmp31, label %if.then32, label %if.else36
 
 if.then32:                                        ; preds = %if.then21
@@ -1346,7 +1346,7 @@ if.then121:                                       ; preds = %if.else115
   %32 = load i32, ptr %arrayidx131, align 4
   %shr132 = lshr i32 %32, %shr124
   %and133 = and i32 %shr132, 65537
-  %cmp134 = icmp ult i32 %and133, 2
+  %cmp134 = icmp samesign ult i32 %and133, 2
   br i1 %cmp134, label %if.then135, label %if.else139
 
 if.then135:                                       ; preds = %if.then121
@@ -1586,7 +1586,7 @@ if.then21:                                        ; preds = %if.else16
   %13 = load i32, ptr %arrayidx28, align 4
   %shr29 = lshr i32 %13, %shr23
   %and30 = and i32 %shr29, 65537
-  %cmp31 = icmp ult i32 %and30, 2
+  %cmp31 = icmp samesign ult i32 %and30, 2
   br i1 %cmp31, label %if.then32, label %if.else36
 
 if.then32:                                        ; preds = %if.then21
@@ -1779,7 +1779,7 @@ if.then123:                                       ; preds = %if.else117
   %32 = load i32, ptr %arrayidx133, align 4
   %shr134 = lshr i32 %32, %shr126
   %and135 = and i32 %shr134, 65537
-  %cmp136 = icmp ult i32 %and135, 2
+  %cmp136 = icmp samesign ult i32 %and135, 2
   br i1 %cmp136, label %if.then137, label %if.else141
 
 if.then137:                                       ; preds = %if.then123
@@ -2122,11 +2122,11 @@ if.end120:                                        ; preds = %if.end113, %if.end9
   %s.addr.7 = phi ptr [ %s.addr.6111, %while.body ], [ %incdec.ptr91, %if.end95 ], [ %incdec.ptr109, %if.end113 ]
   %incdec.ptr121 = getelementptr inbounds i8, ptr %s.addr.7, i64 1
   %conv122 = zext i8 %b.3 to i32
-  %cmp123 = icmp ugt i8 %b.3, -33
+  %cmp123 = icmp samesign ugt i8 %b.3, -33
   br i1 %cmp123, label %if.then124, label %if.else225
 
 if.then124:                                       ; preds = %if.end120
-  %cmp126 = icmp ult i8 %b.3, -16
+  %cmp126 = icmp samesign ult i8 %b.3, -16
   %16 = load i8, ptr %incdec.ptr121, align 1
   %sub = xor i8 %16, -128
   %conv131 = zext i8 %sub to i32
@@ -2152,7 +2152,7 @@ if.then140:                                       ; preds = %land.lhs.true133
   %conv146 = zext nneg i8 %and142 to i32
   %shr = lshr i32 %18, %conv146
   %and147 = and i32 %shr, 65537
-  %cmp148 = icmp ult i32 %and147, 2
+  %cmp148 = icmp samesign ult i32 %and147, 2
   br i1 %cmp148, label %if.then149, label %if.else154
 
 if.then149:                                       ; preds = %if.then140
@@ -2278,7 +2278,7 @@ if.end221:                                        ; preds = %cond.end
   br label %while.cond.backedge
 
 if.else225:                                       ; preds = %if.end120
-  %cmp227 = icmp ugt i8 %b.3, -65
+  %cmp227 = icmp samesign ugt i8 %b.3, -65
   br i1 %cmp227, label %land.lhs.true228, label %if.end249
 
 land.lhs.true228:                                 ; preds = %if.else225
@@ -2436,7 +2436,7 @@ if.then58:                                        ; preds = %if.else56
   %18 = load i32, ptr %arrayidx63, align 4
   %shr64 = lshr i32 %18, %shr59
   %and65 = and i32 %shr64, 65537
-  %cmp66 = icmp ult i32 %and65, 2
+  %cmp66 = icmp samesign ult i32 %and65, 2
   br i1 %cmp66, label %if.then67, label %if.else72
 
 if.then67:                                        ; preds = %if.then58

@@ -333,7 +333,7 @@ define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr n
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %indvars.iv.next, %12
+  %13 = icmp samesign ult i64 %indvars.iv.next, %12
   br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %8
@@ -416,7 +416,7 @@ define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %5, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %indvars.iv.next, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %18, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %7, %4
@@ -498,7 +498,7 @@ define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_a
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %indvars.iv.next, %19
+  %20 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %1
@@ -574,7 +574,7 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   %29 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %.lr.ph, %.preheader
@@ -585,7 +585,7 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %35 = load i32, ptr %12, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next42, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next42, %36
   br i1 %37, label %.preheader, label %._crit_edge30, !llvm.loop !12
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %7
@@ -598,7 +598,7 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next45, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next45, %43
   br i1 %44, label %7, label %._crit_edge34, !llvm.loop !13
 
 ._crit_edge34:                                    ; preds = %._crit_edge30, %1

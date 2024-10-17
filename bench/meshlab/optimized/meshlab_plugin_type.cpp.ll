@@ -562,7 +562,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType20isMultipleTypePluginEv(ptr n
 
 4:                                                ; preds = %1
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
-  %6 = icmp ugt i32 %5, 1
+  %6 = icmp samesign ugt i32 %5, 1
   br label %7
 
 7:                                                ; preds = %1, %4

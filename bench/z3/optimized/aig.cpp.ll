@@ -2362,7 +2362,7 @@ _ZNK6vectorIP3aigLb0EjE4sizeEv.exit.thread:       ; preds = %_ZNK6vectorIP3aigLb
   %arrayidx.i23 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i23, align 4
   %14 = zext i32 %13 to i64
-  %cmp125 = icmp ult i64 %indvars.iv, %14
+  %cmp125 = icmp samesign ult i64 %indvars.iv, %14
   br i1 %cmp125, label %while.body, label %_ZNK6vectorIP3aigLb0EjE4sizeEv.exit120
 
 while.body:                                       ; preds = %_ZNK6vectorIP3aigLb0EjE4sizeEv.exit.thread
@@ -13587,7 +13587,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !60
 

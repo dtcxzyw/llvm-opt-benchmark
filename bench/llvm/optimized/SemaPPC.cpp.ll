@@ -3098,7 +3098,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8C
   store i64 %20, ptr %7, align 8
   %21 = load i32, ptr %18, align 8
   %22 = zext i32 %21 to i64
-  %.not24 = icmp ult i64 %indvars.iv, %22
+  %.not24 = icmp samesign ult i64 %indvars.iv, %22
   br i1 %.not24, label %23, label %.loopexit
 
 23:                                               ; preds = %19

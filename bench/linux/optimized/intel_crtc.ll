@@ -627,7 +627,7 @@ define dso_local i32 @intel_crtc_init(ptr noundef %0, i32 noundef %1) local_unna
   %67 = add nuw nsw i32 %71, 1
   %68 = load i8, ptr %56, align 1
   %69 = zext i8 %68 to i32
-  %70 = icmp ult i32 %67, %69
+  %70 = icmp samesign ult i32 %67, %69
   br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !30
 
 .preheader:                                       ; preds = %46, %59

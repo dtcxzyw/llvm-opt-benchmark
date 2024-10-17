@@ -2275,7 +2275,7 @@ lor.lhs.false38:                                  ; preds = %invoke.cont34
 land.lhs.true:                                    ; preds = %lor.lhs.false38
   %11 = add nuw nsw i64 %indvars.iv285, 1
   %12 = zext i32 %7 to i64
-  %cmp42 = icmp ult i64 %11, %12
+  %cmp42 = icmp samesign ult i64 %11, %12
   br i1 %cmp42, label %invoke.cont45, label %if.else84
 
 invoke.cont45:                                    ; preds = %land.lhs.true
@@ -2551,7 +2551,7 @@ lpad31:                                           ; preds = %lpad31.loopexit.spl
 while.body:                                       ; preds = %invoke.cont54, %if.end73
   %ch.0278 = phi i32 [ %div35, %if.end73 ], [ %9, %invoke.cont54 ]
   %and = and i32 %ch.0278, 15
-  %cmp62 = icmp ult i32 %and, 10
+  %cmp62 = icmp samesign ult i32 %and, 10
   %41 = trunc nuw nsw i32 %and to i8
   %42 = load ptr, ptr %buff, align 8
   %cmp.i120 = icmp eq ptr %42, null
@@ -2830,7 +2830,7 @@ for.inc:                                          ; preds = %_ZN6bufferIcLb0ELj1
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %69 = load i32, ptr %m_pos.i.i, align 8
   %70 = zext i32 %69 to i64
-  %cmp = icmp ult i64 %indvars.iv.next286, %70
+  %cmp = icmp samesign ult i64 %indvars.iv.next286, %70
   br i1 %cmp, label %invoke.cont34, label %for.end89, !llvm.loop !10
 
 for.end89:                                        ; preds = %for.inc

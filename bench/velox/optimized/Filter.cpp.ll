@@ -10802,7 +10802,7 @@ if.end20.i:                                       ; preds = %while.end.i99
   %inc.i101 = add nuw nsw i64 %tries.i80.0131, 1
   %31 = load i32, ptr %chunkMask_.i86, align 8
   %conv.i87 = zext i32 %31 to i64
-  %cmp.i88.not.not = icmp ult i64 %tries.i80.0131, %conv.i87
+  %cmp.i88.not.not = icmp samesign ult i64 %tries.i80.0131, %conv.i87
   br i1 %cmp.i88.not.not, label %for.body.i90, label %return, !llvm.loop !120
 
 for.inc:                                          ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -15627,7 +15627,7 @@ if.end20.i:                                       ; preds = %while.end.i74
   %inc.i76 = add nuw nsw i64 %tries.i54.083, 1
   %22 = load i32, ptr %chunkMask_.i61, align 8
   %conv.i62 = zext i32 %22 to i64
-  %cmp.i63.not.not = icmp ult i64 %tries.i54.083, %conv.i62
+  %cmp.i63.not.not = icmp samesign ult i64 %tries.i54.083, %conv.i62
   br i1 %cmp.i63.not.not, label %call6.i71.noexc, label %cleanup.action, !llvm.loop !120
 
 cleanup.action:                                   ; preds = %if.end20.i, %while.end.i74, %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -25557,7 +25557,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.0450, 1
   %22 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %22 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.0450, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.0450, %conv.i
   br i1 %cmp.i.not.not, label %call6.i.noexc, label %for.inc, !llvm.loop !120
 
 if.then37:                                        ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -33135,7 +33135,7 @@ if.end.i.i.i.i.i.i.i6.i:                          ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i3.i
   %add.i.i.i.i.i.i.i8.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.i6.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i
@@ -33270,7 +33270,7 @@ if.end.i.i.i.i.i.i6:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i3
   %add.i.i.i.i.i.i8 = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
+  %cmp.i16.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -33690,7 +33690,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i.i.i, i64 1)
-  %cmp.i16.i.i.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
+  %cmp.i16.i.i.i.i.i.i = icmp samesign ugt i64 %i.i.i.015.i.i.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i
@@ -35848,7 +35848,7 @@ try.cont:                                         ; preds = %entry
   store ptr null, ptr %u_.i1.i.i.i.i, align 8
   %conv2.i.i = and i64 %pos.coerce1, 255
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %5 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i.i = or i64 %shr.i.i.i, %5
@@ -36032,7 +36032,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i41 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i41 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i41)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
@@ -36848,7 +36848,7 @@ if.else11.i:                                      ; preds = %if.end
   %shr.i.i = lshr i64 %sub.i.i, 12
   %add.i7.i = add nuw nsw i64 %shr.i.i, 1
   %mul.i.i = mul nuw nsw i64 %add.i7.i, %conv26.i
-  %cmp32.i = icmp ugt i64 %mul.i.i, 4294967295
+  %cmp32.i = icmp samesign ugt i64 %mul.i.i, 4294967295
   br i1 %cmp32.i, label %if.then33.i, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE25computeChunkCountAndScaleEmbb.exit
 
 if.then33.i:                                      ; preds = %if.else11.i
@@ -36867,8 +36867,8 @@ _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_st
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %v.0.copyload.i = load i16, ptr %arrayidx.i.i.i, align 1
   %conv.i8 = zext i16 %v.0.copyload.i to i64
-  %cmp11 = icmp ule i64 %.pn.i, %conv4
-  %cmp13 = icmp ult i64 %desiredCapacity.addr.0.pn.i, %conv.i8
+  %cmp11 = icmp samesign ule i64 %.pn.i, %conv4
+  %cmp13 = icmp samesign ult i64 %desiredCapacity.addr.0.pn.i, %conv.i8
   %or.cond = select i1 %cmp11, i1 true, i1 %cmp13
   %spec.select = select i1 %or.cond, i64 %.pn.i, i64 %add
   %spec.select12 = select i1 %or.cond, i64 %desiredCapacity.addr.0.pn.i, i64 %conv.i8
@@ -38413,7 +38413,7 @@ invoke.cont22:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i43 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i, i64 0, i64 %sub21
   %conv2.i = and i64 %sub21, 255
   %shr.i.i = lshr i64 %conv2.i, 2
-  %cmp.i.i45 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i45 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i45)
   %5 = ptrtoint ptr %arrayidx.i.i.i.i.i43 to i64
   %or.i.i = or i64 %shr.i.i, %5
@@ -39686,7 +39686,7 @@ _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE25computeChunk
   %5 = and i8 %4, 15
   %conv2.i = zext nneg i8 %5 to i64
   %cmp10 = icmp ugt i64 %add, %.pn.i
-  %cmp12 = icmp ult i64 %desiredCapacity.addr.0.pn.i, %conv2.i
+  %cmp12 = icmp samesign ult i64 %desiredCapacity.addr.0.pn.i, %conv2.i
   %or.cond = select i1 %cmp10, i1 true, i1 %cmp12
   %spec.select = select i1 %or.cond, i64 %.pn.i, i64 %add
   %spec.select10 = select i1 %or.cond, i64 %desiredCapacity.addr.0.pn.i, i64 %conv2.i
@@ -39881,7 +39881,7 @@ invoke.cont27:                                    ; preds = %if.end
   %sub26 = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 16>::type"], ptr %rawItems_.i, i64 0, i64 %sub26
   %conv2.i = and i64 %sub26, 255
-  %cmp.i.i40 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i40)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %conv2.i, %6
@@ -41287,7 +41287,7 @@ try.cont:                                         ; preds = %call5.i.i.i.noexc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i, i8 0, i64 32, i1 false)
   %conv2.i.i = and i64 %pos.coerce1, 255
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %7 = ptrtoint ptr %pos.coerce0 to i64
   %or.i.i.i = or i64 %shr.i.i.i, %7
@@ -41469,7 +41469,7 @@ invoke.cont25:                                    ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub24
   %conv2.i = and i64 %sub24, 255
   %shr.i.i = lshr i64 %conv2.i, 1
-  %cmp.i.i41 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i41 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i41)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
@@ -46539,7 +46539,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add nuw nsw i64 %tries.i.058, 1
   %12 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %12 to i64
-  %cmp.i.not.not = icmp ult i64 %tries.i.058, %conv.i
+  %cmp.i.not.not = icmp samesign ult i64 %tries.i.058, %conv.i
   br i1 %cmp.i.not.not, label %for.body.i, label %if.end5, !llvm.loop !120
 
 if.then4:                                         ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
@@ -47722,7 +47722,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.i.i.not.i.i, label %_ZSt8distanceIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit, label %while.body.i.i, !llvm.loop !1018
 
 _ZSt8distanceIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit: ; preds = %while.body.i.i
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 288230376151711742
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 288230376151711742
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 if.then.i:                                        ; preds = %_ZSt8distanceIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit

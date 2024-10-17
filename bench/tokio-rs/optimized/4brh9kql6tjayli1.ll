@@ -9515,7 +9515,7 @@ _ZN5tokio7runtime4time6source10TimeSource3now17h2bfa2eb19e8777c7E.exit: ; preds 
   %18 = udiv i32 %.sroa.5.0.i.i, 1000000
   %19 = zext nneg i32 %18 to i128
   %20 = add nuw nsw i128 %17, %19
-  %21 = icmp ult i128 %20, 18446744073709551616
+  %21 = icmp samesign ult i128 %20, 18446744073709551616
   %22 = trunc nuw i128 %20 to i64
   %spec.select.i.i = select i1 %21, i64 %22, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1632

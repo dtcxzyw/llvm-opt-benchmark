@@ -489,7 +489,7 @@ define internal i32 @dissect_icq(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 76:                                               ; preds = %67, %56
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 4
-  %77 = icmp ult i64 %indvars.iv.next.i.i.i, %46
+  %77 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %46
   br i1 %77, label %.lr.ph.i.i.i, label %decrypt_v5.exit.i.i, !llvm.loop !4
 
 decrypt_v5.exit.i.i:                              ; preds = %76, %20

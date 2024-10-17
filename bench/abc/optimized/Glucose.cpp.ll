@@ -1604,7 +1604,7 @@ define noundef i32 @_ZN5Gluco6Solver6newVarEbb(ptr noundef nonnull align 8 deref
   %26 = call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = add nuw nsw i32 %26, 2
   %28 = sub nsw i32 2147483647, %19
-  %29 = icmp ugt i32 %27, %28
+  %29 = icmp samesign ugt i32 %27, %28
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %23
@@ -1658,7 +1658,7 @@ _ZN5Gluco3vecINS_5lboolEE4pushERKS1_.exit:        ; preds = %._ZN5Gluco3vecINS_5
   %55 = call i32 @llvm.smax.i32(i32 %54, i32 0)
   %56 = add nuw nsw i32 %55, 2
   %57 = sub nsw i32 2147483647, %48
-  %58 = icmp ugt i32 %56, %57
+  %58 = icmp samesign ugt i32 %56, %57
   br i1 %58, label %70, label %59
 
 59:                                               ; preds = %52
@@ -1736,7 +1736,7 @@ _ZN5Gluco3vecINS_6Solver7VarDataEE4pushERKS2_.exit: ; preds = %._ZN5Gluco3vecINS
   %103 = call i32 @llvm.smax.i32(i32 %102, i32 0)
   %104 = add nuw nsw i32 %103, 2
   %105 = sub nsw i32 2147483647, %96
-  %106 = icmp ugt i32 %104, %105
+  %106 = icmp samesign ugt i32 %104, %105
   br i1 %106, label %118, label %107
 
 107:                                              ; preds = %100
@@ -1792,7 +1792,7 @@ _ZN5Gluco3vecIdE4pushERKd.exit:                   ; preds = %._ZN5Gluco3vecIdE4p
   %134 = call i32 @llvm.smax.i32(i32 %133, i32 0)
   %135 = add nuw nsw i32 %134, 2
   %136 = sub nsw i32 2147483647, %127
-  %137 = icmp ugt i32 %135, %136
+  %137 = icmp samesign ugt i32 %135, %136
   br i1 %137, label %148, label %138
 
 138:                                              ; preds = %131
@@ -1847,7 +1847,7 @@ _ZN5Gluco3vecIcE4pushERKc.exit:                   ; preds = %._ZN5Gluco3vecIcE4p
   %164 = call i32 @llvm.smax.i32(i32 %163, i32 0)
   %165 = add nuw nsw i32 %164, 2
   %166 = sub nsw i32 2147483647, %157
-  %167 = icmp ugt i32 %165, %166
+  %167 = icmp samesign ugt i32 %165, %166
   br i1 %167, label %179, label %168
 
 168:                                              ; preds = %161
@@ -1903,7 +1903,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   %195 = call i32 @llvm.smax.i32(i32 %194, i32 0)
   %196 = add nuw nsw i32 %195, 2
   %197 = sub nsw i32 2147483647, %188
-  %198 = icmp ugt i32 %196, %197
+  %198 = icmp samesign ugt i32 %196, %197
   br i1 %198, label %209, label %199
 
 199:                                              ; preds = %192
@@ -1958,7 +1958,7 @@ _ZN5Gluco3vecIcE4pushERKc.exit21:                 ; preds = %._ZN5Gluco3vecIcE4p
   %225 = call i32 @llvm.smax.i32(i32 %224, i32 0)
   %226 = add nuw nsw i32 %225, 2
   %227 = sub nsw i32 2147483647, %218
-  %228 = icmp ugt i32 %226, %227
+  %228 = icmp samesign ugt i32 %226, %227
   br i1 %228, label %239, label %229
 
 229:                                              ; preds = %222
@@ -2132,7 +2132,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2
   %23 = and i32 %22, 1073741822
   %24 = add nuw nsw i32 %23, 2
   %25 = xor i32 %21, 2147483647
-  %26 = icmp ugt i32 %24, %25
+  %26 = icmp samesign ugt i32 %24, %25
   br i1 %26, label %.loopexit113, label %27
 
 27:                                               ; preds = %20
@@ -2414,7 +2414,7 @@ _ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.loopexit, %._crit_
   %167 = tail call i32 @llvm.smax.i32(i32 %166, i32 0)
   %168 = add nuw nsw i32 %167, 2
   %169 = sub nsw i32 2147483647, %160
-  %170 = icmp ugt i32 %168, %169
+  %170 = icmp samesign ugt i32 %168, %169
   br i1 %170, label %182, label %171
 
 171:                                              ; preds = %164
@@ -3020,7 +3020,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   %263 = tail call i32 @llvm.smax.i32(i32 %262, i32 0)
   %264 = add nuw nsw i32 %263, 2
   %265 = sub nsw i32 2147483647, %256
-  %266 = icmp ugt i32 %264, %265
+  %266 = icmp samesign ugt i32 %264, %265
   br i1 %266, label %.loopexit214, label %267
 
 267:                                              ; preds = %260
@@ -3109,7 +3109,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit: ; preds = %._ZN5Gluco3vecINS
   %309 = tail call i32 @llvm.smax.i32(i32 %308, i32 0)
   %310 = add nuw nsw i32 %309, 2
   %311 = sub nsw i32 2147483647, %302
-  %312 = icmp ugt i32 %310, %311
+  %312 = icmp samesign ugt i32 %310, %311
   br i1 %312, label %.loopexit215, label %313
 
 313:                                              ; preds = %306
@@ -3414,7 +3414,7 @@ define void @_ZN5Gluco6Solver12attachClauseEj(ptr nocapture noundef nonnull alig
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %28 = add nuw nsw i32 %27, 2
   %29 = sub nsw i32 2147483647, %20
-  %30 = icmp ugt i32 %28, %29
+  %30 = icmp samesign ugt i32 %28, %29
   br i1 %30, label %42, label %31
 
 31:                                               ; preds = %24
@@ -3478,7 +3478,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit: ; preds = %._ZN5Gluco3vecINS
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 0)
   %62 = add nuw nsw i32 %61, 2
   %63 = sub nsw i32 2147483647, %54
-  %64 = icmp ugt i32 %62, %63
+  %64 = icmp samesign ugt i32 %62, %63
   br i1 %64, label %76, label %65
 
 65:                                               ; preds = %58
@@ -3536,7 +3536,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit31: ; preds = %._ZN5Gluco3vecI
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
   %94 = add nuw nsw i32 %93, 2
   %95 = sub nsw i32 2147483647, %86
-  %96 = icmp ugt i32 %94, %95
+  %96 = icmp samesign ugt i32 %94, %95
   br i1 %96, label %108, label %97
 
 97:                                               ; preds = %90
@@ -3600,7 +3600,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit37: ; preds = %._ZN5Gluco3vecI
   %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
   %128 = add nuw nsw i32 %127, 2
   %129 = sub nsw i32 2147483647, %120
-  %130 = icmp ugt i32 %128, %129
+  %130 = icmp samesign ugt i32 %128, %129
   br i1 %130, label %142, label %131
 
 131:                                              ; preds = %124
@@ -3837,7 +3837,7 @@ _ZN5GlucoL6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57: ; preds = 
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
   %87 = add nuw nsw i32 %86, 2
   %88 = sub nsw i32 2147483647, %79
-  %89 = icmp ugt i32 %87, %88
+  %89 = icmp samesign ugt i32 %87, %88
   br i1 %89, label %101, label %90
 
 90:                                               ; preds = %83
@@ -3909,7 +3909,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6s
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = add nuw nsw i32 %125, 2
   %127 = sub nsw i32 2147483647, %118
-  %128 = icmp ugt i32 %126, %127
+  %128 = icmp samesign ugt i32 %126, %127
   br i1 %128, label %140, label %129
 
 129:                                              ; preds = %122
@@ -4114,7 +4114,7 @@ _ZN5GlucoL6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104: ; preds =
   %221 = tail call i32 @llvm.smax.i32(i32 %220, i32 0)
   %222 = add nuw nsw i32 %221, 2
   %223 = sub nsw i32 2147483647, %214
-  %224 = icmp ugt i32 %222, %223
+  %224 = icmp samesign ugt i32 %222, %223
   br i1 %224, label %236, label %225
 
 225:                                              ; preds = %218
@@ -4186,7 +4186,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6s
   %260 = tail call i32 @llvm.smax.i32(i32 %259, i32 0)
   %261 = add nuw nsw i32 %260, 2
   %262 = sub nsw i32 2147483647, %253
-  %263 = icmp ugt i32 %261, %262
+  %263 = icmp samesign ugt i32 %261, %262
   br i1 %263, label %275, label %264
 
 264:                                              ; preds = %257
@@ -5159,7 +5159,7 @@ define void @_ZN5Gluco6Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr noundef
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %17 = add nuw nsw i32 %16, 2
   %18 = sub nsw i32 2147483647, %9
-  %19 = icmp ugt i32 %17, %18
+  %19 = icmp samesign ugt i32 %17, %18
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %13
@@ -5328,8 +5328,8 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   %.pre-phi = phi i1 [ %119, %._crit_edge.i ], [ true, %87 ]
   %120 = phi i96 [ %.pre396, %._crit_edge.i ], [ %.pre395, %87 ]
   %121 = and i96 %120, 2147483616
-  %122 = icmp ugt i96 %121, 64
-  %or.cond = and i1 %.pre-phi, %122
+  %122 = icmp samesign ugt i96 %121, 64
+  %or.cond = select i1 %.pre-phi, i1 %122, i1 false
   %extract410 = lshr i96 %120, 32
   %extract.t411 = trunc i96 %extract410 to i32
   br i1 %or.cond, label %123, label %139
@@ -5559,7 +5559,7 @@ _ZN5Gluco6Solver15varBumpActivityEi.exit:         ; preds = %_ZN5Gluco4HeapINS_6
   %247 = tail call i32 @llvm.smax.i32(i32 %246, i32 0)
   %248 = add nuw nsw i32 %247, 2
   %249 = sub nsw i32 2147483647, %241
-  %250 = icmp ugt i32 %248, %249
+  %250 = icmp samesign ugt i32 %248, %249
   br i1 %250, label %.loopexit273, label %251
 
 251:                                              ; preds = %244
@@ -5620,7 +5620,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
   %278 = tail call i32 @llvm.smax.i32(i32 %277, i32 0)
   %279 = add nuw nsw i32 %278, 2
   %280 = sub nsw i32 2147483647, %272
-  %281 = icmp ugt i32 %279, %280
+  %281 = icmp samesign ugt i32 %279, %280
   br i1 %281, label %.loopexit275, label %282
 
 282:                                              ; preds = %275
@@ -5673,7 +5673,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit206:       ; preds = %._ZN5Gluco3vecINS_3
   %304 = tail call i32 @llvm.smax.i32(i32 %303, i32 0)
   %305 = add nuw nsw i32 %304, 2
   %306 = sub nsw i32 2147483647, %298
-  %307 = icmp ugt i32 %305, %306
+  %307 = icmp samesign ugt i32 %305, %306
   br i1 %307, label %.loopexit274, label %308
 
 308:                                              ; preds = %301
@@ -5779,7 +5779,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit209:       ; preds = %._ZN5Gluco3vecINS_3
   %358 = tail call i32 @llvm.smax.i32(i32 %357, i32 0)
   %359 = add nuw nsw i32 %358, 2
   %360 = sub nsw i32 2147483647, %352
-  %361 = icmp ugt i32 %359, %360
+  %361 = icmp samesign ugt i32 %359, %360
   br i1 %361, label %.loopexit271, label %362
 
 362:                                              ; preds = %355
@@ -6519,7 +6519,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %._ZN5Gluco3vecINS_3
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %15 = add nuw nsw i32 %14, 2
   %16 = sub nsw i32 2147483647, %6
-  %17 = icmp ugt i32 %15, %16
+  %17 = icmp samesign ugt i32 %15, %16
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %11
@@ -6680,7 +6680,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
   %109 = tail call i32 @llvm.smax.i32(i32 %108, i32 0)
   %110 = add nuw nsw i32 %109, 2
   %111 = sub nsw i32 2147483647, %103
-  %112 = icmp ugt i32 %110, %111
+  %112 = icmp samesign ugt i32 %110, %111
   br i1 %112, label %.loopexit45, label %113
 
 113:                                              ; preds = %106
@@ -6733,7 +6733,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit33:        ; preds = %._ZN5Gluco3vecINS_3
   %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
   %137 = add nuw nsw i32 %136, 2
   %138 = sub nsw i32 2147483647, %130
-  %139 = icmp ugt i32 %137, %138
+  %139 = icmp samesign ugt i32 %137, %138
   br i1 %139, label %.loopexit46, label %140
 
 140:                                              ; preds = %133
@@ -6851,7 +6851,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %._ZN5Gluco3vecINS_3
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %14 = add nuw nsw i32 %13, 2
   %15 = sub nsw i32 2147483647, %5
-  %16 = icmp ugt i32 %14, %15
+  %16 = icmp samesign ugt i32 %14, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %10
@@ -6954,7 +6954,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
   %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
   %75 = add nuw nsw i32 %74, 2
   %76 = sub nsw i32 2147483647, %68
-  %77 = icmp ugt i32 %75, %76
+  %77 = icmp samesign ugt i32 %75, %76
   br i1 %77, label %.loopexit31, label %78
 
 78:                                               ; preds = %71
@@ -7110,7 +7110,7 @@ define void @_ZN5Gluco6Solver8reduceDBEv(ptr noundef nonnull align 8 dereference
   %34 = getelementptr inbounds i32, ptr %16, i64 %33
   %35 = load i96, ptr %34, align 4
   %36 = and i96 %35, 2147483584
-  %37 = icmp ult i96 %36, 192
+  %37 = icmp samesign ult i96 %36, 192
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %28
@@ -7144,7 +7144,7 @@ define void @_ZN5Gluco6Solver8reduceDBEv(ptr noundef nonnull align 8 dereference
   %55 = getelementptr inbounds i32, ptr %53, i64 %54
   %56 = load i96, ptr %55, align 4
   %57 = and i96 %56, 2147483616
-  %58 = icmp ugt i96 %57, 64
+  %58 = icmp samesign ugt i96 %57, 64
   %59 = lshr i96 %56, 32
   %60 = trunc i96 %59 to i32
   %61 = icmp sgt i32 %60, 2
@@ -7411,7 +7411,7 @@ define void @_ZN5Gluco6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 de
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %28 = add nuw nsw i32 %27, 2
   %29 = sub nsw i32 2147483647, %13
-  %30 = icmp ugt i32 %28, %29
+  %30 = icmp samesign ugt i32 %28, %29
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %24
@@ -7573,7 +7573,7 @@ _ZN5Gluco3vecIiE5clearEb.exit:                    ; preds = %._crit_edge, %.preh
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = add nuw nsw i32 %42, 2
   %44 = sub nsw i32 2147483647, %36
-  %45 = icmp ugt i32 %43, %44
+  %45 = icmp samesign ugt i32 %43, %44
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %39
@@ -8442,7 +8442,7 @@ _ZN5Gluco15RegionAllocatorIjE5allocEi.exit.i:     ; preds = %.noexc
   %356 = call i32 @llvm.smax.i32(i32 %355, i32 0)
   %357 = add nuw nsw i32 %356, 2
   %358 = sub nsw i32 2147483647, %350
-  %359 = icmp ugt i32 %357, %358
+  %359 = icmp samesign ugt i32 %357, %358
   br i1 %359, label %.invoke, label %360
 
 360:                                              ; preds = %353
@@ -8737,7 +8737,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   %530 = call i32 @llvm.smax.i32(i32 %529, i32 0)
   %531 = add nuw nsw i32 %530, 2
   %532 = sub nsw i32 2147483647, %511
-  %533 = icmp ugt i32 %531, %532
+  %533 = icmp samesign ugt i32 %531, %532
   br i1 %533, label %.invoke, label %534
 
 534:                                              ; preds = %527
@@ -8814,7 +8814,7 @@ _ZN5Gluco6Solver16newDecisionLevelEv.exit:        ; preds = %._ZN5Gluco3vecIiE8c
   %568 = call i32 @llvm.smax.i32(i32 %567, i32 0)
   %569 = add nuw nsw i32 %568, 2
   %570 = sub nsw i32 2147483647, %561
-  %571 = icmp ugt i32 %569, %570
+  %571 = icmp samesign ugt i32 %569, %570
   br i1 %571, label %.invoke, label %572
 
 572:                                              ; preds = %565
@@ -9182,12 +9182,12 @@ _ZL9Abc_Clockv.exit:                              ; preds = %97, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %106 = load i64, ptr %74, align 8
   %107 = icmp ugt i64 %.0.i, %106
-  %.not75 = icmp ult i8 %79, 2
+  %.not75 = icmp samesign ult i8 %79, 2
   %or.cond80 = select i1 %107, i1 true, i1 %.not75
   br i1 %or.cond80, label %_ZNK5Gluco6Solver12withinBudgetEv.exit.thread, label %.backedge
 
 108:                                              ; preds = %95
-  %.not75.old = icmp ult i8 %79, 2
+  %.not75.old = icmp samesign ult i8 %79, 2
   br i1 %.not75.old, label %_ZNK5Gluco6Solver12withinBudgetEv.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %108, %_ZL9Abc_Clockv.exit
@@ -9932,7 +9932,7 @@ _ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE.exit48.thread82: ; preds = %_ZNK5Gluco
   %151 = add nuw nsw i32 %150, 2
   %152 = tail call noundef i32 @llvm.smax.i32(i32 %151, i32 %148)
   %153 = sub nuw nsw i32 2147483647, %125
-  %154 = icmp ugt i32 %152, %153
+  %154 = icmp samesign ugt i32 %152, %153
   br i1 %154, label %165, label %155
 
 155:                                              ; preds = %145
@@ -11827,7 +11827,7 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
   %23 = add nuw nsw i32 %22, 2
   %24 = sub nsw i32 2147483647, %16
-  %25 = icmp ugt i32 %23, %24
+  %25 = icmp samesign ugt i32 %23, %24
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %19
@@ -12484,7 +12484,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_6Solver10VarOrderLtEE6insertEi(ptr n
   %18 = call i32 @llvm.smax.i32(i32 %17, i32 0)
   %19 = add nuw nsw i32 %18, 2
   %20 = sub nsw i32 2147483647, %8
-  %21 = icmp ugt i32 %19, %20
+  %21 = icmp samesign ugt i32 %19, %20
   br i1 %21, label %33, label %22
 
 22:                                               ; preds = %15
@@ -13271,11 +13271,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %36 = and i32 %35, 67108863
   %37 = lshr i32 %.off0.i.i, 5
   %38 = and i32 %37, 67108863
-  %39 = icmp ugt i32 %36, %38
+  %39 = icmp samesign ugt i32 %36, %38
   br i1 %39, label %_ZN11reduceDB_ltclEjj.exit.thread26.i, label %40
 
 40:                                               ; preds = %.thread.i.i
-  %41 = icmp ult i32 %36, %38
+  %41 = icmp samesign ult i32 %36, %38
   br i1 %41, label %_ZN11reduceDB_ltclEjj.exit.thread.i, label %_ZN11reduceDB_ltclEjj.exit.i
 
 _ZN11reduceDB_ltclEjj.exit.i:                     ; preds = %40
@@ -13379,11 +13379,11 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
   %90 = trunc i96 %83 to i32
   %91 = lshr i32 %90, 5
   %92 = and i32 %91, 67108863
-  %93 = icmp ugt i32 %92, %76
+  %93 = icmp samesign ugt i32 %92, %76
   br i1 %93, label %.backedge55.backedge, label %94
 
 94:                                               ; preds = %.thread.i
-  %95 = icmp ult i32 %92, %76
+  %95 = icmp samesign ult i32 %92, %76
   br i1 %95, label %_ZN11reduceDB_ltclEjj.exit, label %96
 
 96:                                               ; preds = %94
@@ -13450,14 +13450,14 @@ _ZN11reduceDB_ltclEjj.exit:                       ; preds = %88, %89, %94
 .thread.i46:                                      ; preds = %119, %118
   %121 = lshr i32 %.off0.i43, 5
   %122 = and i32 %121, 67108863
-  %123 = icmp ugt i32 %.pre-phi102, %122
+  %123 = icmp samesign ugt i32 %.pre-phi102, %122
   br i1 %123, label %.backedge.backedge, label %124
 
 .backedge.backedge:                               ; preds = %.thread.i46, %114, %126
   br label %.backedge, !llvm.loop !102
 
 124:                                              ; preds = %.thread.i46
-  %125 = icmp ult i32 %.pre-phi102, %122
+  %125 = icmp samesign ult i32 %.pre-phi102, %122
   br i1 %125, label %_ZN11reduceDB_ltclEjj.exit50.thread, label %126
 
 126:                                              ; preds = %124

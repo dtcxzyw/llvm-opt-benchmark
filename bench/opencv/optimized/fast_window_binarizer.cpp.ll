@@ -780,7 +780,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii(ptr 
 24:                                               ; preds = %27
   %indvars.iv.next51 = add i64 %indvars.iv50, 1
   %25 = and i64 %indvars.iv.next51, 4294967295
-  %26 = icmp ult i64 %25, %11
+  %26 = icmp samesign ult i64 %25, %11
   %indvars.iv.next46 = add i32 %indvars.iv45, %13
   br i1 %26, label %19, label %._crit_edge.us.us, !llvm.loop !6
 
@@ -1523,7 +1523,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %7, %12
 78:                                               ; preds = %81
   %indvars.iv.next51.i = add i64 %indvars.iv50.i, 1
   %79 = and i64 %indvars.iv.next51.i, 4294967295
-  %80 = icmp ult i64 %79, %65
+  %80 = icmp samesign ult i64 %79, %65
   %indvars.iv.next46.i = add i32 %indvars.iv45.i, %67
   br i1 %80, label %73, label %._crit_edge.us.us.i, !llvm.loop !6
 

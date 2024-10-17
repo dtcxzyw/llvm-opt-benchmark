@@ -399,7 +399,7 @@ InitializeLWLocks.exit:                           ; preds = %._crit_edge.i, %.In
   %112 = tail call i32 @llvm.umax.i32(i32 %104, i32 98)
   %113 = add nsw i32 %112, -90
   %114 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %113)
-  %115 = icmp ult i32 %114, 2
+  %115 = icmp samesign ult i32 %114, 2
   %116 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %117 = xor i32 %116, 31
   %118 = shl nuw i32 2, %117
@@ -469,7 +469,7 @@ define dso_local void @LWLockRegisterTranche(i32 noundef %0, ptr noundef %1) loc
   %8 = tail call i32 @llvm.umax.i32(i32 %0, i32 98)
   %9 = add nsw i32 %8, -90
   %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
-  %11 = icmp ult i32 %10, 2
+  %11 = icmp samesign ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
   %14 = shl nuw i32 2, %13
@@ -630,7 +630,7 @@ define dso_local void @RequestNamedLWLockTranche(ptr noundef %0, i32 noundef %1)
 18:                                               ; preds = %14
   %19 = add i32 %16, 1
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
-  %21 = icmp ult i32 %20, 2
+  %21 = icmp samesign ult i32 %20, 2
   %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %23 = xor i32 %22, 31
   %24 = shl nuw i32 2, %23

@@ -83,12 +83,12 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
   %61 = add nuw nsw i32 %60, %24
   %62 = lshr i32 %61, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %63 = icmp ult i64 %indvars.iv.next, %14
+  %63 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %63, label %21, label %._crit_edge.us, !llvm.loop !4
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 2
-  %64 = icmp ult i64 %indvars.iv.next77, %16
+  %64 = icmp samesign ult i64 %indvars.iv.next77, %16
   br i1 %64, label %.lr.ph.us, label %.preheader.preheader, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %._crit_edge.us, %.lr.ph68, %4

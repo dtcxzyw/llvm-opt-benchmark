@@ -63,7 +63,7 @@ define dso_local void @subsection_map_init(i64 noundef %0, i64 noundef %1) local
 
 19:                                               ; preds = %18, %.preheader, %.preheader
   %20 = phi i64 [ 2048, %18 ], [ 131072, %.preheader ], [ 131072, %.preheader ]
-  %21 = icmp ult i64 %17, %20
+  %21 = icmp samesign ult i64 %17, %20
   br i1 %21, label %22, label %32, !prof !6
 
 22:                                               ; preds = %19
@@ -195,7 +195,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
 
 5:                                                ; preds = %4, %1, %1
   %6 = phi i64 [ 2048, %4 ], [ 131072, %1 ], [ 131072, %1 ]
-  %7 = icmp ult i64 %3, %6
+  %7 = icmp samesign ult i64 %3, %6
   br i1 %7, label %8, label %.critedge.backedge, !prof !6
 
 8:                                                ; preds = %5
@@ -238,7 +238,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
 
 29:                                               ; preds = %28, %.critedge.backedge._crit_edge, %.critedge.backedge._crit_edge
   %30 = phi i64 [ 2048, %28 ], [ 131072, %.critedge.backedge._crit_edge ], [ 131072, %.critedge.backedge._crit_edge ]
-  %31 = icmp ult i64 %27, %30
+  %31 = icmp samesign ult i64 %27, %30
   br i1 %31, label %32, label %42, !prof !6
 
 32:                                               ; preds = %29
@@ -279,7 +279,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
 
 53:                                               ; preds = %52, %.lr.ph, %.lr.ph
   %54 = phi i64 [ 2048, %52 ], [ 131072, %.lr.ph ], [ 131072, %.lr.ph ]
-  %55 = icmp ult i64 %51, %54
+  %55 = icmp samesign ult i64 %51, %54
   br i1 %55, label %56, label %.critedge26.backedge, !prof !6
 
 56:                                               ; preds = %53
@@ -329,7 +329,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
 
 82:                                               ; preds = %81, %.preheader, %.preheader
   %83 = phi i64 [ 2048, %81 ], [ 131072, %.preheader ], [ 131072, %.preheader ]
-  %84 = icmp ult i64 %80, %83
+  %84 = icmp samesign ult i64 %80, %83
   br i1 %84, label %85, label %95, !prof !6
 
 85:                                               ; preds = %82
@@ -387,7 +387,7 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
 
 113:                                              ; preds = %112, %.lr.ph40, %.lr.ph40
   %114 = phi i64 [ 2048, %112 ], [ 131072, %.lr.ph40 ], [ 131072, %.lr.ph40 ]
-  %115 = icmp ult i64 %111, %114
+  %115 = icmp samesign ult i64 %111, %114
   br i1 %115, label %116, label %.critedge28.backedge, !prof !6
 
 116:                                              ; preds = %113
@@ -506,7 +506,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 22:                                               ; preds = %21, %.lr.ph, %.lr.ph
   %23 = phi i64 [ 2048, %21 ], [ 131072, %.lr.ph ], [ 131072, %.lr.ph ]
-  %24 = icmp ult i64 %20, %23
+  %24 = icmp samesign ult i64 %20, %23
   br i1 %24, label %25, label %.critedge.backedge, !prof !6
 
 25:                                               ; preds = %22
@@ -569,7 +569,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 56:                                               ; preds = %55, %53, %53
   %57 = phi i64 [ 2048, %55 ], [ 131072, %53 ], [ 131072, %53 ]
-  %58 = icmp ult i64 %54, %57
+  %58 = icmp samesign ult i64 %54, %57
   br i1 %58, label %59, label %69, !prof !6
 
 59:                                               ; preds = %56
@@ -631,7 +631,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 88:                                               ; preds = %87, %.lr.ph57, %.lr.ph57
   %89 = phi i64 [ 2048, %87 ], [ 131072, %.lr.ph57 ], [ 131072, %.lr.ph57 ]
-  %90 = icmp ult i64 %86, %89
+  %90 = icmp samesign ult i64 %86, %89
   br i1 %90, label %91, label %.critedge35.backedge, !prof !6
 
 91:                                               ; preds = %88
@@ -688,7 +688,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 118:                                              ; preds = %117, %.lr.ph58, %.lr.ph58
   %119 = phi i64 [ 2048, %117 ], [ 131072, %.lr.ph58 ], [ 131072, %.lr.ph58 ]
-  %120 = icmp ult i64 %116, %119
+  %120 = icmp samesign ult i64 %116, %119
   br i1 %120, label %121, label %.critedge37.backedge, !prof !6
 
 121:                                              ; preds = %118
@@ -739,7 +739,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 146:                                              ; preds = %145, %143, %143
   %147 = phi i64 [ 2048, %145 ], [ 131072, %143 ], [ 131072, %143 ]
-  %148 = icmp ult i64 %144, %147
+  %148 = icmp samesign ult i64 %144, %147
   br i1 %148, label %149, label %159, !prof !6
 
 149:                                              ; preds = %146
@@ -780,7 +780,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
 
 166:                                              ; preds = %165, %.lr.ph59, %.lr.ph59
   %167 = phi i64 [ 2048, %165 ], [ 131072, %.lr.ph59 ], [ 131072, %.lr.ph59 ]
-  %168 = icmp ult i64 %164, %167
+  %168 = icmp samesign ult i64 %164, %167
   br i1 %168, label %169, label %.critedge39.backedge, !prof !6
 
 169:                                              ; preds = %166
@@ -917,7 +917,7 @@ sparse_index_alloc.exit.thread:                   ; preds = %35, %sparse_index_a
 
 47:                                               ; preds = %46, %45, %45
   %48 = phi i64 [ 2048, %46 ], [ 131072, %45 ], [ 131072, %45 ]
-  %49 = icmp ult i64 %28, %48
+  %49 = icmp samesign ult i64 %28, %48
   br i1 %49, label %50, label %60, !prof !6
 
 50:                                               ; preds = %47

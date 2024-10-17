@@ -1486,7 +1486,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %.0114.lcssa = phi ptr [ %.val142, %.lr.ph285 ], [ %275, %262 ]
   %278 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %185, ptr noundef %.0114.lcssa) #17
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %279 = icmp ult i64 %indvars.iv.next316, %215
+  %279 = icmp samesign ult i64 %indvars.iv.next316, %215
   br i1 %279, label %.lr.ph285, label %.critedge10, !llvm.loop !21
 
 .critedge10:                                      ; preds = %.critedge12, %.critedge8.preheader

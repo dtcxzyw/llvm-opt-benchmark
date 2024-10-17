@@ -1879,14 +1879,14 @@ land.lhs.true:                                    ; preds = %if.then
   %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
-  %cmp7.not = icmp ult i32 %and, %conv
+  %cmp7.not = icmp samesign ult i32 %and, %conv
   br i1 %cmp7.not, label %if.end44, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv16 = zext i8 %5 to i32
-  %cmp17.not = icmp ugt i32 %and, %conv16
+  %cmp17.not = icmp samesign ugt i32 %and, %conv16
   br i1 %cmp17.not, label %if.end44, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true9
@@ -2112,14 +2112,14 @@ land.lhs.true:                                    ; preds = %if.else
   %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
-  %cmp9.not = icmp ult i32 %and, %conv
+  %cmp9.not = icmp samesign ult i32 %and, %conv
   br i1 %cmp9.not, label %if.end47, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv18 = zext i8 %5 to i32
-  %cmp19.not = icmp ugt i32 %and, %conv18
+  %cmp19.not = icmp samesign ugt i32 %and, %conv18
   br i1 %cmp19.not, label %if.end47, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true11
@@ -2286,14 +2286,14 @@ land.lhs.true:                                    ; preds = %if.then
   %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
-  %cmp7.not = icmp ult i32 %and, %conv
+  %cmp7.not = icmp samesign ult i32 %and, %conv
   br i1 %cmp7.not, label %return, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv16 = zext i8 %5 to i32
-  %cmp17.not = icmp ugt i32 %and, %conv16
+  %cmp17.not = icmp samesign ugt i32 %and, %conv16
   br i1 %cmp17.not, label %return, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true9
@@ -2401,14 +2401,14 @@ land.lhs.true:                                    ; preds = %if.then
   %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
-  %cmp7.not = icmp ult i32 %and, %conv
+  %cmp7.not = icmp samesign ult i32 %and, %conv
   br i1 %cmp7.not, label %if.end44, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv16 = zext i8 %5 to i32
-  %cmp17.not = icmp ugt i32 %and, %conv16
+  %cmp17.not = icmp samesign ugt i32 %and, %conv16
   br i1 %cmp17.not, label %if.end44, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true9
@@ -2825,14 +2825,14 @@ land.lhs.true8:                                   ; preds = %if.else
   %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i8, ptr %bottom, align 8
   %conv = zext i8 %5 to i32
-  %cmp17.not = icmp ult i32 %and10, %conv
+  %cmp17.not = icmp samesign ult i32 %and10, %conv
   br i1 %cmp17.not, label %if.end56, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true8
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %6 = load i8, ptr %top, align 1
   %conv28 = zext i8 %6 to i32
-  %cmp29.not = icmp ugt i32 %and10, %conv28
+  %cmp29.not = icmp samesign ugt i32 %and10, %conv28
   br i1 %cmp29.not, label %if.end56, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %land.lhs.true19
@@ -2883,14 +2883,14 @@ land.lhs.true105:                                 ; preds = %if.else97
   %bottom112 = getelementptr inbounds i8, ptr %arrayidx101, i64 8
   %11 = load i8, ptr %bottom112, align 8
   %conv113 = zext i8 %11 to i32
-  %cmp114.not = icmp ult i32 %and106, %conv113
+  %cmp114.not = icmp samesign ult i32 %and106, %conv113
   br i1 %cmp114.not, label %if.else154, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %land.lhs.true105
   %top123 = getelementptr inbounds i8, ptr %arrayidx101, i64 9
   %12 = load i8, ptr %top123, align 1
   %conv124 = zext i8 %12 to i32
-  %cmp125.not = icmp ugt i32 %and106, %conv124
+  %cmp125.not = icmp samesign ugt i32 %and106, %conv124
   br i1 %cmp125.not, label %if.else154, label %land.lhs.true127
 
 land.lhs.true127:                                 ; preds = %land.lhs.true116
@@ -2916,14 +2916,14 @@ land.lhs.true162:                                 ; preds = %if.else154
   %bottom169 = getelementptr inbounds i8, ptr %arrayidx158, i64 8
   %16 = load i8, ptr %bottom169, align 8
   %conv170 = zext i8 %16 to i32
-  %cmp171.not = icmp ult i32 %and163, %conv170
+  %cmp171.not = icmp samesign ult i32 %and163, %conv170
   br i1 %cmp171.not, label %return, label %land.lhs.true173
 
 land.lhs.true173:                                 ; preds = %land.lhs.true162
   %top180 = getelementptr inbounds i8, ptr %arrayidx158, i64 9
   %17 = load i8, ptr %top180, align 1
   %conv181 = zext i8 %17 to i32
-  %cmp182.not = icmp ugt i32 %and163, %conv181
+  %cmp182.not = icmp samesign ugt i32 %and163, %conv181
   br i1 %cmp182.not, label %return, label %land.lhs.true184
 
 land.lhs.true184:                                 ; preds = %land.lhs.true173

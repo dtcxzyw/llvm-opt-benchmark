@@ -781,7 +781,7 @@ Vec_IntFree.exit201:                              ; preds = %215, %217
   %238 = lshr i32 %237, 1
   %239 = load i16, ptr %1, align 8
   %240 = zext i16 %239 to i32
-  %241 = icmp ult i32 %238, %240
+  %241 = icmp samesign ult i32 %238, %240
   br i1 %241, label %Kit_DsdNtkObj.exit202.thread, label %Kit_DsdNtkObj.exit202
 
 Kit_DsdNtkObj.exit202:                            ; preds = %234
@@ -986,7 +986,7 @@ Vec_IntPush.exit216:                              ; preds = %.Vec_IntGrow.exit10
   %334 = load i16, ptr %333, align 2
   %335 = zext i16 %334 to i32
   %336 = lshr i32 %335, 1
-  %337 = icmp ult i32 %336, %329
+  %337 = icmp samesign ult i32 %336, %329
   br i1 %337, label %Kit_DsdNtkObj.exit217.thread, label %Kit_DsdNtkObj.exit217
 
 Kit_DsdNtkObj.exit217:                            ; preds = %332
@@ -1451,8 +1451,8 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr nocapture noundef readonly %
   %10 = icmp ult i32 %8, 100663296
   %11 = add nsw i32 %9, -5
   %12 = shl nuw i32 1, %11
-  %.fr.i = freeze i32 %12
-  %13 = select i1 %10, i32 1, i32 %.fr.i
+  %13 = select i1 %10, i32 1, i32 %12
+  %.fr43.i = freeze i32 %13
   %14 = shl i32 15, %11
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 16)
   %16 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
@@ -1465,7 +1465,7 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr nocapture noundef readonly %
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #9
   %21 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %20, ptr %21, align 8
-  %22 = sext i32 %13 to i64
+  %22 = sext i32 %.fr43.i to i64
   %23 = shl nsw i64 %22, 2
   %24 = add nsw i64 %23, 8
   %25 = zext nneg i32 %9 to i64
@@ -1492,19 +1492,19 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %5
   store i32 %9, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %27, ptr %34, align 8
-  %35 = icmp sgt i32 %13, 0
+  %35 = icmp sgt i32 %.fr43.i, 0
   %or.cond.i36 = and i1 %.not.i.i, %35
   br i1 %or.cond.i36, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
-  %wide.trip.count67.i = zext nneg i32 %13 to i64
+  %wide.trip.count67.i = zext nneg i32 %.fr43.i to i64
   br label %.lr.ph33.split.us.split.us.i
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
   %36 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv74.i
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ult i64 %indvars.iv74.i, 5
+  %38 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %38, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 39:                                               ; preds = %.preheader26.us.us.i, %39
@@ -1677,11 +1677,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %106 = load i32, ptr %7, align 8
   %107 = lshr i32 %106, 24
   %108 = zext nneg i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next, %108
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
-  %110 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %16, i32 noundef %13, ptr noundef nonnull %6)
+  %110 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %16, i32 noundef %.fr43.i, ptr noundef nonnull %6)
   %111 = getelementptr inbounds i8, ptr %2, i64 6
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 1
@@ -1827,7 +1827,7 @@ define range(i32 0, 2) i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr nocapture
   %18 = getelementptr inbounds i32, ptr %.val50, i64 %indvars.iv63
   %19 = load i32, ptr %18, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %20 = icmp ult i64 %indvars.iv.next64, %15
+  %20 = icmp samesign ult i64 %indvars.iv.next64, %15
   br i1 %20, label %.lr.ph, label %.critedge2.loopexit
 
 21:                                               ; preds = %.lr.ph

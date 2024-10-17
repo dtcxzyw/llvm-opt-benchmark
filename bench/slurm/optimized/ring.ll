@@ -256,7 +256,7 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds %struct.pmix_ring_msg, ptr %13, i64 %indvars.iv, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = icmp ult i64 %indvars.iv.next, %16
+  %20 = icmp samesign ult i64 %indvars.iv.next, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br i1 %20, label %.lr.ph, label %.lr.ph101.preheader, !llvm.loop !9
 
@@ -282,7 +282,7 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %.not92 = icmp eq ptr %30, null
   %spec.select = select i1 %.not92, ptr %.07399, ptr %30
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %31 = icmp ult i64 %indvars.iv.next116, %17
+  %31 = icmp samesign ult i64 %indvars.iv.next116, %17
   br i1 %31, label %.lr.ph101, label %.lr.ph104.preheader, !llvm.loop !10
 
 .preheader94:                                     ; preds = %.lr.ph104, %9
@@ -475,7 +475,7 @@ define internal fastcc void @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32
   %.011 = phi i32 [ %9, %15 ], [ 0, %3 ]
   %.0810 = phi i32 [ %17, %15 ], [ 1, %3 ]
   %9 = add nuw nsw i32 %.011, 1
-  %10 = icmp ugt i32 %.011, 3
+  %10 = icmp samesign ugt i32 %.011, 3
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.lr.ph

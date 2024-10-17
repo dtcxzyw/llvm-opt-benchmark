@@ -857,7 +857,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %13
   br label %.critedge2
 
 .critedge2:                                       ; preds = %66, %61, %47, %50
-  %68 = icmp ugt i64 %15, 15
+  %68 = icmp samesign ugt i64 %15, 15
   br i1 %68, label %69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 69:                                               ; preds = %.critedge2
@@ -1004,7 +1004,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %13
   br label %.critedge2
 
 .critedge2:                                       ; preds = %66, %61, %47, %50
-  %68 = icmp ugt i64 %15, 15
+  %68 = icmp samesign ugt i64 %15, 15
   br i1 %68, label %69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 69:                                               ; preds = %.critedge2
@@ -1208,7 +1208,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %68, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %94 = icmp ugt i64 %15, 15
+  %94 = icmp samesign ugt i64 %15, 15
   br i1 %94, label %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 95:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -1412,7 +1412,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %68, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %94 = icmp ugt i64 %15, 15
+  %94 = icmp samesign ugt i64 %15, 15
   br i1 %94, label %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 95:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

@@ -1632,8 +1632,8 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %60 = and i64 %agg.tmp7.sroa.0.0.copyload.i.i, 2
   %tobool.not.i.i.i = icmp eq i64 %60, 0
   %and.i.i.i.i.i28 = and i32 %59, 268435455
-  %cmp.i.i.i.i = icmp ult i32 %and.i.i.i.i.i28, 13
-  %or.cond.i.i.i = or i1 %cmp.i.i.i.i, %tobool.not.i.i.i
+  %cmp.i.i.i.i = icmp samesign ult i32 %and.i.i.i.i.i28, 13
+  %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.i.i.i.i
   br i1 %or.cond.i.i.i, label %if.end.i.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.then.i.i
@@ -2998,7 +2998,7 @@ if.end46:                                         ; preds = %cond.true.i, %if.el
   %conv.i.i.i.i = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
   %conv2.i.i.i.i = zext i32 %cond.i.i.i to i64
   %add.i.i.i.i = add nuw nsw i64 %conv2.i.i.i.i, 32
-  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %conv.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ugt i64 %add.i.i.i.i, %conv.i.i.i.i
   %cmp.i2.i.i.i = icmp ugt i32 %inc.i.i, 384
   %.not.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i2.i.i.i
   br i1 %.not.i.i, label %if.then54, label %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit

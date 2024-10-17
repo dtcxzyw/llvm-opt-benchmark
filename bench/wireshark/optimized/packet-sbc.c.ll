@@ -203,7 +203,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %proto_item
   %41 = zext i1 %34 to i32
   %42 = shl nuw nsw i32 %40, %41
   %43 = lshr exact i32 %42, 3
-  %or.cond = icmp ult i8 %31, 2
+  %or.cond = icmp samesign ult i8 %31, 2
   %44 = zext i8 %33 to i32
   br i1 %or.cond, label %45, label %50
 

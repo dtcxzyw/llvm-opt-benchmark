@@ -169,7 +169,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %118 = getelementptr inbounds i8, ptr %5, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, -1
-  %.not360.i = icmp ult i32 %109, %111
+  %.not360.i = icmp samesign ult i32 %109, %111
   %121 = icmp slt i32 %.0284.i, %114
   %.not338.i = icmp slt i32 %.0284.i, %119
   %122 = select i1 %.not338.i, i32 0, i32 2
@@ -450,7 +450,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %263 = getelementptr inbounds i8, ptr %5, i64 12
   %264 = load i32, ptr %263, align 4
   %265 = add nsw i32 %264, -1
-  %.not306 = icmp ult i32 %254, %256
+  %.not306 = icmp samesign ult i32 %254, %256
   %266 = icmp slt i32 %1, %259
   %.not284 = icmp slt i32 %1, %264
   %267 = select i1 %.not284, i32 0, i32 2

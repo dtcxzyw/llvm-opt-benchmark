@@ -13,7 +13,7 @@ entry:
   %spec.select = select i1 %tobool.not, i8 32, i8 0
   %spec.select10 = select i1 %tobool.not, i64 %a, i64 %shr
   %a32.0 = trunc nuw i64 %spec.select10 to i32
-  %cmp = icmp ult i64 %spec.select10, 65536
+  %cmp = icmp samesign ult i64 %spec.select10, 65536
   %0 = or disjoint i8 %spec.select, 16
   %shl = shl nuw i32 %a32.0, 16
   %count.1 = select i1 %cmp, i8 %0, i8 %spec.select

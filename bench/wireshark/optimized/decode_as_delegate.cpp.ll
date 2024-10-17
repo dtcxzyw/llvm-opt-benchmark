@@ -1954,7 +1954,7 @@ _ZN7QStringD2Ev.exit226:                          ; preds = %370, %_ZN17QArrayDa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %376 = load i32, ptr %316, align 8
   %377 = zext i32 %376 to i64
-  %378 = icmp ult i64 %indvars.iv.next, %377
+  %378 = icmp samesign ult i64 %indvars.iv.next, %377
   br i1 %378, label %.lr.ph425, label %._crit_edge426, !llvm.loop !34
 
 ._crit_edge426:                                   ; preds = %_ZN7QStringD2Ev.exit226, %329

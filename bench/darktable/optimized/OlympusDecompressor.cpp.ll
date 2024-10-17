@@ -304,7 +304,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   tail call void @llvm.assume(i1 %28)
   %29 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp uge i32 %25, %20
+  %30 = icmp samesign uge i32 %25, %20
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i32 %20, 0
   %32 = icmp ne i32 %22, 0
@@ -361,7 +361,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   %71 = getelementptr inbounds [2 x %"struct.std::array.49"], ptr %4, i64 0, i64 %70
   %72 = icmp ult i32 %68, 65
   tail call void @llvm.assume(i1 %72)
-  %73 = icmp ult i32 %68, 32
+  %73 = icmp samesign ult i32 %68, 32
   br i1 %73, label %74, label %102
 
 74:                                               ; preds = %65
@@ -472,7 +472,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   %150 = shl nsw i32 %149, %116
   %151 = icmp ult i32 %147, 65
   tail call void @llvm.assume(i1 %151)
-  %152 = icmp uge i32 %147, %116
+  %152 = icmp samesign uge i32 %147, %116
   tail call void @llvm.assume(i1 %152)
   %153 = sub nuw nsw i32 64, %116
   %154 = zext nneg i32 %153 to i64
@@ -501,7 +501,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   store i32 %170, ptr %106, align 4, !tbaa !90
   %173 = shl nsw i32 %164, 2
   %174 = or disjoint i32 %173, %172
-  %175 = icmp ult i64 %66, 2
+  %175 = icmp samesign ult i64 %66, 2
   %176 = and i1 %47, %175
   br i1 %176, label %227, label %177
 
@@ -510,7 +510,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
 
 178:                                              ; preds = %177
   %179 = add nsw i64 %66, -2
-  %180 = icmp ugt i64 %66, 1
+  %180 = icmp samesign ugt i64 %66, 1
   tail call void @llvm.assume(i1 %180)
   %181 = trunc i64 %179 to i32
   %182 = icmp ugt i32 %20, %181
@@ -564,9 +564,9 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   br i1 %211, label %213, label %223
 
 213:                                              ; preds = %191
-  %214 = icmp ugt i32 %212, 32
+  %214 = icmp samesign ugt i32 %212, 32
   %215 = tail call i32 @llvm.abs.i32(i32 %205, i1 true)
-  %216 = icmp ugt i32 %215, 32
+  %216 = icmp samesign ugt i32 %215, 32
   %217 = select i1 %214, i1 true, i1 %216
   br i1 %217, label %218, label %220
 
@@ -581,7 +581,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
 
 223:                                              ; preds = %191
   %224 = tail call i32 @llvm.abs.i32(i32 %205, i1 true)
-  %225 = icmp ugt i32 %212, %224
+  %225 = icmp samesign ugt i32 %212, %224
   %226 = select i1 %225, i32 %197, i32 %200
   br label %227
 
@@ -630,7 +630,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor10decompressENS_10ByteStre
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !117
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %16, %19
+  %20 = icmp samesign ugt i64 %16, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -641,7 +641,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor10decompressENS_10ByteStre
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %14, 7
-  %25 = icmp ule i32 %24, %18
+  %25 = icmp samesign ule i32 %24, %18
   tail call void @llvm.assume(i1 %25)
   %26 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %26)
@@ -650,7 +650,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor10decompressENS_10ByteStre
   %28 = zext nneg i32 %24 to i64
   %29 = zext i32 %27 to i64
   %30 = add nuw nsw i64 %29, %28
-  %31 = icmp ugt i64 %30, %19
+  %31 = icmp samesign ugt i64 %30, %19
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %22
@@ -673,7 +673,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor10decompressENS_10ByteStre
   store i32 0, ptr %40, align 8, !tbaa !103
   %41 = getelementptr inbounds i8, ptr %3, i64 36
   store i32 0, ptr %41, align 4
-  %42 = icmp ult i32 %27, 4
+  %42 = icmp samesign ult i32 %27, 4
   br i1 %42, label %43, label %.preheader
 
 43:                                               ; preds = %33

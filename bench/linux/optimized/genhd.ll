@@ -1213,7 +1213,7 @@ define dso_local void @del_gendisk(ptr noundef %0) #0 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(152) %95, i8 0, i64 152, i1 false)
   %96 = add nuw nsw i64 %85, 1
   %97 = and i64 %96, 127
-  %98 = icmp ugt i64 %97, 63
+  %98 = icmp samesign ugt i64 %97, 63
   br i1 %98, label %.thread, label %78, !prof !34, !llvm.loop !35
 
 .thread:                                          ; preds = %78, %88, %84
@@ -1476,7 +1476,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   %40 = add i32 %18, %39
   %41 = add nuw nsw i64 %23, 1
   %42 = and i64 %41, 127
-  %43 = icmp ugt i64 %42, 63
+  %43 = icmp samesign ugt i64 %42, 63
   br i1 %43, label %.thread, label %16, !prof !34, !llvm.loop !37
 
 .thread:                                          ; preds = %16, %26, %22
@@ -1584,7 +1584,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   store i64 %112, ptr %61, align 8
   %113 = add nuw nsw i64 %70, 1
   %114 = and i64 %113, 127
-  %115 = icmp ugt i64 %114, 63
+  %115 = icmp samesign ugt i64 %114, 63
   br i1 %115, label %.thread5, label %64, !prof !34, !llvm.loop !44
 
 .thread5:                                         ; preds = %.lr.ph, %108, %64, %56
@@ -1714,7 +1714,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_inflight_s
   store i32 %42, ptr %13, align 4
   %43 = add nuw nsw i64 %24, 1
   %44 = and i64 %43, 127
-  %45 = icmp ugt i64 %44, 63
+  %45 = icmp samesign ugt i64 %44, 63
   br i1 %45, label %.thread, label %16, !prof !34, !llvm.loop !46
 
 .thread:                                          ; preds = %16, %27, %23
@@ -2577,7 +2577,7 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   %67 = add i32 %45, %66
   %68 = add nuw nsw i64 %50, 1
   %69 = and i64 %68, 127
-  %70 = icmp ugt i64 %69, 63
+  %70 = icmp samesign ugt i64 %69, 63
   br i1 %70, label %.thread, label %43, !prof !34, !llvm.loop !37
 
 .thread:                                          ; preds = %43, %53, %49
@@ -2680,7 +2680,7 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   store i64 %135, ptr %13, align 8
   %136 = add nuw nsw i64 %93, 1
   %137 = and i64 %136, 127
-  %138 = icmp ugt i64 %137, 63
+  %138 = icmp samesign ugt i64 %137, 63
   br i1 %138, label %.thread7, label %87, !prof !34, !llvm.loop !44
 
 .thread7:                                         ; preds = %.lr.ph, %131, %87, %83

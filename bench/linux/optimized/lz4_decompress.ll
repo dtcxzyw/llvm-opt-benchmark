@@ -222,7 +222,7 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   %.7 = phi ptr [ %100, %107 ], [ %.1, %97 ]
   %112 = add i64 %.5374, 4
   %113 = getelementptr i8, ptr %.1380, i64 %112
-  %114 = icmp ult i64 %.0363, 8
+  %114 = icmp samesign ult i64 %.0363, 8
   br i1 %114, label %115, label %137
 
 115:                                              ; preds = %111
@@ -582,7 +582,7 @@ define dso_local i32 @LZ4_decompress_safe_partial(ptr noundef %0, ptr noundef %1
   br i1 %127, label %split, label %.backedge.backedge
 
 128:                                              ; preds = %111
-  %129 = icmp ult i64 %.0381, 8
+  %129 = icmp samesign ult i64 %.0381, 8
   br i1 %129, label %130, label %152
 
 130:                                              ; preds = %128
@@ -816,7 +816,7 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   %.7 = phi ptr [ %.1, %73 ], [ %76, %.preheader414 ]
   %81 = add i64 %.5373, 4
   %82 = getelementptr i8, ptr %.1379, i64 %81
-  %83 = icmp ult i64 %.0362, 8
+  %83 = icmp samesign ult i64 %.0362, 8
   br i1 %83, label %84, label %106
 
 84:                                               ; preds = %.loopexit415
@@ -1246,7 +1246,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   br label %.backedge.backedge
 
 170:                                              ; preds = %144
-  %171 = icmp ult i64 %.0439, 8
+  %171 = icmp samesign ult i64 %.0439, 8
   br i1 %171, label %172, label %194
 
 172:                                              ; preds = %170
@@ -1595,7 +1595,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   %.7 = phi ptr [ %101, %108 ], [ %.1, %98 ]
   %113 = add i64 %.5374, 4
   %114 = getelementptr i8, ptr %.1380, i64 %113
-  %115 = icmp ult i64 %.0363, 8
+  %115 = icmp samesign ult i64 %.0363, 8
   br i1 %115, label %116, label %138
 
 116:                                              ; preds = %112
@@ -1915,7 +1915,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   %.7 = phi ptr [ %103, %110 ], [ %.1, %100 ]
   %115 = add i64 %.5384, 4
   %116 = getelementptr i8, ptr %.1365, i64 %115
-  %117 = icmp ult i64 %.0373, 8
+  %117 = icmp samesign ult i64 %.0373, 8
   br i1 %117, label %118, label %140
 
 118:                                              ; preds = %114
@@ -2286,7 +2286,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br label %.backedge.backedge
 
 142:                                              ; preds = %116
-  %143 = icmp ult i64 %.0374, 8
+  %143 = icmp samesign ult i64 %.0374, 8
   br i1 %143, label %144, label %166
 
 144:                                              ; preds = %142
@@ -2651,7 +2651,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br label %.backedge.backedge
 
 134:                                              ; preds = %.loopexit491
-  %135 = icmp ult i64 %.0429, 8
+  %135 = icmp samesign ult i64 %.0429, 8
   br i1 %135, label %136, label %158
 
 136:                                              ; preds = %134
@@ -3014,7 +3014,7 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   br label %.backedge.backedge
 
 110:                                              ; preds = %.loopexit425
-  %111 = icmp ult i64 %.0373, 8
+  %111 = icmp samesign ult i64 %.0373, 8
   br i1 %111, label %112, label %134
 
 112:                                              ; preds = %110

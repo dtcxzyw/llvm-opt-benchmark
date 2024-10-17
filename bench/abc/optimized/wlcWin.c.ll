@@ -984,7 +984,7 @@ Wlc_ObjIsArithmReal.exit.i:                       ; preds = %48, %41, %41, %41, 
   br i1 %exitcond.not.i, label %Wlc_ManCountArithmReal.exit, label %41, !llvm.loop !4
 
 Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal.exit.i
-  %53 = icmp ult i32 %52, 2
+  %53 = icmp samesign ult i32 %52, 2
   br i1 %53, label %Wlc_ManCountArithmReal.exit.thread, label %54
 
 54:                                               ; preds = %Wlc_ManCountArithmReal.exit

@@ -2863,7 +2863,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %i.0.i.i2.lcssa = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ], [ 2, %for.inc.i.i.1 ], [ 3, %for.inc.i.i.2 ], [ 4, %for.inc.i.i.3 ], [ 5, %for.inc.i.i.4 ], [ 6, %for.inc.i.i.5 ], [ 7, %for.inc.i.i.6 ], [ 8, %for.inc.i.i.7 ], [ 9, %for.inc.i.i.8 ], [ 10, %for.inc.i.i.9 ], [ 11, %for.inc.i.i.10 ], [ 12, %for.inc.i.i.11 ], [ 13, %for.inc.i.i.12 ], [ 14, %for.inc.i.i.13 ], [ 15, %for.inc.i.i.14 ], [ 16, %for.inc.i.i.15 ], [ 17, %for.inc.i.i.16 ], [ 18, %for.inc.i.i.17 ], [ 19, %for.inc.i.i.18 ]
   %conv3.i.i = zext i1 %cmp1.i.i to i64
   %add.i.i = add nuw nsw i64 %i.0.i.i2.lcssa, %conv3.i.i
-  %cmp.i3 = icmp ugt i64 %add.i.i, 2
+  %cmp.i3 = icmp samesign ugt i64 %add.i.i, 2
   br i1 %cmp.i3, label %while.body.i.preheader, label %while.end.i, !prof !110
 
 while.body.i.preheader:                           ; preds = %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit, %for.inc.i.i.18
@@ -5462,7 +5462,7 @@ _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S
   br i1 %cmp.i.i.i.i.i.i.not.i.i, label %_ZSt8distanceIN5folly7dynamic19const_item_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %while.body.i.i, !llvm.loop !238
 
 _ZSt8distanceIN5folly7dynamic19const_item_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit: ; preds = %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i, label %_ZNSt16allocator_traitsISaISt17reference_wrapperIKSt4pairIKN5folly7dynamicES3_EEEE8allocateERS8_m.exit.i
 
 if.then.i:                                        ; preds = %_ZSt8distanceIN5folly7dynamic19const_item_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit
@@ -7769,7 +7769,7 @@ _ZN5folly4json20firstEscapableInWordILb1EmEEmT0_RKNS0_18serialization_optsE.exit
   %conv19.i = zext i32 %sub18.i to i64
   %retval.0.i = select i1 %tobool16.not.i, i64 8, i64 %conv19.i
   %add.ptr = getelementptr inbounds i8, ptr %firstEsc.0, i64 %retval.0.i
-  %cmp24 = icmp ult i64 %retval.0.i, 8
+  %cmp24 = icmp samesign ult i64 %retval.0.i, 8
   br i1 %cmp24, label %while.end29, label %while.cond3
 
 while.end29:                                      ; preds = %_ZN5folly4json20firstEscapableInWordILb1EmEEmT0_RKNS0_18serialization_optsE.exit, %while.cond3
@@ -7963,7 +7963,7 @@ if.else100:                                       ; preds = %if.then93
   %54 = trunc i32 %conv102382 to i8
   %55 = and i8 %54, 3
   %conv6.i236 = or disjoint i8 %55, 8
-  %cmp.i24.i237 = icmp ult i8 %conv6.i236, 10
+  %cmp.i24.i237 = icmp samesign ult i8 %conv6.i236, 10
   %add.i25.i238 = or disjoint i8 %55, 56
   %add4.i26.i239 = add nuw nsw i8 %55, 95
   %cond.i27.i240 = select i1 %cmp.i24.i237, i8 %add.i25.i238, i8 %add4.i26.i239
@@ -7975,7 +7975,7 @@ if.else100:                                       ; preds = %if.then93
   %cond.i31.i245 = select i1 %cmp.i28.i242, i8 %add.i29.i243, i8 %add4.i30.i244
   store i8 %cond.i31.i245, ptr %arrayidx14.i246, align 1, !tbaa !7
   %conv17.i247 = and i8 %53, 15
-  %cmp.i32.i248 = icmp ult i8 %conv17.i247, 10
+  %cmp.i32.i248 = icmp samesign ult i8 %conv17.i247, 10
   %add.i33.i249 = or disjoint i8 %conv17.i247, 48
   %add4.i34.i250 = add nuw nsw i8 %conv17.i247, 87
   %cond.i35.i251 = select i1 %cmp.i32.i248, i8 %add.i33.i249, i8 %add4.i34.i250
@@ -8008,7 +8008,7 @@ _ZZN5folly4json16escapeStringImplILb1EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stri
   %cond.i31.i276 = select i1 %cmp.i28.i273, i8 %add.i29.i274, i8 %add4.i30.i275
   store i8 %cond.i31.i276, ptr %arrayidx14.i277, align 1, !tbaa !7
   %conv17.i278 = and i8 %59, 15
-  %cmp.i32.i279 = icmp ult i8 %conv17.i278, 10
+  %cmp.i32.i279 = icmp samesign ult i8 %conv17.i278, 10
   %add.i33.i280 = or disjoint i8 %conv17.i278, 48
   %add4.i34.i281 = add nuw nsw i8 %conv17.i278, 87
   %cond.i35.i282 = select i1 %cmp.i32.i279, i8 %add.i33.i280, i8 %add4.i34.i281
@@ -8164,7 +8164,7 @@ sw.default:                                       ; preds = %if.then119
   store i8 %cond.i, ptr %arrayidx141, align 1, !tbaa !7
   %85 = load i8, ptr %.pre386, align 1, !tbaa !7
   %86 = and i8 %85, 15
-  %cmp.i332 = icmp ult i8 %86, 10
+  %cmp.i332 = icmp samesign ult i8 %86, 10
   %add.i333 = or disjoint i8 %86, 48
   %add4.i334 = add nuw nsw i8 %86, 87
   %cond.i335 = select i1 %cmp.i332, i8 %add.i333, i8 %add4.i334
@@ -8417,7 +8417,7 @@ if.end:                                           ; preds = %if.then13.i, %if.en
   %conv.i196 = zext i32 %sub.i195 to i64
   %retval.0.i = select i1 %tobool.not.i194, i64 8, i64 %conv.i196
   %add.ptr = getelementptr inbounds i8, ptr %firstEsc.0, i64 %retval.0.i
-  %cmp24 = icmp ult i64 %retval.0.i, 8
+  %cmp24 = icmp samesign ult i64 %retval.0.i, 8
   br i1 %cmp24, label %while.end29, label %while.cond3
 
 while.end29:                                      ; preds = %if.end, %while.cond3
@@ -8595,7 +8595,7 @@ if.else85:                                        ; preds = %if.then78
   %46 = trunc i32 %conv87365 to i8
   %47 = and i8 %46, 3
   %conv6.i219 = or disjoint i8 %47, 8
-  %cmp.i24.i220 = icmp ult i8 %conv6.i219, 10
+  %cmp.i24.i220 = icmp samesign ult i8 %conv6.i219, 10
   %add.i25.i221 = or disjoint i8 %47, 56
   %add4.i26.i222 = add nuw nsw i8 %47, 95
   %cond.i27.i223 = select i1 %cmp.i24.i220, i8 %add.i25.i221, i8 %add4.i26.i222
@@ -8607,7 +8607,7 @@ if.else85:                                        ; preds = %if.then78
   %cond.i31.i228 = select i1 %cmp.i28.i225, i8 %add.i29.i226, i8 %add4.i30.i227
   store i8 %cond.i31.i228, ptr %arrayidx14.i229, align 1, !tbaa !7
   %conv17.i230 = and i8 %45, 15
-  %cmp.i32.i231 = icmp ult i8 %conv17.i230, 10
+  %cmp.i32.i231 = icmp samesign ult i8 %conv17.i230, 10
   %add.i33.i232 = or disjoint i8 %conv17.i230, 48
   %add4.i34.i233 = add nuw nsw i8 %conv17.i230, 87
   %cond.i35.i234 = select i1 %cmp.i32.i231, i8 %add.i33.i232, i8 %add4.i34.i233
@@ -8640,7 +8640,7 @@ _ZZN5folly4json16escapeStringImplILb0EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stri
   %cond.i31.i259 = select i1 %cmp.i28.i256, i8 %add.i29.i257, i8 %add4.i30.i258
   store i8 %cond.i31.i259, ptr %arrayidx14.i260, align 1, !tbaa !7
   %conv17.i261 = and i8 %51, 15
-  %cmp.i32.i262 = icmp ult i8 %conv17.i261, 10
+  %cmp.i32.i262 = icmp samesign ult i8 %conv17.i261, 10
   %add.i33.i263 = or disjoint i8 %conv17.i261, 48
   %add4.i34.i264 = add nuw nsw i8 %conv17.i261, 87
   %cond.i35.i265 = select i1 %cmp.i32.i262, i8 %add.i33.i263, i8 %add4.i34.i264
@@ -8796,7 +8796,7 @@ sw.default:                                       ; preds = %if.then104
   store i8 %cond.i, ptr %arrayidx126, align 1, !tbaa !7
   %77 = load i8, ptr %.pre369, align 1, !tbaa !7
   %78 = and i8 %77, 15
-  %cmp.i315 = icmp ult i8 %78, 10
+  %cmp.i315 = icmp samesign ult i8 %78, 10
   %add.i316 = or disjoint i8 %78, 48
   %add4.i317 = add nuw nsw i8 %78, 87
   %cond.i318 = select i1 %cmp.i315, i8 %add.i316, i8 %add4.i317
@@ -13744,7 +13744,7 @@ invoke.cont:                                      ; preds = %entry
   %u_.i3.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i11, i64 48
   store ptr null, ptr %u_.i3.i.i.i.i, align 8, !tbaa !7
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %1 = ptrtoint ptr %pos.coerce0 to i64
@@ -14001,7 +14001,7 @@ invoke.cont25:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
   %conv2.i = and i64 %sub, 255
-  %cmp.i.i206 = icmp ult i64 %conv2.i, 16
+  %cmp.i.i206 = icmp samesign ult i64 %conv2.i, 16
   call void @llvm.assume(i1 %cmp.i.i206)
   %shr.i.i = lshr i64 %conv2.i, 1
   %9 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
@@ -15220,7 +15220,7 @@ invoke.cont:                                      ; preds = %entry
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i13, i64 40
   tail call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   %conv2.i.i = and i64 %pos.coerce1, 255
-  %cmp.i.i.i = icmp ult i64 %conv2.i.i, 16
+  %cmp.i.i.i = icmp samesign ult i64 %conv2.i.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %shr.i.i.i = lshr i64 %conv2.i.i, 1
   %4 = ptrtoint ptr %pos.coerce0 to i64

@@ -957,8 +957,8 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTab
   %.1.lcssa.i.i.i = phi i32 [ %.01217.i.i.i, %.preheader.i.i.i ], [ %30, %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11iterate_allIZN12MemStatTable15calc_flat_arrayERimEUlS9_S3_E_EEvSB_ENKUlRS1_RS3_E_clESJ_SK_.exit.i.i.i ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i, 8
   %31 = icmp sgt i32 %.1.lcssa.i.i.i, 0
-  %32 = icmp ult i64 %.0.idx18.i.i.i, 63344
-  %or.cond.i.i.i = and i1 %32, %31
+  %32 = icmp samesign ult i64 %.0.idx18.i.i.i, 63344
+  %or.cond.i.i.i = select i1 %31, i1 %32, i1 false
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %_ZN12MemStatTable15calc_flat_arrayERim.exit, !llvm.loop !8
 
 _ZN12MemStatTable15calc_flat_arrayERim.exit:      ; preds = %._crit_edge.i.i.i, %13

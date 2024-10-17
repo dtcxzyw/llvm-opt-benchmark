@@ -1750,7 +1750,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %43
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %52
   %54 = lshr exact i32 %31, 3
   %55 = call range(i32 1, 14) i32 @llvm.ctpop.i32(i32 %54)
-  %56 = icmp ult i32 %55, 2
+  %56 = icmp samesign ult i32 %55, 2
   br i1 %56, label %_ZN4llvm12ErrorSuccessD2Ev.exit3, label %57
 
 57:                                               ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit, %52

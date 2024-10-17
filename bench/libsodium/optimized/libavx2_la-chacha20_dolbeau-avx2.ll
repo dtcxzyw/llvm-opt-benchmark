@@ -536,7 +536,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %xor.i15891146 = xor <8 x i32> %add.i1411, %or.i17411139
   %or.i1147 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %xor.i15891146, <8 x i32> %xor.i15891146, <8 x i32> <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>)
   %add199 = add nuw nsw i32 %i.01169, 2
-  %cmp53 = icmp ult i32 %i.01169, 18
+  %cmp53 = icmp samesign ult i32 %i.01169, 18
   br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
@@ -708,7 +708,7 @@ if.end332:                                        ; preds = %for.end, %entry
   %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %sub, %for.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %add.ptr330, %for.end ]
   %m.addr.0 = phi ptr [ %m, %entry ], [ %add.ptr331, %for.end ]
-  %cmp333 = icmp ugt i64 %bytes.addr.0, 255
+  %cmp333 = icmp samesign ugt i64 %bytes.addr.0, 255
   br i1 %cmp333, label %if.then335, label %if.end723
 
 if.then335:                                       ; preds = %if.end332
@@ -958,7 +958,7 @@ for.body455:                                      ; preds = %while.body422, %for
   %xor.i25781118 = xor <4 x i32> %add.i2350, %or.i27251117
   %or.i27221119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i25781118, <4 x i32> %xor.i25781118, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add585 = add nuw nsw i32 %i418.01186, 2
-  %cmp453 = icmp ult i32 %i418.01186, 18
+  %cmp453 = icmp samesign ult i32 %i418.01186, 18
   br i1 %cmp453, label %for.body455, label %for.end586, !llvm.loop !7
 
 for.end586:                                       ; preds = %for.body455
@@ -1114,7 +1114,7 @@ if.end723:                                        ; preds = %for.end586, %if.end
   %bytes.addr.2 = phi i64 [ %bytes.addr.0, %if.end332 ], [ %sub719, %for.end586 ]
   %c.addr.2 = phi ptr [ %c.addr.0, %if.end332 ], [ %add.ptr720, %for.end586 ]
   %m.addr.2 = phi ptr [ %m.addr.0, %if.end332 ], [ %add.ptr721, %for.end586 ]
-  %cmp7251195 = icmp ugt i64 %bytes.addr.2, 63
+  %cmp7251195 = icmp samesign ugt i64 %bytes.addr.2, 63
   br i1 %cmp7251195, label %while.body727.lr.ph, label %while.end832
 
 while.body727.lr.ph:                              ; preds = %if.end723
@@ -1182,7 +1182,7 @@ for.body751:                                      ; preds = %while.body727, %for
   %permil785 = shufflevector <4 x i32> %add.i2278, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %xor.i24941091 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i24971090, <4 x i32> %xor.i24971090, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add790 = add nuw nsw i32 %i739.01194, 2
-  %cmp749 = icmp ult i32 %i739.01194, 18
+  %cmp749 = icmp samesign ult i32 %i739.01194, 18
   br i1 %cmp749, label %for.body751, label %for.end791, !llvm.loop !9
 
 for.end791:                                       ; preds = %for.body751
@@ -1291,7 +1291,7 @@ for.body857:                                      ; preds = %if.then835, %for.bo
   %permil892 = shufflevector <4 x i32> %add.i2242, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %xor.i24461083 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %xor.i24491082, <4 x i32> %xor.i24491082, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
   %add897 = add nuw nsw i32 %i845.01202, 2
-  %cmp855 = icmp ult i32 %i845.01202, 18
+  %cmp855 = icmp samesign ult i32 %i845.01202, 18
   br i1 %cmp855, label %for.body857, label %for.end898, !llvm.loop !11
 
 for.end898:                                       ; preds = %for.body857
@@ -1320,7 +1320,7 @@ for.body922:                                      ; preds = %for.end898, %for.bo
   store i8 %xor1075, ptr %arrayidx930, align 1
   %inc932 = add i32 %i845.11203, 1
   %conv919 = zext i32 %inc932 to i64
-  %cmp920 = icmp ugt i64 %bytes.addr.4.lcssa, %conv919
+  %cmp920 = icmp samesign ugt i64 %bytes.addr.4.lcssa, %conv919
   br i1 %cmp920, label %for.body922, label %for.end933, !llvm.loop !12
 
 for.end933:                                       ; preds = %for.body922

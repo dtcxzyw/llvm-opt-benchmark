@@ -92,7 +92,7 @@ define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSourcesC2ERNS0_7PDBFileER
 
 15:                                               ; preds = %15, %11
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %15 ], [ 0, %11 ]
-  %16 = icmp ult i64 %indvars.iv.i.i.i.i.i, 2
+  %16 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 %indvars.iv.i.i.i.i.i
   %18 = load i64, ptr %17, align 8
@@ -189,7 +189,7 @@ define dso_local void @_ZNK4llvm3pdb25NativeEnumInjectedSources15getChildAtIndex
 
 19:                                               ; preds = %19, %15
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %19 ], [ 0, %15 ]
-  %20 = icmp ult i64 %indvars.iv.i.i.i.i.i, 2
+  %20 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 %indvars.iv.i.i.i.i.i
   %22 = load i64, ptr %21, align 8

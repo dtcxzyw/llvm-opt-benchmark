@@ -2011,7 +2011,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %71
-  %.not135.i = icmp ult i32 %7, 64
+  %.not135.i = icmp samesign ult i32 %7, 64
   br i1 %.not135.i, label %82, label %75
 
 75:                                               ; preds = %74

@@ -3481,7 +3481,7 @@ _ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.
   %120 = add nuw nsw i64 %.082139, 1
   %121 = shl i32 %119, 2
   %122 = zext i32 %121 to i64
-  %123 = icmp ult i64 %120, %122
+  %123 = icmp samesign ult i64 %120, %122
   br i1 %123, label %.lr.ph141, label %.preheader136, !llvm.loop !30
 
 .preheader:                                       ; preds = %131, %._crit_edge, %.preheader136
@@ -3513,7 +3513,7 @@ _ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.
   %133 = add nuw nsw i64 %.081143, 1
   %134 = shl i32 %132, 2
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %133, %135
+  %136 = icmp samesign ult i64 %133, %135
   br i1 %136, label %.lr.ph144, label %.preheader, !llvm.loop !31
 
 .lr.ph148:                                        ; preds = %.preheader, %143
@@ -3537,7 +3537,7 @@ _ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.
   %.1 = phi i32 [ %142, %141 ], [ %.083146, %.lr.ph148 ]
   %145 = add nuw nsw i64 %.0147, 1
   %146 = zext i32 %144 to i64
-  %147 = icmp ult i64 %145, %146
+  %147 = icmp samesign ult i64 %145, %146
   br i1 %147, label %.lr.ph148, label %._crit_edge149, !llvm.loop !32
 
 ._crit_edge149:                                   ; preds = %143, %.preheader
@@ -4602,7 +4602,7 @@ _ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE3setEi.exit.us: ; preds =
   %110 = add nuw nsw i64 %.06298, 1
   %111 = shl i32 %109, 2
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %110, %112
+  %113 = icmp samesign ult i64 %110, %112
   br i1 %113, label %.lr.ph100, label %.preheader, !llvm.loop !50
 
 .lr.ph103:                                        ; preds = %.preheader, %120
@@ -4627,7 +4627,7 @@ _ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE3setEi.exit.us: ; preds =
   %122 = add nuw nsw i64 %.0102, 1
   %123 = shl i32 %121, 2
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %122, %124
+  %125 = icmp samesign ult i64 %122, %124
   br i1 %125, label %.lr.ph103, label %._crit_edge104, !llvm.loop !51
 
 ._crit_edge104:                                   ; preds = %120, %._crit_edge, %.preheader
@@ -17188,7 +17188,7 @@ define linkonce_odr void @_ZNK8XForm4x4IfE7inverseEv(ptr dead_on_unwind noalias 
   %.cmp.not = icmp eq i64 %indvars.iv, 3
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = select i1 %.cmp.not, i32 0, i32 %46
-  %.cmp27 = icmp ult i64 %indvars.iv, 2
+  %.cmp27 = icmp samesign ult i64 %indvars.iv, 2
   %.v40 = select i1 %.cmp27, i32 2, i32 -2
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = add nsw i32 %.v40, %48
@@ -18211,7 +18211,7 @@ _ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit: ; preds = %_ZN7OctNodeI
   %.sroa.6.1.p.v = select i1 %.not115, float -5.000000e-01, float 5.000000e-01
   %.sroa.6.1.p = fmul float %142, %.sroa.6.1.p.v
   %.sroa.6.1 = fadd float %.sroa.6.0273, %.sroa.6.1.p
-  %.not116 = icmp ult i32 %.2.i, 4
+  %.not116 = icmp samesign ult i32 %.2.i, 4
   %.sroa.12.1.p.v = select i1 %.not116, float -5.000000e-01, float 5.000000e-01
   %.sroa.12.1.p = fmul float %142, %.sroa.12.1.p.v
   %.sroa.12.1 = fadd float %.sroa.12.0274, %.sroa.12.1.p
@@ -20746,7 +20746,7 @@ _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.i:       ; preds = %6
   %.sroa.6.1.p.v.i = select i1 %.not22.i, float -5.000000e-01, float 5.000000e-01
   %.sroa.6.1.p.i = fmul float %28, %.sroa.6.1.p.v.i
   %.sroa.6.1.i = fadd float %.sroa.6.033.i, %.sroa.6.1.p.i
-  %.not23.i = icmp ult i32 %.2.i.i, 4
+  %.not23.i = icmp samesign ult i32 %.2.i.i, 4
   %.sroa.12.1.p.v.i = select i1 %.not23.i, float -5.000000e-01, float 5.000000e-01
   %.sroa.12.1.p.i = fmul float %28, %.sroa.12.1.p.v.i
   %.sroa.12.1.i = fadd float %.sroa.12.032.i, %.sroa.12.1.p.i
@@ -24614,7 +24614,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %30
   %.sroa.11.1.p.v = select i1 %.not127, float -5.000000e-01, float 5.000000e-01
   %.sroa.11.1.p = fmul float %45, %.sroa.11.1.p.v
   %.sroa.11.1 = fadd float %.sroa.11.0194, %.sroa.11.1.p
-  %.not128 = icmp ult i32 %.2.i, 4
+  %.not128 = icmp samesign ult i32 %.2.i, 4
   %.sroa.22.1.p.v = select i1 %.not128, float -5.000000e-01, float 5.000000e-01
   %.sroa.22.1.p = fmul float %45, %.sroa.22.1.p.v
   %.sroa.22.1 = fadd float %.sroa.22.0195, %.sroa.22.1.p
@@ -24857,7 +24857,7 @@ _ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit: ; preds = %_ZN7OctNodeI
   %.sroa.11.3.p.v = select i1 %.not124, float -5.000000e-01, float 5.000000e-01
   %.sroa.11.3.p = fmul float %151, %.sroa.11.3.p.v
   %.sroa.11.3 = fadd float %.sroa.11.2224, %.sroa.11.3.p
-  %.not125 = icmp ult i32 %.2.i131, 4
+  %.not125 = icmp samesign ult i32 %.2.i131, 4
   %.sroa.22.3.p.v = select i1 %.not125, float -5.000000e-01, float 5.000000e-01
   %.sroa.22.3.p = fmul float %151, %.sroa.22.3.p.v
   %.sroa.22.3 = fadd float %.sroa.22.2225, %.sroa.22.3.p
@@ -26153,7 +26153,7 @@ _ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit.backedge: ; preds = %.thread43, %
   %19 = getelementptr inbounds %class.OctNode, ptr %18, i64 %indvars.iv
   %20 = tail call noundef zeroext i1 @_ZNK6OctreeIfE20HasNormalDataFunctorILi2EEclEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = icmp ugt i64 %indvars.iv, 6
+  %21 = icmp samesign ugt i64 %indvars.iv, 6
   %.not22 = or i1 %21, %20
   br i1 %.not22, label %.preheader, label %.preheader24, !llvm.loop !340
 
@@ -30641,7 +30641,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %16, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
-  %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %6 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
   %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
@@ -30670,7 +30670,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %28, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
-  %18 = icmp ult i64 %indvars.iv17.i.i, 4
+  %18 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
   %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
@@ -30699,7 +30699,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %40, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
-  %30 = icmp ult i64 %indvars.iv17.i, 4
+  %30 = icmp samesign ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
   %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
@@ -30735,7 +30735,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %16, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
-  %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %6 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
   %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
@@ -30764,7 +30764,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %28, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
-  %18 = icmp ult i64 %indvars.iv17.i.i, 4
+  %18 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
   %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
@@ -30793,7 +30793,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %40, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
-  %30 = icmp ult i64 %indvars.iv17.i, 4
+  %30 = icmp samesign ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
   %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
@@ -30829,7 +30829,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %16, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
-  %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %6 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
   %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
@@ -30858,7 +30858,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %28, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
-  %18 = icmp ult i64 %indvars.iv17.i.i, 4
+  %18 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
   %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
@@ -30887,7 +30887,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %40, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
-  %30 = icmp ult i64 %indvars.iv17.i, 4
+  %30 = icmp samesign ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
   %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
@@ -36959,7 +36959,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %18, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
-  %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %7 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
   %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
@@ -36989,7 +36989,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %31, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
-  %20 = icmp ult i64 %indvars.iv17.i.i, 4
+  %20 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
   %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
@@ -37019,7 +37019,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %44, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
-  %33 = icmp ult i64 %indvars.iv17.i, 4
+  %33 = icmp samesign ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
   %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
@@ -37057,7 +37057,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %18, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
-  %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %7 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
   %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
@@ -37087,7 +37087,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %31, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
-  %20 = icmp ult i64 %indvars.iv17.i.i, 4
+  %20 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
   %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
@@ -37117,7 +37117,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %44, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
-  %33 = icmp ult i64 %indvars.iv17.i, 4
+  %33 = icmp samesign ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
   %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
@@ -37155,7 +37155,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
 
 .preheader.i.i.i:                                 ; preds = %18, %2
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
-  %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
+  %7 = icmp samesign ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
   %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
@@ -37185,7 +37185,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i.i:                                   ; preds = %31, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
-  %20 = icmp ult i64 %indvars.iv17.i.i, 4
+  %20 = icmp samesign ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
   %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
@@ -37215,7 +37215,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
 
 .preheader.i:                                     ; preds = %44, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
-  %33 = icmp ult i64 %indvars.iv17.i, 4
+  %33 = icmp samesign ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
   %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
@@ -61336,7 +61336,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %34
   %.sroa.6.1.p.v.i = select i1 %.not25.i, float -5.000000e-01, float 5.000000e-01
   %.sroa.6.1.p.i = fmul float %49, %.sroa.6.1.p.v.i
   %.sroa.6.1.i = fadd float %.sroa.6.036.i, %.sroa.6.1.p.i
-  %.not26.i = icmp ult i32 %.2.i.i, 4
+  %.not26.i = icmp samesign ult i32 %.2.i.i, 4
   %.sroa.12.1.p.v.i = select i1 %.not26.i, float -5.000000e-01, float 5.000000e-01
   %.sroa.12.1.p.i = fmul float %49, %.sroa.12.1.p.v.i
   %.sroa.12.1.i = fadd float %.sroa.12.035.i, %.sroa.12.1.p.i
@@ -76709,7 +76709,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc102
   %49 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv220
   store i32 %48, ptr %49, align 4
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %50 = icmp ult i64 %indvars.iv.next221, %45
+  %50 = icmp samesign ult i64 %indvars.iv.next221, %45
   br i1 %50, label %.lr.ph183, label %._crit_edge184, !llvm.loop !1035
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %38
@@ -77037,7 +77037,7 @@ _ZNSt6vectorI7Point3DIfESaIS1_EE6resizeEm.exit:   ; preds = %_ZNKSt6vectorI7Poin
   %197 = getelementptr inbounds %struct.Point3D, ptr %190, i64 %indvars.iv202
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) %196, i64 12, i1 false)
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %198 = icmp ult i64 %indvars.iv.next203, %194
+  %198 = icmp samesign ult i64 %indvars.iv.next203, %194
   br i1 %198, label %195, label %._crit_edge152, !llvm.loop !1046
 
 .loopexit136:                                     ; preds = %225

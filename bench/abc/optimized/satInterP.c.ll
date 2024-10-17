@@ -463,7 +463,7 @@ define void @Intp_ManPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16777215
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %2
@@ -592,7 +592,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
-  %51 = icmp ugt i32 %50, 2
+  %51 = icmp samesign ugt i32 %50, 2
   br i1 %51, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -651,7 +651,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 .loopexit.i:                                      ; preds = %62, %.preheader.i
   %.pre-phi78.i = phi i32 [ %.pre77.i, %62 ], [ %50, %.preheader.i ]
   %.058.i = phi i32 [ %64, %62 ], [ 2, %.preheader.i ]
-  %80 = icmp ult i32 %.058.i, %.pre-phi78.i
+  %80 = icmp samesign ult i32 %.058.i, %.pre-phi78.i
   br i1 %80, label %94, label %.loopexit.i..loopexit.thread.i_crit_edge
 
 .loopexit.i..loopexit.thread.i_crit_edge:         ; preds = %.loopexit.i
@@ -814,7 +814,7 @@ define void @Intp_ManProofWriteOne(ptr nocapture noundef %0, ptr nocapture nound
   %34 = lshr i32 %33, 3
   %35 = and i32 %34, 16777215
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %23, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %12
@@ -898,7 +898,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %41 = lshr i32 %40, 3
   %42 = and i32 %41, 16777215
   %43 = zext nneg i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %33, label %Vec_IntPush.exit, !llvm.loop !14
 
 Vec_IntPush.exit:                                 ; preds = %33, %27
@@ -1053,7 +1053,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %128 = lshr i32 %127, 3
   %129 = and i32 %128, 16777215
   %130 = zext nneg i32 %129 to i64
-  %131 = icmp ult i64 %indvars.iv.next267, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next267, %130
   br i1 %131, label %120, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %120, %.preheader212
@@ -1242,7 +1242,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %220 = lshr i32 %219, 3
   %221 = and i32 %220, 16777215
   %222 = zext nneg i32 %221 to i64
-  %223 = icmp ult i64 %indvars.iv.next281, %222
+  %223 = icmp samesign ult i64 %indvars.iv.next281, %222
   br i1 %223, label %.preheader208, label %.loopexit210, !llvm.loop !19
 
 .loopexit210:                                     ; preds = %218, %.preheader209, %142
@@ -1409,7 +1409,7 @@ Vec_IntPush.exit187:                              ; preds = %.Vec_IntGrow.exit10
   %301 = lshr i32 %300, 3
   %302 = and i32 %301, 16777215
   %303 = zext nneg i32 %302 to i64
-  %304 = icmp ult i64 %indvars.iv.next.i, %303
+  %304 = icmp samesign ult i64 %indvars.iv.next.i, %303
   br i1 %304, label %296, label %Intp_ManPrintClause.exit, !llvm.loop !8
 
 Intp_ManPrintClause.exit:                         ; preds = %296, %.preheader206._crit_edge
@@ -1457,7 +1457,7 @@ Intp_ManPrintResolvent.exit:                      ; preds = %.lr.ph.i189, %Intp_
   %324 = lshr i32 %323, 3
   %325 = and i32 %324, 16777215
   %326 = zext nneg i32 %325 to i64
-  %327 = icmp ult i64 %indvars.iv.next.i196, %326
+  %327 = icmp samesign ult i64 %indvars.iv.next.i196, %326
   br i1 %327, label %.lr.ph.i194, label %Intp_ManPrintClause.exit198, !llvm.loop !8
 
 Intp_ManPrintClause.exit198:                      ; preds = %.lr.ph.i194, %Intp_ManPrintResolvent.exit
@@ -1754,7 +1754,7 @@ Intp_ManEnqueue.exit:                             ; preds = %64
   %83 = lshr i32 %82, 3
   %84 = and i32 %83, 16777215
   %85 = zext nneg i32 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next133, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next133, %85
   br i1 %86, label %64, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %81, %.preheader104
@@ -1772,7 +1772,7 @@ Intp_ManEnqueue.exit:                             ; preds = %64
   %96 = load i32, ptr %95, align 4
   %97 = lshr i32 %96, 3
   %98 = and i32 %97, 16777215
-  %.not = icmp ult i32 %94, %98
+  %.not = icmp samesign ult i32 %94, %98
   br i1 %.not, label %165, label %.preheader103
 
 .preheader103:                                    ; preds = %91
@@ -3112,7 +3112,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %79 = lshr i32 %78, 3
   %80 = and i32 %79, 16777215
   %81 = zext nneg i32 %80 to i64
-  %82 = icmp ult i64 %indvars.iv.next, %81
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
   br i1 %82, label %64, label %._crit_edge55, !llvm.loop !39
 
 ._crit_edge55:                                    ; preds = %64

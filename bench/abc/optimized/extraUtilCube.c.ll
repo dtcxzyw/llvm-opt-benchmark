@@ -445,7 +445,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %188
   %196 = fdiv double %195, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %196)
   %197 = add nuw nsw i32 %.1170, 1
-  %198 = icmp ugt i32 %.1170, 99
+  %198 = icmp samesign ugt i32 %.1170, 99
   %199 = icmp eq i32 %.1115169, %.2116.lcssa
   %or.cond = or i1 %198, %199
   br i1 %or.cond, label %200, label %.preheader149, !llvm.loop !16
@@ -1589,7 +1589,7 @@ Abc_Clock.exit151:                                ; preds = %._crit_edge, %570
   %578 = fdiv double %577, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %578)
   %579 = add nuw nsw i32 %.1172, 1
-  %580 = icmp ugt i32 %.1172, 99
+  %580 = icmp samesign ugt i32 %.1172, 99
   %581 = icmp eq i32 %.0117170, %.2120.lcssa
   %or.cond = or i1 %580, %581
   br i1 %or.cond, label %582, label %.preheader, !llvm.loop !28

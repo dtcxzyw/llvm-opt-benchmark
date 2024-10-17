@@ -392,7 +392,7 @@ define hidden void @_ZN10serde_json3ser6to_vec17h06b39166324a221aE.llvm.23375837
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %11
-  %19 = icmp ult i64 %9, 4
+  %19 = icmp samesign ult i64 %9, 4
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18

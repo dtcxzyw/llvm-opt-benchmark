@@ -4471,7 +4471,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %75 = load i16, ptr %71, align 2
   %76 = icmp ult i16 %75, 4
   %77 = zext i16 %75 to i32
-  %.not = icmp ult i32 %74, %77
+  %.not = icmp samesign ult i32 %74, %77
   %or.cond = or i1 %76, %.not
   br i1 %or.cond, label %.critedge, label %78
 

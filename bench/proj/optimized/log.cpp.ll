@@ -248,7 +248,7 @@ define hidden void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr nocapture noundef
   %9 = icmp ne i32 %8, 0
   %or.cond.i.not26.i = select i1 %9, i1 true, i1 %6
   %spec.select.i.i = call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %10 = icmp ugt i32 %spec.select.i.i, 1
+  %10 = icmp samesign ugt i32 %spec.select.i.i, 1
   %or.cond.i = select i1 %or.cond.i.not26.i, i1 %10, i1 false
   br i1 %or.cond.i, label %11, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 

@@ -1444,7 +1444,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %20 = zext nneg i32 %19 to i64
   %21 = sub nuw nsw i64 262104, %20
   %22 = lshr exact i64 %21, 2
-  %23 = icmp ult i64 %22, %18
+  %23 = icmp samesign ult i64 %22, %18
   br i1 %23, label %95, label %24
 
 24:                                               ; preds = %17

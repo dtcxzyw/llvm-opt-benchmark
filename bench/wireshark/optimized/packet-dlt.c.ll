@@ -1688,7 +1688,7 @@ dissect_dlt_verbose_parameter.exit.i:             ; preds = %584, %switch.lookup
   %587 = add i32 %.0.i.i, %.01316.i
   %588 = add nuw nsw i32 %.01415.i, 1
   %589 = icmp ugt i32 %.0.i.i, 4
-  %590 = icmp ult i32 %588, %301
+  %590 = icmp samesign ult i32 %588, %301
   %591 = select i1 %589, i1 %590, i1 false
   br i1 %591, label %303, label %dissect_dlt_verbose_payload.exit, !llvm.loop !10
 

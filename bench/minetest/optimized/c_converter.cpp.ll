@@ -4991,7 +4991,7 @@ for.body:                                         ; preds = %if.then, %for.body
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %tobool10.not = icmp ne i32 %call9, 0
   %inc = add nuw nsw i32 %i.0110, 1
-  %cmp5 = icmp ult i32 %i.0110, 6
+  %cmp5 = icmp samesign ult i32 %i.0110, 6
   %0 = select i1 %cmp5, i1 %tobool10.not, i1 false
   br i1 %0, label %for.body, label %for.cond.cleanup, !llvm.loop !40
 

@@ -6218,7 +6218,7 @@ define hidden void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.llvm.180985502
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %.0, %17
+  %19 = icmp samesign ugt i64 %.0, %17
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %13, %31, %5

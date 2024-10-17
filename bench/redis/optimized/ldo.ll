@@ -2105,7 +2105,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i8, ptr %nups, align 8, !tbaa !82
   %10 = zext i8 %9 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %10
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !83
 
 for.end:                                          ; preds = %for.body, %if.end

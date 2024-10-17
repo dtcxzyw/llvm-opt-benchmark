@@ -1786,7 +1786,7 @@ if.else:                                          ; preds = %for.body
 
 if.then27:                                        ; preds = %if.else
   %15 = and i8 %retval.sroa.0.0.copyload.i, 15
-  %16 = icmp ult i8 %15, 11
+  %16 = icmp samesign ult i8 %15, 11
   br i1 %16, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %if.then27

@@ -3444,7 +3444,7 @@ define hidden void @"_ZN4core3ptr479drop_in_place$LT$hashbrown..raw..RawTable$LT
 define void @"_ZN4core3ptr47drop_in_place$LT$wasmtime_wit_bindgen..Opts$GT$17h7ed4084a6b424dfeE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8, !range !11, !noundef !3
-  %switch.i = icmp ult i64 %3, 2
+  %switch.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i, label %"_ZN4core3ptr54drop_in_place$LT$wasmtime_wit_bindgen..AsyncConfig$GT$17he55efc91a5c0e4dfE.exit", label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1
@@ -3468,7 +3468,7 @@ define void @"_ZN4core3ptr47drop_in_place$LT$wasmtime_wit_bindgen..Opts$GT$17h7e
 10:                                               ; preds = %15, %6
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %7, %6 ]
   %11 = load i64, ptr %0, align 8, !range !12, !noundef !3
-  %switch.i4 = icmp ult i64 %11, 2
+  %switch.i4 = icmp samesign ult i64 %11, 2
   br i1 %switch.i4, label %"_ZN4core3ptr59drop_in_place$LT$wasmtime_wit_bindgen..TrappableImports$GT$17h4eda129271fcb1deE.exit", label %12
 
 12:                                               ; preds = %10
@@ -3484,7 +3484,7 @@ define void @"_ZN4core3ptr47drop_in_place$LT$wasmtime_wit_bindgen..Opts$GT$17h7e
 
 17:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$wasmtime_wit_bindgen..AsyncConfig$GT$17he55efc91a5c0e4dfE.exit"
   %18 = load i64, ptr %0, align 8, !range !12, !noundef !3
-  %switch.i6 = icmp ult i64 %18, 2
+  %switch.i6 = icmp samesign ult i64 %18, 2
   br i1 %switch.i6, label %"_ZN4core3ptr59drop_in_place$LT$wasmtime_wit_bindgen..TrappableImports$GT$17h4eda129271fcb1deE.exit8", label %19
 
 19:                                               ; preds = %17
@@ -3914,7 +3914,7 @@ define void @"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fd..FileDesc$G
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr54drop_in_place$LT$wasmtime_wit_bindgen..AsyncConfig$GT$17he55efc91a5c0e4dfE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !3
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %5, label %.sink.split
 
 .sink.split:                                      ; preds = %1
@@ -4106,7 +4106,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Sourc
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr59drop_in_place$LT$wasmtime_wit_bindgen..TrappableImports$GT$17h4eda129271fcb1deE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !3
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %6, label %3
 
 3:                                                ; preds = %1

@@ -1183,7 +1183,7 @@ define internal noundef i32 @apple_input_configured(ptr noundef %0, ptr nocaptur
   br i1 %29, label %30, label %.preheader, !llvm.loop !16
 
 30:                                               ; preds = %24
-  %31 = icmp ult i64 %21, 8
+  %31 = icmp samesign ult i64 %21, 8
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %30, %17

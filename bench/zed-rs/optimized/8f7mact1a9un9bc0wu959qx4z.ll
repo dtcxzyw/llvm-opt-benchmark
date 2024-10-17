@@ -2550,7 +2550,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   store i32 %147, ptr %145, align 8, !noalias !422
   %.pr = load i64, ptr %13, align 8, !alias.scope !438
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %148, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h91b74193f298188aE.exit"
 
 148:                                              ; preds = %136
@@ -3395,7 +3395,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7e30c985dc122a61E.exit.i.i: ; preds = 
   store i32 %293, ptr %291, align 8, !noalias !620
   %.pr = load i64, ptr %19, align 8, !alias.scope !636
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %switch.not.i = icmp ult i64 %.pr, 2
+  %switch.not.i = icmp samesign ult i64 %.pr, 2
   br i1 %switch.not.i, label %294, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h91b74193f298188aE.exit"
 
 294:                                              ; preds = %282
@@ -9938,7 +9938,7 @@ _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755
   %46 = sub nuw i64 %45, %13
   %47 = lshr exact i64 %46, 6
   %48 = tail call i64 @llvm.usub.sat.i64(i64 %47, i64 %.sroa.11.0)
-  %.not.i.not.i.not = icmp ult i64 %48, %47
+  %.not.i.not.i.not = icmp samesign ult i64 %48, %47
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds { i64, [7 x i64] }, ptr %.sroa.5.0, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -64

@@ -1287,11 +1287,11 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   %93 = getelementptr inbounds i8, ptr %.02615.i, i64 88
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 33554432
-  %96 = icmp ult i32 %92, %95
+  %96 = icmp samesign ult i32 %92, %95
   br i1 %96, label %uv__signal_compare.exit.thread5.i, label %97
 
 97:                                               ; preds = %90
-  %98 = icmp ugt i32 %92, %95
+  %98 = icmp samesign ugt i32 %92, %95
   br i1 %98, label %uv__signal_compare.exit.thread5.i, label %99
 
 99:                                               ; preds = %97

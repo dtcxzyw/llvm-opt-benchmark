@@ -2750,22 +2750,22 @@ define noundef i64 @_ZN4rope4Rope22offset_to_offset_utf1617h536fba2281ac2b9aE(pt
   br i1 %.not.i.i.i11, label %110, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h32e91688f47ad7f2E.exit.thread"
 
 110:                                              ; preds = %108
-  %111 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %111 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %110
-  %113 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %113 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %112
-  %115 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %115 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %115, i64 3, i64 4
   br label %116
 
 116:                                              ; preds = %114, %112, %110
   %.sroa.05.0.i.i.i = phi i64 [ 1, %110 ], [ %..i.i.i, %114 ], [ 2, %112 ]
   %117 = add i64 %.sroa.05.0.i.i.i, %.sroa.02.017.i.i.i
-  %118 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %118 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %.8.i.i.i = select i1 %118, i64 1, i64 2
   %119 = add i64 %.8.i.i.i, %.sroa.0.018.i.i.i
   %120 = icmp eq ptr %.sroa.0.1.ph.i.i.i, %.ptr21.i.i.i
@@ -2999,22 +2999,22 @@ define noundef i64 @_ZN4rope4Rope22offset_utf16_to_offset17h974d4f0ecd36b5bdE(pt
   br i1 %switch9.not.i.i.i, label %111, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h58a5c743a2c2681fE.exit"
 
 111:                                              ; preds = %109
-  %112 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %112 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %111
-  %114 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %114 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %116 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %116, i64 3, i64 4
   br label %117
 
 117:                                              ; preds = %115, %113, %111
   %.sroa.03.0.i.i.i = phi i64 [ 1, %111 ], [ %..i.i.i, %115 ], [ 2, %113 ]
   %118 = add i64 %.sroa.03.0.i.i.i, %.sroa.0.021.i.i.i
-  %119 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %119 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %.11.i.i.i = select i1 %119, i64 1, i64 2
   %120 = add i64 %.11.i.i.i, %.sroa.07.020.i.i.i
   %121 = icmp eq ptr %.sroa.0.1.ph.i.i.i, %.ptr24.i.i.i
@@ -3254,7 +3254,7 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
   br label %128
 
 118:                                              ; preds = %115
-  %119 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %119 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %118
@@ -3262,7 +3262,7 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
   br label %128
 
 122:                                              ; preds = %118
-  %123 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %123 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   br i1 %123, label %.thread24.i.i.i, label %125
 
 .thread24.i.i.i:                                  ; preds = %122
@@ -3270,7 +3270,7 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
   br label %128
 
 125:                                              ; preds = %122
-  %126 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %126 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %126, i32 3, i32 4
   %127 = add i32 %..i.i.i, %.sroa.4.028.i.i.i
   %.9.i.i.i = select i1 %126, i64 3, i64 4
@@ -3523,14 +3523,14 @@ define { i32, i32 } @_ZN4rope4Rope21offset_to_point_utf1617ha0b6c118d3e7b9d4E(pt
 
 114:                                              ; preds = %112
   %115 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i, 10
-  %116 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %116 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %116, i32 1, i32 2
   %117 = add i32 %..i.i.i, %.sroa.4.020.i.i.i
   %.sroa.4.1.i.i.i = select i1 %115, i32 0, i32 %117
   %118 = zext i1 %115 to i32
   %.sroa.0.1.i.i.i = add i32 %.sroa.0.021.i.i.i, %118
-  %119 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
-  %120 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %119 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %120 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   %.9.i.i.i = select i1 %116, i64 3, i64 4
   %spec.select.i.i.i = select i1 %120, i64 2, i64 %.9.i.i.i
   %.sroa.07.0.i.i.i = select i1 %119, i64 1, i64 %spec.select.i.i.i
@@ -3819,11 +3819,11 @@ define { i32, i32 } @_ZN4rope4Rope20point_to_point_utf1617ha27c3c5526153a21E(ptr
   br label %152
 
 146:                                              ; preds = %141
-  %147 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %147 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %147, i32 1, i32 2
   %148 = add i32 %..i.i.i, %.sroa.4.025.i.i.i
-  %149 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
-  %150 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %149 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %150 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   %.10.i.i.i = select i1 %147, i32 3, i32 4
   %spec.select.i.i.i = select i1 %150, i32 2, i32 %.10.i.i.i
   %.sroa.05.0.i.i.i = select i1 %149, i32 1, i32 %spec.select.i.i.i
@@ -4200,7 +4200,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   call void @llvm.experimental.noalias.scope.decl(metadata !866)
   %175 = load i64, ptr %14, align 8, !range !869, !alias.scope !870, !noalias !859, !noundef !7
-  %switch.i.i.i.i.i = icmp ult i64 %175, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %175, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE.exit.i.i.i", label %176
 
 176:                                              ; preds = %174
@@ -4244,7 +4244,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   br i1 %185, label %.noexc17, label %.thread68.i.i.i
 
 186:                                              ; preds = %153
-  %187 = icmp ult i32 %.sroa.4.0.i.ph66.i.i.i, 128
+  %187 = icmp samesign ult i32 %.sroa.4.0.i.ph66.i.i.i, 128
   br i1 %187, label %188, label %216
 
 188:                                              ; preds = %186
@@ -4318,7 +4318,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   call void @llvm.experimental.noalias.scope.decl(metadata !880)
   call void @llvm.experimental.noalias.scope.decl(metadata !883)
   %209 = load i64, ptr %10, align 8, !range !869, !alias.scope !886, !noalias !859, !noundef !7
-  %switch.i.i51.i.i.i = icmp ult i64 %209, 2
+  %switch.i.i51.i.i.i = icmp samesign ult i64 %209, 2
   br i1 %switch.i.i51.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE.exit54.i.i.i", label %210
 
 210:                                              ; preds = %208
@@ -4368,7 +4368,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3813691f8e6c06eeE.exit"
 
 216:                                              ; preds = %186
-  %217 = icmp ult i32 %.sroa.4.0.i.ph66.i.i.i, 2048
+  %217 = icmp samesign ult i32 %.sroa.4.0.i.ph66.i.i.i, 2048
   br i1 %217, label %.thread73.i.i.i, label %219
 
 .thread73.i.i.i:                                  ; preds = %216
@@ -4376,7 +4376,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   br label %.thread68.i.i.i
 
 219:                                              ; preds = %216
-  %220 = icmp ult i32 %.sroa.4.0.i.ph66.i.i.i, 65536
+  %220 = icmp samesign ult i32 %.sroa.4.0.i.ph66.i.i.i, 65536
   %..i.i.i = select i1 %220, i32 3, i32 4
   %221 = add i32 %..i.i.i, %110
   %.49.i.i.i = select i1 %220, i64 3, i64 4
@@ -4704,7 +4704,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5c86b4332b80830fE.exit", label %.noexc15
 
 158:                                              ; preds = %152
-  %159 = icmp ult i32 %.sroa.4.0.i.ph62.i.i.i, 65536
+  %159 = icmp samesign ult i32 %.sroa.4.0.i.ph62.i.i.i, 65536
   %..i.i.i = select i1 %159, i32 1, i32 2
   %160 = add i32 %..i.i.i, %112
   %161 = zext i32 %111 to i64
@@ -4779,7 +4779,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
   call void @llvm.experimental.noalias.scope.decl(metadata !948)
   %184 = load i64, ptr %15, align 8, !range !869, !alias.scope !951, !noalias !941, !noundef !7
-  %switch.i.i.i.i.i = icmp ult i64 %184, 2
+  %switch.i.i.i.i.i = icmp samesign ult i64 %184, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE.exit.i.i.i", label %185
 
 185:                                              ; preds = %183
@@ -4818,7 +4818,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   unreachable
 
 192:                                              ; preds = %158
-  %193 = icmp ult i32 %.sroa.4.0.i.ph62.i.i.i, 128
+  %193 = icmp samesign ult i32 %.sroa.4.0.i.ph62.i.i.i, 128
   br i1 %193, label %.thread82.i.i.i, label %221
 
 194:                                              ; preds = %158
@@ -4891,7 +4891,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   call void @llvm.experimental.noalias.scope.decl(metadata !961)
   call void @llvm.experimental.noalias.scope.decl(metadata !964)
   %214 = load i64, ptr %11, align 8, !range !869, !alias.scope !967, !noalias !941, !noundef !7
-  %switch.i.i47.i.i.i = icmp ult i64 %214, 2
+  %switch.i.i47.i.i.i = icmp samesign ult i64 %214, 2
   br i1 %switch.i.i47.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE.exit50.i.i.i", label %215
 
 215:                                              ; preds = %213
@@ -4941,7 +4941,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5c86b4332b80830fE.exit"
 
 221:                                              ; preds = %192
-  %222 = icmp ult i32 %.sroa.4.0.i.ph62.i.i.i, 2048
+  %222 = icmp samesign ult i32 %.sroa.4.0.i.ph62.i.i.i, 2048
   %.46.i.i.i = select i1 %159, i64 3, i64 4
   %spec.select.i.i = select i1 %222, i64 2, i64 %.46.i.i.i
   br label %.thread82.i.i.i
@@ -5244,11 +5244,11 @@ define { i32, i32 } @_ZN4rope4Rope30unclipped_point_utf16_to_point17h33c713b7aec
   br i1 %150, label %.thread, label %101
 
 "_ZN77_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc8f3c7511c76fbacE.exit9.i.i.i": ; preds = %146
-  %151 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
+  %151 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 65536
   %..i.i.i = select i1 %151, i32 1, i32 2
   %152 = add i32 %..i.i.i, %.sroa.1024.038.i.i.i
-  %153 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 128
-  %154 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
+  %153 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 128
+  %154 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 2048
   %.8.i.i.i = select i1 %151, i32 3, i32 4
   %spec.select.i.i.i = select i1 %154, i32 2, i32 %.8.i.i.i
   %.sroa.03.0.i.i.i = select i1 %153, i32 1, i32 %spec.select.i.i.i
@@ -9864,7 +9864,7 @@ define void @"_ZN73_$LT$rope..ChunkSummary$u20$as$u20$core..convert..From$LT$$RF
   %.sroa.4.0.i.ph.i = phi i32 [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit14.i.i" ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit16.i.i" ]
   %42 = icmp ult i32 %.sroa.4.0.i.ph.i, 1114112
   tail call void @llvm.assume(i1 %42)
-  %43 = icmp ult i32 %.sroa.4.0.i.ph.i, 65536
+  %43 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 65536
   br i1 %43, label %.thread.i, label %47
 
 .thread.i:                                        ; preds = %41, %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit12.i.i"
@@ -9884,13 +9884,13 @@ define void @"_ZN73_$LT$rope..ChunkSummary$u20$as$u20$core..convert..From$LT$$RF
   br label %61
 
 50:                                               ; preds = %53
-  %51 = icmp ult i32 %.sroa.4.0.i.ph49.i, 2048
+  %51 = icmp samesign ult i32 %.sroa.4.0.i.ph49.i, 2048
   %.sroa.06.077.i = select i1 %51, i32 2, i32 3
   %52 = add i32 %.sroa.06.077.i, %.sroa.8.051.i
   br label %61
 
 53:                                               ; preds = %.thread.i
-  %54 = icmp ult i32 %.sroa.4.0.i.ph49.i, 128
+  %54 = icmp samesign ult i32 %.sroa.4.0.i.ph49.i, 128
   br i1 %54, label %59, label %50
 
 55:                                               ; preds = %61, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit.i"
@@ -10176,7 +10176,7 @@ define void @"_ZN72_$LT$rope..TextSummary$u20$as$u20$core..convert..From$LT$$RF$
   %.sroa.4.0.i.ph = phi i32 [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit14.i" ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit16.i" ]
   %50 = icmp ult i32 %.sroa.4.0.i.ph, 1114112
   tail call void @llvm.assume(i1 %50)
-  %51 = icmp ult i32 %.sroa.4.0.i.ph, 65536
+  %51 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536
   br i1 %51, label %.thread, label %55
 
 .thread:                                          ; preds = %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c21cc74ba7db765E.exit12.i", %49
@@ -10196,13 +10196,13 @@ define void @"_ZN72_$LT$rope..TextSummary$u20$as$u20$core..convert..From$LT$$RF$
   br label %69
 
 58:                                               ; preds = %61
-  %59 = icmp ult i32 %.sroa.4.0.i.ph49, 2048
+  %59 = icmp samesign ult i32 %.sroa.4.0.i.ph49, 2048
   %.sroa.06.077 = select i1 %59, i32 2, i32 3
   %60 = add i32 %.sroa.06.077, %.sroa.8.051
   br label %69
 
 61:                                               ; preds = %.thread
-  %62 = icmp ult i32 %.sroa.4.0.i.ph49, 128
+  %62 = icmp samesign ult i32 %.sroa.4.0.i.ph49, 128
   br i1 %62, label %67, label %58
 
 63:                                               ; preds = %69, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit"

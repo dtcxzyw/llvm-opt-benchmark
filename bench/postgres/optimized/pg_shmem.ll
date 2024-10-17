@@ -74,7 +74,7 @@ define dso_local zeroext i1 @PGSharedMemoryIsInUse(i64 noundef %0, i64 noundef %
   br label %14
 
 14:                                               ; preds = %12, %10, %7, %2
-  %switch = icmp ult i32 %5, 2
+  %switch = icmp samesign ult i32 %5, 2
   ret i1 %switch
 }
 

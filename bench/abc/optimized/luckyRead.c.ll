@@ -109,7 +109,7 @@ Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, 
   %.0 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ 0, %25 ], [ %29, %.lr.ph.i ]
   %33 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store i32 %32, ptr %33, align 8
-  %34 = icmp ult i32 %32, 7
+  %34 = icmp samesign ult i32 %32, 7
   %35 = add nsw i32 %32, -6
   %36 = shl nuw i32 1, %35
   %37 = select i1 %34, i32 1, i32 %36
@@ -157,7 +157,7 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %50, %Abc_TruthGetPa
   br i1 %.not15.i, label %._crit_edge.i13, label %.lr.ph.i10.preheader
 
 .lr.ph.i10.preheader:                             ; preds = %.preheader.i9
-  %56 = icmp ult i32 %32, 7
+  %56 = icmp samesign ult i32 %32, 7
   %57 = add nsw i32 %32, -2
   %58 = shl nuw nsw i32 1, %57
   %59 = shl i32 16, %35

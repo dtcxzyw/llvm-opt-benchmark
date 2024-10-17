@@ -1025,7 +1025,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %82 = sext i32 %79 to i64
   %83 = getelementptr inbounds i32, ptr %.val76, i64 %82
   store i32 %81, ptr %83, align 4
-  %84 = icmp ult i64 %indvars.iv.next114, %76
+  %84 = icmp samesign ult i64 %indvars.iv.next114, %76
   br i1 %84, label %77, label %.critedge4, !llvm.loop !18
 
 .critedge4:                                       ; preds = %77, %.critedge2

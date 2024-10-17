@@ -814,7 +814,7 @@ define dso_local ptr @metadata_dst_alloc_percpu(i8 noundef zeroext %0, i32 nound
   store i32 %1, ptr %45, align 8
   %46 = add nuw nsw i64 %19, 1
   %47 = and i64 %46, 127
-  %48 = icmp ugt i64 %47, 63
+  %48 = icmp samesign ugt i64 %47, 63
   br i1 %48, label %.thread, label %12, !prof !21, !llvm.loop !22
 
 .thread:                                          ; preds = %12, %22, %18, %3
@@ -911,7 +911,7 @@ define dso_local void @metadata_dst_free_percpu(ptr noundef %0) #0 align 16 {
 49:                                               ; preds = %47, %46, %27, %24
   %50 = add nuw nsw i64 %10, 1
   %51 = and i64 %50, 127
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread, label %3, !prof !21, !llvm.loop !25
 
 .thread:                                          ; preds = %3, %49, %9

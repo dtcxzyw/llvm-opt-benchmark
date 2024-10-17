@@ -642,7 +642,7 @@ for.inc195:                                       ; preds = %if.then182, %if.els
   %inc196 = add nuw nsw i64 %i.1162, 1
   %conv101 = zext nneg i32 %len.3 to i64
   %cmp102 = icmp ne i32 %len.3, 10
-  %cmp105 = icmp ult i64 %i.1162, 99
+  %cmp105 = icmp samesign ult i64 %i.1162, 99
   %87 = select i1 %cmp102, i1 %cmp105, i1 false
   br i1 %87, label %for.body108, label %for.end197, !llvm.loop !9
 

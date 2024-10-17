@@ -2666,7 +2666,7 @@ uhci_async_alloc.exit:                            ; preds = %if.end82, %land.lhs
   %cmp101 = icmp ne i32 %and100, 0
   tail call void @usb_packet_setup(ptr noundef nonnull %call.i143, i32 noundef %conv41, ptr noundef %52, i32 noundef 0, i64 noundef %conv97, i1 noundef zeroext %51, i1 noundef zeroext %cmp101) #11
   %conv103 = zext nneg i32 %and86 to i64
-  %cmp104 = icmp ult i32 %and86, 65
+  %cmp104 = icmp samesign ult i32 %and86, 65
   br i1 %cmp104, label %if.then106, label %if.else107
 
 if.then106:                                       ; preds = %uhci_async_alloc.exit
@@ -3495,7 +3495,7 @@ sw.bb13:                                          ; preds = %entry, %entry, %ent
   %7 = trunc i64 %addr to i32
   %8 = lshr i32 %7, 1
   %conv16 = and i32 %8, 7
-  %cmp = icmp ugt i32 %conv16, 1
+  %cmp = icmp samesign ugt i32 %conv16, 1
   br i1 %cmp, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %sw.bb13
@@ -3882,7 +3882,7 @@ sw.bb81:                                          ; preds = %trace_usb_uhci_mmio
 sw.bb84:                                          ; preds = %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit, %trace_usb_uhci_mmio_writew.exit
   %57 = lshr i32 %conv, 1
   %conv88 = and i32 %57, 7
-  %cmp89 = icmp ugt i32 %conv88, 1
+  %cmp89 = icmp samesign ugt i32 %conv88, 1
   br i1 %cmp89, label %sw.epilog, label %if.end92
 
 if.end92:                                         ; preds = %sw.bb84

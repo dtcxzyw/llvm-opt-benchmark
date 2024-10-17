@@ -149,7 +149,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %77 = and i64 %76, 1
   %78 = icmp eq i64 %77, 0
   %79 = select i1 %78, double 1.000000e+00, double %68
-  %80 = icmp ult i64 %75, 3
+  %80 = icmp samesign ult i64 %75, 3
   br i1 %80, label %.loopexit15, label %.preheader14
 
 .preheader14:                                     ; preds = %74, %.preheader14

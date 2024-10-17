@@ -165,7 +165,7 @@ if.then17:                                        ; preds = %if.else
   store i32 7, ptr %capacity.i.i, align 8
   %needToRelease.i.i = getelementptr inbounds i8, ptr %v.i, i64 12
   store i8 0, ptr %needToRelease.i.i, align 4
-  %cmp3.i = icmp ugt i32 %itemSize, 224
+  %cmp3.i = icmp samesign ugt i32 %itemSize, 224
   br i1 %cmp3.i, label %if.then.i.i, label %if.end.i
 
 if.then.i.i:                                      ; preds = %if.then17
@@ -232,7 +232,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %indvars.iv.i.i = phi i64 [ 1, %if.end.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %8 = mul nuw nsw i64 %indvars.iv.i.i, %7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %array, i64 %8
-  %cmp119.i.i.i = icmp ugt i64 %indvars.iv.i.i, 8
+  %cmp119.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 8
   %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.body10.preheader.i.i.i
 
@@ -362,7 +362,7 @@ if.else18:                                        ; preds = %if.else
   %needToRelease.i.i23 = getelementptr inbounds i8, ptr %xw.i, i64 12
   store i8 0, ptr %needToRelease.i.i23, align 4
   %mul.i = shl nuw nsw i32 %2, 1
-  %cmp2.i = icmp ugt i32 %itemSize, 224
+  %cmp2.i = icmp samesign ugt i32 %itemSize, 224
   br i1 %cmp2.i, label %if.then.i.i28, label %if.end.i24
 
 if.then.i.i28:                                    ; preds = %if.else18
@@ -512,7 +512,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %1 = mul nuw nsw i64 %indvars.iv.i, %conv4
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %1
-  %cmp119.i.i = icmp ugt i64 %indvars.iv.i, 8
+  %cmp119.i.i = icmp samesign ugt i64 %indvars.iv.i, 8
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.body10.preheader.i.i
 

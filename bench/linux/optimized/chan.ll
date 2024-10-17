@@ -2407,7 +2407,7 @@ define internal fastcc void @ieee80211_recalc_radar_chanctx(ptr noundef %0, ptr 
   %34 = phi i1 [ true, %16 ], [ true, %22 ], [ %31, %28 ]
   %35 = phi i8 [ %18, %16 ], [ %18, %22 ], [ %32, %28 ]
   %36 = add nuw nsw i64 %17, 1
-  %37 = icmp ult i64 %17, 14
+  %37 = icmp samesign ult i64 %17, 14
   %38 = and i1 %37, %34
   br i1 %38, label %16, label %39, !llvm.loop !107
 

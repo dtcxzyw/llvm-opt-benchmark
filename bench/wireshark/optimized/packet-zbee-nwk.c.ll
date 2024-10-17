@@ -828,7 +828,7 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   %80 = and i32 %77, 1
   %81 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 %80, ptr %81, align 4
-  %82 = icmp ugt i32 %51, 1
+  %82 = icmp samesign ugt i32 %51, 1
   %83 = load i32, ptr @hf_zbee_nwk_fcf, align 4
   %84 = load i32, ptr @ett_zbee_nwk_fcf, align 4
   %dissect_zbee_nwk_full.fcf_flags_2007.dissect_zbee_nwk_full.fcf_flags.i = select i1 %82, ptr @dissect_zbee_nwk_full.fcf_flags_2007, ptr @dissect_zbee_nwk_full.fcf_flags

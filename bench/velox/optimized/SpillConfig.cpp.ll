@@ -125,7 +125,7 @@ entry:
   %conv = zext i8 %startBitOffset to i32
   %conv2 = zext i8 %0 to i32
   %add = add nuw nsw i32 %conv2, %conv
-  %cmp = icmp ugt i32 %add, 64
+  %cmp = icmp samesign ugt i32 %add, 64
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -168,7 +168,7 @@ entry:
   %0 = load i8, ptr %joinPartitionBits, align 1
   %conv2 = zext i8 %0 to i32
   %add = add nuw nsw i32 %conv2, %conv
-  %cmp = icmp ugt i32 %add, 64
+  %cmp = icmp samesign ugt i32 %add, 64
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

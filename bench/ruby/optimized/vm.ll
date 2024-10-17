@@ -26763,7 +26763,7 @@ local_var_list_add.exit:                          ; preds = %.lr.ph, %36, %38
   %44 = getelementptr inbounds i8, ptr %43, i64 232
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
   br i1 %47, label %.lr.ph, label %.loopexit30, !llvm.loop !89
 
 .loopexit30:                                      ; preds = %local_var_list_add.exit, %.preheader, %.lr.ph35
@@ -26840,7 +26840,7 @@ local_var_list_add.exit.i.i:                      ; preds = %76, %74, %.lr.ph.i.
   %80 = getelementptr inbounds i8, ptr %79, i64 232
   %81 = load i32, ptr %80, align 8
   %82 = zext i32 %81 to i64
-  %83 = icmp ult i64 %indvars.iv.next.i.i, %82
+  %83 = icmp samesign ult i64 %indvars.iv.next.i.i, %82
   br i1 %83, label %.lr.ph.i.i, label %collect_local_variables_in_iseq.exit.loopexit.i, !llvm.loop !90
 
 collect_local_variables_in_iseq.exit.loopexit.i:  ; preds = %local_var_list_add.exit.i.i
@@ -28014,7 +28014,7 @@ local_var_list_add.exit.i.i:                      ; preds = %23, %21, %.lr.ph.i.
   %27 = getelementptr inbounds i8, ptr %26, i64 232
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %indvars.iv.next.i.i, %29
+  %30 = icmp samesign ult i64 %indvars.iv.next.i.i, %29
   br i1 %30, label %.lr.ph.i.i, label %collect_local_variables_in_iseq.exit.loopexit.i, !llvm.loop !90
 
 collect_local_variables_in_iseq.exit.loopexit.i:  ; preds = %local_var_list_add.exit.i.i
@@ -28091,7 +28091,7 @@ local_var_list_add.exit.i:                        ; preds = %16, %14, %.lr.ph.i
   %20 = getelementptr inbounds i8, ptr %19, i64 232
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %.lr.ph.i, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %local_var_list_add.exit.i, %.preheader.i
@@ -28360,7 +28360,7 @@ rb_array_len.exit:                                ; preds = %15
 rb_array_len.exit.thread:                         ; preds = %15
   %20 = lshr i64 %16, 15
   %21 = and i64 %20, 127
-  %22 = icmp ult i64 %.017, %21
+  %22 = icmp samesign ult i64 %.017, %21
   br i1 %22, label %RARRAY_AREF.exit, label %38
 
 23:                                               ; preds = %rb_array_len.exit
@@ -40396,7 +40396,7 @@ define internal fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr nounde
 
 68:                                               ; preds = %.loopexit113
   store i64 4, ptr %54, align 8
-  %69 = icmp ult i64 %indvars.iv149, 31
+  %69 = icmp samesign ult i64 %indvars.iv149, 31
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %68
@@ -40875,7 +40875,7 @@ vm_ci_flag.exit:                                  ; preds = %28, %31
   %48 = getelementptr inbounds i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !150
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -42441,7 +42441,7 @@ check_kwrestarg.exit469:                          ; preds = %687, %689
 
 730:                                              ; preds = %724
   store i64 4, ptr %729, align 8
-  %731 = icmp ult i64 %indvars.iv97.i, 31
+  %731 = icmp samesign ult i64 %indvars.iv97.i, 31
   br i1 %731, label %732, label %735
 
 732:                                              ; preds = %730
@@ -42976,7 +42976,7 @@ vm_pop_frame.exit:                                ; preds = %32, %37
   %53 = getelementptr inbounds i8, ptr %52, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -52077,7 +52077,7 @@ rb_array_len.exit:                                ; preds = %25
 rb_array_len.exit.thread:                         ; preds = %25
   %30 = lshr i64 %26, 15
   %31 = and i64 %30, 127
-  %32 = icmp ult i64 %.0, %31
+  %32 = icmp samesign ult i64 %.0, %31
   br i1 %32, label %RARRAY_AREF.exit, label %.loopexit
 
 33:                                               ; preds = %rb_array_len.exit

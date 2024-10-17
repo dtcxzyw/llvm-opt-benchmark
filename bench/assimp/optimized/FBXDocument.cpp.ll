@@ -6257,7 +6257,7 @@ while.body.i.i1:                                  ; preds = %invoke.cont, %while
   br i1 %cmp.i.not.i.i, label %invoke.cont4, label %while.body.i.i1, !llvm.loop !30
 
 invoke.cont4:                                     ; preds = %while.body.i.i1
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i.invoke, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX10ConnectionESaIS4_EE11_M_allocateEm.exit.i
 
 if.then.i.invoke:                                 ; preds = %if.else.i, %invoke.cont4
@@ -6520,7 +6520,7 @@ while.body.i.i13:                                 ; preds = %invoke.cont, %while
   br i1 %cmp.i.not.i.i, label %invoke.cont6, label %while.body.i.i13, !llvm.loop !30
 
 invoke.cont6:                                     ; preds = %while.body.i.i13
-  %cmp.i = icmp ugt i64 %__n.05.i.i, 1152921504606846974
+  %cmp.i = icmp samesign ugt i64 %__n.05.i.i, 1152921504606846974
   br i1 %cmp.i, label %if.then.i.invoke, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX10ConnectionESaIS4_EE11_M_allocateEm.exit.i
 
 if.then.i.invoke:                                 ; preds = %if.else.i, %invoke.cont6

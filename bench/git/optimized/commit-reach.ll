@@ -1926,7 +1926,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %from, align 8
   %11 = zext i32 %10 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %11
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !47
 
 for.end:                                          ; preds = %for.inc
@@ -2113,7 +2113,7 @@ for.inc177:                                       ; preds = %for.body160, %if.th
   %33 = phi i32 [ %30, %for.body160 ], [ %.pre97, %if.then167 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %34 = zext i32 %33 to i64
-  %cmp158 = icmp ult i64 %indvars.iv.next94, %34
+  %cmp158 = icmp samesign ult i64 %indvars.iv.next94, %34
   br i1 %cmp158, label %for.body160, label %for.end179, !llvm.loop !51
 
 for.end179:                                       ; preds = %for.inc177, %cleanup
@@ -2655,7 +2655,7 @@ for.body.i94:                                     ; preds = %for.body.i94.prehea
   %41 = load ptr, ptr %arrayidx.i, align 8
   call void @free(ptr noundef %41) #11
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i96, %40
+  %cmp.i = icmp samesign ult i64 %indvars.iv.next.i96, %40
   br i1 %cmp.i, label %for.body.i94, label %clear_bit_arrays.exit, !llvm.loop !62
 
 clear_bit_arrays.exit:                            ; preds = %for.body.i94, %while.end

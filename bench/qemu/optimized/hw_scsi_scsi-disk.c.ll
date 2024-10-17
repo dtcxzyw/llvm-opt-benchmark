@@ -3834,7 +3834,7 @@ if.then33.i.us.i:                                 ; preds = %if.end31.i.us.i
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %mode_current.i.i.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %mode_changeable.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i.i)
-  %cmp.i.i.us.i = icmp ugt i32 %page_len.033.i.us.i, 254
+  %cmp.i.i.us.i = icmp samesign ugt i32 %page_len.033.i.us.i, 254
   %cmp1.i.i.us.i = icmp eq i32 %and.i.us.i, 63
   %or.cond15.i.i.us.i = or i1 %cmp1.i.i.us.i, %cmp.i.i.us.i
   br i1 %or.cond15.i.i.us.i, label %scsi_disk_check_mode_select.exit.thread.i.i, label %if.end3.i.i.us.i

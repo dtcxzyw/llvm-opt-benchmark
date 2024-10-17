@@ -28028,7 +28028,7 @@ _ZN5clangL26GenerateTargetRequirementsERKN4llvm6RecordERKSt6vectorISt4pairINSt7_
   %2815 = getelementptr inbounds i8, ptr %.111.i4.i.i, i64 -1
   store i8 %2814, ptr %2815, align 1, !noalias !232
   %2816 = udiv i64 %.0810.i5.i.i, 10
-  %.not.i6.i.i = icmp ult i64 %.0810.i5.i.i, 10
+  %.not.i6.i.i = icmp samesign ult i64 %.0810.i5.i.i, 10
   br i1 %.not.i6.i.i, label %_ZN4llvm6itostrB5cxx11El.exit.i, label %.lr.ph.i3.i.i, !llvm.loop !233
 
 _ZN4llvm6itostrB5cxx11El.exit.i:                  ; preds = %.lr.ph.i3.i.i, %.thread.i8.i.i
@@ -40950,7 +40950,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %115 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %114, ptr %115, align 1, !noalias !415
   %116 = udiv i64 %.0810.i, 10
-  %.not.i26 = icmp ult i64 %.0810.i, 10
+  %.not.i26 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i26, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !233
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i

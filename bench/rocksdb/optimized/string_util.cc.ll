@@ -428,7 +428,7 @@ entry:
   %buf = alloca [19 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
   %cond = tail call i64 @llvm.abs.i64(i64 %num, i1 true)
-  %cmp1 = icmp ult i64 %cond, 10000
+  %cmp1 = icmp samesign ult i64 %cond, 10000
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -436,7 +436,7 @@ if.then:                                          ; preds = %entry
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %cond, 10000000
+  %cmp2 = icmp samesign ult i64 %cond, 10000000
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
@@ -445,7 +445,7 @@ if.then3:                                         ; preds = %if.else
   br label %if.end17
 
 if.else6:                                         ; preds = %if.else
-  %cmp7 = icmp ult i64 %cond, 10000000000
+  %cmp7 = icmp samesign ult i64 %cond, 10000000000
   br i1 %cmp7, label %if.then8, label %if.else12
 
 if.then8:                                         ; preds = %if.else6
@@ -506,7 +506,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %size_idx.0 = phi i64 [ 0, %entry ], [ %inc, %while.cond ]
   %final_size.0.in = phi double [ %conv, %entry ], [ %final_size.0, %while.cond ]
   %final_size.0 = fmul double %final_size.0.in, 0x3F50000000000000
-  %cmp = icmp ult i64 %size_idx.0, 3
+  %cmp = icmp samesign ult i64 %size_idx.0, 3
   %cmp1 = fcmp oge double %final_size.0, 1.024000e+03
   %0 = select i1 %cmp, i1 %cmp1, i1 false
   %inc = add nuw nsw i64 %size_idx.0, 1
@@ -2064,7 +2064,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

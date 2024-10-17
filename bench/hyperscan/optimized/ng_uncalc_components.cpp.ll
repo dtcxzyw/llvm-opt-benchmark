@@ -2845,7 +2845,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
 for.inc:                                          ; preds = %.noexc347, %invoke.cont37
   %inc = add nuw i32 %i.0968, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i32 %inc, %14
+  %cmp = icmp samesign ult i32 %inc, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !131
 
 lpad:                                             ; preds = %entry
@@ -3747,14 +3747,14 @@ invoke.cont129:                                   ; preds = %for.cond.i.i.i.i.i.
   %second.i.i.i568 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i, i64 24
   %132 = load i32, ptr %second.i.i.i568, align 4
   %conv131 = zext i32 %132 to i64
-  %cmp132 = icmp ugt i64 %common_len, %conv131
+  %cmp132 = icmp samesign ugt i64 %common_len, %conv131
   br i1 %cmp.i558, label %do.end145, label %land.lhs.true135
 
 invoke.cont129.thread:                            ; preds = %if.end.i.i.i.i.i.i
   %second.i.i.i568876 = getelementptr inbounds i8, ptr %126, i64 24
   %133 = load i32, ptr %second.i.i.i568876, align 4
   %conv131877 = zext i32 %133 to i64
-  %cmp132878 = icmp ugt i64 %common_len, %conv131877
+  %cmp132878 = icmp samesign ugt i64 %common_len, %conv131877
   br i1 %cmp.i558, label %do.end145, label %if.end15.i.i.i.i575
 
 land.lhs.true135:                                 ; preds = %invoke.cont129
@@ -3825,7 +3825,7 @@ invoke.cont137:                                   ; preds = %for.cond.i.i.i.i.i.
   %second.i.i.i601 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i600, i64 24
   %143 = load i32, ptr %second.i.i.i601, align 4
   %conv139 = zext i32 %143 to i64
-  %cmp140 = icmp ugt i64 %common_len, %conv139
+  %cmp140 = icmp samesign ugt i64 %common_len, %conv139
   %spec.select = select i1 %cmp140, i1 true, i1 %cmp132879881
   br i1 %spec.select, label %invoke.cont149, label %if.end167
 
@@ -3833,7 +3833,7 @@ invoke.cont137.thread:                            ; preds = %if.end.i.i.i.i.i.i5
   %second.i.i.i601885 = getelementptr inbounds i8, ptr %137, i64 24
   %144 = load i32, ptr %second.i.i.i601885, align 4
   %conv139886 = zext i32 %144 to i64
-  %cmp140887 = icmp ugt i64 %common_len, %conv139886
+  %cmp140887 = icmp samesign ugt i64 %common_len, %conv139886
   %spec.select888 = select i1 %cmp140887, i1 true, i1 %cmp132879882
   br i1 %spec.select888, label %if.else, label %if.end167
 

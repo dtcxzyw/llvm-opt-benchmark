@@ -412,7 +412,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float16a_unpack_canonical.exit
@@ -490,7 +490,7 @@ if.then47.i.i58:                                  ; preds = %lor.lhs.false.i.i52
 if.else49.i.i54:                                  ; preds = %lor.lhs.false.i.i52
   %shl.i31.i.i55 = shl nuw nsw i64 %and.i11.i.i45, 53
   store i64 %shl.i31.i.i55, ptr %.ph.i.sroa.gep115, align 8
-  %tobool.not.i32.i.i56 = icmp ult i16 %10, 512
+  %tobool.not.i32.i.i56 = icmp samesign ult i16 %10, 512
   %conv53.i.i57 = select i1 %tobool.not.i32.i.i56, i8 5, i8 4
   store i8 %conv53.i.i57, ptr %pb, align 8
   br label %float16a_unpack_canonical.exit76
@@ -730,7 +730,7 @@ return_b.i:                                       ; preds = %if.then105.i, %if.t
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
   %cmp.i.i104 = icmp eq i8 %7, 5
   %cmp.i17.i = icmp eq i8 %.pr.i.pre, 5
-  %or.cond = or i1 %cmp.i17.i, %cmp.i.i104
+  %or.cond = select i1 %cmp.i.i104, i1 true, i1 %cmp.i17.i
   br i1 %or.cond, label %if.then.i110, label %if.end.i
 
 if.then.i110:                                     ; preds = %p_nan.i
@@ -755,7 +755,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.else.i105:                                     ; preds = %if.end.i
   %cmp5.i = icmp eq i64 %a.val.i106, %b.val.i107
   %39 = icmp ugt i64 %a.val.i106, %b.val.i107
-  %cmp11.i = icmp ult i16 %f.lobit.i.i, %f.lobit.i.i42
+  %cmp11.i = icmp samesign ult i16 %f.lobit.i.i, %f.lobit.i.i42
   %cmp.0.i = select i1 %cmp5.i, i1 %cmp11.i, i1 %39
   %cmp.0.fr.i = freeze i1 %cmp.0.i
   switch i8 %7, label %40 [
@@ -1320,7 +1320,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -1397,7 +1397,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i10.i.i8, 11
   store i64 %shl.i31.i.i15, ptr %.ph.i48.i.sroa.gep52, align 8
-  %tobool.not.i32.i.i16 = icmp ult i64 %and.i10.i.i8, 2251799813685248
+  %tobool.not.i32.i.i16 = icmp samesign ult i64 %and.i10.i.i8, 2251799813685248
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %float64_unpack_canonical.exit35
@@ -1405,19 +1405,19 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %b.val.i41.i = phi i64 [ 0, %if.then8.i.i30 ], [ 0, %if.then10.i.i28 ], [ %shl.i.i.i26, %frac64_normalize.exit.i.i24 ], [ %or.i.i34, %if.then33.i.i31 ], [ 0, %if.then47.i.i18 ], [ %shl.i31.i.i15, %if.else49.i.i14 ]
   %10 = phi i32 [ 0, %if.then8.i.i30 ], [ 0, %if.then10.i.i28 ], [ %add.i.i27, %frac64_normalize.exit.i.i24 ], [ %sub37.i.i32, %if.then33.i.i31 ], [ 2047, %if.then47.i.i18 ], [ 2047, %if.else49.i.i14 ]
-  %11 = phi i8 [ 1, %if.then8.i.i30 ], [ 1, %if.then10.i.i28 ], [ 2, %frac64_normalize.exit.i.i24 ], [ 2, %if.then33.i.i31 ], [ 3, %if.then47.i.i18 ], [ %conv53.i.i17, %if.else49.i.i14 ]
-  %12 = trunc nuw i64 %f.lobit.i.i4 to i1
-  %tobool3.i = xor i1 %subtract, %12
+  %.fr.i.i = phi i8 [ 1, %if.then8.i.i30 ], [ 1, %if.then10.i.i28 ], [ 2, %frac64_normalize.exit.i.i24 ], [ 2, %if.then33.i.i31 ], [ 3, %if.then47.i.i18 ], [ %conv53.i.i17, %if.else49.i.i14 ]
+  %11 = trunc nuw i64 %f.lobit.i.i4 to i1
+  %tobool3.i = xor i1 %subtract, %11
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %5 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
-  %conv7.i = zext nneg i8 %11 to i32
+  %conv7.i = zext nneg i8 %.fr.i.i to i32
   %shl8.i = shl nuw nsw i32 1, %conv7.i
   %or.i = or i32 %shl.i, %shl8.i
-  %13 = trunc nuw i64 %f.lobit.i.i to i1
-  %14 = xor i1 %tobool3.i, %13
+  %12 = trunc nuw i64 %f.lobit.i.i to i1
+  %13 = xor i1 %tobool3.i, %12
   %trunc57 = trunc nuw i32 %or.i to i8
-  br i1 %14, label %if.then.i, label %if.else.i
+  br i1 %13, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %float64_unpack_canonical.exit35
   switch i8 %trunc57, label %if.end31.i [
@@ -1437,8 +1437,8 @@ if.then.i.i46:                                    ; preds = %if.then20.i
 if.then10.i.i49:                                  ; preds = %if.then.i.i46
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i41.i, %sh_prom.i.i
-  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i, i64 0) #14, !srcloc !5
-  %cmp11.i.i50 = icmp ne i64 %15, 0
+  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i, i64 0) #14, !srcloc !5
+  %cmp11.i.i50 = icmp ne i64 %14, 0
   %conv13.i.i = zext i1 %cmp11.i.i50 to i64
   %or.i.i51 = or i64 %shr.i.i, %conv13.i.i
   br label %frac64_shrjam.exit.i
@@ -1451,8 +1451,8 @@ if.else.i.i48:                                    ; preds = %if.then.i.i46
 frac64_shrjam.exit.i:                             ; preds = %if.else.i.i48, %if.then10.i.i49
   %a0.0.i.i = phi i64 [ %or.i.i51, %if.then10.i.i49 ], [ %conv16.i.i, %if.else.i.i48 ]
   store i64 %a0.0.i.i, ptr %.ph.i48.i.sroa.gep52, align 8
-  %16 = sub i64 %.pre, %a0.0.i.i
-  store i64 %16, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
+  %15 = sub i64 %.pre, %a0.0.i.i
+  store i64 %15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end19.i
 
 if.else.i43:                                      ; preds = %if.then20.i
@@ -1470,8 +1470,8 @@ if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sub7.i = sub nsw i32 0, %sub.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %.pre, %sh_prom.i37.i
-  %17 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub7.i, i64 0) #14, !srcloc !5
-  %cmp11.i39.i = icmp ne i64 %17, 0
+  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub7.i, i64 0) #14, !srcloc !5
+  %cmp11.i39.i = icmp ne i64 %16, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
   br label %frac64_shrjam.exit42.i
@@ -1483,36 +1483,36 @@ if.else.i31.i:                                    ; preds = %if.then.i29.i
 
 frac64_shrjam.exit42.i:                           ; preds = %if.else.i31.i, %if.then10.i36.i
   %a0.0.i35.i = phi i64 [ %or.i41.i, %if.then10.i36.i ], [ %conv16.i33.i, %if.else.i31.i ]
-  %18 = sub i64 %b.val.i41.i, %a0.0.i35.i
-  store i64 %18, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
+  %17 = sub i64 %b.val.i41.i, %a0.0.i35.i
+  store i64 %17, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end19.i
 
 if.else9.i:                                       ; preds = %if.else.i43
-  %19 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.pre, i64 %b.val.i41.i)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  store i64 %21, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  br i1 %20, label %if.then11.i, label %if.end19.i
+  %18 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.pre, i64 %b.val.i41.i)
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  store i64 %20, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
+  br i1 %19, label %if.then11.i, label %if.end19.i
 
 if.then11.i:                                      ; preds = %if.else9.i
-  %sub.i.i44 = sub i64 0, %21
+  %sub.i.i44 = sub i64 0, %20
   store i64 %sub.i.i44, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %frombool17.i = xor i8 %frombool.i.i.i, 1
   store i8 %frombool17.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then11.i, %if.else9.i, %frac64_shrjam.exit42.i, %frac64_shrjam.exit.i
-  %22 = phi i32 [ %10, %frac64_shrjam.exit42.i ], [ %4, %if.then11.i ], [ %4, %if.else9.i ], [ %4, %frac64_shrjam.exit.i ]
-  %23 = phi i64 [ %18, %frac64_shrjam.exit42.i ], [ %sub.i.i44, %if.then11.i ], [ %21, %if.else9.i ], [ %16, %frac64_shrjam.exit.i ]
-  %tobool.not.i.i.not = icmp eq i64 %23, 0
+  %21 = phi i32 [ %10, %frac64_shrjam.exit42.i ], [ %4, %if.then11.i ], [ %4, %if.else9.i ], [ %4, %frac64_shrjam.exit.i ]
+  %22 = phi i64 [ %17, %frac64_shrjam.exit42.i ], [ %sub.i.i44, %if.then11.i ], [ %20, %if.else9.i ], [ %15, %frac64_shrjam.exit.i ]
+  %tobool.not.i.i.not = icmp eq i64 %22, 0
   br i1 %tobool.not.i.i.not, label %parts64_sub_normal.exit, label %parts64_sub_normal.exit.thread
 
 parts64_sub_normal.exit.thread:                   ; preds = %if.end19.i
-  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
-  %cast.i.i.i = trunc nuw nsw i64 %24 to i32
-  %shl.i.i = shl i64 %23, %24
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %23 to i32
+  %shl.i.i = shl i64 %22, %23
   store i64 %shl.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %sub28.i = sub nsw i32 %22, %cast.i.i.i
+  %sub28.i = sub nsw i32 %21, %cast.i.i.i
   store i32 %sub28.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   br label %parts64_addsub.exit
 
@@ -1522,8 +1522,8 @@ parts64_sub_normal.exit:                          ; preds = %if.end19.i
 
 if.then25.i:                                      ; preds = %parts64_sub_normal.exit, %if.then.i
   %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
-  %25 = load i8, ptr %float_rounding_mode.i, align 2
-  %cmp27.i = icmp eq i8 %25, 1
+  %24 = load i8, ptr %float_rounding_mode.i, align 2
+  %cmp27.i = icmp eq i8 %24, 1
   %frombool30.i = zext i1 %cmp27.i to i8
   store i8 %frombool30.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   br label %parts64_addsub.exit
@@ -1543,12 +1543,12 @@ if.then43.i:                                      ; preds = %if.end40.i
   br i1 %cmp46.not.i, label %if.end49.i, label %return_b.i
 
 if.end49.i:                                       ; preds = %if.then43.i
-  %cmp52.not.i = icmp eq i8 %11, 3
+  %cmp52.not.i = icmp eq i8 %.fr.i.i, 3
   br i1 %cmp52.not.i, label %if.end55.i, label %parts64_addsub.exit
 
 if.end55.i:                                       ; preds = %if.end49.i
-  %26 = load i16, ptr %status, align 2
-  %or1.i.i = or i16 %26, 129
+  %25 = load i16, ptr %status, align 2
+  %or1.i.i = or i16 %25, 129
   store i16 %or1.i.i, ptr %status, align 2
   store i8 4, ptr %pa, align 8
   store i8 0, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
@@ -1574,8 +1574,8 @@ if.then.i.i.i:                                    ; preds = %if.then65.i
 if.then10.i.i.i:                                  ; preds = %if.then.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i.i.i = lshr i64 %b.val.i41.i, %sh_prom.i.i.i
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i.i, i64 0) #14, !srcloc !5
-  %cmp11.i.i.i = icmp ne i64 %27, 0
+  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i.i, i64 0) #14, !srcloc !5
+  %cmp11.i.i.i = icmp ne i64 %26, 0
   %conv13.i.i.i = zext i1 %cmp11.i.i.i to i64
   %or.i.i.i = or i64 %shr.i.i.i, %conv13.i.i.i
   br label %frac64_shrjam.exit.i.i
@@ -1602,8 +1602,8 @@ if.then10.i22.i.i:                                ; preds = %if.then.i15.i.i
   %sub4.i.i = sub nsw i32 0, %sub.i.i
   %sh_prom.i23.i.i = zext nneg i32 %sub4.i.i to i64
   %shr.i24.i.i = lshr i64 %.pre, %sh_prom.i23.i.i
-  %28 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub4.i.i, i64 0) #14, !srcloc !5
-  %cmp11.i25.i.i = icmp ne i64 %28, 0
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub4.i.i, i64 0) #14, !srcloc !5
+  %cmp11.i25.i.i = icmp ne i64 %27, 0
   %conv13.i26.i.i = zext i1 %cmp11.i25.i.i to i64
   %or.i27.i.i = or i64 %shr.i24.i.i, %conv13.i26.i.i
   br label %frac64_shrjam.exit28.i.i
@@ -1619,24 +1619,24 @@ frac64_shrjam.exit28.i.i:                         ; preds = %if.else.i17.i.i, %i
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %frac64_shrjam.exit28.i.i, %if.else.i.i36, %frac64_shrjam.exit.i.i
-  %29 = phi i32 [ %10, %frac64_shrjam.exit28.i.i ], [ %4, %if.else.i.i36 ], [ %4, %frac64_shrjam.exit.i.i ]
+  %28 = phi i32 [ %10, %frac64_shrjam.exit28.i.i ], [ %4, %if.else.i.i36 ], [ %4, %frac64_shrjam.exit.i.i ]
   %b.val.i.i = phi i64 [ %b.val.i41.i, %frac64_shrjam.exit28.i.i ], [ %b.val.i41.i, %if.else.i.i36 ], [ %a0.0.i.i.i, %frac64_shrjam.exit.i.i ]
   %a.val.i.i = phi i64 [ %a0.0.i21.i.i, %frac64_shrjam.exit28.i.i ], [ %.pre, %if.else.i.i36 ], [ %.pre, %frac64_shrjam.exit.i.i ]
-  %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %a.val.i.i, i64 %b.val.i.i)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
-  store i64 %32, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  br i1 %31, label %if.then8.i.i37, label %parts64_addsub.exit
+  %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %a.val.i.i, i64 %b.val.i.i)
+  %30 = extractvalue { i64, i1 } %29, 1
+  %31 = extractvalue { i64, i1 } %29, 0
+  store i64 %31, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
+  br i1 %30, label %if.then8.i.i37, label %parts64_addsub.exit
 
 if.then8.i.i37:                                   ; preds = %if.end7.i.i
-  %shr.i31.i.i = lshr i64 %32, 1
-  %33 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %32, i32 1, i64 0) #14, !srcloc !5
-  %cmp11.i32.i.i = icmp ne i64 %33, 0
+  %shr.i31.i.i = lshr i64 %31, 1
+  %32 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 0) #14, !srcloc !5
+  %cmp11.i32.i.i = icmp ne i64 %32, 0
   %conv13.i33.i.i = zext i1 %cmp11.i32.i.i to i64
   %or.i34.i.i = or i64 %shr.i31.i.i, %conv13.i33.i.i
   %or.i.i38 = or disjoint i64 %or.i34.i.i, -9223372036854775808
   store i64 %or.i.i38, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %add.i.i39 = add nsw i32 %29, 1
+  %add.i.i39 = add nsw i32 %28, 1
   store i32 %add.i.i39, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   br label %parts64_addsub.exit
 
@@ -1655,7 +1655,7 @@ if.then83.i:                                      ; preds = %if.end80.i
   br label %parts64_addsub.exit
 
 if.end86.i:                                       ; preds = %if.end80.i, %if.end40.i
-  %cmp89.i = icmp eq i8 %11, 1
+  %cmp89.i = icmp eq i8 %.fr.i.i, 1
   br i1 %cmp89.i, label %do.body.i, label %do.body100.i
 
 do.body.i:                                        ; preds = %if.end86.i
@@ -1675,7 +1675,7 @@ if.else106.i:                                     ; preds = %do.body100.i
   unreachable
 
 do.body109.i:                                     ; preds = %do.body100.i
-  %cmp112.i = icmp eq i8 %11, 2
+  %cmp112.i = icmp eq i8 %.fr.i.i, 2
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else115.i:                                     ; preds = %do.body109.i
@@ -1688,20 +1688,20 @@ return_b.i:                                       ; preds = %do.body109.i, %if.t
 
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
   %cmp.i.i.i40 = icmp eq i8 %5, 5
-  %cmp.i17.i.i = icmp eq i8 %11, 5
-  %or.cond.i = or i1 %cmp.i17.i.i, %cmp.i.i.i40
+  %cmp.i17.i.i = icmp eq i8 %.fr.i.i, 5
+  %or.cond.i = select i1 %cmp.i.i.i40, i1 true, i1 %cmp.i17.i.i
   br i1 %or.cond.i, label %if.then.i.i41, label %if.end.i.i
 
 if.then.i.i41:                                    ; preds = %p_nan.i
-  %34 = load i16, ptr %status, align 2
-  %or1.i.i.i42 = or i16 %34, 8193
+  %33 = load i16, ptr %status, align 2
+  %or1.i.i.i42 = or i16 %33, 8193
   store i16 %or1.i.i.i42, ptr %status, align 2
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i41, %p_nan.i
   %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
-  %35 = load i8, ptr %default_nan_mode.i.i, align 1
-  %tobool.i.i = trunc i8 %35 to i1
+  %34 = load i8, ptr %default_nan_mode.i.i, align 1
+  %tobool.i.i = trunc i8 %34 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i39.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -1713,17 +1713,17 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
 
 if.else.i39.i:                                    ; preds = %if.end.i.i
   %cmp5.i.i = icmp eq i64 %.pre, %b.val.i41.i
-  %36 = icmp ugt i64 %.pre, %b.val.i41.i
-  %cmp11.i.i = icmp ult i64 %f.lobit.i.i, %f.lobit.i.i4
-  %spec.select = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %36
+  %35 = icmp ugt i64 %.pre, %b.val.i41.i
+  %cmp11.i.i = icmp samesign ult i64 %f.lobit.i.i, %f.lobit.i.i4
+  %spec.select = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %35
   %cmp.0.fr.i.i = freeze i1 %spec.select
-  switch i8 %5, label %37 [
+  switch i8 %5, label %36 [
     i8 5, label %if.then.i.i42.i
     i8 4, label %if.then6.i.i.i
   ]
 
 if.then.i.i42.i:                                  ; preds = %if.else.i39.i
-  switch i8 %11, label %.thread.i [
+  switch i8 %.fr.i.i, label %.thread.i [
     i8 5, label %if.then2.i.i.i
     i8 4, label %.thread53.i
   ]
@@ -1732,7 +1732,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i42.i
   br i1 %cmp.0.fr.i.i, label %.thread.i, label %if.then24.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i39.i
-  %cmp.i11.i.i.i = icmp ne i8 %11, 4
+  %cmp.i11.i.i.i = icmp ne i8 %.fr.i.i, 4
   %spec.select.i.i.not.i = or i1 %cmp.i11.i.i.i, %cmp.0.fr.i.i
   br i1 %spec.select.i.i.not.i, label %parts64_addsub.exit, label %.thread53.i
 
@@ -1742,20 +1742,20 @@ if.then6.i.i.i:                                   ; preds = %if.else.i39.i
 .thread53.i:                                      ; preds = %if.then6.i.i.i, %if.then.i.i42.i
   br label %parts64_addsub.exit
 
-37:                                               ; preds = %if.else.i39.i
+36:                                               ; preds = %if.else.i39.i
   br i1 %cmp.i17.i.i, label %if.then24.i.i, label %parts64_addsub.exit
 
-if.then24.i.i:                                    ; preds = %37, %.thread.i, %if.then2.i.i.i
-  %38 = phi i64 [ %.pre, %.thread.i ], [ %b.val.i41.i, %37 ], [ %b.val.i41.i, %if.then2.i.i.i ]
-  %.ph.i48.i.sroa.phi = phi ptr [ %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, %.thread.i ], [ %.ph.i48.i.sroa.gep52, %37 ], [ %.ph.i48.i.sroa.gep52, %if.then2.i.i.i ]
-  %.ph.i48.i = phi ptr [ %pa, %.thread.i ], [ %pb, %37 ], [ %pb, %if.then2.i.i.i ]
-  %or4.i.i.i.i = or i64 %38, 4611686018427387904
+if.then24.i.i:                                    ; preds = %36, %.thread.i, %if.then2.i.i.i
+  %37 = phi i64 [ %.pre, %.thread.i ], [ %b.val.i41.i, %36 ], [ %b.val.i41.i, %if.then2.i.i.i ]
+  %.ph.i48.i.sroa.phi = phi ptr [ %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, %.thread.i ], [ %.ph.i48.i.sroa.gep52, %36 ], [ %.ph.i48.i.sroa.gep52, %if.then2.i.i.i ]
+  %.ph.i48.i = phi ptr [ %pa, %.thread.i ], [ %pb, %36 ], [ %pb, %if.then2.i.i.i ]
+  %or4.i.i.i.i = or i64 %37, 4611686018427387904
   store i64 %or4.i.i.i.i, ptr %.ph.i48.i.sroa.phi, align 8
   store i8 4, ptr %.ph.i48.i, align 8
   br label %parts64_addsub.exit
 
-parts64_addsub.exit:                              ; preds = %parts64_sub_normal.exit.thread, %if.then25.i, %if.end49.i, %if.end55.i, %if.else.i, %if.end7.i.i, %if.then8.i.i37, %if.then83.i, %do.body.i, %return_b.i, %if.then3.i.i, %if.then6.i.i.i, %.thread53.i, %37, %if.then24.i.i
-  %retval.0.i = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %do.body.i ], [ %pa, %if.end7.i.i ], [ %pa, %if.then8.i.i37 ], [ %pa, %if.then3.i.i ], [ %.ph.i48.i, %if.then24.i.i ], [ %pb, %37 ], [ %pa, %if.then6.i.i.i ], [ %pb, %.thread53.i ], [ %pa, %parts64_sub_normal.exit.thread ]
+parts64_addsub.exit:                              ; preds = %parts64_sub_normal.exit.thread, %if.then25.i, %if.end49.i, %if.end55.i, %if.else.i, %if.end7.i.i, %if.then8.i.i37, %if.then83.i, %do.body.i, %return_b.i, %if.then3.i.i, %if.then6.i.i.i, %.thread53.i, %36, %if.then24.i.i
+  %retval.0.i = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %do.body.i ], [ %pa, %if.end7.i.i ], [ %pa, %if.then8.i.i37 ], [ %pa, %if.then3.i.i ], [ %.ph.i48.i, %if.then24.i.i ], [ %pb, %36 ], [ %pa, %if.then6.i.i.i ], [ %pb, %.thread53.i ], [ %pa, %parts64_sub_normal.exit.thread ]
   %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %retval.0.i, ptr noundef %status)
   ret i64 %call1
 }
@@ -1851,7 +1851,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %2, 64
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   br label %parts64_canonicalize.exit
@@ -1930,7 +1930,7 @@ if.then47.i67:                                    ; preds = %lor.lhs.false.i60
 if.else49.i63:                                    ; preds = %lor.lhs.false.i60
   %shl.i31.i64 = shl nuw nsw i64 %and.i11.i52, 56
   store i64 %shl.i31.i64, ptr %.ph.i.sroa.gep130, align 8
-  %tobool.not.i32.i65 = icmp ult i16 %10, 64
+  %tobool.not.i32.i65 = icmp samesign ult i16 %10, 64
   %conv53.i66 = select i1 %tobool.not.i32.i65, i8 5, i8 4
   store i8 %conv53.i66, ptr %pb, align 8
   br label %parts64_canonicalize.exit86
@@ -2222,7 +2222,7 @@ return_b.i:                                       ; preds = %if.then105.i, %if.t
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
   %cmp.i.i116 = icmp eq i8 %7, 5
   %cmp.i17.i = icmp eq i8 %.pr.i.pre, 5
-  %or.cond = or i1 %cmp.i17.i, %cmp.i.i116
+  %or.cond = select i1 %cmp.i.i116, i1 true, i1 %cmp.i17.i
   br i1 %or.cond, label %if.then.i123, label %if.end.i
 
 if.then.i123:                                     ; preds = %p_nan.i
@@ -2247,7 +2247,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.else.i118:                                     ; preds = %if.end.i
   %cmp5.i = icmp eq i64 %a.val.i119, %b.val.i120
   %39 = icmp ugt i64 %a.val.i119, %b.val.i120
-  %cmp11.i = icmp ult i16 %f.lobit.i, %f.lobit.i49
+  %cmp11.i = icmp samesign ult i16 %f.lobit.i, %f.lobit.i49
   %cmp.0.i = select i1 %cmp5.i, i1 %cmp11.i, i1 %39
   %cmp.0.fr.i = freeze i1 %cmp.0.i
   switch i8 %7, label %40 [
@@ -2520,7 +2520,7 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
 if.then6.i:                                       ; preds = %if.then.i.i
   %17 = and i8 %6, 1
   %18 = and i8 %2, 1
-  %cmp11.i = icmp uge i8 %17, %18
+  %cmp11.i = icmp samesign uge i8 %17, %18
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -2930,7 +2930,7 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
 if.then6.i:                                       ; preds = %if.then.i.i
   %27 = and i8 %15, 1
   %28 = and i8 %12, 1
-  %cmp11.i = icmp uge i8 %27, %28
+  %cmp11.i = icmp samesign uge i8 %27, %28
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -3179,7 +3179,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float16a_unpack_canonical.exit
@@ -3257,7 +3257,7 @@ if.then47.i.i56:                                  ; preds = %lor.lhs.false.i.i50
 if.else49.i.i52:                                  ; preds = %lor.lhs.false.i.i50
   %shl.i31.i.i53 = shl nuw nsw i64 %and.i11.i.i43, 53
   store i64 %shl.i31.i.i53, ptr %.ph.i.sroa.gep86, align 8
-  %tobool.not.i32.i.i54 = icmp ult i16 %10, 512
+  %tobool.not.i32.i.i54 = icmp samesign ult i16 %10, 512
   %conv53.i.i55 = select i1 %tobool.not.i32.i.i54, i8 5, i8 4
   store i8 %conv53.i.i55, ptr %pb, align 8
   br label %float16a_unpack_canonical.exit74
@@ -3348,7 +3348,7 @@ if.then3.i:                                       ; preds = %if.end.i77
 if.else.i78:                                      ; preds = %if.end.i77
   %cmp5.i = icmp eq i64 %a.val.i, %b.val.i
   %20 = icmp ugt i64 %a.val.i, %b.val.i
-  %cmp11.i = icmp ult i16 %f.lobit.i.i, %f.lobit.i.i40
+  %cmp11.i = icmp samesign ult i16 %f.lobit.i.i, %f.lobit.i.i40
   %spec.select = select i1 %cmp5.i, i1 %cmp11.i, i1 %20
   %cmp.0.fr.i = freeze i1 %spec.select
   switch i8 %7, label %21 [
@@ -3548,7 +3548,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %17 = and i8 %16, 1
   %18 = load i8, ptr %sign6, align 1
   %19 = and i8 %18, 1
-  %cmp11.i = icmp ult i8 %17, %19
+  %cmp11.i = icmp samesign ult i8 %17, %19
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i
@@ -3794,7 +3794,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %19, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %19, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   br label %parts64_canonicalize.exit.i
@@ -3872,7 +3872,7 @@ if.then47.i67.i:                                  ; preds = %lor.lhs.false.i60.i
 if.else49.i63.i:                                  ; preds = %lor.lhs.false.i60.i
   %shl.i31.i64.i = shl nuw nsw i64 %and.i11.i52.i, 40
   store i64 %shl.i31.i64.i, ptr %.ph.i.sroa.gep100.i, align 8
-  %tobool.not.i32.i65.i = icmp ult i32 %25, 4194304
+  %tobool.not.i32.i65.i = icmp samesign ult i32 %25, 4194304
   %conv53.i66.i = select i1 %tobool.not.i32.i65.i, i8 5, i8 4
   store i8 %conv53.i66.i, ptr %pb.i, align 8
   br label %parts64_canonicalize.exit86.i
@@ -3962,7 +3962,7 @@ if.then3.i.i:                                     ; preds = %if.end.i91.i
 if.else.i92.i:                                    ; preds = %if.end.i91.i
   %cmp5.i.i = icmp eq i64 %.pre, %28
   %34 = icmp ugt i64 %.pre, %28
-  %cmp11.i.i = icmp ult i32 %f.lobit.i.i, %f.lobit.i48.i
+  %cmp11.i.i = icmp samesign ult i32 %f.lobit.i.i, %f.lobit.i48.i
   %spec.select.i = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %34
   %cmp.0.fr.i.i = freeze i1 %spec.select.i
   switch i8 %24, label %35 [
@@ -4227,7 +4227,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   br label %parts64_canonicalize.exit.i
@@ -4304,7 +4304,7 @@ if.then47.i67.i:                                  ; preds = %lor.lhs.false.i60.i
 if.else49.i63.i:                                  ; preds = %lor.lhs.false.i60.i
   %shl.i31.i64.i = shl nuw nsw i64 %and.i10.i52.i, 11
   store i64 %shl.i31.i64.i, ptr %.ph.i.sroa.gep100.i, align 8
-  %tobool.not.i32.i65.i = icmp ult i64 %and.i10.i52.i, 2251799813685248
+  %tobool.not.i32.i65.i = icmp samesign ult i64 %and.i10.i52.i, 2251799813685248
   %conv53.i66.i = select i1 %tobool.not.i32.i65.i, i8 5, i8 4
   store i8 %conv53.i66.i, ptr %pb.i, align 8
   br label %parts64_canonicalize.exit86.i
@@ -4394,7 +4394,7 @@ if.then3.i.i:                                     ; preds = %if.end.i92.i
 if.else.i93.i:                                    ; preds = %if.end.i92.i
   %cmp5.i.i = icmp eq i64 %.pre, %26
   %32 = icmp ugt i64 %.pre, %26
-  %cmp11.i.i = icmp ult i64 %f.lobit.i.i, %f.lobit.i48.i
+  %cmp11.i.i = icmp samesign ult i64 %f.lobit.i.i, %f.lobit.i48.i
   %spec.select.i = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %32
   %cmp.0.fr.i.i = freeze i1 %spec.select.i
   switch i8 %22, label %33 [
@@ -4559,7 +4559,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -4634,7 +4634,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i10.i.i8, 11
   store i64 %shl.i31.i.i15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i16 = icmp ult i64 %and.i10.i.i8, 2251799813685248
+  %tobool.not.i32.i.i16 = icmp samesign ult i64 %and.i10.i.i8, 2251799813685248
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %float64_unpack_canonical.exit35
@@ -4810,7 +4810,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %2, 64
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   br label %parts64_canonicalize.exit
@@ -4889,7 +4889,7 @@ if.then47.i66:                                    ; preds = %lor.lhs.false.i59
 if.else49.i62:                                    ; preds = %lor.lhs.false.i59
   %shl.i31.i63 = shl nuw nsw i64 %and.i11.i51, 56
   store i64 %shl.i31.i63, ptr %.ph.i.sroa.gep100, align 8
-  %tobool.not.i32.i64 = icmp ult i16 %10, 64
+  %tobool.not.i32.i64 = icmp samesign ult i16 %10, 64
   %conv53.i65 = select i1 %tobool.not.i32.i64, i8 5, i8 4
   store i8 %conv53.i65, ptr %pb, align 8
   br label %parts64_canonicalize.exit85
@@ -4980,7 +4980,7 @@ if.then3.i:                                       ; preds = %if.end.i91
 if.else.i92:                                      ; preds = %if.end.i91
   %cmp5.i = icmp eq i64 %a.val.i, %b.val.i
   %20 = icmp ugt i64 %a.val.i, %b.val.i
-  %cmp11.i = icmp ult i16 %f.lobit.i, %f.lobit.i48
+  %cmp11.i = icmp samesign ult i16 %f.lobit.i, %f.lobit.i48
   %spec.select = select i1 %cmp5.i, i1 %cmp11.i, i1 %20
   %cmp.0.fr.i = freeze i1 %spec.select
   switch i8 %7, label %21 [
@@ -5264,7 +5264,7 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
 if.then6.i:                                       ; preds = %if.then.i.i
   %43 = and i8 %4, 1
   %44 = and i8 %5, 1
-  %cmp11.i = icmp uge i8 %43, %44
+  %cmp11.i = icmp samesign uge i8 %43, %44
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -5757,7 +5757,7 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
 if.then6.i:                                       ; preds = %if.then.i.i
   %51 = and i8 %13, 1
   %52 = and i8 %11, 1
-  %cmp11.i = icmp uge i8 %51, %52
+  %cmp11.i = icmp samesign uge i8 %51, %52
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -6103,7 +6103,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   %6 = zext nneg i8 %conv53.i.i to i32
@@ -6158,7 +6158,7 @@ if.then33.i.i78:                                  ; preds = %float16a_unpack_can
 
 if.else49.i.i73:                                  ; preds = %lor.lhs.false.i.i71
   %shl.i31.i.i74 = shl nuw nsw i64 %and.i11.i.i64, 53
-  %tobool.not.i32.i.i75 = icmp ult i16 %10, 512
+  %tobool.not.i32.i.i75 = icmp samesign ult i16 %10, 512
   %14 = select i1 %tobool.not.i32.i.i75, i32 5, i32 4
   br label %float16a_unpack_canonical.exit95
 
@@ -6213,7 +6213,7 @@ if.then33.i.i113:                                 ; preds = %float16a_unpack_can
 
 if.else49.i.i108:                                 ; preds = %lor.lhs.false.i.i106
   %shl.i31.i.i109 = shl nuw nsw i64 %and.i11.i.i99, 53
-  %tobool.not.i32.i.i110 = icmp ult i16 %17, 512
+  %tobool.not.i32.i.i110 = icmp samesign ult i16 %17, 512
   %conv53.i.i111 = select i1 %tobool.not.i32.i.i110, i8 5, i8 4
   br label %float16a_unpack_canonical.exit130
 
@@ -6975,7 +6975,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %28, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %28, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   %31 = zext nneg i8 %conv53.i.i to i32
@@ -7030,7 +7030,7 @@ if.then33.i90.i:                                  ; preds = %parts64_canonicaliz
 
 if.else49.i85.i:                                  ; preds = %lor.lhs.false.i82.i
   %shl.i31.i86.i = shl nuw nsw i64 %and.i11.i74.i, 40
-  %tobool.not.i32.i87.i = icmp ult i32 %34, 4194304
+  %tobool.not.i32.i87.i = icmp samesign ult i32 %34, 4194304
   %37 = select i1 %tobool.not.i32.i87.i, i32 5, i32 4
   br label %parts64_canonicalize.exit108.i
 
@@ -7085,7 +7085,7 @@ if.then33.i129.i:                                 ; preds = %parts64_canonicaliz
 
 if.else49.i124.i:                                 ; preds = %lor.lhs.false.i121.i
   %shl.i31.i125.i = shl nuw nsw i64 %and.i11.i113.i, 40
-  %tobool.not.i32.i126.i = icmp ult i32 %39, 4194304
+  %tobool.not.i32.i126.i = icmp samesign ult i32 %39, 4194304
   %conv53.i127.i = select i1 %tobool.not.i32.i126.i, i8 5, i8 4
   br label %parts64_canonicalize.exit147.i
 
@@ -7579,7 +7579,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   %28 = zext nneg i8 %conv53.i.i to i32
@@ -7633,7 +7633,7 @@ if.then33.i90.i:                                  ; preds = %parts64_canonicaliz
 
 if.else49.i85.i:                                  ; preds = %lor.lhs.false.i82.i
   %shl.i31.i86.i = shl nuw nsw i64 %and.i10.i74.i, 11
-  %tobool.not.i32.i87.i = icmp ult i64 %and.i10.i74.i, 2251799813685248
+  %tobool.not.i32.i87.i = icmp samesign ult i64 %and.i10.i74.i, 2251799813685248
   %34 = select i1 %tobool.not.i32.i87.i, i32 5, i32 4
   br label %parts64_canonicalize.exit108.i
 
@@ -7687,7 +7687,7 @@ if.then33.i129.i:                                 ; preds = %parts64_canonicaliz
 
 if.else49.i124.i:                                 ; preds = %lor.lhs.false.i121.i
   %shl.i31.i125.i = shl nuw nsw i64 %and.i10.i113.i, 11
-  %tobool.not.i32.i126.i = icmp ult i64 %and.i10.i113.i, 2251799813685248
+  %tobool.not.i32.i126.i = icmp samesign ult i64 %and.i10.i113.i, 2251799813685248
   %conv53.i127.i = select i1 %tobool.not.i32.i126.i, i8 5, i8 4
   br label %parts64_canonicalize.exit147.i
 
@@ -8018,7 +8018,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -8093,7 +8093,7 @@ if.then47.i.i19:                                  ; preds = %lor.lhs.false.i.i13
 if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
   %shl.i31.i.i16 = shl nuw nsw i64 %and.i10.i.i9, 11
   store i64 %shl.i31.i.i16, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i12, align 8
-  %tobool.not.i32.i.i17 = icmp ult i64 %and.i10.i.i9, 2251799813685248
+  %tobool.not.i32.i.i17 = icmp samesign ult i64 %and.i10.i.i9, 2251799813685248
   %conv53.i.i18 = select i1 %tobool.not.i32.i.i17, i8 5, i8 4
   store i8 %conv53.i.i18, ptr %pb, align 8
   br label %float64_unpack_canonical.exit36
@@ -8168,7 +8168,7 @@ if.then47.i.i51:                                  ; preds = %lor.lhs.false.i.i45
 if.else49.i.i47:                                  ; preds = %lor.lhs.false.i.i45
   %shl.i31.i.i48 = shl nuw nsw i64 %and.i10.i.i41, 11
   store i64 %shl.i31.i.i48, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i44, align 8
-  %tobool.not.i32.i.i49 = icmp ult i64 %and.i10.i.i41, 2251799813685248
+  %tobool.not.i32.i.i49 = icmp samesign ult i64 %and.i10.i.i41, 2251799813685248
   %conv53.i.i50 = select i1 %tobool.not.i32.i.i49, i8 5, i8 4
   store i8 %conv53.i.i50, ptr %pc, align 8
   br label %float64_unpack_canonical.exit68
@@ -8253,7 +8253,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %2, 64
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   %6 = zext nneg i8 %conv53.i to i32
@@ -8309,7 +8309,7 @@ if.then33.i89:                                    ; preds = %parts64_canonicaliz
 
 if.else49.i84:                                    ; preds = %lor.lhs.false.i81
   %shl.i31.i85 = shl nuw nsw i64 %and.i11.i73, 56
-  %tobool.not.i32.i86 = icmp ult i16 %9, 64
+  %tobool.not.i32.i86 = icmp samesign ult i16 %9, 64
   %14 = select i1 %tobool.not.i32.i86, i32 5, i32 4
   br label %parts64_canonicalize.exit107
 
@@ -8365,7 +8365,7 @@ if.then33.i127:                                   ; preds = %parts64_canonicaliz
 
 if.else49.i122:                                   ; preds = %lor.lhs.false.i119
   %shl.i31.i123 = shl nuw nsw i64 %and.i11.i111, 56
-  %tobool.not.i32.i124 = icmp ult i16 %16, 64
+  %tobool.not.i32.i124 = icmp samesign ult i16 %16, 64
   %conv53.i125 = select i1 %tobool.not.i32.i124, i8 5, i8 4
   br label %parts64_canonicalize.exit145
 
@@ -9108,7 +9108,7 @@ if.then47.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 if.else49.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %shl.i31.i.i.i = shl nuw nsw i64 %and.i11.i.i.i, 53
   store i64 %shl.i31.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i.i = select i1 %tobool.not.i32.i.i.i, i8 5, i8 4
   store i8 %conv53.i.i.i, ptr %pa, align 8
   br label %float16_unpack_canonical.exit
@@ -9184,7 +9184,7 @@ if.then47.i.i.i17:                                ; preds = %lor.lhs.false.i.i.i
 if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i11
   %shl.i31.i.i.i14 = shl nuw nsw i64 %and.i11.i.i.i7, 53
   store i64 %shl.i31.i.i.i14, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10, align 8
-  %tobool.not.i32.i.i.i15 = icmp ult i16 %8, 512
+  %tobool.not.i32.i.i.i15 = icmp samesign ult i16 %8, 512
   %conv53.i.i.i16 = select i1 %tobool.not.i32.i.i.i15, i8 5, i8 4
   store i8 %conv53.i.i.i16, ptr %pb, align 8
   br label %float16_unpack_canonical.exit34
@@ -9310,7 +9310,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %17 = and i8 %16, 1
   %18 = load i8, ptr %sign6, align 1
   %19 = and i8 %18, 1
-  %cmp11.i = icmp ult i8 %17, %19
+  %cmp11.i = icmp samesign ult i8 %17, %19
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i
@@ -9567,7 +9567,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %16, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %16, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   br label %parts64_canonicalize.exit.i
@@ -9645,7 +9645,7 @@ if.then47.i63.i:                                  ; preds = %lor.lhs.false.i56.i
 if.else49.i59.i:                                  ; preds = %lor.lhs.false.i56.i
   %shl.i31.i60.i = shl nuw nsw i64 %and.i11.i48.i, 40
   store i64 %shl.i31.i60.i, ptr %.ph.i.sroa.gep98.i, align 8
-  %tobool.not.i32.i61.i = icmp ult i32 %22, 4194304
+  %tobool.not.i32.i61.i = icmp samesign ult i32 %22, 4194304
   %conv53.i62.i = select i1 %tobool.not.i32.i61.i, i8 5, i8 4
   store i8 %conv53.i62.i, ptr %pb.i, align 8
   br label %parts64_canonicalize.exit82.i
@@ -9724,7 +9724,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
 if.else.i90.i:                                    ; preds = %if.end.i.i
   %cmp5.i.i = icmp eq i64 %.pre, %25
   %31 = icmp ugt i64 %.pre, %25
-  %cmp11.i.i = icmp ult i32 %f.lobit.i.i, %f.lobit.i44.i
+  %cmp11.i.i = icmp samesign ult i32 %f.lobit.i.i, %f.lobit.i44.i
   %spec.select.i = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %31
   %cmp.0.fr.i.i = freeze i1 %spec.select.i
   switch i8 %21, label %32 [
@@ -9994,7 +9994,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa.i, align 8
   br label %parts64_canonicalize.exit.i
@@ -10071,7 +10071,7 @@ if.then47.i63.i:                                  ; preds = %lor.lhs.false.i56.i
 if.else49.i59.i:                                  ; preds = %lor.lhs.false.i56.i
   %shl.i31.i60.i = shl nuw nsw i64 %and.i10.i48.i, 11
   store i64 %shl.i31.i60.i, ptr %.ph.i.sroa.gep98.i, align 8
-  %tobool.not.i32.i61.i = icmp ult i64 %and.i10.i48.i, 2251799813685248
+  %tobool.not.i32.i61.i = icmp samesign ult i64 %and.i10.i48.i, 2251799813685248
   %conv53.i62.i = select i1 %tobool.not.i32.i61.i, i8 5, i8 4
   store i8 %conv53.i62.i, ptr %pb.i, align 8
   br label %parts64_canonicalize.exit82.i
@@ -10150,7 +10150,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
 if.else.i90.i:                                    ; preds = %if.end.i.i
   %cmp5.i.i = icmp eq i64 %.pre, %25
   %31 = icmp ugt i64 %.pre, %25
-  %cmp11.i.i = icmp ult i64 %f.lobit.i.i, %f.lobit.i44.i
+  %cmp11.i.i = icmp samesign ult i64 %f.lobit.i.i, %f.lobit.i44.i
   %spec.select.i = select i1 %cmp5.i.i, i1 %cmp11.i.i, i1 %31
   %cmp.0.fr.i.i = freeze i1 %spec.select.i
   switch i8 %21, label %32 [
@@ -10328,7 +10328,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -10403,7 +10403,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i10.i.i8, 11
   store i64 %shl.i31.i.i15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i16 = icmp ult i64 %and.i10.i.i8, 2251799813685248
+  %tobool.not.i32.i.i16 = icmp samesign ult i64 %and.i10.i.i8, 2251799813685248
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %float64_unpack_canonical.exit35
@@ -10491,7 +10491,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %2, 64
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   br label %parts64_canonicalize.exit
@@ -10570,7 +10570,7 @@ if.then47.i62:                                    ; preds = %lor.lhs.false.i55
 if.else49.i58:                                    ; preds = %lor.lhs.false.i55
   %shl.i31.i59 = shl nuw nsw i64 %and.i11.i47, 56
   store i64 %shl.i31.i59, ptr %.ph.i.sroa.gep98, align 8
-  %tobool.not.i32.i60 = icmp ult i16 %10, 64
+  %tobool.not.i32.i60 = icmp samesign ult i16 %10, 64
   %conv53.i61 = select i1 %tobool.not.i32.i60, i8 5, i8 4
   store i8 %conv53.i61, ptr %pb, align 8
   br label %parts64_canonicalize.exit81
@@ -10649,7 +10649,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.else.i89:                                      ; preds = %if.end.i
   %cmp5.i = icmp eq i64 %a.val.i, %b.val.i
   %19 = icmp ugt i64 %a.val.i, %b.val.i
-  %cmp11.i = icmp ult i16 %f.lobit.i, %f.lobit.i44
+  %cmp11.i = icmp samesign ult i16 %f.lobit.i, %f.lobit.i44
   %spec.select = select i1 %cmp5.i, i1 %cmp11.i, i1 %19
   %cmp.0.fr.i = freeze i1 %spec.select
   switch i8 %7, label %20 [
@@ -10876,7 +10876,7 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
 if.then6.i:                                       ; preds = %if.then.i.i
   %15 = and i8 %4, 1
   %16 = and i8 %5, 1
-  %cmp11.i = icmp uge i8 %15, %16
+  %cmp11.i = icmp samesign uge i8 %15, %16
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -11216,7 +11216,7 @@ frac128_cmp.exit.i.i:                             ; preds = %if.then.i.i.i, %if.
 if.then6.i.i:                                     ; preds = %if.then.i.i.i
   %22 = and i8 %12, 1
   %23 = and i8 %9, 1
-  %cmp11.i.i = icmp uge i8 %22, %23
+  %cmp11.i.i = icmp samesign uge i8 %22, %23
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then6.i.i, %frac128_cmp.exit.i.i
@@ -11392,7 +11392,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float32_unpack_canonical.exit
@@ -11468,7 +11468,7 @@ if.then47.i.i19:                                  ; preds = %lor.lhs.false.i.i13
 if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
   %shl.i31.i.i16 = shl nuw nsw i64 %and.i11.i.i8, 40
   store i64 %shl.i31.i.i16, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i17 = icmp ult i32 %4, 4194304
+  %tobool.not.i32.i.i17 = icmp samesign ult i32 %4, 4194304
   %conv53.i.i18 = select i1 %tobool.not.i32.i.i17, i8 5, i8 4
   store i8 %conv53.i.i18, ptr %pb, align 8
   br label %float32_unpack_canonical.exit36
@@ -11897,7 +11897,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
   %57 = load i8, ptr %sign8.i, align 1
   %58 = and i8 %57, 1
-  %cmp11.i = icmp ult i8 %56, %58
+  %cmp11.i = icmp samesign ult i8 %56, %58
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i
@@ -12054,7 +12054,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -12129,7 +12129,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i10.i.i8, 11
   store i64 %shl.i31.i.i15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i16 = icmp ult i64 %and.i10.i.i8, 2251799813685248
+  %tobool.not.i32.i.i16 = icmp samesign ult i64 %and.i10.i.i8, 2251799813685248
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %float64_unpack_canonical.exit35
@@ -12799,7 +12799,7 @@ if.then6.i:                                       ; preds = %if.then.i.i
   %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
   %102 = load i8, ptr %sign8.i, align 1
   %103 = and i8 %102, 1
-  %cmp11.i = icmp uge i8 %101, %103
+  %cmp11.i = icmp samesign uge i8 %101, %103
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
@@ -13099,7 +13099,7 @@ if.then47.i.i:                                    ; preds = %if.else39.i.i
 if.then.i:                                        ; preds = %if.else39.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -13233,7 +13233,7 @@ if.then47.i.i:                                    ; preds = %if.else39.i.i
 if.then.i:                                        ; preds = %if.else39.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -13364,7 +13364,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br label %float32_unpack_canonical.exit
@@ -13375,7 +13375,7 @@ float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   br i1 %ieee, label %if.then, label %if.else
 
 if.then:                                          ; preds = %float32_unpack_canonical.exit
-  %cmp.i.i = icmp ugt i8 %5, 3
+  %cmp.i.i = icmp samesign ugt i8 %5, 3
   br i1 %cmp.i.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
@@ -13561,7 +13561,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 parts64_canonicalize.exit.thread13.i:             ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %2, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %2, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -13705,7 +13705,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br label %float64_unpack_canonical.exit
@@ -13716,7 +13716,7 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   br i1 %ieee, label %if.then, label %if.else
 
 if.then:                                          ; preds = %float64_unpack_canonical.exit
-  %cmp.i.i = icmp ugt i8 %5, 3
+  %cmp.i.i = icmp samesign ugt i8 %5, 3
   br i1 %cmp.i.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
@@ -13877,7 +13877,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float64_unpack_canonical.exit.thread9:            ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -14009,7 +14009,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 bfloat16_unpack_canonical.exit.thread9:           ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 56
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 64
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -14141,7 +14141,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 bfloat16_unpack_canonical.exit.thread9:           ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 56
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 64
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -14272,7 +14272,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float32_unpack_canonical.exit.thread8:            ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -14402,7 +14402,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float64_unpack_canonical.exit.thread9:            ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -14760,7 +14760,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
   %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
@@ -14878,7 +14878,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
   %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
@@ -15446,7 +15446,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
   %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
@@ -15564,7 +15564,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
   %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
@@ -15768,7 +15768,7 @@ if.then47.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
   %shl.i31.i.i.i = shl nuw nsw i64 %and.i11.i.i.i, 53
   store i64 %shl.i31.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i.i = select i1 %tobool.not.i32.i.i.i, i8 5, i8 4
   store i8 %conv53.i.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -15911,7 +15911,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -16053,7 +16053,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -16197,7 +16197,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 56
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 64
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -16554,7 +16554,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -16664,7 +16664,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -16774,7 +16774,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -16878,7 +16878,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint.exit.sink.split
 
@@ -16987,7 +16987,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17097,7 +17097,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17201,7 +17201,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint.exit.sink.split
 
@@ -17309,7 +17309,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17418,7 +17418,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17521,7 +17521,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint.exit.sink.split
 
@@ -17631,7 +17631,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17742,7 +17742,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17853,7 +17853,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -17958,7 +17958,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint.exit.sink.split
 
@@ -18890,7 +18890,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb5.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint_modulo.exit.sink.split
 
@@ -19008,7 +19008,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb5.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_sint_modulo.exit.sink.split
 
@@ -19128,7 +19128,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -19241,7 +19241,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -19354,7 +19354,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -19461,7 +19461,7 @@ float16_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %spec.select = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split
 
@@ -19571,7 +19571,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -19684,7 +19684,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -19791,7 +19791,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split
 
@@ -19900,7 +19900,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -20012,7 +20012,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -20118,7 +20118,7 @@ float64_unpack_canonical.exit.thread:             ; preds = %entry
   br label %sw.bb6.i
 
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split
 
@@ -20227,7 +20227,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -20341,7 +20341,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -20455,7 +20455,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %sw.epilog.i
 
@@ -20563,7 +20563,7 @@ bfloat16_unpack_canonical.exit.thread:            ; preds = %entry
   br label %sw.bb6.i
 
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
-  %tobool.not.i32.i.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %1, 64
   %spec.select = select i1 %tobool.not.i32.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split
 
@@ -20724,7 +20724,7 @@ float32_unpack_canonical.exit.thread.i:           ; preds = %entry
   br label %sw.bb6.i.i
 
 float32_unpack_canonical.exit.i:                  ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i32 %1, 4194304
+  %tobool.not.i32.i.i.i = icmp samesign ult i32 %1, 4194304
   %spec.select.i = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split.i
 
@@ -20849,7 +20849,7 @@ float64_unpack_canonical.exit.thread.i:           ; preds = %entry
   br label %sw.bb6.i.i
 
 float64_unpack_canonical.exit.i:                  ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i64 %and.i10.i.i.i, 2251799813685248
+  %tobool.not.i32.i.i.i = icmp samesign ult i64 %and.i10.i.i.i, 2251799813685248
   %spec.select.i = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split.i
 
@@ -21253,7 +21253,7 @@ lor.lhs.false.i.i.i:                              ; preds = %entry
   br i1 %cmp.i29.i.i.i, label %sw.bb3.i.i, label %float32_unpack_canonical.exit.i
 
 float32_unpack_canonical.exit.i:                  ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i.i = icmp samesign ult i32 %0, 4194304
   %spec.select.i = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split.i
 
@@ -21269,7 +21269,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %sub37.i.i.i = add nsw i32 %and.i9.i.i.i, -127
   %shl.i28.i.i.i = shl nuw nsw i64 %and.i11.i.i.i, 40
   %or.i.i.i = or disjoint i64 %shl.i28.i.i.i, -9223372036854775808
-  %cmp8.i = icmp ult i32 %and.i9.i.i.i, 127
+  %cmp8.i = icmp samesign ult i32 %and.i9.i.i.i, 127
   br i1 %cmp8.i, label %if.then.i.i.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %sw.bb6.i.i
@@ -21363,7 +21363,7 @@ lor.lhs.false.i.i.i:                              ; preds = %entry
   br i1 %cmp.i29.i.i.i, label %sw.bb3.i.i, label %float64_unpack_canonical.exit.i
 
 float64_unpack_canonical.exit.i:                  ; preds = %lor.lhs.false.i.i.i
-  %tobool.not.i32.i.i.i = icmp ult i64 %and.i10.i.i.i, 2251799813685248
+  %tobool.not.i32.i.i.i = icmp samesign ult i64 %and.i10.i.i.i, 2251799813685248
   %spec.select.i = select i1 %tobool.not.i32.i.i.i, i16 8193, i16 1
   br label %parts64_float_to_uint.exit.sink.split.i
 
@@ -21375,7 +21375,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %sub37.i.i.i = add nsw i32 %conv.i.i.i.i, -1023
   %shl.i28.i.i.i = shl nuw nsw i64 %and.i10.i.i.i, 11
   %or.i.i.i = or disjoint i64 %shl.i28.i.i.i, -9223372036854775808
-  %cmp8.i = icmp ult i32 %conv.i.i.i.i, 1023
+  %cmp8.i = icmp samesign ult i32 %conv.i.i.i.i, 1023
   br i1 %cmp8.i, label %if.then.i.i.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %sw.bb6.i.i
@@ -25111,7 +25111,7 @@ if.then47.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 if.else49.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %shl.i31.i.i.i = shl nuw nsw i64 %and.i11.i.i.i, 53
   store i64 %shl.i31.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i.i = select i1 %tobool.not.i32.i.i.i, i8 5, i8 4
   store i8 %conv53.i.i.i, ptr %pa, align 8
   br label %float16_unpack_canonical.exit
@@ -25187,7 +25187,7 @@ if.then47.i.i.i17:                                ; preds = %lor.lhs.false.i.i.i
 if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i11
   %shl.i31.i.i.i14 = shl nuw nsw i64 %and.i11.i.i.i7, 53
   store i64 %shl.i31.i.i.i14, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10, align 8
-  %tobool.not.i32.i.i.i15 = icmp ult i16 %8, 512
+  %tobool.not.i32.i.i.i15 = icmp samesign ult i16 %8, 512
   %conv53.i.i.i16 = select i1 %tobool.not.i32.i.i.i15, i8 5, i8 4
   store i8 %conv53.i.i.i16, ptr %pb, align 8
   br label %float16_unpack_canonical.exit34
@@ -25345,7 +25345,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 56
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 64
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %bfloat16_unpack_canonical.exit
@@ -25422,7 +25422,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i11.i.i7, 56
   store i64 %shl.i31.i.i15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i10, align 8
-  %tobool.not.i32.i.i16 = icmp ult i16 %8, 64
+  %tobool.not.i32.i.i16 = icmp samesign ult i16 %8, 64
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %bfloat16_unpack_canonical.exit35
@@ -25579,7 +25579,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float32_unpack_canonical.exit
@@ -25655,7 +25655,7 @@ if.then47.i.i19:                                  ; preds = %lor.lhs.false.i.i13
 if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
   %shl.i31.i.i16 = shl nuw nsw i64 %and.i11.i.i8, 40
   store i64 %shl.i31.i.i16, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i17 = icmp ult i32 %4, 4194304
+  %tobool.not.i32.i.i17 = icmp samesign ult i32 %4, 4194304
   %conv53.i.i18 = select i1 %tobool.not.i32.i.i17, i8 5, i8 4
   store i8 %conv53.i.i18, ptr %pb, align 8
   br label %float32_unpack_canonical.exit36
@@ -25811,7 +25811,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %pa, align 8
   br label %float64_unpack_canonical.exit
@@ -25886,7 +25886,7 @@ if.then47.i.i18:                                  ; preds = %lor.lhs.false.i.i12
 if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   %shl.i31.i.i15 = shl nuw nsw i64 %and.i10.i.i8, 11
   store i64 %shl.i31.i.i15, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
-  %tobool.not.i32.i.i16 = icmp ult i64 %and.i10.i.i8, 2251799813685248
+  %tobool.not.i32.i.i16 = icmp samesign ult i64 %and.i10.i.i8, 2251799813685248
   %conv53.i.i17 = select i1 %tobool.not.i32.i.i16, i8 5, i8 4
   store i8 %conv53.i.i17, ptr %pb, align 8
   br label %float64_unpack_canonical.exit35
@@ -26034,7 +26034,7 @@ if.then14.i:                                      ; preds = %if.then.i
   br label %parts128_minmax.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %tobool18.not.i = icmp ult i32 %flags, 8
+  %tobool18.not.i = icmp samesign ult i32 %flags, 8
   %or.cond36.i = or i1 %tobool18.not.i, %tobool10.not.i
   %or.cond37.i = or i1 %tobool13.not.i, %or.cond36.i
   br i1 %or.cond37.i, label %if.end33.i, label %if.then25.i
@@ -26096,7 +26096,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i.i
   %12 = and i8 %11, 1
   %13 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i9, align 1
   %14 = and i8 %13, 1
-  %cmp11.i.i = icmp uge i8 %12, %14
+  %cmp11.i.i = icmp samesign uge i8 %12, %14
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then6.i.i, %frac128_cmp.exit.i.i
@@ -26355,7 +26355,7 @@ if.then33.i.i:                                    ; preds = %entry
 
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   br label %float16a_unpack_canonical.exit
 
@@ -26409,7 +26409,7 @@ if.then33.i.i44:                                  ; preds = %float16a_unpack_can
 
 if.else49.i.i39:                                  ; preds = %lor.lhs.false.i.i37
   %shl.i31.i.i40 = shl nuw nsw i64 %and.i11.i.i30, 53
-  %tobool.not.i32.i.i41 = icmp ult i16 %8, 512
+  %tobool.not.i32.i.i41 = icmp samesign ult i16 %8, 512
   %conv53.i.i42 = select i1 %tobool.not.i32.i.i41, i8 5, i8 4
   br label %float16a_unpack_canonical.exit61
 
@@ -26636,7 +26636,7 @@ if.then33.i.i:                                    ; preds = %soft
 
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
-  %tobool.not.i32.i.i = icmp ult i32 %7, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %7, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   br label %parts64_canonicalize.exit.i
 
@@ -26687,7 +26687,7 @@ if.then33.i54.i:                                  ; preds = %parts64_canonicaliz
 
 if.else49.i49.i:                                  ; preds = %lor.lhs.false.i46.i
   %shl.i31.i50.i = shl nuw nsw i64 %and.i11.i38.i, 40
-  %tobool.not.i32.i51.i = icmp ult i32 %10, 4194304
+  %tobool.not.i32.i51.i = icmp samesign ult i32 %10, 4194304
   %conv53.i52.i = select i1 %tobool.not.i32.i51.i, i8 5, i8 4
   br label %parts64_canonicalize.exit72.i
 
@@ -26913,7 +26913,7 @@ if.then33.i.i:                                    ; preds = %soft
 
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   br label %parts64_canonicalize.exit.i
 
@@ -26963,7 +26963,7 @@ if.then33.i54.i:                                  ; preds = %parts64_canonicaliz
 
 if.else49.i49.i:                                  ; preds = %lor.lhs.false.i46.i
   %shl.i31.i50.i = shl nuw nsw i64 %and.i10.i38.i, 11
-  %tobool.not.i32.i51.i = icmp ult i64 %and.i10.i38.i, 2251799813685248
+  %tobool.not.i32.i51.i = icmp samesign ult i64 %and.i10.i38.i, 2251799813685248
   %conv53.i52.i = select i1 %tobool.not.i32.i51.i, i8 5, i8 4
   br label %parts64_canonicalize.exit72.i
 
@@ -27140,7 +27140,7 @@ if.then33.i:                                      ; preds = %entry
 
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
-  %tobool.not.i32.i = icmp ult i16 %1, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %1, 64
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   br label %parts64_canonicalize.exit
 
@@ -27195,7 +27195,7 @@ if.then33.i53:                                    ; preds = %parts64_canonicaliz
 
 if.else49.i48:                                    ; preds = %lor.lhs.false.i45
   %shl.i31.i49 = shl nuw nsw i64 %and.i11.i37, 56
-  %tobool.not.i32.i50 = icmp ult i16 %7, 64
+  %tobool.not.i32.i50 = icmp samesign ult i16 %7, 64
   %conv53.i51 = select i1 %tobool.not.i32.i50, i8 5, i8 4
   br label %parts64_canonicalize.exit71
 
@@ -27829,7 +27829,7 @@ if.then47.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
 float16_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i.i
   %shl.i31.i.i.i = shl nuw nsw i64 %and.i11.i.i.i, 53
   store i64 %shl.i31.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
-  %tobool.not.i32.i.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i.i = select i1 %tobool.not.i32.i.i.i, i8 5, i8 4
   store i8 %conv53.i.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -27966,7 +27966,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -28102,7 +28102,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -28240,7 +28240,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 bfloat16_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 56
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 64
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -28592,7 +28592,7 @@ float16a_unpack_canonical.exit.thread62:          ; preds = %lor.lhs.false.i.i
 float16a_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 53
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i16 %2, 512
+  %tobool.not.i32.i.i = icmp samesign ult i16 %2, 512
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i54, label %sw.bb1.i
@@ -28862,7 +28862,7 @@ parts64_canonicalize.exit.thread71.i:             ; preds = %lor.lhs.false.i.i
 parts64_canonicalize.exit.i:                      ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %9, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %9, 4194304
   %conv53.i57.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i57.i, ptr %p.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i62.i, label %sw.bb1.i.i
@@ -29139,7 +29139,7 @@ parts64_canonicalize.exit.thread86.i:             ; preds = %lor.lhs.false.i.i
 parts64_canonicalize.exit.i:                      ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i57.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i57.i, ptr %p.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i61.i, label %sw.bb1.i.i
@@ -29366,7 +29366,7 @@ float64_unpack_canonical.exit.thread8:            ; preds = %lor.lhs.false.i.i
 float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
@@ -29577,7 +29577,7 @@ parts64_canonicalize.exit.thread72:               ; preds = %lor.lhs.false.i
 parts64_canonicalize.exit:                        ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 56
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i16 %2, 64
+  %tobool.not.i32.i = icmp samesign ult i16 %2, 64
   %conv53.i57 = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i57, ptr %p, align 8
   br i1 %tobool.not.i32.i, label %sw.bb.i62, label %sw.bb1.i
@@ -30655,7 +30655,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br label %float32_unpack_canonical.exit
@@ -31225,7 +31225,7 @@ if.then47.i.i:                                    ; preds = %lor.lhs.false.i.i
 if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i64 %and.i10.i.i, 2251799813685248
+  %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p, align 8
   br label %float64_unpack_canonical.exit
@@ -31982,7 +31982,7 @@ float32_unpack_canonical.exit.thread:             ; preds = %entry
 float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %shl.i31.i.i = shl nuw nsw i64 %and.i11.i.i, 40
   store i64 %shl.i31.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %tobool.not.i32.i.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %xp, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i, label %sw.bb1.i
@@ -32086,7 +32086,7 @@ for.body:                                         ; preds = %if.end, %float64_un
   ]
 
 if.then.i.i37:                                    ; preds = %for.body
-  %cmp.i.i.i38 = icmp ult i64 %indvars.iv, 2
+  %cmp.i.i.i38 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp.i.i.i38, label %if.then8.i.i48, label %if.else.i.i39
 
 if.then8.i.i48:                                   ; preds = %if.then.i.i37
@@ -32117,7 +32117,7 @@ frac64_normalize.exit.i.i42:                      ; preds = %if.else.i.i39
   br label %float64_unpack_canonical.exit
 
 lor.lhs.false.i.i30:                              ; preds = %for.body
-  %cmp.i29.i.i31 = icmp ult i64 %indvars.iv, 2
+  %cmp.i29.i.i31 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp.i29.i.i31, label %if.then47.i.i36, label %if.else49.i.i32
 
 if.then33.i.i49:                                  ; preds = %for.body
@@ -32326,7 +32326,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i11.i, 40
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i32 %0, 4194304
+  %tobool.not.i32.i = icmp samesign ult i32 %0, 4194304
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   br label %parts64_canonicalize.exit
@@ -32404,7 +32404,7 @@ if.then47.i68:                                    ; preds = %lor.lhs.false.i61
 if.else49.i64:                                    ; preds = %lor.lhs.false.i61
   %shl.i31.i65 = shl nuw nsw i64 %and.i11.i53, 40
   store i64 %shl.i31.i65, ptr %.ph.i.sroa.gep130, align 8
-  %tobool.not.i32.i66 = icmp ult i32 %6, 4194304
+  %tobool.not.i32.i66 = icmp samesign ult i32 %6, 4194304
   %conv53.i67 = select i1 %tobool.not.i32.i66, i8 5, i8 4
   store i8 %conv53.i67, ptr %pb, align 8
   br label %parts64_canonicalize.exit87
@@ -32696,7 +32696,7 @@ return_b.i:                                       ; preds = %if.then105.i, %if.t
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
   %cmp.i.i117 = icmp eq i8 %5, 5
   %cmp.i17.i = icmp eq i8 %.pr.i.pre, 5
-  %or.cond = or i1 %cmp.i17.i, %cmp.i.i117
+  %or.cond = select i1 %cmp.i.i117, i1 true, i1 %cmp.i17.i
   br i1 %or.cond, label %if.then.i124, label %if.end.i
 
 if.then.i124:                                     ; preds = %p_nan.i
@@ -32721,7 +32721,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.else.i119:                                     ; preds = %if.end.i
   %cmp5.i = icmp eq i64 %a.val.i120, %b.val.i121
   %35 = icmp ugt i64 %a.val.i120, %b.val.i121
-  %cmp11.i = icmp ult i32 %f.lobit.i, %f.lobit.i49
+  %cmp11.i = icmp samesign ult i32 %f.lobit.i, %f.lobit.i49
   %cmp.0.i = select i1 %cmp5.i, i1 %cmp11.i, i1 %35
   %cmp.0.fr.i = freeze i1 %cmp.0.i
   switch i8 %5, label %36 [
@@ -32858,7 +32858,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 if.else49.i:                                      ; preds = %lor.lhs.false.i
   %shl.i31.i = shl nuw nsw i64 %and.i10.i, 11
   store i64 %shl.i31.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %tobool.not.i32.i = icmp ult i64 %and.i10.i, 2251799813685248
+  %tobool.not.i32.i = icmp samesign ult i64 %and.i10.i, 2251799813685248
   %conv53.i = select i1 %tobool.not.i32.i, i8 5, i8 4
   store i8 %conv53.i, ptr %pa, align 8
   br label %parts64_canonicalize.exit
@@ -32935,7 +32935,7 @@ if.then47.i68:                                    ; preds = %lor.lhs.false.i61
 if.else49.i64:                                    ; preds = %lor.lhs.false.i61
   %shl.i31.i65 = shl nuw nsw i64 %and.i10.i53, 11
   store i64 %shl.i31.i65, ptr %.ph.i.sroa.gep131, align 8
-  %tobool.not.i32.i66 = icmp ult i64 %and.i10.i53, 2251799813685248
+  %tobool.not.i32.i66 = icmp samesign ult i64 %and.i10.i53, 2251799813685248
   %conv53.i67 = select i1 %tobool.not.i32.i66, i8 5, i8 4
   store i8 %conv53.i67, ptr %pb, align 8
   br label %parts64_canonicalize.exit87
@@ -33227,7 +33227,7 @@ return_b.i:                                       ; preds = %if.then105.i, %if.t
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
   %cmp.i.i117 = icmp eq i8 %5, 5
   %cmp.i17.i = icmp eq i8 %.pr.i.pre, 5
-  %or.cond = or i1 %cmp.i17.i, %cmp.i.i117
+  %or.cond = select i1 %cmp.i.i117, i1 true, i1 %cmp.i17.i
   br i1 %or.cond, label %if.then.i124, label %if.end.i
 
 if.then.i124:                                     ; preds = %p_nan.i
@@ -33252,7 +33252,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.else.i119:                                     ; preds = %if.end.i
   %cmp5.i = icmp eq i64 %a.val.i120, %b.val.i121
   %35 = icmp ugt i64 %a.val.i120, %b.val.i121
-  %cmp11.i = icmp ult i64 %f.lobit.i, %f.lobit.i49
+  %cmp11.i = icmp samesign ult i64 %f.lobit.i, %f.lobit.i49
   %cmp.0.i = select i1 %cmp5.i, i1 %cmp11.i, i1 %35
   %cmp.0.fr.i = freeze i1 %cmp.0.i
   switch i8 %5, label %36 [
@@ -36080,7 +36080,7 @@ if.end47:                                         ; preds = %done.i, %if.else45
 if.then52:                                        ; preds = %if.end47
   %frac_hi.i65 = getelementptr inbounds i8, ptr %a, i64 8
   %15 = load i64, ptr %frac_hi.i65, align 8
-  %tobool.not.i = icmp ult i32 %shift_adj.0, 64
+  %tobool.not.i = icmp samesign ult i32 %shift_adj.0, 64
   %spec.select.i = select i1 %tobool.not.i, i64 %15, i64 %14
   %spec.select12.i = select i1 %tobool.not.i, i64 %14, i64 0
   %and1.i = and i32 %shift_adj.0, 63
@@ -36260,7 +36260,7 @@ if.then14:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %tobool18.not = icmp ult i32 %flags, 8
+  %tobool18.not = icmp samesign ult i32 %flags, 8
   %or.cond36 = or i1 %tobool18.not, %tobool10.not
   %or.cond37 = or i1 %tobool13.not, %or.cond36
   br i1 %or.cond37, label %if.end33, label %if.then25
@@ -36318,7 +36318,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
   %11 = load i8, ptr %sign8.i, align 1
   %12 = and i8 %11, 1
-  %cmp11.i = icmp ult i8 %10, %12
+  %cmp11.i = icmp samesign ult i8 %10, %12
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i

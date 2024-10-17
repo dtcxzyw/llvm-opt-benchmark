@@ -4488,7 +4488,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us:          ; preds = %_ZNK4llvm3EVT6bitsG
 55:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread77.us
   %.1.us = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.us ], [ %54, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread77.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp ult i64 %indvars.iv, 9
+  %56 = icmp samesign ult i64 %indvars.iv, 9
   %57 = icmp eq i32 %.1.us, 700
   %58 = and i1 %56, %57
   br i1 %58, label %44, label %.split.us, !llvm.loop !21
@@ -4548,7 +4548,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread:             ; preds = %_ZN4llvm5SDLocC2EPK
 69:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread77, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, %_ZNK4llvm3EVT6bitsGEES0_.exit
   %.1 = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ %68, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread77 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %70 = icmp ult i64 %indvars.iv88, 9
+  %70 = icmp samesign ult i64 %indvars.iv88, 9
   %71 = icmp eq i32 %.1, 700
   %72 = and i1 %70, %71
   br i1 %72, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split, label %.split.us, !llvm.loop !21
@@ -7194,7 +7194,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us.us:       ; preds = %_ZNK4llvm3EVT6bitsG
 20:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.us.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us.us
   %.1.us.us = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.us.us ], [ %19, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us.us ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us.us ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %21 = icmp ult i64 %indvars.iv66, 9
+  %21 = icmp samesign ult i64 %indvars.iv66, 9
   %22 = icmp eq i32 %.1.us.us, 700
   %23 = and i1 %21, %22
   br i1 %23, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us.us, label %.split36.us, !llvm.loop !26
@@ -7239,7 +7239,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us:          ; preds = %_ZNK4llvm3EVT6bitsG
 31:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.us, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us
   %.1.us = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.us ], [ %30, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %32 = icmp ult i64 %indvars.iv63, 9
+  %32 = icmp samesign ult i64 %indvars.iv63, 9
   %33 = icmp eq i32 %.1.us, 700
   %34 = and i1 %32, %33
   br i1 %34, label %.split.us.split, label %.split36.us, !llvm.loop !26
@@ -7286,7 +7286,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us50:        ; preds = %_ZNK4llvm3EVT6bitsG
 43:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us50, %_ZNK4llvm3EVT6bitsGEES0_.exit.us48, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us47
   %.1.us51 = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.us48 ], [ %42, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us50 ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us47 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %44 = icmp ult i64 %indvars.iv60, 9
+  %44 = icmp samesign ult i64 %indvars.iv60, 9
   %45 = icmp eq i32 %.1.us51, 700
   %46 = and i1 %44, %45
   br i1 %46, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us39, label %.split36.us, !llvm.loop !26
@@ -7331,7 +7331,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread:             ; preds = %.split.split, %_ZNK
 54:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, %_ZNK4llvm3EVT6bitsGEES0_.exit
   %.1 = phi i32 [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ %53, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ], [ 700, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = icmp ult i64 %indvars.iv, 9
+  %55 = icmp samesign ult i64 %indvars.iv, 9
   %56 = icmp eq i32 %.1, 700
   %57 = and i1 %55, %56
   br i1 %57, label %.split.split, label %.split36.us, !llvm.loop !26
@@ -18984,7 +18984,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   %44 = add nuw nsw i32 %.042, 1
   %45 = load i16, ptr %33, align 2
   %46 = zext i16 %45 to i32
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %43, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %43, %_ZN4llvm5SDLocD2Ev.exit
@@ -19082,7 +19082,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   %44 = add nuw nsw i32 %.042, 1
   %45 = load i16, ptr %33, align 2
   %46 = zext i16 %45 to i32
-  %47 = icmp ult i32 %44, %46
+  %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %43, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %43, %_ZN4llvm5SDLocD2Ev.exit

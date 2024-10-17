@@ -466,7 +466,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims2(i64 noundef %0, ptr no
   %46 = getelementptr inbounds i8, ptr %45, i64 56
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next.i, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %48
   br i1 %49, label %.lr.ph.i, label %H5T__get_array_dims.exit
 
 H5T__get_array_dims.exit:                         ; preds = %.lr.ph.i, %39
@@ -524,7 +524,7 @@ define i32 @H5T__get_array_dims(ptr nocapture noundef readonly %0, ptr noundef w
   %9 = getelementptr inbounds i8, ptr %8, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %.preheader
@@ -749,7 +749,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr no
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next.i, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
   br i1 %50, label %.lr.ph.i, label %H5T__get_array_dims.exit
 
 H5T__get_array_dims.exit:                         ; preds = %.lr.ph.i, %40

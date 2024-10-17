@@ -26,7 +26,7 @@ define dso_local void @rhash_byte_to_hex(ptr nocapture noundef writeonly %0, ptr
   %.in = select i1 %9, i8 %narrow, i8 %10
   %11 = getelementptr inbounds i8, ptr %.027, i64 1
   store i8 %.in, ptr %.027, align 1
-  %12 = icmp ugt i8 %8, 9
+  %12 = icmp samesign ugt i8 %8, 9
   %narrow22 = add nuw nsw i8 %8, %5
   %13 = or disjoint i8 %8, 48
   %.in23 = select i1 %12, i8 %narrow22, i8 %13
@@ -418,7 +418,7 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
   %.in.i = select i1 %97, i8 %narrow.i, i8 %98
   %99 = getelementptr inbounds i8, ptr %.04563.i, i64 2
   store i8 %.in.i, ptr %96, align 1
-  %100 = icmp ugt i8 %95, 9
+  %100 = icmp samesign ugt i8 %95, 9
   %narrow60.i = add nuw nsw i8 %95, %7
   %101 = or disjoint i8 %95, 48
   %.in61.i = select i1 %100, i8 %narrow60.i, i8 %101
@@ -641,7 +641,7 @@ define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr nocapture noundef read
   %.in = select i1 %41, i8 %narrow, i8 %42
   %43 = getelementptr inbounds i8, ptr %.04563, i64 2
   store i8 %.in, ptr %40, align 1
-  %44 = icmp ugt i8 %39, 9
+  %44 = icmp samesign ugt i8 %39, 9
   %narrow60 = add nuw nsw i8 %39, %22
   %45 = or disjoint i8 %39, 48
   %.in61 = select i1 %44, i8 %narrow60, i8 %45

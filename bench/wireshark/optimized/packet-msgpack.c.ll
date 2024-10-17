@@ -487,7 +487,7 @@ define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %
   %.not = icmp eq ptr %4, null
   %10 = select i1 %.not, ptr @.str.55, ptr %4
   %11 = zext nneg i8 %7 to i32
-  %12 = icmp ugt i8 %7, 1
+  %12 = icmp samesign ugt i8 %7, 1
   %13 = select i1 %12, ptr @.str.56, ptr @.str.57
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.54, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %13) #3
   %15 = load i32, ptr @hf_msgpack_string, align 4
@@ -521,7 +521,7 @@ define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1,
   %.not = icmp eq ptr %4, null
   %10 = select i1 %.not, ptr @.str.60, ptr %4
   %11 = zext nneg i8 %7 to i32
-  %12 = icmp ugt i8 %7, 1
+  %12 = icmp samesign ugt i8 %7, 1
   %13 = select i1 %12, ptr @.str.56, ptr @.str.57
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.59, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %13) #3
   %15 = load i32, ptr @hf_msgpack_string, align 4

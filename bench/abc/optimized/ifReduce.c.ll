@@ -332,7 +332,7 @@ Vec_PtrPush.exit33.i.i.i:                         ; preds = %141, %Vec_PtrGrow.e
   %150 = load i64, ptr %56, align 4
   %151 = lshr i64 %150, 24
   %152 = and i64 %151, 255
-  %153 = icmp ult i64 %indvars.iv.next.i.i.i, %152
+  %153 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %152
   br i1 %153, label %.lr.ph.i.i.i, label %If_ManImproveNodePrepare.exit.i.i, !llvm.loop !4
 
 If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.i.i.i, %.lr.ph.i.i.i, %53

@@ -107,7 +107,7 @@ for.body:                                         ; preds = %if.end13, %for.inc2
   %y.0664 = phi i32 [ %y.1, %for.inc27 ], [ 0, %if.end13 ]
   %nd.0663 = phi i32 [ %inc, %for.inc27 ], [ 0, %if.end13 ]
   %incdec.ptr28660662 = phi ptr [ %incdec.ptr28, %for.inc27 ], [ %5, %if.end13 ]
-  %cmp18 = icmp ult i32 %nd.0663, 9
+  %cmp18 = icmp samesign ult i32 %nd.0663, 9
   br i1 %cmp18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %for.body
@@ -117,7 +117,7 @@ if.then19:                                        ; preds = %for.body
   br label %for.inc27
 
 if.else:                                          ; preds = %for.body
-  %cmp20 = icmp ult i32 %nd.0663, 16
+  %cmp20 = icmp samesign ult i32 %nd.0663, 16
   br i1 %cmp20, label %if.then21, label %for.inc27
 
 if.then21:                                        ; preds = %if.else
@@ -638,7 +638,7 @@ if.end261:                                        ; preds = %if.then257, %if.the
   br i1 %tobool263.not, label %if.end372, label %if.then264
 
 if.then264:                                       ; preds = %if.end261
-  %cmp265 = icmp ugt i32 %and262, 308
+  %cmp265 = icmp samesign ugt i32 %and262, 308
   br i1 %cmp265, label %ovfl, label %if.end270
 
 ovfl:                                             ; preds = %if.then703, %for.end284, %if.then264
@@ -683,7 +683,7 @@ for.inc281:                                       ; preds = %for.body273, %if.th
   %mul279705 = phi double [ %mul279706708, %for.body273 ], [ %mul279, %if.then276 ]
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %shr283 = lshr i32 %e1.0709, 1
-  %cmp272 = icmp ugt i32 %e1.0709, 3
+  %cmp272 = icmp samesign ugt i32 %e1.0709, 3
   br i1 %cmp272, label %for.body273, label %for.end284.loopexit, !llvm.loop !14
 
 for.end284.loopexit:                              ; preds = %for.inc281
@@ -706,11 +706,11 @@ for.end284:                                       ; preds = %for.end284.loopexit
   %81 = lshr i64 %80, 32
   %82 = trunc nuw i64 %81 to i32
   %and291 = and i32 %82, 2146435072
-  %cmp292 = icmp ugt i32 %and291, 2090860544
+  %cmp292 = icmp samesign ugt i32 %and291, 2090860544
   br i1 %cmp292, label %ovfl, label %if.end294
 
 if.end294:                                        ; preds = %for.end284
-  %cmp295 = icmp ugt i32 %and291, 2089811968
+  %cmp295 = icmp samesign ugt i32 %and291, 2089811968
   br i1 %cmp295, label %if.then296, label %if.else299
 
 if.then296:                                       ; preds = %if.end294
@@ -791,7 +791,7 @@ for.inc336:                                       ; preds = %for.body328, %if.th
   %mul334698 = phi double [ %mul334699701, %for.body328 ], [ %mul334, %if.then331 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %shr338 = lshr i32 %e1.1702, 1
-  %cmp327.not = icmp ult i32 %e1.1702, 2
+  %cmp327.not = icmp samesign ult i32 %e1.1702, 2
   br i1 %cmp327.not, label %for.end339, label %for.body328, !llvm.loop !15
 
 for.end339:                                       ; preds = %for.inc336
@@ -803,16 +803,16 @@ land.lhs.true342:                                 ; preds = %for.end339
   %and344 = lshr i32 %98, 20
   %shr345 = and i32 %and344, 2047
   %sub346 = sub nsw i32 107, %shr345
-  %cmp347 = icmp ult i32 %shr345, 107
+  %cmp347 = icmp samesign ult i32 %shr345, 107
   br i1 %cmp347, label %if.then348, label %if.end365
 
 if.then348:                                       ; preds = %land.lhs.true342
-  %cmp349 = icmp ult i32 %shr345, 76
+  %cmp349 = icmp samesign ult i32 %shr345, 76
   br i1 %cmp349, label %if.then350, label %if.else360
 
 if.then350:                                       ; preds = %if.then348
   store i32 0, ptr %rv, align 8
-  %cmp352 = icmp ult i32 %shr345, 55
+  %cmp352 = icmp samesign ult i32 %shr345, 55
   br i1 %cmp352, label %if.then353, label %if.else355
 
 if.then353:                                       ; preds = %if.then350
@@ -942,7 +942,7 @@ for.inc.i:                                        ; preds = %if.end434, %for.inc
   br i1 %cmp.i, label %for.inc.i, label %for.end.i309, !llvm.loop !19
 
 for.end.i309:                                     ; preds = %for.inc.i
-  %cmp.i.i = icmp ult i32 %k.017.i, 7
+  %cmp.i.i = icmp samesign ult i32 %k.017.i, 7
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.end.i309, %if.end434
@@ -1353,8 +1353,8 @@ lor.lhs.false529:                                 ; preds = %if.then523
   %and531 = and i32 %130, 1048575
   %tobool532.not = icmp ne i32 %and531, 0
   %and535 = and i32 %130, 2146435072
-  %cmp536 = icmp ult i32 %and535, 112197633
-  %or.cond264 = or i1 %tobool532.not, %cmp536
+  %cmp536 = icmp samesign ult i32 %and535, 112197633
+  %or.cond264 = select i1 %tobool532.not, i1 true, i1 %cmp536
   br i1 %or.cond264, label %for.end782, label %if.end538
 
 if.end538:                                        ; preds = %lor.lhs.false529
@@ -1420,7 +1420,7 @@ land.lhs.true560:                                 ; preds = %if.then556
 
 land.lhs.true564:                                 ; preds = %land.lhs.true560
   %and566 = and i32 %136, 2146435072
-  %cmp567 = icmp ult i32 %and566, 111149057
+  %cmp567 = icmp samesign ult i32 %and566, 111149057
   br i1 %cmp567, label %cond.true568, label %cond.end574
 
 cond.true568:                                     ; preds = %land.lhs.true564
@@ -1452,12 +1452,12 @@ drop_down:                                        ; preds = %if.then7.i368, %if.
   %bc.sroa.28.1547 = phi i32 [ %bc.sroa.28.1546, %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit373 ], [ %nd.2, %if.else585 ], [ %bc.sroa.28.1546, %if.then7.i368 ]
   %delta.1 = phi ptr [ %call546, %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit373 ], [ %call507, %if.else585 ], [ %call546, %if.then7.i368 ]
   %.pre831 = and i32 %138, 2146435072
-  %cmp598 = icmp ugt i32 %.pre831, 112197632
+  %cmp598 = icmp samesign ugt i32 %.pre831, 112197632
   %or.cond940.not = select i1 %tobool752, i1 true, i1 %cmp598
   br i1 %or.cond940.not, label %if.end609, label %if.then599
 
 if.then599:                                       ; preds = %drop_down
-  %cmp600 = icmp ugt i32 %.pre831, 57671680
+  %cmp600 = icmp samesign ugt i32 %.pre831, 57671680
   %cmp604 = icmp sgt i32 %bc.sroa.28.1547, %nd.6
   %or.cond561 = select i1 %cmp600, i1 true, i1 %cmp604
   br i1 %or.cond561, label %for.end782, label %undfl
@@ -1620,7 +1620,7 @@ if.then694:                                       ; preds = %if.end690
   %159 = lshr i64 %158, 32
   %160 = trunc nuw i64 %159 to i32
   %and701 = and i32 %160, 2145386496
-  %cmp702 = icmp ugt i32 %and701, 2090860543
+  %cmp702 = icmp samesign ugt i32 %and701, 2090860543
   br i1 %cmp702, label %if.then703, label %if.else713
 
 if.then703:                                       ; preds = %if.then694
@@ -1638,8 +1638,8 @@ if.else713:                                       ; preds = %if.then694
   br label %if.end745
 
 if.else717:                                       ; preds = %if.end690
-  %cmp721 = icmp ult i32 %and692, 111149057
-  %or.cond13 = and i1 %tobool719, %cmp721
+  %cmp721 = icmp samesign ult i32 %and692, 111149057
+  %or.cond13 = select i1 %tobool719, i1 %cmp721, i1 false
   br i1 %or.cond13, label %if.then722, label %if.end741
 
 if.then722:                                       ; preds = %if.else717
@@ -2633,7 +2633,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %if.then.i, %if.end.
   %and3 = and i32 %3, 2147483647
   store i32 %and3, ptr %arrayidx, align 4
   %shr = lshr i32 %and3, 20
-  %tobool.not = icmp ult i32 %and3, 1048576
+  %tobool.not = icmp samesign ult i32 %and3, 1048576
   %or = or disjoint i32 %and, 1048576
   %spec.select = select i1 %tobool.not, i32 %and, i32 %or
   %4 = load i32, ptr %d, align 8
@@ -2866,7 +2866,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %b.addr.0 = phi ptr [ %call, %if.then ], [ %b, %entry ]
   %shr = lshr i32 %k, 2
-  %tobool1.not = icmp ult i32 %k, 4
+  %tobool1.not = icmp samesign ult i32 %k, 4
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -2965,7 +2965,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end12:                                         ; preds = %if.else.i, %if.then1.i, %if.then10, %for.cond
   %b.addr.2 = phi ptr [ %b.addr.1, %for.cond ], [ %call11, %if.then10 ], [ %call11, %if.then1.i ], [ %call11, %if.else.i ]
-  %tobool14.not = icmp ult i32 %k.addr.0, 2
+  %tobool14.not = icmp samesign ult i32 %k.addr.0, 2
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
@@ -3965,7 +3965,7 @@ if.end78:                                         ; preds = %if.else75, %if.then
   %b2.1 = phi i32 [ %b2.0, %if.then73 ], [ %sub76, %if.else75 ]
   %or.cond1 = icmp ugt i32 %mode, 9
   %spec.store.select14 = select i1 %or.cond1, i32 0, i32 %mode
-  %cmp83 = icmp ult i32 %spec.store.select14, 6
+  %cmp83 = icmp samesign ult i32 %spec.store.select14, 6
   %sub85 = add nsw i32 %spec.store.select14, -4
   %spec.select = select i1 %cmp83, i32 %spec.store.select14, i32 %sub85
   switch i32 %spec.select, label %default.unreachable [
@@ -4005,7 +4005,7 @@ sw.epilog:                                        ; preds = %sw.bb93, %sw.bb88
   %leftright.0 = phi i32 [ %leftright.2, %sw.bb93 ], [ %leftright.1, %sw.bb88 ]
   %ndigits.addr.0 = phi i32 [ %ndigits, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
   %conv1.i = zext nneg i32 %i.1 to i64
-  %cmp.not5.i = icmp ult i32 %i.1, 28
+  %cmp.not5.i = icmp samesign ult i32 %i.1, 28
   br i1 %cmp.not5.i, label %land.lhs.true.i.i, label %for.body.i389
 
 for.body.i389:                                    ; preds = %sw.epilog, %for.body.i389
@@ -4019,7 +4019,7 @@ for.body.i389:                                    ; preds = %sw.epilog, %for.bod
   br i1 %cmp.not.i, label %for.end.i391, label %for.body.i389, !llvm.loop !41
 
 for.end.i391:                                     ; preds = %for.body.i389
-  %cmp.i.i392 = icmp ult i32 %k.06.i, 7
+  %cmp.i.i392 = icmp samesign ult i32 %k.06.i, 7
   br i1 %cmp.i.i392, label %land.lhs.true.i.i, label %if.else.i.i393
 
 land.lhs.true.i.i:                                ; preds = %if.end78, %if.end78, %for.end.i391, %sw.epilog
@@ -4153,7 +4153,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %ds.1 = phi double [ %mul, %if.then121 ], [ %ds.0790, %for.body ]
   %shr126 = lshr i32 %j.1789, 1
   %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
-  %tobool118.not = icmp ult i32 %j.1789, 2
+  %tobool118.not = icmp samesign ult i32 %j.1789, 2
   br i1 %tobool118.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.inc, %if.then108
@@ -4201,7 +4201,7 @@ for.inc149:                                       ; preds = %for.body140, %if.th
   %ieps.5 = phi i32 [ %inc144, %if.then143 ], [ %ieps.4782, %for.body140 ]
   %shr150 = lshr i32 %j.2784, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool139.not = icmp ult i32 %j.2784, 2
+  %tobool139.not = icmp samesign ult i32 %j.2784, 2
   br i1 %tobool139.not, label %if.end154, label %for.body140, !llvm.loop !43
 
 if.end154:                                        ; preds = %for.inc149, %if.then132, %if.else129, %for.end
@@ -5862,7 +5862,7 @@ entry:
   %retval.0.i = select i1 %tobool19.not16.i, i32 %k.3.i, i32 %spec.select15.i
   %sub = sub nuw nsw i32 32, %retval.0.i
   store i32 %sub, ptr %e, align 4
-  %cmp = icmp ult i32 %retval.0.i, 11
+  %cmp = icmp samesign ult i32 %retval.0.i, 11
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

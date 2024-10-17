@@ -304,7 +304,7 @@ if.end:                                           ; preds = %uv__use_io_uring.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %params, i8 0, i64 120, i1 false)
   %flags1 = getelementptr inbounds i8, ptr %params, i64 8
   store i32 %flags, ptr %flags1, align 8
-  %tobool2.not = icmp ult i32 %flags, 2
+  %tobool2.not = icmp samesign ult i32 %flags, 2
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -3371,8 +3371,8 @@ for.body:                                         ; preds = %if.end56, %for.body
   %call73 = call i32 @strncmp(ptr noundef nonnull %add.ptr58, ptr noundef nonnull %model.0.ptr58, i64 noundef %call72) #19
   %tobool74 = icmp ne i32 %call73, 0
   %model.0.add = add nuw nsw i64 %model.0.idx57, 64
-  %cmp67 = icmp ult i64 %model.0.idx57, 448
-  %4 = and i1 %tobool74, %cmp67
+  %cmp67 = icmp samesign ult i64 %model.0.idx57, 448
+  %4 = select i1 %tobool74, i1 %cmp67, i1 false
   br i1 %4, label %for.body, label %for.end77
 
 for.end77:                                        ; preds = %for.body

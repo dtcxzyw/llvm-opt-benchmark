@@ -6154,13 +6154,13 @@ sw.bb297.i.i:                                     ; preds = %if.end293.i.i
 
 sw.bb301.i.i:                                     ; preds = %if.end293.i.i
   %and.i.i622.i.i = and i32 %shr.i.i600.i.i, 7
-  %cmp.i.i623.i.i = icmp ult i32 %and.i.i622.i.i, 2
+  %cmp.i.i623.i.i = icmp samesign ult i32 %and.i.i622.i.i, 2
   %cond.v.i.i.i.i = select i1 %cmp.i.i623.i.i, i32 8, i32 16
   %cond.i.i624.i.i = or disjoint i32 %cond.v.i.i.i.i, %and.i.i622.i.i
   store i32 %cond.i.i624.i.i, ptr %rs1.i608.i.i, align 4
   %shr.i4.i626.i.i = lshr i32 %conv11.i, 7
   %and.i5.i627.i.i = and i32 %shr.i4.i626.i.i, 7
-  %cmp.i6.i.i.i = icmp ult i32 %and.i5.i627.i.i, 2
+  %cmp.i6.i.i.i = icmp samesign ult i32 %and.i5.i627.i.i, 2
   %cond.v.i7.i.i.i = select i1 %cmp.i6.i.i.i, i32 8, i32 16
   %cond.i8.i.i.i = or disjoint i32 %cond.v.i7.i.i.i, %and.i5.i627.i.i
   store i32 %cond.i8.i.i.i, ptr %u.i.i, align 4
@@ -6628,7 +6628,7 @@ lor.lhs.false:                                    ; preds = %if.then
 
 if.else:                                          ; preds = %lor.lhs.false
   %conv19 = and i64 %add, 4095
-  %cmp15 = icmp ugt i64 %conv19, 4092
+  %cmp15 = icmp samesign ugt i64 %conv19, 4092
   br i1 %cmp15, label %if.then17, label %if.end34
 
 if.then17:                                        ; preds = %if.else
@@ -18259,7 +18259,7 @@ sw.epilog11.i.i.i:                                ; preds = %if.end.i13.i.i, %if
 
 get_gpr.exit.i.i:                                 ; preds = %sw.epilog11.i.i.i, %sw.bb.i.i.i, %if.then.i15.i.i
   %retval.0.i14.i.i = phi ptr [ %91, %if.then.i15.i.i ], [ %94, %sw.epilog11.i.i.i ], [ %call4.i.i.i, %sw.bb.i.i.i ]
-  %cmp.not.i.i = icmp ugt i32 %and.i11.i, %shr.i.i551
+  %cmp.not.i.i = icmp samesign ugt i32 %and.i11.i, %shr.i.i551
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_gpr.exit.i.i
@@ -18385,7 +18385,7 @@ sw.epilog11.i.i.i589:                             ; preds = %if.end.i13.i.i587, 
 
 get_gpr.exit.i.i592:                              ; preds = %sw.epilog11.i.i.i589, %sw.bb.i.i.i616, %if.then.i15.i.i621
   %retval.0.i14.i.i593 = phi ptr [ %105, %if.then.i15.i.i621 ], [ %108, %sw.epilog11.i.i.i589 ], [ %call4.i.i.i617, %sw.bb.i.i.i616 ]
-  %cmp.not.i.i595 = icmp ugt i32 %and.i11.i568, %shr.i.i560
+  %cmp.not.i.i595 = icmp samesign ugt i32 %and.i11.i568, %shr.i.i560
   br i1 %cmp.not.i.i595, label %return, label %if.then.i.i596
 
 if.then.i.i596:                                   ; preds = %get_gpr.exit.i.i592
@@ -72840,7 +72840,7 @@ reduction_widen_check.exit.i:                     ; preds = %land.lhs.true.i.i
   %7 = load i16, ptr %elen.i.i, align 2
   %8 = lshr i16 %7, 4
   %9 = zext nneg i8 %narrow.i.i to i16
-  %cmp5.i.not.i = icmp ult i16 %8, %9
+  %cmp5.i.not.i = icmp samesign ult i16 %8, %9
   br i1 %cmp5.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %reduction_widen_check.exit.i
@@ -73178,7 +73178,7 @@ reduction_widen_check.exit.i:                     ; preds = %land.lhs.true.i.i
   %7 = load i16, ptr %elen.i.i, align 2
   %8 = lshr i16 %7, 4
   %9 = zext nneg i8 %narrow.i.i to i16
-  %cmp5.i.not.i = icmp ult i16 %8, %9
+  %cmp5.i.not.i = icmp samesign ult i16 %8, %9
   br i1 %cmp5.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %reduction_widen_check.exit.i
@@ -79766,7 +79766,7 @@ land.lhs.true5.i.i.i:                             ; preds = %land.rhs.i
   %12 = load i16, ptr %elen.i.i.i, align 2
   %13 = lshr i16 %12, 4
   %14 = zext nneg i8 %narrow.i.i.i to i16
-  %cmp9.not.i.i.i = icmp ult i16 %13, %14
+  %cmp9.not.i.i.i = icmp samesign ult i16 %13, %14
   br i1 %cmp9.not.i.i.i, label %return, label %land.lhs.true11.i.i.i
 
 land.lhs.true11.i.i.i:                            ; preds = %land.lhs.true5.i.i.i
@@ -79939,7 +79939,7 @@ land.lhs.true5.i.i.i:                             ; preds = %land.rhs.i
   %12 = load i16, ptr %elen.i.i.i, align 2
   %13 = lshr i16 %12, 4
   %14 = zext nneg i8 %narrow.i.i.i to i16
-  %cmp9.not.i.i.i = icmp ult i16 %13, %14
+  %cmp9.not.i.i.i = icmp samesign ult i16 %13, %14
   br i1 %cmp9.not.i.i.i, label %return, label %land.lhs.true11.i.i.i
 
 land.lhs.true11.i.i.i:                            ; preds = %land.lhs.true5.i.i.i
@@ -81964,7 +81964,7 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.rhs.i.i
   %9 = load i16, ptr %elen.i.i.i.i, align 2
   %10 = lshr i16 %9, 4
   %11 = zext nneg i8 %narrow.i.i.i.i to i16
-  %cmp9.not.i.i.i.i = icmp ult i16 %10, %11
+  %cmp9.not.i.i.i.i = icmp samesign ult i16 %10, %11
   br i1 %cmp9.not.i.i.i.i, label %do_opiwx_widen.exit, label %land.lhs.true11.i.i.i.i
 
 land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.i.i
@@ -82047,7 +82047,7 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.rhs.i.i
   %9 = load i16, ptr %elen.i.i.i.i, align 2
   %10 = lshr i16 %9, 4
   %11 = zext nneg i8 %narrow.i.i.i.i to i16
-  %cmp9.not.i.i.i.i = icmp ult i16 %10, %11
+  %cmp9.not.i.i.i.i = icmp samesign ult i16 %10, %11
   br i1 %cmp9.not.i.i.i.i, label %do_opiwx_widen.exit, label %land.lhs.true11.i.i.i.i
 
 land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.i.i
@@ -82130,7 +82130,7 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.rhs.i.i
   %9 = load i16, ptr %elen.i.i.i.i, align 2
   %10 = lshr i16 %9, 4
   %11 = zext nneg i8 %narrow.i.i.i.i to i16
-  %cmp9.not.i.i.i.i = icmp ult i16 %10, %11
+  %cmp9.not.i.i.i.i = icmp samesign ult i16 %10, %11
   br i1 %cmp9.not.i.i.i.i, label %do_opiwx_widen.exit, label %land.lhs.true11.i.i.i.i
 
 land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.i.i
@@ -82213,7 +82213,7 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.rhs.i.i
   %9 = load i16, ptr %elen.i.i.i.i, align 2
   %10 = lshr i16 %9, 4
   %11 = zext nneg i8 %narrow.i.i.i.i to i16
-  %cmp9.not.i.i.i.i = icmp ult i16 %10, %11
+  %cmp9.not.i.i.i.i = icmp samesign ult i16 %10, %11
   br i1 %cmp9.not.i.i.i.i, label %do_opiwx_widen.exit, label %land.lhs.true11.i.i.i.i
 
 land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.i.i
@@ -96866,7 +96866,7 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %3 = load i16, ptr %elen.i, align 2
   %4 = lshr i16 %3, 4
   %5 = zext nneg i8 %narrow.i to i16
-  %cmp9.not.i = icmp ult i16 %4, %5
+  %cmp9.not.i = icmp samesign ult i16 %4, %5
   br i1 %cmp9.not.i, label %land.end, label %land.lhs.true11.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true5.i
@@ -97259,7 +97259,7 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %3 = load i16, ptr %elen.i, align 2
   %4 = lshr i16 %3, 4
   %5 = zext nneg i8 %narrow.i to i16
-  %cmp9.not.i = icmp ult i16 %4, %5
+  %cmp9.not.i = icmp samesign ult i16 %4, %5
   br i1 %cmp9.not.i, label %vext_narrow_check_common.exit, label %land.lhs.true11.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true5.i
@@ -106685,7 +106685,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %7 = load i16, ptr %elen, align 2
   %8 = lshr i16 %7, 4
   %9 = zext nneg i8 %narrow to i16
-  %cmp5 = icmp uge i16 %8, %9
+  %cmp5 = icmp samesign uge i16 %8, %9
   br label %land.end
 
 land.end:                                         ; preds = %require_align.exit.i.i, %entry, %land.lhs.true.i, %land.rhs, %land.lhs.true, %reduction_check.exit

@@ -253,7 +253,7 @@ define internal i32 @dissect_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %99 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %38, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef %97, ptr noundef nonnull @.str.39, i32 noundef %98, i32 noundef %97) #3
   %100 = add nuw nsw i32 %.0162, 2
   %101 = add nuw nsw i32 %.0153161, 3
-  %102 = icmp ult i32 %100, %49
+  %102 = icmp samesign ult i32 %100, %49
   br i1 %102, label %.lr.ph163, label %.loopexit, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader158, %.lr.ph
@@ -273,7 +273,7 @@ define internal i32 @dissect_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %114 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %38, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef %112, ptr noundef nonnull @.str.39, i32 noundef %113, i32 noundef %112) #3
   %115 = add nuw nsw i32 %.1160, 2
   %116 = add nuw nsw i32 %.1154159, 3
-  %117 = icmp ult i32 %115, %49
+  %117 = icmp samesign ult i32 %115, %49
   br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader158

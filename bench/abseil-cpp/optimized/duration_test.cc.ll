@@ -122764,7 +122764,7 @@ for.cond1347.preheader:                           ; preds = %for.inc1341
 
 land.lhs.true.i.i:                                ; preds = %for.cond1242.preheader, %for.inc1341
   %storemerge1372322 = phi i64 [ -153722867280912930, %for.cond1242.preheader ], [ %inc1342, %for.inc1341 ]
-  %cmp3.not.i.i = icmp ult i64 %storemerge1372322, -153722867280912930
+  %cmp3.not.i.i = icmp samesign ult i64 %storemerge1372322, -153722867280912930
   %call1246.fca.1.extract = sext i1 %cmp3.not.i.i to i32
   br i1 %cmp3.not.i.i, label %if.then1287, label %if.else1312
 
@@ -123487,7 +123487,7 @@ for.cond1662.preheader:                           ; preds = %for.inc1656
 
 land.lhs.true.i.i1962:                            ; preds = %for.cond1557.preheader, %for.inc1656
   %storemerge1402325 = phi i64 [ -2562047788015215, %for.cond1557.preheader ], [ %inc1657, %for.inc1656 ]
-  %cmp3.not.i.i1963 = icmp ult i64 %storemerge1402325, -2562047788015215
+  %cmp3.not.i.i1963 = icmp samesign ult i64 %storemerge1402325, -2562047788015215
   %call1561.fca.1.extract = sext i1 %cmp3.not.i.i1963 to i32
   br i1 %cmp3.not.i.i1963, label %if.then1602, label %if.else1627
 

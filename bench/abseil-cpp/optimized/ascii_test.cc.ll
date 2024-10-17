@@ -1351,7 +1351,7 @@ for.body214:                                      ; preds = %for.cond212.prehead
   br i1 %cmp217.not, label %if.else250, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %for.body214
-  %memchr.bounds = icmp ugt i64 %indvars.iv904, 63
+  %memchr.bounds = icmp samesign ugt i64 %indvars.iv904, 63
   %75 = shl nuw i64 1, %indvars.iv904
   %76 = and i64 %75, 4294983169
   %memchr.bits = icmp eq i64 %76, 0
@@ -2309,7 +2309,7 @@ for.cond584.preheader:                            ; preds = %for.inc580
 for.body512:                                      ; preds = %for.cond510.preheader, %for.inc580
   %indvars.iv917 = phi i64 [ 0, %for.cond510.preheader ], [ %indvars.iv.next918, %for.inc580 ]
   %conv514 = trunc i64 %indvars.iv917 to i8
-  %cmp515 = icmp ult i64 %indvars.iv917, 32
+  %cmp515 = icmp samesign ult i64 %indvars.iv917, 32
   %cmp517 = icmp eq i64 %indvars.iv917, 127
   %or.cond5 = or i1 %cmp515, %cmp517
   %arrayidx.i509 = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %indvars.iv917

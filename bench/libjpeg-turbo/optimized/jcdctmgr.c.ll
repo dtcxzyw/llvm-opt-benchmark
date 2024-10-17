@@ -299,7 +299,7 @@ flss.exit.i:                                      ; preds = %43, %49
 
 64:                                               ; preds = %flss.exit.i
   %65 = lshr exact i32 %48, 1
-  %.not.i = icmp ugt i32 %58, %65
+  %.not.i = icmp samesign ugt i32 %58, %65
   br i1 %.not.i, label %68, label %66
 
 66:                                               ; preds = %64
@@ -428,7 +428,7 @@ flss.exit.i80:                                    ; preds = %112, %95
 
 127:                                              ; preds = %flss.exit.i80
   %128 = lshr i32 %108, 1
-  %.not.i83 = icmp ugt i32 %121, %128
+  %.not.i83 = icmp samesign ugt i32 %121, %128
   br i1 %.not.i83, label %131, label %129
 
 129:                                              ; preds = %127

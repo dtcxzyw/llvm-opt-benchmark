@@ -552,10 +552,10 @@ while.end.i.i.i:                                  ; preds = %if.then.i
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then.i
-  %cmp1863.not.i = icmp ult i64 %sub.i, 64
+  %cmp1863.i = icmp ugt i64 %sub.i, 63
   %arrayidx31.i = getelementptr inbounds i8, ptr %blocks.i, i64 16
   %arrayidx46.i = getelementptr inbounds i8, ptr %blocks.i, i64 8
-  br i1 %cmp1863.not.i, label %while.end.i, label %while.end.us.i
+  br i1 %cmp1863.i, label %while.end.us.i, label %while.end.i
 
 if.end.i.i.us.i:                                  ; preds = %for.cond17.for.inc62_crit_edge.us.i
   %dec.i.i.us.i = add i32 %26, -1
@@ -636,8 +636,8 @@ if.end52.us.i:                                    ; preds = %if.then45.us.i, %if
   %inc57.us.i = zext i1 %cmp54.us.i to i64
   %spec.select49.us.i = add i64 %idx.166.us.i, %inc57.us.i
   %inc60.us.i = add nuw nsw i64 %k.064.us.i, 1
-  %exitcond75.not.i = icmp eq i64 %inc60.us.i, %div44.i
-  br i1 %exitcond75.not.i, label %for.cond17.for.inc62_crit_edge.us.i, label %for.body19.us.i, !llvm.loop !13
+  %exitcond76.not.i = icmp eq i64 %inc60.us.i, %div44.i
+  br i1 %exitcond76.not.i, label %for.cond17.for.inc62_crit_edge.us.i, label %for.body19.us.i, !llvm.loop !13
 
 while.end.us.i:                                   ; preds = %rcu_read_auto_lock.exit.i, %while.end.us.i
   %i.062.us.i = phi i64 [ %inc.us.i, %while.end.us.i ], [ 0, %rcu_read_auto_lock.exit.i ]
@@ -649,8 +649,8 @@ while.end.us.i:                                   ; preds = %rcu_read_auto_lock.
   %arrayidx16.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.062.us.i
   store ptr %blocks15.us.i, ptr %arrayidx16.us.i, align 8
   %inc.us.i = add nuw nsw i64 %i.062.us.i, 1
-  %exitcond74.not.i = icmp eq i64 %inc.us.i, 3
-  br i1 %exitcond74.not.i, label %for.body19.us.i, label %while.end.us.i, !llvm.loop !15
+  %exitcond75.not.i = icmp eq i64 %inc.us.i, 3
+  br i1 %exitcond75.not.i, label %for.body19.us.i, label %while.end.us.i, !llvm.loop !15
 
 for.cond17.for.inc62_crit_edge.us.i:              ; preds = %if.end52.us.i
   %call.i.i51.us.i = call ptr @get_ptr_rcu_reader() #17
@@ -676,8 +676,8 @@ while.end.i:                                      ; preds = %rcu_read_auto_lock.
   %arrayidx16.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.062.i
   store ptr %blocks15.i, ptr %arrayidx16.i, align 8
   %inc.i = add nuw nsw i64 %i.062.i, 1
-  %exitcond76.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond76.not.i, label %for.cond17.preheader.i, label %while.end.i, !llvm.loop !15
+  %exitcond74.not.i = icmp eq i64 %inc.i, 3
+  br i1 %exitcond74.not.i, label %for.cond17.preheader.i, label %while.end.i, !llvm.loop !15
 
 if.else.i.i.i:                                    ; preds = %for.cond17.preheader.i, %for.cond17.for.inc62_crit_edge.us.i
   call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
@@ -850,7 +850,7 @@ while.end.i.i:                                    ; preds = %if.end
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
   %conv = zext nneg i8 %mask to i32
-  %tobool16.not = icmp ult i8 %mask, 4
+  %tobool16.not = icmp samesign ult i8 %mask, 4
   %arrayidx21 = getelementptr inbounds i8, ptr %blocks, i64 16
   %and27 = and i32 %conv, 1
   %tobool28.not = icmp eq i32 %and27, 0
@@ -904,7 +904,7 @@ while.end.us.us.us:                               ; preds = %rcu_read_auto_lock.
   br i1 %exitcond79.not, label %for.inc59.us.us.us, label %while.end.us.us.us, !llvm.loop !19
 
 for.end.us.us:                                    ; preds = %while.end.us.us
-  %cmp1035.us.us = icmp ult i64 %shr2, %shr
+  %cmp1035.us.us = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035.us.us, label %while.body11.lr.ph.us.us, label %for.inc59.us.us
 
 for.inc59.us.us:                                  ; preds = %while.body11.us.us.us57.us, %for.end.us.us
@@ -965,11 +965,11 @@ while.body11.us.us.us57.us:                       ; preds = %while.body11.lr.ph.
   %sub54.us.us.us.us = sub nsw i64 %cond.us.us.us61.us, %page.139.us.us.us.us
   tail call void @bitmap_set_atomic(ptr noundef %11, i64 noundef %offset.037.us.us.us.us, i64 noundef %sub54.us.us.us.us) #17
   %inc56.us.us.us62.us = add nuw nsw i64 %idx.038.us.us.us58.us, 1
-  %cmp10.us.us.us63.us = icmp ult i64 %add12.us.us.us60.us, %shr
+  %cmp10.us.us.us63.us = icmp samesign ult i64 %add12.us.us.us60.us, %shr
   br i1 %cmp10.us.us.us63.us, label %while.body11.us.us.us57.us, label %for.inc59.us.us, !llvm.loop !20
 
 for.end.us:                                       ; preds = %while.end.us
-  %cmp1035.us = icmp ult i64 %shr2, %shr
+  %cmp1035.us = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035.us, label %while.body11.lr.ph.us, label %for.inc59.us
 
 for.inc59.us:                                     ; preds = %if.end55.us.us, %for.end.us
@@ -1041,7 +1041,7 @@ if.then50.us.us:                                  ; preds = %while.body11.us.us4
 
 if.end55.us.us:                                   ; preds = %if.then50.us.us, %while.body11.us.us43
   %inc56.us.us52 = add nuw nsw i64 %idx.038.us.us45, 1
-  %cmp10.us.us53 = icmp ult i64 %add12.us.us48, %shr
+  %cmp10.us.us53 = icmp samesign ult i64 %add12.us.us48, %shr
   br i1 %cmp10.us.us53, label %while.body11.us.us43, label %for.inc59.us, !llvm.loop !20
 
 while.end:                                        ; preds = %rcu_read_auto_lock.exit, %while.end
@@ -1057,7 +1057,7 @@ while.end:                                        ; preds = %rcu_read_auto_lock.
   br i1 %exitcond.not, label %for.end, label %while.end, !llvm.loop !19
 
 for.end:                                          ; preds = %while.end
-  %cmp1035 = icmp ult i64 %shr2, %shr
+  %cmp1035 = icmp samesign ult i64 %shr2, %shr
   br i1 %cmp1035, label %while.body11.lr.ph, label %for.inc59
 
 while.body11.lr.ph:                               ; preds = %for.end
@@ -1102,7 +1102,7 @@ if.then50:                                        ; preds = %if.end40
 
 if.end55:                                         ; preds = %if.then50, %if.end40
   %inc56 = add nuw nsw i64 %idx.038, 1
-  %cmp10 = icmp ult i64 %add12, %shr
+  %cmp10 = icmp samesign ult i64 %add12, %shr
   br i1 %cmp10, label %while.body11, label %for.inc59, !llvm.loop !20
 
 for.inc59:                                        ; preds = %if.end55, %for.end

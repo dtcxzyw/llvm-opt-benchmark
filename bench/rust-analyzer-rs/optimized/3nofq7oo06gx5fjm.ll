@@ -895,7 +895,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4dc894859c133de5E.llvm
   br i1 %or.cond.i.i.i.i, label %.thread21.i.i.i.i, label %136
 
 136:                                              ; preds = %134
-  %137 = icmp ugt i32 %.sroa.4.0.i.ph16.i.i.i.i, 127
+  %137 = icmp samesign ugt i32 %.sroa.4.0.i.ph16.i.i.i.i, 127
   br i1 %137, label %138, label %.thread19.i.i.i.i
 
 138:                                              ; preds = %136
@@ -1045,7 +1045,7 @@ switch.lookup17:                                  ; preds = %.thread21.i.i.i.i
   br label %159
 
 180:                                              ; preds = %159
-  %181 = icmp ugt i32 %.sroa.4.0.i.ph16.i.i.i.i, 127
+  %181 = icmp samesign ugt i32 %.sroa.4.0.i.ph16.i.i.i.i, 127
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %180
@@ -1615,7 +1615,7 @@ define noundef zeroext i1 @_ZN4stdx19is_upper_snake_case17he9041c392194c31cE(ptr
   br i1 %or.cond.i.i.i, label %.backedge.i, label %44
 
 44:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
-  %45 = icmp ugt i32 %42, 127
+  %45 = icmp samesign ugt i32 %42, 127
   br i1 %45, label %46, label %.thread5.i.i.i
 
 46:                                               ; preds = %44
@@ -2062,15 +2062,15 @@ _ZN4core3str11validations15next_code_point17h20cf77a4ff9caa1eE.exit.thread.i.i.i
   br i1 %212, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i", label %213
 
 213:                                              ; preds = %211
-  %214 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %214 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
   br i1 %214, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i", label %215
 
 215:                                              ; preds = %213
-  %216 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %216 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
   br i1 %216, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i", label %217
 
 217:                                              ; preds = %215
-  %218 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %218 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %218, i64 3, i64 4
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i.i"
 

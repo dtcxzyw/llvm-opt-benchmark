@@ -2085,7 +2085,7 @@ if.then9:                                         ; preds = %land.lhs.true
 for.inc:                                          ; preds = %land.lhs.true, %if.then9
   %result.1 = phi i32 [ %call11, %if.then9 ], [ 0, %land.lhs.true ]
   %inc = add nuw nsw i64 %i.022, 1
-  %cmp = icmp ult i64 %inc, %nread
+  %cmp = icmp samesign ult i64 %inc, %nread
   %tobool2.not = icmp eq i32 %result.1, 0
   %3 = select i1 %cmp, i1 %tobool2.not, i1 false
   br i1 %3, label %for.body, label %for.end, !llvm.loop !10

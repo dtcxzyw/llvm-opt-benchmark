@@ -441,7 +441,7 @@ do.end.i:                                         ; preds = %do.body.i, %do.body
   %14 = load i8, ptr %frame_size_buffer.i, align 1
   %conv60.i = zext i8 %14 to i64
   %or61.i = or disjoint i64 %or58.i, %conv60.i
-  %cmp63.i = icmp ugt i64 %or61.i, 16777216
+  %cmp63.i = icmp samesign ugt i64 %or61.i, 16777216
   br i1 %cmp63.i, label %if.then10, label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit
 
 _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit: ; preds = %do.end.i

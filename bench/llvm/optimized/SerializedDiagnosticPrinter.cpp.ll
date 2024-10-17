@@ -458,7 +458,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit8.i.i.i:    ; preds = %115, %_ZN4llvm15Bit
   %126 = or i32 %125, %124
   store i32 %126, ptr %110, align 4, !noalias !4
   %127 = add nuw nsw i32 %storemerge6.i7.i.i.i, 8
-  %128 = icmp ult i32 %storemerge6.i7.i.i.i, 24
+  %128 = icmp samesign ult i32 %storemerge6.i7.i.i.i, 24
   br i1 %128, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit12.i.i.i, label %129
 
 129:                                              ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit8.i.i.i
@@ -7882,7 +7882,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %33, %46
   %61 = or i32 %53, %60
   store i32 %61, ptr %11, align 4
   %62 = add nuw nsw i32 %storemerge6.i, 3
-  %63 = icmp ult i32 %storemerge6.i, 29
+  %63 = icmp samesign ult i32 %storemerge6.i, 29
   br i1 %63, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit16, label %64
 
 64:                                               ; preds = %56

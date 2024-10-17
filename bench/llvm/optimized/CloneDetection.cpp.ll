@@ -5901,7 +5901,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %12, align 4
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %15, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %15, %2
@@ -8066,7 +8066,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %111, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %21, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
   br i1 %117, label %33, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %22
@@ -9708,7 +9708,7 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp ult i64 %storemerge26.i.i.in.in, 3
+  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
   br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !60
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -13639,7 +13639,7 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %689 = load i32, ptr %681, align 4
   %690 = zext i32 %689 to i64
-  %691 = icmp ult i64 %indvars.iv.next.i, %690
+  %691 = icmp samesign ult i64 %indvars.iv.next.i, %690
   br i1 %691, label %684, label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18VisitTypeTraitExprIvEEvPKN5clang13TypeTraitExprE.exit, !llvm.loop !81
 
 _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18VisitTypeTraitExprIvEEvPKN5clang13TypeTraitExprE.exit: ; preds = %684, %677
@@ -16904,7 +16904,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %111, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %21, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %indvars.iv.next, %116
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
   br i1 %117, label %33, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %22

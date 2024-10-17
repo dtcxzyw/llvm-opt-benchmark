@@ -279,7 +279,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %exitcond.not.i.i.i, label %CountOccurrences.exit.i.i, label %59, !llvm.loop !5
 
 CountOccurrences.exit.i.i:                        ; preds = %59
-  %64 = icmp ugt i32 %spec.select.i.i.i, 1
+  %64 = icmp samesign ugt i32 %spec.select.i.i.i, 1
   br i1 %64, label %65, label %.lr.ph.i34.i.i
 
 65:                                               ; preds = %CountOccurrences.exit.i.i
@@ -301,7 +301,7 @@ CountOccurrences.exit.i.i:                        ; preds = %59
   br i1 %exitcond.not.i41.i.i, label %CountOccurrences.exit42.i.i, label %.lr.ph.i34.i.i, !llvm.loop !5
 
 CountOccurrences.exit42.i.i:                      ; preds = %.lr.ph.i34.i.i
-  %72 = icmp ugt i32 %spec.select.i39.i.i, 1
+  %72 = icmp samesign ugt i32 %spec.select.i39.i.i, 1
   br i1 %72, label %73, label %.lr.ph.i44.i.i
 
 73:                                               ; preds = %CountOccurrences.exit42.i.i
@@ -323,7 +323,7 @@ CountOccurrences.exit42.i.i:                      ; preds = %.lr.ph.i34.i.i
   br i1 %exitcond.not.i51.i.i, label %CountOccurrences.exit52.i.i, label %.lr.ph.i44.i.i, !llvm.loop !5
 
 CountOccurrences.exit52.i.i:                      ; preds = %.lr.ph.i44.i.i
-  %80 = icmp ugt i32 %spec.select.i49.i.i, 1
+  %80 = icmp samesign ugt i32 %spec.select.i49.i.i, 1
   br i1 %80, label %81, label %.lr.ph.i54.i.i
 
 81:                                               ; preds = %CountOccurrences.exit52.i.i
@@ -345,7 +345,7 @@ CountOccurrences.exit52.i.i:                      ; preds = %.lr.ph.i44.i.i
   br i1 %exitcond.not.i61.i.i, label %CountOccurrences.exit62.i.i, label %.lr.ph.i54.i.i, !llvm.loop !5
 
 CountOccurrences.exit62.i.i:                      ; preds = %.lr.ph.i54.i.i
-  %88 = icmp ugt i32 %spec.select.i59.i.i, 1
+  %88 = icmp samesign ugt i32 %spec.select.i59.i.i, 1
   br i1 %88, label %89, label %sub_0.i.i
 
 89:                                               ; preds = %CountOccurrences.exit62.i.i
@@ -383,7 +383,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %exitcond.not.i71.i.i, label %CountOccurrences.exit72.i.i, label %sub_0.i.i, !llvm.loop !5
 
 CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
-  %101 = icmp ugt i32 %spec.select.i69.i.i, 1
+  %101 = icmp samesign ugt i32 %spec.select.i69.i.i, 1
   br i1 %101, label %102, label %.lr.ph.i74.i.i
 
 102:                                              ; preds = %CountOccurrences.exit72.i.i
@@ -444,7 +444,7 @@ CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
   br i1 %exitcond.not.i111.i.i, label %CountOccurrences.exit112.i.i, label %.lr.ph.i104.i.i, !llvm.loop !5
 
 CountOccurrences.exit112.i.i:                     ; preds = %.lr.ph.i104.i.i
-  %121 = icmp ugt i32 %spec.select.i89.i.i, 1
+  %121 = icmp samesign ugt i32 %spec.select.i89.i.i, 1
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %CountOccurrences.exit112.i.i
@@ -453,7 +453,7 @@ CountOccurrences.exit112.i.i:                     ; preds = %.lr.ph.i104.i.i
   br label %148
 
 125:                                              ; preds = %CountOccurrences.exit112.i.i
-  %126 = icmp ugt i32 %spec.select.i99.i.i, 1
+  %126 = icmp samesign ugt i32 %spec.select.i99.i.i, 1
   br i1 %126, label %127, label %.thread142.i.i
 
 127:                                              ; preds = %125

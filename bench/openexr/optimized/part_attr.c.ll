@@ -10353,7 +10353,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call51 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %17, i32 noundef %19, ptr noundef %18) #6
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %cmp45 = icmp eq i32 %call51, 0
-  %cmp47 = icmp ult i64 %indvars.iv.next155, %14
+  %cmp47 = icmp samesign ult i64 %indvars.iv.next155, %14
   %20 = select i1 %cmp45, i1 %cmp47, i1 false
   br i1 %20, label %for.body, label %if.end156, !llvm.loop !8
 
@@ -10456,7 +10456,7 @@ if.end103:                                        ; preds = %if.end86
   %call107 = call i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef nonnull %ctxt, ptr noundef nonnull %37, i32 noundef %47, ptr noundef nonnull %33, i32 noundef %conv106) #6
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %cmp73 = icmp eq i32 %call107, 0
-  %cmp76 = icmp ult i64 %indvars.iv.next149, %31
+  %cmp76 = icmp samesign ult i64 %indvars.iv.next149, %31
   %48 = select i1 %cmp73, i1 %cmp76, i1 false
   br i1 %48, label %for.body79, label %if.end156, !llvm.loop !9
 
@@ -10471,7 +10471,7 @@ for.body120:                                      ; preds = %for.body120.prehead
   %call123 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %51, i32 noundef %53, ptr noundef %52) #6
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %cmp114 = icmp eq i32 %call123, 0
-  %cmp117 = icmp ult i64 %indvars.iv.next152, %32
+  %cmp117 = icmp samesign ult i64 %indvars.iv.next152, %32
   %54 = select i1 %cmp114, i1 %cmp117, i1 false
   br i1 %54, label %for.body120, label %if.end156, !llvm.loop !10
 
@@ -10510,7 +10510,7 @@ for.body146:                                      ; preds = %for.body146.prehead
   %call149 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %64, i32 noundef %66, ptr noundef %65) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp140 = icmp eq i32 %call149, 0
-  %cmp143 = icmp ult i64 %indvars.iv.next, %56
+  %cmp143 = icmp samesign ult i64 %indvars.iv.next, %56
   %67 = select i1 %cmp140, i1 %cmp143, i1 false
   br i1 %67, label %for.body146, label %if.end156, !llvm.loop !11
 

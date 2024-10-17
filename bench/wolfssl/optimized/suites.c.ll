@@ -1110,7 +1110,7 @@ if.end212:                                        ; preds = %for.body202
   %call216 = call i64 @wc_strlcat(ptr noundef nonnull %commandLine, ptr noundef %33, i64 noundef 240) #16
   %call218 = call i64 @wc_strlcat(ptr noundef nonnull %commandLine, ptr noundef nonnull @flagSep, i64 noundef 240) #16
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %cmp200 = icmp ult i64 %indvars.iv.next142, %32
+  %cmp200 = icmp samesign ult i64 %indvars.iv.next142, %32
   br i1 %cmp200, label %for.body202, label %for.end221, !llvm.loop !10
 
 for.end221:                                       ; preds = %if.end212, %if.end196, %if.then210

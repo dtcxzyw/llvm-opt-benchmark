@@ -6673,7 +6673,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %10 = alloca [5 x i8], align 1
   %11 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #27
-  %12 = icmp ugt i32 %6, 1
+  %12 = icmp samesign ugt i32 %6, 1
   %13 = zext i1 %12 to i32
   %14 = shl nuw nsw i32 4, %13
   %15 = select i1 %12, i64 2083776, i64 1131200
@@ -7264,7 +7264,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   store float %449, ptr %450, align 4, !tbaa !24
   %451 = add nuw nsw i64 %390, 2
   %452 = getelementptr inbounds i8, ptr %391, i64 178608
-  %453 = icmp ult i64 %451, %84
+  %453 = icmp samesign ult i64 %451, %84
   br i1 %453, label %389, label %.loopexit228
 
 .loopexit228:                                     ; preds = %448, %375
@@ -9560,7 +9560,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   br label %2406
 
 2361:                                             ; preds = %2406
-  %2362 = icmp ult i64 %2360, %2339
+  %2362 = icmp samesign ult i64 %2360, %2339
   br i1 %2362, label %2457, label %2459
 
 .preheader233:                                    ; preds = %2457, %.preheader233
@@ -13015,7 +13015,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   br i1 %2141, label %.loopexit175.preheader, label %2127, !llvm.loop !169
 
 .loopexit188:                                     ; preds = %3047, %1945
-  %2142 = icmp ugt i64 %1949, 3
+  %2142 = icmp samesign ugt i64 %1949, 3
   br i1 %2142, label %3050, label %.loopexit186
 
 2143:                                             ; preds = %3047, %1956
@@ -21867,7 +21867,7 @@ define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef 
 
 33:                                               ; preds = %218, %22
   %34 = phi i64 [ 0, %22 ], [ %45, %218 ]
-  %35 = icmp ugt i64 %34, 2
+  %35 = icmp samesign ugt i64 %34, 2
   %36 = icmp slt i64 %34, %24
   %37 = select i1 %36, i32 %17, i32 3
   %38 = trunc i64 %34 to i32
@@ -25882,7 +25882,7 @@ define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapt
 
 26:                                               ; preds = %170, %16
   %27 = phi i64 [ 0, %16 ], [ %42, %170 ]
-  %28 = icmp ugt i64 %27, 2
+  %28 = icmp samesign ugt i64 %27, 2
   %29 = icmp slt i64 %27, %17
   %30 = select i1 %29, i32 %14, i32 3
   %31 = add nsw i64 %27, -1
@@ -25897,7 +25897,7 @@ define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapt
   %40 = getelementptr float, ptr %1, i64 %39
   %41 = getelementptr float, ptr %1, i64 %35
   %42 = add nuw nsw i64 %27, 1
-  %43 = icmp ult i64 %42, %18
+  %43 = icmp samesign ult i64 %42, %18
   %44 = trunc i64 %42 to i32
   %45 = shl i32 %44, 1
   %46 = and i32 %45, 14
@@ -26303,7 +26303,7 @@ define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapt
   %347 = mul nuw nsw i64 %343, %15
   %348 = getelementptr inbounds float, ptr %1, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 12
-  %350 = icmp uge i64 %343, %338
+  %350 = icmp samesign uge i64 %343, %338
   %351 = icmp slt i64 %343, %339
   %352 = getelementptr inbounds float, ptr %345, i64 %322
   %353 = getelementptr inbounds float, ptr %348, i64 %323
@@ -26497,7 +26497,7 @@ define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapt
   %504 = phi i64 [ 1, %496 ], [ %709, %708 ]
   %505 = mul nuw i64 %.pre-phi, %504
   %506 = getelementptr inbounds float, ptr %0, i64 %505
-  %507 = icmp uge i64 %504, %499
+  %507 = icmp samesign uge i64 %504, %499
   %508 = icmp slt i64 %504, %500
   %509 = mul nuw nsw i64 %504, %15
   %510 = add nsw i64 %509, %501

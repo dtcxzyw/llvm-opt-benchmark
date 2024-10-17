@@ -471,7 +471,7 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   %272 = add nuw nsw i64 %14, 1
   %273 = and i64 %272, 127
-  %274 = icmp ugt i64 %273, 63
+  %274 = icmp samesign ugt i64 %273, 63
   br i1 %274, label %.thread, label %7, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %7, %17, %13

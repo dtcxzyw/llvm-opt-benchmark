@@ -12293,7 +12293,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKR5boost7variantIN7msgpack2
   %14 = and i8 %13, 1
   %15 = load i8, ptr %6, align 8
   %16 = and i8 %15, 1
-  %17 = icmp ult i8 %14, %16
+  %17 = icmp samesign ult i8 %14, %16
   br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8comparerINS_7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcSD_EESt6vectorIcSE_ENS8_7raw_refENS8_3extENS8_7ext_refENS_17recursive_wrapperISI_INS8_13basic_variantISH_SK_SM_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEEENS1_9less_compEEELb0EEEPKvSJ_NS15_18has_fallback_type_EEENT_11result_typeEiRS1C_T0_PT1_T2_i.exit
 
 18:                                               ; preds = %2

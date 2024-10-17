@@ -5943,7 +5943,7 @@ while.body.i.i.i.i57.i:                           ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.then.i.i.i59.i
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i57.i
-  %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
+  %cmp1.not.i.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i.i, 3
   br i1 %cmp1.not.i.i.i.i.i, label %if.then7.i.i.i, label %while.body.i.i.i.i57.i, !llvm.loop !324
 
 if.then.i.i.i59.i:                                ; preds = %while.body.i.i.i.i57.i
@@ -11150,7 +11150,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %14 = load i64, ptr %arrayidx.i.i46.i.i6.i.i, align 8
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %add21.i.i7.i.i = add nuw nsw i64 %add15.i.i5.i.i, %15
-  %cmp.i.i = icmp ugt i64 %add21.i.i.i.i, %add21.i.i7.i.i
+  %cmp.i.i = icmp samesign ugt i64 %add21.i.i.i.i, %add21.i.i7.i.i
   br i1 %cmp.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %if.else
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %for.body
@@ -11200,7 +11200,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
   %30 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i, align 8
   %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %add21.i.i7.i.i.i = add nuw nsw i64 %add15.i.i5.i.i.i, %31
-  %cmp.i.i.i = icmp ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS2_L20pruneUsingSuccessorsERS6_RNS2_14PrunePathsInfoESA_NS2_8som_typeEE3$_0EEEvT_T0_.exit"
 
 while.body.i:                                     ; preds = %while.cond.i
@@ -11284,7 +11284,7 @@ if.then7:                                         ; preds = %if.end
   %14 = load i64, ptr %arrayidx.i.i46.i.i6.i.i, align 8
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %add21.i.i7.i.i = add nuw nsw i64 %add15.i.i5.i.i, %15
-  %cmp.i.i = icmp ugt i64 %add21.i.i.i.i, %add21.i.i7.i.i
+  %cmp.i.i = icmp samesign ugt i64 %add21.i.i.i.i, %add21.i.i7.i.i
   br i1 %cmp.i.i, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.then7
@@ -11348,7 +11348,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %30 = load i64, ptr %arrayidx.i.i46.i.i.i.i.i, align 8
   %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %add21.i.i.i.i.i = add nuw nsw i64 %add15.i.i.i.i.i, %31
-  %cmp.i.i6.i = icmp ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
+  %cmp.i.i6.i = icmp samesign ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %32 = xor i64 %shr.i, -1
   %sub11.i = add nsw i64 %__len.04.i, %32
@@ -11417,7 +11417,7 @@ while.body.i43:                                   ; preds = %while.body.i43, %wh
   %47 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i57, align 8
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
   %add21.i.i7.i.i.i58 = add nuw nsw i64 %add15.i.i5.i.i.i56, %48
-  %cmp.i.i6.i59 = icmp ugt i64 %add21.i.i.i.i.i42, %add21.i.i7.i.i.i58
+  %cmp.i.i6.i59 = icmp samesign ugt i64 %add21.i.i.i.i.i42, %add21.i.i7.i.i.i58
   %incdec.ptr.i.i60 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i49, i64 16
   %49 = xor i64 %shr.i46, -1
   %sub11.i61 = add nsw i64 %__len.04.i44, %49
@@ -11647,7 +11647,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %14 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i.i, align 8
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %add21.i.i7.i.i.i.i = add nuw nsw i64 %add15.i.i5.i.i.i.i, %15
-  %cmp.i.i.i.i = icmp ugt i64 %add21.i.i.i.i.i.i, %add21.i.i7.i.i.i.i
+  %cmp.i.i.i.i = icmp samesign ugt i64 %add21.i.i.i.i.i.i, %add21.i.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
@@ -11746,7 +11746,7 @@ while.body.i33.i:                                 ; preds = %while.end.i, %if.en
   %30 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i51.i, align 8
   %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %add21.i.i7.i.i.i52.i = add nuw nsw i64 %add15.i.i5.i.i.i50.i, %31
-  %cmp.i.i.i53.i = icmp ugt i64 %add21.i.i.i.i.i45.i, %add21.i.i7.i.i.i52.i
+  %cmp.i.i.i53.i = icmp samesign ugt i64 %add21.i.i.i.i.i45.i, %add21.i.i7.i.i.i52.i
   br i1 %cmp.i.i.i53.i, label %if.then.i63.i, label %if.else.i54.i
 
 if.then.i63.i:                                    ; preds = %while.body.i33.i
@@ -11841,7 +11841,7 @@ while.body.i.i17:                                 ; preds = %if.end.i.i34, %whil
   %46 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i.i30, align 8
   %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
   %add21.i.i7.i.i.i.i31 = add nuw nsw i64 %add15.i.i5.i.i.i.i29, %47
-  %cmp.i.i.i.i32 = icmp ugt i64 %add21.i.i.i.i.i.i24, %add21.i.i7.i.i.i.i31
+  %cmp.i.i.i.i32 = icmp samesign ugt i64 %add21.i.i.i.i.i.i24, %add21.i.i7.i.i.i.i31
   br i1 %cmp.i.i.i.i32, label %if.then.i.i49, label %if.else.i.i33
 
 if.then.i.i49:                                    ; preds = %while.body.i.i17
@@ -11940,7 +11940,7 @@ while.body.i34.i:                                 ; preds = %while.end.i46, %if.
   %64 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i52.i, align 8
   %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %64)
   %add21.i.i7.i.i.i53.i = add nuw nsw i64 %add15.i.i5.i.i.i51.i, %65
-  %cmp.i.i.i54.i = icmp ugt i64 %add21.i.i.i.i.i46.i, %add21.i.i7.i.i.i53.i
+  %cmp.i.i.i54.i = icmp samesign ugt i64 %add21.i.i.i.i.i46.i, %add21.i.i7.i.i.i53.i
   br i1 %cmp.i.i.i54.i, label %if.then.i63.i48, label %if.else.i55.i
 
 if.then.i63.i48:                                  ; preds = %while.body.i34.i
@@ -12061,7 +12061,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %14 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i, align 8
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %add21.i.i7.i.i.i = add nuw nsw i64 %add15.i.i5.i.i.i, %15
-  %cmp.i.i.i = icmp ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add21.i.i.i.i.i, %add21.i.i7.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
@@ -12155,7 +12155,7 @@ while.body.i38:                                   ; preds = %while.body.i38.oute
   %30 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i51, align 8
   %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %add21.i.i7.i.i.i52 = add nuw nsw i64 %add15.i.i5.i.i.i50, %31
-  %cmp.i.i.i53 = icmp ugt i64 %add21.i.i.i.i.i45, %add21.i.i7.i.i.i52
+  %cmp.i.i.i53 = icmp samesign ugt i64 %add21.i.i.i.i.i45, %add21.i.i7.i.i.i52
   %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   br i1 %cmp.i.i.i53, label %if.then14.i, label %if.else28.i
 
@@ -12242,7 +12242,7 @@ while.body.i63:                                   ; preds = %while.body.i63, %wh
   %46 = load i64, ptr %arrayidx.i.i46.i.i.i.i.i71, align 8
   %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
   %add21.i.i.i.i.i72 = add nuw nsw i64 %add15.i.i.i.i.i70, %47
-  %cmp.i.i6.i = icmp ugt i64 %add21.i.i.i.i.i72, %add21.i.i7.i.i.i62
+  %cmp.i.i6.i = icmp samesign ugt i64 %add21.i.i.i.i.i72, %add21.i.i7.i.i.i62
   %incdec.ptr.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %48 = xor i64 %shr.i, -1
   %sub11.i = add nsw i64 %__len.04.i, %48
@@ -12311,7 +12311,7 @@ while.body.i101:                                  ; preds = %while.body.i101, %w
   %63 = load i64, ptr %arrayidx.i.i46.i.i6.i.i.i116, align 8
   %64 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
   %add21.i.i7.i.i.i117 = add nuw nsw i64 %add15.i.i5.i.i.i115, %64
-  %cmp.i.i6.i118 = icmp ugt i64 %add21.i.i.i.i.i100, %add21.i.i7.i.i.i117
+  %cmp.i.i6.i118 = icmp samesign ugt i64 %add21.i.i.i.i.i100, %add21.i.i7.i.i.i117
   %incdec.ptr.i.i119 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i107, i64 16
   %65 = xor i64 %shr.i104, -1
   %sub11.i120 = add nsw i64 %__len.04.i102, %65

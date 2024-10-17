@@ -398,7 +398,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114RISCVMoveMerge20runOnMach
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 22
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
-  %.not.i.i.i.i = icmp ult i32 %61, %64
+  %.not.i.i.i.i = icmp samesign ult i32 %61, %64
   br i1 %.not.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge24isCandidateToMergeMVA01SERKN4llvm14DestSourcePairE.exit.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i: ; preds = %59
@@ -428,7 +428,7 @@ _ZN12_GLOBAL__N_114RISCVMoveMerge24isCandidateToMergeMVA01SERKN4llvm14DestSource
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 22
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
-  %.not.i.i.i15.i = icmp ult i32 %78, %81
+  %.not.i.i.i15.i = icmp samesign ult i32 %78, %81
   br i1 %.not.i.i.i15.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i16.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge24isCandidateToMergeMVSA01ERKN4llvm14DestSourcePairE.exit.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i16.i: ; preds = %76
@@ -616,7 +616,7 @@ _ZN4llvm10next_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 22
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
-  %.not.i.i.i.i.i = icmp ult i32 %152, %155
+  %.not.i.i.i.i.i = icmp samesign ult i32 %152, %155
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge24isCandidateToMergeMVA01SERKN4llvm14DestSourcePairE.exit.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i: ; preds = %150
@@ -736,7 +736,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i35.i.i:     ; preds = %209
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 22
   %229 = load i16, ptr %228, align 2
   %230 = zext i16 %229 to i32
-  %.not.i.i.i42.i.i = icmp ult i32 %227, %230
+  %.not.i.i.i42.i.i = icmp samesign ult i32 %227, %230
   br i1 %.not.i.i.i42.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i43.i.i, label %_ZN12_GLOBAL__N_114RISCVMoveMerge24isCandidateToMergeMVA01SERKN4llvm14DestSourcePairE.exit.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i43.i.i: ; preds = %225

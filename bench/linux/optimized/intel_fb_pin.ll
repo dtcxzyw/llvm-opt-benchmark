@@ -79,7 +79,7 @@ define dso_local ptr @intel_pin_and_fence_fb_obj(ptr noundef %0, i1 noundef zero
 39:                                               ; preds = %37, %35
   %40 = phi i32 [ %36, %35 ], [ %38, %37 ]
   %41 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %40), !range !12
-  %42 = icmp ugt i32 %41, 1
+  %42 = icmp samesign ugt i32 %41, 1
   br i1 %42, label %43, label %55, !prof !13
 
 43:                                               ; preds = %39

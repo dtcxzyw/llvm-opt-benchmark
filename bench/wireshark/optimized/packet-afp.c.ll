@@ -6361,7 +6361,7 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
   %56 = trunc i64 %55 to i32
   %57 = shl i32 %56, 3
   %58 = and i32 %57, 524280
-  %59 = icmp ugt i32 %58, 9
+  %59 = icmp samesign ugt i32 %58, 9
   br i1 %59, label %60, label %spotlight_get_utf16_string_byte_order.exit
 
 60:                                               ; preds = %53
@@ -6554,7 +6554,7 @@ spotlight_float.exit:                             ; preds = %.lr.ph.i250, %135
   br label %179
 
 154:                                              ; preds = %146
-  %155 = icmp ugt i32 %21, 9
+  %155 = icmp samesign ugt i32 %21, 9
   br i1 %155, label %156, label %spotlight_get_utf16_string_byte_order.exit260
 
 156:                                              ; preds = %154
@@ -6583,7 +6583,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
 168:                                              ; preds = %146
   %169 = load i32, ptr @ett_afp_spotlight_query_line, align 4
   %170 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, i32 noundef %169, ptr noundef nonnull %10, ptr noundef nonnull @.str.1112) #7
-  %171 = icmp ult i32 %21, 9
+  %171 = icmp samesign ult i32 %21, 9
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %168
@@ -6606,7 +6606,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
 182:                                              ; preds = %23
   %183 = load i32, ptr @ett_afp_spotlight_query_line, align 4
   %184 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, i32 noundef %183, ptr noundef nonnull %10, ptr noundef nonnull @.str.1114) #7
-  %185 = icmp ult i32 %21, 9
+  %185 = icmp samesign ult i32 %21, 9
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %182

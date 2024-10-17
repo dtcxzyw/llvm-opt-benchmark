@@ -72,7 +72,7 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 59:                                               ; preds = %.loopexit38, %52
   %60 = phi i64 [ 1, %52 ], [ %84, %.loopexit38 ]
-  %61 = icmp ugt i64 %60, 1
+  %61 = icmp samesign ugt i64 %60, 1
   br i1 %61, label %62, label %.loopexit38
 
 62:                                               ; preds = %59

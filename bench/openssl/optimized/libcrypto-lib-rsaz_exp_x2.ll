@@ -887,7 +887,7 @@ for.body122.i:                                    ; preds = %cond.end.i, %if.end
   %55 = load i64, ptr %arrayidx129.i, align 8
   %sh_prom136.i = zext nneg i32 %rem124.i to i64
   %shr137.i = lshr i64 %55, %sh_prom136.i
-  %cmp139.i = icmp ugt i32 %rem124.i, 59
+  %cmp139.i = icmp samesign ugt i32 %rem124.i, 59
   br i1 %cmp139.i, label %if.then163.i, label %if.end145.i
 
 if.end145.i:                                      ; preds = %for.body122.i

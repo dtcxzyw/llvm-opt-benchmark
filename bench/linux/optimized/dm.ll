@@ -2356,7 +2356,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %49 = add i64 %48, %32
   %50 = add nuw nsw i64 %37, 1
   %51 = and i64 %50, 127
-  %52 = icmp ugt i64 %51, 63
+  %52 = icmp samesign ugt i64 %51, 63
   br i1 %52, label %.thread.us, label %30, !prof !77, !llvm.loop !78
 
 .thread.us:                                       ; preds = %40, %36, %30
@@ -2399,7 +2399,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %74 = add i64 %73, %57
   %75 = add nuw nsw i64 %62, 1
   %76 = and i64 %75, 127
-  %77 = icmp ugt i64 %76, 63
+  %77 = icmp samesign ugt i64 %76, 63
   br i1 %77, label %.thread, label %55, !prof !77, !llvm.loop !78
 
 .thread:                                          ; preds = %55, %65, %61
@@ -3499,7 +3499,7 @@ define internal void @dm_submit_bio(ptr noundef %0) #0 align 16 {
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 255
-  %42 = icmp ugt i32 %41, 2
+  %42 = icmp samesign ugt i32 %41, 2
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %37
@@ -3710,7 +3710,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
   %162 = phi ptr [ %158, %152 ], [ %145, %143 ]
   %163 = add nuw nsw i64 %146, 1
   %164 = zext i32 %161 to i64
-  %165 = icmp ult i64 %163, %164
+  %165 = icmp samesign ult i64 %163, %164
   br i1 %165, label %143, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %160, %129
@@ -3758,7 +3758,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %179 to i64
   %195 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %194), !range !101
-  %196 = icmp ult i64 %195, 2
+  %196 = icmp samesign ult i64 %195, 2
   br i1 %196, label %200, label %197, !prof !16
 
 197:                                              ; preds = %187
@@ -3786,7 +3786,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
   %213 = tail call i64 @llvm.umin.i64(i64 %211, i64 %212)
   %214 = trunc nuw nsw i64 %213 to i32
   store i32 %214, ptr %2, align 4
-  %215 = icmp ugt i32 %125, %214
+  %215 = icmp samesign ugt i32 %125, %214
   br i1 %215, label %216, label %224
 
 216:                                              ; preds = %210
@@ -5339,7 +5339,7 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @__process_abnormal_io(
   %45 = phi i32 [ %43, %41 ], [ %20, %39 ]
   %46 = zext i32 %25 to i64
   %47 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %46), !range !101
-  %48 = icmp ult i64 %47, 2
+  %48 = icmp samesign ult i64 %47, 2
   br i1 %48, label %52, label %49, !prof !16
 
 49:                                               ; preds = %44

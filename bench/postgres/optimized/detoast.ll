@@ -497,7 +497,7 @@ tailrecurse:                                      ; preds = %16
 
 47:                                               ; preds = %43
   %48 = and i32 %46, 1073741823
-  %.not.i = icmp ult i32 %.079, %48
+  %.not.i = icmp samesign ult i32 %.079, %48
   %49 = lshr i32 %46, 30
   br i1 %.not.i, label %58, label %50
 
@@ -669,7 +669,7 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
   %15 = and i32 %.sroa.3.0.copyload, 1073741823
-  %.not = icmp ult i32 %1, %15
+  %.not = icmp samesign ult i32 %1, %15
   %spec.select = select i1 %.not, i32 %2, i32 0
   %spec.select36 = select i1 %.not, i32 %1, i32 0
   %16 = add i32 %.sroa.0.0.copyload, -4

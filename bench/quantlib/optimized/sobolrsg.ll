@@ -39653,7 +39653,7 @@ if.end130:                                        ; preds = %switch.lookup, %inv
   store i64 0, ptr %ppmt.sroa.0.0, align 8, !tbaa !45
   store i32 0, ptr %degree.sroa.0.0596605, align 4, !tbaa !34
   %.sroa.speculated533 = call i64 @llvm.umin.i64(i64 %cond, i64 %55)
-  %cmp140662 = icmp ugt i64 %.sroa.speculated533, 1
+  %cmp140662 = icmp samesign ugt i64 %.sroa.speculated533, 1
   br i1 %cmp140662, label %for.body, label %for.cond156.preheader
 
 for.cond156.preheader:                            ; preds = %if.end152, %if.end130
@@ -39877,7 +39877,7 @@ for.body201:                                      ; preds = %for.body201.lr.ph, 
   %inc214 = add nuw nsw i64 %l.0720, 1
   %86 = load i32, ptr %add.ptr.i360, align 4, !tbaa !34
   %conv199 = zext i32 %86 to i64
-  %cmp200.not.not = icmp ult i64 %l.0720, %conv199
+  %cmp200.not.not = icmp samesign ult i64 %l.0720, %conv199
   br i1 %cmp200.not.not, label %for.body201, label %for.cond.cleanup, !llvm.loop !52
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %for.inc249
@@ -40283,7 +40283,7 @@ do.end569:                                        ; preds = %invoke.cont551
   %inc578 = add nuw nsw i64 %l541.0726, 1
   %163 = load i32, ptr %add.ptr.i419, align 4, !tbaa !34
   %conv544 = zext i32 %163 to i64
-  %cmp545.not.not = icmp ult i64 %l541.0726, %conv544
+  %cmp545.not.not = icmp samesign ult i64 %l541.0726, %conv544
   br i1 %cmp545.not.not, label %do.body548.preheader, label %for.cond.cleanup546.loopexit, !llvm.loop !75
 
 lpad550:                                          ; preds = %if.then.i.i.i421

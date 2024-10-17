@@ -2768,7 +2768,7 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %_currentScanLine, align 8
   %sub = sub nsw i32 %scanLine, %4
   %5 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %cmp10 = icmp ult i32 %5, 29
+  %cmp10 = icmp samesign ult i32 %5, 29
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end
@@ -2810,7 +2810,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %_ZN9I
 
 if.end12:                                         ; preds = %for.body7.i
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %tmp.i)
-  %cmp13 = icmp ult i32 %5, 3
+  %cmp13 = icmp samesign ult i32 %5, 3
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
@@ -3335,7 +3335,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc6
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i9, 32
+  %tobool.not = icmp samesign ult i32 %call3.i9, 32
   br i1 %tobool.not, label %try.cont, label %if.then
 
 if.then:                                          ; preds = %invoke.cont11
@@ -3505,7 +3505,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc6
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i9, 32
+  %tobool.not = icmp samesign ult i32 %call3.i9, 32
   br i1 %tobool.not, label %try.cont, label %if.then
 
 if.then:                                          ; preds = %invoke.cont11
@@ -3667,7 +3667,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i7, 32
+  %tobool.not = icmp samesign ult i32 %call3.i7, 32
   br i1 %tobool.not, label %try.cont, label %if.then
 
 if.then:                                          ; preds = %invoke.cont15
@@ -3819,7 +3819,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %call2.i.noexc
-  %tobool.not = icmp ult i32 %call3.i7, 32
+  %tobool.not = icmp samesign ult i32 %call3.i7, 32
   br i1 %tobool.not, label %try.cont, label %if.then
 
 if.then:                                          ; preds = %invoke.cont15
@@ -4444,7 +4444,7 @@ delete.end:                                       ; preds = %_ZN7Imf_3_213RgbaIn
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %call2.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
   %call3.i = call fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
-  %tobool.not = icmp ult i32 %call3.i, 32
+  %tobool.not = icmp samesign ult i32 %call3.i, 32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %delete.end
@@ -4568,7 +4568,7 @@ invoke.cont:                                      ; preds = %delete.end5
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %call2.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
   %call3.i = call fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
-  %tobool.not = icmp ult i32 %call3.i, 32
+  %tobool.not = icmp samesign ult i32 %call3.i, 32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont

@@ -133,7 +133,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr nocapture noundef readnone %0, ptr 
   %35 = load i16, ptr %33, align 2
   %36 = icmp ult i16 %35, 4
   %37 = zext i16 %35 to i32
-  %.not = icmp ult i32 %34, %37
+  %.not = icmp samesign ult i32 %34, %37
   %or.cond = or i1 %36, %.not
   br i1 %or.cond, label %.critedge, label %38
 
@@ -295,7 +295,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr nocapture noundef readnone %0, ptr 
   %141 = load i16, ptr %139, align 2
   %142 = icmp ult i16 %141, 4
   %143 = zext i16 %141 to i32
-  %.not51 = icmp ult i32 %140, %143
+  %.not51 = icmp samesign ult i32 %140, %143
   %or.cond57 = or i1 %142, %.not51
   br i1 %or.cond57, label %.critedge54, label %144
 
@@ -448,7 +448,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr nocapture noundef readnone %0, ptr 
   %230 = load i16, ptr %229, align 2
   %231 = icmp ult i16 %230, 4
   %232 = zext i16 %230 to i32
-  %.not52 = icmp ult i32 %515, %232
+  %.not52 = icmp samesign ult i32 %515, %232
   %or.cond58 = or i1 %231, %.not52
   br i1 %or.cond58, label %.critedge56, label %233, !llvm.loop !10
 

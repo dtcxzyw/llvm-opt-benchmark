@@ -9065,7 +9065,7 @@ switch.lookup:                                    ; preds = %59
   %126 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %125, ptr %126, align 1, !noalias !123
   %127 = udiv i64 %.0810.i, 10
-  %.not.i = icmp ult i64 %.0810.i, 10
+  %.not.i = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !126
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i

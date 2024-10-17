@@ -2354,7 +2354,7 @@ define hidden void @_ZN4ncnn45convolution_transform_kernel_packed_int8_avx2ERKNS
 ._crit_edge1541.i:                                ; preds = %._crit_edge.us1543.i, %.preheader1489.lr.ph.i, %.lr.ph1527.i, %.preheader1490.i
   %indvars.iv.next1769.i = add nuw nsw i64 %indvars.iv1768.i, 8
   %323 = or disjoint i64 %indvars.iv.next1769.i, 7
-  %324 = icmp ult i64 %323, %142
+  %324 = icmp samesign ult i64 %323, %142
   br i1 %324, label %172, label %.preheader1488.loopexit.i, !llvm.loop !29
 
 .preheader1484.loopexit.i:                        ; preds = %._crit_edge1591.i
@@ -9794,7 +9794,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.4.lcssa.i.us.i = phi ptr [ %.3.lcssa.i.us.i, %.preheader11.i.us.i ], [ %505, %.lr.ph85.i.us.i ]
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 8
   %515 = or disjoint i64 %indvars.iv.next.i.us.i, 7
-  %516 = icmp ult i64 %515, %252
+  %516 = icmp samesign ult i64 %515, %252
   br i1 %516, label %274, label %.preheader10.loopexit.i.us.i, !llvm.loop !150
 
 .preheader10.loopexit.i.us.i:                     ; preds = %._crit_edge.i.us.i
@@ -10732,7 +10732,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %.5.i.i.us.i = phi ptr [ %.1534.i.i.us.i, %.loopexit12.i.i.us.i ], [ %.3.lcssa.i.i.us.i, %.preheader10.i.i.us.i ], [ %.053329.i.i.us.i, %171 ], [ %239, %.lr.ph26.i.i.us.i ]
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 8
   %243 = or disjoint i64 %indvars.iv.next.i.i.us.i, 7
-  %244 = icmp ult i64 %243, %168
+  %244 = icmp samesign ult i64 %243, %168
   br i1 %244, label %170, label %.preheader9.loopexit.i.i.us.i, !llvm.loop !170
 
 .preheader9.loopexit.i.i.us.i:                    ; preds = %.loopexit11.i.i.us.i
@@ -12391,7 +12391,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.i: ;
   %1194 = getelementptr inbounds i8, ptr %.02787262.i.us.us.i.us, i64 %638
   %indvars.iv.next.i.us.us.i.us = add nuw nsw i64 %indvars.iv.i.us.us.i.us, 8
   %1195 = or disjoint i64 %indvars.iv.next.i.us.us.i.us, 7
-  %1196 = icmp ult i64 %1195, %564
+  %1196 = icmp samesign ult i64 %1195, %564
   br i1 %1196, label %640, label %.preheader72.loopexit.i.us.us.i.us, !llvm.loop !195
 
 .preheader72.loopexit.i.us.us.i.us:               ; preds = %._crit_edge258.i.us.us.i.us
@@ -15667,7 +15667,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd23_int8_avx2ERKNS_3MatERS
 ._crit_edge.us.i.us.i:                            ; preds = %492
   %indvars.iv.next94.i.us.i = add nuw nsw i64 %indvars.iv93.i.us.i, 8
   %493 = or disjoint i64 %indvars.iv.next94.i.us.i, 7
-  %494 = icmp ult i64 %493, %349
+  %494 = icmp samesign ult i64 %493, %349
   br i1 %494, label %.preheader15.us.i.us.i, label %.preheader14.loopexit.i.us.i, !llvm.loop !254
 
 .preheader14.loopexit.i.us.i:                     ; preds = %._crit_edge.us.i.us.i
@@ -18086,7 +18086,7 @@ define hidden noundef i32 @_ZN4ncnn30conv3x3s1_winograd43_int8_avx2ERKNS_3MatERS
 ._crit_edge.us.i.us.i:                            ; preds = %636
   %indvars.iv.next218.i.us.i = add nuw nsw i64 %indvars.iv217.i.us.i, 8
   %637 = or disjoint i64 %indvars.iv.next218.i.us.i, 7
-  %638 = icmp ult i64 %637, %380
+  %638 = icmp samesign ult i64 %637, %380
   br i1 %638, label %.preheader10.us.i.us.i, label %.preheader8.loopexit.i.us.i, !llvm.loop !287
 
 .preheader8.loopexit.i.us.i:                      ; preds = %._crit_edge.us.i.us.i
@@ -21857,7 +21857,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
 426:                                              ; preds = %._crit_edge179
   %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, 8
   %427 = or disjoint i64 %indvars.iv.next738, 7
-  %428 = icmp ult i64 %427, %19
+  %428 = icmp samesign ult i64 %427, %19
   br i1 %428, label %.preheader33, label %.preheader25.loopexit, !llvm.loop !357
 
 .preheader24:                                     ; preds = %.preheader24.lr.ph, %782

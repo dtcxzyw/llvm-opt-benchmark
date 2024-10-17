@@ -3182,7 +3182,7 @@ if.end50.i:                                       ; preds = %do.body46.i
 if.end52.i:                                       ; preds = %if.end42.i
   %and54.i = and i64 %13, 224
   %16 = tail call range(i64 0, 4) i64 @llvm.ctpop.i64(i64 %and54.i)
-  %tobool1.not.i46.i = icmp ugt i64 %16, 1
+  %tobool1.not.i46.i = icmp samesign ugt i64 %16, 1
   br i1 %tobool1.not.i46.i, label %do.body62.i, label %if.end68.i
 
 do.body62.i:                                      ; preds = %if.end52.i
@@ -8861,7 +8861,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %bf.load = load i32, ptr %0, align 8
   %bf.clear = and i32 %bf.load, 15
-  %1 = icmp ult i32 %bf.clear, 7
+  %1 = icmp samesign ult i32 %bf.clear, 7
   br i1 %1, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %if.end

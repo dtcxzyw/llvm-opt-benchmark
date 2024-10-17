@@ -7112,7 +7112,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr nocapture nounde
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %or.cond.i = icmp ugt i64 %indvars.iv.i, 104
+  %or.cond.i = icmp samesign ugt i64 %indvars.iv.i, 104
   br i1 %or.cond.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %9
 
 9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
@@ -7178,7 +7178,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr nocapture noundef 
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %or.cond.i = icmp ugt i64 %indvars.iv.i, 104
+  %or.cond.i = icmp samesign ugt i64 %indvars.iv.i, 104
   br i1 %or.cond.i, label %_ZN4ncnn16create_layer_cpuEi.exit, label %9
 
 9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit

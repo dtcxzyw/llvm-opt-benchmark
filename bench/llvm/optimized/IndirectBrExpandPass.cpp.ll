@@ -727,7 +727,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_10BasicBlockEEELb1EE9push_b
   %230 = getelementptr inbounds nuw i8, ptr %.015095, i64 8
   %231 = load i32, ptr %230, align 8
   %232 = lshr i32 %231, 8
-  %233 = icmp ugt i32 %229, %232
+  %233 = icmp samesign ugt i32 %229, %232
   br i1 %233, label %234, label %235
 
 234:                                              ; preds = %226, %.lr.ph97

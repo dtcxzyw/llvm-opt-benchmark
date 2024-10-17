@@ -15771,7 +15771,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit: ; preds = %_Z
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %36, %39
   %.0.i.i48 = phi i64 [ %41, %39 ], [ %38, %36 ]
-  %42 = icmp ult i64 %indvars.iv, %.0.i.i48
+  %42 = icmp samesign ult i64 %indvars.iv, %.0.i.i48
   br i1 %42, label %43, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread
 
 43:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit

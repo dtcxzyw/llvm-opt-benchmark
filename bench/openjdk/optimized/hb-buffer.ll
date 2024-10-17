@@ -1391,7 +1391,7 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %57, %58
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %62 = load i32, ptr %42, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next66, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next66, %63
   br i1 %64, label %48, label %.critedge4, !llvm.loop !29
 
 .critedge4:                                       ; preds = %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit, %48, %.critedge2.thread, %.critedge2
@@ -1675,7 +1675,7 @@ define hidden void @_ZN11hb_buffer_t24guess_segment_propertiesEv(ptr nocapture n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %6, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %24, label %10, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %21, %.preheader, %20, %1
@@ -2633,7 +2633,7 @@ define hidden void @hb_buffer_reverse(ptr nocapture noundef readonly %0) local_u
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %11 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %12 = icmp ult i64 %indvars.iv.next20.i.i.i, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %11
   br i1 %12, label %.lr.ph.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !36
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i, %1
@@ -2668,7 +2668,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %23 = and i64 %indvars.iv.next.i14.i.i, 4294967295
-  %24 = icmp ult i64 %indvars.iv.next20.i13.i.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %23
   br i1 %24, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !37
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, %16
@@ -2710,7 +2710,7 @@ define hidden void @hb_buffer_reverse_range(ptr nocapture noundef readonly %0, i
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
-  %17 = icmp ult i64 %indvars.iv.next20.i.i, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next20.i.i, %16
   br i1 %17, label %.lr.ph.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i, !llvm.loop !36
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %3
@@ -2750,7 +2750,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %3
   %indvars.iv.next20.i13.i = add nuw nsw i64 %indvars.iv19.i11.i, 1
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i12.i, -1
   %31 = and i64 %indvars.iv.next.i14.i, 4294967295
-  %32 = icmp ult i64 %indvars.iv.next20.i13.i, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next20.i13.i, %31
   br i1 %32, label %.lr.ph.i10.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit, !llvm.loop !37
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit:          ; preds = %.lr.ph.i10.i, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i, %21
@@ -2807,7 +2807,7 @@ define hidden void @hb_buffer_guess_segment_properties(ptr nocapture noundef %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %6, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %indvars.iv.next.i, %23
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
   br i1 %24, label %10, label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %21, %20, %.preheader.i, %1
@@ -3183,7 +3183,7 @@ _ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %51, %45, %42, %36
   %56 = getelementptr inbounds [5 x i32], ptr %35, i64 0, i64 %indvars.iv
   store i32 %.sink.i.i, ptr %56, align 4
   %57 = icmp ult ptr %1, %.0.i.i
-  %58 = icmp ult i64 %indvars.iv, 4
+  %58 = icmp samesign ult i64 %indvars.iv, 4
   %or.cond = select i1 %57, i1 %58, i1 false
   br i1 %or.cond, label %36, label %.critedge.i, !llvm.loop !43
 
@@ -3429,8 +3429,8 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %41 = getelementptr inbounds [5 x i32], ptr %34, i64 0, i64 %indvars.iv
   store i32 %spec.store.select.i.i, ptr %41, align 4
   %42 = icmp ult ptr %1, %36
-  %43 = icmp ult i64 %indvars.iv, 4
-  %or.cond = and i1 %42, %43
+  %43 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %42, i1 %43, i1 false
   br i1 %or.cond, label %35, label %.critedge.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %35, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
@@ -3624,8 +3624,8 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %39 = getelementptr inbounds [5 x i32], ptr %33, i64 0, i64 %indvars.iv
   store i32 %37, ptr %39, align 4
   %40 = icmp ult ptr %1, %35
-  %41 = icmp ult i64 %indvars.iv, 4
-  %or.cond = and i1 %40, %41
+  %41 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %40, i1 %41, i1 false
   br i1 %or.cond, label %34, label %.critedge.i, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %34, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
@@ -3808,8 +3808,8 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %37 = getelementptr inbounds [5 x i32], ptr %32, i64 0, i64 %indvars.iv
   store i32 %35, ptr %37, align 4
   %38 = icmp ult ptr %1, %34
-  %39 = icmp ult i64 %indvars.iv, 4
-  %or.cond = and i1 %38, %39
+  %39 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %38, i1 %39, i1 false
   br i1 %or.cond, label %33, label %.critedge.i, !llvm.loop !55
 
 .critedge.i:                                      ; preds = %33, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
@@ -4209,7 +4209,7 @@ thread-pre-split:                                 ; preds = %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = load i32, ptr %121, align 8
   %151 = zext i32 %150 to i64
-  %152 = icmp ult i64 %indvars.iv.next, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next, %151
   br i1 %152, label %141, label %.critedge2, !llvm.loop !67
 
 .critedge2:                                       ; preds = %144, %141, %.critedge, %120, %119
@@ -4243,7 +4243,7 @@ thread-pre-split:                                 ; preds = %128
   store i32 %164, ptr %167, align 4
   %168 = load i32, ptr %5, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next117, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next117, %169
   br i1 %170, label %158, label %.critedge4, !llvm.loop !68
 
 .critedge4:                                       ; preds = %158, %161, %.critedge2
@@ -4274,7 +4274,7 @@ thread-pre-split:                                 ; preds = %128
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %184 = load i32, ptr %171, align 4
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next119, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next119, %185
   br i1 %186, label %175, label %.critedge6, !llvm.loop !69
 
 .critedge6:                                       ; preds = %178, %175, %.critedge4, %hb_buffer_set_length.exit, %4, %_ZL9hb_memcpyPvPKvm.exit99, %13
@@ -5319,7 +5319,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit.thread.thr
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next157, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next157, %101
   br i1 %102, label %95, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %95, %.preheader
@@ -5720,7 +5720,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit:         ; preds = %24, %21
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %33 = and i64 %indvars.iv.next.i.i, 4294967295
-  %34 = icmp ult i64 %indvars.iv.next20.i.i, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next20.i.i, %33
   br i1 %34, label %.lr.ph.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i, !llvm.loop !36
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit
@@ -5758,7 +5758,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %_Z
   %indvars.iv.next20.i13.i = add nuw nsw i64 %indvars.iv19.i11.i, 1
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i12.i, -1
   %46 = and i64 %indvars.iv.next.i14.i, 4294967295
-  %47 = icmp ult i64 %indvars.iv.next20.i13.i, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next20.i13.i, %46
   br i1 %47, label %.lr.ph.i10.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit, !llvm.loop !37
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit:          ; preds = %.lr.ph.i10.i, %37, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i, %15
@@ -5766,7 +5766,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit:          ; preds = %.lr.ph.i10.i, %37, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %10, align 8
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %15, label %._crit_edge.loopexit, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11hb_buffer_t13reverse_rangeEjj.exit
@@ -5818,7 +5818,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit17:       ; preds = %55, %._crit_edge
   %indvars.iv.next20.i.i39 = add nuw nsw i64 %indvars.iv19.i.i37, 1
   %indvars.iv.next.i.i40 = add nsw i64 %indvars.iv.i.i38, -1
   %65 = and i64 %indvars.iv.next.i.i40, 4294967295
-  %66 = icmp ult i64 %indvars.iv.next20.i.i39, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next20.i.i39, %65
   br i1 %66, label %.lr.ph.i.i36, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i22.loopexit, !llvm.loop !36
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i22.loopexit: ; preds = %.lr.ph.i.i36
@@ -5862,7 +5862,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i22: ; preds = %_ZN10hb_array
   %indvars.iv.next20.i13.i32 = add nuw nsw i64 %indvars.iv19.i11.i30, 1
   %indvars.iv.next.i14.i33 = add nsw i64 %indvars.iv.i12.i31, -1
   %79 = and i64 %indvars.iv.next.i14.i33, 4294967295
-  %80 = icmp ult i64 %indvars.iv.next20.i13.i32, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next20.i13.i32, %79
   br i1 %80, label %.lr.ph.i10.i29, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit41.loopexit, !llvm.loop !37
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit41.loopexit: ; preds = %.lr.ph.i10.i29
@@ -5893,7 +5893,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit41:        ; preds = %_ZN11hb_buffer_t13r
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %86 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %87 = icmp ult i64 %indvars.iv.next20.i.i.i, %86
+  %87 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %86
   br i1 %87, label %.lr.ph.i.i.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !36
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit41
@@ -5927,7 +5927,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %97 = and i64 %indvars.iv.next.i14.i.i, 4294967295
-  %98 = icmp ult i64 %indvars.iv.next20.i13.i.i, %97
+  %98 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %97
   br i1 %98, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !37
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %3, %90, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i

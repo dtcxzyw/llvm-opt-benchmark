@@ -85,7 +85,7 @@ _ZN13XValueStorageI17XPerWorkerStorageE5allocEm.exit.i: ; preds = %tailrecurse.i
   %39 = tail call i32 @llvm.umax.i32(i32 %37, i32 %38)
   %40 = select i1 %36, i32 %37, i32 %39
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next.i, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next.i, %41
   br i1 %42, label %.lr.ph.i, label %_ZN6XValueI17XPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit, !llvm.loop !6
 
 _ZN6XValueI17XPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit: ; preds = %.lr.ph.i, %_ZN13XValueStorageI17XPerWorkerStorageE5allocEm.exit.i
@@ -119,7 +119,7 @@ _ZN6XValueI17XPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit: ; preds = %.lr.
   %60 = tail call i32 @llvm.umax.i32(i32 %58, i32 %59)
   %61 = select i1 %57, i32 %58, i32 %60
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %indvars.iv.next.i6, %62
+  %63 = icmp samesign ult i64 %indvars.iv.next.i6, %62
   br i1 %63, label %.lr.ph.i4, label %_ZN23XThreadLocalAllocBuffer16reset_statisticsEv.exit, !llvm.loop !8
 
 _ZN23XThreadLocalAllocBuffer16reset_statisticsEv.exit: ; preds = %.lr.ph.i4, %48, %_ZN6XValueI17XPerWorkerStorage21ThreadLocalAllocStatsEC2Ev.exit, %0
@@ -158,7 +158,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer16reset_statisticsEv() local_unn
   %19 = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
   %20 = select i1 %16, i32 %17, i32 %19
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %_ZN14XValueIteratorI17XPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit, !llvm.loop !8
 
 _ZN14XValueIteratorI17XPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit: ; preds = %.lr.ph, %3, %0
@@ -201,7 +201,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer18publish_statisticsEv() local_u
   %20 = call i32 @llvm.umax.i32(i32 %18, i32 %19)
   %21 = select i1 %17, i32 %18, i32 %20
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %_ZN14XValueIteratorI17XPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit, !llvm.loop !9
 
 _ZN14XValueIteratorI17XPerWorkerStorage21ThreadLocalAllocStatsE4nextEPPS1_.exit: ; preds = %.lr.ph, %4

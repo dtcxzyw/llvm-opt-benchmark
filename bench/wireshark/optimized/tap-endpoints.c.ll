@@ -183,7 +183,7 @@ sub_176:                                          ; preds = %sub_0
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv112, %45
+  %46 = icmp samesign ult i64 %indvars.iv112, %45
   br i1 %46, label %47, label %.critedge2.us
 
 47:                                               ; preds = %.lr.ph89.us
@@ -266,7 +266,7 @@ sub_176:                                          ; preds = %sub_0
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv104, %89
+  %90 = icmp samesign ult i64 %indvars.iv104, %89
   br i1 %90, label %91, label %.critedge2
 
 91:                                               ; preds = %.lr.ph89

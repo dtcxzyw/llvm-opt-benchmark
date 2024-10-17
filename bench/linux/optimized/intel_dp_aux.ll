@@ -1521,7 +1521,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
   %141 = load ptr, ptr %98, align 8
   call void %141(ptr noundef %36, i32 %140, i32 noundef %139, i1 noundef zeroext true) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %142 = icmp ult i64 %indvars.iv.next, %101
+  %142 = icmp samesign ult i64 %indvars.iv.next, %101
   br i1 %142, label %.preheader, label %.loopexit21, !llvm.loop !104
 
 .loopexit21:                                      ; preds = %.loopexit20, %113
@@ -1712,7 +1712,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
 
 .loopexit:                                        ; preds = %243, %229
   %253 = add nuw nsw i64 %230, 4
-  %254 = icmp ult i64 %253, %228
+  %254 = icmp samesign ult i64 %253, %228
   br i1 %254, label %229, label %.loopexit19, !llvm.loop !107
 
 .loopexit19:                                      ; preds = %.loopexit, %225, %221, %207, %195, %183, %87, %71

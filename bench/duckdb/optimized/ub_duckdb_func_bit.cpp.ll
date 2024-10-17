@@ -4677,7 +4677,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %cond.i, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -4791,7 +4791,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %__val.addr.0.lcssa.i.i = phi i64 [ %value, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %div.i7.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i
@@ -7260,7 +7260,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa.struct !48
   %conv.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 4294967295
   %conv.i4.i.i.i = and i64 %agg.tmp5.sroa.0.0.copyload.i, 4294967295
-  %cmp.i.i.i = icmp ugt i64 %conv.i.i.i.i, %conv.i4.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %conv.i.i.i.i, %conv.i4.i.i.i
   br i1 %cmp.i.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
@@ -8003,7 +8003,7 @@ for.body9:                                        ; preds = %_ZN6duckdb29BinaryS
   %arrayidx = getelementptr inbounds %"struct.duckdb::string_t", ptr %ldata, i64 %base_idx.1123
   %lentry.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8, !tbaa.struct !48
   %conv.i.i.i = and i64 %lentry.sroa.0.0.copyload, 4294967295
-  %cmp.i.i = icmp ugt i64 %conv.i.i.i, %conv.i4.i.i
+  %cmp.i.i = icmp samesign ugt i64 %conv.i.i.i, %conv.i4.i.i
   br i1 %cmp.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body9
@@ -8036,7 +8036,7 @@ if.then21:                                        ; preds = %for.body19
   %rentry24.sroa.0.0.copyload = load i64, ptr %rdata, align 8, !tbaa.struct !48
   %conv.i.i.i102 = and i64 %lentry22.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i103 = and i64 %rentry24.sroa.0.0.copyload, 4294967295
-  %cmp.i.i104 = icmp ugt i64 %conv.i.i.i102, %conv.i4.i.i103
+  %cmp.i.i104 = icmp samesign ugt i64 %conv.i.i.i102, %conv.i4.i.i103
   br i1 %cmp.i.i104, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109, label %if.end.i.i105
 
 if.end.i.i105:                                    ; preds = %if.then21
@@ -8069,7 +8069,7 @@ for.body45:                                       ; preds = %_ZN6duckdb29BinaryS
   %arrayidx47 = getelementptr inbounds %"struct.duckdb::string_t", ptr %ldata, i64 %i.0131
   %lentry46.sroa.0.0.copyload = load i64, ptr %arrayidx47, align 8, !tbaa.struct !48
   %conv.i.i.i110 = and i64 %lentry46.sroa.0.0.copyload, 4294967295
-  %cmp.i.i112 = icmp ugt i64 %conv.i.i.i110, %conv.i4.i.i111
+  %cmp.i.i112 = icmp samesign ugt i64 %conv.i.i.i110, %conv.i4.i.i111
   br i1 %cmp.i.i112, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit117, label %if.end.i.i113
 
 if.end.i.i113:                                    ; preds = %for.body45
@@ -8160,7 +8160,7 @@ for.body9:                                        ; preds = %_ZN6duckdb29BinaryS
   %arrayidx10 = getelementptr inbounds %"struct.duckdb::string_t", ptr %rdata, i64 %base_idx.1123
   %rentry.sroa.0.0.copyload = load i64, ptr %arrayidx10, align 8, !tbaa.struct !48
   %conv.i4.i.i = and i64 %rentry.sroa.0.0.copyload, 4294967295
-  %cmp.i.i = icmp ugt i64 %conv.i.i.i, %conv.i4.i.i
+  %cmp.i.i = icmp samesign ugt i64 %conv.i.i.i, %conv.i4.i.i
   br i1 %cmp.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body9
@@ -8193,7 +8193,7 @@ if.then21:                                        ; preds = %for.body19
   %rentry24.sroa.0.0.copyload = load i64, ptr %arrayidx25, align 8, !tbaa.struct !48
   %conv.i.i.i102 = and i64 %lentry22.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i103 = and i64 %rentry24.sroa.0.0.copyload, 4294967295
-  %cmp.i.i104 = icmp ugt i64 %conv.i.i.i102, %conv.i4.i.i103
+  %cmp.i.i104 = icmp samesign ugt i64 %conv.i.i.i102, %conv.i4.i.i103
   br i1 %cmp.i.i104, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit109, label %if.end.i.i105
 
 if.end.i.i105:                                    ; preds = %if.then21
@@ -8226,7 +8226,7 @@ for.body45:                                       ; preds = %_ZN6duckdb29BinaryS
   %arrayidx49 = getelementptr inbounds %"struct.duckdb::string_t", ptr %rdata, i64 %i.0131
   %rentry48.sroa.0.0.copyload = load i64, ptr %arrayidx49, align 8, !tbaa.struct !48
   %conv.i4.i.i111 = and i64 %rentry48.sroa.0.0.copyload, 4294967295
-  %cmp.i.i112 = icmp ugt i64 %conv.i.i.i110, %conv.i4.i.i111
+  %cmp.i.i112 = icmp samesign ugt i64 %conv.i.i.i110, %conv.i4.i.i111
   br i1 %cmp.i.i112, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit117, label %if.end.i.i113
 
 if.end.i.i113:                                    ; preds = %for.body45
@@ -8305,7 +8305,7 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %rentry.sroa.0.0.copyload = load i64, ptr %arrayidx12, align 8, !tbaa.struct !48
   %conv.i.i.i = and i64 %lentry.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i = and i64 %rentry.sroa.0.0.copyload, 4294967295
-  %cmp.i.i = icmp ugt i64 %conv.i.i.i, %conv.i4.i.i
+  %cmp.i.i = icmp samesign ugt i64 %conv.i.i.i, %conv.i4.i.i
   br i1 %cmp.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body11
@@ -8340,7 +8340,7 @@ if.then23:                                        ; preds = %for.body21
   %rentry26.sroa.0.0.copyload = load i64, ptr %arrayidx27, align 8, !tbaa.struct !48
   %conv.i.i.i113 = and i64 %lentry24.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i114 = and i64 %rentry26.sroa.0.0.copyload, 4294967295
-  %cmp.i.i115 = icmp ugt i64 %conv.i.i.i113, %conv.i4.i.i114
+  %cmp.i.i115 = icmp samesign ugt i64 %conv.i.i.i113, %conv.i4.i.i114
   br i1 %cmp.i.i115, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit120, label %if.end.i.i116
 
 if.end.i.i116:                                    ; preds = %if.then23
@@ -8377,7 +8377,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %rentry50.sroa.0.0.copyload = load i64, ptr %arrayidx51, align 8, !tbaa.struct !48
   %conv.i.i.i121 = and i64 %lentry48.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i122 = and i64 %rentry50.sroa.0.0.copyload, 4294967295
-  %cmp.i.i123 = icmp ugt i64 %conv.i.i.i121, %conv.i4.i.i122
+  %cmp.i.i123 = icmp samesign ugt i64 %conv.i.i.i121, %conv.i4.i.i122
   br i1 %cmp.i.i123, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit128, label %if.end.i.i124
 
 if.end.i.i124:                                    ; preds = %for.body47
@@ -8444,7 +8444,7 @@ for.body16.us.us:                                 ; preds = %for.body16.lr.ph.sp
   %rentry20.sroa.0.0.copyload.us.us = load i64, ptr %arrayidx22.us.us, align 8, !tbaa.struct !48
   %conv.i.i.i92.us.us = and i64 %lentry17.sroa.0.0.copyload.us.us, 4294967295
   %conv.i4.i.i93.us.us = and i64 %rentry20.sroa.0.0.copyload.us.us, 4294967295
-  %cmp.i.i94.us.us = icmp ugt i64 %conv.i.i.i92.us.us, %conv.i4.i.i93.us.us
+  %cmp.i.i94.us.us = icmp samesign ugt i64 %conv.i.i.i92.us.us, %conv.i4.i.i93.us.us
   br i1 %cmp.i.i94.us.us, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.us.us, label %if.end.i.i95.us.us
 
 if.end.i.i95.us.us:                               ; preds = %for.body16.us.us
@@ -8475,7 +8475,7 @@ for.body16.us:                                    ; preds = %for.body16.lr.ph.sp
   %rentry20.sroa.0.0.copyload.us = load i64, ptr %arrayidx22.us, align 8, !tbaa.struct !48
   %conv.i.i.i92.us = and i64 %lentry17.sroa.0.0.copyload.us, 4294967295
   %conv.i4.i.i93.us = and i64 %rentry20.sroa.0.0.copyload.us, 4294967295
-  %cmp.i.i94.us = icmp ugt i64 %conv.i.i.i92.us, %conv.i4.i.i93.us
+  %cmp.i.i94.us = icmp samesign ugt i64 %conv.i.i.i92.us, %conv.i4.i.i93.us
   br i1 %cmp.i.i94.us, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.us, label %if.end.i.i95.us
 
 if.end.i.i95.us:                                  ; preds = %for.body16.us
@@ -8509,7 +8509,7 @@ for.body16.us107:                                 ; preds = %for.body16.lr.ph.sp
   %rentry20.sroa.0.0.copyload.us116 = load i64, ptr %arrayidx22.us115, align 8, !tbaa.struct !48
   %conv.i.i.i92.us117 = and i64 %lentry17.sroa.0.0.copyload.us110, 4294967295
   %conv.i4.i.i93.us118 = and i64 %rentry20.sroa.0.0.copyload.us116, 4294967295
-  %cmp.i.i94.us119 = icmp ugt i64 %conv.i.i.i92.us117, %conv.i4.i.i93.us118
+  %cmp.i.i94.us119 = icmp samesign ugt i64 %conv.i.i.i92.us117, %conv.i4.i.i93.us118
   br i1 %cmp.i.i94.us119, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.us125, label %if.end.i.i95.us120
 
 if.end.i.i95.us120:                               ; preds = %for.body16.us107
@@ -8587,7 +8587,7 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload = load i64, ptr %arrayidx7, align 8, !tbaa.struct !48
   %conv.i.i.i = and i64 %lentry.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i = and i64 %rentry.sroa.0.0.copyload, 4294967295
-  %cmp.i.i = icmp ugt i64 %conv.i.i.i, %conv.i4.i.i
+  %cmp.i.i = icmp samesign ugt i64 %conv.i.i.i, %conv.i4.i.i
   br i1 %cmp.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then6
@@ -8647,7 +8647,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph.sp
   %rentry20.sroa.0.0.copyload = load i64, ptr %arrayidx22, align 8, !tbaa.struct !48
   %conv.i.i.i92 = and i64 %lentry17.sroa.0.0.copyload, 4294967295
   %conv.i4.i.i93 = and i64 %rentry20.sroa.0.0.copyload, 4294967295
-  %cmp.i.i94 = icmp ugt i64 %conv.i.i.i92, %conv.i4.i.i93
+  %cmp.i.i94 = icmp samesign ugt i64 %conv.i.i.i92, %conv.i4.i.i93
   br i1 %cmp.i.i94, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99, label %if.end.i.i95
 
 if.end.i.i95:                                     ; preds = %for.body16

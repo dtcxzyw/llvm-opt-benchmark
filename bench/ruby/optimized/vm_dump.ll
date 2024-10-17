@@ -477,7 +477,7 @@ imemo_type_p.exit112.thread.i:                    ; preds = %imemo_type_p.exit11
   %191 = getelementptr inbounds i8, ptr %190, i64 232
   %192 = load i32, ptr %191, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next.i, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next.i, %193
   br i1 %194, label %.lr.ph.i, label %control_frame_dump.exit, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %189
@@ -572,7 +572,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %8, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ult i64 %indvars.iv.next, %13
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %14, label %15, label %._crit_edge, !llvm.loop !16
 
 15:                                               ; preds = %.lr.ph, %11

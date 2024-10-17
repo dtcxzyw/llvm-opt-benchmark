@@ -325,7 +325,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %27 = and i32 %26, 7
   %28 = and i64 %25, -8
   %29 = inttoptr i64 %28 to ptr
-  %30 = icmp ult i32 %27, 3
+  %30 = icmp samesign ult i32 %27, 3
   %31 = getelementptr inbounds i8, ptr %29, i64 176
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
@@ -772,7 +772,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip_expect(ptr noundef %0, i
   %13 = and i64 %12, -8
   %14 = inttoptr i64 %13 to ptr
   %15 = and i64 %12, 7
-  %16 = icmp ult i64 %15, 3
+  %16 = icmp samesign ult i64 %15, 3
   %17 = getelementptr inbounds i8, ptr %14, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -1075,7 +1075,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
   %13 = and i64 %12, -8
   %14 = inttoptr i64 %13 to ptr
   %15 = and i64 %12, 7
-  %16 = icmp ult i64 %15, 3
+  %16 = icmp samesign ult i64 %15, 3
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %.offs = select i1 %16, i64 16, i64 72
   %18 = getelementptr i8, ptr %17, i64 %.offs
@@ -1207,7 +1207,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @map_addr(ptr noundef %0, i32
   %14 = and i64 %13, -8
   %15 = inttoptr i64 %14 to ptr
   %16 = and i64 %13, 7
-  %17 = icmp ult i64 %16, 3
+  %17 = icmp samesign ult i64 %16, 3
   %18 = getelementptr inbounds i8, ptr %15, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null

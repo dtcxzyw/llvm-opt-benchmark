@@ -735,7 +735,7 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit.thread: ; preds = %.preheader.i
   %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %.loopexit69.i ], [ 0, %.preheader70.i ]
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.loopexit69.i ], [ 1, %.preheader70.i ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %274 = icmp ult i64 %indvars.iv.next95.i, %260
+  %274 = icmp samesign ult i64 %indvars.iv.next95.i, %260
   br i1 %274, label %.lr.ph.i219, label %.loopexit69.i
 
 .lr.ph.i219:                                      ; preds = %.lr.ph76.i
@@ -815,7 +815,7 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit.thread: ; preds = %.preheader.i
   %316 = getelementptr inbounds float, ptr %315, i64 %indvars.iv106.i
   store float 0.000000e+00, ptr %316, align 4
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %317 = icmp ult i64 %indvars.iv.next107.i, %wide.trip.count85.i
+  %317 = icmp samesign ult i64 %indvars.iv.next107.i, %wide.trip.count85.i
   br i1 %317, label %.lr.ph78.i, label %.loopexit.i
 
 .lr.ph78.i:                                       ; preds = %.lr.ph80.i, %.lr.ph78.i

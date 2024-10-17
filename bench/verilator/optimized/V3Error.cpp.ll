@@ -5065,7 +5065,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit7:       ; preds = %.lr.ph
   %32 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #27
   %.not.i.i6 = icmp eq i32 %32, 0
   %33 = add nuw nsw i32 %.022, 1
-  %34 = icmp ugt i32 %.022, 49998
+  %34 = icmp samesign ugt i32 %.022, 49998
   %brmerge = or i1 %.not.i.i6, %34
   br i1 %brmerge, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 

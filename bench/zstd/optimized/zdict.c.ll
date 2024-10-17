@@ -1082,7 +1082,7 @@ for.body109.i.i:                                  ; preds = %for.cond105.backedg
 for.cond105.backedge.i.i:                         ; preds = %ZDICT_analyzePos.exit.thread.i.i, %for.body109.i.i
   %cursor.0.be.i.i = add i32 %cursor.083.i.i, 1
   %conv106.i.i = zext i32 %cursor.0.be.i.i to i64
-  %cmp107.i.i = icmp ugt i64 %bufferSize.addr.0.lcssa.i.i, %conv106.i.i
+  %cmp107.i.i = icmp samesign ugt i64 %bufferSize.addr.0.lcssa.i.i, %conv106.i.i
   br i1 %cmp107.i.i, label %for.body109.i.i, label %ZDICT_trainBuffer_legacy.exit.i, !llvm.loop !25
 
 if.end115.i.i:                                    ; preds = %for.body109.i.i
@@ -1734,7 +1734,7 @@ if.then145.i.i:                                   ; preds = %if.end142.i.i
 do.end149.i.i:                                    ; preds = %if.then145.i.i, %if.end142.i.i, %ZDICT_insertDictItem.exit.i.i
   %displayClock.2.i.i = phi i64 [ %displayClock.1.i.i, %if.then145.i.i ], [ %displayClock.1.i.i, %if.end142.i.i ], [ %displayClock.0.ph97.i.i, %ZDICT_insertDictItem.exit.i.i ]
   %conv10681.i.i = zext i32 %add125.i.i to i64
-  %cmp10782.i.i = icmp ugt i64 %bufferSize.addr.0.lcssa.i.i, %conv10681.i.i
+  %cmp10782.i.i = icmp samesign ugt i64 %bufferSize.addr.0.lcssa.i.i, %conv10681.i.i
   br i1 %cmp10782.i.i, label %for.body109.lr.ph.i.i, label %ZDICT_trainBuffer_legacy.exit.i, !llvm.loop !25
 
 ZDICT_trainBuffer_legacy.exit.i:                  ; preds = %do.end149.i.i, %for.cond105.backedge.i.i, %do.end104.i.i, %do.end51.i.i, %do.end12.i.i
@@ -1869,7 +1869,7 @@ if.then125.critedge.i:                            ; preds = %if.then44.i
 if.end126.i:                                      ; preds = %ZDICT_dictSize.exit154.i
   %conv127.i = zext i32 %add.i151.i to i64
   %div128107.i = lshr i64 %dictBufferCapacity, 2
-  %cmp129.i = icmp ugt i64 %div128107.i, %conv127.i
+  %cmp129.i = icmp samesign ugt i64 %div128107.i, %conv127.i
   %brmerge165.not.i = and i1 %cmp.i.i, %cmp129.i
   br i1 %brmerge165.not.i, label %do.end142.i, label %if.end185.i
 
@@ -1962,7 +1962,7 @@ for.inc250.i:                                     ; preds = %for.body236.i
   br i1 %exitcond188.not.i, label %for.body260.preheader.i, label %for.body236.i, !llvm.loop !44
 
 for.end252.i:                                     ; preds = %for.body236.i
-  %cmp258176.i = icmp ugt i64 %indvars.iv184.i, 1
+  %cmp258176.i = icmp samesign ugt i64 %indvars.iv184.i, 1
   br i1 %cmp258176.i, label %for.end252.i.for.body260.preheader.i_crit_edge, label %for.end278.i
 
 for.end252.i.for.body260.preheader.i_crit_edge:   ; preds = %for.end252.i
@@ -2205,7 +2205,7 @@ if.then10:                                        ; preds = %if.end
   %add33 = add i32 %add27, %6
   store i32 %add33, ptr %savings26, align 4
   %elt.sroa.0.0.copyload = load i64, ptr %arrayidx, align 4
-  %cmp36170 = icmp ugt i64 %indvars.iv, 1
+  %cmp36170 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp36170, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %if.then10, %while.body
@@ -2283,7 +2283,7 @@ if.then89:                                        ; preds = %if.then72
 if.end102:                                        ; preds = %if.then89, %if.then72
   %elt.sroa.24.0.copyload113 = phi i32 [ %add101, %if.then89 ], [ %add87, %if.then72 ]
   %elt.sroa.0.0.copyload101 = load i64, ptr %arrayidx58, align 4
-  %cmp106167 = icmp ugt i64 %indvars.iv193, 1
+  %cmp106167 = icmp samesign ugt i64 %indvars.iv193, 1
   br i1 %cmp106167, label %land.rhs107, label %while.end122
 
 land.rhs107:                                      ; preds = %if.end102, %while.body115

@@ -2150,7 +2150,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit74.thread: ; preds = %_
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %75, %80
+  %85 = icmp samesign ult i32 %75, %80
   br label %88
 
 86:                                               ; preds = %82

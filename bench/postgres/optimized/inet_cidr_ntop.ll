@@ -235,7 +235,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %.2105.i = phi i32 [ %spec.select.i, %99 ], [ %.0103139.i, %106 ], [ %.0103139.i, %104 ], [ %.0103139.i, %103 ]
   %.1102.i = phi i32 [ %102, %99 ], [ 0, %106 ], [ %.0101140.i, %104 ], [ 0, %103 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %108 = icmp ult i64 %indvars.iv.next.i, %90
+  %108 = icmp samesign ult i64 %indvars.iv.next.i, %90
   br i1 %108, label %.lr.ph.i12, label %._crit_edge.i13, !llvm.loop !7
 
 ._crit_edge.i13:                                  ; preds = %107
@@ -411,7 +411,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %216
 
 180:                                              ; preds = %.lr.ph149.split.split.i
-  %181 = icmp ugt i32 %.0112145.i, 5
+  %181 = icmp samesign ugt i32 %.0112145.i, 5
   br i1 %181, label %182, label %201
 
 182:                                              ; preds = %180

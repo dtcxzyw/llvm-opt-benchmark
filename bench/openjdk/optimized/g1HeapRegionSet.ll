@@ -618,7 +618,7 @@ _ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9: ; preds = %_ZN19G1HeapRegionS
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %23, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i, %36
   br i1 %37, label %27, label %_ZN16G1FreeRegionList8NodeInfo3addEPS0_.exit, !llvm.loop !8
 
 _ZN16G1FreeRegionList8NodeInfo3addEPS0_.exit:     ; preds = %27, %22, %_ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9, %19, %16
@@ -650,7 +650,7 @@ define hidden void @_ZN16G1FreeRegionList8NodeInfo3addEPS0_(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
+  %17 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %17, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %7, %2
@@ -739,7 +739,7 @@ _ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9.i: ; preds = %10, %_ZN19G1Heap
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %35 = load i32, ptr %23, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i.i, %36
   br i1 %37, label %27, label %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit, !llvm.loop !8
 
 _ZN16G1FreeRegionList21add_list_common_startEPS_.exit: ; preds = %27
@@ -862,7 +862,7 @@ _ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit9.i: ; preds = %10, %_ZN19G1Heap
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %35 = load i32, ptr %23, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next.i.i, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next.i.i, %36
   br i1 %37, label %27, label %_ZN16G1FreeRegionList21add_list_common_startEPS_.exit, !llvm.loop !8
 
 _ZN16G1FreeRegionList21add_list_common_startEPS_.exit: ; preds = %27
@@ -1318,7 +1318,7 @@ define hidden void @_ZN16G1FreeRegionList5clearEv(ptr nocapture noundef nonnull 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = load i32, ptr %7, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next.i, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %15, label %10, label %_ZN16G1FreeRegionList8NodeInfo5clearEv.exit, !llvm.loop !13
 
 _ZN16G1FreeRegionList8NodeInfo5clearEv.exit:      ; preds = %10, %6, %1
@@ -1344,7 +1344,7 @@ define hidden void @_ZN16G1FreeRegionList8NodeInfo5clearEv(ptr nocapture noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %2, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %indvars.iv.next, %9
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %5, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -7423,7 +7423,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i
@@ -7672,7 +7672,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
 .preheader.i.i:                                   ; preds = %37, %41
   %.025.i.i.i.i = phi i64 [ %39, %41 ], [ %31, %37 ]
   %39 = add nuw nsw i64 %.025.i.i.i.i, 1
-  %40 = icmp ult i64 %39, %28
+  %40 = icmp samesign ult i64 %39, %28
   br i1 %40, label %41, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 41:                                               ; preds = %.preheader.i.i

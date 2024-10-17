@@ -423,7 +423,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %31 = zext i16 %30 to i32
   %32 = add i32 %28, %31
   %33 = zext i32 %32 to i64
-  %.not13.i = icmp ult i64 %.0146.in, %33
+  %.not13.i = icmp samesign ult i64 %.0146.in, %33
   br i1 %.not13.i, label %44, label %34
 
 34:                                               ; preds = %.lr.ph.i
@@ -468,7 +468,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %52 = zext i16 %51 to i32
   %53 = add i32 %49, %52
   %54 = zext i32 %53 to i64
-  %.not15.i = icmp ult i64 %.0146.in, %54
+  %.not15.i = icmp samesign ult i64 %.0146.in, %54
   br i1 %.not15.i, label %65, label %55
 
 55:                                               ; preds = %.lr.ph.i208
@@ -520,7 +520,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 73:                                               ; preds = %cli_compare_ftm_file.exit
   %74 = icmp eq i32 %.014.i, 517
-  %75 = icmp ugt i64 %.0146.in, 70
+  %75 = icmp samesign ugt i64 %.0146.in, 70
   %or.cond = and i1 %75, %74
   br i1 %or.cond, label %76, label %130
 

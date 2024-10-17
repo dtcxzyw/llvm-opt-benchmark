@@ -116,7 +116,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
   %8 = sext i32 %1 to i64
   %9 = icmp ne i32 %1, 0
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8), !range !12
-  %11 = icmp ult i64 %10, 2
+  %11 = icmp samesign ult i64 %10, 2
   %12 = select i1 %9, i1 %11, i1 false
   br i1 %12, label %14, label %13, !prof !13
 

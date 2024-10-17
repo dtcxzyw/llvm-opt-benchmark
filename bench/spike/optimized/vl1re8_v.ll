@@ -1806,7 +1806,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -2216,7 +2216,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -2624,7 +2624,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61
@@ -3034,7 +3034,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 61:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %62 = lshr i64 %1, 15
   %63 = and i64 %62, 31
-  %64 = icmp ugt i64 %63, 15
+  %64 = icmp samesign ugt i64 %63, 15
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %61

@@ -2292,7 +2292,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture nound
   br i1 %24, label %.thread, label %16, !llvm.loop !13
 
 25:                                               ; preds = %19
-  %26 = icmp ugt i32 %17, 2
+  %26 = icmp samesign ugt i32 %17, 2
   br i1 %26, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %.thread6, %25

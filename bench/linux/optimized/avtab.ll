@@ -479,7 +479,7 @@ define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align
   %27 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %7, %.preheader4 ]
   %28 = add nuw nsw i64 %8, 1
   %29 = zext i32 %27 to i64
-  %30 = icmp ult i64 %28, %29
+  %30 = icmp samesign ult i64 %28, %29
   br i1 %30, label %.preheader4, label %.loopexit5, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.loopexit, %3
@@ -1058,7 +1058,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
   %69 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %49, %.preheader10 ]
   %70 = add nuw nsw i64 %50, 1
   %71 = zext i32 %69 to i64
-  %72 = icmp ult i64 %70, %71
+  %72 = icmp samesign ult i64 %70, %71
   br i1 %72, label %.preheader10, label %.loopexit11, !llvm.loop !10
 
 .loopexit11:                                      ; preds = %.loopexit, %45
@@ -1514,7 +1514,7 @@ avtab_write_item.exit.thread:                     ; preds = %69, %84, %thread-pr
   %.pr5 = phi i64 [ %32, %.loopexit.loopexit ], [ %.pr, %.preheader ]
   %91 = add nuw nsw i64 %21, 1
   %92 = zext i32 %89 to i64
-  %93 = icmp ult i64 %91, %92
+  %93 = icmp samesign ult i64 %91, %92
   br i1 %93, label %.preheader, label %.loopexit4, !llvm.loop !18
 
 .loopexit4:                                       ; preds = %.loopexit, %avtab_write_item.exit.thread, %3, %8

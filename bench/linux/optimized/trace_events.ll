@@ -3120,7 +3120,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   br i1 %10, label %18, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i32 %1, 1
+  %13 = icmp samesign ugt i32 %1, 1
   %14 = and i1 %13, %11
   br i1 %14, label %15, label %68
 
@@ -3130,7 +3130,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   br i1 %17, label %.thread9, label %.thread5
 
 18:                                               ; preds = %2
-  %19 = icmp ult i32 %1, 2
+  %19 = icmp samesign ult i32 %1, 2
   %20 = and i1 %19, %11
   br i1 %20, label %.thread7, label %.thread5
 
@@ -3186,7 +3186,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   store i8 0, ptr %55, align 8
   %56 = add nuw nsw i64 %44, 1
   %57 = and i64 %56, 127
-  %58 = icmp ugt i64 %57, 63
+  %58 = icmp samesign ugt i64 %57, 63
   br i1 %58, label %.thread6, label %38, !prof !103, !llvm.loop !104
 
 .thread6:                                         ; preds = %38, %47, %43
@@ -3197,7 +3197,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   br label %59
 
 59:                                               ; preds = %.thread7, %.thread6
-  %60 = icmp ugt i32 %1, 1
+  %60 = icmp samesign ugt i32 %1, 1
   br i1 %60, label %.thread9, label %61
 
 .thread9:                                         ; preds = %15, %59

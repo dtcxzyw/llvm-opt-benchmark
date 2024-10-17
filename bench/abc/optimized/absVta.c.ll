@@ -837,7 +837,7 @@ define range(i32 -1, 2) i32 @Vta_ManComputeDepthIncrease(ptr nocapture noundef r
   %8 = getelementptr inbounds i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 268435455
-  %11 = icmp ult i32 %6, %10
+  %11 = icmp samesign ult i32 %6, %10
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %2
@@ -2633,7 +2633,7 @@ Vga_ManFind.exit544:                              ; preds = %547, %551, %Vga_Man
 576:                                              ; preds = %574
   %577 = and i32 %.val451, 268435455
   %578 = and i32 %.val452, 268435455
-  %.not368 = icmp ugt i32 %577, %578
+  %.not368 = icmp samesign ugt i32 %577, %578
   br i1 %.not368, label %581, label %579
 
 579:                                              ; preds = %576

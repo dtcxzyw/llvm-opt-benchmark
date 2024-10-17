@@ -1189,7 +1189,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %24
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %47, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 8
-  %.not.i.i = icmp ugt i32 %10, 61
+  %.not.i.i = icmp samesign ugt i32 %10, 61
   store i64 %46, ptr %48, align 8
   br i1 %.not.i.i, label %49, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
 
@@ -1260,7 +1260,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
   %.fr106 = freeze i64 %69
   %70 = udiv i32 536870911, %11
   %71 = zext nneg i32 %70 to i64
-  %72 = icmp ult i32 %10, 4
+  %72 = icmp samesign ult i32 %10, 4
   %..i.val = call i64 @llvm.umin.i64(i64 %43, i64 %.fr106)
   %73 = select i1 %72, i64 %.fr106, i64 %..i.val
   %.sroa.speculated77 = call i64 @llvm.umin.i64(i64 %73, i64 %71)

@@ -14330,7 +14330,7 @@ if.then:                                          ; preds = %while.body
   %1 = load i32, ptr %add.ptr9.i.i.i, align 4
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i169171.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp25.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i169171.i.i.i
+  %cmp25.i.i.i.i = icmp samesign ult i64 %div13.i.i.i, %div.i169171.i.i.i
   br i1 %cmp25.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -16844,7 +16844,7 @@ if.end.split:                                     ; preds = %entry
   store ptr %agg.tmp.sroa.0.0.copyload10, ptr %__comp.i, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i236238 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ult i64 %div13, %div.i236238
+  %cmp23.i = icmp samesign ult i64 %div13, %div.i236238
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i

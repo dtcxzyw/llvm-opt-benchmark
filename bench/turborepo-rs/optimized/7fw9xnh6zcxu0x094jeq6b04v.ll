@@ -557,7 +557,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 70:                                               ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10
   %71 = and i8 %4, 15
   %72 = zext nneg i8 %71 to i64
-  %73 = icmp ugt i8 %71, 6
+  %73 = icmp samesign ugt i8 %71, 6
   br i1 %73, label %74, label %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit
 
 74:                                               ; preds = %70
@@ -631,8 +631,8 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   %34 = lshr i8 %31, %33
   %35 = and i8 %34, 3
   %36 = icmp ne i8 %35, 3
-  %37 = icmp ugt i8 %35, 1
-  %38 = and i1 %36, %37
+  %37 = icmp samesign ugt i8 %35, 1
+  %38 = select i1 %36, i1 %37, i1 false
   %cond.fr = freeze i1 %38
   %39 = select i1 %cond.fr, i8 -127, i8 1
   br label %.thread
@@ -650,7 +650,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6appe
   %3 = getelementptr inbounds i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2, !noundef !4
   %5 = and i8 %4, 15
-  %6 = icmp ugt i8 %5, 5
+  %6 = icmp samesign ugt i8 %5, 5
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %2

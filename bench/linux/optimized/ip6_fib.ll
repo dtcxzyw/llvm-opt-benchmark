@@ -4515,7 +4515,7 @@ define internal fastcc void @__fib6_drop_pcpu_from(ptr nocapture noundef readonl
 .thread6:                                         ; preds = %36, %38, %39, %29, %25, %15
   %41 = add nuw nsw i64 %12, 1
   %42 = and i64 %41, 127
-  %43 = icmp ugt i64 %42, 63
+  %43 = icmp samesign ugt i64 %42, 63
   br i1 %43, label %.thread, label %.preheader, !prof !6, !llvm.loop !101
 
 .thread:                                          ; preds = %.preheader, %.thread6, %11, %2

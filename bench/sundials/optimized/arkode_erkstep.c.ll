@@ -1444,7 +1444,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   %43 = fcmp ogt double %42, 0x3D719799812DEA11
   %.2 = select i1 %43, i32 0, i32 %.13846
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %44 = icmp ult i64 %indvars.iv.next51, %36
+  %44 = icmp samesign ult i64 %indvars.iv.next51, %36
   br i1 %44, label %39, label %45
 
 45:                                               ; preds = %39

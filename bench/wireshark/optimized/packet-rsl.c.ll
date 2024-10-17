@@ -1272,7 +1272,7 @@ switch.hole_check:
 4:                                                ; preds = %switch.hole_check
   %5 = lshr i32 %1, 4
   %6 = and i32 %5, 15
-  %7 = icmp ult i32 %6, 8
+  %7 = icmp samesign ult i32 %6, 8
   br i1 %7, label %switch.hole_check8, label %8
 
 8:                                                ; preds = %switch.hole_check8, %4

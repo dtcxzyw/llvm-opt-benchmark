@@ -16436,7 +16436,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm23SmallVect
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %189 = load i32, ptr %19, align 8
   %190 = zext i32 %189 to i64
-  %191 = icmp ult i64 %indvars.iv.next, %190
+  %191 = icmp samesign ult i64 %indvars.iv.next, %190
   br i1 %191, label %145, label %._crit_edge, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %_ZN4llvm6APSIntD2Ev.exit, %119
@@ -17537,20 +17537,20 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter30VisitO
   br i1 %28, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %11, %20
+  %30 = icmp samesign ult i32 %11, %20
   br i1 %30, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i32 %20, %11
+  %32 = icmp samesign ult i32 %20, %11
   br i1 %32, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i32 %13, %22
+  %34 = icmp samesign ult i32 %13, %22
   br i1 %34, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmleERKNS_12VersionTupleES2_.exit:          ; preds = %33
-  %35 = icmp ult i32 %22, %13
-  %36 = icmp uge i32 %16, %25
+  %35 = icmp samesign ult i32 %22, %13
+  %36 = icmp samesign uge i32 %16, %25
   %spec.select.i.not.i = select i1 %35, i1 true, i1 %36
   br i1 %spec.select.i.not.i, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread
 
@@ -19775,7 +19775,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %_ZNK5clang4Type6cas
   br label %_ZN4llvm13IRBuilderBase12CreateSIToFPEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit
 
 167:                                              ; preds = %139
-  %168 = icmp ult i32 %142, %101
+  %168 = icmp samesign ult i32 %142, %101
   %169 = load ptr, ptr %144, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 108
   br i1 %168, label %171, label %180
@@ -25900,7 +25900,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7Code
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %38, ptr %66, align 8, !alias.scope !234
-  %67 = icmp ult i32 %38, 65
+  %67 = icmp samesign ult i32 %38, 65
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %56
@@ -31682,7 +31682,7 @@ _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit433: ; preds = %_ZNK5clang4Ty
   %945 = load i32, ptr %944, align 16
   %946 = lshr i32 %945, 19
   %947 = and i32 %946, 511
-  %948 = icmp ult i32 %936, %947
+  %948 = icmp samesign ult i32 %936, %947
   %949 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %950 = load ptr, ptr %949, align 8
   %951 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter5VisitEPN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %67)
@@ -35044,7 +35044,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   br label %_ZN4llvm13IRBuilderBase12CreateSIToFPEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit
 
 164:                                              ; preds = %112
-  %165 = icmp ult i32 %115, %60
+  %165 = icmp samesign ult i32 %115, %60
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 108
@@ -37360,27 +37360,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type22isSignedFixedPoi
   %10 = load i32, ptr %6, align 16
   %11 = lshr i32 %10, 19
   %12 = and i32 %11, 511
-  %13 = icmp ugt i32 %12, 448
+  %13 = icmp samesign ugt i32 %12, 448
   br i1 %13, label %14, label %.thread14
 
 14:                                               ; preds = %9
-  %15 = icmp ult i32 %12, 452
+  %15 = icmp samesign ult i32 %12, 452
   br i1 %15, label %.thread14, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %12, 454
+  %17 = icmp samesign ugt i32 %12, 454
   br i1 %17, label %18, label %.thread14
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %12, 458
+  %19 = icmp samesign ult i32 %12, 458
   br i1 %19, label %.thread14, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %12, 460
+  %21 = icmp samesign ugt i32 %12, 460
   br i1 %21, label %22, label %.thread14
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %12, 464
+  %23 = icmp samesign ult i32 %12, 464
   br i1 %23, label %.thread14, label %24
 
 24:                                               ; preds = %22
@@ -40685,7 +40685,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter19Constr
   %15 = zext nneg i32 %14 to i64
   %.not.i.i = icmp ugt i32 %13, 255
   %16 = tail call range(i64 1, 25) i64 @llvm.ctpop.i64(i64 %15)
-  %17 = icmp ult i64 %16, 2
+  %17 = icmp samesign ult i64 %16, 2
   %or.cond = select i1 %.not.i.i, i1 %17, i1 false
   br i1 %or.cond, label %18, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 

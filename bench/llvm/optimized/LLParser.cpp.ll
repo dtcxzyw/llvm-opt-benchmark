@@ -2369,7 +2369,7 @@ _ZNSt3mapIjN4llvm11AttrBuilderESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thre
   %125 = trunc nuw nsw i64 %124 to i16
   %126 = xor i16 %125, 319
   %.sroa.01.0.insert.insert.i = select i1 %.not.i.not.i, i16 0, i16 %126
-  %.not368 = icmp ult i16 %.sroa.01.0.insert.insert.i, 256
+  %.not368 = icmp samesign ult i16 %.sroa.01.0.insert.insert.i, 256
   br i1 %.not368, label %129, label %127
 
 127:                                              ; preds = %112
@@ -8576,7 +8576,7 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit116: ; preds = %_ZN4llvm8LLP
   %222 = trunc nuw nsw i64 %221 to i16
   %223 = xor i16 %222, 319
   %.sroa.01.0.insert.insert.i = select i1 %.not.i.not.i, i16 0, i16 %223
-  %.not162 = icmp ult i16 %.sroa.01.0.insert.insert.i, 256
+  %.not162 = icmp samesign ult i16 %.sroa.01.0.insert.insert.i, 256
   br i1 %.not162, label %226, label %224
 
 224:                                              ; preds = %216
@@ -17376,7 +17376,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser18parseEnumAttributeENS_9A
 
 91:                                               ; preds = %22
   %92 = tail call i64 @_ZN4llvm8LLParser15parseMemoryAttrEv(ptr noundef nonnull align 8 dereferenceable(1768) %0)
-  %.not31 = icmp ult i64 %92, 4294967296
+  %.not31 = icmp samesign ult i64 %92, 4294967296
   br i1 %.not31, label %108, label %93
 
 93:                                               ; preds = %91
@@ -51229,7 +51229,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %_ZNK4llvm4Type13get
   %207 = trunc i64 %206 to i32
   %208 = icmp ugt i32 %207, 7
   %209 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %207)
-  %.not = icmp ult i32 %209, 2
+  %.not = icmp samesign ult i32 %209, 2
   %or.cond = select i1 %208, i1 %.not, i1 false
   br i1 %or.cond, label %215, label %210
 
@@ -61407,7 +61407,7 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit: ; preds = %_ZNSt6vectorIZN
   %103 = and i32 %102, 6
   %104 = trunc i64 %.val3.i.i.i.i.i.i.i to i32
   %105 = and i32 %104, 6
-  %106 = icmp ult i32 %103, %105
+  %106 = icmp samesign ult i32 %103, %105
   br i1 %106, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEESD_ET0_T_SF_SE_.exit.i.i.i.i.i.i, label %109
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEESD_ET0_T_SF_SE_.exit.i.i.i.i.i.i: ; preds = %101
@@ -61426,7 +61426,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i10.i.i.i.i.i.i.i = load i64, ptr %.pn19.i.i.i.i.i.i, align 8
   %110 = trunc i64 %.val3.i10.i.i.i.i.i.i.i to i32
   %111 = and i32 %110, 6
-  %112 = icmp ult i32 %103, %111
+  %112 = icmp samesign ult i32 %103, %111
   br i1 %112, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %109, %.lr.ph.i.i.i.i.i.i.i
@@ -61437,7 +61437,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i.i.i.i.i, align 8
   %113 = trunc i64 %.val3.i.i.i.i.i.i.i.i to i32
   %114 = and i32 %113, 6
-  %115 = icmp ult i32 %103, %114
+  %115 = icmp samesign ult i32 %103, %114
   br i1 %115, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i", !llvm.loop !1751
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %109
@@ -61471,7 +61471,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i10.i.i18.i.i.i.i.i = load i64, ptr %.sroa.0.09.i.i.i.i.i.i.i, align 8
   %120 = trunc i64 %.val3.i10.i.i18.i.i.i.i.i to i32
   %121 = and i32 %120, 6
-  %122 = icmp ult i32 %119, %121
+  %122 = icmp samesign ult i32 %119, %121
   br i1 %122, label %.lr.ph.i.i23.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i19.i.i.i.i.i"
 
 .lr.ph.i.i23.i.i.i.i.i:                           ; preds = %.lr.ph.i16.i.i.i.i.i, %.lr.ph.i.i23.i.i.i.i.i
@@ -61482,7 +61482,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i.i.i27.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i26.i.i.i.i.i, align 8
   %123 = trunc i64 %.val3.i.i.i27.i.i.i.i.i to i32
   %124 = and i32 %123, 6
-  %125 = icmp ult i32 %119, %124
+  %125 = icmp samesign ult i32 %119, %124
   br i1 %125, label %.lr.ph.i.i23.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i19.i.i.i.i.i", !llvm.loop !1751
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i19.i.i.i.i.i": ; preds = %.lr.ph.i.i23.i.i.i.i.i, %.lr.ph.i16.i.i.i.i.i
@@ -61509,7 +61509,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %129 = and i32 %128, 6
   %130 = trunc i64 %.val3.i.i36.i.i.i.i.i to i32
   %131 = and i32 %130, 6
-  %132 = icmp ult i32 %129, %131
+  %132 = icmp samesign ult i32 %129, %131
   br i1 %132, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEESD_ET0_T_SF_SE_.exit.i49.i.i.i.i.i, label %137
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEESD_ET0_T_SF_SE_.exit.i49.i.i.i.i.i: ; preds = %.lr.ph.i32.i.i.i.i.i
@@ -61530,7 +61530,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i10.i.i38.i.i.i.i.i = load i64, ptr %.pn19.i34.i.i.i.i.i, align 8
   %138 = trunc i64 %.val3.i10.i.i38.i.i.i.i.i to i32
   %139 = and i32 %138, 6
-  %140 = icmp ult i32 %129, %139
+  %140 = icmp samesign ult i32 %129, %139
   br i1 %140, label %.lr.ph.i.i44.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i39.i.i.i.i.i"
 
 .lr.ph.i.i44.i.i.i.i.i:                           ; preds = %137, %.lr.ph.i.i44.i.i.i.i.i
@@ -61541,7 +61541,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptio
   %.val3.i.i.i48.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i47.i.i.i.i.i, align 8
   %141 = trunc i64 %.val3.i.i.i48.i.i.i.i.i to i32
   %142 = and i32 %141, 6
-  %143 = icmp ult i32 %129, %142
+  %143 = icmp samesign ult i32 %129, %142
   br i1 %143, label %.lr.ph.i.i44.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i39.i.i.i.i.i", !llvm.loop !1751
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_.exit.i39.i.i.i.i.i": ; preds = %.lr.ph.i.i44.i.i.i.i.i, %137
@@ -86292,7 +86292,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %37 = and i32 %36, 6
   %38 = trunc i64 %.val3.i.i.i.i.i to i32
   %39 = and i32 %38, 6
-  %40 = icmp ult i32 %37, %39
+  %40 = icmp samesign ult i32 %37, %39
   %spec.select.i.i.i.i = select i1 %40, i64 %34, i64 %32
   %41 = getelementptr inbounds %struct.ValueContext, ptr %0, i64 %spec.select.i.i.i.i
   %42 = getelementptr inbounds %struct.ValueContext, ptr %0, i64 %.041.i.i.i.i
@@ -86328,7 +86328,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.val2.i.i.i.i.i.i = load i64, ptr %51, align 8
   %52 = trunc i64 %.val2.i.i.i.i.i.i to i32
   %53 = and i32 %52, 6
-  %54 = icmp ult i32 %53, %49
+  %54 = icmp samesign ult i32 %53, %49
   br i1 %54, label %55, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
 55:                                               ; preds = %50
@@ -86377,7 +86377,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %74 = and i32 %73, 6
   %75 = trunc i64 %.val3.i.i.i.i28.i to i32
   %76 = and i32 %75, 6
-  %77 = icmp ult i32 %74, %76
+  %77 = icmp samesign ult i32 %74, %76
   %spec.select.i.i.i29.i = select i1 %77, i64 %71, i64 %69
   %78 = getelementptr inbounds %struct.ValueContext, ptr %0, i64 %spec.select.i.i.i29.i
   %79 = getelementptr inbounds %struct.ValueContext, ptr %0, i64 %.041.i.i.i26.i
@@ -86423,7 +86423,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.val2.i.i.i.i.i23.i = load i64, ptr %97, align 8
   %98 = trunc i64 %.val2.i.i.i.i.i23.i to i32
   %99 = and i32 %98, 6
-  %100 = icmp ult i32 %99, %95
+  %100 = icmp samesign ult i32 %99, %95
   br i1 %100, label %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_SI_SI_RT0_.exit.i16.i"
 
 101:                                              ; preds = %96
@@ -86453,14 +86453,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %111 = and i32 %110, 6
   %112 = trunc i64 %.val3.i.i.i to i32
   %113 = and i32 %112, 6
-  %114 = icmp ult i32 %111, %113
+  %114 = icmp samesign ult i32 %111, %113
   %.val3.i27.i.i = load i64, ptr %109, align 8
   %115 = trunc i64 %.val3.i27.i.i to i32
   %116 = and i32 %115, 6
   br i1 %114, label %117, label %124
 
 117:                                              ; preds = %105
-  %118 = icmp ult i32 %113, %116
+  %118 = icmp samesign ult i32 %113, %116
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
@@ -86472,7 +86472,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
 120:                                              ; preds = %117
-  %121 = icmp ult i32 %111, %116
+  %121 = icmp samesign ult i32 %111, %116
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
@@ -86492,7 +86492,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
 124:                                              ; preds = %105
-  %125 = icmp ult i32 %111, %116
+  %125 = icmp samesign ult i32 %111, %116
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %124
@@ -86504,7 +86504,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN4llvm8LLParser17parseOptionalRefsERSt6vectorINS2_9ValueInfoESaIS5_EEE12ValueContextS4_IS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS3_17parseOptionalRefsES8_E3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
 127:                                              ; preds = %124
-  %128 = icmp ult i32 %113, %116
+  %128 = icmp samesign ult i32 %113, %116
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %127
@@ -86539,7 +86539,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.val2.i.i19.i = load i64, ptr %.sroa.012.1.i.i, align 8
   %134 = trunc i64 %.val2.i.i19.i to i32
   %135 = and i32 %134, 6
-  %136 = icmp ult i32 %135, %132
+  %136 = icmp samesign ult i32 %135, %132
   %137 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 24
   br i1 %136, label %133, label %.preheader.i.i, !llvm.loop !2303
 
@@ -86549,7 +86549,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.val3.i10.i.i = load i64, ptr %.sroa.0.1.i.i, align 8
   %138 = trunc i64 %.val3.i10.i.i to i32
   %139 = and i32 %138, 6
-  %140 = icmp ult i32 %132, %139
+  %140 = icmp samesign ult i32 %132, %139
   br i1 %140, label %.preheader.i.i, label %141, !llvm.loop !2304
 
 141:                                              ; preds = %.preheader.i.i

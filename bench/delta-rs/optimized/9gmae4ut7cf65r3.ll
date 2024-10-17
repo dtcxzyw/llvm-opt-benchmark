@@ -9047,7 +9047,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h1de99cb
   %.val = load i8, ptr %0, align 8, !range !3601, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8
-  %switch.i.i = icmp ult i8 %.val, 2
+  %switch.i.i = icmp samesign ult i8 %.val, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17hca25c9990b9f75feE.exit", label %3
 
 3:                                                ; preds = %1
@@ -9161,7 +9161,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h619f451
   %.val = load i8, ptr %0, align 8, !range !3601, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %2, align 8
-  %switch.i.i = icmp ult i8 %.val, 2
+  %switch.i.i = icmp samesign ult i8 %.val, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17hf2e53ef3fe4c8534E.exit", label %3
 
 3:                                                ; preds = %1
@@ -9327,7 +9327,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9b
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17hb5d10656ab6f86a8E.llvm.13640993958878838948"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !3732, !noundef !4
-  %switch = icmp ult i8 %2, 10
+  %switch = icmp samesign ult i8 %2, 10
   br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$http..method..extension..AllocatedExtension$GT$17h24d6ceabeced4f71E.llvm.13640993958878838948.exit", label %3
 
 3:                                                ; preds = %1
@@ -9458,7 +9458,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a
 define hidden void @"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hb5915bbb4dd7b990E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3773)
   %2 = load i8, ptr %0, align 8, !range !3732, !alias.scope !3773, !noundef !4
-  %switch.i = icmp ult i8 %2, 10
+  %switch.i = icmp samesign ult i8 %2, 10
   br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$http..method..Inner$GT$17hb5d10656ab6f86a8E.llvm.13640993958878838948.exit", label %3
 
 3:                                                ; preds = %1
@@ -12708,7 +12708,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5441)
   %22 = load i8, ptr %21, align 8, !range !3732, !alias.scope !5444, !noundef !4
-  %switch.i.i = icmp ult i8 %22, 10
+  %switch.i.i = icmp samesign ult i8 %22, 10
   br i1 %switch.i.i, label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hb5915bbb4dd7b990E.exit", label %23
 
 23:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$aws_smithy_runtime_api..http..request..Uri$GT$17h00d30d8598a5abceE.exit"
@@ -21394,7 +21394,7 @@ define hidden void @_ZN7tracing4span4Span3log17h5edcc6b11025a13aE.llvm.136409939
   %16 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %17 = icmp ult i64 %16, 6
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %.0, %16
+  %18 = icmp samesign ugt i64 %.0, %16
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13, %33, %5

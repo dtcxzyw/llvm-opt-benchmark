@@ -2954,7 +2954,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21finalizeUnOrderedTagsEPKNS2
   %77 = add nuw nsw i16 %76, %60
   %78 = or i16 %77, %72
   store i16 %78, ptr %58, align 8
-  %79 = icmp ult i32 %.053.lcssa117, 3
+  %79 = icmp samesign ult i32 %.053.lcssa117, 3
   %or.cond75 = and i1 %79, %brmerge
   br i1 %or.cond75, label %84, label %80
 

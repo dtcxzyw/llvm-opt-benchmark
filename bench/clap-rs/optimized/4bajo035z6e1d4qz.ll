@@ -5672,13 +5672,13 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
 define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValueParser$LT$T$GT$5range17h5292700953ceab99E"(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, { i64, i64 } }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #19 personality ptr @rust_eh_personality {
 "_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17h29d261e5bf60c6a9E.exit":
   %2 = load i64, ptr %1, align 8, !range !349, !noundef !5
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   %.sroa.6.0.ph = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i64, ptr %.sroa.6.0.ph, align 8
   %.sroa.4.0.i = select i1 %switch, i64 %3, i64 undef
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !range !349, !noundef !5
-  %switch53 = icmp ult i64 %5, 2
+  %switch53 = icmp samesign ult i64 %5, 2
   %.sroa.613.0.ph = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %.sroa.613.0.ph, align 8
   %.sroa.4.0.i42 = select i1 %switch53, i64 %6, i64 undef
@@ -5692,7 +5692,7 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
 define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValueParser$LT$T$GT$5range17h569f5e25dd1b197bE"(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, { i64, i64 } }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #19 personality ptr @rust_eh_personality {
 "_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17h29d261e5bf60c6a9E.exit":
   %3 = load i64, ptr %1, align 8, !range !349, !noundef !5
-  %switch = icmp ult i64 %3, 2
+  %switch = icmp samesign ult i64 %3, 2
   %.sroa.6.0.ph = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %.sroa.6.0.ph, align 8
   %.sroa.4.0.i = select i1 %switch, i64 %4, i64 undef
@@ -5751,7 +5751,7 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
 define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValueParser$LT$T$GT$5range17ha2455c81cfac6de2E"(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, { i64, i64 } }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #19 personality ptr @rust_eh_personality {
 "_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17h29d261e5bf60c6a9E.exit":
   %3 = load i64, ptr %1, align 8, !range !349, !noundef !5
-  %switch = icmp ult i64 %3, 2
+  %switch = icmp samesign ult i64 %3, 2
   %.sroa.6.0.ph = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %.sroa.6.0.ph, align 8
   %.sroa.4.0.i = select i1 %switch, i64 %4, i64 undef
@@ -5769,7 +5769,7 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
 "_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17h29d261e5bf60c6a9E.exit":
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !range !349, !noundef !5
-  %switch = icmp ult i64 %4, 2
+  %switch = icmp samesign ult i64 %4, 2
   %.sroa.613.0.ph = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %.sroa.613.0.ph, align 8
   %.sroa.4.0.i = select i1 %switch, i64 %5, i64 undef
@@ -8968,7 +8968,7 @@ common.resume:                                    ; preds = %128, %79, %38
   br i1 %108, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit.thread", label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit"
 
 110:                                              ; preds = %100
-  %111 = icmp ugt i8 %102, %104
+  %111 = icmp samesign ugt i8 %102, %104
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit"
 
 "_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit": ; preds = %107, %110

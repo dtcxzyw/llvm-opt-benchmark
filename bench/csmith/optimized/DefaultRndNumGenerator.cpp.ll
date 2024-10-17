@@ -380,7 +380,7 @@ define dso_local noundef zeroext i1 @_ZN22DefaultRndNumGenerator12rnd_flipcoinEj
   %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %23 = urem i64 %22, 100
   %24 = zext i32 %1 to i64
-  %25 = icmp ult i64 %23, %24
+  %25 = icmp samesign ult i64 %23, %24
   br label %26
 
 26:                                               ; preds = %18, %13, %8

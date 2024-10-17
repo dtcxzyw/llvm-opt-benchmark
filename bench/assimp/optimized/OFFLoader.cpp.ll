@@ -1863,7 +1863,7 @@ if.end386:                                        ; preds = %invoke.cont383, %_Z
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
   %142 = load i32, ptr %faces.0.ph637, align 8
   %143 = zext i32 %142 to i64
-  %cmp375 = icmp ult i64 %indvars.iv.next687, %143
+  %cmp375 = icmp samesign ult i64 %indvars.iv.next687, %143
   br i1 %cmp375, label %while.cond.i.i472.preheader, label %for.end392, !llvm.loop !17
 
 for.end392:                                       ; preds = %if.end386, %invoke.cont371

@@ -597,7 +597,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %38 = getelementptr inbounds i8, ptr %37, i64 6
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
-  %.not152 = icmp ult i32 %40, %16
+  %.not152 = icmp samesign ult i32 %40, %16
   br i1 %.not152, label %41, label %68
 
 41:                                               ; preds = %.lr.ph169
@@ -643,7 +643,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %69 = load i32, ptr %0, align 8
   %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next204, %70
+  %71 = icmp samesign ult i64 %indvars.iv.next204, %70
   br i1 %71, label %.lr.ph169, label %._crit_edge170.loopexit, !llvm.loop !20
 
 ._crit_edge170.loopexit:                          ; preds = %68
@@ -676,7 +676,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %85 = getelementptr inbounds i8, ptr %82, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
-  %.not151 = icmp ult i32 %87, %16
+  %.not151 = icmp samesign ult i32 %87, %16
   br i1 %.not151, label %88, label %116
 
 88:                                               ; preds = %.lr.ph176
@@ -723,7 +723,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %117 = load i32, ptr %0, align 8
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %indvars.iv.next207, %118
+  %119 = icmp samesign ult i64 %indvars.iv.next207, %118
   br i1 %119, label %.lr.ph176, label %._crit_edge177.loopexit, !llvm.loop !22
 
 ._crit_edge177.loopexit:                          ; preds = %116
@@ -831,7 +831,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = load i32, ptr %0, align 8
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next, %175
+  %176 = icmp samesign ult i64 %indvars.iv.next, %175
   br i1 %176, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %173
@@ -911,7 +911,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %223 = load i32, ptr %0, align 8
   %224 = zext i32 %223 to i64
-  %225 = icmp ult i64 %indvars.iv.next201, %224
+  %225 = icmp samesign ult i64 %indvars.iv.next201, %224
   br i1 %225, label %.lr.ph163, label %._crit_edge164.loopexit, !llvm.loop !26
 
 ._crit_edge164.loopexit:                          ; preds = %222
@@ -1019,7 +1019,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %38 = getelementptr inbounds i8, ptr %37, i64 6
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
-  %.not200 = icmp ult i32 %40, %16
+  %.not200 = icmp samesign ult i32 %40, %16
   br i1 %.not200, label %41, label %74
 
 41:                                               ; preds = %.lr.ph217
@@ -1071,7 +1071,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %75 = load i32, ptr %0, align 8
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next252, %76
+  %77 = icmp samesign ult i64 %indvars.iv.next252, %76
   br i1 %77, label %.lr.ph217, label %._crit_edge218.loopexit, !llvm.loop !28
 
 ._crit_edge218.loopexit:                          ; preds = %74
@@ -1104,7 +1104,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %91 = getelementptr inbounds i8, ptr %88, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
-  %.not199 = icmp ult i32 %93, %16
+  %.not199 = icmp samesign ult i32 %93, %16
   br i1 %.not199, label %94, label %128
 
 94:                                               ; preds = %.lr.ph224
@@ -1157,7 +1157,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %129 = load i32, ptr %0, align 8
   %130 = zext i32 %129 to i64
-  %131 = icmp ult i64 %indvars.iv.next255, %130
+  %131 = icmp samesign ult i64 %indvars.iv.next255, %130
   br i1 %131, label %.lr.ph224, label %._crit_edge225.loopexit, !llvm.loop !30
 
 ._crit_edge225.loopexit:                          ; preds = %128
@@ -1271,7 +1271,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %192 = load i32, ptr %0, align 8
   %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv.next, %193
+  %194 = icmp samesign ult i64 %indvars.iv.next, %193
   br i1 %194, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %191
@@ -1357,7 +1357,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %247 = load i32, ptr %0, align 8
   %248 = zext i32 %247 to i64
-  %249 = icmp ult i64 %indvars.iv.next249, %248
+  %249 = icmp samesign ult i64 %indvars.iv.next249, %248
   br i1 %249, label %.lr.ph211, label %._crit_edge212.loopexit, !llvm.loop !34
 
 ._crit_edge212.loopexit:                          ; preds = %246

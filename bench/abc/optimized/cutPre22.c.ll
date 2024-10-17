@@ -235,7 +235,7 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
 .preheader:                                       ; preds = %9
   %13 = load i32, ptr %2, align 8
   %14 = and i32 %13, 15
-  %15 = icmp ult i32 %.03345.in, %14
+  %15 = icmp samesign ult i32 %.03345.in, %14
   br i1 %15, label %.lr.ph, label %Extra_TruthCopy.exit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -267,7 +267,7 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not63, label %select.unfold.preheader.i, label %Extra_TruthCopy.exit
 
 select.unfold.preheader.i:                        ; preds = %._crit_edge
-  %29 = icmp ult i32 %24, 6
+  %29 = icmp samesign ult i32 %24, 6
   %30 = add nsw i32 %24, -5
   %31 = shl nuw nsw i32 1, %30
   %spec.select.i = select i1 %29, i32 1, i32 %31
@@ -313,7 +313,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CellTableLookup(ptr nocapture no
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
-  %8 = icmp ult i32 %7, 6
+  %8 = icmp samesign ult i32 %7, 6
   %9 = add nsw i32 %7, -5
   %10 = shl nuw nsw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
@@ -340,7 +340,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CellTableLookup(ptr nocapture no
 .lr.ph:                                           ; preds = %20
   %22 = load i32, ptr %5, align 8
   %23 = and i32 %22, 15
-  %24 = icmp ult i32 %23, 6
+  %24 = icmp samesign ult i32 %23, 6
   %25 = add nsw i32 %23, -5
   %26 = shl nuw nsw i32 1, %25
   %spec.select.i = select i1 %24, i32 1, i32 %26
@@ -568,7 +568,7 @@ Cut_CManStart.exit:                               ; preds = %33
   %79 = getelementptr inbounds [12 x i8], ptr %76, i64 0, i64 %indvars.iv379
   store i8 %78, ptr %79, align 1
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
-  %80 = icmp ult i64 %indvars.iv379, 8
+  %80 = icmp samesign ult i64 %indvars.iv379, 8
   br i1 %80, label %77, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %77
@@ -599,7 +599,7 @@ Cut_CManStart.exit:                               ; preds = %33
 .preheader.i238:                                  ; preds = %88
   %92 = load i32, ptr %68, align 8
   %93 = and i32 %92, 15
-  %94 = icmp ult i32 %.03345.in.i, %93
+  %94 = icmp samesign ult i32 %.03345.in.i, %93
   br i1 %94, label %.lr.ph.i, label %Extra_TruthCopy.exit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i238, %.lr.ph.i
@@ -631,7 +631,7 @@ Cut_CManStart.exit:                               ; preds = %33
   br i1 %.not63.i, label %select.unfold.preheader.i.i, label %Extra_TruthCopy.exit.i
 
 select.unfold.preheader.i.i:                      ; preds = %._crit_edge.i
-  %108 = icmp ult i32 %103, 6
+  %108 = icmp samesign ult i32 %103, 6
   %109 = add nsw i32 %103, -5
   %110 = shl nuw nsw i32 1, %109
   %spec.select.i.i = select i1 %108, i32 1, i32 %110
@@ -687,7 +687,7 @@ Cut_CellSuppMin.exit:                             ; preds = %Cut_CellSuppMin.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %132 = load i32, ptr %68, align 8
   %133 = and i32 %132, 15
-  %134 = icmp ult i32 %133, 6
+  %134 = icmp samesign ult i32 %133, 6
   %135 = add nsw i32 %133, -5
   %136 = shl nuw nsw i32 1, %135
   %137 = select i1 %134, i32 1, i32 %136
@@ -713,7 +713,7 @@ Cut_CellSuppMin.exit:                             ; preds = %Cut_CellSuppMin.exi
 .lr.ph.i240:                                      ; preds = %145
   %147 = load i32, ptr %68, align 8
   %148 = and i32 %147, 15
-  %149 = icmp ult i32 %148, 6
+  %149 = icmp samesign ult i32 %148, 6
   %150 = add nsw i32 %148, -5
   %151 = shl nuw nsw i32 1, %150
   %spec.select.i.i241 = select i1 %149, i32 1, i32 %151
@@ -781,7 +781,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %160, %153
   store i32 %180, ptr %178, align 4
   %181 = load i32, ptr %68, align 8
   %182 = and i32 %181, 15
-  %switch = icmp ult i32 %182, 2
+  %switch = icmp samesign ult i32 %182, 2
   br i1 %switch, label %.loopexit310, label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %.loopexit311, %213
@@ -961,7 +961,7 @@ Abc_Clock.exit248:                                ; preds = %221, %227
   %.1225353.us = phi i32 [ 0, %.preheader307.us ], [ %264, %.loopexit306.us ]
   %264 = add nuw nsw i32 %.1225353.us, 1
   %265 = zext nneg i32 %264 to i64
-  %266 = icmp ugt i64 %indvars.iv449, %265
+  %266 = icmp samesign ugt i64 %indvars.iv449, %265
   br i1 %266, label %.preheader305.lr.ph.us, label %.loopexit306.us
 
 267:                                              ; preds = %.loopexit.us
@@ -988,7 +988,7 @@ select.unfold.preheader.i.us:                     ; preds = %502, %270
   %277 = getelementptr inbounds i8, ptr %272, i64 84
   %278 = load i32, ptr %261, align 8
   %279 = and i32 %278, 15
-  %280 = icmp ult i32 %279, 6
+  %280 = icmp samesign ult i32 %279, 6
   %281 = add nsw i32 %279, -5
   %282 = shl nuw nsw i32 1, %281
   %spec.select.i.us = select i1 %280, i32 1, i32 %282
@@ -1014,7 +1014,7 @@ Extra_TruthCopy.exit.us:                          ; preds = %select.unfold.i.us
   %293 = add nuw nsw i32 %290, %292
   store i32 %293, ptr %275, align 8
   %294 = and i32 %288, 15
-  %295 = icmp ult i32 %294, 6
+  %295 = icmp samesign ult i32 %294, 6
   %296 = add nsw i32 %294, -5
   %297 = shl nuw nsw i32 1, %296
   %spec.select.i.i252.us = select i1 %295, i32 1, i32 %297
@@ -1034,7 +1034,7 @@ select.unfold.i.i253.us:                          ; preds = %select.unfold.i.i25
 select.unfold.preheader.i35.i.us:                 ; preds = %select.unfold.i.i253.us
   %303 = load i32, ptr %275, align 8
   %304 = and i32 %303, 15
-  %305 = icmp ult i32 %304, 6
+  %305 = icmp samesign ult i32 %304, 6
   %306 = add nsw i32 %304, -5
   %307 = shl nuw nsw i32 1, %306
   %spec.select.i34.i.us = select i1 %305, i32 1, i32 %307
@@ -1159,7 +1159,7 @@ Cut_CellCrossBar.exit.us:                         ; preds = %349, %333, %317, %3
 .preheader.i263.us:                               ; preds = %374
   %378 = load i32, ptr %275, align 8
   %379 = and i32 %378, 15
-  %380 = icmp ult i32 %.03345.in.i259.us, %379
+  %380 = icmp samesign ult i32 %.03345.in.i259.us, %379
   br i1 %380, label %.lr.ph.i265.us, label %Extra_TruthCopy.exit.i264.us
 
 .lr.ph.i265.us:                                   ; preds = %.preheader.i263.us, %.lr.ph.i265.us
@@ -1191,7 +1191,7 @@ Cut_CellCrossBar.exit.us:                         ; preds = %349, %333, %317, %3
   br i1 %.not63.i272.us, label %select.unfold.preheader.i.i273.us, label %Extra_TruthCopy.exit.i264.us
 
 select.unfold.preheader.i.i273.us:                ; preds = %._crit_edge.i271.us
-  %394 = icmp ult i32 %389, 6
+  %394 = icmp samesign ult i32 %389, 6
   %395 = add nsw i32 %389, -5
   %396 = shl nuw nsw i32 1, %395
   %spec.select.i.i274.us = select i1 %394, i32 1, i32 %396
@@ -1247,7 +1247,7 @@ Cut_CellSuppMin.exit280.us:                       ; preds = %Cut_CellSuppMin.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %418 = load i32, ptr %275, align 8
   %419 = and i32 %418, 15
-  %420 = icmp ult i32 %419, 6
+  %420 = icmp samesign ult i32 %419, 6
   %421 = add nsw i32 %419, -5
   %422 = shl nuw nsw i32 1, %421
   %423 = select i1 %420, i32 1, i32 %422
@@ -1273,7 +1273,7 @@ Cut_CellSuppMin.exit280.us:                       ; preds = %Cut_CellSuppMin.exi
 .lr.ph.i284.us:                                   ; preds = %431
   %433 = load i32, ptr %275, align 8
   %434 = and i32 %433, 15
-  %435 = icmp ult i32 %434, 6
+  %435 = icmp samesign ult i32 %434, 6
   %436 = add nsw i32 %434, -5
   %437 = shl nuw nsw i32 1, %436
   %spec.select.i.i285.us = select i1 %435, i32 1, i32 %437
@@ -1341,7 +1341,7 @@ Extra_TruthIsEqual.exit.thread.i288.us:           ; preds = %448, %439
   store i32 %466, ptr %464, align 4
   %467 = load i32, ptr %275, align 8
   %468 = and i32 %467, 15
-  %469 = icmp ugt i32 %468, 1
+  %469 = icmp samesign ugt i32 %468, 1
   br i1 %469, label %.lr.ph350.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %496, %.loopexit304.us, %446
@@ -1413,7 +1413,7 @@ Extra_TruthIsEqual.exit.thread.i288.us:           ; preds = %448, %439
   %504 = getelementptr inbounds [12 x i8], ptr %512, i64 0, i64 %indvars.iv417
   store i8 %503, ptr %504, align 1
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
-  %505 = icmp ult i64 %indvars.iv.next418, %513
+  %505 = icmp samesign ult i64 %indvars.iv.next418, %513
   br i1 %505, label %502, label %select.unfold.preheader.i.us, !llvm.loop !30
 
 .preheader.us:                                    ; preds = %.lr.ph350.us
@@ -2354,7 +2354,7 @@ Extra_TruthCopy.exit:                             ; preds = %select.unfold.prehe
   %31 = or disjoint i32 %30, %29
   store i32 %31, ptr %9, align 8
   %32 = and i32 %28, 15
-  %33 = icmp ult i32 %32, 6
+  %33 = icmp samesign ult i32 %32, 6
   %34 = add nsw i32 %32, -5
   %35 = shl nuw nsw i32 1, %34
   %36 = select i1 %33, i32 1, i32 %35
@@ -2373,7 +2373,7 @@ Extra_TruthCopy.exit:                             ; preds = %select.unfold.prehe
 .preheader:                                       ; preds = %._crit_edge
   %46 = load i32, ptr %9, align 8
   %47 = and i32 %46, 15
-  %48 = icmp ult i32 %47, 6
+  %48 = icmp samesign ult i32 %47, 6
   %49 = add nsw i32 %47, -5
   %50 = shl nuw nsw i32 1, %49
   %spec.select.i35 = select i1 %48, i32 1, i32 %50

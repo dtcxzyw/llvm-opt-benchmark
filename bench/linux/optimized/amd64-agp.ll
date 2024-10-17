@@ -311,7 +311,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   %66 = add nuw nsw i32 %71, 1
   %67 = call zeroext i16 @amd_nb_num() #6
   %68 = zext i16 %67 to i32
-  %69 = icmp ult i32 %66, %68
+  %69 = icmp samesign ult i32 %66, %68
   br i1 %69, label %70, label %.loopexit22, !llvm.loop !7
 
 70:                                               ; preds = %65, %60
@@ -911,7 +911,7 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   %39 = add nuw nsw i32 %23, 1
   %40 = call zeroext i16 @amd_nb_num() #6
   %41 = zext i16 %40 to i32
-  %42 = icmp ult i32 %39, %41
+  %42 = icmp samesign ult i32 %39, %41
   br i1 %42, label %22, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %22, %15
@@ -954,7 +954,7 @@ define internal void @amd64_cleanup() #4 align 16 {
   %14 = add nuw nsw i32 %6, 1
   %15 = call zeroext i16 @amd_nb_num() #6
   %16 = zext i16 %15 to i32
-  %17 = icmp ult i32 %14, %16
+  %17 = icmp samesign ult i32 %14, %16
   br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %3, %0

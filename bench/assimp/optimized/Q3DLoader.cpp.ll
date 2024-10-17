@@ -354,7 +354,7 @@ if.end:                                           ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967294
-  %cmp = icmp ult i64 %conv2.i, 22
+  %cmp = icmp samesign ult i64 %conv2.i, 22
   br i1 %cmp, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %if.end
@@ -1364,7 +1364,7 @@ invoke.cont185:                                   ; preds = %for.body184
   %sub.ptr.sub.i475 = sub i64 %sub.ptr.lhs.cast.i473, %sub.ptr.rhs.cast.i474
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i475, 2
   %139 = and i64 %sub.ptr.div.i, 4294967295
-  %cmp183 = icmp ult i64 %indvars.iv.next1895, %139
+  %cmp183 = icmp samesign ult i64 %indvars.iv.next1895, %139
   br i1 %cmp183, label %for.body184, label %for.inc193, !llvm.loop !18
 
 for.inc193:                                       ; preds = %invoke.cont185, %for.body176
@@ -1862,7 +1862,7 @@ for.inc296:                                       ; preds = %for.inc296.sink.spl
   %sub.ptr.sub.i690 = sub i64 %sub.ptr.lhs.cast.i688, %sub.ptr.rhs.cast.i689
   %sub.ptr.div.i691 = lshr exact i64 %sub.ptr.sub.i690, 2
   %209 = and i64 %sub.ptr.div.i691, 4294967295
-  %cmp274 = icmp ult i64 %indvars.iv.next1919, %209
+  %cmp274 = icmp samesign ult i64 %indvars.iv.next1919, %209
   br i1 %cmp274, label %for.body275, label %for.inc299.loopexit, !llvm.loop !31
 
 for.inc299.loopexit:                              ; preds = %for.inc296
@@ -1879,7 +1879,7 @@ for.inc299:                                       ; preds = %for.inc299.loopexit
   %sub.ptr.sub.i684 = sub i64 %sub.ptr.lhs.cast.i682, %sub.ptr.rhs.cast.i683
   %sub.ptr.div.i685 = sdiv exact i64 %sub.ptr.sub.i684, 56
   %212 = and i64 %sub.ptr.div.i685, 4294967295
-  %cmp264 = icmp ult i64 %indvars.iv.next1922, %212
+  %cmp264 = icmp samesign ult i64 %indvars.iv.next1922, %212
   br i1 %cmp264, label %for.body265, label %if.end302, !llvm.loop !32
 
 if.end302:                                        ; preds = %for.inc299, %for.cond261.preheader, %invoke.cont234
@@ -2596,7 +2596,7 @@ for.inc444:                                       ; preds = %invoke.cont438, %in
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %308 = load i32, ptr %mNumTextures, align 8
   %309 = zext i32 %308 to i64
-  %cmp393 = icmp ult i64 %indvars.iv.next, %309
+  %cmp393 = icmp samesign ult i64 %indvars.iv.next, %309
   br i1 %cmp393, label %for.body394, label %sw.epilog, !llvm.loop !38
 
 sw.bb447:                                         ; preds = %invoke.cont107
@@ -4018,7 +4018,7 @@ if.end944:                                        ; preds = %if.end939, %land.lh
   %incdec.ptr952 = getelementptr inbounds i8, ptr %verts746.11750, i64 12
   %497 = load i32, ptr %faces704.01762, align 8
   %498 = zext i32 %497 to i64
-  %cmp823 = icmp ult i64 %indvars.iv.next1931, %498
+  %cmp823 = icmp samesign ult i64 %indvars.iv.next1931, %498
   br i1 %cmp823, label %for.body824, label %for.inc954, !llvm.loop !53
 
 for.inc954:                                       ; preds = %if.end944, %invoke.cont819
@@ -4047,7 +4047,7 @@ for.inc959:                                       ; preds = %for.body629, %for.e
   %sub.ptr.sub.i1281 = sub i64 %sub.ptr.lhs.cast.i1279, %sub.ptr.rhs.cast.i1280
   %sub.ptr.div.i1282 = sdiv exact i64 %sub.ptr.sub.i1281, 1072
   %501 = and i64 %sub.ptr.div.i1282, 4294967295
-  %cmp628 = icmp ult i64 %indvars.iv.next1933, %501
+  %cmp628 = icmp samesign ult i64 %indvars.iv.next1933, %501
   br i1 %cmp628, label %for.body629, label %delete.notnull, !llvm.loop !55
 
 delete.notnull:                                   ; preds = %for.inc959, %invoke.cont622
@@ -4106,7 +4106,7 @@ for.body977:                                      ; preds = %invoke.cont969, %fo
   %indvars.iv.next1936 = add nuw nsw i64 %indvars.iv1935, 1
   %513 = load i32, ptr %mNumMeshes615, align 8
   %514 = zext i32 %513 to i64
-  %cmp976 = icmp ult i64 %indvars.iv.next1936, %514
+  %cmp976 = icmp samesign ult i64 %indvars.iv.next1936, %514
   br i1 %cmp976, label %for.body977, label %for.end984, !llvm.loop !56
 
 for.end984:                                       ; preds = %for.body977, %invoke.cont969

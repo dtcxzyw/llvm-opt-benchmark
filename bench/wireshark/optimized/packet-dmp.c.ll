@@ -1827,13 +1827,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %186, %183, %182
   %206 = trunc i64 %205 to i32
   %207 = sdiv i32 %206, 2
   %208 = srem i32 %207, 32760
-  %209 = icmp ult i32 %203, 450
+  %209 = icmp samesign ult i32 %203, 450
   %210 = and i32 %208, 65535
   br i1 %209, label %211, label %217
 
 211:                                              ; preds = %200
   %212 = add nuw nsw i32 %203, 32312
-  %.not.i322.i = icmp ult i32 %210, %212
+  %.not.i322.i = icmp samesign ult i32 %210, %212
   br i1 %.not.i322.i, label %222, label %dmp_dec_subm_time.exit.thread.i
 
 dmp_dec_subm_time.exit.thread.i:                  ; preds = %211
@@ -1867,7 +1867,7 @@ dmp_dec_subm_time.exit.i:                         ; preds = %222, %220
   %.0.i.i = phi i32 [ %221, %220 ], [ %223, %222 ]
   store i32 %.0.i.i, ptr getelementptr inbounds (i8, ptr @dmp, i64 36), align 4
   %224 = load i32, ptr @hf_envelope_subm_time, align 4
-  %225 = icmp ugt i32 %203, 32759
+  %225 = icmp samesign ugt i32 %203, 32759
   br i1 %225, label %232, label %226
 
 226:                                              ; preds = %dmp_dec_subm_time.exit.i, %dmp_dec_subm_time.exit.thread.i
@@ -2014,7 +2014,7 @@ dmp_dec_time_diff.exit.thread.i:                  ; preds = %dmp_dec_time_diff.e
   %316 = and i16 %314, 32767
   %317 = load i32, ptr @hf_envelope_ext_recipients, align 4
   %318 = zext nneg i16 %316 to i32
-  %319 = icmp ult i16 %316, 32
+  %319 = icmp samesign ult i16 %316, 32
   %320 = select i1 %319, ptr @.str.594, ptr @.str.550
   %321 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %317, ptr noundef %0, i32 noundef %311, i32 noundef 2, i32 noundef %315, ptr noundef nonnull @.str.593, i32 noundef %318, ptr noundef nonnull %320) #13
   %322 = load i32, ptr @ett_envelope_ext_recipients, align 4
@@ -3915,7 +3915,7 @@ dissect_dmp_security_category.exit:               ; preds = %303, %305
   %.0104.i = phi i32 [ %310, %305 ], [ %304, %303 ]
   %311 = add nuw nsw i32 %.0, 1
   %312 = icmp ne i8 %.1467, 0
-  %313 = icmp ult i32 %.0, 254
+  %313 = icmp samesign ult i32 %.0, 254
   %314 = select i1 %312, i1 %313, i1 false
   br i1 %314, label %207, label %.loopexit, !llvm.loop !13
 
@@ -4089,11 +4089,11 @@ dmp_dec_exp_time.exit.thread485:                  ; preds = %382, %dmp_dec_exp_t
   br i1 %411, label %dmp_dec_dtg.exit.thread, label %412
 
 412:                                              ; preds = %399
-  %413 = icmp ult i32 %410, 61
+  %413 = icmp samesign ult i32 %410, 61
   br i1 %413, label %dmp_dec_dtg.exit, label %414
 
 414:                                              ; preds = %412
-  %415 = icmp ult i32 %410, 101
+  %415 = icmp samesign ult i32 %410, 101
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %414
@@ -5218,7 +5218,7 @@ dmp_dec_del_time.exit.thread.i:                   ; preds = %dmp_dec_del_time.ex
   %1014 = tail call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1013, ptr noundef %0, i32 noundef %.9516, i32 noundef 1, i32 noundef 0) #13
   %1015 = load i32, ptr @hf_report_reason, align 4
   %1016 = and i32 %924, 63
-  %1017 = icmp ult i32 %1016, 61
+  %1017 = icmp samesign ult i32 %1016, 61
   %1018 = select i1 %1017, ptr @.str.724, ptr @.str.550
   %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i = select i1 %1017, ptr @p1_NonDeliveryReasonCode_vals, ptr @non_del_reason
   %1019 = tail call ptr @val_to_str_const(i32 noundef %1016, ptr noundef nonnull %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i, ptr noundef nonnull @.str.450) #13
@@ -5242,7 +5242,7 @@ dmp_dec_del_time.exit.thread.i:                   ; preds = %dmp_dec_del_time.ex
   %1036 = tail call ptr @proto_tree_add_item(ptr noundef %1034, i32 noundef %1035, ptr noundef %0, i32 noundef %1025, i32 noundef 1, i32 noundef 0) #13
   %1037 = load i32, ptr @hf_report_diagn, align 4
   %1038 = and i32 %1027, 127
-  %1039 = icmp ult i32 %1038, 124
+  %1039 = icmp samesign ult i32 %1038, 124
   %1040 = select i1 %1039, ptr @.str.724, ptr @.str.550
   %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i = select i1 %1039, ptr @p1_NonDeliveryDiagnosticCode_vals, ptr @non_del_diagn
   %1041 = tail call ptr @val_to_str_const(i32 noundef %1038, ptr noundef nonnull %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i, ptr noundef nonnull @.str.450) #13

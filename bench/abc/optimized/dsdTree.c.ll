@@ -1523,7 +1523,7 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %42 = load i64, ptr %7, align 8
   %43 = trunc i64 %42 to i32
   %44 = and i32 %43, 15
-  %45 = icmp ult i32 %44, 10
+  %45 = icmp samesign ult i32 %44, 10
   %46 = or disjoint i32 %44, 48
   %47 = add nuw nsw i32 %44, 55
   %.0.i.i = select i1 %45, i32 %46, i32 %47
@@ -1558,7 +1558,7 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %60 = lshr i64 %57, %59
   %61 = trunc i64 %60 to i32
   %62 = and i32 %61, 15
-  %63 = icmp ult i32 %62, 10
+  %63 = icmp samesign ult i32 %62, 10
   %64 = or disjoint i32 %62, 48
   %65 = add nuw nsw i32 %62, 55
   %.0.i18.us.i = select i1 %63, i32 %64, i32 %65

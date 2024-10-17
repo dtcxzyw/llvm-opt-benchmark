@@ -2856,7 +2856,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %36
   %58 = getelementptr inbounds i8, ptr %.111.i, i64 -1
   store i8 %57, ptr %58, align 1, !noalias !4
   %59 = udiv i64 %.0810.i, 10
-  %.not.i12 = icmp ult i64 %.0810.i, 10
+  %.not.i12 = icmp samesign ult i64 %.0810.i, 10
   br i1 %.not.i12, label %_ZN4llvm6utostrB5cxx11Emb.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.i
@@ -2899,7 +2899,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   %71 = getelementptr inbounds i8, ptr %.111.i14, i64 -1
   store i8 %70, ptr %71, align 1, !noalias !15
   %72 = udiv i64 %.0810.i15, 10
-  %.not.i16 = icmp ult i64 %.0810.i15, 10
+  %.not.i16 = icmp samesign ult i64 %.0810.i15, 10
   br i1 %.not.i16, label %_ZN4llvm6utostrB5cxx11Emb.exit19, label %.lr.ph.i13, !llvm.loop !7
 
 _ZN4llvm6utostrB5cxx11Emb.exit19:                 ; preds = %.lr.ph.i13, %.thread.i18

@@ -867,7 +867,7 @@ reset_cdf_symbol_counter.exit668.preheader:       ; preds = %67
 
 68:                                               ; preds = %reset_cdf_symbol_counter.exit668.preheader, %reset_cdf_symbol_counter.exit674
   %indvars.iv810 = phi i64 [ 0, %reset_cdf_symbol_counter.exit668.preheader ], [ %indvars.iv.next811, %reset_cdf_symbol_counter.exit674 ]
-  %69 = icmp ult i64 %indvars.iv810, 4
+  %69 = icmp samesign ult i64 %indvars.iv810, 4
   br i1 %69, label %reset_cdf_symbol_counter.exit674.loopexit, label %71
 
 reset_cdf_symbol_counter.exit674.loopexit:        ; preds = %68
@@ -877,7 +877,7 @@ reset_cdf_symbol_counter.exit674.loopexit:        ; preds = %68
   br label %reset_cdf_symbol_counter.exit674
 
 71:                                               ; preds = %68
-  %72 = icmp ult i64 %indvars.iv810, 16
+  %72 = icmp samesign ult i64 %indvars.iv810, 16
   %73 = mul nuw nsw i64 %indvars.iv810, 22
   br i1 %72, label %reset_cdf_symbol_counter.exit674.loopexit807, label %reset_cdf_symbol_counter.exit674.loopexit808
 

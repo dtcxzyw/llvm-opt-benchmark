@@ -6668,7 +6668,7 @@ for.body490:                                      ; preds = %for.body490.lr.ph, 
   %indvars.iv.next2460 = add nuw nsw i64 %indvars.iv2459, 1
   %318 = load i32, ptr %mNumVertices.i, align 4
   %319 = zext i32 %318 to i64
-  %cmp489 = icmp ult i64 %indvars.iv.next2460, %319
+  %cmp489 = icmp samesign ult i64 %indvars.iv.next2460, %319
   br i1 %cmp489, label %for.body490, label %for.end520, !llvm.loop !74
 
 for.end520:                                       ; preds = %for.body490
@@ -6739,7 +6739,7 @@ invoke.cont542:                                   ; preds = %for.body538
   %indvars.iv.next2463 = add nuw nsw i64 %indvars.iv2462, 1
   %329 = load i32, ptr %mNumFaces.i, align 8
   %330 = zext i32 %329 to i64
-  %cmp537 = icmp ult i64 %indvars.iv.next2463, %330
+  %cmp537 = icmp samesign ult i64 %indvars.iv.next2463, %330
   br i1 %cmp537, label %for.body538, label %for.end564, !llvm.loop !75
 
 for.end564:                                       ; preds = %invoke.cont542, %arrayctor.cont534
@@ -8161,7 +8161,7 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %if.then131, %sw.bb2
   %total13.i = getelementptr inbounds i8, ptr %add.ptr138, i64 1
   %61 = load i8, ptr %total13.i, align 1
   %62 = zext i8 %61 to i64
-  %cmp.not15.i = icmp ult i64 %indvars.iv182, %62
+  %cmp.not15.i = icmp samesign ult i64 %indvars.iv182, %62
   br i1 %cmp.not15.i, label %_ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1EifRf.exit, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %_ZN10aiVector3tIfEixEj.exit
@@ -8246,7 +8246,7 @@ _ZN10aiVector3tIfEixEj.exit102:                   ; preds = %if.then154, %sw.bb2
   %total13.i103 = getelementptr inbounds i8, ptr %add.ptr160, i64 1
   %70 = load i8, ptr %total13.i103, align 1
   %71 = zext i8 %70 to i64
-  %cmp.not15.i105 = icmp ult i64 %indvars.iv182, %71
+  %cmp.not15.i105 = icmp samesign ult i64 %indvars.iv182, %71
   br i1 %cmp.not15.i105, label %_ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1EifRf.exit129, label %while.body.i106.preheader
 
 while.body.i106.preheader:                        ; preds = %_ZN10aiVector3tIfEixEj.exit102
@@ -9774,7 +9774,7 @@ invoke.cont272:                                   ; preds = %call54.i.noexc555, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %mNumChildren221, align 8
   %113 = zext i32 %112 to i64
-  %cmp229 = icmp ult i64 %indvars.iv.next, %113
+  %cmp229 = icmp samesign ult i64 %indvars.iv.next, %113
   br i1 %cmp229, label %for.body230, label %if.end277, !llvm.loop !94
 
 lpad:                                             ; preds = %call.i.noexc, %if.end
@@ -10928,7 +10928,7 @@ invoke.cont381:                                   ; preds = %call55.i.noexc, %if
   %incdec.ptr = getelementptr inbounds i8, ptr %pevent.01189, i64 76
   %212 = load i32, ptr %mNumChildren327, align 8
   %213 = zext i32 %212 to i64
-  %cmp336 = icmp ult i64 %indvars.iv.next1532, %213
+  %cmp336 = icmp samesign ult i64 %indvars.iv.next1532, %213
   br i1 %cmp336, label %for.body337, label %if.end390, !llvm.loop !101
 
 lpad313:                                          ; preds = %call.i586.noexc, %invoke.cont309
@@ -11246,7 +11246,7 @@ invoke.cont16:                                    ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %call.i, align 8
   %16 = zext i32 %15 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !103
 
 lpad:                                             ; preds = %call.i.noexc, %if.end
@@ -17352,7 +17352,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -18797,7 +18797,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

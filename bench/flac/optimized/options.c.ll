@@ -1943,7 +1943,7 @@ for.inc121:                                       ; preds = %for.body113, %if.th
   %27 = phi i32 [ %24, %for.body113 ], [ %.pre, %if.then116 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = zext i32 %27 to i64
-  %cmp112 = icmp ult i64 %indvars.iv.next, %28
+  %cmp112 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %cmp112, label %for.body113, label %for.end123.loopexit, !llvm.loop !13
 
 for.end123.loopexit:                              ; preds = %for.inc121

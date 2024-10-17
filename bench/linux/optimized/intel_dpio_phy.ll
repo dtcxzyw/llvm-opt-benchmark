@@ -1300,7 +1300,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   %64 = add nuw nsw i32 %59, 1
   %65 = load i8, ptr %34, align 1
   %66 = zext i8 %65 to i32
-  %67 = icmp ult i32 %64, %66
+  %67 = icmp samesign ult i32 %64, %66
   br i1 %67, label %58, label %.loopexit5, !llvm.loop !49
 
 .loopexit4:                                       ; preds = %71
@@ -1323,7 +1323,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   %76 = add nuw nsw i32 %72, 1
   %77 = load i8, ptr %34, align 1
   %78 = zext i8 %77 to i32
-  %79 = icmp ult i32 %76, %78
+  %79 = icmp samesign ult i32 %76, %78
   br i1 %79, label %71, label %.loopexit4, !llvm.loop !50
 
 80:                                               ; preds = %80, %69
@@ -1337,7 +1337,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   %86 = add nuw nsw i32 %81, 1
   %87 = load i8, ptr %34, align 1
   %88 = zext i8 %87 to i32
-  %89 = icmp ult i32 %86, %88
+  %89 = icmp samesign ult i32 %86, %88
   br i1 %89, label %80, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %80, %51, %.loopexit5, %.loopexit4
@@ -1752,7 +1752,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   %49 = add nuw nsw i32 %43, 1
   %50 = load i8, ptr %31, align 1
   %51 = zext i8 %50 to i32
-  %52 = icmp ult i32 %49, %51
+  %52 = icmp samesign ult i32 %49, %51
   br i1 %52, label %41, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %41, %38

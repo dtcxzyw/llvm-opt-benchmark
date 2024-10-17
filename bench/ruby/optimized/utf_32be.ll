@@ -48,7 +48,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
   %19 = shl nuw nsw i32 %15, 16
   %20 = shl nuw nsw i32 %18, 8
   %21 = or disjoint i32 %20, %19
-  %22 = icmp ult i32 %21, 4352
+  %22 = icmp samesign ult i32 %21, 4352
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %13

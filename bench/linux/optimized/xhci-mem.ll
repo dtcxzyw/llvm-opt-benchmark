@@ -1933,7 +1933,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr nocapture
   %105 = load i32, ptr %104, align 8
   %106 = lshr i32 %105, 24
   %107 = and i32 %106, 127
-  %108 = icmp ult i32 %107, %103
+  %108 = icmp samesign ult i32 %107, %103
   br i1 %108, label %.loopexit, label %109
 
 109:                                              ; preds = %102
@@ -2108,7 +2108,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
   %74 = load i32, ptr %73, align 8
   %75 = lshr i32 %74, 24
   %76 = and i32 %75, 127
-  %77 = icmp ult i32 %76, %72
+  %77 = icmp samesign ult i32 %76, %72
   br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %71
@@ -3767,7 +3767,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %54 = phi i16 [ %.pre28, %50 ], [ %13, %12 ]
   %55 = add nuw nsw i64 %14, 1
   %56 = zext i16 %54 to i64
-  %57 = icmp ult i64 %55, %56
+  %57 = icmp samesign ult i64 %55, %56
   br i1 %57, label %12, label %.loopexit25, !llvm.loop !82
 
 .loopexit25:                                      ; preds = %53, %1
@@ -4128,7 +4128,7 @@ define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, 
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 24
   %17 = and i32 %16, 127
-  %18 = icmp ult i32 %17, %13
+  %18 = icmp samesign ult i32 %17, %13
   br i1 %18, label %.loopexit7, label %19
 
 19:                                               ; preds = %12
@@ -4179,7 +4179,7 @@ define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, 
   %49 = add nuw nsw i64 %37, 1
   %50 = and i32 %48, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %49, %51
+  %52 = icmp samesign ult i64 %49, %51
   br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %47, %.preheader6
@@ -4403,7 +4403,7 @@ define internal fastcc noundef ptr @xhci_alloc_interrupter(ptr nocapture noundef
   %67 = add nuw nsw i64 %57, 1
   %68 = load i32, ptr %40, align 8
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %67, %69
+  %70 = icmp samesign ult i64 %67, %69
   br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !99
 
 71:                                               ; preds = %38
@@ -5293,7 +5293,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %242 = getelementptr i32, ptr %241, i64 %216
   %243 = load i32, ptr %242, align 4
   %244 = and i32 %243, 15
-  %245 = icmp ugt i32 %244, 4
+  %245 = icmp samesign ugt i32 %244, 4
   %246 = select i1 %245, i8 %175, i8 %217
   br label %247
 
@@ -5302,7 +5302,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %249 = add nuw nsw i64 %216, 1
   %250 = load i8, ptr %197, align 8
   %251 = zext i8 %250 to i64
-  %252 = icmp ult i64 %249, %251
+  %252 = icmp samesign ult i64 %249, %251
   br i1 %252, label %215, label %.loopexit45, !llvm.loop !109
 
 .loopexit45:                                      ; preds = %247, %.thread36, %209, %194
@@ -5600,7 +5600,7 @@ thread-pre-split39:                               ; preds = %332, %329, %353, %3
   %421 = lshr i32 %418, 24
   %422 = and i32 %421, 127
   %423 = zext nneg i32 %422 to i64
-  %424 = icmp ult i64 %420, %423
+  %424 = icmp samesign ult i64 %420, %423
   br i1 %424, label %.preheader42, label %.loopexit43, !llvm.loop !112
 
 .loopexit43:                                      ; preds = %417, %408, %392, %382, %379
@@ -5668,7 +5668,7 @@ thread-pre-split39:                               ; preds = %332, %329, %353, %3
   %466 = lshr i32 %463, 24
   %467 = and i32 %466, 127
   %468 = zext nneg i32 %467 to i64
-  %469 = icmp ult i64 %465, %468
+  %469 = icmp samesign ult i64 %465, %468
   br i1 %469, label %.preheader, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %462, %453, %.thread35, %437, %427, %.loopexit43, %358, %127, %121, %.loopexit51, %.loopexit54, %2

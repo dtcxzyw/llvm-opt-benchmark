@@ -98,7 +98,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
 
 54:                                               ; preds = %.loopexit39, %50
   %55 = phi i64 [ 1, %50 ], [ %107, %.loopexit39 ]
-  %56 = icmp ugt i64 %55, 1
+  %56 = icmp samesign ugt i64 %55, 1
   br i1 %56, label %57, label %.loopexit39
 
 57:                                               ; preds = %54
@@ -201,7 +201,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %136 = select i1 %135, double %130, double %134
   store double %136, ptr %6, align 8, !tbaa !7
   %137 = add nuw nsw i64 %115, 1
-  %138 = icmp ult i64 %115, %46
+  %138 = icmp samesign ult i64 %115, %46
   br i1 %138, label %139, label %.loopexit37
 
 139:                                              ; preds = %114
@@ -286,7 +286,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
 
 .preheader83:                                     ; preds = %.thread21, %.loopexit29
   %191 = phi i64 [ %232, %.loopexit29 ], [ 1, %.thread21 ]
-  %192 = icmp ugt i64 %191, 1
+  %192 = icmp samesign ugt i64 %191, 1
   br i1 %192, label %193, label %..loopexit29_crit_edge
 
 ..loopexit29_crit_edge:                           ; preds = %.preheader83
@@ -372,7 +372,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %251 = call double @llvm.fmuladd.f64(double %246, double %248, double %250)
   store double %251, ptr %249, align 8, !tbaa !7
   %252 = add nuw nsw i64 %236, 1
-  %253 = icmp ult i64 %236, %187
+  %253 = icmp samesign ult i64 %236, %187
   br i1 %253, label %254, label %.loopexit28
 
 254:                                              ; preds = %.preheader82
@@ -642,7 +642,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %453 = fadd double %324, %452
   store double %363, ptr %335, align 8, !tbaa !7
   %454 = add nuw nsw i64 %323, 1
-  %455 = icmp ult i64 %323, %320
+  %455 = icmp samesign ult i64 %323, %320
   %456 = add nuw nsw i64 %322, 1
   br i1 %455, label %.preheader30, label %.loopexit31, !llvm.loop !26
 
@@ -692,7 +692,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %491 = and i64 %490, 1
   %492 = icmp eq i64 %491, 0
   %493 = select i1 %492, double 1.000000e+00, double %488
-  %494 = icmp ult i32 %489, 2
+  %494 = icmp samesign ult i32 %489, 2
   br i1 %494, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %486, %.preheader
@@ -705,7 +705,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %501 = icmp eq i64 %500, 0
   %502 = select i1 %501, double 1.000000e+00, double %499
   %503 = fmul double %495, %502
-  %504 = icmp ult i64 %496, 4
+  %504 = icmp samesign ult i64 %496, 4
   br i1 %504, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %486, %475
@@ -716,7 +716,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %508 = fcmp oge double %477, %505
   %509 = select i1 %508, double %477, double %505
   %510 = add nuw nsw i64 %476, 1
-  %511 = icmp ult i64 %476, %474
+  %511 = icmp samesign ult i64 %476, %474
   br i1 %511, label %475, label %.loopexit24, !llvm.loop !29
 
 .loopexit24:                                      ; preds = %.loopexit, %461

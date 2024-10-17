@@ -250,7 +250,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not37.us, label %._crit_edge.us, label %11, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %11
-  %17 = icmp ugt i32 %spec.select.us, 1
+  %17 = icmp samesign ugt i32 %spec.select.us, 1
   %18 = icmp sgt i32 %.02947.us, %spec.select.us
   %or.cond.us = select i1 %17, i1 %18, i1 false
   %spec.select39.us = select i1 %or.cond.us, i32 %.03345.us, i32 %.03146.us
@@ -293,7 +293,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.028.lcssa = phi i32 [ 0, %27 ], [ %spec.select, %.lr.ph ]
-  %33 = icmp ugt i32 %.028.lcssa, 1
+  %33 = icmp samesign ugt i32 %.028.lcssa, 1
   %34 = icmp sgt i32 %.02947, %.028.lcssa
   %or.cond = select i1 %33, i1 %34, i1 false
   %spec.select39 = select i1 %or.cond, i32 %.03345, i32 %.03146

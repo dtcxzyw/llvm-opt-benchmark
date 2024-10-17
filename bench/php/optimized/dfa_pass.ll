@@ -5346,7 +5346,7 @@ define internal fastcc void @zend_ssa_remove_nops(ptr noundef %0, ptr nocapture 
   %59 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
   store i32 %58, ptr %59, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = icmp ult i64 %indvars.iv.next, %56
+  %60 = icmp samesign ult i64 %indvars.iv.next, %56
   br i1 %60, label %.lr.ph11, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph11
@@ -5523,7 +5523,7 @@ define internal fastcc void @zend_ssa_remove_nops(ptr noundef %0, ptr nocapture 
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %144 = load i32, ptr %8, align 4
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %indvars.iv.next52, %145
+  %146 = icmp samesign ult i64 %indvars.iv.next52, %145
   br i1 %146, label %129, label %.preheader3
 
 .preheader2.loopexit:                             ; preds = %169
@@ -5637,7 +5637,7 @@ define internal fastcc void @zend_ssa_remove_nops(ptr noundef %0, ptr nocapture 
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %205 = load i32, ptr %8, align 4
   %206 = zext i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next58, %206
+  %207 = icmp samesign ult i64 %indvars.iv.next58, %206
   br i1 %207, label %174, label %.preheader1
 
 .preheader:                                       ; preds = %227, %.preheader1

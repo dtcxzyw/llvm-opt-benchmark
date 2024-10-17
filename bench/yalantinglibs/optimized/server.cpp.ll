@@ -7135,7 +7135,7 @@ for.body.i34:                                     ; preds = %for.body.i34, %for.
   %38 = icmp ne ptr %37, null
   %sub.ptr.i.i42 = getelementptr inbounds i8, ptr %37, i64 -8
   %39 = select i1 %38, ptr %sub.ptr.i.i42, ptr null
-  %cmp.i = icmp ult i64 %nonEmptyCount.1.i, 3
+  %cmp.i = icmp samesign ult i64 %nonEmptyCount.1.i, 3
   %40 = and i1 %38, %cmp.i
   br i1 %40, label %for.body.i34, label %for.end.i, !llvm.loop !38
 
@@ -7973,7 +7973,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = icmp ne ptr %4, null
   %sub.ptr.i = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = select i1 %5, ptr %sub.ptr.i, ptr null
-  %cmp = icmp ult i64 %nonEmptyCount.1, 3
+  %cmp = icmp samesign ult i64 %nonEmptyCount.1, 3
   %7 = and i1 %cmp, %5
   br i1 %7, label %for.body, label %for.end, !llvm.loop !38
 
@@ -8668,7 +8668,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i28.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %file_number, %if.end.i28.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i115, label %if.else.i.i.i114
 
 if.then.i.i.i115:                                 ; preds = %while.end.i.i.i
@@ -10978,7 +10978,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i25.i
   %__val.addr.0.lcssa.i.i.i = phi i32 [ %tid, %if.end.i25.i ], [ %div.i.i.i, %while.body.i.i.i ]
-  %cmp9.i.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -17332,7 +17332,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then2:                                         ; preds = %for.body
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i64
-  %cmp7.not = icmp ugt i64 %div27, %conv
+  %cmp7.not = icmp samesign ugt i64 %div27, %conv
   br i1 %cmp7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
@@ -22129,7 +22129,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then2:                                         ; preds = %for.body
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i64
-  %cmp7.not = icmp ugt i64 %div27, %conv
+  %cmp7.not = icmp samesign ugt i64 %div27, %conv
   br i1 %cmp7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
@@ -29959,7 +29959,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -32038,7 +32038,7 @@ entry:
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %entry
   %cmp3.i.i.i4 = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i4)
-  %cmp.i = icmp ugt i64 %add.i.i, 15
+  %cmp.i = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %entry
@@ -33943,7 +33943,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont ], [ %div.i3, %while.body.i ]
-  %cmp7.i = icmp ugt i64 %__val.addr.0.lcssa.i, 9
+  %cmp7.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i, 9
   br i1 %cmp7.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -38749,7 +38749,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %iter.05.i.i, i64 16
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %cmp.i.i15 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  %cmp1.i.i = icmp ugt i64 %i.06.i.i, 62
+  %cmp1.i.i = icmp samesign ugt i64 %i.06.i.i, 62
   %.not.i.i = select i1 %cmp.i.i15, i1 true, i1 %cmp1.i.i
   br i1 %.not.i.i, label %if.end10.i, label %for.body.i.i, !llvm.loop !619
 
@@ -40947,7 +40947,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -42025,7 +42025,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -43307,7 +43307,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -44124,7 +44124,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -44941,7 +44941,7 @@ _ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
   %cmp3.i.i.i26 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i26)
-  %cmp.i27 = icmp ugt i64 %add.i.i, 15
+  %cmp.i27 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i27, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZNSt10shared_ptrIN8coro_rpc14context_info_tINS0_8protocol17coro_rpc_protocolEEEED2Ev.exit
@@ -48964,7 +48964,7 @@ cleanup:                                          ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.end
   %cmp3.i.i.i8 = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i8)
-  %cmp.i9 = icmp ugt i64 %add.i.i, 15
+  %cmp.i9 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i9, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %if.end
@@ -51672,7 +51672,7 @@ cleanup.cont:                                     ; preds = %_ZNSt5tupleIJ15Vali
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %cleanup.cont
   %cmp3.i.i.i8 = icmp ult i64 %9, 16
   call void @llvm.assume(i1 %cmp3.i.i.i8)
-  %cmp.i9 = icmp ugt i64 %add.i.i, 15
+  %cmp.i9 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i9, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %cleanup.cont
@@ -54420,7 +54420,7 @@ if.end:                                           ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.end
   %cmp3.i.i.i6 = icmp ult i64 %18, 16
   call void @llvm.assume(i1 %cmp3.i.i.i6)
-  %cmp.i7 = icmp ugt i64 %add.i.i, 15
+  %cmp.i7 = icmp samesign ugt i64 %add.i.i, 15
   br i1 %cmp.i7, label %if.end.i.i, label %if.end.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %if.end

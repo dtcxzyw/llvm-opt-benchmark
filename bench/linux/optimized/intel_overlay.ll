@@ -874,7 +874,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noca
   %80 = and i32 %4, 255
   %81 = icmp eq i32 %80, 1
   %82 = select i1 %81, i32 4096, i32 8192
-  %83 = icmp ult i32 %82, %64
+  %83 = icmp samesign ult i32 %82, %64
   %84 = icmp ugt i16 %69, 2048
   %85 = or i1 %83, %84
   br i1 %85, label %132, label %86
@@ -887,7 +887,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noca
   %88 = icmp eq i32 %5, 256
   %89 = zext nneg i16 %37 to i32
   %90 = shl nuw nsw i32 %89, 1
-  %91 = icmp ugt i32 %90, %64
+  %91 = icmp samesign ugt i32 %90, %64
   %92 = select i1 %88, i1 %91, i1 false
   br i1 %92, label %132, label %93
 
@@ -2112,7 +2112,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %22 = and i32 %21, 255
   %23 = lshr i32 %16, %20
   %24 = and i32 %23, 255
-  %25 = icmp ult i32 %22, %24
+  %25 = icmp samesign ult i32 %22, %24
   %26 = add nuw nsw i32 %19, 1
   %27 = icmp ne i32 %26, 3
   %28 = select i1 %25, i1 %27, i1 false
@@ -2135,7 +2135,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %38 = and i32 %37, 255
   %39 = lshr i32 %32, %36
   %40 = and i32 %39, 255
-  %41 = icmp ult i32 %38, %40
+  %41 = icmp samesign ult i32 %38, %40
   %42 = add nuw nsw i32 %35, 1
   %43 = icmp ne i32 %42, 3
   %44 = select i1 %41, i1 %43, i1 false
@@ -2158,7 +2158,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %54 = and i32 %53, 255
   %55 = lshr i32 %48, %52
   %56 = and i32 %55, 255
-  %57 = icmp ult i32 %54, %56
+  %57 = icmp samesign ult i32 %54, %56
   %58 = add nuw nsw i32 %51, 1
   %59 = icmp ne i32 %58, 3
   %60 = select i1 %57, i1 %59, i1 false
@@ -2181,7 +2181,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %70 = and i32 %69, 255
   %71 = lshr i32 %64, %68
   %72 = and i32 %71, 255
-  %73 = icmp ult i32 %70, %72
+  %73 = icmp samesign ult i32 %70, %72
   %74 = add nuw nsw i32 %67, 1
   %75 = icmp ne i32 %74, 3
   %76 = select i1 %73, i1 %75, i1 false
@@ -2204,7 +2204,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %86 = and i32 %85, 255
   %87 = lshr i32 %80, %84
   %88 = and i32 %87, 255
-  %89 = icmp ult i32 %86, %88
+  %89 = icmp samesign ult i32 %86, %88
   %90 = add nuw nsw i32 %83, 1
   %91 = icmp ne i32 %90, 3
   %92 = select i1 %89, i1 %91, i1 false
@@ -2222,7 +2222,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr nocapture noundef 
   %99 = and i32 %98, 255
   %100 = lshr i32 16777215, %97
   %101 = and i32 %100, 255
-  %102 = icmp ult i32 %99, %101
+  %102 = icmp samesign ult i32 %99, %101
   %103 = add nuw nsw i32 %96, 1
   %104 = icmp ne i32 %103, 3
   %105 = select i1 %102, i1 %104, i1 false

@@ -878,7 +878,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
 
 467:                                              ; preds = %463
   %468 = icmp uge i32 %395, %371
-  %469 = icmp ult i32 %395, 16
+  %469 = icmp samesign ult i32 %395, 16
   %470 = or i1 %468, %469
   br i1 %470, label %.thread24, label %471
 
@@ -1310,7 +1310,7 @@ define dso_local i32 @nf_nat_inet_fn(ptr noundef %0, ptr noundef %1, ptr noundef
   %52 = add nuw nsw i64 %57, 1
   %53 = load i16, ptr %44, align 8
   %54 = zext i16 %53 to i64
-  %55 = icmp ult i64 %52, %54
+  %55 = icmp samesign ult i64 %52, %54
   br i1 %55, label %56, label %.loopexit, !llvm.loop !30
 
 56:                                               ; preds = %51, %49
@@ -1373,7 +1373,7 @@ define dso_local i32 @nf_nat_inet_fn(ptr noundef %0, ptr noundef %1, ptr noundef
   %89 = icmp ne i32 %88, 0
   %90 = icmp eq i8 %87, 4
   %91 = and i1 %90, %89
-  %92 = icmp ult i32 %10, 3
+  %92 = icmp samesign ult i32 %10, 3
   %93 = and i1 %92, %91
   br i1 %93, label %94, label %.thread9
 
@@ -1401,7 +1401,7 @@ define dso_local i32 @nf_nat_inet_fn(ptr noundef %0, ptr noundef %1, ptr noundef
   %106 = icmp ne i32 %105, 0
   %107 = icmp eq i8 %104, 4
   %108 = and i1 %107, %106
-  %109 = icmp ult i32 %10, 3
+  %109 = icmp samesign ult i32 %10, 3
   %110 = and i1 %109, %108
   br i1 %110, label %111, label %.thread9
 
@@ -1413,7 +1413,7 @@ define dso_local i32 @nf_nat_inet_fn(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .thread9:                                         ; preds = %64, %.loopexit, %111, %103, %99, %94, %86, %82
   %115 = load i8, ptr %2, align 8
-  %116 = icmp ugt i32 %10, 2
+  %116 = icmp samesign ugt i32 %10, 2
   %117 = icmp eq i8 %115, 4
   %118 = icmp eq i8 %115, 1
   %119 = or i1 %117, %118
@@ -2330,7 +2330,7 @@ define internal void @__nf_nat_decode_session(ptr nocapture noundef readonly %0,
   %9 = getelementptr inbounds i8, ptr %6, i64 50
   %10 = load i16, ptr %9, align 2
   %11 = and i64 %4, 7
-  %12 = icmp ugt i64 %11, 2
+  %12 = icmp samesign ugt i64 %11, 2
   %13 = select i1 %12, i64 16, i64 32
   %14 = trunc i16 %10 to i8
   switch i8 %14, label %73 [

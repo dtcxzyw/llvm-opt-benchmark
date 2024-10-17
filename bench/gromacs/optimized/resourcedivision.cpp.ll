@@ -582,7 +582,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuI
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, %185, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
   %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %187 ], [ 32, %185 ]
-  %191 = icmp ugt i32 %., %.0.i.i
+  %191 = icmp samesign ugt i32 %., %.0.i.i
   br i1 %191, label %.critedge.i.preheader, label %192
 
 192:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
@@ -591,7 +591,7 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
 
 193:                                              ; preds = %192
   %194 = udiv i32 %., %2
-  %195 = icmp ugt i32 %194, 6
+  %195 = icmp samesign ugt i32 %194, 6
   br i1 %195, label %.critedge.i.preheader, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 .critedge.i.preheader:                            ; preds = %193, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
@@ -603,8 +603,8 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
   %197 = mul nuw nsw i32 %196, %149
   %198 = udiv i32 %., %197
   %199 = urem i32 %., %197
-  %200 = icmp ugt i32 %198, 6
-  %201 = icmp ult i32 %.0.i, 3
+  %200 = icmp samesign ugt i32 %198, 6
+  %201 = icmp samesign ult i32 %.0.i, 3
   %or.cond.i = and i1 %201, %200
   br i1 %or.cond.i, label %.critedge.i.backedge, label %202
 
@@ -612,7 +612,7 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
   %203 = add nuw nsw i32 %.0.i, 2
   %204 = mul nuw nsw i32 %203, %149
   %205 = udiv i32 %., %204
-  %206 = icmp ule i32 %205, 1
+  %206 = icmp samesign ule i32 %205, 1
   %.not49.i = icmp eq i32 %199, 0
   %or.cond = or i1 %206, %.not49.i
   br i1 %or.cond, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %.critedge.i.backedge
@@ -686,7 +686,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7Cp
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %228, %226, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
   %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %228 ], [ 16, %226 ]
-  %.not.i = icmp ugt i32 %., %.0.i51.i
+  %.not.i = icmp samesign ugt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 

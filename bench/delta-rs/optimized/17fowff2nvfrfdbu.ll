@@ -2918,7 +2918,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$$LP$http..uri..scheme..Schem
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
   %2 = load i8, ptr %0, align 8, !range !445, !alias.scope !635, !noundef !14
-  %switch.i.i = icmp ult i8 %2, 2
+  %switch.i.i = icmp samesign ult i8 %2, 2
   br i1 %switch.i.i, label %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17had35f651a1ddd0a9E.exit", label %3
 
 3:                                                ; preds = %1
@@ -4943,7 +4943,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 
 76:                                               ; preds = %._crit_edge, %42
   %.09.lcssa = phi i64 [ %127, %._crit_edge ], [ %.0, %42 ]
-  %77 = icmp ugt i64 %44, 3
+  %77 = icmp samesign ugt i64 %44, 3
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -4956,7 +4956,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %.017.i13 = phi i64 [ %80, %78 ], [ 0, %76 ]
   %.0.i14 = phi i64 [ 4, %78 ], [ 0, %76 ]
   %82 = or disjoint i64 %.0.i14, 1
-  %83 = icmp ult i64 %82, %44
+  %83 = icmp samesign ult i64 %82, %44
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
@@ -21259,7 +21259,7 @@ _ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit: ; preds = %_ZN4core3
   %.sroa.22.4 = phi i64 [ %217, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %279, %.lr.ph.i53 ]
   %.sroa.32.4 = phi i64 [ %219, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %276, %.lr.ph.i53 ]
   %.09.lcssa.i43 = phi i64 [ 0, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %282, %.lr.ph.i53 ]
-  %234 = icmp ugt i64 %232, 3
+  %234 = icmp samesign ugt i64 %232, 3
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %._crit_edge.i60
@@ -21272,7 +21272,7 @@ _ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit: ; preds = %_ZN4core3
   %.017.i13.i44 = phi i64 [ %237, %235 ], [ 0, %._crit_edge.i60 ]
   %.0.i14.i45 = phi i64 [ 4, %235 ], [ 0, %._crit_edge.i60 ]
   %239 = or disjoint i64 %.0.i14.i45, 1
-  %240 = icmp ult i64 %239, %232
+  %240 = icmp samesign ult i64 %239, %232
   br i1 %240, label %241, label %249
 
 241:                                              ; preds = %238
@@ -22027,7 +22027,7 @@ _ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit: ; preds = %_ZN4core3
   %.sroa.22.4 = phi i64 [ %217, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %279, %.lr.ph.i53 ]
   %.sroa.32.4 = phi i64 [ %219, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %276, %.lr.ph.i53 ]
   %.09.lcssa.i43 = phi i64 [ 0, %_ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit ], [ %282, %.lr.ph.i53 ]
-  %234 = icmp ugt i64 %232, 3
+  %234 = icmp samesign ugt i64 %232, 3
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %._crit_edge.i60
@@ -22040,7 +22040,7 @@ _ZN4core3ptr19swap_nonoverlapping17h4e08dcf1ccdf2654E.exit: ; preds = %_ZN4core3
   %.017.i13.i44 = phi i64 [ %237, %235 ], [ 0, %._crit_edge.i60 ]
   %.0.i14.i45 = phi i64 [ 4, %235 ], [ 0, %._crit_edge.i60 ]
   %239 = or disjoint i64 %.0.i14.i45, 1
-  %240 = icmp ult i64 %239, %232
+  %240 = icmp samesign ult i64 %239, %232
   br i1 %240, label %241, label %249
 
 241:                                              ; preds = %238

@@ -779,7 +779,7 @@ call3.i.noexc:                                    ; preds = %call2.i.noexc
 invoke.cont22:                                    ; preds = %call3.i.noexc, %call.i.noexc
   %is_int.0.lcssa.i = phi i1 [ true, %call.i.noexc ], [ %call3.i29, %call3.i.noexc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %16
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %16
   %21 = and i1 %is_int.0.lcssa.i, %cmp
   br i1 %21, label %for.body, label %for.body27.lr.ph, !llvm.loop !12
 
@@ -2745,7 +2745,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont5:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %5, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %invoke.cont18
 
 for.body:                                         ; preds = %invoke.cont5
@@ -3262,7 +3262,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !21
 
@@ -4173,7 +4173,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cel
   %bf.load.i = load i32, ptr %20, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 30
   %cmp = icmp ne i32 %bf.lshr.i, 3
-  %cmp4 = icmp ult i32 %inc, %div27
+  %cmp4 = icmp samesign ult i32 %inc, %div27
   %21 = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %21, label %while.body, label %while.end, !llvm.loop !30
 

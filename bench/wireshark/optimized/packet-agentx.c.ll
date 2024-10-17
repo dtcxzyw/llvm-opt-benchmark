@@ -1123,7 +1123,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.179, i32 noundef %36) #6
   %38 = add i32 %37, %.133.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = icmp ult i64 %indvars.iv.next.i, %30
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %30
   %40 = icmp slt i32 %38, 2048
   %41 = and i1 %39, %40
   br i1 %41, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !14

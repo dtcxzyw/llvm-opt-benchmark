@@ -3506,7 +3506,7 @@ for.inc50.i:                                      ; preds = %st_mult.exit50.i, %
   %inc51.i = add nuw nsw i32 %decimal_places.067.i, 1
   %mul.i = mul nuw nsw i32 %max_q.066.i, 10
   %cmp43.i = icmp sle i32 %mul.i, %num_langs.15892.i
-  %cmp46.i = icmp ult i32 %decimal_places.067.i, 3
+  %cmp46.i = icmp samesign ult i32 %decimal_places.067.i, 3
   %15 = select i1 %cmp43.i, i1 %cmp46.i, i1 false
   br i1 %15, label %for.inc50.i, label %for.end52.loopexit.i, !llvm.loop !30
 

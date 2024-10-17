@@ -3279,7 +3279,7 @@ entry:
   %0 = load i64, ptr %ctx, align 8
   %1 = trunc i64 %0 to i32
   %conv = and i32 %1, 63
-  %cmp = icmp ult i32 %conv, 56
+  %cmp = icmp samesign ult i32 %conv, 56
   %cond.v = select i1 %cmp, i32 56, i32 120
   %cond = sub nsw i32 %cond.v, %conv
   %conv4 = zext i32 %cond to i64

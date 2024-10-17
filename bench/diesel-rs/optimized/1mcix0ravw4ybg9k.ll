@@ -982,7 +982,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %.028.lcssa = phi i64 [ 10, %2 ], [ %14, %.lr.ph ]
   %.1.lcssa = phi i32 [ %0, %2 ], [ %7, %.lr.ph ]
   %4 = zext nneg i32 %.1.lcssa to i64
-  %5 = icmp ugt i32 %.1.lcssa, 99
+  %5 = icmp samesign ugt i32 %.1.lcssa, 99
   br i1 %5, label %21, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1026,7 +1026,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 30:                                               ; preds = %._crit_edge, %21
   %.129 = phi i64 [ %26, %21 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext37, %21 ], [ %4, %._crit_edge ]
-  %31 = icmp ult i64 %.027, 10
+  %31 = icmp samesign ult i64 %.027, 10
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
@@ -7037,7 +7037,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
   %.028.lcssa.i = phi i64 [ 10, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit" ], [ %29, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit" ], [ %22, %.lr.ph.i ]
   %19 = zext nneg i32 %.1.lcssa.i to i64
-  %20 = icmp ugt i32 %.1.lcssa.i, 99
+  %20 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %20, label %36, label %45
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit", %.lr.ph.i
@@ -7081,7 +7081,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
 45:                                               ; preds = %36, %._crit_edge.i
   %.129.i = phi i64 [ %41, %36 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext37.i, %36 ], [ %19, %._crit_edge.i ]
-  %46 = icmp ult i64 %.027.i, 10
+  %46 = icmp samesign ult i64 %.027.i, 10
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %45

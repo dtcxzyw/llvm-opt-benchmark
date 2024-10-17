@@ -24334,7 +24334,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 11:                                               ; preds = %9
   %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %13 = icmp ult i64 %12, 2
+  %13 = icmp samesign ult i64 %12, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 14:                                               ; preds = %4
@@ -24380,7 +24380,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 36:                                               ; preds = %34
   %37 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35)
-  %38 = icmp ult i64 %37, 2
+  %38 = icmp samesign ult i64 %37, 2
   br label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
 39:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit

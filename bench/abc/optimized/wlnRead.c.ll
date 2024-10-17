@@ -9979,7 +9979,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %18
 
 29:                                               ; preds = %Rtl_Num2Name.exit.i, %Abc_UtilStrsav.exit
   %indvars.iv.i = phi i64 [ 1, %Abc_UtilStrsav.exit ], [ %indvars.iv.next.i, %Rtl_Num2Name.exit.i ]
-  %30 = icmp ult i64 %indvars.iv.i, 15
+  %30 = icmp samesign ult i64 %indvars.iv.i, 15
   br i1 %30, label %switch.lookup, label %Rtl_Num2Name.exit.i
 
 switch.lookup:                                    ; preds = %29
@@ -15088,7 +15088,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val65 = load ptr, ptr %22, align 8
   %23 = getelementptr inbounds ptr, ptr %.val65, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %.not = icmp ult i64 %indvars.iv131, %indvars.iv
+  %.not = icmp samesign ult i64 %indvars.iv131, %indvars.iv
   br i1 %.not, label %25, label %73
 
 25:                                               ; preds = %19

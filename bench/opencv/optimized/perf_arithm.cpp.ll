@@ -4125,7 +4125,7 @@ define hidden void @_ZN11opencv_test35BinaryOpTest_minScalarSameType_Test12PerfT
 
 27:                                               ; preds = %23
   %28 = and i32 %15, 7
-  %29 = icmp ult i32 %28, 4
+  %29 = icmp samesign ult i32 %28, 4
   br i1 %29, label %.sink.split, label %38
 
 30:                                               ; preds = %1
@@ -5020,7 +5020,7 @@ define hidden void @_ZN11opencv_test35BinaryOpTest_maxScalarSameType_Test12PerfT
 
 27:                                               ; preds = %23
   %28 = and i32 %15, 7
-  %29 = icmp ult i32 %28, 4
+  %29 = icmp samesign ult i32 %28, 4
   br i1 %29, label %.sink.split, label %38
 
 30:                                               ; preds = %1
@@ -6016,7 +6016,7 @@ define hidden void @_ZN11opencv_test39BinaryOpTest_absdiffScalarSameType_Test12P
 
 28:                                               ; preds = %24
   %29 = and i32 %16, 7
-  %30 = icmp ult i32 %29, 4
+  %30 = icmp samesign ult i32 %29, 4
   br i1 %30, label %.sink.split, label %37
 
 31:                                               ; preds = %1
@@ -7047,7 +7047,7 @@ define hidden void @_ZN11opencv_test35BinaryOpTest_addScalarSameType_Test12PerfT
 
 28:                                               ; preds = %24
   %29 = and i32 %16, 7
-  %30 = icmp ult i32 %29, 4
+  %30 = icmp samesign ult i32 %29, 4
   br i1 %30, label %.sink.split, label %37
 
 31:                                               ; preds = %1
@@ -8074,7 +8074,7 @@ define hidden void @_ZN11opencv_test40BinaryOpTest_subtractScalarSameType_Test12
 
 28:                                               ; preds = %24
   %29 = and i32 %16, 7
-  %30 = icmp ult i32 %29, 4
+  %30 = icmp samesign ult i32 %29, 4
   br i1 %30, label %.sink.split, label %37
 
 31:                                               ; preds = %1
@@ -11151,7 +11151,7 @@ define hidden void @_ZN11opencv_test38ArithmMixedTest_addScalarSameType_Test12Pe
 
 25:                                               ; preds = %21
   %26 = and i32 %.sroa.029.0.copyload, 7
-  %27 = icmp ult i32 %26, 4
+  %27 = icmp samesign ult i32 %26, 4
   br i1 %27, label %.sink.split, label %34
 
 28:                                               ; preds = %1
@@ -12179,7 +12179,7 @@ define hidden void @_ZN11opencv_test43ArithmMixedTest_subtractScalarSameType_Tes
 
 25:                                               ; preds = %21
   %26 = and i32 %.sroa.029.0.copyload, 7
-  %27 = icmp ult i32 %26, 4
+  %27 = icmp samesign ult i32 %26, 4
   br i1 %27, label %.sink.split, label %34
 
 28:                                               ; preds = %1

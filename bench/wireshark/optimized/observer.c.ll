@@ -71,7 +71,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %18, 16
   %20 = or disjoint i32 %19, %15
-  %21 = icmp ult i32 %20, 36
+  %21 = icmp samesign ult i32 %20, 36
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %12
@@ -179,7 +179,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   %67 = add nuw nsw i32 %.083111, 1
   %68 = load i8, ptr %28, align 1
   %69 = zext i8 %68 to i32
-  %70 = icmp ult i32 %67, %69
+  %70 = icmp samesign ult i32 %67, %69
   br i1 %70, label %31, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %66, %24
@@ -392,7 +392,7 @@ skip_to_next_packet.exit:                         ; preds = %26, %27
   %42 = load i16, ptr %41, align 4
   %43 = zext i16 %42 to i32
   %44 = load i32, ptr %39, align 8
-  %45 = icmp ugt i32 %17, %43
+  %45 = icmp samesign ugt i32 %17, %43
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %38
@@ -482,7 +482,7 @@ define internal range(i32 0, 2) i32 @observer_seek_read(ptr nocapture noundef re
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i32
   %25 = load i32, ptr %8, align 8
-  %26 = icmp ugt i32 %16, %24
+  %26 = icmp samesign ugt i32 %16, %24
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %20
@@ -772,7 +772,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
   %77 = add nuw nsw i32 %.1117, 1
   %78 = load i8, ptr %26, align 2
   %79 = zext i8 %78 to i32
-  %80 = icmp ult i32 %77, %79
+  %80 = icmp samesign ult i32 %77, %79
   br i1 %80, label %40, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %40, %54, %73, %75, %25, %10, %52, %46, %.thread, %17

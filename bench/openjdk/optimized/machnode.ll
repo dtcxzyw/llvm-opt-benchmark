@@ -496,7 +496,7 @@ define hidden void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull ali
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %6, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %9, %2
@@ -1157,7 +1157,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %8, align 2
   %22 = zext i16 %21 to i64
-  %23 = icmp ult i64 %indvars.iv.next, %22
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %2
@@ -1225,7 +1225,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEP4Node(ptr noundef nonnu
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %30 = load i16, ptr %7, align 2
   %31 = zext i16 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next28, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next28, %31
   br i1 %32, label %12, label %.loopexit, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %22

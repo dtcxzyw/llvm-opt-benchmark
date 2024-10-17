@@ -377,8 +377,8 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %17 = load i32, ptr @hf_evrc_interleave_index, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %.not1503.not = icmp eq i32 %7, 1
-  br i1 %.not1503.not, label %.critedge4, label %.lr.ph7
+  %.not1503 = icmp eq i32 %7, 1
+  br i1 %.not1503, label %.critedge4, label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %12, %.lr.ph7
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph7 ], [ 0, %12 ]
@@ -394,9 +394,9 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %26 = load i32, ptr @hf_evrc_legacy_toc_frame_type, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %26, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef 0) #3
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01374) #3
-  %29 = icmp slt i8 %28, 0
+  %29 = icmp sgt i8 %28, -1
   %30 = and i8 %28, 127
-  %31 = icmp ult i8 %30, 5
+  %31 = icmp samesign ult i8 %30, 5
   %switch.cast = zext nneg i8 %30 to i40
   %switch.shiftamt = shl nuw nsw i40 %switch.cast, 3
   %switch.downshift = lshr i40 94657380864, %switch.shiftamt
@@ -405,11 +405,11 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %32 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %.0.i, ptr %32, align 1
   %33 = add nuw nsw i32 %.01374, 1
-  %34 = icmp ult i64 %indvars.iv, 31
-  %or.cond = and i1 %29, %34
-  %.not150 = icmp ne i32 %7, %33
-  %or.cond153.not = and i1 %or.cond, %.not150
-  br i1 %or.cond153.not, label %.lr.ph7, label %.critedge.loopexit, !llvm.loop !4
+  %34 = icmp samesign ugt i64 %indvars.iv, 30
+  %or.cond = select i1 %29, i1 true, i1 %34
+  %.not150 = icmp eq i32 %7, %33
+  %or.cond153 = or i1 %or.cond, %.not150
+  br i1 %or.cond153, label %.critedge.loopexit, label %.lr.ph7, !llvm.loop !4
 
 default.unreachable20:                            ; preds = %6
   unreachable
@@ -493,7 +493,7 @@ default.unreachable20:                            ; preds = %6
 evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %82 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %.0, ptr noundef %0, i32 noundef %.22, i32 noundef 1, i32 noundef 0) #3
   %83 = and i8 %74, 15
-  %84 = icmp ult i8 %83, 5
+  %84 = icmp samesign ult i8 %83, 5
   %85 = shl nuw nsw i8 %83, 3
   %switch.shiftamt35 = zext nneg i8 %85 to i40
   %switch.downshift36 = lshr i40 94657380864, %switch.shiftamt35

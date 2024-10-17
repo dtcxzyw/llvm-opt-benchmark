@@ -258,7 +258,7 @@ define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr noca
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %14
-  %27 = icmp ugt i64 %16, 2147483647
+  %27 = icmp samesign ugt i64 %16, 2147483647
   br i1 %27, label %28, label %29, !prof !10
 
 28:                                               ; preds = %26

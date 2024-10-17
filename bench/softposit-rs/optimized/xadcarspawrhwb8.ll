@@ -115,7 +115,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %60 = shl i32 %.2.i, 2
   %61 = or i32 %60, -2147483648
   %62 = shl i32 %.060, 2
-  %63 = icmp ult i32 %.060, 1073741824
+  %63 = icmp samesign ult i32 %.060, 1073741824
   %64 = icmp sgt i32 %62, -1
   br i1 %63, label %.preheader.i86, label %.preheader12.i80
 
@@ -158,7 +158,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %77 = or i32 %76, -2147483648
   %78 = zext i32 %77 to i64
   %79 = mul nuw i64 %78, %75
-  %80 = icmp ugt i32 %74, 3
+  %80 = icmp samesign ugt i32 %74, 3
   %81 = and i32 %74, 3
   %82 = zext i1 %80 to i8
   %.061 = add i8 %72, %82

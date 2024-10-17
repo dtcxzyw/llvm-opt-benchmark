@@ -5092,7 +5092,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %43
   %45 = load i32, ptr %4, align 8
   %46 = lshr i32 %45, 3
   %47 = and i32 %46, 511
-  %.not38.not = icmp ult i32 %.039, %47
+  %.not38.not = icmp samesign ult i32 %.039, %47
   br i1 %.not38.not, label %37, label %50, !llvm.loop !38
 
 48:                                               ; preds = %43, %40
@@ -5368,7 +5368,7 @@ define hidden void @_ZNK2cv8tracking4impl14TrackerKCFImpl16denseGaussKernelEfNS_
   %56 = lshr i32 %55, 3
   %57 = and i32 %56, 511
   %58 = zext nneg i32 %57 to i64
-  %.not.not.i = icmp ult i64 %indvars.iv.i, %58
+  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %58
   br i1 %.not.not.i, label %50, label %59, !llvm.loop !39
 
 59:                                               ; preds = %.noexc40
@@ -5427,7 +5427,7 @@ define hidden void @_ZNK2cv8tracking4impl14TrackerKCFImpl16denseGaussKernelEfNS_
   %76 = lshr i32 %75, 3
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
-  %.not.not.i43 = icmp ult i64 %indvars.iv.i41, %78
+  %.not.not.i43 = icmp samesign ult i64 %indvars.iv.i41, %78
   br i1 %.not.not.i43, label %70, label %79, !llvm.loop !39
 
 79:                                               ; preds = %.noexc45
@@ -6436,7 +6436,7 @@ define linkonce_odr hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl22updatePro
   %98 = lshr i32 %97, 3
   %99 = and i32 %98, 511
   %100 = zext nneg i32 %99 to i64
-  %.not86.not = icmp ult i64 %indvars.iv, %100
+  %.not86.not = icmp samesign ult i64 %indvars.iv, %100
   br i1 %.not86.not, label %79, label %101, !llvm.loop !46
 
 101:                                              ; preds = %79

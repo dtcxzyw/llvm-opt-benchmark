@@ -5412,7 +5412,7 @@ if.end.i12:                                       ; preds = %for.cond
 
 _ZNK6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i12
   %retval.0.i14 = phi i64 [ %11, %if.end.i12 ], [ 0, %for.cond ]
-  %cmp = icmp ult i64 %indvars.iv, %retval.0.i14
+  %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i14
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE4sizeEv.exit
@@ -6543,7 +6543,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.else.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp1.not.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i, 3
+  %cmp1.not.i.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i.i, 3
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !44
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
@@ -7644,7 +7644,7 @@ invoke.cont386:                                   ; preds = %invoke.cont384
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %155 = load i32, ptr %m_pos.i.i.i.i, align 8
   %156 = zext i32 %155 to i64
-  %cmp373 = icmp ult i64 %indvars.iv.next297, %156
+  %cmp373 = icmp samesign ult i64 %indvars.iv.next297, %156
   br i1 %cmp373, label %for.body, label %for.end, !llvm.loop !45
 
 lpad383:                                          ; preds = %invoke.cont384, %invoke.cont382
@@ -7722,7 +7722,7 @@ invoke.cont425:                                   ; preds = %invoke.cont423
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = load i32, ptr %m_pos.i.i.i.i, align 8
   %163 = zext i32 %162 to i64
-  %cmp411 = icmp ult i64 %indvars.iv.next, %163
+  %cmp411 = icmp samesign ult i64 %indvars.iv.next, %163
   br i1 %cmp411, label %for.body412, label %for.end430, !llvm.loop !46
 
 lpad422:                                          ; preds = %invoke.cont423, %invoke.cont421

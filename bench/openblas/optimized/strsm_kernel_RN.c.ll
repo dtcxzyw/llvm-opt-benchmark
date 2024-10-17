@@ -56,7 +56,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %39 = getelementptr inbounds float, ptr %38, i64 %35
   %40 = load float, ptr %39, align 4, !tbaa !3
   %41 = mul nsw i64 %35, %7
-  %42 = icmp ult i64 %35, 3
+  %42 = icmp samesign ult i64 %35, 3
   br i1 %42, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %34, %.loopexit30.us
@@ -161,7 +161,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %102 = getelementptr inbounds float, ptr %101, i64 %98
   %103 = load float, ptr %102, align 4, !tbaa !3
   %104 = mul nsw i64 %98, %7
-  %105 = icmp ult i64 %98, 3
+  %105 = icmp samesign ult i64 %98, 3
   br i1 %105, label %.split46.us, label %.split46
 
 .split46.us:                                      ; preds = %97, %.loopexit29.us
@@ -230,7 +230,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %143 = phi ptr [ %140, %138 ], [ %88, %85 ]
   %144 = phi ptr [ %141, %138 ], [ %87, %85 ]
   %145 = lshr i64 %86, 1
-  %146 = icmp ult i64 %86, 2
+  %146 = icmp samesign ult i64 %86, 2
   br i1 %146, label %.loopexit31, label %85, !llvm.loop !13
 
 .loopexit31:                                      ; preds = %142, %.loopexit32
@@ -299,7 +299,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %188 = load float, ptr %187, align 4, !tbaa !3
   %189 = mul nuw nsw i64 %183, %7
   %190 = add nuw nsw i64 %183, 1
-  %191 = icmp ult i64 %190, %163
+  %191 = icmp samesign ult i64 %190, %163
   br i1 %191, label %.split52.us, label %.split52
 
 .split52.us:                                      ; preds = %182, %.loopexit25.us
@@ -404,7 +404,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %252 = load float, ptr %251, align 4, !tbaa !3
   %253 = mul nuw nsw i64 %247, %7
   %254 = add nuw nsw i64 %247, 1
-  %255 = icmp ult i64 %254, %163
+  %255 = icmp samesign ult i64 %254, %163
   br i1 %255, label %.split58.us, label %.split58
 
 .split58.us:                                      ; preds = %246, %.loopexit.us
@@ -472,7 +472,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %292 = phi ptr [ %289, %287 ], [ %237, %234 ]
   %293 = phi ptr [ %290, %287 ], [ %236, %234 ]
   %294 = lshr i64 %235, 1
-  %295 = icmp ult i64 %235, 2
+  %295 = icmp samesign ult i64 %235, 2
   br i1 %295, label %.loopexit26, label %234, !llvm.loop !16
 
 .loopexit26:                                      ; preds = %291, %.loopexit27
@@ -488,7 +488,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %303 = phi ptr [ %297, %.loopexit26 ], [ %165, %162 ]
   %304 = phi i64 [ %300, %.loopexit26 ], [ %164, %162 ]
   %305 = lshr i64 %163, 1
-  %306 = icmp ult i64 %163, 2
+  %306 = icmp samesign ult i64 %163, 2
   br i1 %306, label %.loopexit28, label %162, !llvm.loop !17
 
 .loopexit28:                                      ; preds = %301, %.loopexit33

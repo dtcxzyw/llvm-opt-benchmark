@@ -400,7 +400,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %98 = load i32, ptr %57, align 8
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next230, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next230, %99
   br i1 %100, label %89, label %.loopexit
 
 101:                                              ; preds = %55
@@ -486,7 +486,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %142 = load i32, ptr %57, align 8
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %indvars.iv.next227, %143
+  %144 = icmp samesign ult i64 %indvars.iv.next227, %143
   br i1 %144, label %125, label %.loopexit175
 
 ._crit_edge.loopexit219:                          ; preds = %.loopexit175
@@ -587,7 +587,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = load i32, ptr %57, align 8
   %182 = zext i32 %181 to i64
-  %183 = icmp ult i64 %indvars.iv.next, %182
+  %183 = icmp samesign ult i64 %indvars.iv.next, %182
   br i1 %183, label %171, label %.loopexit177
 
 184:                                              ; preds = %55
@@ -1232,7 +1232,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_bounds(ptr nocapture noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %4, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
   br i1 %31, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %3, %16
@@ -1887,7 +1887,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_project_simple(ptr nocapture no
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %78 = load i32, ptr %21, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next127, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next127, %79
   br i1 %80, label %.lr.ph118, label %.loopexit
 
 81:                                               ; preds = %20
@@ -2001,7 +2001,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_project_simple(ptr nocapture no
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %133 = load i32, ptr %21, align 8
   %134 = zext i32 %133 to i64
-  %135 = icmp ult i64 %indvars.iv.next124, %134
+  %135 = icmp samesign ult i64 %indvars.iv.next124, %134
   br i1 %135, label %.lr.ph111, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph111, %.lr.ph118, %.preheader101, %.preheader
@@ -2201,7 +2201,7 @@ define range(i32 -1, 1) i32 @H5S_select_elements(ptr noundef %0, i32 noundef %1,
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %78 = load i32, ptr %48, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next.i, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next.i, %79
   br i1 %80, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %66

@@ -2693,7 +2693,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %40, %43
   %83 = add nuw nsw i32 %82, 1
   %84 = shl nuw nsw i32 %83, 3
   %85 = add nsw i32 %84, -3
-  %or.cond = icmp ult i32 %82, 3
+  %or.cond = icmp samesign ult i32 %82, 3
   br i1 %or.cond, label %94, label %86
 
 86:                                               ; preds = %80

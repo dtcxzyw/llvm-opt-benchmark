@@ -676,7 +676,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_q_wP1
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = lshr i64 %1, 15
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33
@@ -792,7 +792,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_q_wP11processor_t6insn_tm(ptr nocapture 
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = lshr i64 %1, 15
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33
@@ -906,7 +906,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fcvt_q_w
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = lshr i64 %1, 15
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33
@@ -1080,7 +1080,7 @@ define noundef i64 @_Z21logged_rv64e_fcvt_q_wP11processor_t6insn_tm(ptr noundef 
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = lshr i64 %1, 15
   %36 = and i64 %35, 31
-  %37 = icmp ugt i64 %36, 15
+  %37 = icmp samesign ugt i64 %36, 15
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33

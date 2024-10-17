@@ -509,7 +509,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   %44 = phi i8 [ %.pre, %for.inc.loopexit ], [ %33, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = zext i8 %44 to i64
-  %cmp59 = icmp ult i64 %indvars.iv.next, %45
+  %cmp59 = icmp samesign ult i64 %indvars.iv.next, %45
   br i1 %cmp59, label %for.body, label %if.end70, !llvm.loop !8
 
 if.end70:                                         ; preds = %for.inc, %for.cond.preheader, %virtio_input_bits_config.exit150

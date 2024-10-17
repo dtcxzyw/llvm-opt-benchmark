@@ -61,7 +61,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %32 = getelementptr i8, ptr %22, i64 1
   %33 = add nuw nsw i64 %31, 4294967279
   %34 = and i64 %33, 4294967295
-  %35 = icmp ult i64 %34, 4
+  %35 = icmp samesign ult i64 %34, 4
   br i1 %35, label %.loopexit46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30

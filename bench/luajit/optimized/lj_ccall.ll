@@ -461,7 +461,7 @@ if.then.i.i:                                      ; preds = %if.then16.i.i.i, %i
   %tobool5.not.i.i = icmp eq i32 %39, 0
   %cond.i.i = select i1 %tobool5.not.i.i, i32 8, i32 16
   %add.i143.i = add nuw nsw i32 %cond.i.i, %conv.i142.i
-  %cmp.i144.i = icmp ugt i32 %add.i143.i, 248
+  %cmp.i144.i = icmp samesign ugt i32 %add.i143.i, 248
   br i1 %cmp.i144.i, label %ccall_struct_arg.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i

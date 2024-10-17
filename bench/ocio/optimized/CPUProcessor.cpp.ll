@@ -7460,11 +7460,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -7483,7 +7483,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -7502,7 +7502,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -7544,11 +7544,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i.i11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %shr.i.i.i11 to i16
   %conv.i.i.i12 = and i16 %12, -32768
-  %cmp.i.i.i13 = icmp ugt i32 %and.i.i.i10, 947912703
+  %cmp.i.i.i13 = icmp samesign ugt i32 %and.i.i.i10, 947912703
   br i1 %cmp.i.i.i13, label %if.then.i.i.i36, label %if.end37.i.i.i14
 
 if.then.i.i.i36:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp2.i.i.i37 = icmp ugt i32 %and.i.i.i10, 2139095039
+  %cmp2.i.i.i37 = icmp samesign ugt i32 %and.i.i.i10, 2139095039
   br i1 %cmp2.i.i.i37, label %if.then4.i.i.i51, label %if.end20.i.i.i38
 
 if.then4.i.i.i51:                                 ; preds = %if.then.i.i.i36
@@ -7567,7 +7567,7 @@ if.end.i.i.i54:                                   ; preds = %if.then4.i.i.i51
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end20.i.i.i38:                                 ; preds = %if.then.i.i.i36
-  %cmp21.i.i.i39 = icmp ugt i32 %and.i.i.i10, 1199566847
+  %cmp21.i.i.i39 = icmp samesign ugt i32 %and.i.i.i10, 1199566847
   br i1 %cmp21.i.i.i39, label %if.then23.i.i.i49, label %if.end27.i.i.i40
 
 if.then23.i.i.i49:                                ; preds = %if.end20.i.i.i38
@@ -7586,7 +7586,7 @@ if.end27.i.i.i40:                                 ; preds = %if.end20.i.i.i38
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end37.i.i.i14:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp38.i.i.i15 = icmp ult i32 %and.i.i.i10, 855638017
+  %cmp38.i.i.i15 = icmp samesign ult i32 %and.i.i.i10, 855638017
   br i1 %cmp38.i.i.i15, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59, label %if.end40.i.i.i16
 
 if.end40.i.i.i16:                                 ; preds = %if.end37.i.i.i14
@@ -7629,11 +7629,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds
   %shr.i.i.i61 = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i.i61 to i16
   %conv.i.i.i62 = and i16 %20, -32768
-  %cmp.i.i.i63 = icmp ugt i32 %and.i.i.i60, 947912703
+  %cmp.i.i.i63 = icmp samesign ugt i32 %and.i.i.i60, 947912703
   br i1 %cmp.i.i.i63, label %if.then.i.i.i86, label %if.end37.i.i.i64
 
 if.then.i.i.i86:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp2.i.i.i87 = icmp ugt i32 %and.i.i.i60, 2139095039
+  %cmp2.i.i.i87 = icmp samesign ugt i32 %and.i.i.i60, 2139095039
   br i1 %cmp2.i.i.i87, label %if.then4.i.i.i101, label %if.end20.i.i.i88
 
 if.then4.i.i.i101:                                ; preds = %if.then.i.i.i86
@@ -7652,7 +7652,7 @@ if.end.i.i.i104:                                  ; preds = %if.then4.i.i.i101
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end20.i.i.i88:                                 ; preds = %if.then.i.i.i86
-  %cmp21.i.i.i89 = icmp ugt i32 %and.i.i.i60, 1199566847
+  %cmp21.i.i.i89 = icmp samesign ugt i32 %and.i.i.i60, 1199566847
   br i1 %cmp21.i.i.i89, label %if.then23.i.i.i99, label %if.end27.i.i.i90
 
 if.then23.i.i.i99:                                ; preds = %if.end20.i.i.i88
@@ -7671,7 +7671,7 @@ if.end27.i.i.i90:                                 ; preds = %if.end20.i.i.i88
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end37.i.i.i64:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp38.i.i.i65 = icmp ult i32 %and.i.i.i60, 855638017
+  %cmp38.i.i.i65 = icmp samesign ult i32 %and.i.i.i60, 855638017
   br i1 %cmp38.i.i.i65, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109, label %if.end40.i.i.i66
 
 if.end40.i.i.i66:                                 ; preds = %if.end37.i.i.i64
@@ -7714,11 +7714,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109: ; pred
   %shr.i.i.i111 = lshr i32 %26, 16
   %28 = trunc nuw i32 %shr.i.i.i111 to i16
   %conv.i.i.i112 = and i16 %28, -32768
-  %cmp.i.i.i113 = icmp ugt i32 %and.i.i.i110, 947912703
+  %cmp.i.i.i113 = icmp samesign ugt i32 %and.i.i.i110, 947912703
   br i1 %cmp.i.i.i113, label %if.then.i.i.i136, label %if.end37.i.i.i114
 
 if.then.i.i.i136:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp2.i.i.i137 = icmp ugt i32 %and.i.i.i110, 2139095039
+  %cmp2.i.i.i137 = icmp samesign ugt i32 %and.i.i.i110, 2139095039
   br i1 %cmp2.i.i.i137, label %if.then4.i.i.i151, label %if.end20.i.i.i138
 
 if.then4.i.i.i151:                                ; preds = %if.then.i.i.i136
@@ -7737,7 +7737,7 @@ if.end.i.i.i154:                                  ; preds = %if.then4.i.i.i151
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end20.i.i.i138:                                ; preds = %if.then.i.i.i136
-  %cmp21.i.i.i139 = icmp ugt i32 %and.i.i.i110, 1199566847
+  %cmp21.i.i.i139 = icmp samesign ugt i32 %and.i.i.i110, 1199566847
   br i1 %cmp21.i.i.i139, label %if.then23.i.i.i149, label %if.end27.i.i.i140
 
 if.then23.i.i.i149:                               ; preds = %if.end20.i.i.i138
@@ -7756,7 +7756,7 @@ if.end27.i.i.i140:                                ; preds = %if.end20.i.i.i138
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end37.i.i.i114:                                ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp38.i.i.i115 = icmp ult i32 %and.i.i.i110, 855638017
+  %cmp38.i.i.i115 = icmp samesign ult i32 %and.i.i.i110, 855638017
   br i1 %cmp38.i.i.i115, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, label %if.end40.i.i.i116
 
 if.end40.i.i.i116:                                ; preds = %if.end37.i.i.i114
@@ -8714,11 +8714,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -8737,7 +8737,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -8756,7 +8756,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -8798,11 +8798,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i.i11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %shr.i.i.i11 to i16
   %conv.i.i.i12 = and i16 %12, -32768
-  %cmp.i.i.i13 = icmp ugt i32 %and.i.i.i10, 947912703
+  %cmp.i.i.i13 = icmp samesign ugt i32 %and.i.i.i10, 947912703
   br i1 %cmp.i.i.i13, label %if.then.i.i.i36, label %if.end37.i.i.i14
 
 if.then.i.i.i36:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp2.i.i.i37 = icmp ugt i32 %and.i.i.i10, 2139095039
+  %cmp2.i.i.i37 = icmp samesign ugt i32 %and.i.i.i10, 2139095039
   br i1 %cmp2.i.i.i37, label %if.then4.i.i.i51, label %if.end20.i.i.i38
 
 if.then4.i.i.i51:                                 ; preds = %if.then.i.i.i36
@@ -8821,7 +8821,7 @@ if.end.i.i.i54:                                   ; preds = %if.then4.i.i.i51
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end20.i.i.i38:                                 ; preds = %if.then.i.i.i36
-  %cmp21.i.i.i39 = icmp ugt i32 %and.i.i.i10, 1199566847
+  %cmp21.i.i.i39 = icmp samesign ugt i32 %and.i.i.i10, 1199566847
   br i1 %cmp21.i.i.i39, label %if.then23.i.i.i49, label %if.end27.i.i.i40
 
 if.then23.i.i.i49:                                ; preds = %if.end20.i.i.i38
@@ -8840,7 +8840,7 @@ if.end27.i.i.i40:                                 ; preds = %if.end20.i.i.i38
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end37.i.i.i14:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp38.i.i.i15 = icmp ult i32 %and.i.i.i10, 855638017
+  %cmp38.i.i.i15 = icmp samesign ult i32 %and.i.i.i10, 855638017
   br i1 %cmp38.i.i.i15, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59, label %if.end40.i.i.i16
 
 if.end40.i.i.i16:                                 ; preds = %if.end37.i.i.i14
@@ -8883,11 +8883,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds
   %shr.i.i.i61 = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i.i61 to i16
   %conv.i.i.i62 = and i16 %20, -32768
-  %cmp.i.i.i63 = icmp ugt i32 %and.i.i.i60, 947912703
+  %cmp.i.i.i63 = icmp samesign ugt i32 %and.i.i.i60, 947912703
   br i1 %cmp.i.i.i63, label %if.then.i.i.i86, label %if.end37.i.i.i64
 
 if.then.i.i.i86:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp2.i.i.i87 = icmp ugt i32 %and.i.i.i60, 2139095039
+  %cmp2.i.i.i87 = icmp samesign ugt i32 %and.i.i.i60, 2139095039
   br i1 %cmp2.i.i.i87, label %if.then4.i.i.i101, label %if.end20.i.i.i88
 
 if.then4.i.i.i101:                                ; preds = %if.then.i.i.i86
@@ -8906,7 +8906,7 @@ if.end.i.i.i104:                                  ; preds = %if.then4.i.i.i101
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end20.i.i.i88:                                 ; preds = %if.then.i.i.i86
-  %cmp21.i.i.i89 = icmp ugt i32 %and.i.i.i60, 1199566847
+  %cmp21.i.i.i89 = icmp samesign ugt i32 %and.i.i.i60, 1199566847
   br i1 %cmp21.i.i.i89, label %if.then23.i.i.i99, label %if.end27.i.i.i90
 
 if.then23.i.i.i99:                                ; preds = %if.end20.i.i.i88
@@ -8925,7 +8925,7 @@ if.end27.i.i.i90:                                 ; preds = %if.end20.i.i.i88
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end37.i.i.i64:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp38.i.i.i65 = icmp ult i32 %and.i.i.i60, 855638017
+  %cmp38.i.i.i65 = icmp samesign ult i32 %and.i.i.i60, 855638017
   br i1 %cmp38.i.i.i65, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109, label %if.end40.i.i.i66
 
 if.end40.i.i.i66:                                 ; preds = %if.end37.i.i.i64
@@ -8968,11 +8968,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109: ; pred
   %shr.i.i.i111 = lshr i32 %26, 16
   %28 = trunc nuw i32 %shr.i.i.i111 to i16
   %conv.i.i.i112 = and i16 %28, -32768
-  %cmp.i.i.i113 = icmp ugt i32 %and.i.i.i110, 947912703
+  %cmp.i.i.i113 = icmp samesign ugt i32 %and.i.i.i110, 947912703
   br i1 %cmp.i.i.i113, label %if.then.i.i.i136, label %if.end37.i.i.i114
 
 if.then.i.i.i136:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp2.i.i.i137 = icmp ugt i32 %and.i.i.i110, 2139095039
+  %cmp2.i.i.i137 = icmp samesign ugt i32 %and.i.i.i110, 2139095039
   br i1 %cmp2.i.i.i137, label %if.then4.i.i.i151, label %if.end20.i.i.i138
 
 if.then4.i.i.i151:                                ; preds = %if.then.i.i.i136
@@ -8991,7 +8991,7 @@ if.end.i.i.i154:                                  ; preds = %if.then4.i.i.i151
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end20.i.i.i138:                                ; preds = %if.then.i.i.i136
-  %cmp21.i.i.i139 = icmp ugt i32 %and.i.i.i110, 1199566847
+  %cmp21.i.i.i139 = icmp samesign ugt i32 %and.i.i.i110, 1199566847
   br i1 %cmp21.i.i.i139, label %if.then23.i.i.i149, label %if.end27.i.i.i140
 
 if.then23.i.i.i149:                               ; preds = %if.end20.i.i.i138
@@ -9010,7 +9010,7 @@ if.end27.i.i.i140:                                ; preds = %if.end20.i.i.i138
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end37.i.i.i114:                                ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp38.i.i.i115 = icmp ult i32 %and.i.i.i110, 855638017
+  %cmp38.i.i.i115 = icmp samesign ult i32 %and.i.i.i110, 855638017
   br i1 %cmp38.i.i.i115, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, label %if.end40.i.i.i116
 
 if.end40.i.i.i116:                                ; preds = %if.end37.i.i.i114
@@ -9968,11 +9968,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -9991,7 +9991,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -10010,7 +10010,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -10052,11 +10052,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i.i11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %shr.i.i.i11 to i16
   %conv.i.i.i12 = and i16 %12, -32768
-  %cmp.i.i.i13 = icmp ugt i32 %and.i.i.i10, 947912703
+  %cmp.i.i.i13 = icmp samesign ugt i32 %and.i.i.i10, 947912703
   br i1 %cmp.i.i.i13, label %if.then.i.i.i36, label %if.end37.i.i.i14
 
 if.then.i.i.i36:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp2.i.i.i37 = icmp ugt i32 %and.i.i.i10, 2139095039
+  %cmp2.i.i.i37 = icmp samesign ugt i32 %and.i.i.i10, 2139095039
   br i1 %cmp2.i.i.i37, label %if.then4.i.i.i51, label %if.end20.i.i.i38
 
 if.then4.i.i.i51:                                 ; preds = %if.then.i.i.i36
@@ -10075,7 +10075,7 @@ if.end.i.i.i54:                                   ; preds = %if.then4.i.i.i51
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end20.i.i.i38:                                 ; preds = %if.then.i.i.i36
-  %cmp21.i.i.i39 = icmp ugt i32 %and.i.i.i10, 1199566847
+  %cmp21.i.i.i39 = icmp samesign ugt i32 %and.i.i.i10, 1199566847
   br i1 %cmp21.i.i.i39, label %if.then23.i.i.i49, label %if.end27.i.i.i40
 
 if.then23.i.i.i49:                                ; preds = %if.end20.i.i.i38
@@ -10094,7 +10094,7 @@ if.end27.i.i.i40:                                 ; preds = %if.end20.i.i.i38
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end37.i.i.i14:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp38.i.i.i15 = icmp ult i32 %and.i.i.i10, 855638017
+  %cmp38.i.i.i15 = icmp samesign ult i32 %and.i.i.i10, 855638017
   br i1 %cmp38.i.i.i15, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59, label %if.end40.i.i.i16
 
 if.end40.i.i.i16:                                 ; preds = %if.end37.i.i.i14
@@ -10137,11 +10137,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds
   %shr.i.i.i61 = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i.i61 to i16
   %conv.i.i.i62 = and i16 %20, -32768
-  %cmp.i.i.i63 = icmp ugt i32 %and.i.i.i60, 947912703
+  %cmp.i.i.i63 = icmp samesign ugt i32 %and.i.i.i60, 947912703
   br i1 %cmp.i.i.i63, label %if.then.i.i.i86, label %if.end37.i.i.i64
 
 if.then.i.i.i86:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp2.i.i.i87 = icmp ugt i32 %and.i.i.i60, 2139095039
+  %cmp2.i.i.i87 = icmp samesign ugt i32 %and.i.i.i60, 2139095039
   br i1 %cmp2.i.i.i87, label %if.then4.i.i.i101, label %if.end20.i.i.i88
 
 if.then4.i.i.i101:                                ; preds = %if.then.i.i.i86
@@ -10160,7 +10160,7 @@ if.end.i.i.i104:                                  ; preds = %if.then4.i.i.i101
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end20.i.i.i88:                                 ; preds = %if.then.i.i.i86
-  %cmp21.i.i.i89 = icmp ugt i32 %and.i.i.i60, 1199566847
+  %cmp21.i.i.i89 = icmp samesign ugt i32 %and.i.i.i60, 1199566847
   br i1 %cmp21.i.i.i89, label %if.then23.i.i.i99, label %if.end27.i.i.i90
 
 if.then23.i.i.i99:                                ; preds = %if.end20.i.i.i88
@@ -10179,7 +10179,7 @@ if.end27.i.i.i90:                                 ; preds = %if.end20.i.i.i88
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end37.i.i.i64:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp38.i.i.i65 = icmp ult i32 %and.i.i.i60, 855638017
+  %cmp38.i.i.i65 = icmp samesign ult i32 %and.i.i.i60, 855638017
   br i1 %cmp38.i.i.i65, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109, label %if.end40.i.i.i66
 
 if.end40.i.i.i66:                                 ; preds = %if.end37.i.i.i64
@@ -10222,11 +10222,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109: ; pred
   %shr.i.i.i111 = lshr i32 %26, 16
   %28 = trunc nuw i32 %shr.i.i.i111 to i16
   %conv.i.i.i112 = and i16 %28, -32768
-  %cmp.i.i.i113 = icmp ugt i32 %and.i.i.i110, 947912703
+  %cmp.i.i.i113 = icmp samesign ugt i32 %and.i.i.i110, 947912703
   br i1 %cmp.i.i.i113, label %if.then.i.i.i136, label %if.end37.i.i.i114
 
 if.then.i.i.i136:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp2.i.i.i137 = icmp ugt i32 %and.i.i.i110, 2139095039
+  %cmp2.i.i.i137 = icmp samesign ugt i32 %and.i.i.i110, 2139095039
   br i1 %cmp2.i.i.i137, label %if.then4.i.i.i151, label %if.end20.i.i.i138
 
 if.then4.i.i.i151:                                ; preds = %if.then.i.i.i136
@@ -10245,7 +10245,7 @@ if.end.i.i.i154:                                  ; preds = %if.then4.i.i.i151
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end20.i.i.i138:                                ; preds = %if.then.i.i.i136
-  %cmp21.i.i.i139 = icmp ugt i32 %and.i.i.i110, 1199566847
+  %cmp21.i.i.i139 = icmp samesign ugt i32 %and.i.i.i110, 1199566847
   br i1 %cmp21.i.i.i139, label %if.then23.i.i.i149, label %if.end27.i.i.i140
 
 if.then23.i.i.i149:                               ; preds = %if.end20.i.i.i138
@@ -10264,7 +10264,7 @@ if.end27.i.i.i140:                                ; preds = %if.end20.i.i.i138
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end37.i.i.i114:                                ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp38.i.i.i115 = icmp ult i32 %and.i.i.i110, 855638017
+  %cmp38.i.i.i115 = icmp samesign ult i32 %and.i.i.i110, 855638017
   br i1 %cmp38.i.i.i115, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, label %if.end40.i.i.i116
 
 if.end40.i.i.i116:                                ; preds = %if.end37.i.i.i114
@@ -11222,11 +11222,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -11245,7 +11245,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -11264,7 +11264,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -11306,11 +11306,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i.i11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %shr.i.i.i11 to i16
   %conv.i.i.i12 = and i16 %12, -32768
-  %cmp.i.i.i13 = icmp ugt i32 %and.i.i.i10, 947912703
+  %cmp.i.i.i13 = icmp samesign ugt i32 %and.i.i.i10, 947912703
   br i1 %cmp.i.i.i13, label %if.then.i.i.i36, label %if.end37.i.i.i14
 
 if.then.i.i.i36:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp2.i.i.i37 = icmp ugt i32 %and.i.i.i10, 2139095039
+  %cmp2.i.i.i37 = icmp samesign ugt i32 %and.i.i.i10, 2139095039
   br i1 %cmp2.i.i.i37, label %if.then4.i.i.i51, label %if.end20.i.i.i38
 
 if.then4.i.i.i51:                                 ; preds = %if.then.i.i.i36
@@ -11329,7 +11329,7 @@ if.end.i.i.i54:                                   ; preds = %if.then4.i.i.i51
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end20.i.i.i38:                                 ; preds = %if.then.i.i.i36
-  %cmp21.i.i.i39 = icmp ugt i32 %and.i.i.i10, 1199566847
+  %cmp21.i.i.i39 = icmp samesign ugt i32 %and.i.i.i10, 1199566847
   br i1 %cmp21.i.i.i39, label %if.then23.i.i.i49, label %if.end27.i.i.i40
 
 if.then23.i.i.i49:                                ; preds = %if.end20.i.i.i38
@@ -11348,7 +11348,7 @@ if.end27.i.i.i40:                                 ; preds = %if.end20.i.i.i38
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end37.i.i.i14:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp38.i.i.i15 = icmp ult i32 %and.i.i.i10, 855638017
+  %cmp38.i.i.i15 = icmp samesign ult i32 %and.i.i.i10, 855638017
   br i1 %cmp38.i.i.i15, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59, label %if.end40.i.i.i16
 
 if.end40.i.i.i16:                                 ; preds = %if.end37.i.i.i14
@@ -11391,11 +11391,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds
   %shr.i.i.i61 = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i.i61 to i16
   %conv.i.i.i62 = and i16 %20, -32768
-  %cmp.i.i.i63 = icmp ugt i32 %and.i.i.i60, 947912703
+  %cmp.i.i.i63 = icmp samesign ugt i32 %and.i.i.i60, 947912703
   br i1 %cmp.i.i.i63, label %if.then.i.i.i86, label %if.end37.i.i.i64
 
 if.then.i.i.i86:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp2.i.i.i87 = icmp ugt i32 %and.i.i.i60, 2139095039
+  %cmp2.i.i.i87 = icmp samesign ugt i32 %and.i.i.i60, 2139095039
   br i1 %cmp2.i.i.i87, label %if.then4.i.i.i101, label %if.end20.i.i.i88
 
 if.then4.i.i.i101:                                ; preds = %if.then.i.i.i86
@@ -11414,7 +11414,7 @@ if.end.i.i.i104:                                  ; preds = %if.then4.i.i.i101
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end20.i.i.i88:                                 ; preds = %if.then.i.i.i86
-  %cmp21.i.i.i89 = icmp ugt i32 %and.i.i.i60, 1199566847
+  %cmp21.i.i.i89 = icmp samesign ugt i32 %and.i.i.i60, 1199566847
   br i1 %cmp21.i.i.i89, label %if.then23.i.i.i99, label %if.end27.i.i.i90
 
 if.then23.i.i.i99:                                ; preds = %if.end20.i.i.i88
@@ -11433,7 +11433,7 @@ if.end27.i.i.i90:                                 ; preds = %if.end20.i.i.i88
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end37.i.i.i64:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp38.i.i.i65 = icmp ult i32 %and.i.i.i60, 855638017
+  %cmp38.i.i.i65 = icmp samesign ult i32 %and.i.i.i60, 855638017
   br i1 %cmp38.i.i.i65, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109, label %if.end40.i.i.i66
 
 if.end40.i.i.i66:                                 ; preds = %if.end37.i.i.i64
@@ -11476,11 +11476,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109: ; pred
   %shr.i.i.i111 = lshr i32 %26, 16
   %28 = trunc nuw i32 %shr.i.i.i111 to i16
   %conv.i.i.i112 = and i16 %28, -32768
-  %cmp.i.i.i113 = icmp ugt i32 %and.i.i.i110, 947912703
+  %cmp.i.i.i113 = icmp samesign ugt i32 %and.i.i.i110, 947912703
   br i1 %cmp.i.i.i113, label %if.then.i.i.i136, label %if.end37.i.i.i114
 
 if.then.i.i.i136:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp2.i.i.i137 = icmp ugt i32 %and.i.i.i110, 2139095039
+  %cmp2.i.i.i137 = icmp samesign ugt i32 %and.i.i.i110, 2139095039
   br i1 %cmp2.i.i.i137, label %if.then4.i.i.i151, label %if.end20.i.i.i138
 
 if.then4.i.i.i151:                                ; preds = %if.then.i.i.i136
@@ -11499,7 +11499,7 @@ if.end.i.i.i154:                                  ; preds = %if.then4.i.i.i151
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end20.i.i.i138:                                ; preds = %if.then.i.i.i136
-  %cmp21.i.i.i139 = icmp ugt i32 %and.i.i.i110, 1199566847
+  %cmp21.i.i.i139 = icmp samesign ugt i32 %and.i.i.i110, 1199566847
   br i1 %cmp21.i.i.i139, label %if.then23.i.i.i149, label %if.end27.i.i.i140
 
 if.then23.i.i.i149:                               ; preds = %if.end20.i.i.i138
@@ -11518,7 +11518,7 @@ if.end27.i.i.i140:                                ; preds = %if.end20.i.i.i138
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end37.i.i.i114:                                ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp38.i.i.i115 = icmp ult i32 %and.i.i.i110, 855638017
+  %cmp38.i.i.i115 = icmp samesign ult i32 %and.i.i.i110, 855638017
   br i1 %cmp38.i.i.i115, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, label %if.end40.i.i.i116
 
 if.end40.i.i.i116:                                ; preds = %if.end37.i.i.i114
@@ -11780,12 +11780,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -11835,12 +11835,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   %shr.i.i11 = and i32 %7, 268427264
   %h.signext.i.i12 = sext i16 %6 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -11891,12 +11891,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit39: ; preds
   %shr.i.i41 = and i32 %13, 268427264
   %h.signext.i.i42 = sext i16 %12 to i32
   %shl3.i.i43 = and i32 %h.signext.i.i42, -2147483648
-  %cmp.i.i44 = icmp ugt i32 %shr.i.i41, 8388607
+  %cmp.i.i44 = icmp samesign ugt i32 %shr.i.i41, 8388607
   br i1 %cmp.i.i44, label %if.then.i.i55, label %if.else9.i.i45
 
 if.then.i.i55:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit39
   %or.i.i56 = or disjoint i32 %shr.i.i41, %shl3.i.i43
-  %cmp5.i.i57 = icmp ult i32 %shr.i.i41, 260046848
+  %cmp5.i.i57 = icmp samesign ult i32 %shr.i.i41, 260046848
   br i1 %cmp5.i.i57, label %if.then7.i.i60, label %if.else.i.i58
 
 if.then7.i.i60:                                   ; preds = %if.then.i.i55
@@ -11947,12 +11947,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit69: ; preds
   %shr.i.i71 = and i32 %19, 268427264
   %h.signext.i.i72 = sext i16 %18 to i32
   %shl3.i.i73 = and i32 %h.signext.i.i72, -2147483648
-  %cmp.i.i74 = icmp ugt i32 %shr.i.i71, 8388607
+  %cmp.i.i74 = icmp samesign ugt i32 %shr.i.i71, 8388607
   br i1 %cmp.i.i74, label %if.then.i.i85, label %if.else9.i.i75
 
 if.then.i.i85:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit69
   %or.i.i86 = or disjoint i32 %shr.i.i71, %shl3.i.i73
-  %cmp5.i.i87 = icmp ult i32 %shr.i.i71, 260046848
+  %cmp5.i.i87 = icmp samesign ult i32 %shr.i.i71, 260046848
   br i1 %cmp5.i.i87, label %if.then7.i.i90, label %if.else.i.i88
 
 if.then7.i.i90:                                   ; preds = %if.then.i.i85
@@ -12104,12 +12104,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -12159,12 +12159,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   %shr.i.i11 = and i32 %7, 268427264
   %h.signext.i.i12 = sext i16 %6 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -12215,12 +12215,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit39: ; preds
   %shr.i.i41 = and i32 %13, 268427264
   %h.signext.i.i42 = sext i16 %12 to i32
   %shl3.i.i43 = and i32 %h.signext.i.i42, -2147483648
-  %cmp.i.i44 = icmp ugt i32 %shr.i.i41, 8388607
+  %cmp.i.i44 = icmp samesign ugt i32 %shr.i.i41, 8388607
   br i1 %cmp.i.i44, label %if.then.i.i55, label %if.else9.i.i45
 
 if.then.i.i55:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit39
   %or.i.i56 = or disjoint i32 %shr.i.i41, %shl3.i.i43
-  %cmp5.i.i57 = icmp ult i32 %shr.i.i41, 260046848
+  %cmp5.i.i57 = icmp samesign ult i32 %shr.i.i41, 260046848
   br i1 %cmp5.i.i57, label %if.then7.i.i60, label %if.else.i.i58
 
 if.then7.i.i60:                                   ; preds = %if.then.i.i55
@@ -12271,12 +12271,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit69: ; preds
   %shr.i.i71 = and i32 %19, 268427264
   %h.signext.i.i72 = sext i16 %18 to i32
   %shl3.i.i73 = and i32 %h.signext.i.i72, -2147483648
-  %cmp.i.i74 = icmp ugt i32 %shr.i.i71, 8388607
+  %cmp.i.i74 = icmp samesign ugt i32 %shr.i.i71, 8388607
   br i1 %cmp.i.i74, label %if.then.i.i85, label %if.else9.i.i75
 
 if.then.i.i85:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit69
   %or.i.i86 = or disjoint i32 %shr.i.i71, %shl3.i.i73
-  %cmp5.i.i87 = icmp ult i32 %shr.i.i71, 260046848
+  %cmp5.i.i87 = icmp samesign ult i32 %shr.i.i71, 260046848
   br i1 %cmp5.i.i87, label %if.then7.i.i90, label %if.else.i.i88
 
 if.then7.i.i90:                                   ; preds = %if.then.i.i85
@@ -12425,12 +12425,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -12480,12 +12480,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   %shr.i.i11 = and i32 %7, 268427264
   %h.signext.i.i12 = sext i16 %6 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -12536,12 +12536,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit39: ; preds
   %shr.i.i41 = and i32 %13, 268427264
   %h.signext.i.i42 = sext i16 %12 to i32
   %shl3.i.i43 = and i32 %h.signext.i.i42, -2147483648
-  %cmp.i.i44 = icmp ugt i32 %shr.i.i41, 8388607
+  %cmp.i.i44 = icmp samesign ugt i32 %shr.i.i41, 8388607
   br i1 %cmp.i.i44, label %if.then.i.i55, label %if.else9.i.i45
 
 if.then.i.i55:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit39
   %or.i.i56 = or disjoint i32 %shr.i.i41, %shl3.i.i43
-  %cmp5.i.i57 = icmp ult i32 %shr.i.i41, 260046848
+  %cmp5.i.i57 = icmp samesign ult i32 %shr.i.i41, 260046848
   br i1 %cmp5.i.i57, label %if.then7.i.i60, label %if.else.i.i58
 
 if.then7.i.i60:                                   ; preds = %if.then.i.i55
@@ -12592,12 +12592,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit69: ; preds
   %shr.i.i71 = and i32 %19, 268427264
   %h.signext.i.i72 = sext i16 %18 to i32
   %shl3.i.i73 = and i32 %h.signext.i.i72, -2147483648
-  %cmp.i.i74 = icmp ugt i32 %shr.i.i71, 8388607
+  %cmp.i.i74 = icmp samesign ugt i32 %shr.i.i71, 8388607
   br i1 %cmp.i.i74, label %if.then.i.i85, label %if.else9.i.i75
 
 if.then.i.i85:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit69
   %or.i.i86 = or disjoint i32 %shr.i.i71, %shl3.i.i73
-  %cmp5.i.i87 = icmp ult i32 %shr.i.i71, 260046848
+  %cmp5.i.i87 = icmp samesign ult i32 %shr.i.i71, 260046848
   br i1 %cmp5.i.i87, label %if.then7.i.i90, label %if.else.i.i88
 
 if.then7.i.i90:                                   ; preds = %if.then.i.i85
@@ -12746,12 +12746,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -12801,12 +12801,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   %shr.i.i11 = and i32 %7, 268427264
   %h.signext.i.i12 = sext i16 %6 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -12857,12 +12857,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit39: ; preds
   %shr.i.i41 = and i32 %13, 268427264
   %h.signext.i.i42 = sext i16 %12 to i32
   %shl3.i.i43 = and i32 %h.signext.i.i42, -2147483648
-  %cmp.i.i44 = icmp ugt i32 %shr.i.i41, 8388607
+  %cmp.i.i44 = icmp samesign ugt i32 %shr.i.i41, 8388607
   br i1 %cmp.i.i44, label %if.then.i.i55, label %if.else9.i.i45
 
 if.then.i.i55:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit39
   %or.i.i56 = or disjoint i32 %shr.i.i41, %shl3.i.i43
-  %cmp5.i.i57 = icmp ult i32 %shr.i.i41, 260046848
+  %cmp5.i.i57 = icmp samesign ult i32 %shr.i.i41, 260046848
   br i1 %cmp5.i.i57, label %if.then7.i.i60, label %if.else.i.i58
 
 if.then7.i.i60:                                   ; preds = %if.then.i.i55
@@ -12913,12 +12913,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit69: ; preds
   %shr.i.i71 = and i32 %19, 268427264
   %h.signext.i.i72 = sext i16 %18 to i32
   %shl3.i.i73 = and i32 %h.signext.i.i72, -2147483648
-  %cmp.i.i74 = icmp ugt i32 %shr.i.i71, 8388607
+  %cmp.i.i74 = icmp samesign ugt i32 %shr.i.i71, 8388607
   br i1 %cmp.i.i74, label %if.then.i.i85, label %if.else9.i.i75
 
 if.then.i.i85:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit69
   %or.i.i86 = or disjoint i32 %shr.i.i71, %shl3.i.i73
-  %cmp5.i.i87 = icmp ult i32 %shr.i.i71, 260046848
+  %cmp5.i.i87 = icmp samesign ult i32 %shr.i.i71, 260046848
   br i1 %cmp5.i.i87, label %if.then7.i.i90, label %if.else.i.i88
 
 if.then7.i.i90:                                   ; preds = %if.then.i.i85
@@ -13067,12 +13067,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -13108,11 +13108,11 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %shr.i.i.i = lshr i32 %5, 16
   %7 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %7, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK9Imath_3_14halfcvfEv.exit
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -13131,7 +13131,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -13150,7 +13150,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %_ZNK9Imath_3_14halfcvfEv.exit
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -13188,12 +13188,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i11 = and i32 %12, 268427264
   %h.signext.i.i12 = sext i16 %11 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -13229,11 +13229,11 @@ _ZNK9Imath_3_14halfcvfEv.exit32:                  ; preds = %if.then7.i.i30, %if
   %shr.i.i.i34 = lshr i32 %16, 16
   %18 = trunc nuw i32 %shr.i.i.i34 to i16
   %conv.i.i.i35 = and i16 %18, -32768
-  %cmp.i.i.i36 = icmp ugt i32 %and.i.i.i33, 947912703
+  %cmp.i.i.i36 = icmp samesign ugt i32 %and.i.i.i33, 947912703
   br i1 %cmp.i.i.i36, label %if.then.i.i.i59, label %if.end37.i.i.i37
 
 if.then.i.i.i59:                                  ; preds = %_ZNK9Imath_3_14halfcvfEv.exit32
-  %cmp2.i.i.i60 = icmp ugt i32 %and.i.i.i33, 2139095039
+  %cmp2.i.i.i60 = icmp samesign ugt i32 %and.i.i.i33, 2139095039
   br i1 %cmp2.i.i.i60, label %if.then4.i.i.i74, label %if.end20.i.i.i61
 
 if.then4.i.i.i74:                                 ; preds = %if.then.i.i.i59
@@ -13252,7 +13252,7 @@ if.end.i.i.i77:                                   ; preds = %if.then4.i.i.i74
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit82
 
 if.end20.i.i.i61:                                 ; preds = %if.then.i.i.i59
-  %cmp21.i.i.i62 = icmp ugt i32 %and.i.i.i33, 1199566847
+  %cmp21.i.i.i62 = icmp samesign ugt i32 %and.i.i.i33, 1199566847
   br i1 %cmp21.i.i.i62, label %if.then23.i.i.i72, label %if.end27.i.i.i63
 
 if.then23.i.i.i72:                                ; preds = %if.end20.i.i.i61
@@ -13271,7 +13271,7 @@ if.end27.i.i.i63:                                 ; preds = %if.end20.i.i.i61
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit82
 
 if.end37.i.i.i37:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit32
-  %cmp38.i.i.i38 = icmp ult i32 %and.i.i.i33, 855638017
+  %cmp38.i.i.i38 = icmp samesign ult i32 %and.i.i.i33, 855638017
   br i1 %cmp38.i.i.i38, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit82, label %if.end40.i.i.i39
 
 if.end40.i.i.i39:                                 ; preds = %if.end37.i.i.i37
@@ -13310,12 +13310,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit82: ; preds
   %shr.i.i84 = and i32 %23, 268427264
   %h.signext.i.i85 = sext i16 %22 to i32
   %shl3.i.i86 = and i32 %h.signext.i.i85, -2147483648
-  %cmp.i.i87 = icmp ugt i32 %shr.i.i84, 8388607
+  %cmp.i.i87 = icmp samesign ugt i32 %shr.i.i84, 8388607
   br i1 %cmp.i.i87, label %if.then.i.i98, label %if.else9.i.i88
 
 if.then.i.i98:                                    ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit82
   %or.i.i99 = or disjoint i32 %shr.i.i84, %shl3.i.i86
-  %cmp5.i.i100 = icmp ult i32 %shr.i.i84, 260046848
+  %cmp5.i.i100 = icmp samesign ult i32 %shr.i.i84, 260046848
   br i1 %cmp5.i.i100, label %if.then7.i.i103, label %if.else.i.i101
 
 if.then7.i.i103:                                  ; preds = %if.then.i.i98
@@ -13351,11 +13351,11 @@ _ZNK9Imath_3_14halfcvfEv.exit105:                 ; preds = %if.then7.i.i103, %i
   %shr.i.i.i107 = lshr i32 %27, 16
   %29 = trunc nuw i32 %shr.i.i.i107 to i16
   %conv.i.i.i108 = and i16 %29, -32768
-  %cmp.i.i.i109 = icmp ugt i32 %and.i.i.i106, 947912703
+  %cmp.i.i.i109 = icmp samesign ugt i32 %and.i.i.i106, 947912703
   br i1 %cmp.i.i.i109, label %if.then.i.i.i132, label %if.end37.i.i.i110
 
 if.then.i.i.i132:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit105
-  %cmp2.i.i.i133 = icmp ugt i32 %and.i.i.i106, 2139095039
+  %cmp2.i.i.i133 = icmp samesign ugt i32 %and.i.i.i106, 2139095039
   br i1 %cmp2.i.i.i133, label %if.then4.i.i.i147, label %if.end20.i.i.i134
 
 if.then4.i.i.i147:                                ; preds = %if.then.i.i.i132
@@ -13374,7 +13374,7 @@ if.end.i.i.i150:                                  ; preds = %if.then4.i.i.i147
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit155
 
 if.end20.i.i.i134:                                ; preds = %if.then.i.i.i132
-  %cmp21.i.i.i135 = icmp ugt i32 %and.i.i.i106, 1199566847
+  %cmp21.i.i.i135 = icmp samesign ugt i32 %and.i.i.i106, 1199566847
   br i1 %cmp21.i.i.i135, label %if.then23.i.i.i145, label %if.end27.i.i.i136
 
 if.then23.i.i.i145:                               ; preds = %if.end20.i.i.i134
@@ -13393,7 +13393,7 @@ if.end27.i.i.i136:                                ; preds = %if.end20.i.i.i134
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit155
 
 if.end37.i.i.i110:                                ; preds = %_ZNK9Imath_3_14halfcvfEv.exit105
-  %cmp38.i.i.i111 = icmp ult i32 %and.i.i.i106, 855638017
+  %cmp38.i.i.i111 = icmp samesign ult i32 %and.i.i.i106, 855638017
   br i1 %cmp38.i.i.i111, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit155, label %if.end40.i.i.i112
 
 if.end40.i.i.i112:                                ; preds = %if.end37.i.i.i110
@@ -13432,12 +13432,12 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit155: ; pred
   %shr.i.i157 = and i32 %34, 268427264
   %h.signext.i.i158 = sext i16 %33 to i32
   %shl3.i.i159 = and i32 %h.signext.i.i158, -2147483648
-  %cmp.i.i160 = icmp ugt i32 %shr.i.i157, 8388607
+  %cmp.i.i160 = icmp samesign ugt i32 %shr.i.i157, 8388607
   br i1 %cmp.i.i160, label %if.then.i.i171, label %if.else9.i.i161
 
 if.then.i.i171:                                   ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit155
   %or.i.i172 = or disjoint i32 %shr.i.i157, %shl3.i.i159
-  %cmp5.i.i173 = icmp ult i32 %shr.i.i157, 260046848
+  %cmp5.i.i173 = icmp samesign ult i32 %shr.i.i157, 260046848
   br i1 %cmp5.i.i173, label %if.then7.i.i176, label %if.else.i.i174
 
 if.then7.i.i176:                                  ; preds = %if.then.i.i171
@@ -13473,11 +13473,11 @@ _ZNK9Imath_3_14halfcvfEv.exit178:                 ; preds = %if.then7.i.i176, %i
   %shr.i.i.i180 = lshr i32 %38, 16
   %40 = trunc nuw i32 %shr.i.i.i180 to i16
   %conv.i.i.i181 = and i16 %40, -32768
-  %cmp.i.i.i182 = icmp ugt i32 %and.i.i.i179, 947912703
+  %cmp.i.i.i182 = icmp samesign ugt i32 %and.i.i.i179, 947912703
   br i1 %cmp.i.i.i182, label %if.then.i.i.i205, label %if.end37.i.i.i183
 
 if.then.i.i.i205:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit178
-  %cmp2.i.i.i206 = icmp ugt i32 %and.i.i.i179, 2139095039
+  %cmp2.i.i.i206 = icmp samesign ugt i32 %and.i.i.i179, 2139095039
   br i1 %cmp2.i.i.i206, label %if.then4.i.i.i220, label %if.end20.i.i.i207
 
 if.then4.i.i.i220:                                ; preds = %if.then.i.i.i205
@@ -13496,7 +13496,7 @@ if.end.i.i.i223:                                  ; preds = %if.then4.i.i.i220
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit228
 
 if.end20.i.i.i207:                                ; preds = %if.then.i.i.i205
-  %cmp21.i.i.i208 = icmp ugt i32 %and.i.i.i179, 1199566847
+  %cmp21.i.i.i208 = icmp samesign ugt i32 %and.i.i.i179, 1199566847
   br i1 %cmp21.i.i.i208, label %if.then23.i.i.i218, label %if.end27.i.i.i209
 
 if.then23.i.i.i218:                               ; preds = %if.end20.i.i.i207
@@ -13515,7 +13515,7 @@ if.end27.i.i.i209:                                ; preds = %if.end20.i.i.i207
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit228
 
 if.end37.i.i.i183:                                ; preds = %_ZNK9Imath_3_14halfcvfEv.exit178
-  %cmp38.i.i.i184 = icmp ult i32 %and.i.i.i179, 855638017
+  %cmp38.i.i.i184 = icmp samesign ult i32 %and.i.i.i179, 855638017
   br i1 %cmp38.i.i.i184, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit228, label %if.end40.i.i.i185
 
 if.end40.i.i.i185:                                ; preds = %if.end37.i.i.i183
@@ -13652,12 +13652,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i = and i32 %1, 268427264
   %h.signext.i.i = sext i16 %0 to i32
   %shl3.i.i = and i32 %h.signext.i.i, -2147483648
-  %cmp.i.i = icmp ugt i32 %shr.i.i, 8388607
+  %cmp.i.i = icmp samesign ugt i32 %shr.i.i, 8388607
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %or.i.i = or disjoint i32 %shr.i.i, %shl3.i.i
-  %cmp5.i.i = icmp ult i32 %shr.i.i, 260046848
+  %cmp5.i.i = icmp samesign ult i32 %shr.i.i, 260046848
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
@@ -13695,12 +13695,12 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %shr.i.i11 = and i32 %6, 268427264
   %h.signext.i.i12 = sext i16 %5 to i32
   %shl3.i.i13 = and i32 %h.signext.i.i12, -2147483648
-  %cmp.i.i14 = icmp ugt i32 %shr.i.i11, 8388607
+  %cmp.i.i14 = icmp samesign ugt i32 %shr.i.i11, 8388607
   br i1 %cmp.i.i14, label %if.then.i.i25, label %if.else9.i.i15
 
 if.then.i.i25:                                    ; preds = %_ZNK9Imath_3_14halfcvfEv.exit
   %or.i.i26 = or disjoint i32 %shr.i.i11, %shl3.i.i13
-  %cmp5.i.i27 = icmp ult i32 %shr.i.i11, 260046848
+  %cmp5.i.i27 = icmp samesign ult i32 %shr.i.i11, 260046848
   br i1 %cmp5.i.i27, label %if.then7.i.i30, label %if.else.i.i28
 
 if.then7.i.i30:                                   ; preds = %if.then.i.i25
@@ -13739,12 +13739,12 @@ _ZNK9Imath_3_14halfcvfEv.exit32:                  ; preds = %if.then7.i.i30, %if
   %shr.i.i34 = and i32 %11, 268427264
   %h.signext.i.i35 = sext i16 %10 to i32
   %shl3.i.i36 = and i32 %h.signext.i.i35, -2147483648
-  %cmp.i.i37 = icmp ugt i32 %shr.i.i34, 8388607
+  %cmp.i.i37 = icmp samesign ugt i32 %shr.i.i34, 8388607
   br i1 %cmp.i.i37, label %if.then.i.i48, label %if.else9.i.i38
 
 if.then.i.i48:                                    ; preds = %_ZNK9Imath_3_14halfcvfEv.exit32
   %or.i.i49 = or disjoint i32 %shr.i.i34, %shl3.i.i36
-  %cmp5.i.i50 = icmp ult i32 %shr.i.i34, 260046848
+  %cmp5.i.i50 = icmp samesign ult i32 %shr.i.i34, 260046848
   br i1 %cmp5.i.i50, label %if.then7.i.i53, label %if.else.i.i51
 
 if.then7.i.i53:                                   ; preds = %if.then.i.i48
@@ -13783,12 +13783,12 @@ _ZNK9Imath_3_14halfcvfEv.exit55:                  ; preds = %if.then7.i.i53, %if
   %shr.i.i57 = and i32 %16, 268427264
   %h.signext.i.i58 = sext i16 %15 to i32
   %shl3.i.i59 = and i32 %h.signext.i.i58, -2147483648
-  %cmp.i.i60 = icmp ugt i32 %shr.i.i57, 8388607
+  %cmp.i.i60 = icmp samesign ugt i32 %shr.i.i57, 8388607
   br i1 %cmp.i.i60, label %if.then.i.i71, label %if.else9.i.i61
 
 if.then.i.i71:                                    ; preds = %_ZNK9Imath_3_14halfcvfEv.exit55
   %or.i.i72 = or disjoint i32 %shr.i.i57, %shl3.i.i59
-  %cmp5.i.i73 = icmp ult i32 %shr.i.i57, 260046848
+  %cmp5.i.i73 = icmp samesign ult i32 %shr.i.i57, 260046848
   br i1 %cmp5.i.i73, label %if.then7.i.i76, label %if.else.i.i74
 
 if.then7.i.i76:                                   ; preds = %if.then.i.i71
@@ -14604,11 +14604,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr.i.i.i = lshr i32 %2, 16
   %4 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %4, -32768
-  %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
+  %cmp.i.i.i = icmp samesign ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %cmp2.i.i.i = icmp ugt i32 %and.i.i.i, 2139095039
+  %cmp2.i.i.i = icmp samesign ugt i32 %and.i.i.i, 2139095039
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end20.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -14627,7 +14627,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end20.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cmp21.i.i.i = icmp ugt i32 %and.i.i.i, 1199566847
+  %cmp21.i.i.i = icmp samesign ugt i32 %and.i.i.i, 1199566847
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %if.end27.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end20.i.i.i
@@ -14646,7 +14646,7 @@ if.end27.i.i.i:                                   ; preds = %if.end20.i.i.i
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 if.end37.i.i.i:                                   ; preds = %for.body
-  %cmp38.i.i.i = icmp ult i32 %and.i.i.i, 855638017
+  %cmp38.i.i.i = icmp samesign ult i32 %and.i.i.i, 855638017
   br i1 %cmp38.i.i.i, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
@@ -14687,11 +14687,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   %shr.i.i.i11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %shr.i.i.i11 to i16
   %conv.i.i.i12 = and i16 %12, -32768
-  %cmp.i.i.i13 = icmp ugt i32 %and.i.i.i10, 947912703
+  %cmp.i.i.i13 = icmp samesign ugt i32 %and.i.i.i10, 947912703
   br i1 %cmp.i.i.i13, label %if.then.i.i.i36, label %if.end37.i.i.i14
 
 if.then.i.i.i36:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp2.i.i.i37 = icmp ugt i32 %and.i.i.i10, 2139095039
+  %cmp2.i.i.i37 = icmp samesign ugt i32 %and.i.i.i10, 2139095039
   br i1 %cmp2.i.i.i37, label %if.then4.i.i.i51, label %if.end20.i.i.i38
 
 if.then4.i.i.i51:                                 ; preds = %if.then.i.i.i36
@@ -14710,7 +14710,7 @@ if.end.i.i.i54:                                   ; preds = %if.then4.i.i.i51
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end20.i.i.i38:                                 ; preds = %if.then.i.i.i36
-  %cmp21.i.i.i39 = icmp ugt i32 %and.i.i.i10, 1199566847
+  %cmp21.i.i.i39 = icmp samesign ugt i32 %and.i.i.i10, 1199566847
   br i1 %cmp21.i.i.i39, label %if.then23.i.i.i49, label %if.end27.i.i.i40
 
 if.then23.i.i.i49:                                ; preds = %if.end20.i.i.i38
@@ -14729,7 +14729,7 @@ if.end27.i.i.i40:                                 ; preds = %if.end20.i.i.i38
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 if.end37.i.i.i14:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %cmp38.i.i.i15 = icmp ult i32 %and.i.i.i10, 855638017
+  %cmp38.i.i.i15 = icmp samesign ult i32 %and.i.i.i10, 855638017
   br i1 %cmp38.i.i.i15, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59, label %if.end40.i.i.i16
 
 if.end40.i.i.i16:                                 ; preds = %if.end37.i.i.i14
@@ -14771,11 +14771,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds
   %shr.i.i.i61 = lshr i32 %18, 16
   %20 = trunc nuw i32 %shr.i.i.i61 to i16
   %conv.i.i.i62 = and i16 %20, -32768
-  %cmp.i.i.i63 = icmp ugt i32 %and.i.i.i60, 947912703
+  %cmp.i.i.i63 = icmp samesign ugt i32 %and.i.i.i60, 947912703
   br i1 %cmp.i.i.i63, label %if.then.i.i.i86, label %if.end37.i.i.i64
 
 if.then.i.i.i86:                                  ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp2.i.i.i87 = icmp ugt i32 %and.i.i.i60, 2139095039
+  %cmp2.i.i.i87 = icmp samesign ugt i32 %and.i.i.i60, 2139095039
   br i1 %cmp2.i.i.i87, label %if.then4.i.i.i101, label %if.end20.i.i.i88
 
 if.then4.i.i.i101:                                ; preds = %if.then.i.i.i86
@@ -14794,7 +14794,7 @@ if.end.i.i.i104:                                  ; preds = %if.then4.i.i.i101
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end20.i.i.i88:                                 ; preds = %if.then.i.i.i86
-  %cmp21.i.i.i89 = icmp ugt i32 %and.i.i.i60, 1199566847
+  %cmp21.i.i.i89 = icmp samesign ugt i32 %and.i.i.i60, 1199566847
   br i1 %cmp21.i.i.i89, label %if.then23.i.i.i99, label %if.end27.i.i.i90
 
 if.then23.i.i.i99:                                ; preds = %if.end20.i.i.i88
@@ -14813,7 +14813,7 @@ if.end27.i.i.i90:                                 ; preds = %if.end20.i.i.i88
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
 
 if.end37.i.i.i64:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
-  %cmp38.i.i.i65 = icmp ult i32 %and.i.i.i60, 855638017
+  %cmp38.i.i.i65 = icmp samesign ult i32 %and.i.i.i60, 855638017
   br i1 %cmp38.i.i.i65, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109, label %if.end40.i.i.i66
 
 if.end40.i.i.i66:                                 ; preds = %if.end37.i.i.i64
@@ -14855,11 +14855,11 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109: ; pred
   %shr.i.i.i111 = lshr i32 %26, 16
   %28 = trunc nuw i32 %shr.i.i.i111 to i16
   %conv.i.i.i112 = and i16 %28, -32768
-  %cmp.i.i.i113 = icmp ugt i32 %and.i.i.i110, 947912703
+  %cmp.i.i.i113 = icmp samesign ugt i32 %and.i.i.i110, 947912703
   br i1 %cmp.i.i.i113, label %if.then.i.i.i136, label %if.end37.i.i.i114
 
 if.then.i.i.i136:                                 ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp2.i.i.i137 = icmp ugt i32 %and.i.i.i110, 2139095039
+  %cmp2.i.i.i137 = icmp samesign ugt i32 %and.i.i.i110, 2139095039
   br i1 %cmp2.i.i.i137, label %if.then4.i.i.i151, label %if.end20.i.i.i138
 
 if.then4.i.i.i151:                                ; preds = %if.then.i.i.i136
@@ -14878,7 +14878,7 @@ if.end.i.i.i154:                                  ; preds = %if.then4.i.i.i151
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end20.i.i.i138:                                ; preds = %if.then.i.i.i136
-  %cmp21.i.i.i139 = icmp ugt i32 %and.i.i.i110, 1199566847
+  %cmp21.i.i.i139 = icmp samesign ugt i32 %and.i.i.i110, 1199566847
   br i1 %cmp21.i.i.i139, label %if.then23.i.i.i149, label %if.end27.i.i.i140
 
 if.then23.i.i.i149:                               ; preds = %if.end20.i.i.i138
@@ -14897,7 +14897,7 @@ if.end27.i.i.i140:                                ; preds = %if.end20.i.i.i138
   br label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159
 
 if.end37.i.i.i114:                                ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit109
-  %cmp38.i.i.i115 = icmp ult i32 %and.i.i.i110, 855638017
+  %cmp38.i.i.i115 = icmp samesign ult i32 %and.i.i.i110, 855638017
   br i1 %cmp38.i.i.i115, label %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit159, label %if.end40.i.i.i116
 
 if.end40.i.i.i116:                                ; preds = %if.end37.i.i.i114

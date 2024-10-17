@@ -3203,7 +3203,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_25Ev() #2 personality
   %131 = add nuw nsw i64 %.016.i.i, 1
   %132 = load i32, ptr %125, align 4
   %133 = zext i32 %132 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %133
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %133
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc107, %122, %119
@@ -3565,7 +3565,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #2 personality
   %46 = add nuw nsw i64 %.016.i.i, 1
   %47 = load i32, ptr %40, align 4
   %48 = zext i32 %47 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %48
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %48
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc22, %37, %34
@@ -3931,7 +3931,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #2 personality
   %47 = add nuw nsw i64 %.016.i.i, 1
   %48 = load i32, ptr %41, align 4
   %49 = zext i32 %48 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %49
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %49
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc23, %38, %35
@@ -4749,7 +4749,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
   %160 = add nuw nsw i64 %.016.i.i, 1
   %161 = load i32, ptr %154, align 4
   %162 = zext i32 %161 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %162
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %162
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc136, %151, %148
@@ -5167,7 +5167,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #2 personality
   %60 = add nuw nsw i64 %.016.i.i, 1
   %61 = load i32, ptr %54, align 4
   %62 = zext i32 %61 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %62
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %62
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc36, %51, %48
@@ -5489,7 +5489,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
   %36 = add nuw nsw i64 %.016.i.i, 1
   %37 = load i32, ptr %30, align 4
   %38 = zext i32 %37 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %38
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %38
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc12, %27, %24
@@ -5863,7 +5863,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #2 personality
   %49 = add nuw nsw i64 %.016.i.i, 1
   %50 = load i32, ptr %43, align 4
   %51 = zext i32 %50 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %51
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %51
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc25, %40, %37
@@ -6361,7 +6361,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #2 personality
   %69 = add nuw nsw i64 %.016.i.i, 1
   %70 = load i32, ptr %63, align 4
   %71 = zext i32 %70 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %71
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %71
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc56, %60, %57
@@ -6795,7 +6795,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
   %59 = add nuw nsw i64 %.016.i.i, 1
   %60 = load i32, ptr %53, align 4
   %61 = zext i32 %60 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %61
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %61
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc40, %50, %47
@@ -7165,7 +7165,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #2 personality
   %45 = add nuw nsw i64 %.016.i.i, 1
   %46 = load i32, ptr %39, align 4
   %47 = zext i32 %46 to i64
-  %.not.not.i.i = icmp ult i64 %.016.i.i, %47
+  %.not.not.i.i = icmp samesign ult i64 %.016.i.i, %47
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !29
 
 .loopexit.i.i:                                    ; preds = %.noexc24, %36, %33
@@ -44579,7 +44579,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN
   %44 = add nuw nsw i64 %.016.i, 1
   %45 = load i32, ptr %38, align 4
   %46 = zext i32 %45 to i64
-  %.not.not.i = icmp ult i64 %.016.i, %46
+  %.not.not.i = icmp samesign ult i64 %.016.i, %46
   br i1 %.not.not.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %35, %32

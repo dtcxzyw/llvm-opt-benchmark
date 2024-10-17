@@ -3004,7 +3004,7 @@ define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1
   %11 = load i32, ptr %2, align 4
   %12 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %11, i32 noundef %3) #5
   %13 = zext i16 %12 to i32
-  %14 = icmp ugt i32 %6, %13
+  %14 = icmp samesign ugt i32 %6, %13
   br i1 %14, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %8, %18
@@ -3475,7 +3475,7 @@ tailrecurse.backedge:                             ; preds = %145, %201, %dissect
   store i32 %182, ptr %3, align 4
   %183 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %182) #5
   %184 = and i16 %162, 32767
-  %185 = icmp ugt i16 %184, 16
+  %185 = icmp samesign ugt i16 %184, 16
   br i1 %185, label %186, label %dissect_qnet6_kif_msgsend_msg_extra.exit
 
 186:                                              ; preds = %160
@@ -3741,7 +3741,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit511:      ; preds = %306, %311, %314
   store i32 %344, ptr %3, align 4
   %345 = add i32 %329, -6
   %346 = and i16 %331, 32767
-  %347 = icmp ugt i16 %346, 8
+  %347 = icmp samesign ugt i16 %346, 8
   br i1 %347, label %348, label %dissect_qnet6_kif_msgsend_msg_extra.exit347
 
 348:                                              ; preds = %327
@@ -3785,7 +3785,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit347:      ; preds = %327, %348, %352
   store i32 %373, ptr %3, align 4
   %374 = add i32 %362, -6
   %375 = and i16 %364, 32767
-  %376 = icmp ugt i16 %375, 8
+  %376 = icmp samesign ugt i16 %375, 8
   br i1 %376, label %377, label %dissect_qnet6_kif_msgsend_msg_extra.exit349
 
 377:                                              ; preds = %360
@@ -3839,7 +3839,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit349:      ; preds = %360, %377, %381
   store i32 %410, ptr %3, align 4
   %411 = add i32 %391, -14
   %412 = and i16 %393, 32767
-  %413 = icmp ugt i16 %412, 16
+  %413 = icmp samesign ugt i16 %412, 16
   br i1 %413, label %414, label %dissect_qnet6_kif_msgsend_msg_extra.exit351
 
 414:                                              ; preds = %389
@@ -3884,7 +3884,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit351:      ; preds = %389, %414, %418
   store i32 %440, ptr %3, align 4
   %441 = add i32 %428, -6
   %442 = and i16 %430, 32767
-  %443 = icmp ugt i16 %442, 8
+  %443 = icmp samesign ugt i16 %442, 8
   br i1 %443, label %444, label %dissect_qnet6_kif_msgsend_msg_extra.exit353
 
 444:                                              ; preds = %426
@@ -3933,7 +3933,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit353:      ; preds = %426, %444, %448
   store i32 %473, ptr %3, align 4
   %474 = add i32 %458, -10
   %475 = and i16 %460, 32767
-  %476 = icmp ugt i16 %475, 12
+  %476 = icmp samesign ugt i16 %475, 12
   br i1 %476, label %477, label %dissect_qnet6_kif_msgsend_msg_extra.exit355
 
 477:                                              ; preds = %456
@@ -3987,7 +3987,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit355:      ; preds = %456, %477, %481
   store i32 %510, ptr %3, align 4
   %511 = add i32 %491, -14
   %512 = and i16 %493, 32767
-  %513 = icmp ugt i16 %512, 16
+  %513 = icmp samesign ugt i16 %512, 16
   br i1 %513, label %514, label %dissect_qnet6_kif_msgsend_msg_extra.exit357
 
 514:                                              ; preds = %489
@@ -4045,7 +4045,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit357:      ; preds = %489, %514, %518
   store i32 %549, ptr %3, align 4
   %550 = add nsw i32 %528, -14
   %551 = and i16 %532, 32767
-  %552 = icmp ugt i16 %551, 16
+  %552 = icmp samesign ugt i16 %551, 16
   br i1 %552, label %553, label %dissect_qnet6_kif_msgsend_msg_extra.exit359
 
 553:                                              ; preds = %530
@@ -4094,7 +4094,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit359:      ; preds = %530, %553, %557
   store i32 %582, ptr %3, align 4
   %583 = add i32 %567, -10
   %584 = and i16 %569, 32767
-  %585 = icmp ugt i16 %584, 12
+  %585 = icmp samesign ugt i16 %584, 12
   br i1 %585, label %586, label %dissect_qnet6_kif_msgsend_msg_extra.exit361
 
 586:                                              ; preds = %565
@@ -4153,7 +4153,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit361:      ; preds = %565, %586, %590
   store i32 %623, ptr %3, align 4
   %624 = add i32 %600, -22
   %625 = and i16 %602, 32767
-  %626 = icmp ugt i16 %625, 24
+  %626 = icmp samesign ugt i16 %625, 24
   br i1 %626, label %627, label %dissect_qnet6_kif_msgsend_msg_extra.exit363
 
 627:                                              ; preds = %598
@@ -4192,7 +4192,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit363:      ; preds = %598, %627, %631
   store i32 %648, ptr %3, align 4
   %649 = add i32 %641, -2
   %650 = and i16 %643, 32767
-  %651 = icmp ugt i16 %650, 4
+  %651 = icmp samesign ugt i16 %650, 4
   br i1 %651, label %652, label %dissect_qnet6_kif_msgsend_msg_extra.exit365
 
 652:                                              ; preds = %639
@@ -4237,7 +4237,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit365:      ; preds = %639, %652, %656
   store i32 %678, ptr %3, align 4
   %679 = add i32 %666, -6
   %680 = and i16 %668, 32767
-  %681 = icmp ugt i16 %680, 8
+  %681 = icmp samesign ugt i16 %680, 8
   br i1 %681, label %682, label %dissect_qnet6_kif_msgsend_msg_extra.exit367
 
 682:                                              ; preds = %664
@@ -4306,7 +4306,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit367:      ; preds = %664, %682, %686
   store i32 %727, ptr %3, align 4
   %728 = add i32 %696, -66
   %729 = and i16 %698, 32767
-  %730 = icmp ugt i16 %729, 68
+  %730 = icmp samesign ugt i16 %729, 68
   br i1 %730, label %731, label %dissect_qnet6_kif_msgsend_msg_extra.exit369
 
 731:                                              ; preds = %694
@@ -4345,7 +4345,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit369:      ; preds = %694, %731, %735
   store i32 %752, ptr %3, align 4
   %753 = add i32 %745, -2
   %754 = and i16 %747, 32767
-  %755 = icmp ugt i16 %754, 4
+  %755 = icmp samesign ugt i16 %754, 4
   br i1 %755, label %756, label %dissect_qnet6_kif_msgsend_msg_extra.exit371
 
 756:                                              ; preds = %743
@@ -4404,7 +4404,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit371:      ; preds = %743, %756, %760
   store i32 %793, ptr %3, align 4
   %794 = add i32 %770, -86
   %795 = and i16 %772, 32767
-  %796 = icmp ugt i16 %795, 88
+  %796 = icmp samesign ugt i16 %795, 88
   br i1 %796, label %797, label %dissect_qnet6_kif_msgsend_msg_extra.exit373
 
 797:                                              ; preds = %768
@@ -4453,7 +4453,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit373:      ; preds = %768, %797, %801
   store i32 %826, ptr %3, align 4
   %827 = add i32 %811, -6
   %828 = and i16 %813, 32767
-  %829 = icmp ugt i16 %828, 8
+  %829 = icmp samesign ugt i16 %828, 8
   br i1 %829, label %830, label %dissect_qnet6_kif_msgsend_msg_extra.exit375
 
 830:                                              ; preds = %809
@@ -4671,7 +4671,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %809, %830, %834
 965:                                              ; preds = %955, %953
   %.1.i = phi i32 [ %964, %955 ], [ %.0.i343480, %953 ]
   %966 = shl nuw nsw i32 %.0143.i478, 1
-  %967 = icmp ult i32 %.0143.i478, 4
+  %967 = icmp samesign ult i32 %.0143.i478, 4
   br i1 %967, label %941, label %968, !llvm.loop !9
 
 968:                                              ; preds = %965
@@ -4754,7 +4754,7 @@ dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %920, %dissect_qnet6
   store i32 %1014, ptr %3, align 4
   %1015 = add i32 %996, -58
   %1016 = and i16 %998, 32767
-  %1017 = icmp ugt i16 %1016, 60
+  %1017 = icmp samesign ugt i16 %1016, 60
   br i1 %1017, label %1018, label %dissect_qnet6_kif_msgsend_msg_extra.exit379
 
 1018:                                             ; preds = %994

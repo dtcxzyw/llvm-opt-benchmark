@@ -10303,7 +10303,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   br i1 %602, label %.lr.ph36.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i.exit
 
 .lr.ph36.i:                                       ; preds = %._crit_edge702.thread
-  %603 = icmp ugt i32 %.0.lcssa866, 1
+  %603 = icmp samesign ugt i32 %.0.lcssa866, 1
   %wide.trip.count48.i = zext nneg i32 %601 to i64
   br i1 %603, label %.lr.ph.us.preheader.i, label %.lr.ph36.split.i
 
@@ -16931,7 +16931,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   br i1 %603, label %.lr.ph36.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit
 
 .lr.ph36.i:                                       ; preds = %._crit_edge702.thread
-  %604 = icmp ugt i32 %.0.lcssa866, 1
+  %604 = icmp samesign ugt i32 %.0.lcssa866, 1
   %wide.trip.count48.i = zext nneg i32 %602 to i64
   br i1 %604, label %.lr.ph.us.preheader.i, label %.lr.ph36.split.i
 

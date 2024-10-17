@@ -199,7 +199,7 @@ if.end38:                                         ; preds = %_ZN7Imf_3_214FastHu
   br label %for.inc83
 
 if.else:                                          ; preds = %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit
-  %cmp41 = icmp ugt i64 %and.i, 58
+  %cmp41 = icmp samesign ugt i64 %and.i, 58
   br i1 %cmp41, label %if.then42, label %if.else60
 
 if.then42:                                        ; preds = %if.else
@@ -301,7 +301,7 @@ invoke.cont63:                                    ; preds = %_ZNSt6vectorImSaImE
   %symbols.sroa.6.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %12 = load i8, ptr %_minCodeLength, align 8
   %conv65 = zext i8 %12 to i64
-  %cmp66 = icmp ult i64 %and.i, %conv65
+  %cmp66 = icmp samesign ult i64 %and.i, %conv65
   br i1 %cmp66, label %if.then67, label %if.end70
 
 if.then67:                                        ; preds = %invoke.cont63
@@ -312,7 +312,7 @@ if.then67:                                        ; preds = %invoke.cont63
 if.end70:                                         ; preds = %if.then67, %invoke.cont63
   %13 = load i8, ptr %_maxCodeLength, align 1
   %conv72 = zext i8 %13 to i64
-  %cmp73 = icmp ugt i64 %and.i, %conv72
+  %cmp73 = icmp samesign ugt i64 %and.i, %conv72
   br i1 %cmp73, label %if.then74, label %if.end77
 
 if.then74:                                        ; preds = %if.end70
@@ -400,7 +400,7 @@ for.body132:                                      ; preds = %for.body132.prehead
   %indvars.iv165.in = phi i64 [ %23, %for.body132.preheader ], [ %indvars.iv165, %for.end144 ]
   %indvars.iv165 = add nuw nsw i64 %indvars.iv165.in, 1
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %cmp137.not138.not = icmp ult i64 %indvars.iv172, %25
+  %cmp137.not138.not = icmp samesign ult i64 %indvars.iv172, %25
   br i1 %cmp137.not138.not, label %for.body138, label %for.end144
 
 for.body138:                                      ; preds = %for.body132, %for.body138
@@ -971,7 +971,7 @@ while.cond15:                                     ; preds = %while.cond15, %if.e
   %arrayidx17 = getelementptr inbounds [59 x i64], ptr %_ljBase, i64 0, i64 %indvars.iv
   %15 = load i64, ptr %arrayidx17, align 8
   %cmp18 = icmp ule i64 %15, %buffer.2
-  %cmp20.not = icmp ugt i64 %indvars.iv, %14
+  %cmp20.not = icmp samesign ugt i64 %indvars.iv, %14
   %or.cond = select i1 %cmp18, i1 true, i1 %cmp20.not
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %or.cond, label %while.end, label %while.cond15, !llvm.loop !19

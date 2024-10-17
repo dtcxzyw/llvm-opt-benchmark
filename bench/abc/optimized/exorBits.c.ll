@@ -141,7 +141,7 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, %30
   %38 = add nuw nsw i32 %37, %18
-  %39 = icmp ugt i32 %38, 4
+  %39 = icmp samesign ugt i32 %38, 4
   br i1 %39, label %.loopexit, label %9
 
 40:                                               ; preds = %41
@@ -235,7 +235,7 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, %36
   %43 = add nuw nsw i32 %42, %19
-  %44 = icmp ugt i32 %43, 4
+  %44 = icmp samesign ugt i32 %43, 4
   br i1 %44, label %.loopexit, label %9
 
 45:                                               ; preds = %46

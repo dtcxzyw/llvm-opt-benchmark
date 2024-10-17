@@ -80,7 +80,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %R, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.i6 = icmp ugt i32 %and.i, 32
+  %cmp.i6 = icmp samesign ugt i32 %and.i, 32
   br i1 %cmp.i6, label %if.then.i, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -389,7 +389,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit101: ; preds = %_ZN
   %add.i100 = add i32 %41, 1
   store i32 %add.i100, ptr %Size.i.i.i.i.i.i, align 8
   %42 = and i16 %cond.i, 15
-  %cmp1.i102 = icmp ult i16 %42, 10
+  %cmp1.i102 = icmp samesign ult i16 %42, 10
   %conv.i103 = or disjoint i16 %42, 48
   %conv3.i104 = add nuw nsw i16 %42, 55
   %retval.0.i105 = select i1 %cmp1.i102, i16 %conv.i103, i16 %conv3.i104
@@ -437,7 +437,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit134: ; preds = %_ZN
   store i32 %add.i133, ptr %Size.i.i.i.i.i.i, align 8
   %49 = lshr i16 %cond.i, 8
   %50 = and i16 %49, 15
-  %cmp1.i135 = icmp ult i16 %50, 10
+  %cmp1.i135 = icmp samesign ult i16 %50, 10
   %conv.i136 = or disjoint i16 %50, 48
   %conv3.i137 = add nuw nsw i16 %50, 55
   %retval.0.i138 = select i1 %cmp1.i135, i16 %conv.i136, i16 %conv3.i137
@@ -461,7 +461,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit149: ; preds = %_ZN
   store i32 %add.i148, ptr %Size.i.i.i.i.i.i, align 8
   %55 = lshr i16 %cond.i, 4
   %56 = and i16 %55, 15
-  %cmp1.i150 = icmp ult i16 %56, 10
+  %cmp1.i150 = icmp samesign ult i16 %56, 10
   %conv.i151 = or disjoint i16 %56, 48
   %conv3.i152 = add nuw nsw i16 %56, 55
   %retval.0.i153 = select i1 %cmp1.i150, i16 %conv.i151, i16 %conv3.i152
@@ -484,7 +484,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit164: ; preds = %_ZN
   %add.i163 = add i32 %60, 1
   store i32 %add.i163, ptr %Size.i.i.i.i.i.i, align 8
   %61 = and i16 %cond.i, 15
-  %cmp1.i165 = icmp ult i16 %61, 10
+  %cmp1.i165 = icmp samesign ult i16 %61, 10
   %conv.i166 = or disjoint i16 %61, 48
   %conv3.i167 = add nuw nsw i16 %61, 55
   %retval.0.i168 = select i1 %cmp1.i165, i16 %conv.i166, i16 %conv3.i167
@@ -633,7 +633,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %R, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.i26 = icmp ugt i32 %and.i, 32
+  %cmp.i26 = icmp samesign ugt i32 %and.i, 32
   br i1 %cmp.i26, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit.thread, label %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -2825,7 +2825,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit147: ; preds = %_ZN
   %add.i146 = add i32 %42, 1
   store i32 %add.i146, ptr %Size.i.i.i.i.i.i, align 8
   %and49 = and i32 %conv45236, 15
-  %cmp1.i148 = icmp ult i32 %and49, 10
+  %cmp1.i148 = icmp samesign ult i32 %and49, 10
   %43 = trunc nuw nsw i32 %and49 to i16
   %conv.i149 = or disjoint i16 %43, 48
   %conv3.i150 = add nuw nsw i16 %43, 55
@@ -3678,8 +3678,8 @@ for.inc:                                          ; preds = %land.rhs48
 
 for.end:                                          ; preds = %land.rhs48
   %cmp55 = icmp eq i32 %n.0597, 1
-  %cmp56 = icmp ugt i32 %n.0597, 4
-  %or.cond = or i1 %cmp55, %cmp56
+  %cmp56 = icmp samesign ugt i32 %n.0597, 4
+  %or.cond = select i1 %cmp55, i1 true, i1 %cmp56
   br i1 %or.cond, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %for.end, %for.inc
@@ -3713,7 +3713,7 @@ if.end60:                                         ; preds = %for.end
   br i1 %retval.0.i.i224, label %if.then66, label %for.cond70.preheader
 
 for.cond70.preheader:                             ; preds = %if.end60
-  %cmp71598 = icmp ugt i32 %n.0597, 1
+  %cmp71598 = icmp samesign ugt i32 %n.0597, 1
   %wide.trip.count = zext nneg i32 %n.0597 to i64
   br i1 %cmp71598, label %for.body72, label %for.end115
 

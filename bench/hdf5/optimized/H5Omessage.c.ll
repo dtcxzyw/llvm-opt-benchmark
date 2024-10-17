@@ -1830,7 +1830,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
   %55 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 255
-  %58 = icmp ugt i32 %52, %57
+  %58 = icmp samesign ugt i32 %52, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %49

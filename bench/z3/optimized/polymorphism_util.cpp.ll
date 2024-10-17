@@ -2002,7 +2002,7 @@ _ZN7obj_refI4sort11ast_managerED2Ev.exit327:      ; preds = %entry.if.end_crit_e
   %indvars.iv.next737 = add nuw nsw i64 %indvars.iv736, 1
   %127 = load i32, ptr %m_num_decls.i, align 4
   %128 = zext i32 %127 to i64
-  %cmp122 = icmp ult i64 %indvars.iv.next737, %128
+  %cmp122 = icmp samesign ult i64 %indvars.iv.next737, %128
   br i1 %cmp122, label %invoke.cont125, label %invoke.cont146, !llvm.loop !17
 
 lpad128:                                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i
@@ -2468,7 +2468,7 @@ _ZN7obj_refI4sort11ast_managerED2Ev.exit542:      ; preds = %entry.if.end_crit_e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %203 = load i32, ptr %m_arity.i, align 8
   %204 = zext i32 %203 to i64
-  %cmp217 = icmp ult i64 %indvars.iv.next, %204
+  %cmp217 = icmp samesign ult i64 %indvars.iv.next, %204
   br i1 %cmp217, label %for.body218, label %for.end228, !llvm.loop !18
 
 lpad223:                                          ; preds = %if.end.i.i.i.i.i521, %if.then.i.i502
@@ -4643,7 +4643,7 @@ if.end.i.i.i:                                     ; preds = %cond.false.i
 
 invoke.cont19:                                    ; preds = %if.end.i.i.i, %cond.false.i
   %cond.i = phi i64 [ %36, %if.end.i.i.i ], [ 0, %cond.false.i ]
-  %cmp = icmp ult i64 %indvars.iv, %cond.i
+  %cmp = icmp samesign ult i64 %indvars.iv, %cond.i
   br i1 %cmp, label %invoke.cont21, label %invoke.cont53.thread226
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -5562,7 +5562,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

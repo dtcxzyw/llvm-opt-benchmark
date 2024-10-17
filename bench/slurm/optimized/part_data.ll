@@ -156,7 +156,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %34 = load i32, ptr %15, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next246, %35
+  %36 = icmp samesign ult i64 %indvars.iv.next246, %35
   br i1 %36, label %.lr.ph190, label %.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -185,7 +185,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %46 = load i16, ptr %12, align 8
   %47 = zext i16 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next243, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next243, %47
   br i1 %48, label %.lr.ph187, label %.loopexit, !llvm.loop !9
 
 49:                                               ; preds = %._crit_edge
@@ -282,7 +282,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   %99 = getelementptr inbounds i8, ptr %98, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %indvars.iv.next210, %101
+  %102 = icmp samesign ult i64 %indvars.iv.next210, %101
   br i1 %102, label %.lr.ph168, label %._crit_edge169.loopexit, !llvm.loop !10
 
 ._crit_edge169.loopexit:                          ; preds = %.lr.ph168
@@ -304,7 +304,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %111 = load i16, ptr %12, align 8
   %112 = zext i16 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next215, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next215, %112
   br i1 %113, label %.preheader157, label %._crit_edge175, !llvm.loop !11
 
 ._crit_edge175:                                   ; preds = %._crit_edge169, %66
@@ -380,7 +380,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %139 = load i16, ptr %12, align 8
   %140 = zext i16 %139 to i64
-  %141 = icmp ult i64 %indvars.iv.next223, %140
+  %141 = icmp samesign ult i64 %indvars.iv.next223, %140
   br i1 %141, label %142, label %.loopexit154, !llvm.loop !13
 
 142:                                              ; preds = %.lr.ph178, %138
@@ -460,7 +460,7 @@ part_data_add_job_to_row.exit:                    ; preds = %159, %164
 .loopexit.i:                                      ; preds = %.lr.ph19.i, %.loopexit.loopexit.i
   %.pre-phi29.i = phi i64 [ %.pre28.i, %.loopexit.loopexit.i ], [ %180, %.lr.ph19.i ]
   %177 = phi i16 [ %194, %.loopexit.loopexit.i ], [ %179, %.lr.ph19.i ]
-  %178 = icmp ult i64 %indvars.iv.next25.i, %.pre-phi29.i
+  %178 = icmp samesign ult i64 %indvars.iv.next25.i, %.pre-phi29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %178, label %.lr.ph19.i, label %part_data_sort_res.exit, !llvm.loop !14
 
@@ -470,7 +470,7 @@ part_data_add_job_to_row.exit:                    ; preds = %159, %164
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 1, %.preheader.i ]
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %180 = zext i16 %179 to i64
-  %181 = icmp ult i64 %indvars.iv.next25.i, %180
+  %181 = icmp samesign ult i64 %indvars.iv.next25.i, %180
   br i1 %181, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %193
@@ -501,7 +501,7 @@ part_data_add_job_to_row.exit:                    ; preds = %159, %164
   %195 = phi i16 [ %183, %.lr.ph.i ], [ %.pre.i136, %192 ]
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %196 = zext i16 %195 to i64
-  %197 = icmp ult i64 %indvars.iv.next22.i, %196
+  %197 = icmp samesign ult i64 %indvars.iv.next22.i, %196
   br i1 %197, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !15
 
 part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.loopexit154, %.preheader.i
@@ -611,7 +611,7 @@ part_data_destroy_row.exit:                       ; preds = %216, %213
   %236 = getelementptr inbounds i8, ptr %235, i64 12
   %237 = load i32, ptr %236, align 4
   %238 = zext i32 %237 to i64
-  %239 = icmp ult i64 %indvars.iv.next237, %238
+  %239 = icmp samesign ult i64 %indvars.iv.next237, %238
   br i1 %239, label %.lr.ph183, label %.loopexit150, !llvm.loop !19
 
 .loopexit150:                                     ; preds = %.lr.ph183, %.lr.ph185
@@ -619,7 +619,7 @@ part_data_destroy_row.exit:                       ; preds = %216, %213
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %241 = load i16, ptr %12, align 8
   %242 = zext i16 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next240, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next240, %242
   br i1 %243, label %.lr.ph185, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %198, %.loopexit150, %part_data_destroy_row.exit
@@ -775,7 +775,7 @@ define void @part_data_dump_res(ptr nocapture noundef readonly %0) local_unnamed
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr @node_record_count, align 4
   %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next, %50
+  %51 = icmp samesign ult i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %48, %34, %.preheader
@@ -801,7 +801,7 @@ define void @part_data_dump_res(ptr nocapture noundef readonly %0) local_unnamed
   %62 = phi i16 [ %22, %.lr.ph42 ], [ %.pre, %60 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %63 = zext i16 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next47, %63
+  %64 = icmp samesign ult i64 %indvars.iv.next47, %63
   br i1 %64, label %.lr.ph42, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %61, %.preheader35, %17
@@ -971,7 +971,7 @@ define void @part_data_sort_res(ptr nocapture noundef readonly %0) local_unnamed
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph19
   %.pre-phi29 = phi i64 [ %.pre28, %.loopexit.loopexit ], [ %10, %.lr.ph19 ]
   %7 = phi i16 [ %24, %.loopexit.loopexit ], [ %9, %.lr.ph19 ]
-  %8 = icmp ult i64 %indvars.iv.next25, %.pre-phi29
+  %8 = icmp samesign ult i64 %indvars.iv.next25, %.pre-phi29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %8, label %.lr.ph19, label %.loopexit16, !llvm.loop !14
 
@@ -981,7 +981,7 @@ define void @part_data_sort_res(ptr nocapture noundef readonly %0) local_unnamed
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %.preheader ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %10 = zext i16 %9 to i64
-  %11 = icmp ult i64 %indvars.iv.next25, %10
+  %11 = icmp samesign ult i64 %indvars.iv.next25, %10
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph19, %23
@@ -1012,7 +1012,7 @@ define void @part_data_sort_res(ptr nocapture noundef readonly %0) local_unnamed
   %25 = phi i16 [ %13, %.lr.ph ], [ %.pre, %22 ]
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %26 = zext i16 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next22, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next22, %26
   br i1 %27, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !15
 
 .loopexit16:                                      ; preds = %.loopexit, %.preheader, %1

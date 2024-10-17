@@ -247,7 +247,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %156 = phi ptr [ %153, %.thread34 ], [ %115, %113 ]
   %157 = phi ptr [ %154, %.thread34 ], [ %116, %113 ]
   %158 = lshr i64 %114, 1
-  %159 = icmp ult i64 %114, 2
+  %159 = icmp samesign ult i64 %114, 2
   br i1 %159, label %.loopexit53, label %113, !llvm.loop !11
 
 .loopexit53:                                      ; preds = %155, %.loopexit54..loopexit53_crit_edge, %22
@@ -255,7 +255,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %161 = phi ptr [ %25, %22 ], [ %32, %.loopexit54..loopexit53_crit_edge ], [ %32, %155 ]
   %162 = phi i64 [ %23, %22 ], [ %.pre123, %.loopexit54..loopexit53_crit_edge ], [ %100, %155 ]
   %163 = shl nuw nsw i64 %24, 1
-  %164 = icmp ult i64 %24, 2
+  %164 = icmp samesign ult i64 %24, 2
   br i1 %164, label %22, label %.loopexit55, !llvm.loop !12
 
 .loopexit55:                                      ; preds = %.loopexit53, %9
@@ -505,7 +505,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %320 = phi ptr [ %283, %.split96.us ], [ %260, %258 ]
   %321 = phi ptr [ %284, %.split96.us ], [ %261, %258 ]
   %322 = lshr i64 %259, 1
-  %323 = icmp ult i64 %259, 2
+  %323 = icmp samesign ult i64 %259, 2
   br i1 %323, label %.loopexit, label %258, !llvm.loop !15
 
 .loopexit:                                        ; preds = %319, %.loopexit45..loopexit_crit_edge

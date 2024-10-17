@@ -2860,7 +2860,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %273 = load i32, ptr %133, align 8
   %274 = mul nsw i32 %273, %273
   %275 = zext nneg i32 %274 to i64
-  %276 = icmp ult i64 %indvars.iv.next448, %275
+  %276 = icmp samesign ult i64 %indvars.iv.next448, %275
   br i1 %276, label %242, label %.loopexit395, !llvm.loop !15
 
 277:                                              ; preds = %.loopexit407

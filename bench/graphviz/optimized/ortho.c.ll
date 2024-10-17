@@ -192,7 +192,7 @@ define void @orthoEdges(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
   %61 = lshr i32 %60, 4
-  %.not151 = icmp ugt i32 %55, %61
+  %.not151 = icmp samesign ugt i32 %55, %61
   br i1 %.not151, label %65, label %62
 
 62:                                               ; preds = %47

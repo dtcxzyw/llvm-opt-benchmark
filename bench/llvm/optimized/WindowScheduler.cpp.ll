@@ -8299,7 +8299,7 @@ define dso_local void @_ZN4llvm15WindowScheduler6expandEv(ptr noundef nonnull al
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %16
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
+  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
   br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPSt5tupleIJPN4llvm12MachineInstrEiiiEES4_EC2ES5_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !59
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i

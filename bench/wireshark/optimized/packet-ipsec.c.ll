@@ -1259,7 +1259,7 @@ define internal void @ipsec_cleanup_protocol() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr @extra_esp_sa_records.0, align 8
   %5 = zext i32 %4 to i64
-  %6 = icmp ult i64 %indvars.iv.next, %5
+  %6 = icmp samesign ult i64 %indvars.iv.next, %5
   br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -3137,7 +3137,7 @@ define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noun
   %69 = getelementptr i8, ptr %67, i64 %68
   store i8 %66, ptr %69, align 1
   %70 = add i32 %.186, 1
-  %71 = icmp ult i64 %indvars.iv.next, %41
+  %71 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %63
@@ -3615,12 +3615,12 @@ define internal fastcc range(i32 0, 2) i32 @get_full_ipv4_addr(ptr nocapture nou
   %104 = shl nuw nsw i64 %indvars.iv.next, 2
   %105 = load i32, ptr %6, align 4
   %106 = zext i32 %105 to i64
-  %107 = icmp ugt i64 %104, %106
+  %107 = icmp samesign ugt i64 %104, %106
   br i1 %107, label %108, label %128
 
 108:                                              ; preds = %103
   %109 = shl nuw nsw i64 %indvars.iv, 2
-  %.not107 = icmp ult i64 %109, %106
+  %.not107 = icmp samesign ult i64 %109, %106
   br i1 %.not107, label %110, label %114
 
 110:                                              ; preds = %108
@@ -3763,7 +3763,7 @@ define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef nonnull %0,
   %46 = getelementptr i8, ptr %0, i64 %45
   store i8 48, ptr %46, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not59.not = icmp ult i64 %indvars.iv, %42
+  %.not59.not = icmp samesign ult i64 %indvars.iv, %42
   br i1 %.not59.not, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
@@ -3783,12 +3783,12 @@ define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef nonnull %0,
   %53 = shl nuw nsw i64 %indvars.iv.next72, 2
   %54 = load i32, ptr %6, align 4
   %55 = zext i32 %54 to i64
-  %56 = icmp ugt i64 %53, %55
+  %56 = icmp samesign ugt i64 %53, %55
   br i1 %56, label %57, label %77
 
 57:                                               ; preds = %52
   %58 = shl nuw nsw i64 %indvars.iv71, 2
-  %.not62 = icmp ult i64 %58, %55
+  %.not62 = icmp samesign ult i64 %58, %55
   br i1 %.not62, label %59, label %63
 
 59:                                               ; preds = %57

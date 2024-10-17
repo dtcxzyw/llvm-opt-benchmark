@@ -4764,7 +4764,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 34:                                               ; preds = %.lr.ph150, %46
   %35 = phi i64 [ 0, %.lr.ph150 ], [ %47, %46 ]
   %.sroa.6.0148 = phi i64 [ 0, %.lr.ph150 ], [ %39, %46 ]
-  %36 = icmp ult i64 %.sroa.6.0148, 11
+  %36 = icmp samesign ult i64 %.sroa.6.0148, 11
   call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i128, ptr %1, i64 %.sroa.6.0148
   %38 = getelementptr inbounds { [2 x i64] }, ptr %33, i64 %.sroa.6.0148
@@ -4794,7 +4794,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store i64 %47, ptr %29, align 8
   %48 = load i16, ptr %31, align 2, !noundef !13
   %49 = zext i16 %48 to i64
-  %50 = icmp ult i64 %39, %49
+  %50 = icmp samesign ult i64 %39, %49
   br i1 %50, label %34, label %._crit_edge151
 
 51:                                               ; preds = %._crit_edge, %._crit_edge151
@@ -4895,7 +4895,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 82:                                               ; preds = %.lr.ph, %106
   %.sroa.7.0147 = phi i64 [ 0, %.lr.ph ], [ %86, %106 ]
-  %83 = icmp ult i64 %.sroa.7.0147, 11
+  %83 = icmp samesign ult i64 %.sroa.7.0147, 11
   call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds i128, ptr %1, i64 %.sroa.7.0147
   %85 = getelementptr inbounds { [2 x i64] }, ptr %78, i64 %.sroa.7.0147
@@ -4975,7 +4975,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %110 = load i16, ptr %76, align 2, !noundef !13
   %111 = zext i16 %110 to i64
-  %112 = icmp ult i64 %86, %111
+  %112 = icmp samesign ult i64 %86, %111
   br i1 %112, label %82, label %._crit_edge
 
 .loopexit:                                        ; preds = %98

@@ -231,7 +231,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %90 = getelementptr inbounds i8, ptr %3, i64 %83
   store i8 %89, ptr %90, align 1
   %91 = add nuw nsw i64 %.0112, 8
-  %92 = icmp ult i64 %.0112, 56
+  %92 = icmp samesign ult i64 %.0112, 56
   br i1 %92, label %27, label %93, !llvm.loop !6
 
 93:                                               ; preds = %27

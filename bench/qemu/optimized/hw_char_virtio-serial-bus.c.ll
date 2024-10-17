@@ -1063,7 +1063,7 @@ if.end38:                                         ; preds = %if.end29
   %out_num = getelementptr inbounds i8, ptr %12, i64 12
   %16 = load i32, ptr %out_num, align 4
   %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end38, %if.end15.for.end_crit_edge, %if.then32, %if.then35
@@ -1211,7 +1211,7 @@ for.body:                                         ; preds = %if.end5, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %max_nr_ports, align 8
   %11 = zext i32 %10 to i64
-  %cmp34 = icmp ult i64 %indvars.iv.next, %11
+  %cmp34 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %if.end5
@@ -2505,7 +2505,7 @@ for.inc:                                          ; preds = %if.end19, %if.then2
   %nr_active_ports = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %nr_active_ports, align 8
   %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

@@ -40170,7 +40170,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.end.i.i.loope
   %w.0.lcssa.i.i.i.i.i.i = phi i64 [ -8652080075778251037, %_ZNK5boost10shared_ptrIN8QuantLib9SwapIndexEEptEv.exit ], [ %6, %while.end.i.i.loopexit.i.i.i.i ]
   %n.0.lcssa.i.i.i.i.i.i = phi i64 [ %4, %_ZNK5boost10shared_ptrIN8QuantLib9SwapIndexEEptEv.exit ], [ %sub.i.i.i.i.i.i, %while.end.i.i.loopexit.i.i.i.i ]
   %p.0.lcssa.i.i.i.i.i.i = phi ptr [ %3, %_ZNK5boost10shared_ptrIN8QuantLib9SwapIndexEEptEv.exit ], [ %add.ptr.i.i.i.i.i.i, %while.end.i.i.loopexit.i.i.i.i ]
-  %cmp7.i.i.i.i.i.i = icmp ugt i64 %n.0.lcssa.i.i.i.i.i.i, 3
+  %cmp7.i.i.i.i.i.i = icmp samesign ugt i64 %n.0.lcssa.i.i.i.i.i.i, 3
   br i1 %cmp7.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i

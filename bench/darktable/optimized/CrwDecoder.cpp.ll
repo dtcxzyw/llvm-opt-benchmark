@@ -391,7 +391,7 @@ define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_un
   %127 = zext nneg i32 %124 to i64
   %128 = add nuw nsw i64 %126, %127
   %129 = zext i32 %118 to i64
-  %130 = icmp ugt i64 %128, %129
+  %130 = icmp samesign ugt i64 %128, %129
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %123
@@ -404,7 +404,7 @@ define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_un
   %134 = icmp sgt i32 %118, -1
   tail call void @llvm.assume(i1 %134)
   %135 = add nuw nsw i32 %120, %124
-  %136 = icmp ule i32 %135, %118
+  %136 = icmp samesign ule i32 %135, %118
   tail call void @llvm.assume(i1 %136)
   %137 = icmp sgt i32 %120, -1
   tail call void @llvm.assume(i1 %137)
@@ -419,7 +419,7 @@ define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_un
   %144 = phi i32 [ %120, %121 ], [ %135, %132 ]
   %145 = zext i32 %144 to i64
   %146 = add nuw nsw i64 %145, 514
-  %147 = icmp ugt i64 %146, %140
+  %147 = icmp samesign ugt i64 %146, %140
   br i1 %147, label %148, label %149
 
 148:                                              ; preds = %139
@@ -430,7 +430,7 @@ define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_un
   %150 = add nuw nsw i32 %144, 514
   %151 = icmp sgt i32 %144, -1
   tail call void @llvm.assume(i1 %151)
-  %152 = icmp uge i32 %118, %150
+  %152 = icmp samesign uge i32 %118, %150
   tail call void @llvm.assume(i1 %152)
   %153 = icmp sgt i32 %118, -1
   tail call void @llvm.assume(i1 %153)
@@ -438,7 +438,7 @@ define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_un
   %155 = zext nneg i32 %150 to i64
   %156 = zext i32 %154 to i64
   %157 = add nuw nsw i64 %156, %155
-  %158 = icmp ugt i64 %157, %140
+  %158 = icmp samesign ugt i64 %157, %140
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %149

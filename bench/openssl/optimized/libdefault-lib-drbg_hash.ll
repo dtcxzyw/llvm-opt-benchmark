@@ -617,7 +617,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %21 = icmp ult i32 %add6.i, 256
+  %21 = icmp samesign ult i32 %add6.i, 256
   %.pre64 = load i64, ptr %seedlen, align 8
   %sub14.i = sub i64 %.pre64, %16
   %cmp16.not23.i = icmp eq i64 %sub14.i, 0
@@ -669,7 +669,7 @@ for.body.i21:                                     ; preds = %for.body.i21, %add_
   br i1 %cmp.not.i35, label %for.end.i36, label %for.body.i21, !llvm.loop !9
 
 for.end.i36:                                      ; preds = %for.body.i21
-  %28 = icmp ult i32 %add6.i30, 256
+  %28 = icmp samesign ult i32 %add6.i30, 256
   br i1 %28, label %land.end, label %if.then.i37
 
 if.then.i37:                                      ; preds = %for.end.i36
@@ -1034,7 +1034,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %9 = icmp ult i32 %add6.i, 256
+  %9 = icmp samesign ult i32 %add6.i, 256
   br i1 %9, label %land.end, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i

@@ -416,7 +416,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %66 = add nuw nsw i64 %65, %64
   %67 = add nuw nsw i64 %66, %62
   %68 = and i64 %67, 65535
-  %69 = icmp ult i64 %68, 17576
+  %69 = icmp samesign ult i64 %68, 17576
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %61
@@ -591,7 +591,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   %15 = load i16, ptr %14, align 2
   %16 = trunc i16 %15 to i8
   %.mask = and i16 %15, 255
-  %17 = icmp ugt i16 %.mask, 10
+  %17 = icmp samesign ugt i16 %.mask, 10
   %spec.store.select = select i1 %17, i8 10, i8 %16
   %.not39 = icmp eq i8 %spec.store.select, 0
   br i1 %.not39, label %26, label %18

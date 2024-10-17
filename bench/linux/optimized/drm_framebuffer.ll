@@ -525,7 +525,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %114 = load i8, ptr %99, align 1
   %115 = zext i8 %114 to i32
   %116 = zext i8 %114 to i64
-  %117 = icmp ult i64 %113, %116
+  %117 = icmp samesign ult i64 %113, %116
   br i1 %117, label %126, label %118, !llvm.loop !7
 
 118:                                              ; preds = %.thread74
@@ -558,7 +558,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %136 = add i32 %135, %134
   %137 = sdiv i32 %136, %134
   %138 = zext nneg i32 %128 to i64
-  %139 = icmp ult i64 %127, %138
+  %139 = icmp samesign ult i64 %127, %138
   br i1 %139, label %141, label %.thread17
 
 .thread18:                                        ; preds = %130
@@ -1410,7 +1410,7 @@ define dso_local i32 @drm_mode_getfb2_ioctl(ptr noundef %0, ptr noundef %1, ptr 
   %80 = getelementptr inbounds i8, ptr %79, i64 5
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
-  %83 = icmp ult i64 %78, %82
+  %83 = icmp samesign ult i64 %78, %82
   br i1 %83, label %64, label %.loopexit18, !llvm.loop !20
 
 .loopexit18:                                      ; preds = %77, %36
@@ -1504,7 +1504,7 @@ select.unfold:                                    ; preds = %128, %.loopexit16
   %133 = getelementptr inbounds i8, ptr %132, i64 5
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
-  %136 = icmp ult i64 %131, %135
+  %136 = icmp samesign ult i64 %131, %135
   br i1 %136, label %94, label %.thread15, !llvm.loop !25
 
 .thread13:                                        ; preds = %128, %24, %30
@@ -1531,7 +1531,7 @@ select.unfold:                                    ; preds = %128, %.loopexit16
 
 149:                                              ; preds = %147, %141
   %150 = add nuw nsw i64 %142, 1
-  %151 = icmp ult i64 %142, 3
+  %151 = icmp samesign ult i64 %142, 3
   br i1 %151, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %149, %158
@@ -2383,7 +2383,7 @@ define dso_local void @drm_framebuffer_print_info(ptr noundef %0, i32 noundef %1
   %37 = add i32 %36, %35
   %38 = sdiv i32 %37, %35
   %39 = zext i8 %27 to i64
-  %40 = icmp ult i64 %26, %39
+  %40 = icmp samesign ult i64 %26, %39
   br i1 %40, label %42, label %.thread
 
 .thread5:                                         ; preds = %30
@@ -2432,7 +2432,7 @@ define dso_local void @drm_framebuffer_print_info(ptr noundef %0, i32 noundef %1
   %67 = getelementptr inbounds i8, ptr %66, i64 5
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = icmp ult i64 %65, %69
+  %70 = icmp samesign ult i64 %65, %69
   br i1 %70, label %25, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %64, %3

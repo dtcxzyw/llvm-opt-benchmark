@@ -359,7 +359,7 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %92 = load i32, ptr @hf_clnp_pdu_length, align 4
   %93 = zext i16 %91 to i32
   %94 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %92, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %93) #2
-  %95 = icmp ult i32 %93, %36
+  %95 = icmp samesign ult i32 %93, %36
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %90
@@ -597,8 +597,8 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   %220 = sub nsw i32 %93, %36
   %221 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %214, i32 noundef %220) #2
   %.not338 = icmp ne i32 %221, 0
-  %222 = icmp ugt i32 %93, %36
-  %223 = and i1 %222, %.not338
+  %222 = icmp samesign ugt i32 %93, %36
+  %223 = select i1 %.not338, i1 %222, i1 false
   %or.cond346 = select i1 %223, i1 %.0318, i1 false
   br i1 %or.cond346, label %224, label %227
 

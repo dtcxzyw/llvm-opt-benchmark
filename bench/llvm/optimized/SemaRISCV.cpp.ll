@@ -5537,7 +5537,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp ugt i32 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %._crit_edge.i
@@ -6661,7 +6661,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
-  %.not.i.i = icmp ult i64 %8, 8
+  %.not.i.i = icmp samesign ult i64 %8, 8
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
@@ -8371,7 +8371,7 @@ _ZNK5clang9FPOptions15isFPConstrainedEv.exit:     ; preds = %._crit_edge, %79, %
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, -1040385
   store i32 %109, ptr %107, align 8
-  %110 = icmp ugt i64 %indvars.iv, 254
+  %110 = icmp samesign ugt i64 %indvars.iv, 254
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %104

@@ -811,7 +811,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlabel_init(i32 noundef 
   %19 = add nuw nsw i64 %15, 1
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
-  %22 = icmp ult i64 %19, %21
+  %22 = icmp samesign ult i64 %19, %21
   br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader
@@ -1659,7 +1659,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
-  %131 = icmp ult i64 %126, %130
+  %131 = icmp samesign ult i64 %126, %130
   br i1 %131, label %29, label %.loopexit41, !llvm.loop !26
 
 .loopexit41:                                      ; preds = %.loopexit40, %105, %71, %2

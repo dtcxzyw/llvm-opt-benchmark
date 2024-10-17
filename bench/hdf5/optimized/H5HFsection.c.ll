@@ -722,7 +722,7 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %3
   %29 = lshr i64 %.05079.i, 8
   %30 = load i8, ptr %20, align 1
   %31 = zext i8 %30 to i64
-  %32 = icmp ult i64 %28, %31
+  %32 = icmp samesign ult i64 %28, %31
   br i1 %32, label %.lr.ph82.i, label %.loopexit.i
 
 33:                                               ; preds = %tailrecurse._crit_edge.i
@@ -743,7 +743,7 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %3
   %38 = lshr i64 %.04774.i, 8
   %39 = load i8, ptr %20, align 1
   %40 = zext i8 %39 to i64
-  %41 = icmp ult i64 %37, %40
+  %41 = icmp samesign ult i64 %37, %40
   br i1 %41, label %.lr.ph77.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph77.i, %.lr.ph82.i, %33, %22
@@ -1997,7 +1997,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_row_revive(ptr noundef %0, ptr nocapture
   %36 = getelementptr inbounds i8, ptr %35, i64 80
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %indvars.iv.next.i, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %38
   br i1 %39, label %.lr.ph.i, label %H5HF__sect_row_parent_removed.exit
 
 H5HF__sect_row_parent_removed.exit:               ; preds = %.lr.ph.i, %21
@@ -2127,7 +2127,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_row_parent_removed(ptr n
   %29 = getelementptr inbounds i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -2623,7 +2623,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_indirect_add(ptr noundef %0, ptr noundef
   %21 = mul i64 %20, %16
   %22 = add i64 %21, %.04551
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp ult i64 %indvars.iv.next, %17
+  %23 = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %23, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %.._crit_edge_crit_edge
@@ -3460,14 +3460,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_shrink(ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %3, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %indvars.iv.next, %26
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
   br i1 %27, label %9, label %.preheader
 
 28:                                               ; preds = %32
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %29 = load i32, ptr %6, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %indvars.iv.next29, %30
+  %31 = icmp samesign ult i64 %indvars.iv.next29, %30
   br i1 %31, label %32, label %._crit_edge
 
 32:                                               ; preds = %.lr.ph24, %28
@@ -3633,7 +3633,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_revive(ptr noca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %19, align 8
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %29, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %10

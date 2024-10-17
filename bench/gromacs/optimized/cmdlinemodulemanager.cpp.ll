@@ -1735,7 +1735,7 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
 
 .critedge:                                        ; preds = %27, %.critedge.split.loop.exit
   %.048.lcssa = phi i32 [ %28, %.critedge.split.loop.exit ], [ %19, %27 ]
-  %29 = icmp ugt i32 %.048.lcssa, 1
+  %29 = icmp samesign ugt i32 %.048.lcssa, 1
   br i1 %29, label %30, label %.critedge.thread
 
 30:                                               ; preds = %.critedge

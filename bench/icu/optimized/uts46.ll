@@ -637,12 +637,12 @@ if.then21:                                        ; preds = %if.then19
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.then19
-  %cmp25 = icmp ugt i32 %cond.i, 253
-  %or.cond1 = and i1 %tobool93.not, %cmp25
+  %cmp25 = icmp samesign ugt i32 %cond.i, 253
+  %or.cond1 = select i1 %tobool93.not, i1 %cmp25, i1 false
   br i1 %or.cond1, label %land.lhs.true26, label %if.end34
 
 land.lhs.true26:                                  ; preds = %if.end23
-  %cmp27 = icmp ugt i32 %cond.i, 254
+  %cmp27 = icmp samesign ugt i32 %cond.i, 254
   %cmp29 = icmp slt i32 %.us-phi128, 254
   %or.cond90 = select i1 %cmp27, i1 true, i1 %cmp29
   br i1 %or.cond90, label %if.then30, label %if.end34
@@ -1204,12 +1204,12 @@ lpad:                                             ; preds = %if.end150, %if.else
   br label %ehcleanup
 
 if.end23:                                         ; preds = %if.then21, %if.then19
-  %cmp26 = icmp ugt i32 %src.coerce1, 253
-  %or.cond1 = and i1 %tobool101.not, %cmp26
+  %cmp26 = icmp samesign ugt i32 %src.coerce1, 253
+  %or.cond1 = select i1 %tobool101.not, i1 %cmp26, i1 false
   br i1 %or.cond1, label %land.lhs.true27, label %if.end34
 
 land.lhs.true27:                                  ; preds = %if.end23
-  %cmp28 = icmp ugt i32 %src.coerce1, 254
+  %cmp28 = icmp samesign ugt i32 %src.coerce1, 254
   %cmp29 = icmp slt i32 %.us-phi118, 254
   %or.cond97 = select i1 %cmp28, i1 true, i1 %cmp29
   br i1 %or.cond97, label %if.then30, label %if.end34
@@ -3536,7 +3536,7 @@ land.lhs.true:                                    ; preds = %if.then6
   %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 -2
   %3 = load i16, ptr %arrayidx10, align 2
   %cmp12 = icmp eq i16 %3, 108
-  %cmp14 = icmp ult i64 %indvars.iv, %0
+  %cmp14 = icmp samesign ult i64 %indvars.iv, %0
   %or.cond63 = select i1 %cmp12, i1 %cmp14, i1 false
   br i1 %or.cond63, label %land.lhs.true15, label %for.inc.sink.split
 
@@ -3547,7 +3547,7 @@ land.lhs.true15:                                  ; preds = %land.lhs.true
   br i1 %cmp19, label %for.inc, label %for.inc.sink.split
 
 if.then23:                                        ; preds = %if.then4
-  %cmp24 = icmp ult i64 %indvars.iv, %0
+  %cmp24 = icmp samesign ult i64 %indvars.iv, %0
   br i1 %cmp24, label %if.then25, label %for.inc.sink.split
 
 if.then25:                                        ; preds = %if.then23

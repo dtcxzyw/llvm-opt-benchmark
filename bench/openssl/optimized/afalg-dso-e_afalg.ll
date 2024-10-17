@@ -135,7 +135,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   store i32 %call4.i.i, ptr %arrayidx.i.i, align 4
   %call5.i.i = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp2.i.i = icmp ult i64 %indvars.iv.i.i, 2
+  %cmp2.i.i = icmp samesign ult i64 %indvars.iv.i.i, 2
   %cmp3.i.i = icmp ne ptr %call5.i.i, null
   %6 = select i1 %cmp2.i.i, i1 %cmp3.i.i, i1 false
   br i1 %6, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !4
@@ -1013,7 +1013,7 @@ if.then42.i:                                      ; preds = %if.then37.i
 
 if.then46.i:                                      ; preds = %if.then42.i
   %cmp49.i = icmp eq i64 %25, -16
-  %cmp51.i = icmp ult i32 %retry.0.i.ph, 3
+  %cmp51.i = icmp samesign ult i32 %retry.0.i.ph, 3
   %or.cond.i = select i1 %cmp49.i, i1 %cmp51.i, i1 false
   br i1 %or.cond.i, label %if.then53.i, label %if.else63.i
 

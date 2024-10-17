@@ -4180,13 +4180,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   %794 = call i32 @llvm.abs.i32(i32 %793, i1 true)
-  %795 = icmp ult i32 %794, 10
+  %795 = icmp samesign ult i32 %794, 10
   br i1 %795, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %789, %807
   %.02230.i.i = phi i32 [ %808, %807 ], [ %794, %789 ]
   %.02329.i.i = phi i32 [ %809, %807 ], [ 1, %789 ]
-  %796 = icmp ult i32 %.02230.i.i, 100
+  %796 = icmp samesign ult i32 %.02230.i.i, 100
   br i1 %796, label %797, label %799
 
 797:                                              ; preds = %.lr.ph.i.i
@@ -4194,7 +4194,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 799:                                              ; preds = %.lr.ph.i.i
-  %800 = icmp ult i32 %.02230.i.i, 1000
+  %800 = icmp samesign ult i32 %.02230.i.i, 1000
   br i1 %800, label %801, label %803
 
 801:                                              ; preds = %799
@@ -4202,7 +4202,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 803:                                              ; preds = %799
-  %804 = icmp ult i32 %.02230.i.i, 10000
+  %804 = icmp samesign ult i32 %.02230.i.i, 10000
   br i1 %804, label %805, label %807
 
 805:                                              ; preds = %803
@@ -4212,7 +4212,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
 807:                                              ; preds = %803
   %808 = udiv i32 %.02230.i.i, 10000
   %809 = add i32 %.02329.i.i, 4
-  %810 = icmp ult i32 %.02230.i.i, 100000
+  %810 = icmp samesign ult i32 %.02230.i.i, 100000
   br i1 %810, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %807, %805, %801, %797, %789
@@ -4268,7 +4268,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %807, %805, %801, %7
   %826 = zext nneg i32 %.lobit.i to i64
   %827 = load ptr, ptr %40, align 8, !alias.scope !32
   %828 = getelementptr inbounds i8, ptr %827, i64 %826
-  %829 = icmp ugt i32 %794, 99
+  %829 = icmp samesign ugt i32 %794, 99
   br i1 %829, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i332
 
 .lr.ph.preheader.i.i:                             ; preds = %823
@@ -4296,12 +4296,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %807, %805, %801, %7
   %845 = getelementptr inbounds i8, ptr %828, i64 %844
   store i8 %842, ptr %845, align 1
   %846 = add i32 %.01819.i.i, -2
-  %847 = icmp ugt i32 %.020.i.i, 9999
+  %847 = icmp samesign ugt i32 %.020.i.i, 9999
   br i1 %847, label %.lr.ph.i11.i, label %._crit_edge.i.i332, !llvm.loop !36
 
 ._crit_edge.i.i332:                               ; preds = %.lr.ph.i11.i, %823
   %.0.lcssa.i.i = phi i32 [ %794, %823 ], [ %833, %.lr.ph.i11.i ]
-  %848 = icmp ugt i32 %.0.lcssa.i.i, 9
+  %848 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
   br i1 %848, label %849, label %859
 
 849:                                              ; preds = %._crit_edge.i.i332
@@ -4685,7 +4685,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %957 = icmp ult i64 %951, 16
   call void @llvm.assume(i1 %957)
-  %.not.i.i.i350 = icmp ugt i64 %954, 15
+  %.not.i.i.i350 = icmp samesign ugt i64 %954, 15
   br i1 %.not.i.i.i350, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i532, label %959
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -8260,7 +8260,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp ult i64 %.04561, 2
+  %.not49 = icmp samesign ult i64 %.04561, 2
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !63
 
 .critedge:                                        ; preds = %27

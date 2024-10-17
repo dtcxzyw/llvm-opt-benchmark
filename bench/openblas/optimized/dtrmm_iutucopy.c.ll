@@ -48,18 +48,18 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %46 = mul nsw i64 %45, %3
   %47 = shl nsw i64 %3, 4
   %48 = icmp eq i64 %13, 1
-  %49 = icmp ugt i64 %13, 2
-  %50 = icmp ugt i64 %13, 3
-  %51 = icmp ugt i64 %13, 4
-  %52 = icmp ugt i64 %13, 5
-  %53 = icmp ugt i64 %13, 6
-  %54 = icmp ugt i64 %13, 7
-  %55 = icmp ugt i64 %13, 8
-  %56 = icmp ugt i64 %13, 9
-  %57 = icmp ugt i64 %13, 10
-  %58 = icmp ugt i64 %13, 11
-  %59 = icmp ugt i64 %13, 12
-  %60 = icmp ugt i64 %13, 13
+  %49 = icmp samesign ugt i64 %13, 2
+  %50 = icmp samesign ugt i64 %13, 3
+  %51 = icmp samesign ugt i64 %13, 4
+  %52 = icmp samesign ugt i64 %13, 5
+  %53 = icmp samesign ugt i64 %13, 6
+  %54 = icmp samesign ugt i64 %13, 7
+  %55 = icmp samesign ugt i64 %13, 8
+  %56 = icmp samesign ugt i64 %13, 9
+  %57 = icmp samesign ugt i64 %13, 10
+  %58 = icmp samesign ugt i64 %13, 11
+  %59 = icmp samesign ugt i64 %13, 12
+  %60 = icmp samesign ugt i64 %13, 13
   %61 = icmp eq i64 %13, 15
   %62 = and i64 %0, -16
   %63 = add i64 %4, %62
@@ -1859,7 +1859,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1366 = getelementptr inbounds i8, ptr %1313, i64 80
   %1367 = getelementptr inbounds i8, ptr %1313, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1366, i8 0, i64 48, i1 false)
-  %1368 = icmp ugt i64 %1322, 2
+  %1368 = icmp samesign ugt i64 %1322, 2
   br i1 %1368, label %1369, label %.thread74
 
 1369:                                             ; preds = %1363
@@ -1893,7 +1893,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1386 = getelementptr inbounds i8, ptr %1313, i64 224
   %1387 = getelementptr inbounds i8, ptr %1313, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1386, i8 0, i64 32, i1 false)
-  %1388 = icmp ugt i64 %1322, 4
+  %1388 = icmp samesign ugt i64 %1322, 4
   br i1 %1388, label %1389, label %.thread74
 
 1389:                                             ; preds = %1377

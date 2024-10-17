@@ -737,7 +737,7 @@ define internal fastcc void @ring_doorbell_for_active_rings(ptr nocapture nounde
   %114 = getelementptr inbounds i8, ptr %112, i64 8
   %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
-  %117 = icmp ult i64 %113, %116
+  %117 = icmp samesign ult i64 %113, %116
   br i1 %117, label %67, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %111, %65, %33, %29, %25, %15
@@ -1505,7 +1505,7 @@ xhci_giveback_urb_in_irq.exit26:                  ; preds = %352, %353, %366, %3
   %378 = load i32, ptr %29, align 8
   %379 = and i32 %378, 255
   %380 = zext nneg i32 %379 to i64
-  %381 = icmp ult i64 %33, %380
+  %381 = icmp samesign ult i64 %33, %380
   br i1 %381, label %32, label %382, !llvm.loop !38
 
 382:                                              ; preds = %.loopexit31
@@ -2538,7 +2538,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %135 = load i32, ptr %73, align 8
   %136 = lshr i32 %135, 24
   %137 = and i32 %136, 127
-  %138 = icmp ugt i32 %132, %137
+  %138 = icmp samesign ugt i32 %132, %137
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %134, %130
@@ -4025,7 +4025,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   br label %.thread
 
 990:                                              ; preds = %117
-  %991 = icmp ugt i32 %120, 47
+  %991 = icmp samesign ugt i32 %120, 47
   br i1 %991, label %992, label %999
 
 992:                                              ; preds = %990
@@ -5862,22 +5862,22 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
   %258 = and i32 %253, 2047
   %259 = lshr i32 %256, 3
   %260 = and i32 %259, 2047
-  %261 = icmp ult i32 %258, %260
+  %261 = icmp samesign ult i32 %258, %260
   br i1 %261, label %262, label %266
 
 262:                                              ; preds = %231
-  %263 = icmp ugt i32 %257, %260
-  %264 = icmp ult i32 %257, %258
+  %263 = icmp samesign ugt i32 %257, %260
+  %264 = icmp samesign ult i32 %257, %258
   %265 = or i1 %264, %263
   br label %272
 
 266:                                              ; preds = %231
-  %267 = icmp ugt i32 %258, %260
+  %267 = icmp samesign ugt i32 %258, %260
   br i1 %267, label %268, label %.thread55
 
 268:                                              ; preds = %266
-  %269 = icmp ugt i32 %257, %260
-  %270 = icmp ult i32 %257, %258
+  %269 = icmp samesign ugt i32 %257, %260
+  %270 = icmp samesign ult i32 %257, %258
   %271 = and i1 %270, %269
   br label %272
 

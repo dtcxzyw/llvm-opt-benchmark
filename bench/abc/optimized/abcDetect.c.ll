@@ -7226,7 +7226,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 30:                                               ; preds = %24, %21, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = icmp ult i64 %indvars.iv.next, %16
+  %31 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %31, label %17, label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %30, %Vec_IntStart.exit

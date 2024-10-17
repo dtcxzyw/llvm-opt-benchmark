@@ -210,7 +210,7 @@ lor.lhs.false:                                    ; preds = %if.then5
   %div = udiv i64 %9, 1460
   %sub = sub i64 %9, %lost_bytes
   %div13 = udiv i64 %sub, 1460
-  %cmp14 = icmp ugt i64 %div, %div13
+  %cmp14 = icmp samesign ugt i64 %div, %div13
   br i1 %cmp14, label %if.then15, label %lor.lhs.false.if.end_crit_edge
 
 lor.lhs.false.if.end_crit_edge:                   ; preds = %lor.lhs.false

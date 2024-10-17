@@ -7789,7 +7789,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
 57:                                               ; preds = %56
   store double 0.000000e+00, ptr %.sroa.0.0, align 8
   %58 = add nsw i32 %.073, -1
-  %59 = icmp ugt i32 %.073, 2
+  %59 = icmp samesign ugt i32 %.073, 2
   br i1 %59, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %57
@@ -11141,18 +11141,18 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit36:            ; preds = %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %79 = icmp ult i32 %77, 2
+  %79 = icmp samesign ult i32 %77, 2
   br i1 %79, label %._crit_edge.thread, label %80
 
 80:                                               ; preds = %._crit_edge
   %81 = lshr i32 %61, 1
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %81, i32 3)
-  %.not = icmp ugt i32 %77, %.sroa.speculated
+  %.not = icmp samesign ugt i32 %77, %.sroa.speculated
   br i1 %.not, label %82, label %._crit_edge.thread
 
 82:                                               ; preds = %80
   %83 = udiv i32 %61, 3
-  %.not31 = icmp ugt i32 %77, %83
+  %.not31 = icmp samesign ugt i32 %77, %83
   %84 = select i1 %.not31, i32 1, i32 -1
   br label %._crit_edge.thread
 
@@ -16242,7 +16242,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -17060,7 +17060,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPdN9__gnu_cxx5__ops15_Iter_c
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %10, %14
+  %15 = icmp samesign ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i

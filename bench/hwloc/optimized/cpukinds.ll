@@ -57,7 +57,7 @@ define hidden void @hwloc_internal_cpukinds_destroy(ptr nocapture noundef %0) lo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %2, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %indvars.iv.next, %11
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
   br i1 %12, label %5, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %5, %1
@@ -148,7 +148,7 @@ hwloc_tma_malloc.exit:                            ; preds = %10, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %5, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit40:                                      ; preds = %.lr.ph, %35
@@ -168,7 +168,7 @@ hwloc_tma_malloc.exit:                            ; preds = %10, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %18, align 8
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %indvars.iv.next.i, %46
+  %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
   br i1 %47, label %.lr.ph.i, label %hwloc_internal_cpukinds_destroy.exit, !llvm.loop !4
 
 hwloc_internal_cpukinds_destroy.exit:             ; preds = %.lr.ph.i, %.loopexit40
@@ -379,7 +379,7 @@ define hidden noundef i32 @hwloc_internal_cpukinds_rank(ptr nocapture noundef re
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i298, 1
   %55 = load i32, ptr %4, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next.i, %56
+  %57 = icmp samesign ult i64 %indvars.iv.next.i, %56
   br i1 %57, label %45, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph299
@@ -395,7 +395,7 @@ define hidden noundef i32 @hwloc_internal_cpukinds_rank(ptr nocapture noundef re
   %indvars.iv22.i.i = phi i64 [ %indvars.iv.next23.i.i, %.loopexit.i.i ], [ 0, %._crit_edge.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.loopexit.i.i ], [ 1, %._crit_edge.i ]
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
-  %58 = icmp ult i64 %indvars.iv.next23.i.i, %56
+  %58 = icmp samesign ult i64 %indvars.iv.next23.i.i, %56
   br i1 %58, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph17.i.i
@@ -466,7 +466,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %89 = load i32, ptr %4, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next143.i, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next143.i, %90
   br i1 %91, label %80, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %80
@@ -482,7 +482,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
   %indvars.iv22.i.i75 = phi i64 [ %indvars.iv.next23.i.i77, %.loopexit.i.i78 ], [ 0, %.loopexit.i ]
   %indvars.iv.i.i76 = phi i64 [ %indvars.iv.next.i.i79, %.loopexit.i.i78 ], [ 1, %.loopexit.i ]
   %indvars.iv.next23.i.i77 = add nuw nsw i64 %indvars.iv22.i.i75, 1
-  %92 = icmp ult i64 %indvars.iv.next23.i.i77, %90
+  %92 = icmp samesign ult i64 %indvars.iv.next23.i.i77, %90
   br i1 %92, label %.lr.ph.i.i81, label %.loopexit.i.i78
 
 .lr.ph.i.i81:                                     ; preds = %.lr.ph17.i.i74
@@ -524,7 +524,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
   %111 = load i32, ptr %4, align 8
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %indvars.iv.next.i89, %112
+  %113 = icmp samesign ult i64 %indvars.iv.next.i89, %112
   br i1 %113, label %102, label %._crit_edge.i90, !llvm.loop !8
 
 ._crit_edge.i90:                                  ; preds = %108
@@ -540,7 +540,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
   %indvars.iv22.i.i93 = phi i64 [ %indvars.iv.next23.i.i95, %.loopexit.i.i96 ], [ 0, %._crit_edge.i90 ]
   %indvars.iv.i.i94 = phi i64 [ %indvars.iv.next.i.i97, %.loopexit.i.i96 ], [ 1, %._crit_edge.i90 ]
   %indvars.iv.next23.i.i95 = add nuw nsw i64 %indvars.iv22.i.i93, 1
-  %114 = icmp ult i64 %indvars.iv.next23.i.i95, %112
+  %114 = icmp samesign ult i64 %indvars.iv.next23.i.i95, %112
   br i1 %114, label %.lr.ph.i.i100, label %.loopexit.i.i96
 
 .lr.ph.i.i100:                                    ; preds = %.lr.ph17.i.i92
@@ -630,7 +630,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %147 = load i32, ptr %4, align 8
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %indvars.iv.next146.i, %148
+  %149 = icmp samesign ult i64 %indvars.iv.next146.i, %148
   br i1 %149, label %138, label %.loopexit.i110, !llvm.loop !12
 
 150:                                              ; preds = %127
@@ -672,7 +672,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next143.i132 = add nuw nsw i64 %indvars.iv142.i128, 1
   %168 = load i32, ptr %4, align 8
   %169 = zext i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next143.i132, %169
+  %170 = icmp samesign ult i64 %indvars.iv.next143.i132, %169
   br i1 %170, label %159, label %.loopexit.i110, !llvm.loop !11
 
 171:                                              ; preds = %127
@@ -703,7 +703,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %183 = load i32, ptr %4, align 8
   %184 = zext i32 %183 to i64
-  %185 = icmp ult i64 %indvars.iv.next140.i, %184
+  %185 = icmp samesign ult i64 %indvars.iv.next140.i, %184
   br i1 %185, label %176, label %.loopexit.i110, !llvm.loop !13
 
 186:                                              ; preds = %127
@@ -738,7 +738,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %198 = load i32, ptr %4, align 8
   %199 = zext i32 %198 to i64
-  %200 = icmp ult i64 %indvars.iv.next137.i, %199
+  %200 = icmp samesign ult i64 %indvars.iv.next137.i, %199
   br i1 %200, label %193, label %.loopexit.i110, !llvm.loop !14
 
 201:                                              ; preds = %127
@@ -767,7 +767,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %211 = load i32, ptr %4, align 8
   %212 = zext i32 %211 to i64
-  %213 = icmp ult i64 %indvars.iv.next134.i, %212
+  %213 = icmp samesign ult i64 %indvars.iv.next134.i, %212
   br i1 %213, label %205, label %.loopexit.i110, !llvm.loop !15
 
 214:                                              ; preds = %127
@@ -797,7 +797,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %225 = load i32, ptr %4, align 8
   %226 = zext i32 %225 to i64
-  %227 = icmp ult i64 %indvars.iv.next.i109, %226
+  %227 = icmp samesign ult i64 %indvars.iv.next.i109, %226
   br i1 %227, label %219, label %.loopexit.i110, !llvm.loop !16
 
 .loopexit.i110:                                   ; preds = %219, %205, %193, %176, %159, %138
@@ -820,7 +820,7 @@ default.unreachable250:                           ; preds = %127
   %indvars.iv22.i.i113 = phi i64 [ 0, %.lr.ph17.i.i112 ], [ %indvars.iv.next23.i.i115, %.loopexit.i.i116 ]
   %indvars.iv.i.i114 = phi i64 [ 1, %.lr.ph17.i.i112 ], [ %indvars.iv.next.i.i117, %.loopexit.i.i116 ]
   %indvars.iv.next23.i.i115 = add nuw nsw i64 %indvars.iv22.i.i113, 1
-  %233 = icmp ult i64 %indvars.iv.next23.i.i115, %231
+  %233 = icmp samesign ult i64 %indvars.iv.next23.i.i115, %231
   br i1 %233, label %.lr.ph.i.i120, label %.loopexit.i.i116
 
 .lr.ph.i.i120:                                    ; preds = %232
@@ -864,7 +864,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit105: ; preds = %102, %119, %hw
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %247 = load i32, ptr %4, align 8
   %248 = zext i32 %247 to i64
-  %249 = icmp ult i64 %indvars.iv.next, %248
+  %249 = icmp samesign ult i64 %indvars.iv.next, %248
   br i1 %249, label %244, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !17
 
 hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split: ; preds = %.loopexit.i.i116, %.loopexit.i.i78, %135, %156, %.preheader.i, %190, %.preheader105.i, %.preheader107.i, %.loopexit.i110, %77, %.loopexit.i
@@ -891,7 +891,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread: ; preds = %.loopexit.
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
   %258 = load i32, ptr %4, align 8
   %259 = zext i32 %258 to i64
-  %260 = icmp ult i64 %indvars.iv.next.i139, %259
+  %260 = icmp samesign ult i64 %indvars.iv.next.i139, %259
   br i1 %260, label %.lr.ph.i137, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !18
 
 hwloc__cpukinds_finalize_ranking.exit:            ; preds = %.lr.ph.i137, %244, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread, %1, %6
@@ -932,17 +932,17 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_register(ptr nocaptu
   %18 = lshr i64 %17, 16
   %spec.select.i = select i1 %.not28.i, i64 %17, i64 %18
   %spec.select33.i = select i1 %.not28.i, i32 1, i32 17
-  %.not29.i = icmp ult i64 %spec.select.i, 256
+  %.not29.i = icmp samesign ult i64 %spec.select.i, 256
   %19 = lshr i64 %spec.select.i, 8
   %20 = or disjoint i32 %spec.select33.i, 8
   %.223.i = select i1 %.not29.i, i64 %spec.select.i, i64 %19
   %.2.i = select i1 %.not29.i, i32 %spec.select33.i, i32 %20
-  %.not30.i = icmp ult i64 %.223.i, 16
+  %.not30.i = icmp samesign ult i64 %.223.i, 16
   %21 = lshr i64 %.223.i, 4
   %22 = or disjoint i32 %.2.i, 4
   %.324.i = select i1 %.not30.i, i64 %.223.i, i64 %21
   %.3.i = select i1 %.not30.i, i32 %.2.i, i32 %22
-  %.not31.i = icmp ult i64 %.324.i, 4
+  %.not31.i = icmp samesign ult i64 %.324.i, 4
   %23 = lshr i64 %.324.i, 2
   %24 = or disjoint i32 %.3.i, 2
   %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %23
@@ -1082,7 +1082,7 @@ hwloc__cpukind_check_duplicate_info.exit.i:       ; preds = %81, %.loopexit.i
   %87 = phi i32 [ %.pre.i, %.loopexit.i ], [ %69, %81 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %indvars.iv.next.i, %88
+  %89 = icmp samesign ult i64 %indvars.iv.next.i, %88
   br i1 %89, label %68, label %hwloc__cpukind_add_infos.exit, !llvm.loop !20
 
 hwloc__cpukind_add_infos.exit:                    ; preds = %hwloc__cpukind_check_duplicate_info.exit.i, %55
@@ -1144,7 +1144,7 @@ hwloc__cpukind_check_duplicate_info.exit.i128:    ; preds = %107, %.loopexit.i12
   %113 = phi i32 [ %.pre.i127, %.loopexit.i126 ], [ %95, %107 ]
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i118, 1
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next.i129, %114
+  %115 = icmp samesign ult i64 %indvars.iv.next.i129, %114
   br i1 %115, label %94, label %hwloc__cpukind_add_infos.exit131, !llvm.loop !20
 
 hwloc__cpukind_add_infos.exit131:                 ; preds = %hwloc__cpukind_check_duplicate_info.exit.i128, %90, %hwloc__cpukind_add_infos.exit
@@ -1215,7 +1215,7 @@ hwloc__cpukind_check_duplicate_info.exit.i144:    ; preds = %140, %.loopexit.i14
   %146 = phi i32 [ %.pre.i143, %.loopexit.i142 ], [ %128, %140 ]
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i134, 1
   %147 = zext i32 %146 to i64
-  %148 = icmp ult i64 %indvars.iv.next.i145, %147
+  %148 = icmp samesign ult i64 %indvars.iv.next.i145, %147
   br i1 %148, label %127, label %hwloc__cpukind_add_infos.exit147, !llvm.loop !20
 
 hwloc__cpukind_add_infos.exit147:                 ; preds = %hwloc__cpukind_check_duplicate_info.exit.i144, %123, %122
@@ -1320,7 +1320,7 @@ hwloc__cpukind_check_duplicate_info.exit.i160:    ; preds = %184, %.loopexit.i15
   %190 = phi i32 [ %.pre.i159, %.loopexit.i158 ], [ %172, %184 ]
   %indvars.iv.next.i161 = add nuw nsw i64 %indvars.iv.i150, 1
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %indvars.iv.next.i161, %191
+  %192 = icmp samesign ult i64 %indvars.iv.next.i161, %191
   br i1 %192, label %171, label %hwloc__cpukind_add_infos.exit163, !llvm.loop !20
 
 hwloc__cpukind_add_infos.exit163:                 ; preds = %hwloc__cpukind_check_duplicate_info.exit.i160, %166, %161
@@ -1508,7 +1508,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %12, align 8
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %46, %9
@@ -1546,7 +1546,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %63 = load i32, ptr %5, align 8
   %64 = zext i32 %63 to i64
-  %65 = icmp ult i64 %indvars.iv.next60, %64
+  %65 = icmp samesign ult i64 %indvars.iv.next60, %64
   br i1 %65, label %9, label %._crit_edge55, !llvm.loop !23
 
 ._crit_edge55:                                    ; preds = %62, %2

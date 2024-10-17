@@ -743,7 +743,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %92
   %133 = lshr i32 %132, 3
   %134 = and i32 %133, 511
   %135 = zext nneg i32 %134 to i64
-  %.not73.not = icmp ult i64 %indvars.iv93, %135
+  %.not73.not = icmp samesign ult i64 %indvars.iv93, %135
   br i1 %.not73.not, label %101, label %136, !llvm.loop !18
 
 136:                                              ; preds = %._crit_edge
@@ -5186,7 +5186,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit220: ; preds = %464, %467
   %469 = lshr i32 %468, 3
   %470 = and i32 %469, 511
   %471 = zext nneg i32 %470 to i64
-  %.not290.not = icmp ult i64 %indvars.iv, %471
+  %.not290.not = icmp samesign ult i64 %indvars.iv, %471
   br i1 %.not290.not, label %279, label %.preheader294, !llvm.loop !118
 
 472:                                              ; preds = %105, %102, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -5441,7 +5441,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit220: ; preds = %464, %467
   %564 = and i32 %563, 4088
   %565 = add nuw nsw i32 %564, 8
   %566 = zext nneg i32 %565 to i64
-  %567 = icmp ult i64 %indvars.iv.next307, %566
+  %567 = icmp samesign ult i64 %indvars.iv.next307, %566
   br i1 %567, label %544, label %575, !llvm.loop !119
 
 568:                                              ; preds = %548, %544
@@ -5615,7 +5615,7 @@ _ZN2cv4Mat_IiE5zerosEii.exit:                     ; preds = %_ZNSt6vectorIiSaIiE
   %639 = lshr i32 %638, 3
   %640 = and i32 %639, 511
   %641 = zext nneg i32 %640 to i64
-  %.not292.not = icmp ult i64 %indvars.iv312, %641
+  %.not292.not = icmp samesign ult i64 %indvars.iv312, %641
   br i1 %.not292.not, label %.preheader293, label %642, !llvm.loop !121
 
 642:                                              ; preds = %637

@@ -8535,7 +8535,7 @@ if.end35:                                         ; preds = %if.end26
   %block_size = getelementptr inbounds i8, ptr %this, i64 120
   %9 = load i64, ptr %block_size, align 8
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
-  %tobool43.not = icmp ugt i64 %10, 1
+  %tobool43.not = icmp samesign ugt i64 %10, 1
   %or.cond176.not = select i1 %tobool28, i1 %tobool43.not, i1 false
   br i1 %or.cond176.not, label %if.then44, label %if.end47
 
@@ -9641,7 +9641,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont1
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont1 ], [ %div.i, %while.body.i ]
-  %cmp9.i = icmp ugt i32 %__val.addr.0.lcssa.i, 9
+  %cmp9.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i, 9
   br i1 %cmp9.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i

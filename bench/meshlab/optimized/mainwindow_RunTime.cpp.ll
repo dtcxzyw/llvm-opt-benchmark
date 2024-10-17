@@ -41478,7 +41478,7 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i15, %26
   %.0.lcssa.i = phi i64 [ %4, %26 ], [ %31, %.lr.ph.i15 ]
-  %44 = icmp ugt i64 %.0.lcssa.i, 9
+  %44 = icmp samesign ugt i64 %.0.lcssa.i, 9
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %._crit_edge.i

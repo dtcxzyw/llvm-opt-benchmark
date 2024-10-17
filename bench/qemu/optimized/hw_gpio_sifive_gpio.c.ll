@@ -768,7 +768,7 @@ deposit32.exit149:                                ; preds = %if.end74, %if.then8
   store i32 %or.i148, ptr %value, align 16
   %inc = add nuw nsw i64 %i.0163, 1
   %conv = zext i32 %26 to i64
-  %cmp = icmp ult i64 %inc, %conv
+  %cmp = icmp samesign ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %deposit32.exit149

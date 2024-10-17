@@ -2352,7 +2352,7 @@ define void @_ZN11RecVolumes5C2EP11CommandDatab(ptr noundef nonnull align 8 dere
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %6, align 4
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv.next, %14
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 16:                                               ; preds = %20, %3
@@ -2467,7 +2467,7 @@ define void @_ZN11RecVolumes5D2Ev(ptr nocapture noundef nonnull readonly align 8
   %40 = phi i32 [ %33, %32 ], [ %.pre18, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %32, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %39, %.preheader
@@ -2603,7 +2603,7 @@ define void @_ZN11RecVolumes59ProcessRSEP11CommandDatajPKhjb(ptr nocapture nound
 
 _ZN11RecVolumes513ProcessAreaRSEP15RecRSThreadData.exit: ; preds = %53, %42
   %66 = add nuw nsw i64 %.04350, 1
-  %67 = icmp ult i64 %66, %12
+  %67 = icmp samesign ult i64 %66, %12
   %68 = icmp ult i64 %.0, %13
   %69 = and i1 %68, %67
   br i1 %69, label %26, label %._crit_edge, !llvm.loop !36
@@ -3217,7 +3217,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i245: ; preds = %215
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15)
   %218 = load i32, ptr %195, align 8
   %219 = zext i32 %218 to i64
-  %.not218 = icmp ult i64 %indvars.iv, %219
+  %.not218 = icmp samesign ult i64 %indvars.iv, %219
   br i1 %.not218, label %228, label %220
 
 220:                                              ; preds = %217
@@ -3237,7 +3237,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i245: ; preds = %215
   %.3 = phi i32 [ %.2394, %196 ], [ %.2394, %207 ], [ %.2394, %217 ], [ %227, %226 ]
   %229 = load i32, ptr %195, align 8
   %230 = zext i32 %229 to i64
-  %231 = icmp ult i64 %indvars.iv, %230
+  %231 = icmp samesign ult i64 %indvars.iv, %230
   br i1 %231, label %232, label %242
 
 232:                                              ; preds = %228
@@ -3261,7 +3261,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i245: ; preds = %215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %243 = load i32, ptr %186, align 8
   %244 = zext i32 %243 to i64
-  %245 = icmp ult i64 %indvars.iv.next, %244
+  %245 = icmp samesign ult i64 %indvars.iv.next, %244
   br i1 %245, label %196, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %242, %184
@@ -3623,7 +3623,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i297: ; preds = %336
   %indvars.iv.next446 = add nuw nsw i64 %indvars.iv445, 1
   %357 = load i32, ptr %278, align 8
   %358 = zext i32 %357 to i64
-  %359 = icmp ult i64 %indvars.iv.next446, %358
+  %359 = icmp samesign ult i64 %indvars.iv.next446, %358
   br i1 %359, label %293, label %._crit_edge401, !llvm.loop !42
 
 ._crit_edge401:                                   ; preds = %356, %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit277
@@ -3663,7 +3663,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i297: ; preds = %336
   store i8 %374, ptr %376, align 1
   %377 = load i32, ptr %278, align 8
   %378 = zext i32 %377 to i64
-  %379 = icmp ult i64 %indvars.iv448, %378
+  %379 = icmp samesign ult i64 %indvars.iv448, %378
   br i1 %379, label %380, label %388
 
 380:                                              ; preds = %373
@@ -3683,7 +3683,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i297: ; preds = %336
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %389 = load i32, ptr %186, align 8
   %390 = zext i32 %389 to i64
-  %391 = icmp ult i64 %indvars.iv.next449, %390
+  %391 = icmp samesign ult i64 %indvars.iv.next449, %390
   br i1 %391, label %.lr.ph405, label %._crit_edge406.loopexit, !llvm.loop !43
 
 ._crit_edge406.loopexit:                          ; preds = %388
@@ -3858,7 +3858,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i303:     ; preds = %403
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %456 = load i32, ptr %278, align 8
   %457 = zext i32 %456 to i64
-  %458 = icmp ult i64 %indvars.iv.next452, %457
+  %458 = icmp samesign ult i64 %indvars.iv.next452, %457
   br i1 %458, label %422, label %._crit_edge412, !llvm.loop !45
 
 ._crit_edge412:                                   ; preds = %455
@@ -3916,7 +3916,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i303:     ; preds = %403
   %.1167 = phi i32 [ %.0166415, %462 ], [ %481, %480 ]
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %486 = zext i32 %485 to i64
-  %487 = icmp ult i64 %indvars.iv.next455, %486
+  %487 = icmp samesign ult i64 %indvars.iv.next455, %486
   br i1 %487, label %462, label %._crit_edge417, !llvm.loop !46
 
 ._crit_edge417:                                   ; preds = %484, %.preheader335
@@ -3964,7 +3964,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i303:     ; preds = %403
   %506 = phi i32 [ %.pre465, %._crit_edge464 ], [ %496, %.lr.ph419 ]
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %507 = zext i32 %506 to i64
-  %508 = icmp ult i64 %indvars.iv.next458, %507
+  %508 = icmp samesign ult i64 %indvars.iv.next458, %507
   br i1 %508, label %.lr.ph419, label %._crit_edge420, !llvm.loop !48
 
 ._crit_edge420:                                   ; preds = %505, %.preheader
@@ -4166,7 +4166,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %20, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %37, align 8
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next, %77
   br i1 %78, label %.lr.ph45, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %73, %.preheader, %52

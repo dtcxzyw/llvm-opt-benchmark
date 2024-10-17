@@ -2521,7 +2521,7 @@ define void @Iso_ManBreakTies(ptr nocapture noundef %0, i32 noundef %1) local_un
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1073741823
-  %24 = icmp ult i32 %23, %8
+  %24 = icmp samesign ult i32 %23, %8
   br i1 %24, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %17
@@ -3419,7 +3419,7 @@ Iso_ManPrintClasses.exit48:                       ; preds = %Abc_Clock.exit46, %
   %120 = load ptr, ptr %119, align 8
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 1073741823
-  %123 = icmp ult i32 %122, %113
+  %123 = icmp samesign ult i32 %122, %113
   br i1 %123, label %Iso_ManBreakTies.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i

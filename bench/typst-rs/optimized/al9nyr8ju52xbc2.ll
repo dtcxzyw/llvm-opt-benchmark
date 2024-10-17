@@ -1162,7 +1162,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
   %58 = sub nuw i64 %1, %.0125
   %59 = getelementptr inbounds { { i128, i64, i64 }, i32, [3 x i32] }, ptr %0, i64 %.0125
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
-  %60 = icmp ult i64 %58, 2
+  %60 = icmp samesign ult i64 %58, 2
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %56
@@ -3862,7 +3862,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   br i1 %.not88, label %91, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.llvm.7091670428431571743.exit109.preheader"
 
 77:                                               ; preds = %66
-  %.not87 = icmp ult i64 %67, 8
+  %.not87 = icmp samesign ult i64 %67, 8
   br i1 %.not87, label %73, label %78
 
 78:                                               ; preds = %77
@@ -3872,7 +3872,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %82 = zext nneg i32 %69 to i64
   %narrow94 = sub nuw nsw i32 8, %81
   %83 = zext nneg i32 %narrow94 to i64
-  %84 = icmp ugt i32 %69, %narrow94
+  %84 = icmp samesign ugt i32 %69, %narrow94
   br i1 %84, label %85, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfb017d8f8b40f597E.exit"
 
 85:                                               ; preds = %78
@@ -4660,7 +4660,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %25 = phi i64 [ %21, %20 ], [ %122, %121 ]
   %26 = phi i8 [ %22, %20 ], [ %123, %121 ]
   %.0.lcssa = phi i32 [ %23, %20 ], [ %124, %121 ]
-  %27 = icmp ugt i32 %.0.lcssa, 4
+  %27 = icmp samesign ugt i32 %.0.lcssa, 4
   br i1 %27, label %58, label %47
 
 .lr.ph:                                           ; preds = %20, %121

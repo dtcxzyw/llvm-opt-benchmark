@@ -2206,7 +2206,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br i1 %873, label %814, label %_ZL11icvFindLoopP10CvEMDState.exit.i, !llvm.loop !39
 
 .preheader106.i.us:                               ; preds = %.critedge2.i.i.us
-  %874 = icmp ugt i32 %.0.i.i.us, 1
+  %874 = icmp samesign ugt i32 %.0.i.i.us, 1
   %875 = zext nneg i32 %.0.i.i.us to i64
   br i1 %874, label %.lr.ph.i194.us, label %.lr.ph126.preheader.i.us
 
@@ -2221,7 +2221,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   %.189.i.us = select i1 %879, ptr %877, ptr %.088121.i.us
   %.185.i.us = select i1 %879, float %878, float %.084122.i.us
   %indvars.iv.next.i196.us = add nuw nsw i64 %indvars.iv.i195.us, 2
-  %880 = icmp ult i64 %indvars.iv.next.i196.us, %875
+  %880 = icmp samesign ult i64 %indvars.iv.next.i196.us, %875
   br i1 %880, label %.lr.ph.i194.us, label %.lr.ph126.preheader.i.us, !llvm.loop !40
 
 .lr.ph126.preheader.i.us:                         ; preds = %.lr.ph.i194.us, %.preheader106.i.us
@@ -2244,7 +2244,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   %890 = load ptr, ptr %886, align 8
   store float %889, ptr %890, align 8
   %indvars.iv.next141.i.us = add nuw nsw i64 %indvars.iv140.i.us, 2
-  %891 = icmp ult i64 %indvars.iv.next141.i.us, %875
+  %891 = icmp samesign ult i64 %indvars.iv.next141.i.us, %875
   br i1 %891, label %.lr.ph126.i.us, label %._crit_edge.i191.us, !llvm.loop !41
 
 ._crit_edge.i191.us:                              ; preds = %.lr.ph126.i.us

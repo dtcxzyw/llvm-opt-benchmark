@@ -1831,7 +1831,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %conv1 = zext i32 %size to i64
   %div = udiv i64 9223372036854775807, %conv1
-  %cmp2 = icmp ult i64 %div, %.pre
+  %cmp2 = icmp samesign ult i64 %div, %.pre
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %land.lhs.true

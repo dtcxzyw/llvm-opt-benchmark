@@ -819,7 +819,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %106 = shl nuw nsw i64 %105, %indvars.iv2834
   %107 = add i64 %106, %.229502321
   %indvars.iv.next2835 = add nuw nsw i64 %indvars.iv2834, 8
-  %108 = icmp ult i64 %indvars.iv2834, 8
+  %108 = icmp samesign ult i64 %indvars.iv2834, 8
   br i1 %108, label %.lr.ph2323, label %._crit_edge2324.loopexit, !llvm.loop !5
 
 ._crit_edge2324.loopexit:                         ; preds = %101
@@ -913,7 +913,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 146:                                              ; preds = %145, %137
   %147 = phi i32 [ %142, %145 ], [ %143, %137 ]
-  %148 = icmp ugt i32 %141, 7
+  %148 = icmp samesign ugt i32 %141, 7
   %149 = icmp ugt i32 %142, %147
   %or.cond3330 = select i1 %148, i1 true, i1 %149
   br i1 %or.cond3330, label %150, label %151
@@ -952,7 +952,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %162 = shl nuw nsw i64 %161, %indvars.iv2813
   %163 = add i64 %162, %.239512272
   %indvars.iv.next2814 = add nuw nsw i64 %indvars.iv2813, 8
-  %164 = icmp ult i64 %indvars.iv2813, 8
+  %164 = icmp samesign ult i64 %indvars.iv2813, 8
   br i1 %164, label %.lr.ph2274, label %._crit_edge2275.loopexit, !llvm.loop !7
 
 ._crit_edge2275.loopexit:                         ; preds = %157
@@ -1052,7 +1052,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %198 = shl nuw nsw i64 %197, %indvars.iv2816
   %199 = add i64 %198, %.259532282
   %indvars.iv.next2817 = add nuw nsw i64 %indvars.iv2816, 8
-  %200 = icmp ult i64 %indvars.iv2816, 24
+  %200 = icmp samesign ult i64 %indvars.iv2816, 24
   br i1 %200, label %.lr.ph2285, label %._crit_edge2286, !llvm.loop !8
 
 ._crit_edge2286:                                  ; preds = %193, %189
@@ -1129,7 +1129,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %229 = shl nuw nsw i64 %228, %indvars.iv2819
   %230 = add i64 %229, %.279552292
   %indvars.iv.next2820 = add nuw nsw i64 %indvars.iv2819, 8
-  %231 = icmp ult i64 %indvars.iv2819, 8
+  %231 = icmp samesign ult i64 %indvars.iv2819, 8
   br i1 %231, label %.lr.ph2295, label %._crit_edge2296, !llvm.loop !9
 
 ._crit_edge2296:                                  ; preds = %224, %220
@@ -1217,7 +1217,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %267 = shl nuw nsw i64 %266, %indvars.iv2822
   %268 = add i64 %267, %.289562302
   %indvars.iv.next2823 = add nuw nsw i64 %indvars.iv2822, 8
-  %269 = icmp ult i64 %indvars.iv2822, 8
+  %269 = icmp samesign ult i64 %indvars.iv2822, 8
   br i1 %269, label %.lr.ph2304, label %._crit_edge2305, !llvm.loop !10
 
 ._crit_edge2305:                                  ; preds = %262, %.preheader1291
@@ -1421,7 +1421,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 356:                                              ; preds = %.preheader1290, %344, %347, %352
   %357 = icmp ne i8 %342, 0
-  %358 = icmp ult i64 %indvars.iv.next2826, %340
+  %358 = icmp samesign ult i64 %indvars.iv.next2826, %340
   %359 = select i1 %357, i1 %358, i1 false
   br i1 %359, label %.preheader1290, label %360, !llvm.loop !11
 
@@ -1517,7 +1517,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 400:                                              ; preds = %.preheader1289, %388, %391, %396
   %401 = icmp ne i8 %386, 0
-  %402 = icmp ult i64 %indvars.iv.next2829, %384
+  %402 = icmp samesign ult i64 %indvars.iv.next2829, %384
   %403 = select i1 %401, i1 %402, i1 false
   br i1 %403, label %.preheader1289, label %404, !llvm.loop !12
 
@@ -1596,7 +1596,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %434 = shl nuw nsw i64 %433, %indvars.iv2831
   %435 = add i64 %434, %.319592311
   %indvars.iv.next2832 = add nuw nsw i64 %indvars.iv2831, 8
-  %436 = icmp ult i64 %indvars.iv2831, 8
+  %436 = icmp samesign ult i64 %indvars.iv2831, 8
   br i1 %436, label %.lr.ph2313, label %._crit_edge2314.loopexit, !llvm.loop !13
 
 ._crit_edge2314.loopexit:                         ; preds = %429
@@ -1666,7 +1666,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %460 = shl nuw nsw i64 %459, %indvars.iv2810
   %461 = add i64 %460, %.329602104
   %indvars.iv.next2811 = add nuw nsw i64 %indvars.iv2810, 8
-  %462 = icmp ult i64 %indvars.iv2810, 24
+  %462 = icmp samesign ult i64 %indvars.iv2810, 24
   br i1 %462, label %.lr.ph2106, label %._crit_edge2107, !llvm.loop !14
 
 ._crit_edge2107:                                  ; preds = %455, %.preheader1299
@@ -1828,7 +1828,7 @@ default.unreachable2862:                          ; preds = %488
   %516 = shl nuw nsw i64 %515, %indvars.iv2808
   %517 = add i64 %516, %.349622093
   %indvars.iv.next2809 = add nuw nsw i64 %indvars.iv2808, 8
-  %518 = icmp ult i64 %indvars.iv2808, 24
+  %518 = icmp samesign ult i64 %indvars.iv2808, 24
   br i1 %518, label %.lr.ph2096, label %._crit_edge2097.loopexit, !llvm.loop !15
 
 ._crit_edge2097.loopexit:                         ; preds = %511
@@ -1913,7 +1913,7 @@ default.unreachable2862:                          ; preds = %488
   %547 = shl nuw nsw i64 %546, %indvars.iv2772
   %548 = add i64 %547, %.359631762
   %indvars.iv.next2773 = add nuw nsw i64 %indvars.iv2772, 8
-  %549 = icmp ult i64 %indvars.iv2772, 6
+  %549 = icmp samesign ult i64 %indvars.iv2772, 6
   br i1 %549, label %.lr.ph1764, label %._crit_edge1765.loopexit, !llvm.loop !16
 
 ._crit_edge1765.loopexit:                         ; preds = %542
@@ -1939,9 +1939,9 @@ default.unreachable2862:                          ; preds = %488
   store i32 %559, ptr %56, align 8
   %560 = lshr i64 %.35963.lcssa, 14
   %561 = add i32 %.35.lcssa, -14
-  %562 = icmp ugt i32 %552, 29
-  %563 = icmp ugt i32 %555, 29
-  %or.cond1274 = or i1 %562, %563
+  %562 = icmp samesign ugt i32 %552, 29
+  %563 = icmp samesign ugt i32 %555, 29
+  %or.cond1274 = select i1 %562, i1 true, i1 %563
   br i1 %or.cond1274, label %564, label %.split.thread
 
 564:                                              ; preds = %._crit_edge1765
@@ -2021,7 +2021,7 @@ default.unreachable2862:                          ; preds = %488
   store i16 %582, ptr %587, align 2
   %588 = lshr i64 %.37965.lcssa, 3
   %589 = add i32 %.37.lcssa, -3
-  %590 = icmp ult i64 %indvars.iv.next2776, %568
+  %590 = icmp samesign ult i64 %indvars.iv.next2776, %568
   br i1 %590, label %.preheader1283, label %.preheader1312, !llvm.loop !17
 
 .lr.ph1934:                                       ; preds = %.preheader1312, %.lr.ph1934
@@ -2119,7 +2119,7 @@ default.unreachable2862:                          ; preds = %488
   %.sroa.1667.0..sroa_idx = getelementptr inbounds %struct.code, ptr %.pre2846, i64 %623, i32 1
   %.sroa.1667.0.copyload = load i8, ptr %.sroa.1667.0..sroa_idx, align 1
   %624 = zext i8 %.sroa.1667.0.copyload to i64
-  %.not1183 = icmp ult i64 %indvars.iv.next2779, %624
+  %.not1183 = icmp samesign ult i64 %indvars.iv.next2779, %624
   br i1 %.not1183, label %.lr.ph1945, label %._crit_edge1946.loopexit
 
 ._crit_edge1946.loopexit:                         ; preds = %614
@@ -2203,7 +2203,7 @@ default.unreachable2862:                          ; preds = %488
   %655 = shl i64 %654, %indvars.iv2784
   %656 = add i64 %655, %.429701967
   %indvars.iv.next2785 = add nuw nsw i64 %indvars.iv2784, 8
-  %657 = icmp ult i64 %indvars.iv.next2785, %644
+  %657 = icmp samesign ult i64 %indvars.iv.next2785, %644
   br i1 %657, label %.lr.ph1969, label %._crit_edge1970.loopexit, !llvm.loop !19
 
 ._crit_edge1970.loopexit:                         ; preds = %650
@@ -2254,7 +2254,7 @@ default.unreachable2862:                          ; preds = %488
   %680 = shl i64 %679, %indvars.iv2781
   %681 = add i64 %680, %.449721957
   %indvars.iv.next2782 = add nuw nsw i64 %indvars.iv2781, 8
-  %682 = icmp ult i64 %indvars.iv.next2782, %640
+  %682 = icmp samesign ult i64 %indvars.iv.next2782, %640
   br i1 %682, label %.lr.ph1959, label %._crit_edge1960.loopexit, !llvm.loop !20
 
 ._crit_edge1960.loopexit:                         ; preds = %675
@@ -2292,7 +2292,7 @@ default.unreachable2862:                          ; preds = %488
   %697 = shl i64 %696, %indvars.iv2787
   %698 = add i64 %697, %.459731977
   %indvars.iv.next2788 = add nuw nsw i64 %indvars.iv2787, 8
-  %699 = icmp ult i64 %indvars.iv.next2788, %648
+  %699 = icmp samesign ult i64 %indvars.iv.next2788, %648
   br i1 %699, label %.lr.ph1979, label %._crit_edge1980.loopexit, !llvm.loop !21
 
 ._crit_edge1980.loopexit:                         ; preds = %692
@@ -2487,7 +2487,7 @@ default.unreachable2862:                          ; preds = %488
   %.sroa.1667.0..sroa_idx68 = getelementptr inbounds i8, ptr %769, i64 1
   %.sroa.1667.0.copyload69 = load i8, ptr %.sroa.1667.0..sroa_idx68, align 1
   %770 = zext i8 %.sroa.1667.0.copyload69 to i64
-  %.not1188 = icmp ult i64 %indvars.iv.next2791, %770
+  %.not1188 = icmp samesign ult i64 %indvars.iv.next2791, %770
   br i1 %.not1188, label %.lr.ph2010, label %._crit_edge2011.loopexit
 
 ._crit_edge2011.loopexit:                         ; preds = %759
@@ -2560,7 +2560,7 @@ default.unreachable2862:                          ; preds = %488
   %801 = zext i8 %.sroa.1667.0.copyload71 to i32
   %802 = add nuw nsw i32 %.lcssa1404, %801
   %803 = zext nneg i32 %802 to i64
-  %.not1191 = icmp ult i64 %indvars.iv.next2795, %803
+  %.not1191 = icmp samesign ult i64 %indvars.iv.next2795, %803
   br i1 %.not1191, label %.lr.ph2028, label %._crit_edge2029.loopexit
 
 ._crit_edge2029.loopexit:                         ; preds = %788
@@ -2748,7 +2748,7 @@ default.unreachable2862:                          ; preds = %488
   %.sroa.1667.0..sroa_idx72 = getelementptr inbounds i8, ptr %874, i64 1
   %.sroa.1667.0.copyload73 = load i8, ptr %.sroa.1667.0..sroa_idx72, align 1
   %875 = zext i8 %.sroa.1667.0.copyload73 to i64
-  %.not1197 = icmp ult i64 %indvars.iv.next2800, %875
+  %.not1197 = icmp samesign ult i64 %indvars.iv.next2800, %875
   br i1 %.not1197, label %.lr.ph2055, label %._crit_edge2056.loopexit
 
 ._crit_edge2056.loopexit:                         ; preds = %864
@@ -2824,7 +2824,7 @@ default.unreachable2862:                          ; preds = %488
   %906 = zext i8 %.sroa.1667.0.copyload75 to i32
   %907 = add nuw nsw i32 %.lcssa1427, %906
   %908 = zext nneg i32 %907 to i64
-  %.not1199 = icmp ult i64 %indvars.iv.next2804, %908
+  %.not1199 = icmp samesign ult i64 %indvars.iv.next2804, %908
   br i1 %.not1199, label %.lr.ph2073, label %._crit_edge2074.loopexit
 
 ._crit_edge2074.loopexit:                         ; preds = %893
@@ -3079,7 +3079,7 @@ default.unreachable2862:                          ; preds = %488
   %1014 = shl nuw nsw i64 %1013, %indvars.iv
   %1015 = add i64 %1014, %.579851745
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %1016 = icmp ult i64 %indvars.iv, 24
+  %1016 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %1016, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %1009
@@ -3201,7 +3201,7 @@ default.unreachable2862:                          ; preds = %488
   %1061 = shl nuw nsw i64 %1060, %indvars.iv2769
   %1062 = add i64 %1061, %.599871752
   %indvars.iv.next2770 = add nuw nsw i64 %indvars.iv2769, 8
-  %1063 = icmp ult i64 %indvars.iv2769, 24
+  %1063 = icmp samesign ult i64 %indvars.iv2769, 24
   br i1 %1063, label %.lr.ph1754, label %._crit_edge1755.loopexit, !llvm.loop !28
 
 ._crit_edge1755.loopexit:                         ; preds = %1056
@@ -4068,7 +4068,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %spec.select.i46 = select i1 %.not.i45, i32 %54, i32 0
   %.1.i = select i1 %52, i32 %53, i32 %spec.select.i46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = icmp ult i64 %indvars.iv.next.i, %46
+  %55 = icmp samesign ult i64 %indvars.iv.next.i, %46
   %56 = icmp ult i32 %.1.i, 4
   %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
@@ -4109,7 +4109,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %spec.select.i54 = select i1 %.not.i53, i32 %75, i32 0
   %.1.i55 = select i1 %73, i32 %74, i32 %spec.select.i54
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i51, 1
-  %76 = icmp ult i64 %indvars.iv.next.i56, %67
+  %76 = icmp samesign ult i64 %indvars.iv.next.i56, %67
   %77 = icmp ult i32 %.1.i55, 4
   %78 = select i1 %76, i1 %77, i1 false
   br i1 %78, label %.lr.ph.i50, label %._crit_edge.loopexit.i57, !llvm.loop !30

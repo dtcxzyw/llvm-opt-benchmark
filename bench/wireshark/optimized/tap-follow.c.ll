@@ -786,7 +786,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %169 = getelementptr inbounds i8, ptr %168, i64 8
   %170 = load i32, ptr %169, align 8
   %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next172, %171
+  %172 = icmp samesign ult i64 %indvars.iv.next172, %171
   br i1 %172, label %.lr.ph154, label %._crit_edge155.loopexit, !llvm.loop !8
 
 ._crit_edge155.loopexit:                          ; preds = %166
@@ -883,7 +883,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   %236 = load i32, ptr %235, align 8
   %237 = zext i32 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next, %237
+  %238 = icmp samesign ult i64 %indvars.iv.next, %237
   br i1 %238, label %.lr.ph151, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph151, %.thread

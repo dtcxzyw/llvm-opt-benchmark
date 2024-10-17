@@ -4216,7 +4216,7 @@ _ZN6Thread22cooked_allocated_bytesEv.exit:        ; preds = %.lr.ph, %37, %41
 _ZN13GrowableArrayIlE8allocateEv.exit.i:          ; preds = %_ZN6Thread22cooked_allocated_bytesEv.exit
   %51 = trunc nuw i64 %50 to i32
   %52 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %51)
-  %53 = icmp ult i32 %52, 2
+  %53 = icmp samesign ult i32 %52, 2
   %54 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
   %55 = sub nuw nsw i32 32, %54
   %56 = shl nuw i32 1, %55
@@ -4269,7 +4269,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit: ; preds = 
 _ZN13GrowableArrayImE8allocateEv.exit.i:          ; preds = %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
   %74 = trunc nuw i64 %50 to i32
   %75 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %74)
-  %76 = icmp ult i32 %75, 2
+  %76 = icmp samesign ult i32 %75, 2
   %77 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %78 = sub nuw nsw i32 32, %77
   %79 = shl nuw i32 1, %78
@@ -6966,7 +6966,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
 
 25:                                               ; preds = %17
   %26 = and i64 %23, 4294967295
-  %27 = icmp ugt i64 %26, 4
+  %27 = icmp samesign ugt i64 %26, 4
   br i1 %27, label %28, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 28:                                               ; preds = %25
@@ -8185,8 +8185,8 @@ _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit.thread: ; preds = %_ZN26Jfr
   %.1.lcssa.i.i.i = phi i32 [ %.01219.i.i.i, %.preheader.i.i.i ], [ %21, %19 ]
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx20.i.i.i, 8
   %22 = icmp sgt i32 %.1.lcssa.i.i.i, 0
-  %23 = icmp ult i64 %.0.idx20.i.i.i, 2040
-  %or.cond.i.i.i = and i1 %23, %22
+  %23 = icmp samesign ult i64 %.0.idx20.i.i.i, 2040
+  %or.cond.i.i.i = select i1 %22, i1 %23, i1 false
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %_ZN26JfrClassLoaderStatsClosure12createEventsEv.exit, !llvm.loop !29
 
 _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit: ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i.i
@@ -8216,7 +8216,7 @@ _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit: ; preds = %._crit_edge.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %29 = icmp ult i64 %.0.idx11.i.i.i.i, 2040
+  %29 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2040
   br i1 %29, label %.preheader.i.i, label %_ZN17ResourceHashtableIP7oopDesc16ClassLoaderStatsLj256ELN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit.i.i, !llvm.loop !31
 
 _ZN17ResourceHashtableIP7oopDesc16ClassLoaderStatsLj256ELN6AnyObj15allocation_typeE2EL8MEMFLAGS18EXadL_ZN23ClassLoaderStatsClosure8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEED2Ev.exit.i.i: ; preds = %._crit_edge.i.i.i.i

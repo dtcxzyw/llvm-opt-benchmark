@@ -185,7 +185,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %32 = phi i64 [ %28, %27 ], [ %40, %.preheader14 ]
   %33 = phi i64 [ %29, %27 ], [ %39, %.preheader14 ]
   %34 = phi i64 [ %30, %27 ], [ %41, %.preheader14 ]
-  %35 = icmp ugt i64 %34, 7
+  %35 = icmp samesign ugt i64 %34, 7
   br i1 %35, label %.preheader12, label %.loopexit13
 
 .preheader14:                                     ; preds = %27, %.preheader14
@@ -203,7 +203,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %43 = phi i64 [ %32, %.loopexit15 ], [ %51, %.preheader12 ]
   %44 = phi i64 [ %33, %.loopexit15 ], [ %50, %.preheader12 ]
   %45 = phi i64 [ %34, %.loopexit15 ], [ %52, %.preheader12 ]
-  %46 = icmp ugt i64 %45, 3
+  %46 = icmp samesign ugt i64 %45, 3
   br i1 %46, label %54, label %58
 
 .preheader12:                                     ; preds = %.loopexit15, %.preheader12

@@ -5195,7 +5195,7 @@ _ZNKR7QString8toLatin1Ev.exit36:                  ; preds = %131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %184 = load i32, ptr %140, align 8
   %185 = zext i32 %184 to i64
-  %186 = icmp ult i64 %indvars.iv.next, %185
+  %186 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %183, %.preheader
@@ -5642,7 +5642,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm.exit: ; preds = %131, %_ZNSt12_Ve
   %188 = getelementptr inbounds i8, ptr %152, i64 8
   store float %186, ptr %188, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %189 = icmp ult i64 %indvars.iv.next, %150
+  %189 = icmp samesign ult i64 %indvars.iv.next, %150
   br i1 %189, label %151, label %.loopexit152, !llvm.loop !43
 
 .loopexit151:                                     ; preds = %210, %211, %212, %216, %217, %220, %222, %223, %224, %255, %256, %257, %258, %_ZN15MLRenderingDataD2Ev.exit
@@ -15706,7 +15706,7 @@ define void @_ZN22AmbientOcclusionPlugin12initTexturesEv(ptr noundef nonnull ali
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %4, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp ult i64 %indvars.iv.next, %41
+  %42 = icmp samesign ult i64 %indvars.iv.next, %41
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13

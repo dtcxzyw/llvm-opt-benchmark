@@ -52,7 +52,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %10, align 8, !range !4, !noundef !3
-  %28 = icmp ult i64 %27, 39
+  %28 = icmp samesign ult i64 %27, 39
   br i1 %28, label %83, label %85
 
 29:                                               ; preds = %22
@@ -120,7 +120,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 48:                                               ; preds = %47, %45
   %.14753 = phi i8 [ %.1.ph, %47 ], [ %.14754, %45 ]
   %49 = load i64, ptr %10, align 8, !range !4, !noundef !3
-  %50 = icmp ult i64 %49, 39
+  %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
@@ -280,7 +280,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %10, align 8, !range !4, !noundef !3
-  %28 = icmp ult i64 %27, 39
+  %28 = icmp samesign ult i64 %27, 39
   br i1 %28, label %83, label %85
 
 29:                                               ; preds = %22
@@ -348,7 +348,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 48:                                               ; preds = %47, %45
   %.14753 = phi i8 [ %.1.ph, %47 ], [ %.14754, %45 ]
   %49 = load i64, ptr %10, align 8, !range !4, !noundef !3
-  %50 = icmp ult i64 %49, 39
+  %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48

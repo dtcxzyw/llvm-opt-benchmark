@@ -1625,7 +1625,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb04f19
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h075f9109bdb3df39E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #11 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -1905,7 +1905,7 @@ _ZN4core5slice4sort6shared5pivot7median317hfdd5bb8b718e5796E.exit: ; preds = %".
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h1822d7170cbd6562E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -1963,7 +1963,7 @@ _ZN4core5slice4sort6shared5pivot7median317hf08e823c6c350ec1E.exit: ; preds = %20
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h21ed8589755b13a1E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -2045,7 +2045,7 @@ _ZN4core5slice4sort6shared5pivot7median317hd240b0bf43f5cfa1E.exit: ; preds = %"_
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h24ee2b25df1114f4E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -2127,7 +2127,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [8 x i8], align 4
   %9 = alloca [8 x i8], align 4
   %10 = alloca [8 x i8], align 4
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -2350,7 +2350,7 @@ _ZN4core5slice4sort6shared5pivot7median317h8cf22d13dacf5e4dE.exit: ; preds = %"_
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h2ee18a405642193eE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h725f04a7b6648e9aE.exit
 
 6:                                                ; preds = %4
@@ -2390,7 +2390,7 @@ _ZN4core5slice4sort6shared5pivot7median317h725f04a7b6648e9aE.exit: ; preds = %4,
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h37112eb6aea928f8E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317hcd988f1f4f87c701E.exit
 
 6:                                                ; preds = %4
@@ -2430,7 +2430,7 @@ _ZN4core5slice4sort6shared5pivot7median317hcd988f1f4f87c701E.exit: ; preds = %4,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h3e48c8491706bb72E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -2488,7 +2488,7 @@ _ZN4core5slice4sort6shared5pivot7median317h114c2e0c63fdb1feE.exit: ; preds = %20
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h3e965ba33d0c1f41E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h144a665621ef66b3E.exit
 
 6:                                                ; preds = %4
@@ -2531,7 +2531,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [16 x i8], align 8
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -2736,7 +2736,7 @@ _ZN4core5slice4sort6shared5pivot7median317ha30107f7d8aeca7dE.exit: ; preds = %"_
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h4a9f33e5a7dee53cE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #0 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -2782,7 +2782,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -2991,7 +2991,7 @@ _ZN4core5slice4sort6shared5pivot7median317he30ee4e693f839c7E.exit: ; preds = %sw
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h52dd7dec500c8d49E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #13 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -3061,7 +3061,7 @@ _ZN4core5slice4sort6shared5pivot7median317h3edb3a59f19b1a44E.exit: ; preds = %19
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h5940a425c978187cE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #13 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -3130,7 +3130,7 @@ _ZN4core5slice4sort6shared5pivot7median317h3f61de8e86d23a9bE.exit: ; preds = %19
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h594340d3914e1b5fE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317ha8e61907ac6f5362E.exit
 
 6:                                                ; preds = %4
@@ -3179,7 +3179,7 @@ _ZN4core5slice4sort6shared5pivot7median317ha8e61907ac6f5362E.exit: ; preds = %4,
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h5f20ae964cc317fbE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h8eeafacf923d3bacE.exit
 
 6:                                                ; preds = %4
@@ -3222,7 +3222,7 @@ _ZN4core5slice4sort6shared5pivot7median317h8eeafacf923d3bacE.exit: ; preds = %4,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h6174941ae2c62989E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -3319,7 +3319,7 @@ _ZN4core5slice4sort6shared5pivot7median317h36c2626ff9343224E.exit: ; preds = %"_
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h663650603e64a196E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h1295b2699be40914E.exit
 
 6:                                                ; preds = %4
@@ -3359,7 +3359,7 @@ _ZN4core5slice4sort6shared5pivot7median317h1295b2699be40914E.exit: ; preds = %4,
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h71302e3bf621dfd6E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h7c48ed64c51f15e2E.exit
 
 6:                                                ; preds = %4
@@ -3405,7 +3405,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [16 x i8], align 4
   %9 = alloca [16 x i8], align 4
   %10 = alloca [16 x i8], align 4
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -3601,7 +3601,7 @@ _ZN4core5slice4sort6shared5pivot7median317h7c0161374542c6b2E.exit: ; preds = %sw
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h7acdc4dc15d9f30eE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -3698,7 +3698,7 @@ _ZN4core5slice4sort6shared5pivot7median317hb6e230b34078c9aaE.exit: ; preds = %"_
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h818bd988b7186339E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #0 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -3744,7 +3744,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %9 = alloca [64 x i8], align 8
   %10 = alloca [64 x i8], align 8
   %11 = alloca [64 x i8], align 8
-  %12 = icmp ugt i64 %3, 7
+  %12 = icmp samesign ugt i64 %3, 7
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %5
@@ -4108,7 +4108,7 @@ _ZN4core5slice4sort6shared5pivot7median317h8eccd50e9b75cf0fE.exit: ; preds = %"_
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h9f8e970372b35889E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #13 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -4177,7 +4177,7 @@ _ZN4core5slice4sort6shared5pivot7median317h301cb4b8486428d0E.exit: ; preds = %19
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h9fd07f792ffc0aacE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #13 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -4246,7 +4246,7 @@ _ZN4core5slice4sort6shared5pivot7median317h148cbc900768f8efE.exit: ; preds = %19
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hb1d05eac61925dc4E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -4310,7 +4310,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [8 x i8], align 4
   %9 = alloca [8 x i8], align 4
   %10 = alloca [8 x i8], align 4
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -4401,7 +4401,7 @@ _ZN4core5slice4sort6shared5pivot7median317h9d713a45b52ac22cE.exit: ; preds = %25
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hb9687253c2f59c37E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -4444,7 +4444,7 @@ _ZN4core5slice4sort6shared5pivot7median317h5c70f93416a99c0aE.exit: ; preds = %20
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hde97b3c589c2cffdE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h78f7a4e78b1593ebE.exit
 
 6:                                                ; preds = %4
@@ -4487,7 +4487,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [8 x i8], align 4
   %9 = alloca [8 x i8], align 4
   %10 = alloca [8 x i8], align 4
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -4578,7 +4578,7 @@ _ZN4core5slice4sort6shared5pivot7median317h2dce230661789f75E.exit: ; preds = %25
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hef0c141722be4d2cE(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #12 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %_ZN4core5slice4sort6shared5pivot7median317h7f6dd77ad62fefc5E.exit
 
 6:                                                ; preds = %4
@@ -4624,7 +4624,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %8 = alloca [8 x i8], align 4
   %9 = alloca [8 x i8], align 4
   %10 = alloca [8 x i8], align 4
-  %11 = icmp ugt i64 %3, 7
+  %11 = icmp samesign ugt i64 %3, 7
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %4
@@ -4847,7 +4847,7 @@ _ZN4core5slice4sort6shared5pivot7median317h8010cd746ce18384E.exit: ; preds = %"_
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hf2bed9d0e8d0ca67E(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
-  %6 = icmp ugt i64 %3, 7
+  %6 = icmp samesign ugt i64 %3, 7
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
@@ -4899,7 +4899,7 @@ _ZN4core5slice4sort6shared5pivot7median317h90182efb92e9a911E.exit: ; preds = %20
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17hf876055de312256cE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 2305843009213693952) %3) unnamed_addr #0 {
-  %5 = icmp ugt i64 %3, 7
+  %5 = icmp samesign ugt i64 %3, 7
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
@@ -11490,12 +11490,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3243)
-  %6 = icmp ult i64 %1, 2
+  %6 = icmp samesign ult i64 %1, 2
   br i1 %6, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17he0d44881c32ce7d7E.exit, label %7
 
 7:                                                ; preds = %3
   %8 = lshr i64 %1, 1
-  %9 = icmp ugt i64 %1, 7
+  %9 = icmp samesign ugt i64 %1, 7
   %10 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %0, i64 %8
   %11 = getelementptr { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %5, i64 %8
   br i1 %9, label %12, label %13
@@ -11800,12 +11800,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 1152, ptr nonnull %12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3324)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3327)
-  %13 = icmp ult i64 %1, 2
+  %13 = icmp samesign ult i64 %1, 2
   br i1 %13, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h6baf9acdefcfa7c5E.exit, label %14
 
 14:                                               ; preds = %2
   %15 = lshr i64 %1, 1
-  %16 = icmp ugt i64 %1, 7
+  %16 = icmp samesign ugt i64 %1, 7
   %17 = getelementptr inbounds { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %0, i64 %15
   %18 = getelementptr { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %12, i64 %15
   br i1 %16, label %19, label %20
@@ -12288,12 +12288,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 3072, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3443)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3446)
-  %14 = icmp ult i64 %1, 2
+  %14 = icmp samesign ult i64 %1, 2
   br i1 %14, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h0a3ecde1f3c5912fE.exit, label %15
 
 15:                                               ; preds = %2
   %16 = lshr i64 %1, 1
-  %17 = icmp ugt i64 %1, 7
+  %17 = icmp samesign ugt i64 %1, 7
   %18 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %16
   %19 = getelementptr { i64, [7 x i64] }, ptr %13, i64 %16
   br i1 %17, label %20, label %21
@@ -12716,12 +12716,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 1920, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3674)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3677)
-  %5 = icmp ult i64 %1, 2
+  %5 = icmp samesign ult i64 %1, 2
   br i1 %5, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hba7f853757fd8acdE.exit, label %6
 
 6:                                                ; preds = %2
   %7 = lshr i64 %1, 1
-  %8 = icmp ugt i64 %1, 7
+  %8 = icmp samesign ugt i64 %1, 7
   br i1 %8, label %9, label %66
 
 9:                                                ; preds = %6
@@ -13002,12 +13002,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.start.p0(i64 3072, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3707)
-  %5 = icmp ult i64 %1, 2
+  %5 = icmp samesign ult i64 %1, 2
   br i1 %5, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h2279d00e787b382fE.exit, label %6
 
 6:                                                ; preds = %2
   %7 = lshr i64 %1, 1
-  %8 = icmp ugt i64 %1, 7
+  %8 = icmp samesign ugt i64 %1, 7
   %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %0, i64 %7
   %10 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %4, i64 %7
   br i1 %8, label %11, label %12
@@ -16073,7 +16073,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h07c8e03cc896637aE.exit: ; preds =
 
 213:                                              ; preds = %211
   %214 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %186, i64 %182
-  %.not.i33 = icmp ugt i64 %182, %183
+  %.not.i33 = icmp samesign ugt i64 %182, %183
   %.20.i = select i1 %.not.i33, ptr %214, ptr %186
   %215 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 136
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %215, i1 false), !alias.scope !4188
@@ -16625,7 +16625,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h82b1c57a473311a6E.exit: ; preds =
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %108, i64 %104
-  %.not.i33 = icmp ugt i64 %104, %105
+  %.not.i33 = icmp samesign ugt i64 %104, %105
   %.20.i = select i1 %.not.i33, ptr %136, ptr %108
   %137 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %137, i1 false), !alias.scope !4282
@@ -17056,7 +17056,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha4db2accf59bb68dE.exit: ; preds =
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %105, i64 %101
-  %.not.i33 = icmp ugt i64 %101, %102
+  %.not.i33 = icmp samesign ugt i64 %101, %102
   %.20.i = select i1 %.not.i33, ptr %133, ptr %105
   %134 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %134, i1 false), !alias.scope !4339
@@ -17471,7 +17471,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hd4faa98696709e3fE.exit: ; preds =
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %103, i64 %99
-  %.not.i33 = icmp ugt i64 %99, %100
+  %.not.i33 = icmp samesign ugt i64 %99, %100
   %.20.i = select i1 %.not.i33, ptr %131, ptr %103
   %132 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %132, i1 false), !alias.scope !4408
@@ -17906,7 +17906,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hbfacfec1378634dbE.exit: ; preds =
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %90, i64 %86
-  %.not.i33 = icmp ugt i64 %86, %87
+  %.not.i33 = icmp samesign ugt i64 %86, %87
   %.20.i = select i1 %.not.i33, ptr %118, ptr %90
   %119 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 392
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %119, i1 false), !alias.scope !4453
@@ -18319,7 +18319,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hbc4a0acfc3c0d222E.exit: ; preds =
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %108, i64 %104
-  %.not.i33 = icmp ugt i64 %104, %105
+  %.not.i33 = icmp samesign ugt i64 %104, %105
   %.20.i = select i1 %.not.i33, ptr %136, ptr %108
   %137 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %137, i1 false), !alias.scope !4502
@@ -18711,7 +18711,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h6c9b73451643cb71E.exit: ; preds =
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds { ptr, i64 }, ptr %88, i64 %84
-  %.not.i33 = icmp ugt i64 %84, %85
+  %.not.i33 = icmp samesign ugt i64 %84, %85
   %.20.i = select i1 %.not.i33, ptr %116, ptr %88
   %117 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %117, i1 false), !alias.scope !4547
@@ -19084,7 +19084,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha82c3d71c33e449dE.exit: ; preds =
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds { i64, i64 }, ptr %87, i64 %83
-  %.not.i33 = icmp ugt i64 %83, %84
+  %.not.i33 = icmp samesign ugt i64 %83, %84
   %.20.i = select i1 %.not.i33, ptr %115, ptr %87
   %116 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %116, i1 false), !alias.scope !4586
@@ -19465,7 +19465,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h39f2620ad58493e7E.exit: ; preds =
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %93, i64 %89
-  %.not.i33 = icmp ugt i64 %89, %90
+  %.not.i33 = icmp samesign ugt i64 %89, %90
   %.20.i = select i1 %.not.i33, ptr %121, ptr %93
   %122 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %122, i1 false), !alias.scope !4630
@@ -19917,7 +19917,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0f068b7b885e09beE.exit: ; preds =
 
 157:                                              ; preds = %155
   %158 = getelementptr inbounds { i64, [12 x i64] }, ptr %130, i64 %126
-  %.not.i33 = icmp ugt i64 %126, %127
+  %.not.i33 = icmp samesign ugt i64 %126, %127
   %.20.i = select i1 %.not.i33, ptr %158, ptr %130
   %159 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %159, i1 false), !alias.scope !4679
@@ -20351,7 +20351,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h2cbf556f2db0b5d5E.exit: ; preds =
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %85, i64 %81
-  %.not.i33 = icmp ugt i64 %81, %82
+  %.not.i33 = icmp samesign ugt i64 %81, %82
   %.20.i = select i1 %.not.i33, ptr %113, ptr %85
   %114 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %114, i1 false), !alias.scope !4723
@@ -20751,7 +20751,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hc6c0322f0112db47E.exit: ; preds =
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %96, i64 %92
-  %.not.i33 = icmp ugt i64 %92, %93
+  %.not.i33 = icmp samesign ugt i64 %92, %93
   %.20.i = select i1 %.not.i33, ptr %124, ptr %96
   %125 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %125, i1 false), !alias.scope !4764
@@ -21149,7 +21149,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h055f55392ebd9fb9E.exit: ; preds =
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %89, i64 %85
-  %.not.i33 = icmp ugt i64 %85, %86
+  %.not.i33 = icmp samesign ugt i64 %85, %86
   %.20.i = select i1 %.not.i33, ptr %117, ptr %89
   %118 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %118, i1 false), !alias.scope !4814
@@ -21628,7 +21628,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h3989fe55579357f3E.exit: ; preds =
 
 157:                                              ; preds = %155
   %158 = getelementptr inbounds { i64, [12 x i64] }, ptr %130, i64 %126
-  %.not.i33 = icmp ugt i64 %126, %127
+  %.not.i33 = icmp samesign ugt i64 %126, %127
   %.20.i = select i1 %.not.i33, ptr %158, ptr %130
   %159 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %159, i1 false), !alias.scope !4867
@@ -22102,7 +22102,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he821d521a94e7836E.exit: ; preds =
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %108, i64 %104
-  %.not.i33 = icmp ugt i64 %104, %105
+  %.not.i33 = icmp samesign ugt i64 %104, %105
   %.20.i = select i1 %.not.i33, ptr %136, ptr %108
   %137 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %137, i1 false), !alias.scope !4925
@@ -22515,7 +22515,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha175f6604df3c13eE.exit: ; preds =
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %103, i64 %99
-  %.not.i33 = icmp ugt i64 %99, %100
+  %.not.i33 = icmp samesign ugt i64 %99, %100
   %.20.i = select i1 %.not.i33, ptr %131, ptr %103
   %132 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %132, i1 false), !alias.scope !4994
@@ -22950,7 +22950,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h91acdc1dd39dcb2aE.exit: ; preds =
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %90, i64 %86
-  %.not.i33 = icmp ugt i64 %86, %87
+  %.not.i33 = icmp samesign ugt i64 %86, %87
   %.20.i = select i1 %.not.i33, ptr %118, ptr %90
   %119 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %119, i1 false), !alias.scope !5039
@@ -23653,7 +23653,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h631d47c6ec1a2ff2E.exit: ; preds =
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds { i64, [10 x i64] }, ptr %202, i64 %198
-  %.not.i33 = icmp ugt i64 %198, %199
+  %.not.i33 = icmp samesign ugt i64 %198, %199
   %.20.i = select i1 %.not.i33, ptr %230, ptr %202
   %231 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 88
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %231, i1 false), !alias.scope !5220
@@ -24281,7 +24281,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb07a99be7259ab12E.exit: ; preds =
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %103, i64 %99
-  %.not.i33 = icmp ugt i64 %99, %100
+  %.not.i33 = icmp samesign ugt i64 %99, %100
   %.20.i = select i1 %.not.i33, ptr %131, ptr %103
   %132 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %132, i1 false), !alias.scope !5378
@@ -24470,7 +24470,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h06
   %.val29 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !5403)
   call void @llvm.experimental.noalias.scope.decl(metadata !5406)
-  %17 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %17 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %17, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf72c840bc9E.exit, label %18
 
 18:                                               ; preds = %.outer._crit_edge
@@ -24480,7 +24480,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h06
 
 21:                                               ; preds = %18
   %22 = lshr i64 %.sroa.12.0.lcssa, 1
-  %23 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %23 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %23, label %25, label %69
 
 24:                                               ; preds = %18
@@ -25025,7 +25025,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0a
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %243 ], [ %227, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1aa299f97f89e08E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5478)
   call void @llvm.experimental.noalias.scope.decl(metadata !5481)
-  %18 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %18 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %18, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae14ad86b0E.exit, label %19
 
 19:                                               ; preds = %.outer._crit_edge
@@ -25035,7 +25035,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0a
 
 22:                                               ; preds = %19
   %23 = lshr i64 %.sroa.12.0.lcssa, 1
-  %24 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %24 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %24, label %26, label %83
 
 25:                                               ; preds = %19
@@ -25584,7 +25584,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0f
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %316 ], [ %300, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd976875f0e7871dfE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5538)
   call void @llvm.experimental.noalias.scope.decl(metadata !5541)
-  %18 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %18 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %18, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a474e95bfeE.exit, label %19
 
 19:                                               ; preds = %.outer._crit_edge
@@ -25594,7 +25594,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0f
 
 22:                                               ; preds = %19
   %23 = lshr i64 %.sroa.12.0.lcssa, 1
-  %24 = icmp ugt i64 %.sroa.12.0.lcssa, 15
+  %24 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 15
   br i1 %24, label %28, label %26
 
 25:                                               ; preds = %19
@@ -25602,7 +25602,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0f
   unreachable
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %27 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %27, label %33, label %90
 
 28:                                               ; preds = %22
@@ -26320,7 +26320,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h16
   call void @llvm.experimental.noalias.scope.decl(metadata !5622)
   call void @llvm.experimental.noalias.scope.decl(metadata !5625)
   call void @llvm.experimental.noalias.scope.decl(metadata !5627)
-  %52 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %52 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %52, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h44b4ae6b5a766e7eE.exit, label %53
 
 53:                                               ; preds = %.outer._crit_edge
@@ -26330,7 +26330,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h16
 
 56:                                               ; preds = %53
   %57 = lshr i64 %.sroa.12.0.lcssa, 1
-  %58 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %58 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %58, label %60, label %63
 
 59:                                               ; preds = %53
@@ -27591,7 +27591,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %423 ], [ %407, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h88b5ce60a1e7be90E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6050)
   call void @llvm.experimental.noalias.scope.decl(metadata !6053)
-  %80 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %80 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %80, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b101441a9E.exit, label %81
 
 81:                                               ; preds = %.outer._crit_edge
@@ -27601,7 +27601,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c
 
 84:                                               ; preds = %81
   %85 = lshr i64 %.sroa.12.0.lcssa, 1
-  %86 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %86 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %87 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph.lcssa93, i64 %85
   %88 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %85
   br i1 %86, label %90, label %91
@@ -28606,7 +28606,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1f
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %243 ], [ %227, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6314)
   call void @llvm.experimental.noalias.scope.decl(metadata !6317)
-  %20 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %20 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %20, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7bd46f8049E.exit, label %21
 
 21:                                               ; preds = %.outer._crit_edge
@@ -28616,7 +28616,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1f
 
 24:                                               ; preds = %21
   %25 = lshr i64 %.sroa.12.0.lcssa, 1
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa90, i64 %25
   %28 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %25
   br i1 %26, label %30, label %31
@@ -29200,7 +29200,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h2d
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %290 ], [ %274, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h06dee89666e763b5E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6416)
   call void @llvm.experimental.noalias.scope.decl(metadata !6419)
-  %49 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %49 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %49, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h8932062842f335a9E.exit, label %50
 
 50:                                               ; preds = %.outer._crit_edge
@@ -29210,7 +29210,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h2d
 
 53:                                               ; preds = %50
   %54 = lshr i64 %.sroa.12.0.lcssa, 1
-  %55 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %55 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %56 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa78, i64 %54
   %57 = getelementptr { i64, [12 x i64] }, ptr %2, i64 %54
   br i1 %55, label %59, label %60
@@ -29852,7 +29852,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %320 ], [ %304, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h67a14683452292f4E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6531)
   call void @llvm.experimental.noalias.scope.decl(metadata !6534)
-  %19 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %19 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %19, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffefef6bf32fE.exit, label %20
 
 20:                                               ; preds = %.outer._crit_edge
@@ -29862,7 +29862,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d
 
 23:                                               ; preds = %20
   %24 = lshr i64 %.sroa.12.0.lcssa, 1
-  %25 = icmp ugt i64 %.sroa.12.0.lcssa, 15
+  %25 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 15
   br i1 %25, label %29, label %27
 
 26:                                               ; preds = %20
@@ -29870,7 +29870,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d
   unreachable
 
 27:                                               ; preds = %23
-  %28 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %28 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %28, label %34, label %91
 
 29:                                               ; preds = %23
@@ -30552,7 +30552,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h51
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %286 ], [ %270, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h050383fe8bd1a302E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6615)
   call void @llvm.experimental.noalias.scope.decl(metadata !6618)
-  %17 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %17 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %17, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fda4ee60eeE.exit, label %18
 
 18:                                               ; preds = %.outer._crit_edge
@@ -30562,7 +30562,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h51
 
 21:                                               ; preds = %18
   %22 = lshr i64 %.sroa.12.0.lcssa, 1
-  %23 = icmp ugt i64 %.sroa.12.0.lcssa, 15
+  %23 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 15
   br i1 %23, label %27, label %25
 
 24:                                               ; preds = %18
@@ -30570,7 +30570,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h51
   unreachable
 
 25:                                               ; preds = %21
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %26, label %32, label %75
 
 27:                                               ; preds = %21
@@ -31220,7 +31220,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h71
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %282 ], [ %266, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9671f6afd4c48424E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6716)
   call void @llvm.experimental.noalias.scope.decl(metadata !6719)
-  %20 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %20 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %20, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c76a8839bE.exit, label %21
 
 21:                                               ; preds = %.outer._crit_edge
@@ -31230,7 +31230,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h71
 
 24:                                               ; preds = %21
   %25 = lshr i64 %.sroa.12.0.lcssa, 1
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %26, label %28, label %105
 
 27:                                               ; preds = %21
@@ -31893,7 +31893,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h78
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %265 ], [ %249, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0dddedd242ab67f1E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6821)
   call void @llvm.experimental.noalias.scope.decl(metadata !6824)
-  %18 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %18 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %18, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230fe4c6b9cbE.exit, label %19
 
 19:                                               ; preds = %.outer._crit_edge
@@ -31903,7 +31903,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h78
 
 22:                                               ; preds = %19
   %23 = lshr i64 %.sroa.12.0.lcssa, 1
-  %24 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %24 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %24, label %26, label %93
 
 25:                                               ; preds = %19
@@ -32481,7 +32481,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h83
   %.val29 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6881)
   call void @llvm.experimental.noalias.scope.decl(metadata !6884)
-  %19 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %19 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %19, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4d4d14250E.exit, label %20
 
 20:                                               ; preds = %.outer._crit_edge
@@ -32491,7 +32491,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h83
 
 23:                                               ; preds = %20
   %24 = lshr i64 %.sroa.12.0.lcssa, 1
-  %25 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %25 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %25, label %27, label %31
 
 26:                                               ; preds = %20
@@ -33047,7 +33047,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha0
   %.val29 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7023)
   call void @llvm.experimental.noalias.scope.decl(metadata !7026)
-  %19 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %19 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %19, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85c9efc4faE.exit, label %20
 
 20:                                               ; preds = %.outer._crit_edge
@@ -33057,7 +33057,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha0
 
 23:                                               ; preds = %20
   %24 = lshr i64 %.sroa.12.0.lcssa, 1
-  %25 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %25 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %25, label %27, label %31
 
 26:                                               ; preds = %20
@@ -33613,7 +33613,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb2
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %243 ], [ %227, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7165)
   call void @llvm.experimental.noalias.scope.decl(metadata !7168)
-  %20 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %20 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %20, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a166574eeee2cE.exit, label %21
 
 21:                                               ; preds = %.outer._crit_edge
@@ -33623,7 +33623,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb2
 
 24:                                               ; preds = %21
   %25 = lshr i64 %.sroa.12.0.lcssa, 1
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa90, i64 %25
   %28 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %25
   br i1 %26, label %30, label %31
@@ -34175,7 +34175,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb3
   %.val29 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7267)
   call void @llvm.experimental.noalias.scope.decl(metadata !7270)
-  %19 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %19 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %19, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed20c897a1E.exit, label %20
 
 20:                                               ; preds = %.outer._crit_edge
@@ -34185,7 +34185,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb3
 
 23:                                               ; preds = %20
   %24 = lshr i64 %.sroa.12.0.lcssa, 1
-  %25 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %25 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %25, label %27, label %31
 
 26:                                               ; preds = %20
@@ -34741,7 +34741,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %243 ], [ %227, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7409)
   call void @llvm.experimental.noalias.scope.decl(metadata !7412)
-  %20 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %20 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %20, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a04e8dba71E.exit, label %21
 
 21:                                               ; preds = %.outer._crit_edge
@@ -34751,7 +34751,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
 
 24:                                               ; preds = %21
   %25 = lshr i64 %.sroa.12.0.lcssa, 1
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa90, i64 %25
   %28 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %25
   br i1 %26, label %30, label %31
@@ -35303,7 +35303,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %238 ], [ %222, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9092ccda9003cda2E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7511)
   call void @llvm.experimental.noalias.scope.decl(metadata !7514)
-  %20 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %20 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %20, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5f43aefb0E.exit, label %21
 
 21:                                               ; preds = %.outer._crit_edge
@@ -35313,7 +35313,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
 
 24:                                               ; preds = %21
   %25 = lshr i64 %.sroa.12.0.lcssa, 1
-  %26 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %26 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.ph.lcssa92, i64 %25
   %28 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %2, i64 %25
   br i1 %26, label %30, label %31
@@ -35900,7 +35900,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hba
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %290 ], [ %274, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7022fddd1007cad6E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7613)
   call void @llvm.experimental.noalias.scope.decl(metadata !7616)
-  %49 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %49 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %49, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65b9276b2aE.exit, label %50
 
 50:                                               ; preds = %.outer._crit_edge
@@ -35910,7 +35910,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hba
 
 53:                                               ; preds = %50
   %54 = lshr i64 %.sroa.12.0.lcssa, 1
-  %55 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %55 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   %56 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa78, i64 %54
   %57 = getelementptr { i64, [12 x i64] }, ptr %2, i64 %54
   br i1 %55, label %59, label %60
@@ -36548,7 +36548,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea
   %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %243 ], [ %227, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he92887658ff50e8eE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7728)
   call void @llvm.experimental.noalias.scope.decl(metadata !7731)
-  %18 = icmp ult i64 %.sroa.12.0.lcssa, 2
+  %18 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
   br i1 %18, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3f2c4cc77E.exit, label %19
 
 19:                                               ; preds = %.outer._crit_edge
@@ -36558,7 +36558,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea
 
 22:                                               ; preds = %19
   %23 = lshr i64 %.sroa.12.0.lcssa, 1
-  %24 = icmp ugt i64 %.sroa.12.0.lcssa, 7
+  %24 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
   br i1 %24, label %26, label %83
 
 25:                                               ; preds = %19
@@ -42115,7 +42115,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %16 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %16 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %16, label %.lr.ph.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17hfe843f81eb530ce8E.exit"
 
 .lr.ph.i:                                         ; preds = %._crit_edge
@@ -44075,13 +44075,13 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.sroa.11.0.lcssa = phi i64 [ %1, %4 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.0.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9983)
-  %8 = icmp ult i64 %.sroa.11.0.lcssa, 2
+  %8 = icmp samesign ult i64 %.sroa.11.0.lcssa, 2
   br i1 %8, label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17hb35f2bff6f93a0d1E.exit, label %9
 
 9:                                                ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5), !noalias !9983
   %10 = lshr i64 %.sroa.11.0.lcssa, 1
-  %11 = icmp ult i64 %.sroa.11.0.lcssa, 18
+  %11 = icmp samesign ult i64 %.sroa.11.0.lcssa, 18
   %..i = select i1 %11, i64 %.sroa.11.0.lcssa, i64 %10
   %12 = getelementptr i64, ptr %.sroa.0.0.lcssa, i64 %10
   %13 = sub nuw nsw i64 %.sroa.11.0.lcssa, %10
@@ -44838,7 +44838,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %18 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %18 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %18, label %19, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h976273949635467fE.exit"
 
 19:                                               ; preds = %._crit_edge
@@ -45416,7 +45416,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %56 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %56 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %56, label %57, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17hd9272ad7645b9cfdE.exit"
 
 57:                                               ; preds = %._crit_edge
@@ -46715,7 +46715,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %16 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %16 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %16, label %.lr.ph.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h44b00982a03041b1E.exit"
 
 .lr.ph.i:                                         ; preds = %._crit_edge
@@ -47556,7 +47556,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %46 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %46 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %46, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17hb6ed3a39bbcf0723E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -48447,7 +48447,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %46 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %46 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %46, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17haf256e904b5d9593E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -49308,7 +49308,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %16 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %16 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %16, label %.lr.ph.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h939451bf05408856E.exit"
 
 .lr.ph.i:                                         ; preds = %._crit_edge
@@ -51929,7 +51929,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.0.0.be, %.backedge ]
-  %56 = icmp ugt i64 %.sroa.11.0.lcssa, 1
+  %56 = icmp samesign ugt i64 %.sroa.11.0.lcssa, 1
   br i1 %56, label %57, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h7581ca8c64dddf46E.exit"
 
 57:                                               ; preds = %._crit_edge
@@ -53218,13 +53218,13 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.sroa.11.0.lcssa = phi i64 [ %1, %4 ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.0.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.0.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12037)
-  %8 = icmp ult i64 %.sroa.11.0.lcssa, 2
+  %8 = icmp samesign ult i64 %.sroa.11.0.lcssa, 2
   br i1 %8, label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17h41d794f0e4a5b5f8E.exit, label %9
 
 9:                                                ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5), !noalias !12037
   %10 = lshr i64 %.sroa.11.0.lcssa, 1
-  %11 = icmp ult i64 %.sroa.11.0.lcssa, 18
+  %11 = icmp samesign ult i64 %.sroa.11.0.lcssa, 18
   %..i = select i1 %11, i64 %.sroa.11.0.lcssa, i64 %10
   %12 = getelementptr ptr, ptr %.sroa.0.0.lcssa, i64 %10
   %13 = sub nuw nsw i64 %.sroa.11.0.lcssa, %10

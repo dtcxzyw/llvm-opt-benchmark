@@ -1265,7 +1265,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %423, %425
   %467 = load i32, ptr %415, align 4
   %468 = and i32 %467, 134217727
   %469 = zext nneg i32 %468 to i64
-  %470 = icmp ult i64 %indvars.iv.next, %469
+  %470 = icmp samesign ult i64 %indvars.iv.next, %469
   br i1 %470, label %419, label %._crit_edge237, !llvm.loop !16
 
 ._crit_edge237:                                   ; preds = %466, %.loopexit

@@ -179,7 +179,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   tail call fastcc void @tcg_gen_qemu_ld_i32_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop)
   ret void
@@ -231,7 +231,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -379,7 +379,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   tail call fastcc void @tcg_gen_qemu_st_i32_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop)
   ret void
@@ -416,7 +416,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -605,7 +605,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -661,8 +661,8 @@ if.then:                                          ; preds = %land.lhs.true
   %and4 = and i32 %op.addr.3.i, 8
   %tobool5.not = icmp ne i32 %and4, 0
   %and7 = and i32 %op.addr.3.i, 7
-  %cmp = icmp ult i32 %and7, 3
-  %or.cond = and i1 %tobool5.not, %cmp
+  %cmp = icmp samesign ult i32 %and7, 3
+  %or.cond = select i1 %tobool5.not, i1 %cmp, i1 false
   %memop.addr.1.v = select i1 %or.cond, i32 -25, i32 -17
   %memop.addr.1 = and i32 %memop.addr.1.v, %op.addr.3.i
   %shl.i23 = shl i32 %memop.addr.1, 4
@@ -795,7 +795,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -987,7 +987,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i, align 4
   %conv.i = zext i8 %3 to i32
-  %cmp.i = icmp ule i32 %add.i, %conv.i
+  %cmp.i = icmp samesign ule i32 %add.i, %conv.i
   tail call void @llvm.assume(i1 %cmp.i)
   br label %check_max_alignment.exit
 
@@ -1344,7 +1344,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i, align 4
   %conv.i = zext i8 %3 to i32
-  %cmp.i = icmp ule i32 %add.i, %conv.i
+  %cmp.i = icmp samesign ule i32 %add.i, %conv.i
   tail call void @llvm.assume(i1 %cmp.i)
   br label %check_max_alignment.exit
 
@@ -1823,7 +1823,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   tail call fastcc void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop)
   ret void
@@ -1868,7 +1868,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   tail call fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop)
   ret void
@@ -1918,7 +1918,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -2110,7 +2110,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %1, i64 68
   %6 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %6 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %sw.bb10.i.i
 
@@ -2351,7 +2351,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -2394,7 +2394,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -2477,7 +2477,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -2632,7 +2632,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -2716,7 +2716,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
-  %cmp.i.i = icmp ule i32 %add.i.i, %conv.i.i
+  %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   br label %check_max_alignment.exit.i
 
@@ -2853,7 +2853,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -2896,7 +2896,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3004,7 +3004,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3069,7 +3069,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -3112,7 +3112,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3220,7 +3220,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3285,7 +3285,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -3328,7 +3328,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3436,7 +3436,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3501,7 +3501,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -3544,7 +3544,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3652,7 +3652,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3717,7 +3717,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -3760,7 +3760,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3868,7 +3868,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -3933,7 +3933,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -3976,7 +3976,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4084,7 +4084,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4149,7 +4149,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -4192,7 +4192,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4300,7 +4300,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4365,7 +4365,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -4408,7 +4408,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4514,7 +4514,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4577,7 +4577,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -4620,7 +4620,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4726,7 +4726,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4789,7 +4789,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -4832,7 +4832,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -4938,7 +4938,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5001,7 +5001,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -5044,7 +5044,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5150,7 +5150,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5213,7 +5213,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -5256,7 +5256,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5362,7 +5362,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5425,7 +5425,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -5468,7 +5468,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5574,7 +5574,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5637,7 +5637,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -5680,7 +5680,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5786,7 +5786,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5849,7 +5849,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -5892,7 +5892,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -5998,7 +5998,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -6061,7 +6061,7 @@ entry:
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
-  %cmp3 = icmp ult i32 %and, 3
+  %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
   %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
@@ -6104,7 +6104,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 
@@ -6210,7 +6210,7 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
-  %cmp.i.i.i = icmp ule i32 %add.i.i.i, %conv.i.i.i
+  %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   br label %check_max_alignment.exit.i.i
 

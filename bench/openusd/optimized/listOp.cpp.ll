@@ -94475,7 +94475,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not.i.i.i, label %_ZSt8distanceISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit, label %.lr.ph.i.i.i, !llvm.loop !118
 
 _ZSt8distanceISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit: ; preds = %.lr.ph.i.i.i
-  %5 = icmp ugt i64 %.015.i.i.i, 288230376151711742
+  %5 = icmp samesign ugt i64 %.015.i.i.i, 288230376151711742
   br i1 %5, label %6, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
 
 6:                                                ; preds = %_ZSt8distanceISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit
@@ -100682,7 +100682,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20SdfU
   br i1 %.not.i.i.i, label %_ZSt8distanceISt14_List_iteratorIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit, label %.lr.ph.i.i.i, !llvm.loop !208
 
 _ZSt8distanceISt14_List_iteratorIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit: ; preds = %.lr.ph.i.i.i
-  %5 = icmp ugt i64 %.015.i.i.i, 576460752303423486
+  %5 = icmp samesign ugt i64 %.015.i.i.i, 576460752303423486
   br i1 %5, label %6, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueEEE8allocateERS2_m.exit.i
 
 6:                                                ; preds = %_ZSt8distanceISt14_List_iteratorIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit

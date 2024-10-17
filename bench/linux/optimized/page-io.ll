@@ -698,7 +698,7 @@ define dso_local noundef i32 @ext4_bio_write_folio(ptr nocapture noundef %0, ptr
 
 79:                                               ; preds = %76, %70
   %80 = phi i64 [ %78, %76 ], [ 1, %70 ]
-  %81 = icmp ugt i64 %80, %72
+  %81 = icmp samesign ugt i64 %80, %72
   %82 = add i32 %71, 1
   br i1 %81, label %70, label %.loopexit5, !llvm.loop !37
 

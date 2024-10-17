@@ -1628,7 +1628,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %654 = icmp ult i64 %indvars.iv.next.i.i, %621
+  %654 = icmp samesign ult i64 %indvars.iv.next.i.i, %621
   %655 = and i1 %654, %653
   br i1 %655, label %622, label %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.i, !llvm.loop !21
 
@@ -2565,7 +2565,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   %indvars.iv.next.i.i69 = add nuw nsw i64 %indvars.iv.i.i67, 1
-  %1039 = icmp ult i64 %indvars.iv.next.i.i69, %1006
+  %1039 = icmp samesign ult i64 %indvars.iv.next.i.i69, %1006
   %1040 = and i1 %1039, %1038
   br i1 %1040, label %1007, label %._crit_edge73.i.i, !llvm.loop !24
 

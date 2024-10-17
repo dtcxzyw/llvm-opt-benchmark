@@ -989,7 +989,7 @@ define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i3
   %61 = phi i32 [ %.pre, %58 ], [ %51, %50 ]
   %62 = add nuw nsw i64 %52, 1
   %63 = zext i32 %61 to i64
-  %64 = icmp ult i64 %62, %63
+  %64 = icmp samesign ult i64 %62, %63
   br i1 %64, label %50, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %60, %44
@@ -1096,7 +1096,7 @@ define dso_local void @platform_device_unregister(ptr noundef %0) #1 align 16 {
   %30 = phi i32 [ %.pre, %27 ], [ %20, %19 ]
   %31 = add nuw nsw i64 %21, 1
   %32 = zext i32 %30 to i64
-  %33 = icmp ult i64 %31, %32
+  %33 = icmp samesign ult i64 %31, %32
   br i1 %33, label %19, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %29, %13
@@ -1360,7 +1360,7 @@ select.unfold:                                    ; preds = %49, %select.unfold.
   %56 = add nuw nsw i64 %32, 1
   %57 = load i32, ptr %25, align 8
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %56, %58
+  %59 = icmp samesign ult i64 %56, %58
   br i1 %59, label %31, label %60, !llvm.loop !31
 
 60:                                               ; preds = %55
@@ -1490,7 +1490,7 @@ define dso_local void @platform_device_del(ptr noundef %0) #1 align 16 {
   %30 = phi i32 [ %.pre, %27 ], [ %20, %19 ]
   %31 = add nuw nsw i64 %21, 1
   %32 = zext i32 %30 to i64
-  %33 = icmp ult i64 %31, %32
+  %33 = icmp samesign ult i64 %31, %32
   br i1 %33, label %19, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %29, %13, %1
@@ -1904,7 +1904,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
   %93 = phi i32 [ %.pre, %90 ], [ %83, %.preheader ]
   %94 = add nuw nsw i64 %84, 1
   %95 = zext i32 %93 to i64
-  %96 = icmp ult i64 %94, %95
+  %96 = icmp samesign ult i64 %94, %95
   br i1 %96, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %92, %45, %34, %80, %72, %48

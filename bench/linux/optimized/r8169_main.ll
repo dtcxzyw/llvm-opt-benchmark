@@ -467,7 +467,7 @@ define dso_local zeroext i8 @rtl8168d_efuse_read(ptr nocapture noundef readonly 
   br label %.thread
 
 25:                                               ; preds = %11
-  %26 = icmp ult i32 %16, 299
+  %26 = icmp samesign ult i32 %16, 299
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %25, %2
@@ -706,7 +706,7 @@ define internal i32 @rtl_init_one(ptr noundef %0, ptr nocapture noundef readonly
 30:                                               ; preds = %38, %28
   %31 = phi i64 [ %42, %38 ], [ 0, %28 ]
   %32 = and i64 %31, 4294967295
-  %33 = icmp ugt i64 %32, 63
+  %33 = icmp samesign ugt i64 %32, 63
   br i1 %33, label %.thread, label %34, !prof !7
 
 34:                                               ; preds = %30
@@ -922,7 +922,7 @@ rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.ex
   br label %rtl_dash_is_enabled.exit.thread
 
 151:                                              ; preds = %138
-  %152 = icmp ult i32 %143, 19
+  %152 = icmp samesign ult i32 %143, 19
   br i1 %152, label %153, label %rtl_dash_is_enabled.exit.thread
 
 153:                                              ; preds = %151, %128
@@ -975,7 +975,7 @@ rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.ex
   br label %rtl_dash_is_enabled.exit.thread
 
 183:                                              ; preds = %170
-  %184 = icmp ult i32 %175, 99
+  %184 = icmp samesign ult i32 %175, 99
   br i1 %184, label %rtl_dash_is_enabled.exit, label %rtl_dash_is_enabled.exit.thread
 
 rtl_dash_is_enabled.exit.thread:                  ; preds = %151, %149, %146, %183, %181, %178
@@ -2040,7 +2040,7 @@ define internal fastcc void @rtl_init_mac_address(ptr noundef %0) unnamed_addr #
   br label %43
 
 37:                                               ; preds = %24
-  %38 = icmp ult i32 %29, 99
+  %38 = icmp samesign ult i32 %29, 99
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37, %17
@@ -2086,7 +2086,7 @@ define internal fastcc void @rtl_init_mac_address(ptr noundef %0) unnamed_addr #
   br label %71
 
 64:                                               ; preds = %51
-  %65 = icmp ult i32 %56, 99
+  %65 = icmp samesign ult i32 %56, 99
   br i1 %65, label %66, label %71
 
 66:                                               ; preds = %64, %43
@@ -2799,7 +2799,7 @@ define internal fastcc void @rtl8168_driver_start(ptr nocapture noundef readonly
   br label %r8168dp_ocp_read.exit.thread
 
 32:                                               ; preds = %18
-  %33 = icmp ult i32 %23, 19
+  %33 = icmp samesign ult i32 %23, 19
   br i1 %33, label %r8168dp_ocp_read.exit, label %r8168dp_ocp_read.exit.thread
 
 r8168dp_ocp_read.exit:                            ; preds = %7, %32
@@ -2906,7 +2906,7 @@ r8168dp_ocp_read.exit:                            ; preds = %7, %32
   br label %_rtl_eri_read.exit
 
 97:                                               ; preds = %83
-  %98 = icmp ult i32 %88, 99
+  %98 = icmp samesign ult i32 %88, 99
   br i1 %98, label %99, label %_rtl_eri_read.exit
 
 99:                                               ; preds = %97, %.loopexit9
@@ -2999,7 +2999,7 @@ _rtl_eri_read.exit:                               ; preds = %91, %94, %97, %99
   br label %r8168dp_ocp_read.exit.thread
 
 153:                                              ; preds = %139
-  %154 = icmp ult i32 %144, 99
+  %154 = icmp samesign ult i32 %144, 99
   br i1 %154, label %_rtl_eri_read.exit7, label %r8168dp_ocp_read.exit.thread
 
 _rtl_eri_read.exit7:                              ; preds = %.loopexit, %153
@@ -3917,7 +3917,7 @@ __skb_put.exit:                                   ; preds = %232
   %291 = add nuw nsw i64 %269, 1
   %292 = load i8, ptr %263, align 2
   %293 = zext i8 %292 to i64
-  %294 = icmp ult i64 %291, %293
+  %294 = icmp samesign ult i64 %291, %293
   br i1 %294, label %268, label %.loopexit31.loopexit, !llvm.loop !60
 
 295:                                              ; preds = %268
@@ -4327,7 +4327,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr nocapture nounde
   %92 = getelementptr i8, ptr %88, i64 %91
   %93 = load i8, ptr %92, align 4
   %94 = and i8 %93, 14
-  %95 = icmp ugt i8 %94, 5
+  %95 = icmp samesign ugt i8 %94, 5
   br i1 %95, label %96, label %.thread8
 
 96:                                               ; preds = %87
@@ -4353,7 +4353,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr nocapture nounde
   %111 = getelementptr inbounds i8, ptr %110, i64 12
   %112 = load i16, ptr %111, align 4
   %113 = and i16 %112, 240
-  %114 = icmp ugt i16 %113, 80
+  %114 = icmp samesign ugt i16 %113, 80
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %106
@@ -5238,7 +5238,7 @@ r8169_mdio_write.exit:                            ; preds = %20, %29, %32
   br label %89
 
 82:                                               ; preds = %68
-  %83 = icmp ult i32 %73, 99
+  %83 = icmp samesign ult i32 %73, 99
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %82, %67
@@ -5306,7 +5306,7 @@ r8169_mdio_write.exit:                            ; preds = %20, %29, %32
   br label %129
 
 122:                                              ; preds = %108
-  %123 = icmp ult i32 %113, 99
+  %123 = icmp samesign ult i32 %113, 99
   br i1 %123, label %124, label %129
 
 124:                                              ; preds = %122, %107
@@ -5567,7 +5567,7 @@ define internal range(i32 -110, 268435456) i32 @rtl_readphy(ptr nocapture nounde
   br label %70
 
 61:                                               ; preds = %47
-  %62 = icmp ult i32 %52, 9
+  %62 = icmp samesign ult i32 %52, 9
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %61, %39
@@ -5730,7 +5730,7 @@ define internal fastcc range(i32 -110, 65536) i32 @r8169_mdio_read(ptr nocapture
   br label %.thread
 
 25:                                               ; preds = %11
-  %26 = icmp ult i32 %16, 19
+  %26 = icmp samesign ult i32 %16, 19
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %25, %2
@@ -6384,7 +6384,7 @@ define internal fastcc void @rtl_reset_packet_filter(ptr nocapture noundef reado
   br label %29
 
 22:                                               ; preds = %8
-  %23 = icmp ult i32 %13, 99
+  %23 = icmp samesign ult i32 %13, 99
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22, %1
@@ -6465,7 +6465,7 @@ define internal fastcc void @rtl_reset_packet_filter(ptr nocapture noundef reado
   br label %77
 
 70:                                               ; preds = %56
-  %71 = icmp ult i32 %61, 99
+  %71 = icmp samesign ult i32 %61, 99
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70, %.loopexit4
@@ -6647,7 +6647,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
   %70 = getelementptr i8, ptr %69, i64 %68
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %70) #19, !srcloc !15
   %71 = add nuw nsw i64 %68, 4
-  %72 = icmp ult i64 %68, 2812
+  %72 = icmp samesign ult i64 %68, 2812
   br i1 %72, label %.preheader7, label %73, !llvm.loop !79
 
 73:                                               ; preds = %.preheader7
@@ -6761,7 +6761,7 @@ thread-pre-split:                                 ; preds = %63, %79, %100
   br label %132
 
 125:                                              ; preds = %112
-  %126 = icmp ult i32 %117, 99
+  %126 = icmp samesign ult i32 %117, 99
   br i1 %126, label %127, label %132
 
 127:                                              ; preds = %125, %105
@@ -6840,7 +6840,7 @@ thread-pre-split:                                 ; preds = %63, %79, %100
   br label %179
 
 172:                                              ; preds = %159
-  %173 = icmp ult i32 %164, 99
+  %173 = icmp samesign ult i32 %164, 99
   br i1 %173, label %174, label %179
 
 174:                                              ; preds = %172, %152
@@ -8190,7 +8190,7 @@ define internal void @rtl_hw_start_8105e_2(ptr nocapture noundef readonly %0) #0
   br label %60
 
 52:                                               ; preds = %38
-  %53 = icmp ult i32 %43, 99
+  %53 = icmp samesign ult i32 %43, 99
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %52, %1
@@ -8380,7 +8380,7 @@ define internal void @rtl_hw_start_8168e_2(ptr noundef %0) #0 align 16 {
   br label %67
 
 60:                                               ; preds = %46
-  %61 = icmp ult i32 %51, 99
+  %61 = icmp samesign ult i32 %51, 99
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60, %.loopexit12
@@ -8462,7 +8462,7 @@ define internal void @rtl_hw_start_8168e_2(ptr noundef %0) #0 align 16 {
   br label %115
 
 108:                                              ; preds = %94
-  %109 = icmp ult i32 %99, 99
+  %109 = icmp samesign ult i32 %99, 99
   br i1 %109, label %110, label %115
 
 110:                                              ; preds = %108, %.loopexit10
@@ -8744,7 +8744,7 @@ define internal void @rtl_hw_start_8402(ptr nocapture noundef readonly %0) #0 al
   br label %80
 
 72:                                               ; preds = %58
-  %73 = icmp ult i32 %63, 99
+  %73 = icmp samesign ult i32 %63, 99
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %72, %.loopexit6
@@ -9130,7 +9130,7 @@ define internal void @rtl_hw_start_8168h_1(ptr noundef %0) #0 align 16 {
   br label %29
 
 22:                                               ; preds = %8
-  %23 = icmp ult i32 %13, 99
+  %23 = icmp samesign ult i32 %13, 99
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22, %1
@@ -9342,7 +9342,7 @@ define internal void @rtl_hw_start_8168h_1(ptr noundef %0) #0 align 16 {
   br label %158
 
 151:                                              ; preds = %137
-  %152 = icmp ult i32 %142, 99
+  %152 = icmp samesign ult i32 %142, 99
   br i1 %152, label %153, label %158
 
 153:                                              ; preds = %151, %.loopexit8
@@ -9652,7 +9652,7 @@ define internal void @rtl_hw_start_8168ep_3(ptr noundef %0) #0 align 16 {
   br label %93
 
 85:                                               ; preds = %71
-  %86 = icmp ult i32 %76, 99
+  %86 = icmp samesign ult i32 %76, 99
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %85, %.loopexit5
@@ -9813,7 +9813,7 @@ define internal void @rtl_hw_start_8117(ptr noundef %0) #0 align 16 {
   br label %29
 
 22:                                               ; preds = %8
-  %23 = icmp ult i32 %13, 99
+  %23 = icmp samesign ult i32 %13, 99
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22, %1
@@ -10025,7 +10025,7 @@ define internal void @rtl_hw_start_8117(ptr noundef %0) #0 align 16 {
   br label %158
 
 151:                                              ; preds = %137
-  %152 = icmp ult i32 %142, 99
+  %152 = icmp samesign ult i32 %142, 99
   br i1 %152, label %153, label %158
 
 153:                                              ; preds = %151, %.loopexit8
@@ -10237,7 +10237,7 @@ define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, 
   br label %.thread
 
 31:                                               ; preds = %18
-  %32 = icmp ult i32 %23, 99
+  %32 = icmp samesign ult i32 %23, 99
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %31, %5
@@ -10368,7 +10368,7 @@ define internal fastcc void @rtl_set_aspm_entry_latency(ptr nocapture noundef re
   br label %50
 
 43:                                               ; preds = %29
-  %44 = icmp ult i32 %34, 99
+  %44 = icmp samesign ult i32 %34, 99
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %43, %16
@@ -10564,7 +10564,7 @@ define internal fastcc void @rtl8168_config_eee_mac(ptr nocapture noundef readon
   br label %40
 
 33:                                               ; preds = %19
-  %34 = icmp ult i32 %24, 99
+  %34 = icmp samesign ult i32 %24, 99
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %33, %12
@@ -10721,7 +10721,7 @@ define internal fastcc void @rtl_hw_start_8168f(ptr noundef %0) unnamed_addr #0 
   br label %67
 
 60:                                               ; preds = %46
-  %61 = icmp ult i32 %51, 99
+  %61 = icmp samesign ult i32 %51, 99
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60, %.loopexit12
@@ -10802,7 +10802,7 @@ define internal fastcc void @rtl_hw_start_8168f(ptr noundef %0) unnamed_addr #0 
   br label %115
 
 108:                                              ; preds = %94
-  %109 = icmp ult i32 %99, 99
+  %109 = icmp samesign ult i32 %99, 99
   br i1 %109, label %110, label %115
 
 110:                                              ; preds = %108, %.loopexit10
@@ -11105,7 +11105,7 @@ define internal fastcc void @rtl_hw_start_8168g(ptr nocapture noundef readonly %
   br label %93
 
 85:                                               ; preds = %71
-  %86 = icmp ult i32 %76, 99
+  %86 = icmp samesign ult i32 %76, 99
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %85, %.loopexit9
@@ -11187,7 +11187,7 @@ define internal fastcc void @rtl_hw_start_8168g(ptr nocapture noundef readonly %
   br label %141
 
 134:                                              ; preds = %120
-  %135 = icmp ult i32 %125, 99
+  %135 = icmp samesign ult i32 %125, 99
   br i1 %135, label %136, label %141
 
 136:                                              ; preds = %134, %.loopexit7
@@ -11994,7 +11994,7 @@ rtl8169_do_counters.exit:                         ; preds = %28, %41, %38, %1
   br label %79
 
 72:                                               ; preds = %58
-  %73 = icmp ult i32 %63, 99
+  %73 = icmp samesign ult i32 %63, 99
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %72, %51
@@ -12225,7 +12225,7 @@ define internal fastcc void @rtl8168_driver_stop(ptr nocapture noundef readonly 
   br label %r8168dp_ocp_read.exit.thread
 
 32:                                               ; preds = %19
-  %33 = icmp ult i32 %24, 19
+  %33 = icmp samesign ult i32 %24, 19
   br i1 %33, label %r8168dp_ocp_read.exit, label %r8168dp_ocp_read.exit.thread
 
 r8168dp_ocp_read.exit:                            ; preds = %8, %32
@@ -12327,7 +12327,7 @@ r8168dp_ocp_read.exit.thread:                     ; preds = %27, %30, %32, %r816
   br label %_rtl_eri_read.exit
 
 93:                                               ; preds = %79
-  %94 = icmp ult i32 %84, 99
+  %94 = icmp samesign ult i32 %84, 99
   br i1 %94, label %95, label %_rtl_eri_read.exit
 
 95:                                               ; preds = %93, %.loopexit10
@@ -12420,7 +12420,7 @@ _rtl_eri_read.exit:                               ; preds = %87, %90, %93, %95
   br label %_rtl_eri_read.exit7.thread
 
 150:                                              ; preds = %137
-  %151 = icmp ult i32 %142, 99
+  %151 = icmp samesign ult i32 %142, 99
   br i1 %151, label %_rtl_eri_read.exit7, label %_rtl_eri_read.exit7.thread
 
 _rtl_eri_read.exit7:                              ; preds = %125, %150
@@ -12869,7 +12869,7 @@ define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonl
   %gepdiff = sub nsw i64 %138, %139
   %140 = trunc i64 %gepdiff to i32
   %141 = and i64 %gepdiff, 4294967295
-  %142 = icmp ugt i64 %141, 3
+  %142 = icmp samesign ugt i64 %141, 3
   %143 = icmp ult i32 %140, 47
   %144 = and i1 %142, %143
   br i1 %144, label %145, label %153
@@ -12891,7 +12891,7 @@ define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonl
 
 153:                                              ; preds = %150, %145, %135
   %154 = phi i32 [ 0, %135 ], [ %152, %150 ], [ 0, %145 ]
-  %155 = icmp ult i64 %141, 8
+  %155 = icmp samesign ult i64 %141, 8
   br i1 %155, label %156, label %thread-pre-split
 
 156:                                              ; preds = %153
@@ -13259,7 +13259,7 @@ define internal void @rtl8169_get_regs(ptr nocapture noundef readonly %0, ptr no
   %11 = getelementptr i8, ptr %9, i64 4
   tail call void @memcpy_fromio(ptr noundef %8, ptr noundef %9, i64 noundef 4) #19
   %12 = add nuw nsw i32 %7, 4
-  %13 = icmp ult i32 %7, 252
+  %13 = icmp samesign ult i32 %7, 252
   br i1 %13, label %6, label %14, !llvm.loop !89
 
 14:                                               ; preds = %6
@@ -13929,7 +13929,7 @@ define internal fastcc void @__rtl8169_set_wol(ptr noundef %0, i32 noundef %1) u
   br label %50
 
 43:                                               ; preds = %29
-  %44 = icmp ult i32 %34, 99
+  %44 = icmp samesign ult i32 %34, 99
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %43, %28
@@ -14003,7 +14003,7 @@ define internal fastcc void @__rtl8169_set_wol(ptr noundef %0, i32 noundef %1) u
   br label %93
 
 86:                                               ; preds = %72
-  %87 = icmp ult i32 %77, 99
+  %87 = icmp samesign ult i32 %77, 99
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %86, %71

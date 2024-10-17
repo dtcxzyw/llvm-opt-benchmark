@@ -262,7 +262,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 96:                                               ; preds = %95, %94
   %97 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %97, 1431655765
-  %98 = icmp ugt i64 %indvars.iv.i, 48
+  %98 = icmp samesign ugt i64 %indvars.iv.i, 48
   %or.cond.i = select i1 %.not.i, i1 true, i1 %98
   br i1 %or.cond.i, label %extract_conv_spec.exit.thread, label %.lr.ph.i, !llvm.loop !4
 

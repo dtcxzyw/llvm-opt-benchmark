@@ -7278,7 +7278,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..Into
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr114drop_in_place$LT$core..cell..UnsafeCell$LT$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$$GT$17ha1281c925f96438eE.llvm.18266587286026290509"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !2695, !alias.scope !2696, !noundef !4
-  %switch.not.i = icmp ult i64 %2, 2
+  %switch.not.i = icmp samesign ult i64 %2, 2
   br i1 %switch.not.i, label %3, label %"_ZN4core3ptr84drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$17h51f78e68df24a161E.llvm.18266587286026290509.exit"
 
 3:                                                ; preds = %1
@@ -7702,7 +7702,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$salsa..derived..slot..Memo$
 define hidden void @"_ZN4core3ptr115drop_in_place$LT$salsa..derived..slot..Slot$LT$hir_def..db..AttrsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$17hc85ff500fc38c7faE.llvm.18266587286026290509"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !2695, !alias.scope !2918, !noundef !4
-  %switch.not.i.i.i = icmp ult i64 %3, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i.i.i, label %4, label %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$$GT$17h668db96ecd4198c8E.exit"
 
 4:                                                ; preds = %1
@@ -13693,7 +13693,7 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$core..cell..UnsafeCell$LT$s
   %2 = alloca { { { ptr, i64 } }, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5835)
   %3 = load i64, ptr %0, align 8, !range !2695, !alias.scope !5835, !noundef !4
-  %switch.not.i = icmp ult i64 %3, 2
+  %switch.not.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i, label %4, label %"_ZN4core3ptr93drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateLangItemsQuery$GT$$GT$17h603b955a3d4a8676E.llvm.18266587286026290509.exit"
 
 4:                                                ; preds = %1
@@ -15316,7 +15316,7 @@ define hidden void @"_ZN4core3ptr124drop_in_place$LT$salsa..derived..slot..Slot$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6621)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6624)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !6627, !noundef !4
-  %switch.not.i.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i.i, label %5, label %"_ZN4core3ptr162drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_def..db..CrateLangItemsQuery$GT$$GT$$GT$17h41827d8fc44610f7E.exit"
 
 5:                                                ; preds = %1
@@ -16940,7 +16940,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..cell..UnsafeCell$LT$s
   %2 = alloca { { { ptr, i64 } }, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7355)
   %3 = load i64, ptr %0, align 8, !range !2695, !alias.scope !7355, !noundef !4
-  %switch.not.i = icmp ult i64 %3, 2
+  %switch.not.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i, label %4, label %"_ZN4core3ptr97drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateNotableTraitsQuery$GT$$GT$17h270e2f21031c4347E.llvm.18266587286026290509.exit"
 
 4:                                                ; preds = %1
@@ -18295,7 +18295,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$salsa..derived..slot..Slot$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7920)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7923)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !7926, !noundef !4
-  %switch.not.i.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i.i, label %5, label %"_ZN4core3ptr166drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_def..db..CrateNotableTraitsQuery$GT$$GT$$GT$17h1189ab60366d725aE.exit"
 
 5:                                                ; preds = %1
@@ -25466,7 +25466,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$triomphe..arc..Arc$LT$salsa
 define hidden void @"_ZN4core3ptr146drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$hir_def..db..AttrsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h2d23ca6b267ff3deE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !range !2695, !alias.scope !10336, !noundef !4
-  %switch.not.i.i.i.i = icmp ult i64 %3, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i.i.i.i, label %4, label %"_ZN4core3ptr115drop_in_place$LT$salsa..derived..slot..Slot$LT$hir_def..db..AttrsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$17hc85ff500fc38c7faE.llvm.18266587286026290509.exit"
 
 4:                                                ; preds = %1
@@ -28714,7 +28714,7 @@ define hidden void @"_ZN4core3ptr153drop_in_place$LT$hashbrown..raw..RawTable$LT
 define hidden void @"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$$GT$17h668db96ecd4198c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !2695, !alias.scope !11554, !noundef !4
-  %switch.not.i.i = icmp ult i64 %3, 2
+  %switch.not.i.i = icmp samesign ult i64 %3, 2
   br i1 %switch.not.i.i, label %4, label %"_ZN4core3ptr114drop_in_place$LT$core..cell..UnsafeCell$LT$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$$GT$17ha1281c925f96438eE.llvm.18266587286026290509.exit"
 
 4:                                                ; preds = %1
@@ -30566,7 +30566,7 @@ define hidden void @"_ZN4core3ptr155drop_in_place$LT$triomphe..arc..ArcInner$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12291)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12294)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !12297, !noundef !4
-  %switch.not.i.i.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i.i.i, label %5, label %"_ZN4core3ptr124drop_in_place$LT$salsa..derived..slot..Slot$LT$hir_def..db..CrateLangItemsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$17h53dc9422f227e490E.llvm.18266587286026290509.exit"
 
 5:                                                ; preds = %1
@@ -33879,7 +33879,7 @@ define hidden void @"_ZN4core3ptr159drop_in_place$LT$triomphe..arc..ArcInner$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13653)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !13656, !noundef !4
-  %switch.not.i.i.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i.i.i, label %5, label %"_ZN4core3ptr128drop_in_place$LT$salsa..derived..slot..Slot$LT$hir_def..db..CrateNotableTraitsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$17hc282e27a96aeef4eE.llvm.18266587286026290509.exit"
 
 5:                                                ; preds = %1
@@ -35904,7 +35904,7 @@ define hidden void @"_ZN4core3ptr162drop_in_place$LT$lock_api..rwlock..RwLock$LT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14523)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14526)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !14529, !noundef !4
-  %switch.not.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr123drop_in_place$LT$core..cell..UnsafeCell$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateLangItemsQuery$GT$$GT$$GT$17hf0bac854b7d3c269E.llvm.18266587286026290509.exit"
 
 5:                                                ; preds = %1
@@ -38120,7 +38120,7 @@ define hidden void @"_ZN4core3ptr166drop_in_place$LT$lock_api..rwlock..RwLock$LT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15389)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15392)
   %4 = load i64, ptr %3, align 8, !range !2695, !alias.scope !15395, !noundef !4
-  %switch.not.i.i = icmp ult i64 %4, 2
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
   br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr127drop_in_place$LT$core..cell..UnsafeCell$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateNotableTraitsQuery$GT$$GT$$GT$17he0aa92b319636750E.llvm.18266587286026290509.exit"
 
 5:                                                ; preds = %1
@@ -78564,7 +78564,7 @@ common.resume:                                    ; preds = %22, %24, %28, %"_ZN
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hir_def..hir..Statement$GT$17h289d676d60379414E.llvm.18266587286026290509"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !range !31555, !noundef !4
-  %.not = icmp ult i32 %3, 2
+  %.not = icmp samesign ult i32 %3, 2
   br i1 %.not, label %4, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$$GT$17hef17bdfb87d58062E.llvm.18266587286026290509.exit"
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$$GT$17hef17bdfb87d58062E.llvm.18266587286026290509.exit": ; preds = %23, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c880f61bd1b7e78E.llvm.18266587286026290509.exit.i.i", %4, %1
@@ -87154,7 +87154,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_def..body..scope..ScopeD
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_def..data..adt..VariantData$GT$17h13965b31bcb6c726E.llvm.18266587286026290509"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !218, !noundef !4
-  %switch = icmp ult i64 %2, 2
+  %switch = icmp samesign ult i64 %2, 2
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %1
@@ -89303,7 +89303,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$$u5b$hir_def..hir..Statement
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36052)
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8, !range !31555, !alias.scope !36052, !noundef !4
-  %.not.i = icmp ult i32 %7, 2
+  %.not.i = icmp samesign ult i32 %7, 2
   br i1 %.not.i, label %8, label %"_ZN4core3ptr44drop_in_place$LT$hir_def..hir..Statement$GT$17h289d676d60379414E.llvm.18266587286026290509.exit"
 
 8:                                                ; preds = %.lr.ph
@@ -109549,7 +109549,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$triomphe..arc..ArcInner$LT$hir_def..data..adt..VariantData$GT$$GT$17h07e160b6a7465f02E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !218, !alias.scope !44626, !noundef !4
-  %switch.i = icmp ult i64 %3, 2
+  %switch.i = icmp samesign ult i64 %3, 2
   br i1 %switch.i, label %.sink.split.i, label %"_ZN4core3ptr52drop_in_place$LT$hir_def..data..adt..VariantData$GT$17h13965b31bcb6c726E.llvm.18266587286026290509.exit"
 
 .sink.split.i:                                    ; preds = %1
@@ -110028,7 +110028,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$sy
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..AttrsQuery$GT$$GT$17h51f78e68df24a161E.llvm.18266587286026290509"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !2695, !noundef !4
-  %switch.not = icmp ult i64 %2, 2
+  %switch.not = icmp samesign ult i64 %2, 2
   br i1 %switch.not, label %3, label %4
 
 3:                                                ; preds = %1
@@ -115145,7 +115145,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..slice..sort..merge..Me
 define hidden void @"_ZN4core3ptr93drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateLangItemsQuery$GT$$GT$17h603b955a3d4a8676E.llvm.18266587286026290509"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { { { ptr, i64 } }, {} }, align 8
   %3 = load i64, ptr %0, align 8, !range !2695, !noundef !4
-  %switch.not = icmp ult i64 %3, 2
+  %switch.not = icmp samesign ult i64 %3, 2
   br i1 %switch.not, label %4, label %"_ZN4core3ptr138drop_in_place$LT$salsa..derived..slot..Memo$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_def..lang_item..LangItems$GT$$GT$$GT$$GT$17h82e013364776f186E.exit"
 
 4:                                                ; preds = %1
@@ -117740,7 +117740,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$trio
 define hidden void @"_ZN4core3ptr97drop_in_place$LT$salsa..derived..slot..QueryState$LT$hir_def..db..CrateNotableTraitsQuery$GT$$GT$17h270e2f21031c4347E.llvm.18266587286026290509"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { { { ptr, i64 } }, {} }, align 8
   %3 = load i64, ptr %0, align 8, !range !2695, !noundef !4
-  %switch.not = icmp ult i64 %3, 2
+  %switch.not = icmp samesign ult i64 %3, 2
   br i1 %switch.not, label %4, label %"_ZN4core3ptr135drop_in_place$LT$salsa..derived..slot..Memo$LT$core..option..Option$LT$triomphe..arc..Arc$LT$$u5b$hir_def..TraitId$u5d$$GT$$GT$$GT$$GT$17hb1ec955ae300b9c4E.exit"
 
 4:                                                ; preds = %1

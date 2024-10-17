@@ -15131,7 +15131,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IdSa
   %indvars.iv467 = phi i64 [ %indvars.iv.next468, %.loopexit.us ], [ 1, %.lr.ph395 ]
   %.0282393.us = phi double [ %.1.lcssa.us, %.loopexit.us ], [ 0.000000e+00, %.lr.ph395 ]
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
-  %49 = icmp ult i64 %indvars.iv.next475, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next475, %48
   br i1 %49, label %.lr.ph391.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %55, %.lr.ph395.split.us
@@ -15923,7 +15923,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit172:                 ; preds = %.loopexit295, %.loo
   %indvars.iv455 = phi i64 [ %indvars.iv.next456, %.loopexit ], [ 1, %.lr.ph395 ]
   %.0282393 = phi double [ %.1.lcssa, %.loopexit ], [ 0.000000e+00, %.lr.ph395 ]
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
-  %335 = icmp ult i64 %indvars.iv.next463, %48
+  %335 = icmp samesign ult i64 %indvars.iv.next463, %48
   br i1 %335, label %.lr.ph391, label %.loopexit
 
 .lr.ph391:                                        ; preds = %.lr.ph395.split
@@ -19806,7 +19806,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i
@@ -22395,7 +22395,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %32
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
+  %.not10.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !159
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %34
@@ -26641,7 +26641,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %68 = fadd float %64, %65
   %69 = fadd float %.13914.i, %68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %70 = icmp ult i64 %indvars.iv.next.i, %61
+  %70 = icmp samesign ult i64 %indvars.iv.next.i, %61
   br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !196
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %58
@@ -26822,7 +26822,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIf
 
 34:                                               ; preds = %.sink.split, %24, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %35 = icmp ult i64 %indvars.iv.next, %13
+  %35 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %34, %3
@@ -27790,7 +27790,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %61 = fcmp olt float %.21.i, %.1914.i
   %.sroa.speculated.i = select i1 %61, float %.21.i, float %.1914.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %62 = icmp ult i64 %indvars.iv.next.i, %55
+  %62 = icmp samesign ult i64 %indvars.iv.next.i, %55
   br i1 %62, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !198
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %52
@@ -28758,7 +28758,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %68 = fadd float %64, %65
   %69 = fadd float %.13914.i, %68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %70 = icmp ult i64 %indvars.iv.next.i, %61
+  %70 = icmp samesign ult i64 %indvars.iv.next.i, %61
   br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !196
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %58

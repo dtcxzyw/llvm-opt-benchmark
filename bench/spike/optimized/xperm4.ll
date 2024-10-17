@@ -113,14 +113,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_xperm4P11p
   %22 = lshr i64 %20, %.01821.i
   %23 = shl i64 %22, 2
   %24 = and i64 %23, 60
-  %25 = icmp ult i64 %24, 32
+  %25 = icmp samesign ult i64 %24, 32
   %26 = lshr i64 %16, %24
   %27 = and i64 %26, 15
   %28 = shl nuw nsw i64 %27, %.01821.i
   %29 = select i1 %25, i64 %28, i64 0
   %.1.i = or i64 %29, %.022.i
   %30 = add nuw nsw i64 %.01821.i, 4
-  %31 = icmp ult i64 %.01821.i, 28
+  %31 = icmp samesign ult i64 %.01821.i, 28
   br i1 %31, label %21, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %21
@@ -201,7 +201,7 @@ define noundef i64 @_Z17fast_rv64i_xperm4P11processor_t6insn_tm(ptr nocapture no
   %27 = shl i64 %26, %.01821.i
   %.1.i = or i64 %27, %.022.i
   %28 = add nuw nsw i64 %.01821.i, 4
-  %29 = icmp ult i64 %.01821.i, 60
+  %29 = icmp samesign ult i64 %.01821.i, 60
   br i1 %29, label %21, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %21
@@ -258,14 +258,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_xperm4P1
   %22 = lshr i64 %20, %.01821.i
   %23 = shl i64 %22, 2
   %24 = and i64 %23, 60
-  %25 = icmp ult i64 %24, 32
+  %25 = icmp samesign ult i64 %24, 32
   %26 = lshr i64 %16, %24
   %27 = and i64 %26, 15
   %28 = shl nuw nsw i64 %27, %.01821.i
   %29 = select i1 %25, i64 %28, i64 0
   %.1.i = or i64 %29, %.022.i
   %30 = add nuw nsw i64 %.01821.i, 4
-  %31 = icmp ult i64 %.01821.i, 28
+  %31 = icmp samesign ult i64 %.01821.i, 28
   br i1 %31, label %21, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %21
@@ -388,7 +388,7 @@ define noundef i64 @_Z19logged_rv64i_xperm4P11processor_t6insn_tm(ptr noundef %0
   %27 = shl i64 %26, %.01821.i
   %.1.i = or i64 %27, %.022.i
   %28 = add nuw nsw i64 %.01821.i, 4
-  %29 = icmp ult i64 %.01821.i, 60
+  %29 = icmp samesign ult i64 %.01821.i, 60
   br i1 %29, label %21, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %21
@@ -487,7 +487,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_xperm4P11p
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 15
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -508,7 +508,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_xperm4P11p
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 20
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -534,20 +534,20 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_xperm4P11p
   %36 = lshr i64 %34, %.01821.i
   %37 = shl i64 %36, 2
   %38 = and i64 %37, 60
-  %39 = icmp ult i64 %38, 32
+  %39 = icmp samesign ult i64 %38, 32
   %40 = lshr i64 %23, %38
   %41 = and i64 %40, 15
   %42 = shl nuw nsw i64 %41, %.01821.i
   %43 = select i1 %39, i64 %42, i64 0
   %.1.i = or i64 %43, %.022.i
   %44 = add nuw nsw i64 %.01821.i, 4
-  %45 = icmp ult i64 %.01821.i, 28
+  %45 = icmp samesign ult i64 %.01821.i, 28
   br i1 %45, label %35, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %35
   %46 = lshr i64 %1, 7
   %47 = and i64 %46, 31
-  %48 = icmp ugt i64 %47, 15
+  %48 = icmp samesign ugt i64 %47, 15
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %_ZL5xpermmmmm.exit
@@ -603,7 +603,7 @@ define noundef i64 @_Z17fast_rv64e_xperm4P11processor_t6insn_tm(ptr nocapture no
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 15
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -624,7 +624,7 @@ define noundef i64 @_Z17fast_rv64e_xperm4P11processor_t6insn_tm(ptr nocapture no
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 20
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -655,13 +655,13 @@ define noundef i64 @_Z17fast_rv64e_xperm4P11processor_t6insn_tm(ptr nocapture no
   %41 = shl i64 %40, %.01821.i
   %.1.i = or i64 %41, %.022.i
   %42 = add nuw nsw i64 %.01821.i, 4
-  %43 = icmp ult i64 %.01821.i, 60
+  %43 = icmp samesign ult i64 %.01821.i, 60
   br i1 %43, label %35, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %35
   %44 = lshr i64 %1, 7
   %45 = and i64 %44, 31
-  %46 = icmp ugt i64 %45, 15
+  %46 = icmp samesign ugt i64 %45, 15
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %_ZL5xpermmmmm.exit
@@ -713,7 +713,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_xperm4P1
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 15
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -734,7 +734,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_xperm4P1
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 20
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -760,14 +760,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_xperm4P1
   %36 = lshr i64 %34, %.01821.i
   %37 = shl i64 %36, 2
   %38 = and i64 %37, 60
-  %39 = icmp ult i64 %38, 32
+  %39 = icmp samesign ult i64 %38, 32
   %40 = lshr i64 %23, %38
   %41 = and i64 %40, 15
   %42 = shl nuw nsw i64 %41, %.01821.i
   %43 = select i1 %39, i64 %42, i64 0
   %.1.i = or i64 %43, %.022.i
   %44 = add nuw nsw i64 %.01821.i, 4
-  %45 = icmp ult i64 %.01821.i, 28
+  %45 = icmp samesign ult i64 %.01821.i, 28
   br i1 %45, label %35, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %35
@@ -832,7 +832,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %47, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %75 = icmp ugt i64 %50, 15
+  %75 = icmp samesign ugt i64 %50, 15
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -886,7 +886,7 @@ define noundef i64 @_Z19logged_rv64e_xperm4P11processor_t6insn_tm(ptr noundef %0
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 15
   %13 = and i64 %12, 31
-  %14 = icmp ugt i64 %13, 15
+  %14 = icmp samesign ugt i64 %13, 15
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
@@ -907,7 +907,7 @@ define noundef i64 @_Z19logged_rv64e_xperm4P11processor_t6insn_tm(ptr noundef %0
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %1, 20
   %25 = and i64 %24, 31
-  %26 = icmp ugt i64 %25, 15
+  %26 = icmp samesign ugt i64 %25, 15
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
@@ -938,7 +938,7 @@ define noundef i64 @_Z19logged_rv64e_xperm4P11processor_t6insn_tm(ptr noundef %0
   %41 = shl i64 %40, %.01821.i
   %.1.i = or i64 %41, %.022.i
   %42 = add nuw nsw i64 %.01821.i, 4
-  %43 = icmp ult i64 %.01821.i, 60
+  %43 = icmp samesign ult i64 %.01821.i, 60
   br i1 %43, label %35, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %35
@@ -1001,7 +1001,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %.1.i, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %71 = icmp ugt i64 %46, 15
+  %71 = icmp samesign ugt i64 %46, 15
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit

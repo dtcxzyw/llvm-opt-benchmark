@@ -370,7 +370,7 @@ for.inc104.us.us.us.i:                            ; preds = %invoke.cont84.us.us
   %sb.2.us.us.us.i = phi i32 [ %add102.us.us.us.i, %invoke.cont84.us.us.us.i ], [ %sb.195.us.us.us.i, %for.body77.us.us.us.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %cmp71.us.us.us.i = icmp ule i64 %indvars.iv159.i, %indvars.iv162.i
-  %cmp74.us.us.us.i = icmp ult i64 %indvars.iv.next160.i, %11
+  %cmp74.us.us.us.i = icmp samesign ult i64 %indvars.iv.next160.i, %11
   %27 = and i1 %cmp71.us.us.us.i, %cmp74.us.us.us.i
   br i1 %27, label %for.body77.us.us.us.i, label %for.cond69.for.cond.cleanup76_crit_edge.us.us.us.i, !llvm.loop !25
 

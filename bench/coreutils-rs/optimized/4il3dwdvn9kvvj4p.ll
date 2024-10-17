@@ -1153,15 +1153,15 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread": ; preds = %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit"
   %40 = phi i32 [ %39, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit" ], [ %19, %18 ], [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i.i" ], [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i.i" ]
   %.sroa.0.111 = phi ptr [ %31, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit" ], [ %5, %18 ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i.i" ]
-  %41 = icmp ult i32 %40, 127
+  %41 = icmp samesign ult i32 %40, 127
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
-  %43 = icmp ugt i32 %40, 159
+  %43 = icmp samesign ugt i32 %40, 159
   br i1 %43, label %46, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1bf9f5c359bfff3E.exit"
 
 44:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
-  %45 = icmp ugt i32 %40, 31
+  %45 = icmp samesign ugt i32 %40, 31
   %spec.select.i.i = zext i1 %45 to i64
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1bf9f5c359bfff3E.exit"
 
@@ -4136,7 +4136,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   ]
 
 426:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
-  %427 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %427 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %427, label %428, label %.loopexit
 
 428:                                              ; preds = %426
@@ -4371,7 +4371,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   br i1 %547, label %switch.hole_check, label %548
 
 548:                                              ; preds = %switch.hole_check, %546
-  %549 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
+  %549 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
   br i1 %549, label %550, label %.thread420
 
 550:                                              ; preds = %548
@@ -4498,7 +4498,7 @@ switch.hole_check:                                ; preds = %546
   br i1 %618, label %switch.hole_check880, label %619
 
 619:                                              ; preds = %switch.hole_check880, %617
-  %620 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
+  %620 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
   br i1 %620, label %621, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h034547d0a40a33caE.exit340.preheader.preheader
 
 621:                                              ; preds = %619
@@ -5988,7 +5988,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   ]
 
 426:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
-  %427 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %427 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %427, label %428, label %.loopexit
 
 428:                                              ; preds = %426
@@ -6223,7 +6223,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   br i1 %547, label %switch.hole_check, label %548
 
 548:                                              ; preds = %switch.hole_check, %546
-  %549 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
+  %549 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
   br i1 %549, label %550, label %.thread420
 
 550:                                              ; preds = %548
@@ -6350,7 +6350,7 @@ switch.hole_check:                                ; preds = %546
   br i1 %618, label %switch.hole_check880, label %619
 
 619:                                              ; preds = %switch.hole_check880, %617
-  %620 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
+  %620 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
   br i1 %620, label %621, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7db128ba3d49779E.exit340.preheader.preheader
 
 621:                                              ; preds = %619
@@ -7840,7 +7840,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   ]
 
 426:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
-  %427 = icmp ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
+  %427 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i14.i.i.i, 127
   br i1 %427, label %428, label %.loopexit
 
 428:                                              ; preds = %426
@@ -8075,7 +8075,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit: ; preds = %
   br i1 %547, label %switch.hole_check, label %548
 
 548:                                              ; preds = %switch.hole_check, %546
-  %549 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
+  %549 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i, 127
   br i1 %549, label %550, label %.thread420
 
 550:                                              ; preds = %548
@@ -8202,7 +8202,7 @@ switch.hole_check:                                ; preds = %546
   br i1 %618, label %switch.hole_check880, label %619
 
 619:                                              ; preds = %switch.hole_check880, %617
-  %620 = icmp ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
+  %620 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i18.i255, 127
   br i1 %620, label %621, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h69e802495c7d0189E.exit340.preheader.preheader
 
 621:                                              ; preds = %619

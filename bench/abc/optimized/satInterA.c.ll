@@ -100,7 +100,7 @@ define i32 @Inta_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16777215
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %11, label %.loopexit55, !llvm.loop !6
 
 .critedge:                                        ; preds = %5, %.loopexit55
@@ -158,7 +158,7 @@ define i32 @Inta_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_
   %45 = lshr i32 %44, 3
   %46 = and i32 %45, 16777215
   %47 = zext nneg i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next80, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next80, %47
   br i1 %48, label %32, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %28
@@ -655,7 +655,7 @@ define void @Inta_ManPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
   %19 = lshr i32 %18, 3
   %20 = and i32 %19, 16777215
   %21 = zext nneg i32 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14, %2
@@ -789,7 +789,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
-  %51 = icmp ugt i32 %50, 2
+  %51 = icmp samesign ugt i32 %50, 2
   br i1 %51, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -848,7 +848,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 .loopexit.i:                                      ; preds = %62, %.preheader.i
   %.pre-phi78.i = phi i32 [ %.pre77.i, %62 ], [ %50, %.preheader.i ]
   %.058.i = phi i32 [ %64, %62 ], [ 2, %.preheader.i ]
-  %80 = icmp ult i32 %.058.i, %.pre-phi78.i
+  %80 = icmp samesign ult i32 %.058.i, %.pre-phi78.i
   br i1 %80, label %94, label %.loopexit.i..loopexit.thread.i_crit_edge
 
 .loopexit.i..loopexit.thread.i_crit_edge:         ; preds = %.loopexit.i
@@ -1011,7 +1011,7 @@ define void @Inta_ManProofWriteOne(ptr nocapture noundef %0, ptr nocapture nound
   %34 = lshr i32 %33, 3
   %35 = and i32 %34, 16777215
   %36 = zext nneg i32 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %37, label %23, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %23, %12
@@ -1148,7 +1148,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %58 = lshr i32 %57, 3
   %59 = and i32 %58, 16777215
   %60 = zext nneg i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %22, label %.loopexit255, !llvm.loop !18
 
 .loopexit255:                                     ; preds = %Vec_IntPush.exit, %Abc_Clock.exit..loopexit255_crit_edge, %14
@@ -1177,7 +1177,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %75 = lshr i32 %74, 3
   %76 = and i32 %75, 16777215
   %77 = zext nneg i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next325, %77
+  %78 = icmp samesign ult i64 %indvars.iv.next325, %77
   br i1 %78, label %67, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %67, %.loopexit255
@@ -1278,7 +1278,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %137 = lshr i32 %136, 3
   %138 = and i32 %137, 16777215
   %139 = zext nneg i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv.next328, %139
+  %140 = icmp samesign ult i64 %indvars.iv.next328, %139
   br i1 %140, label %129, label %._crit_edge269, !llvm.loop !20
 
 ._crit_edge269:                                   ; preds = %129, %.preheader254
@@ -1600,7 +1600,7 @@ Vec_IntPush.exit227:                              ; preds = %.Vec_IntGrow.exit10
   %277 = lshr i32 %276, 3
   %278 = and i32 %277, 16777215
   %279 = zext nneg i32 %278 to i64
-  %280 = icmp ult i64 %indvars.iv.next339, %279
+  %280 = icmp samesign ult i64 %indvars.iv.next339, %279
   br i1 %280, label %.preheader251, label %.loopexit252, !llvm.loop !25
 
 .loopexit252:                                     ; preds = %275, %Vec_IntRemove.exit, %171, %120, %111
@@ -1689,7 +1689,7 @@ Vec_IntPush.exit227:                              ; preds = %.Vec_IntGrow.exit10
   %317 = lshr i32 %316, 3
   %318 = and i32 %317, 16777215
   %319 = zext nneg i32 %318 to i64
-  %320 = icmp ult i64 %indvars.iv.next.i230, %319
+  %320 = icmp samesign ult i64 %indvars.iv.next.i230, %319
   br i1 %320, label %312, label %Inta_ManPrintClause.exit, !llvm.loop !12
 
 Inta_ManPrintClause.exit:                         ; preds = %312, %.critedge4
@@ -1740,7 +1740,7 @@ Inta_ManPrintResolvent.exit:                      ; preds = %326, %Inta_ManPrint
   %343 = lshr i32 %342, 3
   %344 = and i32 %343, 16777215
   %345 = zext nneg i32 %344 to i64
-  %346 = icmp ult i64 %indvars.iv.next.i241, %345
+  %346 = icmp samesign ult i64 %indvars.iv.next.i241, %345
   br i1 %346, label %.lr.ph.i239, label %Inta_ManPrintClause.exit244, !llvm.loop !12
 
 Inta_ManPrintClause.exit244:                      ; preds = %.lr.ph.i239, %Inta_ManPrintResolvent.exit
@@ -1966,7 +1966,7 @@ Inta_ManEnqueue.exit:                             ; preds = %30
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next111, %51
+  %52 = icmp samesign ult i64 %indvars.iv.next111, %51
   br i1 %52, label %30, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %47, %.preheader84
@@ -1984,7 +1984,7 @@ Inta_ManEnqueue.exit:                             ; preds = %30
   %62 = load i32, ptr %61, align 4
   %63 = lshr i32 %62, 3
   %64 = and i32 %63, 16777215
-  %.not = icmp ult i32 %60, %64
+  %.not = icmp samesign ult i32 %60, %64
   br i1 %.not, label %98, label %.preheader83
 
 .preheader83:                                     ; preds = %57
@@ -2438,7 +2438,7 @@ define void @Inta_ManPrepareInter(ptr nocapture noundef readonly %0) local_unnam
   %46 = lshr i32 %45, 3
   %47 = and i32 %46, 16777215
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %25, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %44, %18, %17
@@ -2873,7 +2873,7 @@ define ptr @Inta_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
   %46 = lshr i32 %45, 3
   %47 = and i32 %46, 16777215
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ult i64 %indvars.iv.next, %48
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %21, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %37, %15

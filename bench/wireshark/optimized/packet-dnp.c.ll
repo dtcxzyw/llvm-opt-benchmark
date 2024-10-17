@@ -2613,7 +2613,7 @@ proto_item_set_generated.exit1200:                ; preds = %152, %154, %157
   br i1 %or.cond1268, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %201
-  %207 = icmp ult i8 %48, 4
+  %207 = icmp samesign ult i8 %48, 4
   %208 = icmp eq i16 %.01148, 31234
   %209 = getelementptr inbounds i8, ptr %11, i64 8
   %210 = getelementptr inbounds i8, ptr %1, i64 408

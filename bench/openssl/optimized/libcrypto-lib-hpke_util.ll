@@ -771,7 +771,7 @@ if.end68:                                         ; preds = %synonyms_name2id.ex
   %add.ptr = getelementptr inbounds i8, ptr %call37, i64 1
   %st.2 = select i1 %cmp38.not, ptr %add.ptr, ptr null
   %inc74 = add nuw nsw i32 %labels.0103, 1
-  %cmp35 = icmp ult i32 %labels.0103, 2
+  %cmp35 = icmp samesign ult i32 %labels.0103, 2
   %10 = select i1 %cmp38.not, i1 %cmp35, i1 false
   br i1 %10, label %while.body, label %while.end, !llvm.loop !12
 

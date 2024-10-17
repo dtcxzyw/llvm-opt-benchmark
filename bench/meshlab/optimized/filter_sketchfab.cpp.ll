@@ -843,7 +843,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   %.05587 = phi i32 [ %62, %._crit_edge ], [ %7, %.preheader67.preheader ]
   %.06086 = phi i64 [ %64, %._crit_edge ], [ %2, %.preheader67.preheader ]
   %.06185 = phi ptr [ %.263.lcssa, %._crit_edge ], [ %1, %.preheader67.preheader ]
-  %9 = icmp ugt i64 %.089, 7
+  %9 = icmp samesign ugt i64 %.089, 7
   br i1 %9, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader67
@@ -859,7 +859,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   %.058.lcssa = phi i64 [ 0, %.preheader67 ], [ %11, %.preheader.loopexit ]
   %.156.lcssa = phi i32 [ %.05587, %.preheader67 ], [ %51, %.preheader.loopexit ]
   %.1.lcssa = phi i32 [ %.05488, %.preheader67 ], [ %52, %.preheader.loopexit ]
-  %12 = icmp ugt i64 %.089, %.058.lcssa
+  %12 = icmp samesign ugt i64 %.089, %.058.lcssa
   br i1 %12, label %.lr.ph80.preheader, label %._crit_edge
 
 .lr.ph80.preheader:                               ; preds = %.preheader
@@ -913,7 +913,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   %53 = add nuw i32 %.05870, 8
   %54 = getelementptr inbounds i8, ptr %.16269, i64 8
   %55 = or disjoint i32 %53, 7
-  %56 = icmp ult i32 %55, %10
+  %56 = icmp samesign ult i32 %55, %10
   br i1 %56, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !10
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
@@ -2880,7 +2880,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %110 = lshr i32 %106, 1
   %111 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %110, ptr %111, align 8
-  %112 = icmp ult i32 %106, 2
+  %112 = icmp samesign ult i32 %106, 2
   br i1 %112, label %126, label %263
 
 113:                                              ; preds = %115
@@ -3668,7 +3668,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %404 = getelementptr inbounds [1024 x i16], ptr %352, i64 0, i64 %indvars.iv2028
   store i16 %396, ptr %404, align 2
   %indvars.iv.next2029 = add nuw nsw i64 %indvars.iv2028, %402
-  %405 = icmp ult i64 %indvars.iv.next2029, 1024
+  %405 = icmp samesign ult i64 %indvars.iv.next2029, 1024
   br i1 %405, label %403, label %.loopexit1878, !llvm.loop !46
 
 406:                                              ; preds = %390
@@ -3748,7 +3748,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %441 = getelementptr inbounds [3 x i32], ptr %354, i64 0, i64 %440
   %442 = load i32, ptr %441, align 4
   %443 = zext i32 %442 to i64
-  %444 = icmp ult i64 %indvars.iv.next2032, %443
+  %444 = icmp samesign ult i64 %indvars.iv.next2032, %443
   br i1 %444, label %.lr.ph1950, label %._crit_edge1951, !llvm.loop !48
 
 ._crit_edge1951:                                  ; preds = %.loopexit1878, %.preheader1879
@@ -4949,7 +4949,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 978:                                              ; preds = %970
   %979 = and i32 %.761097, 7
-  %980 = icmp ult i32 %979, 3
+  %980 = icmp samesign ult i32 %979, 3
   br i1 %980, label %981, label %.preheader2152
 
 .preheader2152:                                   ; preds = %964, %978
@@ -5295,7 +5295,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %.08721974 = phi i32 [ %1161, %._crit_edge1967 ], [ %1105, %.preheader1875.preheader ]
   %.08771973 = phi i64 [ %1163, %._crit_edge1967 ], [ %1099, %.preheader1875.preheader ]
   %.08781972 = phi ptr [ %.2880.lcssa, %._crit_edge1967 ], [ %4, %.preheader1875.preheader ]
-  %1108 = icmp ugt i64 %.01976, 7
+  %1108 = icmp samesign ugt i64 %.01976, 7
   br i1 %1108, label %.lr.ph1957.preheader, label %.preheader
 
 .lr.ph1957.preheader:                             ; preds = %.preheader1875
@@ -5311,7 +5311,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %.0875.lcssa = phi i64 [ 0, %.preheader1875 ], [ %1110, %.preheader.loopexit ]
   %.1873.lcssa = phi i32 [ %.08721974, %.preheader1875 ], [ %1150, %.preheader.loopexit ]
   %.1.lcssa = phi i32 [ %.08711975, %.preheader1875 ], [ %1151, %.preheader.loopexit ]
-  %1111 = icmp ugt i64 %.01976, %.0875.lcssa
+  %1111 = icmp samesign ugt i64 %.01976, %.0875.lcssa
   br i1 %1111, label %.lr.ph1966.preheader, label %._crit_edge1967
 
 .lr.ph1966.preheader:                             ; preds = %.preheader
@@ -5365,7 +5365,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %1152 = add nuw i32 %.08751954, 8
   %1153 = getelementptr inbounds i8, ptr %.18791953, i64 8
   %1154 = or disjoint i32 %1152, 7
-  %1155 = icmp ult i32 %1154, %1109
+  %1155 = icmp samesign ult i32 %1154, %1109
   br i1 %1155, label %.lr.ph1957, label %.preheader.loopexit, !llvm.loop !88
 
 .lr.ph1966:                                       ; preds = %.lr.ph1966.preheader, %.lr.ph1966
@@ -5872,7 +5872,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19tdefl_compress_fastP16t
   %46 = getelementptr inbounds i8, ptr %19, i64 %45
   %47 = zext nneg i32 %44 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %42, i64 %47, i1 false)
-  %48 = icmp ult i32 %.0257309, 257
+  %48 = icmp samesign ult i32 %.0257309, 257
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %.lr.ph
@@ -6362,7 +6362,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   %68 = zext nneg i32 %.0357513 to i64
   %69 = getelementptr inbounds [33025 x i8], ptr %11, i64 0, i64 %68
   store i8 %67, ptr %69, align 1
-  %70 = icmp ult i32 %.0357513, 257
+  %70 = icmp samesign ult i32 %.0357513, 257
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %.lr.ph514
@@ -6408,7 +6408,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   %97 = zext nneg i32 %95 to i64
   %98 = getelementptr inbounds [33025 x i8], ptr %11, i64 0, i64 %97
   store i8 %92, ptr %98, align 1
-  %99 = icmp ult i32 %95, 257
+  %99 = icmp samesign ult i32 %95, 257
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %90
@@ -7422,7 +7422,7 @@ define internal fastcc noundef i32 @_ZL17tdefl_flush_blockP16tdefl_compressori(p
   store i32 %124, ptr %105, align 8
   %154 = add nuw nsw i32 %storemerge302.lcssa, 2
   store i32 %154, ptr %102, align 4
-  %155 = icmp ugt i32 %storemerge302.lcssa, 5
+  %155 = icmp samesign ugt i32 %storemerge302.lcssa, 5
   br i1 %155, label %.lr.ph348, label %.preheader340
 
 .lr.ph348:                                        ; preds = %153, %164
@@ -8701,7 +8701,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %80
   store i32 %323, ptr %298, align 8
   %324 = add nuw nsw i32 %storemerge.lcssa.i, 5
   store i32 %324, ptr %295, align 4
-  %325 = icmp ugt i32 %storemerge.lcssa.i, 2
+  %325 = icmp samesign ugt i32 %storemerge.lcssa.i, 2
   br i1 %325, label %.lr.ph348.i, label %._crit_edge349.i
 
 .lr.ph348.i:                                      ; preds = %._crit_edge345.i
@@ -10926,7 +10926,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30mz_zip_reader_read_cent
 .lr.ph213:                                        ; preds = %8, %36
   %spec.select179201212 = phi i64 [ %spec.select179201, %36 ], [ %spec.select179201209, %8 ]
   %.0148211 = phi i64 [ %37, %36 ], [ %spec.select, %8 ]
-  %17 = icmp ugt i64 %spec.select179201212, 3
+  %17 = icmp samesign ugt i64 %spec.select179201212, 3
   br i1 %17, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph213
@@ -11238,7 +11238,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %205 = load i32, ptr %46, align 8
   %206 = zext i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next, %206
+  %207 = icmp samesign ult i64 %indvars.iv.next, %206
   br i1 %207, label %.lr.ph218, label %.loopexit, !llvm.loop !182
 
 .loopexit:                                        ; preds = %201, %138, %71
@@ -11522,7 +11522,7 @@ define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_file
   %97 = load i32, ptr %3, align 4
   store i32 %97, ptr %95, align 4
   store i32 %96, ptr %3, align 4
-  %.not55 = icmp ugt i64 %indvars.iv, 2
+  %.not55 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %.not55, label %.lr.ph58.preheader, label %._crit_edge64
 
 .lr.ph58.preheader:                               ; preds = %.lr.ph63
@@ -12529,8 +12529,8 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %40, i64 %45
   %.ptr18.i = getelementptr inbounds i8, ptr %46, i64 46
-  %.not19.i = icmp eq i32 %44, 0
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %44, 0
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %52
   %.02.i = phi ptr [ %54, %52 ], [ %1, %30 ]
@@ -14010,7 +14010,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init(ptr noundef %0, i64 noundef %1) l
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
-  %.not32 = icmp ult i32 %15, 2
+  %.not32 = icmp samesign ult i32 %15, 2
   br i1 %.not32, label %16, label %43
 
 16:                                               ; preds = %12
@@ -14097,7 +14097,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef %0, i64 noundef 
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
-  %.not32.i = icmp ult i32 %14, 2
+  %.not32.i = icmp samesign ult i32 %14, 2
   br i1 %.not32.i, label %15, label %mz_zip_writer_init.exit.thread
 
 15:                                               ; preds = %11
@@ -14357,7 +14357,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef %0, ptr nocaptur
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
-  %.not32.i = icmp ult i32 %15, 2
+  %.not32.i = icmp samesign ult i32 %15, 2
   br i1 %.not32.i, label %16, label %mz_zip_writer_init.exit.thread
 
 16:                                               ; preds = %12
@@ -14645,8 +14645,8 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %0, ptr noundef
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 65535
-  %38 = icmp ugt i32 %18, 10
-  %or.cond7 = or i1 %38, %37
+  %38 = icmp samesign ugt i32 %18, 10
+  %or.cond7 = select i1 %37, i1 true, i1 %38
   br i1 %or.cond7, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %39
 
 39:                                               ; preds = %34
@@ -14854,7 +14854,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %131
   %148 = zext nneg i32 %18 to i64
   %149 = getelementptr inbounds [11 x i32], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE22s_tdefl_png_num_probes, i64 0, i64 %148
   %150 = load i32, ptr %149, align 4
-  %151 = icmp ult i32 %18, 4
+  %151 = icmp samesign ult i32 %18, 4
   %152 = select i1 %151, i32 16384, i32 0
   %153 = or i32 %150, %152
   %154 = call i32 @tdefl_init(ptr noundef %.0166, ptr noundef nonnull @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv, ptr noundef nonnull %15, i32 noundef %153)
@@ -15536,8 +15536,8 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
   %23 = icmp eq i16 %4, 0
   %24 = icmp ne ptr %3, null
   %or.cond3.not183.not215 = or i1 %24, %23
-  %25 = icmp ult i32 %14, 11
-  %or.cond5.not212 = and i1 %or.cond3.not183.not215, %25
+  %25 = icmp samesign ult i32 %14, 11
+  %or.cond5.not212 = select i1 %or.cond3.not183.not215, i1 %25, i1 false
   %26 = and i32 %spec.store.select, 1024
   %.not184 = icmp eq i32 %26, 0
   %or.cond203 = and i1 %.not184, %or.cond5.not212
@@ -15718,7 +15718,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %106
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds [11 x i32], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE22s_tdefl_png_num_probes, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
-  %121 = icmp ult i32 %spec.select, 4
+  %121 = icmp samesign ult i32 %spec.select, 4
   %122 = select i1 %121, i32 16384, i32 0
   %123 = or i32 %120, %122
   %124 = call i32 @tdefl_init(ptr noundef nonnull %109, ptr noundef nonnull @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv, ptr noundef nonnull %11, i32 noundef %123)
@@ -16574,8 +16574,8 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef 
   %18 = icmp eq ptr %4, null
   %or.cond5.not51 = and i1 %18, %17
   %19 = and i32 %spec.store.select, 15
-  %20 = icmp ugt i32 %19, 10
-  %or.cond42 = or i1 %or.cond5.not51, %20
+  %20 = icmp samesign ugt i32 %19, 10
+  %or.cond42 = select i1 %or.cond5.not51, i1 true, i1 %20
   br i1 %or.cond42, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %21
 
 21:                                               ; preds = %16
@@ -30151,7 +30151,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %26
   %.0.lcssa.i = phi i32 [ %4, %26 ], [ %31, %.lr.ph.i11 ]
-  %46 = icmp ugt i32 %.0.lcssa.i, 9
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %._crit_edge.i

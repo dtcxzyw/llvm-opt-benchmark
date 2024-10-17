@@ -182,7 +182,7 @@ define hidden void @_ZNK2cv6xphoto23grayDctDenoisingInvokerclERKNS_5RangeE(ptr n
   %58 = load i32, ptr %15, align 8
   %59 = mul nsw i32 %58, %58
   %60 = zext nneg i32 %59 to i64
-  %61 = icmp ult i64 %indvars.iv.next, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 62:                                               ; preds = %35

@@ -4373,7 +4373,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
 41:                                               ; preds = %28
   %42 = shl nuw nsw i32 %14, 6
   %43 = and i32 %42, 1984
-  %44 = icmp ult i32 %43, 128
+  %44 = icmp samesign ult i32 %43, 128
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
@@ -4463,7 +4463,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   %81 = zext nneg i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 6
   %83 = or disjoint i32 %82, %79
-  %84 = icmp ult i32 %83, 2048
+  %84 = icmp samesign ult i32 %83, 2048
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %77
@@ -4476,9 +4476,9 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   %88 = and i8 %61, 63
   %89 = zext nneg i8 %88 to i32
   %90 = or disjoint i32 %83, %89
-  %91 = icmp ugt i32 %83, 55295
-  %92 = icmp ult i32 %79, 57344
-  %or.cond = and i1 %92, %91
+  %91 = icmp samesign ugt i32 %83, 55295
+  %92 = icmp samesign ult i32 %79, 57344
+  %or.cond = select i1 %91, i1 %92, i1 false
   %93 = add i64 %6, 3
   br i1 %or.cond, label %94, label %340
 
@@ -5939,7 +5939,7 @@ unescape_inverse_map.exit:                        ; preds = %switch.lookup, %64
 
 164:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %165 = icmp ugt i32 %96, 122879
+  %165 = icmp samesign ugt i32 %96, 122879
   br i1 %165, label %find_entity_for_char.exit, label %166
 
 166:                                              ; preds = %.thread537, %164
@@ -6022,7 +6022,7 @@ find_entity_for_char.exit:                        ; preds = %164, %180, %203, %.
   br label %find_entity_for_char_basic.exit
 
 212:                                              ; preds = %150
-  %213 = icmp ugt i32 %96, 63
+  %213 = icmp samesign ugt i32 %96, 63
   br i1 %213, label %find_entity_for_char_basic.exit.thread, label %214
 
 214:                                              ; preds = %212
@@ -6690,7 +6690,7 @@ define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocap
   %.053.lcssa = phi i64 [ 5381, %5 ], [ %45, %.lr.ph ]
   %.051.lcssa = phi i64 [ %1, %5 ], [ %46, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %47, %.lr.ph ]
-  %49 = icmp ugt i64 %.051.lcssa, 3
+  %49 = icmp samesign ugt i64 %.051.lcssa, 3
   br i1 %49, label %50, label %72
 
 50:                                               ; preds = %._crit_edge
@@ -7445,8 +7445,8 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
 
 .loopexit272:                                     ; preds = %.loopexit270, %93
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %123 = icmp ult i64 %indvars.iv291, 29
-  %124 = and i1 %92, %123
+  %123 = icmp samesign ult i64 %indvars.iv291, 29
+  %124 = select i1 %92, i1 %123, i1 false
   br i1 %124, label %93, label %.loopexit
 
 .preheader274:                                    ; preds = %.preheader274.preheader, %157
@@ -7587,7 +7587,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   ]
 
 8:                                                ; preds = %4
-  %9 = icmp ult i32 %1, 128
+  %9 = icmp samesign ult i32 %1, 128
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
@@ -7596,7 +7596,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   br label %write_octet_sequence.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i32 %1, 2048
+  %13 = icmp samesign ult i32 %1, 2048
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %12
@@ -7611,7 +7611,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   br label %write_octet_sequence.exit
 
 21:                                               ; preds = %12
-  %22 = icmp ult i32 %1, 65536
+  %22 = icmp samesign ult i32 %1, 65536
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %21

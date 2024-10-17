@@ -771,7 +771,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %197 = icmp ne i8 %196, 0
   %198 = icmp eq i32 %194, 0
   %199 = select i1 %197, i1 %198, i1 false
-  %200 = icmp ult i64 %191, 4095
+  %200 = icmp samesign ult i64 %191, 4095
   %201 = and i1 %200, %199
   br i1 %201, label %.preheader, label %202, !llvm.loop !15
 
@@ -4810,7 +4810,7 @@ define internal noundef i32 @probes_profile_seq_show(ptr noundef %0, ptr nocaptu
   %60 = add i64 %59, %43
   %61 = add nuw nsw i64 %48, 1
   %62 = and i64 %61, 127
-  %63 = icmp ugt i64 %62, 63
+  %63 = icmp samesign ugt i64 %62, 63
   br i1 %63, label %.thread, label %41, !prof !78, !llvm.loop !79
 
 .thread:                                          ; preds = %41, %51, %47

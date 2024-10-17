@@ -13020,7 +13020,7 @@ for.body177:                                      ; preds = %_ZN7testing15Assert
   %add.ptr.i.i.i.i.i.i.i.i302 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i.i301
   %96 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i302, align 8
   %97 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %sub.ptr.div.i.i.i293)
-  %cmp.i.i.i.i303 = icmp ult i64 %97, 2
+  %cmp.i.i.i.i303 = icmp samesign ult i64 %97, 2
   br i1 %cmp.i.i.i.i303, label %if.then.i.i.i.i338, label %if.end.i.i.i.i304
 
 if.then.i.i.i.i338:                               ; preds = %for.body177

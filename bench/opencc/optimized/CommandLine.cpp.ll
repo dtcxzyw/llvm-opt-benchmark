@@ -6189,7 +6189,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP3Arg8trimFlagERNSt7__cxx1112basic_
   br i1 %13, label %.lr.ph, label %.thread, !llvm.loop !79
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp ugt i64 %indvars.iv, 1
+  %15 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
@@ -10907,7 +10907,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP12ExtractValueIbEEvRT_RKNSt7__cxx11
   br label %77
 
 59:                                               ; preds = %43
-  %60 = icmp ugt i32 %.013, 1
+  %60 = icmp samesign ugt i32 %.013, 1
   br i1 %60, label %61, label %76
 
 61:                                               ; preds = %59

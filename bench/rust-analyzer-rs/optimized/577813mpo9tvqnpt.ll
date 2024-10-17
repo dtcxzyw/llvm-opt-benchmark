@@ -4971,9 +4971,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$5parse17
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -5134,9 +5134,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10const_
   br label %.thread81
 
 23:                                               ; preds = %6
-  %24 = icmp ult i64 %21, 5
+  %24 = icmp samesign ult i64 %21, 5
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ult i64 %21, 2
+  %25 = icmp samesign ult i64 %21, 2
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
@@ -5367,9 +5367,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -5538,9 +5538,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10impl_t
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -5682,9 +5682,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -5829,9 +5829,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -6012,9 +6012,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_
   br label %.thread75
 
 21:                                               ; preds = %5
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 2
+  %23 = icmp samesign ult i64 %19, 2
   br i1 %23, label %24, label %.thread95
 
 24:                                               ; preds = %21
@@ -6225,9 +6225,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12adt_va
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -6372,9 +6372,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -6543,9 +6543,9 @@ define hidden { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -6694,9 +6694,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12layout
   br label %.thread59
 
 17:                                               ; preds = %4
-  %18 = icmp ult i64 %15, 5
+  %18 = icmp samesign ult i64 %15, 5
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %15, 2
+  %19 = icmp samesign ult i64 %15, 2
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
@@ -6907,9 +6907,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$13layout
   br label %.thread81
 
 23:                                               ; preds = %6
-  %24 = icmp ult i64 %21, 5
+  %24 = icmp samesign ult i64 %21, 5
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ult i64 %21, 2
+  %25 = icmp samesign ult i64 %21, 2
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
@@ -7130,9 +7130,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -7280,9 +7280,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$15fn_def
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -7422,9 +7422,9 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -7570,9 +7570,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$17const_
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -7712,9 +7712,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -7854,9 +7854,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -7996,9 +7996,9 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -8151,9 +8151,9 @@ define hidden { i32, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br label %.thread81
 
 20:                                               ; preds = %4
-  %21 = icmp ult i64 %18, 5
+  %21 = icmp samesign ult i64 %18, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i64 %18, 2
+  %22 = icmp samesign ult i64 %18, 2
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
@@ -8374,9 +8374,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18target
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -8520,9 +8520,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -8697,9 +8697,9 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -8845,9 +8845,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20mir_bo
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -8993,9 +8993,9 @@ define hidden noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -9135,9 +9135,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -9298,9 +9298,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22monomo
   br label %.thread81
 
 23:                                               ; preds = %6
-  %24 = icmp ult i64 %21, 5
+  %24 = icmp samesign ult i64 %21, 5
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ult i64 %21, 2
+  %25 = icmp samesign ult i64 %21, 2
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
@@ -9522,9 +9522,9 @@ define hidden noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -9666,9 +9666,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23callab
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -9809,9 +9809,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23const_
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -9951,9 +9951,9 @@ define hidden noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -10093,9 +10093,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -10241,9 +10241,9 @@ define hidden noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -10418,9 +10418,9 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br label %.thread76
 
 20:                                               ; preds = %4
-  %21 = icmp ult i64 %18, 5
+  %21 = icmp samesign ult i64 %18, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i64 %18, 2
+  %22 = icmp samesign ult i64 %18, 2
   br i1 %22, label %23, label %.thread96
 
 23:                                               ; preds = %20
@@ -10650,9 +10650,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br label %.thread75
 
 20:                                               ; preds = %4
-  %21 = icmp ult i64 %18, 5
+  %21 = icmp samesign ult i64 %18, 5
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ult i64 %18, 2
+  %22 = icmp samesign ult i64 %18, 2
   br i1 %22, label %23, label %.thread95
 
 23:                                               ; preds = %20
@@ -10859,9 +10859,9 @@ define hidden { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -11005,9 +11005,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31incohe
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %4
-  %18 = icmp ult i64 %15, 5
+  %18 = icmp samesign ult i64 %15, 5
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %15, 2
+  %19 = icmp samesign ult i64 %15, 2
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
@@ -11195,9 +11195,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$34monomo
   br label %.thread81
 
 21:                                               ; preds = %5
-  %22 = icmp ult i64 %19, 5
+  %22 = icmp samesign ult i64 %19, 5
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp ult i64 %19, 2
+  %23 = icmp samesign ult i64 %19, 2
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %21
@@ -11426,9 +11426,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -11571,9 +11571,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8borrowc
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -11716,9 +11716,9 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8mir_bod
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -11861,9 +11861,9 @@ define hidden { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -12010,9 +12010,9 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %4
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18
@@ -12182,9 +12182,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -12324,9 +12324,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -12534,9 +12534,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -12677,9 +12677,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -12819,9 +12819,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -12996,9 +12996,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -13145,9 +13145,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13287,9 +13287,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13429,9 +13429,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13571,9 +13571,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13713,9 +13713,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13855,9 +13855,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -13997,9 +13997,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -14139,9 +14139,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -14281,9 +14281,9 @@ define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16const
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -14423,9 +14423,9 @@ define hidden noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -14565,9 +14565,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -14707,9 +14707,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -14884,9 +14884,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -15027,9 +15027,9 @@ define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19funct
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -15169,9 +15169,9 @@ define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19inclu
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -15313,9 +15313,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -15456,9 +15456,9 @@ define hidden { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -15598,9 +15598,9 @@ define hidden noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatab
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -15740,9 +15740,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -15882,9 +15882,9 @@ define hidden { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16032,9 +16032,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -16175,9 +16175,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16323,9 +16323,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16465,9 +16465,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16607,9 +16607,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16749,9 +16749,9 @@ define hidden { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -16899,9 +16899,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 2
+  %16 = icmp samesign ult i64 %12, 2
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
@@ -17041,9 +17041,9 @@ define hidden noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -17185,9 +17185,9 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -17370,9 +17370,9 @@ define hidden { i32, i32 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp ult i64 %14, 5
+  %17 = icmp samesign ult i64 %14, 5
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ult i64 %14, 2
+  %18 = icmp samesign ult i64 %14, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
@@ -17543,9 +17543,9 @@ define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9macro_
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -17704,9 +17704,9 @@ define internal { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseEx
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -17882,9 +17882,9 @@ define internal { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseEx
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -19099,9 +19099,9 @@ define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..Expa
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -19247,9 +19247,9 @@ define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..Expa
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %10, 5
+  %13 = icmp samesign ult i64 %10, 5
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ult i64 %10, 2
+  %14 = icmp samesign ult i64 %10, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
@@ -19403,9 +19403,9 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$1
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %4
-  %16 = icmp ult i64 %13, 5
+  %16 = icmp samesign ult i64 %13, 5
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ult i64 %13, 2
+  %17 = icmp samesign ult i64 %13, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
@@ -19552,9 +19552,9 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$1
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -19712,9 +19712,9 @@ define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..Expa
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %4
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18
@@ -19896,9 +19896,9 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$2
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -20056,9 +20056,9 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$2
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -20358,9 +20358,9 @@ define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$9
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp ult i64 %11, 5
+  %14 = icmp samesign ult i64 %11, 5
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ult i64 %11, 2
+  %15 = icmp samesign ult i64 %11, 2
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
@@ -20985,9 +20985,9 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h2906badfe1326c7d
   br i1 %17, label %.critedge38, label %18
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 5
+  %19 = icmp samesign ult i64 %16, 5
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i64 %16, 2
+  %20 = icmp samesign ult i64 %16, 2
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
@@ -21716,9 +21716,9 @@ define hidden noundef zeroext i1 @_ZN14ide_completion11completions4mod_12complet
   ret i1 %.0
 
 62:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..ItemList$GT$$GT$17h5a4ee051cfb9cb96E.exit63"
-  %63 = icmp ult i64 %60, 5
+  %63 = icmp samesign ult i64 %60, 5
   tail call void @llvm.assume(i1 %63)
-  %64 = icmp ult i64 %60, 3
+  %64 = icmp samesign ult i64 %60, 3
   br i1 %64, label %65, label %.thread189
 
 65:                                               ; preds = %62
@@ -22573,7 +22573,7 @@ default.unreachable:                              ; preds = %336
   br label %351
 
 346:                                              ; preds = %336
-  %347 = icmp ult i8 %337, 24
+  %347 = icmp samesign ult i8 %337, 24
   call void @llvm.assume(i1 %347)
   %348 = zext nneg i8 %337 to i64
   br label %351
@@ -23548,9 +23548,9 @@ define hidden void @_ZN14ide_completion6render6const_12render_const17h4d171435b6
   br label %.thread21
 
 35:                                               ; preds = %3
-  %36 = icmp ult i64 %33, 5
+  %36 = icmp samesign ult i64 %33, 5
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ult i64 %33, 3
+  %37 = icmp samesign ult i64 %33, 3
   br i1 %37, label %38, label %.thread34
 
 38:                                               ; preds = %35
@@ -23763,7 +23763,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc.i.i unwind label %108, !noalias !2453
 
 .noexc.i.i:                                       ; preds = %88
-  %or.cond.not.i.i.i = icmp ult i8 %102, 3
+  %or.cond.not.i.i.i = icmp samesign ult i8 %102, 3
   br i1 %or.cond.not.i.i.i, label %103, label %110
 
 103:                                              ; preds = %.noexc.i.i
@@ -24264,9 +24264,9 @@ define hidden void @_ZN14ide_completion6render7literal18render_variant_lit17he77
   br label %.body
 
 17:                                               ; preds = %6
-  %18 = icmp ult i64 %12, 5
+  %18 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ult i64 %12, 3
+  %19 = icmp samesign ult i64 %12, 3
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
@@ -24437,9 +24437,9 @@ define hidden void @_ZN14ide_completion6render7literal21render_struct_literal17h
   br label %.thread34
 
 14:                                               ; preds = %6
-  %15 = icmp ult i64 %12, 5
+  %15 = icmp samesign ult i64 %12, 5
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ult i64 %12, 3
+  %16 = icmp samesign ult i64 %12, 3
   br i1 %16, label %17, label %.thread59
 
 17:                                               ; preds = %14
@@ -26282,9 +26282,9 @@ define hidden void @_ZN14ide_completion6render10type_alias17render_type_alias17h
   br label %.thread16
 
 10:                                               ; preds = %3
-  %11 = icmp ult i64 %8, 5
+  %11 = icmp samesign ult i64 %8, 5
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %8, 3
+  %12 = icmp samesign ult i64 %8, 3
   br i1 %12, label %13, label %.thread29
 
 13:                                               ; preds = %10
@@ -26405,9 +26405,9 @@ define hidden void @_ZN14ide_completion6render10type_alias25render_type_alias_wi
   br label %.thread16
 
 10:                                               ; preds = %3
-  %11 = icmp ult i64 %8, 5
+  %11 = icmp samesign ult i64 %8, 5
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp ult i64 %8, 3
+  %12 = icmp samesign ult i64 %8, 3
   br i1 %12, label %13, label %.thread29
 
 13:                                               ; preds = %10
@@ -26660,7 +26660,7 @@ define internal fastcc void @_ZN14ide_completion6render10type_alias6render17hccc
           to label %.noexc.i unwind label %75, !noalias !2945
 
 .noexc.i:                                         ; preds = %55
-  %or.cond.not.i.i = icmp ult i8 %69, 3
+  %or.cond.not.i.i = icmp samesign ult i8 %69, 3
   br i1 %or.cond.not.i.i, label %70, label %77
 
 70:                                               ; preds = %.noexc.i
@@ -26744,7 +26744,7 @@ default.unreachable:                              ; preds = %111, %84
   br label %105
 
 98:                                               ; preds = %84
-  %99 = icmp ult i8 %85, 24
+  %99 = icmp samesign ult i8 %85, 24
   call void @llvm.assume(i1 %99)
   %100 = zext nneg i8 %85 to i64
   %101 = getelementptr inbounds i8, ptr %29, i64 1
@@ -26816,7 +26816,7 @@ default.unreachable:                              ; preds = %111, %84
   br label %131
 
 125:                                              ; preds = %111
-  %126 = icmp ult i8 %112, 24
+  %126 = icmp samesign ult i8 %112, 24
   call void @llvm.assume(i1 %126)
   %127 = zext nneg i8 %112 to i64
   %128 = getelementptr inbounds i8, ptr %27, i64 1

@@ -138,7 +138,7 @@ define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed
   %17 = add nuw nsw i64 %14, 1
   %18 = load i32, ptr %0, align 8
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %17, %19
+  %20 = icmp samesign ult i64 %17, %19
   br i1 %20, label %13, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %13, %7
@@ -191,7 +191,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
   %18 = add nuw nsw i64 %15, 1
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   br i1 %21, label %14, label %.loopexit3, !llvm.loop !10
 
 .loopexit3:                                       ; preds = %14, %8
@@ -370,7 +370,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %25 = load i32, ptr %8, align 4
   %26 = sub i32 %25, %4
   %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %24, %27
+  %28 = icmp samesign ult i64 %24, %27
   br i1 %28, label %15, label %29, !llvm.loop !14
 
 29:                                               ; preds = %15
@@ -437,7 +437,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %69 = add nuw nsw i64 %63, 1
   %70 = load i32, ptr %45, align 4
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %69, %71
+  %72 = icmp samesign ult i64 %69, %71
   br i1 %72, label %62, label %73, !llvm.loop !15
 
 73:                                               ; preds = %62
@@ -460,7 +460,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %85 = load i32, ptr %56, align 4
   %86 = sub i32 %85, %4
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %84, %87
+  %88 = icmp samesign ult i64 %84, %87
   br i1 %88, label %.preheader, label %89, !llvm.loop !16
 
 89:                                               ; preds = %.preheader
@@ -521,7 +521,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %124 = add nuw nsw i64 %118, 1
   %125 = load i32, ptr %104, align 4
   %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %124, %126
+  %127 = icmp samesign ult i64 %124, %126
   br i1 %127, label %117, label %.loopexit15, !llvm.loop !17
 
 .loopexit15:                                      ; preds = %117, %111, %103, %97, %89, %39, %34
@@ -830,7 +830,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %126 = load i32, ptr %77, align 4
   %127 = sub i32 %126, %109
   %128 = zext i32 %127 to i64
-  %129 = icmp ult i64 %125, %128
+  %129 = icmp samesign ult i64 %125, %128
   br i1 %129, label %116, label %130, !llvm.loop !14
 
 130:                                              ; preds = %116

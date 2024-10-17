@@ -15493,7 +15493,7 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %200, %_ZNSt12_Vecto
   %348 = ashr exact i64 %347, 3
   %349 = icmp ult i64 %348, 1152921504606846976
   tail call void @llvm.assume(i1 %349)
-  %.not28.i = icmp ult i64 %348, %208
+  %.not28.i = icmp samesign ult i64 %348, %208
   br i1 %.not28.i, label %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i, label %350
 
 350:                                              ; preds = %345
@@ -15660,7 +15660,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit338:            ; preds = %399, %401, %403, %4
   %420 = select i1 %6, ptr %5, ptr %41
   %421 = add nuw nsw i64 %1, 1
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %421, i64 %208)
-  %422 = icmp ugt i64 %.sroa.speculated, 1152921504606846975
+  %422 = icmp samesign ugt i64 %.sroa.speculated, 1152921504606846975
   br i1 %422, label %.invoke, label %423
 
 423:                                              ; preds = %418
@@ -16624,7 +16624,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i52: ; preds = %.noexc56
   %85 = getelementptr inbounds i64, ptr %70, i64 %.02069
   store i64 %84, ptr %85, align 8
   %86 = add nuw nsw i64 %.02069, 1
-  %87 = icmp ult i64 %86, %77
+  %87 = icmp samesign ult i64 %86, %77
   br i1 %87, label %78, label %._crit_edge, !llvm.loop !228
 
 _ZNSt6vectorIxSaIxEED2Ev.exit62.thread:           ; preds = %68

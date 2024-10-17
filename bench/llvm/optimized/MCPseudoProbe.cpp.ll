@@ -1970,7 +1970,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildGUID2F
 
 25:                                               ; preds = %20
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %22, 1
+  %.not.i.i = icmp samesign ugt i8 %22, 1
   %26 = icmp ne i8 %22, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %26
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i, label %27
@@ -2146,7 +2146,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread.i25:  ; preds = %_ZNK4llvm7ErrorOrIm
 
 90:                                               ; preds = %85
   %.not37.i.i49 = icmp eq i32 %.026.i.i40, 63
-  %.not.i.i50 = icmp ugt i8 %87, 1
+  %.not.i.i50 = icmp samesign ugt i8 %87, 1
   %91 = icmp ne i8 %87, 0
   %or.cond36.i.i51 = select i1 %.not37.i.i49, i1 %.not.i.i50, i1 %91
   br i1 %or.cond36.i.i51, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i43, label %92
@@ -2951,7 +2951,7 @@ _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapI
 
 53:                                               ; preds = %48
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %50, 1
+  %.not.i.i = icmp samesign ugt i8 %50, 1
   %54 = icmp ne i8 %50, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %54
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i, label %55
@@ -3003,7 +3003,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i: ; preds = %53, %46, %_ZN4llv
 
 77:                                               ; preds = %72
   %.not37.i.i47 = icmp eq i32 %.026.i.i38, 63
-  %.not.i.i48 = icmp ugt i8 %74, 1
+  %.not.i.i48 = icmp samesign ugt i8 %74, 1
   %78 = icmp ne i8 %74, 0
   %or.cond36.i.i49 = select i1 %.not37.i.i47, i1 %.not.i.i48, i1 %78
   br i1 %or.cond36.i.i49, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i41, label %79
@@ -3066,7 +3066,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i41: ; preds = %77, %70, %_ZN4l
 
 102:                                              ; preds = %97
   %.not37.i.i62 = icmp eq i32 %.026.i.i53, 63
-  %.not.i.i63 = icmp ugt i8 %99, 1
+  %.not.i.i63 = icmp samesign ugt i8 %99, 1
   %103 = icmp ne i8 %99, 0
   %or.cond36.i.i64 = select i1 %.not37.i.i62, i1 %.not.i.i63, i1 %103
   br i1 %or.cond36.i.i64, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i56, label %104
@@ -3189,7 +3189,7 @@ _ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; pr
 
 149:                                              ; preds = %144
   %.not37.i.i82 = icmp eq i32 %.026.i.i73, 63
-  %.not.i.i83 = icmp ugt i8 %146, 1
+  %.not.i.i83 = icmp samesign ugt i8 %146, 1
   %150 = icmp ne i8 %146, 0
   %or.cond36.i.i84 = select i1 %.not37.i.i82, i1 %.not.i.i83, i1 %150
   br i1 %or.cond36.i.i84, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i76, label %151
@@ -3421,7 +3421,7 @@ _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapI
 
 87:                                               ; preds = %82
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i47 = icmp ugt i8 %84, 1
+  %.not.i.i47 = icmp samesign ugt i8 %84, 1
   %88 = icmp ne i8 %84, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i47, i1 %88
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i, label %89
@@ -3480,7 +3480,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvm13decodeULE
 
 109:                                              ; preds = %104
   %.not37.i.i67 = icmp eq i32 %.026.i.i58, 63
-  %.not.i.i68 = icmp ugt i8 %106, 1
+  %.not.i.i68 = icmp samesign ugt i8 %106, 1
   %110 = icmp ne i8 %106, 0
   %or.cond36.i.i69 = select i1 %.not37.i.i67, i1 %.not.i.i68, i1 %110
   br i1 %or.cond36.i.i69, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i61, label %111
@@ -3555,7 +3555,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit84:                  ; preds = %_ZN4llvm13decodeULE
 
 139:                                              ; preds = %134
   %.not37.i.i96 = icmp eq i32 %.026.i.i87, 63
-  %.not.i.i97 = icmp ugt i8 %136, 1
+  %.not.i.i97 = icmp samesign ugt i8 %136, 1
   %140 = icmp ne i8 %136, 0
   %or.cond36.i.i98 = select i1 %.not37.i.i96, i1 %.not.i.i97, i1 %140
   br i1 %or.cond36.i.i98, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i90.loopexit, label %141
@@ -3786,7 +3786,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMa
   %.0322 = phi i64 [ %.sroa.0210.0.insert.insert, %229 ], [ %195, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.0210.0.insert.insert, %203 ], [ %spec.select, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit157 ], [ %.sroa.0210.0.insert.insert, %.lr.ph.i.i.i151 ]
   %.sroa.4222.1 = phi i32 [ %.sroa.4222.0447, %229 ], [ %.sroa.4222.2374, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.4222.0447, %203 ], [ %.sroa.4222.0447, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit157 ], [ %.sroa.4222.0447, %.lr.ph.i.i.i151 ]
   %.sroa.4211.1 = phi i32 [ %.sroa.4211.2394, %229 ], [ %.sroa.4211.0450, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.4211.2394, %203 ], [ %.sroa.4211.2394, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit157 ], [ %.sroa.4211.2394, %.lr.ph.i.i.i151 ]
-  %.not424 = icmp ult i8 %161, 4
+  %.not424 = icmp samesign ult i8 %161, 4
   br i1 %.not424, label %_ZN4llvm8ExpectedIjED2Ev.exit186, label %232
 
 232:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit157.thread
@@ -3811,7 +3811,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMa
 
 242:                                              ; preds = %237
   %.not37.i.i169 = icmp eq i32 %.026.i.i160, 63
-  %.not.i.i170 = icmp ugt i8 %239, 1
+  %.not.i.i170 = icmp samesign ugt i8 %239, 1
   %243 = icmp ne i8 %239, 0
   %or.cond36.i.i171 = select i1 %.not37.i.i169, i1 %.not.i.i170, i1 %243
   br i1 %or.cond36.i.i171, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i163, label %244
@@ -7359,7 +7359,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder12countRec
 
 17:                                               ; preds = %12
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %14, 1
+  %.not.i.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %18
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i, label %19
@@ -7412,7 +7412,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i: ; preds = %17, %10, %_ZN4llv
 
 42:                                               ; preds = %37
   %.not37.i.i41 = icmp eq i32 %.026.i.i32, 63
-  %.not.i.i42 = icmp ugt i8 %39, 1
+  %.not.i.i42 = icmp samesign ugt i8 %39, 1
   %43 = icmp ne i8 %39, 0
   %or.cond36.i.i43 = select i1 %.not37.i.i41, i1 %.not.i.i42, i1 %43
   br i1 %or.cond36.i.i43, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i35, label %44
@@ -7457,7 +7457,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i35: ; preds = %42, %_ZN4llvm13
 
 62:                                               ; preds = %57
   %.not37.i.i56 = icmp eq i32 %.026.i.i47, 63
-  %.not.i.i57 = icmp ugt i8 %59, 1
+  %.not.i.i57 = icmp samesign ugt i8 %59, 1
   %63 = icmp ne i8 %59, 0
   %or.cond36.i.i58 = select i1 %.not37.i.i56, i1 %.not.i.i57, i1 %63
   br i1 %or.cond36.i.i58, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i50, label %64
@@ -7520,7 +7520,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i50: ; preds = %62, %_ZN4llvm13
 
 87:                                               ; preds = %82
   %.not37.i.i71 = icmp eq i32 %.026.i.i62, 63
-  %.not.i.i72 = icmp ugt i8 %84, 1
+  %.not.i.i72 = icmp samesign ugt i8 %84, 1
   %88 = icmp ne i8 %84, 0
   %or.cond36.i.i73 = select i1 %.not37.i.i71, i1 %.not.i.i72, i1 %88
   br i1 %or.cond36.i.i73, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i65, label %89
@@ -7643,7 +7643,7 @@ _ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; pr
 
 134:                                              ; preds = %129
   %.not37.i.i91 = icmp eq i32 %.026.i.i82, 63
-  %.not.i.i92 = icmp ugt i8 %131, 1
+  %.not.i.i92 = icmp samesign ugt i8 %131, 1
   %135 = icmp ne i8 %131, 0
   %or.cond36.i.i93 = select i1 %.not37.i.i91, i1 %.not.i.i92, i1 %135
   br i1 %or.cond36.i.i93, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i85, label %136
@@ -7827,7 +7827,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildAdd
 
 18:                                               ; preds = %13
   %.not37.i.i = icmp eq i32 %.026.i.i, 63
-  %.not.i.i = icmp ugt i8 %15, 1
+  %.not.i.i = icmp samesign ugt i8 %15, 1
   %19 = icmp ne i8 %15, 0
   %or.cond36.i.i = select i1 %.not37.i.i, i1 %.not.i.i, i1 %19
   br i1 %or.cond36.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i, label %20
@@ -7930,7 +7930,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZN4llvm8ExpectedIj
 
 57:                                               ; preds = %52
   %.not37.i.i57 = icmp eq i32 %.026.i.i48, 63
-  %.not.i.i58 = icmp ugt i8 %54, 1
+  %.not.i.i58 = icmp samesign ugt i8 %54, 1
   %58 = icmp ne i8 %54, 0
   %or.cond36.i.i59 = select i1 %.not37.i.i57, i1 %.not.i.i58, i1 %58
   br i1 %or.cond36.i.i59, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i51, label %59
@@ -7989,7 +7989,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit74:                  ; preds = %_ZN4llvm13decodeULE
 
 79:                                               ; preds = %74
   %.not37.i.i86 = icmp eq i32 %.026.i.i77, 63
-  %.not.i.i87 = icmp ugt i8 %76, 1
+  %.not.i.i87 = icmp samesign ugt i8 %76, 1
   %80 = icmp ne i8 %76, 0
   %or.cond36.i.i88 = select i1 %.not37.i.i86, i1 %.not.i.i87, i1 %80
   br i1 %or.cond36.i.i88, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i80, label %81
@@ -8064,7 +8064,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit103:                 ; preds = %_ZN4llvm13decodeULE
 
 109:                                              ; preds = %104
   %.not37.i.i115 = icmp eq i32 %.026.i.i106, 63
-  %.not.i.i116 = icmp ugt i8 %106, 1
+  %.not.i.i116 = icmp samesign ugt i8 %106, 1
   %110 = icmp ne i8 %106, 0
   %or.cond36.i.i117 = select i1 %.not37.i.i115, i1 %.not.i.i116, i1 %110
   br i1 %or.cond36.i.i117, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i109.loopexit, label %111
@@ -8295,7 +8295,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMa
   %.0341 = phi i64 [ %.sroa.0221.0.insert.insert, %199 ], [ %165, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.0221.0.insert.insert, %173 ], [ %spec.select, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit ], [ %.sroa.0221.0.insert.insert, %.lr.ph.i.i.i ]
   %.sroa.4233.1 = phi i32 [ %.sroa.4233.0465, %199 ], [ %.sroa.4233.2390, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.4233.0465, %173 ], [ %.sroa.4233.0465, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit ], [ %.sroa.4233.0465, %.lr.ph.i.i.i ]
   %.sroa.4222.1 = phi i32 [ %.sroa.4222.2410, %199 ], [ %.sroa.4222.0468, %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.thread.i ], [ %.sroa.4222.2410, %173 ], [ %.sroa.4222.2410, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit ], [ %.sroa.4222.2410, %.lr.ph.i.i.i ]
-  %.not442 = icmp ult i8 %131, 4
+  %.not442 = icmp samesign ult i8 %131, 4
   br i1 %.not442, label %_ZN4llvm8ExpectedIjED2Ev.exit197, label %202
 
 202:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E6lookupERKm.exit.thread
@@ -8320,7 +8320,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMa
 
 212:                                              ; preds = %207
   %.not37.i.i180 = icmp eq i32 %.026.i.i171, 63
-  %.not.i.i181 = icmp ugt i8 %209, 1
+  %.not.i.i181 = icmp samesign ugt i8 %209, 1
   %213 = icmp ne i8 %209, 0
   %or.cond36.i.i182 = select i1 %.not37.i.i180, i1 %.not.i.i181, i1 %213
   br i1 %or.cond36.i.i182, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i174, label %214

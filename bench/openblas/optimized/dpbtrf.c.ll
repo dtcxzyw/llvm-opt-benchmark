@@ -116,7 +116,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader88:                                     ; preds = %50, %63
   %56 = phi i64 [ %65, %63 ], [ 0, %50 ]
   %57 = phi i32 [ %64, %63 ], [ 1, %50 ]
-  %58 = icmp ugt i32 %57, 1
+  %58 = icmp samesign ugt i32 %57, 1
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %.preheader88

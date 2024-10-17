@@ -14059,7 +14059,7 @@ cond.false.i:                                     ; preds = %for.inc.i.i, %for.b
 
 invoke.cont198:                                   ; preds = %for.body.i.i813, %cond.false.i
   %retval.sroa.0.0.i816 = phi ptr [ %209, %cond.false.i ], [ %pNode.addr.05.i.i, %for.body.i.i813 ]
-  %cmp201 = icmp ult i64 %indvars.iv, 10000
+  %cmp201 = icmp samesign ult i64 %indvars.iv, 10000
   %add.ptr.i821 = getelementptr inbounds ptr, ptr %204, i64 %203
   %210 = load ptr, ptr %add.ptr.i821, align 8
   %cmp.i830 = icmp eq ptr %retval.sroa.0.0.i816, %210
@@ -15503,7 +15503,7 @@ cond.false.i1369:                                 ; preds = %for.inc.i.i1366, %f
 
 invoke.cont421:                                   ; preds = %_ZNK5eastl14hash_code_baseIiiNS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb1EE7compareERKijPNS_9hash_nodeIiLb1EEE.exit.i.i, %cond.false.i1369
   %retval.sroa.0.0.i1372 = phi ptr [ %408, %cond.false.i1369 ], [ %pNode.addr.05.i.i1364, %_ZNK5eastl14hash_code_baseIiiNS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb1EE7compareERKijPNS_9hash_nodeIiLb1EEE.exit.i.i ]
-  %cmp424 = icmp ult i64 %indvars.iv10633, 10000
+  %cmp424 = icmp samesign ult i64 %indvars.iv10633, 10000
   %add.ptr.i1378 = getelementptr inbounds ptr, ptr %402, i64 %400
   %409 = load ptr, ptr %add.ptr.i1378, align 8
   %cmp.i1387 = icmp eq ptr %retval.sroa.0.0.i1372, %409
@@ -15693,7 +15693,7 @@ _ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEE
 _ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE12find_by_hashERKij.exit.i: ; preds = %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE12find_by_hashERKij.exit.i.loopexit, %cond.false.i.i
   %437 = phi ptr [ %436, %cond.false.i.i ], [ %.pre10704, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE12find_by_hashERKij.exit.i.loopexit ]
   %retval.sroa.0.0.i.i1443 = phi ptr [ %436, %cond.false.i.i ], [ %pNode.addr.05.i.i.i1438, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE12find_by_hashERKij.exit.i.loopexit ]
-  %cmp6.i = icmp ult i64 %indvars.iv.i, 10000
+  %cmp6.i = icmp samesign ult i64 %indvars.iv.i, 10000
   %cmp.i15.i = icmp eq ptr %retval.sroa.0.0.i.i1443, %437
   %438 = xor i1 %cmp6.i, %cmp.i15.i
   %439 = select i1 %cmp6.i, i32 473, i32 475
@@ -15816,7 +15816,7 @@ _ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEE
 _ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE12find_by_hashERKim.exit.i: ; preds = %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE12find_by_hashERKim.exit.i.loopexit, %cond.false.i.i1475
   %456 = phi ptr [ %455, %cond.false.i.i1475 ], [ %.pre10705, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE12find_by_hashERKim.exit.i.loopexit ]
   %retval.sroa.0.0.i.i1477 = phi ptr [ %455, %cond.false.i.i1475 ], [ %pNode.addr.05.i.i.i1470, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE12find_by_hashERKim.exit.i.loopexit ]
-  %cmp6.i1478 = icmp ult i64 %indvars.iv.i1464, 10000
+  %cmp6.i1478 = icmp samesign ult i64 %indvars.iv.i1464, 10000
   %cmp.i14.i = icmp eq ptr %retval.sroa.0.0.i.i1477, %456
   %457 = xor i1 %cmp6.i1478, %cmp.i14.i
   %458 = select i1 %cmp6.i1478, i32 473, i32 475
@@ -23178,7 +23178,7 @@ cond.false.i5005:                                 ; preds = %for.inc.i.i5002, %f
 
 invoke.cont1213:                                  ; preds = %for.body.i.i4999, %cond.false.i5005
   %.sink.i = phi ptr [ %1376, %cond.false.i5005 ], [ %pNode.addr.05.i.i5000, %for.body.i.i4999 ]
-  %cmp1214 = icmp ult i64 %indvars.iv10648, 10000
+  %cmp1214 = icmp samesign ult i64 %indvars.iv10648, 10000
   %add.ptr.i5009 = getelementptr inbounds ptr, ptr %1371, i64 %1370
   %1377 = load ptr, ptr %add.ptr.i5009, align 8, !noalias !224
   br i1 %cmp1214, label %if.then1215, label %if.else1233
@@ -24253,7 +24253,7 @@ cond.false.i5446:                                 ; preds = %for.inc.i.i5443, %f
 
 invoke.cont1466:                                  ; preds = %for.body.i.i5440, %cond.false.i5446
   %.sink.i5448 = phi ptr [ %1525, %cond.false.i5446 ], [ %pNode.addr.05.i.i5441, %for.body.i.i5440 ]
-  %cmp1467 = icmp ult i32 %i1459.010340, 10000
+  %cmp1467 = icmp samesign ult i32 %i1459.010340, 10000
   %add.ptr.i5453 = getelementptr inbounds ptr, ptr %1521, i64 %1520
   %1526 = load ptr, ptr %add.ptr.i5453, align 8, !noalias !224
   br i1 %cmp1467, label %if.then1468, label %if.else1486
@@ -25080,7 +25080,7 @@ cond.false.i.i.i:                                 ; preds = %for.inc.i.i.i.i5766
 
 invoke.cont1600:                                  ; preds = %_ZNK5eastl8equal_toIvEclIRKNS_12basic_stringIcNS_9allocatorEEERKPKcEEDTeqclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSC_OSD_.exit.i.i.i.i, %cond.false.i.i.i
   %retval.sroa.0.0.i.i.i5769 = phi ptr [ %1636, %cond.false.i.i.i ], [ %pNode.addr.05.i.i.i.i5763, %_ZNK5eastl8equal_toIvEclIRKNS_12basic_stringIcNS_9allocatorEEERKPKcEEDTeqclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSC_OSD_.exit.i.i.i.i ]
-  %cmp1603 = icmp ult i32 %i1594.010343, 100
+  %cmp1603 = icmp samesign ult i32 %i1594.010343, 100
   %add.ptr.i5772 = getelementptr inbounds ptr, ptr %1629, i64 %1628
   %1637 = load ptr, ptr %add.ptr.i5772, align 8
   %cmp.i5781 = icmp eq ptr %retval.sroa.0.0.i.i.i5769, %1637

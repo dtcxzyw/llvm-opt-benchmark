@@ -1328,7 +1328,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %64 = add nuw nsw i32 %.04048, 1
   %65 = load i8, ptr %33, align 8
   %66 = zext i8 %65 to i32
-  %67 = icmp ult i32 %64, %66
+  %67 = icmp samesign ult i32 %64, %66
   br i1 %67, label %51, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %63, %.preheader
@@ -1337,7 +1337,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %.1.lcssa = phi float [ %.053, %.preheader ], [ %.2, %63 ]
   %69 = add nuw nsw i32 %.04152, 1
   %70 = zext i8 %68 to i32
-  %71 = icmp ult i32 %69, %70
+  %71 = icmp samesign ult i32 %69, %70
   br i1 %71, label %.preheader, label %._crit_edge54, !llvm.loop !12
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %23
@@ -1451,7 +1451,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
 .lr.ph126:                                        ; preds = %_Z13dtNormalize2DPf.exit
   %73 = uitofp nneg i8 %narrow118 to float
   %74 = add nsw i32 %35, -1
-  %75 = icmp ugt i8 %narrow, 2
+  %75 = icmp samesign ugt i8 %narrow, 2
   %76 = fneg float %44
   %77 = and i32 %35, 1
   %78 = icmp eq i32 %77, 0

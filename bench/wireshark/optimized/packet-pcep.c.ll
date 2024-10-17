@@ -2097,7 +2097,7 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 78:                                               ; preds = %75, %74
   %79 = add i32 %.08190.i.i, %67
   %80 = add nuw nsw i32 %.08091.i.i, %67
-  %81 = icmp ult i32 %80, %15
+  %81 = icmp samesign ult i32 %80, %15
   br i1 %81, label %.lr.ph.i.i, label %dissect_pcep_msg_tree.exit, !llvm.loop !4
 
 dissect_pcep_msg_tree.exit:                       ; preds = %78, %4, %69
@@ -4591,7 +4591,7 @@ define internal fastcc void @dissect_subobj_label_control(ptr noundef %0, ptr no
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_LABEL_CONTROL, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
-  %11 = icmp ult i32 %6, 5
+  %11 = icmp samesign ult i32 %6, 5
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
@@ -4865,7 +4865,7 @@ define internal fastcc void @dissect_subobj_sr(ptr noundef %0, ptr noundef %1, p
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_SR, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
-  %11 = icmp ult i32 %6, 8
+  %11 = icmp samesign ult i32 %6, 8
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
@@ -5051,7 +5051,7 @@ define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1,
   %12 = load i32, ptr @hf_PCEPF_SUBOBJ_SRv6, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %5) #2
-  %15 = icmp ult i32 %6, 8
+  %15 = icmp samesign ult i32 %6, 8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %7

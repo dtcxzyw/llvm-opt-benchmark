@@ -8894,7 +8894,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %76, %82
   %.0105288 = phi float [ 0.000000e+00, %.preheader ], [ %.1106.lcssa, %.loopexit ]
   %.lcssa276285286 = phi ptr [ undef, %.preheader ], [ %.lcssa276, %.loopexit ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %86 = icmp ult i64 %indvars.iv315, 5
+  %86 = icmp samesign ult i64 %indvars.iv315, 5
   br i1 %86, label %.lr.ph279, label %.loopexit
 
 .lr.ph279:                                        ; preds = %85

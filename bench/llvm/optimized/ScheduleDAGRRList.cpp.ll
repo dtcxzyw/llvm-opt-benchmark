@@ -6367,7 +6367,7 @@ _ZL18CheckForLiveRegDefPN4llvm5SUnitEjPS1_RNS_8SmallSetIjLj4ESt4lessIjEEERNS_15S
   %355 = phi i8 [ %305, %304 ], [ %.pre187.i, %_ZL18CheckForLiveRegDefPN4llvm5SUnitEjPS1_RNS_8SmallSetIjLj4ESt4lessIjEEERNS_15SmallVectorImplIjEEPKNS_18TargetRegisterInfoEPKNS_6SDNodeE.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %356 = zext i8 %355 to i64
-  %357 = icmp ult i64 %indvars.iv.next.i, %356
+  %357 = icmp samesign ult i64 %indvars.iv.next.i, %356
   br i1 %357, label %304, label %.loopexit159.i, !llvm.loop !35
 
 .loopexit159.i:                                   ; preds = %354, %.preheader158.i, %_ZL14getNodeRegMaskPKN4llvm6SDNodeE.exit.thread.i
@@ -10355,7 +10355,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_13b
   br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  %26 = icmp samesign ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   br label %_ZNK12_GLOBAL__N_113bu_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 27:                                               ; preds = %.lr.ph.i.i
@@ -12177,7 +12177,7 @@ define internal fastcc noundef zeroext i1 @_ZL8BURRSortPN4llvm5SUnitES1_PN12_GLO
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %6
-  %14 = icmp ult i16 %.lobit, %.lobit93
+  %14 = icmp samesign ult i16 %.lobit, %.lobit93
   br label %180
 
 15:                                               ; preds = %6, %3
@@ -13098,7 +13098,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14s
   br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  %26 = icmp samesign ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   br label %_ZNK12_GLOBAL__N_114src_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 27:                                               ; preds = %.lr.ph.i.i
@@ -13375,7 +13375,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_17h
   br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  %26 = icmp samesign ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   %cond.fr28.i.i = freeze i1 %26
   br i1 %cond.fr28.i.i, label %_ZNK12_GLOBAL__N_117hybrid_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i, label %_ZNK12_GLOBAL__N_117hybrid_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i
 
@@ -13839,7 +13839,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14i
   br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  %28 = icmp samesign ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %cond.fr28.i.i = freeze i1 %28

@@ -2153,7 +2153,7 @@ if.then:                                          ; preds = %cond.false.i, %cond
   store i32 %cond.i, ptr %ls, align 8, !tbaa !44
   %13 = and i32 %cond.i, 255
   %14 = zext nneg i32 %13 to i64
-  %memchr.bounds = icmp ugt i32 %13, 63
+  %memchr.bounds = icmp samesign ugt i32 %13, 63
   %15 = shl nuw i64 1, %14
   %16 = and i64 %15, 43980465111041
   %memchr.bits = icmp eq i64 %16, 0

@@ -9730,7 +9730,7 @@ Abc_UtilStrsav.exit163:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %narrow.i166, label %Gia_ObjIsXor.exit, label %285
 
 Gia_ObjIsXor.exit:                                ; preds = %103
-  %.not187 = icmp ult i32 %61, %64
+  %.not187 = icmp samesign ult i32 %61, %64
   br i1 %.not187, label %105, label %Gia_ObjIsXor.exit.thread
 
 105:                                              ; preds = %Gia_ObjIsXor.exit
@@ -21300,7 +21300,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
 92:                                               ; preds = %.lr.ph129, %.lr.ph89
   %93 = phi ptr [ %86, %.lr.ph129 ], [ %91, %.lr.ph89 ]
   %indvars.iv102128 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next103, %.lr.ph89 ]
-  %.not57 = icmp ult i64 %indvars.iv105, %indvars.iv102128
+  %.not57 = icmp samesign ult i64 %indvars.iv105, %indvars.iv102128
   br i1 %.not57, label %94, label %Gia_ManAppendCo.exit
 
 94:                                               ; preds = %92
@@ -25335,7 +25335,7 @@ Gia_ObjIsXor.exit:                                ; preds = %.lr.ph173
   %160 = lshr i64 %.val119, 32
   %161 = trunc nuw i64 %160 to i32
   %162 = and i32 %161, 536870911
-  %.not143 = icmp ult i32 %159, %162
+  %.not143 = icmp samesign ult i32 %159, %162
   br i1 %.not143, label %163, label %Gia_ObjIsXor.exit.thread
 
 163:                                              ; preds = %Gia_ObjIsXor.exit
@@ -25780,7 +25780,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.t
   %157 = lshr i64 %.val95, 32
   %158 = trunc nuw i64 %157 to i32
   %159 = and i32 %158, 536870911
-  %.not122 = icmp ult i32 %156, %159
+  %.not122 = icmp samesign ult i32 %156, %159
   br i1 %.not122, label %160, label %Gia_ObjIsXor.exit.thread
 
 160:                                              ; preds = %Gia_ObjIsXor.exit
@@ -38051,7 +38051,7 @@ Vec_IntPush.exit142:                              ; preds = %.Vec_IntGrow.exit10
 
 Vec_IntRandomizeOrder.exit:                       ; preds = %380, %.lr.ph213
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %395 = icmp ult i64 %indvars.iv.next234, %373
+  %395 = icmp samesign ult i64 %indvars.iv.next234, %373
   br i1 %395, label %.lr.ph213, label %.critedge, !llvm.loop !481
 
 .critedge:                                        ; preds = %Vec_IntRandomizeOrder.exit, %.preheader, %368

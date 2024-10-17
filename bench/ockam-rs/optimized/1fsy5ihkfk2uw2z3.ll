@@ -3644,7 +3644,7 @@ define void @"_ZN19ockam_transport_ble6driver8btleplug109_$LT$impl$u20$core..con
   unreachable
 
 28:                                               ; preds = %3
-  %29 = icmp ult i64 %22, 5
+  %29 = icmp samesign ult i64 %22, 5
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i64 %22, 0
   br i1 %30, label %31, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread115
@@ -3699,7 +3699,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %52 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %53 = icmp ult i64 %52, 6
   tail call void @llvm.assume(i1 %53)
-  %switch.selectcmp65 = icmp ugt i64 %52, 4
+  %switch.selectcmp65 = icmp samesign ugt i64 %52, 4
   br i1 %switch.selectcmp65, label %54, label %91
 
 54:                                               ; preds = %51
@@ -3873,7 +3873,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %104 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !673
   %105 = icmp ult i64 %104, 6
   call void @llvm.assume(i1 %105)
-  %106 = icmp ult i64 %104, 5
+  %106 = icmp samesign ult i64 %104, 5
   br i1 %106, label %"_ZN19ockam_transport_ble6driver8btleplug109_$LT$impl$u20$core..convert..From$LT$btleplug..Error$GT$$u20$for$u20$ockam_transport_ble..error..BleError$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17hd77c5160a569cfaaE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %103

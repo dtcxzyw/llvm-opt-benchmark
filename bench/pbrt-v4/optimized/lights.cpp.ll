@@ -11650,16 +11650,16 @@ sw.default.i.i.i:                                 ; preds = %sw.bb
 sw.bb7:                                           ; preds = %if.end
   %13 = call float @llvm.fabs.f32(float %4)
   %xor.i = bitcast float %13 to i32
-  %cmp.i = icmp ugt i32 %xor.i, 1199570943
+  %cmp.i = icmp samesign ugt i32 %xor.i, 1199570943
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb7
-  %cmp2.i = icmp ugt i32 %xor.i, 2139095040
+  %cmp2.i = icmp samesign ugt i32 %xor.i, 2139095040
   %conv.i3 = select i1 %cmp2.i, i32 32256, i32 31744
   br label %_ZN4pbrt4HalfC2Ef.exit
 
 if.else.i:                                        ; preds = %sw.bb7
-  %cmp3.i = icmp ult i32 %xor.i, 947912704
+  %cmp3.i = icmp samesign ult i32 %xor.i, 947912704
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i

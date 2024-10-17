@@ -196,7 +196,7 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %25, align 4
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
   br i1 %62, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %59
@@ -330,7 +330,7 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %2, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %indvars.iv.next, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next, %53
   br i1 %54, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51
@@ -1519,7 +1519,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %423 = load i32, ptr %370, align 8
   %424 = zext i32 %423 to i64
-  %425 = icmp ult i64 %indvars.iv.next.i, %424
+  %425 = icmp samesign ult i64 %indvars.iv.next.i, %424
   br i1 %425, label %389, label %zend_accel_do_delayed_early_binding.exit
 
 zend_accel_do_delayed_early_binding.exit:         ; preds = %.thread112.i, %372
@@ -1615,7 +1615,7 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
   br i1 %.not, label %88, label %41
 
 41:                                               ; preds = %._crit_edge
-  %42 = icmp ugt i32 %.0.lcssa, 15
+  %42 = icmp samesign ugt i32 %.0.lcssa, 15
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %41
@@ -1777,7 +1777,7 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
   br i1 %.not.i, label %zend_adler32.exit, label %47
 
 47:                                               ; preds = %._crit_edge.i
-  %48 = icmp ugt i32 %.0.lcssa.i, 15
+  %48 = icmp samesign ugt i32 %.0.lcssa.i, 15
   br i1 %48, label %49, label %.thread.i
 
 49:                                               ; preds = %47
@@ -1939,7 +1939,7 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
   br i1 %.not.i61, label %zend_adler32.exit92, label %139
 
 139:                                              ; preds = %._crit_edge.i56
-  %140 = icmp ugt i32 %.0.lcssa.i60, 15
+  %140 = icmp samesign ugt i32 %.0.lcssa.i60, 15
   br i1 %140, label %141, label %.thread.i62
 
 141:                                              ; preds = %139

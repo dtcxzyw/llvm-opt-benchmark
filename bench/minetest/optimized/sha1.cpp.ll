@@ -455,7 +455,7 @@ for.body49:                                       ; preds = %for.body28, %if.end
   %c.0143 = phi i32 [ %or.i137, %if.end68 ], [ %2, %for.body28 ]
   %b.0142 = phi i32 [ %a.0141, %if.end68 ], [ %1, %for.body28 ]
   %a.0141 = phi i32 [ %add75, %if.end68 ], [ %0, %for.body28 ]
-  %cmp50 = icmp ult i64 %indvars.iv157, 20
+  %cmp50 = icmp samesign ult i64 %indvars.iv157, 20
   br i1 %cmp50, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body49
@@ -466,7 +466,7 @@ if.then:                                          ; preds = %for.body49
   br label %if.end68
 
 if.else:                                          ; preds = %for.body49
-  %cmp52 = icmp ult i64 %indvars.iv157, 40
+  %cmp52 = icmp samesign ult i64 %indvars.iv157, 40
   br i1 %cmp52, label %if.then53, label %if.else56
 
 if.then53:                                        ; preds = %if.else
@@ -475,7 +475,7 @@ if.then53:                                        ; preds = %if.else
   br label %if.end68
 
 if.else56:                                        ; preds = %if.else
-  %cmp57 = icmp ult i64 %indvars.iv157, 60
+  %cmp57 = icmp samesign ult i64 %indvars.iv157, 60
   br i1 %cmp57, label %if.then58, label %if.else64
 
 if.then58:                                        ; preds = %if.else56

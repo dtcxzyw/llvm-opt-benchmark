@@ -10303,7 +10303,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.9990925514126320202.ex
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %.val26, i64 %51
   %57 = load i8, ptr %56, align 1, !range !2022, !noundef !4
-  %switch37.not = icmp ult i8 %57, 2
+  %switch37.not = icmp samesign ult i8 %57, 2
   %.20 = zext i1 %switch37.not to i8
   %spec.select = xor i8 %57, %.20
   br label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread"
@@ -15109,7 +15109,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.9990925514126320202.ex
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.414.0..sroa_idx, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %61 = icmp ult i8 %57, 11
+  %61 = icmp samesign ult i8 %57, 11
   br i1 %61, label %63, label %64
 
 62:                                               ; preds = %54
@@ -18645,7 +18645,7 @@ define hidden noundef i32 @_ZN3hir15source_analyzer14SourceAnalyzer6expand17h856
   br label %_ZN7hir_def11AsMacroCall10as_call_id17h04afcefd4472dee6E.exit
 
 32:                                               ; preds = %28
-  %switch.i.i.i.i.i = icmp ult i8 %.sroa.07.0.copyload.i, 2
+  %switch.i.i.i.i.i = icmp samesign ult i8 %.sroa.07.0.copyload.i, 2
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17hb15fca774bf16e80E.llvm.15963164601899926706.exit.sink.split.i.i.i.i", label %_ZN7hir_def11AsMacroCall10as_call_id17h04afcefd4472dee6E.exit
 
 _ZN7hir_def11AsMacroCall10as_call_id17h04afcefd4472dee6E.exit.thread: ; preds = %22, %.thread13.i

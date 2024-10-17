@@ -30149,7 +30149,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -31138,7 +31138,7 @@ entry:
   %add.i = add nuw nsw i64 %or10.i, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %MinSize)
   %conv4 = and i64 %.sroa.speculated, 4294967295
-  %cmp.not = icmp ule i64 %conv4, %conv.i
+  %cmp.not = icmp samesign ule i64 %conv4, %conv.i
   %cmp6 = icmp ult i64 %conv4, %MinSize
   %or.cond = or i1 %cmp.not, %cmp6
   br i1 %or.cond, label %if.then, label %if.end

@@ -503,7 +503,7 @@ common.resume:                                    ; preds = %33, %46, %59, %72, 
 _ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit: ; preds = %.preheader.i
   %132 = getelementptr inbounds i8, ptr %.sroa.0268.0337, i64 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %133 = icmp ugt i32 %spec.select.i, 1
+  %133 = icmp samesign ugt i32 %spec.select.i, 1
   %or.cond3 = or i1 %79, %133
   br i1 %or.cond3, label %147, label %134
 

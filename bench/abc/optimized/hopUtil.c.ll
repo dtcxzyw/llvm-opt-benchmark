@@ -1498,7 +1498,7 @@ define void @Hop_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge2.preheader ], [ %46, %.critedge4.loopexit ]
-  %47 = icmp ult i32 %.2.lcssa, 2
+  %47 = icmp samesign ult i32 %.2.lcssa, 2
   br i1 %47, label %Hop_Base10Log.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge4
